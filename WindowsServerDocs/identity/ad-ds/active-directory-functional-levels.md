@@ -11,98 +11,98 @@ ms.prod: windows-server-threshold
 ms.custom: it-pro
 ms.reviewer: maheshu
 ms.technology: identity-adds
-ms.openlocfilehash: cb9b5b9448f364760c3d2a7e43edd01a5a9f7f9d
-ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
+ms.openlocfilehash: c1e2108084b03fabbf7c6a18c2ecbcaf3cbd1dd9
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66719665"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868257"
 ---
-# <a name="forest-and-domain-functional-levels"></a>Funktionsebenen Gesamtstruktur und Domäne
+# <a name="forest-and-domain-functional-levels"></a>Gesamtstruktur-und Domänen Funktionsebene
 
 >Gilt für: Windows Server
 
-Die funktionale Ebenen der bestimmen Sie der verfügbaren Funktionen von Active Directory Domain Services (AD DS) Domäne oder Gesamtstruktur. Sie legen außerdem die Windows-Serverbetriebssysteme, die Sie auf Domänencontrollern in der Domäne oder Gesamtstruktur ausführen können. Die funktionale Ebenen der beeinflussen jedoch nicht, welche Betriebssysteme auf Arbeitsstationen ausführen und Mitgliedsservern, die der Domäne oder Gesamtstruktur angehören.
+Funktionsebenen bestimmen die verfügbaren Domänen-oder Gesamtstruktur Funktionen Active Directory Domain Services (AD DS). Außerdem wird festgelegt, welche Windows Server-Betriebssysteme Sie auf Domänen Controllern in der Domäne oder der Gesamtstruktur ausführen können. Funktionsebenen wirken sich jedoch nicht auf die Betriebssysteme aus, die Sie auf Arbeitsstationen und Mitglieds Servern ausführen können, die mit der Domäne oder Gesamtstruktur verknüpft sind.
 
-Wenn Sie AD DS bereitstellen, legen Sie die Domänen- und Gesamtstruktur-Funktionsebenen bis zum höchsten Wert, den Ihrer Umgebung unterstützen kann. Auf diese Weise können Sie beliebig viele AD DS-Features wie möglich verwenden. Wenn Sie eine neue Gesamtstruktur bereitstellen, werden Sie aufgefordert, um die Gesamtstrukturfunktionsebene auf festgelegt, und legen Sie dann auf die Domänenfunktionsebene auf. Sie können die Domänenfunktionsebene auf einen Wert, der höher als die Funktionsebene der Gesamtstruktur festlegen, aber Sie können nicht die Domänenfunktionsebene auf ein Wert, der niedriger ist als die Gesamtstrukturfunktionsebene auf festgelegt.
+Wenn Sie AD DS bereitstellen, legen Sie die Domänen-und Gesamtstruktur Funktionsebenen auf den höchsten Wert fest, den die Umgebung unterstützen kann. Auf diese Weise können Sie so viele AD DS Funktionen wie möglich verwenden. Wenn Sie eine neue Gesamtstruktur bereitstellen, werden Sie aufgefordert, die Gesamtstruktur Funktionsebene festzulegen und die Domänen Funktionsebene dann festzulegen. Sie können die Domänen Funktionsebene auf einen Wert festlegen, der höher als die Gesamtstruktur Funktionsebene ist, aber Sie können die Domänen Funktionsebene nicht auf einen niedrigeren Wert als die Gesamtstruktur Funktionsebene festlegen.
 
-Mit dem Ende der Lebensdauer von Windows 2003, Windows 2003-Domänencontrollern (DCs) auf WindowsServer 2008, 2008 R2, 2012, aktualisiert werden müssen 2012 R2, 2016 oder 2019. Daher sollten alle Domänencontroller mit Windows Server 2003 aus der Domäne entfernt werden.
+Mit dem Ende der Lebensdauer von Windows 2003 müssen Windows 2003-Domänen Controller (DCS) auf Windows Server 2008, 2008R2, 2012, 2012r2, 2016 oder 2019 aktualisiert werden. Daher sollten alle Domänen Controller, auf denen Windows Server 2003 ausgeführt wird, aus der Domäne entfernt werden.
 
-Auf dem Windows Server 2008 und höher Domänenfunktionsebenen werden Replikation des verteilten Dienst (Distributed File System, DFS) Ordnerinhalt SYSVOL zwischen Domänencontrollern zu replizieren. Wenn Sie eine neue Domäne auf der Domänenfunktionsebene Windows Server 2008 oder höher erstellen, wird die DFS-Replikation zum Replizieren von SYSVOL automatisch verwendet. Wenn Sie auf einer niedrigeren Funktionsebene die Domäne erstellt haben, müssen Sie von der Verwendung von FRS zur DFS-Replikation für SYSVOL migriert. Für Migrationsschritte, können Sie entweder führen Sie die [Prozeduren auf TechNet](https://technet.microsoft.com/library/dd640019(v=WS.10).aspx) oder sehen Sie sich die [optimierte Reihe von Schritten im Storage Team File Cabinet Blog](http://blogs.technet.com/b/filecab/archive/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol.aspx).
+Auf den Domänen Funktionsebenen Windows Server 2008 und höher wird die DFS-Replikation (DFS) zum Replizieren von SYSVOL-Ordner Inhalten zwischen Domänen Controllern verwendet. Wenn Sie eine neue Domäne auf der Windows Server 2008-Domänen Funktionsebene oder höher erstellen, wird DFS-Replikation automatisch zum Replizieren von SYSVOL verwendet. Wenn Sie die Domäne auf einer niedrigeren Funktionsebene erstellt haben, müssen Sie von der Verwendung von FRS zur DFS-Replikation für SYSVOL migrieren. Für Migrations Schritte können Sie entweder die [Verfahren auf TechNet](https://technet.microsoft.com/library/dd640019(v=WS.10).aspx) ausführen oder die [optimierten Schritte im CAB-Blog der Speicher Team Datei](http://blogs.technet.com/b/filecab/archive/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol.aspx)lesen.
 
 ## <a name="windows-server-2019"></a>Windows Server 2019
 
-Es gibt keine neue Gesamtstruktur oder die Funktionsebenen in dieser Version hinzugefügt.
+In dieser Version wurden keine neuen Gesamtstruktur-oder Domänen Funktionsebenen hinzugefügt.
 
-Die Mindestanforderungen für das Hinzufügen eines Domänencontrollers von Windows Server 2019 ist eine Windows Server 2008-Funktionsebene. Die Domäne muss auch DFS-R zum Replizieren von SYSVOL als Engine zu verwenden.
+Die Mindestanforderung zum Hinzufügen eines Windows Server 2019-Domänen Controllers ist eine Windows Server 2008-Funktionsebene. Die Domäne muss auch DFS-R als Engine zum Replizieren von SYSVOL verwenden.
 
 ## <a name="windows-server-2016"></a>Windows Server 2016
 
-Unterstützte Domänencontroller-Betriebssystems:
+Unterstütztes Betriebs System des Domänen Controllers:
 
 * Windows Server 2019
 * Windows Server 2016
 
-### <a name="windows-server-2016-forest-functional-level-features"></a>Windows Server 2016-Gesamtstruktur funktionale Level-Funktionen
+### <a name="windows-server-2016-forest-functional-level-features"></a>Features der Windows Server 2016-Gesamtstruktur Funktionsebene
 
-* Die Funktionen, die auf die Windows Server 2012 R2-Gesamtstrukturfunktionsebene verfügbar sind und die folgenden Features sind verfügbar:
-   * [Privilegierte zugriffsverwaltung (PAM) mithilfe von Microsoft Identity Manager (MIM)](https://docs.microsoft.com/windows-server/identity/whats-new-active-directory-domain-services#a-namebkmkpamaprivileged-access-management)
+* Alle Features, die auf der Gesamtstruktur Funktionsebene Windows Server 2012r2 verfügbar sind, und die folgenden Features sind verfügbar:
+   * [Privilegierte Zugriffs Verwaltung (PAM) mithilfe von Microsoft Identity Manager (MIM)](https://docs.microsoft.com/windows-server/identity/whats-new-active-directory-domain-services#a-namebkmkpamaprivileged-access-management)
 
-### <a name="windows-server-2016-domain-functional-level-features"></a>Windows Server 2016 funktionale Funktionen der Domänenebene
+### <a name="windows-server-2016-domain-functional-level-features"></a>Features der Windows Server 2016-Domänen Funktionsebene
 
-* Alle Active Directory-Standardfeatures, alle Features der Windows Server 2012 R2-Domänenfunktionsebene sowie die folgenden Funktionen:
-   * DCs unterstützen die automatische parallele des NTLM und andere Geheimnisse kennwortbasierte für ein Benutzerkonto so konfiguriert, dass die PKI-Authentifizierung erforderlich ist. Diese Konfiguration ist auch bekannt als "Smart Card für die interaktive Anmeldung"
-   * Wenn ein Benutzer beschränkt, die Domäne eingebundenen Geräten ist, können DCs ermöglichen Netzwerk NTLM unterstützen.
-   * Kerberos-Clients, die mit der Erweiterung der PKInit Aktualität erfolgreich authentifizieren, erhalten die neue öffentliche Schlüssel Identität SID.
+* Alle Standard Active Directory Features, alle Features der Domänen Funktionsebene Windows Server 2012r2 sowie die folgenden Features:
+   * DCS können das automatische Rollback von NTLM und anderen Kenn Wort basierten Geheimnissen für ein Benutzerkonto unterstützen, das für die PKI-Authentifizierung konfiguriert ist. Diese Konfiguration wird auch als "Smartcard für interaktive Anmeldung erforderlich" bezeichnet.
+   * DCS können das Zulassen von Netzwerk-NTLM unterstützen, wenn ein Benutzer auf bestimmte in die Domäne eingebundenen Geräte beschränkt ist.
+   * Kerberos-Clients, die sich erfolgreich bei der PKINIT-Erweiterung authentifizieren, erhalten die aktuelle SID der öffentlichen Schlüssel Identität.
 
-    Weitere Informationen finden Sie unter [Neuigkeiten in Kerberos-Authentifizierung](https://docs.microsoft.com/windows-server/security/kerberos/whats-new-in-kerberos-authentication) und [Neues in den Schutz von Anmeldeinformationen](https://docs.microsoft.com/windows-server/security/credentials-protection-and-management/whats-new-in-credential-protection)
+    Weitere Informationen finden Sie [unter Neues bei der Kerberos-Authentifizierung](https://docs.microsoft.com/windows-server/security/kerberos/whats-new-in-kerberos-authentication) und [Neuerungen beim Schutz von](https://docs.microsoft.com/windows-server/security/credentials-protection-and-management/whats-new-in-credential-protection) Anmelde Informationen
 
-## <a name="windows-server-2012r2"></a>Windows Server 2012R2
+## <a name="windows-server-2012r2"></a>Windows Server 2012r2
 
-Unterstützte Domänencontroller-Betriebssystems:
+Unterstütztes Betriebs System des Domänen Controllers:
 
 * Windows Server 2019
 * Windows Server 2016
 * Windows Server 2012 R2
 
-### <a name="windows-server-2012r2-forest-functional-level-features"></a>Windows Server 2012 R2-Gesamtstruktur funktionale Funktionen auf Websiteebene
+### <a name="windows-server-2012r2-forest-functional-level-features"></a>Features der Windows Server 2012r2-Gesamtstruktur Funktionsebene
 
-* Alle Funktionen, die unter Windows Server 2012-Gesamtstruktur funktionale Ebene, jedoch keine zusätzlichen Features.
+* Alle Features, die auf der Gesamtstruktur Funktionsebene von Windows Server 2012 verfügbar sind, jedoch keine zusätzlichen Features.
 
-### <a name="windows-server-2012r2-domain-functional-level-features"></a>Windows Server 2012 R2 Domäne funktionale Funktionen auf Websiteebene
+### <a name="windows-server-2012r2-domain-functional-level-features"></a>Features der Windows Server 2012r2-Domänen Funktionsebene
 
-* Alle Active Directory-Standardfeatures, alle Features der Domänenfunktionsebene Windows Server 2012 sowie die folgenden Funktionen:
-   * DC-Side von Schutzfunktionen für geschützte Benutzer. Authentifizierung von Benutzern auf einem Windows Server 2012 R2 können Domäne nicht mehr geschützt ist:
+* Alle Standard Active Directory Features, alle Features der Windows Server 2012-Domänen Funktionsebene sowie die folgenden Features:
+   * Domänen Controller seitiger Schutz für geschützte Benutzer. Geschützte Benutzer, die sich bei einer Windows Server 2012 R2-Domäne authentifizieren, können nicht mehr:
       * Authentifizieren mit NTLM-Authentifizierung
-      * Verwenden von des- oder RC4-Verschlüsselungssammlungen in Kerberos-vorabauthentifizierung
-      * Mit uneingeschränkter oder eingeschränkter Delegierung delegiert werden
-      * Erneuern von Benutzertickets (TGTs) nach Ablauf der Lebensdauer der ersten 4 Stunden
+      * Verwenden von des-oder RC4-Verschlüsselungs Sammlungen in der Kerberos-Vorauthentifizierung
+      * Delegiert mit eingeschränkter oder eingeschränkter Delegierung
+      * Verlängern von Benutzer Tickets (TGTs) über die anfängliche Dauer von 4 Stunden hinaus
    * Authentifizierungsrichtlinien
-      * Neue Gesamtstruktur-basierten Active Directory-Richtlinien die Konten in Windows Server 2012 R2-Domänen zu steuern, welche Hosts angewendet werden können ein Konto kann aus anmelden und Anwenden von Bedingungen für die Zugriffssteuerung für die Authentifizierung an Dienste, die mit einem Konto ausgeführt.
+      * Neue Gesamtstruktur basierte Active Directory Richtlinien, die auf Konten in Windows Server 2012 R2-Domänen angewendet werden können, um zu steuern, auf welchen Hosts ein Konto sich anmelden kann, und wenden Zugriffs Steuerungs Bedingungen zur Authentifizierung auf Dienste an, die als Konto ausgeführt werden.
    * Authentifizierungsrichtliniensilos
-      * Neue Gesamtstruktur-basierten Active Directory-Objekt, die eine Beziehung zwischen Benutzer, verwalteter Dienst und Computer, Konten, zum Klassifizieren von Konten für Authentifizierungsrichtlinien oder für die Authentifizierung Isolation verwendet werden soll, erstellen können.
+      * Neues Gesamtstruktur basiertes Active Directory Objekt, mit dem eine Beziehung zwischen Benutzer, verwaltetem Dienst und Computer erstellt werden kann, die zum Klassifizieren von Konten für Authentifizierungs Richtlinien oder zur Authentifizierungs Isolation verwendet werden kann.
 
 ## <a name="windows-server-2012"></a>Windows Server 2012
 
-Unterstützte Domänencontroller-Betriebssystems:
+Unterstütztes Betriebs System des Domänen Controllers:
 
 * Windows Server 2019
 * Windows Server 2016
 * Windows Server 2012 R2
 * Windows Server 2012
 
-### <a name="windows-server-2012-forest-functional-level-features"></a>Windows Server 2012-Gesamtstruktur funktionale Level-Funktionen
+### <a name="windows-server-2012-forest-functional-level-features"></a>Features der Windows Server 2012-Gesamtstruktur Funktionsebene
 
-* Alle Funktionen, die unter Windows Server 2008 R2-Gesamtstruktur funktionale Ebene, jedoch keine zusätzlichen Features.
+* Alle Features, die auf der Funktionsebene der Windows Server 2008 R2-Gesamtstruktur verfügbar sind, jedoch keine zusätzlichen Features.
 
-### <a name="windows-server-2012-domain-functional-level-features"></a>Windows Server 2012-Domäne funktionale Level-Funktionen
+### <a name="windows-server-2012-domain-functional-level-features"></a>Features der Windows Server 2012-Domänen Funktionsebene
 
-* Alle Active Directory-Standardfeatures, alle Features der Windows Server 2008 R2-Domänenfunktionsebene sowie die folgenden Funktionen:
-   * Der KDC-Unterstützung für Ansprüche, Verbundauthentifizierung und Kerberos armoring KDC-verwaltungsvorlagenrichtlinie verfügt über zwei Einstellungen (immer Ansprüche bereitstellen und Fehler bei authentifizierungsanforderungen ohne Armor), für die Domänenfunktionsebene auf Windows Server 2012 erforderlich. Weitere Informationen finden Sie unter [Neuigkeiten in Kerberos-Authentifizierung](https://technet.microsoft.com/library/hh831747.aspx)
+* Alle Standard Active Directory Features, alle Features der Windows Server 2008R2-Domänen Funktionsebene sowie die folgenden Features:
+   * Die KDC-Unterstützung für Ansprüche, Verbund Authentifizierung und Kerberos armoring KDC administrative Template-Richtlinie verfügt über zwei Einstellungen (immer Ansprüche bereitstellen und nicht hochgerüstete Authentifizierungsanforderungen fehlschlagen), für die die Windows Server 2012-Domänen Funktionsebene erforderlich ist. Weitere Informationen finden Sie unter [Neues bei der Kerberos-Authentifizierung](https://technet.microsoft.com/library/hh831747.aspx) .
 
 ## <a name="windows-server-2008r2"></a>Windows Server 2008R2
 
-Unterstützte Domänencontroller-Betriebssystems:
+Unterstütztes Betriebs System des Domänen Controllers:
 
 * Windows Server 2019
 * Windows Server 2016
@@ -110,20 +110,20 @@ Unterstützte Domänencontroller-Betriebssystems:
 * Windows Server 2012
 * Windows Server 2008 R2
 
-### <a name="windows-server-2008r2-forest-functional-level-features"></a>Windows Server 2008 R2-Gesamtstruktur funktionale Funktionen auf Websiteebene
+### <a name="windows-server-2008r2-forest-functional-level-features"></a>Features der Windows Server 2008R2-Gesamtstruktur Funktionsebene
 
 * Alle Features, die auf der Gesamtstrukturfunktionsebene Windows Server 2003 verfügbar sind, plus die folgenden Features:
    * Active Directory-Papierkorb, der die Möglichkeit bietet, gelöschte Objekte in ihrer Gesamtheit wiederherzustellen, während die Active Directory-Domänendienste ausgeführt werden.
 
-### <a name="windows-server-2008r2-domain-functional-level-features"></a>Windows Server 2008 R2 Domäne funktionale Funktionen auf Websiteebene
+### <a name="windows-server-2008r2-domain-functional-level-features"></a>Features der Windows Server 2008R2-Domänen Funktionsebene
 
-* Alle Active Directory-Standardfeatures, alle Features der Domänenfunktionsebene Windows Server 2008 sowie die folgenden Funktionen:
-   * Authentifizierungsmechanismussicherung, bei der Informationen zum Typ der Anmeldemethode (Smartcard oder Benutzername/Kennwort), die zum Authentifizieren von Domänenbenutzern dient, in das Kerberos-Token der einzelnen Benutzer eingefügt werden. Wenn diese Funktion in einer Netzwerkumgebung aktiviert ist, die eine Infrastruktur zur verbundidentitätsverwaltung, z. B. Active Directory-Verbunddienste (AD FS) bereitgestellt wurde kann die Informationen im Token extrahiert werden, wenn ein Benutzer versucht, für den Zugriff auf Ansprüche unterstützende Anwendung, die zum Bestimmen der Autorisierung basierend auf der Anmeldemethode des Benutzers entwickelt wurde.
-   * Automatische Dienstprinzipalnamen-Verwaltung für Dienste, die auf einem bestimmten Computer im Kontext eines verwalteten Dienstkontos ausgeführt wird, wenn der Name oder DNS-Namen des dem-Konto Änderungen an einem Computer gehostet. Weitere Informationen zu verwalteten Dienstkonten finden Sie unter [schrittweisen Anleitung zu Dienstkonten](https://go.microsoft.com/fwlink/?LinkId=180401).
+* Alle Standard Active Directory Features, alle Features der Windows Server 2008-Domänen Funktionsebene sowie die folgenden Features:
+   * Authentifizierung von Authentifizierungsmechanismen, mit der Informationen über den Typ der Anmelde Methode (Smartcard-oder Benutzername/Kennwort) verpackt werden, der zum Authentifizieren von Domänen Benutzern im Kerberos-Token jedes Benutzers verwendet wird. Wenn dieses Feature in einer Netzwerkumgebung aktiviert ist, in der eine Verbund-Identitäts Verwaltungsinfrastruktur (z. b. Active Directory-Verbunddienste (AD FS) (AD FS) bereitgestellt wurde, können die Informationen im Token extrahiert werden, wenn ein Benutzer versucht, auf eine der Ansprüche unterstützende Anwendung, die entwickelt wurde, um die Autorisierung basierend auf der Anmelde Methode eines Benutzers zu bestimmen.
+   * Automatische SPN-Verwaltung für Dienste, die auf einem bestimmten Computer im Kontext eines verwalteten Dienst Kontos ausgeführt werden, wenn sich der Name oder der DNS-Hostname des Computer Kontos ändert. Weitere Informationen zu verwalteten Dienst Konten finden Sie unter [schrittweise Anleitung für Dienst Konten](https://go.microsoft.com/fwlink/?LinkId=180401).
 
-## <a name="windows-server-2008"></a>WindowsServer 2008
+## <a name="windows-server-2008"></a>Windows Server 2008
 
-Unterstützte Domänencontroller-Betriebssystems:
+Unterstütztes Betriebs System des Domänen Controllers:
 
 * Windows Server 2019
 * Windows Server 2016
@@ -132,38 +132,38 @@ Unterstützte Domänencontroller-Betriebssystems:
 * Windows Server 2008 R2
 * Windows Server 2008
 
-### <a name="windows-server-2008-forest-functional-level-features"></a>Windows Server 2008-Gesamtstruktur funktionale Level-Funktionen
+### <a name="windows-server-2008-forest-functional-level-features"></a>Features der Windows Server 2008-Gesamtstruktur Funktionsebene
 
-* Alle Funktionen, die auf der Gesamtstrukturfunktionsebene von Windows Server 2003 verfügbar sind, jedoch keine zusätzlichen Features zur Verfügung stehen. 
+* Alle Features, die auf der Gesamtstruktur Funktionsebene von Windows Server 2003 verfügbar sind, aber keine zusätzlichen Features sind verfügbar. 
 
-### <a name="windows-server-2008-domain-functional-level-features"></a>Windows Server 2008 funktionale Funktionen der Domänenebene
+### <a name="windows-server-2008-domain-functional-level-features"></a>Features der Windows Server 2008-Domänen Funktionsebene
 
-* Alle der standardmäßigen AD DS-features, alle Features der Windows Server 2003-Domänenfunktionsebene und die folgenden Funktionen sind verfügbar:
-  * Replikationsunterstützung für Distributed File System (DFS) für Windows Server 2003 das Systemvolume (SYSVOL)
-    * Unterstützung der DFS-Replikation bietet eine stabilere und genauer abgestimmte Replikation von SYSVOL-Inhalten.
+* Alle Standard Features von AD DS, alle Features der Domänen Funktionsebene Windows Server 2003 und die folgenden Features sind verfügbar:
+  * Verteiltes Dateisystem (DFS)-Replikations Unterstützung für das Windows Server 2003-System Volume (SYSVOL)
+    * Die Unterstützung der DFS-Replikation bietet eine robustere und detailliertere Replikation von SYSVOL-Inhalten
 
       > [!NOTE]
-      > Ab Windows Server 2012 R2, ist (File Replication Service, FRS) veraltet. Eine neue Domäne, die auf einem Domänencontroller erstellt wird, die mindestens muss Windows Server 2012 R2 auf die Domänenfunktionsebene Windows Server 2008 oder höher festgelegt werden.
+      > Ab Windows Server 2012 R2 ist der Datei Replikations Dienst (File Replication Service, FRS) veraltet. Eine neue Domäne, die auf einem Domänen Controller erstellt wird, auf dem mindestens Windows Server 2012 R2 ausgeführt wird, muss auf die Domänen Funktionsebene Windows Server 2008 oder höher festgelegt werden.
 
-  * Domänenbasierte DFS-Namespaces, der unter Windows Server 2008-Modus, einschließlich Unterstützung für zugriffsbasierte Aufzählung und erhöhte Skalierbarkeit. Domänenbasierte Namespaces in Windows Server 2008-Modus muss auch die Gesamtstruktur die Funktionsebene der Windows Server 2003-Gesamtstruktur verwenden. Weitere Informationen finden Sie unter [wählen Sie einen Namespace-Typ](https://go.microsoft.com/fwlink/?LinkId=180400).
-  * Advanced Encryption Standard (AES-128 und AES-256) Unterstützung für das Kerberos-Protokoll. Klicken Sie in der Reihenfolge für TGTs ausgestellt werden mithilfe von AES die Domänenfunktionsebene muss WindowsServer 2008 oder höher sein, und das Kennwort muss geändert werden. 
+  * Domänen basierte DFS-Namespaces, die im Windows Server 2008-Modus ausgeführt werden, einschließlich der Unterstützung für die Zugriffs basierte Enumeration und eine größere Skalierbarkeit. Domänen basierte Namespaces im Windows Server 2008-Modus erfordern außerdem, dass die Gesamtstruktur die Gesamtstruktur Funktionsebene von Windows Server 2003 verwendet. Weitere Informationen finden Sie unter [Auswählen eines Namespace Typs](https://go.microsoft.com/fwlink/?LinkId=180400).
+  * Advanced Encryption Standard (AES 128 und AES 256) Unterstützung für das Kerberos-Protokoll. Damit TGTs mithilfe von AES ausgestellt werden kann, muss die Domänen Funktionsebene Windows Server 2008 oder höher sein, und das Domänen Kennwort muss geändert werden. 
     * Weitere Informationen finden Sie unter [Kerberos-Erweiterungen](https://technet.microsoft.com/library/cc749438(ws.10).aspx).
 
       > [!NOTE]
-      >Authentifizierungsfehler können auf einem Domänencontroller auftreten, nachdem die Domänenfunktionsebene auf Windows Server 2008 oder höher ausgelöst wird, wenn der Domänencontroller wurde bereits die Domänenfunktionsebene Änderung repliziert, aber das Krbtgt-Kennwort wurde noch nicht aktualisiert. In diesem Fall wird ein Neustart des KDC-Diensts auf dem Domänencontroller eine in-Memory-Aktualisierung, der das neue Kennwort des Krbtgt auslösen und zugehörige Authentifizierungs-Fehler zu beheben.
+      >Authentifizierungsfehler können auf einem Domänen Controller auftreten, wenn die Domänen Funktionsebene auf Windows Server 2008 oder höher erhöht wird, wenn der Domänen Controller die DFL-Änderung bereits repliziert hat, das krbtgt-Kennwort aber noch nicht aktualisiert hat. In diesem Fall löst ein Neustart des KDC-Dienstanbieter auf dem Domänen Controller eine Aktualisierung des neuen krbtgt-Kennworts im Arbeitsspeicher aus und löst zugehörige Authentifizierungsfehler aus.
 
-  * [Letzte interaktive Anmeldung](https://go.microsoft.com/fwlink/?LinkId=180387) Informationen die folgenden Informationen angezeigt:
-     * Die Gesamtanzahl der fehlgeschlagenen Anmeldeversuche auf einem Server für die Domäne eingebundenen Windows Server 2008 oder einer Windows Vista-Arbeitsstation
-     * Die Gesamtanzahl fehlgeschlagener Anmeldeversuche nach einer erfolgreichen Anmeldung auf einem Windows Server 2008-Server oder einer Windows Vista-Arbeitsstation
-     * Zeitpunkt des letzten fehlgeschlagenen Anmeldeversuchs auf einem Windows Server 2008 oder einer Windows Vista-Arbeitsstation
-     * Zeitpunkt der letzten erfolgreichen Anmeldung versucht, auf einem Windows Server 2008-Server oder einer Windows Vista-Arbeitsstation
-  * Fein abgestimmte Kennwortrichtlinien ermöglichen es Ihnen die Angabe von Kennwort- und Kontosperrungsrichtlinien für Benutzer und globale Sicherheitsgruppen in einer Domäne. Weitere Informationen finden Sie unter [schrittweisen Anleitung für die Konfiguration abgestimmter Kennwort- und Account Lockout Richtlinienkonfiguration](https://go.microsoft.com/fwlink/?LinkID=91477).
+  * [Letzte interaktive Anmeldung](https://go.microsoft.com/fwlink/?LinkId=180387) Informationen zeigt die folgenden Informationen an:
+     * Die Gesamtzahl der fehlgeschlagenen Anmeldeversuche auf einem in die Domäne eingebundenen Windows Server 2008-Server oder auf einer Windows Vista-Arbeitsstation
+     * Die Gesamtanzahl der fehlgeschlagenen Anmeldeversuche nach einer erfolgreichen Anmeldung bei einem Windows Server 2008-Server oder einer Windows Vista-Arbeitsstation
+     * Zeitpunkt des letzten fehlgeschlagenen Anmelde Versuchs auf einem Windows Server 2008 oder einer Windows Vista-Arbeitsstation
+     * Zeitpunkt des letzten erfolgreichen Anmelde Versuchs auf einem Windows Server 2008-Server oder einer Windows Vista-Arbeitsstation
+  * Differenzierte Kenn Wort Richtlinien ermöglichen es Ihnen, Kenn Wort-und Konto Sperrungs Richtlinien für Benutzer und globale Sicherheitsgruppen in einer Domäne anzugeben. Weitere Informationen finden Sie unter [Schritt-für-Schritt-Anleitung für differenzierte Kenn Wort-und Konto Sperrungs Richtlinien Konfiguration](https://go.microsoft.com/fwlink/?LinkID=91477).
   * Persönliche virtuelle Desktops
-     * Um die neue Funktion von der persönlichen virtuellen Desktop-Registerkarte im Dialogfeld Eigenschaften von Benutzerkonten in Active Directory-Benutzer und-Computer zu verwenden, muss das AD DS-Schema erweitert werden für Windows Server 2008 R2 (Objekt-Schemaversion = 47). Weitere Informationen finden Sie unter [bereitstellen persönlicher virtueller Desktops mithilfe der RemoteApp-und Desktop schrittweisen Anleitung zum](https://go.microsoft.com/fwlink/?LinkId=183552).
+     * Um die zusätzliche Funktionalität zu verwenden, die von der Registerkarte persönlicher virtueller Desktop im Dialogfeld Eigenschaften von Benutzerkonten in Active Directory-Benutzer und-Computer bereitgestellt wird, muss das AD DS Schema für Windows Server 2008 R2 (Schema Objekt Version = 47) erweitert werden. Weitere Informationen finden Sie unter Bereitstellen [persönlicher virtueller Desktops mithilfe RemoteApp-und Desktopverbindung Schritt-für-Schritt-Anleitung](https://go.microsoft.com/fwlink/?LinkId=183552).
 
 ## <a name="windows-server-2003"></a>Windows Server 2003
 
-Unterstützte Domänencontroller-Betriebssystems:
+Unterstütztes Betriebs System des Domänen Controllers:
 
 * Windows Server 2012 R2
 * Windows Server 2012
@@ -171,61 +171,61 @@ Unterstützte Domänencontroller-Betriebssystems:
 * Windows Server 2008
 * Windows Server 2003
 
-### <a name="windows-server-2003-forest-functional-level-features"></a>Windows Server 2003-Gesamtstruktur funktionale Level-Funktionen
+### <a name="windows-server-2003-forest-functional-level-features"></a>Features der Windows Server 2003-Gesamtstruktur Funktionsebene
 
-* Die AD DS-Standardfeatures und die folgenden Features sind verfügbar:
+* Alle standardmäßigen AD DS Features und die folgenden Features sind verfügbar:
    * Gesamtstruktur-Vertrauensstellung
    * Domänenumbenennung
-   * Verknüpfte Wertreplikation
-      - Verknüpfte Wertreplikation ermöglicht es Ihnen, Gruppenmitgliedschaft, die zum Speichern und replizieren Werte für einzelne Mitglieder, anstelle der Replikation der gesamten Mitgliedschaft als eine Einheit zu ändern. Speichern und replizieren die Werte der einzelnen Elemente verwendet weniger Netzwerkbandbreite und weniger Prozessorzyklen während der Replikation und verhindert, dass Sie vom Verlust von Updates beim Hinzufügen oder entfernen mehrere Elemente gleichzeitig auf verschiedenen Domänencontrollern.
-   * Die Möglichkeit, einen schreibgeschützten Domänencontroller (RODC) bereitzustellen.
-   * Verbesserte (Knowledge Consistency Checker, KCC) Algorithmen und Skalierbarkeit
-      - Der Generator für standortübergreifende Topologie (ISTG) verwendet verbesserte Algorithmen, die skalieren, um Gesamtstrukturen mit einer größeren Anzahl von Standorten zu unterstützen, als AD DS auf der Gesamtstrukturfunktionsebene Windows 2000 unterstützt werden. Der verbesserte ISTG-Wahlalgorithmus ist ein weniger aufdringlichen Mechanismus zur Auswahl des ISTG auf der Windows 2000-Funktionsebene der Gesamtstruktur.
-   * Die Fähigkeit zum Erstellen von Instanzen der dynamischen Erweiterungsklasse mit dem Namen **DynamicObject** in einer Domänenverzeichnispartition
-   * Die Möglichkeit zum Konvertieren einer **InetOrgPerson** Objektinstanz in einen **Benutzer** -Objektinstanz herstellen, und für die Konvertierung in die entgegengesetzte Richtung
-   * Die Fähigkeit zum Erstellen von Instanzen der neuen Gruppentypen um rollenbasierte Autorisierung zu unterstützen. 
-      - Diese Typen werden anwendungsbasierte Gruppen und LDAP-Abfragegruppen bezeichnet.
-   * Deaktivierung und Neudefinition von Attributen und Klassen im Schema Die folgenden Attribute wiederverwendet werden können: "ldapDisplayName", "schemaIDGUID", "OID und MapiID.
-   * Domänenbasierte DFS-Namespaces, der unter Windows Server 2008-Modus, einschließlich Unterstützung für zugriffsbasierte Aufzählung und erhöhte Skalierbarkeit. Weitere Informationen finden Sie unter [wählen Sie einen Namespace-Typ](https://go.microsoft.com/fwlink/?LinkId=180400).
+   * Verknüpfte Wert Replikation
+      - Mit der verknüpften Wert Replikation können Sie die Gruppenmitgliedschaft ändern, um Werte für einzelne Mitglieder zu speichern und zu replizieren, statt die gesamte Mitgliedschaft als einzelne Einheit zu replizieren. Das Speichern und Replizieren der Werte einzelner Mitglieder beansprucht weniger Netzwerkbandbreite und weniger Prozessor Zyklen während der Replikation und verhindert, dass Updates verloren gehen, wenn Sie mehrere Mitglieder gleichzeitig auf unterschiedlichen Domänen Controllern hinzufügen oder entfernen.
+   * Die Möglichkeit zum Bereitstellen eines schreibgeschützten Domänen Controllers (RODC)
+   * Verbesserte Konsistenzprüfung für die Konsistenzprüfung (KCC) und Skalierbarkeit
+      - Der standortübergreifende Topologie Generator (ISTG) verwendet verbesserte Algorithmen, die skalieren, um Gesamtstrukturen mit einer größeren Anzahl von Standorten zu unterstützen, als AD DS auf der Gesamtstruktur Funktionsebene von Windows 2000 unterstützen können. Der verbesserte ISTG-Wahl Algorithmus ist ein weniger eindringlicher Mechanismus zur Auswahl des ISTG auf der Windows 2000-Gesamtstruktur Funktionsebene.
+   * Die Möglichkeit zum Erstellen von Instanzen der dynamischen Hilfsklasse mit dem Namen **DynamicObject** in einer Domänen Verzeichnis Partition
+   * Die Möglichkeit zum Konvertieren einer **InetOrgPerson** -Objektinstanz in eine Instanz des **Benutzer** Objekts und zum Vervollständigen der Konvertierung in umgekehrter Richtung
+   * Die Möglichkeit zum Erstellen von Instanzen von neuen Gruppen Typen, um die rollenbasierte Autorisierung zu unterstützen. 
+      - Diese Typen werden als Anwendungs Basisgruppen und LDAP-Abfrage Gruppen bezeichnet.
+   * Deaktivierung und Neudefinition von Attributen und Klassen im Schema Die folgenden Attribute können wieder verwendet werden: "ldapDisplayName", "schemaIDGUID", "OID" und "mAPIID".
+   * Domänen basierte DFS-Namespaces, die im Windows Server 2008-Modus ausgeführt werden, einschließlich der Unterstützung für die Zugriffs basierte Enumeration und eine größere Skalierbarkeit. Weitere Informationen finden Sie unter [Auswählen eines Namespace Typs](https://go.microsoft.com/fwlink/?LinkId=180400).
 
-### <a name="windows-server-2003-domain-functional-level-features"></a>Windows Server 2003-Domäne funktionale Level-Funktionen
+### <a name="windows-server-2003-domain-functional-level-features"></a>Features der Windows Server 2003-Domänen Funktionsebene
 
-* Alle der AD DS-Standardfeatures, alle Features, die auf der Windows 2000-Funktionsebene der Domäne im einheitlichen Modus verfügbar sind und die folgenden Funktionen sind verfügbar:
-   * Das Domain-Verwaltungstool Netdom.exe, wodurch es möglich, dass Sie Domänencontroller umbenennen
-   * Zeitstempel für die Anmeldung aktualisiert
+* Alle Standard AD DS Features, alle Features, die auf der Funktionsebene der systemeigenen Windows 2000-Domäne verfügbar sind, und die folgenden Funktionen sind verfügbar:
+   * Das Domänen Verwaltungs Tool Netdom. exe, das Ihnen das Umbenennen von Domänen Controllern ermöglicht.
+   * Updates für den Anmeldezeit Stempel
       * Das **lastLogonTimestamp**-Attribut wird mit dem Zeitpunkt der letzten Anmeldung des Benutzers oder des Computers aktualisiert. Dieses Attribut wird innerhalb der Domäne repliziert.
-   * Die Fähigkeit zum Festlegen der **UserPassword** -Attributs als effektives Kennwort für **InetOrgPerson** und Benutzerobjekte
-   * Die Möglichkeit zum Umleiten von Benutzer- und Container
-      * Standardmäßig werden zwei bekannte Container bereitgestellt, für Computer und Benutzer, d. h., Cn = Computers,<domain root> "und" Cn = Users,<domain root>. Dieses Feature ermöglicht die Definition für diese Konten ein neuer, bekannter Speicherort.
-   * Die Fähigkeit zum Autorisierungs-Manager zum Speichern seiner Autorisierungsrichtlinien in AD DS
+   * Die Möglichkeit, das **userPassword** -Attribut als effektives Kennwort für **InetOrgPerson** und Benutzer Objekte festzulegen.
+   * Möglichkeit zum Umleiten von Benutzern und Computer Containern
+      * Standardmäßig werden für Computer-und Benutzerkonten von Computern zwei bekannte Container bereitgestellt: "CN = Computers<domain root> " und "CN =<domain root>Users". Diese Funktion ermöglicht die Definition eines neuen, bekannten Speicher Orts für diese Konten.
+   * Die Fähigkeit des Autorisierungs-Managers, seine Autorisierungs Richtlinien in AD DS zu speichern.
    * Eingeschränkte Delegierung
-      * Eingeschränkter Delegierung ermöglicht es Anwendungen, die sichere Delegierung von Benutzeranmeldeinformationen mittels Kerberos-Authentifizierung nutzen.
-      * Sie können die Delegierung für bestimmte Zieldienste nur einschränken.
+      * Die eingeschränkte Delegierung ermöglicht es Anwendungen, die sichere Delegierung von Benutzer Anmelde Informationen mithilfe der Kerberos-basierten Authentifizierung zu nutzen.
+      * Sie können die Delegierung auf bestimmte Ziel Dienste beschränken.
    * Selektive Authentifizierung
-      * Selektive Authentifizierung ermöglicht es möglich, dass Sie angeben, die Benutzer und Gruppen einer vertrauenswürdigen Gesamtstruktur, die für Ressourcenserver in einer vertrauenden Gesamtstruktur authentifizieren dürfen.
+      * Durch die selektive Authentifizierung können Sie die Benutzer und Gruppen aus einer vertrauenswürdigen Gesamtstruktur angeben, die sich für Ressourcen Server in einer vertrauenden Gesamtstruktur authentifizieren dürfen.
 
 ## <a name="windows-2000"></a>Windows 2000
 
-Unterstützte Domänencontroller-Betriebssystems:
+Unterstütztes Betriebs System des Domänen Controllers:
 
 * Windows Server 2008 R2
 * Windows Server 2008
 * Windows Server 2003
 * Windows 2000
 
-### <a name="windows-2000-native-forest-functional-level-features"></a>Windows 2000 native Gesamtstruktur funktionale Level-Funktionen
+### <a name="windows-2000-native-forest-functional-level-features"></a>Funktionsebene der Features der systemeigenen Windows 2000-Gesamtstruktur
 
-* Alle von den standardmäßig AD DS-Funktionen sind verfügbar.
+* Alle Standard AD DS Features sind verfügbar.
 
-### <a name="windows-2000-native-domain-functional-level-features"></a>Windows 2000-Domäne im einheitlichen Modus funktionale Ebene features
+### <a name="windows-2000-native-domain-functional-level-features"></a>Funktionen der systemeigenen Windows 2000-Domänen Funktionsebene
 
-* Alle AD DS-Standardfeatures und die folgenden Directory-Funktionen sind verfügbar, einschließlich:
-   * Universelle Gruppen sowohl Verteiler- und Sicherheitsgruppen.
-   * Gruppenverschachtelung
-   * Die gruppenkonvertierung, die Konvertierung zwischen Sicherheits-und Verteilergruppen ermöglicht.
-   * SID-Verlaufs Sicherheitsbezeichner (SID)
+* Alle standardmäßigen AD DS Features und die folgenden Verzeichnisfunktionen sind verfügbar, darunter:
+   * Universelle Gruppen für Verteiler-und Sicherheitsgruppen.
+   * Gruppen Schachtelung
+   * Gruppen Konvertierung, die die Konvertierung zwischen Sicherheits-und Verteiler Gruppen ermöglicht
+   * Verlauf der Sicherheits-ID (SID)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Heraufstufen der Domänenfunktionsebene](https://technet.microsoft.com/library/cc753104.aspx)  
-* [Heraufstufen der Gesamtstrukturfunktionsebene](https://technet.microsoft.com/library/cc730985.aspx)
+* [Erhöhen der Domänen Funktionsebene](https://technet.microsoft.com/library/cc753104.aspx)  
+* [Erhöhen der Gesamtstruktur Funktionsebene](https://technet.microsoft.com/library/cc730985.aspx)

@@ -8,12 +8,12 @@ author: JasonGerend
 manager: brianlic
 ms.date: 06/07/2019
 ms.author: jgerend
-ms.openlocfilehash: 1fcabf890c0c54e12c1650c31a072d17a33e292f
-ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
+ms.openlocfilehash: 3442ad46590add695fb3fed607c6f728e2bc5ee1
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69560545"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867290"
 ---
 # <a name="deploying-roaming-user-profiles"></a>Bereitstellen von Server gespeicherten Benutzerprofilen
 
@@ -64,7 +64,7 @@ Wenn Sie Roamingbenutzerprofile mit mehreren Windows-Versionen verwenden möchte
 - Verwenden Sie die Ordnerumleitung, um Benutzerdateien wie z. B. Dokumente und Bilder außerhalb der Benutzerprofile zu speichern. Somit stehen den Benutzern mit unterschiedlichen Betriebssystemen die gleichen Dateien zur Verfügung. Dadurch bleiben die Profile klein und die Anmeldung erfolgt schnell.
 - Weisen Sie den Roamingbenutzerprofilen ausreichend Speicherplatz zu. Wenn Sie zwei Betriebssystemversionen unterstützen, verdoppelt sich die Anzahl der Profile (somit auch der verbrauchte Speicherplatz), da für jede Betriebssystemversion ein separates Profil gespeichert wird.
 - Verwenden Sie keine Roamingbenutzerprofile auf Computern, auf denen Windows Vista/Windows Server 2008 und Windows 7/Windows Server 2008 R2 ausgeführt wird. Das Roaming zwischen diesen Betriebssystemversionen wird aufgrund von Inkompatibilitäten in den Profil Versionen nicht unterstützt.
-- Informieren Sie Ihre Benutzer darüber, dass an einer Betriebssystemversion vorgenommene Änderungen nicht zu einer anderen Betriebssystemversion "wandern".
+- Informieren Sie Ihre Benutzer darüber, dass an einer Betriebssystemversion vorgenommene Änderungen nicht zu einer anderen Betriebssystemversion wechseln.
 - Wenn Sie Ihre Umgebung in eine Version von Windows verschieben, die eine andere Profil Version verwendet (z. b. von Windows 10 auf Windows 10, [Version 1607 – siehe Anhang B: Profil Versions Referenzinformationen](#appendix-b-profile-version-reference-information) für eine Liste), erhalten Benutzer ein neues, leeres Roamingbenutzerprofil. Sie können die Auswirkung eines neuen Profils minimieren, indem Sie die Ordner Umleitung zum Umleiten allgemeiner Ordner verwenden. Es gibt keine unterstützte Methode, Roamingbenutzerprofile von einer Profil Version zu einer anderen zu migrieren.
 
 ## <a name="step-1-enable-the-use-of-separate-profile-versions"></a>Schritt 1: Aktivieren Sie die Verwendung separater Profilversionen
@@ -73,7 +73,7 @@ Wenn Sie Roamingbenutzerprofile auf Computern bereitstellen, auf denen Windows 8
 
 Verwenden Sie folgendes Verfahren, um diese Änderungen vorzunehmen.
 
-1. Laden Sie das entsprechende Softwareupdate herunter und installieren Sie es auf allen Computern, auf denen Roaming-, verbindliche, superverbindliche oder Domänen-Standardprofile verwendet werden:
+1. Laden Sie das entsprechende Software Update herunter, und installieren Sie es auf allen Computern, auf denen Roaming-, verbindliche, Super verbindliche oder Domänen Standardprofile verwendet werden sollen:
 
     - Windows 8.1 oder Windows Server 2012 R2: Installieren Sie das im Artikel [2887595](http://support.microsoft.com/kb/2887595) der Microsoft Knowledge Base (bei Veröffentlichung) beschriebene Software Update.
     - Windows 8 oder Windows Server 2012: Installieren das im Artikel [2887239](http://support.microsoft.com/kb/2887239) in der Microsoft Knowledge Base beschriebene Softwareupdate.
@@ -98,7 +98,7 @@ Wenn Ihre Umgebung nicht bereits mit Roamingbenutzerprofilen eingerichtet wurde,
 So erstellen Sie eine Sicherheitsgruppe für Roamingbenutzerprofile:
 
 1. Öffnen Sie Server-Manager auf einem Computer, auf dem Active Directory-Verwaltungs Center installiert ist.
-2. Wählen Sie im Menü Extras **Active Directory Verwaltungs Center**aus. Das Active Directory-Verwaltungscenter wird angezeigt.
+2. Wählen Sie **im Menü Extras** **Active Directory Verwaltungs Center**aus. Das Active Directory-Verwaltungscenter wird angezeigt.
 3. Klicken Sie mit der rechten Maustaste auf die entsprechende Domäne oder Organisationseinheit, und wählen Sie **neu**und dann **Gruppe**aus.
 4. Geben Sie im Fenster **Gruppe erstellen** im Abschnitt **Gruppe** die folgenden Einstellungen an:
 
@@ -118,7 +118,7 @@ Wenn Sie nicht bereits über eine separate Dateifreigabe für Roamingbenutzerpro
 
 So erstellen Sie eine Dateifreigabe unter Windows Server:
 
-1. Wählen Sie im Navigationsbereich Server-Manager die Option **Datei-und Speicherdienste**aus, und klicken Sie dann auf Freigaben, um die Seite Freigaben anzuzeigen.
+1. Wählen Sie im Navigationsbereich Server-Manager die Option **Datei-und Speicherdienste**aus, und klicken Sie dann auf Freigaben **, um die** Seite Freigaben anzuzeigen.
 2. Wählen Sie auf der Kachel Freigaben die Option **Tasks**aus, und wählen Sie dann **neue Freigabe**aus. Der Assistent für neue Freigaben wird angezeigt.
 3. Wählen Sie auf der Seite **Profil auswählen** die Option **SMB-Freigabe – schnell**aus. Wenn Sie Datei Server Ressourcen-Manager installiert haben und Ordner Verwaltungs Eigenschaften verwenden, klicken Sie stattdessen auf **SMB-Freigabe-erweitert**.
 4. Wählen Sie auf der Seite **Freigabeort** den Server und das Volume aus, auf dem Sie die Freigabe erstellen möchten.
@@ -156,14 +156,14 @@ Wenn Sie für die Roamingbenutzerprofileinstellungen noch kein Gruppenrichtlinie
 So erstellen Sie ein Gruppenrichtlinien Objekt für Roamingbenutzerprofile:
 
 1. Öffnen Sie den Server-Manager auf einem Computer, auf dem die Gruppenrichtlinienverwaltung installiert ist.
-2. Wählen Sie im Menü Extras die Option **Gruppenrichtlinie Verwaltung**aus. Die Gruppenrichtlinienverwaltung wird angezeigt.
+2. Wählen Sie **im Menü** Extras die Option **Gruppenrichtlinie Verwaltung**aus. Die Gruppenrichtlinienverwaltung wird angezeigt.
 3. Klicken Sie mit der rechten Maustaste auf die Domäne oder die Organisationseinheit, in der Sie Roamingbenutzerprofile einrichten möchten, und klicken Sie dann auf Gruppenrichtlinien Objekt **in dieser Domäne erstellen und verknüpfen**.
 4. Geben Sie im Dialogfeld **Neues** Gruppenrichtlinien Objekt einen Namen für das Gruppenrichtlinien Objekt ein (z. b. **roamingbenutzerprofileinstellungen**), und klicken Sie dann auf **OK**.
 5. Klicken Sie mit der rechten Maustaste auf das neu erstellte Gruppenrichtlinienobjekt und deaktivieren Sie das Kontrollkästchen **Verknüpfung aktiviert** . Dadurch wird verhindert, dass das Gruppenrichtlinienobjekt angewendet wird, bis Sie es konfiguriert haben.
 6. Wählen Sie das Gruppenrichtlinienobjekt aus. Wählen Sie auf der Registerkarte **Bereich** im Abschnitt **Sicherheits Filterung** die Option **Authentifizierte Benutzer**aus, und wählen Sie dann **Entfernen** aus, um zu verhindern, dass das GPO auf alle Benutzer angewendet wird.
 7. Wählen Sie im Abschnitt **Sicherheits Filterung** die Option **Hinzufügen**aus.
 8. Geben Sie im Dialogfeld **Benutzer, Computer oder Gruppe auswählen** den Namen der Sicherheitsgruppe ein, die Sie in Schritt 1 erstellt haben (z. b. **Roamingbenutzerprofile Benutzer und Computer**), und klicken Sie dann auf **OK**.
-9. Wählen Sie die Registerkarte Delegierung und dann **Hinzufügen**aus, geben Sie **Authentifizierte Benutzer**ein, klicken Sie auf **OK**, und klicken Sie dann erneut auf **OK** , um die Standard Berechtigungen für
+9. Wählen Sie die Registerkarte **Delegierung** und dann **Hinzufügen**aus, geben Sie **Authentifizierte Benutzer**ein, klicken Sie auf **OK**, und klicken Sie dann erneut auf **OK** , um die Standard Berechtigungen für
     
     Dieser Schritt ist aufgrund von Sicherheitsänderungen, die in [MS16-072](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14%2c-2016)vorgenommen werden, erforderlich.
 
@@ -205,12 +205,12 @@ Sie können Gruppenrichtlinie verwenden, um Roamingbenutzerprofile auf Computern
 So richten Sie Roamingbenutzerprofile auf Computern ein:
 
 1. Öffnen Sie den Server-Manager auf einem Computer, auf dem die Gruppenrichtlinienverwaltung installiert ist.
-2. Wählen Sie im Menü Extras die Option **Gruppenrichtlinie Verwaltung**aus. Gruppenrichtlinie Verwaltung wird angezeigt.
+2. Wählen Sie **im Menü** Extras die Option **Gruppenrichtlinie Verwaltung**aus. Gruppenrichtlinie Verwaltung wird angezeigt.
 3. Klicken Sie in Gruppenrichtlinie Verwaltung mit der rechten Maustaste auf das GPO, das Sie in Schritt 3 erstellt haben (z.b. **roamingbenutzerprofileinstellungen**), und wählen Sie dann **Bearbeiten**aus.
 4. Navigieren Sie im Fenster des Gruppenrichtlinienverwaltungs-Editors zu **Computerkonfiguration**, **Richtlinien**, **Administrative Vorlagen**, **System** und dann zu **Benutzerprofile**.
-5. Klicken Sie mit der rechten Maustaste auf **roamingprofilpfad festlegen für alle Benutzer, die sich auf diesem Computer anmelden**
+5. Klicken **Sie mit**der rechten Maustaste auf **roamingprofilpfad festlegen für alle Benutzer, die sich auf diesem Computer anmelden**
     > [!TIP]
-    > Ein Benutzer-Basisordner (sofern konfiguriert) ist der von einigen Programmen (z. B. Windows PowerShell) verwendete Standardordner. Sie können einen alternativen lokalen oder Netzwerkspeicherort pro Benutzer konfigurieren, indem Sie den Abschnitt **Basisordner** der Benutzerkontoeigenschaften in AD DS verwenden. Um den Basisordner Speicherort für alle Benutzer eines Computers zu konfigurieren, auf dem Windows 8.1, Windows 8, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 in einer virtuellen Desktopumgebung ausgeführt wird, aktivieren Sie den **Startordner des Benutzers** . Richtlinien Einstellung, und geben Sie dann die Dateifreigabe und den zuzuordnenden Laufwerk Buchstaben an (oder geben Sie einen lokalen Ordner an). Verwenden Sie keine Umgebungsvariablen oder Ellipsen. Der Benutzeralias wird an das Ende des während der Benutzeranmeldung angegebenen Pfads angefügt.
+    > Ein Benutzer-Basisordner (sofern konfiguriert) ist der von einigen Programmen (z. B. Windows PowerShell) verwendete Standardordner. Sie können einen alternativen lokalen oder Netzwerkspeicherort pro Benutzer konfigurieren, indem Sie den Abschnitt **Basisordner** der Benutzerkontoeigenschaften in AD DS verwenden. Um den Basisordner Speicherort für alle Benutzer eines Computers zu konfigurieren, auf dem Windows 8.1, Windows 8, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 in einer virtuellen Desktopumgebung ausgeführt wird, aktivieren Sie den **Startordner des Benutzers** . Richtlinien Einstellung, und geben Sie dann die Dateifreigabe und den zuzuordnenden Laufwerk Buchstaben an (oder geben Sie einen lokalen Ordner an). Verwenden Sie keine Umgebungsvariablen oder Ellipsen. Der Alias des Benutzers wird an das Ende des während der Benutzeranmeldung angegebenen Pfads angefügt.
 6. Wählen Sie im Dialogfeld **Eigenschaften** die **Option aktiviert** aus.
 7. Geben Sie im Feld Benutzer, die sich **auf diesem Computer anmelden, sollte diesen roamingprofilpfad verwenden** den Pfad zu der Dateifreigabe ein, in der Sie das Roamingbenutzerprofil des Benutzers speichern möchten, gefolgt von `%username%` (das automatisch durch den Benutzernamen ersetzt wird. das erste Mal, wenn sich der Benutzer anmeldet. Zum Beispiel:
 

@@ -1,6 +1,6 @@
 ---
-title: Konfigurieren von Browsern, Verwendung von Windows integrierte Authentifizierung (WIA) mit AD FS
-description: In diesem Dokument wird beschrieben, wie Browsern, Verwendung WIA mit AD FS konfigurieren
+title: Konfigurieren von Browsern für die Verwendung der integrierten Windows-Authentifizierung (WIA) mit AD FS
+description: In diesem Dokument wird beschrieben, wie Sie Browser für die Verwendung von WIA mit AD FS konfigurieren.
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,56 +9,56 @@ ms.topic: article
 ms.custom: it-pro
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f71680bb721635bd37197dca9d3ae4726099525f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c1413e4fa9d86b3c2204b9ed7337389437b93952
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845481"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865877"
 ---
-# <a name="configure-browsers-to-use-windows-integrated-authentication-wia-with-ad-fs"></a>Konfigurieren von Browsern, Verwendung von Windows integrierte Authentifizierung (WIA) mit AD FS
+# <a name="configure-browsers-to-use-windows-integrated-authentication-wia-with-ad-fs"></a>Konfigurieren von Browsern für die Verwendung der integrierten Windows-Authentifizierung (WIA) mit AD FS
 
-Standardmäßig Windows integrierte Authentifizierung (WIA) aktiviert ist, in Active Directory Federation Services (AD FS) in Windows Server 2012 R2 für authentifizierungsanforderungen, die innerhalb der internen Unternehmensnetzwerk (Intranet) für jede Anwendung auftreten, die verwendet ein Browser für die Authentifizierung.
+Standardmäßig ist die integrierte Windows-Authentifizierung (WIA) in Active Directory-Verbunddienste (AD FS) (AD FS) in Windows Server 2012 R2 für Authentifizierungsanforderungen aktiviert, die im internen Netzwerk des Unternehmens (Intranet) für Anwendungen erfolgen, die eine Browser für die Authentifizierung.
 
-AD FS 2016 jetzt verfügt über eine verbesserte-Einstellung, die den Edge-Browser WIA zu tun, während Sie nicht auch (falsch) abfangen Windows Phone auch ermöglicht:
+AD FS 2016 verfügt jetzt über eine verbesserte Standardeinstellung, die es dem Edge-Browser ermöglicht, WIA zu tun, während er nicht gleichzeitig Windows Phone abfängt:
 
     =~Windows\s*NT.*Edge
 
-Der obige Code bedeutet, die Sie müssen nicht mehr so konfigurieren Sie die einzelnen Benutzer-Agent-Zeichenfolgen zur Unterstützung allgemeiner Szenarien für Edge, obwohl sie häufig aktualisiert werden.
+Das obige bedeutet, dass Sie keine einzelnen Benutzer-Agent-Zeichen folgen mehr konfigurieren müssen, um gängige Edge-Szenarien zu unterstützen, auch wenn Sie sehr häufig aktualisiert werden.
 
-Konfigurieren Sie die AD FS-Eigenschaft, für andere Browser **WiaSupportedUserAgents** hinzufügen die erforderlichen Werte, die basierend auf den Browsern, die Sie verwenden.  Sie können die folgenden Verfahren verwenden.
+Konfigurieren Sie für andere Browser die AD FS-Eigenschaft **wiasupporteduseragents** , um die erforderlichen Werte basierend auf den verwendeten Browsern hinzuzufügen.  Sie können die nachfolgenden Prozeduren verwenden.
 
 
 
-### <a name="view-wiasupporteduseragent-settings"></a>Anzeigen von WIASupportedUserAgent-Einstellungen
-Die **WIASupportedUserAgents** definiert, die Benutzer-Agents die WIA-Unterstützung. AD FS analysiert die Zeichenfolge des Benutzer-Agent beim Ausführen von Anmeldungen in einen Browser bzw. ein Webbrowser-Steuerelement.
+### <a name="view-wiasupporteduseragent-settings"></a>Einstellungen für wiasupporteduseragent anzeigen
+**Wiasupporteduseragents** definiert die Benutzer-Agents, die WIA unterstützen. AD FS analysiert die Zeichenfolge des Benutzer-Agents, wenn Anmeldungen in einem Browser-oder Browser Steuerelement durchgeführt werden.
 
-Sie können die aktuellen Einstellungen, die mit dem folgenden PowerShell-Beispiel anzeigen:
+Sie können die aktuellen Einstellungen mithilfe des folgenden PowerShell-Beispiels anzeigen:
 
 ```powershell
-    $strings = Get-AdfsProperties | select -ExpandProperty WiaSupportedUserAgents
+    Get-AdfsProperties | select -ExpandProperty WiaSupportedUserAgents
 ```
 
 ![WIA-Unterstützung](../operations/media/Configure-AD-FS-Browser-WIA/wiasupport.png)
 
-### <a name="change-wiasupporteduseragent-settings"></a>WIASupportedUserAgent-Einstellungen ändern
-Eine neue Installation von AD FS hat standardmäßig eine Reihe von Benutzer-Agent-zeichenfolgenübereinstimmungen erstellt. Allerdings können diese nicht mehr aktuell sein basierend auf Änderungen an Browsern und Geräten. Insbesondere haben Windows-Geräte ähnlich wie Benutzer-Agent-Zeichenfolgen mit geringfügigen abweichungen in den Token. Das folgende Windows PowerShell-Beispiel bietet die beste gegenwärtige für den aktuellen Satz von Geräten, die heute am Markt sind, die nahtlose WIA-Unterstützung:
+### <a name="change-wiasupporteduseragent-settings"></a>Einstellungen für wiasupporteduseragent ändern
+Standardmäßig enthält eine neue AD FS Installation eine Reihe von Benutzer-Agent-Zeichen folgen, die erstellt wurden. Diese können jedoch aufgrund von Änderungen an Browsern und Geräten veraltet sein. Insbesondere Windows-Geräte verfügen über ähnliche Benutzer-Agent-Zeichen folgen mit geringfügigen Variationen in den Token. Das folgende Windows PowerShell-Beispiel bietet den besten Leitfaden für die aktuelle Gruppe von Geräten, die heute auf dem Markt sind und nahtlose WIA unterstützen:
 
 ```powershell
     Set-AdfsProperties -WIASupportedUserAgents @("MSIE 6.0", "MSIE 7.0; Windows NT", "MSIE 8.0", "MSIE 9.0", "MSIE 10.0; Windows NT 6", "Windows NT 6.3; Trident/7.0", "Windows NT 6.3; Win64; x64; Trident/7.0", "Windows NT 6.3; WOW64; Trident/7.0", "Windows NT 6.2; Trident/7.0", "Windows NT 6.2; Win64; x64; Trident/7.0", "Windows NT 6.2; WOW64; Trident/7.0", "Windows NT 6.1; Trident/7.0", "Windows NT 6.1; Win64; x64; Trident/7.0", "Windows NT 6.1; WOW64; Trident/7.0", "MSIPC", "Windows Rights Management Client")
 ```
 
-Der obige Befehl wird sichergestellt, dass AD FS die folgenden Anwendungsfälle für WIA nur deckt:
+Mit dem obigen Befehl wird sichergestellt, dass AD FS nur die folgenden Anwendungsfälle für WIA abdeckt:
 
 Benutzer-Agents|Anwendungsfälle|
 -----|-----|
-MSIE 6.0|IE 6.0|
-MSIE 7.0; Windows NT|Internet Explorer 7, Internet Explorer, in der Intranetzone. Das Fragment "Windows NT" wird von desktop-Betriebssystem gesendet.|
-MSIE 8.0|Internet Explorer 8.0 (keine Geräte senden, daher müssen Sie spezifischere)|
-MSIE 9.0|Internet Explorer 9.0 (keine Geräte senden, damit keine müssen Sie diese spezifische)|
-MSIE 10.0; Windows NT 6|Internet Explorer 10.0 für Windows XP und neuere Versionen von desktop-Betriebssystem</br></br>Windows Phone 8.0-Geräte (mit bevorzugen, legen Sie für die mobile) werden ausgeschlossen, da sie senden</br></br>Benutzer-Agent: Mozilla/5.0 (kompatibel; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 920)|
-Windows NT 6.3; Trident/7.0</br></br>Windows NT 6.3; Win64; x64; Trident/7.0</br></br>Windows NT 6.3; WOW64; Trident/7.0| Windows 8.1-desktop-Betriebssystem, verschiedene Plattformen|
-Windows NT 6.2; Trident/7.0</br></br>Windows NT 6.2; Win64; x64; Trident/7.0</br></br>Windows NT 6.2; WOW64; Trident/7.0|Windows 8 desktop-Betriebssystem, verschiedene Plattformen|
-Windows NT 6.1; Trident/7.0</br></br>Windows NT 6.1; Win64; x64; Trident/7.0</br></br>Windows NT 6.1; WOW64; Trident/7.0|Windows 7 desktop-Betriebssystem, verschiedene Plattformen|
-MSIPC| Microsoft Information Protection und Steuerelement|
+MSIE 6,0|IE 6,0|
+MSIE 7,0; Windows NT|IE 7, IE in der Intranetzone. Das Fragment "Windows NT" wird vom Desktop Betriebssystem gesendet.|
+MSIE 8,0|IE 8,0 (keine Geräte senden dies, deshalb müssen Sie spezifischere festlegen)|
+MSIE 9,0|IE 9,0 (keine Geräte senden dies, sodass Sie dies nicht spezifischere machen müssen)|
+MSIE 10,0; Windows NT 6|IE 10,0 für Windows XP und neuere Versionen des Desktop Betriebssystems</br></br>Windows Phone 8,0-Geräte (mit der Einstellung Mobile) werden ausgeschlossen, da Sie</br></br>Benutzer-Agent: Mozilla/5.0 (kompatibel; MSIE 10,0; Windows Phone 8,0; Einzug/6.0; Iemobile/10.0; Harm Ansprechen Heftig Lumia 920)|
+Windows NT 6,3; Einzug/7.0</br></br>Windows NT 6,3; Win64 x64 Einzug/7.0</br></br>Windows NT 6,3; WOW64 Einzug/7.0| Windows 8.1 Desktop Betriebssystem, unterschiedliche Plattformen|
+Windows NT 6,2; Einzug/7.0</br></br>Windows NT 6,2; Win64 x64 Einzug/7.0</br></br>Windows NT 6,2; WOW64 Einzug/7.0|Windows 8 Desktop-Betriebssystem, unterschiedliche Plattformen|
+Windows NT 6,1; Einzug/7.0</br></br>Windows NT 6,1; Win64 x64 Einzug/7.0</br></br>Windows NT 6,1; WOW64 Einzug/7.0|Windows 7 Desktop-Betriebssystem, unterschiedliche Plattformen|
+MSIPC| Microsoft Information Protection and Control-Client|
 Windows Rights Management-Client|Windows Rights Management-Client|

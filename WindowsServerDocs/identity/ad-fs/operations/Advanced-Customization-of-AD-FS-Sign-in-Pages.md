@@ -1,6 +1,6 @@
 ---
 ms.assetid: 882abec8-0189-4f73-99c5-792987168080
-title: Erweiterte Anpassung von AD FS-Anmeldeseiten
+title: Erweiterte Anpassung der AD FS Anmelde Seiten
 description: ''
 author: billmath
 ms.author: billmath
@@ -9,86 +9,86 @@ ms.date: 01/16/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: ee7bef2afe61500fe75b2d3c61b92b902f9757fa
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: e49b18bf5e10de6150603b690095f61a13e59ef2
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66444259"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865992"
 ---
-# <a name="advanced-customization-of-ad-fs-sign-in-pages"></a>Erweiterte Anpassung von AD FS-Anmeldeseiten
+# <a name="advanced-customization-of-ad-fs-sign-in-pages"></a>Erweiterte Anpassung der AD FS Anmelde Seiten
 
   
-## <a name="advanced-customization-of-ad-fs-sign-in-pages"></a>Erweiterte Anpassung von AD FS-Anmeldeseite\-auf Seiten  
-AD FS unter Windows Server 2012 R2 bietet integrierten\-in der Unterstützung für die Anmeldeseite anpassen\-Erfahrung. Bei einem Großteil der obigen Szenarios sind die integrierten\-in Windows PowerShell-Cmdlets sind alles, was erforderlich ist.  Es wird empfohlen, die Verwendung der integrierten\-melden Sie sich in Windows PowerShell-Befehle, um Standardelemente für AD FS anzupassen\-in Erfahrung, wann immer möglich.  Finden Sie unter [AD-FS-Anmeldung benutzeranpassung](AD-FS-user-sign-in-customization.md) für Weitere Informationen.  
+## <a name="advanced-customization-of-ad-fs-sign-in-pages"></a>Erweiterte Anpassung der AD FS Anmelde\-Seiten  
+AD FS in Windows Server 2012 R2 bietet integrierte\-Unterstützung für die Anpassung der Anmelde\-Funktion. In den meisten Fällen sind nur die integrierten\-Windows PowerShell-Cmdlets erforderlich.  Es wird empfohlen, dass Sie die integrierten\-Windows PowerShell-Befehle verwenden, um Standardelemente für AD FS\-Anmeldevorgang nach Möglichkeit anzupassen.  Weitere Informationen finden Sie [unter Anpassung an die AD-FS-Benutzeranmeldung](AD-FS-user-sign-in-customization.md) .  
   
-In einigen Fällen AD FS-Administratoren können zusätzliche anmelden bereitstellen möchten\-in Umgebungen, die nicht über die vorhandenen PowerShell-Befehle in enthaltenen\-Feld mit AD FS. In einigen Fällen ist es möglich \(in den unten stehenden Richtlinien\) für Administratoren das Anpassen der Anmeldung von\-Erfahrung weiter durch zusätzliche Logik zum **onload.js** , wird von AD FS bereitgestellt und wird auf allen AD FS-Seiten ausgeführt.  
+In einigen Fällen können AD FS Administratoren zusätzliche Anmelde\-Funktionen bereitstellen, die über die vorhandenen PowerShell-Befehle, die im\-Lieferumfang von AD FS ausgeliefert werden, nicht möglich sind. In bestimmten Fällen ist es innerhalb der \(unten aufgeführten\) Richtlinien für Administratoren möglich, das Anmelde\-Verfahren weiter anzupassen, indem Sie " **OnLoad. js** " zusätzliche Logik hinzufügen, die von AD FS und wird auf allen AD FS Seiten ausgeführt.  
   
-## <a name="things-to-know-before-you-start"></a>Wichtige Informationen, bevor Sie beginnen  
+## <a name="things-to-know-before-you-start"></a>Dinge, die Sie kennen müssen, bevor Sie beginnen  
   
--   Jede Änderung, die wirkt sich auf die Umleitung Datenflüsse oder ändert die Parameter, denen mit AD FS funktioniert, wird nicht unterstützt.
+-   Jede Änderung, die Auswirkungen auf die Umleitung oder die Änderung von Protokoll Parametern hat, mit denen AD FS funktioniert, wird nicht unterstützt.
   
--   Die ursprüngliche onload.js, eines, das das standardwebdesign, Lieferumfang enthält Code, der Seitenrendering für verschiedene Formfaktoren behandelt. Es wird empfohlen, nicht, ändern Sie den Inhalt der ursprünglichen onload.js, aber fügen Sie Ihren Code nur an den vorhandenen onload.js, der benutzerdefinierten Logik behandelt werden soll.  
+-   Die ursprüngliche Datei "OnLoad. js", die im Standard-Webdesign enthalten ist, enthält Code, der das Seiten Rendering für verschiedene Formfaktoren behandelt. Es wird empfohlen, den ursprünglichen OnLoad. js-Inhalt nicht zu ändern, sondern nur den Code an die vorhandene "OnLoad. js" anzufügen, die benutzerdefinierte Logik behandelt.  
   
--   AD FS im Lieferumfang eines integrierten\-im Design "Web" der standardmäßige aufgerufen wird. Sie können die onload.js, der das standardwebdesign nicht ändern. Um onload.js zu aktualisieren, müssen Sie erstellen und verwenden ein benutzerdefiniertes Webdesign, für die AD FS-Anmeldung\-in Seiten.  Finden Sie unter [AD-FS-Anmeldung benutzeranpassung](AD-FS-user-sign-in-customization.md) Informationen zur Vorgehensweise: Erstellen Sie ein benutzerdefiniertes Webdesign.  
+-   AD FS wird mit einem integrierten\-Webdesign ausgeliefert, das als Default bezeichnet wird. "OnLoad. js" kann nicht im Standard-Webdesign geändert werden. Zum Aktualisieren von "OnLoad. js" müssen Sie ein benutzerdefiniertes Webdesign für AD FS Anmelde\-Seiten erstellen und verwenden.  Informationen zum Erstellen eines benutzerdefinierten Webdesigns finden Sie [unter AD-FS-Benutzeranmeldung](AD-FS-user-sign-in-customization.md) .  
   
--   Die gleichen onload.js führt auf allen AD FS-Seiten \(ex. Formular\--basierte Anmeldeseite "," Seite zur startbereichsermittlung "und" usw.\). Sie müssen sicherstellen, dass der Code in Ihrem Skript nur ausgeführt wird, ist nicht unerwartet ausgeführt und dient.  
+-   Die gleiche "OnLoad. js" wird auf allen ADFS \(-Seiten Ex ausgeführt. Formular\-basierte Anmeldeseite, Seite "Startbereichs Ermittlung" usw\). Sie müssen sicherstellen, dass der Code in Ihrem Skript nur ausgeführt wird, wenn er entworfen wurde und nicht unerwartet ausgeführt wird.  
   
--   Wenn Sie ein HTML-Element zu verweisen, stellen Sie sicher, dass Sie immer, ob das Element vor auf das Element vorhanden ist überprüfen. Dies bietet Stabilität und stellt sicher, dass die benutzerdefinierte Logik auf Seiten, die dieses Element nicht enthalten, nicht ausgeführt werden sollen. Sie können einfach den HTML-Quellcode auf die AD FS-Anmeldeseite anzeigen\-auf Seiten, um die vorhandenen Elemente anzuzeigen.  
+-   Wenn Sie auf ein beliebiges HTML-Element verweisen, stellen Sie sicher, dass Sie immer das vorhanden sein des Elements überprüfen, bevor Sie für das Element agieren. Dadurch wird die Stabilität gewährleistet, und es wird sichergestellt, dass die benutzerdefinierte Logik nicht auf Seiten ausgeführt wird, die dieses Element nicht enthalten. Sie können die HTML-Quelle einfach auf den AD FS Anmelde\-Seiten anzeigen, um die vorhandenen Elemente anzuzeigen.  
   
--   Es wird dringend empfohlen, um Ihre Anpassungen in einer anderen Umgebung zu überprüfen und Testen Sie sie vor dem Rollback, in der Produktion AD FS-Server. Dies reduziert die Wahrscheinlichkeit, dass Endbenutzer diese Anpassungen vor der Überprüfung verfügbar gemacht werden.  
+-   Es wird dringend empfohlen, die Anpassungen in einer alternativen Umgebung zu überprüfen und zu testen, bevor Sie Sie auf Produktions AD FS Servern Rollout. Dadurch wird die Wahrscheinlichkeit verringert, dass Endbenutzer diese Anpassungen vor der Validierung ausgesetzt werden.  
   
-## <a name="customizing-the-ad-fs-sign-in-experience-by-using-onloadjs"></a>Anpassen der AD FS-Anmeldeseite\-Erfahrung mit onload.js  
-Verwenden Sie die folgenden Schritte aus, bei der Anpassung der onload.js für AD FS-Diensts.  
+## <a name="customizing-the-ad-fs-sign-in-experience-by-using-onloadjs"></a>Anpassen des AD FS Anmelde\-Erlebnisses mithilfe von "OnLoad. js"  
+Führen Sie die folgenden Schritte aus, wenn Sie "OnLoad. js" für den AD FS-Dienst anpassen.  
   
-#### <a name="customizing-onloadjs-for-the-ad-fs-service"></a>Anpassen von onload.js für den AD FS-Dienst  
+#### <a name="customizing-onloadjs-for-the-ad-fs-service"></a>Anpassen von "OnLoad. js" für den AD FS-Dienst  
   
-1.  Um die benutzerdefinierte Logik onload.js hinzuzufügen, müssen Sie zunächst ein benutzerdefiniertes Webdesign erstellen. Das Design, das versandt wird\-von\-der\-Feld standardmäßig aufgerufen wird. Sie können das Standarddesign exportieren und verwenden, um schnell anzufangen. Das folgende Cmdlet erstellt ein benutzerdefiniertes Webdesign, das das standardwebdesign dupliziert:  
+1.  Um die benutzerdefinierte Logik zu "OnLoad. js" hinzuzufügen, müssen Sie zunächst ein benutzerdefiniertes Webdesign erstellen. Das Design, das standardmäßig\-versendet\-\-wird, wird als Standard bezeichnet. Sie können das Standarddesign exportieren und verwenden, um schnell anzufangen. Mit dem folgenden Cmdlet wird ein benutzerdefiniertes Webdesign erstellt, das das Standardweb Design dupliziert:  
   
     ```  
     New-AdfsWebTheme –Name custom –SourceName default  
   
     ```  
   
-2.  Sie können dann exportieren die benutzerdefinierte oder eine Standardinstanz Webdesigns onload.js Datei abgerufen. Um ein Webdesign zu exportieren, verwenden Sie das folgende Cmdlet aus:  
+2.  Sie können dann das benutzerdefinierte oder standardmäßige Webdesign exportieren, um die Datei "OnLoad. js" zu erhalten. Verwenden Sie zum Exportieren eines Webdesigns das folgende Cmdlet:  
   
     ```  
     Export-AdfsWebTheme –Name default –DirectoryPath c:\theme  
   
     ```  
   
-    Sehen Sie onload.js unter dem Ordner "Skripts" im Verzeichnis, dass Sie im obigen Cmdlet Export angeben, und fügen die benutzerdefinierte Logik für das Skript \(finden Sie unter Anwendungsfälle im folgenden Beispielabschnitt\).  
+    Sie finden die Datei "OnLoad. js" im Skript Ordner in dem Verzeichnis, das Sie im obigen Cmdlet "Export" angeben und die benutzerdefinierte \(Logik zum Skript hinzufügen\). Weitere Informationen hierzu finden Sie im Abschnitt "Beispiele" im Abschnitt "Beispiel".  
   
-3.  Stellen Sie die erforderlichen Änderungen onload.js basierend auf Ihren Anforderungen anpassen.  
+3.  Nehmen Sie die notwendigen Änderungen vor, um OnLoad. js je nach Bedarf anzupassen.  
   
-4.  Aktualisieren Sie das Design, mit der geänderten onload.js. Verwenden Sie das folgende Cmdlet aus, um die benutzerdefinierten Webdesigns für das Update onload.js zuweisen:  
+4.  Aktualisieren Sie das Design mit der geänderten OnLoad. js. Verwenden Sie das folgende Cmdlet, um das Update OnLoad. js auf das benutzerdefinierte Webdesign anzuwenden:  
 
      Für AD FS unter Windows Server 2012 R2:  
 
     ```  
-    Set-AdfsWebTheme -TargetName custom -AdditionalFileResource @{Uri=’/adfs/portal/script/onload.js’;path="c:\theme\script\onload.js"}  
+    Set-AdfsWebTheme -TargetName custom -AdditionalFileResource @{Uri='/adfs/portal/script/onload.js';path="c:\theme\script\onload.js"}  
   
     ```  
-    Für AD FS unter WindowsServer 2016:
+    Für AD FS unter Windows Server 2016:
 
      ```  
     Set-AdfsWebTheme -TargetName custom -OnLoadScriptPath "c:\ADFStheme\script\onload.js"   
   
     ```  
   
-5.  Verwenden Sie zum Anwenden des benutzerdefinierten Webdesigns für AD FS das folgende Cmdlet aus:  
+5.  Verwenden Sie das folgende Cmdlet, um das benutzerdefinierte Webdesign auf AD FS anzuwenden:  
   
     ```  
     Set-AdfsWebConfig -ActiveThemeName custom  
     ```  
   
-## <a name="additional-customization-examples"></a>Beispiele für die weitere Anpassung  
-Im folgenden sind die Beispiele von benutzerdefiniertem Code hinzugefügt onload.js für verschiedene Fine\-zu optimieren. Beim Hinzufügen des benutzerdefinierten Codes fügen Sie Ihren benutzerdefinierten Code immer am unteren Rand der onload.js.  
+## <a name="additional-customization-examples"></a>Weitere Anpassungs Beispiele  
+Im folgenden finden Sie die Beispiele für benutzerdefinierten Code, der "OnLoad. js\-" für verschiedene Feinabstimmung hinzugefügt wurde. Wenn Sie den benutzerdefinierten Code hinzufügen, fügen Sie Ihren benutzerdefinierten Code immer am Ende der Datei "OnLoad. js" an.  
   
-### <a name="example-1-change-sign-in-with-organizational-account-string"></a>Beispiel 1: Ändern der Zeichenfolge "Mit Unternehmenskonto anmelden"  
-Das Standard-AD FS-Form\-basierend anmelden\-verfügt einen Titel mit "Mit Ihrem Unternehmenskonto anmelden" über die Eingabefelder für Benutzer.  
+### <a name="example-1-change-sign-in-with-organizational-account-string"></a>Beispiel 1: Ändern der Zeichenfolge "Anmelden mit dem Organisations Konto"  
+Die Standard AD FS Formular\-basierte Anmelde\-Seite hat den Titel "Anmelden mit Ihrem Organisations Konto" oberhalb der Benutzereingabe Felder.  
   
-Wenn Sie diese Zeichenfolge durch Ihre eigenen ersetzen möchten, können Sie den folgenden Code zum onload.js hinzufügen.  
+Wenn Sie diese Zeichenfolge durch ihre eigene Zeichenfolge ersetzen möchten, können Sie "OnLoad. js" den folgenden Code hinzufügen.  
   
 ```  
 // Sample code to change “Sign in with organizational account” string.  
@@ -103,8 +103,8 @@ if (loginMessage)
   
 ```  
   
-### <a name="example-2-accept-sam-account-name-as-a-login-format-on-an-ad-fs-form-based-sign-in-page"></a>Beispiel 2: akzeptieren SAM\-Kontoname als Anmeldung Format in eine AD FS-Formular\-basierend anmelden\-auf Seite  
-Das Standard-AD FS-Form\-basierend anmelden\-Seite unterstützt Anmeldung Format Benutzerprinzipalnamen \(UPNs\) \(z. B. <strong>johndoe@contoso.com</strong> \) oder Domäne qualifiziert Sam\-Kontonamen \( **Contoso\\Johndoe** oder **"contoso.com"\\Johndoe**\). Falls alle Benutzer aus derselben Domäne stammen, und sie nur zu den Sam Informationen\-Kontonamen, Sie möchten das Szenario, in denen die Benutzer können sich anmelden, zu unterstützen, bei der Nutzung Sam\-Konto nur Namen. Sie können den folgenden Code hinzufügen, um onload.js unterstützen dieses Szenario, ersetzen Sie die Domäne "contoso.com" im Beispiel unten einfach mit der Domäne, die Sie verwenden möchten.  
+### <a name="example-2-accept-sam-account-name-as-a-login-format-on-an-ad-fs-form-based-sign-in-page"></a>Beispiel 2: akzeptieren des\-SAM-Konto namens als Anmelde Format auf einer AD FS\-Formular basierten\-Anmeldeseite  
+Die Standard AD FS Formular\-basierte Anmelde\-Seite unterstützt das Anmelde Format von Benutzer Prinzipal Namen\) \(-UPNs <strong>johndoe@contoso.com</strong> \((z \) . b. oder Domänen qualifizierter Sam\-).Kontonamen \(: " **kontoso\\JohnDoe** " oder "\) **contoso.com\\JohnDoe**". Wenn alle Ihre Benutzer von derselben Domäne stammen und Sie nur über Sam\--Kontonamen Bescheid wissen, können Sie das Szenario unterstützen, in dem sich die Benutzer nur mit diesen Sam\--Kontonamen anmelden können. Sie können den folgenden Code zu "OnLoad. js" hinzufügen, um dieses Szenario zu unterstützen. ersetzen Sie einfach die Domäne "contoso.com" im folgenden Beispiel durch die Domäne, die Sie verwenden möchten.  
   
 ```  
 if (typeof Login != 'undefined'){  
@@ -137,6 +137,6 @@ if (typeof Login != 'undefined'){
 ```  
   
 ## <a name="additional-references"></a>Weitere Verweise 
-[AD FS-Anmeldung Benutzeranpassung](AD-FS-user-sign-in-customization.md)  
+[AD FS Anpassung der Benutzeranmeldung](AD-FS-user-sign-in-customization.md)  
   
 

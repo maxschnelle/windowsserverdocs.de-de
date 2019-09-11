@@ -1,6 +1,6 @@
 ---
 ms.assetid: 66664b80-2590-46c0-bfca-82402088e42c
-title: Erstellen Sie eine Regel zum Senden von LDAP-Attributen als Ansprüche
+title: Erstellen einer Regel zum Senden von LDAP-Attributen als Ansprüche
 description: ''
 author: billmath
 ms.author: billmath
@@ -9,100 +9,100 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 00ea4f9f868b9c82c2a0859be971db26394251a3
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: d391c77ba309c84e2f8f8d0676b71b7c198fc241
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189352"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865942"
 ---
-# <a name="create-a-rule-to-send-ldap-attributes-as-claims"></a>Erstellen Sie eine Regel zum Senden von LDAP-Attributen als Ansprüche
+# <a name="create-a-rule-to-send-ldap-attributes-as-claims"></a>Erstellen einer Regel zum Senden von LDAP-Attributen als Ansprüche
 
 
-Verwenden das Senden von LDAP-Attributen als Ansprüche Regelvorlage in Active Directory-Verbunddienste \(AD FS\), Sie können eine Regel, die Attribute aus einem Lightweight Directory Access Protocol auswählen erstellen \(LDAP\)-Attributspeicher wie Active Directory als Ansprüche an die vertrauende Seite gesendet. Angenommen, Sie können diese Regelvorlage um a Send LDAP Attributes zu erstellen, wie Ansprüche Regel extrahiert, die Attributwerte für authentifizierte Benutzer aus der **"DisplayName"** und **"telephoneNumber"** Active Directory Attribute, und klicken Sie dann diese Werte als zwei unterschiedliche ausgehende Ansprüche senden.  
+Mithilfe der Regel Vorlage "LDAP-Attribute als Ansprüche senden \("\)in Active Directory-Verbunddienste (AD FS) AD FS können Sie eine Regel erstellen, mit der Attribute aus einem LDAP \(\)-Protokoll(LightweightDirectoryAccessProtocol)ausgewähltwerden.Attribut Speicher, z. b. Active Directory, der als Ansprüche an die vertrauende Seite gesendet werden soll. Beispielsweise können Sie diese Regel Vorlage verwenden, um eine Regel zum Senden von LDAP-Attributen als Ansprüche zu erstellen, die Attributwerte für authentifizierte Benutzer aus den Active Directory Attribute **Display Name** und **telefonienumber** extrahiert und diese dann sendet. Werte als zwei unterschiedliche ausgehende Ansprüche.  
   
-Mit dieser Regel können Sie auch alle Gruppenmitgliedschaften des Benutzers senden. Wenn Sie nur einzelne Gruppenmitgliedschaften senden möchten, verwenden Sie die Regelvorlage „Gruppenmitgliedschaft als Anspruch senden“. Sie können das folgende Verfahren zum Erstellen einer Anspruchsregel mit der AD FS-Verwaltungs-Snap\-in.  
+Mit dieser Regel können Sie auch alle Gruppenmitgliedschaften des Benutzers senden. Wenn Sie nur einzelne Gruppenmitgliedschaften senden möchten, verwenden Sie die Regelvorlage „Gruppenmitgliedschaft als Anspruch senden“. Mithilfe des folgenden Verfahrens können Sie eine Anspruchs Regel mit dem Snap\--in "AD FS-Verwaltung" erstellen.  
   
-Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Weitere Informationen zur Verwendung der geeigneten Konten und Gruppenmitgliedschaften unter [lokale und Domänenstandardgruppen](https://go.microsoft.com/fwlink/?LinkId=83477).  
+Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).  
 
-## <a name="to-create-a-rule-to-send-ldap-attributes-as-claims-for-a-relying-party-trust-in-windows-server-2016"></a>Zum Erstellen einer Regel zum Senden von LDAP-Attributen als Ansprüche für a Relying Party Trust in Windows Server 2016 
+## <a name="to-create-a-rule-to-send-ldap-attributes-as-claims-for-a-relying-party-trust-in-windows-server-2016"></a>So erstellen Sie eine Regel zum Senden von LDAP-Attributen als Ansprüche für eine Vertrauensstellung der vertrauenden Seite in Windows Server 2016 
 
-1.  Klicken Sie im Server-Manager **Tools**, und wählen Sie dann **AD FS-Verwaltung**.  
+1.  Klicken Sie in Server-Manager **auf Extras**, und wählen Sie dann **AD FS Verwaltung**aus.  
   
-2.  In der Konsolenstruktur unter **AD FS**, klicken Sie auf **Vertrauensstellungen für vertrauende Seiten**. 
+2.  Klicken Sie in der Konsolen Struktur unter **AD FS**auf Vertrauens Stellungen der vertrauenden **Seite**. 
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule9.PNG)  
   
-3.  Rechts\-klicken Sie auf der ausgewählten Vertrauensstellung, und klicken Sie dann auf **Anspruchsausstellungsrichtlinie bearbeiten**.
+3.  Klicken\-Sie mit der rechten Maustaste auf die ausgewählte Vertrauensstellung, und klicken Sie dann auf **Richtlinie**zum
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule10.PNG)   
   
-4.  In der **Anspruchsausstellungsrichtlinie bearbeiten** Dialogfeld **Ausstellungstransformationsregeln** klicken Sie auf **Regel hinzufügen** um die Regel-Assistenten zu starten. 
+4.  Klicken Sie im Dialogfeld **Richtlinie für Anspruchs Ausstellung bearbeiten** unter Ausstellungs **Transformationsregeln** auf **Regel hinzufügen** , um den Regel-Assistenten zu starten. 
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule11.PNG)    
 
-5.  Auf der **Regelvorlage auswählen** Seite **anspruchsregelvorlage**Option **LDAP-Attributen als Ansprüche senden** aus der Liste aus, und klicken Sie dann auf **Weiter**.  
+5.  Wählen Sie auf der Seite **Regel Vorlage auswählen** unter **Anspruchs Regel Vorlage**die Option **LDAP-Attribute als Ansprüche senden** aus der Liste aus, und klicken Sie dann auf **weiter**.  
 ![Regel erstellen](media/Create-a-Rule-to-Send-LDAP-Attributes-as-Claims/ldap1.PNG)    
 
-6.  Auf der **Regel konfigurieren** Seite **anspruchsregelname** Geben Sie den Anzeigenamen für diese Regel wählen die **Attribut Store**, und wählen Sie das LDAP-Attribut, und ordnen Sie es der Typ des ausgehenden Anspruchs. 
+6.  Geben Sie auf der Seite **Regel konfigurieren** unter **Anspruchs Regel Name** den anzeigen Amen für diese Regel ein, wählen Sie den **Attribut Speicher**aus, und wählen Sie dann das LDAP-Attribut aus, und ordnen Sie es dem ausgehenden Anspruchstyp zu. 
 ![Regel erstellen](media/Create-a-Rule-to-Send-LDAP-Attributes-as-Claims/ldap2.PNG)    
 
-7.  Klicken Sie auf die **Fertig stellen** Schaltfläche.  
+7.  Klicken Sie auf **Fertig** stellen.  
   
-8.  In der **Edit Claim Rules** Dialogfeld klicken Sie auf **OK** um die Regel zu speichern.
+8.  Klicken Sie im Dialogfeld **Anspruchs Regeln bearbeiten** auf **OK** , um die Regel zu speichern.
   
-## <a name="to-create-a-rule-to-send-ldap-attributes-as-claims-for-a-claims-provider-trust-in-windows-server-2016"></a>Zum Erstellen einer Regel zum Senden von LDAP-Attributen als Ansprüche für eine Anspruchsanbieter-Vertrauensstellung in Windows Server 2016 
+## <a name="to-create-a-rule-to-send-ldap-attributes-as-claims-for-a-claims-provider-trust-in-windows-server-2016"></a>So erstellen Sie eine Regel zum Senden von LDAP-Attributen als Ansprüche für eine Anspruchs Anbieter-Vertrauensstellung in Windows Server 2016 
   
-1.  Klicken Sie im Server-Manager **Tools**, und wählen Sie dann **AD FS-Verwaltung**.  
+1.  Klicken Sie in Server-Manager **auf Extras**, und wählen Sie dann **AD FS Verwaltung**aus.  
   
-2.  In der Konsolenstruktur unter **AD FS**, klicken Sie auf **Anspruchsanbieter-Vertrauensstellungen**. 
+2.  Klicken Sie in der Konsolen Struktur unter **AD FS**auf **Anspruchs Anbieter**-Vertrauens Stellungen. 
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule1.PNG)  
   
-3.  Rechts\-klicken Sie auf der ausgewählten Vertrauensstellung, und klicken Sie dann auf **Edit Claim Rules**.
+3.  Klicken\-Sie mit der rechten Maustaste auf die ausgewählte Vertrauensstellung und dann auf **Anspruchs Regeln bearbeiten**.
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule2.PNG)   
   
-4.  In der **Edit Claim Rules** Dialogfeld **Akzeptanztransformationsregeln** klicken Sie auf **Regel hinzufügen** um die Regel-Assistenten zu starten.
+4.  Klicken Sie im Dialogfeld **Anspruchs Regeln bearbeiten** unter **Akzeptanz Transformationsregeln** auf **Regel hinzufügen** , um den Regel-Assistenten zu starten.
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule3.PNG)    
 
-5.  Auf der **Regelvorlage auswählen** Seite **anspruchsregelvorlage**Option **LDAP-Attributen als Ansprüche senden** aus der Liste aus, und klicken Sie dann auf **Weiter**.  
+5.  Wählen Sie auf der Seite **Regel Vorlage auswählen** unter **Anspruchs Regel Vorlage**die Option **LDAP-Attribute als Ansprüche senden** aus der Liste aus, und klicken Sie dann auf **weiter**.  
 ![Regel erstellen](media/Create-a-Rule-to-Send-LDAP-Attributes-as-Claims/ldap1.PNG)       
 
-6.  Auf der **Regel konfigurieren** Seite **anspruchsregelname** Geben Sie den Anzeigenamen für diese Regel wählen die **Attribut Store**, und wählen Sie das LDAP-Attribut, und ordnen Sie es der Typ des ausgehenden Anspruchs. 
+6.  Geben Sie auf der Seite **Regel konfigurieren** unter **Anspruchs Regel Name** den anzeigen Amen für diese Regel ein, wählen Sie den **Attribut Speicher**aus, und wählen Sie dann das LDAP-Attribut aus, und ordnen Sie es dem ausgehenden Anspruchstyp zu. 
 ![Regel erstellen](media/Create-a-Rule-to-Send-LDAP-Attributes-as-Claims/ldap2.PNG)      
 
-7.  Klicken Sie auf die **Fertig stellen** Schaltfläche.  
+7.  Klicken Sie auf **Fertig** stellen.  
   
-8.  In der **Edit Claim Rules** Dialogfeld klicken Sie auf **OK** um die Regel zu speichern.  
+8.  Klicken Sie im Dialogfeld **Anspruchs Regeln bearbeiten** auf **OK** , um die Regel zu speichern.  
 
  
   
-## <a name="to-create-a-rule-to-send-ldap-attributes-as-claims-for-windows-server-2012-r2"></a>Zum Erstellen einer Regel zum Senden von LDAP-Attributen als Ansprüche für Windows Server 2012 R2  
+## <a name="to-create-a-rule-to-send-ldap-attributes-as-claims-for-windows-server-2012-r2"></a>So erstellen Sie eine Regel zum Senden von LDAP-Attributen als Ansprüche für Windows Server 2012 R2  
   
-1.  Klicken Sie im Server-Manager **Tools**, und wählen Sie dann **AD FS-Verwaltung**.  
+1.  Klicken Sie in Server-Manager **auf Extras**, und wählen Sie dann **AD FS Verwaltung**aus.  
   
-2.  In der Konsolenstruktur unter **FSAD für AD FS\\Vertrauensstellungen**, klicken Sie auf **Anspruchsanbieter-Vertrauensstellungen** oder **Vertrauensstellungen für vertrauende Seiten**, und klicken Sie dann auf eine bestimmte Vertrauensstellung in der Liste, die zum Erstellen dieser Regel werden sollen.  
+2.  Klicken Sie in der Konsolen Struktur unter **AD FSAD\\FS Vertrauens**Stellungen entweder auf **Anspruchs Anbieter** -Vertrauens Stellungen oder Vertrauens Stellungen der vertrauenden **Seite**, und klicken Sie dann auf eine bestimmte Vertrauensstellung in der Liste, in der Sie diese Regel erstellen möchten.  
   
-3.  Rechts\-klicken Sie auf der ausgewählten Vertrauensstellung, und klicken Sie dann auf **Edit Claim Rules**.
+3.  Klicken\-Sie mit der rechten Maustaste auf die ausgewählte Vertrauensstellung und dann auf **Anspruchs Regeln bearbeiten**.
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule6.PNG)  
   
-4.  In der **Edit Claim Rules** im Dialogfeld Wählen Sie eine der folgenden Registerkarten, abhängig von der Vertrauensstellung, die Sie bearbeiten und welche Regel legen Sie diese Regel in erstellen möchten, und klicken Sie dann auf **Regel hinzufügen** um die Regel zu starten. Legen Sie den Assistenten, der dieser Regel zugeordnet ist:  
+4.  Wählen Sie im Dialogfeld **Anspruchs Regeln bearbeiten** je nach der zu bearbeitenden Vertrauensstellung und dem Regelsatz, in dem Sie diese Regel erstellen möchten, eine der folgenden Registerkarten aus, und klicken Sie dann auf **Regel hinzufügen** , um den Regel-Assistenten zu starten, der diesem Regelsatz zugeordnet ist. :  
   
-    -   **Akzeptanztransformationsregeln**  
+    -   **Akzeptanz Transformationsregeln**  
   
-    -   **Ausstellungstransformationsregeln**  
+    -   **Ausstellungs Transformationsregeln**  
   
-    -   **Ausstellungsautorisierungsregeln**  
+    -   **Ausstellungs Autorisierungs Regeln**  
   
-    -   **Autorisierungsregeln**  
+    -   **Delegierungs Autorisierungs Regeln**  
 ![Regel erstellen](media/Create-a-Rule-to-Permit-All-Users/permitall5.PNG) 
   
-5.  Auf der **Regelvorlage auswählen** Seite **anspruchsregelvorlage**Option **LDAP-Attributen als Ansprüche senden** aus der Liste aus, und klicken Sie dann auf **Weiter**.  
+5.  Wählen Sie auf der Seite **Regel Vorlage auswählen** unter **Anspruchs Regel Vorlage**die Option **LDAP-Attribute als Ansprüche senden** aus der Liste aus, und klicken Sie dann auf **weiter**.  
 ![Regel erstellen](media/Create-a-Rule-to-Send-LDAP-Attributes-as-Claims/ldap3.PNG)  
   
-6.  Auf der **Regel konfigurieren** Seite **anspruchsregelname** Geben Sie den Anzeigenamen für diese Regel unter **Attributspeicher** wählen **Active Directory**, und wählen Sie unter **Zuordnen von LDAP-Attributen zu ausgehenden Anspruchstypen** wählen Sie den gewünschten **LDAP-Attribut** und entsprechenden **ausgehenden Anspruchstyp** die Typen aus der Dropdownliste\-unten aufgelistet.  
+6.  Geben Sie auf der Seite **Regel konfigurieren** unter **Anspruchs Regel Name** den anzeigen Amen für diese Regel ein, wählen Sie unter **Attribut Speicher** die Option **Active Directory**aus, und wählen Sie unter **Zuordnung von LDAP-Attributen zu ausgehenden Anspruchs Typen** die gewünschte **LDAP-Attribut** und entsprechende Typen von **ausgehenden Anspruchs** Typen\-aus den Dropdown Listen.  
   
-    Sie müssen wählen Sie eine neue LDAP-Attribut und den ausgehenden Anspruch Typ-Paar in einer anderen Zeile für jedes Active Directory-Attribut, die einen Anspruch für als Teil dieser Regel ausgegeben werden sollen.  
+    Sie müssen für jedes Active Directory Attribut, für das Sie einen Anspruch als Teil dieser Regel ausgeben möchten, ein neues LDAP-Attribut und ein paar für einen ausgehenden Anspruchstyp in einer anderen Zeile auswählen.  
 ![Regel erstellen](media/Create-a-Rule-to-Send-LDAP-Attributes-as-Claims/ldap4.PNG)    
-7.  Klicken Sie auf die **Fertig stellen** Schaltfläche.  
+7.  Klicken Sie auf **Fertig** stellen.  
   
-8.  In der **Edit Claim Rules** Dialogfeld klicken Sie auf **OK** um die Regel zu speichern.  
+8.  Klicken Sie im Dialogfeld **Anspruchs Regeln bearbeiten** auf **OK** , um die Regel zu speichern.  
 
 ## <a name="additional-references"></a>Weitere Verweise 
 [Konfigurieren von Anspruchsregeln](Configure-Claim-Rules.md)  
@@ -111,7 +111,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 
 [Prüfliste: Erstellen von Anspruchsregeln für eine Anspruchsanbieter-Vertrauensstellung](https://technet.microsoft.com/library/ee913564.aspx)  
   
-[Wenn Use an Authorization Claim Rule](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
+[Wann sollte eine Autorisierungs Anspruchs Regel verwendet werden?](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 
 [Rolle von Ansprüchen](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
   

@@ -1,6 +1,6 @@
 ---
 title: NIC-Teamvorgang
-description: In diesem Thema stellen wir Ihnen in Windows Server 2016 einen Überblick über die Windows-Verwaltungsinstrumentation (Network Interface Card, NIC)-Teamvorgang. NIC-Teamvorgang ermöglicht Ihnen, zwischen 1 und 32 gruppieren, physische Ethernet-Netzwerkadapter in ein oder mehrere softwarebasierte virtuelle Netzwerkadapter. Diese virtuellen Netzwerkadapter bieten schnelle Leistung und Fehlertoleranz bei Ausfall eines Netzwerkadapters.
+description: In diesem Thema erhalten Sie einen Überblick über den NIC-Team Vorgang (Network Interface Card) in Windows Server 2016. Mit dem NIC-Team Vorgang können Sie zwischen einem und 32 physischen Ethernet-Netzwerkadaptern in einem oder mehreren softwarebasierten virtuellen Netzwerkadaptern gruppieren. Diese virtuellen Netzwerkadapter bieten schnelle Leistung und Fehlertoleranz bei Ausfall eines Netzwerkadapters.
 manager: dougkim
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,153 +13,153 @@ ms.assetid: abded6f3-5708-4e35-9a9e-890e81924fec
 ms.author: pashort
 author: shortpatti
 ms.date: 09/10/2018
-ms.openlocfilehash: 7e7ae609d41fc41770c43283033b623881b2d48e
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: acbb01acb39990126d5dce1d0811aefb8c931164
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283795"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871910"
 ---
 # <a name="nic-teaming"></a>NIC-Teamvorgang
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-In diesem Thema stellen wir Ihnen in Windows Server 2016 einen Überblick über die Windows-Verwaltungsinstrumentation (Network Interface Card, NIC)-Teamvorgang. NIC-Teamvorgang ermöglicht Ihnen, zwischen 1 und 32 gruppieren, physische Ethernet-Netzwerkadapter in ein oder mehrere softwarebasierte virtuelle Netzwerkadapter. Diese virtuellen Netzwerkadapter bieten schnelle Leistung und Fehlertoleranz bei Ausfall eines Netzwerkadapters.  
+In diesem Thema erhalten Sie einen Überblick über den NIC-Team Vorgang (Network Interface Card) in Windows Server 2016. Mit dem NIC-Team Vorgang können Sie zwischen einem und 32 physischen Ethernet-Netzwerkadaptern in einem oder mehreren softwarebasierten virtuellen Netzwerkadaptern gruppieren. Diese virtuellen Netzwerkadapter bieten schnelle Leistung und Fehlertoleranz bei Ausfall eines Netzwerkadapters.  
   
 > [!IMPORTANT]
-> Sie müssen den NIC-Team Member-Netzwerkadapter in demselben physischen Hostcomputer installieren. 
+> Netzwerkadapter für NIC-Team Mitglieder müssen auf demselben physischen Host Computer installiert werden. 
 
 > [!TIP]  
-> Ein NIC-Team, das nur einen Netzwerkadapter enthält, kann keine beim Lastenausgleich und Failover bereitstellen. Allerdings mit einem Netzwerkadapter können Sie NIC-Teamvorgang für die Trennung des Netzwerkdatenverkehrs, wenn Sie auch virtuelle lokale Netzwerke (VLANs) verwenden.  
+> Ein NIC-Team, das nur einen Netzwerkadapter enthält, kann keinen Lastenausgleich und kein Failover bereitstellen. Allerdings können Sie mit einem Netzwerkadapter den NIC-Team Vorgang für die Trennung von Netzwerk Datenverkehr verwenden, wenn Sie auch virtuelle lokale Netzwerke (Virtual Local Area Networks, VLANs) verwenden.  
   
-Wenn Sie den Netzwerkadapter in einem NIC-Team konfigurieren, verbinden sie in der NIC teaming Lösung gemeinsamen Kern, der dann eine oder mehrere virtuelle Adapter (auch als Team NICs [tNICs] oder teamschnittstellen) für das Betriebssystem bietet. 
+Wenn Sie Netzwerkadapter in einem NIC-Team konfigurieren, stellen Sie eine Verbindung mit der NIC-Team Vorgangs Lösung Common Core her, die dem Betriebssystem dann einen oder mehrere virtuelle Adapter (auch Team-NICs [tnics] oder Team Schnittstellen genannt) präsentiert. 
 
-Da Windows Server 2016 bis zu 32 teamschnittstellen pro Team unterstützt, gibt es verschiedene Algorithmen, die ausgehenden Datenverkehr (laden) zwischen den NICs zu verteilen.  Die folgende Abbildung zeigt ein NIC-Team mit mehreren tNICs.  
+Da Windows Server 2016 bis zu 32 Team Schnittstellen pro Team unterstützt, gibt es eine Vielzahl von Algorithmen, die ausgehenden Datenverkehr (Last) zwischen den NICs verteilen.  Die folgende Abbildung zeigt ein NIC-Team mit mehreren tnics.  
   
-![NIC-Teams mit mehreren tNICs](../../media/NIC-Teaming/nict_overview.jpg)  
+![Nic-Team mit mehreren tnics](../../media/NIC-Teaming/nict_overview.jpg)  
   
-Darüber hinaus können Sie Ihre Teaming-fähigen Netzwerkkarten mit demselben Switch oder verschiedenen Switches verbinden. Wenn Sie Netzwerkkarten mit verschiedenen Switches verbunden sind, müssen beide Schalter im gleichen Subnetz sein.  
+Außerdem können Sie Ihre Team eigenen NICs mit dem gleichen Switch oder anderen Switches verbinden. Wenn Sie NICs mit verschiedenen Switches verbinden, müssen sich beide Switches im gleichen Subnetz befinden.  
   
 ## <a name="availability"></a>Verfügbarkeit  
-NIC-Teamvorgang ist in allen Versionen von Windows Server 2016 verfügbar. Sie können eine Vielzahl von Tools zum Verwalten von Clientcomputern, die mit Client-Betriebssystem, wie z. B. NIC-Teamvorgang: • Windows PowerShell-Cmdlets • Remotedesktop • Remoteserver-Verwaltungstools  
+NIC-Teaming ist in allen Versionen von Windows Server 2016 verfügbar. Sie können eine Vielzahl von Tools zum Verwalten des NIC-Team Vorgangs auf Computern verwenden, auf denen ein Client Betriebssystem ausgeführt wird, z. b.: • Windows PowerShell-Cmdlets • Remotedesktop • Remoteserver-Verwaltungstools  
   
-## <a name="supported-and-unsupported-nics"></a>Unterstützte und nicht unterstützten Netzwerkkarten   
-Alle Ethernet-Netzwerkkarte können, die die Qualifikation für Windows-Hardware und das Logo-Test (WHQL-Tests) in einem NIC-Team in Windows Server 2016 vergangen ist.  
+## <a name="supported-and-unsupported-nics"></a>Unterstützte und nicht unterstützte NICs   
+Sie können eine beliebige Ethernet-NIC verwenden, die in einem NIC-Team in Windows Server 2016 den Windows-Hardware Qualifikations-und Logotest (WHQL-Tests) bestanden hat.  
   
-Sie können die folgenden NICs nicht in einem NIC-Team platzieren:
+Die folgenden NICs können nicht in einem NIC-Team platziert werden:
   
--   Hyper-V virtuelle Netzwerkadapter, die von virtuellen Hyper-V-Switch-Ports, die in der Hostpartition als Netzwerkkarten verfügbar gemacht werden.  
+-   Virtuelle Hyper-v-Netzwerkadapter, bei denen es sich um virtuelle Hyper-v-Switchports handelt, die als NICs in der Host Partition verfügbar sind  
   
     > [!IMPORTANT]  
-    > Platzieren Sie virtuelle Hyper-V-NICs verfügbar gemacht werden, in der Hostpartition (vNICs) in einem Team nicht. Gastteamvorgang vNICs in die Hostpartition wird in jeder Konfiguration nicht unterstützt. Versucht, Team-vNICs dazu vollständigen Verlust der Kommunikation, treten Netzwerkfehler auf.  
+    > Platzieren Sie keine virtuellen Hyper-V-NICs, die in der Host Partition (vNICs) in einem Team verfügbar gemacht werden. Das Teaming von vNICs innerhalb der Host Partition wird in keiner Konfiguration unterstützt. Versuche an Team-vNICs können zu einem vollen Kommunikations Verlust führen, wenn Netzwerkfehler auftreten.  
   
--   Kerneldebugger-Netzwerkadapter (KDNIC).  
+-   Kernel-Debug-Netzwerkadapter (kdnic).  
   
--   Netzwerkkarten, die für den Netzwerkstart verwendet werden.  
+-   NICs, die für den Netzwerkstart verwendet werden.  
   
--   Netzwerkkarten, die Technologien als Ethernet, z. B. WWAN, WLAN/Wi-Fi, Bluetooth und Infiniband, einschließlich Internet Protocol über NICs mit Infiniband (IPoIB) verwenden.  
+-   NICs, die andere Technologien als Ethernet verwenden, z. b. WWAN, WLAN/Wi-Fi, Bluetooth und InfiniBand, einschließlich Internet Protocol over InfiniBand (IPoIB) NICs.  
   
 ## <a name="compatibility"></a>Kompatibilität  
-NIC-Teamvorgang ist kompatibel mit allen netzwerktechnologien in Windows Server 2016 mit den folgenden Ausnahmen.  
+Nic-Team Vorgänge sind mit allen Netzwerktechnologien in Windows Server 2016 mit den folgenden Ausnahmen kompatibel.  
   
--   **Single-Root i/o-Virtualisierung (SR-IOV)** . Bei SR-IOV werden Daten direkt an die NIC übermittelt, ohne Umweg über den Netzwerkstapel (im Betriebssystem Hosts, bei der Virtualisierung). Aus diesem Grund ist es nicht möglich, für das NIC-Team, um zu überprüfen oder die Daten an einen anderen Pfad im Team umleiten.  
+-   E **/a-Virtualisierung mit Einzel Stamm (SR-IOV)** . Für SR-IOV werden Daten direkt an die NIC übermittelt, ohne dass Sie über den Netzwerk Stapel (im Fall der Virtualisierung im Host Betriebssystem) übergeben werden. Daher ist es nicht möglich, dass das NIC-Team die Daten überprüfen oder an einen anderen Pfad im Team umleiten kann.  
   
--   **Nativer Host Quality of Service (QoS)** . Wenn Sie QoS-Richtlinien auf ein systemeigenes oder Host-System, und diese Richtlinien aufrufen Mindestbandbreite Einschränkungen, müssen der Gesamtdurchsatz für eine NIC-Team ist kleiner als die ohne den Bandbreitenrichtlinien vorhanden wäre.  
+-   **Native Host Quality of Service (QoS)** . Wenn Sie QoS-Richtlinien auf einem systemeigenen oder Host System festlegen und diese Richtlinien Einschränkungen der Mindestbandbreite aufrufen, ist der Gesamtdurchsatz für ein NIC-Team geringer, als wenn die Bandbreiten Richtlinien vorhanden sind.  
   
--   **TCP Chimney**. TCP-Chimney wird nicht unterstützt, mit NIC-Teamvorgang, da TCP-Chimney entlasten Sie den gesamten Netzwerkstapel direkt auf die NIC.  
+-   **TCP-Chimney**. TCP-Chimney wird beim NIC-Team Vorgang nicht unterstützt, da TCP Chimney den gesamten Netzwerk Stapel direkt auf die NIC verlagert.  
   
--   **802.1 x Authentifizierung**. Sie sollten nicht 802.1X-Authentifizierung mit NIC-Teamvorgang verwenden, da einige Switches nicht die Konfiguration von 802.1 X Authentifizierung und NIC-Teamvorgang auf demselben Port zulassen.  
+-   **802.1 x-Authentifizierung**. Sie sollten die 802.1 x-Authentifizierung nicht mit NIC-Team Vorgang verwenden, da einige Switches die Konfiguration der 802.1 x-Authentifizierung und des NIC-Team Vorgangs auf demselben Port nicht zulassen.  
   
-Weitere Informationen zur NIC-Teamvorgang auf virtuellen Computern (VMs), die auf einem Hyper-V-Host ausgeführt werden, finden Sie unter [Erstellen eines neuen NIC-Teams auf einem Host oder virtuellen Computer](Create-a-New-NIC-Team-on-a-Host-Computer-or-VM.md).
+Informationen zur Verwendung des NIC-Team Vorgangs auf virtuellen Computern (VMS), die auf einem Hyper-V-Host ausgeführt werden, finden Sie unter [Erstellen eines neuen NIC-Teams auf einem Host Computer oder einer](Create-a-New-NIC-Team-on-a-Host-Computer-or-VM.md)virtuellen Maschine.
   
-## <a name="virtual-machine-queues-vmqs"></a>Warteschlangen für virtuelle Computer (Vmq)  
+## <a name="virtual-machine-queues-vmqs"></a>Warteschlangen für virtuelle Computer (vmqs)  
 
-Vmq wird eine NIC-Funktion, die eine Warteschlange für jeden virtuellen Computer reserviert.  Jedes Mal, wenn Sie Hyper-V aktiviert haben. VMQ muss ebenfalls aktiviert werden. In Windows Server 2016 verwenden Vmq NIC Switch vPorts mit einer einzigen Warteschlange zugewiesen wird, um die vPort aus, um die gleiche Funktionalität bereitzustellen. 
+Vmqs ist eine NIC-Funktion, die eine Warteschlange für jeden virtuellen Computer bereitstellt.  Wenn Sie Hyper-V aktiviert haben, Sie müssen auch VMQ aktivieren. In Windows Server 2016 verwendet vmqs NIC-Switch-VPORTS mit einer einzelnen Warteschlange, die dem VPort zugewiesen ist, um die gleiche Funktionalität bereitzustellen. 
 
-Je nach der Switch-Konfigurationsmodus und die Load-Verteilungsalgorithmus können stellt entweder die kleinste Anzahl von verfügbaren und unterstützten Warteschlangen über den alle Netzwerkadapter im Team (Min-Warteschlangen-Modus) oder die Gesamtanzahl von Warteschlangen zur Verfügung NIC-Teamvorgang, alle Teams Elemente (Summe der Warteschlangen Modus).  
+Abhängig vom switchkonfigurationsmodus und dem Auslastungs Verteilungs Algorithmus zeigt der NIC-Team Vorgang entweder die kleinste Anzahl von verfügbaren und unterstützten Warteschlangen von einem beliebigen Adapter im Team an (Modus für min. Warteschlangen) oder die Gesamtanzahl der für alle Teams verfügbaren Warteschlangen. Member (Sum-of-Queues-Modus).  
 
-Wenn das Team in Switchunabhängige teamvorgangsmodus ist, und die lastverteilung auf Hyper-V-Port-Modus oder im dynamischen Modus festlegen, ist die Anzahl der gemeldeten Warteschlangen die Summe aller Warteschlangen, die von den Teammitgliedern (Summe der Warteschlangen Modus) verfügbar. Die Anzahl der Warteschlangen, die gemeldet wird, andernfalls die kleinste Anzahl von Warteschlangen, die von jedem Mitglied des Teams (Min-Warteschlangen-Modus) unterstützt.
+Wenn sich das Team im switchunabhängigen Team Vorgang-Modus befindet und Sie die Lastenverteilung auf den Hyper-V-Port Modus oder den dynamischen Modus festlegen, wird die Anzahl der gemeldeten Warteschlangen als Summe aller Warteschlangen der Teammitglieder (Sum-of-Queue-Modus) zurückgegeben. Andernfalls ist die Anzahl der gemeldeten Warteschlangen die kleinste Anzahl von Warteschlangen, die von einem Teammitglied unterstützt werden (Modus für min. Warteschlangen).
 
-Hier ist die Antwort:  
+Dies ist der Grund:  
   
--   Wenn das Team switchunabhängige in Hyper-V-Port-Modus oder im dynamischen Modus den eingehenden Datenverkehr für einen Hyper-V-Switchport (VM) immer ist trifft auf demselben Teammitglied. Der Host kann Vorhersagen/Kontrolle welches Element empfängt den Datenverkehr für einen bestimmten virtuellen Computer, sodass NIC-Teamvorgang eingehenden zu der VMQ-Warteschlangen auf einem bestimmten Teammitglied zugewiesen werden können. NIC-Teamvorgang, arbeiten mit dem Hyper-V-Switch, legt die VMQ für einen virtuellen Computer, auf genau ein Teammitglied und wissen, dass eingehender Datenverkehr trifft an diese Warteschlange.  
+-   Wenn sich das switchunabhängige Team im Hyper-v-Porttyp oder im dynamischen Modus befindet, kommt der eingehende Datenverkehr für einen Hyper-v-Switchport (VM) immer auf demselben Teammitglied an. Der Host kann vorhersagen/steuern, welches Mitglied den Datenverkehr für einen bestimmten virtuellen Computer empfängt, sodass der NIC-Team Vorgang besser durchdacht werden kann, welche VMQ-Warteschlangen einem bestimmten Teammitglied zugeordnet werden sollen. Beim NIC-Team Vorgang, der mit dem Hyper-V-Switch arbeitet, wird VMQ für eine VM auf genau einem Teammitglied festgelegt, und es wird festgestellt, dass eingehender Datenverkehr diese Warteschlange erreicht  
   
--   Wenn das Team alle abhängigen Modus wechseln (statischer Teamvorgang oder LACP-teaming), wird der Switch, der das Team verbunden ist, steuert die Verteilung des eingehenden Datenverkehrs. Host NIC-Teamvorgang Software kann nicht vorhersagen, welche Team Member eingehenden Datenverkehr für einen virtuellen Computer ruft ab, und es kann sein, dass es sich bei der Switch den Datenverkehr für einen virtuellen Computer auf alle Teammitglieder verteilt. Als Ergebnis der NIC-Teamvorgang Software, arbeiten mit dem Hyper-V-Switch eine Warteschlange für den virtuellen Computer für jedes Teammitglied-Programmen die, nicht nur eine-Teammitglied.  
+-   Wenn sich das Team in einem Switch-abhängigen Modus befindet (statischer Team Vorgang oder LACP-Team Vorgang), steuert der Switch, mit dem das Team verbunden ist, die Verteilung des eingehenden Datenverkehrs. Die NIC-Team Vorgangs Software des Hosts kann nicht vorhersagen, welches Teammitglied den eingehenden Datenverkehr für einen virtuellen Computer erhält. der Switch verteilt den Datenverkehr für eine VM auf alle Teammitglieder. Das Ergebnis der NIC-Team Vorgangs Software, die mit dem Hyper-V-Switch arbeitet, programmiert eine Warteschlange für den virtuellen Computer auf jedem Teammitglied, nicht nur ein Teammitglied.  
   
--   Wenn das Team wird switchunabhängige-Modus und verwendet adresshash des Lastenausgleichs, der eingehende Datenverkehr ist immer in einer NIC (die primäre Teammitglied) - alle Daten auf nur einem Teammitglied. Da andere Teammitglieder Umgang mit eingehenden Datenverkehr sind nicht erhalten sie mit der gleichen Warteschlange als dem primären Mitglied so programmiert, dass wenn das primäre Mitglied ein Fehler auftritt, andere Teammitglieder kann verwendet werden, um eingehenden Datenverkehr übernehmen und die Warteschlangen bereits vorhanden sind.  
+-   Wenn sich das Team im Schalter unabhängigen Modus befindet und den Adress Hash-Lastenausgleich verwendet, kommt der eingehende Datenverkehr immer an eine NIC (das primäre Teammitglied), die alle auf nur einem Teammitglied ist. Da andere Teammitglieder nicht mit eingehendem Datenverkehr arbeiten, werden Sie mit denselben Warteschlangen wie der primäre Member programmiert, sodass bei einem Ausfall des primären Mitglieds alle anderen Teammitglieder verwendet werden können, um den eingehenden Datenverkehr zu übernehmen, und die Warteschlangen bereits vorhanden sind.  
 
-- Die meisten Netzwerkkarten haben Warteschlangen für entweder empfangen empfangsseitige Skalierung (RSS) oder VMQ, jedoch nicht zur gleichen Zeit. Einige Einstellungen VMQ Einstellungen für die RSS-Warteschlangen zu sein scheinen, aber sind Einstellungen für die generische Warteschlangen, die sowohl RSS als auch VMQ-verwendet abhängig von der Funktion aktuell verwendet wird. Jede NIC verfügt, in der erweiterten Eigenschaften, Werte für * RssBaseProcNumber und \*MaxRssProcessors. Im folgenden werden einige VMQ-Einstellungen, die eine bessere Systemleistung bereitstellen.  
+- Die meisten NICs haben Warteschlangen für die Empfangs seitige Skalierung (RSS) oder VMQ, aber nicht gleichzeitig. Einige VMQ-Einstellungen scheinen Einstellungen für RSS-Warteschlangen zu sein, sind jedoch Einstellungen in den generischen Warteschlangen, die sowohl von RSS als auch von VMQ abhängig davon verwendet werden, welches Feature aktuell verwendet wird. Jede NIC verfügt in ihren erweiterten Eigenschaften über Werte für * rssbaseprocnumber und \*maxrssprocoren. Im folgenden finden Sie einige VMQ-Einstellungen, die eine bessere Systemleistung bereitstellen.  
   
--   Im Idealfall jede NIC aufweisen sollte die * RssBaseProcNumber legen Sie auf eine gerade Zahl größer als oder gleich zwei (2). Der ersten physischen Prozessor Kern 0 (logische Prozessoren 0 und 1), in der Regel führt das System verarbeitet, damit die netzwerkverarbeitung von diesen physischen Prozessor nach steuern, sollten die meisten. Einige Feld Computerarchitekturen. keine zwei logische Prozessoren pro physischen Prozessor, sodass für solche Computer, der Basis-Prozessor größer als oder gleich 1 sein sollte. Wenn Sie im Zweifelsfall davon ausgegangen, dass Ihr Host ist ein Prozessor mit 2 logischen pro physischen Prozessor-Architektur.  
+-   Im Idealfall sollte für jede NIC die * rssbaseprocnumber auf eine gerade Zahl größer oder gleich zwei (2) festgelegt sein. Der erste physische Prozessor (Core 0 (logische Prozessoren 0 und 1) übernimmt in der Regel den größten Teil der Systemverarbeitung, sodass die Netzwerk Verarbeitung von diesem physischen Prozessor entfernt werden soll. Einige Computerarchitekturen verfügen nicht über zwei logische Prozessoren pro physischem Prozessor. Daher sollte der Basis Prozessor für solche Computer größer oder gleich 1 sein. Wenn Sie zweifelhaft sind, nehmen Sie an, dass Ihr Host einen 2 logischen Prozessor pro physischer Prozessorarchitektur verwendet.  
   
--   In der Summe der Warteschlangen Modus ist das Team sollte die Teammitglieder Prozessoren nicht überlappende sein. In einem 4-Core-Host (8 logische Prozessoren) mit einem Team von 2 NICs von 10 Gbit/s, konnte Sie z. B. die erste Bedingung, verwenden den Basis-Prozessor 2 und 4 Kerne nutzt, festlegen; Basis 6-Prozessor verwenden, und Verwenden von 2 Kerne, würde das zweite festgelegt werden.  
+-   Wenn sich das Team im Warteschlangen Modus befindet, sollten die Prozessoren der Teammitglieder sich nicht überlappen. Beispielsweise können Sie in einem 4-Kern-Host (8 logische Prozessoren) mit einem Team von 2 10Gbit/s-NICs das erste so festlegen, dass der Basis Prozessor 2 verwendet und vier Kerne verwendet werden. der zweite Wert wird so festgelegt, dass er den Basis Prozessor 6 verwendet und 2 Kerne verwendet.  
   
--   Die Prozessor-Sätze ein, die die Mitglieder des Teams müssen identisch sein, wenn das Team im Min-Warteschlangen-Modus befindet.  
+-   Wenn sich das Team im Modus für minimale Warteschlangen befindet, müssen die von den Teammitgliedern verwendeten Prozessor Sätze identisch sein.  
 
   
 ## <a name="hyper-v-network-virtualization-hnv"></a>Hyper-V-Netzwerkvirtualisierung (HNV)  
-NIC-Teamvorgang ist vollständig kompatibel mit Hyper-V-Netzwerkvirtualisierung (HNV).  Das HNV-Management-System bietet Informationen zum NIC-Teamvorgang Treiber, der ermöglicht, um die Last auf eine Weise zu verteilen, das hnv-Datenverkehr optimiert die NIC-Teamvorgang.  
+Der NIC-Team Vorgang ist vollständig kompatibel mit der Hyper-v-Netzwerkvirtualisierung (HNV).  Das HNV-Verwaltungssystem stellt Informationen für den NIC-Team Vorgangs Treiber bereit, mit dem NIC-Team Vorgänge die Last auf eine Weise verteilen können, die den HNV-Datenverkehr optimiert.  
   
 ## <a name="live-migration"></a>Livemigration  
-NIC-Teamvorgang auf virtuellen Computern, hat dies keine Auswirkungen auf Livemigration. Die gleichen Regeln vorhanden für Livemigration, und zwar unabhängig davon, ob der NIC-Teamvorgang auf dem virtuellen Computer konfigurieren.  
+Der NIC-Team Vorgang auf VMS wirkt sich nicht auf Livemigration aus. Die gleichen Regeln gelten für Livemigration, ob der NIC-Team Vorgang auf dem virtuellen Computer konfiguriert wird.  
 
 
 ## <a name="virtual-local-area-networks-vlans"></a>Virtuelle lokale Netzwerke (VLANs)
-Wenn Sie NIC-Teamvorgang verwenden, ermöglicht das Erstellen von mehreren teamschnittstellen einen Host gleichzeitig eine Verbindung zu verschiedenen VLANs aus. Konfigurieren Sie Ihre Umgebung die folgenden Richtlinien beachten:
+Wenn Sie den NIC-Team Vorgang verwenden, ermöglicht die Erstellung mehrerer Team Schnittstellen, dass ein Host gleichzeitig eine Verbindung mit verschiedenen VLANs herstellt. Konfigurieren Sie Ihre Umgebung mit den folgenden Richtlinien:
   
-- Bevor Sie NIC-Teamvorgang aktivieren, konfigurieren Sie den physischen Switchports, die Verbindung mit dem Teamvorgang Host trunkmodus (gemischten) verwenden. Physische Switch sollten sämtlichen Datenverkehr an dem Host übergeben, für die Filterung, ohne den Datenverkehr zu ändern.  
+- Bevor Sie den NIC-Team Vorgang aktivieren, konfigurieren Sie die physischen Switchports, die mit dem Team Vorgang-Host verbunden sind, um den trunk Modus (Promiscuous) zu verwenden. Der physische Switch sollte den gesamten Datenverkehr zum Filtern an den Host übergeben, ohne den Datenverkehr zu ändern.  
 
-- Konfigurieren Sie die VLAN-Filter nicht auf den Netzwerkkarten, indem Sie mit der Netzwerkkarte, die erweiterten Einstellungen für die Eigenschaften. Lassen Sie die NIC-Teamvorgang-Software oder den Hyper-V-Switch (falls vorhanden) VLAN gefiltert werden.  
+- Konfigurieren Sie keine VLAN-Filter für die NICs mithilfe der erweiterten NIC-Eigenschaften Einstellungen. Lassen Sie die NIC-Team Vorgangs Software oder den virtuellen Hyper-V-Switch (falls vorhanden) VLAN-Filterung durchführen.  
   
-### <a name="use-vlans-with-nic-teaming-in-a-vm"></a>Verwenden von VLANs mit NIC-Teamvorgang auf einem virtuellen Computer  
-Wenn ein Team mit einem virtuellen Hyper-V-Switch verbunden ist, muss alle VLAN-Segregation in den virtuellen Hyper-V-Switch nicht am NIC-Teamvorgang ausgeführt wird.  
+### <a name="use-vlans-with-nic-teaming-in-a-vm"></a>Verwenden von VLANs mit NIC-Team Vorgang auf einem virtuellen Computer  
+Wenn ein Team eine Verbindung mit einem virtuellen Hyper-v-Switch herstellt, müssen alle VLAN-Trennungen im virtuellen Hyper-v-Switch statt im NIC-Team Vorgang durchgeführt werden.  
 
-Planen der Verwendung von VLANs auf einem virtuellen Computer konfiguriert, die mit einem NIC-Team die folgenden Richtlinien beachten:
+Planen Sie die Verwendung von VLANs auf einem mit einem NIC-Team konfigurierten virtuellen Computer mithilfe der folgenden Richtlinien:
   
--   Die bevorzugte Methode für die Unterstützung von mehrere VLANs auf einem virtuellen Computer wird zum Konfigurieren des virtuellen Computers mit mehreren Ports auf dem virtuellen Hyper-V-Switch und ordnen Sie jeden Port mit einem VLAN. Nie team diese Ports auf dem virtuellen Computer auf, weil dies also Problem mit der Netzwerkverbindung verursacht.  
+-   Die bevorzugte Methode zur Unterstützung mehrerer VLANs auf einem virtuellen Computer besteht darin, die VM mit mehreren Ports auf dem virtuellen Hyper-V-Switch zu konfigurieren und jeden Port einem VLAN zuzuordnen. Diese Ports werden nie auf dem virtuellen Computer ausgeführt, da dadurch Netzwerk Kommunikationsprobleme verursacht werden.  
 
--   Wenn der virtuelle Computer über mehrere virtuelle SR-IOV-Funktionen (VFs) verfügt, stellen Sie sicher, dass sie sich in demselben VLAN sind, bevor sie auf der VM-Teamvorgang. Es ist ganz einfach möglich ist, so konfigurieren Sie die verschiedenen VFs werden in unterschiedlichen VLANs und diesem Fall kommt es Problem mit der Netzwerkverbindung.  
+-   Wenn der virtuelle Computer über mehrere virtuelle SR-IOV-Funktionen (VFS) verfügt, müssen Sie sicherstellen, dass Sie sich im gleichen VLAN befinden, bevor Sie Sie auf dem virtuellen Computer ausführen. Es ist problemlos möglich, die verschiedenen VFS so zu konfigurieren, dass Sie sich auf unterschiedlichen VLANs befinden. Dies bewirkt Probleme bei der Netzwerkkommunikation.  
  
   
 ### <a name="manage-network-interfaces-and-vlans"></a>Verwalten von Netzwerkschnittstellen und VLANs 
-Wenn Sie mehr als ein VLAN in einem Gastbetriebssystem verfügbar gemacht haben müssen, sollten Sie die Umbenennen der Ethernet-Schnittstellen, um auf die Schnittstelle zugewiesenen VLAN zu verdeutlichen. Angenommen, Sie verknüpfen **Ethernet** Schnittstelle mit der VLAN-12 und **Ethernet 2** eine Verbindung mit der VLAN-48, benennen Sie die Ethernet-Schnittstelle auf **EthernetVLAN12** und andere, **EthernetVLAN48**. 
+Wenn Sie mehr als ein VLAN in einem Gast Betriebssystem verfügbar machen müssen, sollten Sie die Ethernet-Schnittstellen umbenennen, um VLAN zu verdeutlichen, die der Schnittstelle zugewiesen sind. Wenn Sie z. b. **Ethernet** -Schnittstelle mit VLAN 12 und der **Ethernet 2** -Schnittstelle mit VLAN 48 verknüpfen, benennen Sie die Schnittstelle Ethernet in **EthernetVLAN12** und die andere in **EthernetVLAN48**um. 
 
-Benennen Sie die Schnittstellen mithilfe des Windows PowerShell-Befehls **Rename-NetAdapter** oder durch Ausführen des folgenden Verfahrens:
+Benennen Sie Schnittstellen mit dem Windows PowerShell **-Befehl Rename-netadapter** um, oder führen Sie die folgenden Schritte aus:
   
-1.  Im Server-Manager in **Eigenschaften** für den Netzwerkadapter, die Sie umbenennen möchten, klicken Sie auf den Link, um rechts neben den Namen des Netzwerkadapters. 
+1.  Klicken Sie in Server-Manager in den **Eigenschaften** für den Netzwerkadapter, den Sie umbenennen möchten, auf den Link rechts neben dem Namen des Netzwerkadapters. 
   
-2.  Mit der rechten Maustaste in des Netzwerkadapters, die Sie verwenden möchten, benennen Sie ein, und wählen Sie **umbenennen**.  
+2.  Klicken Sie mit der rechten Maustaste auf den Netzwerkadapter, den Sie umbenennen möchten, und wählen Sie **Umbenennen**.  
   
-3.  Geben Sie den neuen Namen für den Netzwerkadapter aus, und drücken Sie die EINGABETASTE.  
+3.  Geben Sie den neuen Namen für den Netzwerkadapter ein, und drücken Sie die EINGABETASTE.  
 
 
-## <a name="virtual-machines-vms"></a>Virtuelle Computer (VMs)
+## <a name="virtual-machines-vms"></a>Virtual Machines (VMS)
 
-Wenn Sie NIC-Teamvorgang auf einem virtuellen Computer verwenden möchten, müssen Sie die virtuellen Netzwerkadapter auf dem virtuellen Computer auf externe Hyper-V virtuelle Switches nur verbinden. Auf diese Weise können den virtuellen Computer Netzwerkkonnektivität sogar im Fall aufrechterhalten, wenn eines der physischen Netzwerkadapter, um einen virtuellen Switch ein Fehler auftritt verbunden, oder ruft getrennt. Virtuelle Netzwerkadapter mit internen oder privaten virtuellen Hyper-V-Switches verbunden sind, sind nicht mit dem Switch herstellen, wenn sie in einem Team sind, und Netzwerke ein Fehler, für den virtuellen Computer auftritt.  
+Wenn Sie den NIC-Team Vorgang auf einem virtuellen Computer verwenden möchten, müssen Sie die virtuellen Netzwerkadapter in der VM nur mit externen virtuellen Hyper-V-Switches verbinden. Dies ermöglicht es dem virtuellen Computer, die Netzwerk Konnektivität auch dann aufrechtzuerhalten, wenn einer der physischen Netzwerkadapter, die mit einem virtuellen Switch verbunden sind, fehlschlägt oder getrennt wird. Virtuelle Netzwerkadapter, die mit internen oder privaten virtuellen Hyper-V-Switches verbunden sind, können keine Verbindung mit dem Switch herstellen, wenn Sie sich in einem Team befinden, und die Netzwerkverbindung für den virtuellen Computer schlägt fehl.  
   
-NIC-Teamvorgang in Windows Server 2016 unterstützen Teams, die mit zwei Membern auf virtuellen Computern. Sie können größere Teams erstellen, aber es gibt keine Unterstützung für größere Teams. Jedes Teammitglied muss eine Verbindung mit einem anderen, externen, virtuelle Hyper-V-Switch herstellen, und die Netzwerkschnittstellen des virtuellen Computers müssen so konfiguriert werden, dass der Teamvorgang zulässig.
+Der NIC-Team Vorgang in Windows Server 2016 unterstützt Teams mit zwei Mitgliedern auf virtuellen Computern. Sie können größere Teams erstellen, aber es gibt keine Unterstützung für größere Teams. Jedes Teammitglied muss eine Verbindung mit einem anderen externen virtuellen Hyper-V-Switch herstellen, und die Netzwerkschnittstellen der VM müssen so konfiguriert werden, dass Team Vorgänge zulässig sind.
 
   
-Wenn Sie einen NIC-Teams auf einem virtuellen Computer konfigurieren, müssen Sie auswählen einer **teammodus** von _Switchunabhängig_ und ein **Lastenausgleichsmodus** von _Adresshash_.   
+Wenn Sie ein NIC-Team in einem virtuellen Computer konfigurieren, müssen Sie einen **Teaming-Modus** von _Switch Independent_ und den **Lasten Ausgleichs Modus** _Address Hash_auswählen.   
   
   
 ## <a name="sr-iov-capable-network-adapters"></a>SR-IOV-fähige Netzwerkadapter  
-SR-IOV-Datenverkehr kann von einem NIC-Team im oder unter der Hyper-V-Host kann nicht geschützt werden, da es über den Hyper-V-Switch geleitet nicht.  Klicken Sie mit der Option VM NIC-Teamvorgang können Sie zwei externer virtueller Hyper-V-Switches konfigurieren, jeweils einen eigenen SR-IOV-fähige NIC verbunden sind  
+Ein NIC-Team in oder auf dem Hyper-v-Host kann SR-IOV-Datenverkehr nicht schützen, da er nicht über den Hyper-V-Switch läuft.  Mit der Option VM-NIC-Team Vorgang können Sie zwei externe virtuelle Hyper-v-Switches konfigurieren, die jeweils mit einer eigenen SR-IOV-fähigen NIC verbunden sind.  
   
-![NIC-Teaming mit SR-IOV-fähige Netzwerkadapter](../../media/NIC-Teaming-in-Virtual-Machines--VMs-/nict_in_vm.jpg)  
+![Nic-Team Vorgang mit SR-IOV-fähigen Netzwerkadaptern](../../media/NIC-Teaming-in-Virtual-Machines--VMs-/nict_in_vm.jpg)  
   
-Jeder virtuelle Computer kann es sich um eine virtuelle Funktion (VF) von einem oder beiden SR-IOV-NICs und im Falle einer NIC trennen, Failover von der primären VF zum Sicherungsadapter (VF) verfügen. Alternativ können Sie der virtuellen Computer ein VF aus einer möglicherweise NIC und eine nicht-VF VmNIC mit einem anderen virtuellen Switch verbunden. Wenn die NIC, die die VF zugeordneten getrennt wird, der Datenverkehr können ein Failover auf den anderen Switch erfolgen, ohne Verlust der Verbindung.  
+Jeder virtuelle Computer kann über eine virtuelle Funktion (VF) aus einem oder beiden SR-IOV-NICs verfügen und ein Failover von der primären VF zum Sicherungs Adapter (VF), wenn eine NIC getrennt ist. Alternativ kann die VM über eine VF von einer NIC und eine nicht-VF-Vmnic verfügen, die mit einem anderen virtuellen Switch verbunden ist. Wenn die der VF zugeordnete NIC getrennt wird, kann der Datenverkehr ohne Verbindungsverlust ein Failover auf den anderen Switch durchführen.  
   
-Da Failover zwischen NICs in einem virtuellen Computer Datenverkehr gesendet wird, mit der MAC-Adresse von den anderen VmNIC führen kann, muss jeder virtuelle Hyper-V-Switch Port eines virtuellen Computers mit NIC-Teamvorgang zugeordnet festgelegt werden, um Teamvorgang zu ermöglichen. 
+Da ein Failover zwischen NICs auf einem virtuellen Computer dazu führen kann, dass Datenverkehr mit der Mac-Adresse der anderen Vmnic gesendet wird, muss jeder virtuelle Hyper-V-Switchport, der einem virtuellen Computer mithilfe des NIC-Team Vorgangs zugeordnet ist, so festgelegt werden, dass er 
 
 
 ## <a name="related-topics"></a>Verwandte Themen
 
-- [NIC-Teamvorgang-MAC-Adresse und -Verwaltung](NIC-Teaming-MAC-Address-Use-and-Management.md): Beim Konfigurieren eines NIC-Teams mit unabhängigen Modus wechseln und adresshash oder dynamische lastverteilung steuern das Team verwendet, die die MAC-Adresse (MAC) des primären Mitglieds-NIC-Team für ausgehenden Datenverkehr. Dem primären NIC-Team-Mitglied ist, einen Netzwerkadapter, die vom Betriebssystem aus den anfänglichen Satz von Team-Mitglieder ausgewählt wird.
+- [NIC-Team Vorgang MAC-Adress Verwendung und-Verwaltung](NIC-Teaming-MAC-Address-Use-and-Management.md): Wenn Sie ein NIC-Team mit dem Switch-unabhängigen Modus und entweder Address Hash oder Dynamic Load Distribution konfigurieren, verwendet das Team die Media Access Control (Mac)-Adresse des primären NIC-Teammitglieds für ausgehenden Datenverkehr. Das primäre NIC-Team Mitglied ist ein Netzwerkadapter, der vom Betriebssystem aus der anfänglichen Gruppe von Team Mitgliedern ausgewählt wird.
 
-- [Einstellungen für die NIC-Teamvorgang](nic-teaming-settings.md): In diesem Thema haben wir bieten Ihnen einen Überblick über den NIC-Team-Eigenschaften, z. B. Teamvorgang und Lastenausgleich Modi zu laden. Sie haben zudem Details über die Standby-adaptereinstellung und die Eigenschaft des primären Team-Schnittstelle. Wenn Sie in einem NIC-Team über mindestens zwei Netzwerkadapter verfügen, müssen Sie keinen Standby-Adapter für die Fehlertoleranz zu bestimmen.
+- [Einstellungen für NIC](nic-teaming-settings.md)-Team Vorgänge: In diesem Thema erhalten Sie einen Überblick über die NIC-Team Eigenschaften, z. b. Team-und Lasten ausgleichsmodi. Außerdem erhalten Sie Informationen über die standbyadaptereinstellung und die Eigenschaft "primäre Team Schnittstelle". Wenn Sie über mindestens zwei Netzwerkadapter in einem NIC-Team verfügen, müssen Sie keinen Standby-Adapter für die Fehlertoleranz festlegen.
   
-- [Erstellen eines neuen NIC-Teams auf einem Host oder virtuellen Computer](Create-a-New-NIC-Team-on-a-Host-Computer-or-VM.md): In diesem Thema erstellen Sie einen neuen NIC-Teams auf einem Hostcomputer oder in einer Hyper-V-Computer (VM) unter Windows Server 2016.
+- [Erstellen eines neuen NIC-Teams auf einem Host Computer oder einer VM](Create-a-New-NIC-Team-on-a-Host-Computer-or-VM.md): In diesem Thema erstellen Sie ein neues NIC-Team auf einem Host Computer oder auf einem virtuellen Hyper-V-Computer (VM), auf dem Windows Server 2016 ausgeführt wird.
 
-- [Problembehandlung bei der NIC-Teamvorgang](Troubleshooting-NIC-Teaming.md): In diesem Thema werden Möglichkeiten zum Beheben von NIC-Teamvorgang, z. B. Hardware, Wertpapiere der physische Switch und das Deaktivieren oder aktivieren Netzwerkadapter, die mithilfe von Windows PowerShell beschrieben. 
+- [Problem](Troubleshooting-NIC-Teaming.md)Behandlung beim NIC-Team Vorgang: In diesem Thema wird erläutert, wie Sie Probleme mit dem NIC-Team Vorgang beheben, wie z. b. Hardware, physische switchwertgeräte und das Deaktivieren oder Aktivieren von Netzwerkadaptern mithilfe von Windows PowerShell. 
  

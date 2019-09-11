@@ -1,6 +1,6 @@
 ---
 title: Neustart oder Herunterfahren
-description: Erfahren Sie, wie auf einem System in MultiPoint Services vollständig herunterfahren oder neu starten
+description: Erfahren Sie, wie Sie ein System in Multipoint Services neu starten oder vollständig Herunterfahren.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.technology: multipoint-services
@@ -13,17 +13,17 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 159f3cbe3f70f47676460e1f006e332281f81b45
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d2ef7185dc660e50dfde1816ed843b9c2586e930
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814741"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871569"
 ---
 # <a name="restart-or-shut-down"></a>Neustart oder Herunterfahren
 Möglicherweise müssen Sie den Hostcomputer und alle *Stationen* Ihres MultiPoint Server-Systems neu starten, wenn Sie im Anschluss an die Installation von Hardware, Software und Softwareupdates dazu aufgefordert werden. Wenn Sie einer Station neue Hardwaregeräte hinzugefügt haben, möchten Sie diese möglicherweise der Station zuordnen. Weitere Informationen zum *Zuordnen von Stationen* finden Sie im Thema [Wechseln zwischen Modi](Switch-Between-Modes.md).  
   
-Um Ihr MultiPoint Server-System sicher auszuschalten, müssen Sie den Computer herunterfahren, wobei alle geöffneten Programme geschlossen werden, Windows heruntergefahren und der Computer mit allen zugeordneten *Stationen* ausgeschaltet wird. Ziehen Sie weder einfach das Netzkabel aus der Steckdose, noch drücken Sie einfach den **Netzschalter** am Computer. Am Ende des Tages sowie zur Installation neuer Hardware im Computergehäuse sollte der Computer heruntergefahren werden.  Wenn Sie dem System externe Hardware hinzufügen, müssen den Server ggf. ebenfalls herunterfahren oder neu starten.  
+Wenn Sie den Computer des Multipoint Services-Systems sicher ausschalten möchten, muss der Computer einen Vorgang zum Herunterfahren durchführen, bei dem alle geöffneten Programme geschlossen werden, Fenster heruntergefahren und der Computer und die zugehörigen *Stationen*ausgeschaltet werden. Ziehen Sie weder einfach das Netzkabel aus der Steckdose, noch drücken Sie einfach den **Netzschalter** am Computer. Am Ende des Tages sowie zur Installation neuer Hardware im Computergehäuse sollte der Computer heruntergefahren werden.  Wenn Sie dem System externe Hardware hinzufügen, müssen den Server ggf. ebenfalls herunterfahren oder neu starten.  
   
 > [!NOTE]  
 > Vor dem Herunterfahren oder Neustarten des Computers, auf dem MultiPoint Services ausgeführt wird, müssen alle Benutzer*sitzungen* beendet werden.  
@@ -32,16 +32,16 @@ Um Ihr MultiPoint Server-System sicher auszuschalten, müssen Sie den Computer h
   
 1.  Beenden Sie alle Benutzersitzungen. Weitere Informationen zum Beenden einer Benutzersitzung finden Sie im Thema [Beenden einer Benutzersitzung](End-a-User-Session.md).  
   
-2.  Klicken Sie im MultiPoint-Manager auf **Startseite**, und klicken Sie dann auf **den Computer neu starten**.  
+2.  Klicken Sie im Multipoint-Manager auf **Startseite**, und klicken Sie dann auf **Computer neu starten**.  
   
-## <a name="shut-down-the-computer"></a>Der Computer heruntergefahren  
+## <a name="shut-down-the-computer"></a>Herunterfahren des Computers  
   
 1.  Beenden Sie alle Benutzersitzungen. Weitere Informationen zum Beenden einer Benutzersitzung finden Sie im Thema [Beenden einer Benutzersitzung](End-a-User-Session.md).  
   
-2.  MultiPoint-Manager, klicken Sie auf die **Startseite** Registerkarte, und klicken Sie dann auf **den Computer Herunterfahren**.  
+2.  Klicken Sie im Multipoint-Manager auf die Registerkarte **Start** , und klicken Sie dann auf **Computer herunter**fahren.  
   
 ## <a name="see-also"></a>Siehe auch  
 [Beenden einer Benutzersitzung](End-a-User-Session.md)  
-[Verwalten von Systemaufgaben mit MultiPoint-Manager](Manage-System-Tasks-Using-MultiPoint-Manager.md)  
+[Verwalten von Systemaufgaben mithilfe des MultiPoint-Managers](Manage-System-Tasks-Using-MultiPoint-Manager.md)  
 [Wechseln zwischen Modi](Switch-Between-Modes.md)  
 [Abmelden oder Trennen von Benutzersitzungen](Log-off-or-Disconnect-User-Sessions.md)

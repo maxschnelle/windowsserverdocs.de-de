@@ -1,6 +1,6 @@
 ---
-title: Informationen zur Verschlüsselung der dump
-description: Beschreibt, wie Dumpdateien zu verschlüsseln und die Problembehandlung bei Verschlüsselung.
+title: Informationen zur dumpverschlüsselung
+description: Beschreibt das Verschlüsseln von Dumpdateien und die Problembehandlung bei der Verschlüsselung.
 ms.prod: windows-server-threshold
 manager: dongill
 ms.topic: article
@@ -8,54 +8,54 @@ author: larsiwer
 ms.asset: b78ab493-e7c3-41f5-ab36-29397f086f32
 ms.author: kathydav
 ms.date: 11/03/2016
-ms.openlocfilehash: e0ca8829aa8f93e7543b4183539beade3b4aeb47
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d46deee7fc9d911de2a6ee44ae097affe1d658a3
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812391"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70872140"
 ---
-# <a name="about-dump-encryption"></a>Informationen zur Verschlüsselung der dump
-Speicherabbildverschlüsselung kann verwendet werden, zum Verschlüsseln von Absturzabbildern und live-Dumps für ein System generiert wird. Die Dumps werden mit der ein symmetrischer Verschlüsselungsschlüssel wird generiert für jede Sicherung verschlüsselt. Dieser Schlüssel selbst wird verschlüsselt mit dem öffentlichen Schlüssel, die vom vertrauenswürdigen Administrator des Hosts (Crash Dumps Verschlüsselung-Schlüsselschutzvorrichtung) angegeben. Dadurch wird sichergestellt, dass nur eine Person mit den passenden privaten Schlüssel zu entschlüsseln und daher Zugriff auf Inhalt des Speicherabbilds. Diese Funktion wird in einem geschützten Fabric genutzt.
-Hinweis: Wenn Sie die speicherabbildverschlüsselung konfigurieren, auch deaktivieren Sie Windows-Fehlerberichterstattung. WER kann nicht verschlüsselte Absturzabbilder gelesen werden.
+# <a name="about-dump-encryption"></a>Informationen zur dumpverschlüsselung
+Die dumpverschlüsselung kann verwendet werden, um Absturz Abbilder und Live Abbilder zu verschlüsseln, die für ein System generiert werden. Die Abbilder werden mit einem symmetrischen Verschlüsselungsschlüssel verschlüsselt, der für jedes Abbild generiert wird. Dieser Schlüssel selbst wird dann mit dem öffentlichen Schlüssel verschlüsselt, der vom vertrauenswürdigen Administrator des Hosts angegeben wird (Schutzvorrichtung für Absturz Abbild Verschlüsselung). Dadurch wird sichergestellt, dass nur jemand, der über den entsprechenden privaten Schlüssel verfügt, den Inhalt des Abbilds entschlüsseln und somit darauf zugreifen kann Diese Funktion wird in einem geschützten Fabric genutzt.
+Hinweis: Wenn Sie die dumpverschlüsselung konfigurieren, deaktivieren Sie auch Windows-Fehlerberichterstattung. Wer kann verschlüsselte Absturz Abbilder nicht lesen.
 
-# <a name="configuring-dump-encryption"></a>Konfigurieren die speicherabbildverschlüsselung
+# <a name="configuring-dump-encryption"></a>Konfigurieren der dumpverschlüsselung
 ## <a name="manual-configuration"></a>Manuelle Konfiguration
-Um speicherabbildverschlüsselung mithilfe der Registrierung zu aktivieren, konfigurieren Sie die folgenden Registrierungswerte unter `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CrashControl`
+Um die dumpverschlüsselung mithilfe der Registrierung zu aktivieren, konfigurieren Sie die folgenden Registrierungs Werte unter`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CrashControl`
 
 | Wertname | Typ | Wert |
 | ---------- | ---- | ----- |
-| DumpEncryptionEnabled | DWORD | 1 zum Aktivieren der speicherabbildverschlüsselung, 0 zum Deaktivieren der speicherabbildverschlüsselung |
-| EncryptionCertificates\Certificate.1::PublicKey | Binär | Öffentliche Schlüssel (RSA, 2048-Bit), die für die Verschlüsselung von Dumps verwendet werden soll. Es muss sich um formatiert [BCRYPT_RSAKEY_BLOB](https://msdn.microsoft.com/library/windows/desktop/aa375531(v=vs.85).aspx). |
-| EncryptionCertificates\Certificate.1::Thumbprint | Zeichenfolge | Fingerabdruck des Zertifikats auf automatische Suche der privaten Schlüssel im lokalen Zertifikatspeicher lässt zu, wenn ein Absturzabbild zu entschlüsseln. |
+| Dumpverschlüsselungsfähig | DWORD | 1 zum Aktivieren der dumpverschlüsselung, 0 zum Deaktivieren der dumpverschlüsselung |
+| Verschlüsselungcertificates\certificate1::P ublickey | Binär | Öffentlicher Schlüssel (RSA, 2048 Bit), der zum Verschlüsseln von Dumps verwendet werden soll. Dies muss als [BCRYPT_RSAKEY_BLOB](https://msdn.microsoft.com/library/windows/desktop/aa375531(v=vs.85).aspx)formatiert werden. |
+| "Verschlüsselungcertificates\certificate1:: Thumbprint" | Zeichenfolge | Zertifikat Fingerabdruck, um die automatische Suche nach privatem Schlüssel im lokalen Zertifikat Speicher zuzulassen, wenn ein Absturz Abbild entschlüsselt wird. |
 
 
-## <a name="configuration-using-script"></a>Konfiguration mithilfe von Skripts
-Zur Vereinfachung der Konfiguration einer [Beispielskript](https://github.com/Microsoft/Virtualization-Documentation/tree/live/hyperv-tools/DumpEncryption) ist verfügbar, um die speicherabbildverschlüsselung basierend auf einem öffentlichen Schlüssel aus einem Zertifikat zu aktivieren.
+## <a name="configuration-using-script"></a>Konfiguration mithilfe eines Skripts
+Um die Konfiguration zu vereinfachen, ist ein [Beispielskript](https://github.com/Microsoft/Virtualization-Documentation/tree/live/hyperv-tools/DumpEncryption) verfügbar, das die Verschlüsselung auf der Grundlage eines öffentlichen Schlüssels aus einem Zertifikat ermöglicht.
 
-1. In einer vertrauenswürdigen Umgebung: Erstellen Sie ein Zertifikat mit einem 2048-Bit-RSA-Schlüssel und exportieren das öffentliche Zertifikat
-2. Auf der Zielhosts: Importieren Sie das öffentliche Zertifikat in den lokalen Zertifikatspeicher
-3. Führen Sie das Beispielskript für die Konfiguration 
+1. In einer vertrauenswürdigen Umgebung: Erstellen Sie ein Zertifikat mit einem 2048-Bit-RSA-Schlüssel, und exportieren Sie das öffentliche Zertifikat
+2. Auf Zielhosts: Importieren des öffentlichen Zertifikats in den lokalen Zertifikat Speicher
+3. Ausführen des Beispiel Konfigurations Skripts 
     ```
     .\Set-DumpEncryptionConfiguration.ps1 -Certificate (Cert:\CurrentUser\My\093568AB328DF385544FAFD57EE53D73EFAAF519) -Force
     ```
 
-# <a name="decrypting-encrypted-dumps"></a>Entschlüsselt verschlüsselten dumps
-Um eine vorhandene verschlüsselte Speicherabbilddatei entschlüsseln zu können, müssen Sie zum Herunterladen und installieren das Debuggen für Windows. Dieses Tool enthält KernelDumpDecrypt.exe die verwendet werden kann, um eine verschlüsselte Dumpdatei nicht entschlüsseln.
-Wenn das Zertifikat, einschließlich des privaten Schlüssels im Zertifikatspeicher des aktuellen Benutzers vorhanden ist, kann durch Aufrufen die Dumpdatei entschlüsselt werden
+# <a name="decrypting-encrypted-dumps"></a>Entschlüsseln verschlüsselter Abbilder
+Zum Entschlüsseln einer vorhandenen verschlüsselten Dumpdatei müssen Sie die Debugtools für Windows herunterladen und installieren. Diese toolmenge enthält "kerneldumpentschlüsseln. exe", mit dem eine verschlüsselte Dumpdatei entschlüsselt werden kann.
+Wenn das Zertifikat mit dem privaten Schlüssel im Zertifikat Speicher des aktuellen Benutzers vorhanden ist, kann die Dumpdatei durch Aufrufen von entschlüsselt werden.
 
 ```
     KernelDumpDecrypt.exe memory.dmp memory_decr.dmp
 ```
-Nach der Entschlüsselung können Tools wie WinDbg die entschlüsselte Datei öffnen.
+Nach der Entschlüsselung können Tools wie WinDBG die entschlüsselte Dumpdatei öffnen.
 
-# <a name="troubleshooting-dump-encryption"></a>Dump-Encryption-Problembehandlung
-Wenn speicherabbildverschlüsselung auf einem System aktiviert ist, jedoch keine Dumpdateien generiert werden, überprüfen Sie auf des Systems `System` Ereignisprotokoll `Kernel-IO` 1207-Ereignis. Wenn speicherabbildverschlüsselung nicht initialisiert werden kann, wird dieses Ereignis wird erstellt, und Dumps werden deaktiviert.
+# <a name="troubleshooting-dump-encryption"></a>Fehlerbehebung
+Wenn die dumpverschlüsselung auf einem System aktiviert ist, aber keine Abbilder generiert werden, überprüfen Sie das `System` Ereignisprotokoll des `Kernel-IO` Systems auf das Ereignis 1207. Wenn die dumpverschlüsselung nicht initialisiert werden kann, wird dieses Ereignis erstellt und Abbilder deaktiviert.
 
-| Detaillierte Fehlermeldung | Schritte, um zu vermeiden |
+| Ausführliche Fehlermeldung | Auszumindern Schritte |
 | ---------------------- | ----------------- |
-| Öffentliche Schlüssel oder Fingerabdruck Registrierung fehlt | Überprüfen Sie, ob die beiden Registrierungswerte am erwarteten Speicherort vorhanden ist. |
-| Ungültiger, öffentlicher Schlüssel | Stellen Sie sicher, dass der öffentliche Schlüssel gespeichert, die im Registrierungswert öffentlicher Schlüssel, als gespeichert wird [BCRYPT_RSAKEY_BLOB](https://msdn.microsoft.com/library/windows/desktop/aa375531(v=vs.85).aspx). |
-| Nicht unterstützte Größe für den öffentlichen Schlüssel | Derzeit werden nur 2048-Bit-RSA-Schlüssel unterstützt. Konfigurieren eines Schlüssels, das dieser Anforderung entspricht. |
+| Der öffentliche Schlüssel oder die Fingerabdruck Registrierung fehlt. | Überprüfen Sie, ob beide Registrierungs Werte am erwarteten Speicherort vorhanden sind. |
+| Ungültiger öffentlicher Schlüssel | Stellen Sie sicher, dass der öffentliche Schlüssel, der im Registrierungs Wert PublicKey gespeichert ist, als [BCRYPT_RSAKEY_BLOB](https://msdn.microsoft.com/library/windows/desktop/aa375531(v=vs.85).aspx)gespeichert wird. |
+| Nicht unterstützte Größe des öffentlichen Schlüssels | Derzeit werden nur 2048-Bit-RSA-Schlüssel unterstützt. Konfigurieren Sie einen Schlüssel, der dieser Anforderung entspricht. |
 
-Außerdem überprüfen, ob der Wert `GuardedHost` unter `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CrashControl\ForceDumpsDisabled` auf einen anderen Wert als 0 festgelegt ist. Dadurch werden Absturzabbilder vollständig deaktiviert. Wenn dies der Fall ist, wird es auf 0 festgelegt.
+Überprüfen Sie auch, `GuardedHost` ob `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CrashControl\ForceDumpsDisabled` der Wert unter auf einen anderen Wert als 0 festgelegt ist. Dadurch werden Absturz Abbilder vollständig deaktiviert. Wenn dies der Fall ist, legen Sie den Wert auf 0 fest.

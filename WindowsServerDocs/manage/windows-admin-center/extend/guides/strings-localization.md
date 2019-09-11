@@ -1,6 +1,6 @@
 ---
-title: Zeichenfolgen und Lokalisierung in Windows Admin Center
-description: Erfahren Sie mehr über die Vorbereitung von Zeichenfolgen für die Lokalisierung in Windows Admin Center-SDK (Projekt Honolulu)
+title: Zeichen folgen und Lokalisierung im Windows Admin Center
+description: Erfahren Sie, wie Sie Ihre Zeichen folgen im Windows Admin Center SDK (Project Honolulu) für die Lokalisierung vorbereiten.
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
@@ -8,32 +8,73 @@ ms.author: niwashbu
 ms.date: 06/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: fb328f86c98141a5a2a1c4fd05ec1d4c96a7bc5f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 4cc624dcc985f13f97b7bbc767de6bbb9c72217a
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845401"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869713"
 ---
-# <a name="strings-and-localization-in-windows-admin-center"></a>Zeichenfolgen und Lokalisierung in Windows Admin Center #
+# <a name="strings-and-localization-in-windows-admin-center"></a>Zeichen folgen und Lokalisierung im Windows Admin Center #
 
->Gilt für: Windows Admin Center, Windows Admin Center Preview
+>Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
-Ich ausführlichere in das Windows Admin Center-Extensions-SDK und sprechen über Zeichenfolgen und Lokalisierung.
+Im folgenden finden Sie weitere Informationen zum Windows Admin Center Extensions SDK und sprechen über Zeichen folgen und Lokalisierung.
 
-Zum Aktivieren der Lokalisierung aller Zeichenfolgen, die auf der Darstellungsebene, nutzen Sie die Datei strings.resjson unter /src/resources/strings - gerendert werden ist es sich bereits eingerichtet. Wenn Sie eine neue Zeichenfolge zu Ihrer Erweiterung hinzufügen möchten, fügen sie als einen neuen Eintrag zu dieser Resjson-Datei hinzu. Die vorhandene Struktur weist das folgende Format:
+Um die Lokalisierung aller Zeichen folgen zu aktivieren, die auf der Darstellungs Schicht gerendert werden, nutzen Sie die Datei Strings. resjson unter/src/Resources/Strings, die bereits eingerichtet ist. Wenn Sie der Erweiterung eine neue Zeichenfolge hinzufügen müssen, fügen Sie diese dieser resjson-Datei als neuen Eintrag hinzu. Die vorhandene Struktur folgt dem folgenden Format:
 
 ``` ts
 "<YourExtensionName>_<Component>_<Accessor>": "Your string value goes here.",
 ```
 
-Sie können jedes gewünschte Format für Zeichenfolgen verwenden, aber beachten Sie, dass der Generierungsprozess (der Prozess, die von der Resjson verwendet und gibt die verwendbare TypeScript-Klasse), Unterstrich (_), Punkte (.) konvertiert werden.
+Sie können ein beliebiges Format für die Zeichen folgen verwenden, aber beachten Sie, dass der Generierungsprozess (der Prozess, der den resjson-Code annimmt und die verwendbare typescript-Klasse ausgibt) Unterstrich (_) in Punkte (.) konvertiert.
 
-Angenommen, dieser Eintrag:
+Dieser Eintrag lautet z. b.:
 ``` ts
 "HelloWorld_cim_title": "CIM Component",
 ```
-Wird die folgende Struktur für den Accessor generiert:
+Generiert die folgende accessorstruktur:
 ``` ts
 MsftSme.resourcesStrings<Strings>().HelloWorld.cim.title;
 ```
+
+## <a name="add-other-languages-for-localization"></a>Hinzufügen weiterer Sprachen für die Lokalisierung ## 
+
+Für die Lokalisierung in andere Sprachen muss für jede Sprache eine Strings. resjson-Datei erstellt werden. Diese Dateien müssen stellen in ```\loc\output\{!ExtensionName}\{!LanguageFolder}\strings.resjson```sein. Die verfügbaren Sprachen mit den entsprechenden Ordnern lauten:
+
+| Sprache      | Ordner      |
+| ------------- |-------------|
+| Čeština | cs-CZ |
+| Deutsch | de-DE |
+| Englisch | en-US |
+| Español | es-ES |
+| Français | fr-FR | 
+| Magyar | hu-HU | 
+| Italiano | it-IT |
+| 日本語 | ja-JP | 
+| 한국어 | ko-KR | 
+| Nederlands | nl-NL |
+| Polski | pl-PL |
+| Português (Brasil) | pt-BR |
+| Português (Portugal) | pt-PT |
+| "", "". | ru-RU |
+| Svenska | sv-SE |
+| Türkçe    | tr-TR |
+| 中文(简体) | zh-CN |
+| 中文(繁體) | zh-TW |
+> [!NOTE]
+> Wenn sich die Dateistruktur Anforderungen in Loc/Output unterscheiden, müssen Sie localeoffset für den Gulp-Task ' Generate-resjson-JSON-lokalisiert ' in der Datei ' gulpfile. js ' anpassen. Dieser Offset ist die Tiefe im Loc-Ordner, in der nach Strings. resjson-Dateien gesucht werden soll.
+
+Jede Strings. resjson-Datei wird auf die gleiche Weise formatiert, wie oben in diesem Handbuch bereits erwähnt. 
+
+Wenn Sie z. b. eine Lokalisierung für Español einschließen möchten, ```\loc\output\HelloWorld\es-ES\strings.resjson```schließen Sie diesen Eintrag in ein: 
+```json
+"HelloWorld_cim_title": "CIM Componente",
+```
+Wenn Sie lokalisierte Zeichen folgen hinzugefügt haben, muss Gulp Generate erneut ausgeführt werden, damit Sie angezeigt werden. Führen Sie Folgendes aus:
+``` cmd
+gulp generate 
+```
+
+Navigieren Sie zu, um zu bestätigen, dass die ```\src\app\assets\strings\{!LanguageFolder}\strings.resjson```Zeichen folgen generiert wurden. Der neu hinzugefügte Eintrag wird in dieser Datei angezeigt.
+Wenn Sie jetzt die Option "language" im Windows Admin Center wechseln, können Sie die lokalisierten Zeichen folgen in ihrer Erweiterung sehen. 

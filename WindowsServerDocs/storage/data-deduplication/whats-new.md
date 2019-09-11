@@ -8,36 +8,36 @@ author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 04/17/2019
-ms.openlocfilehash: 44a08443312d4e48b8fa518755e2a9b7aa50643c
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: ab32f6bec44b69b70c9e8cca2dadb4dff752cf88
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476074"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870241"
 ---
 # <a name="whats-new-in-data-deduplication"></a>Neuigkeiten bei der Datendeduplizierung
 
-> Gilt für: WindowsServer 2019, WindowsServer 2016, WindowsServer (Halbjährlicher Kanal)
+> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal)
 
-[Die Datendeduplizierung](overview.md) in Windows Server wurde optimiert und hoch leistungsfähige, flexible und in der privaten Cloud verwaltet werden. Weitere Informationen zum softwaredefinierten Speicherstapel in Windows Server finden Sie unter [neuerungen beim Speicher in Windows Server](../whats-new-in-storage.md).
+Die [Datendeduplizierung](overview.md) in Windows Server wurde optimiert und ist so optimiert, dass Sie auf Private Cloud Skalierung äußerst leistungsfähig, flexibel und verwaltbar ist. Weitere Informationen zum Software definierten Speicher Stapel in Windows Server finden Sie unter [What es New in Storage in Windows Server](../whats-new-in-storage.md).
 
-Die Datendeduplizierung hat die folgenden Verbesserungen in Windows Server-2019:
-
-| Funktionalität | Neu oder aktualisiert | Beschreibung |
-|---------------|----------------|-------------|
-| ReFS-Unterstützung  | Neu            | Store bis zu 10 Mal mehr Daten auf dem gleichen Volume mit Deduplizierung und Komprimierung für das ReFS-Dateisystem. (sie hat [nur einem Klick](https://www.youtube.com/watch?v=PRibTacyKko&feature=youtu.be) mit Windows Admin Center aktivieren.) Variabler Größe Blockspeicher mit optionalen Komprimierung maximiert einsparungen abgerechnet, während die mit mehreren Threads Nachbearbeitung Architektur Auswirkungen auf die Leistung minimal bleibt. Volumes unterstützt bis zu 64 TB und werden die erste 4 TB der einzelnen Dateien dedupliziert.|
-
-Die Datendeduplizierung weist die folgenden Verbesserungen, die ab Windows Server 2016:
+Die Datendeduplizierung bietet die folgenden Verbesserungen in Windows Server 2019:
 
 | Funktionalität | Neu oder aktualisiert | Beschreibung |
 |---------------|----------------|-------------|
-| [Unterstützung für große volumes](whats-new.md#large-volume-support) | Aktualisiert | Vor Windows Server 2016 musste die Größe der Volumes speziell für die erwartete Änderung konfiguriert werden, wobei Volumes mit über 10 TB keine geeigneten Kandidaten für die Deduplizierung waren. In Windows Server 2016 unterstützt die Datendeduplizierung Volumegrößen von bis zu 64 TB. |
+| Refs-Unterstützung  | Neu            | Speichern Sie bis zu 10 mal mehr Daten auf demselben Volume mit Deduplizierung und Komprimierung für das Refs-Dateisystem. (Es ist [nur ein Mausklick](https://www.youtube.com/watch?v=PRibTacyKko&feature=youtu.be) , um mit dem Windows Admin Center zu aktivieren.) Der Blockspeicher variabler Größe mit optionaler Komprimierung maximiert die Einsparungs Raten, während sich die nach Verarbeitungs Architektur mit mehreren Threads nur minimal auf die Leistung auswirkt. Von werden Volumes mit bis zu 64 TB unterstützt, und die ersten 4 TB der einzelnen Dateien werden dedupliziert.|
+
+Die Datendeduplizierung bietet die folgenden Verbesserungen ab Windows Server 2016:
+
+| Funktionalität | Neu oder aktualisiert | Beschreibung |
+|---------------|----------------|-------------|
+| [Unterstützung für große Volumes](whats-new.md#large-volume-support) | Aktualisiert | Vor Windows Server 2016 musste die Größe der Volumes speziell für die erwartete Änderung konfiguriert werden, wobei Volumes mit über 10 TB keine geeigneten Kandidaten für die Deduplizierung waren. In Windows Server 2016 unterstützt die Datendeduplizierung Volumegrößen von bis zu 64 TB. |
 | [Unterstützung für große Dateien](whats-new.md#large-file-support) | Aktualisiert | Vor Windows Server 2016 waren Dateien mit einer Größe von knapp 1 TB keine geeigneten Kandidaten für die Deduplizierung. In Windows Server 2016 werden Dateien mit einer Größe von bis zu 1 TB vollständig unterstützt. |
 | [Unterstützung für Nano Server](whats-new.md#nano-server-support) | Neu | Die Datendeduplizierung ist in der neuen Nano Server-Bereitstellungsoption für Windows Server 2016 verfügbar und wird von dieser Option vollständig unterstützt. |
 | [Vereinfachte Unterstützung von Sicherungen](whats-new.md#simple-backup-support) | Neu | In Windows Server 2012 R2 mussten eine Reihe manueller Konfigurationsschritte ausgeführt werden, um virtualisierte Sicherungsanwendungen wie Microsoft [Data Protection Manager](https://technet.microsoft.com/library/hh758173.aspx) zu unterstützten. In Windows Server 2016 wurde ein neuer Standardverwendungstyp (Sicherung) hinzugefügt, um eine nahtlose Bereitstellung der Datendeduplizierung für virtualisierte Sicherungsanwendungen zu ermöglichen.|
 | [Unterstützung für parallele Upgrades des Clusterbetriebssystems](whats-new.md#cluster-upgrade-support) | Neu | Die Datendeduplizierung bietet vollständige Unterstützung für das neue Feature für [parallele Upgrades des Clusterbetriebssystems](../..//failover-clustering/cluster-operating-system-rolling-upgrade.md) von Windows Server 2016. |
 
-## <a name="large-volume-support"></a>Unterstützung für große volumes
+## <a name="large-volume-support"></a>Unterstützung für große Volumes
 
 **Welchen Nutzen bietet diese Änderung?**  
 Um eine maximale Leistung bei der Datendeduplizierung in Windows Server 2012 R2 zu erreichen, muss die Größe von Volumes ordnungsgemäß konfiguriert werden, damit der Optimierungsauftrag mit der Geschwindigkeit von Datenänderungen Schritt halten kann. Das bedeutet, dass typischerweise nur bei Volumes mit einer Größe von maximal 10 TB eine gute Leistung bei der Datendeduplizierung erreicht wird (abhängig von den Schreibmustern der Workload).

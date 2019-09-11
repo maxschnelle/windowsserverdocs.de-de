@@ -9,27 +9,27 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: dbceb19d31738bdc5b628a9a2b069e5d3022d145
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: eb0547ac1d84fffed31360f0ee510504510c24ce
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190955"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867667"
 ---
 # <a name="review-the-role-of-the-federation-server-proxy-in-the-account-partner"></a>Überprüfen der Rolle des Verbundserverproxys beim Kontopartner
 
-Die primäre Rolle des des Verbundserverproxys im Umkreisnetzwerk der Kontopartnerorganisation in Active Directory-Verbunddienste \(AD FS\) besteht darin, Anmeldeinformationen für die Authentifizierung von einem Clientcomputer zu sammeln, die sich anmeldet über das Internet und die Anmeldeinformationen an den Verbundserver übergeben wird die im Unternehmensnetzwerk der Kontopartnerorganisation befindet. Das Konto für den Clientcomputer wird im Kontopartner-Attribut gespeichert.  
+Die primäre Rolle des Verbund Server Proxys im Umkreis Netzwerk der Konto Partnerorganisation in Active Directory-Verbunddienste (AD FS) \(AD FS\) besteht darin, Anmelde Informationen für die Authentifizierung von einem Client Computer zu sammeln, der sich anmeldet. über das Internet und, um diese Anmelde Informationen an den Verbund Server zu übergeben, der sich im Unternehmensnetzwerk der Konto Partnerorganisation befindet. Das Konto für den Client Computer wird im Attribut Speicher des Konto Partners gespeichert.  
   
-Auch kann ein Verbundserverproxy fungieren, in einer oder mehreren der folgenden Rollen, je nachdem, wie Sie darauf, um die Anforderungen der Kontopartnerorganisation konfigurieren:  
+Ein Verbund Server Proxy kann in Abhängigkeit davon, wie Sie ihn so konfigurieren, dass er den Anforderungen der Konto Partnerorganisation entspricht, auch in einer oder mehreren der folgenden Rollen funktionieren:  
   
--   Relaysicherheitstoken – der Verbundserver stellt ein Sicherheitstoken, des Verbundserverproxys, dem leitet dann das Token für den Clientcomputer verfügt. Mit dem Sicherheitstoken wird einer bestimmten Partei der Zugriff auf diesen Clientcomputer ermöglicht.  
+-   Relaysicherheitstoken – der Verbund Server gibt ein Sicherheits Token für den Verbund Server Proxy aus, der das Token dann an den Client Computer überträgt. Mit dem Sicherheitstoken wird einer bestimmten Partei der Zugriff auf diesen Clientcomputer ermöglicht.  
   
--   Sammeln von Anmeldeinformationen – der Verbundserverproxy verwendet ein standardwebformular für Clientanmeldung Webformular \(clientlogon.aspx\) zum Sammeln von Kennwort\-basierende Anmeldeinformationen über Formulare\--basierte Authentifizierung. Sie können jedoch dieses Formular, um andere unterstützte Arten von Authentifizierung, z. B. Secure Sockets Layer akzeptieren anpassen \(SSL\) Clientauthentifizierung. Weitere Informationen zum Anpassen dieser Seite finden Sie unter Anpassung der Clientanmeldung und Home Realm Discovery-Seiten \( [http:\/\/"go.Microsoft.com"\/Fwlink\/? LinkId\=104275](https://go.microsoft.com/fwlink/?LinkId=104275)\). Ein Verbundserverproxy akzeptiert keine Anmeldeinformationen über die integrierte Windows-Authentifizierung.  
+-   Sammeln von Anmelde Informationen – der Verbund Server Proxy verwendet ein Standardmäßiges \(Clientlogon-Webformular Clientlogon. aspx\) , um per\-Formular basierter Authentifizierung Kenn Wort\-basierte Anmelde Informationen zu sammeln. Sie können dieses Formular jedoch anpassen, um andere unterstützte Arten von Authentifizierung zu akzeptieren, z \(.\) b. Secure Sockets Layer SSL-Client Authentifizierung. Weitere Informationen zum Anpassen dieser Seite finden Sie unter Anpassen von Client Anmelde-und Start \(Bereichs Ermittlungs Seiten [http:\/\/go.Microsoft.com\/fwlink\/? LinkId\=104275.](https://go.microsoft.com/fwlink/?LinkId=104275)\) Ein Verbund Server Proxy akzeptiert keine Anmelde Informationen über die integrierte Windows-Authentifizierung.  
   
-Zusammenfassend lässt sich sagen, fungiert ein Verbundserverproxys beim Kontopartner als Proxy für Clientanmeldungen bei einem Verbundserver, der im Unternehmensnetzwerk befindet. Der Verbundserverproxy ermöglicht auch die Verteilung von Sicherheitstokens für Internetclients, die für vertrauende Seiten bestimmt sind.  
+Zusammenfassend gilt: ein Verbund Server Proxy im Konto Partner fungiert als Proxy für Client Anmeldungen bei einem Verbund Server, der sich im Unternehmensnetzwerk befindet. Der Verbund Server Proxy ermöglicht auch die Verteilung von Sicherheits Token an Internet Clients, die für vertrauende Seiten bestimmt sind.  
   
 > [!CAUTION]  
-> Bereitstellen eines Verbundserverproxys in der Kontopartner extranet greift die Clientanmeldung Webformular, die von jedem Benutzer mit dem Internet zugegriffen werden kann. Dies kann potenziell anfällig Ihrer Organisation auf einige Kennwort\-basierte Angriffe, z. B. Wörterbuchangriffe oder brute-Force-Angriffe, die Kontensperrungen für Benutzerkonten auslösen können, die in den Active Directory-Unternehmensdomäne gespeichert sind Dienste \(AD DS\).  
+> Beim verfügbar machen eines Verbund Server Proxys im Konto Partner-Extranet ist das Webformular für die Client Anmeldung für alle Benutzer mit Internet Zugriff zugänglich. Dadurch kann Ihre Organisation potenziell anfällig für einige Kenn Wort\-basierte Angriffe sein, z. b. Wörterbuchangriffe oder Brute-Force-Angriffe, die Konto Sperrungen für Benutzerkonten, die im Unternehmens Active Directory-Domäne gespeichert sind, auslöst. Dienste \(AD DS\).  
   
 
 ## <a name="see-also"></a>Siehe auch

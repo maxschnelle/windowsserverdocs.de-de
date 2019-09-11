@@ -9,74 +9,74 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: d2af0950e52d800202235bf674545f6c47e9cd88
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: ba7ed6baa30d15eea5ae08326847187ac85605d5
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190781"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867587"
 ---
 # <a name="using-ad-ds-claims-with-ad-fs"></a>Verwenden von AD DS-Ansprüchen mit AD FS
   
   
-Sie können umfangreichere Steuerung des Zugriffs auf verbundanwendungen mithilfe von Active Directory Domain Services aktivieren \(AD DS\)\-ausgestellt von Benutzer- und geräteansprüchen, zusammen mit Active Directory Federation Services \(AD FS \).  
+Sie können eine umfassendere Zugriffs Steuerung für Verbund Anwendungen ermöglichen, indem Sie \(Active Directory Domain Services\)AD DS\-Benutzer-und Geräteansprüche mit Active Directory-Verbunddienste (AD FS) \(ausgeben AD FS \).  
   
-## <a name="about-dynamic-access-control"></a>Informationen zur dynamischen Zugriffssteuerung  
-In Windows Server® 2012, das Feature für die dynamische Zugriffssteuerung ermöglicht es Organisationen, die Zugriff auf Dateien, die basierend auf Ansprüchen des Benutzers gewähren \(die stammen von Attribute des Benutzerkontos\) und geräteansprüchen \(die stammen von Attribute von Computerkonten\) , werden von Active Directory-Domänendiensten ausgestellt \(AD DS\). AD DS-Ansprüche ausgestellt werden in Windows integrierte Authentifizierung über das Authentifizierungsprotokoll Kerberos integriert.  
+## <a name="about-dynamic-access-control"></a>Informationen zu dynamischen Access Control  
+In Windows Server® 2012 ermöglicht die Funktion "dynamisches Access Control" Organisationen das Gewähren von Zugriff auf Dateien auf der \(Grundlage von Benutzer Ansprüchen, die von\) Benutzerkonto Attributen \(und Geräte Ansprüchen stammen, die von Computer Konto Attribute\) , die von Active Directory Domain Services \(AD DS\)ausgestellt werden. AD DS ausgestellte Ansprüche werden über das Kerberos-Authentifizierungsprotokoll in die integrierte Windows-Authentifizierung integriert.  
   
-Weitere Informationen zur dynamischen Zugriffssteuerung finden Sie unter [Dynamic Access Control Content Roadmap](../../solution-guides/Dynamic-Access-Control--Scenario-Overview.md#BKMK_APP).  
+Weitere Informationen zu dynamischen Access Control finden Sie unter [Dynamic Access Control Content Roadmap](../../solution-guides/Dynamic-Access-Control--Scenario-Overview.md#BKMK_APP).  
   
-### <a name="whats-new-in-ad-fs"></a>Was ist neu in AD FS?  
-Als Erweiterung für das Szenario für die dynamische Zugriffssteuerung können jetzt mit AD FS unter Windows Server 2012:  
+### <a name="whats-new-in-ad-fs"></a>Neues in AD FS  
+Als Erweiterung des dynamischen Access Control Szenarios können AD FS in Windows Server 2012 nun folgende Aktionen ausführen:  
   
--   Access-Konto Computerattribute neben der Attribute des Benutzerkontos aus in AD DS. In früheren Versionen von AD FS konnte den Verbunddienst nicht Computerattribute alle aus AD DS zugreifen.  
+-   Greifen Sie zusätzlich zu den Attributen von Benutzerkonten innerhalb AD DS auf Computer Konto Attribute zu. In früheren Versionen von AD FS konnte der Verbunddienst überhaupt nicht auf die Computer Konto Attribute von AD DS zugreifen.  
   
--   Nutzen Sie die AD DS-Benutzer oder Gerät Ansprüche ausgestellt, die in einer Kerberos-Authentifizierungsticket befinden. In früheren Versionen von AD FS die Anspruchs-Engine konnte der Benutzer- und Sicherheits-IDs lesen \(SIDs\) von Kerberos aber konnte nicht zum Lesen einer Anspruchsinformationen in ein Kerberos-Ticket enthalten sind.  
+-   Nutzen AD DS ausgegebene Benutzer-oder Geräteansprüche, die sich in einem Kerberos-Authentifizierungs Ticket befinden. In früheren Versionen von AD FS konnte die Anspruchs-Engine die Benutzer-und Gruppen Sicherheits-IDs \(der SIDs\) aus Kerberos lesen, konnte jedoch keine in einem Kerberos-Ticket enthaltenen Anspruchs Informationen lesen.  
   
--   Transformieren Sie AD DS ausgestellt von Benutzer- oder Geräteansprüche in SAML-Token, die Anwendungen der vertrauenden Seite verwenden können, um umfassendere Zugriffssteuerung auszuführen.  
+-   Transformieren Sie AD DS ausgegebene Benutzer-oder Geräteansprüche in SAML-Token, die vertrauende Anwendungen zum Ausführen einer umfassenderen Zugriffs Steuerung verwenden können.  
   
-## <a name="benefits-of-using-ad-ds-claims-with-ad-fs"></a>Vorteile der Verwendung von AD DS die Ansprüche mit AD FS  
-Diese AD DS-Ansprüche ausgestellt können in Kerberos-Authentifizierung-Tickets eingefügt werden und mit AD FS verwendet, um die folgenden Vorteile bieten:  
+## <a name="benefits-of-using-ad-ds-claims-with-ad-fs"></a>Vorteile der Verwendung von AD DS Ansprüchen mit AD FS  
+Diese AD DS ausgestellten Ansprüche können in Kerberos-Authentifizierungs Tickets eingefügt und mit AD FS verwendet werden, um die folgenden Vorteile zu bieten:  
   
--   Organisationen, benötigen umfassendere Access-Control-Richtlinien, können Ansprüche\-schlüsselbasierten Zugriff auf Anwendungen und Ressourcen unter Verwendung von AD DS Ansprüche ausgestellt, die auf den Attributwerten, die für eine bestimmte Benutzer- oder Computerkonto in AD DS gespeicherte basieren. Dadurch können Administratoren zusätzliche Aufwand in Zusammenhang mit der Erstellung und Verwaltung von senken:  
+-   Organisationen, die umfangreichere Richtlinien für die Zugriffs\-Steuerung benötigen, können Anspruchs basierten Zugriff auf Anwendungen und Ressourcen ermöglichen, indem Sie AD DS ausgestellte Ansprüche verwenden, die auf den in AD DS gespeicherten Attributwerten für ein bestimmtes Benutzer-oder Computer Konto basieren. Dies kann Administratoren helfen, zusätzlichen mehr Aufwand im Zusammenhang mit der Erstellung und Verwaltung zu reduzieren:  
   
-    -   AD DS-Sicherheitsgruppen, die andernfalls verwendet werden sollen, zur Steuerung des Zugriffs auf Anwendungen und Ressourcen, die über die integrierte Windows-Authentifizierung zugegriffen werden kann.  
+    -   AD DS Sicherheitsgruppen, die andernfalls zum Steuern des Zugriffs auf Anwendungen und Ressourcen verwendet werden, die über die integrierte Windows-Authentifizierung zugänglich sind.  
   
-    -   Gesamtstruktur-Vertrauensstellungen, die andernfalls verwendet werden würde, für die Steuerung des Zugriffs auf Business\-zu\-Business \(B2B\) \/ Internet zugängliche Anwendungen und Ressourcen.  
+    -   Gesamtstruktur-Vertrauens Stellungen, die andernfalls verwendet werden, um\-den\-Zugriff \(auf\) B2B \/ -Anwendungen und Ressourcen, die im Internet zugänglich sind, zu steuern  
   
--   Organisationen können jetzt verhindern, dass nicht autorisierten Zugriff auf Netzwerkressourcen Clientcomputer anhand der gibt an, ob ein bestimmtes Computerkonto in AD DS gespeicherte Wert des Attributs \(z. B. den Namen des Computers DNS\) entspricht die Zugriffssteuerung Richtlinie der Ressource \(z. B. einem Dateiserver, die durch eine ACL geschützt mit Ansprüchen\) oder Richtlinie der vertrauenden Seite \(z. B. eine Ansprüche\-bewusst Webanwendung\). Dadurch können Administratoren eine präzisere Zugriffssteuerungsrichtlinien für Ressourcen oder Anwendungen, die festlegen:  
+-   Organisationen können jetzt den nicht autorisierten Zugriff auf Netzwerkressourcen von Client Computern aus verhindern, abhängig davon, ob ein bestimmtes Computer Konto \(-Attribut in AD DS z. b.\) der DNS-Name eines Computers mit der Zugriffs Steuerung übereinstimmt. die Richtlinie der \(Ressource, z. b. ein Dateiserver, der mit Ansprüchen\) oder der Richtlinie \(der vertrauenden Seite verwendet wurde\-(z.\)b. eine Ansprüche unterstützende Webanwendung). Dies kann Administratoren helfen, präzisere Zugriffs Steuerungs Richtlinien für Ressourcen oder Anwendungen festzulegen, die Folgendes sind:  
   
-    -   Zugriff nur über die integrierte Windows-Authentifizierung.  
+    -   Nur über die integrierte Windows-Authentifizierung zugänglich.  
   
-    -   Internet, die über AD FS-Authentifizierungsmechanismen zugegriffen werden kann. AD FS kann verwendet werden, zum Transformieren von AD DS ausgestellt von geräteansprüchen in AD FS-Ansprüche, die in der SAML-Token gekapselt werden können, die von einer Internetressource-zugegriffen werden kann oder die Anwendung der vertrauenden Seite genutzt werden können.  
+    -   Internet Zugriff über AD FS Authentifizierungsmechanismen. Mit AD FS können AD DS ausgegebene Geräteansprüche in AD FS Ansprüche transformiert werden, die in SAML-Token gekapselt werden können, die von einer Ressource mit Internet Zugriff oder der Anwendung der vertrauenden Seite genutzt werden können.  
   
-## <a name="differences-between-ad-ds-and-ad-fs-issued-claims"></a>Unterschiede zwischen AD DS und AD FS ausgestellten Ansprüche  
-Es gibt zwei ausschlaggebenden Faktoren, die wichtig zu verstehen, zu Ansprüchen, die aus AD DS-Visual-Studio ausgegeben werden. AD FS. Zu diesen Unterschieden zählen:  
+## <a name="differences-between-ad-ds-and-ad-fs-issued-claims"></a>Unterschiede zwischen AD DS und AD FS ausgestellten Ansprüchen  
+Es gibt zwei unterschiedliche Faktoren, die wichtig sind, um Ansprüche zu verstehen, die von AD DS im Vergleich zu AD FS. Zu diesen Unterschieden gehören:  
   
--   AD DS können nur Ansprüche ausgeben, die in Kerberos-Tickets, SAML-Token nicht gekapselt sind. Weitere Informationen dazu, wie AD DS die Ansprüche ausstellt, finden Sie unter [Dynamic Access Control Content Roadmap](../../solution-guides/Dynamic-Access-Control--Scenario-Overview.md#BKMK_APP).  
+-   AD DS können nur Ansprüche ausstellen, die in Kerberos-Tickets gekapselt sind, nicht SAML-Token. Weitere Informationen darüber, wie AD DS Ansprüche ausgibt, finden Sie unter [Dynamic Access Control Content Roadmap](../../solution-guides/Dynamic-Access-Control--Scenario-Overview.md#BKMK_APP).  
   
--   AD FS kann nur Ansprüche ausstellen, die im SAML-Token, Kerberos-Tickets nicht gekapselt sind. Weitere Informationen dazu, wie AD FS Ansprüche ausstellt, finden Sie unter [die Rolle des Anspruchsmoduls](../../ad-fs/technical-reference/The-Role-of-the-Claims-Engine.md).  
+-   AD FS können nur Ansprüche ausstellen, die in SAML-Token gekapselt sind, nicht Kerberos-Tickets. Weitere Informationen dazu, wie AD FS Ansprüche ausgibt, finden Sie [unter The Role of the Claims Engine](../../ad-fs/technical-reference/The-Role-of-the-Claims-Engine.md).  
   
 ## <a name="how-ad-ds-issued-claims-work-with-ad-fs"></a>Ausgabe von Ansprüchen durch AD DS - Arbeiten mit AD FS  
-AD DS-Ansprüche ausgestellt, kann mit AD FS verwendet werden, sowohl Benutzer- und Geräteansprüche direkt aus des Benutzers authentifizierungskontext, anstatt einen separaten Aufruf von LDAP zu Active Directory den Zugriff auf. Die folgende Abbildung und die entsprechenden Schritte wird erläutert, wie dieser Prozess im Detail zu Ansprüchen funktioniert\--basierte Zugriffssteuerung für das Szenario für die dynamische Zugriffssteuerung.  
+AD DS ausgestellte Ansprüche können mit AD FS verwendet werden, um direkt aus dem Authentifizierungs Kontext des Benutzers auf Benutzer-und Geräteansprüche zuzugreifen, anstatt einen separaten LDAP-aufrufActive Directory zu erstellen. In der folgenden Abbildung und den entsprechenden Schritten wird erläutert, wie dieser Prozess ausführlicher funktioniert,\-um die Anspruchs basierte Zugriffs Steuerung für das dynamische Access Control Szenario zu aktivieren.  
   
-![Verwendung von Ansprüchen](media/UsingADDSClaimswithADFS.gif)  
+![Verwenden von Ansprüchen](media/UsingADDSClaimswithADFS.gif)  
   
-1.  Ein AD DS-Administrator verwendet die Active Directory Administrative Center-Konsole oder das PowerShell-Cmdlets ermöglicht bestimmten Anspruch Objekten in der AD DS-Schema.  
+1.  Ein AD DS Administrator verwendet die Active Directory-Verwaltungscenter-Konsole oder PowerShell-Cmdlets, um bestimmte Anspruchstyp Objekte im AD DS Schema zu aktivieren.  
   
-2.  Ein AD FS-Administrator verwendet die AD FS-Verwaltungskonsole zum Erstellen und Konfigurieren der Anspruchsanbieter-Vertrauensstellung und der vertrauenden Seite Vertrauensstellungen mit Pass\-über oder Transformation Anspruchsregeln.  
+2.  Ein AD FS Administrator verwendet die AD FS Management Console, um den Anspruchs Anbieter und Vertrauens Stellungen der vertrauenden Seite entweder mit\-Pass-Through-oder Transform-Anspruchs Regeln zu erstellen und zu konfigurieren.  
   
-3.  Ein Windows-Client versucht, auf das Netzwerk zugreifen. Im Rahmen der Kerberos-Authentifizierungsprozess wird der Client stellt die Benutzer- und Computerobjekte Ticket\-Gewähren von Tickets \(TGT\) die noch keinen Forderungen, mit dem Domänencontroller. Der Domänencontroller in AD DS aktiviert Anspruchstypen sucht und alle resultierenden Ansprüche im zurückgegebenen Kerberos-Ticket enthält.  
+3.  Ein Windows-Client versucht, auf das Netzwerk zuzugreifen. Im Rahmen des Kerberos-Authentifizierungs Vorgangs stellt der Client seinen Benutzer und das Computer Ticket\- \(\) , der noch keine Ansprüche enthält, für den Domänen Controller vor. Der Domänen Controller sucht dann in AD DS nach aktivierten Anspruchs Typen und schließt alle sich ergebenden Ansprüche in das zurückgegebene Kerberos-Ticket ein.  
   
-4.  Wenn der Benutzer\/Client versucht, eine Ressource zuzugreifen, die durch eine ACL geschützt, die Ansprüche erforderlich ist, sie können auf die Ressource zugreifen, da die Verbund-ID, die von Kerberos verfügbar gemacht wurde diese Ansprüche enthält.  
+4.  Wenn der Benutzer\/Client versucht, auf eine Datei Ressource zuzugreifen, die ACLD ist, um die Ansprüche anzufordern, kann er auf die Ressource zugreifen, da die Verbund-ID, die von Kerberos ausgegeben wurde, über diese Ansprüche verfügt.  
   
-5.  Wenn der gleiche Client versucht, die eine Website oder Web-Anwendung zugreifen, die für die AD FS-Authentifizierung konfiguriert ist, wird der Benutzer auf eine AD FS-Verbundserver umgeleitet, die für die integrierte Windows-Authentifizierung konfiguriert ist. Der Client sendet eine Anforderung an den Domänencontroller mithilfe von Kerberos. Der Domänencontroller gibt ein Kerberos-Ticket enthält die angeforderten Ansprüche, die der Client dann an den Verbundserver darstellen kann.  
+5.  Wenn derselbe Client versucht, auf eine Website oder Webanwendung zuzugreifen, die für die AD FS Authentifizierung konfiguriert ist, wird der Benutzer zu einem AD FS Verbund Server umgeleitet, der für die integrierte Windows-Authentifizierung konfiguriert ist. Der Client sendet mithilfe von Kerberos eine Anforderung an den Domänen Controller. Der Domänen Controller gibt ein Kerberos-Ticket aus, das die angeforderten Ansprüche enthält, die der Client dann dem Verbund Server präsentieren kann.  
   
-6.  Basierend auf die Möglichkeit, die die Anspruchsregeln für den Anspruchsanbieter konfiguriert wurden, und der vertrauenden Seite Vertrauensstellungen, dass der Administrator, die Sie zuvor konfiguriert haben, AD FS die Ansprüche aus dem Kerberos-Ticket liest und sie in einem SAML-Token fügt, das für den Client herausgegeben.  
+6.  Basierend auf der Art und Weise, in der die Anspruchs Regeln für den Anspruchs Anbieter und die Vertrauens Stellungen der vertrauenden Seite konfiguriert wurden, die der Administrator zuvor konfiguriert hat, liest AD FS die Ansprüche aus dem Kerberos-Ticket und schließt Sie in ein SAML-Token ein, das für den Client ausgegeben wird  
   
-7.  Der Client die Richtigkeit der Ansprüche mit SAML-Token empfängt, und klicken Sie dann auf der Website umgeleitet wird.  
+7.  Der Client empfängt das SAML-Token mit den richtigen Ansprüchen und wird dann an die Website umgeleitet.  
   
-Weitere Informationen zum Erstellen der Anspruchsregeln für AD DS ausgestellten zur Verwendung von AD FS Ansprüche erforderlich sind, finden Sie unter [erstellen Sie eine Regel zum Transformieren eines eingehenden Anspruchs](../../ad-fs/operations/Create-a-Rule-to-Transform-an-Incoming-Claim.md).  
+Weitere Informationen zum Erstellen der Anspruchs Regeln, die für AD DS ausgestellte Ansprüche zum Arbeiten mit AD FS erforderlich sind, finden Sie unter [Erstellen einer Regel zum Transformieren eines eingehenden Anspruchs](../../ad-fs/operations/Create-a-Rule-to-Transform-an-Incoming-Claim.md).  
   
 ## <a name="see-also"></a>Siehe auch
 [AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

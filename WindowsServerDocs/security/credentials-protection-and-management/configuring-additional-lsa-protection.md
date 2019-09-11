@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: bd5863a46f77fd4ac53c8559ff17279271dc5c46
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 90efc49b0d7ff6edd8367cece42bf7f2950de952
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849691"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870556"
 ---
 # <a name="configuring-additional-lsa-protection"></a>Konfigurieren von zusätzlichem LSA-Schutz
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 In diesem Thema für IT-Spezialisten erfahren Sie, wie Sie den zusätzlichen Schutz für den Prozess der lokalen Sicherheitsautorität (Local Security Authority, LSA) konfigurieren, um eine Codeinjizierung mit einer möglichen Beeinträchtigung der Anmeldeinformationen zu verhindern.
 
-Mithilfe der lokalen Sicherheitsautorität, die auch den LSASS-Prozess (Local Security Authority Subsystem Service, Subsystemdienst für die lokale Sicherheitsautorität) umfasst, werden Benutzer für die lokale Anmeldung und Remoteanmeldung überprüft und lokale Sicherheitsrichtlinien erzwungen. Das Betriebssystem Windows 8.1 bietet zusätzlichen Schutz für die lokale Sicherheitsautorität zu verhindern, dass Auslesen des Arbeitsspeichers und das injizieren von code durch ungeschützte Prozesse. Dies sorgt für eine erhöhte Sicherheit in Bezug auf Anmeldeinformationen, die von der lokalen Sicherheitsautorität gespeichert und verwaltet werden. Die geschützte prozesseinstellung für LSA kann in Windows 8.1 konfiguriert werden, aber es kann nicht konfiguriert werden, in Windows RT 8.1. Wenn diese Einstellung zusammen mit dem sicheren Start verwendet wird, erhöht dies den Schutz, da das Deaktivieren des Registrierungsschlüssels HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa keine Wirkung hat.
+Mithilfe der lokalen Sicherheitsautorität, die auch den LSASS-Prozess (Local Security Authority Subsystem Service, Subsystemdienst für die lokale Sicherheitsautorität) umfasst, werden Benutzer für die lokale Anmeldung und Remoteanmeldung überprüft und lokale Sicherheitsrichtlinien erzwungen. Das Betriebssystem Windows 8.1 bietet zusätzlichen Schutz für die LSA, um das Lesen von Speicher und Code Injektion durch nicht geschützte Prozesse zu verhindern. Dies sorgt für eine erhöhte Sicherheit in Bezug auf Anmeldeinformationen, die von der lokalen Sicherheitsautorität gespeichert und verwaltet werden. Die geschützte Prozess Einstellung für LSA kann in Windows 8.1 konfiguriert werden, Sie kann jedoch nicht in Windows RT 8,1 konfiguriert werden. Wenn diese Einstellung zusammen mit dem sicheren Start verwendet wird, erhöht dies den Schutz, da das Deaktivieren des Registrierungsschlüssels HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa keine Wirkung hat.
 
 ### <a name="protected-process-requirements-for-plug-ins-or-drivers"></a>Anforderungen an den geschützten Prozess für Plug-Ins oder Treiber
 Damit ein LSA-Plug-In oder -Treiber erfolgreich als geschützter Prozess geladen werden kann, muss er die folgenden Kriterien erfüllen:
@@ -35,7 +35,7 @@ Damit ein LSA-Plug-In oder -Treiber erfolgreich als geschützter Prozess geladen
 
     Der geschützte Modus erfordert, dass alle Plug-Ins, die in die lokale Sicherheitsautorität geladen werden, mit einer Microsoft-Signatur digital signiert werden. Daher können alle Plug-Ins, die nicht signiert sind bzw. nicht mit einer Microsoft-Signatur signiert sind, in der lokalen Sicherheitsautorität nicht geladen werden. Beispiele für diese Plug-Ins sind Smartcard-Treiber, kryptografische Plug-Ins und Kennwortfilter.
 
-    LSA-Plug-Ins, bei denen es sich um Treiber handelt, z. B. Smartcard-Treiber, müssen mithilfe der WHQL-Zertifizierung signiert werden. Weitere Informationen finden Sie unter [WHQL-Freigabesignatur](https://msdn.microsoft.com/library/windows/hardware/ff553976%28v=vs.85%29.aspx).
+    LSA-Plug-Ins, bei denen es sich um Treiber handelt, z. B. Smartcard-Treiber, müssen mithilfe der WHQL-Zertifizierung signiert werden. Weitere Informationen finden Sie unter [WHQL-releasesignatur](https://msdn.microsoft.com/library/windows/hardware/ff553976%28v=vs.85%29.aspx).
 
     LSA-Plug-Ins, die nicht über einen WHQL-Zertifizierungsprozess verfügen, müssen mithilfe des [Dateisignierdiensts für LSA](https://go.microsoft.com/fwlink/?LinkId=392590)signiert werden.
 
@@ -57,11 +57,11 @@ Nutzen Sie die folgende Liste, um eingehend zu testen, ob der LSA-Schutz aktivie
 
 -   Verwenden Sie die Überwachungsprotokolle zum Identifizieren von LSA-Plug-Ins und -Treibern, die nicht als geschützter Prozess ausgeführt werden können.
 
-#### <a name="limitations-introduced-with-enabled-lsa-protection"></a>Einschränkungen mit aktivierten LSA-Schutzes
+#### <a name="limitations-introduced-with-enabled-lsa-protection"></a>Mit aktiviertem LSA-Schutz eingeführte Einschränkungen
 
-Wenn der LSA-Schutz aktiviert ist, können nicht Sie ein benutzerdefinierte LSA-Plug-in Debuggen.
-Sie können nicht auf LSASS einen Debugger anfügen, wenn es sich um einen geschützten Prozess ist.
-Im Allgemeinen besteht keine Möglichkeit geschützten ausgeführten Prozess zu debuggen.
+Wenn LSA-Schutz aktiviert ist, können Sie kein benutzerdefiniertes LSA-Plug-in Debuggen
+Es ist nicht möglich, einen Debugger an LSASS anzufügen, wenn es sich um einen geschützten Prozess handelt.
+Im Allgemeinen gibt es keine unterstützte Möglichkeit zum Debuggen eines laufenden geschützten Prozesses.
 
 ## <a name="how-to-identify-lsa-plug-ins-and-drivers-that-fail-to-run-as-a-protected-process"></a>Identifizieren von LSA-Plug-Ins und -Treibern, die nicht als geschützter Prozess ausgeführt werden können
 Die in diesem Abschnitt beschriebenen Ereignisse sind im Betriebsprotokoll unter %%amp;quot;Anwendungs- und Dienstprotokolle\Microsoft\Windows\CodeIntegrity%%amp;quot; enthalten. Sie stellen eine Hilfe beim Identifizieren von LSA-Plug-Ins und -Treibern dar, die aufgrund von Signaturproblemen nicht geladen werden können. Zum Verwalten dieser Ereignisse können Sie das Befehlszeilentool **wevtutil** verwenden. Informationen zu diesem Befehl finden Sie unter [Wevtutil](../../administration/windows-commands/Wevtutil.md).
@@ -79,7 +79,7 @@ Mithilfe des Überwachungsmodus können Sie LSA-Plug-Ins und -Treiber identifizi
 
 Analysieren Sie die Ergebnisse von Ereignis 3065 und Ereignis 3066.
 
-Anschließend können Sie diese Ereignisse in der Ereignisanzeige finden Sie unter: Microsoft-Windows-Codeintegrity/Operational:
+Anschließend werden diese Ereignisse möglicherweise in Ereignisanzeige angezeigt: Microsoft-Windows-codeintegrity/Operational:
 
 -   **Ereignis 3065**: Mit diesem Ereignis wird aufgezeichnet, dass bei einer Codeintegritätsprüfung ermittelt wurde, dass ein Prozess (normalerweise "lsass.exe") einen bestimmten Treiber zu laden versucht hat, der die Sicherheitsanforderungen für freigegebene Abschnitte nicht erfüllt. Aufgrund der festgelegten Systemrichtlinie wurde das Laden des Images jedoch zugelassen.
 
@@ -126,7 +126,7 @@ Sie können das Ereignisprotokoll verwenden, um LSA-Plug-Ins und -Treiber zu ide
 
 Analysieren Sie die Ergebnisse von Ereignis 3033 und Ereignis 3063.
 
-Anschließend können Sie diese Ereignisse in der Ereignisanzeige finden Sie unter: Microsoft-Windows-Codeintegrity/Operational:
+Anschließend werden diese Ereignisse möglicherweise in Ereignisanzeige angezeigt: Microsoft-Windows-codeintegrity/Operational:
 
 -   **Ereignis 3033**: Mit diesem Ereignis wird aufgezeichnet, dass bei einer Codeintegritätsprüfung ermittelt wurde, dass ein Prozess (normalerweise "lsass.exe") einen Treiber zu laden versucht hat, der die Anforderungen an die Microsoft-Signaturebene nicht erfüllt.
 
@@ -134,8 +134,8 @@ Anschließend können Sie diese Ereignisse in der Ereignisanzeige finden Sie unt
 
 Freigegebene Abschnitte sind in der Regel das Ergebnis von Programmiertechniken, bei denen Instanzdaten mit anderen Prozessen interagieren können, für die der gleiche Sicherheitskontext verwendet wird. Dies kann zu Sicherheitsrisiken führen.
 
-## <a name="BKMK_HowToConfigure"></a>Vorgehensweise: Konfigurieren des zusätzlichen LSA-Schutzes für Anmeldeinformationen
-Auf Geräten mit Windows 8.1, (mit oder ohne sichere Start oder UEFI) ist ist durch die Verfahren in diesem Abschnitt beschriebenen Konfiguration möglich. Für Windows RT 8.1-Geräte lsass.exe Schutz immer aktiviert, und es kann nicht deaktiviert werden.
+## <a name="BKMK_HowToConfigure"></a>Konfigurieren des zusätzlichen LSA-Schutzes für Anmelde Informationen
+Auf Geräten mit Windows 8.1 (mit oder ohne sicheren Start oder UEFI) ist die Konfiguration möglich, indem die in diesem Abschnitt beschriebenen Verfahren ausgeführt werden. Bei Geräten, auf denen Windows RT 8,1 ausgeführt wird, ist der Schutz von LSASS. exe immer aktiviert und kann nicht deaktiviert werden.
 
 ### <a name="on-x86-based-or-x64-based-devices-using-secure-boot-and-uefi-or-not"></a>Auf x86-basierten oder x64-basierten Geräten mit oder ohne %%amp;quot;Sicherer Start%%amp;quot; und UEFI
 Auf x86-basierten oder x64-basierten Geräten, für die %%amp;quot;Sicherer Start%%amp;quot; und UEFI verwendet wird, wird in der UEFI-Firmware eine UEFI-Variable festgelegt, wenn der LSA-Schutz mithilfe des Registrierungsschlüssels aktiviert wird. Wenn die Einstellung in der Firmware gespeichert wird, kann die UEFI-Variable im Registrierungsschlüssel nicht gelöscht oder geändert werden. Die UEFI-Variable muss zurückgesetzt werden.
@@ -199,6 +199,6 @@ Wenn Sie ermitteln möchten, ob LSA beim Starten von Windows im geschützten Mod
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 [Schutz und Verwaltung von Anmeldeinformationen](credentials-protection-and-management.md)
 
-[Dateisignierdienst für LSA](https://go.microsoft.com/fwlink/?LinkId=392590)
+[Datei Signatur Dienst für LSA](https://go.microsoft.com/fwlink/?LinkId=392590)
 
 

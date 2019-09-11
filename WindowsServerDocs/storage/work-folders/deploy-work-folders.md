@@ -9,16 +9,16 @@ manager: dongill
 ms.author: jgerend
 ms.date: 6/24/2017
 description: Arbeitsordner bereitstellen, einschließlich der Installation der Serverrolle, der Erstellung von Synchronisierungsfreigaben und von DNS-Einträgen.
-ms.openlocfilehash: d2ba117a021cfc7361c0f7c8df2ed9f3c4bc9d94
-ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
+ms.openlocfilehash: 45b25befcde328e38f694b64fa7536a2b5c7f232
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67792342"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867027"
 ---
 # <a name="deploying-work-folders"></a>Bereitstellen von Arbeitsordnern
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, Windows 10, Windows 8.1, Windows 7
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10, Windows 8.1, Windows 7
 
 In diesem Thema werden die erforderlichen Schritte zum Implementieren von Arbeitsordnern erläutert. Es wird vorausgesetzt, dass Sie das Thema [Planen einer Arbeitsordnerbereitstellung](plan-work-folders.md) bereits gelesen haben.  
   
@@ -51,7 +51,7 @@ In diesem Thema werden die erforderlichen Schritte zum Implementieren von Arbeit
 ## <a name="step-2-create-dns-records"></a>Schritt 2: Erstellen von DNS-Einträgen  
  Damit Benutzer Ordner über das Internet synchronisieren können, müssen Sie einen Host (A)-Eintrag im öffentlichen DNS erstellen, um Internetclients das Auflösen der Arbeitsordner-URL zu ermöglichen. Dieser DNS-Eintrag muss in die externe Schnittstelle des Reverseproxyservers aufgelöst werden.  
   
- Erstellen Sie im internen Netzwerk einen Arbeitsordner „CNAME-Eintrag in DNS”, in dem der FDQN des Arbeitsordnerservers aufgelöst wird. Wenn Arbeitsordner-Clients AutoErmittlung verwenden, ist die URL verwendet, um die Arbeitsordner-Server ermitteln Https:\//workfolders.domain.com. Wenn Sie die AutoErmittlung verwenden möchten, muss der Workfolders „CNAME-Eintrag” in DNS vorhanden sein.  
+ Erstellen Sie im internen Netzwerk einen Arbeitsordner „CNAME-Eintrag in DNS”, in dem der FDQN des Arbeitsordnerservers aufgelöst wird. Wenn für Arbeitsordner Clients die Auto Ermittlung verwendet wird, lautet die URL, die zum Ermitteln des Arbeits\/Ordner Servers verwendet wird, https:/workfolders.Domain.com. Wenn Sie die AutoErmittlung verwenden möchten, muss der Workfolders „CNAME-Eintrag” in DNS vorhanden sein.  
   
 ## <a name="step-3-install-work-folders-on-file-servers"></a>Schritt 3: Installieren von Arbeitsordnern auf Dateiservern  
  Sie können Arbeitsordner mithilfe des Server-Managers oder mit Windows PowerShell lokal oder remote über das Netzwerk auf einem in eine Domäne eingebundenen Server installieren. Dies ist hilfreich, wenn Sie mehrere Synchronisierungsserver im Netzwerk konfigurieren.  
@@ -212,7 +212,7 @@ Im folgenden Beispiel wird eine neue Synchronisierungsfreigabe namens *Share01* 
 > [!TIP]
 >  Nachdem Sie Synchronisierungsfreigaben erstellt haben, können Sie die Daten in den Freigaben mit dem Ressourcen-Manager für Dateiserver verwalten. Sie können z. B. die Kachel **Kontingent** auf der Seite %%amp;quot;Arbeitsordner%%amp;quot; im Server-Manager verwenden, um Kontingente für die Benutzerordner festzulegen. Zudem können Sie mit [Dateiprüfungsverwaltung](https://technet.microsoft.com/library/cc732074.aspx) die Dateitypen steuern, die von Arbeitsordnern synchronisiert werden, oder wie in den Szenarien unter [Dynamische Zugriffssteuerung](https://technet.microsoft.com/windows-server-docs/identity/solution-guides/dynamic-access-control--scenario-overview) beschrieben komplexere Dateiklassifizierungen vornehmen.  
   
-## <a name="step-8-optionally-specify-a-tech-support-email-address"></a>Schritt 8: Geben Sie optional eine e-Mail-Adresse für technischen support   
+## <a name="step-8-optionally-specify-a-tech-support-email-address"></a>Schritt 8: Optional eine e-Mail-Adresse für den technischen Support angeben   
  Nach der Installation von Arbeitsordnern auf einem Dateiserver möchten Sie wahrscheinlich eine administrative E-Mail-Adresse für den Server angeben. Gehen Sie wie folgt vor, um eine E-Mail-Adresse hinzuzufügen:  
   
 #### <a name="specifying-an-administrative-contact-email"></a>Angeben einer Administratorkontakt-E-Mail-Adresse 
@@ -229,7 +229,7 @@ Im folgenden Beispiel wird eine neue Synchronisierungsfreigabe namens *Share01* 
  Wenn Sie in Ihrer Umgebung mehrere Synchronisierungsserver hosten, sollten Sie die automatische Serverermittlung konfigurieren, indem Sie die **msDS-SyncServerURL**-Eigenschaft in Benutzerkonten in AD DS auffüllen.  
   
 >[!NOTE]
->Die msDS-SyncServerURL-Eigenschaft im Active Directory sollte nicht für Remotebenutzer definiert werden, die über eine Reverseproxylösung wie beispielsweise Web Application Proxy oder Azure AD-Anwendungsproxy auf Arbeitsordner zugreifen. Wenn die msDS-SyncServerURL-Eigenschaft definiert ist, versucht der Arbeitsordner-Client auf eine interne URL zuzugreifen, auf die nicht über die Reverseproxylösung zugegriffen werden kann. Bei Verwendung des Webanwendungsproxys oder Azure AD-Anwendungsproxy müssen Sie eindeutige E-Mail-Anwendungen für jeden Arbeitsordner-Server erstellen. Weitere Informationen finden Sie unter [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Übersicht über die](deploy-work-folders-adfs-overview.md) oder [Bereitstellen von Arbeitsordnern mit Azure AD-Anwendungsproxy](https://blogs.technet.microsoft.com/filecab/2017/05/31/enable-remote-access-to-work-folders-using-azure-active-directory-application-proxy/).
+>Die msDS-SyncServerURL-Eigenschaft im Active Directory sollte nicht für Remotebenutzer definiert werden, die über eine Reverseproxylösung wie beispielsweise Web Application Proxy oder Azure AD-Anwendungsproxy auf Arbeitsordner zugreifen. Wenn die MSDS-SyncServerURL-Eigenschaft definiert ist, versucht der Arbeitsordner Client, auf eine interne URL zuzugreifen, auf die über die Reverseproxylösung nicht zugegriffen werden kann. Bei Verwendung des Webanwendungsproxys oder Azure AD-Anwendungsproxy müssen Sie eindeutige E-Mail-Anwendungen für jeden Arbeitsordner-Server erstellen. Weitere Informationen finden [Sie unter Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxys: Übersicht](deploy-work-folders-adfs-overview.md) oder bereitstellen [von Arbeits Ordnern mit Azure AD Anwendungs Proxy](https://blogs.technet.microsoft.com/filecab/2017/05/31/enable-remote-access-to-work-folders-using-azure-active-directory-application-proxy/).
 
 
  Zuvor müssen Sie einen Windows Server 2012 R2-Domänencontroller installieren oder mithilfe der Befehle `Adprep /forestprep` und `Adprep /domainprep` die Gesamtstruktur und die Domänenschemas aktualisieren. Informationen zur sicheren Ausführung dieser Befehle finden Sie unter [Ausführen von Adprep](https://technet.microsoft.com/library/dd464018.aspx).  
@@ -251,7 +251,7 @@ Im folgenden Beispiel wird eine neue Synchronisierungsfreigabe namens *Share01* 
 6.  Geben Sie im Feld **Hinzuzufügender Wert** die URL des Synchronisierungsservers ein, mit dem dieser Benutzer Ordner synchronisieren soll, klicken Sie auf **Hinzufügen**, auf **OK** und dann noch einmal auf **OK**.  
   
     > [!NOTE]
-    >  Die Synchronisierungsserver-URL lautet einfach `https://` oder `http://` (je nachdem, ob eine sichere Verbindung erforderlich ist) gefolgt vom vollqualifizierten Domänennamen des Synchronisierungsservers. Z. B. **Https:\//sync1.contoso.com**.
+    >  Die Synchronisierungsserver-URL lautet einfach `https://` oder `http://` (je nachdem, ob eine sichere Verbindung erforderlich ist) gefolgt vom vollqualifizierten Domänennamen des Synchronisierungsservers. Beispiel **: https:\//sync1.contoso.com**.
 
 Verwenden Sie Active Directory-PowerShell, um das Attribut für mehrere Benutzer aufzufüllen. Im folgenden Beispiel wird das Attribut für alle Mitglieder der in Schritt 5 erörterten Gruppe *Benutzer der Personal-Synchronisierungsfreigabe* aufgefüllt.
   
@@ -264,7 +264,7 @@ Set-ADUser –Add @{"msDS-SyncServerURL"=$SyncServerURL}
   
 ```  
   
-## <a name="step-10-optionally-configure-web-application-proxy-azure-ad-application-proxy-or-another-reverse-proxy"></a>Schritt 10: Konfigurieren Sie optional Web Application Proxy, Azure AD-Anwendungsproxy oder eines anderen Reverseproxys  
+## <a name="step-10-optionally-configure-web-application-proxy-azure-ad-application-proxy-or-another-reverse-proxy"></a>Schritt 10: Konfigurieren Sie optional den webanwendungsproxy, Azure AD Anwendungs Proxy oder einen anderen Reverseproxy  
 
 Um Remotebenutzern den Zugriff auf die Arbeitsordner zu ermöglichen, müssen Sie Arbeitsordner-Server über einen Reverseproxy veröffentlichen, sodass Arbeitsordner extern im Internet verfügbar sind. Verwenden Sie dazu Webanwendungsproxy, Azure Active Directory-Anwendungsproxy oder eine andere Reverseproxylösung.  
   
@@ -289,12 +289,12 @@ Wenn Sie für viele in eine Domäne eingebundene Computer Arbeitsordner bereitst
 > [!NOTE]
 >  Diese Richtlinieneinstellungen sind nur verfügbar, wenn Sie Gruppenrichtlinien auf einem Computer bearbeiten, auf dem die Gruppenrichtlinienverwaltung unter Windows 8.1, Windows Server 2012 R2 oder höher ausgeführt wird. In Versionen der Gruppenrichtlinienverwaltung von früheren Betriebssystemen sind diese Einstellungen nicht verfügbar. Diese Richtlinieneinstellungen gelten für Windows 7-PCs auf dem die App [Arbeitsordner für Windows 7](http://blogs.technet.com/b/filecab/archive/2014/04/24/work-folders-for-windows-7.aspx) installiert wurde.  
   
-##  <a name="BKMK_LINKS"></a> Siehe auch  
+##  <a name="BKMK_LINKS"></a>Siehe auch  
  Weitere verwandte Informationen finden Sie in den folgenden Ressourcen:  
   
 |Inhaltstyp|Verweise|  
 |------------------|----------------|  
 |**Grundlegendes zu**|-   [Arbeitsordner](work-folders-overview.md)|  
-|**Planung**|-   [Entwerfen einer Arbeitsordnerimplementierung](plan-work-folders.md)|
-|**Bereitstellung**|-   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy (WAP)](deploy-work-folders-adfs-overview.md)<br />-   [Test Lab Bereitstellung von Arbeitsordnern](http://blogs.technet.com/b/filecab/archive/2013/07/10/work-folders-test-lab-deployment.aspx) (Blogbeitrag)<br />-   [Neues Benutzerattribut für die Arbeitsordnerserver-Url](http://blogs.technet.com/b/filecab/archive/2013/10/09/a-new-user-attribute-for-work-folders-server-url.aspx) (Blogbeitrag)|  
-|**Technische Referenz**|-   [Interaktive Anmeldung: Schwellenwert für computerkontosperrung Computer](https://technet.microsoft.com/library/jj966264(v=ws.11).aspx)<br />-   [Cmdlets für synchronisierungsfreigaben](https://docs.microsoft.com/powershell/module/syncshare/?view=win10-ps)|
+|**Planung**|-   [Entwerfen einer Arbeitsordner Implementierung](plan-work-folders.md)|
+|**Bereitstellung**|-   [Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy (WAP)](deploy-work-folders-adfs-overview.md)<br />-   [Arbeitsordner-Test Umgebungs Bereitstellung](http://blogs.technet.com/b/filecab/archive/2013/07/10/work-folders-test-lab-deployment.aspx) (Blogbeitrag)<br />-   [Ein neues Benutzer Attribut für die Arbeitsordner Server-URL](http://blogs.technet.com/b/filecab/archive/2013/10/09/a-new-user-attribute-for-work-folders-server-url.aspx) (Blogbeitrag)|  
+|**Technische Referenz**|-   [Interaktive Anmeldung: Schwellenwert für Computer Kontosperrung](https://technet.microsoft.com/library/jj966264(v=ws.11).aspx)<br />-   [Synchronisierungs Freigabe-Cmdlets](https://docs.microsoft.com/powershell/module/syncshare/?view=win10-ps)|

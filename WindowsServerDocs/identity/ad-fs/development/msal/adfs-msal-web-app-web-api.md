@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: d2ac36180992d44f837ce74ace40cf95533309c9
-ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
+ms.openlocfilehash: 03328ff8c94d96fcf34dcef29ac1a1daefc9d14a
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69983428"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867487"
 ---
 # <a name="scenario-web-app-server-app-calling-web-api"></a>Szenario: Web-App (Server-APP) Aufrufen der Web-API 
 >Gilt für: AD FS 2019 und höher 
@@ -26,7 +26,7 @@ Bevor Sie diesen Artikel lesen, sollten Sie sich mit den [AD FS Konzepten](../ad
  
 ![Übersicht über Web-Apps, die Web-API aufrufen](media/adfs-msal-web-app-web-api/webapp1.png)
 
-In diesem Flow fügen Sie der Web-App (Server-APP) eine Authentifizierung hinzu, die daher Benutzer anmelden und eine Web-API aufrufen kann. Verwenden Sie in der Web-App zum Aufrufen der Web-API die [acquiretokenbyauthorizationcode](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identity.client.acquiretokenbyauthorizationcodeparameterbuilder?view=azure-dotnet) -tokenerwerbs-Methode von msal. Sie verwenden den Autorisierungs Code Fluss, der das erworbene Token im Tokencache speichert. Der Controller erhält bei Bedarf automatisch Token aus dem Cache. Msal aktualisiert das Token bei Bedarf. 
+In diesem Flow fügen Sie der Web-App (Server-APP) eine Authentifizierung hinzu, die daher Benutzer anmelden und eine Web-API aufrufen kann. Verwenden Sie in der Web-App zum Aufrufen der Web-API die [acquiretokenbyauthorizationcode-tokenerwerbs](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identity.client.acquiretokenbyauthorizationcodeparameterbuilder?view=azure-dotnet) -Methode von msal. Sie verwenden den Autorisierungs Code Fluss, der das erworbene Token im Tokencache speichert. Der Controller erhält bei Bedarf automatisch Token aus dem Cache. Msal aktualisiert das Token bei Bedarf. 
 
 Web-Apps, die Web-APIs aufrufen: 
 
@@ -47,7 +47,7 @@ Um besser zu verstehen, wie Sie eine Web-App in AD FS registrieren und zum Abruf
 In diesem Abschnitt wird gezeigt, wie Sie die Web-App als vertrauende Seite und Web-API als vertrauende Seite (RP) in AD FS registrieren. 
 
   1. Klicken Sie in AD FS Verwaltung mit der rechten Maustaste auf **Anwendungs Gruppen** , und wählen Sie **Anwendungs Gruppe hinzufügen**aus.  
-  2. Wählen Sie im Anwendungs Gruppen-Assistenten für den Namen **webappto WebAPI** aus, und wählen Sie unter **Client-Server Anwendungen** die Server Anwendung aus, die auf **eine Web-API** -Vorlage zugreift. Klicken Sie auf **Weiter**.  
+  2. Wählen Sie im Anwendungs Gruppen-Assistenten für den Namen **webappto WebAPI** aus, und wählen Sie unter **Client-Server Anwendungen** die Server Anwendung aus, die auf **eine Web-API-Vorlage zugreift** . Klicken Sie auf **Weiter**.  
   
       ![Anwendungs Gruppe hinzufügen](media/adfs-msal-web-app-web-api/webapp2.png)
   
@@ -59,7 +59,7 @@ In diesem Abschnitt wird gezeigt, wie Sie die Web-App als vertrauende Seite und 
   
       ![Anwendungs Gruppe hinzufügen](media/adfs-msal-web-app-web-api/webapp4.png)
   
-  5. Geben Sie auf dem Bildschirm Web-API konfigurieren den Bezeichner ein **:** https://webapi. Klicken Sie auf **Hinzufügen**. Klicken Sie auf **Weiter**. Dieser Wert wird später für " **Ida: graphresourceid** " in der Datei " **Web. config** " der Anwendung verwendet. 
+  5. Geben Sie auf dem Bildschirm Web-API konfigurieren den **Bezeichner ein:** https://webapi. Klicken Sie auf **Hinzufügen**. Klicken Sie auf **Weiter**. Dieser Wert wird später für " **Ida: graphresourceid** " in der Datei " **Web. config** " der Anwendung verwendet. 
   
       ![Anwendungs Gruppe hinzufügen](media/adfs-msal-web-app-web-api/webapp5.png)
   
@@ -90,7 +90,7 @@ In diesem Abschnitt wird gezeigt, wie eine ASP.net-Web-App für den Anmelde Benu
        - Ida: clientsecret: Geben Sie den **geheimen** Wert aus #4 in der APP-Registrierung in AD FS obigen Abschnitt ein. 
        - Ida: redirecturi: Geben Sie den **Umleitungs-URI** -Wert aus #3 in der APP-Registrierung in AD FS obigen Abschnitt ein. 
        - Ida: Authority-Enter https://[Your AD FS Hostname]/ADFS. Z. b. https://adfs.contoso.com/adfs 
-       - Ida: Resource: Geben Sie den Bezeichnerwert aus #5 in der APP-Registrierung in AD FS obigen Abschnitt ein. 
+       - Ida: Resource: Geben Sie den **Bezeichnerwert** aus #5 in der APP-Registrierung in AD FS obigen Abschnitt ein. 
       
           ![Anwendungs Gruppe hinzufügen](media/adfs-msal-web-app-web-api/webapp8.png)
  
@@ -121,5 +121,5 @@ In diesem Abschnitt wird gezeigt, wie das oben konfigurierte Beispiel getestet w
       ![Anwendungs Gruppe hinzufügen](media/adfs-msal-web-app-web-api/webapp13.png)
  
  ## <a name="next-steps"></a>Nächste Schritte
-[AD FS OpenID Connect/OAuth-Flows und Anwendungsszenarien](../../overview/ad-fs-openid-connect-oauth-flows-scenarios.md)
+[AD FS OpenID Connect-/OAuth-Flows und Anwendungsszenarien](../../overview/ad-fs-openid-connect-oauth-flows-scenarios.md)
  

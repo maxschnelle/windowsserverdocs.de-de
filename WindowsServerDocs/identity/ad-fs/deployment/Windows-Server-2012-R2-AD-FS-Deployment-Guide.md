@@ -9,17 +9,17 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 154e6e986bd0e78936a985ce7b80ee533ea5c82a
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 44b8fef82e2f758e99ef0f8d9b28a55d36f0cfdf
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191829"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867997"
 ---
-# <a name="windows-server-ad-fs-deployment-guide"></a>Windows Server AD FS-Bereitstellungshandbuch
+# <a name="windows-server-ad-fs-deployment-guide"></a>Bereitstellungs Handbuch für Windows Server AD FS
 
 
-Können Sie Active Directory Federation Services \(AD FS\) mit Windows Server 2016 und 2012 R2-Betriebssystem eines Identitätsverbunds verwaltungslösungen erstellen, die verteilte Identifikation der erweitern-Authentifizierung und Web-Autorisierungsdienste\--basierte Anwendungen über Unternehmens- und plattformübergreifend hinweg. Durch die Bereitstellung von AD FS können Sie die vorhandenen Identitätsverwaltungsfunktionen Ihrer Organisation auf das Internet erweitern.  
+Sie können Active Directory-Verbunddienste (AD FS) \(AD FS\) mit dem Betriebssystem Windows Server 2016 und 2012 R2 verwenden, um eine Verbund-Identitäts Verwaltungs Lösung zu erstellen, mit der verteilte Identifizierungs-, Authentifizierungs-und Autorisierungs Dienste für\-webbasierte Anwendungen über Organisations-und Platt Form Grenzen hinweg. Durch Bereitstellen von AD FS können Sie die vorhandenen Identitäts Verwaltungsfunktionen Ihrer Organisation auf das Internet erweitern.  
   
 -   [Bereitstellen einer Verbundserverfarm](Deploying-a-Federation-Server-Farm.md)  
   

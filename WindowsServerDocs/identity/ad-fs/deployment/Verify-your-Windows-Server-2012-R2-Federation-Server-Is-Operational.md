@@ -1,6 +1,6 @@
 ---
 ms.assetid: 1115d276-00f6-4c23-9278-eedcc31295d8
-title: Stellen Sie sicher, dass es sich bei dem Windows Server 2012 R2-Verbundserver betriebsbereit ist.
+title: Überprüfen, ob Ihr Windows Server 2012 R2-Verbund Server betriebsbereit ist
 description: ''
 author: billmath
 ms.author: billmath
@@ -9,50 +9,50 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 7cab415cc599f388c2bb5966d45998874ce56987
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: d32338d0e9242d12ab18fd30192736ea3b44fdb4
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191841"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868055"
 ---
-# <a name="verify-your-windows-server-2012-r2-federation-server-is-operational"></a>Stellen Sie sicher, dass es sich bei dem Windows Server 2012 R2-Verbundserver betriebsbereit ist.
+# <a name="verify-your-windows-server-2012-r2-federation-server-is-operational"></a>Überprüfen, ob Ihr Windows Server 2012 R2-Verbund Server betriebsbereit ist
 
 
 
 Mit den folgenden Prozeduren können Sie sicherstellen, dass ein Verbundserver funktionstüchtig ist, d. h., dass jeder Client in demselben Netzwerk einen neuen Verbundserver erreichen kann.  
   
-Zum Abschließen dieses Verfahrens ist mindestens die Mitgliedschaft in der Gruppe **Benutzer**, **Sicherungs-Operatoren**, **Hauptbenutzer**, **Administratoren** oder in einer anderen entsprechenden Gruppe auf dem lokalen Computer erforderlich.  Weitere Informationen zur Verwendung der geeigneten Konten und Gruppenmitgliedschaften unter [lokale und Domänenstandardgruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Zum Abschließen dieses Verfahrens ist mindestens die Mitgliedschaft in der Gruppe **Benutzer**, **Sicherungs-Operatoren**, **Hauptbenutzer**, **Administratoren** oder in einer anderen entsprechenden Gruppe auf dem lokalen Computer erforderlich.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
-### <a name="procedure-1-to-verify-that-a-federation-server-is-operational"></a>Schritt 1: So überprüfen Sie, ob ein Verbundserver betriebsbereit ist  
+### <a name="procedure-1-to-verify-that-a-federation-server-is-operational"></a>Prozedur 1: So überprüfen Sie, ob ein Verbundserver betriebsbereit ist  
   
-1.  Um sicherzustellen, dass Internetinformation Services \(IIS\) ordnungsgemäß konfiguriert ist, auf dem Verbundserver, melden Sie sich bei einem Clientcomputer, die in der gleichen Gesamtstruktur wie der Verbundserver befindet.  
+1.  Melden Sie sich bei \(einem\) Client Computer an, der sich in derselben Gesamtstruktur wie der Verbund Server befindet, um zu überprüfen, ob Internetinformationsdienste IIS ordnungsgemäß auf dem Verbund Server konfiguriert ist.  
   
-2.  Ein Browserfenster öffnen, geben Sie in der Adressleiste den DNS-Hostnamen des Verbundservers und fügen Sie dann \/Adfs\/fs\/federationserverservice.asmx, für den neuen Verbundserver, z.B.:  
+2.  Öffnen Sie ein Browserfenster, geben Sie in der Adressleiste den DNS-Hostnamen des Verbund Servers ein, \/und fügen\/Sie\/dann ADFS fs FederationServerService. asmx für den neuen Verbund Server hinzu, z. b.:  
   
-    **https:\/\/fs1.fabrikam.com\/adfs\/fs\/federationserverservice.asmx**  
+    **https:\/\/FS1.fabrikam.comADFS\/FS\/FederationServerService.asmx\/**  
   
-3.  Drücken Sie die EINGABETASTE, und führen Sie dann auf dem Verbundservercomputer die nächste Prozedur aus. Wenn die Meldung **Es besteht ein Problem mit dem Sicherheitszertifikat der Website** angezeigt wird, klicken Sie auf **Laden dieser Website fortsetzen**.  
+3.  Drücken Sie die EINGABETASTE, und führen Sie dann auf dem Verbundservercomputer die nächste Prozedur aus. Wenn die Meldung Es besteht **ein Problem mit dem Sicherheitszertifikat der Website**angezeigt wird, klicken Sie **auf diese Website fortsetzen**.  
   
     Als Ausgabe wird eine XML-Anzeige mit dem Dienstbeschreibungsdokument erwartet. Wenn diese Seite angezeigt wird, ist IIS auf dem Verbundserver funktionstüchtig und verarbeitet Anforderungen der Seiten erfolgreich.  
   
-Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Weitere Informationen zur Verwendung der geeigneten Konten und Gruppenmitgliedschaften unter [lokale und Domänenstandardgruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
-### <a name="procedure-2-to-verify-that-a-federation-server-is-operational"></a>Schritt 2: So überprüfen Sie, ob ein Verbundserver betriebsbereit ist  
+### <a name="procedure-2-to-verify-that-a-federation-server-is-operational"></a>Prozedur 2: So überprüfen Sie, ob ein Verbundserver betriebsbereit ist  
   
-1.  Melden Sie sich an den neuen Verbundserver als Administrator an.  
+1.  Melden Sie sich beim neuen Verbund Server als Administrator an.  
   
-2.  Auf der **starten** geben**Ereignisanzeige**, und drücken Sie dann die EINGABETASTE.  
+2.  Geben Sie auf dem **Start** Bildschirm**Ereignisanzeige**ein, und drücken Sie dann die EINGABETASTE.  
   
-3.  Doppelklicken Sie im Detailbereich,\-klicken Sie auf **Anwendungs- und Dienstprotokolle**, double\-klicken Sie auf **AD FS-Ereignisse**, und klicken Sie dann auf **Admin**.  
+3.  Doppel\-klicken Sie im Detailbereich auf **Anwendungs-und Dienst Protokolle**,\-Doppelklicken Sie auf **AD FS**Ereignis, und klicken Sie dann auf **Admin**.  
   
-4.  In der **Ereignis-ID** Spalte, suchen Sie nach Ereignis-ID 100. Wenn der Verbundserver ordnungsgemäß konfiguriert ist, sehen Sie ein neues Ereignis – im Anwendungsprotokoll der Ereignisanzeige, mit der Ereignis-ID 100. Dieses Ereignis bestätigt, dass der Verbundserver erfolgreich mit dem Verbunddienst kommunizieren konnte.  
+4.  Suchen Sie in der Spalte **Ereignis-ID** nach der Ereignis-ID 100. Wenn der Verbund Server ordnungsgemäß konfiguriert ist, wird ein neues Ereignis – im Anwendungsprotokoll von Ereignisanzeige – mit der Ereignis-ID 100 angezeigt. Dieses Ereignis überprüft, ob der Verbund Server erfolgreich mit dem Verbunddienst kommunizieren konnte.  
   
 ## <a name="see-also"></a>Siehe auch 
 
 [AD FS-Bereitstellung](../../ad-fs/AD-FS-Deployment.md)  
 
-[Windows Server 2012 R2 AD FS-Bereitstellung geführt.](../../ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)  
+[Windows Server 2012 R2 AD FS Bereitstellungs Handbuch](../../ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)  
  
 [Bereitstellen einer Verbundserverfarm](../../ad-fs/deployment/Deploying-a-Federation-Server-Farm.md)  
    

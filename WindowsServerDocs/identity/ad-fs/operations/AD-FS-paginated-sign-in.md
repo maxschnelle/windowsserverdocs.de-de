@@ -1,6 +1,6 @@
 ---
-title: AD FS paginierten-Anmeldung
-description: Dieses Dokument beschreibt die neue Anmeldung für AD FS-2019.
+title: AD FS paginierte Anmeldung
+description: In diesem Dokument wird die neue Anmelde Funktion für AD FS 2019 beschrieben.
 author: billmath
 ms.author: billmath
 manager: mtillman
@@ -8,60 +8,60 @@ ms.date: 09/19/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: c528b9c4e944849b7ed9a2fc5213a7b263be70c7
-ms.sourcegitcommit: ccc802338b163abdad2e53b55f39addcfea04603
+ms.openlocfilehash: 41938aef1c22f78a49e2817d0764b8110ef30f54
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687378"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866146"
 ---
-# <a name="ad-fs-paginated-sign-in"></a>AD FS paginierten-Anmeldung
+# <a name="ad-fs-paginated-sign-in"></a>AD FS paginierte Anmeldung
 
 
-Für AD FS in Windows Server-2019 haben wir die Anmeldeoberfläche neu entworfen.  Jetzt wird die AD FS-Anmeldung das gleiche Aussehen und Verhalten von Azure AD verfügen.  Dadurch erhalten Benutzer eine konsistentere-Anmeldung, zentriert und paginierten benutzerflow integrieren.
+Für AD FS in Windows Server 2019 haben wir die Anmelde Benutzeroberfläche umgestaltet.  Nun hat das AD FS Anmeldung dasselbe Aussehen und Gefühl Azure AD.  Dadurch erhalten Benutzer eine konsistentere Anmelde Leistung, die einen zentrierten und paginierten benutzerflow umfasst.
 
-## <a name="whats-changing"></a>Was ändert sich
-In AD FS in Windows Server 2012 R2 und 2016 sah Ihrer Anmeldeseite etwa wie folgt aus:
+## <a name="whats-changing"></a>Änderungen
+In AD FS in Windows Server 2012 R2 und 2016 hat ihr Anmeldebildschirm etwa wie folgt aussehen:
 
 ![oldsignin](media/AD-FS-paginated-sign-in/signin1.png)
 
-Wir Verschieben von einem einzigen Formular befindet sich auf der rechten Seite des Bildschirms angezeigt.
+Wir wechseln von der Anzeige eines einzelnen Formulars, das sich auf der rechten Seite des Bildschirms befindet.
 
-In AD FS in Windows Server-2019 sind dies die wichtige entwurfsänderungen an, denen angezeigt werden:
+In AD FS in Windows Server 2019 sind dies die wichtigsten Entwurfs Änderungen, die Sie sehen:
 
 
-- **Ein zentriert UI**. Zuvor war die Anmeldeoberfläche auf der rechten Seite des Bildschirms vorhanden, wie oben gezeigt. Wir haben die Benutzeroberfläche und in den Mittelpunkt, die Oberfläche zu modernisieren verschoben.
-- **Die Paginierung**. Statt Sie eine lange Form ausfüllen, haben wir einen neuen Datenfluss hinzugefügt, mit der Sie über den Anmeldevorgang schrittweise gelangen. Unsere Telemetrie angezeigt, dass bei diesem Ansatz unseren Kunden noch erfolgreicher Anmeldungen. Darüber hinaus werden wir mehr Flexibilität hinsichtlich der verschiedenen Authentifizierungsmethoden, wie Telefon-Factor Authentication integrieren.
+- **Eine zentrierte Benutzeroberfläche**. Zuvor war die Anmelde Benutzeroberfläche auf der rechten Seite des Bildschirms vorhanden, wie oben gezeigt. Wir haben die Benutzeroberfläche vor und zentriert verschoben, um die Benutzererfahrung zu modernisieren.
+- **Paginierung**. Anstatt Ihnen eine lange Form zum Ausfüllen bereitzustellen, haben wir einen neuen Flow integriert, der Sie Schritt für Schritt durch den Anmeldevorgang führt. Unsere Telemetrie zeigt, dass unsere Kunden bei diesem Ansatz eine größere Anzahl erfolgreicher Anmeldungen aufweisen. Außerdem bietet Sie mehr Flexibilität bei der Integration verschiedener Authentifizierungsmethoden, z. b. der Authentifizierung von US-Telefon Faktoren.
 
-![newsignin](media/AD-FS-paginated-sign-in/signin2.png)
+![neusignin](media/AD-FS-paginated-sign-in/signin2.png)
 
-Auf der ersten Seite werden Sie aufgefordert, Ihren Benutzernamen einzugeben. Sie können auch auswählen, die Option "Keep me angemeldet" verringern die Häufigkeit von anmeldeaufforderungen und angemeldet bleiben, wenn sie dazu sicher ist. (Diese Option ist standardmäßig deaktiviert.)
+Auf der ersten Seite werden Sie aufgefordert, Ihren Benutzernamen einzugeben. Sie können auch die Option "angemeldet bleiben" auswählen, um die Häufigkeit der Anmeldeaufforderungen zu verringern und angemeldet zu bleiben, wenn dies sicher ist. (Diese Option ist standardmäßig deaktiviert.)
 
-![newsignin](media/AD-FS-paginated-sign-in/signin3.png)
+![neusignin](media/AD-FS-paginated-sign-in/signin3.png)
 
-Klicken Sie auf der zweiten Seite werden Sie mit der Authentifizierungsoptionen, die von Ihrem Administrator konfiguriert angezeigt. Wenn externe Authentifizierung als primäre zulassen aktiviert ist, werden diese ebenfalls berücksichtigt.
+Auf der zweiten Seite werden die von Ihrem Administrator konfigurierten Authentifizierungs Optionen angezeigt. Wenn die Option externe Authentifizierung als primär zulassen aktiviert ist, wird diese ebenfalls eingeschlossen.
 
-![newsignin](media/AD-FS-paginated-sign-in/signin4.png)
+![neusignin](media/AD-FS-paginated-sign-in/signin4.png)
 
-Auf der dritten Seite werden Sie aufgefordert werden, geben Ihr Kennwort (vorausgesetzt, dass Sie auf "Password" ausgewählt, als Authentifizierung verwenden).
+Auf der dritten Seite werden Sie aufgefordert, Ihr Kennwort einzugeben (vorausgesetzt, Sie haben als Authentifizierungs Option "Kennwort" ausgewählt).
 
-## <a name="how-to-get-the-new-experience"></a>Gewusst wie: Abrufen die neue Oberfläche
+## <a name="how-to-get-the-new-experience"></a>So erhalten Sie die neue Funktion
 
 ### <a name="new-installation-of-ad-fs"></a>Neue Installation von AD FS
-Wenn Sie einen neuen Kunden mit AD FS sind, erhalten Sie standardmäßig das neue Design.
+Wenn Sie ein neuer Kunde sind AD FS, erhalten Sie den neuen Entwurf standardmäßig.
 
-### <a name="upgrading-a-farm"></a>Aktualisieren einer farm
-Wenn Sie Bestandskunde AD FS 2012 R2 oder 2016 sind, gibt es zwei Möglichkeiten, um das neue Design empfangen wird, nach dem Aktualisieren von Servern mit AD FS-2019 und aktivieren die FBL zu 2019.
+### <a name="upgrading-a-farm"></a>Aktualisieren einer Farm
+Wenn Sie ein vorhandener Kunde AD FS 2012 R2 oder 2016 sind, gibt es zwei Möglichkeiten, den neuen Entwurf nach dem Upgrade der Server auf AD FS 2019 zu erhalten und den FBL auf 2019 zu aktivieren.
 
-- Die neue Anmeldung mithilfe von Powershell zulassen. Führen Sie den folgenden Befehl aus, um die Paginierung zu aktivieren: ``Set-AdfsGlobalAuthenticationPolicy -EnablePaginatedAuthenticationPages $true``
+- Hiermit wird die neue Anmeldung über PowerShell zugelassen. Führen Sie den folgenden Befehl aus, um die Paginierung zu aktivieren:``Set-AdfsGlobalAuthenticationPolicy -EnablePaginatedAuthenticationPages $true``
 
- - Aktivieren Sie die externe Authentifizierung als primäres, entweder über Powershell oder über die AD FS-Server-Manager. Die neuen paginierten Anmeldeseiten werden aktiviert werden, wenn dieses Feature aktiviert ist.
-Wenn Sie einen neuen Kunden mit AD FS sind, erhalten Sie standardmäßig das neue Design. Wenn Sie Bestandskunde mit AD FS 2012 R2 oder 2016 sind, gibt es jedoch mehrere Schritte, die Sie durchführen müssen, um das neue Design empfangen müssen: ``Set-AdfsGlobalAuthenticationPolicy -AllowAdditionalAuthenticationAsPrimary $true``
+ - Aktivieren Sie die externe Authentifizierung als primär, entweder über PowerShell oder über die AD FS Server-Manager. Die neuen paginierten Anmelde Seiten werden aktiviert, wenn dieses Feature aktiviert ist.
+Wenn Sie ein neuer Kunde sind AD FS, erhalten Sie den neuen Entwurf standardmäßig. Wenn Sie jedoch ein vorhandener Kunde mit AD FS 2012 R2 oder 2016 sind, müssen Sie mehrere Schritte ausführen, um den neuen Entwurf zu erhalten:``Set-AdfsGlobalAuthenticationPolicy -AllowAdditionalAuthenticationAsPrimary $true``
 
 ## <a name="customization"></a>Anpassung
-Die Optionen für die Anpassung werden für AD FS-2019 weiterhin angewendet werden.
-Im folgenden sind einige Links zu anderen Dokumenten zu Referenzzwecken aus.
+Die Anpassungsoptionen gelten weiterhin für AD FS 2019.
+Im folgenden finden Sie einige Links zu anderen Dokumenten für Ihre Referenz.
 
-• Für diejenigen, die das neue Design möchten aber nicht möchten, aktualisieren Sie ihre Server mit AD FS-2019: [Verwenden ein Azure AD-UX-Web-Design in Active Directory-Verbunddienste](azure-ux-web-theme-in-ad-fs.md)
+• Für diejenigen, die nicht beabsichtigen, Ihre Server auf AD FS 2019 zu aktualisieren, aber trotzdem den neuen Entwurf wünschen: [Verwenden eines Azure AD UX-Webdesigns in Active Directory-Verbunddienste (AD FS)](azure-ux-web-theme-in-ad-fs.md)
 
-• Einem zentralen Ort für die Anpassung: [AD FS: Anpassung der Benutzeranmeldung](ad-fs-user-sign-in-customization.md)
+• Ein zentraler Speicherort für die Anpassung: [AD FS: Anpassung der Benutzeranmeldung](ad-fs-user-sign-in-customization.md)

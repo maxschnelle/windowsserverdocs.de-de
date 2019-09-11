@@ -1,6 +1,6 @@
 ---
 title: Abmelden oder Trennen von Benutzersitzungen
-description: Erfahren Sie, wie Sie manuell einen Benutzer abmelden
+description: Erfahren Sie, wie Sie einen Benutzer manuell abmelden.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.technology: multipoint-services
@@ -13,39 +13,39 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 518e9dc9ba9603d988a7e21e08caa29db9f04bde
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0e516a617341ffebadbdeb571a39f50369446f11
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854941"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871649"
 ---
 # <a name="log-off-or-disconnect-user-sessions"></a>Abmelden oder Trennen von Benutzersitzungen
-MultiPoint Services-Benutzer können anmelden und ihre Desktops Sitzungen, melden Sie sich wie bei jeder anderen Windows-Sitzung. Benutzer können auch trennen oder seine Sitzung anhalten, sodass die MultiPoint Services-Station nicht verwendet wird, aber ihre Sitzung im Arbeitsspeicher des MultiPoint Services-Systems aktiv bleibt.  
+Multipoint Services-Benutzer können sich bei Ihren Desktop Sitzungen anmelden und abmelden, genauso wie bei jeder beliebigen Windows-Sitzung. Benutzer können Ihre Sitzung auch trennen oder aussetzen, sodass die Multipoint Services-Station nicht verwendet wird, aber Ihre Sitzung bleibt im Arbeitsspeicher des Multipoint Services-Systems aktiv.  
   
-Darüber hinaus können Administratoren der Sitzung eines Benutzers beenden, wenn der Benutzer ihre MultiPoint Services-Sitzung verlassen oder vergessen hat, die vom System abzumelden.  
+Darüber hinaus können Administratoren die Sitzung eines Benutzers beenden, wenn der Benutzer von der Multipoint Services-Sitzung entfernt wurde oder vergessen hat, sich vom System abzumelden.  
   
 ## <a name="logging-off-or-disconnecting-a-session"></a>Abmelden oder Trennen einer Sitzung  
 In der folgenden Tabelle werden verschiedene Möglichkeiten beschrieben, mit deren Hilfe Sie bzw. andere Benutzer eine Sitzung abmelden, anhalten oder beenden können.  
   
 |||  
 |-|-|  
-|**Aktion**|**Effect**|  
-|Klicken Sie auf **starten**, klicken Sie auf Einstellungen, klicken Sie auf den Benutzernamen (in der oberen rechten Ecke), und klicken Sie dann auf **Abmelden**.|Die Sitzung wird beendet, und die Station steht für alle Benutzer zur Anmeldung zur Verfügung.|  
+|**Aktion**|**Entsprechende**|  
+|Klicken Sie auf **Start**, klicken Sie auf Einstellungen, klicken Sie auf den Benutzernamen (obere rechte Ecke), und klicken Sie dann auf **Abmelden**.|Die Sitzung wird beendet, und die Station steht für alle Benutzer zur Anmeldung zur Verfügung.|  
 |Klicken Sie auf **Start**, auf **Einstellungen**, auf „Ein/Aus“ und dann auf **Trennen**.|Ihre Sitzung wird getrennt und bleibt im Arbeitsspeicher des Computers erhalten. Die Station steht für denselben sowie andere Benutzer zur Anmeldung zur Verfügung.|  
-|Klicken Sie auf **starten**, klicken Sie auf Einstellungen, klicken Sie auf den Benutzernamen (in der oberen rechten Ecke), und klicken Sie dann auf **Sperren**|Die Station ist gesperrt, und Ihre Sitzung bleibt im Arbeitsspeicher des Computers erhalten.|  
+|Klicken Sie auf **Start**, klicken Sie auf Einstellungen, klicken Sie auf den Benutzernamen (obere rechte Ecke), und klicken Sie dann auf **Sperren** .|Die Station ist gesperrt, und Ihre Sitzung bleibt im Arbeitsspeicher des Computers erhalten.|  
   
-## <a name="suspending-or-ending-a-users-session"></a>Anhalten oder Beenden einer Benutzersitzung  
-In der folgenden Tabelle werden verschiedene Möglichkeiten beschrieben, mit deren Hilfe Sie als Administrator eine Benutzersitzung trennen oder beenden können.  
+## <a name="suspending-or-ending-a-users-session"></a>Anhalten oder Beenden der Sitzung eines Benutzers  
+In der folgenden Tabelle werden die verschiedenen Optionen beschrieben, die Sie als Administrator zum Trennen oder Beenden der Sitzung eines Benutzers verwenden können.  
   
 |||  
 |-|-|  
-|**Aktion**|**Effect**|  
-|**Sperren:** Verwenden Sie im MultiPoint-Manager die **Stationen** Tab, um die benutzersitzung anzuhalten. Weitere Informationen finden Sie im Thema [Anhalten von Benutzersitzungen im aktiven Zustand](Suspend-and-Leave-User-Session-Active.md).|Die Benutzersitzung wird beendet und bleibt im Arbeitsspeicher des Computers erhalten. Die Station steht für denselben sowie andere Benutzer zur Anmeldung zur Verfügung. Der Benutzer kann sich an derselben oder einer anderen Station anmelden und seine Arbeit fortsetzen.|  
-|**Ende:** Im MultiPoint-Manager verwenden die **Stationen** Registerkarte, um die Sitzung des Benutzers zu beenden. Sie können auf der Registerkarte **Stationen** auch alle Benutzersitzungen beenden. Weitere Informationen finden Sie im Thema [Beenden einer Benutzersitzung](End-a-User-Session.md).|Die Benutzersitzung wird beendet, und die Station steht für alle Benutzer zur Anmeldung zur Verfügung. Die Benutzersitzung wird nicht mehr auf der Registerkarte **Stationen** angezeigt und befindet sich auch nicht mehr im Arbeitsspeicher des Computers.|  
+|**Aktion**|**Entsprechende**|  
+|**Suspend** Verwenden Sie im Multipoint-Manager die Registerkarte **Stationen** , um die Sitzung des Benutzers anzuhalten. Weitere Informationen finden Sie im Thema [Anhalten von Benutzersitzungen im aktiven Zustand](Suspend-and-Leave-User-Session-Active.md).|Die Sitzung des Benutzers wird beendet und im Arbeitsspeicher des Computers beibehalten. Die Station steht für denselben sowie andere Benutzer zur Anmeldung zur Verfügung. Der Benutzer kann sich an derselben oder einer anderen Station anmelden und seine Arbeit fortsetzen.|  
+|**Schließlich** Verwenden Sie im Multipoint-Manager die Registerkarte **Stationen** , um die Benutzersitzung zu beenden. Sie können auf der Registerkarte **Stationen** auch alle Benutzersitzungen beenden. Weitere Informationen finden Sie im Thema [Beenden einer Benutzersitzung](End-a-User-Session.md).|Die Sitzung des Benutzers wird beendet, und die Station steht für alle Benutzer zur Verfügung. Die Sitzung des Benutzers wird nicht mehr auf der Registerkarte **Stationen** angezeigt, und Sie befindet sich nicht im Arbeitsspeicher des Computers.|  
   
 ## <a name="see-also"></a>Siehe auch  
-[Anhalten und Benutzersitzungen im aktiven](Suspend-and-Leave-User-Session-Active.md)  
+[Aussetzen und Benutzersitzung aktiv lassen](Suspend-and-Leave-User-Session-Active.md)  
 [Beenden einer Benutzersitzung](End-a-User-Session.md)  
-[Verwalten von Benutzerdesktops](manage-user-desktops-using-multipoint-dashboard.md)  
+[Verwalten von Benutzer Desktops](manage-user-desktops-using-multipoint-dashboard.md)  
 [Abmelden von Benutzersitzungen](Log-Off-User-Sessions.md)    

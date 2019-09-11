@@ -8,12 +8,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 04/26/2019
 ms.assetid: 12bc8e11-d63c-4aef-8129-f92324b2bf1b
-ms.openlocfilehash: d4eb2ad65f436db28264650b8c8d7b0cf69b2cee
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 89676ba821b99d44865bc6f45c34c05edb771d9d
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544672"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865259"
 ---
 # <a name="frequently-asked-questions-about-storage-replica"></a>Häufig gestellte Fragen zu Speicherreplikaten
 
@@ -188,8 +188,8 @@ Hinweis: Für das Cmdlet "Test-srtopology" ist ICMPv4/ICMPv6 erforderlich, aber 
 ## <a name="FAQ15.5"></a>Was sind die bewährten Methoden für das Protokoll Volume?
 Die optimale Größe des Protokolls variiert in Abhängigkeit von der Umgebung und der Arbeitsauslastung. es hängt davon ab, wie viel Schreib-e/a die Arbeitsauslastung ausführt. 
 
-1.  Ein kleineres oder größeres Protokoll bestimmt nicht die Schnelligkeit
-2.  Ein kleineres oder größeres Protokoll wirkt sich beispielsweise nicht auf das Datenvolume von 10 GB im Gegensatz zu 10 TB aus.
+1.  Ein größeres oder kleineres Protokoll führt Sie nicht schneller oder langsamer aus
+2.  Ein größeres oder kleineres Protokoll hat keine Auswirkungen auf ein 10-GB-Datenvolumen im Vergleich zu einem Datenvolumen von 10 TB, z.b.
 
 Ein größeres Protokoll sammelt und bewahrt nur mehr Schreib-E/A-Auslastung auf, bevor es umschlossen wird. Dadurch wird die Unterbrechung des Diensts zwischen dem Quell- und Zielcomputer – z. B. ein Netzwerkausfall oder wenn der Zielcomputer offline ist - verlängert. Wenn das Protokoll 10 Stunden an Schreibvorgängen enthalten kann, und das Netzwerk für 2 Stunden ausfällt, kann der Quellcomputer nach erneutem Verbinden mit dem Netzwerk einfach das Delta der nicht synchronisierten Änderungen schnell zum Ziel zurückgeben, und Sie sind erneut sehr schnell geschützt. Wenn das Protokoll 10 Stunden enthält und der Ausfall 2 Tage beträgt, muss der Quellcomputer Daten aus einem anderen Protokoll zurückgeben, das Bitmap genannt wird – was wahrscheinlich langsamer ist, um zum Synchronisieren zurückzukehren. Wenn die Synchronisierung abgeschlossen ist, wird das Protokoll erneut verwendet.
 

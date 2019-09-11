@@ -1,5 +1,5 @@
 ---
-title: Neuerungen bei der Kerberosauthentifizierung
+title: What's New in Kerberos Authentication
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.topic: article
@@ -8,63 +8,63 @@ manager: alanth
 author: justinha
 ms.technology: security-authentication
 ms.date: 11/09/2016
-ms.openlocfilehash: 90107bd49268f232fd6d532c304c2fdd050bcbf5
-ms.sourcegitcommit: c6acac3622e5d34714ca5c569805931681f98779
+ms.openlocfilehash: 35274147dcee9d31751d8ca61033244bd37a1759
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66391505"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870274"
 ---
 # <a name="whats-new-in-kerberos-authentication"></a>What's New in Kerberos Authentication
 
->Gilt für: WindowsServer 2016 und Windows 10
+>Gilt für: Windows Server 2016 und Windows 10
 
-## <a name="kdc-support-for-public-key-trust-based-client-authentication"></a>KDC-Unterstützung für öffentliche Schlüssel vertrauen-basierte Clientauthentifizierung
+## <a name="kdc-support-for-public-key-trust-based-client-authentication"></a>KDC-Unterstützung für vertrauenswürdige Authentifizierung mit öffentlichem Schlüssel
 
-Ab Windows Server 2016 unterstützen KDCs eine Möglichkeit zum öffentlichen Schlüssel zuordnen. Wenn der öffentliche Schlüssel für ein Konto bereitgestellt wird, klicken Sie dann unterstützt das KDC Kerberos PKInit explizit mit diesem Schlüssel. Da keine Überprüfung des Zertifikats ist, selbstsignierte Zertifikate verwendet werden, und authentifizierungsmechanismuszusicherung wird nicht unterstützt.
+Ab Windows Server 2016 unterstützen KDCs eine Zuordnung von öffentlichen Schlüsseln. Wenn der öffentliche Schlüssel für ein Konto bereitgestellt wird, unterstützt der KDC Kerberos PKINIT explizit mithilfe des Schlüssels. Da keine Zertifikat Validierung vorhanden ist, werden selbst signierte Zertifikate unterstützt, und die Authentifizierungsmechanismen werden nicht unterstützt.
 
-Schlüsselbasierte Vertrauensstellung wird bevorzugt, wenn für ein Konto, unabhängig von der Einstellung UseSubjectAltName konfiguriert.
+Die Schlüssel Vertrauensstellung wird bevorzugt, wenn Sie für ein Konto unabhängig von der Einstellung "Einstellung für" "Einstellung" "von" Einstellung "
 
-## <a name="kerberos-client-and-kdc-support-for-rfc-8070-pkinit-freshness-extension"></a>Kerberos-Client und KDC-Unterstützung für RFC 8070 PKInit Aktualität-Erweiterung
+## <a name="kerberos-client-and-kdc-support-for-rfc-8070-pkinit-freshness-extension"></a>Kerberos-Client und KDC-Unterstützung für RFC 8070 PKINIT-Erweiterung
 
-Ab Windows 10, Version 1607 und Windows Server 2016 können Kerberos-Clients versuchen den [RFC 8070 PKInit Aktualität Erweiterung](https://datatracker.ietf.org/doc/draft-ietf-kitten-pkinit-freshness/) für öffentlichen Schlüssel auf Anmeldungen basieren. 
+Ab Windows 10, Version 1607 und Windows Server 2016, versuchen die Kerberos-Clients, die [RFC 8070 PKINIT-Erweiterung](https://datatracker.ietf.org/doc/draft-ietf-kitten-pkinit-freshness/) für Anmeldungen mit öffentlichem Schlüssel zu registrieren. 
 
-Ab Windows Server 2016 können KDCs PKInit Aktualität Erweiterung unterstützen. KDCs in der Standardeinstellung keine PKInit Aktualität Erweiterung angeboten. Verwenden Sie die neue KDC-Unterstützung für PKInit Aktualität Erweiterung KDC administrative Vorlage der richtlinieneinstellung auf alle Domänencontroller in der Domäne, um sie zu aktivieren. Wenn konfiguriert, werden die folgenden Optionen unterstützt, wenn die Domäne auf Windows Server 2016-Domänenfunktionsebene (DFL) ist:
+Ab Windows Server 2016 können KDCs die Erweiterung PKINIT-Aktualität unterstützen. Standardmäßig bieten KDCs keine PKINIT-Aktualität-Erweiterung. Um es zu aktivieren, verwenden Sie die neue KDC-Unterstützung für die administrative Vorlage für die administrative Vorlage für die PKINIT-Erweiterung für alle DCS in der Domäne. Bei der Konfiguration werden die folgenden Optionen unterstützt, wenn die Domäne Windows Server 2016-Domänen Funktionsebene (DFL) ist:
 
-- **Deaktiviert**: Das KDC die PKInit Aktualität-Erweiterung bietet und gültige authentifizierungsanforderungen akzeptiert, ohne eine Überprüfung auf Aktualität nie. Benutzer erhalten die neue öffentliche Schlüssel Identität SID nie.
-- **Unterstützt**: PKInit Aktualität Erweiterung wird auf Anforderung unterstützt. Kerberos-Clients, die mit der Erweiterung der PKInit Aktualität erfolgreich authentifizieren, erhalten die neue öffentliche Schlüssel Identität SID.
-- **Erforderlich**: PKInit Aktualität Erweiterung ist für eine erfolgreiche Authentifizierung erforderlich. Kerberos-Clients, die nicht die Erweiterung der PKInit Aktualität unterstützen schlägt immer fehl, wenn Sie Anmeldeinformationen für den öffentliche Schlüssel zu verwenden.
+- **Deaktiviert**: Der KDC bietet die PKINIT-Erweiterung nie an und akzeptiert gültige Authentifizierungsanforderungen, ohne die Aktualität zu überprüfen. Benutzer erhalten nie die neue Identität der öffentlichen Schlüssel Identität.
+- **Unterstützt**: PKINIT-Erweiterungen werden auf Anforderung unterstützt. Kerberos-Clients, die sich erfolgreich bei der PKINIT-Erweiterung authentifizieren, erhalten die aktuelle SID der öffentlichen Schlüssel Identität.
+- **Erforderlich**: Die PKINIT-Erweiterung ist für die erfolgreiche Authentifizierung erforderlich. Kerberos-Clients, die die PKINIT-Erweiterung nicht unterstützen, schlagen immer fehl, wenn Anmelde Informationen für öffentliche Schlüssel verwendet werden.
 
-## <a name="domain-joined-device-support-for-authentication-using-public-key"></a>Zur Domäne gehörenden Gerät-Unterstützung für die Authentifizierung mit öffentlichen Schlüssel
+## <a name="domain-joined-device-support-for-authentication-using-public-key"></a>Unterstützung von in die Domäne eingebundenen Geräten für die Authentifizierung mit öffentlichem Schlüssel
 
-Mit Windows 10 Version 1507 und Windows Server 2016 ab, wenn eine Domäne eingebundenes Gerät gebundenen öffentlichen Schlüssel mit einem Windows Server 2016-Domänencontroller (DC) registrieren kann, kann dann das Gerät mit dem öffentlichen Schlüssel, die mithilfe von Kerberos-Authentifizierung authentifiziert werden ein Windows Server 2016-Domänencontroller. Weitere Informationen finden Sie unter [Domäne öffentliche Schlüssel Geräteauthentifizierung](Domain-joined-Device-Public-Key-Authentication.md)
+Ab Windows 10, Version 1507 und Windows Server 2016, kann das Gerät mithilfe der Kerberos-Authentifizierung mit dem öffentlichen Schlüssel authentifiziert werden, wenn ein in eine Domäne eingebundenes Gerät seinen gebundenen öffentlichen Schlüssel bei einem Windows Server 2016-Domänen Controller (DC) registriert. einen Windows Server 2016-DC. Weitere Informationen finden Sie unter [Authentifizierung mit öffentlichem Schlüssel für den Domänen Beitritt](Domain-joined-Device-Public-Key-Authentication.md) .
 
-## <a name="kerberos-clients-allow-ipv4-and-ipv6-address-hostnames-in-service-principal-names-spns"></a>Kerberos-Clients zulassen IPv4 und IPv6-Adresse-Hostnamen in Service Principal Names (SPNs)
+## <a name="kerberos-clients-allow-ipv4-and-ipv6-address-hostnames-in-service-principal-names-spns"></a>Kerberos-Clients lassen IPv4-und IPv6-Adress Hostnamen in Dienst Prinzipal Namen (SPNs) zu.
 
-Ab Windows 10 Version 1507 und Windows Server 2016, können Kerberos-Clients konfiguriert werden, zur Unterstützung von IPv4 und IPv6-Hostnamen in SPNs. 
+Ab Windows 10, Version 1507 und Windows Server 2016, können Kerberos-Clients für die Unterstützung von IPv4-und IPv6-Hostnamen in SPNs konfiguriert werden. 
 
-Registrierungspfad:
+Registrierungs Pfad:
 
-HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Parameters
+Hklm\software\microsoft\windows\currentversion\policies\system\kerberos\parameters
 
-Erstellen Sie einen TryIPSPN-Eintrag, um Unterstützung für IP-Adresse Hostnamen in SPNs zu konfigurieren. Dieser Eintrag ist nicht standardmäßig in der Registrierung vorhanden. Nachdem Sie den Eintrag erstellt haben, ändern Sie den DWORD-Wert auf 1 fest. Nicht konfiguriert, werden IP-Adresse Hostnamen nicht versucht.
+Erstellen Sie einen tryipspn-Eintrag, um die Unterstützung für IP-Adress Hostnamen in SPNs zu konfigurieren. Dieser Eintrag ist nicht standardmäßig in der Registrierung vorhanden. Nachdem Sie den Eintrag erstellt haben, ändern Sie den DWORD-Wert in 1. Wenn diese Eigenschaft nicht konfiguriert ist, wird nicht versucht, die Hostnamen der IP-Adressen
 
 Wenn der SPN in Active Directory registriert ist, ist die Authentifizierung mit Kerberos erfolgreich. 
 
-Weitere Informationen finden Sie das Dokument [Konfigurieren von Kerberos für IP-Adressen](configuring-kerberos-over-ip.md).
+Weitere Informationen finden Sie im Dokument [Konfigurieren von Kerberos für IP-Adressen](configuring-kerberos-over-ip.md).
 
-## <a name="kdc-support-for-key-trust-account-mapping"></a>KDC-Unterstützung für Schlüsselbasierte Vertrauensstellung kontozuordnung
+## <a name="kdc-support-for-key-trust-account-mapping"></a>KDC-Unterstützung für die Zuordnung von Schlüssel Vertrauens Konten
 
-Ab Windows Server 2016 verfügen Domänencontroller-Unterstützung für Schlüsselbasierte Vertrauensstellung kontozuordnung als auch für Fallback auf vorhandene AltSecID und UPN (User Principal Name, Benutzerprinzipalname) in das SAN-Verhalten. Wenn UseSubjectAltName auf festgelegt ist:
+Ab Windows Server 2016 haben Domänen Controller Unterstützung für die Zuordnung von Schlüssel vertrauenswürdigen Konten sowie für das Fall Back auf vorhandene AltSecId und den Benutzer Prinzipal Namen (User Principal Name, UPN) im San-Verhalten. Wenn "" für "\esubjectaltname" auf festgelegt ist:
 
-- 0: Explizite Zuordnung ist erforderlich. Klicken Sie dann muss es entweder:
-    - Schlüsselbasierte Vertrauensstellung (neu in Windows Server 2016)
-    - ExplicitAltSecID
-- 1: Implizite Zuordnung ist (Standard) zulässig:
-    1. Wenn Schlüsselbasierte Vertrauensstellung für Konto konfiguriert ist, wird es für die Zuordnung (neu in Windows Server 2016) verwendet.
-    2. Wenn kein UPN in das SAN vorhanden ist, wird der AltSecID für die Zuordnung versucht.
-    3. Wenn es sich bei ein UPN im SAN vorhanden ist, wird der UPN für die Zuordnung versucht.
+- 0: Eine explizite Zuordnung ist erforderlich. Dann muss Folgendes vorhanden sein:
+    - Schlüssel Vertrauensstellung (neu mit Windows Server 2016)
+    - Explizitl
+- 1: Implizite Zuordnung ist zulässig (Standard):
+    1. Wenn die Schlüssel Vertrauensstellung für das Konto konfiguriert ist, wird Sie für die Zuordnung verwendet (neu mit Windows Server 2016).
+    2. Wenn kein UPN im San vorhanden ist, wird für die Zuordnung von "AltSecId" versucht.
+    3. Wenn ein UPN im San vorhanden ist, wird ein UPN-Wert für die Zuordnung versucht.
 
 ## <a name="see-also"></a>Siehe auch
 
-- [Übersicht über die Kerberos-Authentifizierung](kerberos-authentication-overview.md)
+- [Kerberos-Authentifizierung (Übersicht)](kerberos-authentication-overview.md)

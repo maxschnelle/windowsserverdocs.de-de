@@ -9,27 +9,27 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: d2f597994aa74f453903e09f7d3eefd83f26faba
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 8f97237da1f53ee02f68b894ec0b8cd657edff6d
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192271"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868087"
 ---
 # <a name="configure-a-federation-server"></a>Konfigurieren eines Verbundservers
 
-Nach der Installation der Active Directory-Verbunddienste \(AD FS\) -Rollendienst auf dem Computer, sind Sie bereit sind, diesen Computer als Verbundserver konfigurieren. Sie können eine der folgenden Aktionen ausführen:  
+Nachdem Sie den Active Directory-Verbunddienste (AD FS) \(AD FS\) -Rollen Dienst auf Ihrem Computer installiert haben, können Sie diesen Computer als Verbund Server konfigurieren. Sie können eine der folgenden Aktionen ausführen:  
   
--   [Konfigurieren Sie den ersten Verbundserver in einer neuen Verbundserverfarm](assetId:///e340cf8f-acf3-4cba-8135-a9353b85e714#BKMK_1)  
+-   [Konfigurieren des ersten Verbund Servers in einer neuen Verbund Serverfarm](assetId:///e340cf8f-acf3-4cba-8135-a9353b85e714#BKMK_1)  
   
--   [Hinzufügen eines Verbundservers zu einer vorhandenen Verbundserverfarm](assetId:///e340cf8f-acf3-4cba-8135-a9353b85e714#BKMK_2)  
+-   [Hinzufügen eines Verbund Servers zu einer vorhandenen Verbund Serverfarm](assetId:///e340cf8f-acf3-4cba-8135-a9353b85e714#BKMK_2)  
   
-## <a name="BKMK_1"></a>Konfigurieren Sie den ersten Verbundserver in einer neuen Verbundserverfarm  
+## <a name="BKMK_1"></a>Konfigurieren des ersten Verbund Servers in einer neuen Verbund Serverfarm  
   
-### <a name="to-configure-the-first-federation-server-in-a-new-federation-server-farm-by-using-the-active-directory-federation-service-configuration-wizard"></a>So konfigurieren Sie den ersten Verbundserver in einer neuen Verbundserverfarm mithilfe des Active Directory Federation Konfigurations-Assistenten  
+### <a name="to-configure-the-first-federation-server-in-a-new-federation-server-farm-by-using-the-active-directory-federation-service-configuration-wizard"></a>So konfigurieren Sie den ersten Verbund Server in einer neuen Verbund Serverfarm mithilfe des Konfigurations-Assistenten für Active Directory Verbunddienst  
   
 > [!NOTE]  
-> Stellen Sie sicher, dass Sie Domänenadministrator-Berechtigungen oder Domänenadministrator-Anmeldeinformationen verfügen, bevor Sie dieses Verfahren ausführen.  
+> Stellen Sie sicher, dass Sie über Domänen Administrator Berechtigungen verfügen oder über Domänen Administrator-Anmelde Informationen verfügen, bevor Sie dieses Verfahren ausführen  
   
 1.  Klicken Sie auf der Seite **Dashboard** im Server-Manager auf das Kennzeichen **Benachrichtigungen** , und klicken Sie dann auf **Verbunddienst auf den Server konfigurieren**.  
   
@@ -37,78 +37,78 @@ Nach der Installation der Active Directory-Verbunddienste \(AD FS\) -Rollendiens
   
 2.  Wählen Sie auf der Seite **Willkommen** **Erstellen des ersten Verbundservers in einer Verbundserverfarm**aus, und klicken Sie dann auf **Weiter**.  
   
-3.  Auf der **mit AD DS verbinden** Seite, geben Sie ein Konto mit Domänenadministratorberechtigungen für die Active Directory \(AD\) Domäne, der diesen Computer hinzugefügt wird, und klicken Sie dann auf **Weiter**.  
+3.  Geben Sie auf der Seite **mit AD DS verbinden** ein Konto mithilfe von Domänen Administrator Berechtigungen für die \(Active Directory\) AD-Domäne an, der dieser Computer hinzugefügt wurde, und klicken Sie dann auf **weiter**.  
   
 4.  Führen Sie auf der Seite **Diensteigenschaften angeben** die folgenden Schritte aus, und klicken Sie dann auf **Weiter**:  
   
-    -   Importieren der PFX-Datei, die das Secure Socket Layer enthält \(SSL\) Zertifikat und den Schlüssel, die Sie zuvor abgerufen haben. In [Schritt 2: Registrieren eines SSL-Zertifikats für AD FS](../../ad-fs/deployment/Enroll-an-SSL-Certificate-for-AD-FS.md), haben Sie dieses Zertifikat abgerufen und kopiert diese auf dem Computer, die Sie als Verbundserver konfigurieren möchten. Klicken Sie zum Importieren der PFX-Datei mithilfe des Assistenten auf **importieren**, und suchen Sie dann den Speicherort der Datei. Geben Sie das Kennwort für die PFX-Datei, wenn Sie aufgefordert werden.  
+    -   Importieren Sie die PFX-Datei, die das SSL \(\) -Zertifikat und den Schlüssel der Secure Socket Layer enthält, die Sie zuvor abgerufen haben. In [Schritt 2: Registrieren Sie ein SSL-Zertifikat für](../../ad-fs/deployment/Enroll-an-SSL-Certificate-for-AD-FS.md)AD FS. Sie haben dieses Zertifikat abgerufen und auf den Computer kopiert, den Sie als Verbund Server konfigurieren möchten. Um die PFX-Datei über den Assistenten zu importieren, klicken Sie auf **importieren**, und navigieren Sie dann zum Speicherort der Datei. Geben Sie das Kennwort für die PFX-Datei ein, wenn Sie dazu aufgefordert werden.  
   
-    -   Geben Sie einen Namen für den Verbunddienst an. Z. B. **"FS.contoso.com"** . Dieser Name muss eine mit dem Antragstellernamen oder alternativen Antragstellernamen im Zertifikat übereinstimmen.  
+    -   Geben Sie einen Namen für den Verbund Dienst an. Beispielsweise **FS.contoso.com**. Dieser Name muss mit einem der alternativen Antragsteller Namen oder alternativen Antragsteller Namen im Zertifikat identisch sein.  
   
-    -   Geben Sie einen Anzeigenamen für den Verbunddienst an. Z. B. **Contoso Corporation**. Benutzern wird dieser Name angezeigt, auf die Active Directory Federation Services \(AD FS\) anmelden\-auf.  
+    -   Geben Sie einen anzeigen Amen für den Verbund Dienst an. Beispiel: **CONSO Corporation**. Benutzern wird dieser Name auf der Active Directory-Verbunddienste (AD FS) \(AD FS\) Anmelde\-Seite angezeigt.  
   
-5.  Auf der **angeben des Dienstkontos** Seite, ein Dienstkonto angeben. Sie können entweder erstellen oder einen vorhandenen gruppenverwalteten Dienstkontos \(gMSA\) oder ein vorhandenes Domänenbenutzerkonto verwenden. Wenn Sie die Option zum Erstellen eines neuen gmsas auswählen, geben Sie einen Namen für das neue Konto. Wenn Sie die Option zum Verwenden eines vorhandenen Gmsas oder Domänenkontos auswählen, klicken Sie auf **wählen** , ein Konto auszuwählen.  
+5.  Geben Sie auf der Seite **Dienst Konto angeben** ein Dienst Konto an. Sie können entweder ein vorhandenes Gruppen verwaltetes Dienst Konto \(\) oder ein vorhandenes Domänen Benutzerkonto erstellen oder verwenden. Wenn Sie die Option zum Erstellen eines neuen GMSA-Kontos auswählen, geben Sie einen Namen für das neue Konto an. Wenn Sie die Option zum Verwenden eines vorhandenen GMSA-oder Domänen Kontos auswählen, klicken Sie auf **auswählen** , um ein Konto auszuwählen.  
   
     > [!NOTE]  
-    > Der Vorteil der Verwendung eines gMSA-Kontos ist die automatische\-Kennwort Updatefunktion ausgehandelt.  
+    > Der Vorteil der Verwendung eines GMSA-Kontos ist das\-automatisch ausgehandelte Kennwort-Update Feature.  
   
     > [!WARNING]  
-    > Wenn Sie ein gMSA-Konto verwenden möchten, müssen Sie mindestens ein Domänencontroller in Ihrer Umgebung verfügen, die das Betriebssystem Windows Server 2012 ausgeführt wird.  
+    > Wenn Sie ein GMSA-Konto verwenden möchten, muss in Ihrer Umgebung mindestens ein Domänen Controller vorhanden sein, auf dem das Betriebssystem Windows Server 2012 ausgeführt wird.  
     >   
-    > Wenn die gMSA-Option ist deaktiviert, und Sie eine Fehlermeldung angezeigt, wie z. B. sehen **Gruppenverwaltete Dienstkonten sind nicht verfügbar, weil der KDS-Stammschlüssel nicht festgelegt wurde**, Sie können gMSA in Ihrer Domäne aktivieren, indem Sie Ausführung der folgenden Windows PowerShell-Befehl auf einem Domänencontroller, auf denen Windows Server 2012 ausgeführt wird, oder höher in Ihrer Active Directory-Domäne: `Add-KdsRootKey –EffectiveTime (Get-Date).AddHours(-10)`. Klicken Sie dann zurück zum Assistenten, klicken Sie auf **zurück**, und klicken Sie dann auf **Weiter** zum re\-Geben Sie die **angeben des Dienstkontos** Seite. Die gMSA-Option sollte jetzt aktiviert werden. Sie können es auswählen, und geben Sie ein gMSA-Kontonamen ein, die Sie verwenden möchten.  
+    > Wenn die GMSA-Option deaktiviert ist und eine Fehlermeldung angezeigt wird, z. b. Wenn **Gruppen verwaltete Dienst Konten nicht verfügbar sind, weil der KDS-Stamm Schlüssel nicht festgelegt**wurde, können Sie GMSA in Ihrer Domäne aktivieren, indem Sie den folgenden Windows PowerShell-Befehl für eine Domäne ausführen. Controller, auf dem Windows Server 2012 oder höher ausgeführt wird, in Ihrer Active Directory `Add-KdsRootKey –EffectiveTime (Get-Date).AddHours(-10)`Domäne:. Kehren Sie dann zum Assistenten zurück, **Klicken Sie auf**zurück, und klicken Sie\-dann auf **weiter** , um die Seite **Dienst Konto angeben** erneut einzugeben. Die GMSA-Option sollte jetzt aktiviert sein. Sie können es auswählen und einen Namen für das GMSA-Konto eingeben, das Sie verwenden möchten.  
   
-6.  Auf der **angeben der Konfigurationsdatenbank** Seite Geben Sie eine AD FS-Konfigurationsdatenbank, und klicken Sie dann auf **Weiter**. Sie können entweder eine Datenbank auf diesem Computer erstellen, mithilfe von Windows Internal Database \(WID\), oder Sie können den Speicherort und den Instanznamen von Microsoft SQL Server angeben.  
+6.  Geben Sie auf der Seite **Konfigurations Datenbank angeben** eine AD FS Konfigurations Datenbank an, und klicken Sie dann auf **weiter**. Sie können entweder eine Datenbank auf diesem Computer mithilfe der internen Windows-Datenbank \(-\)wid erstellen, oder Sie können den Speicherort und den Instanznamen Microsoft SQL Server angeben.  
   
     Weitere Informationen finden Sie unter [Die Rolle der AD FS-Konfigurationsdatenbank](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md).  
   
     > [!IMPORTANT]  
-    > Wenn Sie eine AD FS-Farm erstellen und SQL Server zum Speichern Ihrer Konfigurationsdaten verwenden möchten, können Sie SQL Server 2008 und höhere Versionen, einschließlich SQL Server 2012 und SQL Server 2014.  
+    > Wenn Sie eine AD FS-Farm erstellen und SQL Server zum Speichern der Konfigurationsdaten verwenden möchten, können Sie SQL Server 2008 und neuere Versionen verwenden, einschließlich SQL Server 2012 und SQL Server 2014.  
   
 7.  Überprüfen Sie Ihre Konfigurationsauswahl auf der Seite **Optionen prüfen** , und klicken Sie dann auf **Weiter**.  
   
-8.  Auf der **vor\-Prüfung auf erforderliche Software** Seite, stellen Sie sicher, dass alle voraussetzungsprüfungen erfolgreich abgeschlossen wurde, und klicken Sie dann auf **konfigurieren**.  
+8.  Überprüfen Sie auf der Seite **Voraussetzungs Prüfungen\-** , ob alle Voraussetzungs Prüfungen erfolgreich abgeschlossen wurden, und klicken Sie dann auf **Konfigurieren**.  
   
-9. Auf der **Ergebnisse** Seite überprüfen Sie die Ergebnisse und überprüfen Sie, ob die Konfiguration erfolgreich abgeschlossen ist, und klicken Sie dann auf **nächste Schritte zum Abschließen der Bereitstellung des Verbunddiensts**. Weitere Informationen finden Sie unter [nächste Schritte zum Abschließen der AD FS-Installation](https://go.microsoft.com/fwlink/p/?LinkId=286704). Klicken Sie auf **Schließen**, um den Assistenten zu beenden.  
+9. Überprüfen Sie auf der Seite **Ergebnisse** die Ergebnisse, und überprüfen Sie, ob die Konfiguration erfolgreich abgeschlossen wurde, und klicken Sie dann auf **weiter, um die Bereitstellung des Verbund Dienstanbieter abzuschließen**. Weitere Informationen finden Sie unter [Nächste Schritte zum Abschließen der AD FS Installation](https://go.microsoft.com/fwlink/p/?LinkId=286704). Klicken Sie auf **Schließen**, um den Assistenten zu beenden.  
   
-### <a name="BKMK_3"></a>So konfigurieren Sie den ersten Verbundserver in einer neuen Verbundserverfarm über Windows PowerShell  
-Sie können eine neue Verbundserverfarm erstellen, mit einer neuen oder vorhandenen gMSA-Konto oder ein vorhandenes Domänenbenutzerkonto verwenden.  
+### <a name="BKMK_3"></a>So konfigurieren Sie den ersten Verbund Server in einer neuen Verbund Serverfarm über Windows PowerShell  
+Sie können eine neue Verbund Serverfarm erstellen, indem Sie entweder ein neues oder ein vorhandenes GMSA-Konto oder ein vorhandenes Domänen Benutzerkonto verwenden.  
   
--   **Wenn Sie einen neuen Verbundserver unter Verwendung eines neuen gmsas erstellen möchten, führen Sie folgende Schritte aus:**  
+-   **Wenn Sie einen neuen Verbund Server mit einem neuen GMSA-Konto erstellen möchten, gehen Sie wie folgt vor:**  
   
     > [!IMPORTANT]  
-    > Sie benötigen Domänenadministratorberechtigungen, um den ersten Verbundserver in einer neuen Verbundserverfarm zu erstellen.  
+    > Sie müssen über Domänen Administrator Berechtigungen verfügen, um den ersten Verbund Server in einer neuen Verbund Serverfarm zu erstellen.  
   
-    1.  Stellen Sie sicher, dass auf das erforderliche SSL-Zertifikat importiert wurde, auf dem Computer, die Sie als Verbundserver konfigurieren möchten, die **lokalen Computer\\Meine Store** Verzeichnis. Sie können überprüfen, ob das SSL-Zertifikat importiert wurde, mithilfe des folgenden Befehls in Windows PowerShell-Befehlsfenster: `dir Cert:\LocalMachine\My`. Das Zertifikat aufgelistet, mit seinem Fingerabdruck unter der **lokalen Computer\\Meine Store** Verzeichnis.  
+    1.  Stellen Sie auf dem Computer, den Sie als Verbund Server konfigurieren möchten, sicher, dass das erforderliche SSL-Zertifikat in das Verzeichnis " **mein Speicher" des lokalen Computers\\** importiert wurde. Sie können überprüfen, ob das SSL-Zertifikat importiert wurde, indem Sie den folgenden Befehl im Windows PowerShell- `dir Cert:\LocalMachine\My`Befehlsfenster ausführen:. Das Zertifikat wird durch seinen Fingerabdruck im **lokalen Computer\\mein Speicher** Verzeichnis aufgelistet.  
   
-    2.  Auf Ihrem Domänencontroller, öffnen Sie Windows PowerShell-Befehlsfenster, und führen den folgenden Befehl aus, um zu überprüfen, ob der KDS-Stammschlüssel in Ihrer Domäne erstellt wurde: `Get-KdsRootKey –EffectiveTime (Get-Date).AddHours(-10)`. Wenn sie nicht erstellt wurde, damit die Ausgabe keine Informationen angezeigt, führen Sie den folgenden Befehl zum Erstellen des Schlüssels: `Add-KdsRootKey –EffectiveTime (Get-Date).AddHours(-10)`.  
+    2.  Öffnen Sie auf dem Domänen Controller das Windows PowerShell-Befehlsfenster, und führen Sie den folgenden Befehl aus, um zu überprüfen, ob der KDS `Get-KdsRootKey –EffectiveTime (Get-Date).AddHours(-10)`-Stamm Schlüssel in Ihrer Domäne erstellt wurde:. Wenn Sie nicht erstellt wurde, sodass in der Ausgabe keine Informationen angezeigt werden, führen Sie den folgenden Befehl aus, um `Add-KdsRootKey –EffectiveTime (Get-Date).AddHours(-10)`den Schlüssel zu erstellen:.  
   
-    3.  Klicken Sie auf dem Computer, den Sie als Verbundserver konfigurieren möchten, öffnen Sie Windows PowerShell-Befehlsfenster, und führen Sie den folgenden Befehl:  
+    3.  Öffnen Sie auf dem Computer, den Sie als Verbund Server konfigurieren möchten, das Windows PowerShell-Befehlsfenster, und führen Sie den folgenden Befehl aus:  
   
         ```  
         Install-AdfsFarm -CertificateThumbprint <certificate_thumbprint> -FederationServiceName <federation_service_name> -GroupServiceAccountIdentifier <domain>\<GMSA_Name>$  
         ```  
   
         > [!WARNING]  
-        > Die `$` -Zeichen am Ende des vorherigen Befehls ist erforderlich.  
+        > Das `$` Vorzeichen am Ende des vorherigen Befehls ist erforderlich.  
   
-        Zum Abrufen des Werts für `<certificate_thumbprint>`führen `dir Cert:\LocalMachine\My`, und wählen Sie dann den Fingerabdruck des SSL-Zertifikats. Der Wert des `<federation_service_name>` ist der Name Ihres Verbunddiensts beispielsweise **"FS.contoso.com"** .  
-  
-        > [!NOTE]  
-        > Wenn dies nicht der ersten, die Sie mit diesem Befehl ausführen ist, fügen Sie der `OverwriteConfiguration` Parameter.  
+        Um den Wert für zu `<certificate_thumbprint>`erhalten, `dir Cert:\LocalMachine\My`führen Sie aus, und wählen Sie dann den Fingerabdruck Ihres SSL-Zertifikats aus. Der Wert von `<federation_service_name>` ist der Name des Verbund Dienstanbieter, z. b. **FS.contoso.com**.  
   
         > [!NOTE]  
-        > Der vorherige Befehl erstellt eine WID-Farm. Wenn Sie eine SQL Server-Serverfarm erstellen möchten, müssen Sie eine Instanz von SQL Server bereits installierten und funktionstüchtigen verfügen.  
+        > Wenn dies nicht das erste Mal ist, dass Sie diesen Befehl ausführen, fügen `OverwriteConfiguration` Sie den-Parameter hinzu.  
+  
+        > [!NOTE]  
+        > Mit dem vorherigen Befehl wird eine wid-Farm erstellt. Wenn Sie eine SQL Server Server Farm erstellen möchten, müssen Sie über eine Instanz von SQL Server verfügen, die bereits installiert und betriebsbereit ist.  
         >   
-        > Sie können den folgenden Befehl auf um den ersten Verbundserver in einer neuen Farm zu erstellen, die eine Instanz von SQL Server verwendet wird: `Install-AdfsFarm -CertificateThumbprint <certificate_thumbprint> -FederationServiceName <federation_service_name> -GroupServiceAccountIdentifier <domain>\<GMSA_name>$ -SQLConnectionString "Data Source=<SQL_Host_Name?\<SQL_instance_ name>;Integrated Security=True"` , in dem **< SQL\_Host\_Name >** ist der Name des Servers, auf dem SQL Server ausgeführt wird, und **< SQL\_Instanz\_Name >** ist der Name der Instanz von SQL Server. Verwenden, wenn Sie die Standardinstanz von SQL Server verwenden, eine **SQLConnectionString** Wert von "**Datenquelle\=< SQL\_Host\_Name >; Integrated Security\=" true "** ".  
+        > Sie können den folgenden Befehl verwenden, um den ersten Verbund Server in einer neuen Farm zu erstellen, die eine Instanz von `Install-AdfsFarm -CertificateThumbprint <certificate_thumbprint> -FederationServiceName <federation_service_name> -GroupServiceAccountIdentifier <domain>\<GMSA_name>$ -SQLConnectionString "Data Source=<SQL_Host_Name?\<SQL_instance_ name>;Integrated Security=True"` SQL Server verwendet: wobei **< SQL\_-\_Hostname >** der Name des Servers ist, auf dem SQL Server ausgeführt wird, und **< SQL\_-\_Instanzname >** ist der Name der Instanz von SQL Server. Wenn Sie die Standard Instanz von SQL Server verwenden, verwenden Sie einen **sqlConnectionString** -Wert von " **\=Data Source <\_SQL\_-Hostname >\=; integrierte Sicherheit true**".  
   
         > [!IMPORTANT]  
         > Wenn Sie eine AD FS-Farm erstellen und Ihre Konfigurationsdaten mithilfe von SQL Server speichern möchten, können Sie SQL Server 2008 und höhere Versionen, einschließlich SQL Server 2012, verwenden.  
   
--   **Wenn Sie einen neuen Verbundserver zu erstellen, indem Sie ein vorhandenes Domänenbenutzerkonto verwenden möchten, führen Sie folgende Schritte aus:**  
+-   **Wenn Sie einen neuen Verbund Server unter Verwendung eines vorhandenen Domänen Benutzerkontos erstellen möchten, gehen Sie folgendermaßen vor:**  
   
-    1.  Stellen Sie sicher, dass auf das erforderliche SSL-Zertifikat importiert wurde, auf dem Computer, die Sie als Verbundserver konfigurieren möchten, die **lokalen Computer\\Meine Store** Verzeichnis. Sie können überprüfen, ob das SSL-Zertifikat importiert wurde, mithilfe des folgenden Befehls in Windows PowerShell-Befehlsfenster: `dir Cert:\LocalMachine\My`. Das Zertifikat aufgelistet, mit seinem Fingerabdruck unter der **lokalen Computer\\Meine Store** Verzeichnis.  
+    1.  Stellen Sie auf dem Computer, den Sie als Verbund Server konfigurieren möchten, sicher, dass das erforderliche SSL-Zertifikat in das Verzeichnis " **mein Speicher" des lokalen Computers\\** importiert wurde. Sie können überprüfen, ob das SSL-Zertifikat importiert wurde, indem Sie den folgenden Befehl im Windows PowerShell- `dir Cert:\LocalMachine\My`Befehlsfenster ausführen:. Das Zertifikat wird durch seinen Fingerabdruck im **lokalen Computer\\mein Speicher** Verzeichnis aufgelistet.  
   
-    2.  Klicken Sie auf dem Computer, die Sie als Verbundserver konfigurieren möchten, öffnen Sie Windows PowerShell-Befehlsfenster, und führen Sie den folgenden Befehl: `$fscred = Get-Credential`. Geben Sie die Anmeldeinformationen des Domänenbenutzers-Konto, das Sie für das Konto des Verbunddiensts in das Format Domäne verwenden möchten\\Benutzernamen ein.  
+    2.  Öffnen Sie auf dem Computer, den Sie als Verbund Server konfigurieren möchten, das Windows PowerShell-Befehlsfenster, und führen Sie dann den folgenden `$fscred = Get-Credential`Befehl aus:. Geben Sie die Anmelde Informationen für das Domänen Benutzerkonto ein, das Sie für das Verbund Dienst Konto\\im Format Domäne Benutzername verwenden möchten.  
   
     3.  Führen Sie im selben Windows PowerShell-Befehlsfenster den folgenden Befehl aus:  
   
@@ -116,112 +116,112 @@ Sie können eine neue Verbundserverfarm erstellen, mit einer neuen oder vorhande
         Install-AdfsFarm -CertificateThumbprint <certificate_thumbprint> -FederationServiceName <federation_service_name> -ServiceAccountCredential $fscred  
         ```  
   
-        Zum Abrufen des Werts für **< Zertifikat\_Fingerabdruck >** führen `dir Cert:\LocalMachine\My`, und wählen Sie dann den Fingerabdruck des SSL-Zertifikats. Der Wert des **< Verbund\_Service\_Name >** ist der Name des Verbunddiensts, z. B. "FS.contoso.com".  
+        Wenn Sie den Wert für **< Zertifikat\_Fingerabdruck >** abrufen möchten `dir Cert:\LocalMachine\My`, führen Sie aus, und wählen Sie dann den Fingerabdruck Ihres SSL-Zertifikats aus. Der Wert von **<\_Verbund Dienst\_Name >** ist der Name Ihres Verbund Dienstanbieter, z. b. fs.contoso.com.  
   
         > [!NOTE]  
-        > Wenn dies nicht der ersten, die Sie mit diesem Befehl ausführen ist, fügen Sie der `OverwriteConfiguration` Parameter.  
+        > Wenn dies nicht das erste Mal ist, dass Sie diesen Befehl ausführen, fügen `OverwriteConfiguration` Sie den-Parameter hinzu.  
   
         > [!NOTE]  
-        > Der vorherige Befehl erstellt eine WID-Farm. Wenn Sie eine SQL Server-Farm erstellen möchten, müssen Sie die Instanz von SQL Server bereits installierten und funktionstüchtigen verfügen.  
+        > Mit dem vorherigen Befehl wird eine wid-Farm erstellt. Wenn Sie eine SQL Server-Farm erstellen möchten, muss die Instanz von SQL Server bereits installiert und betriebsbereit sein.  
         >   
-        > Können Sie den folgenden Befehl auf um den ersten Verbundserver in einer neuen Farm zu erstellen, die eine Instanz von SQL Server verwendet wird: `Install-AdfsFarm -CertificateThumbprint <certificate_thumbprint> -FederationServiceName <federation_service_name> -ServiceAccountCredential $fscredential -SQLConnectionString "Data Source=<SQL_Host_Name>\<SQL_instance_ name>;Integrated Security=True"` , in denen **SQL\_Host\_Namen** ist der Name des Servers, auf dem SQL Server ist. ausgeführt, und **SQL\_Instanz\_Namen** ist der Name der Instanz von SQL Server. Verwenden, wenn Sie die Standardinstanz von SQL Server verwenden, eine **SQLConnectionString** Wert von "**Datenquelle\=< SQL\_Host\_Name >; Integrated Security\=" true "** ".  
+        > Sie können den folgenden Befehl verwenden, um den ersten Verbund Server in einer neuen Farm zu erstellen, die eine Instanz von `Install-AdfsFarm -CertificateThumbprint <certificate_thumbprint> -FederationServiceName <federation_service_name> -ServiceAccountCredential $fscredential -SQLConnectionString "Data Source=<SQL_Host_Name>\<SQL_instance_ name>;Integrated Security=True"` SQL Server verwendet: wobei der **SQL\_-Hostname\_** der Name des Servers ist, auf dem SQL Server ausgeführt wird, und **SQL der Instanzname\_ist der Name der Instanz von SQL Server. \_** Wenn Sie die Standard Instanz von SQL Server verwenden, verwenden Sie einen **sqlConnectionString** -Wert von " **\=Data Source <\_SQL\_-Hostname >\=; integrierte Sicherheit true**".  
   
         > [!IMPORTANT]  
-        > Wenn Sie eine AD FS-Farm erstellen und SQL Server zum Speichern Ihrer Konfigurationsdaten verwenden möchten, können Sie SQL Server 2008 und höhere Versionen, einschließlich SQL Server 2012 und SQL Server 2014.  
+        > Wenn Sie eine AD FS-Farm erstellen und SQL Server zum Speichern der Konfigurationsdaten verwenden möchten, können Sie SQL Server 2008 und neuere Versionen verwenden, einschließlich SQL Server 2012 und SQL Server 2014.  
   
-## <a name="BKMK_2"></a>Hinzufügen eines Verbundservers zu einer vorhandenen Verbundserverfarm  
-  
-> [!IMPORTANT]  
-> Stellen Sie sicher, dass Sie abgeschlossen haben [Schritt 3: Installieren der AD FS-Rollendiensts](../../ad-fs/deployment/Install-the-AD-FS-Role-Service.md), bevor Sie eines der Verfahren in diesem Abschnitt beginnen.  
+## <a name="BKMK_2"></a>Hinzufügen eines Verbund Servers zu einer vorhandenen Verbund Serverfarm  
   
 > [!IMPORTANT]  
-> Stellen Sie sicher, dass Sie einen gültigen SSL-Server Serverauthentifizierungszertifikat abgerufen haben, bevor Sie dieses Verfahren abzuschließen.  
+> Stellen Sie sicher, dass [Sie Schritt 3 abgeschlossen haben: Installieren Sie den AD FS-](../../ad-fs/deployment/Install-the-AD-FS-Role-Service.md)Rollen Dienst, bevor Sie mit einem der in diesem Abschnitt beschriebenen Verfahren beginnen.  
   
-### <a name="to-add-a-federation-server-to-an-existing-federation-server-farm-via-the-active-directory-federation-service-configuration-wizard"></a>Zum Hinzufügen eines Verbundservers zu einer vorhandenen Verbundserverfarm mithilfe des Active Directory Federation Konfigurations-Assistenten  
+> [!IMPORTANT]  
+> Stellen Sie sicher, dass Sie ein gültiges SSL-Server Authentifizierungszertifikat erhalten haben, bevor Sie dieses Verfahren ausführen.  
+  
+### <a name="to-add-a-federation-server-to-an-existing-federation-server-farm-via-the-active-directory-federation-service-configuration-wizard"></a>So fügen Sie einer vorhandenen Verbund Serverfarm mithilfe des Konfigurations-Assistenten für Active Directory Verbunddienst einen Verbund Server hinzu  
   
 1.  Klicken Sie auf der Seite **Dashboard** im Server-Manager auf das Kennzeichen **Benachrichtigungen** , und klicken Sie dann auf **Verbunddienst auf den Server konfigurieren**.  
   
     Der **Konfigurations-Assistent für Active Directory-Verbunddienste** wird geöffnet.  
   
-2.  Auf der **Willkommen** Seite **Hinzufügen eines Verbundservers zu einer Verbundserverfarm**, und klicken Sie dann auf **Weiter**.  
+2.  Wählen Sie auf der Seite **Willkommen** die Option Verbund **Server zu einer Verbund Serverfarm hinzufügen**aus, und klicken Sie dann auf **weiter**.  
   
-3.  Auf der **mit AD DS verbinden** Seite, geben Sie ein Konto mit Domänenadministratorberechtigungen für die AD-Domäne, zu der dieser Computer ist Mitglied, und klicken Sie dann auf **Weiter**.  
+3.  Geben Sie auf der Seite **mit AD DS verbinden** ein Konto mithilfe von Domänen Administrator Berechtigungen für die AD-Domäne an, der dieser Computer hinzugefügt wurde, und klicken Sie dann auf **weiter**.  
   
-4.  Auf der **Farm angeben** Seite, geben Sie den Namen des primären Verbundservers in einer Farm, die WID verwendet, oder geben Sie den Hostnamen für die Datenbank und den Namen der Datenbankinstanz von einer vorhandenen Verbundserverfarm, die SQL Server verwendet.  
+4.  Geben Sie auf der Seite **Farm angeben** den Namen des primären Verbund Servers in einer Farm an, die wid verwendet, oder geben Sie den Datenbank-Hostnamen und den Datenbankinstanznamen einer vorhandenen Verbund Server Farm an, die SQL Server verwendet.  
   
     > [!WARNING]  
-    > In Windows Server® 2012 R2 ist eine problemumgehung für die Standardinstanz von SQL Server anzugeben. Die problemumgehung besteht darin, die Benutzeroberfläche nicht verwenden. Verwenden Sie stattdessen die Schritte im [so konfigurieren Sie den ersten Verbundserver in einer neuen Verbundserverfarm über Windows PowerShell](Configure-a-Federation-Server.md#BKMK_3).  
+    > In Windows Server® 2012 R2 gibt es eine Problem Umgehung, um die Standard Instanz von SQL Server anzugeben. Die Problem Umgehung besteht darin, die Benutzeroberfläche nicht zu verwenden. Verwenden Sie stattdessen die Schritte in [, um den ersten Verbund Server in einer neuen Verbund Serverfarm über Windows PowerShell zu konfigurieren](Configure-a-Federation-Server.md#BKMK_3).  
   
     > [!IMPORTANT]  
     > Wenn Sie eine AD FS-Farm erstellen und Ihre Konfigurationsdaten mithilfe von SQL Server speichern möchten, können Sie SQL Server 2008 und höhere Versionen, einschließlich SQL Server 2012, verwenden.  
   
-5.  Auf der **SSL-Zertifikat angeben** Seite, importieren Sie die PFX-Datei mit dem SSL-Zertifikat und Schlüssel, den Sie zuvor abgerufen haben. Dieses Zertifikat ist das erforderliche Dienstauthentifizierungszertifikat. In [Schritt 2: Registrieren eines SSL-Zertifikats für AD FS](../../ad-fs/deployment/Enroll-an-SSL-Certificate-for-AD-FS.md), haben Sie dieses Zertifikat abgerufen und kopiert diese auf dem Computer, die Sie als Verbundserver konfigurieren möchten. Klicken Sie zum Importieren der PFX-Datei mithilfe des Assistenten auf **importieren** und navigieren Sie zum Speicherort der Datei. Geben Sie das Kennwort für die PFX-Datei, wenn Sie aufgefordert werden.  
+5.  Importieren Sie auf der Seite **SSL-Zertifikat angeben** die PFX-Datei mit dem SSL-Zertifikat und-Schlüssel, die Sie zuvor abgerufen haben. Dieses Zertifikat ist das erforderliche Dienstauthentifizierungszertifikat. In [Schritt 2: Registrieren Sie ein SSL-Zertifikat für](../../ad-fs/deployment/Enroll-an-SSL-Certificate-for-AD-FS.md)AD FS. Sie haben dieses Zertifikat abgerufen und auf den Computer kopiert, den Sie als Verbund Server konfigurieren möchten. Um die PFX-Datei über den Assistenten zu importieren, klicken Sie auf **importieren** , und navigieren Sie zum Speicherort der Datei. Geben Sie das Kennwort für die PFX-Datei ein, wenn Sie dazu aufgefordert werden.  
   
-6.  Auf der **angeben des Dienstkontos** Seite, die das gleiche Dienstkonto, die Sie konfiguriert werden, bei der Erstellung des ersten Verbundservers in der Farm angeben. Sie können ein vorhandenes gruppenverwaltetes Dienstkonto oder ein vorhandenes Domänenbenutzerkonto verwenden.  
+6.  Geben Sie auf der Seite **Dienst Konto angeben** das gleiche Dienst Konto an, das Sie beim Erstellen des ersten Verbund Servers in der Farm konfiguriert haben. Sie können ein vorhandenes Gruppen verwaltetes Dienst Konto oder ein vorhandenes Domänen Benutzerkonto verwenden.  
   
     > [!IMPORTANT]  
-    > Das Konto, das Sie angeben, muss es sich um dasselbe Konto wie das Konto sein, auf dem primären Verbundserver in dieser Farm verwendet wurde.  
+    > Das angegebene Konto muss mit dem Konto identisch sein, das auf dem primären Verbund Server in dieser Farm verwendet wurde.  
   
 7.  Überprüfen Sie Ihre Konfigurationsauswahl auf der Seite **Optionen prüfen** , und klicken Sie dann auf **Weiter**.  
   
-8.  Auf der **vor\-Prüfung auf erforderliche Software** Seite, stellen Sie sicher, dass alle voraussetzungsprüfungen erfolgreich abgeschlossen wurde, und klicken Sie dann auf **konfigurieren**.  
+8.  Überprüfen Sie auf der Seite **Voraussetzungs Prüfungen\-** , ob alle Voraussetzungs Prüfungen erfolgreich abgeschlossen wurden, und klicken Sie dann auf **Konfigurieren**.  
   
-9. Auf der **Ergebnisse** Seite überprüfen Sie die Ergebnisse und überprüfen Sie, ob die Konfiguration erfolgreich abgeschlossen ist, und klicken Sie dann auf **nächste Schritte zum Abschließen der Bereitstellung des Verbunddiensts**. Weitere Informationen finden Sie unter [nächste Schritte zum Abschließen der AD FS-Installation](https://go.microsoft.com/fwlink/p/?LinkId=286704). Klicken Sie auf **Schließen**, um den Assistenten zu beenden.  
+9. Überprüfen Sie auf der Seite **Ergebnisse** die Ergebnisse, und überprüfen Sie, ob die Konfiguration erfolgreich abgeschlossen wurde, und klicken Sie dann auf **weiter, um die Bereitstellung des Verbund Dienstanbieter abzuschließen**. Weitere Informationen finden Sie unter [Nächste Schritte zum Abschließen der AD FS Installation](https://go.microsoft.com/fwlink/p/?LinkId=286704). Klicken Sie auf **Schließen**, um den Assistenten zu beenden.  
   
-### <a name="to-add-a-federation-server-to-an-existing-federation-server-farm-via-windows-powershell"></a>Zum Hinzufügen eines Verbundservers zu einer vorhandenen Verbundserverfarm mithilfe von Windows PowerShell  
-Sie können einen Verbundserver zu einer vorhandenen Farm hinzufügen, mithilfe eines vorhandenen Gruppenverwalteten Dienstkontos oder ein vorhandenes Domänenbenutzerkonto verwenden.  
+### <a name="to-add-a-federation-server-to-an-existing-federation-server-farm-via-windows-powershell"></a>So fügen Sie einer vorhandenen Verbund Serverfarm mithilfe von Windows PowerShell einen Verbund Server hinzu  
+Sie können einer vorhandenen Farm einen Verbund Server hinzufügen, indem Sie entweder ein vorhandenes GMSA-Konto oder ein vorhandenes Domänen Benutzerkonto verwenden.  
   
--   Wenn Sie einer Farm einen Verbundserver unter Verwendung eines vorhandenen Gruppenverwalteten Dienstkontos hinzuzufügen möchten, führen Sie folgende Schritte aus:  
+-   Gehen Sie folgendermaßen vor, wenn Sie einen Verbund Server mit einem vorhandenen GMSA-Konto zu einer Farm hinzufügen möchten:  
   
-    1.  Stellen Sie sicher, dass auf das erforderliche SSL-Zertifikat importiert wurde, auf dem Computer, die Sie als Verbundserver konfigurieren möchten, die **lokalen Computer\\Meine Store** Verzeichnis. Sie können überprüfen, ob das SSL-Zertifikat importiert wurde, mithilfe des folgenden Befehls in Windows PowerShell-Befehlsfenster: `dir Cert:\LocalMachine\My`. Das Zertifikat aufgelistet, mit seinem Fingerabdruck unter der **lokalen Computer\\Meine Store** Verzeichnis.  
+    1.  Stellen Sie auf dem Computer, den Sie als Verbund Server konfigurieren möchten, sicher, dass das erforderliche SSL-Zertifikat in das Verzeichnis " **mein Speicher" des lokalen Computers\\** importiert wurde. Sie können überprüfen, ob das SSL-Zertifikat importiert wurde, indem Sie den folgenden Befehl im Windows PowerShell- `dir Cert:\LocalMachine\My`Befehlsfenster ausführen:. Das Zertifikat wird durch seinen Fingerabdruck im **lokalen Computer\\mein Speicher** Verzeichnis aufgelistet.  
   
-    2.  Klicken Sie auf dem Computer, den Sie als Verbundserver konfigurieren möchten, öffnen Sie Windows PowerShell-Befehlsfenster, und führen Sie den folgenden Befehl.  
+    2.  Öffnen Sie auf dem Computer, den Sie als Verbund Server konfigurieren möchten, das Windows PowerShell-Befehlsfenster, und führen Sie den folgenden Befehl aus.  
   
         ```  
         Add-AdfsFarmNode -GroupServiceAccountIdentifier <domain>\<GMSA_name>$ -PrimaryComputerName <first_federation_server_hostname> -CertificateThumbprint <certificate_thumbprint>  
         ```  
   
-        `<domain>\<GMSA_name>` ist Ihre AD-Domäne und den Namen des Gruppenverwalteten Dienstkontos in der Domäne. `<first_federation_server_hostname>` ist der Hostname des primären Verbundservers in der vorhandenen Farm.  
+        `<domain>\<GMSA_name>`ist Ihre AD-Domäne und der Name Ihres GMSA-Kontos in dieser Domäne. `<first_federation_server_hostname>`der Hostname des primären Verbund Servers in dieser vorhandenen Farm.  
   
-        Sie erhalten den Wert für `<certificate_thumbprint>` mit `dir Cert:\LocalMachine\My` im vorherigen Schritt.  
-  
-        > [!NOTE]  
-        > Wenn dies nicht der ersten, die Sie mit diesem Befehl ausführen ist, fügen Sie der `OverwriteConfiguration` Parameter.  
+        Sie können den Wert für `<certificate_thumbprint>` abrufen, indem Sie im vorherigen Schritt ausführen. `dir Cert:\LocalMachine\My`  
   
         > [!NOTE]  
-        > Der vorherige Befehl erstellt eine WID-farmknoten. Wenn Sie eine Server-farmknoten von SQL Server-Computern erstellen möchten, müssen Sie die Instanz von SQL Server bereits installierten und funktionstüchtigen verfügen.  
+        > Wenn dies nicht das erste Mal ist, dass Sie diesen Befehl ausführen, fügen `OverwriteConfiguration` Sie den-Parameter hinzu.  
+  
+        > [!NOTE]  
+        > Mit dem vorherigen Befehl wird ein wid-Farm Knoten erstellt. Wenn Sie einen Serverfarm Knoten von Computern erstellen möchten, auf denen SQL Server ausgeführt wird, muss die Instanz von SQL Server bereits installiert und betriebsbereit sein.  
         >   
-        > Sie können den folgenden Befehl zum Hinzufügen eines Verbundservers zu einer vorhandenen Farm, die eine Instanz von SQL Server verwendet wird: `Add-AdfsFarmNode -GroupServiceAccountIdentifier <domain>\<GMSA_name>$ -SQLConnectionString "Data Source=<SQL_Host_Name>\<SQL_instance_ name>;Integrated Security=True"` , in denen **SQL\_Host\_Namen** ist der Name des Servers auf dem SQL Server ausgeführt, und **SQL\_Instanz\_Namen** ist der Name der Instanz von SQL Server. Verwenden, wenn Sie die Standardinstanz von SQL Server verwenden, eine **SQLConnectionString** Wert von "**Datenquelle\=< SQL\_Host\_Name >; Integrated Security\=" true "** ".  
+        > Sie können den folgenden Befehl verwenden, um einer vorhandenen Farm einen Verbund Server hinzuzufügen, der eine Instanz von SQL Server verwendet `Add-AdfsFarmNode -GroupServiceAccountIdentifier <domain>\<GMSA_name>$ -SQLConnectionString "Data Source=<SQL_Host_Name>\<SQL_instance_ name>;Integrated Security=True"` : wobei der **SQL\_-Hostname\_** der Name des Servers ist, auf dem SQL Server ausgeführt wird, und **SQL der Instanzname\_ist der Name der Instanz von SQL Server. \_** Wenn Sie die Standard Instanz von SQL Server verwenden, verwenden Sie einen **sqlConnectionString** -Wert von " **\=Data Source <\_SQL\_-Hostname >\=; integrierte Sicherheit true**".  
   
         > [!IMPORTANT]  
-        > Wenn Sie eine AD FS-Farm erstellen und SQL Server zum Speichern Ihrer Konfigurationsdaten verwenden möchten, können Sie SQL Server 2008 und höhere Versionen, einschließlich SQL Server 2012 und SQL Server 2014.  
+        > Wenn Sie eine AD FS-Farm erstellen und SQL Server zum Speichern der Konfigurationsdaten verwenden möchten, können Sie SQL Server 2008 und neuere Versionen verwenden, einschließlich SQL Server 2012 und SQL Server 2014.  
   
--   Wenn Sie einen Verbundserver zu einer Farm zu verknüpfen, indem Sie ein vorhandenes Domänenbenutzerkonto möchten, führen Sie folgende Schritte aus:  
+-   Wenn Sie einen Verbund Server mithilfe eines vorhandenen Domänen Benutzerkontos zu einer Farm hinzufügen möchten, gehen Sie wie folgt vor:  
   
-    1.  Auf dem Computer, die Sie als Verbundserver konfigurieren möchten, öffnen Sie das Windows-PowerShellcommand-Fenster, und führen Sie den folgenden Befehl: `$fscred = get-credential`. Geben Sie die Anmeldeinformationen des Domänenbenutzers-Konto, das Sie für das Konto des Verbunddiensts in das Format Domäne verwenden möchten\\Benutzernamen ein.  
+    1.  Öffnen Sie auf dem Computer, den Sie als Verbund Server konfigurieren möchten, das Windows PowerShellCommand-Fenster, und führen Sie dann den folgenden `$fscred = get-credential`Befehl aus:. Geben Sie die Anmelde Informationen für das Domänen Benutzerkonto ein, das Sie für das Verbund Dienst Konto\\im Format Domäne Benutzername verwenden möchten.  
   
-    2.  Stellen Sie sicher, dass auf das erforderliche SSL-Zertifikat importiert wurde, auf dem Computer, die Sie als Verbundserver konfigurieren möchten, die **lokalen Computer\\Meine Store** Verzeichnis. Sie können überprüfen, ob das SSL-Zertifikat importiert wurde, mithilfe des folgenden Befehls im Fenster Windows PowerShellcommand: `dir Cert:\LocalMachine\My`. Das Zertifikat aufgelistet, mit seinem Fingerabdruck unter der **lokalen Computer\\Meine Store** Verzeichnis.  
+    2.  Stellen Sie auf dem Computer, den Sie als Verbund Server konfigurieren möchten, sicher, dass das erforderliche SSL-Zertifikat in das Verzeichnis " **mein Speicher" des lokalen Computers\\** importiert wurde. Sie können überprüfen, ob das SSL-Zertifikat importiert wurde, indem Sie den folgenden Befehl im Fenster Windows PowerShellCommand ausführen: `dir Cert:\LocalMachine\My`. Das Zertifikat wird durch seinen Fingerabdruck im **lokalen Computer\\mein Speicher** Verzeichnis aufgelistet.  
   
-    3.  Führen Sie in der gleichen Windows PowerShell-Befehlsfenster den folgenden Befehl ein.  
+    3.  Führen Sie im selben Windows PowerShell-Befehlsfenster den folgenden Befehl aus.  
   
         ```  
         Add-AdfsFarmNode -ServiceAccountCredential $fscred -PrimaryComputerName <first_federation_server_hostname> -CertificateThumbprint <certificate_thumbprint>  
         ```  
   
         > [!NOTE]  
-        > Wenn dies nicht der ersten, die Sie mit diesem Befehl ausführen ist, fügen Sie der `OverwriteConfiguration` Parameter.  
+        > Wenn dies nicht das erste Mal ist, dass Sie diesen Befehl ausführen, fügen `OverwriteConfiguration` Sie den-Parameter hinzu.  
   
         > [!NOTE]  
-        > Der vorherige Befehl erstellt eine WID-farmknoten. Wenn Sie eine Server-farmknoten von SQL Server-Computern erstellen möchten, müssen Sie die Instanz von SQL Server bereits installierten und funktionstüchtigen verfügen. Sie können den folgenden Befehl zu einer vorhandenen Farm einen Verbundserver hinzuzufügen, mit einer Instanz von SQL Server: `Add-AdfsFarmNode -ServiceAccountCredential $fscred -SQLConnectionString "Data Source=<SQL_Host_Name>\<SQL_instance_ name>;Integrated Security=True"` , in denen **SQL\_Host\_Namen** ist der Name des Servers, auf dem SQL-Instanz Server ausgeführt wird, und **SQL\_Instanz\_Namen** ist der Name der Instanz von SQL Server. Verwenden, wenn Sie die Standardinstanz von SQL Server verwenden, eine **SQLConnectionString** Wert von "**Datenquelle\=< SQL\_Host\_Name >; Integrated Security\=" true "** ".  
+        > Mit dem vorherigen Befehl wird ein wid-Farm Knoten erstellt. Wenn Sie einen Serverfarm Knoten von Computern erstellen möchten, auf denen SQL Server ausgeführt wird, muss die Instanz von SQL Server bereits installiert und betriebsbereit sein. Mit dem folgenden Befehl können Sie einen Verbund Server zu einer vorhandenen Farm hinzufügen, indem Sie eine Instanz von SQL Server `Add-AdfsFarmNode -ServiceAccountCredential $fscred -SQLConnectionString "Data Source=<SQL_Host_Name>\<SQL_instance_ name>;Integrated Security=True"` verwenden: wobei der **\_SQL-Hostname\_** der Name des Servers ist, auf dem die Instanz von SQL Server ausgeführt wird. **Der\_SQL\_-Instanzname** ist der Name der Instanz von SQL Server. Wenn Sie die Standard Instanz von SQL Server verwenden, verwenden Sie einen **sqlConnectionString** -Wert von " **\=Data Source <\_SQL\_-Hostname >\=; integrierte Sicherheit true**".  
   
         > [!IMPORTANT]  
-        > Wenn Sie eine AD FS-Farm erstellen und SQL Server zum Speichern Ihrer Konfigurationsdaten verwenden möchten, können Sie SQL Server 2008 und höhere Versionen, einschließlich SQL Server 2012 und SQL Server 2014.  
+        > Wenn Sie eine AD FS-Farm erstellen und SQL Server zum Speichern der Konfigurationsdaten verwenden möchten, können Sie SQL Server 2008 und neuere Versionen verwenden, einschließlich SQL Server 2012 und SQL Server 2014.  
   
 ## <a name="see-also"></a>Siehe auch 
 
 [AD FS-Bereitstellung](../../ad-fs/AD-FS-Deployment.md)  
 
-[Windows Server 2012 R2 AD FS-Bereitstellung geführt.](../../ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)  
+[Windows Server 2012 R2 AD FS Bereitstellungs Handbuch](../../ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)  
  
 [Bereitstellen einer Verbundserverfarm](../../ad-fs/deployment/Deploying-a-Federation-Server-Farm.md)  
   

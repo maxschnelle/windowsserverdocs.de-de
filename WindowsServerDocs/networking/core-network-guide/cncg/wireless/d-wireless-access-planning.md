@@ -1,6 +1,6 @@
 ---
 title: Planung der Bereitstellung des Funkzugriffs
-description: Dieses Thema ist Teil des Windows Server 2016-Networking Guide "Deploy Password-Based 802.1 X Authenticated Wireless Access"
+description: Dieses Thema ist Teil des Windows Server 2016-Netzwerk Handbuchs "Bereitstellen von Kenn Wort basiertem 802.1 x authentifizierten drahtlosen Zugriff".
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking
@@ -8,216 +8,216 @@ ms.topic: article
 ms.assetid: 8c632d02-2270-4a82-8fc4-74ea3747f079
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a2571f509fbbca8384e626ad3c8c13f1c0a50400
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4606e1cb418426623aca9e199ddde575a826a064
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855461"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865332"
 ---
 # <a name="wireless-access-deployment-planning"></a>Planung der Bereitstellung des Funkzugriffs
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Bevor Sie den drahtlosen Zugriff bereitstellen, müssen Sie Folgendes planen:
+Bevor Sie drahtlos Zugriff bereitstellen, müssen Sie die folgenden Elemente planen:
 
-- Installation von drahtlosen Zugriffspunkten \(APs\) in Ihrem Netzwerk
+- Installation von drahtlos Zugriffs Punkten \(\) in Ihrem Netzwerk
 
-- Konfiguration des drahtlosen Clients und Zugriff
+- Konfiguration und Zugriff auf drahtlose Clients
 
-Die folgenden Abschnitte enthalten Details zu diesen Schritten Planung.
+Die folgenden Abschnitte enthalten ausführliche Informationen zu diesen Planungsschritten.
 
-## <a name="planning-wireless-ap-installations"></a>Planen der drahtlose AP-Installationen
-Wenn Sie Ihre drahtlose Lösung entwerfen, müssen Sie Folgendes ausführen:
+## <a name="planning-wireless-ap-installations"></a>Planen von drahtlosen AP-Installationen
+Wenn Sie die Lösung für den Drahtlos Netzwerk Zugriff entwerfen, müssen Sie die folgenden Schritte ausführen:
 
-1. Welche Standards, die Ihre drahtlosen Zugriffspunkte unterstützen, müssen ermitteln
-2. Bestimmen Sie die in allen Regionen, in dem Sie WLAN-Dienst bereitstellen möchten
-3. Bestimmen Sie, wo Sie drahtlose Zugriffspunkte suchen sollen
+1. Bestimmen, welche Standards ihre drahtlos Zugriffspunkte unterstützen müssen
+2. Bestimmen Sie die Abdeckungsbereiche, in denen Sie drahtlos Dienste bereitstellen möchten.
+3. Bestimmen Sie, wo Sie drahtlos Zugriffspunkte suchen möchten.
 
-Darüber hinaus müssen Sie planen ein Schema der IP-Adresse für Ihren drahtlosen Zugriffspunkts und drahtlosen Clients. Finden Sie im Abschnitt **sollten Sie die Konfiguration von drahtlosen Zugriffspunkt auf dem Netzwerkrichtlinienserver** unten Weitere Informationen.
+Außerdem müssen Sie ein IP-Adress Schema für Ihre drahtlos Zugriffspunkt-und drahtlosen Clients planen. Weitere Informationen finden Sie im Abschnitt **Planen der Konfiguration von drahtlos Zugriffs Netzwerken in NPS** weiter unten.
 
-### <a name="verify-wireless-ap-support-for-standards"></a>Überprüfen der drahtlose AP-Unterstützung für standards
-Für den Zweck der Konsistenz und einfache Bereitstellung und Verwaltung von AP empfiehlt es sich, dass Sie die drahtlose Zugriffspunkten der gleichen Marke und Modell des bereitstellen.
+### <a name="verify-wireless-ap-support-for-standards"></a>Überprüfen der Wireless AP-Unterstützung für Standards
+Um die Bereitstellung und die Verwaltung von Zugriffs Punkten zu gewährleisten, wird empfohlen, drahtlos Zugriffspunkte derselben Marke und desselben Modells bereitzustellen.
 
-Die Drahtloszugriffspunkte, die Sie bereitstellen, müssen Folgendes unterstützen:
+Die drahtlos Zugriffspunkte, die Sie bereitstellen, müssen Folgendes unterstützen:
 
-- **IEEE 802.1X**
+- **IEEE 802.1 X**
 
 - **RADIUS-Authentifizierung**
 
-- **Drahtlose Authentifizierung und Verschlüsselung.** Aufgeführt in der Reihenfolge Ihrer bevorzugten:
+- **Drahtlose Authentifizierung und Verschlüsselung.** In der Reihenfolge aufgelistet, in der Sie am wenigsten bevorzugt werden:
 
     1.  WPA2\-Enterprise mit AES
 
-    2.  WPA2\-Enterprise und TKIP
+    2.  WPA2\-Enterprise mit TKIP
 
     3.  WPA\-Enterprise mit AES
 
-    4.  WPA\-Enterprise und TKIP
+    4.  WPA\-Enterprise mit TKIP
 
 >[!NOTE]
->Um WPA2 bereitzustellen, müssen Sie verwenden, Drahtlosnetzwerkadaptern und Drahtloszugriffspunkten, die auch WPA2 unterstützen. Verwenden Sie andernfalls WPA\-Enterprise.
+>Zum Bereitstellen von WPA2 müssen Sie Drahtlos Netzwerkadapter und drahtlos Zugriffspunkte verwenden, die auch WPA2 unterstützen. Verwenden Sie andernfalls WPA\-Enterprise.
 
-Um die erweiterte Sicherheit für das Netzwerk müssen den Drahtloszugriffspunkten darüber hinaus die folgenden Sicherheitsoptionen unterstützen:
+Außerdem müssen die drahtlos Zugriffspunkte die folgenden Sicherheitsoptionen unterstützen, um eine höhere Sicherheit für das Netzwerk zu gewährleisten:
 
-- **DHCP-Filterung.** IP-Ports, um die Übertragung von DHCP-Broadcastmeldungen in diesen Fällen zu vermeiden, in denen der drahtlose Client als DHCP-Server konfiguriert ist, muss dem drahtlosen AP filtern. Der Drahtloszugriffspunkt muss es sich um den Client IP-Pakete von UDP-Port 68 zu senden, mit dem Netzwerk blockieren.
+- **DHCP-Filterung.** Der drahtlos Zugriffspunkt muss nach IP-Ports filtern, um die Übertragung von DHCP-Broadcast Nachrichten in Fällen zu verhindern, in denen der drahtlose Client als DHCP-Server konfiguriert ist. Der drahtlose Zugriffspunkt muss verhindern, dass der Client IP-Pakete vom UDP-Port 68 an das Netzwerk sendet.
 
-- **DNS-Filterung.** IP-Ports, um zu verhindern, dass einen Client eine DNS-Server ausführen muss dem drahtlosen AP filtern. Der drahtlose Zugriffspunkt muss den Client sendet, dass die IP-Pakete von TCP- oder UDP-port 53 mit dem Netzwerk blockieren.
+- **DNS-Filterung.** Der drahtlos Zugriffspunkt muss nach IP-Ports filtern, um zu verhindern, dass ein Client als DNS-Server funktioniert. Der drahtlose Zugriffspunkt muss verhindern, dass der Client IP-Pakete vom TCP-oder UDP-Port 53 an das Netzwerk sendet.
 
-- **Clientisolation** Wenn Ihr drahtloser Zugriffspunkt Client Isolation Funktionen bereitstellt, müssen Sie die Funktion, um zu verhindern, dass mögliche Address Resolution Protocol aktivieren \(ARP\) spoofing-Angriffe.
+- **Client Isolation** Wenn Ihr drahtloser Zugriffspunkt Client Isolations Funktionen bereitstellt, sollten Sie diese Funktion aktivieren, um mögliche \(Angriffe\) auf ARP-Spoofing zu verhindern.
 
-### <a name="identify-areas-of-coverage-for-wireless-users"></a>Identifizieren von Coverage für Mobiltelefone
-Verwenden Sie Grundrisse der einzelnen Floor für jedes Gebäude, um die Bereiche zu identifizieren, wo Sie drahtlose Abdeckung bereitstellen möchten. Beispielsweise identifizieren Sie die entsprechenden Büros, Räume für Konferenzen, Hotellobbys, Kantine oder Courtyards.
+### <a name="identify-areas-of-coverage-for-wireless-users"></a>Erkennen von Bereichen der Abdeckung für drahtlose Benutzer
+Verwenden Sie die Architekturzeichnungen jeder Etage für jedes Gebäude, um die Bereiche zu identifizieren, in denen Sie drahtlos Abdeckung bereitstellen möchten. Identifizieren Sie z. b. die entsprechenden Niederlassungen, Konferenzräume, Lobbys, Cafeterias oder Höfe.
 
-Geben Sie auf die Zeichnungen, an alle Geräte, die sich die drahtlose Signale, z. B. medizinischer Geräte, drahtlose Videokameras, kabellosen Telefone, die den Betrieb im 2,4 bis 2,5 GHz-Industrie, Wissenschaft und Medical störend \(ISM\) Bereich und Bluetooth-\--fähige Geräte.
+Geben Sie in den Zeichnungen alle Geräte an, die die drahtlosen Signale stören, wie z. b. medizinische Geräte, drahtlose Videokameras, drahtlose Telefone, die im Industrie-, wissenschaftlichen und \(medizinischen\) ISM 2,4 bis 2,5 GHz betrieben werden. Bereich und für Bluetooth\-aktivierte Geräte.
 
-Markieren Sie in der Zeichnung, Aspekte des Gebäudes, die drahtlose Signale behindert werden können; -Metal-Objekte, die bei der Erstellung eines Gebäudes verwendet, können die Funksignal auswirken. Beispielsweise können die folgenden allgemeinen Objekte Signal Weitergabe beeinträchtigen: Aufzüge, heizungs- und Air\-Vorbereitung, Kanäle und konkrete Unterstützung Girders.
+Markieren Sie auf der Zeichnung Aspekte der Erstellung, die möglicherweise durch drahtlose Signale beeinträchtigt werden. die bei der Erstellung eines Gebäudes verwendeten Metal-Objekte können sich auf das drahtlose Signal auswirken. Die folgenden allgemeinen Objekte können z. b. die Signal Weitergabe beeinträchtigen: Aufzüge, Heiz-und\-Klimaanlagen und konkrete Support-und konkrete Support.
 
-Finden Sie in der AP-Hersteller Informationen zu Datenquellen, die drahtlosen AP Radio Frequency, Funkübertragung Attenuation verursachen können. Die meisten APs bieten testen Software, die Sie verwenden können, überprüfen Sie für die Signalstärke abnimmt, Fehlerrate und den Datendurchsatz.
+Informationen zu Quellen, die möglicherweise eine drahtlose AP-Funkfrequenz Dämpfung verursachen, finden Sie unter Ihrem AP-Hersteller. Die meisten APS bieten Testsoftware, die Sie verwenden können, um die Signalstärke, die Fehlerrate und den Datendurchsatz zu überprüfen.
 
-### <a name="determine-where-to-install-wireless-aps"></a>Bestimmen des Installationsorts für drahtlose APs installieren
-Suchen Sie auf die Architekturen Zeichnungen genug zusammen schließen Ihre drahtlosen Zugriffspunkte, um ausreichend Funkverbindung jedoch weit genug auseinander liegen Geben Sie, dass sie nicht miteinander in Konflikt treten.
+### <a name="determine-where-to-install-wireless-aps"></a>Bestimmen des Installations Orts für drahtlos Zugriffspunkte
+Suchen Sie in den Architekturzeichnungen ihre drahtlos Zugriffspunkte, um ausreichend drahtlose Abdeckung bereitzustellen, aber weit genug voneinander entfernt, dass Sie sich nicht gegenseitig beeinträchtigen.
 
-Die ausreichend Abstand zwischen den APs hängt des Typs des AP und drahtlosen AP-Antenne Aspekte des Gebäudes, die eine Blockierung, Signale und andere Quellen von Störungen. Sie können drahtlose Zugriffspunkt Platzierungen markieren, sodass jeder drahtlose Zugriffspunkt nicht mehr als 300 Fuß von alle angrenzenden Drahtloszugriffspunkt ist. Finden Sie in der drahtlose AP Dokumentation des Herstellers für AP-Spezifikationen und Richtlinien für die Platzierung.
+Die erforderliche Entfernung zwischen APS hängt von der Art von AP-und AP-Antennen, den Aspekten der Gebäude, in denen drahtlose Signale blockiert werden, und anderen Quellen für Störungen ab. Sie können drahtlose AP-Platzierungen markieren, sodass jeder drahtlos Zugriffspunkt nicht mehr als 300 Meter von einem angrenzenden drahtlos Zugriffspunkt ist. Informationen zu den Spezifikationen und Richtlinien für die Platzierung finden Sie in der Dokumentation des drahtlos Zugriffspunkt-Herstellers.
 
-Installieren Sie die drahtlose Zugriffspunkten vorübergehend an den Speicherorten, die für Ihre Architekturen Zeichnungen angegeben. Anschließend verwenden einen Laptop mit einer 802.11-Drahtlosadapter und der Standort-Umfrage-Software, die häufig bereitgestellt werden mit Drahtlosadapter ausgestattet, bestimmen Sie die Signalstärke in jeden Bereich.
+Installieren Sie vorübergehend drahtlos Zugriffspunkte an den Orten, die in ihren Architekturzeichnungen angegeben sind. Legen Sie dann mit einem Laptop, der mit einem 802,11-drahtlos Adapter ausgestattet ist, und der Standort Umfrage Software, die üblicherweise mit drahtlosen Adaptern bereitgestellt wird, die Signalstärke in den einzelnen Bereichen fest
 
-In allen Regionen, in denen Signalstärke niedrig ist, positionieren Sie den Zugriffspunkt Signalstärke für den Bereich zu verbessern, installieren zusätzliche drahtlose Zugriffspunkte zum Bereitstellen der erforderlichen Abdeckung, verschieben aus, oder Entfernen von Datenquellen Signal Störungen.  
+Positionieren Sie in Abdeckungsbereichen, in denen die Signalstärke gering ist, den Zugriffspunkt, um die Signalstärke für den Abdeckungsbereich zu verbessern, zusätzliche drahtlos Zugriffspunkte zu installieren, um die erforderliche Abdeckung bereitzustellen, die Quelle von Signalstörungen  
 
-Aktualisieren Sie Ihre Architekturen Zeichnungen aus, um die letzte Position alle Drahtloszugriffspunkte anzugeben. Müssen eine genaue AP Platzierung Zuordnung hilft, später während der Problembehandlung von Vorgängen oder wenn Sie aktualisieren oder zu APs ersetzen möchten.
+Aktualisieren Sie die Architekturzeichnungen, um die endgültige Platzierung aller drahtlos Zugriffspunkte anzuzeigen. Eine genaue AP-Platzierungs Zuordnung wird später während der Problembehandlung oder beim Aktualisieren oder Ersetzen von APS unterstützt.
 
-### <a name="plan-wireless-ap-and-nps-radius-client-configuration"></a>Planen der drahtlosen Zugriffspunkt und Ihren NPS RADIUS-Client-Konfiguration
-Sie können NPS verwenden, drahtlose Zugriffspunkten einzeln oder in Gruppen zu konfigurieren.
+### <a name="plan-wireless-ap-and-nps-radius-client-configuration"></a>Planen von drahtlos Zugriffspunkt-und NPS-RADIUS-Client Konfigurationen
+Sie können NPS verwenden, um drahtlos Zugriffspunkte einzeln oder in Gruppen zu konfigurieren.
 
-Wenn Sie ein großes drahtloses Netzwerk, das viele APs enthält bereitstellen, ist es viel einfacher zu APs in Gruppen zu konfigurieren. Um die Zugriffspunkte als RADIUS-Client-Gruppen auf dem Netzwerkrichtlinienserver hinzuzufügen, müssen Sie den APs mit diesen Eigenschaften konfigurieren.
+Wenn Sie ein großes Drahtlos Netzwerk bereitstellen, das viele APS umfasst, ist es viel einfacher, APS in Gruppen zu konfigurieren. Um die APS als RADIUS-Client Gruppen in NPS hinzuzufügen, müssen Sie die APS mit diesen Eigenschaften konfigurieren.
 
-- Zugriffspunkte werden mit IP-Adressen aus der gleichen IP-Adressbereich konfiguriert.
+- Die drahtlos Zugriffspunkte werden mit IP-Adressen aus dem gleichen IP-Adressbereich konfiguriert.
 
-- Zugriffspunkte werden alle mit den gleichen gemeinsamen geheimen Schlüssel konfiguriert.
+- Die drahtlos Zugriffspunkte sind alle mit demselben gemeinsamen geheimen Schlüssel konfiguriert.
 
-### <a name="plan-the-use-of-peap-fast-reconnect"></a>Planen der Verwendung von PEAP schnelle Wiederherstellung der Verbindung
-In einer 802.1 X-Infrastruktur sind drahtlose Zugriffspunkte als RADIUS-Clients, RADIUS-Server konfiguriert. Wenn PEAP schnelle Wiederherstellung der Verbindung bereitgestellt wird, ein drahtloser Client, der zwischen zwei oder mehr Zugriffspunkte wechselt ist nicht erforderlich, um bei jeder neuen Zuordnung authentifiziert werden.
+### <a name="plan-the-use-of-peap-fast-reconnect"></a>Planen der schnellen erneuten Verbindungs Herstellung mit PAP
+In einer 802.1 x-Infrastruktur werden drahtlose Zugriffspunkte als RADIUS-Clients für RADIUS-Server konfiguriert. Wenn die schnelle Wiederherstellung von Peer-Verbindungen bereitgestellt wird, muss ein drahtloser Client, der zwischen zwei oder mehr Zugriffs Punkten wechselt, nicht mit jeder neuen Zuordnung authentifiziert werden.
 
-Verbinden von PEAP-Verbindungen die Antwortzeit für die Authentifizierung zwischen Client und dem Authentifikator reduziert, weil die Authentifizierungsanforderung von der neuen Zugriffspunkt an den NPS weitergeleitet wird, die ursprünglich Authentifizierung und Autorisierung für den Client durchgeführt die verbindungsanforderung.
+Die schnelle Wiederherstellung von OLAP reduziert die Reaktionszeit für die Authentifizierung zwischen Client und Authentifikator, weil die Authentifizierungsanforderung vom neuen Zugriffspunkt an den NPS weitergeleitet wird, der ursprünglich die Authentifizierung und Autorisierung für den Client durchgeführt hat. Verbindungsanforderung.
 
-Da der PEAP-Client und der NPS, beide verwenden die zuvor Transport Layer Security zwischengespeicherte \(TLS\) Verbindungseigenschaften \(die Auflistung der Namen des TLS-Handles\), den NPS können schnell ermitteln, der Client ist für eine erneute Verbindung autorisiert.
+Da sowohl der Peer-Client als auch der NPS die zuvor zwischen \(gespeicherten\) Transport Layer Security TLS \(-Verbindungs Eigenschaften verwenden, die als TLS-\)Handle bezeichnet werden, kann der NPS schnell feststellen, dass der Client ist für eine erneute Verbindung autorisiert.
 
 >[!IMPORTANT]
->Für schnell wieder Verbindungen herstellen, um korrekt zu funktionieren, APs müssen als RADIUS-Clients, der den gleichen NPS konfiguriert sein.
+>Damit die Funktion zum schnellen erneuten Verbinden ordnungsgemäß funktioniert, müssen die APS als RADIUS-Clients desselben NPS konfiguriert werden.
 
-Wenn der ursprüngliche NPS nicht mehr verfügbar ist, oder wechselt der Client mit einem Zugriffspunkt, der als RADIUS-Client auf einen anderen RADIUS-Server konfiguriert ist, muss eine vollständige Authentifizierung zwischen dem Client und der neue Authentifikator stattfinden.
+Wenn die ursprüngliche NPS nicht verfügbar ist oder der Client zu einem Zugriffspunkt wechselt, der als RADIUS-Client auf einem anderen RADIUS-Server konfiguriert ist, muss die vollständige Authentifizierung zwischen dem Client und dem neuen Authentifikator erfolgen.
 
 ### <a name="wireless-ap-configuration"></a>Drahtlose AP-Konfiguration
-Die folgende Liste enthält Elemente, die häufig in 802.1X-authentifizierten konfiguriert\-Drahtloszugriffspunkt:
+In der folgenden Liste werden die Elemente zusammengefasst,\-die häufig auf 802.1 x-fähigen drahtlos Zugriffs Punkten
 
 > [!NOTE]
-> Die Elementnamen je nach Marke und Modell variieren können, und es können sich von denen in der folgenden Liste werden. Finden Sie unter der drahtlose AP-Dokumentation für die Konfiguration\-spezifische Details.
+> Die Elementnamen können je nach Marke und Modell variieren und können sich von den in der folgenden Liste unterscheiden. Ausführliche Informationen zur Konfiguration\-finden Sie in der drahtlosen AP-Dokumentation.
 
-- **Dienst festgelegt Bezeichner \(SSID\)**. Dies ist der Name des Drahtlosnetzwerks \(z. B. ExampleWlan\), und der Name, der für drahtlose Clients angekündigt wird. Um Verwechslungen zu vermeiden, sollte die SSID, die Sie auswählen, angekündigt werden soll nicht die SSID übereinstimmen, die von allen drahtlosen Netzwerken übertragen wird, die im Empfangsbereich des Ihr drahtloses Netzwerk befinden.
+- **SSID für \(den Service\)set-Bezeichner**. Dies ist der Name des drahtlos Netzwerks \(, z. b. examplewlan\)und der Name, der drahtlosen Clients angekündigt wird. Um Verwirrung zu vermeiden, sollte die SSID, die Sie ankündigen möchten, nicht mit der SSID verglichen werden, die von einem Drahtlos Netzwerk gesendet wird, das sich im Empfangsbereich Ihres drahtlos Netzwerks befindet.
 
-    Konfigurieren Sie in Fällen, die in denen mehrere drahtlose Zugriffspunkte als Teil des gleichen drahtlosen Netzwerk bereitgestellt werden jeden drahtlosen Zugriffspunkt mit derselben SSID ein. Konfigurieren Sie in Fällen, die in denen mehrere drahtlose Zugriffspunkte als Teil des gleichen drahtlosen Netzwerk bereitgestellt werden jeden drahtlosen Zugriffspunkt mit derselben SSID ein.  
+    In Fällen, in denen mehrere drahtlos Zugriffspunkte als Teil desselben drahtlos Netzwerks bereitgestellt werden, konfigurieren Sie jeden drahtlos Zugriffspunkt mit derselben SSID. In Fällen, in denen mehrere drahtlos Zugriffspunkte als Teil desselben drahtlos Netzwerks bereitgestellt werden, konfigurieren Sie jeden drahtlos Zugriffspunkt mit derselben SSID.  
 
-    In Fällen Sie mehrere Drahtlosnetzwerke haben, um bestimmte geschäftsanforderungen zu erfüllen bereitstellen müssen, sollten Ihre drahtlosen APS in einem Netzwerk übertragen, eine andere SSID als die SSID Ihrer anderen Netzwerke\(s\). Z. B., wenn Sie ein separates drahtloses Netzwerk für Ihre Mitarbeiter und Gäste benötigen, Sie können Ihre drahtlosen Zugriffspunkte für das Business-Netzwerk mit konfigurieren die SSID senden festgelegt **ExampleWLAN**. Für Ihr Netzwerk Gast anschließend jeden drahtlosen Zugriffspunkt SSID senden, legen **GuestWLAN**. Auf diese Weise können Ihre Mitarbeiter und Gäste mit dem gewünschten Netzwerk, ohne dass unnötige Verwirrung entsteht eine Verbindung herstellen.  
+    In Fällen, in denen Sie verschiedene Drahtlos Netzwerke bereitstellen müssen, um bestimmte Geschäftsanforderungen zu erfüllen, sollte Ihr drahtlos Zugriffspunkt in einem Netzwerk eine andere SSID als die SSID Ihres anderen\(Netzwerks\)übertragen. Wenn Sie z. b. ein separates Drahtlos Netzwerk für Ihre Mitarbeiter und Gäste benötigen, können Sie Ihre drahtlos Zugriffspunkte für das Geschäftsnetzwerk konfigurieren, wobei die SSID auf Broadcast **examplewlan**festgelegt ist. Für Ihr Gastnetzwerk können Sie dann die SSID für jeden drahtlos Zugriffspunkt für die Übertragung von **guestwlan**festlegen. Auf diese Weise können Mitarbeiter und Gäste ohne unnötige Verwirrung eine Verbindung mit dem vorgesehenen Netzwerk herstellen.  
 
     > [!TIP]  
-    > Einige drahtlose APs haben die Möglichkeit, mehrere SSID zum Aufnehmen von mehreren übertragen\-Netzwerk-Bereitstellungen. Drahtlose Zugriffspunkt, der mehrere SSID übertragen werden kann, können bereitstellungs- und Wartungsaufgaben Kosten reduzieren.  
+    > Einige drahtlos Zugriffspunkt haben die Möglichkeit, mehrere SSIDs zu übertragen, um\-mehrere Netzwerk Bereitstellungen zu ermöglichen. Drahtlos Zugriffspunkt, der mehrere SSIDs übertragen kann, kann die Bereitstellungs-und Betriebskosten senken.  
 
 - **Drahtlose Authentifizierung und Verschlüsselung**.
 
-    Drahtlose Authentifizierung ist die Sicherheitsauthentifizierung, die verwendet wird, wenn der drahtlose Client mit einem drahtlosen Zugriffspunkt zuordnet.  
+    Die drahtlose Authentifizierung ist die Sicherheits Authentifizierung, die verwendet wird, wenn der drahtlose Client einem drahtlos Zugriffspunkt zugeordnet wird.  
 
-    Drahtlose Verschlüsselung ist die Sicherheit-Verschlüsselungsverfahren, das mit der drahtlosen Authentifizierung verwendet wird, um die Kommunikation zu schützen, die zwischen dem drahtlosen Zugriffspunkt und Ihren drahtlosen Client gesendet werden.  
+    Die drahtlose Verschlüsselung ist das Verschlüsselungs Verschlüsselungsverfahren, das bei der drahtlosen Authentifizierung verwendet wird, um die Kommunikation zu schützen, die zwischen dem drahtlosen Zugriffspunkt und dem drahtlosen Client gesendet wird.  
 
-- **Wireless-Zugriffspunkt IP-Adresse \(statische\)**. Konfigurieren Sie für jeden drahtlosen Zugriffspunkt eine eindeutige statische IP-Adresse ein. Das Subnetz einen DHCP-Server bedient wird, sicher, dass alle AP IP-Adressen innerhalb eines DHCP-Ausschlussbereichs fallen, sodass der DHCP-Server nicht versucht wird, um die IP-Adresse an einem anderen Computer oder Gerät ausgeben. Ausschlussbereiche in im Verfahren "So erstellen und aktivieren einen neuen DHCP-Bereich" dokumentiert sind, der [Core Network Guide](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/core-network-guide). Wenn Sie Zugriffspunkte als RADIUS-Clients auf Gruppenbasis in NPS konfigurieren möchten, müssen jeden Zugriffspunkt in der Gruppe eine IP-Adresse aus der gleichen IP-Adressbereich.
+- **Drahtlose AP-IP \(-\)Adresse statisch**. Konfigurieren Sie auf jedem drahtlos Zugriffspunkt eine eindeutige statische IP-Adresse. Wenn das Subnetz von einem DHCP-Server bedient wird, stellen Sie sicher, dass alle AP-IP-Adressen innerhalb eines DHCP-Ausschluss Bereichs liegen, damit der DHCP-Server nicht versucht, dieselbe IP-Adresse an einen anderen Computer oder ein anderes Gerät auszugeben. Ausschluss Bereiche werden im Haupt [Netzwerk Handbuch](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/core-network-guide)unter "So erstellen und aktivieren Sie einen neuen DHCP-Bereich" dokumentiert. Wenn Sie beabsichtigen, APS als RADIUS-Clients nach Gruppe in NPS zu konfigurieren, muss jede Zugriffspunkt Gruppe in der Gruppe über eine IP-Adresse aus dem gleichen IP-Adressbereich verfügen.
 
-- **DNS-Namen**. Einigen Drahtloszugriffspunkten können mit einem DNS-Namen konfiguriert werden. Konfigurieren Sie jeden drahtlosen Zugriffspunkt mit einem eindeutigen Namen ein. Für, wenn Sie z. B. eine bereitgestellte Drahtloszugriffspunkten in einem Multithread\-Geschichte erstellen, können Sie die ersten drei Drahtloszugriffspunkte, die in der dritten Etage AP3 bereitgestellt werden Namen\-01 AP3\-02 und AP3\-03.
+- **DNS-Name**. Einige drahtlos Zugriffspunkte können mit einem DNS-Namen konfiguriert werden. Konfigurieren Sie jeden drahtlos Zugriffspunkt mit einem eindeutigen Namen. Wenn Sie z. b. über ein bereitgestelltes drahtloses\-APS in einem mehrstöckigen Gebäude verfügen, können Sie die ersten drei drahtlos Zugriffspunkte benennen, die\-auf der dritten Etage bereitgestellt werden\-AP3 01, AP3\-02 und AP3 03.
 
-- **Drahtlose AP-Subnetzmaske**. Konfigurieren Sie die Maske, um anzugeben, welcher Bereich der IP-Adresse ist die Netzwerk-ID und welcher Teil der IP-Adresse des Hosts.
+- **Drahtlose AP-Subnetzmaske**. Konfigurieren Sie die Maske so, dass festgelegt wird, welcher Teil der IP-Adresse die Netzwerk-ID und welcher Teil der IP-Adresse der Host ist.
 
-- **AP-DHCP-Dienst**. Wenn Ihr drahtlose Zugriffspunkt eines integrierten verfügt\-im DHCP-Dienst deaktivieren.
+- **AP-DHCP-Dienst**. Wenn Ihr drahtlos Zugriffspunkt über einen\-integrierten DHCP-Dienst verfügt, deaktivieren Sie ihn.
 
-- **RADIUS-gemeinsamen geheimen Schlüssel**. Verwenden Sie einen eindeutigen RADIUS gemeinsamen geheimen Schlüssel für jeden drahtlosen Zugriffspunkt, es sei denn, Sie planen, Konfigurieren von NPS RADIUS-Clients in Gruppen –, in welcher Situation Sie alle APs in der Gruppe mit den gleichen gemeinsamen geheimen Schlüssel konfigurieren müssen. Gemeinsame geheime Schlüssel muss eine zufällige Sequenz von mindestens 22 Zeichen lang sein, mit Groß- und Kleinbuchstaben, Zahlen und Interpunktionszeichen. Um sicherzustellen, dass hinsichtlich Ihrer Zufälligkeit, können Sie eine zufällige Zeichen-Programm Ihrer gemeinsamen geheimen Schlüssel zu erstellen. Es wird empfohlen, dass Sie den gemeinsamen geheimen Schlüssel für jeden drahtlosen Zugriffspunkt aufzeichnen und speichern Sie sie an einem sicheren Ort, z. B. eine sichere Office. Beim Konfigurieren von RADIUS-Clients in der NPS-Konsole erstellen Sie eine virtuelle Version der einzelnen Pazifik. Der gemeinsame geheime Schlüssel, den Sie für jede virtuelle AP in NPS konfigurieren, muss den gemeinsamen geheime Schlüssel auf dem tatsächlichen, physischen Zugriffspunkt übereinstimmen.
+- Frei gegebener **RADIUS**-Schlüssel. Verwenden Sie für jeden drahtlos Zugriffspunkt einen eindeutigen freigegebenen RADIUS-Schlüssel, es sei denn, Sie planen die Konfiguration von NPS-RADIUS-Clients in Gruppen. in diesem Fall müssen Sie alle APS in der Gruppe mit demselben gemeinsamen geheimen Schlüssel konfigurieren. Bei gemeinsam genutzten Geheimnissen sollte es sich um eine zufällige Sequenz von mindestens 22 Zeichen mit groß-und Kleinbuchstaben, Ziffern und Interpunktions Zeichen handeln. Um die Zufälligkeit sicherzustellen, können Sie ein Programm für die zufällige Zeichen Generierung verwenden, um ihre gemeinsamen geheimen Schlüssel zu erstellen. Es wird empfohlen, den gemeinsamen geheimen Schlüssel für jeden drahtlos Zugriffspunkt aufzuzeichnen und an einem sicheren Ort (z. b. einem Büro sicher) zu speichern. Wenn Sie RADIUS-Clients in der NPS-Konsole konfigurieren, erstellen Sie eine virtuelle Version jeder Zugriffspunkt-app. Der gemeinsame geheime Schlüssel, den Sie auf den einzelnen virtuellen Zugriffs Schlüsseln in NPS konfigurieren, muss mit dem gemeinsamen geheimen Schlüssel auf der tatsächlichen, physischen Zugriffspunkt-
 
-- **IP-Adresse des RADIUS-Servers**. Geben Sie die IP-Adresse des NPS, die zum Authentifizieren und Autorisieren von verbindungsanforderungen an diesem Zugriffspunkt verwendet werden sollen.
+- **IP-Adresse des RADIUS-Servers**. Geben Sie die IP-Adresse des NPS ein, den Sie verwenden möchten, um Verbindungsanforderungen für diesen Zugriffspunkt zu authentifizieren und zu autorisieren.
 
-- **UDP-Port\(s\)**. Standardmäßig verwendet NPS UDP-Ports 1812 und 1645 für RADIUS-Authentifizierungsnachrichten und UDP-Ports 1813 und 1646 für RADIUS-Kontoführungsnachrichten. Es wird empfohlen, dass Sie die Standardeinstellungen für RADIUS-UDP-Ports nicht ändern.
+- **UDP-\(Port\)s**. Standardmäßig verwendet NPS UDP-Ports 1812 und 1645 für RADIUS-Authentifizierungs Nachrichten und UDP-Ports 1813 und 1646 für RADIUS-Buchhaltungs Nachrichten. Es wird empfohlen, dass Sie die Standardeinstellungen für die RADIUS-UDP-Ports nicht ändern.
 
-- **Herstellerspezifische Attribute**. Einige drahtlose Zugriffspunkte müssen Hersteller\-bestimmte Attribute \(VSAs\) vollständige drahtlosen AP-Funktionalität bereitstellen.
+- **VSAs**. Einige drahtlos Zugriffspunkte erfordern\-anbieterspezifische \(Attribute VSAs\) , um vollständige WLAN-Funktionen bereitzustellen.
 
-- **DHCP-Filterung**. Konfigurieren Sie drahtlose Zugriffspunkte zum Blockieren von drahtlosen Clients IP-Pakete von UDP-Port 68 mit dem Netzwerk zu senden. Finden Sie in der Dokumentation für Ihren drahtlosen Zugriffspunkt so konfigurieren Sie DHCP-Filterung.
+- **DHCP-Filterung**. Konfigurieren Sie drahtlos Zugriffspunkte, um zu verhindern, dass drahtlose Clients IP-Pakete vom UDP-Port 68 an das Netzwerk senden. Informationen zum Konfigurieren der DHCP-Filterung finden Sie in der Dokumentation für Ihren drahtlos Zugriffspunkt.
 
-- **DNS-Filterung**. Konfigurieren Sie drahtlose Zugriffspunkte zum Blockieren von drahtlosen Clients IP-Pakete von TCP- oder UDP-Port 53 mit dem Netzwerk zu senden. Finden Sie in der Dokumentation für Ihren drahtlosen Zugriffspunkt so konfigurieren Sie DNS-Filterung.
+- **DNS-Filterung**. Konfigurieren Sie drahtlos Zugriffspunkte, um zu verhindern, dass drahtlose Clients IP-Pakete von TCP-oder UDP-Port 53 an das Netzwerk senden. Informationen zum Konfigurieren der DNS-Filterung finden Sie in der Dokumentation für Ihren drahtlos Zugriffspunkt.
 
-## <a name="planning-wireless-client-configuration-and-access"></a>Planen der Konfiguration des drahtlosen Clients und Zugriff
+## <a name="planning-wireless-client-configuration-and-access"></a>Planen der Konfiguration und des Zugriffs für drahtlose Clients
 
-Beim Planen der Bereitstellung von 802.1 X\-Drahtloszugriff, müssen Sie mehrere Clients berücksichtigen\-bestimmte Faktoren:
+Bei der Planung der Bereitstellung des\-drahtlos Zugriffs mit 802.1 x-Authentifizierung müssen Sie mehrere\-Client spezifische Faktoren berücksichtigen:
 
-- **Planen der Unterstützung für mehrere Standards für**.
+- **Planen der Unterstützung mehrerer Standards**.
 
-    Bestimmen Sie, ob Ihre drahtlose Computer alle verwenden die gleiche Version von Windows oder als eine Kombination von Computern, auf denen andere Betriebssysteme ausgeführt werden. Wenn sie unterschiedlich sind, stellen Sie sicher, dass Sie verstehen, dass alle Unterschiede zwischen den Standards, die von den Betriebssystemen unterstützt.
+    Stellen Sie fest, ob Ihre drahtlos Computer alle die gleiche Version von Windows verwenden oder ob es sich um eine Mischung aus Computern mit unterschiedlichen Betriebssystemen handelt. Wenn Sie sich unterscheiden, stellen Sie sicher, dass Sie alle Unterschiede in den von den Betriebssystemen unterstützten Standards verstehen.
 
-    Bestimmen Sie, ob alle den drahtlosen Netzwerkadaptern auf den drahtlosen Client-Computern die gleichen drahtlosstandards unterstützen oder unterschiedlichen Standards unterstützt werden sollen. Beispielsweise ermitteln, ob einige Netzwerkadapter Hardware-Treiber WPA2 unterstützen\-Enterprise und AES, während andere nur WPA-Unterstützung\-Enterprise und TKIP.
+    Stellen Sie fest, ob alle drahtlosen Netzwerkadapter auf allen drahtlosen Client Computern dieselben drahtlos Standards unterstützen, oder ob Sie unterschiedliche Standards unterstützen müssen. Stellen Sie z. b. fest, ob einige Netzwerkadapter\--Hardwaretreiber WPA2 Enterprise und AES unter\-stützen, während andere nur WPA Enterprise und TKIP unterstützen.
 
-- **Planung clientauthentifizierungsmodus**. Authentifizierungsmodi definieren, wie Anmeldeinformationen für die Domäne von Windows-Clients verarbeiten. Sie können über die folgenden drei Netzwerk Authentifizierungsmodi in der Drahtlosnetzwerk-Richtlinien auswählen.  
+- **Planen des Client Authentifizierungsmodus**. Authentifizierungs Modi definieren, wie die Windows-Clients Domänen Anmelde Informationen verarbeiten. In den Richtlinien für Drahtlos Netzwerke können Sie aus den folgenden drei Netzwerk Authentifizierungs Modi auswählen.  
 
-    1. **Der Benutzer erneut\-Authentifizierung**. In diesem Modus gibt an, dass die Authentifizierung immer mithilfe der Sicherheitsanmeldeinformationen, die basierend auf den aktuellen Zustand des Computers ausgeführt wird. Wenn keine Benutzer am Computer angemeldet sind, erfolgt die Authentifizierung mithilfe der Computeranmeldeinformationen. Wenn ein Benutzer auf dem Computer angemeldet ist, wird Authentifizierung immer mithilfe der Anmeldeinformationen des Benutzers ausgeführt.  
+    1. **Erneute\-Benutzerauthentifizierung**. Dieser Modus gibt an, dass die Authentifizierung immer mithilfe von Sicherheits Anmelde Informationen durchgeführt wird, die auf dem aktuellen Zustand des Computers basieren. Wenn keine Benutzer am Computer angemeldet sind, wird die Authentifizierung mithilfe der Computer Anmelde Informationen ausgeführt. Wenn ein Benutzer am Computer angemeldet ist, wird die Authentifizierung immer mit den Benutzer Anmelde Informationen ausgeführt.  
 
-    2. **Nur Computer**. Computer nur im Modus gibt an, die Authentifizierung erfolgt immer mit die Computer-Anmeldeinformationen.  
+    2. **Nur Computer**. Nur Computer Modus gibt an, dass die Authentifizierung immer nur mit den Computer Anmelde Informationen ausgeführt wird.  
 
-    3.  **Benutzerauthentifizierung**. Benutzer-Authentifizierungsmodus gibt an, dass die Authentifizierung nur dann ausgeführt wird, wenn der Benutzer auf dem Computer angemeldet ist. Wenn keine Benutzer am Computer angemeldet sind, werden die Authentifizierungsversuche nicht ausgeführt.  
+    3.  **Benutzerauthentifizierung**. Der Benutzer Authentifizierungsmodus gibt an, dass die Authentifizierung nur durchgeführt wird, wenn der Benutzer am Computer angemeldet ist. Wenn keine Benutzer am Computer angemeldet sind, werden keine Authentifizierungs Versuche ausgeführt.  
 
-- **Planen der drahtlose Einschränkungen**. Bestimmen Sie, ob Sie alle Ihre drahtlose Benutzer mit der gleichen Ebene des Zugriffs auf Ihr drahtloses Netzwerk bereitstellen möchten, oder, ob Sie den Zugriff für einige Ihrer drahtlosen Benutzer beschränken möchten. Sie können Einschränkungen auf dem Netzwerkrichtlinienserver für bestimmte Benutzergruppen drahtlosen anwenden.  Beispielsweise können Sie bestimmten Tagen und Stunden definieren, dass bestimmte Gruppen Zugriff auf das drahtlose Netzwerk zulässig sind.  
+- **Planen von drahtlos Einschränkungen**. Legen Sie fest, ob Sie alle drahtlosen Benutzer mit der gleichen Zugriffsebene für Ihr Drahtlos Netzwerk bereitstellen möchten oder ob Sie den Zugriff für einige ihrer drahtlosen Benutzer einschränken möchten. Sie können Einschränkungen in NPS für bestimmte Gruppen drahtloser Benutzer anwenden.  Beispielsweise können Sie bestimmte Tage und Stunden definieren, denen bestimmte Gruppen Zugriff auf das Drahtlos Netzwerk erlauben.  
 
-- **Planen der Methoden zum Hinzufügen von neuen Drahtloscomputer**. Für drahtlose\-kann Computer, die mit der Domäne verbunden sind, bevor Sie Ihr drahtlose Netzwerk, bereitstellen, wenn der Computer in ein Segment des verdrahteten Netzwerks verbunden ist, die durch 802.1 X nicht geschützt ist, die funkkonfigurationseinstellungen sind automatisch angewendet werden, nachdem Sie Drahtlosnetzwerk konfigurieren \(IEEE 802.11\) Richtlinien, die auf dem Domänencontroller und die Gruppenrichtlinie auf dem drahtlosen Client aktualisiert wird.  
+- **Planen von Methoden zum Hinzufügen neuer drahtlos Computer**. Bei drahtlos\-fähigen Computern, die vor der Bereitstellung Ihres drahtlos Netzwerks mit Ihrer Domäne verknüpft sind, ist der Computer, der mit einem Segment des verkabelten Netzwerks verbunden ist, das nicht durch 802.1 x geschützt ist, mit den drahtlos Konfigurationseinstellungen wird automatisch angewendet, nachdem Sie die \(Richtlinien\) für das Drahtlos Netzwerk IEEE 802,11 auf dem Domänen Controller und nach der Aktualisierung Gruppenrichtlinie auf dem drahtlosen Client konfiguriert haben.  
 
-    Bei Computern, die nicht bereits mit der Domäne verknüpft sind, jedoch Sie müssen planen, eine Methode, um die Einstellungen, die für 802.1 X erforderlich sind, gelten\-ein authentifizierter Zugriff. Ermitteln Sie beispielsweise an, ob den Computer mit der Domäne zu verknüpfen, indem Sie eine der folgenden Methoden werden sollen.
+    Für Computer, die noch nicht mit Ihrer Domäne verknüpft sind, müssen Sie jedoch eine Methode zum Anwenden der Einstellungen planen, die für den authentifizierten\-802.1 x-Zugriff erforderlich sind. Bestimmen Sie z. b., ob Sie den Computer mit einer der folgenden Methoden der Domäne hinzufügen möchten.
 
-    1.  Verbinden Sie den Computer, auf ein Segment des verdrahteten Netzwerks, das durch 802.1 X nicht geschützt ist, und fügen Sie den Computer der Domäne.
+    1.  Verbinden Sie den Computer mit einem Segment des verkabelten Netzwerks, das nicht durch 802.1 x geschützt ist, und fügen Sie dann den Computer der Domäne hinzu.
 
-    2.  Geben Sie Ihre drahtlose Benutzer mit den Schritten und Einstellungen, die sie benötigen, um ihre eigenen bootstrap-Drahtlosprofil hinzufügen, d. h., sie mit der Domäne beitritt.
+    2.  Stellen Sie Ihren drahtlosen Benutzern die Schritte und Einstellungen zur Verfügung, die Sie zum Hinzufügen eines eigenen drahtlosen Bootstrap-Profils benötigen, mit dem der Computer der Domäne beitreten kann.
 
-    3.  Weisen Sie IT-Personal, drahtlose Clients mit der Domäne zu verknüpfen.
+    3.  Weisen Sie IT-Mitarbeitern den Beitritt zu drahtlosen Clients zur Domäne zu.
 
-### <a name="planning-support-for-multiple-standards"></a>Planen der Unterstützung für mehrere-standards
+### <a name="planning-support-for-multiple-standards"></a>Planen der Unterstützung für mehrere Standards
 
-Funknetzwerk \(IEEE 802.11\) richtlinienerweiterung in der Gruppenrichtlinie bietet eine Vielzahl von Konfigurationsoptionen für eine Vielzahl von Optionen für die Bereitstellung unterstützen.
+Die Erweiterung für \(Drahtlos Netzwerk\) IEEE 802,11-Richtlinien in Gruppenrichtlinie bietet eine Vielzahl von Konfigurationsoptionen, um eine Vielzahl von Bereitstellungs Optionen zu unterstützen.
 
-Sie können drahtlosen Zugriffspunkte, die mit den Standards konfiguriert sind, die Sie unterstützen möchten bereitstellen und konfigurieren Sie mehrere WLAN-Profilen in Drahtlosnetzwerk \(IEEE 802.11\) Richtlinien, mit den einzelnen Profilen, die Angabe eines Satzes von Standards die Sie benötigen.
+Sie können drahtlos Zugriffspunkte bereitstellen, die mit den Standards konfiguriert werden, die Sie unterstützen möchten, und dann mehrere drahtlos profile \(in drahtlos\) Netzwerk-IEEE 802,11-Richtlinien konfigurieren, wobei jedes Profil einen Satz von Standards angibt. die Sie benötigen.
 
-Wenn Ihr Netzwerk Drahtloscomputer verfügt, die WPA2 unterstützen z. B.\-Enterprise und AES, andere Computer, die WPA-Unterstützung\-Enterprise und AES und anderen Computern, die nur WPA-Unterstützung\-Enterprise und TKIP, müssen Sie Bestimmt, ob Sie möchten:
+Wenn Ihr Netzwerk beispielsweise über drahtlose Computer verfügt, die WPA2\-Enterprise und AES unterstützen, andere Computer\-, die WPA Enterprise und AES unterstützen, und\-andere Computer, die nur WPA Enterprise und TKIP unterstützen, müssen Sie bestimmen Sie, ob Sie folgende Aktionen ausführen möchten:
 
-- Ein einzelnes Profil, um die Unterstützung aller den Drahtloscomputer mit die schwächste Verschlüsselungsmethode konfigurieren, dass alle Ihre Computer – in diesem Fall WPA unterstützt\-Enterprise und TKIP.  
-- Konfigurieren Sie zwei Profile, um die optimale Sicherheit zu gewährleisten bereitzustellen, die von jedem drahtlosen Computer unterstützt wird. In diesem Fall würden Sie ein Profil aus, der angibt, die stärkste Verschlüsselung konfigurieren \(WPA2\-Enterprise und AES\), und ein Profil mit den schwächere WPA\-Enterprise und TKIP-Verschlüsselung. In diesem Beispiel ist es wichtig, dass Sie das Profil platzieren, die WPA2 verwendet\-Enterprise und AES, die in der Reihenfolge der höchsten. Computer, auf denen keine Verwendung von WPA2 ist\-Enterprise und AES automatisch zum nächsten Profil in der Reihenfolge der überspringen und verarbeiten Sie das Profil, das WPA gibt\-Enterprise und TKIP.
+- Konfigurieren Sie ein einzelnes Profil, um alle drahtlos Computer mit der schwächsten Verschlüsselungsmethode zu unterstützen, die von all ihren Computern unterstützt wird (in\-diesem Fall WPA Enterprise und TKIP).  
+- Konfigurieren Sie zwei Profile, um die bestmögliche Sicherheit bereitzustellen, die von den einzelnen drahtlosen Computern unterstützt wird. In dieser Instanz würden Sie ein Profil konfigurieren \(, das das stärkste\-Enterprise-und AES\)-Verschlüsselungs Konzept und ein Profil angibt, das\-die schwächere WPA Enterprise-und TKIP-Verschlüsselung verwendet. In diesem Beispiel ist es von entscheidender Bedeutung, dass Sie das Profil, das\-WPA2 Enterprise und AES verwendet, in der Einstellungs Reihenfolge am höchsten platzieren. Computer, von denen WPA2\-Enterprise und AES nicht verwendet werden können, werden automatisch mit dem nächsten Profil in der bevorzugten Reihenfolge überspringen und das Profil, das WPA\-Enterprise und TKIP angibt, verarbeiten.
 
 > [!IMPORTANT]
-> Das Profil mit den sichersten höhere Standards müssen in der sortierten Liste von Profilen, platziert werden, da Verbinden von Computern über das erste Profil verwenden, die sie verwenden können.
+> Sie müssen das Profil mit den sichersten Standards in der geordneten Liste der Profile höher platzieren, da das Verbinden von Computern das erste Profil verwendet, das Sie verwenden können.
 
-### <a name="planning-restricted-access-to-the-wireless-network"></a>Planen eingeschränkten Zugriff auf dem drahtlosen Netzwerk
+### <a name="planning-restricted-access-to-the-wireless-network"></a>Planen des eingeschränkten Zugriffs auf das Drahtlos Netzwerk
 
-In vielen Fällen empfiehlt es sich, drahtlose Benutzern unterschiedliche Ebenen des Zugriffs auf dem drahtlosen Netzwerk bereitzustellen. Beispielsweise empfiehlt es sich um einige Benutzer uneingeschränkten Zugriff, jede Stunde des Tages, jeden Tag der Woche zu ermöglichen. Für andere Benutzer sollten Sie nur Zugriff während der kernstunden, Montag bis Freitag, zulassen und Verweigern des Zugriffs auf Samstag und Sonntag.
+In vielen Fällen empfiehlt es sich, drahtlosen Benutzern unterschiedliche Zugriffsebenen für das Funk Netzwerk bereitzustellen. Beispielsweise kann es vorkommen, dass Sie Benutzern einen uneingeschränkten Zugriff auf jeden Tag der Woche gewähren möchten. Für andere Benutzer empfiehlt es sich, den Zugriff nur während der Haupt Zeit, Montag bis Freitag, zuzulassen und den Zugriff auf Samstag und Sonntag abzulehnen.
 
-Dieses Handbuch enthält Anweisungen zum Erstellen einer Access-Umgebung, die alle Ihre drahtlose Benutzer in einer Gruppe mit gemeinsamen Zugriff auf Ressourcen Drahtlosnetzwerke platziert. Sie erstellen eine Sicherheitsgruppe für drahtlose Benutzer-in Active Directory-Benutzer und Computer ausrichten\-in, und nehmen Sie dann auf jeden Benutzer, die für den drahtlosen Zugriff auf ein Mitglied dieser Gruppe gewähren möchten.
+Dieses Handbuch enthält Anweisungen zum Erstellen einer Zugriffs Umgebung, in der alle drahtlosen Benutzer in einer Gruppe mit gemeinsamen Zugriff auf drahtlose Ressourcen platziert werden. Erstellen Sie im Active Directory Benutzer und Computer das Snap\--in "Benutzer und Computer", und legen Sie dann jeden Benutzer, dem Sie drahtlos Zugriff gewähren möchten, auf ein Mitglied dieser Gruppe fest.
 
-Wenn Sie die NPS-Netzwerkrichtlinien konfigurieren, geben Sie die Sicherheitsgruppe für drahtlose Benutzer-als das Objekt, das NPS verarbeitet, bei der Autorisierung zu ermitteln.
+Wenn Sie NPS-Netzwerk Richtlinien konfigurieren, geben Sie die Sicherheitsgruppe "drahtlose Benutzer" als das Objekt an, das NPS verarbeitet, wenn die Autorisierung bestimmt wird.
 
-Wenn Ihre Bereitstellung Unterstützung für verschiedene Ebenen des Zugriffs erfordert müssen Sie jedoch nur die folgenden ausführen:  
+Wenn die Bereitstellung jedoch unterschiedliche Zugriffsebenen erfordert, müssen Sie nur folgende Aktionen ausführen:  
 
-1. Erstellen Sie mehrere drahtlose Sicherheitsgruppe "Benutzer" um zusätzliche Sicherheit bei drahtlosen Verbindungen Gruppen in Active Directory-Benutzer und-Computer zu erstellen. Beispielsweise können Sie eine Gruppe erstellen, die Benutzer enthält, die haben vollständigen Zugriff wird eine Gruppe für Benutzer, die haben nur Zugriff während der regulären Arbeitszeiten und andere Gruppen, die andere Kriterien entsprechen, die Ihren Anforderungen entsprechen.
+1. Erstellen Sie mehr als eine Sicherheitsgruppe für drahtlose Benutzer, um zusätzliche drahtlos Sicherheitsgruppen in Active Directory Benutzer und Computern zu erstellen. Beispielsweise können Sie eine Gruppe erstellen, die Benutzer mit Vollzugriff enthält, eine Gruppe für Benutzer, die nur während der regulären Arbeitszeiten Zugriff haben, und andere Gruppen, die mit Ihren Anforderungen übereinstimmen.
 
-2. Hinzufügen von Benutzern zu den entsprechenden Sicherheitsgruppen, die Sie erstellt haben.
+2. Fügen Sie Benutzer zu den entsprechenden Sicherheitsgruppen hinzu, die Sie erstellt haben.
 
-3. Konfigurieren Sie zusätzliche Netzwerkrichtlinienserver Netzwerkrichtlinien für jede Gruppe für zusätzliche Sicherheit bei drahtlosen Verbindungen, und konfigurieren Sie die Richtlinien gelten die Bedingungen und Einschränkungen, die für jede Gruppe erforderlich sind.
+3. Konfigurieren Sie zusätzliche NPS-Netzwerk Richtlinien für jede zusätzliche drahtlose Sicherheitsgruppe, und konfigurieren Sie die Richtlinien, um die Bedingungen und Einschränkungen anzuwenden, die Sie für die einzelnen Gruppen benötigen.
 
-### <a name="planning-methods-for-adding-new-wireless-computers"></a>Planen der Methoden zum Hinzufügen von neuen Drahtloscomputer
+### <a name="planning-methods-for-adding-new-wireless-computers"></a>Planungsmethoden für das Hinzufügen neuer drahtlos Computer
 
-Die bevorzugte Methode zum neuen Drahtloscomputer mit der Domäne ein, und melden Sie sich bei der Domäne zu verknüpfen, wird mithilfe einer Kabelverbindung in ein Segment des LANS, die Zugriff auf Domänencontroller und nicht durch ein mit 802.1 X Authentifizierung Ethernet-Switch geschützt.
+Die bevorzugte Methode zum Einbinden neuer drahtlos Computer zur Domäne und zum Anmelden bei der Domäne ist die Verwendung einer kabelgebundenen Verbindung mit einem LAN des LANs, das Zugriff auf Domänen Controller hat und nicht durch einen 802.1 x-authentifizier enden Ethernet-Switch geschützt wird.
 
-In einigen Fällen allerdings es möglicherweise nicht praktikabel ist, verwenden Sie eine Kabelverbindung zum Hinzufügen von Computern zur Domäne oder, für einen Benutzer verwenden eine Kabelverbindung für die der ersten Anmeldung beim Versuch, mithilfe von Computern, die bereits mit der Domäne verbunden sind.
+In einigen Fällen ist es jedoch möglicherweise nicht sinnvoll, eine kabelgebundene Verbindung zum Hinzufügen von Computern zur Domäne zu verwenden, oder, damit ein Benutzer eine kabelgebundene Verbindung für den ersten Anmeldeversuch mithilfe von Computern verwendet, die bereits mit der Domäne verbunden sind.
 
-Zum Hinzufügen eines Computers mit der Domäne über eine drahtlose Verbindung oder für Benutzer mit der Domäne die erste Zeit mit einer Domäne anmelden\-gehörenden Computer und einer drahtlosen Verbindung, drahtlose Clients müssen zunächst eine Verbindung herstellen mit dem drahtlosen Netzwerk auf einem ein Segment, das mithilfe einer der folgenden Methoden auf den Domänencontroller zugreifen.
+Wenn Sie einen Computer mithilfe einer drahtlos Verbindung zur Domäne hinzufügen oder Benutzer sich zum ersten Mal bei der Domäne anmelden möchten, indem Sie einen in\-die Domäne eingebundener Computer und eine drahtlos Verbindung verwenden, müssen drahtlose Clients zunächst eine Verbindung mit dem Drahtlos Netzwerk auf einem Segment, das mithilfe einer der folgenden Methoden Zugriff auf die Netzwerk Domänen Controller hat.
 
-1. **Ein Mitglied der IT-Mitarbeiter verknüpfen einen Drahtloscomputer mit der Domäne, und anschließend Single Sign On bootstrap-Drahtlosprofil konfiguriert.** Mit dieser Methode können IT-Administrator den Drahtloscomputer mit der Ethernet-Netzwerk verbunden, und klicken Sie dann die Domäne der Computer hinzugefügt. Dann wird der Administrator des Computers mit dem Benutzer verteilt. Wenn der Benutzer den Computer startet, werden die Anmeldeinformationen für die Domäne, die sie manuell, für die Anmeldung des Benutzers angeben verwendet, sowohl eine Verbindung mit dem drahtlosen Netzwerk herstellen, und melden Sie sich bei der Domänenadministrators.  
+1. **Ein Mitglied des IT-Personals verbindet einen drahtlos Computer mit der Domäne und konfiguriert dann ein Bootstrap-drahtlos Profil für einmaliges Anmelden.** Bei dieser Methode verbindet ein IT-Administrator den drahtlos Computer mit dem verkabelten Ethernet-Netzwerk und verknüpft dann den Computer mit der Domäne. Dann verteilt der Administrator den Computer an den Benutzer. Wenn der Benutzer den Computer startet, werden die Domänen Anmelde Informationen, die für den Benutzer Anmeldevorgang manuell angegeben werden, verwendet, um eine Verbindung mit dem Drahtlos Netzwerk herzustellen und sich bei der Domäne anzumelden.  
 
-2. **Der Benutzer konfigurieren Ihren Drahtloscomputer mit bootstrap-Drahtlosprofil manuell, und klicken Sie dann mit der Domäne verknüpft.** Mit dieser Methode können konfigurieren Benutzer manuell ihren Drahtloscomputer mit einem bootstrap-Drahtlosprofil basierend auf Anweisungen aus der IT-Administrator. Der bootstrap-Drahtlosprofil ermöglicht Benutzern das Herstellen einer Drahtlosverbindung und fügen Sie dann den Computer mit der Domäne. Nach dem Hinzufügen des Computers zur Domäne und Neustart des Computers, kann der Benutzer anmelden mit der Domäne unter Verwendung einer drahtlosen Verbindung und ihre Anmeldeinformationen für ein Domänenkonto.
+2. **Der Benutzer konfiguriert den drahtlos Computer manuell mit einem Bootstrap-drahtlos Profil und fügt dann die Domäne an.** Mit dieser Methode konfigurieren Benutzer ihre drahtlos Computer manuell mit einem Bootstrap-drahtlos Profil, das auf Anweisungen von einem IT-Administrator basiert. Das Bootstrap-drahtlos Profil ermöglicht Benutzern das Herstellen einer drahtlos Verbindung und das anschließende Hinzufügen des Computers zur Domäne. Nachdem Sie den Computer der Domäne hinzufügen und den Computer neu gestartet haben, kann sich der Benutzer mit einer drahtlos Verbindung und seinen Anmelde Informationen für das Domänen Konto bei der Domäne anmelden.
 
-Zum drahtlosen Zugriff bereitstellen zu können, finden Sie unter [die Bereitstellung von drahtlosen Zugriff](e-wireless-access-deployment.md).
+Informationen zum Bereitstellen von drahtlos Zugriff finden Sie unter [Bereitstellung des drahtlos Zugriffs](e-wireless-access-deployment.md)

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: baea091482818c581414ba1d9c1c01db2a52e3d7
-ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
+ms.openlocfilehash: 0c608d3762c45a0b1478bcb3303159feef963291
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66435663"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866621"
 ---
 # <a name="hyper-v-configuration"></a>Hyper-V – Konfiguration
 
@@ -44,7 +44,7 @@ In einer idealen Rechenzentrumsumgebung wird der Energieverbrauch durch Konsolid
 
 Die Verfahren zur Server Energie Verwaltung sind mit Kosten verbunden, besonders weil Mandanten Arbeits Auslastungen nicht vertrauenswürdig sind, um Richtlinien zur physischen Infrastruktur des anheters zu überschreiben. Die Software auf der Hostebene gibt an, wie der Durchsatz maximiert werden soll, während der Energieverbrauch minimiert wird. In den Computern, die sich größtenteils im Leerlauf befinden, kann dies dazu führen, dass die physische Infrastruktur den Schluss ergibt, dass eine mittlere Stromversorgung angemessen ist, was dazu führt, dass einzelne mandantenworkloads langsamer ausgeführt werden
 
-Windows Server verwendet die Virtualisierung in einer Vielzahl von Szenarien. Von einem leicht geladenen IIS-Server zu einem mäßig ausgelasteten SQL Server auf einen Cloud-Host mit Hyper-V, auf dem Hunderte von virtuellen Computern pro Server ausgeführt werden. Für jedes dieser Szenarien gelten möglicherweise eindeutige Hardware-, Software-und Leistungsanforderungen. Windows Server verwendet und empfiehlt standardmäßig den **ausgeglichenen** Energie Sparplan, der den Energie Schutz ermöglicht, indem die Prozessorleistung basierend auf der CPU-Auslastung skaliert wird.
+Windows Server verwendet die Virtualisierung in einer Vielzahl von Szenarien. Von einem leicht geladenen IIS-Server zu einem mäßig ausgelasteten SQL Server auf einen Cloud-Host mit Hyper-V, auf dem Hunderte von virtuellen Computern pro Server ausgeführt werden. Für jedes dieser Szenarien gelten möglicherweise eindeutige Hardware-, Software-und Leistungsanforderungen. Windows Server verwendet und empfiehlt standardmäßig den ausgeglichenen Energie Sparplan, der den Energie Schutz ermöglicht, indem die Prozessorleistung basierend auf der CPU-Auslastung **skaliert** wird.
 
 Mit dem **ausgeglichenen** Energie Sparplan werden die höchsten Energiezustände (und die niedrigsten Antwortzeiten bei mandantenworkloads) nur angewendet, wenn der physische Host relativ ausgelastet ist. Wenn Sie für alle mandantenworkloads eine deterministische Antwort mit niedriger Latenz nutzen, sollten Sie einen Wechsel vom standardmäßigen **ausgeglichenen** Energie Sparplan zum **hochleistungsfähigen** Energie Sparplan in Erwägung gezogen. Mit dem **hochleistungsfähigen** Energie Sparplan werden die Prozessoren jederzeit vollständig ausgeführt, wodurch die Bedarfs gesteuerte Umstellung zusammen mit anderen Energie Verwaltungsverfahren deaktiviert und die Leistung im Vergleich zur Energieeinsparung optimiert wird.
 

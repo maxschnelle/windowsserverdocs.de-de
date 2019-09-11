@@ -1,6 +1,6 @@
 ---
-title: Erste Schritte mit der Software Softwareinventurprotokollierung
-description: Beschreibt, wie zum Installieren und starten die Protokollierung des Softwarebestands verwenden
+title: Beginnen Sie mit der Protokollierung des Software Bestands
+description: Beschreibt, wie die Protokollierung des Software Bestands installiert und gestartet wird.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.technology: manage-software-inventory-logging
@@ -13,41 +13,41 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6944eac179c605db6c7b6f3e08f87c2329fb777f
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 3f3530b7456df9962aff9500d401b2cd884775e3
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435374"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866387"
 ---
-# <a name="get-started-with-software-inventory-logging"></a>Erste Schritte mit der Software Softwareinventurprotokollierung
+# <a name="get-started-with-software-inventory-logging"></a>Beginnen Sie mit der Protokollierung des Software Bestands
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
- Protokollierung des Softwarebestands sammelt Microsoft Inventardaten zu Software auf einer pro Server aggregiert. Bevor Sie die Protokollierung des Softwarebestands in Windows Server 2012 R2 verwenden, stellen Sie sicher, dass Windows Update [KB 3000850](https://support.microsoft.com/kb/3000850) und [KB 3060681](https://support.microsoft.com/kb/3060681) werden auf jedem System, die inventarisiert werden, wird installiert. Keine Windows-Update ist erforderlich für Windows Server 2016. Auch wenn SILs-Funktion zu verwenden, um Daten an einen aggregationsserver weitergeleitet werden sollen, achten Sie darauf, dass Sie eine gültige SSL-Zertifikate für Ihr Netzwerk haben.
+ Bei der Protokollierung des Software Bestands werden Microsoft-Software Inventur Daten pro Server erfasst. Bevor Sie die Protokollierung des Software Bestands mit Windows Server 2012 R2 verwenden, stellen Sie sicher, dass Windows Update [KB 3000850](https://support.microsoft.com/kb/3000850) und [KB 3060681](https://support.microsoft.com/kb/3060681) auf jedem System installiert sind, das inventarisiert wird. Für Windows Server 2016 ist keine Windows Update erforderlich. Wenn Sie die Funktion von SIL zum Weiterleiten von Daten an einen Aggregations Server verwenden möchten, stellen Sie sicher, dass Sie über SSL-Zertifikate für Ihr Netzwerk verfügen.
 
-## <a name="BKMK_OVER"></a>Featurebeschreibung
+## <a name="BKMK_OVER"></a>Funktionsbeschreibung
 Die Protokollierung des Softwarebestands in Windows Server ist ein Feature mit einer Reihe einfacher PowerShell-Cmdlets, über die Serveradministratoren eine Liste der auf Servern installierten Microsoft-Software abrufen können. Darüber hinaus bietet sie die Möglichkeit, diese Daten für die Aggregation in regelmäßigen Abständen mithilfe des HTTPS-Protokolls über das Netzwerk zu sammeln und an einen Zielwebserver weiterzuleiten. Zum Verwalten des Features – in erster Linie zum stündlichen Sammeln und Weiterleiten – werden ebenfalls PowerShell-Befehle verwendet.
 
 > [!NOTE]
 > Ein Aggregationsserver, auf dem ein Webdienst ausgeführt wird, kann separat konfiguriert werden. Weitere Informationen zum [Aggregator der Protokollierung des Softwarebestands](software-inventory-logging-aggregator.md).
 
 > [!IMPORTANT]
-> Im Rahmen der Funktionalität des Features werden keine bei der Softwareinventurprotokollierung gesammelten Daten an Microsoft gesendet.
+> Keine der von der Software Inventur Protokollierung gesammelten Daten werden im Rahmen der Funktionalität des Features an Microsoft gesendet.
 
 ## <a name="BKMK_APP"></a>Praktische Anwendungen
-Durch die Protokollierung des Softwarebestands sollen die Betriebskosten für das Abrufen genauer Informationen zu der lokal auf einem Server bereitgestellten Microsoft-Software reduziert werden, vor allem aber für das Abrufen dieser Informationen von mehreren Servern in einer IT-Umgebung (sofern sie in der gesamten IT-Umgebung bereitgestellt und aktiviert wird). Da die Daten an einen Aggregationsserver weitergeleitet werden können (wenn dieser separat von einem IT-Administrator eingerichtet wurde), können sie zentral, einheitlich und automatisch gesammelt werden. Die Schnittstellen können hierzu zwar direkt abgefragt werden, jedoch können mit der Protokollierung des Softwarebestands durch die Nutzung einer auf jedem Server initiierten Weiterleitungsarchitektur (über das Netzwerk) die in vielen Softwareinventur- und Ressourcenverwaltungsszenarios typischen Herausforderungen bei der Computererkennung bewältigt werden. Die über HTTPS an den Aggregationsserver eines Administrators weitergeleiteten Daten werden mit SSL gesichert. Da sich die Daten an einer zentralen Stelle (auf einem einzigen Server) befinden, können sie leichter analysiert und bearbeitet werden sowie Berichte erstellt werden. Beachten Sie, dass im Rahmen der Funktionalität des Features keine Daten an Microsoft gesendet werden. Die Daten und die Funktionalität der Softwareinventurprotokollierung sind ausschließlich zur Verwendung durch den lizenzierten Besitzer der Serversoftware und durch Administratoren gedacht.
+Durch die Protokollierung des Softwarebestands sollen die Betriebskosten für das Abrufen genauer Informationen zu der lokal auf einem Server bereitgestellten Microsoft-Software reduziert werden, vor allem aber für das Abrufen dieser Informationen von mehreren Servern in einer IT-Umgebung (sofern sie in der gesamten IT-Umgebung bereitgestellt und aktiviert wird). Da die Daten an einen Aggregationsserver weitergeleitet werden können (wenn dieser separat von einem IT-Administrator eingerichtet wurde), können sie zentral, einheitlich und automatisch gesammelt werden. Die Schnittstellen können hierzu zwar direkt abgefragt werden, jedoch können mit der Protokollierung des Softwarebestands durch die Nutzung einer auf jedem Server initiierten Weiterleitungsarchitektur (über das Netzwerk) die in vielen Softwareinventur- und Ressourcenverwaltungsszenarios typischen Herausforderungen bei der Computererkennung bewältigt werden. SSL dient zum Sichern von Daten, die über HTTPS an den Aggregations Server eines Administrators weitergeleitet werden. Da sich die Daten an einer zentralen Stelle (auf einem einzigen Server) befinden, können sie leichter analysiert und bearbeitet werden sowie Berichte erstellt werden. Beachten Sie, dass im Rahmen der Funktionalität des Features keine Daten an Microsoft gesendet werden. Daten und Funktionen der Protokollierung des Software Bestands sind nur für die Verwendung durch den lizenzierten Besitzer und die Administratoren der Server Software vorgesehen.
 
 Die Softwareinventurprotokollierung kann Serveradministratoren beim Ausführen folgender Aufgaben unterstützen:
 
 -   Abrufen von Inventurinformationen für Software und Server von Windows-Servern (remote und bedarfsgesteuert)
 
--   Aggregieren von Inventurinformationen für Software und Server für eine Vielzahl von Software Asset Management-Szenarios durch Aktivieren der Protokollierung des Softwarebestands für jeden Server und Auswählen eines Ziel-URI für einen Webserver und eines Fingerabdrucks des Zertifikats für die Authentifizierung.
+-   Aggregierte Software-und Server Inventur Informationen für eine Vielzahl von Software Asset Management-Szenarien durch Aktivieren der Protokollierungsfunktion des Software Bestands für jedes Server und Auswählen eines Ziel-URIs für den Webserver und des Zertifikat Fingerabdrucks für die Authentifizierung.
 
 ## <a name="see-also"></a>Siehe auch
 [Aggregator der Protokollierung des Softwarebestands](https://technet.microsoft.com/library/mt572043.aspx)<br>
 [Verwaltung der Protokollierung des Softwarebestands](manage-software-inventory-logging.md)<br>
-[Cmdlets für die Protokollierung von Software Inventory in Windows PowerShell](https://technet.microsoft.com/library/dn283390.aspx)<br>
+[Cmdlets für die Protokollierung des Software Bestands in Windows PowerShell](https://technet.microsoft.com/library/dn283390.aspx)<br>
 [Microsoft Assessment and Planning Toolkit](https://www.microsoft.com/download/en/details.aspx?id=7826)
-[Volume Activation Management Tool](http://blogs.technet.com/b/volume-licensing/)
+[Volume Activation Management-Tool](http://blogs.technet.com/b/volume-licensing/)
 

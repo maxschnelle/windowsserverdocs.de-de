@@ -1,6 +1,6 @@
 ---
-title: Upgrade, Sicherung und Wiederherstellung von SDN-Infrastruktur
-description: In diesem Thema erfahren Sie, wie zu aktualisieren, Sichern und Wiederherstellen eine SDN-Infrastruktur.
+title: Aktualisieren, sichern und Wiederherstellen der Sdn-Infrastruktur
+description: In diesem Thema erfahren Sie, wie Sie eine Sdn-Infrastruktur aktualisieren, sichern und wiederherstellen.
 manager: dougkim
 ms.prod: windows-server-threshold
 ms.technology: networking-sdn
@@ -9,78 +9,78 @@ ms.assetid: e9a8f2fd-48fe-4a90-9250-f6b32488b7a4
 ms.author: grcusanz
 author: shortpatti
 ms.date: 08/27/2018
-ms.openlocfilehash: 7916377f58261d0ccaa3fa24f135fccca3d5e79b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 1bee4ef9023a1fab49bf796907780662a0297a7c
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446330"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869962"
 ---
-# <a name="upgrade-backup-and-restore-sdn-infrastructure"></a>Upgrade, Sicherung und Wiederherstellung von SDN-Infrastruktur
+# <a name="upgrade-backup-and-restore-sdn-infrastructure"></a>Aktualisieren, sichern und Wiederherstellen der Sdn-Infrastruktur
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-In diesem Thema erfahren Sie, wie zu aktualisieren, Sichern und Wiederherstellen eine SDN-Infrastruktur. 
+In diesem Thema erfahren Sie, wie Sie eine Sdn-Infrastruktur aktualisieren, sichern und wiederherstellen. 
 
-## <a name="upgrade-the-sdn-infrastructure"></a>Upgrade der SDN-Infrastruktur
-SDN-Infrastruktur kann von Windows Server 2016 auf Windows Server-2019 aktualisiert werden. Führen Sie für das Upgrade, Sortierung die gleiche Sequenz von Schritten, wie im Abschnitt "die SDN-Infrastruktur aktualisieren". Vor dem Upgrade wird empfohlen, eine Sicherung der Datenbank des Netzwerkcontrollers.
+## <a name="upgrade-the-sdn-infrastructure"></a>Aktualisieren der Sdn-Infrastruktur
+Die Sdn-Infrastruktur kann von Windows Server 2016 auf Windows Server 2019 aktualisiert werden. Führen Sie für die Aktualisierungs Reihenfolge die gleichen Schritte wie im Abschnitt "Aktualisieren der Sdn-Infrastruktur" aus. Vor dem Upgrade wird empfohlen, eine Sicherung der Netzwerk Controller-Datenbank durchzuführen.
 
-Verwenden Sie für den Netzwerkcontroller-Computer das Cmdlet Get-NetworkControllerNode, überprüfen Sie den Status des Knotens ein, nachdem das Upgrade abgeschlossen wurde. Stellen Sie sicher, dass der Knoten wieder zu "Status nach oben" vor dem Upgrade der anderen Knoten verfügbar ist. Nachdem Sie alle Netzwerkcontroller-Knoten aktualisiert haben, aktualisiert die dem Netzwerkcontroller Microservices innerhalb des Netzwerkcontroller-Clusters innerhalb einer Stunde ausführen. Sie können ein sofortiges Update mit dem Cmdlet Update-Networkcontroller auslösen. 
+Verwenden Sie für Netzwerk Controller Computer das Get-networkcontrollernode-Cmdlet, um den Status des Knotens zu überprüfen, nachdem das Upgrade abgeschlossen wurde. Stellen Sie sicher, dass der Knoten in den Status "up" zurückkehrt, bevor Sie die anderen Knoten aktualisieren. Nachdem Sie alle Netzwerk Controller Knoten aktualisiert haben, aktualisiert der Netzwerk Controller die im Netzwerk Controller Cluster laufenden Mikro Dienste innerhalb einer Stunde. Mithilfe des Cmdlets "Update-networkcontroller" können Sie ein sofortiges Update ausführen. 
 
-Installieren Sie den gleichen Windows-Updates auf allen Komponenten des Betriebssystems des Systems Software Defined Networking (SDN), einschließlich:
+Installieren Sie dieselben Windows-Updates auf allen Betriebssystemkomponenten des SDN-Systems (Software Defined Networking), das Folgendes umfasst:
 
-- Hyper-V-Hosts mit SDN-Funktionalität
-- Netzwerkcontroller-VMs
-- Software virtueller SLB Mux-Computer
-- RAS-Gateway-VMs 
-
->[!IMPORTANT]
->Wenn Sie System Center Virtual Manager verwenden, müssen Sie es mit der aktuellen Updaterollups aktualisieren.
-
-Wenn Sie jede Komponente aktualisieren, können Sie eine der Standardmethoden für die Installation von Windows-Updates verwenden. Allerdings um minimaler Downtime für arbeitsauslastungen und die Integrität der Datenbank des Netzwerkcontrollers zu gewährleisten, gehen Sie folgendermaßen vor:
-
-1. Aktualisieren Sie die Verwaltungskonsolen.<p>Installieren Sie die Updates auf allen Computern, in dem Sie das Network Controller-Powershell-Modul verwenden.  Einschließlich der an einer beliebigen Stelle, dass Sie die RSAT-NetworkController Rolle alleine installiert haben. Mit Ausnahme der Netzwerkcontroller-VMs selbst; Aktualisieren Sie sie im nächsten Schritt.
-
-2. Klicken Sie auf der ersten VM-Netzwerk Controller installieren Sie alle Updates, und starten Sie neu.
-
-3. Verwenden Sie vor dem Fortfahren auf der nächsten Network Controller-VM die `get-networkcontrollernode` Cmdlet, um den Status des Knotens zu überprüfen, die Sie aktualisiert und neu gestartet.
-
-4. Warten Sie während des Neustartzyklus für den Netzwerkcontroller-Knoten heruntergefahren und neu gestartet werden, erneut aus.<p>Nach dem Neustart des virtuellen Computers dauert es einige Minuten, bis er wieder in geht die **_einrichten_** Status. Ein Beispiel der Ausgabe finden Sie unter 
-
-5. Installieren von Updates auf jede SLB Mux-VM eine zu einem Zeitpunkt, um kontinuierliche Verfügbarkeit der Load Balancer-Infrastruktur sicherzustellen.
-
-6. Aktualisieren von Hyper-V-Hosts und RAS-Gateways, beginnend mit den Hosts, die die RAS-Gateways, die enthalten in **Standby** Modus.<p>RAS-Gateway-VMs kann nicht live migriert werden, ohne Verlust der Mandanten-Verbindungen. Bei der Aktualisierung, achten Sie minimiert die Anzahl der Mandanten-Verbindungen ein Failover auf ein neues RAS-Gateway. Durch die Koordination der Aktualisierung der Hosts und -RAS-Gateways, ein Failover jeder Mandant einmal, höchstens.
-
-    a. Den Host der virtuellen Computer, von denen Livemigration zu verschieben.<p>RAS-Gateway-VMs sollten auf dem Host bleiben.
-
-    b. Installieren von Updates auf jede Gateway-VM auf diesem Host.
-
-    c. Wenn das Update die Gateway-VM neu starten, müssen Sie dann einen Neustart des virtuellen Computers.  
-
-    d. Installieren von Updates auf dem Host, auf dem die Gateway-VM, die gerade aktualisiert wurde.
-
-    e. Starten Sie den Host neu, wenn die Updates erforderlich.
-
-    f. Wiederholen Sie für jeden zusätzlichen Host, der einen standby-Gateway enthält.<p>Wenn keine standby-Gateways bleiben möchten, befolgen Sie dann die gleichen Schritte für alle verbleibenden Hosts.
-
-
-### <a name="example-use-the-get-networkcontrollernode-cmdlet"></a>Beispiel: Verwenden Sie das Cmdlet Get-networkcontrollernode 
-
-In diesem Beispiel sehen Sie die Ausgabe für die `get-networkcontrollernode` Cmdlet von innerhalb der die Netzwerkcontroller-VMs ausgeführt.  
-
-Der Status der Knoten, die Sie in der Beispielausgabe zu sehen ist:
-
-- NCNode1.contoso.com = Down
-- NCNode2.contoso.com = Up
-- NCNode3.contoso.com = Up
+- SDN-aktivierte Hyper-V-Hosts
+- Netzwerk Controller-VMS
+- Software Load Balancer MUX-VMS
+- RAS-Gateway-VMS 
 
 >[!IMPORTANT]
->Für der Knoten an, warten Sie einige Minuten, bis der Status muss _**einrichten**_ , bevor Sie alle zusätzlichen Knoten, jeweils einzeln aktualisieren.
+>Wenn Sie System Center Virtual Manager verwenden, müssen Sie es mit den aktuellen Updaterollups aktualisieren.
 
-Nachdem Sie alle Netzwerkcontroller-Knoten aktualisiert haben, aktualisiert die dem Netzwerkcontroller die Microservices innerhalb des Netzwerkcontroller-Clusters innerhalb einer Stunde ausführen. 
+Wenn Sie jede Komponente aktualisieren, können Sie eine der Standardmethoden zum Installieren von Windows-Updates verwenden. Führen Sie die folgenden Schritte aus, um eine minimale Ausfallzeit für Workloads und die Integrität der Netzwerk Controller-Datenbank sicherzustellen:
+
+1. Aktualisieren Sie die Verwaltungs Konsolen.<p>Installieren Sie die Updates auf allen Computern, auf denen das PowerShell-Modul des Netzwerk Controllers verwendet wird.  Dies ist auch der Ort, an dem die RSAT-networkcontroller-Rolle selbst installiert ist. Ausschließen der Netzwerk Controller-VMs selbst Sie aktualisieren Sie im nächsten Schritt.
+
+2. Installieren Sie auf der ersten Netzwerk Controller-VM alle Updates, und starten Sie neu.
+
+3. Stellen Sie vor dem Fortfahren mit dem nächsten virtuellen Netzwerk `get-networkcontrollernode` Controller-Computer mit dem Cmdlet den Status des von Ihnen aktualisierten und neu gestarteten Knotens fest.
+
+4. Warten Sie, bis der Netzwerk Controller Knoten herunterfährt, und wiederholen Sie dann den Neustart Vorgang.<p>Nachdem Sie den virtuellen Computer neu gestartet haben, kann es einige Minuten dauern, **_bis_** der Status wieder hergestellt ist. Ein Beispiel für die Ausgabe finden Sie unter. 
+
+5. Installieren Sie Updates nacheinander auf Jeder SLB MUX-VM, um die kontinuierliche Verfügbarkeit der Load Balancer-Infrastruktur sicherzustellen.
+
+6. Aktualisieren Sie Hyper-V-Hosts und RAS-Gateways, beginnend mit den Hosts, die die RAS- Gateways im Standbymodus enthalten.<p>RAS-Gateway-VMs können ohne Verlust von Mandanten Verbindungen nicht Live migriert werden. Während des Aktualisierungsprozesses müssen Sie darauf achten, wie oft das Failover von Mandanten Verbindungen auf ein neues RAS-Gateway minimiert wird. Durch koordinieren der Aktualisierung von Hosts und RAS-Gateways führt jeder Mandant höchstens ein Failover durch.
+
+    a. Evakuieren Sie den Host von virtuellen Computern, die eine Live Migration durchführen können.<p>RAS-Gateway-VMS sollten auf dem Host verbleiben.
+
+    b. Installieren Sie Updates auf jeder gatewayvm auf diesem Host.
+
+    c. Wenn für das Update der Gateway-VM neu gestartet werden muss, starten Sie den virtuellen Computer neu.  
+
+    d. Installieren Sie Updates auf dem Host, der die soeben aktualisierte Gateway-VM enthält.
+
+    e. Starten Sie den Host neu, wenn dies für die Updates erforderlich ist.
+
+    f. Wiederholen Sie diesen Vorgang für jeden zusätzlichen Host mit einem Standby-Gateway.<p>Wenn keine Standby-Gateways verbleiben, führen Sie die gleichen Schritte für alle verbleibenden Hosts aus.
+
+
+### <a name="example-use-the-get-networkcontrollernode-cmdlet"></a>Beispiel: Verwenden des Cmdlets "Get-networkcontrollernode" 
+
+In diesem Beispiel sehen Sie, dass die Ausgabe für `get-networkcontrollernode` das Cmdlet auf einem der Netzwerk Controller-VMS ausgeführt wird.  
+
+Der Status der Knoten, die in der Beispielausgabe angezeigt werden, lautet:
+
+- NCNode1.contoso.com = nach unten
+- NCNode2.contoso.com = aufwärts
+- NCNode3.contoso.com = aufwärts
+
+>[!IMPORTANT]
+>Sie müssen einige Minuten warten, bis sich der Status des Knotens in " _**hoch**_ " ändert, bevor Sie zusätzliche Knoten nacheinander aktualisieren.
+
+Nachdem Sie alle Netzwerk Controller Knoten aktualisiert haben, aktualisiert der Netzwerk Controller die im Netzwerk Controller Cluster laufenden Mikro Dienste innerhalb einer Stunde. 
 
 >[!TIP]
->Sie können ein sofortiges Update mit Auslösen der `update-networkcontroller` Cmdlet.
+>Sie können ein sofortiges Update mit dem `update-networkcontroller` -Cmdlet ausführen.
 
 
 ```Powershell
@@ -107,11 +107,11 @@ NodeCertificate :
 Status          : Up
 ```
 
-### <a name="example-use-the-update-networkcontroller-cmdlet"></a>Beispiel: Verwenden Sie das Cmdlet Update-networkcontroller
-In diesem Beispiel sehen Sie die Ausgabe für die `update-networkcontroller` Cmdlet, um den Netzwerkcontroller für die Aktualisierung zu erzwingen. 
+### <a name="example-use-the-update-networkcontroller-cmdlet"></a>Beispiel: Verwenden des Cmdlets "Update-networkcontroller"
+In diesem Beispiel sehen Sie die Ausgabe für das `update-networkcontroller` Cmdlet, um die Aktualisierung des Netzwerk Controllers zu erzwingen. 
 
 >[!IMPORTANT]
->Führen Sie dieses Cmdlet aus, wenn Sie keine weitere Updates installiert haben.
+>Führen Sie dieses Cmdlet aus, wenn keine weiteren Updates installiert werden müssen.
 
 
 ```Powershell
@@ -121,32 +121,32 @@ NetworkControllerClusterVersion NetworkControllerVersion
 10.1.1                          10.1.15
 ```
 
-## <a name="backup-the-sdn-infrastructure"></a>Sichern der SDN-Infrastruktur
+## <a name="backup-the-sdn-infrastructure"></a>Sichern der Sdn-Infrastruktur
 
-Regelmäßige Sicherungen der Netzwerkcontroller-Datenbank wird sichergestellt, die Geschäftskontinuität im Falle einer notfallwiederherstellung oder Datenverlust.  Sichern die Netzwerkcontroller-VMs ist nicht ausreichend, da sie nicht sicher ist, dass die Sitzung auf die mehrere Netzwerkcontroller Knoten weiterhin.
+Durch reguläre Sicherungen der Netzwerk Controller-Datenbank wird die Geschäftskontinuität im Fall eines Notfalls oder eines Daten Verlusts sichergestellt.  Das Sichern der Netzwerk Controller-VMS ist nicht ausreichend, weil dadurch nicht sichergestellt wird, dass die Sitzung über mehrere Netzwerk Controller Knoten hinweg fortgesetzt wird.
 
-**Anforderungen:**
-* Eine SMB-Freigabe und Anmeldeinformationen mit Lese-/Schreibberechtigungen für die Freigabe- und System.
-* Sie können optional eine Gruppe Managed Service Account (GMSA) verwenden, wenn der Netzwerkcontroller Verwendung eines gruppenverwalteten Dienstkontos ebenfalls installiert wurde.
+**Bedingungen**
+* Eine SMB-Freigabe und Anmelde Informationen mit Lese-/Schreibberechtigungen für die Freigabe und das Dateisystem.
+* Sie können optional ein Gruppen verwaltetes Dienst Konto (Group Managed Service Account, GMSA) verwenden, wenn der Netzwerk Controller auch mit einem GMSA installiert wurde.
 
-**Vorgehensweise:**
+**Dringlichkeit**
 
-1. Verwenden Sie die VM-backup-Methode Ihrer Wahl oder verwenden Sie Hyper-V, um eine Kopie jeder Controller-VM-Netzwerk zu exportieren.<p>Sichern die Controller-VM-Netzwerk wird sichergestellt, dass die erforderlichen Zertifikate für die Entschlüsselung der Datenbank vorhanden sind.  
+1. Verwenden Sie die Sicherungsmethode der VM Ihrer Wahl, oder verwenden Sie Hyper-V, um eine Kopie der einzelnen Netzwerk Controller-VMS zu exportieren.<p>Beim Sichern der Netzwerk Controller-VM wird sichergestellt, dass die erforderlichen Zertifikate zum Entschlüsseln der Datenbank vorhanden sind.  
 
-2. Wenn Sie System Center Virtual Machine Manager (SCVMM) verwenden möchten, beenden Sie den SCVMM-Dienst, und über SQL Server sichern.<p>Das Ziel besteht hier wird sichergestellt, dass keine Updates zu SCVMM während dieser Zeit durchgeführten was eine Inkonsistenz zwischen dem Netzwerkcontroller-Sicherung und SCVMM kann.  
+2. Wenn Sie System Center Virtual Machine Manager (SCVMM) verwenden, wird der SCVMM-Dienst angehalten und über SQL Server gesichert.<p>Das Ziel besteht darin, sicherzustellen, dass während dieser Zeit keine Updates an SCVMM vorgenommen werden, was zu einer Inkonsistenz zwischen der Sicherung des Netzwerk Controllers und SCVMM führen könnte.  
 
    >[!IMPORTANT]
-   >Starten Sie den SCVMM-Dienst nicht neu, bis die Netzwerkcontroller-Sicherung abgeschlossen ist.
+   >Starten Sie den SCVMM-Dienst erst neu, wenn die Sicherung des Netzwerk Controllers beendet ist.
 
-3. Sichern Sie die Netzwerkcontroller-Datenbank mit der `new-networkcontrollerbackup` Cmdlet.
+3. Sichern Sie die Netzwerk Controller-Datenbank `new-networkcontrollerbackup` mit dem-Cmdlet.
 
-4. Überprüfen Sie den Abschluss und Erfolg der Sicherung mit der `get-networkcontrollerbackup` Cmdlet.
+4. Überprüfen Sie den Abschluss und den Erfolg der Sicherung `get-networkcontrollerbackup` mit dem-Cmdlet.
 
-5. Wenn SCVMM zu verwenden, starten Sie die SCVMM-Dienst.
+5. Wenn Sie SCVMM verwenden, starten Sie den SCVMM-Dienst.
 
 
 
-### <a name="example-backing-up-the-network-controller-database"></a>Beispiel: Sichern der Datenbank des Netzwerkcontrollers
+### <a name="example-backing-up-the-network-controller-database"></a>Beispiel: Sichern der Netzwerk Controller-Datenbank
 
 ```Powershell
 $URI = "https://NC.contoso.com"
@@ -177,7 +177,7 @@ $BackupProperties.Credential = $ShareCredential
 $Backup = New-NetworkControllerBackup -ConnectionURI $URI -Credential $Credential -Properties $BackupProperties -ResourceId $BackupTime -Force
 ```
 
-### <a name="example-checking-the-status-of-a-network-controller-backup-operation"></a>Beispiel: Überprüfen des Status eines Sicherungsvorgangs für den Netzwerkcontroller
+### <a name="example-checking-the-status-of-a-network-controller-backup-operation"></a>Beispiel: Überprüfen des Status eines Sicherungs Vorgangs für den Netzwerk Controller
 
 ```Powershell
 PS C:\ > Get-NetworkControllerBackup -ConnectionUri $URI -Credential $Credential -ResourceId $Backup.ResourceId
@@ -262,19 +262,19 @@ PS C:\ > Get-NetworkControllerBackup -ConnectionUri $URI -Credential $Credential
 }
 ```
 
-## <a name="restore-the-sdn-infrastructure-from-a-backup"></a>Wiederherstellen der SDN-Infrastruktur aus einer Sicherung
+## <a name="restore-the-sdn-infrastructure-from-a-backup"></a>Wiederherstellen der Sdn-Infrastruktur aus einer Sicherung
 
-Wenn Sie alle erforderlichen Komponenten aus einer Sicherung wiederherstellen, gibt die SDN-Umgebung in einen funktionsfähigen Zustand zurück.  
+Wenn Sie alle erforderlichen Komponenten aus der Sicherung wiederherstellen, wird die Sdn-Umgebung in einen Betriebsstatus zurückversetzt.  
 
 >[!IMPORTANT]
->Die Schritte variieren abhängig von der Anzahl von Komponenten, die wiederhergestellt werden.
+>Die Schritte variieren in Abhängigkeit von der Anzahl der wiederhergestellten Komponenten.
 
 
-1. Bei Bedarf erneut bereitstellen Sie, Hyper-V-Hosts und den erforderlichen Speicher.
+1. Stellen Sie ggf. Hyper-V-Hosts und den erforderlichen Speicher erneut bereit.
 
-2. Bei Bedarf stellen die Netzwerkcontroller-VMs, die RAS-Gateway-VMs und virtuellen Mux-Computern aus einer Sicherung wieder her. 
+2. Stellen Sie ggf. die Netzwerk Controller-VMS, RAS-Gateway-VMS und MUX-VMS aus der Sicherung wieder her. 
 
-3. Stop-NC-Host-Agent und die SLB-Host-Agent auf allen Hyper-V-Hosts:
+3. Den NC-Host-Agent und den SLB-Host-Agent auf allen Hyper-V-Hosts:
 
     ```
     stop-service slbhostagent
@@ -282,19 +282,19 @@ Wenn Sie alle erforderlichen Komponenten aus einer Sicherung wiederherstellen, g
     stop-service nchostagent
     ```
 
-4. RAS-Gateway-VMs zu beenden.
+4. Beendet RAS-Gateway-VMS.
 
-5. Beenden Sie die SLB/Mux-VMs.
+5. Beendet SLB MUX-VMS.
 
-6. Wiederherstellen des Netzwerkcontrollers mit der `new-networkcontrollerrestore` Cmdlet.
+6. Stellen Sie den Netzwerk Controller mit `new-networkcontrollerrestore` dem-Cmdlet wieder her.
 
-7. Überprüfen Sie die Wiederherstellung **ProvisioningState** wissen, wann die Wiederherstellung erfolgreich abgeschlossen wurde.
+7. Überprüfen Sie den Restore **provisioningstate** , um zu ermitteln, wann die Wiederherstellung erfolgreich abgeschlossen wurde.
 
-8. Wenn Sie SCVMM zu verwenden, Wiederherstellen der VMM-Datenbank mithilfe der Sicherung, die zur gleichen Zeit wie die Sicherung des Netzwerkcontrollers erstellt wurde.
+8. Wenn Sie SCVMM verwenden, stellen Sie die SCVMM-Datenbank mithilfe der Sicherung wieder her, die zur gleichen Zeit wie die Sicherung des Netzwerk Controllers erstellt wurde.
 
-9. Wenn Sie die Workload-VMs aus einer Sicherung wiederherstellen möchten, tun Sie dies jetzt.
+9. Wenn Sie Arbeits Auslastungs-VMS aus einer Sicherung wiederherstellen möchten, tun Sie dies jetzt.
 
-10. Überprüfen Sie die Integrität Ihres Systems mit dem Debug-Networkcontrollerconfigurationstate-Cmdlet.
+10. Überprüfen Sie die Integrität Ihres Systems mit dem Cmdlet "Debug-networkcontrollerconfigurationstate".
 
 ```Powershell
 $cred = Get-Credential
@@ -309,7 +309,7 @@ Fetching ResourceType:     loadbalancerMuxes
 Fetching ResourceType:     Gateways
 ```
 
-### <a name="example-restoring-a-network-controller-database"></a>Beispiel: Wiederherstellen einer Datenbank für den Netzwerkcontroller
+### <a name="example-restoring-a-network-controller-database"></a>Beispiel: Wiederherstellen einer Netzwerk Controller-Datenbank
  
 ```Powershell
 $URI = "https://NC.contoso.com"
@@ -326,7 +326,7 @@ $RestoreTime = (Get-Date).ToString("s").Replace(":", "_")
 New-NetworkControllerRestore -ConnectionURI $URI -Credential $Credential -Properties $RestoreProperties -ResourceId $RestoreTime -Force
 ```
 
-### <a name="example-checking-the-status-of-a-network-controller-database-restore"></a>Beispiel: Überprüfen des Status der Wiederherstellung einer dem Netzwerkcontroller
+### <a name="example-checking-the-status-of-a-network-controller-database-restore"></a>Beispiel: Überprüfen des Status der Daten Bank Wiederherstellung eines Netzwerk Controllers
 
 ```PowerShell
 PS C:\ > get-networkcontrollerrestore -connectionuri $uri -credential $cred -ResourceId $restoreTime | convertto-json -depth 10
@@ -349,4 +349,4 @@ PS C:\ > get-networkcontrollerrestore -connectionuri $uri -credential $cred -Res
 ```
 
 
-Weitere Informationen zur Konfiguration von zustandsmeldungen, die angezeigt werden kann, finden Sie unter [Problembehandlung beim Windows Server 2016 Software definiert Networking-Stapel](https://docs.microsoft.com/windows-server/networking/sdn/troubleshoot/troubleshoot-windows-server-software-defined-networking-stack).
+Informationen zu den möglicherweise angezeigten Konfigurations Zustands Meldungen finden Sie unter Problembehandlung [beim Software-Defined Networking-Stapel von Windows Server 2016](https://docs.microsoft.com/windows-server/networking/sdn/troubleshoot/troubleshoot-windows-server-software-defined-networking-stack).

@@ -1,6 +1,6 @@
 ---
-title: Monatliche Delta aktualisieren, ohne WSUS ISV-Unterstützung
-description: Windows Server Update Service (WSUS)-Thema – wie Hersteller ISVS (Independent Software) können vorübergehend monatliche Delta-Update statt WSUS Express Update Übermittlung Sie Größe des Pakets reduzieren
+title: Monatliche Delta Update-ISV-Unterstützung ohne WSUS
+description: 'Windows Server Update Service (WSUS)-Thema: wie unabhängige Software Hersteller (ISV) temporär ein monatliches Delta Update anstelle der WSUS Express-Update Bereitstellung verwenden können, um die Paketgröße zu verringern.'
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
@@ -11,76 +11,76 @@ author: sakitong
 ms.author: coreyp
 manager: dougkim
 ms.date: 10/16/2017
-ms.openlocfilehash: 272d3865bbe1a9853f5349c5e878155351525ef0
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 9077cb87d1d0f6d59ad037c93f5608d3b698feaa
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439942"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868723"
 ---
-# <a name="monthly-delta-update-isv-support-without-wsus"></a>Monatliche Delta aktualisieren, ohne WSUS ISV-Unterstützung
+# <a name="monthly-delta-update-isv-support-without-wsus"></a>Monatliche Delta Update-ISV-Unterstützung ohne WSUS
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows 10
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows 10
 
-Windows 10-Update-Downloads können groß sein, da jedes Paket auf alle zuvor veröffentlichten Updates, um sicherzustellen, dass Konsistenz und Einfachheit enthält.  
+Downloads für Windows 10-Updates können sehr umfangreich sein, da jedes Paket alle zuvor veröffentlichten Korrekturen enthält, um die Konsistenz und Einfachheit sicherzustellen.  
 
-Version 7, Windows seit verringern, die Größe des Windows Update-Downloads durch eine Funktion namens [Express](https://technet.microsoft.com/library/cc708456(v=ws.10).aspx#Anchor_2), und obwohl Geräte für Verbraucher standardmäßig unterstützt, wird Windows 10 Enterprise-Geräte erfordern Windows Server Update Services (WSUS) Express nutzen. Wenn Sie WSUS zur Verfügung haben, finden Sie unter [aktualisierungsunterstützung für Übermittlung ISVS Express](express-update-delivery-ISV-support.md). Es wird empfohlen, verwenden, um die Übermittlung von Express-Update zu aktivieren. 
+Seit Version 7 konnte Windows die Größe der Windows Update Downloads mit einer Funktion namens " [Express](https://technet.microsoft.com/library/cc708456(v=ws.10).aspx#Anchor_2)" reduzieren, und auch wenn consumergeräte diese standardmäßig unterstützen, erfordern Windows 10 Enterprise-Geräte Windows Server Update Services (WSUS). Vorteil von Express. Wenn Sie über WSUS verfügen, finden Sie weitere Informationen [unter Unterstützung für die Express-Update Bereitstellung](express-update-delivery-ISV-support.md). Wir empfehlen die Verwendung, um die Express-Update Übermittlung zu aktivieren. 
 
-Wenn Sie derzeit keine WSUS installiert, aber Sie Paketgrößen kleinere, in der Zwischenzeit aktualisieren müssen, können Sie die monatlichen Delta-Update. Delta-Update wird Paketgrößen im Wesentlichen, aber nicht so viel wie WSUS Express Update Übermittlung verringert. Es wird empfohlen, dass Sie die WSUS-Express-Update, wann immer möglich, dass die größte Verringerung des Paketgrößen bereitstellen. Es folgt ein Diagramm, das Delta, kumulativ und Express-Download-Größen für Windows 10, Version 1607 vergleichen:
+Wenn WSUS derzeit nicht installiert ist, Sie jedoch kleinere Update Paketgrößen benötigen, können Sie ein monatliches Delta Update verwenden. Durch das Delta Update werden die Paketgrößen erheblich reduziert, aber nicht so viel wie bei der WSUS Express-Update Bereitstellung. Es wird empfohlen, dass Sie nach Möglichkeit ein WSUS Express-Update bereitstellen, um die größte Verringerung der Paketgrößen zu erzielen. Im folgenden Diagramm werden Delta-, kumulative und Express-Downloadgrößen für Windows 10, Version 1607, verglichen:
 
-![Größenvergleich herunterladen](../../media/express-update-delivery-isv-support/delta-1.png)
+![Vergleich der Download Größe](../../media/express-update-delivery-isv-support/delta-1.png)
 
-## <a name="what-is-monthly-delta-update"></a>Was ist monatlich Delta-Update?
+## <a name="what-is-monthly-delta-update"></a>Was ist eine monatliche Delta Aktualisierung?
 
-Es gibt zwei Varianten der monatlichen Sicherheitsupdates: Delta und dem kumulativen.
+Es gibt zwei Varianten des monatlichen Sicherheitsupdates: Delta und kumulativ.
 
-Monatliche Delta-Update ist neu, und ein vorläufige Lösung für die unabhängige Softwarehersteller, die keine WSUS verfügbar, um zu reduzieren, die Größe des Pakets zu aktualisieren.
+Das monatliche Delta Update ist neu, und eine vorläufige Lösung für ISVs, die keine WSUS zur Verringerung der Größe der Update Pakete zur Verfügung haben.
 
 >[!IMPORTANT]
->**Delta-Update ist verfügbar für die Wartung von Windows 10, Version 1607 (Anniversary Update), Version 1703 (Creators Update) und Version 1709 (Fall Creators Update).** Für Versionen nach Version 1709, Sie benötigen eine Bereitstellungsinfrastruktur zu implementieren, unterstützt [Express Update Delivery](express-update-delivery-ISV-support.md) um den Vorgang fortzusetzen, inkrementelle Updates zu nutzen.
+>**Delta Update ist für die Wartung von Windows 10, Version 1607 (Anniversary Update), Version 1703 (Creators Update) und Version 1709 (Fall Creators Update) verfügbar.** Für Releases nach Version 1709 müssen Sie eine Bereitstellungs Infrastruktur implementieren, die die [Express-Update Bereitstellung](express-update-delivery-ISV-support.md) unterstützt, um weiterhin inkrementelle Updates nutzen zu können.
 
-Mit monatlicher Delta-Update, nur enthalten einen Monat Pakete. Monatlichen kumulativen enthält alle Updates bis zu diesem Update-Version, was zu einer großen Datei, die jeden Monat wächst. Sowohl Delta und monatliche Updates werden jeweils am zweiten Dienstag eines jeden Monats, auch bekannt als "Update Tuesday." veröffentlicht. Die folgende Tabelle vergleicht das Delta und kumulativen Updates:
+Bei Verwendung des monatlichen Delta Updates enthalten Pakete nur die Updates eines Monats. Monatlicher kumulativer Wert enthält alle Updates bis zu diesem Update Release, was zu einer umfangreichen Datei führt, die jeden Monat vergrößert. Sowohl Delta-als auch monatliche Updates werden am zweiten Dienstag eines jeden Monats, auch bekannt als "Update Dienstag", veröffentlicht. In der folgenden Tabelle werden Delta-und kumulative Updates verglichen:
 
-|                    | Monatliche **Delta** aktualisieren                                                                                                                                                                                                       | Monatliche **kumulativen** aktualisieren                                                                                                                                                                                             |
+|                    | Monatliches **Delta** Update                                                                                                                                                                                                       | Monatliches **Kumulatives** Update                                                                                                                                                                                             |
 |--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Bereich**          | Einzelnes Update mit **nur neuen Fixes für diesen Monat**                                                                                                                                                                           | Einzelnes Update alle neuen Fixes für diesen Monat und alle vorherigen Monaten                                                                                                                                                   |
-| **Application**    | Kann nur angewendet werden, war das Update des Vormonats angewendet (kumulativen oder Delta)                                                                                                                                           | Kann jederzeit angewendet werden                                                                                                                                                                                                |
-| **Übermittlung**       | **Nur für Windows Update-Katalog veröffentlicht** , in dem für die Verwendung mit anderen Tools oder Prozessen heruntergeladen werden kann. Auf PCs, die mit Windows Update verbunden sind, nicht angeboten.                                                         | In Windows Update (, in dem alle Consumer PCs installiert werden), WSUS und dem Windows Update-Katalog veröffentlicht                                                                                                                |
+| **Bereich**          | Einzelnes Update mit **nur neuen Korrekturen für diesen Monat**                                                                                                                                                                           | Einzelnes Update mit allen neuen Korrekturen für diesen Monat und alle vorangegangenen Monate                                                                                                                                                   |
+| **Anwendung**    | Kann nur angewendet werden, wenn die Aktualisierung des vorherigen Monats angewendet wurde (kumulativ oder Delta).                                                                                                                                           | Kann jederzeit angewendet werden                                                                                                                                                                                                |
+| **Liefer**       | Wird **nur in Windows Update Katalog veröffentlicht,** wo Sie für die Verwendung mit anderen Tools oder Prozessen heruntergeladen werden kann. Nicht für PCs angeboten, die mit Windows Update verbunden sind                                                         | Veröffentlicht in Windows Update (wo alle Consumer-PCs installiert werden), WSUS und der Windows Update-Katalog                                                                                                                |
 
-Delta und dem kumulativen haben die gleichen KB-Nummer, mit der gleichen Klassifizierung, und gleichzeitig freizugeben. Updates können entweder mit dem Titel des Updates im Katalog oder durch die MSU-Datei den Namen unterschieden werden:
+Delta und kumulativ verfügen über die gleiche KB-Nummer, mit derselben Klassifizierung und der Freigabe gleichzeitig. Updates können entweder durch den Update Titel im Katalog oder durch den Namen der MSU unterschieden werden:
 
-- 2017-02 *\***Delta-Update**\**  für Windows 10 Version 1607 für X64-basierte Systeme (KB1234567)
-- 2017-02 *\***Kumulatives Update**\**  für Windows 10 Version 1607 X86-basierten Systemen (KB1234567)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+- 2017-02 *\***Delta**Update\** für Windows 10, Version 1607 für x64-Systeme (KB1234567)
+- 2017-02 *\***Kumulatives**Update\** für Windows 10, Version 1607 für x86-basierte Systeme (KB1234567)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 
-### <a name="when-to-use-monthly-delta-update"></a>Verwendung des monatlichen Delta-Update
+### <a name="when-to-use-monthly-delta-update"></a>Verwendungszwecke des monatlichen Delta Updates
 
-Wenn das Update an den Client relevant ist, wird empfohlen, mithilfe von Delta-Update auf den Geräten, die des vorhergehenden Monats aktualisieren, und auf den Geräten zu aktualisieren, die im Rückstand sind kumulativ. Auf diese Weise alle Geräte erfordern nur ein einzelnes Update aus, um sie auf dem neuesten Stand zu bringen. Dies erfordert eine geringfügige Anpassung in der gesamten Update Management-Vorgang, wie Sie zum Bereitstellen von anderen Updates, die basierend auf die Geräte in der Organisation wie auf dem neuesten Stand sind ist:
+Wenn die Größe des Updates für das Client Gerät von Bedeutung ist, empfehlen wir die Verwendung eines Delta Updates auf den Geräten, auf denen das Update im vorherigen Monat vorhanden ist, und das kumulative Update auf den Geräten, die ausfallen. Auf diese Weise benötigen alle Geräte nur ein einzelnes Update, um Sie auf den neuesten Stand zu bringen. Dies erfordert eine geringfügige Anpassung des gesamten Update Verwaltungsprozesses, da Sie unterschiedliche Updates auf der Grundlage der aktuellen Geräte in der Organisation bereitstellen müssen:
 
-![Größenvergleich herunterladen](../../media/express-update-delivery-isv-support/delta-2.png)
+![Vergleich der Download Größe](../../media/express-update-delivery-isv-support/delta-2.png)
 
-### <a name="prevent-deployment-of-delta-and-cumulative-updates-in-the-same-month"></a>Verhindern der Bereitstellung von Delta- und kumulativen Updates im selben Monat
+### <a name="prevent-deployment-of-delta-and-cumulative-updates-in-the-same-month"></a>Verhindern der Bereitstellung von Delta-und kumulativen Updates im selben Monat
 
-Da die Delta-Update und das kumulative Update zur gleichen Zeit verfügbar sind, es ist wichtig zu verstehen, was geschieht, wenn Sie beide Updates im selben Monat bereitstellen.
+Da Delta Update und Kumulatives Update gleichzeitig verfügbar sind, ist es wichtig zu verstehen, was geschieht, wenn Sie beide Updates im selben Monat bereitstellen.
 
-Wenn Sie genehmigt und die gleiche Version des Deltas und die kumulativen Updates bereitstellen, nicht nur generieren Sie zusätzlichen Netzwerkdatenverkehr da beide werden in den PC heruntergeladen, aber Sie möglicherweise nicht in der Lage, Ihre Computer auf Windows nach dem Neustart neu zu starten.
+Wenn Sie die gleiche Version des Deltas und des kumulativen Updates genehmigen und bereitstellen, generieren Sie nicht nur zusätzlichen Netzwerk Datenverkehr, da beide auf den PC heruntergeladen werden, Sie können den Computer nach dem Neustart jedoch möglicherweise nicht mit Windows neu starten.
 
-Wenn sowohl Delta und kumulativen Updates versehentlich installiert sind, und Ihrem Computer nicht mehr gestartet werden wird, können Sie mit den folgenden Schritten wiederherstellen:
+Wenn Delta-und kumulative Updates versehentlich installiert sind und der Computer nicht mehr gestartet wird, können Sie mit den folgenden Schritten wiederherstellen:
 
-1. Starten Sie in WinRE-Eingabeaufforderung
-2. Listen Sie die Pakete im Status "Ausstehend" auf:
+1. Starten in WinRE-Eingabeaufforderung
+2. Auflisten der Pakete im Zustand "Ausstehend":
 
     `x:\windows\system32\dism.exe /image:<drive letter for windows directory> /Get-Packages >> <path to text file>`
  
-    > **Beispiel**: ` x:\windows\system32\dism.exe /image:c:\ /Get-Packages >> c:\temp\packages.txt`
+    > **Beispiel**:` x:\windows\system32\dism.exe /image:c:\ /Get-Packages >> c:\temp\packages.txt`
  
-3. Öffnen Sie die Textdatei, in dem Sie über die Pipeline **Get-Packages**. Wenn Sie Installation steht an Patches angezeigt wird, führen Sie **Remove-Package** für jedes Paketname:
+3. Öffnen Sie die Textdatei, in der Sie **Get-Packages**weitergeleitet haben. Wenn Sie ausstehende Patches für die Installation sehen, führen Sie für jeden Paketnamen " **Remove-Package** " aus:
  
    `dism.exe /image:<drive letter for windows directory> /remove-package /packagename:<package name>`
  
-    > **Beispiel**: `x:\windows\system32\dism.exe /image:c:\ /remove-package /packagename:Package_for_KB4014329~31bf3856ad364e35~amd64~~10.0.1.0`
+    > **Beispiel**:`x:\windows\system32\dism.exe /image:c:\ /remove-package /packagename:Package_for_KB4014329~31bf3856ad364e35~amd64~~10.0.1.0`
  
     >[!NOTE]
-    >Entfernen Sie nicht ausstehende Patches deinstallieren.
+    >Entfernen Sie ausstehende Patches deinstallieren nicht.
 
 >[!IMPORTANT]
->**Delta-Update ist verfügbar für die Wartung von Windows 10, Version 1607 (Anniversary Update), Version 1703 (Creators Update) und Version 1709 (Fall Creators Update).** Für Versionen nach Version 1709, Sie benötigen eine Bereitstellungsinfrastruktur zu implementieren, unterstützt [Express Update Delivery](express-update-delivery-ISV-support.md) um den Vorgang fortzusetzen, inkrementelle Updates zu nutzen.
+>**Delta Update ist für die Wartung von Windows 10, Version 1607 (Anniversary Update), Version 1703 (Creators Update) und Version 1709 (Fall Creators Update) verfügbar.** Für Releases nach Version 1709 müssen Sie eine Bereitstellungs Infrastruktur implementieren, die die [Express-Update Bereitstellung](express-update-delivery-ISV-support.md) unterstützt, um weiterhin inkrementelle Updates nutzen zu können.

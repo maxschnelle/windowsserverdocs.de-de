@@ -1,6 +1,6 @@
 ---
 title: Vorbereiten der Datei „CAPolicy.inf“
-description: Die Datei "CAPolicy.inf" enthält verschiedene Einstellungen, die Wenn es sich bei dem Dienst Active Directory-Zertifizierung (AD CS) installieren oder Erneuern des Zertifizierungsstellenzertifikats verwendet werden.
+description: Die Datei CAPolicy. inf enthält verschiedene Einstellungen, die bei der Installation des Active Directory Zertifizierungs Dienstanbieter (AD CS) oder beim Erneuern des Zertifizierungsstellen Zertifikats verwendet werden.
 manager: alanth
 ms.topic: article
 ms.assetid: 65b36794-bb09-4c1b-a2e7-8fc780893d97
@@ -8,41 +8,41 @@ ms.prod: windows-server-threshold
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 19a87df7c4f165d3b0e6c5add4bc40ff97cc87cb
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: fb2e25dcd27ed3046eeeb444a9f167ccff6e1dd3
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446460"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868961"
 ---
-# <a name="capolicyinf-syntax"></a>CAPolicy.inf-Syntax
->   Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+# <a name="capolicyinf-syntax"></a>CAPolicy. inf-Syntax
+>   Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Die Datei "CAPolicy.inf" handelt es sich um eine Konfigurationsdatei, die definiert, die Erweiterungen, Einschränkungen und andere Konfigurationseinstellungen, die ein Zertifikat einer Stammzertifizierungsstelle und alle von der Stamm-ZS ausgestellten Zertifikate angewendet werden. Die CAPolicy.inf-Datei muss auf einem Hostserver, bevor Sie die Setuproutine für den Stamm installiert werden, bei der Zertifizierungsstelle beginnt. Wenn die sicherheitseinschränkungen beim Stamm-ZS sind geändert werden, muss das Stammzertifikat erneuert werden, und eine aktualisierte Datei "CAPolicy.inf"-Datei muss auf dem Server installiert werden, bevor die Verlängerung durchführen beginnt.
+Die Datei "capolicy. inf" ist eine Konfigurationsdatei, die Erweiterungen, Einschränkungen und andere Konfigurationseinstellungen definiert, die auf ein Zertifikat der Stamm Zertifizierungsstelle und alle von der Stamm Zertifizierungsstelle ausgestellten Zertifikate angewendet werden. Die Datei CAPolicy. inf muss auf einem Host Server installiert werden, bevor die Setup Routine für die Stamm Zertifizierungsstelle beginnt. Wenn die Sicherheitseinschränkungen für eine Stamm Zertifizierungsstelle geändert werden sollen, muss das Stamm Zertifikat erneuert und eine aktualisierte CAPolicy. inf-Datei auf dem Server installiert werden, bevor der Erneuerungs Vorgang beginnt.
 
-Die Datei "CAPolicy.inf" ist:
+"Capolicy. inf" ist:
 
 -   Erstellt und manuell von einem Administrator definiert
 
--   Verwendet während der Erstellung der Stamm und untergeordnete ZS-Zertifikate
+-   Während der Erstellung von Stamm-und untergeordneten Zertifizierungsstellen Zertifikaten verwendet
 
--   Definiert, die für die Signierung Zertifizierungsstelle, in dem Sie sich anmelden, und stellen Sie das Zertifikat (nicht die Zertifizierungsstelle, in dem die Anforderung nicht gewährt wird)
+-   Definiert in der Signatur Zertifizierungsstelle, an der Sie das Zertifikat signieren und ausstellen (nicht die Zertifizierungsstelle, an der die Anforderung erteilt wurde)
 
-Nachdem Sie die Datei "CAPolicy.inf" erstellt haben, müssen Sie kopieren Sie ihn in die **%SystemRoot%** Ordner des Servers vor der Installation von AD CS und das ZS-Zertifikat zu erneuern.
+Nachdem Sie die Datei CAPolicy. inf erstellt haben, müssen Sie Sie in den Ordner **% systemroot%** des Servers kopieren, bevor Sie ADCs installieren oder das Zertifizierungsstellen Zertifikat erneuern.
 
-Die Datei "CAPolicy.inf" ermöglicht das angeben und konfigurieren eine Vielzahl von Optionen und CA-Attribute. Der folgende Abschnitt beschreibt alle Optionen für Sie erstellen eine INF-Datei, die auf Ihre speziellen Anforderungen zugeschnitten sind.
+Die CAPolicy. inf ermöglicht es, eine Vielzahl von ZS-Attributen und-Optionen anzugeben und zu konfigurieren. Im folgenden Abschnitt werden alle Optionen beschrieben, mit denen Sie eine INF-Datei erstellen können, die auf Ihre spezifischen Anforderungen zugeschnitten ist.
 
-## <a name="capolicyinf-file-structure"></a>Struktur der Datei "CAPolicy.inf"
+## <a name="capolicyinf-file-structure"></a>Struktur der CAPolicy. inf-Datei
 
-Die folgenden Begriffe werden verwendet, um die INF-Datei-Struktur zu beschreiben:
+Die folgenden Begriffe werden verwendet, um die INF-Dateistruktur zu beschreiben:
 
--   _Abschnitt_ – ist ein Bereich der Datei, die eine logische Gruppe von Schlüsseln behandelt. Abschnittsnamen in INF-Dateien werden in Klammern angezeigt werden identifiziert. Viele, aber nicht alle Abschnitte dienen zum zertifikaterweiterungen zu konfigurieren.
+-   _Abschnitt_ – ist ein Bereich der Datei, in der eine logische Gruppe von Schlüsseln behandelt wird. Abschnittsnamen in INF-Dateien werden identifiziert, indem Sie in Klammern angezeigt werden. Viele, aber nicht alle Abschnitte werden zum Konfigurieren von Zertifikat Erweiterungen verwendet.
 
--   _Schlüssel_ – ist der Name eines Eintrags und auf der linken Seite des Gleichheitszeichens wird angezeigt.
+-   _Key_ – ist der Name eines Eintrags und wird links neben dem Gleichheitszeichen angezeigt.
 
--   _Wert_ – ist der Parameter und rechts neben dem Gleichzeichen wird angezeigt.
+-   _Value_ – ist der Parameter und wird rechts neben dem Gleichheitszeichen angezeigt.
 
-Im folgenden Beispiel wird **[Version]** ist der Bereich, **Signatur** ist der Schlüssel, und **"\$Windows NT\$"** ist der Wert.
+Im folgenden Beispiel ist **[Version]** der-Abschnitt, **Signature** ist der Schlüssel, und **"\$Windows NT\$"** ist der Wert.
 
 Beispiel:
 
@@ -53,15 +53,15 @@ Signature="$Windows NT$"      #key=value
 
 ###  <a name="version"></a>Version
 
-Gibt die Datei als INF-Datei an. Version ist der einzige Abschnitt erforderlich und muss am Anfang der Datei "CAPolicy.inf" sein.
+Identifiziert die Datei als INF-Datei. Die Version ist der einzige erforderliche Abschnitt und muss am Anfang der Datei "capolicy. inf" vorliegen.
 
-###  <a name="policystatementextension"></a>PolicyStatementExtension
+###  <a name="policystatementextension"></a>Policystatus-TExtension
 
-Enthält die Richtlinien, die von der Organisation definiert wurden und ob diese optional oder obligatorisch sind. Mehrere Richtlinien werden durch Kommas getrennt. Die Namen haben Bedeutung im Kontext einer bestimmten Bereitstellung oder in Bezug auf benutzerdefinierte Anwendungen, die das Vorhandensein dieser Richtlinien überprüft.
+Listet die von der Organisation definierten Richtlinien auf und ob Sie optional oder obligatorisch sind. Mehrere Richtlinien werden durch Kommas getrennt. Die Namen haben eine Bedeutung im Kontext einer bestimmten Bereitstellung oder in Bezug auf benutzerdefinierte Anwendungen, die überprüfen, ob diese Richtlinien vorhanden sind.
 
-Für jede Richtlinie definiert wird muss ein Abschnitt, der die Einstellungen für diese bestimmte Richtlinie definiert sein. Für jede Richtlinie müssen Sie einen benutzerdefinierten Objektbezeichner (OID) angeben, und entweder den Text, angezeigt werden sollen als die Policy-Anweisung oder ein URL-Zeiger auf die richtlinienanweisung. Die URL kann in Form einer HTTP, FTP oder LDAP-URL sein.
+Für jede definierte Richtlinie muss ein Abschnitt vorhanden sein, der die Einstellungen für diese bestimmte Richtlinie definiert. Für jede Richtlinie müssen Sie einen benutzerdefinierten Objekt Bezeichner (OID) und entweder den Text, der als Richtlinien Anweisung angezeigt werden soll, oder einen URL-Zeiger auf die Richtlinien Anweisung angeben. Die URL kann in Form einer HTTP-, FTP-oder LDAP-URL vorliegen.
 
-Wenn Sie beabsichtigen, die beschreibenden Text in einer richtlinienanweisung haben, würde die nächsten drei Zeilen der Datei CAPolicy.inf wie aussehen:
+Wenn Sie in der Policy-Anweisung beschreibenden Text haben werden, sehen die nächsten drei Zeilen der CAPolicy. inf wie folgt aus:
 
 ```
 [InternalPolicy]
@@ -69,7 +69,7 @@ OID=1.1.1.1.1.1.1
 Notice=”Legal policy statement text”
 ```
 
-Wenn Sie beabsichtigen, eine URL zu verwenden, um die richtlinienanweisung für die Zertifizierungsstelle zu hosten, würde nächsten drei Zeilen stattdessen wie aussehen:
+Wenn Sie eine URL zum Hosten der ZS-Richtlinien Anweisung verwenden, sehen die nächsten drei Zeilen stattdessen wie folgt aus:
 
 ```
 [InternalPolicy]
@@ -79,13 +79,13 @@ URL=https://pki.wingtiptoys.com/policies/legalpolicy.asp
 
 Beachten Sie auch Folgendes:
 
--   Mehrere URL, und beachten Sie, dass Schlüssel werden unterstützt.
+-   Mehrere URL-und Hinweis Schlüssel werden unterstützt.
 
--   Beachten Sie, dass und URL-Schlüssel in der gleichen Richtlinienabschnitt werden unterstützt.
+-   Beachten Sie, dass die URL-Schlüssel im gleichen Richtlinien Abschnitt unterstützt werden.
 
--   URLs mit Leerzeichen oder eine SMS mit Leerzeichen muss in Anführungszeichen gesetzt werden. Dies gilt für die **URL** drücken, unabhängig von den Abschnitt, in dem er angezeigt wird.
+-   URLs, die Leerzeichen oder Text mit Leerzeichen enthalten, müssen in Anführungszeichen eingeschlossen werden. Dies gilt für den **URL** -Schlüssel, unabhängig von dem Abschnitt, in dem er angezeigt wird.
 
-Ein Beispiel für mehrere Hinweise und URLs in einem Richtlinienabschnitt würde wie aussehen:
+Ein Beispiel für mehrere Hinweise und URLs in einem Richtlinien Abschnitt sieht wie folgt aus:
 
 ```
 [InternalPolicy]
@@ -97,58 +97,58 @@ Notice=”Legal policy statement text”
 
 ### <a name="crldistributionpoint"></a>CRLDistributionPoint
 
-Sie können die Zertifikatsperrlisten-Verteilungspunkte (CDPs) für ein Stammzertifizierungsstellen-Zertifikat in der Datei "CAPolicy.inf" angeben.  Nach der Installation der Zertifizierungsstelle können Sie die CDP-URLs konfigurieren, die die Zertifizierungsstelle in jeder ausgestelltes Zertifikat enthält. Das Zertifikat der Stammzertifizierungsstelle zeigt die URLs, die in diesem Abschnitt der Datei "CAPolicy.inf" angegeben. 
+Sie können CRL-Verteilungs Punkte (CDPs) für ein Zertifikat der Stamm Zertifizierungsstelle in der Datei "capolicy. inf" angeben.  Nach der Installation der Zertifizierungsstelle können Sie die CDP-URLs konfigurieren, die in den einzelnen ausgestellten Zertifikaten enthalten sind. Das Zertifikat der Stamm Zertifizierungsstelle zeigt die URLs an, die in diesem Abschnitt der Datei "capolicy. inf" angegeben sind. 
 
 ```
 [CRLDistributionPoint]
 URL=http://pki.wingtiptoys.com/cdp/WingtipToysRootCA.crl
 ```
 
-Einige zusätzliche Informationen in diesem Abschnitt:
--   unterstützt:
+Weitere Informationen zu diesem Abschnitt:
+-   Stützten
     - HTTP 
     - Datei-URLs
     - LDAP-URLs 
     - Mehrere URLs
    
     >[!IMPORTANT]
-    >HTTPS-URLs unterstützt nicht.
+    >HTTPS-URLs werden von nicht unterstützt.
 
--   Anführungszeichen müssen URLs mit Leerzeichen setzen.
+-   Anführungszeichen müssen URLs mit Leerzeichen umschließen.
 
--   Wenn keine URLs – d. h. Wenn angegeben sind die **[CRLDistributionPoint]** Abschnitt in der Datei vorhanden ist, ist jedoch leer: die Zugriff auf Stelleninformationen-Erweiterung aus dem Stamm-CA-Zertifikat fehlt. Dies ist in der Regel besser, bei der Einrichtung einer Stamm-ZS. Windows führt keine sperrüberprüfung auf ein Stammzertifizierungsstellen-Zertifikat, damit die CDP-Erweiterung im Zertifikat einer Stammzertifizierungsstelle überflüssig ist.
+-   Wenn keine URLs angegeben werden – d. h., wenn der Abschnitt **[CRLDistributionPoint]** in der Datei vorhanden ist, aber leer ist – wird die Erweiterung des Zertifizierungsstellen Informations Zugriffs aus dem Zertifikat der Stamm Zertifizierungsstelle ausgelassen. Dies ist in der Regel vorzuziehen, wenn Sie eine Stamm Zertifizierungsstelle einrichten. Windows führt keine Sperr Überprüfung für ein Zertifikat der Stamm Zertifizierungsstelle aus, sodass die CDP-Erweiterung in einem Zertifikat der Stamm Zertifizierungsstelle überflüssig ist.
 
--    ZS kann in UNC-Datei, z. B. auf eine Freigabe veröffentlichen, die den Ordner einer Website darstellt, in denen ein Client über HTTP abgerufen.
+-    Die Zertifizierungsstelle kann in der Datei "UNC" veröffentlichen, z. b. in einer Freigabe, die den Ordner einer Website darstellt, in der ein Client über HTTP abruft.
 
--   Verwenden Sie diesen Abschnitt nur, wenn Sie zum Einrichten einer Stamm-ZS oder erneuern das Zertifikat der Stammzertifizierungsstelle. Die Zertifizierungsstelle bestimmt, die untergeordneten Zertifizierungsstelle CDP-Erweiterungen.
+-   Verwenden Sie diesen Abschnitt nur, wenn Sie eine Stamm Zertifizierungsstelle einrichten oder das Zertifikat der Stamm Zertifizierungsstelle erneuern. Die Zertifizierungsstelle bestimmt die CDP-Erweiterungen der untergeordneten Zertifizierungsstelle.
    
 
-### <a name="authorityinformationaccess"></a>AuthorityInformationAccess
+### <a name="authorityinformationaccess"></a>Autorityinformationaccess
 
-Sie können die Autorität für die Informationen Zugriffspunkte in der Datei "CAPolicy.inf" für das Zertifikat der Stammzertifizierungsstelle angeben.
+Sie können in der Datei "capolicy. inf" für das Zertifikat der Stamm Zertifizierungsstelle die Zugriffspunkte für die Zertifizierungsstelle angeben.
 
 ```
 [AuthorityInformationAccess]
 URL=http://pki.wingtiptoys.com/Public/myCA.crt
 ```
 
-Einige Weitere Hinweise auf die Autorität für die Informationen zugreifen, Abschnitt:
+Weitere Hinweise zum Abschnitt "Autoritäts Informations Zugriff":
 
--   Mehrere URLs werden unterstützt.
+-   Es werden mehrere URLs unterstützt.
 
--   HTTP, FTP, LDAP und Datei-URLs werden unterstützt. HTTPS-URLs werden nicht unterstützt.
+-   HTTP-, FTP-, LDAP-und Datei-URLs werden unterstützt. HTTPS-URLs werden nicht unterstützt.
 
--   In diesem Abschnitt wird nur verwendet, wenn Sie zum Einrichten einer Stamm-ZS, oder das Zertifikat der Stammzertifizierungsstelle erneuern. Untergeordnete Zertifizierungsstelle AIA-Erweiterungen werden von der Zertifizierungsstelle bestimmt, die der untergeordnete ZS-Zertifikat ausgestellt hat.
+-   Dieser Abschnitt wird nur verwendet, wenn Sie eine Stamm Zertifizierungsstelle einrichten oder das Zertifikat der Stamm Zertifizierungsstelle erneuern. Untergeordnete ZS-AIA-Erweiterungen werden von der Zertifizierungsstelle bestimmt, die das Zertifikat der untergeordneten Zertifizierungsstelle ausgestellt hat
 
--   URLs mit Leerzeichen müssen in Anführungszeichen gesetzt werden.
+-   URLs mit Leerzeichen müssen in Anführungszeichen eingeschlossen werden.
 
--   Wenn keine URLs – d. h. Wenn angegeben sind die **[AuthorityInformationAccess]** Abschnitt in der Datei vorhanden ist, ist jedoch leer: die Erweiterung der CRL-Verteilungspunkt aus dem Stamm-CA-Zertifikat fehlt. In diesem Fall wäre dies die bevorzugte Einstellung im Fall von Zertifizierungsstellen-Stammzertifikat, wie es ist keine Autorität, die höher als Stamm-ZS, die einen Link zu das Zertifikat verwiesen werden muss.
+-   Wenn keine URLs angegeben werden – d. h., wenn der Abschnitt **[autorityinformationaccess]** in der Datei vorhanden ist, aber leer ist – wird die CRL-Verteilungs Punkt Erweiterung aus dem Zertifikat der Stamm Zertifizierungsstelle ausgelassen. Dies wäre wiederum die bevorzugte Einstellung im Fall eines Zertifikats der Stamm Zertifizierungsstelle, da keine Zertifizierungsstelle vorhanden ist, auf die durch einen Link zum Zertifikat verwiesen werden muss.
 
-### <a name="certsrvserver"></a>certsrv_Server
+### <a name="certsrv_server"></a>certsrv_Server
 
-Optionaler die Datei "CAPolicy.inf" den Abschnitt ist [Certsrv_server], womit Erneuerung Schlüssellänge, die Gültigkeitsdauer der Erneuerung und die Gültigkeitszeitraum der Zertifikatssperrliste (CRL) für eine Zertifizierungsstelle angeben, die erneuert oder installiert. Keine der Schlüssel in diesem Abschnitt sind erforderlich. Viele dieser Einstellungen haben Standardwerte, die sind ausreichend für die häufigsten Anforderungen, und können einfach aus der Datei "CAPolicy.inf" ausgelassen werden. Alternativ können viele dieser Einstellungen geändert werden, nach der Installation der Zertifizierungsstelle.
+Ein weiterer Optionaler Abschnitt der Datei "capolicy. inf" ist [Certsrv_Server], mit der die Länge des Erneuerungs Schlüssels, der Erneuerungs Gültigkeits Zeitraum und die Zertifikat Sperr Listen-Gültigkeitsdauer für eine Zertifizierungsstelle angegeben werden, die erneuert oder installiert wird. Keiner der Schlüssel in diesem Abschnitt ist erforderlich. Viele dieser Einstellungen verfügen über Standardwerte, die für die meisten Anforderungen ausreichend sind und in der Datei CAPolicy. inf weggelassen werden können. Alternativ können viele dieser Einstellungen geändert werden, nachdem die Zertifizierungsstelle installiert wurde.
 
-Ein Beispiel würde wie aussehen:
+Ein Beispiel sieht wie folgt aus:
 
 ```
 [certsrv_server]
@@ -166,17 +166,17 @@ ForceUTF8=0
 EnableKeyCounting=0
 ```
 
-**RenewalKeyLength** legt die Größe des Schlüssels für die Erneuerung. Dies wird nur verwendet, wenn während der Erneuerung eines Zertifikats ein neues Schlüsselpaar generiert wird. Die Größe des Schlüssels für das erste Zertifikat der Zertifizierungsstelle wird festgelegt, wenn die Zertifizierungsstelle installiert ist.
+**RenewalKeyLength** legt die Schlüsselgröße nur für die Erneuerung fest. Dies wird nur verwendet, wenn während der Zertifizierungsstellen-Zertifikat Erneuerung ein neues Schlüsselpaar generiert wird. Die Schlüsselgröße für das anfängliche Zertifizierungsstellen Zertifikat wird bei der Installation der Zertifizierungsstelle festgelegt.
 
-Beim erneuern ein Zertifikat mit einem neuen Schlüsselpaar, kann die Länge des Schlüssels entweder erhöht oder verringert werden. Wenn Sie einen Stamm-CA-Schlüsselgröße von 4096 Bytes oder höher festgelegt haben, und klicken Sie dann zu ermitteln, müssen Sie z. B. Java-apps oder Geräte, die nur Schlüssellängen von 2048 Bytes unterstützen können. Ob Sie vergrößern oder verkleinern, müssen Sie alle von dieser Zertifizierungsstelle ausgestellten Zertifikate neu ausstellen.
+Wenn Sie ein Zertifizierungsstellen Zertifikat mit einem neuen Schlüsselpaar erneuern, kann die Schlüssellänge entweder erweitert oder verringert werden. Wenn Sie z. b. eine Stamm-ZS-Schlüsselgröße von 4096 Bytes oder höher festgelegt haben und dann feststellen, dass Sie über Java-Apps oder Netzwerkgeräte verfügen, die nur Schlüsselgrößen von 2048 Bytes unterstützen können. Unabhängig davon, ob Sie die Größe vergrößern oder verringern, müssen Sie alle von dieser Zertifizierungsstelle ausgestellten Zertifikate neu ausstellen.
 
-**RenewalValidityPeriod** und **RenewalValidityPeriodUnits** die Lebensdauer des neuen Stamm-CA-Zertifikats herzustellen, wenn das alte Stamm-CA-Zertifikat zu erneuern. Sie gilt nur für ein Stamm-ZS zu finden. Die Gültigkeitsdauer des Zertifikats von einer untergeordneten Zertifizierungsstelle richtet sich nach dem übergeordneten. RenewalValidityPeriod kann die folgenden Werte aufweisen: Stunden, Tagen, Wochen, Monate und Jahre.
+Bei erneutem erneuern des Zertifikats der Stamm Zertifizierungsstelle wird die **Gültigkeits** Dauer des neuen Zertifikats der Stamm Zertifizierungsstelle durch Erneuern von erneuert und **erneuert** . Dies gilt nur für eine Stamm Zertifizierungsstelle. Die Zertifikats Lebensdauer einer untergeordneten Zertifizierungsstelle wird durch die übergeordnete Zertifizierungsstelle festgelegt. RenewalValidityPeriod kann die folgenden Werte aufweisen: Stunden, Tage, Wochen, Monate und Jahre.
 
-**CRLPeriod** und **CRLPeriodUnits** richten Sie die Gültigkeitsdauer für die Basis-CRL. **CRLPeriod** können die folgenden Werte aufweisen: Stunden, Tagen, Wochen, Monate und Jahre.
+**CRLPeriod** und **CRLPeriodUnits** legen den Gültigkeits Zeitraum für die Basis-CRL fest. **CRLPeriod** kann die folgenden Werte aufweisen: Stunden, Tage, Wochen, Monate und Jahre.
 
-**CRLDeltaPeriod** und **CRLDeltaPeriodUnits** die Gültigkeitsdauer der Delta-CRL herzustellen. **CRLDeltaPeriod** können die folgenden Werte aufweisen: Stunden, Tagen, Wochen, Monate und Jahre.
+**CRLDeltaPeriod** und **CRLDeltaPeriodUnits** legen den Gültigkeits Zeitraum der Delta-CRL fest. **CRLDelta period** kann die folgenden Werte aufweisen: Stunden, Tage, Wochen, Monate und Jahre.
 
-Jede dieser Einstellungen kann konfiguriert werden, nach der Installation der Zertifizierungsstelle:
+Jede dieser Einstellungen kann nach der Installation der Zertifizierungsstelle konfiguriert werden:
 
 ```
 Certutil -setreg CACRLPeriod Weeks
@@ -185,28 +185,28 @@ Certutil -setreg CACRLDeltaPeriod Days
 Certutil -setreg CACRLDeltaPeriodUnits 1
 ```
 
-Denken Sie daran, Active Directory Certificate Services für die Änderungen wirksam werden neu gestartet.
+Denken Sie daran, Active Directory Zertifikat Dienste neu zu starten, damit die Änderungen wirksam werden.
 
-**LoadDefaultTemplates** gilt nur während der Installation von einer Unternehmenszertifizierungsstelle. Diese Einstellung entweder "true" oder "false" (oder 1 oder 0), schreibt vor, wenn die Zertifizierungsstelle mit einem der Standardvorlagen konfiguriert ist.
+**Loaddefaulttemplates** ist nur während der Installation einer Unternehmens Zertifizierungsstelle anwendbar. Diese Einstellung, entweder true oder false (oder 1 oder 0), gibt an, ob die Zertifizierungsstelle mit einer der Standardvorlagen konfiguriert ist.
 
-Eine Teilmenge der Standardzertifikatvorlagen wird in einer Standardinstallation der Zertifizierungsstelle das Zertifikatvorlagen-Ordner, in das Zertifizierungsstelle-Snap-in hinzugefügt. Dies bedeutet, dass, sobald der AD CS-Dienst gestartet wird, nach der Installation der Rolle einen Benutzer oder Computer mit ausreichenden Berechtigungen sofort für ein Zertifikat registrieren kann.
+Bei einer Standardinstallation der Zertifizierungsstelle wird dem Ordner Zertifikat Vorlagen im Snap-In Zertifizierungsstelle eine Teilmenge der Standard Zertifikat Vorlagen hinzugefügt. Dies bedeutet, dass ein Benutzer oder ein Computer mit ausreichenden Berechtigungen sofort für ein Zertifikat registriert werden kann, sobald der AD CS-Dienst gestartet wird, nachdem die Rolle installiert wurde.
 
-Möglicherweise möchten Sie keine Zertifikate ausstellen, sofort nach der Installation einer Zertifizierungsstelle, damit Sie die Einstellung LoadDefaultTemplates verwenden können, um zu verhindern, dass die Standardvorlagen Unternehmenszertifizierungsstelle hinzugefügt wird. Wenn es keine Vorlagen, die auf der Zertifizierungsstelle konfiguriert sind, können sie keine Zertifikate ausgeben.
+Möglicherweise möchten Sie nicht sofort nach der Installation einer Zertifizierungsstelle Zertifikate ausstellen. Sie können daher die Einstellung loaddefaulttemplates verwenden, um zu verhindern, dass die Standardvorlagen der Unternehmens Zertifizierungsstelle hinzugefügt werden. Wenn keine Vorlagen auf der Zertifizierungsstelle konfiguriert sind, können keine Zertifikate ausgestellt werden.
 
-**AlternateSignatureAlgorithm** konfiguriert die Zertifizierungsstelle so unterstützen das PKCS\#1 v2. 1-Signatur-Format für das Zertifizierungsstellenzertifikat und den zertifikatanforderungen. Bei Festlegung auf 1 auf einer Stamm-ZS das Zertifikat der Zertifizierungsstelle das PKCS enthält\#1 v2. 1-Signatur-Format. Bei Festlegung auf eine untergeordnete Zertifizierungsstelle, die untergeordnete Zertifizierungsstelle eine zertifikatanforderung erstellen, das der PKCS enthält\#1 v2. 1-Signatur-Format.
+Die Zertifizierungsstelle wird von " **Alternativen** Dienstanbieter" so konfiguriert, dass das PKCS\#1 v 2.1-Signatur Format sowohl für das Zertifizierungsstellen Zertifikat als auch für die Zertifikat Anforderungen unterstützt wird. Wenn für eine Stamm Zertifizierungsstelle der Wert 1 festgelegt wird, enthält das Zertifizierungsstellen\#Zertifikat das PKCS 1 v 2.1-Signatur Format. Wenn die untergeordnete Zertifizierungsstelle auf eine untergeordnete Zertifizierungsstelle festgelegt ist, wird eine Zertifikat Anforderung erstellt\#, die das PKCS 1 v 2.1-Signatur Format enthält.
 
-**ForceUTF8** ändert den Standard-Codierung des relativen definierten Namen (RDNs) in den Antragsteller und Aussteller-distinguished Names in UTF-8. Nur diese RDNs, die UTF-8, z. B. zu unterstützen, die definiert sind, als Verzeichnis Zeichenfolgen-Datentypen von einer RFC betroffen sind. Beispielsweise unterstützt der RDN für Domain-Komponente (DC) als IA5 oder UTF-8-Codierung während der Country RDN (C) nur unterstützt, wie eine druckbare Zeichenfolge codiert. Die Direktive ForceUTF8 wirkt sich daher auf einem DC RDN, jedoch wirkt sich nicht auf eine C-RDN.
+**ForceUTF8** ändert die Standard Codierung relativer definierter Namen (rDNS) in Antragsteller-und Aussteller definierter Namen in UTF-8. Nur die RDNs, die UTF-8 unterstützen, z. b. solche, die durch eine RFC als Verzeichnis Zeichen folgen Typen definiert sind, sind betroffen. Beispielsweise unterstützt der RDN für Domänen Komponenten (DC) die Codierung entweder als IA5 oder UTF-8, während das Land RDN (C) nur die Codierung als Druck Bare Zeichenfolge unterstützt. Die ForceUTF8-Direktive wirkt sich daher auf eine DC-RDN aus, wirkt sich aber nicht auf eine C RDN aus.
 
-**EnableKeyCounting** konfiguriert die Zertifizierungsstelle, um einen Zähler zu erhöhen, jedes Mal, wenn der ZS-Signaturschlüssel verwendet wird. Aktivieren Sie diese Einstellung nicht, es sei denn, Sie verfügen über ein Hardwaresicherheitsmodul (HSM) und die zugehörigen Kryptografiedienstanbieter (CSP), die wichtigsten zählen unterstützt. Microsoft starker CSP weder die Microsoft Software Schlüsselspeicheranbieter (KSP) Unterstützung für wichtige zählen.
+**Enablekeycounting** konfiguriert die Zertifizierungsstelle so, dass ein Zähler jedes Mal erhöht wird, wenn der Signatur Schlüssel der Zertifizierungsstelle verwendet wird. Aktivieren Sie diese Einstellung nur, wenn Sie über ein Hardware Sicherheitsmodul (HSM) und den zugehörigen Kryptografiedienstanbieter (CSP) verfügen, der die Schlüssel Zählung unterstützt. Weder der starke Microsoft-CSP noch der Microsoft-Software Schlüsselspeicher-Anbieter (KSP) unterstützen die Schlüssel Zählung.
 
 
-## <a name="create-the-capolicyinf-file"></a>Erstellen Sie die Datei "CAPolicy.inf"
+## <a name="create-the-capolicyinf-file"></a>Erstellen der Datei "capolicy. inf"
 
-Bevor Sie AD CS installieren, konfigurieren Sie die CAPolicy.inf-Datei mit spezifischen Einstellungen für die Bereitstellung.
+Vor der Installation von AD CS konfigurieren Sie die Datei CAPolicy. inf mit spezifischen Einstellungen für die Bereitstellung.
 
-**Voraussetzung:** Sie müssen Mitglied der Gruppe "Administratoren" sein.
+**Setzung** Sie müssen Mitglied der Gruppe "Administratoren" sein.
 
-1. Geben Sie auf dem Computer, in dem Sie planen, installieren Sie AD CS, öffnen Sie Windows PowerShell, **Editor c:\CAPolicy.inf** und drücken Sie EINGABETASTE.
+1. Öffnen Sie auf dem Computer, auf dem Sie AD CS installieren möchten, Windows PowerShell, geben Sie **Editor c:\Capolicy.inf** ein, und drücken Sie die EINGABETASTE.
 
 2. Klicken Sie auf **Ja**, wenn Sie zum Erstellen einer neuen Datei aufgefordert werden.
 
@@ -231,9 +231,9 @@ Bevor Sie AD CS installieren, konfigurieren Sie die CAPolicy.inf-Datei mit spezi
    [CRLDistributionPoint]  
    [AuthorityInformationAccess]
    ```
-4. Klicken Sie auf **Datei**, und klicken Sie dann auf **speichern**.
+4. Klicken Sie auf **Datei**und dann auf **Speichern**unter.
 
-5. Navigieren Sie zum Ordner "% SystemRoot%".
+5. Navigieren Sie zum Ordner% SystemRoot%.
 
 6. Vergewissern Sie sich, dass folgende Bedingungen erfüllt sind:
 
@@ -247,7 +247,7 @@ Bevor Sie AD CS installieren, konfigurieren Sie die CAPolicy.inf-Datei mit spezi
 
 8. Klicken Sie auf **Ja**, wenn Sie zum Überschreiben der Datei aufgefordert werden.
 
-   ![Speichern Sie als Speicherort für die Datei "CAPolicy.inf"](../../../media/Prepare-the-CAPolicy-inf-File/001-SaveCAPolicyORCA1.gif)
+   ![Speichern als Speicherort für die Datei "capolicy. inf"](../../../media/Prepare-the-CAPolicy-inf-File/001-SaveCAPolicyORCA1.gif)
 
    > [!CAUTION]
    >   Vergewissern Sie sich, dass die Datei %%amp;quot;CAPolicy.inf%%amp;quot; mit der Dateierweiterung INF gespeichert wurde. Wenn Sie am Ende des Dateinamens nicht ausdrücklich **.inf** eingeben und die beschriebenen Optionen auswählen, wird die Datei als Textdatei gespeichert und nicht während der Zertifizierungsstelleninstallation verwendet.
@@ -255,4 +255,4 @@ Bevor Sie AD CS installieren, konfigurieren Sie die CAPolicy.inf-Datei mit spezi
 9. Schließen Sie Editor.
 
 > [!IMPORTANT]
->   In der Datei "CAPolicy.inf", können Sie sehen, es gibt eine Zeile, in der URL https://pki.corp.contoso.com/pki/cps.txt. Der Abschnitt der Datei %%amp;quot;CAPolicy.inf%%amp;quot; zu den internen Richtlinien dient lediglich als Beispiel dafür, wie Sie den Speicherort einer Zertifikatverwendungserklärung (Certificate Practice Statement, CPS) angeben können. In diesem Handbuch werden Sie nicht angewiesen, um die praktischen Certificate-Anweisung (CPS) zu erstellen.
+>   In der CAPolicy. inf sehen Sie, dass eine Zeile die URL https://pki.corp.contoso.com/pki/cps.txt angibt. Der Abschnitt der Datei %%amp;quot;CAPolicy.inf%%amp;quot; zu den internen Richtlinien dient lediglich als Beispiel dafür, wie Sie den Speicherort einer Zertifikatverwendungserklärung (Certificate Practice Statement, CPS) angeben können. In diesem Handbuch werden Sie nicht aufgefordert, die CPS (Certificate Practice Statement) zu erstellen.

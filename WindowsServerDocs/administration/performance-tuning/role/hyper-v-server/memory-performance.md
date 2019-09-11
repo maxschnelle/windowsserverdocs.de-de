@@ -1,45 +1,45 @@
 ---
-title: Hyper-V-Memory-Leistung
-description: Überlegungen zum Arbeitsspeicher in Hyper-V die Optimierung der Leistung
+title: Hyper-V-Speicherleistung
+description: Überlegungen zum Arbeitsspeicher bei der Leistungsoptimierung in Hyper
 ms.prod: windows-server-threshold
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 63a1b654b8ac52725cc5dd87c8b245f9dfaf40f0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ddb336e0d6e16342dd60f2f61e50afeda61837e9
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848071"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866578"
 ---
-# <a name="hyper-v-memory-performance"></a>Hyper-V-Memory-Leistung
+# <a name="hyper-v-memory-performance"></a>Hyper-V-Speicherleistung
 
 
-Der Hypervisor virtualisiert den Gast physischen Speicher, virtuelle Computer voneinander zu isolieren und einen zusammenhängenden, nullbasierten Speicherbereich für Gastbetriebssysteme, bereitstellen, wie auf nicht virtualisierten Systemen.
+Der Hypervisor virtualisiert den physischen Gast Speicher, um virtuelle Maschinen voneinander zu isolieren und um einen zusammenhängenden, NULL basierten Speicherbereich für jedes Gast Betriebssystem bereitzustellen, ebenso wie auf nicht virtualisierten Systemen.
 
-## <a name="correct-memory-sizing-for-child-partitions"></a>Korrigieren Sie die größenanpassung von Arbeitsspeicher für untergeordneten Partitionen
+## <a name="correct-memory-sizing-for-child-partitions"></a>Korrekte Arbeitsspeicher Größe für untergeordnete Partitionen
 
-Sie sollten die Arbeitsspeicher der virtuellen Maschine Größe, wie in der Regel für serveranwendungen auf einem physischen Computer. Sie müssen die Größe, um die erwartete Auslastung zu normalen angemessen behandeln und Spitzenzeiten, da nicht genügend Arbeitsspeicher Antwortzeiten und CPU- oder e/a-Nutzung deutlich erhöhen kann.
+Sie sollten die Größe des Arbeitsspeichers der virtuellen Maschine in der Regel für Server Anwendungen auf einem physischen Computer anpassen. Sie müssen die Größe anpassen, um die erwartete Auslastung zu normalen und Spitzenzeiten zu verarbeiten, da nicht genügend Arbeitsspeicher die Reaktionszeiten und die CPU-oder e/a-Auslastung erheblich erhöhen kann.
 
-Sie können dynamischen Arbeitsspeicher können von Windows, die Arbeitsspeicher der virtuellen Maschine dynamisch Größe ermöglichen. Dynamischer Arbeitsspeicher Wenn große plötzliche speicherbelegung, wodurch Probleme Anwendungen auf dem virtuellen Computer können Sie erhöhen die Größe der Auslagerungsdatei für den virtuellen Computer, um temporäre Sicherung sicherzustellen, dass beim dynamischen Arbeitsspeicher auf die Auslastung des Arbeitsspeichers reagiert.
+Sie können dynamischer Arbeitsspeicher aktivieren, damit Windows den Arbeitsspeicher der virtuellen Maschine dynamisch anpassen kann. Wenn dynamischer Arbeitsspeicher bei Anwendungen auf dem virtuellen Computerprobleme auftreten, die zu großen plötzlichen Speicher Belegungen führen, können Sie die Größe der Auslagerungs Datei für den virtuellen Computer erhöhen, um eine vorübergehende Sicherung sicherzustellen, während dynamischer Arbeitsspeicher auf die Arbeitsspeicher Auslastung antwortet.
 
-Weitere Informationen zu dynamischem Arbeitsspeicher finden Sie unter [Hyper-V dynamischer Arbeitsspeicher – Übersicht]( https://go.microsoft.com/fwlink/?linkid=834434) und [Konfigurationshandbuch für Hyper-V Dynamic Memory](https://go.microsoft.com/fwlink/?linkid=834435).
+Weitere Informationen zu dynamischer Arbeitsspeicher finden Sie unter [Hyper-v dynamischer Arbeitsspeicher Übersicht]( https://go.microsoft.com/fwlink/?linkid=834434) und [Hyper-v dynamischer Arbeitsspeicher Konfigurations Handbuch](https://go.microsoft.com/fwlink/?linkid=834435).
 
-Wenn Windows in der untergeordneten Partition ausgeführt werden, können Sie die folgenden Leistungsindikatoren in einer untergeordneten Partition verwenden, um festzustellen, ob die untergeordnet Partition, dass genügend Arbeitsspeicher zur Verfügung hat und ist wahrscheinlich mit einer höheren Größe des virtuellen Computers Arbeitsspeicher eine bessere Leistung.
+Wenn Sie in der untergeordneten Partition Windows ausführen, können Sie die folgenden Leistungsindikatoren in einer untergeordneten Partition verwenden, um zu ermitteln, ob die untergeordnete Partition Arbeitsspeicher belegt und wahrscheinlich besser mit einer höheren Arbeitsspeicher Größe für virtuelle Computer ausgeführt wird.
 
-| Leistungsindikator                                                         | Vorgeschlagene Schwellenwert                                                                                                                                                           |
+| Leistungs Zählers                                                         | Vorgeschlagene Schwellenwert                                                                                                                                                           |
 |-----------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Arbeitsspeicher – Standbymodus reservieren – Cachebytes                                        | Summe der Standbymodus reservieren – Cachebytes "und" Free "und" 0 (null) Seite Liste Bytes sollte mindestens 200 MB auf Systemen mit mindestens 1 GB und 300 MB auf Systemen mit 2 GB RAM oder mehr sichtbar. |
-| Speicher – freie & Nullbytes Seitenliste                                        | Summe der Standbymodus reservieren – Cachebytes "und" Free "und" 0 (null) Seite Liste Bytes sollte mindestens 200 MB auf Systemen mit mindestens 1 GB und 300 MB auf Systemen mit 2 GB RAM oder mehr sichtbar. |
-| Speicher – Seiteneingabe/s                                                    | Durchschnittlichen Wert über einen Zeitraum von 1 Stunde ist kleiner als 10.                                                                                                                                       | 
+| Arbeitsspeicher – reservierte Bytes im standbycache                                        | Die Summe der reservierten Bytes für den standbycache und die Anzahl der freien und null-Seiten Listen sollte 200 MB oder mehr auf Systemen mit 1 GB und 300 MB oder mehr auf Systemen mit mindestens 2 GB sichtbarem RAM betragen. |
+| Arbeitsspeicher – freie & NULL-Seitenliste (Bytes)                                        | Die Summe der reservierten Bytes für den standbycache und die Anzahl der freien und null-Seiten Listen sollte 200 MB oder mehr auf Systemen mit 1 GB und 300 MB oder mehr auf Systemen mit mindestens 2 GB sichtbarem RAM betragen. |
+| Arbeitsspeicher – Seiten Eingabe/Sek.                                                    | Der Durchschnitt über einen Zeitraum von 1 Stunde ist kleiner als 10.                                                                                                                                       | 
 
-## <a name="correct-memory-sizing-for-root-partition"></a>Arbeitsspeicher-größenanpassung für die Stammpartition zu beheben
+## <a name="correct-memory-sizing-for-root-partition"></a>Korrigieren der Arbeitsspeicher Größe für die Stamm Partition
 
-Das Stammpartition müssen genügend Arbeitsspeicher, um Dienste wie z. B. e/a-Virtualisierung, VM-Momentaufnahme und Management zur Unterstützung der untergeordneten Partitionen bereitzustellen.
+Die Stamm Partition muss über ausreichend Arbeitsspeicher verfügen, um Dienste wie die e/a-Virtualisierung, die Momentaufnahme des virtuellen Computers und die Verwaltung zur Unterstützung der untergeordneten Partitionen bereitzustellen.
 
-Hyper-V unter Windows Server 2016 überwacht die Integrität des Verwaltungsbetriebssystem der Stammpartition, um zu bestimmen, wie viel Arbeitsspeicher sicher an untergeordneten Partitionen zugeordnet werden kann und gleichzeitig gewährleistet hohe Leistung und Zuverlässigkeit von der Stammpartition Laufzeit.
+Hyper-V in Windows Server 2016 überwacht den Lauf Zeit Zustand des Verwaltungs Betriebssystems der Stamm Partition, um zu bestimmen, wie viel Arbeitsspeicher den untergeordneten Partitionen sicher zugeordnet werden kann, während gleichzeitig hohe Leistung und Zuverlässigkeit der Stamm Partition sichergestellt werden.
 
 ## <a name="see-also"></a>Siehe auch
 
@@ -47,13 +47,13 @@ Hyper-V unter Windows Server 2016 überwacht die Integrität des Verwaltungsbetr
 
 -   [Hyper-V-Architektur](architecture.md)
 
--   [Hyper-V-Server-Konfiguration](configuration.md)
+-   [Hyper-V-Serverkonfiguration](configuration.md)
 
--   [Hyper-V, prozessorbezogene Leistungsdaten](processor-performance.md)
+-   [Hyper-V-Prozessorleistung](processor-performance.md)
 
--   [Hyper-V-Speicher-e/a-Leistung](storage-io-performance.md)
+-   [E/A-Leistung für Hyper-V-Speicher](storage-io-performance.md)
 
--   [Hyper-V-Netzwerk-e/a-Leistung](network-io-performance.md)
+-   [E/A-Leistung für Hyper-V-Netzwerk](network-io-performance.md)
 
 -   [Erkennen von Engpässen in einer virtualisierten Umgebung](detecting-virtualized-environment-bottlenecks.md)
 

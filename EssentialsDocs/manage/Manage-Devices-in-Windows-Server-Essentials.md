@@ -1,6 +1,6 @@
 ---
 title: Verwalten von Geräten in Windows Server Essentials
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -12,12 +12,12 @@ ms.assetid: f5fe1088-ebe7-4799-a47d-075b0048dea1
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: a66f98b0896e706f520aa057b91cce2fe662d22d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 48eb7009215e484fb00e704c7b328340240321d2
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433319"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865155"
 ---
 # <a name="manage-devices-in-windows-server-essentials"></a>Verwalten von Geräten in Windows Server Essentials
 
@@ -27,17 +27,17 @@ ms.locfileid: "66433319"
   
 -   [Verwalten von Geräten mithilfe des Dashboards](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_1)  
   
--   [Zuweisen von Benutzerkontenberechtigungen zum auf bestimmten Netzwerkcomputern anmelden](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_2)  
+-   [Zuweisen von Benutzerkonten Berechtigung zum Anmelden bei bestimmten Netzwerkcomputern](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_2)  
   
--   [Entfernen eines Computers vom server](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_3)  
+-   [Entfernen eines Computers vom Server](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_3)  
   
--   [Konfigurieren der gruppenrichtlinieneinstellungen für ordnerumleitung und Sicherheit](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_5)  
+-   [Konfigurieren von Gruppenrichtlinie Einstellungen für die Ordner Umleitung und-Sicherheit](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_5)  
   
--   [Verbindung mit einem Netzwerkcomputer mithilfe einer Remotedesktopsitzung](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_7)  
+-   [Herstellen einer Verbindung mit einem Netzwerk Computer mithilfe einer Remotedesktop Sitzung](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_7)  
   
--   [Anzeigen von Computereigenschaften](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_8)  
+-   [Anzeigen von Computer Eigenschaften](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_8)  
   
-##  <a name="BKMK_1"></a> Verwalten von Geräten mithilfe des Dashboards  
+##  <a name="BKMK_1"></a>Verwalten von Geräten mithilfe des Dashboards  
  Windows Server Essentials ermöglicht es, die allgemeinen administrativen Aufgaben mithilfe des Windows Server Essentials-Dashboard auszuführen. Die Seite **Geräte** des Dashboards enthält Folgendes:  
   
 -   Liste der Netzwerkcomputer mit folgenden Angaben:  
@@ -89,7 +89,7 @@ ms.locfileid: "66433319"
 |Wie werden Computer mit dem Server verbunden?|Öffnet ein Hilfethema, das die Schritte zum Hinzufügen eines Computers zum Netzwerk beschreibt.|  
 |Gruppenrichtlinie implementieren|Wendet Richtlinieneinstellungen auf Windows 8- und Windows 7-Computer an, die der Domäne beigetreten sind.|  
   
-##  <a name="BKMK_2"></a> Zuweisen von Benutzerkontenberechtigungen zum auf bestimmten Netzwerkcomputern anmelden  
+##  <a name="BKMK_2"></a>Zuweisen von Benutzerkonten Berechtigung zum Anmelden bei bestimmten Netzwerkcomputern  
  Sie können Benutzerkonten Berechtigungen zuweisen, sodass Benutzer sich nur auf bestimmten Netzwerkcomputern anmelden können, wenn von einem Remotestandort aus auf das Windows Server Essentials-Netzwerk zugegriffen wird.  
   
 #### <a name="to-change-the-computer-access-for-a-user-account"></a>So ändern Sie den Computerzugriff für ein Benutzerkonto  
@@ -100,15 +100,15 @@ ms.locfileid: "66433319"
   
 3.  Wählen Sie in der Liste von Benutzerkonten das Benutzerkonto aus, das Sie ändern möchten.  
   
-4.  In der **< Benutzerkonto\> Aufgaben** Bereich, klicken Sie auf **Kontoeigenschaften anzeigen**. Die Seite **Eigenschaften** für das Benutzerkonto wird angezeigt.  
+4.  Klicken Sie im Bereich **Aufgaben\> des < Benutzerkontos** auf **Konto Eigenschaften anzeigen**. Die Seite **Eigenschaften** für das Benutzerkonto wird angezeigt.  
   
 5.  Wählen Sie auf der Registerkarte **Computerzugriff** den Computer aus, auf den dieser Benutzer remote zugreifen kann, und klicken Sie dann auf **OK**.  
   
-##  <a name="BKMK_3"></a> Entfernen eines Computers vom server  
+##  <a name="BKMK_3"></a>Entfernen eines Computers vom Server  
  Wenn Sie einen Computer von einem Server, auf dem Windows Server Essentials ausgeführt wird, mithilfe des Dashboards entfernen, wird er nicht mehr vom Server verwaltet. Daher wird der Server das Erstellen von Computersicherungen oder die Überwachung seines Zustands nach dem Entfernen aus dem Netzwerk beenden.  
   
 > [!NOTE]
->  Entfernen eines Computers vom Server trennt den Computer nicht vom Netzwerk. Der Computer kann weiterhin so auf Ressourcen im Netzwerk zugreifen, wie er es konnte, bevor er mit dem Server verbunden wurde. Um zu verhindern, dass der Computer Zugriff auf Serverressourcen hat, und um ihn vom Server zu trennen, müssen Sie den Computer aus der Domäne entfernen. Darüber hinaus wird beim Entfernen des Computers vom Server nicht automatisch die Connector-Software oder das Launchpad auf dem Computer, der entfernt wird, deinstalliert. Sie müssen die Connector-Software manuell vom Computer entfernen. Weitere Informationen finden Sie im Abschnitt zu deinstallieren die Connector-Software in [Verbindungsherstellung](../use/Get-Connected-in-Windows-Server-Essentials.md).  
+>  Entfernen eines Computers vom Server trennt den Computer nicht vom Netzwerk. Der Computer kann weiterhin so auf Ressourcen im Netzwerk zugreifen, wie er es konnte, bevor er mit dem Server verbunden wurde. Um zu verhindern, dass der Computer Zugriff auf Serverressourcen hat, und um ihn vom Server zu trennen, müssen Sie den Computer aus der Domäne entfernen. Darüber hinaus wird beim Entfernen des Computers vom Server nicht automatisch die Connector-Software oder das Launchpad auf dem Computer, der entfernt wird, deinstalliert. Sie müssen die Connector-Software manuell vom Computer entfernen. Weitere Informationen finden Sie im Abschnitt Deinstallieren der Connector-Software unter Herstellen einer [Verbindung](../use/Get-Connected-in-Windows-Server-Essentials.md).  
   
 #### <a name="to-remove-a-computer-from-the-network-by-using-the-dashboard"></a>So entfernen Sie mithilfe des Dashboards einen Computer aus dem Netzwerk  
   
@@ -118,7 +118,7 @@ ms.locfileid: "66433319"
   
 3.  Rechtsklicken Sie in der Liste der Computer auf den Computer, den Sie aus dem Netzwerk entfernen möchten, und klicken Sie dann auf **Computer entfernen**.  
   
-##  <a name="BKMK_5"></a> Konfigurieren der gruppenrichtlinieneinstellungen für ordnerumleitung und Sicherheit  
+##  <a name="BKMK_5"></a>Konfigurieren von Gruppenrichtlinie Einstellungen für die Ordner Umleitung und-Sicherheit  
  Sie können eine Gruppenrichtlinie konfigurieren und mithilfe von Windows Server Essentials-Dashboard auf Computern im Windows Server Essentials-Netzwerk bereitstellen. Gruppenrichtlinien in Windows Server Essentials enthalten Einstellungen für Ordnerumleitung und Sicherheit, die Auswirkungen auf Windows Update, Windows Defender und die Netzwerkfirewall haben.  
   
 #### <a name="to-configure-group-policy-in-windows-server-essentials"></a>So konfigurieren Sie Gruppenrichtlinien in Windows Server Essentials  
@@ -139,8 +139,8 @@ ms.locfileid: "66433319"
   
 7.  Klicken Sie auf **Fertig stellen** , um die Gruppenrichtlinieneinstellungen zu implementieren.  
   
-##  <a name="BKMK_7"></a> Verbindung mit einem Netzwerkcomputer mithilfe einer Remotedesktopsitzung  
- Um Remote Ihren Windows Server Essentials-Netzwerkcomputer zuzugreifen, wenn Sie nicht im Büro sind, mithilfe Ihres Webbrowsers, um für Remotewebzugriff Ihrer Organisation s Remote Web Access-Website anzumelden, und auf die **Computer** Registerkarte, klicken Sie auf den Namen des der Computer, auf.  
+##  <a name="BKMK_7"></a>Herstellen einer Verbindung mit einem Netzwerk Computer mithilfe einer Remotedesktop Sitzung  
+ Wenn Sie den Remote Zugriff auf Ihren Windows Server Essentials-Netzwerk Computer durchführen möchten, melden Sie sich mit Ihrem Webbrowser bei der Remote Webzugriff-Website Ihres Unternehmens an, und klicken Sie auf der Registerkarte **Computer** auf den Namen des Computers.  
   
  Die Spalte **Status** zeigt an, ob Sie eine Verbindung zu einem Computer in Ihrem Netzwerk herstellen können, und kann die folgenden Werte enthalten:  
   
@@ -156,11 +156,11 @@ ms.locfileid: "66433319"
   
      Das Betriebssystem auf dem Computer unterstützt keinen Remotedesktop. Es kann bis zu sechs Stunden dauern, bis der Status auf dem Server aktualisiert wird, wenn eine Änderung durchgeführt wird.  
   
--   **Verbindung ist deaktiviert.**  
+-   **Die Verbindung ist deaktiviert.**  
   
      Die Computerverbindung wird entweder durch eine Firewall blockiert, oder der Remotedesktop ist auf dem Computer oder durch eine Gruppenrichtlinie deaktiviert. Es kann bis zu sechs Stunden dauern, bis der Status auf dem Server aktualisiert wird, wenn eine Änderung durchgeführt wird.  
   
-##  <a name="BKMK_8"></a> Anzeigen von Computereigenschaften  
+##  <a name="BKMK_8"></a>Anzeigen von Computer Eigenschaften  
  Der Abschnitt **Geräte** des Windows Server Essentials-Dashboards zeigt eine Liste mit Netzwerkcomputern an. Die Liste enthält auch zusätzliche Informationen zu jedem Computer.  
   
 #### <a name="to-view-a-list-of-computers"></a>So zeigen Sie eine Liste von Computern an  
@@ -175,7 +175,7 @@ ms.locfileid: "66433319"
   
 1.  Wählen Sie in der Liste der Computer das Konto aus, für das Sie Eigenschaften anzeigen oder ändern möchten.  
   
-2.  In der **< Computername\> Aufgaben** Bereich, klicken Sie auf **Computereigenschaften anzeigen**. Die Seite **Eigenschaften** für die Computer wird angezeigt.  
+2.  Klicken Sie im Bereich **Tasks\> für < Computername** auf **Computer Eigenschaften anzeigen**. Die Seite **Eigenschaften** für die Computer wird angezeigt.  
   
 3.  Klicken Sie auf eine Registerkarte, um die Eigenschaften für diesen Computer anzuzeigen.  
   
@@ -183,11 +183,11 @@ ms.locfileid: "66433319"
   
 ## <a name="see-also"></a>Siehe auch  
   
--   [Verwalten des Remotewebzugriffs](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)  
+-   [Remote Webzugriff verwalten](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)  
   
--   [Verwenden des Remotewebzugriffs](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md)  
+-   [Remote Webzugriff verwenden](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md)  
   
--   [Verwalten von Benutzerkonten, die mithilfe des Dashboards](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Manage8)  
+-   [Verwalten von Benutzerkonten mithilfe des Dashboards](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Manage8)  
   
 -   [Verwalten von Windows Server Essentials](Manage-Windows-Server-Essentials.md)  
   

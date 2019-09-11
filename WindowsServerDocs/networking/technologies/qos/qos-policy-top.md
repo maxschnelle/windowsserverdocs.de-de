@@ -1,6 +1,6 @@
 ---
 title: Quality of Service (QoS)-Richtlinie
-description: Dieses Thema enthält eine Übersicht über Quality of Service (QoS)-Richtlinie, die Gruppenrichtlinie zu verwenden, um die Netzwerkbandbreite für Datenverkehr von bestimmten Anwendungen und Diensten in Windows Server 2016 zu priorisieren kann.
+description: Dieses Thema bietet einen Überblick über die Richtlinie für Quality of Service (QoS), mit der Sie Gruppenrichtlinie die Bandbreite von Netzwerk Datenverkehr für bestimmte Anwendungen und Dienste in Windows Server 2016 priorisieren können.
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -8,33 +8,33 @@ ms.assetid: 16918506-102c-482e-89d3-004ad8d6aabe
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a3ef81825ef6544bc96506e37bc027e0ac2a78db
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8f139f047218c4c8da3a462206d4541c1fc255ec
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820281"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871861"
 ---
-# <a name="quality-of-service-qos-policy"></a>Quality of Service, \(QoS\) Richtlinie
+# <a name="quality-of-service-qos-policy"></a>Quality of Service \(QoS\) -Richtlinie
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 Sie können die QoS-Richtlinie als zentralen Punkt für die Verwaltung der Netzwerkbandbreite in Ihrer gesamten Active Directory-Infrastruktur verwenden, indem Sie QoS-Profile erstellen, deren Einstellungen mit Gruppenrichtlinien verteilt werden.
 
 >[!NOTE]
->  Zusätzlich zu diesem Thema steht die folgende Dokumentation zum QoS-Richtlinie.  
+>  Zusätzlich zu diesem Thema ist die folgende Dokumentation zu QoS-Richtlinien verfügbar.  
 >   
->  - [Erste Schritte mit QoS-Richtlinie](qos-policy-get-started.md)
->  - [Verwalten von QoS-Richtlinie](qos-policy-manage.md)
->  - [QoS-Richtlinie – häufig gestellte Fragen](qos-policy-faq.md)
+>  - [Die ersten Schritte mit der QoS-Richtlinie](qos-policy-get-started.md)
+>  - [Verwalten der QoS-Richtlinie](qos-policy-manage.md)
+>  - [Häufig gestellte Fragen zu QoS-Richtlinien](qos-policy-faq.md)
 
-QoS-Richtlinien auf eine benutzeranmeldesitzung oder einen Computer angewendet werden, als Teil eines Gruppenrichtlinienobjekts \(GPO\) , die Sie zum Active Directory-Container, z. B. einer Domäne, Site oder Organisationseinheit verknüpft haben \(Organisationseinheit\).
+QoS-Richtlinien werden auf eine Benutzer Anmelde Sitzung oder einen Computer als Teil eines Gruppenrichtlinie Objekt \(-GPO\) angewendet, das Sie mit einem Active Directory Container verknüpft haben, z\). b. eine Domäne, \(eine Website oder eine Organisationseinheit.
 
-QoS-datenverkehrsverwaltung tritt ein, unter der Anwendungsschicht, was bedeutet, dass Ihre vorhandenen Anwendungen nicht geändert werden, um von den Vorteilen zu profitieren, die von QoS-Richtlinien bereitgestellt werden müssen.
+Die QoS-Datenverkehrs Verwaltung erfolgt unter der Anwendungsschicht, was bedeutet, dass vorhandene Anwendungen nicht geändert werden müssen, um von den Vorteilen der QoS-Richtlinien profitieren zu können.
 
 ## <a name="operating-systems-that-support-qos-policy"></a>Betriebssysteme, die QoS-Richtlinien unterstützen
 
-Sie können die QoS-Richtlinie verwenden, zum Verwalten der Netzwerkbandbreite für Computer oder Benutzer mit den folgenden Microsoft-Betriebssystemen.
+Sie können die QoS-Richtlinie verwenden, um die Bandbreite für Computer oder Benutzer mit den folgenden Microsoft-Betriebssystemen zu verwalten.
 
 - Windows Server 2016
 - Windows 10
@@ -44,86 +44,86 @@ Sie können die QoS-Richtlinie verwenden, zum Verwalten der Netzwerkbandbreite f
 - Windows 8
 - Windows Server 2008 R2
 - Windows 7
-- WindowsServer 2008
+- Windows Server 2008
 - Windows Vista
 
-### <a name="location-of-qos-policy-in-group-policy"></a>Speicherort der QoS-Richtlinie in der Gruppenrichtlinie
+### <a name="location-of-qos-policy-in-group-policy"></a>Speicherort der QoS-Richtlinie in Gruppenrichtlinie
 
-In Windows Server 2016 Gruppenrichtlinienverwaltungs-Editor ist der Pfad zur QoS-Richtlinie für die Computerkonfiguration Folgendes.
+In Windows Server 2016 Gruppenrichtlinienverwaltungs-Editor lautet der Pfad zur QoS-Richtlinie für die Computer Konfiguration wie folgt.
 
-**Standarddomänenrichtlinie | Computerkonfiguration | Richtlinien für | Windows-Einstellungen | Richtlinie\-QoS basierend**
+**Standard Domänen Richtlinie | Computer Konfiguration | Richtlinien | Windows-Einstellungen | Richtlinien\-basiertes QoS**
 
 Dieser Pfad ist in der folgenden Abbildung dargestellt.
 
-![Speicherort der QoS-Richtlinie in der Gruppenrichtlinie](../../media/QoS/QoS-Gp.jpg)
+![Speicherort der QoS-Richtlinie in Gruppenrichtlinie](../../media/QoS/QoS-Gp.jpg)
 
-In Windows Server 2016 Gruppenrichtlinienverwaltungs-Editor ist der Pfad zur QoS-Richtlinie für die Benutzerkonfiguration in der folgenden.
+In Windows Server 2016 Gruppenrichtlinienverwaltungs-Editor lautet der Pfad zur QoS-Richtlinie für die Benutzerkonfiguration wie folgt.
 
-**Standarddomänenrichtlinie | Benutzerkonfiguration | Richtlinien für | Windows-Einstellungen | Richtlinie\-QoS basierend**
+**Standard Domänen Richtlinie | Benutzerkonfiguration | Richtlinien | Windows-Einstellungen | Richtlinien\-basiertes QoS**
 
-Standardmäßig werden keine QoS-Richtlinien konfiguriert.
+Standardmäßig sind keine QoS-Richtlinien konfiguriert.
 
-## <a name="why-use-qos-policy"></a>Gründe für die Verwendung von QoS-Richtlinie
+## <a name="why-use-qos-policy"></a>Gründe für die Verwendung der QoS-Richtlinie
   
-Mit zunehmender Datenverkehr in Ihrem Netzwerk wird es zunehmend wichtig, dass Sie die Leistung des Netzwerks mit den Kosten des Diensts - Lastenausgleich des Netzwerkdatenverkehrs ist jedoch nicht normalerweise einfach, zu priorisieren und zu verwalten.
+Wenn der Datenverkehr in Ihrem Netzwerk zunimmt, ist es immer wichtiger, dass Sie die Netzwerkleistung mit den dienstkosten ausgleichen, aber der Netzwerkverkehr ist normalerweise nicht einfach zu priorisieren und zu verwalten.
 
-In Ihrem Netzwerk unternehmenswichtige\-kritische und Latenz\-sensible Anwendungen müssen im Wettbewerb stehen, für die Netzwerkbandbreite für Datenverkehr mit niedriger Priorität. Zur gleichen Zeit unterschieden einige Benutzer und Computer mit bestimmten netzwerkleistung, die Anforderungen möglicherweise Servicelevels.
+In Ihrem Netzwerk\-müssen unternehmenskritische Anwendungen und\-Latenz empfindliche Anwendungen um Netzwerkbandbreite für den Datenverkehr mit niedrigerer Priorität konkurrieren. Gleichzeitig können einige Benutzer und Computer mit spezifischen Anforderungen an die Netzwerkleistung differenziertere Dienst Ebenen erfordern.
 
-Die Herausforderungen bei der Bereitstellung kostengünstigen, vorhersagbare netzwerkleistungsebenen häufig zunächst den Anschein über wide Area Network \(WAN\) Verbindungen oder latenzempfindliche Anwendungen wie Voice over IP- \(VoIP\) und Streamen von Videos. Allerdings das Endziel für die Bereitstellung von vorhersagbaren Netzwerk-Servicelevel gilt für alle Netzwerkumgebung \(z. B. ein Unternehmen-LAN\), und klicken Sie auf mehr als VoIP-Anwendungen, z. B. Ihres Unternehmens benutzerdefinierten Linie\-von\-Geschäftsanwendungen.
+Die Herausforderungen bei der Bereitstellung kostengünstiger, vorhersag barer Netzwerk Leistungsstufen werden häufig über \(WAN\) -Verbindungen (Wide Area Network) oder mit Latenz sensiblen Anwendungen \(, wie Voice-over-IP-VoIP,angezeigt.\) und Video Streaming. Das Ziel der Bereitstellung vorhersag barer Netzwerkdienst Ebenen gilt jedoch für jede Netzwerkumgebung \(, z. b. das lokale Netzwerk\)eines Unternehmens, und für mehr als VoIP-Anwendungen, wie z. b. die benutzerdefinierte LeitungIhresUnternehmens.\-von\-Geschäftsanwendungen.
   
-Richtlinienbasierte QoS ist das Netzwerk-Bandbreite-Verwaltungstool, das Netzwerkadressen-Steuerelement - basierend auf Anwendungen, Benutzer und Computer stellt. 
+Die Richtlinien basierte QoS ist das Verwaltungs Tool für Netzwerkbandbreite, mit dem Sie Netzwerksteuerung basierend auf Anwendungen, Benutzern und Computern bereitstellen können. 
 
-Wenn Sie QoS-Richtlinie verwenden, Ihre Anwendungen müssen nicht für bestimmte Application programming Interfaces, geschrieben werden \(APIs\). Dies bietet die Möglichkeit zum Verwenden von QoS mit vorhandenen Anwendungen. Darüber hinaus nutzt richtlinienbasierten QoS Ihrer vorhandenen Verwaltungsinfrastruktur, weil der Richtlinienbasierte QoS in Gruppenrichtlinien integriert ist.
+Wenn Sie die QoS-Richtlinie verwenden, müssen Ihre Anwendungen nicht für bestimmte APIs \(\)für Anwendungs Programmierschnittstellen geschrieben werden. Dadurch haben Sie die Möglichkeit, QoS mit vorhandenen Anwendungen zu verwenden. Außerdem nutzt das Richtlinien basierte QoS die vorhandene Verwaltungsinfrastruktur, da das Richtlinien basierte QoS in Gruppenrichtlinie integriert ist.
 
-## <a name="define-qos-priority-through-a-differentiated-services-code-point-dscp"></a>Definieren der QoS-Priorität über eine Differentiated Services Code Point- \(DSCP\)
+## <a name="define-qos-priority-through-a-differentiated-services-code-point-dscp"></a>Definieren der QoS-Priorität über einen differenzierte Dienste \(-Codepunkt-DSCP\)
   
-Sie können die QoS-Richtlinien, die Priorität von Netzwerk-Datenverkehr mit einer Differentiated Services Code Point-definieren erstellen \(DSCP\) -Wert, der Sie verschiedene Arten von Netzwerkdatenverkehr zuweisen. 
+Sie können QoS-Richtlinien erstellen, die die Priorität des Netzwerk Datenverkehrs \(mit einem\) differenzierte Dienste Codepunkt-DSCP-Wert definieren, den Sie unterschiedlichen Arten von Netzwerk Datenverkehr zuweisen. 
 
-Die DSCP können Sie einen Wert anwenden \(0 und 63\) innerhalb des Typs des Diensts \(: Themen zur Vorgehensweise\) Feld in einer IPv4-Paket-Header, und klicken Sie innerhalb des Traffic Class-Felds in IPv6. 
+Der DSCP ermöglicht \(das Anwenden eines Werts von 0 – 63\) innerhalb des Felds Type of Service\) \(TOS in einem IPv4-Paket-Header und innerhalb des Felds Traffic Class in IPv6. 
 
-Der DSCP-Wert enthält, Netzwerk-Datenverkehr Klassifizierung auf das Internetprotokoll \(IP\) Ebene, die Router verwenden, um Datenverkehr warteschlangenverhalten entscheiden. 
+Der DSCP-Wert ermöglicht die Klassifizierung des Netzwerk Datenverkehrs \(auf\) IP-Ebene des Internet Protokolls, die von Routern verwendet wird, um das Verhalten der Traffic Queuing 
 
-Sie können z. B. Router so, dass Pakete mit bestimmten DSCP-Werten in einer der drei Warteschlangen platzieren konfigurieren: hoher Priorität, best-Effort oder niedriger als beste Lösung. 
+Beispielsweise können Sie Router so konfigurieren, dass Sie Pakete mit bestimmten DSCP-Werten in einer von drei Warteschlangen platzieren: mit hoher Priorität, dem besten Aufwand oder niedriger als der bestmögliche Aufwand. 
 
-Unternehmenskritische Netzwerkdatenverkehr, der in der Warteschlange mit hoher Priorität ist, hat die Einstellung über den anderen Datenverkehr.
+Unternehmens kritischer Netzwerk Datenverkehr, der sich in der Warteschlange mit hoher Priorität befindet, hat Vorrang vor anderem Datenverkehr.
 
-### <a name="limit-network-bandwidth-use-per-application-with-throttle-rate"></a>Nutzung der Netzwerkbandbreite pro Anwendung mit Drosselungsrate Grenzwert
+### <a name="limit-network-bandwidth-use-per-application-with-throttle-rate"></a>Begrenzen der Nutzung der Netzwerkbandbreite pro Anwendung mit Drosselungs Rate
 
-Sie können auch ausgehende Netzwerkdatenverkehr in einer Anwendung mit einer Drosselungsrate in QoS-Richtlinie einschränken.
+Sie können auch den ausgehenden Netzwerk Datenverkehr einer Anwendung einschränken, indem Sie eine Drosselungs Rate in der QoS-Richtlinie angeben.
 
-Eine QoS-Richtlinie, die drosselungslimits fest definiert bestimmt der Geschwindigkeit des ausgehenden Netzwerkdatenverkehrs. Beispielsweise kann IT-Abteilung um WAN-Kosten zu verwalten, eine Vereinbarung zum Servicelevel implementieren, die angibt, dass ein Dateiserver nie Downloads nach einer bestimmten Rate bereitstellen kann.  
+Eine QoS-Richtlinie, die Drosselungs Grenzwerte definiert, bestimmt die Rate des ausgehenden Netzwerk Datenverkehrs. Zum Verwalten von WAN-Kosten könnte eine IT-Abteilung beispielsweise eine Vereinbarung zum Service Level implementieren, die angibt, dass ein Dateiserver nie Downloads über eine bestimmte Rate hinaus bereitstellen kann.  
 
-### <a name="use-qos-policy-to-apply-dscp-values-and-throttle-rates"></a>Verwenden von QoS-Richtlinie zum Anwenden von DSCP Werte und Raten einschränken
+### <a name="use-qos-policy-to-apply-dscp-values-and-throttle-rates"></a>Anwenden von DSCP-Werten und Drosselungs Raten mithilfe der QoS-Richtlinie
 
-Sie können auch die QoS-Richtlinie verwenden, zum Anwenden von DSCP-Werten, und Drosselung Gebühren für ausgehenden Netzwerkdatenverkehr für die folgenden:
+Sie können auch die QoS-Richtlinie verwenden, um DSCP-Werte und Drosselungs Raten für ausgehenden Netzwerk Datenverkehr auf Folgendes anzuwenden:
 
-- Sendende Anwendung und den Verzeichnispfad
+- Anwendungs-und Verzeichnispfad werden gesendet
 
-- Quelle und Ziel-IPv4- oder IPv6-Adressen oder Adresspräfixe
+- IPv4-oder IPv6-Quell-und IPv6-Adressen oder Adress Präfixe
 
-- Transmission Control Protocol-Protokoll – \(TCP\) und User Datagram-Protokoll \(UDP\)
+- Protokoll-Transmission Control Protocol \(TCP\) und User Datagram Protocol \(UDP\)
 
-- Quelle und Ziel-Ports und Portbereiche \(TCP- oder UDP\)
+- Quell-und Zielports und Port \(Bereiche TCP oder UDP\)
 
-- Bestimmte Gruppen von Benutzern oder Computern über die Bereitstellung in der Gruppenrichtlinie
+- Bestimmte Gruppen von Benutzern oder Computern durch Bereitstellung in Gruppenrichtlinie
 
-Mit diesen Steuerelementen können Sie angeben einer QoS-Richtlinie mit einem DSCP-Wert von 46 für eine Anwendung VoIP Router VoIP-Pakete in einer Warteschlange mit geringer Latenz zu platzieren oder Sie können eine QoS-Richtlinie verwenden, einen Satz von Servers ausgehenden Datenverkehr auf 512 KB pro Sekunde drosseln<c1/>Kbit/s\) beim Senden von TCP-Port 443.
+Mithilfe dieser Steuerelemente können Sie eine QoS-Richtlinie mit dem DSCP-Wert 46 für eine VoIP-Anwendung angeben. Dadurch können Router VoIP-Pakete in einer Warteschlange mit geringer Latenz platzieren, oder Sie können eine QoS-Richtlinie verwenden, um den ausgehenden Datenverkehr einer Gruppe von Servern auf 512 Kilobyte pro Sekunde zu drosseln. /~ Kbit\) /s beim Senden von TCP-Port 443.
 
-Sie können auch eine QoS-Richtlinie für eine bestimmte Anwendung anwenden, die Anforderungen an die speziellen Netzwerkbandbreite verfügt. Weitere Informationen finden Sie unter [QoS-Richtlinie Szenarien](qos-policy-scenarios.md).
+Sie können auch eine QoS-Richtlinie auf eine bestimmte Anwendung anwenden, die über besondere Bandbreitenanforderungen verfügt. Weitere Informationen finden Sie unter [Szenarien für die QoS-Richtlinie](qos-policy-scenarios.md).
   
 ## <a name="advantages-of-qos-policy"></a>Vorteile der QoS-Richtlinie
 
-Sie können mit QoS-Richtlinie konfigurieren und erzwingen QoS-Richtlinien, die auf dem Router und Switches nicht konfiguriert werden können. QoS-Richtlinie bietet folgende Vorteile.
+Mit der QoS-Richtlinie können Sie QoS-Richtlinien konfigurieren und erzwingen, die auf Routern und Switches nicht konfiguriert werden können. Die QoS-Richtlinie bietet die folgenden Vorteile:
   
-1. **Stufe:** Es ist schwierig, die QoS-Richtlinien auf Benutzerebene auf Routern und Switches, zu erstellen, insbesondere dann, wenn dem Computer des Benutzers entweder wird mithilfe der dynamischen Zuweisung von IP-Adresse konfiguriert ist, oder wenn der Computer nicht mit einem festen Switch oder Routerports verbunden ist, wie häufig der Fall ist tragbare Computer. Im Gegensatz dazu QoS-Richtlinie erleichtert es, einen Benutzer konfigurieren\-Ebene QoS-Richtlinie auf einem Domänencontroller, und geben Sie die Richtlinie auf dem Computer des Benutzers.
-2. **Flexibilität**. Unabhängig davon, wo und wie ein Computer mit dem Netzwerk verbunden ist QoS-Richtlinie angewendet wird – der Computer kann eine Verbindung herstellen über WiFi oder Ethernet-von einem beliebigen Standort aus. Für Benutzer\-Ebene QoS-Richtlinien, die QoS-Richtlinie auf praktisch jedem Gerät an einem beliebigen Speicherort angewendet wird, in denen der Benutzer anmeldet.
-3. **Sicherheit:** Wenn Ihre IT-Abteilung des Benutzers Datenverkehr von a bis z verschlüsselt mithilfe von Internet Protocol Security \(IPsec\), den Datenverkehr auf Routern, die basierend auf Informationen über die IP-Schicht im Paket kann nicht klassifiziert werden \(z. B. einen TCP-Port\). Jedoch können mithilfe von QoS-Richtlinie können Sie klassifizieren Pakete an das Endgerät, um die Priorität der Pakete in den IP-Header anzugeben, bevor die IP-Nutzlasten verschlüsselt werden, und die Pakete gesendet werden.
-4. **Leistung:** Einige QoS-Funktionen, z.B. Drosselung, werden besser ausgeführt werden, wenn sie sich näher an der Datenquelle befinden. QoS-Richtlinie wird diese QoS-Funktionen, die die Quelle am nächsten verschoben.
-5. **Verwaltbarkeit:** QoS-Richtlinie erleichtert die Netzwerk-Verwaltbarkeit, gibt es zwei Möglichkeiten:
+1. **Detailstufe:** Es ist schwierig, QoS-Richtlinien auf Benutzerebene auf Routern oder Switches zu erstellen. Dies gilt insbesondere, wenn der Computer des Benutzers entweder mithilfe der dynamischen Zuweisung von IP-Adressen konfiguriert ist oder wenn der Computer nicht mit einem festgelegten Switch oder Routerports verbunden ist, wie es bei tragbare Computer. Im Gegensatz dazu erleichtert die QoS-Richtlinie die Konfiguration einer\-QoS-Richtlinie auf Benutzerebene auf einem Domänen Controller und die Weitergabe der Richtlinie an den Computer des Benutzers.
+2. **Flexibilität**. Unabhängig davon, wo oder wie ein Computer eine Verbindung mit dem Netzwerk herstellt, wird die QoS-Richtlinie angewendet. der Computer kann über WiFi oder Ethernet von einem beliebigen Standort aus eine Verbindung herstellen. Für QoS-Richtlinien auf Benutzer\-Ebene wird die QoS-Richtlinie auf jedem kompatiblen Gerät an einem beliebigen Speicherort angewendet, an dem sich der Benutzer anmeldet.
+3. **Sicherung** Wenn Ihre IT-Abteilung den Datenverkehr von Benutzern mithilfe von IPSec \(\)für die Internet Protokoll Sicherheit von End-to-End verschlüsselt, können Sie den Datenverkehr auf Routern nicht auf der Grundlage \(von Informationen klassifizieren, die über der IP-Ebene im Paket liegen, z.b. a TCP-\)Port. Mithilfe der QoS-Richtlinie können Sie jedoch Pakete auf dem Endgerät klassifizieren, um die Priorität der Pakete im IP-Header anzugeben, bevor die IP-Nutzlasten verschlüsselt und die Pakete gesendet werden.
+4. **Leistungs** Einige QoS-Funktionen, wie z. b. Drosselung, werden besser ausgeführt, wenn Sie sich näher an der Quelle befinden. QoS-Richtlinie verschiebt solche QoS-Funktionen, die der Quelle am nächsten sind.
+5. **Verwaltbarkeit** Die QoS-Richtlinie verbessert die Netzwerk Verwaltbarkeit auf zwei Arten:
 
-    **a**. Da es auf Gruppenrichtlinien basiert, können Sie QoS-Richtlinie zum Konfigurieren und verwalten einen Satz von QoS-Richtlinien für Benutzer/Computer bei Bedarf jederzeit und auf einem zentralen-Domänencontroller-Computer.
+    **ein**. Da es auf Gruppenrichtlinie basiert, können Sie eine QoS-Richtlinie verwenden, um eine Gruppe von Benutzer-/Computer-QoS-Richtlinien zu konfigurieren und zu verwalten, wenn dies erforderlich ist, und auf einem zentralen Domänen Controller Computer.
 
-    **b**. QoS-Richtlinie erleichtert die Benutzer/Computer-Konfiguration durch einen Mechanismus zum Angeben von Richtlinien durch Uniform Resource Locator ermöglicht \(URL\) anstatt Richtlinien basierend auf allen Servern, in denen QoS-Richtlinien müssen, die IP-Adressen angewendet werden. Nehmen wir beispielsweise an, dass Ihr Netzwerk mit einen Cluster von Servern verfügt, die eine allgemeine URL freigeben. Mithilfe von QoS-Richtlinie können Sie eine Richtlinie, die basierend auf der allgemeinen URL, statt jede Richtlinie basierend auf der IP-Adresse der einzelnen Server eine Richtlinie für jeden Server im Cluster erstellen.
+    **b**. Die QoS-Richtlinie vereinfacht die Benutzer-/Computerkonfiguration durch Bereitstellung eines \(Mechanismus\) zum Angeben von Richtlinien Uniform Resource Locator URL, anstatt Richtlinien auf Grundlage der IP-Adressen der einzelnen Server anzugeben, auf denen QoS-Richtlinien erforderlich sind der anzuwendende. Nehmen Sie beispielsweise an, dass Ihr Netzwerk über einen Cluster von Servern verfügt, die eine gemeinsame URL gemeinsam verwenden. Mithilfe der QoS-Richtlinie können Sie eine Richtlinie basierend auf der allgemeinen URL erstellen, anstatt eine Richtlinie für jeden Server im Cluster zu erstellen, wobei jede Richtlinie auf der IP-Adresse der einzelnen Server basiert.
 
-Im nächsten Thema in diesem Handbuch finden Sie unter [erste Schritte mit QoS-Richtlinie](qos-policy-get-started.md).
+Das nächste Thema in dieser Anleitung finden Sie unter [Getting Started with QoS Policy](qos-policy-get-started.md).
 

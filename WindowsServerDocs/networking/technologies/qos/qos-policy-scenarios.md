@@ -1,6 +1,6 @@
 ---
-title: QoS-Richtlinie-Szenarien
-description: Dieses Thema enthält die Richtlinie für Quality of Service (QoS)-Szenarien, die Verwendung von Gruppenrichtlinien zu verwenden, um den Netzwerkdatenverkehr über bestimmte Anwendungen und Dienste in Windows Server 2016 zu priorisieren.
+title: Szenarien für QoS-Richtlinien
+description: Dieses Thema enthält Quality of Service (QoS)-Richtlinien Szenarien, in denen veranschaulicht wird, wie Gruppenrichtlinie verwendet wird, um den Netzwerk Datenverkehr spezifischer Anwendungen und Dienste in Windows Server 2016 zu priorisieren.
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -8,140 +8,140 @@ ms.assetid: c4306f06-a117-4f65-b78b-9fd0d1133f95
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 2617c897ed2ea173d29fc7c4a87e52557154d463
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: e0968157532c0b3bd926acbaff4291e27a71de31
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446990"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871874"
 ---
-# <a name="qos-policy-scenarios"></a>QoS-Richtlinie-Szenarien
+# <a name="qos-policy-scenarios"></a>Szenarien für QoS-Richtlinien
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Können Sie in diesem Thema um hypothetische Szenarien zu überprüfen, die veranschaulichen, wie, wann und warum die QoS-Richtlinie verwenden.
+In diesem Thema finden Sie Informationen zu hypothetischen Szenarien, in denen veranschaulicht wird, wann und warum die QoS-Richtlinie verwendet werden soll.
 
-Die beiden Szenarien in diesem Thema sind:
+Die beiden Szenarien in diesem Thema lauten wie folgt:
 
-1. Priorisieren von Netzwerkdatenverkehr für eine Line-of-Business-Anwendung
-2. Priorisieren von Netzwerkdatenverkehr für eine HTTP-Server-Anwendung
-
->[!NOTE]
->Einige Abschnitte dieses Themas enthalten die allgemeinen Schritte, die Sie zum Ausführen der beschriebenen Vorgänge ausführen können. Ausführlichere Anweisungen zum Verwalten von QoS-Richtlinie finden Sie unter [QoS-Richtlinie verwalten](qos-policy-manage.md).
-
-## <a name="scenario-1-prioritize-network-traffic-for-a-line-of-business-application"></a>Szenario 1: Priorisieren von Netzwerkdatenverkehr für eine Line-of-Business-Anwendung
-
-In diesem Szenario hat die IT-Abteilung mehrere Ziele, die sie mithilfe von QoS-Richtlinie ausführen können:
-
-- Geben Sie eine bessere Leistung des Netzwerks für unternehmenskritische\-kritische Anwendungen.
-- Geben Sie eine bessere Leistung des Netzwerks für eine wichtige Gruppe von Benutzern, während sie eine bestimmte Anwendung verwenden werden.
-- Stellen Sie sicher, dass das Unternehmen\-große Data Backup-Anwendung nicht beeinträchtigt Netzwerk mithilfe von zu viel Bandbreite auf einmal.
-
-Die IT-Abteilung entscheidet sich so konfigurieren Sie QoS-Richtlinie, um bestimmte Anwendungen zu priorisieren, indem Sie mit Code-Dienstpunkt Differenzierung \(DSCP\) Werte zum Klassifizieren von Netzwerkdatenverkehr und die Router Zugriffscode zu konfigurieren die Behandlung für Datenverkehr mit höherer Priorität. 
+1. Priorisieren von Netzwerk Datenverkehr für eine Branchen Anwendung
+2. Priorisieren von Netzwerk Datenverkehr für eine HTTP-Server Anwendung
 
 >[!NOTE]
->Weitere Informationen zu DSCP, finden Sie im Abschnitt **definieren QoS-Priorität über ein Differentiated Services Code-Punkt** im Thema [Quality of Service (QoS)-Richtlinie](qos-policy-top.md).
+>Einige Abschnitte dieses Themas enthalten allgemeine Schritte, die Sie ausführen können, um die beschriebenen Aktionen auszuführen. Ausführlichere Anweisungen zum Verwalten der QoS-Richtlinie finden Sie unter [Verwalten der QoS](qos-policy-manage.md)-Richtlinie.
 
-Zusätzlich zu den DSCP-Werten können die QoS-Richtlinien eine Drosselungsrate angeben. Drosselung wirkt sich das Begrenzen des gesamten ausgehenden Datenverkehr, entspricht die QoS-Richtlinie für eine bestimmte Rate senden aus.
+## <a name="scenario-1-prioritize-network-traffic-for-a-line-of-business-application"></a>Szenario 1: Priorisieren von Netzwerk Datenverkehr für eine Branchen Anwendung
 
-### <a name="qos-policy-configuration"></a>Konfiguration der QoS-Richtlinie
+In diesem Szenario hat eine IT-Abteilung mehrere Ziele, die Sie durch die Verwendung der QoS-Richtlinie erreichen können:
 
-Der IT-Administrator möchte mit drei separaten Zielen zu erreichen erstellen Sie drei verschiedene QoS-Richtlinien.
+- Sorgen Sie für eine bessere Netzwerk\-Leistung für unternehmenskritische Anwendungen.
+- Sorgen Sie für eine bessere Netzwerkleistung für einen Schlüsselsatz von Benutzern, während Sie eine bestimmte Anwendung verwenden.
+- Stellen Sie sicher,\-dass die unternehmensweite Daten Sicherungs Anwendung die Netzwerkleistung nicht beeinträchtigt, indem zu viel Bandbreite gleichzeitig verwendet wird.
 
-#### <a name="qos-policy-for-lob-app-servers"></a>QoS-Richtlinie für LOB-App-Server
+Die IT-Abteilung beschließt, die QoS-Richtlinie so zu konfigurieren, dass bestimmte Anwendungen priorisiert werden\) , indem DSCP-Werte des Differenzierungs Dienst-Code Punkts \(zum Klassifizieren von Netzwerk Datenverkehr verwendet werden, und um Behandlung von Datenverkehr mit höherer Priorität. 
 
-Das erste Ziel\-wichtige Anwendung, die für das Erstellen einer QoS-Richtlinie ist ein Unternehmen\-wide unternehmensressourcenplanung \(ERP\) Anwendung. Die ERP-Anwendung wird auf mehreren Computern gehostet, die alle Windows Server 2016 ausgeführt werden. In Active Directory Domain Services, werden diese Computer Mitglied einer Organisationseinheit \(Organisationseinheit\) erstellten LOB- \(LOB\) Anwendungsserver. Der Client\-serverseitige Komponenten für die ERP-Anwendung auf Computern mit Windows 10 und Windows 8.1 installiert ist.
+>[!NOTE]
+>Weitere Informationen zu DSCP finden Sie im Abschnitt **Definieren der QoS-Priorität über einen differenzierte Dienste Codepunkt** im Thema [Quality of Service (QoS)-Richtlinie](qos-policy-top.md).
 
-In der Gruppenrichtlinie, wählt die IT-Administrator das Gruppenrichtlinienobjekt \(GPO\) auf den die QoS-Richtlinie angewendet wird. Mithilfe des Assistenten für QoS-Richtlinie erstellt der IT-Administrator eine QoS-Richtlinie mit dem Namen "Server LOB Richtlinie", die angibt, dass einer hohes\-Priorität DSCP-Wert 44 für alle Anwendungen, alle IP-Adressen, TCP und UDP und Portnummer.
+Zusätzlich zu den DSCP-Werten können von QoS-Richtlinien eine Drosselungs Rate angegeben werden. Die Drosselung hat den Einfluss, dass der gesamte ausgehende Datenverkehr, der der QoS-Richtlinie entspricht, auf eine bestimmte Senderate beschränkt wird.
 
-Die QoS-Richtlinie gilt nur für die LOB-Server durch das Verknüpfen des Gruppenrichtlinienobjekts für die Organisationseinheit, die nur von diesen Servern, über die Gruppenrichtlinien-Verwaltungskonsole enthält \(GPMC\) Tool. Diese ersten Server LOB-Richtlinie gilt das Tageshoch\-Priorität DSCP-Wert, wenn der Computer, den Netzwerkdatenverkehr sendet. Diese QoS-Richtlinie kann später bearbeitet werden \(im Gruppenrichtlinienobjekt-Editor-Tool\) sollen Portnummern verwendet die ERP-Anwendung, die beschränkt, die Richtlinie, um gelten nur, wenn die angegebene Portnummer verwendet wird.
+### <a name="qos-policy-configuration"></a>QoS-Richtlinien Konfiguration
 
-#### <a name="qos-policy-for-the-finance-group"></a>QoS-Richtlinie für der Finance-Gruppe
+Mit drei separaten Zielen beschließt der IT-Administrator, drei verschiedene QoS-Richtlinien zu erstellen.
 
-Während viele Gruppen innerhalb des Unternehmens die ERP-Anwendung zugreifen, die Finance-Gruppe für diese Anwendung abhängig ist, beim Umgang mit Kunden und die Gruppe erfordert die konsistent hohe Leistung in der app.
+#### <a name="qos-policy-for-lob-app-servers"></a>QoS-Richtlinie für Lob-App-Server
 
-Um sicherzustellen, dass die Finance-Gruppe mit Kunden unterstützen kann, muss dieser Benutzer Datenverkehr die QoS-Richtlinie mit hoher Priorität klassifiziert werden. Die Richtlinie sollte jedoch nicht angewendet, wenn Mitglieder der Finance-Gruppe andere Anwendungen als das ERP-Anwendung verwenden. 
+\-Die erste Unternehmens wichtige Anwendung, für die die IT-Abteilung eine QoS-Richtlinie erstellt, ist eine \(Unternehmens\) \-weite Ressourcenplanungs-ERP-Anwendung. Die ERP-Anwendung wird auf mehreren Computern gehostet, auf denen alle Windows Server 2016 ausgeführt werden. In Active Directory Domain Services sind diese Computer Mitglieder einer Organisationseinheit der Organisations \(Einheit\) , die für Branchen \(spezifische Lob\) -Anwendungsserver erstellt wurde. Die Client\-seitige Komponente für die ERP-Anwendung wird auf Computern installiert, auf denen Windows 10 und Windows 8.1 ausgeführt werden.
 
-Aus diesem Grund definiert die IT-Abteilung eine zweite QoS-Richtlinie namens "Client LOB Richtlinie" im Gruppenrichtlinienobjekt-Editor-Tool, das einen DSCP-Wert von 60 gilt, wenn die Finance-Gruppe für Benutzer die ERP-Anwendung ausgeführt wird.
+In Gruppenrichtlinie wählt ein IT-Administrator das Gruppenrichtlinie Objekt \(-GPO\) aus, auf das die QoS-Richtlinie angewendet wird. Mit dem QoS-Richtlinien-Assistenten erstellt der IT-Administrator eine QoS-Richtlinie mit dem Namen "Server LOB\-Policy", die einen DSCP-Wert mit hoher Priorität 44 für alle Anwendungen, alle IP-Adressen, TCP und UDP sowie die Portnummer angibt.
 
-#### <a name="qos-policy-for-a-backup-app"></a>QoS-Richtlinie für eine Backup-App
+Die QoS-Richtlinie wird nur auf die Lob-Server angewendet, indem das GPO mit der Organisationseinheit verknüpft wird, die nur \(diese Server\) enthält, über das Gruppenrichtlinien-Verwaltungskonsole GPMC-Tool. Diese erste Server-LOB-Richtlinie\-wendet den DSCP-Wert mit hoher Priorität an, wenn der Computernetzwerk Datenverkehr sendet. Diese QoS-Richtlinie kann später \(im Gruppenrichtlinienobjekt-Editor Tool\) bearbeitet werden, um die Portnummern der ERP-Anwendung einzuschließen. Dadurch wird die Richtlinie so eingeschränkt, dass Sie nur angewendet wird, wenn die angegebene Portnummer verwendet wird.
 
-Eine separate Anwendung für die Sicherung wird auf allen Computern ausgeführt. Um sicherzustellen, dass die sicherungsanwendung Datenverkehr nicht alle verfügbaren Netzwerk-Ressourcen verwendet, erstellt die IT-Abteilung eine Richtlinie für die Sicherung von Daten. Diese Sicherungsrichtlinie gibt an, einen DSCP-Wert von 1 basierend auf den Namen der ausführbaren Datei für die backup-app handelt es sich **backup.exe**. 
+#### <a name="qos-policy-for-the-finance-group"></a>QoS-Richtlinie für die Gruppe "Finanzen"
 
-Eine dritte GPO erstellt und für alle Clientcomputer in der Domäne bereitgestellt wurde. Wenn die backup-Anwendung Daten sendet, wird der DSCP-Wert mit niedriger Priorität angewendet, selbst wenn er auf den Computern in der Finanzabteilung stammt.
+Während viele Gruppen innerhalb des Unternehmens auf die ERP-Anwendung zugreifen, hängt die Gruppe Finance von der Anwendung ab, wenn Sie mit den Kunden zusammenarbeiten, und die Gruppe erfordert eine konsistente hohe Leistung der app.
+
+Um sicherzustellen, dass die Finanzgruppe Ihre Kunden unterstützen kann, muss die QoS-Richtlinie den Datenverkehr dieser Benutzer als hohe Priorität klassifizieren. Die Richtlinie sollte jedoch nicht angewendet werden, wenn Mitglieder der Finance-Gruppe andere Anwendungen als die ERP-Anwendung verwenden. 
+
+Daher definiert die IT-Abteilung im Gruppenrichtlinienobjekt-Editor Tool eine zweite QoS-Richtlinie mit dem Namen "Client-Lob-Richtlinie", die den DSCP-Wert 60 anwendet, wenn die Benutzergruppe "Finance" die ERP-Anwendung ausführt.
+
+#### <a name="qos-policy-for-a-backup-app"></a>QoS-Richtlinie für eine Sicherungs-App
+
+Auf allen Computern wird eine separate Sicherungs Anwendung ausgeführt. Um sicherzustellen, dass der Datenverkehr der Sicherungs Anwendung nicht alle verfügbaren Netzwerkressourcen verwendet, erstellt die IT-Abteilung eine Sicherungsdaten Richtlinie. Diese Sicherungs Richtlinie gibt den DSCP-Wert 1 Basierend auf dem ausführbaren Namen der Sicherungs-APP an, die **Backup. exe**ist. 
+
+Ein drittes GPO wird erstellt und für alle Client Computer in der Domäne bereitgestellt. Wenn die Sicherungs Anwendung Daten sendet, wird der DSCP-Wert mit niedriger Priorität angewendet, auch wenn er von Computern in der Finanzabteilung stammt.
   
 >[!NOTE]
->Netzwerkdatenverkehr, ohne eine QoS-Richtlinie sendet, mit einem DSCP-Wert von 0.
+>Netzwerk Datenverkehr ohne QoS-Richtlinie wird mit einem DSCP-Wert von 0 gesendet.
 
 ### <a name="scenario-policies"></a>Szenariorichtlinien
 
-In der folgende Tabelle werden die QoS-Richtlinien für dieses Szenario zusammengefasst.
+In der folgenden Tabelle werden die QoS-Richtlinien für dieses Szenario zusammengefasst.
   
-|Richtlinienname|DSCP-Wert|Drosselungsrate|Auf Organisationseinheiten angewendet|Beschreibung|  
+|Richtlinienname|DSCP-Wert|Drosselungs Rate|Auf Organisationseinheiten angewendet|Beschreibung|  
 |-----------------|----------------|-------------------|-----------------------------------|-----------------|
-|[Keine Richtlinie]|0|Keine|[Keine-Bereitstellung]|Beste Aufwand (Standard)-Behandlung für nicht klassifizierte Datenverkehr.|  
-|Sicherungsdaten|1|Keine|Alle clients|Wendet einen DSCP-Wert mit niedriger Priorität für diese Daten Bulk an.|  
-|LOB-Server|44|Keine|Computer-OE für ERP-Server|Gilt wichtiges DSCP für ERP-Server-Datenverkehr|  
-|LOB-Client|60|Keine|Gruppe der Finance-Benutzer|Gilt wichtiges DSCP für Clientdatenverkehr ERP|  
+|[Keine Richtlinie]|0|None|[Keine Bereitstellung]|Best mögliche Behandlung von nicht klassifiziertem Datenverkehr (Standard).|  
+|Sicherungsdaten|1|None|Alle Clients|Wendet einen DSCP-Wert mit niedriger Priorität für diese Massendaten an.|  
+|Server-LOB|44|None|Computer-OU für ERP-Server|Wendet DSCP mit hoher Priorität für den ERP-Server Datenverkehr an|  
+|Client-Lob|60|None|Finanz Benutzergruppe|Wendet DSCP mit hoher Priorität für den ERP-Client Datenverkehr an|  
 
 >[!NOTE]
->DSCP-Werte werden im Dezimalformat dargestellt.
+>DSCP-Werte werden in Dezimalform dargestellt.
 
-Mit QoS-Richtlinien definiert und mithilfe der Gruppenrichtlinie angewendet empfängt die ausgehenden Netzwerkdatenverkehr den Richtlinie angegebenen DSCP-Wert. Anschließend erhalten Router differenzielle behandelt, die basierend auf diesen DSCP-Werten mithilfe von Warteschlangen. Für diese IT-Abteilung, die Router mit vier Warteschlangen konfiguriert sind: hoher Priorität, mittlerer Priorität, Best-Effort-Prinzip und mit niedriger Priorität.
+Wenn die QoS-Richtlinien mithilfe von Gruppenrichtlinie definiert und angewendet werden, empfängt der ausgehende Netzwerk Datenverkehr den von der Richtlinie angegebenen DSCP-Wert. Router stellen dann mithilfe von Warteschlangen eine differenzielle Behandlung auf Grundlage dieser DSCP-Werte bereit. Für diese IT-Abteilung werden die Router mit vier Warteschlangen konfiguriert: mit hoher Priorität, mit mittlerer Priorität, mit dem besten Aufwand und mit niedriger Priorität.
 
-Wenn Datenverkehr empfangen, auf dem Router mit DSCP-Werten aus "Server LOB Richtlinie" und "Client LOB-Richtlinie" befindet sich die Daten in Warteschlangen mit hoher Priorität. Datenverkehr mit einem DSCP-Wert von 0 erhält einen Best-Effort-Prinzip Servicelevel. Pakete mit einem DSCP-Wert von 1 (aus der sicherungsanwendung) erhalten mit niedriger Priorität behandelt.  
+Wenn der Datenverkehr auf dem Router mit DSCP-Werten von "Server-LOB-Richtlinie" und "Client-Lob-Richtlinie" eingeht, werden die Daten in Warteschlangen mit hoher Priorität eingefügt. Datenverkehr mit einem DSCP-Wert von 0 (null) empfängt eine Dienst Ebene mit dem besten Aufwand Pakete mit einem DSCP-Wert von 1 (aus der Sicherungs Anwendung) erhalten eine Behandlung mit niedriger Priorität.  
   
-### <a name="prerequisites-for-prioritizing-a-line-of-business-application"></a>Voraussetzungen für die Priorisierung einer Line-of-Business-Anwendung
+### <a name="prerequisites-for-prioritizing-a-line-of-business-application"></a>Voraussetzungen für die Priorisierung einer Branchen Anwendung
 
 Um diese Aufgabe abzuschließen, stellen Sie sicher, dass Sie die folgenden Anforderungen erfüllen:
 
-- Die beteiligten Computern laufen QoS\-kompatiblen Betriebssystemen.
+- Auf den beteiligten Computern werden QoS\--kompatible Betriebssysteme ausgeführt.
 
-- Die betroffenen Computer sind Mitglieder einer Active Directory-Domänendienste \(AD DS\) Domäne, damit sie mithilfe der Gruppenrichtlinie konfiguriert werden können.
+- Die beteiligten Computer sind Mitglieder einer Active Directory Domain Services \(AD DS\) Domäne, damit Sie mit Gruppenrichtlinie konfiguriert werden können.
 
-- TCP/IP-Netzwerken mit Routern, die für die DSCP konfiguriert eingerichtet sind \(RFC 2474\). Weitere Informationen finden Sie unter [RFC 2474](https://www.ietf.org/rfc/rfc2474.txt).
+- TCP/IP-Netzwerke werden mit Routern eingerichtet, die für \(DSCP\)RFC 2474 konfiguriert sind. Weitere Informationen finden Sie unter [RFC 2474](https://www.ietf.org/rfc/rfc2474.txt).
 
-- Administratoranmeldeinformationen sind erfüllt.
+- Die Anforderungen an administrative Anmelde Informationen sind erfüllt.
 
 #### <a name="administrative-credentials"></a>Administratoranmeldeinformationen
 
-Um diese Aufgabe abzuschließen, müssen Sie sein können, erstellen und Bereitstellen von Gruppenrichtlinienobjekten.
+Zum Ausführen dieser Aufgabe müssen Sie in der Lage sein, Gruppenrichtlinie Objekte zu erstellen und bereitzustellen.
   
-#### <a name="setting-up-the-test-environment-for-prioritizing-a-line-of-business-application"></a>Einrichten der testumgebung für die Priorisierung einer Line-of-Business-Anwendung
+#### <a name="setting-up-the-test-environment-for-prioritizing-a-line-of-business-application"></a>Einrichten der Testumgebung für die Priorisierung einer Branchen Anwendung
 
-Informationen zum Einrichten der testumgebung können führen Sie die folgenden Aufgaben aus.
+Um die Testumgebung einzurichten, führen Sie die folgenden Aufgaben aus.
 
-- Erstellen einer AD DS-Domäne mit Clients und Benutzern in Organisationseinheiten gruppiert. Anweisungen zum Bereitstellen von AD DS finden Sie die [Core Network Guide](https://docs.microsoft.com/windows-server/networking/core-network-guide/core-network-guide).
+- Erstellen Sie eine AD DS Domäne mit Clients und Benutzern, die in Organisationseinheiten gruppiert sind. Anweisungen zum Bereitstellen von AD DS finden Sie im Handbuch zum Haupt [Netzwerk](https://docs.microsoft.com/windows-server/networking/core-network-guide/core-network-guide).
 
-- Konfigurieren Sie den Router differentially Warteschlange basierend auf den DSCP-Werten. Klicken Sie z. B. DSCP-Wert 44 gibt eine Warteschlange "Platinum", und alle anderen sind gewichtet Fair-Warteschlange.
+- Konfigurieren Sie die Router, um die Warteschlange basierend auf den DSCP-Werten zu differenzieren. Der DSCP-Wert 44 wechselt z. b. in eine "Platin"-Warteschlange, und alle anderen werden gewichtet mit einem Wert in der Warteschlange
 
 >[!NOTE]
-> Sie können DSCP-Werten mithilfe von netzwerkerfassungen mit Tools wie Network Monitor anzeigen. Nachdem Sie eine netzwerkerfassung ausgeführt haben, können Sie das TOS-Feld im erfassten Daten beobachten.
+> Sie können DSCP-Werte mithilfe von Netzwerk Erfassungen mit Tools wie Netzwerkmonitor anzeigen. Nachdem Sie eine Netzwerk Erfassung durchgeführt haben, können Sie das Feld "TOS" in erfassten Daten beobachten.
 
-#### <a name="steps-for-prioritizing-a-line-of-business-application"></a>Schritte für die Priorisierung einer Line-of-Business-Anwendung
+#### <a name="steps-for-prioritizing-a-line-of-business-application"></a>Schritte zum priorisieren einer Branchen Anwendung
 
-Um eine Line-of-Business-Anwendung zu priorisieren, können führen Sie die folgenden Aufgaben aus:
+Führen Sie die folgenden Aufgaben aus, um eine Branchen Anwendung zu priorisieren:
 
-1. Erstellen und Verknüpfen eines Gruppenrichtlinienobjekts \(GPO\) mit einer QoS-Richtlinie.
+1. Erstellen und verknüpfen Sie ein Gruppenrichtlinie \(-Objekt\) -GPO mit einer QoS-Richtlinie.
 
-2. Konfigurieren Sie die Router so, dass eine Line-of-Business differentially behandeln Anwendung (mithilfe von Warteschlangen) basierend auf den ausgewählten DSCP-Werten. Die Verfahren in dieser Aufgabe variiert je nach Art der Router, was man.
+2. Konfigurieren Sie die Router so, dass eine Branchen Anwendung (mithilfe von Warteschlangen) basierend auf den ausgewählten DSCP-Werten differenziert behandelt werden. Die Prozeduren dieser Aufgabe variieren in Abhängigkeit von der Art der routerart.
 
-## <a name="scenario-2-prioritize-network-traffic-for-an-http-server-application"></a>Szenario 2: Priorisieren von Netzwerkdatenverkehr für eine HTTP-Server-Anwendung
+## <a name="scenario-2-prioritize-network-traffic-for-an-http-server-application"></a>Szenario 2: Priorisieren von Netzwerk Datenverkehr für eine HTTP-Server Anwendung
 
-In Windows Server 2016 enthält richtlinienbasierten QoS die URL-basierte Richtlinien-Funktion. URL-Richtlinien können Sie die Bandbreite für HTTP-Servern zu verwalten.
+In Windows Server 2016 enthält die Richtlinien basierte QoS die URL-basierten Features. Mit URL-Richtlinien können Sie die Bandbreite für http-Server verwalten.
 
-Viele unternehmensanwendungen für entwickelt und in Internet Information Services gehosteten \(IIS\) Webserver und die Web-apps von Browsern auf den Clientcomputern erfolgt.
+Viele Unternehmensanwendungen werden für Internetinformationsdienste \(IIS\) -Webserver entwickelt und gehostet, und der Zugriff auf die Web-Apps erfolgt über Browser auf Client Computern.
 
-In diesem Szenario wird davon ausgegangen Sie, dass Sie einem Satz von IIS-Server, Host-Schulungsvideos für Mitarbeiter Ihres Unternehmens verwalten. Ihr Ziel ist, um sicherzustellen, dass der Datenverkehr über diese Videos Server Ihr Netzwerk überlasten keine, und stellen Sie sicher, dass die video-Datenverkehr von Sprach- und Datenverkehr im Netzwerk unterschieden wird. 
+In diesem Szenario wird davon ausgegangen, dass Sie eine Gruppe von IIS-Servern verwalten, die Schulungsvideos für alle Mitarbeiter Ihrer Organisation hosten. Ihr Ziel: Sie müssen sicherstellen, dass der Datenverkehr von diesen Videoservern Ihr Netzwerk nicht überlastet, und sicherstellen, dass Video Datenverkehr von Sprach-und Datenverkehr im Netzwerk unterschieden wird. 
 
-Die Aufgabe ähnelt der Aufgabe in Szenario 1. Sie entwerfen und Konfigurieren von Einstellungen für die datenverkehrsverwaltung, z. B. den DSCP-Wert für die video-Datenverkehr und die Drosselung gleich bewerten, wie Sie für die LOB-Anwendungen. Jedoch beim Angeben des Datenverkehrs, statt den Anwendungsnamen, geben Sie nur die URL, die die HTTP-Server-Anwendung antwortet: z. B. https://hrweb/training.
+Die Aufgabe ähnelt der Aufgabe in Szenario 1. Sie entwerfen und konfigurieren die Einstellungen für die Datenverkehrs Verwaltung, z. b. den DSCP-Wert für den Video Datenverkehr, und die Drosselungs Rate wie bei Branchen Anwendungen. Wenn Sie jedoch den Datenverkehr angeben, geben Sie nicht den Anwendungsnamen an, sondern nur die URL, auf die die http-Serveranwendung antwortet: https://hrweb/training z. b.
   
 > [!NOTE]
->URL-basierter QoS-Richtlinien können keine zur Priorisierung des Netzwerkverkehrs für Computer mit Windows-Betriebssystemen, die vor Windows 7 und Windows Server 2008 R2 veröffentlicht wurden.
+>URL-basierte QoS-Richtlinien können nicht verwendet werden, um den Netzwerk Datenverkehr für Computer mit Windows-Betriebssystemen zu priorisieren, die vor Windows 7 und Windows Server 2008 R2 veröffentlicht wurden.
 
-### <a name="precedence-rules-for-url-based-policies"></a>Rangfolgeregeln für URL-basierte Richtlinien
+### <a name="precedence-rules-for-url-based-policies"></a>Rang Folge Regeln für URL-basierte Richtlinien
 
-Die folgenden URLs sind gültig und können in QoS-Richtlinie angegeben, und gleichzeitig auf einem Computer oder Benutzer angewendet:
+Alle folgenden URLs sind gültig und können in der QoS-Richtlinie angegeben und gleichzeitig auf einen Computer oder einen Benutzer angewendet werden:
 
 - https://video
 
@@ -149,27 +149,27 @@ Die folgenden URLs sind gültig und können in QoS-Richtlinie angegeben, und gle
 
 - https://10.1.10.249:8080/tech  
 
-- https://*/ebooks
+- https://*/eBooks
 
-Aber welche erhalten Vorrang vor? Die Regeln sind einfach. URL-basierte Richtlinien werden in einer links-nach-rechts-Lesefolge priorisiert. Sind also von der höchsten Priorität die niedrigste Priorität, die URL-Felder:
+Aber welche erhält Vorrang? Die Regeln sind einfach. URL-basierte Richtlinien werden in einer Lesefolge von links nach rechts priorisiert. Von der höchsten Priorität bis zur niedrigsten Priorität lauten die URL-Felder wie folgt:
   
 [1. URL-Schema](#bkmk_QoS_UrlScheme)
 
-[2. URL-host](#bkmk_QoS_UrlHost)
+[2. URL-Host](#bkmk_QoS_UrlHost)
 
-[3. URL-port](#bkmk_QoS_UrlPort)
+[3. URL-Port](#bkmk_QoS_UrlPort)
 
 [4. URL-Pfad](#bkmk_QoS_UrlPath)
 
-Details lauten wie folgt aus:
+Die Details lauten wie folgt:
 
-####  <a name="bkmk_QoS_UrlScheme"></a> 1. URL-Schema
+####  <a name="bkmk_QoS_UrlScheme"></a>1. URL-Schema
 
- `https://` hat eine höhere Priorität als `https://`.
+ `https://`hat eine höhere Priorität als `https://`.
 
-####  <a name="bkmk_QoS_UrlHost"></a> 2. URL-host
+####  <a name="bkmk_QoS_UrlHost"></a>2. URL-Host
 
- Von der höchsten Priorität, mit der zweitniedrigsten sind sie folgende Aktionen ausführen:
+ Von der höchsten Priorität bis zur niedrigsten:
 
 1. Hostname
 
@@ -179,25 +179,25 @@ Details lauten wie folgt aus:
 
 4. Platzhalter
 
-Im Fall von Hostname hat ein Hostnamen mit mehr gepunktete Elementen (genauer) eine höhere Priorität als einen Hostnamen mit weniger gepunktete Elemente. Z. B. für die folgenden Hostnamen verwenden:
+Im Fall von Hostname hat ein Hostname mit mehr gepunkteten Elementen (mehr Tiefe) eine höhere Priorität als ein Hostname mit weniger gepunkteten Elementen. Beispielsweise unter den folgenden Hostnamen:
 
-- video.internal.training.hr.mycompany.com (depth = 6)
+- Video.Internal.Training.hr.mycompany.com (Tiefe = 6)
   
-- selfguide.training.mycompany.com (depth = 4)
+- selfguide.Training.mycompany.com (Tiefe = 4)
   
-- Training (Depth = 1)
+- Training (Tiefe = 1)
   
-- Bibliothek (Depth = 1)
+- Bibliothek (Tiefe = 1)
   
-  **Video.Internal.Training.hr.mycompany.com** hat die höchste Priorität, und **selfguide.training.mycompany.com** die nächstniedrigeren Priorität hat. **Training** und **Bibliothek** teilen die gleiche niedrigste Priorität.  
+  **Video.Internal.Training.hr.mycompany.com** hat die höchste Priorität, und **selfguide.Training.mycompany.com** hat die nächsthöhere Priorität. **Training** und **Bibliothek** haben dieselbe niedrigste Priorität.  
   
-####  <a name="bkmk_QoS_UrlPort"></a> 3. URL-port
+####  <a name="bkmk_QoS_UrlPort"></a>3. URL-Port
 
-Verfügt über eine höhere Priorität als ein Platzhalter-Port, ein bestimmtes oder eine implizite Portnummer.
+Eine bestimmte oder eine implizite Portnummer hat eine höhere Priorität als ein Platzhalter Port.
 
-####  <a name="bkmk_QoS_UrlPath"></a> 4. URL-Pfad
+####  <a name="bkmk_QoS_UrlPath"></a>4. URL-Pfad
 
-Ein URL-Pfad kann z. B. einem Hostnamen mehrere Elemente enthalten. Das Element mit mehreren Elementen verfügt immer über eine höhere Priorität als die mit weniger Aufwand. Die folgenden Pfade sind z. B. nach Priorität aufgeführt:  
+Ein URL-Pfad kann wie ein Hostname aus mehreren Elementen bestehen. Das Element mit mehr Elementen hat immer eine höhere Priorität als die mit less. Die folgenden Pfade sind z. b. nach Priorität aufgeführt:  
 
 1.  /ebooks/tech/windows/networking/qos
 
@@ -207,16 +207,16 @@ Ein URL-Pfad kann z. B. einem Hostnamen mehrere Elemente enthalten. Das Element 
 
 4.  /
 
-Wenn ein Benutzer entscheidet, die alle Unterverzeichnisse und Dateien, die nach einem URL-Pfad enthalten, müssen diese URL-Pfad eine niedrigere Priorität, als hätte, wenn die Auswahl nicht vorgenommen wurden.
+Wenn ein Benutzer sich entscheidet, alle Unterverzeichnisse und Dateien nach einem URL-Pfad einzubeziehen, hat dieser URL-Pfad eine niedrigere Priorität als wenn die Auswahl nicht getroffen wurde.
 
-Ein Benutzer kann auch an eine Ziel-IP-Adresse in einer URL-basierte Richtlinie auswählen. Die Ziel-IP-Adresse hat eine niedrigere Priorität als die vier URL-Felder, die zuvor beschriebenen.
+Ein Benutzer kann auch eine Ziel-IP-Adresse in einer URL-basierten Richtlinie angeben. Die Ziel-IP-Adresse hat eine niedrigere Priorität als die zuvor beschriebenen vier URL-Felder.
   
-### <a name="quintuple-policy"></a>Quintupel Richtlinie
+### <a name="quintuple-policy"></a>Quintuple-Richtlinie
 
-Eine Quintupel Richtlinie wird durch die Protokoll-ID, IP-Quelladresse, Quellport, IP-Zieladresse und Zielport angegeben. Eine Quintupel Richtlinie hat immer Vorrang vor einer URL-basierte Richtlinie. 
+Eine quintuple-Richtlinie wird durch die Protokoll-ID, Quell-IP-Adresse, Quellport, Ziel-IP-Adresse und Zielport angegeben. Eine quintuple-Richtlinie hat immer Vorrang vor jeder URL-basierten Richtlinie. 
 
-Wenn eine Quintupel Richtlinie bereits für einen Benutzer angewendet wird, wird eine neue URL-basierte Richtlinie nicht Konflikte auf Client-dieses Benutzers Computer verursacht.
+Wenn eine quintuple-Richtlinie bereits für einen Benutzer angewendet wird, verursacht eine neue URL-basierte Richtlinie keine Konflikte auf den Client Computern dieses Benutzers.
 
-Im nächsten Thema in diesem Handbuch finden Sie unter [QoS-Richtlinie verwalten](qos-policy-manage.md).
+Das nächste Thema in dieser Anleitung finden Sie unter [Verwalten der QoS-Richtlinie](qos-policy-manage.md).
 
-Das erste Thema in diesem Handbuch finden Sie unter [Quality of Service (QoS)-Richtlinie](qos-policy-top.md).
+Das erste Thema in dieser Anleitung finden Sie unter [Quality of Service (QoS)-Richtlinie](qos-policy-top.md).

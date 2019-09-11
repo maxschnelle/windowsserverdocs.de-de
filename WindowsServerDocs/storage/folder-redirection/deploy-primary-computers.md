@@ -1,6 +1,6 @@
 ---
-title: Bereitstellen von hauptcomputern für Ordnerumleitung und Roamingbenutzerprofile
-description: Informationen zum Aktivieren der Unterstützung für Hauptcomputer und Festlegen von hauptcomputern für Benutzer mit der Ordnerumleitung und servergespeicherte Benutzerprofile.
+title: Primäre Computer für Ordner Umleitung und Roamingbenutzerprofile bereitstellen
+description: Aktivieren der Unterstützung primärer Computer und festlegen primärer Computer für Benutzer mit Ordner Umleitung und Roamingbenutzerprofilen.
 ms.prod: windows-server-threshold
 ms.topic: article
 author: JasonGerend
@@ -8,114 +8,114 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: b6e0a019297dbee557e284508a329001cac93bde
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: fe026b97f15b4094303c8162c5363cc6205dedd1
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812520"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867280"
 ---
-# <a name="deploy-primary-computers-for-folder-redirection-and-roaming-user-profiles"></a>Bereitstellen von hauptcomputern für Ordnerumleitung und Roamingbenutzerprofile
+# <a name="deploy-primary-computers-for-folder-redirection-and-roaming-user-profiles"></a>Primäre Computer für Ordner Umleitung und Roamingbenutzerprofile bereitstellen
 
->Gilt für: Windows 10, Windows 8, Windows 8.1, WindowsServer 2019, WindowsServer 2016, WindowsServer 2012, Windows Server 2012 R2
+>Gilt für: Windows 10, Windows 8, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2012 R2
 
-In diesem Thema wird beschrieben, wie die Unterstützung primärer Computer aktivieren und Festlegen von hauptcomputern für Benutzer. Auf diese Weise können Sie steuern, welchen Computern die Ordnerumleitung und servergespeicherte Benutzerprofile verwenden.
+In diesem Thema wird beschrieben, wie die Unterstützung primärer Computer aktiviert und primäre Computer für Benutzer festgelegt werden. Auf diese Weise können Sie steuern, auf welchen Computern die Ordner Umleitung und Roamingbenutzerprofile verwendet werden.
 
 > [!IMPORTANT]
-> Wenn Sie die Unterstützung primärer Computer für Roamingbenutzerprofile zu aktivieren, sollten Sie die aktivieren Sie Unterstützung primärer Computer für die Ordnerumleitung auch jederzeit. Auf diese Weise Dokumente und andere Benutzerdateien aus der Benutzerprofile, wodurch Profile klein bleiben, und melden Sie sich Mal schnell zu bleiben.
+> Wenn Sie die Unterstützung primärer Computer für Roamingbenutzerprofile aktivieren, aktivieren Sie die Unterstützung primärer Computer für die Ordner Umleitung Dadurch werden Dokumente und andere Benutzer Dateien aus den Benutzerprofilen heraus gehalten, sodass profile klein bleiben und die Anmeldezeiten schnell bleiben.
 
-## <a name="prerequisites"></a>Vorraussetzungen
+## <a name="prerequisites"></a>Erforderliche Komponenten
 
 ## <a name="software-requirements"></a>Softwareanforderungen
 
-Die Unterstützung primärer Computer ist Folgendes erforderlich:
+Für die Unterstützung primärer Computer gelten die folgenden Anforderungen:
 
-- Das Schema der Active Directory Domain Services (AD DS) muss aktualisiert werden, um Windows Server 2012 schemaerweiterungen für enthält (einen Windows Server 2012-Domänencontroller automatisch installieren, aktualisiert das Schema). Informationen zum Aktualisieren des AD DS-Schemas finden Sie unter [Adprep.exe Integration](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh472161(v=ws.11)#adprepexe-integration>) und [Running Adprep.exe](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd464018(v=ws.10)>).
-- Clientcomputer müssen Windows 10, Windows 8.1, Windows 8, Windows Server-2019, Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 ausführen.
-
-> [!TIP]
-> Obwohl die Unterstützung primärer Computer Ordnerumleitung und/oder servergespeicherte Benutzerprofile, erfordert, wenn Sie diese Technologien zum ersten Mal bereitstellen, empfiehlt sich, richten Sie die Unterstützung primärer Computer vor der Aktivierung die GPOs, die Ordnerumleitung zu konfigurieren und Roaming-Benutzerprofile Dadurch wird verhindert, dass Benutzerdaten auf nicht primäre Computer kopiert werden, bevor die Unterstützung primärer Computer aktiviert ist. Weitere Informationen zu Konfigurationen finden Sie unter [Bereitstellen der Ordnerumleitung](deploy-folder-redirection.md) und [Roamingbenutzerprofile bereitstellen](deploy-roaming-user-profiles.md).
-
-## <a name="step-1-designate-primary-computers-for-users"></a>Schritt 1: Legen Sie die primären Computer für die Benutzer fest
-
-Der erste Schritt beim Bereitstellen von Unterstützung für Hauptcomputer ist der primäre Computer für jeden Benutzer festlegen. Zu diesem Zweck verwenden Sie Active Directory-Verwaltungscenter erhalten den distinguished Name des betroffenen Computern, und legen Sie dann die **MsDs-PrimaryComputer** Attribut.
+- Das Active Directory Domain Services Schema (AD DS) muss aktualisiert werden, um Windows Server 2012-Schema Ergänzungen einschließen zu können (durch die Installation eines Windows Server 2012-Domänen Controllers wird das Schema automatisch aktualisiert). Weitere Informationen zum Aktualisieren des AD DS Schemas finden Sie unter [Integration von Adprep. exe](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh472161(v=ws.11)#adprepexe-integration>) und [Ausführen von Adprep. exe](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd464018(v=ws.10)>).
+- Auf Client Computern muss Windows 10, Windows 8.1, Windows 8, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 ausgeführt werden.
 
 > [!TIP]
-> Zur Verwendung von Windows PowerShell mit primären Computern finden Sie im Blogbeitrag [zuwenden vertrauter Windows 8-Hauptcomputer](<https://blogs.technet.microsoft.com/askds/2012/10/23/digging-a-little-deeper-into-windows-8-primary-computer/>).
+> Obwohl die Unterstützung für primäre Computer die Ordner Umleitung und/oder Roamingbenutzerprofile erfordert, ist es am besten, wenn Sie diese Technologien zum ersten Mal bereitstellen, die Unterstützung primärer Computer einzurichten, bevor die Gruppenrichtlinien Objekte zum Konfigurieren der Ordner Umleitung aktiviert werden. Roamingbenutzerprofile Dadurch wird verhindert, dass Benutzerdaten auf nicht primäre Computer kopiert werden, bevor die Unterstützung primärer Computer aktiviert ist. Informationen zur Konfiguration finden Sie unter Bereitstellen der [Ordner Umleitung](deploy-folder-redirection.md) und Bereitstellen von Server gespeicherten [Benutzerprofilen](deploy-roaming-user-profiles.md).
 
-Hier ist das Angeben der verwendeten primären Computern für Benutzer:
+## <a name="step-1-designate-primary-computers-for-users"></a>Schritt 1: Legen Sie die primären Computer für die Benutzer fest
+
+Der erste Schritt beim Bereitstellen der Unterstützung von primären Computern besteht darin, die primären Computer für jeden Benutzer festzulegen. Verwenden Sie hierzu Active Directory Verwaltungs Center, um den Distinguished Name der relevanten Computer abzurufen, und legen Sie dann das Attribut **msDS-primarycomputer** fest.
+
+> [!TIP]
+> Weitere Informationen zur Verwendung von Windows PowerShell für die Arbeit mit primären Computern finden Sie im Blogbeitrag, in dem Sie sich näher mit dem [primären Computer von Windows 8 befassen](<https://blogs.technet.microsoft.com/askds/2012/10/23/digging-a-little-deeper-into-windows-8-primary-computer/>).
+
+Im folgenden wird erläutert, wie Sie die primären Computer für Benutzer angeben:
 
 1. Öffnen Sie den Server-Manager auf einem Computer, auf dem Active Directory-Verwaltungstools installiert sind.
-2. Auf der **Tools** , wählen Sie im Menü **Active Directory-Verwaltungscenter**. Das Active Directory-Verwaltungscenter wird angezeigt.
-3. Navigieren Sie zu der **Computer** Container in der entsprechenden Domäne.
-4. Mit der rechten Maustaste in eines Computers, die Sie verwenden möchten, als Hauptcomputer festlegen, und wählen Sie dann **Eigenschaften**.
-5. Wählen Sie im Navigationsbereich **Erweiterungen**.
-6. Wählen Sie die **Attribut-Editor** Registerkarte, scrollen Sie zum **"distinguishedName"** Option **Ansicht**mit der rechten Maustaste auf den aufgeführten Wert, wählen Sie **Kopie**, Wählen Sie **OK**, und wählen Sie dann **Abbrechen**.
-7. Navigieren Sie zu der **Benutzer** Container in der entsprechenden Domäne, mit der rechten Maustaste des Benutzers, Sie weisen Sie den Computer, und wählen Sie dann möchten **Eigenschaften**.
-8. Wählen Sie im Navigationsbereich **Erweiterungen**.
-9. Wählen Sie die **Attribut-Editor** Registerkarte **MsDs-PrimaryComputer** und wählen Sie dann **bearbeiten**. Das Dialogfeld %%amp;quot;Editor für mehrwertige Zeichenfolgen%%amp;quot; wird angezeigt.
-10. Mit der rechten Maustaste in des Textfeld ein, wählen Sie **einfügen**Option **hinzufügen**Option **OK**, und wählen Sie dann **OK** erneut aus.
+2. Wählen Sie **im Menü Extras** **Active Directory Verwaltungs Center**aus. Das Active Directory-Verwaltungscenter wird angezeigt.
+3. Navigieren Sie in der entsprechenden Domäne zum Container **Computer** .
+4. Klicken Sie mit der rechten Maustaste auf einen Computer, den Sie als primären Computer festlegen möchten, und wählen Sie dann **Eigenschaften**aus.
+5. Wählen Sie im Navigationsbereich **Erweiterungen**aus.
+6. Wählen Sie die Registerkarte Attribut- **Editor** aus, Scrollen Sie zu " **unterbrechername**", wählen Sie **Ansicht**aus, klicken Sie mit der rechten Maustasteauf den aufgelisteten Wert, wählen Sie **Kopieren**aus, und **Wählen Sie**
+7. Navigieren Sie in der entsprechenden Domäne zum Container **Benutzer** , klicken Sie mit der rechten Maustaste auf den Benutzer, dem Sie den Computer zuweisen möchten, und wählen Sie dann **Eigenschaften**aus.
+8. Wählen Sie im Navigationsbereich **Erweiterungen**aus.
+9. Wählen Sie die Registerkarte **Attribut-Editor** aus, und wählen Sie **msDS-primarycomputer** und dann **Bearbeiten**aus. Das Dialogfeld %%amp;quot;Editor für mehrwertige Zeichenfolgen%%amp;quot; wird angezeigt.
+10. Klicken Sie mit der rechten Maustaste auf das Textfeld, wählen Sie **Einfügen**aus, klicken Sie auf **Hinzufügen**, klicken Sie auf **OK**, **und wählen Sie**
 
-## <a name="step-2-optionally-enable-primary-computers-for-folder-redirection-in-group-policy"></a>Schritt 2: Aktivieren Sie optional die primäre Computern für die Ordnerumleitung in Gruppenrichtlinien
+## <a name="step-2-optionally-enable-primary-computers-for-folder-redirection-in-group-policy"></a>Schritt 2: Aktivieren Sie optional primäre Computer für die Ordner Umleitung in Gruppenrichtlinie
 
-Der nächste Schritt ist optional Gruppenrichtlinien zum Aktivieren der Unterstützung für Hauptcomputer für Ordnerumleitung konfigurieren. Auf diese Weise kann die Ordner auf Computern, die als Hauptcomputer des Benutzers festgelegt, aber nicht auf andere Computer umgeleitet werden. Sie können den primäre Computern für die Ordnerumleitung auf einer computerspezifischen Basis oder pro Benutzer steuern.
+Im nächsten Schritt konfigurieren Sie optional Gruppenrichtlinie, um die Unterstützung primärer Computer für die Ordner Umleitung zu aktivieren. Auf diese Weise können die Ordner eines Benutzers auf Computern umgeleitet werden, die als primäre Computer des Benutzers festgelegt sind, jedoch nicht auf anderen Computern. Sie können primäre Computer für die Ordner Umleitung pro Computer oder pro Benutzer steuern.
 
-Hier ist Hauptcomputer für Ordnerumleitung aktivieren:
+So aktivieren Sie primäre Computer für die Ordner Umleitung:
 
-1. In der Gruppenrichtlinien-Verwaltungskonsole mit der Maustaste des Gruppenrichtlinienobjekts, das Sie erstellt haben, bei der anfänglichen Konfiguration der Umleitung des Ordners bzw. Roaming User Profiles (z. B. **Ordnerumleitungseinstellungen** oder **Roaming-Benutzer Roamingbenutzerprofileinstellungen**), und wählen Sie dann **bearbeiten**.
-2. Um Unterstützung für Hauptcomputer mithilfe von Gruppenrichtlinien-basierte Computer aktivieren, navigieren Sie zu **Computerkonfiguration**. Für eine benutzerbasierte Gruppenrichtlinien, navigieren Sie zu **Benutzerkonfiguration**.
-    - Computerbasierte der Gruppenrichtlinie gilt die Verarbeitung der primären Computer auf allen Computern, die für die Gruppenrichtlinienobjekt gilt Auswirkungen auf alle Benutzer der Computer wurde.
-    - Benutzerbasierte der Gruppenrichtlinie für Hauptcomputer Verarbeitung für alle Benutzerkonten, die das Gruppenrichtlinienobjekt gilt, die Auswirkungen auf alle Computer, auf die der Benutzer sich anmelden, gilt.
-3. Unter **Computerkonfiguration** oder **Benutzerkonfiguration**, navigieren Sie zu **Richtlinien**, klicken Sie dann **Administrative Vorlagen**, und klicken Sie dann  **System**, klicken Sie dann **Ordnerumleitung**.
-4. Mit der rechten Maustaste **Ordner nur auf hauptcomputern umleiten**, und wählen Sie dann **bearbeiten**.
-5. Wählen Sie **aktiviert**, und wählen Sie dann **OK**.
+1. Klicken Sie in Gruppenrichtlinie Verwaltung mit der rechten Maustaste auf das GPO, das Sie bei der Erstkonfiguration der Ordner Umleitung und/oder Roamingbenutzerprofile (z. b. Einstellungen für die **Ordner Umleitung** oder **Roamingbenutzerprofile**) erstellt haben. Wählen Sie **Bearbeiten**aus.
+2. Um die Unterstützung primärer Computer mithilfe von computerbasierten Gruppenrichtlinie zu aktivieren, navigieren Sie zu **Computerkonfiguration**. Navigieren Sie für Benutzer basiertes Gruppenrichtlinie zu **Benutzerkonfiguration**.
+    - Computer basierte Gruppenrichtlinie wendet die Verarbeitung des primären Computers auf alle Computer an, für die das Gruppenrichtlinien Objekt gilt. Dies wirkt sich auf alle Benutzer des Computers aus.
+    - Benutzerbasierte Gruppenrichtlinie, die die Verarbeitung des primären Computers auf alle Benutzerkonten anwendet, für die das Gruppenrichtlinien Objekt gilt. Dies wirkt sich auf alle Computer aus, auf denen sich die Benutzer anmelden.
+3. Navigieren Sie unter **Computer Konfiguration** oder **Benutzerkonfiguration**zu **Richtlinien**, **Administrative Vorlagen**und dann **System**, und klicken Sie dann auf **Ordner Umleitung**.
+4. Klicken Sie **mit der rechten Maustaste auf nur auf primären Computern umleiten**, und wählen Sie dann **Bearbeiten**aus.
+5. Wählen Sie **aktiviert**aus, und klicken Sie dann auf **OK**.
 
-## <a name="step-3-optionally-enable-primary-computers-for-roaming-user-profiles-in-group-policy"></a>Schritt 3: Aktivieren Sie optional die primäre Computern für Roamingbenutzerprofile in der Gruppenrichtlinie
+## <a name="step-3-optionally-enable-primary-computers-for-roaming-user-profiles-in-group-policy"></a>Schritt 3: Aktivieren Sie optional primäre Computer für Roamingbenutzerprofile in Gruppenrichtlinie
 
-Der nächste Schritt ist so konfigurieren Sie optional auf der Gruppenrichtlinie, um die Unterstützung primärer Computer für Roamingbenutzerprofile zu aktivieren. Dadurch können dem Profil eines Benutzers, der auf Computern, die als Hauptcomputer des Benutzers festgelegt, aber nicht auf andere Computer Roaming zulässt.
+Im nächsten Schritt konfigurieren Sie optional Gruppenrichtlinie, um die Unterstützung primärer Computer für Roamingbenutzerprofile zu aktivieren. Dadurch kann das Profil eines Benutzers auf Computern, die als primäre Computer des Benutzers festgelegt sind, aber nicht auf anderen Computern gewechselt werden.
 
-So wird zum Aktivieren von hauptcomputern für servergespeicherte Benutzerprofile:
+So aktivieren Sie primäre Computer für Roamingbenutzerprofile:
 
-1. Aktivieren Sie Unterstützung für Hauptcomputer für Ordnerumleitung, sofern Sie noch nicht geschehen.<br>Auf diese Weise Dokumente und andere Benutzerdateien aus der Benutzerprofile, wodurch Profile klein bleiben, und melden Sie sich Mal schnell zu bleiben.
-2. In der Gruppenrichtlinien-Verwaltungskonsole mit der Maustaste des Gruppenrichtlinienobjekts, das Sie erstellt haben (z. B. **Ordnerumleitung und Roamingbenutzerprofileinstellungen**), und wählen Sie dann **bearbeiten**.
-3. Navigieren Sie zu **Computerkonfiguration**, klicken Sie dann **Richtlinien**, klicken Sie dann **Administrative Vorlagen**, klicken Sie dann **System**, und klicken Sie dann **Benutzerprofile**.
-4. Mit der rechten Maustaste **herunterladen, servergespeicherte Profile auf primären Computern nur** und wählen Sie dann **bearbeiten**.
-5. Wählen Sie **aktiviert**, und wählen Sie dann **OK**.
+1. Aktivieren Sie die Unterstützung primärer Computer für die Ordner Umleitung, sofern nicht bereits geschehen.<br>Dadurch werden Dokumente und andere Benutzer Dateien aus den Benutzerprofilen heraus gehalten, sodass profile klein bleiben und die Anmeldezeiten schnell bleiben.
+2. Klicken Sie in Gruppenrichtlinie Verwaltung mit der rechten Maustaste auf das von Ihnen erstellte GPO (z. b. **Einstellungen für Ordner Umleitung und Roamingbenutzerprofile**), und wählen Sie dann **Bearbeiten**
+3. Navigieren Sie zu **Computer Konfiguration**, **Richtlinien**, **Administrative Vorlagen**, **System**und dann zu **Benutzerprofile**.
+4. Klicken Sie **mit der rechten Maustaste auf Roamingprofile nur auf primären Computern herunterladen,** und wählen Sie dann **Bearbeiten**
+5. Wählen Sie **aktiviert**aus, und klicken Sie dann auf **OK**.
 
-## <a name="step-4-enable-the-gpo"></a>Schritt 4: Aktivieren Sie das Gruppenrichtlinienobjekt
+## <a name="step-4-enable-the-gpo"></a>Schritt 4: Aktivieren des Gruppenrichtlinien Objekts
 
-Sie nach Abschluss der Konfiguration von Ordnerumleitung und servergespeicherte Benutzerprofile, aktivieren Sie das Gruppenrichtlinienobjekt ein, wenn Sie noch nicht getan haben. Auf diese Weise ermöglicht es, die auf den betroffenen Benutzer und-Computer angewendet werden.
+Nachdem Sie die Konfiguration der Ordner Umleitung und Roamingbenutzerprofile abgeschlossen haben, aktivieren Sie GPO, falls Sie dies noch nicht getan haben. Auf diese Weise kann die Anwendung auf betroffene Benutzer und Computer angewendet werden.
 
-Hier ist die Ordnerumleitung und/oder Roaming User Profiles GPOs zu aktivieren:
+So aktivieren Sie die Gruppenrichtlinien Objekte für die Ordner Umleitung und/oder Roamingbenutzerprofile:
 
-1. Öffnen Sie die Gruppenrichtlinien-Verwaltungskonsole
-2. Mit der rechten Maustaste in der Gruppenrichtlinienobjekten, die Sie erstellt haben, und wählen Sie dann **Verknüpfung aktiviert**. Ein Kontrollkästchen sollte neben dem Menüelement, das angezeigt werden.
+1. Öffnen der Gruppenrichtlinie Verwaltung
+2. Klicken Sie mit der rechten Maustaste auf die von Ihnen erstellten Gruppenrichtlinien Objekte, und wählen Sie dann **Link aktiviert**aus. Neben dem Menü Element sollte ein Kontrollkästchen angezeigt werden.
 
-## <a name="step-5-test-primary-computer-function"></a>Schritt 5: Testen Sie primäre Computer-Funktion
+## <a name="step-5-test-primary-computer-function"></a>Schritt 5: Test der primären Computer Funktion
 
-Um die Unterstützung primärer Computer testen, melden Sie sich an einem primären Computer aus, vergewissern Sie sich, dass die Ordner und Profile umgeleitet werden, melden Sie sich bei einem nicht primären Computer aus, und vergewissern Sie sich, dass die Ordner und die Profile nicht weitergeleitet werden.
+Melden Sie sich zum Testen der Unterstützung des primären Computers bei einem primären Computer an, vergewissern Sie sich, dass die Ordner und Profile umgeleitet werden, melden Sie sich dann bei einem nicht primären Computer an, und vergewissern Sie sich, dass die Ordner und Profile nicht umgeleitet werden.
 
-Hier wird Hauptcomputer Funktionalität zu testen:
+So testen Sie die Funktionalität des primären Computers:
 
-1. Melden Sie sich an einem angegebenen primären Computer mit einem Benutzerkonto an, die für die Umleitung des Ordners bzw. Roamingbenutzerprofile aktiviert haben.
-2. Wenn das Benutzerkonto, das zuvor am Computer angemeldet hat, öffnen Sie ein Windows PowerShell-Sitzung oder ein Eingabeaufforderungsfenster als Administrator, geben Sie den folgenden Befehl, und melden Sie sich dann deaktiviert, wenn Sie aufgefordert werden, um sicherzustellen, dass die aktuellsten gruppenrichtlinieneinstellungen, um angewendet werden die Client-Computer:
+1. Melden Sie sich bei einem vorgesehenen primären Computer mit einem Benutzerkonto an, für das Sie die Ordner Umleitung und/oder Roamingbenutzerprofile aktiviert haben.
+2. Wenn sich das Benutzerkonto bereits am Computer angemeldet hat, öffnen Sie eine Windows PowerShell-Sitzung oder ein Eingabe Aufforderungs Fenster als Administrator, geben Sie den folgenden Befehl ein, und melden Sie sich dann an, wenn Sie dazu aufgefordert werden, sicherzustellen, dass die neuesten Gruppenrichtlinie Einstellungen auf das Client Computer:
 
     ```PowerShell
     Gpupdate /force
     ```
 
 3. Öffnen Sie den Datei-Explorer.
-1. Mit der rechten Maustaste in eines umgeleiteten Ordners (z. B. die Ordner Eigene Dokumente in der Bibliothek Dokumente), und wählen Sie dann **Eigenschaften**.
-1. Wählen Sie die **Speicherort** Registerkarte, und bestätigen Sie, dass der Pfad die Dateifreigabe angezeigt, Sie anstelle eines lokalen Pfads angegeben. Bestätigen, dass das Benutzerprofil gewechselt wird, öffnen Sie **Systemsteuerung**Option **System und Sicherheit**Option **System**Option **Erweiterte Systemeinstellungen** Option **Einstellungen** der Benutzerprofile aus, und suchen Sie nach **Roaming** in die **Typ** Spalte.
-1. Melden Sie sich mit dem gleichen Benutzerkonto auf einem Computer, der nicht als primäre Computer des Benutzers festgelegt ist.
-1. Wiederholen Sie die Schritte 2 bis 5, suchen Sie stattdessen für lokale Pfade und ein **lokalen** Profiltyp.
+1. Klicken Sie mit der rechten Maustaste auf einen umgeleiteten Ordner (z. b. auf den Ordner Eigene Dokumente in der Bibliothek Dokumente), und wählen Sie dann **Eigenschaften**aus.
+1. Wählen Sie die Registerkarte **Speicherort** aus, und vergewissern Sie sich, dass der Pfad die angegebene Dateifreigabe anstelle eines lokalen Pfads anzeigt. Um zu bestätigen, dass das Benutzerprofil roamingbasiert, öffnen Sie die System **Steuerung**, wählen Sie **System und Sicherheit**, **System**, **Erweiterte System Einstellungen**aus, wählen Sie im Abschnitt Benutzerprofile die Option **Einstellungen** aus, und suchen Sie nach **. Roaming** in der **Type** -Spalte.
+1. Melden Sie sich mit demselben Benutzerkonto bei einem Computer an, der nicht als primärer Computer des Benutzers festgelegt ist.
+1. Wiederholen Sie die Schritte 2 – 5, und suchen Sie stattdessen nach lokalen Pfaden und einem **lokalen** Profiltyp.
 
 > [!NOTE]
-> Wenn Ordner auf einem Computer umgeleitet wurden, bevor Sie die Unterstützung primärer Computer aktiviert, verbleibt die Ordner umgeleitet, es sei denn, die folgende Einstellung in jedem Ordner die Ordner-Umleitung-richtlinieneinstellung konfiguriert ist: **Zurück zum lokalen Benutzerprofilpfad Ordner umleiten, wenn die Richtlinie entfernt wird**. Auf ähnliche Weise zeigt Profile, die zuvor auf einem bestimmten Computer roaming wurden **Roaming** in die **Typ** Spalten, aber die **Status** Spalte zeigt **Lokalen**.
+> Wenn Ordner auf einem Computer umgeleitet wurden, bevor Sie die Unterstützung primärer Computer aktiviert haben, bleiben die Ordner umgeleitet, es sei denn, die folgende Einstellung wird in der Ordner Umleitungs Richtlinien Einstellung jedes Ordners konfiguriert: **Leiten Sie den Ordner zurück an den lokalen Speicherort des Benutzerprofils, wenn die Richtlinie entfernt wird**. Auf ähnliche Weise wird für Profile, die zuvor auf einem bestimmten Computer **Roamingvorgang** verwendet haben, das Roaming in den **Typspalten** angezeigt in der Spalte **Status** wird jedoch **lokal**angezeigt.
 
 ## <a name="more-information"></a>Weitere Informationen
 
-- [Bereitstellen von Ordnerumleitung, Offlinedateien](deploy-folder-redirection.md)
+- [Bereitstellen der Ordner Umleitung mit Offlinedateien](deploy-folder-redirection.md)
 - [Bereitstellen von Roamingbenutzerprofilen](deploy-roaming-user-profiles.md)
-- [Übersicht über die Ordnerumleitung, Offlinedateien und Roamingbenutzerprofile](folder-redirection-rup-overview.md)
-- [Genauerer Blick etwas auf Hauptcomputer für Windows 8](https://blogs.technet.com/b/askds/archive/2012/10/23/digging-a-little-deeper-into-windows-8-primary-computer.aspx)
+- [Übersicht über Ordner Umleitung, Offlinedateien und Roamingbenutzerprofile](folder-redirection-rup-overview.md)
+- [Genauer Einblicken in den primären Windows 8-Computer](https://blogs.technet.com/b/askds/archive/2012/10/23/digging-a-little-deeper-into-windows-8-primary-computer.aspx)

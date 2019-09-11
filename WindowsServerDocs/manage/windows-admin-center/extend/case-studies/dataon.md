@@ -1,6 +1,6 @@
 ---
-title: 'Windows Admin Center-SDK-Fallstudie: Spitzengruppe'
-description: 'Windows Admin Center-SDK-Fallstudie: Spitzengruppe'
+title: Windows Admin Center SDK-Fallstudie-DataOn
+description: Windows Admin Center SDK-Fallstudie-DataOn
 ms.technology: extend
 ms.topic: article
 author: daniellee-msft
@@ -8,41 +8,41 @@ ms.author: jol
 ms.date: 01/11/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 1adf538792763bf05a43d431d9751d275a6fcd04
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 12de939aa451ba75b4bafed85cd57bdd8280bc81
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858221"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70864934"
 ---
-# <a name="dataon-must-extension"></a>Spitzengruppe muss die Erweiterung
+# <a name="dataon-must-extension"></a>DataOn muss Erweiterung
 
-## <a name="integrated-monitoring-and-management-for-microsoft-hyper-converged-infrastructure"></a>Integrierte Überwachung und Verwaltung von Microsoft hyper-konvergiert-Infrastruktur
+## <a name="integrated-monitoring-and-management-for-microsoft-hyper-converged-infrastructure"></a>Integrierte Überwachung und Verwaltung für die hyperkonvergierte Microsoft-Infrastruktur
 
-[Spitzengruppe](http://www.dataonstorage.com/) der branchenweit führenden Anbieter von hyperkonvergenten Infrastruktur und Speichersystemen für Microsoft Windows Server-Umgebungen optimiert ist. Ausschließlich den Schwerpunkt auf Microsoft-Anwendungen, Virtualisierung, den Schutz von Daten und Hybrid Cloud-Dienste, weist er mehr als 650 Enterprise-Bereitstellungen und über 120PB von "direkte Speicherplätze"-Bereitstellungen.
+[DataOn](http://www.dataonstorage.com/) ist der branchenführende Anbieter von hyperkonvergenten Infrastruktur-und Speichersystemen, die für Microsoft Windows Server-Umgebungen optimiert sind. Er konzentriert sich ausschließlich auf die Bereitstellung von Microsoft-Anwendungen, Virtualisierung, Datenschutz und Hybrid Cloud Diensten, verfügt über mehr als 650 Unternehmens Bereitstellungen und über 120PB von direkte Speicherplätze Bereitstellungen.
 
-[MUSS der Spitzengruppe](http://www.dataonstorage.com/must) -Erweiterung für Windows Admin Center ist ein hervorragendes Beispiel des Werts, der Integration von zwei sich ergänzende Produkte für Kunden, Überwachung und Verwaltung und End-to-End-Einblick in die Hardware und Software zusammen bringen bereitstellen kann einen gesamten Cluster in einer Oberfläche.
+Die Erweiterung " [DataOn](http://www.dataonstorage.com/must) " für Windows Admin Center ist ein hervorragendes Beispiel für den Wert, mit dem zwei ergänzende Produkte für Kunden bereitstellt werden können. Dies bringt die Überwachung und Verwaltung sowie den End-to-End-Einblick in Hardware und Software zusammen. ein ganzer Cluster in einer einheitlichen Darstellung.
 
-> <cite>"Wir haben unser eigenständiges muss Sichtbarkeit, Überwachung und Verwaltung-Tool erstellt und aktiviert es die Arbeit in Windows Admin Center. Kunden profitieren von der erweiterten Funktionen, die bereitstellt, muss ein, und die Kombination von muss und Windows Admin Center über eine einzige Konsole bieten die ultimate-Verwaltungsfunktionen für Windows Server-basierten Infrastruktur."</cite>
+> <cite>"Wir haben unser eigenständiges Sichtbarkeits-, Überwachungs-und Verwaltungs Tool verwendet und die Arbeit im Windows Admin Center ermöglicht. Kunden profitieren von den erweiterten Funktionen, die bereitgestellt werden müssen, und die Kombination von "erforderlich" und "Windows Admin Center" über eine einzige Konsole stellt die ultimative Verwaltungsleistung für die Windows Server-basierte Infrastruktur dar. "</cite>
 >
-> – Howard Lo, umgekehrt President von Vertrieb und Marketing, Spitzengruppe
+> --Howard Lo, Vice President von Sales and Marketing, DataOn
 
-Die Erweiterung muss erweitert die Funktionalität von Windows Admin Center durch Funktionen wie z.B.:
-- **Berichterstattung zu historischen Daten** – bietet in Echtzeit und monatlichen Dashboards von Ihrem Systemleistungsdaten einschließlich IOPS, Latenz, Durchsatz für Ihren Cluster, Speicher-Pool, Volumes und Knoten.
-- **Zuordnung auf den Datenträger** – muss die Gerätetypen und Komponenten in jedem der Knoten, die Bereitstellung einer klare Datenträger-Übersicht über Ihre gesamten Knoten angezeigt. Es zeigt die Anzahl der Datenträger "," Datenträgertyp "," Speicherort "und" Slot der einzelnen Laufwerk und die Datenträger-Integritätsstatus.
-- **Systemwarnungen** – nutzt Windows Health-Dienst Fehler Hardwarefehlern zu gewährleisten, Konfigurationsprobleme und die Sättigung der Ressource identifiziert. Darüber hinaus eine Bewertung mit mehreren Ebene, von bestimmten Standorten, fehlerbeschreibungen und Wiederherstellungsmaßnahmen. Sie können auch von Drittanbietern SNMP-Trap überwachen, damit Sie benachrichtigt werden, wenn Sie Datenträger oder die Hardwarekonfiguration Ersetzungen benötigen nutzen.
-- **SAN-ähnliche Home-Dienst** – dazu aufgefordert werden, von systemwarnungen, Administratoren können über automatisierte e-Mail-Benachrichtigungen an wichtige Kontakte gesendet.
+Die Erweiterung muss die Funktionalität des Windows Admin Centers durch Bereitstellen von Features wie z. b.:
+- Verlaufs **Datenbericht** Erstellung – bietet Echt Zeit-und monatliche Dashboards ihrer Systemleistungs Daten einschließlich IOPS, Latenz, Durchsatz in Ihrem Cluster, Speicherpool, Volume und Knoten.
+- Datenträger Zuordnung – in diesem Abschnitt müssen die Gerätetypen und Komponenten in den einzelnen Knoten angezeigt werden. dabei wird eine eindeutige Datenträger **Zuordnung** für den gesamten Knoten bereitgestellt. Es zeigt die Anzahl von Datenträgern, den Datenträger Typen, den Speicherort und den Slot jedes Laufwerks sowie den Status der Datenträger Integrität.
+- **System Warnungen** – nutzt Windows Integritätsdienst-Fehlern, um Hardwarefehler, Konfigurationsprobleme und Ressourcen Sättigung zu erkennen. Außerdem bietet es eine Bewertung auf mehreren Ebenen für bestimmte Standorte, Fehlerbeschreibungen und Wiederherstellungs Aktionen. Sie können auch SNMP-Überwachungs Traps von Drittanbietern nutzen, um eine Warnung zu erhalten, wenn Sie Datenträger-oder Hardware Ersetzungen benötigen.
+- **San-like-Start Dienst** – wird von Systemwarnungen angefordert, können Administratoren automatisierte e-Mail-Benachrichtigungen an wichtige Kontakte senden.
 
-![Erweiterung der Spitzengruppe](../../media/extend-case-study-dataon/dataon-1.png)
-*Datenträger-Zuordnung in der Spitzengruppe muss-Erweiterung für Windows Admin Center*
+![DataOn-](../../media/extend-case-study-dataon/dataon-1.png)
+Erweiterungs Datenträger*in der Datenträger Zuordnung muss für Windows Admin Center erweitert* werden
 
-> <cite>"Es ist großartig, dass Windows Admin Center ermöglicht die Erweiterung wie z. B. Spitzengruppe müssen daher beide Tools innerhalb der gleichen Konsole, und ich z. B. wie nahtlose diese Integration wird verwendet, können. Windows Admin Center und Spitzengruppe müssen zusammen wirklich erlaubt uns, effizienter sein, und speichert unser Team eine Menge Zeit. Wir können unsere viel schneller, was wir vorher hatten Administratoraufgaben erreichen."</cite>
+> <cite>"Es ist großartig, dass das Windows Admin Center Erweiterungen wie DataOn ermöglicht, damit ich beide Tools innerhalb der gleichen Konsole verwenden kann und wie nahtlos diese Integration ist. Das Windows Admin Center und die DataOn-Option müssen uns die Möglichkeit bieten, effizienter zu sein und unser Team zu sparen. Dies ermöglicht es uns, unsere Administrator Aufgaben viel schneller als zuvor durchzuführen. "</cite>
 >
-> – Matt Roper, Promotor von IT-Support-Dienste, Cherokee County (GA) Schule Bezirk
+> --Matt Roper, Facilitator of Technology Support Services, Cherokee County (GA) School District
 
-![Erweiterung der Spitzengruppe](../../media/extend-case-study-dataon/dataon-2.png)
-*Warnung Dienste in der Spitzengruppe muss-Erweiterung für Windows Admin Center*
+![Benachrichtigungsdienste der](../../media/extend-case-study-dataon/dataon-2.png)
+DataOn-Erweiterung*in der DataOn müssen eine Erweiterung für das Windows Admin Center*
 
-> <cite>"Muss hat sehr wertvoll und war eine große Verkaufsargument. Zur Demonstration! Teilen Sie uns einer Verpflichtung aus Spitzengruppe zur Unterstützung der Infrastruktur von Microsoft hyper-konvergiert. Die Aufnahme des müssen in ihre Appliance S2D ist wie die Lösung mit "direkte Speicherplätze" als Ersatz für eine kleinstmögliche SAN abgeschlossen ist." </cite>
+> <cite>"Muss sehr wertvoll sein und ist ein großer Vertriebs Punkt. Wir haben eine Zusage von DataOn zur Unterstützung der hyperkonvergierten Infrastruktur von Microsoft demonstriert. Die Einbindung von muss mit ihrer S2D Appliance abgeschlossen werden, was die Lösung mit direkte Speicherplätze als funktionierender San-Austausch abschließt. "</cite>
 >
-> --Benjamin Clements, President, strategische Online Systems, Inc.
+> --Benjamin Clements, President, strategische Online Systeme, Inc.

@@ -1,6 +1,6 @@
 ---
 title: Verwalten der Benutzerzugriffsprotokollierung
-description: Beschreibt das Verwalten der Benutzerzugriffsprotokollierung
+description: Beschreibt das Verwalten der Benutzer Zugriffs Protokollierung
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.technology: manage-user-access-logging
@@ -13,16 +13,16 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 03bad9864f81cf75be13b4ca391fdcbc5f9dcb5c
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: c3a172f37d491cb37d897c586312107fe62a4c55
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435357"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866236"
 ---
 # <a name="manage-user-access-logging"></a>Verwalten der Benutzerzugriffsprotokollierung
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Dokument wird beschrieben, wie Sie die Benutzerzugriffsprotokollierung verwalten.  
   
@@ -30,7 +30,7 @@ Die Benutzerzugriffsprotokollierung ist ein Feature, mit dessen Hilfe Serveradmi
   
 Die Benutzerzugriffsprotokollierung wird standardmäßig installiert und aktiviert und erfasst Daten nahezu in Echtzeit. Für die Benutzerzugriffsprotokollierung sind nur wenige Konfigurationsoptionen verfügbar. Diese Optionen und ihr Verwendungszweck werden in diesem Dokument beschrieben.  
   
-Weitere Informationen zu den Vorteilen der Benutzerzugriffsprotokollierung finden Sie unter den [erste Schritte mit User Access Logging](get-started-with-user-access-logging.md).  
+Weitere Informationen zu den Vorteilen der [Benutzer Zugriffs Protokollierung finden Sie unter Einstieg in die Benutzer Zugriffs Protokollierung](get-started-with-user-access-logging.md).  
   
 **In diesem Dokument**  
   
@@ -48,8 +48,8 @@ In diesem Dokument werden folgende Konfigurationsoptionen behandelt:
   
 -   Aktivieren der Nachverfolgung der Arbeitsordner-Nutzungslizenz   
   
-## <a name="BKMK_Step1"></a>Deaktivieren und aktivieren den Benutzerzugriffsprotokollierung-Dienst  
-Benutzerzugriffsprotokollierung wird zum ersten Mal aktiviert ist und ausgeführt wird, wird standardmäßig, wenn ein Computer unter Windows Server 2012 oder höher, installiert und gestartet. Mitunter müssen Administratoren die Benutzerzugriffsprotokollierung deaktivieren, um Datenschutzanforderungen oder andere betriebliche Anforderungen zu erfüllen. Sie können die Benutzerzugriffsprotokollierung mithilfe der Dienstekonsole, über die Befehlszeile oder mithilfe von PowerShell-Cmdlets deaktivieren. Um sicherzustellen, dass der Benutzerzugriffsprotokollierung nicht erneut auf das nächste Mal ausgeführt wird, wenn, das der Computer gestartet wird, müssen Sie jedoch auch den Dienst zu deaktivieren. Die folgenden Verfahren wird beschrieben, wie auf zu deaktivieren, und deaktivieren Sie die Benutzerzugriffsprotokollierung wird.  
+## <a name="BKMK_Step1"></a>Deaktivieren und Aktivieren des Dienstes für die Benutzer Zugriffs Protokollierung  
+Die Benutzer Zugriffs Protokollierung ist standardmäßig aktiviert und wird ausgeführt, wenn ein Computer unter Windows Server 2012 oder höher installiert und zum ersten Mal gestartet wird. Mitunter müssen Administratoren die Benutzerzugriffsprotokollierung deaktivieren, um Datenschutzanforderungen oder andere betriebliche Anforderungen zu erfüllen. Sie können die Benutzer Zugriffs Protokollierung mithilfe der Dienste-Konsole, über die Befehlszeile oder mithilfe von PowerShell-Cmdlets deaktivieren. Um sicherzustellen, dass die Benutzer Zugriffs Protokollierung beim nächsten Start des Computers nicht wieder ausgeführt wird, müssen Sie auch den Dienst deaktivieren. Die folgenden Prozeduren beschreiben, wie Sie die Benutzer Zugriffs Protokollierung deaktivieren und deaktivieren.  
   
 > [!NOTE]  
 > Sie können das PowerShell-Cmdlet `Get-Service UALSVC` verwenden, um Informationen zum Dienst für die Benutzerzugriffsprotokollierung abzurufen, z. B. ob er ausgeführt wird oder beendet wurde und ob er aktiviert oder deaktiviert ist.  
@@ -62,7 +62,7 @@ Benutzerzugriffsprotokollierung wird zum ersten Mal aktiviert ist und ausgeführ
   
 3.  Führen Sie einen Bildlauf nach unten durch, und wählen Sie **Dienst für die Benutzerzugriffsprotokollierung**aus. Klicken Sie auf **Dienst beenden**.  
   
-4.  Rechts\-klicken Sie auf den Dienstnamen, und wählen Sie **Eigenschaften**. Ändern Sie auf der Registerkarte **Allgemein** die Einstellung von **Starttyp** in **Deaktiviert**, und klicken Sie dann auf **OK**.  
+4.  Klicken\-Sie mit der rechten Maustaste auf den Dienstnamen und wählen Sie **Eigenschaften** Ändern Sie auf der Registerkarte **Allgemein** die Einstellung von **Starttyp** in **Deaktiviert**, und klicken Sie dann auf **OK**.  
   
 #### <a name="to-stop-and-disable-ual-from-the-command-line"></a>So beenden und deaktivieren Sie die Benutzerzugriffsprotokollierung über die Befehlszeile  
   
@@ -89,7 +89,7 @@ Stop-service ualsvc
 Disable-ual  
 ```  
   
-Ggf. zu einem späteren Zeitpunkt neu starten, und reaktivieren die Benutzerzugriffsprotokollierung kann mit den folgenden Verfahren möchten.  
+Wenn Sie zu einem späteren Zeitpunkt einen Neustart durchführen und die Benutzer Zugriffs Protokollierung erneut aktivieren möchten, können Sie dies mit den folgenden Verfahren tun.  
   
 #### <a name="to-start-and-enable-the-ual-service-by-using-the-services-console"></a>So starten und aktivieren Sie den Dienst für die Benutzerzugriffsprotokollierung mithilfe der Konsole %%amp;quot;Dienste%%amp;quot;  
   
@@ -126,8 +126,8 @@ Enable-ual
 Start-service ualsvc  
 ```  
   
-## <a name="BKMK_Step2"></a>Sammeln von Daten der Benutzerzugriffsprotokollierung  
-Zusätzlich zu den im vorherigen Abschnitt beschriebenen PowerShell-Cmdlets können 12 weitere Cmdlets zum Sammeln von Daten der Benutzerzugriffsprotokollierung verwendet werden:  
+## <a name="BKMK_Step2"></a>Sammeln von UAL-Daten  
+Zusätzlich zu den im vorherigen Abschnitt beschriebenen PowerShell-Cmdlets können 12 weitere Cmdlets verwendet werden, um die Daten der Benutzer Zugriffs Protokollierung zu erfassen:  
   
 -   **Get-UalOverview**: Stellt Details im Zusammenhang mit der Benutzerzugriffsprotokollierung und einen Verlauf der installierten Produkte und Rollen bereit.  
   
@@ -151,10 +151,10 @@ Zusätzlich zu den im vorherigen Abschnitt beschriebenen PowerShell-Cmdlets kön
   
 -   **Get-UalSystemId**: Stellt systemspezifische Daten zur eindeutigen Identifizierung des lokalen Servers oder Zielservers bereit.  
   
-`Get-UalSystemId` stellt ein eindeutiges Profil eines Servers bereit, mit dem alle anderen Daten dieses Servers korreliert werden.  Wenn ein Server in einer der Parameter ändert `Get-UalSystemId` ein neues Profil erstellt wird.  `Get-UalOverview` stellt eine Liste der auf dem Server installierten und verwendeten Rollen für den Administrator bereit.  
+`Get-UalSystemId` stellt ein eindeutiges Profil eines Servers bereit, mit dem alle anderen Daten dieses Servers korreliert werden.  Wenn ein Serveränderungen in der hat, wird in einem der Parameter eines `Get-UalSystemId` neuen Profils erstellt.  `Get-UalOverview` stellt eine Liste der auf dem Server installierten und verwendeten Rollen für den Administrator bereit.  
   
 > [!NOTE]  
-> Grundlegende Features der Druck- und Dokumentdienste und Dateidienste werden standardmäßig installiert. Administratoren können daher davon ausgehen, dass für diese Dienste immer Informationen für eine vollständige Installation der Rollen angezeigt werden. Aufgrund der eindeutigen Daten, die die Benutzerzugriffsprotokollierung für Hyper-V und DNS erfasst, sind separate Cmdlets für diese Serverrollen verfügbar.  
+> Grundlegende Funktionen von Druck-und Dokumentdienste und Datei Diensten werden standardmäßig installiert. Administratoren können daher davon ausgehen, dass für diese Dienste immer Informationen für eine vollständige Installation der Rollen angezeigt werden. Aufgrund der eindeutigen Daten, die die Benutzerzugriffsprotokollierung für Hyper-V und DNS erfasst, sind separate Cmdlets für diese Serverrollen verfügbar.  
   
 Ein typisches Verwendungsszenario der Cmdlets für die Benutzerzugriffsprotokollierung ist das Abfragen der eindeutigen Clientzugriffe in einem bestimmten Datumsbereich. Administratoren stehen verschiedene Möglichkeiten zum Ausführen dieser Aufgabe zur Auswahl. Das folgende Codebeispiel zeigt die empfohlene Methode zum Abfragen der eindeutigen Gerätezugriffe in einem Datumsbereich.  
   
@@ -165,7 +165,7 @@ PS C:\Windows\system32>Gwmi -Namespace "root\AccessLogging" -query "SELECT * FRO
   
 Dieser Befehl gibt eine ausführliche Liste mit den IP-Adressen aller eindeutigen Clientgeräte zurück, die im jeweiligen Datumsbereich Anforderungen an den Server gesendet haben.  
   
-Der Wert von %%amp;quot;ActivityCount%%amp;quot; für jeden eindeutigen Client ist auf 65.535 Aktivitäten pro Tag beschränkt. Das Aufrufen der WMI in PowerShell ist nur erforderlich, wenn Sie eine Abfrage anhand eines Datums ausführen.  Alle anderen Cmdlet-Parameter für die Benutzerzugriffsprotokollierung können wie im folgenden Beispiel gezeigt in PS-Abfragen verwendet werden:  
+"Activitycount" für jeden eindeutigen Client ist auf 65.535 pro Tag beschränkt. Das Aufrufen der WMI in PowerShell ist nur erforderlich, wenn Sie eine Abfrage anhand eines Datums ausführen.  Alle anderen Cmdlet-Parameter für die Benutzerzugriffsprotokollierung können wie im folgenden Beispiel gezeigt in PS-Abfragen verwendet werden:  
   
 ```  
 PS C:\Windows\system32> Get-UalDeviceAccess -IPAddress "10.36.206.112"  
@@ -182,9 +182,9 @@ PSComputerName
   
 ```  
   
-Die Benutzerzugriffsprotokollierung speichert den Verlauf für bis zu zwei Jahre. Damit ein Administrator Daten der Benutzerzugriffsprotokollierung abrufen kann, während der Dienst ausgeführt wird, erstellt die Benutzerzugriffsprotokollierung alle 24 Stunden eine Kopie der aktiven Datenbankdatei (current.mdb) in einer Datei mit dem Namen *GUID.mdb* , die vom WMI-Anbieter verwendet werden kann.  
+Die Benutzer Zugriffs Protokollierung bewahrt den Verlauf von bis zu zwei Jahren auf. Um den Abruf von Daten der Benutzer Zugriffs Protokollierung durch einen Administrator zu ermöglichen, wenn der Dienst ausgeführt wird, erstellt die Benutzer Zugriffs Protokollierung alle 24 Stunden eine Kopie der aktiven Datenbankdatei (Current *. mdb)* für die Verwendung durch den WMI-Anbieter.  
   
-Am ersten Tag des Jahrs erstellt die Benutzerzugriffsprotokollierung eine neue Datei *GUID.mdb*. Die alte Datei *GUID.mdb* wird als Archiv zur Verwendung durch den Anbieter aufbewahrt.  Nach zwei Jahren wird die ursprüngliche Datei *GUID.mdb* überschrieben.  
+Am ersten Tag des Jahrs erstellt die Benutzerzugriffsprotokollierung eine neue Datei *GUID.mdb*. Die alte *GUID. mdb* wird als Archiv für die Verwendung durch den Anbieter aufbewahrt.  Nach zwei Jahren wird die ursprüngliche Datei *GUID.mdb* überschrieben.  
   
 > [!IMPORTANT]  
 > Die folgenden Verfahren sollten nur von einem erfahrenen Benutzer ausgeführt werden. Sie werden üblicherweise von Entwicklern verwendet, um ihre eigene Instrumentation der Anwendungsprogrammierschnittellen für die Benutzerzugriffsprotokollierung zu testen.  
@@ -200,14 +200,14 @@ Am ersten Tag des Jahrs erstellt die Benutzerzugriffsprotokollierung eine neue D
     > [!WARNING]  
     > Durch eine fehlerhafte Bearbeitung der Registrierung können schwerwiegende Schäden am System verursacht werden. Bevor Änderungen an der Registrierung vorgenommen werden, sollten Sie eine Sicherungskopie aller wichtigen Daten auf dem Computer erstellen.  
   
-    Das folgende Beispiel zeigt, wie Sie ein Intervall von zwei Minuten hinzufügen (nicht empfohlen für die langfristige Ausführung): **REG ADD HKLM\System\CurrentControlSet\Control\WMI\\AutoLogger\Sum/v PollingInterval/t / REG\_DWORD/d 120000/f**  
+    Das folgende Beispiel zeigt, wie Sie ein Intervall von zwei Minuten hinzufügen (nicht empfohlen für die langfristige Ausführung): **REG Add hklm\system\currentcontrolset\control\wmi\\autologger\sum/v PollingInterval/t reg\_DWORD/d 120000/F**  
   
     Die Zeitwerte werden in Millisekunden angegeben. Der Mindestwert ist 60 Sekunden, der Höchstwert ist sieben Tage, und der Standardwert ist 24 Stunden.  
   
 4.  Verwenden Sie die Konsole %%amp;quot;Dienste%%amp;quot;, um den Dienst für die Benutzerzugriffsprotokollierung zu beenden und neu zu starten.  
   
 ## <a name="deleting-data-logged-by-ual"></a>Löschen der von der Benutzerzugriffsprotokollierung protokollierten Daten  
-Die Benutzerzugriffsprotokollierung ist keine unternehmenskritische Komponente. Sie ist so konzipiert, dass ihre Auswirkungen auf lokale Systemvorgänge so gering wie möglich sind und gleichzeitig eine hohe Zuverlässigkeit gewahrt wird. Dieser kann Administrator auch die Datenbank der Benutzerzugriffsprotokollierung und unterstützende Dateien (jede Datei im Verzeichnis der \Windows\System32\LogFilesSUM\) um betriebliche Anforderungen zu erfüllen manuell löschen.  
+Die Benutzerzugriffsprotokollierung ist keine unternehmenskritische Komponente. Sie ist so konzipiert, dass ihre Auswirkungen auf lokale Systemvorgänge so gering wie möglich sind und gleichzeitig eine hohe Zuverlässigkeit gewahrt wird. Dadurch kann der Administrator die DatenbankDatenbank und die unterstützenden Dateien (jede Datei im Verzeichnis "\windows\system32\logfilessum\") auch manuell löschen, um betriebliche Anforderungen zu erfüllen.  
   
 #### <a name="to-delete-data-logged-by-ual"></a>So löschen Sie von der Benutzerzugriffsprotokollierung protokollierte Daten  
   
@@ -215,18 +215,18 @@ Die Benutzerzugriffsprotokollierung ist keine unternehmenskritische Komponente. 
   
 2. Öffnen Sie Windows-Explorer.  
   
-3. Wechseln Sie zu **\Windows\System32\Logfiles\SUM\\** .  
+3. Wechseln Sie zu **\windows\system32\logfiles\sum\\** .  
   
 4. Löschen Sie alle Dateien im Ordner.  
   
 ## <a name="managing-ual-in-high-volume-environments"></a>Verwalten der Benutzerzugriffsprotokollierung in Umgebungen mit hohem Aufkommen an Clientanforderungen  
 In diesem Abschnitt werden die Besonderheiten erläutert, die bei der Verwendung der Benutzerzugriffsprotokollierung auf einem Server mit vielen Clients zu berücksichtigen sind:  
   
-Die Benutzerzugriffsprotokollierung kann maximal 65.535 Zugriffe pro Tag aufzeichnen.  Für direkt mit dem Internet verbundene Server (z. B. Webserver, die direkt mit dem Internet verbunden sind) oder Szenarien, in denen eine extrem hohe Leistung die primäre Funktion des Servers ist (z. B. in Umgebungen mit HPC-Arbeitsauslastung), wird die Verwendung der Benutzerzugriffsprotokollierung nicht empfohlen. Die Benutzerzugriffsprotokollierung ist in erster Linie zur klein, Mittel und Enterprise Intranet konzipiert, in denen hohe wird bestimmt, aber nicht so hoch ist, wie viele Bereitstellung, die Internetzugriff Datenverkehrsvolumen in regelmäßigen Abständen zu dienen.  
+Die Benutzerzugriffsprotokollierung kann maximal 65.535 Zugriffe pro Tag aufzeichnen.  Für direkt mit dem Internet verbundene Server (z. B. Webserver, die direkt mit dem Internet verbunden sind) oder Szenarien, in denen eine extrem hohe Leistung die primäre Funktion des Servers ist (z. B. in Umgebungen mit HPC-Arbeitsauslastung), wird die Verwendung der Benutzerzugriffsprotokollierung nicht empfohlen. Die Benutzer Zugriffs Protokollierung ist in erster Linie für Intranetszenarios in kleinen, mittelgroßen und großen Unternehmen gedacht, bei denen ein hohes Volumen erwartet wird, aber nicht so hoch wie viele bereit Stellungen, die regelmäßig Internet Datenverkehr verarbeiten.  
   
-**Benutzerzugriffsprotokollierung im Arbeitsspeicher**: Da die Benutzerzugriffsprotokollierung die Extensible Storage Engine (ESE) verwendet, nehmen ihre Arbeitsspeicheranforderungen im Laufe der Zeit (oder in Abhängigkeit von der Anzahl von Clientanforderungen) zu. Der Arbeitsspeicher wird jedoch freigegeben, wenn er vom System benötigt wird, um die Auswirkungen auf die Systemleistung zu minimieren.  
+**Benutzerzugriffsprotokollierung im Arbeitsspeicher**: Da die Benutzer Zugriffs Protokollierung die Extensible Storage Engine (ESE) verwendet, werden die Arbeitsspeicher Anforderungen der Benutzer Zugriffs Protokollierung im Laufe der Zeit (oder nach Anzahl von Client Anforderungen) zunehmen. Der Arbeitsspeicher wird jedoch freigegeben, wenn er vom System benötigt wird, um die Auswirkungen auf die Systemleistung zu minimieren.  
   
-**Benutzerzugriffsprotokollierung auf der Festplatte**: In der folgenden Liste ist der ungefähr erforderliche Festplattenspeicher für die Benutzerzugriffsprotokollierung aufgeführt:  
+**Benutzerzugriffsprotokollierung auf der Festplatte**: Die Festplatten Anforderungen der Benutzer Zugriffs Protokollierung sind ungefähr wie unten dargestellt:  
   
 -   0 eindeutige Clientdatensätze: 22 MB  
   
@@ -234,10 +234,10 @@ Die Benutzerzugriffsprotokollierung kann maximal 65.535 Zugriffe pro Tag aufzeic
   
 -   500.000 eindeutige Clientdatensätze: 384 MB  
   
--   1.000.000 eindeutige Clientdatensätze: 729 MB  
+-   1\.000.000 eindeutige Clientdatensätze: 729 MB  
   
 ## <a name="recovering-from-a-corrupt-state"></a>Wiederherstellen nach einer Beschädigung  
-In diesem Abschnitt wird kurz erläutert, wie die Extensible Storage Engine (ESE) von der Benutzerzugriffsprotokollierung verwendet wird und was ein Administrator tun kann, wenn Daten der Benutzerzugriffsprotokollierung beschädigt oder nicht wiederherstellbar sind.  
+In diesem Abschnitt wird erläutert, wie die Extensible Storage Engine (ESE) auf hoher Ebene verwendet wird und was ein Administrator tun kann, wenn Daten der Benutzer Zugriffs Protokollierung beschädigt oder nicht wiederherstellbar sind.  
   
 Die Benutzerzugriffsprotokollierung verwendet die ESE, um die Verwendung von Systemressourcen und ihre Beständigkeit gegenüber Beschädigungen zu optimieren.  Weitere Informationen zu den Vorteilen der ESE finden Sie unter [Extensible Storage Engine](https://msdn.microsoft.com/library/windows/desktop/gg269259(v=exchg.10).aspx) auf MSDN.  
   
@@ -259,10 +259,10 @@ Reg add HKLM\Software\Microsoft\Windows\CurrentVersion\SyncShareSrv /v EnableWor
   
 Nach dem Hinzufügen des Registrierungsschlüssels müssen Sie den SyncShareSvc-Dienst auf dem Server neu starten, um die Protokollierung zu aktivieren.  
   
-Nachdem die Protokollierung aktiviert ist, werden immer dann, wenn sich ein Client mit dem Server verbindet, zwei Informationsereignisse auf dem Kanal "Windowsprotokolle\Anwendung" protokolliert. Für Arbeitsordner kann jeder Benutzer ein oder mehrere Clientgeräte verwenden, die sich alle 10 Minuten mit dem Server verbinden und prüfen, ob Updates vorhanden sind. Wenn sich 1.000 Benutzer mit jeweils zwei Geräten mit dem Server verbinden, werden die Anwendungsprotokolle alle 70 Minuten überschrieben, was die Problembehandlung bei nicht zusammenhängenden Problemen erschwert. Um dies zu vermeiden, können Sie den Benutzerzugriffsprotokollierung-Dienst vorübergehend deaktivieren, oder vergrößern Sie die Windows-protokoll\anwendung Kanal des Servers.  
+Nachdem die Protokollierung aktiviert ist, werden immer dann, wenn sich ein Client mit dem Server verbindet, zwei Informationsereignisse auf dem Kanal "Windowsprotokolle\Anwendung" protokolliert. Für Arbeitsordner kann jeder Benutzer ein oder mehrere Clientgeräte verwenden, die sich alle 10 Minuten mit dem Server verbinden und prüfen, ob Updates vorhanden sind. Wenn sich 1.000 Benutzer mit jeweils zwei Geräten mit dem Server verbinden, werden die Anwendungsprotokolle alle 70 Minuten überschrieben, was die Problembehandlung bei nicht zusammenhängenden Problemen erschwert. Um dies zu vermeiden, können Sie den Dienst für die Benutzer Zugriffs Protokollierung temporär deaktivieren oder die Größe des Windows-logs\anwendungskanals des Servers erhöhen.  
   
 ## <a name="BKMK_Links"></a>Siehe auch  
 
-- [Erste Schritte mit User Access Logging](get-started-with-user-access-logging.md)
+- [Einstieg in die Benutzer Zugriffs Protokollierung](get-started-with-user-access-logging.md)
   
 

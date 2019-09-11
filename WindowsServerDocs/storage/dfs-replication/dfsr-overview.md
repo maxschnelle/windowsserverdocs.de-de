@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: ac1f963fd369a5b18414ffcdf9b05519a2e33e14
-ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
+ms.openlocfilehash: 7c092547688bed01d3d588116badf6191e87b1ed
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69560510"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871961"
 ---
 # <a name="dfs-replication-overview"></a>Übersicht über DFS-Replikation
 
@@ -50,7 +50,7 @@ Vor dem Bereitstellen der DFS-Replikation müssen die Server wie folgt konfiguri
 
 Die Verwendung von DFS-Replikation auf einem virtuellen Computer in Azure wurde mit Windows Server getestet. Es gibt jedoch einige Einschränkungen und Anforderungen, die Sie befolgen müssen.
 
-- Wenn Sie einen Server, auf dem die DFS-Replikation nicht nur zum Replizieren des SYSVOL-Ordners verwendet wird, mithilfe von Momentaufnahmen oder gespeicherten Zuständen wiederherstellen, tritt bei der DFS-Replikation ein Fehler auf. In diesem Fall müssen spezielle Schritte zur Datenbankwiederherstellung ausgeführt werden. Dementsprechend sollten Sie keine virtuellen Computer exportieren, klonen oder kopieren. Weitere Informationen finden Sie in Artikel [2517913](http://support.microsoft.com/kb/2517913) in der Microsoft Knowledge Base sowie unter [Safely Virtualizing DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
+- Wenn Sie einen Server, auf dem die DFS-Replikation nicht nur zum Replizieren des SYSVOL-Ordners verwendet wird, mithilfe von Momentaufnahmen oder gespeicherten Zuständen wiederherstellen, tritt bei der DFS-Replikation ein Fehler auf. In diesem Fall müssen spezielle Schritte zur Datenbankwiederherstellung ausgeführt werden. Ebenso sollten Sie die virtuellen Computer nicht exportieren, Klonen oder kopieren. Weitere Informationen finden Sie in Artikel [2517913](http://support.microsoft.com/kb/2517913) in der Microsoft Knowledge Base sowie unter [Safely Virtualizing DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
 - Wenn Sie Daten in einem replizierten Ordner sichern, der auf einem virtuellen Computer gehostet wird, müssen Sie die Sicherungssoftware vom virtuellen Gastcomputer verwenden.
 - DFS-Replikation erfordert Zugriff auf physische oder virtuelle Domänen Controller – es ist nicht möglich, direkt mit Azure AD zu kommunizieren.
 - Die DFS-Replikation erfordert eine VPN-Verbindung zwischen Ihren lokalen Replikationsgruppenmitgliedern und allen in Azure-VMs gehosteten Mitgliedern. Sie müssen auch den lokalen Router (z. B. Forefront Threat Management Gateway) so konfigurieren, dass die VPN-Verbindung über die RPC-Endpunktzuordnung (Port 135) und einen zufällig zugewiesenen Port zwischen 49152 und 65535 weitergeleitet wird. Sie können das Cmdlet Set-dfsrmachineconfiguration oder das Befehlszeilen Tool Dfsrdiag verwenden, um anstelle des zufälligen Ports einen statischen Port anzugeben. Weitere Informationen zur Festlegung eines statischen Ports für die DFS-Replikation finden Sie unter [Set-DfsrServiceConfiguration](https://docs.microsoft.com/powershell/module/dfsr/set-dfsrserviceconfiguration). Informationen über das Öffnen verknüpfter Ports für die Verwaltung von Windows Server finden Sie im Artikel [832017](http://support.microsoft.com/kb/832017) in der Microsoft Knowledge Base.

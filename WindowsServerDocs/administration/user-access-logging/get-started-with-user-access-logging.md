@@ -1,5 +1,5 @@
 ---
-title: Erste Schritte mit User Access Logging
+title: Einstieg in die Benutzer Zugriffs Protokollierung
 desctription: Describes the User Access Logging feature and how to start using it.
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,28 +13,28 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8656bf278519b48f8d26008fd98e46428106e511
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a1706756b52777f5dd3bf1db59fb2ed087ca8648
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861501"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866255"
 ---
-# <a name="get-started-with-user-access-logging"></a>Erste Schritte mit User Access Logging
+# <a name="get-started-with-user-access-logging"></a>Einstieg in die Benutzer Zugriffs Protokollierung
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Benutzerzugriffsprotokollierung (User Access Logging, UAL) ist die Funktion in Windows Server, der die Client-Verwendungsdaten nach Rolle und Produkten auf einem lokalen Server aggregiert. Sie können Windows Server-Administratoren, die Anforderungen von Clientcomputern nach Rollen und Diensten auf einem lokalen Server messen.  
+Die Benutzer Zugriffs Protokollierung (User Access Logging, UAL) ist eine Funktion in Windows Server, die Client Verwendungs Daten nach Rolle und Produkten auf einem lokalen Server aggregiert. Dadurch können Windows Server-Administratoren Anforderungen von Client Computern nach Rollen und Diensten auf einem lokalen Server quantifizieren.  
   
-Benutzerzugriffsprotokollierung installiert und standardmäßig aktiviert, und erfasst Daten nahezu in Echtzeit. Es ist keine Konfiguration durch den Administrator erforderlich, wenngleich die Benutzerzugriffsprotokollierung deaktiviert oder aktiviert werden kann. Weitere Informationen finden Sie unter [Manage User Access Logging](Manage-User-Access-Logging.md). Die Benutzerzugriffsprotokollierung-Dienst aggregiert clientverwendungsdaten nach Rollen und Produkten in lokalen Datenbankdateien.  IT-Administratoren können später Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI) oder Windows PowerShell-Cmdlets verwenden, um Mengen und Instanzen nach Serverrolle (oder Softwareprodukt), Benutzer, Gerät, lokalem Server und Datum abzurufen.  
+Die Benutzer Zugriffs Protokollierung ist standardmäßig installiert und aktiviert und erfasst Daten nahezu in Echtzeit. Es ist keine Konfiguration durch den Administrator erforderlich, wenngleich die Benutzerzugriffsprotokollierung deaktiviert oder aktiviert werden kann. Weitere Informationen finden Sie unter [Manage User Access Logging](Manage-User-Access-Logging.md). Der Dienst für die Benutzer Zugriffs Protokollierung aggregiert Client Verwendungs Daten nach Rollen und Produkten in lokalen Datenbankdateien.  IT-Administratoren können später Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI) oder Windows PowerShell-Cmdlets verwenden, um Mengen und Instanzen nach Serverrolle (oder Softwareprodukt), Benutzer, Gerät, lokalem Server und Datum abzurufen.  
   
 > [!NOTE]  
 > Die UAL unterstützt das [Microsoft Assessment and Planning Toolkit](https://go.microsoft.com/fwlink/?LinkID=111000).  
   
 ## <a name="BKMK_APP"></a>Praktische Anwendungen  
-Die Benutzerzugriffsprotokollierung aggregiert eindeutige Client-Gerät und benutzeranforderungsereignisse, die in einer lokalen Datenbank protokolliert werden. Diese Datensätze werden dann (über die Abfrage eines Serveradministrators) zur Verfügung gestellt, um Mengen und Instanzen nach Serverrolle, Benutzer, Gerät, lokalem Server und Datum abzurufen.  Darüber hinaus wurde die Benutzerzugriffsprotokollierung erweitert, um nicht-Microsoft-Software-Entwickler von Windows Server aggregiert werden deren Ereignisse der Benutzerzugriffsprotokollierung Instrumentieren zu aktivieren.  
+Die Benutzer Zugriffs Protokollierung aggregiert eindeutige Client Geräte-und Benutzer Anforderungs Ereignisse, die in einer lokalen Datenbank protokolliert werden. Diese Datensätze werden dann (über die Abfrage eines Serveradministrators) zur Verfügung gestellt, um Mengen und Instanzen nach Serverrolle, Benutzer, Gerät, lokalem Server und Datum abzurufen.  Außerdem wurde die Benutzer Zugriffs Protokollierung erweitert, damit nicht-Microsoft-Softwareentwickler ihre UAL-Ereignisse so instrumentieren, dass Sie von Windows Server aggregiert werden.  
   
-Die Benutzerzugriffsprotokollierung kann die folgenden Aufgaben ausführen:  
+Die Benutzer Zugriffs Protokollierung kann die folgenden Aufgaben ausführen:  
   
 -   Berechnen der Clientbenutzeranforderungen für lokale physische oder virtuelle Server.  
   
@@ -44,7 +44,7 @@ Die Benutzerzugriffsprotokollierung kann die folgenden Aufgaben ausführen:
   
 -   Abrufen von Daten der Benutzerzugriffsprotokollierung von mehreren Remoteservern.  
   
-Darüber hinaus können Softwareentwickler Ereignisse der Benutzerzugriffsprotokollierung instrumentieren, die aggregiert und über WMI- und Windows PowerShell-Schnittstellen abgerufen werden können.  
+Außerdem können Softwareentwickler Ereignisse der Benutzer Zugriffs Protokollierung instrumentieren, die dann mithilfe von WMI-und Windows PowerShell-Schnittstellen aggregiert und abgerufen werden können.  
   
 Die folgenden Serverrollen und Dienste können von der Benutzerzugriffsprotokollierung unterstützt werden:  
   
@@ -90,14 +90,14 @@ Die folgenden Serverrollen und Dienste können von der Benutzerzugriffsprotokoll
 -   Windows Server Update Services (WSUS)  
   
 > [!IMPORTANT]  
-> Für direkt mit dem Internet verbundene Server (z. B. Webserver in einem Adressraum, der über das Internet zugänglich ist) oder Szenarien, in denen eine extrem hohe Leistung die primäre Funktion des Servers ist (z. B. in Umgebungen mit High Performance Computing-Auslastung), wird die Verwendung der Benutzerzugriffsprotokollierung nicht empfohlen. Die Benutzerzugriffsprotokollierung ist in erster Linie zur klein, Mittel und Intranet-Unternehmensszenarien, in denen umfangreiche erwartet wird, bestimmt, aber nicht so hoch wie Bereitstellungen, die Internetzugriff Datenverkehrsvolumen in regelmäßigen Abständen zu dienen.  
+> Für direkt mit dem Internet verbundene Server (z. B. Webserver in einem Adressraum, der über das Internet zugänglich ist) oder Szenarien, in denen eine extrem hohe Leistung die primäre Funktion des Servers ist (z. B. in Umgebungen mit High Performance Computing-Auslastung), wird die Verwendung der Benutzerzugriffsprotokollierung nicht empfohlen. Die Benutzer Zugriffs Protokollierung ist in erster Linie für Intranetszenarios in kleinen, mittelgroßen und großen Unternehmen gedacht, bei denen ein hohes Volumen erwartet wird, aber nicht so hoch wie bereit Stellungen, die regelmäßig Internet Datenverkehr verarbeiten.  
   
 ## <a name="BKMK_NEW"></a>Wichtige Funktionen  
 In der folgenden Tabelle werden die Hauptfunktionen der Benutzerzugriffsprotokollierung und ihre mögliche Bedeutung beschrieben.  
   
 |Funktionalität|Wert|  
 |-----------------|---------|  
-|Sammeln und Aggregieren von Client-Anforderungsereignisdaten nahezu in Echtzeit.|Es können bis zu drei Jahre an Daten gespeichert werden. **Wichtig:** Administratoren müssen die Konformität der gesammelten Daten und der Datenaufbewahrungsdauer mit den Datenschutzrichtlinien der Organisation und den lokalen Vorschriften erzwingen.|  
+|Sammeln und Aggregieren von Client-Anforderungsereignisdaten nahezu in Echtzeit.|Es können bis zu drei Jahre an Daten gespeichert werden. **Wichtig:** Administratoren müssen die Konformität der gesammelten Daten und der Beibehaltungs Dauer der Daten mit den Datenschutzbestimmungen der Organisation und den lokalen Vorschriften erzwingen.|  
 |Zum Abrufen von Client-Anforderungsdaten auf einem lokalen Server oder Remoteserver wird UAL über WMI- oder Windows PowerShell-Schnittstellen abgefragt.|UAL ermöglicht eine einzige Ansicht der fortlaufenden Nutzungsdaten. Server- und Unternehmensadministratoren können diese Daten abrufen und zusammen mit Business Administratoren auswerten, um die Nutzung von Volumenlizenzen für Software zu optimieren.|  
 |Standardmäßig aktiviert.|Serveradministratoren müssen diese Funktion nicht konfigurieren oder anderweitig festlegen, damit alle wichtigen Funktionen verfügbar und funktionsfähig sind.|  
   
@@ -107,32 +107,32 @@ Die folgenden benutzerspezifischen Daten werden von der Benutzerzugriffsprotokol
 |Daten|Beschreibung|  
 |--------|---------------|  
 |**UserName**|Benutzername des Clients, der die Einträge der Benutzerzugriffsprotokollierung aus installierten Rollen und Produkten ggf. begleitet.|  
-|**ActivityCount**|Die Anzahl der Zugriffe auf eine Rolle oder einen Dienst durch einen bestimmten Benutzer.|  
-|**FirstSeen**|Datum und Uhrzeit des ersten Zugriffs auf eine Rolle oder einen Dienst durch einen Benutzer.|  
-|**LastSeen**|Datum und Uhrzeit des letzten Zugriffs auf eine Rolle oder einen Dienst durch einen Benutzer.|  
+|**Activitycount**|Die Anzahl der Zugriffe auf eine Rolle oder einen Dienst durch einen bestimmten Benutzer.|  
+|**Firstseen**|Datum und Uhrzeit des ersten Zugriffs auf eine Rolle oder einen Dienst durch einen Benutzer.|  
+|**Lastseen**|Datum und Uhrzeit des letzten Zugriffs auf eine Rolle oder einen Dienst durch einen Benutzer.|  
 |**ProductName**|Name des Softwareprodukts (z. B. Windows), das Daten für die Benutzerzugriffsprotokollierung bereitstellt.|  
-|**RoleGUID**|Die von der Benutzerzugriffsprotokollierung zugewiesene oder registrierte GUID, die die Serverrolle bzw. das installierte Produkt darstellt.|  
+|**Roleguid**|Die von der Benutzerzugriffsprotokollierung zugewiesene oder registrierte GUID, die die Serverrolle bzw. das installierte Produkt darstellt.|  
 |**RoleName**|Name der Rolle, der Komponente oder des untergeordneten Produkts, die bzw. das die Daten für die Benutzerzugriffsprotokollierung bereitstellt. Hier besteht außerdem eine Verknüpfung mit %%amp;quot;ProductName%%amp;quot; und %%amp;quot;RoleGUID%%amp;quot;.|  
-|**TenantIdentifier**|Eindeutige GUID für den Mandantenclient einer installierten Rolle oder ggf. für ein Produkt, das die Daten der Benutzerzugriffsprotokollierung begleitet.|  
+|**Tenantidentifier**|Eindeutige GUID für den Mandantenclient einer installierten Rolle oder ggf. für ein Produkt, das die Daten der Benutzerzugriffsprotokollierung begleitet.|  
   
 Die folgenden gerätespezifischen Daten werden von der Benutzerzugriffsprotokollierung protokolliert.  
   
 |Daten|Beschreibung|  
 |--------|---------------|  
 |**IPAddress**|IP-Adresse eines Clientgeräts, das für den Zugriff auf eine Rolle oder einen Dienst verwendet wird.|  
-|**ActivityCount**|Die Anzahl der Zugriffe auf eine Rolle oder einen Dienst durch ein bestimmtes Gerät.|  
-|**FirstSeen**|Datum und Uhrzeit der ersten Verwendung einer IP-Adresse für den Zugriff auf eine Rolle oder einen Dienst.|  
-|**LastSeen**|Datum und Uhrzeit der letzten Verwendung einer IP-Adresse für den Zugriff auf eine Rolle oder einen Dienst.|  
+|**Activitycount**|Die Anzahl der Zugriffe auf eine Rolle oder einen Dienst durch ein bestimmtes Gerät.|  
+|**Firstseen**|Datum und Uhrzeit der ersten Verwendung einer IP-Adresse für den Zugriff auf eine Rolle oder einen Dienst.|  
+|**Lastseen**|Datum und Uhrzeit der letzten Verwendung einer IP-Adresse für den Zugriff auf eine Rolle oder einen Dienst.|  
 |**ProductName**|Name des Softwareprodukts (z. B. Windows), das Daten für die Benutzerzugriffsprotokollierung bereitstellt.|  
-|**RoleGUID**|Die von der Benutzerzugriffsprotokollierung zugewiesene oder registrierte GUID, die die Serverrolle bzw. das installierte Produkt darstellt.|  
+|**Roleguid**|Die von der Benutzerzugriffsprotokollierung zugewiesene oder registrierte GUID, die die Serverrolle bzw. das installierte Produkt darstellt.|  
 |**RoleName**|Name der Rolle, der Komponente oder des untergeordneten Produkts, die bzw. das die Daten für die Benutzerzugriffsprotokollierung bereitstellt. Hier besteht außerdem eine Verknüpfung mit %%amp;quot;ProductName%%amp;quot; und %%amp;quot;RoleGUID%%amp;quot;.|  
-|**TenantIdentifier**|Eindeutige GUID für den Mandantenclient einer installierten Rolle oder ggf. für ein Produkt, das die Daten der Benutzerzugriffsprotokollierung begleitet.|  
+|**Tenantidentifier**|Eindeutige GUID für den Mandantenclient einer installierten Rolle oder ggf. für ein Produkt, das die Daten der Benutzerzugriffsprotokollierung begleitet.|  
   
-## <a name="BKMK_SOFT"></a>Softwareanforderungen  
-Die Benutzerzugriffsprotokollierung kann auf jedem Computer unter Windows Server-Versionen nach Windows Server 2012 verwendet werden.  
+## <a name="BKMK_SOFT"></a>Software Anforderungen  
+Die Benutzer Zugriffs Protokollierung kann auf jedem Computer verwendet werden, auf dem Windows Server-Versionen nach Windows Server 2012 ausgeführt werden.  
   
 ## <a name="see-also"></a>Siehe auch  
 [Benutzerzugriffsprotokollierung](https://msdn.microsoft.com/library/windows/desktop/hh437528(v=vs.85).aspx) in MSDN.  
-[Verwalten der Benutzer Zugriff auf die Protokollierung](Manage-User-Access-Logging.md)  
+[Verwalten der Benutzerzugriffsprotokollierung](Manage-User-Access-Logging.md)  
   
 

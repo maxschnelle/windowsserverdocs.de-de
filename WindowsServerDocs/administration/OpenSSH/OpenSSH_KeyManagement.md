@@ -1,50 +1,50 @@
 ---
 ms.date: 09/27/2018
 ms.topic: conceptual
-keywords: OpenSSH "," SSH "," SSHD, installieren, tritt beim setup
+keywords: OpenSSH, SSH, sshd, installieren, Setup
 contributor: maertendMSFT
 author: maertendMSFT
-title: OpenSSH-Server-Konfiguration für Windows
+title: OpenSSH-Server Konfiguration für Windows
 ms.product: w10
-ms.openlocfilehash: 3e2981cbbdfe34bf28a77d5121bff0b663e0d3bf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ed9f3653c79f1329b1334f52fe14c1184bc99539
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837151"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866866"
 ---
 # <a name="openssh-key-management"></a>OpenSSH-Schlüsselverwaltung
 
-Die meisten in Umgebungen mit Windows-Authentifizierung erfolgt mit einem Paar aus Benutzername und Kennwort.
-Dies eignet sich gut für Systeme, die eine gemeinsame Domäne freigeben. Wenn Sie über Domänen hinweg zu arbeiten, wird z. B. zwischen lokalen und cloudbasierten Systemen, es zunehmend schwieriger.
+Die meisten Authentifizierung in Windows-Umgebungen erfolgt mit einem Paar aus Benutzername und Kennwort.
+Dies funktioniert gut für Systeme, die gemeinsam eine gemeinsame Domäne verwenden. Wenn Domänen übergreifend gearbeitet werden, z. b. zwischen lokalen und in der Cloud gehosteten Systemen, wird es schwieriger.
 
-Linux-Umgebungen wird im Vergleich dazu häufig öffentlichem Schlüssel/Private Schlüssel-Paare, die Laufwerk-Authentifizierung verwenden.
-OpenSSH enthält Tools, mit denen dies insbesondere unterstützt:
+Im Vergleich dazu verwenden Linux-Umgebungen häufig öffentliche/private Schlüsselpaare, um die Authentifizierung zu steuern.
+OpenSSH enthält Tools, mit denen dies unterstützt wird, insbesondere:
 
-* __SSH-Keygen__ zum sicheren Schlüssel generieren
-* __SSH-Agent__ und __ssh-add-__ zum sicheren Speichern von privaten Schlüsseln
-* __SCP__ und __Sftp__ sichere Kopieren von Dateien für öffentliche Schlüssel während der ersten Verwendung eines Servers
+* __ssh-keygen__ zum Erstellen von sicheren Schlüsseln
+* __SSH-Agent__ und __SSH-Add__ zum sicheren Speichern privater Schlüssel
+* __SCP__ und __SFTP__ zum sicheren Kopieren von Dateien für öffentliche Schlüssel während der anfänglichen Verwendung eines Servers
 
-Dieses Dokument enthält eine Übersicht über diese Tools auf Windows zu verwenden, um zu beginnen, SSH-Schlüsselauthentifizierung mit. Wenn Sie mit der Verwaltung der SSH-Schlüssel nicht vertraut sind, sollten Sie dringend Sie überprüfen, [NIST-Dokument IR 7966](http://nvlpubs.nist.gov/nistpubs/ir/2015/NIST.IR.7966.pdf) mit dem Titel "Security interaktiv und automatisierte Access Management Using Secure Shell (SSH)."
+Dieses Dokument enthält eine Übersicht über die Verwendung dieser Tools unter Windows, um mit der Verwendung der Schlüssel Authentifizierung mit SSH zu beginnen. Wenn Sie mit der SSH-Schlüsselverwaltung nicht vertraut sind, empfehlen wir Ihnen dringend, [NIST Document IR 7966](http://nvlpubs.nist.gov/nistpubs/ir/2015/NIST.IR.7966.pdf) mit dem Titel "Sicherheit der interaktiven und automatisierten Zugriffs Verwaltung mit Secure Shell (SSH)" zu lesen.
 
-## <a name="about-key-pairs"></a>Informationen zu Schlüsselpaare
+## <a name="about-key-pairs"></a>Informationen zu Schlüsselpaaren
 
-Schlüsselpaare finden Sie in der öffentlichen und privaten Schlüsseldateien, die von bestimmten Authentifizierungsprotokollen verwendet werden. 
+Schlüsselpaare verweisen auf die Dateien für öffentliche und private Schlüssel, die von bestimmten Authentifizierungs Protokollen verwendet werden. 
 
-Authentifizierung mit SSH öffentlichem Schlüssel verwendet Asymmetrische kryptografische Algorithmen, zum Generieren von zwei Schlüsseldateien – eine "Private" und der andere "öffentlich". Die Dateien mit privaten Schlüsseln entsprechen den ein Kennwort, und Sie sollten unter allen Umständen geschützt. Wenn jemand Ihren privaten Schlüssel abruft, können sie Sie zu einem beliebigen SSH-Server melden Sie sich, die, denen Sie können zugreifen. Der öffentliche Schlüssel wird auf dem SSH-Server befindet, und freigegeben werden kann, ohne Beeinträchtigung des privaten Schlüssels.
+Bei der Authentifizierung mit öffentlichem Schlüssel werden Asymmetrische Kryptografiealgorithmen verwendet, um zwei Schlüsseldateien zu generieren – eine "private" und die andere "Public". Die Dateien des privaten Schlüssels entsprechen einem Kennwort und sollten unter allen Umständen geschützt werden. Wenn jemand Ihren privaten Schlüssel erhält, kann er sich als Sie bei jedem beliebigen SSH-Server anmelden, auf den Sie Zugriff haben. Der öffentliche Schlüssel wird auf dem SSH-Server abgelegt und kann freigegeben werden, ohne dass der private Schlüssel kompromittiert wird.
 
-Bei Verwendung der Key-Authentifizierung mit einem SSH-Server Vergleichen der SSH-Server und der Client den öffentlichen Schlüssel für den Benutzernamen für den privaten Schlüssel. Wenn der öffentliche Schlüssel für den privaten Schlüssel für die clientseitige nicht überprüft werden kann, schlägt die Authentifizierung fehl. 
+Bei Verwendung der Schlüssel Authentifizierung bei einem SSH-Server vergleichen der SSH-Server und-Client den öffentlichen Schlüssel für den Benutzernamen, der mit dem privaten Schlüssel bereitgestellt wird. Wenn der öffentliche Schlüssel nicht anhand des Client seitigen privaten Schlüssels überprüft werden kann, schlägt die Authentifizierung fehl. 
 
-Multi-Factor Authentication kann mit Schlüsselpaaren implementiert werden, dadurch, dass eine Passphrase angegeben werden, wenn das Schlüsselpaar generiert wird (siehe unten schlüsselgenerierung). Während der Authentifizierung, die der Benutzer für die Passphrase aufgefordert wird, wird der zusammen mit das Vorhandensein des privaten Schlüssels für den SSH-Client zur Authentifizierung des Benutzers verwendet. 
+Die Multi-Factor Authentication kann mit Schlüsselpaaren implementiert werden, indem gefordert wird, dass eine Passphrase angegeben wird, wenn das Schlüsselpaar generiert wird (siehe Schlüsselgenerierung unten). Während der Authentifizierung wird der Benutzer zur Eingabe der Passphrase aufgefordert. diese wird zusammen mit dem vorhanden sein des privaten Schlüssels auf dem SSH-Client zum Authentifizieren des Benutzers verwendet. 
 
-## <a name="host-key-generation"></a>Host-schlüsselgenerierung
+## <a name="host-key-generation"></a>Generierung von Host Schlüsseln
 
-Öffentliche Schlüssel gelten bestimmte ACL, die auf Windows, entsprechen nur erlaubt den Zugriff auf Administratoren und System. Um dies zu vereinfachen, 
+Öffentliche Schlüssel weisen bestimmte ACL-Anforderungen auf, die unter Windows nur den Zugriff auf Administratoren und Systeme erlauben. Um dies zu vereinfachen, 
 
-* Die OpenSSHUtils-PowerShell-Modul erstellt, um den Schlüssel ACLs ordnungsgemäß festgelegt und sollte auf dem Server installiert werden
-* Bei der ersten Verwendung von Sshd wird das Schlüsselpaar für den Host automatisch generiert werden. Wenn ssh-Agent ausgeführt wird, werden die Schlüssel automatisch auf den lokalen Speicher hinzugefügt. 
+* Das PowerShell-Modul opensshutils wurde erstellt, um die Schlüssel-ACLs ordnungsgemäß festzulegen, und muss auf dem Server installiert werden.
+* Bei der ersten Verwendung von sshd wird das Schlüsselpaar für den Host automatisch generiert. Wenn SSH-Agent ausgeführt wird, werden die Schlüssel automatisch dem lokalen Speicher hinzugefügt. 
 
-Führen Sie die folgenden Befehle aus einer PowerShell-Eingabeaufforderung mit erhöhten Rechten aus, um Key-Authentifizierung mit einem SSH-Server zu erleichtern:
+Führen Sie die folgenden Befehle an einer PowerShell-Eingabeaufforderung mit erhöhten Rechten aus, um die Schlüssel Authentifizierung mit einem SSH-Server zu vereinfachen:
 
 ```powershell
 
@@ -58,27 +58,27 @@ Start-Service ssh-agent
 Start-Service sshd
 ```
 
-Da kein Benutzer, die den Sshd-Dienst zugeordnet ist, werden die Hostschlüssel unter \ProgramData\ssh gespeichert.
+Da dem sshd-Dienst kein Benutzer zugeordnet ist, werden die Host Schlüssel unter "\programdata\ssh" gespeichert.
 
 
-## <a name="user-key-generation"></a>Generierung von Schlüsseln
+## <a name="user-key-generation"></a>Generierung von Benutzer Schlüsseln
 
-Um Schlüsselbasierte Authentifizierung verwenden zu können, müssen Sie zunächst einige öffentlichen/privaten Schlüsselpaaren für Ihren Client zu generieren. Verwenden Sie ssh-Keygen über PowerShell oder cmd ein um einige wichtigsten Dateien zu generieren.
+Um die Schlüssel basierte Authentifizierung verwenden zu können, müssen Sie zunächst einige öffentliche/private Schlüsselpaare für Ihren Client generieren. Verwenden Sie in PowerShell oder cmd ssh-keygen, um einige Schlüsseldateien zu generieren.
 
 ```powershell
 cd ~\.ssh\
 ssh-keygen
 ```
 
-Dies sollte etwa wie folgt (wobei "Benutzername" ist durch Ihren Benutzernamen ersetzt) anzeigen
+Dies sollte in etwa wie folgt angezeigt werden (wobei "username" durch Ihren Benutzernamen ersetzt wird).
 
 ```
 Generating public/private ed25519 key pair.
 Enter file in which to save the key (C:\Users\username\.ssh\id_ed25519):
 ```
 
-Sie können EINGABETASTE drücken, um die Standardeinstellung übernehmen, oder geben Sie einen Pfad, in dem Sie Ihre Schlüssel generiert werden soll. An diesem Punkt werden Sie aufgefordert, eine Passphrase verwenden, um Ihre Dateien mit privaten Schlüsseln zu verschlüsseln.
-Die Passphrase kann mit der Schlüsseldatei zur 2-Faktor-Authentifizierung. In diesem Beispiel werden wir die Passphrase leer lassen. 
+Sie können die EINGABETASTE drücken, um die Standardeinstellung zu übernehmen, oder einen Pfad angeben, in dem die Schlüssel generiert werden sollen. An diesem Punkt werden Sie aufgefordert, eine Passphrase zum Verschlüsseln Ihrer Dateien für den privaten Schlüssel zu verwenden.
+Die Passphrase funktioniert mit der Schlüsseldatei, um die zweistufige Authentifizierung bereitzustellen. In diesem Beispiel wird die Passphrase leer gelassen. 
 
 ```
 Enter passphrase (empty for no passphrase): 
@@ -102,7 +102,7 @@ The key's randomart image is:
 +----[SHA256]-----+
 ```
 
-Nun müssen Sie ein öffentliches/privates ED25519 Schlüsselpaar (die pub-Dateien sind die öffentlichen Schlüssel und die übrigen sind private Schlüssel):
+Nun haben Sie ein öffentliches/privates ED25519-Schlüsselpaar (die pub-Dateien sind öffentliche Schlüssel und die übrigen privaten Schlüssel):
 
 ```
 Mode                LastWriteTime         Length Name
@@ -111,8 +111,8 @@ Mode                LastWriteTime         Length Name
 -a----        9/28/2018  11:09 AM            414 id_ed25519.pub
 ```
 
-Denken Sie daran, dass Dateien mit private Schlüsseln sind, dass das Äquivalent eines Kennworts geschützt werden sollten die gleiche Weise, wie Sie Ihr Kennwort schützen.
-Um dabei zu unterstützen, verwenden Sie ssh-Agent zum sicheren Speichern von privaten Schlüsseln in einem Windows-Sicherheitskontext, Ihre Windows-Anmeldenamen zugeordnet. Dazu starten Sie den ssh-Agent-Dienst als Administrator aus, und Verwenden von ssh-hinzufügen, um den privaten Schlüssel speichern. 
+Beachten Sie, dass die Dateien des privaten Schlüssels dem Kennwort entsprechen, das auf dieselbe Weise wie Ihr Kennwort geschützt werden muss.
+Um dies zu unterstützen, verwenden Sie SSH-Agent zum sicheren Speichern der privaten Schlüssel innerhalb eines Windows-Sicherheits Kontexts, der Ihrem Windows-Anmelde Namen zugeordnet ist. Starten Sie hierzu den SSH-Agent-Dienst als Administrator, und verwenden Sie SSH-Add, um den privaten Schlüssel zu speichern. 
 
 ```powershell
 # Make sure you're running as an Administrator
@@ -126,20 +126,20 @@ ssh-add ~\.ssh\id_ed25519
 
 ```
 
-Nach Abschluss dieser Schritte an, wenn ein privater Schlüssel für die Authentifizierung von diesem Client benötigt wird ssh-Agent automatisch Abrufen des lokalen privaten Schlüssels und übergeben Sie es an der SSH-Client.
+Nachdem Sie diese Schritte ausgeführt haben, ruft der SSH-Agent immer dann den lokalen privaten Schlüssel ab und übergibt ihn an Ihren SSH-Client, wenn für die Authentifizierung von diesem Client ein privater Schlüssel erforderlich ist.
 
 > [!NOTE]
-> Es wird dringend empfohlen, dass Sie Ihres privaten Schlüssels an einem sicheren Speicherort sichern, und löschen Sie es aus dem lokalen System, *nach* ssh-Agent hinzugefügt.
+> Es wird dringend empfohlen, dass Sie den privaten Schlüssel an einem sicheren Speicherort sichern und ihn dann aus dem lokalen System löschen, *nachdem* Sie ihn dem SSH-Agent hinzugefügt haben.
 > Der private Schlüssel kann nicht vom Agent abgerufen werden.
-> Wenn Sie den Zugriff auf den privaten Schlüssel verlieren, müssten Sie ein neues Schlüsselpaar erstellen und aktualisieren Sie den öffentlichen Schlüssel auf allen Systemen interagieren mit.
+> Wenn Sie den Zugriff auf den privaten Schlüssel verlieren, müssten Sie ein neues Schlüsselpaar erstellen und den öffentlichen Schlüssel auf allen Systemen aktualisieren, mit denen Sie interagieren.
 
-## <a name="deploying-the-public-key"></a>Bereitstellen von den öffentlichen Schlüssel
+## <a name="deploying-the-public-key"></a>Bereitstellen des öffentlichen Schlüssels
 
-Um den Benutzerschlüssel verwenden, die weiter oben erstellt wurde, muss der öffentliche Schlüssel auf dem Server befinden, in eine Textdatei namens *Authorized_keys* unter Users\username\ssh. Die OpenSSH-Tools umfassen scp, bei dem eine sichere Dateiübertragung-Dienstprogramm ist, um dies zu unterstützen.
+Um den oben erstellten Benutzerschlüssel zu verwenden, muss der öffentliche Schlüssel auf dem Server in eine Textdatei namens " *authorized_keys* " unter "users\benutzername\ssh." eingefügt werden. Zu den OpenSSH-Tools gehört SCP, ein sicheres Datei Übertragungs Dienstprogramm, um dies zu unterstützen.
 
-Verschieben Sie den Inhalt des öffentlichen Schlüssels (~\.ssh\id_ed25519.pub) in einem Text-Datei namens Authorized_keys in ~\.Ssh\ auf dem Server-Host.
+Um den Inhalt des öffentlichen Schlüssels (~\.ssh\id_ed25519.pub) in eine Textdatei mit dem Namen authorized_keys in ~\.SSH \ auf Ihrem Server/Host zu verschieben.
 
-In diesem Beispiel verwendet die reparieren-AuthorizedKeyPermissions-Funktion im Modul OpenSSHUtils die zuvor auf dem Host in der oben genannten Anweisungen installiert wurde.
+In diesem Beispiel wird die Funktion Repair-authorizedkey-Berechtigungen im opensshutils-Modul verwendet, das zuvor in den obigen Anweisungen auf dem Host installiert wurde.
 
 ```powershell
 # Make sure that the .ssh directory exists in your server's home folder
@@ -152,6 +152,6 @@ scp C:\Users\user1\.ssh\id_ed25519.pub user1@domain1@contoso.com:C:\Users\user1\
 ssh --% user1@domain1@contoso.com powershell -c $ConfirmPreference = 'None'; Repair-AuthorizedKeyPermission C:\Users\user1\.ssh\authorized_keys
 ```
 
-Diese Schritte ausführen, die Konfiguration erforderlich, um die Schlüsselbasierte Authentifizierung mit SSH für Windows zu verwenden.
-Danach kann der Benutzer an den Sshd-Host von jedem Client aus herstellen, auf den privaten Schlüssel.
+Mit diesen Schritten wird die Konfiguration vervollständigt, die für die Verwendung der Schlüssel basierten Authentifizierung mit SSH unter Windows erforderlich ist.
+Danach kann der Benutzer von jedem Client, der über den privaten Schlüssel verfügt, eine Verbindung mit dem sshd-Host herstellen.
 

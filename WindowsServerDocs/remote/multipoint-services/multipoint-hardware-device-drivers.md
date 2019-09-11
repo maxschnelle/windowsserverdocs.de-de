@@ -1,6 +1,6 @@
 ---
 title: Erfassen von der für die Installation benötigten Hardware und Gerätetreiber
-description: Informationen zu Treibern müssen Sie für MultiPoint Services installieren
+description: Informationen zu Treibern, die für Multipoint Services installiert werden müssen
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.technology: multipoint-services
@@ -13,25 +13,25 @@ author: evaseydl
 manager: scottman
 ms.author: evas
 ms.date: 08/04/2016
-ms.openlocfilehash: a9d902e2599cdcd69e156d1fabec87a067b1d8ea
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f7fec373bc62c93fbf31bbb24bf1a11a42c0736d
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833421"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871428"
 ---
 # <a name="collect-hardware-and-device-drivers-needed-for-the-installation"></a>Erfassen von der für die Installation benötigten Hardware und Gerätetreiber
-Bevor Sie beginnen, Ihre MultiPoint Services-System bereitstellen, benötigen Sie:  
+Bevor Sie mit der Bereitstellung Ihres Multipoint Services-Systems beginnen, benötigen Sie Folgendes:  
   
--   **Hardware-Komponenten für den Server** – installieren Sie zu diesem Zeitpunkt zusätzlichen Videokarten oder anderen Systemkomponenten.  
+-   **Hardware Komponenten für den Server** : Installieren Sie zu diesem Zeitpunkt alle zusätzlichen Grafikkarten oder anderen Systemkomponenten.  
   
--   **Hardware-Komponenten für die Stationen** – Weitere Informationen zur Planung von Stationen für Ihre Umgebung finden Sie unter [Auswählen der Hardware für Ihr MultiPoint Services-Systems](Selecting-Hardware-for-Your-MultiPoint-services-System.md).
--   **Die neuesten Treiber für Ihre Grafikkarten** – Wenn es sich bei Ihrem OEM oder Gerätehersteller diese nicht angegeben wurde, müssen Sie diese von der Website des Herstellers herunterladen.  
+-   **Hardwarekomponenten für die Stationen** : Informationen zum Planen von Stationen für Ihre Umgebung finden Sie unter [Auswählen von Hardware für Ihr Multipoint Services-System](Selecting-Hardware-for-Your-MultiPoint-services-System.md).
+-   **Die neuesten Treiber für ihre Grafikkarten** : Wenn Ihr OEM-oder Gerätehersteller diese nicht bereitgestellt hat, müssen Sie Sie von der Website des Geräteherstellers herunterladen.  
   
--   **Die neuesten USB-0 (null)-Client-Treiber** – Wenn Sie USB-0 (null) Client Stationen verwenden, müssen Sie die neuesten Client-Treiber von USB-0 (null) installieren.  
+-   **Die neuesten USB Zero-Client Treiber** : Wenn Sie USB-Client Stationen verwenden, müssen Sie die neuesten USB-Client Treiber installieren.  
   
     > [!IMPORTANT]  
-    > Für eine MultiPoint Services-Installation müssen Sie die 64-Bit-Version, der alle Treiber installieren.  
+    > Für eine Multipoint Services-Installation müssen Sie die 64-Bit-Version der Treiber installieren.  
   
 > [!TIP]  
-> Bei Installation von MultiPoint Services auf einem Computer mit einer anderen Version von Windows bereits installiert sollten Sie herausfinden, Grafikkarte Fabrikat und Modell im Geräte-Manager vor der Installation von Windows Server und stellen Sie sicher, dass Sie Treiber erhalten können, sind für Windows Server 2016 verfügbar. Open-Geräte-Manager öffnen **Computerverwaltung** aus der **starten** Bildschirm. Klicken Sie in der Konsolenstruktur auf **-Geräte-Manager**.
+> Wenn Sie Multipoint Services auf einem Computer installieren, auf dem bereits eine andere Version von Windows installiert ist, sollten Sie vor dem Starten der Windows Server-Installation die Grafikkarte und das Modell in Geräte-Manager ermitteln und sicherstellen, dass Sie Treiber abrufen können, die verfügbar für Windows Server 2016. Öffnen Sie Geräte-Manager, und öffnen Sie die **Computer Verwaltung** über den **Start** Bildschirm. Klicken Sie dann in der Konsolen Struktur auf **Geräte-Manager**.

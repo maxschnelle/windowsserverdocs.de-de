@@ -1,6 +1,6 @@
 ---
 title: Konfigurieren des RAS-Servers für Always On VPN
-description: RRAS dient auch als Router und RAS-Server ausführen. aus diesem Grund unterstützt ein breites Spektrum an Funktionen.
+description: RRAS ist so konzipiert, dass Sie sowohl einen Router als auch einen Remote Zugriffs Server ausführen können. Daher unterstützt es eine Vielzahl von Features.
 ms.prod: windows-server-threshold
 ms.technology: networking-ras
 ms.topic: article
@@ -10,50 +10,50 @@ ms.author: pashort
 author: shortpatti
 ms.date: 08/30/2018
 ms.reviewer: deverette
-ms.openlocfilehash: 3920f7f075f4742a62577ade809cc0494b05bf1f
-ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
+ms.openlocfilehash: 8ed7dd9b8b02ab58cfb6dacf031576004c8d0290
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749437"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871311"
 ---
 # <a name="step-3-configure-the-remote-access-server-for-always-on-vpn"></a>Schritt 3 Konfigurieren des RAS-Servers für Always On VPN
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Vorherige:** Schritt 2 Konfigurieren der Serverinfrastruktur](vpn-deploy-server-infrastructure.md)
-- [**Vorherige:** Schritt 4 Installieren Sie und konfigurieren Sie (Network Policy Server, NPS)](vpn-deploy-nps.md)
+- [**Vorher** Schritt 2 Konfigurieren der Server Infrastruktur](vpn-deploy-server-infrastructure.md)
+- [**Vorher** Schritt 4 Installieren und Konfigurieren des Netzwerk Richtlinien Servers (NPS)](vpn-deploy-nps.md)
 
-RRAS dient auch als Router und RAS-Server ausführen, da es sich um ein breites Spektrum an Funktionen unterstützt. Für die Zwecke dieser Bereitstellung können Sie nur eine kleine Teilmenge dieser Funktionen benötigen: Unterstützung für IKEv2-VPN-Verbindungen und LAN-routing.
+RRAS ist so konzipiert, dass Sie sowohl einen Router als auch einen RAS-Server ausführen, da er eine Vielzahl von Features unterstützt. Für diese Bereitstellung benötigen Sie nur eine kleine Teilmenge dieser Features: Unterstützung für IKEv2-VPN-Verbindungen und LAN-Routing.
 
-IKEv2 befindet es sich um ein VPN-Tunneling-Protokoll in die Internet Engineering Task Force-Anforderung für Kommentare 7296 beschrieben. Der wichtigste Vorteil von IKEv2 ist, dass es sich um Unterbrechungen in die zugrunde liegende Netzwerkverbindung toleriert. Z. B. wenn die Verbindung vorübergehend unterbrochen wird, oder wenn ein Benutzer einen Clientcomputer aus einem Netzwerk zu einem anderen bewegt, IKEv2 automatisch wiederherstellt, die VPN-Verbindung, wenn die Verbindung wiederhergestellt ist – alles ohne Eingreifen des Benutzers.
+IKEv2 ist ein VPN-Tunnelingprotokoll, das in Internet Engineering Task Force Request for Comments 7296 beschrieben wird. Der Hauptvorteil von IKEv2 besteht darin, dass Unterbrechungen in der zugrunde liegenden Netzwerkverbindung toleriert werden. Wenn beispielsweise die Verbindung vorübergehend unterbrochen wird oder ein Benutzer einen Client Computer von einem Netzwerk auf einen anderen verschiebt, stellt IKEv2 die VPN-Verbindung automatisch wieder her, wenn die Netzwerkverbindung wieder hergestellt wird – ohne Benutzereingriff.
 
-Konfigurieren von RRAS-Servers zur Unterstützung von IKEv2-Verbindungen beim Deaktivieren nicht verwendeter Protokolle, die Sicherheitsbedarf des Servers reduziert. Außerdem konfigurieren Sie den Server, um Adressen zu VPN-Clients von einem statischen Adresspool zugewiesen. Sie können berechtigterweise Adressen aus einem Pool oder einem DHCP-Server zuweisen. Allerdings wird mit einem DHCP-Server erhöht die Komplexität des Entwurfs und bietet minimale Vorteile.
+Konfigurieren Sie den RRAS-Server für die Unterstützung von IKEv2-Verbindungen, während nicht verwendete Protokolle deaktiviert werden, wodurch die Sicherheitsanforderungen des Servers reduziert werden. Außerdem konfigurieren Sie den Server für die Zuweisung von Adressen zu VPN-Clients aus einem statischen Adresspool. Sie können Adressen entweder aus einem Pool oder einem DHCP-Server zuweisen. die Verwendung eines DHCP-Servers erhöht jedoch die Komplexität des Entwurfs und bietet nur minimale Vorteile.
 
 >[!IMPORTANT]
->Es ist wichtig:
->- Installieren Sie zwei Ethernet-Netzwerkadapter auf dem physischen Server an. Wenn Sie den VPN-Server auf einem virtuellen Computer installieren, müssen Sie zwei externen virtuellen Switches, einen für jeden physischen Netzwerkadapter erstellen; und erstellen Sie zwei virtuelle Netzwerkadapter für den virtuellen Computer mit einzelnen Netzwerkadapter mit einem virtuellen Switch verbunden.
+>Folgendes ist wichtig:
+>- Installieren Sie zwei Ethernet-Netzwerkadapter auf dem physischen Server. Wenn Sie den VPN-Server auf einem virtuellen Computer installieren, müssen Sie zwei externe virtuelle Switches erstellen, eine für jeden physischen Netzwerkadapter. Erstellen Sie dann zwei virtuelle Netzwerkadapter für die VM, wobei jeder Netzwerkadapter mit einem virtuellen Switch verbunden ist.
 >
->- Installieren Sie den Server im Umkreisnetzwerk zwischen dem Rand und die internen Firewalls mit ein Netzwerkadapter mit dem externen Netzwerk des Umkreisnetzwerks und ein Netzwerkadapter mit dem internen Umkreisnetzwerk.
+>- Installieren Sie den Server in Ihrem Umkreis Netzwerk zwischen Ihren Edge-und internen Firewalls, mit einem Netzwerkadapter, der mit dem externen Umkreis Netzwerk verbunden ist, und einem Netzwerkadapter, der mit dem internen Umkreis Netzwerk verbunden ist.
 
 >[!WARNING]
->Bevor Sie beginnen, stellen Sie sicher, dass IPv6 auf dem VPN-Server zu aktivieren. Andernfalls kann eine Verbindung kann nicht hergestellt werden, und eine Fehlermeldung angezeigt wird.
+>Bevor Sie beginnen, stellen Sie sicher, dass Sie IPv6 auf dem VPN-Server aktivieren. Andernfalls kann keine Verbindung hergestellt werden, und es wird eine Fehlermeldung angezeigt.
 
-## <a name="install-remote-access-as-a-ras-gateway-vpn-server"></a>Installieren Sie den Remotezugriff als RAS-Gateway-VPN-Server
+## <a name="install-remote-access-as-a-ras-gateway-vpn-server"></a>Installieren des Remote Zugriffs als RAS-Gateway-VPN-Server
 
-In diesem Verfahren installieren Sie die Rolle "Remotezugriff" als einzelner Mandant RAS-VPN-Gateway-Server an. Weitere Informationen finden Sie unter [Remote Access](../../../Remote-Access.md).
+In diesem Verfahren installieren Sie die Remote Zugriffs Rolle als einzelner Mandanten-RAS-Gateway-VPN-Server. Weitere Informationen finden Sie unter [Remote Access](../../../Remote-Access.md).
 
-### <a name="install-the-remote-access-role-by-using-windows-powershell"></a>Installieren Sie die Rolle "Remotezugriff" mithilfe von Windows PowerShell
+### <a name="install-the-remote-access-role-by-using-windows-powershell"></a>Installieren der Remote Zugriffs Rolle mithilfe von Windows PowerShell
 
 1. Öffnen Sie Windows PowerShell als **Administrator**.
 
-2. Geben Sie an, und führen Sie das folgende Cmdlet aus:
+2. Geben Sie folgendes Cmdlet ein, und führen Sie es aus:
 
    ```powershell
    Install-WindowsFeature DirectAccess-VPN -IncludeManagementTools
    ```
 
-   Nach Abschluss der Installation wird die folgende Meldung angezeigt, in Windows PowerShell.
+   Nachdem die Installation abgeschlossen ist, wird die folgende Meldung in Windows PowerShell angezeigt.
 
    ```powershell
    | Success | Restart Needed | Exit Code |               Feature Result               |
@@ -61,177 +61,177 @@ In diesem Verfahren installieren Sie die Rolle "Remotezugriff" als einzelner Man
    |  True   |       No       |  Success  | {RAS Connection Manager Administration Kit |
    ```
 
-### <a name="install-the-remote-access-role-by-using-server-manager"></a>Installieren Sie die Rolle "Remotezugriff" mithilfe von Server-Manager
+### <a name="install-the-remote-access-role-by-using-server-manager"></a>Installieren Sie die Remote Zugriffs Rolle mit Server-Manager
 
-Sie können das folgende Verfahren verwenden, der Rolle "Remotezugriff" mit Server-Manager zu installieren.
+Mithilfe des folgenden Verfahrens können Sie die Remote Zugriffs Rolle mithilfe von Server-Manager installieren.
 
-1. Wählen Sie auf die VPN-Server im Server-Manager **verwalten** , und wählen Sie **Hinzufügen von Rollen und Features**.
+1. Wählen Sie auf dem VPN-Server in Server-Manager die Option **Verwalten** aus, und wählen Sie **Rollen und Features hinzufügen**aus.
    
    Der Assistent zum Hinzufügen von Rollen und Features wird geöffnet.
 
-2. Auf der Seite zu beginnen, wählen Sie **Weiter**.
+2. Wählen Sie auf der Seite Vorbereitung die Option **weiter**aus.
 
-3. Wählen Sie auf der Seite Installationstyp auswählen die **rollenbasierte oder featurebasierte Installation** aus, und wählen Sie **Weiter**.
+3. Wählen Sie auf der Seite Installationstyp auswählen die Option **rollenbasierte oder featurebasierte Installation** aus, und klicken Sie auf **weiter**.
 
-4. Wählen Sie auf der Seite Zielserver auswählen den Server der **wählen Sie einen Server aus dem Serverpool** Option.
+4. Wählen Sie auf der Seite Zielserver auswählen die Option **einen Server aus dem Server Pool auswählen aus** .
 
-5. Wählen Sie unter Server-Ressourcenpool, den lokalen Computer, und wählen Sie **Weiter**.
+5. Wählen Sie unter Server Pool den lokalen Computer aus, und klicken Sie auf **weiter**.
 
-6. Wählen Sie im Server-Rollen auf der Seite **Rollen**Option **RAS**, klicken Sie dann **Weiter**.
+6. Wählen Sie auf der Seite Server Rollen auswählen unter **Rollen**die Option **Remote Zugriff**aus, und klicken Sie dann auf **weiter**.
 
-7. Wählen Sie auf der Seite Funktionen auswählen **Weiter**.
+7. Wählen Sie auf der Seite Features auswählen die Option **weiter**aus.
 
-8. Wählen Sie auf der Seite RAS **Weiter**.
+8. Wählen Sie auf der Seite Remote Zugriff die Option **weiter**aus.
 
-9.  Auf der Seite Rolle auswählen in **Rollendienste**Option **DirectAccess und VPN (RAS)** .
+9.  Wählen Sie auf der Seite Rollen Dienst auswählen unter **Rollen Dienste**die Option **DirectAccess und VPN (RAS)** aus.
 
-   Die **Hinzufügen von Rollen und Features Assistenten** Dialogfeld wird geöffnet.
+   Das Dialogfeld **Assistent zum Hinzufügen von Rollen und Features** wird geöffnet.
 
-11. Wählen Sie im Dialogfeld Rollen und Features hinzufügen **Features hinzufügen** wählen Sie dann **Weiter**.
+11. Klicken Sie im Dialogfeld Rollen und Features hinzufügen auf **Features hinzufügen** , und klicken Sie dann auf **weiter**.
 
-12. Wählen Sie auf der Seite "Webserverrolle (IIS)" **Weiter**.
+12. Wählen Sie auf der Seite Webserver Rolle (IIS) die Option **weiter**aus.
 
-13. Wählen Sie auf der Seite Dienste; Rollendienste auswählen% **Weiter**.
+13. Wählen Sie auf der Seite Rollen Dienste auswählen die Option **weiter**aus.
 
-14. Klicken Sie auf der Seite Installationsauswahl bestätigen, überprüfen Sie Ihre Auswahl, und wählen Sie dann **installieren**.
+14. Überprüfen Sie auf der Seite Installations Auswahl bestätigen Ihre Auswahl, und wählen Sie dann **Installieren**aus.
 
-15. Wenn die Installation abgeschlossen ist, wählen Sie **schließen**.
+15. Wenn die Installation abgeschlossen ist, wählen Sie **Schließen**aus.
 
-## <a name="configure-remote-access-as-a-vpn-server"></a>Konfigurieren des Remotezugriffs einen VPN-Server
+## <a name="configure-remote-access-as-a-vpn-server"></a>Konfigurieren des Remote Zugriffs als VPN-Server
 
-In diesem Abschnitt können Sie Remote Access VPN für IKEv2-VPN-Verbindungen zulassen, verweigern Verbindungen von anderen VPN-Protokolle und zuweisen einen statischen IP-Adresspool für die Ausstellung von IP-Adressen zum Herstellen einer Verbindung autorisierte VPN-Clients konfigurieren.
+In diesem Abschnitt können Sie das RAS-VPN so konfigurieren, dass es IKEv2-VPN-Verbindungen zulässt, Verbindungen von anderen VPN-Protokollen ablehnen und einen statischen IP-Adresspool für die Ausstellung von IP-Adressen für die Verbindung mit autorisierten VPN-Clients zuweisen.
 
-1. Wählen Sie auf die VPN-Server im Server-Manager die **Benachrichtigungen** Flag.
+1. Wählen Sie auf dem VPN-Server in Server-Manager das **Benachrichtigungs** Kennzeichen aus.
 
-2. In der **Aufgaben** , wählen Sie im Menü **öffnen Sie den Assistenten für erste Schritte**
+2. Wählen Sie im Menü **Aufgaben** **die Option Assistenten für die** ersten Schritte öffnen aus.
 
-   Das Konfigurieren des Remotezugriffs-Assistent wird geöffnet.
+   Der Assistent zum Konfigurieren des Remote Zugriffs wird geöffnet.
 
    >[!NOTE]
-   >Konfigurieren von RAS-Assistenten möglicherweise hinter den Server-Manager zu öffnen. Wenn Sie, dass der Assistent glauben geöffnet zu lange dauert, verschieben Sie oder minimieren Sie des Server Manager, um herauszufinden, ob der Assistent dahinter ist. Wenn dies nicht der Fall ist, warten Sie, um den Assistenten zu initialisieren.
+   >Der Assistent zum Konfigurieren des Remote Zugriffs kann hinter Server-Manager geöffnet werden. Wenn Sie der Ansicht sind, dass es zu lange dauert, bis der Assistent geöffnet ist, verschieben oder minimieren Sie Server-Manager, um herauszufinden, ob der Assistent dahinter liegt. Falls nicht, warten Sie, bis der Assistent initialisiert wurde.
 
-3. Wählen Sie **Bereitstellen eines VPN nur**.
+3. Wählen Sie **nur VPN**bereitstellen aus.
 
-    Der Routing- und RAS Zugriff Microsoft Management Console (MMC) wird geöffnet.
+    Der Routing-und RAS-Microsoft Management Console (MMC) wird geöffnet.
 
-4. Mit der rechten Maustaste in des VPN-Servers aus, und wählen Sie dann **konfigurieren und Aktivieren von Routing und Remotezugriff**.
+4. Klicken Sie mit der rechten Maustaste auf den VPN-Server, und wählen Sie dann **Konfigurieren und Remote Zugriff aktivieren**aus.
 
-   Der Routing- und RAS-Server-Setup-Assistent wird geöffnet.
+   Der Setup-Assistent für den Routing-und RAS-Server wird geöffnet.
 
-5. Wählen Sie die Willkommensseite der Routing- und RAS-Server-Setup-Assistent, **Weiter**.
+5. Wählen Sie in der Willkommensseite des Setup-Assistenten für den Routing-und RAS-Server die Option **weiter**aus.
 
-6. In **Konfiguration**Option **benutzerdefinierte Konfiguration**, und wählen Sie dann **Weiter**.
+6. Wählen Sie unter **Konfiguration**die Option **benutzerdefinierte Konfiguration**aus, und klicken Sie dann auf **weiter**.
 
-7. In **benutzerdefinierte Konfiguration**Option **VPN-Zugriff**, und wählen Sie dann **Weiter**.
+7. Wählen Sie unter **benutzerdefinierte Konfiguration**die Option **VPN-Zugriff**, und klicken Sie dann auf **weiter**.
 
-   Das Abschließen der Routing- und RAS-Server-Setup-Assistent wird geöffnet.
+   Der Assistent zum Abschließen des Routing-und RAS-Servers wird geöffnet.
 
-8. Wählen Sie **Fertig stellen** um den Assistenten zu schließen, und wählen Sie dann **OK** um das Routing und RAS-Dialogfeld zu schließen.
+8. Wählen Sie **Fertig** stellen aus, um den Assistenten zu schließen, und klicken Sie dann auf **OK** , um das Dialogfeld Routing und RAS zu schließen
 
-9. Wählen Sie **Dienst starten** um Remotezugriff zu starten.
+9. Wählen Sie **Dienst starten** , um den Remote Zugriff zu starten.
 
-10. In der RAS-MMC, mit der Maustaste des VPN-Servers aus, und wählen Sie dann **Eigenschaften**.
+10. Klicken Sie in der Remote Zugriffs-MMC mit der rechten Maustaste auf den VPN-Server, und wählen Sie **Eigenschaften**aus.
 
-11. Wählen Sie in Eigenschaften der **Sicherheit** Registerkarte, und führen:
+11. Wählen Sie unter "Eigenschaften" die Registerkarte " **Sicherheit** " aus, und
 
-    a. Wählen Sie **Authentifizierungsanbieter** , und wählen Sie **RADIUS-Authentifizierung**.
+    a. Wählen Sie **Authentifizierungs Anbieter** und dann **RADIUS-Authentifizierung**aus.
 
-    b. Wählen Sie **konfigurieren**.
+    b. Wählen Sie **Konfigurieren**aus.
 
-       Das Dialogfeld "RADIUS-Authentifizierung" wird geöffnet.
+       Das Dialogfeld RADIUS-Authentifizierung wird geöffnet.
 
-    c. Wählen Sie **hinzufügen**.
+    c. Wählen Sie **Hinzufügen**.
 
-       Das Dialogfeld "RADIUS-Server hinzufügen" wird geöffnet.
+       Das Dialogfeld RADIUS-Server hinzufügen wird geöffnet.
 
-    d. In **Servernamen**, geben Sie den vollständig qualifizierten Domänennamen (FQDN) des NPS-Servers in Ihrem Netzwerk der Organisation/Corporate (Unternehmen).
+    d. Geben Sie unter **Server Name**den voll qualifizierten Domänen Namen (Fully Qualified Domain Name, FQDN) des NPS-Servers in Ihrer Organisation/Ihrem Unternehmensnetzwerk ein.
     
-       Wenn der NetBIOS-Namen des NPS-Servers NPS1 ist, und Ihr Domänenname corp.contoso.com ist, geben Sie beispielsweise **NPS1.corp.contoso.com**.
+       Wenn der NetBIOS-Name des NPS-Servers beispielsweise NPS1 lautet und Ihr Domänen Name Corp.contoso.com lautet, geben Sie **NPS1.Corp.contoso.com**ein.
 
-    e. In **gemeinsamer geheimer Schlüssel**Option **Änderung**.
+    e. Wählen Sie unter **gemeinsamer geheimer**Schlüssel die Option **ändern**aus.
 
-       Der Schlüssel ändern-Dialogfeld wird geöffnet.
+       Das Dialogfeld Geheimnis ändern wird geöffnet.
 
-    f. In **neuer geheimer**, eine Textzeichenfolge einzugeben.
+    f. Geben Sie unter **neues Geheimnis**eine Text Zeichenfolge ein.
 
-    g. In **neuen geheimen Schlüssel bestätigen**, geben Sie die gleiche Textzeichenfolge ein, und wählen **OK**.
+    g. Geben Sie in **neues Geheimnis bestätigen**die gleiche Text Zeichenfolge ein, und klicken Sie dann auf **OK**.
 
     >[!IMPORTANT]
-    >Speichern Sie die Textzeichenfolge. Wenn Sie den NPS-Server in Ihrem Netzwerk der Organisation/Corporate (Unternehmen) konfigurieren, fügen Sie dieses VPN-Server als RADIUS-Client hinzu. Bei dieser Konfiguration verwenden Sie dieses gleiche gemeinsame Geheimnis, damit die NPS- und VPN-Server kommunizieren können.
+    >Speichern Sie diese Text Zeichenfolge. Wenn Sie den NPS-Server in Ihrer Organisation/Ihrem Unternehmensnetzwerk konfigurieren, fügen Sie diesen VPN-Server als RADIUS-Client hinzu. Während dieser Konfiguration verwenden Sie den gleichen gemeinsamen geheimen Schlüssel, damit die NPS-und VPN-Server kommunizieren können.
 
-12. In **RADIUS-Server hinzufügen**, überprüfen Sie die Standardeinstellungen für:
+12. Überprüfen **Sie in RADIUS-Server hinzufügen**die Standardeinstellungen für:
 
-    - **Time-out**
+    - **Timeout**
 
     - **Anfängliche Bewertung**
 
     - **Port**
 
-13. Ändern Sie die Werte entsprechend die Anforderungen für Ihre Umgebung und wählen Sie bei Bedarf **OK**.
+13. Ändern Sie ggf. die Werte entsprechend den Anforderungen für Ihre Umgebung, und wählen Sie **OK**aus.
 
-    NAS ist ein Gerät, das Zugriff auf ein größeres Netzwerk bereitstellt. Eine RADIUS-Infrastruktur NAS ist auch ein RADIUS-Client, senden verbindungsanforderungen und Kontoführungsnachrichten an einen RADIUS-Server für die Authentifizierung, Autorisierung und ressourcenerfassung.
+    Ein NAS ist ein Gerät, das ein gewisses Maß an Zugriff auf ein größeres Netzwerk bietet. Ein NAS, das eine RADIUS-Infrastruktur verwendet, ist auch ein RADIUS-Client, der Verbindungsanforderungen und Buchhaltungs Nachrichten an einen RADIUS-Server zur Authentifizierung, Autorisierung und Kontoführung sendet.
 
-14. Überprüfen Sie die Einstellung für **Kontoanbieter**:
+14. Überprüfen Sie die Einstellung für den **Kontoführungs Anbieter**:
 
-    |                    Wenn Sie möchten die...                     |                                                     Dann...                                                      |
+    |                    Wenn Sie möchten...                     |                                                     Dann...                                                      |
     |-----------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
-    | Remote Access-Aktivität, die auf dem RAS-Server protokolliert |                               Stellen Sie sicher, dass **Windows Accounting** ausgewählt ist.                               |
-    |        NPS auszuführenden Accounting-Dienste für VPN         | Änderung **Kontoanbieter** zu **RADIUS-Kontoführung** und konfigurieren Sie den NPS als Kontoführungsanbieter. |
+    | Remote Zugriffs Aktivität auf dem RAS-Server protokolliert |                               Stellen Sie sicher, dass Windows-Konto **Führung** ausgewählt ist.                               |
+    |        NPS zum Durchführen von Buchhaltungs Diensten für VPN         | Ändern Sie den Konto **Buchhaltungs Anbieter** in die RADIUS-Konto **Führung** , und konfigurieren Sie dann den NPS als Buchhaltungs Anbieter. |
 
-15. Wählen Sie die **IPv4** Registerkarte und zu tun:
+15. Wählen Sie die Registerkarte **IPv4** aus.
 
-    a. Wählen Sie **statischen Adresspool**.
+    a. Wählen Sie **statischer Adresspool**aus.
 
-    b. Wählen Sie **hinzufügen** so konfigurieren Sie einen IP-Adresspool.
+    b. Wählen Sie **Hinzufügen** , um einen IP-Adresspool zu konfigurieren.
 
-       Statische Adresspool muss es sich um Adressen aus dem internen Netzwerk enthalten. Diese Adressen sind für die interne Netzwerkverbindung auf dem VPN-Server nicht im Unternehmensnetzwerk.
+       Der statische Adresspool sollte Adressen aus dem internen Umkreis Netzwerk enthalten. Diese Adressen sind über die interne Netzwerkverbindung auf dem VPN-Server, nicht über das Unternehmensnetzwerk.
 
-    c. In **Start-IP-Adresse**, geben Sie die IP-Startadresse des Bereichs, der Sie den VPN-Clients zuweisen möchten.
+    c. Geben Sie in **Start-IP-Adresse**die IP-Startadresse in dem Bereich ein, der den VPN-Clients zugewiesen werden soll.
 
-    d. In **End-IP-Adresse**, geben Sie die IP-Endadresse in den Bereich, der Sie den VPN-Clients oder im zuweisen möchten **Anzahl von Adressen**, geben Sie an die Adresse, die Sie zur Verfügung stellen möchten. Wenn Sie DHCP für dieses Subnetz verwenden, stellen Sie sicher, dass Sie einen Adressausschluss für entsprechende von DHCP-Servern konfigurieren.
+    d. Geben Sie unter **End-IP-Adresse**die IP-Endadresse in dem Bereich ein, der den VPN-Clients zugewiesen werden soll, oder geben Sie **die Nummer der Adresse ein, die**Sie zur Verfügung stellen möchten. Wenn Sie DHCP für dieses Subnetz verwenden, stellen Sie sicher, dass Sie einen entsprechenden Adress Ausschluss auf Ihren DHCP-Servern konfigurieren.
 
-    e. (Optional) Wenn Sie DHCP verwenden, wählen Sie **Adapter**, und wählen Sie in der Liste der Ergebnisse, die Ethernet-Adapter, die mit Ihrem internen Umkreisnetzwerk verbunden.
+    e. Optionale Wenn Sie DHCP verwenden, wählen Sie **Adapter**aus, und wählen Sie in der Ergebnisliste den Ethernet-Adapter aus, der mit Ihrem internen Umkreis Netzwerk verbunden ist.
 
-16. (Optional) *Wenn Sie bedingten Zugriff für VPN-Verbindungen konfigurieren*, aus der **Zertifikat** Dropdown-Liste unter **SSL-Zertifikatbindung**, wählen Sie den VPN-Server die Authentifizierung.
+16. Optionale *Wenn Sie den bedingten Zugriff für VPN-Konnektivität konfigurieren*, wählen Sie in der Dropdown Liste **Zertifikat** unter **SSL-Zertifikat Bindung**die VPN-Server Authentifizierung aus.
 
-17. (Optional) *Wenn Sie bedingten Zugriff für VPN-Verbindungen konfigurieren*, erweitern Sie in der NPS-MMC **Richtlinien\\Netzwerkrichtlinien** und: 
+17. Optionale *Wenn Sie den bedingten Zugriff für VPN-Konnektivität konfigurieren*, erweitern Sie in der NPS-MMC **Richtlinien\\Netzwerk Richtlinien** , und gehen Sie wie folgt vor: 
 
-    a. Rechts die **Verbindungen mit Microsoft-Routing und RAS-Server** Netzwerkrichtlinie ein, und wählen Sie **Eigenschaften**.
+    a. Rechts: die **Verbindungen mit der Netzwerk Richtlinie für den Routing-und RAS-Server von Microsoft** und wählen **Eigenschaften**aus.
 
-    b. Wählen Sie die **Zugriff gewähren. Zugriff gewähren, wenn die verbindungsanforderung dieser Richtlinie entspricht** Option.
+    b. Wählen Sie **den Zugriff gewähren aus. Gewähren Sie Zugriff, wenn die Verbindungsanforderung mit** dieser Richtlinien Option übereinstimmt.
 
-    c. Wählen Sie unter Typ des Netzwerkzugriffsservers **RAS-Server (VPN-DFÜ-)** aus der Dropdownliste aus.
+    c. Wählen Sie unter Typ des Netzwerk Zugriffs Servers in der Dropdown-Datei den Eintrag RAS- **Server (VPN-Dial-up)** aus.
 
-18. In den Routing- und RAS-MMC, mit der Maustaste **Ports** und wählen Sie dann **Eigenschaften**. 
+18. Klicken Sie in der MMC für Routing und RAS mit der rechten Maustaste auf **Ports,** und wählen Sie dann **Eigenschaften**aus. 
     
-    Das Dialogfeld "Eigenschaften" wird geöffnet.
+    Das Dialogfeld Eigenschaften von Ports wird geöffnet.
 
-19. Wählen Sie **WAN Miniport (SSTP)** , und wählen Sie **konfigurieren**. Gerät konfigurieren – Dialogfeld wird geöffnet WAN Miniport (SSTP).
+19. Wählen Sie **WAN Miniport (SSTP)** aus, und wählen Sie **Konfigurieren**aus. Das Dialogfeld Device-WAN-Miniport konfigurieren (SSTP) wird geöffnet.
 
-    a. Deaktivieren der **RAS-Verbindungen (nur eingehend)** und **routing für Wählen bei Bedarf-Verbindungen (eingehend und ausgehend)** Kontrollkästchen.
-
-    b. Wählen Sie **OK**.
-
-20. Wählen Sie **WAN Miniport (L2TP)** , und wählen Sie **konfigurieren**. Gerät konfigurieren – Dialogfeld wird geöffnet WAN Miniport (L2TP).
-
-    a. In **maximale Ports**, geben Sie die Anzahl der Ports, die die maximale Anzahl von gleichzeitigen Verbindungen zu entsprechen, die Sie unterstützen möchten.
+    a. Deaktivieren Sie die Kontrollkästchen RAS- **Verbindungen (nur eingehend)** und **Routing Verbindungen nach Bedarf (eingehend und ausgehend)** .
 
     b. Wählen Sie **OK**.
 
-21. Wählen Sie **WAN Miniport (PPTP)** , und wählen Sie **konfigurieren**. Gerät konfigurieren – Dialogfeld wird geöffnet WAN Miniport (PPTP).
+20. Wählen Sie **WAN Miniport (L2TP)** , und wählen Sie **Konfigurieren**aus. Das Dialogfeld Device-WAN-Miniport konfigurieren (L2TP) wird geöffnet.
 
-    a. In **maximale Ports**, geben Sie die Anzahl der Ports, die die maximale Anzahl von gleichzeitigen Verbindungen zu entsprechen, die Sie unterstützen möchten.
+    a. Geben Sie unter Maximale Anzahl von **Ports**die Anzahl der Ports ein, die der maximalen Anzahl gleichzeitiger VPN-Verbindungen entsprechen soll, die Sie unterstützen möchten.
 
     b. Wählen Sie **OK**.
 
-22. Wählen Sie **WAN Miniport (IKEv2)** , und wählen Sie **konfigurieren**. Gerät konfigurieren – Dialogfeld wird geöffnet WAN Miniport (IKEv2).
+21. Wählen Sie **WAN Miniport (PPTP)** aus, und wählen Sie **Konfigurieren**aus. Das Dialogfeld Device-WAN-Miniport konfigurieren (PPTP) wird geöffnet.
 
-     a. In **maximale Ports**, geben Sie die Anzahl der Ports, die die maximale Anzahl von gleichzeitigen Verbindungen zu entsprechen, die Sie unterstützen möchten.
+    a. Geben Sie unter Maximale Anzahl von **Ports**die Anzahl der Ports ein, die der maximalen Anzahl gleichzeitiger VPN-Verbindungen entsprechen soll, die Sie unterstützen möchten.
+
+    b. Wählen Sie **OK**.
+
+22. Wählen Sie **WAN Miniport (IKEv2)** , und wählen Sie **Konfigurieren**aus. Das Dialogfeld Device-WAN-Miniport konfigurieren (IKEv2) wird geöffnet.
+
+     a. Geben Sie unter Maximale Anzahl von **Ports**die Anzahl der Ports ein, die der maximalen Anzahl gleichzeitiger VPN-Verbindungen entsprechen soll, die Sie unterstützen möchten.
 
      b. Wählen Sie **OK**.
 
-23. Wenn Sie dazu aufgefordert werden, wählen Sie **Ja** um zu bestätigen, neu zu starten, den Server, und wählen **schließen** den Server neu starten.
+23. Wenn Sie dazu aufgefordert werden, wählen Sie **Ja** aus, um den Server neu zu starten, und wählen Sie **Schließen** aus, um den Server
 
 ## <a name="next-step"></a>Nächster Schritt
 
-[Schritt 4: Installieren und konfigurieren (Network Policy Server, NPS)](vpn-deploy-nps.md): In diesem Schritt installieren Sie Windows-Verwaltungsinstrumentation (Network Policy Server, NPS) mit Windows PowerShell oder die Rollen von Server-Manager hinzufügen und Features-Assistenten. Sie auch konfigurieren, NPS, um alle Authentifizierung, Autorisierung und Kontoführung von Aufgaben für die Verbindung verarbeitet Anforderungen, die von der VPN-Server empfangen.
+[Schritt 4: Installieren und Konfigurieren des Netzwerk Richtlinien Servers (Network Policy Server](vpn-deploy-nps.md), NPS): In diesem Schritt installieren Sie den Netzwerk Richtlinien Server (Network Policy Server, NPS) mithilfe von Windows PowerShell oder dem Server-Manager Assistenten zum Hinzufügen von Rollen und Features. Außerdem können Sie NPS so konfigurieren, dass alle Authentifizierungs-, Autorisierungs-und Buchhaltungsaufgaben für Verbindungsanforderungen verarbeitet werden, die vom VPN-Server empfangen werden.

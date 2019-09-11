@@ -1,6 +1,6 @@
 ---
 title: Optimieren der Leistung von Netzwerkkarten
-description: Dieses Thema ist Teil des Leitfadens Netzwerk-Subsystem zur Leistungsoptimierung für Windows Server 2016.
+description: Dieses Thema ist Teil des Handbuch zur Leistungsoptimierung des Netzwerk Subsystems für Windows Server 2016.
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -8,18 +8,18 @@ ms.assetid: 0b9b0f80-415c-4f5e-8377-c09b51d9c5dd
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: d6d54f33108d1cdb936b02fc556acca1e5518b9b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a0d87f2e8c9b3ca7581d20009cd9c0e030241270
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861531"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871891"
 ---
 # <a name="performance-tuning-network-adapters"></a>Optimieren der Leistung von Netzwerkkarten
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können in diesem Thema auf Leistung optimieren Netzwerkadapter verwenden, die auf Computern installiert sind, auf denen Windows Server 2016 ausgeführt werden.
+Sie können dieses Thema für die Leistungsoptimierung von Netzwerkadaptern verwenden, die auf Computern installiert sind, auf denen Windows Server 2016 ausgeführt wird.
 
 Das Bestimmen der richtigen Feineinstellungen für Ihren Netzwerkadapter hängt von den folgenden Variablen ab:
 
@@ -35,31 +35,31 @@ Wenn Ihr Netzwerkadapter Feinstellungsoptionen bereitstellt, können Sie den Net
 
 In den folgenden Abschnitten werden einige Ihrer Feineinstellungsoptionen beschrieben.  
 
-##  <a name="bkmk_offload"></a> Aktivieren von Auslagerungsfeatures
+##  <a name="bkmk_offload"></a>Aktivieren der Offload-Funktionen
 
 Das Aktivieren von Netzwerkadapter-Auslagerungsfeatures ist für gewöhnlich nützlich. Manchmal ist der Netzwerkadapter jedoch nicht leistungsstark genug, um die Auslagerungsfunktionen mit hohem Durchsatz zu verarbeiten.
 
 >[!IMPORTANT]
->Verwenden Sie nicht die auslagerungsfeatures **IPsec Task Offload** oder **TCP-Chimney-Abladung**. Diese Technologien sind in Windows Server 2016 als veraltet markiert und können beeinträchtigen, Server und die Leistung des Netzwerkes. Darüber hinaus können diese Technologien von Microsoft nicht in der Zukunft unterstützt werden.
+>Verwenden Sie nicht die Auslagerungs Features **IPSec Task Auslagerung** oder **TCP Chimney Auslagerung**. Diese Technologien sind in Windows Server 2016 veraltet und können sich negativ auf die Server-und Netzwerkleistung auswirken. Außerdem werden diese Technologien möglicherweise in Zukunft nicht von Microsoft unterstützt.
 
 Beispielsweise kann das Aktivieren der Segmentierungsauslagerung aufgrund begrenzter Hardwareressourcen den maximal tragfähigen Durchsatz auf einigen Netzwerkadaptern reduzieren. Wenn der reduzierte Durchsatz jedoch nicht als eine Begrenzung erachtet wird, sollten Sie Auslagerungsfunktionen aktivieren, und zwar auch für diesen Netzwerkadaptertyp.
 
 >[!NOTE]
 > Für einige Netzwerkadapter ist es erforderlich, dass Auslagerungsfeatures für Sende- und Empfängerpfade unabhängig aktiviert werden.
 
-##  <a name="bkmk_rss_web"></a> Aktivieren der Empfangsseite Skalierung (RSS) für Webserver
+##  <a name="bkmk_rss_web"></a>Aktivieren der Empfangs seitigen Skalierung (Receive Side Scaling, RSS) für Webserver
 
 RSS kann die Webskalierbarkeit und Leistung verbessern, wenn weniger Netzwerkadapter als logische Prozessoren auf dem Server vorhanden sind. Wenn der gesamte Webdatenverkehr die RSS-fähigen Netzwerkadapter durchläuft, können eingehende Webanforderungen aus unterschiedlichen Verbindungen gleichzeitig über unterschiedliche CPUs hinweg verarbeitet werden.
 
-Es ist wichtig zu beachten, dass aufgrund der Logik in RSS und Hypertext Transfer Protocol \(HTTP\) für die lastenverteilung, möglicherweise werden stark Leistungseinbußen, wenn ein nicht-RSS-fähiger Netzwerkadapter Webdatenverkehr auf einem Server akzeptiert, die eine aufweist oder Weitere RSS-fähige Netzwerkadapter. In diesem Fall sollten Sie RSS-fähige Netzwerkadapter verwenden oder RSS in den Netzwerkadaptereigenschaften auf der Registerkarte **Erweiterte Eigenschaften** deaktivieren. Um zu bestimmen, ob ein Netzwerkadapter RSS-fähig ist, können Sie die RSS-Informationen in den Netzwerkadaptereigenschaften auf der Registerkarte **Erweiterte Eigenschaften** anzeigen.
+Beachten Sie, dass die Leistung aufgrund der Logik in RSS und Hypertext Transfer Protocol \(http\) für die Lastenverteilung erheblich beeinträchtigt werden kann, wenn ein nicht RSS-fähiger Netzwerkadapter Webdatenverkehr auf einem Server akzeptiert, der über eine oder eine Weitere RSS-fähige Netzwerkadapter. In diesem Fall sollten Sie RSS-fähige Netzwerkadapter verwenden oder RSS in den Netzwerkadaptereigenschaften auf der Registerkarte **Erweiterte Eigenschaften** deaktivieren. Um zu bestimmen, ob ein Netzwerkadapter RSS-fähig ist, können Sie die RSS-Informationen in den Netzwerkadaptereigenschaften auf der Registerkarte **Erweiterte Eigenschaften** anzeigen.
 
 ### <a name="rss-profiles-and-rss-queues"></a>RSS-Profile und RSS-Warteschlangen
 
-Das Standardprofil für den RSS-vordefiniert ist statisch NUMA, die das Standardverhalten von früheren Versionen des Betriebssystems ändert. Für die ersten Schritte mit RSS-Profilen können Sie die verfügbaren Profile prüfen, um nachzuvollziehen, wann sie hilfreich sind und wie sie auf Ihre Netzwerkumgebung und Hardware angewendet werden.
+Das standardmäßige RSS-vordefinierte Profil ist NUMA static. Dadurch wird das Standardverhalten von früheren Versionen des Betriebssystems geändert. Für die ersten Schritte mit RSS-Profilen können Sie die verfügbaren Profile prüfen, um nachzuvollziehen, wann sie hilfreich sind und wie sie auf Ihre Netzwerkumgebung und Hardware angewendet werden.
 
 Wenn Sie beispielsweise den Task-Manager öffnen und die logischen Prozessoren auf Ihrem Server anzeigen und sie anscheinend für den eingehenden Datenverkehr nicht ausreichend ausgelastet sind, können Sie versuchen, die Anzahl der RSS-Warteschlangen vom Standardwert 2 auf das Maximum zu erhöhen, das durch Ihren Netzwerkadapter unterstützt wird. Ihr Netzwerkadapter verfügt möglicherweise über Optionen zum Ändern der Anzahl der RSS-Warteschlangen als Bestandteil des Treibers.
 
-##  <a name="bkmk_resources"></a> Netzwerkadapterressourcen
+##  <a name="bkmk_resources"></a>Erhöhen der Netzwerk Adapter Ressourcen
 
 Für Netzwerkadapter, die die manuelle Konfiguration von Ressourcen gestatten wie Puffer zum Empfangen und Senden, sollten Sie die zugeordneten Ressourcen erhöhen. 
 
@@ -74,13 +74,13 @@ Zum Steuern der Interruptüberprüfung stellen einige Netzwerkadapter verschiede
 
 Sie sollten die Interruptüberprüfung für CPU-gebundene Arbeitsauslastungen und den Kompromiss zwischen den CPU-Einsparungen und der Latenz mit den erhöhten Host-CPU-Einsparungen in Betracht ziehen, da hier mehr Unterbrechungen mit geringeren Latenzen vorliegen. Wenn der Netzwerkadapter keine Interruptüberprüfung ausführt, aber zusammengeführte Puffer verfügbar macht, ermöglicht Ihnen das Erhöhen der Anzahl zusammengeführter Puffer mehr Puffer zum Senden oder Empfangen, was die Leistung wiederum verbessert.
 
-##  <a name="bkmk_low"></a> Leistungsoptimierung für die Paketverarbeitung mit geringer Latenz
+##  <a name="bkmk_low"></a>Leistungsoptimierung für die Paketverarbeitung mit geringer Latenz
 
-Viele Netzwerkadapter bieten Optionen zum Optimieren der betriebssystembedingten Latenz. Latenz ist die Ablaufzeit, die zwischen der Netzwerktreiberverarbeitung eines eingehenden Pakets und dem Zurücksenden des Pakets durch den Netzwerktreiber vergeht. Diese Zeit wird für gewöhnlich in Mikrosekunden gemessen. Zum Vergleich wird die Übertragungszeit für paketübertragungen über lange Distanzen hinweg normalerweise in Millisekunden gemessen \(eine Zehnerpotenz größer\). Diese Feineinstellung reduziert jedoch nicht die Zeit, die ein Paket übertragen wird.
+Viele Netzwerkadapter bieten Optionen zum Optimieren der betriebssystembedingten Latenz. Latenz ist die Ablaufzeit, die zwischen der Netzwerktreiberverarbeitung eines eingehenden Pakets und dem Zurücksenden des Pakets durch den Netzwerktreiber vergeht. Diese Zeit wird für gewöhnlich in Mikrosekunden gemessen. Zum Vergleich wird die Übertragungszeit für Paket Übertragungen über lange Entfernungen normalerweise in Millisekunden \(in einer Größenordnung von größeren\)Größen gemessen. Diese Feineinstellung reduziert jedoch nicht die Zeit, die ein Paket übertragen wird.
 
 Im Folgenden finden Sie einige Vorschläge zur Leistungsfeineinstellung für mikrosekundenbezogene Netzwerke.
 
-- Legen Sie das Computer-BIOS auf **High Performance** mit deaktivierten C-Status fest. Beachten Sie jedoch, dass dies system- und BIOS-abhängig ist, und einige Systeme bieten eine höhere Leistung, wenn das Betriebssystem die Energieverwaltung steuert. Sie können überprüfen, und passen Sie Ihre energieverwaltungseinstellungen aus **Einstellungen** oder mithilfe der **Powercfg** Befehl. Weitere Informationen finden Sie unter [Befehlszeilenoptionen von Powercfg](https://technet.microsoft.com/library/cc748940.aspx)
+- Legen Sie das Computer-BIOS auf **High Performance** mit deaktivierten C-Status fest. Beachten Sie jedoch, dass dies system- und BIOS-abhängig ist, und einige Systeme bieten eine höhere Leistung, wenn das Betriebssystem die Energieverwaltung steuert. Sie können Ihre Energie Verwaltungs Einstellungen über **Einstellungen** oder mithilfe des Befehls **powercfg** überprüfen und anpassen. Weitere Informationen finden Sie unter [powercfg-Befehlszeilenoptionen](https://technet.microsoft.com/library/cc748940.aspx) .
 
 - Legen Sie das Energieverwaltungsprofil des Betriebssystems auf **Höchstleistung** fest. Beachten Sie, dass dies nicht richtig funktioniert, wenn das System-BIOS festgelegt wurde, die Betriebssystemsteuerung der Energieverwaltung zu deaktivieren.
 
@@ -92,9 +92,9 @@ Im Folgenden finden Sie einige Vorschläge zur Leistungsfeineinstellung für mik
 
 - Verarbeiten Sie Netzwerkadapterunterbrechungen und DPCs auf einem Kernprozessor, der CPU-Cache gemeinsam mit dem Kern verwendet, der durch das Programm verwendet wird (Benutzerthread), welches das Paket verarbeitet. Die CPU-Affinitätsfeineinstellung kann zum Lenken eines Vorgangs zu bestimmten logischen Prozessoren in Verbindung mit der RSS-Konfiguration verwendet werden. Das Verwenden des gleichen Kerns für den Interrupt, DPC und Benutzermodusthread zieht eine schlechte Leistung und eine erhöhte Last nach sich, da ISR, DPC und der Thread den Kern für sich beanspruchen.
 
-##  <a name="bkmk_smi"></a> Systemverwaltungsunterbrechungen
+##  <a name="bkmk_smi"></a>System Verwaltungs Interrupts
 
-Viele Hardwaresysteme verwenden System Management Interrupts \(SMI\) für eine Vielzahl von Wartungsfunktionen, wie die berichterstellung für Fehlerkorrekturcodes \(ECC\) Speicherfehler, legacy-USB-Kompatibilität, -Lüfter Kontrolle und BIOS-gesteuerte energieverwaltung. 
+Viele Hardwaresysteme verwenden die \(System Management Interrupts SMI\) für eine Vielzahl von Wartungsfunktionen, einschließlich der Berichterstattung über Fehler\) Korrektur Code \(ECC-Speicherfehler, ältere USB-Kompatibilität, Lüfter Kontrolle und die BIOS-gesteuerte Energie Verwaltung. 
 
 Beim SMI handelt es sich um den Interrupt mit der höchsten Priorität auf dem System. Sie platziert die CPU in einen Verwaltungsmodus, was allen anderen Aktivitäten zuvorkommt, während sie eine Interrupt-Dienstroutine, die für gewöhnlich im BIOS enthalten ist, ausführt.
 
@@ -105,27 +105,27 @@ Wenn Sie die geringe Latenz erzielen müssen, sollten Sie eine BIOS-Version Ihre
 >[!NOTE]
 >Das Betriebssystem kann keine Kontrolle über die SMIs ausüben, da der logische Prozessor in einem speziellen Wartungsmodus ausgeführt wird, was eine Betriebssystemintervention verhindert.
 
-##  <a name="bkmk_tcp"></a> -Leistungsfeineinstellung
+##  <a name="bkmk_tcp"></a>Leistungsoptimierung für TCP
 
  Sie können die TCP-Leistung mithilfe der folgenden Elemente abstimmen.
 
-###  <a name="bkmk_tcp_params"></a>  TCP-Empfangsfenster Fenster Automatische Optimierung
+###  <a name="bkmk_tcp_params"></a>Automatische Optimierung des TCP-Empfangs Fensters
 
-Vor Windows Server 2008 verwendet die Netzwerkstapel ein fester Größe empfangsseitige-Fenster (65.535 Byte), das den gesamten potenziellen Durchsatz für Verbindungen beschränkt. Eine der wichtigsten Änderungen am TCP-Stapel betrifft die automatische Optimierung des TCP-Empfangsfensters. 
+Vor Windows Server 2008 verwendete der Netzwerk Stapel ein Empfangs seitiges Fenster mit fester Größe (65.535 Bytes), das den gesamten möglichen Durchsatz für Verbindungen beschränkte. Eine der wichtigsten Änderungen am TCP-Stapel betrifft die automatische Optimierung des TCP-Empfangsfensters. 
 
-Sie können den Gesamtdurchsatz einer einzelnen Verbindung berechnen, bei der Verwendung einer festen Größe, die TCP-Empfangsfenster als:
+Sie können den Gesamtdurchsatz einer einzelnen Verbindung berechnen, wenn Sie ein TCP-Empfangs Fenster mit fester Größe wie folgt verwenden:
 
-**Gesamt erzielbarer Durchsatz in Byte = TCP-Empfangsfenstergröße festgelegt in Byte \* (1 / Verbindungslatenz in Sekunden)**
+**Erreichbarer Durchsatz Gesamt in Bytes = TCP-Empfangs Fenstergröße \* in Byte (1/Verbindungs Latenz in Sekunden)**
 
-Beispielsweise ist der gesamte erzielbare Durchsatz nur 51 Mbit/s für eine Verbindung mit einer Latenz von 10 ms \(ein angemessener Wert für eine große unternehmensnetzwerkinfrastruktur\). 
+Der gesamte erreichbare Durchsatz beträgt z. b. nur 51 Mbit/s bei einer Verbindung \(mit einer Latenz von 10 MS und einem angemessenen\)Wert für eine große Unternehmensnetzwerk Infrastruktur. 
 
-Mit der automatischen Optimierung kann das Fenster auf der Empfängerseite jedoch angepasst werden, und es kann wachsen, um die Anforderungen des Sendenden zu erfüllen. Es ist möglich, dass eine Verbindung mit der eine vollständige leitungsrate einer 1-Gbit/s-Verbindung zu erzielen. Netzwerkverwendungsszenarien, die in der Vergangenheit durch den insgesamt erzielbaren Durchsatz von TCP-Verbindungen möglicherweise begrenzt wurden, können das Netzwerk nun vollständig nutzen.
+Mit der automatischen Optimierung kann das Fenster auf der Empfängerseite jedoch angepasst werden, und es kann wachsen, um die Anforderungen des Sendenden zu erfüllen. Es ist möglich, dass eine Verbindung eine vollständige Zeilen Rate einer 1 Gbit/s-Verbindung erreicht. Netzwerkverwendungsszenarien, die in der Vergangenheit durch den insgesamt erzielbaren Durchsatz von TCP-Verbindungen möglicherweise begrenzt wurden, können das Netzwerk nun vollständig nutzen.
 
 #### <a name="deprecated-tcp-parameters"></a>Als veraltet markierte TCP-Parameter
 
-Die folgenden registrierungseinstellungen von Windows Server 2003 werden nicht mehr unterstützt und werden in späteren Versionen ignoriert.
+Die folgenden Registrierungs Einstellungen von Windows Server 2003 werden nicht mehr unterstützt und in späteren Versionen ignoriert.
 
-Alle diese Einstellungen haben am folgenden Registrierungsspeicherort:
+Alle diese Einstellungen verfügten über den folgenden Registrierungs Speicherort:
 
     ```  
     HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Tcpip\Parameters  
@@ -139,12 +139,12 @@ Alle diese Einstellungen haben am folgenden Registrierungsspeicherort:
 
 
 
-###  <a name="bkmk_wfp"></a> Windows-Filterplattform
+###  <a name="bkmk_wfp"></a>Windows-Filter Plattform
 
-Die Windows Filtering Platform (WFP), die in Windows Vista und Windows Server 2008 eingeführte stellt APIs bereit, um nicht-Microsoft unabhängige Softwarehersteller (ISVs) zum Erstellen von paketverarbeitungsfiltern. Zu Beispielen zählen Firewall- und Antivirensoftware.
+Die Windows-Filter Plattform (WFP), die in Windows Vista und Windows Server 2008 eingeführt wurde, stellt APIs für unabhängige Microsoft-Softwarehersteller (ISVs) zur Verfügung, um Paketverarbeitungs Filter zu erstellen. Zu Beispielen zählen Firewall- und Antivirensoftware.
 
 >[!NOTE]
->Ein schlecht geschriebener WFP-Filter kann die Netzwerkleistung eines Servers erheblich verschlechtern. Weitere Informationen finden Sie unter [Portieren-Paketverarbeitung Treiber und -Apps auf Windows-Dateischutz](https://msdn.microsoft.com/windows/hardware/gg463267.aspx) im Windows Dev Center.
+>Ein schlecht geschriebener WFP-Filter kann die Netzwerkleistung eines Servers erheblich verringern. Weitere Informationen finden Sie im Windows dev Center [unter Portieren von Paketen für die Paketverarbeitung und Apps auf WFP](https://msdn.microsoft.com/windows/hardware/gg463267.aspx) .
 
 
-Links zu allen Themen in diesem Handbuch finden Sie [Optimieren der Leistung mit Subsystem](net-sub-performance-top.md).
+Links zu allen Themen in diesem Handbuch finden Sie unter [Network Subsystem Performance Tuning](net-sub-performance-top.md).

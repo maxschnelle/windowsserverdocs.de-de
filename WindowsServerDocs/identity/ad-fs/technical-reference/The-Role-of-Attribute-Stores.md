@@ -9,33 +9,33 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: bec3ebf1bd12b260dbbb245a6a905277ff0d749f
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: bd9c47c0f786fa8c7814519b26d33daaf01080a3
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188539"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869387"
 ---
 # <a name="the-role-of-attribute-stores"></a>Rolle des Attributspeichers
-Active Directory Federation Services verwendet den Begriff "Attributspeicher" zum Verweisen auf Verzeichnisse und Datenbanken, in denen eine Organisation ihre Benutzerkonten und deren zugeordnete Attributwerte zu speichern. Sobald er in einer identitätsanbieterorganisation konfiguriert ist, wird AD FS diese Attributwerte aus dem Speicher abruft und erstellt basierend auf diesen Informationen, damit eine Webanwendung oder Dienst, der in der Organisation einer vertrauenden Seite gehostet wird die entsprechende kann Ansprüche Autorisierung Entscheidungen zu treffen, wenn ein Verbundbenutzer \(eines Benutzers, dessen Konto sich in der identitätsanbieterorganisation befindet\) versucht, auf die Anwendung oder den Dienst zuzugreifen.  
+Active Directory-Verbunddienste (AD FS) verwendet den Begriff "Attribut Speicher", um auf Verzeichnisse oder Datenbanken zu verweisen, die in einer Organisation zum Speichern der Benutzerkonten und der zugehörigen Attributwerte verwendet werden. Nach der Konfiguration in einer Identitäts Anbieter Organisation ruft AD FS diese Attributwerte aus dem Speicher ab und erstellt Ansprüche basierend auf diesen Informationen, damit eine Webanwendung oder ein Dienst, der in einer Organisation der vertrauenden Seite gehostet wird, das entsprechende Autorisierungs Entscheidungen, wenn ein Verbund \(Benutzer ein Benutzer ist, dessen Konto in der Identitäts Anbieter\) Organisation gespeichert ist, versucht, auf die Anwendung oder den Dienst zuzugreifen.  
   
 Weitere Informationen zum Generieren von Ansprüchen finden Sie unter [The Role of Claims](The-Role-of-Claims.md).  
   
 ## <a name="how-attribute-stores-fit-in-with-your-ad-fs-deployment-goals"></a>Auswirkungen von Attributspeichern auf Ihre AD FS-Bereitstellungsziele  
-Den Speicherort des benutzerattributspeichers und den Speicherort, der von der Authentifizierung von Benutzern bestimmen, wie Sie AD FS zur Unterstützung der Benutzeridentitäten entwerfen. Je nachdem, wo sich der Attributspeicher befindet und, in dem Benutzer die Anwendung zugreifen \(in einem Intranet oder im Internet\), können Sie eine der folgenden Bereitstellungsziele verwenden:  
+Der Speicherort des Benutzer Attribut Speicher und der Speicherort, von dem die Benutzer authentifizieren, legen fest, wie Sie AD FS zur Unterstützung der Benutzer Identitäten entwerfen. Abhängig vom Speicherort des Attribut Speicher und von dem Benutzer, der in einem \(Intranet oder im Internet\)auf die Anwendung zugreift, können Sie eines der folgenden Bereitstellungs Ziele verwenden:  
   
--   [Geben Sie Ihre Active Directory Users Access auf Ihre Ansprüche unterstützenden Anwendungen und Dienste](https://technet.microsoft.com/library/dd807071.aspx)– bei diesem Ziel Benutzer in Ihrer Organisation Zugriff auf eine AD FS-gesicherte Anwendung oder ein Dienst \(entweder Ihre eigene Anwendung oder Ihren Dienst oder ein Anwendung oder ein Dienst des Partners\) Wenn der Benutzer angemeldet sind in Active Directory im Unternehmensintranet.  
+-   [Bereitstellen des Zugriffs auf Ihre Ansprüche unterstützenden Anwendungen und Dienste für Ihre Active Directory-Benutzer](https://technet.microsoft.com/library/dd807071.aspx)– bei diesem Ziel greifen Benutzer in Ihrer Organisation auf eine AD FS – \(gesicherte Anwendung zu oder bedienen entweder Ihre eigene Anwendung oder ihren eigenen Dienst oder den Anwendung oder Dienst\) , wenn die Benutzer im Unternehmens Intranet bei Active Directory angemeldet sind.  
   
--   [Geben Sie auf die Anwendungen und Dienste von anderen Organisationen Ihrer Active Directory Users Access](https://technet.microsoft.com/library/dd807123.aspx)– bei diesem Ziel Benutzer in Ihrer Organisation Zugriff auf eine AD FS-gesicherte Anwendung oder ein Dienst \(entweder Ihre eigene Anwendung oder Ihren Dienst oder ein Anwendung oder ein Dienst des Partners\) Wenn der Benutzer angemeldet sind einem Attributspeicher im Unternehmensintranet und wenn sie sich Remote über das Internet anmelden.  
+-   [Bereitstellen des Zugriffs auf die Anwendungen und Dienste anderer Organisationen für Ihre Active Directory Benutzer](https://technet.microsoft.com/library/dd807123.aspx)– bei diesem Ziel greifen Benutzer in Ihrer Organisation auf eine AD FS – gesicherte Anwendung \(zu oder bedienen entweder Ihre eigene Anwendung oder ihren eigenen Dienst oder einen die Anwendung oder der Dienst\) des Partners, wenn die Benutzer an einem Attribut Speicher im Unternehmens Intranet angemeldet sind und sich Remote über das Internet anmelden.  
   
--   [Geben Sie Benutzern in einer anderen Organisationszugriff auf Ihre Ansprüche unterstützenden Anwendungen und Dienste](https://technet.microsoft.com/library/dd807099.aspx)– bei diesem Ziel Benutzerkonten in einer anderen Organisation, die in einem Attributspeicher im Unternehmensintranet dieser Organisation befinden müssen Zugriff auf eine AD FS: gesicherte Anwendung in Ihrer Organisation. Dieses Ziel kann auch beim Consumer\-basierend Benutzerkonten, die in einem Attributspeicher im Umkreisnetzwerk Ihrer Organisation befinden müssen mit Zugriff auf einer AD FS-gesicherte Anwendung in Ihrer Organisation bereitgestellt werden.  
+-   [Bereitstellen von Zugriff auf Ihre Ansprüche unterstützenden Anwendungen und Dienste für Benutzer in einer anderen Organisation](https://technet.microsoft.com/library/dd807099.aspx)– bei diesem Ziel müssen Benutzerkonten in einer anderen Organisation, die sich in einem Attribut Speicher im Unternehmens Intranet dieser Organisation befinden, auf eine AD FS zugreifen – gesicherte Anwendung in Ihrer Organisation. Dieses Ziel kann auch verwendet werden\-, wenn consumerbasierte Benutzerkonten, die sich in einem Attribut Speicher im Umkreis Netzwerk Ihrer Organisation befinden, mit Zugriff auf eine AD FS – gesicherte Anwendung in Ihrer Organisation bereitgestellt werden müssen.  
   
-Abhängig von der Platzierung und andere Anforderungen Ihrer Organisation können Sie mehrere dieser Bereitstellungsziele, um den Entwurf von AD FS-Bereitstellung abzuschließen kombinieren.  
+Abhängig von der Platzierung des Attribut Speicher und anderen Anforderungen Ihrer Organisation können Sie mehrere dieser Bereitstellungs Ziele kombinieren, um den Entwurf Ihrer AD FS Bereitstellung abzuschließen.  
   
 ## <a name="attribute-stores-that-are-supported-by-ad-fs"></a>Von AD FS unterstützte Attributspeicher  
-AD FS unterstützt eine Vielzahl von Verzeichnis und die Datenbank werden gespeichert, Sie verwenden können, für das Extrahieren von Administrator\-definierten Attributwerten und Auffüllen von Ansprüchen mit diesen Werten. AD FS unterstützt die folgenden Verzeichnisse oder Datenbanken als Attributspeicher:  
+AD FS unterstützt eine breite Palette an Verzeichnis-und Daten Bank speichern, die Sie zum\-Extrahieren von durch den Administrator definierten Attributwerten und Auffüllen von Ansprüchen mit diesen Werten verwenden können. AD FS unterstützt die folgenden Verzeichnisse oder Datenbanken als Attribut Speicher:  
   
--   Active Directory unter WindowsServer 2003 Active Directory-Domänendienste \(AD DS\) in WindowsServer 2008, AD DS unter Windows Server 2012 und 2012 R2 und WindowsServer 2016. 
+-   Active Directory in Windows Server 2003, Active Directory Domain Services \(AD DS\) in Windows Server 2008, AD DS in Windows Server 2012 und 2012 R2 und Windows Server 2016. 
   
 -   Alle Editionen von Microsoft SQL Server 2005, SQL Server 2008, SQL Server 2012, SQL Server 2014 und SQL Server 2016  
   

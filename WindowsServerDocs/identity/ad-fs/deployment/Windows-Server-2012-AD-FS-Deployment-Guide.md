@@ -9,49 +9,49 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 6be56c25cc6f639f73842f57cdf48a6339dccf9c
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 06946942bcdc5ea00acc22b91d6551a826357fcf
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191853"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868029"
 ---
 # <a name="windows-server-2012-ad-fs-deployment-guide"></a>Bereitstellungshandbuch für ADFS unter Windows Server 2012
 
 
-Sie können Active Directory® Federation Services \(AD FS\) mit dem Betriebssystem Windows Server® 2012, um eine Verbund-identitätsverwaltungslösung zu erstellen, die verteilte Identifikation, erweitert-Authentifizierung und Web-Autorisierungsdienste\--basierte Anwendungen über Unternehmens- und plattformübergreifend hinweg. Durch die Bereitstellung von AD FS können Sie die vorhandenen Identitätsverwaltungsfunktionen Ihrer Organisation auf das Internet erweitern.  
+Sie können Active Directory® Verbund Dienste \(verwenden, die mit dem Betriebssystem Windows Server® 2012 AD FS\) werden, um eine Verbund-Identitäts Verwaltungs Lösung zu erstellen, die verteilte Identifizierung, Authentifizierung und Autorisierungs Dienste für\-webbasierte Anwendungen über Organisations-und Platt Form Grenzen hinweg. Durch Bereitstellen von AD FS können Sie die vorhandenen Identitäts Verwaltungsfunktionen Ihrer Organisation auf das Internet erweitern.  
   
 Die Bereitstellung von AD FS ermöglicht Ihnen Folgendes:  
   
--   Geben Sie Ihre Mitarbeiter oder Kunden mit einem Web\-basieren, einzelne\-anmelden\-auf \(SSO\) Erfahrung bei Bedarf Remotezugriff auf intern gehostete Websites oder-Dienste.  
+-   Stellen Sie Ihren Mitarbeitern oder Kunden ein webbasiertes\-einmaliges\-anmelden\- \((SSO\) ) zur Verfügung, wenn Sie Remote Zugriff auf Intern gehostete Websites oder Dienste benötigen.  
   
--   Geben Sie Ihre Mitarbeiter oder Kunden mit einem Web\-basieren, SSO auftreten, wenn sie plattformübergreifende zugreifen\-Organisation Websites oder Dienste von Ort diesseits der Firewalls Ihres Netzwerks.  
+-   Stellen Sie Ihren Mitarbeitern oder Kunden eine webbasierte\-, einmalige SSO-Benutzeranmeldung bereit, wenn Sie über die Firewalls Ihres Netzwerks auf Organisations übergreifende\-Websites oder Dienste zugreifen.  
   
--   Geben Sie Ihre Mitarbeiter oder Kunden reibungslosen Zugriff auf Web\-basierend Ressourcen in einer beliebigen verbundpartnerorganisation im Internet, ohne dass Mitarbeiter oder Kunden sich mehr als einmal anmelden.  
+-   Sorgen Sie für Ihre Mitarbeiter oder Kunden für einen nahtlosen\-Zugriff auf webbasierte Ressourcen in einer beliebigen Verbund Partnerorganisation im Internet, ohne dass sich Mitarbeiter oder Kunden mehr als einmal anmelden müssen.  
   
--   Behalten Sie vollständige Kontrolle über Mitarbeiter- oder Kundenidentitäten, ohne Verwendung von anderen\-Anbietern \(Windows Live ID, Liberty Alliance usw\).  
+-   Behalten Sie die komplette Kontrolle über Ihre Mitarbeiter-oder Kunden Identitäten,\-ohne andere \(Anmelde Anbieter (Windows Live ID,\)Liberty Alliance usw.) zu verwenden.  
   
 ## <a name="about-this-guide"></a>Informationen zur Anleitung  
-Dieses Handbuch ist für die Verwendung von Systemadministratoren und System Engineers vorgesehen. Es bietet eine detaillierte Anleitung zum Bereitstellen einer AD FS-Entwurfs, der von Ihnen oder einem infrastrukturspezialisten oder einem Systemarchitekten in Ihrem Unternehmen bereits vorausgewählt wurde.  
+Dieses Handbuch ist für die Verwendung von Systemadministratoren und System Engineers vorgesehen. Hier finden Sie ausführliche Anleitungen zum Bereitstellen eines AD FS Entwurfs, der von Ihnen oder einem Infrastruktur Spezialisten oder Systemarchitekten in Ihrer Organisation vorab ausgewählt wurde.  
   
-Wenn Sie noch keinen Entwurf ausgewählt wurde, sollten Sie warten, bis Sie die Anweisungen in diesem Handbuch zu befolgen, nachdem Sie die Entwurfsoptionen im gelesen haben die [AD FS-Entwurfshandbuch in Windows Server 2012](https://technet.microsoft.com/library/dd807036.aspx) und die meisten ausgewählt haben entsprechenden Entwurf für Ihre Organisation. Weitere Informationen zur Verwendung dieses Handbuch mit einem Design, das bereits ausgewählt wurde, finden Sie unter [Implementieren Ihrer AD FS-Entwurfsplans](Implementing-Your-AD-FS-Design-Plan.md).  
+Wenn noch kein Entwurf ausgewählt wurde, wird empfohlen, die Anweisungen in diesem Handbuch zu befolgen, bis Sie die Entwurfs Optionen im [AD FS Entwurfs Handbuch in Windows Server 2012](https://technet.microsoft.com/library/dd807036.aspx) gelesen haben und den am besten geeigneten Entwurf für Ihre Ordnung. Weitere Informationen zur Verwendung dieses Handbuchs mit einem bereits ausgewählten Entwurf finden [Sie unter Implementieren des AD FS Entwurfs Plans](Implementing-Your-AD-FS-Design-Plan.md).  
   
-Nach dem Auswählen des Entwurfs im Entwurfshandbuch und die erforderliche Informationen zu Ansprüchen, Tokentypen, attributspeichern und anderen Elementen zu sammeln, können Sie dieses Handbuch verwenden, Ihre AD FS-Entwurfs in Ihrer produktionsumgebung bereitstellen. Dieses Handbuch enthält die Schritte zum Bereitstellen der folgenden primären AD FS-Entwürfe:  
+Nachdem Sie den Entwurf im Entwurfs Handbuch ausgewählt und die erforderlichen Informationen zu Ansprüchen, Tokentypen, Attribut speichern und anderen Elementen gesammelt haben, können Sie dieses Handbuch verwenden, um den AD FS Entwurf in Ihrer Produktionsumgebung bereitzustellen. Dieses Handbuch enthält die Schritte zum Bereitstellen eines der folgenden primären AD FS-Entwürfe:  
   
 -   Web-SSO  
   
 -   Federated-Web-SSO  
   
-Verwenden Sie die Prüflisten im [Implementieren Ihrer AD FS-Entwurfsplans](Implementing-Your-AD-FS-Design-Plan.md) zu ermitteln, wie sich mit den Anweisungen in diesem Handbuch zum Bereitstellen bestimmten Entwurfs. Weitere Informationen zu Hardware- und softwareanforderungen für die Bereitstellung von AD FS, finden Sie unter den [Anhang A: Überprüfen der AD FS-Anforderungen](https://technet.microsoft.com/library/ff678034.aspx) in der AD FS-Design Guide.  
+Verwenden Sie die Prüf Listen unter [Implementieren des AD FS Entwurfs Plans](Implementing-Your-AD-FS-Design-Plan.md) , um zu bestimmen, wie die Anweisungen in diesem Handbuch zum Bereitstellen eines bestimmten Entwurfs verwendet werden. Informationen zu Hardware-und Softwareanforderungen für die Bereitstellung von AD FS [finden Sie im Anhang A: Überprüfen der](https://technet.microsoft.com/library/ff678034.aspx) AD FS Anforderungen im Entwurfs Handbuch für AD FS.  
   
 ### <a name="what-this-guide-does-not-provide"></a>Nicht in diesem Handbuch enthaltene Informationen  
 Folgendes ist in diesem Handbuch nicht enthalten:  
   
--   Die Anleitungen in Bezug auf den Zeitpunkt und Ort für das Platzieren von Verbundservern, Verbundserverproxys oder Web-Server in Ihrer vorhandenen Netzwerkinfrastruktur. Weitere Informationen finden Sie unter [Planen der Verbundserverplatzierung](https://technet.microsoft.com/library/dd807069.aspx) und [Planen der Verbundserverproxy-Platzierung](https://technet.microsoft.com/library/dd807130.aspx) in AD FS-Entwurfshandbuch.  
+-   Leitfaden zum Zeitpunkt und zum Platzieren von Verbund Servern, Verbund Server Proxys oder Webservern in Ihrer vorhandenen Netzwerkinfrastruktur. Informationen zu diesen Informationen finden Sie unter Planen der Platzierung des Verbund [Servers](https://technet.microsoft.com/library/dd807069.aspx) und Planen der Platzierung des Verbund [Server Proxys](https://technet.microsoft.com/library/dd807130.aspx) im AD FS Entwurfs Handbuch.  
   
--   Anleitung für die Verwendung von Zertifizierungsstellen \(CAs\) zum Einrichten der AD FS  
+-   Leitfaden für die Verwendung von \(Zertifizierungs\) stellen-CAS zum Einrichten von AD FS  
   
--   Anleitungen zum Einrichten oder Konfigurieren von bestimmten Web\--basierte Anwendungen  
+-   Leitfaden zum Einrichten oder Konfigurieren bestimmter webbasierter\-Anwendungen  
   
 -   Spezifische Anweisungen für das Einrichten einer Testlaborumgebung  
   
@@ -67,7 +67,7 @@ Folgendes ist in diesem Handbuch nicht enthalten:
   
 -   [Prüfliste: Implementieren eines Federated-Web-SSO-Entwurfs](Checklist--Implementing-a-Federated-Web-SSO-Design.md)  
   
--   [Konfigurieren von Partnerorganisationen](Configuring-Partner-Organizations.md)  
+-   [Konfigurieren von Partner Organisationen](Configuring-Partner-Organizations.md)  
   
 -   [Konfigurieren von Anspruchsregeln](Configuring-Claim-Rules.md)  
   

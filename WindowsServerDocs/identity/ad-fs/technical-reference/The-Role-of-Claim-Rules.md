@@ -9,49 +9,49 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 06f2f0d1fb48c6b9dea89762a30fdf77643d0e53
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: af0fce04fcb48e9c93076ca8d0f261c5170dc9fc
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188570"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865490"
 ---
 # <a name="the-role-of-claim-rules"></a>Rolle von Anspruchsregeln
-Die allgemeine Funktion des Verbunddiensts in Active Directory-Verbunddienste \(AD FS\) besteht darin, ein Token ausstellen, die einen Satz von Ansprüchen enthält. Die Entscheidung, welche Ansprüche, die AD FS akzeptiert und gibt dann unterliegt Anspruchsregeln.  
+Die Gesamtfunktion der Verbunddienst in Active Directory-Verbunddienste (AD FS) \(AD FS\) besteht darin, ein Token auszugeben, das einen Satz von Ansprüchen enthält. Die Entscheidung bezüglich der Ansprüche, die AD FS akzeptiert und dann Probleme behandelt, unterliegt den Anspruchs Regeln.  
   
 ## <a name="what-are-claim-rules"></a>Was sind Anspruchsregeln?  
-Eine Anspruchsregel stellt eine Instanz der Geschäftslogik, wird die nehmen eine oder mehrere eingehende Ansprüche Bedingungen anwendet \(If x, dann y\) und erzeugen Sie eine oder mehrere ausgehende Ansprüche, die Grundlage der Bedingungsparameter. Weitere Informationen zu ein- und ausgehende Ansprüche, finden Sie unter [The Role of Claims](The-Role-of-Claims.md).  
+Eine Anspruchs Regel stellt eine Instanz der Geschäftslogik dar, die einen oder mehrere eingehende Ansprüche annimmt, Bedingungen auf \(Sie anwendet, wenn\) x und y ist, und einen oder mehrere ausgehende Ansprüche basierend auf den Bedingungs Parametern erzeugt. Weitere Informationen zu eingehenden und ausgehenden Ansprüchen finden Sie [unter die Rolle von Ansprüchen](The-Role-of-Claims.md).  
   
-Anspruchsregeln werden verwendet, um Geschäftslogik zu implementieren, die den Anspruchsverlauf in der Anspruchspipeline steuert. Während der anspruchspipeline mehr ein logisches Konzept des Endes\-zu\-Ende des Prozesses für anspruchsverlaufs, beanspruchen Sie die Regeln sind ein tatsächliches administratives Element, mit denen Sie den anspruchsverlauf im anspruchsausstellungsprozess anpassen können.  
+Anspruchsregeln werden verwendet, um Geschäftslogik zu implementieren, die den Anspruchsverlauf in der Anspruchspipeline steuert. Obwohl es sich bei der Anspruchs Pipeline um ein eher logisches Konzept\-des\-End-to-End-Prozesses für den Fluss von Ansprüchen handelt, sind Anspruchs Regeln ein tatsächliches administratives Element, mit dem Sie den Anspruchs Verlauf durch den Anspruchs Ausstellungs Prozess anpassen können.  
   
-Weitere Informationen zur anspruchspipeline finden Sie unter [die Rolle des Anspruchsmoduls](The-Role-of-the-Claims-Engine.md).  
+Weitere Informationen zur Anspruchs Pipeline finden Sie [unter The Role of the Claims Engine](The-Role-of-the-Claims-Engine.md).  
   
 Anspruchsregeln bieten folgende Vorteile:  
   
--   Bieten einen Mechanismus für Administratoren ausführen anwenden\-Zeit Geschäftslogik für vertrauende Ansprüche von Anspruchsanbietern  
+-   Stellen Sie einen Mechanismus bereit, mit dem\-Administratoren Lauf Zeit Geschäftslogik auf vertrauende Ansprüche von Anspruchs Anbietern anwenden können.  
   
 -   Bereitstellen eines Mechanismus, mit dem Administratoren definieren können, welche Ansprüche für vertrauende Seiten ausgegeben werden  
   
--   Bereitstellen von aussagekräftigen und detaillierten Ansprüche\-Autorisierungsfunktionen für Administratoren, die Zugriff zulassen oder Verweigern des Zugriffs auf bestimmte Benutzer möchten basierend  
+-   Bereitstellen von umfassenden und\-detaillierten Anspruchs basierten Autorisierungs Funktionen für Administratoren, die den Zugriff für bestimmte Benutzer zulassen oder verweigern möchten  
   
 ### <a name="how-claim-rules-are-processed"></a>Verarbeiten von Anspruchsregeln  
 Anspruchsregeln werden mithilfe des *Anspruchsmoduls* über die Anspruchspipline verarbeitet. Das Anspruchsmodul ist eine logische Komponente des Verbunddiensts, die den Satz der von einem Benutzer gesendeten eingehenden Ansprüche untersucht und anschließend in Abhängigkeit von der Logik in jeder Regel einen Ausgabeanspruchssatz erzeugt.  
   
-Das Anspruchsregelmodul und der Anspruchsregelsatz bestimmen in Verbindung mit einer angegebenen Verbundvertrauensstellung, ob eingehende Ansprüche unverändert weitergereicht, anhand der Kriterien einer bestimmten Bedingung gefiltert oder in einen vollständig neuen Satz von Ansprüchen transformiert werden, bevor sie durch den Verbunddienst als ausgehende Ansprüche ausgegeben werden.  
+Die Anspruchs Regel-Engine und der Satz von Anspruchs Regeln, die einer bestimmten Verbund Vertrauensstellung zugeordnet sind, bestimmen zusammen, ob eingehende Ansprüche unverändert übergeben werden sollen, gefiltert nach den Kriterien einer bestimmten Bedingung oder transformiert in einen völlig neuen Satz von Ansprüche, bevor Sie von ihrer Verbunddienst als ausgehende Ansprüche ausgegeben werden.  
   
-Weitere Informationen zu diesem Prozess finden Sie unter [die Rolle des Anspruchsmoduls](The-Role-of-the-Claims-Engine.md).  
+Weitere Informationen zu diesem Prozess finden Sie [unter The Role of the Claims Engine](The-Role-of-the-Claims-Engine.md).  
   
 ## <a name="what-are-claim-rule-templates"></a>Was sind Anspruchsregelvorlagen?  
-Einen vordefinierten Satz von anspruchsregelvorlagen, mit denen Sie auf einfache Weise auswählen, und erstellen die am besten geeigneten Anspruchsregeln für Ihre spezifischen Anforderungen Ihres Unternehmens, umfasst AD FS. Anspruchsregelvorlagen werden nur beim Erstellungsprozess für die Anspruchsregel verwendet.  
+AD FS enthält einen vordefinierten Satz von Anspruchs Regel Vorlagen, die Ihnen helfen sollen, die am besten geeigneten Anspruchs Regeln für Ihre bestimmte geschäftliche Anforderungen auszuwählen und zu erstellen. Anspruchsregelvorlagen werden nur beim Erstellungsprozess für die Anspruchsregel verwendet.  
   
-Im AD FS-Verwaltungs-Snap-\-in Regeln können nur erstellt werden mit anspruchsregelvorlagen. Nachdem Sie mithilfe der angedockten\-in einer anspruchsregelvorlage auswählen, geben Sie die erforderlichen Daten für die Regellogik, und speichern Sie sie mit der Konfigurationsdatenbank, sie werden \(ab diesem Punkt\) in der Benutzeroberfläche als Anspruchsregel bezeichnet.  
+Im Snap\--in "AD FS-Verwaltung" können Regeln nur mithilfe von Anspruchs Regel Vorlagen erstellt werden. Nachdem Sie mit dem Snap\--in eine Anspruchs Regel Vorlage ausgewählt haben, geben \(Sie die erforderlichen Daten für die Regellogik ein, und speichern Sie Sie in der Konfigurations Datenbank. Sie wird\) ab diesem Punkt in der Benutzeroberfläche als Anspruchs Regel bezeichnet.  
   
 ### <a name="how-claim-rule-templates-work"></a>Funktionsweise von Anspruchsregelvorlagen  
-Auf den ersten Blick Anspruch Regelvorlagen erscheinen nur durch das Snap-in bereitgestellte Eingabeformulare\-in zum Sammeln von Daten und prozessspezifischer Logik für eingehende Ansprüche. Bei genauerer Betrachtung speichern Anspruchsregelvorlagen jedoch das erforderliche Framework für die Anspruchsregelsprache, das die Basislogik bereitstellt, die Ihnen das schnelle Erstellen einer Regel ohne tiefgehende Kenntnis der Sprache ermöglicht.  
+Auf den ersten Blick erscheinen Anspruchs Regel Vorlagen nur als Eingabeformulare, die vom Snap\--in bereitgestellt werden, um Daten zu sammeln und bestimmte Logik für eingehende Ansprüche zu verarbeiten. Bei genauerer Betrachtung speichern Anspruchsregelvorlagen jedoch das erforderliche Framework für die Anspruchsregelsprache, das die Basislogik bereitstellt, die Ihnen das schnelle Erstellen einer Regel ohne tiefgehende Kenntnis der Sprache ermöglicht.  
   
-Jede Vorlage, die in der Benutzeroberfläche bereitgestellt wird \(UI\) eine vorab aufgefüllte Anspruchsregel-Sprachsyntax, basierend auf den am häufigsten erforderlichen administrativen Aufgaben darstellt. Es gibt jedoch eine Vorlage, die eine Ausnahme bildet. Diese Vorlage wird als benutzerdefinierte Regelvorlage bezeichnet. Sie enthält keine vordefinierte Syntax. Stattdessen müssen Sie die Syntax für die Anspruchsregel mithilfe der Anspruchsregelsprache direkt im Textkörper des Anspruchsregel-Vorlagenformulars erstellen.  
+Jede Vorlage, die in der Benutzeroberfläche der \(Benutzer\) Oberfläche bereitgestellt wird, stellt eine vorab aufgefüllte Syntax der Anspruchs Regel Sprache dar, die auf den am häufigsten erforderlichen administrativen Aufgaben basiert. Es gibt jedoch eine Vorlage, die eine Ausnahme bildet. Diese Vorlage wird als benutzerdefinierte Regelvorlage bezeichnet. Sie enthält keine vordefinierte Syntax. Stattdessen müssen Sie die Syntax für die Anspruchsregel mithilfe der Anspruchsregelsprache direkt im Textkörper des Anspruchsregel-Vorlagenformulars erstellen.  
   
-Weitere Informationen zur Verwendung der Syntax der anspruchsregelsprache finden Sie unter [The Role of the Claim Rule Language](The-Role-of-the-Claim-Rule-Language.md) in AD FS-Bereitstellungshandbuch.  
+Weitere Informationen zur Verwendung der Syntax der Anspruchs Regel Sprache finden Sie in der [Rolle der Anspruchs Regel Sprache](The-Role-of-the-Claim-Rule-Language.md) im AD FS Bereitstellungs Handbuch.  
   
 > [!TIP]  
 > Sie können die einer Regel zugeordnete Anspruchsregelsprache jederzeit anzeigen, indem Sie in den Eigenschaften einer Anspruchsregel auf die Schaltfläche **Regelsprache anzeigen** klicken.  
@@ -59,7 +59,7 @@ Weitere Informationen zur Verwendung der Syntax der anspruchsregelsprache finden
 ### <a name="how-to-create-a-claim-rule"></a>Erstellen einer Anspruchsregel  
 Anspruchsregeln werden separat für jede Verbund-Vertrauensstellungsbeziehung innerhalb des Verbunddiensts erstellt und werden nicht von mehreren Vertrauensstellungen gemeinsam verwendet. Sie können entweder eine Regel auf Basis einer Anspruchsregelvorlage erstellen, eine Regel mithilfe der Anspruchsregelsprache von Grund auf neu erstellen oder eine Regel mithilfe von Windows PowerShell anpassen.  
   
-Diese unterschiedlichen Optionen bieten Ihnen die Flexibilität, die geeignete Methode für ein bestimmtes Szenario auszuwählen. Weitere Informationen über das Erstellen einer Anspruchsregel finden Sie unter [Konfigurieren von Anspruchsregeln](https://technet.microsoft.com/library/ee913571.aspx) im AD FSDeployment Guide.  
+Diese unterschiedlichen Optionen bieten Ihnen die Flexibilität, die geeignete Methode für ein bestimmtes Szenario auszuwählen. Weitere Informationen zum Erstellen einer Anspruchs Regel finden Sie unter Konfigurieren von [Anspruchs Regeln](https://technet.microsoft.com/library/ee913571.aspx) im AD fsdeployment Guide.  
   
 #### <a name="using-claim-rule-templates"></a>Verwenden von Anspruchsregelvorlagen  
 Anspruchsregelvorlagen werden nur beim Erstellungsprozess für die Anspruchsregel verwendet. Mit den folgenden Vorlagen können Sie eine Anspruchsregel erstellen:  
@@ -78,18 +78,18 @@ Anspruchsregelvorlagen werden nur beim Erstellungsprozess für die Anspruchsrege
   
 -   Alle Benutzer zulassen  
   
-Weitere Informationen, die einzelnen anspruchsregelvorlagen, finden Sie unter [bestimmt der Typ des Anspruchs Regelvorlage verwenden](Determine-the-Type-of-Claim-Rule-Template-to-Use.md).  
+Weitere Informationen zu den einzelnen Anspruchs Regel Vorlagen finden [Sie unter Bestimmen der zu verwendenden Anspruchs Regel Vorlage](Determine-the-Type-of-Claim-Rule-Template-to-Use.md).  
   
 #### <a name="using-the-claim-rule-language"></a>Verwenden der Anspruchsregelsprache  
-Für Geschäftsregeln, die über den Rahmen einer Standard-Anspruchsregelvorlage hinausgehen, können Sie eine benutzerdefinierte Regelvorlage verwenden, um mithilfe der Anspruchsregelsprache eine Reihe komplexer Logikbedingungen auszudrücken. Weitere Informationen zur Verwendung einer benutzerdefinierten Regelsatzes finden Sie unter [verwenden Sie eine benutzerdefinierte Anspruchsregel](When-to-Use-a-Custom-Claim-Rule.md).  
+Für Geschäftsregeln, die über den Rahmen einer Standard-Anspruchsregelvorlage hinausgehen, können Sie eine benutzerdefinierte Regelvorlage verwenden, um mithilfe der Anspruchsregelsprache eine Reihe komplexer Logikbedingungen auszudrücken. Weitere Informationen zum Verwenden einer benutzerdefinierten Regel finden Sie unter [Verwenden einer benutzerdefinierten Anspruchs Regel](When-to-Use-a-Custom-Claim-Rule.md).  
   
 #### <a name="using-windowspowershell"></a>Verwenden von Windows PowerShell  
-Sie können auch die Cmdlet-Objekt ADFSClaimRuleSet mit Windows PowerShell zum Erstellen oder Verwalten von Regeln in AD FS. Weitere Informationen darüber, wie Sie Windows PowerShell mit diesem Cmdlet verwenden können, finden Sie unter [AD FS-Verwaltung mit Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=179634).  
+Sie können auch das Cmdlet-Objekt adfsclaimruleset mit Windows PowerShell verwenden, um Regeln in AD FS zu erstellen oder zu verwalten. Weitere Informationen zur Verwendung von Windows PowerShell mit diesem Cmdlet finden Sie unter [AD FS Verwaltung mit Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=179634).  
   
 ## <a name="what-is-a-claim-rule-set"></a>Was ist ein Anspruchsregelsatz?  
 Wie in der folgenden Abbildung dargestellt, ist ein Anspruchsregelsatz eine Gruppierung von einer oder mehreren Regeln für eine angegebene Verbundvertrauensstellung, die definiert, wie Ansprüche durch das Anspruchsregelmodul verarbeitet werden. Bei Empfang eines eingehenden Anspruchs durch den Verbunddienst wendet das Anspruchsregelmodul die Logik an, die durch den entsprechenden Anspruchsregelsatz angegeben wird. Das Endergebnis der Logik aller Regeln im Satz bestimmt, wie die Ansprüche für eine bestimmte Vertrauensstellung in ihrer Gesamtheit ausgegeben werden.  
   
-![AD FS-Rollen](media/adfs2_claimruleset.gif)  
+![Rollen AD FS](media/adfs2_claimruleset.gif)  
   
 Anspruchsregeln werden vom Anspruchsmodul innerhalb eines bestimmten Regelsatzes chronologisch verarbeitet. Diese Reihenfolge ist wichtig, da die Ausgabe einer Regel als Eingabe für die nächste Regel im Satz verwendet werden kann.  
   
@@ -106,6 +106,6 @@ Die folgende Tabelle beschreibt die verschiedenen Anspruchsregelsatz-Typen und e
 |Delegationsautorisierungs-Regelsatz|Ein Anspruchsregelsatz, den Sie für eine Vertrauensstellung der vertrauenden Seite verwenden, um die Benutzer anzugeben, die als Stellvertreter für andere Benutzer der vertrauenden Seite agieren dürfen.<br /><br />Diese Regeln bestimmen, ob die anfordernde Person zur Annahme der Identität eines Benutzers berechtigt ist, wobei die anfordernde Person im an die vertrauende Seite gesendeten Token trotzdem identifiziert wird.<br /><br />Wenn Sie keine Ausstellungsautorisierungsregel angeben, können Benutzer standardmäßig nicht als Stellvertreter agieren.|Vertrauensstellungen der vertrauenden Seite|  
 |Autorisierungsregelsatz für den Identitätswechsel|Ein Anspruchsregelsatz, den Sie mit Windows PowerShell konfigurieren, um zu bestimmen, ob ein Benutzer vollständig die Identität eines anderen Benutzers der vertrauenden Seite annehmen kann.<br /><br />Diese Regeln bestimmen, ob die anfordernde Person zur Annahme der Identität eines Benutzers berechtigt ist, ohne dass die anfordernde Person im an die vertrauende Seite gesendeten Token identifiziert wird.<br /><br />Die Annahme der Identität eines anderen Benutzers in dieser Weise ist eine sehr leistungsstarke Funktion, da die vertrauende Seite nicht weiß, dass ein anderer die Identität des Benutzers angenommen hat.|Vertrauensstellung der vertrauenden Seite|  
   
-Weitere Informationen zum auswählen die geeigneten Anspruchsregeln für die Verwendung in Ihrer Organisation finden Sie unter [bestimmt der Typ des Anspruchs Regelvorlage verwenden](Determine-the-Type-of-Claim-Rule-Template-to-Use.md).  
+Weitere Informationen zum Auswählen der geeigneten Anspruchs Regeln für Ihre Organisation finden Sie unter [bestimmen der zu verwendenden Anspruchs Regel Vorlage](Determine-the-Type-of-Claim-Rule-Template-to-Use.md).  
   
 

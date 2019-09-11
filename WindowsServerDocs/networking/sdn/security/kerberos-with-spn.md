@@ -1,6 +1,6 @@
 ---
 title: Kerberos mit Dienstprinzipalname (SPN)
-description: Netzwerkcontroller unterstützt mehrere Authentifizierungsmethoden für die Kommunikation mit Verwaltungsclients. Können Sie Kerberos-basierten Authentifizierung, X509 zertifikatbasierte Authentifizierung. Sie haben auch die Möglichkeit, keine Authentifizierung für testbereitstellungen verwenden.
+description: Der Netzwerk Controller unterstützt mehrere Authentifizierungsmethoden für die Kommunikation mit Verwaltungs Clients. Sie können die Kerberos-basierte Authentifizierung, die auf X509-Zertifikaten basierende Authentifizierung verwenden. Sie haben auch die Möglichkeit, keine Authentifizierung für Test Bereitstellungen zu verwenden.
 manager: dougkim
 ms.prod: windows-server-threshold
 ms.technology: networking-sdn
@@ -9,65 +9,65 @@ ms.assetid: bc625de9-ee31-40a4-9ad2-7448bfbfb6e6
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: 2459cfa8dfec3de4aa23da7aba192d6eeed7f8ec
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8c8c5367eeda576f87ac5de20b7885a1a29aeb4d
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828971"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869915"
 ---
 # <a name="kerberos-with-service-principal-name-spn"></a>Kerberos mit Dienstprinzipalname (SPN)
 
 >Gilt für: Windows Server 2019
 
-Netzwerkcontroller unterstützt mehrere Authentifizierungsmethoden für die Kommunikation mit Verwaltungsclients. Können Sie Kerberos-basierten Authentifizierung, X509 zertifikatbasierte Authentifizierung. Sie haben auch die Möglichkeit, keine Authentifizierung für testbereitstellungen verwenden.
+Der Netzwerk Controller unterstützt mehrere Authentifizierungsmethoden für die Kommunikation mit Verwaltungs Clients. Sie können die Kerberos-basierte Authentifizierung, die auf X509-Zertifikaten basierende Authentifizierung verwenden. Sie haben auch die Möglichkeit, keine Authentifizierung für Test Bereitstellungen zu verwenden.
 
-System Center Virtual Machine Manager wird die Kerberos-Authentifizierung verwendet. Wenn Sie Kerberos-Authentifizierung verwenden, müssen Sie einen Namen (SPN) für den Netzwerkcontroller in Active Directory konfigurieren. Der SPN ist ein eindeutiger Bezeichner für die Netzwerkcontroller-Dienstinstanz, die durch die Kerberos-Authentifizierung verwendet wird, ein Dienstkonto für die Anmeldung eine Dienstinstanz zugeordnet werden soll. Weitere Informationen finden Sie unter [Service Principal Names](https://docs.microsoft.com/windows/desktop/ad/service-principal-names).
+System Center Virtual Machine Manager verwendet die Kerberos-basierte Authentifizierung. Wenn Sie die Kerberos-basierte Authentifizierung verwenden, müssen Sie einen Dienst Prinzipal Namen (Service Principal Name, SPN) für den Netzwerk Controller in Active Directory konfigurieren. Der SPN ist ein eindeutiger Bezeichner für die Netzwerk Controller-Dienst Instanz, die von der Kerberos-Authentifizierung zum Zuordnen einer Dienst Instanz zu einem Dienst Anmelde Konto verwendet wird. Weitere Informationen finden Sie unter [Dienst Prinzipal Namen](https://docs.microsoft.com/windows/desktop/ad/service-principal-names).
 
-## <a name="configure-service-principal-names-spn"></a>Konfigurieren von Dienstprinzipalnamen (SPN)
+## <a name="configure-service-principal-names-spn"></a>Konfigurieren von Dienst Prinzipal Namen (SPN)
 
-Der Netzwerkcontroller konfiguriert automatisch den SPN an. Alles, was Sie tun müssen ist, erteilen Sie Berechtigungen für die Netzwerkcontroller-Computer den SPN zu registrieren.
+Der SPN wird vom Netzwerk Controller automatisch konfiguriert. Sie müssen lediglich Berechtigungen für die Netzwerk Controller Computer bereitstellen, um den SPN zu registrieren und zu ändern.
 
-1.  Starten Sie auf dem Computer des Domänencontrollers, **Active Directory-Benutzer und-Computer**.
+1.  Starten Sie auf dem Domänen Controller Computer **Active Directory Benutzer und Computer**.
 
-2.  Wählen Sie **Ansicht \> erweiterte**.
+2.  Wählen **Sie \> Ansicht erweitert**aus.
 
-3.  Klicken Sie unter **Computer**, suchen Sie für den Netzwerkcontroller-Computerkonten, und klicken Sie dann mit der rechten Maustaste und wählen Sie **Eigenschaften**.
+3.  Suchen Sie unter Computer nach einem der Netzwerk Controller- **Computer**Konten, klicken Sie mit der rechten Maustaste, und wählen Sie **Eigenschaften**aus.
 
-4.  Wählen Sie die **Sicherheit** Registerkarte, und klicken Sie auf **erweitert**.
+4.  Klicken Sie auf die Registerkarte **Sicherheit** und dann auf **erweitert**.
 
-5.  In der Liste aus, wenn die Netzwerkcontroller-Computerkonten oder eine Sicherheits-müssen alle Computerkonten der Netzwerkcontroller ist nicht aufgeführt Gruppe, klicken Sie auf **hinzufügen** hinzugefügt.
+5.  Klicken Sie in der Liste auf **Hinzufügen** , wenn alle Netzwerk Controller-Computer Konten oder eine Sicherheitsgruppe mit allen Netzwerk Controller-Computer Konten nicht aufgeführt sind.
 
-6.  Für jedes Netzwerk-Controller-Computerkonto oder einer Sicherheitsgruppe, die die Netzwerkcontroller-Computerkonten enthält:
+6.  Für jedes Netzwerk Controller-Computer Konto oder eine einzelne Sicherheitsgruppe, die die Computer Konten des Netzwerk Controllers enthält:
 
-    a.  Wählen Sie das Konto oder Gruppe aus, und klicken Sie auf **bearbeiten**.
+    a.  Wählen Sie das Konto oder die Gruppe, und klicken Sie auf **Bearbeiten**.
 
-    b.  Unter "Berechtigungen auswählen" **überprüfen schreiben ServicePrincipalName**.
+    b.  Wählen Sie unter Berechtigungen die Option überprüfen **Schreibdienst Prinzipal Name**aus.
 
-    d.  Führen Sie einen Bildlauf nach unten, und klicken Sie unter **Eigenschaften** auswählen:
+    d.  Scrollen Sie nach unten, und wählen Sie unter **Eigenschaften** Folgendes:
 
        -  **ServicePrincipalName lesen**
 
-       -  **Schreibzugriff für servicePrincipalName**
+       -  **ServicePrincipalName schreiben**
 
     e.  Klicken Sie zweimal auf **OK** .
 
-7.  Wiederholen Sie Schritt 3 bis 6 für jeden Computer für den Netzwerkcontroller aus.
+7.  Wiederholen Sie Schritt 3-6 für jeden Netzwerk Controller Computer.
 
 8.  Schließen Sie **Active Directory-Benutzer und -Computer**.
 
-## <a name="failure-to-provide-permissions-for-spn-registrationmodification"></a>Fehler beim Bereitstellen von Berechtigungen für die SPN-Registrierung/Änderung
+## <a name="failure-to-provide-permissions-for-spn-registrationmodification"></a>Fehler beim Bereitstellen von Berechtigungen für die SPN-Registrierung/-Änderung
 
-Auf einem **neu** 2019 für Windows Server-Bereitstellung, wenn Sie Kerberos, für die REST-Client-Authentifizierung auswählen, und Sie keinen über die Berechtigung für den Netzwerkcontroller-Knoten gewähren, den SPN zu registrieren, den REST-Vorgänge auf dem Netzwerkcontroller schlägt fehl. verhindert, dass Verwalten von Sdn Emuliert.
+Wenn Sie bei einer **neuen** Windows Server 2019-Bereitstellung Kerberos für die Rest-Client Authentifizierung ausgewählt haben und keine Berechtigung für Netzwerk Controller Knoten erteilen, um den SPN zu registrieren oder zu ändern, können Rest-Vorgänge auf dem Netzwerk Controller die Verwaltung von nicht verhindern. der Sdn.
 
-Für ein Upgrade von Windows Server 2016, Windows Server-2019, und Sie Kerberos für die REST-Client-Authentifizierung ausgewählt haben, werden REST-Vorgänge nicht blockiert erhalten Transparenz für vorhandene Bereitstellungen in der Produktion sicherzustellen. 
+Bei einem Upgrade von Windows Server 2016 auf Windows Server 2019 und bei der Auswahl von Kerberos für die Rest-Client Authentifizierung werden Rest-Vorgänge nicht blockiert. Dadurch wird die Transparenz für vorhandene Produktions Bereitstellungen sichergestellt. 
 
-Wenn der SPN nicht registriert ist, verwendet REST-Client-Authentifizierung NTLM, weniger sicher. Sie erhalten auch ein kritisches Ereignis im adminkanal von **NetworkController-Framework** ereigniskanal, die Sie auffordert, geben Sie die Berechtigungen für die Netzwerkcontroller-Knoten zum SPN zu registrieren. Nachdem Sie die Berechtigung angeben, Netzwerkcontroller wird den SPN automatisch registriert, und alle Clientvorgänge Kerberos verwenden.
+Wenn der SPN nicht registriert ist, verwendet die Rest-Client Authentifizierung NTLM, das weniger sicher ist. Außerdem erhalten Sie ein kritisches Ereignis im Admin-Kanal des Network **Controller-Framework-** Ereignis Kanals, in dem Sie aufgefordert werden, Berechtigungen für die Netzwerk Controller Knoten zum Registrieren des SPN bereitzustellen. Nachdem Sie die Berechtigung erteilt haben, registriert der Netzwerk Controller den SPN automatisch, und alle Client Vorgänge verwenden Kerberos.
 
 
 >[!TIP]
->In der Regel können Sie den Netzwerkcontroller, um eine IP-Adresse oder DNS-Namen für die REST-basierte Vorgänge verwenden konfigurieren. Wenn Sie Kerberos konfigurieren, können nicht Sie jedoch eine IP-Adresse für REST-Abfragen für den Netzwerkcontroller verwenden. Beispielsweise können Sie \< https://networkcontroller.consotso.com\>, aber Sie können keine \< https://192.34.21.3\>. Service Principal Names, die funktioniert nicht, wenn die IP-Adressen verwendet werden.
+>In der Regel können Sie den Netzwerk Controller so konfigurieren, dass er eine IP-Adresse oder einen DNS-Namen für Rest-basierte Vorgänge verwendet. Wenn Sie Kerberos konfigurieren, können Sie jedoch keine IP-Adresse für Rest-Abfragen an den Netzwerk Controller verwenden. Beispiels \<Weise können Sie verwenden https://networkcontroller.consotso.com\>, aber Sie können nicht verwenden \< https://192.34.21.3\>. Dienst Prinzipal Namen können nicht funktionieren, wenn IP-Adressen verwendet werden.
 >
->Wenn Sie die IP-Adresse für REST-Vorgänge zusammen mit Kerberos-Authentifizierung in Windows Server 2016 verwendet haben, hätten für die Kommunikation über NTLM-Authentifizierung. In solch einer Bereitstellung sind nach dem upgrade auf Windows Server-2019, weiterhin NTLM-basierte Authentifizierung zu verwenden. Um auf Kerberos basierende Authentifizierung verschieben, müssen Sie Network Controller DNS-Namen für die REST-Vorgänge verwenden, und Erteilen von Berechtigungen für den Netzwerkcontroller-Knoten, um den SPN zu registrieren.
+>Wenn Sie die IP-Adresse für Rest-Vorgänge zusammen mit der Kerberos-Authentifizierung in Windows Server 2016 verwendet haben, wäre die tatsächliche Kommunikation über die NTLM-Authentifizierung erfolgt. Wenn Sie in einer solchen Bereitstellung ein Upgrade auf Windows Server 2019 durchführen, verwenden Sie die NTLM-basierte Authentifizierung. Wenn Sie zur Kerberos-basierten Authentifizierung wechseln möchten, müssen Sie den DNS-Namen des Netzwerk Controllers für Rest-Vorgänge verwenden und die Berechtigung für Netzwerk Controller Knoten zum Registrieren des SPN angeben.
 
 ---

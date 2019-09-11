@@ -8,12 +8,12 @@ ms.date: 02/13/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: 7cec2a9c805208baceff8a8afe22a20fd2859edd
-ms.sourcegitcommit: e2b565ce85a97c0c51f6dfe7041f875a265b35dd
+ms.openlocfilehash: 0b5b473460bf72143f517443eadad831dd2502c5
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69584842"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865151"
 ---
 # <a name="use-storage-migration-service-to-migrate-a-server"></a>Verwenden von Storage Migration Service zum Migrieren eines Servers
 
@@ -61,7 +61,7 @@ In diesem Schritt übertragen Sie die Daten, nachdem Sie angegeben haben, wo Sie
    ![Screenshot, der einen Quell Server und seine Volumes und Freigaben anzeigt und an den Sie in der Ziel](media/migrate/transfer.png) **Abbildung 3 übertragen werden: Einen Quell Server und an den Speicherort, an den der Speicher übertragen wird**
 4. Fügen Sie einen Zielserver und Zuordnungen für alle weiteren Quell Server hinzu, und klicken Sie dann auf **weiter**.
 5. Passen Sie die Übertragungs Einstellungen optional an, und klicken Sie dann auf **weiter**.
-6. Wählen Sie überprüfen, und klicken Sie dann auf **weiter**.
+6. Wählen Sie überprüfen **, und klicken Sie dann** auf **weiter**.
 7. Wählen Sie **Übertragung starten** , um die Datenübertragung zu starten<br>Wenn Sie das erste Mal übertragen, verschieben wir alle vorhandenen Dateien in einem Ziel in einen Sicherungsordner. Bei nachfolgenden Übertragungen aktualisieren wir das Ziel standardmäßig, ohne es zuerst zu sichern. <br>Außerdem ist der Storage Migration Service intelligent genug, um überlappende Freigaben zu umgehen – wir kopieren dieselben Ordner nicht zweimal in denselben Auftrag.
 8. Überprüfen Sie nach Abschluss der Übertragung den Zielserver, um sicherzustellen, dass alles ordnungsgemäß übertragen wurde. Wählen Sie **nur Fehlerprotokoll** aus, wenn Sie ein Protokoll aller Dateien herunterladen möchten, die nicht übertragen wurden.
 
@@ -82,13 +82,13 @@ In diesem Schritt können Sie die Quell Server auf die Zielserver übertragen un
 
  1. Wenn Sie vom Migrations Auftrag aus navigiert sind, navigieren Sie im Windows Admin Center zu **Server-Manager** > **Storage Migration Service** , und wählen Sie dann den Auftrag aus, den Sie ausführen möchten. 
  1. Wählen Sie auf der Seite zum**eingeben der Anmelde** Informationen **für neue Server** > die Option **weiter** aus, um die zuvor eingegebenen Anmelde Informationen zu verwenden.
- 1. Geben Sie auf der Seite **Konfigurieren** des umgebers an, welche Netzwerkadapter für die einzelnen Quell Geräteeinstellungen übernommen werden sollen. Dadurch wird die IP-Adresse von der Quelle zum Ziel als Teil des umgebers verschoben.
+ 1. Geben Sie auf der Seite **Konfigurieren des umgebers** an, welche Netzwerkadapter für die einzelnen Quell Geräteeinstellungen übernommen werden sollen. Dadurch wird die IP-Adresse von der Quelle zum Ziel als Teil des umgebers verschoben.
  1. Geben Sie an, welche IP-Adresse für den Quell Server verwendet werden soll, nachdem der Umstellung seine Adresse zum Ziel verschoben hat. Sie können DHCP oder eine statische Adresse verwenden. Wenn eine statische Adresse verwendet wird, muss das neue Subnetz mit dem alten Subnetz identisch sein, oder der Umstellung schlägt fehl.
     ![Screenshot, der einen Quell Server und seine IP-Adressen und Computernamen anzeigt und nach dem Umstellung](media/migrate/cutover.png)
      **-Wert 4 ersetzt wird: Einen Quell Server und die Art und Weise, wie die Netzwerkkonfiguration auf das Ziel verschoben wird**
  1. Geben Sie an, wie der Quell Server umbenannt werden soll, nachdem der Zielserver seinen Namen übernommen hat. Sie können einen zufällig generierten Namen verwenden oder einen selbst eingeben. Klicken Sie dann auf **weiter**.
  1. Wählen Sie auf der Seite Einstellungen für den **Umschalter anpassen** die Option **weiter** aus.
- 1. Wählen Sie überprüfen auf der Seite **Quell-und Zielgerät** überprüfen aus, und klicken Sie dann auf **weiter**.
+ 1. Wählen **Sie überprüfen** auf der Seite **Quell-und Zielgerät** überprüfen aus, und klicken Sie dann auf **weiter**.
  1. Wenn Sie bereit sind, den Umschalter auszuführen, wählen Sie die Option **Start**Seite aus. <br>Benutzer und Apps können Unterbrechungen auftreten, während die Adressen und Namen verschoben werden und die Server mehrmals neu gestartet werden, aber andernfalls von der Migration nicht betroffen sind. Wie lange es dauert, hängt von der Art und Weise ab, wie schnell der Server neu gestartet wird, sowie von Active Directory und DNS-Replikations Zeiten.
 
 ## <a name="see-also"></a>Siehe auch

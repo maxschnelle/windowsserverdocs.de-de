@@ -1,6 +1,6 @@
 ---
 title: Einrichten des physischen Computers und der primären Station
-description: Erfahren Sie, wie Sie Ihre erste System, der primären in MultiPoint Services-Station einrichten
+description: Erfahren Sie, wie Sie Ihr erstes System, die primäre Station, in Multipoint Services einrichten.
 ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server-threshold
@@ -13,56 +13,56 @@ ms.assetid: 4e83b126-ce9a-4cd7-a0bd-6627c9e0f81b
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 6569c4963d31b72216943bf29b71411e702caf84
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 01b405b679afa3815652b91bec63c786bd661cf7
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812011"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871555"
 ---
 # <a name="set-up-the-physical-computer-and-primary-station"></a>Einrichten des physischen Computers und der primären Station
-Vor der Installation von MultiPoint Services müssen Sie die primäre Station für das MultiPoint Services-System einrichten. Verbinden Sie den Computer mit dem LAN, wenn Sie eine lokale Netzwerk (LAN) verwenden möchten.  
+Vor der Installation von Multipoint Services müssen Sie die primäre Station für Ihr Multipoint Services-System einrichten. Wenn Sie ein LAN (Local Area Network) verwenden, verbinden Sie den Computer mit dem LAN.  
   
-Ein *Station* ist ein Endpunkt mit dem MultiPoint-Dienste zugegriffen wird. Die *primäre Station* ist die erste Station, die beim start MultiPoint Server gestartet wird. Administratoren können sie zu Access-Start-Menüs und Einstellungen verwenden. Die primäre Station ermöglicht den Zugriff auf die Systemkonfiguration und Informationen, die nur während des Starts und vor dem MultiPoint Services steht zur Problembehandlung bei System ausgeführt wird. Nach dem Start können Sie die primäre Station verwenden, wie Sie eine anderen Station.  
+Eine *Station* ist ein Endpunkt, über den auf Multipoint Services zugegriffen wird. Die *primäre Station* ist die erste Station, die gestartet wird, wenn Multipoint Services gestartet wird. Administratoren können Sie verwenden, um auf Startmenüs und-Einstellungen zuzugreifen. Die primäre Station ermöglicht den Zugriff auf Systemkonfigurations-und Problem Behandlungsinformationen, die nur während des Starts und vor der Ausführung des Multipoint Services-Systems verfügbar sind. Nach dem Start können Sie die primäre Station wie jede andere Station verwenden.  
   
-Die primäre Station muss eine Station Direct-Video-Verbindung sein. Das folgende Verfahren beschreibt, wie zur Verbindung mit dem MultiPoint Services-Computer der erforderlichen Hardware wird.  
+Bei der primären Station muss es sich um eine Station mit direkt Videoverbindung handeln. Im folgenden Verfahren wird beschrieben, wie Sie die erforderliche Hardware mit Ihrem Multipoint Services-Computer verbinden.  
   
-Weitere Informationen zu den Stationen, finden Sie unter [MultiPoint-Stationen](multipoint-services-stations.md). Hilfe bei Treffen einer Auswahl von Hardware, finden Sie unter [Auswählen der Hardware für Ihr MultiPoint Services-Systems](Selecting-Hardware-for-Your-MultiPoint-services-System.md). Weitere Informationen zum Verbinden von anderen Typen mit MultiPoint Services Kontrollstationen, finden Sie unter [zusätzliche Sender auf dem MultiPoint Services-Computer Anfügen](Attach-additional-stations-to-your-MultiPoint-services-computer.md).  
+Weitere Informationen zu Stationen finden Sie unter [Multipoint-Stationen](multipoint-services-stations.md). Hilfe zum Treffen von Hardware Auswahlen finden [Sie unter Auswählen von Hardware für Ihr Multipoint Services-System](Selecting-Hardware-for-Your-MultiPoint-services-System.md). Informationen zum Verbinden anderer Stations Typen mit Multipoint Services finden Sie unter [Anfügen zusätzlicher Stationen an Ihren Multipoint Services-Computer](Attach-additional-stations-to-your-MultiPoint-services-computer.md).  
   
 > [!NOTE]  
-> Um eine Video-Verbindung-Station zu erstellen, müssen Sie eine Lateinische Tastatur (z. B. eine Tastatur Sprache als Englisch oder Spanisch) verwenden.  
+> Um eine Station mit Videoverbindung zu erstellen, müssen Sie eine lateinische Tastatur verwenden (z. b. eine englische oder spanischsprachige Tastatur).  
   
 ## <a name="to-set-up-your-primary-station"></a>So richten Sie Ihre primäre Station ein  
   
-1.  Stellen Sie sicher, dass der Computer, auf dem MultiPoint Services ausgeführt wird deaktiviert und wurde entfernt.  
+1.  Stellen Sie sicher, dass der Computer, auf dem Multipoint Services ausgeführt wird, ausgeschaltet ist.  
   
-2.  Verbinden Sie das Stromkabel des Monitors, in eine Steckdose, und das Kabel des Monitors an den Port der Videoanzeige auf dem Computer, wie unten dargestellt.  
+2.  Verbinden Sie das Netzkabel des Monitors mit einer Stromversorgung, und verbinden Sie das Monitorkabel mit dem Video anschauport auf dem Computer, wie unten gezeigt.  
   
     ![Abbildung einer Videoverbindung zu einem System mit USB Hub](./media/WMSVideoConnection.gif)  
   
-3.  Wenn die Station USB-Tastatur und Maus verwenden möchten, führen Sie die folgenden Schritte aus:  
+3.  Wenn die Station eine USB-Tastatur und-Maus verwendet, führen Sie die folgenden Schritte aus:  
   
-    1.  Verbinden Sie einen externen USB-Hub mit einem freien USB-Anschluss auf dem Computer, wie unten dargestellt.  
+    1.  Stellen Sie eine Verbindung zwischen einem externen USB-Hub und einem geöffneten USB-Anschluss auf dem Computer her (siehe unten).  
   
-        ![Abbildung des MultiPoint Services-USB-Hub-Verbindung](./media/WMSUSBHubConnection.gif)  
+        ![Abbildung der Multipoint Services-USB-Hub-Verbindung](./media/WMSUSBHubConnection.gif)  
   
-    2.  Verbinden Sie USB-Tastatur und Maus, mit dem USB-Hub.  
+    2.  Verbinden Sie die USB-Tastatur und die Maus mit dem USB-Hub.  
   
         ![Anschließen von Eingabegeräten an einen USB-Hub](./media/WMSUSBDeviceConnection.gif)  
   
         > [!NOTE]  
-        > Verfügt Ihr MultiPoint Services-Computer über PS/2-Ports, können Sie bei Bedarf PS/2-Tastatur und Maus, die direkt an den Computer angeschlossen verwenden. Dieses Setup hat jedoch deutliche Einschränkungen auf. Benutzer nicht verwenden, Audiogeräte, Webcams, und flash-Laufwerke auf PS/2-Stationen.  
+        > Wenn Ihr Multipoint Services-Computer über PS/2-Ports verfügt, können Sie bei Bedarf eine PS/2-Tastatur verwenden und die Maus direkt an den Computer angeschlossen. Diese Einrichtung hat jedoch erhebliche Einschränkungen. Benutzer können keine Audiogeräte, Web-Cams und Flash Laufwerke auf PS/2-Stationen verwenden.  
   
-    3.  Wenn Sie einen extern ausgeschaltet Hub verwenden, verbinden Sie das Stromkabel des Hubs in eine Steckdose.  
+    3.  Wenn Sie einen extern betriebenen Hub verwenden, verbinden Sie das Netzkabel des Hubs mit einer Stromversorgung.  
   
         > [!IMPORTANT]  
-        > Wir empfehlen dringend die Verwendung eines Hubs ausgeschaltet. Unterdimensionierte aktuelle Bedingungen kann fehlerhaften Systemverhalten führen.  
+        > Wir empfehlen dringend die Verwendung eines gestützten Hubs. Ein erratisches Systemverhalten kann sich aus unter aktuellen Bedingungen ergeben.  
         >   
-        > Benutzer sollten Mäuse und Tastaturen nicht direkt auf das USB-Anschlüsse des Computers anfügen. Auf diese Weise werden wahrscheinlich die falsche Zuordnung mehrerer Tastaturen und Mäusen derselben oder keine Station überhaupt.  
+        > Benutzer dürfen keine Maus und Tastatur direkt an die USB-Anschlüsse des Computers anfügen. Dadurch wird wahrscheinlich die falsche Zuordnung mehrerer Tastaturen und Mäuse zur gleichen Station oder zu keiner Station ausgelöst.  
   
         > [!NOTE]  
-        > Der Host-audio-Gerät auf der Hauptplatine ist nur verfügbar, während MultiPoint-Dienste im Konsolenmodus ausgeführt wird. Um ohne Unterbrechung Audio für eine Station zu gewährleisten, die einen externen USB-Hub verwendet, müssen Sie ein USB-Audiogerät an den Hub angeschlossen verwenden.  
+        > Das hostaudiogerät auf der Hauptplatine des Systems ist nur verfügbar, wenn sich Multipoint Services im Konsolenmodus befindet. Sie müssen ein USB-Audiogerät verwenden, das mit dem Hub verbunden ist, um das ununterbrochene Audiomaterial für eine Station sicherzustellen, die einen externen USB-Hub verwendet.  
   
-## <a name="to-connect-the-computer-to-the-lan"></a>Um den Computer mit dem LAN verbinden  
+## <a name="to-connect-the-computer-to-the-lan"></a>So verbinden Sie den Computer mit dem LAN  
   
--   Wenn Sie über ein LAN haben, verbinden Sie den Computer über ein Netzwerkkabel mit Ihrem Netzwerk.
+-   Wenn Sie über ein LAN verfügen, verbinden Sie Ihren Computer mit Ihrem Netzwerk über ein Netzwerkkabel.

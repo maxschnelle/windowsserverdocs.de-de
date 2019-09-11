@@ -1,6 +1,6 @@
 ---
 title: nslookup
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 194cb96846e42b175978a2f6fc7268a93875d315
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 84e3e9ee920f458ca775dd7b76d892f10ba2f992
+ms.sourcegitcommit: ee8e0b217be6f6b2532ee7265fb4be00c106e124
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811096"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70878115"
 ---
 # <a name="nslookup"></a>nslookup
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zeigt Informationen, die Sie zum Diagnostizieren der Domain Name System (DNS)-Infrastruktur verwenden können. Bevor Sie mit diesem Tool sollten Sie vertraut sein, mit der Funktionsweise von DNS. Das Befehlszeilentool "Nslookup" ist nur verfügbar, wenn Sie das TCP/IP-Protokoll installiert haben.
+Zeigt Informationen an, die Sie verwenden können, um Domain Name System (DNS)-Infrastruktur zu diagnostizieren. Bevor Sie dieses Tool verwenden, sollten Sie mit der Funktionsweise von DNS vertraut sein. Das Befehlszeilen Tool nslookup ist nur verfügbar, wenn Sie das TCP/IP-Protokoll installiert haben.
 ## <a name="syntax"></a>Syntax
 
 ```
@@ -61,60 +61,60 @@ nslookup /view <FileName>
 
 |                       Parameter                       |                                                                                                         Beschreibung                                                                                                         |
 |-------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   [Befehl „nslookup exit“](nslookup-exit-command.md)   |                                                                                                     beendet **Nslookup**.                                                                                                     |
-| [Befehl „nslookup finger“](nslookup-finger-command.md) |                                                                                  Eine Verbindung mit dem Fingerserver, auf dem aktuellen Computer.                                                                                   |
-|           [nslookup help](nslookup-help.md)           |                                                                                    Zeigt eine kurze Zusammenfassung der **Nslookup** Unterbefehle.                                                                                    |
-|             [nslookup ls](nslookup-ls.md)             |                                                                                             Listet Informationen für eine DNS-Domäne.                                                                                             |
-|        [nslookup lserver](nslookup-lserver.md)        |                                                                                   Ändert den Standardserver an der angegebenen DNS-Domäne an.                                                                                   |
-|           [nslookup root](nslookup-root.md)           |                                                                     Ändert den Standardserver an den Server für den Stamm des DNS-Domänennamespace.                                                                     |
-|         [nslookup server](nslookup-server.md)         |                                                                                   Ändert den Standardserver an der angegebenen DNS-Domäne an.                                                                                   |
-|            [nslookup set](nslookup-set.md)            |                                                                              ändert Konfigurationseinstellungen, die beeinflussen wie Suchvorgänge-Funktion.                                                                               |
-|        [nslookup set all](nslookup-set-all.md)        |                                                                                  Gibt die aktuellen Werte der Konfigurationseinstellungen.                                                                                   |
-|      [nslookup set class](nslookup-set-class.md)      |                                                                     Ändert die Abfrageklasse. Die Klasse gibt die Protokollgruppe, der die Informationen an.                                                                     |
-|         [nslookup set d2](nslookup-set-d2.md)         |                                                                     Vollständige Debugging-Modus aktiviert, aktivieren oder deaktivieren. Alle Felder jedes Pakets werden gedruckt.                                                                      |
-|      [nslookup set debug](nslookup-set-debug.md)      |                                                                                               Schaltet den Debugmodus, ein- oder ausschalten.                                                                                               |
-|                 Nslookup/set Defname                 |                                            Fügt den standardmäßigen DNS-Domänennamen an eine suchanforderung einzelne Komponente an. Eine einzelne Komponente ist eine Komponente, die keine Punkte enthält.                                            |
-|     [nslookup set domain](nslookup-set-domain.md)     |                                                                                 Ändert den Standard-DNS-Domänennamen dem angegebenen Namen.                                                                                  |
-|                 Nslookup/Set ignorieren                  |                                                                                              Fehler beim Abschneiden von Paket wird ignoriert.                                                                                              |
-|       [nslookup set port](nslookup-set-port.md)       |                                                                          ändert sich der Standardport des TCP/UDP-DNS-Namen auf den angegebenen Wert.                                                                           |
-|  [nslookup set querytype](nslookup-set-querytype.md)  |                                                                                       Ändert den Typ des Ressourcendatensatzes für die Abfrage an.                                                                                       |
-|    [nslookup set recurse](nslookup-set-recurse.md)    |                                                                    Weist den DNS-Name-Server auf anderen Servern abzufragen, wenn sie nicht die Informationen verfügt.                                                                    |
-|      [nslookup set retry](nslookup-set-retry.md)      |                                                                                                 Legt die Anzahl von Wiederholungen fest.                                                                                                 |
-|       [nslookup set root](nslookup-set-root.md)       |                                                                                    Ändert den Namen des Stammservers für Abfragen verwendet.                                                                                    |
-|     [nslookup set search](nslookup-set-search.md)     | Fügt die DNS-Domänennamen in der Suchliste für DNS-Domäne auf die Anforderung, bis eine Antwort empfangen wird. Dies gilt, wenn die Gruppe und die Suche nach Anforderung muss mindestens einen Punkt enthalten, aber nicht mit einem Punkt enden. |
-|   [nslookup set srchlist](nslookup-set-srchlist.md)   |                                                                                    Ändert den Standard-DNS-Domäne Name "und" suchen.                                                                                     |
-|    [nslookup set timeout](nslookup-set-timeout.md)    |                                                                           Ändert die anfängliche Anzahl von Sekunden zu warten, bis eine Antwort auf eine Anforderung an.                                                                           |
-|       [nslookup set type](nslookup-set-type.md)       |                                                                                       Ändert den Typ des Ressourcendatensatzes für die Abfrage an.                                                                                       |
-|         [nslookup set vc](nslookup-set-vc.md)         |                                                                     Gibt an, zu verwenden oder nicht verwenden, die eine virtuelle Verbindung, die beim Senden an den Server-Anforderungen.                                                                      |
-|           [nslookup view](nslookup-view.md)           |                                                                          sortiert und zeigt die Ausgabe des vorherigen **ls** Unterbefehl oder Befehle.                                                                          |
+|   [Befehl „nslookup exit“](nslookup-exit-command.md)   |                                                                                                     Beendet **nslookup**.                                                                                                     |
+| [Befehl „nslookup finger“](nslookup-finger-command.md) |                                                                                  Stellt eine Verbindung mit dem Finger Server auf dem aktuellen Computer her.                                                                                   |
+|           [nslookup help](nslookup-help.md)           |                                                                                    Zeigt eine kurze Zusammenfassung der **nslookup** -Unterbefehle an.                                                                                    |
+|             [nslookup ls](nslookup-ls.md)             |                                                                                             Listet Informationen für eine DNS-Domäne auf.                                                                                             |
+|        [nslookup lserver](nslookup-lserver.md)        |                                                                                   Ändert den Standard Server in die angegebene DNS-Domäne.                                                                                   |
+|           [nslookup root](nslookup-root.md)           |                                                                     Ändert den Standard Server für den Stamm des DNS-Domänen Namen-Speicherplatzes auf den Server.                                                                     |
+|         [nslookup server](nslookup-server.md)         |                                                                                   Ändert den Standard Server in die angegebene DNS-Domäne.                                                                                   |
+|            [nslookup set](nslookup-set.md)            |                                                                              Ändert die Konfigurationseinstellungen, die die Funktionsweise von suchen beeinflussen.                                                                               |
+|        [nslookup set all](nslookup-set-all.md)        |                                                                                  Druckt die aktuellen Werte der Konfigurationseinstellungen.                                                                                   |
+|      [nslookup set class](nslookup-set-class.md)      |                                                                     Ändert die Query-Klasse. Die-Klasse gibt die Protokoll Gruppe der Informationen an.                                                                     |
+|         [nslookup set d2](nslookup-set-d2.md)         |                                                                     Schaltet einen umfassenden Debugmodus ein oder aus. Alle Felder jedes Pakets werden gedruckt.                                                                      |
+|      [nslookup set debug](nslookup-set-debug.md)      |                                                                                               Schaltet den Debugmodus ein oder aus.                                                                                               |
+|                 Nslookup/set defname                 |                                            Fügt den Standard-DNS-Domänen Namen an eine einzelne Komponenten Such Anforderung an. Bei einer einzelnen Komponente handelt es sich um eine Komponente, die keine Punkte enthält.                                            |
+|     [nslookup set domain](nslookup-set-domain.md)     |                                                                                 Ändert den Standard-DNS-Domänen Namen in den angegebenen Namen.                                                                                  |
+|                 Nslookup/Set ignorieren                  |                                                                                              Ignoriert Fehler beim Abschneiden von Paketen.                                                                                              |
+|       [nslookup set port](nslookup-set-port.md)       |                                                                          Ändert den standardmäßigen TCP/UDP-DNS-Namen Serverport in den angegebenen Wert.                                                                           |
+|  [nslookup set querytype](nslookup-set-querytype.md)  |                                                                                       Ändert den Ressourcen Daten Satz für die Abfrage.                                                                                       |
+|    [nslookup set recurse](nslookup-set-recurse.md)    |                                                                    Weist den DNS-Namen Server an, andere Server abzufragen, wenn diese nicht über die Informationen verfügen.                                                                    |
+|      [nslookup set retry](nslookup-set-retry.md)      |                                                                                                 Legt die Anzahl der Wiederholungen fest.                                                                                                 |
+|       [nslookup set root](nslookup-set-root.md)       |                                                                                    Ändert den Namen des Stamm Servers, der für Abfragen verwendet wird.                                                                                    |
+|     [nslookup set search](nslookup-set-search.md)     | Fügt die DNS-Domänen Namen in der DNS-Domänen Suchliste an die Anforderung an, bis eine Antwort empfangen wird. Dies gilt, wenn die Set-und die Suche-Anforderung mindestens einen Zeitraum enthalten, aber nicht mit einem nachfolgenden Zeitraum enden. |
+|   [nslookup set srchlist](nslookup-set-srchlist.md)   |                                                                                    Ändert den Standard-DNS-Domänen Namen und die Suchliste.                                                                                     |
+|    [nslookup set timeout](nslookup-set-timeout.md)    |                                                                           Ändert die anfängliche Anzahl von Sekunden, die auf eine Antwort auf eine Anforderung gewartet werden soll.                                                                           |
+|       [nslookup set type](nslookup-set-type.md)       |                                                                                       Ändert den Ressourcen Daten Satz für die Abfrage.                                                                                       |
+|         [nslookup set vc](nslookup-set-vc.md)         |                                                                     Gibt an, dass beim Senden von Anforderungen an den Server eine virtuelle Verbindung verwendet oder nicht verwendet werden soll.                                                                      |
+|           [nslookup view](nslookup-view.md)           |                                                                          Sortiert die Ausgabe der vorherigen **ls** -Unterbefehle und listet Sie auf.                                                                          |
 
 ## <a name="remarks"></a>Hinweise
-- Wenn *Gesuchter* eine IP-Adresse und die Abfrage für ein A oder PTR Ressourceneintragstyp, den Namen des Computers zurückgegeben. Wenn *Gesuchter* ist ein Name und verfügt nicht über einen Punkt, der Standardwert, der DNS-Domänennamen an den Namen angefügt wird. Dieses Verhalten hängt von den Status der folgenden **festgelegt** Unterbefehle: **Domäne**, **Srchlist**, **Defname**, und  **Suche**.
-- Wenn Sie anstelle von einem Bindestrich (-) eingeben *Gesuchter*, die Eingabeaufforderung ändert sich in **Nslookup** im interaktiven Modus.
-- Die Länge der Befehlszeile muss weniger als 256 Zeichen sein.
-- **Nslookup** verfügt über zwei Modi: interaktiven und einen.
-  Wenn Sie nur ein einzelnes Datenelement suchen möchten, verwenden Sie nicht interaktiven Modus. Geben Sie den Namen oder die IP-Adresse des Computers, der Sie suchen möchten, für den ersten Parameter. Geben Sie für den zweiten Parameter den Namen oder die IP-Adresse eines DNS-Name-Servers ein. Wenn Sie das zweite Argument, weglassen **Nslookup** verwendet den Standard-DNS-Namenserver.
-  Wenn Sie mehr als eine Dateneinheit suchen möchten, können Sie im interaktiven Modus. Geben Sie einen Bindestrich (-) für den ersten Parameter und den Namen oder die IP-Adresse eines DNS-Name-Servers für den zweiten Parameter ein. Oder lassen Sie beide Parameter und **Nslookup** verwendet den Standard-DNS-Namenserver. Es folgen einige Tipps zum Arbeiten im interaktiven Modus:
-  -   Drücken Sie STRG + B, um interaktive Befehle jederzeit zu unterbrechen.
-  -   Geben Sie zum Beenden **beenden**.
-  -   Um einen integrierten Befehl als Computername verwenden, fügen sie davor das Escape-Zeichen (\\).
+- Wenn *computertofind* eine IP-Adresse ist und die Abfrage für einen-oder PTR-Ressourcen Daten Satz-Typ ist, wird der Name des Computers zurückgegeben. Wenn *computertofind* ein Name ist und keinen nachfolgenden Zeitraum hat, wird der Standard-DNS-Domänen Name an den Namen angehängt. Dieses Verhalten ist abhängig vom Status der folgenden **Set** -Unterbefehle: " **Domain**", " **srchlist**", " **defname**" und " **Search**".
+- Wenn Sie anstelle von *computertofind*einen Bindestrich (-) eingeben, wird die Eingabeaufforderung in den interaktiven **nslookup** -Modus geändert.
+- Die Befehlszeilen Länge muss weniger als 256 Zeichen umfassen.
+- **nslookup** verfügt über zwei Modi: interaktiv und nicht interaktiv.
+  Wenn Sie nur ein einzelnes Datenelement suchen müssen, verwenden Sie den nicht interaktiven Modus. Geben Sie für den ersten Parameter den Namen oder die IP-Adresse des Computers ein, den Sie suchen möchten. Geben Sie für den zweiten Parameter den Namen oder die IP-Adresse eines DNS-Namensservers ein. Wenn Sie das zweite Argument weglassen, verwendet **nslookup** den Standard-DNS-Namen Server.
+  Wenn Sie mehr als ein Datenelement suchen müssen, können Sie den interaktiven Modus verwenden. Geben Sie einen Bindestrich (-) für den ersten Parameter und den Namen oder die IP-Adresse eines DNS-Namen Servers für den zweiten Parameter ein. Oder lassen Sie beide Parameter aus, und **nslookup** verwendet den Standard-DNS-Namen Server. Im folgenden finden Sie einige Tipps zum Arbeiten im interaktiven Modus:
+  -   Wenn Sie interaktive Befehle jederzeit unterbrechen möchten, drücken Sie STRG + B.
+  -   Zum Beenden geben Sie **Exit**ein.
+  -   Um einen integrierten Befehl als Computernamen zu behandeln, stellen Sie ihm das Escapezeichen (\\) voran.
   -   Ein nicht erkannter Befehl wird als Computername interpretiert.
-- Wenn die Anforderung für die Suche fehlschlägt, **Nslookup** druckt eine Fehlermeldung angezeigt. Die folgende Tabelle enthält mögliche Fehlermeldungen.
+- Wenn die Such Anforderung fehlschlägt, gibt **nslookup** eine Fehlermeldung aus. In der folgenden Tabelle sind mögliche Fehlermeldungen aufgeführt.
   |**Fehlermeldung**|**Beschreibung**|
   |-----------|----------|
-  |`timed out`|Der Server hat nicht auf eine Anforderung nach einem bestimmten Zeitraum und eine bestimmte Anzahl von Wiederholungen reagiert. Sie können festlegen, das Timeout mit der **Timeout festlegen** Unterbefehl. Sie können festlegen, die Anzahl von Wiederholungen mit der **Satz Wiederholung** Unterbefehl.|
-  |`No response from server`|Keine DNS-Namenserver wird auf dem Server-Computer ausgeführt.|
-  |`No records`|Der DNS-Namenserver-Ressourceneinträge des aktuellen Abfragetyps für den Computer keinen auch den Namen des Computers gültig ist. Der Abfragetyp wird angegeben, mit der **festgelegt Querytype** Befehl.|
-  |`Nonexistent domain`|Der Computer oder die DNS-Domänenname ist nicht vorhanden.|
-  |`Connection refused`<br /><br />– oder –<br /><br />`Network is unreachable`|Die Verbindung mit dem DNS-Namenserver oder den Finger-Server konnte nicht hergestellt werden. Dieser Fehler tritt häufig bei **ls** und **Finger** Anforderungen.|
-  |`Server failure`|Der DNS-Namenserver eine interne Inkonsistenz in der Datenbank gefunden und konnte keine gültige Antwort zurückgegeben.|
-  |`Refused`|Der DNS-Namenserver für die Anforderung abgelehnt.|
-  |`format error`|Der DNS-Namenserver gefunden, dass das Anforderungspaket nicht das richtige Format war. Dies ist möglicherweise einen Fehler in **Nslookup**.|
-- Weitere Informationen zu den **Nslookup** Befehl und DNS finden Sie in den folgenden Ressourcen:
-  - Lee, t, Davies, J. 2000. *Technische Referenz für Microsoft Windows 2000-TCP/IP-Protokolle und Dienste*. Redmond, Washington: Microsoft Press.
-  - Albitz, P., Loukides, M. and C. Liu. 2001. *DNS und die BINDUNG, 4. Auflage*. Köln, Kalifornien, USA: O' Reilly und Partnern, Inc.
-  - Larson, M. and C. Liu. 2001. *DNS in Windows 2000*. Köln, Kalifornien, USA: O' Reilly und Partnern, Inc.
+  |`timed out`|Der Server hat nach einem bestimmten Zeitraum und einer bestimmten Anzahl von Wiederholungen nicht auf eine Anforderung geantwortet. Sie können den Timeout Zeitraum mit dem Unterbefehl **Set Timeout** festlegen. Sie können die Anzahl der Wiederholungs Versuche mit dem untergeordneten Befehl **Set Wiederholen Sie** festlegen.|
+  |`No response from server`|Auf dem Server Computer wird kein DNS-Namen Server ausgeführt.|
+  |`No records`|Der DNS-Namen Server weist keine Ressourcen Einträge des aktuellen Abfrage Typs für den Computer auf, obwohl der Computername gültig ist. Der Abfragetyp wird mit dem **Set QueryType** -Befehl angegeben.|
+  |`Nonexistent domain`|Der Computer-oder DNS-Domänen Name ist nicht vorhanden.|
+  |`Connection refused`<br /><br />-oder-<br /><br />`Network is unreachable`|Die Verbindung mit dem DNS-Namen Server oder dem Finger Server konnte nicht hergestellt werden. Dieser Fehler tritt häufig bei **ls** -und **Finger** Anforderungen auf.|
+  |`Server failure`|Der DNS-Namen Server hat eine interne Inkonsistenzen in der Datenbank festgestellt und konnte keine gültige Antwort zurückgeben.|
+  |`Refused`|Der DNS-Namen Server hat die Anforderung der Anforderung verweigert.|
+  |`format error`|Der DNS-Namen Server hat festgestellt, dass das Anforderungspaket nicht im richtigen Format vorliegt. Dies kann auf einen Fehler in **nslookup**hindeuten.|
+- Weitere Informationen zum Befehl **nslookup** und DNS finden Sie in den folgenden Ressourcen:
+  - Lee, T., Davies, J. 2000. *Technische Referenz für Microsoft Windows 2000 TCP/IP-Protokolle und-Dienste*. Redmond, Washington: Microsoft Press.
+  - Albitz, P., Loukides, M. und C. Liu. 2001. *DNS und BIND, vierte Ausgabe*. "In englischer, Kalifornien: "O" und "Associates", Inc.
+  - Larson, M. und C. Liu. 2001. *DNS unter Windows 2000*. "In englischer, Kalifornien: "O" und "Associates", Inc.
     #### <a name="examples"></a>Beispiele
-    Jede Befehlszeilenoption besteht aus einem Bindestrich (-), unmittelbar gefolgt von den Namen des Befehls in einigen Fällen, einem Gleichheitszeichen (=), und klicken Sie dann auf einen Wert. Um Informationen zum Host (Computer) und das ursprüngliche Timeout auf 10 Sekunden den Standardtyp für die Abfrage zu ändern, geben Sie zum Beispiel: **Nslookup - Querytype = Hinfo - Timeout = 10**
+    Jede Befehlszeilenoption besteht aus einem Bindestrich (-), gefolgt vom Befehlsnamen und in einigen Fällen mit einem Gleichheitszeichen (=) und einem Wert. Wenn Sie z. b. den Standard Abfragetyp in Host (Computer) und den ursprünglichen Timeout Wert in 10 Sekunden ändern möchten, geben Sie Folgendes ein: **nslookup-querytype = hinfo-Timeout = 10**
     ## <a name="see-also"></a>Siehe auch
     [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

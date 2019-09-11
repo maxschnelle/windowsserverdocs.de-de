@@ -1,6 +1,6 @@
 ---
 title: Planen der Always On VPN-Bereitstellung
-description: Dieses Thema enthält die Planung Anweisungen zum Bereitstellen von Always On-VPN-unter Windows Server 2016.
+description: Dieses Thema enthält Planungs Anweisungen für die Bereitstellung von Always on-VPN in Windows Server 2016.
 ms.prod: windows-server-threshold
 ms.technology: networking-ras
 ms.topic: article
@@ -9,68 +9,68 @@ ms.localizationpriority: medium
 ms.author: pashort
 author: shortpatti
 ms.date: 11/05/2018
-ms.openlocfilehash: db309f451eb9187463f71dfd85a82d214c464e2b
-ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
+ms.openlocfilehash: 7b194bc2eefbe28b75b66ef644c199f3416c14fb
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749459"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871373"
 ---
 # <a name="step-1-plan-the-always-on-vpn-deployment"></a>Schritt 1 Planen der Always On VPN-Bereitstellung
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Vorherige:** Erfahren Sie mehr über den Workflow für die Always On-VPN-Bereitstellung](always-on-vpn-deploy-deployment.md)
-- [**nächster:** Schritt 2 Konfigurieren der Serverinfrastruktur](vpn-deploy-server-infrastructure.md)
+- [**Vorher** Erfahren Sie mehr über den Workflow für die Bereitstellung Always on VPN](always-on-vpn-deploy-deployment.md)
+- [**Weiter** Schritt 2 Konfigurieren der Server Infrastruktur](vpn-deploy-server-infrastructure.md)
 
-In diesem Schritt starten Sie zum Planen und Vorbereiten der Always On-VPN-Bereitstellung. Bevor Sie die Remotezugriffs-Serverrolle auf dem Computer, die Sie zur Verwendung als VPN-Server planen installieren, werden führen Sie die folgenden Aufgaben aus. Nach dem ordnungsgemäßen Planen können Sie Always On VPN bereitstellen und optional den bedingten Zugriff für VPN-Konnektivität mit Azure AD konfigurieren.
+In diesem Schritt beginnen Sie mit der Planung und Vorbereitung ihrer Always on-VPN-Bereitstellung. Bevor Sie die Remote Zugriffs-Server Rolle auf dem Computer installieren, den Sie als VPN-Server verwenden möchten, führen Sie die folgenden Aufgaben aus. Nach dem ordnungsgemäßen Planen können Sie Always On VPN bereitstellen und optional den bedingten Zugriff für VPN-Konnektivität mit Azure AD konfigurieren.
 
 [!INCLUDE [always-on-vpn-standard-config-considerations-include](../../../includes/always-on-vpn-standard-config-considerations-include.md)]
 
-## <a name="prepare-the-remote-access-server"></a>RAS-Server Vorbereiten
+## <a name="prepare-the-remote-access-server"></a>Vorbereiten des Remote Zugriffs Servers
 
-Sie müssen auf dem Computer, die als VPN-Server verwendet die folgenden Schritte ausführen:
+Sie müssen auf dem Computer, der als VPN-Server verwendet wird, folgende Schritte ausführen:
 
-- **Stellen Sie sicher, dass die VPN-Server-Software und Hardware-Konfiguration korrekt ist**. Installieren Sie Windows Server 2016, auf dem Computer, den Sie einen Remote Access VPN-Server verwenden möchten. Dieser Server muss über zwei physische Netzwerkadapter installiert, eine Verbindung mit dem externen Umkreisnetzwerk, und eine für die Verbindung mit dem internen Umkreisnetzwerk verfügen.
+- **Stellen Sie sicher, dass die VPN-Server Software und die Hardwarekonfiguration korrekt sind**. Installieren Sie Windows Server 2016 auf dem Computer, den Sie als RAS-VPN-Server verwenden möchten. Auf diesem Server müssen zwei physische Netzwerkadapter installiert sein, eine zum Herstellen einer Verbindung mit dem externen Umkreis Netzwerk und eine, um eine Verbindung mit dem internen Umkreis Netzwerk herzustellen.
 
-- **Identifizieren der Netzwerkadapter mit dem Internet eine Verbindung herstellt, und der Netzwerkadapter mit dem privaten Netzwerk verbindet**. Konfigurieren Sie den Netzwerkadapter mit Internetzugriff mit einer öffentlichen IP-Adresse über das Internet, obwohl der Adapter mit dem Intranet eine IP-Adresse aus dem lokalen Netzwerk verwenden kann.
+- **Identifizieren Sie, welcher Netzwerkadapter eine Verbindung mit dem Internet herstellt und welcher Netzwerkadapter eine Verbindung mit Ihrem privaten Netzwerk**herstellt. Konfigurieren Sie den Netzwerkadapter für das Internet mit einer öffentlichen IP-Adresse, während der Adapter für das Intranet eine IP-Adresse aus dem lokalen Netzwerk verwenden kann.
 
     >[!TIP]
-    >Wenn Sie keine öffentliche IP-Adresse in Ihrem Umkreisnetzwerk verwenden möchten, können Sie der Edge-Firewall mit einer öffentlichen IP-Adresse konfigurieren und dann konfigurieren Sie die Firewall zum Weiterleiten von Anforderungen von VPN-Verbindung mit dem VPN-Server.
+    >Wenn Sie nicht möchten, dass Sie eine öffentliche IP-Adresse in Ihrem Umkreis Netzwerk verwenden, können Sie die Edge-Firewall mit einer öffentlichen IP-Adresse konfigurieren und dann die Firewall so konfigurieren, dass VPN-Verbindungsanforderungen an den VPN-Server weiterleiten.
 
-- **Den VPN-Server mit dem Netzwerk verbinden**. Installieren des VPN-Servers in einem Umkreisnetzwerk, zwischen der Edgefirewall und der Umkreisfirewall an.
+- **Verbinden Sie den VPN-Server mit dem Netzwerk**. Installieren Sie den VPN-Server in einem Umkreis Netzwerk zwischen der Edge-Firewall und der Umkreis Firewall.
 
 ## <a name="plan-authentication-methods"></a>Planen von Authentifizierungsmethoden
 
-IKEv2 befindet sich ein VPN-Tunneling-Protokoll, die in beschriebenen [Internet Engineering Task Force Anforderung für Kommentare 7296](https://datatracker.ietf.org/doc/rfc7296/). Der wichtigste Vorteil von IKEv2 ist, dass es sich um Unterbrechungen in die zugrunde liegende Netzwerkverbindung toleriert. Z. B. Wenn einem vorübergehenden Dienstausfall in Verbindung, oder wenn ein Benutzer ein Clientcomputers von verschoben wird ein Netzwerk in ein anderes, wenn die Netzwerkverbindung IKEv2 datenträgeraktualisierung die VPN-Verbindung wird automatisch wiederhergestellt, ohne Eingreifen des Benutzers.
+IKEv2 ist ein VPN-Tunnelingprotokoll, das in [Internet Engineering Task Force Request for Comments 7296](https://datatracker.ietf.org/doc/rfc7296/)beschrieben wird. Der Hauptvorteil von IKEv2 besteht darin, dass Unterbrechungen in der zugrunde liegenden Netzwerkverbindung toleriert werden. Wenn z. b. ein vorübergehender Verbindungsverlust oder ein Benutzer einen Client Computer von einem Netzwerk auf einen anderen verschiebt, stellt beim erneuten Herstellen der Netzwerkverbindung die VPN-Verbindung automatisch – ohne Benutzereingriff wieder her.
 
 >[!TIP]
->Sie können den Remote Access VPN-Server zur Unterstützung von IKEv2-Verbindungen bei der Deaktivierung auch nicht verwendete Protokolle konfigurieren, der Sicherheitsbedarf des Servers reduziert. 
+>Sie können den RAS-VPN-Server so konfigurieren, dass IKEv2-Verbindungen unterstützt werden, während nicht verwendete Protokolle deaktiviert werden, wodurch die Sicherheitsanforderungen des Servers reduziert werden. 
 
-## <a name="plan-ip-addresses-for-remote-clients"></a>Planen der IP-Adressen für Remoteclients
+## <a name="plan-ip-addresses-for-remote-clients"></a>Planen von IP-Adressen für Remote Clients
 
-Sie können die VPN-Server, um die Zuweisung von Adressen zu VPN-Clients über einen Pool statischer Adressen, den Sie konfigurieren oder IP-Adressen von DHCP-Server konfigurieren. 
+Sie können den VPN-Server so konfigurieren, dass er VPN-Clients Adressen von einem statischen Adresspool, den Sie konfigurieren, oder von IP-Adressen eines DHCP-Servers zuweist. 
 
 ## <a name="prepare-the-environment"></a>Vorbereiten der Umgebung
 
-- **Stellen Sie sicher, dass Sie über Berechtigungen zum Konfigurieren der externen Firewalls verfügen und Sie eine gültige öffentliche IP-Adresse haben**. Öffnen von Ports in der Firewall zur Unterstützung von IKEv2-VPN-Verbindungen. Sie benötigen auch eine öffentliche IP-Adresse, um Verbindungen von externen Clients zu akzeptieren.
+- **Stellen Sie sicher, dass Sie über die Berechtigungen zum Konfigurieren der externen Firewall verfügen und dass Sie über eine gültige öffentliche IP-Adresse verfügen**. Öffnen von Ports in der Firewall zur Unterstützung von IKEv2-VPN-Verbindungen. Außerdem benötigen Sie eine öffentliche IP-Adresse, um Verbindungen von externen Clients zu akzeptieren.
 
-- **Wählen Sie einen Bereich von statischen IP-Adressen für VPN-Clients**. Bestimmen Sie die maximale Anzahl von gleichzeitigen VPN-Clients, die Sie unterstützen möchten. Planen Sie auch, einen Bereich von statischen IP-Adressen im internen Umkreisnetzwerk, die diese Anforderungen erfüllen, nämlich die *statischen Adresspool*. Wenn Sie DHCP verwenden, um die IP-Adressen in der internen DMZ bereitstellen, müssen Sie möglicherweise auch erstellen Sie einen Ausschluss für die statische IP-Adressen im DHCP.
+- **Wählen Sie einen Bereich statischer IP-Adressen für VPN-Clients aus**. Bestimmen Sie die maximale Anzahl von gleichzeitigen VPN-Clients, die Sie unterstützen möchten. Planen Sie außerdem einen Bereich statischer IP-Adressen im internen Umkreis Netzwerk, um diese Anforderung zu erfüllen, nämlich den *statischen Adresspool*. Wenn Sie DHCP zum Angeben von IP-Adressen für die interne DMZ verwenden, müssen Sie möglicherweise auch einen Ausschluss für diese statischen IP-Adressen in DHCP erstellen.
 
-- **Stellen Sie sicher, dass Sie Ihre öffentliche DNS-Zone bearbeiten können**. Der öffentliche DNS-Domäne zur Unterstützung der VPN-Infrastruktur-DNS-Datensätze hinzugefügt. 
+- **Stellen Sie sicher, dass Sie die öffentliche DNS-Zone bearbeiten können**. Fügen Sie Ihrer öffentlichen DNS-Domäne DNS-Einträge zur Unterstützung der VPN-Infrastruktur hinzu. 
 
-- **Stellen Sie sicher, dass alle VPN-Benutzer von Benutzerkonten in Active Directory-Benutzer (AD DS)** . Bevor Benutzer über VPN-Verbindungen mit dem Netzwerk verbinden können, müssen sie Benutzerkonten in AD DS zugreifen.
+- **Stellen Sie sicher, dass alle VPN-Benutzer über Benutzerkonten in Active Directory Benutzer (AD DS) verfügen**. Bevor Benutzer über VPN-Verbindungen eine Verbindung mit dem Netzwerk herstellen können, müssen Sie über Benutzerkonten in AD DS verfügen.
 
-## <a name="prepare-routing-and-firewall"></a>Vorbereiten von Routing und die Firewall 
+## <a name="prepare-routing-and-firewall"></a>Vorbereiten von Routing und Firewall 
 
-Installieren des VPN-Servers im Umkreisnetzwerk, die im Umkreisnetzwerk in interne und externe Umkreisnetzwerken partitioniert. Je nach Netzwerkumgebung müssen Sie mehrere routing Änderungen vornehmen.
+Installieren Sie den VPN-Server innerhalb des Umkreis Netzwerks, von dem das Umkreis Netzwerk in interne und externe Umkreis Netzwerke partitioniert wird. Abhängig von Ihrer Netzwerkumgebung müssen Sie möglicherweise mehrere Routing Änderungen vornehmen.
 
-- **(Optional) Konfigurieren Sie die portweiterleitung.** Die Edgefirewall öffnen, die Ports und Protokolle zugeordneten ein IKEv2-VPN-IDs und an den VPN-Server weitergeleitet werden. In den meisten Umgebungen erfordert dies also Weiterleitung zu konfigurieren. Umleiten Sie universelle Datagram Protocol (UDP) Ports: 500 und 4500 an den VPN-Server.
+- **Optionale Konfigurieren Sie die Port Weiterleitung.** Die Edge-Firewall muss die einem IKEv2-VPN zugeordneten Ports und Protokoll-IDs öffnen und Sie an den VPN-Server weiterleiten. In den meisten Umgebungen erfordert dies, dass Sie die Port Weiterleitung konfigurieren. Leiten Sie die UDP-Ports 500 und 4500 an den VPN-Server um.
 
-- **Konfigurieren des Routings, damit die DNS-Server und VPN-Server im Internet erreichen**. Diese Bereitstellung verwendet IKEv2 "und" (Network Address Translation, NAT). Stellen Sie sicher, dass der VPN-Server alle erforderlichen interne Netzwerke und Netzwerkressourcen erreichen kann. Die Netzwerk- oder Ressource, die von der VPN-Server nicht erreichbar ist auch über VPN-Verbindungen von Remotestandorten aus nicht erreichbar.
+- **Konfigurieren Sie das Routing so, dass die DNS-Server und VPN-Server das Internet erreichen können**. Diese Bereitstellung verwendet IKEv2 und Network Address Translation (NAT). Stellen Sie sicher, dass der VPN-Server alle erforderlichen internen Netzwerke und Netzwerkressourcen erreichen kann. Netzwerk oder Ressourcen, die vom VPN-Server nicht erreichbar sind, sind auch über VPN-Verbindungen von Remote Standorten aus nicht erreichbar.
 
-Passen Sie in den meisten Umgebungen um die neuen internen Umkreisnetzwerk zu erreichen, statische Routen, die auf der Edge-Firewall und der VPN-Server ein. In komplexeren Umgebungen allerdings müssen Sie interne Router statische Routen hinzu, oder passen Sie die interne Firewall-Regeln für die VPN-Server und der Block von IP-Adressen mit VPN-Clients.
+In den meisten Umgebungen können Sie zum Erreichen des neuen internen Umkreis Netzwerks statische Routen auf der Edge-Firewall und dem VPN-Server anpassen. In komplexeren Umgebungen müssen Sie jedoch möglicherweise statische Routen zu internen Routern hinzufügen oder interne Firewallregeln für den VPN-Server und den Block von IP-Adressen, die VPN-Clients zugeordnet sind, anpassen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Schritt 2: Konfigurieren die Serverinfrastruktur](vpn-deploy-server-infrastructure.md): In diesem Schritt installieren und konfigurieren Sie die serverseitigen Komponenten erforderlich, um das VPN zu unterstützen. Die serverseitigen Komponenten ist die Konfiguration von PKI zum Verteilen der von dem Benutzer, dem VPN-Server und dem NPS-Server verwendeten Zertifikate umfassen.
+[Schritt 2: Konfigurieren Sie die Server](vpn-deploy-server-infrastructure.md)Infrastruktur: In diesem Schritt installieren und konfigurieren Sie die serverseitigen Komponenten, die zur Unterstützung des VPN erforderlich sind. Zu den serverseitigen Komponenten gehört das Konfigurieren der PKI für die Verteilung der Zertifikate, die von Benutzern, dem VPN-Server und dem NPS-Server verwendet werden.

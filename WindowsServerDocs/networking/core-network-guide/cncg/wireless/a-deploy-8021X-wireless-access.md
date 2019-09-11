@@ -1,6 +1,6 @@
 ---
 title: Bereitstellung des kennwortbasierten authentifizierten 802.1X-Funkzugriffs
-description: Dieses Thema ist Teil des Windows Server 2016-Networking Guide "Deploy Password-Based 802.1 X Authenticated Wireless Access"
+description: Dieses Thema ist Teil des Windows Server 2016-Netzwerk Handbuchs "Bereitstellen von Kenn Wort basiertem 802.1 x authentifizierten drahtlosen Zugriff".
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking
@@ -8,285 +8,285 @@ ms.topic: article
 ms.assetid: ff06ba23-9c0f-49ec-8f7b-611cf8d73a1b
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: f34580f4a0fd92c6f059d19d09a6926fc2775960
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ee20e002aa8dad29eefcda87a7b949ffb0bb6e9b
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840011"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868935"
 ---
-# <a name="deploy-password-based-8021x-authenticated-wireless-access"></a>Bereitstellen von Kennwort\-basierten drahtlosen Zugriff mit 802.1X-Authentifizierung
+# <a name="deploy-password-based-8021x-authenticated-wireless-access"></a>Bereitstellen\-von Kenn Wort basiertem, 802.1 x authentifizierten drahtlos Zugriff
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Dies ist ein Begleithandbuch zum Windows Server&reg; 2016 Core Network Guide. Das Handbuch zum-Hauptnetzwerk enthält Anweisungen zum Planen und die erforderlichen Komponenten für ein voll funktionsfähiges Netzwerk und eine neue Active-Domäne in einer neuen Gesamtstruktur bereitstellen.
+Dies ist ein Begleit Handbuch zum Windows Server&reg; 2016-Kern Netzwerk Handbuch. Das Handbuch zum Hauptnetzwerk enthält Anweisungen zum Planen und Bereitstellen der Komponenten, die für ein voll funktionsfähiges Netzwerk und eine neue Active Directory® Domäne in einer neuen Gesamtstruktur erforderlich sind.
 
-Dieses Handbuch erläutert die Erstellung eines Hauptnetzwerks mithilfe von Anleitungen zum Bereitstellen von Institute of Electrical and Electronics Engineers \(IEEE\) 802.1 X\-authentifizierten IEEE 802.11 drahtlosen Zugriff mit Protected Extensible Authentication Protocol – Microsoft Challenge Handshake Authentication Protocol Version 2 \(PEAP\-MS\-CHAP-v2\).
+In diesem Handbuch wird erläutert, wie Sie auf einem Kern Netzwerk aufbauen, indem Sie Anweisungen zur Bereitstellung von Technikern der \(elektrischen\) und Elektronik\-Techniker IEEE 802.1 x authentifizierten IEEE 802,11-drahtlos Zugriff mithilfe von bereitstellen. Protected Extensible Authentication Protocol – Microsoft Challenge Handshake Authentication Protocol, Version \(2,\-Peer\--MS-\)CHAP v2.
 
-Da PEAP\-MS\-CHAP v2 erfordert, dass Benutzer das Kennwort eingeben\-basierend Anmeldeinformationen, anstatt ein Zertifikat während der Authentifizierung, es ist in der Regel einfacher und kostengünstiger als EAPBereitstellen\-TLS oder PEAP\-TLS.
+Da PEAP\-MS\-CHAP v2 erfordert, dass Benutzer während\-des Authentifizierungs Vorgangs Kenn Wort basierte Anmelde Informationen anstelle eines Zertifikats bereitstellen, ist es in der Regel einfacher und kostengünstiger bereitzustellen als EAP\-.TLS oder Peer\--TLS.
 
 >[!NOTE]
->In diesem Handbuch IEEE 802.1 X Authenticated Wireless Access mit PEAP\-MS\-CHAP-v2 abgekürzt wird als "drahtlosen Zugriff" und "WLAN-Zugriff."
+>In diesem Handbuch wird der authentifizierte IEEE 802.1 x-drahtlos Zugriff mit\-der\-Peer-App MS CHAP v2 als "drahtloser Zugriff" und "WLAN-Zugriff" abgekürzt.
 
 ## <a name="about-this-guide"></a>Informationen zur Anleitung
-Dieses Handbuch, in Kombination mit den erforderlichen Leitfäden, die unten beschriebenen enthält Anweisungen dazu, wie Sie die folgende WLAN-Infrastruktur bereitstellen.  
+Diese Anleitung enthält in Kombination mit den unten beschriebenen Voraussetzungen Anweisungen zum Bereitstellen der folgenden WiFi-Zugriffs Infrastruktur.  
 
-- Eine oder mehrere 802.1 X\-802.11 Drahtloszugriffspunkte \(APs\).
+- Mindestens ein 802.1 x\--fähiger 802,11-drahtlos Zugriffspunkt\) \(APS.
 
-- Active Directory-Domänendienste \(AD DS\) -Benutzer und-Computer.
+- Active Directory Domain Services \(ADDS\) Benutzer und Computer.
 
 - Gruppenrichtlinienverwaltung
 
-- Eine oder mehrere Netzwerkrichtlinienserver \(NPS\) Server.
+- Ein oder mehrere Netzwerk Richtlinien Server \(-NPS\) -Server.
 
 - Serverzertifikate für Computer, auf denen NPS ausgeführt wird
 
-- Drahtlose Windows-Clientcomputern&reg; 10, Windows 8.1 oder Windows 8.
+- Drahtlose Client Computer, auf&reg; denen Windows 10, Windows 8.1 oder Windows 8 ausgeführt wird.
 
-### <a name="dependencies-for-this-guide"></a>Abhängigkeiten in diesem Handbuch
+### <a name="dependencies-for-this-guide"></a>Abhängigkeiten für dieses Handbuch
 
-Zur erfolgreichen Bereitstellung authentifizierte drahtlose mit diesem Handbuch müssen Sie eine Umgebung zum Netzwerk und die Domäne mit allen erforderlichen Technologien bereitgestellt verfügen. Sie müssen auch Serverzertifikate, die bereitgestellt werden, um Ihre Authentifizierung NPSs verfügen.
+Um mit diesem Handbuch authentifizierte drahtlos Bereitstellungen erfolgreich bereitzustellen, müssen Sie über eine Netzwerk-und Domänen Umgebung mit allen erforderlichen Technologien verfügen. Außerdem müssen Sie für Ihre authentifizier enden NPSS Server Zertifikate bereitgestellt haben.
 
-Die folgenden Abschnitte enthalten Links zu Dokumentationen, das zeigt, wie diese Technologien bereitgestellt.
+In den folgenden Abschnitten finden Sie Links zu Dokumentationen, die Ihnen zeigen, wie diese Technologien bereitgestellt werden.
 
-#### <a name="network-and-domain-environment-dependencies"></a>Netzwerk und die Domäne Umgebung-Abhängigkeiten
+#### <a name="network-and-domain-environment-dependencies"></a>Abhängigkeiten von Netzwerk-und Domänen Umgebungen
 
-Dieses Handbuch richtet sich für die Netzwerk- und Systemadministratoren, die die Anweisungen in Windows Server 2016 ausgeführt haben **Core Network Guide** ein Hauptnetzwerk bereitstellen oder für diejenigen, die zuvor die kerntechnologien bereitgestellt haben in dem Kernnetzwerk möglich, einschließlich der AD DS, Domain Name System enthaltenen \(DNS\), Dynamic Host Configuration Protocol \(DHCP\), TCP\/IP, NPS und Windows Internet Name Service \(WINS\).  
+Dieses Handbuch richtet sich an Netzwerk-und Systemadministratoren, die die Anweisungen im Windows Server 2016- **Kern Netzwerk Handbuch** zum Bereitstellen eines Kern Netzwerks befolgt haben, oder für diejenigen, die bereits die im Kern enthaltenen Kerntechnologien bereitgestellt haben. Netzwerk, einschließlich AD DS, Domain Name System \(DNS\) \(, DHCP\), TCP\/IP, NPS und Windows Internet Name Service \(WINS\).  
 
-Das Handbuch zum Hauptnetzwerk ist unter den folgenden Links verfügbar:
+Das Handbuch zum Hauptnetzwerk ist an den folgenden Orten verfügbar:
 
-- Windows Server 2016 [Core Network Guide](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/core-network-guide) ist in der technischen Bibliothek zu Windows Server 2016 verfügbar. 
+- Das Windows Server 2016- [Kern Netzwerk Handbuch](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/core-network-guide) ist in der technischen Bibliothek für Windows Server 2016 verfügbar. 
 
-- Die [Core Network Guide](https://gallery.technet.microsoft.com/Core-Network-Guide-for-9da2e683) ist auch verfügbar im Word-Format im TechNet-Katalog auf [ https://gallery.technet.microsoft.com/Core-Network-Guide-for-9da2e683 ](https://gallery.technet.microsoft.com/Core-Network-Guide-for-9da2e683).
+- Das [Handbuch](https://gallery.technet.microsoft.com/Core-Network-Guide-for-9da2e683) zum Hauptnetzwerk ist auch im Word-Format in der TechNet Gallery [https://gallery.technet.microsoft.com/Core-Network-Guide-for-9da2e683](https://gallery.technet.microsoft.com/Core-Network-Guide-for-9da2e683)unter verfügbar.
 
-#### <a name="server-certificate-dependencies"></a>Server-Zertifikat-Abhängigkeiten
-Es gibt zwei Optionen zur Verfügung, für die Registrierung Authentication-Server mit Serverzertifikate für die Verwendung mit 802.1X-Authentifizierung – deploy eigene public Key-Infrastruktur mithilfe von Active Directory Certificate Services \(AD CS\) oder Verwenden Sie Serverzertifikate, die von einer öffentlichen Zertifizierungsstelle registriert sind \(Zertifizierungsstelle\).
+#### <a name="server-certificate-dependencies"></a>Server Zertifikat Abhängigkeiten
+Es gibt zwei verfügbare Optionen für das Anmelden von Authentifizierungs Servern bei Server Zertifikaten für die Verwendung mit der 802.1 x-Authentifizierung: Stellen Sie Ihre eigene Public Key \(-Infrastruktur\) mithilfe der AD CS-Active Directory Zertifikat Dienste oder Verwenden Sie Server Zertifikate, die von einer öffentlichen Zertifizierungsstellen \(-\)Zertifizierungsstelle angemeldet sind.
 
 ##### <a name="ad-cs"></a>AD CS
-Netzwerk- und Systemadministratoren, die authentifizierte drahtlose Bereitstellung gelten die Anweisungen in der Windows Server 2016 Core Network Companion Guide **Bereitstellen von Serverzertifikaten für 802.1 X verkabelte oder kabellose 802.1X-Bereitstellungen**. Dieses Handbuch wird erläutert, wie zum Bereitstellen und Verwenden von AD CS auf Server-Zertifikate automatisch registrieren auf Computern, auf dem NPS ausgeführt wird.
+Netzwerk-und Systemadministratoren, die authentifizierte drahtlos Bereitstellungen bereitstellen, müssen die Anweisungen im Windows Server 2016 Core Network-Begleit Handbuch befolgen **und Server Zertifikate für drahtlose und drahtlose 802.1 x-bereit Stellungen**bereitstellen. In diesem Handbuch wird erläutert, wie Sie AD CS für die automatische Registrierung von Server Zertifikaten für Computer mit NPS bereitstellen und verwenden.
 
-Dieses Handbuch ist an folgendem Speicherort verfügbar.
+Dieses Handbuch ist unter folgendem Speicherort verfügbar.
 
-- Windows Server 2016 Core Network Companion Guide [Bereitstellen von Serverzertifikaten für 802.1 X verkabelte und drahtlose Bereitstellungen](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/server-certs/deploy-server-certificates-for-802.1x-wired-and-wireless-deployments?f=255&MSPPError=-2147217396) im HTML-Format in der technischen Bibliothek. 
+- Im Windows Server 2016 Core Network-Begleit Handbuch werden [Server Zertifikate für drahtlose und drahtlose 802.1 x-bereit Stellungen](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/server-certs/deploy-server-certificates-for-802.1x-wired-and-wireless-deployments?f=255&MSPPError=-2147217396) im HTML-Format in der technischen Bibliothek bereitgestellt. 
 
 ##### <a name="public-ca"></a>Öffentliche Zertifizierungsstelle
-Serverzertifikate von einer öffentlichen Zertifizierungsstelle an, wie z. B. VeriSign, können Sie, dass die Clientcomputer bereits vertrauen erwerben. 
+Sie können Server Zertifikate von einer öffentlichen Zertifizierungsstelle, z. b. VeriSign, erwerben, der Client Computer bereits Vertrauen. 
 
-Ein Clientcomputer vertraut eine Zertifizierungsstelle, wenn das CA-Zertifikat im Zertifikatspeicher vertrauenswürdige Stammzertifizierungsstellen installiert ist. Standardmäßig verfügen die Computer mit Windows mehrere öffentliche Zertifizierungsstellenzertifikate installiert deren vertrauenswürdige Stammzertifizierungsstellen-Zertifikat zu speichern.  
+Ein Client Computer vertraut einer Zertifizierungsstelle, wenn das Zertifizierungsstellen Zertifikat im Zertifikat Speicher für vertrauenswürdige Stamm Zertifizierungsstellen installiert ist. Standardmäßig verfügen Computer, auf denen Windows ausgeführt wird, über mehrere öffentliche Zertifizierungsstellen Zertifikate im Zertifikat Speicher vertrauenswürdiger Stamm Zertifizierungsstellen.  
 
 Sie sollten die Entwurfs- und Bereitstellungshandbücher für jede der Technologien einsehen, die in diesem Bereitstellungsszenario verwendet werden. Diese Handbücher können Ihnen helfen, zu bestimmen, ob dieses Bereitstellungsszenario die Dienste und Konfigurationen bietet, die Sie zur Organisation des Netzwerks benötigen.
 
 ### <a name="requirements"></a>Anforderungen
-Es folgen die Anforderungen für die Bereitstellung einer Infrastruktur für drahtlosen Zugriff mithilfe eines Szenarios in diesem Handbuch dokumentiert:
+Im folgenden finden Sie die Anforderungen für die Bereitstellung einer drahtlos Zugriffs Infrastruktur mithilfe des Szenarios, das in diesem Handbuch dokumentiert ist:
 
-- Vor der Bereitstellung dieses Szenarios, müssen Sie zuerst 802.1 X erwerben\-funkzugriffspunkte, drahtlose Konnektivität am gewünschten Standort an Ihrem Standort zu gewährleisten. Im Planungsabschnitt dieses Handbuchs hilft bei der Bestimmung der Features, die die Zugriffspunkte unterstützen müssen.
+- Vor der Bereitstellung dieses Szenarios müssen Sie zunächst 802.1\-x-fähige drahtlos Zugriffspunkte erwerben, um die drahtlos Abdeckung an den gewünschten Orten an Ihrem Standort bereitzustellen. Der Planungsabschnitt dieses Handbuchs unterstützt Sie bei der Ermittlung der Features, die von ihren APS unterstützt werden müssen.
 
-- Active Directory-Domänendienste \(AD DS\) installiert ist, da die anderen erforderlichen Netzwerk-Technologien sind gemäß der Anleitung in der Windows Server 2016 Core Network Guide.  
+- Active Directory Domain Services \(ADDS\) installiert ist, wie die anderen erforderlichen Netzwerktechnologien, gemäß den Anweisungen im Windows Server 2016-Kern Netzwerk Handbuch.  
 
-- AD CS bereitgestellt wird, und Serverzertifikate, NPSs registriert sind. Diese Zertifikate sind erforderlich, wenn Sie die PEAP bereitstellen\-MS\-CHAP-v2-Zertifikat\-basierend Authentifizierungsmethode, die in diesem Handbuch verwendet wird.
+- AD CS wird bereitgestellt, und Server Zertifikate werden bei NPSS registriert. Diese Zertifikate sind erforderlich, wenn Sie die in diesem\-Handbuch\-verwendete Authentifizierungsmethode für\-das auf PAP MS CHAP v2 basierende Zertifikat verwenden.
 
-- Ein Mitglied Ihrer Organisation ist vertraut, mit den IEEE 802.11-Standards, die unterstützt werden, indem Sie Ihre drahtlosen Zugriffspunkte und dem drahtlosen Netzwerkadaptern, die in der Client-Computern und Geräten in Ihrem Netzwerk installiert sind. Beispielsweise ist eine Person in Ihrer Organisation mit Radio Frequency, Funkübertragung Typen 802.11 drahtlose Authentifizierung vertraut \(WPA2 oder WPA\), und Verschlüsselungen \(AES oder TKIP\).
+- Ein Mitglied Ihrer Organisation ist mit den IEEE 802,11-Standards vertraut, die von ihren drahtlos Zugriffs Punkten und den drahtlos Netzwerkadaptern unterstützt werden, die auf den Client Computern und Geräten in Ihrem Netzwerk installiert sind. Beispielsweise ist ein Benutzer in Ihrer Organisation mit Radio Frequency Types \(, 802,11 Wireless Authentication WPA2 oder WPA\)und Chiffren \(AES oder TKIP\)vertraut.
 
 ## <a name="what-this-guide-does-not-provide"></a>Nicht in diesem Handbuch enthaltene Informationen  
-Es folgen einige Elemente, die dieser Anleitung nicht bietet:
+Im folgenden finden Sie einige Elemente, die in diesem Handbuch nicht enthalten sind:
 
-### <a name="comprehensive-guidance-for-selecting-8021x-capable-wireless-access-points"></a>Ausführliche Anleitungen für die Auswahl von 802.1 X\-funkzugriffspunkte
+### <a name="comprehensive-guidance-for-selecting-8021x-capable-wireless-access-points"></a>Umfassende Richtlinien für die Auswahl\-von 802.1 x-fähigen drahtlos Zugriffs Punkten
 
-Da viele zwischen Marken und Modelle von 802.1 X Unterschiede\-fähigen Drahtloszugriffspunkten, dieses Handbuch bietet keine detaillierte Informationen zu:  
+Da viele Unterschiede zwischen Marken und Modellen von 802.1 x\--fähigen drahtlos Zugriffs Punkten bestehen, bietet dieses Handbuch keine detaillierten Informationen zu folgenden Punkten:  
 
-- Bestimmen, welche Marke oder Ihr Modell der Drahtloszugriffspunkt am besten geeignet ist, die an Ihre Anforderungen geeignet ist.
+- Die Bestimmung, welche Marke oder welches drahtlos Zugriffspunkt am besten für Ihre Anforderungen geeignet ist.
 
-- Die physische Bereitstellung von drahtlosen Zugriffspunkten in Ihrem Netzwerk.
+- Die physische Bereitstellung von drahtlos Zugriffs Punkten in Ihrem Netzwerk.
 
-- In einem erweiterten drahtlosen AP-Konfiguration, z. B. für drahtlose virtuelle lokale Netzwerke \(VLANs\).
+- Erweiterte drahtlose AP-Konfiguration, z. b. für drahtlose virtuelle \(lokale Netzwerke\)(VLANs).
 
-- Anweisungen zum Konfigurieren der Hersteller\-bestimmte Attribute auf dem Netzwerkrichtlinienserver.
+- Anweisungen zum Konfigurieren der spezifischen Attribute von drahtlos\-Zugriffs Anbietern in NPS.
 
-Darüber hinaus Terminologie und Namen für die Einstellungen zwischen dem drahtlosen AP-Marken und Modelle variieren und entsprechen möglicherweise nicht die generische Einstellungsnamen, die in diesem Handbuch verwendet werden. Drahtlose AP Details zur Konfiguration müssen Sie die Produktdokumentation des Herstellers der Ihre drahtlosen Zugriffspunkte überprüfen.
+Außerdem variieren die Terminologie und die Namen für Einstellungen zwischen drahtlosen AP-Marken und-Modellen und stimmen möglicherweise nicht mit den in diesem Handbuch verwendeten generischen Einstellungs Namen identisch. Informationen zur Konfiguration von drahtlos Zugriffs Punkten finden Sie in der Produktdokumentation des Herstellers Ihrer drahtlos Zugriffspunkte.
 
-### <a name="instructions-for-deploying-nps-certificates"></a>Anweisungen zum Bereitstellen von NPS-Zertifikate
+### <a name="instructions-for-deploying-nps-certificates"></a>Anweisungen zum Bereitstellen von NPS-Zertifikaten
   
-Es gibt zwei Möglichkeiten zum Bereitstellen von NPS-Zertifikaten. Dieses Handbuch bietet keine umfassende Anleitungen, die Ihnen helfen zu bestimmen, welche Alternative Ihren Anforderungen am besten erfüllt. Im Allgemeinen sind jedoch die Optionen, die auftreten:
+Es gibt zwei Alternativen für die Bereitstellung von NPS-Zertifikaten. Dieses Handbuch enthält keine umfassenden Anleitungen, mit denen Sie ermitteln können, welche Alternative Ihren Anforderungen am besten entspricht. Im Allgemeinen werden jedoch die folgenden Optionen angezeigt:
 
-- Erwerben Zertifikate von einer öffentlichen Zertifizierungsstelle an, wie z. B. VeriSign, sind bereits vertrauen von Windows\-basierten Clients. Diese Option ist für kleinere Netzwerke in der Regel empfohlen.
+- Erwerben von Zertifikaten von einer öffentlichen Zertifizierungsstelle, z. b. VeriSign, die bereits\-von Windows-basierten Clients als vertrauenswürdig eingestuft werden. Diese Option wird in der Regel für kleinere Netzwerke empfohlen.
 
-- Bereitstellen einer Public Key-Infrastruktur \(PKI\) in Ihrem Netzwerk mithilfe von AD CS. Dies wird empfohlen, für die meisten Netzwerke, und die Anweisungen zum Bereitstellen von Serverzertifikaten mit AD CS finden Sie im zuvor erwähnten Deployment Guide.
+- Bereitstellen einer Public Key \(-Infrastruktur\) -PKI in Ihrem Netzwerk mithilfe von AD CS Dies wird für die meisten Netzwerke empfohlen, und die Anweisungen zum Bereitstellen von Server Zertifikaten mit AD CS finden Sie im zuvor erwähnten Bereitstellungs Handbuch.
 
-### <a name="nps-network-policies-and-other-nps-settings"></a>Richtlinien für NPS-Netzwerke und andere NPS-Einstellungen
+### <a name="nps-network-policies-and-other-nps-settings"></a>NPS-Netzwerk Richtlinien und andere NPS-Einstellungen
 
-Mit Ausnahme der Konfigurationseinstellungen vorgenommen werden, wenn Sie ausführen, die **konfigurieren 802.1 X** -Assistenten wie in diesem Handbuch dokumentiert, dieses Handbuch bietet keine detaillierte Informationen zum manuellen Konfigurieren von NPS-Bedingungen, Einschränkungen oder andere NPS Einstellungen.
+Mit Ausnahme der Konfigurationseinstellungen, die bei der Ausführung des Assistenten zum **Konfigurieren von 802.1 x** vorgenommen werden (wie in diesem Handbuch beschrieben), bietet dieses Handbuch keine detaillierten Informationen zum manuellen Konfigurieren von NPS-Bedingungen, Einschränkungen oder anderen NPS-Einstellungen.
 
 ### <a name="dhcp"></a>DHCP
 
-In diesem Bereitstellungshandbuch bietet keine Informationen zu entwerfen oder DHCP-Subnetze für drahtlose LANs bereitgestellt.
+Dieses Bereitstellungs Handbuch enthält keine Informationen zum Entwerfen oder Bereitstellen von DHCP-Subnetzen für drahtlose LANs.
 
 ## <a name="technology-overviews"></a>Technologieübersicht
-Technologieübersicht für die Bereitstellung von drahtlosen Zugriff "folgen":
+Im folgenden finden Sie Technologie Übersichten für die Bereitstellung von drahtlos Zugriff:
 
 ### <a name="ieee-8021x"></a>IEEE 802.1X
-Der Standard IEEE 802.1 X definiert, den Port\--basierte Netzwerk-Zugriffssteuerung, die verwendet wird, einen authentifizierten Netzwerkzugriff auf Ethernet-Netzwerke ermöglichen. Dieser Port\-basierend Netzwerkzugriffssteuerung verwendet die physischen Merkmale der switched-LAN-Infrastruktur zum Authentifizieren von Geräten, die mit einem LAN-Anschluss verbunden. Der Zugriff auf den Port kann verweigert werden, wenn der Authentifizierungsvorgang fehlschlägt. Obwohl dieser Standard für verdrahtete Ethernetnetzwerke entwickelt wurde, war es für die Verwendung für drahtlose 802.11-LANs angepasst.
+Der IEEE 802.1 x-Standard definiert die\-Port basierte Netzwerk Zugriffs Steuerung, die verwendet wird, um authentifizierten Netzwerk Zugriff auf Ethernet-Netzwerke bereitzustellen. Diese Port\-basierte Netzwerk Zugriffs Steuerung verwendet die physischen Merkmale der umschten LAN-Infrastruktur, um Geräte zu authentifizieren, die mit einem LAN-Anschluss verbunden sind. Der Zugriff auf den Port kann verweigert werden, wenn der Authentifizierungsvorgang fehlschlägt. Obwohl dieser Standard für verkabelte Ethernet-Netzwerke entwickelt wurde, wurde er für die Verwendung auf 802,11 Wireless LANs angepasst.
 
-### <a name="8021x-capable-wireless-access-points-aps"></a>802.1 X\-funkzugriffspunkte \(APs\)
-Dieses Szenario erfordert die Bereitstellung eine oder mehrere 802.1X-fähige\-fähigen Drahtloszugriffspunkten, die mit dem Remote Authentication Dial kompatibel sind\-In User Service \(RADIUS\) Protokoll.
+### <a name="8021x-capable-wireless-access-points-aps"></a>802.1 x\--fähige drahtlos Zugriffs \(Punkte APS\)
+Dieses Szenario erfordert die Bereitstellung\-mindestens eines 802.1 x-fähigen drahtlos Zugriffs APS, der mit dem Remote Authentication Dial\-in User Service \(RADIUS\) -Protokoll kompatibel ist.
 
-802.1 X und RADIUS-\-kompatibel APs, bei der Bereitstellung in einer RADIUS-Infrastruktur mit einem RADIUS-Server wie z. B. einem NPS heißen *RADIUS-Clients*.
+802.1 x-und\-RADIUS-kompatible APS werden bei der Bereitstellung in einer RADIUS-Infrastruktur mit einem RADIUS-Server wie z. b. einem NPS als *RADIUS-Clients*bezeichnet.
 
-### <a name="wireless-clients"></a>Drahtlose clients
-Dieses Handbuch bietet umfassende Konfigurationsdetails für Domäne Zugriff mit 802.1X-Authentifizierung bereitstellen\-Member-Benutzer, die mit dem drahtlosen Client-Computern, die unter Windows 10, Windows 8.1 und Windows 8 mit dem Netzwerk verbinden. Computer müssen mit der Domäne angehören, damit authentifizierten Zugriff erfolgreich herstellen.
+### <a name="wireless-clients"></a>Drahtlose Clients
+Dieses Handbuch enthält umfassende Konfigurationsdetails zum Bereitstellen von 802.1 x-authentifizierten\-Zugriff für Domänen Mitglieds Benutzer, die eine Verbindung mit dem Netzwerk mit drahtlosen Client Computern herstellen, auf denen Windows 10, Windows 8.1 und Windows 8 ausgeführt wird. Computer müssen der Domäne hinzugefügt werden, um erfolgreich authentifizierten Zugriff zu gewährleisten.
 
 >[!NOTE]
->Sie können auch Computer, auf denen Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012 als drahtlose Clients ausgeführt werden.
+>Sie können auch Computer verwenden, auf denen Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012 als drahtlose Clients ausgeführt werden.
 
-### <a name="support-for-ieee-80211-standards"></a>Unterstützung für IEEE 802.11-Standards
-Unterstützt Windows und Windows Server-Betriebssysteme bieten erstellt\-in der Unterstützung für 802.11 drahtlose Netzwerke. In diesen Betriebssystemen wird Sie einer installierten 802.11 Drahtlosnetzwerkadapter als eine drahtlose Netzwerkverbindung im Netzwerk- und Freigabecenter angezeigt. 
+### <a name="support-for-ieee-80211-standards"></a>Unterstützung für IEEE 802,11-Standards
+Unterstützte Windows-und Windows Server-Betriebs\-Systeme bieten integrierte Unterstützung für drahtlose 802,11-Netzwerke. In diesen Betriebssystemen wird ein installierter drahtloser Netzwerkadapter mit 802,11 als drahtlose Netzwerkverbindung im Netzwerk-und Freigabe Center angezeigt. 
 
-Obwohl es basiert\-in der Unterstützung für drahtlose 802.11-Netzwerke, die drahtlosen Komponenten von Windows sind, hängt von folgenden:
+Obwohl es integrierte\-Unterstützung für drahtlose 802,11-Netzwerke gibt, sind die drahtlosen Komponenten von Windows von folgenden Komponenten abhängig:
 
-- Die Funktionen des drahtlosen Netzwerkadapters. Die w-LAN oder Standards für Sicherheit bei drahtlosen Verbindungen, die erforderlich sind, muss der installierten Drahtlosnetzwerkadapter unterstützen. Angenommen, der Drahtlosnetzwerkadapter WLAN nicht unterstützt\--Fi Protected Access \(WPA\), Sie können nicht aktiviert oder WPA-Sicherheitsoptionen konfigurieren.
+- Die Funktionen des drahtlos Netzwerkadapters. Der installierte drahtlose Netzwerkadapter muss die von Ihnen benötigten drahtlosen LAN-oder drahtlos Sicherheitsstandards unterstützen. Wenn der Drahtlos Netzwerkadapter z. b. keine Wi\--Fi-geschützten Zugriffs\) \(WPA unterstützt, können Sie WPA-Sicherheitsoptionen nicht aktivieren oder konfigurieren.
 
-- Die Funktionen der Treiber des drahtlosen Netzwerkadapters. Damit Sie so konfigurieren Sie Optionen für drahtlose Netzwerke können, muss der Treiber für den Drahtlosnetzwerkadapter unterstützen die berichterstellung für alle seine Funktionen zu Windows. Stellen Sie sicher, dass der Treiber für Ihre drahtlosen Netzwerkadapter für die Funktionen des Betriebssystems geschrieben wird. Stellen Sie außerdem sicher, dass der Treiber die aktuelle Version ist, anhand von Microsoft Update oder die Website des Herstellers, drahtlose Netzwerkadapter.
+- Die Funktionen des Drahtlos Netzwerkadapter-Treibers. Damit Sie drahtlos Netzwerkoptionen konfigurieren können, muss der Treiber für den Drahtlos Netzwerkadapter die Berichterstellung aller Funktionen von Windows unterstützen. Vergewissern Sie sich, dass der Treiber für den Drahtlos Netzwerkadapter für die Funktionen Ihres Betriebssystems geschrieben wurde. Stellen Sie außerdem sicher, dass der Treiber die aktuellste Version ist, indem Sie Microsoft Update oder die Website des Anbieters des drahtlos Netzwerkadapters überprüfen.
 
-Die folgende Tabelle zeigt die Übertragungsraten und die Häufigkeit von allgemeinen drahtlosen IEEE 802.11-Standards.
+In der folgenden Tabelle sind die Übertragungsraten und Häufigkeits Raten für gängige IEEE 802,11-drahtlos Standards aufgeführt.
 
-|Standards|Frequenzen|Übertragung von Bitraten|Verwendung|
+|Standards|Eigen|Bitübertragungs Raten|Verwendung|
 |-------------|---------------|--------------------------|---------|  
-|802.11|S\--Band-Industrie, Wissenschaft und Medical \(ISM\) Frequenzbereich \(2.4, 2.5 GHz\)|2 Mbit / s \(Mbit/s\)|Veraltet. Nicht häufig verwendet wird.|  
-|802.11b|S\---Band-ISM|11 Mbit/s|Häufig verwendet.|  
-|802.11a|C\---Band-ISM \(5,725 zu 5.875 GHz\)|54 Mbit/s|Aufgrund der Kosten und Mühen sparen begrenzten Bereich verwendet nicht häufig.|  
-|802.11g|S\---Band-ISM|54 Mbit/s|Häufig verwendet. 802. 11 g-Geräte sind kompatibel mit 802. 11 b Geräte.|  
-|802. 11n \2.4 und 5.0 GHz|C\--Band- und S\---Band-ISM|250 Mbit/s|Geräte auf Grundlage des präproduktionsclients\-Ratifizierung IEEE 802. 11n standard wurde im August 2007 verfügbar. Viele 802. 11n Geräte sind kompatibel mit 802. 11a, b und g-Geräte.|
-|802.11ac |5 GHz |6,93 Gbit/s |802. 11ac, vom IEEE im Jahr 2014 genehmigt ist, Skalierbarkeit und schneller als die 802. 11n und bereitgestellt wird, in denen APs und drahtlosen Clients ihn unterstützen.|
+|802,11|S\--Band-Häufigkeit für Industrie, \(wissenschaftliche\) und medizinische \(ISM-Bereich zwischen 2,4 und 2,5 GHz\)|2 meits pro Sekunde \((Mbit/s)\)|Veraltet. Nicht häufig verwendet.|  
+|802.11 b|S\--Band-ISM|11 Mbit/s|Häufig verwendet.|  
+|802.11 a|C\--Band \(-ISM 5,725 bis 5,875 GHz\)|54 Mbit/s|Nicht häufig aufgrund von Kosten und begrenztem Bereich verwendet.|  
+|802.11 g|S\--Band-ISM|54 Mbit/s|Häufig verwendet. 802.11 g-Geräte sind kompatibel mit 802.11 b-Geräten.|  
+|802.11 n \ 2,4 und 5,0 GHz|C\--und S\--Band-ISM|250 Mbit/s|Geräte, die auf dem\-standardmäßigen IEEE 802.11 n-Standard basieren, wurden im August 2007 verfügbar. Viele 802.11 n-Geräte sind kompatibel mit den Geräten 802.11 a, b und g.|
+|802.11ac |5 GHz |6,93 Gbit/s |802.11 AC, von IEEE in 2014 genehmigt, ist skalierbarer und schneller als 802.11 n und wird bereitgestellt, wo von APS und drahtlosen Clients diese unterstützt werden.|
 
-### <a name="wireless-network-security-methods"></a>Drahtlosnetzwerk-Sicherheitsmethoden
-**Wireless-Netzwerks Sicherheitsmethoden** ist eine informelle Gruppierung der Drahtlosauthentifizierung \(manchmal als drahtlose Sicherheit bezeichnet\) und wireless-sicherheitsverschlüsselung. Drahtlose Authentifizierung und Verschlüsselung werden paarweise drahtlose Übertragungen zu schützen und um zu verhindern, dass nicht autorisierte Benutzer Zugriff auf das drahtlose Netzwerk verwendet werden. 
+### <a name="wireless-network-security-methods"></a>Sicherheitsmethoden für drahtlose Netzwerke
+**Drahtlose Netzwerk Sicherheitsmethoden** sind eine informelle Gruppierung der drahtlosen \(Authentifizierung, die manchmal auch als\) drahtlose Sicherheit und drahtlose Sicherheits Verschlüsselung bezeichnet wird. Drahtlose Authentifizierung und Verschlüsselung werden paarweise verwendet, um zu verhindern, dass nicht autorisierte Benutzer auf das Drahtlos Netzwerk zugreifen und drahtlose Übertragungen geschützt werden. 
 
-Wenn Sie drahtlos-Sicherheitseinstellungen in der drahtlosen Netzwerk Richtlinien von der Gruppenrichtlinie konfigurieren, stehen mehrere Kombinationen zur Auswahl. Allerdings nur die WPA2\-Enterprise, WPA\-Enterprise und Öffnen mit 802.1 X Authentifizierungsstandards für 802.1 X authentifizierte drahtlose Bereitstellungen unterstützt werden.
+Wenn Sie die drahtlos Sicherheitseinstellungen in den Drahtlos Netzwerk Richtlinien von Gruppenrichtlinie konfigurieren, können Sie mehrere Kombinationen auswählen. Allerdings werden nur die\-Authentifizierungs Standards WPA2\-Enterprise, WPA Enterprise und Open with 802.1 x für authentifizierte 802.1 x-drahtlos Bereitstellungen unterstützt.
 
 >[!NOTE]
->Beim Konfigurieren der Wireless Network Policies, Sie müssen auswählen, **WPA2\-Enterprise**, **WPA\-Enterprise**, oder **offen bei 802.1 X** in Reihenfolge für den Zugriff auf die EAP-Einstellungen, die für 802.1 X benötigt werden authentifizierte drahtlose Bereitstellungen.  
+>Beim Konfigurieren von Drahtlos Netzwerk Richtlinien müssen Sie **WPA2\-Enterprise**, **WPA\-Enterprise**oder **Open with 802.1 x** auswählen, um Zugriff auf die EAP-Einstellungen zu erhalten, die für die 802.1 x-Authentifizierung erforderlich sind. drahtlose bereit Stellungen.  
 
 #### <a name="wireless-authentication"></a>Drahtlose Authentifizierung
-Dieses Handbuch empfiehlt, dass die Verwendung der folgenden Drahtlosauthentifizierung Standards für 802.1X-authentifizierte drahtlose Bereitstellungen authentifiziert.  
+In diesem Handbuch wird die Verwendung der folgenden drahtlosen Authentifizierungs Standards für drahtlos Bereitstellungen mit 802.1 x-Authentifizierung empfohlen.  
 
-**WLAN\--Fi Protected Access – Enterprise \(WPA\-Enterprise\)**  WPA ist eine vorläufige Norm, die die WiFi-Alliance zur Einhaltung des Protokolls 802.11 drahtlose Sicherheit entwickelt. Die WPA-Protokoll wurde entwickelt, als Reaktion auf eine Anzahl von schweren Fehlern, die in der vorherigen Wired Equivalent Privacy ermittelt wurden \(WEP\) Protokoll.
+**\(Wi\-Fi Protected Access – Enterprise\-WPA\) Enterprise** WPA ist ein zwischen Standard, der von der WiFi-Allianz entwickelt wurde, um das 802,11-drahtlos Sicherheitsprotokoll einzuhalten. Das WPA-Protokoll wurde als Reaktion auf eine Reihe schwerwiegender Fehler entwickelt, die im vorhergehenden, mit \(einem Kabel\) entsprechenden Datenschutz-WEP-Protokoll festgestellt wurden
 
-WPA\-Enterprise bietet verbesserte Sicherheit für WEP durch:  
+WPA\-Enterprise bietet verbesserte Sicherheit gegenüber WEP durch:  
 
-1. Eine Authentifizierung erforderlich, die 802.1X-Authentifizierung X EAP-Framework als Teil der Infrastruktur verwendet, die zentralisierte gegenseitige Authentifizierung und dynamischer schlüsselverwaltung gewährleistet  
+1. Erfordert eine Authentifizierung, bei der das 802.1 x EAP-Framework als Teil der Infrastruktur verwendet wird, das die zentralisierte gegenseitige Authentifizierung und dynamische Schlüsselverwaltung gewährleistet  
 
-2. Erweitern die Integrität überprüfen Wert \(ICV\) mit einem Message Integrity Check \(MIC\), um die Header und Nutzlast zu schützen  
+2. Verbessern des Integritäts \(Prüf Werts\) ICV mit der Nachrichten \(Integritätsprüfung MIC\)zum Schutz von Header und Nutzlast  
 
-3. Implementieren einen Framezähler, um Replay-Angriffe zu verhindern.  
+3. Implementieren eines Frame Zählers, um Wiedergabe Angriffe abzuraten  
 
-**WLAN\-Fi Protected Access 2 – Enterprise \(WPA2\-Enterprise\)**  wie WPA\-WPA2-Enterprise Standard\-Unternehmen verwendet werden, die 802.1 X und EAP-Framework. WPA2\-Enterprise bietet eine stärkere Schutz von Daten für mehrere Benutzer und große verwaltete Netzwerke. WPA2\-Enterprise ist eine stabile Protokoll, die entwickelt wird, um nicht autorisierten Netzwerkzugriff zu verhindern, indem Sie Benutzer über einen Authentication-Server im Netzwerk überprüfen.  
+**\(Wi\--Fi-geschützter Zugriff 2 –\-Enter\) Prise WPA2 Enterprise** wie der WPA\-\-Enterprise Standard verwendet WPA2 Enterprise das 802.1 x-und EAP-Framework. WPA2\-Enterprise bietet stärkeren Datenschutz für mehrere Benutzer und große verwaltete Netzwerke. WPA2\-Enterprise ist ein stabiles Protokoll, das dazu dient, unbefugten Netzwerk Zugriff zu verhindern, indem Netzwerk Benutzer über einen Authentifizierungsserver überprüft werden.  
 
-#### <a name="wireless-security-encryption"></a>Sicherheit bei drahtlosen Verbindungen Verschlüsselung
-Sicherheit bei drahtlosen Verbindungen-Verschlüsselung wird verwendet, um die drahtlosen Übertragungen zu schützen, die zwischen dem drahtlosen Client und dem drahtlosen AP gesendet werden. Sicherheit bei drahtlosen Verbindungen Verschlüsselung wird in Verbindung mit der ausgewählten Netzwerkauthentifizierungsmethode für Sicherheit verwendet. Standardmäßig von Computern unter Windows 10, Windows 8.1 und Windows 8 unterstützt zwei Verschlüsselungsstandards:
+#### <a name="wireless-security-encryption"></a>Drahtlose Sicherheits Verschlüsselung
+Die drahtlose Sicherheits Verschlüsselung wird verwendet, um die drahtlos Übertragungen zu schützen, die zwischen dem drahtlosen Client und dem drahtlos Zugriffspunkt gesendet werden. Die Verschlüsselung der drahtlos Sicherheit wird in Verbindung mit der ausgewählten Authentifizierungsmethode für die Netzwerksicherheit verwendet. Standardmäßig unterstützen Computer, auf denen Windows 10, Windows 8.1 und Windows 8 ausgeführt wird, zwei Verschlüsselungsstandards:
 
-1. **Temporal Key Integrity Protocol** \(TKIP\) ist ein ältere Verschlüsselungsprotokoll, das Bereitstellen sicherer drahtlose Verschlüsselung als die von der Natur aus unsicher, Wired Equivalent Privacy bereitgestellten wurde ursprünglich entworfen wurde \(WEP\) Protokoll. TKIP wurde entwickelt, durch die IEEE 802. 11i task-Gruppe und die Wi\-Fi-Allianz WEP zu ersetzen, ohne dass die Ersetzung des ältere Hardware. TKIP ist eine Sammlung von Algorithmen, die die WEP-Nutzlast kapselt, und ermöglicht Benutzern von Altgeräten WiFi auf TKIP zu aktualisieren, ohne den Austausch von Hardware. Wie bei WEP verwendet TKIP den Verschlüsselungsalgorithmus RC4 Stream als Grundlage. Das neue Protokoll, jedoch jedem Datenpaket verschlüsselt, mit einem eindeutigen Schlüssel und die Schlüssel sind wesentlich sicherer als die von WEP. TKIP ist, zwar nützlich für die Aktualisierung der Sicherheit bei älteren Geräten, die entwickelt wurden, verwenden Sie nur WEP es befasst sich alle Sicherheitsprobleme in drahtlosen LANs nicht, und in den meisten Fällen nicht aussagekräftig ist, um vertrauliche Government "oder" Unternehmensdaten zu schützen Übertragungen.  
+1. **Temporäres Schlüssel Integritäts Protokoll** TKIP\) ist ein älteres Verschlüsselungsprotokoll, das ursprünglich so konzipiert wurde, dass es eine sicherere drahtlose Verschlüsselung bereitstellt, als das von dem System \(eigenen schwachen\) kabelgebundenen Datenschutz-WEP-Protokoll bereitgestellt wurde. \( TKIP wurde von der Taskgruppe IEEE 802.11 i und der Wi\--Fi-Alliance zum Ersetzen von WEP entworfen, ohne dass Legacy Hardware ersetzt werden muss. TKIP ist eine Suite von Algorithmen, die die WEP-Nutzlast kapselt und es Benutzern von Legacy-WiFi-Geräten ermöglicht, ein Upgrade auf TKIP auszuführen, ohne Hardware zu ersetzen. Wie WEP verwendet TKIP den RC4-Stream-Verschlüsselungsalgorithmus als Grundlage. Das neue Protokoll verschlüsselt jedoch jedes Datenpaket mit einem eindeutigen Verschlüsselungsschlüssel, und die Schlüssel sind wesentlich stärker als die von WEP. TKIP eignet sich zwar zum Aktualisieren der Sicherheit auf älteren Geräten, die ausschließlich für WEP konzipiert waren, aber nicht alle Sicherheitsprobleme, auf die drahtlose LANs gerichtet sind, und in den meisten Fällen ist es nicht ausreichend robust, sensible Behörden oder Unternehmensdaten zu schützen. Übertragungen.  
 
-2. **Advanced Encryption Standard** \(AES\) ist das bevorzugte Verschlüsselungsprotokoll für die Verschlüsselung von Daten von Unternehmen und Behörden. AES bietet eine höhere Sicherheit bei der drahtlosen Übertragung als entweder TKIP oder WEP. Im Gegensatz zu TKIP und WEP erfordert AES drahtlose Hardware, die den AES-Standard unterstützt. AES ist ein symmetrischer\-Schlüsselverschlüsselung standard, der drei Blockchiffren, AES verwendet\-128, AES\-192 und AES\-256.
+2. **Advanced Encryption Standard** \(AES\) ist das bevorzugte Verschlüsselungsprotokoll für die Verschlüsselung von kommerziellen und behördlichen Daten. AES bietet ein höheres Maß an drahtlos Übertragungssicherheit als TKIP oder WEP. Im Gegensatz zu TKIP und WEP erfordert AES drahtlose Hardware, die den AES-Standard unterstützt. AES ist ein Verschlüsselungsstandard\-für symmetrische Schlüssel, der drei Blockchiffren, AES\-128, AES\-192 und AES\-256 verwendet.
 
-In Windows Server 2016 die folgenden AES\-drahtlose Verschlüsselung auf Basis von Methoden sind für die Konfiguration im Drahtlosprofil Eigenschaften verfügbar, bei der Auswahl einer Authentifizierungsmethode von WPA2\-Enterprise, was empfohlen wird.
+In Windows Server 2016 sind die folgenden AES\--basierten drahtlos Verschlüsselungsmethoden für die Konfiguration in den Eigenschaften von drahtlos Profilen verfügbar, wenn Sie eine Authentifizierungs\-Methode von WPA2 Enterprise auswählen, die empfohlen wird.
 
-1. **AES\-CCMP**. Leistungsindikator-Modus Cipher Block Chaining Message Authentication Code Protocol \(CCMP\) implementiert die 802. 11i-standard ist für das höher als die WEP-sicherheitsverschlüsselung und 128-Bit-AES-Verschlüsselungsschlüsseln verwendet.
-2. **AES\-GCMP**. Galois Counter Mode-Protokoll \(GCMP\) wird durch 802. 11ac unterstützt, ist effizienter als AES\-CCMP und bietet eine bessere Leistung bei drahtlosen Clients. GCMP verwendet 256-Bit-AES-Verschlüsselungsschlüsseln.
+1. **AES\--CCMP**. Im Leistungsmodus Verschlüsselungs Block Verkettung Nachrichtenauthentifizierungscode Protokoll \(CCMP\) implementiert den 802.11 i-Standard und ist für eine höhere Sicherheits Verschlüsselung als von WEP vorgesehen und verwendet 128-Bit-AES-Verschlüsselungsschlüssel.
+2. **AES\--GCMP**. Der "Galois Counter \(Mode Protocol"\) -gcmp wird von 802.11 AC unterstützt,\-ist effizienter als AES CCMP und bietet eine bessere Leistung für drahtlose Clients. Gcmp verwendet 256-Bit-AES-Verschlüsselungsschlüssel.
 
 > [!IMPORTANT]
-> Wired Equivalent Privacy \(WEP\) wurde von der ursprünglichen Standard Sicherheit bei drahtlosen Verbindungen, die zur Verschlüsselung des Netzwerkverkehrs verwendet wurde. Sie sollten nicht WEP in Ihrem Netzwerk bereitstellen, da es auch gibt\-bekannte Schwachstellen dieser veralteten Art von Sicherheit.
+> Verdrahtete Äquivalenz \(Datenschutz\) WEP war der ursprüngliche drahtlose Sicherheitsstandard, der zum Verschlüsseln von Netzwerk Datenverkehr verwendet wurde. Sie sollten WEP nicht in Ihrem Netzwerk bereitstellen, da es\-in dieser veralteten Form der Sicherheit bekannte Sicherheitsrisiken gibt.
 
-### <a name="active-directorydoman-services-adds"></a>Active Directory-Domänendienste \(AD DS\)
-AD DS bietet eine verteilte Datenbank, die Informationen zu Netzwerkressourcen und die Anwendung gespeichert und verwaltet\-bestimmte Daten aus dem Verzeichnis\-Anwendungen aktiviert. Administratoren können AD DS verwenden, um die Elemente eines Netzwerks (z. B. Benutzer, Computer und andere Geräte) in einer hierarchischen Struktur aus Einschlussbeziehungen zu organisieren. Diese hierarchische Struktur umfasst die Active Directory-Gesamtstruktur, Domänen in der Gesamtstruktur sowie die Organisationseinheiten \(Organisationseinheiten\) in jeder Domäne. Ein Server mit AD DS wird aufgerufen, eine *Domänencontroller*.  
+### <a name="active-directorydoman-services-adds"></a>Active Directory Domain Services \(AD DS\)
+In AD DS wird eine verteilte Datenbank bereitgestellt, in der Informationen zu Netzwerkressourcen\-und anwendungsspezifischen Daten\-aus Verzeichnis fähigen Anwendungen gespeichert und verwaltet werden. Administratoren können AD DS verwenden, um die Elemente eines Netzwerks (z. B. Benutzer, Computer und andere Geräte) in einer hierarchischen Struktur aus Einschlussbeziehungen zu organisieren. Die hierarchische Containment-Struktur umfasst die Active Directory Gesamtstruktur, Domänen in der Gesamt \(Struktur\) und Organisationseinheiten in jeder Domäne. Ein Server, auf dem AD DS ausgeführt wird, wird als *Domänen Controller*bezeichnet.  
 
-AD DS enthält die Benutzerkonten, Computerkonten und Eigenschaften, die durch IEEE 802.1 X und PEAP erforderlich sind\-MS\-CHAP-v2 zum Authentifizieren der Anmeldeinformationen des Benutzers und Autorisierung für drahtlose Verbindungen zu bewerten.
+In AD DS sind die Benutzerkonten, Computer Konten und Konto Eigenschaften enthalten, die von IEEE 802.1 x und PEAP\-MS\-CHAP v2 zum Authentifizieren von Benutzer Anmelde Informationen und zum Auswerten der Autorisierung für drahtlose Verbindungen benötigt werden.
 
 ### <a name="active-directory-users-and-computers"></a>Active Directory-Benutzer und-Computer
-Active Directory-Benutzer und-Computer ist eine Komponente von AD DS mit Konten, die physische Entitäten, z. B. ein Computer, eine Person oder einer Sicherheitsgruppe darzustellen. Ein *Sicherheitsgruppe* ist eine Sammlung von Benutzer- oder Computerkonten, die Administratoren als einzelne Einheit verwaltet werden können. Benutzer- und Computerkonten, die einer bestimmten Gruppe angehören, werden als bezeichnet *Gruppenmitglieder*.  
+Active Directory Benutzer und Computer ist eine Komponente von AD DS, die Konten enthält, die physische Entitäten darstellen, z. b. einen Computer, eine Person oder eine Sicherheitsgruppe. Bei einer *Sicherheitsgruppe* handelt es sich um eine Sammlung von Benutzer-oder Computer Konten, die von Administratoren als einzelne Einheit verwaltet werden können. Benutzer-und Computer Konten, die einer bestimmten Gruppe angehören, werden als *Gruppenmitglieder*bezeichnet.  
 
 ### <a name="group-policy-management"></a>Gruppenrichtlinienverwaltung
-Der Gruppenrichtlinienverwaltung ermöglicht Directory\-Änderungs- und Verwaltung von Benutzer- und computereinstellungen, einschließlich Informationen zu Sicherheit und Benutzer. Sie verwenden Gruppenrichtlinien, um Konfigurationen für Gruppen von Benutzern und Computern zu definieren. Mit der Gruppenrichtlinie können Sie Einstellungen für die Registrierungseinträge, Sicherheit, Softwareinstallation, Skripts, ordnerumleitung, Remoteinstallationsdienste und Internet Explorer-Wartung angeben. Die gruppenrichtlinieneinstellungen, die Sie erstellen, befinden sich in einem Group Policy Object \(GPO\). Durch Verknüpfen eines Gruppenrichtlinienobjekts mit ausgewählten Active Directory-System-Container, Sites, Domänen und Organisationseinheiten: Sie können die Einstellungen des Gruppenrichtlinienobjekts anwenden, um die Benutzer und Computer in dieser Active Directory-Container. Zum Verwalten der Gruppenrichtlinienobjekte in einem Unternehmen können Sie die Gruppenrichtlinienverwaltungs-Editor-Microsoft Management Console \(MMC\).  
+Gruppenrichtlinie Management ermöglicht die\-Verzeichnis basierte Änderungs-und Konfigurations Verwaltung von Benutzer-und Computereinstellungen, einschließlich Sicherheits-und Benutzerinformationen. Mit Gruppenrichtlinie können Sie Konfigurationen für Gruppen von Benutzern und Computern definieren. Mit Gruppenrichtlinie können Sie Einstellungen für Registrierungseinträge, Sicherheit, Software Installation, Skripts, Ordner Umleitung, Remoteinstallations Dienste und Internet Explorer-Wartung angeben. Die Gruppenrichtlinie Einstellungen, die Sie erstellen, sind in einem Gruppenrichtlinie \(Objekt-\)GPO enthalten. Durch Zuordnen eines Gruppenrichtlinien Objekts zu ausgewählten Active Directory System Containern – Websites, Domänen und Organisationseinheiten – können Sie die Einstellungen des GPO auf die Benutzer und Computer in diesen Active Directory Containern anwenden. Zum Verwalten von Gruppenrichtlinie Objekten in einem Unternehmen können Sie das Gruppenrichtlinienverwaltungs-Editor Microsoft Management Console \(MMC\)verwenden.  
 
-Dieses Handbuch enthält ausführliche Anweisungen zum Angeben von Einstellungen im Funknetzwerk \(IEEE 802.11\) richtlinienerweiterung der Gruppenrichtlinien-Verwaltungskonsole. Das Drahtlosnetzwerk \(IEEE 802.11\) Domäne zum Konfigurieren von Richtlinien\-Member Drahtlosclientcomputer mit der Konnektivität und drahtlose Einstellungen für 802.1 X-Drahtloszugriff.
+Dieses Handbuch enthält ausführliche Anweisungen zum Angeben von Einstellungen in der Erweiterung für drahtlos \(Netzwerk IEEE\) 802,11-Richtlinien Gruppenrichtlinie Verwaltung. Die Richtlinien \(für das\) Drahtlos Netzwerk IEEE\-802,11 konfigurieren die Client Computer für die Domänen Mitglieder mit den erforderlichen Verbindungs-und drahtlos Einstellungen für den drahtlos Zugriff mit 802.1 x-Authentifizierung.
 
 ### <a name="server-certificates"></a>Serverzertifikate
-Dieses Bereitstellungsszenario sind Serverzertifikate für jeden NPS, die 802.1X-Authentifizierung erforderlich.  
+Dieses Bereitstellungs Szenario erfordert Server Zertifikate für jeden NPS, der die 802.1 x-Authentifizierung ausführt.  
 
-Ein Serverzertifikat ist ein digitales Dokument, das häufig zur Authentifizierung und zum sicheren Informationen in offenen Netzwerken verwendet wird. Ein Zertifikat verbindet einen öffentlichen Schlüssel sicher mit der Entität, die den entsprechenden privaten Schlüssel besitzt. Zertifikate werden von der ausstellenden Zertifizierungsstelle digital signiert, und sie können für einen Benutzer, einen Computer oder einen Dienst ausgestellt werden.  
+Ein Serverzertifikat ist ein digitales Dokument, das häufig für die Authentifizierung und zum Sichern von Informationen in offenen Netzwerken verwendet wird. Ein Zertifikat verbindet einen öffentlichen Schlüssel sicher mit der Entität, die den entsprechenden privaten Schlüssel besitzt. Zertifikate werden von der ausstellenden Zertifizierungsstelle digital signiert und können für einen Benutzer, einen Computer oder einen Dienst ausgestellt werden.  
 
-Eine Zertifizierungsstelle \(Zertifizierungsstelle\) ist eine Entität verantwortlich für das Einrichten und zum Bestätigen der Authentizität öffentlicher Schlüssel, die zu den Themen gehören \(normalerweise Benutzern oder Computern\) oder anderen Zertifizierungsstellen. Aktivitäten von einer Zertifizierungsstelle umfassen das Binden von öffentlichen Schlüssel an distinguished Names über signierte Zertifikate, die Verwaltung von Seriennummern von Zertifikaten und Sperren von Zertifikaten.  
+Eine Zertifizierungsstellen \(Zertifizierungs\) Stelle ist eine Entität, die für die Einrichtung und bürgung von öffentlichen Schlüsseln zuständig ist \(, die zu Subjekten gehören, in der Regel Benutzer oder Computer\) oder andere Zertifizierungsstellen. Die Aktivitäten einer Zertifizierungsstelle können das Binden öffentlicher Schlüssel an Distinguished Names über signierte Zertifikate, das Verwalten von Zertifikat Seriennummern und das Sperren von Zertifikaten einschließen.  
 
-Active Directory-Zertifikatdienste \(AD CS\) ist eine Serverrolle, die Zertifikate als netzwerkzertifizierungsstelle ausstellt. Eine AD CS-Infrastruktur, auch bekannt als Zertifikat eine *public Key-Infrastruktur \(PKI\)*, anpassbare Dienste zum Ausstellen und Verwalten von Zertifikaten für das Unternehmen bietet.
+Die Active Directory Zertifikat \(Dienste AD\) CS ist eine Server Rolle, die Zertifikate als Netzwerk Zertifizierungsstelle ausgibt. Eine AD CS-Zertifikat Infrastruktur, auch bekannt als *Public Key- \(Infrastruktur-\)PKI*, bietet anpassbare Dienste zum Ausstellen und Verwalten von Zertifikaten für das Unternehmen.
 
-### <a name="eap-peap-and-peap-ms-chap-v2"></a>EAP, PEAP und PEAP\-MS\-CHAP-v2
-Extensible Authentication-Protokoll \(EAP\) Punkt erweitert\-zu\-Point-Protokoll \(PPP\) , Weitere Authentifizierungsmethoden, die Anmeldeinformationen und Informationen mit zulässt zufälliger Länge ausgetauscht. Mit EAP-Authentifizierung, sowohl im Netzwerk zugreifen, Client und dem Authentifikator \(wie z. B. den NPS\) muss den gleichen EAP-Typ für eine erfolgreiche Authentifizierung erfolgen unterstützen. Windows Server 2016 schließt eine EAP-Infrastruktur, unterstützt zwei EAP-Typen und die Möglichkeit, EAP-Nachrichten, NPSs übergeben. Unter Verwendung von EAP unterstützen Sie zusätzliche Authentifizierungsschemen, bekannt als *EAP-Typen*. Die EAP-Typen, die durch Windows Server 2016 unterstützt werden:  
+### <a name="eap-peap-and-peap-ms-chap-v2"></a>EAP, PEAP und PEAP\-MS\-CHAP v2
+Extensible Authentication Protocol \(EAP\) erweitert das\-Punkt\--zu \(-\) Punkt-Protokoll PPP durch das zulassen zusätzlicher Authentifizierungsmethoden, die Anmelde Informationen und Informationen verwenden Austausch beliebiger Längen. Bei der EAP-Authentifizierung müssen der Netzwerk Zugriffs Client und der Authentifikator \((z. b. NPS\) ) den gleichen EAP-Typ unterstützen, damit eine erfolgreiche Authentifizierung erfolgen kann. Windows Server 2016 umfasst eine EAP-Infrastruktur, unterstützt zwei EAP-Typen sowie die Möglichkeit, EAP-Nachrichten an NPSS zu übergeben. Durch die Verwendung von EAP können Sie zusätzliche Authentifizierungs Schemas unterstützen, die als *EAP-Typen*bezeichnet werden. Folgende EAP-Typen werden von Windows Server 2016 unterstützt:  
 
 - Transport Layer Security \(TLS\)
 
-- Microsoft Challenge Handshake Authentication Protocol Version 2 \(MS\-CHAP-v2\)
+- Microsoft Challenge Handshake Authentication-Protokollversion \(2\-MS CHAP v2\)
 
 >[!IMPORTANT]
->Sichere EAP-Typen \(wie jene, die auf Zertifikate basieren\) bieten einen besseren Schutz gegen Brute\-Erzwingen von Angriffen, Wörterbuchangriffen und das Kennwort erraten Angriffe als Kennwort\-basierend Authentifizierungsprotokolle \(wie CHAP oder MS\-CHAP, Version 1\).
+>Starke EAP- \(Typen, wie z. b. solche\) , die auf Zertifikaten basieren\-, bieten eine bessere Sicherheit vor Brute-Force-Angriffen, Wörter\-Buch Angriffen und Kenn Wort Angriffen als Kenn Wort basiert. Authentifizierungsprotokolle \(, z. b. CHAP oder MS\-CHAP, Version 1\).
 
-Geschütztes EAP \(PEAP\) verwendet TLS, um einen verschlüsselten Kanal zwischen einem authentifizierenden PEAP-Client, z. B. einen Drahtloscomputer und PEAP-Authentifizierer, z. B. einem NPS oder andere RADIUS-Server zu erstellen. PEAP gibt keine Authentifizierungsmethode, aber es bietet zusätzliche Sicherheit für andere Authentifizierungsprotokolle EAP \(wie EAP\-MS\-CHAP-v2\) arbeiten können über den verschlüsselten TLS-Kanal durch den PEAP bereitgestellt. PEAP dient als Authentifizierungsmethode für Access-Clients, die mit dem Unternehmensnetzwerk über die folgenden Typen von Netzwerkzugriffsservern verbinden \(NAS\):
+Der geschützte EAP \(-\) PEAP verwendet TLS zum Erstellen eines verschlüsselten Kanals zwischen einem authentifizier enden PEAP-Client, z. b. einem drahtlos Computer, und einem PEAP-Authentifikator, z. b. einem NPS-oder einem anderen RADIUS-Server. PEAP gibt keine Authentifizierungsmethode an, bietet jedoch zusätzliche Sicherheit für andere \(EAP-Authentifizierungsprotokolle, z. b. EAP\-MS\-CHAP v2\) , die über den verschlüsselten TLS-Kanal betrieben werden können. bereitgestellt von Peer-app. Die Peer-APP wird als Authentifizierungsmethode für den Zugriff auf Clients verwendet, die über die folgenden Arten von Netzwerk Zugriffs Servern \(\)mit dem Netzwerk Ihrer Organisation verbunden sind:
 
-- 802.1 X\-funkzugriffspunkte
+- 802.1 x\--fähige drahtlos Zugriffspunkte
 
-- 802.1 X\-kann authentifizierenden Switches
+- 802.1 x\--fähige authentifizier Ende Switches
 
-- Computer unter Windows Server 2016 und den RAS-Dienst \(RAS\) , der als virtuelles privates Netzwerk konfiguriert sind \(VPN\) -Server, DirectAccess-Server oder beides
+- Computer mit Windows Server 2016 \(und RAS\) , die als VPN\) -Server für virtuelle private Netzwerke \(, DirectAccess-Server oder beides konfiguriert sind
 
-- Computer unter Windows Server 2016 und Remote Desktop Services
+- Computer, auf denen Windows Server 2016 und Remotedesktopdienste ausgeführt werden
 
-PEAP\-MS\-CHAP v2 ist einfacher, als EAP bereitzustellen\-TLS da Benutzerauthentifizierung ausgeführt wird, indem Sie Kennwort\-basierende Anmeldeinformationen \(des Benutzernamens und Kennworts\), anstelle von Zertifikaten oder Smartcards. Nur NPS oder andere RADIUS-Server sind erforderlich, um ein Zertifikat zu erhalten. Der NPS-Zertifikat wird von den NPS während der Authentifizierung verwendet, seine Identität gegenüber PEAP-Clients nach.
+PEAP\-MS\-CHAP v2 ist einfacher bereitzustellen als EAP\-TLS, da die Benutzerauthentifizierung unter Verwendung von\-Kenn Wort \(basierten Anmelde Informationen Benutzer\)Name und Kennwort ausgeführt wird, anstatt Zertifikate oder Smartcards. Es sind nur NPS-oder andere RADIUS-Server erforderlich, um ein Zertifikat zu erhalten. Das NPS-Zertifikat wird vom NPS während des Authentifizierungsprozesses verwendet, um seine Identität bei den Peer-Clients nachzuweisen.
 
-Dieses Handbuch enthält Anweisungen zum Konfigurieren von Ihrem drahtlosen Clients und den NPS\(s\) mit PEAP\-MS\-CHAP-v2 für 802.1 X authentifizierter Zugriff.
+Dieses Handbuch enthält Anweisungen zum Konfigurieren Ihrer drahtlosen\(Clients und ihrer NPS\) -Dateien für die Verwendung\-von "Peer\--MS-CHAP v2" für den authentifizierten 802.1 x-Zugriff.
 
 ### <a name="network-policy-server"></a>Netzwerkrichtlinienserver
-Netzwerkrichtlinienserver \(NPS\) können Sie zentral konfigurieren und Verwalten von Richtlinien für Netzwerke mit Remote Authentication Dial\-In User Service \(RADIUS\) Server- und RADIUS-Proxy. NPS ist erforderlich, wenn Sie den drahtlosen Zugriff mit 802.1X-Authentifizierung bereitstellen.
+Der Netzwerk Richtlinien \(Server-\) NPS ermöglicht das zentrale konfigurieren und Verwalten von Netzwerk Richtlinien mithilfe von Remote\-Authentication Dial in \(User\) Service RADIUS-Server und RADIUS-Proxy. NPS ist erforderlich, wenn Sie den drahtlosen 802.1 x-Zugriff bereitstellen.
 
-Wenn Sie Ihre 802.1 X drahtlose Zugriffspunkte als RADIUS-Clients in NPS konfigurieren, verarbeitet NPS verbindungsanforderungen von APs gesendet werden. Während der anforderungsverarbeitung für Verbindung führt NPS, Authentifizierung und Autorisierung. Die Authentifizierung bestimmt, ob der Client gültige Anmeldeinformationen verfügt. Wenn der NPS den anfordernden Client erfolgreich authentifiziert hat, bestimmt NPS, ob der Client autorisiert ist, um die angeforderten Verbindung herzustellen, und entweder zulässt oder verweigert Sie die Verbindung. Dies wird wie folgt ausführlicher erläutert:
+Wenn Sie Ihre 802.1 x-drahtlos Zugriffspunkte als RADIUS-Clients in NPS konfigurieren, verarbeitet NPS die von den APS gesendeten Verbindungsanforderungen. Während der Verarbeitung von Verbindungsanforderungen führt NPS die Authentifizierung und Autorisierung aus. Die Authentifizierung bestimmt, ob der Client gültige Anmelde Informationen angegeben hat. Wenn die NPS den anfordernden Client erfolgreich authentifiziert hat, ermittelt NPS, ob der Client autorisiert ist, die angeforderte Verbindung herzustellen, und die Verbindung wird entweder zugelassen oder verweigert. Dies wird im folgenden ausführlicher erläutert:
 
 #### <a name="authentication"></a>Authentifizierung
 
-Erfolgreiche gegenseitige PEAP\-MS\-CHAP-v2-Authentifizierung besteht aus zwei Hauptkomponenten:
+Die erfolgreiche gegenseitige\-Peer\--Peer-Authentifizierung MS CHAP v2 besteht aus zwei Hauptteilen:
 
-1.  Der Client authentifiziert den NPS.  Während dieser Phase der gegenseitigen Authentifizierung sendet der NPS das Serverzertifikat auf dem Clientcomputer an, damit der Client NPSs-Identität mit dem Zertifikat überprüfen kann. Um den NPS erfolgreich authentifizieren zu können, muss der Client-Computer der Zertifizierungsstelle vertrauen, die das NPS-Zertifikat ausgestellt hat. Der Client vertraut diese Zertifizierungsstelle aus, wenn der ZS-Zertifikat im Zertifikatspeicher vertrauenswürdige Stammzertifizierungsstellen auf dem Clientcomputer vorhanden ist.
+1.  Der Client authentifiziert den NPS.  In dieser Phase der gegenseitigen Authentifizierung sendet das NPS sein Serverzertifikat an den Client Computer, damit der Client die Identität des NPS mit dem Zertifikat überprüfen kann. Zum erfolgreichen Authentifizieren des NPS muss der Client Computer der Zertifizierungsstelle vertrauen, die das NPS-Zertifikat ausgestellt hat. Der Client vertraut dieser Zertifizierungsstelle, wenn das Zertifikat der Zertifizierungsstelle im Zertifikat Speicher für vertrauenswürdige Stamm Zertifizierungsstellen auf dem Client Computer vorhanden ist.
 
-    Wenn Sie Ihre eigenen private Zertifizierungsstelle bereitstellen, wird das ZS-Zertifikat automatisch im Zertifikatspeicher vertrauenswürdige Stammzertifizierungsstellen für den aktuellen Benutzer und für den lokalen Computer installiert, wenn Gruppenrichtlinien, auf dem Client Domänenmitgliedscomputer aktualisiert wird. Wenn Sie Serverzertifikate von einer öffentlichen Zertifizierungsstelle bereitstellen möchten, stellen Sie sicher, dass das öffentliche Zertifikat der Zertifizierungsstelle bereits im Zertifikatspeicher vertrauenswürdiger Stammzertifizierungsstellen stammen.  
+    Wenn Sie eine eigene private Zertifizierungsstelle bereitstellen, wird das Zertifizierungsstellen Zertifikat automatisch im Zertifikat Speicher Vertrauenswürdige Stamm Zertifizierungsstellen für den aktuellen Benutzer und für den lokalen Computer installiert, wenn Gruppenrichtlinie auf dem Domänen Mitglieds-Client Computer aktualisiert wird. Wenn Sie Server Zertifikate von einer öffentlichen Zertifizierungsstelle bereitstellen möchten, stellen Sie sicher, dass das Zertifikat der öffentlichen Zertifizierungsstelle bereits im Zertifikat Speicher Vertrauenswürdige Stamm Zertifizierungsstellen vorhanden ist.  
 
-2.  Der NPS authentifiziert den Benutzer. Nachdem der Client den NPS erfolgreich authentifiziert hat, wird der Client sendet das Kennwort des Benutzers\-basierende Anmeldeinformationen an den NPS, der überprüft, die Anmeldeinformationen des Benutzers für die Benutzerdatenbank für die Konten in Active Directory-Domänendienste ob \(AD DS\).
+2.  Der Benutzer authentifiziert den Benutzer. Nachdem der Client den NPS erfolgreich authentifiziert hat, sendet der Client die Kennwort\--basierten Anmelde Informationen des Benutzers an den NPS, der die Anmelde Informationen des Benutzers anhand der Benutzerkonten Datenbank in Active Directory \(Domäne AD-Dienste überprüft. DS\).
 
-Wenn die Anmeldeinformationen gültig sind und die Authentifizierung erfolgreich ist, beginnt der NPS der Autorisierungsphase der anforderungsverarbeitung Verbindung an. Wenn die Anmeldeinformationen ungültig sind und schlägt die Authentifizierung fehl, NPS sendet eine Nachricht zum Ablehnen von Zugriff und die verbindungsanforderung wird verweigert.  
+Wenn die Anmelde Informationen gültig sind und die Authentifizierung erfolgreich ist, startet die NPS die Autorisierungs Phase der Verarbeitung der Verbindungsanforderung. Wenn die Anmelde Informationen ungültig sind und die Authentifizierung fehlschlägt, sendet NPS eine Zugriffs Ablehnungs Meldung, und die Verbindungsanforderung wird verweigert.  
 
 #### <a name="authorization"></a>Autorisierung
 
-Der Server mit NPS führt die Autorisierung wie folgt:  
+Der Server mit NPS führt wie folgt eine Autorisierung aus:  
 
-1. NPS überprüft, ob Einschränkungen in der Benutzer oder Computer Konto Drehknopf\-in Eigenschaften in AD DS. Alle Benutzer- und Computerkonto in Active Directory-Benutzer und-Computer umfasst mehrere Eigenschaften, einschließlich finden Sie auf die **Dial\-in** Registerkarte. Auf dieser Registerkarte im **Netzwerk Zugriffsberechtigung**, wenn der Wert ist **zulassen des Zugriffs**, ist der Benutzer oder Computer autorisiert, eine Verbindung mit dem Netzwerk herstellen. Wenn der Wert ist **Verweigern des Zugriffs**, den Benutzer oder Computer ist nicht autorisiert, eine Verbindung mit dem Netzwerk herstellen. Wenn der Wert ist **steuern den Zugriff über die Netzwerkrichtlinie für NPS**, NPS ausgewertet wird, die konfigurierten Netzwerkrichtlinien, um zu bestimmen, ob der Benutzer oder Computer autorisiert ist, eine Verbindung mit dem Netzwerk herstellen. 
+1. NPS überprüft in AD DS die Eigenschaften des Benutzer-oder Computer\-Kontos auf Einschränkungen. Jedes Benutzer-und Computer Konto in Active Directory Benutzer und Computer umfasst mehrere Eigenschaften, einschließlich derjenigen, die auf der Registerkarte " **Dial\-in** " gefunden werden. Wenn auf dieser Registerkarte unter **Netzwerk Zugriffsberechtigung**der Wert **Zugriff zulassen**angezeigt wird, ist der Benutzer oder Computer autorisiert, eine Verbindung mit dem Netzwerk herzustellen. Wenn der Wert " **Zugriff verweigern**" lautet, ist der Benutzer oder Computer nicht autorisiert, eine Verbindung mit dem Netzwerk herzustellen. Wenn der Wert **Zugriffs Steuerung über NPS-Netzwerk Richtlinie**lautet, wertet NPS die konfigurierten Netzwerk Richtlinien aus, um zu bestimmen, ob der Benutzer oder Computer autorisiert ist, eine Verbindung mit dem Netzwerk herzustellen. 
 
-2. NPS verarbeitet dann die Netzwerkrichtlinien, um eine Richtlinie zu finden, die die verbindungsanforderung entspricht. Wenn eine passende Richtlinie gefunden wird, NPS gewährt oder verweigert die Verbindung aufgrund von Konfiguration, der Richtlinie.  
+2. NPS verarbeitet dann seine Netzwerk Richtlinien, um eine Richtlinie zu suchen, die mit der Verbindungsanforderung übereinstimmt. Wenn eine abgleichsrichtlinie gefunden wird, wird die Verbindung von NPS basierend auf der Konfiguration der Richtlinie entweder erteilt oder verweigert.  
 
-Wenn Authentifizierung und Autorisierung erfolgreich sind, und die entsprechenden Netzwerkrichtlinie Zugriff gewährt, NPS erhalten Sie Zugriff auf das Netzwerk, und Benutzer und Computer können auf Netzwerkressourcen, die für die sie Berechtigungen haben eine Verbindung herstellen.  
-
->[!NOTE]
->Zum drahtlosen Zugriff bereitstellen, müssen Sie die NPS-Richtlinien konfigurieren. Dieses Handbuch enthält Anweisungen zur Verwendung der **konfigurieren 802.1 X-Assistenten** in NPS, um NPS-Richtlinien für drahtlosen Zugriff 802.1X-authentifizierte zu erstellen.  
-
-### <a name="bootstrap-profiles"></a>Bootstrap-Profile
-802.1 X\-authentifizierte drahtlose Netzwerke, drahtlose Clients müssen die Sicherheitsanmeldeinformationen, die von einem RADIUS-Server authentifiziert werden, um mit dem Netzwerk verbinden angeben. Für geschütztes EAP \[PEAP\]\-Microsoft Challenge Handshake Authentication Protocol Version 2 \[MS\-CHAP-v2\], die Anmeldeinformationen sind, einen Benutzernamen und Kennwort. Für EAP\-Transport Layer Security \[TLS\] oder PEAP\-TLS, die Anmeldeinformationen sind Zertifikate, z. B. Benutzer- und Client-Zertifikaten oder Smartcards.
-
-Um eine Verbindung mit einem Netzwerk herstellt, der zum Durchführen von PEAP konfiguriert ist\-MS\-CHAPv2 PEAP\-TLS oder EAP\-standardmäßig Windows drahtlosen Clients müssen außerdem ein Computerzertifikat, das Überprüfen der TLS-Authentifizierung gesendet vom RADIUS-Server. Das Zertifikat des Computers, das für jede authentifizierungssitzung vom RADIUS-Server gesendet wird, wird häufig als ein Serverzertifikat bezeichnet.
-
-Wie bereits erwähnt, können Sie ausgeben RADIUS-Server ihr Serverzertifikat in eine von zwei Arten: von einer kommerziellen Zertifizierungsstelle \(wie z. B. VeriSign, Inc.,\), oder von einer privaten Zertifizierungsstelle, die Sie in Ihrem Netzwerk bereitstellen. Wenn der RADIUS-Server ein Computerzertifikat, die von einer kommerziellen Zertifizierungsstelle ausgestellt wurde, die bereits ein Stammzertifikat im vertrauenswürdigen Stammzertifizierungsstellen-Zertifikatspeicher des Clients installiert sendet, kann dann der drahtlose Client die RADIUS-Server überprüfen Computerzertifikat, unabhängig davon, ob der drahtlose Client Active Directory-Domäne verknüpft ist. In diesem Fall der drahtlose Client mit dem drahtlosen Netzwerk herstellen kann, und klicken Sie dann können Sie den Computer der Domäne hinzufügen.
+Wenn Authentifizierung und Autorisierung erfolgreich sind und die entsprechende Netzwerk Richtlinie Zugriff gewährt, gewährt NPS Zugriff auf das Netzwerk, und der Benutzer und der Computer können eine Verbindung mit Netzwerkressourcen herstellen, für die Sie über Berechtigungen verfügen.  
 
 >[!NOTE]
->Das Verhalten, dass der Client zum Überprüfen des Serverzertifikats kann deaktiviert werden, aber das Deaktivieren der Überprüfung des Serverzertifikats wird nicht in produktionsumgebungen empfohlen.
+>Zum Bereitstellen von drahtlos Zugriff müssen Sie NPS-Richtlinien konfigurieren. Dieses Handbuch enthält Anweisungen für die Verwendung des **Assistenten zum Konfigurieren von 802.1 x** in NPS zum Erstellen von NPS-Richtlinien für den drahtlos Zugriff mit 802.1 x-Authentifizierung.  
 
-Bootstrap-Drahtlosprofil sind temporäre Profile, die in so, dass Benutzer der drahtlosen Clients zur Verbindung mit dem 802.1 X aktivieren konfiguriert sind\-drahtloses Netzwerk authentifiziert, bevor der Computer mit der Domäne angehört und\/oder vor der Benutzer wurde erfolgreich in die Domäne angemeldet mithilfe von einem bestimmten drahtlosen Computer zum ersten Mal.  Dieser Abschnitt fasst zusammen, welches Problem gefunden wird, wenn Sie versuchen, einen Drahtloscomputer mit der Domäne oder für einen Benutzer mit einer Domäne beizutreten\-verknüpften Drahtloscomputer zum ersten Mal mit der Domäne anmelden.
+### <a name="bootstrap-profiles"></a>Bootstrap-profile
+In 802.1 x\--authentifizierten Drahtlos Netzwerken müssen drahtlose Clients Sicherheits Anmelde Informationen bereitstellen, die von einem RADIUS-Server authentifiziert werden, um eine Verbindung mit dem Netzwerk herzustellen. Für das geschützte EAP \[PEAP\]\-Microsoft Challenge Handshake Authentication Protocol, \[Version\-2 MS CHAP v2\], sind die Sicherheits Anmelde Informationen ein Benutzername und ein Kennwort. Bei EAP\-Transport Layer Security \[TLS\] oder PEAP\-TLS sind die Sicherheits Anmelde Informationen Zertifikate, z. b. Client Benutzer-und Computer Zertifikate oder Smartcards.
 
-Für Bereitstellungen, in dem der Benutzer oder IT-Administrator einen Computer physisch mit dem Beitritt zur Domäne Ethernet-Netzwerk verbinden kann nicht aus, und der Computer verfügt nicht über die erforderlichen ausstellende, ZS-Zertifikat installiert, die im Stamm der  **Vertrauenswürdige Stammzertifizierungsstellen** Zertifikatspeicher, können Sie drahtlose Clients mit einem Profil temporäre drahtlose Verbindung mit dem Namen konfigurieren eine *Bootstrapping Profil*, eine Verbindung mit dem drahtlosen Netzwerk herstellen.
+Beim Herstellen einer Verbindung mit einem Netzwerk, das für die Ausführung\-von\-PEAP MS CHAP v2\-, PEAP TLS oder\-der EAP-TLS-Authentifizierung konfiguriert ist, müssen standardmäßig auch drahtlose Windows-Clients ein Computer Zertifikat validieren, das wird vom RADIUS-Server gesendet. Das Computer Zertifikat, das vom RADIUS-Server für jede Authentifizierungs Sitzung gesendet wird, wird häufig als Serverzertifikat bezeichnet.
 
-Ein *Bootstrapping Profil* entfällt die Anforderung zum Überprüfen der RADIUS-Server Computerzertifikats. Diese temporäre Konfiguration mit der drahtlose Benutzer fügen Sie den Computer der Domäne, die zu diesem Zeitpunkt für das Drahtlosnetzwerk \(IEEE 802.11\) Richtlinien werden angewendet, und die entsprechenden Stamm-CA-Zertifikat wird automatisch installiert, auf die Computer, auf.
+Wie bereits erwähnt, können Sie Ihre RADIUS-Server mit einem Serverzertifikat auf zwei Arten ausstellen: von einer kommerziellen \(Zertifizierungsstelle wie VeriSign, Inc.,\)oder von einer privaten Zertifizierungsstelle, die Sie in Ihrem Netzwerk bereitstellen. Wenn der RADIUS-Server ein Computer Zertifikat sendet, das von einer kommerziellen Zertifizierungsstelle ausgestellt wurde, für die bereits ein Stamm Zertifikat im Zertifikat Speicher der vertrauenswürdigen Stamm Zertifizierungsstellen des Clients installiert wurde, kann der drahtlose Client die des RADIUS-Servers überprüfen. Computer Zertifikat, unabhängig davon, ob der drahtlose Client der Active Directory Domäne beigetreten ist. In diesem Fall kann der drahtlose Client eine Verbindung mit dem Drahtlos Netzwerk herstellen, und dann können Sie den Computer der Domäne hinzufügen.
 
-Wenn die Gruppenrichtlinie angewendet wird, werden ein oder mehrere drahtlose Verbindung-Profile, die die Anforderung für die gegenseitige Authentifizierung erzwingen auf dem Computer angewendet. Das bootstrap-Profil ist nicht mehr erforderlich und wird entfernt. Nach dem Hinzufügen des Computers zur Domäne und Neustart des Computers, können der Benutzer eine drahtlose Verbindung Sie mit der Domäne anmelden.
+>[!NOTE]
+>Das Verhalten, das erfordert, dass der Client das Serverzertifikat überprüft, kann deaktiviert werden, aber die Deaktivierung der Serverzertifikat Überprüfung wird in Produktionsumgebungen nicht empfohlen.
 
-Einen Überblick über den drahtlosen Zugriff Bereitstellungsprozess, die mit diesen Technologien finden Sie unter [Wireless Access-Bereitstellungsübersicht](b-wireless-access-deploy-overview.md).
+Drahtlos Boots Trap Profile sind temporäre Profile, die so konfiguriert werden, dass Benutzer von drahtlosen Clients eine Verbindung mit dem 802.1 x\--authentifizierten Drahtlos Netzwerk herstellen können\/, bevor der Computer der Domäne hinzugefügt wird. der Benutzer hat sich zum ersten Mal mit einem bestimmten drahtlos Computer bei der Domäne angemeldet.  In diesem Abschnitt wird das Problem zusammengefasst, das beim Versuch aufgetreten ist, einen drahtlosen Computer der Domäne hinzuzufügen, oder wenn\-ein Benutzer zum ersten Mal einen in die Domäne eingebundener drahtlos Computer zum Anmelden bei der Domäne verwendet.
+
+Bei bereit Stellungen, bei denen der Benutzer oder IT-Administrator einen Computer nicht physisch mit dem verkabelten Ethernet-Netzwerk verbinden kann, um den Computer der Domäne hinzuzufügen, und auf dem Computer nicht das erforderliche ausstellende Stamm Zertifizierungsstellen-Zertifikat im vertrauenswürdigen Stammverzeichnis installiert ist  **Zertifizierungs** stellen-Zertifikat Speicher: Sie können drahtlose Clients mit einem temporären drahtlos Verbindungsprofil ( *Bootstrap-Profil*) konfigurieren, um eine Verbindung mit dem Drahtlos Netzwerk herzustellen.
+
+Ein *Bootstrap-Profil* entfernt die Anforderung, das Computer Zertifikat des RADIUS-Servers zu validieren. Diese temporäre Konfiguration ermöglicht dem drahtlosen Benutzer das Hinzufügen des Computers zur Domäne. zu diesem Zeitpunkt werden die \(Richtlinien\) für das Drahtlos Netzwerk IEEE 802,11 angewendet, und das entsprechende Zertifikat der Stamm Zertifizierungsstelle wird automatisch auf dem Computer.
+
+Wenn Gruppenrichtlinie angewendet wird, werden ein oder mehrere drahtlos Verbindungsprofile, die die Anforderung für die gegenseitige Authentifizierung erzwingen, auf den Computer angewendet. Das Bootstrap-Profil ist nicht mehr erforderlich und wird entfernt. Nachdem Sie den Computer der Domäne hinzufügen und den Computer neu gestartet haben, kann sich der Benutzer mit einer drahtlos Verbindung bei der Domäne anmelden.
+
+Eine Übersicht über den Bereitstellungs Prozess für drahtlos Zugriffe mithilfe dieser Technologien finden Sie unter [Übersicht über die Bereitstellung von drahtlos Zugriff](b-wireless-access-deploy-overview.md).

@@ -9,12 +9,12 @@ ms.date: 01/18/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 058433f98d986c0daa720dd19f283135763cfe30
-ms.sourcegitcommit: c307886e96622e9595700c94128103b84f5722ce
+ms.openlocfilehash: 1616a1fe2e28534cc30c8955b0309c233555fa14
+ms.sourcegitcommit: ee8e0b217be6f6b2532ee7265fb4be00c106e124
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70108754"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70878141"
 ---
 # <a name="configuring-ad-fs-for-user-certificate-authentication"></a>Konfigurieren von AD FS für die Benutzerzertifikat Authentifizierung
 
@@ -54,7 +54,7 @@ Weitere Informationen zum Konfigurieren dieses für Chrome finden Sie unter dies
 Dieses Dokument konzentriert sich auf Probleme, die häufig auftreten, wenn AD FS für die Zertifikat Authentifizierung für Benutzer konfiguriert ist. 
 
 ### <a name="check-if-certificate-trusted-issuers-is-configured-properly-in-all-the-ad-fswap-servers"></a>Überprüfen Sie, ob Zertifikat vertrauenswürdige Aussteller ordnungsgemäß für alle AD FS/WAP-Server konfiguriert sind.
-*Häufiges Symptom: HTTP 204 "kein Inhalt von https://certuath.adfs.contoso.com "*
+*Häufiges Symptom: HTTP 204 "kein Inhalt von HTTPS\://certuath.ADFS.contoso.com"*
 
 AD FS verwendet das zugrunde liegende Windows-Betriebssystem, um den Besitz des Benutzer Zertifikats zu belegen und sicherzustellen, dass es mit einem vertrauenswürdigen Aussteller durch Überprüfung der Zertifikats Vertrauenskette übereinstimmt. Um dem vertrauenswürdigen Aussteller zu entsprechen, müssen Sie sicherstellen, dass alle Stamm-und zwischen Zertifizierungsstellen im Speicher der lokalen Computer Zertifizierungsstellen als vertrauenswürdige Aussteller konfiguriert sind. Verwenden Sie das [AD FS Diagnostic Analyzer-Tool](https://adfshelp.microsoft.com/DiagnosticsAnalyzer/Analyze), um dies automatisch zu überprüfen. Das Tool fragt alle Server ab und stellt sicher, dass die richtigen Zertifikate ordnungsgemäß bereitgestellt werden. 
 1)  Laden Sie das Tool gemäß den Anweisungen im obigen Link herunter, und führen Sie es aus.
@@ -76,7 +76,7 @@ Jeder AD FS-und WAP-Server muss den CRL-Endpunkt erreichen, um zu überprüfen, 
 2)  Stellen Sie auf jedem AD FS/WAP-Server sicher, dass die CRL-Endpunkte über das verwendete Protokoll (in der Regel HTTPS oder http) erreichbar sind.
 3)  Aktivieren Sie für die erweiterte Überprüfung die [CAPI2-Ereignisprotokollierung](https://blogs.msdn.microsoft.com/benjaminperkins/2013/09/30/enable-capi2-event-logging-to-troubleshoot-pki-and-ssl-certificate-issues/) auf jedem AD FS/WAP-Server
 4) Überprüfen Sie die Ereignis-ID 41 (Sperrung überprüfen) in den CAPI2-Betriebs Protokollen.
-5) Überprüfen auf`‘\<Result value="80092013"\>The revocation function was unable to check revocation because the revocation server was offline.\</Result\>’`
+5) Überprüfen auf`‘\<Result value="80092013"\>The revocation function was unable to check revocation because the revocation server was offline.\</Result\>'`
 
 ***Tipp***: Sie können eine einzelne AD FS oder einen WAP-Server für eine einfachere Problembehandlung konfigurieren, indem Sie die DNS-Auflösung (Hostdatei unter Windows) so konfigurieren, dass Sie auf einen bestimmten Server verweist Dies ermöglicht es Ihnen, die Ablauf Verfolgung für einen Server zu aktivieren. 
 

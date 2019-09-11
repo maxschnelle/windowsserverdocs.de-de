@@ -1,6 +1,6 @@
 ---
 title: Übernehmen der Steuerung einer Benutzersitzung
-description: Erfahren Sie, wie Sie den Zugriff auf und übernehmen Sie die Kontrolle eines anderen Benutzers Station in MultiPoint Services
+description: Erfahren Sie, wie Sie in Multipoint Services auf die Station eines anderen Benutzers zugreifen und diese übernehmen können.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.technology: multipoint-services
@@ -13,25 +13,25 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 6cf72bea861f391241b66656ec062455a2004a81
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fbf50d2a30bdae1665fed2ed4f1b223c6505c699
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862331"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871544"
 ---
 # <a name="take-control-of-a-user-session"></a>Übernehmen der Steuerung einer Benutzersitzung
 Als MultiPoint-Dashboardbenutzer können Sie andere Benutzer unterstützen, indem Sie mithilfe des Features „Steuerung übernehmen“ remote auf deren Computer zugreifen.  
   
-1.  MultiPoint-Dashboard auf die **Startseite** Registerkarte, klicken Sie auf die Miniaturansicht des Desktops für den Benutzer, die Sie unterstützen möchten.  
+1.  Klicken Sie im Multipoint-Dashboard auf der Registerkarte **Startseite** auf die Miniaturansicht des Desktops für den Benutzer, den Sie unterstützen möchten.  
   
-2.  Klicken Sie auf der Registerkarte **Unterstützen** auf **Steuerung übernehmen**. Der Desktop des Benutzers öffnet sich auf Ihrem Desktop. Sie können anschließend mithilfe Ihrer Tastatur und Maus auf seinem Desktop navigieren.  
+2.  Klicken Sie auf der Registerkarte **Unterstützen** auf **Steuerung übernehmen**. Der Desktop des Benutzers wird auf dem Desktop geöffnet, und Sie können mit Tastatur und Maus auf dem Desktop navigieren.  
   
-3.  Wenn Sie Unterstützung fertig sind, klicken Sie auf **beenden**.  
+3.  Wenn Sie die Unterstützung für den Benutzer abgeschlossen haben, klicken Sie auf **Beenden**.  
   
     > [!NOTE]  
-    > Sie müssen möglicherweise Desktop des Benutzers, um Ihr MultiPoint-Dashboard anzeigen zu minimieren.  
+    > Möglicherweise müssen Sie den Desktop des Benutzers minimieren, um Ihr Multipoint-Dashboard anzuzeigen.  
   
 ## <a name="see-also"></a>Siehe auch  
-[Verwalten von Benutzerdesktops mit MultiPoint-Dashboard](Manage-User-Desktops-Using-MultiPoint-Dashboard.md)  
+[Verwalten von Benutzerdesktops mit dem MultiPoint-Dashboard](Manage-User-Desktops-Using-MultiPoint-Dashboard.md)  
   

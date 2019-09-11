@@ -4,12 +4,12 @@ description: Erstellen neuer Windows Server-bezogener Artikel mithilfe von GitHu
 author: eross-msft
 ms.author: lizross
 ms.date: 05/02/2019
-ms.openlocfilehash: f5e7e3d0cd17c64175fddaaac73c12daa2c2a32c
-ms.sourcegitcommit: ffd9c42374c7448deb5f53f7a865cb427b5e4e9e
+ms.openlocfilehash: 3f09c36c1e3960728ff016f5801deb854e3d3c96
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69887947"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865069"
 ---
 # <a name="create-new-windows-server-articles-using-github-and-visual-studio-code"></a>Erstellen Sie neue Windows Server-Artikel mithilfe von GitHub und Visual Studio Code
 

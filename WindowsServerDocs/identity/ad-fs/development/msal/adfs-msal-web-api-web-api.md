@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 08892fe771928fa4b68ce50bfef2b6a041c2d210
-ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
+ms.openlocfilehash: 2ab6141b84d03102c5dedd1ede0ba99e5adf3e4a
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69983538"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867745"
 ---
 # <a name="scenario-web-api-calling-web-api-on-behalf-of-scenario"></a>Szenario: Web-API-Aufruf der Web-API (im Auftrag des Szenarios) 
 > Gilt für: AD FS 2019 und höher 
@@ -45,7 +45,7 @@ In diesem Abschnitt wird gezeigt, wie Sie die native App als öffentliche Client
 
   1. Klicken Sie in AD FS Verwaltung mit der rechten Maustaste auf **Anwendungs Gruppen** , und wählen Sie **Anwendungs Gruppe hinzufügen**aus.  
   
-  2. Wählen Sie im Anwendungs Gruppen-Assistenten für den Namen **webapiin WebAPI** aus, und wählen Sie unter **Client-Server Anwendungen** die native Anwendung aus, die auf **eine Web-API** -Vorlage zugreift. Klicken Sie auf **Weiter**.
+  2. Wählen Sie im Anwendungs Gruppen-Assistenten für den Namen **webapiin WebAPI** aus, und wählen Sie unter **Client-Server Anwendungen** die native Anwendung aus, die auf **eine Web-API-Vorlage zugreift** . Klicken Sie auf **Weiter**.
 
       ![App-Registrierung](media/adfs-msal-web-api-web-api/webapi2.png)
 
@@ -53,7 +53,7 @@ In diesem Abschnitt wird gezeigt, wie Sie die native App als öffentliche Client
   
       ![App-Registrierung](media/adfs-msal-web-api-web-api/webapi3.png)
   
-  4. Geben Sie auf dem Bildschirm Web-API konfigurieren den Bezeichner ein **:** https://localhost:44321/. Klicken Sie auf **Hinzufügen**. Klicken Sie auf **Weiter**. Dieser Wert wird später in den Dateien " **app. config** " und " **Web. config** " der Anwendung verwendet.  
+  4. Geben Sie auf dem Bildschirm Web-API konfigurieren den **Bezeichner ein:** https://localhost:44321/. Klicken Sie auf **Hinzufügen**. Klicken Sie auf **Weiter**. Dieser Wert wird später in den Dateien " **app. config** " und " **Web. config** " der Anwendung verwendet.  
  
       ![App-Registrierung](media/adfs-msal-web-api-web-api/webapi4.png)
 
@@ -223,6 +223,6 @@ Nachdem die Codeänderungen vorgenommen wurden, erstellen Sie die Projekt Mappe 
       ![App-reg](media/adfs-msal-web-api-web-api/webapi33.png)
  
  ## <a name="next-steps"></a>Nächste Schritte
-[AD FS OpenID Connect/OAuth-Flows und Anwendungsszenarien](../../overview/ad-fs-openid-connect-oauth-flows-scenarios.md)
+[AD FS OpenID Connect-/OAuth-Flows und Anwendungsszenarien](../../overview/ad-fs-openid-connect-oauth-flows-scenarios.md)
  
  

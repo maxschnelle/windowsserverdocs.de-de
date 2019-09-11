@@ -1,6 +1,6 @@
 ---
-title: In Ordnung ist, werden Optimierung von SQL und Behandlung von Latenzproblemen mit AD FS
-description: In diesem Dokument wird erläutert, wie zur Feinabstimmung von SQL mit AD FS wird.
+title: Optimieren von SQL und Beheben von Latenzproblemen mit AD FS
+description: In diesem Dokument wird erläutert, wie Sie SQL mit AD FS optimieren.
 author: billmath
 ms.author: billmath
 manager: daveba
@@ -8,115 +8,115 @@ ms.date: 06/20/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fb699a1f92013f5657d2fbb48b203f96a5e5a5ba
-ms.sourcegitcommit: 6b6c3601fb7493ab145ccff02db26d7123df9a3d
+ms.openlocfilehash: 29c8e8ba52f62a335ab136756e759b6114ecfb20
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67322857"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865610"
 ---
-# <a name="fine-tuning-sql-and-addressing-latency-issues-with-ad-fs"></a>In Ordnung ist, werden Optimierung von SQL und Behandlung von latenzproblemen mit AD FS
-In einem Update für [AD FS 2016](https://support.microsoft.com/help/4503294/windows-10-update-kb4503294) vorgestellt, die folgenden Verbesserungen an plattformübergreifende Datenbank Latenz zu verringern. Eine zukünftigen Update für AD FS-2019 wird diese Verbesserungen umfassen.
+# <a name="fine-tuning-sql-and-addressing-latency-issues-with-ad-fs"></a>Optimieren von SQL und Beheben von Latenzproblemen mit AD FS
+In einem Update für [AD FS 2016](https://support.microsoft.com/help/4503294/windows-10-update-kb4503294) haben wir die folgenden Verbesserungen eingeführt, um die datenbankübergreifende Latenz zu verringern. Ein demnächst erbendes Update für AD FS 2019 umfasst diese Verbesserungen.
 
-## <a name="in-memory-cache-update-in-background-thread"></a>In-Memory-Cache-Update im Hintergrund-thread 
-In früheren Always on-Verfügbarkeitsgruppen (AoA)-Bereitstellungen, Latenz vorhanden waren, für alle "Lesen" Vorgang wie der Masterknoten in einem separaten Rechenzentrum gefunden werden konnte. Der Aufruf zwischen zwei Rechenzentren führte zu Wartezeit.  
+## <a name="in-memory-cache-update-in-background-thread"></a>In-Memory-Cache Update im Hintergrund Thread 
+In früheren bereit Stellungen von AlwaysOn-Verfügbarkeit (AOA) gab es für jeden Lesevorgang eine Latenz, da sich der Master Knoten in einem separaten Rechenzentrum befinden konnte. Der-Rückruf zwischen zwei unterschiedlichen Daten Centern führte zu einer Latenz.  
 
-Das neueste Update für AD FS ist eine Verringerung der Latenz durch Hinzufügen von einem Hintergrundthread zum Aktualisieren der AD FS-Konfiguration-Cache und eine zum Festlegen die Aktualisierung der Zeitraum vorgesehen. Die für eine Datenbanksuche aufgewendete Zeit wird in den Anforderungsthread, erheblich reduziert, wie die Datenbank-Cache-Updates in der Hintergrundthread verschoben werden.  
+Beim neuesten Update für AD FS wird eine Verringerung der Latenz durch das Hinzufügen eines Hintergrundthreads zum Aktualisieren des AD FS Konfigurations Caches und eine Einstellung zum Festlegen des Aktualisierungs Zeitraums angestrebt. Die für eine Datenbanksuche aufgewendeten Zeit wird im Anforderungs Thread erheblich reduziert, da die Daten Bank Cache Updates in den Hintergrund Thread verschoben werden.  
 
-Bei der `backgroundCacheRefreshEnabled` nastaven NA hodnotu True gibt an, AD FS kann vom Hintergrundthread Cacheupdates ausführen. Die Häufigkeit der Abrufen von Daten aus dem Cache kann in einen Uhrzeitwert angepasst werden, durch Festlegen von `cacheRefreshIntervalSecs`. Der Standardwert ist 300 Sekunden festgelegt. wenn `backgroundCacheRefreshEnabled` wird festgelegt auf "true". Nach dem festgelegtem Wert Dauer, AD FS beginnt, dessen Cache aktualisiert, und während des Updates ausgeführt wird, weiterhin die alten Cachedaten verwendet werden.  
+Wenn auf true festgelegt ist,ermöglichtADFSdemHintergrundThreaddasAusführenvonCacheUpdates.`backgroundCacheRefreshEnabled` Die Häufigkeit, mit der Daten aus dem Cache abgerufen werden können, kann durch Festlegen `cacheRefreshIntervalSecs`von auf einen Zeitwert angepasst werden. Der Standardwert ist auf 300 Sekunden festgelegt `backgroundCacheRefreshEnabled` , wenn auf true festgelegt ist. Nach der festgelegten Wert Dauer beginnt AD FS mit der Aktualisierung des Caches, und während das Update ausgeführt wird, werden die alten Cache Daten weiterhin verwendet.  
 
 >[!NOTE]
-> Der Cache Daten werden außerhalb von aktualisiert die `cacheRefreshIntervalSecs` -Wert, wenn AD FS empfängt eine Benachrichtigung SQL gibt an, dass eine Änderung in der Datenbank aufgetreten ist. Diese Benachrichtigung wird ausgelöst, den Cache aktualisiert werden. 
+> Die Daten des Caches werden außerhalb des `cacheRefreshIntervalSecs` Werts aktualisiert, wenn von ADFS eine Benachrichtigung von SQL empfangen wird, was bedeutet, dass in der Datenbank eine Änderung aufgetreten ist. Diese Benachrichtigung löst die Aktualisierung des Caches aus. 
 
-### <a name="recommendations-for-setting-the-cache-refresh"></a>Empfehlungen für das die cacheaktualisierung 
-Der Standardwert für die Aktualisierung des Cache wird **fünf Minuten**. Es wird empfohlen, die festgelegt ist, dass **1 Stunde** um eine Aktualisierung nicht benötigte Daten von AD FS zu reduzieren, da die Daten im Cache aktualisiert werden werden, wenn alle SQL-Änderungen auftreten.  
+### <a name="recommendations-for-setting-the-cache-refresh"></a>Empfehlungen zum Festlegen der Cache Aktualisierung 
+Der Standardwert für die Cache Aktualisierung ist **fünf Minuten**. Es wird empfohlen, den Wert auf **1 Stunde** festzulegen, um eine unnötige Datenaktualisierung durch AD FS zu vermeiden, da die Cache Daten aktualisiert werden, wenn SQL-Änderungen auftreten.  
 
-AD FS registriert einen Rückruf für SQL-Änderungen, und auf eine Änderung der AD FS, die eine Benachrichtigung erhält. Durch diese Methode empfängt AD FS jedes neue Änderung von SQL, sobald es tritt ein. 
+AD FS registriert einen Rückruf für SQL-Änderungen, und bei einer Änderung erhält ADFS eine Benachrichtigung. Mit dieser Methode empfängt ADFS jede neue Änderung von SQL, sobald Sie auftritt. 
 
-Im Falle einer netzwerkstörung Dies führt zu AD FS fehlt die SQL-Benachrichtigung, AD FS vom Cache angegebenen Intervall aktualisiert Wert aktualisiert wird. Wenn Sie alle Verbindungsprobleme zwischen AD FS und SQL vermutet werden, wird empfohlen, den Cache Aktualisierungswert senken als eine Stunde festzulegen.  
+Bei einem netzwerkglitch, bei dem die SQL-Benachrichtigung AD FS fehlt, wird AD FS in dem durch den Cache Aktualisierungs Wert angegebenen Intervall aktualisiert. Wenn Konnektivitätsprobleme zwischen AD FS und SQL vermutet werden, empfiehlt es sich, den Cache Aktualisierungs Wert auf weniger als eine Stunde festzulegen.  
 
-### <a name="configuration-instructions"></a>Konfigurationsanweisungen 
-Die Konfigurationsdatei unterstützt mehrere Cacheeinträge. Die unten aufgeführten folgende können alle konfiguriert werden je nach den Anforderungen Ihrer Organisation. 
+### <a name="configuration-instructions"></a>Konfigurations Anweisungen 
+Die Konfigurationsdatei unterstützt mehrere Cache Einträge. Die unten aufgeführten Angaben können je nach den Anforderungen Ihrer Organisation konfiguriert werden. 
 
-Im folgenden Beispiel wird die Aktualisierung im Hintergrund Cache aktiviert und wird der Cache-Aktualisierungszeitraum auf 1800 Sekunden und 30 Minuten. Dies muss erfolgen auf jedem AD FS-Knoten, und der AD FS-Dienst muss anschließend neu gestartet werden. Die Änderungen keine Auswirkungen auf andere Knoten, und testen den ersten Knoten vor der Änderung in allen Knoten. 
+Im folgenden Beispiel wird die Aktualisierung des Hintergrund Caches aktiviert und der Cache Aktualisierungs Zeitraum auf 1800 Sekunden oder 30 Minuten festgelegt. Dies muss auf jedem AD FS-Knoten erfolgen, und der ADFS-Dienst muss danach neu gestartet werden. Die Änderungen wirken sich nicht auf andere Knoten aus und testen den ersten Knoten, bevor Sie die Änderung in allen Knoten vornehmen. 
 
-  1. Navigieren Sie zu der AD FS-Config-Datei und im Abschnitt "Microsoft.IdentityServer.Service", fügen Sie den folgenden Eintrag:  
+  1. Navigieren Sie zur AD FS config-Datei, und fügen Sie im Abschnitt "Microsoft. identityserver. Service" den folgenden Eintrag hinzu:  
   
-  - `backgroundCacheRefreshEnabled`  – Gibt an, ob das Feature für den Hintergrund-Cache aktiviert ist. Werte für "True/False".
-  - `cacheRefreshIntervalSecs` -Wert in Sekunden, die an denen AD FS der Cache aktualisiert wird. AD FS wird den Cache aktualisiert, wenn eine in der SQL Änderung. AD FS wird eine SQL-Benachrichtigung erhalten und den Cache aktualisieren.  
+  - `backgroundCacheRefreshEnabled`: Gibt an, ob die Hintergrund Cache Funktion aktiviert ist. true/false-Werte.
+  - `cacheRefreshIntervalSecs`-Wert in Sekunden, bei dem der Cache von ADFS aktualisiert wird. AD FS aktualisiert den Cache, wenn SQL geändert wird. AD FS wird eine SQL-Benachrichtigung empfangen und den Cache aktualisieren.  
  
  >[!NOTE]
- > Alle Einträge in der Konfigurationsdatei sind die Groß-/Kleinschreibung beachtet.  
- &lt;cache cacheRefreshIntervalSecs="1800" backgroundCacheRefreshEnabled="true" /&gt; 
+ > Bei allen Einträgen in der Konfigurationsdatei wird die Groß-/Kleinschreibung beachtet.  
+ &lt;Cache cacherefreshintervalabcs = "1800" backgroundcacherefreshaktivierte = "true"/&gt; 
  
-Zusätzliche unterstützte konfigurierbaren Werte: 
+Weitere konfigurierbare Werte werden unterstützt: 
 
-   - **MaxRelyingPartyEntries** : maximale Anzahl von der vertrauenden Seite Partei-Einträge, die AD FS im Arbeitsspeicher beibehalten werden sollen. Dieser Wert wird auch von der oAuth-Anwendungscache Berechtigung verwendet. Wenn es weitere Berechtigungen der Anwendung als vertrauende Seiten und sind Wenn alle im Arbeitsspeicher gespeichert werden, sollte dieser Wert die Anzahl der Anwendungsberechtigungen sein. Der Standardwert ist 1000.
-   - **MaxIdentityProviderEntries** : Dieses ist die maximale Anzahl der Ansprüche Anbieter-Einträge, die AD FS im Arbeitsspeicher beibehalten wird. Der Standardwert ist 200. 
-   - **MaxClientEntries** – Dies ist die maximale Anzahl der Einträge des OAuth-Clients, AD FS im Arbeitsspeicher beibehalten wird. Der Standardwert ist 500. 
-   - **MaxClaimDescriptorEntries** : maximale Anzahl von Anspruchs-Deskriptor-Einträge, die AD FS im Arbeitsspeicher beibehalten wird. Der Standardwert ist 500. 
-   - **MaxNullEntries** – Dies wird als negative Cache verwendet. Wenn AD FS nach einem Eintrag in der Datenbank sucht, und sie nicht gefunden wird, können Sie AD FS in negativen Cache hinzugefügt. Dies ist die maximale Größe dieses Caches. Negativer Cache für jeden Typ von Objekten vorhanden ist, es ist nicht für alle Objekte eines einzelnen Caches. Der Standardwert ist 50,0000. 
+   - **maxrelyingpartyentries** : maximale Anzahl von Einträgen der vertrauenden Seite, die AD FS im Arbeitsspeicher beibehalten werden. Dieser Wert wird auch vom OAuth-Anwendungs Berechtigungs Cache verwendet. Wenn mehr Anwendungs Berechtigungen als RPS vorhanden sind und alle im Arbeitsspeicher gespeichert werden, sollte dieser Wert der Anzahl von Anwendungs Berechtigungen entsprechen. Der Standardwert ist 1000.
+   - **maxidentityproviderentries** : Dies ist die maximale Anzahl von Anspruchs Anbieter Einträgen, AD FS im Arbeitsspeicher beibehalten werden. Der Standardwert ist 200. 
+   - **maxcliententries** : Dies ist die maximale Anzahl von OAuth-Client Einträgen, AD FS im Arbeitsspeicher beibehalten werden. Der Standardwert ist 500. 
+   - **maxclaimdescriptorentries** : maximale Anzahl von Anspruchs Deskriptoreinträgen AD FS die im Arbeitsspeicher beibehalten werden. Der Standardwert ist 500. 
+   - **maxnullentries** : wird als negativer Cache verwendet. Wenn AD FS nach einem Eintrag in der Datenbank sucht und nicht gefunden wird, fügt AD FS einen negativen Cache hinzu. Dies ist die maximale Größe des Caches. Für jeden Objekttyp gibt es einen negativen Cache, es handelt sich jedoch nicht um einen einzelnen Cache für alle Objekte. Der Standardwert ist 50, 0000. 
 
-## <a name="multiple-artifact-db-support-across-datacenters"></a>Mehrere Artefakt DB in mehreren Rechenzentren zu unterstützen. 
-Bei vorherigen Konfigurationen von mehreren Rechenzentren hat AD FS nur eine einzelne Datenbank Artefakt unterstützt verursacht Cross Center Datacenter-Latenz bei Datenabruf aufrufen.  
+## <a name="multiple-artifact-db-support-across-datacenters"></a>Unterstützung mehrerer artefaktdb über Rechenzentren hinweg 
+Bei früheren Konfigurationen mehrerer Daten Center hat AD FS nur eine einzelne artefaktdatenbank unterstützt, die während Abruf aufrufen eine Rechenzentrums übergreifende Latenz verursacht hat.  
 
-Um übergreifende Datacenter Latenz zu verringern, kann ein AD FS-Administratoren nun mehrere Instanzen der Artefakt-DB bereitstellen und ändern Sie eine AD FS-Knoten-Konfigurationsdatei auf verschiedenen Elementinstanzen DB verweisen. Die Artefakt-Datenbankverbindungszeichenfolge kann in der Konfigurationsdatei können eine knotenbasierte Artefakt-Datenbank bereitgestellt werden. Wenn die Verbindungszeichenfolge nicht in der Konfigurationsdatei vorhanden ist, wird der Knoten zurückgreifen auf die vorherige die Artefakt-Datenbank verwenden, die in der Konfiguration der Datenbank vorhanden ist.  
-Hybrid-Umgebungen werden bei dieser Konfiguration ebenfalls unterstützt.  
+Um die Latenz zwischen Rechenzentren zu reduzieren, kann ein AD FS Administrator nun mehrere artefaktdb-Instanzen bereitstellen und dann die Konfigurationsdatei eines AD FS Knotens ändern, sodass Sie auf verschiedene artefaktdb-Instanzen verweist. Die artefaktdatenbank-Verbindungs Zeichenfolge kann in der Konfigurationsdatei bereitgestellt werden, die eine Knoten übergreifende artefaktdatenbank zulässt. Wenn die Verbindungs Zeichenfolge in der Konfigurationsdatei nicht vorhanden ist, greift der Knoten auf den vorherigen Entwurf zurück, um die artefaktdatenbank zu verwenden, die in der Konfigurations Datenbank vorhanden ist.  
+Hybrid Umgebungen werden auch mit dieser Konfiguration unterstützt.  
 
 ### <a name="requirements"></a>Anforderungen: 
-Vor dem Einrichten der Datenbank-Unterstützung für mehrere Artefakt, führen Sie ein Update auf allen Knoten, und die Binärdateien aktualisiert werden, weil mit mehreren Knoten-Aufrufe mittels dieser Funktion auftreten. 
-  1. Generieren Sie Bereitstellungsskripts, um die Artefakt-Datenbank zu erstellen: Um mehrere Instanzen der Artefakt-DB bereitstellen zu können, müssen ein Administrator das SQL-Bereitstellungsskript für die Artefakt-Datenbank zu generieren. Im Rahmen des Updates, die vorhandene `Export-AdfsDeploymentSQLScript`Cmdlet wurde aktualisiert, um optional in einem Parameter, der angibt, welche die zum Generieren einer SQL-Bereitstellungsskripts für AD FS-Datenbank nutzen. 
+Vor dem Einrichten mehrerer artefaktdatenbankunterstützung führen Sie ein Update auf allen Knoten aus, und aktualisieren Sie die Binärdateien, da die Aufrufe mehrerer Knoten über dieses Feature erfolgen. 
+  1. Generieren eines Bereitstellungs Skripts zum Erstellen der artefaktdatenbank: Zum Bereitstellen mehrerer artefaktdb-Instanzen muss ein Administrator das SQL-Bereitstellungs Skript für die artefaktdatenbank generieren. Als Teil dieses Updates wurde das vorhandene `Export-AdfsDeploymentSQLScript`Cmdlet aktualisiert und gibt optional einen Parameter an, der angibt, für welche AD FS Datenbank ein SQL-Bereitstellungs Skript generiert werden soll. 
  
- Um das Bereitstellungsskript für die Artefakt-Datenbank zu generieren, geben Sie z. B. die `-DatabaseType` Parameter, und übergeben den Wert "Element". Der optionale `-DatabaseType` Parameter gibt den Typ der AD FS-Datenbank und kann so festgelegt werden: Alle (Standard), Elements oder der Konfiguration. Wenn kein `-DatabaseType` -Parameter angegeben wird, das Skript wird sowohl die Konfiguration der Artefakt-Skripts konfigurieren.  
+ Um z. b. das Bereitstellungs Skript nur für die artefaktdatenbank zu `-DatabaseType` generieren, geben Sie den Parameter an, und übergeben Sie den Wert "artefaktname". Der optionale `-DatabaseType` -Parameter gibt den Datenbanktyp AD FS an und kann auf festgelegt werden: Alle (Standard), artefaktdatei oder Konfiguration. Wenn kein `-DatabaseType` Parameter angegeben wird, konfiguriert das Skript sowohl das artefaktkonfigurations-als auch das Konfigurationsskript.  
 
    ```PowerShell
    PS C:\> Export-AdfsDeploymentSQLScript -DestinationFolder <script folder where scripts will be created> -ServiceAccountName <domain\serviceaccount> -DatabaseType "Artifact" 
    ```
-Das generierte Skript sollte auf dem SQL-Computer, die erforderlichen Datenbanken zu erstellen, und geben Sie die AD FS-Dienstkonto, das SQL-SA-Berechtigungen für diese Datenbanken ausgeführt werden.
+Das generierte Skript sollte auf dem SQL-Computer ausgeführt werden, um die erforderlichen Datenbanken zu erstellen und dem AD FS Dienst Konto, SQL SA-Berechtigungen für diese Datenbanken zu geben.
 
- 2. Erstellen Sie die Artefakt-Datenbank, die das Bereitstellungsskript verwenden. Kopieren Sie den neu generierten CreateDB.sql und SetPermissions.sql Bereitstellungsskripts mit dem SQL Server-Computer und führen Sie aus, um die local DB Artefakt erstellen. 
+ 2. Erstellen Sie die artefaktdatenbank mithilfe des Bereitstellungs Skripts. Kopieren Sie die neu generierten Bereitstellungs Skripts "mpatedb. SQL" und "setberechtigungs-SQL" auf den SQL Server-Computer, und führen Sie Sie aus, um die lokale artefaktdatenbank 
  
- 3. Ändern Sie die Konfigurationsdatei, um die Artefakt-DB-Verbindung hinzuzufügen. 
- Navigieren Sie zur Konfigurationsdatei für die AD FS-Knoten, und klicken Sie im Abschnitt "Microsoft.IdentityServer.Service", die neu konfigurierte ArtifactDB Einstiegspunkt hinzugefügt. 
+ 3. Ändern Sie die Konfigurationsdatei, um die artefaktdb-Verbindung hinzuzufügen. 
+ Navigieren Sie zur Konfigurationsdatei des AD FS Knotens, und fügen Sie im Abschnitt "Microsoft. identityserver. Service" der neu konfigurierten artifactdb einen Einstiegspunkt hinzu. 
 
  >[!NOTE] 
- > ArtifactStore ' und ' ConnectionString Werte Groß-/Kleinschreibung beachtet. Stellen Sie sicher, dass sie ordnungsgemäß konfiguriert sind. &lt;ArtifactStore ConnectionString = "Data Source =. \SQLInstance; Integrated Security = True; Initial Catalog = AdfsArtifactStore" /&gt; 
+ > bei artifactstore und ConnectionString werden die Groß-/Kleinschreibung beachtet. Stellen Sie sicher, dass Sie richtig konfiguriert sind. &lt;artifactstore ConnectionString = "Data Source = .\SQLinstance; Integrated Security = true; Initial Catalog = adfsartifactstore"/&gt; 
 >
->Verwenden Sie einen Datenquelle-Wert, der die Sql-Verbindung entspricht.
+>Verwenden Sie einen Datenquellen Wert, der mit Ihrer SQL-Verbindung übereinstimmt.
 
 
 
- 4. Starten Sie den AD FS-Dienst für die Änderungen wirksam werden. 
+ 4. Starten Sie den AD FS-Dienst neu, damit die Änderungen wirksam werden. 
  
  >[!NOTE] 
- > Es wird nicht empfohlen, SQL-Replikation oder die Synchronisierung zwischen den Artefakt-Datenbanken zu verwenden. Es wird empfohlen, um ein Element pro Datencenter einzurichten. 
+ > Es wird nicht empfohlen, die SQL-Replikation oder die Synchronisierung zwischen den artefaktdatenbanken zu verwenden. Es wird empfohlen, eine artefaktdatenbank pro Rechenzentrum einzurichten. 
  
-### <a name="cross-datacenter-failover-and-database-recovery"></a>Plattformübergreifende Datencenter-Failover und datenbankwiederherstellung  
-Es wird empfohlen, Datenbanken der Failover-Element im gleichen Datencenter als Artefakt der master-Datenbank zu erstellen. Wenn ein Failover auftritt, wird keine Anstieg der Wartezeit vorhanden sein. Failover-Artefakt-Datenbanken in mehreren Rechenzentren wird nicht empfohlen. Im folgenden erläutert, wie Aufrufe für OAuth, SAML, zusammenfassender Meldung und Token Funktion mit mehreren Artefakt Datenbanken wiedergeben. 
+### <a name="cross-datacenter-failover-and-database-recovery"></a>Rechenzentrums übergreifende Failover und Daten Bank Wiederherstellung  
+Es wird empfohlen, failoverartefaktdatenbanken in demselben Rechenzentrum wie die Haupt artefaktdatenbank zu erstellen. Wenn ein Failover auftritt, erfolgt keine Erhöhung der Latenz. Failoverartefaktionsdatenbanken über Rechenzentren hinweg werden nicht empfohlen. Im folgenden wird erläutert, wie Aufrufe von OAuth, SAML, ESL und der tokenwiedergabe-Erkennungsfunktion mit mehreren artefaktdatenbanken durchgesetzt werden. 
  - **OAuth und SAML** 
 
-   Für OAuth und SAML-Artefakt-Anforderungen wird der Knoten erstellt das Artefakt im Artefakt DB vorhanden ist, in der Konfigurationsdatei. Wenn die Konfigurationsdatei nicht über eine datenbankverbindung Artefakt enthält, wird das allgemeine Artefakt DB verwendet. Wenn die nächste Anforderung zum Abrufen des Artefakts auf einen anderen Knoten wechselt, veranlasst der andere Knoten Rest-API auf den 1. Knoten aus, um das Element aus das Artefakt DB abzurufen. Dies ist erforderlich, da es sich bei verschiedene Knoten möglicherweise verschiedene Artefakt-Datenbanken und die Knoten nicht wissen, zu. Wenn der 1. Knoten ausgefallen ist, schlägt die artefaktauflösung fehl. Aufgrund dessen ist das Replizieren des Artefakts DB in verschiedenen Datencentern nicht erforderlich. Wenn ein gesamtes Rechenzentrum ausfällt, wird in den meisten Fällen der Knoten, der das Element erstellt auch nach unten, was bedeutet, dass dieses Element nicht mehr aufgelöst werden kann.  
+   Für OAuth-und SAML-artefaktanforderungen erstellt der Knoten das Element in der artefaktdatenbank, das in der Konfigurationsdatei vorhanden ist. Wenn die Konfigurationsdatei keine artefaktdatenbankverbindung enthält, wird die allgemeine artefaktdatenbank verwendet. Wenn die nächste Anforderung zum Abrufen des Artefakts an einen anderen Knoten weitergeleitet wird, macht der andere Knoten die Rest-API für den ersten Knoten aus, um das Element aus der artefaktdatenbank abzurufen. Dies ist erforderlich, da unterschiedliche Knoten möglicherweise unterschiedliche artefaktdatenbanken aufweisen und diese von den Knoten nicht bekannt sind. Wenn der erste Knoten ausfällt, tritt bei der artefaktauflösung ein Fehler auf. Aufgrund dieses Entwurfs ist die Replikation der artefaktdatenbank in verschiedenen Rechenzentren nicht erforderlich. Wenn ein gesamtes Rechenzentrum inkonsistent ist, ist der Knoten, der das Element erstellt hat, ebenfalls inkonsistent, was bedeutet, dass das artefaktelement nicht mehr aufgelöst werden kann.  
 
  - **Extranetsperre** 
 
-    Die Artefakt-Datenbank, die auf die verwiesen wird in der Konfigurationsdatei wird für Extranetsperre Daten verwendet werden. Für die Funktion zusammenfassender Meldung wählt AD FS hingegen einem Masterauftrag für den die Daten im Artefakt DB schreibt. Alle Knoten stellen eine REST-API aufrufen, um den Masterknoten abrufen und die neueste Informationen zu jedem Benutzer festlegen. Wenn mehrere Artefakt DB verwendet werden, muss der Administrator ein Masterknoten für jedes Artefakt DB oder Datencenter auswählen. 
+    Die artefaktdatenbank, auf die in der Konfigurationsdatei verwiesen wird, wird für extranetsperrungsdaten verwendet. Für das ESL-Feature wählt AD FS jedoch einen Master aus, der die Daten in die artefaktdatenbank schreibt. Alle Knoten führen einen Rest-API-Rückruf an den Master Knoten aus, um die neuesten Informationen zu den einzelnen Benutzern abzurufen und festzulegen. Wenn mehrere artefaktdb verwendet werden, muss der Administrator einen Master Knoten für jedes artefaktdb-oder Datacenter-Element auswählen. 
 
-    So wählen Sie einen Knoten, der die Master zusammenfassender Meldung sein, navigieren zu den AD FS-Knoten-Config-Datei, und klicken Sie im Abschnitt "Microsoft.IdentityServer.Service", fügen Sie die folgenden aus:       
+    Um einen Knoten als ESL-Master auszuwählen, navigieren Sie zur Konfigurationsdatei des ADFS-Knotens, und fügen Sie im Abschnitt "Microsoft. identityserver. Service" Folgendes hinzu:       
     
-    Fügen Sie folgenden Eintrag hinzu, auf dem masterzielserver. Beachten Sie, dass alle drei Product Keys Groß-/Kleinschreibung beachtet werden. 
+    Fügen Sie auf dem Master-Eintrag folgenden Eintrag hinzu. Beachten Sie, dass bei allen drei Schlüsseln zwischen Groß-und Kleinschreibung 
 
-    &lt;Useractivityfarmrole MasterFQDN = [FQDN von der ausgewählten primären] IsMaster = "true" /&gt;
+    &lt;useractivityfarmrole masterbqdn = [voll qualifizierter Name der primären Datenbank] IsMaster = "true"/&gt;
     
-    Auf den anderen Knoten fügen Sie den folgenden Eintrag:
+    Fügen Sie auf den anderen Knoten den folgenden Eintrag hinzu:
 
-   &lt;Useractivityfarmrole MasterFQDN = [FQDN von der ausgewählten primären] IsMaster = "false" /&gt;
+   &lt;useractivityfarmrole masterbqdn = [voll qualifizierter Schlüssel der ausgewählten primären Datenbank] IsMaster = "false"/&gt;
  
     >[!NOTE] 
-    >Da mehrere Artefakt Datenbanken keine Daten synchronisieren, werden zusammenfassender Meldung Werte zwischen Artefakt-Datenbanken nicht synchronisiert.
-    Benutzer kann möglicherweise drücken, ein anderen Rechenzentrum für eine Anforderung, sodass die ExtranetLockoutThreshold hängt von der Anzahl der Artefakt-Datenbanken und ExtranetLockoutThreshold * Anzahl der Artefakt-Datenbanken. 
+    >Da die Daten von mehreren artefaktdatenbanken nicht synchronisiert werden, werden die ESL-Werte nicht zwischen artefaktdatenbanken synchronisiert.
+    Ein Benutzer kann möglicherweise ein anderes Daten Center für eine Anforderung erreichen und somit den extranetlockoutthreshold abhängig von der Anzahl der artefaktdatenbanken, extranetlockoutthreshold * Anzahl der artefaktdatenbanken. 
  
-  - **Erkennung einer Tokenmehrfachverwendung** 
+  - **Erkennung von tokenwiedergabe** 
     
-    Erkennungsdaten von Löschvorgängen Token-Replay werden immer über die zentrale Datenbank für das Element aufgerufen werden. AD FS speichert das Token der Anspruchsanbieter-Vertrauensstellung, sicherzustellen, dass das gleiche Token wiedergegeben werden kann. Wenn ein Angreifer versucht, die das gleiche Token wiedergegeben, wird überprüft, AD FS die Token in der Artefakt-Datenbank vorhanden ist. Wenn das Token vorhanden ist, wird die Anforderung zurückgewiesen werden. Die zentrale Datenbank für das Artefakt wird verwendet, aus Sicherheitsgründen, da die Artefakt-DB-Daten nicht repliziert werden, ein Angreifer kann die Anforderung an ein anderes Datencenter senden und ein Token wiedergegeben. Erstellen zusätzliche schreibgeschützte Kopien der ArtifactDB werden Cross Datacenter Latenz in diesem Szenario nicht verhindern, wie nur die zentrale Datenbank Artefakt verwendet wird.    
+    Tokenwiedergabe-Erkennungs Daten werden immer von der zentralen artefaktdatenbank aufgerufen. AD FS speichert das Token von der Anspruchs Anbieter-Vertrauensstellung, um sicherzustellen, dass das gleiche Token nicht wiedergegeben werden kann. Wenn ein Angreifer versucht, dasselbe Token wiederzugeben, AD FS überprüft, ob das Token in der artefaktdatenbank vorhanden ist. Wenn das Token vorhanden ist, wird die Anforderung abgelehnt. Die zentrale artefaktdatenbank wird aus Sicherheitsgründen verwendet, da die artefaktdatenbankdaten nicht repliziert werden, könnte ein Angreifer die Anforderung an ein anderes Rechenzentrum senden und ein Token wiedergeben. Durch das Erstellen zusätzlicher Schreib geschützter Kopien von artifactdb wird in diesem Szenario keine Rechenzentrums übergreifende Latenz verhindert, da nur die zentrale artefaktdatenbank verwendet wird.    
  
  

@@ -1,5 +1,5 @@
 ---
-title: Schnellstart für die Bereitstellung eines geschützten Fabrics
+title: Schnellstart für die geschützte Fabric-Bereitstellung
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.topic: article
@@ -9,161 +9,161 @@ author: justinha
 ms.author: justinha
 ms.technology: security-guarded-fabric
 ms.date: 01/30/2019
-ms.openlocfilehash: 8e1ef34370b1459cd55705bc0069b49a572de303
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 48ac73e79709f28816ea9eff35361bd54710c66e
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447529"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870526"
 ---
-# <a name="quick-start-for-guarded-fabric-deployment"></a>Schnellstart für die Bereitstellung eines geschützten Fabrics
+# <a name="quick-start-for-guarded-fabric-deployment"></a>Schnellstart für die geschützte Fabric-Bereitstellung
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-In diesem Thema wird erläutert, was ein geschütztes Fabric ist, die Anforderungen, und eine Zusammenfassung des Bereitstellungsprozesses. Ausführliche Schritte zur Bereitstellung finden Sie unter [Host-Überwachungsdienst für die Bereitstellung von überwachten Hosts und abgeschirmte VMs](https://technet.microsoft.com/windows-server-docs/security/guarded-fabric-shielded-vm/guarded-fabric-deploying-hgs-overview).
+In diesem Thema wird erläutert, was ein geschütztes Fabric ist, seine Anforderungen und eine Zusammenfassung des Bereitstellungs Prozesses. Ausführliche Informationen zur Bereitstellung finden Sie unter Bereitstellen [des Host-Überwachungs Diensts für überwachte Hosts und abgeschirmte VMS](https://technet.microsoft.com/windows-server-docs/security/guarded-fabric-shielded-vm/guarded-fabric-deploying-hgs-overview).
 
-Lieber ein Video ansehen? Finden Sie in der Microsoft Virtual Academy-Kurs [Bereitstellen von abgeschirmten VMs and dem einer geschützten Fabric mit Windows Server 2016](https://mva.microsoft.com/en-US/training-courses/deploying-shielded-vms-and-a-guarded-fabric-with-windows-server-2016-17131?l=WFLef7vUD_4604300474).
+Lieber ein Video ansehen? Weitere Informationen finden Sie im Microsoft Virtual Academy-Kurs bereitstellen [von abgeschirmten VMS und einem geschützten Fabric mit Windows Server 2016](https://mva.microsoft.com/en-US/training-courses/deploying-shielded-vms-and-a-guarded-fabric-with-windows-server-2016-17131?l=WFLef7vUD_4604300474).
 
-## <a name="what-is-a-guarded-fabric"></a>Was ist ein geschütztes Fabric
+## <a name="what-is-a-guarded-fabric"></a>Was ist ein geschütztes Fabric?
 
-Ein _überwachten Fabric_ ist ein Windows Server 2016 Hyper-V-Fabric kann der Schutz von Workloads von Mandanten für die Untersuchung, Diebstahl und Manipulation von Malware, die auf dem Host ausgeführt, als auch von Systemadministratoren. Diese virtualisierte arbeitsauslastungen sind Mandanten – geschützt, sowohl auf REST-API und in-Flight – heißen _abgeschirmte VMs_. 
+Bei einem _geschützten Fabric_ handelt es sich um ein Windows Server 2016 Hyper-V-Fabric, mit dem mandantenworkloads vor Untersuchung, Diebstahl und Manipulation durch Schadsoftware, die auf dem Host ausgeführt wird, sowie von Systemadministratoren geschützt werden können. Diese virtualisierten mandantenworkloads – sowohl im Ruhezustand als auch in-Flight – werden als _abgeschirmte VMS_bezeichnet. 
 
-## <a name="what-are-the-requirements-for-a-guarded-fabric"></a>Was sind die Anforderungen für ein geschütztes Fabric
+## <a name="what-are-the-requirements-for-a-guarded-fabric"></a>Welche Anforderungen gelten für ein geschütztes Fabric?
 
-Die Anforderungen für ein geschütztes Fabric umfassen:
+Zu den Anforderungen für ein überwachtes Fabric gehören:
 
-- **Eine Möglichkeit zum Ausführen von abgeschirmten VMs, die durch böswillige Software kostenlos ist.**
+- **Ein Ort zum Ausführen von abgeschirmten VMS, die kostenlos von Schadsoftware ausgeführt werden.**
 
-    Diese heißen _von überwachten Hosts_. 
-    Überwachte Hosts sind Windows Server 2016 Datacenter Edition Hyper-V-Hosts, die abgeschirmte VMs ausführen können, nur dann, wenn sie nachweisen können, dass sie in einem bekannten, vertrauenswürdigen Status an eine externe Stelle wird aufgerufen, die Host Guardian Service (HGS) ausgeführt werden. 
-    Der Host-Überwachungsdienst ist eine neue Serverrolle in Windows Server 2016 und in der Regel als ein Cluster mit drei Knoten bereitgestellt wird. 
+    Diese werden als _geschützte Hosts_bezeichnet. 
+    Geschützte Hosts sind Windows Server 2016 Datacenter Edition Hyper-V-Hosts, die abgeschirmte VMS nur ausführen können, wenn Sie beweisen können, dass Sie in einem bekannten und vertrauenswürdigen Zustand einer externen Zertifizierungsstelle ausgeführt werden, die als Host-Überwachungsdienst (Host-Überwachungsdienst) bezeichnet wird. 
+    Die HGS ist eine neue Server Rolle in Windows Server 2016 und wird in der Regel als Cluster mit drei Knoten bereitgestellt. 
 
-- **Eine Möglichkeit, um zu überprüfen, ob einen Host ist in einem fehlerfreien Zustand.**
+- **Eine Möglichkeit zum Überprüfen, ob sich ein Host in einem fehlerfreien Zustand befindet.**
 
-    Der Host-Überwachungsdienst führt _Nachweis_, gemessen, in denen die Integrität des überwachten Hosts.
+    Die HGS führt _einen_Nachweis durch, wobei die Integrität der überwachten Hosts gemessen wird.
 
-- **Ein Prozess, um Schlüssel für fehlerfreie Hosts sicher freizugeben.**
+- **Ein Prozess, mit dem Schlüssel für fehlerfreie Hosts sicher freigegeben werden.**
 
-    Der Host-Überwachungsdienst führt _für den Schutz und wichtige Version_, in dem sie die Schlüssel für fehlerfreie Hosts wieder freigibt.
+    Die HGS führen den _Schlüsselschutz und die schlüsselfreigabe_aus, bei denen die Schlüssel wieder für fehlerfreie Hosts freigegeben werden.
 
-- **Tools für die sichere Bereitstellung und hosting von automatisieren abgeschirmte VMs.**
+- **Verwaltungs Tools zum Automatisieren der sicheren Bereitstellung und des Hostings von abgeschirmten VMS.**
 
-    Optional können Sie diese Verwaltungstools in ein geschütztes Fabric hinzufügen:
+    Optional können Sie diese Verwaltungs Tools einem geschützten Fabric hinzufügen:
 
-    - System Center 2016 Virtual Machine Manager (VMM). VMM wird empfohlen, da es zusätzliche Tools bietet, nach was Sie erhalten, verwenden Sie einfach die PowerShell-Cmdlets, die mit Hyper-V und die arbeitsauslastungen geschütztes Fabric stammen).
-    - System Center 2016 Service Provider Foundation (SPF). Dies ist eine API-Schicht zwischen Windows Azure Pack und VMM sowie eine Voraussetzung für die Verwendung von Windows Azure Pack.
-    - Windows Azure Pack bietet eine gute grafische Weboberfläche zum Verwalten von eines geschützten Fabrics und abgeschirmte VMs. 
+    - System Center 2016 Virtual Machine Manager (VMM). VMM wird empfohlen, da Sie zusätzliche Verwaltungs Tools bereitstellt, die über das, was Sie bei der Verwendung von PowerShell-Cmdlets, die mit Hyper-V und den geschützten Fabric-Workloads geliefert werden, hinausgehen.
+    - System Center 2016 Service Provider Foundation (SPF). Dies ist eine API-Schicht zwischen Windows Azure Pack und VMM und eine Voraussetzung für die Verwendung von Windows Azure Pack.
+    - Windows Azure Pack bietet eine gute grafische Webschnittstelle zum Verwalten eines geschützten Fabrics und geschützter VMS. 
 
-In der Praxis eine Entscheidung getroffen werden muss, vorab: die [nachweismodus](guarded-fabric-and-shielded-vms.md#attestation-modes-in-the-guarded-fabric-solution) von geschütztem Fabric verwendet. Es gibt zwei Möglichkeiten, zwei sich gegenseitig ausschließende Modi, durch die Host-Überwachungsdienst messen können, die Hyper-V-Hosts fehlerfrei ist. Wenn Sie Host-Überwachungsdienst initialisieren, müssen Sie den Modus auswählen:  
+In der Praxis muss eine Entscheidung im Vordergrund getroffen werden: der Nachweis [Modus](guarded-fabric-and-shielded-vms.md#attestation-modes-in-the-guarded-fabric-solution) , der vom geschützten Fabric verwendet wird. Es gibt zwei Möglichkeiten – zwei sich gegenseitig ausschließende Modi –, mit denen HGS messen kann, dass ein Hyper-V-Host fehlerfrei ist. Wenn Sie HGS initialisieren, müssen Sie den folgenden Modus auswählen:  
 
-- Host-schlüsselnachweis und Modus-Taste, ist weniger sicheren, jedoch einfacher zu verwenden  
-- Mit der TPM-basierten Nachweis und TPM-Modus ist sicherer, aber erfordert weitere Konfiguration und spezielle hardware
+- Der Host Schlüssel Nachweis oder Schlüssel Modus ist weniger sicher, aber leichter zu übernehmen.  
+- Der TPM-basierte Nachweis oder der TPM-Modus ist sicherer, erfordert jedoch mehr Konfiguration und spezielle Hardware
 
-Bei Bedarf können Sie im Modus-Taste mit vorhandenen Hyper-V-Hosts, die auf Windows Server 2019 Datacenter Edition aktualisiert wurden bereitstellen und dann in der sicherer Modus des TPM konvertieren, wenn Server Hardwaresupport (einschließlich TPM 2.0) zur Verfügung steht. 
+Falls erforderlich, können Sie die Bereitstellung im Schlüssel Modus mithilfe vorhandener Hyper-V-Hosts durchführen, die auf Windows Server 2019 Datacenter Edition aktualisiert wurden, und dann in den sichereren TPM-Modus konvertieren, wenn die Server Hardware (einschließlich TPM 2,0) unterstützt wird. 
 
-Jetzt wissen Sie, was die einzelnen Teile sind betrachten wir ein Beispiel für das Bereitstellungsmodell.
+Nun, da Sie wissen, was die Teile sind, sehen wir uns ein Beispiel für das Bereitstellungs Modell an.
 
-## <a name="how-to-get-from-a-current-hyper-v-fabric-to-a-guarded-fabric"></a>Gewusst wie: Abrufen aus einem aktuellen Hyper-V-Fabric in ein geschütztes fabric
+## <a name="how-to-get-from-a-current-hyper-v-fabric-to-a-guarded-fabric"></a>So gelangen Sie von einem aktuellen Hyper-V-Fabric zu einem geschützten Fabric
 
-Nehmen wir dieses Szenario: Sie haben eine vorhandene Hyper-V-Fabric, z. B. "contoso.com" in der folgenden Abbildung ist und Sie eine Windows Server 2016 überwachten Fabric erstellen möchten.
+Stellen Sie sich dieses Szenario vor – Sie haben ein vorhandenes Hyper-V-Fabric, wie z. b. contoso.com in der folgenden Abbildung, und Sie möchten ein geschütztes Windows Server 2016-Fabric erstellen.
 
-![Vorhandene Hyper-V-fabric](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-existing-hyper-v.png)
+![Vorhandenes Hyper-V-Fabric](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-existing-hyper-v.png)
 
-## <a name="step-1-deploy-the-hyper-v-hosts-running-windows-server-2016"></a>Schritt 1: Bereitstellen von Hyper-V-Hosts unter Windows Server 2016 
+## <a name="step-1-deploy-the-hyper-v-hosts-running-windows-server-2016"></a>Schritt 1: Bereitstellen von Hyper-V-Hosts unter Windows Server 2016 
 
-Hyper-V-Hosts müssen zum Ausführen von Windows Server 2016 Datacenter-Edition oder höher. Wenn Sie Hosts aktualisieren, können Sie [upgrade](https://technet.microsoft.com/windowsserver/dn527667.aspx) aus Standard Edition, Datacenter Edition.
+Auf den Hyper-V-Hosts muss Windows Server 2016 Datacenter Edition oder höher ausgeführt werden. Wenn Sie Hosts aktualisieren, können Sie ein [Upgrade](https://technet.microsoft.com/windowsserver/dn527667.aspx) von der Standard Edition auf Datacenter Edition durchführen.
 
-![Aktualisieren von Hyper-V-hosts](../../security/media/Guarded-Fabric-Shielded-VM/guarded-fabric-deployment-step-one-upgrade-hyper-v.png)
+![Aktualisieren von Hyper-V-Hosts](../../security/media/Guarded-Fabric-Shielded-VM/guarded-fabric-deployment-step-one-upgrade-hyper-v.png)
 
-## <a name="step-2-deploy-the-host-guardian-service-hgs"></a>Schritt 2: Bereitstellen des Host-Überwachungsdienst (Host-Überwachungsdienst)
+## <a name="step-2-deploy-the-host-guardian-service-hgs"></a>Schritt 2: Bereitstellen des Host-Überwachungs Diensts (HGS)
 
-Klicken Sie dann die Host-Überwachungsdienst-Serverrolle installiert und stellen es einen Cluster mit drei Knoten, wie im Beispiel relecloud.com in der folgenden Abbildung. Dies erfordert drei PowerShell-Cmdlets:
+Installieren Sie dann die HGS-Server Rolle, und stellen Sie Sie als Cluster mit drei Knoten bereit, wie z. b. das relecloud.com-Beispiel in der folgenden Abbildung. Hierfür sind drei PowerShell-Cmdlets erforderlich:
 
-- Verwenden Sie zum Hinzufügen der Rolle des Host-Überwachungsdienst `Install-WindowsFeature` 
-- Verwenden Sie zum Installieren der Host-Überwachungsdienst `Install-HgsServer` 
-- Verwenden Sie zum Initialisieren der Host-Überwachungsdienst mit Ihrem ausgewählten Modus Nachweis `Initialize-HgsServer` 
+- Verwenden Sie zum Hinzufügen der HGS-Rolle`Install-WindowsFeature` 
+- Verwenden Sie zum Installieren der HGS`Install-HgsServer` 
+- Um die HGS mit dem gewählten Nachweis Modus zu initialisieren, verwenden Sie`Initialize-HgsServer` 
 
-Wenn die vorhandenen Hyper-V-Server die Voraussetzungen für die TPM-Modus nicht entsprechen (angenommen, sie müssen keinen TPM 2.0), können Sie die Host-Überwachungsdienst mit Admin-basierten Nachweis (Active Directory-Modus), müssen Sie eine Active Directory-Vertrauensstellung mit der Domäne Fabric initialisieren. 
+Wenn Ihre vorhandenen Hyper-V-Server die Voraussetzungen für den TPM-Modus nicht erfüllen (z. b. Wenn Sie nicht über TPM 2,0 verfügen), können Sie HGS mit dem Administrator basierten Nachweis (AD-Modus) initialisieren, für den eine Active Directory Vertrauensstellung mit der Fabric-Domäne erforderlich ist. 
 
-In unserem Beispiel nehmen wir an Contoso anfänglich wird die in AD-Modus bereitgestellt werden, um Compliance-Anforderungen sofort zu erfüllen, und plant, in die sicherere TPM-basierten Nachweis zu konvertieren, nachdem geeignete Server-Hardware erworben werden kann. 
+Nehmen wir in unserem Beispiel an, dass "Configuration Manager" zuerst im AD-Modus bereitgestellt wird, um die Konformitätsanforderungen sofort zu erfüllen, und plant die Konvertierung in den sichereren TPM-basierten Nachweis, nachdem die geeignete Server Hardware erworben werden kann. 
 
 ![Installieren von HGS](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-deployment-step-two-deploy-hgs.png)
 
-## <a name="step-3-extract-identities-hardware-baselines-and-code-integrity-policies"></a>Schritt 3: Extrahieren von Identitäten, Hardware-Baselines und anwendungssteuerungscode-Integritätsrichtlinien
+## <a name="step-3-extract-identities-hardware-baselines-and-code-integrity-policies"></a>Schritt 3: Extrahieren von Identitäten, hardwarebaselines und Code Integritäts Richtlinien
 
-Der Prozess zum Extrahieren von Identitäten aus Hyper-V-Hosts, hängt von den nachweismodus, die verwendet wird.
+Der Prozess zum Extrahieren von Identitäten von Hyper-V-Hosts hängt vom verwendeten Nachweis Modus ab.
 
-Für AD-Modus ist die ID des Hosts für die Domäne eingebundenen Computer-Konto, die Mitglied einer bestimmten Sicherheitsgruppe in der Fabric-Domäne sein muss.
-Mitgliedschaft in der angegebenen Gruppe ist die einzige Festlegung, ob der Host fehlerfrei ist. 
+Für den AD-Modus ist die ID des Hosts das in die Domäne eingebundenen Computer Konto, das Mitglied einer bestimmten Sicherheitsgruppe in der Fabric-Domäne sein muss.
+Die Mitgliedschaft in der angegebenen Gruppe ist die einzige Bestimmung, ob der Host fehlerfrei ist oder nicht. 
 
-In diesem Modus ist der fabricadministrator allein verantwortlich für das Sicherstellen der Integritäts der Hyper-V-Hosts. Da die Host-Überwachungsdienst wiedergegeben wird, keinen Teil bei der Entscheidung, was ist, oder kann nicht ausgeführt wird, funktioniert Schadsoftware und Debugger wie vorgesehen. 
+In diesem Modus ist der Fabric-Administrator allein dafür verantwortlich, die Integrität der Hyper-V-Hosts sicherzustellen. Da HGS bei der Entscheidung, was nicht ausgeführt werden kann, keine Rolle spielt, funktionieren Schadsoftware und-Debug-Anwendungen wie vorgesehen. 
 
-Debugger, die versuchen, direkt an einen Prozess (z. B. WinDbg.exe) angefügt werden jedoch für abgeschirmte VMs blockiert, da der VM Arbeitsprozess (VMWP.exe) eines geschützten Prozesses Lichts (PPL) ist.
-Alternative Debugtechniken, wie z. B. von LiveKd.exe, werden nicht blockiert. Im Gegensatz zu abgeschirmten VMs wird der Arbeitsprozess für die Verschlüsselung unterstützte VMs nicht ausgeführt, wie eine PPL, so wie von herkömmliche Debuggern WinDbg.exe weiterhin normal ausgeführt werden.
+Debugger, die versuchen, direkt an einen Prozess anzufügen (z. b. WinDbg. exe), werden jedoch für abgeschirmte VMS blockiert, da der Arbeitsprozess des virtuellen Computers (VMWP. exe) ein geschütztes Prozess Licht (PPL) ist.
+Alternative Debuggingtechniken, z. b. die von LiveKd. exe verwendeten, werden nicht blockiert. Anders als bei abgeschirmten VMS wird der Arbeitsprozess für die Verschlüsselung unterstützte VMS nicht als ppl ausgeführt, sodass herkömmliche Debugger wie WinDBG. exe weiterhin normal funktionieren.
 
-Anders ausgedrückt, die strengen Validierungsschritte für den TPM-Modus werden nicht für AD-Modus in keiner Weise verwendet.
+Anders ausgedrückt: die strengen Validierungs Schritte, die für den TPM-Modus verwendet werden, werden in keiner Weise für den AD-Modus verwendet.
 
 Für den TPM-Modus sind drei Schritte erforderlich: 
 
-1.  Ein _öffentlichen Endorsement Key_ (oder _EKpub_) aus der TPM 2.0 auf jeder einzelnen Hyper-V-Host. Verwenden Sie zum Erfassen der EKpub `Get-PlatformIdentifier`. 
-2.  Ein _Hardware Baseline_. Wenn Hyper-V-Hosts identisch sind, ist eine einzelne Baseline alles, was, die Sie benötigen. Ist dies nicht der Fall ist, müssen Sie eine für jede Klasse von Hardware dafür. Die Baseline ist in Form einer Protokolldatei Trustworthy Computing Group und TCGlog. Die TCGlog enthält alle Daten, die der Host aus der UEFI-Firmware über den Kernel, bis, in dem der Host vollständig gestartet wurde. Um die Hardware-Baseline zu erfassen, installieren Sie die Hyper-V-Rolle und das Feature Hyper-V-Unterstützung für Host-Überwachungsdiensts, und verwenden Sie `Get-HgsAttestationBaselinePolicy`. 
-3.  Ein _codeintegritätsrichtlinie_. Wenn Ihre Hyper-V-Hosts identisch sind, ist eine einzelne codeintegritätsrichtlinie alles, was, die Sie benötigen. Ist dies nicht der Fall ist, müssen Sie eine für jede Klasse von Hardware dafür. Windows Server 2016 und Windows 10 verfügen jeweils über eine neue Art der Erzwingung für CI-Richtlinien, die Namen _(Hypervisor enforced Code Integrity, HVCI)_ . HVCI bietet sicheres Erzwingung und stellt sicher, dass ein Host darf nur Binärdateien ausgeführt werden, die ein vertrauenswürdiger Administrator Ausführung zulässig ist. Diese Anweisungen werden in einer codeintegritätsrichtlinie eingeschlossen, die Host-Überwachungsdienst hinzugefügt wird. Host-Überwachungsdienst misst die codeintegritätsrichtlinie des Hosts, bevor sie zum Ausführen geschützter VMs zulässig sind. Verwenden Sie zum Erfassen einer codeintegritätsrichtlinie `New-CIPolicy`. Anschließend muss die Richtlinie mit seiner binären Form konvertiert `ConvertFrom-CIPolicy`.
+1.  Einen _öffentlichen Endorsement Key_ (oder _ekpub_) von TPM 2,0 auf jedem und jedem Hyper-V-Host. Verwenden `Get-PlatformIdentifier`Sie zum Erfassen von ekpub. 
+2.  Eine _hardwarebaseline_. Wenn jeder ihrer Hyper-V-Hosts identisch ist, benötigen Sie nur eine einzige Baseline. Wenn dies nicht der Fall ist, benötigen Sie für jede Hardware Klasse einen. Die Baseline hat die Form einer Trusted Computing Group Logfile oder tcglog. Tcglog enthält alle Elemente, die der Host von der UEFI-Firmware über den Kernel verwendet hat, und zwar direkt bis zu dem Ort, an dem der Host vollständig gestartet wurde. Zum Erfassen der hardwarebaseline installieren Sie die Hyper-v-Rolle und die Hyper-v-Unterstützung `Get-HgsAttestationBaselinePolicy`des Host-Überwachungs Diensts und verwenden. 
+3.  Eine _Code Integritätsrichtlinie_. Wenn jeder ihrer Hyper-V-Hosts identisch ist, benötigen Sie nur eine einzige CI-Richtlinie. Wenn dies nicht der Fall ist, benötigen Sie für jede Hardware Klasse einen. Windows Server 2016 und Windows 10 verfügen jeweils über eine neue Form der Erzwingung für CI-Richtlinien, die als _Hypervisor-erzwungene Code Integrität (hvci)_ bezeichnet wird. Hvci bietet eine starke Erzwingung und stellt sicher, dass ein Host nur Binärdateien ausführen darf, die von einem vertrauenswürdigen Administrator ausgeführt werden dürfen. Diese Anweisungen sind in einer CI-Richtlinie umschließt, die zu HGS hinzugefügt wird. HGS misst die CI-Richtlinie jedes Hosts, bevor Sie geschützte VMS ausführen dürfen. Verwenden `New-CIPolicy`Sie zum Erfassen einer CI-Richtlinie. Die Richtlinie muss dann mithilfe `ConvertFrom-CIPolicy`von in das binäre Formular konvertiert werden.
 
-![Extrahieren von Identitäten, Baseline und codeintegritätsrichtlinie](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-deployment-step-three-extract-identity-baseline-ci-policy.png)
+![Extrahieren von Identitäten, Baseline und CI-Richtlinie](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-deployment-step-three-extract-identity-baseline-ci-policy.png)
 
-Das ist alles – des geschützten Fabrics erstellt wird, im Hinblick auf die Infrastruktur für die Ausführung.  
-Nun können Sie eine abgeschirmte VM vorlagendatenträger und eine geschützte Datendatei so abgeschirmte erstellen können der virtuelle Computer einfach und sicher bereitgestellt werden. 
+Das ist alles – das geschützte Fabric wird in Bezug auf die Infrastruktur für die Durchführung erstellt.  
+Nun können Sie einen abgeschirmten VM-Vorlagen Datenträger und eine geschützte Datendatei erstellen, damit abgeschirmte VMS einfach und sicher bereitgestellt werden können. 
 
-## <a name="step-4-create-a-template-for-shielded-vms"></a>Schritt 4: Erstellen Sie eine Vorlage für abgeschirmte VMs
+## <a name="step-4-create-a-template-for-shielded-vms"></a>Schritt 4: Erstellen einer Vorlage für abgeschirmte VMS
 
-Vorlage für eine abgeschirmte VM schützt vorlagedatenträger durch das Erstellen einer Signatur des Datenträgers zu einem bekannten, vertrauenswürdigen Zeitpunkt rechtzeitig an. 
-Wenn Sie der vorlagendatenträger später mit Schadsoftware infiziert ist, wird die Signatur Originalvorlage unterscheiden sich die durch die sichere abgeschirmte VM-Bereitstellung erkannt wird. 
-Abgeschirmte vorlagedatenträger werden erstellt, indem Sie Ausführung der **geschützte Datenträger Assistent zum Erstellen von** oder `Protect-TemplateDisk` für einen regulären vorlagendatenträger. 
+Eine geschützte VM-Vorlage schützt Vorlagen Datenträger, indem eine Signatur des Datenträgers zu einem bekannten vertrauenswürdigen Zeitpunkt erstellt wird. 
+Wenn der Vorlagen Datenträger später durch Schadsoftware infiziert wird, unterscheidet sich seine Signatur von der ursprünglichen Vorlage, die durch den sicheren abgeschirmten VM-Bereitstellungs Prozess erkannt wird. 
+Geschützte Vorlagen Datenträger werden erstellt, indem der Assistent zum Erstellen `Protect-TemplateDisk` einer **abgeschirmten Vorlage** oder eine reguläre Vorlagen Festplatte ausgeführt wird. 
 
-Jede ist im Lieferumfang der **Tools für geschützte VMs** Features in der [Remote Server Administration Tools für Windows 10](https://www.microsoft.com/download/details.aspx?id=45520).
-Nachdem Sie RSAT heruntergeladen haben, führen Sie diesen Befehl zum Installieren der **Tools für geschützte VMs** Feature:
+Jede ist in der [Remoteserver-Verwaltungstools für Windows 10](https://www.microsoft.com/download/details.aspx?id=45520)in der Funktion der **abgeschirmten VM-Tools** enthalten.
+Nachdem Sie RSAT heruntergeladen haben, führen Sie den folgenden Befehl aus, um das Feature der **abgeschirmten VM-Tools**
 
 ```powershell
 Install-WindowsFeature RSAT-Shielded-VM-Tools -Restart
 ```
 
-Ein trustworthy-Administrator, z. B. der Fabric-Administrator oder Besitzer der virtuellen Computer benötigen ein Zertifikat (häufig von einem Hostingdienstanbieter bereitgestellten) zum Signieren der VHDX-Datenträger-Vorlage. 
+Ein vertrauenswürdiger Administrator (z. b. der Fabric-Administrator oder der Besitzer der VM) benötigt ein Zertifikat (häufig von einem hostingdienstanbieter bereitgestellt) zum Signieren des vhdx-Vorlagen Datenträgers 
 
-![Geschützte vorlagendatenträger-Assistenten](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-shielded-template-wizard.png)
+![Assistent für geschützte Vorlagen-Datenträger](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-shielded-template-wizard.png)
 
-Die Datenträgersignatur ist für die Partition für das Betriebssystem des virtuellen Datenträgers berechnet.
-Wenn alles für die Betriebssystempartition ändert, ändert sich die Signatur auch.
-Dadurch können Benutzer stark die Datenträger ermitteln sie durch Angabe der entsprechenden Signatur vertrauen.
+Die Datenträger Signatur wird über die Betriebssystem Partition des virtuellen Datenträgers berechnet.
+Wenn Änderungen an der Betriebssystem Partition vorgenommen werden, ändert sich auch die Signatur.
+Dies ermöglicht es Benutzern, die entsprechenden Datenträger durch Angabe der entsprechenden Signatur stark zu identifizieren.
 
-Überprüfen Sie die [Vorlage datenträgeranforderungen](guarded-fabric-create-a-shielded-vm-template.md) bevor Sie beginnen. 
+Überprüfen Sie die [Vorlagen Anforderungen](guarded-fabric-create-a-shielded-vm-template.md) für Datenträger, bevor Sie loslegen. 
 
-## <a name="step-5-create-a-shielding-data-file"></a>Schritt 5: Erstellen Sie eine geschützte Datendatei 
+## <a name="step-5-create-a-shielding-data-file"></a>Schritt 5: Erstellen einer Schutz Datendatei 
 
-Eine geschützte Datendatei, auch bekannt als PDK-Datei, erfasst die vertrauliche Informationen über den virtuellen Computer, z. B. das Administratorkennwort ein. 
+Eine geschützte Datendatei, die auch als PDK-Datei bezeichnet wird, erfasst vertrauliche Informationen über den virtuellen Computer, z. b. das Administrator Kennwort. 
 
 ![Geschützte Daten](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-deployment-step-five-create-shielding-data.png)
 
-Die geschützte Datendatei enthält auch die sicherheitsrichtlinieneinstellung für den geschützten virtuellen Computer. Sie müssen eine der beiden Sicherheitsrichtlinien auswählen, wenn Sie eine schutzdatendatei erstellen:
+Die Schutz Datendatei enthält auch die Sicherheitsrichtlinien Einstellung für den abgeschirmten virtuellen Computer. Wenn Sie eine geschützte Datendatei erstellen, müssen Sie eine von zwei Sicherheitsrichtlinien auswählen:
 
-- Geschützte
+- Abgesch
    
-    Die sicherste Option, die viele administrative Angriffsvektoren beseitigt.
+    Die sicherste Option, bei der viele administrative Angriffsvektoren vermieden werden.
 
-- Verschlüsselung wird unterstützt
+- Verschlüsselung unterstützt
 
-    Verwenden Sie ein geringerem Maß an Schutz, die immer noch bietet die Vorteile der Compliance werden können, um einen virtuellen Computer zu verschlüsseln, sondern kann Hyper-V-Administratoren folgende Möglichkeiten, VM-Konsolenverbindung und PowerShell Direct. 
+    Ein kleineres Maß an Schutz, das immer noch die Kompatibilitäts Vorteile der Verschlüsselung eines virtuellen Computers bietet, aber Hyper-V-Administratoren die Verwendung von VM Console Connection und PowerShell Direct ermöglicht. 
 
-    ![Neue Verschlüsselung unterstützten virtuellen Computer](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-new-shielded-vm.png)
+    ![Neuer Verschlüsselungs unterstützter virtueller Computer](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-new-shielded-vm.png)
 
-Sie können Teile optionale Verwaltungs-, wie VMM oder Windows Azure Pack hinzufügen. Wenn Sie möchten, zum Erstellen eines virtuellen Computers ohne Installation dieser Komponenten finden Sie unter [Schritt-für-Schritt: Erstellen von abgeschirmten VMs ohne VMM](https://blogs.technet.microsoft.com/datacentersecurity/2016/06/06/step-by-step-creating-shielded-vms-without-vmm/).
+Sie können optionale Verwaltungs Elemente wie VMM oder Windows Azure Pack hinzufügen. Wenn Sie einen virtuellen Computer erstellen möchten, ohne diese Komponenten zu installieren, finden Sie weitere Informationen unter [Schritt für Schritt – Erstellen von abgeschirmten VMS ohne VMM](https://blogs.technet.microsoft.com/datacentersecurity/2016/06/06/step-by-step-creating-shielded-vms-without-vmm/).
 
-## <a name="step-6-create-a-shielded-vm"></a>Schritt 6: Erstellen einer abgeschirmten VMs
+## <a name="step-6-create-a-shielded-vm"></a>Schritt 6: Erstellen einer abgeschirmten VM
 
-Erstellen von geschützten virtuellen Maschinen unterscheidet sich geringfügig von reguläre VMs. In Windows Azure Pack ist die Benutzeroberfläche sogar noch einfacher als einen normalen virtuellen Computer erstellen, da Sie nur benötigen, geben Sie einen Namen, geschützte Datendatei (mit den Rest der Spezialisierung Informationen), und das VM-Netzwerk. 
+Das Erstellen von abgeschirmten virtuellen Computern unterscheidet sich nur geringfügig von herkömmlichen virtuellen Computern. In Windows Azure Pack ist die-Funktion sogar noch einfacher als das Erstellen einer regulären VM, da Sie lediglich einen Namen, eine geschützte Datendatei (mit den restlichen Spezialisierungs Informationen) und das VM-Netzwerk angeben müssen. 
 
-![Neue geschützte VM in Windows Azure Pack](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-new-vm-config.png)
+![Neue abgeschirmte VM in Windows Azure Pack](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-new-vm-config.png)
 
 ## <a name="next-step"></a>Nächster Schritt
 
 > [!div class="nextstepaction"]
-> [Host-Überwachungsdienst-Voraussetzungen](guarded-fabric-prepare-for-hgs.md)
+> [Voraussetzungen für HGS](guarded-fabric-prepare-for-hgs.md)

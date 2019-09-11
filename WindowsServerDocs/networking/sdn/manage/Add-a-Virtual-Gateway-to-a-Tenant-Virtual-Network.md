@@ -1,6 +1,6 @@
 ---
 title: Hinzufügen eines Gateways zu einem virtuellen Mandantennetzwerk
-description: Erfahren Sie, wie Sie Windows PowerShell-Cmdlets und Skripts zu verwenden, um Standort-zu-Standort-Konnektivität für virtuelle Netzwerke für Ihre Mandanten bereitzustellen.
+description: Erfahren Sie, wie Sie Windows PowerShell-Cmdlets und-Skripts zum Bereitstellen von Standort-zu-Standort-Konnektivität für die virtuellen Netzwerke Ihres Mandanten verwenden.
 manager: dougkim
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,37 +13,37 @@ ms.assetid: b9552054-4eb9-48db-a6ce-f36ae55addcd
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: 768a25c8c452a8c4bc85b38736b4241fa2570b32
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 39199a96b1f3cd5a62e60f676e8ab47ad4acb4a8
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446360"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869948"
 ---
 # <a name="add-a-virtual-gateway-to-a-tenant-virtual-network"></a>Hinzufügen eines Gateways zu einem virtuellen Mandantennetzwerk 
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016 
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016 
 
-Erfahren Sie, wie Sie Windows PowerShell-Cmdlets und Skripts zu verwenden, um Standort-zu-Standort-Konnektivität für virtuelle Netzwerke für Ihre Mandanten bereitzustellen. In diesem Thema fügen Sie Gateways für virtuelle Mandanten auf Instanzen des RAS-Gateways, die Mitglieder des Pools, Gateways, mit dem Netzwerkcontroller hinzu. RAS-Gateway unterstützt bis zu 100 Mandanten, abhängig von der Bandbreite, die von einzelnen Mandanten verwendet. Netzwerkcontroller bestimmt automatisch die beste RAS-Gateway verwenden, wenn Sie ein neues virtuelles Gateway für Ihre Mandanten bereitstellen.  
+Erfahren Sie, wie Sie Windows PowerShell-Cmdlets und-Skripts zum Bereitstellen von Standort-zu-Standort-Konnektivität für die virtuellen Netzwerke Ihres Mandanten verwenden. In diesem Thema fügen Sie mithilfe des Netzwerk Controllers Instanzen des RAS-Gateways, die Mitglieder von Gateways-Pools sind, als Mandanten hinzu. Das RAS-Gateway unterstützt bis zu 100 Mandanten, abhängig von der von den einzelnen Mandanten verwendeten Bandbreite. Der Netzwerk Controller bestimmt automatisch das beste RAS-Gateway, das beim Bereitstellen eines neuen virtuellen Gateways für Ihre Mandanten verwendet werden soll.  
 
-Jedes Gateway des virtuellen auf einen bestimmten Mandanten entspricht und besteht aus mindestens Netzwerkverbindungen (Standort-zu-Standort-VPN-Tunnel) und optional Border Gateway Protocol (BGP)-Verbindungen. Wenn Sie Standort-zu-Standort-Konnektivität bereitstellen, können Ihre Kunden ihre virtuellen mandantennetzwerk mit einem externen Netzwerk, z. B. einem Unternehmensnetzwerk Mandanten, ein Netzwerk oder im Internet verbinden.
+Jedes virtuelle Gateway entspricht einem bestimmten Mandanten und besteht aus mindestens einer Netzwerkverbindung (Site-to-Site-VPN-Tunnel) und optional Border Gateway Protocol (BGP)-Verbindungen. Wenn Sie Standort-zu-Standort-Konnektivität bereitstellen, können Ihre Kunden Ihr virtuelles Mandanten Netzwerk mit einem externen Netzwerk verbinden, z. b. einem Mandanten Unternehmensnetzwerk, einem Dienstanbieter Netzwerk oder dem Internet.
 
-**Wenn Sie ein virtuelles Gateway des Mandanten bereitstellen, müssen Sie die folgenden Konfigurationsoptionen:**  
+**Wenn Sie ein virtuelles Mandanten Gateway bereitstellen, verfügen Sie über die folgenden Konfigurationsoptionen:**  
 
 
-|                                                        Netzwerkverbindungsoptionen                                                         |                                              BGP-Konfigurationsoptionen                                               |
+|                                                        Netzwerk Verbindungsoptionen                                                         |                                              BGP-Konfigurationsoptionen                                               |
 |-------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| <ul><li>IPSec-Standort-zu-Standort-VPN (VPN)</li><li>Generic Routing Encapsulation (GRE)</li><li>Ebene-3-Weiterleitung</li></ul> | <ul><li>BGP-Router-Konfiguration</li><li>BGP-Peer-Konfiguration</li><li>BGP-routing-Richtlinien-Konfiguration</li></ul> |
+| <ul><li>IPSec-Site-to-Site-VPN (virtuelles privates Netzwerk)</li><li>Generische Routing Kapselung (GRE)</li><li>Ebene-3-Weiterleitung</li></ul> | <ul><li>BGP-Routerkonfiguration</li><li>BGP-Peer Konfiguration</li><li>Konfiguration der BGP-Routing Richtlinien</li></ul> |
 
 ---
 
-Die Windows PowerShell-Beispielskripts und Befehle in diesem Thema wird gezeigt, wie ein Mandanten virtuelle Gateway auf einem RAS-Gateway mit jedem der folgenden Optionen bereitgestellt.  
+Die Windows PowerShell-Beispiel Skripts und-Befehle in diesem Thema veranschaulichen, wie Sie ein virtuelles Mandanten Gateway mit jeder dieser Optionen auf einem RAS-Gateway bereitstellen.  
 
 
 >[!IMPORTANT]  
->Bevor Sie die Windows PowerShell-Beispielbefehle und die bereitgestellten Skripts ausführen, müssen Sie alle Variablenwerte ändern, damit, dass die Werte für die Bereitstellung sinnvoll sind.  
+>Vor dem Ausführen eines der bereitgestellten Windows PowerShell-Beispiel Befehle und-Skripts müssen Sie alle Variablen Werte ändern, damit die Werte für die Bereitstellung geeignet sind.  
 
-1.  Stellen Sie sicher, dass der Pool für das Anwendungsgateway im Netzwerkcontroller vorhanden ist. 
+1.  Vergewissern Sie sich, dass das gatewaypoolobjekt im Netzwerk Controller vorhanden ist. 
 
     ```PowerShell
     $uri = "https://ncrest.contoso.com"   
@@ -56,7 +56,7 @@ Die Windows PowerShell-Beispielskripts und Befehle in diesem Thema wird gezeigt,
 
     ```  
 
-2.  Stellen Sie sicher, dass das Subnetz für das routing von Paketen aus dem virtuellen mandantennetzwerk verwendet im Netzwerkcontroller vorhanden ist. Sie auch abrufen, das virtuelle Subnetz für das routing zwischen dem Gateway des Mandanten und virtuellen Netzwerk verwendet.  
+2.  Vergewissern Sie sich, dass das zum Weiterleiten von Paketen aus dem virtuellen Netzwerk des Mandanten verwendete Subnetz im Netzwerk Controller vorhanden ist. Außerdem rufen Sie das virtuelle Subnetz ab, das für das Routing zwischen dem Mandanten Gateway und dem virtuellen Netzwerk verwendet wird.  
 
     ```PowerShell 
     $uri = "https://ncrest.contoso.com"   
@@ -75,7 +75,7 @@ Die Windows PowerShell-Beispielskripts und Befehle in diesem Thema wird gezeigt,
 
     ```  
 
-3.  Erstellen Sie ein neues Objekt für das Gateway des virtuellen Mandanten, und klicken Sie dann aktualisieren Sie den Gateway-Pool-Verweis.  Sie geben außerdem das virtuelle Subnetz für das routing zwischen dem Gateway und ein virtuelles Netzwerk verwendet.  Nach dem das virtuelle Subnetz angeben, wenn Sie aktualisieren Sie die restlichen das Gateway für ein virtuelles Objekt – Eigenschaften und fügen Sie dann den neuen virtuellen Gateway für den Mandanten hinzu.
+3.  Erstellen Sie ein neues-Objekt für das virtuelle Mandanten Gateway, und aktualisieren Sie dann die gatewaypoolreferenz.  Außerdem geben Sie das virtuelle Subnetz an, das für das Routing zwischen dem Gateway und dem virtuellen Netzwerk verwendet wird.  Nachdem Sie das virtuelle Subnetz angegeben haben, aktualisieren Sie die restlichen Eigenschaften des virtuellen Gatewayobjekts und fügen dann das neue virtuelle Gateway für den Mandanten hinzu.
 
     ```PowerShell  
     # Create a new object for Tenant Virtual Gateway  
@@ -99,12 +99,12 @@ Die Windows PowerShell-Beispielskripts und Befehle in diesem Thema wird gezeigt,
 
     ```  
 
-4. Erstellen Sie eine Standort-zu-Standort-VPN-Verbindung mit GRE, IPsec oder Layer-3 (L3) weiterleiten.  
+4. Erstellen Sie eine Site-to-Site-VPN-Verbindung mit IPSec-, GRE-oder Layer 3-Weiterleitung (L3).  
 
    >[!TIP]
-   >Optional können Sie alle vorherigen Schritte kombinieren und konfigurieren ein virtuelles Gateway des Mandanten mit allen drei Verbindungsoptionen.  Weitere Informationen finden Sie unter [konfigurieren Sie ein Gateway mit allen drei Verbindungstypen (L3 GRE, IPsec) und BGP](#optional-step-configure-a-gateway-with-all-three-connection-types-ipsec-gre-l3-and-bgp).
+   >Optional können Sie alle vorherigen Schritte kombinieren und ein virtuelles Mandanten Gateway mit allen drei Verbindungsoptionen konfigurieren.  Weitere Informationen finden Sie unter [Konfigurieren eines Gateways mit allen drei Verbindungstypen (IPSec, GRE, L3) und BGP](#optional-step-configure-a-gateway-with-all-three-connection-types-ipsec-gre-l3-and-bgp).
 
-   **IPsec VPN-Standort-zu-Standort-Netzwerkverbindung**
+   **IPSec-VPN-Site-to-Site-Netzwerkverbindung**
 
    ```PowerShell  
    # Create a new object for Tenant Network Connection  
@@ -154,7 +154,7 @@ Die Windows PowerShell-Beispielskripts und Befehle in diesem Thema wird gezeigt,
 
    ```  
 
-   **GRE VPN-Standort-zu-Standort-Netzwerkverbindung**
+   **GRE-VPN-Site-to-Site-Netzwerkverbindung**
 
    ```PowerShell  
    # Create a new object for the Tenant Network Connection  
@@ -189,10 +189,10 @@ Die Windows PowerShell-Beispielskripts und Befehle in diesem Thema wird gezeigt,
 
    ```  
 
-   **Weiterleitung von L3-Netzwerkverbindung**<p>
-   Für eine L3 Weiterleitung Netzwerkverbindung ordnungsgemäß funktioniert, müssen Sie ein entsprechenden logisches Netzwerk konfigurieren.   
+   **L3-Weiterleitungs Netzwerkverbindung**<p>
+   Damit eine L3-Weiterleitungs Netzwerkverbindung ordnungsgemäß funktioniert, müssen Sie ein entsprechendes logisches Netzwerk konfigurieren.   
 
-   1. Konfigurieren Sie ein logisches Netzwerk für die L3-Verbindung weitergeleitet.  <br>
+   1. Konfigurieren Sie ein logisches Netzwerk für die L3-Weiterleitungs-Netzwerkverbindung.  <br>
 
       ```PowerShell  
       # Create a new object for the Logical Network to be used for L3 Forwarding  
@@ -216,7 +216,7 @@ Die Windows PowerShell-Beispielskripts und Befehle in diesem Thema wird gezeigt,
 
       ```  
 
-   2. Erstellen Sie ein Netzwerk-Verbindung JSON-Objekt, und fügen Sie es in den Netzwerkcontroller hinzu.  
+   2. Erstellen Sie ein JSON-Objekt der Netzwerkverbindung, und fügen Sie es dem Netzwerk Controller hinzu.  
 
       ```PowerShell 
       # Create a new object for the Tenant Network Connection  
@@ -254,9 +254,9 @@ Die Windows PowerShell-Beispielskripts und Befehle in diesem Thema wird gezeigt,
 
       ```  
 
-5. Konfigurieren Sie das Gateway als BGP-Router, und fügen Sie sie in den Netzwerkcontroller. 
+5. Konfigurieren Sie das Gateway als BGP-Router, und fügen Sie es dem Netzwerk Controller hinzu. 
 
-   1. Fügen Sie ein BGP-Router für den Mandanten hinzu.  
+   1. Fügen Sie einen BGP-Router für den Mandanten hinzu.  
 
       ```PowerShell  
       # Create a new object for the Tenant BGP Router  
@@ -272,7 +272,7 @@ Die Windows PowerShell-Beispielskripts und Befehle in diesem Thema wird gezeigt,
 
       ```  
 
-   2. BGP-Peer für diesen Mandanten hinzugefügt werden, für die Standort-zu-Standort-VPN-Netzwerkverbindung über hinzugefügt.  
+   2. Fügen Sie einen BGP-Peer für diesen Mandanten hinzu, der der oben hinzugefügten Site-to-Site-VPN-Netzwerkverbindung entspricht.  
 
       ```PowerShell
       # Create a new object for Tenant BGP Peer  
@@ -288,8 +288,8 @@ Die Windows PowerShell-Beispielskripts und Befehle in diesem Thema wird gezeigt,
 
       ```  
 
-## <a name="optional-step-configure-a-gateway-with-all-three-connection-types-ipsec-gre-l3-and-bgp"></a>(Optionaler Schritt) Konfigurieren Sie ein Gateway mit allen drei Verbindungstypen (L3 GRE, IPsec) und BGP  
-Optional können Sie alle vorherigen Schritte kombinieren und konfigurieren ein virtuelles Gateway des Mandanten mit allen drei Verbindungsoptionen:   
+## <a name="optional-step-configure-a-gateway-with-all-three-connection-types-ipsec-gre-l3-and-bgp"></a>(Optionaler Schritt) Konfigurieren eines Gateways mit allen drei Verbindungstypen (IPSec, GRE, L3) und BGP  
+Optional können Sie alle vorherigen Schritte kombinieren und ein virtuelles Mandanten Gateway mit allen drei Verbindungsoptionen konfigurieren:   
 
 ```PowerShell  
 # Create a new Virtual Gateway Properties type object  
@@ -458,42 +458,42 @@ New-NetworkControllerVirtualGateway -ConnectionUri $uri  -ResourceId "Contoso_Vi
 
 ```  
 
-## <a name="modify-a-gateway-for-a-virtual-network"></a>Ändern Sie ein Gateway für ein virtuelles Netzwerk  
+## <a name="modify-a-gateway-for-a-virtual-network"></a>Ändern eines Gateways für ein virtuelles Netzwerk  
 
 
-**Rufen Sie die Konfiguration für die Komponente, und speichern Sie es in einer Variablen**
+**Rufen Sie die Konfiguration für die Komponente ab, und speichern Sie Sie in einer Variablen.**
 
 ```PowerShell  
 $nwConnection = Get-NetworkControllerVirtualGatewayNetworkConnection -ConnectionUri $uri -VirtualGatewayId "Contoso_VirtualGW" -ResourceId "Contoso_IPSecGW"  
 ```  
 
-**Wechseln Sie die Variable Struktur aus, um die erforderliche Eigenschaft zu erreichen, und legen Sie ihn auf den Wert des updates**
+**Navigieren Sie zur Variablen Struktur, um die erforderliche Eigenschaft zu erreichen, und legen Sie Sie auf den Update Wert fest.**
 
 ```PowerShell  
 $nwConnection.properties.IpSecConfiguration.SharedSecret = "C0mplexP@ssW0rd"  
 ```  
 
-**Fügen Sie die geänderte Konfiguration, um die ältere Konfiguration auf dem Netzwerkcontroller zu ersetzen.**
+**Fügen Sie die geänderte Konfiguration hinzu, um die ältere Konfiguration auf dem Netzwerk Controller zu ersetzen.**
 
 ```PowerShell  
 New-NetworkControllerVirtualGatewayNetworkConnection -ConnectionUri $uri -VirtualGatewayId "Contoso_VirtualGW" -ResourceId $nwConnection.ResourceId -Properties $nwConnection.Properties -Force  
 ```  
 
 
-## <a name="remove-a-gateway-from-a-virtual-network"></a>Entfernen eines Gateways von einem virtuellen Netzwerk 
-Folgende Windows PowerShell-Befehle können Sie um entweder einzelne Gateway-Funktionen oder das gesamte Gateway zu entfernen.  
+## <a name="remove-a-gateway-from-a-virtual-network"></a>Entfernen eines Gateways aus einem virtuellen Netzwerk 
+Sie können die folgenden Windows PowerShell-Befehle verwenden, um entweder einzelne Gatewayfeatures oder das gesamte Gateway zu entfernen.  
 
 **Entfernen einer Netzwerkverbindung**  
 ```PowerShell  
 Remove-NetworkControllerVirtualGatewayNetworkConnection -ConnectionUri $uri -VirtualGatewayId "Contoso_VirtualGW" -ResourceId "Contoso_IPSecGW" -Force  
 ```  
 
-**Entfernen Sie die BGP-peer** 
+**Entfernen eines BGP-Peers** 
 ```PowerShell  
 Remove-NetworkControllerVirtualGatewayBgpPeer -ConnectionUri $uri -VirtualGatewayId "Contoso_VirtualGW" -BgpRouterName "Contoso_BgpRouter1" -ResourceId "Contoso_IPSec_Peer" -Force  
 ```  
 
-**Entfernen Sie einen BGP-router**
+**Entfernen eines BGP-Routers**
 ```PowerShell  
 Remove-NetworkControllerVirtualGatewayBgpRouter -ConnectionUri $uri -VirtualGatewayId "Contoso_VirtualGW" -ResourceId "Contoso_BgpRouter1" -Force  
 ```

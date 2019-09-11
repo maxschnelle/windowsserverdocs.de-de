@@ -1,6 +1,6 @@
 ---
 title: Herstellen einer Verbindung in Windows Server Essentials
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 05/07/2016
 ms.prod: windows-server-2016-essentials
@@ -12,79 +12,79 @@ ms.assetid: 149a5d34-43b7-4b9e-99e7-9f2294ab9ddb
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 98292e0715ea662712e596d89646a735e22ba3f9
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 04d09574046474da5bee4437628ade9646cf58ca
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435974"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866937"
 ---
 # <a name="get-connected-in-windows-server-essentials"></a>Herstellen einer Verbindung in Windows Server Essentials
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
- Verwenden Sie die Connector-Software, um Ihre Computer mit dem Windows Server Essentials-Server zu verbinden. Die Connector-Software wird installiert, wenn Sie einen Computer mithilfe des Assistenten "Computer mit dem Server verbinden" mit dem Server verbinden. Sie können diesen Assistenten starten, indem Sie eingeben **http://<servername\>/ connect**, wobei **< Servername\>**  ist der Name des Servers.  
+ Verwenden Sie die Connector-Software, um Ihre Computer mit dem Windows Server Essentials-Server zu verbinden. Die Connector-Software wird installiert, wenn Sie einen Computer mithilfe des Assistenten "Computer mit dem Server verbinden" mit dem Server verbinden. Sie können diesen Assistenten starten, indem Sie **http://< Servername\>/Connect**eingeben, wobei **< Server\>**  Name der Name des Servers ist.  
 
  In diesem Thema:  
 
 
--   [Vorbereiten der Computer mit dem Server verbinden](Get-Connected-in-Windows-Server-Essentials.md#BKMK_A)  
+-   [Vorbereiten der Verbindung von Computern mit dem Server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_A)  
 
--   [Verbinden von Computern mit dem Server mithilfe der Connector-software](Get-Connected-in-Windows-Server-Essentials.md#BKMK_B)  
+-   [Verbinden von Computern mit dem Server mithilfe der Connector-Software](Get-Connected-in-Windows-Server-Essentials.md#BKMK_B)  
 
--   [Verwenden des LaunchPads](Get-Connected-in-Windows-Server-Essentials.md#BKMK_C)  
+-   [Verwenden des Launchpad](Get-Connected-in-Windows-Server-Essentials.md#BKMK_C)  
 
--   [Vorbereiten der Computer mit dem Server verbinden](Get-Connected-in-Windows-Server-Essentials.md#BKMK_A)  
+-   [Vorbereiten der Verbindung von Computern mit dem Server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_A)  
 
--   [Verbinden von Computern mit dem Server mithilfe der Connector-software](Get-Connected-in-Windows-Server-Essentials.md#BKMK_B)  
+-   [Verbinden von Computern mit dem Server mithilfe der Connector-Software](Get-Connected-in-Windows-Server-Essentials.md#BKMK_B)  
 
--   [Verwenden des LaunchPads](Get-Connected-in-Windows-Server-Essentials.md#BKMK_C)  
+-   [Verwenden des Launchpad](Get-Connected-in-Windows-Server-Essentials.md#BKMK_C)  
 
 
-##  <a name="BKMK_A"></a> Vorbereiten der Computer mit dem Server verbinden  
+##  <a name="BKMK_A"></a>Vorbereiten der Verbindung von Computern mit dem Server  
  In diesem Abschnitt wird Folgendes erläutert: die Connector-Software, die von Windows Server Essentials unterstützten Betriebssysteme, die Aufgaben, die vor dem Verbinden der Computer mit dem Server ausgeführt werden müssen, und die Änderungen, die der Server auf den Computern vornimmt, wenn Sie die Connector-Software ausführen.  
 
 
--   [Connector-Software (Übersicht)](Get-Connected-in-Windows-Server-Essentials.md#BKMK_1)  
+-   [Connector-Software Übersicht](Get-Connected-in-Windows-Server-Essentials.md#BKMK_1)  
 
--   [Voraussetzungen zum Verbinden eines Computers mit dem server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_2)  
+-   [Voraussetzungen zum Verbinden eines Computers mit dem Server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_2)  
 
--   [Voraussetzungen für die Verbindung von eines Macintosh-Computers mit dem Netzwerk](Get-Connected-in-Windows-Server-Essentials.md#BKMK_3)  
+-   [Voraussetzungen zum Verbinden eines Mac-Computers mit dem Netzwerk](Get-Connected-in-Windows-Server-Essentials.md#BKMK_3)  
 
--   [Unterstützte Betriebssysteme für Clientcomputer](Get-Connected-in-Windows-Server-Essentials.md#BKMK_4)  
+-   [Unterstützte Betriebssysteme für Client Computer](Get-Connected-in-Windows-Server-Essentials.md#BKMK_4)  
 
--   [Änderungen wird der Server auf einem Clientcomputer](Get-Connected-in-Windows-Server-Essentials.md#BKMK_5)  
+-   [Änderungen, die der Server auf einem Client Computer vornimmt](Get-Connected-in-Windows-Server-Essentials.md#BKMK_5)  
 
--   [Netzwerk-Informationen zu Benutzername und Kennwort](Get-Connected-in-Windows-Server-Essentials.md#BKMK_6)  
+-   [Informationen zum Netzwerk Benutzernamen und-Kennwort](Get-Connected-in-Windows-Server-Essentials.md#BKMK_6)  
 
--   [Konto des Serveradministrators](Get-Connected-in-Windows-Server-Essentials.md#BKMK_7)  
-
--   [Entfernen eines Computers aus einer Windows-Domäne](Get-Connected-in-Windows-Server-Essentials.md#BKMK_8)  
-
-###  <a name="BKMK_1"></a> Connector-Software (Übersicht)  
- Die Connector-Software für das Betriebssystem Windows Server Essentials verbindet die Computer in Ihrem Netzwerk mit dem Windows Server Essentials-Server. Wenn Sie die Computer mit dem Server verbinden, ermöglicht es Ihnen die Connector-Software, die Computer automatisch zu sichern und ihren Zustand zu überwachen. Mithilfe der Connector-Software ist es auch möglich, den Windows Server Essentials-Server zu konfigurieren und remote zu verwalten. Die Connector-Software wird installiert, wenn Sie einen Clientcomputer mit dem Server verbinden. Ausführliche Anweisungen zum Verbinden von Clientcomputern mit dem Windows Server Essentials-Server finden Sie unter [Verbinden von Computern mit dem Server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9) weiter unten in diesem Thema.  
-
--   [Connector-Software (Übersicht)](Get-Connected-in-Windows-Server-Essentials.md#BKMK_1)  
-
--   [Voraussetzungen zum Verbinden eines Computers mit dem server](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_2)  
-
--   [Voraussetzungen für die Verbindung von eines Macintosh-Computers mit dem Netzwerk](Get-Connected-in-Windows-Server-Essentials.md#BKMK_3)  
-
--   [Unterstützte Betriebssysteme für Clientcomputer](Get-Connected-in-Windows-Server-Essentials.md#BKMK_4)  
-
--   [Änderungen wird der Server auf einem Clientcomputer](Get-Connected-in-Windows-Server-Essentials.md#BKMK_5)  
-
--   [Netzwerk-Informationen zu Benutzername und Kennwort](Get-Connected-in-Windows-Server-Essentials.md#BKMK_6)  
-
--   [Konto des Serveradministrators](Get-Connected-in-Windows-Server-Essentials.md#BKMK_7)  
+-   [Konto des Server Administrators](Get-Connected-in-Windows-Server-Essentials.md#BKMK_7)  
 
 -   [Entfernen eines Computers aus einer Windows-Domäne](Get-Connected-in-Windows-Server-Essentials.md#BKMK_8)  
 
-###  <a name="BKMK_1"></a> Connector-Software (Übersicht)  
+###  <a name="BKMK_1"></a>Connector-Software Übersicht  
+ Die Connector-Software für das Betriebssystem Windows Server Essentials verbindet die Computer in Ihrem Netzwerk mit dem Windows Server Essentials-Server. Wenn Sie die Computer mit dem Server verbinden, ermöglicht es Ihnen die Connector-Software, die Computer automatisch zu sichern und ihren Zustand zu überwachen. Mithilfe der Connector-Software ist es auch möglich, den Windows Server Essentials-Server zu konfigurieren und remote zu verwalten. Die Connector-Software wird installiert, wenn Sie einen Clientcomputer mit dem Server verbinden. Ausführliche Anweisungen zum Verbinden von Clientcomputern mit dem Windows Server Essentials-Server finden Sie unter [Verbinden von Computern mit dem Server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9) weiter unten in diesem Thema.  
+
+-   [Connector-Software Übersicht](Get-Connected-in-Windows-Server-Essentials.md#BKMK_1)  
+
+-   [Voraussetzungen zum Verbinden eines Computers mit dem Server](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_2)  
+
+-   [Voraussetzungen zum Verbinden eines Mac-Computers mit dem Netzwerk](Get-Connected-in-Windows-Server-Essentials.md#BKMK_3)  
+
+-   [Unterstützte Betriebssysteme für Client Computer](Get-Connected-in-Windows-Server-Essentials.md#BKMK_4)  
+
+-   [Änderungen, die der Server auf einem Client Computer vornimmt](Get-Connected-in-Windows-Server-Essentials.md#BKMK_5)  
+
+-   [Informationen zum Netzwerk Benutzernamen und-Kennwort](Get-Connected-in-Windows-Server-Essentials.md#BKMK_6)  
+
+-   [Konto des Server Administrators](Get-Connected-in-Windows-Server-Essentials.md#BKMK_7)  
+
+-   [Entfernen eines Computers aus einer Windows-Domäne](Get-Connected-in-Windows-Server-Essentials.md#BKMK_8)  
+
+###  <a name="BKMK_1"></a>Connector-Software Übersicht  
  Die Connector-Software für das Betriebssystem Windows Server Essentials verbindet die Computer in Ihrem Netzwerk mit dem Windows Server Essentials-Server. Wenn Sie die Computer mit dem Server verbinden, ermöglicht es Ihnen die Connector-Software, die Computer automatisch zu sichern und ihren Zustand zu überwachen. Mithilfe der Connector-Software ist es auch möglich, den Windows Server Essentials-Server zu konfigurieren und remote zu verwalten. Die Connector-Software wird installiert, wenn Sie einen Clientcomputer mit dem Server verbinden. Ausführliche Anweisungen zum Verbinden von Clientcomputern mit dem Windows Server Essentials-Server finden Sie unter [Verbinden von Computern mit dem Server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9) weiter unten in diesem Thema.  
 
 
-###  <a name="BKMK_2"></a> Voraussetzungen zum Verbinden eines Computers mit dem server  
+###  <a name="BKMK_2"></a>Voraussetzungen zum Verbinden eines Computers mit dem Server  
  Bevor Sie einen Computer mit dem Netzwerk verbinden, müssen die folgenden Anforderungen erfüllt sein:  
 
 -   Die Installation von Windows Server Essentials muss abgeschlossen sein und der Server ausgeführt werden. Die Connector-Software beendet die Installation, wenn sie nicht mit dem Server kommunizieren kann.  
@@ -113,7 +113,7 @@ ms.locfileid: "66435974"
 
 -   Der Computername enthält keine Unterstriche (_).  
 
--   Die Datums- und Uhrzeiteinstellungen des Computers stimmen mit denen des Servers überein.  
+-   Die Datums-und Uhrzeit Einstellungen des Computers richten sich an den Einstellungen auf dem Server.  
 
 -   Ein Clientcomputer kann stets nur mit einem Windows Server Essentials-Server verbunden sein.  
 
@@ -121,16 +121,16 @@ ms.locfileid: "66435974"
 
 > [!NOTE]
 > 
->  Bei einer lokalen Clientbereitstellung für Windows Server Essentials oder Windows Server Essentials können Sie Computer mit dem Server verbinden, ohne sie zur Windows Server Essentials-Domäne hinzuzufügen. Diese Methode ist nicht für alle unterstützten Clientbetriebssysteme verfügbar und Features wie Gruppenrichtlinien und virtuelle private Netzwerke (VPN), die erfordern, dass ein Computer mit der Domäne verbunden ist, sind in diesem Fall ebenfalls nicht verfügbar. Anforderungen und Anleitungen finden Sie unter [Verbinden von Computern mit einem Windows Server Essentials-Server, ohne der Domäne beizutreten](Get-Connected-in-Windows-Server-Essentials.md#BKMK_10).  
+>  In einer lokalen Client Bereitstellung für Windows Server Essentials oder Windows Server Essentials können Sie Computer mit dem Server verbinden, ohne Sie zur Windows Server Essentials-Domäne hinzuzufügen. Diese Methode ist nicht für alle unterstützten Clientbetriebssysteme verfügbar und Features wie Gruppenrichtlinien und virtuelle private Netzwerke (VPN), die erfordern, dass ein Computer mit der Domäne verbunden ist, sind in diesem Fall ebenfalls nicht verfügbar. Anforderungen und Anleitungen finden Sie unter [Verbinden von Computern mit einem Windows Server Essentials-Server, ohne der Domäne beizutreten](Get-Connected-in-Windows-Server-Essentials.md#BKMK_10).  
 
  Schrittweise Anleitungen zum Verbinden eines Computers mit einem Server mit Windows Server Essentials finden Sie unter [Connect computers to the server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
 
->  Bei einer lokalen Clientbereitstellung für Windows Server Essentials oder Windows Server Essentials können Sie Computer mit dem Server verbinden, ohne sie zur Windows Server Essentials-Domäne hinzuzufügen. Diese Methode ist nicht für alle unterstützten Clientbetriebssysteme verfügbar und Features wie Gruppenrichtlinien und virtuelle private Netzwerke (VPN), die erfordern, dass ein Computer mit der Domäne verbunden ist, sind in diesem Fall ebenfalls nicht verfügbar. Anforderungen und Anleitungen finden Sie unter [Verbinden von Computern mit einem Windows Server Essentials-Server, ohne der Domäne beizutreten](Get-Connected-in-Windows-Server-Essentials.md#BKMK_10).  
+>  In einer lokalen Client Bereitstellung für Windows Server Essentials oder Windows Server Essentials können Sie Computer mit dem Server verbinden, ohne Sie zur Windows Server Essentials-Domäne hinzuzufügen. Diese Methode ist nicht für alle unterstützten Clientbetriebssysteme verfügbar und Features wie Gruppenrichtlinien und virtuelle private Netzwerke (VPN), die erfordern, dass ein Computer mit der Domäne verbunden ist, sind in diesem Fall ebenfalls nicht verfügbar. Anforderungen und Anleitungen finden Sie unter [Verbinden von Computern mit einem Windows Server Essentials-Server, ohne der Domäne beizutreten](Get-Connected-in-Windows-Server-Essentials.md#BKMK_10).  
 
  Schrittweise Anleitungen zum Verbinden eines Computers mit einem Server mit Windows Server Essentials finden Sie unter [Connect computers to the server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
 
 
-###  <a name="BKMK_3"></a> Voraussetzungen für die Verbindung von eines Macintosh-Computers mit dem Netzwerk  
+###  <a name="BKMK_3"></a>Voraussetzungen zum Verbinden eines Mac-Computers mit dem Netzwerk  
  Bevor Sie einen Mac mit dem Netzwerk verbinden, müssen die folgenden Anforderungen erfüllt sein:  
 
 -   Die Installation des Server-Betriebssystems muss abgeschlossen sein und der Server ausgeführt werden. Die Connector-Software wird nicht installiert, wenn sie nicht mit dem Server kommunizieren kann.  
@@ -151,26 +151,26 @@ ms.locfileid: "66435974"
 
 -   Ein Clientcomputer kann zu einem bestimmten Zeitpunkt nur mit einem Server verbunden sein.  
 
-###  <a name="BKMK_4"></a> Unterstützte Betriebssysteme für Clientcomputer  
+###  <a name="BKMK_4"></a>Unterstützte Betriebssysteme für Client Computer  
  Windows Server Essentials enthält für alle unterstützten Clientcomputer die gleichen Features. Dazu gehören Domain Join, Launchpad und clientseitige Integritätsbenachrichtigungen.  
 
 > [!IMPORTANT]
 >  Computer mit den Windows-Versionen Home, Starter oder Media Center können der Domäne nicht beitreten. Es ist außerdem nicht möglich, den Remotewebzugriff zu verwenden, um eine Verbindung mit diesen Computern herzustellen.  
 
 #### <a name="windows-server-essentials"></a>Windows Server Essentials  
-  Dieser Abschnitt gilt für einen Server, die mit Windows Server Essentials, bzw. auf einem Server mit Windows Server 2012 R2 Standard oder Windows Server 2012 R2 Datacenter mit installierter Windows Server Essentials Experience-Rolle. Die folgenden Betriebssysteme werden unterstützt:  
+  Dieser Abschnitt gilt für einen Server, auf dem Windows Server Essentials ausgeführt wird, oder für einen Server, auf dem Windows Server 2012 R2 Standard oder Windows Server 2012 R2 Datacenter mit installierter Windows Server Essentials-Rolle ausgeführt wird. Die folgenden Betriebssysteme werden unterstützt:  
 
  **Windows 7-Betriebssysteme**  
 
-- Windows 7 Home Basic SP1 (x 86- und X64)  
+- Windows 7 Home Basic SP1 (x86 und x64)  
 
-- Windows 7 Home Premium SP1 (x 86- und X64)  
+- Windows 7 Home Premium SP1 (x86 und x64)  
 
-- Windows 7 Professional SP1 (x 86- und X64)  
+- Windows 7 Professional SP1 (x86 und x64)  
 
-- Windows 7 Ultimate SP1 (x 86- und X64)  
+- Windows 7 Ultimate SP1 (x86 und x64)  
 
-- Windows 7 Enterprise SP1 (x 86- und X64)  
+- Windows 7 Enterprise SP1 (x86 und x64)  
 
 - Windows 7 Starter SP1 (x86)  
 
@@ -182,7 +182,7 @@ ms.locfileid: "66435974"
 
 - Windows 8 Enterprise  
 
-  **Windows 8.1-Betriebssysteme**  
+  **Betriebssysteme Windows 8.1**  
 
 - Windows 8.1  
 
@@ -200,7 +200,7 @@ ms.locfileid: "66435974"
 
 - Windows 10 Education  
 
-  **Macintosh-Clientcomputer**  
+  **Macintosh-Client Computer**  
 
 - Mac OS X v10.5 Leopard  
 
@@ -211,22 +211,22 @@ ms.locfileid: "66435974"
 - Mac OS X v10.8 Mountain Lion  
 
 > [!NOTE]
->  Sie können die Integrität und Status der Sicherung für einen Macintosh-Computer aus dem Windows Server Essentials-Dashboard anzeigen. Allerdings ist es nicht möglich, Sicherungen vom Dashboard aus zu konfigurieren oder zu starten. Außerdem ist es nicht möglich, den Remotewebzugriff zu verwenden, um eine Verbindung mit einem Mac-Computer herzustellen.  
+>  Sie können den Integritäts-und Sicherungs Status eines Macintosh-Computers über das Windows Server Essentials-Dashboard anzeigen. Allerdings ist es nicht möglich, Sicherungen vom Dashboard aus zu konfigurieren oder zu starten. Außerdem ist es nicht möglich, den Remotewebzugriff zu verwenden, um eine Verbindung mit einem Mac-Computer herzustellen.  
 
 #### <a name="windows-server-essentials"></a>Windows Server Essentials  
-  Dieser Abschnitt gilt für einen Server mit Windows Server Essentials. Die folgenden Betriebssysteme werden unterstützt:  
+  Dieser Abschnitt gilt für einen Server, auf dem Windows Server Essentials ausgeführt wird. Die folgenden Betriebssysteme werden unterstützt:  
 
  **Windows 7-Betriebssysteme**  
 
-- Windows 7 Home Basic (X86- und X64)  
+- Windows 7 Home Basic (x86 und x64)  
 
-- Windows 7 Home Premium (X86- und X64)  
+- Windows 7 Home Premium (x86 und x64)  
 
-- Windows 7 Professional (X86- und X64)  
+- Windows 7 Professional (x86 und x64)  
 
-- Windows 7 Ultimate (X86- und X64)  
+- Windows 7 Ultimate (x86 und x64)  
 
-- Windows 7 Enterprise (X86- und X64)  
+- Windows 7 Enterprise (x86 und x64)  
 
 - Windows 7 Starter (x86)  
 
@@ -248,7 +248,7 @@ ms.locfileid: "66435974"
 
 - Windows 10 Education  
 
-  **Macintosh-Clientcomputer**  
+  **Macintosh-Client Computer**  
 
 - Mac OS X v10.5 Leopard  
 
@@ -259,7 +259,7 @@ ms.locfileid: "66435974"
 > [!NOTE]
 >  Sie können den Integritäts- und Sicherungsstatus eines Mac-Computers vom Windows Server Essentials-Dashboard aus anzeigen. Allerdings ist es nicht möglich, Sicherungen vom Dashboard aus zu konfigurieren oder zu starten. Außerdem ist es nicht möglich, den Remotewebzugriff zu verwenden, um eine Verbindung mit einem Mac-Computer herzustellen.  
 
-###  <a name="BKMK_5"></a> Änderungen wird der Server auf einem Clientcomputer  
+###  <a name="BKMK_5"></a>Änderungen, die der Server auf einem Client Computer vornimmt  
  Wenn Sie einen Computer mit dem Server verbinden, nimmt Windows Server Essentials eine Reihe von Änderungen am Computer vor, damit Computer und Server zusammenarbeiten können.  
 
  Die Software führt Folgendes durch:  
@@ -268,7 +268,7 @@ ms.locfileid: "66435974"
 
 -   Sie installiert Microsoft .NET Framework 4.5 auf dem Computer, wenn es nicht bereits installiert ist.  
 
--   Sie erstellt auf dem Desktop des Computers Verknüpfungen zu Dashboard und Launchpad.  
+-   Erstellt Verknüpfungen auf dem Desktop des Computers mit dem Dashboard und dem launchpad.  
 
 -   Sie konfiguriert die Windows Firewall-Ports auf dem Computer, damit die folgenden Funktionen ausgeführt werden können:  
 
@@ -292,21 +292,21 @@ ms.locfileid: "66435974"
 
 -   Sie öffnet den TCP-Port 3389 auf Clientcomputern mit Windows Clients, damit Remote Desktop Services ausgeführt werden können.  
 
--   Stellt VPN auf dem Clientcomputer bereit und bietet eine Klick-Umgebung aus, wenn die VPN-Funktionalität auf Windows Server Essentials aktiviert ist, oder einem Klick bereitstellt, wenn die VPN-Funktionalität in Windows Server Essentials aktiviert ist  
+-   Stellt VPN auf dem Client Computer bereit und bietet einen einfachen Mausklick, wenn die VPN-Funktionalität unter Windows Server Essentials aktiviert ist, oder bietet eine automatische Verbindung, wenn die VPN-Funktionalität unter Windows Server Essentials aktiviert ist.  
 
 
  Informationen zum Verbinden Ihres Computers mit dem Server finden Sie unter [Connect computers to the server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
 
-###  <a name="BKMK_6"></a> Netzwerk-Informationen zu Benutzername und Kennwort  
+###  <a name="BKMK_6"></a>Informationen zum Netzwerk Benutzernamen und-Kennwort  
  Sie erhalten Ihren Netzwerk-Benutzernamen und das Kennwort von der Person, die den Server verwaltet. Diese Anmeldeinformationen können Sie verwenden, um den Computer mit dem Server zu verbinden und auf Informationen vom Server zuzugreifen.  
 
-###  <a name="BKMK_6"></a> Netzwerk-Informationen zu Benutzername und Kennwort  
+###  <a name="BKMK_6"></a>Informationen zum Netzwerk Benutzernamen und-Kennwort  
  Sie erhalten Ihren Netzwerk-Benutzernamen und das Kennwort von der Person, die den Server verwaltet. Diese Anmeldeinformationen können Sie verwenden, um den Computer mit dem Server zu verbinden und auf Informationen vom Server zuzugreifen. 
 
 
  Wenn Sie der Serveradministrator sind, können Sie die Anmeldeinformationen für das Netzwerk durch Hinzufügen eines Benutzerkontos aus der Dashboard-Registerkarte **Benutzer** erstellen. Weitere Informationen über Benutzerkonten finden Sie unter [Verwalten von Benutzerkonten mithilfe des Dashboards](../manage/Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Manage8).  
 
-###  <a name="BKMK_7"></a> Konto des Serveradministrators  
+###  <a name="BKMK_7"></a>Konto des Server Administrators  
  Sie müssen den Namen und das Kennwort des Netzwerkadministratorkontos angeben, um die Connector-Software installieren zu können. Ein Netzwerkadministratorkonto ermöglicht es dem Benutzer, das lokale Netzwerk der Organisation zu verwalten, und hilft, Netzwerkgeräte wie Switches und Router zu verwalten und zu warten.  
 
  Zu den Aufgaben, die mit einem Netzwerkadministratorkonto durchgeführt werden können, zählen:  
@@ -321,9 +321,9 @@ ms.locfileid: "66435974"
 
 - Überwachen der täglichen Aktivitäten im Netzwerk  
 
-  In Windows Server Essentials, Windows Server Essentials und Windows Server 2012 R2 mit installierter Windows Server Essentials Experience-Rolle, können Sie den Administrator des Netzwerk zuweisen jedes Benutzerkonto Zugriffsebene. Dadurch werden dem Benutzer die erforderlichen Berechtigungen zum Ausführen der Aufgaben eines Netzwerkadministrators gewährt. Wenn einem Benutzer die Zugriffsebene "Netzwerkadministrator" zugewiesen wird, öffnet sich die Eingabeaufforderung **Steuerung des Benutzerzugriffs** für jede Aufgabe, die Administratorberechtigungen erfordert.  
+  In Windows Server Essentials, Windows Server Essentials und Windows Server 2012 R2 mit installierter Windows Server Essentials-Rolle können Sie jedem Benutzerkonto die Zugriffsebene für den Netzwerkadministrator zuweisen. Dadurch werden dem Benutzer die erforderlichen Berechtigungen zum Ausführen der Aufgaben eines Netzwerkadministrators gewährt. Wenn einem Benutzer die Zugriffsebene "Netzwerkadministrator" zugewiesen wird, öffnet sich die Eingabeaufforderung **Steuerung des Benutzerzugriffs** für jede Aufgabe, die Administratorberechtigungen erfordert.  
 
-###  <a name="BKMK_8"></a> Entfernen eines Computers aus einer Windows-Domäne  
+###  <a name="BKMK_8"></a>Entfernen eines Computers aus einer Windows-Domäne  
  Um einen Computer aus der Domäne zu entfernen, werden Sie aufgefordert, den Benutzernamen und das Kennwort für das Domänenkonto anzugeben.  
 
 ##### <a name="to-remove-a-computer-from-a-windows-domain"></a>So entfernen Sie einen Computers aus einer Windows-Domäne  
@@ -346,45 +346,45 @@ ms.locfileid: "66435974"
         > [!NOTE]
         >  Der Computer wird aus der Domäne entfernt und das Konto in dieser Domäne deaktiviert.  
 
-##  <a name="BKMK_B"></a> Verbinden von Computern mit dem Server mithilfe der Connector-software  
+##  <a name="BKMK_B"></a>Verbinden von Computern mit dem Server mithilfe der Connector-Software  
  In diesem Abschnitt werden Informationen und Verfahren erläutert, die Ihnen bei der Installation der Connector-Software, beim Verbinden des Computers mit dem Server und der damit verbundenen Problembehandlung helfen.  
 
 
--   [Verbinden von Computern mit dem server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9)  
+-   [Verbinden von Computern mit dem Server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9)  
 
--   [Verbinden von Computern mit einem Windows Server Essentials-Server ohne der Domäne beizutreten](Get-Connected-in-Windows-Server-Essentials.md#BKMK_10)  
+-   [Verbinden von Computern mit einem Windows Server Essentials-Server ohne Beitritt zur Domäne](Get-Connected-in-Windows-Server-Essentials.md#BKMK_10)  
 
--   [Installieren Sie die Connector-software](Get-Connected-in-Windows-Server-Essentials.md#BKMK_11)  
+-   [Installieren der Connector-Software](Get-Connected-in-Windows-Server-Essentials.md#BKMK_11)  
 
--   [Verschieben von Daten und Einstellungen manuell](Get-Connected-in-Windows-Server-Essentials.md#BKMK_12)  
+-   [Manuelles Verschieben von Computer Daten und-Einstellungen](Get-Connected-in-Windows-Server-Essentials.md#BKMK_12)  
 
--   [Übertragen Sie mehrerer Benutzerprofile während der Bereitstellung](Get-Connected-in-Windows-Server-Essentials.md#BKMK_Transfer)  
+-   [Übertragen mehrerer Benutzerprofile während der Bereitstellung des Computers](Get-Connected-in-Windows-Server-Essentials.md#BKMK_Transfer)  
 
--   [Deinstallieren der Connector-software](Get-Connected-in-Windows-Server-Essentials.md#BKMK_13)  
+-   [Deinstallieren der Connector-Software](Get-Connected-in-Windows-Server-Essentials.md#BKMK_13)  
 
--   [Trennen Sie den Computer aus, oder Verbinden Sie Ihren Computer auf dem server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_14)  
+-   [Trennen Sie den Computer, oder verbinden Sie den Computer erneut mit dem Server.](Get-Connected-in-Windows-Server-Essentials.md#BKMK_14)  
 
--   [Wie die Sicherung im Energiesparmodus und Ruhezustand](Get-Connected-in-Windows-Server-Essentials.md#BKMK_Sleep)  
+-   [Funktionsweise der Sicherung mit dem Modus "Standby" und "Ruhezustand"](Get-Connected-in-Windows-Server-Essentials.md#BKMK_Sleep)  
 
--   [Verbinden von Computern mit dem server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9)  
+-   [Verbinden von Computern mit dem Server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9)  
 
--   [Verbinden von Computern mit einem Windows Server Essentials-Server ohne der Domäne beizutreten](Get-Connected-in-Windows-Server-Essentials.md#BKMK_10)  
+-   [Verbinden von Computern mit einem Windows Server Essentials-Server ohne Beitritt zur Domäne](Get-Connected-in-Windows-Server-Essentials.md#BKMK_10)  
 
--   [Installieren Sie die Connector-software](Get-Connected-in-Windows-Server-Essentials.md#BKMK_11)  
+-   [Installieren der Connector-Software](Get-Connected-in-Windows-Server-Essentials.md#BKMK_11)  
 
--   [Verschieben von Daten und Einstellungen manuell](Get-Connected-in-Windows-Server-Essentials.md#BKMK_12)  
+-   [Manuelles Verschieben von Computer Daten und-Einstellungen](Get-Connected-in-Windows-Server-Essentials.md#BKMK_12)  
 
--   [Übertragen Sie mehrerer Benutzerprofile während der Bereitstellung](Get-Connected-in-Windows-Server-Essentials.md#BKMK_Transfer)  
+-   [Übertragen mehrerer Benutzerprofile während der Bereitstellung des Computers](Get-Connected-in-Windows-Server-Essentials.md#BKMK_Transfer)  
 
--   [Deinstallieren der Connector-software](Get-Connected-in-Windows-Server-Essentials.md#BKMK_13)  
+-   [Deinstallieren der Connector-Software](Get-Connected-in-Windows-Server-Essentials.md#BKMK_13)  
 
--   [Trennen Sie den Computer aus, oder Verbinden Sie Ihren Computer auf dem server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_14)  
+-   [Trennen Sie den Computer, oder verbinden Sie den Computer erneut mit dem Server.](Get-Connected-in-Windows-Server-Essentials.md#BKMK_14)  
 
--   [Wie die Sicherung im Energiesparmodus und Ruhezustand](Get-Connected-in-Windows-Server-Essentials.md#BKMK_Sleep)  
+-   [Funktionsweise der Sicherung mit dem Modus "Standby" und "Ruhezustand"](Get-Connected-in-Windows-Server-Essentials.md#BKMK_Sleep)  
 
 
-###  <a name="BKMK_9"></a> Verbinden von Computern mit dem server  
- Wenn Sie einen Computer auf einem Server, auf der Windows Server Essentials ausgeführt wird oder Windows Server 2012 R2 mit installierter Windows Server Essentials Experience-Rolle verbinden, stellen Sie sicher, dass der Clientcomputer über eine gültige Verbindung mit dem Internet verfügt.  
+###  <a name="BKMK_9"></a>Verbinden von Computern mit dem Server  
+ Wenn Sie einen Computer mit einem Server verbinden, auf dem Windows Server Essentials oder Windows Server 2012 R2 mit installierter Windows Server Essentials-Rolle ausgeführt wird, müssen Sie sicherstellen, dass der Client Computer über eine gültige Verbindung mit dem Internet verfügt.  
 
  Führen Sie das folgende Verfahren auf allen Clientcomputern aus, um sie mit dem Server zu verbinden.  
 
@@ -392,13 +392,13 @@ ms.locfileid: "66435974"
 
 -   Den Benutzernamen und das Kennwort der Person, die den Computer im neuen Netzwerk verwendet  
 
--   Den Benutzernamen und das Kennwort für das lokale Administratorkonto des Computers  
+-   Der Benutzername und das Kennwort des lokalen Administrator Kontos des Computers  
 
 > [!NOTE]
 > 
->  Bei einer lokalen Clientbereitstellung für Windows Server Essentials oder Windows Server Essentials können Sie Computer mit dem Server verbinden, ohne sie zur Windows Server Essentials-Domäne hinzuzufügen. Diese Methode ist nicht für alle unterstützten Clientbetriebssysteme verfügbar und Features wie Gruppenrichtlinien und virtuelle private Netzwerke (VPN), die erfordern, dass ein Computer mit der Domäne verbunden ist, sind in diesem Fall ebenfalls nicht verfügbar. Anforderungen und Anleitungen finden Sie unter [Verbinden von Computern mit einem Windows Server Essentials-Server, ohne der Domäne beizutreten](Get-Connected-in-Windows-Server-Essentials.md#BKMK_10).  
+>  In einer lokalen Client Bereitstellung für Windows Server Essentials oder Windows Server Essentials können Sie Computer mit dem Server verbinden, ohne Sie zur Windows Server Essentials-Domäne hinzuzufügen. Diese Methode ist nicht für alle unterstützten Clientbetriebssysteme verfügbar und Features wie Gruppenrichtlinien und virtuelle private Netzwerke (VPN), die erfordern, dass ein Computer mit der Domäne verbunden ist, sind in diesem Fall ebenfalls nicht verfügbar. Anforderungen und Anleitungen finden Sie unter [Verbinden von Computern mit einem Windows Server Essentials-Server, ohne der Domäne beizutreten](Get-Connected-in-Windows-Server-Essentials.md#BKMK_10).  
 > 
->  Bei einer lokalen Clientbereitstellung für Windows Server Essentials oder Windows Server Essentials können Sie Computer mit dem Server verbinden, ohne sie zur Windows Server Essentials-Domäne hinzuzufügen. Diese Methode ist nicht für alle unterstützten Clientbetriebssysteme verfügbar und Features wie Gruppenrichtlinien und virtuelle private Netzwerke (VPN), die erfordern, dass ein Computer mit der Domäne verbunden ist, sind in diesem Fall ebenfalls nicht verfügbar. Anforderungen und Anleitungen finden Sie unter [Verbinden von Computern mit einem Windows Server Essentials-Server, ohne der Domäne beizutreten](Get-Connected-in-Windows-Server-Essentials.md#BKMK_10).  
+>  In einer lokalen Client Bereitstellung für Windows Server Essentials oder Windows Server Essentials können Sie Computer mit dem Server verbinden, ohne Sie zur Windows Server Essentials-Domäne hinzuzufügen. Diese Methode ist nicht für alle unterstützten Clientbetriebssysteme verfügbar und Features wie Gruppenrichtlinien und virtuelle private Netzwerke (VPN), die erfordern, dass ein Computer mit der Domäne verbunden ist, sind in diesem Fall ebenfalls nicht verfügbar. Anforderungen und Anleitungen finden Sie unter [Verbinden von Computern mit einem Windows Server Essentials-Server, ohne der Domäne beizutreten](Get-Connected-in-Windows-Server-Essentials.md#BKMK_10).  
 
 
 ##### <a name="to-connect-a-client-computer-to-the-server"></a>So verbinden Sie einen Clientcomputer mit dem Server  
@@ -410,10 +410,10 @@ ms.locfileid: "66435974"
 
 2.  Öffnen Sie einen Internetbrowser, z. B. Internet Explorer.  
 
-3.  Geben Sie in der Adressleiste **http://<servername\>/Connect**, und drücken Sie dann die EINGABETASTE.  
+3.  Geben Sie in der Adressleiste **http://< Servername\>/Connect**ein, und drücken Sie dann die EINGABETASTE.  
 
     > [!NOTE]
-    >  Wenn der Computer an einem Remotestandort außerhalb des Windows Server Essentials-Netzwerks befindet, geben Sie dem Verbinden ein Computers im Server-Assistenten ausgeführt **http://<domainname\>/ connect** in die Adressleiste (Ihre Web-Browser wobei < Domain\> ist der Domänenname Ihrer Organisation). Ihre Domänennamensinformationen können Sie von Ihrem Netzwerkadministrator abrufen.  
+    >  Wenn sich Ihr Computer an einem Remote Standort außerhalb des Windows Server Essentials-Netzwerks befindet, geben Sie zum Ausführen des Assistenten zum Verbinden eines Computers mit dem Server in der Adressleiste des Web< **\>** Browsers http://<DomainName/Connectein.\> ist der Domänen Name Ihrer Organisation). Ihre Domänennamensinformationen können Sie von Ihrem Netzwerkadministrator abrufen.  
 
 4.  Die Seite **Computer mit dem Server verbinden** wird angezeigt. Führen Sie eines der folgenden Verfahren aus:  
 
@@ -429,7 +429,7 @@ ms.locfileid: "66435974"
 
     1.  Akzeptieren Sie den Endbenutzer-Lizenzvertrag.  
 
-    2.  Führen Sie auf der Seite **Meinen Server suchen** die automatische Erkennung des Servers in den lokalen Netzwerken durch und wählen Sie den Server, mit dem Sie die Verbindung herstellen möchten. Oder geben Sie den Namen des Servers oder die Adresse der Domäne manuell ein, wenn Sie über diese Informationen verfügen.  
+    2.  Führen Sie auf der Seite **Meinen Server suchen** die automatische Erkennung des Servers in den lokalen Netzwerken durch und wählen Sie den Server, mit dem Sie die Verbindung herstellen möchten. Wenn Sie über die Informationen verfügen, können Sie den Namen oder die Domänen Adresse des Servers manuell eingeben.  
 
     3.  Geben Sie auf der Seite **Neuen Netzwerkbenutzernamen und Kennwort eingeben** Folgendes ein:  
 
@@ -437,7 +437,7 @@ ms.locfileid: "66435974"
 
         -   Richten Sie für alle anderen Computer zunächst mithilfe des Dashboards ein Netzwerkbenutzerkonto auf dem Server ein. Erstellen Sie das Benutzerkonto mit Administrator- oder Standardbenutzerrechten, je nach den Aufgaben, die von der Person ausgeführt werden, die den Computer verwendet.  
 
-    4.  Wenn Ihr Computer Windows 8, Windows 8.1 oder Windows 10 ausgeführt wird, überspringen Sie diesen Schritt. Wenn auf dem Computer Windows 7 ausgeführt wird und Ihre Dokumente, Bilder oder persönlichen Einstellungen (z. B. Desktophintergrundbilder, Bildschirmschoner oder Internet Explorer-Favoriten) noch verfügbar sein sollen, nachdem Sie diesen Computer dem neuen Netzwerk hinzugefügt haben, können Sie auf der Seite **Vorhandene Daten und Einstellungen verschieben** des Assistenten die Option **Daten und Einstellungen in neues Netzwerkbenutzerkonto verschieben**auswählen.  
+    4.  Wenn auf Ihrem Computer Windows 8, Windows 8.1 oder Windows 10 ausgeführt wird, überspringen Sie diesen Schritt. Wenn auf dem Computer Windows 7 ausgeführt wird und Ihre Dokumente, Bilder oder persönlichen Einstellungen (z. B. Desktophintergrundbilder, Bildschirmschoner oder Internet Explorer-Favoriten) noch verfügbar sein sollen, nachdem Sie diesen Computer dem neuen Netzwerk hinzugefügt haben, können Sie auf der Seite **Vorhandene Daten und Einstellungen verschieben** des Assistenten die Option **Daten und Einstellungen in neues Netzwerkbenutzerkonto verschieben**auswählen.  
 
     5.  Auf der Seite **Wählen Sie aus, ob der Ruhezustand des Computers zum Erstellen der Sicherung deaktiviert werden soll** können Sie auswählen, ob der Ruhezustand des Computers zum Erstellen der Sicherung automatisch deaktiviert werden soll.  
 
@@ -448,29 +448,29 @@ ms.locfileid: "66435974"
     > [!NOTE]
     >  Wenn Sie sich das erste Mal mit Ihrem Netzwerkkonto an einem Computer anmelden, auf dem Windows 8 ausgeführt wird, nachdem er mit Ihrem Server verbunden wurde, erhalten Sie Anweisungen zur Migration von Dateien und Anwendungen von Ihrem alten Benutzerkonto. Befolgen Sie die Anweisungen auf der Seite **Wie kann ich Dateien und Anwendungen von meinem alten Benutzerkonto migrieren?** , um alle Dateien und Anwendungen zu Ihrem Netzwerkbenutzerkonto zu migrieren.  
 
-9. Nachdem der Computer erfolgreich mit dem Server verbunden ist, Verknüpfungen zur Connector TrayApp und dem serverdashboard angezeigt, im Startmenü, die wie folgt verwendet werden kann (wenn es sich bei Ihrem Computer Windows 8, Windows 8.1 oder Windows 10, das Dashboard und Connector ausgeführt wird TrayApp verfügbar über den Startbildschirm):  
+9. Nachdem der Computer erfolgreich mit dem Server verbunden wurde, werden im Startmenü Verknüpfungen mit der Connector trayapp und dem Server Dashboard angezeigt. Diese können wie folgt verwendet werden (wenn auf dem Computer Windows 8, Windows 8.1 oder Windows 10, das Dashboard und der Connector ausgeführt wird. Trayapp wird auf dem Start Bildschirm des Computers verfügbar sein):  
 
-    -   Wenn Ihr Computer Windows 8, Windows 8.1 oder Windows 10 ausgeführt wird, wird das Dashboard und Connector TrayApp als App sein.  
+    -   Wenn auf Ihrem Computer Windows 8, Windows 8.1 oder Windows 10 ausgeführt wird, können das Dashboard und die Connector trayapp als App durchsucht werden.  
 
     -   In der Connector TrayApp können Sie die Funktion **Remote verbunden bleiben** aktivieren und deaktivieren. Sie können die TrayApp auch doppelklicken, um das Launchpad zu starten. Über das Launchpad erhalten Sie Zugriff auf die Verknüpfung "Freigegebene Ordner", können Computersicherungen konfigurieren, Warnungen bearbeiten und die Website für den Remotezugriff öffnen.  
 
     -   Über die Verknüpfung **Dashboard** können Sie den Server verwalten.  
 
-###  <a name="BKMK_10"></a> Verbinden von Computern mit einem Windows Server Essentials-Server ohne der Domäne beizutreten  
- Dieses Thema beschreibt, wie Sie einen Windows 7, Windows 8, Windows 8.1 oder Windows 10-Computer mit einem Windows Server Essentials-Netzwerk hinzufügen, ohne dass den Computer Windows Server Essentials-Domäne in einer lokalen Clientbereitstellung Beitritt. Diese Verbindungsmethode wird in Windows Server Essentials und Windows Server Essentials unterstützt.  
+###  <a name="BKMK_10"></a>Verbinden von Computern mit einem Windows Server Essentials-Server ohne Beitritt zur Domäne  
+ In diesem Thema wird beschrieben, wie ein Windows 7-, Windows 8-, Windows 8.1-oder Windows 10-Computer zu einem Windows Server Essentials-Netzwerk hinzugefügt wird, ohne dass der Computer der Windows Server Essentials-Domäne in einer lokalen Client Bereitstellung hinzugefügt wird. Diese Verbindungsmethode wird in Windows Server Essentials und Windows Server Essentials unterstützt.  
 
  Dies ist eine Alternative zu der üblichen-Methode, bei der es erforderlich ist, den Computer zur Windows Server Essentials-Domäne hinzuzufügen. Bei dieser Methode muss der Computer, wenn er sich in einer anderen Domäne befindet, aus dieser entfernt werden, bevor er zur Windows Server Essentials-Domäne hinzugefügt werden kann.  
 
 #### <a name="feature-limits"></a>Einschränkungen  
  Einige Funktionen sind eingeschränkt verfügbar, wenn der Clientcomputer nicht zur Windows Server Essentials-Domäne hinzugefügt wird:  
 
--   Alle Features, die erfordern, dass der Computer der Domäne angehören? wie Anmeldeinformationen für die Domäne, Gruppenrichtlinie und virtuelle private Netzwerke (VPNs)? sind nicht verfügbar.  
+-   Alle Features, die erfordern, dass der Computer der Domäne hinzugefügt wird? einschließlich Domänen Anmelde Informationen, Gruppenrichtlinie und VPNs (virtuelle private Netzwerke)? sind nicht verfügbar.  
 
 -   Add-Ons von Drittanbietern, die es erfordern, dass der Computer der Domäne beitritt, werden nicht ordnungsgemäß funktionieren.  
 
 -   Diese Methode kann nicht verwendet werden, um einen externen Computer mit dem Server zu verbinden.  
 
-#### <a name="prerequisites"></a>Vorraussetzungen  
+#### <a name="prerequisites"></a>Erforderliche Komponenten  
 
 -   Der Computer muss über eine physische Verbindung mit dem lokalen Netzwerk verfügen.  
 
@@ -478,9 +478,9 @@ ms.locfileid: "66435974"
 
     -   Windows 10 Pro, Windows 10 Enterprise  
 
-    -    Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 8 Pro, Windows 8 Enterprise  
+    -    Windows 8.1 pro, Windows 8.1 Enterprise, Windows 8 pro, Windows 8 Enterprise  
 
-    -    Windows 7 Professional (X86 und X64), Windows 7 Enterprise (X86- und X64), Windows 7 Ultimate (X86- und X64)  
+    -    Windows 7 Professional (x86 und x64), Windows 7 Enterprise (x86 und x64), Windows 7 Ultimate (x86 und x64)  
 
 
 -   Der Computer muss alle anderen Anforderungen an Clientcomputer in Windows Server Essentials erfüllen. Weitere Informationen finden Sie unter [Prerequisites for connecting a computer to the server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_2).  
@@ -503,11 +503,11 @@ ms.locfileid: "66435974"
 
 2.  Öffnen Sie eine Eingabeaufforderung mit Administratorrechten.  
 
-    -   Klicken Sie in Windows 10, auf die **starten** klicken **alle Apps** -> **Windows-Systemtools** -> **Eingabeaufforderung**mit der rechten Maustaste auf Eingabeaufforderung, und klicken Sie dann auf **als Administrator ausführen**.  
+    -   Klicken Sie unter Windows 10 auf die Schaltfläche **Start** , wählen Sie **alle apps** -> **Windows-System Tools** -> **Eingabeaufforderung**aus, klicken Sie mit der rechten Maustaste auf Eingabeaufforderung, und klicken Sie dann auf **als Administrator ausführen**  
 
-    -   In Windows 8 auf den **starten** geben **Befehl** und drücken Sie dann die EINGABETASTE. Klicken Sie in den Ergebnissen mit der rechten Maustaste auf **Eingabeaufforderung**und dann auf **Als Administrator ausführen**.  
+    -   Geben Sie in Windows 8 auf der **Start** Seite **Command** ein, und drücken Sie dann die EINGABETASTE. Klicken Sie in den Ergebnissen mit der rechten Maustaste auf **Eingabeaufforderung**und dann auf **Als Administrator ausführen**.  
 
-    -   In Windows 7 auf der **starten** Menü Geben Sie **Befehl** in das Suchfeld, mit der Maustaste **Eingabeaufforderung**, und klicken Sie dann auf **führen Sie als Administrator**.  
+    -   Geben Sie in Windows 7 im **Startmenü** den **Befehl Befehl** in das Suchfeld ein, klicken Sie mit der rechten Maustaste auf **Eingabeaufforderung**, und klicken Sie dann auf **als Administrator ausführen**.  
 
 3.  Geben Sie an der Eingabeaufforderung den folgenden Befehl ein und drücken Sie dann die EINGABETASTE:  
 
@@ -519,19 +519,19 @@ ms.locfileid: "66435974"
 4.  Führen Sie die Schritte in [Verbinden von Computern mit dem Server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9) aus.  
 
 
-####  <a name="BKMK_SecondServer"></a> Verbinden Sie einen zweiten Server mit dem Netzwerk.  
+####  <a name="BKMK_SecondServer"></a>Verbinden eines zweiten Servers mit dem Netzwerk  
 
 ###### <a name="to-join-a-second-server-to-the-network"></a>So verbinden Sie einen zweiten Server mit dem Netzwerk  
 
 1.  Melden Sie sich bei dem Server an, den Sie mit dem Windows Server Essentials-Netzwerk verbinden möchten.  
 
-2.  Öffnen Sie einen Internetbrowser, und geben Sie in der Adressleiste **http://<servername\>/Connect**, wobei *< Servername\>*  ist der Name des Servers mit Windows Server Essentials, und drücken Sie dann die EINGABETASTE.  
+2.  Öffnen Sie einen Internet Browser, und geben Sie in der Adressleiste **http://< Servername\>/Connect**ein, wobei *< Server\>*  Name der Name des Servers ist, auf dem Windows Server Essentials ausgeführt wird, und drücken Sie dann die EINGABETASTE.  
 
 3.  Wenn die verstärkte Sicherheitskonfiguration für Internet Explorer auf dem Server aktiviert ist, den Sie mit dem Windows Server Essentials-Netzwerk verbinden möchten, führen Sie die folgenden Schritte aus; andernfalls überspringen Sie diesen Schritt.  
 
     1.  Zum Übernehmen der blockierenden Nachricht klicken Sie auf **Schließen**.  
 
-    2.  Hinzufügen der **http://<servername\>/Connect** Website, um den vertrauenswürdigen Websites wie folgt:  
+    2.  Fügen Sie die Website " **http://<\>Servername/Connect** " wie folgt den vertrauenswürdigen Websites hinzu:  
 
         1.  Klicken Sie im Navigationsbereich des Browsers auf **Extras**und dann auf **Internetoptionen**.  
 
@@ -575,17 +575,17 @@ ms.locfileid: "66435974"
 
 - Da die Sicherung des Clientcomputers für den zweiten Server nicht unterstützt wird, wird der Sicherungsstatus als **Nicht unterstützt** angezeigt. Wenn Sie den zweiten Server auswählen und mit der rechten Maustaste anklicken, werden darüber hinaus keine mit Sicherung und Wiederherstellung verwandten Aufgaben für den zweiten Server angezeigt.  
 
-- Wenn Sie den zweiten Server auswählen und auf die Aufgabe **Servereigenschaften anzeigen** klicken, wird die Registerkarte **Sicherung** nicht angezeigt.  
+- Wenn Sie den zweiten Server auswählen und dann auf die Aufgabe **Server Eigenschaften anzeigen** klicken, wird auf der Seite Eigenschaften des Servers keine Registerkarte **Sicherung** angezeigt.  
 
-- Da auf dem Windows Server-Betriebssystem kein Sicherheitscenter vorhanden ist, wird der Sicherheitsstatus für den zweiten Server als **Nicht zutreffend** angezeigt.  
+- Da in einem Windows Server-Betriebssystem keine Security Center vorhanden ist, wird der Sicherheitsstatus des zweiten Servers als **nicht zutreffend**angezeigt.  
 
-- Der Gruppenrichtlinien-Status des zweiten Servers wird ebenfalls als **Nicht zutreffend**angezeigt.  
+- Der Gruppenrichtlinie Status des zweiten Servers wird als **nicht zutreffend**angezeigt.  
 
-###  <a name="BKMK_11"></a> Installieren Sie die Connector-software  
- Die Connector-Software in Windows Server Essentials wird installiert, wenn Sie einen Computer mithilfe des Assistenten "Computer mit dem Server verbinden" mit dem Server verbinden. Sie können diesen Assistenten starten, indem Sie eingeben **http://<ServerName\>/ connect** in der Adressleiste des Browsers (wo *< ServerName\>*  ist der Name des Servers).  
+###  <a name="BKMK_11"></a>Installieren der Connector-Software  
+ Die Connector-Software in Windows Server Essentials wird installiert, wenn Sie einen Computer mithilfe des Assistenten "Computer mit dem Server verbinden" mit dem Server verbinden. Sie können diesen Assistenten starten, indem Sie **http://< Servername\>/Connect** in der Adressleiste des Webbrowsers eingeben (wobei *< Server\>*  Name der Name des Servers ist).  
 
 > [!NOTE]
->  Wenn der Computer an einem Remotestandort befindet, geben Sie dem Verbinden ein Computers im Server-Assistenten ausgeführt **http://<domainname\>/ connect** in der Adressleiste des Browsers (wobei *< Domäne\>*  ist der Domänenname Ihrer Organisation). Ihre Domänennamensinformationen können Sie von Ihrem Netzwerkadministrator abrufen.  
+>  Wenn sich Ihr Computer an einem Remote Standort befindet, geben Sie zum Ausführen des Assistenten zum Verbinden eines Computers mit dem Server in der Adressleiste des Webbrowsers **http://< Domain Name\>/Connect** ein. dabei ist *< Domäne\>*  der Domänen Name Ihres Organisation). Ihre Domänennamensinformationen können Sie von Ihrem Netzwerkadministrator abrufen.  
 
  Die Connector-Software führt Folgendes durch:  
 
@@ -601,17 +601,17 @@ ms.locfileid: "66435974"
  Schrittweise Anleitungen zum Verbinden Ihres Computers mit dem Windows Server Essentials-Server finden Sie unter [Connect computers to the server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).   
 
 
-###  <a name="BKMK_12"></a> Verschieben von Daten und Einstellungen manuell  
-  Windows Server Essentials und Windows Server Essentials unterstützen die Migration von Benutzerprofilen nur für Clientcomputer, auf denen das Betriebssystem Windows 7 ausgeführt werden. Wenn Sie einen Windows 7-Computer mit dem Server verbinden, kann der Assistent zum Verbinden des Computers mit dem Server das Benutzerprofil automatisch migrieren.  
+###  <a name="BKMK_12"></a>Manuelles Verschieben von Computer Daten und-Einstellungen  
+  Windows Server Essentials und Windows Server Essentials unterstützen die Migration von Benutzerprofilen nur für Client Computer, auf denen das Betriebssystem Windows 7 ausgeführt wird. Wenn Sie einen Windows 7-Computer mit dem Server verbinden, kann der Assistent zum Verbinden des Computers mit dem Server das Benutzerprofil automatisch migrieren.  
 
- Das Benutzerprofil kann nicht automatisch übertragen werden, wenn eine Windows 8, Windows 8.1 oder Windows 10-Computer mit dem Server zu verbinden. Allerdings können Sie auf einem Windows 8-Computer Windows Easy Transfer verwenden, um Daten und Einstellungen von dem ursprünglichen lokalen Benutzer auf den Computer in der Domäne zu übertragen. Dazu müssen Sie Administrator des Windows 8-Quellcomputers wie auch des Windows 8-Zielcomputers sein. Informationen zur Verwendung von Windows Easy Transfer für das Übertragen von Dateien und Einstellungen finden Sie unter [Artikel 2735227](https://support.microsoft.com/kb/2735227) in der Microsoft Knowledge Base.  
+ Das Benutzerprofil kann nicht automatisch übertragen werden, wenn ein Windows 8-, Windows 8.1-oder Windows 10-Computer mit dem Server verbunden wird. Allerdings können Sie auf einem Windows 8-Computer Windows Easy Transfer verwenden, um Daten und Einstellungen von dem ursprünglichen lokalen Benutzer auf den Computer in der Domäne zu übertragen. Dazu müssen Sie Administrator des Windows 8-Quellcomputers wie auch des Windows 8-Zielcomputers sein. Informationen zur Verwendung von Windows Easy Transfer für das Übertragen von Dateien und Einstellungen finden Sie unter [Artikel 2735227](https://support.microsoft.com/kb/2735227) in der Microsoft Knowledge Base.  
 
-###  <a name="BKMK_Transfer"></a> Übertragen Sie mehrerer Benutzerprofile während der Bereitstellung  
+###  <a name="BKMK_Transfer"></a>Übertragen mehrerer Benutzerprofile während der Bereitstellung des Computers  
  Vor dem Verbinden eines Computers unter Windows 7 oder Windows 7 SP1 mit dem Windows Server Essentials-Server müssen Sie zunächst die entsprechenden Netzwerkbenutzerkonten auf dem Server erstellen, um mehrere lokale Benutzerprofile zu übertragen. Weitere Informationen zum Erstellen von Netzwerk-Benutzerkonten finden Sie unter [Hinzufügen eines Benutzerkontos](../manage/Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Manage1).  
 
- Migration von Benutzerprofilen wird nur auf einem Computer unter Windows 7 (für Windows Server Essentials) oder Windows 7 SP1 (für Windows Server Essentials) unterstützt. Wenn Sie einen Computer mithilfe des Assistenten zum Verbinden des Computers mit dem Server mit dem Windows Server Essentials-Server verbinden, wird Ihnen eine Option angezeigt, mit der Sie die Benutzerdaten und Einstellungen alter lokaler Benutzerkonten in die neuen Netzwerkbenutzerkonten verschieben können. Dazu ordnen Sie auf der Seite **Verschieben vorhandener Benutzerdaten und Einstellungen** des Assistenten die Netzwerkbenutzerkonten den lokalen Benutzerkonten zu, um mehrere Benutzerprofile übertragen zu können.  
+ Die Migration von Benutzerprofilen wird nur auf einem Computer unter Windows 7 (für Windows Server Essentials) oder Windows 7 SP1 (für Windows Server Essentials) unterstützt. Wenn Sie einen Computer mithilfe des Assistenten zum Verbinden des Computers mit dem Server mit dem Windows Server Essentials-Server verbinden, wird Ihnen eine Option angezeigt, mit der Sie die Benutzerdaten und Einstellungen alter lokaler Benutzerkonten in die neuen Netzwerkbenutzerkonten verschieben können. Dazu ordnen Sie auf der Seite **Verschieben vorhandener Benutzerdaten und Einstellungen** des Assistenten die Netzwerkbenutzerkonten den lokalen Benutzerkonten zu, um mehrere Benutzerprofile übertragen zu können.  
 
-###  <a name="BKMK_13"></a> Deinstallieren der Connector-software  
+###  <a name="BKMK_13"></a>Deinstallieren der Connector-Software  
  Sie können die Connector-Software mithilfe der Systemsteuerung von einem Computer deinstallieren. Dies erfolgt in der Regel dann, wenn Probleme mit der Connector-Software auftreten oder Sie eine neuere Version der Connector-Software installieren müssen. Sie müssen dazu auf dem Computer als Administrator angemeldet sein.  
 
 > [!IMPORTANT]
@@ -619,7 +619,7 @@ ms.locfileid: "66435974"
 
 ##### <a name="to-uninstall-connector-software-from-a-computer"></a>So deinstallieren Sie die Connector-Software von einem Computer  
 
-1.  Öffnen Sie auf einem Computer, auf denen Windows 7, Windows 8, Windows 8.1 oder Windows 10 ausgeführt wird, **Systemsteuerung**, und klicken Sie dann in der **Programme** auf **installierte Updates anzeigen**.  
+1.  Öffnen Sie auf einem Computer unter Windows 7, Windows 8, Windows 8.1 oder Windows 10 die **Systemsteuerung**, und klicken Sie dann im Abschnitt **Programme** auf **installierte Updates anzeigen**.  
 
 2.  Wählen Sie in der Liste der installierten Programme **Windows Server Essentials Connector**und klicken Sie dann auf **Deinstallieren**.  
 
@@ -627,9 +627,9 @@ ms.locfileid: "66435974"
 
 4.  Wenn das Fenster zur **Benutzerkontensteuerung** angezeigt wird, klicken Sie auf **Zulassen**.  
 
-5.  Klicken Sie in Windows Server Essentials, wenn die Windows Server Essentials Connector-Seite angezeigt wird, schließen Sie das Launchpad gefragt, auf **OK**.  
+5.  Wenn in Windows Server Essentials die Seite Windows Server Essentials-Connector mit dem Hinweis angezeigt wird, das Launchpad zu schließen, klicken Sie auf **OK**.  
 
-6.  Warten Sie, bis das Programm deinstalliert ist. Nach dem Entfernen der Software wird **Windows Server Essentials Connector** nicht mehr in der Liste der installierten Programme oder Updates angezeigt. Darüber hinaus werden die Verknüpfungen mit dem Launchpad und dem Dashboard nicht mehr auf dem Desktop des Computers angezeigt.  
+6.  Warten Sie, bis das Programm deinstalliert ist. Nach dem Entfernen der Software wird **Windows Server Essentials Connector** nicht mehr in der Liste der installierten Programme oder Updates angezeigt. Außerdem werden die Verknüpfungen mit dem Launchpad und dem Dashboard nicht mehr auf dem Desktop des Computers angezeigt.  
 
 > [!NOTE]
 > - Das Deinstallieren der Connector-Software entfernt den Computer jedoch nicht aus der Liste der Computer, die auf der Registerkarte **GERÄTE** des Dashboard angezeigt sind. Informationen zum Entfernen des Computers aus dem Dashboard finden Sie unter [Remove a computer from the server](../manage/Manage-Devices-in-Windows-Server-Essentials.md#BKMK_3).  
@@ -638,7 +638,7 @@ ms.locfileid: "66435974"
 > -   Das Deinstallieren der Connector-Software führt nicht dazu, dass der Computer die ursprüngliche Domäne verlässt. Sie müssen den Computer manuell aus der Domäne entfernen. Anweisungen finden Sie unter [Remove a computer from a Windows domain](Get-Connected-in-Windows-Server-Essentials.md#BKMK_8).  
 
 
-###  <a name="BKMK_14"></a> Trennen Sie den Computer aus, oder Verbinden Sie Ihren Computer auf dem server  
+###  <a name="BKMK_14"></a>Trennen Sie den Computer, oder verbinden Sie den Computer erneut mit dem Server.  
  Wenn Sie einen Computer vom Server trennen möchten, müssen Sie die folgenden Schritte ausführen:  
 
 
@@ -658,32 +658,32 @@ ms.locfileid: "66435974"
 
 6. Verbinden Sie den Computer mithilfe des Assistenten zum Verbinden eines Computers mit dem Server erneut mit dem Server. Schritt-für-Schritt-Anweisungen finden Sie unter [Connect computers to the server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
 
-###  <a name="BKMK_Sleep"></a> Wie die Sicherung im Energiesparmodus und Ruhezustand  
- Wenn Sie beim Verbinden des Computers mit dem Server die Option **Diesen Computer für die Sicherung aus dem Ruhezustand aktivieren** wählen, wird der Computer gemäß dem Sicherungszeitplan täglich automatisch aus dem Energiesparmodus oder Ruhezustand aktiviert, damit die Sicherung durchgeführt werden kann. Nachdem die Sicherung abgeschlossen ist, wird der Computer basierend auf den Energieverwaltungseinstellungen wieder in den Energiesparmodus oder Ruhezustand versetzt. Wenn Sie diese Option nicht aktivieren, sichert der Server den Computer nicht, wenn dieser im Energiesparmodus oder Ruhezustand ist. Weitere Informationen finden Sie unter [Verwalten der Clientsicherung](../manage/Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md).  
+###  <a name="BKMK_Sleep"></a>Funktionsweise der Sicherung mit dem Modus "Standby" und "Ruhezustand"  
+ Wenn Sie beim Verbinden des Computers mit dem Server die Option **Diesen Computer für die Sicherung aus dem Ruhezustand aktivieren** wählen, wird der Computer gemäß dem Sicherungszeitplan täglich automatisch aus dem Energiesparmodus oder Ruhezustand aktiviert, damit die Sicherung durchgeführt werden kann. Nachdem die Sicherung abgeschlossen ist, wird der Computer basierend auf den Energieverwaltungseinstellungen wieder in den Energiesparmodus oder Ruhezustand versetzt. Wenn Sie diese Option nicht aktivieren, sichert der Server den Computer nicht, wenn dieser im Energiesparmodus oder Ruhezustand ist. Weitere Informationen finden Sie unter [Verwalten der Client Sicherung](../manage/Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md).  
 
-##  <a name="BKMK_C"></a> Verwenden des LaunchPads  
+##  <a name="BKMK_C"></a>Verwenden des Launchpad  
  Sie können das Launchpad verwenden, um auf freigegebene Ressourcen auf dem Windows Server Essentials-Server zuzugreifen, Computersicherungen auszuführen und auf Integritätswarnungen zu reagieren.  
 
--   [Launchpad-Übersicht](../manage/Overview-of-the-Launchpad-in-Windows-Server-Essentials.md)  
+-   [Launchpad (Übersicht)](../manage/Overview-of-the-Launchpad-in-Windows-Server-Essentials.md)  
 
--   [Verwenden des LaunchPads mit einem Macintosh-computer](../manage/Overview-of-the-Launchpad-in-Windows-Server-Essentials.md#BKMK_Mac)  
+-   [Verwenden des LaunchPads mit einem Macintosh-Computer](../manage/Overview-of-the-Launchpad-in-Windows-Server-Essentials.md#BKMK_Mac)  
 
 ## <a name="see-also"></a>Siehe auch  
 
--   [Problembehandlung beim Verbinden von Computern mit dem server](../support/Troubleshoot-connecting-computers-to-the-server-in-Windows-Server-Essentials.md)  
+-   [Problembehandlung beim Verbinden von Computern mit dem Server](../support/Troubleshoot-connecting-computers-to-the-server-in-Windows-Server-Essentials.md)  
 
 -   [Verwalten von Benutzerkonten](../manage/Manage-User-Accounts-in-Windows-Server-Essentials.md)  
 
 
 -   [Verwenden von freigegebenen Ordnern](Use-Shared-Folders-in-Windows-Server-Essentials.md)  
 
--   [Arbeiten im Remotemodus](Work-Remotely-in-Windows-Server-Essentials.md)  
+-   [Remote arbeiten](Work-Remotely-in-Windows-Server-Essentials.md)  
 
--   [Wiedergeben von digitalen Medien](Play-Digital-Media-in-Windows-Server-Essentials.md)
+-   [Wiedergeben digitaler Medien](Play-Digital-Media-in-Windows-Server-Essentials.md)
 
 -   [Verwenden von freigegebenen Ordnern](../use/Use-Shared-Folders-in-Windows-Server-Essentials.md)  
 
--   [Arbeiten im Remotemodus](../use/Work-Remotely-in-Windows-Server-Essentials.md)  
+-   [Remote arbeiten](../use/Work-Remotely-in-Windows-Server-Essentials.md)  
 
--   [Wiedergeben von digitalen Medien](../use/Play-Digital-Media-in-Windows-Server-Essentials.md)
+-   [Wiedergeben digitaler Medien](../use/Play-Digital-Media-in-Windows-Server-Essentials.md)
 

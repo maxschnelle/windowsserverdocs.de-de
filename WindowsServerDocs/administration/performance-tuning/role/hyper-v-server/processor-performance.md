@@ -1,73 +1,73 @@
 ---
-title: Hyper-V, Prozessorbezogene Leistungsdaten
-description: Prozessor Überlegungen zur Leistung in Hyper-V zur leistungsoptimierung
+title: Hyper-V-Prozessorleistung
+description: Überlegungen zur Prozessorleistung bei der Hyper-V-Leistungsoptimierung
 ms.prod: windows-server-threshold
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: f16ee9cff9c244a8c579e008bced1e90b1a20673
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 232141758032a8e21eca50ddb73ac9bc3cf6af56
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435589"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866549"
 ---
-# <a name="hyper-v-processor-performance"></a>Hyper-V, Prozessorbezogene Leistungsdaten
+# <a name="hyper-v-processor-performance"></a>Hyper-V-Prozessorleistung
 
 
-## <a name="virtual-machine-integration-services"></a>VM-Integrationsdienste
+## <a name="virtual-machine-integration-services"></a>Integration Services für virtuelle Computer
 
-Die VM-Integrationsdienste sind aktivierte Treiber für den Hyper-V-spezifischer e/a-Geräten durch CPU für e/a im Vergleich zu emulierten Geräte Aufwand reduziert. Sie sollten die neueste Version der Integrationsdienste der virtuellen Computer in jedem unterstützten virtuellen Computer installieren. Die Dienste Verringerung der CPU-Auslastung der Gäste, aus dem Leerlauf stark, Gäste Gäste verwendet und verbessert die e/a-Durchsatz. Dies ist der erste Schritt bei der Optimierung der Leistung auf einem Server mit Hyper-V. Eine Liste der Gastbetriebssysteme, finden Sie unter [Hyper-V: Übersicht](https://technet.microsoft.com/library/hh831531.aspx).
+Der virtuelle Computer Integration Services enthält aktivierte Treiber für die Hyper-V-spezifischen e/a-Geräte, wodurch der CPU-Overhead für e/a-Vorgänge im Vergleich zu emulierten Geräten erheblich reduziert wird. Sie sollten die neueste Version des virtuellen Computers Integration Services in jedem unterstützten virtuellen Computer installieren. Die Dienste verringern die CPU-Auslastung der Gäste, von den Gastbetriebssystemen auf häufig genutzte Gäste und verbessern den e/a-Durchsatz. Dies ist der erste Schritt beim Optimieren der Leistung auf einem Server, auf dem Hyper-V ausgeführt wird. Eine Liste der unterstützten Gast Betriebssysteme finden Sie unter [Hyper-V: Übersicht](https://technet.microsoft.com/library/hh831531.aspx).
 
 ## <a name="virtual-processors"></a>Virtuelle Prozessoren
 
-Hyper-V unter Windows Server 2016 unterstützt bis zu 240 virtuelle Prozessoren pro virtuellem Computer. Virtuelle Computer mit Lasten, die nicht die CPU-intensiv sind, sollten einen virtuellen Prozessor konfiguriert werden. Dies ist aufgrund der zusätzlichen Aufwand, der mehrere virtuelle Prozessoren, wie z. B. die Kosten für zusätzliche Synchronisierung in das Gastbetriebssystem zugeordnet ist.
+Hyper-V in Windows Server 2016 unterstützt maximal 240 virtuelle Prozessoren pro virtuellem Computer. Virtuelle Computer mit Lasten, die nicht CPU-intensiv sind, sollten für die Verwendung eines einzelnen virtuellen Prozessors konfiguriert werden. Dies liegt an dem zusätzlichen mehr Aufwand, der mehreren virtuellen Prozessoren zugeordnet ist, z. b. zusätzlichen Synchronisierungs Kosten im Gast Betriebssystem.
 
-Erhöhen Sie die Anzahl virtueller Prozessoren, wenn der virtuelle Computer mehr als eine CPU Verarbeitung unter Spitzenlast benötigt.
+Erhöhen Sie die Anzahl virtueller Prozessoren, wenn der virtuelle Computer bei Spitzenlast mehr als eine CPU-Verarbeitung erfordert.
 
-## <a name="background-activity"></a>Hintergrundaktivität
+## <a name="background-activity"></a>Hintergrund Aktivität
 
-Minimierung von Hintergrundaktivitäten im Leerlauf virtuelle Computer frei CPU-Zyklen, die von anderen virtuellen Maschinen an anderer Stelle verwendet werden können. Windows-Gäste verwenden in der Regel weniger als ein Prozent einer CPU, wenn sie sich im Leerlauf befinden. Es folgen einige bewährte Methoden für die Minimierung der hintergrundnutzung CPU-Nutzung eines virtuellen Computers:
+Wenn Sie die Hintergrund Aktivität auf virtuellen Computern im Leerlauf minimieren, werden CPU-Zyklen freigegeben, die von anderen virtuellen Maschinen verwendet werden können. Windows-Gäste verwenden normalerweise weniger als einen Prozentsatz einer CPU, wenn Sie sich im Leerlauf befinden. Im folgenden finden Sie einige bewährte Methoden zum Minimieren der CPU-Auslastung eines virtuellen Computers:
 
--   Installieren Sie die neueste Version der Integrationsdienste der virtuellen Computer.
+-   Installieren Sie die neueste Version der virtuellen Maschine Integration Services.
 
--   Entfernen Sie den emulierten Netzwerkadapter über das Dialogfeld des VM-Einstellungen (Verwenden der Microsoft Hyper-V-spezifischer Adapter).
+-   Entfernen Sie den emulierten Netzwerkadapter über das Dialogfeld "Einstellungen der virtuellen Maschine" (verwenden Sie den Microsoft Hyper-V spezifischen Adapter).
 
--   Entfernen Sie nicht verwendete Geräte wie z. B. den CD-ROM- und COM-Port, oder Trennen von Medien.
+-   Entfernen Sie nicht verwendete Geräte, z. b. CD-ROM und com-Port, oder trennen Sie Ihre Medien.
 
--   Behalten Sie das Windows-Gastbetriebssystem auf der Anmeldeseite angezeigt, wenn sie nicht verwendet wird, und deaktivieren Sie des Bildschirmschoners.
+-   Behalten Sie das Windows-Gast Betriebssystem auf dem Anmeldebildschirm bei, wenn es nicht verwendet wird, und deaktivieren Sie den Bildschirmschoner.
 
--   Überprüfen Sie die geplanten Aufgaben und Dienste, die standardmäßig aktiviert sind.
+-   Überprüfen Sie die geplanten Tasks und Dienste, die standardmäßig aktiviert sind.
 
--   Überprüfen Sie die ETW-Ablaufverfolgung-Anbieter, die auf durch Ausführen standardmäßig sind **logman.exe Abfragen - Ets**
+-   Überprüfen Sie die ETW-Ablauf Verfolgungs Anbieter, die standardmäßig aktiviert sind, indem Sie **logman. exe Query-ETS ausführen.**
 
--   Verbessern Sie die Server-Anwendungen, um regelmäßige Aktivität (z. B. Zeitgeber) zu reduzieren.
+-   Verbessern von Server Anwendungen, um regelmäßige Aktivitäten (z. b. Timer) zu reduzieren
 
--   Schließen Sie Server-Manager auf die Host- und Gastbetriebssysteme Betriebssystemen.
+-   Schließen Sie Server-Manager sowohl auf dem Host-als auch auf dem Gast Betriebssystem.
 
--   Lassen Sie nicht Hyper-V-Manager ausgeführt wird, da es ständig des virtuellen Computers Miniaturansicht aktualisiert.
+-   Lassen Sie den Hyper-V-Manager nicht ausführen, da die Miniaturansicht des virtuellen Computers ständig aktualisiert wird.
 
-Im folgenden werden weitere bewährte Methoden für die Konfiguration einer *Clientversion* von Windows auf einem virtuellen Computer aus, um die gesamte CPU-Auslastung zu verringern:
+Im folgenden finden Sie weitere bewährte Methoden zum Konfigurieren einer *Client Version* von Windows auf einem virtuellen Computer, um die CPU-Gesamtauslastung zu reduzieren:
 
--   Deaktivieren Sie z. B. SuperFetch und Windows Search-Diensten im Hintergrund.
+-   Deaktivieren Sie Hintergrunddienste wie SuperFetch und Windows Search.
 
--   Deaktivieren Sie geplante Aufgaben z. B. geplante defragmentieren.
+-   Deaktivieren Sie geplante Aufgaben, z. b. geplante Defragmentierung.
 
 ## <a name="virtual-numa"></a>Virtuelle NUMA
 
-Zum ermöglichen der Virtualisierung von großen hochskalierbaren arbeitsauslastungen, erweitert die Hyper-V unter Windows Server 2016 für virtuelle Computer. Ein einzelner virtueller Computer kann bis zu 240 virtuelle Prozessoren und 12 TB Arbeitsspeicher zugewiesen werden. Wenn Sie eine solche große virtuelle Computer zu erstellen, wird wahrscheinlich Arbeitsspeicher mehrerer NUMA-Knoten, auf dem Hostsystem genutzt werden. In eine solche Konfiguration des virtuellen Computers wenn die virtuellen Prozessoren und Arbeitsspeicher nicht aus dem gleichen NUMA-Knoten zugeordnet werden Workloads schlechte Leistung aufgrund von die Unfähigkeit, die von NUMA-Optimierungen profitieren möglicherweise.
+Um die Virtualisierung von großen hochskalierbaren Arbeits Auslastungen zu ermöglichen, wurden von Hyper-V in Windows Server 2016 die Skalierungs Grenzwerte virtueller Computer erweitert. Einem einzelnen virtuellen Computer können bis zu 240 virtuelle Prozessoren und 12 TB Arbeitsspeicher zugewiesen werden. Wenn Sie solche großen virtuellen Maschinen erstellen, wird wahrscheinlich der Arbeitsspeicher von mehreren NUMA-Knoten auf dem Host System genutzt. Wenn virtuelle Prozessoren und Arbeitsspeicher nicht über denselben NUMA-Knoten zugeordnet werden, kann es bei der Konfiguration einer virtuellen Maschine zu einer ungültigen Leistung kommen, da die NUMA-Optimierungen nicht genutzt werden können.
 
-In Windows Server 2016 stellt Hyper-V virtuelle NUMA-Topologie zu virtuellen Computern. Diese virtuelle NUMA-Topologie ist standardmäßig optimiert, um mit der NUMA-Topologie des zugrunde liegenden Hostcomputers übereinzustimmen. Durch das Verfügbarmachen einer virtuellen NUMA-Topologie in einem virtuellen Computer können das Gastbetriebssystem und alle darauf ausgeführten NUMA-fähigen Anwendungen von den NUMA-Leistungsoptimierungen profitieren, so als würden sie auf einem physischen Computer ausgeführt werden.
+In Windows Server 2016 stellt Hyper-V virtuellen Computern eine virtuelle NUMA-Topologie zur Auswahl. Diese virtuelle NUMA-Topologie ist standardmäßig optimiert, um mit der NUMA-Topologie des zugrunde liegenden Hostcomputers übereinzustimmen. Durch das Verfügbarmachen einer virtuellen NUMA-Topologie in einem virtuellen Computer können das Gastbetriebssystem und alle darauf ausgeführten NUMA-fähigen Anwendungen von den NUMA-Leistungsoptimierungen profitieren, so als würden sie auf einem physischen Computer ausgeführt werden.
 
-Aus Sicht der Arbeitsauslastung gibt es keinen Unterschied zwischen einem virtuellen und physischen NUMA. Wenn eine Arbeitsauslastung in einem virtuellen Computer lokalen Arbeitsspeicher für Daten zuweist und auf die Daten im selben NUMA-Knoten zugreift, führt dies zu einem schnellen lokalen Speicherzugriff auf dem zugrunde liegenden physischen System. Leistungsbenachteiligungen aufgrund des Remotearbeitsspeicherzugriffs wird erfolgreich vermieden. Nur die NUMA-fähige Anwendungen können von vNUMA profitieren.
+Es gibt keinen Unterschied zwischen einem virtuellen und einem physischen NUMA aus der Sicht der Arbeitsauslastung. Wenn eine Arbeitsauslastung in einem virtuellen Computer lokalen Arbeitsspeicher für Daten zuweist und auf die Daten im selben NUMA-Knoten zugreift, führt dies zu einem schnellen lokalen Speicherzugriff auf dem zugrunde liegenden physischen System. Leistungsbenachteiligungen aufgrund des Remotearbeitsspeicherzugriffs wird erfolgreich vermieden. Nur NUMA-fähige Anwendungen können von vnuma profitieren.
 
-Microsoft SQL Server ist ein Beispiel für NUMA-fähige Anwendung. Weitere Informationen finden Sie unter [Grundlegendes zu Non-Uniform Memory Access](https://technet.microsoft.com/library/ms178144.aspx).
+Microsoft SQL Server ist ein Beispiel für eine NUMA-fähige Anwendung. Weitere Informationen finden Sie Untergrund Legendes zum [nicht einheitlichen Speicherzugriff](https://technet.microsoft.com/library/ms178144.aspx).
 
 Die Features virtuelles NUMA und dynamischer Arbeitsspeicher können nicht gleichzeitig verwendet werden. Ein virtueller Computer mit aktiviertem dynamischen Arbeitsspeicher hat effektiv nur einen virtuellen NUMA-Knoten, und keine NUMA-Topologie wird mit dem virtuellen Computer angezeigt – unabhängig von den virtuellen NUMA-Einstellungen.
 
-Weitere Informationen zum virtuellen NUMA, finden Sie unter [Hyper-V virtuellen NUMA (Übersicht)](https://technet.microsoft.com/library/dn282282.aspx).
+Weitere Informationen zu virtuellem NUMA finden Sie unter [virtueller Hyper-V-NUMA (Übersicht](https://technet.microsoft.com/library/dn282282.aspx)).
 
 ## <a name="see-also"></a>Siehe auch
 

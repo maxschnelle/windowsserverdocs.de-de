@@ -1,64 +1,64 @@
 ---
-title: Branch Office Überlegungen
+title: Überlegungen zu Zweigstellen
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.topic: article
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: d93c37227af1eb62368fbcd4ec5d6a48374b45ff
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 93bf1f8993827ab737c95abad1335317d4e9b599
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877061"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870441"
 ---
 # <a name="branch-office-considerations"></a>Überlegungen zu Filialen
 
-> Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal) 
+> Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), 
 
-Dieser Artikel beschreibt bewährte Methoden für die Ausführung von geschützten virtuellen Maschinen in Zweigstellen und anderen remote-Szenarien, in dem Hyper-V-Hosts Zeiträume mit eingeschränkter Konnektivität zum Host-Überwachungsdienst haben können.
+Dieser Artikel beschreibt bewährte Methoden für die Ausführung von abgeschirmten virtuellen Computern in Zweigniederlassungen und in anderen Remote Szenarien, in denen Hyper-V-Hosts Zeiträume mit eingeschränkter Konnektivität zu HGS aufweisen können.
 
-## <a name="fallback-configuration"></a>Fallbackkonfiguration
+## <a name="fallback-configuration"></a>Fall Back Konfiguration
 
-Ab Windows Server-Version 1709, können Sie konfigurieren einen zusätzlichen Satz von URLs für Host-Überwachungsdienst auf Hyper-V-Hosts für die Verwendung, wenn Ihre primären Host-Überwachungsdienst reagiert.
-Dadurch können Sie einen lokalen Host-Überwachungsdienst-Cluster ausführen, der verwendet wird als primärer Server für eine bessere Leistung mit der Möglichkeit, die auf Ihrem unternehmensdatencenter-Host-Überwachungsdienst zurückzugreifen, wenn der lokale Server nicht verfügbar sind.
+Ab Windows Server, Version 1709, können Sie einen zusätzlichen Satz von Host-Überwachungsdienst-URLs auf Hyper-V-Hosts konfigurieren, die verwendet werden, wenn Ihre primäre HGS nicht reagiert.
+Auf diese Weise können Sie einen lokalen HGS-Cluster ausführen, der als primärer Server verwendet wird, um eine bessere Leistung zu erzielen. Sie können dann auf die HGS Ihres Unternehmens Rechenzentrums zurückgreifen, wenn die lokalen Server ausfallen.
 
-Um die fallback-Option verwenden zu können, müssen Sie zwei HGS-Server einrichten. Sie können Windows Server-2019 ausgeführt, oder Windows Server 2016 und entweder Mitglied der gleichen oder einem anderen Cluster. Wenn sie die verschiedenen Clustern sind, möchten Sie einrichten, dass betriebliche Verfahren, um sicherzustellen, dass die Richtlinien Nachweis zwischen den beiden Servern synchronisiert sind. Beide müssen in der Lage, ordnungsgemäß autorisiert den Hyper-V-Host ausführen abgeschirmter VMs und das Schlüsselmaterial benötigt, um die geschützten virtuellen Computer zu starten. Sie können auswählen, ist ein Paar von freigegebenen Verschlüsselung und Signaturzertifikate zwischen den beiden Clustern, oder verwenden Sie separate Zertifikate und Konfigurieren der Host-Überwachungsdienst abgeschirmte VM, um beide Überwachungen (Verschlüsselung/Signieren der Zertifikat-Paare) in den geschützten Daten zu autorisieren. die Datei.
+Wenn Sie die Fall Back-Option verwenden möchten, müssen Sie zwei HGS-Server einrichten. Sie können Windows Server 2019 oder Windows Server 2016 ausführen und sind entweder Teil desselben oder unterschiedlichen Clusters. Wenn es sich um verschiedene Cluster handelt, sollten Sie operative Verfahren einrichten, um sicherzustellen, dass die Nachweis Richtlinien zwischen den beiden Servern synchronisiert werden. Beide müssen in der Lage sein, den Hyper-V-Host ordnungsgemäß zu autorisieren, um abgeschirmte VMS auszuführen, und Sie müssen über das Schlüsselmaterial verfügen, das zum Starten der abgeschirmten VMS Sie können entweder ein paar frei gegebener Verschlüsselungs-und Signatur Zertifikate zwischen den beiden Clustern verwenden oder separate Zertifikate verwenden und die abgeschirmte HGS-VM so konfigurieren, dass beide Wächter (Verschlüsselungs-/Signatur-zertifikatpaare) in den geschützten Daten autorisiert werden. Datei.
 
-Klicken Sie dann aktualisieren Sie den Hyper-V-Hosts Windows Server-Version 1709 oder Windows Server-2019 aus, und führen Sie den folgenden Befehl aus:
+Aktualisieren Sie dann Ihre Hyper-V-Hosts auf Windows Server-Version 1709 oder Windows Server 2019, und führen Sie den folgenden Befehl aus:
 ```powershell
 # Replace https://hgs.primary.com and https://hgs.backup.com with your own domain names and protocols
 Set-HgsClientConfiguration -KeyProtectionServerUrl 'https://hgs.primary.com/KeyProtection' -AttestationServerUrl 'https://hgs.primary.com/Attestation' -FallbackKeyProtectionServerUrl 'https://hgs.backup.com/KeyProtection' -FallbackAttestationServerUrl 'https://hgs.backup.com/Attestation'
 ```
 
-Um die Konfiguration ein fallback-Servers aufheben, lassen Sie einfach beide fallback-Parameter:
+Wenn Sie die Konfiguration eines Fall Back Servers aufheben möchten, lassen Sie einfach beide Fall back Parameter aus:
 ```powershell
 Set-HgsClientConfiguration -KeyProtectionServerUrl 'https://hgs.primary.com/KeyProtection' -AttestationServerUrl 'https://hgs.primary.com/Attestation'
 ```
 
-Damit für den Hyper-V-Host Nachweis mit den primären und fallback-Server übergeben können müssen Sie sicherstellen, dass Ihre Informationen zum Identitätsnachweis auf dem neuesten Stand mit beiden HGS-Clustern ist.
-Darüber hinaus müssen die Zertifikate, die zum Entschlüsseln des virtuellen Computers TPM in beiden Clustern Host-Überwachungsdienst verfügbar sein.
-Sie können konfigurieren jeder Host-Überwachungsdienst mit verschiedenen Zertifikaten und Konfigurieren des virtuellen Computers, um beide zu vertrauen, oder beide Cluster HGS einen gemeinsamen Satz von Zertifikaten hinzugefügt.
+Damit der Hyper-V-Host den Nachweis sowohl mit dem primären als auch dem Fall Back Server übergibt, müssen Sie sicherstellen, dass Ihre Nachweis Informationen mit beiden HGS-Clustern auf dem neuesten Stand sind.
+Außerdem müssen die Zertifikate, mit denen das TPM des virtuellen Computers entschlüsselt wird, in beiden HGS-Clustern verfügbar sein.
+Sie können jeden HGS mit verschiedenen Zertifikaten konfigurieren und den virtuellen Computer so konfigurieren, dass er sowohl vertrauenswürdig ist, als auch einen freigegebenen Satz von Zertifikaten zu beiden HGS-Clustern hinzufügen.
 
-Weitere Informationen zum Konfigurieren von Host-Überwachungsdienst in einer Zweigstelle, die mithilfe von fallback-URLs finden Sie im Blogbeitrag [verbesserte Unterstützung von Filialen für abgeschirmte VMs in Windows Server, Version 1709](https://blogs.technet.microsoft.com/datacentersecurity/2017/11/15/improved-branch-office-support-for-shielded-vms-in-windows-server-version-1709/).
+Weitere Informationen zum Konfigurieren von HGS in einer Zweigstelle mithilfe von Fall Back-URLs finden Sie im Blogbeitrag [verbesserte Unterstützung für Zweigstellen für abgeschirmte VMs in Windows Server, Version 1709](https://blogs.technet.microsoft.com/datacentersecurity/2017/11/15/improved-branch-office-support-for-shielded-vms-in-windows-server-version-1709/).
 
 
-## <a name="offline-mode"></a>Offline-Modus
+## <a name="offline-mode"></a>Offline Modus
 
-Offline-Modus können Ihre geschützte VM zu aktivieren, wenn Host-Überwachungsdienst nicht erreicht werden kann, solange die Sicherheitskonfiguration des Hyper-V-Hosts nicht geändert hat.
-Offline-Modus funktioniert durch das Zwischenspeichern einer speziellen Version von der VM-TPM-Schlüsselschutzvorrichtung auf dem Hyper-V-Host.
-Die Schlüsselschutzvorrichtung wird auf die aktuelle Sicherheitskonfiguration des Hosts (mit der virtualisierungsbasierten Sicherheit Identitätsschlüssel) verschlüsselt.
-Wenn der Host ist für die Kommunikation mit HGS, und die Sicherheitskonfiguration wurde nicht geändert, werden sie die zwischengespeicherte Schlüsselschutzvorrichtung verwenden, um die abgeschirmte VM starten.
-Beim Ändern von Sicherheitseinstellungen auf dem System, z. B. eine neue codeintegritätsrichtlinie angewendet wird oder der sichere Start deaktiviert werden, werden die zwischengespeicherten Schlüsselschutzvorrichtungen ungültig, und der Host muss mit einem Host-Überwachungsdienst vor allen bestätigen abgeschirmte VMs offline neu gestartet werden können.
+Im Offline Modus kann die abgeschirmte VM aktiviert werden, wenn HGS nicht erreicht werden kann, solange die Sicherheitskonfiguration des Hyper-V-Hosts nicht geändert wurde.
+Der Offline Modus funktioniert, indem eine spezielle Version der TPM-Schlüssel Schutzvorrichtung des virtuellen Computers auf dem Hyper-V-Host zwischengespeichert wird.
+Die Schlüssel Schutzvorrichtung wird in die aktuelle Sicherheitskonfiguration des Hosts (mit dem virtualisierungsbasierten Sicherheits Identitätsschlüssel) verschlüsselt.
+Wenn der Host nicht mit HGS kommunizieren kann und seine Sicherheitskonfiguration nicht geändert wurde, kann er die zwischengespeicherte Schlüssel Schutzvorrichtung zum Starten der abgeschirmten VM verwenden.
+Wenn sich die Sicherheitseinstellungen auf dem System ändern, z. b. eine neue Code Integritätsrichtlinie, die angewendet wird, oder der sichere Start deaktiviert wird, werden die zwischengespeicherten Schlüssel Schutzvorrichtungen für ungültig erklärt, und der Host muss einen HGS bestätigen, damit alle abgeschirmten VMS erneut offline gestartet werden können.
 
-Offline-Modus erfordert Windows Server Insider Preview Build 17609 oder höher für die Host-Überwachungsdienst-Cluster und Hyper-V-Host an.
-Es wird durch eine Richtlinie auf den Host-Überwachungsdienst bietet gesteuert, die standardmäßig deaktiviert ist.
-Um Unterstützung für offline-Modus zu aktivieren, führen Sie den folgenden Befehl auf einem Host-Überwachungsdienst-Knoten:
+Der Offline Modus erfordert Windows Server Insider Preview Build 17609 oder höher sowohl für den Host-Überwachungsdienst Cluster als auch für den Hyper-V-Host.
+Sie wird durch eine Richtlinie auf HGS gesteuert, die standardmäßig deaktiviert ist.
+Um die Unterstützung für den Offline Modus zu aktivieren, führen Sie den folgenden Befehl auf einem HGS-Knoten aus:
 
 ```powershell
 Set-HgsKeyProtectionConfiguration -AllowKeyMaterialCaching:$true
 ```
 
-Da die zwischenspeicherbaren Schlüsselschutzvorrichtungen für jede geschützte VM eindeutig sind, müssen Sie vollständig heruntergefahren (kein Neustart), und starten Sie die abgeschirmten VMs auf eine zwischenspeicherbare schlüsselschutzkomponente zu erhalten, nachdem Sie diese Einstellung aktiviert ist, auf dem Host-Überwachungsdienst.
-Wenn Ihre abgeschirmte VM auf einem Hyper-V-Host mit einer älteren Version von Windows Server migriert oder ruft einen neuen Schlüsselprotektor aus einer älteren Version von Host-Überwachungsdienst, ist nicht möglich, selbst im Offlinemodus starten, sondern können weiter im Onlinemodus ausgeführt wird, wenn es sich bei den Zugriff auf den Host-Überwachungsdienst Standbyspeicherlisten berechnet wird kann.
+Da die zwischen speicherbaren Schlüssel Schutzvorrichtungen für jeden abgeschirmten virtuellen Computer eindeutig sind, müssen Sie den vollständigen Herunterfahren (kein Neustart) durchlaufen und die abgeschirmten VMs starten, um eine zwischen speicherbare Schlüssel Schutzvorrichtung zu erhalten, nachdem diese Einstellung auf HGS aktiviert wurde.
+Wenn Ihre abgeschirmte VM zu einem Hyper-V-Host migriert wird, auf dem eine ältere Version von Windows Server ausgeführt wird, oder eine neue Schlüssel Schutzvorrichtung aus einer älteren Version von HGS erhält, kann Sie nicht im Offline Modus gestartet werden, Sie kann jedoch weiterhin im Online Modus ausgeführt werden, wenn der Zugriff auf die HGS der Dienst ist. Liebens.

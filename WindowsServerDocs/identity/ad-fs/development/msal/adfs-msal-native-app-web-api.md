@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f1de6229d5360a4ea95d285f34ad32532762edca
-ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
+ms.openlocfilehash: 588d717b8f03987b86af7dc0576d537ebd88c4ba
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69983558"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867620"
 ---
 # <a name="scenario-native-app-calling-web-api"></a>Szenario: Native APP, die Web-API aufrufen 
 >Gilt für: AD FS 2019 und höher 
@@ -45,7 +45,7 @@ In diesem Abschnitt wird gezeigt, wie Sie die native App als einen öffentlichen
 
   1. Klicken Sie in **AD FS Verwaltung**mit der rechten Maustaste auf **Anwendungs Gruppen** , und wählen Sie **Anwendungs Gruppe hinzufügen**aus.   
   
-  2. Geben Sie im Anwendungs Gruppen-Assistenten für den Namen **nativeapptwebapi** ein, und wählen Sie unter **Client-Server Anwendungen** die native Anwendung aus, die auf **eine Web-API** -Vorlage zugreift. Klicken Sie auf **Weiter**.  
+  2. Geben Sie im Anwendungs Gruppen-Assistenten für den Namen **nativeapptwebapi** ein, und wählen Sie unter **Client-Server Anwendungen** die native Anwendung aus, die auf **eine Web-API-Vorlage zugreift** . Klicken Sie auf **Weiter**.  
   
       ![App-reg](media/adfs-msal-native-app-web-api/native2.png)  
 
@@ -53,7 +53,7 @@ In diesem Abschnitt wird gezeigt, wie Sie die native App als einen öffentlichen
  
      ![App-reg](media/adfs-msal-native-app-web-api/native3.png) 
 
-  4. Geben Sie auf dem Bildschirm Web-API konfigurieren den Bezeichner ein **:** https://localhost:44321/. Klicken Sie auf **Hinzufügen**. Klicken Sie auf **Weiter**. Dieser Wert wird später in den Dateien " **app. config** " und " **Web. config** " der Anwendung verwendet.
+  4. Geben Sie auf dem Bildschirm Web-API konfigurieren den **Bezeichner ein:** https://localhost:44321/. Klicken Sie auf **Hinzufügen**. Klicken Sie auf **Weiter**. Dieser Wert wird später in den Dateien " **app. config** " und " **Web. config** " der Anwendung verwendet.
  
      ![App-reg](media/adfs-msal-native-app-web-api/native4.png)   
   
@@ -102,14 +102,14 @@ In diesem Abschnitt wird gezeigt, wie Sie eine native App für den Anmelde Benut
    - Ida: Authority-Enter https://[Your AD FS Hostname]/ADFS
    - Ida: ClientID: Geben Sie den Wert für den **Client Bezeichner** aus #3 in der APP-Registrierung in AD FS obigen Abschnitt ein. 
    - Ida: redirecturi: Geben Sie den **Umleitungs-URI** -Wert aus #3 in der APP-Registrierung in AD FS obigen Abschnitt ein.
-   - TODO: todolistresourceid – geben Sie den Bezeichnerwert aus #4 in der APP-Registrierung in AD FS obigen Abschnitt ein. 
-   - Ida: TODO: todolistbaseaddress: Geben Sie den Bezeichnerwert aus #4 in der APP-Registrierung in AD FS obigen Abschnitt ein. 
+   - TODO: todolistresourceid – geben Sie den **Bezeichnerwert** aus #4 in der APP-Registrierung in AD FS obigen Abschnitt ein. 
+   - Ida: TODO: todolistbaseaddress: Geben Sie den **Bezeichnerwert** aus #4 in der APP-Registrierung in AD FS obigen Abschnitt ein. 
  
      ![Code Konfiguration](media/adfs-msal-native-app-web-api/native12.png)
 
  4. Öffnen Sie die Datei "Web. config". Ändern Sie Folgendes: 
-    - Ida: Audience: Geben Sie den Bezeichnerwert aus #4 in der APP-Registrierung in AD FS obigen Abschnitt ein. 
-    - i AdfsMetadataEndpoint: Geben Sie https://[Your AD FS Hostname]/FederationMetadata/2007-06/FederationMetadata.XML ein. 
+    - Ida: Audience: Geben Sie den **Bezeichnerwert** aus #4 in der APP-Registrierung in AD FS obigen Abschnitt ein. 
+    - I AdfsMetadataEndpoint: Geben Sie https://[Your AD FS Hostname]/FederationMetadata/2007-06/FederationMetadata.XML ein. 
     
       ![Code Konfiguration](media/adfs-msal-native-app-web-api/native13.png)
  
@@ -146,5 +146,5 @@ In diesem Abschnitt wird gezeigt, wie das oben konfigurierte Beispiel getestet w
        ![App-Test](media/adfs-msal-native-app-web-api/native19.png)
  
 ## <a name="next-steps"></a>Nächste Schritte
-[AD FS OpenID Connect/OAuth-Flows und Anwendungsszenarien](../../overview/ad-fs-openid-connect-oauth-flows-scenarios.md)
+[AD FS OpenID Connect-/OAuth-Flows und Anwendungsszenarien](../../overview/ad-fs-openid-connect-oauth-flows-scenarios.md)
  

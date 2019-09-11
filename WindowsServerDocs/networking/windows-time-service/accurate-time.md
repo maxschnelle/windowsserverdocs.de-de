@@ -1,78 +1,78 @@
 ---
 ms.assetid: 72a90d00-56ee-48a9-9fae-64cbad29556c
-title: Genaue Uhrzeit für WindowsServer 2016
-description: Synchronisierung uhrzeitsynchronisierungsdienst in Windows Server 2016 wurde erheblich, und gleichzeitig vollständige Abwärtskompatibilität NTP-Kompatibilität mit älteren Windows-Versionen verbessert.
+title: Genaue Zeit für Windows Server 2016
+description: Die Genauigkeit der Zeitsynchronisierung in Windows Server 2016 wurde erheblich verbessert, während die NTP-Kompatibilität mit älteren Windows-Versionen vollständig abwärts bleibt.
 author: shortpatti
 ms.author: dacuo
 ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: networking
-ms.openlocfilehash: 75465aad45fc1b5e360fa1153a6530a771731f66
-ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
+ms.openlocfilehash: acc46dacdf1d8b11aaa45b3665e8d11ee75635cf
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67469437"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871828"
 ---
-# <a name="accurate-time-for-windows-server-2016"></a>Genaue Uhrzeit für WindowsServer 2016
+# <a name="accurate-time-for-windows-server-2016"></a>Genaue Zeit für Windows Server 2016
 
 >Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10 oder höher
 
-Der Windows-Zeitdienst ist eine Komponente, die ein Plug-In-Modell für die Client- und Zeit Synchronisierungsanbieter verwendet.  Es gibt zwei integrierten Client-Anbieter für Windows und Drittanbieter-Plug-ins sind verfügbar. Ein Anbieter verwendet [NTP (RFC 1305)](https://tools.ietf.org/html/rfc1305) oder [MS-NTP](https://msdn.microsoft.com/library/cc246877.aspx) die lokalen Systemzeit mit einem NTP und/oder MS-NTP-kompatible Verweis-Server zu synchronisieren. Der andere Anbieter ist für Hyper-V und virtuellen Computern (VMs) mit dem Hyper-V-Host synchronisiert.  Wenn mehrere Anbieter vorhanden sind, wird Windows wählen Sie den besten-Anbieter zunächst mithilfe von Stratum Ebene gefolgt von Stamm-Verzögerung, Root-Verteilung, und endlich an Offset der Zeit.
+Der Windows-Zeit Dienst ist eine Komponente, die ein Plug-in-Modell für Client-und Serverzeit-Synchronisierungs Anbieter verwendet.  Es gibt zwei integrierte Client Anbieter unter Windows, und es sind Plug-ins von Drittanbietern verfügbar. Ein Anbieter verwendet [NTP (RFC 1305)](https://tools.ietf.org/html/rfc1305) oder [MS-NTP](https://msdn.microsoft.com/library/cc246877.aspx) , um die lokale Systemzeit mit einem NTP-und/oder MS-NTP-kompatiblen Referenz Server zu synchronisieren. Der andere Anbieter ist für Hyper-v und synchronisiert virtuelle Computer (Virtual Machines, VM) mit dem Hyper-v-Host.  Wenn mehrere Anbieter vorhanden sind, wählt Windows den besten Anbieter mithilfe von Stratum Level First, gefolgt von der Stamm Verzögerung, der Stamm-und der Zeit Abweichung.
 
 > [!NOTE]
-> Für eine kurze Übersicht über Windows-Zeitdienst, sehen Sie sich diese [auf hoher Ebene übersichtsvideo](https://aka.ms/WS2016TimeVideo).
+> Eine kurze Übersicht über den Windows-Zeit Dienst finden Sie in diesem [Übersichts Video](https://aka.ms/WS2016TimeVideo).
 
-In diesem Thema wird erläutert... in diesen Themen im Zusammenhang mit den genaue Uhrzeit zu aktivieren: 
+In diesem Thema wird erläutert... Diese Themen beziehen sich auf die Aktivierung der exakten Zeit: 
 
 - Verbesserungen
 - Messungen
 - Empfehlungen
 
 > [!IMPORTANT]
-> Ein Nachtrag der Windows 2016 genau Zeit-Artikel kann heruntergeladen werden [hier](https://windocs.blob.core.windows.net/windocs/WindowsTimeSyncAccuracy_Addendum.pdf).  Dieses Dokument enthält weitere Details zu unseren Tests und Messungen-Methoden.
+> Ein Nachtrag, auf den der Artikel Windows 2016-Zeit genaue Zeit verweist, kann [hier](https://windocs.blob.core.windows.net/windocs/WindowsTimeSyncAccuracy_Addendum.pdf)heruntergeladen werden.  In diesem Dokument finden Sie weitere Informationen zu unseren Methoden zum Testen und messen.
 
 > [!NOTE] 
-> Die Anbieter-Plug-in das Modell für Windows ist [auf TechNet-Website dokumentiert](https://msdn.microsoft.com/library/windows/desktop/ms725475%28v=vs.85%29.aspx).
+> Das Windows-Zeit Anbieter-Plug-in-Modell ist [auf TechNet dokumentiert](https://msdn.microsoft.com/library/windows/desktop/ms725475%28v=vs.85%29.aspx).
 
-## <a name="domain-hierarchy"></a>Domänenhierarchie
-Domänen-und eigenständigen funktionieren unterschiedlich.
+## <a name="domain-hierarchy"></a>Domänen Hierarchie
+Domänen-und eigenständige Konfigurationen funktionieren unterschiedlich.
 
-- Mitglieder der Domäne verwenden, ein sicheres NTP-Protokoll, das Authentifizierung verwendet, um sicherzustellen, dass die Sicherheit und die Authentizität des Verweises Zeit.  Mitglieder der Domäne, die mit einer master Uhr bestimmt, indem Sie die Domäne und eines Punktesystems synchronisiert werden.  In einer Domäne ist es eine hierarchische Ebene der Zeit Stratums, bei dem jeder Domänencontroller zu einem übergeordneten Element DC mit einer möglichst genauen Zeitpunkt Stratum verweist.  Die Hierarchie wird in den primären Domänencontroller oder ein Domänencontroller in der Root-Gesamtstruktur oder eines Domänencontrollers mit dem GTIMESERV Domäne-Flag, die kennzeichnet eine gute Zeit-Server für die Domäne aufgelöst werden.  Finden Sie unter den [Geben Sie einen lokalen zuverlässige Zeit Service mithilfe von GTIMESERV](#GTIMESERV) Abschnitt weiter unten.
+- Domänen Mitglieder verwenden ein sicheres NTP-Protokoll, bei dem die-Authentifizierung verwendet wird, um die Sicherheit und Authentizität des Zeit Verweises sicherzustellen.  Domänen Mitglieder werden mit einer Masteruhr synchronisiert, die von der Domänen Hierarchie und einem Bewertungssystem bestimmt wird.  In einer Domäne gibt es eine hierarchische Schicht von Zeit-stratums, bei der jeder Domänen Controller auf einen übergeordneten DC mit einem präziseren Zeit-Stratum verweist.  Die Hierarchie wird in den PDC oder einen Domänen Controller in der Stamm Gesamtstruktur aufgelöst, oder es handelt sich um einen Domänen Controller mit dem domänenflag gtimeserv, das einen guten Zeit Server für die Domäne angibt.  Weitere Informationen finden Sie weiter unten im Abschnitt [Angeben eines lokalen zuverlässigen Zeit Dienstanbieter mit gtimeserv](#GTIMESERV) .
 
-- Eigenständige Computer werden standardmäßig konfiguriert, um "Time.Windows.com" zu verwenden.  Dieser Name wird vom DNS-Server aufgelöst, die auf einer Microsoft in Besitz befindliche Ressource verweisen soll.  Wie alle Remote-Standorten Uhrzeitangaben, Netzwerkausfällen, kann die Synchronisierung verhindern.  Lädt den Netzwerkverkehr und den asymmetrisch Netzwerkpfade reduzieren können die Genauigkeit der Synchronisierung.  Sie können nicht für 1 ms Genauigkeit einer remote-Zeitquellen abhängen.
+- Eigenständige Computer sind so konfiguriert, dass time.Windows.com standardmäßig verwendet wird.  Dieser Name wird von Ihrem DNS-Server aufgelöst, der auf eine Ressource im Besitz von Microsoft verweisen soll.  Wie alle Remote Verweise, die sich auf Remote Verweise beziehen, kann die Synchronisierung verhindern.  Netzwerk Datenverkehr und asymmetrische Netzwerk Pfade können die Genauigkeit der Zeitsynchronisierung beeinträchtigen.  Bei einer Genauigkeit von 1 MS können Sie nicht von Remote Zeitquellen abhängen.
 
-Da Hyper-V-Gastbetriebssystemen über mindestens zwei Windows-Uhrzeit-Anbietern zur Auswahl hat, kann der Host-Zeit und NTP, unterschiedliche Verhaltensweisen mit Domäne oder eigenständige angezeigt, wenn als Gast ausgeführt.
+Da Hyper-V-Gäste über mindestens zwei Windows-Zeit Anbieter verfügen, aus denen Sie auswählen können, die hostzeit und NTP, werden bei der Ausführung als Gast möglicherweise unterschiedliche Verhaltensweisen mit einer Domäne oder eigenständig angezeigt.
 
 > [!NOTE] 
-> Weitere Informationen über die Domänenhierarchie und Punktesystems finden Sie unter den ["Was ist Windows-Zeitdienst?"](https://blogs.msdn.microsoft.com/w32time/2007/07/07/what-is-windows-time-service/) .
+> Weitere Informationen zur Domänen Hierarchie und zum Bewertungssystem finden Sie unter ["Was ist der Windows-Zeit Dienst?"](https://blogs.msdn.microsoft.com/w32time/2007/07/07/what-is-windows-time-service/) . .
 
 > [!NOTE]
-> Stratum ist ein Konzept, das sowohl die Hyper-V die NTP-Anbieter verwendet und der Wert gibt an, die Uhren der Position in der Hierarchie.  Stratum 1 ist für die oberste Uhr reserviert und Stratum 0 ist für die Hardware, die davon ausgegangen, dass genau reserviert und hat damit wenig oder keine Verzögerung zugeordnet.  Stratum 2 wenden Sie sich an Stratum 1-Servern, Stratum 3 auf Schicht 2 und so weiter.  Während eine untere Schicht häufig eine genauere Uhr angegeben wird, ist es möglich, um Unstimmigkeiten zu finden.  Darüber hinaus akzeptiert W32time nur Zeit von Stratum 15 oder unten.  Um die Stratum eines Clients anzuzeigen, verwenden *w32tm/Query/Status*.
+> Stratum ist ein Konzept, das sowohl für den NTP-als auch für den Hyper-V-Anbieter verwendet wird, und sein Wert gibt den Standort in der Hierarchie an.  Stratum 1 ist für die Uhr der höchsten Ebene reserviert, und Stratum 0 ist für die Hardware reserviert, die als korrekt angesehen wird und nur wenig oder gar keine Verzögerung zugeordnet ist.  Stratum 2 spricht mit Stratum 1-Servern, Stratum 3 bis Stratum 2 usw.  Obwohl ein niedrigerer strator häufig eine genauere Uhr angibt, ist es möglich, Abweichungen zu finden.  W32Time akzeptiert auch Zeit von Stratum 15 oder niedriger.  Um den Stratum eines Clients anzuzeigen, verwenden Sie *W32tm/Query "aus/Status*.
 
-## <a name="critical-factors-for-accurate-time"></a>Kritischen Faktoren für die genaue Uhrzeit
-In jedem Fall nach der genauen Zeit gibt es drei wichtige Faktoren:
+## <a name="critical-factors-for-accurate-time"></a>Wichtige Faktoren für die genaue Zeit
+In jedem Fall gibt es für eine genaue Zeit drei wichtige Faktoren:
 
-1. **Solid Quelle Uhr** -die Source-Uhr in Ihrer Domäne muss stabil und genau ist. Dies bedeutet normalerweise, GPS-Gerät installieren oder auf einer Stratum 1-Quelle, wobei #3 verweist. Die Analogie wechselt, wenn Sie zwei Boote auf das Wasser, und Sie haben die Höhe eines im Vergleich zu den anderen messen möchten, ist Ihre Genauigkeit am besten, wenn das Schiff Quelle sehr stabil und nicht bewegt wird. Das gleiche gilt für die Zeit, und wenn Ihre Quelle Uhr nicht stabil ist, klicken Sie dann die gesamte Kette von synchronisierten Uhren beeinflusst und vergrößert in jeder Phase. Sie müssen auch zugegriffen werden kann, da Unterbrechungen der Verbindung mit der zeitsynchronisierung beeinträchtigt. Und schließlich muss es sicherer sein. Wenn die Zeit, die Verweis nicht ordnungsgemäß ist verwaltet, oder eine potenziell böswillige Partei betrieben, können Sie Ihre Domäne für die zeitbasierte Angriffe verfügbar machen.
-2. **Stabile Client Uhr** -eine stabile Clientuhren wird sichergestellt, dass die natürliche Abweichung von der Oscillator containable ist.  NTP-Server mehrere Beispiele von potenziell mehreren NTP-Server, Fehler und Ihre lokalen Computern Uhr discipline verwendet.  Es die Zeit geändert wird, wird kein Einzelschritt jedoch eher verlangsamt wird, oder die lokale Uhr beschleunigt, damit Sie die genaue Uhrzeit schnell Ansatz und zwischen NTP-Anforderungen genau bleiben.  Allerdings ist die Client-Computeruhr Oscillator nicht stabil, klicken Sie dann weitere schwankungen zwischen Anpassungen können auftreten, und die Algorithmen, mit denen, die Windows verwendet wird, um die Uhr für die erste Bedingung, nicht korrekt funktionieren.  In einigen Fällen können die Firmware-Updates nach der genauen Zeit erforderlich sein.
-3. **Symmetrische NTP-Kommunikation** – es ist wichtig, dass die Verbindung für die Kommunikation mit NTP symmetrisch ist.  NTP-Server verwendet Berechnungen anpassen, die Zeit, die davon ausgehen, dass der Netzwerk-Patch symmetrisch ist.  Wenn der Pfad der NTP-Paket wird auf dem Server verwendet eine unterschiedliche Menge an Zeit für die Rückgabe, die Genauigkeit ist betroffen.  Beispielsweise konnte den Pfad ändern, aufgrund von Änderungen an der Netzwerktopologie und Pakete, die über Geräte, auf denen Geschwindigkeit der anderen Schnittstelle weitergeleitet werden.
+1. **Solid Source Clock** : die quelluhr in Ihrer Domäne muss stabil und genau sein. Dies bedeutet in der Regel, dass ein GPS-Gerät installiert oder auf eine Stratum 1-Quelle verwiesen wird, wobei #3 berücksichtigt wird. Wenn Sie über zwei Boote auf dem Wasser verfügen und versuchen, die Höhe von eins im Vergleich zum anderen zu messen, ist die Genauigkeit am besten, wenn das quellboot sehr stabil ist und sich nicht bewegt. Das gleiche gilt für die Zeit, und wenn Ihre quelluhr nicht stabil ist, wird die gesamte Kette der synchronisierten Uhren in jeder Phase beeinflusst und vergrößert. Außerdem muss darauf zugegriffen werden können, weil die Zeitsynchronisierung durch Unterbrechungen der Verbindung beeinträchtigt wird. Und schließlich muss es sicher sein. Wenn der Zeit Verweis nicht ordnungsgemäß verwaltet wird oder von einer potenziell böswilligen Partei betrieben wird, können Sie Ihre Domäne für zeitbasierte Angriffe verfügbar machen.
+2. **Stabile Clientuhr** : eine stabile Client Uhren gewährleistet, dass die natürliche Abweichung des Oszillators containerbar ist.  NTP verwendet mehrere Stichproben von potenziell mehreren NTP-Servern, um die lokale Computer-Uhr zu bedinieren und zu übernehmen.  Sie führt nicht zu einem Schritt der Zeit Änderungen, sondern verlangsamt oder beschleunigt die lokale Uhr, sodass Sie die genaue Zeit schnell erreichen und zwischen den NTP-Anforderungen genau bleiben.  Wenn der Oszillator der Client Computeruhr jedoch nicht stabil ist, können mehr Schwankungen zwischen den Anpassungen auftreten, und die Algorithmen, die von Windows verwendet werden, um die Uhr zu bedinieren, funktionieren nicht ordnungsgemäß.  In einigen Fällen können Firmwareupdates für eine genaue Zeit benötigt werden.
+3. **Symmetrische NTP-Kommunikation** : Es ist wichtig, dass die Verbindung für die NTP-Kommunikation symmetrisch ist.  NTP verwendet Berechnungen, um die Zeit anzupassen, bei der der Netzwerk Patch symmetrisch ist.  Wenn der Pfad, der vom NTP-Paket an den Server weitergegeben wird, eine andere Zeitspanne benötigt, wird die Genauigkeit beeinträchtigt.  Beispielsweise kann sich der Pfad aufgrund von Änderungen in der Netzwerktopologie ändern oder durch Geräte weitergeleitet werden, die unterschiedliche Schnittstellen Geschwindigkeiten aufweisen.
 
-Bei Akkubetrieb-Geräten müssen sowohl mobile als auch portable, verschiedene Strategien berücksichtigt werden.  Gemäß der Empfehlung erfordert halten die genaue Uhrzeit die Uhr auf einmal pro Sekunde, die mit der Update-Taktfrequenz korreliert, objektiver werden aus. Diese Einstellungen belegt mehr Akkuleistung als erwartet und der Energiesparmodus versetzt verfügbar in Windows für solche Geräte beeinträchtigen können. Akkubetrieb-Geräte können auch bestimmte Energiestatus alle Anwendungen ausgeführt werden, beendet der W32time Fähigkeit discipline der Uhr, und verwalten die genaue Uhrzeit beeinträchtigt. Darüber hinaus die Uhren auf mobilen Geräten sehr präzise zunächst möglicherweise nicht.  Ambiente umgebungsbedingungen Auswirkungen auf die Genauigkeit der Uhr, und ein mobiles Gerät von einer ambient-Bedingung in der nächsten, die durch die Möglichkeit zur Zeitpunkt genau zu bewahren beeinträchtigen könnten verschieben.  Aus diesem Grund rät Microsoft davon, dass Sie Akkubetrieb tragbaren Geräten mit hoher Genauigkeit Einstellungen einrichten. 
+Bei Akku Geräten, sowohl Mobil als auch portabel, müssen Sie verschiedene Strategien in Erwägung gezogen.  Gemäß unserer Empfehlung erfordert die Beibehaltung der exakten Zeit, dass die Uhr einmal pro Sekunde diszipliniert wird, was mit der Takt Aktualisierungshäufigkeit korreliert. Diese Einstellungen verbrauchen mehr Akkuleistung als erwartet und können den Energiesparmodus beeinträchtigen, der in Windows für solche Geräte verfügbar ist. Akku Geräte verfügen auch über bestimmte Energie Modi, die die Ausführung aller Anwendungen verhindern, was die W32time's-Fähigkeit beeinträchtigt, die Uhr zu disziplinieren und eine genaue Zeit zu gewährleisten. Außerdem sind Uhren auf mobilen Geräten möglicherweise nicht sehr genau, wenn Sie mit beginnen.  Umgebungsbedingungen wirken sich auf die Takt Genauigkeit aus, und ein mobiles Gerät kann von einer Umgebungs Bedingung zum nächsten wechseln, was die Fähigkeit beeinträchtigt, Zeit genau zu halten.  Daher wird von Microsoft nicht empfohlen, tragbare Geräte mit hoher Genauigkeit in Akku Betrieb zu setzen. 
 
-## <a name="why-is-time-important"></a>Warum ist die Uhrzeit wichtig?  
-Es gibt viele verschiedene Gründe, dass Sie möglicherweise die genaue Zeit benötigen.  Die typische Fall für Windows ist Kerberos verwendet, die 5 Minuten der Genauigkeit zwischen Client und Server erforderlich ist.  Es gibt jedoch viele andere Bereiche, die dazu zählen Genauigkeit auswirken können:
+## <a name="why-is-time-important"></a>Warum ist Zeit wichtig?  
+Es gibt viele verschiedene Gründe, weshalb Sie möglicherweise eine genaue Zeit benötigen.  Der typische Fall für Windows ist Kerberos, bei dem eine Genauigkeit von 5 Minuten zwischen Client und Server erforderlich ist.  Es gibt jedoch viele weitere Bereiche, die von der Zeit Genauigkeit betroffen sein können, darunter:
 
 
-- Gesetzliche Vorschriften wie folgt vor:
-    - 50 ms beträgt die Genauigkeit für FINRA in den USA
-    - 1 ms ESMA (MiFID II) in der EU.
-- Kryptografischen Algorithmen
-- Verteilte Systeme wie Cluster/SQL/Exchange und der Dokument-Datenbanken
-- Blockchain-Framework für Bitcoin-Transaktionen
+- Behördliche Vorschriften wie:
+    - 50 ms-Genauigkeit für FINRA in den USA
+    - 1 MS ESMA (MiFID II) in der EU.
+- Kryptografiealgorithmen
+- Verteilte Systeme wie Cluster/SQL/Exchange und Dokument-DSB
+- Blockchain-Framework für bitcoin-Transaktionen
 - Verteilte Protokolle und Bedrohungsanalyse 
 - AD-Replikation
-- PCI (Payment Card Industry), Zeit 1 Sekunde Genauigkeit
+- PCI (Payment Card Industry), zurzeit 1 Sekunde Genauigkeit
 
 
 

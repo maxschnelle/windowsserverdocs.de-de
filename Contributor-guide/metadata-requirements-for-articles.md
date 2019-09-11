@@ -1,28 +1,28 @@
 ---
-title: Fügen Sie die erforderlichen Metadaten-Tags auf Ihr Windows Server-Artikel
-description: Eine Liste mit den Informationen müssen Sie als Tags für Metadaten und dem oberen Rand von Windows Server-bezogenen Artikeln hinzufügen. Die erforderlichen Tags unterliegen, basierend auf Anforderungen von sowohl aufgrund Ihrer Berichte und -Team.
+title: Hinzufügen der erforderlichen Metadatentags zu Ihrem Windows Server-bezogenen Artikel
+description: Eine Liste der Informationen, die Sie als Metadatentags am Anfang Ihrer Windows Server-bezogenen Artikel hinzufügen müssen. Die erforderlichen Tags können je nach Berichterstellung und Teamanforderungen geändert werden.
 author: eross-msft
 ms.author: lizross
 ms.date: 05/06/2019
-ms.openlocfilehash: f7c514def1353d44386b1bc53c8cabffe1e31fda
-ms.sourcegitcommit: 7e54a1bcd31cd2c6b18fd1f21b03f5cfb6165bf3
+ms.openlocfilehash: f0af6b48cd3fd28ae0a15752cb21bfe9a4abf14f
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65461646"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865092"
 ---
-# <a name="add-the-required-metadata-tags-to-your-windows-server-related-article"></a>Fügen Sie die erforderlichen Metadaten-Tags auf Ihr Windows Server-Artikel
+# <a name="add-the-required-metadata-tags-to-your-windows-server-related-article"></a>Hinzufügen der erforderlichen Metadatentags zu Ihrem Windows Server-bezogenen Artikel
 
-Am oberen Rand jedes Artikels gibt es spezifische Metadaten, der für die nachverfolgung und SEO-Zwecke eingeschlossen werden muss. Die erforderlichen Tags unterliegen ändern sich je nach Anforderungen ab. Allerdings sollten Sie benachrichtigt werden, wenn Sie Felder hinzufügen oder entfernen möchten.
+Am Anfang jedes Artikels gibt es bestimmte Metadaten, die für die Nachverfolgung und SEO verwendet werden müssen. Die erforderlichen Tags können basierend auf den Berichterstattungs Anforderungen geändert werden. Sie sollten jedoch benachrichtigt werden, wenn Sie Felder hinzufügen bzw. entfernen müssen.
 
-Es sollte folgendermaßen aussehen, einschließlich der drei Bindestrichen (-) am oberen und unteren:
+Es sollte wie folgt aussehen, einschließlich der drei Bindestriche (---) oben und unten:
 
 ```markdown
 
 ---
 title: The title of the article should go here. This is used in SEO and search results.
 
-description: A description for the article should go here. This is used in search results, to provide users with information about whether the article has the information they’re looking for.
+description: A description for the article should go here. This is used in search results, to provide users with information about whether the article has the information they're looking for.
 
 ms.prod: Use this specific text, windows-server-threshold
 
@@ -32,7 +32,7 @@ author: Your GitHub alias
 
 ms.author: Your Microsoft alias
 
-manager: Your manager’s Microsoft alias
+manager: Your manager's Microsoft alias
 
 ms.topic: Type of article, including article, landing-page, get-started-article, or reference
 

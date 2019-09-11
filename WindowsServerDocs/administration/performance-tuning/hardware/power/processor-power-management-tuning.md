@@ -1,132 +1,132 @@
 ---
-title: Optimierung der Energiesparplan von Windows Server mit Lastenausgleich für die Energieverwaltung (PPM)
-description: Optimierung der Energiesparplan von Windows Server mit Lastenausgleich für die Energieverwaltung (PPM)
+title: Optimieren der Prozessor Energie Verwaltung (ppm) für den Energie Sparplan von Windows Server ausgeglichen
+description: Optimieren der Prozessor Energie Verwaltung (ppm) für den Energie Sparplan von Windows Server ausgeglichen
 ms.prod: windows-server-threshold
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Qizha;TristanB
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 9b8af89992f01712e16d0ef503c8cbbac915df1d
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: f98e8f3b64bd91837b6cc9b62777bebd57c0ec00
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811591"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866757"
 ---
-# <a name="processor-power-management-ppm-tuning-for-the-windows-server-balanced-power-plan"></a>Optimierung der Energiesparplan von Windows Server mit Lastenausgleich für die Energieverwaltung (PPM)
+# <a name="processor-power-management-ppm-tuning-for-the-windows-server-balanced-power-plan"></a>Optimieren der Prozessor Energie Verwaltung (ppm) für den Energie Sparplan von Windows Server ausgeglichen
 
-Ab Windows Server 2008 bietet Windows Server drei Energiesparpläne aus: **Mit Lastenausgleich**, **hohe Leistung**, und **Power Bildschirmschoner**. Die **ausgeglichen** Energiesparplan ist die Standardoption, die zielt darauf ab, die Energieeffizienz für eine Reihe von typischen Server-Workloads zu erhalten. In diesem Thema wird beschrieben, die arbeitsauslastungen, die verwendet wurden, um zu bestimmen, die Standardeinstellungen für die **ausgeglichen** -Schema für die letzten Versionen von Windows.
+Ab Windows Server 2008 bietet Windows Server drei Energie Sparpläne: **Ausgeglichen**, **hohe Leistung**und **Energiespar**Modus. Der **ausgeglichene** Energie Sparplan ist die Standardoption, mit der die beste Energieeffizienz für eine Reihe typischer Server Arbeits Auslastungen erzielt werden soll. In diesem Thema werden die Arbeits Auslastungen beschrieben, die verwendet wurden, um die Standardeinstellungen für das **ausgeglichene** Schema für die letzten Versionen von Windows zu ermitteln.
 
-Wenn Sie ein Server-System, die andere workloadmerkmale oder Leistung und geringeren Energieverbrauch als für diese Workloads verfügt ausführen, möchten Sie möglicherweise optimieren Sie die Standardeinstellungen für die Power (d. h., einen benutzerdefinierten Energiesparplan erstellen). Ist eine Informationsquelle nützliche Optimierung der [Server Power Hardwareanforderungen](../power.md). Alternativ können Sie entscheiden, dass die **hohe Leistung** Energiesparplan ist die richtige Wahl für Ihre Umgebung erkennen, dass Sie wahrscheinlich eine erhebliche Energie, die im Austausch gegen gewisse erhöhte Reaktionsfähigkeit erreicht gelangen.
-
-> [!IMPORTANT]
-> Nutzen Sie die Power-Richtlinien, die mit Windows Server enthalten sind, es sei denn, Sie eine spezifische Notwendigkeit haben, erstellen Sie eine benutzerdefinierte und sehr gute Kenntnisse, dass die Ergebnisse je nach den Eigenschaften Ihrer arbeitsauslastung variieren.
-
-## <a name="windows-processor-power-tuning-methodology"></a>Windows-Prozessor Power Optimierung Methodik
-
-
-### <a name="tested-workloads"></a>Getestete workloads
-
-Workloads werden ausgewählt, auf einen Best-Effort-Prinzip von "typischen" Windows Server-Workloads. Dieser Satz ist offensichtlich nicht vorgesehen, für die ganze Bandbreite der echten serverumgebungen repräsentativ sein.
-
-Die Optimierung in jeder Richtlinie Power sind Daten, die durch die folgenden fünf Workloads gesteuert:
-
--   **IIS-Webserver-workload**
-
-    Eine interne Microsoft-Vergleichstest wird aufgerufen, Web-Grundlagen wird verwendet, zur Optimierung der Energieeffizienz von Plattformen, die IIS-Webserver ausführen. Das Setup enthält einen Webserver und mehrere Clients, die die Web Access-Datenverkehr zu simulieren. Die Verteilung von "Dynamic", "Static" heiß "(in-Memory) und statische Cold (Datenträgerzugriff erforderlich) Webseiten basieren auf statistische Untersuchungen der Produktionsserver. Um die CPU-Kerne des Servers auf vollständige Auslastung (ein Ende des Spektrums getestete) zu übertragen, benötigt die Einrichtung schnell genug Netzwerk- und Datenträger.
-
--   **SQL Server-Datenbank-arbeitsauslastung**
-
-    Die [TPC-E-](http://www.tpc.org/tpce/default.asp) Benchmark ist eine beliebte Benchmark für Datenbank-Leistungsanalyse. Es wird verwendet, um eine OLTP-arbeitsauslastung für die Optimierung PPM-Optimierungen zu generieren. Diese Workload ist erheblich mehr Datenträger-e/a, und daher wurde eine hohe Leistung-Anforderung für die Speichergröße für System- und Arbeitsspeicher.
-
--   **Dateiserver-arbeitsauslastung**
-
-    Wird aufgerufen, eine Benchmark von Microsoft entwickelt wurden [FSCT](http://www.snia.org/sites/default/files2/sdc_archives/2009_presentations/tuesday/BartoszNyczkowski-JianYan_FileServerCapacityTool.pdf) zum Generieren einer SMB-Dateiserver-arbeitsauslastung verwendet wird. Erstellt eine große Datei auf dem Server festgelegt und viele Clientsysteme (tatsächlichen oder virtualisierten) zum Generieren der Datei öffnen, schließen, Lese- und Schreibvorgänge verwendet. Die Vorgang Mischung basiert auf statistische Untersuchungen der Produktionsserver. Weiterhin wird unterstrichen, CPU-, Datenträger- und Netzwerkressourcen.
-
--   **SPECpower – JAVA-workload**
-
-    [SPECpower\_ssj2008](http://spec.org/power_ssj2008/) ist der erste SPEC Industriestandard-Benchmark, der Leistungsfähigkeit Merkmale gemeinsam ausgewertet wird. Es ist ein serverseitiges Java-Workload mit unterschiedlichen Ebenen der CPU-Auslastung. Viele Datenträger- oder Netzwerk-Ressourcen muss nicht, aber sie hat bestimmte Anforderungen für die Speicherbandbreite. Fast alle die CPU-Aktivität wird ausgeführt, im Benutzermodus. Kernelmodus-Aktivität muss nicht viel Auswirkungen auf die Benchmarks' Power und Leistungsmerkmale, mit Ausnahme der Entscheidungen für die Verwaltung.
-
--   **Anwendungsserver-arbeitsauslastung**
-
-    Die [SAP-SD-](http://global.sap.com/campaigns/benchmark/index.epx) Vergleichstest wird verwendet, um eine Anwendungsserver-arbeitsauslastung zu generieren. Ein zwei-Ebenen-Setup wird mit der Datenbank und dem Anwendungsserver, auf dem gleichen Serverhost verwendet. Diese Workload nutzt auch Antwortzeit als eine Leistungsmetrik, die von anderen getesteten Workloads unterscheidet. Daher wird sie verwendet, um die Auswirkungen der PPM-Parameter auf die Reaktionsfähigkeit zu überprüfen. Dennoch soll es nicht repräsentativ für alle produktionsworkloads für die Latenz von Bedeutung sein.
-
-Alle die Benchmarks außer SPECpower wurden ursprünglich entworfen, für die Leistungsanalyse und daher für die Ausführung unter Last spitzenauslastung erstellt wurden. Allerdings Ebenen Medium zu geringer Auslastung, sind häufiger für Server mit der realen Welt und weitere interessante für **ausgeglichen** Planen von Optimierungen. Wir führen absichtlich die Benchmarks mit unterschiedlicher Last von 100 % auf 10 % (in Schritten von 10 %) über die Drosselung Methoden (z. B. durch das Reduzieren der Anzahl von aktiven Clients/Benutzer).
-
-### <a name="hardware-configurations"></a>Hardwarekonfigurationen
-
-Für jede Version von Windows werden die aktuellen Produktionsserver in den Power Plans Analyse und Optimierung verwendet. In einigen Fällen wurden die Tests auf Pre-Production-Systemen ausgeführt, deren releasezeitplan, die die nächste Windows-Version übereinstimmt.
-
-Angesichts der Tatsache, dass die meisten Server mit 1 bis 4 prozessorsockets verkauft werden, und da hochskalieren Server weniger wahrscheinlich Energieeffizienz als eines der Hauptprobleme sind, sind die Power-Plan Optimierung in erster Linie auf Systemen mit 2-Socket und 4-Socket-Tests. Die Menge an Arbeitsspeicher, Datenträger und Netzwerk-Ressourcen für jeden Test werden ausgewählt, um jedes System auszuführende einprozessorenlösungen bis hinauf unter Berücksichtigung die Cost-Einschränkungen, die normalerweise zu echten serverumgebungen, z. B. unter Beibehaltung der vollen Kapazität ermöglichen die Konfigurationen, die sinnvoll.
+Wenn Sie ein Server System mit stark unterschiedlichen workloadmerkmalen oder Leistungs-und Leistungsanforderungen als diese Arbeits Auslastungen ausführen, sollten Sie die Standardeinstellungen für Energie Einstellungen (d. h. Erstellen eines benutzerdefinierten Energie Sparplans) optimieren. Eine Quelle nützlicher Optimierungs Informationen sind die [Leistungsaspekte der Server Hardware](../power.md). Alternativ können Sie sich entscheiden, dass der **High Performance** -Energie Sparplan die richtige Wahl für Ihre Umgebung ist. Dadurch wird erkannt, dass Sie für eine gewisse höhere Reaktionsfähigkeit wahrscheinlich eine beträchtliche Stromversorgung in Exchange erreichen werden.
 
 > [!IMPORTANT]
-> Obwohl das System an die Spitzenlast ausführen kann, in der Regel Optimierung erfolgt für geringer Auslastung, da Server, die konsistent zu ihren Spitzenwert Auslastungsgrad ausgeführt klar empfohlen wäre, mit der **High Performance** Energiesparoption, es sei denn, Energie Effizienz ist eine hohe Priorität.
+> Sie sollten die in Windows Server enthaltenen Energierichtlinien nutzen, es sei denn, Sie müssen ein benutzerdefiniertes erstellen und wissen, dass Ihre Ergebnisse abhängig von den Merkmalen der Arbeitsauslastung variieren.
+
+## <a name="windows-processor-power-tuning-methodology"></a>Methodik der Energieoptimierung für Windows-Prozessoren
+
+
+### <a name="tested-workloads"></a>Getestete Workloads
+
+Arbeits Auslastungen werden ausgewählt, um einen bestmöglichen Satz von "typischen" Windows Server-Workloads abzudecken. Natürlich ist dieser Satz nicht für die gesamte Breite der realen Serverumgebungen repräsentativ.
+
+Die Optimierung der einzelnen Energierichtlinien basiert auf den Daten, die von den folgenden fünf Workloads gesteuert werden:
+
+-   **IIS-Webserver-Arbeitsauslastung**
+
+    Ein interner Microsoft-Vergleichstest mit dem Namen "Web Fundamentals" wird verwendet, um die Energieeffizienz von Plattformen mit IIS-Webserver zu optimieren Das Setup enthält einen Webserver und mehrere Clients, die den Web Access-Datenverkehr simulieren. Die Verteilung dynamischer, statischer (in-Memory) und statischer kalter (Datenträger Zugriff erforderlich) Web Pages basiert auf statistischen Studien von Produktionsservern. Um die CPU-Kerne des Servers auf die vollständige Auslastung (ein Ende des getesteten Spektrums) zu übersetzen, benötigt das Setup ausreichend schnelle Netzwerk-und Datenträger Ressourcen.
+
+-   **Arbeitsauslastung der SQL Server Datenbank**
+
+    [TPC-E](http://www.tpc.org/tpce/default.asp) Benchmark ist ein beliebter Benchmark für die Analyse der Datenbankleistung. Es wird verwendet, um eine OLTP-Arbeitsauslastung für ppm-Optimierungs Optimierungen zu generieren. Diese Arbeitsauslastung weist eine beträchtliche Datenträger-e/a auf und hat daher eine hohe Leistungsanforderung für das Speichersystem und die Speichergröße.
+
+-   **Datei Server-Arbeitsauslastung**
+
+    Ein von Microsoft entwickelter Benchmark namens [FSCT](http://www.snia.org/sites/default/files2/sdc_archives/2009_presentations/tuesday/BartoszNyczkowski-JianYan_FileServerCapacityTool.pdf) wird verwendet, um eine SMB-Dateiserver-Arbeitsauslastung zu generieren. Er erstellt einen großen Datei Satz auf dem Server und verwendet viele Client Systeme (tatsächlich oder virtualisiert) zum Generieren von Datei Öffnungs-, Schließ-, Lese-und Schreibvorgängen. Die Vorgangs Mischung basiert auf statistischen Studien von Produktionsservern. Er betont CPU-, Datenträger-und Netzwerkressourcen.
+
+-   **Specpower – Java-Arbeitsauslastung**
+
+    [Specpower\_ssj2008](http://spec.org/power_ssj2008/) ist der erste Branchen standardspezifikations-Benchmark, der die Leistungs-und Leistungsmerkmale zusammen wertet. Dabei handelt es sich um eine serverseitige Java-Arbeitsauslastung mit unterschiedlichen CPU-Lade Graden. Es sind nicht viele Datenträger-oder Netzwerkressourcen erforderlich, es sind jedoch bestimmte Anforderungen an die Arbeitsspeicher Bandbreite erforderlich. Fast alle CPU-Aktivitäten werden im Benutzermodus ausgeführt. die kernelmodusaktivität hat keine großen Auswirkungen auf die Leistungs-und Leistungsmerkmale der Benchmarks, mit Ausnahme der Energie Verwaltungsentscheidungen.
+
+-   **Anwendungs Server-Arbeitsauslastung**
+
+    Der [SAP-SD-](http://global.sap.com/campaigns/benchmark/index.epx) Vergleichstest wird verwendet, um eine Anwendungsserver-Arbeitsauslastung zu generieren. Es wird eine zweistufige Installation mit der-Datenbank und dem Anwendungsserver auf demselben Server Host verwendet. Diese Arbeitsauslastung nutzt auch die Antwortzeit als Leistungs Metrik, die von anderen getesteten Workloads abweicht. Daher wird es verwendet, um die Auswirkung von ppm-Parametern auf Reaktionsfähigkeit zu überprüfen. Es ist jedoch nicht für alle Latenz sensiblen produktionsworkloads repräsentativ.
+
+Alle Benchmarks außer specpower wurden ursprünglich für die Leistungsanalyse entwickelt und daher für die Ausführung bei Spitzenlast Ebenen erstellt. Allerdings sind Mittel-zu-Licht-Ladestufen für reale Produktionsserver häufiger und für **ausgeglichene** Plan Optimierungen interessanter. Wir führen die Benchmarks mit verschiedenen einschränkenden Methoden (z. b. durch Verringern der Anzahl aktiver Benutzer/Clients) auf unterschiedlichen Belastungsstufen von 100% bis zu 10% (in 10%-Schritten) aus.
+
+### <a name="hardware-configurations"></a>Hardware Konfigurationen
+
+Für jede Version von Windows werden die aktuellen Produktionsserver in der Energie Sparplan-Analyse und-Optimierung verwendet. In einigen Fällen wurden die Tests in präproduktionssystemen ausgeführt, deren releasezeitplan mit der nächsten Windows-Version übereinstimmt.
+
+Da die meisten Server mit 1 bis 4 Prozessor Sockets verkauft werden, und da die Wahrscheinlichkeit, dass für Server mit horizontaler Skalierung die Energieeffizienz als Hauptanliegen festgestellt wird, werden die Tests der Energiespar Plan Optimierung hauptsächlich auf zwei socketsystemen und vier socketsystemen ausgeführt. Die Größe der RAM-, Datenträger-und Netzwerkressourcen für jeden Test wird ausgewählt, damit jedes System bis zu seiner vollen Kapazität ausgeführt werden kann. dabei werden die Kosteneinschränkungen berücksichtigt, die normalerweise für reale Serverumgebungen gelten, wie z. b. die Beibehaltung der angemessene Konfigurationen.
+
+> [!IMPORTANT]
+> Obwohl das System bei Spitzenlast ausgeführt werden kann, optimieren wir in der Regel eine höhere Auslastung, da Server, die mit ihren Spitzenlast Ebenen konsistent ausgeführt werden, den **hochleistungsfähigen** Energie Sparplan nutzen würden, sofern die Energieeffizienz nicht hoch ist. haben.
 
 ### <a name="metrics"></a>Metriken
 
-Alle von den getesteten Benchmarks verwenden Durchsatz, als die Leistungsmetrik. Antwortzeit gilt als SLA-Anforderung für diese Workloads (mit Ausnahme von SAP, in denen es sich um eine primäre Metrik ist). Ein vergleichstestlaufs gilt z. B. "ungültig", wenn die Mittelwert- oder die maximale Antwortzeit, die kleiner als bestimmten Wert ist.
+Alle getesteten Benchmarks verwenden den Durchsatz als Leistungs Metrik. Die Antwortzeit wird als eine SLA-Anforderung für diese Arbeits Auslastungen betrachtet (mit Ausnahme von SAP, bei der es sich um eine primäre Metrik handelt). Beispielsweise wird ein benchmarklauf als "gültig" betrachtet, wenn die mittlere oder Maximale Antwortzeit kleiner als ein bestimmter Wert ist.
 
-Aus diesem Grund verwendet der Optimierungsanalyse auch PPM Durchsatz als Leistungsmetrik.  Auf der höchsten Auslastung-Ebene (100 % der CPU-Auslastung) ist unser Ziel an, dass der Durchsatz mehr als ein paar Prozent aufgrund Power Management Optimierungen nicht verringert werden soll. Aber der wichtigste Aspekt ist, um die Energieeffizienz zu maximieren (wie unten definiert) auf mittlerer und geringer Auslastung.
+Daher verwendet die ppm-Optimierungs Analyse auch einen Durchsatz als Leistungs Metrik.  Bei der höchsten Auslastung (100% CPU-Auslastung) ist unser Ziel, dass der Durchsatz aufgrund von Optimierungen der Energie Verwaltung nicht mehr als ein paar Prozent verringern sollte. Der wichtigste Aspekt ist jedoch, die Energieeffizienz (wie unten definiert) auf mittlerer und niedriger Auslastung zu maximieren.
 
-![Formel für Power-Effizienz](../../media/serverperf-ppm-formula.jpg)
+![Formel für Energieeffizienz](../../media/serverperf-ppm-formula.jpg)
 
-Die CPU-Kerne auf niedrigeren Häufigkeit ausgeführt wird Energieverbrauch reduziert. Niedriger Häufigkeit wird jedoch in der Regel Durchsatz verringern, und der Antwortzeit zu erhöhen. Für die **ausgeglichen** Energiesparplan, besteht eine absichtliche vor-und Nachteile des Reaktionsfähigkeit und Leistung Effizienz. Die SAP-Workload-Tests als auch die Antwortzeit SLAs für andere Workloads, stellen sicher, dass es sich bei der Antwort verlängern Schwellenwert (5 % als Beispiel) für diese speziellen Workloads nicht überschreitet.
+Durch das Ausführen der CPU-Kerne bei niedrigeren Frequenzen wird der Energieverbrauch reduziert. Niedrigere Frequenzen verringern jedoch in der Regel den Durchsatz und erhöhen die Reaktionszeit. Für den **ausgeglichenen** Energie Sparplan ist ein beabsichtigter Kompromiss von Reaktionsfähigkeit und Energieeffizienz vorhanden. Die SAP-workloadtests und die Antwortzeit-SLAs für die anderen Arbeits Auslastungen stellen sicher, dass die Erhöhung der Antwortzeit für diese spezifischen Workloads keinen bestimmten Schwellenwert (z. b. 5%) überschreitet.
 
 > [!NOTE]
-> Wenn die arbeitsauslastung Antwortzeit als die Leistungsmetrik verwendet, sollte das System entweder zum Wechseln der **hohe Leistung** Energiesparplan von Computern oder ändern Sie **ausgeglichen** Energiesparplan, wie im [ Ausgeglichene Power-Plan-Parameter für die schnelle Antwortzeit empfohlen](recommended-balanced-plan-parameters.md).
+> Wenn die Arbeitsauslastung die Antwortzeit als Leistungs Metrik verwendet, sollte das System entweder zum **hochleistungsfähigen** Energie Sparplan wechseln oder einen **ausgeglichenen** Energie Sparplan ändern, wie in [Empfohlene ausgeglichene Energie Sparplan Parameter für die schnelle Reaktion empfohlen. Uhrzeit](recommended-balanced-plan-parameters.md).
 
-### <a name="tuning-results"></a>Optimierung der Ergebnisse
+### <a name="tuning-results"></a>Optimierungsergebnisse
 
-Ab Windows Server 2008, hat Microsoft mit Intel und AMD, um die PPM-Parameter für die aktuellen Serverprozessoren für jede Windows-Version zu optimieren. Eine große Anzahl von Seiten pro Minute Parameterkombinationen wurden in jeder der zuvor erläuterten arbeitsauslastungen finden Sie die beste Energieeffizienz auf andere Ebenen getestet. Als Software-Algorithmen wurden optimiert und als Hardware-Power-Architekturen hoch entwickelten, jede neue Windows-Server immer besser hatte oder gleich Energieeffizienz als die früheren Versionen über den Bereich der getesteten Workloads.
+Ab Windows Server 2008 hat Microsoft mit Intel und AMD gearbeitet, um die ppm-Parameter für die aktuellsten Server Prozessoren für die einzelnen Windows-Releases zu optimieren. Für jede der zuvor erläuterten Workloads wurde eine enorme Anzahl von ppm-Parameterkombinationen getestet, um die optimale Energieeffizienz auf unterschiedlichen Auslastungs Ebenen zu ermitteln. Bei der Optimierung von Software Algorithmen und bei der Entwicklung von Hardware-Energie Architekturen hatte jeder neue Windows-Server immer eine bessere oder gleichmäßige Energieeffizienz als seine früheren Versionen im Bereich der getesteten Workloads.
 
-Die folgende Abbildung zeigt ein Beispiel der Energieeffizienz unter verschiedenen TPC-E-Auslastungsgrad auf einem 4-Socket-Produktionsserver, der mit Windows Server 2008 R2. Es zeigt eine 8 % Verbesserung im Vergleich zu Windows Server 2008 auf mittlerer Last.
+Die folgende Abbildung zeigt ein Beispiel für die Energieeffizienz unter verschiedenen TPC-E-Ladestufen auf einem 4-socketproduktionsserver, auf dem Windows Server 2008 R2 ausgeführt wird. Im Vergleich zu Windows Server 2008 wird eine Verbesserung von 8% auf mittlerer Auslastung angezeigt.
 
-![Vergleich der Power-Effizienz](../../media/serverperf-ppm-figure1.jpg)
+![Energieeffizienz Vergleich](../../media/serverperf-ppm-figure1.jpg)
 
 ## <a name="customized-tuning-suggestions"></a>Angepasste Optimierungsvorschläge
 
-Wenn Ihre primären workloadmerkmale deutlich von den fünf Workloads verwendet werden, für den standardmäßigen unterscheiden **ausgeglichen** Energiesparplan PPM optimieren, Sie können experimentieren, durch Ändern der einem oder mehreren PPM-Parametern finden Sie die beste Lösung für Ihre Umgebung.
+Wenn sich Ihre primären workloadmerkmale erheblich von den fünf Arbeits Auslastungen unterscheiden, die für die standardmäßige **ausgeglichene** Power Plan ppm-Optimierung verwendet werden, können Sie experimentieren, indem Sie einen oder mehrere ppm-Parameter ändern, um die optimale Eignung für Ihre Umgebung
 
-Aufgrund der Anzahl und Komplexität der Parameter Dies kann eine Herausforderung sein, aber wenn Sie den besten Kompromiss zwischen Energie Verbrauch und Workload-Effizienz für Ihre jeweilige Umgebung suchen, kann es sein, der Mühe Wert.
+Aufgrund der Anzahl und Komplexität von Parametern ist dies möglicherweise eine schwierige Aufgabe. Wenn Sie jedoch nach dem optimalen Kompromiss zwischen Energieverbrauch und workloadwirksamkeit für Ihre spezielle Umgebung suchen, ist es möglicherweise sinnvoll, dies zu tun.
 
- Der vollständige Satz von verschiedene einstellbare PPM-Parameter finden Sie im [Processor Power Management-Optimierung](https://msdn.microsoft.com/windows/hardware/gg566941.aspx). Einige der einfachste Power-Parameter möglicherweise für den Einstieg:
+ Den gesamten Satz von anpassbaren ppm-Parametern finden Sie unter [Optimieren der Prozessor Energie Verwaltung](https://msdn.microsoft.com/windows/hardware/gg566941.aspx). Einige der einfachsten Leistungsparameter, mit denen Sie beginnen können, sind:
 
--   **Prozessor Leistungsschwellenwert erhöhen und die Leistung erhöhen Prozessorzeit** – größere Werte langsam die Perf-Antwort auf eine Zunahme der Aktivität
+-   **Prozessorleistung erhöhen Sie den Schwellenwert und die Prozessorleistung erhöhen** – größere Werte verlangsamen die Leistungs-Antwort auf eine erhöhte Aktivität
 
--   **Prozessor-Leistungsschwellenwert verringern** – große Werte beschleunigen, die Power-Antwort, um die Zeiträume im Leerlauf
+-   **Schwellenwert für die Prozessorleistung verringern** – große Werte versetzen die Energie Antwort auf Leerlauf Zeiträume.
 
--   **Verringern der Zeit der Prozessor Leistung** – größere Werte verringern Perf eher allmählich während Leerlaufzeiten
+-   **Prozessorleistung verringern** – größere Werte erhöhen die Leistung allmählich in Leerlaufzeiten.
 
--   **Prozessor-Leistungsrichtlinie erhöhen** – die Richtlinie "Einfach" verlangsamt die Perf-Antwort auf zunehmende und nachhaltige-Aktivität, die Richtlinie "Rocket" reagiert schnell zu erhöhten Aktivität
+-   **Richtlinie zur Erhöhung der Prozessorleistung** – die "einzelne" Richtlinie verlangsamt die Leistungs-Antwort auf eine erhöhte und anhaltende Aktivität. die Richtlinie "Raketen" reagiert schnell auf eine größere Aktivität
 
--   **Prozessor-Leistungsrichtlinie verringern** – die Richtlinie "Einfach" Perf wird über mehr Leerlaufzeiten eher allmählich verringert wird, die die Richtlinie "Rocket" löscht Power sehr schnell, wenn Sie eine Zeit im Leerlauf eingeben
+-   **Richtlinie zur Verringerung der Prozessorleistung** – die "einzelne" Richtlinie verringert die Leistung in längeren Leerlaufzeiten allmählich. die Richtlinie "Raketen" sinkt bei der Eingabe eines Leerlauf Zeitraums sehr schnell.
 
 >[!Important]
-> Vor dem Starten alle Experimente, sollten Sie zuerst Ihre Workloads, verstehen, was das richtige PPM-Parameter aus und verringern den Aufwand, der Optimierung.
+> Bevor Sie mit Experimenten beginnen, sollten Sie sich zunächst mit den Workloads vertraut machen, die Ihnen dabei helfen, die richtigen ppm-Parameter Optionen zu treffen und den Optimierungs Aufwand zu verringern.
 
-### <a name="understand-high-level-performance-and-power-requirements"></a>Allgemeine Leistung und Energieprofil zu verstehen
+### <a name="understand-high-level-performance-and-power-requirements"></a>Grundlegendes zu Leistungs-und Energieanforderungen auf hoher Ebene
 
-Wenn Ihre Workload "Echtzeit" ist (z. B. anfällig für Glitching oder andere durch den Endbenutzer sichtbar wirkt sich auf) oder sind sehr strenge Reaktionsfähigkeit erforderlich (z. B. eine Börsenmakler), und wenn Energieverbrauch keiner primären Kriterien für Ihre Umgebung ist, sollten Sie Wechseln Sie einfach auf die **hohe Leistung** Energiesparplan. Andernfalls sollten Sie verstehen der Anforderungen an Reaktionen auf-Zeit Ihrer Workloads, und klicken Sie dann optimieren die PPM-Parameter für die beste möglich Energieeffizienz, die immer noch diese Anforderungen erfüllt.
+Wenn Ihre Arbeitsauslastung "Echt Zeit" ist (z. b. anfällig für das Durchsuchen oder andere sichtbare Auswirkungen auf Endbenutzer) oder eine sehr strenge Reaktions Anforderung (z. b. eine Aktien Makler), und wenn der Energieverbrauch kein primäres Kriterium für Ihre Umgebung ist, sollten Sie wahrscheinlich Wechseln Sie einfach zum **hochleistungsfähigen** Energie Sparplan. Andernfalls sollten Sie die Reaktionszeit Anforderungen ihrer Arbeits Auslastungen kennen und dann die ppm-Parameter für die bestmögliche Energieeffizienz optimieren, die diese Anforderungen erfüllt.
 
-### <a name="understand-underlying-workload-characteristics"></a>Verstehen der zugrunde liegenden Merkmalen der arbeitsauslastung
+### <a name="understand-underlying-workload-characteristics"></a>Grundlagen der Merkmale
 
-Sie kennen Ihre Workloads und Entwerfen das Experiment Parametersätze für die Optimierung. Z. B. wenn die Häufigkeit der CPU-Kerne müssen sehr ramped werden erhöhen Fast (vielleicht haben Sie eine bursty arbeitsauslastung mit erheblichen Leerlaufzeiten, aber Sie benötigen sehr schnelle Reaktionsfähigkeit, wenn eine neue Transaktion, die dabei spielt), und klicken Sie dann auf die prozessorleistung Richtlinie möchten "Rocket" (der, wie der Name schon sagt, wird die CPU-Core-Häufigkeit als der maximale Wert, anstatt über eine bestimmte Zeitspanne intensivieren geschossen) festgelegt werden.
+Sie sollten Ihre Arbeits Auslastungen kennen und die Experiment Parametersätze für die Optimierung entwerfen. Wenn z. b. Häufigkeiten der CPU-Kerne sehr schnell hochgefahren werden müssen (möglicherweise verfügen Sie über eine bursty-Arbeitsauslastung mit erheblichen Leerlaufzeiten, aber Sie benötigen eine sehr schnelle Reaktionsfähigkeit, wenn eine neue Transaktion auftritt), dann wird die Richtlinie für die Prozessorleistung erhöht. muss möglicherweise auf "Rocket" festgelegt werden (was bedeutet, dass die CPU-Kern Frequenz in den maximalen Wert und nicht über einen Zeitraum hinweg durchlaufen wird).
 
-Wenn Ihre Workload sehr bursty ist, kann Intervall für die Seiten pro Minute reduziert werden, um die CPU-Frequenz, die schrittweise Ausführung beginnen sich früher nach dem Empfangen eines plötzlichen Ansturms zu machen. Wenn Ihre Workload mit hoher threadparallelität besitzt, und klicken Sie dann das Parken aktiviert werden kann, erzwingen Sie die Workload für eine kleinere Anzahl von Kernen, ausführen, wodurch die potenziell verbessern könnten Cachetreffer Prozessor Verhältnissen.
+Wenn Ihre Arbeitsauslastung sehr gut ist, kann das Intervall von ppm verkürzt werden, damit die CPU-Frequenz schneller nach Erreichen eines Burst Vorgangs beschleunigt wird. Wenn Ihre Arbeitsauslastung keine hohe Thread Parallelität hat, können Sie mit der Kern-Platz Überschreitung aktivieren, um die Ausführung der Arbeitsauslastung auf einer geringeren Anzahl von Kernen zu erzwingen, was möglicherweise zu einer Verbesserung der Prozessor Cache-Trefferquoten führt.
 
-Wenn Sie nur die CPU-Frequenzen auf mittlerer Auslastung Ebenen (d. h. nicht geringer arbeitsauslastung Ebenen) erhöhen möchten, können Prozessor erhöhen oder verringern, Leistungsschwellenwerte angepasst werden, um nicht zu reagieren, bis bestimmte Verfügbarkeitsstufen für Aktivität festgestellt werden.
+Wenn Sie nur die CPU-Frequenzen auf mittlerer Auslastung erhöhen möchten (d. h. keine leichten workloadebenen), können Sie die Schwellenwerte für die Erhöhung/Verringerung der Prozessorleistung so anpassen, dass Sie nicht reagieren, bis bestimmte Aktivitätsstufen beobachtet werden.
 
-### <a name="understand-periodic-behaviors"></a>Verstehen Sie regelmäßige Verhalten
+### <a name="understand-periodic-behaviors"></a>Grundlegendes zum periodischen Verhalten
 
-Möglicherweise gibt es verschiedene Anforderungen für Tages- und Nachtzeit oder über das Wochenende oder möglicherweise gibt es verschiedene Workloads, die zu unterschiedlichen Zeiten ausgeführt. In diesem Fall einen Satz von Seiten pro Minute Parameter optimal für alle Zeiträume möglicherweise nicht. Da mehrere Energiesparpläne entworfen werden können, ist es möglich, sogar für verschiedene Zeiträume zu optimieren, und wechseln Sie zwischen Energiesparpläne über Skripts oder anderen Methoden der dynamischen Konfiguration.
+Es gibt möglicherweise unterschiedliche Leistungsanforderungen für den Tag und die Nacht oder über das Wochenende, oder es gibt verschiedene Workloads, die zu unterschiedlichen Zeiten ausgeführt werden. In diesem Fall ist ein Satz von ppm-Parametern für alle Zeiträume möglicherweise nicht optimal. Da mehrere benutzerdefinierte Energie Sparpläne entwickelt werden können, ist es möglich, sogar für verschiedene Zeiträume zu optimieren und zwischen Energie Sparplänen mithilfe von Skripts oder anderen Methoden der dynamischen Systemkonfiguration zu wechseln.
 
-In diesem Fall addiert, um die Komplexität des Optimierungsprozesses, daher ist es eine Frage, wie viel Wert aus diese Art der Optimierung, erzielt werden, wird das wahrscheinlich muss wiederholt werden, wenn es signifikante Hardwareupgrades oder Änderungen der arbeitsauslastung.
+Dies erhöht wiederum die Komplexität des Optimierungsprozesses, sodass es eine Frage ist, wie viel Wert aus dieser Art von Optimierung erzielt wird. Dies wird wahrscheinlich bei signifikanten Hardware Upgrades oder Änderungen an der Arbeitsauslastung wiederholt.
 
-Aus diesem Grund Windows bietet ist eine **ausgeglichen** – energiesparplanüberwachung im vornherein, da in vielen Fällen es wahrscheinlich nicht den Aufwand der manuellen Optimierung für eine bestimmte Arbeitslast auf einem bestimmten Server Wert ist.
+Aus diesem Grund bietet Windows einen **ausgeglichenen** Energie Sparplan an erster Stelle, denn in vielen Fällen ist es wahrscheinlich nicht sinnvoll, eine manuelle Optimierung für eine bestimmte Arbeitsauslastung auf einem bestimmten Server durchzuführen.
 
 ## <a name="see-also"></a>Siehe auch
-- [Überlegungen zur Leistung von Server-Hardware](../index.md)
+- [Überlegungen zur Server Hardware Leistung](../index.md)
 - [Server Hardware Power Considerations](../power.md) (Überlegungen zum Energiebedarf von Serverhardware)
 - [Power and Performance Tuning](power-performance-tuning.md) (Leistungs- und Energieoptimierung)
 - [Processor Power Management (PPM) Tuning for the Windows Server Balanced Power Plan](processor-power-management-tuning.md) (Optimieren der Prozessorenergieverwaltung (Processor Power Management (PPM)) für den ausgewogenen Energiesparplan von Windows Server)

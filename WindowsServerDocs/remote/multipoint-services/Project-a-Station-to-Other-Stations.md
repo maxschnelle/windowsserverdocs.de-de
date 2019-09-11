@@ -1,6 +1,6 @@
 ---
 title: Projizieren einer Station auf andere Stationen
-description: Erfahren Sie, wie Sie einen Desktop von einem System in eine andere MultiPoint Server freigeben
+description: Erfahren Sie, wie Sie einen Desktop in Multipoint Services von einem System in einen anderen freigeben.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.technology: multipoint-services
@@ -13,32 +13,32 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: a91460718d8f80b62ef7bde698f723a8be9ded90
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: db2b718154a7c41646ab25b16420eb0ee46a17cd
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858111"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871577"
 ---
 # <a name="project-a-station-to-other-stations"></a>Projizieren einer Station auf andere Stationen
-Als MultiPoint-Dashboardbenutzer können Sie Ihren Desktop auf einen einzelnen Benutzer-Station oder alle Benutzer (kein Administrator) Stationen projizieren. Diese Funktion ist nützlich, wenn Sie einem Benutzer oder einer Gruppe von Benutzern eine Aufgabe vorführen möchten.  
+Als Multipoint-Dashboardbenutzer können Sie Ihren Desktop auf die Station eines einzelnen Benutzers oder an die (nicht-Administrator-) Endstationen eines Benutzers projizieren. Diese Funktion ist nützlich, wenn Sie einem Benutzer oder einer Gruppe von Benutzern eine Aufgabe vorführen möchten.  
   
-## <a name="to-project-your-desktop-to-a-standard-users-station"></a>So projizieren Sie Ihren Desktop auf die Station eines Standardbenutzers  
+## <a name="to-project-your-desktop-to-a-standard-users-station"></a>So projizieren Sie Ihren Desktop auf die Station eines Standard Benutzers  
   
-1.  MultiPoint-Dashboard klicken Sie auf die Miniaturansicht des Desktops, dem Sie Ihre Station projizieren möchten.  
-2.  Auf der **Startseite** auf **Ihr Desktop**, und klicken Sie dann auf **Ihren Desktop auf ausgewählte Desktops projizieren**.  
-3.  Klicken Sie zum Beenden der Projektion auf **beenden** (entweder auf die **Projektion** Registerkarte oder in der rechten Ecke unter dem Menüband).  
+1.  Klicken Sie im Multipoint-Dashboard auf die Miniaturansicht des Desktops, auf dem Sie die Station projizieren möchten.  
+2.  Klicken Sie auf der Registerkarte **Startseite** auf **Ihren Desktop**, und klicken Sie dann auf **Ihren Desktop auf ausgewählte Desktops projizieren**.  
+3.  Um die Projektion zu beenden, klicken Sie auf **Beenden** (entweder auf der Registerkarte **Projektion** oder in der rechten Ecke unterhalb der Multifunktionsleiste).  
   
 ## <a name="to-project-your-desktop-to-all-stations"></a>So projizieren Sie Ihren Desktop auf alle Stationen  
   
-1.  MultiPoint-Dashboard auf die **Startseite** auf **Ihr Desktop**, und klicken Sie dann auf **Ihren Desktop auf alle Desktops projizieren**.  
+1.  Klicken Sie im Multipoint-Dashboard auf der Registerkarte **Start** auf **Ihren Desktop**, und klicken Sie dann auf **Ihren Desktop auf alle Desktops projizieren**.  
   
-2.  Klicken Sie zum Beenden der Projektion auf **beenden** (entweder auf die **Projektion** Registerkarte oder in der rechten Ecke unter dem Menüband).  
+2.  Um die Projektion zu beenden, klicken Sie auf **Beenden** (entweder auf der Registerkarte **Projektion** oder in der rechten Ecke unterhalb der Multifunktionsleiste).  
   
 ## <a name="to-project-a-different-desktop-to-all-desktops"></a>So projizieren Sie einen anderen Desktop auf alle Desktops  
   
-1.  Klicken Sie auf die Miniaturansicht des Desktops, die Sie auf alle Desktops projizieren möchten.  
+1.  Klicken Sie auf die Miniaturansicht des Desktops, den Sie auf alle Desktops projizieren möchten.  
   
-2.  Auf der **Startseite** auf **ausgewählter Desktop**, und klicken Sie dann auf **ausgewählter Desktop**. Der ausgewählte Desktop wird auf allen Desktops angezeigt.  
+2.  Klicken Sie auf der Registerkarte **Startseite** auf **ausgewählter Desktop**, und klicken Sie dann auf **ausgewählter Desktop**. Der ausgewählte Desktop wird auf allen Desktops angezeigt.  
   
-3.  Klicken Sie zum Beenden der Projektion auf **beenden** (entweder auf die **Projektion** Registerkarte oder in der rechten Ecke unter dem Menüband).  
+3.  Um die Projektion zu beenden, klicken Sie auf **Beenden** (entweder auf der Registerkarte **Projektion** oder in der rechten Ecke unterhalb der Multifunktionsleiste).  

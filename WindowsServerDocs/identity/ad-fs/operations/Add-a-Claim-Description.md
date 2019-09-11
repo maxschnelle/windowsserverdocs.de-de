@@ -9,40 +9,40 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 1023ca7da02d2a1f6af42f68892dc4c5c8f1a2bf
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 00ae720a933289e3cd4bde5fe9d20610e38ae726
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66444371"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866038"
 ---
 # <a name="add-a-claim-description"></a>Hinzufügen einer Anspruchsbeschreibung
 
 
-Administratoren erstellen in einer Kontopartnerorganisation möglicherweise die Ansprüche, die zum Darstellen der Mitgliedschaft in einer Gruppe oder Rolle eines Benutzers oder zur Darstellung von Daten über einen Benutzer, z. B. eines Benutzers Mitarbeiter-ID an.
+In einer Konto Partnerorganisation erstellen Administratoren Ansprüche, um die Mitgliedschaft eines Benutzers in einer Gruppe oder Rolle darzustellen oder um einige Daten über einen Benutzer darzustellen, z. b. die Mitarbeiter-ID eines Benutzers.
 
-Administratoren erstellen in einer Ressourcenpartnerorganisation übernehmen die entsprechenden Ansprüche zum Darstellen von Gruppen und Benutzer, die als Ressource Benutzer erkannt werden können. Da die ausgehenden Ansprüche in der Konto-Partner Organisation Zuordnung für eingehende Ansprüche, die in der Ressourcenpartnerorganisation, den Ressourcenpartner kann die Anmeldeinformationen akzeptiert werden, die der Kontopartner bereitstellt. 
+In einer Ressourcen Partnerorganisation erstellen Administratoren entsprechende Ansprüche zur Darstellung von Gruppen und Benutzern, die als Ressourcen Benutzer erkannt werden können. Da ausgehende Ansprüche in der Konto Partnerorganisation eingehenden Ansprüchen in der Ressourcen Partnerorganisation zugeordnet werden, kann der Ressourcen Partner die Anmelde Informationen akzeptieren, die der Konto Partner bereitstellt. 
 
-Sie können das folgende Verfahren verwenden, einen Anspruch hinzufügen.
+Mit dem folgenden Verfahren können Sie einen Anspruch hinzufügen.
 
-Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Weitere Informationen zur Verwendung der geeigneten Konten und Gruppenmitgliedschaften unter [lokale und Domänenstandardgruppen](https://go.microsoft.com/fwlink/?LinkId=83477).
+Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).
 
-## <a name="to-add-a-claim-description"></a>Hinzufügen eine anspruchsbeschreibung
+## <a name="to-add-a-claim-description"></a>So fügen Sie eine Anspruchs Beschreibung hinzu
 
-1. Klicken Sie im Server-Manager **Tools**, und wählen Sie dann **AD FS-Verwaltung**. 
+1. Klicken Sie in Server-Manager **auf Extras**, und wählen Sie dann **AD FS Verwaltung**aus. 
 
-2. Erweitern Sie **Service** und auf der rechten Maustaste auf **Anspruchsbeschreibung hinzufügen**.
-   ![Fügen Sie die anspruchsbeschreibung](media/Add-a-Claim-Description/claimdesc1.png)
+2. Erweitern Sie **Dienst** , und klicken Sie auf der rechten Seite auf **Anspruchs Beschreibung hinzufügen**
+   ![Anspruchs Beschreibung hinzufügen](media/Add-a-Claim-Description/claimdesc1.png)
 
-3. Auf dem Hinzufügen einer Anspruchsbeschreibung Dialogfeld **Anzeigenamen**, geben Sie einen eindeutigen Namen, der die Gruppe oder Rolle für dieser Anspruch identifiziert.
+3. Geben Sie im Dialogfeld "Anspruchs Beschreibung hinzufügen" unter **Anzeige Name**einen eindeutigen Namen ein, der die Gruppe oder Rolle für diesen Anspruch identifiziert.
 
-4. Hinzufügen einer **kurze Namen**.
+4. Fügen Sie einen **Kurznamen**hinzu.
 
-5. In **Anspruch Bezeichner**, geben Sie einen URI, der mit der Gruppe oder Rolle des Anspruchs, die Sie verwenden möchten, zugeordnet ist.
+5. Geben Sie in **Anspruchs Bezeichner**einen URI ein, der der Gruppe oder Rolle des Anspruchs zugeordnet ist, den Sie verwenden werden.
 
-6. Klicken Sie unter **Beschreibung**, geben Sie Text ein, die den Zweck dieses Anspruchs am besten beschreibt.
+6. Geben Sie unter **Beschreibung**den Text ein, der den Zweck dieses Anspruchs am besten beschreibt.
 
-7. Je nach den Anforderungen Ihrer Organisation wählen Sie eines der folgenden Kontrollkästchen nach Bedarf, um diesen Anspruch in Verbundmetadaten veröffentlicht:
+7. Aktivieren Sie je nach den Anforderungen Ihrer Organisation eines der folgenden Kontrollkästchen, um diesen Anspruch in Verbund Metadaten zu veröffentlichen:
 
 
 ~~~
@@ -52,7 +52,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 
 8. Klicken Sie auf **OK**.
 
-![Fügen Sie die anspruchsbeschreibung](media/Add-a-Claim-Description/claimdesc2.png)
+![Anspruchs Beschreibung hinzufügen](media/Add-a-Claim-Description/claimdesc2.png)
 
 
 ## <a name="see-also"></a>Siehe auch  

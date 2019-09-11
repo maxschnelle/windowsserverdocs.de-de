@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: ee4dfe223635b176f10691c186144ed5360e3af7
-ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
+ms.openlocfilehash: 5bf85938f242ec29d75b32cdcb8b03c5f34bd1bb
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69560525"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871971"
 ---
 # <a name="dfs-replication-frequently-asked-questions-faq"></a>DFS-Replikation: Häufig gestellte Fragen
 
@@ -53,7 +53,7 @@ Weitere Informationen zum Replizieren von SYSVOL mithilfe DFS-Replikation finden
 
 Ja. Informationen zum Migrieren der Replikation von FRS zu DFS-Replikation finden Sie in den folgenden Dokumenten:
 
-  - Informationen zum Migrieren der Replikation von Ordnern außer dem Ordner SYSVOL finden [Sie im DFS-Betriebshandbuch: Migrieren von FRS zu](http://go.microsoft.com/fwlink/?linkid=192776) DFS-Replikation und [FRS2DFSR – ein FRS-zu-DFSR-Migrations Dienstprogramm](http://go.microsoft.com/fwlink/?linkid=195437) (. http://go.microsoft.com/fwlink/?LinkID=195437)  
+  - Informationen zum Migrieren der Replikation von Ordnern außer dem Ordner SYSVOL finden [Sie im DFS-Betriebshandbuch: Migrieren von FRS zu](http://go.microsoft.com/fwlink/?linkid=192776) DFS-Replikation und [FRS2DFSR – ein FRS-zu-DFSR-Migrations Dienstprogramm](http://go.microsoft.com/fwlink/?linkid=195437) (http://go.microsoft.com/fwlink/?LinkID=195437).  
       
   - Informationen zum Migrieren der Replikation des Ordners "SYSVOL" zu DFS-Replikation finden [Sie unter SYSVOL-Migrations Handbuch: FRS zum DFS-Replikation](https://technet.microsoft.com/library/dd640019).  
       
@@ -717,7 +717,7 @@ Dateien werden auf dem sendenden Member bereitgestellt, wenn das empfangende Ele
 
 Wenn ein Teil der Datei bereits übertragen wird, wird die Übertragung DFS-Replikation fortgesetzt. Wenn die Datei geändert wird, bevor DFS-Replikation mit der Übertragung der Datei beginnt, wird die neuere Version der Datei gesendet.
 
-## <a name="change-history"></a>„Änderungsverlauf“
+## <a name="change-history"></a>Änderungsverlauf
 
 
 <table>

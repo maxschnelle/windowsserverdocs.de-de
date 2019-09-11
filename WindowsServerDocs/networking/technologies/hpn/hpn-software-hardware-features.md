@@ -1,6 +1,6 @@
 ---
 title: Integration von Software und Hardware (SH)-Features und -Technologien
-description: Diese Funktionen haben sowohl Software-und Hardwarekomponenten. Die Software ist auf Hardwarefunktionen, die für das Feature funktioniert erforderlich sind-Desktopplattform gebunden. Beispiele dafür sind VMMQ, VMQ, für die sendeseitige IPv4-Prüfsummenoffload und RSS.
+description: Diese Features verfügen sowohl über Software-als auch Hardwarekomponenten. Die Software ist eng an Hardwarefunktionen gebunden, die für die Funktionsfähigkeit des Features erforderlich sind. Beispiele hierfür sind vmmq, VMQ, sende seitige IPv4-Prüfsumme Offload und RSS.
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -9,43 +9,43 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/12/2018
-ms.openlocfilehash: 98857a5a6d665728c1aab2a6a2df64997d4166b0
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 2f6bb2190dbaa432d20f445c90a560843d6cf4e5
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446225"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871945"
 ---
 # <a name="software-and-hardware-sh-integrated-features-and-technologies"></a>Integration von Software und Hardware (SH)-Features und -Technologien
 
-Diese Funktionen haben sowohl Software-und Hardwarekomponenten. Die Software ist auf Hardwarefunktionen, die für das Feature funktioniert erforderlich sind-Desktopplattform gebunden. Beispiele dafür sind VMMQ, VMQ, für die sendeseitige IPv4-Prüfsummenoffload und RSS.
+Diese Features verfügen sowohl über Software-als auch Hardwarekomponenten. Die Software ist eng an Hardwarefunktionen gebunden, die für die Funktionsfähigkeit des Features erforderlich sind. Beispiele hierfür sind vmmq, VMQ, sende seitige IPv4-Prüfsumme Offload und RSS.
 
 >[!TIP]
->SH und HO-Features sind verfügbar, wenn die installierte NIC unterstützt. Die folgenden Beschreibungen von Features werden beschrieben, wie mitteilen, ob die NIC die Funktion unterstützt.
+>Die Funktionen sh und Ho sind verfügbar, wenn Sie von der installierten NIC unterstützt werden. Die Funktionsbeschreibungen unten beschreiben, wie Sie festzustellen, ob Ihre NIC das Feature unterstützt.
 
-## <a name="converged-nic"></a>Zusammengeführte NIC 
+## <a name="converged-nic"></a>Konvergierte NIC 
 
-Zusammengeführte NIC ist eine Technologie, die virtuelle Netzwerkkarten auf dem Hyper-V-Host RDMA-Dienste zum Hosten von Prozessen verfügbar machen kann. Windows Server 2016 ist mehr getrennter Netzwerkadapter für RDMA erforderlich. Die zusammengeführte NIC-Funktion können die virtuellen NICs in der Hostpartition (vNICs) verfügbar machen RDMA an die Hostpartition, und die Bandbreite der NICs zwischen der RDMA-Datenverkehr und den virtuellen Computer und anderen TCP/UDP-Datenverkehr in eine ausgeglichene und verwaltbare Weise freigeben.
+Konvergierte NIC ist eine Technologie, die es virtuellen NICs auf dem Hyper-V-Host ermöglicht, RDMA-Dienste zum Hosten von Prozessen verfügbar zu machen. Für Windows Server 2016 sind keine separaten NICs mehr für RDMA erforderlich. Mit dem Feature "konvergierte NIC" können die virtuellen NICs in der Host Partition (vNICs) RDMA für die Host Partition verfügbar machen und die Bandbreite der NICs zwischen RDMA-Datenverkehr und der VM sowie anderen TCP/UDP-Datenverkehr auf eine faire und überschaubare Weise freigeben.
 
-![Zusammengeführte NIC mit SDN](../../media/Converged-NIC/conv-nic-sdn.png)
+![Konvergierte NIC mit Sdn](../../media/Converged-NIC/conv-nic-sdn.png)
 
-Sie können die zusammengeführten NIC-Vorgang über VMM oder Windows PowerShell verwalten. Die PowerShell-Cmdlets sind die gleichen-Cmdlets für RDMA (siehe unten) verwendet.
+Sie können den konvergierten NIC-Vorgang über VMM oder Windows PowerShell verwalten. Die PowerShell-Cmdlets sind dieselben Cmdlets, die für RDMA verwendet werden (siehe unten).
 
-Um die zusammengeführte NIC-Funktion verwenden zu können:
+So verwenden Sie die konvergierte NIC-Funktion:
 
-1.  Achten Sie darauf, den Host für DCB festgelegt.
+1.  Stellen Sie sicher, dass der Host für DCB festgelegt ist.
 
-2.  Achten Sie darauf, aktivieren Sie RDMA auf die NIC, oder bei einem SET-Team, die NICs gebunden werden mit dem Hyper-V-Switch. 
+2.  Stellen Sie sicher, dass RDMA auf der NIC aktiviert ist. im Fall eines Set-Teams sind die NICs an den Hyper-V-Switch gebunden. 
 
-3.  Achten Sie darauf, aktivieren RDMA auf vNICs für RDMA auf dem Host festgelegt. 
+3.  Stellen Sie sicher, dass Sie RDMA auf den vNICs aktivieren, die für RDMA im Host festgelegt sind. 
 
-Weitere Informationen zu RDMA- und SET, finden Sie unter [(Remote Direct Memory Access, RDMA) und Switch Embedded Teaming (SET)](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
+Weitere Informationen zu RDMA und Set finden Sie unter [Remote Direct Memory Access (RDMA) und Switch Embedded Teaming (Set)](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
 
 ## <a name="data-center-bridging-dcb"></a>Data Center Bridging (DCB) 
 
-DCB ist eine Sammlung von Standards Institute of Electrical and Electronics Engineers (IEEE), die Converged Fabrics im Datencenter zu aktivieren. DCB bietet Hardware warteschlangenbasierte bandbreitenverwaltung auf einem Host mit der Zusammenarbeit der angrenzende Switch. Sämtlicher Datenverkehr für den Speicher, Daten, frei Netzwerke prozessübergreifende Kommunikation (IPC), und die gleiche Ethernet-Netzwerkinfrastruktur. In Windows Server 2016 wird DCB einzeln auf jede beliebige NIC angewendet werden können, und wechseln Sie NICs, die an den Hyper-V gebunden.
+DCB ist eine Suite aus IEEE-Standards (Institute of Electrical and Electronics Engineers), die konvergierte Fabrics in Rechenzentren ermöglichen. DCB ermöglicht die Verwaltung von Hardware Warteschlangen auf einem Host mit Zusammenarbeit mit dem angrenzenden Switch. Der gesamte Datenverkehr für Speicher, Daten Netzwerke, Cluster übergreifende Kommunikation (Inter-Process Communication, IPC) und Verwaltung nutzen dieselbe Ethernet-Netzwerkinfrastruktur. In Windows Server 2016 kann DCB einzeln auf eine beliebige NIC und auf NICs angewendet werden, die an den Hyper-V-Switch gebunden sind.
 
-Für DCB verwendet Windows Server prioritätsbasierte Flow Control (PCF), im IEEE-802.1Qbb standardisiert. PCF erstellt eine (nahezu) verlustfreie netzwerkfabric Überlauf in Datenverkehrsklassen verhindern. Windows Server verwendet auch die erweiterte Übertragung Auswahl (ETS), im IEEE-802.1Qaz standardisiert. ETS ermöglicht die Aufteilung der Bandbreite in reservierten Teile für bis zu acht Klassen des Datenverkehrs. Jeder Datenverkehrsklasse verfügt über eine eigene übertragen, in die Warteschlange und können durch die Verwendung von PCF, starten und Beenden der Übertragung in einer Klasse.
+Für DCB verwendet Windows Server die Prioritäts basierte Fluss Steuerung (PFC), die in IEEE 802.1 qbb standardisiert ist. PFC erstellt ein (fast) verlustloses netzwerkfabric, indem es einen Überlauf innerhalb von Datenverkehrs Klassen verhindert. Windows Server verwendet auch erweiterte Übertragungs Auswahl (ETS), standardisiert in IEEE 802.1 QAZ. ETS ermöglicht die Division der Bandbreite in reservierte Teile für bis zu acht Klassen von Datenverkehr. Jede Datenverkehrs Klasse verfügt über eine eigene Übertragungs Warteschlange und kann durch die Verwendung von PFC die Übertragung innerhalb einer Klasse starten und Abbrechen.
 
 Weitere Informationen finden Sie unter [Data Center Bridging (DCB)](https://docs.microsoft.com/windows-server/networking/technologies/dcb/dcb-top).
 
@@ -53,64 +53,64 @@ Weitere Informationen finden Sie unter [Data Center Bridging (DCB)](https://docs
 
 |                            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 |----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|       **v1 (HNVv1)**       |                     In Windows Server 2012 eingeführt wurde, können die Hyper-V-Netzwerkvirtualisierung (HNV) Virtualisierung von Kundennetzwerken auf der Basis einer gemeinsam genutzten, physischen Netzwerkinfrastruktur. Mit nur minimale Änderungen erforderlich, auf dem physischen Netzwerk-Fabric, bietet HNV-Dienstanbieter die Agilität, bereitstellen und Migrieren von mandantenworkloads an einer beliebigen Stelle in der drei Clouds: der Service Provider-Cloud, die private Cloud oder der öffentlichen Cloud von Microsoft Azure.                     |
-| **v2 NVGRE (HNVv2 NVGRE)** | In Windows Server 2016 und System Center Virtual Machine Manager bietet Microsoft eine End-to-End-Lösung für die Netzwerkvirtualisierung, die RAS-Gateway, den Softwarelastenausgleich, dem Netzwerkcontroller und mehr enthält. Weitere Informationen finden Sie unter [Hyper-V-Netzwerkvirtualisierung – Übersicht in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/networking/sdn/technologies/hyper-v-network-virtualization/hyperv-network-virtualization-overview-windows-server). |
-| **v2 VxLAN (HNVv2 VxLAN)** |                                                                                                                                                                                        In Windows Server 2016 ist Teil der SDN-Erweiterung, die über den Netzwerkcontroller verwaltet.                                                                                                                                                                                        |
+|       **V1 (HNVv1)**       |                     Hyper-v Network Virtualization (HNV) wurde in Windows Server 2012 eingeführt und ermöglicht die Virtualisierung von Kunden Netzwerken auf einer freigegebenen, physischen Netzwerkinfrastruktur. Bei minimalen Änderungen, die auf dem physischen netzwerkfabric erforderlich sind, bietet HNV Dienstanbietern die Flexibilität, mandantenworkloads überall in den drei Clouds bereitzustellen und zu migrieren: die Dienstanbieter-Cloud, die Private Cloud oder die Microsoft Azure Public Cloud.                     |
+| **V2 nvgre (HNVv2 nvgre)** | In Windows Server 2016 und System Center Virtual Machine Manager bietet Microsoft eine End-to-End-Lösung für die Netzwerkvirtualisierung, die RAS-Gateway, Software Lastenausgleich, Netzwerk Controller und vieles mehr umfasst. Weitere Informationen finden Sie [unter Übersicht über die Hyper-V-Netzwerkvirtualisierung unter Windows Server 2016](https://technet.microsoft.com/windows-server-docs/networking/sdn/technologies/hyper-v-network-virtualization/hyperv-network-virtualization-overview-windows-server). |
+| **V2 vxlan (HNVv2 vxlan)** |                                                                                                                                                                                        In Windows Server 2016 ist Teil der Sdn-Erweiterung, die Sie über den Netzwerk Controller verwalten.                                                                                                                                                                                        |
 
 ---
 
-## <a name="ipsec-task-offload-ipsecto"></a>IPsec-Aufgabenverlagerung (IPsecTO) 
+## <a name="ipsec-task-offload-ipsecto"></a>IPSec-Task Offload (ipsecto) 
 
-IPsec Task Offload ist ein NIC-Feature, können das Betriebssystem den Prozessor auf die NIC für die Verarbeitung der IPsec-Verschlüsselung zu verwenden.
+IPSec-Task Abladung ist eine NIC-Funktion, mit der das Betriebssystem den Prozessor auf der NIC für die IPSec-Verschlüsselung verwenden kann.
 
 >[!IMPORTANT] 
->IPsec Task Offload ist eine veraltete Technologie, die von den meisten Netzwerkadapter unterstützt wird, und, in dem sie vorhanden ist, ist es standardmäßig deaktiviert.
+>Die IPSec-Task Abladung ist eine Legacy Technologie, die von den meisten Netzwerkadaptern nicht unterstützt wird und wo Sie vorhanden ist. Sie ist standardmäßig deaktiviert.
 
-## <a name="private-virtual-local-area-network-pvlan"></a>Private virtuelle Local Area Network (PVLAN). 
+## <a name="private-virtual-local-area-network-pvlan"></a>Privates virtuelles lokales Netzwerk (pvlan). 
 
-PVLANs ermöglichen die Kommunikation nur zwischen virtuellen Computern, auf dem gleichen Virtualisierungsserver. Ein privates virtuelles Netzwerk ist nicht an einen physischen Netzwerkadapter gebunden. Ein privates virtuelles Netzwerk ist von den gesamten externen Netzwerkdatenverkehr auf dem Virtualisierungsserver sowie Netzwerkdatenverkehr zwischen dem Verwaltungsbetriebssystem und im externen Netzwerk isoliert. Dieser Netzwerktyp ist nützlich, wenn Sie eine isolierten Netzwerkumgebung erstellen müssen, wie z. B. eine isolierte Testdomäne. Die Hyper-V und SDN-Stapel unterstützt nur isoliert-Port PVLAN-Modus.
+Pvlans ermöglichen die Kommunikation nur zwischen virtuellen Maschinen auf demselben Virtualisierungsserver. Ein privates virtuelles Netzwerk ist nicht an einen physischen Netzwerkadapter gebunden. Ein privates virtuelles Netzwerk ist von dem gesamten externen Netzwerk Datenverkehr auf dem Virtualisierungsserver sowie von Netzwerk Datenverkehr zwischen dem Verwaltungs Betriebssystem und dem externen Netzwerk isoliert. Dieser Netzwerktyp ist nützlich, wenn Sie eine isolierten Netzwerkumgebung erstellen müssen, wie z. B. eine isolierte Testdomäne. Die Hyper-V-und Sdn-Stapel unterstützen nur den isolierten pvlan-Port Modus.
 
-Weitere Informationen zur Isolation von PVLAN finden Sie unter [System Center: Virtual Machine Manager-Engineering-Blog](https://blogs.technet.microsoft.com/scvmm/2013/06/04/logical-networks-part-iv-pvlan-isolation/).
+Weitere Informationen zur pvlan-Isolation finden [Sie unter System Center: Virtual Machine Manager Engineering-](https://blogs.technet.microsoft.com/scvmm/2013/06/04/logical-networks-part-iv-pvlan-isolation/)Blog.
 
 ## <a name="remote-direct-memory-access-rdma"></a>Remotezugriff auf den direkten Speicher (RDMA) 
 
-RDMA ist eine Netzwerk-Technologie, die Kommunikation von hohem Durchsatz und geringer Latenz bietet, die CPU-Auslastung minimiert, werden. RDMA unterstützt NULL-Copy-Netzwerke durch Aktivieren des Netzwerkadapters zum Übertragen von Daten direkt in oder aus dem Anwendungsspeicher. RDMA-fähigen bedeutet, dass die NIC (physisch oder virtuell) kann RDMA an eine RDMA-Client bereitstellen. RDMA-fähige, also auf der anderen Seite eine RDMA-fähige Netzwerkkarte im Stapel die RDMA-Schnittstelle verfügbar macht.
+RDMA ist eine Netzwerktechnologie, die eine Kommunikation mit hohem Durchsatz und geringer Latenz bietet, die die CPU-Auslastung minimiert. RDMA unterstützt Netzwerke mit Nullen, indem der Netzwerkadapter die direkte Übertragung von Daten in den oder aus dem Anwendungs Speicher ermöglicht. RDMA-fähig bedeutet, dass die NIC (physisch oder virtuell) RDMA für einen RDMA-Client verfügbar machen kann. RDMA-aktiviert hingegen bedeutet, dass eine RDMA-fähige NIC die RDMA-Schnittstelle im Stapel nach oben verfügbar macht.
 
-Weitere Informationen zu RDMA, finden Sie unter [(Remote Direct Memory Access, RDMA) und Switch Embedded Teaming (SET)](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
+Weitere Informationen zu RDMA finden Sie unter [Remote Direct Memory Access (RDMA) und Switch Embedded Teaming (Set)](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
 
 ## <a name="receive-side-scaling-rss"></a>Receive Side Scaling (RSS) 
 
-RSS ist ein NIC-Funktion, die getrennt werden verschiedene Sätze von Streams und übermittelt sie an die verschiedenen Prozessoren für die Verarbeitung. RSS parallelisiert die Netzwerke, die Verarbeitung, aktivieren einen Host, auf die Kosten für sehr hohe skaliert werden. 
+RSS ist eine NIC-Funktion, die unterschiedliche Sätze von Streams trennt und Sie zur Verarbeitung an verschiedene Prozessoren übergibt. RSS parallelisiert die Netzwerk Verarbeitung, sodass ein Host auf sehr hohe Datenraten skaliert werden kann. 
 
-Weitere Informationen finden Sie unter [erhalten empfangsseitige Skalierung (RSS)](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling).
+Weitere Informationen finden Sie unter [Empfangs seitige Skalierung (Receive Side Scaling, RSS)](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling).
 
-## <a name="single-root-input-output-virtualization-sr-iov"></a>E / a-Virtualisierung mit Einzelstamm (SR-IOV) 
+## <a name="single-root-input-output-virtualization-sr-iov"></a>Single root Input-Output Virtualization (SR-IOV) 
 
-SR-IOV kann virtuelle Computer Datenverkehr direkt aus die NIC mit dem virtuellen Computer verschieben, ohne Umweg über den Hyper-V-Host. SR-IOV ist eine unglaublich Verbesserung der Leistung für einen virtuellen Computer, aber es verfügt nicht über die Möglichkeit für den Host, der Named Pipe zu verwalten. Verwenden Sie nur SR-IOV, wenn die arbeitsauslastung gut funktionieren, als vertrauenswürdig eingestuft, und in der Regel die einzige VM auf dem Host.
+SR-IOV ermöglicht es dem VM-Datenverkehr, direkt von der NIC zum virtuellen Computer zu wechseln, ohne den Hyper-V-Host zu übergeben. SR-iov ist eine unglaubliche Verbesserung der Leistung eines virtuellen Computers, aber es ist nicht möglich, diese Pipe durch den Host zu verwalten. Verwenden Sie nur SR-IOV, wenn die Arbeitsauslastung ordnungsgemäß und vertrauenswürdig ist, und in der Regel die einzige VM auf dem Host.
 
-Datenverkehr, der SR-IOV verwendet umgeht, Hyper-V-Switch, der dies, dass alle Richtlinien, z. B. bedeutet, ACLs, oder Verwaltung der Netzwerkbandbreite nicht angewendet werden. SR-IOV-Datenverkehr kann nicht auch über eine Network Virtualization-Funktion übergeben werden, damit NV-GRE- oder VxLAN Kapselung kann nicht angewendet werden. Verwenden Sie SR-IOV nur für höchst vertrauenswürdigen Workloads in bestimmten Situationen. Sie können nicht zusätzlich die Hostrichtlinien, bandbreitenverwaltung und Virtualisierungstechnologien verwenden.
+Datenverkehr, der SR-IOV verwendet, umgeht den Hyper-V-Switch, was bedeutet, dass alle Richtlinien, z. b. ACLs oder die Bandbreiten Verwaltung, nicht angewendet werden. SR-IOV-Datenverkehr kann auch nicht über eine netzwerkvirtualisierungsfunktion durchgeführt werden, daher können NV-GRE oder vxlan-Kapselung nicht angewendet werden. Verwenden Sie SR-IOV nur für gut vertrauenswürdige Workloads in bestimmten Situationen. Darüber hinaus können Sie die Host Richtlinien, die Bandbreiten Verwaltung und die Virtualisierungstechnologien nicht verwenden.
 
-In Zukunft würden zwei Technologien SR-IOV zulassen: Generische Flow Tabellen (GFT) und Hardware-QoS-Abladung (bandbreitenverwaltung in die NIC) – Sobald NICs in unserem Ökosystem unterstützt. Die Kombination dieser beiden Technologien stellen würden SR-IOV ist nützlich für alle VMs, Richtlinien, Virtualisierung und Bandbreite-Management-Regeln angewendet werden können, und konnte zu hervorragenden Bedrohungen weitergeleitet werden, in der allgemeinen Anwendung, der SR-IOV.
+In Zukunft ermöglichen zwei Technologien SR-IOV: Generische Fluss Tabellen (GFT) und Hardware-QoS-Auslagerung (Bandbreiten Verwaltung in der NIC) – Sobald die NICs in unserem Ökosystem diese unterstützen. Durch die Kombination dieser beiden Technologien könnte SR-IOV für alle virtuellen Computer nützlich sein, Richtlinien für die Verwaltung von Richtlinien, Virtualisierung und Bandbreiten Verwaltung ermöglichen und in der allgemeinen Anwendung von SR-IOV hervorragend vorankommen.
 
-Weitere Informationen finden Sie unter [Übersicht der Single Root i/o Virtualization (SR-IOV)](https://docs.microsoft.com/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-).
+Weitere Informationen finden Sie unter [Übersicht über Single root I/O Virtualization (SR-IOV)](https://docs.microsoft.com/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-).
 
 ## <a name="tcp-chimney-offload"></a>TCP-Chimney-Abladung
 
-TCP-Chimney-Abladung, auch bekannt als TCP-Engine-Offload (TOE), ist eine Technologie, die von der Host alle TCP-Verarbeitung an die NIC Auslagern kann Da der Windows Server-TCP-Stapel fast immer mehr ist effizient als die PO-Engine, mit der TCP-Chimney-Abladung wird nicht empfohlen.
+TCP-Chimney-Abladung, auch als "TCP-Engine-Auslagerung (TOE)" bezeichnet, ist eine Technologie, die es dem Host ermöglicht, die gesamte TCP-Verarbeitung auf die NIC zu übertragen. Da der Windows Server-TCP-Stapel fast immer effizienter ist als die Toe-Engine, wird die Verwendung der TCP-Chimney-Abladung nicht empfohlen.
 
 >[!IMPORTANT]
->TCP-Chimney-Abladung ist eine veraltete Technologie. Es wird empfohlen, dass Sie keine TCP-Chimney-Abladung verwenden, da Microsoft beendet möglicherweise in Zukunft unterstützen.
+>Die TCP-Chimney-Abladung ist eine veraltete Technologie. Es wird empfohlen, die TCP-Chimney-Abladung nicht zu verwenden, da Microsoft Sie in Zukunft möglicherweise nicht mehr unterstützt.
 
 ## <a name="virtual-local-area-network-vlan"></a>Virtuelles lokales Netzwerk (VLAN) 
 
-VLAN ist eine Erweiterung des Ethernet-Frame-Headers Partitionierung aktiviert eines LANs in mehrere VLANs, jeweils einen eigenen Adressbereich verwenden. In Windows Server 2016 werden VLANs auf Ports, die von Hyper-V-Switch oder durch Festlegen von teamschnittstellen auf NIC-Teamvorgang Teams festgelegt. Weitere Informationen finden Sie unter [NIC-Teamvorgang und virtuelle lokale Netzwerke (VLANs)](https://docs.microsoft.com/windows-server/networking/technologies/nic-teaming/nict-and-vlans).
+VLAN ist eine Erweiterung des Ethernet-Frame-Headers, um die Partitionierung eines LANs in mehrere VLANs zu ermöglichen, die jeweils einen eigenen Adressraum verwenden. In Windows Server 2016 werden VLANs auf Ports des Hyper-V-Switches oder durch Festlegen von Team Schnittstellen auf NIC-Team Vorgangs Teams festgelegt. Weitere Informationen finden Sie unter [NIC-Team Vorgang und virtuelle lokale Netzwerke (Virtual Local Area Networks, VLANs)](https://docs.microsoft.com/windows-server/networking/technologies/nic-teaming/nict-and-vlans).
 
 ## <a name="virtual-machine-queue-vmq"></a>Warteschlange für virtuelle Computer (Virtual Machine Queue, VMQ) 
 
-Vmq wird eine NIC-Funktion, die eine Warteschlange für jeden virtuellen Computer reserviert. Jedes Mal, wenn Sie Hyper-V aktiviert haben. VMQ muss ebenfalls aktiviert werden. In Windows Server 2016 verwenden Vmq NIC Switch vPorts mit einer einzigen Warteschlange zugewiesen wird, um die vPort aus, um die gleiche Funktionalität bereitzustellen. Weitere Informationen finden Sie unter [virtuelle empfangsseitige Skalierung (vRSS)](https://docs.microsoft.com/windows-server/networking/technologies/vrss/vrss-top) und [NIC-Teamvorgang](https://docs.microsoft.com/windows-server/networking/technologies/nic-teaming/nic-teaming).
+Vmqs ist eine NIC-Funktion, die eine Warteschlange für jeden virtuellen Computer bereitstellt. Wenn Sie Hyper-V aktiviert haben, Sie müssen auch VMQ aktivieren. In Windows Server 2016 verwendet vmqs NIC-Switch-VPORTS mit einer einzelnen Warteschlange, die dem VPort zugewiesen ist, um die gleiche Funktionalität bereitzustellen. Weitere Informationen finden Sie unter [virtuelle Empfangs seitige Skalierung (vrss)](https://docs.microsoft.com/windows-server/networking/technologies/vrss/vrss-top) und [NIC](https://docs.microsoft.com/windows-server/networking/technologies/nic-teaming/nic-teaming)-Team Vorgang.
 
-## <a name="virtual-machine-multi-queue-vmmq"></a>Virtuellen Computer mit mehreren Warteschlangen (VMMQ) 
+## <a name="virtual-machine-multi-queue-vmmq"></a>Virtual Machine multiqueue (vmmq) 
 
-VMMQ ist ein NIC-Feature, können Datenverkehr für einen virtuellen Computer über mehrere Warteschlangen verteilt jede von einem anderen physischen Prozessor verarbeitet werden. Der Datenverkehr wird dann an mehreren LPs auf dem virtuellen Computer übergeben, wie in vRSS, die für die Übermittlung von erhebliche Netzwerkbandbreite auf dem virtuellen Computer ermöglicht.
+Vmmq ist eine NIC-Funktion, mit der Datenverkehr für eine VM auf mehrere Warteschlangen verteilt werden kann, die jeweils von einem anderen physischen Prozessor verarbeitet werden. Der Datenverkehr wird dann an mehrere LPs auf dem virtuellen Computer weitergeleitet, wie er in vrss wäre, was die Bereitstellung einer beträchtlichen Netzwerkbandbreite für den virtuellen Computer ermöglicht.
 
 ---

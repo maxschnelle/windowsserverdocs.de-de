@@ -1,6 +1,6 @@
 ---
-title: Linux-Software-Repository für Microsoft-Produkte
-description: Dieses Dokument beschreibt, wie und Linux-Software-Pakete für Microsoft-Produkte installieren.
+title: Linux-Softwarerepository für Microsoft-Produkte
+description: In diesem Dokument wird beschrieben, wie Sie Linux-Softwarepakete für Microsoft-Produkte verwenden und installieren.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.service: na
@@ -11,32 +11,32 @@ ms.assetid: b5387444-595f-4f38-abb7-163a70ea1895
 author: szarkos
 ms.author: szark
 ms.date: 10/16/2017
-ms.openlocfilehash: 77b309739125a2114ef4ada4adb305f4dd169b06
-ms.sourcegitcommit: 927adf32faa6052234ad08f21125906362e593dc
+ms.openlocfilehash: bade9fff306272188ac8d2b91a3d9921c80fe036
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67033321"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866888"
 ---
-# <a name="linux-software-repository-for-microsoft-products"></a>Linux-Software-Repository für Microsoft-Produkte
+# <a name="linux-software-repository-for-microsoft-products"></a>Linux-Softwarerepository für Microsoft-Produkte
 
 ## <a name="overview"></a>Übersicht
-Microsoft erstellt und unterstützt eine Vielzahl von Softwareprodukten für Linux-Systemen und stellt sie über standard APT und YUM-Package-Repositorys zur Verfügung. In diesem Dokument wird beschrieben, wie so konfigurieren Sie das Repository auf Ihrem Linux-System, sodass Sie Sie dann installieren/Linux-Software von Microsoft über die Verwaltungstools für Ihre Distribution des standard-Pakets aktualisieren können.
+Microsoft erstellt und unterstützt eine Vielzahl von Softwareprodukten für Linux-Systeme und macht Sie über standardmäßige apt-und yum-paketrepositorys verfügbar. In diesem Dokument wird beschrieben, wie Sie das Repository auf Ihrem Linux-System konfigurieren, damit Sie die Linux-Software von Microsoft mithilfe der Standardpaket Verwaltungs Tools Ihrer Distribution installieren/aktualisieren können.
 
-Microsoft Linux-Softwarerepository besteht aus mehreren untergeordneten Repositorys:
+Das Linux-Softwarerepository von Microsoft besteht aus mehreren untergeordneten Depots:
 
- - Produktion: die Produktion unterrepository für Pakete, die für die Verwendung in einer produktionsumgebung vorgesehen festgelegt ist. Diese Pakete werden im Handel von Microsoft unterstützt, unter den Bedingungen des entsprechenden Support-Vertrag oder Programm, das Sie bei Microsoft verfügen.
+ - Prod – das produktionssubrepository ist für Pakete vorgesehen, die für die Verwendung in der Produktion bestimmt sind. Diese Pakete werden kommerziell von Microsoft gemäß den Bedingungen des anwendbaren Supportvertrags oder des Programms, das Sie mit Microsoft haben, unterstützt.
 
- - MSSQL-Server - enthalten diese Repositorys-Paket für Microsoft SQL Server unter Linux – Siehe auch: [SQLServer unter Linux](https://www.microsoft.com/en-us/sql-server/sql-server-vnext-including-Linux).
+ - MSSQL-Server: diese Depots enthalten Pakete für Microsoft SQL Server für Linux-siehe auch: [SQL Server für Linux](https://www.microsoft.com/en-us/sql-server/sql-server-vnext-including-Linux).
 
 > [!Note]
-> Pakete in der Linux-Softwarerepositorys unterliegen den Lizenzbedingungen in den Paketen ab. Lesen Sie die Lizenzbedingungen zustimmen, bevor Sie das Paket verwenden. Die Installation und Verwendung des Pakets bildet Ihre Zustimmung für diese Begriffe. Wenn Sie den Lizenzbedingungen nicht einverstanden sind, verwenden Sie das Paket nicht.
+> Pakete in den Linux-Softwarerepositorys unterliegen den Lizenzbedingungen, die sich in den Paketen befinden. Lesen Sie die Lizenzbedingungen vor der Verwendung des Pakets. Die Installation und Verwendung des Pakets ergibt Ihre Zustimmung zu diesen Bedingungen. Wenn Sie den Lizenzbedingungen nicht zustimmen, verwenden Sie das Paket nicht.
 
 
-## <a name="configuring-the-repositories"></a>Konfigurieren die Repositorys
-Repositorys können automatisch so konfiguriert werden, durch Installieren des Linux-Pakets, die für Ihre Linux-Distribution und Version angewendet wird. Das Paket installiert die Repository-Konfiguration zusammen mit dem öffentlichen GPG-Schlüssel, die von Tools wie z. B. apt/Yum/Zypper verwendet werden, um die signierten Paketen und/oder die Repository-Metadaten zu überprüfen.
+## <a name="configuring-the-repositories"></a>Konfigurieren der Depots
+Depots können automatisch durch Installieren des Linux-Pakets konfiguriert werden, das für Ihre Linux-Distribution und-Version gilt. Das Paket installiert die Repository-Konfiguration zusammen mit dem öffentlichen GPG-Schlüssel, der von Tools wie z. b. apt/yum/zypperverwendet wird, um die signierten Pakete und/oder Repository-Metadaten zu validieren.
 
-### <a name="enterprise-linux-rhel-and-variants"></a>Enterprise Linux (RHEL und Varianten davon)
+### <a name="enterprise-linux-rhel-and-variants"></a>Enterprise Linux (RHEL und Varianten)
 
  - Enterprise Linux 6 (EL6)
 
@@ -49,31 +49,31 @@ Repositorys können automatisch so konfiguriert werden, durch Installieren des L
 
 ### <a name="ubuntu"></a>Ubuntu
 
- - Ubuntu 14.04 (Trusty)
+ - Ubuntu 14,04 (trusty)
 
         curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
         sudo apt-add-repository https://packages.microsoft.com/ubuntu/14.04/prod
         sudo apt-get update
 
- - Ubuntu 16.04 (Xenial)
+ - Ubuntu 16,04 (xenial)
 
         curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
         sudo apt-add-repository https://packages.microsoft.com/ubuntu/16.04/prod
         sudo apt-get update
 
- - Ubuntu 18.04 (Bionic)
+ - Ubuntu 18,04 (Bionic)
 
         curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
         sudo apt-add-repository https://packages.microsoft.com/ubuntu/18.04/prod
         sudo apt-get update
 
- - Ubuntu 18.10 (Cosmic)
+ - Ubuntu 18,10 (kosmisch)
 
         curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
         sudo apt-add-repository https://packages.microsoft.com/ubuntu/18.10/prod
         sudo apt-get update
 
- - Ubuntu 19.04 (Disco)
+ - Ubuntu 19,04 (Disco)
 
         curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
         sudo apt-add-repository https://packages.microsoft.com/ubuntu/19.04/prod
@@ -85,15 +85,15 @@ Repositorys können automatisch so konfiguriert werden, durch Installieren des L
 
 
 ## <a name="manual-configuration"></a>Manuelle Konfiguration
-Die Repository-Konfigurationsdateien stehen über [packages.microsoft.com/config](https://packages.microsoft.com/config/). Der Name und Speicherort dieser Dateien gesucht werden, indem die folgenden URI-Namenskonvention sind möglich:
+Die Repository-Konfigurationsdateien sind über [Packages.Microsoft.com/config](https://packages.microsoft.com/config/)verfügbar. Der Name und der Speicherort dieser Dateien können mit der folgenden URI-Benennungs Konvention gefunden werden:
 
         https://packages.microsoft.com/config/<Distribution>/<Version>/prod.(repo|list)
 
-**Paket und die Signatur von Repository-Schlüssel**
+**Signierungs Schlüssel für Paket und Repository**
 
- - Öffentliche Microsoft GPG-Schlüssel kann hier heruntergeladen werden: [https://packages.microsoft.com/keys/microsoft.asc](https://packages.microsoft.com/keys/microsoft.asc)
- - Öffentliche Schlüssel-ID: Microsoft (Signieren von Version) <gpgsecurity@microsoft.com>
- - Fingerabdrucks: `BC52 8686 B50D 79E3 39D3 721C EB3E 94AD BE12 29CF`
+ - Der öffentliche GPG-Schlüssel von Microsoft kann hier heruntergeladen werden:[https://packages.microsoft.com/keys/microsoft.asc](https://packages.microsoft.com/keys/microsoft.asc)
+ - ID des öffentlichen Schlüssels: Microsoft (releasesignierung)<gpgsecurity@microsoft.com>
+ - Fingerabdruck des öffentlichen Schlüssels:`BC52 8686 B50D 79E3 39D3 721C EB3E 94AD BE12 29CF`
 
 ### <a name="examples"></a>Beispiele:
 

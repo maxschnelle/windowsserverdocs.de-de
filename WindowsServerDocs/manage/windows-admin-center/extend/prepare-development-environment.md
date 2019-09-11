@@ -8,18 +8,18 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.date: 09/18/2018
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 7b1a0672ee374f3e2d1339c43576db0e5cabdc36
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 08634e05d6b7450035324e8d925f2bb9df3b007e
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834761"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869575"
 ---
 # <a name="prepare-your-development-environment"></a>Vorbereiten der Entwicklungsumgebung
 
->Gilt für: Windows Admin Center, Windows Admin Center Preview
+>Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
-Steigen wir Entwicklung Erweiterungen mit dem Windows Admin Center SDK!  In diesem Dokument wird das Verfahren zum Abrufen Ihrer Umgebung einrichten und ausführen, die zum Erstellen und testen eine Erweiterung für Windows Admin Center behandelt.
+Beginnen wir mit der Entwicklung von Erweiterungen mit dem Windows Admin Center SDK!  In diesem Dokument wird der Prozess behandelt, mit dem Sie Ihre Umgebung einrichten und eine Erweiterung für Windows Admin Center erstellen und testen können.
 
 > [!NOTE]
 > Neue Windows Admin Center SDK?  Erfahren Sie mehr über [Erweiterungen für Windows Admin Center](extensibility-overview.md)
@@ -30,9 +30,9 @@ Zur Vorbereitung Ihrer Entwicklungsumgebung, führen Sie die folgenden Schritte 
 
 Zunächst bei der Entwicklung mit dem SDK herunter, und installieren Sie die folgenden Komponenten:
 
-* [Windows Admin Center](https://aka.ms/WACDownloadPage) (bei allgemeiner Verfügbarkeit oder die Preview-Version)
+* [Windows Admin Center](https://aka.ms/WACDownloadPage) (GA oder Vorschauversion)
 * Visual Studio oder [Visual Studio Code](http://code.visualstudio.com)
-* [Node Package Manager](https://npmjs.com/get-npm) (8.12.0 oder höher)
+* [Knoten Paket-Manager](https://npmjs.com/get-npm) (8.12.0 oder höher)
 * [NuGet](https://www.nuget.org/downloads) (zum Veröffentlichen von Erweiterungen)
 
 > [!NOTE]
@@ -42,9 +42,9 @@ Zunächst bei der Entwicklung mit dem SDK herunter, und installieren Sie die fol
 >
 > ```msiexec /i WindowsAdminCenter<version>.msi DEV_MODE=1```
 
-## <a name="install-global-dependencies"></a>Installieren Sie die globale Abhängigkeiten
+## <a name="install-global-dependencies"></a>Installieren von globalen Abhängigkeiten
 
-Als Nächstes installieren oder Aktualisieren von Abhängigkeiten für Ihre Projekte, mit Node Package Manager erforderlich sind. Diese Abhängigkeiten werden global installiert und werden für alle Projekte verfügbar sein.
+Installieren oder aktualisieren Sie anschließend die Abhängigkeiten, die für Ihre Projekte erforderlich sind, mit dem Knoten Paket-Manager. Diese Abhängigkeiten werden global installiert und werden für alle Projekte verfügbar sein.
 
 ```
 npm install -g npm
@@ -58,18 +58,18 @@ npm install -g windows-admin-center-cli
 ```
 
 >[!NOTE]
->Sie können eine höhere Version von installieren @angular/cli, aber möglich, wenn Sie eine Version, die größer als 1.6.5 installieren, während des Gulp-Buildschritts eine Warnung Sie erhalten, dass die lokale Cli-Version die installierte Version nicht übereinstimmt.
+>Sie können eine neuere Version von @angular/cliinstallieren. Beachten Sie jedoch, dass bei der Installation einer höheren Version als 1.6.5 im Rahmen des Gulp-Buildschritts eine Warnung angezeigt wird, dass die lokale CLI-Version nicht mit der installierten Version identisch ist.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Nun, dass Ihre Umgebung vorbereitet ist, können Sie Inhalte erstellen.
+Nachdem Sie Ihre Umgebung vorbereitet haben, können Sie nun mit dem Erstellen von Inhalten beginnen.
 
 - Erstellen Sie eine Erweiterung [tool](develop-tool.md)
 - Erstellen Sie eine [Lösung](develop-solution.md) -Erweiterung
 - Erstellen Sie ein [Gateway-Plug-in](develop-gateway-plugin.md)
 - Weitere Informationen finden Sie mit unserem [Führungslinien](guides.md)
 
-## <a name="sdk-design-toolkit"></a>SDK-Design-toolkit
+## <a name="sdk-design-toolkit"></a>SDK-Entwurfs-Toolkit
 
-Sehen Sie sich unsere Windows Admin Center [SDK Entwurf Toolkit](https://github.com/Microsoft/windows-admin-center-sdk/blob/master/WindowsAdminCenterDesignToolkit.zip)! Dieses Toolkit wurde entwickelt, können Sie die Erweiterungen in PowerPoint – Dank Windows Admin Center Stile, Steuerelemente und Seitenvorlagen schnell zu modellieren. Erfahren Sie, wie die Erweiterung in Windows Admin Center aussehen kann vor dem Programmieren!
+Sehen Sie sich unser Windows Admin Center [SDK Design Toolkit](https://github.com/Microsoft/windows-admin-center-sdk/blob/master/WindowsAdminCenterDesignToolkit.zip)an! Dieses Toolkit soll Ihnen helfen, Erweiterungen in PowerPoint mithilfe von Windows Admin Center-Stilen,-Steuerelementen und-Seitenvorlagen schnell zu bereinigen. Sehen Sie sich an, wie Ihre Erweiterung im Windows Admin Center aussehen kann, bevor Sie mit dem Programmieren beginnen!
 

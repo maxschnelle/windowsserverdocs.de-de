@@ -1,6 +1,6 @@
 ---
-title: WinSAT mem
-description: 'Windows-Befehle Thema ***- '
+title: WinSAT-Arbeitsspeicher
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7cdae81694a916905f36cdd9e941015e3ce5f15c
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: bb0d0027b1b896a51517fb8d58f0a7562fcbd960
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440081"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868761"
 ---
-# <a name="winsat-mem"></a>WinSAT mem
+# <a name="winsat-mem"></a>WinSAT-Arbeitsspeicher
 
 
 
-Tests System Speicherbandbreite in einer Weise, die von großen Arbeitsspeicher-Puffer reflektierende kopiert, da bei der multimedia-Verarbeitung verwendet werden.
+Testet die Systemspeicher Bandbreite auf eine Weise, die große Arbeitsspeicher-und Arbeitsspeicher Puffer Kopien reflektiert, wie Sie bei der Multimedia-Verarbeitung verwendet werden.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -38,32 +38,32 @@ winsat mem <parameters>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|-up|Arbeitsspeicher, die Tests mit nur einem Thread zu erzwingen. Der Standardwert ist ein Thread pro physischen CPU- oder Core ausführen.|
-|-rn|Geben Sie an, dass die Bewertung des Threads mit normaler Priorität ausgeführt werden soll. Der Standardwert ist 15-Priorität ausgeführt.|
-|-nc|Geben Sie an, dass die Bewertung sollte Arbeitsspeicher zuweisen und kennzeichnen es als nicht zwischengespeichert. Dies bedeutet, dass der Prozessor des Caches für Kopiervorgänge umgangen werden werden. Der Standardwert ist im Cache Speicherplatz ausgeführt.|
-|-do \<n>|Geben Sie den Abstand in Byte, zwischen dem Ende der Quellpuffer und dem Beginn des Zielpuffers. Der Standardwert ist 64 Bytes. Die maximale zulässige Zieloffset beträgt 16MB. Angeben eines Offsets ungültiges Ziel führt zu einem Fehler.</br>Hinweis: 0 (null) ist ein gültiger Wert für  **\<n >** , negative Zahlen sind jedoch nicht.|
-|-Mint \<n >|Geben Sie die minimale Zeit in Sekunden für die Bewertung ausgeführt. Der Standardwert ist 2.0. Der Mindestwert ist 1.0. Der maximale Wert ist 30,0.</br>Hinweis: Angeben einer **-Mint** Wert größer als die **- Maxt** Wert, wenn die beiden Parameter in Kombination verwendet werden zu einem Fehler führt.|
-|-Maxt \<n >|Geben Sie die maximal zulässige Laufzeit in Sekunden für die Bewertung. Der Standardwert ist 5.0. Der Mindestwert ist 1.0. Der maximale Wert ist 30,0. Wenn Sie in Kombination mit der **-Mint** Parameter, die Bewertung beginnt die Vorgehensweise statistische periodisch ausgeführten Überprüfung über die Ergebnisse nach der im angegebenen Zeitraum **-Mint**. Wenn die statistische Prüfungen, die Bewertung wird abgeschlossen ist, bevor die im angegebenen Zeitraum **- Maxt** ist abgelaufen. Wenn die Bewertung für die im angegebenen Zeitraum erfolgt **- Maxt** ohne zu diesem Zeitpunkt abgeschlossen und die Ergebnisse zurückgeben werden erfüllen, die statistische überprüft, und klicken Sie dann auf der Bewertung wurden erfasst.|
-|-Buffersize \<n >|Geben Sie die Größe des Puffers, die die Speichertest Kopie verwenden soll. Dieser Betrag wird zweimal pro CPU, zugeordnet werden, der bestimmt, die Menge der Daten aus einem Puffer in einen anderen kopiert. Der Standardwert ist 16MB. Dieser Wert wird auf die nächsten 4-KB-Grenze gerundet. Der maximale Wert beträgt 32MB. Der minimale Wert beträgt 4 KB. Gibt eine ungültige Puffergröße führt zu einem Fehler.|
-|-v|Senden Sie ausführlichen Ausgabe an STDOUT, einschließlich Status und Fortschritt Informationen. Fehler werden auch das Befehlsfenster geschrieben werden.|
-|-XML- \<Dateiname >|Speichern Sie die Ausgabe der Bewertung der angegebenen XML-Datei ein. Wenn die angegebene Datei vorhanden ist, wird sie überschrieben.|
-|-idiskinfo|Speichern von Informationen zu physischen Datenträgern und logische Datenträger als Teil der  **\<SystemConfig >** Abschnitt in der XML-Ausgabe.|
-|-iguid|Erstellen Sie einen global eindeutigen Bezeichner (GUID), in die XML-Ausgabedatei.|
-|– Beachten Sie "Text" Hinweis "|Fügen Sie den Text der Anmerkung, die  **\<Hinweis >** Abschnitt in der XML-Ausgabedatei.|
-|-icn|Schließen Sie Namen des lokalen Computers in die XML-Ausgabedatei an.|
-|-eef|Auflisten von zusätzlichen Systeminformationen in die XML-Ausgabedatei.|
+|nach oben|Erzwingen Sie Speichertests nur mit einem einzigen Thread. Der Standardwert besteht darin, einen Thread pro physischer CPU oder Kern auszuführen.|
+|-RN|Geben Sie an, dass die Threads der Bewertung mit normaler Priorität ausgeführt werden sollen. Der Standardwert besteht darin, mit der Priorität 15 auszuführen.|
+|-NC|Geben Sie an, dass die Bewertung Speicher zuweisen und als nicht zwischengespeicherte markieren soll. Dies bedeutet, dass die Caches des Prozessors bei Kopier Vorgängen umgangen werden. Der Standardwert ist die Durchführung im zwischengespeicherten Speicherplatz.|
+|-Do \<n >|Geben Sie den Abstand zwischen dem Ende des Quell Puffers und dem Anfang des Ziel Puffers in Bytes an. Der Standardwert ist 64 Bytes. Der maximal zulässige Ziel Offset beträgt 16 MB. Das Angeben eines ungültigen Ziel Offsets führt zu einem Fehler.</br>Hinweis: NULL ist ein gültiger Wert für  **\<n >** , aber negative Zahlen nicht.|
+|-Mint \<n >|Geben Sie die minimale Laufzeit (in Sekunden) für die Bewertung an. Der Standardwert ist 2,0. Der Minimalwert ist 1,0. Der Höchstwert ist 30,0.</br>Hinweis: Wenn Sie einen **-Mint-** Wert angeben, der größer ist als der **-maxt-** Wert, wenn die beiden Parameter zusammen verwendet werden, führt dies zu einem Fehler.|
+|-maxt \<n >|Geben Sie die maximale Laufzeit (in Sekunden) für die Bewertung an. Der Standardwert ist 5,0. Der Minimalwert ist 1,0. Der Höchstwert ist 30,0. Wenn Sie in Kombination mit dem **-Mint-** Parameter verwendet wird, beginnt die Bewertung nach dem in **-Mint**angegebenen Zeitraum regelmäßige statistische Prüfungen der Ergebnisse. Wenn die statistischen Überprüfungen bestanden werden, wird die Bewertung beendet, bevor der in **-maxt** angegebene Zeitraum verstrichen ist. Wenn die Bewertung für den in **-maxt** angegebenen Zeitraum ausgeführt wird, ohne die statistischen Prüfungen zu erfüllen, wird die Bewertung zu diesem Zeitpunkt abgeschlossen, und die gesammelten Ergebnisse werden zurückgegeben.|
+|-bufferSize \<n >|Geben Sie die Puffergröße an, die vom Speicher Kopier Test verwendet werden soll. Zweimal wird dieser Betrag pro CPU zugeordnet, der die Menge der Daten bestimmt, die von einem Puffer in einen anderen kopiert werden. Der Standardwert ist 16 MB. Dieser Wert wird auf die nächste Grenze von 4 KB gerundet. Der Höchstwert beträgt 32 MB. Der Minimalwert ist 4 KB. Das Angeben einer ungültigen Puffergröße führt zu einem Fehler.|
+|-v|Senden Sie eine ausführliche Ausgabe an stdout, einschließlich Status-und Fortschrittsinformationen. Alle Fehler werden auch in das Befehlsfenster geschrieben.|
+|-XML \<-Dateiname >|Speichert die Ausgabe der Bewertung als die angegebene XML-Datei. Wenn die angegebene Datei vorhanden ist, wird sie überschrieben.|
+|-idiskinfo|Speichern Sie Informationen zu physischen Volumes und logischen Datenträgern als Teil des  **\<SystemConfig->** Abschnitts in der XML-Ausgabe.|
+|-iguid|Erstellen Sie eine Globally Unique Identifier (GUID) in der XML-Ausgabedatei.|
+|-Hinweis "Hinweis Text"|Fügen Sie den Hinweis Text  **\<dem Abschnitt Notiz >** in der XML-Ausgabedatei hinzu.|
+|-ICN|Fügen Sie den Namen des lokalen Computers in die XML-Ausgabedatei ein.|
+|-EEF|Listet zusätzliche Systeminformationen in der XML-Ausgabedatei auf.|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-- Im folgenden Beispiel wird die Bewertung für ein Minimum von vier Sekunden und nicht mehr als 12 Sekunden, die unter Verwendung einer 32MB-Puffergröße, und speichern die Ergebnisse im XML-Format in die Datei **memtest.xml**.  
+- Im folgenden Beispiel wird die Bewertung für mindestens 4 Sekunden und nicht länger als 12 Sekunden ausgeführt. dabei wird eine Puffergröße von 32 MB verwendet, und die Ergebnisse werden im XML-Format in der Datei **memtest. XML**gespeichert.  
   ```
   winsat mem -mint 4.0 -maxt 12.0 -buffersize 32MB -xml memtest.xml
   ```
 
 ## <a name="remarks"></a>Hinweise
 
--   Ist erforderlich, um verwenden mindestens die Mitgliedschaft in der lokalen Gruppe "Administratoren" oder entsprechende **Winsat**. Der Befehl muss von einer Eingabeaufforderung mit erhöhten Rechten ausgeführt werden.
--   Um eine Eingabeaufforderung mit erhöhten Rechten zu öffnen, klicken Sie auf **starten**, klicken Sie auf **Zubehör**, mit der rechten Maustaste **Eingabeaufforderung**, und klicken Sie auf **als AdministratorAusführen**.
+-   Sie müssen mindestens Mitglied der lokalen Gruppe Administratoren oder einer entsprechenden Gruppe sein, um **WinSAT**verwenden zu können. Der Befehl muss von einem Eingabe Aufforderungs Fenster mit erhöhten Rechten ausgeführt werden.
+-   Klicken Sie zum Öffnen einer Eingabeaufforderung mit erhöhten Rechten auf **Start**und auf **Zubehör**, klicken Sie mit der rechten Maustaste auf **Eingabeaufforderung**, und klicken Sie dann auf **als Administrator ausführen**.
 
 #### <a name="additional-references"></a>Weitere Verweise
 

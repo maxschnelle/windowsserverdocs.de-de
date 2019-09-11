@@ -1,6 +1,6 @@
 ---
 title: Einrichten oder Anpassen der Serversicherung
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -12,12 +12,12 @@ ms.assetid: 441c2d6c-435a-42cb-90f2-6d680d279d34
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 5bd36db4f61b990c3864828370607158df4803a3
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 820474934ef1f164d24d4893c42b10c5043f7707
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433040"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865207"
 ---
 # <a name="set-up-or-customize-server-backup"></a>Einrichten oder Anpassen der Serversicherung
 
@@ -27,15 +27,15 @@ ms.locfileid: "66433040"
   
  Die folgenden Abschnitte enthalten Informationen zum Einrichten oder Anpassen der Serversicherung:  
   
--   [Einrichten oder Ändern von serversicherungseinstellungen](Set-up-or-customize-server-backup.md#BKMK_1)  
+-   [Einrichten oder Ändern von Server Sicherungs Einstellungen](Set-up-or-customize-server-backup.md#BKMK_1)  
   
--   [Serversicherungszeitplan](Set-up-or-customize-server-backup.md#BKMK_2)  
+-   [Zeitplan für die Server Sicherung](Set-up-or-customize-server-backup.md#BKMK_2)  
   
--   [Sicherungsziellaufwerk](Set-up-or-customize-server-backup.md#BKMK_Target)  
+-   [Sicherungs Ziellaufwerk](Set-up-or-customize-server-backup.md#BKMK_Target)  
   
--   [Elemente, die gesichert werden.](Set-up-or-customize-server-backup.md#BKMK_4)  
+-   [Zu sichernde Elemente](Set-up-or-customize-server-backup.md#BKMK_4)  
   
-##  <a name="BKMK_1"></a> Einrichten oder Ändern von serversicherungseinstellungen  
+##  <a name="BKMK_1"></a>Einrichten oder Ändern von Server Sicherungs Einstellungen  
   
 #### <a name="to-set-up-or-change-server-backup-settings"></a>So richten Sie Serversicherungseinstellungen ein oder ändern sie  
   
@@ -54,7 +54,7 @@ ms.locfileid: "66433040"
     >  Wenn Sie den Assistenten starten, bevor Sie das externe Festplattenlaufwerk an den Server angehängt haben, klicken Sie auf **Liste aktualisieren** auf der Seite **Sicherungsziel auswählen** , nachdem Sie das Festplattenlaufwerk angehängt haben.  
   
 > [!NOTE]
->  In der Standardinstallation von Windows Server Essentials ist der Server konfiguriert, dass automatisch einmal pro Woche eine Defragmentierung durchgeführt wird. Dadurch können die Sicherungen größer als üblich ausfallen, wenn Sie nicht von Microsoft stammende Imaging-Software verwenden. Wenn die regelmäßige Defragmentierung des Servers nicht erforderlich ist, führen Sie die folgenden Schritte aus, um den Defragmentierungszeitplan zu deaktivieren:  
+>  In der Standardinstallation von Windows Server Essentials ist der Server so konfiguriert, dass einmal pro Woche automatisch eine Defragmentierung durchgeführt wird. Dadurch können die Sicherungen größer als üblich ausfallen, wenn Sie nicht von Microsoft stammende Imaging-Software verwenden. Wenn die regelmäßige Defragmentierung des Servers nicht erforderlich ist, führen Sie die folgenden Schritte aus, um den Defragmentierungszeitplan zu deaktivieren:  
 > 
 > 1. Drücken Sie WINDOWS+W, um die **Suche** zu öffnen.  
 >    2. Geben Sie im Suchfeld **Defragment**ein.  
@@ -62,10 +62,10 @@ ms.locfileid: "66433040"
 >    4. Wählen Sie auf der Seite **Laufwerke optimieren** ein Laufwerk aus, und klicken Sie dann auf **Einstellungen ändern**.  
 >    5. Deaktivieren Sie im Fenster **Optimierungszeitplan** das Kontrollkästchen **Nach Zeitplan ausführen (empfohlen)** , und klicken Sie dann auf **OK** , um die Änderung zu speichern.  
   
-##  <a name="BKMK_2"></a> Serversicherungszeitplan  
+##  <a name="BKMK_2"></a>Zeitplan für die Server Sicherung  
  Wenn Sie den Assistenten zum Einrichten der Serversicherung oder den Assistenten zum Anpassen der Serversicherung verwenden, können Sie wählen, die Serverdaten zu verschiedenen Zeitpunkten täglich zu sichern. Da die Assistenten inkrementelle Sicherungen planen, werden die Sicherungen schnell ausgeführt und die Serverleistung nicht wesentlich beeinträchtigt. Standardmäßig wird von den Assistenten eine tägliche Sicherung um 12 Uhr und um 23 Uhr geplant. Sie können den Sicherungszeitplan jedoch entsprechend den Anforderungen Ihrer Organisation anpassen. Sie sollten von Zeit zu Zeit die Effektivität des Sicherungsplans bewerten und diesen nach Bedarf ändern.  
   
-##  <a name="BKMK_Target"></a> Sicherungsziellaufwerk  
+##  <a name="BKMK_Target"></a>Sicherungs Ziellaufwerk  
  Sie können zahlreiche externe Speicherlaufwerke für Sicherungen verwenden, und Sie können bei den Laufwerken zwischen internen und externen Speicherorten wechseln. Dadurch können Sie Ihre Vorbereitung auf Notfälle besser planen und sind in der Lage, die Daten wiederherzustellen, wenn die Hardware vor Ort physische Schäden erleidet.  
   
  Bei der Auswahl eines Speicherlaufwerks für die Serversicherung ist Folgendes zu berücksichtigen:  
@@ -81,9 +81,9 @@ ms.locfileid: "66433040"
   
 -   Wenn Sie ein Laufwerk als Sicherungsziel auswählen, das vorherige Sicherungen enthält, können Sie im Assistenten wählen, ob Sie die vorherigen Sicherungen beibehalten möchten. Wenn Sie die Sicherungen beibehalten, formatiert der Assistent das Laufwerk nicht.  
   
--   Sie Sie auf der Website des Herstellers des externen Laufwerk ob um sicherzustellen, dass das Sicherungslaufwerk für Computer, die mit Windows Server Essentials unterstützt wird.  
+-   Besuchen Sie die Website für Ihren externen Speicher Laufwerk Hersteller, um sicherzustellen, dass Ihr Sicherungs Laufwerk auf Computern unter Windows Server Essentials unterstützt wird.  
   
--   Das Laufwerk darf keine EFI-Systempartition (Extensible Firmware Interface) enthalten. Wenn eine EFI-Partition auf einem USB-Laufwerk vorhanden ist, wird davon ausgegangen, dass der Datenträger ein Startdatenträger ist. Wenn Sie sicher sind, dass der Einbau zusätzlichen t müssen die Daten auf dem Datenträger, können Sie den Datenträger neu formatieren und für Sicherungen verwenden.  
+-   Das Laufwerk darf keine EFI-Systempartition (Extensible Firmware Interface) enthalten. Wenn eine EFI-Partition auf einem USB-Laufwerk vorhanden ist, wird davon ausgegangen, dass der Datenträger ein Startdatenträger ist. Wenn Sie sicher sind, dass Sie die Daten auf dem Datenträger nicht benötigen, können Sie den Datenträger neu formatieren und für Sicherungen verwenden.  
   
     > [!CAUTION]
     >  Wenn Sie den Datenträger neu formatieren, werden alle Daten gelöscht.  
@@ -105,9 +105,9 @@ ms.locfileid: "66433040"
     2.  Wählen Sie den Ordner, dessen Freigabe Sie beenden möchten, und klicken Sie im Aufgabenbereich auf **Beenden**.  
   
 > [!NOTE]
->  Wenn eine Sicherung nicht erfolgreich ist, weil das Sicherungslaufwerk nicht genügend Speicherplatz haben, wird der Laufwerkbuchstabe für das Sicherungsziellaufwerk aus der Windows Server Essentials-Datenbank entfernt und das Dashboard wird das Laufwerk nicht angezeigt. Wenn Sie das Laufwerk in zukünftigen Sicherungen verwenden möchten, müssen Sie mithilfe eines systemeigenen Tools den Laufwerkbuchstaben erneut zuweisen.  
+>  Wenn eine Sicherung nicht erfolgreich ist, weil auf dem Sicherungs Laufwerk nicht genügend Speicherplatz vorhanden ist, wird der Laufwerk Buchstabe für das Sicherungs Ziellaufwerk aus der Windows Server Essentials-Datenbank entfernt, und das Laufwerk wird nicht auf dem Dashboard angezeigt. Wenn Sie das Laufwerk in zukünftigen Sicherungen verwenden möchten, müssen Sie mithilfe eines systemeigenen Tools den Laufwerkbuchstaben erneut zuweisen.  
 > 
->  **Um einen Laufwerkbuchstaben für ein vorhandenes Volume erneut zuweisen.**  
+>  **So weisen Sie einen Laufwerk Buchstaben für ein vorhandenes Volume erneut zu**  
 > 
 > 1. Öffnen Sie in der Systemsteuerung **System und Sicherheit**.  
 >    2. Klicken Sie unter **Verwaltung**auf **Festplattenpartitionen erstellen und formatieren**.  
@@ -117,7 +117,7 @@ ms.locfileid: "66433040"
 > 
 >    Das Laufwerk wird sofort auf dem Dashboard angezeigt.  
   
-##  <a name="BKMK_4"></a> Elemente, die gesichert werden.  
+##  <a name="BKMK_4"></a>Zu sichernde Elemente  
  Sie können wählen, alle Laufwerke, Dateien und Ordner auf dem Server zu sichern oder nur einzelne Laufwerke, Dateien oder Ordner für die Sicherung auswählen.  
   
  Wenn Sie ein Laufwerk oder freigegebene Dateien und Ordner hinzufügen oder entfernen, müssen Sie die Serversicherungskonfiguration erneut überprüfen, um sicherzustellen, dass diese Elemente der Sicherungskonfiguration hinzugefügt oder daraus entfernt wurden. Führen Sie einen der folgenden Schritte aus, um Elemente für die Sicherung hinzuzufügen oder zu entfernen:  
@@ -135,9 +135,9 @@ ms.locfileid: "66433040"
   
 ## <a name="see-also"></a>Siehe auch  
   
--   [Verwalten der Serversicherung](Manage-Server-Backup-in-Windows-Server-Essentials.md)  
+-   [Verwalten der Server Sicherung](Manage-Server-Backup-in-Windows-Server-Essentials.md)  
   
--   [Verwalten der Sicherung und Wiederherstellung](Manage-Backup-and-Restore-in-Windows-Server-Essentials.md)  
+-   [Verwalten von Sicherungen und Wiederherstellungen](Manage-Backup-and-Restore-in-Windows-Server-Essentials.md)  
   
 -   [Verwalten von Windows Server Essentials](Manage-Windows-Server-Essentials.md)  
   

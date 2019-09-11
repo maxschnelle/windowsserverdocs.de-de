@@ -1,6 +1,6 @@
 ---
-title: Verwenden von Windows Admin Center zum Verwalten von Betriebssystem-Updates mit der Azure-Updateverwaltung
-description: Verwenden von Windows Admin Center (Projekt Honolulu) die Verwaltung von Azure zum Verwalten von Betriebssystem einrichten aktualisiert.
+title: Verwenden des Windows Admin Centers zum Verwalten von Betriebssystemupdates mit Azure Updateverwaltung
+description: Verwenden Sie das Windows Admin Center (Project Honolulu) zum Einrichten von Azure Updateverwaltung zum Verwalten von Betriebssystemupdates.
 ms.technology: manage
 ms.topic: article
 author: haley-rowland
@@ -8,26 +8,26 @@ ms.author: harowl
 ms.date: 07/17/2018
 ms.localizationpriority: low
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 79b18e9963fba0993a7f34b1409edba6abfd48f0
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.openlocfilehash: ff67355697051a6c36a5143de96a6aec44bf35ca
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66452542"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865414"
 ---
-# <a name="use-windows-admin-center-to-manage-operating-system-updates-with-azure-update-management"></a>Verwenden von Windows Admin Center zum Verwalten von Betriebssystem-Updates mit der Azure-Updateverwaltung
+# <a name="use-windows-admin-center-to-manage-operating-system-updates-with-azure-update-management"></a>Verwenden des Windows Admin Centers zum Verwalten von Betriebssystemupdates mit Azure Updateverwaltung
 
-[Weitere Informationen zu Azure-Integration in Windows Admin Center.](../plan/azure-integration-options.md)
+[Erfahren Sie mehr über die Azure-Integration in Windows Admin Center.](../plan/azure-integration-options.md)
 
-Verwaltung von Azure ist eine Lösung in Azure Automation, die Ihnen ermöglicht, Updates und Patches für mehrere Computer an einem zentralen Ort, und nicht auf eine einzelne Server verwalten. Mit der Azure-Updateverwaltung können Sie schnell den Status verfügbarer Updates bewerten, Installation von erforderlichen Updates planen und Bereitstellungsergebnisse überprüfen um sicherzustellen, dass Updates, die erfolgreich angewendet. Dies ist möglich, ob Ihre Computer für Azure-VMs, die von anderen cloudanbietern oder lokal gehostet werden. [Weitere Informationen zur Verwaltung von Azure.](https://docs.microsoft.com/azure/automation/automation-update-management)
+Bei Azure Updateverwaltung handelt es sich um eine Lösung in Azure Automation, mit der Sie Updates und Patches für mehrere Computer von einem einzigen Ort aus verwalten können und nicht auf Server Basis. Mit Azure-Updateverwaltung kannst du den Status verfügbarer Updates schnell bewerten, die Installation der erforderlichen Updates planen und die Ergebnisse der Bereitstellung überprüfen, um sicherzustellen, dass Updates erfolgreich angewendet werden. Dies ist möglich, unabhängig davon, ob Ihre Computer Azure-VMS sind, von anderen cloudanbietern oder lokal gehostet werden. [Erfahren Sie mehr über Azure Updateverwaltung.](https://docs.microsoft.com/azure/automation/automation-update-management)
 
-Mit Windows Admin Center können Sie ganz einfach einrichten und verwenden die Verwaltung von Azure, um den verwalteten Servern auf dem neuesten Stand zu halten. Wenn Sie bereits über einen Log Analytics-Arbeitsbereich im Azure-Abonnement haben, Windows Admin Center automatisch konfigurieren Sie den Server und die erforderlichen Azure-Ressourcen im Abonnement und am angegebenen Speicherort zu erstellen. Wenn Sie einen vorhandenen Log Analytics-Arbeitsbereich verfügen, können den Server, um Updates von Azure-Updateverwaltung Nutzen von Windows Admin Center automatisch konfigurieren.  
+Mithilfe des Windows Admin Centers können Sie problemlos Azure Updateverwaltung einrichten und verwenden, um Ihre verwalteten Server auf dem neuesten Stand zu halten. Wenn Sie noch nicht über einen Log Analytics Arbeitsbereich in Ihrem Azure-Abonnement verfügen, wird der Server automatisch von Windows Admin Center konfiguriert und die erforderlichen Azure-Ressourcen in dem von Ihnen angegebenen Abonnement und Speicherort erstellt. Wenn Sie über einen vorhandenen Log Analytics Arbeitsbereich verfügen, kann das Windows Admin Center Ihren Server automatisch so konfigurieren, dass Updates von Azure Updateverwaltung genutzt werden.  
 
-Informationen zum Einstieg finden Sie unter der Updates-Tool in einer Server-Verbindung und wählen Sie "Jetzt einrichten" und geben Sie Ihre Einstellungen für die zugehörigen Azure-Ressourcen. 
+Wechseln Sie zunächst zum Update-Tool in einer Server Verbindung, und wählen Sie "jetzt einrichten" aus, und geben Sie die Einstellungen für die zugehörigen Azure-Ressourcen an. 
 
-Nachdem Sie Ihren Server für die Verwaltung durch die Verwaltung von Azure konfiguriert haben, können Sie die Verwaltung von Azure zugreifen, mithilfe des Links in der Updates-Tool bereitgestellt. 
+Nachdem Sie den Server so konfiguriert haben, dass er von Azure Updateverwaltung verwaltet wird, können Sie über den im Update-Tool bereitgestellten Hyperlink auf Azure Updateverwaltung zugreifen. 
 
-[Informationen Sie zum Beenden der Verwendung von Azure-Updateverwaltung auf um Ihrem Server zu aktualisieren.](azure-monitor.md#disabling-monitoring)
+[Erfahren Sie, wie Sie die Verwendung von Azure Updateverwaltung zum Aktualisieren Ihres Servers aufheben.](azure-monitor.md#disabling-monitoring)
 
-Beachten Sie, dass Sie müssen [Registrieren Ihres Windows Admin Center-Gateways mit Azure](../configure/azure-integration.md) vor dem Einrichten der Verwaltung von Azure.
+Beachten Sie, dass Sie [Ihr Windows Admin Center-Gateway bei Azure registrieren](../configure/azure-integration.md) müssen, bevor Sie Azure Updateverwaltung einrichten.
 

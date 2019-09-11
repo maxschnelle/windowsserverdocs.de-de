@@ -9,12 +9,12 @@ ms.date: 01/31/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 86bbb562e223fdf61dac3ce5646d97a57b2eba4c
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.openlocfilehash: f4b8f09e5c75f3b9086847a47d33bd76775f3cd1
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546305"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865495"
 ---
 # <a name="delegate-ad-fs-powershell-commandlet-access-to-non-admin-users"></a>Delegieren AD FS PowerShell-Commandlets Zugriff für Benutzer ohne Administratorrechte 
 Standardmäßig kann AD FS Verwaltung über PowerShell nur AD FS Administratoren durchgeführt werden. Für viele große Organisationen ist dies möglicherweise kein funktionierendes Betriebsmodell, wenn Sie mit anderen Personen wie einem Helpdeskpersonal beschäftigt sind.  
@@ -79,7 +79,7 @@ VisibleCmdlets = 'Reset-AdfsAccountLockout', 'Get-ADFSAccountActivity', 'Set-ADF
 
 
 ### <a name="create-the-jea-session-configuration-file"></a>Erstellen der Jea-Sitzungs Konfigurationsdatei 
-Befolgen Sie die Anweisungen zum Erstellen der [Jea-Sitzungs](https://docs.microsoft.com/powershell/jea/session-configurations) Konfigurationsdatei. Die Konfigurationsdatei bestimmt, wer den Jea-Endpunkt verwenden kann und auf welche Funktionen Sie zugreifen können. 
+Befolgen Sie die Anweisungen zum Erstellen der [Jea-Sitzungs Konfigurationsdatei](https://docs.microsoft.com/powershell/jea/session-configurations) . Die Konfigurationsdatei bestimmt, wer den Jea-Endpunkt verwenden kann und auf welche Funktionen Sie zugreifen können. 
 
 Auf Rollen Funktionen wird durch den flachen Namen (Dateiname ohne Erweiterung) der Rollen Funktions Datei verwiesen. Wenn mehrere Rollen Funktionen auf dem System mit dem gleichen flatname verfügbar sind, verwendet PowerShell die implizite Such Reihenfolge, um die effektive Rollen Funktions Datei auszuwählen. Er gewährt keinen Zugriff auf alle Rollen Funktions Dateien mit demselben Namen. 
 

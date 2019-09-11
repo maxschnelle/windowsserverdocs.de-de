@@ -1,6 +1,6 @@
 ---
-title: Verwalten von QoS-Richtlinie
-description: Dieses Thema enthält Anweisungen zum Erstellen und Verwalten von Quality of Service (QoS)-Richtlinie in Windows Server 2016.
+title: Verwalten der QoS-Richtlinie
+description: Dieses Thema enthält Anweisungen zum Erstellen und Verwalten von Quality of Service-Richtlinien (QoS) in Windows Server 2016.
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -8,183 +8,183 @@ ms.assetid: 04fdfa54-6600-43d4-8945-35f75e15275a
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 94e5a1832a6c1e160b9cc338d50636026a5eb751
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3cff51b3cf76d3224832bf99ff966bf473d6ff6c
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851671"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871848"
 ---
-# <a name="manage-qos-policy"></a>Verwalten von QoS-Richtlinie
+# <a name="manage-qos-policy"></a>Verwalten der QoS-Richtlinie
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können in diesem Thema verwenden, um zu erfahren, mit dem Assistenten für die QoS-Richtlinie erstellen, bearbeiten oder Löschen einer QoS-Richtlinie.
+In diesem Thema erfahren Sie, wie Sie den QoS-Richtlinien-Assistenten zum Erstellen, bearbeiten oder Löschen einer QoS-Richtlinie verwenden.
 
 >[!NOTE]
->  Zusätzlich zu diesem Thema steht die folgende Dokumentation zum Management von QoS-Richtlinie.
+>  Zusätzlich zu diesem Thema ist die folgende Dokumentation zur QoS-Richtlinien Verwaltung verfügbar.
 > 
->  - [QoS-Richtlinie-Ereignisse und-Fehler](qos-policy-errors.md)
+>  - [Ereignisse und Fehler in der QoS-Richtlinie](qos-policy-errors.md)
 
-In Windows-Betriebssystemen kombiniert die QoS-Richtlinie die Funktionalität von standardbasiertem QoS mit der Verwaltbarkeit von Gruppenrichtlinien. Konfiguration des diese Kombination ist eine einfache Anwendung von QoS-Richtlinien auf Gruppenrichtlinienobjekte. Windows enthält einen Assistenten QoS-Richtlinie, damit Sie die folgenden Aufgaben ausführen können.
+In Windows-Betriebssystemen kombiniert die QoS-Richtlinie die Funktionalität der Standard basierten QoS mit der Verwaltbarkeit von Gruppenrichtlinie. Diese Kombination ermöglicht die einfache Anwendung von QoS-Richtlinien zum Gruppenrichtlinie von Objekten. Windows enthält einen QoS-Richtlinien-Assistenten, der Sie beim Ausführen der folgenden Aufgaben unterstützt.
 
--  [Erstellen Sie eine QoS-Richtlinie](#bkmk_createpolicy)
+-  [Erstellen einer QoS-Richtlinie](#bkmk_createpolicy)
 
 -  [Anzeigen, bearbeiten oder Löschen einer QoS-Richtlinie](#bkmk_editpolicy)
 
-##  <a name="bkmk_createpolicy"></a>Erstellen Sie eine QoS-Richtlinie
+##  <a name="bkmk_createpolicy"></a>Erstellen einer QoS-Richtlinie
 
-Bevor Sie eine QoS-Richtlinie erstellen, ist es wichtig, dass Sie verstehen, dass die beiden wichtigsten QoS-Steuerelemente, die verwendet werden, um den Netzwerkverkehr zu verwalten:
+Bevor Sie eine QoS-Richtlinie erstellen, ist es wichtig, dass Sie die beiden Schlüssel-QoS-Steuerelemente kennen, die zur Verwaltung des Netzwerk Datenverkehrs verwendet werden:
 
 - DSCP-Wert
 
--   Drosselungsrate
+-   Drosselungs Rate
 
-### <a name="prioritizing-traffic-with-dscp"></a>Priorisieren des Datenverkehrs mit DSCP
+### <a name="prioritizing-traffic-with-dscp"></a>Priorisieren von Datenverkehr mit DSCP
 
-Wie im vorherigen Anwendungsbeispiel Line-of-Business-erwähnt, können Sie die Priorität des ausgehenden Netzwerkdatenverkehrs definieren, indem Sie mithilfe von **DSCP-Wert angeben** so konfigurieren Sie eine QoS-Richtlinie mit einem bestimmten DSCP-Wert. 
+Wie bereits im vorherigen Beispiel für eine Branchen Anwendung erwähnt, können Sie die Priorität des ausgehenden Netzwerk Datenverkehrs definieren. verwenden Sie hierzu **DSCP-Wert angeben** , um eine QoS-Richtlinie mit einem bestimmten DSCP-Wert zu konfigurieren. 
 
-Wie der Beschreibung in RFC 2474 ermöglicht DSCP das Werte von 0 bis 63 innerhalb des TOS-Felds eines IPv4-Pakets und innerhalb des Traffic Class-Felds in IPv6 angegeben werden. Netzwerkrouter verwenden den DSCP-Wert, um Netzwerkpakete zu klassifizieren und diese ordnungsgemäß in die Warteschlange.
+Wie in RFC 2474 beschrieben, ermöglicht DSCP das Angeben von Werten zwischen 0 und 63 im Feld "TOS" eines IPv4-Pakets und innerhalb des Felds "Traffic Class" in IPv6. Netzwerk Router verwenden den DSCP-Wert, um Netzwerkpakete zu klassifizieren und entsprechend in die Warteschlange zu stellen.
   
 > [!NOTE]
->  Standardmäßig hat die Windows-Datenverkehr einen DSCP-Wert 0.
+>  Standardmäßig weist Windows-Datenverkehr den DSCP-Wert 0 auf.
   
-Die Anzahl der Warteschlangen und deren Priorisierungsverhalten muss im Rahmen der QoS-Strategie der Organisation festgelegt werden. Z. B. Ihrer Organisation können fünf Warteschlangen: wartezeitempfindlichem Datenverkehr, Steuerungsdatenverkehr, geschäftskritische Datenverkehr, Best-Effort-Prinzip Datenverkehr und Massendatenübertragung Datenverkehr.  
+Die Anzahl der Warteschlangen und deren Priorisierungsverhalten muss im Rahmen der QoS-Strategie der Organisation festgelegt werden. Ihre Organisation kann z. b. über fünf Warteschlangen verfügen: Latenz bezogener Datenverkehr, Steuerungs Datenverkehr, geschäftskritischer Datenverkehr, bestmöglicher Datenverkehr und Massen Datenübertragung.  
   
 ### <a name="throttling-traffic"></a>Drosseln des Datenverkehrs
 
-Zusammen mit DSCP-Werten ist die Einschränkung einen anderen-Steuerelements für die Verwaltung der Netzwerkbandbreite. Wie bereits erwähnt, können Sie die **Drosselungsrate angeben** Einstellung, um eine QoS-Richtlinie mit einer bestimmten Drosselungsrate für ausgehenden Datenverkehr konfigurieren. Mithilfe der Drosselung begrenzt eine QoS-Richtlinie den ausgehenden Netzwerkdatenverkehr zu einer angegebenen Drosselungsrate. DSCP-Markierung und Drosselung können gemeinsam verwendet werden, um den Datenverkehr effektiv zu verwalten.
+Neben DSCP-Werten ist die Drosselung eine weitere wichtige Kontrolle für die Verwaltung der Netzwerkbandbreite. Wie bereits erwähnt, können Sie die Einstellung **Drosselungs Rate angeben** verwenden, um eine QoS-Richtlinie mit einer bestimmten Drosselungs Rate für ausgehenden Datenverkehr zu konfigurieren. Mithilfe der Drosselung schränkt eine QoS-Richtlinie den ausgehenden Netzwerk Datenverkehr auf eine angegebene Drosselungs Rate ein. DSCP-Markierung und Drosselung können gemeinsam verwendet werden, um den Datenverkehr effektiv zu verwalten.
 
 >[!NOTE]
 >Das Kontrollkästchen **Drosselungsrate angeben** ist standardmäßig nicht aktiviert.
 
-Um eine QoS-Richtlinie zu erstellen, bearbeiten Sie die Einstellungen von einer Gruppe Gruppenrichtlinienobjekt (GPO) von innerhalb des Gruppenrichtlinien-Verwaltungskonsole (Group Policy Management Console, GPMC)-Tools. Gruppenrichtlinien-Verwaltungskonsole wird der Gruppenrichtlinienobjekt-Editor wird geöffnet.
+Wenn Sie eine QoS-Richtlinie erstellen möchten, bearbeiten Sie die Einstellungen eines Gruppenrichtlinie Objekts (GPO) im Gruppenrichtlinien-Verwaltungskonsole (GPMC)-Tool. Die GPMC öffnet dann die Gruppenrichtlinienobjekt-Editor.
 
-QoS-Richtliniennamen müssen eindeutig sein. Zum Anwenden von Richtlinien auf Servern und Endbenutzern, hängt davon ab, wo die QoS-Richtlinie in der Gruppenrichtlinienobjekt-Editor gespeichert werden:
+QoS-Richtliniennamen müssen eindeutig sein. Wie Richtlinien auf Server und Endbenutzer angewendet werden, hängt davon ab, wo die QoS-Richtlinie im Gruppenrichtlinienobjekt-Editor gespeichert ist:
 
-- Eine QoS-Richtlinie in Settings\QoS Computerkonfiguration\Windows-Richtlinie gilt für Computer, unabhängig vom Benutzer, der zurzeit angemeldet ist. Normalerweise verwenden Sie computerbasierte QoS-Richtlinien für Servercomputer.
+- Eine QoS-Richtlinie in Computerkonfiguration\Windows-einstellungen\qos-Richtlinie gilt für Computer, unabhängig vom aktuell angemeldeten Benutzer. Normalerweise verwenden Sie computerbasierte QoS-Richtlinien für Servercomputer.
 
-- Eine QoS-Richtlinie in User Configuration\Windows Settings\QoS Richtlinie gilt für Benutzer, nachdem sie angemeldet sind unabhängig davon, welche, denen Computer sie sich angemeldet haben.
+- Eine QoS-Richtlinie in Benutzerkonfiguration\Windows-einstellungen\qos-Richtlinie gilt für Benutzer, nachdem Sie sich angemeldet haben, unabhängig davon, bei welchem Computer Sie angemeldet sind.
 
-#### <a name="to-create-a-new-qos-policy-with-the-qos-policy-wizard"></a>Erstellen Sie eine neue QoS-Richtlinie mit dem Assistenten für QoS-Richtlinie
+#### <a name="to-create-a-new-qos-policy-with-the-qos-policy-wizard"></a>So erstellen Sie eine neue QoS-Richtlinie mit dem QoS-Richtlinien-Assistenten
 
--   Im Gruppenrichtlinienobjekt-Editor, mit der rechten Maustaste entweder von der **QoS-Richtlinie** Knoten, und klicken Sie dann auf **Erstellen einer neuen Richtlinie**.
+-   Klicken Sie in Gruppenrichtlinienobjekt-Editor mit der rechten Maustaste auf einen der Knoten der **QoS-Richtlinie** , und klicken Sie dann auf **neue Richtlinie erstellen**.
 
-### <a name="wizard-page-1---policy-profile"></a>Assistentenseite 1: "Richtlinienprofil"
+### <a name="wizard-page-1---policy-profile"></a>Seite 1 des Assistenten: Richtlinien Profil
 
-Auf der ersten Seite des Assistenten für QoS-Richtlinie können Sie einen Richtliniennamen angeben und konfigurieren, wie QoS für ausgehenden Netzwerkdatenverkehr steuert.
+Auf der ersten Seite des Assistenten für QoS-Richtlinien können Sie einen Richtlinien Namen angeben und konfigurieren, wie QoS ausgehenden Netzwerk Datenverkehr steuert.
 
 #### <a name="to-configure-the-policy-profile-page-of-the-qos-based-policy-wizard"></a>So konfigurieren Sie die Seite "Richtlinienprofil" des Assistenten für richtlinienbasierten QoS
 
 1. Geben Sie in das Feld **Richtlinienname** einen Namen für die QoS-Richtlinie ein. Der Name muss die Richtlinie eindeutig identifizieren.
 
-2. Verwenden Sie optional **DSCP-Wert angeben** DSCP-Markierung zu aktivieren, und klicken Sie dann einen DSCP-Wert zwischen 0 und 63 zu konfigurieren.
+2. Verwenden Sie optional **DSCP-Wert angeben** , um die DSCP-Markierung zu aktivieren, und konfigurieren Sie dann einen DSCP-Wert zwischen 0 und 63.
 
-3. Verwenden Sie optional **Drosselungsrate angeben**, um die Datenverkehrsdrosselung zu aktivieren und die Drosselungsrate zu konfigurieren. Wert der Drosselungsrate muss größer als 1 sein, und Sie können Einheiten von Kilobytes pro Sekunde angeben \(Kbit/s\) oder Megabytes pro Sekunde \(Mbit/s\).
+3. Verwenden Sie optional **Drosselungsrate angeben**, um die Datenverkehrsdrosselung zu aktivieren und die Drosselungsrate zu konfigurieren. Der Wert für die Drosselungs Rate muss größer als 1 sein, und Sie können Einheiten von \(Kilobyte pro Sekunde Kbit\) / \(s\)oder Megabyte pro Sekunde Mbit/s angeben.
 
 4. Klicken Sie auf **Weiter**.
 
-### <a name="wizard-page-2---application-name"></a>Assistentenseite 2 - Anwendungsname
+### <a name="wizard-page-2---application-name"></a>Assistenten Seite 2: Anwendungs Name
 
-In der zweiten Seite des Assistenten für QoS-Richtlinie können Sie die Richtlinie auf alle Anwendungen, die an eine bestimmte Anwendung anwenden, das mit seinem ausführbaren Datei, in einen Pfad und Name der Anwendung oder den HTTP-serveranwendungen, die Anforderungen für eine bestimmte URL zu verarbeiten.
+Auf der zweiten Seite des Assistenten für QoS-Richtlinien können Sie die Richtlinie auf alle Anwendungen anwenden, auf eine bestimmte Anwendung, die durch den Namen der ausführbaren Datei, einen Pfad und einen Anwendungsnamen identifiziert wird, oder auf die HTTP-Server Anwendungen, die Anforderungen für eine bestimmte URL verarbeiten.
 
-- **Alle Anwendungen** gibt an, dass die Einstellungen für die datenverkehrsverwaltung auf der ersten Seite des Assistenten für QoS-Richtlinie für alle dienstanwendungen gelten.
+- **Alle Anwendungen** gibt an, dass die Einstellungen für die Datenverkehrs Verwaltung auf der ersten Seite des Assistenten für QoS-Richtlinien auf alle Anwendungen angewendet werden.
 
-- **Nur Anwendungen mit dieser ausführbaren Datei** gibt an, dass die Einstellungen für die datenverkehrsverwaltung auf der ersten Seite des Assistenten für QoS-Richtlinie für eine bestimmte Anwendung. Der Name der ausführbaren Datei muss die Dateinamenerweiterung EXE aufweisen.
+- **Nur Anwendungen mit diesem Namen der ausführbaren Datei** geben an, dass die Einstellungen für die Datenverkehrs Verwaltung auf der ersten Seite des QoS-Richtlinien Assistenten für eine bestimmte Anwendung gelten. Der Name der ausführbaren Datei muss die Dateinamenerweiterung EXE aufweisen.
 
-- **Nur HTTP-Server-Anwendungen reagieren auf Anforderungen für diese URL** gibt an, dass die Einstellungen für die datenverkehrsverwaltung auf der ersten Seite des Assistenten für QoS-Richtlinie auf bestimmte HTTP-Server-Anwendungen nur anzuwenden.
+- **Nur HTTP-Server Anwendungen, die auf Anforderungen für diese URL reagieren** , geben an, dass die Einstellungen für die Datenverkehrs Verwaltung auf der ersten Seite des QoS-Richtlinien Assistenten nur für bestimmte HTTP-Server Anwendungen gelten.
 
 Optional können Sie den Anwendungspfad eingeben. Zum Angeben des Anwendungspfads geben Sie den Pfad zusammen mit dem Anwendungsnamen ein. Der Pfad kann Umgebungsvariablen enthalten. Beispiele: "%ProgramFiles%\Mein Anwendungspfad\MeineAnwendung.exe" oder "C:\Programme\Mein Anwendungspfad\MeineAnwendung.exe".
 
 >[!NOTE]
->Der Pfad der Anwendung kann nicht auf einen Pfad enthalten, der die eine symbolische Verknüpfung aufgelöst wird.
+>Der Anwendungspfad darf keinen Pfad enthalten, der zu einer symbolischen Verknüpfung aufgelöst wird.
 
-Die URL muss entsprechen [RFC 1738](https://tools.ietf.org/html/rfc1738), in Form von `http[s]://<hostname\>:<port\>/<url-path>`. Sie können einen Platzhalter verwenden, `‘*’`, für `<hostname>` und/oder `<port>`, z. B. `https://training.\*/, https://\*.\*`, aber der Platzhalter darf keine Teilzeichenfolge des anzugeben `<hostname>` oder `<port>`.
+Die URL muss in Form von `http[s]://<hostname\>:<port\>/<url-path>` [RFC 1738](https://tools.ietf.org/html/rfc1738)entsprechen. Sie können einen Platzhalter, `‘*'`, für `<hostname>` und/oder `<port>`verwenden, z `https://training.\*/, https://\*.\*`. b., aber der Platzhalter darf keine Teil `<hostname>` Zeichenfolge von oder `<port>`bezeichnen.
 
-Das heißt, keine `https://my\*site/` noch `https://\*training\*/` gültig ist. 
+Anders ausgedrückt: weder `https://my\*site/` noch `https://\*training\*/` ist gültig. 
 
-Sie können optional überprüfen **einschließen der Unterverzeichnisse und Dateien** auf Übereinstimmung alle Unterverzeichnisse und Dateien, die nach einer URL. Wenn diese Option aktiviert ist und die URL lautet z. B. `https://training`, QoS-Richtlinie berücksichtigt die Anforderungen für` https://training/video` eignet.
+Optional können Sie **Unterverzeichnisse und Dateien einschließen** aktivieren, um den Abgleich für alle Unterverzeichnisse und Dateien nach einer URL auszuführen. Wenn diese Option beispielsweise aktiviert ist und die URL lautet `https://training`, werden Anforderungen für` https://training/video` eine gute Entsprechung von der QoS-Richtlinie berücksichtigt.
 
-#### <a name="to-configure-the-application-name-page-of-the-qos-policy-wizard"></a>So konfigurieren Sie die Seite "Anwendungsname" des Assistenten für QoS-Richtlinie
+#### <a name="to-configure-the-application-name-page-of-the-qos-policy-wizard"></a>So konfigurieren Sie die Seite "Anwendungs Name" des Assistenten für QoS-Richtlinien
 
-1. In **diese QoS-Richtlinie gilt für**, wählen Sie entweder **alle Anwendungen** oder **nur Anwendungen mit dieser ausführbaren Datei**.
+1. Wählen Sie unter **Diese QoS-Richtlinie gilt für**entweder **alle Anwendungen** oder **nur Anwendungen mit diesem Namen der ausführbaren Datei**aus.
 
 2. Wenn Sie **Nur Anwendungen, bei denen es sich um folgende ausführbare Datei handelt** auswählen, geben Sie den Namen einer ausführbaren Datei an, der mit der Dateinamenerweiterung EXE endet.
 
 3. Klicken Sie auf **Weiter**.
 
-### <a name="wizard-page-3---ip-addresses"></a>Assistentenseite 3 – IP-Adressen
+### <a name="wizard-page-3---ip-addresses"></a>Assistenten Seite 3-IP-Adressen
 
-In der dritten Seite des Assistenten für QoS-Richtlinie können Sie die IP-Adresse-Bedingungen für die QoS-Richtlinie, einschließlich der folgenden angeben:
+Auf der dritten Seite des Assistenten für QoS-Richtlinien können Sie IP-Adress Bedingungen für die QoS-Richtlinie angeben, einschließlich der folgenden:
 
 - Alle Quell- IPv4- oder Quell-IPv6-Adressen oder bestimmte Quell- IPv4- oder Quell-IPv6-Adressen
 
-- Alle Ziel-IPv4- oder IPv6-Adressen oder bestimmte Ziel-IPv4- oder IPv6-Adressen
+- Alle IPv4-oder IPv6-Zieladressen oder bestimmte IPv4-oder IPv6-Zieladressen
 
 Wenn Sie **Nur für die folgende Quell-IP-Adresse** oder **Nur für die folgende Ziel-IP-Adresse** auswählen, müssen Sie eines der folgenden Elemente eingeben:
 
-- Ein IPv4-Adresse, z. B. `192.168.1.1`
+- Eine IPv4-Adresse, z. b.`192.168.1.1`
 
-- IPv4-Adresspräfix mit Netzwerkpräfix-Längenschreibweise, wie `192.168.1.0/24`
+- Ein IPv4-Adress Präfix mit Netzwerk Präfix-Längen Notation, z. b.`192.168.1.0/24`
 
-- Eine IPv6-Adresse, z. B. `3ffe:ffff::1`
+- Eine IPv6-Adresse, z. b.`3ffe:ffff::1`
 
-- Eine IPv6-Adresspräfix, z. B. `3ffe:ffff::/48`
+- Ein IPv6-Adress Präfix, z. b.`3ffe:ffff::/48`
 
-Wenn Sie beide auswählen **nur für die folgende Quell-IP-Adresse** und **nur für die folgende Ziel-IP-Adresse**, beide Adressen oder Adresspräfixe muss entweder IPv4 oder IPv6-basierten.
+Wenn Sie **nur für die folgende Quell-IP-Adresse** und **nur für die folgende Ziel-IP-Adresse**auswählen, müssen beide Adressen oder Adress Präfixe entweder IPv4-oder IPv6-basiert sein.
 
-Wenn Sie die URL für HTTP-Server-Anwendungen in der vorherigen Seite des Assistenten angegeben haben, werden Sie feststellen, dass die IP-Quelladresse für die QoS-Richtlinie auf dieser Assistentenseite ausgegraut ist. 
+Wenn Sie auf der vorherigen Seite des Assistenten die URL für http-Server Anwendungen angegeben haben, werden Sie feststellen, dass die IP-Quelladresse für die QoS-Richtlinie auf dieser Seite des Assistenten ausgegraut ist. 
 
-Dies ist "true", da die Quell-IP-Adresse die Adresse des HTTP-Servers ist ein, und es hier nicht konfigurierbar ist. Auf der anderen Seite können Sie die Richtlinie durch Angabe der IP-Zieladresse noch anpassen. Dadurch können Sie verschiedene Richtlinien für verschiedene Clients zu erstellen, indem Sie mit den gleichen HTTP-Server-Anwendungen.
+Dies trifft zu, weil die IP-Quelladresse die HTTP-Server Adresse ist und hier nicht konfiguriert werden kann. Andererseits können Sie die Richtlinie dennoch anpassen, indem Sie die Ziel-IP-Adresse angeben. Dies ermöglicht es Ihnen, unterschiedliche Richtlinien für verschiedene Clients mit denselben http-Server Anwendungen zu erstellen.
 
-#### <a name="to-configure-the-ip-addresses-page-of-the-qos-policy-wizard"></a>So konfigurieren Sie die IP-Adressen-Seite des Assistenten für QoS-Richtlinie
+#### <a name="to-configure-the-ip-addresses-page-of-the-qos-policy-wizard"></a>So konfigurieren Sie die Seite "IP-Adressen" des Assistenten für QoS-Richtlinien
 
-1. In **diese QoS-Richtlinie gilt für** (Quelle), wählen Sie **jede Quelle, IP-Adresse** oder **nur für die folgenden IP-Quelladresse**.
+1. Wählen Sie unter **Diese QoS-Richtlinie gilt** für (Quelle) die Option **beliebige Quell-IP-Adresse** oder **nur für die folgende IP-Quelladresse aus**.
 
-2. Wenn Sie ausgewählt haben **nur die folgenden IP-Quelladresse**, geben Sie eine IPv4- oder IPv6-Adresse oder Präfix.
+2. Wenn Sie **nur die folgende IP-Quelladresse**ausgewählt haben, geben Sie eine IPv4-oder IPv6-Adresse oder ein Präfix an.
 
-3. In **diese QoS-Richtlinie gilt für** (Ziel), wählen Sie **jeder Zieladresse** oder **nur für die folgenden IP-Zieladresse.**
+3. Wählen Sie unter **Diese QoS-Richtlinie gilt** für (Ziel) die Option **beliebige Zieladresse** oder **nur für die folgende IP-Zieladresse aus.**
 
-4. Wenn Sie ausgewählt haben **nur für die folgenden IP-Zieladresse**, geben Sie eine IPv4- oder IPv6-Adresse oder den Präfix, das den Typ der Adresse entspricht, oder ein Präfix für die Quelladresse angegeben.
+4. Wenn Sie **nur für die folgende IP-Zieladresse**ausgewählt haben, geben Sie eine IPv4-oder IPv6-Adresse oder ein Präfix an, die dem Typ der Adresse oder des Präfixes entspricht, das für die Quelladresse angegeben
 
 5.  Klicken Sie auf **Weiter**.  
 
-### <a name="wizard-page-4---protocols-and-ports"></a>Seite 4 - Protokolle und Ports des Assistenten
+### <a name="wizard-page-4---protocols-and-ports"></a>Assistenten Seite 4: Protokolle und Ports
 
-Auf der vierten Seite des Assistenten für QoS-Richtlinie können Sie angeben, die Typen des Datenverkehrs und die Ports, die von den Einstellungen auf der ersten Seite des Assistenten gesteuert werden können. Sie können Folgendes angeben:  
+Auf der vierten Seite des Assistenten für QoS-Richtlinien können Sie die Arten des Datenverkehrs und die Ports angeben, die über die Einstellungen auf der ersten Seite des Assistenten gesteuert werden. Sie können Folgendes angeben:  
 -   TCP-Datenverkehr und/oder UDP-Datenverkehr  
 
 -   Alle Quellports, einen Quellportbereich oder einen bestimmten Quellport
 
--   Alle Zielports, einen Bereich des Zielports oder einen bestimmten Zielport  
+-   Alle Zielports, eine Reihe von Zielports oder ein bestimmter Zielport  
 
-#### <a name="to-configure-the-protocols-and-ports-page-of-the-qos-policy-wizard"></a>So konfigurieren Sie die Seite "Protokolle und Ports" des Assistenten für QoS-Richtlinie
+#### <a name="to-configure-the-protocols-and-ports-page-of-the-qos-policy-wizard"></a>So konfigurieren Sie die Seite "Protokolle und Ports" des Assistenten für QoS-Richtlinien
 
 1. Wählen Sie unter **Wählen Sie das Protokoll aus, auf das diese QoS-Richtlinie angewendet wird** die Option **TCP**, **UDP** oder **TCP und UDP** aus.
 
 2. Wählen Sie unter **Geben Sie die Quellportnummer an** die Option **Von einem beliebigen Quellport** oder **Von dieser Quellportnummer** aus.
 
-3. Wenn Sie ausgewählt haben **von dieser Quellportnummer**, geben Sie eine Portnummer zwischen 1 und 65535 liegen.
+3. Wenn Sie **von dieser Quell Portnummer**ausgewählt haben, geben Sie eine Portnummer zwischen 1 und 65535 ein.
 
-     Optional können Sie einen Portbereich angeben, im Format "*niedrig*:*hohe*,", in denen *mit niedriger* und *hohe* die unteren Grenzen darstellen und obere Grenze des Ports reichen, einschließlich. *Niedrig* und *hohe* jeder muss eine Zahl zwischen 1 und 65535 sein. Zwischen dem Doppelpunkt (:) und den Zahlen ist kein Leerzeichen zulässig.
+     Optional können Sie einen Port Bereich im Format "*Low*:*High*" angeben, wobei " *Low* " und " *High* " die unteren und oberen Begrenzungen des Port Bereichs einschließen. " *Niedrig* " und " *hoch* " müssen eine Zahl zwischen 1 und 65535 sein. Zwischen dem Doppelpunkt (:) und den Zahlen ist kein Leerzeichen zulässig.
 
 4. Wählen Sie unter **Geben Sie die Zielportnummer an** die Option **An einen beliebigen Port** oder **An diese Zielportnummer** aus.
 
 5. Wenn Sie im vorherigen Schritt **An diese Zielportnummer** ausgewählt haben, geben Sie eine Portnumber zwischen 1 und 65535 ein.
 
-Um die Erstellung von neuen QoS-Richtlinie abzuschließen, klicken Sie auf **Fertig stellen** auf die **Protokolle und Ports** Seite des Assistenten für QoS-Richtlinie. Abschließend wird die neue QoS-Richtlinie im Detailbereich der Gruppenrichtlinien-Editor aufgeführt.  
+Um die Erstellung der neuen QoS-Richtlinie abzuschließen, klicken Sie auf der Seite **Protokolle und Ports** des QoS-Richtlinien-Assistenten auf **Fertig** stellen. Nach Abschluss des Vorgangs wird die neue QoS-Richtlinie im Detailbereich der Gruppenrichtlinienobjekt-Editor aufgeführt.  
   
-Zum Anwenden der QoS-Richtlinieneinstellungen auf Benutzer oder Computer verknüpfen Sie das Gruppenrichtlinienobjekt, das in der die QoS-Richtlinien in einer Active Directory Domain Services-Container, z. B. einer Domäne, einer Website oder einer Organisationseinheit (OU) befinden.  
+Wenn Sie die QoS-Richtlinien Einstellungen auf Benutzer oder Computer anwenden möchten, verknüpfen Sie das Gruppenrichtlinien Objekt, in dem sich die QoS-Richtlinien befinden, mit einem Active Directory Domain Services Container (z. b. einer Domäne, einem Standort oder einer Organisationseinheit).  
   
 ##  <a name="bkmk_editpolicy"></a>Anzeigen, bearbeiten oder Löschen einer QoS-Richtlinie
 
-Die Seiten des Assistenten beschrieben die QoS-Richtlinie entsprechen zuvor die Eigenschaftenseiten, die angezeigt werden, wenn Sie anzeigen oder bearbeiten Sie die Eigenschaften einer Richtlinie.  
+Die Seiten des zuvor beschriebenen Assistenten für QoS-Richtlinien entsprechen den Eigenschaften Seiten, die angezeigt werden, wenn Sie die Eigenschaften einer Richtlinie anzeigen oder bearbeiten.  
   
 ### <a name="to-view-the-properties-of-a-qos-policy"></a>So zeigen Sie die Eigenschaften einer QoS-Richtlinie an  
   
--   Mit der rechten Maustaste in den Namen der Richtlinie im Detailbereich der Gruppenrichtlinien-Editor, und klicken Sie dann auf **Eigenschaften**.  
+-   Klicken Sie im Detailbereich der Gruppenrichtlinienobjekt-Editor mit der rechten Maustaste auf den Richtlinien Namen, und klicken Sie dann auf **Eigenschaften**.  
   
-     Das Gruppenrichtlinienobjekt-Editor zeigt die Eigenschaftenseite mit den folgenden Registerkarten:  
+     Die Gruppenrichtlinienobjekt-Editor zeigt die Eigenschaften Seite mit den folgenden Registerkarten an:  
   
     -   "Richtlinienprofil"  
   
@@ -196,131 +196,131 @@ Die Seiten des Assistenten beschrieben die QoS-Richtlinie entsprechen zuvor die 
   
 ### <a name="to-edit-a-qos-policy"></a>So bearbeiten Sie eine QoS-Richtlinie  
   
--   Mit der rechten Maustaste in den Namen der Richtlinie im Detailbereich der Gruppenrichtlinien-Editor, und klicken Sie dann auf **vorhandene Richtlinie bearbeiten**.  
+-   Klicken Sie im Detailbereich der Gruppenrichtlinienobjekt-Editor mit der rechten Maustaste auf den Richtlinien Namen, und klicken Sie dann auf **vorhandene Richtlinie bearbeiten**.  
   
-     Das Gruppenrichtlinienobjekt-Editor zeigt die **bearbeiten eine vorhandene QoS-Richtlinie** Dialogfeld.  
+     Die Gruppenrichtlinienobjekt-Editor zeigt das Dialogfeld **vorhandene QoS-Richtlinie bearbeiten an** .  
   
 ### <a name="to-delete-a-qos-policy"></a>So löschen Sie eine QoS-Richtlinie  
   
--   Mit der rechten Maustaste in den Namen der Richtlinie im Detailbereich der Gruppenrichtlinien-Editor, und klicken Sie dann auf **Richtlinie löschen**.  
+-   Klicken Sie im Detailbereich der Gruppenrichtlinienobjekt-Editor mit der rechten Maustaste auf den Richtlinien Namen, und klicken Sie dann auf **Richtlinie löschen**.  
   
-### <a name="qos-policy-gpmc-reporting"></a>QoS-Richtlinie über Gruppenrichtlinien-Verwaltungskonsole Reporting 
+### <a name="qos-policy-gpmc-reporting"></a>Berichterstellung der QoS-Richtlinie GPMC 
 
-Nachdem Sie eine Reihe von QoS-Richtlinien in Ihrer Organisation angewendet haben, liegt es möglicherweise hilfreich oder notwendig, um in regelmäßigen Abständen zu überprüfen, wie die Richtlinien angewendet werden. Ein Überblick über die QoS-Richtlinien für einen bestimmten Benutzer oder Computer kann mithilfe der Gruppenrichtlinien-Verwaltungskonsole reporting angezeigt werden.  
+Nachdem Sie eine Reihe von QoS-Richtlinien in Ihrer Organisation angewendet haben, ist es möglicherweise hilfreich oder notwendig, regelmäßig zu überprüfen, wie die Richtlinien angewendet werden. Eine Zusammenfassung der QoS-Richtlinien für einen bestimmten Benutzer oder Computer kann mithilfe der GPMC-Berichterstattung angezeigt werden.  
   
-#### <a name="to-run-the-group-policy-results-wizard-for-a-report-of-qos-policies"></a>Zum Ausführen der Gruppenrichtlinienergebnis-Assistenten für einen Bericht von QoS-Richtlinien  
+#### <a name="to-run-the-group-policy-results-wizard-for-a-report-of-qos-policies"></a>So führen Sie den Assistenten für Gruppenrichtlinie Ergebnisse für einen Bericht der QoS-Richtlinien aus  
   
--   In der Gruppenrichtlinien-Verwaltungskonsole mit der Maustaste der **Gruppenrichtlinienergebnisse** Knoten, und wählen Sie im Menü die option zum **Gruppenrichtlinienergebnis-Assistenten.**  
+-   Klicken Sie in GPMC mit der rechten Maustaste auf den Knoten **Gruppenrichtlinie Ergebnisse** , und wählen Sie dann die Menüoption für **Gruppenrichtlinie Ergebnis-Assistenten aus.**  
   
-Nachdem für Gruppenrichtlinienergebnisse generiert wurden, klicken Sie auf die **Einstellungen** Registerkarte. Auf der **Einstellungen** Registerkarte, die QoS-Richtlinien finden Sie unter den Knoten "Computer Configuration\Windows Settings\QoS Policy" und "User Configuration\Windows Settings\QoS Policy".  
+Nachdem Gruppenrichtlinie Ergebnisse generiert wurden, klicken Sie auf die Registerkarte **Einstellungen** . Auf der Registerkarte **Einstellungen** befinden sich die QoS-Richtlinien unter "Computerkonfiguration\Windows-einstellungen\qos-Richtlinie" und "Benutzerkonfiguration\Windows-einstellungen\qos-Richtlinie"  
   
-Auf der **Einstellungen** Registerkarte, die QoS-Richtlinien sind namentlich QoS-Richtlinie mit ihren DSCP-Wert, der Drosselungsrate, der Bedingungen für Richtlinien und aufgeführt ausschlaggebende Gruppenrichtlinienobjekt in der gleichen Zeile...  
+Auf der Registerkarte **Einstellungen** werden die QoS-Richtlinien nach Ihren QoS-Richtlinien Namen mit Ihrem DSCP-Wert, der Drosselungs Rate, den Richtlinien Bedingungen und dem gewinnenden GPO in derselben Zeile aufgelistet.  
   
-Wird das ausschlaggebende Gruppenrichtlinienobjekt wird von der Gruppenrichtlinien-Ergebnisansicht eindeutig identifiziert. Wenn mehrere Gruppenrichtlinienobjekte QoS-Richtlinien, mit dem gleichen Namen der QoS-Richtlinie haben, wird das GPO mit der GPO-Rangfolge angewendet. Dies ist das ausschlaggebende Gruppenrichtlinienobjekt. In Konflikt stehende QoS-Richtlinien (anhand des Namens der Richtlinie gekennzeichnet), die angefügt sind, eine niedrigere Priorität Gruppenrichtlinienobjekt nicht angewendet. Beachten Sie, dass die GPO-Prioritäten definieren die QoS-Richtlinien in der Site, Domäne oder Organisationseinheit, nach Bedarf bereitgestellt werden. Nach der Bereitstellung auf einer Ebene Benutzer oder Computer die [Rangfolgeregeln für QoS-Richtlinie](#BKMK_precedencerules) bestimmen, welcher Datenverkehr zulässig und blockiert ist.  
+Die Gruppenrichtlinie Ergebnis Ansicht identifiziert das gewinnende Gruppenrichtlinien Objekt eindeutig. Wenn mehrere Gruppenrichtlinien Objekte über QoS-Richtlinien mit demselben QoS-Richtlinien Namen verfügen, wird das Gruppenrichtlinien Objekt mit der höchsten Rangfolge für das Gruppenrichtlinien Objekt angewendet. Dies ist das gewinnende Gruppenrichtlinien Objekt. In Konflikt stehende QoS-Richtlinien (identifiziert durch Richtlinien Name), die an ein GPO mit niedrigerer Priorität angefügt sind, werden nicht angewendet. Beachten Sie, dass die GPO-Prioritäten definieren, welche QoS-Richtlinien je nach Bedarf in der Site, Domäne oder Organisationseinheit bereitgestellt werden. Nach der Bereitstellung auf Benutzer-oder Computer Ebene bestimmen die [Rangfolge der QoS-Richtlinien](#BKMK_precedencerules) , welcher Datenverkehr zugelassen und blockiert wird.  
   
-Der QoS-Richtlinie DSCP-Wert, Drosselungsrate und Bedingungen für Richtlinien sind auch in Group Policy Objekt Editor Sperrungsrichtlinie sichtbar  
+Der DSCP-Wert, die Drosselungs Rate und die Richtlinien Bedingungen der QoS-Richtlinie sind auch in Gruppenrichtlinienobjekt-Editor (GPOE) sichtbar.  
   
-### <a name="advanced-settings-for-roaming-and-remote-users"></a>Erweiterte Einstellungen für roaming und remote Benutzer  
-Mit QoS-Richtlinie ist das Ziel, um Datenverkehr über das Netzwerk eines Unternehmens zu verwalten. In mobilen Szenarien können Benutzern Datenverkehr auf oder aus dem Netzwerk des Unternehmens gesendet. Da QoS-Richtlinien nicht von außerhalb des Unternehmens Netzwerk relevant sind, sind die QoS-Richtlinien nur auf Netzwerkschnittstellen aktiviert, die für Windows 8, Windows 7 oder Windows Vista mit dem Unternehmen verbunden sind.  
+### <a name="advanced-settings-for-roaming-and-remote-users"></a>Erweiterte Einstellungen für Roaming und Remote Benutzer  
+Mit der QoS-Richtlinie besteht das Ziel darin, den Datenverkehr im Netzwerk eines Unternehmens zu verwalten. In mobilen Szenarios senden Benutzer möglicherweise Datenverkehr an das Unternehmensnetzwerk. Da QoS-Richtlinien nicht von dem Netzwerk des Unternehmens abhängen, sind QoS-Richtlinien nur auf Netzwerkschnittstellen aktiviert, die für Windows 8, Windows 7 oder Windows Vista mit dem Unternehmen verbunden sind.  
   
-Beispielsweise kann ein Benutzer aus einer kaffeehaus seinen tragbaren Computer mit ihrem Unternehmensnetzwerk über das virtuelle private Netzwerk (VPN) verbinden. Für VPN müssen die physische Netzwerkschnittstelle (z. B. drahtlos) keine QoS-Richtlinien angewendet. Allerdings müssen die VPN-Schnittstelle QoS-Richtlinien angewendet werden, da es für das Unternehmen eine Verbindung herstellt. Wenn der Benutzer später einen anderen Unternehmensnetzwerk, die nicht über eine AD DS-Vertrauensstellung besitzt eingibt, werden die QoS-Richtlinien nicht aktiviert werden.  
+Beispielsweise kann ein Benutzer ihren tragbaren Computer über ein virtuelles privates Netzwerk (VPN) über ein Kaffeegeschäft mit dem Netzwerk Ihres Unternehmens verbinden. Für VPN werden für die physische Netzwerkschnittstelle (z. b. drahtlos) keine QoS-Richtlinien angewendet. Für die VPN-Schnittstelle werden jedoch QoS-Richtlinien angewendet, da Sie mit dem Unternehmen verbunden ist. Wenn der Benutzer zu einem späteren Zeitpunkt ein anderes Netzwerk eines Unternehmens eingibt, das nicht über eine AD DS Vertrauensstellung verfügt, werden keine QoS-Richtlinien aktiviert.  
   
-Beachten Sie, dass diese mobile Szenarien nicht für Server-Workloads gelten. Beispielsweise kann ein Server mit mehreren Netzwerkadaptern auf den Rand Netzwerk eines Unternehmens befinden. Die IT-Abteilung kann auswählen, um QoS-Richtlinien Drosselung des Datenverkehrs zu erhalten, die das Unternehmen egresses; Diese Netzwerkadapter, der diesen ausgehenden Datenverkehr gesendet wird jedoch nicht unbedingt wieder mit dem Unternehmensnetzwerk verbinden. Aus diesem Grund sind die QoS-Richtlinien für alle Netzwerkschnittstellen eines Computers unter Windows Server 2012 immer aktiviert.  
+Beachten Sie, dass diese mobilen Szenarien nicht für Server Arbeits Auslastungen gelten. Beispielsweise kann sich ein Server mit mehreren Netzwerkadaptern am Rand des Netzwerks eines Unternehmens befinden. Die IT-Abteilung könnte festlegen, dass QoS-Richtlinien den Datenverkehr Drosseln, der das Unternehmen auswählt. der Netzwerkadapter, der diesen ausgehenden Datenverkehr sendet, stellt jedoch nicht notwendigerweise eine Verbindung mit dem Unternehmensnetzwerk her. Aus diesem Grund sind QoS-Richtlinien auf allen Netzwerkschnittstellen eines Computers, auf dem Windows Server 2012 ausgeführt wird, immer aktiviert.  
   
 > [!NOTE]
->  Selektive Aktivierung gilt nur für QoS-Richtlinien und nicht für die erweiterte QoS-Einstellungen, die in diesem Dokument im nächsten Abschnitt beschrieben.  
+>  Selektive Aktivierung gilt nur für QoS-Richtlinien und nicht für die erweiterten QoS-Einstellungen, die weiter unten in diesem Dokument erläutert werden.  
   
 ### <a name="advanced-qos-settings"></a>Erweiterte QoS-Einstellungen
 
-Erweiterte QoS-Einstellungen geben Sie zusätzliche Steuerelemente für IT-Administratoren, um die Auslastung der Computer und DSCP-Markierungen verwalten. Erweiterte QoS-Einstellungen gelten nur auf Computerebene, während die QoS-Richtlinien auf den Computer und die Benutzer angewendet werden können.
+Erweiterte QoS-Einstellungen bieten IT-Administratoren zusätzliche Steuerungsmechanismen für die Verwaltung von Computernetzwerk Verbrauch und DSCP-Kennzeichnungen. Erweiterte QoS-Einstellungen gelten nur auf Computer Ebene, während QoS-Richtlinien auf der Computer-und der Benutzerebene angewendet werden können.
 
 #### <a name="to-configure-advanced-qos-settings"></a>So konfigurieren Sie erweiterte QoS-Einstellungen
 
-1.  Klicken Sie auf **Computerkonfiguration**, und klicken Sie dann auf **Windows-Einstellungen in der Gruppenrichtlinie**.
+1.  Klicken Sie auf **Computer Konfiguration**, und klicken Sie dann **in Gruppenrichtlinie auf Windows-Einstellungen**.
   
-2.  Mit der rechten Maustaste **QoS-Richtlinie**, und klicken Sie dann auf **erweiterte QoS-Einstellungen**.
+2.  Klicken Sie mit der rechten Maustaste auf **QoS Policy**, und klicken Sie dann auf **Erweiterte QoS-Einstellungen**.
 
-     Die folgende Abbildung zeigt, dass die beiden Registerkarten mit QoS-Einstellungen erweitert: **Eingehende TCP-Datenverkehr** und **DSCP-Markierung Außerkraftsetzung**.
+     Die folgende Abbildung zeigt die beiden erweiterten QoS-Einstellungs Registerkarten: **Eingehender TCP-Datenverkehr** und **DSCP-Markierungs Überschreibung**.
   
 > [!NOTE]
->  Erweiterte QoS-Einstellungen sind die gruppenrichtlinieneinstellungen auf Computerebene.
+>  Erweiterte QoS-Einstellungen sind Gruppenrichtlinie Einstellungen auf Computer Ebene.
   
-#### <a name="advanced-qos-settings-inbound-tcp-traffic"></a>Erweiterte QoS-Einstellungen: eingehende TCP-Datenverkehr
+#### <a name="advanced-qos-settings-inbound-tcp-traffic"></a>Erweiterte QoS-Einstellungen: eingehender TCP-Datenverkehr
 
-**Eingehende TCP-Datenverkehr** der Auslastung der Netzwerkbandbreite TCP auf der Empfängerseite steuert, während die QoS-Richtlinien für den ausgehenden TCP und UDP-Datenverkehr auswirken. 
+**Eingehender TCP-Datenverkehr** steuert den TCP-Bandbreitenverbrauch auf Empfängerseite, während QoS-Richtlinien den ausgehenden TCP-und UDP-Datenverkehr beeinflussen. 
 
-Durch Festlegen von einem niedrigeren Durchsatz auf Ebene der **eingehende TCP-Datenverkehr** Registerkarte TCP schränkt die Größe des angekündigten TCP-Empfangsfenster. Die Auswirkung dieser Einstellung wird höhere Durchsatzraten erforderlich sind und -Auslastung für TCP-Verbindungen mit höheren Bandbreiten oder-Wartezeiten (Bandbreite Bandwidth Delay Product) verknüpfen. Standardmäßig werden die Computer unter Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows Server 2008 und Windows Vista auf maximalen Durchsatz festgelegt.
+Durch Festlegen einer niedrigeren Durchsatz Ebene auf der Registerkarte **eingehender TCP-Datenverkehr** beschränkt TCP die Größe des angekündigten TCP-Empfangs Fensters. Diese Einstellung wirkt sich auf höhere Durchsatzraten und die Verbindungs Auslastung für TCP-Verbindungen mit höheren Bandbreiten oder Latenzen (Bandbreiten Verzögerung) aus. Standardmäßig sind Computer, auf denen Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows Server 2008 und Windows Vista ausgeführt wird, auf den maximalen Durchsatz festgelegt.
   
-Das TCP-Empfangsfenster Fenster wurde von früheren Versionen von Windows in Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows Server 2008 und Windows Vista geändert. Frühere Versionen von Windows das TCP-Receive-Side-Fenster auf ein Maximum von 64 Kilobyte (KB) eingeschränkt, während es sich bei Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows Server 2008 und Windows Vista dynamisch der Receive-Side Fenstergröße bis zu 16 Megabytes (MB ). Im Steuerelement eingehenden TCP-Datenverkehr können Sie die Durchsatzstufe an eingehenden steuern, durch Festlegen den maximalen Wert, den das TCP-Empfangsfenster vergrößert werden kann. Die Ebenen entsprechen die folgenden Höchstwerte. 
+Das TCP-Empfangs Fenster wurde in Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows Server 2008 und Windows Vista aus früheren Windows-Versionen geändert. In früheren Versionen von Windows wurde das Empfangs seitige TCP-Fenster auf maximal 64 Kilobyte (KB) beschränkt, während Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows Server 2008 und Windows Vista die Größe des Empfangs seitigen Fensters dynamisch auf bis zu 16 Megabyte (MB ). In der eingehenden TCP-Datenverkehrs Steuerung können Sie den Durchsatz für den eingehenden Durchsatz steuern, indem Sie den maximalen Wert festlegen, auf den das TCP-Empfangs Fenster vergrößert werden kann. Die Ebenen entsprechen den folgenden maximalen Werten. 
   
-|Eingehender Durchsatz|Maximal|  
+|Durchsatz für eingehenden Durchsatz|Maximal|  
 |------------------------|-------|  
 |0|64 KB|
 |1|256 KB|
 |2|1 MB|
 |3|16 MB|
 
-Die tatsächliche Fenstergröße kann es sich um einen Wert gleich oder kleiner als die maximal, je nach netzwerkbedingungen sein.
+Die tatsächliche Fenstergröße kann je nach Netzwerkbedingungen ein Wert sein, der größer oder kleiner als der Höchstwert ist.
 
-###### <a name="to-set-the-tcp-receive-side-window"></a>Zum Festlegen des TCP-empfangsseitige
+###### <a name="to-set-the-tcp-receive-side-window"></a>Festlegen des TCP-Empfangs seitigen Fensters
 
-1. Im Gruppenrichtlinienobjekt-Editor, klicken Sie auf **lokale Computerrichtlinie**, klicken Sie auf **Windows-Einstellungen**, klicken Sie mit der rechten Maustaste auf **QoS-Richtlinie**, und klicken Sie dann auf **erweiterte QoS- Einstellungen**.
+1. Klicken Sie in Gruppenrichtlinienobjekt-Editor auf **Richtlinie für den lokalen Computer**, klicken Sie auf **Windows-Einstellungen**, klicken Sie mit der rechten Maustaste auf **QoS-Richtlinie**, **und klicken Sie**
   
-2. In **empfangen von TCP-Durchsatz**Option **empfangen von TCP-Durchsatz konfigurieren**, und wählen Sie dann auf der Durchsatzmenge, die Sie möchten.
+2. Wählen Sie unter **TCP-Empfangs Durchsatz**die Option **TCP-Empfangs Durchsatz konfigurieren**aus, und wählen Sie dann die gewünschte Durchsatz Ebene aus.
 
-3.  Verknüpfen Sie das Gruppenrichtlinienobjekt mit der Organisationseinheit.
+3.  Verknüpfen Sie das GPO mit der Organisationseinheit.
 
-#### <a name="advanced-qos-settings-dscp-marking-override"></a>Erweiterte QoS-Einstellungen: DSCP-Markierung außer Kraft setzen
+#### <a name="advanced-qos-settings-dscp-marking-override"></a>Erweiterte QoS-Einstellungen: DSCP-Markierungs Überschreibung
 
-Markieren von DSCP außer Kraft setzen, schränkt die Fähigkeit von Anwendungen an, oder "kennzeichnen" – DSCP-Werte, als die in der QoS-Richtlinien. Indem Sie angeben, dass Anwendungen Festlegen von DSCP-Werte zulässig sind, können Anwendungen DSCP-Werten ungleich Null festlegen. 
+Die Überschreibung der DSCP-Markierung schränkt die Fähigkeit von Anwendungen ein, –-oder "Mark"-–-DSCP-Werte anzugeben, die in QoS-Richtlinien angegeben sind Wenn Sie angeben, dass Anwendungen DSCP-Werte festlegen dürfen, können Anwendungen nicht-NULL-DSCP-Werte festlegen. 
 
-Durch Angabe **ignorieren**, Anwendungen, die QoS-APIs verwenden, müssen ihre DSCP-Werte, die auf NULL festgelegt, und nur die QoS-Richtlinien können DSCP-Werte festzulegen. 
+Durch die Angabe von **Ignore**werden die DSCP-Werte für Anwendungen, die QoS-APIs verwenden, auf NULL festgelegt, und nur QoS-Richtlinien können DSCP-Werte festlegen. 
 
-Standardmäßig zu Computern unter Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows Server 2008 und Windows Vista Anwendungen DSCP-Werten an; Anwendungen und Geräte, die nicht die QoS-APIs verwenden, werden nicht überschrieben.
+Standardmäßig ermöglichen Computer mit Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows Server 2008 und Windows Vista die Angabe von DSCP-Werten. Anwendungen und Geräte, die nicht die QoS-APIs verwenden, werden nicht überschrieben.
 
-##### <a name="wireless-multimedia-and-dscp-values"></a>Wireless Multimedia und DSCP-Werte
+##### <a name="wireless-multimedia-and-dscp-values"></a>Drahtlose Multimedia-und DSCP-Werte
 
-Die [Wi-Fi-Allianz](https://go.microsoft.com/fwlink/?LinkId=160769) hat eine Zertifizierung für Wireless Multimedia eingerichtet \(WMM\) , definiert vier Zugriffskategorien \(WMM_AC\) für die Priorisierung des Netzwerkverkehrs Übertragung über ein WLAN\-Fi-Netzwerk. Die Access-Kategorien enthalten \(in der Reihenfolge der höchsten zum niedrigsten Priorität\): voice, Video, beste Aufwand und Hintergrund; bzw. VO, VI, sein und BK abgekürzt. Die WMM-Spezifikation definiert, welche DSCP Werte entsprechen den vier Kategorien:
+Die [Wi-Fi-Allianz](https://go.microsoft.com/fwlink/?LinkId=160769) hat eine Zertifizierung für Wireless Multimedia \(WMM\) eingerichtet, die vier Zugriffs \(Kategorien\) definiert WMM_AC für die Priorisierung von Netzwerk Datenverkehr, der über eine WLAN\--Fi Drahtlos Netzwerk. Die Zugriffs Kategorien \(lauten in der Reihenfolge der höchsten Priorität\): sprach-, Video-, Best-und Background-Werte, die als VO, VI, be und BK abgekürzt werden. Die WMM-Spezifikation definiert, welche DSCP-Werte mit den vier Zugriffs Kategorien übereinstimmen:
   
-|DSCP-Wert|Kategorie der WMM-Zugriff|
+|DSCP-Wert|WMM-Zugriffs Kategorie|
 |----------|-------------------|
-|48-63|Sprache (VO)|
+|48-63|Stimme (VO)|
 |32-47|Video (VI)|
-|24-31, 0-7|Beste Leistung (BE)|
-|8-23|Hintergrund (s.)|
+|24-31, 0-7|Bewährter Aufwand (ist)|
+|8-23|Hintergrund (BK)|
 
-QoS-Richtlinien, die diese DSCP-Werte zu verwenden, um sicherzustellen, dass diese Portable erstellen, Computer mit dem WLAN\-Fi Certified™ für Drahtlosadapter WMM-Empfangsadapter priorisiert Behandlung, wenn mit WLAN\-Fi für WMM-zertifizierten Punkte zugreifen.
+Sie können QoS-Richtlinien erstellen, die diese DSCP-Werte verwenden, um sicher\-zustellen, dass tragbare Computer mit WLAN-zertifizierten™ für WMM-drahtlos Adapter\-eine priorisierte Behandlung erhalten, wenn Sie mit WLAN-zertifiziert für WMM-Zugriffspunkte verknüpft sind.
   
-### <a name="BKMK_precedencerules"></a>Rangfolgeregeln für QoS-Richtlinie
+### <a name="BKMK_precedencerules"></a>Rangfolge von QoS-Richtlinien
 
-Ähnlich wie bei der GPO-Prioritäten werden QoS-Richtlinien haben Vorrang vor Regeln zum Lösen von Konflikten, wenn mehrere QoS-Richtlinien auf eine bestimmte Gruppe von Datenverkehr anwenden. Für ausgehende TCP- oder UDP-Datenverkehr kann nur eine QoS-Richtlinie zu einem Zeitpunkt, was bedeutet, dass der QoS-Richtlinien nicht verfügen, dass einen kumulativen Effekt, wie z. B., in denen Drosselung Raten summiert werden würde angewendet werden.
+Ähnlich wie bei den Prioritäten von GPO haben QoS-Richtlinien Vorrangregeln zum Auflösen von Konflikten, wenn mehrere QoS-Richtlinien für eine bestimmte Gruppe von Datenverkehr gelten. Für ausgehenden TCP-oder UDP-Datenverkehr kann jeweils nur eine QoS-Richtlinie angewendet werden. Dies bedeutet, dass QoS-Richtlinien keinen kumulativen Effekt haben, z. b. wenn Drosselungs Raten summiert werden.
 
-Im Allgemeinen gewinnt die QoS-Richtlinie mit den entsprechenden Bedingungen. Wenn mehrere QoS-Richtlinien anwenden, können die Regeln in drei Kategorien: Benutzerebene im Vergleich zu Computerebene; die Anwendung im Vergleich zu den Netzwerk-Quintupel. und für das Netzwerk quintuple.
+Im allgemeinen gewinnt die QoS-Richtlinie mit den meisten übereinstimmenden Bedingungen. Wenn mehrere QoS-Richtlinien angewendet werden, können die Regeln in drei Kategorien unterteilt werden: auf Benutzerebene und auf Computer Ebene. Anwendung im Vergleich zum Netzwerk-quintupel; und unter dem Netzwerk-quintupel.
 
-Durch *Netzwerk Quintupel*, meinen wir die Quell-IP-Adresse, Ziel-IP-Adresse, Quellport, Zielport und Protokoll \(TCP/UDP\).  
+Nach dem *Netzwerk-quintupel*sind die Quell-IP-Adresse, Ziel-IP-Adresse, Quellport, Zielport und TCP\)/UDP des Protokolls \(gemeint.  
 
- **QoS-Richtlinie auf Benutzerebene hat Vorrang vor QoS-Richtlinie auf Computerebene**
+ **Die QoS-Richtlinie auf Benutzerebene hat Vorrang vor der QoS-Richtlinie auf Computer Ebene.**
 
-Mit dieser Regel erleichtert erheblich die Netzwerkadministratoren die Verwaltung von QoS-GPOs, insbesondere für Benutzer-Richtlinien. Z. B. wenn der Netzwerkadministrator eine QoS-Richtlinie für eine Benutzergruppe definieren möchte, können sie einfach erstellen und verteilen ein Gruppenrichtlinienobjekt für diese Gruppe. Sind keine Gedanken machen, zu welchen, denen Computern dieser Benutzer angemeldet sind, und angibt, ob diese Computer müssen in Konflikt stehende QoS-Richtlinien definiert, da, wenn ein Konflikt vorhanden ist, die Richtlinie auf Benutzerebene immer Vorrang hat.
+Diese Regel vereinfacht die Verwaltung von QoS-GPOs durch Netzwerkadministratoren, insbesondere für Richtlinien auf Grundlage von Benutzergruppen –. Wenn der Netzwerkadministrator beispielsweise eine QoS-Richtlinie für eine Benutzergruppe definieren möchte, kann er nur ein Gruppenrichtlinien Objekt erstellen und an diese Gruppe verteilen. Sie müssen sich keine Gedanken darüber machen, bei welchen Computern diese Benutzer angemeldet sind und ob für diese Computer widersprüchliche QoS-Richtlinien definiert sind, denn wenn ein Konflikt vorliegt, hat die Richtlinie auf Benutzerebene immer Vorrang.
 
 > [!NOTE]
->  Eine QoS-Richtlinie auf Benutzerebene gilt nur für Datenverkehr, der von diesem Benutzer generiert wird. Andere Benutzer von einem bestimmten Computer und den Computer selbst werden keine unterliegen QoS-Richtlinien, die für diesen Benutzer definiert sind.
+>  Eine QoS-Richtlinie auf Benutzerebene gilt nur für Datenverkehr, der von diesem Benutzer generiert wird. Andere Benutzer eines bestimmten Computers und der Computer selbst unterliegen keinen QoS-Richtlinien, die für diesen Benutzer definiert sind.
 
- **Anwendung Spezifität und Vorrang vor den über das Netzwerk Quintupel**
+ **Anwendungs Spezifizität und Vorrang vor Netzwerk-quintupel**
 
-Wenn mehrere QoS-Richtlinien für den Datenverkehr eines bestimmten übereinstimmen, wird die spezifische Richtlinie angewendet. Zwischen Richtlinien, die Anwendungen zu identifizieren, eine Richtlinie, die sendende Anwendung Dateipfad enthält, spezifischer als eine andere Richtlinie gilt, die nur den Anwendungsnamen (kein Pfad) identifiziert. Wenn mehrere Richtlinien mit Anwendungen trotzdem anwenden möchten, verwenden die Rangfolgeregeln des Netzwerks Quintupel die beste Übereinstimmung gefunden.
+Wenn mehrere QoS-Richtlinien mit dem spezifischen Datenverkehr identisch sind, wird die spezifischere Richtlinie angewendet. In Richtlinien, mit denen Anwendungen identifiziert werden, wird eine Richtlinie, die den Dateipfad der Sende Anwendung einschließt, als genauer betrachtet als eine andere Richtlinie, die nur den Anwendungsnamen identifiziert (kein Pfad). Wenn mehrere Richtlinien mit Anwendungen weiterhin zutreffen, verwenden die Rang Folge Regeln das netzwerkquintupel, um die beste Entsprechung zu finden.
 
-Alternativ können mehrere QoS-Richtlinien auf den gleichen Datenverkehr durch Angeben von Bedingungen mit nicht überlappenden anwenden. Zwischen den Bedingungen der Anwendungen und das Netzwerk Quintupel die Richtlinie, die angibt, die Anwendung wird als spezifischer und wird angewendet. 
+Sie können auch mehrere QoS-Richtlinien auf denselben Datenverkehr anwenden, indem Sie nicht überlappende Bedingungen angeben. Zwischen den Bedingungen von Anwendungen und dem Netzwerk-quintupel wird die Richtlinie, die die Anwendung angibt, als spezifischere angesehen und angewendet. 
 
-Z. B. Policy_A gibt nur einen Anwendungsnamen (app.exe), und Policy_B gibt an, die Ziel-IP-Adresse 192.168.1.0/24. Wenn diese QoS-Richtlinien in Konflikt stehen \(app.exe sendet Datenverkehr an eine IP-Adresse innerhalb des Bereichs von 192.168.4.0/24\), Policy_A angewendet.
+Beispielsweise gibt policy_A nur einen Anwendungsnamen (app. exe) an, und policy_B gibt die Ziel-IP-Adresse 192.168.1.0/24 an. Wenn diese QoS-Richt \(Linien einen Konflikt zwischen app. exe und einer IP-Adresse im Bereich von 192.168.4.0\)/24 haben, wird policy_A angewendet.
 
- **Erhöhung der Genauigkeit hat Vorrang vor innerhalb des Netzwerks Quintupel**
+ **Weitere Besonderheiten haben Vorrang vor dem Netzwerk-quintupel.**
 
-Bei Richtlinienkonflikten in der Netzwerk-Quintupel hat die Richtlinie mit den meisten übereinstimmenden Bedingungen Vorrang vor. Nehmen wir beispielsweise an, dass Policy_C gibt an, Quell-IP-Adresse "Beliebig", Ziel-IP-Adresse 10.0.0.1, Quelle "any", port, Ziel "any" port und Protokoll "TCP". 
+Bei Richtlinien Konflikten im Netzwerk-quintupel hat die Richtlinie mit den meisten übereinstimmenden Bedingungen Vorrang. Angenommen, policy_C gibt die Quell-IP-Adresse "Any", die Ziel-IP-Adresse 10.0.0.1, den Quellport "Any", den Zielport "Any" und das Protokoll "TCP" an. 
 
-Als Nächstes wird davon ausgegangen Sie, dass Policy_D gibt an, Quell-IP-Adresse "any", Ziel-IP-Adresse 10.0.0.1, Quellport "Beliebig", Ziel-Port 80 und Protokoll "TCP". Klicken Sie dann mit Policy_C und Policy_D Verbindungen mit dem Ziel 10.0.0.1:80 übereinstimmen. Da die QoS-Richtlinie auf die Richtlinie mit den spezifischsten übereinstimmenden Bedingungen gilt, Vorrang Policy_D in diesem Beispiel.  
+Angenommen, policy_D gibt die Quell-IP-Adresse "Any", die Ziel-IP-Adresse 10.0.0.1, den Quellport "Any", den Zielport 80 und das Protokoll "TCP" an. Dann stimmen policy_C und policy_D beide Verbindungen mit dem Ziel 10.0.0.1:80 ab. Da die QoS-Richtlinie die Richtlinie mit den spezifischsten übereinstimmenden Bedingungen anwendet, hat policy_D in diesem Beispiel Vorrang.  
   
-Jedoch möglicherweise die QoS-Richtlinien eine gleiche Anzahl von Bedingungen. Z. B. mehrere Richtlinien können jede Geben Sie nur eine (aber nicht identisch) Teil der Netzwerk-Quintupel. Ist der folgende Reihenfolge zwischen den Quintupel Netzwerk von hoch zu niedrig Vorrang vor:
+QoS-Richtlinien können jedoch die gleiche Anzahl von Bedingungen aufweisen. Beispielsweise können in mehreren Richtlinien jeweils nur ein Teil des Netzwerk-quintupels angegeben werden. Unter dem Netzwerk-quintupel ist die folgende Reihenfolge von einer höheren zu einer niedrigeren Rangfolge:
 
 - Quell-IP-Adresse
 
@@ -332,10 +332,10 @@ Jedoch möglicherweise die QoS-Richtlinien eine gleiche Anzahl von Bedingungen. 
 
 - Protokoll (TCP oder UDP)
 
-Innerhalb einer bestimmten Bedingung, z. B. IP-Adresse wird eine spezifische IP-Adresse mit höherer Priorität behandelt. Beispielsweise ist eine IP-Adresse 192.168.4.1 spezifischer als 192.168.4.0/24.
+Innerhalb einer bestimmten Bedingung, wie z. b. IP-Adresse, wird eine spezifischere IP-Adresse mit höherer Rangfolge behandelt. Beispielsweise ist die IP-Adresse 192.168.4.1 spezifischer als 192.168.4.0/24.
 
-Entwerfen Sie Ihre QoS-Richtlinien so genau wie möglich zur Vereinfachung Ihrer Organisation die Möglichkeit, zu verstehen, welche Richtlinien wirksam sind.
+Entwerfen Sie Ihre QoS-Richtlinien so speziell wie möglich, um die Fähigkeit Ihrer Organisation zu vereinfachen, welche Richtlinien wirksam sind.
 
-Im nächsten Thema in diesem Handbuch finden Sie unter [QoS-Richtlinie-Ereignisse und-Fehler](qos-policy-errors.md).
+Das nächste Thema in dieser Anleitung finden Sie unter [QoS-Richtlinien Ereignisse und-Fehler](qos-policy-errors.md).
 
-Das erste Thema in diesem Handbuch finden Sie unter [Quality of Service (QoS)-Richtlinie](qos-policy-top.md).
+Das erste Thema in dieser Anleitung finden Sie unter [Quality of Service (QoS)-Richtlinie](qos-policy-top.md).

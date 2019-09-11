@@ -10,12 +10,12 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
-ms.openlocfilehash: 5b2b42c0a1878a2d9f5f9002dd36e0124e2101cc
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.openlocfilehash: fb36f0ff804b139149922596a05d1ff649884bdd
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546556"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868971"
 ---
 # <a name="networking"></a>Netzwerk
 
@@ -26,7 +26,7 @@ ms.locfileid: "69546556"
 
 Der Netzwerkbetrieb ist ein grundlegender Bestandteil der SDDC \(\) -Plattform für das Software-Defined Datacenter, und Windows Server 2016 bietet neue und\) verbesserte Software-Defined Networking \(-Sdn-Technologien, die Sie bei der Umstellung auf eine vollständig erkannte SDDC-Lösung für Ihre Organisation.
 
-Wenn Sie Netzwerke als softwaredefinierte Ressource verwalten, brauchen Sie Anforderungen einer Anwendung an die Infrastruktur nur einmal zu beschreiben und können dann auswählen, wo die Anwendung ausgeführt wird – lokal oder in der Cloud. 
+Wenn Sie Netzwerke als softwaredefinierte Ressource verwalten, können Sie die Infrastrukturanforderungen einer Anwendung einmalig beschreiben und dann auswählen, wo die Anwendung ausgeführt wird (lokal oder in der Cloud). 
 
 Diese Konsistenz bedeutet, dass die Anwendungen sich jetzt leichter skalieren und nahtlos überall mit der gleichen Zuverlässigkeit hinsichtlich Sicherheit, Leistung, Dienstqualität und Verfügbarkeit ausführen lassen.
 
@@ -514,6 +514,7 @@ Sie können Remote Zugriffs Technologien wie DirectAccess und VPN (virtuelles pr
                                         <h3><a href="https://docs.microsoft.com/virtualization/windowscontainers/container-networking/architecture">Windows-Container Netzwerk</a><hr /></h3>
                                         <p>
 Windows Container Networking ermöglicht das Erstellen und Verwalten von Netzwerken zum Verbinden von Containerendpunkten auf Windows 10- und Windows Server-Hosts mithilfe von standardmäßigen Branchentools und Workflows. Windows Container Networking unterstützt mehrere Topologien, z. B. private, flat-L2 und routed-L3.</p>
+
                                         <p>Unterstützt werden auch Überlagerungen, die Sie lokal auf dem Host erstellen können, indem Sie Docker, Kubernetes oder Windows PowerShell über Plug-Ins verwenden, die mit dem Windows-Host Netzwerkdienst (HNS) kommunizieren. Cluster Netzwerke mit mehreren Knoten können mithilfe von Orchestrierungs Systemen auf höherer Ebene erstellt und verwaltet werden, indem Sie über einen lokalen Agent mit dem HNS eines Knotens kommunizieren.</p>
                     </div>
                 </div>
@@ -550,4 +551,4 @@ Networking-Ressourcen für Betriebssysteme vor Windows Server 2016 stehen unter 
 
 - Windows Server 2012 und Windows Server 2012 R2 [Übersicht über Netzwerke](https://technet.microsoft.com/library/hh831357.aspx)
 - Windows Server 2008 und Windows Server 2008 R2 [Netzwerke](https://technet.microsoft.com/library/cc753940)
-- Windows Server 2003 [Windows Server 2003/2003 R2](https://www.microsoft.com/download/details.aspx?id=53314) -deaktivierter Inhalt
+- Windows Server 2003 [Windows Server 2003/2003 R2-deaktivierter Inhalt](https://www.microsoft.com/download/details.aspx?id=53314)

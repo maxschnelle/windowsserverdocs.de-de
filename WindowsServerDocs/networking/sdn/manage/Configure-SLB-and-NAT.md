@@ -1,6 +1,6 @@
 ---
 title: Konfigurieren des Software Load Balancers für den Lastenausgleich und Netzwerkadressenübersetzung
-description: Dieses Thema ist Teil der Software Defined Networking-Anleitung zur Verwendung zum Verwalten von Mandantenworkloads und virtuellen Netzwerken in Windows Server 2016.
+description: Dieses Thema ist Teil des Software-Defined Networking-Handbuchs zum Verwalten von mandantenworkloads und virtuellen Netzwerken in Windows Server 2016.
 manager: dougkim
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,38 +13,38 @@ ms.assetid: 73bff8ba-939d-40d8-b1e5-3ba3ed5439c3
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: 4d53c4bcbe1f37f532f2861d5669201959a9f091
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 70bc6aa6a1276506d81b56520b7e127cd271cc83
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446668"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867162"
 ---
 # <a name="configure-the-software-load-balancer-for-load-balancing-and-network-address-translation-nat"></a>Konfigurieren des Software Load Balancers für den Lastenausgleich und Netzwerkadressenübersetzung
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Können Sie in diesem Thema erfahren, wie Sie mit der Software Defined Networking \(SDN\) softwarelastenausgleich \(SLB\) ausgehende NAT bereitstellen \(NAT\), Eingehende NAT oder Lastenausgleich zwischen mehreren Instanzen einer Anwendung.
+In diesem Thema erfahren Sie, wie Sie den Software- \(defined Networking-Sdn\) -Software Lastenausgleich \(-\) \(SLB verwenden, um die NAT\)für ausgehende Netzwerkadressen bereitzustellen. eingehender NAT-oder Lastenausgleich zwischen mehreren Instanzen einer Anwendung.
 
-## <a name="software-load-balancer-overview"></a>Software Load Balancer (Übersicht)
+## <a name="software-load-balancer-overview"></a>Übersicht über Software Load Balancer
 
-Der SDN-Softwarelastenausgleich \(SLB\) bietet hohe Verfügbarkeit und netzwerkleistung für Ihre Anwendungen. Es ist ein Layer-4 \(TCP, UDP\) Lastenausgleich, die eingehenden Datenverkehr auf fehlerfreie Dienstinstanzen in Cloud Services oder virtuellen Computern in einer lastenausgleichsgruppe definiert verteilt.
+Die Sdn-Software \(Load Balancer SLB\) bietet Hochverfügbarkeit und Netzwerkleistung für Ihre Anwendungen. Dabei handelt es sich um \(einen Layer 4\) -TCP-, UDP-Lastenausgleich, der eingehenden Datenverkehr auf fehlerfreie Dienst Instanzen in Cloud Services oder virtuellen Computern verteilt, die in einer Lasten Ausgleichs Gruppe definiert sind.
 
-Konfigurieren von SLB zu folgenden Zwecken:
+Konfigurieren Sie SLB für folgende Aufgaben:
 
-- Lastenausgleich für eingehenden Datenverkehr für ein virtuelles Netzwerk mit virtuellen Maschinen extern \(VMs\), so genannte öffentliche VIP-Adresse des Lastenausgleichs.
-- Lastenausgleich für eingehenden Datenverkehr zwischen virtuellen Computern in einem virtuellen Netzwerk, zwischen virtuellen Computern in Clouddiensten oder zwischen lokalen Computern und virtuellen Computern in einem standortübergreifenden virtuellen Netzwerk. 
-- Weiterleiten von Netzwerkdatenverkehr virtueller Computer über das virtuelle Netzwerk an externe Ziele, die mithilfe der Netzwerkadressübersetzung (NAT), so genannte ausgehenden NAT
-- Weiterleiten von externem Datenverkehr an eine bestimmte VM, die so genannte eingehende NAT-Gerät
-
-
+- Lastenausgleich für eingehenden Datenverkehr außerhalb eines virtuellen Netzwerks mit \(virtuellen\)Computern, die auch als "öffentliche VIP-Lastenausgleich" bezeichnet werden.
+- Lastenausgleich für eingehenden Datenverkehr zwischen VMs in einem virtuellen Netzwerk, zwischen virtuellen Computern in Clouddiensten oder zwischen lokalen Computern und VMS in einem standortübergreifenden virtuellen Netzwerk. 
+- Weiterleiten von VM-Netzwerk Datenverkehr aus dem virtuellen Netzwerk an externe Ziele mithilfe von Network Address Translation (NAT), auch als ausgehende NAT bezeichnet.
+- Weiterleiten von externem Datenverkehr an eine bestimmte VM, auch als eingehende NAT bezeichnet.
 
 
-## <a name="example-create-a-public-vip-for-load-balancing-a-pool-of-two-vms-on-a-virtual-network"></a>Beispiel: Erstellen Sie eine öffentliche VIP für den Lastenausgleich für einen Pool mit zwei VMs in einem virtuellen Netzwerk
 
-In diesem Beispiel erstellen Sie einen Load Balancer-Objekt mit einer öffentlichen VIP und zwei virtuelle Computer als Mitglieder des Pools Anforderungen an die VIP zu verarbeiten. Dieser Beispielcode fügt auch eine HTTP-Integritätstests, um festzustellen, ob einer der Mitglieder des Pools nicht erreichbar ist.
 
-1. Bereiten Sie vor der Load Balancer-Objekt.
+## <a name="example-create-a-public-vip-for-load-balancing-a-pool-of-two-vms-on-a-virtual-network"></a>Beispiel: Erstellen einer öffentlichen VIP für den Lastenausgleich eines Pools mit zwei virtuellen Computern in einem virtuellen Netzwerk
+
+In diesem Beispiel erstellen Sie ein Load Balancer-Objekt mit einer öffentlichen VIP-Adresse und zwei VMS als Poolmitglieder, um Anforderungen an die VIP zu verarbeiten. In diesem Beispielcode wird auch ein HTTP-Integritätstest hinzugefügt, um zu erkennen, ob eines der poolmember nicht mehr reagiert.
+
+1. Bereiten Sie das Load Balancer-Objekt vor.
 
    ```PowerShell
     import-module NetworkController
@@ -56,7 +56,7 @@ In diesem Beispiel erstellen Sie einen Load Balancer-Objekt mit einer öffentlic
     $LoadBalancerProperties = new-object Microsoft.Windows.NetworkController.LoadBalancerProperties
    ```
 
-2. Weisen Sie eine Front-End-IP-Adresse, der gemeinhin als virtuelle IP (VIP) an.<p>Die VIP-Adresse muss über eine nicht verwendete IP-Adresse in einem logischen Netzwerk IP-Pools für den Load Balancer-Manager angegeben werden. 
+2. Weisen Sie eine Front-End-IP-Adresse zu, die im Allgemeinen als virtuelle IP-Adresse (VIP) bezeichnet wird.<p>Die VIP muss von einer nicht verwendeten IP-Adresse in einem der logischen Netzwerk-IP-Pools für den Load Balancer Manager erfolgen. 
 
    ```PowerShell
     $VIPIP = "10.127.134.5"
@@ -75,7 +75,7 @@ In diesem Beispiel erstellen Sie einen Load Balancer-Objekt mit einer öffentlic
     $LoadBalancerProperties.FrontEndIPConfigurations += $FrontEndIPConfig
    ```
 
-3. Ordnen Sie einen Back-End-Adresspool, enthält die dynamischen IP-Adressen (DIPs), aus denen die Elemente des Satzes mit Lastenausgleich von virtuellen Computern besteht. 
+3. Weisen Sie einen Back-End-Adresspool zu, der die dynamischen IPS (Dips) enthält, die die Mitglieder der Gruppe mit Lastenausgleich für virtuelle Computer bilden. 
 
    ```PowerShell 
     $BackEndAddressPool = new-object Microsoft.Windows.NetworkController.LoadBalancerBackendAddressPool
@@ -87,12 +87,12 @@ In diesem Beispiel erstellen Sie einen Load Balancer-Objekt mit einer öffentlic
     $LoadBalancerProperties.backendAddressPools += $BackEndAddressPool
    ```
 
-4. Definieren Sie einen Integritätstest, den der Load Balancer verwendet, um den Integritätsstatus der Mitglieder des Back-End-Pools zu bestimmen.<p>In diesem Beispiel definieren Sie einen HTTP-Test, die Abfragen auf der RequestPath von "/ health.htm."  Die Abfrage wird alle fünf Sekunden, wie durch die IntervalInSeconds-Eigenschaft angegeben.<p>Der Integritätstest muss es sich um eine HTTP-Antwortcode 200 für 11 aufeinander folgenden Abfragen für den Test berücksichtigt die Back-End-IP-Adresse, fehlerfrei sind empfangen. Wenn die Back-End-IP-Adresse nicht fehlerfrei ist, erhält er keine Datenverkehr aus dem Load Balancer.
+4. Definieren Sie einen Integritätstest, den der Load Balancer verwendet, um den Integritäts Status der Back-End-Pool Mitglieder zu ermitteln.<p>In diesem Beispiel definieren Sie einen HTTP-Test, der den requestpath von "/Health.htm." abfragt.  Die Abfrage wird alle 5 Sekunden ausgeführt, wie in der intervalinseconds-Eigenschaft angegeben.<p>Der Integritätstest muss einen HTTP-Antwort Code von 200 für 11 aufeinanderfolgende Abfragen erhalten, damit die Back-End-IP als fehlerfrei angesehen wird. Wenn die Back-End-IP-Adresse nicht fehlerfrei ist, empfängt Sie keinen Datenverkehr vom Lasten Ausgleichs Modul.
 
    >[!IMPORTANT]
-   >Datenverkehr zu oder von der ersten IP-Adresse im Subnetz für alle Zugriffssteuerungslisten (ACLs), die Sie die Back-End-IP-Adresse zuweisen, da dies für die Prüfpunkte der Ursprungspunkt ist, werden nicht blockiert.
+   >Blockieren Sie den Datenverkehr zu oder von der ersten IP-Adresse im Subnetz nicht für beliebige Access Control Listen (ACLs), die Sie auf die Back-End-IP anwenden, da dies der Ursprungs Punkt für die Tests ist.
 
-   Verwenden Sie das folgende Beispiel, um einen Integritätstest definieren.
+   Verwenden Sie das folgende Beispiel, um einen Integritätstest zu definieren.
 
    ```PowerShell
     $Probe = new-object Microsoft.Windows.NetworkController.LoadBalancerProbe
@@ -109,7 +109,7 @@ In diesem Beispiel erstellen Sie einen Load Balancer-Objekt mit einer öffentlic
     $LoadBalancerProperties.Probes += $Probe
    ```
 
-5. Definieren Sie eine lastenausgleichsregel zum Senden von Datenverkehr, die auf die Back-End-IP-Adresse der Front-End-IP-Adresse empfängt.  In diesem Beispiel erhält der Back-End-Adresspool TCP-Datenverkehr an Port 80.<p>Verwenden Sie das folgende Beispiel, um eine lastenausgleichsregel zu definieren:
+5. Definieren Sie eine Lasten Ausgleichs Regel zum Senden von Datenverkehr an der Front-End-IP-Adresse an die Back-End-IP-Adresse.  In diesem Beispiel empfängt der Back-End-Pool den TCP-Datenverkehr an Port 80.<p>Verwenden Sie das folgende Beispiel, um eine Lasten Ausgleichs Regel zu definieren:
 
    ```PowerShell
    $Rule = new-object Microsoft.Windows.NetworkController.LoadBalancingRule
@@ -127,20 +127,20 @@ In diesem Beispiel erstellen Sie einen Load Balancer-Objekt mit einer öffentlic
    $LoadBalancerProperties.loadbalancingRules += $Rule
    ```
 
-6. Fügen Sie die Lastenausgleichsmodul-Konfiguration für den Netzwerkcontroller hinzu.<p>Verwenden Sie das folgende Beispiel, um die Lastenausgleichsmodul-Konfiguration für den Netzwerkcontroller hinzufügen:
+6. Fügen Sie die Load Balancer-Konfiguration dem Netzwerk Controller hinzu.<p>Verwenden Sie das folgende Beispiel, um die Load Balancer-Konfiguration dem Netzwerk Controller hinzuzufügen:
 
    ```PowerShell
     $LoadBalancerResource = New-NetworkControllerLoadBalancer -ConnectionUri $URI -ResourceId $LBResourceId -Properties $LoadBalancerProperties -Force -PassInnerException
    ```
 
-7. Führen Sie im nächste Beispiel, um den Netzwerkschnittstellen dieser Back-End-Pool hinzuzufügen.
+7. Befolgen Sie das nächste Beispiel, um die Netzwerkschnittstellen zu diesem Back-End-Pool hinzuzufügen.
 
 
-## <a name="example-use-slb-for-outbound-nat"></a>Beispiel: Verwenden Sie die SLB für ausgehende NAT
+## <a name="example-use-slb-for-outbound-nat"></a>Beispiel: Verwenden von SLB für ausgehende NAT
 
-In diesem Beispiel konfigurieren Sie die SLB mit einem Back-End-Pool für die Bereitstellung von ausgehenden NAT-Funktion für einen virtuellen Computer auf den privaten Adressraum eines virtuellen Netzwerks, ausgehend mit dem Internet erreichen. 
+In diesem Beispiel konfigurieren Sie SLB mit einem Back-End-Pool für die Bereitstellung der ausgehenden NAT-Funktion für eine VM im privaten Adressraum eines virtuellen Netzwerks, um ausgehende Verbindungen mit dem Internet zu erreichen. 
 
-1. Erstellen Sie die Eigenschaften des Lastenausgleichsmoduls, Front-End-IP- und Back-End-Pool.
+1. Erstellen Sie die Load Balancer-Eigenschaften, Front-End-IP und den Back-End-Pool.
 
    ```PowerShell
     import-module NetworkController
@@ -187,50 +187,50 @@ In diesem Beispiel konfigurieren Sie die SLB mit einem Back-End-Pool für die Be
     $LoadBalancerProperties.OutboundNatRules += $OutboundNAT
    ```
 
-3. Fügen Sie dem Load Balancer-Objekt im Netzwerkcontroller hinzu.
+3. Fügen Sie das Load Balancer-Objekt im Netzwerk Controller hinzu.
 
    ```PowerShell
     $LoadBalancerResource = New-NetworkControllerLoadBalancer -ConnectionUri $URI -ResourceId $LBResourceId -Properties $LoadBalancerProperties -Force -PassInnerException
    ```
 
-4. Führen Sie im nächste Beispiel um Netzwerkschnittstellen hinzuzufügen, die Sie Zugriff auf das Internet bieten möchten.
+4. Befolgen Sie das nächste Beispiel, um die Netzwerkschnittstellen hinzuzufügen, für die Sie Internet Zugriff bereitstellen möchten.
 
-## <a name="example-add-network-interfaces-to-the-back-end-pool"></a>Beispiel: Netzwerkschnittstellen an den Back-End-Pool hinzufügen
-In diesem Beispiel werden die Netzwerkschnittstellen an den Back-End-Pool hinzufügen.  Sie müssen diesen Schritt für jede Netzwerkschnittstelle wiederholen, die an die VIP-Adresse gesendete Anforderungen verarbeiten kann. 
+## <a name="example-add-network-interfaces-to-the-back-end-pool"></a>Beispiel: Hinzufügen von Netzwerkschnittstellen zum Back-End-Pool
+In diesem Beispiel fügen Sie dem Back-End-Pool Netzwerkschnittstellen hinzu.  Sie müssen diesen Schritt für jede Netzwerkschnittstelle wiederholen, die Anforderungen verarbeiten kann, die an die VIP-Adresse gerichtet sind. 
 
-Sie können diesen Prozess auf eine einzelne Netzwerkschnittstelle für die hinzuzufügenden auf mehrere Load Balancer-Objekte auch wiederholen. Wenn Sie einen Load Balancer-Objekt für eine Web-Server-VIP-Adresse und eine separate Load-Balancer-Objekt, zu der ausgehenden NAT verfügen z. B.
+Sie können diesen Vorgang auch auf einer einzelnen Netzwerkschnittstelle wiederholen, um ihn mehreren Load Balancer-Objekten hinzuzufügen. Wenn Sie z. b. über ein Load Balancer-Objekt für eine Webserver-VIP und ein separates Load Balancer-Objekt verfügen, um ausgehende NAT bereitzustellen.
     
-1. Abrufen der Load Balancer-Objekt mit dem Back-End-Adresspool, um eine Netzwerkschnittstelle hinzuzufügen.
+1. Laden Sie das Load Balancer-Objekt, das den Back-End-Pool enthält, zum Hinzufügen einer Netzwerkschnittstelle.
 
    ```PowerShell
    $lbresourceid = "LB2"
    $lb = get-networkcontrollerloadbalancer -connectionuri $uri -resourceID $LBResourceId -PassInnerException
    ```
 
-2. Erhalten Sie die Netzwerkschnittstelle aus, und fügen Sie in das Array Loadbalancerbackendaddresspools Backendaddress Pool hinzu.
+2. Holen Sie sich die Netzwerkschnittstelle, und fügen Sie den backendaddress-Pool dem loadbalancerbackendadresssspools-Array hinzu.
 
    ```PowerShell
    $nic = get-networkcontrollernetworkinterface  -connectionuri $uri -resourceid 6daca142-7d94-0000-1111-c38c0141be06 -PassInnerException
    $nic.properties.IpConfigurations[0].properties.LoadBalancerBackendAddressPools += $lb.properties.backendaddresspools[0]
    ```  
 
-3. Fügen Sie die Netzwerkschnittstelle so, dass die Änderung zu übernehmen. 
+3. Platzieren Sie die Netzwerkschnittstelle, um die Änderung zu übernehmen. 
 
    ```PowerShell
    new-networkcontrollernetworkinterface  -connectionuri $uri -resourceid 6daca142-7d94-0000-1111-c38c0141be06 -properties $nic.properties -force -PassInnerException
    ``` 
 
 
-## <a name="example-use-the-software-load-balancer-for-forwarding-traffic"></a>Beispiel: Verwenden Sie den Software Load Balancer zum Weiterleiten von Datenverkehr
-Wenn Sie eine virtuelle IP-Adresse mit einer einzelnen Netzwerkschnittstelle in einem virtuellen Netzwerk zugeordnet werden, ohne die Definition der einzelnen Ports müssen, können Sie eine L3-Weiterleitungsregel erstellen.  Diese Regel leitet die gesamte Datenverkehr zu und von den virtuellen Computer über die zugewiesene VIP in einem Objekt für die öffentliche IP-Adresse enthalten.
+## <a name="example-use-the-software-load-balancer-for-forwarding-traffic"></a>Beispiel: Verwenden des Software Load Balancer zum Weiterleiten von Datenverkehr
+Wenn Sie eine virtuelle IP-Adresse einer einzelnen Netzwerkschnittstelle in einem virtuellen Netzwerk zuordnen müssen, ohne einzelne Ports zu definieren, können Sie eine L3-Weiterleitungs Regel erstellen.  Diese Regel leitet den gesamten Datenverkehr über die zugewiesene VIP, die in einem publicipaddress-Objekt enthalten ist, an den virtuellen Computer weiter.
 
-Wenn Sie die VIP und DIP-Adresse definiert als im gleichen Subnetz dann dies entspricht dem Ausführen von L3-Weiterleitung ohne NAT
+Wenn Sie die VIP und DIP als dasselbe Subnetz definiert haben, entspricht dies der Durchführung der L3-Weiterleitung ohne NAT.
 
 >[!NOTE]
->Dieser Prozess erfordert keine Ihnen die Erstellung einer Load Balancer-Objekt.  Die öffentliche IP-Adresse der Netzwerkschnittstelle zugewiesen sind genügend Informationen für den Software Load Balancer, um die Konfiguration durchzuführen.
+>Bei diesem Prozess ist es nicht erforderlich, ein Load Balancer-Objekt zu erstellen.  Das Zuweisen der publicipaddress zur Netzwerkschnittstelle ist ausreichend, damit der Software Load Balancer seine Konfiguration durchführen kann.
 
 
-1. Erstellen Sie ein öffentliches IP-Objekt um die VIP-Adresse enthalten.
+1. Erstellen Sie ein öffentliches IP-Objekt, das die VIP enthalten soll.
 
    ```PowerShell
    $publicIPProperties = new-object Microsoft.Windows.NetworkController.PublicIpAddressProperties
@@ -240,7 +240,7 @@ Wenn Sie die VIP und DIP-Adresse definiert als im gleichen Subnetz dann dies ent
    $publicIP = New-NetworkControllerPublicIpAddress -ResourceId "MyPIP" -Properties $publicIPProperties -ConnectionUri $uri -Force -PassInnerException
    ```
 
-2. Weisen Sie die öffentliche IP-Adresse einer Netzwerkschnittstelle an.
+2. Weisen Sie die publicipaddress einer Netzwerkschnittstelle zu.
 
    ```PowerShell
    $nic = get-networkcontrollernetworkinterface  -connectionuri $uri -resourceid 6daca142-7d94-0000-1111-c38c0141be06
@@ -248,10 +248,10 @@ Wenn Sie die VIP und DIP-Adresse definiert als im gleichen Subnetz dann dies ent
    New-NetworkControllerNetworkInterface -ConnectionUri $uri -ResourceId $nic.ResourceId -Properties $nic.properties -PassInnerException
    ```
 
-## <a name="example-use-the-software-load-balancer-for-forwarding-traffic-with-a-dynamically-allocated-vip"></a>Beispiel: Verwenden Sie den Software Load Balancer zum Weiterleiten von Datenverkehr eine dynamisch zugewiesene VIP-Adresse
-In diesem Beispiel wird dieselbe Aktion wie im vorherigen Beispiel wiederholt, aber sie weist die VIP-Adresse automatisch aus dem verfügbaren Pool virtueller IP-Adressen im Load Balancer anstatt einer bestimmten IP-Adresse. 
+## <a name="example-use-the-software-load-balancer-for-forwarding-traffic-with-a-dynamically-allocated-vip"></a>Beispiel: Verwenden der Software Load Balancer für die Weiterleitung von Datenverkehr mit einer dynamisch zugewiesenen VIP
+In diesem Beispiel wird dieselbe Aktion wie im vorherigen Beispiel wiederholt, aber die VIP wird automatisch aus dem verfügbaren Pool mit VIPs im Load Balancer zugewiesen, anstatt eine bestimmte IP-Adresse anzugeben. 
 
-1. Erstellen Sie ein öffentliches IP-Objekt um die VIP-Adresse enthalten.
+1. Erstellen Sie ein öffentliches IP-Objekt, das die VIP enthalten soll.
 
    ```PowerShell
    $publicIPProperties = new-object Microsoft.Windows.NetworkController.PublicIpAddressProperties
@@ -260,13 +260,13 @@ In diesem Beispiel wird dieselbe Aktion wie im vorherigen Beispiel wiederholt, a
    $publicIP = New-NetworkControllerPublicIpAddress -ResourceId "MyPIP" -Properties $publicIPProperties -ConnectionUri $uri -Force -PassInnerException
    ```
 
-2. Fragen Sie die öffentliche IP-Adressressource aus, um zu ermitteln, welche IP-Adresse zugewiesen wurde.
+2. Fragen Sie die Ressource publicipaddress ab, um zu bestimmen, welche IP-Adresse zugewiesen wurde.
 
    ```PowerShell
     (Get-NetworkControllerPublicIpAddress -ConnectionUri $uri -ResourceId "MyPIP").properties
    ```
 
-   Die "IPAdress"-Eigenschaft enthält die zugewiesene Adresse.  Die Ausgabe sieht etwa wie folgt:
+   Die IPAddress-Eigenschaft enthält die zugewiesene Adresse.  Die Ausgabe sieht etwa wie folgt:
    ```
     Counters                 : {}
     ConfigurationState       :
@@ -280,17 +280,17 @@ In diesem Beispiel wird dieselbe Aktion wie im vorherigen Beispiel wiederholt, a
     PreviousIpConfiguration  :
    ```
  
-3. Weisen Sie die öffentliche IP-Adresse einer Netzwerkschnittstelle an.
+3. Weisen Sie die publicipaddress einer Netzwerkschnittstelle zu.
 
    ```PowerShell
    $nic = get-networkcontrollernetworkinterface  -connectionuri $uri -resourceid 6daca142-7d94-0000-1111-c38c0141be06
    $nic.properties.IpConfigurations[0].Properties.PublicIPAddress = $publicIP
    New-NetworkControllerNetworkInterface -ConnectionUri $uri -ResourceId $nic.ResourceId -Properties $nic.properties -PassInnerException
    ```
-   ## <a name="example-remove-a-publicip-address-that-is-being-used-for-forwarding-traffic-and-return-it-to-the-vip-pool"></a>Beispiel: Entfernen Sie eine öffentliche IP-Adresse, die für das Weiterleiten von Datenverkehr verwendet wird und an die VIP-Adresspool zurückgeben
-   Dieses Beispiel entfernt die öffentliche IP-Adressressource, die von den vorherigen Beispielen erstellt wurde.  Nachdem die öffentliche IP-Adresse entfernt wurde, wird der Verweis auf die öffentliche IP-Adresse automatisch aus der Netzwerkschnittstelle entfernt werden, der Datenverkehr weitergeleitet wird beendet und die IP-Adresse an den öffentlichen VIP-Pool für die erneute Verwendung zurückgegeben.  
+   ## <a name="example-remove-a-publicip-address-that-is-being-used-for-forwarding-traffic-and-return-it-to-the-vip-pool"></a>Beispiel: Entfernen einer publicip-Adresse, die zum Weiterleiten von Datenverkehr verwendet wird, und Zurückgeben der Adresse an den VIP-Pool
+   In diesem Beispiel wird die publicipaddress-Ressource entfernt, die in den vorherigen Beispielen erstellt wurde.  Nachdem die publicipaddress entfernt wurde, wird der Verweis auf die öffentliche IP-Adresse automatisch von der Netzwerkschnittstelle entfernt. der Datenverkehr wird nicht mehr weitergeleitet, und die IP-Adresse wird zur erneuten Verwendung an den öffentlichen VIP-Pool zurückgegeben.  
 
-4. Entfernen Sie die öffentliche IP
+4. Entfernen der publicip
 
    ```PowerShell
    Remove-NetworkControllerPublicIPAddress -ConnectionURI $uri -ResourceId "MyPIP"

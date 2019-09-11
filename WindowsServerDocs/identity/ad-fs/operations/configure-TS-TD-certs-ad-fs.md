@@ -1,6 +1,6 @@
 ---
-title: Abrufen und Konfigurieren von Tokensignatur- und Tokenentschlüsselungszertifikaten für AD FS
-description: In diesem Dokument wird beschrieben, wie zum Abrufen und konfigurieren Sie die TS- und TD Zertifikate für AD FS
+title: Abrufen und Konfigurieren von Tokensignatur-und tokenentschlüsselungszertifikaten für AD FS
+description: In diesem Dokument wird beschrieben, wie Sie die TS-und TD-Zertifikate für AD FS abrufen und konfigurieren.
 author: jenfieldmsft
 ms.author: billmath
 manager: samueld
@@ -8,114 +8,114 @@ ms.date: 10/23/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: d16a886c9fb8f88748ffe732a75f0fd6a32c3702
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 608f78ed03bc102cbdffb8abcc52244450b97b3c
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820211"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865632"
 ---
-# <a name="obtain-and-configure-ts-and-td-certificates-for-ad-fs"></a>Abrufen Sie und konfigurieren Sie die TS-"und" TD-Zertifikate für AD FS
+# <a name="obtain-and-configure-ts-and-td-certificates-for-ad-fs"></a>Abrufen und Konfigurieren von TS-und TD-Zertifikaten für AD FS
 
-Dieses Thema beschreibt die Aufgaben und Verfahren, die Sie ausführen können, um sicherzustellen, dass Ihre AD FS-Tokensignaturzertifikat und token-entschlüsselungszertifikate auf dem neuesten Stand sind.
+In diesem Thema werden Aufgaben und Prozeduren beschrieben, die Sie ausführen können, um sicherzustellen, dass Ihre AD FS Tokensignatur-und tokenentschlüsselungszertifikate aktuell sind
 
-Token-Signaturzertifikate standard X509 sind Zertifikate, die verwendet werden, um alle Token sicher signiert wird, die der verbungsserver ausstellt. Tokenentschlüsselungszertifikate sind standard X509 Zertifikate, die verwendet werden, um alle eingehenden Token entschlüsselt. Sie werden auch in den Verbundmetadaten veröffentlicht.
+Tokensignaturzertifikate sind X509-Standardzertifikate, mit denen alle Token, die der Verbund Server ausgibt, sicher signiert werden. Tokenentschlüsselungszertifikate sind Standard-X509-Zertifikate, die verwendet werden, um eingehende Token zu entschlüsseln. Sie werden auch in Verbund Metadaten veröffentlicht.
 
-Weitere Informationen finden Sie [Zertifikatanforderungen](../design/ad-fs-requirements.md#BKMK_1)
+Weitere Informationen finden Sie unter [Zertifikat Anforderungen](../design/ad-fs-requirements.md#BKMK_1) .
 
-## <a name="determine-whether-ad-fs-renews-the-certificates-automatically"></a>Bestimmen Sie, ob AD FS die Zertifikate automatisch erneuert
-Standardmäßig ist AD FS so konfiguriert, dass sowohl zum Zeitpunkt der Erstkonfiguration als auch bei der die Zertifikate dem Ablaufdatum nähern Tokensignatur- und tokenentschlüsselungszertifikate automatisch generiert wird.
+## <a name="determine-whether-ad-fs-renews-the-certificates-automatically"></a>Bestimmen, ob AD FS die Zertifikate automatisch erneuert
+Standardmäßig ist AD FS so konfiguriert, dass Tokensignaturzertifikate und tokenentschlüsselungszertifikate automatisch generiert werden, und zwar sowohl zum Zeitpunkt der Erstkonfiguration als auch nach dem Ablaufdatum der Zertifikate.
 
-Sie können die folgenden Windows PowerShell-Befehl ausführen: `Get-AdfsProperties`.
+Sie können den folgenden Windows PowerShell-Befehl ausführen `Get-AdfsProperties`:.
   
-  ![Get-ADFSProperties](media/configure-TS-TD-certs-ad-fs/ts1.png)
+  ![Get-ADF sproperties](media/configure-TS-TD-certs-ad-fs/ts1.png)
   
-Die Eigenschaft "autocertificaterollover" beschreibt, ob es sich bei AD FS Tokensignatur- und tokenentschlüsselungszertifikaten automatisch erneuern konfiguriert ist.
+Die autocertificaterollover-Eigenschaft beschreibt, ob AD FS so konfiguriert ist, dass die Tokensignatur und die tokenentschlüsselungszertifikate automatisch erneuert werden.
 
-Wenn "autocertificaterollover" auf "true" festgelegt ist, werden die AD FS-Zertifikate erneuert und in AD FS automatisch konfiguriert werden. Sobald das neue Zertifikat konfiguriert ist, um die zu einen Ausfall vermeiden müssen, dass jeder Verbundpartner (dargestellt in AD FS-Farm durch Vertrauensstellungen der vertrauenden Seite oder Anspruchsanbieter-Vertrauensstellungen) mit diesem neuen Zertifikat aktualisiert wird.
+Wenn autocertificaterollover auf true festgelegt ist, werden die AD FS Zertifikate in AD FS automatisch erneuert und konfiguriert. Nachdem das neue Zertifikat konfiguriert wurde, müssen Sie zur Vermeidung eines Ausfalls sicherstellen, dass jeder Verbund Partner (der in Ihrer AD FS Farm durch Vertrauens Stellungen der vertrauenden Seite oder Anspruchs Anbieter-Vertrauens Stellungen dargestellt wird) mit diesem neuen Zertifikat aktualisiert wird.
     
-Wenn AD FS nicht konfiguriert, Signieren von token zu erneuern und token entschlüsseln Zertifikate automatisch (Wenn "autocertificaterollover" auf "false" festgelegt ist), AD FS wird nicht automatisch generieren oder nutzen Sie neue Tokensignatur- oder tokenentschlüsselungszertifikaten. Sie müssen diese Aufgaben manuell ausführen.
+Wenn AD FS nicht für das automatische Erneuern von Tokensignierung und tokenentschlüsselungszertifikaten konfiguriert ist ("autocertificaterollover" ist auf "false" festgelegt), werden von AD FS nicht automatisch neue Tokensignatur-oder tokenentschlüsselungszertifikate generiert oder gestartet. Diese Aufgaben müssen manuell ausgeführt werden.
     
-Wenn Sie AD FS so konfiguriert ist, um Tokensignatur- und tokenentschlüsselungszertifikaten automatisch erneuern (AutoCertificateRollover ist auf "true" festgelegt), können Sie bestimmen, wann diese erneuert werden:
+Wenn AD FS für das automatische Erneuern von Tokensignierung und tokenentschlüsselungszertifikate konfiguriert ist (autocertificaterollover ist auf true festgelegt), können Sie bestimmen, wann Sie erneuert werden:
 
-CertificateGenerationThreshold wird beschrieben, wie viele Tage im Voraus des Zertifikats nicht nach Datum ein neues Zertifikat generiert wird.
+Certificategenerationthreshold: gibt an, wie viele Tage vor dem Datum, an dem das Zertifikat nicht nach dem Datum generiert wird, ein neues Zertifikat generiert wird.
 
-CertificatePromotionThreshold bestimmt, wie viele Tage nach der das neue Zertifikat generiert wird, dass er das primäre Zertifikat werden höher gestuft werden (das heißt, AD FS wird gestartet, zum Signieren von ausgestellten Token und Entschlüsselung von Token vom Identitätsanbieter).
+Mit "certificatepromotionthreshold" wird festgelegt, wie viele Tage nach dem Generieren des neuen Zertifikats der Dienst als primäres Zertifikat herauf gestuft wird (d. h. AD FS mit der Verwendung beginnen, um Token zu signieren, die es ausgibt, und Token von Identitäts Anbietern entschlüsseln).
 
-![Get-ADFSProperties](media/configure-TS-TD-certs-ad-fs/ts2.png)
+![Get-ADF sproperties](media/configure-TS-TD-certs-ad-fs/ts2.png)
   
-Wenn Sie AD FS so konfiguriert ist, um Tokensignatur- und tokenentschlüsselungszertifikaten automatisch erneuern (AutoCertificateRollover ist auf "true" festgelegt), können Sie bestimmen, wann diese erneuert werden:
+Wenn AD FS für das automatische Erneuern von Tokensignierung und tokenentschlüsselungszertifikate konfiguriert ist (autocertificaterollover ist auf true festgelegt), können Sie bestimmen, wann Sie erneuert werden:
 
- - **CertificateGenerationThreshold** wird beschrieben, wie viele Tage im Voraus des Zertifikats nicht nach Datum ein neues Zertifikat generiert wird.
- - **CertificatePromotionThreshold** bestimmt, wie viele Tage nach der das neue Zertifikat generiert wird, dass er das primäre Zertifikat werden höher gestuft werden (das heißt, AD FS wird gestartet, zum Signieren von ausgestellten Token und Entschlüsselung von Token aus der Identität Anbieter).
+ - **Certificategenerationthreshold** : gibt an, wie viele Tage vor dem Datum, an dem das Zertifikat nicht nach dem Datum generiert wird, ein neues Zertifikat generiert wird.
+ - Mit " **certificatepromotionthreshold** " wird festgelegt, wie viele Tage nach dem Generieren des neuen Zertifikats das neue Zertifikat generiert wird, damit es als primäres AD FS Zertifikat herauf gestuft wird Anbieter).
 
-## <a name="determine-when-the-current-certificates-expire"></a>Bestimmen Sie die aktuellen Zertifikate wann ablaufen
-Sie können das folgende Verfahren verwenden, um die primäre Tokensignatur- und tokenentschlüsselungszertifikaten zu identifizieren und um zu bestimmen, wann die aktuellen Zertifikate ablaufen.
+## <a name="determine-when-the-current-certificates-expire"></a>Bestimmen, wann die aktuellen Zertifikate ablaufen
+Mithilfe des folgenden Verfahrens können Sie die primären tokensignier-und tokenentschlüsselungszertifikate identifizieren und ermitteln, wann die aktuellen Zertifikate ablaufen.
 
-Sie können die folgenden Windows PowerShell-Befehl ausführen: `Get-AdfsCertificate –CertificateType token-signing` (oder `Get-AdfsCertificate –CertificateType token-decrypting `). Oder Sie können die aktuellen Zertifikate in der MMC überprüfen: Dienst -> Zertifikate.
+Sie können den folgenden Windows PowerShell-Befehl ausführen `Get-AdfsCertificate –CertificateType token-signing` : ( `Get-AdfsCertificate –CertificateType token-decrypting `oder). Oder Sie können die aktuellen Zertifikate in der MMC untersuchen: Dienst > Zertifikate.
 
-![Get-ADFSCertificate](media/configure-TS-TD-certs-ad-fs/ts3.png)
+![Get-adfscertificate](media/configure-TS-TD-certs-ad-fs/ts3.png)
 
-Das Zertifikat für die die **IsPrimary** Wert wird festgelegt, um **"true"** ist das Zertifikat, das AD FS zurzeit verwendet wird.
+Das Zertifikat, für das der **IsPrimary** -Wert auf **true** festgelegt ist, ist das Zertifikat, das zurzeit von AD FS verwendet wird.
 
-Das Datum angezeigt, die für die **nicht nach** ist das Datum, die mit dem ein neues primäres Token signieren oder Entschlüsseln der Zertifikat so konfiguriert werden muss.
+Das für " **Not after** " angezeigte Datum ist das Datum, an dem ein neues primäres tokensignier-oder Entschlüsselungszertifikat konfiguriert werden muss.
 
-Um die Dienstkontinuität zu gewährleisten, müssen alle Verbundpartnern (dargestellt in AD FS-Farm durch Vertrauensstellungen der vertrauenden Seite oder Anspruchsanbieter-Vertrauensstellungen) die neue Tokensignatur- und tokenentschlüsselungszertifikate vor diesem Ablauf nutzen. Es wird empfohlen, dass Sie beginnen mit der Planung für diesen Prozess mindestens 60 Tage im voraus.
+Um die Dienst Kontinuität zu gewährleisten, müssen alle Verbund Partner, die in Ihrer AD FS Farm durch Vertrauens Stellungen der vertrauenden Seite oder Anspruchs Anbieter-Vertrauens Stellungen dargestellt werden, die neuen Tokensignatur-und tokenentschlüsselungszertifikate vor diesem Ablauf nutzen Es wird empfohlen, dass Sie mindestens 60 Tage im Voraus mit der Planung für diesen Prozess beginnen.
 
-## <a name="generating-a-new-self-signed-certificate-manually-prior-to-the-end-of-the-grace-period"></a>Generieren ein neues selbstsigniertes Zertifikat manuell vor Ablauf der Toleranzperiode
-Sie können die folgenden Schritte aus verwenden, um ein neues selbstsigniertes Zertifikat vor Ablauf der Toleranzperiode manuell zu generieren.
+## <a name="generating-a-new-self-signed-certificate-manually-prior-to-the-end-of-the-grace-period"></a>Manuelles Erstellen eines neuen selbst signierten Zertifikats vor dem Ende der Toleranz Periode
+Sie können die folgenden Schritte ausführen, um vor dem Ende der Toleranz Periode manuell ein neues selbst signiertes Zertifikat zu generieren.
 
-1. Stellen Sie sicher, dass Sie auf dem primären AD FS-Server angemeldet sind.
-2. Öffnen Sie Windows PowerShell, und führen Sie den folgenden Befehl aus: `Add-PSSnapin "microsoft.adfs.powershell"`
-3. Optional können Sie die aktuellen Signaturzertifikate in AD FS überprüfen. Führen Sie zu diesem Zweck den folgenden Befehl: `Get-ADFSCertificate –CertificateType token-signing`. Sehen Sie sich die Ausgabe des Befehls, um die Daten nicht nach der aufgeführten Zertifikate anzuzeigen.
-4. Um ein neues Zertifikat zu generieren, führen Sie den folgenden Befehl zum Erneuern und aktualisieren Sie die Zertifikate auf dem AD FS-Server: `Update-ADFSCertificate –CertificateType token-signing`.
-5. Überprüfen Sie das Update aus, indem Sie den folgenden Befehl erneut ausführen: `Get-ADFSCertificate –CertificateType token-signing`
-6. Nun sollten zwei Zertifikate aufgeführt, denen eine **nicht nach** Datum, etwa ein Jahr in der Zukunft und für den die **IsPrimary** Wert ist **"false"**.
+1. Stellen Sie sicher, dass Sie am primären AD FS Server angemeldet sind.
+2. Öffnen Sie Windows PowerShell, und führen Sie den folgenden Befehl aus:`Add-PSSnapin "microsoft.adfs.powershell"`
+3. Optional können Sie die aktuellen Signatur Zertifikate in AD FS überprüfen. Führen Sie hierzu den folgenden Befehl aus: `Get-ADFSCertificate –CertificateType token-signing`. Sehen Sie sich die Ausgabe des Befehls an, um das Datum der nicht nach aufgeführten Zertifikate anzuzeigen.
+4. Um ein neues Zertifikat zu generieren, führen Sie den folgenden Befehl aus, um die Zertifikate auf dem AD FS- `Update-ADFSCertificate –CertificateType token-signing`Server zu erneuern und zu aktualisieren:.
+5. Überprüfen Sie das Update, indem Sie den folgenden Befehl erneut ausführen:`Get-ADFSCertificate –CertificateType token-signing`
+6. Nun sollten zwei Zertifikate aufgeführt werden, von denen eine **nicht nach** dem Datum ungefähr ein Jahr in der Zukunft liegt und für die der **IsPrimary** -Wert **false**ist.
 
 >[!IMPORTANT]
->Um eine dienstunterbrechung zu vermeiden, aktualisieren Sie die Zertifikatinformationen in Azure AD durch die Schritte, die in ausgeführt wie Update in Azure AD mit einem gültigen Token-signing-Zertifikat.
+>Um einen Dienstausfall zu vermeiden, aktualisieren Sie die Zertifikat Informationen auf Azure AD, indem Sie die Schritte im Thema Aktualisieren von Azure AD mit einem gültigen Tokensignaturzertifikat ausführen.
 
-## <a name="if-youre-not-using-self-signed-certificates"></a>Wenn Sie keine selbstsignierten Zertifikate verwenden...
-Wenn Sie nicht über das standardmäßige, die automatisch generierte, selbstsignierte Tokensignatur- und tokenentschlüsselungszertifikate sind, müssen Sie erneuern und diese Zertifikate manuell konfigurieren.
+## <a name="if-youre-not-using-self-signed-certificates"></a>Wenn Sie keine selbst signierten Zertifikate verwenden...
+Wenn Sie nicht die standardmäßig automatisch generierten, selbst signierten Tokensignatur-und tokenentschlüsselungszertifikate verwenden, müssen Sie diese Zertifikate manuell erneuern und konfigurieren.
 
-Sie müssen zuerst ein neues Zertifikat von Ihrer Zertifizierungsstelle abrufen und importieren sie in den lokalen Computerspeicher des persönlichen Zertifikatspeicher auf jedem Verbundserver. Anweisungen finden Sie in der [Importieren eines Zertifikats](https://technet.microsoft.com/library/cc754489.aspx) Artikel.
+Zunächst müssen Sie ein neues Zertifikat von Ihrer Zertifizierungsstelle abrufen und es in den persönlichen Zertifikat Speicher des lokalen Computers auf jedem Verbund Server importieren. Anweisungen hierzu finden Sie im Artikel [Importieren eines Zertifikats](https://technet.microsoft.com/library/cc754489.aspx) .
 
-Dann müssen Sie dieses Zertifikat als das sekundäre AD FS-Tokensignaturzertifikat oder Entschlüsselungszertifikat konfigurieren. (Sie konfigurieren sie als sekundäres Zertifikat zu Ihrem Verbundpartnern genügend Zeit für das neue Zertifikat nutzen, bevor Sie es zum primären Zertifikat heraufstufen).
+Anschließend müssen Sie dieses Zertifikat als sekundäres AD FS Tokensignaturzertifikat oder-Entschlüsselungs Zertifikat konfigurieren. (Sie konfigurieren es als sekundäres Zertifikat, damit Ihre Verbund Partner genug Zeit haben, dieses neue Zertifikat zu nutzen, bevor Sie es auf das primäre Zertifikat herauf Stufen.)
 
 ### <a name="to-configure-a-new-certificate-as-a-secondary-certificate"></a>So konfigurieren Sie ein neues Zertifikat als sekundäres Zertifikat
-1. Öffnen Sie PowerShell, und führen Sie Folgendes aus: `Set-ADFSProperties -AutoCertificateRollover $false`
-2. Nachdem Sie das Zertifikat importiert haben. Öffnen der **AD FS-Verwaltung** Konsole.
-3. Erweitern Sie **Service** und wählen Sie dann **Zertifikate**.
-4. Klicken Sie im Aktionsbereich auf **Add Token-Signing Certificate**.
-![Get-ADFSCertificate](media/configure-TS-TD-certs-ad-fs/ts4.png)</br>
+1. Öffnen Sie PowerShell, und führen Sie Folgendes aus:`Set-ADFSProperties -AutoCertificateRollover $false`
+2. Nachdem Sie das Zertifikat importiert haben. Öffnen Sie die **AD FS-Verwaltungs** Konsole.
+3. Erweitern Sie **Dienst** , und wählen Sie dann **Zertifikate**aus.
+4. Klicken Sie im Aktionsbereich auf **Tokensignaturzertifikat hinzufügen**.
+![Get-adfscertificate](media/configure-TS-TD-certs-ad-fs/ts4.png)</br>
 5. Wählen Sie das neue Zertifikat aus der Liste der angezeigten Zertifikate aus, und klicken Sie dann auf OK.
-6.  Öffnen Sie PowerShell, und führen Sie Folgendes aus: `Set-ADFSProperties -AutoCertificateRollover $true`
+6.  Öffnen Sie PowerShell, und führen Sie Folgendes aus:`Set-ADFSProperties -AutoCertificateRollover $true`
 
 >[!WARNING]
->Stellen Sie sicher, dass das neue Zertifikat einen privaten Schlüssel zugeordnet ist, dass die Berechtigungen der AD FS-Dienstkonto Berechtigungen zum Lesen Sie und den privaten Schlüssel. Überprüfen Sie dies auf jedem Verbundserver aus. Klicken Sie dazu in das Zertifikate-Snap-in mit der rechten Maustaste in des neuen Zertifikats, klicken Sie auf alle Aufgaben, und klicken Sie dann auf Privatschlüssel verwalten.
+>Stellen Sie sicher, dass dem neuen Zertifikat ein privater Schlüssel zugeordnet ist und dass dem AD FS-Dienst Konto Leseberechtigungen für den privaten Schlüssel erteilt wurden. Überprüfen Sie dies auf jedem Verbund Server. Klicken Sie hierzu im Zertifikat-Snap-in mit der rechten Maustaste auf das neue Zertifikat, klicken Sie auf alle Tasks, und klicken Sie dann auf private Schlüssel verwalten.
 
-Sobald Sie genügend Zeit für die Verbundpartner nutzen Sie das neue Zertifikat (sie Ihre Verbundmetadaten abrufen oder Sie senden sie den öffentlichen Schlüssel für das neue Zertifikat) erlaubt haben, müssen Sie das sekundäre Zertifikat zum primären Zertifikat höher stufen.
+Wenn Sie genügend Zeit haben, damit Ihre Verbund Partner Ihr neues Zertifikat nutzen können (indem Sie entweder Ihre Verbund Metadaten abrufen oder Sie den öffentlichen Schlüssel Ihres neuen Zertifikats senden), müssen Sie das sekundäre Zertifikat auf das primäre Zertifikat herauf Stufen.
 
-### <a name="to-promote-the-new-certificate-from-secondary-to-primary"></a>Das neue Zertifikat vom sekundären zum primären heraufzustufen.
+### <a name="to-promote-the-new-certificate-from-secondary-to-primary"></a>Herauf Stufen des neuen Zertifikats vom sekundären zum primären Replikat
 
-1. Öffnen der **AD FS-Verwaltung** Konsole.
-2. Erweitern Sie **Service** und wählen Sie dann **Zertifikate**.
+1. Öffnen Sie die **AD FS-Verwaltungs** Konsole.
+2. Erweitern Sie **Dienst** , und wählen Sie dann **Zertifikate**aus.
 3. Klicken Sie auf das sekundäre Tokensignaturzertifikat.
-4. In der **Aktionen** Bereich, klicken Sie auf **als primär festlegen**. Klicken Sie auf "Ja", in der bestätigungsaufforderung.
-![Get-ADFSCertificate](media/configure-TS-TD-certs-ad-fs/ts5.png)</br>
+4. Klicken Sie im **Aktions** Bereich auf **als primär festlegen**. Klicken Sie in der Bestätigungsaufforderung auf Ja.
+![Get-adfscertificate](media/configure-TS-TD-certs-ad-fs/ts5.png)</br>
 
 
-## <a name="updating-federation-partners"></a>Aktualisieren von Verbundpartnern
+## <a name="updating-federation-partners"></a>Aktualisieren von Verbund Partnern
 
-### <a name="partners-who-can-consume-federation-metadata"></a>Partner, die Metadaten des Verbunds nutzen können
-Wenn Sie erneuert haben, und konfigurieren Sie einen neuen Tokensignatur oder tokenentschlüsselungszertifikat, Sie müssen sicherstellen, dass die alle Ihre Verbundpartnern (Organisation oder Konto Organisation Ressourcenpartner, die in Ihrer AD FS, durch die Verwendung dargestellt werden eines Drittanbieters, Vertrauensstellungen und Anspruchsanbieter-Vertrauensstellungen) haben Sie die neuen Zertifikate abgerufen.
+### <a name="partners-who-can-consume-federation-metadata"></a>Partner, die Verbund Metadaten nutzen können
+Wenn Sie ein neues Tokensignaturzertifikat oder-tokenentschlüsselungszertifikat erneuert und konfiguriert haben, müssen Sie sicherstellen, dass alle Verbund Partner (Ressourcen Organisation oder Konto Organisations Partner, die in Ihrer AD FS durch Vertrauens Stellungen der vertrauenden Seite dargestellt werden, und Anspruchs Anbieter-Vertrauens Stellungen) haben die neuen Zertifikate übernommen.
 
-### <a name="partners-who-can-not-consume-federation-metadata"></a>Partner, die nicht-Verbundmetadaten nutzen können
-Wenn Ihre Verbundpartnern Ihrer Verbundmetadaten nutzen können, müssen Sie manuell sie den öffentlichen Schlüssel für Ihr neues Tokensignaturzertifikat / tokenentschlüsselungszertifikate Zertifikat senden. Senden von neuen öffentlichen Schlüssel des Zertifikats (CER-Datei oder wenn Sie die gesamte Kette einschließen möchten. p7b) aller Ihrer ressourcenorganisation oder Organisation Kontopartner (dargestellt in Ihrer AD FS durch Vertrauensstellungen der vertrauenden Seite und Anspruchsanbieter-Vertrauensstellungen). Haben Sie die Partner, die Implementierung von Änderungen auf ihrer Seite, um die neuen Zertifikate zu vertrauen.
+### <a name="partners-who-can-not-consume-federation-metadata"></a>Partner, die keine Verbund Metadaten nutzen können
+Wenn Ihre Verbund Partner ihre Verbund Metadaten nicht nutzen können, müssen Sie Sie manuell den öffentlichen Schlüssel Ihres neuen Zertifikats zum Signieren/tokenentschlüsselungszertifikat senden. Senden Sie den öffentlichen Schlüssel des neuen Zertifikats (CER-Datei oder. p7b, wenn Sie die gesamte Kette einbeziehen möchten) in alle Ihre Partner Organisations-oder Konto Organisations Partner (in Ihrer AD FS durch Vertrauens Stellungen der vertrauenden Seite und Anspruchs Anbieter-Vertrauens Stellungen dargestellt). Lassen Sie die Partner Änderungen auf Ihrer Seite implementieren, um den neuen Zertifikaten zu vertrauen.
 
-### <a name="promote-to-primary-if-autocertificaterollover-is-false"></a>Hochstufen Sie auf primären Server, (Wenn "autocertificaterollover" auf "false" ist)
-Wenn **"autocertificaterollover"** nastaven NA hodnotu **"false"**, AD FS wird nicht automatisch generieren oder Start mit der neuen Tokensignatur oder token entschlüsseln Zertifikate. Sie müssen diese Aufgaben manuell ausführen.
-Nach dem ermöglicht ein ausreichenden Zeitraum für alle Ihre Verbundpartnern, nutzen Sie die neuen sekundären Zertifikats dieser sekundären Zertifikats zum primären Replikat (im MMC-Snap-in, klicken Sie auf das sekundäre Tokensignaturzertifikat, Zertifikat, und klicken Sie im Aktionsbereich auf höher stufen **Als primär festlegen**.)
+### <a name="promote-to-primary-if-autocertificaterollover-is-false"></a>Herauf Stufen zum primären Replikat (wenn autocertificaterollover false ist)
+Wenn **autocertificaterollover** auf **false**festgelegt ist, werden von AD FS nicht automatisch neue Tokensignaturzertifikate oder tokenentschlüsselungszertifikate generiert oder gestartet. Diese Aufgaben müssen manuell ausgeführt werden.
+Nachdem Sie für alle Verbund Partner einen ausreichenden Zeitraum für die Nutzung des neuen sekundären Zertifikats zugelassen haben, Stufen Sie dieses sekundäre Zertifikat zum primären Zertifikat herauf (Klicken Sie im MMC-Snap-in auf das sekundäre Tokensignaturzertifikat, und klicken Sie im Aktionsbereich auf **Als primär festlegen**.)
 
 ## <a name="updating-azure-ad"></a>Aktualisieren von Azure AD
-AD FS bietet einmaliges Anmelden auf Microsoft-Clouddienste wie Office 365 Authentifizierung der Benutzer über ihren vorhandenen Anmeldeinformationen des AD DS.  Weitere Informationen zur Verwendung von Zertifikaten finden Sie unter [Erneuern von verbundzertifikaten für Office 365 und Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-o365-certs).
+AD FS bietet Single Sign-on Zugriff auf Microsoft Cloud Services wie z. b. Office 365, indem Benutzer über Ihre vorhandenen AD DS Anmelde Informationen authentifiziert werden.  Weitere Informationen zur Verwendung von Zertifikaten finden Sie unter Erneuern von Verbund [Zertifikaten für Office 365 und Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-o365-certs).

@@ -8,18 +8,18 @@ ms.author: jol
 ms.date: 06/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: b00ee847088d038e59266154bcbbe9499bfe47fa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4e54101e90005a1845820ecf0bb99df527ac7051
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850111"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869773"
 ---
 # <a name="understanding-windows-admin-center-extensions"></a>Grundlegendes zu Windows Admin Center-Erweiterungen
 
->Gilt für: Windows Admin Center, Windows Admin Center Preview
+>Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
-Falls Sie noch nicht mit der Funktionsweise von Windows Admin Center vertraut sind, beginnen wir mit der allgemeinen Architektur: Windows Admin Center besteht aus zwei Hauptkomponenten:
+Wenn Sie noch nicht mit der Funktionsweise des Windows Admin Centers vertraut sind, beginnen wir mit der Architektur auf hoher Ebene. Windows Admin Center besteht aus zwei Hauptkomponenten:
 
 - Einfacher **Webdienst**, der Webseiten von Windows Admin Center-Benutzeroberflächen für Webbrowseranforderungen dient.
 - **Gateway-Komponente**, die REST-API-Anforderungen von Webseiten überwacht und WMI-Aufrufe oder PowerShell-Skripts aufruft, um auf einem Zielserver oder einem Cluster ausgeführt zu werden.
@@ -52,4 +52,4 @@ Der Gatewaydienst macht REST-APIs für die Benutzeroberfläche verfügbar und le
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Je nachdem, welche Funktionen Sie in Windows Admin Center erstellen, reicht das [Erstellen einer Tool-Erweiterung](develop-tool.md) für einen vorhandenen Server oder Clusterlösungen möglicherweise aus, und es ist am einfachsten, zunächst die Erweiterungen zu erstellen. Wenn die Funktion für die Verwaltung eines Geräts, Services oder eines vollständig neuen Dienstes anstatt eines Servers oder Clusters ist, sollten Sie [eine Lösungserweiterung](develop-solution.md) mit einem oder mehreren Tools erstellen. Wenn Sie mit dem Ziel über ein anderes Protokoll als WMI-Filterung oder PowerShell kommunizieren, müssen Sie [ein Gateway-Plug-In erstellen](develop-gateway-plugin.md). [Lesen Sie weiter](developing-extensions.md) für Informationen zum Einrichten Ihrer Entwicklungsumgebung und zum Schreiben der ersten Erweiterung.
+Je nachdem, welche Funktionen Sie in Windows Admin Center erstellen, reicht das [Erstellen einer Tool-Erweiterung](develop-tool.md) für einen vorhandenen Server oder Clusterlösungen möglicherweise aus, und es ist am einfachsten, zunächst die Erweiterungen zu erstellen. Wenn die Funktion für die Verwaltung eines Geräts, Services oder eines vollständig neuen Dienstes anstatt eines Servers oder Clusters ist, sollten Sie [eine Lösungserweiterung](develop-solution.md) mit einem oder mehreren Tools erstellen. Und schließlich müssen Sie [ein Gateway-Plug](develop-gateway-plugin.md)-in erstellen, wenn Sie mit dem Ziel über ein anderes Protokoll als WMI oder PowerShell kommunizieren müssen. [Lesen Sie weiter](developing-extensions.md) für Informationen zum Einrichten Ihrer Entwicklungsumgebung und zum Schreiben der ersten Erweiterung.

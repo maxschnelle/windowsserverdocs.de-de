@@ -1,55 +1,55 @@
 ---
 title: Hyper-V-Terminologie
-description: Hyper-V-Terminologie, die insbesondere für die leistungsoptimierung für Hyper-V
+description: In der Hyper-v-Leistungsoptimierung Nützliche Hyper-v-Terminologie
 ms.prod: windows-server-threshold
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: bc970633ff24827207eb3a27e282656f2486a6eb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d18557a205f8366631becb65b7460c07757db3d5
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841141"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866526"
 ---
 # <a name="hyper-v-terminology"></a>Hyper-V-Terminologie
-In diesem Abschnitt werden die wichtigen Begriffen, die spezifisch für das virtuelle computertechnologie, die in diesem Thema die Optimierung der Leistung verwendet wird:
+In diesem Abschnitt wird die Schlüssel Terminologie für die Technologie virtueller Computer zusammengefasst, die in diesem Thema zur Leistungsoptimierung verwendet wird:
 
 | Begriff        | Definition           |
 | ------------- |:------------|
-|*untergeordnete partition* | Alle virtuellen Computer, die von der rootpartition erstellt wird.|
-|*Gerät-Virtualisierung* | Ein Mechanismus, mit dem eine Hardware Ressource abstrahiert und von mehreren Consumern gemeinsam genutzt werden.|
-|*emulierte Gerät*|Eine virtualisierte Gerät, das ein tatsächlichen physischen Hardwaregerät imitiert, sodass Gäste die typische Treiber für das Hardwaregerät verwenden können.|
-|*enlightenment*|Eine Optimierung zu einem Gast-Betriebssystem aufmerksam zu machen es von Umgebungen mit virtuellen Maschinen und das Verhalten für virtuelle Computer zu optimieren.|
-|*guest*|Software, die in einer Partition ausgeführt wird. Es kann ein Betriebssystem mit vollem Funktionsumfang oder einen kleinen, spezielle Kernel sein. Der Hypervisor ist die Unabhängigkeit von der Gast.|
-|*hypervisor*|Eine Softwareebene, die sich über die Hardware und unter einem oder mehreren Betriebssystemen befindet. Ihre Hauptaufgabe ist die Ausführung isolierter Ausführungsumgebungen, die man Partitionen nennt. Jede Partition verfügt über einen eigenen Satz von virtualisierter Hardware-Ressourcen (Central Processing Unit oder CPU, Arbeitsspeicher und Geräte). Der Hypervisor steuert und vermittelt den Zugriff auf die zugrunde liegende Hardware.|
-|*Logischer Prozessor*| Eine Verarbeitungseinheit, die von einem Thread der Ausführung (Anweisungsstream) verarbeitet. Es kann eine oder mehrere logische Prozessoren pro Prozessorkern und einen oder mehrere Kerne pro prozessorsocket vorhanden sein.|
-| *Pass-Through-Datenträgerzugriff*|Eine Darstellung eines gesamten physischen Datenträgers als einen virtuellen Datenträger im Gastbetriebssystem. Die Daten und Befehle werden mit dem physikalischen Datenträger (über die rootpartition native Speicherstapel) ohne dazwischenliegende Verarbeitung durch den virtuellen Stapel übergeben.|
-|*Root-partition*|Der Stammpartition, die zuerst erstellt wird und alle Ressourcen, die der Hypervisor nicht der Fall ist, einschließlich der Großteil der Geräte und den Systemspeicher besitzt. Das Stammpartition die virtualisierungsstapels hostet und erstellt und verwaltet die untergeordneten Partitionen.|
-|*Hyper-V-spezifischen Gerät*|Eine virtualisierte Gerät mit keine physische Hardware Analog, also Gäste einen Treiber (Virtualization Service Client) für das Hyper-V-spezifischen Gerät möglicherweise. Der Treiber kann Bus des virtuellen Computers (VMBus) für die Kommunikation mit der Software virtualisierten Geräte in der rootpartition verwenden.|
-|*virtual machine*|Ein virtueller Computer, der Softwareemulation erstellt wurde und die gleichen Eigenschaften wie der eines realen Computers.|
-| *virtuelles Netzwerk-switch*|(auch als einen virtuellen Switch "bezeichnet) Eine virtuelle Version der einem physischen Netzwerkswitch. ein virtuelles Netzwerk kann so konfiguriert werden, dass es für eine oder mehrere virtuelle Maschinen den Zugriff auf lokale oder externe Netzwerkressourcen bereitstellt.|
-|*virtueller Prozessor*|Eine virtuelle Abstraktion der einen Prozessor, der auf einem logischen Prozessor ausgeführt werden soll. Ein virtueller Computer kann eine oder mehrere virtuelle Prozessoren verfügen.|
-|*Virtualisierung-Dienstclient (VSC)*|Ein Softwaremodul, die von ein Gast geladen wird, um eine Ressource oder einen Dienst zu nutzen. Für e/a-Geräte kann der Virtualization-Dienst-Client einen Gerätetreiber sein, den der Betriebssystemkernel zu laden.|
-| *Virtualisierungs-Service-Anbieter (VSP)*|  Ein Anbieter, die von der virtualisierungsstapels in der Stammpartition verfügbar gemacht werden, die Ressourcen oder Dienste wie e/a zu einer untergeordneten Partition bereitstellt.|
-| *virtualisierungsstapels*|Eine Auflistung von Softwarekomponenten in der Stammpartition, die zusammenarbeiten, um virtuelle Computer unterstützen. Die virtualisierungsstapels funktioniert mit und befindet sich oberhalb der Hypervisor. Darüber hinaus Verwaltungsfunktionen.|
-|*VMBus*|Channel-basierten Kommunikationsmechanismus für die Enumeration Kommunikation und Gerät Inter-Partition, auf Systemen mit mehreren aktiven virtualisierten Partitionen verwendet wird. Die VMBus wird mit Hyper-V-Integrationsdiensten installiert.|
+|*untergeordnete Partition* | Alle virtuellen Computer, die von der Stamm Partition erstellt werden.|
+|*gerätevirtualisierung* | Ein Mechanismus, mit dem eine Hardware Ressource abstrahiert und von mehreren Consumern gemeinsam genutzt werden kann.|
+|*emulierten Gerät*|Ein virtualisiertes Gerät, das ein tatsächliches physisches Hardware Gerät imitiert, sodass Gäste die typischen Treiber für das Hardware Gerät verwenden können.|
+|*Anti*|Eine Optimierung eines Gast Betriebssystems, um die virtuellen Computerumgebungen zu erkennen und das Verhalten virtueller Maschinen zu optimieren.|
+|*Gästen*|Software, die in einer Partition ausgeführt wird. Dabei kann es sich um ein Betriebssystem mit vollem Funktionsumfang oder einen kleinen, speziellen Kernel handeln. Der Hypervisor ist Gast agnostisch.|
+|*hypervisor*|Eine Software Ebene, die über der Hardware und unter einem oder mehreren Betriebssystemen liegt. Ihre Hauptaufgabe ist die Ausführung isolierter Ausführungsumgebungen, die man Partitionen nennt. Jede Partition verfügt über einen eigenen Satz virtualisierter Hardware Ressourcen (zentrale Verarbeitungseinheit, CPU, Arbeitsspeicher und Geräte). Der Hypervisor steuert und vermittelt den Zugriff auf die zugrunde liegende Hardware.|
+|*Logischer Prozessor*| Eine Verarbeitungseinheit, die einen Ausführungs Thread verarbeitet (Anweisungs Datenstrom). Es können ein oder mehrere logische Prozessoren pro Prozessorkern und ein oder mehrere Kerne pro Prozessor-Socket vorhanden sein.|
+| *Pass-Through-Datenträger Zugriff*|Eine Darstellung eines gesamten physischen Datenträgers als virtueller Datenträger innerhalb des Gast Betriebssystems. Die Daten und Befehle werden an den physischen Datenträger (über den systemeigenen Speicher Stapel der Stamm Partition) übermittelt, ohne dass eine Verarbeitung durch den virtuellen Stapel besteht.|
+|*Stamm Partition*|Die Stamm Partition, die zuerst erstellt wird und alle Ressourcen besitzt, die der Hypervisor nicht enthält, einschließlich der meisten Geräte und des System Speichers. Die Stamm Partition hostet den Virtualisierungsstapel und erstellt und verwaltet die untergeordneten Partitionen.|
+|*Hyper-V-spezifisches Gerät*|Ein virtualisiertes Gerät ohne physische Hardware, sodass Gäste möglicherweise einen Treiber (virtualisierungdienst-Client) für das Hyper-V-spezifische Gerät benötigen. Der Treiber kann Virtual Machine Bus (VMBus) verwenden, um mit der virtualisierten Geräte Software in der Stamm Partition zu kommunizieren.|
+|*virtueller Computer*|Ein virtueller Computer, der von der Software Emulation erstellt wurde und die gleichen Merkmale wie ein echter Computer aufweist.|
+| *virtueller Netzwerk Switch*|(wird auch als virtueller Switch bezeichnet) Eine virtuelle Version eines physischen Netzwerk Schalters. ein virtuelles Netzwerk kann so konfiguriert werden, dass es für eine oder mehrere virtuelle Maschinen den Zugriff auf lokale oder externe Netzwerkressourcen bereitstellt.|
+|*virtueller Prozessor*|Eine virtuelle Abstraktion eines Prozessors, der auf einem logischen Prozessor ausgeführt werden soll. Ein virtueller Computer kann über einen oder mehrere virtuelle Prozessoren verfügen.|
+|*virtualisierungdienst-Client (VSC)*|Ein Softwaremodul, das ein Gast lädt, um eine Ressource oder einen Dienst zu nutzen. Für e/a-Geräte kann der virtualisierungsdienstanbieter ein Gerätetreiber sein, den der Kernel des Betriebssystems lädt.|
+| *virtualisierungsdienstanbieter (VSP)*|  Ein Anbieter, der vom Virtualisierungsstapel in der Stamm Partition verfügbar gemacht wird und Ressourcen oder Dienste wie e/a-Vorgänge für eine untergeordnete Partition bereitstellt.|
+| *Virtualisierungsstapel*|Eine Sammlung von Softwarekomponenten in der Stamm Partition, die zur Unterstützung virtueller Maschinen zusammenarbeiten. Der Virtualisierungsstapel funktioniert mit und befindet sich über dem Hypervisor. Außerdem werden Verwaltungsfunktionen bereitstellt.|
+|*VMBus*|Kanal basierter Kommunikationsmechanismus, der für die Kommunikation zwischen Partitionen und Geräteenumeration in Systemen mit mehreren aktiven virtualisierten Partitionen verwendet wird. Die VMBus wird mit Hyper-V-Integrationsdiensten installiert.|
 
 ## <a name="see-also"></a>Siehe auch
 
 -   [Hyper-V-Architektur](architecture.md)
 
--   [Hyper-V-Server-Konfiguration](configuration.md)
+-   [Hyper-V-Serverkonfiguration](configuration.md)
 
--   [Hyper-V, prozessorbezogene Leistungsdaten](processor-performance.md)
+-   [Hyper-V-Prozessorleistung](processor-performance.md)
 
--   [Hyper-V-Memory-Leistung](memory-performance.md)
+-   [Hyper-V-Arbeitsspeicherleistung](memory-performance.md)
 
--   [Hyper-V-Speicher-e/a-Leistung](storage-io-performance.md)
+-   [E/A-Leistung für Hyper-V-Speicher](storage-io-performance.md)
 
--   [Hyper-V-Netzwerk-e/a-Leistung](network-io-performance.md)
+-   [E/A-Leistung für Hyper-V-Netzwerk](network-io-performance.md)
 
 -   [Erkennen von Engpässen in einer virtualisierten Umgebung](detecting-virtualized-environment-bottlenecks.md)
 

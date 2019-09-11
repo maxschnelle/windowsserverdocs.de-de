@@ -1,6 +1,6 @@
 ---
-title: Allgemeine MultiPoint Services-Szenarien für die Verwendung
-description: Erfahren Sie mehr über häufige Verwendungsmöglichkeiten für MultiPoint Services
+title: Häufige Verwendungs Szenarien für Multipoint Services
+description: Weitere Informationen zu häufigen Verwendungsmöglichkeiten für Multipoint Services
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.technology: multipoint-services
@@ -13,23 +13,23 @@ author: evaseydl
 manager: scottman
 ms.author: evas
 ms.date: 08/04/2016
-ms.openlocfilehash: 5172927e087b49ec8a81ee84e58d58bdfa1d7e31
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3b0f8ea649382675a162572fcdafcfacc480a5f6
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865171"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871762"
 ---
 # <a name="common-usage-scenarios"></a>Allgemeine Verwendungsszenarien
-MultiPoint Services bietet Desktopcomputern einzelner Benutzer mit den wichtigsten Elementen der Windows 10-desktop-Erlebnis. Er bietet auch eine einfache Verwaltung-Tool, das MultiPoint-Manager, die Systemadministratoren für die Ermittlung und die Kontrolle über mehrere MultiPoint-Servern und Clients verwenden können. Darüber hinaus umfasst MultiPoint Services das MultiPoint-Dashboard für Echtzeit-Sichtbarkeit. Beispiele Sie können beinhalten mit MultiPoint Services Folgendes:  
+Multipoint Services bietet den einzelnen Benutzer Desktops die wichtigsten Elemente des Windows 10-Desktop Erlebnisses. Außerdem wird ein einfaches Verwaltungs Tool (Multipoint-Manager) angeboten, das Systemadministratoren für die Ermittlung und Steuerung mehrerer Multipoint-Server und-Clients verwenden können. Darüber hinaus umfasst Multipoint Services das Multipoint-Dashboard für die Echt Zeit Sichtbarkeit. Beispiele für die Möglichkeiten von Multipoint Services sind folgende:  
   
-- Geben Sie jeden Benutzer ein computing-Erfahrung und privaten Ordnern, ohne einen separaten Computer für jede Person.  
-- Verwalten von mehreren MultiPoint-Systemen in einer Computer-testumgebung, Classroom, Schulungscenter oder Umgebungen von kleinen Unternehmen.  
-- Installieren Sie ein Programm nur einmal, und greifen sie über jede Station.  
-- Überwachen des jeweiligen Benutzers desktop-Aktivität.  
-- Block-Bildschirme mit eine anpassbare Meldung für der Gruppe Aufmerksamkeit erhalten.  
-- Beschränken Sie die Gruppe, für den Zugriff nur auf eine oder mehrere Websites.  
-- Projizieren Sie Ihren Bildschirm zu den anderen Bildschirmen, um eine bestimmte Aufgabe zu veranschaulichen.  
-- Kommunizieren Sie mit einem standard-Benutzer, die um Hilfe bitten ist privat.  
-- Übernehmen Sie die Kontrolle der Sitzung eines Benutzers, um eine Aufgabe zu veranschaulichen.  
-- Führen Sie alle oben aufgeführten Elemente an, für die ein Benutzer, die einen herkömmlichen PC, Laptop oder anderen mobilen Geräten verwendet wird. 
+- Bieten Sie jedem Benutzer ein persönliches Computing und private Ordner, ohne für jede Person einen separaten Computer zu benötigen.  
+- Verwalten mehrerer Multipoint-Systeme in einem Computerlabor, Classroom, Schulungs Center oder einer kleinen Geschäftsumgebung.  
+- Installieren Sie ein Programm einmal, und greifen Sie von einer beliebigen Station aus darauf zu.  
+- Überwachen Sie die Desktop Aktivität der einzelnen Benutzer.  
+- Blockieren Sie Bildschirme mit einer anpassbaren Meldung, um die Aufmerksamkeit der Gruppe zu erhalten.  
+- Beschränken Sie die Gruppe auf eine oder mehrere Websites.  
+- Projizieren Sie den Bildschirm auf die anderen Bildschirme, um eine bestimmte Aufgabe zu veranschaulichen.  
+- Kommunizieren Sie privat mit einem Standardbenutzer, der Hilfe bittet.  
+- Übernehmen Sie die Kontrolle über die Sitzung eines Benutzers, um eine Aufgabe zu veranschaulichen.  
+- Führen Sie alle oben aufgeführten Elemente für einen Benutzer aus, der einen herkömmlichen PC, Laptop oder andere mobile Geräte verwendet. 

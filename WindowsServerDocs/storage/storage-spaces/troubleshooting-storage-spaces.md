@@ -9,12 +9,12 @@ ms.topic: article
 author: kaushika-msft
 ms.date: 10/24/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 7cc5709723b300f46ce108b36501e7ace272cd45
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 30fdda5ada01510027100efce1e95f310f69c6a1
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544567"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865096"
 ---
 # <a name="troubleshoot-storage-spaces-direct"></a>Problembehandlung direkte Speicherplätze
 
@@ -203,7 +203,7 @@ Die **Daten Integritäts Überprüfung für den Task "Absturz Wiederherstellung*
 
 Weitere Informationen finden Sie unter [Problembehandlung direkte Speicherplätze Integritäts-und Betriebs](storage-spaces-states.md)Status.
 
-## <a name="event-5120-with-statusiotimeout-c00000b5"></a>Ereignis 5120 mit STATUS_IO_TIMEOUT c00000b5 
+## <a name="event-5120-with-status_io_timeout-c00000b5"></a>Ereignis 5120 mit STATUS_IO_TIMEOUT c00000b5 
 
 > [!Important]
 > **Für Windows Server 2016:** Um die Wahrscheinlichkeit zu verringern, dass diese Symptome beim Anwenden des Updates behoben werden, empfiehlt es sich, die unten stehende Prozedur für den Speicher Wartungsmodus zu verwenden, um den [18. Oktober 2018, das kumulative Update für Windows Server 2016](https://support.microsoft.com/help/4462928) oder eine höhere Version zu installieren. Wenn auf den Knoten derzeit ein kumulatives Update für Windows Server 2016 installiert wurde, das vom [8. Mai 2018](https://support.microsoft.com/help/4103723) bis zum [9. Oktober 2018](https://support.microsoft.com/help/KB4462917)veröffentlicht wurde.
@@ -217,7 +217,7 @@ Event Source: Microsoft-Windows-FailoverClustering
 Event ID: 5120
 Description:    Cluster Shared Volume 'CSVName' ('Cluster Virtual Disk (CSVName)') has entered a paused state because of 'STATUS_IO_TIMEOUT(c00000b5)'. All I/O will temporarily be queued until a path to the volume is reestablished. 
 
-Cluster Shared Volume ‘CSVName’ ('Cluster Virtual Disk (CSVName)') has entered a paused state because of 'STATUS_CONNECTION_DISCONNECTED(c000020c)'. All I/O will temporarily be queued until a path to the volume is reestablished.    
+Cluster Shared Volume ‘CSVName' ('Cluster Virtual Disk (CSVName)') has entered a paused state because of 'STATUS_CONNECTION_DISCONNECTED(c000020c)'. All I/O will temporarily be queued until a path to the volume is reestablished.    
 ```
 
 Wenn ein Ereignis 5120 protokolliert wird, wird ein livedump generiert, um Debuginformationen zu sammeln, die möglicherweise zusätzliche Symptome verursachen oder einen Leistungs Effekt haben. Durch das Erstellen des liveabbilds wird eine kurze Pause erstellt, um das Erstellen einer Momentaufnahme des Speichers zum Schreiben der Dumpdatei zu ermöglichen Systeme mit sehr viel Arbeitsspeicher und hoher Belastung können dazu führen, dass Knoten die Cluster Mitgliedschaft verwerfen und auch das folgende Ereignis 1135 protokolliert werden.

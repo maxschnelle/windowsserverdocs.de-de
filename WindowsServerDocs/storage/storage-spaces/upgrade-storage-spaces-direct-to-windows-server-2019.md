@@ -1,6 +1,6 @@
 ---
-title: Upgrade von "direkte Speicherplätze"-Clustern auf Windows Server-2019
-description: Informationen zum upgrade von "direkte Speicherplätze"-Clustern auf Windows Server 2019 – entweder gleichzeitig ausgeführten virtuellen Computer oder während sie angehalten sind.
+title: Aktualisieren eines direkte Speicherplätze Clusters auf Windows Server 2019
+description: So führen Sie ein Upgrade für einen direkte Speicherplätze Cluster auf Windows Server 2019 durch
 author: robhindman
 ms.author: robhind
 manager: eldenc
@@ -8,75 +8,75 @@ ms.date: 03/06/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage-spaces
-ms.openlocfilehash: 54be649cc1753fe07c94105a31a0b738fb030ee0
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 9966ee0fd3c0a2d1df0180bf177dec03343efc14
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284363"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867189"
 ---
-# <a name="upgrade-a-storage-spaces-direct-cluster-to-windows-server-2019"></a>Upgrade von "direkte Speicherplätze"-Clustern auf Windows Server-2019
+# <a name="upgrade-a-storage-spaces-direct-cluster-to-windows-server-2019"></a>Aktualisieren eines direkte Speicherplätze Clusters auf Windows Server 2019
 
-In diesem Thema wird beschrieben, wie Sie einen "direkte Speicherplätze"-Cluster auf Windows Server-2019 aktualisieren. Es gibt vier Möglichkeiten für die Aktualisierung von "direkte Speicherplätze"-Cluster von Windows Server 2016 zu WindowsServer 2019, mit der [cluster OS rolling Upgrade Process](../../failover-clustering/Cluster-Operating-System-Rolling-Upgrade.md) – zwei, bei denen die ausgeführten virtuellen Computer beibehalten und zwei, bei denen Beenden alle virtuellen Computer. Jeder Ansatz hat jeweils eigene Stärken und Schwächen, also, dass ein auswählen, die die Anforderungen Ihrer Organisation am besten entspricht:
+In diesem Thema wird beschrieben, wie ein direkte Speicherplätze-Cluster auf Windows Server 2019 aktualisiert wird. Es gibt vier Möglichkeiten, ein direkte Speicherplätze Cluster von Windows Server 2016 auf Windows Server 2019 zu aktualisieren. dabei wird der parallele [Upgradeprozess für Cluster](../../failover-clustering/Cluster-Operating-System-Rolling-Upgrade.md) Betriebssysteme verwendet – zwei, bei denen die VMs weiterhin ausgeführt werden, und zwei für das Beenden aller VMS. Jeder Ansatz hat unterschiedliche Stärken und Schwächen. Wählen Sie also den Ansatz aus, der den Anforderungen Ihrer Organisation am besten entspricht:
 
-- **Direktes Upgrade während der virtuelle Computer ausgeführt werden** auf jedem Server im Cluster – diese Option fallen keine VM-Ausfallzeiten, aber Sie müssen warten, bis speicheraufträge (Spiegel reparieren) abschließen, nachdem Sie jeden Server aktualisiert wird.
+- Direktes Upgrade, während virtuelle Computer auf jedem Server im Cluster ausgeführt werden – diese Option verursacht keine VM-Ausfallzeiten, aber Sie müssen warten, bis Speicher Aufträge (Spiegelung) nach dem Upgrade der einzelnen Server **ausgeführt werden** .
 
-- **Bereinigung-OS-Installation während der virtuelle Computer ausgeführt werden** auf jedem Server im Cluster – diese Option fallen keine VM-Ausfallzeit, aber Sie müssen warten, speicheraufträge (Spiegel reparieren) abschließen, nachdem Sie jeden Server wird aktualisiert, und Sie müssen Festlegen von jedem Server und alle die apps und die Rollen noch mal.
+- **Neuinstallation des Betriebssystems während der Ausführung** virtueller Computer auf jedem Server im Cluster – bei dieser Option sind keine VM-Ausfallzeiten aufgetreten, aber Sie müssen warten, bis Speicher Aufträge (Spiegelung) nach dem Upgrade der einzelnen Server vollständig ausgeführt werden, und Sie müssen jeden Server und alle seine Apps und Rollen.
 
-- **Direktes Upgrade während der virtuelle Computer beendet wurden** auf jedem Server im Cluster – diese Option kommt es zu VM-Ausfällen, aber Sie müssen nicht warten, Speicher (Spiegel reparieren), Aufträge, sodass es schneller ist.
+- Direktes Upgrade, während virtuelle Computer auf jedem Server im Cluster **angehalten werden** – diese Option verursacht VM-Ausfallzeiten, aber Sie müssen nicht auf Speicher Aufträge warten (Spiegelung reparieren), sodass es schneller ist.
 
-- **Bereinigen und Betriebssystem zu installieren, während der virtuelle Computer beendet wurden** auf jedem Server im Cluster – diese Option kommt es zu VM-Ausfällen, aber Sie müssen nicht warten, Speicher (Spiegel reparieren) Aufträge, sodass es schneller ist.
+- **Clean-OS-Installation, während** virtuelle Computer auf jedem Server im Cluster angehalten werden – diese Option verursacht VM-Ausfallzeiten, aber Sie müssen nicht auf Speicher Aufträge warten (Spiegelung reparieren), sodass Sie schneller ist.
 
 ## <a name="prerequisites-and-limitations"></a>Voraussetzungen und Einschränkungen
 
-Bevor Sie ein Upgrade fortsetzen:
+Bevor Sie mit einem Upgrade fortfahren:
 
-- Überprüfen Sie, dass Sie verwendet werden, Backups verfügen, für den Fall, dass während des Upgradevorgangs Probleme vorliegen.
+- Überprüfen Sie, ob Sie über verwendbare Sicherungen verfügen, falls während des Upgradevorgangs Probleme aufgetreten sind.
 
-- Überprüfen, ob Ihre Hardwarehersteller enthält ein BIOS, Firmware und Treiber für Ihre Server, die sie auf Windows Server-2019 unterstützt.
+- Überprüfen Sie, ob der Hardwarehersteller über ein BIOS, eine Firmware und Treiber für Ihre Server verfügt, die unter Windows Server 2019 unterstützt werden.
 
-Es gibt einige Einschränkungen bei der Upgradevorgang zu beachten:
+Beim Upgradeprozess sind einige Einschränkungen zu beachten:
 
-- Um "direkte Speicherplätze" mit Windows Server-2019 Builds vor 176693.292 zu aktivieren, müssen Kunden den Microsoft-Support für Registrierungsschlüssel, die "direkte Speicherplätze" und Software Defined Networking-Funktionalität zu aktivieren. Weitere Informationen finden Sie im Microsoft Knowledge Base [Artikel 4464776](https://support.microsoft.com/help/4464776/software-defined-data-center-and-software-defined-networking).
+- Um direkte Speicherplätze mit Windows Server 2019-Builds vor 176693,292 zu aktivieren, müssen Kunden ggf. den Microsoft-Support für Registrierungsschlüssel kontaktieren, die direkte Speicherplätze und Software definierte Netzwerkfunktionen ermöglichen. Weitere Informationen finden Sie im Microsoft Knowledge Base- [Artikel 4464776](https://support.microsoft.com/help/4464776/software-defined-data-center-and-software-defined-networking).
 
-- Wenn Sie einen Cluster mit ReFS-Volumes zu aktualisieren, gibt es jedoch einige Einschränkungen:
+- Beim Aktualisieren eines Clusters mit Refs-Volumes gibt es einige Einschränkungen:
 
-- Upgrade wird vollständig auf ReFS-Volumes unterstützt, die aktualisierten Volumes wird nicht profitieren jedoch von ReFS-Verbesserungen in Windows Server-2019. Diese Vorteile, z. B. verbessert die Leistung bei Parität Mirror-Beschleunigung, erfordern eine neu erstellte Windows Server 2019 ReFS-Volume. Das heißt, müssen Sie das Erstellen neuer Volumes, die mit der `New-Volume` Cmdlet oder Server-Manager. Hier sind einige der ReFS-Verbesserungen, die neuen Volumes erhalten würden:
+- Das Upgrade wird auf Refs-Volumes vollständig unterstützt. aktualisierte Volumes profitieren jedoch nicht von den Refs-Erweiterungen in Windows Server 2019. Diese Vorteile, z. b. eine bessere Leistung für eine Spiegel beschleunigte Parität, erfordern ein neu erstelltes Windows Server 2019 Refs-Volume. Anders ausgedrückt: Sie müssen mithilfe des `New-Volume` Cmdlets oder Server-Manager neue Volumes erstellen. Im folgenden finden Sie einige der Refs-Erweiterungen, die neue Volumes erhalten würden:
 
-    - **MAP-Log-Umgehung**: eine leistungsverbesserung in ReFS, die gilt nur für Clustersystemen (Storage Spaces Direct) und gilt nicht für eigenständige Speicherpools.
+    - **Map Log-Bypass**: eine Leistungsverbesserung in Refs, die nur für gruppierte Systeme (direkte Speicherplätze) gilt und nicht für eigenständige Speicherpools gilt.
 
-    - **Komprimierung** Effizienz-Verbesserungen in Windows Server-2019, die auf mehreren robuste Volumes spezifisch sind.
+    - Verbesserungen der Effizienz der **Kompatibilität** in Windows Server 2019, die für Volumes mit mehreren robusten Volumes spezifisch sind.
 
-- Es wird empfohlen, vor dem Upgrade von eines Windows Server 2016 "direkte Speicherplätze"-Cluster-Servers, platzieren den Server in den Wartungsmodus für Speicher. Weitere Informationen finden Sie im Abschnitt Ereignis 5120 [Problembehandlung für "direkte Speicherplätze"](troubleshooting-storage-spaces.md). Obwohl dieses Problem in Windows Server 2016 behoben wurde, wird empfohlen, Sie jedes "direkte Speicherplätze"-Server während des Upgrades als bewährte Methode in den speicherwartungsmodus einsetzen.
+- Vor dem Upgrade eines Windows Server 2016 direkte Speicherplätze-Cluster Servers empfiehlt es sich, den Server in den Speicher Wartungsmodus zu versetzen. Weitere Informationen finden Sie im Abschnitt Ereignis 5120 unter Problembehandlung [direkte Speicherplätze](troubleshooting-storage-spaces.md). Obwohl dieses Problem in Windows Server 2016 behoben wurde, empfiehlt es sich, jeden direkte Speicherplätze Server während des Upgrades in den Speicher Wartungsmodus zu versetzen.
 
-- Es gibt ein bekanntes Problem mit der Software Defined Networking-Umgebungen, die SET-Schalter verwenden. Dieses Problem umfasst die Hyper-V-VM live-Migrationen von Windows Server-2019 auf Windows Server 2016 (live Migration zu einem früheren Betriebssystem). Es wird empfohlen, um sicherzustellen, dass erfolgreiche livemigrationen, Ändern einer Einstellung des VM-Netzwerk auf virtuellen Computern, die live-Migration von Windows Server-2019 auf Windows Server 2016. Dieses Problem wurde im 2019-01-D-Hotfix Rollup Package für Windows Server-2019 behoben, auch bekannt als 17763.292 zu erstellen. Weitere Informationen finden Sie im Microsoft Knowledge Base [Artikel 4476976](https://support.microsoft.com/help/4476976/windows-10-update-kb4476976).
+- Es gibt ein bekanntes Problem mit Software definierten Netzwerkumgebungen, in denen Set Switches verwendet werden. Dieses Problem umfasst Hyper-V-VM-Live Migrationen von Windows Server 2019 zu Windows Server 2016 (Live Migration zu einem früheren Betriebssystem). Um erfolgreiche Live Migrationen sicherzustellen, empfiehlt es sich, eine VM-Netzwerk Einstellung auf VMS zu ändern, die von Windows Server 2019 zu Windows Server 2016 migriert werden. Dieses Problem wurde für Windows Server 2019 im Hotfixrollup-Paket 2019-01D (Build 17763,292) behoben. Weitere Informationen finden Sie im Microsoft Knowledge Base- [Artikel 4476976](https://support.microsoft.com/help/4476976/windows-10-update-kb4476976).
 
-Aufgrund der oben genannten bekannten Problemen sollten einige Kunden, erstellen einen neuen 2019 für Windows Server-Cluster, und Kopieren von Daten aus dem alten Cluster, anstelle eines Upgrade ihrer Windows Server 2016-Cluster mithilfe einer der vier nachfolgend beschriebenen Prozesse.
+Aufgrund der oben genannten bekannten Probleme können einige Kunden in Erwägung gezogen werden, einen neuen Windows Server 2019-Cluster zu entwickeln und Daten aus dem alten Cluster zu kopieren, anstatt Ihre Windows Server 2016-Cluster mit einem der vier unten beschriebenen Verfahren zu aktualisieren.
 
-## <a name="performing-an-in-place-upgrade-while-vms-are-running"></a>Ein direktes Upgrade ausführen, während die virtuellen Computer ausgeführt werden
+## <a name="performing-an-in-place-upgrade-while-vms-are-running"></a>Ausführen eines direkten Upgrades, während virtuelle Computer ausgeführt werden
 
-Diese Option fallen keine VM-Ausfallzeiten, aber Sie müssen warten, bis speicheraufträge (Spiegel reparieren) abschließen, nachdem Sie jeden Server aktualisiert wird. Obwohl einzelne Server nacheinander während des Upgrades neu gestartet werden, werden die verbleibenden Server im Cluster sowie alle VMs weiterhin ausgeführt.
+Diese Option verursacht keine VM-Ausfallzeiten, aber Sie müssen warten, bis Speicher Aufträge (Spiegelung) nach dem Upgrade der einzelnen Server fertiggestellt werden. Obwohl einzelne Server während des Upgradevorgangs nacheinander neu gestartet werden, werden die restlichen Server im Cluster sowie alle VMs weiterhin ausgeführt.
 
-1. Überprüfen Sie, dass alle Server im Cluster die neuesten Windows-Updates installiert haben. Weitere Informationen finden Sie unter [Windows 10- und Windows Server 2016-Updateverlauf](https://support.microsoft.com/help/4000825/windows-10-windows-server-2016-update-history). Installieren Sie mindestens die Microsoft Knowledge Base [Artikel 4487006](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006) (19. Februar 2019). Die Nummer des Builds (finden Sie unter `ver` Befehl) 14393.2828 oder höher sein.
+1. Überprüfen Sie, ob auf allen Servern im Cluster die neuesten Windows-Updates installiert sind. Weitere Informationen finden Sie unter [Windows 10 und Windows Server 2016 Update History](https://support.microsoft.com/help/4000825/windows-10-windows-server-2016-update-history). Installieren Sie mindestens den Microsoft Knowledge Base- [Artikel 4487006](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006) (19. Februar 2019). Die Buildnummer ( `ver` siehe Befehl) sollte 14393,2828 oder höher lauten.
 
-2. Wenn Sie Software Defined Networking mit SET-Optionen verwenden, öffnen Sie eine PowerShell-Sitzung mit erhöhten Rechten, und führen Sie den folgenden Befehl zum Deaktivieren von Überprüfungen der Livemigration auf allen virtuellen Computern im Cluster virtuelle Computer:
+2. Wenn Sie ein Software definiertes Netzwerk mit Set Switches verwenden, öffnen Sie eine PowerShell-Sitzung mit erhöhten Rechten, und führen Sie den folgenden Befehl aus, um die Überprüfung der Live Migration von virtuellen Computern auf allen virtuellen Computern im Cluster
 
    ```PowerShell
    Get-ClusterResourceType -Cluster {clusterName} -Name "Virtual Machine" |
    Set-ClusterParameter -Create SkipMigrationDestinationCheck -Value 1
    ```
 
-3. Führen Sie die folgenden Schritte auf einem Clusterserver zu einem Zeitpunkt:
+3. Führen Sie die folgenden Schritte auf einem Cluster Server gleichzeitig aus:
 
-   1. Verwenden Sie Hyper-V-VM-Livemigration zum Verschieben von ausgeführten virtuellen Computer vom Server an, das Sie aktualisieren möchten.
+   1. Verwenden Sie die Hyper-V-VM-Live Migration, um virtuelle Computer auf dem Server zu verschieben, den Sie gerade aktualisieren möchten.
 
-   2. Halten Sie den Clusterserver mit dem folgenden PowerShell-Befehl – Beachten Sie, dass einige interne Gruppen ausgeblendet sind. Es wird empfohlen, diesen Schritt, vorsichtig zu sein, wenn Sie nicht bereits Online geschaltete Migrieren von VMs aus dem Server, die mit diesem Cmdlet tun, also können Sie den vorherigen Schritt übergehen können nach Wunsch.
+   2. Halten Sie den Cluster Server mit dem folgenden PowerShell-Befehl an – beachten Sie, dass einige interne Gruppen ausgeblendet sind. Dieser Schritt wird als Vorsicht empfohlen – wenn Sie noch keine Live Migration von VMS aus dem Server durchführen, wird dieses Cmdlet dies für Sie tun, sodass Sie den vorherigen Schritt bei Bedarf überspringen können.
 
         ```PowerShell
        Suspend-ClusterNode -Drain
        ```
 
-   3. Platzieren Sie den Server in den Wartungsmodus für Speicher, durch die folgenden PowerShell-Befehle ausführen:
+   3. Platzieren Sie den Server im Speicher Wartungsmodus, indem Sie die folgenden PowerShell-Befehle ausführen:
 
        ```PowerShell
        Get-StorageFaultDomain -type StorageScaleUnit | 
@@ -84,17 +84,17 @@ Diese Option fallen keine VM-Ausfallzeiten, aber Sie müssen warten, bis speiche
        Enable-StorageMaintenanceMode
        ```
 
-   4. Führen Sie das folgende Cmdlet aus, um zu überprüfen, ob die **OperationalStatus** Wert **im Wartungsmodus**:
+   4. Führen Sie das folgende Cmdlet aus, um zu überprüfen, ob sich der Wert **OperationalStatus** **im Wartungsmodus**befindet:
 
        ```PowerShell
        Get-PhysicalDisk
        ```
 
-   5. Führen Sie eine Upgrade-Installation von Windows Server-2019 auf dem Server mit **setup.exe** und mit der Option "Bleiben persönlichen Dateien und apps". Nachdem die Installation abgeschlossen ist,-Dienst verbleibt der Server in den Cluster und den Cluster automatisch gestartet wird.
+   5. Führen Sie eine Upgradeinstallation von Windows Server 2019 auf dem Server aus, indem Sie die Datei " **Setup. exe** " ausführen und die Option "persönliche Dateien und apps aufbewahren" verwenden. Nach Abschluss der Installation verbleibt der Server im Cluster, und der Cluster Dienst wird automatisch gestartet.
 
-   6. Überprüfen Sie, dass der neu aktualisierte Server die neuesten Updates für Windows Server-2019 verfügt. Weitere Informationen finden Sie unter [Windows 10- und Windows Server-2019 Updateverlauf](https://support.microsoft.com/help/4464619/windows-10-update-history). Die Nummer des Builds (finden Sie unter `ver` Befehl) 17763.292 oder höher sein.
+   6. Überprüfen Sie, ob der neu aktualisierte Server über die neuesten Windows Server 2019-Updates verfügt. Weitere Informationen finden Sie unter [Windows 10 und Windows Server 2019 Update History](https://support.microsoft.com/help/4464619/windows-10-update-history). Die Buildnummer ( `ver` siehe Befehl) sollte 17763,292 oder höher lauten.
 
-   7. Entfernen Sie den Server aus dem Wartungsmodus von Speicher mithilfe des folgenden PowerShell-Befehl:
+   7. Entfernen Sie den Server aus dem Speicher Wartungsmodus mit dem folgenden PowerShell-Befehl:
 
        ```PowerShell
        Get-StorageFaultDomain -type StorageScaleUnit | 
@@ -102,13 +102,13 @@ Diese Option fallen keine VM-Ausfallzeiten, aber Sie müssen warten, bis speiche
        Disable-StorageMaintenanceMode
        ```
 
-   8. Fortsetzen Sie den Server mit dem folgenden PowerShell-Befehl:
+   8. Verwenden Sie den folgenden PowerShell-Befehl, um den Server fortzusetzen:
 
        ```PowerShell
        Resume-ClusterNode
        ```
 
-   9. Warten Sie, für die Reparatur speicheraufträge abgeschlossen und für alle Datenträger in einen fehlerfreien Status wiederherzustellen. Dies kann sehr viel Zeit abhängig von der Anzahl von virtuellen Computern dauern, während der serveraktualisierung ausgeführt wird. Hier sind die auszuführenden Befehle an:
+   9. Warten Sie, bis Speicher Reparaturaufträge abgeschlossen sind und alle Datenträger in einen fehlerfreien Status zurückversetzt werden. Dies kann je nach Anzahl der virtuellen Computer, die während des Server Upgrades ausgeführt werden, viel Zeit in Anspruch nehmen. Die folgenden Befehle müssen ausgeführt werden:
 
        ```PowerShell
        Get-StorageJob
@@ -117,58 +117,58 @@ Diese Option fallen keine VM-Ausfallzeiten, aber Sie müssen warten, bis speiche
 
 4. Aktualisieren Sie den nächsten Server im Cluster.
 
-5. Nachdem alle Server auf Windows Server-2019 aktualisiert wurden, verwenden Sie das folgende PowerShell-Cmdlet, um Funktionsebene des Clusters aktualisieren.
+5. Nachdem alle Server auf Windows Server 2019 aktualisiert wurden, verwenden Sie das folgende PowerShell-Cmdlet, um die Cluster Funktionsebene zu aktualisieren.
 
    ```PowerShell
    Update-ClusterFunctionalLevel
    ```
 
    > [!NOTE]
-   > Obwohl technisch bis zu vier Wochen haben dazu sollten so bald wie möglich, Funktionsebene des Clusters zu aktualisieren.
+   > Es wird empfohlen, die Cluster Funktionsebene so bald wie möglich zu aktualisieren, obwohl Sie technisch gesehen bis zu vier Wochen dauern müssen.
 
-6. Nach der Funktionsebene des Clusters aktualisiert wurde, verwenden Sie das folgende Cmdlet aus, um den Speicherpool zu aktualisieren. Nun, neue Cmdlets, z. B. `Get-ClusterPerf` werden auf einem beliebigen Server im Cluster voll funktionsfähig.
+6. Nachdem die Cluster Funktionsebene aktualisiert wurde, verwenden Sie das folgende Cmdlet, um den Speicherpool zu aktualisieren. An diesem Punkt sind neue Cmdlets wie z `Get-ClusterPerf` . b. auf jedem Server im Cluster voll funktionsfähig.
 
    ```PowerShell
    Update-StoragePool
    ```
 
-7. Optional ein upgrade auf VM-Konfigurationsebenen durch das Beenden von jedem virtuellen Computer mithilfe der `Update-VMVersion` -Cmdlet, und klicken Sie dann die virtuellen Computer neu zu starten.
+7. Aktualisieren Sie optional VM-Konfigurationsebenen, indem Sie jeden virtuellen `Update-VMVersion` Computer mit dem Cmdlet beenden und dann die VMs erneut starten.
 
-8. Wenn Sie Software Defined Networking mit SET-Switches und deaktivierte Überprüfungen der VM-live-Migration wie an weiter oben beschrieben das folgende Cmdlet verwenden um Überprüfungen der Live-VM erneut zu aktivieren:
+8. Verwenden Sie das folgende Cmdlet, um die Überprüfung der Überprüfung von virtuellen Computern zu aktivieren, wenn Sie Software-Defined Networking mit Set Switches und deaktivierte Live Migrations Prüfungen für virtuelle Computer verwenden, wie oben beschrieben.
 
    ```PowerShell
    Get-ClusterResourceType -Cluster {clusterName} -Name "Virtual Machine" |
    Set-ClusterParameter  SkipMigrationDestinationCheck -Value 0
    ```
 
-9. Stellen Sie sicher, dass die aktualisierte Cluster wie erwartet funktioniert. Rollen sollten Failover ordnungsgemäß, und wenn live Migration von virtuellen Computern im Cluster verwendet wird, sollte erfolgreich live-VMs migrieren.
+9. Überprüfen Sie, ob der aktualisierte Cluster wie erwartet funktioniert. Für Rollen sollte ein Failover ordnungsgemäß durchgeführt werden. wenn die VM-Live Migration auf dem Cluster verwendet wird, sollten die virtuellen Computer erfolgreich migriert werden
 
-10. Überprüfen des Clusters durch Ausführen der Clusterüberprüfung (`Test-Cluster`) und untersuchen den Bericht der clustervalidierung.
+10. Überprüfen Sie den Cluster, indem Sie`Test-Cluster`die Cluster Überprüfung ausführen () und den Cluster Validierungsbericht untersuchen.
 
-## <a name="performing-a-clean-os-installation-while-vms-are-running"></a>Eine Neuinstallation des Betriebssystems ausführen, während die virtuellen Computer ausgeführt werden
+## <a name="performing-a-clean-os-installation-while-vms-are-running"></a>Ausführen einer Neuinstallation des Betriebssystems während der Ausführung virtueller Computer
 
-Diese Option fallen keine VM-Ausfallzeiten, aber Sie müssen warten, bis speicheraufträge (Spiegel reparieren) abschließen, nachdem Sie jeden Server aktualisiert wird. Obwohl einzelne Server nacheinander während des Upgrades neu gestartet werden, werden die verbleibenden Server im Cluster sowie alle VMs weiterhin ausgeführt.
+Diese Option verursacht keine VM-Ausfallzeiten, aber Sie müssen warten, bis Speicher Aufträge (Spiegelung) nach dem Upgrade der einzelnen Server fertiggestellt werden. Obwohl einzelne Server während des Upgradevorgangs nacheinander neu gestartet werden, werden die restlichen Server im Cluster sowie alle VMs weiterhin ausgeführt.
 
-1. Überprüfen Sie, dass alle Server im Cluster die neuesten Updates ausgeführt werden. Weitere Informationen finden Sie unter [Windows 10- und Windows Server 2016-Updateverlauf](https://support.microsoft.com/help/4000825/windows-10-windows-server-2016-update-history). Installieren Sie mindestens die Microsoft Knowledge Base [Artikel 4487006](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006) (19. Februar 2019). Die Nummer des Builds (finden Sie unter `ver` Befehl) 14393.2828 oder höher sein.
+1. Überprüfen Sie, ob auf allen Servern im Cluster die neuesten Updates ausgeführt werden. Weitere Informationen finden Sie unter [Windows 10 und Windows Server 2016 Update History](https://support.microsoft.com/help/4000825/windows-10-windows-server-2016-update-history). Installieren Sie mindestens den Microsoft Knowledge Base- [Artikel 4487006](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006) (19. Februar 2019). Die Buildnummer ( `ver` siehe Befehl) sollte 14393,2828 oder höher lauten.
 
-2. Wenn Sie Software Defined Networking mit SET-Optionen verwenden, öffnen Sie eine PowerShell-Sitzung mit erhöhten Rechten, und führen Sie den folgenden Befehl zum Deaktivieren von Überprüfungen der Livemigration auf allen virtuellen Computern im Cluster virtuelle Computer:
+2. Wenn Sie ein Software definiertes Netzwerk mit Set Switches verwenden, öffnen Sie eine PowerShell-Sitzung mit erhöhten Rechten, und führen Sie den folgenden Befehl aus, um die Überprüfung der Live Migration von virtuellen Computern auf allen virtuellen Computern im Cluster
 
    ```PowerShell
    Get-ClusterResourceType -Cluster {clusterName} -Name "Virtual Machine" |
    Set-ClusterParameter -Create SkipMigrationDestinationCheck -Value 1
    ```
 
-3. Führen Sie die folgenden Schritte auf einem Clusterserver zu einem Zeitpunkt:
+3. Führen Sie die folgenden Schritte auf einem Cluster Server gleichzeitig aus:
 
-   1. Verwenden Sie Hyper-V-VM-Livemigration zum Verschieben von ausgeführten virtuellen Computer vom Server an, das Sie aktualisieren möchten.
+   1. Verwenden Sie die Hyper-V-VM-Live Migration, um virtuelle Computer auf dem Server zu verschieben, den Sie gerade aktualisieren möchten.
 
-   2. Halten Sie den Clusterserver mit dem folgenden PowerShell-Befehl – Beachten Sie, dass einige interne Gruppen ausgeblendet sind. Es wird empfohlen, diesen Schritt, vorsichtig zu sein, wenn Sie nicht bereits Online geschaltete Migrieren von VMs aus dem Server, die mit diesem Cmdlet tun, also können Sie den vorherigen Schritt übergehen können nach Wunsch.
+   2. Halten Sie den Cluster Server mit dem folgenden PowerShell-Befehl an – beachten Sie, dass einige interne Gruppen ausgeblendet sind. Dieser Schritt wird als Vorsicht empfohlen – wenn Sie noch keine Live Migration von VMS aus dem Server durchführen, wird dieses Cmdlet dies für Sie tun, sodass Sie den vorherigen Schritt bei Bedarf überspringen können.
 
         ```PowerShell
        Suspend-ClusterNode -Drain
        ```
 
-   3. Platzieren Sie den Server in den Wartungsmodus für Speicher, durch die folgenden PowerShell-Befehle ausführen:
+   3. Platzieren Sie den Server im Speicher Wartungsmodus, indem Sie die folgenden PowerShell-Befehle ausführen:
 
        ```PowerShell
        Get-StorageFaultDomain -type StorageScaleUnit | 
@@ -176,33 +176,33 @@ Diese Option fallen keine VM-Ausfallzeiten, aber Sie müssen warten, bis speiche
        Enable-StorageMaintenanceMode
        ```
 
-   4. Führen Sie das folgende Cmdlet aus, um zu überprüfen, ob die **OperationalStatus** Wert **im Wartungsmodus**:
+   4. Führen Sie das folgende Cmdlet aus, um zu überprüfen, ob sich der Wert **OperationalStatus** **im Wartungsmodus**befindet:
 
        ```PowerShell
        Get-PhysicalDisk
        ```
 
-   3.  Entfernen Sie den Server aus dem Cluster, durch den folgenden PowerShell-Befehl ausführen:  
+   3.  Entfernen Sie den Server aus dem Cluster, indem Sie den folgenden PowerShell-Befehl ausführen:  
 
        ```PowerShell
        Remove-ClusterNode <ServerName>
        ```
 
-   4. Führen Sie auf dem Server eine Neuinstallation von Windows Server-2019: Format das Systemlaufwerk ausführen **setup.exe** und verwenden Sie den Text "Nothing" Option. Sie müssen die Identität des Servers, Rollen, Features und Anwendungen, die nach Abschluss der Installation und Neustart des Servers zu konfigurieren.
+   4. Führen Sie eine Neuinstallation von Windows Server 2019 auf dem Server aus: Formatieren Sie das Systemlaufwerk, führen Sie " **Setup. exe** " aus, und verwenden Sie die Option "Nothing". Sie müssen die Server Identität, Rollen, Features und Anwendungen konfigurieren, nachdem das Setup abgeschlossen und der Server neu gestartet wurde.
 
-   5. Installieren der Hyper-V-Rolle und Feature Failoverclustering auf dem Server (Sie können die `Install-WindowsFeature` Cmdlet).
+   5. Installieren Sie die Hyper-V-Rolle und das Failoverclustering-Feature auf dem Server ( `Install-WindowsFeature` Sie können das Cmdlet verwenden).
 
-   6. Installieren Sie die neuesten Speicher- und Netzwerkressourcen Treiber für Ihre Hardware, die durch den Serverhersteller Ihres für die Verwendung mit "direkte Speicherplätze" genehmigt werden.
+   6. Installieren Sie die neuesten Speicher-und Netzwerktreiber für Ihre Hardware, die von Ihrem Serverhersteller für die Verwendung mit direkte Speicherplätze genehmigt werden.
 
-   7. Überprüfen Sie, dass der neu aktualisierte Server die neuesten Updates für Windows Server-2019 verfügt. Weitere Informationen finden Sie unter [Windows 10- und Windows Server-2019 Updateverlauf](https://support.microsoft.com/help/4464619/windows-10-update-history). Die Nummer des Builds (finden Sie unter `ver` Befehl) 17763.292 oder höher sein.
+   7. Überprüfen Sie, ob der neu aktualisierte Server über die neuesten Windows Server 2019-Updates verfügt. Weitere Informationen finden Sie unter [Windows 10 und Windows Server 2019 Update History](https://support.microsoft.com/help/4464619/windows-10-update-history). Die Buildnummer ( `ver` siehe Befehl) sollte 17763,292 oder höher lauten.
 
-   8. Eingebunden Sie den Server mit dem Cluster wieder werden, mithilfe des folgenden PowerShell-Befehl:
+   8. Fügen Sie den Server mit dem folgenden PowerShell-Befehl dem Cluster erneut hinzu:
 
        ```PowerShell
        Add-ClusterNode
        ```
 
-   9. Entfernen Sie den Server aus dem speicherwartungsmodus mithilfe des folgenden PowerShell-Befehle ein:
+   9. Entfernen Sie den Server aus dem Speicher Wartungsmodus mithilfe der folgenden PowerShell-Befehle:
 
        ```PowerShell
        Get-StorageFaultDomain -type StorageScaleUnit | 
@@ -210,7 +210,7 @@ Diese Option fallen keine VM-Ausfallzeiten, aber Sie müssen warten, bis speiche
        Disable-StorageMaintenanceMode
        ```
 
-   10. Warten Sie, für die Reparatur speicheraufträge abgeschlossen und für alle Datenträger in einen fehlerfreien Status wiederherzustellen. Dies kann sehr viel Zeit abhängig von der Anzahl von virtuellen Computern dauern, während der serveraktualisierung ausgeführt wird. Hier sind die auszuführenden Befehle an:
+   10. Warten Sie, bis Speicher Reparaturaufträge abgeschlossen sind und alle Datenträger in einen fehlerfreien Status zurückversetzt werden. Dies kann je nach Anzahl der virtuellen Computer, die während des Server Upgrades ausgeführt werden, viel Zeit in Anspruch nehmen. Die folgenden Befehle müssen ausgeführt werden:
 
         ```PowerShell
         Get-StorageJob
@@ -219,51 +219,51 @@ Diese Option fallen keine VM-Ausfallzeiten, aber Sie müssen warten, bis speiche
 
 4. Aktualisieren Sie den nächsten Server im Cluster.
 
-5. Nachdem alle Server auf Windows Server-2019 aktualisiert wurden, verwenden Sie das folgende PowerShell-Cmdlet, um Funktionsebene des Clusters aktualisieren.
+5. Nachdem alle Server auf Windows Server 2019 aktualisiert wurden, verwenden Sie das folgende PowerShell-Cmdlet, um die Cluster Funktionsebene zu aktualisieren.
     
    ```PowerShell
    Update-ClusterFunctionalLevel
    ```
 
    > [!NOTE]
-   > Obwohl technisch bis zu vier Wochen haben dazu sollten so bald wie möglich, Funktionsebene des Clusters zu aktualisieren.
+   > Es wird empfohlen, die Cluster Funktionsebene so bald wie möglich zu aktualisieren, obwohl Sie technisch gesehen bis zu vier Wochen dauern müssen.
 
-6. Nach der Funktionsebene des Clusters aktualisiert wurde, verwenden Sie das folgende Cmdlet aus, um den Speicherpool zu aktualisieren. Nun, neue Cmdlets, z. B. `Get-ClusterPerf` werden auf einem beliebigen Server im Cluster voll funktionsfähig.
+6. Nachdem die Cluster Funktionsebene aktualisiert wurde, verwenden Sie das folgende Cmdlet, um den Speicherpool zu aktualisieren. An diesem Punkt sind neue Cmdlets wie z `Get-ClusterPerf` . b. auf jedem Server im Cluster voll funktionsfähig.
 
    ```PowerShell
    Update-StoragePool
    ```
 
-7. Ebenen der VM-Konfiguration bei Bedarf aktualisieren, indem Sie jeden virtuellen Computer beenden und die `Update-VMVersion` -Cmdlet, und klicken Sie dann die virtuellen Computer neu zu starten.
+7. Aktualisieren Sie optional VM-Konfigurationsebenen, indem Sie jeden virtuellen `Update-VMVersion` Computer beenden und das Cmdlet verwenden, und starten Sie die VMs dann erneut.
 
-8. Wenn Sie Software Defined Networking mit SET-Switches und deaktivierte Überprüfungen der VM-live-Migration wie an weiter oben beschrieben das folgende Cmdlet verwenden um Überprüfungen der Live-VM erneut zu aktivieren:
+8. Verwenden Sie das folgende Cmdlet, um die Überprüfung der Überprüfung von virtuellen Computern zu aktivieren, wenn Sie Software-Defined Networking mit Set Switches und deaktivierte Live Migrations Prüfungen für virtuelle Computer verwenden, wie oben beschrieben.
 
    ```PowerShell
    Get-ClusterResourceType -Cluster {clusterName} -Name "Virtual Machine" | 
    Set-ClusterParameter SkipMigrationDestinationCheck -Value 0
    ```
 
-9. Stellen Sie sicher, dass die aktualisierte Cluster wie erwartet funktioniert. Rollen sollten Failover ordnungsgemäß, und wenn live Migration von virtuellen Computern im Cluster verwendet wird, sollte erfolgreich live-VMs migrieren.
+9. Überprüfen Sie, ob der aktualisierte Cluster wie erwartet funktioniert. Für Rollen sollte ein Failover ordnungsgemäß durchgeführt werden. wenn die VM-Live Migration auf dem Cluster verwendet wird, sollten die virtuellen Computer erfolgreich migriert werden
 
-10. Überprüfen des Clusters durch Ausführen der Clusterüberprüfung (`Test-Cluster`) und untersuchen den Bericht der clustervalidierung.
+10. Überprüfen Sie den Cluster, indem Sie`Test-Cluster`die Cluster Überprüfung ausführen () und den Cluster Validierungsbericht untersuchen.
 
-## <a name="performing-an-in-place-upgrade-while-vms-are-stopped"></a>Ein direktes Upgrade ausführen, während der virtuelle Computer beendet wurden
+## <a name="performing-an-in-place-upgrade-while-vms-are-stopped"></a>Ausführen eines direkten Upgrades, während virtuelle Computer angehalten werden
 
-Diese Option kann kommt es zu Ausfällen der virtuellen Computer jedoch weniger Zeit als beibehalten, wenn Sie die virtuellen Computer während des Upgrades ausgeführt werden, da Sie keine speicheraufträge (Spiegel reparieren) abschließen, nachdem das Upgrade der einzelnen Server warten müssen. Obwohl einzelne Server nacheinander während des Upgrades neu gestartet werden, weiterhin die verbleibenden Server im Cluster ausgeführt wird.
+Diese Option verursacht VM-Ausfallzeiten, kann jedoch weniger Zeit in Anspruch nehmen, als wenn Sie die virtuellen Computer während des Upgrades beibehalten haben, da Sie nicht warten müssen, bis Speicher Aufträge (Spiegelungs Reparatur) nach jedem Upgrade des Servers ausgeführt werden. Obwohl die einzelnen Server während des Upgradevorgangs nacheinander neu gestartet werden, werden die verbleibenden Server im Cluster weiterhin ausgeführt.
 
-1. Überprüfen Sie, dass alle Server im Cluster die neuesten Updates ausgeführt werden. Weitere Informationen finden Sie unter [Windows 10- und Windows Server 2016-Updateverlauf](https://support.microsoft.com/help/4000825/windows-10-windows-server-2016-update-history). Installieren Sie mindestens die Microsoft Knowledge Base [Artikel 4487006](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006) (19. Februar 2019). Die Nummer des Builds (finden Sie unter `ver` Befehl) 14393.2828 oder höher sein.
+1. Überprüfen Sie, ob auf allen Servern im Cluster die neuesten Updates ausgeführt werden. Weitere Informationen finden Sie unter [Windows 10 und Windows Server 2016 Update History](https://support.microsoft.com/help/4000825/windows-10-windows-server-2016-update-history). Installieren Sie mindestens den Microsoft Knowledge Base- [Artikel 4487006](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006) (19. Februar 2019). Die Buildnummer ( `ver` siehe Befehl) sollte 14393,2828 oder höher lauten.
 
-2. Beenden Sie die virtuellen Computern im Cluster ausgeführt.
+2. Beendet die virtuellen Computer, die im Cluster ausgeführt werden.
 
-3. Führen Sie die folgenden Schritte auf einem Clusterserver zu einem Zeitpunkt:
+3. Führen Sie die folgenden Schritte auf einem Cluster Server gleichzeitig aus:
 
-   1. Halten Sie den Clusterserver mit dem folgenden PowerShell-Befehl – Beachten Sie, dass einige interne Gruppen ausgeblendet sind. Es wird empfohlen, diesen Schritt, vorsichtig zu sein.
+   1. Halten Sie den Cluster Server mit dem folgenden PowerShell-Befehl an – beachten Sie, dass einige interne Gruppen ausgeblendet sind. Es wird empfohlen, diesen Schritt vorsichtig zu machen.
 
         ```PowerShell
        Suspend-ClusterNode -Drain
        ```
 
-   2. Platzieren Sie den Server in den Wartungsmodus für Speicher, durch die folgenden PowerShell-Befehle ausführen:
+   2. Platzieren Sie den Server im Speicher Wartungsmodus, indem Sie die folgenden PowerShell-Befehle ausführen:
 
        ```PowerShell
        Get-StorageFaultDomain -type StorageScaleUnit | 
@@ -271,20 +271,20 @@ Diese Option kann kommt es zu Ausfällen der virtuellen Computer jedoch weniger 
        Enable-StorageMaintenanceMode
        ```
 
-   3. Führen Sie das folgende Cmdlet aus, um zu überprüfen, ob die **OperationalStatus** Wert **im Wartungsmodus**:
+   3. Führen Sie das folgende Cmdlet aus, um zu überprüfen, ob sich der Wert **OperationalStatus** **im Wartungsmodus**befindet:
 
        ```PowerShell
        Get-PhysicalDisk
        ```
 
-   4. Führen Sie eine Upgrade-Installation von Windows Server-2019 auf dem Server mit **setup.exe** und mit der Option "Bleiben persönlichen Dateien und apps".  
-   Nachdem die Installation abgeschlossen ist,-Dienst verbleibt der Server in den Cluster und den Cluster automatisch gestartet wird.
+   4. Führen Sie eine Upgradeinstallation von Windows Server 2019 auf dem Server aus, indem Sie die Datei " **Setup. exe** " ausführen und die Option "persönliche Dateien und apps aufbewahren" verwenden.  
+   Nach Abschluss der Installation verbleibt der Server im Cluster, und der Cluster Dienst wird automatisch gestartet.
 
-   5.  Überprüfen Sie, dass der neu aktualisierte Server die neuesten Updates für Windows Server-2019 verfügt.  
-   Weitere Informationen finden Sie unter [Windows 10- und Windows Server-2019 Updateverlauf](https://support.microsoft.com/help/4464619/windows-10-update-history).
-   Die Nummer des Builds (finden Sie unter `ver` Befehl) 17763.292 oder höher sein.
+   5.  Überprüfen Sie, ob der neu aktualisierte Server über die neuesten Windows Server 2019-Updates verfügt.  
+   Weitere Informationen finden Sie unter [Windows 10 und Windows Server 2019 Update History](https://support.microsoft.com/help/4464619/windows-10-update-history).
+   Die Buildnummer ( `ver` siehe Befehl) sollte 17763,292 oder höher lauten.
 
-   6.  Entfernen Sie den Server aus dem speicherwartungsmodus mithilfe des folgenden PowerShell-Befehle ein:
+   6.  Entfernen Sie den Server aus dem Speicher Wartungsmodus mithilfe der folgenden PowerShell-Befehle:
 
        ```PowerShell
        Get-StorageFaultDomain -type StorageScaleUnit | 
@@ -292,14 +292,14 @@ Diese Option kann kommt es zu Ausfällen der virtuellen Computer jedoch weniger 
        Disable-StorageMaintenanceMode
        ```
 
-   7.  Fortsetzen Sie den Server mit dem folgenden PowerShell-Befehl:
+   7.  Verwenden Sie den folgenden PowerShell-Befehl, um den Server fortzusetzen:
 
        ```PowerShell
        Resume-ClusterNode
        ```
 
-   8.  Warten Sie, für die Reparatur speicheraufträge abgeschlossen und für alle Datenträger in einen fehlerfreien Status wiederherzustellen.  
-   Dies sollte relativ schnell, da die virtuellen Computer nicht ausgeführt werden. Hier sind die auszuführenden Befehle an:
+   8.  Warten Sie, bis Speicher Reparaturaufträge abgeschlossen sind und alle Datenträger in einen fehlerfreien Status zurückversetzt werden.  
+   Dies sollte relativ schnell sein, da VMS nicht ausgeführt werden. Die folgenden Befehle müssen ausgeführt werden:
 
        ```PowerShell
        Get-StorageJob
@@ -307,51 +307,51 @@ Diese Option kann kommt es zu Ausfällen der virtuellen Computer jedoch weniger 
        ```
 
 4. Aktualisieren Sie den nächsten Server im Cluster.
-5. Nachdem alle Server auf Windows Server-2019 aktualisiert wurden, verwenden Sie das folgende PowerShell-Cmdlet, um Funktionsebene des Clusters aktualisieren.
+5. Nachdem alle Server auf Windows Server 2019 aktualisiert wurden, verwenden Sie das folgende PowerShell-Cmdlet, um die Cluster Funktionsebene zu aktualisieren.
     
    ```PowerShell
    Update-ClusterFunctionalLevel
    ```
 
    > [!NOTE]
-   >   Obwohl technisch bis zu vier Wochen haben dazu sollten so bald wie möglich, Funktionsebene des Clusters zu aktualisieren.
+   >   Es wird empfohlen, die Cluster Funktionsebene so bald wie möglich zu aktualisieren, obwohl Sie technisch gesehen bis zu vier Wochen dauern müssen.
 
-6. Nach der Funktionsebene des Clusters aktualisiert wurde, verwenden Sie das folgende Cmdlet aus, um den Speicherpool zu aktualisieren.  
-   Nun, neue Cmdlets, z. B. `Get-ClusterPerf` werden auf einem beliebigen Server im Cluster voll funktionsfähig.
+6. Nachdem die Cluster Funktionsebene aktualisiert wurde, verwenden Sie das folgende Cmdlet, um den Speicherpool zu aktualisieren.  
+   An diesem Punkt sind neue Cmdlets wie z `Get-ClusterPerf` . b. auf jedem Server im Cluster voll funktionsfähig.
 
    ```PowerShell
    Update-StoragePool
    ```
 
-7. Starten Sie die virtuellen Computern im Cluster, und überprüfen Sie, dass sie ordnungsgemäß arbeiten.
+7. Starten Sie die virtuellen Computer im Cluster, und überprüfen Sie, ob Sie ordnungsgemäß ausgeführt werden.
 
-8. Ebenen der VM-Konfiguration bei Bedarf aktualisieren, indem Sie jeden virtuellen Computer beenden und die `Update-VMVersion` -Cmdlet, und klicken Sie dann die virtuellen Computer neu zu starten.
+8. Aktualisieren Sie optional VM-Konfigurationsebenen, indem Sie jeden virtuellen `Update-VMVersion` Computer beenden und das Cmdlet verwenden, und starten Sie die VMs dann erneut.
 
-9. Stellen Sie sicher, dass die aktualisierte Cluster wie erwartet funktioniert.  
-   Rollen sollten Failover ordnungsgemäß, und wenn live Migration von virtuellen Computern im Cluster verwendet wird, sollte erfolgreich live-VMs migrieren.
+9. Überprüfen Sie, ob der aktualisierte Cluster wie erwartet funktioniert.  
+   Für Rollen sollte ein Failover ordnungsgemäß durchgeführt werden. wenn die VM-Live Migration auf dem Cluster verwendet wird, sollten die virtuellen Computer erfolgreich migriert werden
 
-10. Überprüfen des Clusters durch Ausführen der Clusterüberprüfung (`Test-Cluster`) und untersuchen den Bericht der clustervalidierung.
+10. Überprüfen Sie den Cluster, indem Sie`Test-Cluster`die Cluster Überprüfung ausführen () und den Cluster Validierungsbericht untersuchen.
 
-## <a name="performing-a-clean-os-installation-while-vms-are-stopped"></a>Eine Neuinstallation des Betriebssystems ausführen, während der virtuelle Computer beendet wurden
+## <a name="performing-a-clean-os-installation-while-vms-are-stopped"></a>Ausführen einer Neuinstallation des Betriebssystems, während virtuelle Computer angehalten werden
 
-Diese Option kann kommt es zu Ausfällen der virtuellen Computer jedoch weniger Zeit als beibehalten, wenn Sie die virtuellen Computer während des Upgrades ausgeführt werden, da Sie keine speicheraufträge (Spiegel reparieren) abschließen, nachdem das Upgrade der einzelnen Server warten müssen. Obwohl einzelne Server nacheinander während des Upgrades neu gestartet werden, weiterhin die verbleibenden Server im Cluster ausgeführt wird.
+Diese Option verursacht VM-Ausfallzeiten, kann jedoch weniger Zeit in Anspruch nehmen, als wenn Sie die virtuellen Computer während des Upgrades beibehalten haben, da Sie nicht warten müssen, bis Speicher Aufträge (Spiegelungs Reparatur) nach jedem Upgrade des Servers ausgeführt werden. Obwohl die einzelnen Server während des Upgradevorgangs nacheinander neu gestartet werden, werden die verbleibenden Server im Cluster weiterhin ausgeführt.
 
-1. Überprüfen Sie, dass alle Server im Cluster die neuesten Updates ausgeführt werden.  
-   Weitere Informationen finden Sie unter [Windows 10- und Windows Server 2016-Updateverlauf](https://support.microsoft.com/help/4000825/windows-10-windows-server-2016-update-history).
-   Installieren Sie mindestens die Microsoft Knowledge Base [Artikel 4487006](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006) (19. Februar 2019). Die Nummer des Builds (finden Sie unter `ver` Befehl) 14393.2828 oder höher sein.
+1. Überprüfen Sie, ob auf allen Servern im Cluster die neuesten Updates ausgeführt werden.  
+   Weitere Informationen finden Sie unter [Windows 10 und Windows Server 2016 Update History](https://support.microsoft.com/help/4000825/windows-10-windows-server-2016-update-history).
+   Installieren Sie mindestens den Microsoft Knowledge Base- [Artikel 4487006](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006) (19. Februar 2019). Die Buildnummer ( `ver` siehe Befehl) sollte 14393,2828 oder höher lauten.
 
-2. Beenden Sie die virtuellen Computern im Cluster ausgeführt.
+2. Beendet die virtuellen Computer, die im Cluster ausgeführt werden.
 
-3. Führen Sie die folgenden Schritte auf einem Clusterserver zu einem Zeitpunkt:
+3. Führen Sie die folgenden Schritte auf einem Cluster Server gleichzeitig aus:
 
-   2. Halten Sie den Clusterserver mit dem folgenden PowerShell-Befehl – Beachten Sie, dass einige interne Gruppen ausgeblendet sind.  
-      Es wird empfohlen, diesen Schritt, vorsichtig zu sein.
+   2. Halten Sie den Cluster Server mit dem folgenden PowerShell-Befehl an – beachten Sie, dass einige interne Gruppen ausgeblendet sind.  
+      Es wird empfohlen, diesen Schritt vorsichtig zu machen.
 
        ```PowerShell
       Suspend-ClusterNode -Drain
       ```
 
-   3. Platzieren Sie den Server in den Wartungsmodus für Speicher, durch die folgenden PowerShell-Befehle ausführen:
+   3. Platzieren Sie den Server im Speicher Wartungsmodus, indem Sie die folgenden PowerShell-Befehle ausführen:
 
       ```PowerShell
       Get-StorageFaultDomain -type StorageScaleUnit | 
@@ -359,36 +359,36 @@ Diese Option kann kommt es zu Ausfällen der virtuellen Computer jedoch weniger 
       Enable-StorageMaintenanceMode
       ```
 
-   4. Führen Sie das folgende Cmdlet aus, um zu überprüfen, ob die **OperationalStatus** Wert **im Wartungsmodus**:
+   4. Führen Sie das folgende Cmdlet aus, um zu überprüfen, ob sich der Wert **OperationalStatus** **im Wartungsmodus**befindet:
 
       ```PowerShell
       Get-PhysicalDisk
       ```
 
-   5. Entfernen Sie den Server aus dem Cluster, durch den folgenden PowerShell-Befehl ausführen:  
+   5. Entfernen Sie den Server aus dem Cluster, indem Sie den folgenden PowerShell-Befehl ausführen:  
     
       ```PowerShell
       Remove-ClusterNode <ServerName>
       ```
 
-   6. Führen Sie auf dem Server eine Neuinstallation von Windows Server-2019: Format das Systemlaufwerk ausführen **setup.exe** und verwenden Sie den Text "Nothing" Option.  
-      Sie müssen die Identität des Servers, Rollen, Features und Anwendungen, die nach Abschluss der Installation und Neustart des Servers zu konfigurieren.
+   6. Führen Sie eine Neuinstallation von Windows Server 2019 auf dem Server aus: Formatieren Sie das Systemlaufwerk, führen Sie " **Setup. exe** " aus, und verwenden Sie die Option "Nothing".  
+      Sie müssen die Server Identität, Rollen, Features und Anwendungen konfigurieren, nachdem das Setup abgeschlossen und der Server neu gestartet wurde.
 
-   7. Installieren der Hyper-V-Rolle und Feature Failoverclustering auf dem Server (Sie können die `Install-WindowsFeature` Cmdlet).
+   7. Installieren Sie die Hyper-V-Rolle und das Failoverclustering-Feature auf dem Server ( `Install-WindowsFeature` Sie können das Cmdlet verwenden).
 
-   8. Installieren Sie die neuesten Speicher- und Netzwerkressourcen Treiber für Ihre Hardware, die durch den Serverhersteller Ihres für die Verwendung mit "direkte Speicherplätze" genehmigt werden.
+   8. Installieren Sie die neuesten Speicher-und Netzwerktreiber für Ihre Hardware, die von Ihrem Serverhersteller für die Verwendung mit direkte Speicherplätze genehmigt werden.
 
-   9. Überprüfen Sie, dass der neu aktualisierte Server die neuesten Updates für Windows Server-2019 verfügt.  
-      Weitere Informationen finden Sie unter [Windows 10- und Windows Server-2019 Updateverlauf](https://support.microsoft.com/help/4464619/windows-10-update-history).
-      Die Nummer des Builds (finden Sie unter `ver` Befehl) 17763.292 oder höher sein.
+   9. Überprüfen Sie, ob der neu aktualisierte Server über die neuesten Windows Server 2019-Updates verfügt.  
+      Weitere Informationen finden Sie unter [Windows 10 und Windows Server 2019 Update History](https://support.microsoft.com/help/4464619/windows-10-update-history).
+      Die Buildnummer ( `ver` siehe Befehl) sollte 17763,292 oder höher lauten.
 
-   10. Eingebunden Sie den Server mit dem Cluster wieder werden, mithilfe des folgenden PowerShell-Befehl:
+   10. Fügen Sie den Server mit dem folgenden PowerShell-Befehl dem Cluster erneut hinzu:
 
       ```PowerShell
       Add-ClusterNode
       ```
 
-   11. Entfernen Sie den Server aus dem Wartungsmodus von Speicher mithilfe des folgenden PowerShell-Befehl:
+   11. Entfernen Sie den Server aus dem Speicher Wartungsmodus mit dem folgenden PowerShell-Befehl:
 
        ```PowerShell
        Get-StorageFaultDomain -type StorageScaleUnit | 
@@ -396,8 +396,8 @@ Diese Option kann kommt es zu Ausfällen der virtuellen Computer jedoch weniger 
        Disable-StorageMaintenanceMode
        ```
 
-   12. Warten Sie, für die Reparatur speicheraufträge abgeschlossen und für alle Datenträger in einen fehlerfreien Status wiederherzustellen.  
-       Dies kann sehr viel Zeit abhängig von der Anzahl von virtuellen Computern dauern, während der serveraktualisierung ausgeführt wird. Hier sind die auszuführenden Befehle an:
+   12. Warten Sie, bis Speicher Reparaturaufträge abgeschlossen sind und alle Datenträger in einen fehlerfreien Status zurückversetzt werden.  
+       Dies kann je nach Anzahl der virtuellen Computer, die während des Server Upgrades ausgeführt werden, viel Zeit in Anspruch nehmen. Die folgenden Befehle müssen ausgeführt werden:
 
        ```PowerShell
        Get-StorageJob
@@ -406,27 +406,27 @@ Diese Option kann kommt es zu Ausfällen der virtuellen Computer jedoch weniger 
 
 4. Aktualisieren Sie den nächsten Server im Cluster.
 
-5. Nachdem alle Server auf Windows Server-2019 aktualisiert wurden, verwenden Sie das folgende PowerShell-Cmdlet, um Funktionsebene des Clusters aktualisieren.
+5. Nachdem alle Server auf Windows Server 2019 aktualisiert wurden, verwenden Sie das folgende PowerShell-Cmdlet, um die Cluster Funktionsebene zu aktualisieren.
     
    ```PowerShell
    Update-ClusterFunctionalLevel
    ```
 
    > [!NOTE]
-   >   Obwohl technisch bis zu vier Wochen haben dazu sollten so bald wie möglich, Funktionsebene des Clusters zu aktualisieren.
+   >   Es wird empfohlen, die Cluster Funktionsebene so bald wie möglich zu aktualisieren, obwohl Sie technisch gesehen bis zu vier Wochen dauern müssen.
 
-6. Nach der Funktionsebene des Clusters aktualisiert wurde, verwenden Sie das folgende Cmdlet aus, um den Speicherpool zu aktualisieren.  
-   Nun, neue Cmdlets, z. B. `Get-ClusterPerf` werden auf einem beliebigen Server im Cluster voll funktionsfähig.
+6. Nachdem die Cluster Funktionsebene aktualisiert wurde, verwenden Sie das folgende Cmdlet, um den Speicherpool zu aktualisieren.  
+   An diesem Punkt sind neue Cmdlets wie z `Get-ClusterPerf` . b. auf jedem Server im Cluster voll funktionsfähig.
 
    ```PowerShell
    Update-StoragePool
    ```
 
-7. Starten Sie die virtuellen Computern im Cluster, und überprüfen Sie, dass sie ordnungsgemäß arbeiten.
+7. Starten Sie die virtuellen Computer im Cluster, und überprüfen Sie, ob Sie ordnungsgemäß ausgeführt werden.
 
-8. Ebenen der VM-Konfiguration bei Bedarf aktualisieren, indem Sie jeden virtuellen Computer beenden und die `Update-VMVersion` -Cmdlet, und klicken Sie dann die virtuellen Computer neu zu starten.
+8. Aktualisieren Sie optional VM-Konfigurationsebenen, indem Sie jeden virtuellen `Update-VMVersion` Computer beenden und das Cmdlet verwenden, und starten Sie die VMs dann erneut.
 
-9. Stellen Sie sicher, dass die aktualisierte Cluster wie erwartet funktioniert.  
-   Rollen sollten Failover ordnungsgemäß, und wenn live Migration von virtuellen Computern im Cluster verwendet wird, sollte erfolgreich live-VMs migrieren.
+9. Überprüfen Sie, ob der aktualisierte Cluster wie erwartet funktioniert.  
+   Für Rollen sollte ein Failover ordnungsgemäß durchgeführt werden. wenn die VM-Live Migration auf dem Cluster verwendet wird, sollten die virtuellen Computer erfolgreich migriert werden
 
-10. Überprüfen des Clusters durch Ausführen der Clusterüberprüfung (`Test-Cluster`) und untersuchen den Bericht der clustervalidierung.
+10. Überprüfen Sie den Cluster, indem Sie`Test-Cluster`die Cluster Überprüfung ausführen () und den Cluster Validierungsbericht untersuchen.

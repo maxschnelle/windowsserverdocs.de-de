@@ -8,23 +8,23 @@ ms.technology: storage
 ms.topic: article
 author: toklima
 ms.date: 04/18/2017
-ms.openlocfilehash: 7ee5c57839f32d71053e983fc14f76c481236779
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8283b87e9505b1d3f47ddc823016fbcc7c0c29e6
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884161"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867047"
 ---
 # <a name="troubleshooting-drive-firmware-updates"></a>Problembehandlung für Updates der Laufwerkfirmware
 
->Gilt für: Windows 10, WindowsServer (Halbjährlicher Kanal)
+>Gilt für: Windows 10, Windows Server (halbjährlicher Kanal),
 
 Version 1703 von Windows 10 und höher sowie Windows Server (Semi-Annual Channel) verfügt über eine Funktion zum Aktualisieren der Firmware von HDDs und SSDs, die mit dem Firmware Upgradeable AQ (Additional Qualifier) per PowerShell zertifiziert wurden.
 
 Weitere Informationen zu diesem Feature finden Sie hier:
 
-- [Aktualisieren der Firmware in Windows Server 2016](update-firmware.md)
-- [Aktualisieren Sie die Laufwerkfirmware ohne Ausfallzeiten für in Storage Spaces Direct](https://channel9.msdn.com/Blogs/windowsserver/Update-Drive-Firmware-Without-Downtime-in-Storage-Spaces-Direct)
+- [Aktualisieren der Laufwerks Firmware in Windows Server 2016](update-firmware.md)
+- [Aktualisieren der Laufwerk Firmware ohne Ausfallzeit in direkte Speicherplätze](https://channel9.msdn.com/Blogs/windowsserver/Update-Drive-Firmware-Without-Downtime-in-Storage-Spaces-Direct)
 
 Firmwareupdates können aus verschiedenen Gründen fehlschlagen. Dieser Artikel soll Ihnen als Hilfe bei der erweiterten Problembehandlung dienen.
 
@@ -64,7 +64,7 @@ Im Feld „SupportsUpdate“ wird für mit SAS verbundene Geräte immer „True�
 
 Es gibt zwei Optionen, um zu überprüfen, ob ein SAS-Gerät den erforderlichen Befehlssatz unterstützt:
 1.  Ausprobieren per Update-StorageFirmware-Cmdlet mit einem passenden Firmwareimage
-2.  Wenden Sie sich an den Windows Server-Katalog zum Identifizieren der SAS-Geräte erfolgreich die FW Update AQ (erlangt hat https://www.windowsservercatalog.com/)
+2.  Sehen Sie sich den Windows Server-Katalog an, um zu ermitteln, welche SAS-Geräte erfolgreich das FW-Update https://www.windowsservercatalog.com/)
 
 ### <a name="remediation-options"></a>Lösungsoptionen
 Wenn ein bestimmtes zu testendes Gerät den richtigen Befehlssatz nicht unterstützt, können Sie entweder bei Ihrem Anbieter anfragen, ob eine aktualisierte Firmware mit dem erforderlichen Befehlssatz verfügbar ist, oder Sie können mit dem Windows Server-Katalog Geräte ermitteln, die den richtigen Befehlssatz implementieren.
@@ -119,7 +119,7 @@ CdbBytes    3B0E0000000001000000
 NumberOfRetriesDone 0
 ```
 
-Das ETW-Ereignis 507 des Kanals zeigt, dass eine SCSI-SRB-Anforderung fehlgeschlagen ist, und es enthält die zusätzlichen Informationen, dass für SenseKey der Wert „5“ (Illegal Request, Ungültige Anforderung) und für AdditionalSense der Wert „36“ (Illegal Field in CDB, Ungültiges Feld in CDB) vorliegt.
+Das ETW-Ereignis 507 aus dem Kanal zeigt, dass bei einer SCSI-SRB-Anforderung ein Fehler aufgetreten ist, und gibt die zusätzlichen Informationen an, dass senserkey den Wert ' 5 ' (unzulässige Anforderung) aufweist und dass zusätzliche Informationen ' 36 ' (Ungültiges Feld in CDB) waren.
 
    > [!Note]
    > Diese Informationen werden direkt vom betreffenden Miniport bereitgestellt, und die Genauigkeit dieser Informationen hängt von der Implementierung und vom technischen Stand des Miniport-Treibers ab.
@@ -134,7 +134,7 @@ Wenn für den Treiber des Drittanbieters ermittelt wird, dass die erforderlichen
 ## <a name="additional-troubleshooting-with-microsoft-drivers-satanvme"></a>Weitere Problembehandlung mit Microsoft-Treiber (SATA/NVMe)
 Wenn native Windows-Treiber, z. B. „StorAHCI.sys“ oder „StorNVMe.sys“, für den Betrieb von Speichergeräten verwendet werden, können zusätzliche Informationen zu möglichen Fehlerfällen bei den Aktualisierungsvorgängen für die Firmware abgerufen werden.
 
-Über den ClassPnP/Operational-Kanal hinaus protokollieren StorAHCI und StorNVMe die protokollspezifischen Rückgabecodes des Geräts im folgenden ETW-Kanal:
+Neben dem Classpnp-Betriebskanal protokollieren storahci und stornvme die Protokoll spezifischen Rückgabecodes des Geräts im folgenden etw-Kanal:
 
 Ereignisanzeige > Anwendungs- und Dienstprotokolle > Microsoft > Windows > StorDiag > **Microsoft-Windows-Storage-StorPort/Diagnose**
 
@@ -142,7 +142,7 @@ Die Diagnoseprotokolle werden nicht standardmäßig angezeigt und können aktivi
 
 Um diese erweiterten Protokolleinträge zu sammeln, aktivieren Sie das Protokoll, reproduzieren den Fehler beim Firmwareupdate und speichern das Diagnoseprotokoll.
 
-Hier ist ein Beispiel für eine Aktualisierung der Firmware auf einem SATA-Gerät ein, da das Image heruntergeladen werden ungültig war (Ereignis-ID: 258):
+Im folgenden finden Sie ein Beispiel für ein Firmwareupdate auf einem SATA-Gerät, da das herunter zuladende Image ungültig ist (Ereignis-ID: 258):
 
 ``` 
 EventData
@@ -174,11 +174,11 @@ Parameter8Value 0
 ```
 
 Das obige Ereignis enthält in den Parameterwerten 2 bis 6 ausführliche Geräteinformationen. Hier sind verschiedene ATA-Registerwerte aufgeführt. Die ATA-ACS-Spezifikation kann zum Decodieren der unten angegebenen Werte in Bezug auf das Fehlschlagen eines Befehls zum Herunterladen von Microcode (Download Microcode) verwendet werden:
-- Rückgabecode: 0 (0000 0000) (n/v - bedeutungslos, da keine Nutzlast übertragen wurde)
-- Features: 15 (0000 1111) (Bit 1 auf '1' festgelegt ist, und gibt an, "Abbrechen")
-- SectorCount: 0 (0000 0000) (N/A)
-- DriveHead: 160 (1010 0000) (n/v – nur veraltete Bits festgelegt)
-- -Befehl: 146 (1001 0010) (Bit 1 ist festgelegt auf "1", der angibt, der Verfügbarkeit der Sinn Daten)
+- Rückgabe Code: 0 (0000 0000) (N/v-bedeutungslos, weil keine Nutzlast übertragen wurde)
+- Features: 15 (0000 1111) (Bit 1 ist auf "1" festgelegt und gibt "Abort" an)
+- Sector count: 0 (0000 0000) (N/V)
+- Drivehead: 160 (1010 0000) (N/v – nur veraltete Bits sind festgelegt)
+- S 146 (1001 0010) (Bit 1 ist auf ' 1 ' festgelegt, um die Verfügbarkeit von Sense-Daten anzugeben)
 
 Hier erfahren wir, dass der Vorgang zur Aktualisierung der Firmware vom Gerät abgebrochen wurde.
 

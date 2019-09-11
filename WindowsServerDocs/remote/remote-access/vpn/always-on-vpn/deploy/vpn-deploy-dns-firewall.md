@@ -1,6 +1,6 @@
 ---
 title: Konfigurieren von DNS und Firewall-Einstellungen
-description: Dieses Thema enthält detaillierte Anweisungen zum Bereitstellen von Always On-VPN-unter Windows Server 2016.
+description: Dieses Thema enthält ausführliche Anweisungen zum Bereitstellen von Always on-VPN in Windows Server 2016.
 ms.prod: windows-server-threshold
 ms.technology: networking-ras
 ms.topic: article
@@ -9,79 +9,79 @@ ms.localizationpriority: medium
 ms.author: pashort
 author: shortpatti
 ms.date: 06/11/2018
-ms.openlocfilehash: 9cee39dbf240cac9701f926600d8efeffe99c214
-ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
+ms.openlocfilehash: b1efa918971208bb9819de189de7298b4de144a5
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749492"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871317"
 ---
-# <a name="step-5-configure-dns-and-firewall-settings"></a>Schritt 5 Konfigurieren von DNS und Firewall-Einstellungen
+# <a name="step-5-configure-dns-and-firewall-settings"></a>Schritt 5 Konfigurieren von DNS-und Firewalleinstellungen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Vorherige:** Schritt 4 Installieren und Konfigurieren des NPS-Servers](vpn-deploy-nps.md)
-- [**nächster:** Schritt 6 Konfigurieren von Always On VPN-Verbindungen für den Windows 10-Client](vpn-deploy-client-vpn-connections.md)
+- [**Vorher** Schritt 4 Installieren und Konfigurieren des NPS-Servers](vpn-deploy-nps.md)
+- [**Weiter** Schritt 6 Konfigurieren von Always On VPN-Verbindungen für den Windows 10-Client](vpn-deploy-client-vpn-connections.md)
 
-In diesem Schritt konfigurieren Sie DNS und Firewall-Einstellungen für VPN-Konnektivität.
+In diesem Schritt konfigurieren Sie DNS-und Firewalleinstellungen für VPN-Konnektivität.
 
-## <a name="configure-dns-name-resolution"></a>Konfigurieren von DNS-namensauflösung
+## <a name="configure-dns-name-resolution"></a>Konfigurieren der DNS-Namensauflösung
 
-Wenn remote-VPN-Clients verbunden sind, verwenden sie die gleichen DNS-Servern, die internen Clients verwenden, wodurch sie zum Auflösen von Namen auf die gleiche Weise wie der Rest von Ihren internen Arbeitsstationen.
+Wenn Remote-VPN-Clients eine Verbindung herstellen, verwenden Sie die gleichen DNS-Server, die von den internen Clients verwendet werden. auf diese Weise können Namen auf die gleiche Weise wie die übrigen internen Arbeitsstationen aufgelöst werden.
 
-Aus diesem Grund müssen Sie sicherstellen, dass der Computername, der externe Clients verwenden, um die Verbindung mit des VPN-Servers den alternativen Antragstellernamen in Zertifikaten für VPN-Server definierten übereinstimmt.
+Aus diesem Grund müssen Sie sicherstellen, dass der Computername, den externe Clients zum Herstellen einer Verbindung mit dem VPN-Server verwenden, dem alternativen Antragsteller Namen entspricht, der in für den VPN-Server ausgestellten Zertifikaten definiert ist.
 
-Um sicherzustellen, dass Remoteclients auf Ihrem VPN-Server eine Verbindung herstellen können, können Sie einen DNS-A (Host)-Eintrag in der externen DNS-Zone erstellen. Der A-Datensatz sollte den Zertifikat alternativen Antragstellernamen für das VPN-Server verwenden.
+Um sicherzustellen, dass Remote Clients eine Verbindung mit dem VPN-Server herstellen können, können Sie einen DNS a-Datensatz (Host) in der externen DNS-Zone erstellen. Der A-Datensatz sollte den alternativen Antragsteller Namen des Zertifikats für den VPN-Server verwenden.
 
-### <a name="to-add-a-host-a-or-aaaa-resource-record-to-a-zone"></a>Eine Zone einen Hostressourceneintrag (A oder AAAA) hinzu
+### <a name="to-add-a-host-a-or-aaaa-resource-record-to-a-zone"></a>So fügen Sie einer Zone einen Host Ressourcen Daten Satz (a oder AAAA) hinzu
 
-1. Wählen Sie auf einem DNS-Server im Server-Manager **Tools**, und wählen Sie dann **DNS**. DNS-Manager wird geöffnet.
-2. Wählen Sie in der Konsolenstruktur des DNS-Manager den Server, den Sie verwalten möchten.
-3. Klicken Sie im Bereich "Details" im **Namen**, doppelklicken Sie auf **Forward-Lookupzonen** um die Ansicht zu erweitern.
-4. In **Forward-Lookupzonen** Informationen mit der rechten Maustaste die forward-Lookupzone auf die Sie einen Eintrag, und wählen Sie dann möchten **neuer Host (A oder AAAA)** . Die **neuen Host** Dialogfeld wird geöffnet.
-5. In **neuen Host**im **Namen**, geben Sie das Zertifikat alternativen Antragstellernamens für das VPN-Server.
-6. Geben Sie IP-Adresse die IP-Adresse des VPN-Servers ein. Geben Sie die Adresse im IP-Version 4 (IPv4) Format einen Hostressourceneintrag (A) oder IP-Version 6 (IPv6) hinzufügen zu formatieren, um einen hostressourcendatensatz (AAAA) hinzuzufügen.
-7. Wenn Sie eine reverse-Lookupzone für einen Bereich von IP-Adressen erstellt, einschließlich der IP-Adresse, die Sie, klicken Sie dann eingegeben auf die **verknüpften Zeigerressourceneinträge (PTR)-Eintrag erstellen** Kontrollkästchen.  Nach Auswahl dieser Option wird eine zusätzliche Zeigerressourceneinträge (PTR)-Ressourcendatensatz in einer reverse-Zone für diesen Host, auf Basis der Informationen, die Sie eingegeben, im haben erstellt **Namen** und **IP-Adresse**.
-8. Wählen Sie **Host hinzufügen**.
+1. Wählen Sie auf einem DNS-Server in Server-Manager Extras aus, und **Wählen Sie dann** **DNS**aus. Der DNS-Manager wird geöffnet.
+2. Wählen Sie in der Konsolen Struktur des DNS-Managers den Server aus, den Sie verwalten möchten.
+3. Doppelklicken Sie im Detailbereich unter **Name**auf Forward- **Lookupzonen** , um die Ansicht zu erweitern.
+4. Klicken Sie in Details der **Forward-Lookupzonen** mit der rechten Maustaste auf die Forward-Lookupzone, der Sie einen Datensatz hinzufügen möchten, und wählen Sie dann **neuer Host (a oder AAAA)** aus. Das Dialogfeld **neuer Host** wird geöffnet.
+5. Geben Sie im Feld **neuer Host**unter **Name**den alternativen Antragsteller Namen des Zertifikats für den VPN-Server ein.
+6. Geben Sie unter IP-Adresse die IP-Adresse für den VPN-Server ein. Sie können die Adresse im IPv4-Format (IP Version 4) eingeben, um einen Host-(a) Ressourcen Daten Satz oder ein IPv6-Format (IP Version 6) zum Hinzufügen eines Host Ressourceneinsatzes (AAAA) hinzuzufügen.
+7. Wenn Sie für einen Bereich von IP-Adressen eine Reverse-Lookupzone erstellt haben, einschließlich der eingegebenen IP-Adresse, aktivieren Sie das Kontrollkästchen **zugeordneten Zeiger erstellen (PTR-Datensatz)** .  Wenn Sie diese Option auswählen, wird ein zusätzlicher Zeiger (PTR)-Ressourcen Daten Satz in einer umgekehrten Zone für diesen Host erstellt, basierend auf den Informationen, die Sie unter **Name** und **IP-Adresse**eingegeben haben.
+8. Wählen Sie **Host hinzufügen**aus.
 
-## <a name="configure-the-edge-firewall"></a>Die Edge-Firewall konfigurieren
+## <a name="configure-the-edge-firewall"></a>Konfigurieren der Edge-Firewall
 
-Der Edge-Firewall trennt den externen Umkreisnetzwerk über das öffentliche Internet. Eine visuelle Darstellung durch diese Trennung, finden Sie unter der Abbildung im Thema [immer auf VPN-Technologieübersicht](../always-on-vpn-technology-overview.md).
+Die Edge-Firewall trennt das externe Umkreis Netzwerk vom öffentlichen Internet. Eine visuelle Darstellung dieser Trennung finden Sie in der Abbildung im Thema [Always on VPN-Technologie Übersicht](../always-on-vpn-technology-overview.md).
 
-Der Edge-Firewall muss ermöglichen und bestimmte Ports bei der VPN-Server weiterleiten. Wenn Sie auf Ihrem Edge-Firewall (Network Address Translation, NAT) verwenden, müssen Sie möglicherweise die portweiterleitung für User Datagram Protocol (UDP) Ports: 500 und 4500 zu aktivieren. Weiterleiten Sie, diese Ports der IP-Adresse, die die externe Schnittstelle Ihres VPN-Servers zugewiesen ist.
+Ihre Edge-Firewall muss bestimmte Ports an Ihren VPN-Server zulassen und weiterleiten. Wenn Sie die Netzwerk Adressübersetzung (Network Address Translation, NAT) in ihrer Edge-Firewall verwenden, müssen Sie möglicherweise die Port Weiterleitung für UDP (User Datagram Protocol)-Ports 500 und 4500 aktivieren. Leiten Sie diese Ports an die IP-Adresse weiter, die der externen Schnittstelle des VPN-Servers zugewiesen ist.
 
-Wenn das routing von Datenverkehr eingehend und Durchführen der NAT oder hinter dem VPN-Server, und klicken Sie dann, die Firewall-Regeln zum Zulassen von UDP öffnen Ports: 500 und 4500 eingehenden der externen IP-Adresse, die auf die öffentliche Schnittstelle auf dem VPN-Server angewendet.
+Wenn Sie eingehenden Datenverkehr weiterleiten und NAT auf dem VPN-Server ausführen, müssen Sie die Firewallregeln öffnen, damit die UDP-Ports 500 und 4500 in der externen IP-Adresse eingehenden können, die auf die öffentliche Schnittstelle auf dem VPN-Server angewendet wird.
 
-In beiden Fällen sollten, wenn Ihre Firewall verschärfte paketinspektionen im entitätenkontext unterstützt, und Sie haben schwierigkeiten beim Herstellen von Verbindungen mit Clients Sie versuchen, entspannen Sie sich, oder deaktivieren eingehende paketuntersuchungen für IKE-Sitzungen.
+Wenn Ihre Firewall eine umfassende Paket Untersuchung unterstützt und Probleme beim Einrichten von Clientverbindungen auftreten, sollten Sie versuchen, die umfassende Paketüberprüfung für IKE-Sitzungen zu lockern oder zu deaktivieren.
 
-Informationen zu diesen konfigurationsänderungen vornehmen finden Sie in Ihrer Firewalldokumentation.
+Informationen dazu, wie Sie diese Konfigurationsänderungen vornehmen, finden Sie in der Firewalldokumentation.
 
-## <a name="configure-the-internal-perimeter-network-firewall"></a>Konfigurieren der internen Umkreisnetzwerkfirewall
+## <a name="configure-the-internal-perimeter-network-firewall"></a>Konfigurieren der Firewall für das interne Umkreis Netzwerk
 
-Die interne Umkreisnetzwerkfirewall trennt die Organisation/Unternehmensnetzwerk aus dem internen Netzwerk des Umkreisnetzwerks. Eine visuelle Darstellung durch diese Trennung, finden Sie unter der Abbildung im Thema [immer auf VPN-Technologieübersicht](../always-on-vpn-technology-overview.md).
+Die interne Umkreis Netzwerk Firewall trennt die Organisation/das Unternehmensnetzwerk vom internen Umkreis Netzwerk. Eine visuelle Darstellung dieser Trennung finden Sie in der Abbildung im Thema [Always on VPN-Technologie Übersicht](../always-on-vpn-technology-overview.md).
 
-In dieser Bereitstellung ist die Remote Access VPN-Server im Umkreisnetzwerk als RADIUS-Client konfiguriert.  Der VPN-Server sendet der RADIUS-Verkehr an den NPS mit dem Unternehmensnetzwerk verbunden und erhält auch aus den NPS RADIUS-Verkehr.
+In dieser Bereitstellung wird der RAS-VPN-Server im Umkreis Netzwerk als RADIUS-Client konfiguriert.  Der VPN-Server sendet RADIUS-Datenverkehr an den NPS im Unternehmensnetzwerk und empfängt RADIUS-Datenverkehr aus dem NPS.
 
-Konfigurieren Sie die Firewall so, dass RADIUS-Datenverkehr in beide Richtungen ermöglichen.
+Konfigurieren Sie die Firewall so, dass RADIUS-Datenverkehr in beide Richtungen fließen kann.
 
 >[!NOTE]
->Der NPS-Server im Netzwerk der Organisation/Corporate (Unternehmen) fungiert als RADIUS-Server für die VPN-Server die RADIUS-Client ist. Weitere Informationen zu den RADIUS-Infrastruktur, finden Sie unter [(Network Policy Server, NPS)](../../../../../networking/technologies/nps/nps-top.md).
+>Der NPS-Server im Organisations-/Unternehmensnetzwerk fungiert als RADIUS-Server für den VPN-Server, bei dem es sich um einen RADIUS-Client handelt. Weitere Informationen zur RADIUS-Infrastruktur finden Sie unter [Netzwerk Richtlinien Server (Network Policy Server, NPS)](../../../../../networking/technologies/nps/nps-top.md).
 
-### <a name="radius-traffic-ports-on-the-vpn-server-and-nps-server"></a>RADIUS-Datenverkehr-Ports auf dem VPN-Server und NPS-Server
+### <a name="radius-traffic-ports-on-the-vpn-server-and-nps-server"></a>RADIUS-datenverkehrsports auf dem VPN-Server und dem NPS-Server
 
-Standardmäßig überwachen NPS und VPN-RADIUS-Datenverkehr an Ports 1812, 1813, 1645 und 1646 für alle installierten Netzwerkadapter. Wenn Sie Windows-Firewall mit erweiterter Sicherheit bei der Installation von NPS aktivieren, werden Firewallausnahmen für diese Ports während des Installationsvorgangs für IPv6 und IPv4-Datenverkehr automatisch erstellt.
+Standardmäßig lauschen NPS und VPN auf den Ports 1812, 1813, 1645 und 1646 auf den RADIUS-Datenverkehr auf allen installierten Netzwerkadaptern. Wenn Sie die Windows-Firewall mit erweiterter Sicherheit bei der Installation von NPS aktivieren, werden Firewallausnahmen für diese Ports während des Installationsvorgangs für IPv6-und IPv4-Datenverkehr automatisch erstellt.
 
 >[!IMPORTANT]
->Wenn Ihre Netzwerkzugriffsserver für das Senden von RADIUS-Verkehr über andere diese Standardwerte Ports konfiguriert sind, entfernen Sie die Ausnahmen, die in der Windows-Firewall mit erweiterter Sicherheit während der NPS-Installation erstellt, und erstellen Sie Ausnahmen für die Ports, denen Sie verwenden RADIUS-Verkehr.
+>Wenn Ihre Netzwerk Zugriffs Server für das Senden von RADIUS-Datenverkehr über andere Ports als diese Standardeinstellungen konfiguriert sind, entfernen Sie die Ausnahmen, die bei der NPS-Installation unter Windows-Firewall mit erweiterter Sicherheit erstellt wurden, und erstellen Sie Ausnahmen für die Ports, die Sie für RADIUS-Datenverkehr.
 
-### <a name="use-the-same-radius-ports-for-the-internal-perimeter-network-firewall-configuration"></a>Verwenden Sie die gleichen RADIUS-Ports für die interne Perimeter Firewall Netzwerkkonfiguration
+### <a name="use-the-same-radius-ports-for-the-internal-perimeter-network-firewall-configuration"></a>Verwenden Sie die gleichen RADIUS-Ports für die Firewallkonfiguration des internen Umkreis Netzwerks.
 
-Wenn Sie die Standardkonfiguration für RADIUS-Port auf dem VPN-Server und dem NPS-Server verwenden, stellen Sie sicher, dass Sie die folgenden Ports in der internen Umkreisnetzwerkfirewall öffnen:
+Wenn Sie die Standardkonfiguration des RADIUS-Ports auf dem VPN-Server und dem NPS-Server verwenden, stellen Sie sicher, dass Sie die folgenden Ports in der internen Umkreis Netzwerk Firewall öffnen:
 
 - Ports UDP1812, UDP1813, UDP1645 und UDP1646
 
-Wenn Sie nicht die Standard-RADIUS-Ports in der NPS-Bereitstellung verwenden, müssen Sie konfigurieren die Firewall für RADIUS-Datenverkehr an den Ports, die Sie verwenden. Weitere Informationen finden Sie unter [Konfigurieren von Firewalls für RADIUS-Verkehr](../../../../../networking/technologies/nps/nps-firewalls-configure.md).
+Wenn Sie nicht die Standardradius-Ports in der NPS-Bereitstellung verwenden, müssen Sie die Firewall so konfigurieren, dass RADIUS-Datenverkehr für die von Ihnen verwendeten Ports zugelassen wird. Weitere Informationen finden Sie unter [Konfigurieren von Firewalls für RADIUS-Datenverkehr](../../../../../networking/technologies/nps/nps-firewalls-configure.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Schritt 6: Konfigurieren Sie Windows 10-Clientsysteme Always On-VPN-Verbindungen](vpn-deploy-client-vpn-connections.md): In diesem Schritt konfigurieren Sie die Windows 10-Clientcomputern für die Kommunikation mit dieser Infrastruktur mit einer VPN-Verbindung. Sie können mehrere Technologien verwenden, so konfigurieren Sie Windows 10-VPN-Clients, einschließlich Windows PowerShell, System Center Configuration Manager und Intune. Alle drei erfordern ein XML VPN-Profil so konfigurieren Sie die entsprechenden VPN-Einstellungen.
+[Schritt 6: Konfigurieren von Windows 10-Client Always on](vpn-deploy-client-vpn-connections.md)-VPN-Verbindungen: In diesem Schritt konfigurieren Sie die Windows 10-Client Computer für die Kommunikation mit dieser Infrastruktur über eine VPN-Verbindung. Sie können verschiedene Technologien zum Konfigurieren von Windows 10-VPN-Clients verwenden, einschließlich Windows PowerShell, System Center Configuration Manager und InTune. Alle drei erfordern ein XML-VPN-Profil, um die entsprechenden VPN-Einstellungen zu konfigurieren.

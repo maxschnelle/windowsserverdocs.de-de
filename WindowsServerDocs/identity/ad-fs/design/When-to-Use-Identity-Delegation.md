@@ -9,54 +9,54 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 2544001b871a1eda2c03005c384a99d5209e7282
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 0d69c92209a2998cf2c249b865ad8d16424735ca
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190552"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867583"
 ---
 # <a name="when-to-use-identity-delegation"></a>Anwendungsbereiche für Identitätsdelegierung
   
 ## <a name="what-is-identity-delegation"></a>Was ist Identitätsdelegierung?  
-Identitätsdelegierung ist ein Feature von Active Directory Federation Services \(AD FS\) , die Administrator kann\-angegebenen Konten, um die Identität von Benutzern anzunehmen. Das Konto, das die Identität des Benutzer annimmt, wird als *Delegat* bezeichnet. Diese Delegierungsmöglichkeit ist für viele verteilte Anwendungen entscheidend, bei denen mehrere Zugriffssteuerungsprüfungen nacheinander für jede Anwendung, Datenbank oder jeden Dienst in der Autorisierungskette für die ursprüngliche Anforderung durchgeführt werden müssen. Viele Real\-Szenarien vorhanden sind, in dem muss eine "Front-End"-Webanwendung Abrufen von Daten aus einer sichereren "Back-End", z. B. einen Webdienst, der mit einer Microsoft SQL Server-Datenbank verbunden ist.  
+Die Identitäts Delegierung ist ein Feature \(von\) Active Directory-Verbunddienste (AD FS) AD FS,\-das es Administratoren ermöglicht, die Identität von Benutzern anzunehmen. Das Konto, das die Identität des Benutzer annimmt, wird als *Delegat* bezeichnet. Diese Delegierungsmöglichkeit ist für viele verteilte Anwendungen entscheidend, bei denen mehrere Zugriffssteuerungsprüfungen nacheinander für jede Anwendung, Datenbank oder jeden Dienst in der Autorisierungskette für die ursprüngliche Anforderung durchgeführt werden müssen. Viele reale\-Szenarien bestehen darin, dass eine Webanwendung "Front-End" Daten von einem sichereren "Back-End" abrufen muss, z. b. einem Webdienst, der mit einer Microsoft SQL Server Datenbank verbunden ist.  
   
-Z. B. ein bereits vorhandener Parts\-sortieren die Website kann programmgesteuert erweitert werden, sodass es Partnerunternehmen ermöglicht Unternehmen die eigene Kauf Verlauf und den Kontostatus einsehen. Aus Gründen der Sicherheit befindet sich alle Finanzdaten der Partner in einer geschützten Datenbank auf einem dedizierten Structured Query Language \(SQL\) Server. In diesem Fall den Code im Vordergrund\-End-Anwendung nicht bekannt ist, über die Finanzdaten der Partnerorganisation. Aus diesem Grund müssen sie diese Daten abrufen, von einem anderen Computer im Netzwerk, die hostet \(in diesem Fall\) den Webdienst für die Teiledatenbank \(das Back-End\).  
+Beispielsweise kann eine vorhandene Website\-für die Teile Bestellung Programm gesteuert erweitert werden, sodass Partnerorganisationen ihren eigenen Kauf Verlauf und den Konto Status einsehen können. Aus Sicherheitsgründen werden alle Partner Finanzdaten in einer sicheren Datenbank auf einem dedizierten strukturierte Abfragesprache \(SQL\) Server gespeichert. In dieser Situation weiß der Code in der Front\--End-Anwendung nichts über die Finanzdaten der Partnerorganisation. Daher müssen diese Daten von einem anderen Computer an anderer Stelle im Netzwerk abgerufen werden, \(das in diesem\) Fall den Webdienst für die Teile \(Datenbank als Back\)-End hostet.  
   
-Für diese Daten\-Abruf-Vorgang erfolgreich ist, wird eine Abfolge von Autorisierungs-"Hand\-Schütteln" müssen erfolgen immer zwischen der Web-Anwendung und dem Webdienst für die Teiledatenbank, wie in der folgenden Abbildung dargestellt.  
+Damit dieser Daten\-Abruf erfolgreich ist, muss für die Teile Datenbank eine Abfolge\-von Autorisierungs "Hand Shake" zwischen der Webanwendung und dem Webdienst stattfinden, wie in der folgenden Abbildung dargestellt.  
   
-![identitätsdelegierung](media/adfs2_identitydelegationconcept.gif)  
+![Identitäts Delegierung](media/adfs2_identitydelegationconcept.gif)  
   
 Da die ursprüngliche Anforderung an den Webserver selbst gerichtet war, der sich möglicherweise in einer ganz anderen Organisation befindet als der zugreifende Benutzer, entspricht das mit der Anforderung gesendete Sicherheitstoken nicht den Autorisierungskriterien, die für den Zugriff auf andere Computer als den Webserver erforderlich sind. Daher besteht die einzige Möglichkeit, die Anforderung des zugreifenden Benutzers zu erfüllen, in der Bereitstellung eines zwischengeschalteten Verbundservers innerhalb der Ressourcenpartnerorganisation, der ein neues Sicherheitstoken mit den erforderlichen Zugriffsrechten ausstellt.  
   
 ## <a name="how-does-identity-delegation-work"></a>Wie funktioniert die Identitätsdelegierung?  
-Webanwendungen mit Multi-Tier-Anwendungsarchitektur rufen oft Webdienste auf, um gemeinsam genutzte Daten und Funktionen abzurufen. Es ist wichtig für diese Webdienste, die Identität des ursprünglichen Benutzers zu kennen, damit der Dienst Autorisierungsentscheidungen treffen kann und eine Überwachung ermöglicht wird. In diesem Fall im Vordergrund\-End-Webanwendung den Benutzer an den Webdienst als Delegat darstellt. AD FS ermöglicht dieses Szenario, indem Active Directory-Konten als ein Benutzer einer vertrauenden fungieren. Die folgende Abbildung stellt ein solches Szenario mit Identitätsdelegierung dar.  
+Webanwendungen mit Multi-Tier-Anwendungsarchitektur rufen oft Webdienste auf, um gemeinsam genutzte Daten und Funktionen abzurufen. Es ist wichtig für diese Webdienste, die Identität des ursprünglichen Benutzers zu kennen, damit der Dienst Autorisierungsentscheidungen treffen kann und eine Überwachung ermöglicht wird. In diesem Fall stellt die Front\--End-Webanwendung den Benutzer für den Webdienst als Delegat dar. AD FS vereinfacht dieses Szenario, indem es Active Directory Konten ermöglicht, als Benutzer für eine andere vertrauende Seite zu fungieren. Die folgende Abbildung stellt ein solches Szenario mit Identitätsdelegierung dar.  
   
-![identitätsdelegierung](media/adfs2_identitydelegationsteps.gif)  
+![Identitäts Delegierung](media/adfs2_identitydelegationsteps.gif)  
   
-1.  Frank versucht wird, um Zugriff auf Teile\-Sortierung Verlauf aus einer Webanwendung in einer anderen Organisation. Sein Clientcomputer anfordert und empfängt ein Token von AD FS für die Vorder-\-enden Teil\-Sortierung der Webanwendung.  
+1.  Frank versucht, über eine\-Webanwendung in einer anderen Organisation auf den Verlauf der Teile Bestellung zuzugreifen. Der Client Computer fordert ein Token von AD FS für die Webanwendung\-der Front\--End-Reihen Bestellung an und empfängt dieses.  
   
-2.  Der Clientcomputer sendet eine Anforderung an die Web-Anwendung, einschließlich des in Schritt 1 erhaltenen Tokens als Beleg für die Identität des Clients.  
+2.  Der Client Computer sendet eine Anforderung an die Webanwendung, einschließlich des in Schritt 1 erhaltenen Tokens, um die Identität des Clients nachzuweisen.  
   
-3.  Die Webanwendung muss mit dem Webdienst kommunizieren, um die Transaktion mit dem Client abschließen zu können. Die Webanwendung kontaktiert AD FS, um ein delegierungstoken für die Interaktion mit dem Webdienst zu erhalten. Delegierungstoken sind Sicherheitstoken, die auf einen Delegaten ausgestellt werden, damit dieser als Benutzer auftritt. AD FS gibt ein delegierungstoken mit Ansprüchen bezüglich des Clients, die für den Webdienst vorgesehen.  
+3.  Die Webanwendung muss mit dem Webdienst kommunizieren, um die Transaktion mit dem Client abschließen zu können. Die Webanwendung kontaktiert AD FS, um ein Delegierungs Token für die Interaktion mit dem Webdienst zu erhalten. Delegierungstoken sind Sicherheitstoken, die auf einen Delegaten ausgestellt werden, damit dieser als Benutzer auftritt. AD FS gibt ein Delegierungs Token mit Ansprüchen für den Client zurück, das für den Webdienst vorgesehen ist.  
   
-4.  Die Webanwendung verwendet das Token, das abgerufen wurde, von AD FS in Schritt 3 zum Zugriff auf den Webdienst, der als Client fungiert. Durch Untersuchen des Delegierungstokens kann der Webdienst erkennen, dass die Webanwendung als Client auftritt. Der Webdienst führt seine Autorisierungsrichtlinie aus, protokolliert die Anforderung und gibt die ursprünglich von Frank angeforderten Teileverlaufsdaten an die Webanwendung und somit an Frank aus.  
+4.  Die Webanwendung verwendet das Token, das in Schritt 3 aus AD FS abgerufen wurde, um auf den Webdienst zuzugreifen, der als Client fungiert. Durch Untersuchen des Delegierungstokens kann der Webdienst erkennen, dass die Webanwendung als Client auftritt. Der Webdienst führt seine Autorisierungsrichtlinie aus, protokolliert die Anforderung und gibt die ursprünglich von Frank angeforderten Teileverlaufsdaten an die Webanwendung und somit an Frank aus.  
   
-Für Delegaten können AD FS beschränken, die Webdienste für die die Webanwendung ein delegierungstoken anfordern kann. Der Clientcomputer muss nicht über ein Active Directory-Konto verfügen, damit dieser Vorgang möglich ist. Der Webdienst kann also problemlos die Identität des Delegaten ermitteln, der als der Benutzer fungiert. Somit können Webdienste unterschiedliches Verhalten zeigen, je nachdem, ob sie direkt mit dem Clientcomputer kommunizieren oder über einen Delegaten.  
+Bei einem bestimmten Delegaten können AD FS die Webdienste beschränken, für die die Webanwendung möglicherweise ein Delegierungs Token anfordert. Der Clientcomputer muss nicht über ein Active Directory-Konto verfügen, damit dieser Vorgang möglich ist. Der Webdienst kann also problemlos die Identität des Delegaten ermitteln, der als der Benutzer fungiert. Somit können Webdienste unterschiedliches Verhalten zeigen, je nachdem, ob sie direkt mit dem Clientcomputer kommunizieren oder über einen Delegaten.  
   
 ## <a name="configuring-ad-fs-for-identity-delegation"></a>Konfigurieren von AD FS für die Identitätsdelegierung  
-Sie können die AD FS-Verwaltungs-Snap verwenden\-in AD FS für die identitätsdelegierung konfigurieren, wenn Sie den datenabrufprozess vereinfachen möchten. Nach der Konfiguration, generiert AD FS können neue Sicherheitstoken, die den Autorisierungskontext enthalten, die den Hintergrund\-End-Dienst möglicherweise erfordert, bevor er Zugriff auf die geschützten Daten bereitstellen kann.  
+Sie können das Snap\--in "AD FS-Verwaltung" verwenden, um AD FS für die Identitäts Delegierung zu konfigurieren, wenn Sie den Datenabruf Vorgang vereinfachen müssen. Nachdem Sie Sie konfiguriert haben, können AD FS neue Sicherheits Token generieren, die den Autorisierungs Kontext enthalten,\-den der Back-End-Dienst möglicherweise benötigt, bevor er Zugriff auf die geschützten Daten bereitstellen kann.  
   
-AD FS schränkt nicht, welche Benutzeridentitäten angenommen werden können. Nachdem Sie AD FS für die identitätsdelegierung konfigurieren, geschieht Folgendes:  
+AD FS schränkt nicht ein, welche Benutzer einen Identitätswechsel durchgeführt haben. Nachdem Sie AD FS für die Identitäts Delegierung konfiguriert haben, werden folgende Aktionen durchführt:  
   
 -   Es wird festgelegt, an welche Server die Autorität delegiert werden kann, Token anzufordern, mit denen die Identität von Benutzern angenommen werden kann.  
   
 -   Der Identitätskontext für das delegierte Clientkonto und der Server, der als Delegat auftritt, werden festgelegt und separat behandelt.  
   
-Sie können die identitätsdelegierung konfigurieren, durch das Hinzufügen der Autorisierungsregeln auf eine relying Party trust im AD FS-Verwaltungs-Snap-\-in. Weitere Informationen hierzu finden Sie unter [Prüfliste: Erstellen von Anspruchsregeln für eine Vertrauensstellung der vertrauenden Seite](../../ad-fs/deployment/Checklist--Creating-Claim-Rules-for-a-Relying-Party-Trust.md).  
+Sie können die Identitäts Delegierung konfigurieren, indem Sie einer Vertrauensstellung der vertrauenden Seite im Snap\--in für die AD FS Verwaltung Delegierungs Autorisierungs Regeln Weitere Informationen hierzu finden [Sie unter Prüfliste: Erstellen von Anspruchs Regeln für eine Vertrauensstellung](../../ad-fs/deployment/Checklist--Creating-Claim-Rules-for-a-Relying-Party-Trust.md)der vertrauenden Seite.  
   
-## <a name="configuring-the-front-end-web-application-for-identity-delegation"></a>Konfigurieren der Vorderseite\-end-Webanwendung für die identitätsdelegierung  
-Entwickler haben mehrere Möglichkeiten, mit denen sie entsprechend der Web-Front-Programm\-Anwendung oder ein Dienst zum Umleiten von Delegierungsanfragen an einen AD FS-Computer zu beenden. Weitere Informationen zum Anpassen von Webanwendungen an die Identitätsdelegierung finden Sie im [Windows Identity Foundation SDK](https://go.microsoft.com/fwlink/?LinkId=122266).  
+## <a name="configuring-the-front-end-web-application-for-identity-delegation"></a>Konfigurieren der Front\--End-Webanwendung für die Identitäts Delegierung  
+Entwicklern stehen verschiedene Optionen zur Verfügung, mit denen Sie die Web-Front\--End-Anwendung oder den Dienst entsprechend programmieren können, um Delegierungs Anfragen an einen AD FS Computer umzuleiten Weitere Informationen zum Anpassen von Webanwendungen an die Identitätsdelegierung finden Sie im [Windows Identity Foundation SDK](https://go.microsoft.com/fwlink/?LinkId=122266).  
   
 ## <a name="see-also"></a>Siehe auch
 [AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

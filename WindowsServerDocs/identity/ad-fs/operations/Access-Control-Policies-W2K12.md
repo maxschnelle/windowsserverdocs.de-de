@@ -9,12 +9,12 @@ ms.date: 06/05/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 610d2f9f2a159751b86782a07b3474469253aa2c
-ms.sourcegitcommit: f6503e503d8f08ba8000db9c5eda890551d4db37
+ms.openlocfilehash: 43a42c211557a41400fada17baaab6a0d5ab822a
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68523923"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866103"
 ---
 # <a name="access-control-policies-in-windows-server-2012-r2-and-windows-server-2012-ad-fs"></a>Access Control Richtlinien in Windows Server 2012 R2 und Windows Server 2012 AD FS
 
@@ -71,7 +71,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
 ##### <a name="to-create-rules-to-block-all-external-access-to-office-365"></a>So erstellen Sie Regeln, die den gesamten externen Zugriff auf Office 365 blockieren  
 
-1.  Klicken Sie in **Server-Manager**auf **Extras, und**klicken Sie dann auf **AD FS Verwaltung**.  
+1.  Klicken Sie in **Server-Manager**auf **Extras, und klicken Sie dann**auf **AD FS Verwaltung**.  
 
 2.  Klicken Sie in der Konsolen Struktur unter **AD fs\trust-Beziehungen**auf Vertrauens Stellungen der vertrauenden **Seite**, klicken Sie mit der rechten Maustaste auf die **Microsoft Office 365 Identität der Identitäts Plattform** , und klicken Sie dann auf **Anspruchs Regeln bearbeiten**.  
 
@@ -94,7 +94,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
 ##### <a name="to-create-rules-to-block-all-external-access-to-office-365-except-exchange-activesync"></a>So erstellen Sie Regeln, um den gesamten externen Zugriff auf Office 365 mit Ausnahme von Exchange ActiveSync zu blockieren  
 
-1.  Klicken Sie in **Server-Manager**auf **Extras, und**klicken Sie dann auf **AD FS Verwaltung**.  
+1.  Klicken Sie in **Server-Manager**auf **Extras, und klicken Sie dann**auf **AD FS Verwaltung**.  
 
 2.  Klicken Sie in der Konsolen Struktur unter **AD fs\trust-Beziehungen**auf Vertrauens Stellungen der vertrauenden **Seite**, klicken Sie mit der rechten Maustaste auf die **Microsoft Office 365 Identität der Identitäts Plattform** , und klicken Sie dann auf **Anspruchs Regeln bearbeiten**.  
 
@@ -149,7 +149,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
 ##### <a name="to-create-rules-to-block-all-external-access-to-office-365-except-browser-based-applications"></a>So erstellen Sie Regeln, um den gesamten externen Zugriff auf Office 365 außer browserbasierten Anwendungen zu blockieren  
 
-1.  Klicken Sie in **Server-Manager**auf **Extras, und**klicken Sie dann auf **AD FS Verwaltung**.  
+1.  Klicken Sie in **Server-Manager**auf **Extras, und klicken Sie dann**auf **AD FS Verwaltung**.  
 
 2.  Klicken Sie in der Konsolen Struktur unter **AD fs\trust-Beziehungen**auf Vertrauens Stellungen der vertrauenden **Seite**, klicken Sie mit der rechten Maustaste auf die **Microsoft Office 365 Identität der Identitäts Plattform** , und klicken Sie dann auf **Anspruchs Regeln bearbeiten**.  
 
@@ -185,7 +185,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
 ##### <a name="to-create-rules-to-block-all-external-access-to-office-365-except-for-designated-active-directory-groups"></a>So erstellen Sie Regeln, die den gesamten externen Zugriff auf Office 365 blockieren, mit Ausnahme der vorgesehenen Active Directory Gruppen  
 
-1.  Klicken Sie in **Server-Manager**auf **Extras, und**klicken Sie dann auf **AD FS Verwaltung**.  
+1.  Klicken Sie in **Server-Manager**auf **Extras, und klicken Sie dann**auf **AD FS Verwaltung**.  
 
 2.  Klicken Sie in der Konsolen Struktur unter **AD fs\trust-Beziehungen**auf Vertrauens Stellungen der vertrauenden **Seite**, klicken Sie mit der rechten Maustaste auf die **Microsoft Office 365 Identität der Identitäts Plattform** , und klicken Sie dann auf **Anspruchs Regeln bearbeiten**.  
 

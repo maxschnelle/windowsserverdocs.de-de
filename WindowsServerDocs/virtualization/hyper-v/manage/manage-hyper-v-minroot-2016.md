@@ -1,6 +1,6 @@
 ---
 title: Minroot
-description: Konfigurieren von Host-CPU-Ressourcen-Steuerelementen
+description: Konfigurieren von Host-CPU-Ressourcen Steuerungen
 keywords: Windows 10, Hyper-V
 author: allenma
 ms.date: 12/15/2017
@@ -8,64 +8,64 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: ''
-ms.openlocfilehash: e1269c11df32c8ce95cc7455d47d7170e9d0b1c8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 92de899a39aed05e2f598fcb3aae3fbae3f1cb67
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844331"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70872041"
 ---
-# <a name="hyper-v-host-cpu-resource-management"></a>Hyper-V-Host-CPU-Ressourcenverwaltung
+# <a name="hyper-v-host-cpu-resource-management"></a>Verwaltung von CPU-Ressourcen für Hyper-V-Hosts
 
-Hyper-V-Host die Steuerung von CPU-Ressourcen in Windows Server 2016 eingeführt oder höher können Hyper-V-Administratoren, die besser zu verwalten und Zuweisen von Host-Server-CPU-Ressourcen zwischen den "Root", oder die Management-Partition, und die Gast-VMs. Verwenden diese Steuerelemente, können Administratoren eine Teilmenge der Prozessoren eines Hostsystems auf der Stammpartition zuordnen. Dies kann die Arbeit in einem Hyper-V-Host, von den Workloads auf virtuellen Gastcomputern ausgeführt werden, indem Sie auf separaten Teilmengen der Systemprozessoren aufteilen.
+Die in Windows Server 2016 oder höher eingeführten CPU-Ressourcen Steuerungen für Hyper-v-Hosts ermöglichen Hyper-v-Administratoren, die CPU-Ressourcen des Host Servers zwischen dem Stammverzeichnis, der Verwaltungs Partition und den Gast-VMS besser zu verwalten und zuzuordnen. Mithilfe dieser Steuerelemente können Administratoren eine Teilmenge der Prozessoren eines Host Systems für die Stamm Partition festlegen. Dies kann die von einem Hyper-V-Host ausgeführte Arbeit von den Arbeits Auslastungen, die auf virtuellen Gast Computern ausgeführt werden, trennen, indem Sie Sie in separaten Teilmengen der System Prozessoren ausführen.
 
-Weitere Informationen zu den hardwareanforderungen für Hyper-V-Hosts finden Sie unter [Systemanforderungen für Windows 10 Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements).
+Ausführliche Informationen zu Hardware für Hyper-v-Hosts finden Sie unter [System Anforderungen für Windows 10 Hyper-v](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements).
 
 ## <a name="background"></a>Hintergrund
 
-Vor der Einstellung steuert für Hyper-V-CPU-Ressourcen hosten, ist es hilfreich, um die Grundlagen der Hyper-V-Architektur zu überprüfen.  
-Finden Sie eine allgemeine Übersicht, in der [Hyper-V-Architektur](https://docs.microsoft.com/windows-server/administration/performance-tuning/role/hyper-v-server/architecture) Abschnitt.
-Dies sind wichtige Konzepte in diesem Artikel:
+Vor dem Festlegen von Steuerelementen für die CPU-Ressourcen von Hyper-v-Hosts ist es hilfreich, die Grundlagen der Hyper-v-Architektur zu überprüfen.  
+Eine allgemeine Zusammenfassung finden Sie im Abschnitt " [Hyper-V-Architektur](https://docs.microsoft.com/windows-server/administration/performance-tuning/role/hyper-v-server/architecture) ".
+Dies sind wichtige Konzepte für diesen Artikel:
 
-* Hyper-V erstellt und verwaltet virtuelle Computer-Partitionen, über welche, die Compute Ressourcen zugeordnet und freigegeben werden, von der Hypervisor kontrolliert werden.  Partitionen bieten hohe Isolationsgrenzen zwischen aller virtuellen Gastcomputer sowie zwischen virtuellen Gastcomputern sowie die Root-Partition.
+* Hyper-V erstellt und verwaltet virtuelle Computer Partitionen, für die Compute-Ressourcen zugeordnet und freigegeben werden, unter Kontrolle über den Hypervisor.  Partitionen bieten starke Isolations Grenzen zwischen allen virtuellen Gast Computern und zwischen Gast-VMS und der Stamm Partition.
 
-* Das Stammpartition ist selbst ein VM-Partition, obwohl es sich um eindeutige Eigenschaften und viel mehr Berechtigungen als virtuelle Gastcomputer hat.  Das Stammpartition bietet die Management-Dienste, die alle virtuellen Gastcomputern zu steuern, bietet Unterstützung für virtuelle Geräte für Gäste und alle Geräte-e/a für virtuelle Gastcomputer verwaltet.  Microsoft empfiehlt dringend, keine arbeitsauslastungen von Anwendungen in einer Hostpartition ausgeführt werden.
+* Die Stamm Partition ist selbst eine virtuelle Computer Partition, obwohl Sie über eindeutige Eigenschaften und weitaus größere Berechtigungen als virtuelle Gastcomputer verfügt.  Die Stamm Partition stellt die Verwaltungsdienste zur Verfügung, die alle virtuellen Gastcomputer steuern, Unterstützung für virtuelle Geräte für Gäste bereitstellen und alle Geräte-e/a für virtuelle Gast Maschinen verwalten.  Microsoft empfiehlt dringend, keine anwendungsworkloads in einer Host Partition auszuführen.
 
-* Jeder virtuelle Prozessor (VP) von der Stammpartition wird zugeordneten 1:1 für einen zugrunde liegenden logischen Prozessor (LP).  Ein Host VP wird immer ausgeführt werden, auf dem gleichen zugrunde liegenden LP – es ist keine Migration von der Stammpartition VPs.  
+* Jeder virtuelle Prozessor (VP) der Stamm Partition ist 1:1 einem zugrunde liegenden logischen Prozessor (LP) zugeordnet.  Ein Host-VP wird immer auf der gleichen zugrunde liegenden LP ausgeführt – es gibt keine Migration der VPS der Stamm Partition.  
 
-* Standardmäßig können die auf dem Host VPs ausgeführt LPs auch Gast VPs ausführen.
+* Standardmäßig können die LPs, auf denen Host-VPS ausgeführt wird, auch Gast-VPS ausführen.
 
-* Ein Gast VP möglicherweise vom Hypervisor zur Ausführung auf einem beliebigen verfügbaren logischen Prozessor geplant.  Während der Hypervisor-Planer kümmert Ort des temporären Caches, NUMA-Topologie und viele andere Faktoren zu berücksichtigen, bei der Planung einer Gast-VP, konnte auf einem Host LP letztlich die VP geplant werden.
+* Ein Gast-VP kann vom Hypervisor geplant werden, damit er auf allen verfügbaren logischen Prozessoren ausgeführt werden kann.  Der Hypervisor-Planer kümmert sich um die zeitliche Cache Lokalität, die NUMA-Topologie und viele andere Faktoren beim Planen eines Gast-VP-Diensts. letztlich könnte der VP auf jeder Host-LP geplant werden.
 
-## <a name="the-minimum-root-or-minroot-configuration"></a>Die minimale Stamm oder "Minroot"-Konfiguration
+## <a name="the-minimum-root-or-minroot-configuration"></a>Die minimale Stamm-oder minroot-Konfiguration
 
-Frühe Versionen von Hyper-V mussten eine Architektur Höchstgrenze von 64 VPs pro Partition.  Dies ist die Stamm- und die Gast-Partitionen angewendet.  Wie Systeme mit mehr als 64 logischen Prozessoren auf High-End-Server angezeigt wurden, sich Hyper-V auch seine Kapazitätsgrenzen der Host zur Unterstützung dieser größere Systeme an einem Punkt, die Unterstützung von eines Hosts mit bis zu 320 LPs entwickelt.  Allerdings unterbrechen die 64 VP pro Partition zu diesem Zeitpunkt präsentiert verschiedene Herausforderungen und Komplexität, die Unterstützung von mehr als 64 VPs pro Partition unerschwinglich eingeführt.  Um dieses Problem zu beheben, beschränkt Hyper-V die Anzahl der VPs übergeben, um die Stammpartition auf 64, selbst wenn die zugrunde liegende Computer viele logische Prozessoren zur Verfügung haben.  Der Hypervisor würde weiterhin alle verfügbaren LPs für die Ausführung von Gast VPs nutzen, aber künstliche Obergrenze die rootpartition auf 64.  Diese Konfiguration als "minimale Root" oder "Minroot"-Konfiguration bezeichnet.  Testen der Leistung bestätigt, dass, auch auf Systemen mit mehr als 64 LPs umfangreiche der Stamm nicht mehr als 64 Stamm VPs ausreichend-Support, um eine große Anzahl von virtuellen Gastcomputern sowie Gast VPs – tatsächlich bereitstellen erforderlich viel weniger als 64 Stamm VPs häufig geeignet war. , natürlich auf die Anzahl und Größe von Gast-VMs, die bestimmte Workloads, die ausgeführt wird usw. abhängig.
+Für frühe Versionen von Hyper-V gab es eine Obergrenze von 64 VPS pro Partition.  Dies gilt sowohl für die Stamm-als auch für die Gast Partitionen.  Da Systeme mit mehr als 64 logischen Prozessoren auf High-End-Servern auftraten, hat Hyper-V auch seine Host Skalierungs Grenzwerte entwickelt, um diese größeren Systeme zu unterstützen. zu einem Punkt, der einen Host mit bis zu 320 LPS unterstützt.  Allerdings hat das Limit von 64 VP pro Partition zu diesem Zeitpunkt eine Reihe von Herausforderungen und die Komplexität eingeführt, die die Unterstützung von mehr als 64 VPS pro Partition beeinträchtigen.  Um dies zu beheben, beschränkte Hyper-V die Anzahl der VPS, die auf die Stamm Partition festgestellt wurden, auf 64, auch wenn auf dem zugrunde liegenden Computer Viele logische Prozessoren verfügbar waren.  Der Hypervisor verwendet weiterhin alle verfügbaren LPs für das Ausführen von Gast-VPS, aber die Stamm Partition wird bei 64 künstlich gekappt.  Diese Konfiguration wurde als "minimale Stamm"-oder "minroot"-Konfiguration bezeichnet.  Leistungstests haben bestätigt, dass der Stamm selbst bei großen Systemen mit mehr als 64 LPs nicht mehr als 64 Stamm-VPS benötigt, um eine ausreichende Unterstützung für eine große Anzahl von Gast-VMS und Gast-VPS zu bieten – tatsächlich waren viel weniger als 64 Stamm-VPS häufig ausreichend. , abhängig von der Anzahl und Größe der Gast-VMS, der ausgeführter Workloads usw.
 
-Dieses Konzept "Minroot" weiterhin heute verwendet werden.  In der Tat wie auch Windows Server 2016 Hyper-V die Begrenzung der maximalen architektursupport Host LPs 512 LPs erhöht, wird das Stammpartition auf bis zu 320 LPs noch begrenzt.
+Dieses "minroot"-Konzept wird heute weiterhin verwendet.  Auch wenn Windows Server 2016 Hyper-V seine maximale Architekturunterstützung für Host LPs auf 512 LPs erweitert hat, ist die Stamm Partition weiterhin auf maximal 320 LPs beschränkt.
 
-## <a name="using-minroot-to-constrain-and-isolate-host-compute-resources"></a>Verwenden Minroot und Isolieren der Host Compute-Ressourcen
-Mit der hohen Standardschwellenwert von 320 LPs in Windows Server 2016 Hyper-V werden die Minroot-Konfiguration nur auf die sehr größten Server-Systemen verwendet.  Allerdings kann diese Funktion mit einem viel niedriger Schwellenwert der Hyper-V-Host-Administrator konfiguriert und daher genutzt wird, um die Menge der verfügbaren Host CPU-Ressourcen erheblich auf der Stammpartition zu beschränken werden.  Die angegebene Anzahl von Stamm LPs nutzen muss natürlich sorgfältig ausgewählt werden, für die Unterstützung der maximalen Anforderungen von der virtuellen Computer und arbeitsauslastungen, die dem Host zugeordnet.  Allerdings können geeignete Werte für die Anzahl der Hosts-LPs bestimmt über sorgfältig zu bewerten und Überwachung von Workloads für die Produktion und überprüfte in nicht produktiven Umgebungen vor der umfassenden Bereitstellung sein.
+## <a name="using-minroot-to-constrain-and-isolate-host-compute-resources"></a>Verwenden von minroot zum einschränken und Isolieren von hostcomputeressourcen
+Mit dem hohen Standard Schwellenwert von 320 LPs in Windows Server 2016 Hyper-V wird die minroot-Konfiguration nur auf den größten Server Systemen verwendet.  Diese Funktion kann jedoch vom Hyper-V-Host Administrator auf einen wesentlich niedrigeren Schwellenwert festgelegt werden. Dadurch wird die Menge der verfügbaren Host-CPU-Ressourcen für die Stamm Partition stark eingeschränkt.  Die genaue Anzahl der zu verwendenden Stamm-LPs muss natürlich sorgfältig ausgewählt werden, um die maximalen Anforderungen der virtuellen Computer und Arbeits Auslastungen zu unterstützen, die dem Host zugeordnet sind.  Allerdings können angemessene Werte für die Anzahl der Host LPs durch sorgfältige Bewertung und Überwachung von produktionsworkloads ermittelt und in nicht produktiven Umgebungen vor umfassender Bereitstellung überprüft werden.
 
-## <a name="enabling-and-configuring-minroot"></a>Aktivieren und Konfigurieren von Minroot
+## <a name="enabling-and-configuring-minroot"></a>Aktivieren und Konfigurieren von minroot
 
-Die Minroot-Konfiguration wird über den Hypervisor BCD-Einträge gesteuert. So aktivieren Sie Minroot, über eine Eingabeaufforderung mit Administratorrechten aus:
+Die minroot-Konfiguration wird über Hypervisor-BCD-Einträge gesteuert. So aktivieren Sie minroot von einer cmd-Eingabeaufforderung mit Administratorrechten:
 
 ```
     bcdedit /set hypervisorrootproc n
 ```
-Wobei n die Anzahl der Stamm VPs ist. 
+Dabei steht n für die Anzahl der Stamm-VPS. 
 
-Das System muss neu gestartet werden, und die neue Anzahl von Prozessoren für Stamm bleiben für die Lebensdauer der Start-Betriebssystem.  Die Minroot-Konfiguration kann nicht dynamisch zur Laufzeit geändert werden.
+Das System muss neu gestartet werden, und die neue Anzahl der Stamm Prozessoren bleibt für die Lebensdauer des Betriebssystem Starts erhalten.  Die minroot-Konfiguration kann zur Laufzeit nicht dynamisch geändert werden.
 
-Wenn mehrere NUMA-Knoten vorhanden sind, kann jeder Knoten erhalten `n/NumaNodeCount` Prozessoren.
+Wenn mehrere NUMA-Knoten vorhanden sind, erhält jeder Knoten `n/NumaNodeCount` Prozessoren.
 
-Beachten Sie, dass mit mehreren NUMA-Knoten, Sie, dass die VM Topologie ist so sicherstellen müssen, dass genügend freier LPs (d. h. LPs ohne Root VPs) vorhanden sind, für jeden NUMA-Knoten zum Ausführen der entsprechenden VM VPs NUMA-Knoten.
+Beachten Sie, dass Sie bei mehreren NUMA-Knoten sicherstellen müssen, dass die Topologie der VM so hoch ist, dass auf jedem NUMA-Knoten ausreichend freie LPs (d.h. LPs ohne Stamm-VPS) vorhanden sind, um die entsprechenden NUMA-Knoten-VPS des virtuellen Computers auszuführen.
 
-## <a name="verifying-the-minroot-configuration"></a>Überprüfen der Minroot-Konfiguration
+## <a name="verifying-the-minroot-configuration"></a>Die minroot-Konfiguration wird überprüft.
 
-Sie können die Konfiguration des Hosts Minroot mithilfe des Task-Manager überprüfen, wie unten dargestellt.
+Sie können die minroot-Konfiguration des Hosts mit dem Task-Manager überprüfen, wie unten gezeigt.
 
 ![](./media/minroot-taskman.png)
 
-Wenn Minroot aktiv ist, wird die Task-Manager die Anzahl der logischen Prozessoren, die derzeit zugewiesen an den Host zusätzlich zu die Gesamtzahl der logischen Prozessoren im System angezeigt.
+Wenn minroot aktiv ist, zeigt der Task-Manager zusätzlich zur Gesamtanzahl der logischen Prozessoren im System die Anzahl der logischen Prozessoren an, die dem Host derzeit zugewiesen sind.
  

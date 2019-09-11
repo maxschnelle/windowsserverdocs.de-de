@@ -1,6 +1,6 @@
 ---
-title: Einrichten einer Station Direct-Video-Verbindung in MultiPoint Services
-description: Erfahren Sie, wie Sie eine Station Direct-Video-Verbindung in MultiPoint Services erstellen
+title: Einrichten einer Station mit direkt Videoverbindung in Multipoint Services
+description: Erfahren Sie, wie Sie eine Station mit direkt Videos in Multipoint Services erstellen.
 ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server-threshold
@@ -13,59 +13,59 @@ ms.assetid: 82ba3517-9743-4cde-8eea-63a17edb016f
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: 58197164c91ab6b69b0ef331c025287f593f94c2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: eda8d5eee0635370873adec5b1fde2d65fc9fd9c
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850741"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871601"
 ---
-# <a name="set-up-a-direct-video-connected-station-in-multipoint-services"></a>Einrichten einer Station Direct-Video-Verbindung in MultiPoint Services
-Auf einer direkt verbundenen Video Station ist der Monitor direkt mit einer video-Port auf dem MultiPoint Server-Computer verbunden. Tastatur und Maus dann mit einem USB-Hub verbunden sind, und der Monitor zugeordnet sind.  
+# <a name="set-up-a-direct-video-connected-station-in-multipoint-services"></a>Einrichten einer Station mit direkt Videoverbindung in Multipoint Services
+Auf einer direkt mit dem Video verbundenen Station ist der Monitor direkt mit einem Videoport auf dem Multipoint Server-Computer verbunden. Eine Tastatur und eine Maus werden dann mit einem USB-Hub verbunden und dem Monitor zugeordnet.  
   
-Die folgende Abbildung zeigt eine MultiPoint Server-Umgebung, die einem einzelnen MultiPoint Server-Computer und vier Stationen mit Direct-Video-Verbindung verfügt. Weitere Informationen finden Sie unter [MultiPoint Server-Stationen](MultiPoint-services-Stations.md).  
+Die folgende Abbildung zeigt eine Multipoint-Serverumgebung mit einem einzelnen Multipoint-Server Computer und vier direkt mit einem Video verbundenen Stationen. Weitere Informationen finden Sie unter [Multipoint-Server Stationen](MultiPoint-services-Stations.md).  
   
-**MultiPoint Services-System mit vier video direct-Verbindungen**  
+**Multipoint Services-System mit vier direkten Video Verbindungen**  
   
-![Layout eines MultiPoint Services-USB-basierten Systems](./media/WMSMultiPointServerUSBSystemLayout.gif)  
+![Abbildung des USB-basierten Multipoint Services-systemlayouts](./media/WMSMultiPointServerUSBSystemLayout.gif)  
   
 > [!NOTE]  
-> Um eine Station Direct-Video-Verbindung konfigurieren zu können, müssen Sie eine Lateinische Tastatur (z. B. eine Sprachtastatur Englisch oder Spanisch) verwenden.  
+> Sie müssen eine lateinische Tastatur (z. b. eine Englisch-oder spanischsprachige Tastatur) verwenden, um eine Station mit einem direkt Video zu konfigurieren.  
   
-## <a name="to-set-up-a-direct-video-connected-station"></a>Zum Einrichten einer direkten Video verbundene station  
+## <a name="to-set-up-a-direct-video-connected-station"></a>So richten Sie eine direkte Station mit Videoverbindung ein  
   
-1.  Das Kabel des Monitors an den Port der Videoanzeige auf dem Computer, wie unten dargestellt.  
+1.  Verbinden Sie das Monitorkabel mit dem videoanzeigeport auf dem Computer, wie unten gezeigt.  
   
     ![Abbildung einer Videoverbindung zu einem System mit USB Hub](./media/WMSVideoConnection.gif) 
   
 2.  Stecken Sie das Stromkabel des Videomonitors in eine Steckdose.  
   
-3.  Verbinden Sie einen USB-Hub mit einem freien USB-Anschluss auf dem Computer, wie unten dargestellt.  
+3.  Verbinden Sie einen USB-Hub wie unten dargestellt mit einem geöffneten USB-Anschluss auf dem Computer.  
   
-    ![Abbildung des MultiPoint Services-USB-Hub-Verbindung](./media/WMSUSBHubConnection.gif)  
+    ![Abbildung der Multipoint Services-USB-Hub-Verbindung](./media/WMSUSBHubConnection.gif)  
   
-4.  Verbinden Sie an den stationshub USB-Tastatur und Maus.  
+4.  Verbinden Sie eine Tastatur und eine Maus mit dem USB-stationshub.  
   
     ![Anschließen von Eingabegeräten an einen USB-Hub](./media/WMSUSBDeviceConnection.gif)  
   
-5.  Verbinden Sie zusätzlichen Peripheriegeräten, z. B. Kopfhörer, mit der USB-Hub an.  
+5.  Verbinden Sie alle zusätzlichen Peripheriegeräte, z. b. Kopfhörer, mit dem USB-Hub.  
   
-6.  Wenn Sie einen extern ausgeschaltet Hub verwenden, verbinden Sie das Stromkabel des Hubs in eine Steckdose.  
+6.  Wenn Sie einen extern betriebenen Hub verwenden, verbinden Sie das Netzkabel des Hubs mit einer Stromversorgung.  
   
     > [!IMPORTANT]  
-    > Wir empfehlen dringend die Verwendung eines Hubs ausgeschaltet. Unterdimensionierte aktuelle Bedingungen kann fehlerhaften Systemverhalten führen.  
+    > Wir empfehlen dringend die Verwendung eines gestützten Hubs. Ein erratisches Systemverhalten kann sich aus unter aktuellen Bedingungen ergeben.  
     >   
-    > Benutzer sollten Mäuse und Tastaturen nicht direkt auf das USB-Anschlüsse des Computers anfügen. Auf diese Weise werden wahrscheinlich die falsche Zuordnung mehrerer Tastaturen und Mäusen derselben oder keine Station überhaupt.  
+    > Benutzer dürfen keine Maus und Tastatur direkt an die USB-Anschlüsse des Computers anfügen. Dadurch wird wahrscheinlich die falsche Zuordnung mehrerer Tastaturen und Mäuse zur gleichen Station oder zu keiner Station ausgelöst.  
   
-7.  Befolgen Sie die Anweisungen, die auf dem Bildschirm zum Erstellen der Station angezeigt werden.  
+7.  Befolgen Sie die Anweisungen, die auf dem Monitor zum Erstellen der Station angezeigt werden.  
   
-Wenn Sie mehr als eine direkte Station des Video-Verbindung zu Ihrem MultiPoint Services-Umgebung hinzufügen, kann die primäre Station ändern. Sie können leicht herausfinden der direkte video verbundenen Station Ihre primäre Station ist.  
+Wenn Sie Ihrer Multipoint Services-Umgebung mehr als eine direkte, mit einem Video verbundene Station hinzufügen, kann sich die primäre Station ändern. Sie können mühelos feststellen, welche direkte Videoverbindung Ihre primäre Station ist.  
   
-## <a name="to-find-out-which-direct-video-connected-station-is-the-primary-station"></a>Um herauszufinden, die Station Video-Verbindung leiten, ist die primäre station  
+## <a name="to-find-out-which-direct-video-connected-station-is-the-primary-station"></a>So ermitteln Sie, welche direkte, mit dem Video verbundene Station die primäre Station ist  
   
-1.  Aktivieren Sie alle Monitore, die direkt mit der Grafikkarte (Grafikkarten) des Computers verbunden sind.  
+1.  Schalten Sie alle Monitore ein, die direkt mit den Anzeige Adaptern des Computers (Grafikkarten) verbunden sind.  
   
-2.  Starten (oder neu starten) können die MultiPoint Services-Computer, und welcher Monitor den Startbildschirmen angezeigt. Diese Station ist die primäre Station.  
+2.  Starten (oder Neustarten) des Multipoint Services-Computers, und sehen Sie, welcher Monitor die Startbildschirme anzeigt. Diese Station ist die primäre Station.  
   
     > [!NOTE]  
-    > In einigen Fällen ist BIOS-Startinformationen gleichzeitig auf mehreren Bildschirmen angezeigt. In diesem Fall kann die Monitore "primäre Station" betrachtet werden für den Zugriff auf das BIOS.
+    > In einigen Fällen werden BIOS-Startinformationen gleichzeitig auf mehreren Monitoren angezeigt. In diesem Fall kann jeder Monitor als "primäre Station" betrachtet werden, um auf das BIOS zuzugreifen.

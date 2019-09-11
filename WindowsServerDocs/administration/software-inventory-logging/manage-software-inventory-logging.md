@@ -1,6 +1,6 @@
 ---
 title: Verwaltung der Protokollierung des Softwarebestands
-description: Beschreibt, wie Sie die Protokollierung des Softwarebestands verwalten
+description: Beschreibt, wie die Protokollierung des Software Bestands verwaltet wird
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.technology: manage-software-inventory-logging
@@ -13,38 +13,38 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 506072251b77362f3dc35faa0c976f396f7f6034
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 686bb61426e49f00597c423bcf4f52d949a358ab
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435480"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866378"
 ---
 # <a name="manage-software-inventory-logging"></a>Verwaltung der Protokollierung des Softwarebestands
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2019, Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
-Dieses Dokument beschreibt, wie Sie die Protokollierung des Softwarebestands, eine Funktion zu verwalten, die Administratoren im Rechenzentrum einfaches Protokollieren der Microsoft-Software Asset Management-Daten für ihre Bereitstellungen im Laufe der Zeit ermöglicht. In diesem Dokument wird beschrieben, wie Sie die Protokollierung des Softwarebestands verwalten. Bevor Sie die Protokollierung des Softwarebestands in Windows Server 2012 R2 verwenden, stellen Sie sicher, dass Windows Update [KB 3000850](https://support.microsoft.com/kb/3000850) und [KB 3060681](https://support.microsoft.com/kb/3060681) installiert sind, auf jedem System, dessen Bestand protokolliert werden. Es sind keine Windows-Updates für Windows Server 2016 erforderlich. Diese Funktion wird auf jedem Server lokal ausgeführt, dessen Bestand protokolliert werden soll. Es werden keine Daten von Remoteservern gesammelt.  
+In diesem Dokument wird beschrieben, wie Sie die Protokollierung des Software Bestands verwalten, ein Feature, mit dem Daten Center Administratoren Microsoft-softwareasset-Verwaltungsdaten problemlos für Ihre bereit Stellungen protokollieren können. In diesem Dokument wird beschrieben, wie Sie die Protokollierung des Softwarebestands verwalten. Bevor Sie die Protokollierung des Software Bestands mit Windows Server 2012 R2 verwenden, stellen Sie sicher, dass auf jedem System, das inventarisiert werden muss, Windows Update [KB 3000850](https://support.microsoft.com/kb/3000850) und [KB 3060681](https://support.microsoft.com/kb/3060681) installiert sind. Für Windows Server 2016 sind keine wndows-Updates erforderlich. Diese Funktion wird auf jedem Server lokal ausgeführt, dessen Bestand protokolliert werden soll. Es werden keine Daten von Remoteservern gesammelt.  
 
-Die Funktion die Protokollierung des Softwarebestands kann auch zu zwei Versionen von Windows Server vor Windows Server 2012 R2 hinzugefügt werden. Sie können die folgenden Updates zum Hinzufügen von Protokollierung des Softwarebestands Funktionalität auf Windows Server 2012 und Windows Server 2008 R2 SP1 installieren:
+Die Protokollierung des Software Bestands kann auch zu zwei Versionen von Windows Server vor Windows Server 2012 R2 hinzugefügt werden. Sie können die folgenden Updates installieren, um die Protokollierungs Funktionalität für den Software bestand zu Windows Server 2012 und Windows Server 2008 R2 SP1 hinzuzufügen:
 
-- **Unter WindowsServer 2012 (Standard oder Datacenter Edition)** 
+- **Windows Server 2012 (Standard oder Datacenter Edition)** 
 
 > [!NOTE] 
-> Stellen Sie sicher, dass [WMF 4.0](https://www.microsoft.com/en-us/download/details.aspx?id=40855) installiert, bevor Sie die unten stehende Updatepaket installieren.
+> Vergewissern Sie sich, dass [WMF 4,0](https://www.microsoft.com/en-us/download/details.aspx?id=40855) installiert ist, bevor Sie das Update Paket unten anwenden.
 
--  WMF 4.0-Updatepaket für Windows Server 2012: [KB 3119938](https://support.microsoft.com/en-us/kb/3119938)
+-  WMF 4,0-Update Paket für Windows Server 2012: [KB 3119938](https://support.microsoft.com/en-us/kb/3119938)
 
 - **Windows Server 2008 R2 SP1**
 
 > [!NOTE] 
-> Stellen Sie sicher, dass [WMF 4.0](https://www.microsoft.com/en-us/download/details.aspx?id=40855) installiert, bevor Sie die unten stehende Updatepaket installieren.
+> Vergewissern Sie sich, dass [WMF 4,0](https://www.microsoft.com/en-us/download/details.aspx?id=40855) installiert ist, bevor Sie das Update Paket unten anwenden.
 
 
 - Erfordert [.NET Framework 4.5](https://www.microsoft.com/en-us/download/details.aspx?id=30653)
 
 
-- WMF 4.0-Updatepaket für Windows Server 2008 R2: [KB 3109118](https://support.microsoft.com/en-us/kb/3109118)
+- WMF 4,0-Update Paket für Windows Server 2008 R2: [KB 3109118](https://support.microsoft.com/en-us/kb/3109118)
 
 
 Es gibt bei der Nutzung dieser Funktion zwei primäre Methoden für die Inventur:  
@@ -67,34 +67,34 @@ Die Protokollierung des Softwarebestands wird standardmäßig installiert, aber 
   
 In diesem Dokument werden folgende Konfigurationsoptionen behandelt:  
   
--   [Starten und beenden die Software Softwareinventurprotokollierung](manage-software-inventory-logging.md#BKMK_Step1)  
+-   [Starten und Beenden der Protokollierung des Software Bestands](manage-software-inventory-logging.md#BKMK_Step1)  
   
--   [Protokollierung des Softwarebestands im Laufe der Zeit](manage-software-inventory-logging.md#BKMK_Step2)  
+-   [Protokollierung des Software Bestands im Zeitverlauf](manage-software-inventory-logging.md#BKMK_Step2)  
   
--   [Anzeigen von Daten für die Protokollierung des Softwarebestands](manage-software-inventory-logging.md#BKMK_Step3)  
+-   [Anzeigen der Protokollierungs Daten des Software Bestands](manage-software-inventory-logging.md#BKMK_Step3)  
   
--   [Löschen die Protokollierung des Softwarebestands protokollierte Daten](manage-software-inventory-logging.md#BKMK_Step4)  
+-   [Löschen der von der Software Inventur Protokollierung protokollierten Daten](manage-software-inventory-logging.md#BKMK_Step4)  
   
--   [Sichern und Wiederherstellen von Daten, die von der Protokollierung des Softwarebestands protokollierten] verwalten-Software-Inventur-logging.md #BKMK_Step5)  
+-   [Sichern und Wiederherstellen von Daten, die von der Protokollierung des Software Bestands protokolliert werden] Manage-Software-Inventory-Logging. MD # BKMK_Step5)  
   
--   [Lesen von Daten protokolliert und veröffentlicht werden, indem Sie die Protokollierung des Softwarebestands](manage-software-inventory-logging.md#BKMK_Step6)  
+-   [Lesen und Veröffentlichen von Daten, die von der Protokollierung des Software Bestands](manage-software-inventory-logging.md#BKMK_Step6)  
   
--   [Sicherheit bei der Software Inventory Protokollierung](manage-software-inventory-logging.md#BKMK_Step7)  
+-   [Sicherheit der Software Inventur Protokollierung](manage-software-inventory-logging.md#BKMK_Step7)  
   
--   [Arbeiten mit Datums- / Einstellungen in Windows Server die Protokollierung des Softwarebestands](manage-software-inventory-logging.md#BKMK_Step8)  
+-   [Arbeiten mit Datums-und Uhrzeit Einstellungen in der Windows Server-Software Inventur Protokollierung](manage-software-inventory-logging.md#BKMK_Step8)  
   
--   [Aktivieren und Konfigurieren von in einer bereitgestellten virtuellen Festplatte Protokollierung des Softwarebestands](manage-software-inventory-logging.md#BKMK_Step10)  
+-   [Aktivieren und Konfigurieren der Protokollierung des Software Bestands auf einer bereitgestellten virtuellen Festplatte](manage-software-inventory-logging.md#BKMK_Step10)  
   
--   [Übersicht über die Verwendung der Softwareinventur, die Anmeldung bei WindowsServer 2012 R2 ohne KB 3000850](manage-software-inventory-logging.md#BKMK_Step11)  
+-   [Übersicht über die Verwendung der Protokollierung des Software Bestands in Windows Server 2012 R2 ohne KB 3000850](manage-software-inventory-logging.md#BKMK_Step11)  
   
--   [Protokollierung des Softwarebestands verwenden, in einer Windows Server 2012 R2 Hyper-V-Umgebung ohne KB 3000850](manage-software-inventory-logging.md#BKMK_Step12)  
+-   [Verwenden der Protokollierung des Software Bestands in einer Windows Server 2012 R2 Hyper-V-Umgebung ohne KB 3000850](manage-software-inventory-logging.md#BKMK_Step12)  
   
 > [!NOTE]  
 > Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit denen Sie einige der beschriebenen Vorgehensweisen automatisieren können. Weitere Informationen finden Sie unter Verwenden von Cmdlets.
 
   
-## <a name="BKMK_Step1"></a>Starten und beenden die Software Softwareinventurprotokollierung  
-Software die Protokollierung des Softwarebestands tägliche sammeln und weiterleiten, über das Netzwerk müssen auf einem Computer unter Windows Server 2012 R2 die Softwareinventur Protokoll aktiviert sein.  
+## <a name="BKMK_Step1"></a>Starten und Beenden der Protokollierung des Software Bestands  
+Die tägliche Erfassung der Software Inventur Protokollierung und die Weiterleitung über das Netzwerk müssen auf einem Computer mit Windows Server 2012 R2 aktiviert sein, um die Software Inventur protokollieren  
   
 > [!NOTE]  
 > Sie können das PowerShell-Cmdlet **[Get-SilLogging](https://technet.microsoft.com/library/dn283396.aspx)** verwenden, um Informationen zum Dienst für die Protokollierung des Softwarebestands abzurufen, z. B. ob er ausgeführt wird oder beendet wurde.  
@@ -121,7 +121,7 @@ Software die Protokollierung des Softwarebestands tägliche sammeln und weiterle
 ## <a name="configuring-software-inventory-logging"></a>Konfigurieren der Protokollierung des Softwarebestands  
 Sie führen drei Schritte aus, um die Protokollierung des Softwarebestands so zu konfigurieren, dass Daten nach und nach an einen Aggregationsserver weitergeleitet werden:  
   
-1.  Verwendung **Set-SilLogging – TargetUri** auf die Webadresse Ihres aggregationsservers festzulegen (muss mit "https://" beginnen).  
+1.  Verwenden Sie **Set-sillogging – targetUri** , um die Webadresse Ihres Aggregations Servers anzugeben (muss mit "https://" beginnen).  
   
 2.  Verwenden Sie **Set-SilLogging –CertificateThumbprint** , um den Fingerabdruckhash Ihres gültigen SSL-Zertifikats anzugeben, der zum Authentifizieren der Datenübertragungen an den Aggregationsserver verwendet werden soll (der Aggregationsserver muss so konfiguriert werden, dass ein Hash akzeptiert wird).  
   
@@ -131,30 +131,30 @@ Es empfiehlt sich, die Schritte vor der Verwendung von **Start-SilLogging**auszu
   
 Eine umfassende Anleitung zum Einrichten des SIL-Frameworks als Ganzes finden Sie unter [Software Inventory Logging Aggregator](software-inventory-logging-aggregator.md).  Insbesondere sollten Sie den Abschnitt über die Problembehandlung zurate ziehen, wenn bei **Publish-SilData** ein Fehler auftritt oder wenn die SIL-Protokollierung auf andere Weise fehlschlägt.  
   
-## <a name="BKMK_Step2"></a>Protokollierung des Softwarebestands im Laufe der Zeit  
+## <a name="BKMK_Step2"></a>Protokollierung des Software Bestands im Zeitverlauf  
 Wenn die Protokollierung des Softwarebestands von einem Administrator gestartet wurde, beginnt die stündliche Sammlung und Weiterleitung der Daten an den Aggregationsserver (Ziel-URI). Die erste Weiterleitung besteht aus einem vollständigen Datensatz, den [Get-SilData](https://technet.microsoft.com/library/dn283388.aspx) abruft und zu einem bestimmten Zeitpunkt auf der Konsole anzeigt. Danach prüft SIL bei jedem Intervall die Daten und leitet nur eine kleine ID-Bestätigung an den Aggregationszielserver weiter, sofern seit der letzten Sammlung keine Änderung aufgetreten ist. Wenn ein Wert geändert wurde, sendet SIL erneut einen vollständigen Datensatz.  
   
 > [!IMPORTANT]  
 > Wenn in jedem Intervall der Ziel-URI nicht erreichbar ist, oder die Datenübertragung über das Netzwerk aus irgendeinem Grund nicht erfolgreich ist, werden gesammelte Daten lokal bis zu einem Standardwert von 30 Tagen gespeichert. (Nach Ablauf dieser Zeit werden sie gelöscht.) Bei der nächsten erfolgreichen Weiterleitung von Daten auf den Zielserver für die Aggregation werden alle lokal gespeicherten Daten weitergeleitet und lokal zwischengespeicherte Daten werden gelöscht.  
   
-## <a name="BKMK_Step3"></a>Anzeigen von Daten für die Protokollierung des Softwarebestands  
+## <a name="BKMK_Step3"></a>Anzeigen der Protokollierungs Daten des Software Bestands  
 Neben den im vorherigen Abschnitt beschriebenen PowerShell-Cmdlets stehen Ihnen in sechs weitere Cmdlets zum Sammeln von Daten der Protokollierung des Softwarebestands zur Verfügung:  
   
--   **[Get-SilComputer](https://technet.microsoft.com/library/dn283392.aspx)** : Zeigt sowohl den zeitlichen Verlauf der Werte für bestimmte Server und betriebssystembezogene Daten an, als auch den FQDN oder Hostnamen des physischen Hosts, falls verfügbar.  
+-   **[Get-silcomputer](https://technet.microsoft.com/library/dn283392.aspx)** : Zeigt sowohl den zeitlichen Verlauf der Werte für bestimmte Server und betriebssystembezogene Daten an, als auch den FQDN oder Hostnamen des physischen Hosts, falls verfügbar.  
   
--   **[Get-SilComputerIdentity (KB 3000850)](https://technet.microsoft.com/library/dn858074.aspx)** : Zeigt die von SIL verwendeten Bezeichner für einzelne Server an.  
+-   **[Get-silcomputeridentity (KB 3000850)](https://technet.microsoft.com/library/dn858074.aspx)** : Zeigt die von SIL verwendeten Bezeichner für einzelne Server an.  
   
--   **[Get-SilData](https://technet.microsoft.com/library/dn283388.aspx)** : Zeigt den gesammelten zeitlichen Verlauf aller Daten der Protokollierung des Softwarebestands an.  
+-   **[Get-sildata](https://technet.microsoft.com/library/dn283388.aspx)** : Zeigt den gesammelten zeitlichen Verlauf aller Daten der Protokollierung des Softwarebestands an.  
   
--   **[Get-SilSoftware](https://technet.microsoft.com/library/dn283397.aspx)** : Zeigt die Identität im zeitlichen Verlauf der gesamten auf dem Computer installierten Software an.  
+-   **[Get-silsoftware](https://technet.microsoft.com/library/dn283397.aspx)** : Zeigt die Identität im zeitlichen Verlauf der gesamten auf dem Computer installierten Software an.  
   
--   **[Get-SilUalAccess](https://technet.microsoft.com/library/dn283389.aspx)** : Zeigt für die vergangenen zwei Tage die Gesamtzahl der eindeutigen Clientanforderungen für Geräte und Benutzer an.  
+-   **[Get-silualaccess](https://technet.microsoft.com/library/dn283389.aspx)** : Zeigt für die vergangenen zwei Tage die Gesamtzahl der eindeutigen Clientanforderungen für Geräte und Benutzer an.  
   
--   **[Get-SilWindowsUpdate](https://technet.microsoft.com/library/dn283393.aspx)** : Zeigt den zeitlichen Verlauf der Liste aller auf dem Computer installierten Windows-Updates an.  
+-   **[Get-silwindowsupdate](https://technet.microsoft.com/library/dn283393.aspx)** : Zeigt den zeitlichen Verlauf der Liste aller auf dem Computer installierten Windows-Updates an.  
   
 Ein typischer Anwendungsfall für Cmdlets zur Protokollierung des Softwarebestands wäre das Abfragen der Protokollierung des Softwarebestands für einen bestimmten Zeitpunkt der gesamten Protokollierung durch einen Administrator mithilfe von [Get-SilSoftware](https://technet.microsoft.com/library/dn283397.aspx).  
   
-**Ausgabebeispiel**  
+**Ausgabe Beispiel**  
   
 ```  
 PS C:\> Get-SilData   
@@ -201,8 +201,8 @@ SystemManufacturer        : Microsoft Corporation
 >   
 > Die Protokollierung des Softwarebestands muss nicht gestartet sein, um die **Get-Sil**-Cmdlets verwenden zu können.  
   
-## <a name="BKMK_Step4"></a>Löschen die Protokollierung des Softwarebestands protokollierte Daten  
-Die Protokollierung des Softwarebestands wurde nicht als unternehmenskritische Komponente beabsichtigt. Sie ist so konzipiert, dass ihre Auswirkungen auf lokale Systemvorgänge so gering wie möglich sind und gleichzeitig eine hohe Zuverlässigkeit gewahrt wird. Dieser kann Administrator auch die Datenbank die Protokollierung des Softwarebestands und unterstützende Dateien (jede Datei im Verzeichnis der \Windows\System32\LogFiles\SIL) um betriebliche Anforderungen zu erfüllen manuell löschen.  
+## <a name="BKMK_Step4"></a>Löschen der von der Software Inventur Protokollierung protokollierten Daten  
+Die Protokollierung des Softwarebestands wurde nicht als unternehmenskritische Komponente beabsichtigt. Sie ist so konzipiert, dass ihre Auswirkungen auf lokale Systemvorgänge so gering wie möglich sind und gleichzeitig eine hohe Zuverlässigkeit gewahrt wird. Dadurch kann der Administrator die Software Inventur Protokollierungs Datenbank und die unterstützenden Dateien (jede Datei im Verzeichnis "\windows\system32\logfiles\sil") auch manuell löschen, um betriebliche Anforderungen zu erfüllen.  
   
 #### <a name="to-delete-data-logged-by-software-inventory-logging"></a>So löschen Sie mit der Protokollierung des Softwarebestands protokollierte Daten  
   
@@ -210,49 +210,49 @@ Die Protokollierung des Softwarebestands wurde nicht als unternehmenskritische K
   
 2. Öffnen Sie Windows-Explorer.  
   
-3. Wechseln Sie zu **\Windows\System32\Logfiles\SIL\\**  
+3. Wechseln Sie zu " **\windows\system32\logfiles\sil\\**  ".  
   
 4. Löschen Sie alle Dateien im Ordner.  
   
-## <a name="BKMK_Step5"></a>Sichern und Wiederherstellen der Protokollierung des Softwarebestands protokollierte Daten  
+## <a name="BKMK_Step5"></a>Sichern und Wiederherstellen von mit der Protokollierung des Software Bestands protokollierten Daten  
 Die Protokollierung des Softwarebestands speichert vorübergehend eine stündliche Datenerfassung, wenn die Weiterleitung über das Netzwerk fehlschlägt. Die Protokolldateien werden im Verzeichnis „\Windows\System32\LogFiles\SIL\“ gespeichert. Mit der regelmäßigen Server-Sicherung können auch diese Daten der Protokollierung des Softwarebestands gesichert werden.  
   
 > [!IMPORTANT]  
 > Wenn aus irgendeinem Grund eine Reparaturinstallation oder ein Upgrade des Betriebssystems erforderlich ist, gehen alle lokal gespeicherten Protokolldateien verloren.  Wenn diese Daten wichtig für betriebliche Vorgänge sind, wird empfohlen, sie vor der Installation eines neuen Betriebssystems zu sichern. Führen Sie nach der Reparatur oder Aktualisierung einfach die Wiederherstellung am gleichen Speicherort durch.  
   
 > [!NOTE]  
-> Wenn aus irgendeinem Grund, der Verwaltung der Aufbewahrungsdauer Dauer der von SIL lokal protokollierten Daten wichtig ist, kann dies durch Ändern des folgenden Registrierungswerts konfiguriert werden: \HKEY_LOCAL_MACHINE\\SOFTWARE\Microsoft\Windows\SoftwareInventoryLogging. Der Standardwert beträgt „30“ für 30 Tage.  
+> Wenn Sie aus irgendeinem Grund die Verwaltung der Beibehaltungs Dauer von Daten, die lokal von SIL protokolliert werden, wichtig ist, kann dies durch Ändern des\\Registrierungs Werts hier konfiguriert werden: \HKEY_LOCAL_MACHINE software\microsoft\windows\softwareinventorylogging. Der Standardwert ist "30" für 30 Tage.  
   
-## <a name="BKMK_Step6"></a>Lesen von Daten protokolliert und veröffentlicht werden, indem Sie die Protokollierung des Softwarebestands  
-Die von der Protokollierung des Softwarebestands protokollierten Daten werden pro Tag in einer Binärdatei gespeichert, die bei nicht erfolgter Weiterleitung am Ziel-URI lokal gespeichert wird oder sich bei erfolgreicher Weiterleitung auf dem Aggregationszielserver befindet. Um diese Daten in PowerShell anzuzeigen, verwenden Sie das Cmdlet [Import-BinaryMiLog](https://technet.microsoft.com/library/dn262592.aspx) .  
+## <a name="BKMK_Step6"></a>Lesen und Veröffentlichen von Daten, die von der Protokollierung des Software Bestands  
+Daten, die von SIL protokolliert, aber lokal gespeichert werden (wenn der Forward zum Ziel-URI fehlschlägt), oder Daten, die erfolgreich an den Ziel Aggregations Server weitergeleitet werden, werden in einer Binärdatei gespeichert (für die Daten der einzelnen Tage). Um diese Daten in PowerShell anzuzeigen, verwenden Sie das Cmdlet [Import-BinaryMiLog](https://technet.microsoft.com/library/dn262592.aspx) .  
   
-## <a name="BKMK_Step7"></a>Sicherheit bei der Software Inventory Protokollierung  
+## <a name="BKMK_Step7"></a>Sicherheit der Software Inventur Protokollierung  
 Auf dem lokalen Server sind Administratorrechte erforderlich, um erfolgreich Daten aus dem WMI der Protokollierung des Softwarebestands über PowerShell-APIs abzurufen.  
   
 Um alle Funktionen der Protokollierung des Softwarebestands zum stündlichen Weiterleiten von Verlaufsdaten an einen Aggregationspunkt nutzen zu können, muss der Administrator mithilfe von Clientzertifikaten sichere SSL-Sessions für das Weiterleiten von Daten über HTTPS gewährleisten. Eine grundlegende Übersicht über HTTPS-Authentifizierung finden Sie hier: [HTTPS-Authentifizierung](https://technet.microsoft.com/library/cc736680(v=WS.10).aspx).  
   
 Auf alle Daten, die lokal auf einem Windows-Server gespeichert sind (tritt nur auf, wenn die Funktion gestartet wurde, aber das Ziel nicht erreichbar ist), kann nur mit Administratorrechten auf dem lokalen Server zugegriffen werden.  
   
-## <a name="BKMK_Step8"></a>Arbeiten mit Datums- / Einstellungen in Windows Server 2012 R2 die Protokollierung des Softwarebestands  
+## <a name="BKMK_Step8"></a>Arbeiten mit Datums-und Uhrzeit Einstellungen in der Windows Server 2012 R2-Protokollierung des Software Bestands  
   
 -   Bei Verwendung von „ [Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) - TimeOfDay“ zum Festlegen des Ausführungszeitpunkts für die SIL-Protokollierung müssen Sie ein Datum und eine Uhrzeit angeben. Das Kalenderdatum wird festgelegt, und die Protokollierung erfolgt erst, wenn das betreffende Datum in der lokalen Systemzeit erreicht wird.  
   
--   Bei Verwendung [Get-SilSoftware](https://technet.microsoft.com/library/dn283397.aspx), oder [Get-SilWindowsUpdate](https://technet.microsoft.com/library/dn283393.aspx), 12:00:00 Uhr, bedeutungslosen Wert wird von "InstallDate" immer anzeigen.  
+-   Bei Verwendung von [Get-silsoftware](https://technet.microsoft.com/library/dn283397.aspx)oder [Get-silwindowsupdate](https://technet.microsoft.com/library/dn283393.aspx)zeigt "InstallDate" immer den bedeutungslosen Wert "12:00:00AM" an.  
   
--   Bei Verwendung [Get-SilUalAccess](https://technet.microsoft.com/library/dn283389.aspx), "SampleDate" werden immer 23:59:00 Uhr, bedeutungslosen Wert angezeigt.  Für diese Cmdlet-Abfragen ist „Date“ entscheidend.  
+-   Bei Verwendung von [Get-silualaccess](https://technet.microsoft.com/library/dn283389.aspx)zeigt "Sample Date" immer den bedeutungslosen Wert "11:59:00PM" an.  Für diese Cmdlet-Abfragen ist „Date“ entscheidend.  
   
-## <a name="BKMK_Step10"></a>Aktivieren und Konfigurieren von in einer bereitgestellten virtuellen Festplatte Protokollierung des Softwarebestands  
-Die Protokollierung des Softwarebestands unterstützt auch das Konfigurieren und Aktivieren auf offline geschalteten virtuellen Computern. Praktische Verwendungsmöglichkeiten hierfür sind „Gold-Image“-Setups zur breitflächigen Bereitstellung in Rechenzentren oder das Konfigurieren von Benutzerabbildern, deren Hosting vom Standort in die Cloud verlagert werden soll.  
+## <a name="BKMK_Step10"></a>Aktivieren und Konfigurieren der Protokollierung des Software Bestands auf einer bereitgestellten virtuellen Festplatte  
+Die Protokollierung des Softwarebestands unterstützt auch das Konfigurieren und Aktivieren auf offline geschalteten virtuellen Computern. Die praktische Verwendung hierfür ist das Einrichten der "Gold Image"-Einrichtung für die weite Bereitstellung in Rechenzentren sowie das Konfigurieren von Endbenutzer Images, die von einem lokalen Standort zu einer cloudbereitstellung ausgehen.  
   
-Um diese Einsatzbereiche zu unterstützen, sind der Protokollierung des Softwarebestands Registrierungseinträge für jede konfigurierbare Option zugeordnet.  Diese Registrierungswerte finden Sie unter \HKEY_LOCAL_MACHINE\\SOFTWARE\Microsoft\Windows\SoftwareInventoryLogging.  
+Um diese Einsatzbereiche zu unterstützen, sind der Protokollierung des Softwarebestands Registrierungseinträge für jede konfigurierbare Option zugeordnet.  Diese Registrierungs Werte finden Sie unter \HKEY_LOCAL_MACHINE\\software\microsoft\windows\softwareinventorylogging.  
   
 |||||  
 |-|-|-|-|  
-|**Funktion**|**Wertname**|**Daten**|**Entsprechendes Cmdlet (nur im ausgeführten Betriebssystem verfügbar)**|  
+|**Funktion**|**Wertname**|**Daten**|**Entsprechendes Cmdlet (nur im laufenden Betriebssystem verfügbar)**|  
 |Start/Stopp-Feature|CollectionState|1 oder 0|[Start-SilLogging](https://technet.microsoft.com/library/dn283391.aspx), [Stop-SilLogging](https://technet.microsoft.com/library/dn283394.aspx)|  
 |Legt den Aggregationszielpunkt im Netzwerk fest|TargetUri|String|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TargetURI|  
 |Legt den Zertifikatfingerabdruck oder Hash des Zertifikats für die SSL-Authentifizierung für den Ziel-Webserver fest|CertificateThumbprint|String|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -CertificateThumbprint|  
-|Legt das Datum und die Uhrzeit für den Startzeitpunkt der Funktion fest (sofern der angegebene Wert in der lokalen Systemzeit in der Zukunft liegt)|CollectionTime|Standardwert:  2000-01-01T03:00:00|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TimeOfDay|  
+|Legt das Datum und die Uhrzeit für den Startzeitpunkt der Funktion fest (sofern der angegebene Wert in der lokalen Systemzeit in der Zukunft liegt)|CollectionTime|Standard:  2000-01-01T03:00:00|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TimeOfDay|  
   
 Um diese Werte auf einer offline geschalteten virtuellen Festplatte (VM-Betriebssystem wird nicht ausgeführt) zu ändern, muss die VHD zunächst bereitgestellt werden, und dann können die folgenden Befehle verwendet werden, um Änderungen vorzunehmen.  
   
@@ -266,7 +266,7 @@ Um diese Werte auf einer offline geschalteten virtuellen Festplatte (VM-Betriebs
   
 Die Protokollierung des Softwarebestands überprüft diese Werte beim Start des Betriebssystems und verfährt entsprechend.  
   
-## <a name="BKMK_Step11"></a>Übersicht über die Verwendung der Softwareinventur, die Anmeldung bei WindowsServer 2012 R2 ohne KB 3000850  
+## <a name="BKMK_Step11"></a>Übersicht über die Verwendung der Protokollierung des Software Bestands in Windows Server 2012 R2 ohne KB 3000850  
 Die folgenden Änderungen am Umfang der Protokollierung des Softwarebestands und an den Standardeinstellungen wurden mit [KB 3000850](https://support.microsoft.com/kb/3000850)vorgenommen:  
   
 -   Das Standardintervall für die Sammlung und Weiterleitung über das Netzwerk beim Starten der SIL-Protokollierung wurde von täglich auf stündlich geändert (nach dem Zufallsprinzip innerhalb jeder Stunde).  
@@ -275,31 +275,31 @@ Die folgenden Änderungen am Umfang der Protokollierung des Softwarebestands und
   
 -   Die Gast-zu-Host-Kanalkommunikation in Hyper-V-Umgebungen wurde entfernt.  
   
-## <a name="BKMK_Step12"></a>Protokollierung des Softwarebestands verwenden, in einer Windows Server 2012 R2 Hyper-V-Umgebung ohne KB 3000850  
+## <a name="BKMK_Step12"></a>Verwenden der Protokollierung des Software Bestands in einer Windows Server 2012 R2 Hyper-V-Umgebung ohne KB 3000850  
   
 > [!NOTE]  
 > Diese Funktion wird bei Installation des [KB 3000850](https://support.microsoft.com/kb/3000850) -Updates entfernt.  
   
-Wenn Sie die Protokollierung des Softwarebestands auf einem Windows Server 2012 R2 Hyper-V-Host verwenden, ist es möglich, beim Abrufen des SIL-Daten aus Windows Server 2012 R2-Gäste, die lokal ausgeführt werden, wenn die SIL-Protokollierung in die-Gastcomputern gestartet wurde. Dies ist jedoch nur möglich, wenn Sie die Get-SilData und Publish-SilData-Powershell-Cmdlets verwenden, möglich und nur unter WIndows Server 2012 R2 im Host- und Gastbetriebssysteme.  Diese Funktion ermöglicht Administratoren im Rechenzentrum, die Gast-VMs für ihre Mandanten bzw. andere Teilbereiche von Großunternehmen bereitstellen, das Erfassen von Softwarebestandsdaten auf dem Hypervisorhost und das anschließende Weiterleiten dieser Daten an einen Aggregator (oder Ziel-URI).  
+Wenn Sie die Protokollierung des Software Bestands auf einem Hyper-V-Host unter Windows Server 2012 R2 verwenden, ist es möglich, SIL-Daten von Windows Server 2012 R2-Gast Computern abzurufen, die lokal ausgeführt werden, wenn die SIL-Protokollierung in den Gastbetriebssystemen gestartet wurde. Dies ist jedoch nur bei Verwendung der PowerShell-Cmdlets Get-sildata und Publish-sildata möglich und nur mit Windows Server 2012 R2 sowohl auf dem Host als auch auf dem Gast möglich.  Diese Funktion ermöglicht Administratoren im Rechenzentrum, die Gast-VMs für ihre Mandanten bzw. andere Teilbereiche von Großunternehmen bereitstellen, das Erfassen von Softwarebestandsdaten auf dem Hypervisorhost und das anschließende Weiterleiten dieser Daten an einen Aggregator (oder Ziel-URI).  
   
-Im folgenden sind zwei Beispiele für welche die Ausgabe von der PowerShell-Konsole (stark gekürzte) auf einem Windows Server 2012 R2 Hyper-V-Host mit nur einem Windows Server 2012 R2-Gast aussehen würde, virtuelle Computer mit der SIL-Protokollierung gestartet.  Im ersten Beispiel, in dem nur Get-SilData verwendet wird, werden erwartungsgemäß alle Daten vom Host ausgegeben.  Ebenfalls enthalten sind alle SIL-Daten des Gasts, jedoch in einem reduzierten Format.  Um diese Daten vom Gast zu erweitern und anzuzeigen, verwenden Sie einfach per Ausschneiden und Einfügen das unten im zweiten Beispiel gezeigte Fragment.  SDl-Datenobjekte des Gasts besitzen immer die mit dem Objekt verknüpfte VM-GUID.  
+Im folgenden finden Sie zwei Beispiele dafür, wie die Ausgabe in der PowerShell-Konsole auf einem Windows Server 2012 R2 Hyper-V-Host, auf dem eine Windows Server 2012 R2-Gast-VM ausgeführt wird, mit der SIL-Protokollierung gestartet wird.  Im ersten Beispiel, in dem nur Get-SilData verwendet wird, werden erwartungsgemäß alle Daten vom Host ausgegeben.  Ebenfalls enthalten sind alle SIL-Daten des Gasts, jedoch in einem reduzierten Format.  Um diese Daten vom Gast zu erweitern und anzuzeigen, verwenden Sie einfach per Ausschneiden und Einfügen das unten im zweiten Beispiel gezeigte Fragment.  SDl-Datenobjekte des Gasts besitzen immer die mit dem Objekt verknüpfte VM-GUID.  
   
 > [!NOTE]  
 > Da SIL-Daten auf der Konsole ausgegeben werden, werden bei Verwendung des Get-SilData-Cmdlets mit Datenströmen die Objekte nicht immer in vorhersehbarer Reihenfolge ausgegeben.  In beiden folgenden Beispielen wurde der Text nur zur Veranschaulichung farblich gekennzeichnet (Daten physischer Hosts in Blau, Daten virtueller Gäste in Grün).  
   
-**Ausgabebeispiel 1**  
+**Ausgabe Beispiel 1**  
   
 ![](../media/software-inventory-logging/SILHyper-VExample1.png)  
   
-**Ausgabebeispiel 2** (mit Expand-SilData-Funktion)  
+**Ausgabe Beispiel 2** (w/Expand-sildata-Funktion)  
   
 ![](../media/software-inventory-logging/SILHyper-VExample2.png)  
   
 ## <a name="see-also"></a>Siehe auch  
-[Erste Schritte mit der Software Softwareinventurprotokollierung](get-started-with-software-inventory-logging.md)  
+[Beginnen Sie mit der Protokollierung des Software Bestands](get-started-with-software-inventory-logging.md)  
 [Aggregator der Protokollierung des Softwarebestands](software-inventory-logging-aggregator.md)  
-[Cmdlets für die Protokollierung von Software Inventory in Windows PowerShell](https://technet.microsoft.com/library/dn283390.aspx)  
-[Import-BinaryMiLog](https://technet.microsoft.com/library/dn262592.aspx)  
-[Export-BinaryMiLog](https://technet.microsoft.com/library/dn262591.aspx)  
+[Cmdlets für die Protokollierung des Software Bestands in Windows PowerShell](https://technet.microsoft.com/library/dn283390.aspx)  
+[Import-binarymilog](https://technet.microsoft.com/library/dn262592.aspx)  
+[Export-binarymilog](https://technet.microsoft.com/library/dn262591.aspx)  
   
 

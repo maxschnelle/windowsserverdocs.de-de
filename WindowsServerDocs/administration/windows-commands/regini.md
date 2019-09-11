@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: e3f8454572b662c9327aeb4783c5e9651ad2022b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 80f8f4212d2054fc54ce33993a1cef8a1501c6d5
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441897"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868884"
 ---
 # <a name="regini"></a>regini
 
-Ändert die Registrierung über die Befehlszeile oder ein Skript, und Änderungen, die in eine oder mehrere Textdateien Voreinstellung wurden angewendet. Sie können erstellen, ändern oder Löschen von Registrierungsschlüsseln, zusätzlich zum Ändern der Berechtigungen für die Registrierungsschlüssel.
+Ändert die Registrierung über die Befehlszeile oder ein Skript und wendet die Änderungen an, die in einer oder mehreren Textdateien voreingestellt wurden. Sie können Registrierungsschlüssel zusätzlich zum Ändern der Berechtigungen für die Registrierungsschlüssel erstellen, ändern oder löschen.
 
-Ausführliche Informationen zum Format und Inhalt der Text-Skriptdatei, die Regini.exe verwendet wird, um Änderungen an der Registrierung vornehmen, finden Sie unter [wie Registrierungswerte oder Berechtigungen über eine Befehlszeile oder ein Skript geändert](https://support.microsoft.com/help/264584/how-to-change-registry-values-or-permissions-from-a-command-line-or-a).
+Ausführliche Informationen zum Format und Inhalt der Text Skriptdatei, die von Regini. exe verwendet wird, um Änderungen an der Registrierung vorzunehmen, finden Sie unter [Ändern von Registrierungs Werten oder Berechtigungen in einer Befehlszeile oder einem Skript](https://support.microsoft.com/help/264584/how-to-change-registry-values-or-permissions-from-a-command-line-or-a).
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,20 +36,20 @@ regini [-m \\machinename | -h hivefile hiveroot][-i n] [-o outputWidth][-b] text
 
 | Parameter | Beschreibung |
 
-|-m \< \\ \\ComputerName >|Gibt Namen des Remotecomputers mit einer Registrierung, die geändert werden soll. Verwenden Sie das Format  **\\ \\ComputerName**.|
+|-m \< \\ Computername\\>|Gibt den Namen des Remote Computers mit einer Registrierung an, die geändert werden soll. Verwenden Sie das Format  **\\ \\Computername**.|
 |---------------------|-|
-|-h \<Hivefile Hiveroot >|Gibt die lokale Registrierung-Struktur ändern. Sie müssen den Namen der Hive-Datei und den Stamm der Struktur angeben, im Format **Hivefile Hiveroot**.|
-|-i \<n>|Gibt die Ebene des Einzugs zu verwenden, um die Struktur der Registrierungsschlüssel in der Befehlsausgabe anzugeben. Die **Regdmp.exe** -Tool (das eine Registrierung aktuellen Berechtigungen des Schlüssels im Binärformat ruft) mithilfe von Einzügen ein Vielfaches von vier, damit der Standardwert ist **4**.|
-|-o \<outputwidth>|Gibt die Breite der Ausgabe des Befehls, in Zeichen an. Wenn die Ausgabe im Befehlsfenster angezeigt wird, ist der Standardwert der Breite des Fensters. Wenn die Ausgabe in eine Datei weitergeleitet wird, wird der Standardwert ist **240** Zeichen.|
-|-b|Gibt an, dass **Regini.exe** Ausgabe ist abwärtskompatibel mit früheren Versionen von **Regini.exe**. Finden Sie im Abschnitt "Hinweise".|
-|%% amp;quot;c:\textfiles%%amp;quot|Gibt den Namen von ein oder mehrere Textdateien, die Registrierungsdaten enthalten. Es kann eine beliebige Anzahl von ANSI- oder Unicode-Text-Dateien aufgeführt werden.|
+|-h \<hivefile hiveroot >|Gibt die zu ändernde lokale Registrierungs Struktur an. Sie müssen den Namen der Hive-Datei und den Stamm der Struktur im Format **hivefile hiveroot**angeben.|
+|-i \<n >|Gibt die Ebene des Einzugs an, der verwendet wird, um die Struktur der Registrierungsschlüssel in der Befehlsausgabe anzugeben. Das Tool **Regdmp. exe** (das die aktuellen Berechtigungen eines Registrierungsschlüssels im Binärformat abruft) verwendet den Einzug in Vielfachen von vier, sodass der Standardwert **4**ist.|
+|-o \<OutputWidth >|Gibt die Breite der Befehlsausgabe in Zeichen an. Wenn die Ausgabe im Befehlsfenster angezeigt wird, ist der Standardwert die Breite des Fensters. Wenn die Ausgabe an eine Datei weitergeleitet wird, ist der Standardwert **240** Zeichen.|
+|-b|Gibt an, dass die **Regini. exe** -Ausgabe mit früheren Versionen von **Regini. exe**abwärts kompatibel ist. Weitere Informationen finden Sie im Abschnitt "Hinweise".|
+|TextFiles|Gibt den Namen einer oder mehrerer Textdateien an, die Registrierungsdaten enthalten. Eine beliebige Anzahl von ANSI-oder Unicode-Textdateien kann aufgelistet werden.|
 
 ## <a name="remarks"></a>Hinweise
 
-Die folgenden Richtlinien gelten in erster Linie auf den Inhalt der Textdateien, die Registrierungsdaten, die Sie anwenden enthalten, indem Sie mithilfe von **Regini.exe**.
--   Verwenden Sie das Semikolon als von End-of-Line-Kommentarzeichen. Es muss das erste nicht leere Zeichen in einer Zeile sein.
--   Verwenden Sie den umgekehrten Schrägstrich, um die Fortsetzung einer Zeile anzugeben. Der Befehl ignoriert alle Zeichen aus dem umgekehrten Schrägstrich, bis zu (aber nicht einschließlich) dem ersten Zeichen der nächsten Zeile. Wenn Sie mehr als ein Leerzeichen vor dem umgekehrten Schrägstrich einbeziehen, wird es durch ein einzelnes Leerzeichen ersetzt.
--   Verwenden Sie feste Tabstoppzeichen, um Einzug zu steuern. Diese Einzüge gibt an, die Struktur der Registrierungsschlüssel; Allerdings werden diese Zeichen in ein einzelnes Leerzeichen unabhängig von ihrer Position konvertiert.
+Die folgenden Richtlinien gelten in erster Linie für den Inhalt der Textdateien, die Registrierungsdaten enthalten, die Sie mithilfe von **Regini. exe**anwenden.
+-   Verwenden Sie das Semikolon als zeilenendekommentarzeichen. Es muss das erste Zeichen in einer Zeile sein, das kein Leerzeichen ist.
+-   Verwenden Sie den umgekehrten Schrägstrich, um die Fortsetzung einer Zeile anzugeben. Der Befehl ignoriert alle Zeichen des umgekehrten Schrägstrichs bis zu (aber nicht einschließlich) des ersten nicht leeren Zeichens der nächsten Zeile. Wenn Sie mehr als ein Leerzeichen vor dem umgekehrten Schrägstrich einschließen, wird es durch ein einzelnes Leerzeichen ersetzt.
+-   Verwenden Sie hart Tabstopps, um den Einzug zu steuern. Dieser Einzug gibt die Struktur der Registrierungsschlüssel an. Diese Zeichen werden jedoch unabhängig von ihrer Position in ein einzelnes Leerzeichen konvertiert.
 
 #### <a name="additional-references"></a>Weitere Verweise
 

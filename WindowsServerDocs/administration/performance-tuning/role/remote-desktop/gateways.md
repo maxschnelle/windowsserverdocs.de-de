@@ -1,34 +1,34 @@
 ---
-title: Remote Desktop-Gateways die Optimierung der Leistung
-description: Empfehlungen für Remote Desktop-Gateways zur leistungsoptimierung
+title: Leistungsoptimierung Remotedesktop Gateways
+description: Empfehlungen zur Leistungsoptimierung für Remotedesktop Gateways
 ms.prod: windows-server-threshold
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: HammadBu; VladmiS
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: f3ac020b3137621f6b2535c973ab7759443e1535
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: ad314fbf6701da3f96ddc68a598bf3024eaafe16
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811425"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866466"
 ---
-# <a name="performance-tuning-remote-desktop-gateways"></a>Remote Desktop-Gateways die Optimierung der Leistung
+# <a name="performance-tuning-remote-desktop-gateways"></a>Leistungsoptimierung Remotedesktop Gateways
 
 > [!NOTE]
-> In Windows 8 und höher und Windows Server 2012 R2 oder höher unterstützt Remotedesktopgateway (RD-Gateway), TCP, UDP und dem älteren RPC-Transport. Die meisten der folgenden Daten bezieht sich auf den alten RPC-Transport. Wenn Sie nicht der alte RPC-Transport verwendet wird, ist in diesem Abschnitt nicht anwendbar.
+> In Windows 8 und höher und Windows Server 2012 R2 und höher unterstützt Remotedesktop Gateway (RD-Gateway) TCP, UDP und ältere RPC-Transporte. Die meisten der folgenden Daten betreffen den veralteten RPC-Transport. Wenn der ältere RPC-Transport nicht verwendet wird, ist dieser Abschnitt nicht anwendbar.
 
-Dieses Thema beschreibt die Parameter, mit denen die Leistung einer Bereitstellung für Kunden zu verbessern und die Feinabstimmungen, die auf des Kunden Netzwerk von Verwendungsmustern basieren.
+In diesem Thema werden die leistungsbezogenen Parameter beschrieben, mit denen die Leistung einer Kunden Bereitstellung und die Tunings, die auf den Netzwerk Verwendungs Mustern des Kunden basieren, verbessert werden können.
 
-Im Grunde führt RD-Gateway viele Pakete, die Weiterleitung zwischen Instanzen von Remotedesktopverbindung und der RD-Sitzungshost-Server-Instanzen im Netzwerk des Kunden.
+Im Kern führt RD-Gateway viele Paketweiterleitungs Vorgänge zwischen Remotedesktopverbindung Instanzen und den RD-Sitzungshost Server Instanzen im Netzwerk des Kunden durch.
 
 > [!NOTE]
-> Die folgenden Parameter gelten für nur RPC-Transport.
+> Die folgenden Parameter gelten nur für den RPC-Transport.
 
-Exportieren die folgenden Registrierungsparameter zur Verbesserung der Systemleistung in das RD-Gateway, Internet Information Services (IIS) und RD-Gateway.
+Internetinformationsdienste (IIS) und RD-Gateway exportieren Sie die folgenden Registrierungs Parameter, um die Systemleistung in der RD-Gateway zu verbessern.
 
-**Thread Feinabstimmungen**
+**Thread-Tunings**
 
 -   **MaxIoThreads**
 
@@ -36,7 +36,7 @@ Exportieren die folgenden Registrierungsparameter zur Verbesserung der Systemlei
     HKLM\Software\Microsoft\Terminal Server Gateway\Maxiothreads (REG_DWORD)
     ```
 
-    Dieser app-spezifische-Threadpool gibt die Anzahl der Threads, die RD-Gateway erstellt werden, um eingehende Anforderungen zu verarbeiten. Wenn diese Einstellung in der Registrierung vorhanden ist, wird es wirksam. Die Anzahl von Threads entspricht die Anzahl der logischen Prozesse. Wenn die Anzahl der logischen Prozessoren auf weniger als 5 ist, ist die Standardeinstellung 5 Threads.
+    Dieser APP-spezifische Thread Pool gibt die Anzahl der Threads an, die RD-Gateway erstellt, um eingehende Anforderungen zu verarbeiten. Wenn diese Registrierungs Einstellung vorhanden ist, wird Sie wirksam. Die Anzahl der Threads ist mit der Anzahl logischer Prozesse verknüpft. Wenn die Anzahl der logischen Prozessoren kleiner als 5 ist, beträgt der Standardwert 5 Threads.
 
 -   **MaxPoolThreads**
 
@@ -44,37 +44,37 @@ Exportieren die folgenden Registrierungsparameter zur Verbesserung der Systemlei
     HKLM\System\CurrentControlSet\Services\InetInfo\Parameters\MaxPoolThreads (REG_DWORD)
     ```
 
-    Dieser Parameter gibt die Anzahl der IIS-Pool-Threads pro logischem Prozessor zu erstellen. Die IIS-Pool-Threads sehen Sie sich das Netzwerk für Anforderungen und alle eingehende Anforderungen zu verarbeiten. Die **MaxPoolThreads** Anzahl beinhaltet nicht die Threads, der RD-Gateway verwendet. Der Standardwert lautet %%amp;quot;4%%amp;quot;.
+    Dieser Parameter gibt die Anzahl der IIS-Poolthreads an, die pro logischem Prozessor erstellt werden. Die IIS-Poolthreads beobachten das Netzwerk auf Anforderungen und verarbeiten alle eingehenden Anforderungen. Die Anzahl der **MaxPoolThreads** schließt keine Threads ein, die RD-Gateway verbraucht. Der Standardwert lautet %%amp;quot;4%%amp;quot;.
 
-**Remoteprozeduraufruf Aufruf Feinabstimmungen für RD-Gateway**
+**Tunings für Remote Prozedur Aufrufe für RD-Gateway**
 
-Die folgenden Parameter können die Remoteprozeduraufrufe (RPC) zu optimieren, die von der Remotedesktopverbindung und RD-Gateway-Computern empfangen werden. Ändern den Windows können einschränken, wie viele Daten fließen über jede Verbindung, und können die Leistung für RPC über HTTP-v2-Szenarien verbessern.
+Die folgenden Parameter können helfen, die Remote Prozedur Aufrufe (RPC) zu optimieren, die von Remotedesktopverbindung und RD-Gateway Computern empfangen werden. Durch das Ändern der Fenster können Sie Drosseln, wie viele Daten durch die einzelnen Verbindungen übertragen werden, und die Leistung für RPC-über-HTTP v2-Szenarien steigern
 
--   **ServerReceiveWindow**
-
-    ``` syntax
-    HKLM\Software\Microsoft\Rpc\ServerReceiveWindow (REG_DWORD)
-    ```
-
-    Der Standardwert ist 64 KB. Dieser Wert gibt an, das Fenster, das der Server für die Daten verwendet, die von der RPC-Proxy empfangen wird. Der minimale Wert auf 8 KB festgelegt ist, und der maximale Wert auf 1 GB festgelegt ist. Wenn ein Wert nicht vorhanden ist, wird der Standardwert verwendet. Wenn dieser Wert geändert wird, muss IIS neu gestartet werden, für die Änderung wirksam wird.
-
--   **ServerReceiveWindow**
+-   **Serverreceivewindow**
 
     ``` syntax
     HKLM\Software\Microsoft\Rpc\ServerReceiveWindow (REG_DWORD)
     ```
 
-    Der Standardwert ist 64 KB. Dieser Wert gibt an, das Fenster, das der Client für die Daten verwendet, die von der RPC-Proxy empfangen wird. Der minimale Wert beträgt 8 KB, und der maximale Wert beträgt 1 GB. Wenn ein Wert nicht vorhanden ist, wird der Standardwert verwendet.
+    Der Standardwert ist 64 KB. Dieser Wert gibt das Fenster an, das der Server für Daten verwendet, die vom RPC-Proxy empfangen werden. Der Minimalwert ist auf 8 KB festgelegt, und der Höchstwert wird auf 1 GB festgelegt. Wenn kein Wert vorhanden ist, wird der Standardwert verwendet. Wenn an diesem Wertänderungen vorgenommen werden, muss IIS neu gestartet werden, damit die Änderung wirksam wird.
+
+-   **Serverreceivewindow**
+
+    ``` syntax
+    HKLM\Software\Microsoft\Rpc\ServerReceiveWindow (REG_DWORD)
+    ```
+
+    Der Standardwert ist 64 KB. Dieser Wert gibt das Fenster an, das der Client für Daten verwendet, die vom RPC-Proxy empfangen werden. Der Minimalwert ist 8 KB, und der Höchstwert beträgt 1 GB. Wenn kein Wert vorhanden ist, wird der Standardwert verwendet.
 
 ## <a name="monitoring-and-data-collection"></a>Überwachung und Datensammlung
 
-Die folgende Liste von Leistungsindikatoren gilt einen Basissatz von Leistungsindikatoren, wenn Sie die Ressourcenverwendung auf dem RD-Gateway überwachen:
+Die folgende Liste der Leistungsindikatoren wird als Basissatz von Indikatoren betrachtet, wenn Sie die Ressourcenverwendung auf dem RD-Gateway überwachen:
 
--   \\Terminal Service Gateway\\\*
+-   \\Terminal Dienst Gateway\\\*
 
 -   \\RPC/HTTP-Proxy\\\*
 
--   \\RPC/HTTP-Proxys pro Server\\\*
+-   \\RPC/HTTP-Proxy pro Server\\\*
 
 -   \\Webdienst\\\*
 
@@ -82,30 +82,30 @@ Die folgende Liste von Leistungsindikatoren gilt einen Basissatz von Leistungsin
 
 -   \\IPv4\\\*
 
--   \\Arbeitsspeicher\\\*
+-   \\Gedenkens\\\*
 
 -   \\Netzwerkschnittstelle (\*)\\\*
 
 -   \\Prozess (\*)\\\*
 
--   \\Prozessorinformationen (\*)\\\*
+-   \\Prozessor Informationen (\*)\\\*
 
--   \\Synchronisierung (\*)\\\*
+-   \\Synchronisierung\*()\\\*
 
--   \\System\\\*
+-   \\Anlage\\\*
 
 -   \\TCPv4\\\*
 
-Die folgenden Leistungsindikatoren gelten nur für ältere RPC-Transport:
+Die folgenden Leistungsindikatoren sind nur für den Legacy-RPC-Transport anwendbar:
 
--   \\RPC/HTTP-Proxy\\ \* RPC
+-   \\RPC/HTTP-\\ Proxy\* -RPC
 
--   \\RPC/HTTP-Proxys pro Server\\ \* RPC
+-   \\RPC/HTTP-Proxy pro\\ Server\* -RPC
 
--   \\Webdienst-\\ \* RPC
+-   \\\\ Webdienst\* -RPC
 
--   \\W3SVC\_W3WP\\\* RPC
+-   \\W3SVC\_W3WP\\ RPC\*
 
 > [!NOTE]
-> Fügen Sie ggf. die \\IPv6\\ \* und \\TCPv6\\ \* Objekte. ### ReplaceThisText
+> Fügen Sie ggf. \\die\\ IPv6 \\\* -\\ undTCPv6\* -Objekte hinzu. ReplaceThisText
 

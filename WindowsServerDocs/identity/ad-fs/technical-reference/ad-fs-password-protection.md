@@ -1,6 +1,6 @@
 ---
-title: AD FS Kennwort Angriffsschutz
-description: In diesem Dokument wird beschrieben, wie AD FS-Benutzer vor Angriffen durch das Kennwort zu schützen
+title: Schutz von AD FS Kenn Wort Angriffen
+description: In diesem Dokument wird beschrieben, wie AD FS Benutzer vor Kenn Wort Angriffen geschützt werden.
 author: billmath
 manager: mtillman
 ms.reviewer: andandyMSFT
@@ -9,118 +9,118 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 5666943138070cfa8cfe62f1ba932c2793daa003
-ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
+ms.openlocfilehash: c446ec86d426148836267e29610f86691cf0798a
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66501602"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865457"
 ---
-# <a name="ad-fs-password-attack-protection"></a>AD FS Kennwort Angriffsschutz
+# <a name="ad-fs-password-attack-protection"></a>Schutz von AD FS Kenn Wort Angriffen
 
-## <a name="what-is-a-password-attack"></a>Was ist ein Kennwortangriff?
+## <a name="what-is-a-password-attack"></a>Was ist ein Kenn Wort Angriff?
 
-Eine Voraussetzung für das einmaliges Anmelden im Verbund ist die Verfügbarkeit von Endpunkten zur Authentifizierung über das Internet. Die Verfügbarkeit von authentifizierungsendpunkte im Internet kann Benutzer die Anwendungen zugreifen, selbst wenn diese nicht in einem Unternehmensnetzwerk befinden. 
+Eine Voraussetzung für Verbund Single Sign-on ist die Verfügbarkeit von Endpunkten zur Authentifizierung über das Internet. Die Verfügbarkeit von Authentifizierungs Endpunkten im Internet ermöglicht Benutzern den Zugriff auf die Anwendungen, auch wenn Sie sich nicht in einem Unternehmensnetzwerk befinden. 
 
-Dies bedeutet jedoch auch, dass einige risikoteilnehmer können die verbundendpunkte verfügbar über das Internet nutzen und diese Endpunkte verwenden, versuchen Sie es aus, und bestimmen Kennwörter oder DOS-Angriffe zu erstellen. Ein solcher Angriff, die immer öfter wenden heißt eine **Kennwortangriff**. 
+Dies bedeutet jedoch auch, dass einige schlechte Akteure die im Internet verfügbaren Verbund Endpunkte nutzen und diese Endpunkte verwenden können, um Kenn Wörter zu ermitteln und zu ermitteln oder Denial-of-Service-Angriffe zu erzeugen. Ein solcher Angriff, der häufiger wird, wird als Kenn **Wort Angriff**bezeichnet. 
 
-Es gibt 2 Typen von häufigen Kennwortangriffen. Kennwort Sprühende Angriffen und Brute-force-Kennwortangriffs. 
+Es gibt zwei Arten von häufigen Kenn Wort Angriffen. Kenn Wort Sprüh Angriff & Brute-Force-Kenn Wort Angriff. 
 
-### <a name="password-spray-attack"></a>Sprühende Kennwortangriff
-Bei einem Angriff Kennwort Sprühende versucht diese risikoteilnehmer die am häufigsten verwendeten Kennwörter über viele verschiedene Konten und Dienste für den Zugriff auf alle Ressourcen ein Kennwort geschützt, die sie finden können. In der Regel umfassen diese viele Organisationen und Identitätsanbieter. Beispielsweise verwendet ein Angreifer eine gängiger Toolkit zum Auflisten aller Benutzer in mehreren Organisationen aus, und wiederholen dann "P@$$w0rd" und "Password1" für all diese Konten. Um Ihnen die Idee erteilen, kann ein Angriff aussehen:
+### <a name="password-spray-attack"></a>Kenn Wort Sprüh Angriff
+Bei einem Kenn Wort Sprüh Angriff versuchen diese böswilligen Akteure, die gängigsten Kenn Wörter für viele verschiedene Konten und Dienste zu verwenden, um Zugriff auf die Kenn Wort geschützten Ressourcen zu erhalten, die Sie finden. Diese umfassen in der Regel viele verschiedene Organisationen und Identitäts Anbieter. Ein Angreifer verwendet beispielsweise ein häufig verfügbares Toolkit, um alle Benutzer in mehreren Organisationen aufzulisten, und versucht dann, "P @ $ $w 0rd" und "Password1" für alle diese Konten zu verwenden. Ein Angriff könnte beispielsweise wie folgt aussehen:
 
 
-|  Zielbenutzer   | Zielkennwort |
+|  Ziel Benutzer   | Ziel Kennwort |
 |----------------|-----------------|
 | User1@org1.com |    Password1    |
 | User2@org1.com |    Password1    |
 | User1@org2.com |    Password1    |
 | User2@org2.com |    Password1    |
 |       …        |        …        |
-| User1@org1.com |    P@$$w0rd     |
-| User2@org1.com |    P@$$w0rd     |
-| User1@org2.com |    P@$$w0rd     |
-| User2@org2.com |    P@$$w0rd     |
+| User1@org1.com |    P @ $ $w 0rd     |
+| User2@org1.com |    P @ $ $w 0rd     |
+| User1@org2.com |    P @ $ $w 0rd     |
+| User2@org2.com |    P @ $ $w 0rd     |
 
-Dieser Angriff QuarantŠneprozesse Erkennungstechniken für die meisten umgangen, da von der Aussichtspunkt der ein einzelner Benutzer oder Unternehmen, der Angriff nur einen isolierten Anmeldefehler aussieht.
+Dieses Angriffsmuster geht vor den meisten Erkennungs Techniken, da der Angriff vom Standpunkt eines einzelnen Benutzers oder Unternehmens aus wie eine isolierte fehlgeschlagene Anmeldung aussieht.
 
-Angreifer verwenden, ist es ein Spiel Zahlen: sie wissen, dass es einige Kennwörter ein, die häufig verwendeten vorhanden sind.  Der Angreifer erhält einige Erfolge für alle tausend Konten, die angegriffen, und dies genügt, um effektiv zu sein. Sie verwenden die Konten, zum Abrufen von Daten aus e-Mails, Sammeln von Kontaktinformationen, und Senden von Phishing-Links oder nur Kennwort Sprühende Zielgruppe zu erweitern. Die Angreifer nicht weniger wichtig, die die ursprünglichen Ziele werden, sondern nur, dass sie mit einigem Erfolg haben, die sie nutzen können.
+Bei Angreifern ist es ein Zahlen Spiel: Sie wissen, dass es einige Kenn Wörter gibt, die sehr häufig vorkommen.  Der Angreifer erhält einen Erfolg für alle tausend Konten, die angegriffen werden, und das ist ausreichend, um effektiv zu sein. Sie verwenden die Konten zum erhalten von Daten aus e-Mails, zum Sammeln von Kontaktinformationen und zum Senden von phishinglinks oder zum Erweitern der Zielgruppe für Kenn Wort Sprays. Die Angreifer kümmern sich nicht darum, wer die ursprünglichen Ziele sind – nur, dass Sie einen Erfolg haben, den Sie nutzen können.
 
-Aber mit wenigen Schritten konfigurieren die AD FS und ordnungsgemäß AD FS-Endpunkte für diese Art von Angriffen geschützt werden können. Dieser Artikel behandelt die 3 Bereiche, die für den Schutz vor diesen Angriffen ordnungsgemäß konfiguriert werden müssen.
+Indem Sie jedoch einige Schritte ausführen, um die AD FS und das Netzwerk ordnungsgemäß zu konfigurieren, können AD FS Endpunkte gegen diese Art von Angriffen geschützt werden. Dieser Artikel befasst sich mit drei Bereichen, die ordnungsgemäß konfiguriert werden müssen, um diese Angriffe zu schützen.
 
-### <a name="brute-force-password-attack"></a>Kennwort Brute-Force-Angriff 
-Bei dieser Form von Angriff versucht ein Angreifer mehrere Kennwortversuche für eine bestimmte Reihe von Konten. In vielen Fällen werden diese Konten für Benutzer vorgesehen, die innerhalb der Organisation eine höhere Zugriffsebene verfügen. Diese können Führungskräfte innerhalb der Organisation oder Administratoren sein, die kritischen Infrastrukturen zu verwalten.  
+### <a name="brute-force-password-attack"></a>Brute-Force-Kenn Wort Angriff 
+Bei dieser Art von Angriff versucht ein Angreifer mehrere Kenn Wort Versuche für einen Zielsatz von Konten. In vielen Fällen werden diese Konten für Benutzer bestimmt, die über eine höhere Zugriffsebene innerhalb der Organisation verfügen. Dabei kann es sich um Führungskräfte innerhalb der Organisation oder Administratoren handeln, die die kritische Infrastruktur verwalten.  
 
-Diese Art von Angriff könnte auch DOS-Muster führen. Dies könnte auf Dienstebene, in dem AD FS eine große Anzahl von Anforderungen aufgrund von unzureichenden Anzahl von Servern verarbeiten kann, oder möglicherweise auf einer Benutzerebene, in denen ein Benutzer aus ihrem Konto gesperrt wird.  
+Diese Art von Angriff kann auch zu DOS-Mustern führen. Dies kann auf dem Service Level erfolgen, auf dem AD FS eine große Anzahl von Anforderungen aufgrund unzureichender Anzahl von Servern nicht verarbeiten kann oder sich auf einer Benutzerebene befinden kann, bei der ein Benutzer von seinem Konto gesperrt ist.  
 
-## <a name="securing-ad-fs-against-password-attacks"></a>Sichern von AD FS gegen Angriffe auf Kennwörter 
+## <a name="securing-ad-fs-against-password-attacks"></a>Sichern von AD FS vor Kenn Wort Angriffen 
 
-Aber mit wenigen Schritten konfigurieren die AD FS und ordnungsgemäß AD FS-Endpunkte für diese Arten von Angriffen geschützt werden können. Dieser Artikel behandelt die 3 Bereiche, die für den Schutz vor diesen Angriffen ordnungsgemäß konfiguriert werden müssen. 
+Indem Sie jedoch einige Schritte ausführen, um die AD FS und das Netzwerk ordnungsgemäß zu konfigurieren, können AD FS Endpunkte gegen diese Art von Angriffen geschützt werden. Dieser Artikel befasst sich mit drei Bereichen, die ordnungsgemäß konfiguriert werden müssen, um diese Angriffe zu schützen. 
 
 
-- Ebene 1, Baseline: Dies sind die grundlegenden Einstellungen, die auf eine AD FS-Server, um sicherzustellen, dass Angreifer brute-Force-Angriff Verbund-Benutzer kann nicht konfiguriert werden müssen. 
-- Ebene 2, das extranet schützen: Hierbei handelt es sich um die Einstellungen, die konfiguriert werden müssen, um sicherzustellen, dass die extranet-Zugriff konfiguriert ist, um sichere Protokolle, Authentifizierungsrichtlinien und entsprechende Anwendungen zu verwenden. 
-- Ebene 3, verschieben, ohne Kennwort für den Extranetzugriff: Diese sind erweiterte Einstellungen und Richtlinien zum Aktivieren des Zugriffs auf verbundene Ressourcen mit sicherer Anmeldeinformationen statt Kennwörter, die anfällig für Angriffe sind. 
+- Ebene 1, Baseline: Dabei handelt es sich um die grundlegenden Einstellungen, die auf einem AD FS Server konfiguriert werden müssen, um sicherzustellen, dass böswillige Actors keine Brute-Force-Angriffe für Benutzer 
+- Ebene 2: Schützen des Extranet: Dies sind die Einstellungen, die konfiguriert werden müssen, um sicherzustellen, dass der Extranetzugriff konfiguriert ist, um sichere Protokolle, Authentifizierungs Richtlinien und geeignete Anwendungen zu verwenden. 
+- Ebene 3: für den Extranetzugriff auf das Kennwort weniger verschieben: Dies sind erweiterte Einstellungen und Richtlinien, um den Zugriff auf Verbund Ressourcen mit sichereren Anmelde Informationen anstelle von Kenn Wörtern zu ermöglichen, die Angriffs anfällig sind. 
 
 ## <a name="level-1-baseline"></a>Ebene 1: Baseline
 
-1. Wenn AD FS 2016 implementieren [extranet der smart Lockout](../../ad-fs/operations/Configure-AD-FS-Extranet-Smart-Lockout-Protection.md) Extranet der smart Lockout verfolgt der vertrauten Standorte und kann einen gültige Benutzer über kommen, wenn sie erfolgreich zuvor von diesem Speicherort angemeldet haben. Verwenden smart extranetsperre, können Sie sicherstellen, dass Angreifer nicht brute-Force kann greifen die Benutzer an und zur gleichen Zeit berechtigten Benutzer produktiv arbeiten können.
-    - Wenn Sie nicht in AD FS 2016 sind, wird dringend empfohlen [upgrade](../../ad-fs/deployment/upgrading-to-ad-fs-in-windows-server.md) mit AD FS 2016. Es ist eine einfache Aktualisierung von AD FS 2012 R2. Wenn Sie AD FS 2012 R2 verwenden, implementieren Sie [extranetsperre](../../ad-fs/operations/Configure-AD-FS-Extranet-Soft-Lockout-Protection.md). Ein Nachteil dieses Ansatzes ist, dass gültige Benutzer bei extranet-Zugriff blockiert werden können, wenn Sie in einem brute-Force-Muster sind. AD FS unter Server 2016 muss dieser Nachteil nicht.
+1. Wenn ADFS 2016 [, implementieren Sie die Smart Sperrungs](../../ad-fs/operations/Configure-AD-FS-Extranet-Smart-Lockout-Protection.md) -Extranet-Extranet-Smart Sperrungs, die vertraute Standorte nachverfolgt, und ermöglicht es einem gültigen Benutzer, zu kommen, wenn er sich zuvor erfolgreich von diesem Speicherort angemeldet hat. Durch die Verwendung von Extranet Smart Lockout können Sie sicherstellen, dass böswillige Akteure nicht in der Lage sind, Brute-Force-Angriffe der Benutzer durchzusetzen, und gleichzeitig den legitimen Benutzer produktiv machen können.
+    - Wenn Sie nicht AD FS 2016, wird dringend empfohlen, ein [Upgrade](../../ad-fs/deployment/upgrading-to-ad-fs-in-windows-server.md) auf AD FS 2016 durchzuführen. Es handelt sich um einen einfachen Upgradepfad von AD FS 2012 R2. Wenn Sie AD FS 2012 R2 haben, implementieren Sie [extranetsperre](../../ad-fs/operations/Configure-AD-FS-Extranet-Soft-Lockout-Protection.md). Ein Nachteil dieses Ansatzes ist, dass gültige Benutzer möglicherweise für den Extranetzugriff blockiert werden, wenn Sie ein Brute-Force-Muster haben. AD FS auf Server 2016 hat diesen Nachteil nicht.
 
-2. Monitor & blockieren verdächtiger IP-Adressen 
-    - Wenn Sie Azure AD Premium verfügen, implementieren Sie Connect Health für AD FS und der [riskante IP-Adresse Bericht](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs#risky-ip-report-public-preview) Benachrichtigungen, die er bereitstellt.
+2. Überwachung & blockieren verdächtiger IP-Adressen 
+    - Wenn Sie Azure AD Premium haben, implementieren Sie Connect Health für AD FS, und verwenden Sie die von ihr bereitgestellten [riskanten IP-Berichts](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs#risky-ip-report-public-preview) Benachrichtigungen.
 
-        a. Lizenzierung ist nicht für alle Benutzer und erfordert 25 Lizenzen/AD FS/WAP-Server, der möglicherweise für einen Kunden einfach.
+        a. Die Lizenzierung ist nicht für alle Benutzer vorgesehen und erfordert 25 Lizenzen/AD FS/WAP-Server, die für einen Kunden leicht leicht sind.
 
-        b. Sie können jetzt IP-Adressen untersuchen, die große Anzahl von fehlgeschlagenen Anmeldungen generieren
+        b. Nun können Sie IP-Adressen untersuchen, die eine große Anzahl fehlerhafter Anmeldungen erzeugen.
 
-        c. Dies müssen Sie zum Aktivieren der Überwachung für Ihre AD FS-Server.
+        c. Dies erfordert, dass Sie die Überwachung auf Ihren AD FS-Servern aktivieren.
 
-3.  Hiermit blockieren Sie verdächtige IP-Adressen.  Dadurch wird möglicherweise DOS-Angriffe verhindert.
+3.  Blockieren verdächtiger IP-Adressen.  Dies blockiert potenziell DOS-Angriffe.
 
-    a. Wenn es sich um 2016 verwenden die [ *Extranet gesperrt IP-Adressen* ](../../ad-fs/operations/configure-ad-fs-banned-ip.md) featureflags, alle Anforderungen aus der IP-Adressen blockieren von #3 (oder manuellen Analyse).
+    a. Wenn auf 2016, verwenden Sie das Feature für das [*extranetverbot*](../../ad-fs/operations/configure-ad-fs-banned-ip.md) für gesperrte IP-Adressen, um alle Anforderungen von IP-Adressen zu blockieren, die durch #3 gekennzeichnet sind (oder manuell
 
-    b. Wenn Sie AD FS 2012 R2 und früher verwenden, blockieren Sie die IP-Adresse direkt auf Exchange Online und optional in Ihrer Firewall.
+    b. Wenn Sie sich AD FS 2012 R2 oder niedriger befinden, blockieren Sie die IP-Adresse direkt in Exchange Online und optional in Ihrer Firewall.
 
-4. Wenn Sie Azure AD Premium verfügen, verwenden Sie [Schutz von Kennwörtern in Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) um zu verhindern, dass zu erraten von Kennwörtern in Azure AD abrufen  
+4. Wenn Sie über Azure AD Premium verfügen, verwenden Sie [Azure AD Kenn Wort Schutz](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) , um zu verhindern, dass zu berücksichtigende Kenn Wörter in Azure AD  
 
-    a. Beachten Sie, dass Ihre zu erraten von Kennwörtern können sie mit nur 1 bis 3 geknackt werden kann. Diese Funktion verhindert, dass diese vom vorbereiten. 
+    a. Beachten Sie, dass Sie, wenn Sie über schämier Bare Kenn Wörter verfügen, diese mit nur 1-3 versuchen erreichen können. Diese Funktion verhindert, dass diese festgelegt werden. 
 
-    b. Unsere Vorschau-Statistik abrufen fast 20 – 50 % der neuen Kennwörter blockiert festgelegt wird. Dies bedeutet, dass % der Benutzer leicht erraten werden Kennwörter anfällig sind.
+    b. Aus unseren Vorschau Statistiken werden fast 20-50% der neuen Kenn Wörter blockiert. Dies impliziert, dass% der Benutzer anfällig für leicht erraten Kenn Wörter sind.
 
-## <a name="level-2-protect-your-extranet"></a>Ebene 2: Schützen Sie Ihre extranet
+## <a name="level-2-protect-your-extranet"></a>Ebene 2: Schützen Ihres Extranet
 
-5. Verschieben Sie auf die moderne Authentifizierung für alle Clients, die aus dem extranet auf. E-Mail-Clients sind ein wichtiger Aspekt. 
+5. Wechseln Sie zur modernen Authentifizierung für alle Clients, die auf das Extranet zugreifen. E-Mail-Clients sind eine große Rolle. 
 
-    a. Sie müssen auf Outlook Mobile für mobile Geräte zu verwenden. Die neue native Mail-app für iOS unterstützt auch die modernen Authentifizierung. 
+    a. Sie müssen Outlook Mobile für mobile Geräte verwenden. Die neue IOS Native Mail-App unterstützt auch die moderne Authentifizierung. 
 
-    b. Sie benötigen, Outlook 2013 (mit der neuesten CU-Patches) oder Outlook 2016 zu verwenden.
+    b. Sie müssen Outlook 2013 (mit den neuesten Cu-Patches) oder Outlook 2016 verwenden.
 
-6. Aktivieren der MFA für alle extranet-Zugriff. Dadurch erhalten Sie den Schutz für alle extranet-Zugriff hinzugefügt.
+6. Aktivieren Sie MFA für den gesamten Extranetzugriff. Dadurch erhalten Sie zusätzlichen Schutz für alle extranetzugriffe.
 
-   a.  Wenn Sie Azure AD Premium verfügen, verwenden Sie [bedingtem Azure AD-Richtlinien](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) steuern.  Dies ist besser als die Implementierung von der Regeln in AD FS.  Dies ist da moderne Clientanwendungen für häufigere erzwungen werden.  In diesem Fall auf Azure AD bei der Anforderung eines neues Zugriffstokens (in der Regel einmal pro Stunde) mithilfe eines aktualisierungstokens abzurufen.  
+   a.  Wenn Sie über Azure AD Premium verfügen, verwenden Sie [Azure AD Richtlinien für bedingten Zugriff](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) , um dies zu steuern.  Dies ist besser als das Implementieren der Regeln in AD FS.  Der Grund hierfür ist, dass moderne Client-apps häufiger erzwungen werden.  Dies geschieht bei Azure AD, wenn ein neues Zugriffs Token (in der Regel stündlich) mit einem Aktualisierungs Token angefordert wird.  
 
-   b.  Wenn Sie keine Azure AD Premium oder zusätzliche apps in AD FS, mit denen Sie Internet Access basierend, implementieren Sie MFA (möglicherweise Azure MFA und AD FS 2016) und führen Sie eine [globale MFA-Richtlinie](../../ad-fs/operations/configure-authentication-policies.md#to-configure-multi-factor-authentication-globally) für alle extranet-Zugriff.
+   b.  Wenn Sie nicht über Azure AD Premium verfügen oder über zusätzliche apps auf AD FS verfügen, für die Sie internetbasierten Zugriff zulassen, implementieren Sie MFA (kann auch Azure MFA sein AD FS 2016), und führen Sie eine [globale MFA-Richtlinie](../../ad-fs/operations/configure-authentication-policies.md#to-configure-multi-factor-authentication-globally) für den gesamten Extranetzugriff durch.
 
-## <a name="level-3-move-to-password-less-for-extranet-access"></a>Ebene 3: Wechsel zu Kennwort weniger für extranet-Zugriff
+## <a name="level-3-move-to-password-less-for-extranet-access"></a>Ebene 3: Für den Extranetzugriff auf das Kennwort weniger verschieben
 
-7. Verschieben Sie in Windows 10, und verwenden [Hello For Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification).
+7. Wechseln Sie zu Windows 10, und verwenden Sie [Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
-8. Für andere Geräte, wenn es sich um AD FS 2016 können Sie [Azure MFA-OTP](../../ad-fs/operations/configure-ad-fs-and-azure-mfa.md) als der erste Faktor und das Kennwort als die 2. Stufe. 
+8. Bei anderen Geräten können Sie, wenn Sie auf AD FS 2016, [Azure MFA OTP](../../ad-fs/operations/configure-ad-fs-and-azure-mfa.md) als ersten Faktor und Kennwort als 2. Faktor verwenden. 
 
-9. Für mobile Geräte, wenn Sie nur die MDM-verwalteten Geräten zulassen können [Zertifikate](../../ad-fs/operations/configure-user-certificate-authentication.md) , die der Benutzer nicht anmelden. 
+9. Wenn Sie für mobile Geräte nur MDM-verwaltete Geräte zulassen, können Sie den Benutzer mit [Zertifikaten](../../ad-fs/operations/configure-user-certificate-authentication.md) anmelden. 
 
 ## <a name="urgent-handling"></a>Dringende Behandlung
 
-Wenn die AD FS-Umgebung angegriffen aktiv ist, sollte die folgenden Schritte aus wie möglich implementiert werden:
+Wenn die AD FS Umgebung aktiv ist, sollten Sie die folgenden Schritte ausführen:
 
- - Deaktivieren Sie U/P-Endpunkt in AD FS und müssen Sie sich alle Benutzer-VPN-Zugriff oder in Ihrem Netzwerk sein. Dazu müssen Sie Schritt **auf Ebene 2 #1a** abgeschlossen. Andernfalls werden alle internen Outlook-Anforderungen immer noch über die Cloud über EXO-Proxy-Authentifizierung weitergeleitet werden
- - Wenn der Angriff nur über EXO stammen, können Sie deaktivieren, Standardauthentifizierung für Exchange-Protokolle (POP, IMAP, SMTP, Exchange-Webdienste usw.) verwenden die Authentifizierungsrichtlinien, diese Protokolle und die Authentifizierungsmethoden verwendet werden, die große Mehrheit dieser Art von Angriffen. Darüber hinaus werden die Client-Zugriffsregeln in EXO- und pro Postfach-Protokoll-Aktivierung sind ausgewertete nach der Authentifizierung und wird nicht daran, die Angriffe helfen. 
- - Bieten Sie selektiv extranet-Zugriff mithilfe von Ebene-3 #1 bis 3.
+ - Deaktivieren Sie den U/P-Endpunkt in AD FS, und fordern Sie alle Benutzer zu VPN, um Zugriff zu erhalten Dies erfordert, dass Schritt **Ebene 2 #1a** abgeschlossen ist. Andernfalls werden alle internen Outlook-Anforderungen weiterhin über die Cloud über die Exo-Proxy Authentifizierung weitergeleitet.
+ - Wenn der Angriff nur über "Exo" erfolgt, können Sie die Standard Authentifizierung für Exchange-Protokolle (Pop, IMAP, SMTP, EWS usw.) mithilfe von Authentifizierungs Richtlinien deaktivieren. diese Protokolle und Authentifizierungsmethoden werden bei den meisten dieser Angriffe verwendet. Außerdem werden die Client Zugriffsregeln in der "Exo"-und Post Fach Protokoll-Aktivierung nach der Authentifizierung ausgewertet und helfen nicht bei der Vermeidung von Angriffen. 
+ - Stellen Sie selektiv Extranetzugriff mithilfe von Ebene 3 #1-3 bereit.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Ein Upgrade auf AD FS-Server 2016](../../ad-fs/deployment/upgrading-to-ad-fs-in-windows-server.md) 
-- [Intelligente extranetsperre in AD FS 2016](../../ad-fs/operations/Configure-AD-FS-Extranet-Smart-Lockout-Protection.md)
+- [Upgrade auf AD FS Server 2016](../../ad-fs/deployment/upgrading-to-ad-fs-in-windows-server.md) 
+- [Extranet Smart Sperrungs in AD FS 2016](../../ad-fs/operations/Configure-AD-FS-Extranet-Smart-Lockout-Protection.md)
 - [Konfigurieren von Richtlinien für bedingten Zugriff](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-- [Kennwortschutz für Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises)
+- [Azure AD Kenn Wort Schutz](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises)

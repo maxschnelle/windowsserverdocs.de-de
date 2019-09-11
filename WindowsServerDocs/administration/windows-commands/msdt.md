@@ -1,6 +1,6 @@
 ---
 title: msdt
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ba411cf73026afe9990e5c32824e3dc277507891
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 7bec16ab3f716148bb009dd56be475fcd058a897
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437232"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868896"
 ---
 # <a name="msdt"></a>msdt
 
 
 
-Ruft eine Problembehandlung Pack in der Befehlszeile oder als Teil eines automatisierten Skripts und zusätzliche Optionen ohne Benutzereingabe ermöglicht.
+Ruft ein Problem Behandlungspaket in der Befehlszeile oder als Teil eines automatisierten Skripts auf und ermöglicht zusätzliche Optionen ohne Benutzereingaben.
 
 ## <a name="syntax"></a>Syntax
 
@@ -34,14 +34,14 @@ msdt </id <name> | /path <name> | /cab < name>> <</parameter> [options] … <par
 
 ## <a name="parameters"></a>Parameter
 
-Die folgende Tabelle enthält die Parameter und von msdt.exe unterstützten Optionen.
+In der folgenden Tabelle sind die Parameter und Optionen enthalten, die von MSDT. exe unterstützt werden.
 
 
 |      Parameter      |                                                                                            Beschreibung                                                                                             |
 |---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| /ID \<Paketname > |        Gibt an, die Diagnose-Paket ausführen. Eine Liste der verfügbaren Pakete finden Sie unter der Problembehandlung Pack-ID im Feld "Verfügbare Problembehandlungspakete? weiter unten in diesem Thema.         |
-|  / Path \<Verzeichnis  |                                                                                           .diagpkg-Datei                                                                                            |
-|   /dci \<passkey>   |                                        Bereits das Hauptschlüssel Feld Msdt an. Dieser Parameter wird nur verwendet, wenn ein Anbieter für technischen Support einen Hauptschlüssel zur Verfügung gestellt.                                         |
-|  /dt \<directory>   | Zeigt den Verlauf zur Problembehandlung im angegebenen Verzeichnis. Diagnoseergebnisse des Benutzers gespeichert sind **%LOCALAPPDATA%\Diagnostics** oder **%LOCALAPPDATA%\ElevatedDiagnostics** Verzeichnisse. |
-| / AF \<Antwortdatei >  |                                               Gibt eine Antwortdatei im XML-Format, das Antworten auf eine oder mehrere diagnostische Interaktionen enthält.                                               |
+| /ID \<Paketname > |        Gibt an, welches Diagnosepaket ausgeführt werden soll. Eine Liste der verfügbaren Pakete finden Sie in der Problem Behandlungspaket-ID im Abschnitt "verfügbare Problem Behandlungspakete" weiter unten in diesem Thema.         |
+|  /Path \<Verzeichnis  |                                                                                           . diagpkg-Datei                                                                                            |
+|   /DCI \<Passkey->   |                                        Füllt das Hauptschlüssel-Feld in MSDT vorab auf. Dieser Parameter wird nur verwendet, wenn ein Support Anbieter einen Passkey bereitgestellt hat.                                         |
+|  /DT \<Verzeichnis >   | Zeigt den Verlauf der Problembehandlung im angegebenen Verzeichnis an. Diagnoseergebnisse werden in den Verzeichnissen " **%LocalAppData%\diagnostics** " oder " **%LocalAppData%\elevateddiagnostics** " des Benutzers gespeichert. |
+| /AF \<Antwortdatei >  |                                               Gibt eine Antwortdatei im XML-Format an, die Antworten auf eine oder mehrere Diagnose Interaktionen enthält.                                               |
 

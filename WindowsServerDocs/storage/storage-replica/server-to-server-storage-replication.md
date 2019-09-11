@@ -9,12 +9,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 04/26/2019
 ms.assetid: 61881b52-ee6a-4c8e-85d3-702ab8a2bd8c
-ms.openlocfilehash: 6b6af6d7b3f0c9a40f7e287097a0c102e637fbb0
-ms.sourcegitcommit: 2db58119d6ada38cc1b6b4bbf2950571d914dcab
+ms.openlocfilehash: fccdb8547ff27083ce943892842c2e2d05e5ace8
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69626853"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865287"
 ---
 # <a name="server-to-server-storage-replication-with-storage-replica"></a>Server-zu-Server-Speicher Replikation mit Speicher Replikat
 
@@ -37,7 +37,7 @@ Im folgenden finden Sie ein Übersichts Video zur Verwendung des Speicher Replik
 * Mindestens eine Ethernet/TCP-Verbindung auf jedem Server für die synchrone Replikation (vorzugsweise RDMA).   
 * Geeignete Firewall- und Routerregeln, um bidirektionalen ICMP-Datenverkehr, SMB-Datenverkehr (Port445 sowie 5445 für SMB Direct) und WS-MAN-Datenverkehr (Port5985) zwischen allen Knoten zu ermöglichen.  
 * Ein Netzwerk zwischen den Servern mit ausreichender Bandbreite für Ihre E/A-Schreibworkload sowie durchschnittlich 5 ms Roundtriplatenz für die synchrone Replikation. Bei der asynchronen Replikation ist keine Latenz Empfehlung vorhanden.<br>
-Wenn Sie zwischen lokalen Servern und virtuellen Azure-Computern replizieren, müssen Sie eine Netzwerkverbindung zwischen den lokalen Servern und den Azure-VMS erstellen. Verwenden Sie hierzu [Express Route](#add-azure-vm-expressroute), eine [Standort-zu-Standort-VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)-Gatewayverbindung, oder installieren Sie VPN-Software auf Ihren virtuellen Azure-Computern, um Sie mit Ihrem lokalen Netzwerk zu verbinden.
+Wenn Sie zwischen lokalen Servern und virtuellen Azure-Computern replizieren, müssen Sie eine Netzwerkverbindung zwischen den lokalen Servern und den Azure-VMS erstellen. Verwenden Sie hierzu [Express Route](#add-azure-vm-expressroute), eine [Standort-zu-Standort-VPN-Gatewayverbindung](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), oder installieren Sie VPN-Software auf Ihren virtuellen Azure-Computern, um Sie mit Ihrem lokalen Netzwerk zu verbinden.
 * Der replizierte Speicher darf sich nicht auf dem Laufwerk mit dem Ordner des Windows-Betriebssystems befinden.
 
 > [!IMPORTANT]
@@ -111,7 +111,7 @@ Wenn Sie das Speicher Replikat mithilfe des Windows Admin Centers verwalten, fü
     -   **Windows Admin Center-Methode**
         1. Navigieren Sie im Windows Admin Center zu Server-Manager, und wählen Sie dann einen der Server aus.
         2. Navigieren Sie zu **Rollen & Features**.
-        3. Wählen Sie **Features** > **Speicher**Replikat, und klicken Sie dann auf **Installieren**.
+        3. Wählen Sie **Features** > **Speicher Replikat**, und klicken Sie dann auf **Installieren**.
         4. Wiederholen Sie den Vorgang auf dem anderen Server.
     -   **Server-Manager-Methode**  
 
@@ -198,7 +198,7 @@ Wenn Sie das Speicher Replikat mithilfe des Windows Admin Centers verwalten, fü
     2. Wählen Sie **Server Verbindung hinzufügen**aus.
     3. Geben Sie den Namen des Servers ein, und wählen Sie dann **senden**aus.
 2. Wählen Sie auf der Seite **alle Verbindungen** den Quell Server aus.
-3. Wählen Sie im Werkzeug Panel **Speicher** Replikat aus.
+3. Wählen Sie im Werkzeug Panel **Speicher Replikat** aus.
 4. Wählen Sie **neu** aus, um eine neue Partnerschaft zu erstellen.
 5. Geben Sie die Details der Partnerschaft an, und wählen Sie dann **Erstellen**aus. <br>
    ![Der Bildschirm "neue Partnerschaft" zeigt Partnerschafts Details an, z. b. eine Protokoll Größe von 8 GB.](media/Storage-Replica-UI/Honolulu_SR_Create_Partnership.png)
@@ -438,7 +438,7 @@ Nachfolgend finden Sie einen groben Überblick über die erforderlichen Schritte
 1. [Fügen Sie eine Netzwerk Sicherheitsgruppe hinzu](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal). Wählen Sie beim Erstellen die Abonnement-ID aus, die der von Ihnen erstellten expressroute zugeordnet ist, und wählen Sie die Ressourcengruppe aus, die Sie soeben erstellt haben.
 <br><br>Fügen Sie alle eingehenden und ausgehenden Sicherheitsregeln, die Sie benötigen, der Netzwerk Sicherheitsgruppe hinzu. Beispielsweise können Sie Remotedesktop Zugriff auf den virtuellen Computer zulassen.
 1. [Erstellen Sie eine Azure-VM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) mit den folgenden Einstellungen (siehe Abbildung 5):
-    - **Öffentliche IP-Adresse**: None
+    - **Öffentliche IP-Adresse**: Keine
     - **Virtuelles Netzwerk**: Wählen Sie das virtuelle Netzwerk aus, das Sie in der mit expressroute hinzugefügten Ressourcengruppe notiert haben.
     - **Netzwerk Sicherheitsgruppe (Firewall)** : Wählen Sie die Netzwerk Sicherheitsgruppe aus, die Sie zuvor erstellt haben.
     ![Erstellen eines virtuellen Computers mit expressroute-](media/Server-to-Server-Storage-Replication/azure-vm-express-route.png)

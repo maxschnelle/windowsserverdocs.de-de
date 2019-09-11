@@ -1,6 +1,6 @@
 ---
 title: MultiPoint Services-Standortplanung
-description: Planungsinformationen für das MultiPoint Services-Bereitstellungen in Windows Server 2016
+description: Planungsinformationen für Multipoint Services-bereit Stellungen in Windows Server 2016
 ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server-threshold
@@ -13,147 +13,147 @@ ms.assetid: 063783cd-d748-489e-b175-46eadc993f7a
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: da27467efb842368167b7a315056506e99331e8d
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: 3d49b2861d81a938fb20544c3edeb0976ac6d327
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034599"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871641"
 ---
 # <a name="multipoint-services-site-planning"></a>MultiPoint Services-Standortplanung
-Sie sollten erwägen, den Speicherort, in dem einen oder mehrere Computer mit MultiPoint Services und die zugehörigen Stationen bereitgestellt wird.  
+Berücksichtigen Sie den Speicherort, an dem ein oder mehrere Computer, auf denen Multipoint Services ausgeführt wird, und die zugehörigen Stationen bereitgestellt werden.  
   
-Der Computer mit MultiPoint Services-Rolle müssen bequemen Zugriff, um eine Stromversorgung und den Peripheriegeräten, bei denen, die direkt an die Klasse, z. B. ein Drucker verbunden sind. Darüber hinaus müssen der Computer mit MultiPoint-Dienste komfortablen Zugriff auf eine Netzwerkverbindung. Eine Netzwerkverbindung ist erforderlich, für den Zugriff auf das Internet und, sofern verfügbar, einem LAN.  
+Der Computer, auf dem die Multipoint Services-Rolle ausgeführt wird, sollte bequemen Zugang zu einer Stromversorgung und zu den Peripheriegeräten haben, die direkt mit dem Computer verbunden sind, z. b. ein Drucker. Außerdem muss der Computer, auf dem Multipoint Services ausgeführt wird, über einen bequemen Zugriff auf eine Netzwerkverbindung verfügen. Für den Zugriff auf das Internet und ggf. ein LAN ist eine Netzwerkverbindung erforderlich.  
   
-Die folgenden: zusätzliche Faktoren zu berücksichtigen  
+Weitere zu berücksichtigende Faktoren sind:  
   
--   MultiPoint Services-System eingerichtet in einem bestimmten Raum, oder es eingerichtet für eine parallele Warenkorb oder Tabelle, damit sie von Ort zu Ort verschoben werden kann?  
+-   Wird das Multipoint Services-System in einem bestimmten Raum eingerichtet, oder wird es in einem Rollback oder einer Tabelle eingerichtet, sodass es von Ort zu Ort verschoben werden kann?  
   
     > [!NOTE]  
-    > Wenn Sie ein mobile-Setup verwenden möchten, können Sie *zuordnen* Stationen mit MultiPoint Services jedes Mal, wenn Sie erneut verbinden, damit sichergestellt ist, dass jede Tastatur und Maus mit den entsprechenden Monitor verknüpft ist.  
+    > Wenn Sie die Verwendung einer mobilen Installation planen, können Sie die Stationen bei jedem erneuten Verbinden der Stationen mit Multipoint Services *Verknüpfen* , um sicherzustellen, dass jede Tastatur und Maus mit dem entsprechenden Monitor verknüpft ist.  
   
--   Sich die primäre Station befindet neben den anderen Stationen, oder werden separate? Z. B. wenn das MultiPoint Services-System in einem Schulungsraum eingerichtet ist, wird die primäre Station auf die der Lehrkraft Helpdesk und die standard-Stationen an anderer Stelle im Raum werden positioniert? Beim Neustart des Computers, auf dem MultiPoint Services ausgeführt wird, ist, wird die primäre Station auf die Startbildschirme zugreifen. Wenn Sie sich für diese Ebene des Zugriffs auf ein Classroom-Einstellung befürchten, empfiehlt es sich, die primäre Station in der Lehrkraft Helpdesk zu stellen.  
+-   Befindet sich die primäre Station neben den anderen Stationen oder ist sie getrennt? Wenn z. b. das Multipoint Services-System in einem Classroom eingerichtet ist, befindet sich die primäre Station im Lehrpersonal und die Standard Stationen an einer anderen Stelle im Raum? Wenn der Computer, auf dem Multipoint Services ausgeführt wird, neu gestartet wird, kann die primäre Station auf die Startbildschirme zugreifen. Wenn Sie diese Zugriffsebene in einer Classroom-Einstellung in Betracht ziehen, empfiehlt es sich, die primäre Station am Schreibtisch der Lehrkräfte zu platzieren.  
   
--   Wie viele Stationen im Raum passt?  
+-   Wie viele Stationen werden in den Raum passen?  
   
--   Benötigen Sie ein Netzwerk? Eine Einzelserver-Lösung verwendet direkte Video verbunden oder USB-0 (null)-Client Stationen verbunden ist nicht mit einem Netzwerk erforderlich.  
+-   Benötigen Sie ein Netzwerk? Bei einer einzelnen Serverlösung, bei der direkte Video Verbindungen oder Verbindungen mit USB-Clients verwendet werden, ist kein Netzwerk erforderlich.  
   
--   Gibt es genügend Netzwerkverbindungen im Raum unterstützen die erforderliche Anzahl von Computern, auf dem MultiPoint Services ausgeführt wird  
+-   Gibt es ausreichend Netzwerkverbindungen im Raum, um die erforderliche Anzahl von Computern zu unterstützen, auf denen Multipoint Services ausgeführt wird  
   
--   Wo befinden sich die Steckdosen?  
+-   Wo befinden sich die Energie Outlets?  
   
--   Benötigen Sie eine zusätzliche Anzeigegerät, z. B. einem Projektor? Wenn Sie einen Projektor verwenden möchten, hängt es von der Obergrenze, oder wird es für eine Tabelle werden positioniert?  
+-   Benötigen Sie ein zusätzliches Anzeigegerät, z. b. einen Projektor? Wenn Sie beabsichtigen, einen Projektor zu verwenden, wird er von der Obergrenze abhängen, oder er wird in einer Tabelle positioniert?  
   
--   Welche Art von Kabel benötigt werden, und wie viele wird, die benötigt werden?  
+-   Welche Art von Kabeln wird benötigt, und wie viele werden benötigt?  
   
--   Beachten Sie, wie Sie in der Zukunft erweitern möchten. Werden Sie mehrere Stationen hinzugefügt?  
+-   Stellen Sie sich vor, wie Sie in Zukunft erweitern können. Werden Sie weitere Stationen hinzufügen?  
   
-## <a name="station-layout-and-configuration"></a>Station Layout und die Konfiguration  
-Das physische Layout der Website beeinträchtigen Ihrer Wahl Station-Typs. Weitere Informationen zu den anderen Station finden Sie unter [MultiPoint-Stationen](MultiPoint-services-Stations.md) in diesem Handbuch. Mehrere Station-Typen sind in einem einzigen MultiPoint Services zulässig. Dies bietet Ihnen zusätzliche Flexibilität zur Erfüllung Ihrer Anforderungen für die Installation.  
+## <a name="station-layout-and-configuration"></a>Stations Layout und-Konfiguration  
+Das physische Layout Ihrer Website kann sich auf die Auswahl des Stations Typs auswirken. Weitere Informationen zu den verschiedenen Stations Typen finden Sie in diesem Handbuch unter [Multipoint-Stationen](MultiPoint-services-Stations.md) . Mehrere Stations Typen sind in einem einzelnen Multipoint-Dienst zulässig. Dies bietet Ihnen zusätzliche Flexibilität, um Ihre Installationsanforderungen zu erfüllen.  
   
-### <a name="layout-for-direct-video-connected-stations"></a>Layout für die im Video direkt verbundene Stationen  
+### <a name="layout-for-direct-video-connected-stations"></a>Layout für direkt mit Videos verbundene Stationen  
   
--   Für eine Station Direct-Video-Verbindung wird der Abstand zwischen den Monitoren und den Computer durch die Länge des Videos Kabel beschränkt.  
+-   Bei einer Station mit direkt-Video-Verbindung wird der Abstand zwischen den Monitoren und dem Computer durch die Videokabel Länge beschränkt.  
   
--   Verwendung von intermediate Hubs oder eine Daisychain-Verkettung stationshubs wird für einfache Bereitstellung unterstützt, aber die maximal empfohlene Anzahl von aufeinander folgenden Hubs ist der dritte. Dies bedeutet, dass, die der maximale Abstand zwischen dem Computer an den stationshub 15 Verbrauchseinheiten gemessen werden, da jede USB 2.0-Kabel die maximale Länge von fünf Werte aufweist.  
+-   Die Verwendung von zwischen Hubs oder mit der Verwendung von Daisy verketteten Stations Hubs wird zur Erleichterung der Bereitstellung unterstützt, aber die empfohlene Höchstzahl von aufeinander folgenden Hubs ist drei. Dies bedeutet, dass der maximale Abstand zwischen dem Computer und dem stationshub 15 Meter beträgt, da jedes USB 2,0-Kabel über die maximale Länge von fünf Metern verfügt.  
   
 > [!IMPORTANT]  
-> Es muss immer mindestens eine direkte video verbundenen Station pro Computer fungieren als primäre Station vorhanden sein.  
+> Es sollte immer mindestens eine direkte Videoverbindung pro Computer vorhanden sein, um als primäre Station fungieren zu können.  
   
-### <a name="layout-for-usb-zero-client-connected-stations"></a>Layout für USB-0 (null) Client verbundene Stationen  
+### <a name="layout-for-usb-zero-client-connected-stations"></a>Layout für USB-Verbindungen mit Client verbundenen Stationen  
   
--   Verwendung von intermediate Hubs oder eine Daisychain-Verkettung stationshubs wird für einfache Bereitstellung unterstützt, aber die maximal empfohlene Anzahl von aufeinander folgenden Hubs ist der dritte. Dies bedeutet, dass, die der maximale Abstand zwischen dem Computer an den stationshub 15 Verbrauchseinheiten gemessen werden, da jede USB 2.0-Kabel die maximale Länge von fünf Werte aufweist.  
+-   Die Verwendung von zwischen Hubs oder mit der Verwendung von Daisy verketteten Stations Hubs wird zur Erleichterung der Bereitstellung unterstützt, aber die empfohlene Höchstzahl von aufeinander folgenden Hubs ist drei. Dies bedeutet, dass der maximale Abstand zwischen dem Computer und dem stationshub 15 Meter beträgt, da jedes USB 2,0-Kabel über die maximale Länge von fünf Metern verfügt.  
   
--   Die maximal empfohlene Anzahl von USB-keine Clients mit einer einzelnen zwischengeschalteter Hub verbunden ist drei.  
+-   Die maximal empfohlene Anzahl von USB-Clients, die mit einem einzelnen Zwischenhub verbunden sind, ist drei.  
   
     > [!NOTE]  
-    > Einige Computer mit einem generischen Hub stammen, auf der Hauptplatine, die wirkt sich das Hinzufügen eines zusätzlichen Hubs zwischen den *Root-Hub* des Computers und der stationshubs.  
+    > Einige Computer verfügen über einen generischen Hub auf der Hauptplatine. Dies hat Auswirkungen auf das Hinzufügen eines zusätzlichen Hubs zwischen dem *stammphub* des Computers und den Stations Hubs.  
   
--   Wenn Video häufig verwendet werden wird, empfiehlt es sich, dass Sie nicht mehr als zwei USB-0 (null)-Clients mit einem USB-Anschluss auf dem Server verbinden. Wenn ein zwischengeschalteter Hub verwendet wird, sollten nur zwei USB-0 (null)-Clients z. B. darauf verbunden werden. Oder wenn Sie eine Daisychain sind Verketten von USB-0 (null)-Clients nur zwei USB-NULL-Clients sollten miteinander verkettet werden. Das Hinzufügen der einzelnen USB-0 (null) an den USB-Anschluss auf dem Server verringert sich die Videos verfügbare Bandbreite.  
+-   Wenn Videos stark verwendet werden, empfiehlt es sich, höchstens zwei USB-Clients mit einem USB-Anschluss auf dem Server zu verbinden. Wenn z. b. ein Zwischenhub verwendet wird, müssen nur zwei USB-Clients verbunden werden. Wenn Sie keine USB-Clients verketten, sollten nur zwei USB-Clients verkettet werden. Durch das Hinzufügen eines USB-Null-Clients zum USB-Anschluss auf dem Server wird die verfügbare Videobandbreite verringert.  
   
--   Wenn Sie mehr als drei USB-0 (null)-Clients auf einem einzelnen USB-Anschluss auf dem Server eine Verbindung herstellen möchten, wird empfohlen, verwenden USB-3.0 zwischen dem Server und die zwischengeschalteter Hub.  
+-   Wenn Sie beabsichtigen, mehr als drei USB-Clients mit einem einzelnen USB-Anschluss auf dem Server zu verbinden, wird die Verwendung von USB 3,0 zwischen dem Server und dem Zwischenhub empfohlen.  
   
 > [!NOTE]  
-> Es wird empfohlen, dass Sie die Leistung Ihrer Anwendungen mit überprüfen und Hardware zu entscheiden, wie viele USB NULL-Clients, die Sie mit einem USB-Anschluss auf dem Server verbinden können.  
+> Es wird empfohlen, die Leistung mithilfe Ihrer Anwendungen und Hardware zu überprüfen, um zu entscheiden, wie viele USB-Clients Sie mit einem USB-Anschluss auf dem Server verbinden können.  
   
 ![Downstreamhubs](./media/WMS_diagram6.gif)  
   
-**Abbildung 5** MultiPoint Services-System mit drei USB NULL Clients verbunden mit einem einzelnen intermediate-Hub  
+**Abbildung 5** Multipoint Services-System mit drei USB-Clients, die mit einem einzelnen Zwischenhub verbunden sind  
   
-### <a name="layout-for-rdp-over-lan-connected-stations"></a>Layout für RDP-Over-LAN verbundene Stationen  
-Es gibt keine physische Entfernung Einschränkungen für die LAN-Clients. Solange sie sich auf das LAN befinden, können sie mit dem MultiPoint Services-System verbinden.  
+### <a name="layout-for-rdp-over-lan-connected-stations"></a>Layout für verbundene RDP-over-LAN-Stationen  
+Es gibt keine Einschränkungen hinsichtlich der physischen Entfernung für LAN-Clients. Solange Sie sich im LAN befinden, können Sie eine Verbindung mit dem Multipoint Services-System herstellen.  
   
-## <a name="using-additional-hubs"></a>Zusätzliche Hubs verwenden  
-Zusätzliche Hubs können verwendet werden, um die Installation zu erleichtern. Es gibt drei Arten von Hubs, die auf einem MultiPoint Services-System verwendet werden:  
+## <a name="using-additional-hubs"></a>Verwenden zusätzlicher Hubs  
+Zusätzliche Hubs können verwendet werden, um die Installation zu vereinfachen. Es gibt drei Arten von Hubs, die in einem Multipoint Services-System verwendet werden:  
   
--   [Stationshubs](#station-hubs)  
+-   [Stations Hubs](#station-hubs)  
   
--   [Zwischen hubs](#intermediate-hubs)  
+-   [Zwischen Hubs](#intermediate-hubs)  
   
--   [Downstreamhubs](#downstream-hubs)  
+-   [Downstream-Hubs](#downstream-hubs)  
   
-### <a name="station-hubs"></a>Stationshubs  
-Ein stationshub ist eine externe Hub, der eine MultiPoint Services-Station zugeordnet wurde. Der stationshub müssen mindestens eine Tastatur an der es. Möglicherweise müssen sie auch zusätzliche angefügte Peripheriegeräten. Ein stationshub möglich ein generischer USB-Hub, der die USB 2.0 oder höher-Spezifikation entspricht. Stationshubs sollten extern unterstützt werden, wenn leistungsstarke Geräte-Plug-Ins werden werden.  
+### <a name="station-hubs"></a>Stations Hubs  
+Ein stationshub ist ein externer Hub, der einer Multipoint Services-Station zugeordnet ist. Der stationshub muss mindestens über eine Tastatur eingebunden werden. Es können auch zusätzliche Peripheriegeräte angefügt werden. Ein stationshub kann ein generischer USB-Hub sein, der der Spezifikation USB 2,0 oder höher entspricht. Stations Hubs sollten extern eingeschaltet werden, wenn hoch betriebene Geräte ein Plug-in für Sie durchführt.  
   
-**Root-Hub** ein USB-Hub, die mit dem Hostcontroller, auf der Hauptplatine des Computers integriert ist, wird als bezeichnet ein *Root-Hub*. Stationshubs sind in der Regel im Netzbetrieb-in für den Root-Hub auf dem Computer, auf dem MultiPoint Services ausgeführt wird.  
+**Stammphub** Ein USB-Hub, der auf dem Host Controller auf der Hauptplatine eines Computers integriert ist, wird als *Stammhub*bezeichnet. Stations Hubs sind in der Regel an den Stammhub auf dem Computer angeschlossen, auf dem Multipoint Services ausgeführt wird.  
   
 > [!NOTE]  
-> Root-Hubs sollten nicht als stationshubs verwendet werden. Wenn der USB-Anschlüsse in einem Computer integriert sind, kann häufig nicht um zu bestimmen, welche USB-Root-Hub intern mit verbunden sind. Wenn Sie angeschlossen-Station-Tastatur und Maus direkt auf das USB-Anschlüsse des Computers in Sie können tatsächlich unter Verwendung der-Tastatur und Maus an unterschiedliche USB-Stamm-Hubs in sein. Um sicherzustellen, dass die Tastatur und Maus auf dem gleichen Hub-Plug-in als stationshub mit USB-Anschluss des Computers, und klicken Sie dann die-Plug-Ins sind station Tastatur und Maus mit dem Hub.  
+> Stamm-Hubs sollten nicht als Stations Hubs verwendet werden. Wenn USB-Ports auf einem Computer integriert sind, ist es oft nicht möglich, zu ermitteln, mit welchem USB-Stammhub eine interne Verbindung besteht. Wenn Sie also eine Station-Tastatur und die Maus direkt an die USB-Anschlüsse des Computers angeschlossen haben, können Sie die Tastatur und die Maus an verschiedene USB-Stamm Hubs anpacken. Um sicherzustellen, dass sich die Tastatur und die Maus auf demselben Hub befinden, können Sie einen stationshub in den USB-Anschluss des Computers einbinden und dann die Tastatur und die Maus an den stationshub anschließen.  
   
-**Eine Daisychain-Verkettung Stationen** es möglicherweise einfacher, die nicht direkt an den Computer, sondern an einem anderen stationshub stationshubs. Dadurch können Sie die Verbindung einen USB-Hub an einen stationshub, der bereits-auf dem Computer, Netzbetrieb ist, damit Sie als stationshub mit einer anderen stationshub verbunden haben.  
+**Daisy-Verkettung-Stationen** Es ist möglicherweise einfacher, Station Hubs mit einem anderen stationshub zu verbinden, als nicht direkt mit dem Computer. Dies ermöglicht es Ihnen, einen USB-Hub mit einem stationshub zu verbinden, der bereits an den Computer angeschlossen ist, sodass Sie über einen stationshub verfügen, der an einen anderen stationshub angeschlossen ist.  
   
-Es darf sich nicht mehr als drei USB-0 (null)-Clients oder Station Hubs kaskadierenden nacheinander. Vorsicht, dass die USB-Bandbreite nicht überschritten wird, damit die station Hubs Wenn eine Daisychain-Verkettung.  
+Es dürfen nicht mehr als drei USB-Clients oder stationshub, die in der Zwischenzeit mit einem Punkt verkettet sind Es muss darauf geachtet werden, dass die USB-Bandbreite nicht überschritten wird, wenn die-Station-Hubs für die  
   
 ![Verketten von Stationen](./media/WMS_diagram5.gif)  
   
-**Abbildung 6** MultiPoint Services-System mit Stationen eine Daisychain-Verkettung  
+**Abbildung 6** Multipoint Services-System mit an sich verketteten Stationen  
   
-### <a name="intermediate-hubs"></a>Zwischen hubs  
-Ein zwischengeschalteter Hub ist ein Hub, der zwischen dem Server und einen stationshub ist. Es wird normalerweise verwendet, um die Anzahl der Ports zu erhöhen, die für die stationshubs verfügbar sind oder eine Erweiterung für die Entfernung Stationen auf dem Computer. Es wird empfohlen, dass nicht mehr als zwei intermediate Hubs zwischen als stationshub und dem Server verwendet werden.  
+### <a name="intermediate-hubs"></a>Zwischen Hubs  
+Ein Zwischenhub ist ein Hub zwischen dem Server und einem stationshub. Sie wird in der Regel verwendet, um die Anzahl der Ports zu erhöhen, die für Station Hubs verfügbar sind, oder um die Entfernung der Stationen vom Computer zu verlängern. Es wird empfohlen, zwischen einem stationshub und dem Server höchstens zwei zwischen Hubs zu verwenden.  
   
-Intermediate Hubs müssen USB 2.0 oder höher, und sie die extern ausgeschaltet werden müssen. USB 3.0 wird zwischen dem Server und die zwischenhub empfohlen, wenn Sie mehr als drei USB-0 (null)-Clients die ein zwischengeschalteter Hub verbinden.  
+Zwischen Hubs müssen USB 2,0 oder höher sein, und Sie müssen extern eingeschaltet werden. USB 3,0 wird zwischen dem Server und dem Zwischenhub empfohlen, wenn Sie mehr als drei USB-Clients mit einem Zwischenhub verbinden.  
   
 ### <a name="downstream-hubs"></a>Downstreamhubs  
-Ein downstream-Hub verbunden ist an einen stationshub mehr verfügbaren Ports für Geräte der Station hinzufügen. Ein downstream-Hub kann extern ausgeschaltet oder Bus betrieben, abhängig von den Geräten, die an den Hub Netzbetrieb sein.  
+Ein downstreamhub ist mit einem stationshub verbunden, um weitere verfügbare Ports für Stations Geräte hinzuzufügen. Abhängig von den Geräten, die mit dem Hub verbunden sind, kann ein downstreamhub extern oder durch Busbetrieb betrieben werden.  
   
-![Mehrere USB-0 (null)-Clientverbindungen](./media/WMS_diagram4.gif "WMS_diagram4")  
+![Mehrere USB-Null-Clientverbindungen](./media/WMS_diagram4.gif "WMS_diagram4")  
   
-**Abbildung 7** MultiPoint Services-System mit ein zwischengeschalteter Hub als stationshub und einem downstream-Hub  
+**Abbildung 7** Multipoint Services-System mit einem Zwischenhub, einem stationshub und einem Downstream-Hub  
   
-## <a name="users-stations-and-computers"></a>Benutzer, Computer und Stationen  
-Die Anzahl der Stationen, die Sie benötigen, hängt von der Anzahl der Personen, die Zugriff auf den Computer, der MultiPoint Services zur gleichen Zeit ausgeführt hat. Ebenso hängt die Anzahl der Computer mit MultiPoint Services Sie müssen die Gesamtzahl der Stationen, die erforderlich sind. Im Video direkt verbundene Stationen, Stationen mit USB-0 (null)-Client-verbunden und RDP-Over-LAN verbundene Stationen sind alle betrachtet Stationen. Darüber hinaus: Wenn die geteilten-Funktion verwendet wird, wird jedes Halbjahr eine Station betrachtet.  
+## <a name="users-stations-and-computers"></a>Benutzer, Stationen und Computer  
+Die Anzahl der benötigten Stationen hängt von der Anzahl der Benutzer ab, die gleichzeitig auf die Computer zugreifen müssen, auf denen Multipoint Services ausgeführt wird. Ebenso hängt die Anzahl der Computer, auf denen Multipoint Services ausgeführt wird, von der Gesamtanzahl der erforderlichen Stationen ab. An Direct-Video-Connected-Stationen, auf USB-Clients angeschlossene Stationen und an RDP-over-LAN-Verbindungen werden als Stationen angesehen. Wenn außerdem die Split-Screen-Funktionalität verwendet wird, wird jede Hälfte als Station betrachtet.  
   
-## <a name="power-considerations"></a>Power-Überlegungen  
-Die folgenden Komponenten erfordern Zugriff auf eine Steckerleiste oder Outlet:  
+## <a name="power-considerations"></a>Überlegungen zur Leistung  
+Die folgenden Komponenten erfordern Zugriff auf einen Strom oder eine Steckdose:  
   
 -   Server  
 -   Monitore
--   Hubs für fortgeschrittene \(verwendet\) 
--   Bei einigen USB-0 (null)-clients  
--   USB-Geräten, z. B. einige externe Speichergeräte und DVD-Laufwerke  
+-   Zwischen Hubs \(bei Verwendung\) 
+-   Einige USB-Clients  
+-   USB-Geräte, wie z. b. externe Speichergeräte und DVD-Laufwerke  
   
-## <a name="sample-multipoint-services-system-layouts"></a>Beispiel MultiPoint Services-System-layouts  
-Je nach den verfügbaren Möbel, die Größe des Raums, die Anzahl der Computer, auf dem MultiPoint-Dienste und die Stationen im Raum ausgeführt werden, gibt es eine Vielzahl von Methoden, mit denen die physische Stationen angeordnet werden können. Die folgenden Diagramme veranschaulichen die fünf mögliche Alternativen.  
+## <a name="sample-multipoint-services-system-layouts"></a>Beispiel für Multipoint Services-systemlayouts  
+Abhängig von den verfügbaren Möbeln, der Größe des Raums, der Anzahl der Computer, auf denen Multipoint Services ausgeführt wird, und den Stationen im Raum gibt es eine Vielzahl von Möglichkeiten, wie die physischen Stationen angeordnet werden können. In den folgenden Diagrammen werden fünf mögliche Alternativen veranschaulicht.  
   
 > [!NOTE]  
-> Einige diese Diagramme zeigen eines Projektors mit MultiPoint Services-System verbunden sind. Dies ist nur ein Beispiel. Das Einschließen von eines Projektors in einem MultiPoint Services-System ist optional.  
+> Einige dieser Diagramme zeigen einen Projektor, der mit dem Multipoint Services-System verbunden ist. Dies ist nur ein Beispiel: das Einschließen eines Projektors in ein Multipoint Services-System ist optional.  
   
-**Computerlabor** In diesem Setup die Stationen mit der Schüler/Studenten, die für die Wände rund um die Wände eines Raum angeordnet.  
+**Computer Labor** In diesem Setup werden die Stationen um die Wände des Raums angeordnet, wobei die Schüler/Studenten die Wände sehen.  
   
 ![Einrichtung eines Computerkursraums](./media/WMS_ComputerLabLayout.gif)  
   
-**Gruppen** In diesem Setup sind drei Computer, die mit Stationen, die auf jedem Computer gruppiert MultiPoint Services ausgeführt werden.  
+**Gruppen** In diesem Setup sind drei Computer vorhanden, auf denen Multipoint Services ausgeführt wird, wobei Stationen um jeden Computer gruppiert sind.  
   
 ![Mit Serverpods konfigurierter Kursraum](./media/WMS_ClassroomPods.gif)  
   
-**Vortrag von Platz** In diesem Setup die Stationen werden eingerichtet in Zeilen. Ein Vorteil dieses Aufbaus ist, dass alle Studenten des Dozenten stehen.  
+**Vortragsraum** In diesem Setup werden die Stationen in Zeilen eingerichtet. Ein Vorteil dieses Setups besteht darin, dass alle Schüler/Studenten dem Dozenten ausgesetzt sind.  
   
 ![Als Hörsaal konfigurierter Kursraum](./media/WMS_LectureRoom.gif)  
   
-**Aktivitätszentrum** dieses Setup besteht aus einem herkömmlichen vorlesungsraum Layout für die Schreibtische, und kann auf einen separaten Bereich mit einem einzelnen Computer, die mit der zugehörigen Stationen MultiPoint Services ausgeführt wird.  
+**Aktivitäts Center** Diese Einrichtung besteht aus einem herkömmlichen Vortragsraum Layout für die Schalter und verfügt über einen separaten Bereich mit einem einzelnen Computer, auf dem Multipoint Services mit den zugehörigen Stationen ausgeführt wird.  
   
-![MultiPoint Services-Aktivitätszentrum](./media/WMSActivityCenter.gif)  
+![Multipoint Services-Aktivitäts Center](./media/WMSActivityCenter.gif)  
   
-**Kleinunternehmen Office** bei dieser Einstellung wird der Computer mit MultiPoint Services wird an einem zentralen Ort und Benutzer in der Office mit einem lokalen Netzwerk herstellen \(LAN\).  
+**Small Business Office** Bei diesem Setup wird der Computer, auf dem Multipoint Services ausgeführt wird, an einem zentralen Ort platziert, und die Benutzer im gesamten Büro stellen eine Verbindung mit dem \(Computer\)her, indem Sie ein LAN verwenden.  
   
 ![Verbundene USB-Station ohne Clients](./media/Diagram1.gif)

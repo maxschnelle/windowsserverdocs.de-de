@@ -1,6 +1,6 @@
 ---
 title: Einrichten einer Station
-description: Informationen zum Einrichten einer einer Station in MultiPoint Services
+description: Erfahren Sie, wie Sie eine Station in Multipoint Services einrichten.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.technology: multipoint-services
@@ -13,26 +13,26 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 2bba32f27ae01052a693d78f152d4487a04bd9bd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 043b0d8dba844f40569a854a4f4f2a2efb38a870
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880681"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871609"
 ---
 # <a name="set-up-a-station"></a>Einrichten einer Station
 Eine MultiPoint Server-*Station* besteht normalerweise aus einem *Stationshub*, einer Maus, einer Tastatur und einem Videomonitor. In diesem Thema wird beschrieben, wie die Hardwaregeräte mit dem Stationshub verbunden werden, um eine MultiPoint Services-Station zu erstellen.  
   
 Der Stationshub ist ein Hardwaregerät, über das Peripheriegeräte an einen Computer in einem MultiPoint Services-System angeschlossen werden. MultiPoint Services unterstützt zwei Typen von Stationshubs:  
   
--   **USB Hub:** Eine generische multiport USB-erweiterungshub, der den Spezifikationen des USB-2.0 oder höher kompatibel ist. Solche Hubs verfügen typischerweise über zwei, vier oder mehr USB-Anschlüsse, die das Verbinden mehrerer USB-Geräte mit einem einzelnen USB-Anschluss des Computers ermöglichen. USB-Hubs sind üblicherweise separate Geräte, die eine eigene externe oder Bus betrieben werden können. Bei der Verwendung als Stationshub mit MultiPoint Services wird empfohlen, einen Hub mit vier oder mehr Anschlüssen zu verwenden.  
+-   **USB-Hub:** Ein generischer Multiport-USB-erweiterungshub, der den Spezifikationen für den universellen seriellen Bus 2,0 oder höher entspricht. Solche Hubs verfügen typischerweise über zwei, vier oder mehr USB-Anschlüsse, die das Verbinden mehrerer USB-Geräte mit einem einzelnen USB-Anschluss des Computers ermöglichen. USB-Hubs sind üblicherweise separate Geräte, die extern oder im Bus betrieben werden können. Bei der Verwendung als Stationshub mit MultiPoint Services wird empfohlen, einen Hub mit vier oder mehr Anschlüssen zu verwenden.  
   
     > [!IMPORTANT]  
     > Wenn Sie beabsichtigen, andere USB-Geräte als eine Tastatur und eine Maus am Hub anzuschließen, sollten Sie einen Hub mit externer Stromversorgung verwenden, um die Leistung zu verbessern.  
   
--   **Multifunktionshub:** Ein erweiterungshub, die eine Verbindung mit dem Computer über einen USB-Anschluss hergestellt, und ermöglicht die Verbindung mit einer Vielzahl von nicht-USB-Geräte am Hub, wie z.B. eines Videomonitors. Multifunktionshubs werden von bestimmten Hardwareherstellern produziert und erfordern möglicherweise die Installation eines gerätespezifischen Treibers.  
+-   **Multifunktionshub:** Ein erweiterungshub, der über einen USB-Anschluss eine Verbindung mit dem Computer herstellt und die Verbindung verschiedener nicht-USB-Geräte mit dem Hub, einschließlich eines Video Monitors, ermöglicht. Multifunktionshubs werden von bestimmten Hardwareherstellern erstellt und erfordern möglicherweise die Installation eines gerätespezifischen Treibers.  
   
-Wenn Sie Ihrem MultiPoint Services-System eine Station hinzufügen möchten, müssen Sie zuerst sicherstellen, dass genügend Anschlüsse für die zu verwendende Stationshardware verfügbar sind. Darüber hinaus müssen Sie die entsprechende Anzahl von schützen *-Clientzugriffslizenzen (CALs)* für Ihr MultiPoint Services-System.  
+Wenn Sie Ihrem MultiPoint Services-System eine Station hinzufügen möchten, müssen Sie zuerst sicherstellen, dass genügend Anschlüsse für die zu verwendende Stationshardware verfügbar sind. Außerdem müssen Sie die entsprechende Anzahl von *Client Zugriffs Lizenzen (Client Access Licenses, CALs)* für Ihr Multipoint Services-System sichern.  
   
 ## <a name="setting-up-station-hardware"></a>Einrichten der Stationshardware  
 Die Verfahren in diesem Abschnitt beschreiben, wie MultiPoint Services-Stationshardware an die verschiedenen Typen von Stationshubs angeschlossen wird.  
@@ -57,7 +57,7 @@ Die Verfahren in diesem Abschnitt beschreiben, wie MultiPoint Services-Stationsh
   
 6.  Schalten Sie den Computer ein.  
   
-7.  MultiPoint Services wird gestartet. Befolgen Sie die Anleitungen, die auf dem Videomonitor der neuen Station angezeigt werden, um die Geräte der neuen Station zuzuordnen.  
+7.  MultiPoint Services wird gestartet. Befolgen Sie die Anweisungen, die auf dem Videomonitor der neuen Station angezeigt werden, um die Geräte der neuen Station zuzuordnen.  
   
 ### <a name="to-set-up-a-station-with-a-multifunction-hub"></a>So richten Sie eine Station mit einem Multifunktionshub ein  
   
@@ -79,7 +79,7 @@ Die Verfahren in diesem Abschnitt beschreiben, wie MultiPoint Services-Stationsh
   
 6.  Schalten Sie den Computer ein.  
   
-7.  MultiPoint Services wird gestartet. Befolgen Sie, falls Sie dazu aufgefordert werden, die Anleitungen, die auf dem Videomonitor der neuen Station angezeigt werden, um die Geräte der neuen Station *zuzuordnen*.  
+7.  MultiPoint Services wird gestartet. Wenn Sie dazu aufgefordert werden, befolgen Sie die Anweisungen, die auf dem Videomonitor der neuen Station angezeigt werden, um die Geräte der neuen Station *zuzuordnen* .  
   
 ## <a name="see-also"></a>Siehe auch  
 [Beenden einer Benutzersitzung](End-a-User-Session.md)  

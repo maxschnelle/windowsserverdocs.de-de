@@ -1,6 +1,6 @@
 ---
 title: nslookup lserver
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2f2f787915f2b941d6c098d44de1bb0e04dbd491
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 30c5ba8b7fef9b09d854aca998948f7891d99a02
+ms.sourcegitcommit: ee8e0b217be6f6b2532ee7265fb4be00c106e124
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436914"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70878128"
 ---
 # <a name="nslookup-lserver"></a>nslookup lserver
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Ändert den Standardserver an der angegebenen Domäne von Domain Name System (DNS).
+Ändert den Standard Server in die angegebene Domain Name System Domäne (DNS).
 ## <a name="syntax"></a>Syntax
 ```
 lserver <DNSDomain> 
@@ -33,11 +33,11 @@ lserver <DNSDomain>
 
 |    Parameter    |                      Beschreibung                      |
 |-----------------|-------------------------------------------------------|
-|   <DNSDomain>   | Gibt die neue DNS-Domäne für den Standardserver an.  |
-| {help &#124; ?} | Zeigt eine kurze Zusammenfassung der **Nslookup** Unterbefehle. |
+|   <DNSDomain>   | Gibt die neue DNS-Domäne für den Standard Server an.  |
+| {Help &#124; ?} | Zeigt eine kurze Zusammenfassung der **nslookup** -Unterbefehle an. |
 
 ## <a name="remarks"></a>Hinweise
-- Die **Lserver** Befehl verwendet den ersten Server, um die Informationen über die angegebenen DNS-Domäne zu suchen. Dies ist im Gegensatz zu den **Server** -Befehl, der den aktuellen Standardservers verwendet.
-  ## <a name="additional-references"></a>Zusätzliche Referenzen
-  [Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-  [Nslookup-Server](nslookup-server.md)
+- Der **lserver** -Befehl verwendet den anfänglichen Server, um die Informationen zur angegebenen DNS-Domäne zu suchen. Dies steht im Gegensatz zum **Server** -Befehl, der den aktuellen Standard Server verwendet.
+  ## <a name="additional-references"></a>Weitere Verweise
+  [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+  [nslookup-Server](nslookup-server.md)

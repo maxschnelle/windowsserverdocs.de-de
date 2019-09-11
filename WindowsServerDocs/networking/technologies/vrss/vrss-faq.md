@@ -1,6 +1,6 @@
 ---
-title: vRSS häufig gestellte Fragen
-description: In diesem Thema finden Sie einige häufig Fragen und Antworten aufgefordert, Informationen zu vRSS verwenden.
+title: häufig gestellte Fragen zu vrss
+description: In diesem Thema finden Sie einige häufig gestellte Fragen und Antworten zur Verwendung von vrss.
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -10,59 +10,59 @@ manager: dougkim
 ms.date: 09/05/2018
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 3fafe6c39285e65a9d39a76cc6b652dac5c3efbd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f0f3cb2bebf5aed31be0dda0c8e33a78aae94367
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840241"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871819"
 ---
-# <a name="vrss-frequently-asked-questions"></a>vRSS häufig gestellte Fragen
+# <a name="vrss-frequently-asked-questions"></a>häufig gestellte Fragen zu vrss
 
-In diesem Thema finden Sie einige häufig Fragen und Antworten aufgefordert, Informationen zu vRSS verwenden.
+In diesem Thema finden Sie einige häufig gestellte Fragen und Antworten zur Verwendung von vrss.
 
-## <a name="what-are-the-requirements-for-the-physical-network-adapters-that-i-use-with-vrss"></a>Was sind die Anforderungen für den physischen Netzwerkadaptern, die ich mit vRSS verwenden?
+## <a name="what-are-the-requirements-for-the-physical-network-adapters-that-i-use-with-vrss"></a>Welche Anforderungen gelten für die physischen Netzwerkadapter, die ich mit vrss verwende?
 
-Netzwerkadapter müssen mit Virtual Machine Queue kompatibel sein \(VMQ\) und eine verbindungsgeschwindigkeit von 10 Gbit/s oder mehr benötigen.
+Netzwerkadapter müssen mit Warteschlange für virtuelle Computer \(VMQ\) kompatibel sein und eine Verbindungsgeschwindigkeit von 10 Gbit/s oder mehr aufweisen.
 
-Weitere Informationen finden Sie unter [planen die Verwendung von vRSS](vrss-plan.md).
+Weitere Informationen finden Sie unter [Planen der Verwendung von vrss](vrss-plan.md).
 
-## <a name="does-vrss-work-with-hyper-threaded-processor-cores"></a>Funktioniert vRSS mit hyper\-Prozessorkerne Thread?
+## <a name="does-vrss-work-with-hyper-threaded-processor-cores"></a>Funktioniert vrss mit hyperthreadprozessor\--Kernen?
 
-Nein. Sowohl vRSS und VMQ ignorieren hyper\-Prozessorkerne Thread.
+Nein. Sowohl von vrss als auch von VMQ werden hyperthreadprozessor\--Kerne ignoriert.
 
-## <a name="does-vrss-work-for-host-virtual-nics-vnics"></a>VRSS kann verwendet werden, für die virtuelle host-NICs \(vNICs\)?
+## <a name="does-vrss-work-for-host-virtual-nics-vnics"></a>Funktioniert vrss für virtuelle Host-NICs \(-vNICs?\)
 
-Ja. Verwenden der **- ManagementOS** -Parameter, anstatt die virtuelle Maschine \(VM\) Namen auf die **Set-VMNetworkAdapter** Windows PowerShell-Befehl und  **Enable-NetAdapterRss** für die Host-vNIC.
+Ja. Verwenden Sie den Parameter " **-managementos** " anstelle des \(VM\) -namens des virtuellen Computers im Windows PowerShell-Befehl " **Set-vmnetworkadapter** " und " **enable-netadapterrss** " auf der Host-vNIC.
 
-Weitere Informationen finden Sie unter [Windows PowerShell-Befehle für RSS und vRSS](vrss-wps.md).
+Weitere Informationen finden Sie unter [Windows PowerShell-Befehle für RSS und vrss](vrss-wps.md).
 
-## <a name="how-many-logical-processors-does-a-vm-need-to-use-vrss"></a>Wie viele logische Prozessoren muss ein virtuellen Computer mit vRSS?
+## <a name="how-many-logical-processors-does-a-vm-need-to-use-vrss"></a>Wie viele logische Prozessoren benötigt ein virtueller Computer vrss?
 
-Virtuelle Computer benötigen Sie zwei oder mehreren logische Prozessoren \(LPs\) vRSS verwenden können.
+VMs benötigen mindestens zwei logische Prozessoren \((LPs\) ), damit Sie vrss verwenden können.
 
-Weitere Informationen finden Sie unter [planen die Verwendung von vRSS](vrss-plan.md).
+Weitere Informationen finden Sie unter [Planen der Verwendung von vrss](vrss-plan.md).
 
-## <a name="is-vrss-compatible-with-nic-teaming"></a>Ist Sie vRSS mit NIC-Teamvorgang kompatibel?
+## <a name="is-vrss-compatible-with-nic-teaming"></a>Ist vrss mit dem NIC-Team Vorgang kompatibel?
 
-Ja. Wenn Sie NIC-Teamvorgang verwenden, ist es wichtig, dass Sie ordnungsgemäß VMQ für die Arbeit mit den NIC-Teamvorgang-Einstellungen konfigurieren. Ausführliche Informationen zur NIC-Teamvorgang-Bereitstellung und Verwaltung finden Sie unter [NIC-Teamvorgang](https://docs.microsoft.com/windows-server/networking/technologies/nic-teaming/nic-teaming).
+Ja. Wenn Sie NIC-Team Vorgänge verwenden, ist es wichtig, dass Sie VMQ ordnungsgemäß konfigurieren, damit Sie mit den NIC-Team Vorgangs Einstellungen arbeiten können. Ausführliche Informationen zur Bereitstellung und Verwaltung von NIC-Teaming finden Sie unter [NIC](https://docs.microsoft.com/windows-server/networking/technologies/nic-teaming/nic-teaming)-Team Vorgang.
 
-## <a name="vrss-is-enabled-but-how-do-i-know-if-it-is-working"></a>ist vRSS aktiviert, aber wie weiß ich, wenn dies funktioniert? 
+## <a name="vrss-is-enabled-but-how-do-i-know-if-it-is-working"></a>vrss ist aktiviert, aber woher weiß ich, ob Sie funktioniert? 
 
-Sie werden erkennen Sie, dass vRSS funktioniert, indem Sie den Task-Manager auf dem virtuellen Computer öffnen und die Auslastung des virtuellen Prozessors anzeigen können. Wenn es mehrere Verbindungen mit dem virtuellen Computer sind, sehen Sie mehrere Kerne über 0 % Auslastung.
+Sie können feststellen, dass vrss funktioniert, indem Sie den Task-Manager auf Ihrer VM öffnen und die Auslastung des virtuellen Prozessors anzeigen. Wenn mehrere Verbindungen mit dem virtuellen Computer hergestellt wurden, können Sie mehr als einen Kern mit einer Auslastung von mehr als 0% sehen.
 
-Da eine einzelne TCP-Sitzung mit Lastenausgleich über mehrere logische Prozessorkerne sein kann, muss Ihr virtueller Computer mehrere TCP empfangen Sitzungen, bevor Sie beobachten können, und zwar unabhängig davon, ob vRSS arbeitet.
+Da für eine einzelne TCP-Sitzung kein Lastenausgleich über mehrere logische Prozessorkerne möglich ist, muss der virtuelle Computer mehrere TCP-Sitzungen empfangen, bevor Sie überprüfen können, ob vrss funktioniert.
 
-Wenn der virtuelle Computer mehrere TCP-Sitzungen erhält, aber nicht mehr als einen Kern von LP über 0 % Auslastung angezeigt, stellen Sie sicher, dass Sie alle Vorbereitungsschritte zur des Themas haben [planen die Verwendung von vRSS](vrss-plan.md).
+Wenn der virtuelle Computer mehrere TCP-Sitzungen empfängt, aber nicht mehr als ein LP-Kern mit einer Auslastung von mehr als 0% angezeigt wird, stellen Sie sicher, dass Sie alle Vorbereitungsschritte im Thema [Planen der Verwendung von vrss](vrss-plan.md)abgeschlossen haben.
 
-## <a name="im-looking-at-the-host-and-not-all-of-the-processors-are-being-used-it-looks-like-every-other-one-is-being-skipped"></a>Ich sehe auf dem Host, dass nicht alle Prozessoren verwendet werden. Anscheinend wird jeder zweite Prozessor übersprungen.
+## <a name="im-looking-at-the-host-and-not-all-of-the-processors-are-being-used-it-looks-like-every-other-one-is-being-skipped"></a>Ich sehe den Host, und es werden nicht alle Prozessoren verwendet. Anscheinend wird jeder zweite Prozessor übersprungen.
   
-Überprüfen Sie, ob Hyperthreading aktiviert ist. Sowohl VMQ vRSS sind darauf ausgelegt, übersprungen\-Thread Kerne.
+Überprüfen Sie, ob Hyperthreading aktiviert ist. VMQ und vrss sind so konzipiert, dass hyperthreadkerne\-übersprungen werden.
 
-## <a name="are-there-different-windows-powershell-commands-for-rss-and-vrss"></a>Gibt es verschiedene Windows PowerShell-Befehle für RSS und vRSS?
+## <a name="are-there-different-windows-powershell-commands-for-rss-and-vrss"></a>Gibt es unterschiedliche Windows PowerShell-Befehle für RSS und vrss?
 
-Ja und Nein. Obwohl Sie die gleichen Befehle für RSS in systemeigenen Hosts und RSS auf virtuellen Computern verwenden, erfordert vRSS auch VMQ auf die physische NIC - und für den virtuellen Computer und vRSS aktiviert werden, auf dem Switchport aktiviert werden.
+Ja und Nein. Während Sie dieselben Befehle sowohl für RSS in systemeigenen Hosts als auch für RSS auf VMS verwenden, erfordert vrss auch, dass VMQ auf der physischen NIC aktiviert ist und dass der virtuelle Computer und vrss auf dem Switchport aktiviert werden.
 
-Weitere Informationen finden Sie unter [Windows PowerShell-Befehle für RSS und vRSS](vrss-wps.md).
+Weitere Informationen finden Sie unter [Windows PowerShell-Befehle für RSS und vrss](vrss-wps.md).
 
 ---

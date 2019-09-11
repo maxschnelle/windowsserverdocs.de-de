@@ -6,12 +6,12 @@ ms.author: joflore
 ms.date: 04/19/2018
 ms.topic: article
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 491f4f2e2526e7cff024779ee3ecf9f771e64af4
-ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
+ms.openlocfilehash: 287d7ef0b8645d8e808b8b8d9f195d05ffed1cc0
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69560577"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868325"
 ---
 # <a name="virtualizing-domain-controllers-using-hyper-v"></a>Virtualisieren von Domänen Controllern mithilfe von Hyper-V
 
@@ -77,7 +77,7 @@ Die Verwendung virtueller Computer ermöglicht viele verschiedene Konfiguratione
 
 ## <a name="security-of-vhd-files"></a>Sicherheit von VHD-Dateien
 
-Eine VHD-Datei eines virtuellen Domänencontrollers entspricht der physischen Festplatte eines physischen Domänencontrollers. Als solche sollte sie genauso sorgfältig wie die Festplatte eines physischen Domänencontrollers geschützt werden. Stellen Sie sicher, dass nur zuverlässige und vertrauenswürdige Administratoren Zugriff auf die VHD-Dateien des Domänencontrollers haben.
+Eine VHD-Datei eines virtuellen Domänencontrollers entspricht der physischen Festplatte eines physischen Domänencontrollers. Als solche sollte sie genauso sorgfältig wie die Festplatte eines physischen Domänencontrollers geschützt werden. Stellen Sie sicher, dass nur zuverlässige und vertrauenswürdige Administratoren auf die VHD-Dateien des Domänen Controllers zugreifen können.
 
 ## <a name="rodcs"></a>RODCs
 
@@ -328,11 +328,11 @@ Für RODCs sind der Wiederherstellungsvorgang und die Entscheidungen einfacher.
 Falls eine gültige Systemstatussicherung für den virtuellen Computer eines Domänencontrollers vorhanden ist, können Sie die Sicherung problemlos wiederherstellen. Führen Sie dazu das Wiederherstellungsverfahren des Sicherungstools aus, mit dem Sie die VHD-Datei gesichert haben.
 
 > [!IMPORTANT]
-> Sie müssen den Domänencontroller im Verzeichnisdienst-Wiederherstellungsmodus starten, um ihn ordnungsgemäß wiederherstellen zu können. Der Domänencontroller darf nicht im normalen Modus gestartet werden. Falls Sie beim Starten des Systems die Gelegenheit verpasst haben, in den Verzeichnisdienst-Wiederherstellungsmodus zu wechseln, schalten Sie den virtuellen Computer des Domänencontrollers aus, um ihn dann im normalen Modus zu starten. Sie müssen den Domänencontroller unbedingt im Verzeichnisdienst-Wiederherstellungsmodus starten, da beim Starten eines Domänencontrollers im normalen Modus dessen Aktualisierungssequenznummern erhöht werden, selbst wenn der Domänencontroller vom Netzwerk getrennt wird. Weitere Informationen über das Rollback für die Wiederverwendung finden Sie unter "US-v" und "Rollback". 
+> Sie müssen den Domänencontroller im Verzeichnisdienst-Wiederherstellungsmodus starten, um ihn ordnungsgemäß wiederherstellen zu können. Der Domänencontroller darf nicht im normalen Modus gestartet werden. Wenn Sie während des Systemstarts nicht die Möglichkeit haben, DSRM einzugeben, deaktivieren Sie den virtuellen Computer des Domänen Controllers, bevor er vollständig im normalen Modus gestartet werden kann. Sie müssen den Domänencontroller unbedingt im Verzeichnisdienst-Wiederherstellungsmodus starten, da beim Starten eines Domänencontrollers im normalen Modus dessen Aktualisierungssequenznummern erhöht werden, selbst wenn der Domänencontroller vom Netzwerk getrennt wird. Weitere Informationen über das Rollback für die Wiederverwendung finden Sie unter "US-v" und "Rollback". 
 
 ## <a name="to-restore-the-system-state-backup-of-a-virtual-domain-controller"></a>So stellen Sie die Systemstatussicherung eines virtuellen Domänencontrollers wieder her
 
-1. Starten Sie den virtuellen Computer des Domänencontrollers, und drücken Sie F5, um den Bildschirm des Windows-Start-Managers zu öffnen. Falls Sie Anmeldeinformationen für die Verbindung eingeben müssen, klicken Sie auf dem virtuellen Computer sofort auf die Taste **Pause**, damit der Startvorgang nicht fortgesetzt wird. Geben Sie anschließend die Anmeldeinformationen für die Verbindung ein, und klicken Sie auf dem virtuellen Computer auf die Schaltfläche **Wiedergabe**. Klicken Sie in das Fenster des virtuellen Computers, und drücken Sie F5.
+1. Starten Sie den virtuellen Computer des Domänen Controllers, und drücken Sie F5, um auf den Bildschirm Windows-Start-Manager zuzugreifen. Falls Sie Anmeldeinformationen für die Verbindung eingeben müssen, klicken Sie auf dem virtuellen Computer sofort auf die Taste **Pause**, damit der Startvorgang nicht fortgesetzt wird. Geben Sie anschließend die Anmeldeinformationen für die Verbindung ein, und klicken Sie auf dem virtuellen Computer auf die Schaltfläche **Wiedergabe**. Klicken Sie in das Fenster des virtuellen Computers, und drücken Sie F5.
 
    Wenn der Bildschirm des Windows-Boot-Managers nicht angezeigt wird und der Domänencontroller im normalen Modus gestartet wird, schalten Sie den virtuellen Computer aus, um zu verhindern, dass der Startvorgang abgeschlossen wird. Wiederholen Sie diesen Schritt so oft wie nötig, bis Sie auf den Bildschirm des Windows-Boot-Managers zugreifen können. Im Menü Windows-Fehlerbehebung ist kein Zugriff auf den Verzeichnisdienst-Wiederherstellungsmodus möglich. Schalten Sie deshalb den virtuellen Computer aus, und wiederholen Sie den Vorgang, wenn das Menü Windows-Fehlerbehebung angezeigt wird.
 
@@ -375,7 +375,7 @@ Falls keine Sicherung der Systemstatusdaten vorhanden ist, die vor dem Auftreten
     ```
 
 11. Schließen Sie die Ereignisanzeige.
-12. Überprüfen Sie im Registrierungs-Editor, ob der Wert in **DSA Previous Restore Count** dem vorherigen Wert plus 1 entspricht. Falls dies nicht der richtige Wert ist und Sie in der Ereignisanzeige keinen Eintrag mit der Ereignis-ID 1109 finden, prüfen Sie, ob die Service Packs des Domänencontrollers aktuell sind. Sie können diese Prozedur auf der gleichen VHD nicht erneut durchführen. Sie können sie auf einer Kopie der VHD oder einer anderen VHD erneut ausführen, die nicht im normalen Modus gestartet wurde, indem Sie bei Schritt 1 von vorne anfangen.
+12. Überprüfen Sie im Registrierungs-Editor, ob der Wert in **DSA Previous Restore Count** dem vorherigen Wert plus 1 entspricht. Wenn dies nicht der richtige Wert ist und Sie keinen Eintrag für die Ereignis-ID 1109 in Ereignisanzeige finden, überprüfen Sie, ob die Service Packs des Domänen Controllers aktuell sind. Sie können diese Prozedur auf der gleichen VHD nicht erneut durchführen. Sie können sie auf einer Kopie der VHD oder einer anderen VHD erneut ausführen, die nicht im normalen Modus gestartet wurde, indem Sie bei Schritt 1 von vorne anfangen.
 13. Schließen Sie den Registrierungs-Editor.
 
 ## <a name="usn-and-usn-rollback"></a>USN und USN-Rollback
@@ -390,12 +390,12 @@ Für jede auf einem Zieldomänencontroller gespeicherte Verzeichnispartition wer
 
 Die USNs sind in zwei Tabellen mit Replikationsmetadaten enthalten. Sie werden von Quell- und Zieldomänencontrollern zum Filtern von Updates verwendet, die der Zieldomänencontroller benötigt.
 
-1. **Aktualitätsvektor**: Eine Tabelle, die vom Zieldomänen Controller für die Nachverfolgung der Ursprungs Updates verwaltet wird, die von allen Quell Domänen Controllern empfangen werden. Wenn ein Zieldomänencontroller Änderungen für eine Verzeichnispartition anfordert, stellt er dem Quelldomänencontroller seinen Aktualitätsvektor bereit. Der Quelldomänencontroller filtert dann mithilfe dieses Werts die dem Zieldomänencontroller zu sendenden Updates. Nach erfolgreichem Abschluss eines Replikationszyklus sendet der Quelldomänencontroller dem Zieldomänencontroller seinen Aktualitätsvektor. So kann der Zieldomänencontroller sicherstellen, dass seine Daten mit den Quellupdates aller übrigen Domänencontroller synchronisiert wurden und auf dem aktuellen Stand sind.  
+1. **Aktualitätsvektor**: Eine Tabelle, die vom Zieldomänen Controller für die Nachverfolgung der Ursprungs Updates verwaltet wird, die von allen Quell Domänen Controllern empfangen werden. Wenn ein Zieldomänencontroller Änderungen für eine Verzeichnispartition anfordert, stellt er dem Quelldomänencontroller seinen Aktualitätsvektor bereit. Der Quelldomänencontroller filtert dann mithilfe dieses Werts die dem Zieldomänencontroller zu sendenden Updates. Der Quell Domänen Controller sendet seinen Aktualitäts Vektor beim Abschluss eines erfolgreichen Replikations Prozesses an das Ziel, um sicherzustellen, dass der Zieldomänen Controller weiß, dass er mit allen Domänen Controllern synchronisiert wurde. Ursprungs Updates und Updates befinden sich auf derselben Ebene wie die Quelle.  
 2. **Obere Grenze**: Ein Wert, der vom Zieldomänen Controller verwaltet wird, um die neuesten Änderungen zu verfolgen, die er von einem bestimmten Quell Domänen Controller für eine bestimmte Partition erhalten hat. Die obere Kontingentgrenze verhindert, dass dem Zieldomänencontroller vom Quelldomänencontroller wiederholt dieselben Änderungen gesendet werden.  
 
 ## <a name="directory-database-identity"></a>Verzeichnisdatenbankidentität
 
-Neben USNs verfolgen Domänencontroller die Verzeichnisdatenbank der Quellreplikationspartner. Die Identität der auf dem Server ausgeführten Verzeichnisdatenbank wird separat von der Identität des Serverobjekts selbst verwaltet. Die Verzeichnisdatenbankidentität wird auf den einzelnen Domänencontrollern im **invocationID**-Attribut des NTDS-Einstellungsobjekts gespeichert, das sich im folgenden LDAP-Pfad (Lightweight Directory Access-Protokoll) befindet: cn=NTDS Settings, cn=ServerName, cn=Servers, cn=*SiteName*, cn=Sites, cn=Configuration, dc=*ForestRootDomain*. Die Serverobjektidentität wird im **objectGUID**-Attribut des NTDS-Einstellungsobjekts gespeichert. Die Identität des Softwareobjekts wird nie geändert. Die Identität der Verzeichnisdatenbank hingegen ändert sich, wenn auf dem Server eine Systemstatuswiederherstellung ausgeführt wird oder wenn eine Anwendungsverzeichnispartition auf dem Server hinzugefügt, entfernt und dann erneut hinzugefügt wird. (Ein weiteres Szenario: Wenn von einer Hyper-V-Instanz die eigenen VSS Writer in einer Partition ausgelöst werden, die eine VHD-Datei eines virtuellen Domänencontrollers enthält, löst auch der Gast seine eigenen VSS Writer aus. Da es sich um denselben Mechanismus wie beim oben beschriebenen Sicherungs- und Wiederherstellungsvorgang handelt, wird auch in diesem Fall die invocationID zurückgesetzt.)
+Neben USNs verfolgen Domänencontroller die Verzeichnisdatenbank der Quellreplikationspartner. Die Identität der auf dem Server ausgeführten Verzeichnisdatenbank wird separat von der Identität des Serverobjekts selbst verwaltet. Die Verzeichnisdatenbankidentität wird auf den einzelnen Domänencontrollern im **invocationID**-Attribut des NTDS-Einstellungsobjekts gespeichert, das sich im folgenden LDAP-Pfad (Lightweight Directory Access-Protokoll) befindet: cn=NTDS Settings, cn=ServerName, cn=Servers, cn=*SiteName*, cn=Sites, cn=Configuration, dc=*ForestRootDomain*. Die Serverobjektidentität wird im **objectGUID**-Attribut des NTDS-Einstellungsobjekts gespeichert. Die Identität des Softwareobjekts wird nie geändert. Die Identität der Verzeichnisdatenbank hingegen ändert sich, wenn auf dem Server eine Systemstatuswiederherstellung ausgeführt wird oder wenn eine Anwendungsverzeichnispartition auf dem Server hinzugefügt, entfernt und dann erneut hinzugefügt wird. (anderes Szenario: Wenn eine HyperV-Instanz Ihre VSS-Writer auf einer Partition auslöst, die die virtuelle Festplatte eines virtuellen Domänen Controllers enthält, löst der Gast wiederum seine eigenen VSS-Writer aus (derselbe Mechanismus, der von der Sicherung/Wiederherstellung verwendet wird), was zu einer anderen Methode führt, mit der invocationID Festlegen
 
 Demzufolge werden mit **invocationID** Quellupdates auf einem Domänencontroller einer bestimmten Version der Verzeichnisdatenbank zugeordnet. Anhand der beiden genannten Tabellen, Aktualitätsvektor und obere Kontingentgrenze, können die Domänencontroller - unter Verwendung der **invocationID** und der GUID des Domänencontrollers - feststellen, aus welcher Kopie der Active Directory-Datenbank bestimmte Replikationsinformationen stammen.
 
@@ -438,7 +438,7 @@ Wenn in Windows Server 2008 und Windows Server 2003 SP1 ein Zieldomänencon
    - Die ein- und ausgehende Active Directory-Replikation wird von AD DS deaktiviert.  
    - Die Ereignis-ID 2095 wird von AD DS im Verzeichnisdienst-Ereignisprotokoll generiert, um auf diesen Zustand hinzuweisen.  
 
-Die folgende Abbildung veranschaulicht die Abfolge von Ereignissen, wenn ein USN-Rollback auf VDC2, dem auf einem virtuellen Computer ausgeführten Zieldomänencontroller, erkannt wird. In dieser Abbildung wird das USN-Rollback auf VDC2 erkannt, wenn ein Replikationspartner feststellt, dass VDC2 einen Aktualitäts-USN-Wert gesendet hat, der zuvor vom Zieldomänencontroller gesehen wurde. Dies ist ein Hinweis darauf, dass für die Datenbank von VDC2 ein unzulässiges Rollback ausgeführt wurde.
+Die folgende Abbildung veranschaulicht die Abfolge von Ereignissen, wenn ein USN-Rollback auf VDC2, dem auf einem virtuellen Computer ausgeführten Zieldomänencontroller, erkannt wird. In dieser Abbildung erfolgt die Erkennung des Anwendungs Rollbacks auf VDC2, wenn ein Replikations Partner erkennt, dass VDC2 einen Aktualitäts-UPN-Wert gesendet hat, der zuvor vom Zieldomänen Controller erkannt wurde, was darauf hinweist, dass für dies-Datenbank ein Rollback ausgeführt wurde. nicht ordnungsgemäß.
 
 ![](media/virtualized-domain-controller-architecture/Dd363553.373b0504-43fc-40d0-9908-13fdeb7b3f14(WS.10).gif)
 
@@ -451,7 +451,7 @@ Führen Sie sofort das folgende Verfahren aus, wenn im Verzeichnisdienst-Ereigni
 
    Hierfür können Sie das Tool Repadmin verwenden. Informationen zur Verwendung von Repadmin finden [Sie unter Überwachung und Problembehandlung Active Directory Replikation mit repadmin](https://go.microsoft.com/fwlink/?linkid=122830). Wenn Sie dies nicht selbst ermitteln können, wenden Sie sich an [Microsoft-Support](https://support.microsoft.com) , um Unterstützung zu erhalten.
 
-3. Erzwingen Sie eine Herabstufung des Domänencontrollers. Dies beinhaltet das Bereinigen der Metadaten des Domänencontrollers und das Übernehmen der Betriebsmasterrollen (auch als Flexible Single Master Operations- oder FSMO-Rollen bezeichnet). Weitere Informationen finden Sie im Abschnitt "Wiederherstellen von einem Rollback für die [Windows Server 2003, Windows Server 2008 und Windows Server 2008 R2](https://go.microsoft.com/fwlink/?linkid=137182) " in der Microsoft Knowledge Base in der Microsoft Knowledge Base.
+3. Erzwingen Sie eine Herabstufung des Domänencontrollers. Dies umfasst das Bereinigen der Metadaten des Domänen Controllers und das übernehmen der Betriebs Master Rollen (auch als Flexible Single Master Operations oder FSMO bezeichnet). Weitere Informationen finden Sie im Abschnitt "Wiederherstellen von einem Rollback für die [Windows Server 2003, Windows Server 2008 und Windows Server 2008 R2](https://go.microsoft.com/fwlink/?linkid=137182) " in der Microsoft Knowledge Base in der Microsoft Knowledge Base.
 4. Löschen Sie alle vorherigen VHD-Dateien für den Domänencontroller.
 
 ## <a name="undetected-usn-rollback"></a>Unerkanntes USN-Rollback

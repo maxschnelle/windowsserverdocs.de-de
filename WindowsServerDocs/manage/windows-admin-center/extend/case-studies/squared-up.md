@@ -1,6 +1,6 @@
 ---
-title: 'Windows Admin Center-SDK-Fallstudie: Quadrat einrichten'
-description: 'Windows Admin Center-SDK-Fallstudie: Quadrat einrichten'
+title: Windows Admin Center SDK-Fallstudie-Quadrat aufwärts
+description: Windows Admin Center SDK-Fallstudie-Quadrat aufwärts
 ms.technology: extend
 ms.topic: article
 author: daniellee-msft
@@ -8,49 +8,49 @@ ms.author: jol
 ms.date: 05/23/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: ab0a7bdcf2388ffc867763c04e183b7388fd13e9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0d4469684ad9cbdadec5c40cb3b5178345b64a6d
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863941"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865338"
 ---
-# <a name="squared-up-extension"></a>Einrichten der Erweiterung im Quadrat
+# <a name="squared-up-extension"></a>Erweiterung in Quadrat
 
-## <a name="bringing-scom-based-monitoring-server-dependency-visibility-and-external-data-insights-into-windows-admin-center"></a>Bringen SCOM-basierte Überwachung, Abhängigkeit serversichtbarkeit und externe Daten Erkenntnisse Windows Admin Center
+## <a name="bringing-scom-based-monitoring-server-dependency-visibility-and-external-data-insights-into-windows-admin-center"></a>Einbinden der SCOM-basierten Überwachung, der Sichtbarkeit von Server Abhängigkeiten und der Einblicke in externe Daten in das Windows Admin Center
 
-Quadrat oben wurde mit der Vision einer mithilfe von datenvisualisierung um zu lösen, dass die Herausforderungen von Enterprise IT-Komplexität gegründet. Quadrat um die eindeutige, einfache, baut nur im UI-Software auf Microsoft leistungsfähige System Center Operations Manager-Plattform sowie zusätzliche Datenquellen - aus von Microsoft Azure Log Analytics, Application Insights und System integrieren Zentrieren Sie Service Manager, um Drittanbieterprodukte wie ServiceNow, Splunk und vieles mehr – Einblick in die unternehmensweiten Infrastruktur- und Umgebungen, sowohl lokal bereitstellen und in hybridcloudumgebungen.
+Die quadratup wurde mit der Vision der Verwendung der Datenvisualisierung entwickelt, um die Herausforderungen der IT-Komplexität von Unternehmen zu lösen. Die einzigartige, unkomplizierte, nur auf die Benutzeroberfläche aufgerundet Software basiert auf der leistungsstarken System Center Operations Manager Plattform von Microsoft sowie die Integration in zusätzliche Datenquellen von Microsoft Azure Log Analytics, Application Insights und System Zentrieren Sie Service Manager auf Produkte von Drittanbietern, z. b. servicenow, Splunk und viele mehr, um Einblick in umfangreiche Unternehmensinfrastrukturen und Anwendungs Immobilien zu bieten, sowohl lokal als auch über Hybrid Cloud Umgebungen hinweg.
 
-> <cite>"Wir haben wurde stark nutzen Windows Admin Center in der Technical Preview und es war ein großer Treffer wirklich helfen Herausforderungen wie unsere Entwickler einfach Zugriff auf unsere Labs Konfiguration bereits, und wir möchten unsere primäre Verwaltung zu vereinfachen Konsole, nachdem sie die Vollversion trifft. Wir schätzen das volle Potenzial von der Integration mit Quadrat einrichten sowie die Möglichkeit, alle Daten an einem zentralen Ort Oberfläche."</cite>
+> <cite>"Wir haben Windows Admin Center seit der Technical Preview-Version stark genutzt und waren bereits ein großer Treffer. Sie unterstützen die Lösung von Herausforderungen wie unseren Technikern, die einfachen Zugriff auf unsere Konfigurations Labors haben, und wir beabsichtigen, Sie als primäre Verwaltung zu nutzen. Konsole, sobald die Vollversion erreicht ist. Wir freuen uns auf das Potenzial der Integration in Quadrat hoch und die Möglichkeit, alle Daten an einem zentralen Ort zu finden. "</cite>
 >
-> – David Acevedo, ich / S-Spezialist bei NuStar Energie L.P.
+> --David Acevedo, e/a-Spezialisten bei NuSTAR Energy L.P.
 
-Quadrat Einrichten des Clients verwalten Hunderte, häufig Tausende, von Windows Server und die verschiedenen Anwendung Portfolios übermittelt wird, und sowohl im Quadrat sich auch von Microsoft auf dem Ziel, schalten Sie die IT-Teams werden schnell, modernes Web UI, die Einblicke zu bieten die beste müssen sie. Daher haben gesehen, das Team bei Quadrat Sie sofort eine interessante Ausrichtung mit Windows Admin Center, mit denen diese dieselben Werte und die Prinzipale in der nächsten Generation von Windows Server-Verwaltung einführt. Das Team vor allem der Überzeugung, dass es sich bei der langfristigen Leistungsdaten, die Abhängigkeit Einblicke in Echtzeit-Server und die Anwendungskontext vom Quadrat um eingeblendet perfekt die geschmeidigen, Echtzeit-Daten und Server-Verwaltungsfunktionen von ergänzen würde Windows Admin Center.
+Die Clients in Quadrats verwalten Hunderte, häufig Tausende von Windows-Servern und die verschiedenen von Ihnen bereitgestellten Anwendungs Portfolios, und beide sind auf dem neuesten Stand, und Microsoft sind dabei, die Teams am besten in der schnellen, modernen Webbenutzer Oberfläche bereitzustellen, um die benötigten Einblicke zu bieten. Folglich hat das Team bei der quadratischen Einrichtung sofort eine aufregende Ausrichtung mit Windows Admin Center gesehen, die dieselben Werte und Prinzipale zur nächsten Generation der Windows Server-Verwaltung bringt. Insbesondere hat das Team geglaubt, dass die langfristigen Leistungsdaten, die Echtzeitinformationen zur Server Abhängigkeit und der Anwendungskontext, die durch eine quadratung hervorgeht, die schlanken Echtzeitdaten-und Server Verwaltungsfunktionen ergänzen, die von Windows Admin Center.
 
-![Einrichten der Erweiterung im Quadrat](../../media/extend-case-study-squared-up/squared-up-1.png)
+![Erweiterung in Quadrat](../../media/extend-case-study-squared-up/squared-up-1.png)
 
-> <cite>"In einer Organisation verwalten eine umfangreiche Serverbestand Quadrat nach oben / Windows Admin Center-Integration ist die perfekte Hochzeit unserer lokalisiert und zentralisierte Tools und Dinge wie wird einen Server direkt in den Wartungsmodus aus auslösen können Windows Admin Center sind gute wenig Wins für uns."</cite>
+> <cite>"Wenn ein Unternehmen eine umfangreiche Serverstruktur verwaltet, ist die Integration in die zentrale und das Windows Admin Center die perfekte Lösung für unsere lokalisierten und zentralisierten Tools und Dinge, wie z. b. die Möglichkeit, einen Server direkt in den Wartungsmodus zu lösen. Das Windows Admin Center ist für uns sehr wenig WINS "</cite>
 >
-> -– Überspringen Granson, Virtualization-Systemadministrator Purdue University
+> -– Kip Granson, virtualisierungssystemadministrator bei der Purdue University
 
-Ausgestattet mit eine klare Vorstellung, die diese Daten nahtlos in Windows Admin Center präsentieren möchten, im Quadrat arbeitet mit der frühen private Preview-Version des Windows Admin Center-SDK und fand es einfach, gut dokumentiert und flexibel.
+Wenn Sie diese Daten im Windows Admin Center nahtlos präsentieren möchten, haben Sie die erste private Vorschauversion des Windows Admin Center SDK in den Mittelpunkt gestellt, und es wurde einfach, gut dokumentiert und flexibel.
 
-Mit dem Windows Admin Center-SDK konnte im Quadrat um eine Erweiterung zu erstellen, die relevanten Quadrat sich dynamisch bettet Ansichten innerhalb der Windows Admin Center auftreten. Beispielsweise werden innerhalb des Kontexts von einem bestimmten Server oder Cluster, Quadrat um Sichten automatisch, eingebettet erweiterte Sichtbarkeit bereitgestellt. Sichten gehören die historische Trends über wichtige Leistungs- und kapazitätsmetriken (z. B. CPU, Arbeitsspeicher und Festplattenspeicher), hosting-Stapel (Cloud-Plattform oder Datacenter Virtualization), die Anwendungskomponenten wie z. B. SQL-Datenbanken und Dienste, und sogar die Cloud-basierten Log Analytics und ITSM-Daten.
+Mit dem Windows Admin Center SDK konnte in der Mitte eine Erweiterung erstellt werden, mit der relevante quadratische Ansichten innerhalb des Windows Admin Centers dynamisch eingebettet werden. Beispielsweise werden im Kontext eines bestimmten Servers oder Clusters die quadratischen Sichten automatisch in die bereitgestellte erweiterte Sichtbarkeit eingebettet. Zu den Sichten zählen historische Trends der wichtigsten Leistungs-und kapazitätsmetriken (z. b. CPU, Arbeitsspeicher und Datenträger), hostingstapel (cloudplattform-oder Datacenter-Virtualisierung), Anwendungskomponenten wie SQL-Datenbanken und-Dienste und sogar cloudbasierte Protokoll Analysen. und ITSM-Daten.
 
-![Einrichten der Erweiterung im Quadrat](../../media/extend-case-study-squared-up/squared-up-2.png)
+![Erweiterung in Quadrat](../../media/extend-case-study-squared-up/squared-up-2.png)
 
-Teilen Quadrat einrichten und Windows Admin Center eine moderne Web Architektur und Entwurf hierbleiben, die sowohl eine einfache technische Integration und eine nahtlose benutzererfahrung aktiviert wurde. Mit der webbasierten-Verwaltung, die die Norm in zunehmendem glauben wir, dass diese Methode der Integration zwischen verschiedenen Systemen der Schlüssel zum Entsperren einer modernen, einheitliche Verwaltungsoberfläche ist.
+In der quadratischen Einrichtung und im Windows Admin Center wird ein modernes Webarchitektur-und-Entwurfs Ethos gemeinsam genutzt, das sowohl eine einfache technische Integration als auch eine nahtlose Benutzerfunktion ermöglicht. Da die webbasierte Verwaltung immer mehr zur Norm wird, sind wir der Meinung, dass diese Methode der Integration zwischen verschiedenen Systemen der Schlüssel zum Entsperren einer modernen, einheitlichen Verwaltungsfunktion ist.
 
-> <cite>"Wir finden Sie unter Windows Admin Center wie die innovativen der modernen Windows Server-Verwaltung, damit er einer überzeugenden Umgebung für uns so eng mit dem Team und die Tatsache, die sie für solche Geschwindigkeit, die Begeisterung, die Flexibilität und innerhalb der z. B. grundsätzlich arbeiten wurde, arbeiten modernen Entwicklungsmustern hat sie sich hervorragend mit der Funktionsweise, als ein schlankes, agile, effektive Softwareentwicklungsunternehmen, arbeiten wir uns. "</cite>
+> <cite>"Wir sehen Windows Admin Center als eine moderne Windows Server-Verwaltung, sodass wir so eng mit dem Team und der Tatsache arbeiten können, dass Sie mit einer solchen Geschwindigkeit, Begeisterung, Flexibilität und innerhalb eines solchen Grund Punkts arbeiten. mit modernen Entwicklungsparadigmen haben Sie eine gute Lösung für die Art und Weise, in der wir, ein schlankes, agiles Softwareentwicklungsunternehmen, selbst arbeiten. "</cite>
 >
-> --Richard Benwell, Produkt-Architekt bei Quadrat einrichten
+> --Richard Benwell, Produkt Architekt in Quadrat
 
-Aus diesem natürlichen Ausrichtung wurde das Entwicklungsteam auf Quadrat einrichten können, um schnell einen Prototyp-Integration anzeigen im Quadrat um nativ in der Windows Admin Center-Oberfläche bereit und erhalten, dass statten Sie ihre eigenen-Erstanwender, technische Clients eine Vorschau anzeigen. Von der Kunden Reaktionen war es sofort klar, dass die Story Gewinner ausgewählt wurde.
+Von dieser natürlichen Ausrichtung aus konnte das Entwicklungsteam in der Mitte schnell auf eine prototypintegration zugreifen, die in der Windows Admin Center-Benutzererfahrung im Windows Admin Center System intern angezeigt wird Vorschau der Clients. Aus den Reaktionen der Kunden war es sofort klar, dass es sich um einen Gewinner handelt.
 
-> <cite>"Eine der wichtigsten Herausforderungen verwalten, dass unsere verschiedenen herausragenden Service über die Umgebung über 3.500 Server hinweg Vereinheitlichen von ist Querformat Verwaltungs-und Überwachungstools und so die Integration zwischen Quadrat einrichten und Windows Admin Center – das bringt zusammen werden so vielen Daten, aus so vielen unterschiedlichen Quellen in einer einzigen Konsole – massive für uns. "</cite>
+> <cite>"Eine der wichtigsten Herausforderungen bei der Aufrechterhaltung des ausstehenden Dienstanbieter in unserer Umgebung über 3.500 Server ist die Vereinheitlichung unserer unterschiedlichen Landschaft von Verwaltungs-und Überwachungstools und somit die Integration zwischen der quadratischen Einrichtung und dem Windows Admin Center. so viele Daten aus sehr vielen unterschiedlichen Quellen in einer einzigen Konsole – sind für uns enorm. "</cite>
 >
-> --Martin Ehrnst, Technical Lead für Azure bei Intility a/s
+> --Martin ehrnst, technischer Lead für Azure bei intility A/S
 
-Mit dieser Art der Begeisterung von bereits im Quadrat sich Clients und Vollgepackt mit hervorragenden neuen Funktionen weiterhin so auf Windows Admin Center, Quadrat um verkürzt sich so freut über die Zukunft von dieser Integration und tollen Möglichkeiten, für ihre Kunden eröffnet und ihre der Weg zu einer "true" einzelne Bereich – transparente für ihre IT-Betriebsführung.
+Mit dieser Art von Begeisterung, die bereits in der Zukunft liegt, und mit einer Vielzahl von neuen Features, die immer noch im Windows Admin Center zu finden sind, ist die quadratup in Bezug auf die Zukunft dieser Integration und die tollen Möglichkeiten für Ihre Clients und deren Reisen Sie zu einem echten Einzelbereich für die IT-Betriebsverwaltung.
 
-Quadrat nach oben / Windows Admin Center-Integration ist derzeit in der Betaversion; Wenn Sie Zugriff erhalten möchten, sehen Sie sich [Quadrat der dedizierten Seite](https://squaredup.com/product/honolulu/windows-admin-center-extension/?utm_source=microsoft-wac&utm_medium=public-relations&utm_campaign=honolulu) Weitere Details. Wenn Ihre Organisation Microsoft System Center Operations Manager verwendet, und Sie nicht noch im Quadrat einrichten (das unverzichtbar für die Erweiterung funktioniert ist), können Sie auch die Hände auf eine voll ausgestattete, 30-tägige kostenlose Testversion von demselben Speicherort abrufen. 
+Die Integration von "Squared Up/Windows Admin Center" befindet sich derzeit in der Beta Version. Wenn Sie auf zugreifen möchten, finden Sie weitere Informationen auf [der Seite über die dedizierte Seite von quadratup](https://squaredup.com/product/honolulu/windows-admin-center-extension/?utm_source=microsoft-wac&utm_medium=public-relations&utm_campaign=honolulu) . Wenn Ihr Unternehmen Microsoft System Center Operations Manager verwendet und Sie noch kein Quadrat haben (Dies ist für die Erweiterung erforderlich), können Sie sich auch mit einer voll funktionsfähigen, 30-tägigen kostenlosen Testversion desselben Standorts vertraut machen. 

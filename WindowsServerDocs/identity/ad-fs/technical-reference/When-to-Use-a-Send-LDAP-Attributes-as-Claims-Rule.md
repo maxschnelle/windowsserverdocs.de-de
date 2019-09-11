@@ -9,15 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 5af00db05c572a45811eea49b832a054a9e0e492
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: a1210918067bbb71ea26dff4db11561bbeb09dbd
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188249"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869252"
 ---
 # <a name="when-to-use-a-send-ldap-attributes-as-claims-rule"></a>Verwenden einer Regel zum Senden von LDAP-Attributen als Ansprüche
-Verwenden Sie diese Regel in Active Directory-Verbunddienste \(AD FS\) sollen ausgehende Ansprüche ausgeben, die tatsächliche Lightweight Directory Access Protocol enthalten \(LDAP\) Attributwerte, die im vorhanden ein Attribut speichern, und klicken Sie dann den einzelnen LDAP-Attribute einen Anspruchstyp zuordnen. Weitere Informationen zu attributspeichern finden Sie unter [The Role of Attribute Stores](The-Role-of-Attribute-Stores.md).  
+Sie können diese Regel in \(Active Directory-Verbunddienste (AD FS) AD FS\) verwenden, wenn Sie ausgehende Ansprüche ausgeben möchten, die tatsächliche LDAP\) -Attribut \(Werte des Lightweight Directory Access-Protokolls enthalten, die in vorhanden sind. einen Attribut Speicher, und verknüpfen Sie dann die einzelnen LDAP-Attribute mit einem Anspruchstyp. Weitere Informationen zu Attribut speichern finden Sie [unter der Rolle von Attribut speichern](The-Role-of-Attribute-Stores.md).  
   
 Wenn Sie diese Regel verwenden, geben Sie einen Anspruch für jedes angegebene LDAP-Attribut aus, das der Regellogik entspricht, wie in der folgenden Tabelle beschrieben.  
   
@@ -28,27 +28,27 @@ Wenn Sie diese Regel verwenden, geben Sie einen Anspruch für jedes angegebene L
 Die folgenden Abschnitte enthalten eine grundlegende Einführung in Anspruchsregeln. Darüber hinaus werden Details zu Anwendungsszenarios für die Verwendung der Regel „LDAP-Attribute als Ansprüche senden“ beschrieben.  
   
 ## <a name="about-claim-rules"></a>Informationen zu Anspruchsregeln  
-Eine Anspruchsregel stellt eine Instanz der Geschäftslogik, wird die einen eingehenden Anspruch eine Bedingung anwendet \(If x, dann y\) und Grundlage, auf der Bedingungsparameter einen ausgehenden Anspruch erzeugt. Die folgende Liste enthält wichtige Tipps zu Anspruchsregeln, die Sie kennen sollten, bevor Sie fortfahren, dieses Thema zu lesen:  
+Eine Anspruchs Regel stellt eine Instanz der Geschäftslogik dar, die einen eingehenden Anspruch annimmt, eine Bedingung darauf \(anwendet, wenn x\) und y ist, und einen ausgehenden Anspruch basierend auf den Bedingungs Parametern erzeugt. Die folgende Liste enthält wichtige Tipps zu Anspruchsregeln, die Sie kennen sollten, bevor Sie fortfahren, dieses Thema zu lesen:  
   
--   Im AD FS-Verwaltungs-Snap-\-in Anspruch Regeln können nur mit anspruchsregelvorlagen erstellt werden  
+-   Im Snap\--in "AD FS-Verwaltung" können Anspruchs Regeln nur mithilfe von Anspruchs Regel Vorlagen erstellt werden.  
   
--   Anspruch Regeln verarbeiten eingehende Ansprüche entweder direkt von einem Anspruchsanbieter \(wie Active Directory oder einem anderen Verbunddienst\) oder aus der Ausgabe der akzeptanztransformationsregeln in einer Anspruchsanbieter-Vertrauensstellung.  
+-   Anspruchs Regeln verarbeiten eingehende Ansprüche entweder direkt von einem Anspruchs \(Anbieter (z. b.\) Active Directory oder einem anderen Verbunddienst oder von der Ausgabe der Akzeptanz Transformationsregeln für eine Anspruchs Anbieter-Vertrauensstellung.  
   
 -   Anspruchsregeln werden vom Anspruchsausstellungsmodul chronologisch nach einem bestimmten Regelsatz verarbeitet. Indem Sie eine Rangfolge der Regeln festlegen, können Sie Ansprüche, die durch vorausgehende Regeln in einem bestimmten Regelsatz generiert werden, weiter optimieren oder filtern.  
   
 -   Anspruchsregelvorlagen erfordern immer, dass Sie einen eingehenden Anspruchstyp angeben. Allerdings können Sie mehrere Anspruchswerte mit den gleichen Anspruchstyp mithilfe einer einzigen Regel verarbeiten.  
   
-Ausführlichere Informationen zu Anspruchsregeln und anspruchsregelsätzen finden Sie unter [die Rolle der Anspruchsregeln](The-Role-of-Claim-Rules.md). Weitere Informationen zur Verarbeitung von Regeln finden Sie unter [die Rolle des Anspruchsmoduls](The-Role-of-the-Claims-Engine.md). Weitere Informationen wie die Regel von Anspruchssätze verarbeitet werden, finden Sie unter [die Rolle der Anspruchspipeline](The-Role-of-the-Claims-Pipeline.md).  
+Ausführlichere Informationen zu Anspruchs Regeln und Anspruchs Regelsätzen finden Sie [unter Rolle der Anspruchs Regeln](The-Role-of-Claim-Rules.md). Weitere Informationen zur Verarbeitung von Regeln finden Sie [unter The Role of the Claims Engine](The-Role-of-the-Claims-Engine.md). Weitere Informationen zur Verarbeitung von Anspruchs Regelsätzen finden Sie [unter der Rolle der Anspruchs Pipeline](The-Role-of-the-Claims-Pipeline.md).  
   
 ## <a name="mapping-of-ldap-attributes-to-outgoing-claim-types"></a>Zuordnen von LDAP-Attributen zu ausgehenden Anspruchstypen  
-Wenn Sie das Senden von LDAP-Attributen als Ansprüche Regelvorlage verwenden, können Sie Attribute auswählen, aus einem LDAP-Attributspeicher wie Active Directory oder Active Directory Domain Services \(AD DS\) , deren Werte als Ansprüche an die vertrauende Seite senden . Damit werden im Prinzip bestimmte LDAP-Attribute aus einem von Ihnen festgelegten Attributspeicher einem Satz von ausgehenden Ansprüchen zugeordnet, der für die Autorisierung verwendet werden kann.  
+Wenn Sie die Regel Vorlage "LDAP-Attribute als Ansprüche senden" verwenden, können Sie Attribute aus einem LDAP-Attribut Speicher auswählen, z \(.\) b. Active Directory oder Active Directory Domain Services AD DS, um deren Werte als Ansprüche an die vertrauende Seite zu senden. . Damit werden im Prinzip bestimmte LDAP-Attribute aus einem von Ihnen festgelegten Attributspeicher einem Satz von ausgehenden Ansprüchen zugeordnet, der für die Autorisierung verwendet werden kann.  
   
 Mithilfe dieser Vorlage können Sie mehrere Attribute hinzufügen, die von einer Regel aus als mehrere Ansprüche gesendet werden. Sie können diese Regelvorlage z. B. verwenden, um eine Regel zu erstellen, die Attributwerte für authentifizierte Benutzer aus den Active Directory-Attributen **Unternehmen** und **Abteilung** heraussucht und dann diese Werte als zwei unterschiedliche ausgehende Ansprüche sendet.  
   
 Mit dieser Regel können Sie auch alle Gruppenmitgliedschaften des Benutzers senden. Wenn Sie nur einzelne Gruppenmitgliedschaften senden möchten, verwenden Sie die Regelvorlage „Gruppenmitgliedschaft als Anspruch senden“. Weitere Informationen finden Sie unter [verwenden ein Senden der Gruppenmitgliedschaft als Anspruchsregel](When-to-Use-a-Send-Group-Membership-as-a-Claim-Rule.md).  
   
 ## <a name="how-to-create-this-rule"></a>Erstellen dieser Regel  
-Sie können erstellen diese Regel entweder mithilfe der anspruchsregelsprache oder mithilfe der senden-LDAP-Attribute als Ansprüche Regelvorlage in AD FS-Verwaltungs ausrichten\-in. Diese Regelvorlage bietet die folgenden Konfigurationsoptionen:  
+Sie können diese Regel entweder mit der Anspruchs Regel Sprache oder mit der Regel Vorlage "LDAP-Attribute als Ansprüche senden" im Snap\--in "AD FS-Verwaltung" erstellen. Diese Regelvorlage bietet die folgenden Konfigurationsoptionen:  
   
 -   Anspruchsregelname angeben  
   
@@ -56,17 +56,17 @@ Sie können erstellen diese Regel entweder mithilfe der anspruchsregelsprache od
   
 -   Zuordnen von LDAP-Attributen zu ausgehenden Anspruchstypen  
   
-Weitere Informationen zum Erstellen dieser Regel finden Sie unter [Erstellen einer Regel zum Senden von LDAP-Attributen als Ansprüche](https://technet.microsoft.com/library/dd807115.aspx).  
+Weitere Informationen zum Erstellen dieser Regel finden [Sie unter Erstellen einer Regel zum Senden von LDAP-Attributen als Ansprüche](https://technet.microsoft.com/library/dd807115.aspx).  
   
 ## <a name="using-the-claim-rule-language"></a>Verwenden der Anspruchsregelsprache  
-Wenn die Abfrage an Active Directory, AD DS und Active Directory Lightweight Directory Services \(AD LDS\) müssen Vergleich mit einem LDAP-Attribut als **"sAMAccountName"** , müssen Sie stattdessen eine benutzerdefinierte Regel verwenden. Enthält der Eingabesatz keinen Windows-Kontonamenanspruch, müssen Sie ebenfalls eine benutzerdefinierte Regel verwenden, um den Anspruch anzugeben, der für die Abfrage von AD DS oder AD LDS verwendet wird.  
+Wenn die Abfrage zum Active Directory, AD DS oder Active Directory Lightweight Directory Services \(AD LDS\) mit einem anderen LDAP-Attribut als **sAMAccountName**verglichen werden muss, müssen Sie stattdessen eine benutzerdefinierte Regel verwenden. Enthält der Eingabesatz keinen Windows-Kontonamenanspruch, müssen Sie ebenfalls eine benutzerdefinierte Regel verwenden, um den Anspruch anzugeben, der für die Abfrage von AD DS oder AD LDS verwendet wird.  
   
 Die folgenden Beispielen sollen die verschiedenen Methoden zum Erstellen von benutzerdefinierten Regeln mithilfe der Anspruchsregelsprache für das Abfragen und Extrahieren von Daten in einem Attributspeicher veranschaulichen.  
   
 ### <a name="example-how-to-query-an-adlds-attribute-store-and-return-a-specified-value"></a>Beispiel: Abfragen eines AD LDS-Attributspeichers und Zurückgeben eines angegebenen Werts  
 Die Parameter müssen durch ein Semikolon voneinander getrennt werden. Der erste Parameter ist der LDAP-Filter. Die nachfolgende Parameter sind die Attribute, die bei allen übereinstimmenden Objekten zurückgegeben werden sollen.  
   
-Das folgende Beispiel zeigt, wie Sie das Suchen eines Benutzers von der **"sAMAccountName"** Attribut, und geben Sie einen e\-Anspruch e-Mail-Adresse, unter Verwendung des Werts des Mail-Attribut des Benutzers:  
+Das folgende Beispiel zeigt, wie Sie einen Benutzer anhand des **sAMAccountName** -Attributs suchen und einen\-e-Mail-Adress Anspruch ausgeben. verwenden Sie dazu den Wert des Mail-Attributs des Benutzers:  
   
 ```  
 c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", Issuer == "AD AUTHORITY"]  
@@ -74,14 +74,14 @@ c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/windowsacco
   
 ```  
   
-Das folgende Beispiel veranschaulicht das Suchen eines Benutzers mithilfe des **mail**-Attributs und das Ausstellen eines Titel- und Anzeigenamenanspruchs mithilfe des Werts der Attribute **title** und **displayname** des Benutzers:  
+Im folgenden Beispiel wird gezeigt, wie Sie einen Benutzer anhand des **Mail** -Attributs suchen und Titel-und Anzeige Namen Ansprüche mithilfe der Werte der Attribute **Title** und Display **Name** des Benutzers ausgeben:  
   
 ```  
 c:[Type == " http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress ", Issuer == "AD AUTHORITY"]  
 => issue(store = "AD LDS ", types = ("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/title","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/displayname"), query = "mail={0};title;displayname", param = c.Value);  
 ```  
   
-Das folgende Beispiel veranschaulicht das Suchen eines Benutzers mithilfe der Attribute mail und title und das Ausstellen eines Anzeigenamenanspruchs mithilfe des **displayname**-Attributs des Benutzers:  
+Das folgende Beispiel zeigt, wie Sie einen Benutzer per e-Mail und Titel suchen und dann einen anzeigen Amen mit dem **Display Name** -Attribut des Benutzers ausstellen:  
   
 ```  
 c1:[Type == " http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"] && c2:[Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/title"]  
@@ -89,7 +89,7 @@ c1:[Type == " http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress
 ```  
   
 ### <a name="example-how-to-query-an-activedirectory-attribute-store-and-return-a-specified-value"></a>Beispiel: Abfragen eines Active Directory-Attributspeichers und Zurückgeben eines angegebenen Werts  
-Die Active Directory-Abfrage muss den Namen des Benutzers enthalten \(mit dem Domänennamen\) wie der letzte Parameter, damit die Active Directory-Attributspeicher die richtige Domäne Abfragen kann. Ansonsten wird die gleiche Syntax unterstützt.  
+Die Active Directory Abfrage muss den Namen \(des Benutzers mit dem Domänen Namen\) als letzten Parameter enthalten, damit der Active Directory-Attribut Speicher die richtige Domäne Abfragen kann. Ansonsten wird die gleiche Syntax unterstützt.  
   
 Das folgenden Beispiel veranschaulicht das Suchen eines Benutzers mithilfe des **sAMAccountName**-Attributs in seiner Domäne und das Zurückgeben des zugehörigen **mail**-Attributs:  
   
@@ -115,16 +115,16 @@ c:[Type == "http://test/name"]
   
 Die vorherige Abfrage besteht aus den folgenden drei Teilen:  
   
--   LDAP-Filter: Sie geben diesen Teil der Abfrage an, um die Objekte abzurufen, für die Sie Attribute abfragen möchten. Allgemeine Informationen zu gültigen LDAP-Abfragen finden Sie in RFC 2254. Wenn Sie einen Active Directory-Attributspeicher Abfragen und Sie keinen LDAP-Filter, der "sAMAccountName" angeben\= {0} Abfrage wird davon ausgegangen, dass und der Active Directory-Attributspeicher erwartet einen Parameter, der den Wert für feedkann{0}. Andernfalls wird für die Abfrage ein Fehler zurückgegeben. Für andere LDAP-Attributspeicher als Active Directory dürfen Sie den LDAP-Filter in der Abfrage nicht weggelassen, da die Abfrage einen Fehler zurückgibt.  
+-   LDAP-Filter: Sie geben diesen Teil der Abfrage an, um die Objekte abzurufen, für die Sie Attribute abfragen möchten. Allgemeine Informationen zu gültigen LDAP-Abfragen finden Sie in RFC 2254. Wenn Sie einen Active Directory Attribut Speicher Abfragen und keinen LDAP-Filter angeben, wird die sAMAccountName\= {0} -Abfrage angenommen, und der Active Directory-Attribut Speicher erwartet einen Parameter, der den Wert für {0}. Andernfalls wird für die Abfrage ein Fehler zurückgegeben. Für andere LDAP-Attributspeicher als Active Directory dürfen Sie den LDAP-Filter in der Abfrage nicht weggelassen, da die Abfrage einen Fehler zurückgibt.  
   
--   Attributspezifikation: In diesem zweiten Teil der Abfrage geben Sie die Attribute \(die sind durch Kommas\-getrennt, wenn Sie mehrere Attributwerte können\) , die aus die gefilterten Objekte werden sollen. Die Anzahl der angegebenen Attribute muss die Anzahl der Anspruchstypen entsprechen, die Sie in der Abfrage definiert haben.  
+-   Attribut Spezifikation – in diesem zweiten Teil der Abfrage geben Sie die Attribute \(an, die durch Kommas\-getrennt sind, wenn Sie mehrere\) Attributwerte verwenden, die von den gefilterten Objekten verwendet werden sollen. Die Anzahl der angegebenen Attribute muss die Anzahl der Anspruchstypen entsprechen, die Sie in der Abfrage definiert haben.  
   
--   Active Directory-Domäne: Den letzten Teil der Abfrage geben Sie nur an, wenn der Attributspeicher Active Directory ist. \(Es ist nicht erforderlich, wenn die Abfrage anderer Attributspeicher.\) Dieser Teil der Abfrage wird verwendet, um das Benutzerkonto anzugeben, in der Form Domain\\Name. Der Active Directory-Attributspeicher bestimmt mithilfe des Domänenteils den entsprechenden Domänencontroller, um mit diesem eine Verbindung herzustellen, die Abfrage auszuführen und die Attribute anzufordern.  
+-   Active Directory-Domäne: Den letzten Teil der Abfrage geben Sie nur an, wenn der Attributspeicher Active Directory ist. \(Es ist nicht erforderlich, wenn Sie andere Attribut Speicher Abfragen.\) Dieser Teil der Abfrage wird verwendet, um das Benutzerkonto in der Form "Domänen\\Name" anzugeben. Der Active Directory-Attributspeicher bestimmt mithilfe des Domänenteils den entsprechenden Domänencontroller, um mit diesem eine Verbindung herzustellen, die Abfrage auszuführen und die Attribute anzufordern.  
   
-### <a name="example-how-to-use-two-custom-rules-to-extract-the-manager-e-mail-from-an-attribute-in-activedirectory"></a>Beispiel: Gewusst wie: Verwenden Sie zwei benutzerdefinierte Regeln zum Extrahieren des e-Managers\-e-Mail-Nachrichten aus einem Attribut in Active Directory  
-Die folgenden zwei benutzerdefinierten Regeln, wenn in der unten gezeigten Reihenfolge zusammen verwendet fragt Active Directory für die **Manager** Attribut des Benutzerkontos \(Regel 1\) und klicken Sie dann dieses Attribut verwenden, um vom Benutzer abzufragen Konto des Managers für die **-e-Mails** Attribut \(Regel 2\). Abschließend wird das **mail**-Attribut als „ManagerEmail“-Anspruch ausgestellt. Zusammenfassend Regel 1 fragt Active Directory und übergibt das Ergebnis der Abfrage an Regel 2, die Sie dann den Manager e extrahiert\-e-Mail-Werte.  
+### <a name="example-how-to-use-two-custom-rules-to-extract-the-manager-e-mail-from-an-attribute-in-activedirectory"></a>Beispiel: Verwenden von zwei benutzerdefinierten Regeln zum Extrahieren der e-\-Mail-Manager-e-Mail aus einem Attribut in Active Directory  
+Die folgenden zwei benutzerdefinierten Regeln, die in der unten gezeigten Reihenfolge verwendet werden, Fragen Active Directory für das **Manager** -Attribut der \(Benutzerkonto\) Regel 1 ab und verwenden dieses Attribut dann, um das Benutzerkonto des Managers abzufragen. die e- \(Mail-\)Attribut Regel 2. Abschließend wird das **mail**-Attribut als „ManagerEmail“-Anspruch ausgestellt. Zusammenfassend gilt: Regel 1 fragt Active Directory ab und übergibt das Ergebnis der Abfrage an Regel 2, die dann die e\--Mail-Werte von Vorgesetzten extrahiert.  
   
-Z. B. wenn diese Regeln Ausführung beendet ist, ein Anspruch wird ausgegeben, der den Vorgesetzten e enthält\-e-Mail-Adresse für einen Benutzer in der Domäne "corp.Fabrikam.com".  
+Wenn diese Regeln z. b. ausgeführt werden, wird ein Anspruch ausgegeben, der die e\--Mail-Adresse des Vorgesetzten für einen Benutzer in der Corp.fabrikam.com-Domäne enthält.  
   
 **Regel 1**  
   
@@ -145,9 +145,9 @@ param = regexreplace(c1.Value, ".*DC=(?<domain>.+),DC=corp,DC=fabrikam,DC=com", 
 ```  
   
 > [!NOTE]  
-> Diese Regeln funktionieren nur, wenn Sie den Manager des Benutzers in der gleichen Domäne wie der Benutzer ist \("corp.Fabrikam.com" in diesem Beispiel\).  
+> Diese Regeln funktionieren nur, wenn sich der Manager des Benutzers in derselben Domäne wie der Benutzer \(befindet Corp.fabrikam.com in diesem\)Beispiel.  
   
 ## <a name="additional-references"></a>Weitere Verweise  
-[Erstellen Sie eine Regel zum Senden von LDAP-Attributen als Ansprüche](https://technet.microsoft.com/library/dd807115.aspx)  
+[Erstellen einer Regel zum Senden von LDAP-Attributen als Ansprüche](https://technet.microsoft.com/library/dd807115.aspx)  
   
 

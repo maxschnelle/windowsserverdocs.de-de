@@ -1,6 +1,6 @@
 ---
 title: Problembehandlung bei Always On VPN
-description: Dieses Thema enthält Anweisungen für die Überprüfung und Problembehandlung für die Always On-VPN-Bereitstellung in Windows Server 2016.
+description: Dieses Thema enthält Anweisungen für die Überprüfung und Problembehandlung Always on VPN-Bereitstellung in Windows Server 2016.
 ms.prod: windows-server-threshold
 ms.technology: networking-ras
 ms.topic: article
@@ -9,175 +9,175 @@ ms.localizationpriority: medium
 ms.date: 06/11/2018
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: d9e0efede39f5a8189dbb3d62033210c393c424d
-ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
+ms.openlocfilehash: 60873c8bbf71ad5afa58bd9e19b1a3fd650bc65f
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749646"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871351"
 ---
 # <a name="troubleshoot-always-on-vpn"></a>Problembehandlung bei Always On VPN 
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-Wenn das Always On-VPN-Setup auf Clients eine Verbindung mit dem internen Netzwerk herstellen, ist die Ursache wahrscheinlich ein ungültiges VPN-Zertifikat, falsche NPS-Richtlinien oder Probleme mit der Client-Bereitstellungsskripts oder in Routing und RAS. Der erste Schritt bei der Problembehandlung und Tests Ihrer VPN-Verbindung wird die Kernkomponenten der Always On-VPN-Infrastruktur verstehen. 
+Wenn Ihr Always on VPN-Setup keine Verbindung zwischen Clients und Ihrem internen Netzwerk herstellt, ist wahrscheinlich ein ungültiges VPN-Zertifikat, falsche NPS-Richtlinien oder Probleme mit den Client Bereitstellungs Skripts oder dem Routing-und RAS-Zugriff aufgetreten. Der erste Schritt bei der Problembehandlung und dem Testen Ihrer VPN-Verbindung ist das Verständnis der Kernkomponenten der Always on-VPN-Infrastruktur. 
 
-Sie können Verbindungsprobleme auf verschiedene Weise zu behandeln. Clientseitige Probleme und Problembehandlung für allgemeine sind die Anwendungsprotokolle auf Clientcomputern von großer Bedeutung. Für die Authentifizierung-spezifische Probleme können die NPS-Protokolls auf dem NPS-Server Sie die Ursache des Problems zu ermitteln.
+Sie können Verbindungsprobleme auf verschiedene Arten beheben. Bei Client seitigen Problemen und der allgemeinen Problembehandlung sind die Anwendungsprotokolle auf Client Computern von großer Bedeutung. Bei Authentifizierungs spezifischen Problemen kann das NPS-Protokoll auf dem NPS-Server Ihnen helfen, die Ursache des Problems zu bestimmen.
 
 ## <a name="error-codes"></a>Fehlercodes
 
 ### <a name="error-code-800"></a>Fehlercode: 800
 
-- **Beschreibung des Fehlers.** Die Remoteverbindung wurde nicht erstellt werden, da die VPN-tunnelfehlern. Der VPN-Server möglicherweise nicht erreichbar. Wenn diese Verbindung versucht, einen L2TP/IPsec-Tunnel verwenden, müssen die Sicherheitsparametern, für IPsec-Aushandlung nicht ordnungsgemäß konfiguriert werden kann.
+- **Fehlerbeschreibung.** Die Remote Verbindung wurde nicht hergestellt, weil bei den versuchten VPN-Tunneln ein Fehler aufgetreten ist. Der VPN-Server ist möglicherweise nicht erreichbar. Wenn diese Verbindung versucht, einen L2TP/IPSec-Tunnel zu verwenden, sind die für die IPsec-Aushandlung erforderlichen Sicherheitsparameter möglicherweise nicht ordnungsgemäß konfiguriert.
 
-- **Mögliche Ursache.** Dieser Fehler tritt auf, wenn der Typ des VPN-Tunnel ist **automatische** und der Verbindungsversuch schlägt für alle VPN-Tunnel fehl.
+- **Mögliche Ursache:** Dieser Fehler tritt auf, wenn der VPN-Tunneltyp **automatisch** ist und der Verbindungsversuch für alle VPN-Tunnel fehlschlägt.
 
 - **Mögliche Lösungen:**
 
-    - Wenn Sie wissen, welchen Tunnel ein, um für Ihre Bereitstellung verwenden, legen Sie den Typ des VPN auf diesen bestimmten Tunneltyp, auf dem VPN-Client.
+    - Wenn Sie wissen, welcher Tunnel für Ihre Bereitstellung verwendet werden soll, legen Sie den Typ des VPN auf den jeweiligen Tunneltyp auf der VPN-Clientseite fest.
 
-    - Dazu eine VPN-Verbindung mit einem bestimmten Tunneltyp, die Verbindung werden weiterhin fehlerhaft sein, aber dies führt zu einem mehr Tunnel-spezifische Fehler (z. B. "GRE für PPTP blockiert.").
+    - Wenn Sie eine VPN-Verbindung mit einem bestimmten Tunneltyp herstellen, schlägt die Verbindung weiterhin fehl, dies führt jedoch zu einem fehlerhaften Tunnel spezifischen Fehler (z. b. "GRE blockiert für PPTP").
 
-    - Dieser Fehler tritt auch auf, wenn der VPN-Server nicht erreicht werden oder die tunnelverbindung nicht möglich ist.
+    - Dieser Fehler tritt auch auf, wenn der VPN-Server nicht erreicht werden kann oder die Tunnelverbindung nicht hergestellt werden kann.
 
 - **Stelle sicher:**
 
-    - IKE-Ports (UDP-Ports 500 und 4500) werden nicht blockiert.
+    - IKE-Ports (UDP-Ports 500 und 4500) sind nicht blockiert.
 
-    - Die richtigen Zertifikate für IKE, die auf dem Client und dem Server vorhanden sind.
+    - Die richtigen Zertifikate für IKE sind sowohl auf dem Client als auch auf dem Server vorhanden.
 
 ### <a name="error-code-809"></a>Fehlercode: 809
 
-- **Beschreibung des Fehlers.**  Die Netzwerkverbindung zwischen Ihrem Computer und dem VPN-Server konnte nicht hergestellt werden, weil der Remoteserver nicht antwortet. Möglicherweise eine der Netzwerkgeräte (z. B. Firewalls, NAT-Router) zwischen Ihrem Computer und dem remote-Server nicht konfiguriert ist, um VPN-Verbindungen zu ermöglichen. Wenden Sie sich an Ihren Administrator oder Ihren Dienstanbieter, um zu bestimmen, welches Gerät möglicherweise das Problem verursachen.
+- **Fehlerbeschreibung.**  Die Netzwerkverbindung zwischen Ihrem Computer und dem VPN-Server konnte nicht hergestellt werden, da der Remote Server nicht antwortet. Dies liegt möglicherweise daran, dass eines der Netzwerkgeräte (z. b. Firewalls, NAT, Router) zwischen Ihrem Computer und dem Remote Server nicht für das Zulassen von VPN-Verbindungen konfiguriert ist. Wenden Sie sich an Ihren Administrator oder an Ihren Dienstanbieter, um zu ermitteln, welches Gerät das Problem möglicherweise verursacht.
 
-- **Mögliche Ursache.** Dieser Fehler wird durch die blockierte UDP 500 oder 4500 Ports auf dem VPN-Server oder die Firewall verursacht.
+- **Mögliche Ursache:** Dieser Fehler wird durch blockierte UDP 500-oder 4500-Ports auf dem VPN-Server oder der Firewall verursacht.
 
-- **Mögliche Lösung.** Stellen Sie sicher, dass UDP-Ports: 500 und 4500 über alle Firewalls zwischen dem Client und den RRAS-Server zulässig sind.
+- **Mögliche Lösung.** Stellen Sie sicher, dass die UDP-Ports 500 und 4500 durch alle Firewalls zwischen dem Client und dem RRAS-Server zulässig sind.
 
 ### <a name="error-code-812"></a>Fehlercode: 812
 
-- **Beschreibung des Fehlers.** Keine Verbindung Always On-VPN. Die Verbindung wurde durch eine Richtlinie konfiguriert werden, auf dem RAS-/VPN-Server verhindert. Insbesondere die Authentifizierungsmethode der Server verwendet, um zu überprüfen, ob Ihr Benutzername und Kennwort möglicherweise nicht die in das Verbindungsprofil konfigurierte Authentifizierungsmethode überein. Bitte wenden Sie sich an den Administrator des RAS-Server, und benachrichtigen Sie ihm bzw. ihr für diesen Fehler zu.
+- **Fehlerbeschreibung.** Es kann keine Verbindung mit Always on VPN hergestellt werden. Die Verbindung wurde aufgrund einer Richtlinie, die auf Ihrem RAS/VPN-Server konfiguriert wurde, verhindert. Die Authentifizierungsmethode, die der Server zum Überprüfen Ihres Benutzernamens und Kennworts verwendet hat, stimmt möglicherweise nicht mit der Authentifizierungsmethode, die in Ihrem Verbindungsprofil konfiguriert wurde. Wenden Sie sich an den Administrator des RAS-Servers, und Benachrichtigen Sie ihn über diesen Fehler.
 
 - **Mögliche Ursachen:**
 
-    - Die typische Ursache für diesen Fehler ist, dass der NPS eine Bedingung für die Authentifizierung angegeben ist, die der Client nicht erfüllen kann. Z. B. den NPS kann die Verwendung eines Zertifikats zum Sichern der PEAP-Verbindung angeben, aber der Client versucht, EAP-MSCHAP v2 zu verwenden.
+    - Die typische Ursache für diesen Fehler ist, dass der NPS eine Authentifizierungs Bedingung angegeben hat, die der Client nicht erfüllen kann. Beispielsweise kann der NPS die Verwendung eines Zertifikats zum Sichern der PEAP-Verbindung angeben, aber der Client versucht, EAP-MSCHAPv2 zu verwenden.
 
-    - Ereignisprotokoll 20276 wird in der Ereignisanzeige protokolliert werden, bei der die RRAS basierende VPN-Server-Authentifizierung-protokolleinstellung, die von der VPN-Clientcomputer nicht entspricht.
+    - Das Ereignisprotokoll 20276 wird in der Ereignisanzeige protokolliert, wenn die Einstellung RRAS-basiertes VPN-Server-Authentifizierungsprotokoll nicht mit der des VPN-Client Computers identisch ist.
 
-- **Mögliche Lösung.** Stellen Sie sicher, dass die Clientkonfiguration, das die Bedingungen erfüllt, die auf dem NPS-Server angegeben werden.
+- **Mögliche Lösung.** Stellen Sie sicher, dass Ihre Client Konfiguration mit den Bedingungen übereinstimmt, die auf dem NPS-Server angegeben sind.
 
 ### <a name="error-code-13806"></a>Fehlercode: 13806
 
-- **Beschreibung des Fehlers.** IKE wurde ein gültiges Zertifikat gefunden. Wenden Sie sich an Netzwerksicherheitsadministrator über ein gültiges Zertifikat in den entsprechenden Zertifikatspeicher installieren.
+- **Fehlerbeschreibung.** Ein gültiges Computer Zertifikat konnte von IKE nicht gefunden werden. Wenden Sie sich an den Netzwerk Sicherheitsadministrator, um ein gültiges Zertifikat im entsprechenden Zertifikat Speicher zu installieren.
 
-- **Mögliche Ursache.** Dieser Fehler tritt normalerweise auf, wenn kein Zertifikat, oder Computer Stammzertifikat auf dem VPN-Server vorhanden ist.
+- **Mögliche Ursache:** Dieser Fehler tritt normalerweise auf, wenn auf dem VPN-Server kein Computer Zertifikat oder Stamm Computer Zertifikat vorhanden ist.
 
-- **Mögliche Lösung.** Stellen Sie sicher, dass die Zertifikate beschrieben, die in dieser Bereitstellung auf dem Clientcomputer und dem VPN-Server installiert sind.
+- **Mögliche Lösung.** Stellen Sie sicher, dass die in dieser Bereitstellung beschriebenen Zertifikate sowohl auf dem Client Computer als auch auf dem VPN-Server installiert sind.
 
 ### <a name="error-code-13801"></a>Fehlercode: 13801
 
-- **Beschreibung des Fehlers.** IKE-Authentifizierungsinformationen sind nicht akzeptabel.
+- **Fehlerbeschreibung.** Die Anmelde Informationen für die IKE-Authentifizierung sind unzulässig.
 
-- **Mögliche Ursachen.** Dieser Fehler tritt normalerweise auf eine der folgenden Fälle:
+- **Mögliche Ursachen.** Dieser Fehler tritt in der Regel in einem der folgenden Fälle auf:
 
-    - Das Zertifikat des Computers, für die IKEv2-Überprüfung auf dem RAS-Server verwendet keine **Serverauthentifizierung** unter **Enhanced Key Usage**.
+    - Das Computer Zertifikat, das für die IKEv2-Überprüfung auf dem RAS-Server verwendet wird, verfügt über keine **Server Authentifizierung** mit **Verbesserter Schlüssel Verwendung**
 
-    - Das Zertifikat des Computers auf dem RAS-Server ist abgelaufen.
+    - Das Computer Zertifikat auf dem RAS-Server ist abgelaufen.
 
-    - Das Stammzertifikat zum Überprüfen des Zertifikats des RAS-Server nicht vorhanden ist, auf dem Clientcomputer.
+    - Das Stamm Zertifikat zum Überprüfen des RAS-Serverzertifikats ist auf dem Client Computer nicht vorhanden.
 
-    - Die VPN-Server auf dem Clientcomputer nicht entsprechen, die **SubjectName** des Serverzertifikats.
+    - Der auf dem Client Computer verwendete VPN-Servername stimmt nicht mit dem **subjetname** des Serverzertifikats identisch.
 
-- **Mögliche Lösung.** Stellen Sie sicher, dass das Serverzertifikat enthält **Serverauthentifizierung** unter **Enhanced Key Usage**. Stellen Sie sicher, dass das Zertifikat noch gültig ist. Überprüfen Sie, dass die Zertifizierungsstelle verwendet unter ist **Trusted Root Certification Authorities** auf dem RRAS-Server. Stellen Sie sicher, dass der VPN-Client über den vollqualifizierten Domänennamen des VPN-Server, wie die Darstellung auf dem VPN-Zertifikat des Servers eine Verbindung herstellt.
+- **Mögliche Lösung.** Stellen Sie sicher, dass das Serverzertifikat unter **Erweiterte Schlüssel Verwendung**eine **Server Authentifizierung** enthält. Vergewissern Sie sich, dass das Serverzertifikat noch gültig ist. Vergewissern Sie sich, dass die verwendete Zertifizierungsstelle unter **Vertrauenswürdige Stamm Zertifizierungs** stellen auf dem RRAS-Server aufgeführt ist. Überprüfen Sie, ob der VPN-Client eine Verbindung mit dem voll qualifizierten Namen des VPN-Servers herstellt, wie im Zertifikat des VPN-Servers dargestellt.
 
 ### <a name="error-code-0x80070040"></a>Fehlercode: 0x80070040
 
-- **Beschreibung des Fehlers.** Das Serverzertifikat verfügt nicht über **Serverauthentifizierung** als eines seiner Einträge der Zertifikat-Nutzung.
+- **Fehlerbeschreibung.** Das Serverzertifikat verfügt nicht über eine **Server Authentifizierung** als eine seiner Zertifikat Verwendungs Einträge.
 
-- **Mögliche Ursache.** Dieser Fehler kann auftreten, wenn kein Serverzertifikat für die Authentifizierung auf dem RAS-Server installiert ist.
+- **Mögliche Ursache:** Dieser Fehler kann auftreten, wenn auf dem RAS-Server kein Server Authentifizierungszertifikat installiert ist.
 
-- **Mögliche Lösung.** Stellen Sie sicher, dass das Zertifikat des Computers der RAS-Server für verwendet **IKEv2** hat **Serverauthentifizierung** als einer der Einträge für die Zertifikatverwendung.
+- **Mögliche Lösung.** Stellen Sie sicher, dass das Computer Zertifikat, das der RAS-Server für **IKEv2** verwendet, als eine der Zertifikat Verwendungs Einträge **Server Authentifizierung** verwendet.
 
 ### <a name="error-code-0x800b0109"></a>Fehlercode: 0x800B0109
 
-Im Allgemeinen wird die VPN-Client-Computer mit der Active Directory basierende Domäne verknüpft. Wenn Sie Anmeldeinformationen für die Domäne verwenden, um den VPN-Server anmelden, wird das Zertifikat automatisch in der vertrauenswürdigen Stammzertifizierungsstellen installiert zu speichern. Wenn der Computer nicht mit der Domäne angehört, oder wenn Sie eine andere Zertifikatskette verwenden, können Sie jedoch dieses Problem auftreten.
+Im Allgemeinen wird der VPN-Client Computer mit der Active Directory – basierten Domäne verknüpft. Wenn Sie Domänen Anmelde Informationen für die Anmeldung beim VPN-Server verwenden, wird das Zertifikat automatisch im Speicher Vertrauenswürdige Stamm Zertifizierungsstellen installiert. Wenn der Computer jedoch nicht der Domäne hinzugefügt wird oder wenn Sie eine Alternative Zertifikat Kette verwenden, kann dieses Problem auftreten.
 
-- **Beschreibung des Fehlers.** Eine Zertifikatkette verarbeitet, aber in einem Stammzertifikat, das der Vertrauensanbieter nicht vertraut wird beendet.
+- **Fehlerbeschreibung.** Eine Zertifikat Kette wurde verarbeitet, aber in einem Stamm Zertifikat beendet, dem der Vertrauens Anbieter nicht vertraut.
 
-- **Mögliche Ursache.** Dieser Fehler kann auftreten, wenn das entsprechende vertrauenswürdigen Stamm-CA-Zertifikat nicht, in der vertrauenswürdigen Stammzertifizierungsstellen installiert ist auf dem Clientcomputer zu speichern.
+- **Mögliche Ursache:** Dieser Fehler kann auftreten, wenn das entsprechende Zertifikat der vertrauenswürdigen Stamm Zertifizierungsstelle nicht im Speicher für vertrauenswürdige Stamm Zertifizierungsstellen auf dem Client Computer installiert ist.
 
-- **Mögliche Lösung.** Stellen Sie sicher, dass das Stammzertifikat auf dem Clientcomputer im Speicher vertrauenswürdiger Stammzertifizierungsstellen installiert ist.
+- **Mögliche Lösung.** Stellen Sie sicher, dass das Stamm Zertifikat auf dem Client Computer im Speicher vertrauenswürdiger Stamm Zertifizierungsstellen installiert ist.
 
 ## <a name="logs"></a>Protokolldateien
 
 ### <a name="application-logs"></a>Anwendungsprotokolle
 
-Die Anwendungsprotokolle auf den Clientcomputern Notieren Sie die meisten auf höherer Ebene Details von Ereignissen für VPN-Verbindung.
+In den Anwendungs Protokollen auf Client Computern wird der größte Teil der Details der VPN-Verbindungs Ereignisse auf höherer Ebene aufgezeichnet.
 
-Suchen Sie nach Ereignissen, aus der Quelle RasClient. Alle Fehlermeldungen zurück, den Fehlercode am Ende der Nachricht. Einige der häufigsten Fehlercodes werden unten genauer beschrieben, aber eine vollständige Liste finden Sie in [Routing und Remote Access-Fehlercodes](https://msdn.microsoft.com/library/windows/desktop/bb530704.aspx).
+Suchen Sie nach Ereignissen aus der Quelle RasClient. Alle Fehlermeldungen geben den Fehlercode am Ende der Nachricht zurück. Einige der gängigeren Fehlercodes sind unten aufgeführt, aber eine vollständige Liste ist in den [Routing-und RAS-Fehlercodes](https://msdn.microsoft.com/library/windows/desktop/bb530704.aspx)verfügbar.
 
 ## <a name="nps-logs"></a>NPS-Protokolle
 
-NPS erstellt und speichert die NPS-Accounting-Protokolle. Standardmäßig werden diese in %SystemRoot% gespeichert\\"System32"\\"LogFiles"\\ in eine Datei namens im*XXXX*txt., in denen *XXXX* ist das Datum, das erstellt wurde.
+NPS erstellt und speichert die NPS-Buchhaltungs Protokolle. \\Standardmäßig werden diese in "% SystemRoot% System32\\Logfiles\\ " in einer Datei namens in "*xxxx*. txt" gespeichert, wobei *xxxx* das Datum ist, an dem die Datei erstellt wurde.
 
-Standardmäßig diese Protokolle werden im CSV-Format, aber sie enthalten nicht, eine Zeile mit der Überschrift. Die Überschriftenzeile ist:
+Standardmäßig sind diese Protokolle im Format für durch Trennzeichen getrennte Werte enthalten, Sie enthalten jedoch keine Überschriften Zeile. Die Überschriften Zeile lautet:
 
 ```
 ComputerName,ServiceName,Record-Date,Record-Time,Packet-Type,User-Name,Fully-Qualified-Distinguished-Name,Called-Station-ID,Calling-Station-ID,Callback-Number,Framed-IP-Address,NAS-Identifier,NAS-IP-Address,NAS-Port,Client-Vendor,Client-IP-Address,Client-Friendly-Name,Event-Timestamp,Port-Limit,NAS-Port-Type,Connect-Info,Framed-Protocol,Service-Type,Authentication-Type,Policy-Name,Reason-Code,Class,Session-Timeout,Idle-Timeout,Termination-Action,EAP-Friendly-Name,Acct-Status-Type,Acct-Delay-Time,Acct-Input-Octets,Acct-Output-Octets,Acct-Session-Id,Acct-Authentic,Acct-Session-Time,Acct-Input-Packets,Acct-Output-Packets,Acct-Terminate-Cause,Acct-Multi-Ssn-ID,Acct-Link-Count,Acct-Interim-Interval,Tunnel-Type,Tunnel-Medium-Type,Tunnel-Client-Endpt,Tunnel-Server-Endpt,Acct-Tunnel-Conn,Tunnel-Pvt-Group-ID,Tunnel-Assignment-ID,Tunnel-Preference,MS-Acct-Auth-Type,MS-Acct-EAP-Type,MS-RAS-Version,MS-RAS-Vendor,MS-CHAP-Error,MS-CHAP-Domain,MS-MPPE-Encryption-Types,MS-MPPE-Encryption-Policy,Proxy-Policy-Name,Provider-Type,Provider-Name,Remote-Server-Address,MS-RAS-Client-Name,MS-RAS-Client-Version
 ```
 
-Wenn Sie diese Zeile mit der Überschrift als erste Zeile der Protokolldatei einfügen, klicken Sie dann die Datei in Microsoft Excel importieren, die Spalten korrekt mit der Bezeichnung.
+Wenn Sie diese Überschriften Zeile als erste Zeile der Protokolldatei einfügen und die Datei dann in Microsoft Excel importieren, werden die Spalten ordnungsgemäß bezeichnet.
 
-Die NPS-Protokolle können bei der Diagnose von Problemen mit der Richtlinie hilfreich sein. Weitere Informationen zu NPS-Protokollen finden Sie unter [Interpretieren von NPS-Format Protokolldateien](https://technet.microsoft.com/library/cc771748.aspx).
+Die NPS-Protokolle können bei der Diagnose von Richtlinien bezogenen Problemen hilfreich sein. Weitere Informationen zu NPS-Protokollen finden Sie unter [Interpretieren von NPS-Daten Bank Format-Protokolldateien](https://technet.microsoft.com/library/cc771748.aspx).
 
-## <a name="vpnprofileps1-script-issues"></a>VPN_Profile.ps1 Skriptproblemen
+## <a name="vpn_profileps1-script-issues"></a>VPN_Profile. ps1-Skript Probleme
 
-Sind am häufigsten auftretenden Probleme, wenn das VPN_ Profile.ps1-Skript manuell ausführen:
+Die häufigsten Probleme beim manuellen Ausführen des VPN_ Profile. ps1-Skripts sind:
 
-- Verwenden Sie ein Tool für die remote-Verbindung?  Stellen Sie sicher, dass RDP oder eine andere Methode der Remoteverbindung nicht verwenden, wie sie mit der Anmeldung von Benutzer verwirrt.
+- Verwenden Sie ein Remote Verbindungs Tool?  Stellen Sie sicher, dass Sie RDP oder eine andere Remote Verbindungsmethode nicht verwenden, da Sie mit der Erkennung von Benutzer Anmelde Informationen verwendet wird.
 
-- Ist der Benutzer ein Administrator des lokalen Computers?  Stellen Sie sicher, dass beim Ausführen des VPN_Profile.ps1-Skripts, die der Benutzer über Administratorrechte verfügt.
+- Ist der Benutzer ein Administrator dieses lokalen Computers?  Stellen Sie sicher, dass beim Ausführen des Skripts VPN_Profile. ps1, dass der Benutzer über Administratorrechte verfügt.
 
-- Haben Sie zusätzliche PowerShell-Sicherheitsfunktionen aktiviert? Stellen Sie sicher, dass die PowerShell-Ausführungsrichtlinie nicht durch das Skript blockiert wird. Sie sollten erwägen, eingeschränkten Sprachmodus deaktivieren, wenn vor dem Ausführen des Skripts aktiviert. Sie können die eingeschränkten Sprachmodus aktivieren, nachdem das Skript erfolgreich abgeschlossen wurde.
+- Verfügen Sie über zusätzliche aktivierte PowerShell-Sicherheitsfeatures? Stellen Sie sicher, dass die PowerShell-Ausführungs Richtlinie das Skript nicht blockiert. Vor dem Ausführen des Skripts sollten Sie ggf. den eingeschränkten Modus deaktivieren. Sie können den eingeschränkten Sprachmodus aktivieren, nachdem das Skript erfolgreich abgeschlossen wurde.
 
-## <a name="always-on-vpn-client-connection-issues"></a>Always On-VPN-Client-Verbindungsprobleme
+## <a name="always-on-vpn-client-connection-issues"></a>VPN-Client Verbindungsprobleme Always on
 
-Eine kleine fehlerhafte Konfiguration kann dazu führen, dass die Clientverbindung fehlschlägt und kann schwierig sein, um die Ursache zu ermitteln.  Ein Always On-VPN-Client umfasst mehrere Schritte vor dem Herstellen einer Verbindung. Bei der Behandlung von Problemen mit Clientverbindungen, durchlaufen Sie den Prozess der Eliminierung von Duplikaten, durch den folgenden aus:
+Eine geringfügige Fehlkonfiguration kann dazu führen, dass die Client Verbindung fehlschlägt, und die Ursache ist möglicherweise schwierig zu ermitteln.  Ein Always on-VPN-Client durchläuft mehrere Schritte, bevor eine Verbindung hergestellt wird. Gehen Sie bei der Problembehandlung von Client Verbindungsproblemen wie folgt vor:
 
-1. Werden extern Vorlagencomputers ist verbunden? Ein **Whatismyip** Überprüfung sollte eine öffentliche IP-Adresse, die nicht zu der Sie gehört angezeigt.
+1. Ist der Vorlagen Computer extern verbunden? Ein **whatismyip** -Scan sollte eine öffentliche IP-Adresse anzeigen, die nicht zu Ihnen gehört.
 
-2. Können Sie den Servernamen der RAS/VPN-eine IP-Adresse auflösen? In **Systemsteuerung** > **Netzwerk** und **Internet** > **Netzwerkverbindungen**, öffnen Sie die Eigenschaften für Ihr VPN-Profil. Der Wert in der **allgemeine** Registerkarte muss öffentlich über DNS aufgelöst werden kann.
+2. Können Sie den Remote Zugriff/VPN-Servernamen in eine IP-Adresse auflösen? Öffnen Sie in der **Systemsteuerung** > **Netzwerk** -und **Internet** > **Netzwerkverbindungen**die Eigenschaften für das VPN-Profil. Der Wert auf der Registerkarte **Allgemein** sollte durch DNS öffentlich aufgelöst werden können.
 
-3. Können Sie den VPN-Server aus einem externen Netzwerk zugreifen? Öffnen Internet Control Message Protocol (ICMP), um die externe Schnittstelle und pingen den Namen des Remoteclients berücksichtigen. Nachdem ein Ping erfolgreich ist, können Sie entfernen, dass das ICMP-Zulassungsregel.
+3. Können Sie über ein externes Netzwerk auf den VPN-Server zugreifen? Öffnen Sie das ICMP (Internet Control Message Protocol) für die externe Schnittstelle, und Pingen Sie den Namen vom Remote Client. Nachdem ein Ping erfolgreich war, können Sie die ICMP-Zulassungs Regel entfernen.
 
-4. Haben Sie die internen und externen Netzwerkkarten auf dem VPN-Server ordnungsgemäß konfiguriert? Stellen sie in unterschiedlichen Subnetzen befinden? Stellt die externe NIC an die richtige Schnittstelle in Ihrer Firewall eine Verbindung her?
+4. Haben Sie die internen und externen NICs auf dem VPN-Server ordnungsgemäß konfiguriert? Befinden sich diese in unterschiedlichen Subnetzen? Stellt die externe NIC eine Verbindung mit der richtigen Schnittstelle Ihrer Firewall her?
 
-5. Sind UDP 500 und 4500 Ports geöffnet vom Client an externe Schnittstelle des VPN-Servers? Überprüfen Sie die Client-Firewall, Firewall des Servers und alle Hardwarefirewalls. IPSEC verwendet UDP-Port 500, also stellen Sie sicher, dass, die Sie keine IPSec an einer beliebigen Stelle blockiert oder deaktiviert haben.
+5. Werden UDP 500-und 4500-Ports vom Client für die externe Schnittstelle des VPN-Servers geöffnet? Überprüfen Sie die Client Firewall, die Server Firewall und alle Hardware Firewalls. IPSec verwendet den UDP-Port 500. Stellen Sie daher sicher, dass die IPEC nicht deaktiviert oder an einem beliebigen Speicherort blockiert ist.
 
-6. Fehler Überprüfung des Zertifikats ist treten auf? Stellen Sie sicher, dass der NPS-Server verfügt über ein Serverauthentifizierungszertifikat, das IKE-Anforderungen verarbeitet werden können. Stellen Sie sicher, dass Sie die richtige VPN-Server IP-Adresse als NPS-Client angegeben haben. Stellen Sie sicher, dass Sie die Authentifizierung mit PEAP und Eigenschaften für geschütztes EAP sollten nur die Authentifizierung mit einem Zertifikat zulassen. Sie können die NPS-Ereignisprotokolle auf Fehler bei der Authentifizierung überprüfen. Weitere Informationen finden Sie unter [installieren und Konfigurieren der NPS-Server](vpn-deploy-nps.md)
+6. Schlägt die Zertifikats Überprüfung fehl? Vergewissern Sie sich, dass der NPS-Server über ein Server Authentifizierungszertifikat verfügt, das IKE-Anforderungen bedienen kann Stellen Sie sicher, dass Sie die richtige VPN-Server-IP-Adresse als NPS-Client angegeben haben. Stellen Sie sicher, dass Sie sich mit PEAP authentifizieren, und die geschützten EAP-Eigenschaften sollten nur die Authentifizierung mit einem Zertifikat zulassen. Sie können die NPS-Ereignisprotokolle auf Authentifizierungsfehler überprüfen. Weitere Informationen finden Sie unter [Installieren und Konfigurieren des NPS-Servers](vpn-deploy-nps.md) .
 
-7. Möchten Sie eine Verbindung herstellen, aber keinen Zugriff auf das Internet/lokale Netzwerk? Überprüfen Sie Ihre DHCP-/ VPN-Server-IP-Adresspools für Konfigurationsprobleme.
+7. Stellen Sie eine Verbindung her, haben aber keinen Zugriff auf das Internet/lokales Netzwerk? Überprüfen Sie die IP-Pools des DHCP/VPN-Servers auf Konfigurationsprobleme.
 
-8. Werden Sie eine Verbindung herstellen und eine gültige interne IP-Adresse jedoch keinen Zugriff auf lokale Ressourcen?  Stellen Sie sicher, dass Clients wissen, wie auf diese Ressourcen zu erhalten. Sie können die VPN-Server zum Weiterleiten von Anforderungen verwenden.
+8. Stellen Sie eine Verbindung her und haben eine gültige interne IP-Adresse, haben aber keinen Zugriff auf lokale Ressourcen?  Überprüfen Sie, ob Clients wissen, wie Sie zu diesen Ressourcen gelangen. Sie können den VPN-Server zum Weiterleiten von Anforderungen verwenden.
 
-## <a name="azure-ad-conditional-access-connection-issues"></a>Azure AD für bedingten Zugriff-Verbindungsprobleme
+## <a name="azure-ad-conditional-access-connection-issues"></a>Azure AD Verbindungsprobleme mit bedingtem Zugriff
 
-### <a name="oops---you-cant-get-to-this-yet"></a>Leider – Sie keinen Zugriff auf diese noch
+### <a name="oops---you-cant-get-to-this-yet"></a>Oops: Sie können dies noch nicht erreichen.
 
-- **Beschreibung des Fehlers.** Wenn die Richtlinie für bedingten Zugriff ist nicht zufrieden sind, blockieren die VPN-Verbindung, aber eine Verbindung herstellt, nachdem der Benutzer ausgewählt **X** um die Meldung zu schließen.  Auswählen von **OK** bewirkt, dass eine andere Authentifizierungsversuch, die in eine andere "Entschuldigung" endet. Diese Ereignisse werden im AAD-Operational-Ereignisprotokoll des Clients aufgezeichnet.
+- **Fehlerbeschreibung.** Wenn die Richtlinie für bedingten Zugriff nicht erfüllt wird, wird die VPN-Verbindung blockiert, jedoch wird eine Verbindung hergestellt, nachdem der Benutzer **X** zum Schließen der Nachricht ausgewählt hat.  Wenn Sie **OK** auswählen, wird ein anderer Authentifizierungs Versuch ausgelöst, der in einer anderen "Oops"-Meldung endet. Diese Ereignisse werden im Aad-Betriebs Ereignisprotokoll des Clients aufgezeichnet.
 
 - **Mögliche Ursache**
 
-  - Der Benutzer hat ein gültiges Clientauthentifizierungszertifikat in ihren persönlichen Zertifikatspeicher zu speichern, die nicht von Azure AD ausgestellt wurde.
+  - Der Benutzer verfügt über ein gültiges Client Authentifizierungszertifikat im persönlichen Zertifikat Speicher, das nicht von Azure AD ausgestellt wurde.
 
-  - Das VPN-Profil \<TLSExtensions\> Abschnitt ist, fehlt oder enthält keine enthalten die **\<EKUName\>AAD für den bedingten Zugriff\</EKUName\> \< EKUOID\>1.3.6.1.4.1.311.87 < / EKUOID\>\<EKUName > Bedingter Zugriff für AAD < / EKUName\>\<EKUOID\>1.3.6.1.4.1.311.87 < / EKUOID\>** Einträge. Die \<EKUName > und \<EKUOID > Einträge den VPN-Client informiert, welches Zertifikat aus dem Zertifikatspeicher des Benutzers abgerufen werden soll, wenn das Zertifikat an der VPN-Server übergeben. Der VPN-Client verwendet das gültiges Zertifikat zur Authentifizierung der Client im Zertifikatspeicher des Benutzers und Authentifizierung erfolgreich ist, ohne diesen Schritt. 
+  - Der Abschnitt " \<VPN-Profil\> tlsextensions" fehlt oder enthält nicht den **\<ekuname\>Aad Conditional Access\</EKUName\>\<ekuoid.\>1.3.6.1.4.1.311.87 </EKUOID\>\> \<\>\>ekuname > Aad Conditional Access </EKUName ekuoid 1.3.6.1.4.1.311.87 </EKUOID\<** Einträge. Die \<> Einträge von ekuname > und \<ekuoid geben dem VPN-Client an, welches Zertifikat aus dem Zertifikat Speicher des Benutzers abgerufen werden soll, wenn das Zertifikat an den VPN-Server übergeben wird. Ohne diesen Vorgang verwendet der VPN-Client ein gültiges Client Authentifizierungszertifikat, das sich im Zertifikat Speicher des Benutzers befindet, und die Authentifizierung ist erfolgreich. 
 
-  - Der RADIUS-Server (NPS) wurde nicht zum nur Clientzertifikate annimmt, die enthalten konfiguriert die **AAD für den bedingten Zugriff** OID.
+  - Der RADIUS-Server (NPS) wurde nicht so konfiguriert, dass nur Client Zertifikate akzeptiert werden, die die ID des **bedingten Aad-Zugriffs** enthalten.
 
-- **Mögliche Lösung.** Führen Sie folgende Schritte aus, um diese Schleife Escapezeichen zu versehen:
+- **Mögliche Lösung.** Gehen Sie folgendermaßen vor, um diese Schleife zu verwenden:
 
-  1. Führen Sie in Windows PowerShell die **Get-WmiObject** Cmdlet, um die Konfiguration des VPN-Profils zu sichern. 
-  2. Überprüfen Sie, ob die  **\<TLSExtensions >** ,  **\<EKUName >** , und  **\<EKUOID >** Abschnitte vorhanden, und zeigt die richtige Der Name "und" OID ".
+  1. Führen Sie in Windows PowerShell das Cmdlet **Get-WMIObject** zum Sichern der VPN-Profil Konfiguration aus. 
+  2. Überprüfen Sie, ob die  **\<Abschnitte tlsextensions >** ,  **\<ekuname >** und  **\<ekuoid >** vorhanden sind, und zeigen Sie den richtigen Namen und die OID an.
       
       ```powershell
       PS C:\> Get-WmiObject -Class MDM_VPNv2_01 -Namespace root\cimv2\mdm\dmmap
@@ -241,7 +241,7 @@ Eine kleine fehlerhafte Konfiguration kann dazu führen, dass die Clientverbindu
       PSComputerName          : DERS2
       ```
 
-  3. Um zu bestimmen, wenn gültige Zertifikate im Zertifikatspeicher des Benutzers vorhanden sind, führen die **Certutil** Befehl:
+  3. Führen Sie den **certutil** -Befehl aus, um zu bestimmen, ob gültige Zertifikate im Zertifikat Speicher des Benutzers vorhanden sind:
 
      ```powershell
      C:\>certutil -store -user My
@@ -277,21 +277,21 @@ Eine kleine fehlerhafte Konfiguration kann dazu führen, dass die Clientverbindu
       Encryption test passed
      ```
      >[!NOTE]
-     >Wenn ein Zertifikat vom Aussteller **CN = Microsoft VPN-Stamm-CA-Generation 1** befindet sich im persönlichen Speicher des Benutzers, aber der Benutzer, die sich bereits Zugriff dazu **X** sammeln Sie zum Schließen der Nachricht Entschuldigung CAPI2-Ereignisprotokolle, um zu überprüfen das Zertifikat zur Authentifizierung verwendet wurde, ein gültiges Clientauthentifizierungszertifikat zur Authentifizierung von, das nicht von der Microsoft VPN-Stamm-CA ausgestellt wurde.
+     >Wenn ein Zertifikat vom Aussteller **CN = Microsoft VPN Root CA Gen 1** im persönlichen Speicher des Benutzers vorhanden ist, der Benutzer aber durch Auswählen von **X** zum Schließen der oops-Nachricht Zugriff erhalten hat, erfassen Sie CAPI2-Ereignisprotokolle, um zu überprüfen, ob das Zertifikat, das zum Authentifizieren verwendet wurde, ein ein gültiges Client Authentifizierungszertifikat, das nicht von der Microsoft-VPN-Stamm Zertifizierungsstelle ausgestellt wurde.
 
-  4. Wenn ein gültiges Clientauthentifizierungszertifikat zur Authentifizierung der im privaten Speicher des Benutzers vorhanden ist, ein Verbindungsfehler auftritt (wie gewünscht), nachdem der Benutzer wählt die **X** und, wenn die  **\<TLSExtensions >** ,  **\<EKUName >** , und  **\<EKUOID >** Abschnitte vorhanden, und die richtige Informationen enthalten.
+  4. Wenn ein gültiges Client Authentifizierungszertifikat im persönlichen Speicher des Benutzers vorhanden ist, tritt bei der Verbindung ein Fehler auf (wie), nachdem der Benutzer das **X** ausgewählt hat, und wenn die  **\<tlsextensions->** ,  **\<ekuname >** und  **\<Ekuoid->** Abschnitte vorhanden sind und die richtigen Informationen enthalten.
    
-     Es wird eine Fehlermeldung mit dem Text "ein Zertifikat nicht gefunden werden konnte, die mit dem Extensible Authenticate-Protokoll verwendet werden können" angezeigt.
+     Es wird eine Fehlermeldung angezeigt, die besagt, dass ein Zertifikat nicht gefunden werden kann, das mit dem Extensible Authenticate-Protokoll verwendet werden kann.
 
-### <a name="unable-to-delete-the-certificate-from-the-vpn-connectivity-blade"></a>Beim Löschen des Zertifikats auf dem Blatt des VPN-Verbindung nicht möglich.
+### <a name="unable-to-delete-the-certificate-from-the-vpn-connectivity-blade"></a>Das Zertifikat kann nicht auf dem Blatt "VPN-Konnektivität" gelöscht werden.
 
-- **Beschreibung des Fehlers.** Zertifikate auf dem Blatt "VPN-Konnektivität" können nicht gelöscht werden.
+- **Fehlerbeschreibung.** Zertifikate auf dem Blatt "VPN-Konnektivität" können nicht gelöscht werden.
 
-- **Mögliche Ursache.** Das Zertifikat nastaven NA hodnotu **primären**.
+- **Mögliche Ursache:** Das Zertifikat ist auf **primär**festgelegt.
 
 - **Mögliche Lösung.**
 
-    1. Wählen Sie das Zertifikat auf dem VPN-Konnektivität.
-    2. Klicken Sie unter **primären**Option **keine**, und wählen Sie dann **speichern**.
-    3. Wählen Sie das Zertifikat erneut aus, auf dem VPN-Konnektivität.
+    1. Wählen Sie auf dem Blatt VPN-Konnektivität das Zertifikat aus.
+    2. Wählen Sie unter **primär**die Option **Nein**, und wählen Sie dann **Speichern**aus.
+    3. Wählen Sie auf dem Blatt VPN-Konnektivität erneut das Zertifikat aus.
     4. Klicken Sie auf **Löschen**.

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: nirb
 author: nirb-ms
-ms.openlocfilehash: f196be152e339b229c4c476f73a2d4b0e7a644d5
-ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
+ms.openlocfilehash: 506cd5cb44d93c9d7d221917505f76a2c5625baa
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980317"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870551"
 ---
 # <a name="beginning-your-general-data-protection-regulation-gdpr-journey-for-windows-server"></a>Starten ihrer Datenschutz-Grundverordnung-Journey (dsgvo) für Windows Server 
 
@@ -48,7 +48,7 @@ Als Teil Ihres Aufwands zur Einhaltung der GDPR müssen Sie wissen, wie Verordnu
 
 Die GDPR betrachtet persönliche Daten als alle Informationen im Zusammenhang mit einer bestimmten oder bestimmbare natürlichen Person. Dies bedeutet eine direkte Identifizierung (z. B. Ihr vollständiger Name) und eine indirekte Identifizierung (z. B. bestimmte Informationen, die Sie als Datenverweis identifiziert). Die GDPR verdeutlich, dass das Konzept der persönlichen Daten Online-IDs (z. B. IP-Adressen, mobile Geräte-IDs) und Positionsdaten umfasst.
 
-Die GDPR führt spezifische Definitionen für genetische Daten (z. B. eine Person Gene Sequenz) und biometrische Daten ein. Genetische Daten und biometrische Daten werden zusammen mit anderen untergeordneten Kategorien von persönlichen Daten (persönliche Daten, die die ethnische Herkunft, politische Stellungnahmen, religiöse oder philosophische Werte oder Mitgliedschaften in Gewerkschaften offenlegen: Daten bezüglich Ihrer Gesundheit; oder Daten über das Sexualleben oder die sexueller Orientierung einer Person) werden als vertrauliche persönliche Daten unter der GDPR behandelt. Vertrauliche persönliche Daten sind besonders geschützt und erfordern in der Regel die ausdrückliche Zustimmung einer Person, wo diese Daten verarbeitet werden sollen.
+Die dsgvo führt bestimmte Definitionen für die Daten der genetische Daten (z. b. die Gene Rate eines Einzelpersonen) und biometrische Daten ein. Genetische Daten und biometrische Daten zusammen mit anderen Unterkategorien persönlicher Daten (persönliche Daten Offenlegung von rassischem oder ethnischem Ursprung, politischen Meinungen, religiösen oder philosophischen Überzeugungen oder Mitgliedschafts Mitgliedschaften: Daten zur Integrität oder Daten zu einem das Geschlecht der Person oder die sexuelle Orientierung) werden als sensible personenbezogene Daten in der dsgvo behandelt. Sensible personenbezogene Daten bieten erweiterten Schutz und erfordern im Allgemeinen die explizite Zustimmung eines einzelnen, wenn diese Daten verarbeitet werden sollen.
 
 ### <a name="examples-of-info-relating-to-an-identified-or-identifiable-natural-person-data-subject"></a>Beispiele für Informationen über eine bestimmte oder bestimmbare natürliche Person (Datenbetreff)
 Diese Liste enthält Beispiele für verschiedene Arten von Informationen, die über GDPR geregelt werden. Diese Liste ist nicht vollständig.
@@ -85,7 +85,7 @@ Für die einzelnen Schritte haben wir Beispiel-Tools, Ressourcen und Funktionen 
 ## <a name="windows-server-security-and-privacy"></a>Sicherheit und Datenschutz für Windows Server
 Die dsgvo erfordert, dass Sie geeignete technische und organisatorische Sicherheitsmaßnahmen implementieren, um persönliche Daten und Verarbeitungssysteme zu schützen. Im Zusammenhang mit der dsgvo verarbeiten Ihre physischen und virtuellen Serverumgebungen möglicherweise persönliche und vertrauliche Daten. Die Verarbeitung kann jeden Vorgang oder jede Gruppe von Vorgängen, z. b. Datenerfassung, Speicherung und Abruf, bedeuten.
 
-Die Möglichkeit, diese Anforderung zu erfüllen und geeignete Maßnahmen für die technische Sicherheit zu implementieren, muss die Bedrohungen widerspiegeln, die Ihnen in der zunehmend feindlichen IT-Umgebung von heute ausgesetzt sind Sicherheitsbedrohungen sind heute extrem aggressiv und hartnäckig. In früheren Jahren konzentrierten sich böswillige Angreifer hauptsächlich auf die Anerkennung in der Community für ihre Angriffe oder die Begeisterung, ein System vorübergehend offline geschaltet zu haben. Seitdem haben sich die Motive der Angreifer in Richtung Geldgier geändert, und sie behalten die Gewalt über Geräte und Daten, bis die Besitzer das geforderte Lösegeld bezahlen.
+Die Möglichkeit, diese Anforderung zu erfüllen und geeignete Maßnahmen für die technische Sicherheit zu implementieren, muss die Bedrohungen widerspiegeln, die Ihnen in der zunehmend feindlichen IT-Umgebung von heute ausgesetzt sind Die heutige Sicherheits Bedrohungslandschaft ist eine der aggressiven und hartnäckigen Bedrohungen. In früheren Jahren konzentrierten sich böswillige Angreifer hauptsächlich auf die Anerkennung in der Community für ihre Angriffe oder die Begeisterung, ein System vorübergehend offline geschaltet zu haben. Seitdem haben sich die Gründe für den Angreifer auf Geld verlagert, einschließlich der Speicherung von Geräten und Daten, bis der Besitzer das geforderte Lösegeld bezahlt hat.
 
 Aktuelle Angriffe konzentrieren sich zunehmend auf den Diebstahl geistigen Eigentums im großen Umfang, die zielgerichtete Systemzersetzung, die zu finanziellen Verlusten führen kann, und jetzt sogar Cyber-Terrorismus, durch den die Sicherheit von Personen und Unternehmen sowie nationale Interessen auf der ganzen Welt bedroht sind. Diese Angreifer sind üblicherweise hochqualifizierte Einzelpersonen und Sicherheitsexperten, von denen einige in Nationalstaaten beschäftigt sind, die über große Budgets und scheinbar unbegrenzte menschliche Ressourcen verfügen. Bedrohungen wie diese erfordern einen Ansatz, der dieser Herausforderung gerecht wird.
 
@@ -139,7 +139,7 @@ Der Chip umfasst mehrere physische Sicherheitsmechanismen, die ihn manipulations
 
 -   Kryptografieschlüssel generieren, speichern und deren Einsatz beschränken.
 
--   TPM-Technologie für die Plattformgeräteauthentifizierung nutzen. Sie verwenden dazu den eindeutigen RSA-Schlüssel des TPMs, der in sich selbst geschrieben ist.
+-   Verwenden Sie die TPM-Technologie für die Platt Form Geräte Authentifizierung, indem Sie den eindeutigen TPM-RSA-Schlüssel verwenden, der in sich selbst gebrannt wird.
 
 -   Plattformintegrität gewährleisten, indem Sicherheitsmessungen vorgenommen und gespeichert werden.
 
@@ -217,7 +217,7 @@ Sie können Windows Defender Anmelde Informationen Guard verwenden, um privilegi
 #### <a name="windows-defender-remote-credential-guard"></a>Windows Defender Remote Credential Guard
 Windows Defender Remote Credential Guard unter Windows Server 2016 und Windows 10 Anniversary Update unterstützt auch den Schutz von Anmelde Informationen für Benutzer mit Remote Desktop Verbindungen. Zuvor musste sich jede Person, die Remotedesktopdienste verwendet, bei Ihrem lokalen Computer anmelden und sich dann erneut anmelden, wenn Sie eine Remote Verbindung mit dem Zielcomputer durchgeführt hat. Dieser zweite Anmelde Name übergibt Anmelde Informationen an den Zielcomputer und macht Sie für Pass-the-Hash-oder Pass-The-Ticket-Angriffe verfügbar.
 
-Mit Windows Defender Remote Credential Guard implementiert Windows Server 2016 einmaliges Anmelden für Remotedesktop Sitzungen, sodass der Benutzername und das Kennwort nicht erneut eingegeben werden müssen. Stattdessen werden die Anmelde Informationen verwendet, die Sie bereits zum Anmelden an Ihrem lokalen Computer verwendet haben. Um Windows Defender Remote Credential Guard verwenden zu können, müssen die Remotedesktop Client und der Server die folgenden Anforderungen erfüllen:
+Mit Windows Defender Remote Credential Guard implementiert Windows Server 2016 Single Sign-on für Remotedesktop Sitzungen, sodass der Benutzername und das Kennwort nicht erneut eingegeben werden müssen. Stattdessen werden die Anmelde Informationen verwendet, die Sie bereits zum Anmelden an Ihrem lokalen Computer verwendet haben. Um Windows Defender Remote Credential Guard verwenden zu können, müssen die Remotedesktop Client und der Server die folgenden Anforderungen erfüllen:
 
 - Muss einer Active Directory Domäne beitreten und sich in derselben Domäne oder in einer Domäne mit einer Vertrauensstellung befinden.
 
@@ -334,7 +334,7 @@ Zu den wichtigsten Vorteilen von Windows Defender ATP zählen die folgenden:
 
 - **Leistungsfähigkeit von Microsoft Graph.** Nutzt das Microsoft Intelligence Security Graph, um die Erkennung und Untersuchung mit dem Office 365 ATP-Abonnement zu integrieren, um Angriffe zurückverfolgen und darauf reagieren zu können.
 
-Weitere Informationen finden Sie unter [Neuigkeiten im Windows Defender ATP Creators Update – Vorschau](https://blogs.microsoft.com/microsoftsecure/2017/03/13/whats-new-in-the-windows-defender-atp-creators-update-preview/).
+Weitere Informationen finden Sie unter Neuigkeiten [in der Windows Defender ATP Creators Update-Vorschau](https://blogs.microsoft.com/microsoftsecure/2017/03/13/whats-new-in-the-windows-defender-atp-creators-update-preview/).
 
 ATA ist ein lokales Produkt, mit dem Identitäts Gefährdung in einer Organisation erkannt werden kann. ATA kann Netzwerk Datenverkehr für Authentifizierungs-, Autorisierungs-und Informations Sammel Protokolle (z. b. Kerberos, DNS, RPC, NTLM und andere Protokolle) erfassen und analysieren. ATA verwendet diese Daten, um ein Verhaltensprofil für Benutzer und andere Entitäten in einem Netzwerk zu erstellen, damit Anomalien und bekannte Angriffsmuster erkannt werden können. In der folgenden Tabelle sind die von ATA erkannten Angriffstypen aufgeführt.
 
@@ -362,7 +362,7 @@ Mithilfe von ATA können Sie Angreifer erkennen, die versuchen, privilegierte Id
 - **Sicherheit und Sicherheit:** https://docs.microsoft.com/windows-server/security/security-and-assurance
 
 ## <a name="disclaimer"></a>Haftungsausschluss
-Dieser Artikel enthält einen Kommentar über die GDPR wie Microsoft ihn ab dem Datum der Veröffentlichung interpretiert. Wir haben sehr viel Zeit mit der GDPR verbracht und wir glauben, dass wir über ihre Absicht und Bedeutung im Klaren sind und diese so dargestellt haben. Die Anwendung der GDPR ist jedoch äußerst tatsachenspezifisch, und die Aspekte und Interpretationen der GDPR sind nicht definitiv beigelegt.
+Dieser Artikel enthält einen Kommentar über die GDPR wie Microsoft ihn ab dem Datum der Veröffentlichung interpretiert. Wir haben viel Zeit mit dsgvo verbracht und wissen, dass wir uns Gedanken über seine Absicht und Bedeutung gemacht haben. Die Anwendung der GDPR ist jedoch äußerst tatsachenspezifisch, und die Aspekte und Interpretationen der GDPR sind nicht definitiv beigelegt.
 
 Daher dient dieser Artikel nur zu Informationszwecken und sollte nicht zuverlässig als rechtlicher Hinweise angesehen werden oder um zu bestimmen, wie die GDPR für Sie und Ihr Unternehmen angewendet wird. Wir empfehlen Ihnen, die mit einem gesetzlich qualifizierten Experten zusammen zu arbeiten, um die GDPR zu besprechen, wie sie speziell für Ihre Organisation angewendet wird und wie sie am besten funktioniert, um Kompatibilität zu gewährleisten.
 

@@ -9,12 +9,12 @@ ms.date: 11/14/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 220b409b2e0bcc5e5a01aeb9f244ebaa55ac0e1e
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 586f2d7b73c6017f8b69103a09f6b38bb31f542d
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544602"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865801"
 ---
 # <a name="configuring-alternate-login-id"></a>Konfigurieren von alternativen Anmelde-ID
 
@@ -39,7 +39,7 @@ Möglicherweise muss eine Organisation eine Alternative ID in den folgenden Szen
 Die Endbenutzer-Benutzer Leistung variiert abhängig von der Authentifizierungsmethode, die mit der alternativen Anmelde-ID verwendet wird.  Derzeit gibt es drei verschiedene Möglichkeiten, wie eine Alternative Anmelde-ID verwendet werden kann.  Die Überladungen sind:
 
 - **Reguläre Authentifizierung (Legacy)** : verwendet das Standard Authentifizierungsprotokoll.
-- **Moderne Authentifizierung** : Active Directory-Authentifizierungsbibliothek (Adal)-basierte Anmeldung bei Anwendungen. Dadurch werden Anmelde Funktionen wie Multi-Factor Authentication (MFA), SAML-basierte Identitäts Anbieter von Drittanbietern mit Office-Client Anwendungen, Smartcard-und Zertifikat basierte Authentifizierung aktiviert.
+- **Moderne Authentifizierung** : Active Directory-Authentifizierungsbibliothek (Adal)-basierte Anmeldung bei Anwendungen. Dies ermöglicht Anmelde Funktionen wie Multi-Factor Authentication (MFA), SAML-basierte Identitäts Anbieter von Drittanbietern mit Office-Client Anwendungen, Smartcard-und Zertifikat basierte Authentifizierung.
 - **Hybride Hybrid Authentifizierung** : bietet alle Vorteile der modernen Authentifizierung und bietet Benutzern die Möglichkeit, mithilfe von Autorisierungs Token aus der Cloud auf lokale Anwendungen zuzugreifen.
 
 >[!NOTE]
@@ -145,7 +145,7 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet settings\zo
 
 ![Authentifizierungs Fluss](media/Configure-Alternate-Login-ID/alt1a.png)
 
-1. ein Der Benutzer wird in Azure AD mithilfe der alternativen ID bereitgestellt.
+1. Ein Der Benutzer wird in Azure AD mithilfe der alternativen ID bereitgestellt.
    </br>b Der Verzeichnis Administrator schiebt die erforderlichen RegKey-Einstellungen auf betroffene Client Computer.
 2. Der Benutzer authentifiziert sich auf dem lokalen Computer und öffnet eine Office-Anwendung.
 3. Die Office-Anwendung übernimmt die Anmelde Informationen für lokale Sitzungen.

@@ -1,6 +1,6 @@
 ---
-title: Szenario mit identitätsdelegierung mit AD FS
-description: Dieses Szenario beschreibt eine Anwendung, die Back-End-Zugriff auf Ressourcen, die die identitätsdelegierungskette benötigt auszuführenden zugriffssteuerungsüberprüfungen erfordern.
+title: Identitäts Delegierungs Szenario mit AD FS
+description: In diesem Szenario wird eine Anwendung beschrieben, die auf Back-End-Ressourcen zugreifen muss, die die Identitäts Delegierungs Kette für die Durchführung von Zugriffs Steuerungs Prüfungen benötigen.
 author: billmath
 ms.author: billmath
 manager: mtillman
@@ -8,85 +8,85 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: b82d5fd749ac874d09bc54123727aaf902c4d778
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2c461e1051e59fcdb533c00b45157545ffb15df1
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819851"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867448"
 ---
-# <a name="identity-delegation-scenario-with-ad-fs"></a>Szenario mit identitätsdelegierung mit AD FS
+# <a name="identity-delegation-scenario-with-ad-fs"></a>Identitäts Delegierungs Szenario mit AD FS
 
 
-[Ab .NET Framework 4.5, wurde Windows Identity Foundation (WIF) vollständig in .NET Framework integriert. Die Version von WIF, die diesem Thema, WIF 3.5 ist veraltet und sollte nur verwendet werden, wenn Sie für die .NET Framework 3.5 SP1 oder .NET Framework 4 entwickeln. Weitere Informationen über WIF in .NET Framework 4.5, auch bekannt als WIF 4.5 finden Sie unter der Windows Identity Foundation-Dokumentation in der .NET Framework 4.5-Entwicklungsleitfaden.] 
+[Windows Identity Foundation (WIF) wurde ab dem .NET Framework 4,5 vollständig in das .NET Framework integriert. Die in diesem Thema, WIF 3,5, adressierte WIF-Version ist veraltet und sollte nur bei der Entwicklung für die .NET Framework 3,5 SP1 oder .NET Framework 4 verwendet werden. Weitere Informationen zu WIF im .NET Framework 4,5, auch bekannt als WIF 4,5, finden Sie in der Dokumentation zu Windows Identity Foundation im .NET Framework 4,5-Entwicklungs Handbuch. 
 
-Dieses Szenario beschreibt eine Anwendung, die Back-End-Zugriff auf Ressourcen, die die identitätsdelegierungskette benötigt auszuführenden zugriffssteuerungsüberprüfungen erfordern. Eine einfache identitätsdelegierungskette besteht in der Regel die Informationen zu den ursprünglichen Aufrufer und die Identität des unmittelbaren Aufrufers aus.
+In diesem Szenario wird eine Anwendung beschrieben, die auf Back-End-Ressourcen zugreifen muss, die die Identitäts Delegierungs Kette für die Durchführung von Zugriffs Steuerungs Prüfungen benötigen. Eine einfache Identitäts Delegierungs Kette besteht normalerweise aus den Informationen zum ursprünglichen Aufrufer und der Identität des unmittelbaren Aufrufers.
 
-Mit dem Kerberos-Delegierung-Modell auf der Windows-Plattform noch heute stehen alle Back-End-Ressourcen Zugriff nur für die Identität des unmittelbaren Aufrufers und nicht auf die von den ursprünglichen Aufrufer. Dieses Modell wird häufig als vertrauenswürdiges Subsystem Modell bezeichnet. WIF behält die Identität des ursprünglichen Aufrufers sowie der direkte Aufrufer in der delegierungskette mithilfe der Actor-Eigenschaft.
+Mit dem Kerberos-Delegierungs Modell auf der Windows-Plattform haben die Back-End-Ressourcen nur Zugriff auf die Identität des unmittelbaren Aufrufers und nicht auf die des anfänglichen Aufrufers. Dieses Modell wird im Allgemeinen als vertrauenswürdiges subsystemmodell bezeichnet. WIF verwaltet die Identität des ursprünglichen Aufrufers und des unmittelbaren Aufrufers in der Delegierungs Kette mithilfe der Actor-Eigenschaft.
 
-Das folgende Diagramm veranschaulicht einen typischen identitätsdelegierungsszenario in der ein Fabrikam-Mitarbeiter in einer "contoso.com"-Anwendung verfügbar gemachten Ressourcen zugreift.
+Das folgende Diagramm veranschaulicht ein typisches Identitäts Delegierungs Szenario, bei dem ein Fabrikam-Mitarbeiter auf Ressourcen zugreift, die in einer contoso.com-Anwendung verfügbar gemacht werden
 
 ![Identität](media/ad-fs-identity-delegation/id1.png)
 
-Die fiktiven Benutzer, die in diesem Szenario beteiligt sind:
+Die fiktiven Benutzer, die an diesem Szenario teilnehmen, sind:
 
-- Frank: Ein Mitarbeiter von Fabrikam, Contoso-Ressourcen zugreifen möchte.
-- Daniel: Ein Entwickler der Contoso-Anwendung, die die erforderlichen Änderungen in der Anwendung implementiert.
-- Adam: Der Contoso-IT-Administrator.
+- Offen Ein Fabrikam-Mitarbeiter, der auf die Ressourcen von "Configuration Manager" zugreifen möchte.
+- Daniel Ein Anwendungsentwickler von Configuration Manager, der die erforderlichen Änderungen in der Anwendung implementiert.
+- Adam Der IT-Administrator von "Configuration Manager".
 
-Die Komponenten, die in diesem Szenario sind:
+Folgende Komponenten sind an diesem Szenario beteiligt:
 
-- web1: Eine Webanwendung mit Verknüpfungen zu Back-End-Ressourcen, die die delegierten Identität des ursprünglichen Aufrufers erfordern. Diese Anwendung wird mit ASP.NET erstellt.
-- Einen Webdienst, der auf einem SQL Server zugreift, müssen Sie die delegierte Identität des ursprünglichen Aufrufers, zusammen mit der der direkte Aufrufer. Dieser Dienst wird mit WCF erstellt.
-- sts1: Ein STS, der die Rolle der Anspruchsanbieter-Vertrauensstellung ist, und gibt die Ansprüche, die von der Anwendung (web1) erwartet werden. Mit "Fabrikam.com" und auch mit der Anwendung hergestellt hat.
-- sts2: Ein STS, der in der Rolle des Identitätsanbieters für "Fabrikam.com" und stellt einen Endpunkt auf dem der Fabrikam-Mitarbeiter, die zur Authentifizierung verwendet. Vertrauensstellung mit "contoso.com" hergestellt hat, damit der Fabrikam-Mitarbeiter den Zugriff auf Ressourcen auf "contoso.com" zulässig sind.
+- web1 Eine Webanwendung mit Links zu Back-End-Ressourcen, die die Delegierte Identität des anfänglichen Aufrufers benötigen. Diese Anwendung wird mit ASP.NET erstellt.
+- Ein Webdienst, der auf eine SQL Server zugreift, die die Delegierte Identität des anfänglichen Aufrufers erfordert, zusammen mit der des unmittelbaren Aufrufers. Dieser Dienst wird mit WCF erstellt.
+- sts1: Ein STS, der die Rolle des Anspruchs Anbieters hat, und gibt Ansprüche aus, die von der Anwendung erwartet werden (web1). Sie hat eine Vertrauensstellung mit fabrikam.com und auch mit der Anwendung hergestellt.
+- sts2: Ein STS, der sich in der Rolle des Identitäts Anbieters für fabrikam.com befindet und einen Endpunkt bereitstellt, den der Fabrikam-Mitarbeiter zum Authentifizieren verwendet. Sie hat eine Vertrauensstellung mit contoso.com hergestellt, sodass Fabrikam-Mitarbeiter auf Ressourcen auf contoso.com zugreifen können.
 
 >[!NOTE] 
->Der Begriff "ActAs-Token", das häufig in diesem Szenario verwendet wird, bezieht sich auf ein Token, das von einem STS ausgestellt wird, und die Identität des Benutzers enthält. Die Actor-Eigenschaft enthält die STS Dienste-Identität.
+>Der Begriff "ACTAS Token", der in diesem Szenario häufig verwendet wird, bezieht sich auf ein Token, das von einem STS ausgegeben wird und die Identität des Benutzers enthält. Die Actor-Eigenschaft enthält die STS-Identität.
 
-Wie in der vorherigen Abbildung gezeigt wird, wird der Flow in diesem Szenario:
-
-
-1. Um ein ActAs-Token zu erhalten, das die Fabrikam Identität des Mitarbeiters und die sofortige Identität des Aufrufers in der Actor-Eigenschaft enthält ist die Anwendung von Contoso konfiguriert. Daniel hat diese Änderungen an der Anwendung implementiert.
-2. Die Anwendung von Contoso ist konfiguriert, um das ActAs-Token an die Back-End-Dienst zu übergeben. Daniel hat diese Änderungen an der Anwendung implementiert.
-3. Der Contoso Web-Dienst ist um das ActAs-Token zu überprüfen, durch den Aufruf von sts1 konfiguriert. ADAM hat sts1 zum Verarbeiten von Anforderungen der Delegierung aktiviert.
-4. Fabrikam-Benutzer Frank greift auf die Contoso-Anwendung und erhält Zugriff auf die Back-End-Ressourcen.
-
-## <a name="set-up-the-identity-provider-ip"></a>Richten Sie den Identitätsanbieter (IP)
-
-Drei Optionen stehen zur Verfügung, für den Administrator "Fabrikam.com" Frank:
+Wie im vorherigen Diagramm gezeigt, ist der Ablauf in diesem Szenario:
 
 
-1. Erwerben Sie und installieren Sie einen STS-Produkt wie Active Directory® Federation Services (AD FS).
-2. Abonnieren Sie ein Cloud-STS-Produkt wie Live ID-STS aus.
-3. Erstellen Sie einen benutzerdefinierten STS mit WIF.
+1. Die Anwendung "Configuration Manager" ist so konfiguriert, dass Sie ein ACTAS-Token erhält, das sowohl die Identität des Fabrikam-Mitarbeiters als auch die Identität des unmittelbaren Aufrufers in der Actor-Eigenschaft enthält. Daniel hat diese Änderungen für die Anwendung implementiert.
+2. Die Anwendung "atoso" ist so konfiguriert, dass Sie das ACTAS-Token an den Back-End-Dienst übergibt. Daniel hat diese Änderungen für die Anwendung implementiert.
+3. Der Webdienst von "Webdienst" ist so konfiguriert, dass das ACTAS-Token durch Aufrufen von sts1 überprüft wird. Adam hat sts1 für die Verarbeitung von Delegierungs Anforderungen aktiviert.
+4. Der Fabrikam-Benutzer Frank greift auf die Anwendung "Configuration Manager" zu und erhält Zugriff auf die Back-End-Ressourcen.
 
-In diesem Beispielszenario wird davon ausgegangen, dass Frank option1 auswählt und die IP-STS AD FS installiert. Er konfiguriert außerdem einen Endpunkt, mit dem Namen \windowsauth, um den Benutzer zu authentifizieren. Verweisen auf die AD FS-Produktdokumentation und die Kommunikation mit Adam, Contoso IT-Administrator richtet Frank Vertrauensstellung mit der Domäne "contoso.com".
+## <a name="set-up-the-identity-provider-ip"></a>Einrichten des Identitäts Anbieters (IP)
 
-## <a name="set-up-the-claims-provider"></a>Einrichten der Anspruchsanbieter-Vertrauensstellung
+Es stehen drei Optionen für den fabrikam.com-Administrator offen:
 
-Die Optionen für den Administrator für "contoso.com" verfügbar, Adam, entsprechen wie zuvor für den Identitätsanbieter beschrieben. In diesem Beispielszenario wird davon ausgegangen, dass Adam wählt die Option 1 aus, und die RP-STS AD FS 2.0 installiert.
 
-## <a name="set-up-trust-with-the-ip-and-application"></a>Einrichten der Vertrauensstellung mit der IP-Adresse und die Anwendung
+1. Erwerben und installieren Sie ein STS-Produkt, z. b. Active Directory® Verbund Dienste (AD FS).
+2. Abonnieren Sie ein Cloud STS-Produkt, z. b. LiveID STS.
+3. Erstellen Sie einen benutzerdefinierten STS mithilfe von WIF.
 
-Verweisen Sie auf der AD FS-Dokumentation, richtet Adam die Vertrauensstellung zwischen "Fabrikam.com" und die Anwendung.
+In diesem Beispielszenario wird davon ausgegangen, dass Frank Option1 auswählt und AD FS als IP-STS installiert. Er konfiguriert außerdem einen Endpunkt mit dem Namen "\windowsauth", um die Benutzer zu authentifizieren. Durch den Verweis auf die AD FS Produktdokumentation und die Diskussion mit Adam, dem IT-Administrator von "IT", richtet Frank eine Vertrauensstellung mit der contoso.com-Domäne ein.
+
+## <a name="set-up-the-claims-provider"></a>Einrichten des Anspruchs Anbieters
+
+Die Optionen, die für den contoso.com-Administrator (Adam) verfügbar sind, sind die gleichen, die bereits für den Identitäts Anbieter beschrieben wurden. Für dieses Beispielszenario wird angenommen, dass Adam Option 1 auswählt und AD FS 2,0 als RP-STS installiert.
+
+## <a name="set-up-trust-with-the-ip-and-application"></a>Einrichten der Vertrauensstellung mit der IP-Adresse und der Anwendung
+
+Durch den Verweis auf die AD FS Dokumentation stellt Adam eine Vertrauensstellung zwischen fabrikam.com und der Anwendung her.
 
 ## <a name="set-up-delegation"></a>Einrichten der Delegierung
 
-AD FS bietet Delegierung Verarbeitung. Finden Sie in der Dokumentation zu AD FS, kann Adam für die Verarbeitung von ActAs-Token.
+AD FS stellt die Delegierungs Verarbeitung bereit. Durch den Verweis auf die AD FS Dokumentation ermöglicht Adam die Verarbeitung von ACTAS-Token.
 
 ## <a name="application-specific-changes"></a>Anwendungsspezifische Änderungen
 
-Unterstützung für die identitätsdelegierung zu einer vorhandenen Anwendung hinzufügen, müssen die folgenden Änderungen vorgenommen werden. Daniel verwendet WIF, um diese Änderungen vorzunehmen.
+Die folgenden Änderungen müssen vorgenommen werden, um einer vorhandenen Anwendung Unterstützung für die Identitäts Delegierung hinzuzufügen. Daniel verwendet WIF, um diese Änderungen vorzunehmen.
 
 
-- Zwischenspeichern von bootstrap-Token, web1 von sts1 empfangen.
-- Verwenden Sie CreateChannelActingAs den ausgestellten Token, um einen Kanal an den Back-End-Webdienst zu erstellen.
-- Rufen Sie die Back-End-Dienst-Methode.
+- Zwischenspeichern des Bootstrap-Tokens, das web1 von sts1 empfangen hat.
+- Verwenden Sie zum Erstellen eines Kanals zum Back-End-Webdienst "kreatechannelactingas" mit dem ausgestellten Token.
+- Ruft die-Methode des Back-End-dienstanders auf.
 
-## <a name="cache-the-bootstrap-token"></a>Bootstrap-Token-Cache
+## <a name="cache-the-bootstrap-token"></a>Das Bootstrap-Token Zwischenspeichern
 
-Bootstrap-Token ist die erste von der STS ausgegebenen Token, und die Anwendung extrahiert die Ansprüche aus. In diesem Beispielszenario dieses Token wird von sts1 für den Benutzer Frank ausgestellt, und die Anwendung zwischengespeichert. Das folgende Codebeispiel zeigt zum Abrufen von Bootstrap-Tokens in einer ASP.NET-Anwendung:
+Das Bootstrap-Token ist das anfängliche Token, das vom STS ausgegeben wird, und die Anwendung extrahiert Ansprüche daraus. In diesem Beispielszenario wird dieses Token von sts1 für den Benutzer veröffentlicht und in der Anwendung zwischengespeichert. Im folgenden Codebeispiel wird gezeigt, wie ein Bootstrap-Token in einer ASP.NET-Anwendung abgerufen wird:
 
 ```
 // Get the Bootstrap Token
@@ -99,9 +99,9 @@ if ( claimsPrincipal != null )
     bootstrapToken = claimsIdentity.BootstrapToken;
 }
 ```
-WIF stellt eine Methode, [CreateChannelActingAs](https://msdn.microsoft.com/library/ee733863.aspx), erstellt einen Kanal des angegebenen Typs, die Anforderungen der Ausstellung von token mit dem angegebenen Sicherheitstoken als ein ActAs-Element erweitert. Sie können bootstrap-Token an diese Methode übergeben und dann die erforderlichen Service-Methode aufrufen, auf dem Kanal zurückgegeben. In diesem Beispielszenario Franks Identität verfügt über die [Actor](https://msdn.microsoft.com/library/microsoft.identitymodel.claims.iclaimsidentity.actor.aspx) -Eigenschaft auf web1 die Identität festgelegt.
+WIF stellt eine Methode, " [kreatechannelactingas](https://msdn.microsoft.com/library/ee733863.aspx)", bereit, die einen Kanal des angegebenen Typs erstellt, der tokenausstellungsanforderungen mit dem angegebenen Sicherheits Token als ACTAS-Element erweitert. Sie können das Bootstrap-Token an diese Methode übergeben und dann die erforderliche Dienst Methode auf dem zurückgegebenen Kanal aufzurufen. In diesem Beispielszenario hat die Identität von Frank die [Actor](https://msdn.microsoft.com/library/microsoft.identitymodel.claims.iclaimsidentity.actor.aspx) -Eigenschaft auf web1's Identity festgelegt.
 
-Der folgende Codeausschnitt zeigt, wie an den Webdienst mit [CreateChannelActingAs](https://msdn.microsoft.com/library/ee733863.aspx) und rufen Sie eine der Methoden des Diensts ComputeResponse, klicken Sie dann auf dem Kanal zurückgegeben:
+Der folgende Code Ausschnitt zeigt, wie Sie den Webdienst mit " [tinatechannelactingas](https://msdn.microsoft.com/library/ee733863.aspx) " aufrufen und dann eine der Dienst Methoden "computeresponse" auf dem zurückgegebenen Kanal aufrufen:
 
 ```
 // Get the channel factory to the backend service from the application state
@@ -134,11 +134,11 @@ try
 }
 
 ```
-## <a name="web-service-specific-changes"></a>Web Service-spezifisches Änderungen
+## <a name="web-service-specific-changes"></a>Webdienst spezifische Änderungen
 
-Da der Webdienst mit WCF erstellt und für WIF aktiviert werden, nachdem die Bindung mit IssuedSecurityTokenParameters mit der richtigen Issuer-Adresse konfiguriert wurde, wird die Überprüfung der ActAs von WIF automatisch behandelt. 
+Da der Webdienst mit WCF erstellt und für WIF aktiviert ist, wird nach der Konfiguration der Bindung mit IssuedSecurityTokenParameters und der richtigen Aussteller Adresse die Überprüfung der ACTAS automatisch von WIF durchgeführt. 
 
-Der Webdienst stellt die spezifischen Methoden, die von der Anwendung benötigt. Es gibt keine bestimmte codeänderungen, die für den Dienst erforderlich sind. Das folgende Codebeispiel zeigt die Konfiguration des Webdiensts mit IssuedSecurityTokenParameters:
+Der Webdienst macht die spezifischen Methoden verfügbar, die für die Anwendung erforderlich sind. Es gibt keine spezifischen Codeänderungen, die für den Dienst erforderlich sind. Das folgende Codebeispiel zeigt die Konfiguration des Webdiensts mit IssuedSecurityTokenParameters:
 
 ```
 // Configure the issued token parameters with the correct settings
@@ -183,4 +183,4 @@ using ( ServiceHost host = new ServiceHost( typeof( Service2 ), new Uri( "http:/
 ```
 
 ## <a name="next-steps"></a>Nächste Schritte
-[AD FS-Entwicklung](../../ad-fs/AD-FS-Development.md)  
+[AD FS-Entwicklung](../../ad-fs/AD-FS-Development.md)  

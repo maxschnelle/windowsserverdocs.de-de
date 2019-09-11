@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: cc02f0a82b4143b80fc1107a63d234b117502d2d
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 761394f3190f02eedfea27a7d873c4c36535f23b
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544649"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865114"
 ---
 # <a name="deploy-network-file-system"></a>Network File System bereitstellen
 
@@ -116,7 +116,7 @@ Sie können eine NFS-Dateifreigabe erstellen, indem Sie entweder Server-Manager 
 3. Wählen Sie auf der linken Seite **Datei-und Speicherdienste**aus, und wählen Sie dann Freigaben **aus.**
 4. Wählen Sie **eine Dateifreigabe aus, und starten Sie den Assistenten für neue**Freigaben.
 5. Wählen Sie auf der Seite **Profil auswählen** entweder **NFS-Freigabe – schnell** oder **NFS-Freigabe-erweitert**aus, und klicken Sie dann auf **weiter**.
-6. Wählen Sie  auf der Seite freigabeort einen Server und ein Volume aus, und klicken Sie auf **weiter**.
+6. Wählen Sie auf der Seite freigabeort einen Server und ein Volume aus, und klicken Sie auf **weiter**.
 7. Geben Sie auf der Seite **Freigabe Name** einen Namen für die neue Freigabe an, und klicken Sie auf **weiter**.
 8. Geben Sie auf der Seite **Authentifizierung** die Authentifizierungsmethode an, die Sie für diese Freigabe verwenden möchten.
 9. Wählen Sie auf der Seite **Freigabe Berechtigungen** die Option **Hinzufügen**aus, und geben Sie dann den Host, die Clientgruppe oder die Netzwerkgruppe an, der Sie die Berechtigung für die Freigabe erteilen möchten.

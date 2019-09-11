@@ -10,12 +10,12 @@ ms.author: pashort
 author: shortpatti
 ms.date: 08/30/2018
 ms.reviewer: deverette
-ms.openlocfilehash: b954419904f97102cef14fbd4a7a68496e8730af
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.openlocfilehash: 260d5c6273d877386dc1cd8833b2f226533127c3
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546511"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871304"
 ---
 # <a name="step-2-configure-the-server-infrastructure"></a>Schritt 2 Konfigurieren der Serverinfrastruktur
 
@@ -232,7 +232,7 @@ In diesem Verfahren konfigurieren Sie eine benutzerdefinierte Client-Server-Auth
 
    3. Wählen Sie unter **Gruppen-oder Benutzernamen**die Option **VPN-Benutzer**aus.
 
-   4. Aktivieren Sie in **Berechtigungen für VPN**-Benutzer in der Spalte **zulassen** die Kontrollkästchen registrieren und **automatisch registrieren** .
+   4. Aktivieren Sie in **Berechtigungen für VPN-Benutzer**in der Spalte **zulassen** die Kontroll **Kästchen registrieren und** **automatisch registrieren** .
 
       >[!TIP]
       >Stellen Sie sicher, dass das Kontrollkästchen Lesen aktiviert ist. Anders ausgedrückt: Sie benötigen die Leseberechtigungen für die Registrierung. 
@@ -257,7 +257,7 @@ In diesem Verfahren konfigurieren Sie eine benutzerdefinierte Client-Server-Auth
 
    2. Für SELECT- **Anforderungen muss einer der folgenden Anbieter verwendet**werden.
 
-   3. Aktivieren Sie das Kontrollkästchen Kryptografieanbieter für **Microsoft-Plattform** .
+   3. Aktivieren Sie das Kontrollkästchen **Kryptografieanbieter für Microsoft-Plattform** .
 
 9. Wenn Sie auf der Registerkarte Antragsteller **Name** keine e-Mail-Adresse für alle Benutzerkonten aufgelistet haben, deaktivieren Sie die Kontrollkästchen **e-Mail-Name in** Antragsteller Name und **e-Mail-Name** einschließen.
 
@@ -369,7 +369,7 @@ Dieses Zertifikat wird für die automatische Registrierung konfiguriert.
 
     3. Wählen Sie unter **Gruppen-oder Benutzernamen**die Option **NPS-Server**aus.
 
-    4. Aktivieren Sie in **Berechtigungen für NPS**-Server in der Spalte **zulassen** die Kontrollkästchen registrieren und **automatisch registrieren** .
+    4. Aktivieren Sie in **Berechtigungen für NPS-Server**in der Spalte **zulassen** die Kontroll **Kästchen registrieren und** **automatisch registrieren** .
 
     5. Wählen Sie unter **Gruppen-oder Benutzernamen** **RAS-und IAS-Server**aus, und klicken Sie dann auf **Entfernen**.
 

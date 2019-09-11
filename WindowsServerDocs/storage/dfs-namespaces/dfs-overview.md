@@ -8,16 +8,16 @@ ms.topic: article
 author: jasongerend
 ms.date: 06/07/2019
 description: In diesem Thema wird beschrieben, wie Sie mithilfe des Rollendiensts für DFS-Namespaces in Windows Server freigegebene Ordner, die sich auf verschiedenen Servern befinden, in logisch strukturierten Namespaces gruppieren.
-ms.openlocfilehash: 2d91cb7197d2deecd96ebb29a951ef96ceefd9aa
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 8507961749bee6d01541029e33c8095470792b8a
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284286"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870222"
 ---
 # <a name="dfs-namespaces-overview"></a>Übersicht über DFS-Namespaces
 
-> Gilt für: WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2, WindowsServer 2008, WindowsServer (Halbjährlicher Kanal)
+> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008, Windows Server (halbjährlicher Kanal)
 
 Mithilfe des Rollendiensts für DFS-Namespaces in Windows Server können Sie freigegebene Ordner, die sich auf verschiedenen Servern befinden, in logisch strukturierten Namespaces gruppieren. Dadurch ist eine virtuelle Ansicht der freigegebenen Ordner für Benutzer möglich, wobei ein einzelner Pfad zu Dateien führt, die sich auf mehreren Servern befinden, wie in der folgenden Abbildung dargestellt:
 
@@ -26,11 +26,11 @@ Mithilfe des Rollendiensts für DFS-Namespaces in Windows Server können Sie fre
 Hier ist eine Beschreibung der Elemente, die einen DFS-Namespace bilden:
 
 - **Namespace-Server** -Ein Namespaceserver, der einen Namespace hostet. Der Namespaceserver kann ein Mitgliedsserver oder ein Domänencontroller sein.
-- **Namespacestamm** -Der Namespacestamm ist der Ausgangspunkt des Namespaces. In der vorherigen Abbildung ist der Name des Stammverzeichnisses ist öffentlich, und der Namespacepfad hat \\ \\Contoso\\öffentlich. Diese Art von Namespace ist einen domänenbasierten Namespace, da es beginnt mit einem Domänennamen (z. B. "Contoso") und seine Metadaten in Active Directory Domain Services (AD DS) gespeichert. Obwohl in der vorherigen Abbildung ein einzelner Namespaceserver angezeigt wird, kann ein domänenbasierter Namespace auf mehreren Namespaceservern zum Erhöhen der Verfügbarkeit des Namespaces gehostet.
+- **Namespacestamm** -Der Namespacestamm ist der Ausgangspunkt des Namespaces. In der vorherigen Abbildung ist der Name des Stamms öffentlich, und der Namespace Pfad lautet \\ \\\\"Public". Bei dieser Art von Namespace handelt es sich um einen domänenbasierten Namespace, weil er mit einem Domänen Namen (z. b. "Configuration Manager") beginnt und seine Metadaten in Active Directory Domain Services (AD DS) gespeichert sind. Obwohl in der vorherigen Abbildung ein einzelner Namespaceserver angezeigt wird, kann ein domänenbasierter Namespace auf mehreren Namespaceservern zum Erhöhen der Verfügbarkeit des Namespaces gehostet.
 - **Ordner** - Ordner ohne Ordnerziele fügen dem Namespace Struktur und Hierarchie hinzu und Ordner mit Ordnerzielen stellen Benutzern den tatsächlichen Inhalt zur Verfügung. Wenn Benutzer einen Ordner durchsuchen, der Ordnerziele im Namespace hat, erhält der Clientcomputer einen Verweis, der den Clientcomputer transparent auf einen der Ordnerziele verweist.
-- **Ordnerziele** - Ein Ordnerziel ist der UNC-Pfad eines freigegebenen Ordners oder ein anderer Namespace, der einem Ordner in einem Namespace zugeordnet ist. Das Ordnerziel ist der Ort, an dem Daten und Inhalte gespeichert ist. In der obigen Abbildung verfügt der Ordner mit dem Namen „Tools” über zwei Ordnerziele, eins in London und eins in New York, und der Ordner mit dem Namen „Schulungshandbuch” verfügt über ein einziges Ordnerziel in New York. Ein Benutzer, die zu navigiert \\ \\Contoso\\öffentliche\\Software\\Tools ist transparent für den freigegebenen Ordner umgeleitet \\ \\LDN-SVR-01\\Tools oder \\ \\NYC-SVR-01\\Tools, die je nach welchem Standort der Benutzer sich derzeit in befindet.
+- **Ordnerziele** - Ein Ordnerziel ist der UNC-Pfad eines freigegebenen Ordners oder ein anderer Namespace, der einem Ordner in einem Namespace zugeordnet ist. Das Ordnerziel ist der Ort, an dem Daten und Inhalte gespeichert ist. In der obigen Abbildung verfügt der Ordner mit dem Namen „Tools” über zwei Ordnerziele, eins in London und eins in New York, und der Ordner mit dem Namen „Schulungshandbuch” verfügt über ein einziges Ordnerziel in New York. \\Ein Benutzer, der die \\\\öffentlichen \\ \\\\Software Tools von "Configuration Manager" durchsucht, wird transparent an den freigegebenen Ordner LDN-SVR-01 Tools oder\\\\ NYC-SVR-01\\-Tools, je nachdem, in welchem Standort der Benutzer sich zurzeit befindet. \\ \\
 
-In diesem Thema erfahren Sie, wie Sie DFS installieren, welche Neuerungen Sie erwarten und wo Sie Evaluierungs- und Bereitstellungsinformationen finden.
+In diesem Thema wird erläutert, wie Sie DFS installieren, welche Neuerungen es gibt und wo Sie Evaluierungs-und Bereitstellungs Informationen finden.
 
 Sie können Namespaces mithilfe der DFS-Verwaltung verwalten, mit [DFS-Namespace (DFSN)-Cmdlets in Windows PowerShell](https://docs.microsoft.com/powershell/module/dfsn/?view=win10-ps), dem Befehl **DfsUtil** oder Skripts, die WMI-aufrufen.
 
@@ -65,7 +65,7 @@ Die folgende Tabelle enthält zusätzliche zu berücksichtigende Faktoren, wenn 
 
 DFS-Namespaces und die DFS-Replikation sind Teil der Rolle %%amp;quot;Datei- und Speicherdienste%%amp;quot;. Die Verwaltungstools für DFS (DFS-Verwaltung, das DFS-Namespaces-Modul für Windows PowerShell sowie Befehlszeilentools) werden separat im Rahmen der Remoteserver-Verwaltungstools installiert.
 
-Installieren Sie DFS-Namespaces mit [Windows Admin Center](../../manage/windows-admin-center/understand/windows-admin-center.md), Server-Manager oder PowerShell, wie in den nächsten Abschnitten beschrieben.
+Installieren Sie DFS-Namespaces mithilfe des [Windows Admin Centers](../../manage/windows-admin-center/understand/windows-admin-center.md), Server-Manager oder PowerShell, wie in den folgenden Abschnitten beschrieben.
 
 ### <a name="to-install-dfs-by-using-server-manager"></a>So installieren Sie DFS mithilfe des Server-Managers
 
@@ -83,7 +83,7 @@ Installieren Sie DFS-Namespaces mit [Windows Admin Center](../../manage/windows-
 
 ### <a name="to-install-dfs-by-using-windows-powershell"></a>So installieren Sie DFS mithilfe von Windows PowerShell
 
-Öffnen Sie eine Windows PowerShell-Sitzung mit erhöhten Benutzerrechten, und geben Sie dann den folgenden Befehl ein, wobei < Name\> ist der Rollendienst oder Feature, das Sie installieren möchten (siehe die folgende Tabelle enthält eine Liste mit relevanten Rollendienst- oder Featurenamen):
+Öffnen Sie eine Windows PowerShell-Sitzung mit erhöhten Benutzerrechten, und geben Sie dann den folgenden Befehl ein\> , wobei < Name der Rollen Dienst oder das Feature ist, das Sie installieren möchten (in der folgenden Tabelle finden Sie eine Liste der relevanten Rollen Dienst-oder Featurenamen):
 
 ```PowerShell
 Install-WindowsFeature <name>
@@ -110,9 +110,9 @@ Install-WindowsFeature "FS-DFS-Namespace", "RSAT-DFS-Mgmt-Con"
 
 Die Verwendung von DFS-Namespaces auf Microsoft Azure wurde getestet, es gibt jedoch einige Einschränkungen und Anforderungen, die Sie befolgen müssen.
 
-- Sie können keine Cluster mit eigenständigen Namespaces auf virtuellen Azure-Computern erstellen.
+- Sie können keine Cluster mit eigenständigen Namespaces auf virtuellen Azure-Computern gruppieren.
 
-- Sie können domänenbasierte Namespaces auf Azure Virtual Machines, einschließlich Umgebungen mit Azure Active Directory hosten.
+- Sie können Domänen basierte Namespaces auf virtuellen Azure-Computern hosten, einschließlich Umgebungen mit Azure Active Directory.
 
 Weitere Informationen zu den ersten Schritten mit virtuellen Azure-Computern finden Sie in der [Dokumentation für virtuelle Azure-Computer](https://docs.microsoft.com/azure/virtual-machines/).
 
@@ -122,10 +122,10 @@ Weitere verwandte Informationen finden Sie in den folgenden Ressourcen:
 
 | Inhaltstyp        | Verweise |
 | ------------------  | ----------------|
-| **Produktbewertung** | [Neues bei DFS-Namespaces und DFS-Replikation unter WindowsServer](https://technet.microsoft.com/library/dn281957(v=ws.11).aspx) |
-| **Bereitstellung**    | [Überlegungen zur Skalierbarkeit von DFS-Namespace](http://blogs.technet.com/b/filecab/archive/2012/08/26/dfs-namespace-scalability-considerations.aspx) |
+| **Produktbewertung** | [Neues in DFS-Namespaces und DFS-Replikation in Windows Server](https://technet.microsoft.com/library/dn281957(v=ws.11).aspx) |
+| **Bereitstellung**    | [Überlegungen zur Skalierbarkeit von DFS-Namespaces](http://blogs.technet.com/b/filecab/archive/2012/08/26/dfs-namespace-scalability-considerations.aspx) |
 | **Betrieb**    | [DFS-Namespaces: Häufig gestellte Fragen](https://technet.microsoft.com/library/ee404780.aspx) |
-| **Communityressourcen** | [Zu Dateidiensten und Speicher-TechNet-Forum](https://social.technet.microsoft.com/forums/winserverfiles/threads/) |
-| **Protokolle**        | [Protokolle in WindowsServer für Dateidienste](https://msdn.microsoft.com/library/cc239318.aspx) (veraltet) |
+| **Communityressourcen** | [TechNet-Forum für Dateidienste und Speicher](https://social.technet.microsoft.com/forums/winserverfiles/threads/) |
+| **Protokolle**        | [Datei Dienst Protokolle in Windows Server](https://msdn.microsoft.com/library/cc239318.aspx) Veraltet |
 | **Verwandte Technologien** | [Failoverclustering](../../failover-clustering/failover-clustering-overview.md)|
-| **Support** | [Windows IT Pro-Support](https://www.microsoft.com/itpro/windows/support)|
+| **Support** | [Unterstützung für Windows IT pro](https://www.microsoft.com/itpro/windows/support)|

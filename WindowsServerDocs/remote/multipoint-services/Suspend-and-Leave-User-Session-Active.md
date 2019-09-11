@@ -1,6 +1,6 @@
 ---
 title: Anhalten von Benutzersitzungen im aktiven Zustand
-description: Erfahren Sie, wie einen Benutzer aus einer MultiPoint-Sitzung angehalten wird, ohne die getrennt werden
+description: Erfahren Sie, wie Sie einen Benutzer aus einer Multipoint-Sitzung aussetzen, ohne die Verbindung zu trennen.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.technology: multipoint-services
@@ -13,17 +13,17 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: cc4310e6f7609464cf037b750bec6e5e805e0b26
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a7c94b9d1edd36efc8651e35dfabbc95239335cb
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59815221"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871528"
 ---
 # <a name="suspend-and-leave-user-session-active"></a>Anhalten von Benutzersitzungen im aktiven Zustand
-Sie können trennen oder die Benutzer im MultiPoint Services-System anhalten, wenn Sie nicht, um benutzersitzungen zu beenden möchten. Ein Benutzer kann eine Sitzung auch selbst trennen. Während eine Benutzersitzung angehalten ist, bleibt die Sitzung im Arbeitsspeicher des MultiPoint Services-Systems aktiv, bis der Computer heruntergefahren oder neu gestartet wird. Zu diesem Zeitpunkt werden alle angehaltenen Sitzungen beendet, und sämtliche nicht gespeicherte Arbeit geht verloren.  
+Wenn Sie die Sitzungen der Benutzer nicht beenden möchten, können Sie die Verbindung zwischen Benutzern und dem Multipoint Services-System trennen oder aussetzen. Ein Benutzer kann eine Sitzung auch selbst trennen. Während eine Benutzersitzung angehalten wird, bleibt die Sitzung im Arbeitsspeicher des Multipoint Services-Systems aktiv, bis der Computer heruntergefahren oder neu gestartet wird. Zu diesem Zeitpunkt werden alle angehaltenen Sitzungen beendet, und sämtliche nicht gespeicherte Arbeit geht verloren.  
   
-1.  Öffnen Sie MultiPoint-Manager im stationsmodus, und klicken Sie dann auf die **Stationen** Registerkarte.  
+1.  Öffnen Sie den Multipoint-Manager im Stations Modus, und klicken Sie dann auf die Registerkarte **Stationen** .  
   
 2.  Klicken Sie in der Spalte **Computer** auf den Namen des Computers, dessen Sitzungen Sie anhalten möchten.  
   
@@ -32,5 +32,5 @@ Sie können trennen oder die Benutzer im MultiPoint Services-System anhalten, we
 Nachdem eine Benutzersitzung angehalten wurde, kann sich der Benutzer an derselben oder einer anderen Station anmelden und seine Arbeit in der ursprünglichen Sitzung fortsetzen.  
   
 ## <a name="see-also"></a>Siehe auch  
-[Verwalten von Benutzerdesktops](manage-user-desktops-using-multipoint-dashboard.md)  
+[Verwalten von Benutzer Desktops](manage-user-desktops-using-multipoint-dashboard.md)  
 [Abmelden oder Trennen von Benutzersitzungen](Log-off-or-Disconnect-User-Sessions.md)

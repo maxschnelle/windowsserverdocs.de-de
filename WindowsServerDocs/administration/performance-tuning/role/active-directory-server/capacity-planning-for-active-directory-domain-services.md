@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: v-tea; kenbrunf
 author: Teresa-Motiv
 ms.date: 7/3/2019
-ms.openlocfilehash: 5a9e2d39d4eedd1e8fdb4bfeaf267ad4cb4c596a
-ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
+ms.openlocfilehash: dac13ac94e38cf671239d35507e07d7ac3a0c1ab
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "67799832"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866729"
 ---
 # <a name="capacity-planning-for-active-directory-domain-services"></a>Kapazitätsplanung für Active Directory Domain Services
 
@@ -353,7 +353,7 @@ Ermitteln der Menge an e/a-Vorgängen, die für ein fehlerfreies System unter no
 
 - LogicalDisk ( *\<NTDS-Daten\>Bank Laufwerk*) \ Übertragungen/Sek. während des Zeitraums von 15 Minuten 
 - So bestimmen Sie die Menge an e/a-Vorgängen, die für den Speicher erforderlich sind
-  >*Needed IOPS* = (LogicalDisk( *\<NTDS Database Drive\>* )\Avg Disk sec/Read &divide; *\<Target Avg Disk sec/Read\>* ) &times; LogicalDisk( *\<NTDS Database Drive\>* )\Read/sec
+  >*Benötigtes IOPS* = (LogicalDisk *\<(NTDS-\>Daten Bank Laufwerk*) \Mittlere Sek. &divide; /Lesevorgänge/Lese &times; *\<Vorgänge für\>Mittlere Sek./Lese* Vorgänge) LogicalDisk ( *\< NTDS-Daten\>Bank Laufwerk*) \ Lesevorgänge/Sek.
 
 |Indikator|Wert|
 |-|-|
@@ -703,7 +703,7 @@ Zum Anpassen der Schätzwerte für verschiedene Prozessoren war es sicher und mi
     1. Geben Sie unter **einfache Anforderung**die Suchkriterien für den Zielprozessor ein, z. b. der **Prozessor entspricht E5-2630 (baselinetarget)** und der **Prozessor entspricht E5-2650 (Baseline)** .
     1. Suchen Sie die zu verwendende Server-und Prozessor Konfiguration (oder etwas, wenn eine genaue Entsprechung nicht verfügbar ist), und notieren Sie sich den Wert in den Spalten **Result** und **# Cores** .
 1. Verwenden Sie zum Bestimmen des Modifizierers die folgende Gleichung:
-   >((*Zielplattform-pro-Kern-* Bewertungs &times; Wert) (*MHz pro Kern der baselineplattform*)) &divide; ((*Baseline-pro-Kern-Bewertungs Wert*) &times; (*MHz pro Kern der Zielplattform*)  
+   >((*Zielplattform-pro-Kern-* Bewertungs &times; Wert) (*MHz pro Kern der baselineplattform* &divide; )) ((*Baseline-pro-Kern-Bewertungs Wert*) &times; (*MHz pro Kern der Zielplattform*)  
 
     Verwenden Sie das obige Beispiel:
    >(35,83 &times; 2000) &divide; (33,75 &times; 2300) = 0,92

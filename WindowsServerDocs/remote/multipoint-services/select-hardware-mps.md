@@ -1,6 +1,6 @@
 ---
 title: Auswählen von Hardware für Ihr MultiPoint Services-System
-description: Überlegungen zur Hardware für MultiPoint Services
+description: Überlegungen zur Hardware für Multipoint Services
 ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server-threshold
@@ -13,194 +13,194 @@ ms.assetid: e74961a2-bd38-48ae-b1c0-4b3eff761b4a
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 969ab0e97b5456c71a43cc14bd82204481bdcc42
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 697ab9a1f97eab399dafac4e0c5fa5b641ed841c
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835221"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871399"
 ---
 # <a name="selecting-hardware-for-your-multipoint-services-system"></a>Auswählen von Hardware für Ihr MultiPoint Services-System
-Wenn Sie eine MultiPoint Services-System erstellen, sollten Sie einen Computer auswählen, der die Windows Server 2016-Systemanforderungen erfüllt. Wenn es sich bei der Entscheidung, welche Komponenten auswählen, beachten Folgendes:  
+Wenn Sie ein Multipoint Services-System erstellen, sollten Sie einen Computer auswählen, der die Systemanforderungen für Windows Server 2016 erfüllt. Wenn Sie entscheiden, welche Komponenten ausgewählt werden sollen, berücksichtigen Sie Folgendes:  
   
--   Die Ziel-Preisbereich der vollständigen Projektmappe.  
+-   Der Ziel Preisbereich ihrer gesamten Lösung.  
   
--   Die Typen von Verwendungsszenarien, die Sie erwarten möglicherweise, für das MultiPoint Services-System, z. B., ob die Benutzer multimedia-Programme ausführen, mithilfe von textverarbeitungs- oder Produktivitätsprogramme oder Surfen im Internet sind.  
+-   Die Typen von Verwendungs Szenarios, die Sie möglicherweise für das Multipoint Services-System erwarten, z. b. ob die Benutzer Multimedia-Programme ausführen und Textverarbeitungs-oder Produktivitäts Programme ausführen oder das Internet durchsuchen.  
   
--   Gibt an, ob Ihr Szenario für die Verarbeitung großer oder Arbeitsspeicher hat verlangt.  
+-   Gibt an, ob Ihr Szenario große Verarbeitungs-oder Arbeitsspeicher Anforderungen hat.  
   
--   Die Anzahl der Benutzer, die das System zur gleichen Zeit verwenden kann. Wenn Sie haben viele Benutzer auf Ihrem System zur gleichen Zeit oder Benutzer, die System rechenintensive-Programme verwenden möchten, sollten Sie für höhere rechenleistung für Ihr System planen.  
+-   Die Anzahl der Benutzer, die das System gleichzeitig verwenden können. Wenn Sie planen, gleichzeitig viele Benutzer in Ihrem System zu verwenden, oder Benutzer, die System intensive Programme verwenden, sollten Sie für Ihr System mehr Rechenleistung planen.  
   
--   Der Typ der Stationen. Wie viele USB-Anschlüsse oder video-Ports benötigen Sie?  
+-   Der Typ der Stationen. Wie viele USB-Ports oder videports benötigen Sie?  
   
--   Pläne für zukünftige Erweiterungen. Möchten Sie die Stationen im MultiPoint Services-System zu einem späteren Zeitpunkt hinzufügen? Verfügen Sie über genügend Grafikkarte Slots, USB-Anschlüsse oder taps Netzwerk? Wie viele zusätzliche Benutzer müssen Ihre Hardware unterstützt?  
+-   Zukünftige Erweiterungspläne. Planen Sie, dem Multipoint Services-System zu einem späteren Zeitpunkt Stationen hinzuzufügen? Verfügen Sie über genügend Videokarten Slots, USB-Anschlüsse oder Netzwerktaps? Wie viele zusätzliche Benutzer müssen von Ihrer Hardware unterstützt werden?  
   
--   Physisches Layout. Weitere Informationen finden Sie unter [MultiPoint Services-Standortplanung](MultiPoint-services-Site-Planning.md).  
+-   Physisches Layout. Weitere Informationen finden Sie unter [Planung von Multipoint Services-Websites](MultiPoint-services-Site-Planning.md).  
   
-Ein MultiPoint Services-System enthält in der Regel die folgenden Komponenten:  
+Ein Multipoint Services-System umfasst in der Regel die folgenden Komponenten:  
   
--   Ein Computer, der MultiPoint Services ausgeführt wird, einschließlich einer CPU, Arbeitsspeicher, Festplatten und Grafikkarten.  
+-   Ein Computer, auf dem Multipoint Services ausgeführt wird, der CPU, RAM, Festplattenlaufwerke und Grafikkarten umfasst.  
   
--   Ein Monitor, stationshub, Tastatur und Maus für jede Station.  
+-   Einen Monitor, einen stationshub, eine Tastatur und eine Maus für jede Station.  
   
--   Optionale Peripheriegeräten, bei denen für das MultiPoint Services-Stationen, einschließlich der Referenten, Kopfhörer, Mikrofone oder Speichergeräte, die nur für den Benutzer der Station aus verfügbar sind.  
+-   Optionale Peripheriegeräte für die Multipoint Services-Stationen, einschließlich Referenten, Kopfhörer, Mikrofon oder Speichergeräte, die nur für den Benutzer der Station verfügbar sind.  
   
--   Optionale Peripheriegeräten, bei denen, die für alle Benutzer des MultiPoint Services-Systems, verbunden, die direkt auf dem Hostcomputer wie z. B. Drucker, externe Festplatten und USB-Speichergeräten verfügbar sind.  
+-   Optionale Peripheriegeräte, die für alle Benutzer des Multipoint Services-Systems verfügbar sind, die direkt mit dem Host Computer verbunden sind, z. b. Drucker, externe Festplattenlaufwerke und USB-Speichergeräte.  
   
-Verwenden Sie die folgende Informationen, um die Hardware Entscheidungen zu treffen:  
+Verwenden Sie die folgenden Informationen, um Hardware Entscheidungen zu treffen:  
   
 -   [Auswählen einer CPU](#selecting-a-cpu)  
 -   [Auswählen von Hardwarekomponenten](#selecting-hardware-components)  
   
 ## <a name="selecting-a-cpu"></a>Auswählen einer CPU  
-Ein MultiPoint Services-System ist ein Vielfaches\-benutzerumgebung für alle Benutzer, die mit einem einzigen Hostcomputer verbunden. Dies erhöht die CPU-Auslastung, da alle Benutzer auf den gleichen Computer gemeinsam nutzen. Einige Aufgaben, z. B. multimedia-Programme \(z. B. Media-Player oder Video\-Software bearbeiten\), größere Anforderungen hinsichtlich der haben. Aus diesem Grund stellen Sie sicher, dass eine CPU, die die verarbeitungsanforderungen für die Anzahl von Benutzern und Arten von Szenarien, die sie unterstützen muss behandelt werden können.  
+Bei einem Multipoint Services-System handelt\-es sich um eine Umgebung mit mehreren Benutzern, bei der alle Benutzer mit einem einzelnen Host Computer verbunden sind. Dadurch erhöht sich die CPU-Auslastung, da alle Benutzer denselben Computer gemeinsam verwenden. Einige Aufgaben, z. b. \(Multimedia-Programme, z. b\-. Medien\)Player oder Videobearbeitungssoftware, haben größere Verarbeitungsanforderungen. Stellen Sie daher sicher, dass Sie eine CPU auswählen, mit der die Verarbeitungsanforderungen für die Anzahl der Benutzer und Typen von Benutzer Szenarien, die unterstützt werden müssen, erfüllt werden können.  
   
-MultiPoint Services erfordert x X64\-basierte CPU und erfüllt die Systemanforderungen für den Computer aus, wie in beschrieben [Hardwareanforderungen und Empfehlungen zur Leistung](Hardware-Requirements-and-Performance-Recommendations.md).  
+Multipoint Services erfordert eine x64\--basierte CPU und muss die Systemanforderungen für den Computer erfüllen, wie unter [Hardware Anforderungen und Empfehlungen zur Leistung](Hardware-Requirements-and-Performance-Recommendations.md)beschrieben.  
   
-Die folgenden Typen von Prozessoren wurde getestet, um für ein MultiPoint Services-System mit hoher verwendet werden\-Verarbeitung-Programme, z. B. multimedia-Programme erfordern:  
+Die folgenden Prozessoren wurden für die Verwendung in einem Multipoint Services-System mit\-Programmen für die Bedarfs gesteuerte Verarbeitung getestet, wie z. b. Multimedia-Programme:  
   
--   **Duale\-core-Prozessor:** Dies kann bis zu 8 Stationen unterstützen.  
--   **Quad\-core-Prozessor:** Dies kann bis zu 16 Stationen unterstützen.
--   **Quad\-core-Prozessor mit multithreading:** Dies kann bis zu 20 Stationen unterstützen.      
--   **Sechs\-core-Prozessor mit multithreading:** Dies kann bis zu 24 Stationen unterstützen.  
+-   **Dual\--Core-Prozessor:** Kann bis zu acht Stationen unterstützen.  
+-   **Quad\--Core-Prozessor:** Unterstützt bis zu 16 Stationen.
+-   **Quad\--Core-Prozessor mit Multithreading:** Unterstützt bis zu 20 Stationen.      
+-   **Sechs\-Kern Prozessor mit Multithreading:** Von können bis zu 24 Stationen unterstützt werden.  
   
-Wählen Sie anhand dieser Informationen eine CPU, die die verarbeitungsanforderungen für Ihr MultiPoint Services-System erfüllt. 
+Wählen Sie mit diesen Informationen eine CPU aus, die den Verarbeitungsanforderungen Ihres Multipoint Services-Systems entspricht. 
 > [!NOTE] 
-> Wenn Sie Videos datenintensive Anwendungen ausgeführt werden empfiehlt es sich mindestens ein Kern pro Station. 
+> Wenn Sie Video intensive Anwendungen ausführen, wird empfohlen, mindestens einen Kern pro Station zu haben. 
   
 ## <a name="selecting-hardware-components"></a>Auswählen von Hardwarekomponenten  
-Wenn Sie eine MultiPoint Services-System erstellen, berücksichtigen Sie die folgenden Hardware-Komponenten, die Sie möglicherweise:  
+Beachten Sie bei der Erstellung eines Multipoint Services-Systems die folgenden Hardwarekomponenten, die Sie möglicherweise benötigen:  
   
--   Grafikhardware  
+-   Video Hardware  
   
--   MultiPoint Services-stationshardware  
+-   Hardware der Multipoint Services-Station  
   
-    -   *USB-hubs*  
+    -   *USB-Hubs*  
   
-    -   USB-0 (null)-clients  
+    -   USB-Clients  
   
-    -   Tastaturen und Mäusen  
+    -   Tastatur und Maus Geräte  
   
     -   Monitore  
   
 -   Peripheriegeräte  
   
-    -   Audiogeräte, z. B. Lautsprecher und Kopfhörer  
+    -   Audiogeräte, z. b. Sprecher und Kopfhörer  
   
-    -   Mikrofonen  
+    -   Mikrofone  
   
-    -   USB-Massenspeicher-Geräte  
+    -   USB-Massenspeicher Geräte  
   
-Wenn Sie die Hardware-Komponenten für Ihr MultiPoint Services-System ausgewählt haben, stellen Sie sicher, dass Sie aktuell, 64 erhalten\-bit-Treiber für die Komponenten.  
+Wenn Sie die Hardwarekomponenten für das Multipoint Services-System ausgewählt haben, stellen Sie sicher, dass Sie aktuelle\-64-Bit-Treiber für die-Komponenten erhalten.  
   
-Ausführliche Informationen zum Auswählen von Komponenten für Ihr MultiPoint Services-System finden Sie in den folgenden Themen:  
+Die folgenden Themen enthalten ausführliche Informationen, die Ihnen bei der Auswahl von Komponenten für Ihr Multipoint Services-System helfen:  
   
-[Auswählen von video-hardware](#selecting-video-hardware)  
-[Auswählen von Direct\-video\-verbunden oder USB-Station Clientgeräte auf null](#BKMK_Selectingdirect-video-connectedorUSBzeroclientstationdevices)   
-[Wählen andere Station-Peripheriegeräte](#selecting-other-station-peripheral-devices)  
-[Auswählen von RDP\-über\-LAN\-stationshardware angeschlossen](#BKMK_SelectingRDP-over-LAN-connectedstationhardware)  
-[Audiogeräte auswählen](#selecting-audio-devices)  
+[Auswählen der Video Hardware](#selecting-video-hardware)  
+[Auswählen von\-direkt\-Video verbundenen oder USB-Client Station-Geräten](#BKMK_Selectingdirect-video-connectedorUSBzeroclientstationdevices)   
+[Auswählen anderer Stations Peripheriegeräte](#selecting-other-station-peripheral-devices)  
+[Auswählen von\-RDP\-over\-LAN-Connected Station-Hardware](#BKMK_SelectingRDP-over-LAN-connectedstationhardware)  
+[Auswählen von Audiogeräten](#selecting-audio-devices)  
   
-## <a name="selecting-video-hardware"></a>Auswählen von video-hardware
-Die Grafikhardware, die Sie auswählen, sollte die Anzahl der Monitore unterstützen, die Sie für die Anzahl von Benutzern erfordern funktionierende verfügen, die am MultiPoint Services-Stationen werden sollen. Darüber hinaus bieten verschiedene Arten von Videohardware eine höhere\-Performance-Lösung für Grafiken\-intensive Programme, z. B. multimedia-Inhalte.  
+## <a name="selecting-video-hardware"></a>Auswählen der Video Hardware
+Die von Ihnen ausgewählte Video Hardware sollte die Anzahl der Monitore unterstützen, die Sie für die Anzahl der Benutzer benötigen, die an Multipoint Services-Stationen arbeiten möchten. Darüber hinaus können unterschiedliche Arten von Video Hardware eine leistungsfähigere\-Lösung für Grafik\-intensive Programme, z. b. Multimedia-Inhalte, bereitstellen.  
   
-Wählen Sie die Grafikhardware, die die maximale Anzahl von Monitoren für den Typ der Leistung unterstützen kann, die das MultiPoint Services-System erforderlich sind. Stellen Sie sicher, dass Sie die Leistung der Grafikhardware, die Sie auswählen überprüfen, um sicherzustellen, dass er Ihren leistungsanforderungen entspricht.  
+Wählen Sie die Video Hardware aus, die die maximale Anzahl von Monitoren für die Art der von Ihrem Multipoint Services-System benötigten Leistung unterstützen kann. Stellen Sie sicher, dass Sie die Leistung der Video Hardware, die Sie ausgewählt haben, überprüfen, um sicherzustellen, dass Sie Ihren Leistungsanforderungen entspricht.  
   
 > [!NOTE]  
-> Sie müssen einen Treiber installieren, der unterstützt wird, erweitern Ihren Desktop auf mehrere Monitore.  
+> Sie müssen einen Videotreiber installieren, der die Erweiterung des Desktops auf mehrere Monitore unterstützt.  
   
-Videohardware Optionen umfassen:  
+Die Video Hardware Optionen umfassen Folgendes:  
   
--   Interne Grafikkarten, die eine PCI- oder eine PCIe-Bus-Schnittstelle verwenden.  
+-   Interne Grafikkarten, die eine PCI-oder PCIe-Busschnittstelle verwenden  
   
--   Externe video-Controllern, die über USB angeschlossen  
+-   Externe Videocontroller, die über USB verbunden sind  
   
-Die folgenden Abschnitte beschreiben die Funktionen der einzelnen Typen Videohardware. Grafikkarten für interne und externe Grafikcontrollern, um das System zu erstellen, das Sie möchten, können Sie kombinieren.  
+In den folgenden Abschnitten werden die Funktionen der einzelnen Video Hardwaretypen beschrieben. Sie können interne Grafikkarten und externe Videocontroller kombinieren, um das gewünschte System zu erstellen.  
   
 ### <a name="internal-video-cards"></a>Interne Grafikkarten  
-Eine interne Grafikkarte angeschlossen\-in auf der Hauptplatine auf dem Computer. Die interne Grafikkarte ist eine Lösung, mit denen die Leistung von Grafiken kann\-intensive multimedia-Programme. Eine interne Grafikkarte erfordert jedoch einen verfügbaren PCI- oder PCIe-Steckplatz (.NET,\-in auf der Hauptplatine. Viele hohe\-Grafikkarten Leistung erfordern, einen PCIe-Slot, aber es gibt eine begrenzte Anzahl von PCIe-Slots auf einer Hauptplatine. Sie sollten wissen, welche Art von Grafikkarte Slots werden auf Ihrem Computer verfügbar, damit Sie den richtigen Typ von Grafikkarten. erwerben können.  
+Eine interne Grafikkarte ist an\-der Hauptplatine des Computers angeschlossen. Die interne Grafikkarte ist eine Lösung, die die Leistung von Grafik\-intensiven Multimedia-Programmen unterstützen kann. Eine interne Grafikkarte erfordert jedoch einen verfügbaren PCI-oder PCIe-Slot\-, um an die Hauptplatine angeschlossen zu werden. Viele High\-Performance-Grafikkarten erfordern einen PCIe-Slot, aber es gibt eine begrenzte Anzahl von PCIe-Slots auf einem Motherboard. Sie sollten wissen, welche Art von Grafikkarten Slots auf Ihrem Computer verfügbar sind, damit Sie den richtigen Typ von Grafikkarten erwerben können.  
   
-Die Anzahl der Monitore, die mit jeder Grafikkarte verbinden können, hängt von der GPU, die verwendet wird, auf der Karte und die Anzahl der Ports, die dies unterstützen, die in der Regel zwischen 2 und 6 liegt.  
+Die Anzahl der Monitore, die eine Verbindung mit den einzelnen Grafikkarten herstellen können, hängt von der GPU, die auf der Karte verwendet wird, und der Anzahl der unterstützten Ports ab, die in der Regel zwischen 2 und 6 liegen.  
   
-Wählen Sie bei der Auswahl interne Grafikkarten, Grafikkarten, die die Anzahl der Monitore erforderlich, um die gewünschte Anzahl von direkten video verbundene Stationen erstellen zu unterstützen. Die maximale Anzahl von Monitoren, die unterstützt werden können, ist die Anzahl der internen Videokarten, die angeschlossen sind gleich\-in auf der Hauptplatine multipliziert die Anzahl der Monitor-Ports auf jedem dieser Grafikkarten. Wenn Sie zwei interne Grafikkarten und jede Karte zwei Monitor-Ports hatten, könnten Sie z. B. bis zu vier Monitore unterstützen.    
+Wenn Sie interne Grafikkarten auswählen, wählen Sie Grafikkarten aus, die die Anzahl der Monitore unterstützen, die zum Erstellen der gewünschten Anzahl an direkt mit dem Video verbundenen Stationen erforderlich sind. Die maximale Anzahl von Monitoren, die unterstützt werden können, ist gleich der Anzahl der internen Grafikkarten,\-die an die Hauptplatine angeschlossen sind, multipliziert mit der Anzahl der Überwachungsports auf den einzelnen Grafikkarten. Wenn Sie z. b. über zwei interne Grafikkarten verfügen und jede Karte über zwei Überwachungsports verfügt, können Sie bis zu vier Monitore unterstützen.    
   
-### <a name="external-video-controllers"></a>Externe video-Controllern  
-USB-0 (null)-Clients enthält einen externen video-Controller, um einen Monitor an den Client eine Verbindung herzustellen. Der USB-0 (null)-Client kann auch Verbindungen für Kopfhörer, Lautsprecher, ein Mikrofon und andere Peripheriegeräte enthalten.  
+### <a name="external-video-controllers"></a>Externe Videocontroller  
+USB-Clients enthalten einen externen Videocontroller, um eine Verbindung zwischen einem Monitor und dem Client herzustellen. Der USB Zero-Client kann auch Verbindungen für Kopfhörer, Referenten, ein Mikrofon oder andere Peripheriegeräte enthalten.  
   
-Wählen Sie ein USB zero-Client, wenn Sie Unterstützung zusätzlicher Monitore aktivieren, ohne den Computer öffnen möchten oder wenn Sie mehrere Stationen als verfügbare Videoausgaben unterstützen möchten. Angenommen, Sie vier Monitore angeschlossen bisher\-in internen Grafikkarten, und Sie zwei weitere Monitore hinzufügen möchten, können Sie die zu lokalisierenden\-in zwei externe video-Controllern auf dem Computer und genügend Platz für zwei weitere Monitore. Auf diese Weise können Sie kombinieren, einen USB-0 (null)-Client mit der Grafikkarte und verwenden Sie nicht zusätzliche PCI oder PCIe-Slots auf der Hauptplatine.  
+Wählen Sie einen USB-Client aus, wenn Sie die Unterstützung für zusätzliche Monitore aktivieren möchten, ohne den Computer zu öffnen, oder wenn Sie mehr Stationen als verfügbare Video Ausgaben unterstützen möchten. Wenn Sie z. b. zuvor vier Monitore an\-interne Grafikkarten angeschlossen haben und zwei weitere Monitore hinzufügen möchten, können Sie zwei externe Video\-Controller an den Computer anschließen und Platz für zwei weitere Monitore haben. Auf diese Weise können Sie einen USB-Zero-Client mit dem Videocontroller kombinieren und keine zusätzlichen PCI-oder PCIe-Slots auf der Hauptplatine verwenden.  
   
-## <a name="BKMK_Selectingdirect-video-connectedorUSBzeroclientstationdevices"></a>Auswählen von Direct\-video\-verbunden oder USB-Station Clientgeräte auf null  
-Eine MultiPoint Services-Station besteht aus einem stationshub oder USB-zero-Client mit einer Tastatur und Maus, die\-in, und eine Überwachung, die im Netzbetrieb befindet\-in auf dem Hostcomputer oder im an den Client ein USB-0 (null). Andere Peripheriegeräte integriert werden können,\-in der Station Hub oder einem USB-0 (null) Client, aber sie sind nicht erforderlich, um MultiPoint-Station zu erstellen. Diese anderen Peripheriegeräten, bei denen im beschrieben [auswählen andere Peripheriegeräte Station](#selecting-other-station-peripheral-devices).  
+## <a name="BKMK_Selectingdirect-video-connectedorUSBzeroclientstationdevices"></a>Auswählen von\-direkt\-Video verbundenen oder USB-Client Station-Geräten  
+Eine Multipoint Services-Station besteht aus einem stationshub oder einem USB-Client, bei dem\-eine Tastatur und eine Maus angeschlossen sind,\-sowie ein Monitor, der auf dem Host Computer oder an einem USB-Client angeschlossen ist. Andere Peripheriegeräte können an den\-stationshub oder den USB-Client angeschlossen werden, sind jedoch nicht erforderlich, um eine Multipoint-Station zu erstellen. Diese anderen Peripheriegeräte werden unter [Auswählen anderer Station-Peripheriegeräte](#selecting-other-station-peripheral-devices)beschrieben.  
   
-Die Geräte, die Sie auswählen, um eine MultiPoint Services-Station zu erstellen, müssen Mindestanforderungen gelten für die Arbeit mit MultiPoint Services erfüllen. In diesem Thema werden die Details zu den Anforderungen für die folgenden Geräte des MultiPoint Services-Station bereitgestellt:  
+Die Geräte, die Sie zum Erstellen einer Multipoint Services-Station auswählen, müssen die Mindestanforderungen erfüllen, um mit Multipoint Services arbeiten zu können. Ausführliche Informationen zu den Anforderungen für die folgenden Multipoint Services-Stations Geräte finden Sie in diesem Thema:  
   
--   [Auswählen von USB-hubs](#selecting-usb-hubs)  
--   [Auswählen von USB-NULL-clients](#selecting-usb-zero-clients)  
--   [Auswählen von Tastaturen und Mäusen](#selecting-keyboards-and-mouse-devices)  
+-   [Auswählen von USB-Hubs](#selecting-usb-hubs)  
+-   [Auswählen von USB-Clients](#selecting-usb-zero-clients)  
+-   [Auswählen von Tastaturen und Maus Geräten](#selecting-keyboards-and-mouse-devices)  
 -   [Auswählen von Monitoren](#selecting-monitors)  
   
-### <a name="selecting-usb-hubs"></a>Auswählen von USB-hubs  
-Das USB-Hubs, die in einem MultiPoint Services-System verwendet werden, können ein generischer USB-Hub sein. Solche Hubs verfügen in der Regel vier oder mehr USB-Anschlüsse und ermöglichen mehrere USB-Geräte mit einem einzelnen USB-Anschluss auf dem Computer verbunden sein. Einige andere Geräte, wie z. B. Tastaturen und Videomonitoren, können auch einen USB-Hub in ihren Entwurf integrieren.  
+### <a name="selecting-usb-hubs"></a>Auswählen von USB-Hubs  
+Die in einem Multipoint Services-System verwendeten USB-Hubs können ein generischer USB-Hub sein. Solche Hubs verfügen in der Regel über vier oder mehr USB-Anschlüsse, sodass mehrere USB-Geräte mit einem einzelnen USB-Anschluss auf dem Computer verbunden werden können. Einige andere Geräte, wie z. b. Tastaturen und Videomonitore, können auch einen USB-Hub in Ihren Entwurf integrieren.  
   
-Eine weitere Überlegung ist die Verwendung von ein *extern unterstützt* -Hub, statt eine *Bus\-unterstützt* Hub. Mit einem Bus\-ausgeschaltet-Hub, die Menge des aktuellen, die bereitgestellte vom Host Computer befinden muss ausreichend, um die Möglichkeit, alle Peripheriegeräte bereitzustellen, die integriert werden\-im an den Hub, ohne die Systemleistung beeinträchtigen. Ein extern ausgeschaltet Hub können Sie eine Verbindung herstellen mehr Peripheriegeräten und ermöglichen eine ausreichende Stromversorgung für alle von ihnen. Die Verwendung von extern ausgeschaltet Hubs können Leistungsprobleme, die Port-Fehler und andere vorübergehende Probleme zu verhindern.  
+Ein weiterer Aspekt ist die Verwendung eines *extern betriebenen* Hubs anstelle eines *busgestützten\-* Hubs. Bei einem Bus\--gestützten Hub muss die Menge an aktuellen, die vom Host Computer bereitgestellt wird, ausreichen, um allen Peripheriegeräten, die mit dem Hub\-verbunden sind, die Leistung zu gewährleisten, ohne dass die Systemleistung beeinträchtigt wird. Ein extern gestützter Hub ermöglicht es Ihnen, mehr Peripheriegeräte zu verbinden und ausreichend Leistung für alle bereitzustellen. Die Verwendung extern gestützter Hubs kann dabei helfen, Leistungsprobleme, Port Ausfälle und andere vorübergehende Probleme zu vermeiden.  
   
-Wenn Sie einen USB-Hub für Ihr MultiPoint Services-System auswählen zu können, sollten Sie dessen Verwendung. Hub kann verwendet werden, als eine *stationshub*, eine *zwischenhub*, oder ein *downstream-Hub*. Verweisen Sie auf die folgende Tabelle enthält Beschreibungen zu den einzelnen Hub. Es wird empfohlen, alle USB-Geräte, USB 2.0 oder höher sein.
+Wenn Sie einen USB-Hub für Ihr Multipoint Services-System auswählen, sollten Sie dessen Verwendung in Erwägung gezogen. Der Hub kann als *stationshub*, als *Zwischenhub*oder als downstreamhubverwendet werden. In der folgenden Tabelle finden Sie Beschreibungen zu den einzelnen Hub-Typen. Wir empfehlen, dass alle USB-Geräte USB-2,0 oder höher sind.
   
-||Unterstützt|  
+||Fahrzeuge|  
 |-|-----------|  
-|Stationshub|Bus möglich\-unterstützt, es sei denn, hohe\-Geräten (.NET-typbeibehaltung,\-in oder einem downstream-Hub wird verbunden sein,|  
-|Zwischengeschalteter Hub |Sollte extern unterstützt werden|  
-|Downstream-Hub|Extern ausgeschaltet werden können oder Bus mit Strom versorgt, abhängig von den Geräten, die integriert werden\-im an den Hub|  
-|Aktive USB-Kabel|Aktive USB-Kabel, die einen USB-Hub enthalten, sind in der Regel Bus unterstützt; Sie werden daher nicht empfohlen, für das Anschließen von stationshubs an den Computer.|  
+|Stationshub|Kann durch Busbetrieb\-betrieben werden, es sei denn,\-es werden hoch\-geschaltete Geräte daran angeschlossen, oder ein downstreamhub wird mit dem Gerät verbunden.|  
+|Zwischenhub |Sollte extern eingeschaltet werden|  
+|Downstream-Hub|Kann abhängig von den Geräten, die an den Hub angeschlossen\-sind, extern oder mit Busbetrieb betrieben werden.|  
+|Aktives USB-Extender-Kabel|Aktive USB-Kabel, die einen USB-Hub enthalten, werden in der Regel durch busgestützte Daher empfiehlt es sich nicht, Station Hubs mit dem Computer zu verbinden.|  
   
-### <a name="selecting-usb-zero-clients"></a>Auswählen von USB-NULL-clients  
-Ein Client USB-0 (null) ist ein USB-Hub, der eine Ausgabe der video enthält. Aus diesem Grund ermöglicht es einen Monitor mit dem Computer über eine USB-Verbindung verbunden sein. Weitere Informationen zur Verwendung von USB-0 (null)-Clients für Video finden Sie unter [auswählen Videohardware](#selecting-video-hardware) in diesem Dokument. Ein USB-0 (null)-Client können auch das Anschließen einer Reihe von USB- und nicht-\-USB-Geräte am Hub. USB-0 (null)-Clients werden von bestimmten Hardwareherstellern erzeugt und erfordern die Installation eines Geräts\-bestimmten Treiber.  
+### <a name="selecting-usb-zero-clients"></a>Auswählen von USB-Clients  
+Ein USB-Null-Client ist ein USB-Hub, der eine Videoausgabe enthält. Daher kann ein Monitor über eine USB-Verbindung mit dem Computer verbunden werden. Weitere Informationen zur Verwendung von USB-Clients für Videos finden Sie unter [Auswählen von Video Hardware](#selecting-video-hardware) in diesem Dokument. Ein USB-Null-Client kann auch die Verbindung einer Vielzahl von USB-und\-nicht-USB-Geräten mit dem Hub ermöglichen. USB-Clients werden von bestimmten Hardwareherstellern erstellt und erfordern die Installation eines Geräte\-spezifischen Treibers.  
   
-### <a name="selecting-keyboards-and-mouse-devices"></a>Auswählen von Tastaturen und Mäusen  
-Die Tastatur und Maus-Geräte, die Sie anschließen\-in der Station in der Regel werden USB-Geräte. Einige USB NULL Clients bereitstellen PS\/2 ports, von denen in diesem Fall die Tastatur und Maus sollten PS verwenden\/2, um an den stationshub angeschlossen. Können Sie auch einen PS\/2-Tastatur und Maus, wenn Sie einen PS einrichten\/2 direkte\-video\-Station angeschlossen.  
+### <a name="selecting-keyboards-and-mouse-devices"></a>Auswählen von Tastaturen und Maus Geräten  
+Die Tastatur-und Maus Geräte, die\-Sie an die Station anschließen, sind in der Regel USB-Geräte. Einige USB-Clients stellen PS\/2-Ports bereit. in diesem Fall sollten die Tastatur und die Maus\/PS 2 verwenden, um eine Verbindung mit dem stationshub herzustellen. Sie\/können auch eine PS 2-Tastatur und-Maus verwenden, wenn Sie eine direkte\/\-PS 2-\-Video Station einrichten.  
   
-Tastatur mit einem internen Hub kann als stationshub verwendet werden. Allerdings müssen alle anderen Station-Geräte über die Ports auf der Tastatur an den internen Hub verbinden. Wenn diese eine Tastatur an den Computer über einen anderen Hub verbunden ist, wird diesem Hub als ein zwischengeschalteter Hub behandelt.  
+Eine Tastatur mit einem internen Hub kann als stationshub verwendet werden. Allerdings müssen alle anderen Stations Geräte mithilfe von Ports auf der Tastatur eine Verbindung mit dem internen Hub herstellen. Wenn eine solche Tastatur über einen anderen Hub mit dem Computer verbunden ist, wird dieser Hub als Zwischenhub behandelt.  
   
-Bei Verwendung von Split\-Bildschirm Stationen, Sie sollten in Betracht, eine Mini-Tastatur, die keine Zehnertastatur, damit die beiden Tastaturen vor der Monitor verwendet werden können.  
+Wenn Sie unterteilte\-Bildschirm Stationen verwenden, empfiehlt es sich, eine Mini Tastatur zu verwenden, die keinen Zahlenbereich hat, sodass die beiden Tastaturen vor dem Monitor passen.  
   
 ### <a name="selecting-monitors"></a>Auswählen von Monitoren  
-Es sollte einen Monitor, die für jede MultiPoint Services-Station bereitgestellt sein, es sei denn, eine Teilung\-Bildschirm ist geplant. Monitore sind die Grafikkarte auf dem Computer, den Client USB-0 (null) oder das LAN angeschlossen\--basierte Client. Jede Art von Monitor, der von der Grafikkarte, USB-0 (null) Client oder LAN unterstützt wird\-basierender Client kann verwendet werden, einschließlich der CRT-Monitore.  
+Für jede Multipoint Services-Station sollte ein Monitor bereitgestellt werden, es sei\-denn, es ist ein geteilter Bildschirm geplant. Monitore werden mit der Grafikkarte auf dem Computer, dem USB Zero-Client oder dem LAN\--basierten Client verbunden. Alle Monitor Typen, die von der Grafikkarte, dem USB Zero-Client oder dem LAN\--basierten Client unterstützt werden, können verwendet werden, einschließlich CRT-Monitoren.  
   
-Einige spezielle Monitore enthalten ein internes LAN\-basierend-Clients oder Clients von USB-0 (null). Diese Monitore enthalten in der Regel Audioeingabe\/Jacks und internen USB-Hubs für die Verbindung von Tastaturen und Mäusen ausgeben. Sie eine Verbindung über ein USB- oder einer LAN-Verbindung mit dem Server herstellen.  
+Einige besondere Monitore umfassen einen internen LAN\--basierten Client oder einen USB-Client. Diese Monitore enthalten normalerweise Audioeingabe\/-Ausgabe-und interne USB-Hubs zum Verbinden von Tastaturen und Mäusen. Sie stellen eine Verbindung mit dem Server über eine USB-oder LAN-Verbindung her.  
   
-#### <a name="display-resolution"></a>Bildschirmauflösung  
-Die unterstützten mindestauflösung Anzeigebereich für eine Station ist 512 x 768 Pixel. Wenn das MultiPoint Services-System gestartet wurde und ermittelt, dass der Anzeigebereich für eine Station ist kleiner als die minimale Auflösung, ein leerer Bildschirm wird auf dieser Station angezeigt werden und die Station nicht verwendet werden.  
+#### <a name="display-resolution"></a>Anzeigeauflösung  
+Die unterstützte Mindestauflösung für den Anzeigebereich einer Station beträgt 512 x 768 Pixel. Wenn das Multipoint Services-System gestartet wird und feststellt, dass der Anzeigebereich einer Station kleiner als die minimale Auflösung ist, wird ein leerer Bildschirm auf dieser Station angezeigt, und die Station kann nicht verwendet werden.  
   
-Wenn Sie einen Bildschirm als geteilt durch zwei Stationen freigegeben werden soll\-Bildschirm Stationen, die Mindestanforderung für die Anzeige mit 1024 x 768, ist, damit die sich ergebende einzelne Station Bildschirmbereiche mindestens 512 x 768 erforderlich sind. Für die optimale split\-Bildschirm benutzerfreundlichkeit Standardbildschirm mit einem Minimum an die Auflösung von 1600 x 900 wird empfohlen.  
+Wenn ein Anzeige Monitor von zwei Stationen als geteilte\-Bildschirm Stationen gemeinsam genutzt wird, ist die Mindestanforderung für die Anzeige 1024 x 768, sodass die resultierenden einzelnen Stations Bildschirmbereiche mindestens 512 x 768 sind. Für eine optimale\-Benutzer Darstellung auf dem Bildschirm wird ein breit Bildschirm mit einer minimalen Auflösung von 1600 x 900 empfohlen.  
   
-## <a name="selecting-other-station-peripheral-devices"></a>Wählen andere Station-Peripheriegeräte  
-MultiPoint Services unterstützt Peripheriegeräte, bei denen, die an einen stationshub, einem USB-0 (null)-Client oder direkt auf dem Computer verbunden sind. Geräte, die an einen stationshub angeschlossen werden, bestimmten Station zugeordnet werden. Andere Geräte sind für jede Station aus, wenn direkt an den Computer angeschlossen verfügbar. LAN-Clients können auch Peripheriegeräte unterstützen.  
+## <a name="selecting-other-station-peripheral-devices"></a>Auswählen anderer Stations Peripheriegeräte  
+Multipoint Services unterstützt Peripheriegeräte, die mit einem stationshub, einem USB-Null-Client oder direkt mit dem Computer verbunden sind. Geräte, die an einen stationshub angeschlossen sind, werden dieser bestimmten Station zugeordnet. Andere Geräte sind für jede Station verfügbar, wenn Sie direkt an den Computer angeschlossen sind. LAN-Clients können auch Peripheriegeräte unterstützen.  
   
 > [!IMPORTANT]  
-> Eine Tastatur kann nicht mit einem downstream-Hub angeschlossen werden \(z. B. einen Hub, der an einen stationshub angeschlossen ist\). Wenn Sie eine Tastatur, um eine downstream-Hub, Peripheriegeräten anschließen, die integriert werden\-im an den downstream-Hub werden nicht mehr für diese Station verfügbar. Dieses Verhalten ermöglicht die Unterstützung der Skalierbarkeit\-stationshubs verkettet.  
+> Eine Tastatur kann nicht mit einem downstreamhub \(verbunden werden, z\). b. einem Hub, der an einen stationshub angeschlossen ist. Wenn Sie eine Tastatur an einen Downstream-Hub anschließen, sind alle Peripheriegeräte, die\-an den downstreamhub angeschlossen sind, für diese Station nicht mehr verfügbar. Dieses Verhalten ermöglicht die Unterstützung von\-mit Daisy verketteten Stations Hubs.  
   
-**Für alle Stationen** ein USB-Gerät, das an den Computer angeschlossen ist \(z. B. nicht über einen stationshub\) ist für alle Stationen verfügbar. Je nach Gerät können Sie gleichzeitig von mehreren Benutzern verwendet werden, oder nur ein Benutzer kann zu einem Zeitpunkt darauf zugreifen. In der folgende Tabelle wird erläutert, wie USB-Geräte zugegriffen werden können.  
+**Für alle Stationen verfügbar** Ein USB-Gerät, das z. b \(. an den Computer angeschlossen ist, nicht\) über einen stationshub, ist für alle Stationen verfügbar. Abhängig vom Gerät kann es von mehreren Benutzern gleichzeitig verwendet werden, oder es kann jeweils nur ein Benutzer darauf zugreifen. In der folgenden Tabelle wird erläutert, wie auf USB-Geräte zugegriffen werden kann.  
   
 > [!NOTE]  
-> Die Spalte "Verbunden, Host-Computer" in der Tabelle verweist auf das Verhalten, wenn der Computer, auf dem MultiPoint Services ausgeführt wird, die im stationsmodus mit Stationen ausgeführt wird. Wenn Sie im Konsolenmodus ausgeführt werden, verhalten sich die Peripheriegeräte, die an einer beliebigen Stelle angeschlossen werden in die gleiche Weise wie einen standard-Server in einer konsolensitzung.  
+> Die Spalte "verbunden mit Host Computer" in der Tabelle bezieht sich auf das Verhalten, wenn der Computer, auf dem Multipoint Services ausgeführt wird, im Stations Modus mit Stationen ausgeführt wird. Wenn Sie im Konsolenmodus ausgeführt werden, Verhalten sich die Peripheriegeräte, die an einem beliebigen Ort angeschlossen sind, genauso wie ein Standard Server in einer Konsolen Sitzung.  
   
-||Mit dem Hostcomputer verbunden|Mit dem Stationshub oder Downstream-Hub verbunden sind|  
+||Verbunden mit Host Computer|Verbunden mit stationshub oder downstreamhub|  
 |-|------------------------------|----------------------------------------------|  
-|Tastatur|Funktioniert nicht, es sei denn, er Teil einer Station PS/2 ist. |Für einzelne station<br /><br />Kann nicht mit einem downstream-Hub verbunden werden|  
-|Maus|Funktioniert nicht, es sei denn, er Teil einer Station PS/2 ist. |Für einzelne station|  
-|Speaker/Kopfhörer|Funktioniert nicht, es sei denn, er Teil einer Station PS/2 ist.|Für einzelne station|  
-|USB-Speichergerät|Verfügbar für alle Stationen|Für einzelne station|  
-|HID-Consumer-Steuerelement|Funktioniert nicht.|Für einzelne station|  
-|Andere USB-Geräte, beispielsweise Kameras, dokumentieren, Leser und DVD-Laufwerke|Für alle Stationen, wenn von Windows Server 2012 unterstützt.|Auf alle Stationen, wenn von Windows Server 2008 R2 Remote Desktop Services unterstützt zur Verfügung.|  
+|Tastatur|Nicht funktionsfähig, es sei denn, Sie ist Teil einer PS/2-Station. |Für einzelne Station verfügbar<br /><br />Es kann keine Verbindung mit einem Downstream-Hub hergestellt werden.|  
+|Maus|Nicht funktionsfähig, es sei denn, Sie ist Teil einer PS/2-Station. |Für einzelne Station verfügbar|  
+|Redner/Kopfhörer|Nicht funktionsfähig, es sei denn, Sie ist Teil einer PS/2-Station.|Für einzelne Station verfügbar|  
+|USB-Speichergerät|Für alle Stationen verfügbar|Für einzelne Station verfügbar|  
+|HID-Consumersteuerelement|Nicht funktionsfähig|Für einzelne Station verfügbar|  
+|Andere USB-Geräte, z. b. Kameras, Dokument Leser und DVD-Laufwerke|Verfügbar für alle Stationen, sofern von Windows Server 2012 unterstützt|Verfügbar für alle Stationen, wenn dies von Windows Server 2008 R2 unterstützt wird Remotedesktopdienste|  
   
-## <a name="BKMK_SelectingRDP-over-LAN-connectedstationhardware"></a>Auswählen von RDP\-über\-LAN\-stationshardware angeschlossen  
-Alle LAN-Client, der zum Remote Desktop Services, Herstellen von Verbindungen kann mithilfe von Remote Desktop Protocol, kann es sich um eine MultiPoint Services-Station werden.  
+## <a name="BKMK_SelectingRDP-over-LAN-connectedstationhardware"></a>Auswählen von\-RDP\-over\-LAN-Connected Station-Hardware  
+Jeder LAN-Client, der mithilfe von Remotedesktopprotokoll eine Verbindung mit Remotedesktopdienste herstellen kann, kann zu einer Multipoint Services-Station werden.  
   
-Wenn Sie auf der LAN-Client nur als eine MultiPoint-Station verwendet werden soll, empfiehlt es sich um zu Ihrem LAN-Client "Sperren". Konfigurieren Sie z. B. den thin Client, sodass es kann nur eine Verbindung mit einer MultiPoint Services-Sitzung herstellen, oder Ihre desktop-PCs konfigurieren, so dass der Zugriff auf desktop-Symbole und Menü "Start" Elemente, wie z. B. ein Webbrowser entfernt wird, um zu verhindern, dass bei der direkten Zugang zum Internet. Sie können diese Konfigurationen, die mit Ihrem LAN-Client-Konfigurationstools, Gruppe oder lokale Richtlinien vornehmen.  
+Wenn Sie möchten, dass der LAN-Client nur als Multipoint-Station verwendet werden kann, können Sie Ihren LAN-Client "Sperren". Konfigurieren Sie z. b. ihren Thin Client so, dass er nur eine Verbindung mit einer Multipoint Services-Sitzung herstellen kann, oder konfigurieren Sie die Desktop Computer so, dass der Zugriff auf Desktop Symbole und Start Menü Elemente (z. b. ein Webbrowser) entfernt wird, um direkten Internet Zugriff zu verhindern. Sie können diese Konfigurationen mit ihren LAN-Client Konfigurationstools oder-Gruppen oder lokalen Richtlinien vornehmen.  
   
-## <a name="selecting-audio-devices"></a>Audiogeräte auswählen  
-Es ist wichtig, um sicherzustellen, dass bei Auswahl von Audiogeräte sie in der stationshub, USB-0 (null)-Clients oder LAN-Clients integriert werden können. Einige USB-Hubs, USB-0 (null)-Clients und LAN-Clients müssen eine analoge audio Jack, die mit herkömmlichen analoge Audiogeräte verwendet werden kann \(z.B. Kopfhörer oder Ohrstöpsel\). Stationshubs, die keine analogen Jacks können USB-Audiogeräte.  
+## <a name="selecting-audio-devices"></a>Auswählen von Audiogeräten  
+Es ist wichtig sicherzustellen, dass Sie bei der Auswahl von Audiogeräten mit dem stationshub, dem USB-Client oder dem LAN-Client verbunden werden können. Einige USB-Hubs, USB-Clients und LAN-Clients verfügen über einen analogen AudioJack, der mit herkömmlichen, analogen Audiogeräten \(wie z. b. Kopf-oder earbuden\)verwendet werden kann. Bei Station Hubs, die keine analogen Geräte enthalten, können USB-Audiogeräte verwendet werden.  
   
-Wenn Sie einen PS konfiguriert haben\/2 direkte\-video\-über PS verbunden Station\/2 Ports auf der Hauptplatine des Computers für die Tastatur und Maus, müssen Sie das analoge Audio auf der Hauptplatine des Computers in verwenden Damit das audio-Gerät auf dieser Station verfügbar sein, wenn das MultiPoint Services-System im stationsmodus ausgeführt wird.  
+\/Wenn Sie eine direkte\-p-Video\-Station\/mit PS 2 für die Tastatur und die Maus auf dem Computer des Computers konfiguriert haben, müssen Sie die analoge Audiodatei auf der Hauptplatine des Computers verwenden. damit das Audiogerät für diese Station verfügbar ist, wenn das Multipoint Services-System im Stations Modus ausgeführt wird.  
   
-Wenn Sie nicht mit einem PS verfügen\/2 direkte\-video\-verbundenen Station, die Host-audio-Gerät auf der Hauptplatine stehen nur, wenn das MultiPoint Services-System im Konsolenmodus ausgeführt wird.  
+Wenn Sie über keine direkte\/\-PS 2-Video\-Station verfügen, ist das hostaudiogerät auf der Hauptplatine des Systems nur verfügbar, wenn das Multipoint Services-System im Konsolenmodus ausgeführt wird.  

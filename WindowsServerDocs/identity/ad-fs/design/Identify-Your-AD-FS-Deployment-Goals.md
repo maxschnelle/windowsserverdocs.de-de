@@ -9,82 +9,82 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 2b881553431be873ed9883da67a7989527d7d288
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: b4fde1ae50b9422d3a2f35035ab549114e193a67
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191268"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867778"
 ---
 # <a name="identify-your-ad-fs-deployment-goals"></a>Identifizieren der AD FS-Bereitstellungsziele
 
-Ordnungsgemäße Identifizierung Ihrer Active Directory Federation Services \(AD FS\) -Bereitstellungsziele ist wichtig für den Erfolg Ihres AD FS-Entwurfs-Projekts. Priorisieren Sie und kombinieren Sie die Bereitstellungsziele, damit Sie entwerfen und Bereitstellen von AD FS mit einem iterativen Ansatz. Sie profitieren von vorhandenen, dokumentiert und vordefinierte AD FS-Bereitstellungsziele, die für die AD FS-Entwürfe relevant sind und eine funktionierende Lösung für Ihre Situation entwickeln.  
+Die korrekte Identifizierung Ihrer \(Active Directory-Verbunddienste (AD FS)\) AD FS Bereitstellungs Ziele ist entscheidend für den Erfolg des AD FS Entwurfsprojekts. Priorisieren Sie die Bereitstellungs Ziele und kombinieren Sie Sie, damit Sie AD FS mit einem iterativen Ansatz entwerfen und bereitstellen können. Sie können vorhandene, dokumentierte und vordefinierte AD FS Bereitstellungs Ziele nutzen, die für die AD FS Entwürfe relevant sind, und eine funktionierende Lösung für Ihre Situation entwickeln.  
   
 Frühere Versionen von AD FS wurden am häufigsten bereitgestellt, um Folgendes zu erreichen:  
   
--   Bereitstellen der Mitarbeiter oder Kunden mit einem Web\-basieren, SSO auftreten, wenn Ansprüche zugreifen\--basierte Anwendungen in Ihrem Unternehmen.  
+-   Bereitstellung eines webbasierten\-einmaligen Anmeldens für Ihre Mitarbeiter oder Kunden beim Zugriff auf Anspruchs\-basierte Anwendungen in Ihrem Unternehmen.  
   
--   Bereitstellen der Mitarbeiter oder Kunden mit einem Web\-basieren, die SSO-Erfahrung, um den Zugriff auf Ressourcen in beliebigen verbundpartnerorganisationen.  
+-   Bereitstellung eines webbasierten\-einmaligen Anmeldens für Ihre Mitarbeiter oder Kunden für den Zugriff auf Ressourcen in beliebigen Verbund Partnerorganisationen.  
   
--   Bereitstellen der Mitarbeiter oder Kunden mit einem Web\-basieren, SSO auftreten, wenn Sie Remotezugriff auf intern, Websites oder-Dienste gehostet.  
+-   Bereitstellung eines webbasierten\-einmaligen Anmeldens für Ihre Mitarbeiter oder Kunden beim Remote Zugriff auf Intern gehostete Websites oder Dienste.  
   
--   Bereitstellen der Mitarbeiter oder Kunden mit einem Web\-benutzerumgebung Einmaliger Anmeldung basiert, für den Zugriff auf Ressourcen oder Dienste in der Cloud.  
+-   Bereitstellung eines webbasierten\-einmaligen Anmeldens für Ihre Mitarbeiter oder Kunden beim Zugriff auf Ressourcen oder Dienste in der Cloud.  
   
-Zusätzlich zu diesen fügt AD FS unter Windows Server® 2012 R2-Funktionen, die Folgendes kann:  
+Zusätzlich zu diesen Features bietet AD FS in Windows Server® 2012 R2 Funktionen, mit deren Hilfe Sie Folgendes erreichen können:  
   
--   Gerätearbeitsplatzbeitritt für einmalige Anmeldung und nahtlose zweistufige Authentifizierung. Dies ermöglicht Organisationen das Zulassen des Zugriffs mit persönlichen Geräten des Benutzers und das Risiko bei der Bereitstellung dieses Zugriffs, verwalten.  
+-   Gerätearbeitsplatzbeitritt für einmalige Anmeldung und nahtlose zweistufige Authentifizierung. Dies ermöglicht es Organisationen, den Zugriff von persönlichen Geräten des Benutzers zuzulassen und das Risiko bei der Bereitstellung dieses Zugriffs zu verwalten.  
   
--   Verwalten von Risiken mit mehreren\-Zugriffssteuerung berücksichtigen. AD FS bietet eine umfassende Autorisierung, die steuert, wer Zugriff auf welche Anwendungen hat. Dies kann auf Benutzerattributen basieren \(UPN, e-Mail-Adresse, Mitgliedschaft in Sicherheitsgruppen, Authentifizierungsstärke usw.\), Geräteattribute \(gibt an, ob das Gerät dem Arbeitsplatz beigetreten ist\) oder anforderungsattributen \(Speicherort im Netzwerk, IP-Adresse oder Benutzer-Agent\).  
+-   Verwalten von Risiken mit\-der mehrstufigen Zugriffs Steuerung. AD FS bietet eine umfassende Autorisierung, die steuert, wer Zugriff auf welche Anwendungen hat. Dies \(kann auf Benutzer Attributen-UPN, e-Mail-Adresse, Mitgliedschaft in Sicherheitsgruppen, Authentifizierungs Stärke usw., Geräte Attributen \(, ob das\) Gerät mit dem Arbeitsplatz verknüpft ist, oder mit Anforderungs Attributen\) \(erfolgen.Netzwerk Speicherort, IP-Adresse oder Benutzer\)-Agent.  
   
--   Verwalten von Risiken mit zusätzlicher Multi\--Factor Authentication für sensible Anwendungen. AD FS können Sie steuern, Richtlinien dahingehend, dass möglicherweise mit mehreren\-zweistufige Authentifizierung bei global oder auf einer Basis pro Anwendung. Darüber hinaus bietet AD FS Erweiterungspunkte für alle Multi\-Faktor Anbieter, der für eine sichere und nahtlose Festlegung tief integrieren\-Erfahrung für Endbenutzer zu berücksichtigen.  
+-   Verwalten von Risiken mit zusätzlicher\-mehrstufiger Authentifizierung für sensible Anwendungen. AD FS ermöglicht es Ihnen, Richtlinien zu steuern,\-um potenziell eine mehrstufige Authentifizierung Global oder pro Anwendung zu erfordern. Außerdem bietet AD FS Erweiterbarkeits Punkte für jeden Multi\--Factor-Anbieter, um eine\-nahtlose Integration für Endbenutzer zu gewährleisten.  
   
--   Authentifizierung und Autorisierung zur Verfügung stehen, für den Zugriff auf Web-Ressourcen aus dem extranet, die vom Webanwendungsproxy geschützt sind.  
+-   Bereitstellen von Authentifizierungs-und Autorisierungs Funktionen für den Zugriff auf Webressourcen, die vom webanwendungsproxy geschützt werden.  
   
-Zusammenfassend lässt sich sagen, kann AD FS unter Windows Server 2012 R2 bereitgestellt werden, um in Ihrer Organisation die folgenden Ziele zu erreichen:  
+Zusammenfassend kann AD FS in Windows Server 2012 R2 bereitgestellt werden, um in Ihrer Organisation die folgenden Ziele zu erreichen:  
   
-### <a name="enable-your-users-to-access-resources-on-their-personal-devices-from-anywhere"></a>Ermöglichen Sie Benutzern Zugriff auf Ressourcen in ihren persönlichen Geräten von überall aus  
+### <a name="enable-your-users-to-access-resources-on-their-personal-devices-from-anywhere"></a>Ermöglichen Sie Ihren Benutzern, von überall aus auf Ressourcen auf Ihren persönlichen Geräten zuzugreifen.  
   
 -   Arbeitsplatzbeitritt, der Benutzern ermöglicht, ihre persönlichen Geräten dem Active Directory des Unternehmens hinzuzufügen, und dann von diesen Geräten aus nahtlos auf Unternehmensressourcen zuzugreifen.  
   
--   Vor\-Authentifizierung von Ressourcen innerhalb des Unternehmensnetzwerks, die vom webanwendungsproxy geschützt sind und über das Internet zugegriffen werden.  
+-   Vorauthentifizierung\-von Ressourcen innerhalb des Unternehmensnetzwerks, die durch den webanwendungsproxy geschützt sind und auf die über das Internet zugegriffen wird.  
   
 -   Kennwortänderung, damit Benutzer von jedem Gerät aus, dass dem Arbeitsplatz beigetreten ist, ihr Kennwort ändern können, wenn es abgelaufen ist, damit sie weiterhin auf Ressourcen zugreifen können.  
   
-### <a name="enhance-your-access-control-risk-management-tools"></a>Verbessern Sie Ihre Access Control Risiko-Verwaltungstools  
-Verwalten von Risiken ist ein wichtiger Aspekt der Governance und Compliance in jeder IT-Organisation. Es gibt zahlreiche zugriffssteuerungs-risikomanagementverbesserungen in AD FS unter Windows Server® 2012 R2, einschließlich der folgenden:  
+### <a name="enhance-your-access-control-risk-management-tools"></a>Verbessern der Zugriffs Steuerungs Tools für die Risiko Verwaltung  
+Verwalten von Risiken ist ein wichtiger Aspekt der Governance und Compliance in jeder IT-Organisation. Es gibt viele Verbesserungen der Zugriffs Steuerungs-Risikomanagement in AD FS in Windows Server® 2012 R2, einschließlich der folgenden:  
   
--   Flexible Kontrolle auf Grundlage von Netzwerkstandorts, um zu steuern, wie ein Benutzer authentifiziert, für den Zugriff auf einen AD FS\-gesicherte Anwendung.  
+-   Flexible Steuerelemente basierend auf der Netzwerkadresse, um zu steuern, wie sich ein Benutzer\-authentifiziert, um auf eine AD FS gesicherte Anwendung zuzugreifen.  
   
--   Flexible Richtlinie zu bestimmen, ob ein Benutzer zum Ausführen von mehreren muss\-Faktor-Authentifizierung anhand von Daten des Benutzers, Gerätedaten und Netzwerkstandort.  
+-   Flexible Richtlinie, um zu bestimmen, ob ein Benutzer\-die mehrstufige Authentifizierung basierend auf den Daten des Benutzers, den Gerätedaten und dem Netzwerk Speicherort durchführen muss.  
   
--   Pro\-anwendungssteuerung SSO zu ignorieren und der Benutzer muss bei jedem Zugriff auf eine vertrauliche Anwendung Anmeldeinformationen anzugeben.  
+-   Hiermit\-wird pro Anwendungssteuerung das einmalige Anmelden ignoriert, und der Benutzer wird gezwungen, bei jedem Zugriff auf eine sensible Anwendung Anmelde Informationen einzugeben.  
   
--   Flexible pro\-anwendungszugriffsrichtlinie basierend auf Benutzerdaten, Gerätedaten oder Netzwerkstandort.  
+-   Flexible Zugriffs\-Richtlinien pro Anwendung basierend auf Benutzerdaten, Gerätedaten oder Netzwerkstandort.  
   
 -   AD FS Extranet Lockout ermöglicht Administratoren den Schutz von Active Directory-Konten vor böswilligen Angriffen aus dem Internet.  
   
 -   Sperrung des Zugriffs für alle Arbeitsplatzbeitrittgeräte, die in Active Directory gelöscht oder deaktiviert werden.  
   
-### <a name="use-ad-fs-to-enhance-the-sign-in-experience"></a>Verwenden von AD FS zur Verbesserung der der Vorzeichens\-Erfahrung  
-Im folgenden sind die neuen AD FS-Funktionen in Windows Server® 2012 R2, mit denen anpassen und erweitern die SSO-Administrator\-Erfahrung:  
+### <a name="use-ad-fs-to-enhance-the-sign-in-experience"></a>Verwenden Sie AD FS, um das\-Anmeldeverfahren zu verbessern.  
+Im folgenden finden Sie neue AD FS Funktionen in Windows Server® 2012 R2, die es dem Administrator ermöglichen, den\-Anmeldevorgang anzupassen und zu verbessern:  
   
 -   Einheitliche Anpassung des AD FS-Diensts, wobei die Änderungen einmal vorgenommen und dann automatisch auf die übrigen AD FS-Verbundserver einer bestimmten Farm verteilt werden.  
   
--   Aktualisiert die Anmeldung\-auf Seiten, die modern Aussehen und automatisch für verschiedene Formfaktoren.  
+-   Aktualisierte Anmelde\-Seiten, die modern Aussehen und sich automatisch auf verschiedene Formular Faktoren abstimmen.  
   
--   Unterstützung für automatisches Fallback auf Formulare\--basierte Authentifizierung für Geräte, die nicht der Unternehmensdomäne verknüpft sind, aber dennoch verwendet werden-zugriffsanforderungen von innerhalb des Unternehmensnetzwerks generieren \(Intranet\).  
+-   Unterstützung für automatisches Fall Back auf\-Formular basierte Authentifizierung für Geräte, die nicht mit der Unternehmens Domäne verknüpft sind, aber weiterhin verwendet werden, um Zugriffs Anforderungen innerhalb \(des\)Unternehmensnetzwerks zu generieren.  
   
 -   Einfache Steuerelemente zur Anpassung von Firmenlogo, Abbildung, Standardlinks für IT-Support, Startseite, Datenschutz etc.  
   
--   Anpassen der Beschreibung in der Nachrichten\-in Seiten.  
+-   Anpassung der Beschreibungs Meldungen auf den\-Anmelde Seiten.  
   
 -   Anpassung von Webdesigns.  
   
--   Home Realm Discovery, HDR \(zur Startbereichsermittlung\) basierend auf organisationssuffixes des Benutzers für verbesserten Datenschutz eines Unternehmens Partner.  
+-   Die Startbereichs \(\) Ermittlung basiert auf dem Suffix der Organisation des Benutzers, um den Schutz der Partner eines Unternehmens zu verbessern.  
   
--   HRD-Filterung einer pro\-Anwendungsbasis, automatisch einen Bereich auszuwählen, basierend auf der Anwendung.  
+-   Die HRD filtert pro\-Anwendung, um automatisch einen Bereich auf der Grundlage der Anwendung auszuwählen.  
   
--   Eine\-klicken Sie auf die Fehlerberichterstattung für einfachere IT zur Problembehandlung.  
+-   Eine\-Klick-Fehlerberichterstattung für einfachere IT-Problembehandlung.  
   
 -   Anpassbare Fehlermeldungen.  
   

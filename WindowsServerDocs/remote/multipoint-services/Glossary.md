@@ -1,6 +1,6 @@
 ---
 title: Glossar
-description: Definiert die Wörter, Begriffe und Konzepte in MultiPoint Services
+description: Definiert Wörter, Begriffe und Konzepte in Multipoint Services
 ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server-threshold
@@ -13,86 +13,86 @@ ms.assetid: 807bce1d-b993-49c6-9783-b01a3c55846c
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 4449d2d6fb87f74496b7d482a7a7263f703c7822
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 759dc5d0b8210dc4d8da3ef18caff2ee3ca2cceb
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831111"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871691"
 ---
 # <a name="glossary"></a>Glossar
-**Ordnen Sie einer station**  
-Um anzugeben, welcher Monitor für die Station und Peripheriegeräte, z. B. eine Tastatur und Maus verwendet wird. Für die direkte video verbundene Stationen erfolgt dies durch Drücken von einem angegebenen Schlüssel auf der Station-Tastatur, wenn Sie dazu aufgefordert werden. Für USB verbundene zero-Client, dies geschieht in der Regel automatisch.  
+**Zuordnen einer Station**  
+Zum Angeben des Monitors, der mit der Station und den Peripheriegeräten verwendet wird, z. b. Tastatur und Maus. Bei direkt mit dem Video verbundenen Stationen erfolgt dies durch Drücken eines angegebenen Schlüssels auf der Tastatur der Station, wenn Sie dazu aufgefordert werden. Bei USB-Verbindungen mit Clientverbindungen erfolgt dies in der Regel automatisch.  
   
-**Bus-gestützte hub**  
-Einen Hub, der alle verbundenen Möglichkeiten von USB-Schnittstelle des Computers zeichnet. Bus-gestützte Hubs erforderlich eigene Stromversorgung Verbindungen nicht. Viele Geräte funktionieren nicht bei dieser Art von Hub jedoch, da sie mehr Energie benötigen als diese Art des Hubs bietet.  
+**Bus-gestützter Hub**  
+Ein Hub, der seine gesamte Leistung von der USB-Schnittstelle des Computers zeichnet. Für Bus gestützte Hubs sind keine separaten Stromverbindungen erforderlich. Viele Geräte funktionieren jedoch nicht mit dieser Art von Hub, da Sie mehr Energie benötigen, als diese Art von Hub bereitstellt.  
   
 **Konsolenmodus**  
-Einer der beiden Modi MultiPoint Services kann starten. Wenn das System im Konsolenmodus ausgeführt ist, sind keine Stationen für die Verwendung verfügbar. Stattdessen werden alle Monitore für einen einzigen erweiterte Desktop für die konsolensitzung des Computersystems behandelt. Konsolenmodus dient normalerweise zum Installieren, aktualisieren oder Konfigurieren von Software, wenn der Computer im stationsmodus ist nicht möglich. Siehe auch: *stationsmodus*.  
+In einem der beiden Modi kann Multipoint Services gestartet werden. Wenn sich das System im Konsolenmodus befindet, sind keine Stationen zur Verwendung verfügbar. Stattdessen werden alle Monitore als einzelner erweiterter Desktop für die Konsolen Sitzung des Computer Systems behandelt. Der Konsolenmodus wird normalerweise verwendet, um Software zu installieren, zu aktualisieren oder zu konfigurieren, die nicht ausgeführt werden kann, wenn sich der Computer im Stations Modus befindet. Siehe auch: *Stations Modus*.  
   
-**direct-video-connected station**  
-Eine MultiPoint-Station, die von einem Monitor besteht, die direkt an eine video-Ausgabe auf dem Server, und klicken Sie auf ein Minimum verbunden ist, enthält sie eine Tastatur und Maus, die über ein USB-Hub auf dem Server verbunden sind.  
+**direkt mit Videos verbundene Station**  
+Eine Multipoint-Station, die aus einem Monitor besteht, der direkt mit einer Videoausgabe auf dem Server verbunden ist, und mindestens eine Tastatur und eine Maus enthält, die über einen USB-Hub mit dem Server verbunden sind.  
   
-**Domänenbenutzerkonto**  
-Ein Benutzerkonto, das gehostet wird auf einem Computer. Domänenbenutzerkonten zugegriffen werden können, von einem beliebigen Computer, die mit der Domäne verbunden ist, und sie sind nicht auf einem bestimmten Computer gebunden.  
+**Domänen Benutzerkonto**  
+Ein Benutzerkonto, das auf einem Domänen Computer gehostet wird. Der Zugriff auf Domänen Benutzerkonten kann von jedem Computer aus erfolgen, der mit der Domäne verbunden ist, und ist nicht an einen bestimmten Computer gebunden.  
   
-**Downstream-hub**  
-Ein Hub, der zum Hinzufügen von mehr Ports für Geräte der Station mit einem stationshub verbunden ist. Ein downstream-Hub darf nicht mit eine Tastatur verbunden sein.  
+**Downstream-Hub**  
+Ein Hub, der mit einem stationshub verbunden ist, um weitere verfügbare Ports für Stations Geräte hinzuzufügen. An einen Downstream-Hub darf keine Tastatur angefügt sein.  
   
-**extern Stromversorgung**  
-Auch bekannt als nimmt einen Hub mit eigener dieser Hub verbundenen Möglichkeiten von einer externen Netzteil; aus diesem Grund können sie volle Leistung bereitstellen (bis zu 500 mA) für jeden Port. Viele Hubs können als Bus betriebene oder extern-gestützte Hubs ausgeführt werden.  
+**extern gestützter Hub**  
+Dieser Hub wird auch als selbst gestützter Hub bezeichnet und nutzt seine Leistungsfähigkeit von einer externen Netzteil Einheit. aus diesem Grund kann ein vollständiger Strom (bis zu 500 mA) für jeden Port bereitgestellt werden. Viele Hubs können als busgestützte oder extern betriebene Hubs betrieben werden.  
   
-**HID-Consumer-Steuerelement-Gerät**  
-Ein Gerät HID (Human Interface) ist ein Gerät für Computer, die direkt mit Menschen interagiert. Sie akzeptieren Eingaben aus oder Ausgabe für Menschen übermitteln. Beispiele sind die Tastatur, Maus, Trackball, Touchpad, Zeigegerät, Grafiktabelle, Joystick, fingerabdruckscanners, Gamepad, Webcam, Kopfhörer und fahrbedingungen Simulator-Geräte. Eine HID-Consumer-Steuerelement-Gerät ist eine bestimmte Objektklasse HID-Geräte, die audio-Lautstärkeregler und Multimedia und Browser-Steuerelement-Schlüssel enthält.  
+**HID-consumersteuerunggerät**  
+Ein Eingabegeräte (HID) ist ein Computer Gerät, das direkt mit den Menschen interagiert. Es kann Eingaben aus der Eingabe oder Ausgabe an Menschen übermitteln. Beispiele hierfür sind Tastatur, Maus, Trackball, Touchpad, zeige Stick, Grafik Tabelle, Joystick, Fingerabdruckscanner, Gamepad, Webcam, Headset und Fahr simulatorgeräte. Ein geverstecktem consumersteuerunggerät ist eine bestimmte Klasse von verborgenen Geräten, die audiovolumensteuerelemente und Multimedia-und Browser-Steuerelement Tasten umfasst.  
   
-**zwischengeschalteter hub**  
-Einen Hub, der zwischen einem *Root-Hub* auf dem Server und einen stationshub. Intermediate-Hubs werden normalerweise verwendet, um die Anzahl der verfügbaren Anschlüsse für Stationen Hubs erhöhen oder eine Erweiterung für die Entfernung Stationen auf dem Computer.  
+**Zwischenhub**  
+Ein Hub zwischen einem *Stammhub* auf dem Server und einem stationshub. Zwischen Hubs werden in der Regel verwendet, um die Anzahl der verfügbaren Ports für Stations Hubs zu erhöhen oder um die Entfernung der Stationen vom Computer zu verlängern.  
   
 **lokales Benutzerkonto**  
-Ein Benutzerkonto auf einem bestimmten Computer. Ein lokales Benutzerkonto steht nur auf dem Computer, in dem das Konto definiert ist.  
+Ein Benutzerkonto auf einem bestimmten Computer. Ein lokales Benutzerkonto ist nur auf dem Computer verfügbar, auf dem das Konto definiert ist.  
   
 **multifunktionshub**  
-Finden Sie unter *USB-0 (null) Client*.  
+Siehe *USB-Zero-Client*.  
   
-**MultiPoint Services-system**  
-Eine Auflistung von Hardware und Software, die von einem Computer besteht, die Windows Server 2016 mit aktivierter MultiPoint Services-Rolle installiert und mindestens eine MultiPoint-Station verfügt. Weitere Informationen zu den Optionen des System-Layout, finden Sie unter [MultiPoint Services-Standortplanung](MultiPoint-services-Site-Planning.md)  
+**Multipoint Services-System**  
+Eine Sammlung von Hardware und Software, die aus einem Computer besteht, auf dem Windows Server 2016 mit aktivierter Multipoint Services-Rolle und mindestens einer Multipoint-Station installiert ist. Weitere Informationen zu systemlayoutoptionen finden Sie unter [Planen von Multipoint Services-Websites](MultiPoint-services-Site-Planning.md) .  
   
 **partition**  
-Ein Abschnitt des Speicherplatzes auf einem physischen Datenträger, der Funktionen, als ob es sich um einen separaten Datenträger ist.  
+Ein Abschnitt des Speicherplatzes auf einem physischen Datenträger, der so funktioniert, als handele es sich um einen separaten Datenträger.  
   
-**primäre station**  
-Die Station, die die erste gestartet wird, wenn MultiPoint Server gestartet wird. Die primäre Station kann von einem Administrator verwendet werden, Start-Menüs und Einstellungen für den Zugriff auf. Wenn es nicht vom Administrator verwendet wird, kann es als eine normale Station verwendet werden, (es muss nicht ausschließlich für die Verwaltung reserviert werden sollen). Monitor für die primäre Station muss immer direkt an eine Ausgabe der video auf dem Computer verbunden sein, das MultiPoint Services ausgeführt wird. Siehe auch: Station.  
+**primäre Station**  
+Die Station, die beim Starten von Multipoint Services zuerst gestartet werden soll. Die primäre Station kann von einem Administrator verwendet werden, um auf Startmenüs und-Einstellungen zuzugreifen. Wenn Sie nicht vom Administrator verwendet wird, kann Sie als normale Station verwendet werden (Sie muss nicht ausschließlich für die Verwaltung reserviert werden). Der Monitor der primären Station muss stets direkt mit einer Videoausgabe auf dem Computer verbunden sein, auf dem Multipoint Services ausgeführt wird. Siehe auch: Station.  
   
-**RDP-Over-LAN-Verbindung station**  
-Eine Station, die eine thin Client, Sie traditionelle Desktop- oder Laptopcomputer, die mit MultiPoint Services über Remote Desktop Protocol (RDP) über das lokale Netzwerk (LAN) her.  
+**RDP-über-LAN-verbundene Station**  
+Eine Station, bei der es sich um einen Thin Client, herkömmlichen Desktop Computer oder Laptop Computer handelt, der mithilfe von Remotedesktopprotokoll (RDP) über das lokale Netzwerk (Local Area Network, LAN) eine Verbindung mit Multipoint Services herstellt.  
   
-**Root-hub**  
-Ein USB-Hub, der mit dem Hostcontroller, auf der Hauptplatine des Computers integriert ist.  
+**stammphub**  
+Ein USB-Hub, der auf dem Host Controller auf der Hauptplatine eines Computers integriert ist.  
   
-**split screen**  
-Eine Station, in denen ein einzelnes Monitors verwendet werden kann, um zwei unabhängige Benutzerdesktops anzuzeigen. Zwei Sätze von Hubs, Tastaturen und Mäusen sind mit einem einzelnen Bildschirm verknüpft. Ein Satz bezieht sich auf der linken Seite des Bildschirms, und das andere ist mit der rechten Seite des Monitors verknüpft.  
+**Bildschirm teilen**  
+Eine Station, in der ein einzelner Monitor verwendet werden kann, um zwei unabhängige Benutzer Desktops anzuzeigen. Zwei Gruppen von Hubs, Tastaturen und Mäusen sind einem einzigen Monitor zugeordnet. Der linken Seite des Monitors wird ein Satz zugeordnet, und die andere Gruppe ist der rechten Seite des Monitors zugeordnet.  
   
-**Standard-station**  
-Im Gegensatz zu den *primäre Station*, die von einem Administrator für den Zugriff Startup-Menüs verwendet werden können, standard Stationen Start Menüs nicht angezeigt und sie können nur verwendet werden, nachdem MultiPoint Services den Startprozess abgeschlossen wurde . Siehe auch: Station.  
+**Standard Station**  
+Im Gegensatz zur *primären Station*, die von einem Administrator verwendet werden kann, um auf Startmenüs zuzugreifen, werden Standard Stationen keine Startmenüs angezeigt, und Sie können erst nach Abschluss des Startvorgangs von Multipoint Services verwendet werden. Siehe auch: Station.  
   
-*station*  
-Benutzer-Endpunkt für die Verbindung mit dem Computer, auf dem MultiPoint Services ausgeführt wird. Drei Station-Typen werden unterstützt: im Video direkt verbundene USB-0 (null)-Client-verbunden und RDP-Over-LAN-Verbindung Stationen. Weitere Informationen zu den Stationen, finden Sie unter [MultiPoint-Stationen](MultiPoint-services-Stations.md).  
+*Senders*  
+Benutzer Endpunkt zum Herstellen einer Verbindung mit dem Computer, auf dem Multipoint Services ausgeführt wird. Drei Stations Typen werden unterstützt: Direct-Video-Connected, USB-Zero-Client-Connected und RDP-over-LAN-verbundene Stationen. Weitere Informationen zu Stationen finden Sie unter [Multipoint-Stationen](MultiPoint-services-Stations.md).  
   
-**station hub**  
-Einen USB-Hub, der einen Monitor, um das Erstellen einer MultiPoint-Station zugeordnet wurde. USB-Peripheriegeräte mit MultiPoint Services hergestellt. Siehe auch: *USB-0 (null) Client* und *USB-Hub*.  
+**stationshub**  
+Ein USB-Hub, der einem Monitor zugeordnet ist, um eine Multipoint-Station zu erstellen. Er verbindet Peripheriegerät-USB-Geräte mit Multipoint Services. Siehe auch: *USB-Zero-Client* und *USB-Hub*.  
   
-**stationsmodus**  
-Einer der beiden Modi MultiPoint Services kann starten. Normalerweise ist das MultiPoint Services-System im stationsmodus. Im stationsmodus, verhalten sich die MultiPoint Services-Stationen, wie bei jeder Station wird als separater Computer, der die Windows-Betriebssystem ausgeführt wird und mehrere Benutzer können das System zur gleichen Zeit verwenden. Siehe auch: *Konsolenmodus*.  
+**Stations Modus**  
+In einem der beiden Modi kann Multipoint Services gestartet werden. In der Regel befindet sich das Multipoint Services-System im Stations Modus. Im Stations Modus Verhalten sich die Multipoint Services-Stationen so, als ob jede Station ein separater Computer ist, auf dem das Windows-Betriebssystem ausgeführt wird, und mehrere Benutzer können das System gleichzeitig verwenden. Siehe auch: *Konsolenmodus*.  
   
-**USB-hub**  
-Eine generische multiport USB-erweiterungshub, der mit den Spezifikationen USB (USB) 2.0 oder höher kompatibel ist. Solche Hubs verfügen typischerweise über mehrere USB-Anschlüsse, wodurch mehrere USB-Geräte mit einem einzelnen USB-Anschluss auf dem Computer verbunden sein. USB-Hubs sind üblicherweise separate Geräte, die sein können *extern unterstützt* oder *Bus betriebene*. Einige andere Geräte, z.B. manche Tastaturen oder Videomonitoren, können einen USB-Hub in ihren Entwurf integrieren. Siehe auch: *USB-0 (null) Client*.  
+**USB-Hub**  
+Ein generischer Multiport-USB-erweiterungshub, der den Spezifikationen für den universellen seriellen Bus (USB) 2,0 oder höher entspricht. Solche Hubs verfügen in der Regel über mehrere USB-Ports, sodass mehrere USB-Geräte mit einem einzelnen USB-Anschluss auf dem Computer verbunden werden können. USB-Hubs sind in der Regel separate Geräte, die *extern* oder im *Bus betrieben*werden können. Einige andere Geräte, z. b. einige Tastaturen und Videomonitore, können einen USB-Hub in Ihren Entwurf integrieren. Siehe auch: *USB-Zero-Client*.  
   
-**USB-Ethernet-0 (null)-client**  
-Ein USB-0 (null)-Client, der Verbindung mit dem Computer über einen USB-Anschluss, anstatt eine LAN-Verbindung. Dieser Client wird an den Server angezeigt, wie ein USB-Gerät auch über die Daten über die Ethernet-Verbindung gesendet wird.  
+**USB-over-Ethernet-Client**  
+Ein USB-Null-Client, der über eine LAN-Verbindung anstelle eines USB-Ports eine Verbindung mit dem Computer herstellt. Dieser Client wird dem Server als USB-Gerät angezeigt, auch wenn die Daten über die Ethernet-Verbindung gesendet werden.  
   
-**USB-0 (null)-client**  
-Ein erweiterungshub, der eine Verbindung mit dem Computer über einen USB-Anschluss und das Anschließen einer Reihe von nicht-USB-Geräte am Hub ermöglicht. USB-0 (null)-Clients werden von bestimmten Hardwareherstellern erstellt, und sie erfordern die Installation eines gerätespezifischen Treibers. USB-0 (null)-Clients unterstützen das Herstellen einer Verbindung einen Videomonitor (über VGA-Monitor, DVI- und So weiter) und Peripheriegeräte (über USB, manchmal PS/2 und analoge Audio). Die-USB-NULL-Client kann werden *extern unterstützt* oder *Bus betriebene*. Siehe auch *USB-Hubs*.  
+**USB-Zero-Client**  
+Ein erweiterungshub, der über einen USB-Anschluss eine Verbindung mit dem Computer herstellt und die Verbindung verschiedener nicht-USB-Geräte mit dem Hub ermöglicht. USB-Clients werden von bestimmten Hardwareherstellern erstellt und erfordern die Installation eines gerätespezifischen Treibers. USB-Null-Clients unterstützen das Verbinden eines Video Monitors (über VGA, DVI usw.) und Peripheriegeräte (über USB, manchmal PS/2 und Analoge Audiodaten). Der USB-Null-Client kann *extern* oder per *busstrom betrieben*werden. Siehe auch *USB-Hubs*.  
   
-**USB-0 (null)-Client eine Verbindung hergestellt station**  
-Eine MultiPoint Services-Station, die aus (als mindestens) einen Monitor besteht Tastatur und eine Maus, die über ein USB-0 (null)-Client auf dem Server verbunden sind.  
+**Verbindung zwischen USB-Client und Verbindung**  
+Eine Multipoint Services-Station, die (mindestens) einen Monitor, eine Tastatur und eine Maus umfasst, die über einen USB-Client mit dem Server verbunden sind.  
   

@@ -1,6 +1,6 @@
 ---
-title: Der Cleanup von Metadaten für AD DS-server
-description: Verwenden der integrierten Tools, um Metadaten aus der entfernten Domänencontroller zu bereinigen
+title: Bereinigen von AD DS Server-Metadaten
+description: Verwenden integrierter Tools zum Bereinigen von Metadaten von entfernten Domänen Controllern
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -8,68 +8,68 @@ ms.date: 11/14/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: fbb6e720c9289c608d71d3c36695ba623a9df5f6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e8adbaf07976569fdea86156e15f246aad2e4fe0
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818081"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868243"
 ---
-# <a name="clean-up-active-directory-domain-controller-server-metadata"></a>Bereinigen von Servermetadaten Active Directory-Domänencontroller
+# <a name="clean-up-active-directory-domain-controller-server-metadata"></a>Active Directory-Domäne Controller-Server Metadaten bereinigen
 
 Gilt für: Windows Server
 
-Cleanup der Metadaten ist eine erforderliche Prozedur nach einem erzwungenen Entfernen von Active Directory Domain Services (AD DS). Führen Sie Metadatencleanup auf einem Domänencontroller in der Domäne des Domänencontrollers, den Sie zwangsweise entfernt. Metadatencleanup entfernt Daten aus AD DS, das einen Domänencontroller im Replikationssystem identifiziert. Metadatencleanup auch entfernt (File Replication Service, FRS) und die Replikation des verteilten Dateisystems (Distributed File System, DFS)-Verbindungen und versucht, übertragen, oder übernehmen Sie alle Operations Master (auch bekannt als flexible einfache Mastervorgänge oder FSMO) Funktionen, die die deaktivierten Domäne Controller enthält.
+Die Metadatenbereinigung ist eine erforderliche Prozedur nach der erzwungenen Entfernung von Active Directory Domain Services (AD DS). Sie führen die Metadatenbereinigung auf einem Domänen Controller in der Domäne des Domänen Controllers aus, den Sie zwangsweise entfernt haben. Bei der Metadatenbereinigung werden Daten aus AD DS entfernt, die einen Domänen Controller zum Replikationssystem identifizieren. Bei der Metadatenbereinigung werden auch Datei Replikations Dienst (File Replication Service, FRS) und verteiltes Dateisystem (DFS)-Replikations Verbindungen entfernt, und es wird versucht, Betriebs Master-Rollen (auch als Flexible Single Master Operations oder FSMO bezeichnet) zu übertragen, der Controller enthält.
 
-Es gibt drei Möglichkeiten, um Metadaten zu bereinigen:
+Es gibt drei Optionen zum Bereinigen von Server Metadaten:
 
-- Bereinigen von Servermetadaten mithilfe der GUI-tools
-- Bereinigen von Servermetadaten, die über die Befehlszeile
-- Bereinigen von Servermetadaten mithilfe eines Skripts
+- Bereinigen von Server Metadaten mithilfe von GUI-Tools
+- Bereinigen von Server Metadaten mithilfe der Befehlszeile
+- Bereinigen von Server Metadaten mithilfe eines Skripts
 
 > [!NOTE]
-> Wenn Sie Fehler "Zugriff verweigert" erhalten, wenn Sie eine dieser Methoden verwenden, um die Metadatenbereinigung ausführen, stellen Sie sicher, dass das Computerobjekt und das NTDS-Einstellungsobjekt für den Domänencontroller nicht vor versehentlichem Löschen geschützt sind. Um diese mit der rechten Maustaste auf das Computerobjekt oder das NTDS-Einstellungsobjekt überprüfen, klicken Sie auf **Eigenschaften**, klicken Sie auf **Objekt**, und deaktivieren Sie die **schützen Objekt vor zufälligem Löschen** das Kontrollkästchen. In Active Directory-Benutzer und-Computer die **Objekt** Registerkarte eines Objekts, das angezeigt wird, wenn Sie auf **Ansicht** , und klicken Sie dann auf **erweiterte Features**.
+> Wenn Sie den Fehler "Zugriff verweigert" erhalten, wenn Sie eine dieser Methoden zum Durchführen der Metadatenbereinigung verwenden, stellen Sie sicher, dass das Computer Objekt und das NTDS-Einstellungs Objekt für den Domänen Controller nicht vor versehentlichem Löschen geschützt sind. Klicken Sie mit der rechten Maustaste auf das Computer Objekt oder das NTDS-Einstellungs Objekt, klicken Sie auf **Eigenschaften**, klicken Sie auf **Objekt**, und deaktivieren Sie das Kontrollkästchen **Objekt vor zufälligem Löschen schützen** . In Active Directory Benutzer und Computer wird die Registerkarte **Objekt** eines Objekts angezeigt, wenn Sie auf **Ansicht** und dann auf **Erweiterte Features**klicken.
 
-## <a name="clean-up-server-metadata-using-gui-tools"></a>Bereinigen von Servermetadaten mithilfe der GUI-tools
+## <a name="clean-up-server-metadata-using-gui-tools"></a>Bereinigen von Server Metadaten mithilfe von GUI-Tools
 
-Bei Verwendung von Remoteserver-Verwaltungstools (RSAT) oder die Active Directory-Benutzer und Computer-Konsole (Dsa.msc), die Bestandteil von Windows Server zum Löschen eines Domänencontrollerkontos für die Computer aus der Domänencontroller-Organisationseinheit (OU), ist die Bereinigen von Servermetadaten wird automatisch ausgeführt. Vor Windows Server 2008 mussten Sie eine separate Metadaten Cleanup-Prozedur auszuführen.
+Wenn Sie Remoteserver-Verwaltungstools (RSAT) oder die Konsole "Active Directory Benutzer und-Computer" (DSA. msc) verwenden, die in Windows Server enthalten ist, um ein Domänen Controller-Computer Konto aus der Domänen Controller-Organisationseinheit (OU) zu löschen, wird der der Bereinigung der Server Metadaten wird automatisch durchgeführt. Vor Windows Server 2008 mussten Sie eine separate Metadatenbereinigungs Prozedur durchführen.
 
-Sie können auch über die Konsole Active Directory-Standorte und-Dienste (Dssite.msc) auf einem Domänencontroller-Computerkonto und löschen die Metadatencleanup automatisch nach Abschluss. Jedoch entfernt Active Directory-Standorte und-Dienste die Metadaten automatisch nur, wenn Sie zuerst das NTDS-Einstellungsobjekt, unter dem Computerkonto in Dssite.msc löschen.
+Sie können auch die Active Directory Sites und Dienste-Konsole (dssite. msc) verwenden, um das Computer Konto eines Domänen Controllers zu löschen. Dadurch wird auch die Metadatenbereinigung automatisch abgeschlossen. Wenn Sie das NTDS-Einstellungs Objekt zum ersten Mal unter dem Computer Konto in dssite. msc löschen, werden die Metadaten jedoch von Active Directory Websites und Diensten automatisch entfernt.
 
-Solange Sie die Windows Server 2008 oder neueren Versionen von RSAT Dsa.msc oder Dssite.msc verwenden, können Sie die Metadaten für Domänencontroller unter früheren Versionen von Windows-Betriebssysteme automatisch bereinigen.
+Solange Sie Windows Server 2008 oder neuere RSAT-Versionen von DSA. msc oder dssite. msc verwenden, können Sie die Metadaten für Domänen Controller, auf denen frühere Versionen von Windows-Betriebssystemen ausgeführt werden, automatisch bereinigen.
 
-Mitgliedschaft in **Domänen-Admins**, oder einer entsprechenden Gruppe sein, um diese Verfahren abzuschließen.
+Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins**oder einer entsprechenden Gruppe sein, um diese Verfahren ausführen zu können.
 
-## <a name="clean-up-server-metadata-using-activedirectory-users-and-computers"></a>Bereinigen von Servermetadaten mithilfe von Active Directory-Benutzer und-Computer
+## <a name="clean-up-server-metadata-using-activedirectory-users-and-computers"></a>Bereinigen von Server Metadaten mithilfe von Active Directory Benutzern und Computern
 
 1. Öffnen Sie **Active Directory-Benutzer und -Computer**.
-2. Wenn Sie Replikationspartner als Vorbereitung für diese Prozedur identifiziert haben, und wenn Sie nicht an einen Replikationspartner des Domänencontrollers entfernt verbunden sind, deren Metadaten, die Sie bereinigen werden mit der rechten Maustaste **Active Directory-Benutzer und Computer** Knoten, und klicken Sie dann auf **Domänencontroller ändern**. Klicken Sie auf den Namen des Domänencontrollers aus dem Sie die Metadaten zu entfernen, und klicken Sie dann auf möchten **OK**.
-3. Erweitern Sie die Domäne des Domänencontrollers, die zwangsweise entfernt wurde, und klicken Sie dann auf **Domänencontroller**.
-4. Im Detailbereich mit der Maustaste des Computerobjekts des Domänencontrollers, deren Metadaten zu bereinigen, und klicken Sie dann auf **löschen**.
-5. In der **Active Directory Domain Services** Dialogfeld bestätigen der Name des zu löschenden Domänencontrollers wird angezeigt, und klicken Sie auf **Ja** auf den Computer-Objekt-Löschvorgang zu bestätigen.
-6. In der **Domänencontroller löschen** wählen Sie im Dialogfeld **dieser Domänencontroller ist dauerhaft offline und kann nicht mehr mit der Active Directory Domain Services Installation Assistenten (DCPROMO)herabgestuftwerden**, und klicken Sie dann auf **löschen**.
-7. Ist der Domänencontroller ein globaler Katalogserver, in der **Domänencontroller löschen** Dialogfeld klicken Sie auf **Ja** um den Löschvorgang fortzusetzen.
-8. Wenn der Domänencontroller derzeit eine oder mehrere Operationen zugewiesen sind, klicken Sie auf **OK** , verschieben Sie die Rolle bzw. Rollen mit dem Domänencontroller, die angezeigt wird. Sie können diesen Domänencontroller nicht ändern. Wenn Sie die Rolle auf einem anderen Domänencontroller verschieben möchten, müssen Sie die Rolle verschieben, nachdem Sie die Server-Metadaten-Cleanup-Prozedur abgeschlossen.
+2. Wenn Sie die Replikations Partner als Vorbereitung für dieses Verfahren identifiziert haben und Sie nicht mit einem Replikations Partner des entfernten Domänen Controllers verbunden sind, dessen Metadaten Sie bereinigen, klicken Sie mit der rechten Maustaste auf den Knoten " **Benutzer und Computer" Active Directory** . , und klicken Sie dann auf **Domänen Controller ändern**. Klicken Sie auf den Namen des Domänen Controllers, von dem Sie die Metadaten entfernen möchten, und klicken Sie dann auf **OK**.
+3. Erweitern Sie die Domäne des Domänen Controllers, der zwangsweise entfernt wurde, und klicken Sie dann auf **Domänen Controller**.
+4. Klicken Sie im Detailfenster mit der rechten Maustaste auf das Computer Objekt des Domänen Controllers, dessen Metadaten Sie bereinigen möchten, und klicken Sie dann auf **Löschen**.
+5. Bestätigen Sie im Dialogfeld **Active Directory Domain Services** , dass der Name des Domänen Controllers, den Sie löschen möchten, angezeigt wird, und klicken Sie auf **Ja** , um das Löschen des Computer Objekts zu bestätigen.
+6. Wählen Sie im Dialogfeld **Domänen Controller löschen** die Option **dieser Domänen Controller ist dauerhaft offline und kann nicht mehr mithilfe des Assistent zum Installieren von Active Directory Domain Services (Dcpromo) herabgestuft werden**aus, und klicken Sie dann auf **Löschen**.
+7. Wenn der Domänen Controller ein globaler Katalogserver ist, klicken Sie im Dialogfeld **Domänen Controller löschen** auf **Ja** , um den Löschvorgang fortzusetzen.
+8. Wenn der Domänen Controller derzeit mindestens eine Betriebs Master Rolle enthält, klicken Sie auf **OK** , um die Rolle oder Rollen auf den angezeigten Domänen Controller zu verschieben. Dieser Domänen Controller kann nicht geändert werden. Wenn Sie die Rolle auf einen anderen Domänen Controller verschieben möchten, müssen Sie die Rolle nach Abschluss des Bereinigungs Verfahrens für die Server Metadaten verschieben.
 
-## <a name="clean-up-server-metadata-using-activedirectory-sites-and-services"></a>Bereinigen von Servermetadaten mithilfe von Active Directory-Standorte und-Dienste
+## <a name="clean-up-server-metadata-using-activedirectory-sites-and-services"></a>Bereinigen von Server Metadaten mithilfe von Active Directory-Sites und-Diensten
 
 1. Öffnen Sie Active Directory-Standorte und -Dienste.
-2. Wenn Sie Replikationspartner als Vorbereitung für diese Prozedur identifiziert haben, und wenn Sie nicht an einen Replikationspartner des Domänencontrollers entfernt verbunden sind, deren Metadaten, die Sie bereinigen werden mit der rechten Maustaste **Active Directory-Standorte und-Dienste** , und klicken Sie dann auf **Domänencontroller ändern**. Klicken Sie auf den Namen des Domänencontrollers aus dem Sie die Metadaten zu entfernen, und klicken Sie dann auf möchten **OK**.
-3. Erweitern Sie den Standort des Domänencontrollers, die zwangsweise entfernt wurde, erweitern Sie **Server**, erweitern Sie den Namen des Domänencontrollers, mit der rechten Maustaste in des NTDS-Einstellungsobjekts, und klicken Sie dann auf **löschen**.
-4. In der **Active Directory-Standorte und-Dienste** Dialogfeld klicken Sie auf **Ja** zu NTDS-Einstellungen bestätigen.
-5. In der **Domänencontroller löschen** wählen Sie im Dialogfeld **dieser Domänencontroller ist dauerhaft offline und kann nicht mehr mit der Active Directory Domain Services Installation Assistenten (DCPROMO)herabgestuftwerden**, und klicken Sie dann auf **löschen**.
-6. Ist der Domänencontroller ein globaler Katalogserver, in der **Domänencontroller löschen** Dialogfeld klicken Sie auf **Ja** um den Löschvorgang fortzusetzen.
-7. Wenn der Domänencontroller derzeit eine oder mehrere Operationen zugewiesen sind, klicken Sie auf **OK** , verschieben Sie die Rolle bzw. Rollen mit dem Domänencontroller, die angezeigt wird.
-8. Mit der rechten Maustaste in des Domänencontrollers, der zwangsweise entfernt wurde, und klicken Sie dann auf Löschen.
-9. In der **Active Directory Domain Services** Dialogfeld klicken Sie auf **Ja** zu Domain Controllers bestätigen.
+2. Wenn Sie die Replikations Partner als Vorbereitung für dieses Verfahren identifiziert haben und Sie nicht mit einem Replikations Partner des entfernten Domänen Controllers verbunden sind, dessen Metadaten Sie bereinigen, klicken Sie mit der rechten Maustaste auf **Active Directory Standorte und Dienste**, und Klicken Sie dann auf **Domänen Controller ändern**. Klicken Sie auf den Namen des Domänen Controllers, von dem Sie die Metadaten entfernen möchten, und klicken Sie dann auf **OK**.
+3. Erweitern Sie den Standort des Domänen Controllers, der zwangsweise entfernt wurde, erweitern Sie **Server**, erweitern Sie den Namen des Domänen Controllers, klicken Sie mit der rechten Maustaste auf das NTDS-Einstellungs Objekt, und klicken Sie dann auf **Löschen**.
+4. Klicken Sie im Dialogfeld **Active Directory Websites und Dienste** auf **Ja** , um das Löschen der NTDS-Einstellungen zu bestätigen.
+5. Wählen Sie im Dialogfeld **Domänen Controller löschen** die Option **dieser Domänen Controller ist dauerhaft offline und kann nicht mehr mithilfe des Assistent zum Installieren von Active Directory Domain Services (Dcpromo) herabgestuft werden**aus, und klicken Sie dann auf **Löschen**.
+6. Wenn der Domänen Controller ein globaler Katalogserver ist, klicken Sie im Dialogfeld **Domänen Controller löschen** auf **Ja** , um den Löschvorgang fortzusetzen.
+7. Wenn der Domänen Controller derzeit mindestens eine Betriebs Master Rolle enthält, klicken Sie auf **OK** , um die Rolle oder Rollen auf den angezeigten Domänen Controller zu verschieben.
+8. Klicken Sie mit der rechten Maustaste auf den Domänen Controller, der entfernt wurde, und klicken Sie dann auf Löschen.
+9. Klicken Sie im Dialogfeld **Active Directory Domain Services** auf **Ja** , um zu bestätigen, dass der Domänen Controller gelöscht wird.
 
-## <a name="clean-up-server-metadata-using-the-command-line"></a>Bereinigen von Servermetadaten, die über die Befehlszeile
+## <a name="clean-up-server-metadata-using-the-command-line"></a>Bereinigen von Server Metadaten mithilfe der Befehlszeile
 
-Als Alternative können Sie Bereinigen von Metadaten mit Ntdsutil.exe, ein Befehlszeilentool, das automatisch, auf allen Domänencontrollern und Servern, die Active Directory Lightweight Directory Services (AD LDS installiert wird) installiert haben. Ntdsutil.exe steht auch auf Computern, die Remoteserver-Verwaltungstools installiert haben.
+Als Alternative können Sie die Metadaten mithilfe von "Ntdsutil. exe" bereinigen, ein Befehlszeilen Tool, das automatisch auf allen Domänen Controllern und Servern installiert wird, auf denen Active Directory Lightweight Directory Services (AD LDS) installiert ist. Ntdsutil. exe ist auch auf Computern mit installiertem RSAT verfügbar.
 
-## <a name="to-clean-up-server-metadata-by-using-ntdsutil"></a>Bereinigen Sie Metadaten mithilfe von Ntdsutil
+## <a name="to-clean-up-server-metadata-by-using-ntdsutil"></a>So bereinigen Sie Server Metadaten mithilfe von Ntdsutil
 
-1. Öffnen Sie eine Eingabeaufforderung als Administrator aus: Auf der **starten** im Menü mit der rechten Maustaste **Eingabeaufforderung**, und klicken Sie dann auf **als Administrator ausführen**. Wenn die **User Account Control** Dialogfeld angezeigt wird, geben Sie Anmeldeinformationen eines Unternehmensadministrators bei Bedarf, und klicken Sie dann auf **Weiter**.
+1. Öffnen Sie eine Eingabeaufforderung als Administrator: Klicken Sie im **Startmenü** mit der rechten Maustaste auf **Eingabeaufforderung**, und klicken Sie dann auf **als Administrator ausführen**. Wenn das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, geben Sie bei Bedarf die Anmelde Informationen eines Unternehmens Administrators an, und klicken Sie dann auf **weiter**.
 2. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie die EINGABETASTE:
 
    `ntdsutil`
@@ -82,19 +82,19 @@ Als Alternative können Sie Bereinigen von Metadaten mit Ntdsutil.exe, ein Befeh
 
    `remove selected server <ServerName>`
 
-5. In **Server entfernen Konfigurationsdialogfeld**, überprüfen Sie die Informationen und eine Warnung aus, und klicken Sie dann auf **Ja** -Serverobjekt und Metadaten entfernt.
+5. Überprüfen Sie im **Dialog Feld Server Entfernungs Konfiguration**die Informationen und Warnungen, und klicken Sie dann auf **Ja** , um das Server Objekt und die Metadaten zu entfernen.
 
-   An diesem Punkt bestätigt Ntdsutil an, dass der Domänencontroller wurde erfolgreich entfernt wurde. Wenn Sie eine Fehlermeldung, die angibt erhalten, dass das Objekt nicht gefunden werden kann, der Domänencontroller möglicherweise zuvor entfernt wurden.
+   An diesem Punkt bestätigt Ntdsutil, dass der Domänen Controller erfolgreich entfernt wurde. Wenn Sie eine Fehlermeldung erhalten, die angibt, dass das Objekt nicht gefunden werden kann, wurde der Domänen Controller möglicherweise bereits zuvor entfernt.
 
-6. Auf der `metadata cleanup:` und `ntdsutil:` eingabeaufforderungen, Typ `quit`, und drücken Sie dann die EINGABETASTE.
+6. Geben `ntdsutil:` `metadata cleanup:` SieanderEingabeaufforderungein,unddrückenSiedanndieEINGABETASTE.`quit`
 
-7. So bestätigen Sie zum Entfernen des Domänencontrollers:
+7. So bestätigen Sie das Entfernen des Domänen Controllers:
 
-   Active Directory-Benutzer und-Computer zu öffnen. Klicken Sie in der Domäne der entfernten Domänencontroller, auf **Domänencontroller**. Klicken Sie im Detailbereich klicken sollte ein Objekt für den Domänencontroller, den Sie entfernt nicht angezeigt werden.
+   Öffnen Sie Active Directory Benutzer und Computer. Klicken Sie in der Domäne des entfernten Domänen Controllers auf **Domänen Controller**. Im Detailfenster sollte ein Objekt für den Domänen Controller, den Sie entfernt haben, nicht angezeigt werden.
 
-   Öffnen Sie Active Directory-Standorte und Dienste. Navigieren Sie zu der **Server** Container, und bestätigen Sie, dass das Serverobjekt für den Domänencontroller, den Sie entfernt kein NTDS-Einstellungsobjekt. Wenn keine untergeordneten Objekte unterhalb des Serverobjekts angezeigt werden, können Sie das Server-Objekt löschen. Wenn ein untergeordnetes Objekt angezeigt wird, löschen Sie nicht das Serverobjekt da eine andere Anwendung das Objekt verwendet wird.
+   Öffnen Sie Active Directory Websites und Dienste. Navigieren Sie zum **Container Servers** , und vergewissern Sie sich, dass das Server Objekt für den Domänen Controller, den Sie entfernt haben, kein NTDS-Einstellungs Objekt enthält. Wenn keine untergeordneten Objekte unterhalb des Server Objekts angezeigt werden, können Sie das Server Objekt löschen. Wenn ein untergeordnetes Objekt angezeigt wird, löschen Sie das Server Objekt nicht, da das Objekt von einer anderen Anwendung verwendet wird.
 
 ## <a name="see-also"></a>Siehe auch
 
-* [Herabstufen von Domänencontrollern](Demoting-Domain-Controllers-and-Domains--Level-200-.md)
+* [Tieferstufen von Domänencontrollern](Demoting-Domain-Controllers-and-Domains--Level-200-.md)
 * [Ntdsutil-Befehlsreferenz](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753343(v=ws.10))

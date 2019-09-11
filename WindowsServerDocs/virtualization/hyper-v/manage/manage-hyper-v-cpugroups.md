@@ -1,5 +1,5 @@
 ---
-title: Die Steuerung der VM-Ressourcen
+title: Ressourcen Steuerelemente für virtuelle Maschinen
 description: Verwenden von VM-CPU-Gruppen
 keywords: Windows 10, Hyper-V
 author: allenma
@@ -8,128 +8,128 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: cc7bb88e-ae75-4a54-9fb4-fc7c14964d67
-ms.openlocfilehash: 7c4ddf3e5d2ff58eef844c50960327c27a3e0a3d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 41390421c9e3126915cdf2e827e251e84495bafd
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854761"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70872019"
 ---
->Gilt für: WindowsServer 2016 wird Microsoft Hyper-V Server 2016, WindowsServer 2019, Microsoft Hyper-V-Server 2019
+>Gilt für: Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
-# <a name="virtual-machine-resource-controls"></a>Die Steuerung der VM-Ressourcen
+# <a name="virtual-machine-resource-controls"></a>Ressourcen Steuerelemente für virtuelle Maschinen
 
-Dieser Artikel beschreibt die Hyper-V-Ressourcen und Isolation-Steuerelemente für virtuelle Computer.  Diese Funktionen, die wir als VM-CPU-Gruppen oder nur "CPU-Gruppen" verweisen müssen, wurden in Windows Server 2016 eingeführt.  CPU-Gruppen können Hyper-V-Administratoren zum besseren Verwalten und Zuweisen von Host CPU-Ressourcen in virtuellen Gastcomputern.  Mithilfe von CPU-Gruppen können Hyper-V-Administratoren:
+In diesem Artikel werden die Hyper-V-Ressourcen-und Isolations Steuerelemente für virtuelle Computer beschrieben  Diese Funktionen, die wir als VM-CPU-Gruppen oder einfach "CPU-Gruppen" bezeichnen, wurden in Windows Server 2016 eingeführt.  Mit CPU-Gruppen können Hyper-V-Administratoren die CPU-Ressourcen des Hosts auf virtuellen Gast Computern besser verwalten und zuordnen.  Mithilfe von CPU-Gruppen können Hyper-V-Administratoren folgende Aktionen ausführen:
 
-* Erstellen Sie Gruppen von virtuellen Computern, wobei jede Gruppe, die mit unterschiedlichen Zuordnungen dem Virtualisierungshost-Gesamt-CPU-Ressourcen, für die gesamte Gruppe freigegeben. Dadurch kann der hostadministrator Klassen des Diensts für verschiedene Arten von virtuellen Computern implementieren.
+* Erstellen Sie Gruppen von virtuellen Computern, wobei jede Gruppe über unterschiedliche Belegungen der gesamten CPU-Ressourcen des Virtualisierungshosts verfügt, die für die gesamte Gruppe freigegeben sind. Dadurch kann der Host Administrator Dienst Klassen für verschiedene Typen von VMS implementieren.
 
-* Legen Sie Grenzwerte für CPU-Ressource auf bestimmte Gruppen. Dieses Endes"Gruppe" legt die CPU-Ressourcen, die die gesamte Gruppe erzwingen die gewünschte Klasse des Diensts für diese Gruppe effektiv nutzen kann, die obere Grenze für den Host fest.
+* Legen Sie CPU-Ressourcen Limits auf bestimmte Gruppen fest. Diese "Gruppen Abdeckung" legt die obere Grenze für die Host-CPU-Ressourcen fest, die von der gesamten Gruppe genutzt werden können, und erzwingt effektiv die gewünschte Dienstklasse für diese Gruppe.
 
-* Beschränken Sie eine CPU-Gruppe nur auf eine bestimmte Gruppe von Prozessoren für das Hostsystem ausgeführt. Dies kann verwendet werden, um VMs, die für verschiedene CPU-Gruppen gehören, voneinander zu isolieren.
+* Beschränken Sie eine CPU-Gruppe so, dass Sie nur auf einem bestimmten Satz der Prozessoren des Host Systems ausgeführt wird. Dies kann verwendet werden, um VMS zu isolieren, die zu verschiedenen CPU-Gruppen gehören.
 
 ## <a name="managing-cpu-groups"></a>Verwalten von CPU-Gruppen
 
-CPU-Gruppen werden über die Hyper-V-Host-Compute-Dienst oder HCS verwaltet. Eine hervorragende Beschreibung für die HCS, dessen Genesis, Links zu den HCS-APIs und mehr finden Sie auf der Microsoft Virtualization-Team-Blog, in der Bereitstellung [Einführung in die Host Compute Service (HCS)](https://blogs.technet.microsoft.com/virtualization/2017/01/27/introducing-the-host-compute-service-hcs/).
+CPU-Gruppen werden über den Hyper-V-hostcomputedienst oder HCS verwaltet. Im Blog des Microsoft-Virtualisierungsteams finden Sie eine gute Beschreibung der HCS, der dazugehörigen Informationen, Links zu den HCS-APIs und weitere Informationen zum Microsoft-virtualisierungsteamblog im Beitrag [Introducing the Host Compute Service (HCS)](https://blogs.technet.microsoft.com/virtualization/2017/01/27/introducing-the-host-compute-service-hcs/).
 
 >[!NOTE] 
->Nur der HCS kann zum Erstellen und Verwalten von CPU-Gruppen verwendet werden. Das Hyper-V-Manager-Applet, WMI und PowerShell Management-Schnittstellen unterstützen keine CPU-Gruppen.
+>Nur die HCS können zum Erstellen und Verwalten von CPU-Gruppen verwendet werden. die WMI-und PowerShell-Verwaltungs Schnittstellen von Hyper-V-Manager unterstützen keine CPU-Gruppen.
 
-Microsoft bietet eine Befehlszeile-Hilfsprogramm, cpugroups.exe, auf die [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=865968) die die HCS-Schnittstelle zum Verwalten von CPU-Gruppen verwendet.  Dieses Hilfsprogramm kann auch die CPU-Topologie eines Hosts anzeigen.
+Microsoft stellt ein Befehlszeilen-Hilfsprogramm cpugroups. exe im [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=865968) zur Verfügung, das die HCS-Schnittstelle zum Verwalten von CPU-Gruppen verwendet.  Dieses Hilfsprogramm kann auch die CPU-Topologie eines Hosts anzeigen.
 
-## <a name="how-cpu-groups-work"></a>Funktionsweise von CPU-Netzwerksicherheitsgruppen
+## <a name="how-cpu-groups-work"></a>Funktionsweise von CPU-Gruppen
 
-Zuordnung von Host-Compute-Ressourcen auf CPU-Gruppen wird von der Hyper-V-Hypervisor, eine berechnete Gruppe Obergrenze für CPU-Verwendung erzwungen. Die Obergrenze der CPU-Gruppe ist ein Bruchteil der gesamten CPU-Kapazität für eine CPU-Gruppe. Der Wert der Gruppe Abdeckung hängt davon ab, der Gruppe oder zugewiesene Prioritätsstufe. Die Obergrenze für das berechnete Gruppe kann als "Anzahl von LP's sollte der CPU-Zeit" betrachtet werden. Diese Gruppe Budget freigegeben werden ist, wenn nur ein einzelner virtueller Computer aktiv waren, damit die gesamte Gruppe CPU-ressourcenzuteilung für sich selbst verwendet werden können.
+Die Zuordnung von hostcomputeressourcen über CPU-Gruppen hinweg wird durch den Hyper-V-Hypervisor erzwungen, indem eine berechnete CPU-Gruppe verwendet wird. Die CPU-Gruppen Abdeckung ist ein Bruchteil der CPU-Gesamtkapazität für eine CPU-Gruppe. Der Wert der Gruppen Abdeckung hängt von der Gruppenklasse bzw. der zugewiesenen Prioritätsstufe ab. Das Ende der berechneten Gruppe kann als "Zahl der CPU-Zeit in LP" betrachtet werden. Dieses Gruppen Budget ist freigegeben. wenn nur ein einzelner virtueller Computer aktiv war, könnte die CPU-Belegung der gesamten Gruppe für sich selbst verwendet werden.
 
-Die Obergrenze der CPU-Gruppe wird berechnet, als G = *n* x *C*, wobei:
+Das Limit für die CPU-Gruppe wird als G = *n* x *C*berechnet, wobei Folgendes gilt:
 
     *G* is the amount of host LP we'd like to assign to the group
     *n* is the total number of logical processors (LPs) in the group
-    *C* is the maximum CPU allocation — that is, the class of service desired for the group, expressed as a percentage of the system’s total compute capacity
+    *C* is the maximum CPU allocation — that is, the class of service desired for the group, expressed as a percentage of the system's total compute capacity
 
-Betrachten Sie beispielsweise eine konfigurierte mit 4 logischen Prozessoren (LPs), und eine Obergrenze von 50 % CPU-Gruppe.
+Nehmen Sie beispielsweise eine CPU-Gruppe, die mit 4 logischen Prozessoren (LPs) konfiguriert ist, und eine Obergrenze von 50%.
 
     G = n * C
     G = 4 * 50%
     G = 2 LP's worth of CPU time for the entire group
 
-In diesem Beispiel wird die CPU-Gruppe G 2 LP's sollte der CPU-Zeit zugeordnet.  
+In diesem Beispiel wird der CPU-Zeit von 2 LP die CPU-Zeit von 2 LP zugewiesen.  
 
-Beachten Sie, die die Obergrenze für die Gruppe angewendet wird, unabhängig von der Anzahl von virtuellen Computern oder virtuellen Prozessoren, die der Gruppe gebunden, und unabhängig vom Status (z. B. Herunterfahren oder gestartet) der virtuellen Computer, die die CPU-Gruppe zugewiesen. Aus diesem Grund jede VM, die an der gleichen Gruppe von CPU-gebunden wird einen Bruchteil der Gruppe Gesamt-CPU-ressourcenzuteilung erhalten und dadurch ändert sich mit der Anzahl von VMs, die der Gruppe "CPU" gebunden. Aus diesem Grund wie VMs gebunden sind oder eine Gruppe von CPU-VMs aufgehoben, muss eine Obergrenze für das gesamte CPU-Gruppe angepasst und die resultierende pro virtuellem Computer Obergrenze gewünscht verwalten. Die VM-hostverwaltung an Administrator "oder" Virtualisierung Softwareschicht ist verantwortlich für die Verwaltung von Gruppe-Caps wie erforderlich, um die gewünschten pro-VM-CPU-ressourcenzuteilung zu erreichen.
+Beachten Sie, dass das Gruppen Limit unabhängig von der Anzahl von virtuellen Computern oder virtuellen Prozessoren, die an die Gruppe gebunden sind, und unabhängig vom Zustand (z. b. Herunterfahren oder starten) der virtuellen Computer, die der CPU-Gruppe zugewiesen sind, gilt. Daher erhält jeder an die gleiche CPU-Gruppe gebundene virtuelle Computer einen Bruchteil der Gesamt-CPU-Belegung der Gruppe. Dies ändert sich mit der Anzahl der VMS, die an die CPU-Gruppe gebunden sind. Daher muss bei virtuellen Computern, die an eine CPU-Gruppe gebunden oder ungebunden sind, das Gesamtlimit für die CPU-Gruppe umgelesen und so festgelegt werden, dass die gewünschte Obergrenze pro VM beibehalten wird. Die Software Schicht des VM-Host Administrators oder der Virtualisierungsverwaltung ist für die Verwaltung von Gruppen Limits nach Bedarf zuständig, um die gewünschte CPU-Ressourcen Zuordnung pro VM zu erzielen.
 
-## <a name="example-classes-of-service"></a>Beispiel-Klassen des Diensts
+## <a name="example-classes-of-service"></a>Beispiele für Dienst Klassen
 
-Betrachten wir nun einige einfache Beispiele. Zunächst wird davon ausgegangen Sie, dass der Hyper-V-Host-Administrator für zwei Tarife an für Gast-VMs unterstützen möchten:
+Sehen wir uns einige einfache Beispiele an. Angenommen, der Hyper-V-Host Administrator möchte zwei Dienst Ebenen für Gast-VMS unterstützen:
 
-1. Eine Low-End "C"-Ebene. Wir geben diesem Tarif 10 % der Compute-Ressourcen für den gesamten Host.
+1. Eine Low-End-Ebene "C". Wir legen dieser Ebene 10% der Compute-Ressourcen des gesamten Hosts zu.
 
-1. Eine Ebene mit mittlerem "B". Dieser Tarif ist 50 % der Compute-Ressourcen für den gesamten Host zugeordnet.
+1. Eine mittlere "B"-Ebene. Dieser Ebene werden 50% der Compute-Ressourcen des gesamten Hosts zugeordnet.
 
-In unserem Beispiel werden wir an diesem Punkt bestätigt, dass keine anderen CPU-Ressource Steuerelemente verwendet werden, wie z. B. Clientzugriffspunkten für einzelne VM, Gewichtung und reserviert.
-Einzelne VM-Caps sind jedoch wichtig, wie wir etwas später sehen werden.
+An dieser Stelle in unserem Beispiel wird bestätigt, dass keine anderen CPU-Ressourcen Steuerungen verwendet werden, wie z. b. einzelne VM-Caps, Gewichtungen und Reserven.
+Einzelne VM-Caps sind jedoch wichtig, da wir später etwas später sehen werden.
 
-Der Einfachheit halber gehen wir von jedem virtuellen Computer "1" wurde VP und unseren Hosts 8 LPs hat. Wir beginnen mit einem leeren Host.
+Der Einfachheit halber gehen wir davon aus, dass jeder virtuelle Computer über 1 VP verfügt und dass der Host über 8 LPs verfügt. Wir beginnen mit einem leeren Host.
 
-Um den Tarif "B" zu erstellen, wird der Host Adminstartor die Obergrenze für die Gruppe auf 50 % festgelegt:
+Zum Erstellen der Ebene "B" legt der Host-adminstartor die Gruppen Abdeckung auf 50% fest:
 
     G = n * C
     G = 8 * 50%
     G = 4 LP's worth of CPU time for the entire group
 
-Der hostadministrator Fügt einer einzelnen Ebene befinden "B" virtuellen Computer hinzu.
-An diesem Punkt können unsere Stufe ""B"" virtuellen Computer darf höchstens 50 % sollte der Host CPU oder einer entsprechenden Gruppe von 4 LPs in unserem Beispiel System.
+Der Host Administrator fügt einen einzelnen virtuellen Computer der Ebene "B" hinzu.
+An diesem Punkt kann der VM "B" der Ebene "B" höchstens 50% der CPU des Hosts oder das Äquivalent von 4 LPs in unserem Beispiel System verwenden.
 
-Der Administrator fügt nun eine zweite "Tier-B" virtuellen Computer. Zuordnung von der CPU-Gruppe – wird gleichmäßig auf alle virtuellen Computer. Wir haben insgesamt 2 VMs in Gruppe B, damit jeder virtuelle Computer nun die Hälfte der Gruppe B die Gesamtanzahl von 50 %, 25 % oder das Äquivalent der 2 LPs sollte der Compute-Zeit ruft.
+Nun fügt der Administrator einen zweiten virtuellen Computer der Ebene "Ebene B" hinzu. Die Zuordnung der CPU-Gruppe – wird gleichmäßig auf alle virtuellen Computer aufgeteilt. Wir haben insgesamt 2 virtuelle Computer in Gruppe b, sodass jeder virtuelle Computer nun die Hälfte der Gruppe b insgesamt 50%, 25% oder die Entsprechung von 2 LPs der COMPUTE-Zeit erhält.
 
-## <a name="setting-cpu-caps-on-individual-vms"></a>Festlegen von CPU-Caps auf einzelnen VMs
+## <a name="setting-cpu-caps-on-individual-vms"></a>Festlegen von CPU-Caps auf einzelnen VMS
 
-Zusätzlich zu die Obergrenze für die Gruppe kann jeder virtuelle Computer auch eine einzelnen "virtuellen Computer Cap" verfügen. Steuerung des pro virtuellem Computer-CPU-Ressourcen, wie z.B. eine Obergrenze für CPU-Gewichtung und reservieren, wurden ein Teil der Hyper-V seit der Einführung.
-In Kombination mit einer Obergrenze für die Gruppe gibt eine Obergrenze für die virtuellen Computer die maximale Menge an CPU, die jede VP abrufen können, auch wenn die Gruppe verfügbaren CPU-Ressourcen aufweist.
+Zusätzlich zum Gruppen Limit kann jede VM auch eine einzelne "VM-Obergrenze" aufweisen. Die CPU-Ressourcenkontrolle pro VM, einschließlich einer CPU-Abdeckung, Gewichtung und Reserve, ist seit der Einführung Teil von Hyper-V.
+In Kombination mit einer Gruppen Abdeckung gibt eine VM-Obergrenze die maximale CPU-Kapazität an, die jeder VP erhalten kann. Dies gilt auch, wenn für die Gruppe CPU-Ressourcen verfügbar sind.
 
-Beispielsweise möchten die Host-Administrator eine VM-Obergrenze von 10 % auf "C" virtuellen Computern platzieren.
-Auf diese Weise auch, wenn die meisten "C" VPs im Leerlauf sind, konnte jeder VP nie mehr als 10 % abgerufen werden.
-Ohne Beschränkung für die VM konnte "C" VMs Leistung über die Ebene zulässigen Ebenen opportunistisch erzielen.
+Beispielsweise kann es vorkommen, dass der Host Administrator eine VM-Obergrenze von 10% auf "C"-VMS platzieren möchte.
+Dies ist auch der Fall, wenn sich die meisten VPS "C" im Leerlauf befinden, kann jeder VP nie mehr als 10% erhalten.
+Ohne eine VM-Obergrenze könnten "C"-VMS die Leistung auf der Basis der durch ihre Ebene zulässigen Stufen erreichen.
 
-## <a name="isolating-vm-groups-to-specific-host-processors"></a>Isolieren von VM-Gruppen auf bestimmten Host-Prozessoren
+## <a name="isolating-vm-groups-to-specific-host-processors"></a>Isolieren von VM-Gruppen für bestimmte Host Prozessoren
 
-Hyper-V-Host-Administratoren sollten auch die Möglichkeit, computeressourcen für einen virtuellen Computer zur Verfügung stellen.
-Nehmen wir z.B. möchten, dass der Administrator einen Premium-Angebot "ein" virtueller Computer, der eine Klasse Abdeckung von 100 % aufweist.
-Diese Premium-VMs auch erfordern die niedrigste Planung Latenz und jitter möglich; d. h., können sie nicht von anderen virtuellen Computern aufheben geplant werden.
-Um diese Trennung zu erreichen, kann eine CPU-Gruppe auch mit einer bestimmten LP Affinität Zuordnung konfiguriert werden.
+Hyper-V-Host Administratoren können auch die Möglichkeit haben, Compute-Ressourcen für einen virtuellen Computer zu verwenden.
+Stellen Sie sich z. b. vor, dass der Administrator eine Premium-VM mit einer Klasse von 100% anbieten möchte.
+Diese Premium-VMS erfordern außerdem die niedrigste Zeit für Zeitplanung und Jitter. Das heißt, Sie werden möglicherweise nicht von einem anderen virtuellen Computer aufgehoben.
+Um diese Trennung zu erreichen, kann eine CPU-Gruppe auch mit einer bestimmten LP-Affinitäts Zuordnung konfiguriert werden.
 
-Z. B. zum Anpassen einer VM "ein" auf dem Host in unserem Beispiel der Administrator würde erstellen Sie eine neue CPU-Gruppe, und legen Sie die Prozessor-Affinität auf einen Teil des Hosts LPs der Gruppe.
-Um die verbleibenden LPs würde die Gruppen B und C zugeordnet werden.
-Der Administrator kann einen einzelnen virtuellen Computer in Gruppe A, die exklusiven Zugriff auf alle LPs in Gruppe A, während die Gruppen B auf vermutlich auf niedriger Ebene erstellen und C die verbleibenden LPs nutzen.
+Um z. b. in unserem Beispiel eine "A"-VM auf dem Host zu integrieren, erstellt der Administrator eine neue CPU-Gruppe und legt die Prozessor Affinität der Gruppe auf eine Teilmenge der LPs des Hosts fest.
+Die Gruppen B und C werden den verbleibenden LPs zugeordnet.
+Der Administrator könnte einen einzelnen virtuellen Computer in Gruppe a erstellen, der dann exklusiven Zugriff auf alle LPs in Gruppe a hätte, während die Gruppen B und C der niedrigeren Ebene die verbleibenden LPs freigeben würden.
 
-## <a name="segregating-root-vps-from-guest-vps"></a>Stamm VPs vom Gast VPs ausschließen
+## <a name="segregating-root-vps-from-guest-vps"></a>Trennen von Stamm-VPS von Gast-VPS
 
-Standardmäßig wird Hyper-V auf einzelnen zugrunde liegenden physischen LP einen Stamm VP erstellen.
-Diese Stamm VPs sind streng zugeordneten 1:1 mit dem System LPs und werden nicht migriert, d. h. jedes Stammelement VP immer auf dem gleichen physischen LP ausgeführt wird.
-Gast-VPs kann auf alle verfügbaren LP ausgeführt werden, und Stamm VPs Ausführung freigegeben wird.
+Standardmäßig wird in Hyper-V auf jeder zugrunde liegenden physischen LP eine Stamm-VP erstellt.
+Diese Stamm-VPS sind der System LPs strikt 1:1 zugeordnet und werden nicht migriert – das heißt, dass jeder Stamm-VP immer auf derselben physischen LP ausgeführt wird.
+Gast-VPS können auf jeder verfügbaren LP ausgeführt werden und werden die Ausführung mit Stamm-VPS freigeben.
 
-Allerdings kann es wünschenswert vollständig separaten Stamm VP-Aktivität von Gast VPs sein.
-Betrachten Sie unsere Beispiel oben, in dem wir einen Premium-Tarif "A" virtuellen Computer implementieren.
-Um sicherzustellen, dass unsere "A" des virtuellen Computers VPs die geringste Latenz und "jitter" oder Planung Variation verfügen, möchten wir sie auf eine dedizierte Gruppe von LPs ausführen, und stellen Sie sicher, dass das Stammverzeichnis für diese LPs nicht ausgeführt werden kann.
+Es kann jedoch wünschenswert sein, die Stamm-VP-Aktivität von Gast-VPS vollständig zu trennen.
+Sehen Sie sich unser Beispiel oben an, in dem wir einen virtuellen Premium-Tarif "a" implementieren.
+Um sicherzustellen, dass die VPS der "A"-VM die geringstmögliche Latenz und "Jitter" oder die Zeitplanung aufweisen, möchten wir Sie auf einem dedizierten Satz von LPs ausführen und sicherstellen, dass der Stamm nicht auf diesen LPs ausgeführt wird.
 
-Dies geschieht mithilfe einer Kombination der Konfiguration "Minroot" den Host-Partition für das Betriebssystem begrenzt für die Ausführung auf einem Teil der logischen Prozessoren gesamtverfügbarkeit des Systems zusammen mit einem oder mehr CPU-Gruppen zugeordnet.
+Dies kann mithilfe einer Kombination aus der "minroot"-Konfiguration erreicht werden, wodurch die Host-Betriebssystem Partition auf eine Teilmenge der logischen Gesamt Systemprozessoren und mindestens eine affininitisierte CPU-Gruppe beschränkt wird.
 
-Virtualisierungshost kann konfiguriert werden, um die Hostpartition auf spezifische LPs, mit einer oder mehreren CPU-Gruppen zugeordnet, die verbleibenden LPs zu beschränken.
-Auf diese Weise kann die Stamm- und Gast-Partitionen auf dedizierten Ressourcen der CPU ausgeführt werden können, und vollständig isoliert werden, ohne CPU-Freigabe.
+Der Virtualisierungshost kann so konfiguriert werden, dass die Host Partition auf bestimmte LPs beschränkt wird, wobei eine oder mehrere CPU-Gruppen den verbleibenden LPs zugeordnet werden.
+Auf diese Weise können die Stamm-und Gast Partitionen auf dedizierten CPU-Ressourcen und vollständig isoliert und ohne CPU-Freigabe ausgeführt werden.
 
-Weitere Informationen zur Konfiguration "Minroot" finden Sie unter [Hyper-V-Host-CPU-Ressourcenverwaltung](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-minroot-2016).
+Weitere Informationen zur Konfiguration von "minroot" finden Sie unter [Hyper-V-Host-CPU-Ressourcenverwaltung](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-minroot-2016).
 
-## <a name="using-the-cpugroups-tool"></a>Mithilfe des Tools CpuGroups
+## <a name="using-the-cpugroups-tool"></a>Verwenden des cpugroups-Tools
 
-Wir sehen uns einige Beispiele für das CpuGroups-Tool verwenden.
+Sehen wir uns nun einige Beispiele für die Verwendung des cpugroups-Tools an.
 
 >[!NOTE] 
->Befehlszeilenparameter für das Tool CpuGroups übergeben werden, nur aus Leerzeichen als Trennzeichen verwenden. Keine '/' oder '-' Zeichen sollten den gewünschten Befehlszeilenschalter fortfahren.
+>Befehlszeilenparameter für das cpugroups-Tool werden nur mithilfe von Leerzeichen als Trennzeichen übergeben. Keine Zeichen "/" oder "-" sollten den gewünschten Befehls Zeilenschalter fortsetzen.
 
-### <a name="discovering-the-cpu-topology"></a>Ermitteln die CPU-Topologie
+### <a name="discovering-the-cpu-topology"></a>Ermitteln der CPU-Topologie
 
-Informationen zum aktuellen Systems befinden, CpuGroups mit der GetCpuTopology Ausführung zurückgegeben werden, wie unten gezeigt, einschließlich der LP-Index, den NUMA-Knoten zu dem gehört die LP, das Paket und Core-IDs und der Stamm VP-Index.
+Das Ausführen von cpugroups mit der getcputopology-Funktion gibt Informationen zum aktuellen System zurück, wie unten dargestellt, einschließlich des LP-Indexes, des NUMA-Knotens, zu dem die LP gehört, der Paket-und Kern-IDs und des Stamm-VP-Index.
 
-Das folgende Beispiel zeigt ein System mit 2 CPU-Sockets und NUMA-Knoten, maximal 32 LPs und Multi-threading aktiviert und so konfiguriert, dass Minroot mit 8 Stamm VPs, 4 auf jedem NUMA-Knoten.
-Der Stamm VPs denen LPs haben eine RootVpIndex > = 0; LPs mit einem RootVpIndex-1 sind nicht verfügbar ist, klicken Sie auf der Stammpartition, jedoch werden vom Hypervisor weiterhin verwaltet und Gast VPs werden ausgeführt werden, weil durch andere Konfigurationseinstellungen zulässig.
+Das folgende Beispiel zeigt ein System mit 2 CPU-Sockets und NUMA-Knoten, insgesamt 32 LPs und Multithreading aktiviert und so konfiguriert, dass minroot mit 8 Stamm-VPS und 4 von jedem NUMA-Knoten aktiviert wird.
+Die LPs mit Stamm-VPS haben einen rootvpindex > = 0; LPs mit einem rootvpindex von "-1" sind für die Stamm Partition nicht verfügbar, werden jedoch weiterhin vom Hypervisor verwaltet und führen Gast-VPS wie von anderen Konfigurationseinstellungen zugelassen aus.
 
 ```console
 C:\vm\tools>CpuGroups.exe GetCpuTopology
@@ -170,11 +170,11 @@ LpIndex NodeNumber PackageId CoreId RootVpIndex
      31          1         1     23          -1
 ```
 
-### <a name="example-2--print-all-cpu-groups-on-the-host"></a>Beispiel 2 – Drucken alle CPU-Gruppen auf dem host
+### <a name="example-2--print-all-cpu-groups-on-the-host"></a>Beispiel 2 – Drucken aller CPU-Gruppen auf dem Host
 
-Wir müssen hier alle CPU-Gruppen auf dem aktuellen Host, ihre GroupId, CPU-Obergrenze für die Gruppe und die Indizes im Abschlussarray, der dieser Gruppe zugewiesenen LPs aufgelistet.
+Hier werden alle CPU-Gruppen auf dem aktuellen Host, die groupID, die CPU-Abdeckung der Gruppe und die der Gruppe zugewiesenen LPs aufgelistet.
 
-Beachten Sie, dass gültige CPU-Obergrenze für Werte im Bereich [0, 65536 liegen] und diese Werte die Obergrenze für die Gruppe in Prozent Express (z. B. 32768 = 50 %).
+Beachten Sie, dass gültige Werte für die CPU-Abdeckung im Bereich [0, 65536] liegen und dass diese Werte die Gruppen Abdeckung in Prozent (z. b. 32768 = 50%) Ausdrücken.
 
 ```console
 C:\vm\tools>CpuGroups.exe GetGroups
@@ -186,9 +186,9 @@ CpuGroupId                          CpuCap  LpIndexes
 36AB08CB-3A76-4B38-992E-000000000004 65536  24,25,26,27,28,29,30,31
 ```
 
-### <a name="example-3--print-a-single-cpu-group"></a>Beispiel 3: Drucken eine einzigen CPU-Gruppe
+### <a name="example-3--print-a-single-cpu-group"></a>Beispiel 3 – Drucken einer einzelnen CPU-Gruppe
 
-In diesem Beispiel werden wir eine einzelne CPU-Gruppe verwenden die Gruppen-ID als Filter Abfragen.
+In diesem Beispiel Fragen wir eine einzelne CPU-Gruppe mithilfe der groupid als Filter ab.
 
 ```console
 C:\vm\tools>CpuGroups.exe GetGroups /GroupId:36AB08CB-3A76-4B38-992E-000000000003
@@ -199,13 +199,13 @@ CpuGroupId                          CpuCap   LpIndexes
 
 ### <a name="example-4--create-a-new-cpu-group"></a>Beispiel 4 – Erstellen einer neuen CPU-Gruppe
 
-Hier erstellen wir eine neue CPU-Gruppe, die angeben, die Gruppen-ID und den Satz von LPs der Gruppe zuweisen.
+Hier erstellen wir eine neue CPU-Gruppe, die die Gruppen-ID und den Satz von LPs angibt, der der Gruppe zugewiesen werden soll.
 
 ```console
 C:\vm\tools>CpuGroups.exe CreateGroup /GroupId:36AB08CB-3A76-4B38-992E-000000000001 /GroupAffinity:0,1,16,17
 ```
 
-Jetzt zeigen Sie unsere neu hinzugefügte Gruppe aus an.
+Zeigen Sie jetzt die neu hinzugefügte Gruppe an.
 
 ```console
 C:\vm\tools>CpuGroups.exe GetGroups
@@ -217,15 +217,15 @@ CpuGroupId                          CpuCap LpIndexes
 36AB08CB-3A76-4B38-992E-000000000004 65536 24,25,26,27,28,29,30,31
 ```
 
-### <a name="example-5--set-the-cpu-group-cap-to-50"></a>Beispiel 5 – festgelegt die Obergrenze der CPU-Gruppe auf 50 %.
+### <a name="example-5--set-the-cpu-group-cap-to-50"></a>Beispiel 5 – Festlegen der CPU-Gruppen Abdeckung auf 50%
 
-Wir werden hier die Obergrenze der CPU-Gruppe auf 50 % festgelegt.
+Hier legen wir das Limit für die CPU-Gruppe auf 50% fest.
 
 ```console
 C:\vm\tools>CpuGroups.exe SetGroupProperty /GroupId:36AB08CB-3A76-4B38-992E-000000000001 /CpuCap:32768
 ```
 
-Jetzt bestätigen wir unsere Einstellung durch Anzeigen der Gruppe, die wir gerade aktualisiert.
+Nun bestätigen wir unsere Einstellung, indem wir die soeben aktualisierte Gruppe anzeigen.
 
 ```console
 C:\vm\tools>CpuGroups.exe GetGroups /GroupId:36AB08CB-3A76-4B38-992E-000000000001
@@ -235,7 +235,7 @@ CpuGroupId                          CpuCap LpIndexes
 36AB08CB-3A76-4B38-992E-000000000001 32768 0,1,16,17
 ```
 
-### <a name="example-6--print-cpu-group-ids-for-all-vms-on-the-host"></a>Beispiel 6 – Print CPU-Gruppen-Ids für alle virtuellen Computer, auf dem host
+### <a name="example-6--print-cpu-group-ids-for-all-vms-on-the-host"></a>Beispiel 6 – Drucken von CPU-Gruppen-IDs für alle virtuellen Computer auf dem Host
 
 ```console
 C:\vm\tools>CpuGroups.exe GetVmGroup
@@ -249,9 +249,9 @@ VmName                                 VmId                           CpuGroupId
     G1 F699B50F-86F2-4E48-8BA5-EB06883C1FDC 36ab08cb-3a76-4b38-992e-000000000002
 ```
 
-### <a name="example-7--unbind-a-vm-from-the-cpu-group"></a>Beispiel 7 – Unbind eines virtuellen Computers aus der Gruppe "CPU"
+### <a name="example-7--unbind-a-vm-from-the-cpu-group"></a>Beispiel 7 – Aufheben der Bindung eines virtuellen Computers an die CPU-Gruppe
 
-Um einen virtuellen Computer aus einer CPU-Gruppe zu entfernen, legen Sie auf CpuGroupId des virtuellen Computers, auf die NULL-GUID. Dies hebt die Bindung auf den virtuellen Computer aus der Gruppe "CPU".
+Wenn Sie einen virtuellen Computer aus einer CPU-Gruppe entfernen möchten, legen Sie die cpugroupid der VM auf die GUID NULL fest. Dadurch wird die Bindung der VM an die CPU-Gruppe entbindet.
 
 ```console
 C:\vm\tools>CpuGroups.exe SetVmGroup /VmName:g1 /GroupId:00000000-0000-0000-0000-000000000000
@@ -266,16 +266,16 @@ VmName                                 VmId                           CpuGroupId
     G1 F699B50F-86F2-4E48-8BA5-EB06883C1FDC 00000000-0000-0000-0000-000000000000
 ```
 
-### <a name="example-8--bind-a-vm-to-an-existing-cpu-group"></a>Beispiel 8 – binden ein virtuellen Computers zu einer vorhandenen CPU-Gruppe
+### <a name="example-8--bind-a-vm-to-an-existing-cpu-group"></a>Beispiel 8 – Binden eines virtuellen Computers an eine vorhandene CPU-Gruppe
 
-Hier fügen wir einen virtuellen Computer zu einer vorhandenen CPU-Gruppe.
-Beachten Sie, dass der virtuelle Computer nicht werden, auf eine beliebige vorhandene CPU-Gruppe gebunden muss oder CPU-Gruppen-Id festlegen fehl.
+Hier fügen wir eine VM zu einer vorhandenen CPU-Gruppe hinzu.
+Beachten Sie, dass der virtuelle Computer nicht an eine vorhandene CPU-Gruppe gebunden werden darf, oder das Festlegen der CPU-Gruppen-ID schlägt fehl.
 
 ```console
 C:\vm\tools>CpuGroups.exe SetVmGroup /VmName:g1 /GroupId:36AB08CB-3A76-4B38-992E-000000000001
 ```
 
-Nun, vergewissern Sie sich, dass die VM G1 in der gewünschten CPU-Gruppe ist.
+Vergewissern Sie sich nun, dass der virtuelle Computer in der gewünschten CPU-Gruppe ist.
 
 ```console
 C:\vm\tools>CpuGroups.exe GetVmGroup
@@ -288,7 +288,7 @@ VmName                                 VmId                           CpuGroupId
     G1 F699B50F-86F2-4E48-8BA5-EB06883C1FDC 36AB08CB-3A76-4B38-992E-000000000001
 ```
 
-### <a name="example-9--print-all-vms-grouped-by-cpu-group-id"></a>Beispiel 9: Drucken von allen virtuellen Computern, gruppiert nach CPU-Gruppen-id
+### <a name="example-9--print-all-vms-grouped-by-cpu-group-id"></a>Beispiel 9 – Drucken aller VMS gruppiert nach CPU-Gruppen-ID
 
 ```console
 C:\vm\tools>CpuGroups.exe GetGroupVms
@@ -301,7 +301,7 @@ CpuGroupId                           VmName                                 VmId
 36ab08cb-3a76-4b38-992e-000000000004     P2 A593D93A-3A5F-48AB-8862-A4350E3459E8
 ```
 
-### <a name="example-10--print-all-vms-for-a-single-cpu-group"></a>Beispiel 10 – Drucken alle virtuellen Computer für eine einzelne CPU-Gruppe
+### <a name="example-10--print-all-vms-for-a-single-cpu-group"></a>Beispiel 10 – Drucken aller VMs für eine einzelne CPU-Gruppe
 
 ```console
 C:\vm\tools>CpuGroups.exe GetGroupVms /GroupId:36ab08cb-3a76-4b38-992e-000000000002
@@ -312,10 +312,10 @@ CpuGroupId                           VmName                                VmId
 36ab08cb-3a76-4b38-992e-000000000002     G3 B0F3FCD5-FECF-4A21-A4A2-DE4102787200
 ```
 
-### <a name="example-11--attempting-to-delete-a-non-empty-cpu-group"></a>Beispiel 11 – es wird versucht, eine nicht leere CPU-Gruppe löschen
+### <a name="example-11--attempting-to-delete-a-non-empty-cpu-group"></a>Beispiel 11 – Versuch, eine nicht leere CPU-Gruppe zu löschen
 
-Nur leere CPU-Gruppen – d. h. CPU-Gruppen ohne virtuelle Computer gebunden – kann gelöscht werden.
-Es wird versucht, eine nicht leere CPU-Gruppe zu löschen, schlägt fehl.
+Nur leere CPU-Gruppen – d. h. CPU-Gruppen ohne gebundene VMs – können gelöscht werden.
+Beim Versuch, eine nicht leere CPU-Gruppe zu löschen, tritt ein Fehler auf.
 
 ```console
 C:\vm\tools>CpuGroups.exe DeleteGroup /GroupId:36ab08cb-3a76-4b38-992e-000000000001
@@ -323,11 +323,11 @@ C:\vm\tools>CpuGroups.exe DeleteGroup /GroupId:36ab08cb-3a76-4b38-992e-000000000
 Failed with error 0xc0350070
 ```
 
-### <a name="example-12--unbind-the-only-vm-from-a-cpu-group-and-delete-the-group"></a>Beispiel 12 – die einzige VM aus einer Gruppe von CPU-Bindung und die Gruppe löschen
+### <a name="example-12--unbind-the-only-vm-from-a-cpu-group-and-delete-the-group"></a>Beispiel 12 – Aufheben der Bindung des einzigen virtuellen Computers an eine CPU-Gruppe und Löschen der Gruppe
 
-In diesem Beispiel wir verwenden Sie mehrere Befehle zum Überprüfen einer CPU-Gruppenstatus, entfernen Sie die einzelnen virtuellen Computer, die zu dieser Gruppe gehören, und anschließend die Gruppe löschen.
+In diesem Beispiel verwenden wir mehrere Befehle zum Überprüfen einer CPU-Gruppe, zum Entfernen der einzelnen VM, die zu dieser Gruppe gehört, und zum Löschen der Gruppe.
 
-Erstes Listen wir die virtuellen Computer in dieser Gruppe.
+Zuerst zählen wir die VMs in unserer Gruppe.
 
 ```console
 C:\vm\tools>CpuGroups.exe GetGroupVms /GroupId:36AB08CB-3A76-4B38-992E-000000000001
@@ -336,14 +336,14 @@ CpuGroupId                           VmName                                VmId
 36AB08CB-3A76-4B38-992E-000000000001     G1 F699B50F-86F2-4E48-8BA5-EB06883C1FDC
 ```
 
-Sehen Sie, dass nur eine einzelne VM mit dem Namen G1, dieser Gruppe gehört.
-Entfernen Sie die VM G1 wir aus unserer Gruppe durch Gruppen-ID des virtuellen Computers auf NULL festlegen.
+Wir sehen, dass nur eine einzelne VM mit dem Namen "G1" zu dieser Gruppe gehört.
+Entfernen Sie den virtuellen Computer mit dem Namen "G1" aus unserer Gruppe, indem Sie die Gruppen-ID der VM auf NULL festlegen.
 
 ```console
 C:\vm\tools>CpuGroups.exe SetVmGroup /VmName:g1 /GroupId:00000000-0000-0000-0000-000000000000
 ```
 
-Und die Änderung überprüfen...
+Und überprüfen Sie unsere Änderung...
 
 ```console
 C:\vm\tools>CpuGroups.exe GetVmGroup /VmName:g1
@@ -352,13 +352,13 @@ VmName                                 VmId                           CpuGroupId
     G1 F699B50F-86F2-4E48-8BA5-EB06883C1FDC 00000000-0000-0000-0000-000000000000
 ```
 
-Nun, da die Gruppe leer ist, können wir problemlos löschen.
+Nachdem die Gruppe nun leer ist, können wir Sie problemlos löschen.
 
 ```console
 C:\vm\tools>CpuGroups.exe DeleteGroup /GroupId:36ab08cb-3a76-4b38-992e-000000000001
 ```
 
-Ein, und bestätigen Sie, dass dieser Gruppe nicht mehr vorhanden ist.
+Vergewissern Sie sich, dass die Gruppe nicht mehr vorhanden ist.
 
 ```console
 C:\vm\tools>CpuGroups.exe GetGroups
@@ -369,7 +369,7 @@ CpuGroupId                          CpuCap                     LpIndexes
 36AB08CB-3A76-4B38-992E-000000000004 65536 24,25,26,27,28,29,30,31
 ```
 
-### <a name="example-13--bind-a-vm-back-to-its-original-cpu-group"></a>Beispiel für 13 – binden ein virtuellen Computers wieder mit der ursprünglichen CPU-Gruppe
+### <a name="example-13--bind-a-vm-back-to-its-original-cpu-group"></a>Beispiel 13 – Binden eines virtuellen Computers an seine ursprüngliche CPU-Gruppe
 
 ```console
 C:\vm\tools>CpuGroups.exe SetVmGroup /VmName:g1 /GroupId:36AB08CB-3A76-4B38-992E-000000000002

@@ -1,6 +1,6 @@
 ---
 title: Vorkonfigurieren eines Routers
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -12,12 +12,12 @@ ms.assetid: 9153ac90-bb0c-4b8d-93b2-e2121ed13636
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 7dc66c8a439552c2087d0348b0115adba04027ee
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: bbff22c03b7bf4310b86048848ded276547b911f
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433499"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865199"
 ---
 # <a name="preconfiguring-a-router"></a>Vorkonfigurieren eines Routers
 
@@ -32,8 +32,8 @@ Normalerweise erfordert eine neue Installation des Betriebssystems einen interne
 |Konfigurationseinstellung|Details|  
 |---------------------------|-------------|  
 |DHCP|On|  
-|Portweiterleitung|Sie sollten die folgenden Ports an die Adresse des Servers weiterleiten:<br /><br /> -80 (für gehosteten Konfiguration ausschließlich 443)<br />-   443|  
-|UPnP-Unterstützung|Sie sollten UPnP™-Support, um die einfachste Routerkonfiguration für den Kunden und die bestmögliche kundenerfahrung zu sorgen während der Installation angeben aktivieren.<br /><br /> **Warnung:** Die UPnP-Architektur kann ein Sicherheitsrisiko darstellen, wenn sie aktiviert bleibt.|  
+|Portweiterleitung|Sie sollten die folgenden Ports an die Adresse des Servers weiterleiten:<br /><br /> -80 (bei gehosteter Konfiguration nur 443 verwenden)<br />-443|  
+|UPnP-Unterstützung|Sie sollten die UPnP-Unterstützung aktivieren, um die einfachste Routerkonfiguration für den Kunden und die beste Kundenfreundlichkeit bei der Installation bereitzustellen.<br /><br /> **Warnung:** Die UPnP-Architektur kann ein Sicherheitsrisiko darstellen, wenn sie aktiviert bleibt.|  
   
  Neben den grundlegenden Einstellungen für die Routervorkonfiguration können Sie die folgenden Aufgaben ausführen, um das Verwalten des Routers benutzerfreundlicher zu gestalten:  
   
@@ -43,14 +43,14 @@ Normalerweise erfordert eine neue Installation des Betriebssystems einen interne
   
 -   Wenn der Router mehrere Subnetze unterstützt, muss die IP-Adresse des Servers als ein DNS-Server über DHCP ausgegeben werden.  
   
--   Wenn der Router eine integrierte Zugriffssteuerungsfunktion für Active DirectoryÂ®-Domänendienste verfügt, können Sie die Active Directory-Integration während der Erstkonfiguration des Servers automatisieren. Sie sollten diese Funktion auch über das Add-In für die Routerverwaltung im Dashboard verfügbar machen.  
+-   Wenn der Router über eine integrierte Zugriffs Steuerungsfunktion für Active Directory-® Domänen Dienste verfügt, können Sie die Active Directory Integration während der Erstkonfiguration des Servers automatisieren. Sie sollten diese Funktion auch über das Add-In für die Routerverwaltung im Dashboard verfügbar machen.  
   
 > [!NOTE]
 >  Weitere Informationen zum Konfigurieren von Funkverbindungen finden Sie unter [Configure Support for a Wireless Network](Configure-Support-for-a-Wireless-Network.md).  
   
 ## <a name="see-also"></a>Siehe auch  
- [Erste Schritte mit Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
- [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
- [Zusätzliche Anpassungen](Additional-Customizations.md)   
- [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
+ [Einführung in das Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
+ [Erstellen und Anpassen des Bilds](Creating-and-Customizing-the-Image.md)   
+ [Weitere Anpassungen](Additional-Customizations.md)   
+ [Vorbereiten des Images für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)
