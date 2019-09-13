@@ -8,12 +8,12 @@ ms.date: 08/19/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: f086143ae2e02a2d049189ff248e02fc44fe3cb2
-ms.sourcegitcommit: e2b565ce85a97c0c51f6dfe7041f875a265b35dd
+ms.openlocfilehash: a1e195ab755dfd0b61cc4201f43373421ce51aa2
+ms.sourcegitcommit: 86350de764b89ebcac2a78ebf32631b7b5ce409a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69584800"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70923551"
 ---
 # <a name="storage-migration-service-frequently-asked-questions-faq"></a>Häufig gestellte Fragen (FAQ) zu Storage Migration Service
 
@@ -51,7 +51,7 @@ Der Speicher Migrationsdienst migriert alle Flags, Einstellungen und die Sicherh
     - Freigabe Status
     - Verfügbarkeitsart
     - Freigabetyp
-    - Ordner enumerationsmodus (auch als *Zugriffs basierte Enumeration oder Abe bezeichnet)*
+    - Ordner *enumerationsmodus (auch als Zugriffs basierte Enumeration oder Abe bezeichnet)*
     - Cache Modus
     - Leasing Modus
     - SMB-Instanz
@@ -89,11 +89,13 @@ Der Speicher Migrationsdienst enthält eine Multithread-Lese-und-Kopier-Engine, 
 
 - **Verwenden Sie Windows Server 2019 für das Ziel Betriebssystem.** Windows Server 2019 enthält den Proxy Dienst für den Speicher Migrationsdienst. Wenn Sie dieses Feature installieren und zu Windows Server 2019-Zielen migrieren, werden alle Übertragungen als direkte Linie zwischen Quelle und Ziel ausgeführt. Dieser Dienst wird während der Übertragung auf dem Orchestrator ausgeführt, wenn es sich bei den Ziel Computern um Windows Server 2012 R2 oder Windows Server 2016 handelt, was bedeutet, dass der Double-Hop übertragen wird und viel langsamer ist. Wenn mehrere Aufträge mit Windows Server 2012 R2-oder Windows Server 2016-Zielen ausgeführt werden, wird der Orchestrator zu einem Engpass. 
 
-- **Standard Übertragungs Threads ändern.** Der Speicher Migrationsdienst-Proxy Dienst kopiert 8 Dateien gleichzeitig in einem bestimmten Auftrag. Sie können die Anzahl der gleichzeitigen kopierthreads erhöhen, indem Sie den folgenden Registrierungs REG_DWORD Wert für jeden Knoten, auf dem der SMS-Proxy ausgeführt wird, auf Dezimalstellen
+- **Standard Übertragungs Threads ändern.** Der Speicher Migrationsdienst-Proxy Dienst kopiert 8 Dateien gleichzeitig in einem bestimmten Auftrag. Sie können die Anzahl der gleichzeitigen kopierthreads erhöhen, indem Sie den folgenden Registrierungs REG_DWORD Wert für jeden Knoten, auf dem der Storage Migration Service-Proxy ausgeführt wird, in Dezimalform anpassen:
 
-    HKEY_Local_Machine\Software\Microsoft\SMSProxy filetransferthreadcount
+    HKEY_Local_Machine\Software\Microsoft\SMSProxy
+    
+    Filetransferthreadcount
 
-   Der gültige Bereich liegt zwischen 1 und 128 in Windows Server 2019. Nachdem Sie geändert haben, müssen Sie den Speicher Migrationsdienst-Proxy Dienst auf allen Computern, die Teil einer Migration sind, neu starten. Verwenden Sie diese Einstellung mit Bedacht. Wenn Sie einen höheren Wert festlegen, benötigen Sie möglicherweise zusätzliche Kerne, Speicherleistung und Netzwerkbandbreite. Wenn die Einstellung zu hoch ist, kann dies im Vergleich zu den Standardeinstellungen zu Leistungseinbußen führen. Die Möglichkeit, Thread Einstellungen basierend auf CPU, Arbeitsspeicher, Netzwerk und Speicher heuristisch zu ändern, ist für eine spätere Version von SMS geplant.
+   Der gültige Bereich liegt zwischen 1 und 128 in Windows Server 2019. Nachdem Sie geändert haben, müssen Sie den Speicher Migrationsdienst-Proxy Dienst auf allen Computern, die Teil einer Migration sind, neu starten. Verwenden Sie diese Einstellung mit Bedacht. Wenn Sie einen höheren Wert festlegen, benötigen Sie möglicherweise zusätzliche Kerne, Speicherleistung und Netzwerkbandbreite. Wenn die Einstellung zu hoch ist, kann dies im Vergleich zu den Standardeinstellungen zu Leistungseinbußen führen.
 
 - **Fügen Sie Kerne und Arbeitsspeicher hinzu.**  Es wird dringend empfohlen, dass auf den Quell-, Orchestrator-und Ziel Computern mindestens zwei Prozessorkerne oder zwei vCPUs vorhanden sind und mehr Inventur-und Übertragungsleistung erheblich unterstützen, insbesondere in Kombination mit filetransferthreadcount (oben). Beim Übertragen von Dateien, die größer sind als die üblichen Office-Formate (Gigabyte oder höher), profitiert die Übertragungsleistung von mehr Arbeitsspeicher als der Standardwert von 2 GB.
 

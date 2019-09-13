@@ -8,12 +8,12 @@ ms.date: 02/13/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: 0b5b473460bf72143f517443eadad831dd2502c5
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: f90ffe5b6a81ab1b4c2616dce08c98cbd8c065b4
+ms.sourcegitcommit: a35ce5b166175c905edd09005b94e96ad48c57a7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865151"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70936969"
 ---
 # <a name="use-storage-migration-service-to-migrate-a-server"></a>Verwenden von Storage Migration Service zum Migrieren eines Servers
 
@@ -44,12 +44,20 @@ Bevor Sie beginnen, installieren Sie den Speicher Migrationsdienst, und stellen 
 In diesem Schritt geben Sie an, welche Server migriert werden sollen, und Scannen Sie anschließend, um Informationen zu Ihren Dateien und Konfigurationen zu sammeln.
 
 1. Wählen Sie **Neuer Auftrag**aus, benennen Sie den Auftrag, und klicken Sie dann auf **OK**.
-1. Geben Sie auf der Seite **Anmelde Informationen eingeben** Administrator Anmelde Informationen ein, die auf den Servern funktionieren, von denen Sie migrieren möchten, und klicken Sie dann auf **weiter**.
-1. Wählen Sie **Gerät hinzufügen**aus, geben Sie einen Quell Servernamen ein, und klicken Sie dann auf **OK**. <br>Wiederholen Sie dies für alle anderen Server, die Sie inventarisieren möchten.
-1. Wählen Sie Überprüfung **starten**aus.<br>Die Seite wird aktualisiert und zeigt an, wann die Überprüfung beendet ist.
+2. Geben Sie auf der Seite **Anmelde Informationen eingeben** Administrator Anmelde Informationen ein, die auf den Servern funktionieren, von denen Sie migrieren möchten, und klicken Sie dann auf **weiter**.
+
+   > [!NOTE]
+   > Wenn Sie die Migration von Linux-Samba-Servern ausgewählt haben, gibt es einen zusätzlichen Schritt, um ein SSH-Kennwort oder einen privaten Schlüssel anzugeben.
+
+3. Wählen Sie **Gerät hinzufügen**aus, geben Sie einen Quell Servernamen ein, und klicken Sie dann auf **OK**. <br>Wiederholen Sie dies für alle anderen Server, die Sie inventarisieren möchten.
+
+   > [!NOTE]
+   > Wenn Sie die Migration von einem Failovercluster ausgewählt haben, geben Sie den Namen der geclusterten Dateiserver Ressource an.
+
+4. Wählen Sie Überprüfung **starten**aus.<br>Die Seite wird aktualisiert und zeigt an, wann die Überprüfung beendet ist.
     ![Screenshot, der einen zu überprüfenden](media/migrate/inventory.png) **Server anzeigt Abbildung 2: Inventarisierung von Servern**
-1. Wählen Sie jeden Server aus, um die inventarisierten Freigaben, Konfigurationen, Netzwerkadapter und Volumes zu überprüfen. <br><br>Der Speicher Migrationsdienst überträgt keine Dateien oder Ordner, die mit dem Windows-Vorgang beeinträchtigt werden könnten. in diesem Release werden also Warnungen für alle Freigaben im Windows-Systemordner angezeigt. Sie müssen diese Freigaben während der Übertragungs Phase überspringen. Weitere Informationen finden Sie unter [welche Dateien und Ordner sind von Übertragungen ausgeschlossen](faq.md#what-files-and-folders-are-excluded-from-transfers).
-1. Wählen Sie **weiter** aus, um mit der Datenübertragung fortzufahren.
+5. Wählen Sie jeden Server aus, um die inventarisierten Freigaben, Konfigurationen, Netzwerkadapter und Volumes zu überprüfen. <br><br>Der Speicher Migrationsdienst überträgt keine Dateien oder Ordner, die mit dem Windows-Vorgang beeinträchtigt werden könnten. in diesem Release werden also Warnungen für alle Freigaben im Windows-Systemordner angezeigt. Sie müssen diese Freigaben während der Übertragungs Phase überspringen. Weitere Informationen finden Sie unter [welche Dateien und Ordner sind von Übertragungen ausgeschlossen](faq.md#what-files-and-folders-are-excluded-from-transfers).
+6. Wählen Sie **weiter** aus, um mit der Datenübertragung fortzufahren.
 
 ## <a name="step-2-transfer-data-from-your-old-servers-to-the-destination-servers"></a>Schritt 2: Übertragen von Daten von ihren alten Servern auf die Zielserver
 
@@ -57,6 +65,10 @@ In diesem Schritt übertragen Sie die Daten, nachdem Sie angegeben haben, wo Sie
 
 1. Geben Sie auf der Seite Anmelde Informationen für **Übertragungsdaten** > **eingeben** Administrator Anmelde Informationen ein, die auf den Ziel Servern funktionieren, zu denen Sie migrieren möchten, und klicken Sie dann auf **weiter**.
 2. Auf der Seite **Zielgerät und Zuordnungen hinzufügen** wird der erste Quell Server aufgeführt. Geben Sie den Namen des Servers ein, zu dem Sie migrieren möchten, und wählen Sie dann **Gerät scannen**aus.
+
+   > [!NOTE]
+   > Wenn Sie sich für die Migration zu einem Failovercluster entschieden haben, geben Sie den Namen der geclusterten Dateiserver Ressource an.
+
 3. Ordnen Sie die Quellvolumes den Zielvolumes zu, deaktivieren Sie das Kontrollkästchen **einschließen** für alle Freigaben, die Sie nicht übertragen möchten (einschließlich administrativer Freigaben im Windows-Systemordner), und klicken Sie dann auf **weiter**.
    ![Screenshot, der einen Quell Server und seine Volumes und Freigaben anzeigt und an den Sie in der Ziel](media/migrate/transfer.png) **Abbildung 3 übertragen werden: Einen Quell Server und an den Speicherort, an den der Speicher übertragen wird**
 4. Fügen Sie einen Zielserver und Zuordnungen für alle weiteren Quell Server hinzu, und klicken Sie dann auf **weiter**.
@@ -66,7 +78,7 @@ In diesem Schritt übertragen Sie die Daten, nachdem Sie angegeben haben, wo Sie
 8. Überprüfen Sie nach Abschluss der Übertragung den Zielserver, um sicherzustellen, dass alles ordnungsgemäß übertragen wurde. Wählen Sie **nur Fehlerprotokoll** aus, wenn Sie ein Protokoll aller Dateien herunterladen möchten, die nicht übertragen wurden.
 
    > [!NOTE]
-   > Wenn Sie einen Audit-Trail für Übertragungen behalten möchten oder planen, mehr als eine Übertragung in einem Auftrag auszuführen, klicken Sie auf **Protokoll übertragen** , um eine CSV-Kopie zu speichern. Bei jeder nachfolgenden Übertragung werden die Datenbankinformationen einer vorherigen Testlauf überschrieben. 
+   > Wenn Sie einen Überwachungs Pfad für Übertragungen behalten möchten oder planen, mehr als eine Übertragung in einem Auftrag auszuführen, klicken Sie auf **Protokoll übertragen** oder die anderen Protokoll Speicheroptionen, um eine CSV-Kopie zu speichern. Bei jeder nachfolgenden Übertragung werden die Datenbankinformationen einer vorherigen Testlauf überschrieben. 
 
 An diesem Punkt haben Sie drei Möglichkeiten:
 
@@ -76,20 +88,23 @@ An diesem Punkt haben Sie drei Möglichkeiten:
 
 Wenn Sie die Dateien mit Azure synchronisieren möchten, können Sie die Zielserver nach dem Übertragen von Dateien mit Azure-Dateisynchronisierung oder nach dem übertragen auf die Zielserver einrichten (Weitere Informationen finden Sie unter [Planning for a Azure-Dateisynchronisierung Deployment](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)).
 
-## <a name="step-3-optionally-cut-over-to-the-new-servers"></a>Schritt 3: Optional an die neuen Server überspringen
+## <a name="step-3-cut-over-to-the-new-servers"></a>Schritt 3: An die neuen Server überspringen
 
 In diesem Schritt können Sie die Quell Server auf die Zielserver übertragen und die IP-Adressen und Computernamen auf die Zielserver verschieben. Nachdem dieser Schritt abgeschlossen ist, greifen apps und Benutzer über die Namen und Adressen der Server, von denen aus migriert wurde, auf die neuen Server zu.
 
- 1. Wenn Sie vom Migrations Auftrag aus navigiert sind, navigieren Sie im Windows Admin Center zu **Server-Manager** > **Storage Migration Service** , und wählen Sie dann den Auftrag aus, den Sie ausführen möchten. 
- 1. Wählen Sie auf der Seite zum**eingeben der Anmelde** Informationen **für neue Server** > die Option **weiter** aus, um die zuvor eingegebenen Anmelde Informationen zu verwenden.
- 1. Geben Sie auf der Seite **Konfigurieren des umgebers** an, welche Netzwerkadapter für die einzelnen Quell Geräteeinstellungen übernommen werden sollen. Dadurch wird die IP-Adresse von der Quelle zum Ziel als Teil des umgebers verschoben.
- 1. Geben Sie an, welche IP-Adresse für den Quell Server verwendet werden soll, nachdem der Umstellung seine Adresse zum Ziel verschoben hat. Sie können DHCP oder eine statische Adresse verwenden. Wenn eine statische Adresse verwendet wird, muss das neue Subnetz mit dem alten Subnetz identisch sein, oder der Umstellung schlägt fehl.
-    ![Screenshot, der einen Quell Server und seine IP-Adressen und Computernamen anzeigt und nach dem Umstellung](media/migrate/cutover.png)
-     **-Wert 4 ersetzt wird: Einen Quell Server und die Art und Weise, wie die Netzwerkkonfiguration auf das Ziel verschoben wird**
- 1. Geben Sie an, wie der Quell Server umbenannt werden soll, nachdem der Zielserver seinen Namen übernommen hat. Sie können einen zufällig generierten Namen verwenden oder einen selbst eingeben. Klicken Sie dann auf **weiter**.
- 1. Wählen Sie auf der Seite Einstellungen für den **Umschalter anpassen** die Option **weiter** aus.
- 1. Wählen **Sie überprüfen** auf der Seite **Quell-und Zielgerät** überprüfen aus, und klicken Sie dann auf **weiter**.
- 1. Wenn Sie bereit sind, den Umschalter auszuführen, wählen Sie die Option **Start**Seite aus. <br>Benutzer und Apps können Unterbrechungen auftreten, während die Adressen und Namen verschoben werden und die Server mehrmals neu gestartet werden, aber andernfalls von der Migration nicht betroffen sind. Wie lange es dauert, hängt von der Art und Weise ab, wie schnell der Server neu gestartet wird, sowie von Active Directory und DNS-Replikations Zeiten.
+1. Wenn Sie vom Migrations Auftrag aus navigiert sind, navigieren Sie im Windows Admin Center zu **Server-Manager** > **Storage Migration Service** , und wählen Sie dann den Auftrag aus, den Sie ausführen möchten. 
+2. Wählen Sie auf der Seite zum**eingeben der Anmelde** Informationen **für neue Server** > die Option **weiter** aus, um die zuvor eingegebenen Anmelde Informationen zu verwenden.
+
+    > [!NOTE]
+   > Wenn es sich bei dem Ziel um einen Cluster Dateiserver handelt, müssen Sie möglicherweise Anmelde Informationen mit Berechtigungen angeben, um den Cluster aus der Domäne zu entfernen, und ihn dann wieder mit dem neuen Namen hinzufügen. 
+
+3. Geben Sie auf der Seite **Konfigurieren des umgebers** an, welche Netzwerkadapter für die einzelnen Quell Geräteeinstellungen übernommen werden sollen. Dadurch wird die IP-Adresse von der Quelle zum Ziel als Teil des umgebers verschoben. Sie haben die Möglichkeit, alle Netzwerk Migrationen oder bestimmte Schnittstellen zu überspringen. Wenn Sie den Server überschreiten, müssen Sie für die Quell Schnittstellen immer DHCP oder eine neue statische IP-Adresse angeben.
+4. Geben Sie an, welche IP-Adresse für den Quell Server verwendet werden soll, nachdem der Umstellung seine Adresse zum Ziel verschoben hat. Sie können DHCP oder eine statische Adresse verwenden. Wenn eine statische Adresse verwendet wird, muss das neue Subnetz mit dem alten Subnetz identisch sein, oder der Umstellung schlägt fehl.
+    ![Screenshot, der einen Quell Server und seine IP-Adressen und Computernamen anzeigt und nach dem Umstellung](media/migrate/cutover.png) **-Wert 4 ersetzt wird: Einen Quell Server und die Art und Weise, wie die Netzwerkkonfiguration auf das Ziel verschoben wird**
+5. Geben Sie an, wie der Quell Server umbenannt werden soll, nachdem der Zielserver seinen Namen übernommen hat. Sie können einen zufällig generierten Namen verwenden oder einen selbst eingeben. Klicken Sie dann auf **weiter**.
+6. Wählen Sie auf der Seite Einstellungen für den **Umschalter anpassen** die Option **weiter** aus.
+7. Wählen **Sie überprüfen** auf der Seite **Quell-und Zielgerät** überprüfen aus, und klicken Sie dann auf **weiter**.
+8. Wenn Sie bereit sind, den Umschalter auszuführen, wählen Sie die Option **Start**Seite aus. <br>Benutzer und Apps können Unterbrechungen auftreten, während die Adressen und Namen verschoben werden und die Server mehrmals neu gestartet werden, aber andernfalls von der Migration nicht betroffen sind. Wie lange es dauert, hängt von der Art und Weise ab, wie schnell der Server neu gestartet wird, sowie von Active Directory und DNS-Replikations Zeiten.
 
 ## <a name="see-also"></a>Siehe auch
 

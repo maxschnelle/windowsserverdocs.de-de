@@ -8,12 +8,12 @@ ms.date: 08/16/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: dae64b81c48b9ae6bf84c3558066ebbdf9c06ace
-ms.sourcegitcommit: e2b565ce85a97c0c51f6dfe7041f875a265b35dd
+ms.openlocfilehash: 50165f5e5dcb5e3fd83da8e6156869c61aeb68ca
+ms.sourcegitcommit: 825c2c17d227fec75335254edaa4efbb89ebcba2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69584833"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70905073"
 ---
 # <a name="storage-migration-service-overview"></a>Übersicht über den Speicher Migrationsdienst
 
@@ -51,8 +51,8 @@ Die Migration ist ein dreistufiger Prozess:
 
 Um Storage Migration Service verwenden zu können, benötigen Sie Folgendes:
 
-- Einen **Quell Server** zum Migrieren von Dateien und Daten aus
-- Ein **Zielserver** , auf dem Windows Server 2019 für die Migration zu – Windows Server 2016 und Windows Server 2012 R2 ausgeführt wird, funktioniert ebenfalls, aber Sie sind um 50% langsamer.
+- Einen **Quell Server** oder **Failovercluster** zum Migrieren von Dateien und Daten aus
+- Ein **Zielserver** , auf dem Windows Server 2019 (gruppiert oder eigenständig) ausgeführt wird, um zu zu migrieren. Windows Server 2016 und Windows Server 2012 R2 funktionieren ebenso gut, sind aber um 50% langsamer.
 - Ein **Orchestrator-Server** , auf dem Windows Server 2019 zum Verwalten der Migration ausgeführt wird  <br>Wenn Sie nur wenige Server migrieren und auf einem der Server Windows Server 2019 ausgeführt wird, können Sie diesen als Orchestrator verwenden. Wenn Sie weitere Server migrieren, empfiehlt es sich, einen separaten Orchestrator-Server zu verwenden.
 - Ein **PC oder Server, auf dem [Windows Admin Center](../../manage/windows-admin-center/understand/windows-admin-center.md)**  ausgeführt wird, um die Benutzeroberfläche von Storage Migration Service auszuführen, es sei denn, Sie verwenden lieber PowerShell zum Verwalten der Migration. Die Version Windows Admin Center und Windows Server 2019 muss mindestens Version 1809 aufweisen.
 
@@ -62,7 +62,7 @@ Es wird dringend empfohlen, dass Orchestrator-und Zielcomputer über mindestens 
 
 - Ein Migrations Konto, das Administratorrechte auf den Quell Computern und dem Orchestrator-Computer ist.
 - Ein Migrations Konto, bei dem es sich um einen Administrator auf den Ziel Computern und dem Orchestrator-Computer handelt.
-- Auf dem Orchestrator-Computer muss die Firewallregel für die Datei-und Druckerfreigabe (SMB-in) eingehend aktiviert sein.
+- Auf dem Orchestrator-Computer muss die Firewallregel für die Datei-und Druckerfreigabe (SMB-in) *eingehend aktiviert sein*.
 - Auf den Quell-und Ziel Computern müssen die folgenden Firewallregeln in *eingehender* Richtung aktiviert sein (obwohl Sie diese möglicherweise bereits aktiviert haben):
   - Datei- und Druckerfreigabe (SMB eingehend)
   - Anmeldedienst (NP-in)
@@ -98,7 +98,7 @@ Auf dem Quell Server muss eines der folgenden Betriebssysteme ausgeführt werden
 
 Hinweis: Windows Small Business Server und Windows Server Essentials sind Domänen Controller. Der Speicher Migrationsdienst kann noch nicht von Domänen Controllern entfernt werden, kann jedoch Dateien inventarisieren und übertragen.   
 
-Wenn auf dem Orchestrator Windows Server, Version 1903 oder höher, ausgeführt wird, können Sie die folgenden zusätzlichen Quell Typen migrieren:
+Sie können die folgenden zusätzlichen Quell Typen migrieren, wenn der Orchestrator unter Windows Server, Version 1903 oder höher, ausgeführt wird, oder wenn der Orchestrator eine frühere Version von Windows Server mit installiertem [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) ausgeführt hat:
 
 - Failovercluster
 - Linux-Server, die Samba verwenden. Wir haben Folgendes getestet:
@@ -115,14 +115,14 @@ Auf dem Zielserver muss eines der folgenden Betriebssysteme ausgeführt werden:
 - Windows Server 2012 R2
 
 > [!TIP]
-> Zielserver mit Windows Server 2019 oder Windows Server, halbjährlicher Kanal Version 1809 oder höher, haben eine doppelte Übertragungsleistung früherer Versionen von Windows Server. Diese Leistungssteigerung ist auf die Einbindung eines integrierten Speicher Migrationsdienst-Proxy Dienstanbieter zurückzuführen, der auch die erforderlichen Firewallports öffnet, sofern diese noch nicht geöffnet sind.
+> Zielserver, auf denen Windows Server 2019 oder Windows Server, ein halbjährlicher Kanal oder höher ausgeführt wird, haben eine doppelte Übertragungsleistung früherer Versionen von Windows Server. Diese Leistungssteigerung ist auf die Einbindung eines integrierten Speicher Migrationsdienst-Proxy Dienstanbieter zurückzuführen, der auch die erforderlichen Firewallports öffnet, sofern diese noch nicht geöffnet sind.
 
 ## <a name="whats-new-in-storage-migration-service"></a>Neuerungen bei Storage Migration Service
 
-Windows Server, Version 1903, bietet die folgenden neuen Features, wenn Sie auf dem Orchestrator-Server ausgeführt werden:
+Die folgenden neuen Funktionen sind verfügbar, wenn Sie den Speicher Migrations Server-Orchestrator unter Windows Server, Version 1903 oder höher oder eine frühere Version von Windows Server mit installierter [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) ausführen:
 
 - Migrieren lokaler Benutzer und Gruppen zum neuen Server
-- Migrieren von Speicher von Failoverclustern
+- Migrieren von Speicher von Failoverclustern, Migrieren zu Failoverclustern und Migrieren zwischen eigenständigen Servern und Failoverclustern
 - Migrieren von Speicher von einem Linux-Server, der Samba verwendet
 - Vereinfachte Synchronisierung von migrierten Freigaben zu Azure mithilfe von Azure-Dateisynchronisierung
 - Migrieren zu neuen Netzwerken wie etwa Azure

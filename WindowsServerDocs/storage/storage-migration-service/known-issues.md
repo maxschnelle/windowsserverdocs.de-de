@@ -8,12 +8,12 @@ ms.date: 07/09/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: efd92e9f6a199ad901e95b18718f3b448c3207e2
-ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
+ms.openlocfilehash: 2200c41bfc6f7e50d4f85f48591a12ad35720062
+ms.sourcegitcommit: 86350de764b89ebcac2a78ebf32631b7b5ce409a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69560584"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70923364"
 ---
 # <a name="storage-migration-service-known-issues"></a>Bekannte Probleme bei Storage Migration Service
 
@@ -89,7 +89,7 @@ So umgehen Sie dieses Problem:
 3. Starten Sie auf dem Orchestrator-Computer "regedit. exe".
 4. Suchen Sie den folgenden Registrierungsunterschlüssel, und klicken Sie darauf: 
 
-   `HKEY_LOCAL_MACHINE\\Software\\Microsoft\\SMSPowershell`
+   `HKEY_LOCAL_MACHINE\Software\Microsoft\SMSPowershell`
 
 5. Zeigen Sie im Menü „Bearbeiten“ auf „Neu“, und klicken Sie dann auf „DWORD-Wert“. 
 6. Geben Sie "wcfoperationtimeoutinminutes" als Namen für das DWORD ein, und drücken Sie dann die EINGABETASTE.
@@ -206,6 +206,44 @@ Die Untersuchung des storagemigrationservice-Proxy/Debug-Protokolls zeigt Folgen
 bei Microsoft. storagemigration. Proxy. Service. Transfer. transferoperation. Validate () bei Microsoft. storagemigration. Proxy. Service. Transfer. transferrequesthandler. ProcessRequest (filetransferrequest filetransferrequest, GUID operationId)    [d:\os\src\base\dms\proxy\transfer\transferproxy\transferrequesthandler.cs::
 
 Dieser Fehler wird erwartet, wenn Ihr Migrations Konto nicht mindestens über Lese Zugriffsberechtigungen für die SMB-Freigaben verfügt. Um diesen Fehler zu umgehen, fügen Sie eine Sicherheitsgruppe mit dem Quell Migrations Konto zu den SMB-Freigaben auf dem Quellcomputer hinzu, und erteilen Sie Lese-, Änderungs-oder Vollzugriff. Nachdem die Migration abgeschlossen ist, können Sie diese Gruppe entfernen. In einer zukünftigen Version von Windows Server kann dieses Verhalten geändert werden, sodass keine expliziten Berechtigungen für die Quell Freigaben mehr erforderlich sind.
+
+## <a name="error-0x80005000-when-running-inventory"></a>Fehler 0x80005000 beim Ausführen des Inventars.
+
+Nach der Installation von [KB4512534](https://support.microsoft.com/en-us/help/4512534/windows-10-update-kb4512534) und dem Versuch, das Inventar auszuführen, schlägt die Inventur mit Fehlern fehl
+
+  AUSNAHME VON HRESULT: 0x80005000
+  
+  Protokoll Name:      Microsoft-Windows-storagemigrationservice/Administrator Quelle:        Microsoft-Windows-storagemigrationservice-Datum:          9/9/2019 5:21:42 Uhr Ereignis-ID:      2503 Aufgaben Kategorie: Keine Ebene:         Fehler Schlüsselwörter:      
+  Benutzer:          Netzwerkdienst Computer:      FS02. TailwindTraders.net Beschreibung: Computer konnten nicht inventarisiert werden.
+Job: foo2-ID: 20ac3f75-4945-41d1-9a79-d11dbb57798b-Status: Fehler: 36934-Fehlermeldung: Fehler bei der Inventur für alle Geräte Leit Faden: Prüfen Sie den detaillierten Fehler, und stellen Sie sicher, dass die Inventur Anforderungen erfüllt sind. Der Auftrag konnte keinen der angegebenen Quellcomputer inventarisieren. Dies kann darauf zurückzuführen sein, dass der Orchestrator-Computer ihn nicht über das Netzwerk erreichen konnte, möglicherweise aufgrund einer Firewallregel oder fehlender Berechtigungen.
+  
+  Protokoll Name:      Microsoft-Windows-storagemigrationservice/Administrator Quelle:        Microsoft-Windows-storagemigrationservice-Datum:          9/9/2019 5:21:42 Uhr Ereignis-ID:      2509 Aufgaben Kategorie: Keine Ebene:         Fehler Schlüsselwörter:      
+  Benutzer:          Netzwerkdienst Computer:      FS02. TailwindTraders.net Beschreibung: Konnte keinen Computer inventarisieren.
+Auftrag: foo2 Computer: FS01. TailwindTraders.net-Status: Fehler:-2147463168 Fehlermeldung: Leitfaden: Prüfen Sie den detaillierten Fehler, und stellen Sie sicher, dass die Inventur Anforderungen erfüllt sind. Das Inventar konnte keine Aspekte des angegebenen Quell Computers ermitteln. Dies kann daran liegen, dass fehlende Berechtigungen oder Berechtigungen für die Quelle oder einen gesperrten Firewallport vorhanden sind.
+  
+Dieser Fehler wird durch einen Code Fehler im Speicher Migrationsdienst verursacht, wenn Sie Migrations Anmelde Informationen in Form eines Benutzer Prinzipal namens (User Principal Name, UPN)meghan@contoso.combereitstellen, z. b. "". Der Orchestrator-Dienst des Speicher Migrations Dienstanbieter kann dieses Format nicht ordnungsgemäß analysieren, was zu einem Fehler bei einer Domänen Suche führt, die zur Unterstützung der Cluster Migration in KB4512534 und 19h1 hinzugefügt wurde.
+
+Um dieses Problem zu umgehen, geben Sie Anmelde Informationen im Format "Domäne \ Benutzer" an, z. b. "contoso\meghan".
+
+## <a name="error-serviceerror0x9006-or-the-proxy-isnt-currently-available-when-migrating-to-a-windows-server-failover-cluster"></a>Fehler "ServiceError0x9006" oder "der Proxy ist zurzeit nicht verfügbar." beim Migrieren zu einem Windows Server-Failovercluster
+
+Wenn Sie versuchen, Daten auf einen Cluster Datei Server zu übertragen, erhalten Sie folgende Fehlermeldung: 
+
+   Stellen Sie sicher, dass der Proxy Dienst installiert ist und ausgeführt wird, und wiederholen Sie dann den Vorgang. Der Proxy ist zurzeit nicht verfügbar.
+0x9006 ServiceError0x9006, Microsoft. storagemigration. Commands. unregistersmsproxycommand
+
+Dieser Fehler wird erwartet, wenn die Datei Server Ressource vom ursprünglichen Windows Server 2019-Cluster Besitzer Knoten auf einen neuen Knoten verschoben wurde und die Proxy Funktion für den Speicher Migrationsdienst nicht auf diesem Knoten installiert wurde.
+
+Um dieses Problem zu umgehen, verschieben Sie die Ressource des Ziel Dateiservers zurück auf den ursprünglichen Besitzer Cluster Knoten, der bei der ersten Konfiguration der Übertragungs Paare verwendet wurde.
+
+Als Alternative Problem Umgehung:
+
+1. Installieren Sie das Feature "Speicher Migrationsdienst-Proxy" auf allen Knoten in einem Cluster.
+2. Führen Sie den folgenden PowerShell-Befehl für den Speicher Migrationsdienst auf dem Orchestrator-Computer aus: 
+
+   ```PowerShell
+   Register-SMSProxy -ComputerName *destination server* -Force
+   ```
 
 ## <a name="see-also"></a>Siehe auch
 
