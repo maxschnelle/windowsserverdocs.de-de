@@ -8,12 +8,12 @@ ms.date: 3/27/2018
 ms.localizationpriority: medium
 ms.topic: article
 author: christianmontoya
-ms.openlocfilehash: 5b3f162b8eee70fbc452b7400b737454c3fffb59
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: ca9484cc8abffcc21b4ed11756fb009b55046a0c
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63712655"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870972"
 ---
 # <a name="set-up-email-discovery-to-subscribe-to-your-rds-feed"></a>Einrichten der E-Mail-Erkennung zum Abonnieren deines RDS-Feeds
 
@@ -38,4 +38,4 @@ Führe nun die folgenden Schritte zum Einrichten der E-Mail-Erkennung aus:
 
    Die Namen der Felder für DNS-Einträge variieren je nach Domänennamen-Registrierungsstelle, mit diesen Schritten erhältst du jedoch einen TXT-Eintrag namens „_msradc.\<Domänenname\> (etwa „_msradc.contoso.com“) mit einem Wert des vollständigen RD-Feeds.
 
-Das war schon alles! Starte jetzt die Remotedesktopanwendung auf deinem Gerät, und abonniere deinen eigenen Feed!
+Das war's. Starte jetzt die Remotedesktopanwendung auf deinem Gerät, und abonniere deinen eigenen Feed!
