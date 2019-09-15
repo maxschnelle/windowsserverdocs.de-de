@@ -8,12 +8,12 @@ ms.date: 02/13/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: f90ffe5b6a81ab1b4c2616dce08c98cbd8c065b4
-ms.sourcegitcommit: a35ce5b166175c905edd09005b94e96ad48c57a7
+ms.openlocfilehash: c5a3012b989a16c8416a17460b87e197f7f6fc6a
+ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70936969"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70987413"
 ---
 # <a name="use-storage-migration-service-to-migrate-a-server"></a>Verwenden von Storage Migration Service zum Migrieren eines Servers
 
@@ -34,8 +34,7 @@ Bevor Sie beginnen, installieren Sie den Speicher Migrationsdienst, und stellen 
     - Windows-Verwaltungsinstrumentation (DCOM-in)
     - Windows-Verwaltungsinstrumentation (WMI-In)
 
-   > [!NOTE]
-   > Wenn Sie Firewalls von Drittanbietern verwenden, sind die zu öffnenden eingehenden Port Bereiche TCP/445 (SMB), TCP/135 (RPC/DCOM Endpoint Mapper) und TCP 1025-65535 (kurzlebige RPC/DCOM-Ports). Die Ports für den Speicher Migrationsdienst sind TCP/28940 (Orchestrator) und TCP/28941 (Proxy).
+   Wenn Sie Firewalls von Drittanbietern verwenden, sind die zu öffnenden eingehenden Port Bereiche TCP/445 (SMB), TCP/135 (RPC/DCOM Endpoint Mapper) und TCP 1025-65535 (kurzlebige RPC/DCOM-Ports). Die Ports für den Speicher Migrationsdienst sind TCP/28940 (Orchestrator) und TCP/28941 (Proxy).
 
 1. Wenn Sie einen Orchestrator-Server zum Verwalten der Migration verwenden und Ereignisse oder ein Protokoll der übertragenden Daten herunterladen möchten, überprüfen Sie, ob die Firewallregel für die Datei-und Druckerfreigabe (SMB-in) ebenfalls auf diesem Server aktiviert ist.
 
@@ -43,16 +42,10 @@ Bevor Sie beginnen, installieren Sie den Speicher Migrationsdienst, und stellen 
 
 In diesem Schritt geben Sie an, welche Server migriert werden sollen, und Scannen Sie anschließend, um Informationen zu Ihren Dateien und Konfigurationen zu sammeln.
 
-1. Wählen Sie **Neuer Auftrag**aus, benennen Sie den Auftrag, und klicken Sie dann auf **OK**.
-2. Geben Sie auf der Seite **Anmelde Informationen eingeben** Administrator Anmelde Informationen ein, die auf den Servern funktionieren, von denen Sie migrieren möchten, und klicken Sie dann auf **weiter**.
+1. Wählen Sie **Neuer Auftrag**, benennen Sie den Auftrag, und wählen Sie dann aus, ob Windows-Server und-Cluster oder Linux-Server mit Samba migriert werden sollen. Klicken Sie dann auf **OK**.
+2. Geben Sie auf der Seite **Anmelde Informationen eingeben** Administrator Anmelde Informationen ein, die auf den Servern funktionieren, von denen Sie migrieren möchten, und klicken Sie dann auf **weiter**. <br>Wenn Sie von Linux-Servern migrieren, geben Sie stattdessen Anmelde Informationen auf den Seiten für **Samba-Anmelde** Informationen und **Linux-Anmelde** Informationen ein, einschließlich eines SSH-Kennworts oder privaten Schlüssels 
 
-   > [!NOTE]
-   > Wenn Sie die Migration von Linux-Samba-Servern ausgewählt haben, gibt es einen zusätzlichen Schritt, um ein SSH-Kennwort oder einen privaten Schlüssel anzugeben.
-
-3. Wählen Sie **Gerät hinzufügen**aus, geben Sie einen Quell Servernamen ein, und klicken Sie dann auf **OK**. <br>Wiederholen Sie dies für alle anderen Server, die Sie inventarisieren möchten.
-
-   > [!NOTE]
-   > Wenn Sie die Migration von einem Failovercluster ausgewählt haben, geben Sie den Namen der geclusterten Dateiserver Ressource an.
+3. Wählen Sie **Gerät hinzufügen**aus, geben Sie einen Quell Servernamen oder den Namen eines gruppierten Dateiservers ein, und klicken Sie dann auf **OK**. <br>Wiederholen Sie diesen Schritt für alle anderen Server, die Sie inventarisieren möchten.
 
 4. Wählen Sie Überprüfung **starten**aus.<br>Die Seite wird aktualisiert und zeigt an, wann die Überprüfung beendet ist.
     ![Screenshot, der einen zu überprüfenden](media/migrate/inventory.png) **Server anzeigt Abbildung 2: Inventarisierung von Servern**
@@ -64,15 +57,19 @@ In diesem Schritt geben Sie an, welche Server migriert werden sollen, und Scanne
 In diesem Schritt übertragen Sie die Daten, nachdem Sie angegeben haben, wo Sie auf den Ziel Servern abgelegt werden sollen.
 
 1. Geben Sie auf der Seite Anmelde Informationen für **Übertragungsdaten** > **eingeben** Administrator Anmelde Informationen ein, die auf den Ziel Servern funktionieren, zu denen Sie migrieren möchten, und klicken Sie dann auf **weiter**.
-2. Auf der Seite **Zielgerät und Zuordnungen hinzufügen** wird der erste Quell Server aufgeführt. Geben Sie den Namen des Servers ein, zu dem Sie migrieren möchten, und wählen Sie dann **Gerät scannen**aus.
-
-   > [!NOTE]
-   > Wenn Sie sich für die Migration zu einem Failovercluster entschieden haben, geben Sie den Namen der geclusterten Dateiserver Ressource an.
-
+2. Auf der Seite **Zielgerät und Zuordnungen hinzufügen** wird der erste Quell Server aufgeführt. Geben Sie den Namen des Servers oder des gruppierten Dateiservers ein, zu dem Sie migrieren möchten, und wählen Sie dann **Gerät scannen**aus.
 3. Ordnen Sie die Quellvolumes den Zielvolumes zu, deaktivieren Sie das Kontrollkästchen **einschließen** für alle Freigaben, die Sie nicht übertragen möchten (einschließlich administrativer Freigaben im Windows-Systemordner), und klicken Sie dann auf **weiter**.
    ![Screenshot, der einen Quell Server und seine Volumes und Freigaben anzeigt und an den Sie in der Ziel](media/migrate/transfer.png) **Abbildung 3 übertragen werden: Einen Quell Server und an den Speicherort, an den der Speicher übertragen wird**
 4. Fügen Sie einen Zielserver und Zuordnungen für alle weiteren Quell Server hinzu, und klicken Sie dann auf **weiter**.
-5. Passen Sie die Übertragungs Einstellungen optional an, und klicken Sie dann auf **weiter**.
+5. Geben Sie auf der Seite **Übertragungs Einstellungen anpassen** an, ob lokale Benutzer und Gruppen auf den Quell Servern migriert werden sollen, und klicken Sie dann auf **weiter**. Auf diese Weise können Sie lokale Benutzer und Gruppen auf den Ziel Servern neu erstellen, damit die Datei-oder Freigabe Berechtigungen, die auf lokale Benutzer und Gruppen festgelegt sind, nicht verloren gehen. Im folgenden finden Sie die Optionen für die Migration lokaler Benutzer und Gruppen:
+
+    - **Konten mit demselben Namen umbenennen** ist standardmäßig ausgewählt und migriert alle lokalen Benutzer und Gruppen auf dem Quell Server. Wenn lokale Benutzer oder Gruppen mit demselben Namen auf der Quelle und dem Ziel gefunden werden, werden Sie auf dem Ziel umbenannt, es sei denn, Sie sind integriert (z. b. der Administrator Benutzer und die Gruppe "Administratoren").
+    - Bei **der Wiederverwendung von Konten mit demselben Namen** werden die Namen Benutzer und Gruppen auf der Quelle und dem Ziel identisch benannt.
+    - **Übertragen Sie keine Benutzer und Gruppen** , die die Migration lokaler Benutzer und Gruppen überspringen, was beim Seeding von Daten für DFS-Replikation erforderlich ist (DFS-Replikation unterstützt keine lokalen Gruppen und Benutzer).
+
+   > [!NOTE]
+   > Migrierte Benutzerkonten werden auf dem Ziel deaktiviert und ein 127-Zeichen Kennwort zugewiesen, das sowohl komplex als auch zufällig ist. Daher müssen Sie Sie aktivieren und ein neues Kennwort zuweisen, wenn Sie nicht mehr verwenden möchten. Dadurch wird sichergestellt, dass alle alten Konten mit vergessenen und schwachen Kenn Wörtern auf der Quelle kein Sicherheitsproblem auf dem Ziel darstellen. Möglicherweise möchten Sie auch die [lokale Administrator Kennwort-Lösung (Runden)](https://www.microsoft.com/download/details.aspx?id=46899) als Möglichkeit zum Verwalten von lokalen Administrator Kennwörtern ansehen.
+
 6. Wählen Sie überprüfen **, und klicken Sie dann** auf **weiter**.
 7. Wählen Sie **Übertragung starten** , um die Datenübertragung zu starten<br>Wenn Sie das erste Mal übertragen, verschieben wir alle vorhandenen Dateien in einem Ziel in einen Sicherungsordner. Bei nachfolgenden Übertragungen aktualisieren wir das Ziel standardmäßig, ohne es zuerst zu sichern. <br>Außerdem ist der Storage Migration Service intelligent genug, um überlappende Freigaben zu umgehen – wir kopieren dieselben Ordner nicht zweimal in denselben Auftrag.
 8. Überprüfen Sie nach Abschluss der Übertragung den Zielserver, um sicherzustellen, dass alles ordnungsgemäß übertragen wurde. Wählen Sie **nur Fehlerprotokoll** aus, wenn Sie ein Protokoll aller Dateien herunterladen möchten, die nicht übertragen wurden.
@@ -92,13 +89,12 @@ Wenn Sie die Dateien mit Azure synchronisieren möchten, können Sie die Zielser
 
 In diesem Schritt können Sie die Quell Server auf die Zielserver übertragen und die IP-Adressen und Computernamen auf die Zielserver verschieben. Nachdem dieser Schritt abgeschlossen ist, greifen apps und Benutzer über die Namen und Adressen der Server, von denen aus migriert wurde, auf die neuen Server zu.
 
-1. Wenn Sie vom Migrations Auftrag aus navigiert sind, navigieren Sie im Windows Admin Center zu **Server-Manager** > **Storage Migration Service** , und wählen Sie dann den Auftrag aus, den Sie ausführen möchten. 
+1. Wenn Sie vom Migrations Auftrag aus navigiert sind, navigieren Sie im Windows Admin Center zu **Server-Manager** > **Storage Migration Service** , und wählen Sie dann den Auftrag aus, den Sie ausführen möchten.
 2. Wählen Sie auf der Seite zum**eingeben der Anmelde** Informationen **für neue Server** > die Option **weiter** aus, um die zuvor eingegebenen Anmelde Informationen zu verwenden.
 
-    > [!NOTE]
-   > Wenn es sich bei dem Ziel um einen Cluster Dateiserver handelt, müssen Sie möglicherweise Anmelde Informationen mit Berechtigungen angeben, um den Cluster aus der Domäne zu entfernen, und ihn dann wieder mit dem neuen Namen hinzufügen. 
+   Wenn es sich bei dem Ziel um einen Cluster Dateiserver handelt, müssen Sie möglicherweise Anmelde Informationen mit Berechtigungen angeben, um den Cluster aus der Domäne zu entfernen, und ihn dann wieder mit dem neuen Namen hinzufügen.
 
-3. Geben Sie auf der Seite **Konfigurieren des umgebers** an, welche Netzwerkadapter für die einzelnen Quell Geräteeinstellungen übernommen werden sollen. Dadurch wird die IP-Adresse von der Quelle zum Ziel als Teil des umgebers verschoben. Sie haben die Möglichkeit, alle Netzwerk Migrationen oder bestimmte Schnittstellen zu überspringen. Wenn Sie den Server überschreiten, müssen Sie für die Quell Schnittstellen immer DHCP oder eine neue statische IP-Adresse angeben.
+3. Geben Sie auf der Seite **Konfigurieren des umgebers** an, welcher Netzwerkadapter auf dem Ziel die Einstellungen der einzelnen Adapter auf der Quelle übernehmen soll. Dadurch wird die IP-Adresse von der Quelle zum Ziel im Rahmen der Umstellung verschoben, sodass der Quell Server eine neue DHCP-oder statische IP-Adresse hat. Sie haben die Möglichkeit, alle Netzwerk Migrationen oder bestimmte Schnittstellen zu überspringen. 
 4. Geben Sie an, welche IP-Adresse für den Quell Server verwendet werden soll, nachdem der Umstellung seine Adresse zum Ziel verschoben hat. Sie können DHCP oder eine statische Adresse verwenden. Wenn eine statische Adresse verwendet wird, muss das neue Subnetz mit dem alten Subnetz identisch sein, oder der Umstellung schlägt fehl.
     ![Screenshot, der einen Quell Server und seine IP-Adressen und Computernamen anzeigt und nach dem Umstellung](media/migrate/cutover.png) **-Wert 4 ersetzt wird: Einen Quell Server und die Art und Weise, wie die Netzwerkkonfiguration auf das Ziel verschoben wird**
 5. Geben Sie an, wie der Quell Server umbenannt werden soll, nachdem der Zielserver seinen Namen übernommen hat. Sie können einen zufällig generierten Namen verwenden oder einen selbst eingeben. Klicken Sie dann auf **weiter**.

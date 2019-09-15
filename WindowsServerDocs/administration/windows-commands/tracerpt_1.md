@@ -1,6 +1,6 @@
 ---
 title: tracerpt
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7c105fe714e30866297e4f6c3c83a670ff7966a6
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 25014d23c797f37dcc488b5fea20c73907eb6f4c
+ms.sourcegitcommit: feec5cbe983c8c5800ccd4fc214914084fcceaba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440972"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975301"
 ---
 # <a name="tracerpt"></a>tracerpt
 
 
 
-Die **Tracerpt** Befehl kann verwendet werden, um die Protokolle der Ereignisablaufverfolgung, Protokolldateien, die vom Systemmonitor und die Echtzeit-Ereignisablaufverfolgung-Anbieter zu analysieren. Dumpdateien, Dateien und Schemas der Bericht generiert.
+Der **tracerpt** -Befehl kann zum Analysieren von Ereignis Ablauf Verfolgungs Protokollen, Protokolldateien, die vom System Monitor generiert werden, und Echtzeit-Ereignis Ablauf Verfolgungs Anbietern verwendet werden. Er generiert Dumpdateien, Berichtsdateien und Berichts Schemas.
 
-Beispiele zur Verwendung für **Tracerpt**, finden Sie unter [Beispiele](#BKMK_EXAMPLES).
+Beispiele für die Verwendung von **tracerpt**finden Sie unter [Beispiele](#BKMK_EXAMPLES).
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,49 +36,49 @@ tracerpt <[-l] <value [value [...]]>|-rt <session_name [session_name [...]]>> [o
 
 ## <a name="options"></a>Optionen
 
-|              Optionsflags               |                                                                    Beschreibung                                                                    |
+|              Optionsflag               |                                                                    Beschreibung                                                                    |
 |----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
-|                   -?                   |                                                         Zeigt, die kontextbezogene Hilfe an.                                                          |
-|          -config \<filename>           |                                                 Laden Sie eine Datei, die Befehlsoptionen enthält.                                                  |
-|                   -y                   |                                                  Beantworten Sie Ja, alle Fragen ohne Eingabeaufforderung.                                                   |
-|                -f \<XML                |                                                                       HTML>                                                                       |
-|               -of \<CSV                |                                                                       EVTX                                                                        |
-|            -df \<Dateiname >             |                                            Erstellen Sie eine Microsoft-spezifische zählen/berichterstellung-Schemadatei.                                            |
-|            Int - \<Dateiname >            |                                            Sichern Sie die Ereignisstruktur interpretierte in der angegebenen Datei.                                            |
-|                  Rts-                  |                        Melden Sie unformatierte Zeitstempel in der Kopfzeile der Ereignis-Ablaufverfolgung. Kann nur mit nicht - Bericht oder -Summary -o, verwendet werden.                         |
-|            -Tmf \<Dateiname >            |                                                  Geben Sie eine Definitionsdatei für die Ablaufverfolgung-Nachrichtenformat.                                                  |
-|              -Tp \<Wert >              |                            Geben Sie den Pfad der TMF suchen. Mehrere Pfade können verwendet werden, getrennt durch ein Semikolon (;).                            |
-|              -i \<Wert >               | Geben Sie den Pfad des Anbieters Image. Die entsprechende PDB-Datei wird in den Symbolserver befinden. Mehrere Pfade können verwendet werden, getrennt durch ein Semikolon (;). |
-|             -pdb \<value>              |                             Geben Sie den Pfad des Symbolservers an. Mehrere Pfade können verwendet werden, getrennt durch ein Semikolon (;).                             |
-|                  -gmt                  |                                              Konvertieren Sie WPP Nutzlast Zeitstempel Greenwich Mean Time an.                                               |
-|              -Rl \<Wert >              |                                               Definieren Sie die System-Berichtsebene von 1 bis 5. Standardwert ist 1.                                               |
-|          -Übersicht [Dateiname]           |                                  Generieren Sie eine Textdatei Zusammenfassungsbericht. Der Dateiname nicht angegeben ist ' Summary.txt '.                                   |
-|             -o [Dateiname]              |                                      Generieren Sie eine Textdatei für die Ausgabe an. Der Dateiname nicht angegeben ist "dumpfile.xml".                                      |
-|           -Berichts [Dateiname]           |                                  Generieren Sie einen Bericht textausgabedatei an. Der Dateiname nicht angegeben ist workload.xml.                                   |
-|                  -lr                   |                        Geben Sie "weniger restriktiv." Dabei wird die bestmögliche Weise verwendet, für Ereignisse, die nicht das Ereignisschema übereinstimmen.                         |
-|           – Exportieren Sie die [Dateiname]           |                                  Generieren Sie eine Exportdatei Ereignisschema. Der Dateiname nicht angegeben ist "Schema.man".                                   |
-|       [-l]. \<Wert wie [[...]] >        |                                                   Geben Sie die Ereignisablaufverfolgung-Protokolldatei zu verarbeiten.                                                    |
-| -rt \<Session_name [Session_name [...]] > |                                                Geben Sie die Datenquellen in Echtzeit Ereignisablaufverfolgungs-Sitzung.                                                |
+|                   -?                   |                                                         Zeigt kontextabhängige Hilfe an.                                                          |
+|          -Konfigurations \<Dateiname >           |                                                 Lädt eine Einstellungsdatei, die Befehlsoptionen enthält.                                                  |
+|                   -y                   |                                                  Antworten Sie auf Ja, um alle Fragen zu beantworten.                                                   |
+|            -f \<XML\|-HTML->             |                                                                  Berichtsformat.                                                                   |
+|         -von \<CSV\|-evtx\|-XML->          |                                                         Dumpformat, der Standardwert ist XML.                                                          |
+|            -DF \<Dateiname >             |                                            Erstellen Sie eine Microsoft-spezifische zählungs-/Berichterstattungs-Schema Datei.                                            |
+|            -int \<Dateiname >            |                                            Die interpretierte Ereignis Struktur wird in der angegebenen Datei gespeichert.                                            |
+|                  -RTS                  |                        Berichts rohzeit Stempel im Ereignis Ablauf Verfolgungs Header. Kann nur mit-o, nicht-Report oder-Summary verwendet werden.                         |
+|            -TMF \<Dateiname >            |                                                  Geben Sie eine Definitionsdatei für die Ablauf Verfolgungs Meldung an.                                                  |
+|              -TP \<-Wert >              |                            Geben Sie den TMF-Datei Suchpfad an. Es können mehrere Pfade verwendet werden, die durch ein Semikolon (;) getrennt sind.                            |
+|              -i \<-Wert >               | Geben Sie den Pfad des Anbieter Images an. Die übereinstimmende PDB wird auf dem Symbol Server gefunden. Es können mehrere Pfade verwendet werden, getrennt durch ein Semikolon (;). |
+|             -PDB \<-Wert >              |                             Geben Sie den Pfad des Symbol Servers an. Es können mehrere Pfade verwendet werden, getrennt durch ein Semikolon (;).                             |
+|                  -GMT                  |                                              Konvertieren von WPP-Nutz Last Zeitstempel in Greenwich Mean Time.                                               |
+|              -RL \<-Wert >              |                                               Definieren Sie die System Berichts Ebene zwischen 1 und 5. Der Standardwert ist 1.                                               |
+|          -Summary [Dateiname]           |                                  Generieren Sie eine Zusammenfassungs Bericht-Textdatei. Der Dateiname, wenn er nicht angegeben ist                                   |
+|             -o [Dateiname]              |                                      Generiert eine Textausgabe Datei. Dateiname, wenn nicht angegeben                                      |
+|           -Bericht [Dateiname]           |                                  Generiert eine textausgabeberichtsdatei. Der Dateiname, wenn er nicht angegeben wird                                   |
+|                  -LR                   |                        Geben Sie "weniger restriktiv" an. Dies verwendet die bestmöglichen Anstrengungen für Ereignisse, die nicht dem Ereignis Schema entsprechen.                         |
+|           -Export [Dateiname]           |                                  Generieren Sie eine Ereignis Schema-Exportdatei. Der Dateiname, wenn nicht angegeben, ist Schema. man.                                   |
+|       [-l] \<Wert [Wert [...]] >        |                                                   Geben Sie die zu verarbeitende Ereignis Ablauf Verfolgungs Protokoll-Datei an.                                                    |
+| -RT \<session_name [session_name [...]] > |                                                Geben Sie Datenquellen für Ereignis Ablauf Verfolgungs Sitzungen in Echtzeit an.                                                |
 
-## <a name="BKMK_EXAMPLES"></a>Beispiele für
+## <a name="BKMK_EXAMPLES"></a>Beispiele
 
-- Dieses Beispiel erstellt einen Bericht basierend auf den zwei Ereignisprotokollen **logfile1.etl** und **logfile2.etl** und erstellt die Speicherabbilddatei **logdump.xml** im XML-Format.  
+- In diesem Beispiel wird ein Bericht erstellt, der auf den beiden Ereignisprotokollen **logfile1. ETL** und **logfile2. ETL** basiert und die Dumpdatei **logdump. XML** im XML-Format erstellt.  
   ```
   tracerpt logfile1.etl logfile2.etl -o logdump.xml -of XML
   ```  
-- Dieses Beispiel erstellt einen Bericht anhand der im Ereignisprotokoll **logfile.etl**, erstellt die Speicherabbilddatei **logdmp.xml** im XML-Format erzeugt verwendet bestmögliche Weise zur Identifizierung von Ereignissen, die nicht im Schema eine Zusammenfassungsbericht-Datei **logdump.txt**, und erzeugt die Berichtsdatei **logrpt.xml**.  
+- In diesem Beispiel wird ein Bericht erstellt, der auf dem Ereignisprotokoll **logfile. ETL**basiert, die Dumpdatei " **logdmp. XML** " im XML-Format erstellt, die bestmöglichen Maßnahmen zur Identifizierung von Ereignissen, die sich nicht im Schema befinden, erstellt und eine Zusammenfassungs Bericht Datei " **logdump. txt**" erstellt. Berichtsdatei " **logrpt. XML**".  
   ```
   tracerpt logfile.etl -o logdmp.xml -of XML -lr -summary logdmp.txt -report logrpt.xml
   ```  
-- Dieses Beispiel verwendet die zwei Ereignisprotokolle **logfile1.etl** und **logfile2.etl** um eine Dumpdatei und die Berichtsdatei mit der Standard-Dateinamen zu erzeugen.  
+- In diesem Beispiel werden die beiden Ereignisprotokolle **logfile1. ETL** und **logfile2. ETL** verwendet, um eine Dumpdatei und eine Berichtsdatei mit den Standard Dateinamen zu entwickeln.  
   ```
   tracerpt logfile1.etl logfile2.etl -o -report
   ```  
-- In diesem Beispiel verwendet das Ereignisprotokoll **logfile.etl** und das Leistungsprotokoll **counterfile.blg** zum Erzeugen der Berichtsdatei **logrpt.xml** und das Microsoft-spezifische XML-Schema Datei **"Schema.xml"** .  
+- In diesem Beispiel werden das Ereignisprotokoll **logfile. ETL** und das Leistungs Protokoll **counterfile. blg** verwendet, um die Berichtsdatei " **logrpt. XML** " und die Microsoft-spezifische XML-Schema Datei " **Schema. XML**" zu entwickeln.  
   ```
   tracerpt logfile.etl counterfile.blg -report logrpt.xml -df schema.xml
   ```  
-- In diesem Beispiel liest die in Echtzeit Ereignisablaufverfolgungs-Sitzung "NT Kernel Logger" und erzeugt die Dumpdatei **logfile.csv** im CSV-Format.  
+- In diesem Beispiel wird die Ereignis Ablauf Verfolgungs Sitzung "NT Kernel Logger" in Echtzeit gelesen und die Dumpdatei " **logfile. CSV** " im CSV-Format erstellt.  
   ```
   tracerpt -rt "NT Kernel Logger" -o logfile.csv -of CSV
   ```

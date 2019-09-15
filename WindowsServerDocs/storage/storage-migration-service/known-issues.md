@@ -8,16 +8,20 @@ ms.date: 07/09/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: 2200c41bfc6f7e50d4f85f48591a12ad35720062
-ms.sourcegitcommit: 86350de764b89ebcac2a78ebf32631b7b5ce409a
+ms.openlocfilehash: 16e62d9232d0ec1b01333d73bc5b4a1555ffbad0
+ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70923364"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70987406"
 ---
 # <a name="storage-migration-service-known-issues"></a>Bekannte Probleme bei Storage Migration Service
 
 Dieses Thema enthält Antworten auf bekannte Probleme bei der Verwendung von [Storage Migration Service](overview.md) zum Migrieren von Servern.
+
+Storage Migration Service wird in zwei Teilen veröffentlicht: der-Dienst in Windows Server und die Benutzeroberfläche im Windows Admin Center. Der Dienst ist in Windows Server, langfristig Wartungs Kanal sowie Windows Server, halbjährlicher Kanal, verfügbar. Obwohl Windows Admin Center als separater Download verfügbar ist. Wir schließen auch regelmäßig Änderungen an kumulativen Updates für Windows Server ein, die über Windows Update veröffentlicht werden. 
+
+Beispielsweise enthält Windows Server, Version 1903, neue Features und Korrekturen für den Speicher Migrationsdienst, die auch für Windows Server 2019 und Windows Server, Version 1809, verfügbar sind, indem Sie [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534)installieren.
 
 ## <a name="collecting-logs"></a>Sammeln von Protokolldateien beim Arbeiten mit Microsoft-Support
 
@@ -109,7 +113,7 @@ Dieses Verhalten ist beabsichtigt, um Konnektivitätsprobleme nach der Migration
 
 Um dieses Problem zu umgehen, führen Sie eine Migration zu einem Computer im gleichen Netzwerk durch. Verschieben Sie diesen Computer dann in ein neues Netzwerk, und weisen Sie seine IP-Informationen erneut zu. Wenn Sie beispielsweise eine Migration zu Azure IaaS durchführen, führen Sie zuerst eine Migration zu einer lokalen VM durch, und verwenden Sie dann Azure migrate, um den virtuellen Computer in Azure  
 
-Dieses Problem wurde in einem späteren Release von Windows Admin Center behoben. Nun können Sie Migrationen angeben, die die Netzwerkeinstellungen des Zielservers nicht ändern. Die aktualisierte Erweiterung wird hier aufgelistet, wenn Sie veröffentlicht wird. 
+Dieses Problem wurde in einem späteren Release von Windows Admin Center behoben. Wir ermöglichen es Ihnen jetzt, Migrationen anzugeben, die die Netzwerkeinstellungen des Zielservers nicht ändern. Die aktualisierte Erweiterung wird hier aufgelistet, wenn Sie veröffentlicht wird. 
 
 ## <a name="validation-warnings-for-destination-proxy-and-credential-administrative-privileges"></a>Validierungs Warnungen für den Ziel Proxy und Administratorrechte für Anmelde Informationen
 
@@ -120,7 +124,7 @@ Beim Validieren eines Übertragungs Auftrags werden folgende Warnungen angezeigt
  > **Der Ziel Proxy ist registriert.**
  > Warnung: Der Ziel Proxy wurde nicht gefunden.
 
-Wenn Sie den Speicher Migrationsdienst-Proxy Dienst auf dem Zielcomputer mit Windows Server 2019 nicht installiert haben, oder wenn der Zielcomputer Windows Server 2016 oder Windows Server 2012 R2 ist, ist dieses Verhalten Entwurfs bedingt. Es wird empfohlen, zu einem Windows Server 2019-Computer zu migrieren, auf dem der Proxy installiert ist  
+Wenn Sie den Speicher Migrationsdienst-Proxy Dienst auf dem Windows Server 2019-Zielcomputer nicht installiert haben, oder wenn der Zielcomputer Windows Server 2016 oder Windows Server 2012 R2 ist, ist dieses Verhalten Entwurfs bedingt. Es wird empfohlen, zu einem Windows Server 2019-Computer zu migrieren, auf dem der Proxy installiert ist  
 
 ## <a name="certain-files-do-not-inventory-or-transfer-error-5-access-is-denied"></a>Bestimmte Dateien werden nicht inventarisiert oder übertragen, Fehler 5: "Zugriff verweigert"
 
@@ -129,7 +133,7 @@ Bei der Inventarisierung oder Übertragung von Dateien von einer Quell-auf einen
   Protokoll Name:      Microsoft-Windows-storagemigrationservice-Proxy/debugquelle:        Microsoft-Windows-storagemigrationservice-Proxy Datum:          2/26/2019 9:00:04 Uhr Ereignis-ID:      10000 Aufgaben Kategorie: Keine Ebene:         Fehler Schlüsselwörter:      
   Benutzer:          Netzwerkdienst Computer: SRV1.contoso.com Beschreibung:
 
-  02/26/2019-09:00:04.860 [ERRO] Übertragungsfehler für \\SRV1. ". com\public\indy.png": (5) der Zugriff wurde verweigert.
+  02/26/2019-09:00:04.860 [Fehler] Übertragungsfehler für \\SRV1.... (5) der Zugriff wurde verweigert.
 Stapel Überwachung: bei Microsoft. storagemigration. Proxy. Service. Transfer. filedirutils. OpenFile (Zeichenfolge Dateiname, desiredAccess desiredAccess, share Mode Share Mode, kreationdisposition erationdisposition, flagsandattribute flagsandattribute) unter Microsoft. storagemigration. Proxy. Service. Transfer. filedirutils. gettargetfile (Zeichen folgen Pfad) bei Microsoft. storagemigration. Proxy. Service. Transfer. filedirutils. gettargetfile (FileInfo-Datei) unter Microsoft. storagemigration. Proxy. Service. Transfer. Filetransfer. initializesourcefileingefo () bei Microsoft. storagemigration. Proxy. Service. Transfer. Filetransfer. Transfer () at Microsoft. storagemigration. Proxy. Service. Transfer. Filetransfer. trytransfer () [d:\os\src\base\dms\proxy\transfer\transferproxy\filetransfer.cs:: trytransfer:: 55]
 
 
@@ -139,7 +143,7 @@ Um dieses Problem zu beheben, installieren Sie [Windows Update 2. April 2019 –
 
 ## <a name="dfsr-hashes-mismatch-when-using-storage-migration-service-to-preseed-data"></a>Nicht übereinstimmende DFSR-Hashes bei der Verwendung von Storage Migration Service zum vorab Seed von Daten
 
-Wenn Sie den Speicher Migrationsdienst zum Übertragen von Dateien an ein neues Ziel verwenden und dann die DFS-Replikation (DFSR) konfigurieren, um diese Daten mit einem vorhandenen DFSR-Server durch die Press-oder DFSR-Daten Bank Klonen zu replizieren, wird für alle Dateien ein Hash verwendet. nicht übereinstimmende und werden erneut repliziert. Die Datenströme, Sicherheitsdaten Ströme, Größen und Attribute werden nach der Verwendung von SMS für die Übertragung der Datenströme angezeigt. Wenn Sie die Dateien mit icacls oder dem Klon-Debugprotokoll der DFSR-Datenbank Überprüfung
+Wenn Sie den Speicher Migrationsdienst zum Übertragen von Dateien an ein neues Ziel verwenden, können Sie die DFS-Replikation (DFSR) zum Replizieren dieser Daten mit einem vorhandenen DFSR-Server über die vorab bereitgestellte Replikation oder das Klonen von DFSR-Datenbanken konfigurieren. nicht übereinstimmende und werden erneut repliziert. Die Datenströme, Sicherheitsdaten Ströme, Größen und Attribute werden nach der Verwendung von SMS für die Übertragung der Datenströme angezeigt. Wenn Sie die Dateien mit icacls oder dem Klon Debugprotokoll der DFSR-Datenbank untersuchen, werden folgende
 
 Quelldatei:
 
@@ -171,7 +175,7 @@ Wenn Sie versuchen, die Übertragungs-oder Fehlerprotokolle am Ende eines Übert
 
 Dieser Fehler wird erwartet, wenn Sie die Firewallregel "Datei-und Druckerfreigabe (SMB-in)" auf dem Orchestrator-Server nicht aktiviert haben. Zum Herunterladen von Windows Admin Center-Dateien ist Port TCP/445 (SMB) auf verbundenen Computern erforderlich.  
 
-## <a name="error-couldnt-transfer-storage-on-any-of-the-endpoints-when-transfering-from-windows-server-2008-r2"></a>Fehler "der Speicher konnte bei der Übertragung von Windows Server 2008 R2 nicht an einen der Endpunkte übertragen werden.
+## <a name="error-couldnt-transfer-storage-on-any-of-the-endpoints-when-transferring-from-windows-server-2008-r2"></a>Fehler "der Speicher konnte bei der Übertragung von Windows Server 2008 R2 nicht an einen der Endpunkte übertragen werden.
 
 Beim Versuch, Daten von einem Windows Server 2008 R2-Quellcomputer zu übertragen, erhalten Sie keine Datenübertragungen, und Sie erhalten eine Fehlermeldung:  
 
@@ -202,10 +206,10 @@ Die Untersuchung des storagemigrationservice/Admin-Ereignis Protokolls zeigt Fol
 
 Die Untersuchung des storagemigrationservice-Proxy/Debug-Protokolls zeigt Folgendes:
 
-   07/02/2019-13:35:57.231 [ERRO] Überprüfung der Übertragung fehlgeschlagen. ErrorCode 40961, der Quell Endpunkt ist nicht erreichbar oder nicht vorhanden, oder die Quell Anmelde Informationen sind ungültig, oder der authentifizierte Benutzer verfügt nicht über ausreichende Zugriffsberechtigungen.
+   07/02/2019-13:35:57.231 [Fehler] Fehler bei der Überprüfung der Übertragung. ErrorCode 40961, der Quell Endpunkt ist nicht erreichbar oder nicht vorhanden, oder die Quell Anmelde Informationen sind ungültig, oder der authentifizierte Benutzer verfügt nicht über ausreichende Zugriffsberechtigungen.
 bei Microsoft. storagemigration. Proxy. Service. Transfer. transferoperation. Validate () bei Microsoft. storagemigration. Proxy. Service. Transfer. transferrequesthandler. ProcessRequest (filetransferrequest filetransferrequest, GUID operationId)    [d:\os\src\base\dms\proxy\transfer\transferproxy\transferrequesthandler.cs::
 
-Dieser Fehler wird erwartet, wenn Ihr Migrations Konto nicht mindestens über Lese Zugriffsberechtigungen für die SMB-Freigaben verfügt. Um diesen Fehler zu umgehen, fügen Sie eine Sicherheitsgruppe mit dem Quell Migrations Konto zu den SMB-Freigaben auf dem Quellcomputer hinzu, und erteilen Sie Lese-, Änderungs-oder Vollzugriff. Nachdem die Migration abgeschlossen ist, können Sie diese Gruppe entfernen. In einer zukünftigen Version von Windows Server kann dieses Verhalten geändert werden, sodass keine expliziten Berechtigungen für die Quell Freigaben mehr erforderlich sind.
+Dieser Fehler wird erwartet, wenn Ihr Migrations Konto nicht mindestens über Lese Zugriffsberechtigungen für die SMB-Freigaben verfügt. Um diesen Fehler zu umgehen, fügen Sie eine Sicherheitsgruppe mit dem Quell Migrations Konto zu den SMB-Freigaben auf dem Quellcomputer hinzu, und erteilen Sie Lese-, Änderungs-oder Vollzugriff. Nachdem die Migration abgeschlossen ist, können Sie diese Gruppe entfernen.
 
 ## <a name="error-0x80005000-when-running-inventory"></a>Fehler 0x80005000 beim Ausführen des Inventars.
 

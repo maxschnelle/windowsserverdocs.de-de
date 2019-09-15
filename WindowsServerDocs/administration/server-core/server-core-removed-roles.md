@@ -7,12 +7,12 @@ ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 02/23/2018
-ms.openlocfilehash: ce5107e8e0ab573df7588428db65c8b223cf1f13
-ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
+ms.openlocfilehash: 882410792c7b8df8a8275c357d64fc17c9f3479e
+ms.sourcegitcommit: feec5cbe983c8c5800ccd4fc214914084fcceaba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476518"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975263"
 ---
 # <a name="roles-role-services-and-features-not-in-windows-server---server-core"></a>Rollen, Rollen Dienste und Features, die nicht in Windows Server Server Core enthalten sind
 
@@ -25,68 +25,67 @@ Die folgenden Rollen, Rollen Dienste und Features wurden aus der Server Core-Ins
 
 ## <a name="roles-not-in-server-core"></a>Rollen nicht in Server Core
 
-- Fax
-- Multipointserverrole
-- NPAS
-- WDS
+- Faxserver (**Fax**)
+- Multipoint Services (**multipointserverrole**)
+- Netzwerk Richtlinien-und Zugriffs Dienste (**npas**)
+- Windows-Bereitstellungs Dienste (Windows Deployment Services,**WDS**) *(vor Windows Server Version 1803)*
 
 ## <a name="role-services-not-in-server-core"></a>Rollen Dienste nicht in Server Core
 Beachten Sie, dass einige Remotedesktop-Rollen Dienste in Server Core (Verbindungs Broker, Lizenzierung, Virtualisierungshost) enthalten sind, andere jedoch nicht (Gateway, RD-Sitzungshost, Webzugriff).
 
-- Print-Scan-Server
-- Drucken/Internet
-- RDS-Gateway
-- RDS-RD-Server
-- RDS-Web-Access
-- Web-Mgmt-Konsole
-- Web-lgcy-Mgmt-Console
-- WDS-Bereitstellung
-- WDS-Transport *(vor Windows Server-Version 1803)*
+- Druck-und Dokumentdienste \ Server für verteilte Scanvorgänge (**Print-Scan-Server**)
+- Druck-und Dokumentdienste \ Internet Druck (**Print-Internet**)
+- Remotedesktopdienste \ Remotedesktop Gateway (**RDS-Gateway**)
+- Remotedesktopdienste \ Remotedesktop-Sitzungshost (**RDS-RD-Server**)
+- Remotedesktopdienste \ Remotedesktop Webzugriff (**RDS-Web-Access**)
+- Rollen Dienst-Webserver (IIS) \ Verwaltungs Tools \ IIS-Verwaltungskonsole (**Web-Mgmt-Konsole**)
+- Rollen Dienst-Webserver (IIS) \ Verwaltungs Tools \ IIS 6-Verwaltungs Kompatibilität \ IIS 6-Verwaltungskonsole (**Web-lgcy-Mgmt-Console**)
+- Windows-Bereitstellungs Dienste \ Bereitstellungs Server (**WDS-Bereitstellung**)
+- Windows-Bereitstellungs Dienste \ Transport Server (**WDS-Transport**) *(vor Windows Server-Version 1803)*
 
 ## <a name="features-not-in-server-core"></a>Features nicht in Server Core
-
-- BITS-IIS-ext
-- BitLocker-networkunlock
-- Direkt Wiedergabe
-- Internet-Print-Client
-- LPR-Port-Monitor
-- MSMQ-Multicasting
-- CMAK
-- Remote Unterstützung
-- RSAT-SMTP
-- RSAT-Feature-Tools-BitLocker-RemoteAdminTool
-- RSAT-BITS-Server
-- RSAT-NLB
-- RSAT-SNMP
-- RSAT-WINS
-- Hyper-V-Tools
-- RSAT-RDS-Tools
-- RSAT-RDS-Gateway
-- RSAT-RDS-Licensing-Diagnose-UI
-- RDS-Lizenzierung-Benutzeroberfläche
-- Updateservices-UI
-- RSAT-ADCS
-- RSAT-ADCs-Mgmt
-- RSAT-Online-Responder
-- RSAT-ADRMS
-- RSAT-Fax
-- RSAT-Dateidienste
-- RSAT-DFS-Mgmt-con
-- RSAT-"RSRM-Mgmt"
-- RSAT-NFS-admin
-- RSAT-NPAS
-- RSAT-Druckdienste
-- RSAT-VA-Tools
-- WDS-Adminpack
-- SMTP-Server
-- TFTP-Client
-- WebDAV-Redirector
-- Biometrische Framework
-- Windows-Defender-GUI
-- Windows-Identity-Foundation
-- PowerShell-ISE
-- Search-Service
-- Windows-TIFF-IFilter
-- Drahtlose Netzwerke
-- XPS-Viewer
-
+- Bits (Bits) \ IIS-Server Erweiterung (**BITS-IIS-ext**)
+- BitLocker-Netzwerk Entsperrung (**BitLocker-networkunlock**)
+- Direkte Wiedergabe (**Direct-Play**)
+- Internet Druck Client (**Internet-Print-Client**)
+- LPR-Port Monitor (**LPR-Port-Monitor**)
+- Message Queuing \ Message Queuing Services \ Multicasting-Unterstützung (**MSMQ-Multicasting**)
+- RAS-Verbindungs-Manager-Verwaltungskit (**CMAK**)
+- Remote Unterstützung (**Remote**Unterstützung)
+- Remoteserver-Verwaltungstools \ Feature-Verwaltungs Tools \ SMTP-Server Tools (**rsat-SMTP**)
+- Remoteserver-Verwaltungstools \ Featureverwaltungstools \ BitLocker-Laufwerkverschlüsselung Administration Utilities \ BitLocker-Laufwerkverschlüsselung Tools (**rsat-Feature-Tools-BitLocker-RemoteAdminTool**)
+- Remoteserver-Verwaltungstools \ Feature-Verwaltungs Tools \ BITS-Server Erweiterungs Tools (**rsat-BITS-Server**)
+- Remoteserver-Verwaltungstools \ Features Verwaltungs Tools \ Netzwerklastenausgleichs **-Tools (RSAT-NLB**)
+- Remoteserver-Verwaltungstools \ Features Verwaltungs Tools \ SNMP-Tools (**rsat-SNMP**)
+- Remoteserver-Verwaltungstools \ Feature-Verwaltungs Tools \ WINS-Server Tools (**rsat-WINS**)
+- Remoteserver-Verwaltungstools \ Rollen Verwaltungs Tools \ Hyper-v-Verwaltungs Tools \ Hyper-v-GUI-Verwaltungs Tools (**Hyper-v-Tools**)
+- Remoteserver-Verwaltungstools \ Rollen Verwaltungs Tools \ Remotedesktopdienste Tools \ Remotedesktop gatewaytools (**rsat-RDS-Tools**)
+- Remoteserver-Verwaltungstools \ Rollen Verwaltungs Tools \ Remotedesktopdienste Tools \ Remotedesktop gatewaytools (**rsat-RDS-Gateway**)
+- Remoteserver-Verwaltungstools \ Rollen Verwaltungs Tools \ Remotedesktopdienste Tools \ Remotedesktop Lizenzierungs Diagnosetools (**rsat-RDS-Licensing-Diagno-UI**)
+- Remoteserver-Verwaltungstools \ Rollen Verwaltungs Tools \ Remotedesktopdienste Tools \ Remotedesktop Lizenzierungs Tools (**RDS-Licensing-UI**)
+- Remoteserver-Verwaltungstools \ Rollen Verwaltungs Tools \ Windows Server Update Services Tools \ Benutzeroberfläche Verwaltungskonsole (**updateservices-UI**)
+- Remoteserver-Verwaltungstools \ Rollen Verwaltungs Tools \ Active Directory Certificate Services-Tools (**rsat-ADCs**)
+- Remoteserver-Verwaltungstools \ Rollen Verwaltungs Tools \ Active Directory zertifikatdienstetools \ Zertifizierungsstellen-Verwaltungs Tools (**rsat-ADCs-Mgmt**)
+- Remoteserver-Verwaltungstools \ Rollen Verwaltungs Tools \ Active Directory Certificate Services Tools \ Online-Respondertools (**rsat-Online-Responder**)
+- Remoteserver-Verwaltungstools \ Rollen Verwaltungs Tools \ Active Directory Rights Management Services Tools (**rsat-ADRMS**)
+- Remoteserver-Verwaltungstools \ Rollen Verwaltungs Tools \ Faxserver Tools (**rsat-Fax**)
+- Remoteserver-Verwaltungstools \ Rollen Verwaltungs Tools \ Dateidienste Tools (**rsat-File-Services**)
+- Remoteserver-Verwaltungstools \ Rollen Verwaltungs Tools \ Dateidienste Tools \ DFS-Verwaltungs Tools (**rsat-DFS-Mgmt-con**)
+- Remoteserver-Verwaltungstools \ Rollen Verwaltungs Tools \ Dateidienste Tools \ Datei Server Ressourcen-Manager Tools (**rsat-f-Mgmt**)
+- Remoteserver-Verwaltungstools \ Rollen Verwaltungs Tools \ Dateidienste Tools \ Dienste für Netzwerkdatei System-Verwaltungs Tools (**rsat-NFS-admin**)
+- Remoteserver-Verwaltungstools \ Rollen Verwaltungs Tools \ Tools für Netzwerk Richtlinien-und Zugriffs Dienste (**rsat-NPAS**)
+- Remoteserver-Verwaltungstools \ Rollen Verwaltungs Tools \ Druck-und Dokumentdienste Tools (**rsat-Print-Services**)
+- Remoteserver-Verwaltungstools \ Rollen Verwaltungs Tools \ Volumen Aktivierungs Tools (**rsat-VA-Tools**)
+- Remoteserver-Verwaltungstools \ Rollen Verwaltungs Tools \ Tools der Windows-Bereitstellungs Dienste (**WDS-Adminpack**)
+- Einfache TCP/IP-Dienste (**Simple-tcpip**)
+- SMTP-Server (**SMTP-Server**)
+- TFTP-Client (**TFTP-Client**)
+- WebDAV-Redirector (**WebDAV-Redirector**)
+- Windows-Biometrieframework (**biometrische Framework**)
+- Windows Defender Features \ GUI für Windows Defender (**Windows-Defender-GUI**)
+- Windows Identity Foundation 3,5 (**Windows-Identity-Foundation**)
+- Windows PowerShell \ Windows PowerShell ISE (**PowerShell-ISE**)
+- Windows-Suchdienst (**Search-Service**)
+- Windows-TIFF-IFilter (**Windows-TIFF-IFilter**)
+- Drahtloser LAN-Dienst (**Drahtlos Netzwerke**)
+- XPS-Viewer (**XPS-Viewer**)

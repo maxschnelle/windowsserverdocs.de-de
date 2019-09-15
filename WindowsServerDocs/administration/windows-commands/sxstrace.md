@@ -1,6 +1,6 @@
 ---
 title: sxstrace
-description: Erfahren Sie, wie Sie die Seite-an-Seite Probleme zu diagnostizieren.
+description: Erfahren Sie, wie Sie parallele Probleme diagnostizieren können.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,49 +13,49 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 396d06bf079c0cfa8ba4864f71333eec39f7b255
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dbc8dad642e15dede1ce89105a501fd90224610b
+ms.sourcegitcommit: feec5cbe983c8c5800ccd4fc214914084fcceaba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814101"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975306"
 ---
 # <a name="sxstrace"></a>sxstrace
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Seite-an-Seite-Probleme diagnostizieren.    
+Diagnostizieren paralleler Probleme    
 
 ## <a name="syntax"></a>Syntax  
 ```  
-sxstrace [{[trace /logfile:<FileName> [/nostop]|[parse /logfile:<FileName> /outfile:<ParsedFile>  [/filter:<AppName>]}]  
+sxstrace [{[trace -logfile:<FileName> [-nostop]|[parse -logfile:<FileName> -outfile:<ParsedFile>  [-filter:<AppName>]}]  
 ```  
 
 ### <a name="parameters"></a>Parameter  
 |Parameter|Beschreibung|  
 |-------|--------|  
-|Ablaufverfolgung|Aktiviert die Ablaufverfolgung für Sxs (Seite-an-Seite)|  
-|/logfile|Gibt die reinen Log-Datei.|  
-|\<FileName>|Protokoll für die speichert *FileName*.|  
-|/nostop|Gibt an, keine Aufforderung zum Beenden der Ablaufverfolgung.|  
-|Analysieren|Übersetzt die unformatierten Ablaufverfolgungsdatei an.|  
-|/outfile|Gibt an, der Name der Ausgabedatei.|  
-|\<ParsedFile>|Gibt den Dateinamen der analysierten Datei.|  
-|/filter|Kann die Ausgabe gefiltert werden sollen.|  
-|\<AppName>|Gibt den Namen der Anwendung.|  
-|stoptrace|Beenden Sie die Ablaufverfolgung aus, wenn sie nicht vor dem beendet wurde.|  
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|  
+|Ablauf Verfolgungs|Aktiviert die Ablauf Verfolgung für SxS (Seite an Seite).|  
+|-Logfile|Gibt die unformatierte Protokolldatei an.|  
+|\<Dateiname >|Speichert das Ablauf Verfolgungs Protokoll in *filename*.|  
+|-nostoppt|Gibt keine Aufforderung zum Abbrechen der Ablauf Verfolgung an.|  
+|Analysieren|Übersetzt die RAW-Ablauf Verfolgungs Datei.|  
+|-outfile|Gibt den Ausgabe Dateinamen an.|  
+|\<> Für das von Dateien|Gibt den Dateinamen der analysierten Datei an.|  
+|-Filter|Ermöglicht das Filtern der Ausgabe.|  
+|\<AppName->|Gibt den Namen der Anwendung an.|  
+|stoptrace|Beenden Sie die Ablauf Verfolgung, wenn Sie noch nicht beendet wurde.|  
+|-?|Zeigt die Hilfe an der Eingabeaufforderung an.|  
 
-## <a name="BKMK_Examples"></a>Beispiele für  
-Aktivieren der Ablaufverfolgung, und speichern Sie die Ablaufverfolgungsdatei **sxstrace.etl**:  
+## <a name="BKMK_Examples"></a>Beispiele  
+Aktivieren Sie die Ablauf Verfolgung, und speichern Sie die Ablauf Verfolgungs Datei in **sxstrace. ETL**:  
 ```  
-sxstrace trace /logfile:sxstrace.etl  
+sxstrace trace -logfile:sxstrace.etl  
 ```  
-Die unformatierten Ablaufverfolgungsdatei in einem vom Menschen lesbaren Format übersetzen, und Speichern des Ergebnisses, **sxstrace.txt**:  
+Übersetzen Sie die unformatierte Ablauf Verfolgungs Datei in ein lesbares Format, und speichern Sie das Ergebnis in **sxstrace. txt**:  
 ```  
-sxstrace parse /logfile:sxstrace.etl /outfile:sxstrace.txt  
+sxstrace parse -logfile:sxstrace.etl -outfile:sxstrace.txt  
 ```  
 
 ## <a name="additional-references"></a>Weitere Verweise  
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
