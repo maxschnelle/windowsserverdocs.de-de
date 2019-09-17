@@ -66,6 +66,9 @@
 
 ## Zugriff auf Remotedesktopressourcen
 ### [Verfügbare Remotedesktopclients](clients/remote-desktop-clients.md)
+### Windows-Desktop-Client
+#### [Erste Schritte mit dem Windows-Desktop-Client](clients/windowsdesktop.md)
+#### [Neuigkeiten im Windows-Desktop-Client](clients/windowsdesktop-whatsnew.md)
 ### Windows Store-Client
 #### [Erste Schritte mit dem Windows Store-Client](clients/windows.md)
 #### [Neuigkeiten zum Windows Store-Client](clients/windows-whatsnew.md)

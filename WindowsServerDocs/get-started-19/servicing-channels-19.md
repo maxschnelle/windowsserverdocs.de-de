@@ -8,12 +8,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
 ms.date: 05/21/2019
-ms.openlocfilehash: cdb831eb772114b86e6260063dff6ad881f2f37b
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 639623b4ebb21a4f6a0025a71721204cbfc4f496
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280342"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868598"
 ---
 # <a name="windows-server-servicing-channels-ltsc-and-sac"></a>Windows Server-Wartungskanäle: LTSC und SAC
 
@@ -25,7 +25,7 @@ Sie können Server im Long-Term Servicing Channel (LTSC) belassen, sie in den ha
 
 ## <a name="long-term-servicing-channel-ltsc"></a>Long-Term Servicing Channel (LTSC)
 
-Sie sind mit diesem Releasemodell bereits vertraut (es wurde früher „Long-Term Servicing *Branch*“ genannt), in dem alle 2 bis 3 Jahre eine neue Hauptversion von Windows Server veröffentlicht wird. Benutzer haben Anspruch auf 5 Jahre Mainstream-Support und 5 Jahre erweiterten Support. Dieser Kanal eignet sich für Systeme, die eine längere Wartungsoption und funktionale Stabilität erfordern. Bereitstellungen von Windows Server 2016 und frühere Versionen von Windows Server sind von den Releases im neuen Semi-Annual Channel nicht betroffen. Der Long-Term Servicing Channel erhält weiterhin sicherheitsrelevante und nicht sicherheitsrelevante Updates, jedoch keine neuen Features und Funktionen.
+Sie sind mit diesem Releasemodell bereits vertraut (es wurde früher „Long-Term Servicing *Branch*“ genannt), in dem alle 2 bis 3 Jahre eine neue Hauptversion von Windows Server veröffentlicht wird. Benutzer haben Anspruch auf 5 Jahre Mainstreamsupport und 5 Jahre erweiterten Support. Dieser Kanal eignet sich für Systeme, die eine längere Wartungsoption und funktionale Stabilität erfordern. Bereitstellungen von Windows Server 2016 und frühere Versionen von Windows Server sind von den Releases im neuen Semi-Annual Channel nicht betroffen. Der Long-Term Servicing Channel erhält weiterhin sicherheitsrelevante und nicht sicherheitsrelevante Updates, jedoch keine neuen Features und Funktionen.
 
 > [!Note]  
 > **Das aktuelle LTSC-Produkt ist Windows Server 2019**. Wenn Sie diesen Kanal beibehalten möchten, sollten Sie Windows Server 2019 installieren (oder weiterhin nutzen), der im Server Core-Installationsmodus oder als Server mit der Desktopdarstellungs-Installationsoption installiert werden kann.
@@ -56,7 +56,7 @@ In der folgenden Tabelle sind die wichtigsten Unterschiede zwischen den Kanälen
 |                       |                                                              Long-Term Servicing Channel (Windows Server 2019)                                                               |                                   Halbjährlicher Kanal (Windows Server)                                   |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
 | Empfohlene Szenarien | Dateiserver für allgemeine Zwecke, von Microsoft und nicht von Microsoft stammende Workloads, herkömmliche Apps, Infrastruktur-Rollen, softwaredefinierte Rechenzentren und hyperkonvergente Infrastruktur | Anwendungen in Containern, Container-Hosts und Anwendungsszenarien, die von schneller Innovation profitieren |
-|     Neue Releases      |                                                                               Alle 2–3 Jahre                                                                                |                                              Alle sechs Monate                                              |
+|     Neue Versionen      |                                                                               Alle 2–3 Jahre                                                                                |                                              Alle 6 Monate                                              |
 |        Support        |                                                       5 Jahre grundlegender Support und 5 Jahre erweiterter Support                                                        |                                                18 Monate                                                 |
 |       Editionen        |                                                                    Alle verfügbaren Editionen von Windows Server                                                                     |                                     Standard Edition und Datacenter Edition                                     |
 |      Für wen nutzbar      |                                                                      Alle Kunden über alle Kanäle                                                                      |                               Nur Software Assurance- und Cloud-Kunden                                |

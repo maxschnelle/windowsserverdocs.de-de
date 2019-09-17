@@ -10,12 +10,12 @@ ms.date: 07/11/2018
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.localizationpriority: high
-ms.openlocfilehash: 425197d3462762c60a7371fc6ca529ad1b70e7ef
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 9bd2b17296872d4b94de5a7468178fbb2ba39709
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66443370"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868397"
 ---
 # <a name="upload-a-windows-server-20082008-r2-specialized-image-to-azure"></a>Hochladen eines spezialisierten Windows Server 2008/2008 R2-Images auf Azure 
 
@@ -104,7 +104,7 @@ In diesem Abschnitt stellen Sie die Image-VHD auf Azure bereit.
      c. Wählen Sie eine Größe und einen SKU-Plan für Ihre VM aus.   
      d. Wählen Sie auf der Seite „Einstellungen“ eine Netzwerkschnittstelle aus. Stellen Sie sicher, dass bei der Netzwerkschnittstelle die folgende Regel angegeben wurde:
  
-        PORT:3389 Protocol: TCP Action: Allow Priority: 1000 Name: ‘RDP-Rule’.   
+        PORT:3389 Protocol: TCP Action: Allow Priority: 1000 Name: ‘RDP-Rule'.   
      e. Klicken Sie auf **Erstellen**.
 
 
