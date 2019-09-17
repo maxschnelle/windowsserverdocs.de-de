@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: jaimeo
 manager: dougkim
-ms.openlocfilehash: 6320e9459e1460225a9920c2a23d596fa6bb4aa7
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 9e3b6640ac4da1226e708719e07076f872a5e503
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66805201"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870734"
 ---
 # <a name="optimizing-windows-10-version-1803-for-a-virtual-desktop-infrastructure-vdi-role"></a>Optimieren von Windows 10, Version 1803, für eine VDI-Rolle (Virtuelle Desktopinfrastruktur)
 
@@ -593,7 +593,7 @@ Dies wäre eine gute Einstellung, falls du Microsoft-Anwendungen wie Microsoft O
 
 Ein sehr wichtiger Aspekt für nicht dauerhafte VDI-VMs sind Sicherheitsupdates, einschließlich Definitionsdateien für Sicherheitssoftware. Diese Updates werden möglicherweise mindestens einmal pro Tag veröffentlicht. Möglicherweise können diese Updates einschließlich Windows Defender und Nicht-Microsoft-Komponenten beibehalten werden.
 
-Für Windows Defender kann es am besten sein, die Updates auch in einer nicht dauerhaften VDI zuzulassen. Die Updates werden in fast jeder Anmeldesitzung angewendet, aber sie sind klein und sollten kein Problem sein. Außerdem wird die VM bei Updates nicht im Rückstand sein, da nur die neuesten verfügbaren Versionen verwendet werden. Dasselbe gilt möglicherweise für Nicht-Microsoft-Definitionsdateien.
+Für Windows Defender kann es am besten sein, die Updates auch in einer nicht dauerhaften VDI zuzulassen. Die Updates werden in fast jeder Anmeldesitzung angewendet, aber sie sind klein und sollten kein Problem sein. Außerdem gelangen die VMs bei Updates nicht in Rückstand, da nur die neuesten verfügbaren Versionen verwendet werden. Dasselbe gilt möglicherweise für Nicht-Microsoft-Definitionsdateien.
 
 > [!NOTE]  
 > Store-Apps (UWP-Apps) werden über den Windows Store aktualisiert. Moderne Versionen von Office wie Office 365 werden über ihre eigenen Mechanismen aktualisiert, wenn sie direkt mit dem Internet verbunden sind, oder andernfalls über Management-Technologien.

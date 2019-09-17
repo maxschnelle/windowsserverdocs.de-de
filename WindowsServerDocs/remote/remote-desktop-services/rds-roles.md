@@ -8,12 +8,12 @@ ms.date: 07/06/2018
 ms.topic: article
 author: heidilohr
 manager: dougkim
-ms.openlocfilehash: 717f6c714ce95793a9a7b5fcf0ddd304c77daa32
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: e8b5928db1acf00abdeac1b7bfd4d435bc8f0a17
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63753175"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870769"
 ---
 # <a name="remote-desktop-services-roles"></a>Remotedesktopdienste: Rollen
 
@@ -72,7 +72,7 @@ Weitere Informationen finden Sie in den folgenden Artikeln:
 * [Remotedesktopdienste – ortsunabhängiger Zugriff](rds-plan-access-from-anywhere.md)
 * [Remote Desktop Services - Multi-Factor Authentication](rds-plan-mfa.md) (Remotedesktopdienste: mehrstufige Authentifizierung)
 
-## <a name="remote-desktop-web-access"></a>Web Access für Remotedesktop
+## <a name="remote-desktop-web-access"></a>Remotedesktop-Webzugriff
 
 Web Access für Remotedesktop (Web Access für RD) ermöglicht Benutzern den Zugriff auf Desktops und Anwendungen über ein Webportal und startet diese über die native Microsoft-Remotedesktop-Clientanwendung des Geräts. Über das Webportal kannst du Windows-Desktops und Anwendungen für Windows-basierte und Windows-fremde Clientgeräte veröffentlichen. Außerdem kannst du Desktops oder Apps wahlweise für bestimmte Benutzer oder Gruppen veröffentlichen.
 

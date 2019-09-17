@@ -8,12 +8,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: medium
 ms.date: 06/03/2019
-ms.openlocfilehash: e17a636c5bf06d194abd1bfe9b6d20970773e993
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: b5391677397660e3beacb9a71189bf3ffe2aeaab
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66501403"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868340"
 ---
 # <a name="whats-new-in-windows-server-version-1709"></a>Neuerungen in Windows Server, Version 1709
 
@@ -44,7 +44,7 @@ Weitere Informationen finden Sie unter [Vergleich der Wartungskanäle](https://d
 
 ## <a name="application-containers-and-micro-services"></a>Anwendungscontainer und Microservices
 
-- Das Server Core-Containerimage wurde für Lift & Shift-Szenarien weiter optimiert, in denen Sie vorhandenen Codebasen oder Anwendungen in Containern mit nur minimalen Änderungen migrieren können. Es ist zudem 60 % kleiner. 
+- Das Server Core-Containerimage wurde für Lift & Shift-Szenarien weiter optimiert, in denen Sie vorhandene Codebasen oder Anwendungen in Containern mit nur minimalen Änderungen migrieren können. Es ist zudem 60 % kleiner. 
 - Das Nano Server-Containerimage ist fast 80 % kleiner.
     - In Windows Server (halbjährlicher Kanal) wird Nano Server als ein Containerbasis-Betriebssystemimage von 390 MB auf 80 MB verkleinert.
 - Linux-Container mit Hyper-V-Isolation 
@@ -70,7 +70,7 @@ Weitere Informationen zu Containern finden Sie unter [Übersicht über Container
 
 **Virtualized Persistent Memory (vPMEM)** wird durch das Erstellen einer VHD-Datei (.vhdpmem) auf einem direkten Zugriffsvolume auf einem Host ermöglicht, wodurch ein vPMEM Controller auf einen VM und das erstelle Gerät (.vhdpmem) auf einen VM hinzugefügt wird. Das Verwenden von vhdpmem-Dateien auf Volumes mit direktem Zugriff auf einem Host zur Sicherung von vPMEM ermöglicht Zuordnungsflexibilität und nutzt ein vertrautes Verwaltungsmodell zum Hinzufügen von Datenträgern zum virtuellen Computer.
 
-**Containerspeicher – permanente Datenvolumes auf freigegebenen Clustervolumes (CSV)** . In Windows Server, Version 1709 und Windows Server 2016 mit den neuesten Updates haben wir Unterstützung für Container hinzugefügt, damit Sie auf permanente Datenvolumes auf freigegebenen Clustervolumes zugreifen können, einschließlich freigegebenen Clustervolumes für direkte Speicherplätze. Dadurch erhalten die Anwendungscontainer permanenten Zugriff auf das Volume, unabhängig davon, welchen Clusterknoten die Containerinstanz ausführt. Weitere Informationen finden Sie unter [Container Storage Support with Cluster Shared Volumes (CSV), Storage Spaces Direct (S2D), SMB Global Mapping](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/).
+**Containerspeicher – permanente Datenvolumes auf freigegebenen Clustervolumes (CSV)** . In Windows Server, Version 1709 und Windows Server 2016 mit den neuesten Updates haben wir Unterstützung für Container hinzugefügt, damit Sie auf permanente Datenvolumes auf freigegebenen Clustervolumes zugreifen können, einschließlich freigegebener Clustervolumes für direkte Speicherplätze. Dadurch erhalten die Anwendungscontainer permanenten Zugriff auf das Volume, unabhängig davon, welchen Clusterknoten die Containerinstanz ausführt. Weitere Informationen finden Sie unter [Container Storage Support with Cluster Shared Volumes (CSV), Storage Spaces Direct (S2D), SMB Global Mapping](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/).
 
 **Containerspeicher – permanente Datenvolumes mit SMB Global Mapping**. In Windows Server, Version 1709, wurde die Unterstützung für das Zuordnen einer SMB-Dateifreigabe auf einen Laufwerkbuchstaben in einem Container hinzugefügt. Dies wird als „SMB Global Mapping” bezeichnet. Dieses zugeordnete Laufwerk ist dann für alle Benutzer auf dem lokalen Server zugänglich, sodass das die Dateifreigabe der Container-E/A auf dem Datenvolume auf dem bereitgestellten Laufwerk die zugrunde liegende Dateifreigabe durchlaufen kann. Weitere Informationen finden Sie unter [Container Storage Support with Cluster Shared Volumes (CSV), Storage Spaces Direct (S2D), SMB Global Mapping](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/).
 
@@ -108,7 +108,7 @@ Weitere Informationen finden Sie unter [Übersicht über geschütztes Fabric und
 **RDS ist in Azure AD integriert**, sodass Kunden die Richtlinien für den bedingten Zugriff, die Multi-Factor Authentication, die integrierte Authentifizierung mit anderen SaaS-Apps durch Azure AD und vieles mehr nutzen können. Weitere Informationen finden Sie unter [Integrieren von Azure AD Domain Services mit der RDS-Bereitstellung](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-azure-adds).
 
 >[!TIP]
->Einen kurzen Einblick in andere interessante Neuigkeiten bei RDS finden Sie unter [Remote Desktop Services:Updates & upcoming innovations](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/20/first-look-at-updates-coming-to-remote-desktop-services/) (Remotedesktopdienste: Updates und bevorstehende Innovationen)
+>Einen kurzen Einblick in andere interessante Neuigkeiten bei RDS finden Sie unter [Remote Desktop Services: Updates & bevorstehende Neuerungen](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/20/first-look-at-updates-coming-to-remote-desktop-services/) (Remotedesktopdienste: Updates und bevorstehende Innovationen)
 
 ## <a name="networking"></a>Netzwerk
 

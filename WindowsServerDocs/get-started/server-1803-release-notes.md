@@ -13,12 +13,12 @@ author: lizap
 ms.author: elizapo
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: e9bd860769ec375a6d89ac452e3430b791fff3ad
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 506236cbb3893fe200b39aa1d58ed44cdbd9704a
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63688732"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868378"
 ---
 # <a name="release-notes-important-issues-in-windows-server-version-1803"></a>Versionshinweise: Wichtige Probleme in Windows Server, Version 1803
 
@@ -33,7 +33,7 @@ Dieser Artikel wird fortlaufend aktualisiert. Wenn Probleme bekannt werden, werd
 
 ## <a name="software-defined-datacenter"></a>Softwaredefiniertes Rechenzentrum
 
-Features des softwaredefinierten Rechenzentrums, wie z.B. „Direkte Speicherplätze“, Software-Defined Networking und geschützte virtuelle Computern sind in Windows Server, Version 1803, nicht enthalten. Wie unter [Update für Windows Server (halbjährlicher Kanal)](https://cloudblogs.microsoft.com/windowsserver/2018/03/29/windows-server-semi-annual-channel-update/) beschrieben, konzentriert sich der halbjährliche Kanal von Windows Server auf Container- und Anwendungsszenarien, die von schnelleren Innovationen profitieren. 
+Features des softwaredefinierten Rechenzentrums, wie z.B. „Direkte Speicherplätze“, Software-Defined Networking und geschützte virtuelle Computer, sind in Windows Server, Version 1803, nicht enthalten. Wie unter [Update für Windows Server (halbjährlicher Kanal)](https://cloudblogs.microsoft.com/windowsserver/2018/03/29/windows-server-semi-annual-channel-update/) beschrieben, konzentriert sich der halbjährliche Kanal von Windows Server auf Container- und Anwendungsszenarien, die von schnelleren Innovationen profitieren. 
 
 Wenn Sie die Infrastrukturrollen benötigen, verwenden Sie ein Long Term Servicing Channel-Release: Windows Server 2016 (jetzt verfügbar) oder [Windows Server-2019](https://cloudblogs.microsoft.com/windowsserver/2018/03/20/introducing-windows-server-2019-now-available-in-preview) (später in diesem Jahr verfügbar).
 

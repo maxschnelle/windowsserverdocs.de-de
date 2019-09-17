@@ -12,12 +12,12 @@ ms.topic: article
 author: lizap
 ms.author: elizapo
 ms.localizationpriority: medium
-ms.openlocfilehash: 18e20433050371dc02782fb8630a885e53ae31ad
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 4d1cdcfe8325a246e2752e1d1f2a3ad536598658
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63688703"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868571"
 ---
 # <a name="automatic-virtual-machine-activation"></a>Automatische Aktivierung virtueller Computer
 
@@ -41,7 +41,7 @@ Manager von Serverrechenzentren können AVMA für Folgendes verwenden:
 
 Es müssen keine Product Keys verwaltet und keine Aufkleber auf den Servern gelesen werden. Der virtuelle Computer wird aktiviert und weiterhin ausgeführt, auch wenn er zu einem Array mit Virtualisierungsservern migriert wird.
 
-Partner eines Dienstanbieter-Lizenzvertrags (SPLA) und andere Hostinganbieter müssen die Product Keys nicht an Mandanten weitergeben oder zur Aktivierung auf den virtuellen Computer eines Mandanten zugreifen. Die Aktivierung virtueller Computer ist für Mandanten leicht verständlich, wenn AVMA verwendet wird. Hostinganbieter können anhand der Serverprotokolle die Einhaltung der Lizenzvorschriften überprüfen und den Verlauf der Clientauslastung nachverfolgen.
+Partner eines Dienstanbieter-Lizenzvertrags (SPLA) und andere Hostinganbieter müssen die Product Keys nicht an Mandanten weitergeben oder zur Aktivierung auf den virtuellen Computer eines Mandanten zugreifen. Die Aktivierung virtueller Computer ist für Mandanten leicht verständlich, wenn AVMA verwendet wird. Hostinganbieter können anhand der Serverprotokolle die Einhaltung der Lizenzvorschriften überprüfen und den Verlauf der Clientauslastung nachverfolgen.
 
 ## <a name="system-requirements"></a>Systemanforderungen
 

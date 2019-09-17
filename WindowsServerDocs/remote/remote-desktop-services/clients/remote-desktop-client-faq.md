@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 07/16/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: e6f91aa02cd0f19d480c24309be5797c273b0f2e
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: e0dbe709681cf679347ccad2677ff3cda6690f3d
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66804948"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871235"
 ---
 # <a name="frequently-asked-questions-about-the-remote-desktop-clients"></a>Häufig gestellte Fragen zu Remotedesktopclients
 
@@ -81,7 +81,7 @@ Hier sind einige mögliche Lösungen für häufige Probleme angegeben, die ggf. 
 - **Es liegt ein Netzwerkproblem vor.** Stelle sicher, dass du über eine Internetverbindung verfügst. 
 - **Unter Umständen wird der Remotedesktopport von der Firewall blockiert.** Führe diese Schritte aus, wenn du die Windows-Firewall verwendest:
 
-  1. Öffne Windows-Firewall. 
+  1. Öffnen Sie Windows-Firewall. 
   2. Klicke auf **Eine App oder ein Feature durch die Windows-Firewall zulassen** . 
   3. Klicke auf **Einstellungen ändern**. Unter Umständen wirst du aufgefordert, ein Administratorkennwort einzugeben oder deine Auswahl zu bestätigen.
   4. Wähle unter **Zugelassene Apps und Features** die Option **Remotedesktop**, und tippe oder klicke dann auf **OK**.
@@ -93,7 +93,7 @@ Hier sind einige mögliche Lösungen für häufige Probleme angegeben, die ggf. 
 
 ### <a name="why-cant-i-find-or-connect-to-my-pc"></a>Warum kann ich meinen PC nicht finden oder eine Verbindung damit herstellen?
 
-Überprüfe Folgendes:
+Überprüfen Sie Folgendes:
 
 - Ist der PC eingeschaltet und aktiv?
 - Hast du den richtigen Namen bzw. die richtige IP-Adresse eingegeben?
@@ -234,7 +234,7 @@ Bei **RPC-Fehler 23014** oder **Fehler 0x59E6 Nach einigen Minuten noch einmal v
 ### <a name="what-does-the-failed-to-parse-ntlm-challenge-error-mean"></a>Was bedeutet der Fehler „Failed to parse NTLM challenge“ (Fehler beim Analysieren der NTLM-Abfrage)?
 Die Ursache dieses Fehlers ist eine fehlerhafte Konfiguration auf dem Remote-PC. Stelle sicher, dass die Einstellung für die RDP-Sicherheitsstufe auf dem Remote-PC auf „Client-kompatibel“ festgelegt ist. (Wende dich an deinen Systemadministrator, falls du hierbei Hilfe benötigst.)
 
-### <a name="what-does-tsrap-you-are-not-allowed-to-connect-to-the-given-host-mean"></a>Was bedeutet „TS_RAP You are not allowed to connect to the given host“ (TS_RAP: Du bist nicht berechtigt, eine Verbindung mit dem angegebenen Host herzustellen)?
+### <a name="what-does-ts_rap-you-are-not-allowed-to-connect-to-the-given-host-mean"></a>Was bedeutet „TS_RAP You are not allowed to connect to the given host“ (TS_RAP: Du bist nicht berechtigt, eine Verbindung mit dem angegebenen Host herzustellen)?
 Dieser Fehler tritt auf, wenn durch eine Ressourcenautorisierungsrichtlinie auf dem Gatewayserver verhindert wird, dass über deinen Benutzernamen eine Verbindung mit dem Remote-PC hergestellt wird. Dies kann in den folgenden Fällen passieren:
 
 - Der Name des Remote-PC ist mit dem Namen des Gateways identisch. Wenn du dann versuchst, eine Verbindung mit dem Remote-PC herzustellen, wechselt die Verbindung stattdessen zum Gateway. Hierfür hast du wahrscheinlich keine Zugriffsberechtigung. Falls du eine Verbindung mit dem Gateway herstellen musst, solltest du den Namen des externen Gateways nicht als PC-Name verwenden. Verwende stattdessen „localhost“ bzw. die IP-Adresse (127.0.0.1) oder den Namen des internen Servers.

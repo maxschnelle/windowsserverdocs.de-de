@@ -8,25 +8,25 @@ ms.suite: na
 ms.technology: remote-desktop-services
 ms.tgt_pltfrm: na
 ms.topic: article
-author: lizap
-manager: dongill
-ms.author: elizapo
-ms.date: 08/27/2019
+author: heidilohr
+manager: daveba
+ms.author: helohr
+ms.date: 09/11/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: a8ecdf217f847f495b2cb90dd3511a8db9e72c95
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 6a4a6ae860dc8eabc4856ff3aa66268ed8d588de
+ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70150986"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70987363"
 ---
 # <a name="whats-new-in-the-windows-store-client"></a>Neuigkeiten zum Windows Store-Client
 
-Der [Remotedesktopclient für Windows](windows.md) wird regelmäßig mit neuen Features und Problembehebungen aktualisiert. Im Anschluss findest du die neuesten Aktualisierungen.
+Der [Windows-Store-Client](windows.md) wird regelmäßig mit neuen Features und Problembehebungen aktualisiert. Hier findest du die neuesten Updates.
 
 ## <a name="updates-for-version-1011098"></a>Updates für Version 10.1.1098
 
-*Veröffentlichungsdatum: 15.03.2019*
+*Veröffentlicht am: 15.03.2019*
 
 - Du kannst nun einen Anzeigenamen für Benutzerkonten festlegen und dadurch den gleichen Benutzernamen mit verschiedenen Kennwörtern speichern.
 - Beim Hinzufügen von Remoteressourcen kann nun ein vorhandenes Benutzerkonto ausgewählt werden.
@@ -36,7 +36,7 @@ Der [Remotedesktopclient für Windows](windows.md) wird regelmäßig mit neuen F
 
 ## <a name="updates-for-version-1011088"></a>Updates für Version 10.1.1088
 
-*Veröffentlichungsdatum: 06.11.2018*
+*Veröffentlicht am: 06.11.2018*
 
 - Der Anzeigename der Verbindung ist jetzt leichter auffindbar.
 - Ein Absturz wurde behoben, der auftrat, wenn während einer aktiven Verbindung das Clientfenster geschlossen wurde.
@@ -47,7 +47,7 @@ Der [Remotedesktopclient für Windows](windows.md) wird regelmäßig mit neuen F
 
 ## <a name="updates-for-version-1011060"></a>Updates für Version 10.1.1060
 
-*Veröffentlichungsdatum: 14.09.2018*
+*Veröffentlicht am: 14.09.2018*
 
 - Ein Problem wurde behoben, das dazu führte, dass beim Doppelklicken auf eine Desktopverbindung zwei Sitzungen gestartet wurden.
 - Ein Absturz wurde behoben, der beim lokalen Wechseln zwischen virtuellen Desktops auftrat.
@@ -57,13 +57,13 @@ Der [Remotedesktopclient für Windows](windows.md) wird regelmäßig mit neuen F
 
 ## <a name="updates-for-version-1011046"></a>Updates für Version 10.1.1046
 
-*Veröffentlichungsdatum: 20.06.2018*
+*Veröffentlicht am: 20.6.2018*
 
 - Fehlerbehebungen
 
 ## <a name="updates-for-version-1011042"></a>Updates für Version 10.1.1042
 
-*Veröffentlichungsdatum: 02.04.2018*
+*Veröffentlicht am: 02.04.2018*
 
 - Aktualisierungen für die in CVE-2018-0886 beschriebene CredSSP-Encryption Oracle-Abwehr
 - Zusätzliche Fehlerbehebungen

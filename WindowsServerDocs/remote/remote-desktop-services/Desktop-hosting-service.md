@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: heidilohr
 manager: dougkim
-ms.openlocfilehash: 597016ecf10da0febb7ba1bb099da0c1dddf96ce
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 025b5d8791d0b847a38798d36ffa4bfa86e0b00c
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63749226"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871291"
 ---
 # <a name="desktop-hosting-service"></a>Desktophosting-Dienst
 
@@ -33,15 +33,15 @@ Der Desktophostingdienst des Anbieters wird als Gruppe isolierter Mandantenumgeb
 
 ## <a name="active-directory-domain-services"></a>Active Directory Domain Services
 
-Active Directory Domain Services (AD DS) stellt die Domänen- und Gesamtstrukturinformationen bereit, damit sich die Benutzer des Mandanten bei den Desktops und Anwendungen anmelden und ihre Workloads ausführen können. Dadurch kannst du auch Dateifreigaben und Datenbanken einrichten, die ggf. für Windows-Anwendungen erforderlich sind, und eine Verbindung mit ihnen herstellen.
+Active Directory Domain Services (AD DS) stellt die Domänen- und Gesamtstrukturinformationen bereit, damit sich die Benutzer des Mandanten bei den Desktops und Anwendungen anmelden und ihre Workloads ausführen können. Dadurch kannst du auch Dateifreigaben und Datenbanken einrichten, die ggf. für Windows-Anwendungen erforderlich sind, und eine Verbindung mit ihnen herstellen.
 
 Für Gesamtstruktur des Mandanten ist keine Vertrauensstellung für die Verwaltungsgesamtstruktur des Anbieters erforderlich. In der Domäne des Mandanten kann ein Domänenadministratorkonto eingerichtet werden, damit die Techniker des Anbieters administrative Aufgaben in der Mandantenumgebung wie etwa die Überwachung des Systemstatus und die Anwendung von Softwareupdates ausführen und bei der Problembehandlung und Konfiguration behilflich sein können.
 
 AD DS kann auf unterschiedliche Weise bereitgestellt werden:
 
 1. Du kannst Azure Active Directory Domain Services in der virtuellen Netzwerkumgebung des Mandanten aktivieren. Dadurch wird auf der Grundlage der in Azure AD vorhandenen Benutzer und Gruppen eine verwaltete AD DS-Instanz für den Mandanten erstellt.
-2. Du kannst einen eigenständigen AD DS-Server in der virtuellen Netzwerkumgebung des Mandanten einrichten. Dadurch erhältst du die vollständige Kontrolle über die auf virtuellen Computern ausgeführte AD DS-Instanz.
-3. Du kannst eine Site-to-Site-VPN-Verbindung mit einem lokalen AD DS-Server des Mandanten herstellen. Dadurch kann der Mandant eine Verbindung mit seiner vorhandenen AD DS-Instanz herstellen und die Duplizierung von Benutzern, Gruppen, Organisationseinheiten und Ähnlichem reduzieren.
+2. Du kannst einen eigenständigen AD DS-Server in der virtuellen Netzwerkumgebung des Mandanten einrichten. Dadurch erhältst du die vollständige Kontrolle über die auf virtuellen Computern ausgeführte AD DS-Instanz.
+3. Du kannst eine Site-to-Site-VPN-Verbindung mit einem lokalen AD DS-Server des Mandanten herstellen. Dadurch kann der Mandant eine Verbindung mit seiner vorhandenen AD DS-Instanz herstellen und die Duplizierung von Benutzern, Gruppen, Organisationseinheiten und Ähnlichem reduzieren.
 
 Weitere Informationen finden Sie in den folgenden Artikeln:
 

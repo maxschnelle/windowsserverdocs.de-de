@@ -9,12 +9,12 @@ ms.author: jgerend
 ms.localizationpriority: medium
 ms.date: 05/21/2019
 ms.topic: get-started-article
-ms.openlocfilehash: c0d85da8a51a43acd7765957b34220829a43b086
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 964139ac5fdaee4d580d29ab0f7543c7d5f15d0b
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66810708"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868458"
 ---
 # <a name="kms-client-setup-keys"></a>KMS-Clientsetupschlüssel
 
@@ -31,7 +31,7 @@ Wenn Sie für einen Computer die Umstellung von einem KMS-Host, einer MAK-Versio
 
 | Wenn Sie Folgendes erreichen möchten,…    | …verwenden Sie diese Ressourcen   |
 |--------------------|------------------------|
-| Beim Aktivieren von Windows außerhalb einer Volumeaktivierung (d.h., du versuchst, eine Einzelhandelsversion von Windows zu aktivieren) **funktionieren diese Schlüssel nicht**. | Verwenden Sie die folgenden Links für Einzelhandelsversionen von Windows: |
+| Aktivieren von Windows außerhalb einer Volumeaktivierung (d. h., Sie versuchen, eine Einzelhandelsversion von Windows zu aktivieren), dann **funktionieren diese Schlüssel nicht**. | Verwenden Sie die folgenden Links für Einzelhandelsversionen von Windows: |
 | Behebe diesen Fehler, der auftritt, wenn du versuchst, ein Windows 8.1-, Windows Server 2012 R2- oder höheres System zu aktivieren: "Fehler: 0xC004F050 Vom Softwarelizenzierungsdienst wurde ein ungültiger Product Key gemeldet."… | [Installieren Sie dieses Update](https://support.microsoft.com/en-us/help/3172614/july-2016-update-rollup-for-windows-8-1-and-windows-server-2012-r2) auf dem KMS-Host, wenn er Windows 8.1, Windows Server 2012 R2, Windows 8 oder Windows Server 2012 ausführt. |
 
 -   [Windows 10 Home oder Pro kaufen](https://www.microsoft.com/en-us/windows/get-windows-10)

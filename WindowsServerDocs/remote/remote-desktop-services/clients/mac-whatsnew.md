@@ -8,17 +8,17 @@ ms.suite: na
 ms.technology: remote-desktop-services
 ms.tgt_pltfrm: na
 ms.topic: article
-author: lizap
-manager: dongill
-ms.author: elizapo
-ms.date: 08/27/2019
+author: heidilohr
+manager: daveba
+ms.author: helohr
+ms.date: 09/11/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 9ae58103b00941bb71d447641b1cdab7c02fa20b
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 9fbd3e9c5f7938fbf6a80e9f5dc950a2c0a9a257
+ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70151019"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70987341"
 ---
 # <a name="whats-new-in-the-macos-client"></a>Neues beim macOS-Client
 
@@ -27,7 +27,7 @@ Der [Remotedesktopclient für macOS](remote-desktop-mac.md) wird regelmäßig mi
 Bei Problemen kannst du dich jederzeit gern über **Hilfe > Problem melden** an uns wenden.
 
 ## <a name="updates-for-version-1030"></a>Updates für Version 10.3.0
-*Veröffentlichungsdatum: 27.08.19*
+*Veröffentlicht am: 27.08.19*
 
 Seit der letzten Aktualisierung sind einige Wochen vergangen, aber wir haben in dieser Zeit hart gearbeitet. Version 10.3.0 bietet einige neue Features und viele Korrekturen hinter den Kulissen.
 
@@ -46,14 +46,14 @@ Seit der letzten Aktualisierung sind einige Wochen vergangen, aber wir haben in 
 
 ## <a name="updates-for-version-10213"></a>Updates für Version 10.2.13
 
-*Veröffentlichungsdatum: 8.5.2019*
+*Veröffentlicht am: 8.5.2019*
 
 - Ein Problem mit einer Blockade beim Herstellen einer Verbindung über ein Remotedesktopgateway wurde behoben.
 - Dem Dialogfeld „Feed hinzufügen“ wurde ein Datenschutzhinweis hinzugefügt.
 
 ## <a name="updates-for-version-10212"></a>Updates für Version 10.2.12
 
-*Veröffentlichungsdatum: 16.4.2019*
+*Veröffentlicht am: 16.4.2019*
 
 - Ein Problem mit zufälligen Verbindungstrennungen (mit Fehlercode 0x904) wurde behoben, das beim Herstellen einer Verbindung über ein Remotedesktopgateway auftrat.
 - Ein Fehler wurde korrigiert, der zu einer leeren Auflösungsliste in den Anwendungseinstellungen nach einer Installation führte.
@@ -62,20 +62,20 @@ Seit der letzten Aktualisierung sind einige Wochen vergangen, aber wir haben in 
 
 ## <a name="updates-for-version-10210"></a>Updates für Version 10.2.10
 
-*Veröffentlichungsdatum: 30.3.2019*
+*Veröffentlicht am: 30.3.2019*
 
 - In dieser Version haben wir eine Instabilität behoben, die durch ein kürzlich erfolgtes Update für macOS 10.14.4 verursacht wurde. Wir haben außerdem Darstellungsfehler bei der Decodierung von AVC-Codecdaten korrigiert, die von einem Server mit NVIDIA-Hardware codiert wurden.
 
 ## <a name="updates-for-version-1029"></a>Updates für Version 10.2.9
 
-*Veröffentlichungsdatum: 6.3.2019*
+*Veröffentlicht am: 6.3.2019*
 
 - In dieser Version haben wir ein Konnektivitätsproblem beim Remotedesktopgateway behoben, das bei einer Serverumleitung auftreten kann.
 - Wir haben auch eine Regression beim Remotedesktopgateway korrigiert, die durch das Update für 10.2.8 verursacht wurde.
 
 ## <a name="updates-for-version-1028"></a>Updates für Version 10.2.8
 
-*Veröffentlichungsdatum: 1.3.2019*
+*Veröffentlicht am: 1.3.2019*
 
 - Konnektivitätsprobleme wurden behoben, die beim Verwenden eines Remotedesktopgateways auftreten konnten.
 - Falsche Zertifikatwarnungen wurden korrigiert, die beim Herstellen einer Verbindung angezeigt wurden.
@@ -85,13 +85,13 @@ Seit der letzten Aktualisierung sind einige Wochen vergangen, aber wir haben in 
 
 ## <a name="updates-for-version-1027"></a>Updates für Version 10.2.7
 
-*Veröffentlichungsdatum: 6.2.2019*
+*Veröffentlicht am: 6.2.2019*
 
 - In dieser Version haben wir (durch einen Codierungsfehler auf dem Server entstandene) Grafikfehler korrigiert, die bei Verwendung des AVC444-Modus auftraten.
 
 ## <a name="updates-for-version-1026"></a>Updates für Version 10.2.6
 
-*Veröffentlichungsdatum: 28.1.2019*
+*Veröffentlicht am: 28.1.2019*
 
 - Wir haben Unterstützung für den AVC-Codec (420 und 444) hinzugefügt, der beim Herstellen einer Verbindung mit aktuellen Windows 10-Versionen verfügbar ist.
 - Im Modus „An Fenster anpassen“ erfolgt die Fensteraktualisierung jetzt sofort nach einer Größenänderung, um sicherzustellen, dass der Inhalt auf der richtigen Interpolationsstufe gerendert wird.
@@ -105,7 +105,7 @@ Seit der letzten Aktualisierung sind einige Wochen vergangen, aber wir haben in 
 
 ## <a name="updates-for-version-1024"></a>Updates für Version 10.2.4
 
-*Veröffentlichungsdatum: 18.12.2018*
+*Veröffentlicht am: 18.12.2018*
 
 - Unterstützung für den dunklen Modus für macOS Mojave 10.14 wurde hinzugefügt.
 - Im Connection Center wird jetzt eine Option zum Importieren aus Microsoft-Remotedesktop 8 angezeigt, falls es leer ist.
@@ -117,7 +117,7 @@ Seit der letzten Aktualisierung sind einige Wochen vergangen, aber wir haben in 
 
 ## <a name="updates-for-version-1023"></a>Updates für Version 10.2.3
 
-*Veröffentlichungsdatum: 06.11.2018*
+*Veröffentlicht am: 06.11.2018*
 
 - Unterstützung für die RDP-Dateieinstellung „remoteapplicationcmdline“ für Remote-App-Szenarien wurde hinzufügen.
 - Der Titel des Sitzungsfensters enthält jetzt den Namen der RDP-Datei (und den Servernamen), wenn das Fenster über eine RDP-Datei gestartet wurde.
@@ -133,7 +133,7 @@ Seit der letzten Aktualisierung sind einige Wochen vergangen, aber wir haben in 
 
 ## <a name="updates-for-version-1022"></a>Updates für Version 10.2.2
 
-*Veröffentlichungsdatum: 09.10.2018*
+*Veröffentlicht am: 09.10.2018*
 
 - Ein völlig neues Connection Center, das Drag & Drop-Vorgänge, die manuelle Gestaltung von Desktops, anpassbare Spalten im Listenansichtsmodus, spaltenbasiertes Sortieren und einfachere Gruppenverwaltung unterstützt.
 - Das Connection Center merkt sich jetzt beim Schließen der App das zuletzt aktive Element (Desktops oder Feeds).
@@ -162,14 +162,14 @@ Seit der letzten Aktualisierung sind einige Wochen vergangen, aber wir haben in 
 
 ## <a name="updates-for-version-1021"></a>Updates für Version 10.2.1
 
-*Veröffentlichungsdatum: 06.08.2018*
+*Veröffentlicht am: 06.08.2018*
 
 - Konnektivität mit über Azure Active Directory (AAD) eingebundenen PCs wurde ermöglicht. Um eine Verbindung mit einem über AAD eingebundenen PC herzustellen, muss dein Benutzername in einem der folgenden Formate vorliegen: „AzureAD\Benutzer“ oder „AzureAD\user@domain“.
 - Einige Fehler wurden korrigiert, die sich auf die Verwendung von Smartcards in einer Remotesitzung auswirkten.
 
 ## <a name="updates-for-version-1020"></a>Updates für Version 10.2.0
 
-*Veröffentlichungsdatum: 24.7.2018*
+*Veröffentlicht am: 24.7.2018*
 
 - Updates zum Zweck der Einhaltung der DSGVO wurden eingepflegt.
 - MicrosoftAccount\username@domain wird jetzt als gültiger Benutzername akzeptiert.
@@ -198,7 +198,7 @@ Seit der letzten Aktualisierung sind einige Wochen vergangen, aber wir haben in 
 
 ## <a name="updates-for-version-1018"></a>Updates für Version 10.1.8
 
-*Veröffentlichungsdatum: 4.5.2018*
+*Veröffentlicht am: 4.5.2018*
 
 - Unterstützung für das Ändern der Remoteauflösung durch Ändern der Größe des Sitzungsfensters wurde hinzugefügt.
 - Szenarien wurden korrigiert, in denen das Herunterladen von Remoteressourcenfeeds übermäßig lange dauerte.
@@ -206,7 +206,7 @@ Seit der letzten Aktualisierung sind einige Wochen vergangen, aber wir haben in 
 
 ## <a name="updates-for-version-1017"></a>Updates für Version 10.1.7
 
-*Veröffentlichungsdatum: 5.4.2018*
+*Veröffentlicht am: 5.4.2018*
 
 - Sicherheitsfixes zur Einbindung von CredSSP-Updates für „Encryption Oracle Remediation“, wie in CVE-2018-0886 beschrieben.
 - Das Rendering von RemoteApp-Symbol und -Mauszeiger wurde verbessert, um gemeldete Darstellungsfehler zu beheben.
@@ -220,7 +220,7 @@ Seit der letzten Aktualisierung sind einige Wochen vergangen, aber wir haben in 
 
 ## <a name="updates-for-version-1016"></a>Updates für Version 10.1.6
 
-*Veröffentlichungsdatum: 26.3.2018*
+*Veröffentlicht am: 26.3.2018*
 
 - Ein Problem wurde behoben, bei dem RemoteApp-Fenster sich selbst neu anordneten.
 - Ein Fehler wurde korrigiert, der dazu führte, dass einige RemoteApp-Fenster hinter dem übergeordneten Fenster hängenblieben.

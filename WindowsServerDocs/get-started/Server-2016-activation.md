@@ -14,12 +14,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 88cab1965e299c7d25c177125cb504432bf987e8
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 746434884701ba1a8a6781b485b3f1540abe975e
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66810648"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868423"
 ---
 # <a name="windows-server-2016-activation"></a>Windows Server 2016-Aktivierung
 
@@ -55,15 +55,15 @@ KMS kann physische und virtuelle Computer aktivieren. Zur Qualifikation für die
 
 KMS-Hosts zählen die Anzahl der neuesten Verbindungen. Wenn ein Client oder Server den KMS-Host kontaktiert, zählt der Host die Computer-ID als weiteren Computer und gibt dann die aktuelle Anzahl als Antwort zurück. Der Client oder Server wird aktiviert, wenn die Anzahl hoch genug ist. Clients werden aktiviert, wenn die Anzahl höher als 25 ist. Server und Volumenlizenzversionen von Microsoft Office-Produkten werden aktiviert, wenn die Anzahl fünf oder mehr ist. Der KMS zählt nur eindeutige Verbindungen der letzten 30 Tage und speichert nur die letzten 50 Kontakte.
 
-KMS-Aktivierungen sind 180 Tage lang gültig – dieser Zeitraum wird als Aktivierungsgültigkeitsintervall bezeichnet. Damit sie aktiviert bleiben, müssen KMS-Clients ihre Aktivierung erneuern, indem sie mindestens einmal alle 180 Tage eine Verbindung mit dem KMS-Host herstellen. KMS-Clientcomputer versuchen standardmäßig alle sieben Tage, ihre Aktivierung zu erneuern. Sobald die Aktivierung eines Clients erneuert worden ist, beginnt der Gültigkeitszeitraum der Aktivierung von vorne.
+KMS-Aktivierungen sind 180 Tage lang gültig – dieser Zeitraum wird als Aktivierungsgültigkeitsintervall bezeichnet. Damit sie aktiviert bleiben, müssen KMS-Clients ihre Aktivierung erneuern, indem sie mindestens einmal alle 180 Tage eine Verbindung mit dem KMS-Host herstellen. KMS-Clientcomputer versuchen standardmäßig alle sieben Tage, ihre Aktivierung zu erneuern. Sobald die Aktivierung eines Clients erneuert wurde, beginnt der Gültigkeitszeitraum der Aktivierung von vorne.
 
 # <a name="addressing-kms-functional-requirements"></a>KMS-Funktionsanforderungen
 
 Die KMS-Aktivierung erfordert eine TCP/IP-Verbindung. KMS-Hosts und -Clients sind standardmäßig für die Verwendung von Domain Name System (DNS) konfiguriert. KMS-Hosts verwenden standardmäßig dynamische DNS-Updates zum automatischen Veröffentlichen der erforderlichen Informationen, sodass KMS-Clients die Hosts erkennen und eine Verbindung mit ihnen herstellen können. Sie können diese Standardeinstellungen übernehmen oder KMS-Hosts und -Clients manuell konfigurieren, wenn Sie spezielle Anforderungen bezüglich der Netzwerk- und Sicherheitskonfigurationen haben.
 
-Nach dem Aktivieren des ersten KMS-Hosts, kann der dazu verwendete KMS-Schlüssel zum Aktivieren von bis zu fünf weiteren KMS-Hosts in Ihrem Netzwerk verwendet werden. Nach dem Aktivieren eines KMS-Hosts können Administratoren diesen Host bis zu neun Mal mit demselben Schlüssel erneut aktivieren.
+Nach dem Aktivieren des ersten KMS-Hosts, kann der dazu verwendete KMS-Schlüssel zum Aktivieren von bis zu fünf weiteren KMS-Hosts in Ihrem Netzwerk verwendet werden. Nach dem Aktivieren eines KMS-Hosts können Administratoren diesen Host bis zu neun Mal mit demselben Schlüssel erneut aktivieren.
 
-Wenn Ihre Organisation mehr als sechs KMS-Hosts benötigt, sollten Sie zusätzliche Aktivierungen für den KMS-Schlüssel Ihrer Organisation anfordern, z. B. wenn Sie über zehn physische Standorte und einen Volumenlizenzvertrag verfügen und möchten, dass für jeden Standort ein lokaler KMS-Host vorhanden ist.
+Wenn Ihre Organisation mehr als sechs KMS-Hosts benötigt, sollten Sie zusätzliche Aktivierungen für den KMS-Schlüssel Ihrer Organisation anfordern, z. B. wenn Sie über zehn physische Standorte und einen Volumenlizenzvertrag verfügen und möchten, dass für jeden Standort ein lokaler KMS-Host vorhanden ist.
 
 > [!NOTE] 
 > Wenden Sie sich an Ihr Activation Call Center, um diese Ausnahme anzufordern. Weitere Informationen finden Sie unter [Microsoft Volume Licensing]( https://www.microsoft.com/licensing).

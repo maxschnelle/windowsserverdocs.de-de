@@ -8,12 +8,12 @@ ms.sitesec: library
 author: jasongerend
 ms.author: jgerend
 ms.date: 08/22/2019
-ms.openlocfilehash: 70b18ecbb94fb882a434388bb6f990f98cf0bc32
-ms.sourcegitcommit: 6f8993e2180c4d3c177e3e1934d378959396b935
+ms.openlocfilehash: 8b871d6fa939271c7468a8b51a195539ee268e9c
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70000641"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868293"
 ---
 # <a name="features-removed-or-planned-for-replacement-starting-with-windows-server-version-1803"></a>Features, die ab Windows Server, Version 1803,entfernt wurden oder deren Ersatz vorgesehen ist
 
@@ -55,5 +55,5 @@ Wenn Sie Feedback zur vorgeschlagenen Ersetzung eines dieser Features haben, kö
 | [RemoteFX vGPU](../remote/remote-desktop-services/rds-remotefx-vgpu.md)|Wir entwickeln neue Grafikbeschleunigungsoptionen für virtualisierte Umgebungen. Sie können auch die [Diskrete Gerätezuweisung (DDA)](../virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment.md) als Alternative verwenden. |
 | [Richtlinien für die Softwareeinschränkung](../identity/software-restriction-policies/software-restriction-policies.md) in Gruppenrichtlinien|Statt der Richtlinien für die Softwareeinschränkung über Gruppenrichtlinien können Sie [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/applocker/applocker-overview) oder die [Windows Defender-Anwendungssteuerung](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control) verwenden, um festzulegen, auf welche Apps Benutzer zugreifen und welche Codes im Kernel ausgeführt werden können. |
 | Speicherplätze in einer gemeinsamen Konfiguration mit SAS-Fabric|Stellen Sie stattdessen [direkte Speicherplätze](../storage/storage-spaces/storage-spaces-direct-overview.md) (Storage Spaces Direct) bereit. „Direkte Speicherplätze“ unterstützt die Verwendung der HLK-zertifizierten SAS-Gehäuse, allerdings in einer nicht freigegebenen Konfiguration, wie in den [Hardwareanforderungen für „Direkte Speicherplätze“](../storage/storage-spaces/storage-spaces-direct-hardware-requirements.md) beschrieben. |
-| Windows Server Essentials Experience|Die Essentials Experience-Rolle für Windows Server Standard- oder Windows Server Datacenter-SKUs wird nicht weiter entwickelt. Wenn Sie eine leicht zu bedienende Serverlösung für kleine bis mittlere Unternehmen benötigen, sehen Sie sich die neue [Microsoft 365 für Unternehmen](https://www.microsoft.com/microsoft-365/business)-Lösung an, oder verwenden Sie [Windows Server 2016 Essentials](https://docs.microsoft.com/windows-server-essentials/get-started/get-started). |
+| Windows Server Essentials-Umgebung|Die Essentials Experience-Rolle für Windows Server Standard- oder Windows Server Datacenter-SKUs wird nicht weiter entwickelt. Wenn Sie eine leicht zu bedienende Serverlösung für kleine bis mittlere Unternehmen benötigen, sehen Sie sich die neue [Microsoft 365 für Unternehmen](https://www.microsoft.com/microsoft-365/business)-Lösung an, oder verwenden Sie [Windows Server 2016 Essentials](https://docs.microsoft.com/windows-server-essentials/get-started/get-started). |
 

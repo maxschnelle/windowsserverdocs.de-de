@@ -8,27 +8,27 @@ ms.suite: na
 ms.technology: remote-desktop-services
 ms.tgt_pltfrm: na
 ms.topic: article
-author: lizap
-manager: dongill
-ms.author: elizapo
-ms.date: 08/27/2019
+author: heidilohr
+manager: daveba
+ms.author: helohr
+ms.date: 09/11/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 4eaa9a187b4a8f7879cabf15724bfcfe3f625939
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 14d5eab00271ea825bb84a2d8189a44c38fa5388
+ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70150966"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70987374"
 ---
 # <a name="whats-new-in-the-web-client"></a>Neues beim Webclient
 
-Der [Remotedesktop-Webclient](remote-desktop-web-client.md) wird regelmäßig mit neuen Features und Problembehebungen aktualisiert. Im Anschluss findest du die neuesten Aktualisierungen.
+Der [Remotedesktop-Webclient](remote-desktop-web-client.md) wird regelmäßig mit neuen Features und Problembehebungen aktualisiert. Hier findest du die neuesten Updates.
 
 > [!NOTE]
 > Wir haben das Versionsverwaltungssystem für den Webclient geändert. Ab Version 1.0.18.0 enthalten alle Releaseversionen des Webclients Zahlen (im Format „W.X.Y.Z“). Releasenummern für den Remotedesktop-Webclient enden immer mit einer Null (Beispiel: W.X.Y.0). Mit jedem Windows Virtual Desktop-Webclientrelease ändert sich die letzte Stelle bis zum nächsten Remotedesktop-Webclientrelease (Beispiel: 1.0.18.1).
 
 ## <a name="updates-for-version-10180"></a>Updates für Version 1.0.18.0
-*Veröffentlichungsdatum: 14.5.2019*
+*Veröffentlicht am: 14.5.2019*
 
 - Konfiguration für die Ressourcenstartmethode auf der Registerkarte „Einstellungen“ hinzugefügt, sodass Benutzer wählen können, ob Ressourcen im Browser geöffnet werden sollen oder ob eine RDP-Datei für einen anderen Client heruntergeladen werden soll. Diese Einstellung kann von deinem Administrator konfiguriert werden. Details zu Administratorkonfigurationen für dieses Feature findest du in der [Setupdokumentation für den Webclient](remote-desktop-web-client-admin.md).
 - Probleme beim Rendern von Farben behoben, um kräftigere Farben in deiner Remotesitzung zu ermöglichen.
@@ -41,7 +41,7 @@ Der [Remotedesktop-Webclient](remote-desktop-web-client.md) wird regelmäßig mi
 - Größenanpassung des Remoteressourcensymbols auf der Ressourcentaskleiste korrigiert.
 
 ## <a name="updates-for-version-1011"></a>Updates für Version 1.0.11
-*Veröffentlichungsdatum: 22.2.2019*
+*Veröffentlicht am: 22.2.2019*
 
 - Verbindung mit RD-Broker ohne RD-Gateway in Windows Server 2019 ermöglicht.
 - Feeds alphabetisch sortiert (zuerst RemoteApps, dann Desktops).
@@ -50,7 +50,7 @@ Der [Remotedesktop-Webclient](remote-desktop-web-client.md) wird regelmäßig mi
 - Verschiedene Fehler behoben.
 
 ## <a name="updates-for-version-107"></a>Updates für Version 1.0.7
-*Veröffentlichungsdatum: 24.1.2019*
+*Veröffentlicht am: 24.1.2019*
 
 - Offlineverwendung in internen Netzwerken wird jetzt unterstützt.
 - Rendering in Microsoft Edge-fremden Browsern verbessert.
@@ -63,7 +63,7 @@ Der [Remotedesktop-Webclient](remote-desktop-web-client.md) wird regelmäßig mi
 - Verschiedene Fehler behoben.
 
 ## <a name="updates-for-version-101"></a>Updates für Version 1.0.1
-*Veröffentlichungsdatum: 29.10.2018*
+*Veröffentlicht am: 29.10.2018*
 
 - Option zum **Erfassen von Supportinformationen** auf der Infoseite hinzugefügt, um Probleme zu diagnostizieren.
 - InPrivate-Modus wird jetzt unterstützt.
@@ -75,14 +75,14 @@ Der [Remotedesktop-Webclient](remote-desktop-web-client.md) wird regelmäßig mi
 - Verschiedene Fehler behoben.
 
 ## <a name="updates-for-version-100"></a>Updates für Version 1.0.0
-*Veröffentlichungsdatum: 16.7.2018*
+*Veröffentlicht am: 16.7.2018*
 
 - Der Remotedesktop-Webclient ist nun allgemein verfügbar.
 - Administratoren können Telemetriedaten global für den Webclient deaktivieren.
 - Verschiedene Fehler behoben.
 
 ## <a name="updates-for-version-090"></a>Updates für Version 0.9.0
-*Veröffentlichungsdatum: 5.7.2018*
+*Veröffentlicht am: 5.7.2018*
 
 - Neue Anmeldeoberfläche innerhalb des Webclients
 - Keine Aufforderung zur Eingabe von Anmeldeinformationen beim Starten einer Desktop- oder App-Verbindung mehr (einmaliges Anmelden)
@@ -91,7 +91,7 @@ Der [Remotedesktop-Webclient](remote-desktop-web-client.md) wird regelmäßig mi
 - Verschiedene Fehler behoben.
 
 ## <a name="updates-for-version-081"></a>Updates für Version 0.8.1
-*Veröffentlichungsdatum: 17.5.2018*
+*Veröffentlicht am: 17.5.2018*
 
 - Aktualisierungen für die in CVE-2018-0886 beschriebene CredSSP-Encryption Oracle-Abwehr
 - Verbindungsfehler bei Druckaktivierung für einige Sprachen behoben.
@@ -99,7 +99,7 @@ Der [Remotedesktop-Webclient](remote-desktop-web-client.md) wird regelmäßig mi
 - Optionen **Hilfe** und **Feedback** hinzugefügt.
 
 ## <a name="updates-for-version-080"></a>Updates für Version 0.8.0
-*Veröffentlichungsdatum: 28.3.2018*
+*Veröffentlicht am: 28.03.2018*
 
 - Erstes Public Preview-Release des Webclients
 - Kopieren und Einfügen von Text über die Zwischenablage mit **STRG+C** und **STRG+V**

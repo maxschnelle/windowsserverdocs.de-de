@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 03927cd531617c6e0c9572fc4ce74768e10bc66a
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 14df478c681074f8081190048fb5579d7fa9f653
+ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70150933"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70987326"
 ---
 # <a name="get-started-with-the-windows-store-client"></a>Erste Schritte mit dem Windows Store-Client
 
@@ -27,11 +27,11 @@ ms.locfileid: "70150933"
 
 Du kannst den Remotedesktopclient für Windows verwenden, um Windows-Apps und -Desktops über ein anderes Windows-Gerät per Remotezugriff zu nutzen.
 
-Verwende die folgenden Informationen für die ersten Schritte. Lies dir die [häufig gestellten Fragen](remote-desktop-client-faq.md) durch, wenn du Fragen hast.
+Verwende die folgenden Informationen für die ersten Schritte. Lesen Sie unbedingt die [häufig gestellten Fragen](remote-desktop-client-faq.md), wenn Sie Fragen haben.
 
 > [!NOTE]
-> - Möchtest du mehr über die neuen Versionen für den Windows-Client erfahren? Lies [Neuerungen bei Remotedesktop unter Windows](windows-whatsnew.md).
-> - Du kannst den Client unter einer beliebigen Version von Windows 10 ausführen.
+> - Möchtest du mehr über die neuen Versionen für den Windows-Client erfahren? [Neuigkeiten im Windows Store-Client](windows-whatsnew.md) ansehen
+> - Du kannst den Client unter jeder unterstützten Version von Windows 10 ausführen.
 
 ## <a name="get-the-rd-client-and-start-using-it"></a>Abrufen des Remotedesktopclients und Ausführen der ersten Schritte
 

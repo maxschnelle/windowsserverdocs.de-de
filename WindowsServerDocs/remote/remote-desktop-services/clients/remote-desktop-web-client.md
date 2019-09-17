@@ -8,12 +8,12 @@ ms.date: 08/27/2019
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 11e68821fb095617cea19ee83c057d247a909604
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 4185454c6351b752a6397109b3a333d3eab107cd
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70150974"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871152"
 ---
 # <a name="get-started-with-the-web-client"></a>Erste Schritte mit dem Webclient
 
@@ -59,6 +59,6 @@ So druckst du über den Webclient:
 
 Der Webclient unterstützt derzeit nur das Kopieren und Einfügen von Text. Dateien können über den Webclient nicht kopiert oder eingefügt werden. Außerdem kannst du nur mit **STRG+C** und **STRG+V** Text kopieren und einfügen.
 
-## <a name="get-help-with-the-web-client"></a>Hilfe zum Webclient
+## <a name="get-help-with-the-web-client"></a>Anfordern von Hilfe zum Webclient
 
 Wenn ein Problem aufgetreten ist, das mit den Informationen in diesem Artikel nicht behoben werden kann, kannst du Hilfe zum Webclient erhalten, indem du eine E-Mail an die Adresse auf der Info-Seite des Webclients sendest.

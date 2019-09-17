@@ -8,25 +8,25 @@ ms.suite: na
 ms.technology: remote-desktop-services
 ms.tgt_pltfrm: na
 ms.topic: article
-author: lizap
-manager: dongill
-ms.author: elizapo
-ms.date: 08/27/2019
+author: heidilohr
+manager: daveba
+ms.author: helohr
+ms.date: 09/11/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 6ee224cd5bf7ccdeb3b0d55d091a5d322583c101
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 7a2061878cdbc7a5ace923835a334736e976e248
+ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70150992"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70987328"
 ---
 # <a name="whats-new-in-the-android-client"></a>Neues beim Android-Client
 
-Der [Remotedesktopclient für Android](remote-desktop-android.md) wird regelmäßig mit neuen Features und Problembehebungen aktualisiert. Im Anschluss findest du die neuesten Aktualisierungen.
+Der [Remotedesktopclient für Android](remote-desktop-android.md) wird regelmäßig mit neuen Features und Problembehebungen aktualisiert. Hier findest du die neuesten Updates.
 
 ## <a name="updates-for-version-8171"></a>Updates für Version 8.1.71
 
-*Veröffentlichungsdatum: 05.06.2019*
+*Veröffentlicht am: 05.06.2019*
 
 - Die Android-Versionen 4.0.3 und 4.0.4 werden nicht mehr unterstützt.
 - Ein Problem wurde behoben, aufgrund dessen Remoteressourcen mit dem gleichen Namen nicht ordnungsgemäß angezeigt wurden.
@@ -35,7 +35,7 @@ Der [Remotedesktopclient für Android](remote-desktop-android.md) wird regelmä�
 
 ## <a name="updates-for-version-8170"></a>Updates für Version 8.1.70
 
-*Veröffentlichungsdatum: 06.05.2019*
+*Veröffentlicht am: 06.05.2019*
 
 - Probleme behoben, die dazu führten, dass die Größe des Sitzungsinhalts auf Geräten mit Notch-Display nicht richtig angepasst wurde
 - Problem behoben, aufgrund dessen die EINGABETASTE auf manchen Chromebook-Geräten nicht funktionierte
@@ -43,13 +43,13 @@ Der [Remotedesktopclient für Android](remote-desktop-android.md) wird regelmä�
 
 ## <a name="updates-for-version-8169"></a>Updates für Version 8.1.69
 
-*Veröffentlichungsdatum: 22.04.2019*
+*Veröffentlicht am: 22.04.2019*
 
 - Kleinere Fehlerbehebungen und Verbesserungen
 
 ## <a name="updates-for-version-8168"></a>Updates für Version 8.1.68
 
-*Veröffentlichungsdatum: 15.04.2019*
+*Veröffentlicht am: 15.04.2019*
 
 - Problem behoben, aufgrund dessen die Feed-URL für Remoteressourcen nicht geladen wurde
 - Problem behoben, aufgrund dessen die App beim ersten Start auf Samsung DeX unter Android 9.0 in Telefongröße gestartet wurde.
@@ -58,13 +58,13 @@ Der [Remotedesktopclient für Android](remote-desktop-android.md) wird regelmä�
 
 ## <a name="updates-for-version-8167"></a>Updates für Version 8.1.67
 
-*Veröffentlichungsdatum: 28.03.2019*
+*Veröffentlicht am: 28.03.2019*
 
 - Problem behoben, aufgrund dessen Tastatureingaben bei der Eingabe in einer Remotesitzung wiederholt wurden
 
 ## <a name="updates-for-version-8166"></a>Updates für Version 8.1.66
 
-*Veröffentlichungsdatum: 19.03.2019*
+*Veröffentlicht am: 19.03.2019*
 
 - Anfängliche Unterstützung für den [virtuellen Windows-Desktop](https://aka.ms/wvd) hinzugefügt
 - Problem behoben, aufgrund dessen auf manchen Chromebook-Geräten und in manchen DeX-Szenarien ein schwarzer Bereich am unteren Bildschirmrand angezeigt wurde.
@@ -75,13 +75,13 @@ Der [Remotedesktopclient für Android](remote-desktop-android.md) wird regelmä�
 
 ## <a name="updates-for-version-8161"></a>Updates für Version 8.1.61
 
-*Veröffentlichungsdatum: 05.07.2018*
+*Veröffentlicht am: 5.7.2018*
 
 - Anfängliche Unterstützung für Samsung DeX (Android 8.0 und höher) hinzugefügt
 
 ## <a name="updates-for-version-8160"></a>Updates für Version 8.1.60
 
-*Veröffentlichungsdatum: 30.04.2018*
+*Veröffentlicht am: 30.04.2018*
 
 - Aktualisierungen für die in CVE-2018-0886 beschriebene CredSSP-Encryption Oracle-Abwehr
 - Absturz behoben, der beim Starten von Verbindungen auftrat, die aus einer vorherigen Version übernommen wurden.

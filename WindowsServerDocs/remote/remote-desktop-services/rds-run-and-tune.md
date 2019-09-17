@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 79909767-a4c3-4ecf-8d3f-77d37a663153
 author: spatnaik
 manager: scottman
-ms.openlocfilehash: 40f8dbd560da359e8764ed715e7776cc2d230a7f
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 0207a1d69eb62b5a7ea02416408b67d2f5a0be32
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63712048"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870757"
 ---
 # <a name="run-and-tune-your-remote-desktop-services-environment"></a>Ausführen und Optimieren Ihrer Remotedesktopdienste-Umgebung
 
@@ -47,4 +47,4 @@ Das Warten einer laufenden, hochgradig skalierten Anwendung bringt sich regelmä
 
 ## <a name="load-testing-avoid-surprises"></a>Auslastungstests: Vermeiden Sie Überraschungen
 
-Führen Sie Auslastungstests der Bereitstellung mit Belastungstests und Simulation der tatsächlichen Nutzung durch. Variieren Sie den Umfang der Last, um Überraschungen zu vermeiden! Stellen Sie sicher, dass die Reaktionsfähigkeit die Anforderungen der Benutzer erfüllt und das gesamte System stabil ist. Erstellen Sie Auslastungstests mit Simulationstools wie LoginVSI, die überprüfen, inwieweit Ihre Bereitstellung die Benutzeranforderungen erfüllt. 
+Führen Sie Auslastungstests der Bereitstellung mit Belastungstests und Simulation der tatsächlichen Nutzung durch. Variieren Sie den Umfang der Last, um Überraschungen zu vermeiden! Stelle sicher, dass die Reaktionsfähigkeit die Anforderungen der Benutzer erfüllt und dass das gesamte System stabil ist. Erstelle Lasttests mit Simulationstools wie LoginVSI, die überprüfen, inwieweit deine Bereitstellung die Benutzeranforderungen erfüllt. 
