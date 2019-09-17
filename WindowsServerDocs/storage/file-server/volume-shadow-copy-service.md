@@ -1,131 +1,131 @@
 ---
-Title: Volumeschattenkopie-Dienst
+title: Volumeschattenkopie-Dienst
 ms.date: 01/30/2019
 ms.prod: windows-server-threshold
 ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 0a4af25723c6d1e796cd3255875c15faf21fb8be
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 3fc184f8f23e4325198e3a1a08f20109c2c577e8
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284383"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867317"
 ---
 # <a name="volume-shadow-copy-service"></a>Volumeschattenkopie-Dienst
 
-Gilt für: WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012 und WindowsServer 2008 R2, WindowsServer 2008, Windows 10, Windows 8.1, Windows 8, Windows 7
+Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 und Windows Server 2008 R2, Windows Server 2008, Windows 10, Windows 8.1, Windows 8, Windows 7
 
-Sichern und Wiederherstellen von kritischen Geschäftsdaten aufgrund von folgenden Problemen sehr komplex sind möglich:
+Das Sichern und Wiederherstellen wichtiger Geschäftsdaten kann aufgrund der folgenden Probleme sehr komplex sein:
 
-  - In der Regel müssen die Daten gesichert werden, während die Anwendungen, die die Daten generiert noch ausgeführt werden. Dies bedeutet, dass einige der Datendateien geöffnet sein kann oder möglicherweise in einem inkonsistenten Zustand.  
+  - Die Daten müssen in der Regel gesichert werden, während die Anwendungen, die die Daten liefern, noch ausgeführt werden. Dies bedeutet, dass einige der Datendateien offen sein können oder sich in einem inkonsistenten Zustand befinden.  
       
-  - Wenn der DataSet groß ist, kann es schwierig, alle auf einmal gesichert sein.  
-      
-
-Sicherungs-und Wiederherstellungsvorgänge ordnungsgemäß funktioniert, erfordert enger Koordination zwischen der backup-Anwendungen, die Line-of-Business-Anwendungen, die sich gesichert werden und Speicher-Management-Hardware und Software. Das Volume Shadow Copy Service (VSS), die in Windows Server® 2003 eingeführt wurde, ermöglicht die Kommunikation zwischen diesen Komponenten um besser zusammenarbeiten können. Wenn alle Komponenten VSS unterstützen, können Sie sie verwenden, Ihre Anwendungsdaten sichern, ohne die Anwendungen offline zu schalten.
-
-VSS koordiniert die Aktionen, die Erstellung eine konsistenten Schattenkopie (auch bekannt als eine Momentaufnahme oder eine Point-in-Time-Kopie) der Daten, die gesichert werden, erforderlich sind. Die Schattenkopie als dienen kann – ist, oder in Szenarien wie das folgende verwendet werden können:
-
-  - Sie möchten, um Daten und Systemeinstellungen Statusinformationen zu Anwendungen, einschließlich der Archivierung von Daten auf einem anderen Festplattenlaufwerk, auf Band oder auf einem anderen Wechselmedium zu sichern.  
-      
-  - Sie können Datamining.  
-      
-  - Sie werden die Sicherungen von Datenträger zu Datenträger ausführen.  
-      
-  - Benötigen Sie eine schnelle Wiederherstellung von Daten zu, indem Sie Daten wiederherstellen, auf die ursprüngliche LUN oder auf eine völlig neue LUN, die eine ursprüngliche LUN ersetzt, die nicht.  
+  - Wenn das DataSet groß ist, kann es schwierig sein, alle Daten gleichzeitig zu sichern.  
       
 
-Windows-Features und Anwendungen, die VSS verwenden umfassen Folgendes:
+Das ordnungsgemäße Ausführen von Sicherungs-und Wiederherstellungs Vorgängen erfordert eine enge Koordination zwischen den Sicherungs Anwendungen, den Branchen Anwendungen, die gesichert werden, und der Speicher Verwaltungs Hardware und Software. Der Volumeschattenkopie-Dienst (VSS), der in Windows Server® 2003 eingeführt wurde, ermöglicht die Konversation zwischen diesen Komponenten, damit Sie besser zusammenarbeiten können. Wenn alle Komponenten VSS unterstützen, können Sie diese verwenden, um Ihre Anwendungsdaten zu sichern, ohne die Anwendungen offline zu schalten.
 
-  - [Windows Server-Sicherung](http://go.microsoft.com/fwlink/?linkid=180891) ()http://go.microsoft.com/fwlink/?LinkId=180891)  
+VSS koordiniert die Aktionen, die erforderlich sind, um eine konsistente Schatten Kopie (auch als Momentaufnahme oder eine Zeit Punkt Kopie bezeichnet) der zu sichernden Daten zu erstellen. Die Schatten Kopie kann unverändert verwendet werden, oder Sie kann in Szenarien wie den folgenden verwendet werden:
+
+  - Sie möchten Anwendungsdaten und Systemstatus Informationen sichern, einschließlich der Archivierung von Daten auf einem anderen Festplattenlaufwerk, auf einem Band oder auf einem anderen Wechselmedium.  
       
-  - [Schattenkopien von freigegebenen Ordnern](http://go.microsoft.com/fwlink/?linkid=142874) ()http://go.microsoft.com/fwlink/?LinkId=142874)  
+  - Sie sind Data Mining.  
       
-  - [System Center Data Protection Manager](http://go.microsoft.com/fwlink/?linkid=180892) ()http://go.microsoft.com/fwlink/?LinkId=180892)  
+  - Sie führen Sicherungen von Datenträgern auf dem Datenträger aus.  
       
-  - [Systemwiederherstellung](http://go.microsoft.com/fwlink/?linkid=180893) ()http://go.microsoft.com/fwlink/?LinkId=180893)  
+  - Sie müssen eine schnelle Wiederherstellung nach Datenverlust durchführen, indem Sie Daten auf der ursprünglichen LUN oder einer vollkommen neuen LUN wiederherstellen, die eine ursprüngliche LUN ersetzt, die fehlgeschlagen ist.  
       
 
-## <a name="how-volume-shadow-copy-service-works"></a>Funktionsweise der Volumeschattenkopie-Dienst
+Zu den Windows-Features und-Anwendungen, die VSS verwenden, gehören die folgenden:
 
-Eine vollständige VSS-Lösung erfordert, dass alle von den folgenden grundlegenden Bestandteile:
+  - [Windows Server-Sicherung](http://go.microsoft.com/fwlink/?linkid=180891) (http://go.microsoft.com/fwlink/?LinkId=180891)  
+      
+  - [Schatten Kopien von freigegebenen Ordnern](http://go.microsoft.com/fwlink/?linkid=142874) (http://go.microsoft.com/fwlink/?LinkId=142874)  
+      
+  - [System Center-Data Protection Manager](http://go.microsoft.com/fwlink/?linkid=180892) (http://go.microsoft.com/fwlink/?LinkId=180892)  
+      
+  - [System Wiederherstellung](http://go.microsoft.com/fwlink/?linkid=180893) (http://go.microsoft.com/fwlink/?LinkId=180893)  
+      
 
-**VSS-Dienst**   Teil des Windows-Betriebssystems, der die anderen Komponenten gewährleistet ordnungsgemäß miteinander kommunizieren und zusammenarbeiten kann.
+## <a name="how-volume-shadow-copy-service-works"></a>Funktionsweise von Volumeschattenkopie-Dienst
 
-**VSS-anforderer**   der Software, die die tatsächliche Erstellung des Volumeschattenkopie-Kopien (oder andere Vorgänge auf höchster Ebene, z. B. Importieren von oder löschen) anfordert. Dies ist normalerweise die sicherungsanwendung. Das Hilfsprogramm Windows Server-Sicherung und der System Center Data Protection Manager-Anwendung sind VSS anfordernde Personen. Nicht von Microsoft® VSS anfordernde Personen sind fast alle Sicherungssoftware, die unter Windows ausgeführt wird.
+Für eine vollständige VSS-Lösung sind alle der folgenden grundlegenden Komponenten erforderlich:
 
-**VSS-Writer**   die Komponente, die sicherstellt, haben wir ein konsistentes DataSet zu sichern. Dies wird in der Regel als Teil einer Line-of-Business-Anwendung, z. B. SQL Server® oder Exchange-Server bereitgestellt. VSS-Writer für verschiedene Windows-Komponenten, z. B. der Registrierung sind in der Windows-Betriebssystem enthalten. Nicht-Microsoft VSS Writer-Instanzen sind in vielen Anwendungen für Windows, die Gewährleistung der Datenkonsistenz der während der Sicherung einrichten müssen enthalten.
+**VSS-Dienst**   Teil des Windows-Betriebssystems, mit dem sichergestellt wird, dass die anderen Komponenten ordnungsgemäß miteinander kommunizieren können und zusammenarbeiten.
 
-**VSS-Anbieter**   die Komponente, die erstellt und verwaltet die Schattenkopien. Dies kann in der Software oder Hardware auftreten. Das Windows-Betriebssystem enthält einen VSS-Anbieter, der Kopie-bei-Schreibvorgang verwendet. Wenn Sie ein Storage Area Network (SAN) verwenden, ist es wichtig, dass Sie den VSS-Hardwareanbieter für den SAN, installieren, sofern vorhanden. Ein Hardwareanbieter lagert die Aufgabe erstellt und verwaltet eine Schattenkopie von Host-Betriebssystem.
+**VSS-Anforderer**   die Software, die die tatsächliche Erstellung von Schatten Kopien (oder andere allgemeine Vorgänge wie importieren oder löschen) anfordert. In der Regel handelt es sich hierbei um die Sicherungs Anwendung. Das Windows Server-Sicherung-Hilfsprogramm und die System Center Data Protection Manager-Anwendung sind VSS-Anforderer. Nicht-Microsoft-® VSS-Anforderer enthält fast alle Sicherungssoftware, die unter Windows ausgeführt wird.
 
-Das folgende Diagramm veranschaulicht, wie der VSS-Dienst koordiniert mit anfordernde Personen, Schreiber und Anbieter, um eine Schattenkopie von einem Volume zu erstellen.
+**VSS Writer der Komponente**, die garantiert, dass ein konsistentes Dataset für die Sicherungskopie vorhanden ist.    Dies wird in der Regel als Teil einer Branchen Anwendung (z. b. SQL Server® oder Exchange Server) bereitgestellt. VSS-Writer für verschiedene Windows-Komponenten, z. b. die Registrierung, sind im Windows-Betriebssystem enthalten. Nicht von Microsoft stammenden VSS-Writer sind in vielen Anwendungen für Windows enthalten, die die Datenkonsistenz während der Sicherung gewährleisten müssen.
+
+**VSS-Anbieter**   die Komponente, von der die Schatten Kopien erstellt und verwaltet werden. Dies kann in der Software oder der Hardware vorkommen. Das Windows-Betriebssystem enthält einen VSS-Anbieter, der Copy-on-Write-Vorgänge verwendet. Wenn Sie ein Storage Area Network (San) verwenden, ist es wichtig, dass Sie den VSS-Hardware Anbieter für das San installieren, sofern eine vorhanden ist. Ein Hardware Anbieter verlagert das Erstellen und Verwalten einer Schatten Kopie vom Host Betriebssystem.
+
+Im folgenden Diagramm wird veranschaulicht, wie der VSS-Dienst mit Anforderern, Writern und Anbietern koordiniert, um eine Schatten Kopie eines Volumes zu erstellen.
 
 ![](media/volume-shadow-copy-service/Ee923636.94dfb91e-8fc9-47c6-abc6-b96077196741(WS.10).jpg)
 
-**Abbildung 1**   Architekturdiagramm der Volumeschattenkopie-Dienst
+**Abbildung 1**   Architektur Diagramm der Volumeschattenkopie-Dienst
 
-### <a name="how-a-shadow-copy-is-created"></a>Wie wird eine Schattenkopie erstellt.
+### <a name="how-a-shadow-copy-is-created"></a>Erstellen einer Schatten Kopie
 
-In diesem Abschnitt werden die verschiedenen Rollen, der die anfordernde Person, Schreiber und Anbieter in Kontext, durch Auflisten der Schritte, die ausgeführt werden, um eine Schattenkopie erstellt werden müssen. Das folgende Diagramm zeigt, wie der Volumeschattenkopie-Dienst für die gesamte Koordination die anfordernde Person, Schreiber und Anbieter steuert.
+In diesem Abschnitt werden die verschiedenen Rollen der Anforderer, des Writers und des Anbieters in den Kontext versetzt, indem die Schritte aufgelistet werden, die zum Erstellen einer Schatten Kopie ausgeführt werden müssen. Das folgende Diagramm zeigt, wie die-Volumeschattenkopie-Dienst die Gesamtkoordination der Anforderer, des Writers und des Anbieters steuert.
 
 ![](media/volume-shadow-copy-service/Ee923636.1c481a14-d6bc-4796-a3ff-8c6e2174749b(WS.10).jpg)
 
-**Abbildung 2** Erstellungsvorgang für Schattenkopie
+**Abbildung 2** Erstellungs Vorgang für Schatten Kopie
 
-Um eine Schattenkopie zu erstellen, Ausführen die anfordernde Person, Schreiber und Anbieter die folgenden Aktionen:
+Zum Erstellen einer Schatten Kopie führen die Anforderer, der Writer und der Anbieter die folgenden Aktionen aus:
 
-1.  Die anfordernde Person fragt den Volumeschattenkopie-Dienst die Writer aufgelistet, die Metadaten zu erfassen und Vorbereiten für die Erstellung von Schattenkopien.  
+1.  Der Anforderer bittet den Volumeschattenkopie-Dienst, die Writer aufzulisten, die Writer-Metadaten zu sammeln und die Erstellung von Schatten Kopien vorzubereiten.  
       
-2.  Jeden Schreiber erstellt eine XML-Beschreibung der Komponenten und Daten speichert, die gesichert werden müssen und für den Volumeschattenkopie-Dienst bereitgestellt. Der Writer definiert auch eine Restore-Methode, die für alle Komponenten verwendet wird. Der Volumeschattenkopie-Dienst enthält eine Beschreibung für den Writer an der anfordernde Person an, die die Komponenten auswählt, die gesichert werden.  
+2.  Jeder Writer erstellt eine XML-Beschreibung der Komponenten und Datenspeicher, die gesichert werden müssen, und stellt Sie für die Volumeschattenkopie-Dienst bereit. Der Writer definiert außerdem eine Restore-Methode, die für alle-Komponenten verwendet wird. Der Volumeschattenkopie-Dienst stellt der anfordernden Person die Beschreibung des Writers zur Verfügung, mit der die zu sichernden Komponenten ausgewählt werden.  
       
-3.  Der Volumeschattenkopie-Dienst benachrichtigt alle Autoren ihre Daten vorbereiten Hinblick auf eine Schattenkopie.  
+3.  Der Volumeschattenkopie-Dienst benachrichtigt alle Writer, Ihre Daten für die Erstellung einer Schatten Kopie vorzubereiten.  
       
-4.  Jede Writer bereitet die Daten nach Bedarf, und öffnen z. B. nachdem alle Transaktionen, parallele Transaktionsprotokolle, und leeren des Caches. Wenn die Daten werden Schattenkopien sind, benachrichtigt der Writer die Volumeschattenkopie-Dienst.  
+4.  Jeder Writer bereitet die Daten entsprechend vor, wie z. b. das Abschließen aller geöffneten Transaktionen, das parallele Ausführen von Transaktions Protokollen und das Leeren von Caches. Wenn die Daten für die Schatten Kopie bereit sind, benachrichtigt der Writer die Volumeschattenkopie-Dienst.  
       
-5.  Der Volumeschattenkopie-Dienst weist den Writer vorübergehend sperren Anwendung schreiben e/a-Anforderungen (Lesen, die e/a-Anforderungen sind immer noch möglich) für die Sekunden, die zum Erstellen der Schattenkopie des Datenträgers oder Volumes erforderlich sind. Das Fixieren der Anwendung darf nicht länger als 60 Sekunden dauert. Der Volumeschattenkopie-Dienst die Dateisystem-Puffer leert und klicken Sie dann friert das Dateisystem, der sicherstellt, dass die Metadaten des Dateisystems ordnungsgemäß aufgezeichnet werden und die Daten auf Schattenkopien in einer konsistenten Reihenfolge geschrieben.  
+5.  Der Volumeschattenkopie-Dienst weist die Writer an, die Schreib-e/a-Anforderungen von Anwendungen vorübergehend zu fixieren (Lese-e/a-Anforderungen sind immer noch möglich) für die wenigen Sekunden, die zum Erstellen der Schatten Kopie des Volumes oder der Volumes benötigt werden. Das Einfrieren der Anwendung darf nicht länger als 60 Sekunden dauern. Der Volumeschattenkopie-Dienst leert die Dateisystem Puffer und friert dann das Dateisystem ein, wodurch sichergestellt wird, dass die Metadaten des Dateisystems ordnungsgemäß aufgezeichnet werden und die zu schattenkopierten Daten in einer konsistenten Reihenfolge geschrieben werden.  
       
-6.  Der Volumeschattenkopie-Dienst weist den Anbieter die Schattenkopie zu erstellen. Der Schattenkopie Kopie erstellen Zeitraum dauert nicht mehr als 10 Sekunden, in denen alle Schreibvorgänge, dass e/a-Anforderungen im Dateisystem fixiert bleiben.  
+6.  Der Volumeschattenkopie-Dienst weist den Anbieter an, die Schatten Kopie zu erstellen. Die Erstellung der Schattenkopieerstellung dauert höchstens 10 Sekunden, während der alle Schreib-e/a-Anforderungen an das Dateisystem eingefroren bleiben.  
       
-7.  Der Volumeschattenkopie-Dienst gibt die Datei-e/a dateisystembezogene Schreibanforderungen frei.  
+7.  In der Volumeschattenkopie-Dienst werden Schreib-e/a-Anforderungen des Dateisystems veröffentlicht.  
       
-8.  VSS weist den Writer zum Reaktivieren der e/a-Anforderungen von Anwendungen schreiben. Anwendungen können sich an diesem Punkt fortgesetzt, das Schreiben von Daten auf den Datenträger, der Schattenkopie erstellt wird.  
+8.  VSS weist die Writer an, Anwendungs Schreib-e/a-Anforderungen zu überschreiben. An diesem Punkt können Anwendungen das Schreiben von Daten auf den Datenträger, auf den die Schatten Kopien kopiert werden, fortsetzen.  
       
 
 > [!NOTE]
-> Die Erstellung von Schattenkopien abgebrochen werden kann, wenn der Writer beibehalten werden, in den Fixierungszustand länger als 60 Sekunden oder länger als 10 Sekunden die Schattenkopie commit für die Anbieter erhöht werden. 
+> Die Erstellung von Schatten Kopien kann abgebrochen werden, wenn die Writer länger als 60 Sekunden im Einfrieren beibehalten werden oder wenn die Anbieter länger als 10 Sekunden zum Ausführen eines Commit für die Schatten Kopie benötigen. 
 <br>
 
-9. Die anfordernde Person kann den Prozess (Wechseln Sie zurück zu Schritt 1) wiederholen oder den Administrator benachrichtigen, um zu einem späteren Zeitpunkt zu wiederholen.  
+9. Der Anforderer kann den Prozess wiederholen (wechseln Sie zurück zu Schritt 1), oder Benachrichtigen Sie den Administrator, dass er zu einem späteren Zeitpunkt wiederholt werden soll.  
       
-10. Wenn die Schattenkopie wurde erfolgreich erstellt wurde, gibt der Volumeschattenkopie-Dienst die Informationen zum Speicherort für die Schattenkopie an die anfordernde Person zurück. In einigen Fällen kann die Schattenkopie vorübergehend zur Verfügung gestellt als Datenträger für Lese-/ Schreibzugriff, sodass diese VSS und eine oder mehrere Anwendungen können den Inhalt ändern der Schattenkopie, bevor die Schattenkopie abgeschlossen ist. Nachdem die abweichungen zu VSS und den Anwendungen machen, ist die Schattenkopie schreibgeschützt festgelegt. In dieser Phase wird die automatische Wiederherstellung aufgerufen, und es wird verwendet, um alle Transaktionen für das Dateisystem oder eine Anwendung auf dem Schattenkopievolume rückgängig zu machen, die nicht abgeschlossen wurden, bevor die Schattenkopie erstellt wurde.  
-      
-
-### <a name="how-the-provider-creates-a-shadow-copy"></a>Wie der Anbieter eine Schattenkopie erstellt
-
-Eine Hardware oder Software Schattenkopieanbieter verwendet eine der folgenden Methoden zum Erstellen einer Schattenkopie:
-
-**Vollständige Kopie**   diese Methode wird eine vollständige Kopie ("full-Copy" oder "Klonen" genannt) des ursprünglichen Volumes zu einem bestimmten Zeitpunkt rechtzeitig. Diese Kopie ist schreibgeschützt.
-
-**Kopie-bei-Schreibvorgang**   kopiert diese Methode nicht das ursprüngliche Volume. Stattdessen wird eine differenzielle Kopie durch Kopieren aller Änderungen (abgeschlossene schreiben e/a-Anforderungen), die auf das Volume nach einem bestimmten Zeitpunkt vorgenommen werden.
-
-**Umleitungs-bei-Schreibvorgang**   kopiert diese Methode nicht das ursprüngliche Volume, und es macht keine Änderungen auf das ursprüngliche Volume nach einem bestimmten Zeitpunkt in der Zeit. Stattdessen wird eine differenzielle Kopie durch das Umleiten von alle Änderungen an einem anderen Volume.
-
-## <a name="complete-copy"></a>Vollständige Kopie
-
-Eine vollständige Kopie wird in der Regel dazu eine "Split-Mirror" wie folgt erstellt:
-
-1.  Das ursprüngliche Volume, und das Schattenkopievolume sind eine Reihe von gespiegelten Volumes.  
-      
-2.  Der Schattenkopievolume wird aus dem ursprünglichen Volume getrennt. Dies unterbricht die Verbindung für die Spiegelung.  
+10. Wenn die Schatten Kopie erfolgreich erstellt wurde, gibt die Volumeschattenkopie-Dienst die Speicherort Informationen für die Schatten Kopie an den Anforderer zurück. In einigen Fällen kann die Schatten Kopie vorübergehend als Volume mit Lese-/Schreibzugriff zur Verfügung gestellt werden, damit VSS und eine oder mehrere Anwendungen den Inhalt der Schatten Kopie ändern können, bevor die Schatten Kopie abgeschlossen ist. Nachdem VSS und die Anwendungen Ihre Änderungen vorgenommen haben, wird die Schatten Kopie als schreibgeschützt festzulegen. Diese Phase wird als automatische Wiederherstellung bezeichnet und wird verwendet, um alle Dateisystem-oder Anwendungs Transaktionen auf dem Schattenkopievolume rückgängig zu machen, die vor dem Erstellen der Schatten Kopie nicht abgeschlossen wurden.  
       
 
-Nachdem die Verbindung für die Spiegelung unterbrochen wird, sind das ursprüngliche Volume, und das Schattenkopievolume unabhängig. Das ursprüngliche Volume weiterhin akzeptieren Sie alle Änderungen (Schreiben e/a-Anforderungen), während die Schattenkopie Volume bleibt eine genaue schreibgeschützte Kopie der ursprünglichen Daten zum Zeitpunkt der Unterbrechung.
+### <a name="how-the-provider-creates-a-shadow-copy"></a>So erstellt der Anbieter eine Schatten Kopie
+
+Ein Hardware-oder Software Schatten Kopie-Anbieter verwendet zum Erstellen einer Schatten Kopie eine der folgenden Methoden:
+
+**Vollständiges Kopieren**   diese Methode erstellt zu einem bestimmten Zeitpunkt eine vollständige Kopie (als "Vollversion" oder "Klon" bezeichnet) des ursprünglichen Volumes. Diese Kopie ist schreibgeschützt.
+
+**Copy-on-Write**   diese Methode kopiert das ursprüngliche Volume nicht. Stattdessen wird eine differenzielle Kopie erstellt, indem alle Änderungen (abgeschlossene Schreib-e/a-Anforderungen) kopiert werden, die nach einem bestimmten Zeitpunkt auf dem Volume vorgenommen werden.
+
+**Umleitung-bei-schreiben**   diese Methode kopiert nicht das ursprüngliche Volume und führt nach einem bestimmten Zeitpunkt keine Änderungen am ursprünglichen Volume durch. Stattdessen wird eine differenzielle Kopie erstellt, indem alle Änderungen an ein anderes Volume umgeleitet werden.
+
+## <a name="complete-copy"></a>Kopie vervollständigen
+
+Eine komplette Kopie wird in der Regel erstellt, indem ein "Split Mirror" wie folgt erstellt wird:
+
+1.  Das ursprüngliche Volume und das Schattenkopievolume sind ein gespiegelter Volumesatz.  
+      
+2.  Das Schattenkopievolume ist vom ursprünglichen Volume getrennt. Dadurch wird die Spiegel Verbindung unterbrochen.  
+      
+
+Nachdem die Spiegelungs Verbindung getrennt wurde, sind das ursprüngliche Volume und das Schattenkopievolume unabhängig. Das ursprüngliche Volume akzeptiert weiterhin alle Änderungen (Schreib-e/a-Anforderungen), während das Schattenkopievolume eine genaue schreibgeschützte Kopie der ursprünglichen Daten zum Zeitpunkt der Unterbrechung bleibt.
 
 ### <a name="copy-on-write-method"></a>Copy-on-Write-Methode
 
-In der Kopie-bei-Schreibvorgang-Methode bei einer auf das ursprüngliche Volume Änderung (jedoch vor dem Schreiben e/a-Anforderung abgeschlossen ist), jeden Block zu ändernden gelesen und dann in der Datenträger den Schattenkopie-Speicherbereich (auch als der "Vergleichsbereich" bezeichnet) geschrieben. Die Schattenkopie-Speicherbereich kann auf demselben Datenträger oder ein anderes Volume sein. Dadurch wird eine Kopie der Datenblöcke auf dem ursprünglichen Volume beibehalten, bevor die Änderung wird überschrieben.
+Wenn bei der Copy-on-Write-Methode eine Änderung am ursprünglichen Volume stattfindet (aber bevor die Schreib-e/a-Anforderung abgeschlossen ist), wird jeder zu ändernde Block gelesen und dann in den Speicherbereich der Schatten Kopie des Volumes geschrieben (auch als "diff-Bereich" bezeichnet). Der Schattenkopiespeicherbereich kann sich auf demselben Volume oder auf einem anderen Volume befinden. Dadurch wird eine Kopie des Datenblocks auf dem ursprünglichen Volume beibehalten, bevor die Änderung diese überschreibt.
 
 
 <table>
@@ -138,35 +138,35 @@ In der Kopie-bei-Schreibvorgang-Methode bei einer auf das ursprüngliche Volume 
 <tr class="header">
 <th>Uhrzeit</th>
 <th>Quelldaten (Status und Daten)</th>
-<th>Schattenkopie (Status und Daten)</th>
+<th>Schatten Kopie (Status und Daten)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><p>T0</p></td>
-<td><p>Originaldaten: 1 2 3 4 5</p></td>
-<td><p>Keine Kopie::</p></td>
+<td><p>Ursprüngliche Daten: 1 2 3 4 5</p></td>
+<td><p>Keine Kopie: –</p></td>
 </tr>
 <tr class="even">
 <td><p>T1</p></td>
-<td><p>Die Daten im Cache geändert: 3, 3'</p></td>
-<td><p>Schattenkopieclient erstellt (nur unterschieden): 3</p></td>
+<td><p>Geänderte Daten im Cache: 3 bis 3 '</p></td>
+<td><p>Schatten Kopie erstellt (nur Unterschiede): 3</p></td>
 </tr>
 <tr class="odd">
 <td><p>T2</p></td>
-<td><p>Ursprünglichen Daten, die überschrieben werden: 1 2 3’ 4 5</p></td>
-<td><p>Unterschiede und Index auf der Schattenkopie gespeichert: 3</p></td>
+<td><p>Ursprüngliche Daten überschrieben: 1 2 3 ' 4 5</p></td>
+<td><p>Unterschiede und Index werden auf der Schatten Kopie gespeichert: 3</p></td>
 </tr>
 </tbody>
 </table>
 
-**Tabelle 1**   der Kopie-bei-Schreibvorgang-Methode zum Erstellen von Schattenkopien
+**Tabelle 1**   : die Copy-on-Write-Methode zum Erstellen von Schatten Kopien
 
-Die Kopie-bei-Schreibvorgang-Methode ist eine schnelle Methode zum Erstellen einer Schattenkopie, da diese nur Daten kopiert, die geändert wird. Mit den geänderten Daten auf das ursprüngliche Volume, das Volume in den Zustand wiederherstellen, bevor die Änderungen vorgenommen wurden, können die kopierten Blöcke im Bereich "Diff" kombiniert werden. Wenn viele Änderungen vorhanden sind, kann die Kopie-bei-Schreibvorgang-Methode teuer werden.
+Die Copy-on-Write-Methode ist eine schnelle Methode zum Erstellen einer Schatten Kopie, da nur geänderte Daten kopiert werden. Die kopierten Blöcke im Vergleichs Bereich können mit den geänderten Daten auf dem ursprünglichen Volume kombiniert werden, um das Volume in seinem Zustand wiederherzustellen, bevor Änderungen vorgenommen wurden. Wenn viele Änderungen vorhanden sind, kann die Copy-on-Write-Methode kostspielig werden.
 
-### <a name="redirect-on-write-method"></a>Umleitungs-bei-Schreibvorgang-Methode
+### <a name="redirect-on-write-method"></a>Redirect-on-Write-Methode
 
-Wenn das ursprüngliche Volume (e/a-Anforderung), Änderungen empfängt, wird in der umleitungs-bei-Schreibvorgang-Methode nicht die Änderung auf das ursprüngliche Volume angewendet. Stattdessen wird die Änderung in ein anderes Volume Schattenkopie-Speicherbereich geschrieben.
+Bei der Redirect-on-Write-Methode wird die Änderung nicht auf das ursprüngliche Volume angewendet, wenn das ursprüngliche Volume eine Änderung empfängt (Schreib-e/a-Anforderung). Stattdessen wird die Änderung in den Schattenkopiespeicherbereich eines anderen Volumes geschrieben.
 
 
 <table>
@@ -179,354 +179,354 @@ Wenn das ursprüngliche Volume (e/a-Anforderung), Änderungen empfängt, wird in
 <tr class="header">
 <th>Uhrzeit</th>
 <th>Quelldaten (Status und Daten)</th>
-<th>Schattenkopie (Status und Daten)</th>
+<th>Schatten Kopie (Status und Daten)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><p>T0</p></td>
-<td><p>Originaldaten: 1 2 3 4 5</p></td>
-<td><p>Keine Kopie::</p></td>
+<td><p>Ursprüngliche Daten: 1 2 3 4 5</p></td>
+<td><p>Keine Kopie: –</p></td>
 </tr>
 <tr class="even">
 <td><p>T1</p></td>
-<td><p>Die Daten im Cache geändert: 3, 3'</p></td>
-<td><p>Schattenkopieclient erstellt (nur unterschieden): 3’</p></td>
+<td><p>Geänderte Daten im Cache: 3 bis 3 '</p></td>
+<td><p>Schatten Kopie erstellt (nur Unterschiede): €</p></td>
 </tr>
 <tr class="odd">
 <td><p>T2</p></td>
-<td><p>Ursprünglichen Daten unverändert: 1 2 3 4 5</p></td>
-<td><p>Unterschiede und Index auf der Schattenkopie gespeichert: 3’</p></td>
+<td><p>Die ursprünglichen Daten sind unverändert: 1 2 3 4 5</p></td>
+<td><p>Unterschiede und Index werden auf der Schatten Kopie gespeichert: €</p></td>
 </tr>
 </tbody>
 </table>
 
-**Tabelle 2**   der umleitungs-bei-Schreibvorgang-Methode zum Erstellen von Schattenkopien
+**Tabelle 2**   : die Redirect-on-Write-Methode zum Erstellen von Schatten Kopien
 
-Wie bei der Kopie-bei-Schreibvorgang-Methode ist die umleitungs-bei-Schreibvorgang-Methode eine schnelle Methode zum Erstellen einer Schattenkopie, da diese nur Änderungen an den Daten kopiert. Die kopierte Blöcke im Bereich "Diff" können mit die unveränderten Daten auf das ursprüngliche Volume, erstellen Sie eine vollständige und aktuelle Kopie der Daten kombiniert werden. Wenn viele Lese e/a-Anforderungen, kann die umleitungs-bei-Schreibvorgang-Methode teuer werden.
+Wie bei der Copy-on-Write-Methode ist die Redirect-on-Write-Methode eine schnelle Methode zum Erstellen einer Schatten Kopie, da nur die Änderungen an den Daten kopiert werden. Die kopierten Blöcke im Vergleichs Bereich können mit den unverändert Daten auf dem ursprünglichen Volume kombiniert werden, um eine komplette, aktuelle Kopie der Daten zu erstellen. Wenn viele Lese-e/a-Anforderungen vorliegen, kann die Redirect-on-Write-Methode kostspielig werden.
 
-## <a name="shadow-copy-providers"></a>Volumeschattenkopie-Anbieter
+## <a name="shadow-copy-providers"></a>Schattenkopieanbieter
 
-Es gibt zwei Arten von Schattenkopieanbieter: hardwarebasierte und Software-basierten Anbieter. Es gibt auch ein Systemanbieter, der ein Softwareanbieter von ist, der für das Windows-Betriebssystem enthalten ist.
+Es gibt zwei Arten von schattenkopieanbietern: hardwarebasierte Anbieter und softwarebasierte Anbieter. Es gibt auch einen-Systemanbieter, bei dem es sich um einen in das Windows-Betriebssystem integrierten Softwareanbieter handelt.
 
-### <a name="hardware-based-providers"></a>Hardware-basierte Anbieter
+### <a name="hardware-based-providers"></a>Hardware basierte Anbieter
 
-Hardware-basierte Schattenkopie Kopie Anbieter Act als Schnittstelle zwischen der Volumeschattenkopie-Dienst und der Hardware-Ebene, durch die Arbeit in Verbindung mit einem Hardware-Storage-Adapter oder den Controller. Das Erstellen und verwalten die Schattenkopie vom Speicherarray erfolgt.
+Hardware basierte Schattenkopieanbieter fungieren als Schnittstellen zwischen dem Volumeschattenkopie-Dienst und der Hardwareebene, indem Sie in Verbindung mit einem Hardware Speicher Adapter oder-Controller arbeiten. Das Erstellen und Verwalten der Schatten Kopie wird vom Speicher Array durchgeführt.
 
-Hardwareanbieter immer die Schattenkopie von einer gesamten LUN erstellen, aber der Volumeschattenkopie-Dienst stellt nur die Schattenkopie des Datenträgers oder Volumes, die angefordert wurden.
+Hardware Anbieter nehmen immer die Schatten Kopie einer ganzen LUN an, aber der Volumeschattenkopie-Dienst macht nur die Schatten Kopie der angeforderten Volumes oder Volumes verfügbar.
 
-Eine hardwarebasierte Schattenkopieanbieter nutzt den Volumeschattenkopie-Dienst ermöglicht die datensynchronisierung, verwaltet die Schattenkopie und bietet eine allgemeine Schnittstelle und sicherungsanwendungen Funktionen, die den Punkt definiert, in der Zeit. Der Volumeschattenkopie-Dienst ist jedoch nicht den zugrunde liegende Mechanismus angeben, mit dem der Hardware-basierte Provider erstellt und verwaltet Schattenkopien.
+Ein hardwarebasierter Schattenkopieanbieter nutzt die Volumeschattenkopie-Dienst Funktionen, die den Zeitpunkt definieren, die Datensynchronisierung, die Schatten Kopie und eine gemeinsame Schnittstelle mit Sicherungs Anwendungen bereitstellen. Der-Volumeschattenkopie-Dienst gibt jedoch nicht den zugrunde liegenden Mechanismus an, mit dem der hardwarebasierte Anbieter Schatten Kopien erstellt und verwaltet.
 
-### <a name="software-based-providers"></a>Software-basierte Anbieter
+### <a name="software-based-providers"></a>Software basierte Anbieter
 
-Softwarebasierte Volumeschattenkopie-Anbieter in der Regel abzufangen und zu verarbeiten lesen und Schreiben e/a-Anforderungen in einer Softwareschicht, die zwischen dem Dateisystem und die Volume-Manager-Clientsoftware.
+Software basierte Schattenkopieanbieter fassen Lese-und Schreib Anforderungen in einer Software Schicht zwischen dem Dateisystem und der Volume Manager-Software in der Regel aus und verarbeiten Sie.
 
-Diese Anbieter werden als Benutzermodus-DLL-Komponente und mindestens eine Kernelmodus-Gerätetreiber in der Regel ein Storage-Filtertreiber implementiert. Im Gegensatz zu Hardware-basierte Anbieter erstellen Sie Software-basierte Anbieter Schattenkopien auf Softwareebene, nicht der Hardware-Ebene.
+Diese Anbieter werden als benutzermodusdll-Komponente und mindestens ein Gerätetreiber im Kernelmodus implementiert, in der Regel ein Speicher Filtertreiber. Im Gegensatz zu hardwarebasierten Anbietern erstellen softwarebasierte Anbieter Schatten Kopien auf Software Ebene, nicht auf der Hardwareebene.
 
-Eine softwarebasierte Schattenkopieanbieter muss eine "Point-in-Time" Ansicht eines Volumes verwalten, durch den Zugriff auf ein Dataset, das zum Neuerstellen Status des Volumes vor der Erstellung der Schattenkopiezeit verwendet werden kann. Ein Beispiel ist das Verfahren Kopie-bei-Schreibvorgang-System-Anbieter. Der Volumeschattenkopie-Dienst sorgt jedoch keine Einschränkungen verwendeten Technik werden die softwarebasierte-Anbieter verwenden, erstellen und Verwalten von Schattenkopien.
+Ein softwarebasierter Schattenkopieanbieter muss eine "Point-in-Time"-Ansicht eines Volumes verwalten, indem er Zugriff auf ein DataSet hat, das zum Neuerstellen des Volumestatus vor dem Erstellungs Zeitpunkt der Schatten Kopie verwendet werden kann. Ein Beispiel hierfür ist die Copy-on-write-Technik des Systemanbieters. Allerdings gelten für die Volumeschattenkopie-Dienst keine Einschränkungen hinsichtlich der Technik, mit der die softwarebasierten Anbieter Schatten Kopien erstellen und verwalten.
 
-Ein Softwareanbieter gilt für eine größere Zahl von Storage-Plattformen als ein Hardware-basierte Anbieter, und es sollte funktionieren mit grundlegenden Datenträgern oder logischen Volumes ebenso gut. (Logisches Volume ist ein Volume, das durch die Kombination von freien Speicherplatzes von mindestens zwei Datenträger erstellt wird.) Im Gegensatz zu Hardwareschattenkopien nutzen die Softwareanbietern Betriebssystemressourcen, um die Schattenkopie zu gewährleisten.
+Ein Softwareanbieter gilt für eine größere Anzahl von Speicher Plattformen als bei einem hardwarebasierten Anbieter und sollte auch mit Basis Datenträgern oder logischen Volumes gleich gut funktionieren. (Ein logisches Volume ist ein Volume, das erstellt wird, indem der freie Speicherplatz von zwei oder mehr Datenträgern kombiniert wird.) Im Gegensatz zu Hardware Schatten Kopien verbrauchen Softwareanbieter Betriebssystemressourcen, um die Schatten Kopie zu verwalten.
 
-Weitere Informationen zu Basisdatenträger, finden Sie unter [was grundlegende Datenträger und Volumes sind?](http://go.microsoft.com/fwlink/?linkid=180894) (http://go.microsoft.com/fwlink/?LinkId=180894) auf TechNet.
+Weitere Informationen zu Basis Datenträgern finden Sie unter [Was sind grundlegende Datenträger und Volumes?](http://go.microsoft.com/fwlink/?linkid=180894) (http://go.microsoft.com/fwlink/?LinkId=180894) auf TechNet.
 
-### <a name="system-provider"></a>System-Anbieter
+### <a name="system-provider"></a>System Anbieter
 
-Eine Schattenkopie-Anbieter, der Anbieter wird im Windows-Betriebssystem bereitgestellt. Zwar ein Standardanbieter in Windows bereitgestellt wird, können andere Anbieter Implementierungen bereitstellen, die für ihre Hardware und Software Storage-Anwendungen optimiert sind.
+Im Windows-Betriebssystem wird ein Schattenkopieanbieter, der Systemanbieter, bereitgestellt. Obwohl in Windows ein Standardanbieter bereitgestellt wird, können andere Anbieter Implementierungen bereitstellen, die für Ihre Speicherhardware und Softwareanwendungen optimiert sind.
 
-Um die Ansicht "Point-in-Time" eines Volumes zu gewährleisten, die in einer Schattenkopie enthalten ist, verwendet der System-Anbieter ein Kopie-bei-Schreibvorgang-Verfahren. Kopien von den Blöcken auf Volumes, die seit dem Beginn der Erstellung von Schattenkopien geändert wurden, werden in einer Schattenkopie-Speicherbereich gespeichert.
+Um die "Point-in-Time"-Ansicht eines Volumes zu verwalten, das in einer Schatten Kopie enthalten ist, verwendet der Systemanbieter eine Copy-on-Write-Methode. Kopien der Blöcke auf dem Volume, die seit dem Beginn der Erstellung der Schatten Kopie geändert wurden, werden in einem Speicherbereich für Schatten Kopien gespeichert.
 
-System-Anbieter kann das Produktionsvolume verfügbar machen, die geschrieben und normalerweise aus gelesen werden kann. Wenn die Schattenkopie benötigt wird, gilt sie logisch Unterschiede Daten unter dem Produktionsvolume, um die vollständige Schattenkopie verfügbar zu machen.
+Der Systemanbieter kann das Produktions Volume verfügbar machen, das in den Normalfall geschrieben und daraus gelesen werden kann. Wenn die Schatten Kopie benötigt wird, wendet sie logisch die Unterschiede auf die Daten auf dem Produktions Volume an, um die gesamte Schatten Kopie verfügbar zu machen.
 
-Für den Systemanbieter muss die Schattenkopie-Speicherbereich auf einem NTFS-Volume sein. Das Volume zu spiegelnde muss nicht auf einem NTFS-Volume sein, aber mindestens ein Volume auf dem System bereitgestellt, muss ein NTFS-Volume sein.
+Der Schattenkopiespeicherbereich des Systemanbieters muss sich auf einem NTFS-Volume befinden. Das Volume, das als Schatten kopiert werden soll, muss kein NTFS-Volume sein, aber mindestens ein auf dem System eingebundenes Volume muss ein NTFS-Volume sein.
 
-Die Komponentendateien, aus denen der Systemanbieter sind swprv.dll und volsnap.sys.
+Die Komponenten Dateien, aus denen sich der Systemanbieter besteht, sind "tauprv. dll" und "Volsnap. sys".
 
-### <a name="in-box-vss-writers"></a>Mitgelieferte VSS-Writer
+### <a name="in-box-vss-writers"></a>In-Box-VSS-Writer
 
-Das Windows-Betriebssystem umfasst eine Reihe von VSS-Writer, die verantwortlich für das Auflisten der Daten, die von verschiedenen Windows-Features erforderlich sind.
+Das Windows-Betriebssystem enthält eine Reihe von VSS-Writern, die für das Auflisten der Daten verantwortlich sind, die für die verschiedenen Windows-Features erforderlich sind.
 
-Weitere Informationen zu diesen Writern finden Sie unter den folgenden Microsoft-Websites:
+Weitere Informationen zu diesen Writern finden Sie auf den folgenden Microsoft-Websites:
 
-  - [Mitgelieferte VSS-Writer](http://go.microsoft.com/fwlink/?linkid=180895) ()http://go.microsoft.com/fwlink/?LinkId=180895)  
+  - [In-Box-VSS-Writer](http://go.microsoft.com/fwlink/?linkid=180895) (http://go.microsoft.com/fwlink/?LinkId=180895)  
       
-  - [Neue integrierte VSS-Writer für WindowsServer 2008 und Windows Vista SP1](http://go.microsoft.com/fwlink/?linkid=180896) ()http://go.microsoft.com/fwlink/?LinkId=180896)  
+  - [Neue in-Box-VSS-Writer für Windows Server 2008 und Windows Vista SP1](http://go.microsoft.com/fwlink/?linkid=180896) (http://go.microsoft.com/fwlink/?LinkId=180896)  
       
-  - [Neue integrierte VSS-Writer für Windows Server 2008 R2 und Windows 7](http://go.microsoft.com/fwlink/?linkid=180897) ()http://go.microsoft.com/fwlink/?LinkId=180897)  
-      
-
-## <a name="how-shadow-copies-are-used"></a>Verwendung von Schattenkopien
-
-Zusätzlich zum Sichern von Daten und Systemeinstellungen Statusinformationen zu Anwendungen, können Schattenkopien für unterschiedliche Zwecke, einschließlich der folgenden verwendet werden:
-
-  - Wiederherstellen von LUNs (LUN bei der erneuten Synchronisierung und LUN-Austausch)  
-      
-  - Die Wiederherstellung einzelner Dateien (Schattenkopien für freigegebene Ordner)  
-      
-  - Datamining mit übertragbarer Schattenkopien  
+  - [Neue in-Box-VSS-Writer für Windows Server 2008 R2 und Windows 7](http://go.microsoft.com/fwlink/?linkid=180897) (http://go.microsoft.com/fwlink/?LinkId=180897)  
       
 
-### <a name="restoring-luns-lun-resynchronization-and-lun-swapping"></a>Wiederherstellen von LUNs (LUN bei der erneuten Synchronisierung und LUN-Austausch)
+## <a name="how-shadow-copies-are-used"></a>Verwendung von Schatten Kopien
 
-In Windows Server 2008 R2 und Windows 7 können VSS anfordernde Personen eine Hardware-Anbieter namens LUN neusynchronisierung (oder "Neusynchronisierung" LUN ") Schattenkopiefunktion. Dies ist ein Recovery-Fast-Schema, das ein Anwendungsadministrator, Daten aus einer Schattenkopie, auf die ursprüngliche LUN oder eine neue LUN wiederherzustellen zu können.
+Zusätzlich zum Sichern von Anwendungsdaten und Systemstatus Informationen können Schatten Kopien für eine Reihe von Zwecken verwendet werden, einschließlich der folgenden:
 
-Die Schattenkopie kann es sich um ein vollständiger Klon oder eine differenzielle Schattenkopie sein. In beiden Fällen am Ende den Vorgang zur neusynchronisierung müssen die Ziel-LUN den gleichen Inhalt wie die Schattenkopie LUN. Während der Vorgang zur neusynchronisierung führt das Array aus der Schattenkopie eine Kopie auf Blockebene an die Ziel-LUN aus.
+  - Wiederherstellen von LUNs (LUN-Neusynchronisierung und LUN-Austausch)  
+      
+  - Wiederherstellen einzelner Dateien (Schattenkopien für freigegebene Ordner)  
+      
+  - Data Mining mithilfe von austauschen-Schatten Kopien  
+      
+
+### <a name="restoring-luns-lun-resynchronization-and-lun-swapping"></a>Wiederherstellen von LUNs (LUN-Neusynchronisierung und LUN-Austausch)
+
+In Windows Server 2008 R2 und Windows 7 können VSS-Anforderer eine Hardware Schatten Kopie-Anbieter Funktion namens LUN Resync (oder "LUN Resync") verwenden. Dies ist ein schnelles Wiederherstellungs Schema, das es einem Anwendungs Administrator ermöglicht, Daten aus einer Schatten Kopie in der ursprünglichen LUN oder einer neuen LUN wiederherzustellen.
+
+Bei der Schatten Kopie kann es sich um einen vollständigen Klon oder eine differenzielle Schatten Kopie handeln. In beiden Fällen hat die Ziel-LUN am Ende des Vorgangs zum erneuten Synchronisieren denselben Inhalt wie die LUN der Schattenkopie. Während des erneuten Synchronisierungs Vorgangs führt das Array eine Kopie auf Blockebene aus der Schatten Kopie in die Ziel-LUN aus.
 
 
 > [!NOTE]
-> Die Schattenkopie muss es sich um eine Schattenkopie übertragbarer Hardware sein. 
+> Die Schatten Kopie muss eine austauschen-Hardware Schatten Kopie sein. 
 <br>
 
 
-Die meisten Arrays können Produktion e/a-Vorgänge fortgesetzt werden, kurz nach der Vorgang zur neusynchronisierung beginnt. Während der Vorgang zur neusynchronisierung ausgeführt wird, lesen Sie, dass Anforderungen an die Schattenkopie LUN umgeleitet werden, und Schreibanforderungen an die Ziel-LUN. Dadurch können Arrays zum Wiederherstellen von sehr großen Datasets und normale Vorgänge in mehrere Sekunden fortgesetzt.
+Die meisten Arrays ermöglichen das Fortsetzen von Produktions-e/a-Vorgängen kurz nach Beginn des Vorgangs zum erneuten synchronisieren. Während des erneuten Synchronisierungs Vorgangs werden Lese Anforderungen an die LUN der Schatten Kopie umgeleitet, und es werden Anforderungen an die Ziel-LUN geschrieben. Dadurch können Arrays sehr große Datasets wiederherstellen und den normalen Betrieb in wenigen Sekunden fortsetzen.
 
-LUN bei der erneuten Synchronisierung unterscheidet sich von der LUN-Austausch. Ein LUN-Austausch ist eine schnelle Wiederherstellung-Szenario, die VSS seit Windows Server 2003 SP1 unterstützt hat. In einem LUN-Austausch ist die Schattenkopie importiert, und klicken Sie dann in ein Lese-/ Schreibzugriff Volume konvertiert. Die Konvertierung ist ein unumkehrbarer Vorgang, und des Umfangs und der zugrunde liegenden LUN kann nicht mit den VSS-APIs, gesteuert werden. Die folgende Liste beschreibt, wie die LUN bei der erneuten Synchronisierung mit der LUN-Austausch vergleicht:
+Die LUN-Neusynchronisierung unterscheidet sich vom LUN-Austausch. Ein LUN-Swap ist ein schnelles Wiederherstellungs Szenario, das von VSS seit Windows Server 2003 SP1 unterstützt wird. Bei einem LUN-Swap wird die Schatten Kopie importiert und anschließend in ein Volume mit Lese-/Schreibzugriff konvertiert. Die Konvertierung ist ein unumkehrbarer Vorgang, und das Volume und die zugrunde liegende LUN können nicht mit den VSS-APIs gesteuert werden. In der folgenden Liste wird beschrieben, wie die LUN-Neusynchronisierung mit LUN-austauschen verglichen wird:
 
-  - LUN neusynchronisierung ist die Schattenkopie nicht geändert, damit er mehrere Male verwendet werden kann. In der LUN ausgetauscht wurde, kann die Schattenkopie nur einmal für eine Wiederherstellung verwendet werden. Für die Administratoren am häufigsten Sicherheit preisbewusste ist dies wichtig. Wenn die LUN bei der erneuten Synchronisierung verwendet wird, kann die anfordernde Person den gesamten Wiederherstellungsvorgang wiederholen, wenn ein Fehler erstmals auftritt.  
+  - Bei der LUN-Neusynchronisierung wird die Schatten Kopie nicht geändert, sodass Sie mehrmals verwendet werden kann. Beim LUN-Austausch kann die Schatten Kopie nur einmal für eine Wiederherstellung verwendet werden. Bei den meisten sicherheitsbewussten Administratoren ist dies wichtig. Wenn die LUN-Neusynchronisierung verwendet wird, kann der Anforderer den gesamten Wiederherstellungs Vorgang wiederholen, wenn beim ersten Mal etwas schief geht.  
       
-  - Am Ende einen LUN-Austausch wird die Schattenkopie-LUN für Produktions-e/a-Anforderungen verwendet. Aus diesem Grund muss die Schattenkopie LUN verwenden die gleiche Qualität des Speichers als der ursprünglichen Produktions-LUN um sicherzustellen, dass die Leistung nicht beeinträchtigt wird, nachdem der Wiederherstellungsvorgang. Wenn die LUN bei der erneuten Synchronisierung stattdessen verwendet wird, kann der Hardwareanbieter die Schattenkopie im Speicher verwalten, die weniger Kosten als Produktionsqualität Speicher.  
+  - Am Ende eines LUN-Austauschs wird die LUN der Schatten Kopie für Produktions-e/a-Anforderungen verwendet. Aus diesem Grund muss die LUN der Schatten Kopie dieselbe Qualität des Speichers wie die ursprüngliche Produktions-LUN verwenden, um sicherzustellen, dass die Leistung nach dem Wiederherstellungs Vorgang nicht beeinträchtigt wird. Wenn stattdessen die LUN-Neusynchronisierung verwendet wird, kann der Hardware Anbieter die Schatten Kopie im Speicher aufbewahren, die weniger kostengünstiger ist als der Speicher in der Produktionsqualität.  
       
-  - Wenn das Ziel der LUN kann nicht verwendet werden und muss neu erstellt werden, möglicherweise LUN-Austausch wirtschaftlicher sein, da er nicht, dass ein Ziel-LUN erfordert.  
+  - Wenn die Ziel-LUN unbrauchbar ist und neu erstellt werden muss, ist der LUN-Austausch möglicherweise wirtschaftlicher, da er keine Ziel-LUN erfordert.  
       
 
 
 > [!WARNING]
-> Alle der aufgeführten Vorgänge sind Vorgänge auf LUN. Wenn Sie versuchen, ein bestimmtes Volume wiederherstellen, indem Sie die LUN bei der erneuten Synchronisierung verwenden, möchten Sie unwissentlich die anderen Volumes wiederherstellen, die die LUN verwenden. 
+> Alle aufgeführten Vorgänge sind Vorgänge auf LUN-Ebene. Wenn Sie versuchen, ein bestimmtes Volume mithilfe der LUN-Neusynchronisierung wiederherzustellen, können Sie alle anderen Volumes, die die LUN gemeinsam nutzen, nicht zurücksetzen. 
 <br>
 
 
-### <a name="restoring-individual-files-shadow-copies-for-shared-folders"></a>Die Wiederherstellung einzelner Dateien (Schattenkopien für freigegebene Ordner)
+### <a name="restoring-individual-files-shadow-copies-for-shared-folders"></a>Wiederherstellen einzelner Dateien (Schattenkopien für freigegebene Ordner)
 
-Schattenkopien für freigegebene Ordner verwendet den Volumeschattenkopie-Dienst zu Point-in-Time-Kopien der Dateien, die befinden, auf eine freigegebene Netzwerkressource, z. B. einem Dateiserver. Mit Schattenkopien von freigegebenen Ordnern können Benutzer schnell gelöschten oder geänderte Dateien wiederherstellen, die im Netzwerk gespeichert sind. Da dies ohne Unterstützung durch den Administrator erfolgen kann, können Schattenkopien für freigegebene Ordner die Produktivität zu steigern und Verwaltungskosten reduziert werden.
+Schattenkopien für freigegebene Ordner verwendet die Volumeschattenkopie-Dienst, um Zeit Punkt Kopien von Dateien bereitzustellen, die sich auf einer freigegebenen Netzwerkressource befinden, z. b. auf einem Dateiserver. Mit Schattenkopien für freigegebene Ordner können Benutzer gelöschte oder geänderte Dateien, die im Netzwerk gespeichert sind, schnell wiederherstellen. Da dies ohne Administrator Unterstützung möglich ist, können Schattenkopien für freigegebene Ordner die Produktivität steigern und die Verwaltungskosten senken.
 
-Weitere Informationen zu Schattenkopien von freigegebenen Ordnern finden Sie unter [Schattenkopien für freigegebene Ordner](http://go.microsoft.com/fwlink/?linkid=180898) (http://go.microsoft.com/fwlink/?LinkId=180898) auf TechNet.
+Weitere Informationen zu Schattenkopien für freigegebene Ordner finden Sie unter [Schattenkopien für freigegebene Ordner](http://go.microsoft.com/fwlink/?linkid=180898) (http://go.microsoft.com/fwlink/?LinkId=180898) auf TechNet).
 
-### <a name="data-mining-by-using-transportable-shadow-copies"></a>Datamining mit übertragbarer Schattenkopien
+### <a name="data-mining-by-using-transportable-shadow-copies"></a>Data Mining mithilfe von austauschen-Schatten Kopien
 
-Mit einem Hardware-Anbieter, der für die Verwendung mit dem Volumeschattenkopie-Dienst entwickelt wurde, können Sie übertragbarer Schattenkopien erstellen, die auf Servern innerhalb der gleichen Subsystem (z. B. ein SAN) importiert werden kann. Diese Schattenkopien können zum Seeding für einer produktionsumgebung, oder testen die Installation mit schreibgeschützten Daten für Datamining verwendet werden.
+Mithilfe eines Hardware Anbieters, der für die Verwendung mit dem Volumeschattenkopie-Dienst konzipiert ist, können Sie austauschen-Schatten Kopien erstellen, die auf Server innerhalb desselben Subsystems (z. b. ein SAN) importiert werden können. Diese Schatten Kopien können zum Ausgangswert einer Produktions-oder Testinstallation mit schreibgeschützten Daten für Data Mining verwendet werden.
 
-Mit dem Volumeschattenkopie-Dienst und ein Speicherarray mit einem Hardware-Anbieter, der für die Verwendung mit dem Volumeschattenkopie-Dienst entwickelt wurde, ist es möglich, erstellen eine Schattenkopie des Quellvolumes Daten auf einem Server, und klicken Sie dann Importieren der Schattenkopie auf einem anderen server  (oder mit dem gleichen Server sichern). Dieser Vorgang erfolgt in wenigen Minuten, unabhängig von der Größe der Daten. Der Transport-Prozess erfolgt über eine Reihe von Schritten, die einen Schatten Kopie anfordernden (eine Speicher-Management-Anwendung) zu verwenden, der übertragbarer Schattenkopien unterstützt.
+Wenn die Volumeschattenkopie-Dienst und ein Speicher Array mit einem Hardware Anbieter für die Verwendung mit dem Volumeschattenkopie-Dienst entworfen wurden, ist es möglich, eine Schatten Kopie des Quelldaten Volumens auf einem Server zu erstellen und die Schatten Kopie dann auf einen anderen Server zu importieren.  (oder zurück zum gleichen Server). Dieser Prozess wird in wenigen Minuten ausgeführt, unabhängig von der Größe der Daten. Der Transport Vorgang erfolgt durch eine Reihe von Schritten, bei denen ein schattenkopieanforderer (eine Speicher Verwaltungs Anwendung) verwendet wird, der austauschen-Schatten Kopien unterstützt.
 
-## <a name="to-transport-a-shadow-copy"></a>Um eine Schattenkopie zu transportieren.
+## <a name="to-transport-a-shadow-copy"></a>So transportieren Sie eine Schatten Kopie
 
-1.  Erstellen Sie eine Kopie von übertragbarer Schattenkopien für die Quelldaten auf einem Server.
+1.  Erstellen Sie eine austauschen-Schatten Kopie der Quelldaten auf einem Server.
 
-2.  Importieren Sie die Schattenkopie zu einem Server, der mit dem SAN verbunden ist (Sie können auf einen anderen Server oder dem gleichen Server importieren).
+2.  Importieren Sie die Schatten Kopie auf einen Server, der mit dem SAN verbunden ist (Sie können auf einen anderen Server oder auf denselben Server importieren).
 
-3.  Die Daten sind jetzt bereit, die verwendet werden.
+3.  Die Daten können jetzt verwendet werden.
 
 ![](media/volume-shadow-copy-service/Ee923636.633752e0-92f6-49a7-9348-f451b1dc0ed7(WS.10).jpg)
 
-**Abbildung 3**   Erstellen von Schattenkopien und Transport zwischen zwei Servern
+**Abbildung 3**   Erstellen von Schatten Kopien und transportieren zwischen zwei Servern
 
 
 > [!NOTE]
-> Übertragbarer Schattenkopien, die unter Windows Server 2003 erstellt wird, kann nicht auf einem Server mit Windows Server 2008 oder Windows Server 2008 R2 importiert werden. Übertragbarer Schattenkopien, die auf Windows Server 2008 oder Windows Server 2008 R2 erstellt wurde, kann nicht auf einen Server importiert werden, auf denen Windows Server 2003 ausgeführt wird. Allerdings kann eine Schattenkopie, die unter Windows Server 2008 erstellt wird auf einem Server importiert werden, auf denen Windows Server 2008 R2 und umgekehrt ausgeführt wird. 
+> Eine austauschen-Schatten Kopie, die auf Windows Server 2003 erstellt wird, kann nicht auf einen Server importiert werden, auf dem Windows Server 2008 oder Windows Server 2008 R2 ausgeführt wird. Eine austauschen-Schatten Kopie, die unter Windows Server 2008 oder Windows Server 2008 R2 erstellt wurde, kann nicht auf einen Server importiert werden, auf dem Windows Server 2003 ausgeführt wird. Eine Schatten Kopie, die auf Windows Server 2008 erstellt wird, kann jedoch auf einen Server importiert werden, auf dem Windows Server 2008 R2 ausgeführt wird, und umgekehrt. 
 <br>
 
 
-Schattenkopien sind schreibgeschützt. Wenn Sie eine Schattenkopie einer LUN mit Lese-/Schreibzugriff konvertieren möchten, können Sie eine VDS-basierten Speicher-Management-Anwendung (einschließlich einiger anfordernde Personen) zusätzlich zu den Volumeschattenkopie-Dienst. Durch die Verwendung dieser Anwendung können Sie die Schattenkopie aus der Volume Shadow Copy Service-Verwaltung entfernen und konvertieren Sie ihn in eine LUN mit Lese-/Schreibzugriff.
+Schattenkopien sind schreibgeschützt. Wenn Sie eine Schatten Kopie in eine Lese-/Schreib-LUN konvertieren möchten, können Sie zusätzlich zum Volumeschattenkopie-Dienst eine Dienst basierte Speicher Verwaltungs Anwendung (einschließlich einiger Anforderer) auf virtuellen Datenträgern verwenden. Mithilfe dieser Anwendung können Sie die Schatten Kopie aus Volumeschattenkopie-Dienst Management entfernen und in eine Lese-/Schreib-LUN konvertieren.
 
-Volume Shadow Copy Service Transport ist eine fortschrittliche Lösung auf Computern unter Windows Server 2003 Enterprise Edition, Windows Server 2003 Datacenter Edition, Windows Server 2008 oder Windows Server 2008 R2. Dies funktioniert nur bei ein Hardware-Anbieter auf dem Speicherarray. Shadow Copy Transport kann für unterschiedliche Zwecke, einschließlich bandsicherungen, Data mining, und Testen verwendet werden.
+Volumeschattenkopie-Dienst Transport ist eine erweiterte Lösung auf Computern, auf denen Windows Server 2003 Enterprise Edition, Windows Server 2003 Datacenter Edition, Windows Server 2008 oder Windows Server 2008 R2 ausgeführt wird. Dies funktioniert nur, wenn auf dem Speicher Array ein Hardware Anbieter vorhanden ist. Der schattenkopietransport kann für verschiedene Zwecke verwendet werden, einschließlich Band Sicherungen, Data Mining und Tests.
 
 ## <a name="frequently-asked-questions"></a>Häufig gestellte Fragen
 
-Diese häufig gestellten Fragen beantwortet Fragen zu Volume Shadow Copy Service (VSS) für Systemadministratoren. Informationen zu VSS-Anwendungsprogrammierschnittstellen, finden Sie unter [Volume Shadow Copy Service](http://go.microsoft.com/fwlink/?linkid=180899) (http://go.microsoft.com/fwlink/?LinkId=180899) in der Windows Developer Center-Bibliothek.
+Diese FAQ beantwortet Fragen zu Volumeschattenkopie-Dienst (VSS) für Systemadministratoren. Weitere Informationen zu VSS-Anwendungsprogrammierschnittstellen finden Sie unter [Volumeschattenkopie-Dienst](http://go.microsoft.com/fwlink/?linkid=180899) (http://go.microsoft.com/fwlink/?LinkId=180899) in der Bibliothek des Windows Developer Center).
 
-### <a name="when-was-volume-shadow-copy-service-introduced-on-which-windows-operating-system-versions-is-it-available"></a>Wenn eingeführte Volumeschattenkopie-Dienst? Dazu, welche Versionen der Windows-Betriebssystem ist es verfügbaren?
+### <a name="when-was-volume-shadow-copy-service-introduced-on-which-windows-operating-system-versions-is-it-available"></a>Wann wurde Volumeschattenkopie-Dienst eingeführt? Auf welchen Windows-Betriebssystemversionen ist die Version verfügbar?
 
-VSS wurde in Windows XP eingeführt. Es ist auf Windows XP, Windows Server 2003, Windows Vista®, Windows Server 2008, Windows 7 und Windows Server 2008 R2 verfügbar.
+VSS wurde in Windows XP eingeführt. Es ist unter Windows XP, Windows Server 2003, Windows Vista®, Windows Server 2008, Windows 7 und Windows Server 2008 R2 verfügbar.
 
-### <a name="what-is-the-difference-between-a-shadow-copy-and-a-backup"></a>Was ist der Unterschied zwischen einer Schattenkopie und eine Sicherung?
+### <a name="what-is-the-difference-between-a-shadow-copy-and-a-backup"></a>Worin besteht der Unterschied zwischen einer Schatten Kopie und einer Sicherung?
 
-Im Fall von einer Sicherung des Festplattenlaufwerks ist die Schattenkopie erstellt auch die Sicherung. Daten können aus der Schattenkopie für eine Wiederherstellung kopiert werden, oder die Schattenkopie für ein Szenario für die schnelle Wiederherstellung verwendet werden – beispielsweise bei der erneuten Synchronisierung LUN oder LUN-Austausch.
+Im Fall einer Sicherung eines Festplatten Laufwerks ist die erstellte Schatten Kopie ebenfalls die Sicherung. Daten können aus der Schatten Kopie für eine Wiederherstellung kopiert werden, oder die Schatten Kopie kann für ein schnelles Wiederherstellungs Szenario verwendet werden – z. b. für die LUN-Neusynchronisierung oder den LUN-Austausch.
 
-Wenn Daten aus der Schattenkopie auf Band oder anderen Wechselmedien kopiert werden, bildet der Inhalt, der auf den Medien gespeichert ist die Sicherung aus. Die Schattenkopie selbst kann gelöscht werden, nachdem die Daten daraus kopiert werden.
+Wenn Daten aus der Schatten Kopie auf das Band oder ein anderes Wechselmedium kopiert werden, stellt der auf dem Medium gespeicherte Inhalt die Sicherung dar. Die Schatten Kopie selbst kann gelöscht werden, nachdem die Daten aus ihr kopiert wurden.
 
-### <a name="what-is-the-largest-size-volume-that-volume-shadow-copy-service-supports"></a>Was ist die größte Größe-Volume, das Volume Shadow Copy Service unterstützt?
+### <a name="what-is-the-largest-size-volume-that-volume-shadow-copy-service-supports"></a>Was ist das größte Volume, das Volumeschattenkopie-Dienst unterstützt?
 
 Volumeschattenkopie-Dienst unterstützt eine Volumegröße von bis zu 64 TB.
 
-### <a name="i-made-a-backup-on-windows-server2008-can-i-restore-it-on-windows-server2008r2"></a>Mir eine Sicherung unter Windows Server 2008. Kann ich es auf Windows Server 2008 R2 wiederherstellen?
+### <a name="i-made-a-backup-on-windows-server2008-can-i-restore-it-on-windows-server2008r2"></a>Ich habe eine Sicherung auf Windows Server 2008 erstellt. Kann ich Sie unter Windows Server 2008 R2 wiederherstellen?
 
-Es hängt von der Sicherungssoftware, die Sie verwendet. Die meisten Sicherungsprogramme unterstützen dieses Szenario, für die Daten jedoch nicht für Sicherungen des Systemstatus.
+Dies hängt von der verwendeten Sicherungssoftware ab. Die meisten Sicherungs Programme unterstützen dieses Szenario für Daten, aber nicht für Sicherungen des Systemstatus.
 
-Schattenkopien, die auf der folgenden Versionen von Windows erstellt werden, können auf dem anderen verwendet werden.
+Schatten Kopien, die für eine dieser Versionen von Windows erstellt werden, können für die andere verwendet werden.
 
-### <a name="i-made-a-backup-on-windows-server2003-can-i-restore-it-on-windows-server2008"></a>Mir eine Sicherung unter Windows Server 2003. Kann ich es unter Windows Server 2008 wiederherstellen?
+### <a name="i-made-a-backup-on-windows-server2003-can-i-restore-it-on-windows-server2008"></a>Ich habe eine Sicherung auf Windows Server 2003 erstellt. Kann ich Sie unter Windows Server 2008 wiederherstellen?
 
-Es hängt von der Sicherungssoftware, die Sie verwendet. Bei der Erstellung einer Schattenkopie unter Windows Server 2003 kann nicht unter Windows Server 2008 Verwendung. Bei der Erstellung einer Schattenkopie unter Windows Server 2008 können keine Sie es auch unter Windows Server 2003 wiederherstellen.
+Dies hängt von der verwendeten Sicherungssoftware ab. Wenn Sie eine Schatten Kopie auf Windows Server 2003 erstellen, können Sie Sie nicht unter Windows Server 2008 verwenden. Wenn Sie eine Schatten Kopie auf Windows Server 2008 erstellen, können Sie Sie auch nicht unter Windows Server 2003 wiederherstellen.
 
 ### <a name="how-can-i-disable-vss"></a>Wie kann ich VSS deaktivieren?
 
-Es ist möglich, die den Volumeschattenkopie-Dienst zu deaktivieren, indem Sie mit der Microsoft Management Console. Allerdings sollten Sie dies nicht tun. Deaktivieren von VSS negativ und wirkt sich auf jegliche Software, die Sie verwenden, die von, z. B. die Systemwiederherstellung und Windows Server-Sicherung abhängig ist.
+Die Volumeschattenkopie-Dienst kann mithilfe der Microsoft Management Console deaktiviert werden. Dies sollte jedoch nicht der Fall sein. Das Deaktivieren von VSS wirkt sich negativ auf alle von ihm verwendeten Software aus, z. b. System Wiederherstellung und Windows Server-Sicherung.
 
-Weitere Informationen finden Sie unter den folgenden Websites der Microsoft TechNet-Website:
+Weitere Informationen finden Sie auf den folgenden Microsoft TechNet-Websites:
 
-  - [Systemwiederherstellung](http://go.microsoft.com/fwlink/?linkid=157113) ()http://go.microsoft.com/fwlink/?LinkID=157113)  
+  - [System Wiederherstellung](http://go.microsoft.com/fwlink/?linkid=157113) (http://go.microsoft.com/fwlink/?LinkID=157113)  
       
-  - [Windows Server-Sicherung](http://go.microsoft.com/fwlink/?linkid=180891) ()http://go.microsoft.com/fwlink/?LinkID=180891)  
+  - [Windows Server-Sicherung](http://go.microsoft.com/fwlink/?linkid=180891) (http://go.microsoft.com/fwlink/?LinkID=180891)  
       
 
-### <a name="can-i-exclude-files-from-a-shadow-copy-to-save-space"></a>Können Dateien aus einer Schattenkopie um Platz zu sparen werden ausgeschlossen?
+### <a name="can-i-exclude-files-from-a-shadow-copy-to-save-space"></a>Kann ich Dateien aus einer Schatten Kopie ausschließen, um Speicherplatz zu sparen?
 
-VSS wurde entwickelt, um Schattenkopien des gesamten Volumes zu erstellen. Temporäre Dateien, z. B. Auslagerungsdateien, werden automatisch von Schattenkopien, um Platz zu sparen weggelassen.
+VSS dient zum Erstellen von Schatten Kopien ganzer Volumes. Temporäre Dateien, z. b. Auslagerungs Dateien, werden automatisch aus Schatten Kopien weggelassen, um Speicherplatz zu sparen.
 
-Um bestimmte Dateien von Schattenkopien auszuschließen, verwenden Sie den folgenden Registrierungsschlüssel: **FilesNotToSnapshot**.
+Um bestimmte Dateien aus Schatten Kopien auszuschließen, verwenden Sie den folgenden Registrierungsschlüssel: " **Filesnotto Snapshot**".
 
 
 > [!NOTE]
-> Die <STRONG>FilesNotToSnapshot</STRONG> Registrierungsschlüssel nur von Anwendungen verwendet werden soll. Benutzer, die versuchen, ihn zu verwenden, treten Einschränkungen wie z. B. Folgendes:
+> Der Registrierungsschlüssel " <STRONG>filesnottosnapshot</STRONG> " soll nur von Anwendungen verwendet werden. Benutzer, die versuchen, Sie zu verwenden, erhalten Einschränkungen wie die folgenden:
 > <br>
 > <UL>
-> <LI>Es kann nicht aus einer Schattenkopie Dateien gelöscht werden, die auf einem Windows Server erstellt wurde, mithilfe der Funktion für die früheren Versionen.<BR><BR>
-> <LI>Es kann keine Dateien von Schattenkopien für freigegebene Ordner löschen.<BR><BR>
-> <LI>Können sie Dateien löschen, aus einer Schattenkopie, das erstellt wurde die <a href="https://docs.microsoft.com/windows-server/administration/windows-commands/diskshadow" data-raw-source="[Diskshadow](https://docs.microsoft.com/windows-server/administration/windows-commands/diskshadow)">Diskshadow</a> Dienstprogramm, aber es kann nicht löschen Sie Dateien aus einer Schattenkopie, das erstellt wurde die <a href="https://docs.microsoft.com/windows-server/administration/windows-commands/vssadmin" data-raw-source="[Vssadmin](https://docs.microsoft.com/windows-server/administration/windows-commands/vssadmin)">Vssadmin</a> Hilfsprogramm.<BR><BR>
-> <LI>Dateien werden aus einer Schattenkopie Best-Effort-Basis gelöscht. Dies bedeutet, dass sie nicht garantiert werden, gelöscht werden soll.<BR><BR></LI></UL>
+> <LI>Dateien aus einer Schatten Kopie, die auf einem Windows-Server erstellt wurde, können mit der Funktion "vorherige Versionen" nicht gelöscht werden.<BR><BR>
+> <LI>Dateien aus Schatten Kopien für freigegebene Ordner können nicht gelöscht werden.<BR><BR>
+> <LI>Es können Dateien aus einer Schatten Kopie gelöscht werden, die mit dem Hilfsprogramm <a href="https://docs.microsoft.com/windows-server/administration/windows-commands/diskshadow" data-raw-source="[Diskshadow](https://docs.microsoft.com/windows-server/administration/windows-commands/diskshadow)">DiskShadow</a> erstellt wurde, aber es können keine Dateien aus einer Schatten Kopie gelöscht werden, die mit dem Hilfsprogramm <a href="https://docs.microsoft.com/windows-server/administration/windows-commands/vssadmin" data-raw-source="[Vssadmin](https://docs.microsoft.com/windows-server/administration/windows-commands/vssadmin)">vssadmin</a> erstellt wurde.<BR><BR>
+> <LI>Dateien werden auf der Grundlage der besten Leistung aus einer Schatten Kopie gelöscht. Dies bedeutet, dass Sie nicht unbedingt gelöscht werden.<BR><BR></LI></UL>
 
 
-Weitere Informationen finden Sie unter [Ausschließen von Dateien aus Schattenkopien](http://go.microsoft.com/fwlink/?linkid=180904) (http://go.microsoft.com/fwlink/?LinkId=180904) auf MSDN.
+Weitere Informationen finden Sie unter [Ausschließen von Dateien aus Schatten Kopien](http://go.microsoft.com/fwlink/?linkid=180904) (http://go.microsoft.com/fwlink/?LinkId=180904) auf MSDN).
 
-### <a name="my-non-microsoft-backup-program-failed-with-a-vss-error-what-can-i-do"></a>Mein Sicherungsprogramm nicht von Microsoft bei der VSS-Fehler. Was kann ich tun?
+### <a name="my-non-microsoft-backup-program-failed-with-a-vss-error-what-can-i-do"></a>VSS-Fehler bei meinem nicht-Microsoft-Sicherungsprogramm. Was kann ich tun?
 
-Überprüfen Sie den Produkt-Support-Abschnitt der Website des Unternehmens, die Sicherung erstellt. Es gibt möglicherweise ein Produktupdate, die Sie herunterladen und installieren, um das Problem zu beheben. Wenn dies nicht der Fall ist, wenden Sie sich an das Produkt unterstützt Abteilung.
+Überprüfen Sie den Produktsupport Abschnitt der Website des Unternehmens, von dem das Sicherungsprogramm erstellt wurde. Möglicherweise gibt es ein Produkt Update, das Sie herunterladen und installieren können, um das Problem zu beheben. Falls nicht, wenden Sie sich an die Produktsupport Abteilung des Unternehmens.
 
-Systemadministratoren können die VSS-Informationen zur Problembehandlung auf der Website Microsoft TechNet-Bibliothek verwenden, zum Sammeln von Diagnoseinformationen über VSS-bezogene Probleme.
+System Administratoren können die VSS-Informationen zur Problembehandlung auf der folgenden Microsoft TechNet Library-Website verwenden, um Diagnoseinformationen zu VSS-bezogenen Problemen zu sammeln.
 
-Weitere Informationen finden Sie unter [Volume Shadow Copy Service](http://go.microsoft.com/fwlink/?linkid=180905) (http://go.microsoft.com/fwlink/?LinkId=180905) auf TechNet.
+Weitere Informationen finden Sie unter [Volumeschattenkopie-Dienst](http://go.microsoft.com/fwlink/?linkid=180905) (http://go.microsoft.com/fwlink/?LinkId=180905) auf TechNet).
 
-### <a name="what-is-the-diff-area"></a>Was ist der "Vergleichsbereich"?
+### <a name="what-is-the-diff-area"></a>Was ist der "diff-Bereich"?
 
-Die Schattenkopie-Speicherbereich (oder der "Vergleichsbereich") ist der Speicherort die Daten für die Schattenkopie, die von der System-Software-Anbieter erstellt wird.
+Der Schattenkopiespeicherbereich (oder der diff-Bereich) ist der Speicherort, an dem die Daten für die vom Systemsoftware Anbieter erstellte Schatten Kopie gespeichert werden.
 
-### <a name="where-is-the-diff-area-located"></a>Wo befindet sich die Vergleichsbereich?
+### <a name="where-is-the-diff-area-located"></a>Wo befindet sich der diff-Bereich?
 
-Die Vergleichsbereich kann auf alle lokalen Volume befinden. Allerdings müssen sie auf einem NTFS-Volume befinden, die ausreichend Speicherplatz zum Speichern.
+Der diff-Bereich kann sich auf einem beliebigen lokalen Volume befinden. Es muss sich jedoch auf einem NTFS-Volume befinden, das über genügend Speicherplatz verfügt, um es zu speichern.
 
-### <a name="how-is-the-diff-area-location-determined"></a>Wie wird der Diff-Bereich-Speicherort ab, der ein?
+### <a name="how-is-the-diff-area-location-determined"></a>Wie wird der diff-Bereichs Speicherort festgelegt?
 
-In dieser Reihenfolge aus, um zu bestimmen, den Speicherort der Diff-Bereich werden die folgenden Kriterien ausgewertet:
+Die folgenden Kriterien werden in dieser Reihenfolge ausgewertet, um den diff-Bereichs Speicherort zu bestimmen:
 
-  - Wenn ein Volume bereits einen vorhandenen Schattenkopie wurde, wird dieser Speicherort verwendet.  
+  - Wenn ein Volume bereits über eine Schatten Kopie verfügt, wird dieser Speicherort verwendet.  
       
-  - Wenn eine vorkonfigurierte manuelle Zuordnung zwischen dem ursprünglichen Volume und des Speicherortes der Volumeschattenkopie, vorhanden ist, und klicken Sie dann diesen Speicherort verwendet wird.  
+  - Wenn eine vorkonfigurierte manuelle Zuordnung zwischen dem ursprünglichen Volume und dem Speicherort der Schattenkopievolumes vorhanden ist, wird dieser Speicherort verwendet.  
       
-  - Wenn die vorherigen beiden Kriterien keinen Speicherort angeben, wählt der Volumeschattenkopie-Dienst einen Speicherort, der basierend auf verfügbaren freien Speicherplatz. Wenn Sie mehrere Volumes Schattenkopien erstellt werden, erstellt der Volumeschattenkopie-Dienst eine Liste der möglichen momentaufnahmespeicherorte basierend auf der Größe des freien Speicherplatzes, in absteigender Reihenfolge. Die Anzahl der Standorte ist gleich der Anzahl der Volumes, die gespiegelt wird.  
+  - Wenn die beiden vorherigen Kriterien keinen Speicherort angeben, wählt der Schattenkopiedienst einen Speicherort basierend auf dem verfügbaren freien Speicherplatz aus. Wenn mehrere Volumes kopiert werden, erstellt der Schattenkopiedienst eine Liste möglicher Momentaufnahme Speicherorte basierend auf der Größe des freien Speicherplatzes in absteigender Reihenfolge. Die Anzahl der bereitgestellten Speicherorte entspricht der Anzahl der Volumes, die mit dem Schatten kopiert werden.  
       
-  - Wenn das Volume, die gespiegelt wird einer der möglichen Speicherorte ist, wird eine lokale Zuordnung erstellt. Andernfalls wird eine Zuordnung mit dem Volume mit dem meisten verfügbaren Speicherplatz erstellt.  
+  - Wenn das zu überprüfende Volume einer der möglichen Speicherorte ist, wird eine lokale Zuordnung erstellt. Andernfalls wird eine Zuordnung mit dem Volume mit dem meisten verfügbaren Speicherplatz erstellt.  
       
 
-### <a name="can-vss-create-shadow-copies-of-non-ntfs-volumes"></a>Kann VSS Schattenkopien von nicht-NTFS-Volumes erstellen?
+### <a name="can-vss-create-shadow-copies-of-non-ntfs-volumes"></a>Kann VSS Schatten Kopien von nicht-NTFS-Volumes erstellen?
 
-Ja. Persistente Schattenkopien können jedoch nur für NTFS-Volumes erfolgen. Darüber hinaus muss mindestens ein Volume auf dem System bereitgestellt, einem NTFS-Volume sein.
+Ja. Persistente Schatten Kopien können jedoch nur für NTFS-Volumes erstellt werden. Außerdem muss mindestens ein Volume, das auf dem System eingebunden ist, ein NTFS-Volume sein.
 
-### <a name="whats-the-maximum-number-of-shadow-copies-i-can-create-at-one-time"></a>Was ist die maximale Anzahl von Schattenkopien, die ich auf einmal erstellen können?
+### <a name="whats-the-maximum-number-of-shadow-copies-i-can-create-at-one-time"></a>Wie hoch ist die maximale Anzahl von Schatten Kopien, die ich gleichzeitig erstellen kann?
 
-Die maximale Anzahl von Volumes von Schattenkopien in einer einzelnen Schattenkopiesatz ist 64. Beachten Sie, dass dies nicht der Anzahl von Schattenkopien identisch ist.
+Die maximale Anzahl von schattenkopierten Volumes in einem einzelnen Schattenkopiesatz beträgt 64. Beachten Sie, dass dies nicht mit der Anzahl der Schatten Kopien übereinstimmt.
 
-### <a name="whats-the-maximum-number-of-software-shadow-copies-created-by-the-system-provider-that-i-can-maintain-for-a-volume"></a>Was ist die maximale Anzahl von Softwareschattenkopien vom Systemanbieter erstellt, die ich für ein Volume verwalten kann?
+### <a name="whats-the-maximum-number-of-software-shadow-copies-created-by-the-system-provider-that-i-can-maintain-for-a-volume"></a>Wie hoch ist die maximale Anzahl von Software Schatten Kopien, die vom Systemanbieter für ein Volume erstellt werden können?
 
-Die maximal zulässige Anzahl ist Software Schattenkopien für jedes Volume 512. Allerdings können standardmäßig nur 64 Schattenkopien verwaltet werden, die von der Funktion für die Schattenkopien von freigegebenen Ordnern verwendet werden. Um den Grenzwert für die Schattenkopien von freigegebenen Ordnern-Funktion zu ändern, verwenden Sie den folgenden Registrierungsschlüssel: **MaxShadowCopies**.
+Der Wert für die maximale Anzahl von Software Schatten Kopien beträgt 512. Standardmäßig können Sie jedoch nur 64 Schatten Kopien verwalten, die von der Funktion "Schatten Kopien der freigegebenen Ordner" verwendet werden. Verwenden Sie den folgenden Registrierungsschlüssel, um das Limit für die Funktion "Schatten Kopien von freigegebenen Ordnern" zu ändern: **Maxshadowkopien**.
 
-### <a name="how-can-i-control-the-space-that-is-used-for-shadow-copy-storage-space"></a>Wie kann ich den Speicherplatz steuern, der für die Schattenkopie-Speicherplatz verwendet wird?
+### <a name="how-can-i-control-the-space-that-is-used-for-shadow-copy-storage-space"></a>Wie kann ich den Speicherplatz steuern, der für den Speicherplatz für Schatten Kopien verwendet wird?
 
-Typ der **Vssadmin Größe Shadowstorage** Befehl.
+Geben Sie den Befehl **vssadmin Größe ShadowStorage** ein.
 
-Weitere Informationen finden Sie unter [Vssadmin Größe Shadowstorage](http://go.microsoft.com/fwlink/?linkid=180906) (http://go.microsoft.com/fwlink/?LinkId=180906) auf TechNet.
+Weitere Informationen finden Sie unter [vssadmin Größe ShadowStorage](http://go.microsoft.com/fwlink/?linkid=180906) (http://go.microsoft.com/fwlink/?LinkId=180906) auf TechNet).
 
-### <a name="what-happens-when-i-run-out-of-space"></a>Was geschieht, wenn ich keinen Speicherplatz mehr?
+### <a name="what-happens-when-i-run-out-of-space"></a>Was geschieht, wenn kein Speicherplatz mehr verfügbar ist?
 
-Schattenkopien für das Volume werden gelöscht, die älteste Schattenkopie ab.
+Schatten Kopien für das Volume werden ab der ältesten Schatten Kopie gelöscht.
 
-## <a name="volume-shadow-copy-service-tools"></a>Volume Shadow Copy Service-Tools
+## <a name="volume-shadow-copy-service-tools"></a>Volumeschattenkopie-Dienst Tools
 
-Das Windows-Betriebssystem bietet die folgenden Tools zum Arbeiten mit VSS:
+Das Windows-Betriebssystem stellt die folgenden Tools zum Arbeiten mit VSS bereit:
 
   - [DiskShadow](http://go.microsoft.com/fwlink/?linkid=180907) (http://go.microsoft.com/fwlink/?LinkId=180907)  
       
-  - [VssAdmin](http://go.microsoft.com/fwlink/?linkid=84008) (http://go.microsoft.com/fwlink/?LinkId=84008)  
+  - [Vssadmin](http://go.microsoft.com/fwlink/?linkid=84008) (http://go.microsoft.com/fwlink/?LinkId=84008)  
       
 
 ### <a name="diskshadow"></a>DiskShadow
 
-DiskShadow ist eine VSS-anforderer, die Sie verwenden können, alle Hardware- und Momentaufnahmen zu verwalten, die Sie auf einem System verwenden können. DiskShadow umfasst Befehle wie im folgenden:
+DiskShadow ist ein VSS-Anforderer, mit dem Sie alle Hardware-und Software Momentaufnahmen verwalten können, die Sie auf einem System haben können. DiskShadow umfasst Befehle wie die folgenden:
 
-  - **list**: Listet VSS-Writer, VSS-Anbieter und Schattenkopien  
+  - **Liste**: Listet VSS-Writer, VSS-Anbieter und Schatten Kopien auf.  
       
-  - **create**: Erstellt eine neue Schattenkopie  
+  - **Erstellen**Sie Folgendes: Erstellt eine neue Schatten Kopie.  
       
-  - **import**: Importiert eine übertragbarer Schattenkopien  
+  - **importieren**: Importiert eine austauschen-Schatten Kopie.  
       
-  - **verfügbar machen**: Stellt eine permanente Schattenkopie (wie einem Laufwerksbuchstaben, z. B.)  
+  - verfügbar **machen:** Macht eine persistente Schatten Kopie (z. b. als Laufwerk Buchstabe) verfügbar.  
       
-  - **revert**: Setzt ein Volume an einer angegebenen Schattenkopie  
+  - wieder **herstellen:** Setzt ein Volume auf eine angegebene Schatten Kopie zurück.  
       
 
-Dieses Tool ist für die Verwendung von IT-Experten vorgesehen, aber Entwickler auch es könnte hilfreich beim Testen einer VSS Writer oder VSS-Anbieter.
+Dieses Tool ist für die Verwendung durch IT-Experten vorgesehen, aber Entwickler können es auch beim Testen eines VSS Writer-oder VSS-Anbieters nützlich finden.
 
-DiskShadow ist nur unter Windows Server-Betriebssystemen verfügbar. Es ist nicht auf Windows-Clientbetriebssystemen verfügbar.
+DiskShadow ist nur unter Windows Server-Betriebssystemen verfügbar. Es ist auf Windows-Client Betriebssystemen nicht verfügbar.
 
 ### <a name="vssadmin"></a>VssAdmin
 
-VssAdmin dient zum Erstellen, löschen und Auflisten von Informationen über Schattenkopien. Sie können auch verwendet werden, zum Ändern der Größe der Schattenkopie-Speicherbereich ("Vergleichsbereich").
+Vssadmin dient zum Erstellen, löschen und Auflisten von Informationen zu Schatten Kopien. Sie kann auch verwendet werden, um die Größe des Schattenkopiespeicherbereichs ("diff-Bereich") zu ändern.
 
-VssAdmin enthält Befehle wie im folgenden:
+Vssadmin umfasst Befehle wie die folgenden:
 
-  - **Erstellen von Schattenkopien**: Erstellt eine neue Schattenkopie  
+  - **Schatten erstellen**: Erstellt eine neue Schatten Kopie.  
       
-  - **Löschen Sie Schatten**: Löscht Schattenkopien  
+  - **Schatten löschen**: Löscht Schatten Kopien.  
       
-  - **Liste von Anbietern**: Listet alle registrierten VSS-Anbieter  
+  - **Anbieter auflisten**: Listet alle registrierten VSS-Anbieter auf.  
       
-  - **Liste der Writer**: Listet alle abonnierten VSS-Writer  
+  - **Writer auflisten**: Listet alle abonnierten VSS Writer auf.  
       
-  - **Ändern der Größe Shadowstorage**: Ändert die maximale Größe der Schattenkopie-Speicherbereich  
+  - **Ändern Sie die Größe von ShadowStorage**: Ändert die maximale Größe des Speicherbereichs für Schatten Kopien.  
       
 
-VssAdmin kann nur verwendet werden, um Schattenkopien zu verwalten, die von der System-Software-Anbieter erstellt werden.
+Vssadmin kann nur zum Verwalten von Schatten Kopien verwendet werden, die vom Systemsoftware Anbieter erstellt werden.
 
-VssAdmin ist auf Windows-Client und dem Betriebssystem Windows Server-Versionen verfügbar.
+Vssadmin ist auf Windows-Client-und Windows Server-Betriebssystemversionen verfügbar.
 
-## <a name="volume-shadow-copy-service-registry-keys"></a>Registrierungsschlüssel für den Volume Shadow Copy-Dienst
+## <a name="volume-shadow-copy-service-registry-keys"></a>Registrierungsschlüssel Volumeschattenkopie-Dienst
 
 Die folgenden Registrierungsschlüssel sind für die Verwendung mit VSS verfügbar:
 
   - **VssAccessControl**  
       
-  - **MaxShadowCopies**  
+  - **Maxshadowkopien**  
       
   - **MinDiffAreaFileSize**  
       
 
 ### <a name="vssaccesscontrol"></a>VssAccessControl
 
-Dieser Schlüssel wird verwendet, um anzugeben, welche Benutzer Zugriff auf Schattenkopien haben.
+Dieser Schlüssel wird verwendet, um anzugeben, welche Benutzer Zugriff auf Schatten Kopien haben.
 
-Weitere Informationen finden Sie auf der MSDN-Website die folgenden Einträge:
+Weitere Informationen finden Sie auf der MSDN-Website in den folgenden Einträgen:
 
-  - [Sicherheitsüberlegungen für Autoren](http://go.microsoft.com/fwlink/?linkid=157739) ()http://go.microsoft.com/fwlink/?LinkId=157739)  
+  - [Sicherheitsüberlegungen für Writer](http://go.microsoft.com/fwlink/?linkid=157739) (http://go.microsoft.com/fwlink/?LinkId=157739)  
       
-  - [Überlegungen zur Sicherheit für anfordernde Personen](http://go.microsoft.com/fwlink/?linkid=180908) ()http://go.microsoft.com/fwlink/?LinkId=180908)  
+  - [Sicherheitsüberlegungen für](http://go.microsoft.com/fwlink/?linkid=180908) anfordernde Personen (http://go.microsoft.com/fwlink/?LinkId=180908)  
       
 
-### <a name="maxshadowcopies"></a>MaxShadowCopies
+### <a name="maxshadowcopies"></a>Maxshadowkopien
 
-Dieser Schlüssel gibt die maximale Anzahl von Clients zugängliche Schattenkopien, die auf jedem Volume des Computers gespeichert werden können. Clients zugängliche Schattenkopien werden von Schattenkopien für freigegebene Ordner verwendet.
+Dieser Schlüssel gibt die maximale Anzahl von Client zugänglichen Schatten Kopien an, die auf jedem Volume des Computers gespeichert werden können. Die vom Client zugänglichen Schatten Kopien werden von Schattenkopien für freigegebene Ordner verwendet.
 
-Weitere Informationen finden Sie auf der MSDN-Website unter den folgenden Eintrag:
+Weitere Informationen finden Sie auf der MSDN-Website im folgenden Eintrag:
 
-**MaxShadowCopies** unter [Registrierungsschlüssel für die Sicherung und Wiederherstellung](http://go.microsoft.com/fwlink/?linkid=180909) ()http://go.microsoft.com/fwlink/?LinkId=180909)
+**Maxshadowkopien** unter [Registrierungs Schlüsseln für die Sicherung und Wiederherstellung](http://go.microsoft.com/fwlink/?linkid=180909) (http://go.microsoft.com/fwlink/?LinkId=180909)
 
 ### <a name="mindiffareafilesize"></a>MinDiffAreaFileSize
 
-Dieser Schlüssel gibt die anfängliche minimale Größe in MB, von der Schattenkopie-Speicherbereich.
+Dieser Schlüssel gibt die minimale anfängliche Größe des Schattenkopiespeicherbereichs in MB an.
 
-Weitere Informationen finden Sie auf der MSDN-Website unter den folgenden Eintrag:
+Weitere Informationen finden Sie auf der MSDN-Website im folgenden Eintrag:
 
-**MinDiffAreaFileSize** unter [Registrierungsschlüssel für die Sicherung und Wiederherstellung](http://go.microsoft.com/fwlink/?linkid=180910) ()http://go.microsoft.com/fwlink/?LinkId=180910)
+**MinDiffAreaFileSize** unter [Registrierungs Schlüsseln für die Sicherung und Wiederherstellung](http://go.microsoft.com/fwlink/?linkid=180910) (http://go.microsoft.com/fwlink/?LinkId=180910)
 
-`##`#' Unterstützten Betriebssystemversionen
+`##`# "Unterstützte Betriebs System Versionen
 
-Die folgende Tabelle enthält die minimalen unterstützten Betriebssystemversionen für VSS-Funktionen.
+In der folgenden Tabelle sind die unterstützten Betriebssystemversionen für VSS-Funktionen aufgeführt.
 
 
 <table>
@@ -537,29 +537,29 @@ Die folgende Tabelle enthält die minimalen unterstützten Betriebssystemversion
 </colgroup>
 <thead>
 <tr class="header">
-<th>VSS-Funktion</th>
+<th>VSS-Feature</th>
 <th>Unterstützte Mindestversion (Client)</th>
 <th>Unterstützte Mindestversion (Server)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>Bei der erneuten Synchronisierung LUN</p></td>
+<td><p>LUN-Neusynchronisierung</p></td>
 <td><p>Nicht unterstützt</p></td>
 <td><p>Windows Server 2008 R2</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>FilesNotToSnapshot</strong> Registrierungsschlüssel</p></td>
+<td><p>Registrierungsschlüssel " <strong>filesnottosnapshot</strong> "</p></td>
 <td><p>Windows Vista</p></td>
 <td><p>Windows Server 2008</p></td>
 </tr>
 <tr class="odd">
-<td><p>Übertragbarer Schattenkopien</p></td>
+<td><p>Über transportable Schatten Kopien</p></td>
 <td><p>Nicht unterstützt</p></td>
 <td><p>Windows Server 2003 mit SP1</p></td>
 </tr>
 <tr class="even">
-<td><p>Hardwareschattenkopien</p></td>
+<td><p>Hardware Schatten Kopien</p></td>
 <td><p>Nicht unterstützt</p></td>
 <td><p>Windows Server 2003</p></td>
 </tr>
@@ -569,12 +569,12 @@ Die folgende Tabelle enthält die minimalen unterstützten Betriebssystemversion
 <td><p>Windows Server 2003</p></td>
 </tr>
 <tr class="even">
-<td><p>Schnelle Wiederherstellung mithilfe der LUN-Austausch</p></td>
+<td><p>Schnelle Wiederherstellung mit LUN-Swap</p></td>
 <td><p>Nicht unterstützt</p></td>
 <td><p>Windows Server 2003 mit SP1</p></td>
 </tr>
 <tr class="odd">
-<td><p>Mehrere importiert der Hardwareschattenkopien</p>
+<td><p>Mehrere Importe von Hardware Schatten Kopien</p>
 <div class="alert">
 <table>
 <colgroup>
@@ -587,7 +587,7 @@ Die folgende Tabelle enthält die minimalen unterstützten Betriebssystemversion
 </thead>
 <tbody>
 <tr class="odd">
-<td>Dies ist die Möglichkeit, eine Schattenkopie mehrmals zu importieren. Nur eine Importvorgang kann zu einem Zeitpunkt ausgeführt werden.
+<td>Dies ist die Möglichkeit, eine Schatten Kopie mehrmals zu importieren. Es kann jeweils nur ein Import Vorgang ausgeführt werden.
 <p></p></td>
 </tr>
 </tbody>
@@ -603,22 +603,22 @@ Die folgende Tabelle enthält die minimalen unterstützten Betriebssystemversion
 <td><p>Windows Server 2003</p></td>
 </tr>
 <tr class="odd">
-<td><p>Übertragbarer automatisch wiederhergestellte Schattenkopien.</p></td>
+<td><p>Über transportable automatisch wiederhergestellte Schatten Kopien</p></td>
 <td><p>Nicht unterstützt</p></td>
 <td><p>Windows Server 2008</p></td>
 </tr>
 <tr class="even">
-<td><p>Gleichzeitige Sicherung Sitzungen (bis zu 64)</p></td>
+<td><p>Gleichzeitige Sicherungs Sitzungen (bis zu 64)</p></td>
 <td><p>Windows XP</p></td>
 <td><p>Windows Server 2003</p></td>
 </tr>
 <tr class="odd">
-<td><p>Einzelne wiederherstellungssitzung mit Sicherungen</p></td>
+<td><p>Einzelne Wiederherstellungs Sitzung gleichzeitig mit Sicherungen</p></td>
 <td><p>Windows Vista</p></td>
-<td><p>WindowsServer 2003 mit SP2</p></td>
+<td><p>Windows Server 2003 mit SP2</p></td>
 </tr>
 <tr class="even">
-<td><p>Bis zu 8 Restore-Sitzungen gleichzeitig mit der Sicherungen</p></td>
+<td><p>Bis zu 8 Wiederherstellungs Sitzungen gleichzeitig mit Sicherungen</p></td>
 <td><p>Windows 7</p></td>
 <td><p>Windows Server 2003 R2</p></td>
 </tr>
