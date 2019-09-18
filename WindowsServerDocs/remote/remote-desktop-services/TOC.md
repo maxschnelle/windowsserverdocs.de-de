@@ -68,6 +68,7 @@
 ### [Verfügbare Remotedesktopclients](clients/remote-desktop-clients.md)
 ### Windows-Desktop-Client
 #### [Erste Schritte mit dem Windows-Desktop-Client](clients/windowsdesktop.md)
+#### [Windows-Desktop-Client für Administratoren](clients/windowsdesktop-admin.md)
 #### [Neuigkeiten im Windows-Desktop-Client](clients/windowsdesktop-whatsnew.md)
 ### Windows Store-Client
 #### [Erste Schritte mit dem Windows Store-Client](clients/windows.md)
