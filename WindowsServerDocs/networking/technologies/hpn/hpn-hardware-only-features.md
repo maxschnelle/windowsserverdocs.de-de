@@ -57,7 +57,7 @@ Enable-NetAdapterChecksumOffload –Name * -TcpIPv4 -UdpIPv4
 
 _**Tipps zur Verwendung von adresschecksum-Offloads**_
 
-Adresschecksum-Offloads sollten unabhängig von der Arbeitsauslastung oder dem Umstand immer aktiviert werden. Bei allen Auslagerungs Technologien können Sie die Netzwerkleistung immer verbessern. Das Abladen von Prüfsummen ist auch erforderlich, damit andere Zustands lose Abladungen funktionieren, z. & # 160; & # 160; & # 160; & # 160; & # 160; & amp; a. Empfangs seitige Skalierung
+Adresschecksum-Offloads sollten unabhängig von der Arbeitsauslastung oder dem Umstand immer aktiviert werden. Bei allen Auslagerungs Technologien können Sie die Netzwerkleistung immer verbessern. Das Abladen von Prüfsummen ist auch erforderlich, damit andere zustandslose Abladevorgänge funktionieren, einschließlich der empfangsseitigen Skalierung (RSS), der empfangenen Segmentzusammenführung (RSC) und der großen Sendeabladung (LSO).
 
 ### <a name="interrupt-moderation-im"></a>Unterbrechungs Moderation (im)
 

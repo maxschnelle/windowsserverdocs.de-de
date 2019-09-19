@@ -24,7 +24,7 @@ Mit der Datenträgerschutz-Funktion können Sie das MultiPoint Services-System b
   
 ## <a name="enable-disk-protection"></a>Aktivieren des Datenträger Schutzes  
   
-1.  Klicken Sie im Multipoint-Manager auf die Registerkarte **Start** , und klicken Sie dann unter * Computername ***Tasks**auf Datenträger **Schutz aktivieren**.  
+1.  Klicken Sie im Multipoint-Manager auf die Registerkarte **Start** , und klicken Sie dann unter *Computername* **Tasks**auf Datenträger **Schutz aktivieren**.  
   
 2.  Überprüfen Sie die Informationen, und klicken Sie dann auf **OK**.  
   
@@ -32,7 +32,7 @@ Nach dem Systemneustart werden alle am System vorgenommenen Änderungen, u.a. ne
   
 ## <a name="disable-disk-protection"></a>Datenträger Schutz deaktivieren  
   
-1.  Klicken Sie im Multipoint-Manager auf die Registerkarte **Start** , und klicken Sie dann unter * Computername ***Tasks**auf Datenträger **Schutz deaktivieren**.  
+1.  Klicken Sie im Multipoint-Manager auf die Registerkarte **Start** , und klicken Sie dann unter *Computername* **Tasks**auf Datenträger **Schutz deaktivieren**.  
   
 2.  Überprüfen Sie die Informationen, und klicken Sie dann auf **OK**.  
   
