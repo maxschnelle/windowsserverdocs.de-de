@@ -1,6 +1,6 @@
 ---
 title: nslookup set
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 99ac8736ca8223a1a444784c4cf605a973a9e4dd
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 928d222714bf01cac1585a25e8cac3ec6c8b0233
+ms.sourcegitcommit: 6423dfa9cecb3b06bdd563cae113c3e80a4ec330
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436540"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105053"
 ---
 # <a name="nslookup-set"></a>nslookup set
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-ändert Konfigurationseinstellungen, die beeinflussen wie Suchvorgänge-Funktion.
+Ändert die Konfigurationseinstellungen, die die Funktionsweise von suchen beeinflussen.
 ## <a name="syntax"></a>Syntax
 ```
 set <KeyWord>[=<Value>]
@@ -33,12 +33,12 @@ set <KeyWord>[=<Value>]
 
 |    Parameter    |                                                                                                                    Beschreibung                                                                                                                    |
 |-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    <KeyWord>    | Bezeichnet die Unterbefehle, die abgeleitet sind die **festgelegt** Unterbefehl. Z. B. der Unterbefehl **set d2** verfügt über ein Schlüsselwort der [**keine**]**d2**. Die Liste der Unterbefehle, die abgeleitet sind die **festgelegt** Unterbefehl, finden Sie zusätzliche Verweise. |
-|     <Value>     |                                                                                      Gibt die Nslookup-Konfigurationswert Einstellung für jede Unterbefehl an.                                                                                      |
-| {help &#124; ?} |                                                                                               Zeigt eine kurze Zusammenfassung der **Nslookup** Unterbefehle.                                                                                               |
+|    <KeyWord>    | Identifiziert Unterbefehle, die vom **Set** -Unterbefehl abgeleitet werden. Der Unterbefehls **Satz D2** hat z. b. ein Schlüsselwort von [**No**]**D2**. Eine Liste der Unterbefehle, die vom **Set** -Unterbefehl abgeleitet werden, finden Sie unter Zusätzliche Verweise. |
+|     <Value>     |                                                                                      Gibt den nslookup-Konfigurations Einstellungs Wert für die einzelnen Unterbefehle an.                                                                                      |
+| {Help &#124; ?} |                                                                                               Zeigt eine kurze Zusammenfassung der **nslookup** -Unterbefehle an.                                                                                               |
 
 ## <a name="remarks"></a>Hinweise
-Verwendung **alle festlegen** um eine Liste mit den aktuellen Einstellungen anzuzeigen.
-## <a name="additional-references"></a>Zusätzliche Referenzen
-[Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-[Nslookup alle festlegen](nslookup-set-all.md)
+Verwenden Sie **alle festlegen** , um eine Liste der aktuellen Einstellungen anzuzeigen.
+## <a name="additional-references"></a>Weitere Verweise
+[Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+[nslookup alle festlegen](nslookup-set-all.md)

@@ -1,6 +1,6 @@
 ---
 title: Vorgänge für Updates
-description: Windows Server Update Service (WSUS)-Thema - So verwalten Sie Updates, einschließlich des Genehmigungsprozess
+description: 'Windows Server Update Service (WSUS)-Thema: Verwalten von Updates, einschließlich des Genehmigungsprozesses'
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
@@ -12,205 +12,205 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4d99e006a03e12d7201390748aec8671236cf297
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2618586fdc38588bb58e122116345eb88a680a3f
+ms.sourcegitcommit: 6423dfa9cecb3b06bdd563cae113c3e80a4ec330
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822551"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105062"
 ---
 # <a name="updates-operations"></a>Vorgänge für Updates
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Nachdem die Updates auf dem WSUS-Server synchronisiert wurden, werden sie automatisch Relevanz für das Serverzertifikat-Clientcomputern überprüft werden. Allerdings müssen Sie die Updates genehmigen, bevor sie auf den Computern in Ihrem Netzwerk bereitgestellt werden. Wenn Sie ein Update genehmigen, veranlassen Sie im Wesentlichen, dass WSUS was damit zu tun haben (die Optionen lauten **installieren** oder **ablehnen** für ein neues Update). Sie können Updates für Genehmigen der **alle Computer** Gruppe oder für Untergruppen. Wenn Sie ein Update nicht genehmigt sind, bleibt der Genehmigungsstatus **nicht genehmigt**, und dem WSUS-Server ermöglicht den Clients ausgewertet, und zwar unabhängig davon, ob sie das Update benötigen.
+Nachdem Updates mit dem WSUS-Server synchronisiert wurden, werden Sie automatisch auf die für die Client Computer des Servers relevanten Kriterien überprüft. Sie müssen jedoch die Updates genehmigen, bevor Sie auf den Computern in Ihrem Netzwerk bereitgestellt werden. Wenn Sie ein Update genehmigen, weisen Sie WSUS im Grunde zu, was damit zu tun ist (Ihre Auswahl ist für ein neues Update " **install** " oder " **ablehnen** "). Sie können Updates für die Gruppe **alle Computer** oder für Untergruppen genehmigen. Wenn Sie ein Update nicht genehmigen, wird der Genehmigungs Status **nicht genehmigt**angezeigt, und der WSUS-Server ermöglicht Clients, zu prüfen, ob das Update benötigt wird.
 
-Wenn Ihr WSUS-Server im Replikatmodus ausgeführt wird, werden Sie nicht so genehmigen Sie Updates auf dem WSUS-Server sein. Weitere Informationen zum Replikatmodus finden Sie unter [ausgeführten WSUS Replikatmodus](running-wsus-replica-mode.md).
+Wenn Ihr WSUS-Server im Replikat Modus ausgeführt wird, können Sie keine Updates auf dem WSUS-Server genehmigen. Weitere Informationen zum Replikat Modus finden Sie unter [Ausführen des WSUS-Replikat Modus](running-wsus-replica-mode.md).
 
 ## <a name="approving-updates"></a>Genehmigen von Updates
-Sie können die Installation von Updates für alle Computer in Ihrem WSUS-Netzwerk oder für verschiedene Computergruppen genehmigen. Nach der Genehmigung eines Updates können Sie (mindestens) die folgenden ausführen:
+Sie können die Installation von Updates für alle Computer in Ihrem WSUS-Netzwerk oder für verschiedene Computer Gruppen genehmigen. Nach der Genehmigung eines Updates können Sie eine oder mehrere der folgenden Aktionen ausführen:
 
--   Gelten Sie diese Genehmigung für untergeordnete Gruppen, sofern vorhanden.
+-   Wenden Sie diese Genehmigung ggf. auf untergeordnete Gruppen an.
 
--   Festlegen Sie Stichtag für die automatische Installation. Wenn Sie diese Option auswählen, legen Sie bestimmte Uhrzeiten und Datumsangaben zum Installieren von Updates, überschreiben alle Einstellungen auf den Clientcomputern. Darüber hinaus können Sie ein Datum in der Vergangenheit für den Stichtag angeben, wenn Sie ein Update sofort (für das nächste Mal erhalten Sie Clientcomputer, auf den WSUS-Server installiert werden) genehmigen möchten.
+-   Legen Sie einen Stichtag für die automatische Installation fest. Wenn Sie diese Option auswählen, legen Sie bestimmte Uhrzeiten und Datumsangaben fest, um Updates zu installieren, und überschreiben alle Einstellungen auf den Client Computern. Außerdem können Sie ein letztes Datum für den Stichtag angeben, wenn Sie ein Update sofort genehmigen möchten (das installiert werden soll, wenn Client Computer das nächste Mal mit dem WSUS-Server in Verbindung treten).
 
--   Entfernen eines installierten Updates, wenn dieses Update entfernen unterstützt.
+-   Entfernt ein installiertes Update, wenn dieses Update das Entfernen unterstützt.
 
-Es gibt zwei wichtige Überlegungen, die Sie bedenken sollten:
+Es gibt zwei wichtige Überlegungen, die Sie beachten sollten:
 
--   Sie können nicht zuerst einen Stichtag für die automatische Installation für ein Update festlegen, wenn Benutzereingaben (z. B. die Angabe einer anderen Einstellung für das Update) erforderlich ist. Um zu bestimmen, ob ein Update Benutzereingaben erforderlich ist, sehen Sie sich die **Benutzereingabe anfordern kann** Feld in den Updateeigenschaften für ein Update angezeigt, auf die **aktualisiert** Seite. Überprüfen Sie auch für eine Nachricht in die **Updates genehmigen** Feld, "**das ausgewählte Update erfordert und unterstützt kein Installationszeitlimit**."
+-   Erstens können Sie keinen Stichtag für die automatische Installation eines Updates festlegen, wenn eine Benutzereingabe erforderlich ist (z. b. die Angabe einer für das Update relevanten Einstellung). Um zu ermitteln, ob ein Update Benutzereingaben erfordert, sehen Sie sich das Feld **möglicherweise Benutzereingabe anfordern** in den Update Eigenschaften für ein Update an, das auf der Seite **Updates** angezeigt wird. Überprüfen Sie im Feld **Updates genehmigen** auch, ob eine Meldung angezeigt wird, die besagt, dass für**das ausgewählte Update Benutzereingaben erforderlich sind und der Stichtag für die Installation nicht unterstützt**wird.
 
--   Wenn Updates der WSUS-Server-Komponente vorhanden sind, können nicht Sie andere Updates an Clientsysteme genehmigen, bis die WSUS-Updates genehmigt wird. Diese Warnmeldung wird im Dialogfeld Updates genehmigen wird angezeigt: "Es gibt WSUS-Updates, die nicht genehmigt wurden. Sie sollten die WSUS-Updates vor genehmigen dieser Updates genehmigen." In diesem Fall sollten Sie auf den WSUS-Updates-Knoten, und stellen Sie sicher, dass alle Updates in dieser Ansicht vor der Rückgabe auf die allgemeine Updates genehmigt wurden.
+-   Wenn Updates für die WSUS-Serverkomponente vorliegen, können Sie andere Updates für Client Systeme erst genehmigen, wenn das WSUS-Update genehmigt wurde. Diese Warnmeldung wird im Dialogfeld "Updates genehmigen" angezeigt: "Es sind keine WSUS-Updates vorhanden, die nicht genehmigt wurden. Sie sollten die WSUS-Updates genehmigen, bevor Sie dieses Update genehmigen. " In diesem Fall sollten Sie auf den Knoten WSUS-Updates klicken und sicherstellen, dass alle Updates in dieser Ansicht vor der Rückkehr zu den allgemeinen Updates genehmigt wurden.
 
-#### <a name="to-approve-updates"></a>So genehmigen Sie updates
+#### <a name="to-approve-updates"></a>So genehmigen Sie Updates
 
-1.  In der WSUS-Verwaltungskonsole, klicken Sie auf **Updates** , und klicken Sie dann auf **alle Updates**.
+1.  Klicken Sie in der WSUS-Verwaltungskonsole auf **Updates** , und klicken Sie dann auf **alle Updates**.
 
-2.  Wählen Sie in der Liste der Updates das Update aus, dem Sie verwenden möchten, genehmigen und mit der rechten Maustaste (oder wechseln zu dem Bereich "Aktionen"), und wählen Sie die Computergruppe, für die Sie das Update genehmigen möchten, klicken Sie im Dialogfeld Updates genehmigen, und klicken Sie auf den Pfeil daneben.
+2.  Wählen Sie in der Liste der Updates das Update aus, das Sie genehmigen möchten, und klicken Sie mit der rechten Maustaste (oder wechseln Sie zum Bereich Aktionen). Wählen Sie dann im Dialogfeld Updates genehmigen die Computergruppe aus, für die Sie das Update genehmigen möchten, und klicken Sie auf den Pfeil daneben.
 
-3.  Wählen Sie **für die Installation genehmigt**, und klicken Sie dann auf **genehmigen**.
+3.  Wählen Sie **für die Installation genehmigt aus**, und klicken Sie dann auf **genehmigen**.
 
-4.  Die **Status der Genehmigung** Fenster wird der Fortschritt beim Abschluss der Genehmigung angezeigt. Wenn der Prozess abgeschlossen ist, ist die **schließen** Schaltfläche angezeigt wird. Klicken Sie auf **Schließen**.
+4.  Im Fenster **Genehmigungs** Status wird der Fortschritt im Hinblick auf das Abschließen der Genehmigung angezeigt. Wenn der Prozess abgeschlossen ist, wird die Schaltfläche **Schließen** angezeigt. Klicken Sie auf **Schließen**.
 
-5.  Sie können einen Stichtag auswählen, indem Sie mit der rechten Maustaste in des Updates die entsprechenden Computergruppe auswählen, auf den Pfeil daneben und klicken Sie dann auf **Stichtag**.
+5.  Wenn Sie einen Stichtag auswählen, klicken Sie mit der rechten Maustaste auf das Update, wählen Sie die entsprechende Computergruppe aus, klicken Sie auf den Pfeil daneben, und klicken Sie dann auf **Stichtag**.
 
-    -   Wählen Sie eine von der standard-Terminen (eine Woche, alle zwei Wochen, einen Monat), oder klicken Sie auf **benutzerdefinierte** Datum und Uhrzeit angeben.
+    -   Sie können einen der Standard Termine (eine Woche, zwei Wochen, einen Monat) auswählen, oder Sie können auf **Benutzer** definiert klicken, um ein Datum und eine Uhrzeit anzugeben.
 
-    -   Wenn Sie ein Update so schnell wie die Computer Client Verbindung mit dem Server installiert werden soll, klicken Sie auf **benutzerdefinierte**, und legen Sie dann Datum und Uhrzeit für das aktuelle Datum und die Uhrzeit oder eine in der Vergangenheit.
+    -   Wenn Sie ein Update installieren möchten, sobald die Client Computer mit dem Server in Kontakt treten, klicken Sie auf **Benutzer**definiert, und legen Sie dann ein Datum und eine Uhrzeit auf das aktuelle Datum und die Uhrzeit bzw. auf das aktuelle Datum fest.
 
-#### <a name="to-approve-multiple-updates"></a>So genehmigen Sie mehrere updates
+#### <a name="to-approve-multiple-updates"></a>So genehmigen Sie mehrere Updates
 
-1.  In der WSUS-Verwaltungskonsole, klicken Sie auf **Updates** , und klicken Sie dann auf **alle Updates**.
+1.  Klicken Sie in der WSUS-Verwaltungskonsole auf **Updates** , und klicken Sie dann auf **alle Updates**.
 
-2.  Drücken Sie zum Auswählen mehrerer zusammenhängender Updates **UMSCHALT** beim Auswählen von Updates. Zum Auswählen mehrerer nicht zusammenhängender Updates halten Sie **STRG** beim Auswählen von Updates.
+2.  Zum Auswählen mehrerer zusammenhängender Updates drücken Sie während der Auswahl von Updates die **UMSCHALT** Taste. Zum Auswählen mehrerer nicht zusammenhängender Updates halten Sie die **STRG** -Taste gedrückt, während Sie Updates auswählen.
 
-3.  Mit der rechten Maustaste in der Auswahl, und klicken Sie auf **genehmigen**. Die **Updates genehmigen** Dialogfeld wird geöffnet, und die **Genehmigungsstatus** festgelegt **vorhandene Genehmigungen beibehalten** und **OK** Schaltfläche deaktiviert.
+3.  Klicken Sie mit der rechten Maustaste auf die Auswahl und dann auf **genehmigen**. Das Dialogfeld **Updates genehmigen** wird geöffnet, und der **Genehmigungs Status** ist auf **vorhandene Genehmigungen beibehalten** und die Schaltfläche **OK** deaktiviert.
 
-4.  Sie können die Genehmigungen für die einzelnen Gruppen ändern, aber dies also keine Auswirkung auf untergeordnete Genehmigungen. Wählen Sie die Gruppe, die für die Sie die Genehmigung ändern möchten, und klicken Sie auf den Pfeil auf der linken Seite. Klicken Sie im Kontextmenü die Option, die auf **für die Installation genehmigt**.
+4.  Sie können die Genehmigungen für die einzelnen Gruppen ändern, dies wirkt sich jedoch nicht auf die untergeordneten Genehmigungen aus. Wählen Sie die Gruppe aus, für die Sie die Genehmigung ändern möchten, und klicken Sie auf den Pfeil auf der linken Seite. Klicken Sie im Kontextmenü auf **für die Installation genehmigt**.
 
-5.  Die Genehmigung für die ausgewählte Gruppe wird nun **installieren**. Wenn alle untergeordneten Gruppen vorhanden sind, bleibt die Genehmigung **vorhandene Genehmigungen beibehalten**. Um die Genehmigung für den untergeordneten Gruppen zu ändern, klicken Sie auf die Gruppe aus, und klicken Sie auf den Pfeil auf der linken Seite. Klicken Sie im Kontextmenü die Option, die auf **anwenden, um untergeordnete Elemente**.
+5.  Die Genehmigung für die ausgewählte Gruppe wird in **install**geändert. Wenn untergeordnete Gruppen vorhanden sind, bleibt die Genehmigung weiterhin **bestehen**. Um die Genehmigung für die untergeordneten Gruppen zu ändern, klicken Sie auf die Gruppe, und klicken Sie auf den Pfeil auf der linken Seite. Klicken Sie im Kontextmenü **auf auf auf unter**geordnete Elemente anwenden.
 
-6.  Um einem bestimmten untergeordneten Objekt alle seine Genehmigung vom übergeordneten Element erben festzulegen, klicken Sie auf das untergeordnete Element, und klicken Sie auf den Pfeil auf der linken Seite. Klicken Sie im Kontextmenü die Option, die auf **Auflösungskategorie für übergeordneten**. Wenn Sie Genehmigungen geerbt untergeordnetes Element festgelegt, aber die übergeordneten-Genehmigungen nicht ändern, wird das untergeordnete Element der vorhandenen Genehmigungen des übergeordneten Elements erben.
+6.  Klicken Sie auf das untergeordnete Element, und klicken Sie auf den Pfeil auf der linken Seite, um ein bestimmtes untergeordnetes Element festzulegen Klicken Sie im Kontextmenü auf **identisch als übergeordnetes**Element. Wenn Sie ein untergeordnetes Element für das Erben von Genehmigungen festlegen, aber die übergeordneten Genehmigungen nicht ändern, erbt das untergeordnete Objekt die vorhandenen Genehmigungen des übergeordneten Elements.
 
-7.  Wenn Sie das Verhalten der Genehmigung für alle untergeordneten Elemente ändern möchten, zu genehmigen **alle Computer**, und wählen Sie dann **anwenden, um untergeordnete Elemente**.
+7.  Wenn Sie das Genehmigungs Verhalten für alle untergeordneten Elemente ändern möchten, genehmigen Sie **alle Computer**, und wählen Sie dann **auf unter**geordnete Elemente anwenden aus.
 
-8.  Klicken Sie auf **OK** nach dem Festlegen aller Ihrer Genehmigungen. Die **Status der Genehmigung** Fenster wird der Fortschritt beim Abschluss der Genehmigung angezeigt. Wenn der Prozess abgeschlossen ist, ist die **schließen** Schaltfläche werden zur Verfügung stehen. Klicken Sie auf **Schließen**.
+8.  Klicken Sie auf **OK** , nachdem Sie alle Genehmigungen eingerichtet haben. Im Fenster **Genehmigungs** Status wird der Fortschritt im Hinblick auf das Abschließen der Genehmigung angezeigt. Wenn der Prozess abgeschlossen ist, ist die Schaltfläche **Schließen** verfügbar. Klicken Sie auf **Schließen**.
 
-## <a name="declining-updates"></a>Ablehnen von updates
-Wenn Sie diese Option auswählen, das Update wird aus der Standardliste der verfügbaren Updates entfernt, und der WSUS-Server das Update nicht an Clients, die entweder für die Auswertung oder Installation bietet. Sie können diese Option erreichen, wählen Sie ein Update oder eine Gruppe von Updates und mit der rechten Maustaste oder die den Bereich "Aktionen". Abgelehnte Updates werden in der Updateliste angezeigt, nur wenn Sie **abgelehnt** in der Liste Genehmigung, wenn Sie den Filter für die Updateliste unter angeben **Ansicht**.
+## <a name="declining-updates"></a>Abnehmende Updates
+Wenn Sie diese Option auswählen, wird das Update aus der Standardliste der verfügbaren Updates entfernt, und der WSUS-Server bietet das Update für Clients weder für die Evaluierung noch für die Installation. Sie können diese Option erreichen, indem Sie ein Update oder eine Gruppe von Updates auswählen und mit der rechten Maustaste klicken oder zum Bereich Aktionen wechseln. Abgelehnte Updates werden nur dann in der Liste Updates angezeigt, wenn Sie in der Liste Genehmigung die Option **abgelehnt** ausgewählt haben, wenn Sie den Filter für die Update Liste unter **Ansicht**angeben.
 
-#### <a name="to-decline-updates"></a>Ablehnen von updates
+#### <a name="to-decline-updates"></a>Ablehnen von Updates
 
-1.  In der WSUS-Verwaltungskonsole, klicken Sie auf **Updates**, und klicken Sie dann auf **alle Updates**.
+1.  Klicken Sie in der WSUS-Verwaltungskonsole auf **Updates**, und klicken Sie dann auf **alle Updates**.
 
-2.  Wählen Sie in der Liste der Updates eine oder mehrere Updates, die Sie ablehnen möchten.
+2.  Wählen Sie in der Liste der Updates mindestens ein Update aus, das Sie ablehnen möchten.
 
-3.  Wählen Sie **ablehnen**, und klicken Sie dann auf **Ja** in der bestätigungsmeldung.
+3.  Wählen Sie **ablehnen**aus, und klicken Sie dann in der Bestätigungsmeldung auf **Ja** .
 
-## <a name="cleaning-up-declined-updates"></a>Bereinigen von abgelehnten Aktualisierungen
-Abgelehnte Updates weiterhin einige WSUS-Server-Ressourcen beanspruchen. Sie sollten die Server-Cleanup-Assistenten zum Entfernen von abgelehnter Aktualisierungen aus der WSUS-Datenbank ausführen. Thema [Die Bereinigung der Server Assistenten](the-server-cleanup-wizard.md), weitere Details.
+## <a name="cleaning-up-declined-updates"></a>Bereinigen abgelehnter Updates
+Abgelehnte Updates verbrauchen weiterhin einige WSUS-Server Ressourcen. Sie sollten den Server Bereinigungs-Assistenten ausführen, um Abgelehnte Updates aus der WSUS-Datenbank zu entfernen. Thema [Der Server Bereinigungs-Assistent](the-server-cleanup-wizard.md), um weitere Informationen zu erhalten.
 
-## <a name="reinstating-declined-updates"></a>Abgelehnte Updates reaktiviert
-Nachdem ein Update abgelehnt wurde, können Sie es reaktivieren.
+## <a name="reinstating-declined-updates"></a>Abgelehnte Updates werden erneut eingefügt.
+Nachdem ein Update abgelehnt wurde, können Sie es weiterhin wiederherstellen.
 
-#### <a name="to-reinstate-declined-updates"></a>So reaktivieren Sie abgelehnte Aktualisierungen an
+#### <a name="to-reinstate-declined-updates"></a>So setzen Sie Abgelehnte Updates wieder
 
-1.  In der WSUS-Verwaltungskonsole, klicken Sie auf **Updates** , und klicken Sie dann auf **alle Updates**.
+1.  Klicken Sie in der WSUS-Verwaltungskonsole auf **Updates** , und klicken Sie dann auf **alle Updates**.
 
-2.  Ändern Sie **Genehmigung** zu **abgelehnt** , und klicken Sie auf **aktualisieren**. Die Liste der abgelehnten Updates werden geladen.
+2.  Ändern Sie **Genehmigung** in **abgelehnt** , und klicken Sie auf **Aktualisieren**. Die Liste der abgelehnten Updates wird geladen.
 
-3.  Wählen Sie in der Liste der Updates eine oder mehrere abgelehnten Updates, die Sie reaktivieren möchten.
+3.  Wählen Sie in der Liste der Updates mindestens ein abgelehnten Update aus, das Sie wiederherstellen möchten.
 
-4.  Um ein bestimmtes Update wieder zu aktivieren, mit der rechten Maustaste auf das Update, und wählen **genehmigen**. In der **Updates genehmigen** Dialogfeld klicken Sie auf **OK** den Standardwert "Nicht genehmigt" Genehmigungsstatus erneut anwenden. Das Update wird angezeigt, in der Liste als **nicht genehmigt** statt abgelehnt.
+4.  Klicken Sie zum Wiederherstellen eines bestimmten Updates mit der rechten Maustaste auf das Update, und wählen Sie **genehmigen**aus. Klicken Sie im Dialogfeld **Updates genehmigen** auf **OK** , um den standardmäßigen Genehmigungs Status "nicht genehmigt" erneut anzuwenden. Das Update wird in der Liste als **nicht genehmigt** , sondern nicht als abgelehnt angezeigt.
 
-Nach einem abgelehnten Updates bereinigt wurde mit dem WSUS-Server-Cleanup-Assistent, vom WSUS-Server gelöscht werden und wird nicht mehr in der Ansicht alle Updates angezeigt. Sie können abgelehnt, Cleanup-Updates von Microsoft Update-Katalog erneut importieren. Weitere Informationen finden Sie unter [WSUS und Katalog-Website](wsus-and-the-catalog-site.md).
+Nachdem ein abgelehntes Update mit dem WSUS-Server Bereinigungs-Assistenten bereinigt wurde, wird es auf dem WSUS-Server gelöscht und in der Ansicht alle Updates nicht mehr angezeigt. Sie können abgelehnte, bereinigte Updates aus dem Microsoft Update Katalog neu importieren. Weitere Informationen finden Sie unter [WSUS und die-Katalog Website](wsus-and-the-catalog-site.md).
 
-## <a name="change-an-approved-update-to-not-approved"></a>Ändern Sie ein Update genehmigt, die nicht genehmigt
-Wenn ein Update genehmigt wurde, und Sie möchten nicht zu diesem Zeitpunkt zu installieren, und stattdessen für einen späteren Zeitpunkt gespeichert werden soll, können Sie das Update auf den Status nicht genehmigt ändern. Dies bedeutet, dass das Update in der Liste der verfügbaren Updates bleibt und -Clientkompatibilität meldet, aber nicht auf Clients installiert.
+## <a name="change-an-approved-update-to-not-approved"></a>Ändern eines genehmigten Updates in "nicht genehmigt"
+Wenn ein Update genehmigt wurde und Sie es nicht zu diesem Zeitpunkt installieren möchten, sondern es für einen späteren Zeitpunkt speichern möchten, können Sie das Update in den Status nicht genehmigt ändern. Dies bedeutet, dass das Update in der Standardliste der verfügbaren Updates verbleibt und die Client Konformität meldet, aber nicht auf Clients installiert wird.
 
-#### <a name="to-change-an-update-from-approved-to-not-approved"></a>Zum Ändern der ein Update genehmigt ist, nicht genehmigt
+#### <a name="to-change-an-update-from-approved-to-not-approved"></a>So ändern Sie ein Update von "genehmigt" in "nicht genehmigt"
 
-1.  In der WSUS-Verwaltungskonsole, klicken Sie auf **Updates**, und klicken Sie dann auf **alle Updates**.
+1.  Klicken Sie in der WSUS-Verwaltungskonsole auf **Updates**, und klicken Sie dann auf **alle Updates**.
 
-2.  Wählen Sie in der Liste der Updates mindestens eine genehmigte Updates, die nicht genehmigt ändern möchten.
+2.  Wählen Sie in der Liste der Updates mindestens ein genehmigtes Update aus, das Sie in nicht genehmigt ändern möchten.
 
-3.  Im Kontextmenü oder die **Aktionen** wählen Sie im Bereich **nicht genehmigt**, und klicken Sie dann auf **Ja** in der bestätigungsmeldung.
+3.  Wählen Sie im Kontextmenü oder im Bereich **Aktionen** die Option **nicht genehmigt**aus, und klicken Sie dann in der Bestätigungsmeldung auf **Ja** .
 
-## <a name="approving-updates-for-removal"></a>Genehmigen von Updates für die Entfernung
-Genehmigen eines Updates für die Entfernung können (d. h. So deinstallieren Sie ein Update bereits installiert). Diese Option steht nur dann, wenn das Update bereits installiert ist, und Entfernen unterstützt. Sie können Geben Sie einen Stichtag für das Update deinstalliert werden, oder geben Sie ein Datum für die Frist in der Vergangenheit aus, wenn das Update sofort (das nächste Mal Clientcomputer, auf den WSUS-Server kontaktieren) entfernt werden soll.
+## <a name="approving-updates-for-removal"></a>Genehmigen von Updates zum Entfernen
+Sie können ein Update zum Entfernen genehmigen (d. h., ein bereits installiertes Update zu deinstallieren). Diese Option ist nur verfügbar, wenn das Update bereits installiert ist und das Entfernen unterstützt. Sie können einen Stichtag für die Installation des Updates angeben, oder Sie können ein letztes Datum für den Stichtag angeben, wenn Sie das Update sofort entfernen möchten (wenn Client Computer das nächste Mal mit dem WSUS-Server in Verbindung treten).
 
-Es ist wichtig zu erwähnen, dass nicht alle Updates entfernen unterstützt. Sehen Sie, ob ein Update zum Entfernen unterstützt, indem ein individuelles Update auswählen, und betrachten die **Details** Bereich. Unter **Detailinformationen**, sehen Sie die **Wechselmedien** Kategorie. Wenn das Update über WSUS nicht entfernt werden kann, in einigen Fällen können Sie es entfernen mit **hinzufügen oder Entfernen von Programmen** aus **Systemsteuerung**.
+Es ist wichtig zu erwähnen, dass nicht alle Updates entfernt werden. Sie können sehen, ob ein Update das Entfernen unterstützt, indem Sie ein einzelnes Update auswählen und sich im **Detail** Bereich ansehen. Unter **Weitere Details** **wird die Wechsel** Kategorie angezeigt. Wenn das Update nicht durch WSUS entfernt werden kann, kann es in einigen Fällen **mithilfe der Option** Software in der **Systemsteuerung**entfernt werden.
 
-#### <a name="to-approve-updates-for-removal"></a>So genehmigen Sie Updates für die Entfernung
+#### <a name="to-approve-updates-for-removal"></a>So genehmigen Sie Updates zum Entfernen
 
-1.  In der WSUS-Verwaltungskonsole, klicken Sie auf **Updates** , und klicken Sie dann auf **alle Updates**.
+1.  Klicken Sie in der WSUS-Verwaltungskonsole auf **Updates** , und klicken Sie dann auf **alle Updates**.
 
-2.  Wählen Sie in der Liste der Updates, die ein oder mehrere Updates, die Sie verwenden möchten, für die Deinstallation genehmigen, und mit der rechten Maustaste sie (oder wechseln Sie zu der **Aktionen** Bereich).
+2.  Wählen Sie in der Liste der Updates mindestens ein Update aus, das Sie zum Entfernen genehmigen möchten, und klicken Sie mit der rechten Maustaste darauf (oder wechseln Sie zum **Aktions** Bereich).
 
-3.  In der **Updates genehmigen** Dialogfeld Wählen Sie die Computergruppe, die von dem das Update entfernt werden sollen, und klicken Sie auf den Pfeil daneben.
+3.  Wählen Sie im Dialogfeld **Updates genehmigen** die Computergruppe aus, von der Sie das Update entfernen möchten, und klicken Sie auf den Pfeil daneben.
 
-4.  Wählen Sie **genehmigt, die zu entfernende**, und klicken Sie dann auf die **entfernen** Schaltfläche.
+4.  Wählen Sie **genehmigte zum Entfernen aus**, und klicken Sie dann auf die Schaltfläche **Entfernen** .
 
-5.  Nach Abschluss die entfernungsgenehmigung können Sie einen Stichtag auswählen, indem mit der rechten Maustaste erneut auf des Updates, auswählen von der entsprechenden Computergruppe, und klicken Sie dann auf den Pfeil neben. Wählen Sie dann **Stichtag**. Sie können keines der standardmäßigen Termine (eine Woche, alle zwei Wochen, einen Monat) auswählen, oder klicken Sie auf **benutzerdefinierte** um ein bestimmtes Datum und eine Uhrzeit auszuwählen.
+5.  Nachdem die Genehmigung entfernen abgeschlossen ist, können Sie einen Stichtag auswählen, indem Sie mit der rechten Maustaste auf das Update klicken, die entsprechende Computergruppe auswählen und dann auf den Pfeil daneben klicken. Wählen Sie dann **Stichtag**aus. Sie können einen der Standard Termine (eine Woche, zwei Wochen, einen Monat) auswählen, oder Sie können auf **Benutzer** definiert klicken, um ein bestimmtes Datum und eine bestimmte Uhrzeit auszuwählen.
 
-6.  Wenn Sie ein Update so schnell wie die Client-Computern wenden Sie sich an den Server entfernt werden möchten, klicken Sie auf **benutzerdefinierte**, und legen Sie ein Datum in der Vergangenheit.
+6.  Wenn Sie ein Update entfernen möchten, sobald die Client Computer den Server kontaktieren, klicken Sie auf **Benutzer**definiert, und legen Sie ein Datum in der Vergangenheit fest.
 
-## <a name="approving-updates-automatically"></a>Automatisch genehmigen von Updates
-Sie können für die automatische Genehmigung von bestimmte Updates auf dem WSUS-Server konfigurieren. Sie können automatischen Genehmigung von Revisionen für vorhandene Updates auch angeben, sobald diese verfügbar werden. Diese Option ist standardmäßig ausgewählt. Eine Revision ist eine Version eines Updates, die Änderungen vorgenommen wurden (z. B. möglicherweise abgelaufen oder die Anwendbarkeitsregeln möglicherweise geändert haben). Wenn Sie nicht auswählen, die überarbeitete Version eines Updates automatisch zu genehmigen, WSUS wird die ältere Version verwenden und müssen Sie die updaterevision manuell genehmigen.
+## <a name="approving-updates-automatically"></a>Automatisches genehmigen von Updates
+Sie können den WSUS-Server für die automatische Genehmigung bestimmter Updates konfigurieren. Sie können auch die automatische Genehmigung von Revisionen vorhandener Updates angeben, sobald diese verfügbar sind. Diese Option ist standardmäßig ausgewählt. Eine Revision ist eine Version eines Updates, bei der Änderungen vorgenommen wurden (z. b. Wenn Sie abgelaufen ist oder die anwendbarkeits Regeln geändert wurden). Wenn Sie die überarbeitete Version eines Updates nicht automatisch genehmigen, wird die ältere Version von WSUS verwendet, und Sie müssen die Update Revision manuell genehmigen.
 
-Sie können Regeln erstellen, die dem WSUS-Server automatisch während der Synchronisierung angewendet werden. Sie angeben, welche Updates, die Sie für die Installation nach updateklassifizierung, nach Produkt und von Computergruppe automatisch genehmigen möchten. Dies gilt nur für neue Updates, im Gegensatz zu überarbeiteten Updates. Sie können auch einen Stichtag für Update-Genehmigung angeben, der festlegt, einer Anzahl von Tagen und eine bestimmte Uhrzeit anbieten, bevor die Genehmigung von Updates Stichtag installiert ist. Diese Einstellungen sind verfügbar, in der **Optionen** Bereich unter **automatische Genehmigungen**.
+Sie können Regeln erstellen, die auf dem WSUS-Server automatisch während der Synchronisierung angewendet werden. Sie geben an, welche Updates Sie automatisch für die Installation genehmigen möchten, indem Sie die Update Klassifizierung, das Produkt und die Computergruppe durchsuchen. Dies gilt nur für neue Updates und nicht für überarbeitete Updates. Sie können auch einen Stichtag für die Genehmigung von Updates angeben, mit dem eine Anzahl von Tagen und eine bestimmte Zeitspanne festgelegt wird, bevor das genehmigte Update Stichtag installiert wird. Diese Einstellungen sind im Bereich **Optionen** unter **Automatische Genehmigungen**verfügbar.
 
-#### <a name="to-automatically-approve-updates"></a>So genehmigen Sie Aktualisierungen automatisch
+#### <a name="to-automatically-approve-updates"></a>So genehmigen Sie Updates automatisch
 
-1.  Klicken Sie in der WSUS-Verwaltungskonsole auf **Optionen**, und klicken Sie dann auf **automatische Genehmigungen**.
+1.  Klicken Sie in der WSUS-Verwaltungskonsole auf **Optionen**, und klicken Sie dann auf **Automatische Genehmigungen**.
 
 2.  Klicken Sie in **Updateregeln** auf **Neue Regel**.
 
-3.  In der **Regel hinzufügen** Dialogfeld unter **Schritt 1: Wählen Sie Eigenschaften**, auswählen, ob der verwenden **Wenn ein Update ist in einer bestimmten Klassifizierung** oder **Wenn ein Update ist in einem bestimmten Produkt** (oder beides) als Kriterium. Wählen Sie optional an, ob **eine Frist setzen** für die Genehmigung.
+3.  Wählen Sie im Dialogfeld **Regel hinzufügen** unter **Schritt 1: Eigenschaften auswählen**aus, ob verwendet werden soll, **Wenn ein Update in einer bestimmten Klassifizierung** oder ein **Update in einem bestimmten Produkt** (oder beiden) als Kriterium verwendet wird. Wählen Sie optional aus, ob Sie **einen Stichtag** für die Genehmigung festlegen möchten.
 
-4.  In **Schritt2: Bearbeiten Sie die Eigenschaften** klicken Sie auf die unterstrichenen Eigenschaften zum Auswählen von Klassifizierungen, Produkte und Computergruppen, die für die automatische Genehmigungen, gegebenenfalls werden sollen. Wählen Sie optional die updategenehmigung am Stichtag, Tag und Uhrzeit.
+4.  Klicken Sie in **Schritt 2: Bearbeiten der Eigenschaften** auf die unterstrichenen Eigenschaften, um die Klassifizierungen, Produkte und Computer Gruppen auszuwählen, für die Sie ggf. automatische Genehmigungen benötigen. Wählen Sie optional den Tag und die Uhrzeit der Update Genehmigung aus.
 
-5.  In **Schritt 3: Geben Sie ein Namensfeld**, geben Sie einen eindeutigen Namen für die Regel.
+5.  In **Schritt 3: Geben Sie ein Feld**Name ein, und geben Sie einen eindeutigen Namen für die Regel ein.
 
 6.  Klicken Sie auf **OK**.
 
-Regeln für automatische Genehmigungen gelten nicht für Updates erfordern ein End User License Lizenzvertrag (EULA), die noch nicht auf dem Server akzeptiert wurden. Wenn Sie feststellen, dass die Anwendung einer automatische genehmigungsregel nicht alle entsprechenden Updates genehmigt werden kann, sollten Sie diese Updates manuell genehmigen.
+Regeln für automatische Genehmigungen gelten nicht für Updates, für die ein Endbenutzer-Lizenzvertrag (EULA) erforderlich ist, der auf dem Server noch nicht akzeptiert wurde. Wenn Sie feststellen, dass das Anwenden einer automatischen Genehmigungs Regel nicht dazu führt, dass alle relevanten Updates genehmigt werden, sollten Sie diese Updates manuell genehmigen.
 
-## <a name="automatically-approving-revisions-to-updates-and-declining-expired-updates"></a>Änderungen an Updates automatisch zu genehmigen und Ablehnen von abgelaufene Updates
-Abschnitt automatische Genehmigungen ein, der den Bereich "Optionen" enthält eine Standardoption, mit der Änderungen an der genehmigten Updates automatisch genehmigt. Sie können auch die abgelaufenen Updates automatisch ablehnen WSUS-Server festlegen. Wenn Sie nicht die überarbeitete Version eines Updates automatisch genehmigt, Ihr WSUS-Server wird die ältere Version verwenden, und müssen Sie die updaterevision manuell genehmigen.
+## <a name="automatically-approving-revisions-to-updates-and-declining-expired-updates"></a>Automatisches genehmigen von Revisionen von Updates und abnehmenden abgelaufenen Updates
+Der Abschnitt Automatische Genehmigungen des Bereichs Optionen enthält eine Standardoption zum automatischen genehmigen von Revisionen genehmigter Updates. Sie können auch festlegen, dass der WSUS-Server abgelaufene Updates automatisch ablehnen soll. Wenn Sie die überarbeitete Version eines Updates nicht automatisch genehmigen möchten, wird auf dem WSUS-Server die ältere Revision verwendet, und Sie müssen die Update Revision manuell genehmigen.
 
 > [!NOTE]
-> Eine Revision ist eine Version eines Updates, die geändert wurde (z. B. es möglicherweise abgelaufen oder wurden aktualisiert, Anwendbarkeitsregeln).
+> Eine Revision ist eine Version eines Updates, die geändert wurde (z. b. ob Sie abgelaufen ist oder über aktualisierte anwendbarkeits Regeln verfügt).
 
-#### <a name="to-automatically-approve-revisions-to-updates-and-decline-expired-updates"></a>Automatisch Änderungen an Updates genehmigen und Ablehnen abgelaufene updates
+#### <a name="to-automatically-approve-revisions-to-updates-and-decline-expired-updates"></a>So genehmigen Sie Aktualisierungen von Updates automatisch und lehnen abgelaufene Updates ab
 
-1.  Klicken Sie in der WSUS-Verwaltungskonsole auf **Optionen**, und klicken Sie dann auf **automatische Genehmigungen**.
+1.  Klicken Sie in der WSUS-Verwaltungskonsole auf **Optionen**, und klicken Sie dann auf **Automatische Genehmigungen**.
 
-2.  Auf der **erweitert** Registerkarte, stellen Sie sicher, dass beide **automatisch neue Revisionen genehmigter Updates genehmigen** und **automatisch ablehnen von Updates, wenn eine neue Revision bewirkt, dass sieabläuft** ausgewählt sind.
+2.  Vergewissern Sie sich, dass auf der Registerkarte **erweitert** sowohl **neue Revisionen genehmigter Updates automatisch genehmigen** als auch **Updates automatisch ablehnen, wenn eine neue Revision das ablaufen** der Änderungen bewirkt.
 
 3.  Klicken Sie auf „OK“.
 
     > [!NOTE]
-    > Halten die Standardwerte für diese Optionen können, dass Sie eine guten Leistung auf Ihrem WSUS-Netzwerks beibehalten. Wenn Sie nicht möchten, dass abgelaufene Updates automatisch abgelehnt wird, sollten Sie sicherstellen, um sie manuell in regelmäßigen Abständen abzulehnen.
+    > Wenn Sie die Standardwerte für diese Optionen behalten, können Sie eine gute Leistung in Ihrem WSUS-Netzwerk gewährleisten. Wenn Sie nicht möchten, dass abgelaufene Updates automatisch abgelehnt werden, sollten Sie Sie in regelmäßigen Abständen manuell ablehnen.
 
-## <a name="automatically-declining-superseded-updates"></a>Automatisch ablehnen Ersetzte Updates
-Wenn Sie ein neues Update, das ein vorhandenes Update ersetzt, die automatisch genehmigt wird genehmigen, wird das ersetzte Update "Nicht zutreffend" auf einem Computer oder Gerät nach der Installation des neueren Updates. Sie können in der WSUS-Konsole überprüfen, ob ein Update für alle Computer nicht verfügbar ist. Wenn dies der Fall ist, kann das Update problemlos abgelehnt werden. Darüber hinaus kann das Update automatisch abgelehnt werden, beim Ausführen des Assistenten für der WSUS-Server-Bereinigung.
+## <a name="automatically-declining-superseded-updates"></a>Automatisch abnehmende abgelösten Updates
+Wenn Sie ein neues Update genehmigen, das ein vorhandenes Update ersetzt, das automatisch genehmigt wird, wird das ersetzte Update nach der Installation des neueren Updates auf einen Computer oder ein Gerät "nicht anwendbar". Sie können in der WSUS-Konsole überprüfen, ob ein Update für alle Computer nicht anwendbar ist. Wenn dies der Fall ist, kann das Update sicher abgelehnt werden. Außerdem wird das Update möglicherweise automatisch abgelehnt, wenn Sie den WSUS-Server Bereinigungs-Assistenten ausführen.
 
-Um nach ersetzten Updates zu suchen, können Sie die Spalte "Abgelöst" zur Kennzeichnung in der Ansicht alle Updates, und die Sortierreihenfolge für die betreffende Spalte auswählen. Es werden vier Gruppen:
+Wenn Sie nach abgelösten Updates suchen möchten, können Sie die Spalte "abgelöst" in der Ansicht "alle Updates" auswählen und nach dieser Spalte sortieren. Es gibt vier Gruppen:
 
--   Updates, die nie wurden ersetzt (ein leeres Symbol).
+-   Updates, die noch nie abgelöst wurden (ein leeres Symbol).
 
--   Updates der ersetzt, sondern können unter keinen Umständen ersetzt ein anderes Update (ein Symbol mit einem blauen Quadrat im unteren Bereich).
+-   Updates, die abgelöst wurden, aber noch nie ein anderes Update abgelöst haben (ein Symbol mit einem blauen Quadrat unten).
 
--   Updates, die ersetzt und haben ein anderes Update (ein Symbol mit einem blauen Quadrat in der Mitte) ersetzt.
+-   Updates, die abgelöst wurden und ein anderes Update abgelöst haben (ein Symbol mit einem blauen Quadrat in der Mitte).
 
--   Updates, bei die ein anderes Update (ein Symbol mit einem blauen Quadrat am oberen) ersetzt haben.
+-   Updates, die ein anderes Update abgelöst haben (ein Symbol mit einem blauen Quadrat oben).
 
-Es ist kein Feature in Windows Server Update Services, dass automatisch ablehnungen Updates nach Genehmigung eines neueren Updates abgelöst. Es wird empfohlen, zuerst die Genehmigung auf "Nicht genehmigt" festgelegt, und klicken Sie dann mithilfe von Server Cleanup Assistenten automatisch das Update ablehnen, wenn alle relevanten Bedingungen erfüllt sind. Weitere Informationen finden Sie in den folgenden Themen: [Die Bereinigung der Server Assistenten](the-server-cleanup-wizard.md).
+Es gibt keine Funktion in Windows Server Update Services, die bei der Genehmigung eines neueren Updates automatisch ersetzte Updates ablehnt. Es wird empfohlen, zuerst die Genehmigung auf "nicht genehmigt" festzulegen und dann mit dem Assistenten für die Server Bereinigung das Update automatisch abzulehnen, wenn alle relevanten Bedingungen erfüllt sind. Weitere Informationen finden Sie in den folgenden Themen: [Der Server Bereinigungs-Assistent](the-server-cleanup-wizard.md).
 
-## <a name="approving-superseding-or-superseded-updates"></a>Ersetzen genehmigen oder Ersetzte Updates
-In der Regel führt ein Update, das andere Updates hat Vorrang vor, eine oder mehrere der folgenden:
+## <a name="approving-superseding-or-superseded-updates"></a>Genehmigen von ersetzenden oder abgelösten Updates
+In der Regel führt ein Update, das andere Updates ersetzt, eine oder mehrere der folgenden Aktionen aus:
 
 -   Erweiterung, Verbesserung oder Ergänzung der Korrekturen, die von früher herausgegebenen Updates bereitgestellt wurden
 
 -   Steigerung der Effizienz des Updatedateipakets, das auf Clientcomputern installiert wird, sofern die Installation des Updates genehmigt wird. Beispielsweise könnte das abgelöste Update Dateien enthalten, die für die Korrektur oder die jetzt vom neuen Update unterstützten Betriebssysteme nicht mehr relevant sind. Diese Dateien sind dann im Dateipaket des abgelösten Updates nicht enthalten.
 
--   Updates für neuere Betriebssysteme. Es ist auch wichtig zu beachten, dass das ersetzende Update möglicherweise nicht mit frühere Versionen von Betriebssystemen unterstützt.
+-   Aktualisiert neuere Versionen von Betriebssystemen. Es ist auch wichtig zu beachten, dass das ersetzende Update möglicherweise keine früheren Versionen von Betriebssystemen unterstützt.
 
-Umgekehrt erfüllt ein Update, das durch ein anderes Update abgelöst wurde Folgendes:
+Umgekehrt führt ein Update, das durch ein anderes Update abgelöst wird, Folgendes aus:
 
--   Behebt das Problem ähnelt der von dem Update, das vor ihm Vorrang hat. Allerdings kann das Update, das vor ihm Vorrang hat das Update zu verbessern, das das nachrangige Update bereitstellt.
+-   Korrigiert eines Problems ähnlich dem des Updates, das es ersetzt. Das Update, durch das es ersetzt wird, kann jedoch die Behebung verbessern, die das ersetzte Update bereitstellt.
 
--   Aktualisiert frühere Versionen der Betriebssysteme. In einigen Fällen sind diese Versionen von Betriebssystemen durch das ersetzende Update nicht mehr aktualisiert.
+-   Aktualisiert frühere Versionen von Betriebssystemen. In einigen Fällen werden diese Versionen von Betriebssystemen nicht mehr durch das ersetzende Update aktualisiert.
 
-Im Detailbereich für ein individuelles Update anzeigt ein Informationssymbol eine Nachricht am Anfang, dass sie ersetzt oder durch ein anderes Update abgelöst wird. Darüber hinaus können Sie bestimmen, welche Updates abgelöst oder durch das Update ersetzt werden, die anhand der **Updates, die dieses Update ersetzen** und **Updates, die durch dieses Update ersetzt** Einträge in der **Detailinformationen** Teil der **Eigenschaften**. Detailbereich des Updates wird unter der Liste der Updates angezeigt.
+Im Detailbereich eines einzelnen Updates weist ein Informationssymbol und eine Meldung oben darauf hin, dass es entweder ersetzt oder durch ein anderes Update abgelöst wird. Außerdem können Sie ermitteln, welche Updates durch das Update abgelöst oder ersetzt werden, indem Sie die Updates, die **dieses Update** ersetzen, und Updates, die **durch diese Update Einträge ersetzt** wurden, im Abschnitt **zusätzliche Details** des  **Eigenschaften**. Der Detailbereich eines Updates wird unterhalb der Liste der Updates angezeigt.
 
-WSUS erfasst nicht automatisch lehnt ersetzte Updates, und es wird empfohlen, dass Sie nicht annehmen, dass nachrangige Updates zugunsten eines neuen, vorrangigen Updates abgelehnt werden sollte. Stellen Sie bevor Sie ein nachrangiges Updates ablehnen sicher, dass es von einem Ihrer Clientcomputer nicht mehr benötigt wird. Es folgen Beispiele für Szenarien, in denen Sie möglicherweise ein nachrangiges Update installieren müssen:
+WSUS lehnt ersetzte Updates nicht automatisch ab, und es wird empfohlen, dass Sie nicht davon ausgehen, dass abgelösten Updates zugunsten des neuen, ersetzenden Updates abgelehnt werden sollen. Stellen Sie vor dem ablehnen eines abgelösten Updates sicher, dass es von keinem Ihrer Client Computer mehr benötigt wird. Im folgenden finden Sie Beispiele für Szenarien, in denen Sie möglicherweise ein erabgelösten Update installieren müssen:
 
--   Wenn ein ersetzendes Update nur neuere Versionen eines Betriebssystems unterstützt aus, und einige Ihrer Clientcomputer frühere Versionen des Betriebssystems ausgeführt werden.
+-   Wenn ein ersetzendes Update nur neuere Versionen eines Betriebssystems unterstützt und auf einigen Client Computern frühere Versionen des Betriebssystems ausgeführt werden.
 
--   Wenn ein vorrangiges Update Anwendbarkeit des Updates ist stärker als eingeschränkt abzulösenden Softwareupdates, die wäre dadurch für einige Clientcomputer ungeeignet.
+-   Wenn ein ersetzendes Update die Anwendbarkeit stärker einschränkt als das Update, das es ersetzt, ist es für einige Client Computer ungeeignet.
 
--   Wenn ein Update aufgrund neuer Änderungen nicht mehr ein vorher veröffentlichtes Update ersetzt. Es ist möglich, dass durch Änderungen mit jeder neuen Version, ein Update nicht mehr ein Update ersetzt, die sie zuvor in einer früheren Version ersetzt. In diesem Szenario noch sehen eine Nachricht zu dem ersetzten Update, Sie auch, wenn das ersetzende Update durch ein Update ersetzt wurde, die nicht der Fall ist.
+-   Wenn ein Update aufgrund neuer Änderungen nicht mehr von einem zuvor veröffentlichten Update abgelöst wird. Es ist möglich, dass durch Änderungen in jeder Version ein Update nicht mehr ein Update ersetzt, das zuvor in einer früheren Version abgelöst wurde. In diesem Szenario wird weiterhin eine Meldung über das ersetzte Update angezeigt, auch wenn das Update, durch das es ersetzt wird, durch ein Update ersetzt wurde, das dies nicht getan hat.
 
 
