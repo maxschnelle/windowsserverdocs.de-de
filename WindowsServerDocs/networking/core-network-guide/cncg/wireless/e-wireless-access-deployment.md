@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: 4b66f517-b17d-408c-828f-a3793086bc1f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: bd951f221f1cf1c5715e26830b7da644d685634a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 64098a152d9ba485cfed80e0d0541f0e5ea72bf2
+ms.sourcegitcommit: 47a9514a68e42ac236065fd6b641204b769223d1
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868976"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71127680"
 ---
 # <a name="wireless-access-deployment"></a>Bereitstellung des Funkzugriffs
 
@@ -121,7 +121,7 @@ Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins** oder einer entspr
 
 6. Klicken Sie auf **OK**.
 
-Wenn Sie für drahtlose Benutzer mehr als eine Sicherheitsgruppe benötigen, wiederholen Sie diese Schritte, um weitere drahtlos Benutzergruppen zu erstellen. Später können Sie einzelne Netzwerk Richtlinien in NPS erstellen, um unterschiedliche Bedingungen und Gruppen für jede Gruppe anzuwenden und Ihnen unterschiedliche Zugriffsberechtigungen und konnektivitätsregeln zur Verfügung zu stellen.
+Wenn Sie für drahtlose Benutzer mehr als eine Sicherheitsgruppe benötigen, wiederholen Sie diese Schritte, um weitere drahtlos Benutzergruppen zu erstellen. Später können Sie einzelne Netzwerk Richtlinien in NPS erstellen, um unterschiedliche Bedingungen und Einschränkungen für jede Gruppe anzuwenden und Ihnen unterschiedliche Zugriffsberechtigungen und konnektivitätsregeln zur Verfügung zu stellen.
 
 ### <a name="bkmk_addusers"></a>Hinzufügen von Benutzern zur Sicherheitsgruppe "drahtlose Benutzer"
 

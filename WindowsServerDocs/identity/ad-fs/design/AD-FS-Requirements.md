@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 91a1d69e4f7a77633d460f594ad3091f359df9c3
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 247381b35a038627b5d8c91ac4dda0cc4fab6195
+ms.sourcegitcommit: ccec91c1d32a978159f9b8bb5e39ead5805c26c4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867847"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71143776"
 ---
 # <a name="ad-fs-requirements"></a>AD FS-Anforderungen
 
@@ -329,18 +329,18 @@ In der folgenden Tabelle finden Sie weitere Informationen zur Kryptografieunters
 ||||  
 |-|-|-|  
 |**Projiziert**|**Schlüssellängen**|**\/Anwendungs\/Kommentare für Protokolle**|  
-|TripleDES – Standard 192 \(unterstützt 192 –\) 256 \- [http\/:\/\/www.w3.org\/2001\/04\#xmlenc TripleDES\-CBC](http://www.w3.org/2001/04/xmlenc)|>\=192|Unterstützter Algorithmus für das Entschlüsseln des Sicherheits Tokens. Das Verschlüsseln des Sicherheits Tokens mit diesem Algorithmus wird nicht unterstützt.|  
-|AES128 \- http:\/www.w3.org2001\/04xmlenc\#AES128CBC\-\/\/\/|128|Unterstützter Algorithmus für das Entschlüsseln des Sicherheits Tokens. Das Verschlüsseln des Sicherheits Tokens mit diesem Algorithmus wird nicht unterstützt.|  
-|AES192 \- http:\/www.w3.org2001\/04xmlenc\#AES192CBC\-\/\/\/|192|Unterstützter Algorithmus für das Entschlüsseln des Sicherheits Tokens. Das Verschlüsseln des Sicherheits Tokens mit diesem Algorithmus wird nicht unterstützt.|  
-|AES256 \- [http:\/www.w3.org\/200104xmlenc\#AES256CBC\-\/\/\/](http://www.w3.org/2001/04/xmlenc)|256|**Standard**: Unterstützter Algorithmus zum Verschlüsseln des Sicherheits Tokens.|  
-|Tripledeskeywrap \- http:\/\/\/\/\#www.w3.org 200104\/xmlenc kWhTripleDES\-|Alle von .NET 4,0 unterstützten Schlüsselgrößen\+|Unterstützter Algorithmus zum Verschlüsseln des symmetrischen Schlüssels, der ein Sicherheits Token verschlüsselt.|  
-|AES128KeyWrap \- [http:\/www.w3.org\/200104xmlenc\#kWAES128\-\/\/\/](http://www.w3.org/2001/04/xmlenc)|128|Unterstützter Algorithmus zum Verschlüsseln des symmetrischen Schlüssels, der das Sicherheits Token verschlüsselt.|  
-|AES192KeyWrap \- [http:\/www.w3.org\/200104xmlenc\#kWAES192\-\/\/\/](http://www.w3.org/2001/04/xmlenc)|192|Unterstützter Algorithmus zum Verschlüsseln des symmetrischen Schlüssels, der das Sicherheits Token verschlüsselt.|  
-|AES256KeyWrap \- [http:\/www.w3.org\/200104xmlenc\#kWAES256\-\/\/\/](http://www.w3.org/2001/04/xmlenc)|256|Unterstützter Algorithmus zum Verschlüsseln des symmetrischen Schlüssels, der das Sicherheits Token verschlüsselt.|  
-|RsaV15KeyWrap \- http:\/www.w3.org2001\/04xmlenc\#RSA1\-5\_\/\/\/|1024|Unterstützter Algorithmus zum Verschlüsseln des symmetrischen Schlüssels, der das Sicherheits Token verschlüsselt.|  
-|Rsaoaepkeywrap \- [http:\/\/www.w3.org\/2001\/\-04\/xmlenc\#RSA\-OAEP MGF1P](http://www.w3.org/2001/04/xmlenc)|1024|Default. Unterstützter Algorithmus zum Verschlüsseln des symmetrischen Schlüssels, der das Sicherheits Token verschlüsselt.|  
-|SHA1\-http:\/www.w3.orgPIC\/dsig\_SHA1 10\_. HTML\/\/\/|N\/A|Wird von AD FS Server in artefaktquellengenerierung verwendet:  In diesem Szenario verwendet der STS SHA1 \(gemäß der Empfehlung im SAML 2,0-Standard\) , um einen kurzen 160-Bit-Wert für das artefaktelement SourceID zu erstellen.<br /><br />Wird auch von der ADFS-Web \(-Agent-Legacy Komponente\) aus WS2003 Zeitrahmen verwendet, um Änderungen in einem "zuletzt aktualisierten" Uhrzeitwert zu identifizieren, sodass er weiß, wann Informationen aus dem STS aktualisiert werden müssen.|  
-|SHA1withRSA\-<br /><br />http:\/\/www.w3.orgPIC\/dsig\/RSA\_SHA11\_0. HTML\-\/|N\/A|Wird in Fällen verwendet, in denen AD FS Server die Signatur von SAML authenticationrequest überprüft, die artefaktauflösungs Anforderung oder-Antwort\-Signieren und Tokensignaturzertifikat erstellen.<br /><br />In diesen Fällen ist SHA256 der Standardwert, und SHA1 wird nur verwendet, wenn die \(Partner vertrauende Seite\) SHA256 nicht unterstützen kann und SHA1 verwendet werden muss.|  
+|TripleDES – Standard 192 \(unterstützt 192 –\) 256 \- [http\/:\/\/www.w3.org\/2001\/04\#xmlenc TripleDES\-CBC](http://www.w3.org/2001/04/xmlenc#tripledes-cbc)|>\=192|Unterstützter Algorithmus für das Entschlüsseln des Sicherheits Tokens. Das Verschlüsseln des Sicherheits Tokens mit diesem Algorithmus wird nicht unterstützt.|  
+|AES128 \- [http:\/www.w3.org\/200104xmlenc\#AES128CBC\-\/\/\/](http://www.w3.org/2001/04/xmlenc#aes128-cbc)|128|Unterstützter Algorithmus für das Entschlüsseln des Sicherheits Tokens. Das Verschlüsseln des Sicherheits Tokens mit diesem Algorithmus wird nicht unterstützt.|  
+|AES192 \- [http:\/www.w3.org\/200104xmlenc\#AES192CBC\-\/\/\/](http://www.w3.org/2001/04/xmlenc#aes192-cbc)|192|Unterstützter Algorithmus für das Entschlüsseln des Sicherheits Tokens. Das Verschlüsseln des Sicherheits Tokens mit diesem Algorithmus wird nicht unterstützt.|  
+|AES256 \- [http:\/www.w3.org\/200104xmlenc\#AES256CBC\-\/\/\/](http://www.w3.org/2001/04/xmlenc#aes256-cbc)|256|**Standard**: Unterstützter Algorithmus zum Verschlüsseln des Sicherheits Tokens.|  
+|Tripledeskeywrap \- [http:\/\/www.w3.org\/\#2001\/04\/xmlenc\-kWh TripleDES](http://www.w3.org/2001/04/xmlenc#kw-tripledes)|Alle von .NET 4,0 unterstützten Schlüsselgrößen\+|Unterstützter Algorithmus zum Verschlüsseln des symmetrischen Schlüssels, der ein Sicherheits Token verschlüsselt.|  
+|AES128KeyWrap \- [http:\/www.w3.org\/200104xmlenc\#kWAES128\-\/\/\/](http://www.w3.org/2001/04/xmlenc#kw-aes128)|128|Unterstützter Algorithmus zum Verschlüsseln des symmetrischen Schlüssels, der das Sicherheits Token verschlüsselt.|  
+|AES192KeyWrap \- [http:\/www.w3.org\/200104xmlenc\#kWAES192\-\/\/\/](http://www.w3.org/2001/04/xmlenc#kw-aes192)|192|Unterstützter Algorithmus zum Verschlüsseln des symmetrischen Schlüssels, der das Sicherheits Token verschlüsselt.|  
+|AES256KeyWrap \- [http:\/www.w3.org\/200104xmlenc\#kWAES256\-\/\/\/](http://www.w3.org/2001/04/xmlenc#kw-aes256)|256|Unterstützter Algorithmus zum Verschlüsseln des symmetrischen Schlüssels, der das Sicherheits Token verschlüsselt.|  
+|RsaV15KeyWrap \- [http:\/www.w3.org\/200104xmlenc\#RSA1\-5\_\/\/\/](http://www.w3.org/2001/04/xmlenc#rsa-1_5)|1024|Unterstützter Algorithmus zum Verschlüsseln des symmetrischen Schlüssels, der das Sicherheits Token verschlüsselt.|  
+|Rsaoaepkeywrap \- [http:\/\/www.w3.org\/2001\/\-04\/xmlenc\#RSA\-OAEP MGF1P](http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p)|1024|Default. Unterstützter Algorithmus zum Verschlüsseln des symmetrischen Schlüssels, der das Sicherheits Token verschlüsselt.|  
+|SHA1\-[http:\/www.w3.org\/PICdsig\_SHA1 10.\_HTML\/\/\/](http://www.w3.org/PICS/DSig/SHA1_1_0.html)|N\/A|Wird von AD FS Server in artefaktquellengenerierung verwendet:  In diesem Szenario verwendet der STS SHA1 \(gemäß der Empfehlung im SAML 2,0-Standard\) , um einen kurzen 160-Bit-Wert für das artefaktelement SourceID zu erstellen.<br /><br />Wird auch von der ADFS-Web \(-Agent-Legacy Komponente\) aus WS2003 Zeitrahmen verwendet, um Änderungen in einem "zuletzt aktualisierten" Uhrzeitwert zu identifizieren, sodass er weiß, wann Informationen aus dem STS aktualisiert werden müssen.|  
+|SHA1withRSA\-<br /><br />[http:\/\/www.w3.orgPIC\/dsig\/RSA\_SHA11\_0. HTML\-\/](http://www.w3.org/PICS/DSig/RSA-SHA1_1_0.html)|N\/A|Wird in Fällen verwendet, in denen AD FS Server die Signatur von SAML authenticationrequest überprüft, die artefaktauflösungs Anforderung oder-Antwort\-Signieren und Tokensignaturzertifikat erstellen.<br /><br />In diesen Fällen ist SHA256 der Standardwert, und SHA1 wird nur verwendet, wenn die \(Partner vertrauende Seite\) SHA256 nicht unterstützen kann und SHA1 verwendet werden muss.|  
   
 ## <a name="BKMK_13"></a>Berechtigungsanforderungen  
 Der Administrator, der die Installation ausführt, und die Erstkonfiguration AD FS müssen über Domänen Administrator Berechtigungen in der \(lokalen Domäne verfügen, also die Domäne, der der Verbund Server hinzugefügt wird.\)  

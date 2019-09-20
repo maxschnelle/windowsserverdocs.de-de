@@ -13,12 +13,12 @@ ms.assetid: 044f2fd5-5b87-42bb-ba0d-c06516ac48c8
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: 97d9e671823dade9e488922561c4c6a925719830
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 9f3524261e8e93439ff48a3e6666fa7680a76a29
+ms.sourcegitcommit: ccec91c1d32a978159f9b8bb5e39ead5805c26c4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871658"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71143737"
 ---
 # <a name="limit-web-access"></a>Einschränken des Webzugriffs
 Zusätzlich zur Überwachung von Benutzeraktivitäten auf einzelnen Desktops können Sie als Administrator den Benutzer Zugriff auf bestimmte Websites einschränken, indem Sie zulässige Websites und Websites angeben, für die Sie den Benutzer Zugriff blockieren möchten.  
@@ -49,7 +49,7 @@ Zusätzlich zur Überwachung von Benutzeraktivitäten auf einzelnen Desktops kö
    Wenn Sie eine Website hinzufügen möchten, die nicht von Benutzern besucht werden soll, klicken Sie auf **nur diese Websites zulassen**, geben Sie die Webadresse ein, die Sie nicht besuchen möchten, und klicken Sie dann auf **Hinzufügen**.  
   
    > [!NOTE]
-   > Wenn Sie z. b. "contoso.com" eingeben, können Sie Websites, die relativ zu www.contoso.com sind (z. b. www.NewPage.contoso.com), zulassen oder blockieren. Durch die Eingabe von "Configuration Manager" werden alle standortbezogenen Websites (einschließlich contoso.com, contoso.uk usw.) entweder zugelassen oder beschränkt.  
+   > Wenn Sie z. b. "contoso.com" eingeben, können Sie Websites, die relativ zu www.contoso.com sind (\.z. b. www NewPage.contoso.com), zulassen oder blockieren. Durch die Eingabe von "Configuration Manager" werden alle standortbezogenen Websites (einschließlich contoso.com, contoso.uk usw.) entweder zugelassen oder beschränkt.  
   
 3. Zum Entfernen einer Webadresse aus der Liste der zulässigen oder nicht zulässigen Websites wählen Sie die Webadresse aus und klicken dann auf **Entfernen**.  
   
