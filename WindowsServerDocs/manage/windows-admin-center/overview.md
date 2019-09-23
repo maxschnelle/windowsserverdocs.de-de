@@ -5,15 +5,15 @@ ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
-ms.date: 08/22/2019
+ms.date: 09/18/2019
 ms.localizationpriority: high
 ms.prod: windows-server-threshold
-ms.openlocfilehash: cdd7986486fd3cad07f5e4577aaf0ab404bfb5d3
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 943026c04055919fefd7002c50144d28413de1a7
+ms.sourcegitcommit: 27f0caf74e88781054250455c3c1adf06deb6234
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869587"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124342"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
 
@@ -129,9 +129,10 @@ Sie können Windows Admin Center in Ihrer Umgebung innerhalb von Minuten betrieb
 
 Lernen Sie unsere neuesten veröffentlichten Funktionen kennen:
 
-- Version [1908](https://aka.ms/wac1908): Enthält visuelle Updates, Packetmon, FlowLog Audit, Azure Monitor-Onboarding für Cluster und Unterstützung für WinRM über HTTPS (Port 5986).
-- Version [1907](https://aka.ms/wac1907): Links zu geschätzten Azure-Kosten hinzugefügt, Import/Export und Kennzeichnung von VMs verbessert.
-- Version [1906](https://aka.ms/wac1906): Import/Export von VMs eingeführt, Wechsel von Azure-Konten, Hinzufügen von Verbindungen aus Azure, Verbindungseinstellungen (experimentell), Leistungsverbesserungen und Tool für Leistungsprofile.
+- In Version [1909](https://aka.ms/wac1909) wurde der Azure-VM-spezifische Verbindungstyp eingeführt und wurden die Verbindungstypen für herkömmliche Failovercluster und HCI-Cluster vereinheitlicht.
+- In Version [1908](https://aka.ms/wac1908) wurden visuelle Updates, Packetmon, FlowLog Audit, Azure Monitor-Onboarding für Cluster und Unterstützung für WinRM über HTTPS (Port 5986) hinzugefügt.
+- In Version [1907](https://aka.ms/wac1907) wurden Links zu geschätzten Azure-Kosten hinzugefügt sowie Import/Export und Kennzeichnung von VMs verbessert.
+- In Version [1906](https://aka.ms/wac1906) wurde Import/Export von VMs hinzugefügt, Wechsel von Azure-Konten, Hinzufügen von Verbindungen aus Azure, Verbindungseinstellungen (experimentell), Leistungsverbesserungen und ein Tool für Leistungsprofile hinzugefügt.
 - Version 1904.1 ist das aktuellste allgemein verfügbare Release – ein Wartungsupdate zur Verbesserung der Stabilität von Gateway-Plug-Ins.
 - Version [1904](https://aka.ms/wac1904) war ein allgemein verfügbares Release, mit dem das Azure-Hybriddienstetool und Funktionen eingeführt wurden, die zuvor in der Vorschau der GA-Version erhältlich waren.
 - In Version [1903](https://aka.ms/wac1903) wurden E-Mail-Benachrichtigungen von Azure Monitor, die Möglichkeit, aus Active Directory Server- oder PC-Verbindungen hinzuzufügen und neue Tools zum Verwalten von Active Directory, DHCP und DNS eingeführt.
