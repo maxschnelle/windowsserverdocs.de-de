@@ -12,12 +12,12 @@ author: lizap
 ms.author: elizapo
 ms.date: 11/08/2016
 manager: dongill
-ms.openlocfilehash: 4e185e51b09d2e2f8ac4527f9de339de27e02f24
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 869d47be73a39114ecc05080f8da16f460fb8198
+ms.sourcegitcommit: 6423dfa9cecb3b06bdd563cae113c3e80a4ec330
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66805140"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105040"
 ---
 # <a name="add-high-availability-to-the-rd-web-and-gateway-web-front"></a>Hinzufügen von Hochverfügbarkeit zu RD-Web und RD-Gateway (Webfront)
 
@@ -96,12 +96,13 @@ Wenn Sie die Azure-Infrastruktur verwenden, können Sie einen externen Azure Loa
 1.  Erstellen Sie einen Azure Load Balancer:  
     1.  Klicken Sie im Azure-Portal auf **Durchsuchen > Lastenausgleichsmodule > Hinzufügen**.  
     2.  Geben Sie einen Namen ein, z. B. **WebGwLB**.  
-    3.  Wählen Sie **Öffentlich** für das **Schema**, **Öffentliche IP-Adresse** und eine **Öffentliche IP-Adresse** aus. Sie können eine vorhandene öffentliche IP-Adresse auswählen oder eine neue erstellen. 
-    4.  Wählen Sie das entsprechende **Abonnement**, eine **Ressourcengruppe** und einen **Speicherort** aus.
-    5.  Klicken Sie auf **Erstellen**.  
+    3.  Wähle **Öffentlich** für das **Schema** aus.
+    4.  Wähle unter **Öffentliche IP-Adresse** die Option **Öffentliche IP-Adresse auswählen** aus, und wähle dann eine vorhandene öffentliche IP-Adresse aus, oder erstelle eine neue.
+    5.  Wählen Sie das entsprechende **Abonnement**, eine **Ressourcengruppe** und einen **Speicherort** aus.
+    6.  Klicken Sie auf **Erstellen**.  
 2. Erstellen Sie einen [Test](https://azure.microsoft.com/documentation/articles/load-balancer-custom-probe-overview/), um zu überwachen, welche Server aktiv sind:  
-    1.  Klicken Sie im Azure-Portal auf **Durchsuchen > Lastenausgleich**, und wählen Sie den soeben erstellten Lastenausgleich aus, z. B. WebGwLB, und klicken Sie dann auf „Einstellungen“.  
-    2.  Klicken Sie auf **Tests > Hinzufügen**.  
+    1.  Wähle im Azure-Portal die Option **Durchsuchen** > **Lastensaugleiche** aus, und wähle dann den Lastenausgleich aus, den du im vorherigen Schritt erstellt hast.
+    2.  Wähle **Alle Einstellungen** > **Tests** > **Hinzufügen** aus.  
     3.  Geben Sie einen Namen, z. B. **HTTPS**, für den Test ein. Wählen Sie **TCP** als **Protokoll** aus, und geben Sie **443** für den **Port** ein. Klicken Sie anschließend auf **OK**.   
 3.  Erstellen Sie die HTTPS- und UDP-Lastenausgleichsregeln:  
     1.  Klicken Sie unter **Einstellungen** auf **Lastenausgleichsregeln**.  

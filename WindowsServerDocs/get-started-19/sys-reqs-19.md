@@ -1,28 +1,24 @@
 ---
 title: Windows Server 2019-Systemanforderungen
 description: Mindestanforderungen für Speicher, CPU, Netzwerk, Arbeitsspeicher und RAM bei einer Neuinstallation von Windows Server 2019.
-ms.custom: na
 ms.prod: windows-server-threshold
-ms.reviewer: na
-ms.suite: na
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4a8b42d7-9fe5-4efe-9ea1-ace2131f860e
-author: coreyp-at-msft
-ms.author: coreyp
+author: jasongerend
+ms.author: jgerend
 manager: jasgroce
 ms.localizationpriority: medium
-ms.openlocfilehash: d97ec0efee86165f82bdf99a316d24d9c39ec958
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 70ebf445515fd227d0f35b0c267f4fe34b2b83a9
+ms.sourcegitcommit: 081661f50d6dafb77180149956a02e679270c710
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66810716"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037579"
 ---
 # <a name="system-requirements"></a>Systemanforderungen
 
->Gilt für: Windows Server 2019 
+> Gilt für: Windows Server 2019
 
 Dieses Thema erläutert die Mindestsystemanforderungen zum Ausführen von Windows Server&reg; 2019.
 
@@ -48,7 +44,8 @@ Die Prozessorleistung ist nicht nur von der Taktfrequenz des Prozessors abhängi
 
 [Coreinfo](https://technet.microsoft.com/sysinternals/cc835722.aspx) ist ein Tool, mit dem du überprüfen kannst, über welche dieser Funktionen die CPU verfügt.
 
-## <a name="ram"></a>RAM  
+## <a name="ram"></a>RAM
+
 Nachfolgend sind die geschätzten RAM-Anforderungen für dieses Produkt aufgeführt:  
 
 **Minimum**:  
@@ -60,8 +57,8 @@ Nachfolgend sind die geschätzten RAM-Anforderungen für dieses Produkt aufgefü
 >   
 > Führen Sie zur Vermeidung dieses Problems eine der folgenden Aktionen aus:  
 >   
-> -   Ordnen Sie dem virtuellen Computer, auf dem diese Version installiert werden soll, mehr als 800 MB RAM zu. Nach dem Setup können Sie die Zuordnung abhängig von der tatsächlichen Serverkonfiguration in 512 MB RAM ändern.  
-> -   Unterbrechen Sie den Startprozess dieser Version auf dem virtuellen Computer mit UMSCHALTTASTE+F10. Erstellen Sie in der geöffneten Eingabeaufforderung mithilfe von %%amp;quot;Diskpart.exe%%amp;quot; eine Installationspartition, und formatieren Sie sie. Führen Sie **Wpeutil createpagefile /path=C:\pf.sys** aus (vorausgesetzt, Sie haben die Installationspartition %%amp;quot;C:%%amp;quot; erstellt). Schließen Sie die Eingabeaufforderung, und setzen Sie das Setup fort.  
+> -   Ordnen Sie dem virtuellen Computer, auf dem diese Version installiert werden soll, mehr als 800 MB RAM zu. Nach dem Setup können Sie die Zuordnung abhängig von der tatsächlichen Serverkonfiguration in 512 MB RAM ändern. Wenn Sie das Startimage (Startabbild) mit zusätzlichen Sprachen und Updates geändert haben, müssen Sie möglicherweise mehr als 800 MB RAM zuordnen, um die Installation abzuschließen.  
+> -   Unterbrechen Sie den Startprozess dieser Version auf dem virtuellen Computer mit SHIFT+F10. Erstellen Sie in der geöffneten Eingabeaufforderung mithilfe von %%amp;quot;Diskpart.exe%%amp;quot; eine Installationspartition, und formatieren Sie sie. Führen Sie **Wpeutil createpagefile /path=C:\pf.sys** aus (vorausgesetzt, Sie haben die Installationspartition %%amp;quot;C:%%amp;quot; erstellt). Schließen Sie die Eingabeaufforderung, und setzen Sie das Setup fort.  
 
 ## <a name="storage-controller-and-disk-space-requirements"></a>Speichercontroller- und Speicherplatzanforderungen  
 Computer mit Windows Server 2019 müssen über einen Speicheradapter verfügen, der mit der PCI Express-Architekturspezifikation konform ist. Bei beständigen Speichergeräten auf Servern, die als Festplattenlaufwerke klassifiziert sind, darf es sich nicht um PATA handeln. Bei Windows Server 2019 ist ATA/PATA/IDE/EIDE nicht für Start-, Auslagerungs- oder Datenlaufwerke zulässig.  

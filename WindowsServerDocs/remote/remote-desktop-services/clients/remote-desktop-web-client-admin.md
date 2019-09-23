@@ -4,16 +4,16 @@ description: In diesem Artikel wird beschrieben, wie ein Administrator den Remot
 ms.prod: windows-server-threshold
 ms.technology: remote-desktop-services
 ms.author: helohr
-ms.date: 11/2/2018
+ms.date: 09/19/2019
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 7de392b049fbe910688a4b950e1ca870b6ba3f46
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 86667c744acfd340c2608609323b95c159e1279d
+ms.sourcegitcommit: ccec91c1d32a978159f9b8bb5e39ead5805c26c4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871174"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71143749"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>Einrichten des Remotedesktop-Webclients für Ihre Benutzer
 
@@ -265,6 +265,10 @@ Als Administrator können Sie die Telemetriedatenerfassung für Ihre Bereitstell
 Standardmäßig kann der Benutzer auswählen, ob die Option für Telemetriedaten aktiviert oder deaktiviert werden soll. Der boolesche Wert **$false** entspricht dem Standardverhalten des Clients. Der boolesche Wert **$true** deaktiviert die Option für Telemetriedaten und verhindert, dass der Benutzer diese aktivieren kann.
 
 ### <a name="remote-resource-launch-method"></a>Methode zum Starten von Remoteressourcen
+
+>[!NOTE]
+>Diese Einstellung funktioniert zurzeit nur mit dem RDS-Webclient, nicht mit dem Windows Virtual Desktop-Webclient.
+
 Standardmäßig können Benutzer auswählen, ob Remoteressourcen (1) im Browser oder (2) durch Herunterladen einer RDP-Datei zur Bearbeitung mit einem anderen auf dem Computer installierten Client gestartet werden sollen. Als Administrator können Sie die Methode zum Starten von Remoteressourcen für Ihre Bereitstellung mit dem folgenden PowerShell-Befehl einschränken:
 
    ```PowerShell

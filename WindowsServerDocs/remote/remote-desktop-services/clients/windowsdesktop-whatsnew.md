@@ -11,27 +11,34 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 09/13/2019
+ms.date: 09/17/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 9b51370a83fe6a49c29cc2557abd54e339c3b213
-ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
+ms.openlocfilehash: 587ad44509451497b253689238c3aef233a37153
+ms.sourcegitcommit: e210fce039452a9855353520c7f8698acd76ffce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70988248"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71071285"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Neuigkeiten im Windows-Desktopclient
 
-Der [Windows-Desktopclient](windowsdesktop.md) wird regelmäßig mit neuen Features und Problembehebungen aktualisiert. Hier findest du die neuesten Updates.
+Ausführlichere Informationen über den Windows-Desktopclient findest du unter [Erste Schritte mit dem Windows-Desktopclient](windowsdesktop.md). Die neuesten Updates für den Client findest du nachstehend.
 
-## <a name="client-versions"></a>Clientversionen
+## <a name="latest-client-versions"></a>Neueste Clientversionen
 
-Der Client kann für die Verwendung unterschiedlicher Versionen für Release- oder Insider-Kunden konfiguriert werden. Die Releaseversion ist die Standardkonfiguration.
+Der Client kann für verschiedene [Benutzergruppen](windowsdesktop-admin.md#configure-user-groups) konfiguriert werden. In der folgenden Tabelle sind die aktuellen Versionen aufgelistet, die für jede Benutzergruppe verfügbar sind:
 
-|Kunde |Version  |
-|---------|---------|
-|Version  |1.2.246  |
-|Insider  |1.2.246  |
+|Benutzergruppe |Version  |
+|-----------|---------|
+|Public     |1.2.246  |
+|Insider    |1.2.247  |
+
+## <a name="updates-for-version-12247"></a>Updates für Version 1.2.247
+
+*Veröffentlicht am: 17.09.2019*
+
+- Es wurde ein Absturz korrigiert, der vorkam, wenn während einer Verbindung eine Authentifizierung vorgenommen wurde.
+- Es wurde ein Absturz korrigiert, der vorkam, wenn der Client geschlossen wurde.
 
 ## <a name="updates-for-version-12246"></a>Updates für Version 1.2.246
 

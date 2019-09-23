@@ -9,12 +9,12 @@ author: jasongerend
 ms.author: jgerend
 manager: jasgroce
 ms.localizationpriority: medium
-ms.openlocfilehash: 7e90738a157f620124bfca3d5f1f4c12789d3bf2
-ms.sourcegitcommit: b17ccf7f81e58e8f4dd844be8acf784debbb20ae
+ms.openlocfilehash: 1c0c6ca10e7ebac16d81fe1393e471a7878fd0ca
+ms.sourcegitcommit: ccec91c1d32a978159f9b8bb5e39ead5805c26c4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69023919"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71143760"
 ---
 # <a name="install-upgrade-or-migrate-to-windows-server"></a>Windows Server: Installation, Upgrade oder Migration
 
@@ -33,9 +33,7 @@ Die einfachste Methode zum Installieren von Windows Server ist eine Neuinstallat
 
 Wenn du die Hardware und alle eingerichteten Serverrollen behalten möchtest, solltest du ein **direktes Upgrade** durchführen. Dabei wechselst du von einem älteren Betriebssystem zu einem neueren und behältst Einstellungen, Serverrollen und Daten bei. Wenn auf einem Server beispielsweise Windows Server 2012 R2 ausgeführt wird, kannst du ein Upgrade auf Windows Server 2016 oder Windows Server 2019 durchführen. Es gibt aber nicht für alle ältere Betriebssysteme einen Pfad zu einem neueren Betriebssystem. 
 
-Im [Windows Server Upgrade Center](http://aka.ms/upgradecenter) findest du eine Schrittanleitung zum Upgrade:
-
-[![Screenshot von Windows Server Upgrade Center](media/upgrade-center.png)](http://aka.ms/upgradecenter)
+In der [Übersicht über Windows Server-Upgrades](../upgrade/upgrade-overview.md) findest du eine schrittweise Anleitung zum Upgraden.
 
 ## <a name="cluster-os-rolling-upgrade"></a>Paralleles Upgrade für Clusterbetriebssysteme
 
