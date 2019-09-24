@@ -8,12 +8,12 @@ ms.date: 02/13/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: c5a3012b989a16c8416a17460b87e197f7f6fc6a
-ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
+ms.openlocfilehash: 4b90f8c5713fbcefc1740b932e9a6f210901a974
+ms.sourcegitcommit: 45415ba58907d650cfda45f4c57f6ddf1255dcbf
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70987413"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71206903"
 ---
 # <a name="use-storage-migration-service-to-migrate-a-server"></a>Verwenden von Storage Migration Service zum Migrieren eines Servers
 
@@ -23,7 +23,7 @@ In diesem Thema wird erläutert, wie Sie einen Server, einschließlich seiner Da
 
 Bevor Sie beginnen, installieren Sie den Speicher Migrationsdienst, und stellen Sie sicher, dass die erforderlichen Firewallports geöffnet sind.
 
-1. Überprüfen Sie die Anforderungen an den [Speicher Migrationsdienst](overview.md#requirements) , und installieren Sie das [Windows Admin Center](../../manage/windows-admin-center/understand/windows-admin-center.md) auf Ihrem PC oder eine Management Server, sofern noch nicht geschehen.
+1. Überprüfen Sie die Anforderungen an den [Speicher Migrationsdienst](overview.md#requirements) , und installieren Sie das [Windows Admin Center](../../manage/windows-admin-center/understand/windows-admin-center.md) auf Ihrem PC oder eine Management Server, sofern noch nicht geschehen. Wenn Sie in die Domäne eingebundenen Quell Computern migrieren, müssen Sie den Speicher Migrationsdienst auf einem Server installieren und ausführen, der der gleichen Domäne oder Gesamtstruktur wie die Quellcomputer beigetreten ist.
 2. Stellen Sie im Windows Admin Center eine Verbindung zum Orchestrator-Server her, auf dem Windows Server 2019 ausgeführt wird. <br>Dies ist der Server, auf dem Sie den Speicher Migrationsdienst installieren und zum Verwalten der Migration verwenden. Wenn Sie nur einen Server migrieren, können Sie den Zielserver verwenden, sofern er Windows Server 2019 ausgeführt wird. Es wird empfohlen, einen separaten Orchestrierungs Server für multiservermigrationen zu verwenden.
 1. Wechseln Sie zu **Server-Manager** (in Windows Admin Center) > **Storage Migration Service** , und wählen Sie **Installieren** aus, um den Speicher Migrationsdienst und die erforderlichen Komponenten zu installieren (siehe Abbildung 1).
     ![Screenshot der Seite "Storage Migration Service" mit der Installations](media/migrate/install.png) Schaltfläche **Abbildung 1: Installieren von Storage Migration Service**
@@ -38,7 +38,7 @@ Bevor Sie beginnen, installieren Sie den Speicher Migrationsdienst, und stellen 
 
 1. Wenn Sie einen Orchestrator-Server zum Verwalten der Migration verwenden und Ereignisse oder ein Protokoll der übertragenden Daten herunterladen möchten, überprüfen Sie, ob die Firewallregel für die Datei-und Druckerfreigabe (SMB-in) ebenfalls auf diesem Server aktiviert ist.
 
-## <a name="step-1-create-a-job-and-inventory-your-servers-to-figure-out-what-to-migrate"></a>Schritt 1: Erstellen eines Auftrags und Inventarisieren der Server, um herauszufinden, was migriert werden soll
+## <a name="step-1-create-a-job-and-inventory-your-servers-to-figure-out-what-to-migrate"></a>Schritt 1: Erstellen eines Auftrags und Inventarisieren der Server, um herauszufinden, was migriert werden soll
 
 In diesem Schritt geben Sie an, welche Server migriert werden sollen, und Scannen Sie anschließend, um Informationen zu Ihren Dateien und Konfigurationen zu sammeln.
 
@@ -57,7 +57,7 @@ In diesem Schritt geben Sie an, welche Server migriert werden sollen, und Scanne
 In diesem Schritt übertragen Sie die Daten, nachdem Sie angegeben haben, wo Sie auf den Ziel Servern abgelegt werden sollen.
 
 1. Geben Sie auf der Seite Anmelde Informationen für **Übertragungsdaten** > **eingeben** Administrator Anmelde Informationen ein, die auf den Ziel Servern funktionieren, zu denen Sie migrieren möchten, und klicken Sie dann auf **weiter**.
-2. Auf der Seite **Zielgerät und Zuordnungen hinzufügen** wird der erste Quell Server aufgeführt. Geben Sie den Namen des Servers oder des gruppierten Dateiservers ein, zu dem Sie migrieren möchten, und wählen Sie dann **Gerät scannen**aus.
+2. Auf der Seite **Zielgerät und Zuordnungen hinzufügen** wird der erste Quell Server aufgeführt. Geben Sie den Namen des Servers oder des gruppierten Dateiservers ein, zu dem Sie migrieren möchten, und wählen Sie dann **Gerät scannen**aus. Wenn Sie von einem in die Domäne eingebundenen Quellcomputer migrieren, muss der Zielserver der gleichen Domäne beitreten.
 3. Ordnen Sie die Quellvolumes den Zielvolumes zu, deaktivieren Sie das Kontrollkästchen **einschließen** für alle Freigaben, die Sie nicht übertragen möchten (einschließlich administrativer Freigaben im Windows-Systemordner), und klicken Sie dann auf **weiter**.
    ![Screenshot, der einen Quell Server und seine Volumes und Freigaben anzeigt und an den Sie in der Ziel](media/migrate/transfer.png) **Abbildung 3 übertragen werden: Einen Quell Server und an den Speicherort, an den der Speicher übertragen wird**
 4. Fügen Sie einen Zielserver und Zuordnungen für alle weiteren Quell Server hinzu, und klicken Sie dann auf **weiter**.
