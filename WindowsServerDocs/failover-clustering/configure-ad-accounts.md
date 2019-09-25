@@ -6,15 +6,14 @@ ms.technology: storage-failover-clustering
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 3cc7449c8fbbad2ed4a3cd27513fcbe74b617e36
-ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
+ms.openlocfilehash: 06fcb7ee7d05b85c1e7d1c6752268ea7e5dbbdb2
+ms.sourcegitcommit: 94ba5a33e783fdfb965c612943d0bfe35f9fcaa1
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69560517"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71250230"
 ---
 # <a name="configuring-cluster-accounts-in-active-directory"></a>Konfigurieren von Clusterkonten in Active Directory
-
 
 Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 und Windows Server 2008
 
@@ -106,7 +105,7 @@ Wie in den vorausgehenden drei Abschnitten beschrieben, müssen bestimmte Anford
           
       - Das Konto muss über Administratorberechtigungen für die Server verfügen, die Clusterknoten werden sollen. Die einfachste Möglichkeit, diese Bedingung zu erfüllen, besteht darin, ein Domänenbenutzerkonto zu erstellen und dieses Konto anschließend der lokalen Gruppe Administratoren auf jedem Server hinzuzufügen, der ein Clusterknoten werden soll. Weitere Informationen finden Sie weiter unten in dieser Anleitung unter [Schritte zum Konfigurieren des Kontos für die Person, die den Cluster installiert](#steps-for-configuring-the-account-for-the-person-who-installs-the-cluster).  
           
-      - Dem Konto (oder der Gruppe, deren Mitglied das Konto ist) müssen die Berechtigungen zum **Erstellen von Computerobjekten** und zum **Lesen aller Eigenschaften** in dem Container erteilt werden, der in der Domäne für Computerkonten verwendet wird. Eine andere Alternative besteht darin, das Konto zu einem Domänenadministratorkonto zu machen. Weitere Informationen finden Sie weiter unten in dieser Anleitung unter [Schritte zum Konfigurieren des Kontos für die Person, die den Cluster installiert](#steps-for-configuring-the-account-for-the-person-who-installs-the-cluster).  
+      - Dem Konto (oder der Gruppe, deren Mitglied das Konto ist) müssen die Berechtigungen zum **Erstellen von Computerobjekten** und zum **Lesen aller Eigenschaften** in dem Container erteilt werden, der in der Domäne für Computerkonten verwendet wird. Weitere Informationen finden Sie weiter unten in dieser Anleitung unter [Schritte zum Konfigurieren des Kontos für die Person, die den Cluster installiert](#steps-for-configuring-the-account-for-the-person-who-installs-the-cluster).  
           
       - Wenn die Organisation sich dafür entscheidet, das Clusternamenkonto (ein Computerkonto mit dem gleichen Namen wie der Cluster) vorab bereitzustellen, muss das vorab bereitgestellte Clusternamenkonto dem Konto der Person, die den Cluster installiert, die Berechtigung "Vollzugriff" erteilen. Weitere wichtige Details zur Vorabbereitstellung des Clusternamenkontos finden Sie weiter unten in dieser Anleitung unter [Schritte für die Vorabbereitstellung des Clusternamenkontos](#steps-for-prestaging-the-cluster-name-account).  
           
@@ -119,13 +118,13 @@ Die Administratoren von Failoverclustern müssen möglicherweise manchmal das Ke
 
 Das Konto der Person, die den Cluster installiert, ist wichtig, da es die Grundlage bereitstellt, auf der ein Computerkonto für den Cluster erstellt wird.
 
-Die zum Ausführen des folgenden Verfahrens minimal erforderliche Gruppenmitgliedschaft ist davon abhängig, ob Sie das Domänenkonto erstellen und ihm die erforderlichen Berechtigungen in der Domäne zuweisen oder ob Sie das (von jemand anderem erstellte) Konto lediglich der lokalen Gruppe **Administratoren** auf den Servern hinzufügen, die Knoten im Failovercluster werden sollen. Im ersten Fall ist mindestens die Mitgliedschaft in der Gruppe **Konten-Operatoren** oder **Domänen-Admins** oder einer gleichwertigen Gruppe erforderlich, um dieses Verfahren auszuführen. Im zweiten Fall ist lediglich die Mitgliedschaft in der lokalen Gruppe **Administratoren** auf den Servern, die Knoten im Failovercluster werden sollen, oder eine gleichwertige Mitgliedschaft erforderlich. Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden [http://go.microsoft.com/fwlink/?LinkId=83477](http://go.microsoft.com/fwlink/?linkid=83477)Sie unter.
+Die zum Ausführen des folgenden Verfahrens minimal erforderliche Gruppenmitgliedschaft ist davon abhängig, ob Sie das Domänenkonto erstellen und ihm die erforderlichen Berechtigungen in der Domäne zuweisen oder ob Sie das (von jemand anderem erstellte) Konto lediglich der lokalen Gruppe **Administratoren** auf den Servern hinzufügen, die Knoten im Failovercluster werden sollen. Wenn die erste, die Mitgliedschaft in **Konto Operatoren** oder einer entsprechenden Gruppe, mindestens erforderlich ist, um dieses Verfahren abzuschließen. Im zweiten Fall ist lediglich die Mitgliedschaft in der lokalen Gruppe **Administratoren** auf den Servern, die Knoten im Failovercluster werden sollen, oder eine gleichwertige Mitgliedschaft erforderlich. Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden [http://go.microsoft.com/fwlink/?LinkId=83477](http://go.microsoft.com/fwlink/?linkid=83477)Sie unter.
 
 #### <a name="to-configure-the-account-for-the-person-who-installs-the-cluster"></a>So konfigurieren Sie das Konto für die Person, die den Cluster installiert
 
-1.  Erstellen Sie ein Domänenkonto für die Person, die den Cluster installiert, oder rufen Sie es ab. Dieses Konto kann ein Domänenbenutzerkonto oder ein Domänenadministratorkonto (in **Domänen-Admins** oder einer gleichwertigen Gruppe) sein.
+1.  Erstellen Sie ein Domänenkonto für die Person, die den Cluster installiert, oder rufen Sie es ab. Bei diesem Konto kann es sich um ein Domänen Benutzerkonto oder um ein **Konto Operator** Konto handeln. Wenn Sie ein Standardbenutzer Konto verwenden, müssen Sie diesem später in diesem Verfahren einige zusätzliche Berechtigungen einräumen.
 
-2.  Wenn das in Schritt 1 erstellte oder abgerufene Konto ein Domänenbenutzerkonto ist oder die Domänenadministratorkonten in der Domäne nicht automatisch in der lokalen Gruppe **Administratoren** auf Computern in der Domäne enthalten sind, fügen Sie das Konto der lokalen Gruppe **Administratoren** auf den Servern hinzu, die Knoten im Failovercluster werden sollen:
+2.  Wenn das in Schritt 1 erstellte oder abgerufene Konto nicht automatisch in der lokalen Gruppe **Administratoren** auf den Computern in der Domäne enthalten ist, fügen Sie das Konto der lokalen Gruppe **Administratoren** auf den Servern hinzu, die als Knoten im Failover verwendet werden sollen. Kombi
     
     1.  Klicken Sie auf **Start**, klicken Sie auf **Verwaltung**, und klicken Sie dann auf **Server-Manager**.  
           
@@ -136,8 +135,6 @@ Die zum Ausführen des folgenden Verfahrens minimal erforderliche Gruppenmitglie
     4.  Geben **Sie unter Geben Sie die zu**erstellenden Objektnamen ein den Namen des Benutzerkontos ein, das in Schritt 1 erstellt oder abgerufen wurde. Wenn Sie dazu aufgefordert werden, geben Sie einen Kontonamen und ein Kennwort mit ausreichenden Berechtigungen für diese Aktion ein. Klicken Sie dann auf **OK**.  
           
     5.  Wiederholen Sie diese Schritte für jeden Server, der ein Knoten im Failovercluster werden soll.  
-          
-    
 
 > [!IMPORTANT]
 > Diese Schritte müssen für alle Server wiederholt werden, die Knoten im Cluster werden sollen. 
