@@ -1,8 +1,8 @@
 ---
 title: cd
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 53340612d26eaa7c4ae6fd977a0eac573f91881d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: ed0942232eb205a8198d4b3d366ca9482af1f4b3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434602"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379707"
 ---
 # <a name="cd"></a>cd
 
 
 
-Zeigt den Namen des ab oder ändert das aktuelle Verzeichnis. Wenn nur ein Laufwerkbuchstabe verwendet (z. B. `cd C:`), **cd** zeigt die Namen des aktuellen Verzeichnisses in das angegebene Laufwerk. Wenn Sie ohne Angabe von Parametern **cd** zeigt das aktuelle Laufwerk und Verzeichnis.
+Zeigt den Namen des aktuellen Verzeichnisses an oder ändert dieses. Wenn Sie nur mit einem Laufwerk Buchstaben (z. b. `cd C:`) verwendet wird, zeigt **CD** die Namen des aktuellen Verzeichnisses auf dem angegebenen Laufwerk an. Bei Verwendung ohne Parameter zeigt **CD** das aktuelle Laufwerk und Verzeichnis an.
 
 > [!NOTE]
-> Dieser Befehl ist identisch mit der **"chdir"** Befehl.
+> Dieser Befehl ist mit dem **"chdir"** -Befehl identisch.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -44,42 +44,42 @@ chdir [..]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|/d|Ändert das aktuelle Laufwerk als auch für das aktuelle Verzeichnis für ein Laufwerk an.|
-|\<Laufwerk >:|Gibt das Laufwerk zum Anzeigen oder ändern (falls abweichend vom aktuellen Laufwerk).|
-|\<Pfad >|Gibt den Pfad zum Verzeichnis, das Sie anzeigen oder ändern möchten.|
-|[..]|Gibt an, dass Sie in den übergeordneten Ordner ändern möchten.|
+|/d|Ändert das aktuelle Laufwerk und das aktuelle Verzeichnis für ein Laufwerk.|
+|> \<drive:|Gibt das anzuzeigende oder zu ändernde Laufwerk an (wenn sich das aktuelle Laufwerk unterscheidet).|
+|\<path >|Gibt den Pfad zu dem Verzeichnis an, das Sie anzeigen oder ändern möchten.|
+|[..]|Gibt an, dass Sie in den übergeordneten Ordner wechseln möchten.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
-Wenn befehlserweiterungen aktiviert sind, gelten die folgenden Bedingungen für die **cd** Befehl:
-- Zeichenfolge des aktuellen Verzeichnisses wird konvertiert, um die gleiche Groß-/Kleinschreibung als die Namen auf dem Datenträger zu verwenden. Z. B. `cd C:\TEMP` das aktuelle Verzeichnis wird auf C:\Temp festgelegt werden, wenn dies der Fall, auf dem Datenträger ist.
-- Leerzeichen als Trennzeichen und daher nicht behandelt *Pfad* darf Leerzeichen enthalten, ohne die Anführungszeichen einschließen. Zum Beispiel:  
+Wenn Befehls Erweiterungen aktiviert sind, gelten die folgenden Bedingungen für den Befehl **CD** :
+- Die aktuelle Verzeichnis Zeichenfolge wird so konvertiert, dass Sie dieselbe Groß-/Kleinschreibung wie die Namen auf dem Datenträger Beispielsweise würde `cd C:\TEMP` das aktuelle Verzeichnis auf "c:\temp" festlegen, wenn dies auf dem Datenträger der Fall ist.
+- Leerzeichen werden nicht als Trennzeichen behandelt, daher kann der *Pfad* Leerzeichen enthalten, ohne Anführungszeichen einzuschließen. Zum Beispiel:  
   ```
   cd username\programs\start menu
   ```  
-  ist identisch:  
+  entspricht:  
   ```
   cd "username\programs\start menu"
   ```  
-  Die Anführungszeichen sind erforderlich, aber wenn Erweiterungen deaktiviert sind.
+  Die Anführungszeichen sind jedoch erforderlich, wenn Erweiterungen deaktiviert sind.
 
-Um befehlserweiterungen deaktivieren möchten, geben Sie Folgendes ein:
+Um Befehls Erweiterungen zu deaktivieren, geben Sie Folgendes ein:
 ```
 cmd /e:off
 ```
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Das Stammverzeichnis ist am Anfang der Directory-Hierarchie für ein Laufwerk. Um zum Stammverzeichnis zurückzukehren, geben Sie Folgendes ein:
+Das Stammverzeichnis ist der oberste Teil der Verzeichnishierarchie eines Laufwerks. Geben Sie Folgendes ein, um zum Stammverzeichnis zurückzukehren:
 ```
 cd\
 ```
-Um das Standardverzeichnis auf einem Laufwerk zu ändern, die sich von dem unterscheidet, die Sie auf, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um das Standardverzeichnis auf einem anderen Laufwerk zu ändern:
 ```
 cd [<Drive>:\[<Directory>]]
 ```
-Um die Änderung in das Verzeichnis zu überprüfen, geben Sie Folgendes ein:
+Um die Änderung am Verzeichnis zu überprüfen, geben Sie Folgendes ein:
 ```
 cd [<Drive>:]
 ```

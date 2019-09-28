@@ -1,8 +1,8 @@
 ---
 title: mode
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,28 +13,28 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0b76d16bdc9099d78e35d8714397d61b9af0f389
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 00dabdbeb7f0665c99714d0a97c7d3c78b22e04e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437312"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373608"
 ---
 # <a name="mode"></a>mode
 
 
 
-Zeigt den Systemstatus, Systemeinstellungen geändert oder neu konfiguriert, Ports oder Geräte. Wenn Sie ohne Angabe von Parametern **Modus** zeigt die steuerbar Attribute der Verwaltungskonsole und die verfügbaren COM-Geräte an.
+Zeigt den Systemstatus an, ändert Systemeinstellungen oder konfiguriert Ports oder Geräte neu. Bei Verwendung ohne Parameter zeigt der- **Modus** alle steuerbaren Attribute der Konsole und der verfügbaren com-Geräte an.
 
-Können Sie **Modus** auf die folgenden Aufgaben ausführen – jede Aufgabe wird eine andere Syntax verwendet:
--   [So konfigurieren Sie einen seriellen Anschluss](#BKMK_1)
--   [Zum Anzeigen des Status aller Geräte oder eines einzelnen Geräts](#BKMK_2)
--   [Die Ausgabe von einem parallelen auf einem seriellen Anschluss umgeleitet](#BKMK_3)
--   [Um auszuwählen, aktualisieren oder die Zahlen der Codepages für die Konsole anzeigen](#BKMK_4)
--   [Ändern die Größe des Bildschirmpuffers Eingabeaufforderung](#BKMK_5)
--   [Die Tastaturwiederholrate festlegen](#BKMK_6)
+Sie können den- **Modus** verwenden, um die folgenden Aufgaben auszuführen – jede Aufgabe verwendet eine andere Syntax:
+-   [So konfigurieren Sie einen seriellen Kommunikationsport](#BKMK_1)
+-   [So zeigen Sie den Status aller Geräte oder eines einzelnen Geräts an](#BKMK_2)
+-   [So leiten Sie die Ausgabe von einem parallelen Anschluss an einen seriellen Kommunikationsport um](#BKMK_3)
+-   [So können Sie die Anzahl der Codepages für die Konsole auswählen, aktualisieren oder anzeigen](#BKMK_4)
+-   [So ändern Sie die Größe des Bildschirm Puffers für die Eingabeaufforderung](#BKMK_5)
+-   [So legen Sie die typematische Tastatur Rate fest](#BKMK_6)
 
-## <a name="BKMK_1"></a>So konfigurieren Sie einen seriellen Anschluss
+## <a name="BKMK_1"></a>So konfigurieren Sie einen seriellen Kommunikationsport
 
 ### <a name="syntax"></a>Syntax
 
@@ -46,21 +46,21 @@ mode com<M>[:] [baud=<B>] [parity=<P>] [data=<D>] [stop=<S>] [to={on|off}] [xon=
 
 |  Parameter  |                                                                                                                                                                                     Beschreibung                                                                                                                                                                                     |
 |-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Com\<M > [::]  |                                                                                                                                                      Gibt die Anzahl der asynchronen Prncnfg.vbshronous Kommunikationsport.                                                                                                                                                      |
-|  baud=\<B>  | Gibt die Übertragungsrate in Bits pro Sekunde an. Die folgende Tabelle enthält die zulässigen Werte für *B* und deren zugehörigen Gebühren.</br>-   **11** = 110 baud</br>-   **15** = 150 baud</br>-   **30** = 300 baud</br>-   **60** = 600 baud</br>-   **12** = 1200 baud</br>-   **24** = 2400 baud</br>-   **48** = 4800 baud</br>-   **96** = 9600 baud</br>-   **19** = 19.200 Baudrate |
-| parity=\<P> |                              Gibt an, wie das System das Paritätsbit Übertragung fehlerüberprüfung verwendet. Die folgende Tabelle enthält die gültigen Werte für *P*. Der Standardwert ist **e**. Nicht alle Computer unterstützen die Werte **m** und **s**.</br>-   **n** = keine</br>-   **e** = even</br>-   **o** = odd</br>-   **m** = markieren</br>-   **s** = Leerzeichen                              |
-|  data=\<D>  |                                                                                                    Gibt die Anzahl der Datenbits in ein Zeichen an. Gültige Werte für **d** liegen im Bereich von 5 bis 8. Der Standardwert ist 7. Nicht alle Computer unterstützen die Werte, 5 und 6.                                                                                                     |
-|  stop=\<S>  |                                                                                  Gibt die Anzahl von Stoppbits an, die das Ende eines Zeichens zu definieren: 1, 1.5, oder 2. Wenn die Baudrate 110 ist, ist der Standardwert 2 auf. Andernfalls ist der Standardwert 1. Nicht alle Computer unterstützen den Wert von 1,5.                                                                                   |
-|   Um = {on    |                                                                                                                                                                                        {Off}                                                                                                                                                                                         |
-|   xon={on   |                                                                                                                                                                                        {Off}                                                                                                                                                                                         |
-|  odsr={on   |                                                                                                                                                                                        {Off}                                                                                                                                                                                         |
-|  ÜLG = {on   |                                                                                                                                                                                        {Off}                                                                                                                                                                                         |
-|   dtr={on   |                                                                                                                                                                                         off                                                                                                                                                                                         |
+| Com @ no__t-0M > [:]  |                                                                                                                                                      Gibt die Nummer des asynchronen prncnfg. vbshrton-Kommunikationsports an.                                                                                                                                                      |
+|  Baudrate = \<B >  | Gibt die Übertragungsrate in Bits pro Sekunde an. In der folgenden Tabelle sind die gültigen Abkürzungen für *B* und ihre zugehörigen Sätze aufgeführt.</br>-   **11** = 110 Baudrate</br>-   **15** = 150 Baudrate</br>-   **30** = 300 Baudrate</br>-   **60** = 600 Baudrate</br>-   **12** = 1200 Baudrate</br>-   **24** = 2400 Baudrate</br>-   **48** = 4800 Baudrate</br>-   **96** = 9600 Baudrate</br>-   **19** = 19.200 Baudrate |
+| Parität = \<p > |                              Gibt an, wie das System das Paritäts Bit zum Überprüfen von Übertragungsfehlern verwendet. In der folgenden Tabelle sind gültige Werte für *P*aufgeführt. Der Standardwert ist **e**. Nicht alle Computer unterstützen die Werte **m** und **s**.</br>-   **n** = None</br>-   **e** = auch</br>-   **o** = ungerade</br>-   **m** = Markierung</br>-   **s** = Speicherplatz                              |
+|  Data = \<d >  |                                                                                                    Gibt die Anzahl der Datenbits in einem Zeichen an. Gültige Werte für **d** liegen im Bereich von 5 bis 8. Der Standardwert ist 7. Die Werte 5 und 6 werden nicht von allen Computern unterstützt.                                                                                                     |
+|  halte = \<s >  |                                                                                  Gibt die Anzahl von Stoppbits an, die das Ende eines Zeichens definieren: 1, 1,5 oder 2. Wenn die Baudrate 110 beträgt, ist der Standardwert 2. Andernfalls ist der Standardwert 1. Der Wert 1,5 wird nicht von allen Computern unterstützt.                                                                                   |
+|   in = {on    |                                                                                                                                                                                        abgeschrieben                                                                                                                                                                                         |
+|   XOn = {on   |                                                                                                                                                                                        abgeschrieben                                                                                                                                                                                         |
+|  odsr = {on   |                                                                                                                                                                                        abgeschrieben                                                                                                                                                                                         |
+|  OCTs = {on   |                                                                                                                                                                                        abgeschrieben                                                                                                                                                                                         |
+|   DTR = {on   |                                                                                                                                                                                         off                                                                                                                                                                                         |
 |   RTS = {on   |                                                                                                                                                                                         off                                                                                                                                                                                         |
-|  idsr={on   |                                                                                                                                                                                        {Off}                                                                                                                                                                                         |
+|  idsr = {on   |                                                                                                                                                                                        abgeschrieben                                                                                                                                                                                         |
 |     /?      |                                                                                                                                                                        Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                                         |
 
-## <a name="BKMK_2"></a>Zum Anzeigen des Status aller Geräte oder eines einzelnen Geräts
+## <a name="BKMK_2"></a>So zeigen Sie den Status aller Geräte oder eines einzelnen Geräts an
 
 ### <a name="syntax"></a>Syntax
 
@@ -72,15 +72,15 @@ mode [<Device>] [/status]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<Gerät >|Gibt den Namen des Geräts für die der Status angezeigt werden sollen.|
-|/status|Fordert an alle umgeleiteten parallele Drucker den Status. Sie können auch abkürzen, die **/Status** als Befehlszeilenoption **/STA**.|
+|\<gerät >|Gibt den Namen des Geräts an, für das der Status angezeigt werden soll.|
+|/status|Fordert den Status sämtlicher umgeleiteter paralleler Drucker an. Sie können die Befehlszeilenoption **/Status** als **/STA**abkürzen.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ### <a name="remarks"></a>Hinweise
 
-Wenn Sie ohne Angabe von Parametern **Modus** zeigt den Status aller Geräte, die auf Ihrem System installiert sind.
+Bei Verwendung ohne Parameter zeigt der- **Modus** den Status aller Geräte an, die auf Ihrem System installiert sind.
 
-## <a name="BKMK_3"></a>Die Ausgabe von einem parallelen auf einem seriellen Anschluss umgeleitet
+## <a name="BKMK_3"></a>So leiten Sie die Ausgabe von einem parallelen Anschluss an einen seriellen Kommunikationsport um
 
 ### <a name="syntax"></a>Syntax
 
@@ -92,30 +92,30 @@ mode lpt<N>[:]=com<M>[:]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|lpt\<N>[:]|Erforderlich. Gibt den parallelen Port. Gültige Werte für *N* liegen im Bereich von 1 bis 3.|
-|com\<M > [::]|Erforderlich. Gibt den seriellen Anschluss. Gültige Werte für *M* liegen im Bereich von 1 bis 4.|
+|LPT @ no__t-0n > [:]|Erforderlich. Gibt den parallelen Port an. Gültige Werte für *N* liegen im Bereich von 1 bis 3.|
+|com @ no__t-0M > [:]|Erforderlich. Gibt den seriellen Anschluss an. Gültige Werte für *M* liegen im Bereich von 1 bis 4.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ### <a name="remarks"></a>Hinweise
 
-Sie müssen ein Mitglied der Gruppe "Administratoren" Drucken umgeleitet werden.
+Sie müssen ein Mitglied der Gruppe "Administratoren" sein, um den Druck umzuleiten.
 
 ### <a name="examples"></a>Beispiele
 
-Um Ihr System einzurichten, damit es parallel Druckerausgabe zu einem seriellen Drucker sendet, müssen Sie verwenden die **Modus** Befehl. Verwenden Sie beim ersten **Modus** so konfigurieren Sie den seriellen Anschluss. Verwenden Sie bei der zweiten **Modus** zum Umleiten der parallele Druckerausgabe an den seriellen Port in der ersten angegebenen **Modus** Befehl.
+Wenn Sie Ihr System so einrichten möchten, dass eine parallele Druckerausgabe an einen seriellen Drucker gesendet wird, müssen Sie den **Mode** -Befehl zweimal verwenden. Verwenden Sie zum ersten Mal den- **Modus** , um den seriellen Anschluss zu konfigurieren. Verwenden Sie beim zweiten Mal den- **Modus** , um die parallele Druckerausgabe an den seriellen Anschluss umzuleiten, den Sie im Befehl "erster **Modus** " angegeben haben.
 
-Wenn der serielle Drucker, die bei sogar Parität und eine Baudrate 4800 arbeitet, und es an den Anschluss "COM1" (die erste serielle Verbindung auf Ihrem Computer) verbunden ist, geben Sie beispielsweise:
+Wenn der serielle Drucker z. b. bei 4800-Baudraten mit gleichmäßiger Parität operiert und mit dem COM1-Port (der ersten seriellen Verbindung auf Ihrem Computer) verbunden ist, geben Sie Folgendes ein:
 ```
 mode com1 48,e,,,b
 mode lpt1=com1
 ```
-Wenn Sie parallele Drucker die Ausgabe von LPT1 an COM1 umleiten, aber dann Sie entscheiden, dass Sie eine Datei zu drucken, indem Sie LPT1 möchten, geben Sie den folgenden Befehl, bevor Sie die Datei zu drucken:
+Wenn Sie die parallele Druckerausgabe von LPT1 zu COM1 umleiten, aber dann entscheiden, dass Sie eine Datei mithilfe von LPT1 drucken möchten, geben Sie den folgenden Befehl ein, bevor Sie die Datei ausdrucken:
 ```
 mode lpt1
 ```
-Dieser Befehl verhindert, dass die Umleitung der Datei von LPT1 COM1.
+Dieser Befehl verhindert die Umleitung der Datei von LPT1 an COM1.
 
-## <a name="BKMK_4"></a>Um auszuwählen, aktualisieren oder die Zahlen der Codepages für die Konsole anzeigen
+## <a name="BKMK_4"></a>So können Sie die Anzahl der Codepages für die Konsole auswählen, aktualisieren oder anzeigen
 
 ### <a name="syntax"></a>Syntax
 
@@ -128,14 +128,14 @@ mode <Device> codepage [/status]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<Gerät >|Erforderlich. Gibt das Gerät für das Sie eine Codepage auswählen möchten. CON ist der einzige gültige Name für ein Gerät.|
-|Wählen Sie die Codepage =|Erforderlich. Gibt die Codepage für die Verwendung mit dem angegebenen Gerät. Sie können abkürzen **Codepage** **wählen** als **cp** **Sel**.|
-|\<YYY &GT;|Erforderlich. Gibt die Anzahl der Codepage auswählen. Die folgende Liste zeigt code jeder Seite, die unterstützt wird und die Sprache/Land oder die Sprache.</br>437: USA</br>850: Mehrsprachige (Lateinisch I)</br>852: Altslawisch (Lateinisch II)</br>855: Kyrillisch (Russisch)</br>857: Türkisch</br>860: Portugiesisch</br>861: Isländisch</br>863: Französisch (Kanada)</br>865: Nordisch</br>866: Russisch</br>869: Neugriechisch|
-|codepage|Erforderlich. Zeigt Seiten die Zahlen des Codes (sofern vorhanden), die für das angegebene Gerät ausgewählt sind.|
-|/status|Zeigt die Anzahl der dem aktuellen Codepages, die für das angegebene Gerät ausgewählt. Sie können abkürzen **/Status** zu **/STA**. Angabe, ob **/Status**, **Modus Codepage** zeigt die Anzahl von Codepages, die für das angegebene Gerät ausgewählt sind.|
+|\<gerät >|Erforderlich. Gibt das Gerät an, für das Sie eine Codepage auswählen möchten. CON ist der einzige gültige Name für ein Gerät.|
+|Codepage SELECT =|Erforderlich. Gibt an, welche Codepage mit dem angegebenen Gerät verwendet werden soll. Sie können die **Codepage** **Select** als **CP** **SEL**abkürzen.|
+|\<YYY >|Erforderlich. Gibt die Nummer der zu ausgewäfenden Codepage an. In der folgenden Liste werden die einzelnen Codepages, die unterstützt werden, sowie Ihr Land/Ihre Region oder Sprache angezeigt</br>437: USA</br>850: Mehrsprachig (lateinisch I)</br>852: Slawisch (Lateinisch II)</br>855: Kyrillisch (Russisch)</br>857: Türkisch</br>860: Portugiesisch</br>861: Isländisch</br>863: Französisch (Kanada)</br>865: Nordischen</br>866: Russisch</br>869: Modernes Griechisch|
+|Codepage|Erforderlich. Zeigt die Anzahl der Codepages (sofern vorhanden) an, die für das angegebene Gerät ausgewählt wurden.|
+|/status|Zeigt die Anzahl der aktuellen Codepages an, die für das angegebene Gerät ausgewählt wurden. Sie können **/Status** auf **/STA**abkürzen. Unabhängig davon, ob Sie **/Status**angeben, wird im **Modus "Codepage** " die Anzahl der Codepages angezeigt, die für das angegebene Gerät ausgewählt wurden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="BKMK_5"></a>Ändern die Größe des Bildschirmpuffers Eingabeaufforderung
+## <a name="BKMK_5"></a>So ändern Sie die Größe des Bildschirm Puffers für die Eingabeaufforderung
 
 ### <a name="syntax"></a>Syntax
 
@@ -147,12 +147,12 @@ mode con[:] [cols=<C>] [lines=<N>]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|con[:]|Erforderlich. Gibt an, dass die Änderung für das Fenster "Eingabeaufforderung" gilt.|
-|cols=\<C>|Gibt die Anzahl der Spalten in den Bildschirmpuffer Eingabeaufforderung an.|
-|Zeilen =\<N >|Gibt die Anzahl der Zeilen in den Bildschirmpuffer Eingabeaufforderung an.|
+|con [:]|Erforderlich. Gibt an, dass die Änderung für das Eingabe Aufforderungs Fenster gilt.|
+|cols = \<C >|Gibt die Anzahl der Spalten im Bildschirm Puffer der Eingabeaufforderung an.|
+|Lines = \<n >|Gibt die Anzahl der Zeilen im Bildschirm Puffer der Eingabeaufforderung an.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="BKMK_6"></a>Die Tastaturwiederholrate festlegen
+## <a name="BKMK_6"></a>So legen Sie die typematische Tastatur Rate fest
 
 ### <a name="syntax"></a>Syntax
 
@@ -164,20 +164,20 @@ mode con[:] [rate=<R> delay=<D>]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|con[:]|Erforderlich. Bezieht sich auf der Tastatur.|
-|rate=\<R>|Gibt die Rate, mit der ein Zeichen wiederholt wird, auf dem Bildschirm an, wenn Sie eine Taste gedrückt halten.|
-|Verzögerung =\<D >|Gibt die Zeitspanne, die verstreicht, nach dem Drücken und eine Taste gedrückt wird, bevor die Ausgabe von Zeichen wiederholt an.|
+|con [:]|Erforderlich. Verweist auf die Tastatur.|
+|Rate = \<R >|Gibt die Rate an, mit der ein Zeichen auf dem Bildschirm wiederholt wird, wenn Sie eine Taste gedrückt halten.|
+|Delay = \<d >|Gibt die Zeitspanne an, die verbleibt, nachdem Sie eine Taste gedrückt halten, bevor die Zeichenausgabe wiederholt wird.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ### <a name="remarks"></a>Hinweise
 
-- Die Wiederholrate ist die Rate, mit der ein Zeichen wiederholt wird, wenn Sie die Taste für das Zeichen gedrückt halten. Die Wiederholrate verfügt über zwei Komponenten, die Geschwindigkeit und die Verzögerung. Einige Tastaturen erkannt mit diesem Befehl nicht.
-- Mithilfe von **Rate =** <em>R</em>
+- Die typematische Rate ist die Rate, mit der ein Zeichen wiederholt wird, wenn Sie den Schlüssel für das Zeichen gedrückt halten. Die typematische Rate umfasst zwei Komponenten: die Rate und die Verzögerung. Einige Tastaturen erkennen diesen Befehl nicht.
+- Using **Rate =** <em>R</em>
 
-  Gültige Werte liegen im Bereich von 1 bis 32. Diese Werte entsprechen ungefähr 2 bis 30 Zeichen pro Sekunde. Der Standardwert ist 20 für IBM-AT-kompatiblen Tastaturen und 21 für Tastaturen mit IBM PS/2-kompatibel. Wenn Sie die Rate festlegen, müssen Sie auch die Verzögerung festlegen.
-- Mithilfe von **Verzögerung**=*D*
+  Gültige Werte liegen im Bereich von 1 bis 32. Diese Werte sind gleich ungefähr 2 bis 30 Zeichen pro Sekunde. Der Standardwert ist 20 für IBM-kompatible Tastaturen und 21 für IBM PS/2-kompatible Tastaturen. Wenn Sie die Rate festlegen, müssen Sie auch die Verzögerung festlegen.
+- Verwenden von **Delay**=*D*
 
-  Gültige Werte für *D* sind 1, 2, 3 und 4 (0,25, 0,50, 0,75 und darstellt 1 Sekunde). Der Standardwert ist 2. Wenn Sie die Verzögerung festlegen, müssen Sie auch die Rate festlegen.
+  Gültige Werte für *D* sind 1, 2, 3 und 4 (repräsentiert 0,25, 0,50, 0,75 und 1 Sekunde). Der Standardwert ist 2. Wenn Sie die Verzögerung festlegen, müssen Sie auch die Rate festlegen.
 
 #### <a name="additional-references"></a>Weitere Verweise
 

@@ -1,9 +1,9 @@
 ---
 title: Planen einer erweiterten DirectAccess-Bereitstellung
-description: Dieses Thema ist Teil des Handbuchs Bereitstellen eines einzelnen DirectAccess-Servers mit erweiterten Einstellungen für Windows Server 2016
+description: Dieses Thema ist Teil des Handbuchs Bereitstellen eines einzelnen DirectAccess-Servers mit erweiterten Einstellungen für Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,18 +12,18 @@ ms.topic: article
 ms.assetid: d486735e-71fe-4443-9878-4b784cd588a7
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: db8d2e6ffe8e3fae4723eb78cb9212a64fdb5711
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 5fead00e1fbf0785d8c3af038039816e1cf618b2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283551"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404950"
 ---
 # <a name="plan-an-advanced-directaccess-deployment"></a>Planen einer erweiterten DirectAccess-Bereitstellung
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Dieses Thema enthält die Planungsschritte, die zur Bereitstellung eines einzelnen DirectAccess-Servers unter Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 mit vollständigem Umfang von grundlegenden und erweiterten Features erforderlich sind. Die Planungsphase umfasst folgende Themen.  
+In diesem Thema werden die Planungsschritte aufgelistet, die für die Bereitstellung eines einzelnen DirectAccess-Servers mit Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 mit allen grundlegenden und erweiterten Features erforderlich sind. Die Planungsphase umfasst folgende Themen.  
   
 -   [Schritt 1: Planen der erweiterten DirectAccess-Infrastruktur](da-adv-plan-s1-infrastructure.md)  
   
@@ -34,7 +34,7 @@ Dieses Thema enthält die Planungsschritte, die zur Bereitstellung eines einzeln
     In dieser Phase planen Sie die Client- und Serverbereitstellung, einschließlich der DirectAccess-Infrastruktur und der Anwendungsserver.  
   
 ## <a name="next-step"></a>Nächster Schritt  
-Wenn Sie diese Planungsschritte abgeschlossen haben, können Sie mit der Bereitstellung des Servers beginnen. Anweisungen hierzu finden Sie unter [installieren und Konfigurieren des erweiterten DirectAccess](Install-and-Configure-Advanced-DirectAccess.md).  
+Wenn Sie diese Planungsschritte abgeschlossen haben, können Sie mit der Bereitstellung des Servers beginnen. Anweisungen hierzu finden Sie unter [Installieren und Konfigurieren von Advanced DirectAccess](Install-and-Configure-Advanced-DirectAccess.md).  
   
 
 

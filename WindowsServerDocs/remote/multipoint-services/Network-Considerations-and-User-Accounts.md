@@ -1,9 +1,9 @@
 ---
 title: Überlegungen zu Netzwerk und Benutzerkonten
-description: Bietet Planungsinformationen für verschiedene Szenarien für Netzwerk und Benutzer mit MultiPoint Services
+description: Bietet Planungsinformationen für verschiedene Netzwerk-und Benutzer Szenarien mit Multipoint Services
 ms.custom: na
 ms.date: 07/22/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,67 +13,67 @@ ms.assetid: ef4859fc-b7ae-4827-ab9c-b1dc07ab6c16
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 9133f28d2c3b36b18a2b6bc81d238835156bf447
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5369776a0341bf1f4d4d1d13569cf0964fdf11f1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880801"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405036"
 ---
 # <a name="network-considerations-and-user-accounts"></a>Überlegungen zu Netzwerk und Benutzerkonten
-MultiPoint-Dienste können in verschiedenen netzwerkumgebungen bereitgestellt werden, und können lokale Benutzerkonten und Benutzerkonten der Quelldomäne unterstützt. MultiPoint Services-Benutzerkonten werden in der Regel in einem der folgenden netzwerkumgebungen verwaltet werden:  
+Multipoint Services können in einer Vielzahl von Netzwerkumgebungen bereitgestellt werden, und es können lokale Benutzerkonten und Domänen Benutzerkonten unterstützt werden. Im Allgemeinen werden Multipoint Services-Benutzerkonten in einer der folgenden Netzwerkumgebungen verwaltet:  
   
--   Ein einzelner Computer mit MultiPoint-Dienste mit lokalen Benutzerkonten  
+-   Einen einzelnen Computer, auf dem Multipoint Services mit lokalen Benutzerkonten ausgeführt wird  
   
--   Mehrere Computer mit MultiPoint-Dienste, und jeder mit einem lokalen Benutzerkonto  
+-   Mehrere Computer, auf denen Multipoint Services ausgeführt wird, jeweils mit einem lokalen Benutzerkonto  
   
--   Mehrere Computer mit MultiPoint Services und die verwenden Benutzerkonten der Quelldomäne
+-   Mehrere Computer, auf denen Multipoint Services ausgeführt wird und die Domänen Benutzerkonten verwenden
 
-Definitionsgemäß *lokale Benutzerkonten* kann nur zugegriffen werden, auf dem Computer, auf dem sie erstellt wurden. Lokale Benutzerkonten sind Benutzerkonten, die auf einem bestimmten Computer erstellt werden, die MultiPoint Services ausgeführt wird. Im Gegensatz dazu *Domänenbenutzerkonten* sind Benutzerkonten, die befinden sich auf einem Domänencontroller, und sie die zugegriffen werden können, von einem beliebigen Computer, die mit der Domäne verbunden ist. Bei der Entscheidung, welche Art von Netzwerkumgebung verwenden, beachten Sie Folgendes:  
+Definitionsgemäß können auf *lokale Benutzerkonten* nur von dem Computer aus zugegriffen werden, auf dem Sie erstellt wurden. Lokale Benutzerkonten sind Benutzerkonten, die auf einem bestimmten Computer erstellt werden, auf dem Multipoint Services ausgeführt wird. Im Gegensatz dazu sind *Domänen Benutzerkonten* Benutzerkonten, die sich auf einem Domänen Controller befinden, und auf Sie kann von jedem Computer aus zugegriffen werden, der mit der Domäne verbunden ist. Berücksichtigen Sie Folgendes, wenn Sie entscheiden, welche Art von Netzwerkumgebung Sie verwenden möchten:  
   
--   Werden Ressourcen zwischen Servern gemeinsam werden genutzt?  
+-   Werden Ressourcen von Servern gemeinsam genutzt?  
   
 -   Werden Benutzer zwischen Servern wechseln?  
   
--   Greifen Benutzer-Datenbankservern, die Authentifizierung benötigen?  
+-   Greifen Benutzer auf Datenbankserver zu, die eine Authentifizierung erfordern?  
   
--   Greifen Benutzer internen Webservern, die Authentifizierung benötigen?  
+-   Werden Benutzer auf interne Webserver zugreifen, für die eine Authentifizierung erforderlich ist?  
   
--   Gibt es eine vorhandene Active Directory-Domäneninfrastruktur vorhanden?  
+-   Ist bereits eine Active Directory Domänen Infrastruktur vorhanden?  
   
--   Die das MultiPoint-Manager verwendet-Konsole zum Verwalten von Benutzerdesktops, Miniaturansichten anzeigen, Hinzufügen von Benutzern, beschränken Websites zu und so weiter? Wird diese Person mehr als einem Server verwalten? Diese Person muss über Administratorrechte auf den Servern verfügen.  
+-   Wer verwendet die Multipoint Manager-Konsole zum Verwalten von Benutzer Desktops, zum Anzeigen von Miniaturansichten, zum Hinzufügen von Benutzern, zum Einschränken von Websites usw. Verwaltet diese Person mehr als einen Server? Diese Person muss über Administrator Berechtigungen auf den Servern verfügen.  
   
-In den folgenden Abschnitten behandelt die Verwaltung von Benutzerkonten in diese netzwerkumgebungen.  
+In den folgenden Abschnitten wird die Benutzerkonten Verwaltung in diesen Netzwerkumgebungen behandelt.  
   
-## <a name="single-multipoint-server-with-local-user-accounts"></a>MultiPoint Server mit lokalen Benutzerkonten  
-In Umgebungen mit einem einzelnen Computer, auf dem MultiPoint Services ausgeführt wird, ist es nicht erforderlich, die über ein Netzwerk verfügen. Um Internetressourcen nutzen zu können, können die netzwerkanforderungen jedoch so Grundlegendes wie ein Router und eine Verbindung mit einem Internetdienstanbieter (ISP) sein. Netzwerkverbindungen, die einen Netzwerkadapter in MultiPoint Services zugeordnet sind werden konfiguriert, wird standardmäßig eine IP-Adresse und DNS-Serveradresse automatisch über DHCP abgerufen. Internet-Router in der Regel als DHCP-Server konfiguriert sind, und bieten private IP-Adressen für Computer, die auf dem internen Netzwerk herstellen. Ein einzelner Computer mit MultiPoint Services möglicherweise aus diesem Grund kann eine Verbindung mit der internen Schnittstelle des Routers herstellen, erhalten Informationen zur automatischen IP- und Verbinden mit dem Internet ohne erheblichen Aufwand oder Konfiguration von einem Administrator.  
+## <a name="single-multipoint-server-with-local-user-accounts"></a>Einzelner Multipoint-Server mit lokalen Benutzerkonten  
+In Umgebungen mit einem einzelnen Computer, auf dem Multipoint Services ausgeführt wird, muss kein Netzwerk vorhanden sein. Um Internet Ressourcen zu nutzen, sind die Netzwerk Anforderungen jedoch möglicherweise so einfach wie ein Router und eine Verbindung mit einem Internetdienstanbieter (Internet Service Provider, ISP). Netzwerkverbindungen, die einem Netzwerkadapter in Multipoint Services zugeordnet sind, werden standardmäßig so konfiguriert, dass automatisch eine IP-Adresse und DNS-Server Adresse über DHCP abgerufen werden. Internet Router werden in der Regel als DHCP-Server konfiguriert und stellen privaten IP-Adressen für Computer bereit, die eine Verbindung mit dem internen Netzwerk herstellen. Daher können von einem einzelnen Computer, auf dem Multipoint Services ausgeführt wird, eine Verbindung mit der internen Schnittstelle des Routers hergestellt, automatische IP-Informationen abgerufen und eine Verbindung mit dem Internet hergestellt werden, ohne dass ein Administrator einen erheblichen Aufwand oder eine andere Konfiguration durchführt.  
   
-Eine gängige Methode zum Verwalten von Benutzern in dieser Art von Umgebung ist die Erstellung ein lokalen Benutzerkontos für jede Person, die auf das System zugreifen. Jemand ein lokales Benutzerkonto auf diesem Computer hat kann mit MultiPoint Services über jede Station anmelden, das mit dem System verknüpft ist. Lokale Benutzerkonten können erstellt und von MultiPoint-Manager verwaltet werden.  
+Eine gängige Methode zum Verwalten von Benutzern in dieser Art von Umgebung ist das Erstellen eines lokalen Benutzerkontos für jede Person, die auf das System zugreift. Jeder Benutzer, der über ein lokales Benutzerkonto auf diesem Computer verfügt, kann sich von jeder Station, die dem System zugeordnet ist, bei Multipoint Services anmelden. Lokale Benutzerkonten können über den Multipoint-Manager erstellt und verwaltet werden.  
   
-## <a name="multiple-multipoint-server-systems-with-local-user-accounts"></a>Mehrere MultiPoint Server-Systeme mit lokalen Benutzerkonten  
-Angesichts der Tatsache, dass lokale Benutzerkonten nur von dem Computer aus zugänglich sind, auf denen sie erstellt wurden, wenn Sie mehrere MultiPoint Services-Systeme in einer Umgebung bereitstellen, können Sie lokale Benutzerkonten auf zwei Arten verwalten:  
+## <a name="multiple-multipoint-server-systems-with-local-user-accounts"></a>Mehrere Multipoint-Server Systeme mit lokalen Benutzerkonten  
+Da auf lokale Benutzerkonten nur von dem Computer aus zugegriffen werden kann, auf dem Sie erstellt wurden, können Sie lokale Benutzerkonten auf zwei Arten verwalten, wenn Sie mehrere Multipoint Services-Systeme in einer Umgebung bereitstellen:  
   
--   Sie können Benutzerkonten erstellen, für bestimmte Personen auf bestimmten Computern, auf dem MultiPoint Services ausgeführt wird.  
+-   Sie können Benutzerkonten für bestimmte Personen auf bestimmten Computern erstellen, auf denen Multipoint Services ausgeführt wird.  
   
--   Sie können die MultiPoint-Manager verwenden, zum Erstellen von Konten für jeden Benutzer auf jedem Computer, auf dem MultiPoint Services ausgeführt wird.  
+-   Mit dem Multipoint-Manager können Sie Konten für jeden Benutzer auf jedem Computer erstellen, auf dem Multipoint Services ausgeführt wird.  
   
-Wenn Sie planen, weisen Sie Benutzer zu einem bestimmten Computer, die MultiPoint Services ausgeführt wird, können Sie z. B. vier lokale Benutzerkonten auf Computer A ("user01", user02, Benutzer03 und user04) und vier lokale Benutzerkonten auf Computer B (user05, user06, user07 und user08) erstellen. In diesem Szenario müssen Benutzer-01\-04 können melden Sie sich auf Computer A über jede Station, die mit ihm verbunden ist, aber sie können nicht melden Sie sich an Computer b Das gleiche gilt für Benutzer 05\-08, die nur auf Computer B, aber nicht auf Computer a abhängig, auf die spezielle bereitstellungsumgebung anmelden kann, kann dies akzeptabel oder sogar wünschenswert sein.  
+Wenn Sie z. b. die Zuweisung von Benutzern zu einem bestimmten Computer planen, auf dem Multipoint Services ausgeführt wird, können Sie auf Computer a (USER01, user02, user03 und user04) und vier lokalen Benutzerkonten auf Computer B (user05, user06, user07 und user08) vier lokale Benutzerkonten erstellen. In diesem Szenario können sich Benutzer 01 @ no__t-004 über jede Station, die mit ihr verbunden ist, bei Computer A anmelden. Sie können sich jedoch nicht bei Computer B anmelden. Das gleiche gilt für Benutzer mit dem Namen "05 @ no__t-108", die sich nur bei Computer B anmelden können, jedoch nicht bei Computer A. je nach der jeweiligen Bereitstellungs Umgebung kann dies akzeptabel oder sogar wünschenswert sein.  
   
-Wenn jeder Benutzer anmelden auf den Computern, auf dem MultiPoint Services ausgeführt werden muss, muss jedoch ein lokales Benutzerkonto für jeden Benutzer auf jedem Computer erstellt werden, das MultiPoint Services ausgeführt wird. Zum Verwalten von Benutzern auf diese Weise auswählen, werden bestimmte Komplexitäten eingeführt. Wenn z. B. "user01" auf Computer A am Montag anmeldet und speichert eine Datei im Ordner "Dokumente", und klicken Sie dann die Benutzer meldet sich an Computer B am Dienstag, die Datei, die im Ordner "Dokumente" auf Computer A gespeichert wurde für die nicht zugegriffen werden kann, auf Computer b.  
+Wenn sich allerdings alle Benutzer in der Lage sein müssen, sich bei einem Computer anzumelden, auf dem Multipoint Services ausgeführt wird, muss ein lokales Benutzerkonto für jeden Benutzer auf jedem Computer erstellt werden, auf dem Multipoint Services ausgeführt wird. Wenn Sie die Benutzer auf diese Weise verwalten, werden bestimmte Komplexitäten eingeführt. Wenn sich z. B. USER01 am Montag an Computer a anmeldet und eine Datei im Ordner Dokumente speichert und sich der Benutzer dann am Dienstag an Computer b anmeldet, ist die Datei, die im Ordner Dokumente auf Computer A gespeichert wurde, auf Computer b nicht verfügbar.  
   
-Darüber hinaus verfügt ein Benutzer über Konten auf Computer A und B des Computers, gibt es keine Möglichkeit für die automatische Synchronisierung der Kennwörter für Konten. Dadurch können Benutzer, die schwierigkeiten mit der Anmeldung das Kennwort für das auf einem Computer, aber nicht in der anderen geändert werden soll. Sie können die Verwaltung von Benutzerkonten in dieser Art von Umgebung vereinfachen, durch Zuweisen von jedem Benutzer zu einem einzelnen Computer, auf dem MultiPoint Services ausgeführt wird. Auf diese Weise kann der Benutzer auf die Stationen melden Sie sich, die mit dem betreffenden Computer zugeordnet sind und Zugriff auf die entsprechenden Dateien.  
+Außerdem gibt es keine Möglichkeit, die Kenn Wörter für die Konten automatisch zu synchronisieren, wenn ein Benutzer über Konten auf Computer a und Computer B verfügt. Dies kann dazu führen, dass Benutzer Probleme bei der Anmeldung haben, wenn das Konto Kennwort auf einem Computer geändert wird, nicht jedoch auf dem anderen. Sie können die Benutzerkonten Verwaltung in dieser Art von Netzwerkumgebung vereinfachen, indem Sie jeden Benutzer einem einzelnen Computer zuweisen, auf dem Multipoint Services ausgeführt wird. Auf diese Weise kann sich der Benutzer an allen Stationen anmelden, die diesem Computer zugeordnet sind, und auf die entsprechenden Dateien zugreifen.  
   
-## <a name="multiple-multipoint-services-systems-with-domain-accounts"></a>Mehrere MultiPoint Services-Systeme mit Domänenkonten  
-Domänenumgebungen sind häufig in großen netzwerkumgebungen, die mehrere Server enthalten. Sie können z. B. einem oder mehreren Computern, die mit dem MultiPoint Services-Rolle zu einer Domäne beitreten und dann Microsoft Active Directory verwenden, um Benutzerkonten zu verwalten, die von einem beliebigen Computer in der Domäne zugegriffen werden kann. Dadurch können für einzelne Domänenbenutzerkonten erstellt und jedes MultiPoint Services-System, das mit der Domäne verknüpft ist über jede Station zugegriffen werden.  
+## <a name="multiple-multipoint-services-systems-with-domain-accounts"></a>Mehrere Multipoint Services-Systeme mit Domänen Konten  
+Domänen Umgebungen sind in großen Netzwerkumgebungen üblich, die mehrere Server umfassen. Beispielsweise können Sie einem oder mehreren Computern, auf denen die Multipoint Services-Rolle ausgeführt wird, eine Domäne hinzufügen und dann Microsoft Active Directory zum Verwalten von Benutzerkonten verwenden, auf die von jedem Computer in der Domäne zugegriffen werden kann. Dadurch können einzelne Domänen Benutzerkonten erstellt werden, und der Zugriff erfolgt über eine beliebige Station in jedem Multipoint Services-System, das der Domäne beigetreten ist.  
  
-Wenn Sie in einer domänenumgebung MultiPoint Services bereitstellen, gibt es mehrere Faktoren zu berücksichtigen:  
+Wenn Sie Multipoint Services in einer Domänen Umgebung bereitstellen, müssen Sie mehrere Faktoren berücksichtigen:  
   
--   Wenn Domänenkonten verwendet werden, können sie vom MultiPoint-Manager verwaltet werden.  
+-   Wenn Domänen Konten verwendet werden, können Sie nicht über den Multipoint-Manager verwaltet werden.  
   
--   MultiPoint Services wird standardmäßig so konfiguriert, um jedem Benutzer die Berechtigung zu einem Zeitpunkt nur eine Station anmelden zu ermöglichen. Wenn Sie sich entscheiden, dass Benutzer mithilfe eines einzelnen Kontos gleichzeitig an mehreren Stationen anmelden können, können Sie mithilfe der **servereinstellungen bearbeiten** Option im MultiPoint-Manager.  
+-   Standardmäßig ist Multipoint Services so konfiguriert, dass jeder Benutzer die Berechtigung erhält, sich jeweils nur an einer Station anzumelden. Wenn Sie es Benutzern ermöglichen, sich gleichzeitig mit einem einzelnen Konto bei mehreren Stationen anzumelden, können Sie die Option **Server Einstellungen bearbeiten** im Multipoint-Manager verwenden.  
   
--   Der Speicherort der Domänencontroller möglicherweise Auswirkungen auf die Geschwindigkeit und Zuverlässigkeit, die mit dem Benutzer werden zur Authentifizierung mit der Domäne, und suchen Sie nach Ressourcen können.  
+-   Der Speicherort von Domänen Controllern kann sich auf die Geschwindigkeit und Zuverlässigkeit auswirken, mit der sich Benutzer bei der Domäne authentifizieren und Ressourcen suchen können.  
   
 ## <a name="single-user-account-for-multiple-stations"></a>Einzelnes Benutzerkonto für mehrere Stationen  
-MultiPoint Services hat die Möglichkeit, die an mehreren Stationen auf dem gleichen Computer gleichzeitig mit einem einzigen Benutzerkonto anmelden. Dieses Feature eignet sich in Umgebungen, in denen Benutzer eindeutige Benutzernamen nicht angegeben werden, und mit einem einzigen Benutzerkonto anmelden, die Verwaltung von MultiPoint Services-Systems vereinfachen kann.  
+Multipoint Services bietet die Möglichkeit, sich mit einem einzelnen Benutzerkonto gleichzeitig an mehreren Stationen auf demselben Computer anzumelden. Diese Funktion ist nützlich in Umgebungen, in denen Benutzer keine eindeutigen Benutzernamen haben und die Verwendung eines einzelnen Benutzerkontos die Verwaltung des Multipoint Services-Systems vereinfachen kann.  
   

@@ -1,8 +1,8 @@
 ---
 title: Zulassen mehrerer Sitzungen für ein Konto
-description: Kann einen Benutzer mehreren Systemen gleichzeitig zugreifen.
+description: Ermöglicht es einem Benutzer, gleichzeitig auf mehrere Systeme zuzugreifen.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,21 +13,21 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 69a8bc9080e13c3062bc287300620e24457265ad
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dbc3f3b5a01f86cd1376cd4ecca59fd2951559e4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863791"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395606"
 ---
 # <a name="allow-one-account-to-have-multiple-sessions"></a>Zulassen mehrerer Sitzungen für ein Konto
-Um einer Gruppe von Benutzern mithilfe ein freigegebenen Kontos für mehrere Stationen gleichzeitig aktivieren, konfigurieren Sie den MultiPoint-Server zum Zulassen von einem Konto an mehreren Stationen gleichzeitig angemeldet sein. Standardmäßig wird das Benutzerkonto an, wenn ein Benutzer anmeldet, eine zweite Station mit einem freigegebenen Benutzerkontos ein, aus der ersten Station protokolliert.  
+Um eine Gruppe von Benutzern zu aktivieren, verwenden Sie ein gemeinsam genutztes Konto gleichzeitig auf mehreren Stationen. Konfigurieren Sie den Multipoint-Server so, dass ein Konto gleichzeitig an mehreren Stationen angemeldet ist. Wenn sich ein Benutzer bei einer zweiten Station mit einem freigegebenen Benutzerkonto anmeldet, wird das Benutzerkonto standardmäßig von der ersten Station abgemeldet.  
   
-1.  Von der **starten** öffnen **MultiPoint-Manager**.  
+1.  Öffnen Sie auf dem **Start** Bildschirm den **Multipoint-Manager**.  
   
-2.  Klicken Sie auf die **Startseite** Registerkarte.  
+2.  Klicken Sie auf die Registerkarte **Start** .  
   
-3.  In der **Computer** Spalte, klicken Sie auf den Namen des dem MultiPoint Server-Computer, und klicken Sie im rechten Bereich auf **Bearbeiten von servereinstellungen**.  
+3.  Klicken Sie in der Spalte **Computer** auf den Namen des Multipoint-Server Computers, und klicken Sie dann im rechten Bereich auf **Server Einstellungen bearbeiten**.  
   
-4.  Wählen Sie die **können Sie ein Konto, um mehrere Sitzungen** , und klicken Sie dann auf **OK**.  
+4.  Aktivieren Sie das Kontrollkästchen einem Konto das Kontrollkästchen **mehrere Sitzungen gestatten** , und klicken Sie dann auf **OK**.  
   

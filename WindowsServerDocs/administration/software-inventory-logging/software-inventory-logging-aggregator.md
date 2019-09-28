@@ -2,7 +2,7 @@
 title: Aggregator der Protokollierung des Softwarebestands
 description: Beschreibt die Installation und Verwaltung des Aggregators der Protokollierung des Software Bestands
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: manage-software-inventory-logging
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0edecb86c7d5afa7d267c75ec858ded9af36e4c0
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 81dbfb89d2e72af57c070db8473fd3b0e521906c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866322"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382939"
 ---
 # <a name="software-inventory-logging-aggregator"></a>Aggregator der Protokollierung des Softwarebestands
 
@@ -70,7 +70,7 @@ Nachdem er ordnungsgemäß bereitgestellt wurde, können die folgenden Daten im 
 -   **CIOs und Finanz Controller**, die die Nutzung von Microsoft Enterprise Software in den IT-bereit Stellungen ihrer Organisationen melden müssen.
 
 ## <a name="getting-started"></a>Erste Schritte
-**Erforderliche Komponenten**
+**Voraussetzungen**
 
 Aggregator der Protokollierung des Softwarebestands (SIL Aggregator) auf mindestens einem Server für Aggregation und Berichte, entweder auf einem virtuellen Computer oder auf physischer Hardware):
 

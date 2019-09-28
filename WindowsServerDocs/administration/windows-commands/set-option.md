@@ -1,8 +1,8 @@
 ---
-title: Set-option
-description: 'Windows-Befehle Thema ***- '
+title: Set-Option
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1c4756627d19d296d02fa11ac67ef80080ddf318
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 9b9174f219654e99eb9441abe3342c31b5089ef5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441364"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384049"
 ---
-# <a name="set-option"></a>Set-option
+# <a name="set-option"></a>Set-Option
 
 
 
-Legt die Optionen für die Erstellung von Schattenkopien fest. Wenn Sie ohne Angabe von Parametern **legen Option** zeigt die Hilfe an der Eingabeaufforderung.
+Legt die Optionen für die Erstellung von Schatten Kopien fest. Bei Verwendung ohne Parameter zeigt die **Option Set die Option** Hilfe an der Eingabeaufforderung an.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,11 +36,11 @@ set option {[differential | plex] [transportable] [[rollbackrecover] [txfrecover
 
 |     Parameter     |                                                                                                  Beschreibung                                                                                                  |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   [differenziellen   |                                                                                                     plexer]                                                                                                     |
-|  [übertragbarer]  |                       Gibt an, dass die Schattenkopie nicht noch importiert werden. Die Metadaten-CAB-Datei kann später verwendet werden, um die Schattenkopie auf demselben oder einem anderen Computer zu importieren.                       |
-| [rollbackrecover] |                     Signalisiert der Writer mit *AutoWiederherstellen* während der **PostSnapshot** Ereignis. Dies ist nützlich, wenn die Schattenkopie für Rollback (z. B. mit Datamining) verwendet wird.                      |
-|   [Txfrecover]    |                                                               Fordert Sie VSS, um die Schattenkopie während der Erstellung im Hinblick auf Transaktionen konsistent zu machen.                                                                |
-|  [noautorecover]  | -Writer beendet und das Dateisystem, von der Durchführung der Wiederherstellung Änderungen an der Schattenkopie auf einen transaktionskonsistenten Zustand. **Noautorecover** kann nicht verwendet werden, mit **Txfrecover** oder **Rollbackrecover**. |
+|   [differenziell   |                                                                                                     Plex                                                                                                     |
+|  austauschen  |                       Gibt an, dass die Schatten Kopie noch nicht importiert werden soll. Die Datei "Metadata. cab" kann später verwendet werden, um die Schatten Kopie auf denselben oder einen anderen Computer zu importieren.                       |
+| [rollbackrecovery] |                     Signalisiert Writer, während des **PostSnapshot** -Ereignisses *Auto Wiederherstellen* zu verwenden. Dies ist hilfreich, wenn die Schatten Kopie für das Rollback verwendet wird (z. b. mit Data Mining).                      |
+|   [txfrecover]    |                                                               Fordert VSS auf, die schattenkopiekonsistenz während der Erstellung Transaktions konsistent zu machen.                                                                |
+|  [noautorecover]  | Hindert Writer und das Dateisystem daran, Wiederherstellungs Änderungen an der Schatten Kopie in einem Transaktions konsistenten Zustand auszuführen. **Noautorecover** kann nicht mit **txfrecover** oder **rollbackrecover**verwendet werden. |
 
 #### <a name="additional-references"></a>Weitere Verweise
 

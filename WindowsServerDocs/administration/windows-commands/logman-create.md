@@ -1,8 +1,8 @@
 ---
 title: logman create
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cb87ee824bb5802864d4e661fd231b8854ce8b40
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 22e6d19669152f3c9e4761ce2bde5b6d9e524e14
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837821"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374495"
 ---
 # <a name="logman-create"></a>logman create
 
@@ -34,10 +34,10 @@ logman create <counter | trace | alert | cfg | api> <[-n] <name>> [options]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|[Logman Leistungsindikator erstellen.](logman-create-counter.md)|Erstellen Sie einen Datensammler ein Zähler an.|
-|[Logman Ablaufverfolgung erstellen.](logman-create-trace.md)|Erstellen Sie einen Ablaufverfolgung Datensammler.|
-|[Logman Warnung erstellen](logman-create-alert.md)|Erstellen Sie eine Warnungssammlung.|
-|[Logman erstellen cfg](logman-create-cfg.md)|Erstellen Sie einen Datensammler Konfiguration.|
-|[Logman-api erstellen](logman-create-api.md)|Erstellen Sie eine API-Ablaufverfolgung den Datensammler.|
+|[logman Create Counter](logman-create-counter.md)|Erstellen Sie einen Counter-Datensammler.|
+|[logman Create Trace](logman-create-trace.md)|Erstellen eines Ablauf Verfolgungs Daten Sammlers.|
+|[Warnung zu logman Create](logman-create-alert.md)|Erstellen Sie einen Warnungs Datensammler.|
+|[logman Create cfg](logman-create-cfg.md)|Erstellen Sie einen Konfigurationsdaten Sammler.|
+|[logman Create-API](logman-create-api.md)|Erstellen eines API-Ablauf Verfolgungs Daten Sammlers.|
 
 #### <a name="additional-references"></a>Weitere Verweise

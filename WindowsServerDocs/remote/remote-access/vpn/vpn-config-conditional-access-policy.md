@@ -1,8 +1,8 @@
 ---
 title: Konfigurieren der Richtlinie für bedingten Zugriff
-description: Nachdem Sie ein Stammzertifikat erstellt wurde, löst die "VPN-Konnektivität" die Erstellung der "VPN-Server"-Cloud-Anwendung im Mandanten des Kunden.
+description: Nachdem ein Stamm Zertifikat erstellt wurde, löst die "VPN-Konnektivität" die Erstellung der cloudanwendung "VPN-Server" im Mandanten des Kunden aus.
 services: active-directory
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 documentationcenter: ''
 ms.assetid: ''
@@ -15,83 +15,83 @@ ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: 466e76d01ca99a1e1ed72fa955ccd287ae63c5df
-ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
+ms.openlocfilehash: 22983c085f2b9d9e7e16810e25c6fa50111f9fa6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749498"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404347"
 ---
-# <a name="step-73-configure-the-conditional-access-policy"></a>Schritt 7.3. Konfigurieren Sie die Richtlinie für bedingten Zugriff
+# <a name="step-73-configure-the-conditional-access-policy"></a>Schritt 7.3. Konfigurieren der Richtlinie für bedingten Zugriff
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Vorherige:** Schritt 7.2. Erstellen von Stammzertifikaten für die VPN-Authentifizierung mit Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md)
-- [**nächster:** Schritt 7.4. Stammzertifikate für den bedingten Zugriff bereitstellen, auf das lokale Active Directory](vpn-deploy-cond-access-root-cert-to-on-premise-ad.md)
+- [**Vorher** Schritt 7.2. Erstellen von Stammzertifikaten für die VPN-Authentifizierung mit Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md)
+- [**Weiter** Schritt 7.4. Bereitstellen von Stamm Zertifikaten für den bedingten Zugriff auf lokale Ad @ no__t-0
 
-In diesem Schritt konfigurieren Sie die Richtlinie für bedingten Zugriff für VPN-Verbindungen. Wenn das erste Stammzertifikat auf dem Blatt "VPN-Konnektivität" erstellt wird, erstellt es automatisch eine Cloudanwendung "VPN-Server" im Mandanten an.
+In diesem Schritt konfigurieren Sie die Richtlinie für bedingten Zugriff für VPN-Konnektivität. Wenn das erste Stamm Zertifikat auf dem Blatt "VPN-Konnektivität" erstellt wird, wird automatisch eine "VPN Server"-cloudanwendung im Mandanten erstellt.
 
-Erstellen Sie eine Richtlinie für bedingten Zugriff, die Gruppe "Benutzer"-VPN-Bereich zugewiesen und ist, die **Cloud-app** zu **VPN-Server**:
+Erstellen Sie eine Richtlinie für bedingten Zugriff, die der Gruppe "VPN-Benutzer" zugewiesen **ist, und legen Sie den**Bereich der **Cloud-App**
 
 - **Benutzer**: VPN-Benutzer
 - **Cloud-App**: VPN-Server
-- **Grant (Access Control)** : "Erfordern Sie Multi-Factor Authentication". Falls gewünscht, können andere Steuerelemente verwendet werden.
+- **Grant (Zugriffs Steuerung)** : "Multi-Factor Authentication erforderlich". Andere Steuerelemente können bei Bedarf verwendet werden.
 
-**Vorgehensweise:** Dieser Schritt behandelt die Erstellung von den grundlegendsten Richtlinie für bedingten Zugriff.  Falls gewünscht, können zusätzliche Bedingungen und Steuerelemente verwendet werden.
+**Dringlichkeit** In diesem Schritt wird die Erstellung der grundlegendsten Richtlinie für den bedingten Zugriff behandelt.  Wenn gewünscht, können zusätzliche Bedingungen und Steuerelemente verwendet werden.
 
 
-1. Auf der **für den bedingten Zugriff** Seite, auf der Symbolleiste am oberen Rand **hinzufügen**.
+1. Wählen Sie auf der Seite **bedingter Zugriff** auf der Symbolleiste am oberen Rand die Option **Hinzufügen**aus.
 
-    ![Wählen Sie auf der Seite für bedingten Zugriff hinzufügen](../../media/Always-On-Vpn/07.png)
+    ![Wählen Sie auf der Seite zum bedingten Zugriff hinzufügen](../../media/Always-On-Vpn/07.png)
 
-2. Auf der **neu** auf der Seite die **Namen** Geben Sie einen Namen für Ihre Richtlinie. Geben Sie z. B. **VPN-Richtlinie**.
+2. Geben Sie auf der Seite **neu** im Feld **Name** einen Namen für die Richtlinie ein. Geben Sie z. b. **VPN-Richtlinie**ein.
 
-    ![Hinzufügen von Namen für die Richtlinie für bedingten Zugriff auf](../../media/Always-On-Vpn/08.png)
+    ![Name der Richtlinie auf der Seite für bedingten Zugriff hinzufügen](../../media/Always-On-Vpn/08.png)
 
-3. In der **Zuweisung** wählen Sie im Abschnitt **Benutzer und Gruppen**.
+3. Wählen Sie im Abschnitt **Zuweisung** die Option **Benutzer und Gruppen**aus.
 
     ![Benutzer und Gruppen auswählen](../../media/Always-On-Vpn/09.png)
 
-4. Auf der **Benutzer und Gruppen** führen die folgenden Schritte aus:
+4. Führen Sie auf der Seite **Benutzer und Gruppen** die folgenden Schritte aus:
 
-    ![Auswählen eines Testbenutzers](../../media/Always-On-Vpn/10.png)
+    ![Test Benutzer auswählen](../../media/Always-On-Vpn/10.png)
 
-    a. Wählen Sie **Benutzer und Gruppen auswählen**.
+    a. Wählen Sie **Benutzer und Gruppen auswählen**aus.
 
-    b. Wählen Sie **wählen**.
+    b. Wählen Sie **auswählen**aus.
 
-    c. Auf der **wählen** Seite die **VPN-Benutzer** Gruppe, und wählen Sie dann **wählen**.
+    c. Wählen Sie auf der Seite **auswählen** die Gruppe **VPN-Benutzer** aus, und wählen Sie dann **auswählen**aus.
 
-    d. Auf der **Benutzer und Gruppen** Seite **Fertig**.
+    d. Wählen Sie auf der Seite **Benutzer und Gruppen** die Option **abgeschlossen**aus.
 
-5. Auf der **neu** führen die folgenden Schritte aus:
+5. Führen Sie auf der Seite **neu** die folgenden Schritte aus:
 
     ![Cloud-apps auswählen](../../media/Always-On-Vpn/11.png)
 
-    a. In der **Zuweisungen** wählen Sie im Abschnitt **Cloud-apps**.
+    a. Wählen Sie im Abschnitt **Zuweisungen** die Option **Cloud-apps**aus.
 
-    b. Auf der **Cloud-apps** Seite **wählen Sie die apps**.
+    b. Wählen Sie auf der Seite **Cloud-apps** die Option **apps auswählen**aus.
 
-    d. Wählen Sie **VPN-Server**.
+    d. Wählen Sie **VPN-Server**aus.
 
-6.  Auf der **neu** Seite zu öffnen der **Grant** auf der Seite die **Steuerelemente** wählen Sie im Abschnitt **Grant**.
+6.  Wählen Sie auf der Seite **neu** im Abschnitt Steuer **Elemente** die **Option erteilen aus**, um die Seite **erteilen** zu öffnen.
 
-    ![SELECT-Berechtigung](../../media/Always-On-Vpn/13.png)
+    !["Grant" auswählen](../../media/Always-On-Vpn/13.png)
 
-7.  Auf der **Grant** führen die folgenden Schritte aus:
+7.  Führen Sie auf der Seite **Grant** die folgenden Schritte aus:
 
-    ![Wählen Sie die mehrstufige Authentifizierung anfordern](../../media/Always-On-Vpn/14.png)
+    ![Wählen Sie Multi-Factor Authentication erforderlich aus.](../../media/Always-On-Vpn/14.png)
 
-    a. Wählen Sie **erfordern Multi-Factor Authentication**.
+    a. Wählen Sie **Multi-Factor Authentication erforderlich**aus.
 
-    b. Wählen Sie **wählen**.
+    b. Wählen Sie **auswählen**aus.
 
-8.  Auf der **neu** Seite **Richtlinie aktivieren**Option **auf**.
+8.  Wählen Sie auf der Seite **neu** unter **Richtlinie aktivieren**die Option **ein aus.**
 
     ![Richtlinie aktivieren](../../media/Always-On-Vpn/15.png)
 
-9.  Auf der **neu** Seite **erstellen**.
+9.  Wählen Sie auf der Seite **neu** die Option **Erstellen**aus.
 
 
 ## <a name="next-steps"></a>Nächste Schritte
-[Schritt 7.4: Stammzertifikate für den bedingten Zugriff bereitstellen, auf das lokale AD](vpn-deploy-cond-access-root-cert-to-on-premise-ad.md): In diesem Schritt, Sie stellen das Stammzertifikat für den bedingten Zugriff als vertrauenswürdiges Stammzertifikat für die VPN-Authentifizierung auf Ihrem lokalen AD.
+[Schritt 7.4: Bereitstellen von Stamm Zertifikaten für den bedingten Zugriff für lokale Ad @ no__t-0: In diesem Schritt stellen Sie das Stamm Zertifikat für den bedingten Zugriff als vertrauenswürdiges Stamm Zertifikat für die VPN-Authentifizierung in Ihrem lokalen AD bereit.

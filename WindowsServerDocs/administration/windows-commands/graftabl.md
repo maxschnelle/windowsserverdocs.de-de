@@ -1,8 +1,8 @@
 ---
 title: graftabl
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 395873cf3dbeb574dd9abc69f45b410bece80c25
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ac7748b43eb8859a17a2c61ef9ef4444019ad51b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848441"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375631"
 ---
 # <a name="graftabl"></a>graftabl
 
 
 
-Ermöglicht es Windows-Betriebssystemen einen erweiterten Zeichensatz im Grafikmodus angezeigt. Wenn Sie ohne Angabe von Parametern **Graftabl** zeigt die vorherige und die aktuelle Codepage.
+Ermöglicht Windows-Betriebssystemen das Anzeigen eines erweiterten Zeichensatzes im Grafikmodus. Bei Verwendung ohne Parameter zeigt **graftabl** die vorherige und die aktuelle Codepage an.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -39,40 +39,40 @@ graftabl /status
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<CodePage>|Gibt an, eine Codepage an, um die Darstellung von Sonderzeichen im Grafikmodus definieren.</br>Gültige Identifikation Zahlen sind:</br>437: USA</br>850: Mehrsprachige (Lateinisch I)</br>852: Altslawisch (Lateinisch II)</br>855: Kyrillisch (Russisch)</br>857: Türkisch</br>860: Portugiesisch</br>861: Isländisch</br>863: Französisch (Kanada)</br>865: Nordisch</br>866: Russisch</br>869: Neugriechisch|
-|/status|Zeigt den aktuellen Code, auf die **Graftabl** verwendet.|
+|\<codepage >|Gibt eine Codepage an, um die Darstellung erweiterter Zeichen im Grafikmodus zu definieren.</br>Gültige Codepage-Identifikationsnummern sind:</br>437: USA</br>850: Mehrsprachig (lateinisch I)</br>852: Slawisch (Lateinisch II)</br>855: Kyrillisch (Russisch)</br>857: Türkisch</br>860: Portugiesisch</br>861: Isländisch</br>863: Französisch (Kanada)</br>865: Nordischen</br>866: Russisch</br>869: Modernes Griechisch|
+|/status|Zeigt die aktuelle Codepage an, die von **graftabl** verwendet wird.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
--   **Graftabl** wirkt sich nur auf der Bildschirmanzeige von erweiterten Zeichen der Codepage, die Sie angeben. Es ändert sich nicht auf die Eingabe Codepage für die Konsole aus. Um eine Codepage, die auf der Konsole Eingabe zu ändern, verwenden die **Modus** oder **Chcp** Befehl.
--   Die folgende Tabelle enthält alle Exitcodes und eine kurze Beschreibung des Zertifikats.  
+-   **Graftabl** wirkt sich nur auf die Monitor Anzeige erweiterter Zeichen der von Ihnen angegebenen Codepage aus. Die tatsächliche Konsolen Eingabe Codepage wird nicht geändert. Zum Ändern der Konsolen Eingabe Codepage verwenden Sie den Befehl **Mode** oder **chcp** .
+-   In der folgenden Tabelle sind die einzelnen Exitcodes und eine kurze Beschreibung aufgeführt.  
     |Exitcode|Beschreibung|
     |---------|-----------|
-    |0|Zeichensatz wurde erfolgreich geladen. Keine Codepage wurde geladen.|
+    |0|Der Zeichensatz wurde erfolgreich geladen. Es wurde keine vorherige Codepage geladen.|
     |1|Es wurde ein falscher Parameter angegeben. Es wurde keine Aktion ausgeführt.|
-    |2|Datei ist ein Fehler aufgetreten ist.|
--   Können Sie in einem Batchprogramm zum Verarbeiten von Exitcodes, die von zurückgegeben werden der Umgebungsvariablen ERRORLEVEL **Graftabl**.
+    |2|Ein Datei Fehler ist aufgetreten.|
+-   Mit der ERRORLEVEL-Umgebungsvariablen in einem Batch-Programm können Sie Exitcodes verarbeiten, die von **graftabl**zurückgegeben werden.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Anzeigen die aktuellen Codepage, die von verwendet **Graftabl**, Typ:
+Geben Sie Folgendes ein, um die von **graftabl**verwendete aktuelle Codepage anzuzeigen:
 ```
 graftabl /status
 ```
-Um den Grafikzeichensatz für Codepage 437 (Vereinigte Staaten) in den Arbeitsspeicher zu laden, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um den Grafikzeichen Satz für die Codepage 437 (USA) in den Arbeitsspeicher zu laden:
 ```
 graftabl 437
 ```
-Um den Grafikzeichensatz für Codepage 850 (multilingual) in den Arbeitsspeicher zu laden, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um den Grafikzeichen Satz für Codepage 850 (mehrsprachig) in den Arbeitsspeicher zu laden:
 ```
 graftabl 850
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-[Freedisk](freedisk.md)
+[Freiplatte](freedisk.md)
 
-[Chcp](chcp.md)
+[CHCP](chcp.md)

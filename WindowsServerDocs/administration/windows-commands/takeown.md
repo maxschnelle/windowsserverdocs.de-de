@@ -1,8 +1,8 @@
 ---
 title: takeown
-description: Erfahren Sie, wie Sie Zugriff auf eine Datei zu erhalten, indem Sie zu der Besitzer der Datei.
+description: Erfahren Sie, wie Sie Zugriff auf eine Datei erhalten, indem Sie zum Besitzer der Datei werden.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4b5a4874edf9fa4406d4643e686fed2b725699dd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 08804db36357c3d1d1efa7243b338bd85d5c48e2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854361"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383760"
 ---
 # <a name="takeown"></a>takeown
 
@@ -36,29 +36,29 @@ takeown [/s <Computer> [/u [<Domain>\]<User name> [/p [<Password>]]]] /f <File n
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|/ s \<Computer >|Gibt den Namen oder die IP-Adresse eines Remotecomputers (umgekehrte Schrägstriche nicht verwenden). Der Standardwert ist der lokale Computer. Dieser Parameter gilt für alle Dateien und Ordner, die im Befehl angegeben.|
-|/u [\<Domain>\]<User name>|Führt das Skript mit den Berechtigungen des angegebenen Benutzerkontos. Der Standardwert ist die Systemberechtigungen.|
-|/ p [\<Kennwort >]|Gibt das Kennwort des Benutzerkontos ein, die im angegebenen die **/u** Parameter.|
-|/ f \<Dateiname >|Gibt an, die Datei- oder Verzeichnisname Muster. Sie können das Platzhalterzeichen * Wenn Sie das Muster angeben. Sie können auch die Syntax *ShareName*\*FileName *.|
-|/a|Überträgt den Besitz der Gruppe "Administratoren" anstelle des aktuellen Benutzers.|
-|/r|Führt einen Vorgang rekursiv für alle Dateien im angegebenen Verzeichnis und den Unterverzeichnissen.|
-|/d {Y \| N}|Unterdrückt die bestätigungsaufforderung, die angezeigt wird, wenn der aktuelle Benutzer verfügt nicht über die "Ordner auflisten"-Berechtigung in einem angegebenen Verzeichnis und stattdessen den angegebenen Standardwert verwendet. Gültige Werte für die **/d** Option lauten wie folgt:</br>-   Y: Übernehmen des Besitzes des Verzeichnisses.</br>-   N: Überspringen Sie das Verzeichnis an.</br>Beachten Sie, dass Sie diese Option verwenden müssen, in Verbindung mit der **/r** Option.|
+|/s \<computer >|Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Der Standardwert ist der lokale Computer. Dieser Parameter gilt für alle Dateien und Ordner, die im Befehl angegeben sind.|
+|/u [\<domäne > \] @ no__t-2|Führt das Skript mit den Berechtigungen des angegebenen Benutzerkontos aus. Der Standardwert ist System Berechtigungen.|
+|/p [\<password >]|Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist.|
+|/f \<dateiname >|Gibt den Dateinamen oder das Verzeichnis Namensmuster an. Sie können das Platzhalter Zeichen * verwenden, wenn Sie das Muster angeben. Sie können auch die Syntax " *ShareName*\*filename *" verwenden.|
+|/a|Übergibt den Besitz der Gruppe "Administratoren" anstelle des aktuellen Benutzers.|
+|/r|Führt einen rekursiven Vorgang für alle Dateien im angegebenen Verzeichnis und in den Unterverzeichnissen aus.|
+|/d {Y \| N}|Unterdrückt die Bestätigungsaufforderung, die angezeigt wird, wenn der aktuelle Benutzer nicht über die Berechtigung "Ordner auflisten" für ein bestimmtes Verzeichnis verfügt, und verwendet stattdessen den angegebenen Standardwert. Gültige Werte für die **/d** -Option lauten wie folgt:</br>TEENIE Übernimmt den Besitz des Verzeichnisses.</br>NR Überspringen Sie das Verzeichnis.</br>Beachten Sie, dass Sie diese Option in Verbindung mit der **/r** -Option verwenden müssen.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
--   Mit diesem Befehl wird in der Regel in Batchdateien verwendet.
--   Wenn die **/a** Parameter nicht angegeben ist, Dateibesitz erhält der Benutzer, die derzeit auf dem Computer angemeldet ist.
--   Mithilfe von Mustern (**?** und **&#42;**) werden nicht unterstützt, indem **Takeown** Befehl.
--   Nach dem Löschen der Sperre mit **Takeown**, möglicherweise müssen Sie die Windows-Explorer verwenden, oder die **"Cacls" ein** Befehl aus, um sich selbst Vollzugriff auf die Dateien und Verzeichnisse erteilen, bevor Sie sie löschen können. Weitere Informationen zu **"Cacls" ein**, finden Sie unter "Weitere Referenzen" am Ende dieses Themas.
+-   Dieser Befehl wird in der Regel in Batch Dateien verwendet.
+-   Wenn der **/a** -Parameter nicht angegeben wird, wird dem Benutzer, der derzeit am Computer angemeldet ist, der Dateibesitz erteilt.
+-   Gemischte Muster mithilfe von ( **?** und **&#42;** ) werden vom Befehl " **takeown** " nicht unterstützt.
+-   Nachdem Sie die Sperre mit **takeown**gelöscht haben, müssen Sie möglicherweise Windows-Explorer oder den Befehl **cacls** verwenden, um Ihnen vollständige Berechtigungen für die Dateien und Verzeichnisse zu übergeben, bevor Sie Sie löschen können. Weitere Informationen zu **cacls**finden Sie unter "Zusätzliche Verweise" am Ende dieses Themas.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um den Besitz einer Datei mit dem Namen Dateiname nutzen zu können, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um den Besitz einer Datei namens lostfile zu übernehmen:
 ```
 takeown /f lostfile
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

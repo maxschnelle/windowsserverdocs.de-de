@@ -7,27 +7,27 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/07/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: a581d8ae7fab68937a3c48e43dd66baa786ba356
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bd327507dbd4a60d550d3e20cdd3e042910da1bb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851691"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402718"
 ---
 # <a name="creating-a-forest-design"></a>Erstellen eines Gesamtstrukturentwurfs
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Erstellen eines Gesamtstrukturentwurfs umfasst, dem Ermitteln der Gruppen in Ihrer Organisation, die die Ressourcen, die zum Hosten der Active Directory-Gesamtstruktur verfügbar sind, und klicken Sie dann definieren Ihrer Gesamtstruktur-entwurfsanforderungen. Abschließend müssen Sie die Anzahl der Gesamtstrukturen zu ermitteln, die Sie benötigen, um die Anforderungen Ihrer Organisation zu erfüllen.  
+Beim Erstellen eines Gesamtstruktur Entwurfs werden zunächst die Gruppen innerhalb Ihrer Organisation identifiziert, deren Ressourcen zum Hosten einer Active Directory Gesamtstruktur verfügbar sind, und dann die Gesamtstruktur-Entwurfs Anforderungen definieren. Schließlich müssen Sie die Anzahl der Gesamtstrukturen ermitteln, die Sie benötigen, um die Anforderungen Ihrer Organisation zu erfüllen.  
   
-Nachdem Sie alle Ihre Designanforderungen an die Forest-Modelle zugeordnet, und wählen das Forest-Modell, das den Anforderungen Ihrer Organisation, Dokument beim Entwurf der vorgeschlagenen Gesamtstruktur entspricht. Schließen Sie in der Dokumentation, die der Namen der Gruppe für die die Gesamtstruktur vorgesehen ist, die Kontaktinformationen für den Gesamtstrukturbesitzer, den Typ der Gesamtstruktur für jede Gesamtstruktur, die Sie einschließen und die Anforderungen, die jede Gesamtstruktur wird entworfen, um erfüllen. Diese Dokumentation hilft das Entwurfsteam, um sicherzustellen, dass alle entsprechenden Personen den Entwurfsprozess beteiligt sind sowohl, um den Bereich des Bereitstellungsprojekts zu verdeutlichen.  
+Nachdem Sie alle Entwurfs Anforderungen zu Gesamtstruktur Modellen zugeordnet und das Gesamtstruktur Modell ausgewählt haben, das den Anforderungen Ihrer Organisation entspricht, dokumentieren Sie den vorgeschlagenen Gesamtstruktur Entwurf. Fügen Sie in der Dokumentation den Namen der Gruppe ein, für die die Gesamtstruktur entworfen wurde, die Kontaktinformationen für den Gesamtstruktur Besitzer, den Typ der Gesamtstruktur für jede Gesamtstruktur, die Sie einschließen, sowie die Anforderungen, die die einzelnen Gesamtstrukturen erfüllen sollen. Diese Dokumentation unterstützt das Entwurfs Team, um sicherzustellen, dass alle geeigneten Personen am Entwurfsprozess beteiligt sind, und um den Umfang des Bereitstellungs Projekts zu verdeutlichen.  
   
-Laden Sie für ein Arbeitsblatt, das Sie beim Dokumentieren des Gesamtstrukturentwurfs vorgeschlagene zu unterstützen, Job_Aids_Designing_and_Deploying_Directory_and_Security_Services.zip aus [Auftrag Hilfsmittel für Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558) , und öffnen Sie "-Gesamtstruktur Design"(DSSLOGI_3.doc).  
+Für ein Arbeitsblatt, das Sie bei der Dokumentation des vorgeschlagenen Gesamtstruktur Entwurfs unterstützt, laden Sie Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip aus den [Auftrags Hilfen für Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558) herunter, und öffnen Sie "Gesamtstruktur Entwurf" (DSSLOGI_3. doc). ).  
   
 ## <a name="in-this-section"></a>Inhalt dieses Abschnitts  
   
 - [Identifizieren von Gesamtstruktur-Entwurfsanforderungen](../../ad-ds/plan/Identifying-Forest-Design-Requirements.md)  
   
-- [Bestimmen der Anzahl der erforderlichen Gesamtstrukturen](../../ad-ds/plan/Determining-the-Number-of-Forests-Required.md)  
+- [Bestimmen der Anzahl erforderlicher Gesamtstrukturen](../../ad-ds/plan/Determining-the-Number-of-Forests-Required.md)  

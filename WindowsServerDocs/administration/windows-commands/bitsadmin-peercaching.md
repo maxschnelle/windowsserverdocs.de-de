@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin-peercaching
-description: 'Windows-Befehle Thema **Bitsadmin Peercaching** : der Schalter Peercaching aufgelistet.'
+title: bipadmin-Peer Caching
+description: Windows-Befehls Thema für **bisoradmin-Peer-Caching** -Auflistung der Peer Cache-Switches.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6235a985e50be695d6059f25e60a16fd0f468755
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0dd1fcbb41d6c56bcf3d961cbf95e86cee834bab
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853371"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380988"
 ---
-# <a name="bitsadmin-peercaching"></a>Bitsadmin-peercaching
+# <a name="bitsadmin-peercaching"></a>bipadmin-Peer Caching
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 ## <a name="syntax"></a>Syntax
 ```
@@ -33,8 +33,8 @@ bitsadmin /PeerCaching /GetConfigurationFlags
 ## <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
-|[Bitsadmin Peercaching und Hilfe](bitsadmin-peercaching-and-help.md)|Zeigt die Verwendung der Befehlszeile für die /PeerCaching-Schalter.|
-|[Bitsadmin Peercaching und setconfigurationflags](bitsadmin-peercaching-and-setconfigurationflags.md)|Legt die konfigurationsflags, die bestimmen, wenn der Computer von Inhalten die Peers bereitstellen kann und Herunterladen von Inhalten von Peers kann.|
-|[Bitsadmin Peercaching und getconfigurationflags](bitsadmin-peercaching-and-getconfigurationflags.md)|Ruft die konfigurationsflags, die bestimmen, wenn der Computer Inhalt an Peers stellt und Herunterladen von Inhalten von Peers kann.|
-## <a name="additional-references"></a>Zusätzliche Referenzen
-[Befehlszeilensyntax](command-line-syntax-key.md)
+|[bitsadmin peercaching and help](bitsadmin-peercaching-and-help.md)|Zeigt die Verwendung der Befehlszeile für die/PeerCaching-Switches an.|
+|[bitsadmin peercaching and setconfigurationflags](bitsadmin-peercaching-and-setconfigurationflags.md)|Legt die Konfigurationsflags fest, die bestimmen, ob der Computer Inhalt für Peers bereitstellen kann und Inhalt von Peers herunterladen kann.|
+|[bitsadmin peercaching and getconfigurationflags](bitsadmin-peercaching-and-getconfigurationflags.md)|Ruft die Konfigurationsflags ab, die bestimmen, ob der Computer Inhalt für Peers bereitstellt und Inhalt von Peers herunterladen kann.|
+## <a name="additional-references"></a>Weitere Verweise
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

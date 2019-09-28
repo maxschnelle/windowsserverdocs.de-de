@@ -7,84 +7,84 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: manage
-ms.openlocfilehash: ab124f3efabf2ac3ae8904157a81587c0c21ebb5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 49f6132cfe99d9d4b719aeeecf149ecb1d7b76f2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856331"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382991"
 ---
 # <a name="microsoft-server-performance-advisor"></a>Microsoft Server Performance Advisor
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Herunterladen von Microsoft Server Performance Advisor (SPA) zum Diagnostizieren von Leistungsproblemen in einem Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 und Windows Server 2008-Bereitstellung. SPA generiert umfassende diagnostische Berichte und Diagramme sowie Empfehlungen unterstützen Sie beim schnellen Analysieren von Problemen und korrekturmaßnahmen zu entwickeln.
+Laden Sie Microsoft Server Performance Advisor (Spa) herunter, um bei der Bereitstellung von Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008 Leistungsprobleme zu diagnostizieren. Spa generiert umfassende Diagnose Berichte und-Diagramme und bietet Empfehlungen, mit deren Hilfe Sie Probleme schnell analysieren und Korrekturmaßnahmen entwickeln können.
 
--   [Übersicht über die Server Performance Advisor](#bkmk-aboutspa)
+-   [Übersicht über den Server Performance Advisor](#bkmk-aboutspa)
 
--   [Server Performance Advisor herunterladen](#bkmk-downloadspa)
+-   [Herunterladen von Server Performance Advisor](#bkmk-downloadspa)
 
 -   [Server Performance Advisor-Benutzerhandbuch](server-performance-advisor-users-guide.md)
 
--   [Server Performance Advisor Pack-Entwicklerhandbuch](server-performance-advisor-pack-development-guide.md)
+-   [Server Performance Advisor Pack-Entwicklungsleitfaden](server-performance-advisor-pack-development-guide.md)
 
-## <a href="" id="bkmk-aboutspa"></a>Übersicht über die Server Performance Advisor
+## <a href="" id="bkmk-aboutspa"></a>Übersicht über den Server Performance Advisor
 
-Server Performance Advisor besteht aus zwei Teilen, die SPA-Framework und die SPA-Advisor-Packs.
+Der Server Performance Advisor besteht aus zwei Teilen: dem Spa-Framework und den Spa Advisor-Paketen.
 
-### <a name="the-server-performance-advisor-framework"></a>Der Server Performance Advisor-framework
+### <a name="the-server-performance-advisor-framework"></a>Das Server Performance Advisor-Framework
 
-Die Engine, die für das Sammeln von Daten, die von den Advisor-Packs festgelegt ist, schreiben die gesammelten Daten in einer Microsoft SQL Server-Datenbank, Erstellen einer IT-freundlichen Umgebung zum Ausführen von Skripts für die Advisor-Packs SPA und zeigt die endgültige Berichte verantwortlich ist. Sie müssen nur die SPA-Framework in der SPA-Konsole zu installieren. Die SPA-Konsole kann entweder auf einem eigenständigen Computer Remote Zugriff auf den zu testenden Server oder auf einem Server unter Test installiert werden, installiert werden.
+Die Engine, die für das Erfassen von Daten verantwortlich ist, die von den Advisor-Paketen festgelegt werden, das Schreiben der gesammelten Daten in eine Microsoft SQL Server Datenbank, das Erstellen einer IT-freundlichen Umgebung zum Ausführen von Skripts für die Spa Advisor-Pakete und das Anzeigen der abschließenden Berichte. Sie müssen das Spa-Framework nur in der Spa-Konsole installieren. Die Spa-Konsole kann entweder auf einem eigenständigen Computer installiert werden, um Remote auf die zu testenden Server zuzugreifen oder auf einem getesteten Server installiert zu werden.
 
 ### <a name="server-performance-advisor-packs"></a>Server Performance Advisor Packs
 
-Advisor-Packs SPA spielen für alle Regeln, Optimierung, die aus einer Reihe von Metadaten und SQL-Skriptdateien bestehen. SPA umfasst die folgenden Packs für Advisor:
+Spa Advisor Packs stellen den Mittelpunkt aller Optimierungs Regeln dar, die aus einer Reihe von Metadaten und SQL-Skriptdateien bestehen. Spa umfasst die folgenden Advisor-Pakete:
 
--   Das Core-Betriebssystem Advisor Pack analysiert die Leistung der allgemeinen Betriebssystemfunktionen, unabhängig von der speziellen-Serverrollen an.
+-   Das Core-Betriebssystem Advisor-Paket analysiert die Leistung allgemeiner Betriebssystemfunktionen unabhängig von spezialisierten Server Rollen.
 
--   Das Internet Information Server (IIS)-Advisor-Pack verfolgt die Leistung von IIS.
+-   Das Internet Information Server (IIS) Advisor Pack verfolgt die Leistung von IIS.
 
--   Das Hyper-V-Advisor-Pack analysiert die allgemeine Leistung der Hyper-V-Serverrolle.
+-   Mit dem Hyper-v Advisor Pack wird die allgemeine Leistung der Hyper-v-Server Rolle analysiert.
 
-    **Beachten Sie** Gastbetriebssysteme werden von Advisor-Pack für die Hyper-V nicht analysiert.
+    **Hinweis** Das Hyper-V Advisor Pack analysiert keine Gast Betriebssysteme.
 
      
 
--   Das active Directory-Pack Advisor analysiert die allgemeine Leistung von active Directory-Rolle.
+-   Das Active Directory Advisor Pack analysiert die allgemeine Leistung der Active Directory-Rolle.
 
-SPA bietet auch ein erweiterbares Modell für nicht-Microsoft-Entwickler zum Schreiben von Advisor-Packs ihren Anforderungen entsprechend.
+Spa bietet auch ein erweiterbares Modell für Entwickler, die nicht von Microsoft unterstützt werden, um Advisor Packs entsprechend Ihren Anforderungen zu schreiben.
 
-**Beachten Sie** SPA nicht alle Hardware- und Benutzer-Szenario-Kontexte nicht verstehen. Verwenden Sie die Empfehlungen, die bereitgestellt werden, von dem Tool können Sie die Entscheidungen treffen und die Auswirkungen von potenziellen Änderungen, die mit den Servern vorgenommen werden.
+**Hinweis** Spa kann nicht alle Hardware-und Benutzer szenariokontexte verstehen. Verwenden Sie die Empfehlungen, die vom Tool bereitgestellt werden, um Entscheidungen zu treffen und die Konsequenzen von möglichen Änderungen zu verstehen, die an den Servern vorgenommen werden.
 
  
 
-## <a href="" id="bkmk-downloadspa"></a>Server Performance Advisor herunterladen
+## <a href="" id="bkmk-downloadspa"></a>Herunterladen von Server Performance Advisor
 
 
-Verwenden Sie die folgenden Links, um Server Performance Advisor für Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008 herunterzuladen:
+Verwenden Sie die folgenden Links zum Herunterladen von Server Performance Advisor für Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008:
 
--   [Microsoft Server Performance Advisor 3.1 (32-Bit)](https://go.microsoft.com/fwlink/p/?linkid=327751)
+-   [Microsoft Server Performance Advisor 3,1 (32 Bit)](https://go.microsoft.com/fwlink/p/?linkid=327751)
 
--   [Microsoft Server Performance Advisor 3.1 (64-Bit)](https://go.microsoft.com/fwlink/p/?linkid=327752)
+-   [Microsoft Server Performance Advisor 3,1 (64 Bit)](https://go.microsoft.com/fwlink/p/?linkid=327752)
 
-Sie können die Dateien in die CAB-Datei extrahieren, mithilfe der folgenden Befehle:
+Sie können die Dateien in der CAB-Datei mit den folgenden Befehlen extrahieren:
 
--   für die X86 Version: `extrac32.exe /e /a /l  d:\SPA   d:\SPA\SPAPlus\_x86.cab`
+-   für die x86-Version: `extrac32.exe /e /a /l  d:\SPA   d:\SPA\SPAPlus\_x86.cab`
 
--   für die X64 Version: `extrac32.exe /e /a /l  d:\SPA   d:\SPA\SPAPlus\_amd64.cab`
+-   für x64-Version: `extrac32.exe /e /a /l  d:\SPA   d:\SPA\SPAPlus\_amd64.cab`
 
-**Vorsicht** SPA muss, wenn Sie die CAB-Datei extrahiert haben, erhalten die hierarchische Verzeichnisstruktur, um korrekt zu funktionieren. Abhängig von den CAB-Tools, die auf dem Server installiert sind, kann die Extrahierung in einer nicht betriebsbereit Verzeichnisstruktur führen. Wenn Sie die hierarchische Verzeichnisstruktur beibehalten möchten, können Sie eine CAB-Datei extrahieren Utility-Tool, das eine Verzeichnisstruktur für die Datei extrahiert.
+**Vorsicht** Wenn Sie die CAB-Datei extrahieren, muss Spa die hierarchische Verzeichnisstruktur beibehalten, damit Sie ordnungsgemäß funktioniert. Abhängig von den CAB-Tools, die auf dem Server installiert sind, kann die Extraktion zu einer nicht operativen Verzeichnisstruktur führen. Um die hierarchische Verzeichnisstruktur beizubehalten, können Sie ein Tool zum Extrahieren von Hilfsprogramm verwenden, das eine Datei Verzeichnisstruktur extrahiert.
 
-Wenn das Tool zur skriptressourcenextraktion CAB-Datei ordnungsgemäß die Dateien extrahiert haben, werden die Unterordner automatisch in den Zielordner für die Extraktion angezeigt.
+Wenn das CAB-Extraktions Tool die Dateien ordnungsgemäß extrahiert hat, werden die Unterordner automatisch im Extraktions Zielordner angezeigt.
 
-### <a name="spa-prerequisites"></a>SPA-Voraussetzungen
+### <a name="spa-prerequisites"></a>Voraussetzungen für Spa
 
-Der SPA-Konsole erfordert, dass die folgende Software installiert ist:
+Die Spa-Konsole erfordert, dass die folgende Software installiert ist:
 
 -   Microsoft .NET Framework 4
 
 -   SQL Server 2008 R2 Express SP1 oder Microsoft SQL Server 2008 R2 SP1
 
-Neuere Versionen können kompatibel sein. Bekannte Inkompatibilitäten mit SPA-Konsole werden gekennzeichnet.
+Neuere Versionen sind möglicherweise kompatibel. Alle bekannten Produkt Inkompatibilitäten mit der Spa-Konsole werden vermerkt.

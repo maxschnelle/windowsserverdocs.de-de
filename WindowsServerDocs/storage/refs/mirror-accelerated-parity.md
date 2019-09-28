@@ -1,6 +1,6 @@
 ---
 title: Durch Spiegelung beschleunigte Parität
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: gawatu
 ms.manager: masriniv
 ms.technology: storage-file-systems
@@ -8,12 +8,12 @@ ms.topic: article
 author: gawatu
 ms.date: 10/17/2018
 ms.assetid: ''
-ms.openlocfilehash: ec1f04b20b0b743085bacd95ad95a52c15207f40
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 0325a37e38845ea9482a6ed260e2bb3b493cc79a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871999"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393998"
 ---
 # <a name="mirror-accelerated-parity"></a>Durch Spiegelung beschleunigte Parität
 
@@ -114,7 +114,7 @@ ReFS beginnt mit dem Drehen der Daten, wenn die Spiegelung einen angegebenen Kap
 -   Niedrigere Werte ermöglichen ReFS, proaktiv Daten auszulagern und eingehende E/A-Prozesse besser zu verarbeiten. Dies gilt für Arbeitsauslastungen mit hoher Aufnahmekapazität wie die Archivierungsspeicherung. Niedrigere Werte können jedoch die Leistung für allgemeine Workloads beeinträchtigen. Das Drehen unnötiger Daten aus der Spiegelebene führt zu Leistungseinbußen. 
 
 ReFS führt einen einstellbaren Parameter für diesen Schwellenwert ein, der mit einem Registrierungsschlüssel konfiguriert werden kann. Dieser Registrierungsschlüssel muss unter **jeden Knoten in einer Bereitstellung mit direkten Speicherplätzen** konfiguriert werden, und ein Neustart ist erforderlich, damit die Änderungen wirksam werden. 
--   **Wichtigen** HKEY_LOCAL_MACHINE\System\CurrentControlSet\Policies
+-   **Schlüssel:** HKEY_LOCAL_MACHINE\System\CurrentControlSet\Policies
 -   **ValueName (DWORD):** Datadestagessdfillratiothreshold
 -   **ValueType** Prozentsatz
 

@@ -2,22 +2,22 @@
 title: Erstellen einer Klassifizierungseigenschaft
 description: Dieser Artikel beschreibt die verwendeten Klassifizierungseigenschaften, um Dateien im angegebenen Ordner oder Volumes Werte zuzuweisen.
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: aa1f1a2ab4422f4bb36a737e47894b22b60160e1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: d330f896c71cced8e97701af2c1008b3531e065d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880651"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394222"
 ---
 # <a name="create-a-classification-property"></a>Erstellen einer Klassifizierungseigenschaft
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Klassifizierungseigenschaften werden verwendet, um Dateien im angegebenen Ordner oder Volumes Werte zuzuweisen. Es gibt viele Eigenschaftstypen, die Sie je nach Bedarf auswählen können. In der folgenden Tabelle werden die verfügbaren Eigenschaftstypen beschrieben:
 
@@ -51,5 +51,5 @@ Die folgende Anweisung führt Sie durch den Prozess zum Erstellen einer Klassifi
 
 ## <a name="see-also"></a>Siehe auch
 
--   [Erstellen Sie eine Regel für die automatische Klassifizierung](create-automatic-classification-rule.md)
+-   [Erstellen einer automatischen Klassifizierungsregel](create-automatic-classification-rule.md)
 -   [Klassifizierungsverwaltung](classification-management.md)

@@ -8,14 +8,14 @@ manager: mtillman
 ms.reviewer: cahick
 ms.date: 08/20/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 56f485491340b3974d8bf5ba697c6cf01f3e56ac
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 53626c4cfac17cb11402ada9ce3397c487cd0720
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868210"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389854"
 ---
 # <a name="winlogon-automatic-restart-sign-on-arso"></a>Automatische Winlogon-Neustart Anmeldung (ARSO)
 
@@ -80,7 +80,7 @@ Wenn Sie diese Richtlinien Einstellung deaktivieren, wird die automatische Anmel
 
 **Registrierungs Speicherort der Richtlinie:** Hklm\software\microsoft\windows\currentversion\policies\system
 
-**Sorte** DWORD
+**Typ:** DWORD
 
 ![Winlogon](media/Winlogon-Automatic-Restart-Sign-On--ARSO-/gtr-adds-signinpolicy.png)
 
@@ -121,7 +121,7 @@ Wenn Sie diese Einstellung deaktivieren oder nicht konfigurieren, wird die autom
 
 **Registrierungs Speicherort der Richtlinie:** Hklm\software\microsoft\windows\currentversion\policies\system
 
-**Sorte** DWORD
+**Typ:** DWORD
 
 ![Winlogon](media/Winlogon-Automatic-Restart-Sign-On--ARSO-/arso-policy-setting.png)
 

@@ -1,8 +1,8 @@
 ---
-title: Dynamische konvertieren
-description: 'Windows-Befehle Thema ***- '
+title: dynamisch konvertieren
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 353c1e4558ab2b0c948ec78c0cd87b579c738ec8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 15c15d14aeb440c5d7862f0a304f223988f52bbe
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841611"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379100"
 ---
-# <a name="convert-dynamic"></a>Dynamische konvertieren
+# <a name="convert-dynamic"></a>dynamisch konvertieren
 
 
 
-Konvertiert einen Basisdatenträger in einen dynamischen Datenträger.
+Konvertiert einen Basis Datenträger in einen dynamischen Datenträger.
 
-Anweisungen dazu, wie Sie diesen Befehl verwenden, finden Sie unter [ändern Sie einen Basisdatenträger in einen dynamischen Datenträger](https://go.microsoft.com/fwlink/?LinkId=207047) (https://go.microsoft.com/fwlink/?LinkId=207047).
+Anweisungen zur Verwendung dieses Befehls finden Sie unter Ändern eines Basis Datenträgers [in einen dynamischen](https://go.microsoft.com/fwlink/?LinkId=207047) Datenträger (https://go.microsoft.com/fwlink/?LinkId=207047).
 
 ## <a name="syntax"></a>Syntax
 
@@ -38,21 +38,21 @@ convert dynamic [noerr]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Diskpart|nur für Skripts. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden.|
+|Noerr|Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.|
 
 ## <a name="remarks"></a>Hinweise
 
--   Alle vorhandenen Partitionen auf der Basisfestplatte werden einfache Volumes.
--   Ein einfachen Datenträger muss ausgewählt werden, für diesen Vorgang erfolgreich ausgeführt werden kann. Verwenden der **select Disk** Befehl aus, wählen Sie einen Basisdatenträger und verschiebt den Fokus auf sie.
+-   Alle vorhandenen Partitionen auf dem Basis Datenträger werden zu einfachen Volumes.
+-   Ein Basis Datenträger muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt wird. Verwenden Sie den Befehl Datenträger **auswählen** , um einen Basis Datenträger auszuwählen und den Fokus darauf zu verschieben.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um einen Basisdatenträger in einen dynamischen Datenträger konvertieren möchten, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um einen einfachen Datenträger in einen dynamischen Datenträger zu konvertieren:
 ```
 convert dynamic
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

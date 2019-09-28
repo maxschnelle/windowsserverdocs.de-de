@@ -1,7 +1,7 @@
 ---
 title: Konfigurieren von Windows 10-Client immer auf VPN-Verbindungen
 description: In diesem Schritt erfahren Sie mehr über die profileXML-Optionen und das Schema und konfigurieren die Windows 10-Client Computer für die Kommunikation mit dieser Infrastruktur über eine VPN-Verbindung.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.date: 05/29/2018
@@ -10,12 +10,12 @@ ms.localizationpriority: medium
 ms.author: pashort
 author: shortpatti
 ms.reviewer: deverette
-ms.openlocfilehash: c3ac8295d048c599a1cb6d1ed141cd63a7a73f47
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 9621f9bdca0416965861112ba23c1c8dd731f67b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871338"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404285"
 ---
 # <a name="step-6-configure-windows-10-client-always-on-vpn-connections"></a>Schritt 6 Konfigurieren von Windows 10-Client Always on-VPN-Verbindungen
 
@@ -863,7 +863,7 @@ Zum Verwenden von InTune zum Bereitstellen von Windows 10-Remote Zugriff Always 
 >[!NOTE]
 >InTune verwendet nun Azure Ad Gruppen. Wenn Azure AD Connect die Gruppe "VPN-Benutzer" vom lokalen Standort aus mit Azure AD synchronisiert haben und Benutzer der Gruppe "VPN-Benutzer" zugewiesen sind, können Sie den Vorgang fortsetzen.
 
-Erstellen Sie die VPN-Geräte Konfigurationsrichtlinie, um die Windows 10-Client Computer für alle Benutzer zu konfigurieren, die der Gruppe hinzugefügt wurden. Da die Intune-Vorlage VPN-Parameter bereitstellt, \<kopieren Sie nur den eaphostconfig-> \</EapHostConfig > Teil der VPN_ProfileXML-Datei.
+Erstellen Sie die VPN-Geräte Konfigurationsrichtlinie, um die Windows 10-Client Computer für alle Benutzer zu konfigurieren, die der Gruppe hinzugefügt wurden. Da die Intune-Vorlage VPN-Parameter bereitstellt, kopieren Sie nur den \<eaphostconfig-> \</eaphostconfig-> Teil der VPN_ProfileXML-Datei.
 
 ### <a name="create-the-always-on-vpn-configuration-policy"></a>Erstellen der Always on VPN-Konfigurationsrichtlinie
 
@@ -934,7 +934,7 @@ Um die Konfigurationsrichtlinie zu testen, melden Sie sich bei einem Windows 10-
 
 Sie haben die Bereitstellung Always on VPN abgeschlossen.  Weitere Funktionen, die Sie konfigurieren können, finden Sie in der folgenden Tabelle:
 
-|Zweck  |Anzeige...  |
+|Wenn Sie möchten...  |Anzeige...  |
 |---------|---------|
 |Konfigurieren des bedingten Zugriffs für VPN    |[Schritt 7: Optionale Konfigurieren des bedingten Zugriffs für VPN-Konnektivität](../../ad-ca-vpn-connectivity-windows10.md)mithilfe von Azure AD: In diesem Schritt können Sie optimieren, wie autorisierte VPN-Benutzer mithilfe des [bedingten Zugriffs von Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)auf Ihre Ressourcen zugreifen. Mit Azure AD bedingten Zugriff für VPN-Konnektivität (virtuelles privates Netzwerk) können Sie die VPN-Verbindungen schützen. Beim bedingten Zugriff handelt es sich um ein richtlinienbasiertes Auswertungsmodul, mit dem Sie Zugriffsregeln für alle mit Azure Active Directory (Azure AD) verknüpften Anwendungen erstellen können.         |
 |Weitere Informationen zu den erweiterten VPN-Features  |[Erweiterte VPN-Features](always-on-vpn-adv-options.md#advanced-vpn-features): Auf dieser Seite finden Sie Anleitungen zum Aktivieren von VPN-Datenverkehrs filtern, zum Konfigurieren automatischer VPN-Verbindungen mithilfe von App-Triggern und zum Konfigurieren von NPS für die ausschließliche Verwendung von VPN-Verbindungen von Clients mithilfe von Zertifikaten, die von Azure AD ausgestellt wurden.        |

@@ -1,16 +1,16 @@
 ---
 title: DiskPart-Befehle
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 7155dbf34f9986b3ebdd8b549b6a861cf7fcfe3a
-ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
+ms.openlocfilehash: 0826b773927f09cc846fb1cfdf4d5dfbf75d5cca
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69560432"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377830"
 ---
 # <a name="diskpart-commands"></a>DiskPart-Befehle
 
@@ -18,7 +18,7 @@ Gilt für: Windows 10, Windows 8.1, Windows 8, Windows 7, Windows Server 2019, W
 
 DiskPart-Befehle helfen Ihnen beim Verwalten der Laufwerke Ihres PCs (Datenträger, Partitionen, Volumes oder virtuelle Festplatten). Bevor Sie Diskpart-Befehle verwenden können, müssen Sie zuerst auflisten und dann ein Objekt auswählen, um den Fokus zu erhalten. Wenn ein Objekt den Fokus besitzt, werden alle DiskPart-Befehle, die Sie eingeben, für dieses Objekt ausgeführt.
 
-Sie können die verfügbaren Objekte auflisten und die Anzahl oder den Laufwerk Buchstaben eines Objekts mithilfe der Befehle **List Disk, List Volume, List Partition**und **List Vdisk** ermitteln. Auf den Befehlen Datenträger **auflisten, Vdisk auflisten** und **Volume auflisten** werden alle Datenträger und Volumes auf dem Computer angezeigt. Der Befehl " **Partition auflisten** " zeigt jedoch nur Partitionen auf dem Datenträger an, die den Fokus haben. Wenn Sie die **List** -Befehle verwenden, wird ein\*Sternchen () neben dem Objekt mit dem Fokus angezeigt.
+Sie können die verfügbaren Objekte auflisten und die Anzahl oder den Laufwerk Buchstaben eines Objekts mithilfe der Befehle **List Disk, List Volume, List Partition**und **List Vdisk** ermitteln. Auf den Befehlen Datenträger **auflisten, Vdisk auflisten** und **Volume auflisten** werden alle Datenträger und Volumes auf dem Computer angezeigt. Der Befehl " **Partition auflisten** " zeigt jedoch nur Partitionen auf dem Datenträger an, die den Fokus haben. Wenn Sie die **List** -Befehle verwenden, wird ein Sternchen (\*) neben dem Objekt mit dem Fokus angezeigt.
 
 Wenn Sie ein Objekt auswählen, bleibt der Fokus auf diesem Objekt, bis Sie ein anderes Objekt auswählen. Wenn beispielsweise der Fokus auf Datenträger 0 festgelegt ist und Sie Volume 8 auf Datenträger 2 auswählen, wechselt der Fokus von Datenträger 0 zu Datenträger 2, Volume 8. Einige Befehle ändern automatisch den Fokus. Wenn Sie z. b. eine neue Partition erstellen, wechselt der Fokus automatisch zur neuen Partition.
 
@@ -39,7 +39,7 @@ Sie können die folgenden Befehle im DiskPart-Befehls Interpreter ausführen:
       
   - [Hinzufügen](add.md)  
       
-  - [Assign](assign.md)  
+  - [Einräumen](assign.md)  
       
   - [Vdisk anfügen](attach-vdisk.md)  
       

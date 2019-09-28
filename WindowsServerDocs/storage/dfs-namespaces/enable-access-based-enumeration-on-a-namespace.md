@@ -2,31 +2,31 @@
 title: Aktivieren der zugriffsbasierten Aufzählungen für einen Namespace
 description: Dieser Artikel beschreibt, wie Sie die zugriffsbasierte Aufzählungen für einen Namespace aktivieren.
 ms.date: 6/5/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 7e9a5b397127e9eb88352fb4d7bc28955023d4b7
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 246df5b13a1dbea614886ab7fe445dd448ae1763
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447216"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402177"
 ---
 # <a name="enable-access-based-enumeration-on-a-namespace"></a>Aktivieren Sie die zugriffsbasierte Aufzählungen für einen Namespace
 
-> Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2, WindowsServer 2008
+> Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
 Bei der zugriffsbasierten Aufzählung werden Dateien und Ordner ausgeblendet, für die die Benutzer keine Zugriffsberechtigung besitzen. Standardmäßig ist dieses Feature nicht für DFS-Namespaces aktiviert. Sie können die zugriffsbasierte Aufzählung von DFS-Ordnern mithilfe der DFS-Verwaltung aktivieren. Zum Steuern der zugriffsbasierten Aufzählung von Dateien und Ordnern in Ordnerzielen müssen Sie die zugriffsbasierte Aufzählung für jeden freigegebenen Ordner mithilfe der Freigabe- und Speicherverwaltung aktivieren.
 
-Zum Aktivieren der zugriffsbasierten Aufzählung für einen Namespace müssen auf allen Namespaceservern WindowsServer 2008 oder höher ausgeführt werden. Darüber hinaus müssen die domänenbasierte Namespaces der Windows Server 2008-Modus verwenden. Weitere Informationen zu den Anforderungen der Windows Server 2008-Modus finden Sie unter [wählen Sie einen Namespace-Typ](choose-a-namespace-type.md).
+Um die Zugriffs basierte Enumeration für einen Namespace zu aktivieren, muss auf allen Namespace Servern Windows Server 2008 oder höher ausgeführt werden. Außerdem müssen Domänen basierte Namespaces den Windows Server 2008-Modus verwenden. Informationen zu den Anforderungen des Windows Server 2008-Modus finden Sie unter [Auswählen eines Namespace Typs](choose-a-namespace-type.md).
 
 In einigen Umgebungen kann das Aktivieren der zugriffsbasierten Aufzählung eine hohe CPU-Auslastung auf dem Server hervorrufen und eine langsame Reaktionszeiten für Benutzer verursachen.
 
 > [!NOTE]
-> Wenn Sie die Domänenfunktionsebene ein upgrade auf Windows Server 2008 es zwar vorhandenen, domänenbasierten Namespaces, DFS-Verwaltung Aktivieren der zugriffsbasierten Aufzählung für diese Namespaces können Sie. Allerdings werden es nicht möglich, bearbeiten die Berechtigungen für Ordner von Gruppen oder Benutzer ausblenden, es sei denn, Sie die Namespaces in den Windows Server 2008-Modus migrieren. Weitere Informationen finden Sie unter [Migrieren eines domänenbasierten Namespaces zum Windows Server 2008-Modus](migrate-a-domain-based-namespace-to-windows-server-2008-mode.md).
+> Wenn Sie die Domänen Funktionsebene auf Windows Server 2008 aktualisieren, während vorhandene Domänen basierte Namespaces vorhanden sind, ermöglicht Ihnen die DFS-Verwaltung die Aktivierung der Zugriffs basierten Enumeration für diese Namespaces. Es ist jedoch nicht möglich, Berechtigungen zu bearbeiten, um Ordner aus beliebigen Gruppen oder Benutzern auszublenden, es sei denn, Sie migrieren die Namespaces zum Windows Server 2008-Modus. Weitere Informationen finden Sie unter [Migrieren eines domänenbasierten Namespaces zum Windows Server 2008-Modus](migrate-a-domain-based-namespace-to-windows-server-2008-mode.md).
 
 
 Um die zugriffsbasierte Aufzählung mit DFS-Namespaces zu verwenden, müssen Sie folgende Schritte ausführen:
@@ -51,7 +51,7 @@ Sie können die zugriffsbasierte Aufzählung für einen Namespace mithilfe der W
 
 1.  Öffnen Sie ein Eingabeaufforderungsfenster auf einem Server, auf dem der Rollendienst **Verteiltes Dateisystem** oder die Funktion **DFS-Tools** installiert ist.
 
-2.  Geben Sie den folgenden Befehl aus, wobei *< Namespace\_Stamm >* ist der Stamm des Namespace:
+2.  Geben Sie den folgenden Befehl ein, wobei *< Namespace @ no__t-1root >* der Stamm des-Namespace ist:
 
     ```  
     dfsutil property abe enable \\ <namespace_root>
@@ -80,13 +80,13 @@ Sie können steuern, welche Benutzer und Gruppen einzelne DFS-Ordner mithilfe de
 
 1. Öffnen Sie ein Eingabeaufforderungsfenster auf einem Server, auf dem der Rollendienst **Verteiltes Dateisystem** oder die Funktion **DFS-Tools** installiert ist.
 
-2. Geben Sie den folgenden Befehl, in denen *&lt;DFSPath&gt;* ist der Pfad des DFS-Ordners (Link), *< Domäne\\Konto >* ist der Name des Kontos Gruppen- oder Benutzernamen und *(...)*  durch zusätzliche Zugriffssteuerungseinträge (ACEs) ersetzt wird:
+2. Geben Sie den folgenden Befehl ein, wobei *&lt;dfspath @ no__t-2* der Pfad des DFS-Ordners (Link), *< Domäne @ no__t-4account >* der Name der Gruppe bzw. des Benutzerkontos ist, und *(...)* durch zusätzliche Access Control Einträge ersetzt wird ( ACEs):
 
    ```
    dfsutil property sd grant <DFSPath> DOMAIN\Account:R (...) Protect Replace
    ```
 
-   Ersetzen von vorhandenen Berechtigungen mit den Berechtigungen, die ermöglicht beispielsweise der Domänen-Admins und CONTOSO\\Trainer für Gruppen Read (R) Zugriff auf die \\contoso.office\public\training-Ordner, geben Sie den folgenden Befehl aus:
+   Geben Sie beispielsweise den folgenden Befehl ein, um vorhandene Berechtigungen durch Berechtigungen zu ersetzen, die dem Ordner Domänen-Admins und den "no__t-0trainers"-Gruppen Zugriff auf den Ordner "\\".
 
    ```
    dfsutil property sd grant \\contoso.office\public\training "CONTOSO\Domain Admins":R CONTOSO\Trainers:R Protect Replace 
@@ -97,13 +97,13 @@ Sie können steuern, welche Benutzer und Gruppen einzelne DFS-Ordner mithilfe de
 
 | Befehl | Beschreibung |
 |---|---|
-|[DFSutil Eigenschaft sd verweigern](https://msdn.microsoft.com/library/dd759150(v=ws.11).aspx)|Dies verweigert Gruppen oder Benutzern die Möglichkeit, den Ordner zu sehen.|
-|[DFSutil Eigenschaft sd zurücksetzen](https://msdn.microsoft.com/library/dd759150(v=ws.11).aspx) |Entfernt sämtliche Berechtigungen aus dem Ordner.|
-|[DFSutil Eigenschaft sd widerrufen](https://msdn.microsoft.com/library/dd759150(v=ws.11).aspx)| Entfernt den ACE einer Gruppe oder eines Benutzers aus dem Ordner. |
+|[Dfsutil-Eigenschaft SD Deny](https://msdn.microsoft.com/library/dd759150(v=ws.11).aspx)|Dies verweigert Gruppen oder Benutzern die Möglichkeit, den Ordner zu sehen.|
+|[Dfsutil-Eigenschaft SD Reset](https://msdn.microsoft.com/library/dd759150(v=ws.11).aspx) |Entfernt sämtliche Berechtigungen aus dem Ordner.|
+|[Dfsutil-Eigenschaft, SD-Widerruf](https://msdn.microsoft.com/library/dd759150(v=ws.11).aspx)| Entfernt den ACE einer Gruppe oder eines Benutzers aus dem Ordner. |
 
 ## <a name="see-also"></a>Siehe auch
 
 -   [Erstellen eines DFS-Namespaces](create-a-dfs-namespace.md)
 -   [Delegieren von Verwaltungsberechtigungen für DFS-Namespaces](delegate-management-permissions-for-dfs-namespaces.md)
 -   [Installieren von DFS](https://technet.microsoft.com/library/cc731089(v=ws.11).aspx)
--   [Verwenden geerbte Berechtigungen mit der zugriffsbasierten Aufzählung](using-inherited-permissions-with-access-based-enumeration.md)
+-   [Verwenden von geerbten Berechtigungen mit Zugriffs basierter Enumeration](using-inherited-permissions-with-access-based-enumeration.md)

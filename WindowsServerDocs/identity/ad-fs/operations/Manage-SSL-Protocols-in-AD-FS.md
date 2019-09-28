@@ -6,14 +6,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 951e7d74a3370d9863d747e349d7fe701615e225
-ms.sourcegitcommit: 2e38b26742f3b16c153170d6f5219c020a8e9383
+ms.openlocfilehash: 44fb4c02421a431edb502daecaa38f00fb4dd2ad
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69896817"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407530"
 ---
 # <a name="managing-ssltls-protocols-and-cipher-suites-for-ad-fs"></a>Verwalten von SSL/TLS-Protokollen und Verschlüsselungs Sammlungen für AD FS
 Die folgende Dokumentation enthält Informationen zum Deaktivieren und Aktivieren bestimmter TLS/SSL-Protokolle und Verschlüsselungs Sammlungen, die von verwendet werden AD FS
@@ -262,14 +262,14 @@ Eine vollständige Liste der unterstützten Verschlüsselungs Sammlungen finden 
 Die .NET Framework 3.5/4.0/4.5. x-Anwendungen können das Standardprotokoll auf TLS 1,2 umstellen, indem Sie den Registrierungsschlüssel "schutsstrongcrypto" aktivieren.  Dieser Registrierungsschlüssel erzwingt .NET-Anwendungen, TLS 1,2 zu verwenden.
 
 > [!IMPORTANT]
-> Für AD FS unter Windows Server 2016 und Windows Server 2012 R2 müssen Sie die .NET Framework 4.0/4.5. x-Taste verwenden:  HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\. NETFramework\v4.0.30319
+> Für AD FS unter Windows Server 2016 und Windows Server 2012 R2 müssen Sie die .NET Framework 4.0/4.5. x-Taste verwenden:  HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft @ no__t-0. NETFramework\v4.0.30319
 
 
 Verwenden Sie für den .NET Framework 3,5 den folgenden Registrierungsschlüssel:
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\\. NETFramework\v2.0.50727] "schugstrongcrypto" = DWORD: 00000001
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft @ no__t-0. NETFramework\v2.0.50727] "schugstrongcrypto" = DWORD: 00000001
 
-Verwenden Sie für den .NET Framework 4.0/4.5. x den folgenden Registrierungsschlüssel: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\. NETFramework\v4.0.30319 "schugstrongcrypto" = DWORD: 00000001
+Verwenden Sie für den .NET Framework 4.0/4.5. x den folgenden Registrierungsschlüssel: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft @ no__t-0. NETFramework\v4.0.30319 "schugstrongcrypto" = DWORD: 00000001
 
 ![Strenge Authentifizierung](media/Managing-SSL-Protocols-in-AD-FS/strongauth.png)
 

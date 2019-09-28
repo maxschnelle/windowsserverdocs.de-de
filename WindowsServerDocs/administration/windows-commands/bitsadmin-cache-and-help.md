@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin Cache und Hilfe
-description: Windows-Befehle Thema **Bitsadmin Cache und Hilfe** -zeigt die Verwendung der Befehlszeile für die **Cache** Switches.
+title: biout admin-Cache und-Hilfe
+description: Windows-Befehlszeilen Thema für den **bitzadmin-Cache und Help** -zeigt die Befehlszeilen Verwendung für die **Cache** Switches an.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7af78c21f4d96886d1050a95dc16594159bc2c0b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 453464ebcc305bdc2fbbc73f2e46f7392bba1033
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869061"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381979"
 ---
-# <a name="bitsadmin-cache-and-help"></a>Bitsadmin Cache und Hilfe
+# <a name="bitsadmin-cache-and-help"></a>biout admin-Cache und-Hilfe
 
 
 
-Zeigt die Verwendung der Befehlszeile für die **Cache** Switches.
+Zeigt die Befehlszeilen Verwendung für die **Cache** Switches an.
 
 ## <a name="syntax"></a>Syntax
 
@@ -32,13 +32,13 @@ Zeigt die Verwendung der Befehlszeile für die **Cache** Switches.
 Bitsadmin /Cache /Help 
 ```
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Der folgende Befehl zeigt die Befehlszeilenhilfe für die **Cache** Switches.
+Der folgende Befehl zeigt die Befehlszeilen Hilfe für die **Cache** Switches an.
 ```
 Bitsadmin /Cache /Help
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

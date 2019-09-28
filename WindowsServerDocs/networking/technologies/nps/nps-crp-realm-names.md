@@ -1,78 +1,78 @@
 ---
 title: Bereichsnamen
-description: Dieses Thema enthält eine Übersicht über die Verwendung von Bereichsnamen im Netzwerkrichtlinienserver-verbindungsanforderung, die Verarbeitung in Windows Server 2016.
+description: Dieses Thema bietet einen Überblick über die Verwendung von Bereichs Namen in der Netzwerk Richtlinien Server-Verbindungs Anforderungs Verarbeitung in Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: d011eaad-f72a-4a83-8099-8589c4ee8994
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 65a272873a60d74efcf417a16fdc84670f5878da
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 7f9c611b793df36c2e588b2fa099df4e5382194c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447004"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405471"
 ---
 # <a name="realm-names"></a>Bereichsnamen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 
-In diesem Thema können einen Überblick über die Verwendung von Bereichsnamen im Netzwerkrichtlinienserver verbindungsanforderungsverarbeitung.
+In diesem Thema finden Sie eine Übersicht über die Verwendung von Bereichs Namen in der Verbindungs Anforderungs Verarbeitung für Netzwerk Richtlinien Server.
 
-Das Benutzernamen RADIUS-Attribut ist eine Zeichenfolge, die in der Regel einen Benutzerstandort für das Konto und einen Benutzernamen für das Konto enthält. Standort des Benutzers wird auch der Bereich oder einen Bereichsnamen genannt, und ist ein Synonym für das Konzept der Domäne sind, einschließlich DNS-Domänen, Active-Domänen und Windows NT 4.0-Domänen. Z. B. wenn ein Benutzerkonto in der Benutzerdatenbank für die Konten für eine Domäne mit dem Namen "Beispiel.com" befindet, ist "Beispiel.com" der Bereichsname.
+Das RADIUS-Attribut für den Benutzernamen ist eine Zeichenfolge, die in der Regel einen Benutzerkonto Speicherort und einen Benutzerkonto Namen enthält. Der Speicherort des Benutzerkontos wird auch als Bereichs-oder Bereichs Name bezeichnet und ist mit dem Konzept der Domäne, einschließlich DNS-Domänen, Active Directory® Domänen und Windows NT 4,0-Domänen, gleichbedeutend. Wenn sich beispielsweise ein Benutzerkonto in der Benutzerkonten Datenbank für eine Domäne mit dem Namen example.com befindet, ist example.com der Bereichs Name.
 
-Ein weiteres Beispiel, wenn das Benutzernamen RADIUS-Attribut den Benutzernamen enthält user1@example.com"user1" ist der Name des Benutzerkontos, und "Beispiel.com" besitzt den Bereichsnamen. Bereichsnamen können als ein Präfix oder Suffix im Benutzernamen angezeigt:
+Wenn das RADIUS-Attribut für den Benutzernamen z. b. den Benutzernamen user1@example.com enthält, ist user1 der Name des Benutzerkontos, und example.com ist der Bereichs Name. Bereichs Namen können als Präfix oder als Suffix im Benutzernamen angezeigt werden:
 
-- **Example\user1**. In diesem Beispiel den Bereichsnamen **Beispiel** ist ein Präfix und kann auch den Namen des Active Directory&reg; Domänendienste \(AD DS\) Domäne.
+- " **Example\user1**". In diesem Beispiel ist das **Beispiel** für den Bereichs Namen ein Präfix. Außerdem handelt es sich um den Namen eines Active Directory @ no__t-1-Domänen Dienste \(AD DS @ no__t-3-Domäne.
 
-- <strong>user1@example.com</strong>. In diesem Beispiel den Bereichsnamen **"example.com"** ist ein Suffix ein, und es ist entweder einen DNS-Domänennamen oder den Namen der AD DS-Domäne.
+- <strong>user1@example.com</strong>. In diesem Beispiel ist der Bereichs Name **example.com** ein Suffix. Dabei handelt es sich entweder um einen DNS-Domänen Namen oder den Namen einer AD DS Domäne.
 
-Können Sie sicherstellen, dass die verbindungsanforderungen von RADIUS-Clients, die so genannte Netzwerkzugriffsserver, an, die RADIUS-Server weitergeleitet werden Bereichsnamen in Verbindungsanforderungsrichtlinien beim Entwerfen und Bereitstellen von Ihrem RADIUS-Infrastruktur konfiguriert authentifizieren Sie und autorisieren Sie die verbindungsanforderung.
+Sie können in Verbindungs Anforderungs Richtlinien konfigurierte Bereichs Namen beim Entwerfen und Bereitstellen der RADIUS-Infrastruktur verwenden, um sicherzustellen, dass Verbindungsanforderungen von RADIUS-Clients, auch Netzwerk Zugriffs Server genannt, an RADIUS-Server weitergeleitet werden, die authentifizieren und autorisieren Sie die Verbindungsanforderung.
 
-Wenn NPS als RADIUS-Server mit der Standard-Verbindungsanforderungsrichtlinie konfiguriert ist, verarbeitet der NPS verbindungsanforderungen für die Domäne, in dem die NPS-Mitglied ist, und bei vertrauenswürdigen Domänen.
+Wenn NPS als RADIUS-Server mit der standardmäßigen Verbindungs Anforderungs Richtlinie konfiguriert ist, verarbeitet NPS Verbindungsanforderungen für die Domäne, in der das NPS Mitglied ist, sowie für vertrauenswürdige Domänen.
 
-Zum Konfigurieren von NPS als RADIUS-Proxy und Weiterleiten von verbindungsanforderungen an nicht vertrauenswürdigen Domänen fungieren, müssen Sie eine neue Verbindungsanforderungsrichtlinie erstellen. In der neue Verbindungsanforderungsrichtlinie müssen Sie das Benutzernamen-Attribut mit den Bereichsnamen konfigurieren, die im Benutzernamen Attribut der verbindungsanforderungen enthalten sein wird, die Sie weiterleiten möchten. Sie müssen auch die Verbindungsanforderungsrichtlinie mit einem remote-RADIUS-Servergruppe konfigurieren. Die Verbindungsanforderungsrichtlinie kann NPS zu berechnen, welche verbindungsanforderungen zum Weiterleiten an den RADIUS-Remoteservergruppe basierend auf der Realm-Abschnitt des User-Name-Attributs.
+Wenn Sie NPS als RADIUS-Proxy konfigurieren und Verbindungsanforderungen an nicht vertrauenswürdige Domänen weiterleiten möchten, müssen Sie eine neue Verbindungs Anforderungs Richtlinie erstellen. In der neuen Verbindungs Anforderungs Richtlinie müssen Sie das User Name-Attribut mit dem Bereichs Namen konfigurieren, der im Benutzernamen Attribut der Verbindungsanforderungen enthalten ist, die Sie weiterleiten möchten. Außerdem müssen Sie die Verbindungs Anforderungs Richtlinie mit einer RADIUS-Remote Server Gruppe konfigurieren. Die Verbindungs Anforderungs Richtlinie ermöglicht NPS die Berechnung der Verbindungsanforderungen, die auf Grundlage des Bereichs Teils des Benutzernamen Attributs an die Remote-RADIUS-Server Gruppe weiterzuleiten sind.
 
-## <a name="acquiring-the-realm-name"></a>Erwerben den Bereichsnamen
+## <a name="acquiring-the-realm-name"></a>Abrufen des Bereichs namens
 
-Der Bereichsteil Name der Benutzername wird bereitgestellt, wenn Typen Kennwort-basierte die Anmeldeinformationen des Benutzers während einer Verbindung versuchen oder ein Verbindungs-Manager-CM-Profil auf dem Computer des Benutzers konfiguriert ist, um den Bereichsnamen automatisch bereitzustellen.
+Der Bereichs Namensteil des Benutzernamens wird bereitgestellt, wenn der Benutzer während eines Verbindungsversuchs Kenn Wort basierte Anmelde Informationen eingibt oder wenn ein Verbindungs-Manager-Profil auf dem Computer des Benutzers so konfiguriert ist, dass der Bereichs Name automatisch bereitgestellt wird.
 
-Sie können festlegen, dass Benutzer des Netzwerks die Bereichsnamen eingeben, bei der Eingabe ihrer Anmeldeinformationen während der Netzwerk-Verbindungsversuche.
+Sie können festlegen, dass Benutzer Ihres Netzwerks ihren Bereichs Namen angeben, wenn Sie Ihre Anmelde Informationen während der Netzwerk Verbindungsversuche eingeben.
 
-Beispielsweise können Benutzer aufgefordert werden, geben Sie ihren Benutzernamen, einschließlich der Name des Benutzerkontos und der Bereichsname in **Benutzernamen** in die **Connect** Dialogfeld beim Herstellen eines DFÜ-Verbindung oder virtuelle private Netzwerks (VPN) die Verbindung.
+Beispielsweise können Sie festlegen, dass Benutzer ihren **Benutzernamen eingeben** müssen, einschließlich des Benutzerkonto namens und des Bereichs namens, wenn Sie eine DFÜ-oder VPN-Verbindung (virtuelles privates Netzwerk **) herstellen.**
 
-Darüber hinaus, wenn Sie ein benutzerdefiniertes Dialing-Paket mit den Connection Manager-Verwaltungskit (CMAK) erstellen, unterstützen Sie Benutzer durch den Bereichsnamen automatisch hinzufügen, um den Benutzerkontonamen in den CM-Profilen, die auf Benutzercomputern installiert sind. Beispielsweise können Sie einen Bereich und der Benutzer die Namenssyntax, damit der Benutzer hat nur der Name des Benutzerkontos an, bei der Eingabe von Anmeldeinformationen in der CM-Profil angeben. In diesem Fall muss der Benutzer nicht kennen, oder speichern die Domäne, wo sich ihr Konto befindet.
+Wenn Sie ein benutzerdefiniertes Einwählpaket mit dem Verbindungs-Manager-Verwaltungskit (CMAK) erstellen, können Sie Benutzer unterstützen, indem Sie dem Benutzerkonto Namen in cm-Profilen, die auf den Computern der Benutzer installiert sind, den Bereichs Namen automatisch hinzufügen. Beispielsweise können Sie einen Bereichs Namen und eine Benutzernamen Syntax im cm-Profil angeben, sodass der Benutzer nur den Benutzerkonto Namen angeben muss, wenn Anmelde Informationen eingegeben werden. In diesem Fall muss der Benutzer die Domäne, in der sich das Benutzerkonto befindet, nicht kennen oder merken.
 
-Nachdem der Benutzer die Kennwort-basierte Anmeldeinformationen eingeben, wird der Benutzername während des Authentifizierungsprozesses aus dem Zugriffsclient an Network Access Server übergeben. Network Access Server konstruiert eine verbindungsanforderung und den Bereichsnamen im Benutzernamen ein RADIUS-Attribut enthält, in der Access-Request-Nachricht, die mit dem RADIUS-Proxy oder den Server gesendet wird.
+Während des Authentifizierungs Vorgangs wird der Benutzername vom Zugriffs Client an den Netzwerk Zugriffs Server übermittelt, nachdem Benutzer ihre Kenn Wort basierten Anmelde Informationen eingeben. Der Netzwerk Zugriffs Server erstellt eine Verbindungsanforderung und schließt den Bereichs Namen innerhalb des RADIUS-Attributs für den Benutzernamen in die Access-Request-Nachricht ein, die an den RADIUS-Proxy oder-Server gesendet wird.
 
-Wenn der RADIUS-Server ein NPS ist, wird die Access-Request-Nachricht anhand des Satzes von konfigurierten Verbindungsanforderungsrichtlinien ausgewertet. Bedingungen für die Verbindungsanforderungsrichtlinie können es sich um die Spezifikation des Inhalts der User-Name-Attribut enthalten.
+Wenn der RADIUS-Server ein NPS ist, wird die Access-Request-Nachricht anhand des Satzes konfigurierter Verbindungs Anforderungs Richtlinien ausgewertet. Bedingungen für die Verbindungs Anforderungs Richtlinie können die Spezifikation des Inhalts des Attributs "Benutzer Name" einschließen.
 
-Sie können einen Satz von Verbindungsanforderungsrichtlinien konfigurieren, die für den Bereichsnamen im Benutzernamen Attribut der eingehenden Nachrichten gelten. Dadurch können Sie Routingregeln erstellen, die RADIUS-Nachrichten mit einem bestimmten Bereichsnamen auf einen bestimmten Satz von RADIUS-Server weiterleiten, wenn NPS als RADIUS-Proxy verwendet wird.
+Sie können einen Satz von Verbindungs Anforderungs Richtlinien konfigurieren, die für den Bereichs Namen innerhalb des Benutzernamen Attributs eingehender Nachrichten spezifisch sind. Dadurch können Sie Routing Regeln erstellen, die RADIUS-Nachrichten mit einem bestimmten Bereichs Namen an einen bestimmten Satz von RADIUS-Servern weiterleiten, wenn NPS als RADIUS-Proxy verwendet wird.
 
-## <a name="attribute-manipulation-rules"></a>Attribut bearbeiten Regeln
+## <a name="attribute-manipulation-rules"></a>Regeln für die Attribut Bearbeitung
 
-Bevor die RADIUS-Nachricht wird entweder lokal verarbeitet (wenn NPS als RADIUS-Server verwendet wird) oder auf einen anderen RADIUS-Server (wenn NPS als RADIUS-Proxy verwendet wird) weitergeleitet, kann das Benutzernamen Attribut in der Nachricht durch Attribut Manipulation Regeln geändert werden. Sie können Attribut Manipulation-Regeln für das User-Name-Attribut konfigurieren, durch auswählen **Benutzernamen** auf die **Bedingungen** Registerkarte in den Eigenschaften einer Verbindungsanforderungsrichtlinie. NPS-Attribut bearbeiten Regeln verwenden die Syntax für reguläre Ausdrücke.
+Bevor die RADIUS-Nachricht entweder lokal verarbeitet wird (wenn NPS als RADIUS-Server verwendet wird) oder an einen anderen RADIUS-Server weitergeleitet wird (wenn NPS als RADIUS-Proxy verwendet wird), kann das Benutzernamens Attribut in der Nachricht mithilfe von Attribut Bearbeitungs Regeln geändert werden. Sie können Regeln für die Attribut Bearbeitung für das Attribut Benutzername konfigurieren, indem Sie in den Eigenschaften einer Verbindungs Anforderungs Richtlinie auf der Registerkarte **Bedingungen** den **Benutzernamen** auswählen. Regeln für die NPS-Attribut Bearbeitung verwenden Syntax für reguläre Ausdrücke.
 
-Sie können die Attribut-Manipulation-Regeln für das Attribut "Benutzername" So ändern Sie die folgenden konfigurieren:
+Sie können Regeln für die Attribut Bearbeitung für das User-Name-Attribut konfigurieren, um Folgendes zu ändern:
 
-- Entfernen Sie den Bereichsnamen aus dem Benutzernamen \(auch bekannt als Bereich entfernen\). Z. B. den Benutzernamen user1@example.com in "user1" geändert wird.
+- Entfernen Sie den Bereichs Namen aus dem Benutzernamen \(auch als Bereichs Entfernungs @ no__t-1 bezeichnet. Beispielsweise wird der Benutzername user1@example.com in user1 geändert.
 
-- Ändern Sie den Bereichsnamen, aber nicht die Syntax. Z. B. den Benutzernamen user1@example.com geändert wird, um user1@wcoast.example.com.
+- Ändern Sie den Bereichs Namen, aber nicht die Syntax. Beispielsweise wird der Benutzername user1@example.com in user1@wcoast.example.com geändert.
 
-- Ändern Sie die Syntax des Bereichsnamens. Z. B. den Benutzer Name example\user1 geändert wird, um user1@example.com.
+- Ändern Sie die Syntax des Bereichs namens. Beispielsweise wird der Benutzername "example\user1" in "user1@example.com" geändert.
 
-Nachdem der Benutzer-Name-Attribut gemäß den Regeln der Attribut-Bearbeitung, die Sie konfigurieren geändert wird, werden zusätzliche Einstellungen, der das erste übereinstimmende Verbindungsanforderungsrichtlinie verwendet, um zu bestimmen, ob:
+Nachdem das Attribut "Benutzer Name" gemäß den von Ihnen konfigurierten Attribut Bearbeitungs Regeln geändert wurde, werden zusätzliche Einstellungen der ersten übereinstimmenden Verbindungs Anforderungs Richtlinie verwendet, um zu bestimmen, ob:
 
-- Der NPS verarbeitet die Access-Request-Nachricht, lokal (wenn NPS als RADIUS-Server verwendet wird).
+- Der NPS verarbeitet die Access-Request-Nachricht lokal (wenn NPS als RADIUS-Server verwendet wird).
 
-- Der NPS leitet die Nachricht an einen anderen RADIUS-Server (wenn NPS als RADIUS-Proxy verwendet wird).
+- Der NPS leitet die Nachricht an einen anderen RADIUS-Server weiter (wenn NPS als RADIUS-Proxy verwendet wird).
 
-## <a name="configuring-the-nps-supplied-domain-name"></a>Konfigurieren der NPS-angegeben Domänennamens
+## <a name="configuring-the-nps-supplied-domain-name"></a>Konfigurieren des von NPS bereitgestellten Domänen Namens
 
-Wenn der Benutzername nicht über einen Domänennamen enthält, stellt einen NPS bereit. Standardmäßig ist der NPS bereitgestellte Domänenname der Domäne, von der NPS Mitglied ist. Sie können die NPS-angegeben Domänennamens über die folgende registrierungseinstellung angeben:
+Wenn der Benutzername keinen Domänen Namen enthält, stellt NPS einen bereit. Standardmäßig ist der von NPS bereitgestellte Domänen Name die Domäne, deren Mitglied der NPS ist. Sie können den NPS-bereitgestellten Domänen Namen mithilfe der folgenden Registrierungs Einstellung angeben:
 
     
     HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\RasMan\PPP\ControlProtocols\BuiltIn\DefaultDomain
@@ -81,4 +81,4 @@ Wenn der Benutzername nicht über einen Domänennamen enthält, stellt einen NPS
 >[!CAUTION]
 >Durch eine fehlerhafte Bearbeitung der Registrierung können schwere Systemschäden verursacht werden. Bevor Sie Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Computerdaten sichern.
 
-Einige nicht-Microsoft-Netzwerkzugriffsserver löschen oder ändern den Domänennamen, wie vom Benutzer angegeben. Infolgedessen wird die netzwerkanforderung für den Zugriff für die Standarddomäne authentifiziert, die möglicherweise nicht die Domäne für das Konto des Benutzers. Um dieses Problem zu beheben, konfigurieren Sie RADIUS-Server um den Benutzernamen in das richtige Format mit dem genauen Domänennamen zu ändern.
+Einige Netzwerk Zugriffs Server, die nicht von Microsoft unterliegen, löschen oder ändern den Domänen Namen, wie er vom Benutzer angegeben wurde. Das Ergebnis ist, dass die Netzwerk Zugriffs Anforderung für die Standard Domäne authentifiziert wird, die möglicherweise nicht die Domäne für das Benutzerkonto ist. Um dieses Problem zu beheben, konfigurieren Sie die RADIUS-Server so, dass der Benutzername in das richtige Format mit dem genauen Domänen Namen geändert wird.

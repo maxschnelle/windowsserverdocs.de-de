@@ -1,8 +1,8 @@
 ---
 title: bootcfg rmsw
-description: Windows-Befehle Thema **Bootcfg Rmsw** - operating System Ladeoptionen für einen bestimmten Betriebssystemeintrag entfernt.
+description: Windows-Befehls Thema für **bootcfg Rmsw** -entfernt Optionen für das Laden von Betriebssystemen für einen angegebenen Betriebssystem Eintrag.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f3d873cffbdb386b5f4f564801a4f4b815c6987a
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 43629f2e13bb6269a43d592fa0907637135aea71
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434682"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379857"
 ---
 # <a name="bootcfg-rmsw"></a>bootcfg rmsw
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Optionen zum Laden von Betriebssystem für einen angegebenen Betriebssystem-Eintrag wird entfernt.
+entfernt Optionen für das Laden von Betriebssystemen für einen angegebenen Betriebssystem Eintrag.
 
 ## <a name="syntax"></a>Syntax
 ```
@@ -34,18 +34,18 @@ bootcfg /rmsw [/s <computer> [/u <Domain>\<User> [/p <Password>]]] [/mm] [/bv] [
 
 |      Parameter       |                                                                                                      Beschreibung                                                                                                       |
 |----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    /s <computer>     |                                                   Gibt den Namen oder die IP-Adresse eines Remotecomputers (umgekehrte Schrägstriche nicht verwenden). Der Standardwert ist der lokale Computer.                                                   |
-| /u <Domain>\\<User>  |          Führt den Befehl mit den Berechtigungen des Benutzers gemäß <User> oder <Domain> \\ <User>. Der Standardwert ist die Berechtigungen von der aktuell angemeldete Benutzer auf dem Computer, die der Befehl ausgegeben wird.          |
-|    /p <Password>     |                                                                 Gibt das Kennwort des Benutzerkontos ein, die im angegebenen die **/u** Parameter.                                                                  |
-|         /mm          |           Entfernt die Option/maxmem und seine zugeordnete maximale Speicherwert aus der angegebenen <OSEntryLineNum>. Die/maxmem-Option gibt die Höchstmenge an Arbeitsspeicher, die das Betriebssystem verwenden können.            |
-|         /bv          |                     Entfernt die Option/basevideo aus dem angegebenen <OSEntryLineNum>. Die Option/basevideo weist das Betriebssystem für den installierten Grafikkartentreiber VGA-Modus zu verwenden.                     |
-|         /so          |                         Entfernt die Option/SOS aus dem angegebenen <OSEntryLineNum>. Die Option/SOS weist das Betriebssystem auf den Namen der Gerätetreiber anzuzeigen, während diese geladen werden.                          |
-|         /ng          |                         Entfernt die Option/noguiboot aus dem angegebenen <OSEntryLineNum>. Die Option/noguiboot deaktiviert die Statusanzeige, die vor dem STRG + ALT + del-anmeldeaufforderung angezeigt wird.                          |
-| / ID <OSEntryLineNum> | Gibt die Zeilennummer der Betriebssystem-Eintrag im Abschnitt [Betriebssysteme] der Datei "Boot.ini", die aus der der Betriebssystem-Ladeoptionen entfernt werden. Die erste Zeile nach der [Betriebssysteme] Header im Abschnitt ist 1. |
+|    /s <computer>     |                                                   Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Der Standardwert ist der lokale Computer.                                                   |
+| /u <Domain> @ no__t-1 @ no__t-2  |          Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der durch <User> oder <Domain> @ no__t-2 @ no__t-3 angegeben wird. Der Standardwert sind die Berechtigungen des aktuell angemeldeten Benutzers auf dem Computer, von dem der Befehl ausgegeben wird.          |
+|    /p <Password>     |                                                                 Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist.                                                                  |
+|         /mm          |           entfernt die/Maxmem-Option und den zugehörigen maximalen Speicher Wert aus dem angegebenen <OSEntryLineNum>. Die Option/MAXMEM gibt die maximale RAM-Größe an, die vom Betriebssystem verwendet werden kann.            |
+|         /bv          |                     entfernt die/basevideo-Option aus dem angegebenen <OSEntryLineNum>. Die Option/basevideo weist das Betriebssystem an, den standardmäßigen VGA-Modus für den installierten Videotreiber zu verwenden.                     |
+|         /so          |                         entfernt die/SOS-Option aus dem angegebenen <OSEntryLineNum>. Die Option/SOS weist das Betriebssystem an, beim Laden Gerätetreiber Namen anzuzeigen.                          |
+|         /ng          |                         entfernt die/noguiboot-Option aus dem angegebenen <OSEntryLineNum>. Die Option/noguiboot deaktiviert die Statusanzeige, die vor der Eingabeaufforderung von STRG + ALT + ENTF angezeigt wird.                          |
+| /ID <OSEntryLineNum> | Gibt die Betriebssystem-Eintrags Zeilennummer im Abschnitt [Betriebssysteme] der Datei Boot. ini an, aus der die Optionen für das Laden des Betriebssystems entfernt werden. Die erste Zeile nach der Abschnitts Kopfzeile [Betriebssystem] ist 1. |
 |          /?          |                                                                                          Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                          |
 
-## <a name="BKMK_examples"></a>Beispiele für
-Die folgenden Beispiele zeigen Informationen zur Verwendung der **Bootcfg/Rmsw**Befehl:
+## <a name="BKMK_examples"></a>Beispiele
+In den folgenden Beispielen wird gezeigt, wie Sie den Befehl **bootcfg/Rmsw**verwenden können:
 ```
 bootcfg /rmsw /mm 64 /id 2 
 bootcfg /rmsw /so /id 3 
@@ -53,5 +53,5 @@ bootcfg /rmsw /so /ng /s srvmain /u hiropln /id 2
 bootcfg /rmsw /ng /id 2 
 bootcfg /rmsw /mm 96 /ng /s srvmain /u maindom\hiropln /p p@ssW23 /id 2       
 ```
-#### <a name="additional-references"></a>Zusätzliche Referenzen
+#### <a name="additional-references"></a>Weitere Verweise
 [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,8 +1,8 @@
 ---
 title: mmc
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4bdc093bd16ea08153b7dbc4a0e3380251f2ed7d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 1bf9efe257e9e2b6cf20c28c1e6c0cf27230a6bc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437333"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373599"
 ---
 # <a name="mmc"></a>mmc
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Verwenden die Mmc-Befehlszeilenoptionen, können Sie eine bestimmte öffnen **Mmc** -Konsole öffnen **Mmc** im Autorenmodus oder angeben, dass die 32-Bit oder 64-Bit-Version des **Mmc** wird geöffnet.
+Mithilfe der MMC-Befehlszeilenoptionen können Sie eine bestimmte **MMC** -Konsole öffnen, **MMC** im Autoren Modus öffnen oder angeben, dass die 32-Bit-oder 64-Bit-Version von **MMC** geöffnet ist.
 ## <a name="syntax"></a>Syntax
 ```
 mmc <path>\<filename>.msc [/a] [/64] [/32]
@@ -33,17 +33,17 @@ mmc <path>\<filename>.msc [/a] [/64] [/32]
 
 |       Parameter        |                                                                                                 Beschreibung                                                                                                 |
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <path>\\<filename>.msc |        Startet **Mmc** und öffnet eine gespeicherte Konsole. Sie müssen den vollständigen Pfad und Namen für die Datei gespeicherte Konsole angeben. Wenn Sie keine Datei für eine Konsolenanwendung angeben **Mmc** öffnet eine neue Konsole.         |
-|           /a           |                                                               Öffnet eine gespeicherte Konsole im Autorenmodus an.  Verwendet, um gespeicherte Konsolen zu ändern.                                                                |
-|          /64           |                         Öffnet die 64-Bit-Version des **Mmc** (mmc64). Verwenden Sie diese Option nur, wenn Sie ein Microsoft-64-Bit-Betriebssystem ausgeführt werden und ein 64-Bit-Snap-in verwendet werden soll.                          |
-|          /32           | Öffnet die 32-Bit-Version des **Mmc** (mmc32). Bei einem Microsoft-64-Bit-Betriebssystem ausgeführt wird, können Sie die 32-Bit-Snap-ins mit Mmc öffnen, klicken Sie mit dieser Befehlszeilenoption ausführen, wenn Sie nur 32-Bit-Snap-ins verfügen. |
+| <path> @ no__t-1<filename>.msc |        startet die **MMC** und öffnet eine gespeicherte Konsole. Sie müssen den gesamten Pfad und den Dateinamen für die gespeicherte Konsolen Datei angeben. Wenn Sie keine Konsolen Datei angeben, öffnet **MMC** eine neue Konsole.         |
+|           /a           |                                                               Öffnet eine gespeicherte Konsole im Autoren Modus.  Wird zum vornehmen von Änderungen an gespeicherten Konsolen verwendet.                                                                |
+|          /64           |                         Öffnet die 64-Bit-Version von **MMC** (MMC64). Verwenden Sie diese Option nur, wenn Sie ein 64-Bit-Betriebssystem von Microsoft ausführen und ein 64-Bit-Snap-in verwenden möchten.                          |
+|          /32           | Öffnet die 32-Bit-Version von **MMC** (MMC32). Wenn Sie ein Microsoft 64-Bit-Betriebssystem ausführen, können Sie 32-Bit-Snap-Ins ausführen, indem Sie MMC mit dieser Befehlszeilenoption öffnen, wenn Sie über 32-Bit-Snap-Ins verfügen. |
 |           /?           |                                                                                    Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                     |
 
 ## <a name="remarks"></a>Hinweise
-- Mithilfe der <path> **\\** <filename> **.msc** Befehlszeilenoption Sie Umgebungsvariablen verwenden können, erstellen über die Befehlszeilen oder Verknüpfungen, die nicht von den expliziten abhängen Speicherort der Dateien der Konsole. Z. B. der Pfad zur Datei für eine Konsolenanwendung ist im Ordner "System" (z. B. **Mmc c:\winnt\system32\console_name.msc**), können Sie die erweiterbare Zeichenfolge **%SystemRoot%** den Speicherort angeben (**mmc%systemroot%\system32\console_name.msc**). Dies kann nützlich sein, wenn Sie Aufgaben delegieren, um Personen in Ihrer Organisation, die auf verschiedenen Computern arbeiten.
-- Mithilfe der **/a** Befehlszeilenoption bei Konsolen mit dieser Option geöffnet sind, werden sie im Autorenmodus, unabhängig von ihrer Standardmodus geöffnet. Dadurch wird die Einstellung der Modus für Dateien dauerhaft nicht geändert; Wenn Sie diese Option auslassen, die Mmc Konsolendateien gemäß ihrer Einstellungen für die Standard-Modus geöffnet.
-- Nach dem Öffnen **Mmc** oder eine Konsolendatei im Autorenmodus, können Sie alle vorhandenen Konsole öffnen, indem Sie auf **öffnen** auf der **Konsole** Menü.
-- Sie können die Befehlszeile verwenden, zum Erstellen von Verknüpfungen zum Öffnen **Mmc** und Konsolen gespeichert. Befehlszeile arbeitet mit der **ausführen** Befehl die **starten** Menü in jedes Eingabeaufforderungsfenster, in Verknüpfungen oder in jedem Batchdatei oder ein Programm, das den Befehl aufruft.
-  ## <a name="additional-references"></a>Zusätzliche Referenzen
+- Mithilfe der Befehlszeilenoption "<path> **\\** <filename> **. msc** " können Sie-Umgebungsvariablen verwenden, um Befehlszeilen oder Verknüpfungen zu erstellen, die nicht vom expliziten Speicherort von Konsolen Dateien abhängen. Wenn sich beispielsweise der Pfad zu einer Konsolen Datei im Ordner "System" befindet (z. b. **MMC c:\winnt\system32\console_name.msc**), können Sie die erweiterbare Daten Zeichenfolge " **% systemroot%** " verwenden, um den Speicherort anzugeben (**MMC% systemroot% \ System32 \ console_ Name. msc**). Dies kann hilfreich sein, wenn Sie Aufgaben an Personen in Ihrer Organisation delegieren, die auf verschiedenen Computern arbeiten.
+- Wenn Sie die Befehlszeilenoption **/a** verwenden, wenn Konsolen mit dieser Option geöffnet werden, werden Sie unabhängig von ihrem Standardmodus im Autoren Modus geöffnet. Dadurch wird die Standardmoduseinstellung für Dateien nicht dauerhaft geändert. Wenn Sie diese Option weglassen, öffnet MMC Konsolen Dateien entsprechend ihren Standardeinstellungen für den Modus.
+- Nachdem Sie **MMC** oder eine Konsolen Datei im Autoren Modus geöffnet haben, können Sie eine beliebige vorhandene Konsole öffnen, indem Sie im **Konsolen** Menü auf **Öffnen** klicken.
+- Sie können die Befehlszeile verwenden, um Verknüpfungen zum Öffnen von **MMC** und gespeicherten Konsolen zu erstellen. Ein Befehlszeilen Befehl funktioniert mit dem Befehl **Ausführen** im **Startmenü** , in einem Eingabe Aufforderungs Fenster, in Verknüpfungen oder in einer beliebigen Batchdatei oder einem beliebigen Programm, das bzw. das den Befehl aufruft.
+  ## <a name="additional-references"></a>Weitere Verweise
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

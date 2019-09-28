@@ -1,8 +1,8 @@
 ---
-title: Dfsdiag TestDFSIntegrity
-description: 'Windows-Befehle Thema ***- '
+title: Dfsdiag testdfsintegrity
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,24 +13,24 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9a79e034f7c60be89266eb29dcd69e8f73b2aafe
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7f344e2d1fecc542efc39688f20165fd3e39a04a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837091"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378427"
 ---
-# <a name="dfsdiag-testdfsintegrity"></a>Dfsdiag TestDFSIntegrity
+# <a name="dfsdiag-testdfsintegrity"></a>Dfsdiag testdfsintegrity
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Überprüft die Integrität des verteilten Dateisystems \(DFS\) Namespace fest, indem Sie die folgenden Tests ausführen:  
+Überprüft die Integrität des verteiltes Dateisystem \(dfs @ no__t-1-Namespace, indem die folgenden Tests durchgeführt werden:  
   
--   Prüft auf DFS-mit den Tabellenmetadaten beschädigt oder Inkonsistenzen zwischen Domänencontrollern.  
+-   Sucht nach DFS-metadatenbeschädigungen  
   
--   Überprüft die Konfiguration der Zugriff\-basierend-Enumeration, um sicherzustellen, dass es DFS-Metadaten und die Namespace-Serverfreigabe konsistent ist.  
+-   Überprüft die Konfiguration der Access @ no__t-0based-Enumeration, um sicherzustellen, dass Sie zwischen den DFS-Metadaten und der Namespace-Server Freigabe konsistent ist.  
   
--   Überlappende DFS-Ordnern erkennt \(Links\), doppelte sowie Ordner mit sich überschneidenden Ordnerziele.  
+-   Erkennt überlappende DFS-Ordner \(links @ no__t-1, doppelte Ordner und Ordner mit überlappenden Ordner Zielen.  
   
   
   
@@ -44,21 +44,21 @@ dfsdiag /TestDFSIntegrity /DFSRoot:<DFS root path> [/Recurse] [/Full]
   
 |Parameter|Beschreibung|  
 |-------|--------|  
-|\/DFSRoot:<DFS root path>|Der DFS-Namespace zu diagnostizieren.|  
-|\/Recurse|Führt die Tests, einschließlich, die der Namespace-interlinks.|  
-|\/Vollständige|überprüft die Konsistenz der Freigabe- und NTFS-Acls und Client-Seite-Konfiguration auf alle Ordnerziele an. Es wird geprüft, die online-Eigenschaft festgelegt ist.|  
+|\/dfsroot: <DFS root path>|Der zu diagnostizieren DFS-Namespace.|  
+|\/recurse|Führt die Tests einschließlich der Namespace-Interlinks aus.|  
+|\/full|überprüft die Konsistenz von Freigabe-und NTFS-ACLs und Client seitiger Konfiguration für alle Ordner Ziele. Außerdem wird überprüft, ob die Online-Eigenschaft festgelegt ist.|  
   
-## <a name="BKMK_Examples"></a>Beispiele für  
-Geben Sie um noch festzulegen ein:  
+## <a name="BKMK_Examples"></a>Beispiele  
+Geben Sie in TBD Folgendes ein:  
   
 ```  
 dfsdiag /TestDFSIntegrity /DFSRoot:\\Contoso.com\MyNamespace /Recurse /Full  
 ```  
   
-## <a name="additional-references"></a>Zusätzliche Referenzen  
+## <a name="additional-references"></a>Weitere Verweise  
   
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
--   [dfsdiag](dfsdiag.md)  
+-   [Dfsdiag](dfsdiag.md)  
   
 

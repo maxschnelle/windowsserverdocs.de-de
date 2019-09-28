@@ -2,18 +2,18 @@
 title: Hinzufügen von Namespaceserver zu einem domänenbasierten DFS-Namespace
 description: Dieser Artikel beschreibt, wie Sie zusätzliche Namespaceserver zum Hosten eines Namespaces mit DFS-Verwaltung angeben.
 ms.date: 6/5/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 03b6920e75ba3c51f1d181cfd41887fef39b7412
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.openlocfilehash: fa28ec06448b67724ce8e3f29894fc70f6a6dae9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546322"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386248"
 ---
 # <a name="add-namespace-servers-to-a-domain-based-dfs-namespace"></a>Hinzufügen von Namespaceserver zu einem domänenbasierten DFS-Namespace
 

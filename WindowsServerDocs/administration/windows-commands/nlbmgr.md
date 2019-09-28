@@ -1,8 +1,8 @@
 ---
 title: nlbmgr
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 757b218ad3a88cc10c4d1bcfed15a83bfd34cc74
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 2843e303b296beca24132b62073b6776a343544b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437033"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373160"
 ---
 # <a name="nlbmgr"></a>nlbmgr
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Verwenden den Netzwerklastenausgleich-Manager, können Sie konfigurieren und verwalten Sie Ihre Netzwerklastenausgleich-Cluster und alle Hosts im Cluster von einem einzelnen Computer, und Sie können auch die Clusterkonfiguration zu anderen Hosts replizieren. Sie können den Netzwerklastenausgleich-Manager starten, über die Befehlszeile mithilfe des Befehls **nlbmgr.exe**, das installiert wird, der **systemroot\System32** Ordner.
+Mithilfe des Netzwerk Lastenausgleich-Managers können Sie die Netzwerk Lastenausgleichs-Cluster und alle Cluster Hosts von einem einzelnen Computer aus konfigurieren und verwalten. Außerdem können Sie die Cluster Konfiguration auf andere Hosts replizieren. Sie können den Netzwerk Lastenausgleich-Manager über die Befehlszeile starten, indem Sie den Befehl " **nlbmgr. exe**" verwenden, der im Ordner " **systemroot\system32** " installiert ist.
 ## <a name="syntax"></a>Syntax
 ```
 nlbmgr [/help] [/noping] [/hostlist <filename>] [/autorefresh <interval>]
@@ -34,11 +34,11 @@ nlbmgr [/help] [/noping] [/hostlist <filename>] [/autorefresh <interval>]
 |        Parameter        |                                                                                                                                                                                                Beschreibung                                                                                                                                                                                                |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |          /help          |                                                                                                                                                                                   Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                                                    |
-|         / noping         | Verhindert, dass ein Netzwerklastenausgleich-Manager Pingen die Hosts vor dem Versuch, sie wenden Sie sich über die Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI) an. Verwenden Sie diese Option, wenn Sie Internet Control Message Protocol (ICMP) auf alle verfügbaren Netzwerkadapter deaktiviert haben. Wenn Sie den Netzwerklastenausgleich-Manager versucht, einen Host zu kontaktieren, der nicht verfügbar ist, wird eine Verzögerung bei Verwendung dieser Option. |
-|  /hostlist <filename>   |                                                                                                                                                                Lädt die Hosts in Netzwerklastenausgleich-Manager in Filename angegeben.                                                                                                                                                                 |
-| / AutoRefresh <interval> |                                                                                                          Netzwerklastenausgleich-Manager die Host- und Clusterebene Informationen aktualisieren, führt dazu, dass jede <interval> Sekunden. Wenn kein Intervall angegeben wird, werden die Informationen alle 60 Sekunden aktualisiert.                                                                                                          |
+|         /noping         | Verhindert, dass der Netzwerk Lastenausgleich-Manager die Hosts anheftet, bevor versucht wird, Sie über Windows-Verwaltungsinstrumentation (WMI) zu kontaktieren. Verwenden Sie diese Option, wenn Sie das Internet Control Message-Protokoll (ICMP) auf allen verfügbaren Netzwerkadaptern deaktiviert haben. Wenn der Netzwerk Lastenausgleich-Manager versucht, einen Host zu kontaktieren, der nicht verfügbar ist, tritt bei der Verwendung dieser Option eine Verzögerung auf. |
+|  /hostlist <filename>   |                                                                                                                                                                Lädt die in filename angegebenen Hosts in den Netzwerk Lastenausgleich-Manager.                                                                                                                                                                 |
+| /AutoRefresh <interval> |                                                                                                          Bewirkt, dass der Netzwerk Lastenausgleich-Manager die Host-und Cluster Informationen alle <interval> Sekunden aktualisiert. Wenn kein Intervall angegeben wird, werden die Informationen alle 60 Sekunden aktualisiert.                                                                                                          |
 |           /?            |                                                                                                                                                                                   Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                                                    |
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 -   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

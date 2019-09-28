@@ -1,8 +1,8 @@
 ---
 title: chkdsk
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,25 +13,25 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: lizapo
 ms.date: 10/16/2017
-ms.openlocfilehash: ed9693749cb07c76c3c845844f3556e07a39f009
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: fac941a0ad5638fafa86d31a9af1cce1cc475823
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811305"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379439"
 ---
 # <a name="chkdsk"></a>chkdsk
 
-Überprüft das Dateisystem und die Metadaten des Dateisystems eines Volumes für die logischen und physischen Fehler. Wenn Sie ohne Angabe von Parametern **Chkdsk** zeigt nur den Status des Volumes und keine Fehler behoben. Bei Verwendung mit der **/f**, **/r**, **/x**, oder **/b** Parameter dabei korrigiert, Fehler auf dem Volume.
+Überprüft das Dateisystem und die Dateisystem Metadaten eines Volumes auf logische und physische Fehler. Bei Verwendung ohne Parameter zeigt **chkdsk** nur den Status des Volumes an, und es werden keine Fehler behoben. Bei Verwendung mit den Parametern **/f**, **/r**, **/x**oder **/b** werden Fehler auf dem Volume behoben.
 
 > [!IMPORTANT]
-> Mitgliedschaft in der lokalen **Administratoren** oder einer gleichwertigen Gruppe, ist die mindestvoraussetzung zum Ausführen **Chkdsk**. Öffnen ein Eingabeaufforderungsfenster als Administrator, mit der Maustaste **Eingabeaufforderung** im Menü "Start", und klicken Sie dann auf **als Administrator ausführen**.
+> Sie müssen mindestens Mitglied der lokalen Gruppe **Administratoren** oder einer entsprechenden Gruppe sein, um **chkdsk**ausführen zu können. Um ein Eingabe Aufforderungs Fenster als Administrator zu öffnen, klicken Sie im Startmenü mit der rechten Maustaste auf **Eingabeaufforderung** , und klicken Sie dann auf **als Administrator ausführen**.
 
 > [!IMPORTANT]
-> Unterbrechen **Chkdsk** wird nicht empfohlen. Jedoch abgebrochen oder unterbrochen **Chkdsk** sollte nicht verlassen des Volumes mehr beschädigt, als vorher **Chkdsk** ausgeführt wurde. Erneutes Ausführen **Chkdsk** überprüft und repariert die verbleibenden Beschädigungen auf dem Volume.
+> Das Unterbrechen von **chkdsk** wird nicht empfohlen. Das Abbrechen oder Unterbrechen von **chkdsk** sollte das Volume jedoch nicht vor dem Ausführen von **chkdsk** beschädigen. Durch erneutes Ausführen von **chkdsk** werden alle verbleibenden Beschädigungen auf dem Volume überprüft und repariert.
 
 > [!IMPORTANT]
-> **Hinweis**: CHKDSK kann nur für lokale Datenträger verwendet werden. Der Befehl kann nicht mit einem lokalen Laufwerkbuchstaben verwendet werden, das über das Netzwerk umgeleitet wurde.
+> **Hinweis**: CHKDSK kann nur für lokale Datenträger verwendet werden. Der Befehl kann nicht mit einem lokalen Laufwerk Buchstaben verwendet werden, der über das Netzwerk umgeleitet wurde.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#examples).
 
@@ -45,98 +45,98 @@ chkdsk [<Volume>[[<Path>]<FileName>]] [/f] [/v] [/r] [/x] [/i] [/c] [/l[:<Size>]
 
 |      Parameter      |                                                                                                                      Beschreibung                                                                                                                       |
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|      \<Volume >      |                                                                                     Gibt den Laufwerkbuchstaben (gefolgt von einem Doppelpunkt), Bereitstellungspunkt oder Name des Volumes.                                                                                     |
-| [\<Pfad >]<FileName> | Mithilfe der Dateizuordnungstabelle (FAT)- und FAT32 nur. Gibt den Speicherort und Namen einer Datei oder den Satz von Dateien, die Sie möchten **Chkdsk** für die Fragmentierung überprüfen. Sie können die **?** und **&#42;** Platzhalterzeichen, um mehrere Dateien anzugeben. |
-|         /f          |                             Behebt Fehler auf dem Datenträger. Der Datenträger muss gesperrt werden. Wenn **Chkdsk** kann keine Sperre, die das Laufwerk, eine Meldung angezeigt wird, mit der Frage, ob das Laufwerk den nächsten überprüfen möchten Mal, wenn Sie den Computer neu starten.                             |
-|         /v          |                                                                                       Zeigt den Namen der einzelnen Dateien in jedem Verzeichnis an, wie der Datenträger ist aktiviert.                                                                                        |
-|         /r          |                                   Sucht nach fehlerhaften Sektoren und lesbare Informationen wiederhergestellt. Der Datenträger muss gesperrt werden. **/ r** enthält die Funktionalität eines **/f**, bei der weiteren Analyse der physische Datenträgerfehlern.                                   |
-|         /x          |                                                  Erzwingt, dass das Volume, Aufheben der Bereitstellung ggf. Alle geöffneten Handles, auf dem Laufwerk werden ungültig. **/ x** enthält auch die Funktionalität von **/f**.                                                   |
-|         /i          |                                                           Nur mit NTFS verwenden. Führt eine weniger strenge Überprüfung von Indexeinträgen, dadurch die Zeitspanne, die zum Ausführen von erforderlich **Chkdsk**.                                                            |
-|         /c          |                                                          Nur mit NTFS verwenden. Überprüft nicht, dass Zyklen in der Ordnerstruktur, die Zeitspanne, die zum Ausführen von erforderlich dadurch **Chkdsk**.                                                           |
-|    / l [:\<Größe >]     |                                                         Nur mit NTFS verwenden. Ändert die Größe der Protokolldatei die Größe, die Sie eingeben. Wenn Sie die Größenparameter weglassen, **/l** zeigt die aktuelle Größe an.                                                          |
-|         /b          |           Nur NTFS: Löscht die Liste der fehlerhafte Cluster auf dem Volume und neu eingelesen, und alle zugeordneten und freien Cluster auf Fehler. **/ b** enthält die Funktionalität eines **/r**. Verwenden Sie diesen Parameter, nachdem ein Volume auf einer neuen Festplatte imaging.            |
+|      \<volume >      |                                                                                     Gibt den Laufwerk Buchstaben (gefolgt von einem Doppelpunkt), einen Einfügepunkt oder einen Volumenamen an.                                                                                     |
+| [\<path >] <FileName> | Verwenden Sie nur mit der Datei Zuordnungs Tabelle (FAT) und FAT32. Gibt den Speicherort und den Namen einer Datei oder einer Gruppe von Dateien an, die von **chkdsk** auf Fragmentierung überprüft werden soll. Sie können den **?** und **&#42;** Platzhalter Zeichen zum Angeben mehrerer Dateien. |
+|         /f          |                             Korrigiert Fehler auf dem Datenträger. Der Datenträger muss gesperrt sein. Wenn **chkdsk** das Laufwerk nicht sperren kann, wird eine Meldung angezeigt, in der Sie gefragt werden, ob Sie das Laufwerk beim nächsten Neustart des Computers überprüfen möchten.                             |
+|         /v          |                                                                                       Zeigt den Namen der einzelnen Dateien in jedem Verzeichnis an, während der Datenträger aktiviert ist.                                                                                        |
+|         /r          |                                   Gibt fehlerhafte Sektoren an und stellt lesbare Informationen wieder her. Der Datenträger muss gesperrt sein. **/r** enthält die Funktionalität von **/f**mit der zusätzlichen Analyse von Fehlern bei physischen Datenträgern.                                   |
+|         /x          |                                                  Erzwingt, dass das Volume bei Bedarf zuerst entfernt wird. Alle geöffneten Handles für das Laufwerk werden für ungültig erklärt. **/x** umfasst auch die Funktionalität von **/f**.                                                   |
+|         /i          |                                                           Nur mit NTFS verwenden. Führt eine weniger kräftige Überprüfung der Indexeinträge durch, wodurch die für das Ausführen von **chkdsk**erforderliche Zeit reduziert wird.                                                            |
+|         /c          |                                                          Nur mit NTFS verwenden. Überprüft keine Zyklen innerhalb der Ordnerstruktur, wodurch die für das Ausführen von **chkdsk**erforderliche Zeit reduziert wird.                                                           |
+|    /l [: \<size >]     |                                                         Nur mit NTFS verwenden. Ändert die Größe der Protokolldatei in die Größe, die Sie eingeben. Wenn Sie den size-Parameter weglassen, wird von **/l** die aktuelle Größe angezeigt.                                                          |
+|         /b          |           Nur NTFS: Löscht die Liste der fehlerhaften Cluster auf dem Volume und stellt für Fehler alle zugeordneten und freien Cluster wieder her. **/b** schließt die Funktionalität von **/r**ein. Verwenden Sie diesen Parameter, nachdem Sie ein Volume auf einem neuen Festplattenlaufwerk Abbild gespeichert haben.            |
 |         /?          |                                                                                                          Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                          |
 
 ## <a name="remarks"></a>Hinweise
 
-- Das Überspringen Volume-Überprüfungen
+- Volumeüberprüfungen werden übersprungen
 
-  Die **/i** oder **/c** Switch reduziert den Zeitaufwand für die auszuführende **Chkdsk** durch Überspringen von bestimmten Volumen überprüft.
-- Überprüfen beim Neustart ein gesperrtes Laufwerk
+  Der Schalter **/i** oder **/c** reduziert die Zeit, die zum Ausführen von **chkdsk** erforderlich ist, indem bestimmte volumeüberprüfungen übersprungen werden.
+- Überprüfen eines gesperrten Laufwerks beim Neustart
 
-  Wenn Sie möchten **Chkdsk** zum Beheben von Datenträgerfehlern keine geöffneten Dateien auf dem Laufwerk. Wenn Dateien geöffnet sind, wird die folgende Fehlermeldung angezeigt:
+  Wenn **chkdsk** Datenträger Fehler korrigieren soll, können Dateien nicht auf dem Laufwerk geöffnet werden. Wenn Dateien geöffnet sind, wird die folgende Fehlermeldung angezeigt:
 
   ```
   Chkdsk cannot run because the volume is in use by another process. Would you like to schedule this volume to be checked the next time the system restarts? (Y/N)  
   ``` 
 
-  Wenn Sie das Laufwerk, das nächste Mal prüfen Sie den Computer neu starten möchten **Chkdsk** wird das Laufwerk überprüft und korrigiert Fehler automatisch an, wenn Sie den Computer neu starten. Die Laufwerkpartition ist eine Startpartition **Chkdsk** automatisch startet den Computer neu, nachdem sie überprüft, das Laufwerk ob.
+  Wenn Sie das Laufwerk beim nächsten Neustart des Computers überprüfen, wird das Laufwerk von **chkdsk** überprüft und Fehler automatisch korrigiert, wenn Sie den Computer neu starten. Wenn die Laufwerks Partition eine Start Partition ist, startet **chkdsk** den Computer automatisch neu, nachdem er das Laufwerk überprüft hat.
 
-  Sie können auch die **Chkntfs/c** Befehl aus, um das Volume das nächste Mal überprüft werden der Computer neu gestartet wird. Verwenden der **Fsutil modifizierte Satz** Befehl aus, um das Volume festzulegen (eine Beschädigung hinweist), damit diese Windows ausgeführt wird dirty bit des **Chkdsk** beim Neustart des Computers.
-- Erstellen von Fehlerberichten von Datenträger
+  Sie können auch den Befehl **chkntfs/c** verwenden, um das Volume zu planen, das beim nächsten Neustart des Computers geprüft werden soll. Verwenden Sie den Befehl **fsutil dirty Set** , um das geänderte Bit des Volumes festzulegen (was auf Beschädigung hinweist), damit Windows **chkdsk** ausführt, wenn der Computer neu gestartet wird.
+- Melden von Datenträger Fehlern
 
-  Verwenden Sie **Chkdsk** gelegentlich auf FAT- und NTFS-Dateisysteme auf Fehler überprüfen. **CHKDSK** untersucht werden, Speicherplatz auf dem Datenträger und Datenträger, und einen Statusbericht, der spezifisch für jeden Dateisystem bietet. Der Statusbericht zeigt Fehler, die im Dateisystem gefunden. Wenn das Ausführen **Chkdsk** ohne die **/f** Parameter werden möglicherweise auf eine aktive Partition, falsche Fehler gemeldet, da es das Laufwerk kann nicht gesperrt werden.
-- Beheben von Fehlern des logischen Datenträgers
+  Sie sollten **chkdsk** gelegentlich auf FAT-und NTFS-Dateisystemen verwenden, um nach Datenträger Fehlern zu suchen. **Chkdsk** untersucht den Festplatten Speicherplatz und die Datenträger Verwendung und stellt einen für jedes Dateisystem spezifischen Statusbericht bereit. Der Statusbericht zeigt Fehler an, die im Dateisystem gefunden wurden. Wenn Sie **chkdsk** ohne den **/f** -Parameter auf einer aktiven Partition ausführen, werden möglicherweise falsche Fehler gemeldet, da das Laufwerk nicht gesperrt werden kann.
+- Beheben logischer Datenträger Fehler
 
-  **CHKDSK** logischer Fehler korrigiert, nur dann, wenn Sie angeben, die **/f** Parameter. **CHKDSK** muss in der Lage, Sperren das Laufwerk aus, um Fehler zu beheben.
+  **Chkdsk** korrigiert logische Datenträger Fehler nur, wenn Sie den **/f** -Parameter angeben. **Chkdsk** muss in der Lage sein, das Laufwerk zu sperren, um Fehler zu beheben.
 
-  Da Reparaturen auf FAT-Dateisystemen Dateizuordnungstabelle des Datenträgers in der Regel ändern und in einigen Fällen ein Verlust von Daten wird, **Chkdsk** möglicherweise eine bestätigungsmeldung ähnlich der folgenden angezeigt:
+  Da Reparaturen auf FAT-Dateisystemen in der Regel die Datei Zuordnungs Tabelle eines Datenträgers ändern und manchmal zu einem Datenverlust führen, zeigt **chkdsk** möglicherweise eine Bestätigungsmeldung ähnlich der folgenden an:
 
   ```
   10 lost allocation units found in 3 chains.  
   Convert lost chains to files?  
   ``` 
 
-  Wenn Sie drücken **Y**, Windows speichert jede verlorene Kette im Stammverzeichnis befindet, als eine Datei mit einem Namen im Format Datei\<Nnnn > chk. Wenn **Chkdsk** abgeschlossen ist, können Sie diese Dateien, um festzustellen, ob sie Daten enthalten, Sie müssen, überprüfen. Wenn Sie drücken **N**, Windows korrigiert den Datenträger, aber nicht den Inhalt der verlorenen Zuordnungseinheiten gespeichert.
+  Wenn Sie **Y**drücken, speichert Windows jede verlorene Kette im Stammverzeichnis als Datei mit einem Namen im Format file @ no__t-1nnnn >. chk. Wenn **chkdsk** abgeschlossen ist, können Sie diese Dateien überprüfen, um festzustellen, ob Sie Daten enthalten, die Sie benötigen. Wenn Sie " **N**" drücken, wird der Datenträger von Windows korrigiert, aber der Inhalt der verlorenen Zuordnungs Einheiten wird nicht gespeichert.
 
-  Wenn Sie nicht verwenden, die **/f** Parameter **Chkdsk** zeigt eine Meldung, dass die Datei muss korrigiert werden, aber keine Fehler behoben.
+  Wenn Sie den **/f** -Parameter nicht verwenden, zeigt **chkdsk** eine Meldung an, dass die Datei korrigiert werden muss, aber keine Fehler behoben werden.
 
-  Bei Verwendung von **Chkdsk/f** auf einer sehr großen Festplatte oder einen Datenträger mit einer sehr großen Anzahl von Dateien (z. B. Millionen von Dateien), **Chkdsk/f** möglicherweise eine viel Zeit in Anspruch nehmen.
+  Wenn Sie **chkdsk/f** auf einem sehr großen Datenträger oder einem Datenträger mit einer sehr großen Anzahl von Dateien (z. b. Millionen von Dateien) verwenden, kann die Ausführung von **chkdsk/f** viel Zeit in Anspruch nehmen.
 
-- Suchen von Fehlern der physischen Datenträger
+- Auffinden physischer Datenträger Fehler
 
-  Verwenden der **/r** Parameter, um physische Datenträgerfehlern im Dateisystem zu finden, und versuchen Sie beim Wiederherstellen von Daten aus allen betroffenen Datenträgersektoren.
+  Verwenden Sie den **/r** -Parameter, um im Dateisystem nach physischen Datenträger Fehlern zu suchen, und versuchen Sie, Daten aus betroffenen Datenträger Sektoren wiederherzustellen.
 
-- Mithilfe von **Chkdsk** mit geöffneten Dateien
+- Verwenden von **chkdsk** mit geöffneten Dateien
 
-  Bei Angabe der **/f** Parameter **Chkdsk** wird eine Fehlermeldung angezeigt, wenn geöffnete Dateien auf dem Datenträger vorhanden sind. Wenn Sie keinen angeben der **/f** Parameter und geöffneten Dateien vorhanden sind, **Chkdsk** möglicherweise verloren Zuordnungseinheiten gemeldet, auf dem Datenträger. Dies kann passieren, wenn der geöffneten Dateien noch nicht in der Dateizuordnungstabelle aufgezeichnet wurden. Wenn **Chkdsk** meldet den Verlust einer großen Anzahl der Zuordnungseinheiten, sollten Sie den Datenträger reparieren.
+  Wenn Sie den **/f** -Parameter angeben, zeigt **chkdsk** eine Fehlermeldung an, wenn auf dem Datenträger geöffnete Dateien vorhanden sind. Wenn Sie den **/f** -Parameter nicht angeben und geöffnete Dateien vorhanden sind, meldet **chkdsk** möglicherweise verlorene Zuordnungs Einheiten auf dem Datenträger. Dies kann vorkommen, wenn geöffnete Dateien noch nicht in der Datei Zuordnungs Tabelle aufgezeichnet wurden. Wenn **chkdsk** den Verlust einer großen Anzahl von Zuordnungs Einheiten meldet, sollten Sie den Datenträger reparieren.
 
-- Mithilfe von **Chkdsk** mit Schattenkopien für freigegebene Ordner
+- Verwenden von **chkdsk** mit Schattenkopien für freigegebene Ordner
 
-  Da Schattenkopien für freigegebene Ordner Quellvolume nicht beim Schattenkopien gesperrt werden können, für freigegebene Ordner aktiviert ist, ausgeführt **Chkdsk** Volume kann für die Quelle "false" Fehler melden oder dazu führen, dass **Chkdsk** unerwartet beendet. Sehen Sie sich, jedoch Schattenkopien auf Fehler mit **Chkdsk** im schreibgeschützten Modus (ohne Parameter), überprüfen Sie die Schattenkopien für freigegebene Ordner Speichervolume.
+  Da das Schattenkopien für freigegebene Ordner Quell Volume nicht gesperrt werden kann, während Schattenkopien für freigegebene Ordner aktiviert ist, kann das Ausführen von **chkdsk** für das Quell Volume falsche Fehler melden oder bewirken, dass **chkdsk** unerwartet beendet wird. Sie können jedoch Schatten Kopien auf Fehler überprüfen, indem Sie **chkdsk** im schreibgeschützten Modus (ohne Parameter) ausführen, um das Schattenkopien für freigegebene Ordner Speicher Volume zu überprüfen.
 
-- Exitcodes verstehen
+- Informationen zu Beendigungs Codes
 
-  Die folgende Tabelle enthält die Exitcodes **Chkdsk** meldet, nachdem er abgeschlossen wurde.  
+  In der folgenden Tabelle sind die Exitcodes aufgeführt, die von **chkdsk** berichtet werden, nachdem Sie abgeschlossen wurden.  
 
   | Exitcode |                                                   Beschreibung                                                    |
   |-----------|------------------------------------------------------------------------------------------------------------------|
   |     0     |                                              Es wurden keine Fehler gefunden.                                               |
-  |     1     |                                           Fehler wurden gefunden und behoben.                                           |
-  |     2     | Datenträgerbereinigung (z. B. Garbagecollection vorhandene) durchgeführt oder kein Cleanup ausgeführt, da **/f** wurde nicht angegeben. |
-  |     3     | Der Datenträger konnte nicht überprüft werden Fehler nicht behoben werden konnten, oder Fehler wurden nicht behoben werden, da **/f** wurde nicht angegeben.  |
+  |     1     |                                           Fehler wurden gefunden und korrigiert.                                           |
+  |     2     | Die Datenträger Bereinigung (z. b. Garbage Collection) wurde ausgeführt oder keine Bereinigung durchgeführt, da **/f** nicht angegeben wurde. |
+  |     3     | Der Datenträger konnte nicht überprüft werden, Fehler konnten nicht korrigiert werden, oder Fehler wurden nicht korrigiert, weil **/f** nicht angegeben wurde.  |
 
 
-- Die **Chkdsk** -Befehl, mit verschiedenen Parametern finden Sie in der Wiederherstellungskonsole.
-- Auf Servern, die nur selten neu gestartet werden, sollten Sie verwenden die **Chkntfs** oder **modifizierte Fsutil-Abfrage** Befehle aus, um zu bestimmen, ob das Volume geändert ist. ist bereits Bit, die vor dem Ausführen von Chkdsk festgelegt.
+- Der **chkdsk** -Befehl mit unterschiedlichen Parametern ist über die Wiederherstellungskonsole verfügbar.
+- Auf Servern, die selten neu gestartet werden, sollten Sie den **chkntfs** -oder den **fsutil-Abfrage** Befehl "Dirty" verwenden, um zu bestimmen, ob das geänderte Bit des Volumes bereits vor dem Ausführen von CHKDSK festgelegt ist.
 
 ## <a name="examples"></a>Beispiele
 
-Wenn Sie möchten, überprüfen Sie die Diskette in Laufwerk D und Windows-Fehler zu beheben, geben Sie ein:
+Wenn Sie den Datenträger in Laufwerk D überprüfen und Windows-Fehler beheben möchten, geben Sie Folgendes ein:
 
 ```
 chkdsk d: /f  
 ```
 
-Wenn sie Fehler auftreten, **Chkdsk** angehalten wird, und zeigt Meldungen an. **CHKDSK** endet mit dem Anzeigen eines Berichts, der den Status des Datenträgers auflistet. Sie können nicht geöffnet werden alle Dateien auf dem angegebenen Laufwerk bis **Chkdsk** abgeschlossen ist.
+Wenn Fehler auftreten, hält **chkdsk** eine Pause an und zeigt Nachrichten an. **Chkdsk** wird beendet, indem ein Bericht angezeigt wird, der den Status des Datenträgers auflistet. Sie können erst dann Dateien auf dem angegebenen Laufwerk öffnen, wenn **chkdsk** abgeschlossen ist.
 
-Um alle Dateien auf einem FAT-Datenträger im aktuellen Verzeichnis für nicht zusammenhängende zu überprüfen, geben Sie Folgendes ein:
+Wenn Sie alle Dateien auf einem FAT-Datenträger im aktuellen Verzeichnis für nicht zusammenhängende Blöcke überprüfen möchten, geben Sie Folgendes ein:
 
 ```
 chkdsk *.*  
 ```
 
-**CHKDSK** zeigt einen Statusbericht an und zeigt dann die Dateien, die die Dateispezifikationen zu entsprechen, die nicht zusammenhängende aufweisen.
+**Chkdsk** zeigt einen Statusbericht an und listet die Dateien auf, die mit den Datei Spezifikationen identisch sind, die nicht zusammenhängend sind.
 #### <a name="additional-references"></a>Weitere Verweise
 
 [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

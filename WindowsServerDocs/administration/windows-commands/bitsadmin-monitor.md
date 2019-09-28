@@ -1,8 +1,8 @@
 ---
 title: bitsadmin überwachen
-description: Windows-Befehle Thema **Bitsadmin Monitor** -überwacht die Aufträge in der Übertragungswarteschlange, die der aktuelle Benutzer besitzt.
+description: 'Windows-Befehls Thema für den **bitadmin-Monitor** : überwacht Aufträge in der Übertragungs Warteschlange, die der aktuelle Benutzer besitzt.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2c4620d5c8e46cb8bfcb6b9c83261d57781abea5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fe4963349c7e17fc77500b5adfceafc48a20ac5f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814591"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381217"
 ---
 # <a name="bitsadmin-monitor"></a>bitsadmin überwachen
 
 
 
-Überwacht die Aufträge in der Übertragungswarteschlange, die der aktuelle Benutzer besitzt.
+Überwacht Aufträge in der Übertragungs Warteschlange, die der aktuelle Benutzer besitzt.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,22 +36,22 @@ bitsadmin /Monitor [/allusers] [/refresh <Seconds>]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|ALLUSERS|Optional – überwacht die Aufträge für alle Benutzer.|
-|Aktualisieren|Optional – aktualisiert die Daten in einem Intervall von angegebenen *Sekunden*. Das standardmäßige Aktualisierungsintervall beträgt fünf Sekunden.|
+|ALLUSERS|Optional – überwacht Aufträge für alle Benutzer.|
+|Aktualisieren|Optional – aktualisiert die Daten in einem durch *Sekunden*angegebenen Intervall. Das Standard Aktualisierungs Intervall beträgt 5 Sekunden.|
 
 ## <a name="remarks"></a>Hinweise
 
-Sie benötigen Administratorrechte, um Sie verwenden die **Allusers** Parameter.
+Sie müssen über Administratorrechte verfügen, um den **ALLUSERS** -Parameter zu verwenden.
 
-Verwenden Sie STRG + C, um die Aktualisierung zu beenden.
+Verwenden Sie STRG + C, um die Aktualisierung zu unterbinden.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Im folgenden Beispiel wird die Übertragungswarteschlange für Aufträge im Besitz des aktuellen Benutzers überwacht und aktualisiert die Informationen, alle 60 Sekunden.
+Im folgenden Beispiel wird die Übertragungs Warteschlange für Aufträge überwacht, die im Besitz des aktuellen Benutzers sind, und die Informationen werden alle 60 Sekunden aktualisiert.
 ```
 C:\>bitsadmin /Monitor /refesh 60
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

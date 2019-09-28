@@ -1,27 +1,27 @@
 ---
-title: Konfigurieren von AD FS gesperrt, IP-Adressen
+title: Konfigurieren AD FS gesperrten IP-Adressen
 description: ''
 author: billmath
 ms.author: billmath
 manager: mtillman
 ms.date: 06/28/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 01ef992554a1e0961d8d795e9baa7730a1a1d682
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 2b518f92f80d06e4bd0854fde94013a412aae515
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189891"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407718"
 ---
-# <a name="ad-fs-and-banned-ip-addresses"></a>AD FS und gesperrten IP-Adressen
+# <a name="ad-fs-and-banned-ip-addresses"></a>AD FS und verbotene IP-Adressen
 
 
-Im Juni 2018 AD FS unter Windows Server 2016 eingeführt **gesperrte** Juni 2018 mit der AD FS zu aktualisieren.  Dieses Update können Sie einen Satz von IP-Adressen Global in AD FS zu konfigurieren, damit Anforderungen von diesen IP-Adressen, oder dass die IP-Adressen haben, in der **X-forwarded-for** oder **X-ms-forwarded-Client-IP-** -Header von AD FS blockiert werden.
+Im Juni 2018 führte AD FS unter Windows Server 2016 die **gesperrten IPS** mit dem Update von AD FS Juni 2018 ein.  Mit diesem Update können Sie einen Satz von IP-Adressen Global in AD FS konfigurieren, sodass Anforderungen, die von diesen IP-Adressen stammen oder die diese IP-Adressen in den Header **x-weitergeleitet-für** oder **x-ms-weitergeleitete Client-IP** aufweisen, durch AD FS blockiert werden.
 
-## <a name="adding-banned-ips"></a>Hinzufügen von IP-Adressen gesperrt
-Um gesperrte IP-Adressen auf die globale Liste hinzuzufügen, verwenden die folgenden Powershell-Cmdlet:
+## <a name="adding-banned-ips"></a>Hinzufügen von gesperrten IPS
+Verwenden Sie das folgende PowerShell-Cmdlet, um der globalen Liste verbotene IPS hinzuzufügen:
 
 ``` powershell
 PS C:\ >Set-AdfsProperties -AddBannedIps "1.2.3.4", "::3", "1.2.3.4/16"
@@ -31,19 +31,19 @@ Zulässige Formate
 
 1.  IPv4
 2.  IPv6
-3.  CIDR-Format mit IPv4- oder IPv6
+3.  CIDR-Format mit IPv4 oder V6
 
-Es sind maximal 300 Einträge für gesperrten IP-Adressen ein. Sie können CIDR oder Bereich-Format verwenden, zum Verweigern von eines großen Blocks von Einträgen mit einem einzelnen Eintrag.
+Es gibt ein Limit von 300 Einträgen für gesperrte IP-Adressen. Sie können CIDR oder das Bereichs Format verwenden, um einen großen Block von Einträgen mit einem einzigen Eintrag zu verweigern.
 
-## <a name="removing-banned-ips"></a>Entfernen von IP-Adressen gesperrt
-Um gesperrte IP-Adressen aus der globalen Liste zu entfernen, verwenden Sie die folgenden Powershell-Cmdlet:
+## <a name="removing-banned-ips"></a>Entfernen von gesperrten IPS
+Verwenden Sie das folgende PowerShell-Cmdlet, um die gesperrten IPS aus der globalen Liste zu entfernen:
 
 ``` powershell
 PS C:\ >Set-AdfsProperties -RemoveBannedIps "1.2.3.4"
 ```
 
-#### <a name="read-banned-ips"></a>Lesen gesperrt, IP-Adressen
-Um den aktuellen Satz von gesperrten IP-Adressen zu lesen, verwenden Sie die folgenden Powershell-Cmdlet:
+#### <a name="read-banned-ips"></a>Lesen von gesperrten IPS
+Verwenden Sie das folgende PowerShell-Cmdlet, um den aktuellen Satz der gesperrten IP-Adressen zu lesen:
 
 ``` powershell
 PS C:\ >Get-AdfsProperties 
@@ -58,8 +58,8 @@ BannedIpList                   : {1.2.3.4, ::3,1.2.3.4/16}
 
 
 ## <a name="additional-references"></a>Weitere Verweise  
-[Bewährte Methoden zum Schützen von Active Directory Federation Services](../../ad-fs/deployment/best-practices-securing-ad-fs.md)
+[Bewährte Methoden zum Sichern von Active Directory-Verbunddienste (AD FS)](../../ad-fs/deployment/best-practices-securing-ad-fs.md)
 
-[Set-AdfsProperties](https://technet.microsoft.com/itpro/powershell/windows/adfs/set-adfsproperties)
+[Set-ADF sproperties](https://technet.microsoft.com/itpro/powershell/windows/adfs/set-adfsproperties)
 
 [AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md)

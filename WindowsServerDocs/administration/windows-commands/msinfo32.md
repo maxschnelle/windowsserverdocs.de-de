@@ -1,8 +1,8 @@
 ---
 title: msinfo32
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f8ad4cf5480492042cdd1e372abae652aff71b90
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 9ec08171816476cf04bbfb70637ff8253192e21b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437192"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373378"
 ---
 # <a name="msinfo32"></a>msinfo32
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Öffnet das Tool für Systeminformationen um einen umfassenden Überblick über die Hardware, Systemkomponenten und Software-Umgebung auf dem lokalen Computer anzuzeigen. 
+Öffnet das System Informationstool, um eine umfassende Ansicht der Hardware, der System Komponenten und der Softwareumgebung auf dem lokalen Computer anzuzeigen. 
 ## <a name="syntax"></a>Syntax
 ```
 msinfo32 [/pch] [/nfo <path>] [/report <path>] [/computer <computerName>] [/showcategories] [/category <CategoryID>] [/categories {+<CategoryID>(+<CategoryID>)|+all(-<CategoryID>)}]
@@ -33,37 +33,37 @@ msinfo32 [/pch] [/nfo <path>] [/report <path>] [/computer <computerName>] [/show
 
 |    Parameter    |                                                                                                                                 Beschreibung                                                                                                                                  |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     <path>      | Gibt die Datei im Format geöffnet werden *C:\Folder1\File1.XXX*, wobei *C* Buchstaben des Laufwerks steht, *"Ordner1"* ist der Ordner, *"file1"* ist der Name der Datei und *XXX* ist die Dateinamenerweiterung.<br /><br />Diese Datei kann sein, eine **NFO**, **XML**, **.txt**, oder **CAB** Datei. |
-| <computerName>  |                                                                             Gibt den Namen des Ziels oder lokalen Computer. Dies kann ein UNC-Name, eine IP-Adresse oder ein vollständiger Computername sein.                                                                              |
-|  <CategoryID>   |                                                                                     Gibt die ID des Elements Kategorie. Sie können die Kategorie-ID abrufen, indem Sie mithilfe von **/showcategories**.                                                                                      |
-|      /pch       |                                                                                                       Zeigt die Ansicht des Systemverlaufs in das Tool für Systeminformationen an.                                                                                                       |
-|      /nfo       |                                     Speichert die exportierte Datei als ein **NFO** Datei. Wenn der Dateiname wird angegeben, *Pfad* endet nicht in einer **NFO** -Erweiterung, die **NFO** Erweiterung wird automatisch an den Dateinamen angefügt.                                      |
-|     / Report ein     |                                               Speichert die Datei im *Pfad* als Textdatei. Der Dateiname wird gespeichert, genau wie im angezeigt *Pfad*. Die Erweiterung TXT wird nicht in die Datei angefügt werden, es sei denn, sie in den Pfad angegeben ist.                                                |
-|    /computer    |                                                                Startet das Tool für Systeminformationen für den angegebenen Remotecomputer. Sie müssen die entsprechenden Berechtigungen auf den Remotecomputer zugreifen.                                                                |
-| /showcategories |                         Startet das Tool für Systeminformationen mit allen verfügbaren Kategorie, die IDs angezeigt, anstatt die Anzeigenamen oder lokalisierten Namen. Beispielsweise wird die Softwareumgebung Kategorie angezeigt, als die **SWEnv** Kategorie.                         |
-|    /category    |                                                                     Startet die Systeminformationen mit der angegebenen Kategorie ausgewählt. Verwendung **/showcategories** um eine Liste der verfügbaren Kategorie-IDs anzuzeigen.                                                                     |
-|   /categories   |                          Startet die Systeminformationen nur mit der angegebenen Kategorie oder Kategorien angezeigt. Außerdem wird die Ausgabe auf die Kategorien oder die ausgewählte Kategorie beschränkt. Verwendung **/showcategories** um eine Liste der verfügbaren Kategorie-IDs anzuzeigen.                          |
+|     <path>      | Gibt die Datei an, die im Format *c:\folder1\file1.xxx*geöffnet werden soll, wobei *C* der Laufwerk Buchstabe, *"Ordner1"* der Ordner, *file1* der Dateiname und *xxx* die Dateinamenerweiterung ist.<br /><br />Bei dieser Datei kann es sich um eine **nfo**-, **XML**-, **txt**-oder **. cab** -Datei handeln. |
+| <computerName>  |                                                                             Gibt den Namen des Ziel Computers oder des lokalen Computers an. Dabei kann es sich um einen UNC-Namen, eine IP-Adresse oder einen vollständigen Computernamen handeln.                                                                              |
+|  <CategoryID>   |                                                                                     Gibt die ID des Kategorieelements an. Die Kategoriekennung können Sie mithilfe von **/showcategories**abrufen.                                                                                      |
+|      /pch       |                                                                                                       Zeigt die Ansicht System Verlauf im System Informationstool an.                                                                                                       |
+|      /nfo       |                                     Speichert die exportierte Datei als **nfo** -Datei. Wenn der im *Pfad* angegebene Dateiname nicht in einer **nfo** -Erweiterung endet, wird die Erweiterung **. nfo** automatisch an den Dateinamen angehängt.                                      |
+|     /Report ein     |                                               Speichert die Datei im *Pfad* als Textdatei. Der Dateiname wird genau so gespeichert, wie er im *Pfad*angezeigt wird. Die Erweiterung ". txt" wird nicht an die Datei angefügt, es sei denn, Sie wird im Pfad angegeben.                                                |
+|    /computer    |                                                                startet das System Informationstool für den angegebenen Remote Computer. Sie müssen über die entsprechenden Berechtigungen für den Zugriff auf den Remote Computer verfügen.                                                                |
+| /showcategories |                         startet das System Informationstool, bei dem alle verfügbaren Kategorie-IDs angezeigt werden, anstatt die anzeigen Amen oder lokalisierten Namen anzuzeigen. Beispielsweise wird die Kategorie Software Umgebung als **SWEnv** -Kategorie angezeigt.                         |
+|    /Category    |                                                                     startet System Informationen, bei denen die angegebene Kategorie ausgewählt ist. Verwenden Sie **/showcategories** , um eine Liste der verfügbaren kategorieids anzuzeigen.                                                                     |
+|   /categories   |                          startet System Informationen, wobei nur die angegebene Kategorie oder die angegebenen Kategorien angezeigt werden. Außerdem wird die Ausgabe auf die ausgewählte Kategorie oder die ausgewählten Kategorien beschränkt. Verwenden Sie **/showcategories** , um eine Liste der verfügbaren kategorieids anzuzeigen.                          |
 |       /?        |                                                                                                                     Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                     |
 
 ## <a name="remarks"></a>Hinweise
-Einige Systeminformationen-Kategorien enthalten, große Mengen von Daten. Sie können die **start/wait** Befehl aus, um das reporting-Leistung für diese Kategorien zu optimieren. Weitere Informationen finden Sie unter [Systeminformationen](https://technet.microsoft.com/library/cc783305(v=ws.10).aspx).
-## <a name="BKMK_Examples"></a>Beispiele für
-Um die verfügbaren Kategorie-IDs aufzulisten, geben Sie Folgendes ein:
+Einige System Informationskategorien enthalten große Datenmengen. Sie können den Befehl **Start/Wait** verwenden, um die Bericht Erstellungs Leistung für diese Kategorien zu optimieren. Weitere Informationen finden Sie unter [System Informationen](https://technet.microsoft.com/library/cc783305(v=ws.10).aspx).
+## <a name="BKMK_Examples"></a>Beispiele
+Geben Sie Folgendes ein, um die verfügbaren Kategorie-IDs aufzulisten:
 ```
 msinfo32 /showcategories
 ```
-Starten Sie das Tool für Systeminformationen mit allen verfügbaren Informationen angezeigt, außer geladene Module, Typ:
+Geben Sie Folgendes ein, um das System Informationstool mit allen verfügbaren Informationen zu starten, mit Ausnahme geladener Module:
 ```
 msinfo32 /categories +all -loadedmodules
 ```
-Um nur Systemübersicht Informationen anzeigen, und erstellen eine NFO-Datei syssum.nfo, die Informationen in der Kategorie "Systemübersicht" enthält, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um nur System Zusammenfassungs Informationen anzuzeigen und eine NFO-Datei namens syssum. nfo zu erstellen, die Informationen in der Kategorie System Zusammenfassung enthält:
 ```
 msinfo32 /nfo syssum.nfo /categories +systemsummary
 ```
-Zum Anzeigen von Konfliktinformationen für die Ressource, und erstellen eine NFO-Datei Folgendes ein, das Informationen über Ressourcenkonflikte enthält, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um Ressourcen Konflikt Informationen anzuzeigen und eine NFO-Datei namens "Konflikts. nfo" zu erstellen, die Informationen zu Ressourcenkonflikten enthält:
 ```
 msinfo32 /nfo conflicts.nfo /categories    +componentsproblemdevices+resourcesconflicts+resourcesforcedhardware
 ```
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 -   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

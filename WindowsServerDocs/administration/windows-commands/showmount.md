@@ -1,8 +1,8 @@
 ---
 title: showmount
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 26acf24922e6ac53a5c902d65eb0f23bff0af93b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e1d197072db93130de880b5ec52d1875720b1d26
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852351"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383912"
 ---
 # <a name="showmount"></a>showmount
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Sie können **Showmount** bereitgestellten Verzeichnisse angezeigt.  
+Sie können " **showmount** " verwenden, um eingebundene Verzeichnisse anzuzeigen.  
   
 ## <a name="syntax"></a>Syntax  
 ```
@@ -32,13 +32,13 @@ showmount {-e|-a|-d} <Server>
 ```
 
 ## <a name="description"></a>Beschreibung  
-Die **Showmount** Befehl\-Befehlszeilen-Hilfsprogramm zeigt Informationen zu bereitgestellten Dateisystemen, die auf dem Computer, die anhand des vom Server für NFS exportiert *Server*. Wenn *Server* nicht angegeben wird, **Showmount** zeigt Informationen über den Computer, auf dem die **Showmount** ausgeführt wird.  
+Das Hilfsprogramm **showmount** Command @ no__t-1line zeigt Informationen zu bereitgestellten Dateisystemen an, die vom Server für NFS auf dem vom *Server*angegebenen Computer exportiert wurden. Wenn kein *Server* bereitgestellt wird, zeigt **showmount** Informationen zu dem Computer an, auf dem der Befehl **showmount** ausgeführt wird.  
   
 Sie müssen eine der folgenden Optionen angeben:  
   
-- **\-e** -zeigt alle Dateisysteme, die auf dem Server exportiert.  
-- **\-eine** -zeigt alle Network File System \(NFS\) Clients und die Verzeichnisse auf dem Server, die jeweils bereitgestellt wurde.  
-- **\-d** -zeigt alle Verzeichnisse auf dem Server, der derzeit von NFS-Clients bereitgestellt werden.  
+- **\-E** : zeigt alle auf dem Server exportierten Dateisysteme an.  
+- **\-a** : zeigt alle \(nfs @ no__t-3-Clients des Netzwerkdatei Systems und die Verzeichnisse auf dem Server an, die jeweils bereitgestellt wurden.  
+- **\-D** : zeigt alle Verzeichnisse auf dem Server an, die zurzeit von NFS-Clients bereitgestellt werden.  
   
 ## <a name="see-also"></a>Siehe auch  
 [Dienste für Network File System-Befehlsreferenz](services-for-network-file-system-command-reference.md)  

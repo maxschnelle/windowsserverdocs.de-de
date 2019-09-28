@@ -1,8 +1,8 @@
 ---
 title: clip
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b10876e115c1f0dcac3448948003852449012087
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 82186869782c47f41930d46b4c33a710e6addedf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862391"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379342"
 ---
 # <a name="clip"></a>clip
 
 
 
-Leitet die Ausgabe des Befehls über die Befehlszeile in die Windows-Zwischenablage. Sie können dann diese Ausgabe von Text in andere Programme einfügen.
+Leitet die Befehlsausgabe von der Befehlszeile an die Windows-Zwischenablage um. Anschließend können Sie diese Textausgabe in andere Programme einfügen.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -39,29 +39,29 @@ clip < <FileName>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<Befehl >|Gibt einen Befehl aus, deren Ausgabe Sie in die Windows-Zwischenablage senden möchten.|
-|\<FileName>|Gibt eine Datei, deren Inhalt in die Windows-Zwischenablage senden möchten.|
+|\<-Befehl >|Gibt einen Befehl an, dessen Ausgabe Sie an die Windows-Zwischenablage senden möchten.|
+|\<Dateiname >|Gibt eine Datei an, deren Inhalt Sie an die Windows-Zwischenablage senden möchten.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
-Sie können die **Clip** -Befehl zum Kopieren von Daten direkt in eine Anwendung, die Text aus der Zwischenablage empfangen kann.
+Sie können den **Clip** -Befehl verwenden, um Daten direkt in alle Anwendungen zu kopieren, die Text aus der Zwischenablage empfangen können.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um das aktuelle Verzeichnis auflisten, die in die Windows-Zwischenablage zu kopieren, geben Sie Folgendes ein:
+Um die aktuelle Verzeichnisliste in die Windows-Zwischenablage zu kopieren, geben Sie Folgendes ein:
 ```
 dir | clip
 ```
-Um die Ausgabe der ein Programm namens Generic.awk in die Windows-Zwischenablage zu kopieren, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um die Ausgabe eines Programms namens generic. awk in die Windows-Zwischenablage zu kopieren:
 ```
 awk -f generic.awk input.txt | clip
 ```
-Um den Inhalt einer Datei namens "Readme.txt" in die Windows-Zwischenablage zu kopieren, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um den Inhalt einer Datei namens "Infodatei. txt" in die Windows-Zwischenablage zu kopieren:
 ```
 clip < readme.txt
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

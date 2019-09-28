@@ -1,43 +1,43 @@
 ---
 title: Verwenden eines benutzerdefinierten Gateway-Plug-Ins in der Tool-Erweiterung
-description: Entwickeln Sie eine toolerweiterung Windows Admin Center-SDK (Projekt Honolulu) – verwenden Sie ein benutzerdefiniertes Gateway-Plug-in in Ihre toolerweiterung
+description: 'Entwickeln einer Tool Erweiterung Windows Admin Center SDK (Project Honolulu): Verwenden eines benutzerdefinierten Gateway-Plug-ins in ihrer Tool Erweiterung'
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 348ebf5b99de7f582a3edf57b0a190f87f1c4a5b
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.prod: windows-server
+ms.openlocfilehash: 829cbf6df8cc2738bf4066b36210b860595774ed
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66452597"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385229"
 ---
 # <a name="use-a-custom-gateway-plugin-in-your-tool-extension"></a>Verwenden eines benutzerdefinierten Gateway-Plug-Ins in der Tool-Erweiterung
 
->Gilt für: Windows Admin Center, Windows Admin Center Preview
+>Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
-In diesem Artikel verwenden wir ein benutzerdefiniertes Gateway-Plug-in in einer neuen, leeren Tools-Erweiterung, die wir mit der Windows Admin Center-CLI erstellt haben.
+In diesem Artikel wird ein benutzerdefiniertes Gateway-Plug-in in einer neuen, leeren Tool Erweiterung verwendet, die wir mit der Windows Admin Center-CLI erstellt haben.
 
 ## <a name="prepare-your-environment"></a>Vorbereiten der Umgebung ##
 
-Wenn Sie nicht bereits getan haben, befolgen Sie die Anweisungen [Entwickeln einer toolerweiterung](../develop-tool.md) zum Vorbereiten der Umgebung, und erstellen Sie eine neue, leere toolerweiterung.
+Wenn Sie dies noch nicht getan haben, befolgen Sie die Anweisungen unter [Entwickeln einer Tool Erweiterung](../develop-tool.md) , um die Umgebung vorzubereiten und eine neue, leere Tool Erweiterung zu erstellen.
 
-## <a name="add-a-module-to-your-project"></a>Fügen Sie ein Modul zu Ihrem Projekt ##
+## <a name="add-a-module-to-your-project"></a>Hinzufügen eines Moduls zum Projekt ##
 
-Wenn Sie nicht bereits getan haben, fügen Sie einen neuen [leeres Modul](add-module.md) zu Ihrem Projekt, die wir im nächsten Schritt verwenden.  
+Wenn Sie dies noch nicht getan haben, fügen Sie Ihrem Projekt ein neues [leeres Modul](add-module.md) hinzu, das wir im nächsten Schritt verwenden werden.  
 
-## <a name="add-integration-to-custom-gateway-plugin"></a>Integration benutzerdefiniertes Gateway-Plug-In hinzufügen ##
+## <a name="add-integration-to-custom-gateway-plugin"></a>Integration zum benutzerdefinierten Gateway-Plug-in ##
 
-Jetzt verwenden wir ein benutzerdefiniertes Gateway-Plug-in in das neue, leere-Modul, die wir gerade erstellt haben.
+Nun verwenden wir ein benutzerdefiniertes Gateway-Plug-in für das neue, leere Modul, das wir soeben erstellt haben.
 
-### <a name="create-pluginservicets"></a>Erstellen von plugin.service.ts
+### <a name="create-pluginservicets"></a>Erstellen von Plug-in. Service. TS
 
-Wechseln Sie zum Verzeichnis des oben erstellten neuen Tool-Moduls (```\src\app\{!Module-Name}```), und erstellen Sie eine neue Datei ```plugin.service.ts```.
+Wechseln Sie in das Verzeichnis des oben erstellten neuen Tool Moduls (```\src\app\{!Module-Name}```), und erstellen Sie eine neue Datei ```plugin.service.ts```.
 
-Fügen Sie den folgenden Code in die Datei, die gerade erstellt haben:
+Fügen Sie der soeben erstellten Datei den folgenden Code hinzu:
 ``` ts
 import { Injectable } from '@angular/core';
 import { AppContextService, HttpService } from '@microsoft/windows-admin-center-sdk/angular';
@@ -61,16 +61,16 @@ export class PluginService {
 }
 ```
 
-Ändern Sie Verweise auf ```Sample Uno``` und ```Sample%20Uno``` Ihre Namen Features nach Bedarf.
+Ändern Sie die Verweise auf ```Sample Uno``` und ```Sample%20Uno``` entsprechend Ihrem Funktionsnamen.
 
 [!WARNING]
-> Es wird empfohlen, die den integrierten ```this.appContextService.node``` dient zum Aufrufen einer APIs, die in Ihr benutzerdefiniertes Gateway-Plug-in definiert ist. Dadurch wird sichergestellt, dass wenn Anmeldeinformationen in Ihrem Gateway-Plug-Ins erforderlich sind, dass sie ordnungsgemäß verarbeitet werden.
+> Es wird empfohlen, den integrierten ```this.appContextService.node``` zum Aufrufen einer API zu verwenden, die in Ihrem benutzerdefinierten Gateway-Plug-in definiert ist. Dadurch wird sichergestellt, dass, wenn Anmelde Informationen in Ihrem Gateway-Plug-in erforderlich sind, diese ordnungsgemäß verarbeitet werden.
 
-### <a name="modify-modulets"></a>Module.ts ändern
+### <a name="modify-modulets"></a>Modify Module. TS
 
-Öffnen der ```module.ts``` Datei mit dem neuen Modul, das zuvor erstellt haben (d. h. ```{!Module-Name}.module.ts```):
+Öffnen Sie die Datei ```module.ts``` des neuen Moduls, das Sie zuvor erstellt haben (d. h. ```{!Module-Name}.module.ts```):
 
-Fügen Sie die folgenden importanweisungen hinzu:
+Fügen Sie die folgenden Import-Anweisungen hinzu:
 
 ``` ts
 import { HttpService } from '@microsoft/windows-admin-center-sdk/angular';
@@ -78,7 +78,7 @@ import { Http } from '@microsoft/windows-admin-center-sdk/core';
 import { PluginService } from './plugin.service';
 ```
 
-Fügen Sie die folgenden Anbieter (nach Deklarationen):
+Fügen Sie die folgenden Anbieter hinzu (nach Deklarationen):
 
 ``` ts
   ,
@@ -89,11 +89,11 @@ Fügen Sie die folgenden Anbieter (nach Deklarationen):
   ]
 ```
 
-### <a name="modify-componentts"></a>Component.ts ändern
+### <a name="modify-componentts"></a>Component. TS ändern
 
-Öffnen der ```component.ts``` Datei mit dem neuen Modul, das zuvor erstellt haben (d. h. ```{!Module-Name}.component.ts```):
+Öffnen Sie die Datei ```component.ts``` des neuen Moduls, das Sie zuvor erstellt haben (d. h. ```{!Module-Name}.component.ts```):
 
-Fügen Sie die folgenden importanweisungen hinzu:
+Fügen Sie die folgenden Import-Anweisungen hinzu:
 
 ``` ts
 import { ActivatedRouteSnapshot } from '@angular/router';
@@ -110,7 +110,7 @@ Fügen Sie die folgenden Variablen hinzu:
   private responseResult: string;
 ```
 
-Ändern Sie den Konstruktor und fügen Sie die folgenden Funktionen ändern hinzu /:
+Ändern Sie den Konstruktor, und ändern Sie die folgenden Funktionen:
 
 ``` ts
   constructor(private appContextService: AppContextService, private plugin: PluginService) {
@@ -133,9 +133,9 @@ Fügen Sie die folgenden Variablen hinzu:
   }
 ```
 
-### <a name="modify-componenthtml"></a>Component.html ändern ###
+### <a name="modify-componenthtml"></a>Component. HTML ändern ###
 
-Öffnen der ```component.html``` Datei mit dem neuen Modul, das zuvor erstellt haben (d. h. ```{!Module-Name}.component.html```):
+Öffnen Sie die Datei ```component.html``` des neuen Moduls, das Sie zuvor erstellt haben (d. h. ```{!Module-Name}.component.html```):
 
 Fügen Sie der HTML-Datei den folgenden Inhalt hinzu:
 ``` html
@@ -143,6 +143,6 @@ Fügen Sie der HTML-Datei den folgenden Inhalt hinzu:
 {{ responseResult }}
 ```
 
-## <a name="build-and-side-load-your-extension"></a>Erstellen und die Seite laden die Erweiterung
+## <a name="build-and-side-load-your-extension"></a>Erstellen und neben Laden Ihrer Erweiterung
 
-Nun können Sie auf [erstellen und die Seite laden](../develop-tool.md#build-and-side-load-your-extension) Ihre Erweiterung in Windows Admin Center.
+Nun können Sie Ihre Erweiterung im Windows Admin Center [Erstellen und](../develop-tool.md#build-and-side-load-your-extension) gleichzeitig laden.

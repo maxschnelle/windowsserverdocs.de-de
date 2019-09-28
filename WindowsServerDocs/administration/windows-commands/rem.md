@@ -1,8 +1,8 @@
 ---
 title: rem
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 85c8a69bf21a386cd36e45bbca6dacd35aef2509
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2da0b6e42858582c1485659f3bf8f59e8e2ed97e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847001"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384573"
 ---
 # <a name="rem"></a>rem
 
 
 
-Datensätze in den Kommentaren ("Hinweise") eine Batchdatei oder Konfiguration. SYS. Wenn kein Kommentar angegeben wird, **Rem** vertikalen Abstand hinzugefügt.
+Zeichnet Kommentare (Hinweise) in einer Batchdatei oder-Konfiguration auf. Einsetzt. Wenn kein Kommentar angegeben wird, fügt **REM** den vertikalen Abstand hinzu.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -38,18 +38,18 @@ rem [<Comment>]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<Kommentar >|Gibt eine Zeichenfolge, die als Kommentar enthalten.|
+|\<comment >|Gibt eine Zeichenfolge an, die als Kommentar eingeschlossen werden soll.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
--   Die **Rem** Befehl Kommentare nicht auf dem Bildschirm angezeigt. Verwenden Sie die **auf echo** Befehl in der Batchdatei oder Konfiguration. SYS-Datei, die Kommentare auf dem Bildschirm anzuzeigen.
--   Sie können kein Umleitungszeichen (**<** oder **>**) oder einer Pipe (**|**) in einem Batch-Datei-Kommentar.
--   Sie können zwar **Rem** ohne einen Kommentar zum vertikalen Abstand zu einer Batchdatei hinzufügen, können Sie auch leere Zeilen. Leere Zeilen werden ignoriert, wenn ein Batch-Anwendung verarbeitet wird.
+-   Der **REM** -Befehl zeigt keine Kommentare auf dem Bildschirm an. Sie müssen den Befehl **Echo on** in Ihrem Batch oder in der Konfiguration verwenden. SYS-Datei zum Anzeigen von Kommentaren auf dem Bildschirm.
+-   Ein Umleitungs Zeichen ( **<** oder **>** ) oder eine Pipe ( **|** ) kann nicht in einem Batchdatei Kommentar verwendet werden.
+-   Obwohl Sie **REM** ohne einen Kommentar zum Hinzufügen von vertikaler Abstände zu einer Batchdatei verwenden können, können Sie auch leere Zeilen verwenden. Leere Zeilen werden ignoriert, wenn ein Batch-Programm verarbeitet wird.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Das folgende Beispiel zeigt eine Batchdatei, die Hinweise für Kommentare und für den vertikalen Abstand verwendet:
+Das folgende Beispiel zeigt eine Batchdatei, die Hinweise auf Kommentare und einen vertikalen Abstand verwendet:
 ```
 @echo off
 rem  This batch program formats and checks new disks.
@@ -59,7 +59,7 @@ rem echo Insert new disk in Drive B.
 pause 
 format b: /v chkdsk b: 
 ```
-Sollen einen erläuternden Kommentar vor der **Eingabeaufforderung** in Ihre Konfiguration den Befehl. SYS-Datei, fügen Sie die folgenden Zeilen für die Konfiguration. SYS:
+, Wenn ein erklärender Kommentar vor dem **Eingabe** Aufforderungs Befehl in der Konfiguration enthalten sein soll. SYS-Datei, fügen Sie der Konfigurationsdatei die folgenden Zeilen hinzu. Einsetzt
 ```
 rem Set prompt to indicate current directory
 prompt $p$g
@@ -67,4 +67,4 @@ prompt $p$g
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

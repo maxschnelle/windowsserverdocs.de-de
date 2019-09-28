@@ -7,30 +7,30 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: fe27b61abe196a2148ced18806be904ebd555fcc
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d79f31572bc30d0f4fa3af45671c58b799e40f02
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442889"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390019"
 ---
 # <a name="directory-services-component-updates"></a>Directory Services-Komponentenupdates
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-**Autor**: Justin Turner, Senior Support Escalation Engineer für die Windows-Gruppe  
+**Autor**: Justin Turner, Senior Support Eskalations Ingenieur bei der Windows-Gruppe  
   
 > [!NOTE]  
 > Dieser Inhalt wurde von einem Mitarbeiter des Microsoft-Kundendiensts geschrieben und richtet sich an erfahrene Administratoren und Systemarchitekten, die einen tieferen technischen Einblick in die Funktionen und Lösungen von Windows Server 2012 R2 suchen, als Ihnen die Themen im TechNet bieten können. Allerdings wurde er nicht mit der gleichen linguistischen Sorgfalt überprüft wie für die Artikel des TechNet üblich, so dass die Sprache gelegentlich holprig klingen mag.  
   
-In dieser Lektion wird erläutert, die Verzeichnisdienste Aktualisierungen von Komponenten in Windows Server 2012 R2.  
+In dieser Lektion werden die Updates der Verzeichnisdienst Komponenten in Windows Server 2012 R2 erläutert.  
   
 ## <a name="what-you-will-learn"></a>Lernziele  
-Erläutern Sie die folgenden neuen Directory Services-Komponentenupdates:  
+Erläutern der folgenden neuen Updates der Verzeichnisdienst Komponente:  
   
--   Erläutern Sie die folgenden neuen Directory Services-Komponentenupdates:  
+-   Erläutern der folgenden neuen Updates der Verzeichnisdienst Komponente:  
   
     -   [Domänen- und Gesamtstrukturfunktionsebenen](../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md#BKMK_FL)  
   
@@ -42,80 +42,80 @@ Erläutern Sie die folgenden neuen Directory Services-Komponentenupdates:
   
     -   [Durchsatzverbesserung bei der Active Directory-Replikation](../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md#BKMK_ADRepl)  
   
-## <a name="BKMK_FL"></a>Domänen- und Gesamtstruktur-Funktionsebenen  
+## <a name="BKMK_FL"></a>Domänen-und Gesamtstruktur Funktionsebenen  
   
 ### <a name="overview"></a>Übersicht  
-Der Abschnitt enthält eine kurze Einführung in die Domäne und Gesamtstruktur funktionale Änderungen auf Anwendungsebene.  
+Der Abschnitt enthält eine kurze Einführung in die Änderungen an der Domänen-und Gesamtstruktur Funktionsebene.  
   
-### <a name="new-dfl-and-ffl"></a>Neue Domänenfunktionsebene und FFL  
-Es gibt neue Domänen- und Gesamtstruktur-Funktionsebenen, mit der Version:  
+### <a name="new-dfl-and-ffl"></a>Neue DFL und FFL  
+Mit der-Version gibt es neue Domänen-und Gesamtstruktur Funktionsebenen:  
   
 -   Gesamtstrukturfunktionsebene: Windows Server 2012 R2  
   
--   Domänen-Funktionsebene: Windows Server 2012 R2  
+-   Domänen Funktionsebene: Windows Server 2012 R2  
   
-### <a name="the-windows-server-2012-r2-domain-functional-level-enables-support-for-the-following"></a>Windows Server 2012 R2 Funktionsebene der Domäne ermöglicht die Unterstützung für Folgendes:  
+### <a name="the-windows-server-2012-r2-domain-functional-level-enables-support-for-the-following"></a>Die Domänen Funktionsebene Windows Server 2012 R2 bietet Unterstützung für Folgendes:  
   
-1.  DC-Seite Schutzmaßnahmen für *geschützte Benutzer*  
+1.  Domänen Controller seitiger Schutz für *geschützte Benutzer*  
   
-    *Geschützte Benutzer* Authentifizierung gegenüber einer Domäne Windows Server 2012 R2 kann **mehr**:  
+    *Geschützte Benutzer* , die sich bei einer Windows Server 2012 R2-Domäne authentifizieren, können **nicht mehr**:  
   
     -   Authentifizieren mit NTLM-Authentifizierung  
   
-    -   Verwenden von des- oder RC4-Verschlüsselungssammlungen in Kerberos-vorabauthentifizierung  
+    -   Verwenden von des-oder RC4-Verschlüsselungs Sammlungen in der Kerberos-Vorauthentifizierung  
   
-    -   Mit uneingeschränkter oder eingeschränkter Delegierung delegiert werden  
+    -   Delegiert mit eingeschränkter oder eingeschränkter Delegierung  
   
-    -   Erneuern von Benutzertickets (TGTs) nach Ablauf der Lebensdauer der ersten 4 Stunden  
+    -   Verlängern von Benutzer Tickets (TGTs) über die anfängliche Dauer von 4 Stunden hinaus  
   
 2.  Authentifizierungsrichtlinien  
   
-    Neue Gesamtstruktur-basierten Active Directory-Richtlinien die Konten in Windows Server 2012 R2-Domänen zu steuern, welche Hosts angewendet werden können ein Konto kann aus anmelden und Anwenden von Bedingungen für die Zugriffssteuerung für die Authentifizierung an Dienste, die mit einem Konto ausgeführt  
+    Neue Gesamtstruktur basierte Active Directory Richtlinien, die auf Konten in Windows Server 2012 R2-Domänen angewendet werden können, um zu steuern, von welchen Hosts ein Konto angemeldet werden kann, und Zugriffs Steuerungs Bedingungen zur Authentifizierung auf Dienste anzuwenden, die als Konto ausgeführt werden.  
   
 3.  Authentifizierungsrichtliniensilos  
   
-    Neue Gesamtstruktur-basierten Active Directory-Objekt die eine Beziehung zwischen Benutzer, verwalteter Dienst, und Computerkonten, zum Klassifizieren von Konten für Authentifizierungsrichtlinien oder für die Authentifizierung Isolation verwendet werden soll, erstellen können.  
+    Neues Gesamtstruktur basiertes Active Directory Objekt, das eine Beziehung zwischen Benutzer, verwaltetem Dienst und Computer Konten erstellen kann, die zum Klassifizieren von Konten für Authentifizierungs Richtlinien oder zur Authentifizierungs Isolation verwendet werden.  
   
-Finden Sie unter Konfigurieren geschützter Konten für Weitere Informationen.  
+Weitere Informationen finden Sie unter Konfigurieren geschützter Konten.  
   
-Zusätzlich zu den oben genannten Features gewährleistet die Domänenfunktionsebene Windows Server 2012 R2, dass alle Domänencontroller in der Domäne auf Windows Server 2012 R2 ausgeführt wird.  
-Die Gesamtstrukturfunktionsebene Windows Server 2012 R2 bietet keine neuen Features, aber es wird sichergestellt, dass alle in der Gesamtstruktur erstellten neuen Domänen automatisch auf die Domänenfunktionsebene von Windows Server 2012 R2 ausgeführt wird.  
+Zusätzlich zu den oben genannten Features stellt die Windows Server 2012 R2-Domänen Funktionsebene sicher, dass alle Domänen Controller in der Domäne Windows Server 2012 R2 ausführen.  
+Die Funktionsebene der Windows Server 2012 R2-Gesamtstruktur bietet keine neuen Features, Sie stellt jedoch sicher, dass alle in der Gesamtstruktur erstellten neuen Domänen automatisch auf der Domänen Funktionsebene von Windows Server 2012 R2 ausgeführt werden.  
   
-### <a name="minimum-dfl-enforced-on-new-domain-creation"></a>Minimale Domänenfunktionsebene erzwungen, die bei der Erstellung der neuen Domäne  
-Windows Server 2008-Domänenfunktionsebene ist die minimale Funktionsebene für die Erstellung der neuen Domäne unterstützt.  
+### <a name="minimum-dfl-enforced-on-new-domain-creation"></a>Mindestens durch erzwingen der Erstellung einer neuen Domäne  
+Windows Server 2008-DFL ist die minimale Funktionsebene, die bei der Erstellung neuer Domänen unterstützt wird.  
   
 > [!NOTE]  
-> Veralten des Dateireplikationsdiensts (FRS) erfolgt durch das Entfernen der Möglichkeit, eine neue Domäne mit einer Domänenfunktionsebene auf, die niedriger als Windows Server 2008 mit Server-Manager oder über Windows PowerShell zu installieren.  
+> Die Veraltung von FRS erfolgt durch die Möglichkeit, eine neue Domäne mit einer Domänen Funktionsebene zu installieren, die niedriger als Windows Server 2008 mit Server-Manager oder über Windows PowerShell ist.  
   
-### <a name="lowering-the-forest-and-domain-functional-levels"></a>Verringern die Funktionsebenen der Gesamtstruktur und Domäne  
-Die Funktionsebenen der Gesamtstruktur und Domäne, die für Windows Server 2012 R2 wird standardmäßig auf die Erstellung einer neuen Domäne und Gesamtstruktur festgelegt werden, aber können mithilfe von Windows PowerShell verringert werden.  
+### <a name="lowering-the-forest-and-domain-functional-levels"></a>Herabstufen der Gesamtstruktur-und Domänen Funktionsebene  
+Die Gesamtstruktur-und Domänen Funktionsebenen werden standardmäßig auf Windows Server 2012 R2 bei neuer Domäne und neuer Gesamtstruktur Erstellung festgelegt, können jedoch mithilfe von Windows PowerShell gesenkt werden.  
   
-Verwenden Sie zum Erhöhen oder verringern die Gesamtstrukturfunktionsebene auf mithilfe von Windows PowerShell, die **Set-ADForestMode** Cmdlet.  
+Verwenden Sie das Cmdlet **Set-adforestmode** , um die Gesamtstruktur Funktionsebene mithilfe von Windows PowerShell zu erhöhen oder zu verringern.  
   
-**So setzen die "contoso.com" FFL auf Windows Server 2008-Modus:**  
+**So legen Sie contoso.com FFL auf den Windows Server 2008-Modus fest:**  
   
 ```sql  
 Set-ADForestMode -ForestMode Windows2008Forest -Identity contoso.com  
 ```  
   
-Zum Erhöhen oder verringern die Domänenfunktionsebene auf Windows PowerShell verwenden, verwenden Sie das Cmdlet Set-ADDomainMode.  
+Verwenden Sie das Cmdlet Set-addomainmode, um die Domänen Funktionsebene mithilfe von Windows PowerShell zu erhöhen oder zu verringern.  
   
-**So legen Sie die Domänenfunktionsebene von "contoso.com" in Windows Server 2008-Modus fest**  
+**So legen Sie die contoso.com-DFL auf den Windows Server 2008-Modus fest:**  
   
 ```powershell  
 Set-ADDomainMode -DomainMode Windows2008Domain -Identity contoso.com  
 ```  
   
-Heraufstufen eines Domänencontrollers unter Windows Server 2012 R2 als ein zusätzliches Replikat in einer vorhandenen Domäne DFL (2003) ausführen kann.  
+Das herauf Stufen eines Domänen Controllers unter Windows Server 2012 R2 als zusätzliches Replikat in eine vorhandene Domäne mit 2003 DFL funktioniert.  
   
 Erstellung einer neuen Domäne in einer vorhandenen Gesamtstruktur  
   
-![Directory services-updates](media/Directory-Services-component-updates/GTR_ADDS_FFL.gif)  
+![Verzeichnisdienst Updates](media/Directory-Services-component-updates/GTR_ADDS_FFL.gif)  
   
 ### <a name="adprep"></a>ADPREP  
-Es gibt keine neue Gesamtstruktur oder Domänenvorgänge in dieser Version.  
+In dieser Version sind keine neuen Gesamtstruktur-oder Domänen Vorgänge vorhanden.  
   
-Diese LDF-Dateien enthalten, schemaänderungen, die für die **Device Registration Service**.  
+Diese LDF-Dateien enthalten Schema Änderungen für den **Geräte Registrierungsdienst**.  
   
 1.  Sch59  
   
@@ -135,69 +135,69 @@ Diese LDF-Dateien enthalten, schemaänderungen, die für die **Device Registrati
   
 1.  Sch66  
   
-**MSODS:**  
+**MSODS**  
   
 1.  Sch60  
   
-**Authentifizierungsrichtlinien und Silos**  
+**Authentifizierungs Richtlinien und Silos**  
   
 1.  Sch68  
   
 2.  Sch69  
   
-## <a name="BKMK_NTFRS"></a>Abschreibung von NTFRS  
+## <a name="BKMK_NTFRS"></a>Veraltung von NTFRS  
   
 ### <a name="overview"></a>Übersicht  
-Dateireplikationsdienst (FRS) ist in Windows Server 2012 R2 als veraltet markiert.  Veralten des Dateireplikationsdiensts (FRS) erfolgt durch Erzwingen einer minimalen Domänenfunktionsebene (DFL) von Windows Server 2008.  Diese Voraussetzung ist nur vorhanden, wenn die neue Domäne mithilfe von Server-Manager oder Windows PowerShell erstellt wird.  
+FRS ist in Windows Server 2012 R2 veraltet.  Die Veraltung von FRS erfolgt durch Erzwingen einer minimalen Domänen Funktionsebene (Windows Server 2008).  Diese Erzwingung ist nur vorhanden, wenn die neue Domäne mithilfe von Server-Manager oder Windows PowerShell erstellt wird.  
   
-Können Sie den Domänenmodus - Parameter mit dem Install-ADDSForest oder Install-ADDSDomain Cmdlets Geben Sie die Domänenfunktionsebene auf.  Unterstützte Werte für diesen Parameter können entweder eine gültige ganze Zahl oder einen entsprechenden Wert der aufgelisteten Zeichenfolge sein. Um die modusebene der Domäne auf Windows Server 2008 R2 festgelegt werden soll, können Sie z. B. ein Wert von 4 oder "Win2008R2" angeben.  Beim Ausführen dieser Cmdlets von Server 2012 R2 gültige Werte sind für Windows Server 2008 (3, Win2008) Windows Server 2008 R2 (4, Win2008R2) Windows Server 2012 (5, Win2012) und Windows Server 2012 R2 (6, Win2012R2). Die Domänenfunktionsebene kann nicht niedriger als die Funktionsebene der Gesamtstruktur sein. Sie kann jedoch höher sein.  Da FRS, in dieser Version, Windows Server 2003 (2, Win2003 veraltet ist) ist kein erkannter Parameter mit diesen Cmdlets, die beim Ausführen von Windows Server 2012 R2.  
+Verwenden Sie den-DomainMode-Parameter mit den Cmdlets install-addsforest oder install-addsdomain, um die Domänen Funktionsebene anzugeben.  Unterstützte Werte für diesen Parameter können entweder eine gültige ganze Zahl oder ein entsprechender enumerationszeichen folgen Wert sein. Wenn Sie z. b. die Domänen Modus-Ebene auf Windows Server 2008 R2 festlegen möchten, können Sie entweder den Wert "4" oder "Win2008R2" angeben.  Wenn Sie diese Cmdlets von Server 2012 R2 ausführen, sind gültige Werte für Windows Server 2008 (3, Win2008) Windows Server 2008 R2 (4, Win2008R2) Windows Server 2012 (5, Win2012) und Windows Server 2012 R2 (6, Win2012R2). Die Domänenfunktionsebene kann nicht niedriger als die Funktionsebene der Gesamtstruktur sein. Sie kann jedoch höher sein.  Da FRS in dieser Version veraltet ist, ist Windows Server 2003 (2, Win2003) bei der Ausführung von Windows Server 2012 R2 kein erkannter Parameter mit diesen Cmdlets.  
   
-![Directory services-updates](media/Directory-Services-component-updates/GTR_ADDS_PS_Install2003DFL.gif)  
+![Verzeichnisdienst Updates](media/Directory-Services-component-updates/GTR_ADDS_PS_Install2003DFL.gif)  
   
-![Directory services-updates](media/Directory-Services-component-updates/GTR_ADDS_PS_InstallDFL2.gif)  
+![Verzeichnisdienst Updates](media/Directory-Services-component-updates/GTR_ADDS_PS_InstallDFL2.gif)  
   
-## <a name="BKMK_LDAPQuery"></a>Änderungen des LDAP-Abfrageoptimierer  
+## <a name="BKMK_LDAPQuery"></a>Änderungen am LDAP-Abfrageoptimierer  
   
 ### <a name="overview"></a>Übersicht  
-Der LDAP-Abfrage-Optimierer-Algorithmus wurde neu ausgewertet und weiter optimiert.  Das Ergebnis ist die Verbesserung der Leistung in LDAP-Suche und LDAP-Suchdauer komplexer Abfragen.  
+Der Algorithmus für den LDAP-Abfrageoptimierer wurde neu ausgewertet und weiter optimiert.  Das Ergebnis ist die Leistungsverbesserung bei der LDAP-Such Effizienz und der LDAP-Suchzeit komplexer Abfragen.  
   
 > [!NOTE]
-> <strong>Seitens des Entwicklers:</strong>Verbesserungen in Bezug auf die Leistung Suchvorgänge in Verbesserungen in der Zuordnung von LDAP-Abfragen auf das ESE-Abfrage.  LDAP-Filter über ein gewisses Maß an Komplexität zu verhindern, dass optimierter Index-Auswahl, drastisch verringert die Leistung beeinträchtigt (1000 X oder mehr). Diese Änderung ändert die Weise, in der Bereich wir die Indizes für die LDAP-Abfragen wählen, um dieses Problem zu vermeiden.  
+> <strong>Vom Entwickler:</strong>Verbesserungen bei der Leistung von Such Vorgängen durch Verbesserungen bei der Zuordnung von LDAP-Abfragen zu ESE-Abfragen.  LDAP-Filter über einen bestimmten Grad an Komplexität verhindern die optimierte Index Auswahl, was zu einer deutlich geringeren Leistung führt (1000 x oder mehr). Diese Änderung ändert die Art und Weise, wie Indizes für LDAP-Abfragen ausgewählt werden, um dieses Problem zu vermeiden.  
 > 
 > [!NOTE]
-> Vollständige Überarbeitung des LDAP-Abfrage-Optimierer-Algorithmus, was zu:  
+> Eine umfassende Überarbeitung des Algorithmus für den LDAP-Abfrageoptimierer, was zu folgendem führt:  
 > 
-> -   Schnellere Suche  
-> -   Effizienz können DCs mehr zu erreichen  
-> -   Weniger Supportanrufe Probleme in Bezug auf AD-Leistung  
-> -   Zurück zu Windows Server 2008 R2 (KB 2862304) portiert  
+> -   Schnellere Suchzeiten  
+> -   Effizienzsteigerungen ermöglichen DCS mehr  
+> -   Weniger Support Anrufe bezüglich AD-Leistungsproblemen  
+> -   Zurückportiert zu Windows Server 2008 R2 (KB 2862304)  
   
 ### <a name="background"></a>Hintergrund  
-Die Möglichkeit, Active Directory zu suchen ist ein Basisdienst, der von Domänencontrollern bereitgestellt.  Andere Dienste und LOB-Anwendungen, abhängig von Active Directory-Suche ab.  Business-Vorgänge können zum Stillstand beendet, wenn dieses Feature nicht verfügbar ist.  Als Kern und häufig verwendete Service ist es zwingend erforderlich, dass Domänencontroller LDAP-suchdatenverkehr effizient zu verarbeiten.  Der LDAP-Abfrage-Optimierer-Algorithmus versucht, LDAP-Suchvorgänge effizient wie möglich durch Zuordnen von LDAP-Suchfilter auf einem Resultset, die über die Datensätze in der Datenbank bereits indiziert erfüllt werden.  Dieser Algorithmus wurde neu ausgewertet und weiter optimiert.  Das Ergebnis ist die Verbesserung der Leistung in LDAP-Suche und LDAP-Suchdauer komplexer Abfragen.  
+Die Möglichkeit, Active Directory zu durchsuchen, ist ein Kerndienst von Domänen Controllern.  Andere Dienste und Branchen Anwendungen basieren auf Active Directory suchen.  Wenn dieses Feature nicht verfügbar ist, können Geschäftsvorgänge angehalten werden.  Als Kerndienst und stark verwendeter Dienst ist es zwingend erforderlich, dass Domänen Controller den LDAP-Such Datenverkehr effizient verarbeiten.  Der Algorithmus des LDAP-Abfrage Optimierers versucht, LDAP-Suchvorgänge so effizient wie möglich zu machen, indem LDAP-Suchfilter einem Resultset entsprechend der bereits in der Datenbank indizierten Datensätze zuordnet werden.  Dieser Algorithmus wurde neu ausgewertet und weiter optimiert.  Das Ergebnis ist die Leistungsverbesserung bei der LDAP-Such Effizienz und der LDAP-Suchzeit komplexer Abfragen.  
   
 ### <a name="details-of-change"></a>Details der Änderung  
-Eine LDAP-Suche enthält:  
+Eine LDAP-Suche enthält Folgendes:  
   
--   Eine Position (NC-Kopf, OU, Objekt) der Hierarchie, um die Suche zu starten  
+-   Ein Speicherort (NC-Head, ou, Objekt) innerhalb der Hierarchie, um mit der Suche zu beginnen  
   
 -   Ein Suchfilter  
   
--   Eine Liste der zurückzugebenden Attribute an  
+-   Eine Liste der zurück zugebende Attribute.  
   
-Der Suchprozess kann wie folgt zusammengefasst werden:  
+Der Suchvorgang kann wie folgt zusammengefasst werden:  
   
-1.  Vereinfachen Sie wenn möglich den Suchfilter.  
+1.  Vereinfachen Sie den Suchfilter, wenn möglich.  
   
-2.  Wählen Sie einen Satz von Indexschlüssel, die die kleinste, abgedeckte Menge zurückgibt.  
+2.  Wählen Sie einen Satz von Index Schlüsseln aus, die den kleinsten abgedeckten Satz zurückgeben.  
   
-3.  Führen Sie eine oder mehrere Schnittpunkte Indexschlüssel, abgedeckte festgelegtem zu reduzieren.  
+3.  Führen Sie einen oder mehrere Schnittpunkte der Index Schlüssel aus, um die abgedeckte Menge zu verringern.  
   
-4.  Für jeden Datensatz in der betroffenen Menge ausgewertet werden sowohl der Filter-Ausdruck als auch die Sicherheit. Wenn der Filter auf "true" ausgewertet wird, und der Zugriff wird gewährt, klicken Sie dann zurückgeben Sie diesen Datensatz an den Client.  
+4.  Evaluieren Sie für jeden Datensatz in der abgedeckten Gruppe den Filter Ausdruck und die Sicherheit. Wenn der Filter als true ausgewertet wird und der Zugriff gewährt wird, geben Sie diesen Datensatz an den Client zurück.  
   
-Die LDAP-Abfrage-Optimierungsaufgaben ändert die Schritte 2 und 3, zum Verringern der Größe der abgedeckte Menge. Genauer gesagt wird die aktuelle Implementierung wählt Doppelte Indexschlüssel und redundante Schnittpunkte führt.  
+Der Arbeitsaufwand für die LDAP-Abfrageoptimierung ändert die Schritte 2 und 3, um die Größe der abgedeckten Gruppe zu verringern. Genauer gesagt wählt die aktuelle Implementierung doppelte Index Schlüssel aus und führt redundante Schnittmengen aus.  
   
-### <a name="comparison-between-old-and-new-algorithm"></a>Vergleich zwischen den alten und neuen Algorithmus  
-Das Ziel der ineffizienten LDAP-Suche in diesem Beispiel ist ein Windows Server 2012-Domänencontroller.  In ungefähr 44 Sekunden aufgrund einen effizienteren Index nicht findet, wird die Suche abgeschlossen.  
+### <a name="comparison-between-old-and-new-algorithm"></a>Vergleich zwischen altem und neuem Algorithmus  
+Das Ziel der ineffizienten LDAP-Suche in diesem Beispiel ist ein Windows Server 2012-Domänen Controller.  Die Suche wird in ungefähr 44 Sekunden abgeschlossen, weil ein effizienterer Index nicht gefunden werden konnte.  
   
 ```  
 adfind -b dc=blue,dc=contoso,dc=com -f "(| (& (|(cn=justintu) (postalcode=80304) (userprincipalname=justintu@blue.contoso.com)) (|(objectclass=person) (cn=justintu)) ) (&(cn=justintu)(objectclass=person)))" -stats >>adfind.txt  
@@ -226,8 +226,8 @@ Log Records Generated     : 0
 Log Record Bytes Generated: 0  
 ```  
   
-### <a name="sample-results-using-the-new-algorithm"></a>Beispielergebnisse mit den neuen Algorithmus  
-In diesem Beispiel wird wiederholt, die genaue gleiche Suche wie oben, jedoch ist einen Windows Server 2012 R2-Domänencontroller.  Die gleiche Suche, die in weniger als einer Sekunde aufgrund der verbesserten im LDAP-Abfrage-Optimierer Algorithmus abgeschlossen werden.  
+### <a name="sample-results-using-the-new-algorithm"></a>Beispiel Ergebnisse mit dem neuen Algorithmus  
+In diesem Beispiel wird genau dieselbe Suche wie oben wiederholt, aber es ist ein Windows Server 2012 R2-Domänen Controller.  Die gleiche Suche wird in weniger als einer Sekunde aufgrund der Verbesserungen des Algorithmus für den LDAP-Abfrageoptimierer durchgeführt.  
   
 ```  
 adfind -b dc=blue,dc=contoso,dc=com -f "(| (& (|(cn=justintu) (postalcode=80304) (userprincipalname=dhunt@blue.contoso.com)) (|(objectclass=person) (cn=justintu)) ) (&(cn=justintu)(objectclass=person)))" -stats >>adfindBLUE.txt  
@@ -258,71 +258,71 @@ Log Records Generated     : 0
 Log Record Bytes Generated: 0  
 ```  
   
--   Wenn dies nicht möglich, um die Struktur zu optimieren:  
+-   Wenn die Struktur nicht optimiert werden kann:  
   
-    -   Zum Beispiel: ein Ausdruck in der Struktur wurde für eine nicht indizierte Spalte  
+    -   Beispiel: ein Ausdruck in der Struktur befand sich über einer nicht indizierten Spalte.  
   
-    -   Zeichnen Sie eine Liste von Indizes, die verhindern, Optimierung  
+    -   Aufzeichnen einer Liste von Indizes, die eine Optimierung verhindern  
   
-    -   Über ETW-Ablaufverfolgung und Ereignis-ID 1644 verfügbar gemacht  
+    -   Verfügbar über die ETW-Ablauf Verfolgung und die Ereignis-ID 1644  
   
-        ![Directory services-updates](media/Directory-Services-component-updates/GTR_ADDS_Event1644.gif)  
+        ![Verzeichnisdienst Updates](media/Directory-Services-component-updates/GTR_ADDS_Event1644.gif)  
   
-### <a name="BKMK_EnableStats"></a>So aktivieren Sie die Stats-Steuerelement in "Ldp"  
+### <a name="BKMK_EnableStats"></a>So aktivieren Sie das stats-Steuerelement in LDP  
   
-1.  Öffnen Sie LDP.exe und Verbindung und eine Bindung zu einem Domänencontroller.  
+1.  Öffnen Sie "Ldp. exe", und verbinden und binden Sie einen Domänen Controller.  
   
-2.  Auf der **Optionen** Menü klicken Sie auf **Steuerelemente**.  
+2.  Klicken Sie im Menü **Optionen** auf Steuer **Elemente**.  
   
-3.  Erweitern Sie auf das Dialogfeld Steuerelemente, die **Load Predefined** Pulldown-Menü, klicken Sie auf **Suchstatistik** , und klicken Sie dann auf **OK**.  
+3.  Erweitern Sie im Dialogfeld Steuerelemente das Dropdown Menü **Load vordefinierten** , klicken Sie auf **Statistiken suchen** , und klicken Sie dann auf **OK**.  
   
-    ![Directory services-updates](media/Directory-Services-component-updates/GTR_ADDS_Controls.gif)  
+    ![Verzeichnisdienst Updates](media/Directory-Services-component-updates/GTR_ADDS_Controls.gif)  
   
-4.  Auf der **Durchsuchen** Menü klicken Sie auf **suchen**  
+4.  Klicken Sie im Menü **Durchsuchen** auf **Suchen** .  
   
-5.  Wählen Sie in das Dialogfeld Suchen, die **Optionen** Schaltfläche.  
+5.  Wählen Sie im Dialogfeld Suchen die Schaltfläche **Optionen** aus.  
   
-6.  Stellen Sie sicher die **erweiterte** das Kontrollkästchen aktiviert ist, auf die Durchsuchen-Optionen (Dialogfeld), und wählen **OK**.  
+6.  Vergewissern Sie sich, dass im Dialogfeld Suchoptionen das Kontrollkästchen **erweitert** aktiviert ist, und wählen Sie **OK**aus.  
   
-    ![Directory services-updates](media/Directory-Services-component-updates/GTR_ADDS_SearchOptions.gif)  
+    ![Verzeichnisdienst Updates](media/Directory-Services-component-updates/GTR_ADDS_SearchOptions.gif)  
   
-### <a name="try-this-use-ldp-to-return-query-statistics"></a>Versuchen Sie Folgendes aus: Verwenden Sie "Ldp" zum Zurückgeben von Abfragestatistiken  
-Führen Sie die folgenden Schritte aus, auf einem Domänencontroller oder eine Domäne eingebundenen Client oder Server, auf die AD DS-Tools installiert ist.  Wiederholen Sie die folgenden für Ihre Windows Server 2012-Domänencontroller und Ihre Windows Server 2012 R2-Domänencontroller.  
+### <a name="try-this-use-ldp-to-return-query-statistics"></a>Versuchen Sie Folgendes: Verwenden von LDP zum Zurückgeben von Abfrage Statistiken  
+Führen Sie Folgendes auf einem Domänen Controller oder einem in eine Domäne eingebundenen Client oder Server aus, auf dem die AD DS Tools installiert sind.  Wiederholen Sie die folgenden Punkte für Ihren Windows Server 2012-DC und Ihren Windows Server 2012 R2-DC.  
   
-1.  Überprüfen Sie die ["Erstellen von mehr effizienten Microsoft AD aktiviert Anwendungen"](https://msdn.microsoft.com/library/ms808539.aspx) Artikel und darauf zurückgreifen je nach Bedarf.  
+1.  Weitere Informationen finden Sie im Artikel ["erstellen effizienterer Microsoft AD-fähiger Anwendungen"](https://msdn.microsoft.com/library/ms808539.aspx) .  
   
-2.  Verwendung von "Ldp" Suchstatistik aktivieren (finden Sie unter [So aktivieren Sie die Stats-Steuerelement in "Ldp"](../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md#BKMK_EnableStats))  
+2.  Aktivieren Sie die Such Statistik mithilfe von LDP (siehe so [Aktivieren Sie das stats-Steuerelement in LDP](../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md#BKMK_EnableStats)).  
   
-3.  Durchführen Sie mehrere LDAP-Suchvorgänge, und beobachten Sie die statistische Informationen am Anfang der Ergebnisse.  Sie werden wiederholt, die gleiche Suche in anderen Aktivitäten dokumentieren sie also in einer Editor-Textdatei.  
+3.  Führen Sie mehrere LDAP-Suchvorgänge durch, und beobachten Sie die statistischen Informationen am Anfang der Ergebnisse.  Die gleiche Suche wird in anderen Aktivitäten wiederholt, sodass Sie in einer Editor-Textdatei dokumentiert werden.  
   
-4.  Führen Sie eine LDAP-Suche, die die Abfrageoptimierer aufgrund von Attributen Indizes optimiert werden soll  
+4.  Führen Sie eine LDAP-Suche aus, die der Abfrageoptimierer aufgrund von Attribut Indizes optimieren kann.  
   
-5.  Versucht, eine Suche zu erstellen, die eine lange Zeit in Anspruch nimmt (Sie erhöhen möchten die **Zeitlimit** option aus, damit die Suche nicht zu einem Timeout führt).  
+5.  Es wurde versucht, eine Suche zu erstellen, die eine lange Zeit in Anspruch nimmt (möglicherweise möchten Sie die **Zeit Limit** -Option erhöhen, sodass die Suche kein Timeout ist).  
   
 ### <a name="additional-resources"></a>Zusätzliche Ressourcen  
-[Was sind Active Directory-Suche?](https://technet.microsoft.com/library/cc783845(v=ws.10).aspx)  
+[Was sind Active Directory suchen?](https://technet.microsoft.com/library/cc783845(v=ws.10).aspx)  
   
-[Wie das Durchsuchen von Active Directory-Aufgaben](https://technet.microsoft.com/library/cc755809(v=WS.10).aspx)  
+[Funktionsweise von Active Directory suchen](https://technet.microsoft.com/library/cc755809(v=WS.10).aspx)  
   
-[Erstellen eine effizientere Microsoft Active Directory-fähige Anwendungen](https://msdn.microsoft.com/library/ms808539.aspx)  
+[Erstellen effizienterer Microsoft Active Directory-fähiger Anwendungen](https://msdn.microsoft.com/library/ms808539.aspx)  
   
-[951581](https://support.microsoft.com/kb/951581) LDAP-Abfragen werden langsamer als erwartet in AD oder LDS/ADAM-Verzeichnisdienst und Ereignis-ID 1644 kann protokolliert werden  
+[951581](https://support.microsoft.com/kb/951581) LDAP-Abfragen werden langsamer als erwartet im AD-oder LDS/ADAM-Verzeichnisdienst ausgeführt, und die Ereignis-ID 1644 kann protokolliert werden.  
   
-## <a name="BKMK_1644"></a>Verbesserungen am Ereignis 1644  
+## <a name="BKMK_1644"></a>1644 Ereignis Verbesserungen  
   
 ### <a name="overview"></a>Übersicht  
-Dieses Update fügt zusätzliche LDAP-Suche Statistiken auf Ereignis-ID 1644 zur Unterstützung der Problembehandlung zu.  Es ist außerdem ein neuen Registrierungswert, der zum Aktivieren der Protokollierung auf einem Schwellenwert zeitbasierte verwendet werden kann.  Diese Verbesserungen wurden in Windows Server 2012 und Windows Server 2008 R2 SP1 über KB [2800945](https://support.microsoft.com/kb/2800945) und wird auf Windows Server 2008 SP2 verfügbar gemacht werden.  
+Dieses Update fügt der Ereignis-ID 1644 zusätzliche Ergebnisse der LDAP-Suchergebnisse hinzu, um die Problembehandlung zu unterstützen.  Außerdem gibt es einen neuen Registrierungs Wert, der verwendet werden kann, um die Protokollierung für einen zeitbasierten Schwellenwert zu aktivieren.  Diese Verbesserungen wurden in Windows Server 2012 und Windows Server 2008 R2 SP1 über KB [2800945](https://support.microsoft.com/kb/2800945) verfügbar gemacht und werden für Windows Server 2008 SP2 zur Verfügung gestellt.  
   
 > [!NOTE]  
-> -   Ereignis-ID 1644 zur Fehlerbehebung bei ineffizient oder teure LDAP-Suchvorgänge werden zusätzliche Statistiken der LDAP-Suche hinzugefügt.  
-> -   Sie können jetzt eine Suchdauer-Schwellenwert (z.B.) angeben. Log-Ereignis 1644 für Suchvorgänge, die mehr als 100 ms) anstatt die kostspielig und ineffizient. Search-Ergebnis-Schwellenwerte  
+> -   Der Ereignis-ID 1644 werden zusätzliche LDAP-Such Statistiken hinzugefügt, um die Problembehandlung bei ineffizienten oder teuren LDAP-Suchen  
+> -   Sie können jetzt einen Schwellenwert für die Such Zeit angeben (z. b. Protokollieren Sie das Ereignis 1644 für Suchvorgänge, die länger als 100 ms dauern), anstatt die teuren und ineffizienten Suchergebnis Schwellenwerte anzugeben.  
   
 ### <a name="background"></a>Hintergrund  
-Bei der Problembehandlung von Leistungsproblemen von Active Directory wird deutlich, dass der LDAP-Suchvorgänge des Problems beitragen kann.  Sie beschließen, aktivieren Sie die Protokollierung, damit Sie sehen können, teuer oder ineffiziente LDAP-Abfragen, die vom Domain Controller verarbeitet werden.  Um die Protokollierung zu aktivieren, Sie müssen den Field Engineering-Diagnose-Wert festlegen und können optional die teure / ineffizient Suche Ergebnisse Schwellenwerte angeben.  Beim Aktivieren der Field Engineering-Protokolliergrad festlegen auf einen Wert von 5, wird Suche, die diese Kriterien erfüllt im Verzeichnisdienste-Ereignisprotokoll mit einem Ereignis-ID 1644 protokolliert.  
+Bei der Behandlung von Active Directory Leistungsproblemen wird deutlich, dass die LDAP-Such Aktivität möglicherweise zum Problem beiträgt.  Sie beschließen, die Protokollierung zu aktivieren, damit Sie teure oder ineffiziente LDAP-Abfragen anzeigen können, die vom Domänen Controller verarbeitet werden  Um die Protokollierung zu aktivieren, müssen Sie den Wert für die Feld Engineering-Diagnose festlegen und optional die Schwellenwerte für teure/ineffiziente Suchergebnisse angeben.  Wenn Sie den Protokolliergrad der feldentwicklung auf den Wert 5 aktivieren, wird jede Suche, die diese Kriterien erfüllt, im Verzeichnisdienst-Ereignisprotokoll mit der Ereignis-ID 1644 protokolliert.  
   
-Das Ereignis enthält:  
+Das Ereignis enthält Folgendes:  
   
--   Client-IP- und -Port  
+-   Client-IP und Port  
   
 -   Startknoten  
   
@@ -330,36 +330,36 @@ Das Ereignis enthält:
   
 -   Suchbereich  
   
--   Attribut-Auswahl  
+-   Attribut Auswahl  
   
--   Serversteuerelemente  
+-   Server Steuerelemente  
   
--   Besuchten Einträge  
+-   Besuchte Einträge  
   
--   Zurückgegebenen Entitäten  
+-   Zurückgegebene Einträge  
   
-Jedoch wichtige Daten fehlt das Ereignis wie z. B. die den Suchvorgang und für welche (sofern vorhanden) aufgewendete Zeit Index verwendet wurde.  
+Im Ereignis fehlen jedoch Schlüsseldaten, z. b. die Zeitspanne, die für den Suchvorgang aufgewendet wurde, und der (sofern vorhanden) Index.  
   
-#### <a name="additional-search-statistics-added-to-event-1644"></a>Zusätzliche Suchbedingung Statistics-Ereignis 1644 hinzugefügt  
+#### <a name="additional-search-statistics-added-to-event-1644"></a>Dem Ereignis 1644 wurden zusätzliche Such Statistiken hinzugefügt.  
   
 -   Verwendete Indizes  
   
--   Seiten, die auf die verwiesen wird  
+-   Referenzierte Seiten  
   
--   Vom Datenträger gelesenen Seiten  
+-   Vom Datenträger Gelesene Seiten  
   
--   Seiten vom Datenträger preread  
+-   Seiten werden vom Datenträger vorab registriert  
   
--   Modifizierte Seiten geändert  
+-   Geänderte Seiten wurden geändert.  
   
--   Modifizierte Seiten geändert  
+-   Geänderte Seiten geändert  
   
--   Zeit für Suche  
+-   Suchzeit  
   
 -   Attribute, die Optimierung verhindern  
   
-#### <a name="new-time-based-threshold-registry-value-for-event-1644-logging"></a>Neuen zeitbasierte Registrierung Schwellenwert für die Protokollierung von Ereignis 1644  
-Anstatt die kostspielig und ineffizient. Search-Ergebnis-Schwellenwerte, können Sie die Suchdauer-Schwellenwert angeben.  Wenn Sie also alle Suchergebnisse zu protokollieren, die 50 ms gedauert hat oder höher, das Sie angeben möchten 50 decimal / 32 hex (zusätzlich zum Festlegen des Field Engineering-Werts).  
+#### <a name="new-time-based-threshold-registry-value-for-event-1644-logging"></a>Neuer zeitbasierter Schwellenwert Registrierungs Wert für die Protokollierung von Ereignis 1644  
+Anstatt die teuren und ineffizienten Suchergebnis Schwellenwerte anzugeben, können Sie den Schwellenwert für die Such Zeit angeben.  Wenn Sie alle Suchergebnisse protokollieren möchten, bei denen mindestens 50 ms benötigt werden, geben Sie 50 Decimal/32 Hex an (zusätzlich zum Festlegen des Field Engineering-Werts).  
   
 ```  
 Windows Registry Editor Version 5.00  
@@ -367,43 +367,43 @@ Windows Registry Editor Version 5.00
 "Search Time Threshold (msecs)"=dword:00000032  
 ```  
   
-#### <a name="comparison-of-the-old-and-new-event-id-1644"></a>Vergleich zwischen der alten und neuen Ereignis-ID 1644  
-OLD  
+#### <a name="comparison-of-the-old-and-new-event-id-1644"></a>Vergleich der alten und neuen Ereignis-ID 1644  
+JÄHRIGEN  
   
-![Directory services-updates](media/Directory-Services-component-updates/GTR_ADDS_Event1644_2012.gif)  
+![Verzeichnisdienst Updates](media/Directory-Services-component-updates/GTR_ADDS_Event1644_2012.gif)  
   
 NEU  
   
-![Directory services-updates](media/Directory-Services-component-updates/GTR_ADDS_Event1644_2012R2.gif)  
+![Verzeichnisdienst Updates](media/Directory-Services-component-updates/GTR_ADDS_Event1644_2012R2.gif)  
   
-#### <a name="try-this-use-the-event-log-to-return-query-statistics"></a>Versuchen Sie Folgendes aus: Verwenden Sie das Ereignisprotokoll, um Statistiken für Abfragen zurückzugeben  
+#### <a name="try-this-use-the-event-log-to-return-query-statistics"></a>Versuchen Sie Folgendes: Verwenden des Ereignis Protokolls zum Zurückgeben von Abfrage Statistiken  
   
-1.  Wiederholen Sie die folgenden für Ihre Windows Server 2012-Domänencontroller und Ihre Windows Server 2012 R2-Domänencontroller. Beachten Sie das Ereignis-ID 1644s auf beiden Domänencontrollern nach jeder Suche an.  
+1.  Wiederholen Sie die folgenden Punkte für Ihren Windows Server 2012-DC und Ihren Windows Server 2012 R2-DC. Beachten Sie die Ereignis-ID 1644s auf beiden DCS nach jeder Suche.  
   
-2.  Verwenden "regedit" ein, aktivieren Sie die Ereignis-ID 1644-Protokollierung, die einen zeitbasierten Schwellenwert für die Windows Server 2012 R2-Domänencontroller und die alte Methode für die Windows Server 2012-Domänencontroller mit.  
+2.  Aktivieren Sie mithilfe von regedit die Ereignis-ID 1644-Protokollierung mithilfe eines zeitbasierten Schwellenwerts für den Windows Server 2012 R2-DC und die alte Methode auf dem Windows Server 2012-DC.  
   
-3.  Führen Sie mehrere LDAP-Suchvorgänge, die den Schwellenwert überschreiten, und beobachten Sie die statistische Informationen am Anfang der Ergebnisse.  Verwenden Sie die LDAP-Abfragen, die Sie weiter oben beschrieben aus, und wiederholen Sie die gleichen Suchvorgänge.  
+3.  Führen Sie mehrere LDAP-Suchvorgänge durch, die den Schwellenwert überschreiten, und beobachten Sie die statistischen Informationen am Anfang der Ergebnisse.  Verwenden Sie die zuvor dokumentierten LDAP-Abfragen, und wiederholen Sie die gleichen Suchvorgänge.  
   
-4.  Führen Sie eine LDAP-Suche, die die Abfrageoptimierer nicht optimieren, da ein oder mehrere Attribute nicht indiziert werden.  
+4.  Führen Sie eine LDAP-Suche durch, die vom Abfrageoptimierer nicht optimiert werden kann, da mindestens ein Attribut nicht indiziert ist.  
   
-## <a name="BKMK_ADRepl"></a>Durchsatzverbesserung bei der Active Directory-Replikation  
+## <a name="BKMK_ADRepl"></a>Active Directory Replikations Durchsatz Verbesserung  
   
 ### <a name="overview"></a>Übersicht  
-Active Directory-Replikation verwendet RPC für den Replikationstransport. Standardmäßig verwendet RPC einen 8-KB-Puffer übertragen und eine Paketgröße 5 KB. Dies hat den Effekt, in denen die sendende Instanz überträgt drei Pakete (ca. 15K sollte der Daten) und müssen dann die Roundtripzeit für ein Netzwerk warten Sie vor dem Senden weiterer. Sofern eine 3ms Roundtrip-Zeit, wäre der höchste Durchsatz zu 40Mbps, sogar auf 1 Gbit/s oder 10 Gbit/s-Netzwerke.  
+Die AD-Replikation verwendet RPC für den Replikations Transport. Standardmäßig verwendet RPC einen 8-k-Übertragungs Puffer und eine Paketgröße von 5K. Dies hat den Nettoeffekt, bei dem die sendende Instanz drei Pakete überträgt (ca. 15K Daten) und dann auf einen Netzwerkroundtrip warten muss, bevor mehr gesendet wird. Bei einer Roundtrip-Zeit von 3 MS beträgt der höchste Durchsatz etwa 40 MBit/s, auch bei Netzwerken mit 1 Gbit/s oder 10 Gbit/s.  
   
 > [!NOTE]  
-> -   Dieses Update wird den maximalen Durchsatz Active Directory-Replikation von 40Mbps auf ca. 600 Mbps angepasst.  
+> -   Mit diesem Update wird der maximale AD Replication-Durchsatz von 40Mbit/s auf ungefähr 600 MBit/s angepasst.  
 >   
->     -   Sie erhöht die RPC-Größe des Sendepuffers dadurch die Anzahl von Roundtrips  
-> -   Der Effekt wird besonders deutlich auf hoher Geschwindigkeit und hoher Latenz Netzwerk.  
+>     -   Es erhöht die Größe des RPC-Sendepuffers, wodurch die Anzahl der Netzwerkroundtrips reduziert wird.  
+> -   Die Auswirkung auf das Netzwerk mit hoher Geschwindigkeit und hoher Latenz ist am deutlichsten.  
   
-Diese Updates wurde die Anzahl des maximalen Durchsatzes auf ca. 600 Mbps durch Ändern der Größe des Sendepuffers RPC von 8K auf 256KB.  Diese Änderung ermöglicht die TCP-Fenstergröße, über 8 KB, vergrößern reduziert die Anzahl von Roundtrips.  
+Diese Updates erhöhen den maximalen Durchsatz auf ca. 600 MBit/s, indem die RPC-Sendepuffer Größe von 8K in 256 KB geändert wird.  Diese Änderung ermöglicht es, dass die TCP-Fenstergröße über 8K hinaus anwächst und so die Anzahl von Netzwerkroundtrips reduziert.  
   
 > [!NOTE]  
 > Es gibt keine konfigurierbaren Einstellungen, um dieses Verhalten zu ändern.  
   
 ### <a name="additional-resources"></a>Zusätzliche Ressourcen  
-[Funktionsweise der Active Directory-Replikationsmodell](https://technet.microsoft.com/library/cc772726(v=WS.10).aspx)  
+[Funktionsweise des Active Directory Replikations Modells](https://technet.microsoft.com/library/cc772726(v=WS.10).aspx)  
   
 
 

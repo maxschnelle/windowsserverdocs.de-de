@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getproxyusage
-description: Windows-Befehle Thema **Bitsadmin Getproxyusage** -Ruft die Proxy-Verwendung-Einstellung für den angegebenen Auftrag ab.
+description: 'Windows-Befehls Thema für **bitionadmin getproxyusage** : Ruft die Einstellung für die Proxy Verwendung für den angegebenen Auftrag ab.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 20ba418b8dfcf3d96d9b20b22e53797a232a13f1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ea9a22f4fb35af3436d02d9f23b62ce0888a26b0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863881"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381287"
 ---
 # <a name="bitsadmin-getproxyusage"></a>bitsadmin getproxyusage
 
 
 
-Ruft die Einstellung für den Proxy für den angegebenen Auftrag ab.
+Ruft die Proxy Verwendungs Einstellung für den angegebenen Auftrag ab.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,23 +36,23 @@ bitsadmin /GetProxyUsage <Job>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
 
 ## <a name="remarks"></a>Hinweise
 
-Die möglichen Werte sind:
--   VORKONFIGURIERTE – des Besitzers der Standardeinstellungen von Internet Explorer verwenden.
--   "No_proxy" – verwenden Sie einen Proxyserver nicht.
--   Außer Kraft setzen, verwenden Sie eine explizite Proxyliste.
--   AUTOERMITTLUNG – die Proxyeinstellungen automatisch erkennen.
+Mögliche Werte sind:
+-   Preconfig – verwenden Sie die Internet Explorer-Standardeinstellungen des Besitzers.
+-   NO_PROXY – keinen Proxy Server verwenden.
+-   Überschreiben – verwenden Sie eine explizite Proxy Liste.
+-   Autodetect – die Proxy Einstellungen werden automatisch erkannt.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Das folgende Beispiel ruft die Proxyverwendung für den Auftrag mit dem Namen *MyDownloadJob*.
+Im folgenden Beispiel wird die Proxy Verwendung für den Auftrag mit dem Namen " *mydownloadjob*" abgerufen.
 ```
 C:\>bitsadmin /GetProxyUsage myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

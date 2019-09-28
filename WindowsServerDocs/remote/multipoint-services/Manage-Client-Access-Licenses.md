@@ -1,8 +1,8 @@
 ---
 title: Verwalten der Clientzugriffslizenzen
-description: Informationen Sie zum Arbeiten mit in MultiPoint Services-CALs
+description: Erfahren Sie mehr über das Arbeiten mit CALs in Multipoint Services
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,40 +13,40 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 42b943ed5e0066f1f810efaba9e65a529ac25f00
-ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
+ms.openlocfilehash: 0ca951c5e4c4fcdba06d0b475a7d7536a9c7f91f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67469349"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395458"
 ---
 # <a name="manage-client-access-licenses"></a>Verwalten der Clientzugriffslizenzen
-Jede Station, die eine Verbindung mit einem MultiPoint Services-System, einschließlich des Computers mit MultiPoint-Dienste, die als Station verwendet wird, müssen einen gültigen benutzerspezifische Remotedesktop *-Clientzugriffslizenz (CAL)* .
+Jede Station, die eine Verbindung mit einem Multipoint Services-System herstellt, einschließlich des Computers, auf dem Multipoint Services ausgeführt wird und als Station verwendet wird, muss über eine gültige benutzerspezifische Remotedesktop *Client Zugriffslizenz (CAL)* verfügen.
 
-Wenn Sie virtuelle desktopstationen anstelle von physischen Stationen verwenden, müssen Sie eine Clientzugriffslizenz für jede Station virtuellen Desktop installieren.  
+Wenn Sie virtuelle Station-Desktops anstelle physischer Stationen verwenden, müssen Sie für jeden virtuellen Computer der Station eine Client Zugriffslizenz (CAL) installieren.  
   
-1.  Erwerben Sie eine Clientzugriffslizenz für jede Station, die mit Ihrem MultiPoint Services-Computer oder Server verbunden ist. Weitere Informationen über den Erwerb von CALs finden Sie auf die Dokumentation für die Remotedesktop-Lizenzierung. 
+1.  Erwerben Sie eine Client Lizenz für jede Station, die mit Ihrem Multipoint Services-Computer oder-Server verbunden ist. Weitere Informationen zum Erwerb von CALs finden Sie in der Dokumentation zur Remotedesktop Lizenzierung. 
 
-2.  Von der **starten** öffnen **MultiPoint-Manager**.  
+2.  Öffnen Sie auf dem **Start** Bildschirm den **Multipoint-Manager**.  
   
-3.  Klicken Sie auf die **Startseite** Registerkarte, und klicken Sie dann auf **Clientzugriffslizenzen hinzufügen**.  Dadurch wird das Verwaltungstool für CAL-Lizenzierung geöffnet.
+3.  Klicken Sie auf die Registerkarte **Start** , und klicken Sie dann auf **Client Zugriffs Lizenzen hinzufügen**.  Dadurch wird das Verwaltungs Tool für die CAL-Lizenzierung geöffnet.
 
-# <a name="set-the-licensing-mode-manually"></a>Legen Sie den Lizenzierungsmodus manuell fest.
-Wenn nicht ordnungsgemäß konfiguriert das MultiPoint Services-Setup eine Benachrichtigung über die Toleranzperiode abgelaufen wird fordert. Um den Lizenzierungsmodus festgelegt, gehen Sie wie folgt vor:
+# <a name="set-the-licensing-mode-manually"></a>Manuelles Festlegen des Lizenzierungs Modus
+Wenn diese Einstellung nicht ordnungsgemäß konfiguriert ist, wird bei der Einrichtung von Multipoint Services eine Benachrichtigung über den Ablauf der Toleranz Periode angezeigt. Führen Sie diese Schritte aus, um den Lizenzierungs Modus festzulegen:
 
-1. Starten Sie **Editor für lokale Gruppenrichtlinien** (gpedit.msc).
+1. Starten Sie **Editor für lokale Gruppenrichtlinien** (gpeer dit. msc).
 
-2. Navigieren Sie im linken Bereich zu **Richtlinien für Lokaler Computer -> Computerkonfiguration-> Administrative Vorlagen -> Windows-Komponenten -> Remote Desktop Services - > Remote Desktop Session Host-Lizenzierung >** .
+2. Navigieren Sie im linken Bereich zu " **lokaler Computer Richtlinien-> Computer Konfiguration-> Administrative Vorlagen-> Windows-Komponenten-> Remotedesktopdienste**> Remotedesktop-Sitzungshost >-Lizenzierung.
 
-3. Klicken Sie im rechten Bereich mit der rechten Maustaste **verwenden Sie die angegebenen Remotedesktop-Lizenzserver** , und wählen Sie **bearbeiten**:
-   - Wählen Sie im Editor-Dialogfeld **aktiviert**
-   - Geben Sie den Namen des lokalen Computers in die **zu verwendende Lizenzserver** Feld.
-   - Wählen Sie **OK**
+3. Klicken Sie im rechten Bereich mit der rechten Maustaste auf **die angegebenen Remotedesktop Lizenzserver verwenden** , und wählen Sie dann **Bearbeiten**aus:
+   - Wählen Sie im Dialogfeld Gruppenrichtlinien-Editor die **Option aktiviert** aus.
+   - Geben Sie im Feld **zu verwendende Lizenzserver** den Namen des lokalen Computers ein.
+   - **OK** auswählen
   
-4. Klicken Sie im rechten Bereich mit der rechten Maustaste **legen Sie den Remotedesktop-Lizenzierungsmodus** , und wählen Sie **bearbeiten**
-   - Wählen Sie im Editor-Dialogfeld **aktiviert**
-   - Legen Sie die **Lizenzierungsmodus** um pro Gerät / pro Benutzer
-   - Wählen Sie **OK** 
+4. Klicken Sie im rechten Bereich mit der rechten Maustaste auf **Remotedesktop Lizenzierungs Modus festlegen** , und wählen Sie **Bearbeiten** aus.
+   - Wählen Sie im Dialogfeld Gruppenrichtlinien-Editor die **Option aktiviert** aus.
+   - Legen Sie den **Lizenzierungs Modus** auf pro Gerät/pro Benutzer fest.
+   - **OK** auswählen 
 
   
 ## <a name="see-also"></a>Siehe auch  

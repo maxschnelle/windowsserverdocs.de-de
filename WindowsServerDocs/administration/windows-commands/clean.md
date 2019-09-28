@@ -1,8 +1,8 @@
 ---
 title: clean
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cd5eb2ec1bde4523eb6f0f919e09b9711b2654fb
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f871ad1d13e06bf0cbb886ba64a52e7a55a9a797
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434318"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379322"
 ---
 # <a name="clean"></a>clean
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Der Diskpart-Befehls "bereinigen" entfernt alle Partition oder dem Volume, die vom Datenträger mit dem Fokus formatieren.
+Der "Diskpart Clean"-Befehl entfernt alle Partitionen bzw. volumeformatierung von der Festplatte mit dem Fokus.
 ## <a name="syntax"></a>Syntax
 ```
 clean [all]
@@ -33,14 +33,14 @@ clean [all]
 
 | Parameter |                                                        Beschreibung                                                        |
 |-----------|---------------------------------------------------------------------------------------------------------------------------|
-|    all    | Gibt an, dass alle Sektoren auf dem Datenträger 0 ist, wird dadurch werden vollständig alle Daten auf dem Datenträger gelöscht. |
+|    all    | Gibt an, dass jeder und jeder Sektor auf dem Datenträger auf NULL festgelegt ist, wodurch alle Daten auf dem Datenträger vollständig gelöscht werden. |
 
 ## <a name="remarks"></a>Hinweise
-- Bei Datenträgern master Boot Record (MBR) nur die MBR-Partitionierung und ausgeblendeten Sektoreninformationen überschrieben werden.
-- Auf Datenträgern für GUID-Partitionstabelle (Gpt) werden die Informationen, einschließlich der Schutz-MBR-Partitionierung überschrieben. Es gibt keine ausgeblendeten Sektoreninformationen.
-- Ein Datenträger muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden. Verwenden der **select Disk** Befehl aus, wählen Sie einen Datenträger und verschiebt den Fokus auf sie.
-  ## <a name="BKMK_examples"></a>Beispiele für
-  Um die gesamte Formatierung aus den ausgewählten Datenträger zu entfernen, geben Sie Folgendes ein:
+- Auf Master Boot Record (MBR)-Datenträgern werden nur die MBR-Partitionierungs Informationen und die Informationen zu verborgenen Sektoren überschrieben.
+- Für GPT-Datenträger (GUID-Partitionstabelle) werden die GPT-Partitionierungs Informationen, einschließlich des schutzmbr, überschrieben. Es sind keine ausgeblendeten Sektorinformationen vorhanden.
+- Ein Datenträger muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl Datenträger **auswählen** einen Datenträger aus, und verschieben Sie den Fokus auf den Datenträger.
+  ## <a name="BKMK_examples"></a>Beispiele
+  Geben Sie Folgendes ein, um die gesamte Formatierung des ausgewählten Datenträgers zu entfernen:
   ```
   clean
   ```

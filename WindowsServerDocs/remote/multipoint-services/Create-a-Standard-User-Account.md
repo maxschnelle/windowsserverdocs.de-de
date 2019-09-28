@@ -1,8 +1,8 @@
 ---
 title: Erstellen eines Standardbenutzerkontos
 ms.custom: na
-description: Erstellen eines basic-Benutzer-Kontos für MultiPoint-Dienste
-ms.prod: windows-server-threshold
+description: Erstellen eines einfachen Benutzerkontos für Multipoint Services
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -11,15 +11,15 @@ ms.topic: article
 ms.assetid: 1e113666-e45f-48b6-aad8-42c361c9046d
 author: lizap
 manager: dongill
-ms.openlocfilehash: c854fdf7ccb71047b6631d53c08aa095499e7d45
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dc1307855b847b3d27f655e953c718e4049f8332
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837931"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395477"
 ---
 # <a name="create-a-standard-user-account"></a>Erstellen eines Standardbenutzerkontos
-Erstellen Sie *Standardbenutzerkonten* für die Benutzer, die regelmäßig auf Stationen zugreifen, das MultiPoint Services-System aber nicht verwalten. Benutzer mit Standardbenutzerkonten können die meisten Anwendungen ausführen, und Speichern von Dateien, aber MultiPoint-Manager kann nicht ausgeführt werden. Um zu sehen, wer über standardbenutzerzugriff im MultiPoint-Manager hat klicken Sie auf die **Benutzer** Registerkarte. Standardbenutzerkonten werden in der Spalte Kontotyp als **Standard** angezeigt.  
+Erstellen Sie *Standardbenutzerkonten* für die Benutzer, die regelmäßig auf Stationen zugreifen, das MultiPoint Services-System aber nicht verwalten. Benutzer mit Standardbenutzer Konten können die meisten Anwendungen ausführen und Dateien speichern, aber nicht den Multipoint-Manager ausführen. Um festzustellen, wer über Standardbenutzer Zugriff verfügt, klicken Sie in Multipoint-Manager auf die Registerkarte **Benutzer** . Standardbenutzerkonten werden in der Spalte Kontotyp als **Standard** angezeigt.  
   
 Wenn Ihre MultiPoint Services-Benutzer private Dokumente in Windows speichern, sollte sich jeder Benutzer mit einem eindeutigen Benutzernamen und Kennwort am MultiPoint Services-System anmelden.  
   
@@ -28,7 +28,7 @@ Wenn Ihre MultiPoint Services-Benutzer private Dokumente in Windows speichern, s
   
 #### <a name="to-create-a-standard-user-account"></a>So erstellen Sie ein Standardbenutzerkonto  
   
-1.  MultiPoint-Manager, klicken Sie auf die **Benutzer** Registerkarte.  
+1.  Klicken Sie im Multipoint-Manager auf die Registerkarte **Benutzer** .  
   
 2.  Klicken Sie unter **Benutzeraufgaben** auf **Benutzerkonto hinzufügen**. Der Assistent **Benutzerkonto hinzufügen** wird geöffnet.  
   

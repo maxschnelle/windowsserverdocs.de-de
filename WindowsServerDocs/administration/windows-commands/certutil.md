@@ -2,7 +2,7 @@
 title: certutil
 description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3bc1e544c0e0684678bc168f286b52e5573f3ac2
-ms.sourcegitcommit: 286e3181ebd2cb9d7dc7fe651858a4e0d61d153f
+ms.openlocfilehash: 45c9946cc53fe3a901c3f6ee53f082a5b3d086c0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68300686"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379651"
 ---
 # <a name="certutil"></a>certutil
 
@@ -146,7 +146,7 @@ Zurück zum [Menü](#menu)
 In der folgenden Tabelle wird die Notation beschrieben, mit der die Befehlszeilen Syntax angegeben wird.
 
 
-|            Notation             |                  Beschreibung                  |
+|            Angabe             |                  Beschreibung                  |
 |---------------------------------|-----------------------------------------------|
 | Text ohne eckige Klammern oder geschweifte Klammern |         Elemente, die Sie eingeben müssen, wie gezeigt          |
 |  \<Text in spitzen Klammern >  | Platzhalter, für den Sie einen Wert angeben müssen |
@@ -250,7 +250,7 @@ Zurück zum [Menü](#menu)
 
 ## <a name="-setextension"></a>-abtextension
 
-Certutil [Optionen]-setextension RequestId ExtensionName Flags {Long | Datum | Zeichenfolge | \@INFILE}
+Certutil [Optionen]-setextension RequestId ExtensionName Flags {Long | Datum | Zeichenfolge | \@infile}
 
 Erweiterung für ausstehende Anforderung festlegen
 
@@ -1208,7 +1208,7 @@ Zurück zum [Menü](#menu)
 
 Certutil [Optionen]-scrootupdate [+] [inputrootfile] [readername]
 
-Certutil [Optionen]-scroots Save \@outputrootfile [readername]
+Certutil [Optionen]-scrootspeichern \@outputrootfile [readername]
 
 Certutil [Optionen]-scroots-Sicht [inputrootfile | Readername]
 
@@ -1308,7 +1308,7 @@ Zurück zum [Menü](#menu)
 
 ## <a name="-sign"></a>-Sign
 
-Certutil [Optionen]-Signieren von infilelist | SerialNumber | CRL outfilelist [StartDate + DD: hh] [+ serialzahllist |-serialnumlist |-objectidlist | \@Extensionfile]
+Certutil [Optionen]-Signieren von infilelist | SerialNumber | CRL outfilelist [StartDate + DD: hh] [+ serialzahllist |-serialnumlist |-objectidlist | \@extensionfile]
 
 Certutil [Optionen]-Signieren von infilelist | SerialNumber | CRL outfilelist [#HashAlgorithm] [+-Alternative </> >
 
@@ -1461,7 +1461,7 @@ Zurück zum [Menü](#menu)
 
 ## <a name="-getreg"></a>-getreg
 
-Certutil [Optionen]-getreg [{ca | Restore | Policy | Exit | Template | ENROLL | Chain | Policyservers}\[ProgID\]] [registryvaluename]
+Certutil [Optionen]-getreg [{ca | Restore | Policy | Exit | Template | ENROLL | Chain | Policyservers} \[progid @ no__t-1] [registryvaluename]
 
 Registrierungs Wert anzeigen
 
@@ -1499,7 +1499,7 @@ Zurück zum [Menü](#menu)
 
 ## <a name="-setreg"></a>-Eing
 
-Certutil [Optionen]-setreg [{ca | Restore | Policy | Exit | Template | ENROLL | Chain | Policyservers}\[ProgID\]] registryvaluename-Wert
+Certutil [Optionen]-setreg [{ca | Restore | Policy | Exit | Template | ENROLL | Chain | Policyservers} \[progid @ no__t-1] registryvaluename-Wert
 
 Registrierungs Wert festlegen
 
@@ -1537,7 +1537,7 @@ Zurück zum [Menü](#menu)
 
 ## <a name="-delreg"></a>-Delta reg
 
-Certutil [Optionen]-Delta [{ca | Restore | Policy | Exit | Template | ENROLL | Chain | Policyservers}\[ProgID\]] [registryvaluename]
+Certutil [Optionen]-Delta [{ca | Restore | Policy | Exit | Template | ENROLL | Chain | Policyservers} \[progid @ no__t-1] [registryvaluename]
 
 Registrierungs Wert löschen
 

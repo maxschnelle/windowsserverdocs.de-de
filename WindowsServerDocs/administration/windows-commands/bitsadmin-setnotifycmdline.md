@@ -1,8 +1,8 @@
 ---
 title: bitsadmin setnotifycmdline
-description: Windows-Befehle Thema ***-Bitsadmin SetnotifycmdlineSets die Befehlszeile, die ausgeführt werden, wenn der Auftrag abgeschlossen ist, Übertragen von Daten oder ein Auftrag in einen Zustand wechselt.
+description: Thema für Windows-Befehle für * * * *-bizadmin setnotifycmdlinesets der Befehlszeilen Befehl, der ausgeführt wird, wenn der Auftrag das Übertragen von Daten abgeschlossen hat oder wenn ein Auftrag in einen Zustand wechselt.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f1cea4e99cbaaf3881c6f436bdb932090ad6b006
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7a307fe552e7d8ec5852de953a3a439cb02246ec
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859071"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380476"
 ---
 # <a name="bitsadmin-setnotifycmdline"></a>bitsadmin setnotifycmdline
 
-Legt fest, die Befehlszeile, die ausgeführt werden, wenn der Auftrag abgeschlossen ist, Übertragen von Daten oder ein Auftrag in einen Zustand wechselt.
+Legt den Befehlszeilen Befehl fest, der ausgeführt wird, wenn die Übertragung von Daten durch den Auftrag abgeschlossen ist oder wenn ein Auftrag in einen Zustand wechselt.
 
-**BITS-Version 1.2 und früher**: Nicht unterstützt.
+**Bits 1,2 und früher**: Nicht unterstützt.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,20 +36,20 @@ bitsadmin /SetNotifyCmdLine <Job> <ProgramName> [ProgramParameters]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
-|ProgramName|Der Name des Befehls, der ausgeführt werden, wenn der Auftrag abgeschlossen ist.|
-|ProgramParameters|Parameter, die Sie übergeben möchten *ProgramName*.|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
+|Program Name|Der Name des Befehls, der ausgeführt werden soll, wenn der Auftrag abgeschlossen ist.|
+|Programm Parameter|Parameter, die Sie an *Programmname*übergeben möchten.|
 
 ## <a name="remarks"></a>Hinweise
 
-Sie können angeben, dass NULL für *ProgramName* und *ProgramParameters*. Wenn *ProgramName* NULL ist, *ProgramParameters* muss NULL sein.
+Sie können NULL für *Programmname* und *Program Parameters*angeben. Wenn *Program Name* NULL ist, müssen die *Programm Parameter* NULL sein.
 
 > [!IMPORTANT]
-> Wenn *ProgramParameters* ist nicht NULL, und klicken Sie dann auf den ersten Parameter im *ProgramParameters* übereinstimmen *ProgramName*.
+> Wenn " *Program Parameters* " nicht NULL ist, muss der erste Parameter in " *Program Parameters* " dem *Programmnamen*entsprechen.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Im folgenden Beispiel wird die Befehlszeile zum Ausführen des Editors, wenn der Auftrag mit dem Namen vom Dienst verwendete *MyDownloadJob* abgeschlossen ist.
+Im folgenden Beispiel wird der Befehlszeilen Befehl festgelegt, der vom Dienst zum Ausführen von Editor verwendet wird, wenn der Auftrag mit dem Namen *mydownloadjob* abgeschlossen ist.
 ```
 C:\>bitsadmin /SetNotifyCmdLine myDownloadJob c:\winnt\system32\notepad.exe NULL
 ```
@@ -59,4 +59,4 @@ C:\>bitsadmin /SetNotifyCmdLine myDownloadJob c:\winnt\system32\notepad.exe "not
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

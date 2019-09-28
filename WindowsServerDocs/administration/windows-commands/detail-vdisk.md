@@ -1,8 +1,8 @@
 ---
-title: Detail vdisk
-description: 'Windows-Befehle Thema ***- '
+title: Detail-Vdisk
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8e3401eaeb9afb452b6e7e36abdcba69f00e59ce
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1e507c496aa053d6345a383b2867976fc1550e09
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886321"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378556"
 ---
-# <a name="detail-vdisk"></a>Detail vdisk
+# <a name="detail-vdisk"></a>Detail-Vdisk
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zeigt die Eigenschaften des ausgewählten virtuellen Festplatte \(VHD\).  
+Zeigt die Eigenschaften der ausgewählten virtuellen Festplatte \(vhd @ no__t-1 an.  
   
 ## <a name="syntax"></a>Syntax  
   
@@ -34,32 +34,32 @@ detail vdisk
   
 ## <a name="remarks"></a>Hinweise  
   
--   Eine virtuelle Festplatte muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden. Verwenden der **wählen Vdisk** Befehl aus, wählen Sie einen virtuellen Datenträger und verschiebt den Fokus auf sie.  
+-   Eine virtuelle Festplatte muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl **Vdisk auswählen** einen virtuellen Datenträger aus, und verschieben Sie den Fokus auf den Vdisk.  
   
-## <a name="BKMK_examples"></a>Beispiele für  
-Um Details zur ausgewählten virtuellen Festplatte anzuzeigen, geben Sie Folgendes ein:  
+## <a name="BKMK_examples"></a>Beispiele  
+Geben Sie Folgendes ein, um Details zur ausgewählten VHD anzuzeigen:  
   
 ```  
 detail vdisk  
 ```  
   
-#### <a name="additional-references"></a>Zusätzliche Referenzen  
+#### <a name="additional-references"></a>Weitere Verweise  
   
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
--   [attach vdisk](attach-vdisk.md)  
+-   [Vdisk anfügen](attach-vdisk.md)  
   
--   [compact vdisk](compact-vdisk.md)  
+-   [Compact Vdisk](compact-vdisk.md)  
   
   
   
--   [Trennen Sie die virtuellen Datenträger](detach-vdisk.md)  
+-   [Vdisk trennen](detach-vdisk.md)  
   
--   [Erweitern Sie die virtuellen Datenträger](expand-vdisk.md)  
+-   [Erweitern von Vdisk](expand-vdisk.md)  
   
--   [Zusammenführen von virtuellen Datenträger](merge-vdisk.md)  
+-   [Vdisk zusammenführen](merge-vdisk.md)  
   
--   [select vdisk](select-vdisk.md)  
+-   [Vdisk auswählen](select-vdisk.md)  
   
 -   [list_1](list_1.md)  
   

@@ -1,49 +1,49 @@
 ---
-title: QoS-Richtlinie-Architektur
-description: Dieses Thema enthält eine Übersicht über Quality of Service (QoS)-Richtlinie, die Gruppenrichtlinie zu verwenden, um die Netzwerkbandbreite für Datenverkehr von bestimmten Anwendungen und Diensten in Windows Server 2016 zu priorisieren kann.
-ms.prod: windows-server-threshold
+title: Architektur der QoS-Richtlinie
+description: Dieses Thema bietet einen Überblick über die Richtlinie für Quality of Service (QoS), mit der Sie Gruppenrichtlinie die Bandbreite von Netzwerk Datenverkehr für bestimmte Anwendungen und Dienste in Windows Server 2016 priorisieren können.
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 25097cb8-b9b1-41c9-b3c7-3610a032e0d8
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: bad37ba3558137b02ae495fe8dd9be2c903cdd97
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 609d3f28465380b7d15648cfeb73070a39b9362f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843141"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395981"
 ---
-# <a name="qos-policy-architecture"></a>QoS-Richtlinie-Architektur
+# <a name="qos-policy-architecture"></a>Architektur der QoS-Richtlinie
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können in diesem Thema verwenden, Informationen über die Architektur von QoS-Richtlinie.
+In diesem Thema erfahren Sie mehr über die Architektur der QoS-Richtlinie.
 
-Die folgende Abbildung zeigt die Architektur des richtlinienbasierten QoS.
+In der folgenden Abbildung wird die Architektur von Richtlinien basiertem QoS veranschaulicht.
 
 ![Architektur der QoS-Richtlinie](../../media/QoS/QoS-Policy-Architecture.jpg)
 
-Die Architektur des richtlinienbasierten QoS umfasst die folgenden Komponenten:
+Die Architektur von Richtlinien basiertem QoS besteht aus den folgenden Komponenten:
 
-- **Gruppenrichtlinienclient-Dienst Gruppe**. Ein Windows-Dienst, der Benutzer- und Konfiguration der gruppenrichtlinieneinstellungen verwaltet.
+- **Gruppenrichtlinie Client Dienst**. Ein Windows-Dienst, der die Einstellungen der Benutzer-und Computerkonfiguration Gruppenrichtlinie verwaltet.
 
-- **Gruppenrichtlinienmodul**. Eine Komponente von der Gruppenrichtlinienclient-Dienst, die Benutzer und Computer-gruppenrichtlinieneinstellungen aus Active Directory, beim Starten und in regelmäßigen Abständen abruft, sucht nach Änderungen \(standardmäßig alle 90 Minuten\). Wenn Änderungen erkannt werden, ruft die Gruppenrichtlinien-Engine die neuen gruppenrichtlinieneinstellungen ab. Die Gruppenrichtlinien-Engine verarbeitet die eingehenden GPOs und die clientseitige Erweiterung der QoS-informiert, wenn die QoS-Richtlinien aktualisiert werden.
+- **Gruppenrichtlinie-Engine**. Eine Komponente des Gruppenrichtlinie Client diensdienstanbieter, der die Benutzer-und Computerkonfiguration Gruppenrichtlinie Einstellungen vom Active Directory beim Start abruft und regelmäßig nach Änderungen prüft \(standard mäßig alle 90 Minuten @ no__t-1. Wenn Änderungen erkannt werden, ruft die Gruppenrichtlinie-Engine die neuen Gruppenrichtlinie Einstellungen ab. Die Gruppenrichtlinie-Engine verarbeitet die eingehenden GPOs und informiert die Client seitige Erweiterung von QoS, wenn die QoS-Richtlinien aktualisiert werden.
 
-- **Die clientseitige Erweiterung der QoS-**. Eine Komponente von der Gruppenrichtlinienclient-Dienst, der wartet, einer Angabe über das von der Gruppenrichtlinien-Engine, die die QoS-Richtlinien geändert wurden und informiert das Modul der QoS-Überprüfung.
+- **Client seitige QoS-Erweiterung**. Eine Komponente des Gruppenrichtlinie Client diensdienstanbieter, die auf eine Angabe von der Gruppenrichtlinie-Engine wartet, dass die QoS-Richtlinien geändert wurden, und das QoS-Inspektions Modul informiert.
 
-- **TCP/IP-Stack**. Der TCP/IP-Stapel, der enthält integrierte Unterstützung für IPv4 und IPv6- und Windows-Filterplattform unterstützt. 
+- **TCP/IP-Stapel**. Der TCP/IP-Stapel, der integrierte Unterstützung für IPv4 und IPv6 umfasst und Windows-Filter Plattform unterstützt. 
 
-- **QoS-Prüfung**. Modul A-Komponente in den TCP/IP-Stapel, der wartet auf Anzeichen, dass die clientseitige Erweiterung der QoS-QoS-richtlinienänderungen, die QoS-Richtlinieneinstellungen abruft und interagiert mit der Transportschicht und Pacer.sys Datenverkehr intern zu markieren, die die QoS entspricht Richtlinien.
+- **QoS**-Überprüfung. Modul eine Komponente im TCP/IP-Stapel, die auf Anzeichen von Änderungen der QoS-Richtlinie von der QoS-Client seitigen Erweiterung wartet, die QoS-Richtlinien Einstellungen abruft und mit der Transport Schicht und Pacer. sys interagiert, um den Datenverkehr, der mit dem QoS übereinstimmt, intern zu markieren. Policies.
 
-- **NDIS 6.x**. Eine standard-Schnittstelle zwischen Kernelmodustreiber Netzwerk und das Betriebssystem Windows Server und Client-Betriebssystemen. NDIS 6.x unterstützt einfache Filter, mit denen eine vereinfachte Treiber für NDIS-intermediate-Treiber und -Miniporttreiber ist, die eine bessere Leistung bietet.
+- **NDIS 6. x**. Eine Standardschnittstelle zwischen Netzwerk Treibern im Kernelmodus und dem Betriebssystem in Windows Server-und Client Betriebssystemen. NDIS 6. x unterstützt einfache Filter, bei denen es sich um ein vereinfachtes Treibermodell für NDIS-zwischen Treiber und Mini Port-Treiber handelt, das eine bessere Leistung bietet.
 
-- **QoS-Netzwerk-Anbieterschnittstelle \(NPI\)**. Eine Schnittstelle für den Kernelmodus-Treiber für die Interaktion mit Pacer.sys.
+- **QoS-Netzwerkanbieter Schnittstelle \(nPi @ no__t-2**. Eine Schnittstelle für Kernelmodustreiber für die Interaktion mit Pacer. sys.
 
-- **Pacer.sys**. Ein NDIS 6.x Filtertreiber, der steuert, paketplanung für Richtlinienbasierte QoS und für den Datenverkehr der Anwendungen, die die generische QoS \(GQoS\) und Steuerung des Datenverkehrs \(TC\) APIs. Pacer.sys ersetzt Psched.sys in Windows Server 2003 und Windows XP. Pacer.sys, die mit der QoS Packet Scheduler-Komponente in den Eigenschaften einer Netzwerkverbindung oder der Adapter installiert ist.
+- **Pacer. sys**. Ein NDIS 6. x-Lightweight-Filtertreiber, der die Paket Planung für Richtlinien basierte QoS und den Datenverkehr von Anwendungen steuert, die die generischen QoS-\(gqos @ no__t-1 und die Datenverkehrs Kontrolle \(tc @ no__t-3-APIs verwenden. Pacer. sys ersetzte Psched. sys in Windows Server 2003 und Windows XP. Pacer. sys wird mit der QoS Packet Scheduler-Komponente aus den Eigenschaften einer Netzwerkverbindung oder eines Adapters installiert.
 
-Im nächsten Thema in diesem Handbuch finden Sie unter [QoS-Richtlinie Szenarien](qos-policy-scenarios.md).
+Das nächste Thema in dieser Anleitung finden Sie unter [Szenarien für die QoS-Richtlinie](qos-policy-scenarios.md).
 
-Das erste Thema in diesem Handbuch finden Sie unter [Quality of Service (QoS)-Richtlinie](qos-policy-top.md).
+Das erste Thema in dieser Anleitung finden Sie unter [Quality of Service (QoS)-Richtlinie](qos-policy-top.md).
 

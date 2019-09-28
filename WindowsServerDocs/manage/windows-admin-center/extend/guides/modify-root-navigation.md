@@ -1,35 +1,35 @@
 ---
 title: Ändern des Stammnavigationsverhaltens
-description: Entwickeln einer Lösung Erweiterungs Windows Admin Center-SDK (Projekt Honolulu) – ändern Sie die Stamm-Navigationsverhalten
+description: Entwickeln einer projektmappenerweiterung Windows Admin Center SDK (Project Honolulu)-Ändern des Stamm Navigations Verhaltens
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 08/07/2018
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 4a5cba228aa3a0afed99c0d853c3720a5b46f650
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.prod: windows-server
+ms.openlocfilehash: 78c94f3ea13f54ac31f9de9dd60873b93eba2c17
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861731"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385277"
 ---
-# <a name="modify-root-navigation-behavior-for-a-solution-extension"></a>Ändern Sie die Stamm-Navigationsverhalten für eine projektmappenerweiterung
+# <a name="modify-root-navigation-behavior-for-a-solution-extension"></a>Ändern des Stamm Navigations Verhaltens für eine projektmappenerweiterung
 
->Gilt für: Windows Admin Center, Windows Admin Center Preview
+>Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
-In diesem Handbuch erfahren Sie, wie so ändern Sie das Root-Navigationsverhalten für Ihre Lösung unterschiedliche Liste Verbindungsverhalten haben und wie auf Sie ein- oder Ausblenden der Liste der Tools.
+In dieser Anleitung erfahren Sie, wie Sie das Verhalten der Stamm Navigation für Ihre Lösung ändern, um ein anderes Verbindungs Listen Verhalten zu erhalten, und wie Sie die Liste der Tools ausblenden oder anzeigen.
 
-## <a name="modifying-root-navigation-behavior"></a>Ändern die Stamm-Navigationsverhalten
+## <a name="modifying-root-navigation-behavior"></a>Ändern des Verhaltens der Stamm Navigation
 
-Öffnen Sie die Datei "Manifest.JSON" in {erweiterungsstamm} \src, und suchen Sie die Eigenschaft "RootNavigationBehavior". Diese Eigenschaft verfügt über zwei gültige Werte: "Verbindungen" oder "Path". Das Verhalten von "Verbindungen" wird weiter unten in der Dokumentation beschrieben.
+Öffnen Sie die Datei "Manifest. JSON" in {Extension root} \src, und suchen Sie die Eigenschaft "rootnavigationbehavior". Diese Eigenschaft hat zwei gültige Werte: "Connections" oder "Path". Das Verhalten "Verbindungen" wird weiter unten in der Dokumentation ausführlich erläutert.
 
-### <a name="setting-path-as-a-rootnavigationbehavior"></a>Festlegen des Pfades als eine rootNavigationBehavior
+### <a name="setting-path-as-a-rootnavigationbehavior"></a>Festlegen des Pfads als rootnavigationbehavior
 
-Legen Sie den Wert der ```rootNavigationBehavior``` zu ```path```, und löschen Sie dann die ```requirements``` , und lassen Sie die ```path``` Eigenschaft als leere Zeichenfolge. Sie haben die erforderliche Minimalkonfiguration um eine projektmappenerweiterung zu erstellen. Speichern Sie die Datei, und Gulp-Build -> Gulp dienen, wie Sie ein Tool, und klicken Sie dann Seite die Erweiterung in Ihre lokalen Windows Admin Center-Extension geladen würde.
+Legen Sie den Wert ```rootNavigationBehavior``` auf ```path``` fest, und löschen Sie dann die Eigenschaft ```requirements```, und belassen Sie die ```path```-Eigenschaft als leere Zeichenfolge. Sie haben die minimal erforderliche Konfiguration abgeschlossen, um eine projektmappenerweiterung zu erstellen. Speichern Sie die Datei, und Gulp Build-> Gulp dient als Tool, und laden Sie dann die Erweiterung in die lokale Windows Admin Center-Erweiterung.
 
-Ein Array von gültigen manifest EntryPoints sieht folgendermaßen aus:
+Ein gültiges Manifest-entryPoints-Array sieht wie folgt aus:
 ```
     "entryPoints": [
         {
@@ -45,13 +45,13 @@ Ein Array von gültigen manifest EntryPoints sieht folgendermaßen aus:
     ],
 ```
 
-Tools, die mit dieser Art von Struktur erstellt werden, nicht erforderliche Verbindungen zu laden, aber keine Funktion für Knoten Verbindungen entweder.
+Bei Tools, die mit dieser Art von Struktur erstellt werden, sind keine Verbindungen zum Laden erforderlich, aber es sind auch keine Knoten Verbindungsfunktionen vorhanden.
 
-### <a name="setting-connections-as-a-rootnavigationbehavior"></a>Verbindungen werden als eine RootNavigationBehavior festgelegt.
+### <a name="setting-connections-as-a-rootnavigationbehavior"></a>Festlegen von Verbindungen als rootnavigationbehavior
 
-Beim Festlegen der ```rootNavigationBehavior``` Eigenschaft ```connections```, veranlassen Sie, dass die Windows Admin Center-Shell ist, dass es ein verbundenen Knoten (immer ein Server eines bestimmten Typs), der eine Verbindung hergestellt werden soll, und Überprüfen des Verbindungsstatus. Mit dieser Option sind 2 Schritte bei der Überprüfung der Verbindung. (1) Windows Admin Center versucht, stellen auf den Knoten mit Ihren Anmeldeinformationen (für das Herstellen der PowerShell-Remotesitzung) anmelden, und (2) führt das PowerShell-Skript, das Sie bereitstellen, um zu ermitteln, ob der Knoten in einem verbindungsfähigen Zustand befindet.
+Wenn Sie die ```rootNavigationBehavior```-Eigenschaft auf ```connections``` festlegen, wird der Windows Admin Center-Shell mitgeteilt, dass ein verbundener Knoten (immer ein Server eines Typs) vorhanden ist, mit dem eine Verbindung hergestellt werden soll, und der Verbindungsstatus überprüft wird. Dies umfasst zwei Schritte beim Überprüfen der Verbindung. 1) das Windows Admin Center versucht, sich mit Ihren Anmelde Informationen beim Knoten anzumelden (zum Einrichten der PowerShell-Remote Sitzung) und 2) führt das PowerShell-Skript aus, das Sie bereitstellen, um zu ermitteln, ob sich der Knoten in einem Verbindungs fähigen Zustand befindet.
 
-Eine gültige lösungsdefinition mit Verbindungen wird wie folgt aussehen:
+Eine gültige Projektmappendefinition mit Verbindungen sieht wie folgt aus:
 
 ``` json
         {
@@ -75,8 +75,8 @@ Eine gültige lösungsdefinition mit Verbindungen wird wie folgt aussehen:
         },
 ```
 
-Wenn die RootNavigationBehavior auf "Verbindungen" festgelegt ist, müssen Sie erstellen Sie die Definition der Verbindungen im Manifest. Dazu gehören die "Header"-Eigenschaft (wird verwendet, die in Ihrer Lösung Kopfzeile angezeigt werden soll, wenn ein Benutzer im Menü ausgewählt), ein ConnectionTypes Array (Dadurch wird angeben welche ConnectionTypes in der Projektmappe verwendet werden. Weitere Informationen, die in der Dokumentation für die ConnectionProvider-.).
+Wenn rootnavigationbehavior auf "Connections" festgelegt ist, müssen Sie die Verbindungs Definition im Manifest erstellen. Dies schließt die Eigenschaft "Header" ein (wird zur Anzeige im projektmappenheader verwendet, wenn ein Benutzer Sie aus dem Menü auswählt), ein connectiontypes-Array (Dadurch wird festgelegt, welche connectiontypes in der Projekt Mappe verwendet werden. Weitere Informationen dazu in der ConnectionProvider-Dokumentation.)
 
-## <a name="enabling-and-disabling-the-tools-menu"></a>Aktivieren und deaktivieren das Menü "Extras" ##
+## <a name="enabling-and-disabling-the-tools-menu"></a>Aktivieren und Deaktivieren des Menüs "Extras" ##
 
-Eine andere Eigenschaft, die in der Definition der Projektmappe verfügbar ist, die Eigenschaft "Tools". Diese bestimmen, wenn das Menü "Extras", und das Tool angezeigt wird, die geladen werden. Wenn aktiviert, wird Windows Admin Center im Menü Extras Links gerendert. DefaultTool, ist es erforderlich, dass Sie einen Tool Einstiegspunkt zum Manifest hinzufügen, um die entsprechenden Ressourcen zu laden. Der Wert "DefaultTool" muss die Eigenschaft "Name" des Tools werden, da dieser im Manifest definiert wurde.
+Eine weitere in der Projektmappendefinition verfügbare Eigenschaft ist die Eigenschaft "Tools". Dadurch wird festgelegt, ob das Menü Extras und das Tool, das geladen wird, angezeigt werden. Wenn diese Option aktiviert ist, wird das Menü auf der linken Seite des Windows Admin Centers angezeigt. Mit defaulttool ist es erforderlich, dass Sie dem Manifest einen Tool Einstiegspunkt hinzufügen, um die entsprechenden Ressourcen zu laden. Der Wert von "defaulttool" muss die Eigenschaft "Name" des Tools sein, wie er im Manifest definiert ist.

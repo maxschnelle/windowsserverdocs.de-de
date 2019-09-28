@@ -1,8 +1,8 @@
 ---
-title: Maske
-description: 'Windows-Befehle Thema ***- '
+title: Chel
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 353e6080d1f6c548bc907b58655f31d0bce6de8b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2f0dc83d7d9f7204f56e95c62b7cfad991f539ef
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858021"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373709"
 ---
-# <a name="mask"></a>Maske
+# <a name="mask"></a>Chel
 
 
 
-Hardwareschattenkopien, die mithilfe von importiert wurden entfernt die **importieren** Befehl.
+entfernt Hardware Schatten Kopien, die mithilfe des **Import** -Befehls importiert wurden.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -38,19 +38,19 @@ mask <ShadowSetID>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|ShadowSetID|Entfernt Schattenkopien, die die angegebene ID zur Schatten kopieren festgelegt angehören|
+|Shadow-TID|Entfernt Schatten Kopien, die zur angegebenen Schattenkopiesatz-ID gehören.|
 
 ## <a name="remarks"></a>Hinweise
 
--   Sie können einen vorhandenen Alias oder eine Umgebungsvariable anstelle von *ShadowSetID*. Verwendung **hinzufügen** ohne Parameter, um die vorhandenen Aliase finden Sie unter.
+-   Anstelle von *Shadow* TID*können Sie einen vorhandenen Alias oder eine Umgebungsvariable verwenden. Verwenden **Sie hinzufügen** ohne Parameter, um vorhandene Aliase anzuzeigen.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um die importierten Shadow Copy % Import_1 zu entfernen, geben Sie Folgendes ein:
+Um die importierte Schatten Kopie% Import_1% zu entfernen, geben Sie Folgendes ein:
 ```
 mask %Import_1%
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

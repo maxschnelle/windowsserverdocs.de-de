@@ -1,8 +1,8 @@
 ---
 title: rem
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d78bbfe4434170078beb1fd3b3526b017a03e0be
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 56534f75baf514d1c1760edfd41f6f94ab4ae1ab
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857021"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371601"
 ---
 # <a name="rem"></a>rem
 
 
 
-Bietet eine Möglichkeit, Kommentare zu einem Skript hinzuzufügen.
+Bietet eine Möglichkeit zum Hinzufügen von Kommentaren zu einem Skript.
 
 ## <a name="syntax"></a>Syntax
 
@@ -32,9 +32,9 @@ Bietet eine Möglichkeit, Kommentare zu einem Skript hinzuzufügen.
 rem
 ```
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-In diesem Beispielskript **Rem** wird verwendet, um einen Kommentar zur Funktionsweise des Skripts angeben:
+In diesem Beispielskript wird **REM** verwendet, um einen Kommentar zur Funktionsweise des Skripts bereitzustellen:
 ```
 rem The commands in this script set up 3 drives.
 rem The first drive is a primary partition and is
@@ -52,5 +52,5 @@ assign f:
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

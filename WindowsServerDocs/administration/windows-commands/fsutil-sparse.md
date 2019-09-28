@@ -1,7 +1,7 @@
 ---
 ms.assetid: 77545920-2d13-4f35-a4d1-14dbec8340dc
-title: Fsutil-sparsedatei
-ms.prod: windows-server-threshold
+title: Geringe Dichte
+ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
@@ -9,17 +9,17 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: b1bc4e45ed2a2b06c72318e0999988ed8f016c40
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f9fb3cf46afb7e96c13fb623bc8f4fe67c1f3694
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438972"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376813"
 ---
-# <a name="fsutil-sparse"></a>Fsutil-sparsedatei
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, WindowsServer 2012, Windows 8, Windows Server 2008 R2, Windows 7
+# <a name="fsutil-sparse"></a>Geringe Dichte
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
 
-Verwaltet die Dateien mit geringer Dichte.
+Verwaltet Dateien mit geringer Dichte.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -37,25 +37,25 @@ fsutil sparse [setrange] <FileName> <BeginningOffset> <Length>
 |     Parameter     |                                                    Beschreibung                                                    |
 |-------------------|-------------------------------------------------------------------------------------------------------------------|
 |     queryflag     |                                                  Abfragen mit geringer Dichte.                                                  |
-|    queryrange     |                        Durchsucht eine Datei, und sucht nach Bereichen, die möglicherweise Daten ungleich NULL enthalten.                        |
-|      SETFLAG      |                                        Markiert die angegebene Datei mit geringer Dichte.                                        |
-|     SetRange      |                                   Füllt einen angegebenen Bereich von einer Datei mit Nullen aufgefüllt.                                   |
-|    <FileName>     | Gibt den vollständigen Pfad zur Datei einschließlich der Namen und die Erweiterung, z. B. C:\documents\filename.txt an. |
-| <BeginningOffset> |                              Gibt den Offset in der Datei um geringen Dichte zu markieren.                              |
-|     <Length>      |                 Gibt die Länge des Bereichs in der Datei als mit geringer Dichte (in Byte) markiert werden.                 |
+|    queryrange     |                        Scannt eine Datei und sucht nach Bereichen, die möglicherweise Daten enthalten, die nicht NULL sind.                        |
+|      setflag      |                                        Markiert die gekennzeichnete Datei als "Sparse".                                        |
+|     SetRange      |                                   Füllt einen angegebenen Bereich einer Datei mit Nullen.                                   |
+|    <FileName>     | Gibt den vollständigen Pfad zur Datei einschließlich des Datei namens und der Erweiterung an, z. b. "c:\documents\dateiname.txt". |
+| <BeginningOffset> |                              Gibt den Offset in der Datei an, der als Sparse markiert werden soll.                              |
+|     <Length>      |                 Gibt die Länge des Bereichs in der Datei an, der als Sparse (in Bytes) gekennzeichnet werden soll.                 |
 
 ## <a name="remarks"></a>Hinweise
 
--   Eine Datei mit geringer Dichte ist eine Datei mit einer oder mehreren Regionen des nicht zugeordneten Daten. Ein Programm, wird diese nicht zugewiesenen Regionen als mit Bytes, die mit dem Wert 0 (null) angezeigt, aber kein Speicherplatz wird verwendet, um diese Nullen darstellen. Alle Daten von Bedeutung sind oder ungleich NULL sind reserviert, während alle nonmeaningful Daten (large Zeichenfolgen von Daten, die aus Nullen besteht) ist nicht zugeordnet. Wenn eine Datei mit geringer Dichte gelesen wird, zugeordnete Daten werden zurückgegeben, da gespeichert, und nicht zugeordnete Daten werden zurückgegeben, in der Standardeinstellung als Nullen, gemäß der C2-Sicherheitsspezifikation. Unterstützung der Datei mit geringer Dichte kann Daten an einer beliebigen Stelle in der Datei aufgehoben werden soll.
+-   Eine sparsedatei ist eine Datei mit einer oder mehreren Regionen nicht zugeordneter Daten. Die nicht zugeordneten Regionen werden von einem Programm als Bytes mit dem Wert 0 (null) angezeigt, es wird jedoch kein Speicherplatz zur Darstellung dieser Nullen verwendet. Alle aussagekräftigen Daten oder Daten, die nicht NULL sind, werden zugeordnet, während alle nicht aussagekräftigen Daten (große Daten Zeichenfolgen aus Nullen) nicht zugeordnet werden. Wenn eine sparsedatei gelesen wird, werden zugeordnete Daten als gespeichert zurückgegeben, und nicht zugeordnete Daten werden standardmäßig als Nullen in Übereinstimmung mit der C2-Sicherheits Anforderungsspezifikation zurückgegeben. Unterstützung für die Unterstützung von geringer Dichte ermöglicht die Zuordnung von Daten von jedem beliebigen Speicherort in der Datei
 
--   In einer Datei mit geringer Dichte können große Bereiche mit Nullen nicht datenträgerzuordnung erfordern. Je nach Bedarf, wenn die Datei geschrieben wird, wird Speicherplatz für Daten ungleich NULL zugeordnet.
+-   In einer sparsedatei ist für große Bereiche von Nullen möglicherweise keine Datenträger Zuordnung erforderlich. Der Speicherplatz für Daten, die nicht NULL sind, wird nach Bedarf zugeordnet, wenn die Datei geschrieben wird.
 
--   Nur Dateien komprimierte oder mit geringer Dichte können Bereiche bekannt, dass das Betriebssystem auf NULL gesetzt haben.
+-   Nur komprimierte Dateien oder Dateien mit geringer Dichte können über nulloverbereiche verfügen, die dem Betriebssystem bekannt sind.
 
--   Wenn die Datei mit geringer Dichte oder komprimierten ist, kann NTFS Speicherplatz in der Datei freigeben. Hiermit wird der Bereich von Bytes auf Nullen, ohne die Dateigröße zu erweitern.
+-   Wenn die Datei dünn oder komprimiert ist, kann der Speicherplatz in der Datei von NTFS aufgehoben werden. Dadurch wird der Byte Bereich auf Nullen festgelegt, ohne dass die Dateigröße erweitert wird.
 
-## <a name="BKMK_examples"></a>Beispiele für
-Um eine Datei namens "Sample.txt" im Verzeichnis "C:\Temp" als mit geringer Dichte zu markieren, geben Sie Folgendes ein:
+## <a name="BKMK_examples"></a>Beispiele
+Geben Sie Folgendes ein, um eine Datei mit dem Namen Sample. txt im Verzeichnis c:\temp als Sparse zu markieren:
 
 ```
 fsutil sparse setflag c:\temp\sample.txt 

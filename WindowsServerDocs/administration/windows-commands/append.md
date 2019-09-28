@@ -1,8 +1,8 @@
 ---
 title: append
-description: 'Windows-Befehle Thema '
+description: 'Thema für Windows-Befehle für '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fe641e1336c163b5e98421a5fc32f8dbe64023b0
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: fdc4243bee8055888b023a56921cef757dda6b7e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435323"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382752"
 ---
 # <a name="append"></a>append
 
 
 
-Ermöglicht Programmen, die Datendateien in den angegebenen Verzeichnissen zu öffnen, als wären sie im aktuellen Verzeichnis. Wenn Sie ohne Angabe von Parametern **Anfügen** zeigt die Liste der hinzugefügten Verzeichnisse.
+Ermöglicht Programmen das Öffnen von Datendateien in angegebenen Verzeichnissen, als ob Sie sich im aktuellen Verzeichnis befinden. Bei Verwendung ohne Parameter zeigt **Anfügen** die angefügte Verzeichnisliste an.
 
 > [!NOTE]
-> Dieser Befehl in Windows 10 nicht unterstützt.
+> Dieser Befehl wird in Windows 10 nicht unterstützt.
 >
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
@@ -43,22 +43,22 @@ append ;
 
 |     Parameter     |                                                                                 Beschreibung                                                                                 |
 |-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [\<Drive>:]<Path> |                                                                 Gibt an, als Laufwerk und Verzeichnis, angefügt werden soll.                                                                  |
-|       /x:on       |                                                  Wendet angefügten Verzeichnisse Dateisuchen und beim Starten von Anwendungen.                                                  |
-|      /x:off       |                                     Wendet angefügten Verzeichnisse nur auf Anforderungen zum Öffnen von Dateien.</br>**/ x: off** ist die Standardeinstellung.                                     |
-|     /path:on      |                               Wendet angefügten Verzeichnisse für dateianforderungen, die bereits über einen Pfad angeben. **/ Path: auf** ist die Standardeinstellung.                               |
-|     /path:off     |                                                                    Deaktiviert die Auswirkungen der **/Path: auf**.                                                                    |
-|        / e         | Speichert eine Kopie der Liste der hinzugefügten Verzeichnisse in einer Umgebungsvariablen mit dem Namen ANFÜGEN. **/ e** herangezogen werden nur beim ersten Mal Sie verwenden **Anfügen** nach Start des Systems. |
-|         ;         |                                                                     Löscht die Liste der hinzugefügten Verzeichnisse.                                                                     |
+| [\<laufwerk >:] <Path> |                                                                 Gibt ein anzufügende Laufwerk und Verzeichnis an.                                                                  |
+|       /x: ein       |                                                  Wendet angefügte Verzeichnisse auf Datei suchen und starten von Anwendungen an.                                                  |
+|      /x: Off       |                                     Wendet angefügte Verzeichnisse nur auf Anforderungen zum Öffnen von Dateien an.</br>**/x: Off** ist die Standardeinstellung.                                     |
+|     /Path: ein      |                               Wendet angefügte Verzeichnisse auf Datei Anforderungen an, die bereits einen Pfad angeben. **/Path: on** ist die Standardeinstellung.                               |
+|     /Path: Off     |                                                                    Deaktiviert die Auswirkung von **/Path: on**.                                                                    |
+|        /e         | Speichert eine Kopie der angefügten Verzeichnisliste in einer Umgebungsvariablen mit dem Namen Append. **/e** kann nur verwendet werden, wenn Sie nach dem Starten des Systems das erste Mal **Anfügen** verwenden. |
+|         ;         |                                                                     Löscht die angefügte Verzeichnisliste.                                                                     |
 |        /?         |                                                                    Zeigt die Hilfe an der Eingabeaufforderung an.                                                                     |
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um die Liste der hinzugefügten Verzeichnisse zu löschen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um die angefügte Verzeichnisliste zu löschen:
 ```
 append ;
 ```
-Um eine Kopie des angefügten Verzeichnisses, das eine Umgebungsvariable namens ANFÜGEN zu speichern, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um eine Kopie des angefügten Verzeichnisses in einer Umgebungsvariablen namens "append" zu speichern:
 ```
 append /e
 ```

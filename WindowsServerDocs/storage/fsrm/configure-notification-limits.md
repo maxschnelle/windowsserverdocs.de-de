@@ -2,22 +2,22 @@
 title: Konfigurieren der Benachrichtigungsgrenze
 description: In diesem Artikel wird beschrieben, wie Sie den verschiedene Arten von Benachrichtigungen Zeitlimits hinzufügen können
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: dba5b3b3c8b651935ec3c69695583d04087b7f2d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4a33b7f125479da1e7b701f5427a0f15903caf66
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826311"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71401945"
 ---
 # <a name="configure-notification-limits"></a>Konfigurieren der Benachrichtigungsgrenze
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Um die Anzahl der sich wiederholenden, gesammelten Benachrichtigungen zu reduzieren, die einen Schwellenwert überschreiten, oder die versuchen, nicht autorisierte Datei zu speichern, setzt der Ressourcen-Manager für Dateiserver Zeitlimits für die folgenden Benachrichtigungstypen fest:
 
@@ -43,5 +43,5 @@ Standardmäßig ist 60 Minuten für jeden Benachrichtigungstyp festgelegt, Sie 
 
 ## <a name="see-also"></a>Siehe auch
 
--   [Einstellung File Server Resource Manager-Optionen](setting-file-server-resource-manager-options.md)
+-   [Festlegen der Optionen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)
 -   [Befehlszeilentools](command-line-tools.md)

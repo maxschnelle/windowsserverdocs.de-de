@@ -1,8 +1,8 @@
 ---
 title: ipxroute
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d995204eea0af776a2084a82411fa95542d1d77a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bd5f33766ff9b33c9d6020b7284f2fbf9552d44d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889091"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375329"
 ---
 # <a name="ipxroute"></a>ipxroute
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zeigt an, und ändert Informationen über die Routingtabellen, die von der IPX-Protokoll verwendet wird. Ohne Parameter verwendet **Ipxroute** zeigt die Standardeinstellungen für Pakete, die an unbekannte, multicast und broadcast-Adressen gesendet werden.   
+Zeigt Informationen zu den Routing Tabellen an, die vom IPX-Protokoll verwendet werden, und ändert diese. Wird ohne Parameter verwendet, zeigt **IPXRoute** die Standardeinstellungen für Pakete an, die an unbekannte, Broadcast-und Multicast Adressen gesendet werden.   
 ## <a name="syntax"></a>Syntax  
 ```  
 ipxroute servers [/type=X]  
@@ -36,20 +36,20 @@ ipxroute config
 ### <a name="parameters"></a>Parameter  
 |Parameter|Beschreibung|  
 |-------|--------|  
-|servers[ /type=X]|Zeigt die Tabelle (Service Access Point, SAPs) für den angegebenen Servertyp.  **X** muss eine ganze Zahl sein. Z. B. **/type = 4** zeigt alle Dateiserver. Wenn Sie keinen angeben **/type**, **Ipxroute Server** alle Arten von Servern, aufgelistet nach dem Servernamen angezeigt.|  
-|Ripout Netzwerk|Ermittelt, ob *Netzwerk* erreichbar ist, von der Routingtabelle die IPX-Stapels, und bei Bedarf eine Rip-Anforderung gesendet.  *Netzwerk* IPX-Netzwerknummer Segment ist.|  
-|Beheben {GUID&#124; Name} {GUID&#124; AdapterName}|Löst den Namen der GUID, seinen Anzeigenamen oder den Anzeigenamen ein, um die GUID an.|  
-|Board = *N*|Gibt den Netzwerkadapter für die Abfragen oder Festlegen von Parametern an.|  
-|DEF|Pakete, die alle ROUTEN Übertragung gesendet. Wenn ein Paket an eine eindeutige Adresse für die Karte MAC (Media Access) übertragen wird, die nicht in der Quellroutingtabelle, **Ipxroute** sendet das Paket an die einzelnen ROUTEN, die standardmäßig übertragen.|  
-|gbr|Pakete, die alle ROUTEN Übertragung gesendet. Wenn ein Paket übertragen wird, an die Broadcastadresse (FFFFFFFFFFFF), **Ipxroute** sendet das Paket an die einzelnen ROUTEN, die standardmäßig übertragen.|  
-|mbr|Pakete, die alle ROUTEN Übertragung gesendet. Wenn ein Paket übertragen wird, um eine Multicastadresse (C000xxxxxxxx), **Ipxroute** sendet das Paket an die einzelnen ROUTEN, die standardmäßig übertragen.|  
-|remove= *xxxxxxxxxxxx*|Entfernt die angegebene Knotenadresse aus der Routingtabelle der Quelle an.|  
-|config|Zeigt Informationen über alle Bindungen für die IPX konfiguriert ist.|  
+|Server [/Type = X]|Zeigt die Tabelle für den Dienst Zugriffspunkt (SAP) für den angegebenen Servertyp an.  **X** muss eine ganze Zahl sein. Beispielsweise werden in **/Type = 4** alle Dateiserver angezeigt. Wenn Sie **/Type**nicht angeben, werden von **IPXRoute-Servern** alle Server Typen angezeigt, die nach Servernamen aufgelistet sind.|  
+|ausreißungsnetzwerk|Ermittelt, ob das *Netzwerk* erreichbar ist, indem die Routing Tabelle des IPX-Stapels und ggf. eine RIP-Anforderung gesendet wird.  *Network* ist die IPX-Netzwerksegment Nummer.|  
+|{GUID&#124; -Name} {GUID&#124; Adapter Name} auflösen|Löst den Namen der GUID in ihren anzeigen Amen oder den anzeigen Amen für die GUID auf.|  
+|Board = *N*|Gibt den Netzwerkadapter an, für den Parameter abgefragt oder festgelegt werden sollen.|  
+|auflösenden|Sendet Pakete an die Broadcast alle Routen. Wenn ein Paket an eine eindeutige MAC-Adresse (Media Access Card) übertragen wird, die sich nicht in der Quell Routing Tabelle befindet, sendet **IPXRoute** das Paket standardmäßig an die einzelnen Routen Broadcast.|  
+|GbR|Sendet Pakete an die Broadcast alle Routen. Wenn ein Paket an die Broadcast Adresse (FFFFFFFFFFFF) übertragen wird, sendet **IPXRoute** das Paket standardmäßig an die einzelnen Routen Broadcast.|  
+|MBR|Sendet Pakete an die Broadcast alle Routen. Wenn ein Paket an eine Multicast Adresse (C000xxxxxxxx) übertragen wird, sendet **IPXRoute** das Paket standardmäßig an die einzelnen Routen Broadcast.|  
+|Remove = *xxxxxxxxxxxx*|entfernt die angegebene Knotenadresse aus der Quell Routing Tabelle.|  
+|Einstellungen|Zeigt Informationen zu allen Bindungen an, für die IPX konfiguriert ist.|  
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|  
-## <a name="BKMK_Examples"></a>Beispiele für  
-Um anzuzeigen, die Netzwerksegmente, denen die Arbeitsstation verbunden ist, Knotenadresse für Arbeitsstation und Frametyp verwendet wird, geben Sie Folgendes ein:  
+## <a name="BKMK_Examples"></a>Beispiele  
+Geben Sie Folgendes ein, um die Netzwerksegmente anzuzeigen, an die die Arbeitsstation angefügt ist, und den verwendeten Rahmentyp:  
 ```  
 ipxroute config  
 ```  
-## <a name="additional-references"></a>Zusätzliche Referenzen  
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
+## <a name="additional-references"></a>Weitere Verweise  
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

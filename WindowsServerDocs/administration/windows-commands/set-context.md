@@ -1,8 +1,8 @@
 ---
 title: Kontext festlegen
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6f24e795f2d7c92d462cf822e70e4830b53827e5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 16f71d831f374f495abf2239cb8e694eee69efdf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845851"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370978"
 ---
-# <a name="set-contex"></a>Set-Kontextmenü
+# <a name="set-contex"></a>Festlegen des Verbindungs Punkts
 
 
 
-Legt den Kontext für die Erstellung von Schattenkopien fest. Wenn Sie ohne Angabe von Parametern **Kontext festlegen** zeigt die Hilfe an der Eingabeaufforderung.
+Legt den Kontext für die Erstellung von Schatten Kopien fest. Wenn Sie ohne Parameter verwendet wird, wird in der Eingabeaufforderung " **Kontext** anzeigen" angezeigt.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -38,22 +38,22 @@ set context {clientaccessible | persistent [nowriters] | volatile [nowriters]}
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|ClientAccessible|Gibt an, dass die Schattenkopie von Clientversionen von Windows verwendet werden kann.|
-|persistente|Gibt an, dass die Schattenkopie bei Beenden des Programms, zurücksetzen oder bei Neustart erhalten bleibt.|
-|volatile|Löscht die Schattenkopie zu kopieren, auf Beenden oder zurücksetzen.|
-|NoWriters|Gibt an, dass alle Writer ausgeschlossen werden.|
+|clientbarrierefreiheits|Gibt an, dass die Schatten Kopie von Client Versionen von Windows verwendet werden kann.|
+|hartnäck|Gibt an, dass die Schatten Kopie über das Beenden, zurücksetzen oder Neustarten des Programms hinweg beibehalten wird.|
+|ständigem|Löscht die Schatten Kopie beim Beenden oder zurücksetzen.|
+|nowriter|Gibt an, dass alle Writer ausgeschlossen werden.|
 
 ## <a name="remarks"></a>Hinweise
 
--   Die *Clientaccessible* Kontext ist persistent in der Standardeinstellung.
+-   Der *Client barrierefreie* Kontext ist standardmäßig persistent.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um zu verhindern, dass Schattenkopien gelöscht wird, wenn Sie DiskShadow beenden, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um zu verhindern, dass Schatten Kopien beim Beenden von DiskShadow gelöscht werden:
 ```
 set context persistent
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

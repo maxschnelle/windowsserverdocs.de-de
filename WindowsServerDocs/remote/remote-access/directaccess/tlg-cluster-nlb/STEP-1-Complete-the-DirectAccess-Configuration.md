@@ -1,9 +1,9 @@
 ---
-title: Schritt 1 vervollständigen die DirectAccess-Konfiguration
-description: 'Dieses Thema ist Teil der Testumgebungsanleitung: Vorführen von DirectAccess in einem Cluster mit Windows NLB für Windows Server 2016'
+title: Schritt 1 vervollständigen der DirectAccess-Konfiguration
+description: Dieses Thema ist Teil der Test Umgebungs Anleitung zum Veranschaulichen von DirectAccess in einem Cluster mit Windows NLB für Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,18 +12,18 @@ ms.topic: article
 ms.assetid: e1e15544-b575-4f39-af0b-771bfae8b0b7
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 0d341fd8608a12639bcb0c855d10c91b830e6365
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: cb009d5872d2045124601f1459e829a4d15f3058
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283398"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404888"
 ---
-# <a name="step-1-complete-the-directaccess-configuration"></a>Schritt 1 vervollständigen die DirectAccess-Konfiguration
+# <a name="step-1-complete-the-directaccess-configuration"></a>Schritt 1 vervollständigen der DirectAccess-Konfiguration
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Der erste Schritt besteht darin alle Schritte der [Test Lab Guide: Veranschaulichen von DirectAccess Single Server-Setup mit gemischten IPv4 und IPv6-](https://go.microsoft.com/fwlink/p/?LinkId=237004). Wenn Sie bereits abgeschlossen haben führt die Schritte in dieser testumgebung und ein Snapshot oder Datenträger-Image der testumgebung wird gespeichert, Sie können Wiederherstellen der Momentaufnahme oder einer imageressource und beginnen Sie mit dem nächsten Schritt.  
+Der erste Schritt besteht darin, alle Schritte in der [-Test Umgebungs Anleitung auszuführen: Veranschaulichen der Einrichtung eines einzelnen Servers für DirectAccess mit gemischtem IPv4 und IPv6 @ no__t-0. Wenn Sie die Schritte in dieser Test Umgebungs Anleitung bereits ausgeführt und eine Momentaufnahme oder ein Datenträger Image der Testumgebung gespeichert haben, können Sie die Momentaufnahme oder das Image wiederherstellen und mit dem nächsten Schritt beginnen.  
   
 
 

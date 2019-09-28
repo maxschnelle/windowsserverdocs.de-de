@@ -1,8 +1,8 @@
 ---
-title: ksetup:addrealmflags
-description: 'Windows-Befehle Thema ***- '
+title: 'Ksetup: adressalm Flags'
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f097fc8268976cf038523de0d5fa33c1dd3c6901
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 543fcb8105d21020cc9a4ab5e5e8c1eca14a358b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438030"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375170"
 ---
-# <a name="ksetupaddrealmflags"></a>ksetup:addrealmflags
+# <a name="ksetupaddrealmflags"></a>Ksetup: adressalm Flags
 
 
 
-Fügt zusätzliche Realm-Flags in den angegebenen Bereich hinzu. Beispiele wie dieser Befehl verwendet werden kann, finden Sie unter [Beispiele](#BKMK_Examples).
+Fügt dem angegebenen Bereich weitere bereichflags hinzu. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,41 +36,41 @@ ksetup /addrealmflags <RealmName> [sendaddress] [tcpsupported] [delegate] [ncsup
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Bereichsname|Der Bereichsname ist als Großbuchstaben DNS-Name, wie z. B. CORP. angegeben. "CONTOSO.COM".|
+|Bereichs Name|Der Bereichs Name wird als Großbuchstabe (DNS-Name) angegeben, z. b. Corp. CONTOSO.com.|
 
 ## <a name="remarks"></a>Hinweise
 
-Die Bereichs-Flags Geben Sie zusätzliche Funktionen, die von einem Kerberos-Bereich, der nicht auf dem Windows Server-Betriebssystem basiert. Computer, auf denen Windows Server 2003, Windows Server 2008 oder Windows Server 2008 R2 ausgeführt werden können einen Kerberos-Server zum Verwalten der Authentifizierung statt einer Domäne, die ein Windows Server-Betriebssystem ausgeführt wird, und diese Systeme beteiligt ein Kerberos-Bereich. Dieser Eintrag stellt die Funktionen des Bereichs her. In der folgende Tabelle werden die einzelnen beschrieben.
+Die bereichsflags geben zusätzliche Features eines Kerberos-Bereichs an, der nicht auf dem Windows Server-Betriebssystem basiert. Computer, auf denen Windows Server 2003, Windows Server 2008 oder Windows Server 2008 R2 ausgeführt wird, können einen Kerberos-Server verwenden, um die Authentifizierung zu verwalten, anstatt eine Domäne zu verwenden, in der ein Windows Server-Betriebssystem ausgeführt wird. diese Systeme nehmen an einem Der Kerberos-Bereich. Mit diesem Eintrag werden die Funktionen des Bereichs festgelegt. In der folgenden Tabelle werden die einzelnen beschrieben.
 
-|Wert|Realm-flag|Beschreibung|
+|Wert|Bereichsflag|Beschreibung|
 |-----|----------|-----------|
-|0xF|All|Alle Realm-Flags sind festgelegt.|
-|0x00|Keine|Sind keine Flags Bereich festgelegt, und es sind keine zusätzlichen Features aktiviert.|
-|0x01|SendAddress|Die IP-Adresse wird in den Ticket-granting Tickets enthalten sein.|
-|0x02|TcpSupported|In diesem Bereich werden sowohl das Protokoll TCP (Transmission Control) und User Datagram-Protokoll (UDP) unterstützt.|
-|0x04|Delegieren|Alle in diesem Bereich wird für Delegierungszwecke vertraut.|
-|0x08|NcSupported|Dieser Bereich unterstützt Namen Kanonisierung, DNS und Bereich Benennungsstandards ermöglicht.|
-|0x80|RC4|Dieser Bereich unterstützt bereichsübergreifende Vertrauensstellung, sodass für die Verwendung von TLS ermöglicht die RC4-Verschlüsselung.|
+|0xF|All|Alle bereichflags werden festgelegt.|
+|0x00|Keine|Es wurden keine bereichflags festgelegt, und es sind keine weiteren Funktionen aktiviert.|
+|0x01|Element sendaddress|Die IP-Adresse wird in den Tickets für Ticket Gewährung enthalten sein.|
+|0x02|Tcpsupported|In diesem Bereich werden sowohl das Transmission Control Protocol (TCP) als auch das User Datagram-Protokoll (UDP) unterstützt.|
+|0x04|Delegieren|Jeder in diesem Bereich ist für die Delegierung vertrauenswürdig.|
+|0x08|Ncsupported|Dieser Bereich unterstützt die namens Kanonisierung, die DNS-und Bereichs Benennungs Standards ermöglicht.|
+|0x80|RC4|Dieser Bereich unterstützt die RC4-Verschlüsselung, um eine bereichsübergreifende Vertrauensstellung zu ermöglichen, die die Verwendung von TLS ermöglicht.|
 
-Bereich Flags werden gespeichert, in der Registrierung unter **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Domains\\** <em>Bereichsname</em>. Dieser Eintrag ist nicht standardmäßig in der Registrierung vorhanden. Sie können die [Ksetup:addrealmflags](ksetup-addrealmflags.md) Befehl aus, um die Registrierung zu füllen.
+Bereichsflags werden in der Registrierung unter **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Domains @ no__t-1**<em>Realm-Name</em>gespeichert. Dieser Eintrag ist nicht standardmäßig in der Registrierung vorhanden. Sie können den Befehl " [Ksetup: adressalmflags](ksetup-addrealmflags.md) " verwenden, um die Registrierung aufzufüllen.
 
-Sehen Sie, welche Flags Bereich verfügbar und festgelegt sind, indem Sie die Ausgabe Ksetup oder Ksetup /dumpstate anzeigen.
+Sie können sehen, welche bereichflags verfügbar sind und festgelegt werden, indem Sie die Ausgabe von Ksetup oder Ksetup/dumpstate. anzeigen.
 
-## <a name="BKMK_Examples"></a>Beispiele für
+## <a name="BKMK_Examples"></a>Beispiele
 
-Liste der verfügbaren Bereich-Flags für den CONTOSO-Bereich an:
+Listet die verfügbaren bereichflags für den Bereich "" auf.
 ```
 Ksetup /listrealmflags
 ```
-Legen Sie zwei Flags in der CONTOSO-Bereich ein:
+Legen Sie zwei Flags auf den Bereich "sechanso" fest:
 ```
 ksetup /setrealmflags CONTOSO ncsupported delegate
 ```
-Fügen Sie eine weitere Flag, das derzeit nicht im Satz enthalten ist:
+Fügen Sie ein Flag hinzu, das sich zurzeit nicht in der Gruppe befindet:
 ```
 ksetup /addrealmflags CONTOSO SendAddress
 ```
-Führen Sie die **Ksetup** Befehl aus, um sicherzustellen, dass das Realm-Flag festgelegt ist, indem die Ausgabe anzeigen und nach **Bereich Flags =** .
+Führen Sie den **Ksetup** -Befehl aus, um zu überprüfen, ob das bereichsflag festgelegt ist, indem Sie die Ausgabe anzeigen und nach **bereichsflags**
 
 #### <a name="additional-references"></a>Weitere Verweise
 

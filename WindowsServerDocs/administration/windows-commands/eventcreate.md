@@ -1,8 +1,8 @@
 ---
 title: eventcreate
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 80d575364adbeba9d9ea4da75a0a866bcc02acea
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cf53d8d269d0994ddf57eb350982effed5e0e702
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818711"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377520"
 ---
 # <a name="eventcreate"></a>eventcreate
 
 
 
-Kann ein Administrator ein benutzerdefiniertes Ereignis in ein bestimmtes Ereignisprotokoll zu erstellen. Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+Ermöglicht es einem Administrator, ein benutzerdefiniertes Ereignis in einem angegebenen Ereignisprotokoll zu erstellen. Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,23 +36,23 @@ eventcreate [/s <Computer> [/u <Domain\User> [/p <Password>]] {[/l {APPLICATION|
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|/ s \<Computer >|Gibt den Namen oder die IP-Adresse eines Remotecomputers (umgekehrte Schrägstriche nicht verwenden). Der Standardwert ist der lokale Computer.|
-|/ u \<"Domäne\Benutzer" >|Führt den Befehl mit den Berechtigungen des Benutzers gemäß \<Benutzer > oder < Domäne\Benutzername >. Der Standardwert ist die Berechtigungen von der aktuell angemeldete Benutzer auf dem Computer, die der Befehl ausgegeben wird.|
-|/ p \<Kennwort >|Gibt das Kennwort des Benutzerkontos ein, die im angegebenen die **/u** Parameter.|
-|/ l {Anwendung\|SYSTEM}|Gibt den Namen des Ereignisprotokolls, in dem das Ereignis erstellt wird. Die Namen gültiger sind ANWENDUNGS- und SYSTEMPROTOKOLL.|
-|/ So \<SrcName >|Gibt die Quelle für das Ereignis an. Eine gültige Quelle kann eine beliebige Zeichenfolge sein und sollte darstellen, die Anwendung oder Komponente, die das Ereignis generiert.|
-|/ t / {Fehler\|Warnung\|Informationen\|</br>SUCCESSAUDIT\|FAILUREAUDIT%}|Gibt den Typ des Ereignisses erstellen. Die gültigen Typen sind Fehler, Warnung, INFORMATION, SUCCESSAUDIT und FAILUREAUDIT%.|
-|/ ID \<EventID >|Gibt die Ereignis-ID für das Ereignis an. Eine gültige ID ist eine beliebige Zahl zwischen 1 und 1000.|
-|/ d \<Beschreibung >|Gibt die Beschreibung für die neu erstellte Ereignis.|
+|/s \<computer >|Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Der Standardwert ist der lokale Computer.|
+|/u \<domäne \ Benutzer >|Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der durch \<User > oder < Domäne \ Benutzer > angegeben wird. Der Standardwert sind die Berechtigungen des aktuell angemeldeten Benutzers auf dem Computer, von dem der Befehl ausgegeben wird.|
+|/p \<Password >|Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist.|
+|/l {Anwendung @ no__t-0system}|Gibt den Namen des Ereignis Protokolls an, in dem das Ereignis erstellt wird. Gültige Protokollnamen sind Application und System.|
+|/so \<srcname >|Gibt die Quelle an, die für das Ereignis verwendet werden soll. Eine gültige Quelle kann eine beliebige Zeichenfolge sein und die Anwendung oder Komponente darstellen, die das Ereignis erzeugt.|
+|/t {Error @ no__t-0warning @ no__t-1Information @ no__t-2</br>ERFOLGREICH AUDIT @ NO__T-0FAILUREAUDIT}|Gibt den Typ des zu erstellenden Ereignisses an. Gültige Typen sind "Error", "Warning", "Information", "Success Audit" und "FAILUREAUDIT".|
+|/ID \<eventid >|Gibt die Ereignis-ID für das Ereignis an. Eine gültige ID ist eine beliebige Zahl zwischen 1 und 1000.|
+|/d \<description >|Gibt die Beschreibung an, die für das neu erstellte Ereignis verwendet werden soll.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
 -   Benutzerdefinierte Ereignisse können nicht in das Sicherheitsprotokoll geschrieben werden.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Die folgenden Beispiele zeigen, wie Sie die Eventcreate-Befehl verwenden können:
+In den folgenden Beispielen wird gezeigt, wie Sie den eventcreate-Befehl verwenden können:
 ```
 eventcreate /t error /id 100 /l application /d "Create event in application log"
 eventcreate /t information /id 1000 /so winmgmt /d "Create event in WinMgmt source"
@@ -65,4 +65,4 @@ eventcreate /s server /u user /id 100 /t warning /so winmgmt /d "Remote machine 
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

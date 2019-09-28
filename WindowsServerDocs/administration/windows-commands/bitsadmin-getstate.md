@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getstate
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f7ed7529fda264efaceb6b4b36e36e728c211f3f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 55be37a6b1b44b81ed9002e5e3b9eb1fd46bd0dc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889621"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381233"
 ---
 # <a name="bitsadmin-getstate"></a>bitsadmin getstate
 
@@ -36,21 +36,21 @@ bitsadmin /GetState <Job>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
 
 ## <a name="remarks"></a>Hinweise
 
-Die möglichen Statuswerte sind:
+Folgende Zustände sind möglich:
 
-|-----|-----| | IN DER WARTESCHLANGE | Der Auftrag wird auf die Ausführung warten. | | EINE VERBINDUNG HERSTELLEN | BITS wird eine Verbindung mit dem Server. | | ÜBERTRAGEN VON | BITS wird übertragen von Daten. | | ANGEHALTEN | Der Auftrag wurde angehalten. | | FEHLER | Ein nicht behebbarer Fehler aufgetreten. die Übertragung wird nicht wiederholt. | | TRANSIENT_ERROR | Ein behebbarer Fehler aufgetreten. die Übertragung wird wiederholt, wenn die minimale wiederholungsverzögerung läuft ab. | | BESTÄTIGT | Der Auftrag abgeschlossen wurde. | | ABGEBROCHEN | Der Auftrag wurde abgebrochen. |
+|-----|-----| | In Warteschlange | Der Auftrag wartet darauf, ausgeführt zu werden. | | Verbindung wird hergestellt | Bits kontaktiert den Server. | | Übertragen | Bits überträgt Daten. | | Angehalten | Der Auftrag wurde angehalten. | | Fehler | Ein nicht BEHEB barer Fehler ist aufgetreten. die Übertragung wird nicht wiederholt. | TRANSIENT_ERROR | Ein BEHEB barer Fehler ist aufgetreten. der Übertragungs Versuch wird wiederholt, wenn die minimale Wiederholungs Verzögerung abläuft. | Bestätigt | Der Auftrag wurde abgeschlossen. | | Abgebrochen | Der Auftrag wurde abgebrochen. |
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Das folgende Beispiel ruft den Status des Auftrags namens *MyDownloadJob*.
+Im folgenden Beispiel wird der Status für den Auftrag mit dem Namen " *mydownloadjob*" abgerufen.
 ```
 C:\>bitsadmin /GetState myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

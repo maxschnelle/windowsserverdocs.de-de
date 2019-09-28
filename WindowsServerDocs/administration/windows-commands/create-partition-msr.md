@@ -1,8 +1,8 @@
 ---
-title: Erstellen der Partition msr
-description: 'Windows-Befehle Thema ***- '
+title: Erstellen einer Partition MSR
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3fa9ba46418c3ed3b7999a734b4c0df40dce5027
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 45cc215b097ce048b15f0e907f95f976e4941e28
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434174"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378899"
 ---
-# <a name="create-partition-msr"></a>Erstellen der Partition msr
+# <a name="create-partition-msr"></a>Erstellen einer Partition MSR
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-erstellt einen Microsoft Reserved \(MSR\) Partition auf eine GUID-Partitionstabelle \(Gpt\) Datenträger.  
+erstellt eine reservierte Microsoft-\(msr @ no__t-1-Partition für eine GUID-Partitionstabelle \(gpt @ no__t-3-Datenträger.  
   
 > [!CAUTION]  
-> Vorsicht beim Verwenden dieses Befehls. Da Gpt-Datenträger auf eine bestimmte Partitionslayout erfordern, verursachen die Microsoft Reserved-Partitionen erstellen, dass den Datenträger nicht mehr gelesen werden.  
+> Gehen Sie bei der Verwendung dieses Befehls sehr vorsichtig vor. Da GPT-Datenträger ein bestimmtes Partitionslayout erfordern, kann das Erstellen von reservierten Microsoft-Partitionen dazu führen, dass der Datenträger nicht mehr lesbar ist.  
   
   
   
@@ -41,28 +41,28 @@ create partition msr [size=<n>] [offset=<n>] [noerr]
   
 |  Parameter  |                                                                                                                         Beschreibung                                                                                                                         |
 |-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  Größe\=<n>  |               Die Größe der Partition in Megabytes \(MB\). Die Partition ist als die angegebene Anzahl mindestens so lange in Byte <n>. Wenn keine Größe angegeben wird, wird die Partition erst in der aktuellen Region nicht mehr Speicherplatz verfügbar ist.               |
-| offset\=<n> | Gibt den Offset in Kilobyte \(KB\), an dem die Partition erstellt wird. Der Offset wird aufgerundet, vollständig ausgefüllt beliebige Sektorgröße verwendet wird. Wird kein Offset angegeben wird, wird die Partition in der ersten Datenträgerbereich platziert, die groß genug für die sie enthalten ist. |
-|    Diskpart    |                            nur für Skripts. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden.                             |
+|  Size @ no__t-0 @ no__t-1  |               Die Größe der Partition in Megabyte \(MB @ no__t-1. Die Partition ist mindestens so lang wie die Zahl, die durch <n> angegeben wird. Wenn keine Größe angegeben wird, wird die Partition so lange fortgesetzt, bis in der aktuellen Region kein freier Speicherplatz mehr verfügbar ist.               |
+| Offset @ no__t-0 @ no__t-1 | Gibt den Offset in Kilobyte \(KB @ no__t-1 an, bei dem die Partition erstellt wird. Der Offset wird aufgerundet, um alle verwendeten Sektorgrößen vollständig auszufüllen. Wenn kein Offset angegeben wird, wird die Partition in den ersten Datenträger Block eingefügt, der groß genug ist, um Sie zu speichern. |
+|    Noerr    |                            Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.                             |
   
 ## <a name="remarks"></a>Hinweise  
   
--   Auf Gpt-Datenträgern, die verwendet werden, starten Sie das Windows-Betriebssystem, die Extensible Firmware Interface \(EFI\) -Systempartition ist die erste Partition auf dem Datenträger, gefolgt von der Microsoft Reserved-Partition. GPT-Datenträger, die nur für die datenspeicherung verwendet werden müssen sich nicht auf eine EFI-Systempartition, in der Fall Microsoft Reserved-Partition die erste Partition ist, aus.  
+-   Auf GPT-Datenträgern, die zum Starten des Windows-Betriebssystems verwendet werden, ist die Extensible Firmware Interface \(efi @ no__t-1-Systempartition die erste Partition auf dem Datenträger, gefolgt von der reservierten Microsoft-Partition. GPT-Datenträger, die nur für die Datenspeicherung verwendet werden, verfügen über keine EFI-Systempartition. in diesem Fall ist die reservierte Microsoft-Partition die erste Partition.  
   
--   Microsoft Reserved-Partitionen wird von Windows nicht bereitgestellt. Sie können keine Daten darauf speichern, und nicht löschen.  
+-   Von Windows werden keine reservierten Partitionen in Microsoft einbinden. Sie können keine Daten auf den Daten speichern, und Sie können Sie nicht löschen.  
   
--   Eine Microsoft Reserved-Partition ist auf jedem Gpt-Datenträger erforderlich. Die Größe dieser Partition hängt die Gesamtgröße der Gpt-Datenträger ab. Die Anzahl der Gpt-Datenträger muss mindestens 32 MB zum Erstellen einer Microsoft Reserved-Partition sein.  
+-   Auf jedem GPT-Datenträger ist eine reservierte Microsoft-Partition erforderlich. Die Größe dieser Partition hängt von der Gesamtgröße des GPT-Datenträgers ab. Der GPT-Datenträger muss mindestens 32 MB groß sein, um eine reservierte Microsoft-Partition zu erstellen.  
   
--   Ein einfache Gpt-Datenträger muss ausgewählt werden, für diesen Vorgang erfolgreich ausgeführt werden kann. Verwenden der **select Disk** Befehl aus, wählen Sie einen einfache Gpt-Datenträger und verschiebt den Fokus auf sie.  
+-   Ein einfacher GPT-Datenträger muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt wird. Wählen Sie mit dem Befehl Datenträger **auswählen** einen einfachen GPT-Datenträger aus, und verschieben Sie den Fokus darauf.  
   
-## <a name="BKMK_examples"></a>Beispiele für  
-Um eine Microsoft Reserved-Partition von 1000 MB Größe zu erstellen, geben Sie Folgendes ein:  
+## <a name="BKMK_examples"></a>Beispiele  
+Geben Sie Folgendes ein, um eine reservierte Microsoft-Partition mit einer Größe von 1000 Megabyte zu erstellen:  
   
 ```  
 create partition msr size=1000  
 ```  
   
-#### <a name="additional-references"></a>Zusätzliche Referenzen  
+#### <a name="additional-references"></a>Weitere Verweise  
 [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
 

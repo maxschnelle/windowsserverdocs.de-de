@@ -2,7 +2,7 @@
 title: Sicherheitsgruppe „Geschützte Benutzer“
 description: Windows Server-Sicherheit
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: security-credential-protection
@@ -13,53 +13,53 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: bd6b53c0febdfb2d344136097a9654c981405568
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0cbec876ebf8a3ce27bf0d6f099ade6a5d6bc032
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862361"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403779"
 ---
 # <a name="protected-users-security-group"></a>Sicherheitsgruppe „Geschützte Benutzer“
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Dieses Thema für IT-Experten beschreibt die Active Directory-Sicherheitsgruppe „Geschützte Benutzer“ und erklärt deren Funktionsweise. Diese Gruppe existiert seit Windows Server 2012 R2-Domänencontroller.
+Dieses Thema für IT-Experten beschreibt die Active Directory-Sicherheitsgruppe „Geschützte Benutzer“ und erklärt deren Funktionsweise. Diese Gruppe wurde in Windows Server 2012 R2-Domänen Controllern eingeführt.
 
-## <a name="BKMK_ProtectedUsers"></a>Übersicht über die
+## <a name="BKMK_ProtectedUsers"></a>Übersicht über
 
-Diese Sicherheitsgruppe dient als Teil einer Strategie für die Offenlegung von Anmeldeinformationen in Ihrem Unternehmen zu verwalten. Für Mitglieder dieser Gruppe gilt automatisch nicht konfigurierbarer Schutz für deren Konten. Eine Mitgliedschaft in der Gruppe der geschützten Benutzer bedeutet standardmäßig eine restriktive und proaktive Sicherheit. Die einzige Methode zum Ändern dieses Schutzes für ein Konto ist die Entfernung dieses Kontos aus der Sicherheitsgruppe.
+Diese Sicherheitsgruppe ist als Teil einer Strategie zum Verwalten der Gefährdung von Anmelde Informationen innerhalb des Unternehmens konzipiert. Für Mitglieder dieser Gruppe gilt automatisch nicht konfigurierbarer Schutz für deren Konten. Eine Mitgliedschaft in der Gruppe der geschützten Benutzer bedeutet standardmäßig eine restriktive und proaktive Sicherheit. Die einzige Methode zum Ändern dieses Schutzes für ein Konto ist die Entfernung dieses Kontos aus der Sicherheitsgruppe.
 
 > [!WARNING]
-> Konten für Dienste und Computer sollten nie Mitglied der Gruppe geschützte Benutzer sein. Diese Gruppe würde bietet unvollständigen Schutz dennoch da das Kennwort oder Zertifikat immer auf dem Host verfügbar ist. Authentifizierung schlägt fehl mit Fehler \"der Benutzername oder Kennwort ist falsch\" für alle Dienste oder Computer, die Gruppe der geschützten Benutzer hinzugefügt wird.
+> Konten für Dienste und Computer sollten nie Mitglied der Gruppe "geschützte Benutzer" sein. Diese Gruppe bietet trotzdem unvollständigen Schutz, da das Kennwort oder Zertifikat immer auf dem Host verfügbar ist. Bei der Authentifizierung tritt ein Fehler auf, \"der Benutzername oder das Kennwort für alle Dienste oder Computer, die der Gruppe der geschützten Benutzer hinzugefügt wurden, nicht korrekt ist @ no__t-1.
 
-Diese domänenbezogene globale Gruppe löst nicht konfigurierbaren Schutz auf Geräten und Hostcomputern, die unter Windows Server 2012 R2 und Windows 8.1 oder höher für Benutzer in Domänen mit einem primären Domänencontroller mit Windows Server 2012 R2. Dies reduziert erheblich die Standard-Speicherbedarf von Anmeldeinformationen, wenn Benutzer mit diesen Schutz bei Computern anmelden.
+Diese Domänen bezogene globale Gruppe löst nicht konfigurierbaren Schutz auf Geräten und Host Computern aus, auf denen Windows Server 2012 R2 ausgeführt wird, und Windows 8.1 oder höher für Benutzer in Domänen mit einem primären Domänen Controller, auf dem Windows Server 2012 R2 ausgeführt wird. Dadurch wird der Standard Speicherbedarf von Anmelde Informationen erheblich reduziert, wenn Benutzer sich mit diesen Schutzvorrichtungen bei Computern anmelden.
 
-Weitere Informationen finden Sie unter [wie die Gruppe von der geschützten Benutzer auf funktioniert](#BKMK_HowItWorks) in diesem Thema.
+Weitere Informationen finden Sie unter [Funktionsweise der Gruppe "geschützte Benutzer](#BKMK_HowItWorks) " in diesem Thema.
 
 
 
-## <a name="BKMK_Requirements"></a>Anforderungen für geschützte Benutzer
-Anforderungen für die Geräte-Schutz für Mitglieder der Gruppe der geschützten Benutzer sind:
+## <a name="BKMK_Requirements"></a>Anforderungen der Gruppe "geschützte Benutzer"
+Zum Bereitstellen von Geräteschutz für Mitglieder der Gruppe "geschützte Benutzer" müssen folgende Anforderungen erfüllt sein:
 
 - Die globale Sicherheitsgruppe der geschützten Benutzer wird zu allen Domänencontrollern in der Kontodomäne repliziert.
 
-- Windows 8.1 und Windows Server 2012 R2 unterstützen standardmäßig hinzugefügt. [Microsoft Security Advisory 2871997](https://technet.microsoft.com/library/security/2871997) fügt Unterstützung für Windows 7, Windows Server 2008 R2 und Windows Server 2012.
+- Windows 8.1 und Windows Server 2012 R2 haben standardmäßig Unterstützung hinzugefügt. Die [Microsoft-Sicherheitsempfehlung 2871997](https://technet.microsoft.com/library/security/2871997) bietet Unterstützung für Windows 7, Windows Server 2008 R2 und Windows Server 2012.
 
 Folgende Anforderungen müssen erfüllt sein, damit Mitglieder der Gruppe der geschützten Benutzer Domänencontrollerschutz erhalten:
 
-- Benutzer müssen sich in Domänen befinden, die Windows Server 2012 R2 oder höher Funktionsebene der Domäne sind.
+- Benutzer müssen sich in Domänen befinden, die die Domänen Funktionsebene Windows Server 2012 R2 oder höher aufweisen.
 
-### <a name="adding-protected-user-global-security-group-to-down-level-domains"></a>Hinzufügen von Gruppe der geschützten Benutzer globale Sicherheit auf Elementebene Domänen
+### <a name="adding-protected-user-global-security-group-to-down-level-domains"></a>Hinzufügen geschützter Benutzer globaler Sicherheitsgruppen zu untergeordneten Domänen
 
-Domänencontroller, auf denen ein Betriebssystem vor Windows Server 2012 R2 ausgeführt werden können das Hinzufügen von Mitgliedern, die neue Sicherheitsgruppe der geschützten Benutzer unterstützen. Dies ermöglicht Benutzern das Gerät Schutzmaßnahmen profitieren, bevor die Domäne aktualisiert wird. 
+Domänen Controller, auf denen ein älteres Betriebssystem als Windows Server 2012 R2 ausgeführt wird, können das Hinzufügen von Mitgliedern zur neuen Sicherheitsgruppe für geschützte Benutzer unterstützen. Dies ermöglicht es den Benutzern, vor dem Upgrade der Domäne vom Geräteschutz zu profitieren. 
 
 > [!Note]
-> Die Domänencontroller werden Domäne Schutzmaßnahmen nicht unterstützt werden. 
+> Domänen Controller werden von den Domänen Controllern nicht unterstützt. 
 
-Gruppe "geschützte Benutzer" erstellt werden kann, indem [übertragen die Emulatorrolle primärer Domänencontroller (PDC)](https://technet.microsoft.com/library/cc816944(v=ws.10).aspx) zu einem Domänencontroller, die Windows Server 2012 R2 ausgeführt wird. Nachdem das Gruppenobjekt auf andere Domänencontroller repliziert wurde, kann die PDC-Emulatorrolle auf einem Domänencontroller gehostet werden, der unter einer älteren Windows Server-Version läuft.
+Die Gruppe "geschützte Benutzer" kann erstellt werden, indem [die Rolle "primärer Domänen Controller (PDC)](https://technet.microsoft.com/library/cc816944(v=ws.10).aspx) " auf einen Domänen Controller mit Windows Server 2012 R2 übertragen wird. Nachdem das Gruppenobjekt auf andere Domänencontroller repliziert wurde, kann die PDC-Emulatorrolle auf einem Domänencontroller gehostet werden, der unter einer älteren Windows Server-Version läuft.
 
-### <a name="BKMK_ADgroup"></a>Geschützte Benutzer AD-Gruppe-Eigenschaften
+### <a name="BKMK_ADgroup"></a>Eigenschaften der Gruppe "geschützte Benutzer"
 
 Die folgende Tabelle zeigt die Eigenschaften der Gruppe der geschützten Benutzer.
 
@@ -78,30 +78,30 @@ Die folgende Tabelle zeigt die Eigenschaften der Gruppe der geschützten Benutze
 ## <a name="BKMK_HowItWorks"></a>Funktionsweise der Gruppe "geschützte Benutzer"
 In diesem Abschnitt wird erklärt, wie die Gruppe der geschützten Benutzer funktioniert, wenn folgende Voraussetzungen erfüllt sind:
 
--   Angemeldet von einem Windows-Gerät
+-   Signiert in einem Windows-Gerät
 
--   Domäne des Benutzerkontos wird in einer Windows Server 2012 R2 oder höher Domänenfunktionsebene
+-   Die Benutzerkonto Domäne befindet sich in einer Windows Server 2012 R2-oder einer höheren Domänen Funktionsebene.
 
-### <a name="device-protections-for-signed-in-protected-users"></a>Gerät Schutzmaßnahmen für anmelden geschützte Benutzer
-Die folgenden Schutzmaßnahmen werden angewendet, wenn der angemeldete Benutzer Mitglied der Gruppe der geschützten Benutzer ist:
+### <a name="device-protections-for-signed-in-protected-users"></a>Geräteschutz für signierte geschützte Benutzer
+Wenn der angemeldete Benutzer ein Mitglied der Gruppe "geschützte Benutzer" ist, werden die folgenden Schutzmaßnahmen angewendet:
 
--   Anmeldeinformationen (CredSSP)-Delegierung wird nicht zwischenspeichert, die nur-Text-Anmeldeinformationen des Benutzers, wenn auch die **zulassen der Delegierung von Standardanmeldeinformationen** Einstellung der Gruppenrichtlinie aktiviert ist.
+-   Bei der Delegierung von Gruppenrichtlinie Anmelde Informationen (aufwärtssp) werden die nur-Text-Anmelde Informationen des Benutzers nicht zwischengespeichert, auch wenn die Einstellung **Delegieren von Standard Anmelde Informationen zulassen** aktiviert ist.
 
--   Ab Windows 8.1 und Windows Server 2012 R2, speichert Windows Digest nicht nur-Text-Anmeldeinformationen des Benutzers auch, wenn Windows Digest aktiviert ist.
+-   Ab Windows 8.1 und Windows Server 2012 R2 werden die nur-Text-Anmelde Informationen des Benutzers von Windows Digest nicht zwischengespeichert, selbst wenn Windows Digest aktiviert ist.
 
 > [!Note]
-> Nach der Installation von [Microsoft Security Advisory 2871997](https://technet.microsoft.com/library/security/2871997) Windows Digest wird, Anmeldeinformationen zwischenzuspeichern fortgesetzt, bis die Registrierungsschlüssel konfiguriert ist. Finden Sie unter [Microsoft-Sicherheitsempfehlung: Update zur Verbesserung der Schutz von Anmeldeinformationen und Verwaltung: 13. Mai 2014](https://support.microsoft.com/en-us/help/2871997/microsoft-security-advisory-update-to-improve-credentials-protection-a) Anweisungen.
+> Nach der Installation der [Microsoft-Sicherheitsempfehlung 2871997](https://technet.microsoft.com/library/security/2871997) werden die Anmelde Informationen von Windows Digest weiterhin zwischengespeichert, bis der Registrierungsschlüssel konfiguriert wurde. Siehe [Microsoft-Sicherheitsempfehlung: Aktualisieren Sie, um den Schutz von Anmelde Informationen zu verbessern 13. Mai 2014 @ no__t-0, um Anweisungen zu erhalten.
 
--   NTLM wird nicht nur-Text-Anmeldeinformationen des Benutzers oder der unidirektionalen NT-Funktion (NTOWF) zwischengespeichert werden.
+-   NTLM speichert nicht die nur-Text-Anmelde Informationen des Benutzers oder die unidirektionale NT-Funktion (ntowf).
 
--   Kerberos wird nicht mehr des- oder RC4-Schlüssel erstellen. Auch ist es nicht zwischengespeichert werden nur-Text-Anmeldeinformationen oder in der langfristigen Schlüssel des Benutzers nach das ersten TGT abgerufen wird.
+-   Kerberos erstellt nicht mehr den-oder RC4-Schlüssel. Außerdem werden die nur-Text-Anmelde Informationen des Benutzers oder langfristige Schlüssel nicht zwischengespeichert, nachdem das erste TGT abgerufen wurde.
 
--   Zwischengespeicherte Überprüfung wird bei der Anmeldung bei nicht erstellt oder zu entsperren, damit offline-Anmeldung nicht mehr unterstützt wird.
+-   Bei der Anmeldung oder beim Entsperren wird keine zwischengespeicherte Überprüfung erstellt, sodass die Offline Anmeldung nicht mehr unterstützt wird.
 
-Nachdem das Benutzerkonto zur Gruppe geschützte Benutzer hinzugefügt wurde, beginnt Schutz, wenn der Benutzer auf dem Gerät anmeldet.
+Nachdem das Benutzerkonto der Gruppe der geschützten Benutzer hinzugefügt wurde, beginnt der Schutz, wenn sich der Benutzer beim Gerät anmeldet.
 
-### <a name="domain-controller-protections-for-protected-users"></a>Domain-Controller-Schutzmaßnahmen für geschützte Benutzer
-Konten, die Mitglieder der Gruppe der geschützten Benutzer sind, die in einem Windows Server 2012 R2-Domäne authentifiziert werden kann nicht:
+### <a name="domain-controller-protections-for-protected-users"></a>Schutz von Domänen Controllern für geschützte Benutzer
+Konten, die Mitglieder der Gruppe der geschützten Benutzer sind, die sich bei einer Windows Server 2012 R2-Domäne authentifizieren, können folgende Aktionen nicht ausführen:
 
 -   Authentifizieren mit NTLM-Authentifizierung.
 
@@ -121,7 +121,7 @@ Es gibt zwei betriebliche Administrativprotokolle für die Fehlerbehebung von Er
 |Ereignis-ID und Protokoll|Beschreibung|
 |----------|--------|
 |104<br /><br />**ProtectedUser-Client**|Grund: Das Sicherheitspaket auf dem Client enthält keine Anmeldeinformationen.<br /><br />Der Fehler wird im Clientcomputer protokolliert, wenn das Konto Mitglied der Sicherheitsgruppe der geschützten Benutzer ist. Das Ereignis zeigt an, dass das Sicherheitspaket die Anmeldeinformationen, die für die Serverauthentifizierung erforderlich sind, nicht zwischenspeichert.<br /><br />Zeigt den Paketnamen, Benutzernamen, Domänennamen und den Servernamen an.|
-|304<br /><br />**ProtectedUser-Client**|Grund: Das Sicherheitspaket speichert nicht die Anmeldeinformationen des geschützten Benutzers.<br /><br />Ein Ereignis wird protokolliert, auf dem Client, um anzugeben, dass das Sicherheitspaket die Anmeldeinformationen des Benutzers-Anmeldung nicht zwischenspeichert. Es wird erwartet, dass Digest (WDigest), Delegierung von Anmeldeinformationen (CredSSP) und NTLM keine Anmeldeinformationen für geschützte Benutzer haben können. Anwendungen können weiterhin erfolgreich nach Anmeldeinformationen fragen.<br /><br />Zeigt den Paketnamen, Benutzernamen und Domänennamen an.|
+|304<br /><br />**ProtectedUser-Client**|Grund: Das Sicherheitspaket speichert nicht die Anmelde Informationen des geschützten Benutzers.<br /><br />Im Client wird ein Informations Ereignis protokolliert, um anzugeben, dass das Sicherheitspaket die Anmelde Informationen des Benutzers nicht zwischenspeichert. Es wird erwartet, dass Digest (WDigest), Delegierung von Anmeldeinformationen (CredSSP) und NTLM keine Anmeldeinformationen für geschützte Benutzer haben können. Anwendungen können weiterhin erfolgreich nach Anmeldeinformationen fragen.<br /><br />Zeigt den Paketnamen, Benutzernamen und Domänennamen an.|
 |100<br /><br />**ProtectedUserFailures-DomainController**|Grund: Ein NTLM-Anmeldefehler ereignet sich für ein Konto in der Sicherheitsgruppe der geschützten Benutzer.<br /><br />Im Domänencontroller wird ein Fehler protokolliert, um anzugeben, dass die NTLM-Authentifizierung fehlgeschlagen ist, da das Konto Mitglied der Sicherheitsgruppe der geschützten Benutzer ist.<br /><br />Zeigt den Kontonamen und den Gerätenamen an.|
 |104<br /><br />**ProtectedUserFailures-DomainController**|Grund: DES- oder RC4-Verschlüsselungstypen werden für die Kerberos-Authentifizierung verwendet, und ein Anmeldefehler ereignet sich für einen Benutzer in der Sicherheitsgruppe der geschützten Benutzer.<br /><br />Kerberos-Vorauthentifizierung ist fehlgeschlagen, da DES- und RC4-Verschlüsselungstypen nicht verwendet werden können, wenn das Konto Mitglied der Sicherheitsgruppe der geschützten Benutzer ist.<br /><br />(AES wird akzeptiert.)|
 |303<br /><br />**ProtectedUserSuccesses-DomainController**|Grund: Ein Kerberos-Ticket-Granting-Ticket (TGT) wurde erfolgreich für ein Mitglied der Gruppe der geschützten Benutzer ausgegeben.|

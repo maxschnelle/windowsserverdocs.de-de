@@ -1,8 +1,8 @@
 ---
-title: Grundlegendes zum Cluster-und Pool Quorum
+title: Grundlegendes zum Cluster- und Poolquorum
 description: Grundlegendes zum Cluster-und Pool Quorum mit speziellen Beispielen, um die Feinheiten zu überschreiten.
 keywords: Direkte Speicherplätze, Quorum, Zeuge, S2D, Cluster Quorum, Pool Quorum, Cluster, Pool
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: adagashe
 ms.manager: eldenc
 ms.technology: storage-spaces
@@ -10,14 +10,14 @@ ms.topic: article
 author: adagashe
 ms.date: 01/18/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 962a4edc1a171167a6af336d4fb32188a526f455
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 8950e9d09e3bd07dc02228c295ab223ead969ea6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872135"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366011"
 ---
-# <a name="understanding-cluster-and-pool-quorum"></a>Grundlegendes zum Cluster-und Pool Quorum
+# <a name="understanding-cluster-and-pool-quorum"></a>Grundlegendes zum Cluster- und Poolquorum
 
 >Gilt für: Windows Server 2019, Windows Server 2016
 

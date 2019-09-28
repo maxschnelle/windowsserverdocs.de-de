@@ -1,9 +1,9 @@
 ---
 title: Planen der Bereitstellung für die Remoteverwaltung von DirectAccess-Clients
-description: Dieses Thema ist Teil des Leitfadens verwalten DirectAccess-Clients Remote in Windows Server 2016.
+description: Dieses Thema ist Teil des Handbuchs zur Remote Verwaltung von DirectAccess-Clients in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,22 +12,22 @@ ms.topic: article
 ms.assetid: ab518c0d-a496-414e-b9c7-f4378d8b13aa
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 21783b2ac4135344a13d69a983fe22800df1f40d
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 0224d47b85a3988a4adf312dad8f149a76c24778
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282808"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404587"
 ---
 # <a name="plan-deployment-for-remote-management-of-directaccess-clients"></a>Planen der Bereitstellung für die Remoteverwaltung von DirectAccess-Clients
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Die folgenden Themen enthalten, dass die Schritte zur Bereitstellung eines einzelnen RAS-Servers ausgeführt, die für die Remoteverwaltung von DirectAccess-Clients verwendet werden können.  
+Die folgenden Themen enthalten Planungsschritte für die Bereitstellung eines einzelnen RAS-Servers, auf dem ausgeführt wird und der für die Remote Verwaltung von DirectAccess-Clients verwendet werden kann.  
   
-[Schritt 1: Planen der Remotezugriffinfrastruktur](Step-1-Plan-the-Remote-Access-Infrastructure.md): Dieses Thema hilft Ihnen das Planen der Netzwerktopologie und die Netzwerkeinstellungen, Anforderungen an Firewalls, zertifikatanforderungen, Domain Name System-Anforderungen, DirectAccess-Netzwerkadressenserver und Active Directory Management Server-Konfiguration Anforderungen, und ein Gruppenrichtlinienobjekt erstellen.  
+[Schritt 1: Planen der Remote Zugriffs Infrastruktur @ no__t-0: Dieses Thema hilft Ihnen beim Planen der Netzwerktopologie und Servereinstellungen, der Firewallanforderungen, der Zertifikat Anforderungen, der Domain Name System Anforderungen, der DirectAccess-Netzwerkadressen Server-und Verwaltungs Serverkonfiguration Active Directory Anforderungen und Gruppenrichtlinie Objekt Erstellung.  
   
-[Schritt 2: Planen der Bereitstellung des Remotezugriffs](Step-2-Plan-the-Remote-Access-Deployment.md): Planen von Client und Server-Bereitstellungsstrategien und Infrastruktur-Server-Konfigurationen.  
+[Schritt 2: Planen Sie die Bereitstellung des Remote Zugriffs @ no__t-0: Planen von Client-und Server Bereitstellungs Strategien und Infrastruktur Serverkonfigurationen.  
 
   
 

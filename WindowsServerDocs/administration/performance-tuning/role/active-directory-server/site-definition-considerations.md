@@ -1,83 +1,83 @@
 ---
-title: Definition und Domain Controller standortplatzierung in AD DS zur leistungsoptimierung
-description: Site Definition "und" Domain Controller platzierungsfaktoren in Active Directory-leistungsoptimierung.
-ms.prod: windows-server-threshold
+title: Die Platzierung von Standort Definitionen und Domänen Controllern in erhöht die Leistungsoptimierung
+description: Überlegungen zur Platzierung von Standort Definitionen und Domänen Controllern in Active Directory Leistungsoptimierung.
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 9861703e5ae88dcaec5e76d9fab426b928d0cb9a
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: ba3c9e8792b425fd24d01ab997a5f7c2ac573814
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811491"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370250"
 ---
-# <a name="proper-placement-of-domain-controllers-and-site-considerations"></a>Ordnungsgemäße Platzierung von Domänencontrollern und Website-Überlegungen
+# <a name="proper-placement-of-domain-controllers-and-site-considerations"></a>Ordnungsgemäße Platzierung von Domänen Controllern und Standort Überlegungen
 
-Definition des richtigen ist entscheidend für die Leistung. Clients, die außerhalb des Standorts können Leistungseinbußen für Authentifizierungen und Abfragen auftreten. Darüber hinaus mit der Einführung von IPv6 auf Clients, die Anforderung kann stammen entweder die IPv4 oder die IPv6-Adresse und den Active Directory Standorte ordnungsgemäß für IPv6 definierten verfügen muss. Das Betriebssystem bevorzugt IPv6 auf IPv4, wenn beide konfiguriert sind.
+Die richtige Site Definition ist wichtig für die Leistung. Clients, die sich außerhalb des Standorts befinden, können bei Authentifizierungen und Abfragen eine schlechte Leistung erleben. Darüber hinaus kann die Anforderung mit der Einführung von IPv6 auf Clients entweder von der IPv4-oder der IPv6-Adresse stammen, und Active Directory muss Standorte ordnungsgemäß für IPv6 definiert haben. Das Betriebssystem bevorzugt IPv6 zu IPv4, wenn beide konfiguriert sind.
 
-Ab Windows Server 2008, sollte die Domäne-Controller-versucht, die namensauflösung zu verwenden, einem reverse-Lookup ist, um den Standort bestimmen den Client in. Dies kann die Erschöpfung des Threadwarteschlange Thread-Pools und dazu führen, dass den Domänencontroller reagiert. Die geeignete Lösung zu diesem werden die Standorttopologie für IPv6 definieren. Dieses Problem zu umgehen kann eine optimieren, die Name-Auflösung-Infrastruktur, um schnell auf Controller Anforderungen zu reagieren. Weitere Informationen finden Sie unter [verzögert, Windows Server 2008 oder Windows Server 2008 R2-Domänencontroller als Antwort auf Anforderungen von LDAP oder Kerberos](https://support.microsoft.com/kb/2668820).
+Ab Windows Server 2008 versucht der Domänen Controller, eine Namensauflösung für eine Reverse-Suche zu verwenden, um den Standort zu ermitteln, in dem sich der Client befinden sollte. Dies kann die Erschöpfung des ATQ-Thread Pools verursachen und dazu führen, dass der Domänen Controller nicht mehr reagiert. Die entsprechende Lösung besteht darin, die Standort Topologie für IPv6 ordnungsgemäß zu definieren. Als Problem Umgehung können Sie die Infrastruktur zur Namensauflösung optimieren, um schnell auf Domänen Controller Anforderungen reagieren zu können. Weitere Informationen finden [Sie unter Windows Server 2008 oder Windows Server 2008 R2 Domain Controller verzögerte Reaktion auf LDAP-oder Kerberos-Anforderungen](https://support.microsoft.com/kb/2668820).
 
-Ein weiteren Bereich der Aspekt ist für Szenarien Lese-/Schreibzugriff DCs suchen, in denen RODCs verwendet werden.  Bestimmte Vorgänge benötigen Zugriff auf einen beschreibbaren Domänencontroller oder einen beschreibbaren Domänencontroller ausgerichtet, wenn Sie einen schreibgeschützten Domänencontroller ausreichen würde.  Diese Szenarien optimieren, würde zwei Pfade dauern:
--   Kontaktaufnahme mit dem beschreibbaren Domänencontroller, wenn Sie einen schreibgeschützten Domänencontroller ausreichen würde.  Dies erfordert eine Änderung der Anwendung Code.
--   In denen möglicherweise einen beschreibbaren Domänencontroller erforderlich.  Direkte Lese-/ Schreibzugriff Domänencontroller an zentralen Standorten, Wartezeit zu verringern.
+Ein weiterer Aspekt ist die Suche nach Lese-/Schreib-DCS in Szenarien, in denen RODCs verwendet werden.  Bestimmte Vorgänge erfordern Zugriff auf einen beschreibbaren Domänen Controller oder einen beschreibbaren Domänen Controller als Ziel, wenn ein Schreib geschützter Domänen Controller ausreichen würde.  Die Optimierung dieser Szenarien würde zwei Pfade in Anspruch nehmen:
+-   Verbindung mit beschreibbaren Domänen Controllern, wenn ein Schreib geschützter Domänen Controller ausreichen würde.  Hierfür ist eine Änderung des Anwendungs Codes erforderlich.
+-   Dabei kann es sein, dass ein Beschreib barer Domänen Controller erforderlich ist.  Platzieren Sie Domänen Controller mit Lese-/Schreibzugriff an zentralen Orten, um die Latenz
 
-Zu Referenzzwecken Informationen:
--   [Anwendungskompatibilität mit RODCs](https://technet.microsoft.com/library/cc772597.aspx)
--   [Active Directory Service Interface (ADSI) und das Lesen nur Domänencontroller (RODC) – vermeiden von Leistungsproblemen](https://blogs.technet.microsoft.com/fieldcoding/2012/06/24/active-directory-service-interface-adsi-and-the-read-only-domain-controller-rodc-avoiding-performance-issues/)
+Weitere Informationen finden Sie unter:
+-   [Anwendungs Kompatibilität mit RODCs](https://technet.microsoft.com/library/cc772597.aspx)
+-   [Active Directory Service Interface (ADSI) und der Read Only-Domänen Controller (RODC) – vermeiden von Leistungsproblemen](https://blogs.technet.microsoft.com/fieldcoding/2012/06/24/active-directory-service-interface-adsi-and-the-read-only-domain-controller-rodc-avoiding-performance-issues/)
 
-## <a name="optimize-for-referrals"></a>Optimieren für Verweise
+## <a name="optimize-for-referrals"></a>Für Verweise optimieren
 
-Verweise sind wie LDAP-Abfragen umgeleitet werden, wenn der Domänencontroller keine Kopie der Partition, die Abfrage hostet. Wenn ein Verweis zurückgegeben wird, enthält sie den distinguished Name der Partition, einen DNS-Namen und eine Portnummer an. Der Client verwendet diese Informationen, um die Abfrage auf einem Server fortzusetzen, die die Partition hostet. Dies ist ein Szenario des DC-Locators und alle Empfehlungen Websitedefinitionen und Platzierung der Domänencontroller wird beibehalten, aber Anwendungen, die Verweise hängt oft übersehen. Es wird empfohlen, um sicherzustellen, dass AD-Topologie, einschließlich Websitedefinitionen und Platzierung der Domänencontroller ordnungsgemäß widerspiegelt, die Anforderungen des Clients. Darüber hinaus kann dies umfassen, mit Domänencontrollern aus mehreren Domänen in einem einzigen Standort, optimieren die DNS-Einstellungen oder verschieben den Standort einer Anwendung.
+Verweise sind die Art und Weise, wie LDAP-Abfragen umgeleitet werden, wenn der Domänen Controller keine Kopie der abgefragten Partition hostet. Wenn ein Verweis zurückgegeben wird, enthält er den Distinguished Name der Partition, einen DNS-Namen und eine Portnummer. Der Client verwendet diese Informationen, um die Abfrage auf einem Server fortzusetzen, der die Partition hostet. Dabei handelt es sich um ein DCLOCATOR-Szenario, in dem alle Website Definitionen und die Platzierung von Domänen Controllern verwaltet werden. Anwendungen, die von verweisen abhängen, werden jedoch oft übersehen. Es wird empfohlen, sicherzustellen, dass die AD-Topologie, einschließlich Site Definitionen und Domänen Controller, die Anforderungen des Clients ordnungsgemäß widerspiegelt. Dies kann auch das vorhanden sein von Domänen Controllern aus mehreren Domänen an einem einzelnen Standort, das Optimieren der DNS-Einstellungen oder das Verschieben des Standorts einer Anwendung beinhalten.
 
-## <a name="optimization-considerations-for-trusts"></a>Optimization-Überlegungen für Vertrauensstellungen
+## <a name="optimization-considerations-for-trusts"></a>Überlegungen zur Optimierung für Vertrauens Stellungen
 
-In einem Szenario innerhalb einer Gesamtstruktur werden Vertrauensstellungen, entsprechend der folgenden Domänenhierarchie verarbeitet: Untergeordneten Domäne –&gt; untergeordnete Domäne -&gt; Gesamtstruktur-Stammdomäne -&gt; untergeordnete Domäne -&gt; untergeordneten Domäne. Dies bedeutet, die Kanäle zu der Gesamtstruktur-Stammdomäne und übergeordneten Element sichern, können aufgrund der Aggregation von den DCs in der Vertrauenshierarchie zu authentifizierungsanforderungen überlastet werden. Dies kann auch Verzögerungen bei der Active Directory-Verzeichnissen von großen geografischen Verteilung anfallen, bei der Authentifizierung muss auch Latenzzeiten Links zu den obigen Fluss beeinflussen übertragen. Überladungen können in Szenarios mit gesamtstrukturübergreifende und der untersten Ebene Vertrauenswürdigkeit auftreten. Die folgenden Empfehlungen gelten für alle Szenarien:
+In einem Szenario innerhalb der Gesamtstruktur werden Vertrauens Stellungen gemäß der folgenden Domänen Hierarchie verarbeitet: Untergeordnete Domäne-&gt; untergeordnete Domäne &gt; Gesamtstruktur Stamm Domäne-&gt; untergeordnete Domäne-&gt;-untergeordnete Domäne. Dies bedeutet, dass sichere Kanäle im Gesamtstruktur Stamm und jedes übergeordnete Element aufgrund der Aggregation von Authentifizierungsanforderungen, die die DCS in der Vertrauens Hierarchie übertragen, überlastet werden können. Dies kann auch Verzögerungen in aktiven Verzeichnissen großer geografischer Datenmengen verursachen, wenn die Authentifizierung auch sehr latente Verknüpfungen übertragen muss, um den oben genannten Flow zu beeinflussen. Über Ladungen können in Gesamtstruktur-und untergeordneten Vertrauens Szenarien auftreten. Die folgenden Empfehlungen gelten für alle Szenarien:
 
--   Optimieren Sie ordnungsgemäß die "MaxConcurrentApi", um die Last auf den sicheren Kanal zu unterstützen. Weitere Informationen finden Sie unter [Vorgehensweise zur leistungsoptimierung für die NTLM-Authentifizierung mit der Einstellung "MaxConcurrentApi"](https://support.microsoft.com/kb/2688798/EN-US).
+-   Optimieren Sie MaxConcurrentApi ordnungsgemäß, um die Last über den sicheren Kanal zu unterstützen. Weitere Informationen finden Sie unter [Verwenden der "MaxConcurrentApi"-Einstellung zur Leistungsoptimierung für die NTLM-Authentifizierung](https://support.microsoft.com/kb/2688798/EN-US).
 
--   Erstellen Sie vertrauensstellungsabkürzungen nach Bedarf laden basierend.
+-   Erstellen Sie nach Bedarf Verknüpfungs Vertrauensstellungen basierend auf der Auslastung.
 
--   Stellen Sie sicher, dass alle Domänencontroller in der Domäne kann namensauflösung durchführen und die Kommunikation mit den Domänencontrollern in der vertrauenswürdigen Domäne.
+-   Stellen Sie sicher, dass jeder Domänen Controller in der Domäne die Namensauflösung durchführen und mit den Domänen Controllern in der vertrauenswürdigen Domäne kommunizieren kann.
 
--   Stellen Sie sicher, dass die Lokalität Überlegungen für Vertrauensstellungen berücksichtigt werden.
+-   Stellen Sie sicher, dass die Orts Überlegungen für Vertrauens Stellungen berücksichtigt werden.
 
--   Kerberos wird aktiviert, wenn möglich, und minimieren Sie die Verwendung des sicheren Kanals, Risiko einer Ausführung von "MaxConcurrentApi" Engpässe zu reduzieren.
+-   Aktivieren Sie ggf. Kerberos, und minimieren Sie die Verwendung des sicheren Kanals, um das Risiko zu verringern, dass in MaxConcurrentApi-Engpässe entstehen
 
-Domänenübergreifende Vertrauensstellung, dass die Szenarios eines Bereichs sind, das durchgängig schmerzliche für viele Kunden wurde. Namen auflösungs- und verbindungsnamensprobleme, da Firewalls, dazu führen, dass ressourcenauslastung auf dem Domänencontroller der vertrauenden Domäne und Auswirkungen auf alle Clients. Darüber hinaus ist eine häufig übersehene Szenario Zugriff auf vertrauenswürdige Domänencontroller optimieren. Die wichtigsten Bereiche, um sicherzustellen, dass dies ordnungsgemäß funktioniert sind wie folgt aus:
+Domänen Übergreifende Vertrauensstellungs Szenarien sind ein Bereich, der für viele Kunden konsistent war. Namens Auflösungs-und Konnektivitätsprobleme, häufig aufgrund von Firewalls, verursachen die Ressourcenauslastung auf dem vertrauenden Domänen Controller und wirken sich auf alle Clients Außerdem ist ein häufig übersehenes Szenario das Optimieren des Zugriffs auf vertrauenswürdige Domänen Controller. Die wichtigsten Bereiche, um sicherzustellen, dass dies ordnungsgemäß funktioniert, lauten wie folgt:
 
--   Stellen Sie sicher, dass die DNS- und WINS-namensauflösung, die die vertrauende Domänencontroller verwenden, eine genaue Liste der Domänencontroller für die vertrauenswürdige Domäne auflösen kann.
+-   Stellen Sie sicher, dass die DNS-und WINS-Namensauflösung, die vertrauenswürdige Domänen Controller verwenden, eine genaue Liste der Domänen Controller für die vertrauenswürdige Domäne auflösen kann
 
-    -   Statisch hinzugefügte Datensätze haben eine Tendenz, die als veraltet eingestuft und Probleme mit der Netzwerkverbindung im Laufe der Zeit Rückmeldung. DNS leitet, dynamisches DNS und das Zusammenführen von WINS/DNS-Infrastrukturen sind langfristig besser verwaltbar.
+    -   Statisch hinzugefügte Datensätze sind tendenziell veraltet und stellen Konnektivitätsprobleme im Laufe der Zeit wieder her. DNS-Weiterleitung, dynamisches DNS und das Zusammenführen von WINS/DNS-Infrastrukturen können langfristig besser verwaltierbar sein.
 
-    -   Stellen Sie die richtige Konfiguration der Weiterleitungen, bedingte Weiterleitung und sekundäre Kopien für beide Forward- und reverse-Lookupzonen für alle Ressourcen in der Umgebung der muss der Client kann den Zugriff auf sicher. In diesem Fall dies erfordert die manuelle Wartung und verfügt über eine Tendenz, veralten. Konsolidierung der Infrastruktur ist ideal geeignet.
+    -   Stellen Sie für jede Ressource in der Umgebung, auf die ein Client möglicherweise zugreifen muss, die ordnungsgemäße Konfiguration von Weiterleitungen, bedingten Weiterleitungen und sekundären Kopien für die Forward-und Reverse-Lookupzonen sicher. Auch hier ist eine manuelle Wartung erforderlich, und es besteht eine Tendenz, dass sie veraltet ist. Die Konsolidierung der Infrastrukturen ist ideal.
 
--   DS-Domänencontroller in der vertrauenden Domäne versucht, die Suche nach Domänencontrollern in der vertrauenswürdigen Domäne, die sich am selben Standort zuerst und dann ein Failback auf die generische Locators.
+-   Domänen Controller in der vertrauenden Domäne versuchen, nach Domänen Controllern in der vertrauenswürdigen Domäne zu suchen, die sich zuerst am gleichen Standort befinden, und dann ein Failback auf die generischen Locators auszuführen.
 
-    -   Weitere Informationen zur Funktionsweise des DC-Locators finden Sie unter [Suchen eines Domänencontrollers am nächstgelegenen Standort](https://technet.microsoft.com/library/cc978016.aspx).
+    -   Weitere Informationen zur Funktionsweise von DCLOCATOR finden Sie untersuchen [eines Domänen Controllers am nächstgelegenen Standort](https://technet.microsoft.com/library/cc978016.aspx).
 
-    -   Standortnamen zwischen den vertrauenswürdigen und vertrauenden Domänen entsprechend der Domänencontroller am selben Speicherort zu konvergieren. Stellen Sie sicher, Subnetz und IP-Adresse, die Zuordnungen richtig mit Websites in beiden Gesamtstrukturen verknüpft sind. Weitere Informationen finden Sie unter [Domänencontrollerlocator über eine Gesamtstruktur-Vertrauensstellung](http://blogs.technet.com/b/askds/archive/2008/09/24/domain-locator-across-a-forest-trust.aspx).
+    -   Konvergiert Standortnamen zwischen vertrauenswürdigen und vertrauenden Domänen, um den Domänen Controller am selben Standort widerzuspiegeln. Stellen Sie sicher, dass Subnetz-und IP-Adress Zuordnungen ordnungsgemäß mit Standorten in beiden Gesamtstrukturen verknüpft Weitere Informationen finden Sie unter [Domänen Locator über eine](http://blogs.technet.com/b/askds/archive/2008/09/24/domain-locator-across-a-forest-trust.aspx)Gesamtstruktur-Vertrauensstellung hinweg.
 
-    -   Stellen Sie sicher, dass die Ports geöffnet sind je nach Anforderungen des DC-Locators, für die Adresse des Domänencontrollers. Wenn Firewalls zwischen den Domänen vorhanden sind, stellen Sie sicher, dass die Firewalls für alle Vertrauensstellungen ordnungsgemäß konfiguriert sind. Wenn Firewalls nicht geöffnet sind, versucht der vertrauenden Domänencontroller auch weiterhin, Zugriff auf die vertrauenswürdige Domäne. Wenn die Kommunikation aus irgendeinem Grund fehlschlägt, wird der vertrauenden Domänencontroller schließlich die Anforderung an den vertrauenswürdigen Domänencontroller Zeit. Diese Timeouts können jedoch mehrere Sekunden pro Anforderung und Netzwerkports vertrauenden Domänencontroller können aufgebraucht werden, wenn die Menge der eingehenden Anforderungen hoch ist. Der Client wartet, um das Timeout auf dem Domänencontroller als Threads blockiert, treten möglicherweise wiederum für nicht reagierende Anwendungen konnte (wenn die Anwendung die Anforderung in der Vordergrundthread ausgeführt wird). Weitere Informationen finden Sie unter [Gewusst wie: Konfigurieren einer Firewall für Domänen und-Vertrauensstellungen](https://support.microsoft.com/kb/179442).
+    -   Stellen Sie sicher, dass Ports gemäß den Anforderungen an den Domänen Controller für den Standort des Domänen Controllers offen sind. Wenn zwischen den Domänen Firewalls vorhanden sind, stellen Sie sicher, dass die Firewalls für alle Vertrauens Stellungen ordnungsgemäß konfiguriert sind. Wenn Firewalls nicht geöffnet sind, versucht der vertrauende Domänen Controller weiterhin, auf die vertrauenswürdige Domäne zuzugreifen. Wenn die Kommunikation aus irgendeinem Grund fehlschlägt, führt der vertrauende Domänen Controller die Anforderung an den vertrauenswürdigen Domänen Controller aus. Diese Timeouts können jedoch mehrere Sekunden pro Anforderung dauern und die Netzwerkports auf dem vertrauenden Domänen Controller überschreiten, wenn die Menge der eingehenden Anforderungen hoch ist. Der Client kann den Timeout Vorgang auf dem Domänen Controller als nicht reagierende Threads feststellen, was zu nicht reagierenden Anwendungen führen könnte (wenn die Anwendung die Anforderung im Vordergrund Thread ausführt). Weitere Informationen finden Sie unter [Konfigurieren einer Firewall für Domänen und](https://support.microsoft.com/kb/179442)Vertrauens Stellungen.
 
-    -   Verwenden Sie DnsAvoidRegisterRecords, um schlecht durchführen oder hoher Latenz Domänencontroller, z. B. in entlegenen Standorten, von Werbung auf die generische Locator zu beseitigen. Weitere Informationen finden Sie unter [Gewusst wie: Optimieren der Position von einem Domänencontroller oder globalen Katalog, die sich außerhalb der Standort des Clients befindet](https://support.microsoft.com/kb/306602).
+    -   Verwenden Sie DnsAvoidRegisterRecords, um die Leistung von Domänen Controllern mit hoher Latenz (z. b. von Satellitenstandorten) von der Werbung bis hin zu den generischen Locators auszuschließen. Weitere Informationen finden Sie unter [So optimieren Sie den Speicherort eines Domänen Controllers oder globalen Katalogs, der sich außerhalb des Standorts eines Clients befindet](https://support.microsoft.com/kb/306602).
 
         > [!NOTE]
-        > Es ist eine praktische Beschränkung von ca. 50 auf die Anzahl der Domänencontroller, zu denen, die der Client nutzen kann. Sie sollten die meisten optimalen Standort und die höchste Kapazität sein Domänencontroller.
+        > Es gibt ein praktisches Limit von ca. 50 bis zur Anzahl der Domänen Controller, die vom Client genutzt werden können. Dabei sollte es sich um die meisten Site-optimal und die höchsten Kapazitäts Domänen Controller handeln.
 
     
-    -  Erwägen Sie die Platzierung von Domänencontrollern von vertrauenswürdigen und vertrauenden Domänen in demselben physischen Standort.
+    -  Erwägen Sie, Domänen Controller aus vertrauenswürdigen und vertrauenswürdigen Domänen am gleichen physischen Standort zu platzieren.
 
-Alle vertrauenswürdigen Szenarios werden Anmeldeinformationen gemäß der Domäne, die in den authentifizierungsanforderungen angegebene weitergeleitet. Dies gilt auch für Abfragen auf die LookupAccountName und LsaLookupNames (sowie andere, diese werden nur die am häufigsten verwendet) APIs. Wenn die Domänenparameter für diese APIs einen NULL-Wert übergeben werden, versucht der Domänencontroller, finden den Kontonamen, angegeben in jedem vertrauenswürdigen Domäne zur Verfügung.
+Für alle Vertrauensstellungs Szenarien werden Anmelde Informationen entsprechend der in den Authentifizierungsanforderungen angegebenen Domäne weitergeleitet. Dies gilt auch für Abfragen von "LookupAccountName" und "lsalookupnames" (ebenso wie für andere, nur die am häufigsten verwendeten APIs). Wenn den Domänen Parametern für diese APIs ein NULL-Wert übermittelt wird, versucht der Domänen Controller, den Kontonamen zu finden, der in jeder verfügbaren vertrauenswürdigen Domäne angegeben ist.
 
--   Deaktivieren Sie alle verfügbaren-Vertrauensstellungen überprüfen, wenn NULL-Domäne angegeben wird. [Wie Sie die Suche nach isolierter Namen in externen vertrauenswürdigen Domänen zu beschränken, indem Sie den Registrierungseintrag LsaLookupRestrictIsolatedNameLevel](https://support.microsoft.com/kb/818024)
+-   Deaktiviert die Überprüfung aller verfügbaren Vertrauens Stellungen, wenn NULL-Domäne angegeben ist [Einschränken der Suche isolierter Namen in externen vertrauenswürdigen Domänen mithilfe des Registrierungs Eintrags "lsalookuprestrictisolatednamelevel"](https://support.microsoft.com/kb/818024)
 
--   Deaktivieren Sie authentifizierungsanforderungen mit NULL-Domäne angegeben, die über alle verfügbaren Vertrauensstellungen übergeben. [Der Prozess Lsass.exe reagiert möglicherweise nicht mehr, wenn Sie über viele externe Vertrauensstellungen auf einem Active Directory-Domänencontroller verfügen](https://support.microsoft.com/kb/923241/EN-US)
+-   Hiermit deaktivieren Sie das Übergeben von Authentifizierungsanforderungen mit einer NULL-Domäne, die für alle verfügbaren [Der LSASS. exe-Prozess reagiert möglicherweise nicht mehr, wenn Sie über viele externe Vertrauens Stellungen auf einem Active Directory Domänen Controller verfügen.](https://support.microsoft.com/kb/923241/EN-US)
 
 ## <a name="see-also"></a>Siehe auch
-- [Active Directory-Server die Optimierung der Leistung](index.md)
+- [Leistungsoptimierung Active Directory Server](index.md)
 - [Hardwareaspekte](hardware-considerations.md)
 - [Überlegungen zu LDAP](ldap-considerations.md)
 - [Problembehandlung bezüglich der ADDS-Leistung](troubleshoot.md) 

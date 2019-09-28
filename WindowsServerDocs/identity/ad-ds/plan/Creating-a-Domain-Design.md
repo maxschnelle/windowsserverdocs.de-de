@@ -7,32 +7,32 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 5b592f791245312d43fd2edc7b6d1e85deccc75d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0e263014d49d488e0c1e52395025e21b84d7107f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868231"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402752"
 ---
 # <a name="creating-a-domain-design"></a>Erstellen eines Domänenentwurfs
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Der Gesamtstrukturbesitzer ist verantwortlich für das Erstellen eines Domänenentwurfs für die Gesamtstruktur. Erstellen eines Domänenentwurfs umfasst die Anforderungen für die Replikation und die vorhandene Kapazität von der Netzwerkinfrastruktur und erstellen dann einer Domänenstruktur, die Active Directory Domain Services (AD DS) ermöglicht-Funktion in die effizienteste Methode untersucht. Domänen werden verwendet, um das Verzeichnis zu partitionieren, damit die Informationen in das Verzeichnis verteilt und effizient im gesamten Unternehmen verwaltet werden kann. Das Ziel für den Domänenentwurf ist, die Effizienz von Active Directory zu maximieren, die Replikationstopologie und gleichzeitig sicherstellen, dass die Replikation nicht zu viel Netzwerkbandbreite verwendet und bewirkt keine Beeinträchtigung bei den täglichen Betrieb des Netzwerks.  
+Der Gesamtstruktur Besitzer ist für das Erstellen eines Domänen Entwurfs für die Gesamtstruktur verantwortlich. Das Erstellen eines Domänen Entwurfs umfasst die Untersuchung der Replikations Anforderungen und der vorhandenen Kapazität ihrer Netzwerkinfrastruktur und die anschließende Erstellung einer Domänen Struktur, die Active Directory Domain Services (AD DS) die effizienteste Funktionsweise ermöglicht. Domänen werden verwendet, um das Verzeichnis zu partitionieren, sodass die Informationen im Verzeichnis im gesamten Unternehmen effizient verteilt und verwaltet werden können. Das Ziel ihres Domänen Entwurfs besteht darin, die Effizienz der Active Directory Replikations Topologie zu maximieren und gleichzeitig sicherzustellen, dass die Replikation nicht zu viele verfügbare Netzwerkbandbreite verwendet und nicht den täglichen Betrieb Ihres Netzwerks beeinträchtigt.  
   
 ## <a name="in-this-section"></a>Inhalt dieses Abschnitts  
   
--   [Überprüfen der Domänenmodelle](../../ad-ds/plan/Reviewing-the-Domain-Models.md)  
+-   [Überprüfen der Domänen Modelle](../../ad-ds/plan/Reviewing-the-Domain-Models.md)  
   
--   [Bestimmen der Anzahl der erforderlichen Domänen](../../ad-ds/plan/Determining-the-Number-of-Domains-Required.md)  
+-   [Bestimmen der Anzahl erforderlicher Domänen](../../ad-ds/plan/Determining-the-Number-of-Domains-Required.md)  
   
--   [Bestimmt, ob vorhandene Domänen aktualisiert oder neue Domänen bereitgestellt](../../ad-ds/plan/Determining-Whether-to-Upgrade-Existing-Domains-or-Deploy-New-Domains.md)  
+-   [Bestimmen, ob vorhandene Domänen aktualisiert oder neue Domänen bereitgestellt werden sollen](../../ad-ds/plan/Determining-Whether-to-Upgrade-Existing-Domains-or-Deploy-New-Domains.md)  
   
 -   [Zuweisen von Domänennamen](../../ad-ds/plan/Assigning-Domain-Names.md)  
   
--   [Auswählen der Stammdomäne der Gesamtstruktur](../../ad-ds/plan/Selecting-the-Forest-Root-Domain.md)  
+-   [Auswählen der Gesamtstruktur-Stammdomäne](../../ad-ds/plan/Selecting-the-Forest-Root-Domain.md)  
   
 
 

@@ -1,8 +1,8 @@
 ---
-title: ksetup:addkpasswd
-description: 'Windows-Befehle Thema ***- '
+title: 'Ksetup: addkpasswd'
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2a85eb6dfe30c33126504744a7659fe2cc573087
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 72c27cb6b068dc46cd58e753b4b08d68b39bfb20
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856821"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375194"
 ---
-# <a name="ksetupaddkpasswd"></a>ksetup:addkpasswd
+# <a name="ksetupaddkpasswd"></a>Ksetup: addkpasswd
 
 
 
-Fügt eine Kerberos-Kennwort (Kpasswd)-Serveradresse für einen Bereich hinzu. Beispiele wie dieser Befehl verwendet werden kann, finden Sie unter [Beispiele](#BKMK_Examples).
+Fügt ein Kerberos-Kennwort (kpasswd)-Server Adresse für einen Bereich hinzu. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -34,31 +34,31 @@ ksetup /addkpasswd <RealmName> [<KpasswdName>]
 
 ### <a name="parameters"></a>Parameter
 
-Wenn die Kerberos-Bereich, dass die Arbeitsstation für die Unterstützung der Kerberos authentifiziert wird Password Protokoll ändern, können Sie einen Clientcomputer mit dem Windows-Betriebssystem um ein Kerberos-Kennwort-Server verwenden konfigurieren. Diese Einstellung wird auf der Seite Bereich konfiguriert.
+Wenn der Kerberos-Bereich, bei dem die Arbeitsstation authentifiziert wird, das Kerberos-Änderungs Kennwort-Protokoll unterstützt, können Sie einen Client Computer mit dem Windows-Betriebssystem für die Verwendung eines Kerberos-Kenn Wort Servers konfigurieren. Diese Einstellung wird auf der Bereichs Seite konfiguriert.
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<RealmName>|Der Bereichsname ist als Großbuchstaben DNS-Name, wie z. B. CORP. angegeben. "Contoso.com", und als Standard-Bereich oder einen Bereich = Wenn **Ksetup** ausgeführt wird.|
-|\<KpasswdName>|Der KDC-Name, der als Kerberos-Kennwort-Server verwendet werden soll, die als Groß-und Kleinschreibung den vollqualifizierten Domänennamen, z. B. mitkdc.microsoft.com angegeben ist. Der KDC-Name fehlt, möglicherweise DNS verwendet werden, um KDCs zu suchen.|
+|\<realmname >|Der Bereichs Name wird als Großbuchstabe (DNS-Name) angegeben, z. b. Corp. CONTOSO.com, und wird als Standardbereich bzw. Bereich angezeigt, wenn **Ksetup** ausgeführt wird.|
+|\<kpasswdname >|Der KDC-Name, der als Kerberos-Kenn Wort Server verwendet werden soll, wird als voll qualifizierter Domänen Name angegeben, z. b. mitkdc.Microsoft.com. Wenn der KDC-Name weggelassen wird, kann DNS verwendet werden, um nach KDCs zu suchen.|
 
 ## <a name="remarks"></a>Hinweise
 
-Wenn die Kerberos-Bereich, dass die Arbeitsstation für die Unterstützung der Kerberos authentifiziert wird Password Protokoll ändern, können Sie einen Clientcomputer mit dem Windows-Betriebssystem um ein Kerberos-Kennwort-Server verwenden konfigurieren.
+Wenn der Kerberos-Bereich, bei dem die Arbeitsstation authentifiziert wird, das Kerberos-Änderungs Kennwort-Protokoll unterstützt, können Sie einen Client Computer mit dem Windows-Betriebssystem für die Verwendung eines Kerberos-Kenn Wort Servers konfigurieren.
 
-Führen Sie den Befehl **Ksetup** den KDC-Namen überprüfen. Wenn **Kpasswd =** erscheint nicht in der Ausgabe die Zuordnung wurde nicht konfiguriert.
+Führen Sie den Befehl **Ksetup** aus, um den KDC-Namen zu überprüfen. Wenn **kpasswd =** nicht in der Ausgabe angezeigt wird, wurde die Zuordnung nicht konfiguriert.
 
-Sie können zusätzliche KDC Namen einer zu einem Zeitpunkt hinzufügen.
+Sie können weitere KDC-Namen einzeln hinzufügen.
 
-## <a name="BKMK_Examples"></a>Beispiele für
+## <a name="BKMK_Examples"></a>Beispiele
 
-Konfigurieren Sie den Bereich, CORP. "Contoso.com", und die It den nicht - Windows-KDC-Server, mitkdc.contoso.com, als die Kennwort-Server verwendet:
+Konfigurieren Sie den Bereich Corp. CONTOSO.com, damit der nicht-Windows-KDC-Server, mitkdc.contoso.com, als Kenn Wort Server verwendet wird:
 ```
 ksetup /addkpasswd CORP.CONTOSO.COM mitkdc.contoso.com
 ```
-Dies führt zu einem nicht - Windows-Kerberos Kennwortserver, der alle Kennwörter für die Authentifizierung zwischen diesem und den Bereich steuert.
+Dies führt zu einem nicht-Windows-Kerberos-Kenn Wort Server, der alle Kenn Wörter für die Authentifizierung zwischen ihm und dem Bereich steuert.
 
 #### <a name="additional-references"></a>Weitere Verweise
 
 -   [Ksetup](ksetup.md)
 -   [Ksetup:delkpasswd](ksetup-delkpasswd.md)
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

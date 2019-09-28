@@ -1,8 +1,8 @@
 ---
 title: gpupdate
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dba8a0fb7d9a4e95f91ed1c1e140d965f5f9e2fb
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 994e37ebd972d881e06bdb99d5256e75096ccd81
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811117"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375642"
 ---
 # <a name="gpupdate"></a>gpupdate
 
-Aktualisiert die Einstellungen für Gruppenrichtlinien. Beispiele wie dieser Befehl verwendet werden kann, finden Sie unter [Beispiele](#examples).
+Aktualisiert Gruppenrichtlinie Einstellungen. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -34,21 +34,21 @@ gpupdate [/target:{Computer | User}] [/force] [/wait:<VALUE>] [/logoff] [/boot] 
 
 |     Parameter     |                                                                                                                                                                                                                                                                                                                             Beschreibung                                                                                                                                                                                                                                                                                                                             |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| / target: Computer { |                                                                                                                                                                                                                                                                                                                                Benutzer}                                                                                                                                                                                                                                                                                                                                |
-|      /force       |                                                                                                                                                                                                                                                                                   Wendet erneut an alle Richtlinieneinstellungen. Standardmäßig gelten nur für den Richtlinieneinstellungen, die geändert wurden.                                                                                                                                                                                                                                                                                    |
-|  / wait:\<Wert >   | Legt die Anzahl der Sekunden für die Richtlinie, die Verarbeitung abgeschlossen ist, bevor Sie an der Eingabeaufforderung zurückgegeben werden. Wenn das Zeitlimit überschritten wird, wird die Eingabeaufforderung angezeigt wird, aber die Verarbeitung der Gruppenrichtlinie weiterhin. Der Standardwert ist 600 Sekunden. Der Wert **0** bedeutet nicht, warten Sie. Der Wert **-1** bedeutet, dass für Warten ohne Timeout.</br>In einem Skript mithilfe dieses Befehls mit einer Frist angegeben wird, können Sie ausführen **Gpupdate** und fahren Sie mit Befehlen, die nicht nach dem Abschluss abhängen **Gpupdate**. Alternativ können Sie diesen Befehl mit kein Zeitlimit angegeben, um können **Gpupdate** Beendigung vor dem Ausführen von anderen Befehlen, die davon abhängen. |
-|      /logoff      |                                                                                                                                   Bewirkt, dass sich abmelden, nachdem die gruppenrichtlinieneinstellungen aktualisiert werden. Dies ist erforderlich, für die clientseitige gruppenrichtlinienerweiterungen, die Richtlinie auf ein Updatezyklus für Hintergrund nicht verarbeiten, aber Richtlinie verarbeiten, wenn ein Benutzer anmeldet. Beispiele sind für benutzerorientierte Softwareinstallation und Ordnerumleitung. Diese Option hat keine Auswirkungen, wenn vorhanden sind, dass keine Erweiterungen aufgerufen, die eine Abmeldung erforderlich.                                                                                                                                    |
-|       /boot       |                                                                                                                                       Führt einen Neustart des Computers an, nachdem die gruppenrichtlinieneinstellungen angewendet wurden. Dies ist erforderlich, für die clientseitige gruppenrichtlinienerweiterungen, die Richtlinie auf ein Updatezyklus für Hintergrund nicht verarbeiten, aber die Richtlinie beim Starten des Computers verarbeiten. Beispiele hierfür sind computerspezifische Softwareinstallation. Diese Option hat keine Auswirkungen, wenn vorhanden sind, dass keine Erweiterungen aufgerufen, die ein Neustart erforderlich ist.                                                                                                                                        |
-|       /sync       |                                                                                                                                                                              Bewirkt, dass die nächste Vordergrund richtlinienanwendung synchron ausgeführt werden. Vordergrundrichtlinie wird auf dem Computer starten und bei der Anmeldung angewendet. Sie können dies angeben, für den Benutzer, Computer oder beides, mit der **/target** Parameter. Die **/force** und **/wait** Parameter werden ignoriert, wenn Sie diese angeben.                                                                                                                                                                               |
+| /target: {Computer |                                                                                                                                                                                                                                                                                                                                Bedienungs                                                                                                                                                                                                                                                                                                                                |
+|      /Force       |                                                                                                                                                                                                                                                                                   Wendet alle Richtlinien Einstellungen erneut an. Standardmäßig werden nur Richtlinien Einstellungen angewendet, die geändert wurden.                                                                                                                                                                                                                                                                                    |
+|  /Wait: \<wert >   | Legt die Anzahl von Sekunden fest, die auf den Abschluss der Richtlinien Verarbeitung gewartet werden soll, bevor zur Eingabeaufforderung zurückgekehrt wird. Wenn das Zeitlimit überschritten wird, wird die Eingabeaufforderung angezeigt, die Richtlinien Verarbeitung wird jedoch fortgesetzt. Der Standardwert ist 600 Sekunden. Der Wert **0** bedeutet, dass nicht gewartet werden soll. Der Wert **-1** bedeutet, unbegrenzt zu warten.</br>In einem Skript können Sie mithilfe dieses Befehls mit einem angegebenen Zeit Limit **gpupdate** ausführen und mit Befehlen fortfahren, die nicht vom Abschluss von **gpupdate**abhängen. Alternativ können Sie diesen Befehl ohne angegebenes Zeit Limit verwenden, damit die Ausführung von " **gpupdate** " beendet wird, bevor andere Befehle ausgeführt werden, die von ihm abhängen. |
+|      /logoff      |                                                                                                                                   Bewirkt eine Abmeldung, nachdem die Gruppenrichtlinie Einstellungen aktualisiert wurden. Dies ist für die Gruppenrichtlinie Client seitigen Erweiterungen erforderlich, die keine Richtlinien für einen Hintergrund Aktualisierungs Zeitraum verarbeiten, aber die Prozess Richtlinie bei der Anmeldung eines Benutzers verarbeiten. Beispiele hierfür sind die benutzerorientierte Software Installation und Ordner Umleitung. Diese Option hat keine Auswirkungen, wenn keine Erweiterungen namens vorhanden sind, für die eine Abmeldung erforderlich ist.                                                                                                                                    |
+|       /Boot       |                                                                                                                                       Verursacht einen Computer Neustart, nachdem die Gruppenrichtlinie Einstellungen angewendet wurden. Dies ist für diejenigen Gruppenrichtlinie Client seitigen Erweiterungen erforderlich, die keine Richtlinien in einem Hintergrund Update Prozess verarbeiten, aber die Prozess Richtlinie beim Starten des Computers verarbeiten. Beispiele hierfür sind die Computerorientierte Software Installation. Diese Option hat keine Auswirkung, wenn keine Erweiterungen namens vorhanden sind, für die ein Neustart erforderlich ist.                                                                                                                                        |
+|       /sync       |                                                                                                                                                                              Bewirkt, dass die nächste Anwendung der Vordergrund Richtlinie synchron ausgeführt wird. Die Vordergrund Richtlinie wird beim Computer Start und bei der Benutzeranmeldung angewendet. Sie können dies für den Benutzer, den Computer oder beides angeben, indem Sie den **/target** -Parameter verwenden. Die Parameter **/Force** und **/Wait** werden ignoriert, wenn Sie Sie angeben.                                                                                                                                                                               |
 |        /?         |                                                                                                                                                                                                                                                                                                                Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                                                                                                                                                                                 |
 
 ## <a name="remarks"></a>Hinweise
 
--   Die **Gpupdate** Befehl ist in Windows Server 2008 R2, Windows Server 2008, Windows 7 Ultimate, Windows 7 Professional, Windows Vista Ultimate, Windows Vista Enterprise und Windows Vista Business verfügbar.
+-   Der **gpupdate** -Befehl ist in Windows Server 2008 R2, Windows Server 2008, Windows 7 Ultimate, Windows 7 Professional, Windows Vista Ultimate, Windows Vista Enterprise und Windows Vista Business verfügbar.
 
 ## <a name="examples"></a>Beispiele
 
-Erzwingen Sie ein Hintergrund Update aller gruppenrichtlinieneinstellungen, unabhängig davon, ob sie geändert haben.
+Erzwingen einer Hintergrund Aktualisierung aller Gruppenrichtlinie Einstellungen, unabhängig davon, ob Sie geändert wurden.
 
 ```
 gpupdate /force
@@ -56,5 +56,5 @@ gpupdate /force
 
 #### <a name="additional-references"></a>Weitere Verweise
 
--   [Gruppenrichtlinien-TechCenter](https://go.microsoft.com/fwlink/?LinkID=145531)
+-   [Gruppenrichtlinie-TechCenter](https://go.microsoft.com/fwlink/?LinkID=145531)
 -   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -6,17 +6,17 @@ manager: mtillman
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: ''
 ms.date: 05/01/2018
-ms.openlocfilehash: cd145402ed70aa52da7188dee9dd64ce17fea155
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: d393ad4af81ee1c24fa5f28b8a3b05217e7b34dd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871877"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71396297"
 ---
 # <a name="network-policy-server-user-data-collection"></a>Benutzerdaten Sammlung für Netzwerk Richtlinien Server
 
@@ -41,7 +41,7 @@ In diesem Dokument wird erläutert, wie Sie die vom Netzwerk Richtlinien Server 
 
 Wenn Buchhaltungsdaten aktiviert und konfiguriert sind, können die Datensätze der NPS-Authentifizierungs Versuche eines Benutzers abhängig von der Konfiguration von SQL Server oder den Protokolldateien abgerufen werden. 
 
-Wenn Buchhaltungsdaten für SQL Server konfiguriert sind, Fragen Sie alle Datensätze ab, `'<username>'`in denen user_name = ist.
+Wenn Buchhaltungsdaten für SQL Server konfiguriert sind, Fragen Sie alle Datensätze ab, bei denen user_name = `'<username>'` ist.
 
 Wenn Buchhaltungsdaten für eine Protokolldatei konfiguriert sind, suchen `<username>` Sie in der Protokolldatei nach allen Protokoll Einträgen.
 

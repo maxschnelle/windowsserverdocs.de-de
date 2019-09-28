@@ -7,32 +7,32 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 343a9a7aedf22e9c021249f00fb628f871a2ce1f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c902f9a438afd226dfb58dbde9f3c00d57b0ed58
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835751"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408594"
 ---
 # <a name="audit-policy-recommendations"></a>Empfehlungen zu Überwachungsrichtlinien
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012, Windows 10, Windows 8.1, Windows 7
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10, Windows 8.1, Windows 7
 
-In diesem Abschnitt werden die Windows-Standard-überwachungsrichtlinieneinstellungen, empfohlene sicherheitsüberwachungs-Richtlinieneinstellungen, und die umfangreichere wiederherstellungsanforderungen erforderlich Empfehlungen von Microsoft für Arbeitsstation und Server-Produkte.  
+In diesem Abschnitt werden die Standardeinstellungen für die Überwachungsrichtlinie von Windows, die grundlegenden empfohlenen Überwachungs Richtlinien Einstellungen und die aggressiveren Empfehlungen von Microsoft für Arbeitsstationen und Server Produkte behandelt.  
 
-Zusammen mit den Einstellungen, es wird empfohlen, um die Gefährdung, erkennen hier gezeigten SCM grundlegende Empfehlungen sollen nur einer Basislinie ab, an Administratoren sein. Jede Organisation muss einen eigenen Entscheidungen in Bezug auf die Gefahren vorgestellt, die sie sehen, ihre Toleranzen annehmbares Risiko, und Audit Policy Kategorien und Unterkategorien ermöglichen sollte wird. Weitere Informationen zu Bedrohungen, finden Sie in der [Handbuch zu Bedrohungen und Gegenmaßnahmen](https://technet.microsoft.com/library/hh125921(v=ws.10).aspx). Administratoren ohne eine durchdachte Überwachungsrichtlinie werden empfohlen, die mit den hier empfohlenen Einstellungen zu starten und dann zu ändern und zu testen, vor der Implementierung in ihrer produktionsumgebung.  
+Die hier gezeigten SCM-baselineempfehlungen, zusammen mit den Einstellungen, die wir empfehlen, um eine Gefährdung zu erkennen, dienen nur als Ausgangsbasis Leit Faden für Administratoren. Jede Organisation muss ihre eigenen Entscheidungen hinsichtlich der erkannten Bedrohungen, ihrer akzeptablen Risiko Toleranzen und der zu aktivierenden Überwachungs Richtlinien Kategorien oder Unterkategorien treffen. Weitere Informationen zu Bedrohungen finden Sie im Handbuch zu [Bedrohungen und Gegenmaßnahmen](https://technet.microsoft.com/library/hh125921(v=ws.10).aspx). Administratoren ohne durchdachte Überwachungsrichtlinie werden empfohlen, mit den hier empfohlenen Einstellungen zu beginnen und dann vor der Implementierung von in Ihrer Produktionsumgebung zu ändern und zu testen.  
 
-Die Empfehlungen sind für Enterprise-Class-Computer, bei denen Microsoft als Computer definiert, die durchschnittliche sicherheitsanforderungen haben und ein hohes Maß an Betrieb erforderlich. Überwachungsrichtlinien für Entitäten, die höhere Sicherheit, die Anforderungen aggressiver berücksichtigen sollten benötigen.  
+Die Empfehlungen gelten für Computer auf Unternehmens Niveau, die von Microsoft als Computer definiert werden, die überdurchschnittliche Sicherheitsanforderungen verfügen und ein hohes Maß an Betriebs Funktionalität benötigen. Entitäten, die höhere Sicherheitsanforderungen benötigen, sollten aggressivere Überwachungs Richtlinien in Erwägung zieht.  
 
 > [!NOTE]  
-> Microsoft Windows wird standardmäßig und grundlegende Empfehlungen entnommen wurden die [Microsoft Security Compliance Manager-Tool](https://technet.microsoft.com/library/cc677002.aspx).  
+> Microsoft Windows-Standardwerte und-baselineempfehlungen wurden vom [Microsoft Security Compliance Manager-Tool](https://technet.microsoft.com/library/cc677002.aspx)übernommen.  
 
-Die folgenden Baseline sicherheitsüberwachungs-Richtlinieneinstellungen werden für Computer mit normaler Sicherheit empfohlen, die nicht bekannt sind, aktiv, erfolgreich angegriffen werden bestimmte Angreifer oder Malware.  
+Die folgenden grundlegenden Überwachungs Richtlinien Einstellungen werden für normale Sicherheits Computer empfohlen, die nicht bekanntermaßen aktiv und erfolgreich von ermittelten Angreifern oder Schadsoftware betroffen sind.  
 
-## <a name="recommended-audit-policies-by-operating-system"></a>Empfohlene Überwachungsrichtlinien, die vom Betriebssystem  
-Dieser Abschnitt enthält die Tabellen, die die Überwachung einstellungsempfehlungen aufzulisten, die für die folgenden Betriebssysteme gelten:  
+## <a name="recommended-audit-policies-by-operating-system"></a>Empfohlene Überwachungs Richtlinien nach Betriebs System  
+Dieser Abschnitt enthält Tabellen, in denen die Empfehlungen für die Überwachungs Einstellungen aufgeführt sind, die für die folgenden Betriebssysteme gelten:  
 
 -   Windows Server 2016 
 
@@ -48,24 +48,24 @@ Dieser Abschnitt enthält die Tabellen, die die Überwachung einstellungsempfehl
 
 -   Windows 7  
 
-Diese Tabellen enthalten die Windows-Standardeinstellung, grundlegende Empfehlungen und die stärkeren Empfehlungen für diese Betriebssysteme.  
+Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empfehlungen und die stärkeren Empfehlungen für diese Betriebssysteme.  
 
-**Audit Policy Tabellen Legende**  
+**Legende für Überwachungs Richtlinien Tabellen**  
 
 |||  
 |-|-|  
-|**Notation**|**Empfehlung**|  
-|JA|Im allgemeinen Szenarien aktivieren|  
-|NEIN|Führen Sie **nicht** ermöglichen im allgemeinen Szenarien|  
-|IF|Aktivieren Sie bei Bedarf für ein bestimmtes Szenario oder eine Rolle oder eines Features, die für die Überwachung erforderlich ist auf dem Computer installiert ist|  
-|DC|Aktivieren Sie auf einem Domänencontroller|  
-|[Leere]|Keine Empfehlung|  
+|**Angabe**|**Empfehlung**|  
+|JA|In allgemeinen Szenarien aktivieren|  
+|NEIN|**Nicht** in allgemeinen Szenarien aktivieren|  
+|SEI|Aktivieren Sie bei Bedarf für ein bestimmtes Szenario oder, wenn eine Rolle oder ein Feature, für das die Überwachung gewünscht ist, auf dem Computer installiert ist.|  
+|DC|Aktivieren auf Domänen Controllern|  
+|Blitz|Keine Empfehlung|  
 
-**Windows 10, Windows 8 und Windows 7 Audit Settings Empfehlungen**  
+**Empfehlungen zu Überwachungs Einstellungen für Windows 10, Windows 8 und Windows 7**  
 
 **Überwachungsrichtlinie**  
 
-|Audit Policy-Kategorie oder Unterkategorie|Windows-Standard<br /><br />Erfolg Fehler|Baseline-Empfehlung<br /><br />Erfolg Fehler|Eine stärkere Empfehlung<br /><br />Erfolg Fehler|  
+|Kategorie oder Unterkategorie der Überwachungsrichtlinie|Windows-Standard<br /><br />Erfolgs Fehler|Grundlegende Empfehlung<br /><br />Erfolgs Fehler|Stärkere Empfehlung<br /><br />Erfolgs Fehler|  
 |----------------------------------------|------------------------------------------|--------------------------------------------------|--------------------------------------------------|  
 |**Kontoanmeldung**||||  
 |Überprüfen der Anmeldeinformationen überwachen|Nein, nein|Ja Nein|Ja, ja|  
@@ -79,7 +79,7 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, grundlegende Empfehlun
 |Andere Kontoverwaltungsereignisse überwachen||Ja Nein|Ja, ja|  
 |Sicherheitsgruppenverwaltung überwachen||Ja Nein|Ja, ja|  
 |Benutzerkontenverwaltung überwachen|Ja Nein|Ja Nein|Ja, ja|  
-|**Detaillierte nachverfolgung**||||  
+|**Ausführliche Nachverfolgung**||||  
 |DPAPI-Aktivität überwachen|||Ja, ja|  
 |Prozesserstellung überwachen||Ja Nein|Ja, ja|  
 |Prozessbeendung überwachen||||  
@@ -89,18 +89,18 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, grundlegende Empfehlun
 |Verzeichnisdienstzugriff überwachen||||  
 |Verzeichnisdienständerungen überwachen||||  
 |Verzeichnisdienstreplikation überwachen||||  
-|**An- und Abmeldung**||||  
+|**Anmelden und Abmelden**||||  
 |Kontosperrung überwachen|Ja Nein||Ja Nein|  
 |Benutzer-/Geräteansprüche überwachen||||  
 |IPsec-Erweiterungsmodus überwachen||||  
-|IPsec-Hauptmodus überwachen|||IF     IF|  
+|IPsec-Hauptmodus überwachen|||WENN, WENN|  
 |IPsec-Schnellmodus überwachen||||  
 |Abmelden überwachen|Ja Nein|Ja Nein|Ja Nein|  
-|Überwachen der Anmeldung <sup>1</sup>|Ja, ja|Ja, ja|Ja, ja|  
+|Anmeldung <sup>1</sup> überwachen|Ja, ja|Ja, ja|Ja, ja|  
 |Netzwerkrichtlinienserver überwachen|Ja, ja|||  
 |Andere Anmelde-/Abmeldeereignisse überwachen||||  
 |Spezielle Anmeldung überwachen|Ja Nein|Ja Nein|Ja, ja|  
-|**Zugriff auf Objekte**||||  
+|**Objektzugriff**||||  
 |Anwendung generiert überwachen||||  
 |Zertifizierungsdienste überwachen||||  
 |Detaillierte Dateifreigabe überwachen||||  
@@ -115,35 +115,35 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, grundlegende Empfehlun
 |Wechselmedien überwachen||||  
 |SAM überwachen||||  
 |Staging zentraler Zugriffsrichtlinien überwachen||||  
-|**Änderung der Richtlinie**||||  
+|**Richtlinien Änderung**||||  
 |Überwachungsrichtlinienänderung überwachen|Ja Nein|Ja, ja|Ja, ja|  
 |Authentifizierungsrichtlinienänderung überwachen|Ja Nein|Ja Nein|Ja, ja|  
 |Autorisierungsrichtlinienänderung überwachen||||  
 |Filterplattform-Richtlinienänderung überwachen||||  
 |MPSSVC-Richtlinienänderung auf Regelebene überwachen|||Ja  |  
 |Andere Richtlinienänderungsereignisse überwachen||||  
-|**Rechteverwendung**||||  
+|**Berechtigungs Verwendung**||||  
 |Nicht sensible Verwendung von Rechten überwachen||||  
 |Andere Rechteverwendungsereignisse überwachen||||  
 |Sensible Verwendung von Rechten überwachen||||  
-|**System**||||  
+|**Anlage**||||  
 |IPsec-Treiber überwachen||Ja, ja|Ja, ja|  
 |Andere Systemereignisse überwachen|Ja, ja|||  
 |Sicherheitsstatusänderung überwachen|Ja Nein|Ja, ja|Ja, ja|  
 |Sicherheitssystemerweiterung überwachen||Ja, ja|Ja, ja|  
 |Systemintegrität überwachen|Ja, ja|Ja, ja|Ja, ja|  
-|**Globale Überprüfung**||||  
+|**Globale Objekt Zugriffs Überwachung**||||  
 |IPsec-Treiber überwachen||||  
 |Andere Systemereignisse überwachen||||  
 |Sicherheitsstatusänderung überwachen||||  
 |Sicherheitssystemerweiterung überwachen||||  
 |Systemintegrität überwachen||||  
 
-<sup>1</sup> ab Windows 10, Version 1809, Überwachung der Anmeldung standardmäßig für sowohl Erfolgs-als auch aktiviert ist. In früheren Versionen von Windows ist nur erfolgreich, standardmäßig aktiviert.
+<sup>1</sup> ab Windows 10, Version 1809, ist Audit Logon standardmäßig sowohl für Erfolg als auch für Fehler aktiviert. In früheren Versionen von Windows ist nur Erfolg standardmäßig aktiviert.
 
-**WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2 und Windows Server 2008 Audit Settings Empfehlungen**  
+**Empfehlungen zu Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 und Windows Server 2008 Überwachungs Einstellungen**  
 
-|Audit Policy-Kategorie oder Unterkategorie|Windows-Standard<br /><br />Erfolg Fehler|Baseline-Empfehlung<br /><br />Erfolg Fehler|Eine stärkere Empfehlung<br /><br />Erfolg Fehler|  
+|Kategorie oder Unterkategorie der Überwachungsrichtlinie|Windows-Standard<br /><br />Erfolgs Fehler|Grundlegende Empfehlung<br /><br />Erfolgs Fehler|Stärkere Empfehlung<br /><br />Erfolgs Fehler|  
 |----------------------------------------|------------------------------------------|--------------------------------------------------|--------------------------------------------------|  
 |**Kontoanmeldung**||||  
 |Überprüfen der Anmeldeinformationen überwachen|Nein, nein|Ja, ja|Ja, ja|  
@@ -152,33 +152,33 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, grundlegende Empfehlun
 |Andere Kontoanmeldungsereignisse überwachen|||Ja, ja|  
 |**Kontoverwaltung**||||  
 |Anwendungsgruppenverwaltung überwachen||||  
-|Computerkontoverwaltung überwachen||Ja DC|Ja, ja|  
+|Computerkontoverwaltung überwachen||Ja, DC|Ja, ja|  
 |Verteilergruppenverwaltung überwachen||||  
 |Andere Kontoverwaltungsereignisse überwachen||Ja, ja|Ja, ja|  
 |Sicherheitsgruppenverwaltung überwachen||Ja, ja|Ja, ja|  
 |Benutzerkontenverwaltung überwachen|Ja Nein|Ja, ja|Ja, ja|  
-|**Detaillierte nachverfolgung**||||  
+|**Ausführliche Nachverfolgung**||||  
 |DPAPI-Aktivität überwachen|||Ja, ja|  
 |Prozesserstellung überwachen||Ja Nein|Ja, ja|  
 |Prozessbeendung überwachen||||  
 |RPC-Ereignisse überwachen||||  
 |**DS-Zugriff**||||  
 |Detaillierte Verzeichnisdienstreplikation überwachen||||  
-|Verzeichnisdienstzugriff überwachen||DC    DC|DC    DC|  
-|Verzeichnisdienständerungen überwachen||DC    DC|DC    DC|  
+|Verzeichnisdienstzugriff überwachen||DC-DC|DC-DC|  
+|Verzeichnisdienständerungen überwachen||DC-DC|DC-DC|  
 |Verzeichnisdienstreplikation überwachen||||  
-|**An- und Abmeldung**||||  
+|**Anmelden und Abmelden**||||  
 |Kontosperrung überwachen|Ja Nein||Ja Nein|  
 |Benutzer-/Geräteansprüche überwachen||||  
 |IPsec-Erweiterungsmodus überwachen||||  
-|IPsec-Hauptmodus überwachen|||IF     IF|  
+|IPsec-Hauptmodus überwachen|||WENN, WENN|  
 |IPsec-Schnellmodus überwachen||||  
 |Abmelden überwachen|Ja Nein|Ja Nein|Ja Nein|  
 |Anmelden überwachen|Ja, ja|Ja, ja|Ja, ja|  
 |Netzwerkrichtlinienserver überwachen|Ja, ja|||  
 |Andere Anmelde-/Abmeldeereignisse überwachen|||Ja, ja|  
 |Spezielle Anmeldung überwachen|Ja Nein|Ja Nein|Ja, ja|  
-|**Zugriff auf Objekte**||||  
+|**Objektzugriff**||||  
 |Anwendung generiert überwachen||||  
 |Zertifizierungsdienste überwachen||||  
 |Detaillierte Dateifreigabe überwachen||||  
@@ -193,117 +193,117 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, grundlegende Empfehlun
 |Wechselmedien überwachen||||  
 |SAM überwachen||||  
 |Staging zentraler Zugriffsrichtlinien überwachen||||  
-|**Änderung der Richtlinie**||||  
+|**Richtlinien Änderung**||||  
 |Überwachungsrichtlinienänderung überwachen|Ja Nein|Ja, ja|Ja, ja|  
 |Authentifizierungsrichtlinienänderung überwachen|Ja Nein|Ja Nein|Ja, ja|  
 |Autorisierungsrichtlinienänderung überwachen||||  
 |Filterplattform-Richtlinienänderung überwachen||||  
 |MPSSVC-Richtlinienänderung auf Regelebene überwachen|||Ja  |  
 |Andere Richtlinienänderungsereignisse überwachen||||  
-|**Rechteverwendung**||||  
+|**Berechtigungs Verwendung**||||  
 |Nicht sensible Verwendung von Rechten überwachen||||  
 |Andere Rechteverwendungsereignisse überwachen||||  
 |Sensible Verwendung von Rechten überwachen||||  
-|**System**||||  
+|**Anlage**||||  
 |IPsec-Treiber überwachen||Ja, ja|Ja, ja|  
 |Andere Systemereignisse überwachen|Ja, ja|||  
 |Sicherheitsstatusänderung überwachen|Ja Nein|Ja, ja|Ja, ja|  
 |Sicherheitssystemerweiterung überwachen||Ja, ja|Ja, ja|  
 |Systemintegrität überwachen|Ja, ja|Ja, ja|Ja, ja|  
-|**Globale Überprüfung**||||  
+|**Globale Objekt Zugriffs Überwachung**||||  
 |IPsec-Treiber überwachen||||  
 |Andere Systemereignisse überwachen||||  
 |Sicherheitsstatusänderung überwachen||||  
 |Sicherheitssystemerweiterung überwachen||||  
 |Systemintegrität überwachen||||  
 
-## <a name="set-audit-policy-on-workstations-and-servers"></a>Festlegen von Überwachungsrichtlinien auf Arbeitsstationen und Servern  
-Alle Event Log-Management-Pläne sollten auf Arbeitsstationen und Server überwachen. Ein häufiger Fehler werden nur Server oder Domänencontroller überwacht. Da bösartige Hackerangriffe häufig anfänglich auf Arbeitsstationen auftritt, ist die beste und früheste Informationsquelle nicht überwacht Arbeitsstationen ignoriert werden.  
+## <a name="set-audit-policy-on-workstations-and-servers"></a>Festlegen der Überwachungsrichtlinie für Arbeitsstationen und Server  
+Alle Ereignisprotokoll-Verwaltungspläne sollten Arbeitsstationen und Server überwachen. Ein häufiger Fehler besteht darin, nur Server oder Domänen Controller zu überwachen. Da böswillige Hacker häufig auf Arbeitsstationen auftreten, wird die beste und früheste Informationsquelle nicht durch die Überwachung von Arbeitsstationen ignoriert.  
 
-Administratoren sollten so zuvorkommend überprüfen und Testen alle Überwachungsrichtlinie vor der Implementierung in ihrer produktionsumgebung.  
+Administratoren sollten alle Überwachungs Richtlinien vor der Implementierung in Ihrer Produktionsumgebung sorgfältig prüfen und testen.  
 
 ## <a name="events-to-monitor"></a>Zu überwachende Ereignisse  
-Eine perfekte Ereignis-ID, um eine sicherheitswarnung generieren, sollten die folgenden Attribute enthalten:  
+Eine perfekte Ereignis-ID zum Generieren einer Sicherheitswarnung sollte die folgenden Attribute enthalten:  
 
--   Hohe Wahrscheinlichkeit, dass dieses Ereignis gibt an, nicht autorisierte Aktivitäten  
+-   Hohe Wahrscheinlichkeit, dass das Vorkommen nicht autorisierte Aktivitäten anzeigt  
 
 -   Eine geringe Anzahl falsch positiver Ergebnisse generieren  
 
--   Vorkommen sollte zu einer von forensischen führen.  
+-   Das Vorkommen sollte zu einer Untersuchung/forensischen Antwort führen.  
 
-Zwei Arten von Ereignissen sollten überwacht und benachrichtigt werden:  
+Es sollten zwei Arten von Ereignissen überwacht und gewarnt werden:  
 
-1.  Diese Ereignisse, in denen auch ein einmaliges auftreten auf nicht autorisierte Aktivitäten hinweist  
+1.  Ereignisse, bei denen sogar ein einzelnes Vorkommen nicht autorisierte Aktivitäten anzeigt  
 
 2.  Eine Häufung von Ereignissen, die eine erwartete und akzeptierte Baseline überschreitet  
 
 Ein Beispiel für das erste Ereignis ist:  
 
-Wenn Domänen-Admins (DAs) von Protokollierung auf den Computern nicht, die keine Domänencontroller sind zulässig sind, ein einzelnes Vorkommen eines Daten-Elements, das Anmelden an einer Endbenutzerarbeitsstation eine Warnung generieren soll, und untersucht werden. Dieser Warnungstyp ist einfach zu generieren, indem Sie mithilfe des Ereignisses spezielle Anmeldung überwachen 4964 (besondere Gruppen zugewiesen wurden, eine neue Anmeldung). Andere Beispiele für Einzelinstanz-Warnungen sind:  
+Wenn die Anmeldung von Domänen-Admins (das) an Computern, die keine Domänen Controller sind, untersagt ist, sollte ein einzelnes Vorkommen eines da-Mitglieds, das sich an einer Endbenutzer Arbeitsstation anmeldet, eine Warnung generieren und untersuchen. Diese Art von Warnung ist leicht zu generieren, indem Sie das Audit Special Logon Event 4964 (spezielle Gruppen wurden einer neuen Anmeldung zugewiesen) verwenden. Weitere Beispiele für einzelinstanzwarnungen:  
 
--   Wenn Server A zu Server B, Warnung, wenn sie eine Verbindung miteinander herstellen nie verbinden soll.  
+-   Wenn Server a nie eine Verbindung mit Server B herstellen soll, wird eine Warnung angezeigt, wenn eine Verbindung untereinander hergestellt wird.  
 
--   Warnung senden Sie, wenn eine normale Endbenutzerkonto unerwartet eine vertrauliche Sicherheitsgruppe hinzugefügt wird.  
+-   Warnung, wenn ein normales Endbenutzer Konto unerwartet einer sensiblen Sicherheitsgruppe hinzugefügt wird.  
 
--   Wenn Mitarbeiter in den Speicherort der Factory ein niemals in der Nacht werden die Warnungen bei eines Benutzers um Mitternacht funktionieren Anmeldung.  
+-   Wenn Mitarbeiter am Hersteller Standort A nie nachts arbeiten, wird eine Warnung angezeigt, wenn sich ein Benutzer bei Mitternacht anmeldet.  
 
--   Warnung senden Sie, wenn ein nicht autorisierter Dienst auf einem Domänencontroller installiert ist.  
+-   Warnung, wenn ein nicht autorisierter Dienst auf einem Domänen Controller installiert ist.  
 
--   Untersuchen Sie, ob eine reguläre Endbenutzer, sich direkt bei einer SQL Server für die sie keine klare Grund versucht dafür haben.  
+-   Überprüfen Sie, ob ein regulärer Endbenutzer versucht, sich direkt bei einem SQL Server anzumelden, für den es keinen eindeutigen Grund gibt.  
 
--   Wenn Sie keine Elemente in der Verwaltungsgruppe Daten haben und ein Benutzer sich selbst es hinzufügt, überprüfen Sie ihn sofort.  
+-   Wenn Sie in der Gruppe "da" keine Mitglieder haben, die sich selbst hinzufügen, überprüfen Sie Sie sofort.  
 
 Ein Beispiel für das zweite Ereignis ist:  
 
-Eine abweichende Anzahl von fehlerhaften Anmeldungen kann das Erraten des Kennworts hinweisen. Für ein Unternehmen, eine Warnung für eine ungewöhnlich hohe Anzahl von fehlgeschlagenen Anmeldungen bereitzustellen müssen sie zuerst die normalen Ebenen der Anmeldefehler in ihrer Umgebung vor einer böswilligen Sicherheitsereignis verstehen.  
+Eine Abbruch Anzahl fehlgeschlagener Anmeldungen könnte auf einen Kenn Wort angriffsangriff hindeuten. Damit ein Unternehmen eine Warnung für eine ungewöhnlich hohe Anzahl fehlgeschlagener Anmeldungen bereitstellen kann, müssen Sie zunächst die normalen Ebenen der fehlgeschlagenen Anmeldungen innerhalb Ihrer Umgebung vor einem böswilligen Sicherheits Ereignis verstehen.  
 
-Eine umfassende Liste der Ereignisse, die Sie enthalten soll, wenn Sie auf Anzeichen einer Kompromittierung überwachen, finden Sie unter [Anhang L: Zu überwachende Ereignisse](../../../ad-ds/plan/Appendix-L--Events-to-Monitor.md).  
+Eine umfassende Liste der Ereignisse, die Sie beim Überwachen von Gefährdungen berücksichtigen sollten, finden Sie unter [anhang L: Zu überwachende Ereignisse @ no__t-0.  
 
-## <a name="active-directory-objects-and-attributes-to-monitor"></a>Active Directory-Objekten und-Attributen zu überwachen  
-Im folgenden sind die Konten, Gruppen und Attribute, die Sie überwachen sollten, damit Sie das Erkennen von versuchen, Ihre Active Directory Domain Services-Installation zu gefährden können.  
+## <a name="active-directory-objects-and-attributes-to-monitor"></a>Active Directory zu überwachende Objekte und Attribute  
+Im folgenden finden Sie die Konten, Gruppen und Attribute, die Sie überwachen sollten, um zu erkennen, dass Sie versuchen, die Active Directory Domain Services Installation zu kompromittieren.  
 
--   Systeme, für das Deaktivieren oder Entfernen von Antivirus- und Antischadsoftware-Software (automatisch Neustarten des Schutzes, wenn sie manuell deaktiviert ist)  
+-   Systeme zum Deaktivieren oder Entfernen von Antiviren-und Antischadsoftware (automatischer Neustart des Schutzes, wenn er manuell deaktiviert wird)  
 
--   Administratorkonten für nicht autorisierte Änderungen  
+-   Administrator Konten für nicht autorisierte Änderungen  
 
--   Aktivitäten, die ausgeführt werden, mithilfe von privilegierten Konten (automatisch Konto entfernen, wenn Sie die verdächtige Aktivitäten abgeschlossen sind, oder vorgesehene Zeit abgelaufen)  
+-   Aktivitäten, die mithilfe privilegierter Konten ausgeführt werden (Konto automatisch entfernen, wenn verdächtige Aktivitäten abgeschlossen sind oder die zugewiesene Zeit abgelaufen ist)  
 
--   Privilegierten und VIP-Konten in AD DS. Überwachen Sie Änderungen, insbesondere Änderungen von Attributen auf der Registerkarte "Konto" (z. B. Cn, Name, "sAMAccountName", "userPrincipalName" oder "UserAccountControl"). Zusätzlich zur Überwachung der Konten an, zu beschränken, den Konten an, wie klein einen Satz von Administratoren wie möglich geändert werden kann.  
+-   Privilegierte und VIP-Konten in AD DS. Überwachen Sie Änderungen, insbesondere Änderungen an Attributen auf der Registerkarte "Konto" (z. b. cn, Name, sAMAccountName, userPrincipalName oder userAccountControl). Zusätzlich zum Überwachen der Konten beschränken Sie den Benutzer, der die Konten ändern kann, so gering wie möglich auf eine Gruppe von Administratoren.  
 
-Finden Sie unter [Anhang L: Zu überwachende Ereignisse](../../../ad-ds/plan/Appendix-L--Events-to-Monitor.md) für eine Liste der empfohlenen Ereignisse zu überwachen, ihre Wichtigkeit Bewertungen und eine Zusammenfassung der Ereignis-Nachricht.  
+Weitere Informationen finden Sie unter [anhang L: Zu überwachende Ereignisse @ no__t-0 für eine Liste der zu überwachenden empfohlenen Ereignisse, deren kritikitäts Bewertungen und eine Zusammenfassung der Ereignismeldung.  
 
--   Gruppe von Servern mit der die Klassifizierung der ihre Workloads, sodass Sie schnell die Server zu identifizieren, die die am ehesten überwachten und die meisten repräsentative Motoröltemperatur konfiguriert werden sollen  
+-   Gruppieren Sie Server nach der Klassifizierung ihrer Arbeits Auslastungen, sodass Sie schnell die Server identifizieren können, die am ehesten überwacht werden sollen und die am meisten stringterweise konfiguriert sind.  
 
--   Änderungen an den Eigenschaften und die Mitgliedschaft in der folgenden AD DS-Gruppen: Organisations-Admins (EA), Domänen-Admins (DA), die Administratoren (BA) und Schema-Admins (SA)  
+-   Änderungen an den Eigenschaften und der Mitgliedschaft in folgenden AD DS Gruppen: Organisations-Admins (EA), Domänen-Admins (da), Administratoren (BA) und Schema Administratoren (SA)  
 
--   Zum Aktivieren von Konten deaktiviert privilegierte Konten (z. B. der integrierte Administrator-Konten in Active Directory und auf Systemen, die Mitglied)  
+-   Deaktivieren privilegierter Konten (z. b. integrierte Administrator Konten in Active Directory und auf Mitglieds Systemen) zum Aktivieren der Konten  
 
--   Management-Konten alle Schreibvorgänge an das Konto anmelden  
+-   Verwaltungs Konten zum Protokollieren aller Schreibvorgänge an das Konto  
 
--   Integrierte Sicherheitskonfigurations-Assistenten so konfigurieren Sie den Dienst, Registrierung, überwachungs- und Firewall-Einstellungen für die Angriffsfläche des Servers zu verringern. Verwenden Sie diesen Assistenten, wenn Sie Jump-Server als Teil Ihrer Strategie für die administrative Host implementieren.  
+-   Integrierter Sicherheitskonfigurations-Assistent zum Konfigurieren von Dienst-, Registrierungs-, Überwachungs-und Firewalleinstellungen, um die Angriffsfläche des Servers zu verringern. Verwenden Sie diesen Assistenten, wenn Sie Jump-Server als Teil ihrer Verwaltungs Host Strategie implementieren.  
 
-## <a name="additional-information-for-monitoring-active-directory-domain-services"></a>Weitere Informationen zum Überwachen von Active Directory-Domänendienste  
-Überprüfen Sie den folgenden Links Weitere Informationen zur Überwachung von AD DS:  
+## <a name="additional-information-for-monitoring-active-directory-domain-services"></a>Weitere Informationen zum Überwachen von Active Directory Domain Services  
+Überprüfen Sie die folgenden Links, um weitere Informationen zur Überwachungs AD DS zu finden:  
   
--   [Globale Objektzugriffsüberwachung Magic ist](http://blogs.technet.com/b/askds/archive/2011/03/10/global-object-access-auditing-is-magic.aspx) – enthält Informationen zum Konfigurieren und verwenden die erweiterte Überwachungsrichtlinienkonfiguration, die Windows 7 und Windows Server 2008 R2 hinzugefügt wurde.  
+-   Die [globale Objekt Zugriffs Überwachung ist magisch](http://blogs.technet.com/b/askds/archive/2011/03/10/global-object-access-auditing-is-magic.aspx) . Sie enthält Informationen zum Konfigurieren und Verwenden der erweiterten Überwachungs Richtlinien Konfiguration, die zu Windows 7 und Windows Server 2008 R2 hinzugefügt wurde.  
 
--   [Einführung in die Überwachung von Änderungen in Windows 2008](http://blogs.technet.com/b/askds/archive/2007/10/19/introducing-auditing-changes-in-windows-2008.aspx) -Überwachung in Windows 2008 vorgenommenen Änderungen führt.  
+-   [Einführung von Überwachungs Änderungen in Windows 2008](http://blogs.technet.com/b/askds/archive/2007/10/19/introducing-auditing-changes-in-windows-2008.aspx) : führt die in Windows 2008 vorgenommenen Überwachungs Änderungen ein.  
 
--   ["Cool" Überwachung Tricks in Vista und 2008](http://blogs.technet.com/b/askds/archive/2007/11/16/cool-auditing-tricks-in-vista-and-2008.aspx) -interessante neue Features der Überwachung in Windows Vista und Windows Server 2008, die verwendet werden können, für die Behandlung von Problemen oder sehen die Abläufe in Ihrer Umgebung erläutert.  
+-   Praktische Überwachungs [Tricks in Vista und 2008](http://blogs.technet.com/b/askds/archive/2007/11/16/cool-auditing-tricks-in-vista-and-2008.aspx) : erläutert interessante neue Features der Überwachung in Windows Vista und Windows Server 2008, die für die Problembehandlung oder das Auftreten von Ereignissen in Ihrer Umgebung verwendet werden können.  
 
--   [Zentrale Anlaufstelle für die Überwachung in Windows Server 2008 und Windows Vista](http://blogs.technet.com/b/askds/archive/2008/03/27/one-stop-shop-for-auditing-in-windows-server-2008-and-windows-vista.aspx) -enthält eine Zusammenstellung von Überwachung von Funktionen und Informationen, die in Windows Server 2008 und Windows Vista enthalten sind.  
+-   [Zentrale Anlaufstelle für die Überwachung in Windows Server 2008 und Windows Vista](http://blogs.technet.com/b/askds/archive/2008/03/27/one-stop-shop-for-auditing-in-windows-server-2008-and-windows-vista.aspx) : enthält eine Kompilierung von Überwachungs Features und Informationen, die in Windows Server 2008 und Windows Vista enthalten sind.  
 
--   [Anleitung für AD DS-Überwachung](https://technet.microsoft.com/library/a9c25483-89e2-4202-881c-ea8e02b4b2a5.aspx) -beschreibt die neue Überwachungsfunktion mit Active Directory Domain Services (AD DS) in Windows Server 2008. Darüber hinaus werden Verfahren zur Implementierung dieser neuen Funktion.  
+-   [Schritt-für-Schritt-Anleitung](https://technet.microsoft.com/library/a9c25483-89e2-4202-881c-ea8e02b4b2a5.aspx) für die AD DS Überwachung: Beschreibt das neue Active Directory Domain Services (AD DS)-Überwachungs Feature in Windows Server 2008. Außerdem werden Verfahren zur Implementierung dieses neuen Features bereitstellt.  
 
-## <a name="general-list-of-security-event-id-recommendation-criticalities"></a>Allgemeine-Liste der Security-Ereignis-ID Empfehlung Kritikalitäten  
-Alle Ereignis-ID-Empfehlungen werden nach eine Bedeutung, die Bewertung wie folgt ergänzt:  
+## <a name="general-list-of-security-event-id-recommendation-criticalities"></a>Allgemeine Liste der Empfehlungen für die Ereignis-ID der Sicherheits Ereignis-ID  
+Alle Empfehlungen für Ereignis-IDs werden folgendermaßen mit einer kritikitäts Bewertung versehen:  
 
-**Hoch:** Ereignis-IDs mit einer Bewertung von hoher Wichtigkeit sollte immer sofort benachrichtigt und untersucht werden.  
+**Hochrangiger** Ereignis-IDs mit einer Bewertung mit hoher Kritizität sollten immer und sofort benachrichtigt und untersucht werden.  
 
-**Mittel:** Ereignis-ID mit der Bewertung mittlerer Wichtigkeit deutet auf böswilligen Aktivitäten, aber es muss durch einige andere abnormalen Systemverhalten begleitet werden (z. B. eine ungewöhnlich hohe Anzahl in einen bestimmten Zeitraum, unerwartete Vorkommen oder Vorkommen auf einem Computer auftritt, Normalerweise würden nicht davon ausgegangen werden, die das Ereignis zu protokollieren.). Ein Mittel-wie-Ereignis kann auch r als Metrik gesammelt und im Laufe der Zeit verglichen.  
+**Mittelalter** Eine Ereignis-ID mit einer mittelgroßen kritiktivitäts Bewertung kann auf schädliche Aktivitäten hindeuten, aber Sie muss von einer anderen unter Normalität begleitet werden (z. b. eine ungewöhnliche Zahl, die in einem bestimmten Zeitraum auftritt, unerwartete vorkommen oder Vorkommen eines Computers, der Es wird normalerweise nicht erwartet, dass das Ereignis protokolliert wird.) Ein Ereignis mit mittlerer Kritizität kann auch als Metrik erfasst und im Laufe der Zeit verglichen werden.  
 
-**Niedrig:** Und Ereignis-ID mit der eine geringe Wichtigkeit Ereignisse sollte nicht beim Sammeln von Aufmerksamkeit oder dazu führen, dass Warnungen, es sei denn, die mit mittlerem oder hohem Wichtigkeit Ereignisse korreliert.  
+**Preis** Und die Ereignis-ID mit Ereignissen mit niedriger Kritizität sollten nicht berücksichtigt werden oder Warnungen auslösen, es sei denn, Sie korrelieren mit mittleren oder hohen kritiktätsereignissen.  
 
-Diese Empfehlungen sind für den Administrator zu einer Basislinie vorgesehen. Alle Empfehlungen sollten vor der Implementierung in einer produktionsumgebung gründlich überprüft werden.  
+Diese Empfehlungen sollen eine grundlegende Anleitung für den Administrator bereitstellen. Alle Empfehlungen sollten vor der Implementierung in einer Produktionsumgebung gründlich geprüft werden.  
 
-Finden Sie unter [Anhang L: Zu überwachende Ereignisse](../../../ad-ds/plan/Appendix-L--Events-to-Monitor.md) eine Liste der empfohlenen Ereignisse zu überwachen, ihre Wichtigkeit Bewertungen und eine Zusammenfassung der Ereignis-Nachricht.  
+Weitere Informationen finden Sie unter [anhang L: Zu überwachende Ereignisse @ no__t-0 für eine Liste der zu überwachenden empfohlenen Ereignisse, deren kritikitäts Bewertungen und eine Zusammenfassung der Ereignismeldung.  

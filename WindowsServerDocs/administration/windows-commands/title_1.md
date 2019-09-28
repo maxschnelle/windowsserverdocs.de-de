@@ -1,8 +1,8 @@
 ---
 title: title
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d1d1ea70849c3beb4503edfdaa5116384c14a2fd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 42094e0f1231fee5ac9ef0ec9184ba685c8846b1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848501"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385792"
 ---
 # <a name="title"></a>title
 
 
 
-Erstellt einen Titel für das Eingabeaufforderungsfenster.
+Erstellt einen Titel für das Eingabe Aufforderungs Fenster.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -38,17 +38,17 @@ title [<String>]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<String>|Gibt den Titel der im Eingabeaufforderungsfenster an.|
+|\<string >|Gibt den Titel des Eingabe Aufforderungs Fensters an.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
--   Um Fenstertitel für Batch-Programme zu erstellen, enthalten die **Titel** Befehl am Anfang einer Batchdatei.
--   Nachdem ein Titel festgelegt wurde, können Sie es zurücksetzen, nur mithilfe der **Titel** Befehl.
+-   Um einen Fenstertitel für Batch Programme zu erstellen, schließen Sie den **Titel** -Befehl am Anfang eines Batch Programms ein.
+-   Nachdem ein Fenstertitel festgelegt wurde, können Sie ihn nur mit dem **Titel** Befehl Zurücksetzen.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-In das folgende Beispielskript, wird der Titel des Eingabeaufforderungsfenster den Befehl auf "Aktualisieren von Dateien" geändert, während die Batchdatei führt die **Kopie** Befehl. Nachdem der Befehl ausgeführt wird, den Text `Files Updated` angezeigt wird, und der Titel des Eingabeaufforderungsfenster den Befehl wieder in "Eingabeaufforderung" geändert wird
+Im folgenden Beispielskript wird der Titel des Eingabe Aufforderungs Fensters in "Dateien aktualisieren" geändert, während die Batchdatei den **Kopier** Befehl ausführt. Nachdem der Befehl ausgeführt wurde, wird der Text `Files Updated` angezeigt, und der Titel des Eingabe Aufforderungs Fensters wird zurück in "Eingabeaufforderung" geändert.
 ```
 @echo off
 title Updating Files
@@ -59,4 +59,4 @@ title Command Prompt
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,8 +1,8 @@
 ---
 title: del
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b10da1a6035155d525a516f35f83a25209e90075
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6e569443a56646862c7a2c9fbd2c599cede941a1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433890"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378704"
 ---
 # <a name="del"></a>del
 
 
 
-Löscht eine oder mehrere Dateien. Dieser Befehl ist identisch mit der **löschen** Befehl.
+Löscht eine oder mehrere Dateien. Dieser Befehl ist mit dem Befehl zum **Löschen** identisch.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -39,54 +39,54 @@ erase [/p] [/f] [/s] [/q] [/a[:]<Attributes>] <Names>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<Names>|Gibt eine Liste der eine oder mehrere Dateien oder Verzeichnisse. Platzhalter können verwendet werden, um mehrere Dateien zu löschen. Wenn ein Verzeichnis angegeben ist, werden alle Dateien im Verzeichnis gelöscht.|
-|/p|Eingabeaufforderungen zur Bestätigung vor dem Löschen der angegebenen Datei.|
-|/f|Erzwingt das Löschen von Dateien als schreibgeschützt.|
-|/s|Löscht die angegebenen Dateien aus dem aktuellen Verzeichnis und alle Unterverzeichnisse. Zeigt den Namen der Dateien an, wie sie gelöscht werden.|
-|/q|Gibt den stillen Modus. Sie sind nicht für Delete-Bestätigung aufgefordert.|
-|/ a [:]\<Attribute >|Löscht Dateien basierend auf die folgenden Attribute:</br>**R** schreibgeschützte Dateien</br>**h** auflisten versteckter Dateien</br>**ich** Inhalte nicht indizierte Dateien</br>**s** Systemdateien</br>**eine** Dateien archiviert</br>**l** Analysepunkte</br>-Präfix, d. h. 'nicht'|
+|\<names >|Gibt eine Liste von mindestens einer Datei oder einem Verzeichnis an. Platzhalter können verwendet werden, um mehrere Dateien zu löschen. Wenn ein Verzeichnis angegeben wird, werden alle Dateien im Verzeichnis gelöscht.|
+|/p|Fordert vor dem Löschen der angegebenen Datei eine Bestätigung an.|
+|/f|Erzwingt das Löschen Schreib geschützter Dateien.|
+|/s|Löscht die angegebenen Dateien aus dem aktuellen Verzeichnis und allen Unterverzeichnissen. Zeigt die Namen der Dateien an, während Sie gelöscht werden.|
+|/q|Gibt den stillen Modus an. Sie werden nicht zur Bestätigung des Löschvorgangs aufgefordert.|
+|/a [:] \<attribute >|Löscht Dateien basierend auf den folgenden Dateiattributen:</br>schreibgeschützte **r** -Dateien</br>ausgeblendete Dateien</br>indizierte Dateien **sind nicht Inhalts**</br>**s** -System Dateien</br>**Dateien,** die für die Archivierung bereit sind</br>**l** -Analyse Punkte</br>-Prefix Bedeutung "Not"|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
 > [!CAUTION]
-> Bei Verwendung von **del** um eine Datei vom Datenträger zu löschen, Sie können nicht abrufen.
-> -   Bei Verwendung von **/p**, **del** zeigt den Namen einer Datei, und sendet Sie die folgende Meldung:
+> Wenn Sie die **Datei zum Löschen** einer Datei auf dem Datenträger verwenden, kann Sie nicht abgerufen werden.
+> -   Wenn Sie **/p**verwenden, zeigt **del** den Namen einer Datei an und sendet die folgende Meldung:
 
     `FileName, Delete (Y/N)?`
 
     To confirm the deletion, press Y. To cancel the deletion and display the next file name (that is, if you specified a group of files), press N. To stop the **del** command, press CTRL+C.
-- Wenn Sie befehlserweiterungen deaktivieren **/s** zeigt die Namen von Dateien, die nicht gefunden wurden, anstatt die Namen der Dateien, die gelöscht werden (d. h. das Verhalten wird umgekehrt).
-- Wenn Sie einen Ordner im angeben *Namen*, alle Dateien im Ordner werden gelöscht. Der folgende Befehl löscht beispielsweise alle Dateien im Ordner "\Work":  
+- Wenn Sie die Befehls Erweiterungen deaktivieren, zeigt **/s** die Namen aller Dateien an, die nicht gefunden wurden, anstatt die Namen der Dateien anzuzeigen, die gelöscht werden (d. h. das Verhalten ist umgekehrt).
+- Wenn Sie einen Ordner in *Namen*angeben, werden alle Dateien im Ordner gelöscht. Der folgende Befehl löscht z. b. alle Dateien im Ordner "\Work":  
   ```
   del \work
   ```  
-- Sie können Platzhalter verwenden ( **&#42;** und **?** ) auf mehrere Dateien gleichzeitig löschen. Um zu vermeiden, versehentlich Dateien gelöscht, Sie sollten jedoch verwenden Platzhalter mit Vorsicht bei der **del** Befehl. Angenommen, wenn Sie den folgenden Befehl eingeben:  
+- Sie können Platzhalter ( **&#42;** und **?** ) verwenden, um mehrere Dateien gleichzeitig zu löschen. Um zu vermeiden, dass Dateien unbeabsichtigt gelöscht werden, sollten Sie Platzhalter mit dem Befehl " **del** " vorsichtig verwenden. Wenn Sie z. b. den folgenden Befehl eingeben:  
   ```
   del *.*
   ```  
-  Die **del** Befehl wird die folgende Eingabeaufforderung angezeigt:
+  Der Befehl " **del** " zeigt die folgende Eingabeaufforderung an:
 
   `Are you sure (Y/N)?`
 
-  Um alle Dateien im aktuellen Verzeichnis zu löschen, drücken Sie Y, und drücken Sie dann die EINGABETASTE. Geben Sie um den Löschvorgang abzubrechen, drücken Sie N, und drücken Sie dann aus.
+  Wenn Sie alle Dateien im aktuellen Verzeichnis löschen möchten, drücken Sie Y, und drücken Sie dann die EINGABETASTE. Drücken Sie zum Abbrechen des Löschvorgangs N, und drücken Sie dann die EINGABETASTE.
 
 > [!NOTE]
-> Vor der Verwendung von Platzhalterzeichen mit dem **del** Befehl können Sie die gleichen Platzhalterzeichen mit der **Dir** Befehl, um alle Dateien aufzulisten, die gelöscht werden.
-> -   Die **del** -Befehl, mit verschiedenen Parametern finden Sie in der Wiederherstellungskonsole.
+> Bevor Sie mit dem Befehl " **del** " Platzhalter Zeichen verwenden, verwenden Sie die gleichen Platzhalter Zeichen mit dem Befehl " **dir** ", um alle Dateien aufzulisten, die gelöscht werden.
+> -   Der Befehl " **del** " mit unterschiedlichen Parametern ist über die Wiederherstellungskonsole verfügbar.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Geben Sie eine der folgenden Schritte aus, um alle Dateien in einen Ordner namens Test auf Laufwerk C zu löschen:
+Wenn Sie alle Dateien in einem Ordner mit dem Namen Test auf Laufwerk C löschen möchten, geben Sie eine der folgenden Optionen ein:
 ```
 del c:\test
 del c:\test\*.*
 ```
-Um alle Dateien mit der Erweiterung .bat aus dem aktuellen Verzeichnis zu löschen, geben Sie Folgendes ein:
+Wenn Sie alle Dateien mit der Dateinamenerweiterung ". bat" aus dem aktuellen Verzeichnis löschen möchten, geben Sie Folgendes ein:
 ```
 del *.bat
 ```
-Um alle schreibgeschützten Dateien im aktuellen Verzeichnis zu löschen, geben Sie Folgendes ein:
+Wenn Sie alle schreibgeschützten Dateien im aktuellen Verzeichnis löschen möchten, geben Sie Folgendes ein:
 ```
 del /a:r *.*
 ```

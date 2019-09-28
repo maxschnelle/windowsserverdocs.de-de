@@ -1,71 +1,71 @@
 ---
 ms.assetid: e34622ff-b2d0-4f81-8d00-dacd5d6c215e
-title: Technische Referenz für Windows Time Service
-description: Der W32Time-Dienst stellt die Synchronisation des Computertakts Netzwerk für Computer ohne umfassende Konfiguration bereit. Der W32Time-Dienst ist wichtig, um den reibungslosen Betrieb Kerberos V5-Authentifizierung und somit auf AD DS-basierte Authentifizierung.
+title: Technische Referenz für den Windows-Zeit Dienst
+description: Der W32Time-Dienst ermöglicht die Synchronisierung von Netzwerk Uhren für Computer, ohne dass eine umfassende Konfiguration erforderlich ist. Der W32Time-Dienst ist für den erfolgreichen Betrieb der Kerberos V5-Authentifizierung und somit für die AD DS basierte Authentifizierung unverzichtbar.
 author: shortpatti
 ms.author: dacuo
 ms.date: 05/08/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 904a53797d22d2e06e0cd2f7572b99fc386dae16
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c45ac44448326ec3a236a685387b7969d21aa607
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845121"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395659"
 ---
-# <a name="windows-time-service-technical-reference"></a>Technische Referenz für Windows Time Service
+# <a name="windows-time-service-technical-reference"></a>Technische Referenz für den Windows-Zeit Dienst
 >Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10 oder höher
 
-Der W32Time-Dienst stellt die Synchronisation des Computertakts Netzwerk für Computer ohne umfassende Konfiguration bereit. Der W32Time-Dienst ist wichtig, um den reibungslosen Betrieb Kerberos V5-Authentifizierung und somit auf AD DS-basierte Authentifizierung. Kerberos-fähige Anwendung, die meisten Sicherheitsdienste, einschließlich basiert auf der zeitsynchronisierung zwischen den Computern, die in der Authentifizierungsanforderung beteiligt sind. AD DS-Domänencontrollern müssen auch Uhren, um damit genau die Datenreplikation sorgen Sie dafür synchronisiert haben.
+Der W32Time-Dienst ermöglicht die Synchronisierung von Netzwerk Uhren für Computer, ohne dass eine umfassende Konfiguration erforderlich ist. Der W32Time-Dienst ist für den erfolgreichen Betrieb der Kerberos V5-Authentifizierung und somit für die AD DS basierte Authentifizierung unverzichtbar. Jede Kerberos-fähige Anwendung (einschließlich der meisten Sicherheitsdienste) basiert auf der Zeitsynchronisierung zwischen den Computern, die an der Authentifizierungsanforderung teilnehmen. AD DS Domänen Controllern müssen auch synchronisierte Uhren aufweisen, damit eine genaue Datenreplikation gewährleistet ist.
 
 > [!NOTE]  
-> In Windows Server 2003 und Microsoft Windows 2000 Server heißt der Verzeichnisdienst Active Directory-Dienst. In Windows Server 2008 R2 und Windows Server 2008 heißt der Verzeichnisdienst Active Directory Domain Services (AD DS). Im weiteren Verlauf dieses Themas bezieht sich auf AD DS, aber die Informationen gelten jedoch auch für Active Directory Domain Services in Windows Server 2016.
+> In Windows Server 2003 und Microsoft Windows 2000 Server wird der Verzeichnisdienst Active Directory Verzeichnisdienst benannt. In Windows Server 2008 R2 und Windows Server 2008 heißt der Verzeichnisdienst Active Directory Domain Services (AD DS). Der Rest dieses Themas bezieht sich auf AD DS, die Informationen gelten jedoch auch für Active Directory Domain Services in Windows Server 2016.
 
-Der W32Time-Dienst wird in einer dynamic Link Library namens W32Time.dll, die in der Standardeinstellung installiert wird implementiert **%Systemroot%\System32**. W32Time.dll wurde ursprünglich für Windows 2000 Server, um eine Spezifikation unterstützen das Kerberos V5-Authentifizierungsprotokoll entwickelt, die Uhren in einem Netzwerk zu synchronisierenden erforderlich. Ab Windows Server 2003, bereitgestellt W32Time.dll erhöhten Genauigkeit bei der Synchronisierung des Computertakts Netzwerk, über das Betriebssystem Windows Server 2000. Darüber hinaus wird in Windows Server 2003 W32Time.dll eine Vielzahl von Hardwaregeräten und die Uhrzeit Netzwerkprotokolle, die mit der Zeitanbieter unterstützt.
+Der W32Time-Dienst wird in einer Dynamic Link Library mit dem Namen "w32time. dll" implementiert, die standardmäßig in " **%SystemRoot%\System32**" installiert wird. W32time. dll wurde ursprünglich für Windows 2000 Server entwickelt, um eine Spezifikation durch das Kerberos V5-Authentifizierungsprotokoll zu unterstützen, das die Synchronisierung der Uhren in einem Netzwerk erforderte. Ab Windows Server 2003 hat w32time. dll eine größere Genauigkeit bei der Netzwerkzeit Synchronisierung über das Betriebssystem Windows Server 2000 bereitgestellt. Außerdem unterstützte w32time. dll in Windows Server 2003 eine Vielzahl von Hardware Geräten und Netzwerk Zeit Protokollen unter Verwendung von Zeit Anbietern.
 
-Obwohl ursprünglich entworfen, um die Synchronisation des Computertakts für Kerberos-Authentifizierung bereitzustellen, verwenden viele aktuelle Anwendungen Zeitstempel, um die Transaktionskonsistenz sicherzustellen, die Zeit aufzeichnen, der wichtige Ereignisse und andere unternehmenskritische, zeitkritische Informationen.  Diese Anwendungen profitieren von der zeitsynchronisierung zwischen Computern, die von der Windows-Zeitdienst bereitgestellt werden.
+Obwohl es ursprünglich für die Zeitsynchronisierung der Kerberos-Authentifizierung konzipiert wurde, verwenden viele aktuelle Anwendungen Zeitstempel, um die Transaktions Konsistenz sicherzustellen, die Zeit wichtiger Ereignisse aufzuzeichnen und andere geschäftskritische, Zeit empfindliche Informationen.  Diese Anwendungen profitieren von der Zeitsynchronisierung zwischen Computern, die vom Windows-Zeit Dienst bereitgestellt werden.
 
-## <a name="importance-of-time-protocols"></a>Wichtigkeit der Time-Protokolle
-Zeit Protokolle kommunizieren zwischen zwei Computern zum Austauschen von Informationen aus, und klicken Sie dann anhand dieser Informationen ihre Uhren synchronisieren. Mit dem Windows Time Service Time-Protokoll ein Client fordert Informationen von einem Server und synchronisiert die Uhr basierend auf den Informationen, der empfangen werden.
+## <a name="importance-of-time-protocols"></a>Wichtigkeit von Zeit Protokollen
+Zeitprotokolle kommunizieren zwischen zwei Computern, um Zeit Informationen auszutauschen, und verwenden diese Informationen dann, um die Uhren zu synchronisieren. Mit dem Zeitprotokoll für den Windows-Zeit Dienst fordert ein Client Zeit Informationen von einem Server an und synchronisiert seine Uhr basierend auf den empfangenen Informationen.
   
-Der Windows-Zeitdienst verwendet NTP um zeitsynchronisierung in einem Netzwerk. NTP ist ein Internetprotokoll für die Zeit, die die Disziplin Algorithmen erforderlich für die Synchronisierung von Uhren enthält. NTP ist eine genauere Time-Protokoll als SNTP Simple Network Time Protocol (), die in einigen Versionen von Windows verwendet wird. allerdings weiterhin W32Time SNTP zum Aktivieren der Abwärtskompatibilität mit der Zeit SNTP-basierte Dienste, z. B. Windows 2000-Computern unterstützt.
+Der Windows-Zeit Dienst verwendet NTP, um die Zeit über ein Netzwerk zu synchronisieren. NTP ist ein Internet Zeitprotokoll, das die für die Synchronisierung von Uhren erforderlichen Disziplin Algorithmen umfasst. NTP ist ein genaueres Zeitprotokoll als das Simple Network Time Protocol (SNTP), das in einigen Versionen von Windows verwendet wird. Allerdings unterstützt W32Time weiterhin SNTP, um die Abwärtskompatibilität mit Computern zu ermöglichen, auf denen SNTP-basierte Zeit Dienste wie z. b. Windows 2000 ausgeführt werden.
 <!-- maybe this should be its own topic under the Tech Ref section -->
-## <a name="where-to-find-windows-time-service-configuration-related-information"></a>Zu Windows Time Service konfigurationsbezogenen Informationsquellen  
-Dieses Handbuch ist **nicht** erläutert die Konfiguration des Windows-Zeitdienstes. Es gibt mehrere verschiedene Themen im Microsoft TechNet und in der Microsoft Knowledge Base, in denen Verfahren zum Konfigurieren des Windows-Zeitdienstes erläutert. Wenn Sie Informationen zur Konfiguration benötigen, sollten Sie finden die entsprechende Informationen von den folgenden Themen finden.  
+## <a name="where-to-find-windows-time-service-configuration-related-information"></a>Wo finden Sie Informationen zur Windows-Zeit Dienst Konfiguration  
+In diesem Handbuch wird die Konfiguration des Windows-Zeit Dienstanbieter **nicht** erläutert. In Microsoft TechNet und in der Microsoft Knowledge Base finden Sie verschiedene Themen, in denen erläutert wird, wie Sie den Windows-Zeit Dienst konfigurieren. Wenn Sie Konfigurationsinformationen benötigen, sollten Sie die folgenden Themen beim Auffinden der entsprechenden Informationen unterstützen.  
 <!-- should this be an if/then table -->
--   Zum Konfigurieren des Windows-Zeitdienstes für die Gesamtstruktur Stamm Emulator primärer Domänencontroller (PDC) finden Sie unter:  
+-   Informationen zum Konfigurieren des Windows-Zeit Diensts für den Gesamtstruktur Stamm-PDC-Emulator (Primary Domain Controller) finden Sie unter:  
   
-    -   [Konfigurieren des Windows-Zeitdienstes auf dem PDC-Emulator in der Gesamtstruktur-Stammdomäne](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731191%28v=ws.10%29) 
+    -   [Konfigurieren des Windows-Zeit Diensts für den PDC-Emulator in der Stamm Domäne der Gesamtstruktur](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731191%28v=ws.10%29) 
   
-    -   [Konfigurieren eine Zeitquelle für die Gesamtstruktur](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc794823%28v%3dws.10%29) 
+    -   [Konfigurieren einer Zeit Quelle für die Gesamtstruktur](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc794823%28v%3dws.10%29) 
   
-    -   Microsoft Knowledge Base-Artikel 816042, [Vorgehensweise: konfigurieren ein autorisierenden Zeitservers in Windows Server](https://go.microsoft.com/fwlink/?LinkID=60402), beschreibt die Konfigurationseinstellungen für Computer unter Windows Server 2008 R2, Windows Server 2008, Windows Server 2003 und Windows Server 2003 R2.  
+    -   Microsoft Knowledge Base-Artikel 816042, [Konfigurieren eines autorisierenden Zeit Servers in Windows Server](https://go.microsoft.com/fwlink/?LinkID=60402), der Konfigurationseinstellungen für Computer mit Windows Server 2008 R2, Windows Server 2008, Windows Server 2003 und Windows beschreibt Server 2003 R2.  
   
--   Zum Konfigurieren des Windows-Zeitdienstes auf Member der Domänenclient oder Server oder sogar Domänencontroller, die nicht als der Gesamtstruktur-Stamm-PDC-Emulator konfiguriert sind, finden Sie unter [Konfigurieren eines Clientcomputers für die zeitsynchronisierung für die automatische Domäne](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc816884%28v%3dws.10%29).  
+-   Informationen zum Konfigurieren des Windows-Zeit Diensts auf einem beliebigen Domänen Mitglieds Client oder-Server oder sogar auf Domänen Controllern, die nicht als PDC-Emulator für die Gesamtstruktur Stamm konfiguriert sind, finden Sie unter [Konfigurieren eines Client Computers für die automatische Synchronisierung](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc816884%28v%3dws.10%29)  
   
     > [!WARNING]  
-    > Einige Anwendungen erfordern möglicherweise ihre Computer damit hohe Genauigkeit Laufzeitdienste. Wenn dies der Fall ist, können Sie eine manuelle Zeitquelle konfigurieren, aber beachten Sie, dass der Windows-Zeitdienst nicht entworfen wurde, als eine äußerst präzise Zeitquelle fungieren. Stellen Sie sicher, dass Sie über die für unterstützungseinschränkungen sind für hohe Genauigkeit Time-Umgebungen wie im Microsoft Knowledge Base beschriebene 939322, Artikel [Unterstützung Grenze so konfigurieren Sie den Windows-Zeitdienst für High-Genauigkeit Umgebungen](support-boundary.md).  
+    > Für einige Anwendungen ist es möglicherweise erforderlich, dass Ihre Computer über hohe Genauigkeit für Zeit Dienste verfügen. Wenn dies der Fall ist, können Sie eine manuelle Zeit Quelle konfigurieren, aber beachten Sie, dass der Windows-Zeit Dienst nicht als äußerst genaue Zeit Quelle konzipiert wurde. Stellen Sie sicher, dass Sie die Einschränkungen der Unterstützung für Umgebungen mit hoher Genauigkeit beachten, wie im Microsoft Knowledge Base-Artikel 939322, [Support Grenze zum Konfigurieren des Windows-Zeit Dienstanbieter für hochwertige Umgebungen](support-boundary.md)beschrieben.  
   
--   So konfigurieren Sie den Windows-Zeitdienst auf allen Windows-basierten Client oder Server-Computern, die konfiguriert werden, wie die Mitglieder der Arbeitsgruppe Mitglieder der Domäne finden Sie unter [konfigurieren Sie eine manuelle Zeitquelle für einen ausgewählten Clientcomputer](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc816656%28v%3dws.10%29).  
+-   Informationen zum Konfigurieren des Windows-Zeit diensdienstanbieter auf Windows-basierten Client-oder Server Computern, die als Arbeitsgruppenmitglieder konfiguriert sind, anstelle von Domänen Mitgliedern finden Sie unter [Konfigurieren einer manuellen Zeit Quelle für einen ausgewählten Client Computer](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc816656%28v%3dws.10%29).  
   
--   Zum Konfigurieren des Windows-Zeitdienstes auf einem Hostcomputer, der eine virtuelle Umgebung ausgeführt wird finden Sie im Microsoft Knowledge Base-Artikel 816042, [Vorgehensweise: konfigurieren ein autorisierenden Zeitservers in Windows Server](https://go.microsoft.com/fwlink/?LinkID=60402). Wenn Sie mit einem nicht-Microsoft Virtualisierungsprodukt arbeiten, achten Sie darauf, dass Sie in der Dokumentation des Herstellers für dieses Produkt zu informieren.  
+-   Informationen zum Konfigurieren des Windows-Zeit Diensts auf einem Host Computer, auf dem eine virtuelle Umgebung ausgeführt wird, finden Sie im Microsoft Knowledge Base-Artikel 816042, [Konfigurieren eines autorisierenden Zeit Servers in Windows Server](https://go.microsoft.com/fwlink/?LinkID=60402). Wenn Sie mit einem anderen Virtualisierungsprodukt als Microsoft arbeiten, lesen Sie die Dokumentation des Herstellers für dieses Produkt.  
   
--   Um den Windows-Zeitdienst auf einem Domänencontroller zu konfigurieren, die auf einem virtuellen Computer ausgeführt wird, empfiehlt es sich, dass Sie teilweise Deaktivieren der zeitsynchronisierung zwischen dem Betriebssystem des Hosts und dem Gastbetriebssystem, die als Domänencontroller fungieren. Dies ermöglicht es dem Gast-Domänencontroller für die zeitsynchronisierung für die Domänenhierarchie, behalten jedoch müssen Sie einen Zeitversatz, wenn sie aus einem gespeicherten Zustand wiederhergestellt wurde. Weitere Informationen finden Sie im Microsoft Knowledge Base-Artikel 976924, [erhalten Sie die Windows-Zeitdienst Ereignis-IDs 24 29 und 38 auf einem virtualisierten Domänencontroller, die auf einem Windows Server 2008-basierten Host-Server mit Hyper-V ausgeführt wird](https://go.microsoft.com/fwlink/?LinkID=192236) und [Bereitstellungsüberlegungen für virtualisierte Domänencontroller](https://go.microsoft.com/fwlink/?LinkID=192235).  
+-   Zum Konfigurieren des Windows-Zeit Diensts auf einem Domänen Controller, der auf einem virtuellen Computer ausgeführt wird, wird empfohlen, die Zeitsynchronisierung zwischen dem Host System und dem Gast Betriebssystem, das als Domänen Controller fungiert, teilweise zu deaktivieren. Dies ermöglicht es dem Gast Domänen Controller, die Zeit für die Domänen Hierarchie zu synchronisieren, verhindert jedoch, dass er einen Zeitversatz hat, wenn er aus einem gespeicherten Zustand wieder hergestellt wird. Weitere Informationen finden Sie im Microsoft Knowledge Base-Artikel 976924, [Sie erhalten die Windows-Zeit Dienst Ereignis-IDs 24, 29 und 38 auf einem virtualisierten Domänen Controller, der auf einem Windows Server 2008-basierten Host Server mit Hyper-V und der](https://go.microsoft.com/fwlink/?LinkID=192236) [Bereitstellung ausgeführt wird. Überlegungen zu virtualisierten Domänen Controllern](https://go.microsoft.com/fwlink/?LinkID=192235).  
   
--   Zum Konfigurieren des Windows-Zeitdienstes auf einem Domänencontroller fungiert, als des Gesamtstruktur-Stamm-PDC-Emulators, die auch in einem virtuellen Computer ausgeführt wird, führen Sie die gleichen Anweisungen für einen physischen Computer beschriebenen [konfigurieren Sie auf den Windows-Zeitdienst der PDC-Emulator in der Gesamtstruktur-Stammdomäne](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731191%28v=ws.10%29).  
+-   Um den Windows-Zeit Dienst auf einem Domänen Controller zu konfigurieren, der als VM-Stamm-PDC-Emulator fungiert, der ebenfalls auf einem virtuellen Computer ausgeführt wird, befolgen Sie die gleichen Anweisungen für einen physischen Computer, wie unter [Konfigurieren des Windows-Zeit Diensts auf dem PDC beschrieben. Emulator in der Stamm Domäne der](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731191%28v=ws.10%29)Gesamtstruktur.  
   
--   Verwenden Sie zum Konfigurieren des Windows-Zeitdienstes auf einem Mitgliedsserver ausgeführt als virtueller Computer die Domäne-Time-Hierarchie, siehe [Konfigurieren eines Clientcomputers für die zeitsynchronisierung für die automatische Domäne](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc816884%28v%3dws.10%29).
+-   Um den Windows-Zeit Dienst auf einem Mitglieds Server zu konfigurieren, der als virtueller Computer ausgeführt wird, verwenden Sie die Domänen Zeit Hierarchie, wie unter [Konfigurieren eines Client Computers für die automatische Domänen Zeitsynchronisierung](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc816884%28v%3dws.10%29)beschrieben.
 
 
 > [!IMPORTANT]  
-> Vor Windows Server 2016 wurde der W32Time-Dienst nicht für zeitempfindliche Anwendung Bedürfnissen entwickelt.  Updates für Windows Server 2016 nun ermöglichen jedoch zum Implementieren einer Lösung für 1 ms Genauigkeit in Ihrer Domäne.  Weitere Informationen finden Sie unter [Windows 2016 genau Zeit](accurate-time.md) und [Unterstützung Grenze so konfigurieren Sie den Windows-Zeitdienst für Umgebungen mit hoher Genauigkeit](support-boundary.md) für Weitere Informationen.
+> Vor Windows Server 2016 wurde der W32Time-Dienst nicht so konzipiert, dass er Zeit empfindliche Anwendungsanforderungen erfüllt.  Updates für Windows Server 2016 ermöglichen es Ihnen jetzt jedoch, eine Lösung für eine Genauigkeit von 1 MS in Ihrer Domäne zu implementieren.  Weitere Informationen zu finden Sie unter [Windows 2016 (genaue Zeit](accurate-time.md) -und [Support Grenze) zum Konfigurieren des Windows-Zeit Dienstanbieter für hochwertige Umgebungen](support-boundary.md) .
 
 ## <a name="related-topics"></a>Verwandte Themen
-- [Windows 2016 – genaue Uhrzeit](accurate-time.md)
-- [Genauigkeit Uhrzeitverbesserungen für WindowsServer 2016](windows-server-2016-improvements.md)  
-- [Wie funktioniert die Windows-Zeitdienst](How-the-Windows-Time-Service-Works.md)  
+- [Windows 2016, genaue Zeit](accurate-time.md)
+- [Verbesserungen bei der Zeit Genauigkeit für Windows Server 2016](windows-server-2016-improvements.md)  
+- [Funktionsweise des Windows-Zeit Dienstanbieter](How-the-Windows-Time-Service-Works.md)  
 - [Windows-Zeitdienst: Tools und Einstellungen](Windows-Time-Service-Tools-and-Settings.md)  
-- [Grenze so konfigurieren Sie den Windows-Zeitdienst für Umgebungen mit hoher Genauigkeit Unterstützung](support-boundary.md)
+- [Unterstützung von Grenzen zum Konfigurieren des Windows-Zeit Dienstanbieter für Umgebungen mit hoher Genauigkeit](support-boundary.md)
 - [Microsoft Knowledge Base-Artikel 902229](https://go.microsoft.com/fwlink/?LinkId=186066)

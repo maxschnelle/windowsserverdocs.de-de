@@ -1,23 +1,23 @@
 ---
 title: Klassifizierungsverwaltung
-description: In diesem Artikel wird beschrieben, wie zum Kategorisieren von Dateien, die basierend auf Klassifizierungseigenschaften
+description: In diesem Artikel wird beschrieben, wie Sie Dateien basierend auf Klassifizierungs Eigenschaften kategorisieren.
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: d7ea1f6f5d99ef1b55e919af3b8ebe391486ed50
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: f87614d5884d25c4e462cdccd8de72a7980368ec
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65475897"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402005"
 ---
 # <a name="classification-management"></a>Klassifizierungsverwaltung
 
-> Gilt für: WindowsServer 2019, WindowsServer 2016, WindowsServer (Halbjährlicher Kanal), Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
+> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Klassifizierungseigenschaften dienen zum Kategorisieren von Dateien und können verwendet werden, um Dateien für geplante Dateiverwaltungsaufgaben auszuwählen.
 

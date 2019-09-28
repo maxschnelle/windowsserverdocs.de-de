@@ -1,8 +1,8 @@
 ---
 title: bitsadmin nowrap
-description: Windows-Befehle Thema **Bitsadmin Nowrap** -schneidet jede Zeile der Ausgabe Text erweitern, über die rechte Rand des Befehlsfensters.
+description: 'Windows-Befehls Thema für **bizadmin NoWrap** : abgeschnitten jede Zeile von Ausgabetext, der über den äußersten rechten Rand des Befehls Fensters hinausgeht.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4130f606a6b1874e1ea31952160de44d6e09c6b6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3806ec51161eeae498e3c9b367b2aacf0bd32c99
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822921"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381049"
 ---
 # <a name="bitsadmin-nowrap"></a>bitsadmin nowrap
 
-Schneidet jede Zeile der Ausgabe Text erweitern, über die rechte Rand des Befehlsfensters ab.
+Verkürzt jede Zeile von Ausgabetext, die über den rechten Rand des Befehls Fensters hinausgeht.
 
 ## <a name="syntax"></a>Syntax
 
@@ -32,15 +32,15 @@ bitsadmin /NoWrap
 
 ## <a name="remarks"></a>Hinweise
 
-Standardmäßig wird für alle Switches, mit Ausnahme der **Monitor** wechseln, und Packen Sie die Ausgabe. Geben Sie die **NoWrap** wechseln, bevor Sie anderen Schaltern.
+Standardmäßig wird die Ausgabe durch alle Switches außer dem **Monitor** Switch umschlossen. Geben Sie den Schalter " **nowrap** " vor anderen Switches an.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Das folgende Beispiel ruft den Status des Auftrags namens *MyDownloadJob* und die Ausgabe wird nicht umbrochen
+Im folgenden Beispiel wird der Status für den Auftrag mit dem Namen *mydownloadjob* abgerufen, und die Ausgabe wird nicht eingeschlossen.
 ```
 C:\>bitsadmin /NoWrap /GetState myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

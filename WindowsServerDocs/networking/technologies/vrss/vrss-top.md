@@ -1,7 +1,7 @@
 ---
 title: Virtual Receive Side Scaling (vRSS)
 description: Erfahren Sie mehr über die virtuelle Empfangs seitige Skalierung (vrss) in Windows Server und wie Sie einen virtuellen Netzwerkadapter konfigurieren, um einen Lastenausgleich für eingehenden Netzwerk Datenverkehr über mehrere logische Prozessorkerne auf einem virtuellen Computer durchzusetzen Sie können auch physische Kerne für eine virtuelle Netzwerkschnittstellenkarte (VNIC) des Hosts konfigurieren.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 9be477b3-f81d-4e84-a6b0-ac4c1ea97715
@@ -10,12 +10,12 @@ ms.localizationpriority: medium
 manager: dougkim
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: ae017d7d78adea565942a952aaea3da1669f39a9
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: b24cabe3597af35e7c7f3c6f81d360bb11675e23
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871797"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395789"
 ---
 # <a name="virtual-receive-side-scaling-vrss"></a>Virtuelle Empfangs seitige Skalierung \((vrss)\)
 

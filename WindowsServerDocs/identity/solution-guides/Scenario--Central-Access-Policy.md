@@ -1,24 +1,24 @@
 ---
 ms.assetid: 7f285c9f-c3e8-4aae-9ff4-a9123815114e
-title: Zentrale Zugriffsrichtlinie Szenario
+title: Szenariozentrale Zugriffs Richtlinie
 description: ''
 author: billmath
 ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 1ec4165209b726609b1f9b2caeab02fb5072c756
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 91fd437895e765d4d73f3a200f76a5f8f96b52f2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873411"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407094"
 ---
 # <a name="scenario-central-access-policy"></a>Szenario: Zentrale Zugriffsrichtlinie
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Zentrale Zugriffsrichtlinien für Dateien ermöglichen Organisationen das zentrale Bereitstellen und Verwalten von Autorisierungsrichtlinien, die bedingte Ausdrücke enthalten, die Benutzeransprüche, Geräteansprüche und Ressourceneigenschaften verwenden. (Ansprüche sind Assertionen zu den Attributen des Objekts, mit dem sie verknüpft sind.) Um z. B. auf Daten mit großen Geschäftsauswirkungen (HBI) zuzugreifen, muss ein Benutzer ein Vollzeitmitarbeiter sein, Zugriff auf ein verwaltetes Gerät erhalten und sich mit einer Smartcard anmelden. Diese Richtlinien werden in Active Directory-Domänendiensten (AD DS) definiert und gehostet.  
   
@@ -54,11 +54,11 @@ Eine zentrale Zugriffsrichtlinie besteht aus folgenden logischen Teilen:
   
 Die folgenden beiden Abbildungen zeigen den Workflow im zentralen Zugriff und Überwachungsrichtlinien.  
   
-![Lösungshandbücher](media/Scenario--Central-Access-Policy/DynamicAccessControl_RevGuide.JPG)  
+![Lösungs Handbücher](media/Scenario--Central-Access-Policy/DynamicAccessControl_RevGuide.JPG)  
   
 **Abbildung 1** Konzepte für zentralen Zugriff und Überwachungsrichtlinie  
   
-![Lösungshandbücher](media/Scenario--Central-Access-Policy/DynamicAccessControl_RevGuide_2.JPG)  
+![Lösungs Handbücher](media/Scenario--Central-Access-Policy/DynamicAccessControl_RevGuide_2.JPG)  
   
 **Abbildung 2** Workflow der Richtlinie für zentralen Zugriff  
   
@@ -72,25 +72,25 @@ Die zentrale Autorisierungsrichtlinie kombiniert folgende Komponenten:
   
 In der folgenden Abbildung wird veranschaulicht, wie Sie Richtlinien in Richtlinienlisten kombinieren können, um den Zugriff auf Dateien zentral zu steuern.  
   
-![Lösungshandbücher](media/Scenario--Central-Access-Policy/DynamicAccessControl_RevGuide3.JPG)  
+![Lösungs Handbücher](media/Scenario--Central-Access-Policy/DynamicAccessControl_RevGuide3.JPG)  
   
 **Abbildung 3** Kombinieren von Richtlinien  
   
 ## <a name="in-this-scenario"></a>Inhalt dieses Szenarios  
 Die folgende Anleitung steht Ihnen für zentrale Zugriffsrichtlinien zur Verfügung:  
   
--   [Planen der Bereitstellung einer zentralen Zugriffsrichtlinie](assetId:///0311a76d-d66c-4ddb-ade6-af586a2ad82f)  
+-   [Planen einer Bereitstellung einer zentralen Zugriffs Richtlinie](assetId:///0311a76d-d66c-4ddb-ade6-af586a2ad82f)  
   
--   [Bereitstellen eine zentralen Zugriffsrichtlinie &#40;Demonstrationsschritte&#41;](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md)  
+-   [Bereitstellen der Demonstrations Schritte &#40;für eine zentrale Zugriffs Richtlinie&#41;](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md)  
   
--   [Dynamische Zugriffssteuerung: Übersicht über das Szenario](Dynamic-Access-Control--Scenario-Overview.md)  
+-   [Dynamische Zugriffsteuerung: Szenarioübersicht](Dynamic-Access-Control--Scenario-Overview.md)  
   
-## <a name="BKMK_NEW"></a>In diesem Szenario enthaltene Rollen und features  
+## <a name="BKMK_NEW"></a>In diesem Szenario enthaltene Rollen und Features  
 In der folgenden Tabelle sind die Rollen und Features dieses Szenarios und die Art der bereitgestellten Unterstützung aufgeführt.  
   
 |Rolle/Feature|Auf welche Weise dieses Szenario unterstützt wird|  
 |-----------------|---------------------------------|  
-|Active Directory-Domänendienste-Rolle|AD DS unter Windows Server 2012 führt eine anspruchsbasierte autorisierungsplattform, die es ermöglicht die Erstellung von benutzeransprüchen und geräteansprüchen, zusammengesetzten Identitäten, (Benutzer- plus Geräteansprüche), neuen Modellen für zentrale Zugriffsrichtlinien (CAP)-Richtlinie und die Verwendung des Datei-Klassifizierung die Informationen in autorisierungsentscheidungen.|  
+|Active Directory-Domänendienste-Rolle|AD DS in Windows Server 2012 führt eine Anspruchs basierte Autorisierungs Plattform ein, die das Erstellen von Benutzer Ansprüchen und Geräte Ansprüchen, zusammengesetzten Identitäten (Benutzer-Plus Geräteansprüche), neuen Modellen für zentrale Zugriffsrichtlinien (Cap) und die Verwendung der Datei Klassifizierung ermöglicht. Informationen in Autorisierungs Entscheidungen.|  
 |Datei- und Speicherdiensteserver-Rolle|Die Datei- und Speicherdienste bieten Technologien, mit deren Hilfe Sie einen oder mehrere Dateiserver einrichten und verwalten können. Dateiserver sind Server, die zentrale Orte im Netzwerk bereitstellen, an denen Sie Dateien speichern und für andere Benutzer freigeben können. Wenn Ihre Netzwerkbenutzer in Ihrer Organisation auf die gleichen Dateien und Anwendungen zugreifen müssen oder wenn eine zentrale Datensicherung und Dateiverwaltung für Ihre Organisation wichtig ist, sollten Sie einen oder mehrere Computer als Dateiserver einrichten, indem Sie die Datei- und Speicherdienste-Rolle sowie die geeigneten Rollendienste hinzufügen.|  
 |Windows-Clientcomputer|Benutzer können über den Clientcomputer auf Dateien und Ordner im Netzwerk zugreifen.|  
   

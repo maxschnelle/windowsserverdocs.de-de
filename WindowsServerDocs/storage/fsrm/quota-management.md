@@ -2,22 +2,22 @@
 title: Kontingentverwaltung
 description: Dieser Artikel beschreibt, wie Sie Kontingente erstellen und verwalten
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 6effaf7c2d197c08b4930e09c3ada96462b17d6f
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: 5a655e28020d08bb1c10fa862c007f914a8cf566
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476191"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403072"
 ---
 # <a name="quota-management"></a>Kontingentverwaltung
 
-> Gilt für: WindowsServer 2019, WindowsServer 2016, WindowsServer (Halbjährlicher Kanal), Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
+> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Sie können auf dem Knoten **Kontingentverwaltung** des Ressourcen-Manager für Dateiserver Microsoft<sup>®</sup> Management Console (MMC)-Snap-Ins folgende Aufgaben ausführen:
 
@@ -27,15 +27,15 @@ Sie können auf dem Knoten **Kontingentverwaltung** des Ressourcen-Manager für 
 
 Sie haben u. a. folgende Möglichkeiten:
 
--   Platzieren Sie einen Grenzwert von 200 Megabyte (MB) für Benutzer Persönliche Serverordner, mit einer e-Mail-Benachrichtigung an Sie und der Benutzer gesendet, wenn es sich bei 180 MB Speicher überschritten wurde.
--   Legen Sie ein flexibles Kontingent von 500 MB für eine Gruppe der freigegebenen Ordner. Wenn diese speicherbeschränkung erreicht wird, werden alle Benutzer in der Gruppe per E-mail benachrichtigt, die das Speicherkontingent vorübergehend auf 520 MB erweitert wurde, damit sie nicht benötigte Dateien löschen können, und die vordefinierten Kontingentrichtlinie von 500 MB einzuhalten.
+-   Legen Sie eine Beschränkung von 200 Megabyte (MB) für die persönlichen Server Ordner der Benutzer fest, und senden Sie eine e-Mail-Benachrichtigung an Sie und den Benutzer, wenn 180 MB Speicher überschritten wurden.
+-   Legen Sie für den freigegebenen Ordner einer Gruppe ein flexibles Kontingent von 500 MB fest. Wenn diese Speichergrenze erreicht ist, werden alle Benutzer in der Gruppe per e-Mail benachrichtigt, dass das Speicher Kontingent vorübergehend auf 520 MB erweitert wurde, sodass Sie unnötige Dateien löschen und die vordefinierte 500 MB-Kontingent Richtlinie einhalten können.
 -   Empfangen Sie eine Benachrichtigung, wenn ein temporärer Ordner 2 Gigabyte (GB) der Verwendung erreicht, der Kontingent dieses Ordners allerdings nicht eingeschränkt wird, da er für einen Dienst auf dem Server erforderlich ist.
 
 In diesem Abschnitt werden folgende Themen behandelt:
 
 -   [Erstellen eines Kontingents](create-quota.md)
 -   [Erstellen eines automatisch zugewiesenen Kontingents](create-auto-apply-quota.md)
--   [Erstellen Sie eine Kontingentvorlage](create-quota-template.md)
+-   [Erstellen einer Kontingent Vorlage](create-quota-template.md)
 -   [Bearbeiten von Kontingentvorlageneigenschaften](edit-quota-template-properties.md)
 -   [Bearbeiten der Eigenschaften des automatisch zugewiesenen Kontingents](edit-auto-apply-quota-properties.md)
 

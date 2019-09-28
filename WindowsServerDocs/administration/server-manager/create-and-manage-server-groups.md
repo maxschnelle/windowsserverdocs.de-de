@@ -1,8 +1,8 @@
 ---
-title: Erstellen und Verwalten von Servergruppen
+title: Erstellen und Verwalten von Server Gruppen
 description: Server-Manager
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-server-manager
@@ -13,46 +13,46 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 32e20040e2cb075e447c0d03d48676c7011a5a92
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 74075f091cd707f6faf73567c1dce6f22a2f6753
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889481"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383217"
 ---
-# <a name="create-and-manage-server-groups"></a>Erstellen und Verwalten von Servergruppen
+# <a name="create-and-manage-server-groups"></a>Erstellen und Verwalten von Server Gruppen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Dieses Thema beschreibt, wie Sie benutzerdefinierte, benutzerdefinierte Gruppen von Servern im Server-Manager in Windows Server erstellen.
+In diesem Thema wird beschrieben, wie benutzerdefinierte benutzerdefinierte Server Gruppen in Server-Manager in Windows Server erstellt werden.
 
-## <a name="BKMK_groups"></a>Servergruppen
-Server, die Sie dem Serverpool hinzufügen, werden angezeigt, auf die **alle Server** Seite im Server-Manager. Sie können benutzerdefinierte Gruppen von Servern erstellen, die Sie hinzugefügt haben. Servergruppen ermöglichen das Anzeigen und Verwalten einer kleinen Untergruppe in Ihrem Serverpool als logische Einheit; Sie können z. B. eine Gruppe namens erstellen **Buchhaltungsserver** für alle Server in Ihrer Organisation die Buchhaltungsabteilung weiterleiten oder eine Gruppe aufgerufen, **Chicago** für alle Server, die geografisch befinden in Chicago. Nachdem Sie eine Servergruppe erstellt haben, wird von der Gruppe-Startseite im Server-Manager zeigt Informationen zu Ereignissen, Diensten, Leistungsindikatoren, Best Practices Analyzer-Ergebnisse und installierten Rollen und Features für die Gruppe als Ganzes.
+## <a name="BKMK_groups"></a>Server Gruppen
+Server, die Sie dem Server Pool hinzufügen, werden auf der Seite **alle Server** in Server-Manager angezeigt. Sie können benutzerdefinierte Gruppen von Servern erstellen, die Sie hinzugefügt haben. Mit Server Gruppen können Sie eine kleinere Teilmenge des Server Pools als logische Einheit anzeigen und verwalten. Sie können z. b. eine Gruppe namens **Buchhaltungsserver** für alle Server in der Buchhaltungsabteilung Ihrer Organisation oder eine Gruppe namens **Chicago** für alle Server erstellen, die sich geografisch in Chicago befinden. Nachdem Sie eine Server Gruppe erstellt haben, werden auf der Startseite der Gruppe in Server-Manager Informationen zu Ereignissen, Diensten, Leistungsindikatoren, Best Practices Analyzer Ergebnissen sowie zu installierten Rollen und Features für die Gruppe als Ganzes angezeigt.
 
 Server können mehreren Gruppen angehören.
 
 #### <a name="to-create-a-new-server-group"></a>So erstellen Sie eine neue Servergruppe
 
-1.  Auf der **verwalten** Menü klicken Sie auf **Servergruppe erstellen**.
+1.  Klicken Sie im Menü **Verwalten** auf **Server Gruppe erstellen**.
 
 2.  Geben Sie im Textfeld **Servergruppenname** einen Anzeigenamen für die Servergruppe ein, z. B. **Buchhaltungsserver**.
 
-3.  Server Hinzufügen der **ausgewählten** Liste, aus dem Serverpool oder weitere Server zur Gruppe hinzufügen, mit der **active Directory**, **DNS**, oder **importieren**Registerkarten. Weitere Informationen zur Verwendung dieser Registerkarten finden Sie unter [Hinzufügen von Servern zu Server Manager](add-servers-to-server-manager.md) in diesem Handbuch.
+3.  Fügen Sie der **ausgewählten** Liste Server aus dem Server Pool hinzu, oder fügen Sie der Gruppe mithilfe der Registerkarten **Active Directory**, **DNS**oder **importieren** weitere Server hinzu. Weitere Informationen zur Verwendung dieser Registerkarten finden [Sie unter Hinzufügen von Servern zu Server-Manager](add-servers-to-server-manager.md) in diesem Handbuch.
 
-4.  Klicken Sie nach dem Hinzufügen der Server auf **OK**. Die neue Gruppe wird angezeigt, in der Server-Manager-Navigationsbereich unter der **alle Server** Gruppe.
+4.  Klicken Sie nach dem Hinzufügen der Server auf **OK**. Die neue Gruppe wird im Navigationsbereich Server-Manager unter der Gruppe **alle Server** angezeigt.
 
 #### <a name="to-edit-an-existing-server-group"></a>So bearbeiten Sie eine vorhandene Servergruppe
 
 1.  Führen Sie eine der folgenden Aktionen aus.
 
-    -   Klicken Sie im Navigationsbereich des Server-Manager Maustaste auf eine Servergruppe, und klicken Sie dann auf **Servergruppe bearbeiten**.
+    -   Klicken Sie im Navigationsbereich Server-Manager mit der rechten Maustaste auf eine Server Gruppe, und klicken Sie dann auf **Server Gruppe bearbeiten**.
 
-    -   Öffnen Sie auf der Startseite der Servergruppe das **Aufgaben** Menü auf der **Server** Kachel, und klicken Sie dann auf **Servergruppe bearbeiten**.
+    -   Öffnen Sie auf der Startseite der Server Gruppe das Menü **Aufgaben** auf der Kachel **Server** , und klicken Sie dann auf **Server Gruppe bearbeiten**.
 
-2.  den Namen der Gruppe ändern oder hinzufügen oder Entfernen von Servern aus der Gruppe.
+2.  Ändern Sie den Gruppennamen, oder fügen Sie der Gruppe Server hinzu, oder entfernen Sie Sie.
 
     > [!NOTE]
-    > Entfernen von Servern aus einer Servergruppe werden keine Server im Server-Manager entfernt. Server, die Sie aus einer Gruppe entfernen, bleiben in der Gruppe **Alle Server** im Serverpool erhalten.
+    > durch das Entfernen von Servern aus einer Server Gruppe werden keine Server aus Server-Manager entfernt. Server, die Sie aus einer Gruppe entfernen, bleiben in der Gruppe **Alle Server** im Serverpool erhalten.
 
 3.  Klicken Sie nach dem Ändern der Gruppe auf **OK**.
 
@@ -60,20 +60,20 @@ Server können mehreren Gruppen angehören.
 
 1.  Führen Sie eine der folgenden Aktionen aus.
 
-    -   Klicken Sie im Navigationsbereich des Server-Manager Maustaste auf eine Servergruppe, und klicken Sie dann auf **Servergruppe löschen**.
+    -   Klicken Sie im Navigationsbereich Server-Manager mit der rechten Maustaste auf eine Server Gruppe, und klicken Sie dann auf **Server Gruppe löschen**.
 
-    -   Öffnen Sie auf der Startseite der Servergruppe das **Aufgaben** Menü auf der **Server** Kachel, und klicken Sie dann auf **Servergruppe löschen**.
+    -   Öffnen Sie auf der Startseite der Server Gruppe das Menü **Aufgaben** auf der Kachel **Server** , und klicken Sie dann auf **Server Gruppe löschen**.
 
 2.  Klicken Sie auf **Ja**, wenn Sie aufgefordert werden, das Löschen der Servergruppe zu bestätigen.
 
     > [!NOTE]
-    > Löschen einer Servergruppe werden keine Server im Server-Manager entfernt. Server, die in einer gelöschten Gruppe enthalten waren, bleiben in der Gruppe **Alle Server** im Serverpool erhalten.
+    > durch das Löschen einer Server Gruppe werden keine Server aus Server-Manager entfernt. Server, die in einer gelöschten Gruppe enthalten waren, bleiben in der Gruppe **Alle Server** im Serverpool erhalten.
 
 3.  Klicken Sie nach dem Ändern der Gruppe auf **OK**.
 
 ## <a name="see-also"></a>Siehe auch
-[Hinzufügen von Servern zu Server Manager](add-servers-to-server-manager.md)
-[Server-Manager](server-manager.md)
+[fügen Sie Server-Manager](add-servers-to-server-manager.md)
+ Server hinzu[Server-Manager](server-manager.md)
 
 
 

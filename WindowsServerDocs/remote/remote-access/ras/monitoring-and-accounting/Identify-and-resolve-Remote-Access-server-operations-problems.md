@@ -1,9 +1,9 @@
 ---
 title: Identifizieren und Beheben von Betriebsproblemen auf dem Remotezugriffsserver
-description: Dieses Thema ist Teil des Leitfadens für die Überwachung des Remotezugriffs und Kontoführung in Windows Server 2016.
+description: Dieses Thema ist Teil des Leitfadens für die Remote Zugriffs Überwachung und-Kontoführung in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,86 +12,86 @@ ms.topic: article
 ms.assetid: 7ce84c9f-fd1f-4463-8fc7-d2f33344a2c9
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b682685883a2200caf8f4286674bb3e2cbe6651b
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: db10f784f383938edb29b18d7e8febf869378abc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282781"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404565"
 ---
 # <a name="identify-and-resolve-remote-access-server-operations-problems"></a>Identifizieren und Beheben von Betriebsproblemen auf dem Remotezugriffsserver
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 **Hinweis**: Durch Windows Server 2013 werden DirectAccess und RRAS (Routing and Remote Access Service, Routing- und RAS-Dienst) zu einer einzigen Remotezugriffsrolle zusammengefasst.  
   
-Sie können mithilfe der folgenden Verfahren zum Identifizieren von Betriebsproblemen auf dem Remote-Zugriff, die Ursachen und die Auflösung erforderlich, um die Probleme zu beheben.  
+Mithilfe der folgenden Verfahren können Sie Probleme bei RAS-Server Vorgängen, ihre Hauptursachen und die Lösung ermitteln, die zum Beheben der Probleme erforderlich ist.  
   
 > [!NOTE]  
-> Sie müssen als Mitglied der Gruppe "Domänen-Admins" oder ein Mitglied der Gruppe "Administratoren" auf jedem Computer angemeldet sein, die in diesem Thema beschriebenen Aufgaben ausführen zu können. Wenn Sie eine Aufgabe nicht abschließen können, während Sie sich mit einem Konto angemeldet sind, die Mitglied der Gruppe "Administratoren" ist, versuchen Sie es die Aufgabe auszuführen, während Sie sich mit einem Konto angemeldet sind, die Mitglied der Gruppe "Domänen-Admins" ist.  
+> Sie müssen auf jedem Computer als Mitglied der Gruppe "Domänen-Admins" oder "Administratoren" angemeldet sein, um die in diesem Thema beschriebenen Aufgaben ausführen zu können. Wenn Sie eine Aufgabe nicht ausführen können, während Sie mit einem Konto angemeldet sind, das Mitglied der Gruppe "Administratoren" ist, versuchen Sie, die Aufgabe auszuführen, während Sie mit einem Konto angemeldet sind, das Mitglied der Gruppe "Domänen-Admins" ist.  
   
-Dieses Thema enthält Informationen über die folgenden Aufgaben ausführen:  
+Dieses Thema enthält Informationen zum Ausführen der folgenden Aufgaben:  
   
-- Simulieren Sie ein Problem Vorgänge  
+- Simulieren eines Vorgangs Problems  
   
-- Das Operations-Problem identifizieren und korrekturmaßnahmen  
+- Identifizieren des Vorgangs Problems und ergreifen von Korrekturmaßnahmen  
   
-- Wiederherstellen des IP-Hilfsdienstes  
+- Wiederherstellen des IP Helper-Dienes  
   
-### <a name="BKMK_Simulate"></a>Simulieren Sie ein Problem Vorgänge  
+### <a name="BKMK_Simulate"></a>Simulieren eines Vorgangs Problems  
   
 > [!CAUTION]  
-> Da Ihre RAS-Server wahrscheinlich ist so konfiguriert, ordnungsgemäß ist und nicht auf Probleme, können Sie das folgende Verfahren, um ein Problem Vorgänge zu simulieren. Wenn Clients in einer produktionsumgebung von Ihrem Server aktuell verwendet wird, sollten Sie nicht diese Aktionen zu diesem Zeitpunkt ausführen. Stattdessen erhalten Sie durch die Schritte zum verstehen, wie Sie Probleme beheben, die auf dem RAS-Server in der Zukunft auftreten können.  
+> Da der RAS-Server wahrscheinlich ordnungsgemäß konfiguriert ist und keine Probleme aufgetreten sind, können Sie das folgende Verfahren verwenden, um ein Vorgangs Problem zu simulieren. Wenn Ihr Server momentan Clients in einer Produktionsumgebung verarbeitet, möchten Sie diese Aktionen möglicherweise zu diesem Zeitpunkt nicht durchführen. Stattdessen können Sie die Schritte lesen, um zu verstehen, wie Sie Probleme beheben können, die in Zukunft auf dem RAS-Server auftreten können.  
   
-Die IP Helper-Dienst (IPHlpSvc) Hosts IPv6-Übergang-Technologien (z. B. IP-HTTPS, 6to4 oder Teredo), und es ist erforderlich, damit der DirectAccess-Server ordnungsgemäß funktioniert. Um ein Problem simulierten Vorgänge auf dem RAS-Server zu demonstrieren, müssen Sie den Netzwerkdienst (IPHlpSvc) beenden.  
+Der IP-Hilfsdienst (iphlpsvc) hostet IPv6-Übergangs Technologien (z. b. IP-HTTPS, IPv6-zu-IPv4 oder Teredo) und ist erforderlich, damit der DirectAccess-Server ordnungsgemäß funktioniert. Zum veranschaulichen eines simulierten Vorgangs Problems auf dem RAS-Server müssen Sie den Netzwerkdienst (iphlpsvc) unterbinden.  
   
-##### <a name="to-stop-the-ip-helper-service"></a>So beenden Sie die IP-Hilfsdienst  
+##### <a name="to-stop-the-ip-helper-service"></a>So verhindern Sie den IP-Hilfsdienst  
   
-1.  Auf der **starten** Bildschirm der RAS-Servers, klicken Sie auf **Verwaltung**, und doppelklicken Sie dann auf **Services**.  
+1.  Klicken Sie auf dem **Start** Bildschirm des Remote Zugriffs Servers auf **Verwaltung**, und doppelklicken Sie dann auf **Dienste**.  
   
-2.  In der Liste der **Services**, scrollen Sie nach unten, und mit der rechten Maustaste **IP Helper**, und klicken Sie dann auf **beenden**.  
+2.  Scrollen Sie in der Liste der **Dienste**nach unten, **und klicken Sie**mit der rechten Maustaste auf **IP**-Hilfsobjekt.  
   
-### <a name="BKMK_Identify"></a>Das Operations-Problem identifizieren und korrekturmaßnahmen  
-Durch das Deaktivieren des IP-Hilfsdienstes führt eines schwerwiegenden Fehlers auf dem RAS-Server. Das überwachungsdashboard zeigt den Status der Vorgänge des Servers und die Details des Problems.  
+### <a name="BKMK_Identify"></a>Identifizieren des Vorgangs Problems und ergreifen von Korrekturmaßnahmen  
+Das Ausschalten des IP-Hilfsobjekts führt zu einem schwerwiegenden Fehler auf dem RAS-Server. Das Dashboard für die Überwachung zeigt den Betriebsstatus des Servers und die Details des Problems an.  
   
-##### <a name="to-identify-the-details-and-take-corrective-action"></a>Um die Details zu identifizieren und korrekturmaßnahmen  
+##### <a name="to-identify-the-details-and-take-corrective-action"></a>So identifizieren Sie die Details und ergreifen Korrekturmaßnahmen  
   
 1.  Klicken Sie im **Server Manager** auf **Tools** und dann auf **Remotezugriffsverwaltung**.  
   
 2.  Klicken Sie auf **DASHBOARD**, um in der **Remotezugriffs-Verwaltungskonsole** zum **Remotezugriffdashboard** zu navigieren.  
   
-3.  Stellen Sie sicher, dass Ihre RAS-Server im linken Bereich ausgewählt ist, und klicken Sie dann im mittleren Bereich auf **Vorgangsstatus**.  
+3.  Stellen Sie sicher, dass der Remote Zugriffs Server im linken Bereich ausgewählt ist, und klicken Sie dann im mittleren Bereich auf **Vorgangs Status**.  
   
-4.  Sie sehen die Liste der Komponenten mit der grüne oder rote-Symbole, die deren Betriebsstatus angeben. Klicken Sie auf die **IP-HTTPS** Zeile in der Liste. Wenn Sie eine Zeile ausgewählt haben, werden die Details für den Vorgang angezeigt, der **Details** Bereich wie folgt:  
+4.  Die Liste der Komponenten mit grünen oder roten Symbolen wird angezeigt, die den Betriebsstatus angeben. Klicken Sie in der Liste auf die Zeile **IP-HTTPS** . Wenn Sie eine Zeile ausgewählt haben, werden die Details für den Vorgang wie folgt im **Detail** Bereich angezeigt:  
   
     **Fehler**  
   
-    Der IP-Hilfsdienst (IPHlpSvc) wurde beendet. DirectAccess unter Umständen nicht erwartungsgemäß. Der IP-Hilfsdienst stellt tunnelkonnektivität mithilfe des Konnektivität-Plattform, die IPv6-übergangstechnologien und die IP-HTTPS.  
+    Der IP-Hilfsdienst (iphlpsvc) wurde beendet. DirectAccess funktioniert möglicherweise nicht wie erwartet. Der IP-Hilfsdienst bietet Tunnel Konnektivität mithilfe der Konnektivitätsplattform, IPv6-Übergangs Technologien und IP-HTTPS.  
   
-    **Bewirkt, dass**  
+    **Gründe**  
   
-    1.  Der IP Helper-Dienst wurde beendet.  
+    1.  Der IP-Hilfsdienst wurde beendet.  
   
-    2.  Der IP-Hilfsdienst reagiert nicht.  
+    2.  Der IP-Hilfsdienst antwortet nicht.  
   
-    **Lösung**  
+    **Auflösung**  
   
-    1.  Um sicherzustellen, dass der Dienst ausgeführt wird, geben Sie **Get-Service-Iphlpsc** an Windows PowerShell-Eingabeaufforderung.  
+    1.  Um sicherzustellen, dass der Dienst ausgeführt wird, geben **Sie Get-Service iphlpsc** an einer Windows PowerShell-Eingabeaufforderung ein.  
   
-    2.  Um den Dienst zu aktivieren, geben **Start-Service-Iphlpsvc** ein Windows PowerShell-Eingabeaufforderung mit erhöhten Rechten.  
+    2.  Um den Dienst zu aktivieren, geben Sie an einer Windows PowerShell-Eingabeaufforderung mit erhöhten **rechten Start-Service iphlpsvc** ein.  
   
-    3.  Geben Sie zum Neustarten des Diensts **Restart-Service-Iphlpsvc** ein Windows PowerShell-Eingabeaufforderung mit erhöhten Rechten.  
+    3.  Um den Dienst neu zu starten, geben Sie an einer Windows PowerShell-Eingabeaufforderung mit erhöhten **rechten Restart-Service iphlpsvc** ein.  
   
-### <a name="BKMK_Restart"></a>Wiederherstellen des IP-Hilfsdienstes  
-Um die IP-Hilfsdienst auf dem RAS-Server wiederherzustellen, können Sie die Schritte oben zum Starten oder Neustarten des Diensts folgen, oder können wie folgt vor, die Prozedur umzukehren, die Sie verwendet, um den IP-Hilfs-Dienstfehler zu simulieren.  
+### <a name="BKMK_Restart"></a>Wiederherstellen des IP Helper-Dienes  
+Um den IP-Hilfsdienst auf Ihrem RAS-Server wiederherzustellen, können Sie die oben beschriebenen Lösungsschritte ausführen, um den Dienst zu starten oder neu zu starten, oder Sie können das folgende Verfahren verwenden, um das Verfahren umzukehren, das Sie zum Simulieren des Fehlers bei IP-Hilfsobjekten verwendet haben.  
   
-##### <a name="to-restart-the-ip-helper-service-on-the-remote-access-server"></a>Den IP Helper-Dienst auf dem RAS-Server neu gestartet  
+##### <a name="to-restart-the-ip-helper-service-on-the-remote-access-server"></a>So starten Sie den IP Helper-Dienst auf dem Remote Zugriffs Server neu  
   
-1.  Auf der **starten** auf **Verwaltung**, und doppelklicken Sie dann auf **Services**.  
+1.  Klicken Sie auf dem Bildschirm **Start** auf **Verwaltung**, und doppelklicken Sie dann auf **Dienste**.  
   
-2.  In der Liste der **Services**, scrollen Sie nach unten, und mit der rechten Maustaste **IP Helper**, und klicken Sie dann auf **starten**.  
+2.  Scrollen Sie in der Liste der **Dienste**nach unten, **und klicken Sie**mit der rechten Maustaste auf **IP**-Hilfsobjekt.  
   
-![Windows PowerShell](../../../media/Identify-and-resolve-Remote-Access-server-operations-problems/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
+](../../../media/Identify-and-resolve-Remote-Access-server-operations-problems/PowerShellLogoSmall.gif)***<em>äquivalente Windows PowerShell-Befehle</em> mit @no__t 0shell***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   

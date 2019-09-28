@@ -1,203 +1,203 @@
 ---
-title: Remotedesktop-Sitzungshosts die Optimierung der Leistung
-description: Richtlinien zur leistungsoptimierung für Remote Desktop Session Hosts
-ms.prod: windows-server-threshold
+title: Leistungsoptimierung Remotedesktop Sitzungs Hosts
+description: Richtlinien zur Leistungsoptimierung für Remotedesktop Sitzungs Hosts
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: HammadBu; VladmiS
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: e95671718616fc7c81977434e83a227c858fca17
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: c50c0c981362bd96ed3bf1c603cde6bfeec289f4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811419"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385019"
 ---
-# <a name="performance-tuning-remote-desktop-session-hosts"></a>Remotedesktop-Sitzungshosts die Optimierung der Leistung
+# <a name="performance-tuning-remote-desktop-session-hosts"></a>Leistungsoptimierung Remotedesktop Sitzungs Hosts
 
 
-In diesem Thema wird erläutert, wie Remote Desktop Session Host (RD-Sitzungshost) Hardware auswählen, optimieren den Host und die Optimierung von Anwendungen.
+In diesem Thema wird erläutert, wie Sie Remotedesktop-Sitzungshost (RD-Sitzungshost) Hardware auswählen, den Host optimieren und Anwendungen optimieren.
 
 **In diesem Thema:**
 
--   [Wählen die richtige Hardware für Leistung](#selecting-the-proper-hardware-for-performance)
+-   [Auswählen der richtigen Hardware für die Leistung](#selecting-the-proper-hardware-for-performance)
 
--   [Optimieren von Anwendungen für Remote Desktop Session Host](#tuning-applications-for-remote-desktop-session-host)
+-   [Optimieren von Anwendungen für Remotedesktop-Sitzungshost](#tuning-applications-for-remote-desktop-session-host)
 
 -   [Remotedesktop-Sitzungshost Optimierungsparameter](#remote-desktop-session-host-tuning-parameters)
 
 ## <a name="selecting-the-proper-hardware-for-performance"></a>Auswählen der richtigen Hardware für die Leistung
 
 
-Für einen Remotedesktop-Sitzungshost-serverbereitstellung die Auswahl der Hardware unterliegt den Satz der Anwendung und wie Benutzer sie verwenden. Die Schlüsselfaktoren, die die Anzahl von Benutzern und benutzerfreundlichkeit beeinflussen werden CPU, Arbeitsspeicher, Datenträger und Grafiken. Dieser Abschnitt enthält zusätzliche Richtlinien, die auf RD-Sitzungshostservern beziehen und bezieht sich hauptsächlich auf die Umgebungen im Mehrbenutzermodus des Remotedesktop-Sitzungshostserver.
+Bei einer RD-Sitzungshost Server-Bereitstellung wird die Auswahl der Hardware durch den Anwendungs Satz gesteuert und wie Benutzer Sie verwenden. Die wichtigsten Faktoren, die sich auf die Anzahl der Benutzer und Ihre Benutzeroberflächen auswirken, sind CPU, Arbeitsspeicher, Datenträger und Grafiken. Dieser Abschnitt enthält zusätzliche Richtlinien, die für RD-Sitzungshost-Server spezifisch sind und hauptsächlich mit der Multibenutzerumgebung RD-Sitzungshost Server verknüpft sind.
 
 ### <a name="cpu-configuration"></a>CPU-Konfiguration
 
-CPU-Konfiguration wird durch Multiplizieren der erforderlichen CPU vom Konzept her bestimmt, um eine Sitzung, indem Sie die Anzahl der Sitzungen unterstützen, die das System zu unterstützen und gleichzeitig eine Zone Puffer zur temporären Spitzen zu bewältigen erwartet wird. Mehrere logische Prozessoren können CPU-Überlastung Störfälle; reduziert werden, die in der Regel durch ein paar übermäßig aktiven Threads verursacht werden, die eine vergleichbare Anzahl von logischen Prozessoren enthalten sind.
+Die CPU-Konfiguration wird konzeptionell festgelegt, indem die erforderliche CPU multipliziert wird, um eine Sitzung durch die Anzahl der Sitzungen zu unterstützen, die vom System unterstützt werden sollen, während eine Pufferzone zur Behandlung temporärer Spitzen beibehalten wird. Mehrere logische Prozessoren können dabei helfen, ungewöhnliche CPU-Überlastung zu verringern, die in der Regel durch einige über aktive Threads verursacht werden, die in einer ähnlichen Anzahl logischer Prozessoren enthalten sind.
 
-Aus diesem Grund die logischen Prozessoren auf einem System, je niedriger der Puffer-Rand, der die CPU-Auslastung Schätzung, erstellt werden, um muss die Ergebnisse in einen größeren Prozentsatz der aktiven Auslastung pro CPU. Ein wichtiger Faktor, denken Sie daran, die die Anzahl der CPUs verdoppelt wird, ist nicht doppelt CPU-Kapazität.
+Je mehr logische Prozessoren auf einem System, desto niedriger der in der CPU-Auslastungs Schätzung integrierte Auslagerungs Rand, was zu einem größeren Prozentsatz der aktiven Auslastung pro CPU führt. Ein wichtiger Aspekt ist, dass die doppelte Anzahl der CPUs nicht die CPU-Kapazität verdoppelt.
 
 ### <a name="memory-configuration"></a>Speicherkonfiguration
 
-Speicherkonfiguration ist abhängig von den Anwendungen, die Benutzer verwenden; Allerdings kann die erforderliche Menge an Arbeitsspeicher geschätzt werden, mithilfe der folgenden Formel: TotalMem = OSMem + SessionMem \* NS
+Die Speicherkonfiguration ist abhängig von den Anwendungen, die Benutzer verwenden. die erforderliche Arbeitsspeicher Menge kann jedoch mithilfe der folgenden Formel geschätzt werden: Totalmem = osmem + sessionmem \* NS
 
-OSMem ist wie viel Arbeitsspeicher an, die das Betriebssystem erforderlich ist (z. B. binäre Systemimages, Datenstrukturen und So weiter), SessionMem ausgeführt wird, wie viel Arbeitsspeicher-Prozesse in eine Sitzung erforderlich ist, und NS ist die vorgegebene Anzahl von aktiven Sitzungen. Die Menge des erforderlichen Arbeitsspeichers für eine Sitzung wird vor allem bestimmt, den privaten Speicher verweist, legen Sie für Anwendungen und Systemprozesse, die innerhalb der Sitzung ausgeführt werden. Seiten für freigegebenen Code oder Daten haben nur geringe Auswirkungen, da nur eine Kopie auf dem System vorhanden ist.
+Osmem gibt an, wie viel Arbeitsspeicher das Betriebssystem für die Ausführung benötigt (z. b. System Binär Images, Datenstrukturen usw.), sessionmem gibt an, wie viel Arbeitsspeicher Prozesse in einer Sitzung ausgeführt werden müssen, und NS ist die Ziel Anzahl aktiver Sitzungen. Der erforderliche Arbeitsspeicher für eine Sitzung wird größtenteils durch den Verweis auf den privaten Speicher für Anwendungen und System Prozesse bestimmt, die innerhalb der Sitzung ausgeführt werden. Freigegebene Codes oder Datenseiten haben kaum Auswirkungen, da nur eine Kopie auf dem System vorhanden ist.
 
-Eine interessante Beobachtung (sofern das Datenträgersystem, die der Auslagerungsdatei sichern wird nicht geändert) ist, desto größer die Anzahl der gleichzeitigen aktive Sitzungen möchte, dass das System unterstützen, je größer die speicherbelegung pro Sitzung muss,. Wenn die Größe des Arbeitsspeichers, der pro Sitzung zugeordnet ist, nicht erhöht wird, generiert die Anzahl der Seitenfehler, aktive Sitzungen nimmt mit der Anzahl der Sitzungen. Diese Fehler überlasten schließlich das e/a-Subsystem an. Durch das Erhöhen der Größe des Arbeitsspeichers, der pro Sitzung zugeordnet ist, sinkt die Wahrscheinlichkeit der Seitenfehler verursachen, wodurch die Gesamtrate der Seitenfehler zu reduzieren.
+Eine interessante Beobachtung (wenn das Datenträger System, das die Auslagerungs Datei sichert, nicht geändert wird) ist, dass je größer die Anzahl der gleichzeitigen aktiven Sitzungen ist, die das System unterstützen soll, je größer die Arbeitsspeicher Belegung pro Sitzung sein muss. Wenn die Menge an Arbeitsspeicher, die pro Sitzung belegt wird, nicht erhöht wird, erhöht sich die Anzahl der Seiten Fehler, die von aktiven Sitzungen generiert werden, mit der Anzahl der Sitzungen. Diese Fehler überfordern letztendlich das e/a-Subsystem. Wenn Sie die Menge an Arbeitsspeicher erhöhen, die pro Sitzung zugewiesen wird, sinkt die Wahrscheinlichkeit, dass Seiten Fehler auftreten, wodurch die Gesamtrate der Seiten Fehler verringert wird.
 
 ### <a name="disk-configuration"></a>Datenträgerkonfiguration
 
-Storage ist einer der am häufigsten übersehene Aspekte beim Konfigurieren von Remotedesktop-Sitzungshostserver, und sie können die am häufigsten verwendeten Einschränkung sein, in Systemen, die in das Feld bereitgestellt werden.
+Der Speicher ist einer der offensichtlichsten Aspekte beim Konfigurieren von RD-Sitzungshost Servern, und dies kann die häufigste Einschränkung in Systemen sein, die im-Feld bereitgestellt werden.
 
-Die Datenträgeraktivität, die auf einem typischen RD Session Host-Server generiert wird, wirkt sich auf den folgenden Bereichen:
+Die Datenträger Aktivität, die auf einem typischen RD-Sitzungshost Server generiert wird, wirkt sich auf die folgenden Bereiche aus:
 
--   Systemdateien und die Binärdateien der Anwendung
+-   System Dateien und Anwendungs Binärdateien
 
--   Auslagerungsdateien
+-   Seiten Dateien
 
 -   Benutzerprofile und Benutzerdaten
 
-Im Idealfall sollten diese Bereiche von unterschiedlichen Speichergeräten gesichert werden. Mithilfe von Stripesetvolumes RAID-Konfigurationen oder andere Arten von Speicher mit hoher Leistung weiter verbessert die Leistung. Es wird dringend empfohlen, die Verwendung von Storage-Adapter mit dem Schreibcache Batterie-Backup. Controller mit dem Schreibcache für Datenträger bieten verbesserte Unterstützung für synchrone Schreibvorgänge. Da alle Benutzer eine separate Struktur haben, sind synchrone Schreibvorgänge deutlich häufiger auf einem Remotedesktop-Sitzungshost-Server. Registrierungsstrukturen werden in regelmäßigen Abständen gespeichert, auf den Datenträger mithilfe von synchronen Schreibvorgänge auszuführen. So aktivieren Sie diese Optimierungen, in der Datenträgerverwaltungskonsole, öffnen Sie die **Eigenschaften** Dialogfeld für den Zieldatenträger und auf die **Richtlinien** Registerkarte die **Schreibcache auf Aktivieren der Datenträger** und **deaktivieren Sie Windows Schreib-Cache leeren der Puffer** auf die Geräte-Kontrollkästchen.
+Im Idealfall sollten diese Bereiche von unterschiedlichen Speichergeräten gesichert werden. Durch die Verwendung von RAID-RAID-Konfigurationen oder anderen hochleistungsfähigen Speichertypen wird die Leistung verbessert. Es wird dringend empfohlen, Speicher Adapter mit Akku gestütztem Schreib Cache zu verwenden. Controller mit Datenträger Schreib Cache bieten verbesserte Unterstützung für synchrone Schreibvorgänge. Da alle Benutzer über eine separate Hive verfügen, sind synchrone Schreibvorgänge auf einem RD-Sitzungshost Server deutlich häufiger. Registrierungs Strukturen werden regelmäßig mithilfe synchroner Schreibvorgänge auf dem Datenträger gespeichert. Um diese Optimierungen zu aktivieren, öffnen Sie in der Konsole Datenträgerverwaltung das Dialogfeld **Eigenschaften** für den Ziel Datenträger, und wählen Sie auf der Registerkarte **Richtlinien** das Kontrollkästchen **Schreib Cache auf dem** Datenträger aktivieren und **Windows-Schreib Cache Puffer ausschalten aus.** aktivieren Sie die Kontrollkästchen für das Gerät.
 
 ### <a name="network-configuration"></a>Netzwerkkonfiguration
 
-Netzwerkauslastung eines Remotedesktop-Sitzungshostservers umfasst zwei Hauptkategorien unterteilen:
+Die Netzwerk Auslastung für einen RD-Sitzungshost Server umfasst zwei Hauptkategorien:
 
--   RD-Sitzungshost Datenverkehr verbindungsnutzung wird fast ausschließlich durch die Zeichnen-Muster bestimmt, die von den Anwendungen, die in den Sitzungen und den umgeleiteten Geräte-e/a-Datenverkehr ausgeführt ausgestellt werden.
+-   Die Verwendung von RD-Sitzungshost Verbindungs Datenverkehr wird fast ausschließlich durch die Zeichnungs Muster bestimmt, die von den in den Sitzungen ausgestellten Anwendungen und vom e/a-Datenverkehr für umgeleitete Geräte angezeigt werden.
 
-    Beispielsweise nutzen Anwendungen, die Textverarbeitung und der Dateneingabe Bandbreite von ungefähr 10 bis 100 Kilobit pro Sekunde, während komplexe Grafiken und Videowiedergabe behauptungen Auslastung der Netzwerkbandbreite führen.
+    Anwendungen, die die Textverarbeitung und die Dateneingabe verarbeiten, verbrauchen beispielsweise eine Bandbreite von ungefähr 10 bis 100 kbit pro Sekunde, während umfangreiche Grafiken und Videowiedergabe eine deutliche Steigerung der Bandbreitenauslastung verursachen.
 
--   Back-End-Verbindungen wie servergespeicherte Profile, die Anwendungszugriff auf Dateifreigaben, Datenbankserver, e-Mail-Server und HTTP-Servern.
+-   Back-End-Verbindungen wie Roamingprofile, Anwendungs Zugriff auf Dateifreigaben, Datenbankserver, e-Mail-Server und http-Server.
 
-    Die Datenträger und das Profil des Netzwerkdatenverkehrs bezieht sich auf jede Bereitstellung.
+    Das Volume und das Profil des Netzwerk Datenverkehrs sind spezifisch für jede Bereitstellung.
 
-## <a name="tuning-applications-for-remote-desktop-session-host"></a>Optimieren von Anwendungen für Remote Desktop Session Host
+## <a name="tuning-applications-for-remote-desktop-session-host"></a>Optimieren von Anwendungen für Remotedesktop-Sitzungshost
 
 
-Die meisten der CPU-Auslastung auf einem Remotedesktop-Sitzungshostserver wird gesteuert, von apps. Desktop-apps sind in der Regel in Richtung der Reaktionsfähigkeit, mit dem Ziel der Minimierung von einer Anwendung, reagieren auf eine benutzeranforderung Dauer optimiert. In einer serverumgebung ist es jedoch genauso wichtig ist, die die Gesamtmenge der CPU-Auslastung zu minimieren, die zum Abschließen einer Aktion, um zu vermeiden, beeinträchtigt die anderen Sitzungen erforderlich ist.
+Der größte Teil der CPU-Auslastung auf einem RD-Sitzungshost Server wird von apps gesteuert. Desktop-Apps sind in der Regel auf Reaktionsfähigkeit optimiert, mit dem Ziel, die Zeit zu minimieren, die eine Anwendung für die Reaktion auf eine Benutzer Anforderung benötigt. Allerdings ist es in einer Serverumgebung ebenso wichtig, die Gesamtmenge der CPU-Auslastung zu minimieren, die zum Ausführen einer Aktion erforderlich ist, um negative Auswirkungen auf andere Sitzungen zu vermeiden.
 
-Beachten Sie die folgenden Vorschläge, wenn Sie apps konfigurieren, die auf einem Remotedesktop-Sitzungshost-Server verwendet werden sollen:
+Beachten Sie beim Konfigurieren von apps, die auf einem RD-Sitzungshost Server verwendet werden sollen, die folgenden Vorschläge:
 
--   Minimieren der Hintergrund Leerlaufschleifen-Verarbeitung
+-   Minimieren der Leerlauf Schleifen Verarbeitung im Hintergrund
 
-    Typische Beispiele für deaktivieren Grammatik und Rechtschreibung hintergrundüberprüfung, Daten, die für die Suche, Indizierung und Speicherung im Hintergrund.
+    Typische Beispiele sind die Deaktivierung von Hintergrund Grammatik und Rechtschreibprüfung, die Daten Indizierung für die Suche und die Speicherung von Hintergrundwerten.
 
--   Zu minimieren, wie oft eine app eine zustandsüberprüfung oder Update führt.
+-   Minimieren Sie, wie oft eine APP eine Status Prüfung oder ein Update ausführt.
 
-    Solcher Verhaltensweisen zu deaktivieren, oder erhöhen das Intervall zwischen den Abruf Iterationen und Zeitgeber ausgelöst deutlich profitieren CPU-Auslastung, da die Auswirkungen solcher Aktivitäten schnell für viele aktive Sitzungen verstärkt wird. Typische Beispiele sind Verbindungsstatussymbole und Aktualisierungen der Statusleiste Informationen.
+    Durch das Deaktivieren solcher Verhaltensweisen oder das Erhöhen des Intervalls zwischen Abruf Iterationen und Timer wird die CPU-Auslastung erheblich beeinträchtigt, da die Auswirkungen solcher Aktivitäten für viele aktive Sitzungen schnell verstärkt werden. Typische Beispiele sind Verbindungsstatus Symbole und Status leisten-Informations Aktualisierungen.
 
--   Minimieren Sie Ressourcenkonflikte zwischen apps durch Reduzieren der synchronisierungshäufigkeit.
+-   Minimieren von Ressourcenkonflikten zwischen Apps durch Verringern der Synchronisierungs Häufigkeit.
 
-    Beispiele für solche Ressourcen sind Registrierungsschlüssel und Konfigurationsdateien. Beispiele für Anwendungskomponenten und Funktionen sind (z. B. Benachrichtigungen der Shell)-Statusanzeige, Hintergrund Indizierung oder änderungsüberwachung und offlinesynchronisierung.
+    Beispiele für derartige Ressourcen sind Registrierungsschlüssel und Konfigurationsdateien. Beispiele für Anwendungskomponenten und Features sind Status Indikatoren (z. b. shellbenachrichtigungen), Hintergrund Indizierung oder Änderungs Überwachung und Offline Synchronisierung.
 
--   Deaktivieren Sie nicht erforderliche Prozesse, die registriert werden, um mit der Benutzeranmeldung oder den Start einer Sitzung zu starten.
+-   Deaktivieren Sie unnötige Prozesse, die registriert werden, um mit der Benutzeranmeldung oder dem Start einer Sitzung zu beginnen.
 
-    Diese Prozesse können erheblich auf die Kosten für CPU-Auslastung beitragen, wenn eine neue benutzersitzung zu erstellen, die in der Regel eine CPU-intensiv ist, und es kann in Szenarien für morgen sehr teuer sein. Verwenden Sie MsConfig.exe oder MsInfo32.exe, um eine Liste der Prozesse abzurufen, die bei der Benutzeranmeldung gestartet werden. Ausführlichere Informationen können Sie [Autoruns für Windows](https://technet.microsoft.com/sysinternals/bb963902.aspx).
+    Diese Prozesse können bei der Erstellung einer neuen Benutzersitzung, bei der es sich in der Regel um einen CPU-intensiven Prozess handelt, maßgeblich zu den Kosten der CPU-Auslastung beitragen und können in Morgen Szenarios sehr teuer sein. Verwenden Sie "msconfig. exe" oder "MsInfo32. exe", um eine Liste der Prozesse abzurufen, die bei der Benutzeranmeldung gestartet werden. Um ausführlichere Informationen zu erhalten, können Sie [Autoruns für Windows](https://technet.microsoft.com/sysinternals/bb963902.aspx)verwenden.
 
-Für die arbeitsspeichernutzung sollten Sie Folgendes berücksichtigen:
+Für den Arbeitsspeicher Verbrauch sollten Sie Folgendes berücksichtigen:
 
--   Stellen Sie sicher, dass von einer app geladenen DLLs nicht verschoben werden.
+-   Überprüfen Sie, ob die von einer APP geladenen DLLs nicht verschoben werden.
 
-    -   Verschobene DLLs können durch Auswählen der Prozess-DLL-Ansicht, überprüft werden, wie in der folgenden Abbildung gezeigt, mithilfe von [Process Explorer](https://technet.microsoft.com/sysinternals/bb896653.aspx).
+    -   Verschobene DLLs können überprüft werden, indem Sie die Option dll-Ansicht verarbeiten auswählen, wie in der folgenden Abbildung gezeigt, mithilfe des [Prozess-Explorers](https://technet.microsoft.com/sysinternals/bb896653.aspx).
 
-    -   Hier sehen Sie, dass diese y.dll verschoben wurde, da x.dll bereits die Standard-Basisadresse belegt und ASLR nicht aktiviert wurde.
+    -   Hier sehen Sie, dass "y. dll" verschoben wurde, da "x. dll" bereits seine Standardbasis Adresse besetzt hat und ASLR nicht aktiviert wurde.
 
-        ![verschobene dlls](../../media/perftune-guide-relocated-dlls.png)
+        ![verschobene DLLs](../../media/perftune-guide-relocated-dlls.png)
 
-        Wenn die DLLs verschoben werden, ist es unmöglich, teilen ihren Code über Sitzungen hinweg dies den Speicherbedarf einer Sitzung erheblich erhöht. Dies ist eines der am häufigsten verwendeten speicherbezogenen Leistungsproblemen auf einem Remotedesktop-Sitzungshost-Server.
+        Wenn DLLs verschoben werden, ist es nicht möglich, Ihren Code Sitzungs übergreifend freizugeben, was den Speicherbedarf einer Sitzung erheblich erhöht. Dies ist eines der häufigsten speicherbezogenen Leistungsprobleme auf einem RD-Sitzungshost Server.
 
--   Verwenden Sie für die common Language Runtime (CLR)-Anwendungen Native Image Generator (Ngen.exe), um gemeinsame Verwendung von Seiten zu erhöhen und Verringern der CPU-Auslastung.
+-   Verwenden Sie für Common Language Runtime (CLR)-Anwendungen Native Image Generator (Ngen. exe), um die Seiten Freigabe zu erhöhen und den CPU-Overhead zu verringern.
 
-    Wenn möglich, gelten Sie ähnliche Verfahren für andere ähnliche ausführungsmodule aus.
+    Wenden Sie nach Möglichkeit ähnliche Techniken auf andere ähnliche Ausführungs-Engines an.
 
 ## <a name="remote-desktop-session-host-tuning-parameters"></a>Remotedesktop-Sitzungshost Optimierungsparameter
 
 
-### <a name="page-file"></a>Auslagerungsdatei
+### <a name="page-file"></a>Auslagerungs Datei
 
-Größe der Auslagerungsdatei von nicht genügend verursachen Arbeitsspeicher in apps oder Komponenten des Informationssystems Zuordnungsfehler. Sie können den Leistungsindikator "Arbeitsspeicher-zu-Zugesicherte verwendete Bytes" verwenden, um zu überwachen, wie viel zugesicherten virtuellen Speichers auf dem System ist.
+Unzureichende Größe der Auslagerungs Datei kann zu Fehlern bei der Speicher Belegung in Apps oder Systemkomponenten führen. Sie können den Leistungsindikatoren "Speicher zu Zugesicherte Bytes" verwenden, um zu überwachen, wie viel Commit für den virtuellen Arbeitsspeicher auf dem System ausgeführt wird.
 
 ### <a name="antivirus"></a>Antivirensoftware
 
-Installieren von antivirus-Software auf einem Remotedesktop-Sitzungshostserver erheblich wirkt sich auf gesamtleistung des Systems, insbesondere CPU-Auslastung aus. Es wird dringend empfohlen, dass Sie alle Ordner, die temporären Dateien aus der Liste der aktiven Überwachung ausschließen, insbesondere solche, die Dienste und andere Systemkomponenten generieren.
+Die Installation von Antivirensoftware auf einem RD-Sitzungshost Server wirkt sich stark auf die allgemeine Systemleistung aus, insbesondere auf die CPU Es wird dringend empfohlen, dass Sie aus der Liste der aktiven Überwachungen alle Ordner ausschließen, die temporäre Dateien enthalten, insbesondere diejenigen, die von Diensten und anderen Systemkomponenten generiert werden.
 
 ### <a name="task-scheduler"></a>Aufgabenplanung
 
-Der Aufgabenplanung können Sie die Liste der Aufgaben zu untersuchen, die für verschiedene Ereignisse geplant sind. Bei einem Remotedesktop-Sitzungshost-Server ist es hilfreich, konzentrieren sich speziell auf die Aufgaben, die konfiguriert werden, um auf im Leerlauf ausgeführt, bei der Benutzeranmeldung oder auf die Sitzung eine Verbindung herstellen und trennen. Da die Einzelheiten der Bereitstellung möglicherweise viele dieser Aufgaben nicht erforderlich.
+Mit Taskplaner können Sie die Liste der Aufgaben untersuchen, die für verschiedene Ereignisse geplant sind. Bei einem RD-Sitzungshost Server ist es sinnvoll, sich speziell auf die Aufgaben zu konzentrieren, die für die Unterbrechung im Leerlauf, bei der Benutzeranmeldung oder bei der Verbindung und bei der Verbindung von Sitzungen konfiguriert sind. Aufgrund der Besonderheiten der Bereitstellung sind viele dieser Aufgaben möglicherweise unnötig.
 
-### <a name="desktop-notification-icons"></a>Desktop-Benachrichtigungssymbole
+### <a name="desktop-notification-icons"></a>Desktop Benachrichtigungs Symbole
 
-Symbole für Benachrichtigungen auf dem Desktop können recht teuer aktualisiert Mechanismen verfügen. Deaktivieren Sie alle Benachrichtigungen durch entfernen die Komponente, die sie aus der Startliste registriert oder durch Ändern der Konfiguration für apps und Komponenten, um sie zu deaktivieren. Sie können **Benachrichtigungen Symbole anpassen** untersuchen Sie die Liste der Benachrichtigungen, die auf dem Server verfügbar sind.
+Benachrichtigungs Symbole auf dem Desktop können über Recht teure Aktualisierungs Mechanismen verfügen. Sie sollten alle Benachrichtigungen deaktivieren, indem Sie die Komponente entfernen, von der Sie aus der Startliste registriert werden, oder indem Sie die Konfiguration für apps und Systemkomponenten ändern, um Sie zu deaktivieren. Mithilfe der **Symbole zum Anpassen von Benachrichtigungen** können Sie die Liste der auf dem Server verfügbaren Benachrichtigungen überprüfen.
 
-### <a name="remotefx-data-compression"></a>RemoteFX-datenkomprimierung
+### <a name="remotefx-data-compression"></a>Remotefx-Datenkomprimierung
 
-Microsoft RemoteFX-Komprimierung kann konfiguriert werden, mithilfe der Gruppenrichtlinie unter **Computerkonfiguration &gt; Administrative Vorlagen &gt; Windows-Komponenten &gt; Remote Desktop Services &gt; Remote Remotedesktop-Sitzungshost &gt; Remoteumgebung Sitzung &gt; konfigurieren Sie die Komprimierung für RemoteFX Daten**. Drei Werte sind möglich:
+Microsoft RemoteFX Komprimierung kann mithilfe Gruppenrichtlinie unter **Computer Konfiguration &gt; Administrative Vorlagen &gt; Windows-Komponenten &gt; Remotedesktopdienste &gt; Remotedesktop-Sitzungshost &gt; Remote konfiguriert werden. Sitzungs Umgebung &gt; Konfigurieren Sie die Komprimierung für remotefx-Daten**. Drei Werte sind möglich:
 
--   **Optimierte weniger Arbeitsspeicher beansprucht** nutzt die geringsten Arbeitsspeichermenge pro Sitzung verfügt aber über die niedrigste Komprimierungsverhältnis und aus diesem Grund der höchsten Auslastung der Netzwerkbandbreite.
+-   **Optimiert, um weniger Arbeitsspeicher zu verwenden** Beansprucht die geringste Menge an Arbeitsspeicher pro Sitzung, verfügt aber über das niedrigste Komprimierungs Verhältnis und somit über den höchsten Bandbreitenverbrauch.
 
--   **Lastenausgleich von Arbeitsspeicher und Netzwerkbandbreite** reduzierter bandbreitenauslastung bei unwesentlich erhöht Speicherverbrauch (etwa 200 KB pro Sitzung).
+-   Arbeits **Speicher und Netzwerkbandbreite** Geringere Bandbreitenauslastung bei geringfügig steigender Speicherauslastung (ungefähr 200 KB pro Sitzung).
 
--   **Optimierte mit weniger Netzwerkbandbreite** Netzwerkbandbreiten-Nutzung zu Kosten von ungefähr 2 MB pro Sitzung weiter reduziert. Wenn Sie diese Einstellung verwenden möchten, sollten Sie die maximale Anzahl von Sitzungen zu bewerten und auf dieser Ebene mit dieser Einstellung zu testen, bevor Sie den Server in der Produktion platzieren.
+-   **Optimiert für die Verwendung der geringeren Netzwerkbandbreite** Außerdem wird die Nutzung der Netzwerkbandbreite auf Kosten von ungefähr 2 MB pro Sitzung reduziert. Wenn Sie diese Einstellung verwenden möchten, sollten Sie die maximale Anzahl von Sitzungen bewerten und diese Ebene mit dieser Einstellung testen, bevor Sie den Server in der Produktionsumgebung platzieren.
 
-Sie können auch auswählen, um einen RemoteFX-Komprimierungsalgorithmus nicht zu verwenden. Entscheiden, verwenden einen RemoteFX-Komprimierungsalgorithmus nicht mehr Netzwerkbandbreite verwendet, und es wird nur empfohlen, wenn Sie ein Gerät verwenden, die entwickelt wurde, um den Netzwerkdatenverkehr zu optimieren. Auch wenn Sie nicht mit einer RemoteFX-Komprimierungsalgorithmus, werden einige Grafikdaten komprimiert.
+Sie können auch auswählen, dass kein remotefx-Komprimierungs Algorithmus verwendet werden soll. Wenn Sie keinen remotefx-Komprimierungs Algorithmus verwenden, wird mehr Netzwerkbandbreite verwendet, und es wird nur empfohlen, wenn Sie ein Hardware Gerät verwenden, das zur Optimierung des Netzwerk Datenverkehrs konzipiert ist. Auch wenn Sie keinen remotefx-Komprimierungs Algorithmus verwenden möchten, werden einige Grafikdaten komprimiert.
 
-### <a name="device-redirection"></a>Geräteumleitung
+### <a name="device-redirection"></a>Geräte Umleitung
 
-Geräteumleitung kann konfiguriert werden, indem Sie mithilfe von Gruppenrichtlinien unter **Computerkonfiguration &gt; Administrative Vorlagen &gt; Windows-Komponenten &gt; Remote Desktop Services &gt; Remotedesktop Host für Remotedesktopsitzungen &gt; Geräte- und Ressourcenumleitung** oder mithilfe der **Sitzungssammlung** Eigenschaftenfeld im Server-Manager.
+Die Geräte Umleitung kann mithilfe der Gruppenrichtlinie unter **Computer Konfiguration &gt; Administrative Vorlagen &gt; Windows-Komponenten &gt; Remotedesktopdienste &gt; Remotedesktop-Sitzungshost &gt; Gerät und Ressource konfiguriert werden. Umleitung** oder über das Eigenschaften Feld **Sitzungs Sammlung** in Server-Manager.
 
-Im Allgemeinen steigt die geräteumleitung, wie viel Bandbreite RD Session Host-Server Netzwerkverbindungen verwenden, da Daten ausgetauscht werden, zwischen Geräten, auf den Clientcomputern und Prozesse, die in der serversitzung ausgeführt werden. Das Ausmaß der Erhöhung ist eine Funktion, die Häufigkeit von Vorgängen, die von den Anwendungen ausgeführt werden, die auf dem Server für den umgeleiteten Geräten ausgeführt werden.
+Im allgemeinen erhöht die Geräte Umleitung, wie viel Netzwerkbandbreite RD-Sitzungshost Serververbindungen verwendet werden, da Daten zwischen Geräten auf den Client Computern und Prozessen ausgetauscht werden, die in der Server Sitzung ausgeführt werden. Der Umfang der Erhöhung ist eine Funktion der Häufigkeit von Vorgängen, die von den Anwendungen ausgeführt werden, die auf dem Server gegen die umgeleiteten Geräte ausgeführt werden.
 
-Druckerumleitung und Plug & Play-geräteumleitung steigt auch die CPU-Auslastung während der Anmeldung bei. Sie können Drucker auf zwei Arten umleiten:
+Die Drucker Umleitung und die Plug & Play Geräte Umleitung erhöhen auch die CPU-Auslastung bei der Anmeldung. Drucker können auf zwei Arten umgeleitet werden:
 
--   Übereinstimmende treiberbasiertes druckerumleitung Wenn ein Treiber für den Drucker muss auf dem Server installiert werden. Diese Methode wird von frühere Versionen von Windows Server verwendet.
+-   Übereinstimmende Druckertreiber basierte Umleitung, wenn ein Treiber für den Drucker auf dem Server installiert werden muss. In früheren Versionen von Windows Server wurde diese Methode verwendet.
 
--   In Windows Server 2008 eingeführt wurde, verwendet Easy Print Treiber druckerumleitung einen allgemeinen Druckertreiber für alle Drucker an.
+-   Die in Windows Server 2008 eingeführte einfache Druckertreiber Umleitung verwendet einen allgemeinen Druckertreiber für alle Drucker.
 
-Die Easy Print-Methode wird empfohlen, da er bewirkt, weniger CPU-Nutzung für die Druckerinstallation zur Verbindungszeit erfolgt ist dass. Die entsprechende Methode für den Treiber bewirkt, dass die CPU-Nutzung, da sie erfordert, dass den Spooler-Dienst an andere Treiber zu laden. Bei der bandbreitenverwendung, verursacht Easy Print etwas höhere Netzwerkbandbreiten-Nutzung, aber nicht groß genug ist, um die anderen Vorteile Leistung, Verwaltbarkeit und Zuverlässigkeit versetzt.
+Wir empfehlen die Easy Print-Methode, da Sie zur Verbindungszeit weniger CPU-Auslastung für die Drucker Installation verursacht. Die entsprechende Treiber Methode bewirkt eine Erhöhung der CPU-Auslastung, da der Spoolerdienst verschiedene Treiber laden muss. Für die Bandbreitennutzung verursacht Easy Print eine geringfügige Erhöhung der Netzwerkbandbreite, aber nicht genug, um die sonstigen Vorteile der Leistung, Verwaltbarkeit und Zuverlässigkeit auszugleichen.
 
-Audio-Umleitung wird im Zuge des Netzwerkdatenverkehrs. Audio-Umleitung kann auch Benutzer multimedia-apps ausgeführt werden, die in der Regel die hohe CPU-Auslastung aufweisen.
+Die Audioumleitung bewirkt einen stetigen Stream von Netzwerk Datenverkehr. Mit der Audioumleitung können Benutzer auch Multimediaanwendungen ausführen, die in der Regel einen hohen CPU-Verbrauch aufweisen.
 
-### <a name="client-experience-settings"></a>Clientumgebungseinstellungen
+### <a name="client-experience-settings"></a>Einstellungen für die Client Umgebung
 
-Standardmäßig wählt (Remote Desktop Connection, RDC) automatisch aus der rechten Seite die Einstellung, die abhängig von der Eignung der Netzwerkverbindung zwischen dem Server und Client-Computern benutzerfreundlichkeit. Es wird empfohlen, verbleiben die RDC-Konfiguration zu **Verbindungsqualität automatisch erkennen**.
+Standardmäßig wählt Remotedesktopverbindung (RDC) automatisch die Einstellung für die richtige Umgebung basierend auf der Eignung der Netzwerkverbindung zwischen dem Server und den Client Computern aus. Es wird empfohlen, dass die RDC-Konfiguration bei der **automatischen Erkennung der Verbindungsqualität**beibehalten wird.
 
-Für fortgeschrittene Benutzer bietet RDC Kontrolle über eine Vielzahl von Einstellungen, die die Leistungsfähigkeit der Netzwerkbandbreite für die Remote Desktop Services-Verbindung zu beeinflussen. Sie können die folgenden Einstellungen zugreifen, indem Sie mit der **Erfahrung** Registerkarte in der Remotedesktopverbindung oder als Einstellungen in der RDP-Datei.
+Für fortgeschrittene Benutzer bietet die RDC Kontrolle über eine Reihe von Einstellungen, die die Leistung der Netzwerkbandbreite für die Remotedesktopdienste Verbindung beeinflussen. Sie können auf die folgenden Einstellungen zugreifen, indem Sie **die Registerkarte** "Umgebung" in Remotedesktopverbindung oder als Einstellungen in der RDP-Datei verwenden.
 
-Die folgenden Einstellungen gelten beim Verbinden mit einem beliebigen Computer:
+Beim Herstellen einer Verbindung mit einem beliebigen Computer gelten die folgenden Einstellungen:
 
--   **Deaktivieren von Hintergrundbildern** (Disable Wallpaper: I:0) Desktophintergrund auf dem umgeleiteten Verbindung wird nicht angezeigt werden. Diese Einstellung kann die Auslastung der Netzwerkbandbreite deutlich reduzieren, wenn Desktophintergrund besteht aus einem Image oder andere Inhalte mit erheblichen Kosten für das Zeichnen.
+-   **Hintergrundbild deaktivieren** (Hintergrundbild deaktivieren: i: 0) zeigt keine Desktop-Hintergrundbilder bei umgeleiteten Verbindungen an. Mit dieser Einstellung kann die Bandbreitenauslastung erheblich reduziert werden, wenn das Hintergrundbild des Desktops aus einem Bild oder anderen Inhalten mit erheblichen Kosten für das Zeichnen besteht.
 
--   **Bitmap-Cache** (Bitmapcachepersistenable:i:1), wenn diese Einstellung aktiviert ist, erstellt es einen clientseitigen Cache von Bitmaps, die in der Sitzung gerendert werden. Es bietet eine erhebliche Verbesserung für die Nutzung der Netzwerkbandbreite und immer aktiviert sein (es sei denn, es weitere Überlegungen zur Sicherheit gibt).
+-   **BitmapCache** (bitmapcachepersistenable: i: 1) Wenn diese Einstellung aktiviert ist, erstellt Sie einen Client seitigen Cache von Bitmaps, die in der Sitzung gerendert werden. Dies bietet eine deutliche Verbesserung der Bandbreitennutzung und sollte immer aktiviert sein (es sei denn, es gibt weitere Sicherheitsüberlegungen).
 
--   **Inhalte von Windows beim Ziehen anzeigen** (Deaktivieren der gesamten Fenster ziehen: I:1) Wenn diese Einstellung deaktiviert ist, die Bandbreite reduziert, indem Sie nur den Fensterrahmen, statt den gesamten Inhalt anzeigen, wenn das Fenster gezogen wird.
+-   **Inhalt von Fenstern während des Zieh Vorgangs anzeigen** (Deaktivieren des vollständigen Fenster Zieh Vorgangs: i: 1) Wenn diese Einstellung deaktiviert ist, reduziert Sie die Bandbreite, indem nur der Fensterrahmen anstelle des gesamten Inhalts angezeigt wird, wenn das Fenster gezogen wird.
 
--   **Menü- und Fensteranimation** (deaktivieren Menü Anims:i:1 und Disable Cursor Einstellung: I:1): Wenn diese Einstellungen deaktiviert sind, wird durch das Deaktivieren von Animationen in Menüs (z. B. das Ausblenden von Fenstern) und Cursorn die Bandbreite reduziert.
+-   **Menü-und Fenster Animation** (Menü Animation deaktivieren: i: 1 und Deaktivieren der Cursor Einstellung: i: 1): Wenn diese Einstellungen deaktiviert sind, wird die Bandbreite durch Deaktivieren der Animation in Menüs (z. b. ausblenden) und Cursorn reduziert.
 
--   **Schriftartglättung** (Allow Font smoothing: I:0) Steuerelemente ClearType-Schriftart-Rendering-Unterstützung. Wenn auf Computern mit Windows 8 oder Windows Server 2012 und höher eine Verbindung herstellen, aktivieren oder deaktivieren diese Einstellung einen erheblichen Einfluss auf die Nutzung der Netzwerkbandbreite keinen. Wirkt sich jedoch für Computer, die mit Versionen vor Windows 7 und Windows 2008 R2, die Aktivierung dieser Einstellung Auslastung der Netzwerkbandbreite deutlich.
+-   **Schriftart Glättung** (Schriftart Glättung zulassen: i: 0) steuert die Unterstützung von ClearType-Schriftart Rendering. Beim Herstellen einer Verbindung mit Computern, auf denen Windows 8 oder Windows Server 2012 und höher ausgeführt wird, hat die Aktivierung oder Deaktivierung dieser Einstellung keine erheblichen Auswirkungen auf die Bandbreitennutzung. Bei Computern, auf denen frühere Versionen als Windows 7 und Windows 2008 R2 ausgeführt werden, wirkt sich die Aktivierung dieser Einstellung jedoch erheblich auf die Netzwerkbandbreite aus.
 
-Die folgenden Einstellungen gelten nur beim Verbinden mit Computern unter Windows 7 und früheren Versionen:
+Die folgenden Einstellungen gelten nur beim Herstellen einer Verbindung mit Computern, auf denen Windows 7 und frühere Betriebssystemversionen ausgeführt werden:
 
--   **Desktopgestaltung** mit dieser Einstellung wird nur für eine Remotesitzung zu einem Computer unter Windows 7 oder Windows Server 2008 R2 unterstützt.
+-   **Desktop Komposition** Diese Einstellung wird nur für eine Remote Sitzung auf einen Computer unter Windows 7 oder Windows Server 2008 R2 unterstützt.
 
--   **Visuelle Stile** (Designs: I:1 deaktivieren) Wenn diese Einstellung deaktiviert ist, wird die Bandbreite reduziert durch die Vereinfachung der Design-Zeichnungen, die das Design Classic verwenden.
+-   **Visuelle Stile** (Themen deaktivieren: i: 1) Wenn diese Einstellung deaktiviert ist, wird die Bandbreite durch vereinfachen der Design Zeichnungen, die das klassische Design verwenden, reduziert.
 
-Mithilfe der **Erfahrung** Registerkarte Remote Desktop Connection, können Sie die Geschwindigkeit Ihrer Verbindung, die von Bandbreite netzwerkleistung zu beeinflussen. Die folgende Liste enthält die verfügbaren Optionen zum Konfigurieren der Geschwindigkeit Ihrer Verbindung aus:
+Mithilfe **der Register** Karte "Funktionen" in Remotedesktopverbindung können Sie die Verbindungsgeschwindigkeit auswählen, um die Leistung der Netzwerkbandbreite zu beeinflussen. Im folgenden werden die Optionen aufgelistet, die zum Konfigurieren der Verbindungsgeschwindigkeit verfügbar sind:
 
--   **Verbindungsqualität automatisch erkennen** (Verbindungs-Typ: I:7) Wenn diese Einstellung aktiviert ist, wählt Remote Desktop Connection automatisch Einstellungen, die eine optimale benutzererfahrung basierend auf Verbindungsqualität verursachen. (Diese Konfiguration wird empfohlen, beim Verbinden von Computern mit Windows 8 oder Windows Server 2012 oder höher).
+-   **Automatisches Erkennen der Verbindungsqualität** (Verbindungstyp: i: 7) Wenn diese Einstellung aktiviert ist, wählt Remotedesktopverbindung automatisch Einstellungen aus, die zu einer optimalen Benutzerumgebung basierend auf der Verbindungsqualität führen. (Diese Konfiguration wird empfohlen, wenn Sie eine Verbindung mit Computern mit Windows 8 oder Windows Server 2012 oder höher herstellen.)
 
--   **Modem (56 Kbit/s)** (Verbindungs-Typ: I:1) diese Einstellung ermöglicht das dauerhafte Bitmap Zwischenspeichern.
+-   **Modem (56 Kbit** /s) (Verbindungstyp: i: 1) diese Einstellung aktiviert das persistente Zwischenspeichern der Bitmap.
 
--   **Mit geringer Geschwindigkeit Breitband (256 Kbit/s – 2 Mbit/s)** (Verbindungs-Typ: I:2) mit dieser Einstellung können Sie persistente Bitmap Zwischenspeichern und visuelle Stile.
+-   **Breitband mit niedriger Geschwindigkeit (256 KBit/s-2 Mbit/s)** (Verbindungstyp: i: 2) diese Einstellung aktiviert das persistente Zwischenspeichern und visuelle Stile der Bitmap.
 
--   **Mobilfunk/Satelliten (2 Mbit /, s - 16 MBit/s mit hoher Latenz)** (Verbindungs-Typ: I:3) dieser Einstellung können desktopgestaltung, beständige Bitmap zwischenspeichern, visuelle Stile und desktop-Hintergrund.
+-   **Mobilfunk/Satellit (2 Mbit/s-16 Mbit/s mit hoher Latenz)** (Verbindungstyp: i: 3) diese Einstellung ermöglicht die Desktop Komposition, das persistente Zwischenspeichern von Bitmaps, visuelle Stile und den Desktop Hintergrund.
 
--   **Schnelle Breitband (2 Mbit/s – 10 Mbit/s)** (Verbindungs-Typ: I:4) mit dieser Einstellung können desktop-Komposition, Inhalte von Windows beim Ziehen, Menü- und Fensteranimation, beständige Bitmap zwischenspeichern, visuelle Stile und desktop-Hintergrund anzeigen.
+-   **Hochgeschwindigkeitsbreitband (2 Mbit/s – 10 Mbit/s)** (Verbindungstyp: i: 4) diese Einstellung ermöglicht die Desktop Komposition, das Anzeigen von Fenstern beim ziehen, die Menü-und Fenster Animation, das persistente Zwischenspeichern von bitmappen, visuelle Stile und den Desktop Hintergrund.
 
--   **WAN (10 Mbit/s oder höher mit hoher Latenz)** (Verbindungs-Typ: I:5) mit dieser Einstellung können desktop-Komposition, Inhalte von Windows beim Ziehen, Menü- und Fensteranimation, beständige Bitmap zwischenspeichern, visuelle Stile und desktop-Hintergrund anzeigen.
+-   **WAN (10 Mbit/s oder höher mit hoher Latenz)** (Verbindungstyp: i: 5) diese Einstellung aktiviert die Desktop Komposition, den Inhalt von Fenstern beim ziehen, die Menü-und Fenster Animation, das persistente Zwischenspeichern der Bitmap, visuelle Stile und den Desktop Hintergrund.
 
--   **LAN (10 Mbit/s oder höher)** (Verbindungs-Typ: I:6) mit dieser Einstellung können desktop-Komposition, Inhalte von Windows beim Ziehen, Menü- und Fensteranimation, beständige Bitmap zwischenspeichern, Designs und desktop-Hintergrund anzeigen.
+-   **LAN (10 Mbit/s oder höher)** (Verbindungstyp: i: 6) diese Einstellung aktiviert die Desktop Komposition, den Inhalt von Fenstern beim ziehen, die Menü-und Fenster Animation, das persistente Zwischenspeichern der Bitmap, Designs und den Desktop Hintergrund.
 
-### <a name="desktop-size"></a>Desktop-Größe
+### <a name="desktop-size"></a>Desktop Größe
 
-Desktop-Größe für Remotesitzungen kann mithilfe der Registerkarte "Anzeige" in der Remotedesktopverbindung oder mithilfe der RDP-Konfigurationsdatei (Desktopwidth:i:1152 und Desktopheight:i:864) gesteuert werden. Je größer die desktop-Größe, desto größer der Arbeitsspeicher und Bandbreite Verbrauch, der dieser Sitzung zugeordnet ist. Die aktuelle maximale desktop beträgt 4096 x 2048.
+Die Desktop Größe für Remote Sitzungen kann mithilfe der Registerkarte Anzeigen in Remotedesktopverbindung oder mithilfe der RDP-Konfigurationsdatei (Desktop width: i: 1152 und desktopheight: i: 864) gesteuert werden. Je größer die Größe des Desktops ist, desto größer ist der Arbeitsspeicher und der Bandbreitenverbrauch, der der Sitzung zugeordnet ist. Die aktuelle maximale Desktop Größe beträgt 4096 x 2048.

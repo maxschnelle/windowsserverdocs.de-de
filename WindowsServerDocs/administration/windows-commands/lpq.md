@@ -1,8 +1,8 @@
 ---
 title: lpq
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 18ff1ff3ecbc2df0a437ec8a465dec9a12123ede
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6a3755c010c9bb4549deed08f26b5a0670fe7318
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437508"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374205"
 ---
 # <a name="lpq"></a>lpq
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zeigt den Status einer Druckwarteschlange auf einem Computer unter (LPD Line Printer Daemon).  
+Zeigt den Status einer Druck Warteschlange auf einem Computer an, auf dem der Line Printer Daemon (LPD) ausgeführt wird.  
 
 ## <a name="syntax"></a>Syntax  
 ```  
@@ -34,18 +34,18 @@ lpq -S <ServerName> -P <printerName> [-l]
 
 |    Parameter     |                                                                        Beschreibung                                                                        |
 |------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| -S <ServerName>  | Gibt (nach Name oder IP-Adresse) ein, den Computer oder die Druckerfreigabe Gerät, das die LPD-Druckwarteschlange mit dem Status gehostet wird, die Sie anzeigen möchten. Erforderlich. |
-| -P <printerName> |                           Gibt an, (nach Namen) der Drucker für die Druckwarteschlange mit dem Status, den Sie anzeigen möchten. Erforderlich.                           |
-|        -l        |                                      Gibt an, dass Informationen über den Status der Druckwarteschlange angezeigt werden soll.                                      |
+| -S <ServerName>  | Gibt (anhand des Namens oder der IP-Adresse) das Computer-oder Druckerfreigabe Gerät an, das die LPD-Drucker Warteschlange mit einem Status hostet, den Sie anzeigen möchten. Erforderlich. |
+| -P <printerName> |                           Gibt (nach Name) den Drucker für die Druck Warteschlange mit einem Status an, den Sie anzeigen möchten. Erforderlich.                           |
+|        -l        |                                      Gibt an, dass Details zum Status der Druck Warteschlange angezeigt werden sollen.                                      |
 |        /?        |                                                           Zeigt die Hilfe an der Eingabeaufforderung an.                                                            |
 
 ## <a name="remarks"></a>Hinweise  
-Die **' -s'** und **-P** Parameter wird die Groß-/Kleinschreibung beachtet, und müssen in Großbuchstaben eingegeben werden.  
-## <a name="BKMK_examples"></a>Beispiele für  
-Dieses Beispiel zeigt, wie Sie den Status der Druckwarteschlange Laserprinter1 auf einem Host LPD am 10.0.0.45 anzeigen:  
+Bei den Parametern **-S** und **-P** muss die Groß-/Kleinschreibung beachtet werden, und Sie müssen in Großbuchstaben eingegeben werden.  
+## <a name="BKMK_examples"></a>Beispiele  
+Dieses Beispiel zeigt, wie Sie den Status der Laserprinter1-Drucker Warteschlange auf einem LPD-Host unter 10.0.0.45 anzeigen:  
 ```  
 lpq -S 10.0.0.45 -P Laserprinter1  
 ```  
-#### <a name="additional-references"></a>Zusätzliche Referenzen  
+#### <a name="additional-references"></a>Weitere Verweise  
 [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
-[Druckbefehlsreferenz](print-command-reference.md)  
+[Befehls Verweis drucken](print-command-reference.md)  

@@ -1,7 +1,7 @@
 ---
 title: Konfigurieren der Server Infrastruktur
 description: In diesem Schritt installieren und konfigurieren Sie die serverseitigen Komponenten, die zur Unterstützung des VPN erforderlich sind. Zu den serverseitigen Komponenten gehört das Konfigurieren der PKI für die Verteilung der Zertifikate, die von Benutzern, dem VPN-Server und dem NPS-Server verwendet werden.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: ''
@@ -10,12 +10,12 @@ ms.author: pashort
 author: shortpatti
 ms.date: 08/30/2018
 ms.reviewer: deverette
-ms.openlocfilehash: 260d5c6273d877386dc1cd8833b2f226533127c3
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: c7e2c4172621416048fa9e82bbd12f5b1717d490
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871304"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404298"
 ---
 # <a name="step-2-configure-the-server-infrastructure"></a>Schritt 2 Konfigurieren der Serverinfrastruktur
 
@@ -116,7 +116,7 @@ Da der RRAS-Server keiner Domäne beigetreten ist, kann die automatische Registr
 
     - **Beabsichtigte Zwecke:** Server Authentifizierung, IP-Sicherheits-IKE-zwischen 
 
-    - **Zertifikat Vorlage:** [_Kunde_] VPN-Server
+    - **Zertifikat Vorlage:** [_Customer_] VPN-Server
 
 #### <a name="example-vpngatewayinf-script"></a>Beispiel: Vpngateway. inf-Skript
 

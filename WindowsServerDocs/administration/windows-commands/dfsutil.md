@@ -1,7 +1,7 @@
 ---
-title: dfsutil
+title: Dfsutil
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 45545b4e12d31c293ead5b18b83efd50d7bc37bb
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 1a06806b109bbd324213f935892bbbab415362df
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439652"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377979"
 ---
-# <a name="dfsutil"></a>dfsutil
+# <a name="dfsutil"></a>Dfsutil
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Der Befehl Dfsutil verwaltet die DFS-Namespaces, Servern und Clients. DFSutil-Befehle verwenden die ursprüngliche Distributed File System-Terminologie, mit der geänderten DFS-Namespaces-Terminologie als Erklärung für die meisten Befehle bereitgestellt.
+Der Dfsutil-Befehl verwaltet DFS-Namespaces,-Server und-Clients. Dfsutil-Befehle verwenden die ursprüngliche verteiltes Dateisystem Terminologie, wobei die aktualisierte Terminologie für DFS-Namespaces als Erklärung für die meisten Befehle bereitgestellt wird.
 
-Beispiele wie dieser Befehl verwendet werden kann finden Sie unter 
+Beispiele dazu, wie dieser Befehl verwendet werden kann, finden Sie unter. 
 
 ## <a name="syntax"></a>Syntax
 
@@ -38,34 +38,34 @@ command </parameter> </param2>
 
 |Parameter|Beschreibung|
 |-------|--------|
-|[dfsutil Root](dfsutil-root.md)|Zeigt an, erstellt, entfernt, importiert, exportiert Namespacestämme.|
-|[dfsutil Link](dfsutil-link.md)|Zeigt an, erstellt, entfernt oder Ordner verschoben \(Links\).|
-|[dfsutil Target](dfsutil-target.md)|Angezeigt, und erstellen, entfernen Sie Ordner Ziel oder die Namespace-Server.|
-|[dfsutil Property](dfsutil-property.md)|Zeigt oder ändert einen Ordner Ziel oder die Namespace-Server.|
-|[dfsutil Client](dfsutil-client.md)|Zeigt an, oder ändert Client-Informationen oder der Registrierung Schlüssel.|
-|[dfsutil Server](dfsutil-server.md)|Zeigt oder ändert die Konfiguration von Namespaces.|
-|[dfsutil Diag](dfsutil-diag.md)|Führen Sie die Diagnose oder Anzeigen von Dfsdirs\/Dfspath.|
-|[dfsutil Domain](dfsutil-domain.md)|Zeigt alle in der Domäne\-basierend Namespaces in einer Domäne.|
-|[dfsutil Cache](dfsutil-cache.md)|Zeigt an, oder der Clientcache geleert.|
-|[dfsutil oldcli](dfsutil-oldcli.md)|Verwenden Sie die Dfsutil \/Oldcli Befehl aus, um die ursprüngliche Dfsutil-Syntax verwenden.|
+|[Dfsutil-Stamm](dfsutil-root.md)|Zeigt, erstellt, entfernt, importiert und exportiert Namespace Stämme.|
+|[Dfsutil-Link](dfsutil-link.md)|Zeigt Ordner an, erstellt, entfernt oder verschiebt \(links @ no__t-1.|
+|[Dfsutil-Ziel](dfsutil-target.md)|Zeigt, erstellt oder entfernt den Ordner Ziel-oder Namespace Server.|
+|[Dfsutil (Eigenschaft)](dfsutil-property.md)|Zeigt ein Ordner Ziel oder einen Namespace Server an oder ändert ihn.|
+|[Dfsutil-Client](dfsutil-client.md)|Zeigt Client Informationen oder Registrierungsschlüssel an oder ändert Sie.|
+|[Dfsutil-Server](dfsutil-server.md)|Dient zum Anzeigen oder Ändern der Namespace Konfiguration.|
+|[Dfsutil Diag](dfsutil-diag.md)|Ausführen von Diagnosen oder Anzeigen von dfsdirs @ no__t-0dfspath.|
+|[Dfsutil-Domäne](dfsutil-domain.md)|Zeigt alle Domänen @ no__t-0based-Namespaces in einer Domäne an.|
+|[Dfsutil-Cache](dfsutil-cache.md)|Zeigt den Client Cache an oder leert ihn.|
+|[Dfsutil oldcli](dfsutil-oldcli.md)|Verwenden Sie den Befehl Dfsutil \/oldcli, um die ursprüngliche Dfsutil-Syntax zu verwenden.|
 
-## <a name="remarks-optional-section"></a>"Hinweise" <optional section>
-Wenn Sie angeben, dass ein Objekt \(wie z. B. einen Namespaceserver\) am Ende eines Befehls, werden die meisten Befehle Informationen über das Objekt ohne weitere Parameter oder Befehle angezeigt. Z. B. Wenn Sie die Dfsutil Root-Befehl verwenden zu können, können Sie einen Namespacestamm an den Befehl zum Anzeigen von Informationen über das Stammverzeichnis anfügen.
+## <a name="remarks-optional-section"></a>Hinweise <optional section>
+Wenn Sie ein Objekt \(z. b. einen Namespace Server @ no__t-1 am Ende eines Befehls angeben, werden die meisten Befehle Informationen über das Objekt anzeigen, ohne weitere Parameter oder Befehle zu erfordern. Wenn Sie z. b. den Befehl Dfsutil root verwenden, können Sie einen Namespace Stamm an den Befehl anfügen, um Informationen zum Stamm anzuzeigen.
 
-## <a name="BKMK_Examples"></a>Beispiele für
-&lt;Hier ist, fügen Sie eine ausführliche Beschreibung der Ihres Beispiels hinzu.&gt;
+## <a name="BKMK_Examples"></a>Beispiele
+&lt;hier finden Sie eine ausführliche Beschreibung ihres Beispiels. &gt;
 
 ```
 This /is /the /example /of /calling /command /with /parameters
 ```
 
-&lt;Hier ist, fügen Sie eine ausführliche Beschreibung der ein weiteres Beispiel hinzu.&gt;
+&lt;hier ist der Speicherort, an dem Sie eine ausführliche Beschreibung eines anderen Beispiels einfügen. &gt;
 
 ```
 This /is /a:different /example
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

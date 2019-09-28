@@ -1,9 +1,9 @@
 ---
 title: Übersicht über das Testumgebungsszenario
-description: 'Dieses Thema ist Teil der Testumgebungsanleitung: veranschaulichen von DirectAccess mit OTP-Authentifizierung und RSA SecurID für Windows Server 2016'
+description: 'Dieses Thema ist Teil der Test Umgebungs Anleitung: veranschaulichen von DirectAccess mit OTP-Authentifizierung und RSA SecurID für Windows Server 2016'
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,24 +12,24 @@ ms.topic: article
 ms.assetid: ce584811-b209-48fe-ab2b-4c399bd0bd79
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 944a38438d81bfffcff002336a5eb0427ab9e5ea
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: ba3981c79d1441797f21c8ed8051ace6ac490cab
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283154"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404737"
 ---
 # <a name="overview-of-the-test-lab-scenario"></a>Übersicht über das Testumgebungsszenario
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-RAS ist eine Serverrolle in Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012-Betriebssysteme, die es ermöglicht Remotebenutzern den sicheren internen Zugriff auf Netzwerkressourcen über DirectAccess oder virtuelle Private Netzwerke (VPNs) mit der Routing und RAS-Dienst (RRAS). Diese Anleitung enthält schrittweise Anweisungen zum Erweitern der [Test Lab Guide: Demonstrate DirectAccess Single Server-Setup mit gemischten IPv4 und IPv6-](https://go.microsoft.com/fwlink/p/?LinkId=237004) veranschaulicht eine Konfiguration des Remotezugriffs Einmalkennwort (OTP).  
+Der Remote Zugriff ist eine Server Rolle in den Betriebssystemen Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012, die Remote Benutzern den sicheren Zugriff auf interne Netzwerkressourcen über DirectAccess oder virtuelle private Netzwerke (Virtual Private Networks, VPNs) mit dem RRAS (Routing and Remote Access Service). Diese Anleitung enthält Schritt-für-Schritt-Anweisungen zum Erweitern der Test Umgebungs Anleitung für [: Veranschaulichen der Einrichtung eines einzelnen Servers für DirectAccess mit gemischtem IPv4 und IPv6 @ no__t-0 zur Veranschaulichung einer Konfiguration für das einmalige Anmelden per Remote Zugriff.  
   
 > [!WARNING]  
-> Das Design der vorliegenden testumgebungsanleitung enthält Infrastrukturserver, z. B. einen Domänencontroller und einer Zertifizierungsstelle (CA), die entweder Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 ausgeführt werden. Mit der vorliegenden testumgebungsanleitung Infrastrukturserver zu konfigurieren, auf denen andere Betriebssysteme ausgeführt werden nicht getestet wurde, und Anweisungen zum Konfigurieren von anderen Betriebssystemen sind in dieser Anleitung nicht enthalten.  
+> Der Entwurf dieser Test Umgebungs Anleitung umfasst Infrastruktur Server, z. b. einen Domänen Controller und eine Zertifizierungsstelle (Certification Authority, ca), auf denen entweder Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 ausgeführt wird. Die Verwendung dieser Test Umgebungs Anleitung zum Konfigurieren von Infrastruktur Servern, auf denen andere Betriebssysteme ausgeführt werden, wurde nicht getestet, und Anweisungen zum Konfigurieren anderer Betriebssysteme sind in diesem Handbuch nicht enthalten.  
   
 ## <a name="about-this-guide"></a>Informationen zur Anleitung  
-Remote Access in Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012 fügt Unterstützung für die Clientauthentifizierung mit OTP hinzu. Für die Zwecke dieser testumgebung wird nur RSA SecurID zur Veranschaulichung der OTP-Funktionalität mit dem Remotezugriff verwendet. Andere RADIUS-basierten OTP-Lösungen werden ebenfalls unterstützt, aber nicht Bestandteil dieser testumgebung sind. Diese Anleitung enthält Anweisungen zum Konfigurieren und Veranschaulichen des Remotezugriffs mit sechs Servern und zwei Clientcomputern. Der abgeschlossenen Remotezugriff mit OTP-testumgebung simuliert ein Intranet, im Internet und einem Heimnetzwerk und veranschaulicht die remotezugriffsfunktionalität in verschiedenen internetverbindungsszenarios.  
+Der Remote Zugriff in Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012 bietet Unterstützung für die Client Authentifizierung mit OTP. Im Rahmen dieser Testumgebung wird nur RSA SecurID verwendet, um die OTP-Funktionalität mit Remote Zugriff zu veranschaulichen. Andere auf RADIUS basierende OTP-Lösungen werden ebenfalls unterstützt, sind jedoch außerhalb des Umfangs dieses Testlabors. Diese Anleitung enthält Anweisungen zum Konfigurieren und Veranschaulichen des Remotezugriffs mit sechs Servern und zwei Clientcomputern. Der abgeschlossene Remote Zugriff mit OTP-Test Labor simuliert ein Intranet, das Internet und ein Heimnetzwerk und veranschaulicht die Remote Zugriffs Funktionalität in verschiedenen Internetverbindungs Szenarien.  
   
 > [!IMPORTANT]  
 > Diese Testumgebung ist eine Machbarkeitsstudie mit der minimalen Anzahl an Computern. Die in dieser Anleitung beschriebene Konfiguration ist nur für Testzwecke geeignet und sollte nicht in einer Produktionsumgebung verwendet werden.  

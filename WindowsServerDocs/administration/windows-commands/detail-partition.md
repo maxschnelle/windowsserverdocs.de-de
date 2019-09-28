@@ -1,8 +1,8 @@
 ---
-title: Detail-partition
-description: 'Windows-Befehle Thema ***- '
+title: Detail Partition
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3a955303a5f06c64dcdb64de110686be570ef149
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9ead078217804def619998b1d31e55744f2e1c6b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846641"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378523"
 ---
-# <a name="detail-partition"></a>Detail-partition
+# <a name="detail-partition"></a>Detail Partition
 
 
 
@@ -34,16 +34,16 @@ detail partition
 
 ## <a name="remarks"></a>Hinweise
 
--   Eine Partition muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden. Verwenden der **wählen Partition** Befehl aus, um eine Partition auswählen, und verschiebt den Fokus auf sie.
+-   Eine Partition muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt wird. Wählen Sie mit dem Befehl **Partition auswählen** eine Partition aus, und verschieben Sie den Fokus auf die Partition.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um die Eigenschaften der ausgewählten Partition anzuzeigen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um die Eigenschaften der ausgewählten Partition anzuzeigen:
 ```
 detail partition
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

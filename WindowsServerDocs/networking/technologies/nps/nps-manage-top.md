@@ -1,42 +1,42 @@
 ---
-title: Verwalten des Netzwerkrichtlinienservers (NPS)
-description: Dieses Thema enthält Links zu Verfahren zum Netzwerkrichtlinienserver unter Windows Server 2016, und enthält Links zu weiteren Anleitungen zum NPS.
+title: Netzwerk Richtlinien Server (NPS) verwalten
+description: Dieses Thema enthält Links zu Verwaltungsverfahren für den Netzwerk Richtlinien Server unter Windows Server 2016 und enthält Links zu weiteren Anleitungen zu NPS.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: a275b02c-62b3-4b8a-8417-a710f24bebfe
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 7c255002605ab29a38e7966c15878c2d26fbd8e1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a676a8b27c3f799a4cab275610016bfb311e044d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59823651"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405371"
 ---
-# <a name="manage-network-policy-server-nps"></a>Verwalten des Netzwerkrichtlinienservers (NPS)
+# <a name="manage-network-policy-server-nps"></a>Netzwerk Richtlinien Server (NPS) verwalten
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können in den Themen in diesem Abschnitt verwenden, Network Policy Server verwalten.  
+Mit den Themen in diesem Abschnitt können Sie den Netzwerk Richtlinien Server verwalten.  
   
 >[!NOTE]
->Weitere Dokumentation für Network Policy Server können Sie die folgenden Abschnitte der Bibliothek.  
->- [Erste Schritte mit der Netzwerkrichtlinienserver](nps-getstart-top.md)
->- [Planen des Netzwerkrichtlinienservers](nps-plan-top.md)
->- [Bereitstellen des Netzwerkrichtlinienservers](nps-deploy.md)  
+>Weitere Informationen zur Netzwerk Richtlinien Server-Dokumentation finden Sie in den folgenden Bibliotheks Abschnitten.  
+>- [Ersten Schritte mit dem Netzwerk Richtlinien Server](nps-getstart-top.md)
+>- [Planen des Netzwerk Richtlinien Servers](nps-plan-top.md)
+>- [Netzwerk Richtlinien Server bereitstellen](nps-deploy.md)  
   
 In diesem Abschnitt werden die folgenden Themen behandelt:  
   
-- [NPS-Verwaltungs-Verwaltungsprogramme](nps-admintools.md)
-- [Konfigurieren von Verbindungsanforderungsrichtlinien](nps-crp-configure.md)
+- [Netzwerkrichtlinienserver-Verwaltung mit Verwaltungstools](nps-admintools.md)
+- [Konfigurieren von Verbindungs Anforderungs Richtlinien](nps-crp-configure.md)
 - [Konfigurieren von Firewalls für RADIUS-Datenverkehr](nps-firewalls-configure.md)
-- [Netzwerkrichtlinien konfigurieren](nps-np-configure.md)
-- [Network Policy Server Kontoführung konfigurieren](nps-accounting-configure.md)
-- [Konfigurieren Sie RADIUS-Clients](nps-radius-clients-configure.md)
-- [Konfigurieren von Remote-RADIUS-Servergruppen](nps-crp-rrsg-configure.md)
-- [Verwalten von Zertifikaten mit NPS verwendet](nps-manage-certificates.md)
-- [Verwalten von NPSs](nps-manage-servers.md)
+- [Konfigurieren von Netzwerkrichtlinien](nps-np-configure.md)
+- [Konfigurieren der Netzwerk Richtlinien Server-Kontoführung](nps-accounting-configure.md)
+- [Konfigurieren von RADIUS-Clients](nps-radius-clients-configure.md)
+- [Konfigurieren von Remote-RADIUS-Server Gruppen](nps-crp-rrsg-configure.md)
+- [Verwalten von Zertifikaten, die mit NPS verwendet werden](nps-manage-certificates.md)
+- [Verwalten von Netzwerkrichtlinienservern](nps-manage-servers.md)
 - [Verwalten von NPS-Vorlagen](nps-manage-templates.md)
 

@@ -1,8 +1,8 @@
 ---
-title: Verwalten von-Bde setidentifier
-description: 'Windows-Befehle Thema ***- '
+title: manage-bde-Spezifizierer
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e75483985624e77c5ea454bc3de299c6d0c31035
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 52d7c42e6176f7ea204f5616946197dc71649339
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831101"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373885"
 ---
-# <a name="manage-bde-setidentifier"></a>Verwalten von-Bde: Setidentifier
+# <a name="manage-bde-setidentifier"></a>manage-bde:-Objekt-tifier
 
 
 
-Legt das Bezeichnerfeld Laufwerk auf dem Laufwerk, auf die im angegebenen Wert der **Geben Sie die eindeutigen Bezeichner für Ihre Organisation** gruppenrichtlinieneinstellung. Beispiele wie dieser Befehl verwendet werden kann, finden Sie unter [Beispiele](#BKMK_Examples).
+Legt das Feld Laufwerks-ID auf dem Laufwerk auf den Wert fest, der in der Einstellung **Geben Sie die eindeutigen Bezeichner für Ihre Organisation** Gruppenrichtlinie festgelegt ist. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,21 +36,21 @@ manage-bde –setidentifier <Drive> [-computername <Name>] [{-?|/?}] [{-help|-h}
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<Drive>|Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar.|
-|-computername|Gibt an, dass bde.exe verwendet wird, um die BitLocker-Schutz auf einem anderen Computer zu ändern. Sie können auch **- Cn** als eine verkürzte Version des mit diesem Befehl.|
-|\<Name>|Stellt den Namen des Computers, auf dem BitLocker-Schutz zu ändern. Akzeptierte Werte sind die NetBIOS-Namen des Computers und die IP-Adresse des Computers.|
-|-? oder /?|Zeigt eine kurze Hilfe an der Eingabeaufforderung.|
-|---Help oder-h|Führen Sie zeigt Hilfe an der Eingabeaufforderung ein.|
+|\<laufwerk >|Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar.|
+|-Computername|Gibt an, dass "manage-bde. exe verwendet wird, um den BitLocker-Schutz auf einem anderen Computer zu ändern. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden.|
+|\<Name >|Stellt den Namen des Computers dar, auf dem der BitLocker-Schutz geändert werden soll. Akzeptierte Werte sind der NetBIOS-Name des Computers und die IP-Adresse des Computers.|
+|-? oder /?|Zeigt eine kurze Hilfe an der Eingabeaufforderung an.|
+|-Help oder-h|Zeigt die gesamte Hilfe an der Eingabeaufforderung an.|
 
-## <a name="BKMK_Examples"></a>Beispiele für
+## <a name="BKMK_Examples"></a>Beispiele
 
-Das folgende Beispiel veranschaulicht die Verwendung der **- Setidentifier** Befehl zum Festlegen von Bezeichnerfeld für die BitLocker-Laufwerk für c
+Das folgende Beispiel veranschaulicht die Verwendung des Befehls " **-setidentifier** " zum Festlegen des BitLocker-Laufwerks Bezeichnerfelds für C.
 ```
 manage-bde –setidentifier C:
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
--   [Befehlszeilensyntax](command-line-syntax-key.md)
--   [Verwalten von-bde](manage-bde.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Manage-bde](manage-bde.md)
 -   [Verwenden von Datenwiederherstellungs-Agents mit BitLocker](https://technet.microsoft.com/library/dd875560(WS.10).aspx)

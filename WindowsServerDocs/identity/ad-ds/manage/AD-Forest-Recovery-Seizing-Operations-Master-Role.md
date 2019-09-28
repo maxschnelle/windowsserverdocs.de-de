@@ -1,28 +1,28 @@
 ---
-title: 'AD-Gesamtstruktur-Wiederherstellung: übernehmen eine Rolle des Betriebsschemamasters'
+title: 'AD-Gesamtstruktur Wiederherstellung: Übernahme einer Betriebs Master Rolle'
 description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/09/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.assetid: 7e6bb370-f840-4416-b5e2-86b0ba715f4f
 ms.technology: identity-adds
-ms.openlocfilehash: 1994d49652ee9eb10f6afc73cf5b4630b4718e77
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 672dc119845acbe9cf38f82c793bd377d31db3b2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858461"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390282"
 ---
-# <a name="ad-forest-recovery---seizing-an-operations-master-role"></a>Wiederherstellung der AD-Gesamtstruktur - Übernahme eine Betriebsmasterfunktion  
+# <a name="ad-forest-recovery---seizing-an-operations-master-role"></a>AD-Gesamtstruktur Wiederherstellung: Übernahme einer Betriebs Master Rolle  
 
 >Gilt für: Windows Server 2016, Windows Server 2012 und 2012 R2, Windows Server 2008 und 2008 R2
 
-Verwenden Sie das folgende Verfahren, um eine Betriebsmasterfunktion (auch bekannt als eine flexible single master Operation (FSMO)-Rolle) übernehmen. Sie können Ntdsutil.exe, ein Befehlszeilentool verwenden, die automatisch auf allen Domänencontrollern installiert wird.  
+Mithilfe des folgenden Verfahrens können Sie eine Betriebs Master Rolle (auch als FSMO-Rolle (Flexible Single Master Operations) bezeichnet) übernehmen. Sie können "Ntdsutil. exe" verwenden, ein Befehlszeilen Tool, das automatisch auf allen Domänen Controllern installiert wird.  
   
-## <a name="to-seize-an-operations-master-role"></a>Um eine Betriebsmasterfunktion übernehmen  
+## <a name="to-seize-an-operations-master-role"></a>So übernehmen Sie eine Betriebs Master Rolle  
   
 1. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie die EINGABETASTE:  
 
@@ -30,50 +30,50 @@ Verwenden Sie das folgende Verfahren, um eine Betriebsmasterfunktion (auch bekan
    ntdsutil  
    ```  
 
-2. Auf der **Ntdsutil:** aufgefordert, geben Sie den folgenden Befehl, und drücken Sie dann die EINGABETASTE:  
+2. Geben Sie an der Eingabeaufforderung **Ntdsutil:** den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE:  
 
    ```  
    roles  
    ```  
 
-3. Auf der **FSMO-Wartung:** aufgefordert, geben Sie den folgenden Befehl, und drücken Sie dann die EINGABETASTE:  
+3. Geben Sie den folgenden Befehl an der Eingabeaufforderung für die Verwaltung von **ssmo** ein, und drücken Sie dann die EINGABETASTE:  
 
    ```  
    connections  
    ```  
 
-4. Auf der **serververbindungen:** aufgefordert, geben Sie den folgenden Befehl, und drücken Sie dann die EINGABETASTE:  
+4. Geben Sie an der Eingabeaufforderung " **Serververbindungen:** " den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE:  
 
    ```  
    Connect to server ServerFQDN  
    ```  
 
-   In denen *"ServerFQDN"* ist die vollqualifizierten Domänennamen (FQDN) dieses Domänencontrollers, z. B.: **Verbindung mit Server nycdc01.example.com**.  
+   Dabei ist *ServerFQDN* der voll qualifizierte Domänen Name (Fully Qualified Domain Name, FQDN) dieses Domänen Controllers, z. b.: **Verbinden mit Server nycdc01.example.com**.  
 
-   Wenn *"ServerFQDN"* nicht erfolgreich ist, verwenden Sie den NetBIOS-Namen des Domänencontrollers.  
+   Wenn *ServerFQDN* nicht erfolgreich ist, verwenden Sie den NetBIOS-Namen des Domänen Controllers.  
 
-5. Auf der **serververbindungen:** aufgefordert, geben Sie den folgenden Befehl, und drücken Sie dann die EINGABETASTE:  
+5. Geben Sie an der Eingabeaufforderung " **Serververbindungen:** " den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE:  
 
    ```  
    quit  
    ```  
 
-6. Abhängig von der Rolle, die zu übernehmen, an die **FSMO-Wartung:** Eingabeaufforderung, geben Sie den entsprechenden Befehl aus, wie in der folgenden Tabelle beschrieben und dann die EINGABETASTE drücken.  
+6. Geben Sie in Abhängigkeit von der Rolle, die Sie übernehmen möchten, den entsprechenden Befehl **in der folgenden** Tabelle ein, und drücken Sie dann die EINGABETASTE.  
   
 |Role-Eigenschaft|Anmeldeinformationen|Befehl|  
 |----------|-----------------|-------------|  
-|Domänennamenmaster|Organisations-Admins|**Übernehmen Sie Namensmaster**|  
-|Schemamaster|Schema-Admins|**Übernehmen der Schemamaster**|  
-|Infrastrukturmaster **beachten:**  Nachdem Sie die Infrastrukturmasterrolle, erhalten Fehler später Sie, wenn Sie Adprep/rodcprep ausführen müssen. Weitere Informationen finden Sie im Artikel KB [949257](https://support.microsoft.com/kb/949257).|Domänen-Admins|**Übernehmen Sie die Infrastruktur-master**|  
-|PDC-Emulationsmaster|Domänen-Admins|**Übernehmen Sie die pdc**|  
-|-RID-Master|Domänen-Admins|**Übernehmen Sie die rid-master**|  
+|Domänen Namen Master|Organisations-Admins|**Benennungs Master**|  
+|Schema Master|Schema-Admins|**Schema Master übernehmen**|  
+|Infrastruktur Master **Hinweis:**  Nachdem Sie die Infrastruktur Master Rolle übernommen haben, erhalten Sie möglicherweise später eine Fehlermeldung, wenn Sie adprep/rodcprep. ausführen müssen. Weitere Informationen finden Sie im KB-Artikel [949257](https://support.microsoft.com/kb/949257).|Domänen-Admins|**Infrastruktur Master übernehmen**|  
+|PDC-Emulator-Master|Domänen-Admins|**PDC übernehmen**|  
+|-RID-Master|Domänen-Admins|**RID-Master übernehmen**|  
 
-Nachdem Sie die Anforderung bestätigt haben, versucht, Active Directory oder AD DS die Rolle nicht übertragen. Bei die Übertragung ein Fehler auftritt, einige Fehlerinformationen angezeigt wird, und Active Directory oder AD DS, die mit der Übernahme wird fortgesetzt. Nach der Übernahme abgeschlossen ist, wird eine Liste von Rollen und den Lightweight Directory Access Protocol (LDAP)-Namen des Servers, der derzeit jede Rolle enthält. Sie können auch ausführen **Netdom Query FSMO** eine Eingabeaufforderung mit erhöhten Rechten, um zu überprüfen, ob aktuelle Rolleninhaber.  
+Nachdem Sie die Anforderung bestätigt haben, werden Active Directory oder AD DS versucht, die Rolle zu übertragen. Wenn die Übertragung fehlschlägt, werden einige Fehlerinformationen angezeigt, und Active Directory oder AD DS wird mit der Beschlagnahme fortgesetzt. Nachdem der Vorgang durchgeführt wurde, wird eine Liste der Rollen und der LDAP-Name (Lightweight Directory Access Protocol) des Servers angezeigt, der derzeit die jeweilige Rolle innehat. Sie können **netdom query fsmo** auch an einer Eingabeaufforderung mit erhöhten Rechten ausführen, um die aktuellen Rollen Inhaber zu überprüfen.  
   
 > [!NOTE]
-> Wenn auf diesem Computer keine RID-Master vor Auftreten des Fehlers konnten, und Sie versuchen, übernehmen Sie die RID-Masterrolle, versucht der Computer mit einem Replikationspartner synchronisieren, bevor Sie dieser Rolle zu akzeptieren. Aber da dieser Schritt ausgeführt wird, wenn der Computer isoliert ist, ist es nicht erfolgreich in die Synchronisierung mit einem Partner. Aus diesem Grund wird ein Dialogfeld angezeigt, die fragt, ob Sie den Vorgang trotz dieser Computer nicht die Möglichkeit zum Synchronisieren mit einem Partner fortfahren möchten. Klicken Sie auf **Ja**.  
+> Wenn dieser Computer vor dem Auftreten des Fehlers kein RID-Master war und Sie versuchen, die RID-Master Rolle zu übernehmen, versucht der Computer, eine Synchronisierung mit einem Replikations Partner durchführen, bevor diese Rolle akzeptiert Da dieser Schritt jedoch bei der Isolierung des Computers durchgeführt wird, ist die Synchronisierung mit einem Partner nicht erfolgreich. Daher wird ein Dialogfeld angezeigt, in dem Sie gefragt werden, ob der Vorgang fortgesetzt werden soll, obwohl der Computer nicht mit einem Partner synchronisiert werden kann. Klicken Sie auf **Ja**.  
   
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Für die Wiederherstellung des AD-Gesamtstruktur](AD-Forest-Recovery-Guide.md)
-- [Wiederherstellung der Gesamtstruktur der Active Directory - Prozeduren](AD-Forest-Recovery-Procedures.md)
+- [Wiederherstellung der AD-Gesamtstruktur: Leitfaden](AD-Forest-Recovery-Guide.md)
+- [Wiederherstellung der AD-Gesamtstruktur: Verfahren](AD-Forest-Recovery-Procedures.md)

@@ -1,8 +1,8 @@
 ---
 title: nslookup root
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 47a26be99a5eee510970d3eee6b486331a98b159
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 3eb3375df3a109685fc8dc5d23f0c5008339d09e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436905"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373388"
 ---
 # <a name="nslookup-root"></a>nslookup root
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Ändert den Standardserver an den Server für den Stamm des Domänennamespace Domain Name System (DNS).
+ändert den Standard Server für den Stamm Domain Name System des DNS-Domänen Namen-Speicherplatzes auf den Server.
 ## <a name="syntax"></a>Syntax
 ```
 root 
@@ -33,10 +33,10 @@ root
 
 |    Parameter    |                      Beschreibung                      |
 |-----------------|-------------------------------------------------------|
-| {help &#124; ?} | Zeigt eine kurze Zusammenfassung der **Nslookup** Unterbefehle. |
+| {Help &#124; ?} | Zeigt eine kurze Zusammenfassung der **nslookup** -Unterbefehle an. |
 
 ## <a name="remarks"></a>Hinweise
-- Derzeit wird die Namenserver "NS.NIC.ddn.mil" verwendet. Dieser Befehl ist ein Synonym für Lserver ns.nic.ddn.mil. Sie können den Namen des Servers mit Stamm Ändern der **Satz Stamm** Befehl.
-  ## <a name="additional-references"></a>Zusätzliche Referenzen
-  [Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-  [Nslookup Stamm festlegen](nslookup-set-root.md)
+- Derzeit wird der NS.nic.DDN.mil Nameserver verwendet. Dieser Befehl ist ein Synonym für lserver NS.nic.DDN.mil. Sie können den Namen des Stamm Servers mit dem Befehl " **root festlegen** " ändern.
+  ## <a name="additional-references"></a>Weitere Verweise
+  [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+  [nslookup](nslookup-set-root.md) -Stammgruppe

@@ -1,8 +1,8 @@
 ---
 title: Hilfe
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 078c779e7813d2aa7499e515d9729edf92452237
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: c3d76a71ec287e5c874ae3e4dec34016c5c80336
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438201"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375579"
 ---
 # <a name="help"></a>Hilfe
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zeigt eine Liste der verfügbaren Befehle oder ausführliche Hilfeinformationen für einen angegebenen Befehl.  
+Zeigt eine Liste der verfügbaren Befehle oder ausführliche Hilfe Informationen zu einem angegebenen Befehl an.  
   
   
   
@@ -38,26 +38,26 @@ help [<command>]
   
 | Parameter |                              Beschreibung                              |
 |-----------|-----------------------------------------------------------------------|
-| <command> | Gibt den Startbefehl für die ausführliche Hilfeinformationen anzuzeigen. |
+| <command> | Gibt den Befehl an, für den ausführliche Hilfe Informationen angezeigt werden sollen. |
   
 ## <a name="remarks"></a>Hinweise  
   
--   Wenn kein Befehl angegeben wird, **Hilfe** werden alle möglichen Befehle angezeigt.  
+-   Wenn kein Befehl angegeben wird, werden in der **Hilfe** alle möglichen Befehle angezeigt.  
   
-## <a name="BKMK_examples"></a>Beispiele für  
-Geben Sie zum Anzeigen einer Liste aller Befehle in DiskPart verfügbar:  
+## <a name="BKMK_examples"></a>Beispiele  
+Geben Sie Folgendes ein, um eine Liste aller in DiskPart verfügbaren Befehle anzuzeigen:  
   
 ```  
 help  
 ```  
   
-Zum Anzeigen von ausführlichen Hilfeinformationen zur Verwendung der **erstellen Sie eine primäre Partition** Befehl DiskPart, Typ:  
+Geben Sie Folgendes ein, um ausführliche Hilfe Informationen zur Verwendung des Befehls **create partition primary** in DiskPart anzuzeigen:  
   
 ```  
 help create partition primary  
 ```  
   
-#### <a name="additional-references"></a>Zusätzliche Referenzen  
+#### <a name="additional-references"></a>Weitere Verweise  
 [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
 

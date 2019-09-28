@@ -1,90 +1,90 @@
 ---
-title: Überprüfen der Konfiguration nach der NPS-Änderungen
-description: Sie können in diesem Thema verwenden, um Netzwerkrichtlinienserver für Windows Server 2016-Konfiguration zu überprüfen, nachdem eine IP-Adresse oder den Namen ändern, an den Server.
+title: Überprüfen der Konfiguration nach NPS-Änderungen
+description: Sie können dieses Thema verwenden, um die Konfiguration des Netzwerk Richtlinien Servers von Windows Server 2016 nach einer IP-Adresse oder einer Namensänderung auf dem Server zu überprüfen.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: fc77450e-2af1-47ba-bb23-1fd36d9efdbf
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 144e414e32d413e4863b90ada671753155bc96d7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9ba1f5f494228f6bdba22b300a2336fa6eb37690
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880671"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405359"
 ---
-# <a name="verify-configuration-after-nps-changes"></a>Überprüfen der Konfiguration nach der NPS-Änderungen
+# <a name="verify-configuration-after-nps-changes"></a>Überprüfen der Konfiguration nach NPS-Änderungen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können in diesem Thema verwenden, um NPS-Konfiguration zu überprüfen, nachdem eine IP-Adresse oder den Namen ändern, an den Server.
+Sie können dieses Thema verwenden, um die NPS-Konfiguration nach einer IP-Adresse oder einer Namensänderung auf dem Server zu überprüfen.
 
-## <a name="verify-configuration-after-an-nps-ip-address-change"></a>Überprüfen der Konfiguration nach der eine Änderung der NPS-IP-Adresse
+## <a name="verify-configuration-after-an-nps-ip-address-change"></a>Überprüfen der Konfiguration nach einer NPS-IP-Adressänderung
 
-Es gibt möglicherweise Situationen, in denen Sie so ändern Sie die IP-Adresse eines NPS oder Proxy verwenden, z. B. Wenn Sie den Server mit einem anderen IP-Subnetz verschieben müssen. 
+Es kann Situationen geben, in denen Sie die IP-Adresse eines NPS oder Proxys ändern müssen, z. b. Wenn Sie den Server in ein anderes IP-Subnetz verschieben. 
 
-Wenn Sie eine NPS oder Proxy-IP-Adresse ändern, ist es erforderlich, um Teile der NPS-Bereitstellung neu zu konfigurieren. 
+Wenn Sie eine NPS-oder Proxy-IP-Adresse ändern, müssen Teile der NPS-Bereitstellung neu konfiguriert werden. 
 
-Verwenden Sie die folgenden allgemeinen Richtlinien zur Unterstützung beim sicherstellen, dass eine Änderung der IP-Adresse nicht Netzwerkzugriffsauthentifizierung, Autorisierung und Kontoführung in Ihrem Netzwerk für NPS RADIUS-Server und RADIUS-Proxyserver unterbrochen.
+Verwenden Sie die folgenden allgemeinen Richtlinien, um zu überprüfen, ob eine IP-Adressänderung die Authentifizierung, Autorisierung oder die Kontoführung für Netzwerk Zugriffe in Ihrem Netzwerk für NPS-RADIUS-Server und RADIUS-Proxy Server nicht unterbricht.
 
-Sie müssen ein Mitglied sein **Administratoren**, oder äquivalent, um diese Verfahren ausführen.
+Sie müssen Mitglied der Gruppe " **Administratoren**" oder einer entsprechenden Gruppe sein, um diese Prozeduren ausführen zu können.
 
-### <a name="to-verify-configuration-after-an-nps-ip-address-change"></a>So überprüfen die Konfiguration nach der eine Änderung des NPS IP-Adresse
+### <a name="to-verify-configuration-after-an-nps-ip-address-change"></a>So überprüfen Sie die Konfiguration nach einer NPS-IP-Adressänderung
 
-1. Konfigurieren Sie alle RADIUS-Clients, z. B. drahtlose Zugriffspunkte und VPN-Server, mit der neuen IP-Adresse des NPS.
+1. Konfigurieren Sie alle RADIUS-Clients, z. b. drahtlos Zugriffspunkte und VPN-Server, mit der neuen IP-Adresse des NPS neu.
 
-2. Wenn NPS ein Mitglied einer remote-RADIUS-Servergruppe ist, konfigurieren Sie die NPS-Proxy mit der neuen IP-Adresse des NPS.
+2. Wenn das NPS Mitglied einer RADIUS-Remote Server Gruppe ist, konfigurieren Sie den NPS-Proxy mit der neuen IP-Adresse des NPS neu.
 
-3. Wenn Sie den NPS zur Verwendung von SQL Server-Protokollierung konfiguriert haben, stellen Sie sicher, dass die Konnektivität zwischen dem Computer mit SQL Server und Netzwerkrichtlinienserver weiterhin ordnungsgemäß arbeitet.
+3. Wenn Sie den NPS für die Verwendung SQL Server Protokollierung konfiguriert haben, überprüfen Sie, ob die Konnektivität zwischen dem Computer, auf dem SQL Server und dem NPS ausgeführt wird, weiterhin ordnungsgemäß funktioniert
 
-4. Wenn Sie IPsec zum Sichern von RADIUS-Datenverkehr zwischen den NPS und ein NPS-Proxy oder anderen Servern oder Geräten bereitgestellt haben, konfigurieren Sie die IPsec-Richtlinie oder die Verbindungssicherheitsregel in der Windows-Firewall mit erweiterter Sicherheit so verwenden Sie die neue IP-Adresse des NPS aus.
+4. Wenn Sie IPSec zum Sichern des RADIUS-Datenverkehrs zwischen Ihrem NPS und einem NPS-Proxy oder anderen Servern oder Geräten bereitgestellt haben, konfigurieren Sie die IPSec-Richtlinie oder die Verbindungs Sicherheitsregel in der Windows-Firewall mit erweiterter Sicherheit neu, um die neue IP-Adresse des NPS zu verwenden.
 
-5. Wenn der NPS mehrfach vernetzt ist, und Sie den Server zum Binden an einen bestimmten Netzwerkadapter konfiguriert haben, konfigurieren Sie NPS-Port-Einstellungen mit der neuen IP-Adresse neu.
+5. Wenn der NPS mehrfach vernetzt ist und Sie den Server für die Bindung an einen bestimmten Netzwerkadapter konfiguriert haben, konfigurieren Sie die NPS-Port Einstellungen mit der neuen IP-Adresse neu.
 
-### <a name="to-verify-configuration-after-an-nps-proxy-ip-address-change"></a>So überprüfen die Konfiguration nach einem NPS-Proxy-IP-Adresse ändert
+### <a name="to-verify-configuration-after-an-nps-proxy-ip-address-change"></a>So überprüfen Sie die Konfiguration nach einer Änderung der IP-Adresse für NPS
 
-1. Konfigurieren Sie alle RADIUS-Clients, z. B. drahtlose Zugriffspunkte und VPN-Server, mit der neuen IP-Adresse des NPS-Proxys.
+1. Konfigurieren Sie alle RADIUS-Clients, z. b. drahtlos Zugriffspunkte und VPN-Server, mit der neuen IP-Adresse des NPS-Proxys neu.
 
-2. Wenn der NPS-Proxy mehrfach vernetzt ist, und Sie den Proxy zum Binden an einen bestimmten Netzwerkadapter konfiguriert haben, konfigurieren Sie NPS-Port-Einstellungen mit der neuen IP-Adresse neu.
+2. Wenn der NPS-Proxy mehrfach vernetzt ist und Sie den Proxy für die Bindung an einen bestimmten Netzwerkadapter konfiguriert haben, konfigurieren Sie die NPS-Port Einstellungen mit der neuen IP-Adresse neu.
 
-3. Konfigurieren Sie alle Mitglieder der alle remote-RADIUS-Servergruppen mit IP-Adresse des Proxyservers ein. Zur Ausführung dieser Aufgabe ein, auf jeden NPS, die die NPS-Proxy, der als RADIUS-Client konfiguriert wurde:
+3. Konfigurieren Sie alle Mitglieder aller RADIUS-Remote Server Gruppen mit der Proxy Server-IP-Adresse neu. Um diese Aufgabe durchzuführen, bei jedem NPS, bei dem der NPS-Proxy als RADIUS-Client konfiguriert ist, gilt Folgendes:
 
-    a. Doppelklicken Sie auf **NPS (lokal)**, doppelklicken Sie auf **RADIUS-Clients und Servern**, klicken Sie auf **RADIUS-Clients**, und doppelklicken Sie dann im Detailbereich auf den RADIUS-Client, die Sie ändern möchten.
+    a. Doppelklicken Sie auf **NPS (lokal)** , doppelklicken Sie auf **RADIUS-Clients und-Server**, klicken Sie auf **RADIUS-Clients**, und doppelklicken Sie dann im Detailbereich auf den RADIUS-Client, den Sie ändern möchten.
 
-    b. In der RADIUS-Client **Eigenschaften**im **Adresse \(IP-Adresse oder DNS-\)**, geben Sie die neue IP-Adresse des NPS-Proxys.
+    b. Geben Sie in RADIUS-Client **Eigenschaften**in **Address \(IP oder DNS @ no__t-3**die neue IP-Adresse des NPS-Proxys ein.
 
-4. Wenn Sie die NPS-Proxy zur Verwendung von SQL Server-Protokollierung konfiguriert haben, stellen Sie sicher, dass die Konnektivität zwischen dem Computer mit SQL Server und dem NPS-Proxy weiterhin ordnungsgemäß arbeitet.
+4. Wenn Sie den NPS-Proxy so konfiguriert haben, dass SQL Server Protokollierung verwendet wird, überprüfen Sie, ob die Konnektivität zwischen dem Computer, auf dem SQL Server und dem NPS-Proxy ausgeführt wird,
 
-## <a name="verify-configuration-after-renaming-an-nps"></a>Überprüfen der Konfiguration nach dem Umbenennen einer NPS
+## <a name="verify-configuration-after-renaming-an-nps"></a>Überprüfen der Konfiguration nach dem Umbenennen eines NPS
 
-Wenn Sie zum Ändern des Namens eines NPS oder Proxy verwenden, z. B. Wenn Sie die Benennungskonventionen für Ihre Server Umgestalten müssen möglicherweise Situationen vor.
+Möglicherweise gibt es Situationen, in denen Sie den Namen eines NPS oder Proxys ändern müssen, z. b. Wenn Sie die Benennungs Konventionen für Ihre Server umgestalten.
 
-Wenn Sie einen NPS oder Proxy-Namen ändern, ist es erforderlich, um Teile der NPS-Bereitstellung neu zu konfigurieren. 
+Wenn Sie einen NPS-oder Proxy Namen ändern, müssen Sie Teile der NPS-Bereitstellung neu konfigurieren. 
 
-Verwenden Sie die folgenden allgemeinen Richtlinien zur Unterstützung beim sicherstellen, dass es sich bei eine Änderung des Servernamens Netzwerkzugriffsauthentifizierung, Autorisierung und Kontoführung nicht unterbrochen wird.
+Verwenden Sie die folgenden allgemeinen Richtlinien, um zu überprüfen, ob eine Server Namensänderung die Authentifizierung, Autorisierung oder Kontoführung für den Netzwerk Zugriff nicht unterbricht.
 
-Sie müssen ein Mitglied sein **Administratoren**, oder äquivalent, um dieses Verfahren auszuführen.
+Sie müssen Mitglied der Gruppe " **Administratoren**" oder einer entsprechenden Gruppe sein, um dieses Verfahren ausführen zu können.
 
-### <a name="to-verify-configuration-after-an-nps-or-proxy-name-change"></a>So überprüfen die Konfiguration nach einer Änderung des NPS oder einem Proxyserver
+### <a name="to-verify-configuration-after-an-nps-or-proxy-name-change"></a>So überprüfen Sie die Konfiguration nach einer NPS-oder Proxy Namensänderung
 
-1. Wenn der NPS ein Mitglied einer remote-RADIUS-Servergruppe ist aus, und die Gruppe mit Computernamen anstelle von IP-Adressen konfiguriert ist, konfigurieren Sie die remote-RADIUS-Servergruppe mit dem neuen NPS-Namen.
+1. Wenn das NPS Mitglied einer RADIUS-Remote Server Gruppe ist und die Gruppe mit Computernamen anstelle von IP-Adressen konfiguriert ist, konfigurieren Sie die Remote-RADIUS-Server Gruppe mit dem neuen NPS-Namen neu.
 
-2. Wenn zertifikatbasierte Authentifizierungsmethoden an den NPS bereitgestellt werden, erklärt das Serverzertifikat für die Namensänderung ungültig. Sie können ein neues Zertifikat anfordern, vom Administrator Zertifizierungsstelle (CA) oder, wenn der Computer auf einem Domänenmitgliedscomputer und Zertifikate automatisch registrieren, um Mitglieder der Domäne ist, können Sie mit der Aktualisieren der Gruppenrichtlinie, um ein neues Zertifikat über die automatische Registrierung zu erhalten . So aktualisieren Sie die Gruppenrichtlinie:
+2. Wenn auf dem NPS Zertifikat basierte Authentifizierungsmethoden bereitgestellt werden, wird das Serverzertifikat durch die Namensänderung ungültig. Sie können ein neues Zertifikat von der Zertifizierungsstelle (Certification Authority, ca) anfordern. wenn es sich bei dem Computer um einen Domänen Mitglieds Computer handelt und Sie Zertifikate für Domänen Mitglieder automatisch registrieren, können Sie Gruppenrichtlinie aktualisieren, um ein neues Zertifikat über die automatische Registrierung abzurufen. . So aktualisieren Sie Gruppenrichtlinie:
 
-    a. Öffnen Sie die Befehlszeile oder Windows PowerShell.
+    a. Öffnen Sie die Eingabeaufforderung oder Windows PowerShell.
 
     b. Geben Sie **gpupdate** ein, und drücken Sie dann die EINGABETASTE.
 
 
-3. Nachdem Sie ein neues Serverzertifikat verfügen, fordern Sie, dass der ZS-Administrator das alte Zertifikat widerrufen. 
+3. Wenn Sie über ein neues Serverzertifikat verfügen, fordern Sie an, dass der Zertifizierungsstellen Administrator das alte Zertifikat widerrufen muss. 
 
-     Nachdem das alte Zertifikat widerrufen wurde, weiterhin NPS verwenden, bis das alte Zertifikat läuft ab. Standardmäßig bleibt das alte Zertifikat für einen maximalen Zeitraum von einer Woche 10 Stunden gültig. Dieser Zeitraum möglicherweise variieren, je nachdem, ob der Ablauf des Windows-Verwaltungsinstrumentation (Certificate Revocation List, CRL) und der Ablauf der Zeit des Transport Layer Security (TLS)-Cache die Standardeinstellungen geändert wurden. Der Ablauf des Standard-Zertifikatsperrliste ist eine Woche. Der Standardwert TLS Zwischenspeichern Mal, wenn 10 Stunden wird. 
+     Nachdem das alte Zertifikat widerrufen wurde, wird es von NPS weiterhin verwendet, bis das alte Zertifikat abläuft. Standardmäßig bleibt das alte Zertifikat für eine maximale Zeit von einer Woche bis zu 10 Stunden gültig. Dieser Zeitraum kann je nachdem, ob der Ablauf der Zertifikat Sperr Liste (CRL) und der Timeout für den Transport Layer Security (TLS)-Cache geändert wurde, von den Standardeinstellungen abweichen. Der Standard Ablauf der CRL beträgt eine Woche. der Standardwert für die TLS-Cache Zeit beträgt 10 Stunden. 
 
-     Wenn Sie NPS, um sofort mit der Verwendung des neuen Zertifikats konfigurieren möchten, können jedoch Sie manuell Netzwerkrichtlinien mit dem neuen Zertifikat konfigurieren.
+     Wenn Sie NPS jedoch sofort für die Verwendung des neuen Zertifikats konfigurieren möchten, können Sie Netzwerk Richtlinien mit dem neuen Zertifikat manuell neu konfigurieren.
 
-4. Nachdem das alte Zertifikat abgelaufen ist, beginnt NPS automatisch das neue Zertifikat verwendet. 
+4. Nachdem das alte Zertifikat abgelaufen ist, beginnt NPS automatisch mit der Verwendung des neuen Zertifikats. 
 
-5. Wenn Sie den NPS zur Verwendung von SQL Server-Protokollierung konfiguriert haben, stellen Sie sicher, dass die Konnektivität zwischen dem Computer mit SQL Server und Netzwerkrichtlinienserver weiterhin ordnungsgemäß arbeitet.
+5. Wenn Sie den NPS für die Verwendung SQL Server Protokollierung konfiguriert haben, überprüfen Sie, ob die Konnektivität zwischen dem Computer, auf dem SQL Server und dem NPS ausgeführt wird, weiterhin ordnungsgemäß funktioniert
 

@@ -2,22 +2,22 @@
 title: Festlegen der Zielpriorität zum Überschreiben der Sortiermethode von Verweisen
 description: Dieser Artikel beschreibt die Vorgehensweise beim Festlegen der Zielpriorität, um die Verweisreihenfolge außer Kraft zu setzen
 ms.date: 6/5/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 59db08d5ef46b696f550a5fa0738c5c1f9375fda
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f0a6496802d2be16e84ef62c41fea6f0ae9f6438
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826361"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386120"
 ---
 # <a name="set-target-priority-to-override-referral-ordering"></a>Legen Sie die Zielpriorität zum Überschreiben der Sortiermethode von Verweisen fest
 
-> Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2, WindowsServer 2008
+> Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
 Ein Verweis ist eine sortierte Zielliste, die ein Client-PC von einem Domänencontroller oder Namespaceserver empfängt, wenn der Benutzer auf einen Namespacestamm oder -ordner mit Zielen im Namespace zugreift. Die einzelnen Ziele in einem Verweis werden gemäß der Sortiermethode für den Namespacestamm oder -ordner sortiert. 
 

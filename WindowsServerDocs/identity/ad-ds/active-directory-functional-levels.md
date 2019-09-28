@@ -7,16 +7,16 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 10/29/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.custom: it-pro
 ms.reviewer: maheshu
 ms.technology: identity-adds
-ms.openlocfilehash: c1e2108084b03fabbf7c6a18c2ecbcaf3cbd1dd9
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 7f16d58eb6c5074c75f49ba7936c4d312a3dbda4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868257"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390977"
 ---
 # <a name="forest-and-domain-functional-levels"></a>Gesamtstruktur-und Domänen Funktionsebene
 
@@ -121,7 +121,7 @@ Unterstütztes Betriebs System des Domänen Controllers:
    * Authentifizierung von Authentifizierungsmechanismen, mit der Informationen über den Typ der Anmelde Methode (Smartcard-oder Benutzername/Kennwort) verpackt werden, der zum Authentifizieren von Domänen Benutzern im Kerberos-Token jedes Benutzers verwendet wird. Wenn dieses Feature in einer Netzwerkumgebung aktiviert ist, in der eine Verbund-Identitäts Verwaltungsinfrastruktur (z. b. Active Directory-Verbunddienste (AD FS) (AD FS) bereitgestellt wurde, können die Informationen im Token extrahiert werden, wenn ein Benutzer versucht, auf eine der Ansprüche unterstützende Anwendung, die entwickelt wurde, um die Autorisierung basierend auf der Anmelde Methode eines Benutzers zu bestimmen.
    * Automatische SPN-Verwaltung für Dienste, die auf einem bestimmten Computer im Kontext eines verwalteten Dienst Kontos ausgeführt werden, wenn sich der Name oder der DNS-Hostname des Computer Kontos ändert. Weitere Informationen zu verwalteten Dienst Konten finden Sie unter [schrittweise Anleitung für Dienst Konten](https://go.microsoft.com/fwlink/?LinkId=180401).
 
-## <a name="windows-server-2008"></a>Windows Server 2008
+## <a name="windows-server-2008"></a>WindowsServer 2008
 
 Unterstütztes Betriebs System des Domänen Controllers:
 

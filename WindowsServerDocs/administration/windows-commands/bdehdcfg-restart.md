@@ -1,8 +1,8 @@
 ---
-title: Bdehdcfg-Neustart
-description: Windows-Befehle Thema Bdehdcfg-Neustarts – weist Bdehdcfg an, dass der Computer neu gestartet werden soll, nachdem die laufwerksvorbereitung abgeschlossen wurde.
+title: bdehdcfg-Neustart
+description: 'Windows-Befehls Thema für bdehdcfg-Neustart: weist bdehdcfg darauf hin, dass der Computer nach Abschluss der Laufwerks Vorbereitung neu gestartet werden soll.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0f361db8fdf33bd414556575de75241f7dbd9327
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e6c4e48b051f567c98ea679feaa22f995982a899
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879461"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382212"
 ---
-# <a name="bdehdcfg-restart"></a>Bdehdcfg: neu starten
+# <a name="bdehdcfg-restart"></a>bdehdcfg: neu starten
 
 
 
-Informiert dem Befehlszeilentool "Bdehdcfg", dass der Computer neu gestartet werden soll, nachdem die laufwerksvorbereitung abgeschlossen wurde. Ein Beispiel, wie dieser Befehl verwendet werden kann, finden Sie unter [Beispiele](#BKMK_Examples).
+Informiert das Befehlszeilen Tool bdehdcfg darüber, dass der Computer nach Abschluss der Laufwerks Vorbereitung neu gestartet werden soll. Ein Beispiel für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -34,20 +34,20 @@ bdehdcfg -target {default|unallocated|<DriveLetter> shrink|<DriveLetter> merge} 
 
 ### <a name="parameters"></a>Parameter
 
-Dieser Befehl akzeptiert keine zusätzlichen Parameter.
+Dieser Befehl erfordert keine zusätzlichen Parameter.
 
 ## <a name="remarks"></a>Hinweise
 
-Wenn andere Benutzer auf dem Computer angemeldet sind und die **quiet** Befehl nicht angegeben wird, eine Eingabeaufforderung angezeigt wird, um sicherzustellen, dass der Computer neu gestartet werden soll.
+Wenn andere Benutzer auf dem Computer angemeldet sind und der Befehl **quiet** nicht angegeben ist, wird eine Eingabeaufforderung angezeigt, um zu bestätigen, dass der Computer neu gestartet werden muss.
 
-## <a name="BKMK_Examples"></a>Beispiele für
+## <a name="BKMK_Examples"></a>Beispiele
 
-Das folgende Beispiel veranschaulicht die Verwendung der **Neustart** Befehl.
+Das folgende Beispiel veranschaulicht die Verwendung des Befehls **Restart** .
 ```
 bdehdcfg -target default -restart
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Bdehdcfg](bdehdcfg.md)
