@@ -1,7 +1,7 @@
 ---
 title: Monatliche Delta Update-ISV-Unterstützung ohne WSUS
 description: 'Windows Server Update Service (WSUS)-Thema: wie unabhängige Software Hersteller (ISV) temporär ein monatliches Delta Update anstelle der WSUS Express-Update Bereitstellung verwenden können, um die Paketgröße zu verringern.'
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-wsus
@@ -11,12 +11,12 @@ author: sakitong
 ms.author: coreyp
 manager: dougkim
 ms.date: 10/16/2017
-ms.openlocfilehash: 9077cb87d1d0f6d59ad037c93f5608d3b698feaa
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 4607827d73c34f50f721a2774fa498eb95f9dbb8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868723"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361728"
 ---
 # <a name="monthly-delta-update-isv-support-without-wsus"></a>Monatliche Delta Update-ISV-Unterstützung ohne WSUS
 
@@ -44,7 +44,7 @@ Bei Verwendung des monatlichen Delta Updates enthalten Pakete nur die Updates ei
 |                    | Monatliches **Delta** Update                                                                                                                                                                                                       | Monatliches **Kumulatives** Update                                                                                                                                                                                             |
 |--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Bereich**          | Einzelnes Update mit **nur neuen Korrekturen für diesen Monat**                                                                                                                                                                           | Einzelnes Update mit allen neuen Korrekturen für diesen Monat und alle vorangegangenen Monate                                                                                                                                                   |
-| **Anwendung**    | Kann nur angewendet werden, wenn die Aktualisierung des vorherigen Monats angewendet wurde (kumulativ oder Delta).                                                                                                                                           | Kann jederzeit angewendet werden                                                                                                                                                                                                |
+| **Application**    | Kann nur angewendet werden, wenn die Aktualisierung des vorherigen Monats angewendet wurde (kumulativ oder Delta).                                                                                                                                           | Kann jederzeit angewendet werden                                                                                                                                                                                                |
 | **Liefer**       | Wird **nur in Windows Update Katalog veröffentlicht,** wo Sie für die Verwendung mit anderen Tools oder Prozessen heruntergeladen werden kann. Nicht für PCs angeboten, die mit Windows Update verbunden sind                                                         | Veröffentlicht in Windows Update (wo alle Consumer-PCs installiert werden), WSUS und der Windows Update-Katalog                                                                                                                |
 
 Delta und kumulativ verfügen über die gleiche KB-Nummer, mit derselben Klassifizierung und der Freigabe gleichzeitig. Updates können entweder durch den Update Titel im Katalog oder durch den Namen der MSU unterschieden werden:

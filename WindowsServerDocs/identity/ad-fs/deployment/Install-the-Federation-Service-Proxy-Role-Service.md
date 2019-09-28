@@ -6,50 +6,50 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 6e78c52f1928a3401c0532ab7c25616b012a1d8b
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 1f66e863c28aea7c9214c8363328a103b0a92f06
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192101"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359567"
 ---
 # <a name="install-the-federation-service-proxy-role-service"></a>Installieren des Verbundserverproxy-Rollendiensts
 
-Nachdem Sie einen Computer mit den erforderlichen Anwendungen und die Zertifikate konfigurieren, sind Sie bereit zum Installieren des Verbunddienstproxy-Rollendienst, der Active Directory Federation Services \(AD FS\). Sie können das folgende Verfahren verwenden, den Verbunddienstproxy-Rollendienst installieren. Wenn Sie die Verbunddienstproxy-Rollendienst auf einem Computer installieren, wird dieser Computer einen Verbundserverproxy.  
+Nachdem Sie einen Computer mit den erforderlichen Anwendungen und Zertifikaten konfiguriert haben, können Sie den Verbunddienstproxy-Rollen Dienst Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1 installieren. Mit dem folgenden Verfahren können Sie den Verbunddienstproxy-Rollen Dienst installieren. Wenn Sie den Verbunddienstproxy-Rollen Dienst auf einem Computer installieren, wird dieser Computer zu einem Verbund Server Proxy.  
   
-Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Weitere Informationen zur Verwendung der geeigneten Konten und Gruppenmitgliedschaften unter [lokale und Domänenstandardgruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
-### <a name="to-install-the-federation-service-proxy-role-service-using-the-server-manager"></a>So installieren Sie die Verbunddienstproxy-Rollendienst, der mit dem Server-Manager
+### <a name="to-install-the-federation-service-proxy-role-service-using-the-server-manager"></a>So installieren Sie den Verbunddienstproxy-Rollen Dienst mithilfe der Server-Manager
   
-1.  Auf der **starten** geben**Server-Manager**, und drücken Sie dann die EINGABETASTE.  
+1.  Geben Sie auf dem **Start** Bildschirm**Server-Manager**ein, und drücken Sie dann die EINGABETASTE.  
   
-2.  Klicken Sie auf **verwalten**, und klicken Sie dann auf **Hinzufügen von Rollen und Features** zum Hinzufügen von Rollen und Features-Assistenten zu starten.  
+2.  Klicken Sie auf **Verwalten**und dann auf **Rollen und Features hinzufügen** , um den Assistenten zum Hinzufügen von Rollen und Features zu starten.  
   
 3.  Klicken Sie auf der Seite **Vorbereitung** auf **Weiter**.  
   
-4.  Auf der **Installationstyp** auf **Rolle\-oder featurebasierte\-basierten Installation**, und klicken Sie auf **Weiter**.  
+4.  Klicken Sie auf der Seite **Installationstyp auswählen** auf **Rolle @ no__t-2based oder Feature @ no__t-3based Installation**, und klicken Sie auf **weiter**.  
   
-5.  Auf der **Zielserver auswählen** auf **wählen Sie einen Server aus dem Serverpool**, stellen Sie sicher, dass der Zielcomputer wird hervorgehoben, und klicken Sie dann auf **Weiter**.  
+5.  Klicken Sie auf der Seite **Zielserver auswählen** auf **einen Server aus dem Server Pool auswählen**, überprüfen Sie, ob der Zielcomputer hervorgehoben ist, und klicken Sie dann auf **weiter**.  
   
-6.  Auf der **Serverrollen auswählen** auf **RAS**, und klicken Sie dann auf Weiter.  
+6.  Klicken Sie auf der Seite **Server Rollen auswählen** auf **Remote Zugriff**, und klicken Sie dann auf Weiter.  
   
     > [!NOTE]  
-    > Wenn Sie aufgefordert werden, zusätzliche .NET Framework- oder Windows Process Activation Service-Funktionen zu installieren, klicken Sie auf **Features hinzufügen** , diese zu installieren.  
+    > Wenn Sie aufgefordert werden, zusätzliche .NET Framework-oder Windows Process Activation Service-Features zu installieren, klicken Sie auf **Features hinzufügen** , um Sie zu installieren.  
   
-7. Auf der **Rollendienste auswählen** Seite die **Federation Service Proxy** , und klicken Sie dann auf **Weiter**.  
+7. Aktivieren Sie auf der Seite **Rollen Dienste auswählen** das Kontrollkästchen **Verbunddienstproxy** , und klicken Sie dann auf **weiter**.  
 
 8. Nachdem Sie die Informationen auf der Seite **Installationsauswahl bestätigen** überprüft haben, aktivieren Sie das Kontrollkästchen **Zielserver bei Bedarf automatisch neu starten** , und klicken Sie dann auf **Installieren**.  
   
 13. Überprüfen Sie auf der Seite **Installationsfortschritt** , ob alles ordnungsgemäß installiert wurden, und klicken Sie dann auf **Schließen**.  
 
-### <a name="to-install-the-federation-service-proxy-role-service-using-powershell"></a>So installieren Sie die Verbunddienstproxy-Rollendienst, der mithilfe von PowerShell
+### <a name="to-install-the-federation-service-proxy-role-service-using-powershell"></a>So installieren Sie den Verbunddienstproxy-Rollen Dienst mithilfe von PowerShell
 
-1. Öffnen Sie Windows PowerShell (als Administrator ausführen)
+1. Öffnen Sie Windows PowerShell (als Administrator ausführen).
 
-2. Geben Sie den folgenden Befehl und drücken Sie **EINGABETASTE**:
+2. Geben Sie den folgenden Befehl ein, und drücken **Sie Eingabe**:
 
         Install-WindowsFeature Web-Application-Proxy -IncludeManagementTools
 

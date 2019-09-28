@@ -1,7 +1,7 @@
 ---
 ms.assetid: d2429185-9720-4a04-ad94-e89a9350cdba
 title: Bereitstellen von Arbeitsordnern
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-work-folders
 ms.topic: article
 author: JasonGerend
@@ -9,12 +9,12 @@ manager: dongill
 ms.author: jgerend
 ms.date: 6/24/2017
 description: Arbeitsordner bereitstellen, einschließlich der Installation der Serverrolle, der Erstellung von Synchronisierungsfreigaben und von DNS-Einträgen.
-ms.openlocfilehash: 45b25befcde328e38f694b64fa7536a2b5c7f232
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 7fe39ded6d262d9310bce30239345a9f42e43c04
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867027"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365859"
 ---
 # <a name="deploying-work-folders"></a>Bereitstellen von Arbeitsordnern
 
@@ -26,14 +26,14 @@ In diesem Thema werden die erforderlichen Schritte zum Implementieren von Arbeit
   
 > [!TIP]
 >  Die einfachste Arbeitsordnerbereitstellung ist ein einzelner Dateiserver (oft als Synchronisierungsserver bezeichnet) ohne Unterstützung der Synchronisierung über das Internet, die eine hilfreiche Bereitstellung für eine Testumgebung oder als Synchronisierungslösung für Clientcomputer sein kann, die der Domäne beigetreten sind. Zum Erstellen einer einfachen Bereitstellung müssen mindestens die folgenden Schritte ausgeführt werden: 
->  -   Schritt 1: Abrufen von SSL-Zertifikaten  
+>  -   Schritt 1: Abrufen von SSL-Zertifikaten  
 >  -   Schritt 2: Erstellen von DNS-Einträgen 
 >  -   Schritt 3: Installieren von Arbeitsordnern auf Dateiservern  
 >  -   Schritt 4: Binden des SSL-Zertifikats auf den Synchronisierungsservern
->  -   Schritt 5: Erstellen von Sicherheitsgruppen für Arbeitsordner  
->  -   Schritt 7: Erstellen von Synchronisierungsfreigaben für Benutzerdaten  
+>  -   Schritt 5: Erstellen von Sicherheitsgruppen für Arbeitsordner  
+>  -   Schritt 7: Erstellen von Synchronisierungsfreigaben für Benutzerdaten  
   
-## <a name="step-1-obtain-ssl-certificates"></a>Schritt 1: Abrufen von SSL-Zertifikaten  
+## <a name="step-1-obtain-ssl-certificates"></a>Schritt 1: Abrufen von SSL-Zertifikaten  
  Die Arbeitsordner verwenden HTTPS, um Dateien zwischen den Arbeitsordner-Clients und den Arbeitsordner-Servern sicher zu synchronisieren. Für die von Arbeitsordnern verwendeten SSL-Zertifikate gelten die folgenden Anforderungen:  
   
 - Das Zertifikat muss von einer vertrauenswürdigen Stammzertifizierungsstelle ausgestellt sein. Für die meisten Arbeitsordnerimplementierungen wird eine öffentlich vertrauenswürdige Zertifizierungsstelle (ZS) empfohlen, da Zertifikate von internetbasierten Geräten verwendet werden, die keiner Domäne angehören.  
@@ -89,7 +89,7 @@ Add-WindowsFeature FS-SyncShareService
     netsh http add sslcert ipport=<IP address>:443 certhash=<Cert thumbprint> appid={CE66697B-3AA0-49D1-BDBD-A25C8359FD5D} certstorename=MY
     ```
 
-## <a name="step-5-create-security-groups-for-work-folders"></a>Schritt 5: Erstellen von Sicherheitsgruppen für Arbeitsordner
+## <a name="step-5-create-security-groups-for-work-folders"></a>Schritt 5: Erstellen von Sicherheitsgruppen für Arbeitsordner
  Bevor Synchronisierungsfreigaben erstellt werden, muss ein Mitglied der Gruppe "Domänen-Admins" oder "Organisations-Admins" einige Sicherheitsgruppen in den Active Directory Domain Services (AD DS) für Arbeitsordner erstellen (es können auch wie in Schritt 6 beschrieben Objektverwaltungsaufgaben zugewiesen werden). Die folgenden Gruppen sind erforderlich:
 
 - Eine Gruppe pro Synchronisierungsfreigabe, um die zum Synchronisieren mit der Synchronisierungsfreigabe berechtigten Benutzer anzugeben
@@ -130,7 +130,7 @@ New-ADGroup -GroupCategory:"Security" -GroupScope:"Global" -Name:$GroupName -Pat
 Set-ADGroup -Add:@{'Member'=$Members} -Identity:$GroupName -Server:$DC
 ```
 
-## <a name="step-6-optionally-delegate-user-attribute-control-to-work-folders-administrators"></a>Schritt 6: Zuweisen der Objektverwaltung für Benutzerattribute zu Arbeitsordneradministratoren (optional)  
+## <a name="step-6-optionally-delegate-user-attribute-control-to-work-folders-administrators"></a>Schritt 6: Zuweisen der Objektverwaltung für Benutzerattribute zu Arbeitsordneradministratoren (optional)  
  Wenn Sie mehrere Synchronisierungsserver bereitstellen und Benutzer automatisch an den richtigen Synchronisierungsserver weiterleiten möchten, müssen Sie ein Attribut in jedem Benutzerkonto in AD DS aktualisieren. Normalerweise erfordert dies jedoch, dass ein Mitglied der Gruppe %%amp;quot;Domänen-Admins%%amp;quot; oder %%amp;quot;Organisations-Admins%%amp;quot; die Attribute aktualisiert, was schnell lästig werden kann, wenn häufig Benutzer hinzugefügt oder zwischen Synchronisierungsservern verschoben werden müssen.  
   
  Aus diesem Grund kann ein Mitglied der Gruppe %%amp;quot;Domänen-Admins%%amp;quot; oder %%amp;quot;Organisations-Admins%%amp;quot; die Fähigkeit zum Ändern der msDS-SyncServerURL-Eigenschaft von Benutzerobjekten wie im folgenden Verfahren beschrieben der Gruppe %%amp;quot;Arbeitsordneradministratoren%%amp;quot; zuweisen, die Sie in Schritt 5 erstellt haben.  
@@ -163,7 +163,7 @@ DsAcls $ADGroupPath /I:S /G ""$GroupName":RPWP;msDS-SyncServerUrl;user"
 > [!NOTE]
 >  In Domänen mit vielen Benutzern kann die Zuweisung etwas Zeit in Anspruch nehmen.  
   
-## <a name="step-7-create-sync-shares-for-user-data"></a>Schritt 7: Erstellen von Synchronisierungsfreigaben für Benutzerdaten  
+## <a name="step-7-create-sync-shares-for-user-data"></a>Schritt 7: Erstellen von Synchronisierungsfreigaben für Benutzerdaten  
  Jetzt können Sie einen Ordner auf dem Synchronisierungsserver angeben, in dem die Dateien der Benutzer gespeichert werden sollen. Dieser Ordner wird als Synchronisierungsfreigabe bezeichnet und kann anhand des folgenden Verfahrens erstellt werden.  
   
 1. Wenn Sie noch nicht über ein NTFS-Volume mit freiem Speicherplatz für die Synchronisierungsfreigabe und die darin enthaltenen Benutzerdateien verfügen, erstellen Sie ein neues Volume, das Sie mit dem NTFS-Dateisystem formatieren.  
@@ -225,7 +225,7 @@ Im folgenden Beispiel wird eine neue Synchronisierungsfreigabe namens *Share01* 
   
      Benutzer von Arbeitsordnern können über einen Link in der Arbeitsordnersystemsteuerung eine E-Mail mit Diagnoseinformationen zum Clientcomputer an die hier angegebenen Adressen senden.  
   
-## <a name="step-9-optionally-set-up-server-automatic-discovery"></a>Schritt 9: Einrichten der automatischen Serverermittlung (optional)  
+## <a name="step-9-optionally-set-up-server-automatic-discovery"></a>Schritt 9: Einrichten der automatischen Serverermittlung (optional)  
  Wenn Sie in Ihrer Umgebung mehrere Synchronisierungsserver hosten, sollten Sie die automatische Serverermittlung konfigurieren, indem Sie die **msDS-SyncServerURL**-Eigenschaft in Benutzerkonten in AD DS auffüllen.  
   
 >[!NOTE]

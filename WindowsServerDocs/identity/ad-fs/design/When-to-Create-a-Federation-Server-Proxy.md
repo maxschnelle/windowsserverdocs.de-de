@@ -7,33 +7,33 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b41c2194940c85e39e5a3724f747dd12c2544259
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: f3325efe7acf8b0b0469489e8d9a42614a5af54a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190643"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358849"
 ---
 # <a name="when-to-create-a-federation-server-proxy"></a>Wann sollte ein Verbundserverproxy erstellt werden?
 
-Erstellen einen Verbundserverproxy in Ihrer Organisation Ihre Active Directory Federation Services zusätzliche Sicherheitsstufen hinzugefügt \(AD FS\) Bereitstellung. Erwägen Sie einen Verbundserverproxy im Umkreisnetzwerk Ihrer Organisation bereitzustellen, wenn Sie möchten:  
+Beim Erstellen eines Verbund Server Proxys in Ihrer Organisation werden Ihrer Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1-Bereitstellung zusätzliche Sicherheitsebenen hinzugefügt. Sie sollten einen Verbund Server Proxy im Umkreis Netzwerk Ihrer Organisation bereitstellen, wenn Sie Folgendes tun möchten:  
   
--   Verhindern Sie, dass externe Clientcomputer direkten Zugriff auf Ihre Verbundserver. Durch Bereitstellen eines Verbundserverproxys in Ihrem Umkreisnetzwerk isolieren Sie effektiv Ihre Verbundserver, damit sie nur von den Clientcomputern zugegriffen werden kann, die mit dem Unternehmensnetzwerk über Verbundserverproxys protokolliert werden, denen handeln von der externen Clientcomputer. Verbundserverproxys können nicht auf die privaten Schlüssel zugreifen, die verwendet werden, um Token zu erzeugen. Weitere Informationen finden Sie unter [Where to Place a Federation Server Proxy](Where-to-Place-a-Federation-Server-Proxy.md).  
+-   Verhindern, dass externe Client Computer direkt auf Ihre Verbund Server zugreifen. Durch die Bereitstellung eines Verbund Server Proxys in Ihrem Umkreis Netzwerk isolieren Sie effektiv Ihre Verbund Server so, dass nur Client Computer, die über Verbund Server Proxys im Unternehmensnetzwerk angemeldet sind, auf Sie zugreifen können. der externen Client Computer. Verbundserverproxys können nicht auf die privaten Schlüssel zugreifen, die verwendet werden, um Token zu erzeugen. Weitere Informationen finden Sie unter [Where to Place a Federation Server Proxy](Where-to-Place-a-Federation-Server-Proxy.md).  
   
--   Geben Sie eine einfache Möglichkeit, die die Vorzeichen unterscheiden\-Erfahrung für Benutzer, die aus dem Internet im Gegensatz zu Benutzern, die von Ihrem Unternehmensnetzwerk stammen, über die integrierte Windows-Authentifizierung zu kommen. Ein Verbundserverproxys sammelt Anmeldeinformationen oder startbereichdetails von internetclientcomputern, mithilfe der Anmeldung, Abmeldung und Ermittlung von Anbietern \(homerealmdiscovery.aspx\) Seiten, die auf den Verbund gespeichert sind Server-Proxy.  
+-   Stellen Sie eine bequeme Möglichkeit dar, das Vorzeichen @ no__t-0in der Benutzer Darstellung für Benutzer zu unterscheiden, die aus dem Internet stammen, und nicht für Benutzer, die über die integrierte Windows-Authentifizierung aus Ihrem Unternehmensnetzwerk kommen. Ein Verbund Server Proxy sammelt Anmelde Informationen oder Startbereichs Details von Internet Client Computern mithilfe der auf dem Verbund Server Proxy gespeicherten Seiten für Anmeldung, Abmeldung und Identitäts Anbieter Ermittlung @no__t -0homerealmdiscovery. aspx @ no__t-1.  
   
-    Im Gegensatz dazu-Clientcomputern, die aus dem Unternehmensnetzwerk auftreten eine andere benutzererfahrung bereitstellt, auf Basis der Konfiguration des Verbundservers. Der Unternehmensnetzwerk-Verbundserver ist häufig für die integrierte Windows-Authentifizierung, bietet eine nahtlose Anmeldung konfiguriert\-Erfahrung für Benutzer mit dem Unternehmensnetzwerk verbunden.  
+    Im Gegensatz dazu stoßen Client Computer, die aus dem Unternehmensnetzwerk stammen, basierend auf der Konfiguration des Verbund Servers auf eine andere Art. Der Verbund Server des Unternehmensnetzwerks ist häufig für die integrierte Windows-Authentifizierung konfiguriert, die für Benutzer im Unternehmensnetzwerk ein nahtloses Signieren von @ no__t-0 bietet.  
   
-Die Rolle, die ein Verbundserverproxy in Ihrer Organisation spielt, hängt davon ab, ob Sie Verbundserverproxys in der Kontopartnerorganisation oder in der Ressourcenpartnerorganisation platzieren. Z. B. wenn ein Verbundserverproxy im Umkreisnetzwerk des Kontopartners platziert wird, werden seine Rolle die Benutzeranmeldeinformationen von Browserclients zu erfassen. Wenn ein Verbundserverproxy im Umkreisnetzwerk des Ressourcenpartners platziert wird, überträgt Sie Sicherheitstoken Anforderungen an einen Ressourcenverbundserver und erzeugt organisatorische Sicherheitstoken in Reaktion auf die Sicherheitstoken, die von bereitgestellt werden die Kontopartner.  
+Die Rolle, die ein Verbund Server Proxy in Ihrer Organisation spielt, hängt davon ab, ob Sie den Verbund Server Proxy in der Konto Partnerorganisation oder in der Ressourcen Partnerorganisation platzieren. Wenn ein Verbund Server Proxy z. b. im Umkreis Netzwerk des Konto Partners platziert wird, besteht seine Rolle darin, die Benutzer Anmelde Informationen von Browser Clients zu erfassen. Wenn ein Verbund Server Proxy im Umkreis Netzwerk des Ressourcen Partners platziert wird, leitet er Sicherheitstokenanforderungen an einen Ressourcen Verbund Server weiter und erstellt Sicherheits Token als Reaktion auf die Sicherheits Token, die von seinem Konto Partner.  
   
 Weitere Informationen finden Sie unter [Überprüfen der Rolle des Verbundserverproxys beim Kontopartner](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Account-Partner.md) und [Überprüfen der Rolle des Verbundserverproxys beim Ressourcenpartner](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Resource-Partner.md).  
   
 ## <a name="how-to-create-a-federation-server-proxy"></a>Erstellen eines Verbundserverproxys  
-Sie können einen Verbundserverproxy mithilfe des AD FS Federation Server Proxy-Assistenten oder den Befehl Fsconfig.exe erstellen\-Tools "Linie". Anleitungen hierzu finden Sie unter [Konfigurieren eines Computers für die Verbundserverproxy-Rolle](../../ad-fs/deployment/Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md).  
+Sie können einen Verbund Server Proxy erstellen, indem Sie entweder den Assistenten AD FS zum Konfigurieren von Verbund Server Proxys oder den Befehl "fsconfig. exe" @ no__t-0line verwenden. Anleitungen hierzu finden Sie unter [Konfigurieren eines Computers für die Verbundserverproxy-Rolle](../../ad-fs/deployment/Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md).  
   
-Allgemeine Informationen zum Einrichten der erforderlichen Komponenten zum Bereitstellen eines Verbundserverproxys erforderlich sind, finden Sie unter [Prüfliste: Das Einrichten eines Verbundserverproxys](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server-Proxy.md).  
+Allgemeine Informationen zum Einrichten der erforderlichen Voraussetzungen für die Bereitstellung eines Verbund Server Proxys finden Sie unter [checkliste: Einrichten eines Verbund Server Proxys @ no__t-0.  
   
 ## <a name="see-also"></a>Siehe auch
 [AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

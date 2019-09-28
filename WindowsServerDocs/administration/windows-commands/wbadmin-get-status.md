@@ -1,8 +1,8 @@
 ---
-title: wbadmin get status
-description: 'Windows-Befehle Thema ***- '
+title: Wbadmin-Status "Get"
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 35fd640aa56bca7c5f5d6f3901fe095d0b8a73cc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0270a29e557ec135301753dd66c1f5f2404a8acc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863411"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362387"
 ---
-# <a name="wbadmin-get-status"></a>wbadmin get status
+# <a name="wbadmin-get-status"></a>Wbadmin-Status "Get"
 
 
 
-Meldet den Status des Vorgangs sichern oder wiederherstellen, die derzeit ausgeführt wird.
+Meldet den Status des Sicherungs-oder Wiederherstellungs Vorgangs, der derzeit ausgeführt wird.
 
-Um dieses Unterbefehl verwenden zu können, muss Sie Mitglied der **Sicherungs-Operatoren** Gruppe oder der **Administratoren** Gruppe, oder Sie wurde die entsprechenden Berechtigungen delegiert. Darüber hinaus müssen Sie ausführen **Wbadmin** eine Eingabeaufforderung mit erhöhten Rechten. (Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten mit der rechten Maustaste **Eingabeaufforderung**, und klicken Sie dann auf **als Administrator ausführen**.)
+Um diesen Unterbefehl verwenden zu können, müssen Sie Mitglied der Gruppe " **Sicherungs-Operatoren** " oder " **Administratoren** " sein, oder die entsprechenden Berechtigungen müssen an Sie delegiert worden sein. Außerdem müssen Sie **Wbadmin** über eine Eingabeaufforderung mit erhöhten Rechten ausführen. (Klicken Sie zum Öffnen einer Eingabeaufforderung mit erhöhten Rechten mit der rechten Maustaste auf **Eingabeaufforderung**, und klicken Sie dann auf **als Administrator ausführen**.)
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,15 +36,15 @@ wbadmin get status
 
 ## <a name="parameters"></a>Parameter
 
-Dieses Unterbefehl hat keine Parameter.
+Dieser Unterbefehl weist keine Parameter auf.
 
 ## <a name="remarks"></a>Hinweise
 
--   Dieses Unterbefehl wird nicht beendet, bis die aktuelle Sicherung oder Wiederherstellung abgeschlossen ist, der Unterbefehl wird weiterhin ausgeführt, auch wenn Sie das Befehlsfenster schließen.
--   Wenn Sie die aktuelle Sicherung oder Wiederherstellung beenden möchten, verwenden Sie die **Auftrag zum Beenden des Wbadmin** Unterbefehl.
+-   Dieser Unterbefehl wird erst beendet, wenn der aktuelle Sicherungs-oder Wiederherstellungs Vorgang abgeschlossen ist – der Unterbefehl wird weiterhin ausgeführt, auch wenn Sie das Befehlsfenster schließen.
+-   Wenn Sie den aktuellen Sicherungs-oder Wiederherstellungs Vorgang abbrechen möchten, verwenden Sie den Unterbefehl zum Abbrechen des Auftrags unter " **Wbadmin** ".
 
 #### <a name="additional-references"></a>Weitere Verweise
 
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
--   [Get-WBJob](https://technet.microsoft.com/library/jj902426.aspx) cmdlet
+-   [Get-wbjob](https://technet.microsoft.com/library/jj902426.aspx) -Cmdlet

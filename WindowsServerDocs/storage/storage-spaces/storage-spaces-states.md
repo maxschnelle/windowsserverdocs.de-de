@@ -1,46 +1,46 @@
 ---
-title: "\"Direkte Speicherplätze\" Integrität des Netzwerkspeichers und Betriebszustände"
-description: Informationen zum Suchen und zu verstehen, die anderen integritätsprüfung und Betriebszustände von "direkte Speicherplätze" und Speicherplätze (einschließlich der physischen Datenträger, Pools und virtuelle Datenträger), und was für sie ausführen möchten.
-keywords: Speicherplätze getrennt, virtuellen Datenträger, physischer Datenträger beeinträchtigt.
+title: Integritäts-und Betriebsstatus direkte Speicherplätze
+description: Erfahren Sie, wie Sie die verschiedenen Integritäts-und Betriebszustände von direkte Speicherplätze und Speicherplätzen (einschließlich physischer Datenträger, Pools und virtueller Datenträger) finden und verstehen können.
+keywords: Speicherplätze, getrennt, virtueller Datenträger, physischer Datenträger, heruntergestuft
 author: jasongerend
 ms.author: jgerend
 ms.date: 10/17/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-spaces
 manager: brianlic
-ms.openlocfilehash: 5090a68270438bd9a06c7d50f9d4abca066d31e6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4b525555333a8aeee416e9ab55981c17137a52ea
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849141"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365988"
 ---
-# <a name="troubleshoot-storage-spaces-direct-health-and-operational-states"></a>Problembehandlung für "direkte Speicherplätze" Integritäts- und Betriebsstatus
+# <a name="troubleshoot-storage-spaces-direct-health-and-operational-states"></a>Behandeln von direkte Speicherplätze Integritäts-und Betriebszuständen
 
-> Gilt für: WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, WindowsServer (Halbjährlicher Kanal), Windows 10, Windows 8.1
+> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server (halbjährlicher Kanal), Windows 10, Windows 8.1
 
-In diesem Thema wird beschrieben, die Integrität und Betriebszustände von Speicherpools, virtuelle Datenträger (die unterhalb der Volumes auf Speicherplätzen befinden) und Laufwerken in ["direkte Speicherplätze"](storage-spaces-direct-overview.md) und [Speicherplätze](overview.md). Diese Zustände können überaus hilfreich sein, wenn beim Behandeln von verschiedenen Problemen wie z. B. warum Sie einen virtuellen Datenträger nicht aufgrund einer schreibgeschützten Konfiguration löschen können. Es wird auch erläutert, warum ein Laufwerk eines Pools (die CannotPoolReason) hinzugefügt werden kann.
+In diesem Thema werden die Integritäts-und Betriebszustände von Speicherpools, virtuellen Datenträgern (die sich unterhalb von Volumes in Speicherplätzen befinden) sowie Laufwerke in [direkte Speicherplätze](storage-spaces-direct-overview.md) und [Speicherplätze](overview.md)beschrieben. Diese Zustände können von Bedeutung sein, wenn Sie versuchen, verschiedene Probleme zu beheben, z. b. Warum Sie einen virtuellen Datenträger aufgrund einer schreibgeschützten Konfiguration nicht löschen können. Außerdem wird erläutert, warum ein Laufwerk nicht zu einem Pool hinzugefügt werden kann (cannotpoolreason).
 
-Für Speicherplätze gelten die drei wichtigsten Objekte - *physische Datenträger* (Festplatten, SSDs, usw.) hinzugefügt werden, eine *Speicherpool*, Virtualisierung von Speicher, damit Sie erstellen können *virtuelle Datenträger* aus den freien Speicherplatz in den Pool, wie hier gezeigt. Pool-Metadaten werden in einzelnen Laufwerke in den Pool geschrieben. Volumes, auf die virtuellen Datenträger erstellt, und speichern Sie Ihre Dateien, aber wir wollen nicht Volumes hier sprechen.
+Speicherplätze verfügen über drei primäre Objekte: *physische* Datenträger (Festplatten, SSDs usw.), die einem *Speicherpool*hinzugefügt werden, und virtualisieren des Speichers, sodass Sie *virtuelle* Datenträger aus freiem Speicherplatz im Pool erstellen können, wie hier gezeigt. Pool Metadaten werden auf jedes Laufwerk im Pool geschrieben. Volumes werden auf den virtuellen Datenträgern erstellt, und Ihre Dateien werden gespeichert, aber wir werden hier nicht über Volumes sprechen.
 
-![Physische Datenträger werden zu einem Speicherpool hinzugefügt werden soll, und klicken Sie dann virtuelle Datenträger erstellt, aus der Speicherplatz des Speicherpools](media/storage-spaces-states/storage-spaces-object-model.png)
+![Physische Datenträger werden einem Speicherpool hinzugefügt, und dann werden die virtuellen Datenträger aus dem Poolbereich erstellt.](media/storage-spaces-states/storage-spaces-object-model.png)
 
-Sie können Integritäts- und Betriebsstatus im Server-Manager oder mit PowerShell anzeigen. Es folgt ein Beispiel einer Vielzahl von (vor allem schlechte) Integritäts- und Betriebsstatus auf einen "direkte Speicherplätze"-Cluster, der meisten der Clusterknoten nicht vorhanden ist (mit der rechten Maustaste in den Spaltenüberschriften hinzufügen **Betriebsstatus**). Dies ist eine viel Spaß beim Cluster nicht.
+Sie können Integritäts-und Betriebszustände in Server-Manager oder PowerShell anzeigen. Im folgenden finden Sie ein Beispiel für eine Vielzahl von Integritäts-und Betriebszuständen in einem direkte Speicherplätze Cluster, in denen die meisten Cluster Knoten fehlen (Klicken Sie mit der rechten Maustaste auf die Spaltenüberschriften, um den **Betriebs Status**hinzuzufügen). Dabei handelt es sich nicht um einen glücklichen Cluster.
 
-![Server-Manager zeigt die Ergebnisse der beiden fehlenden Knoten in einem "direkte Speicherplätze"-Cluster – viele fehlende physische Datenträger und virtuelle Datenträger in einem fehlerhaften Zustand](media/storage-spaces-states/unhealthy-disks-in-server-manager.png)
+![Server-Manager, das die Ergebnisse von zwei fehlenden Knoten in einem direkte Speicherplätze Cluster anzeigt: viele fehlende physische Datenträger und virtuelle Datenträger in einem fehlerhaften Zustand.](media/storage-spaces-states/unhealthy-disks-in-server-manager.png)
 
-## <a name="storage-pool-states"></a>Speicher-Pool-Status
+## <a name="storage-pool-states"></a>Speicherpool Zustände
 
-Jedem Speicherpool verfügt über einen Integritätsstatus - **fehlerfrei**, **Warnung**, oder **unbekannte**/**fehlerhaft**, auch als ein oder mehrere Betriebszustände.
+Jeder Speicherpool weist den Integritäts Status "fehlerfrei", " **Warnung**" oder " **unbekannt**"**auf, / Fehler** **Haft ist,** sowie einen oder mehrere Betriebszustände.
 
-Um herauszufinden, welcher Zustand in ein Pool ist, verwenden Sie die folgenden PowerShell-Befehle:
+Verwenden Sie die folgenden PowerShell-Befehle, um herauszufinden, in welchem Zustand sich ein Pool befindet:
 
 ```PowerShell
 Get-StoragePool -IsPrimordial $False | Select-Object HealthStatus, OperationalStatus, ReadOnlyReason
 ```
 
-Hier ist eine Beispielausgabe, die einen Speicherpool in den unbekannten Integritätsstatus mit der nur-Lese Betriebsstatus angezeigt:
+Im folgenden finden Sie eine Beispielausgabe, in der ein Speicherpool im unbekannten Integritäts Status mit dem schreibgeschützten Betriebsstatus angezeigt wird:
 
 ```
 FriendlyName                OperationalStatus HealthStatus IsPrimordial IsReadOnly
@@ -48,45 +48,45 @@ FriendlyName                OperationalStatus HealthStatus IsPrimordial IsReadOn
 S2D on StorageSpacesDirect1 Read-only         Unknown      False        True
 ```
 
-Den folgenden Abschnitten wird die Integrität und Betriebszustände.
+In den folgenden Abschnitten werden die Integritäts-und Betriebszustände aufgeführt.
 
-### <a name="pool-health-state-healthy"></a>Pool-Integritätsstatus: Fehlerfrei
+### <a name="pool-health-state-healthy"></a>Integritäts Status des Pools: Fehlerfrei
 
-|Betriebszustand    |Beschreibung|
+|Betriebsstatus    |Beschreibung|
 |---------            |---------  |
 |OK|Der Speicherpool ist fehlerfrei.|
 
-### <a name="pool-health-state-warning"></a>Pool-Integritätsstatus: Warnung
+### <a name="pool-health-state-warning"></a>Integritäts Status des Pools: Warnung
 
-Wenn der Speicherpool ist der **Warnung** Integrität aufweist, es bedeutet, dass der Pool zugegriffen werden kann, aber ein oder mehrere Laufwerke fehlgeschlagen ist oder fehlt. Daher kann der Speicherpool Stabilität beeinträchtigt haben.
+Wenn sich der Speicherpool im **Warnungs** Integritäts Status befindet, bedeutet dies, dass der Pool zugänglich ist, aber mindestens ein Laufwerk fehlgeschlagen ist oder fehlt. Dadurch kann der Speicherpool die Resilienz verringern.
 
-|Betriebszustand    |Beschreibung|
+|Betriebsstatus    |Beschreibung|
 |---------            |---------  |
-|Verringert|Es befinden sich fehlerhaften oder fehlenden Laufwerke im Speicherpool. Diese Bedingung tritt nur mit Laufwerken, die Pool-Metadaten zu hosten. <br><br>**Aktion**: Überprüfen Sie den Status der Laufwerke aus, und Ersetzen Sie alle fehlerhaften Laufwerke aus, bevor weitere Fehler vorhanden sind.|
+|Verringert|Es sind fehlerhafte oder fehlende Laufwerke im Speicherpool vorhanden. Diese Bedingung tritt nur bei Laufwerken auf, die Pool-Metadaten Hosting. <br><br>**Aktion**: Überprüfen Sie den Zustand Ihrer Laufwerke, und ersetzen Sie alle fehlgeschlagenen Laufwerke, bevor weitere Fehler auftreten.|
 
-### <a name="pool-health-state-unknown-or-unhealthy"></a>Pool-Integritätsstatus: Unbekannte oder fehlerhaft
+### <a name="pool-health-state-unknown-or-unhealthy"></a>Integritäts Status des Pools: Unbekannt oder fehlerhaft
 
-Wenn ein Speicherpool ist der **unbekannte** oder **fehlerhaft** Integrität aufweist, es bedeutet, dass der Speicherpool schreibgeschützt ist und kann nicht geändert werden, bis Sie an der Pool zurückgegeben wird das **Warnung**oder **OK** Integritätsstatus.
+Wenn der Integritäts Status eines Speicher Pools unbekannt **oder Fehler** Haft ist, bedeutet dies, dass der Speicherpool schreibgeschützt ist und nicht geändert werden kann, bis der Pool wieder in den Zustand " **Warnung** " oder " **OK** " zurückversetzt wird.
 
-|Betriebszustand    |Nur-Lese Ursache |Beschreibung|
+|Betriebsstatus    |Schreib geschützter Grund |Beschreibung|
 |---------            |---------       |--------   |
-|Schreibgeschützt|Unvollständig|Dies kann auftreten, wenn der Speicherpool verliert seine [Quorum](understand-quorum.md), was bedeutet, dass die meisten Laufwerke im Pool bestanden haben oder aus irgendeinem Grund offline sind. Beim ein Pool sein Quorum verliert, legt Speicherplätze der Poolkonfiguration automatisch in den schreibgeschützten Modus, bis wieder genügend Laufwerke verfügbar sind.<br><br>**Aktion:** <br>1. Schließen Sie alle fehlenden Laufwerke aus, und fahren Sie alle Server online, wenn Sie "direkte Speicherplätze" verwenden. <br>2. Legen Sie den Pool wieder mit Lese-/ Schreibzugriff durch Öffnen einer PowerShell-Sitzungs mit Administratorrechten, und klicken Sie dann eingeben:<br><br> <code>Get-StoragePool <PoolName> -IsPrimordial $False \| Set-StoragePool -IsReadOnly $false</code>|
-||Richtlinie|Ein Administrator festlegen den Speicherpool in den schreibgeschützten Modus.<br><br>**Aktion:** Um einen clusterspeicherpool Lese-/ Schreibzugriff-Zugriff im Failovercluster-Manager festzulegen, wechseln Sie zu **Pools**mit der rechten Maustaste auf den Pool, und wählen Sie dann **Online schalten**.<br><br>Öffnen Sie für andere Server und die PCs eine PowerShell-Sitzung mit Administratorrechten, und geben Sie dann aus:<br><br><code>Get-StoragePool <PoolName> \| Set-StoragePool -IsReadOnly $false</code><br><br> |
-||Starten|Speicherplätze gestartet oder Warten von Laufwerken im Pool verbunden sein. Dabei sollte es sich um einen vorübergehenden Zustand handeln. Nachdem vollständig gestartet wurde, sollte der Pool in einen anderen operativen Zustand übergehen.<br><br>**Aktion:** Wenn der Pool im bleibt die *ab* angeben, stellen Sie sicher, dass alle Laufwerke im Pool ordnungsgemäß verbunden sind.|
+|Schreibgeschützt|Ständig|Dies kann vorkommen, wenn der Speicherpool sein [Quorum](understand-quorum.md)verliert, was bedeutet, dass die meisten Laufwerke im Pool ausgefallen sind oder aus irgendeinem Grund offline sind. Wenn ein Pool sein Quorum verliert, wird die Pool Konfiguration von Speicherplätzen automatisch auf schreibgeschützt festgelegt, bis genügend Laufwerke wieder verfügbar sind.<br><br>**Hinspiel** <br>1. Verbinden Sie fehlende Laufwerke erneut, und schalten Sie alle Server bei Verwendung von direkte Speicherplätze online. <br>2. Legen Sie den Pool auf Lese-/Schreibzugriff zurück, indem Sie eine PowerShell-Sitzung mit Administrator Berechtigungen öffnen und dann Folgendes eingeben:<br><br> <code> @ no__t-1 <PoolName> -IsPrimordial $False \| Set-StoragePool -IsReadOnly $false @ no__t-4|
+||Richtlinie|Ein Administrator hat den Speicherpool als schreibgeschützt festgelegt.<br><br>**Hinspiel** Um einen Cluster Speicherpool in Failovercluster-Manager auf Lese-/Schreibzugriff festzulegen, wechseln Sie zu **Pools**, klicken Sie mit der rechten Maustaste auf den Pool, und wählen Sie dann **Online**schalten aus.<br><br>Öffnen Sie für andere Server und PCs eine PowerShell-Sitzung mit Administrator Berechtigungen, und geben Sie dann Folgendes ein:<br><br><code> @ no__t-1 <PoolName> \| Set-StoragePool -IsReadOnly $false @ no__t-4<br><br> |
+||Starten|Speicherplätze werden gestartet, oder es wird darauf gewartet, dass Laufwerke im Pool verbunden werden. Dies sollte ein temporärer Zustand sein. Nachdem der Pool vollständig gestartet wurde, sollte er in einen anderen Betriebsstatus übergehen.<br><br>**Hinspiel** Wenn der Pool im *anfangs* Zustand bleibt, stellen Sie sicher, dass alle Laufwerke im Pool ordnungsgemäß verbunden sind.|
 
-Siehe auch [ändern einen Speicherpool aus, die über eine Read-Only-Konfiguration verfügt](https://social.technet.microsoft.com/wiki/contents/articles/14861.modifying-a-storage-pool-that-has-a-read-only-configuration.aspx).
+Weitere Informationen finden [Sie unter Ändern eines Speicherpools, der eine schreibgeschützte Konfiguration aufweist](https://social.technet.microsoft.com/wiki/contents/articles/14861.modifying-a-storage-pool-that-has-a-read-only-configuration.aspx).
 
-## <a name="virtual-disk-states"></a>Status des virtuellen Datenträgers
+## <a name="virtual-disk-states"></a>Virtuelle Datenträger Zustände
 
-In Storage Spaces werden Volumes auf virtuelle Datenträger (Speicherplätze) platziert, die in einem Pool freier Speicherplatz beansprucht werden. Alle virtuellen Datenträger verfügt über einen Integritätsstatus - **fehlerfrei**, **Warnung**, **fehlerhaft**, oder **unbekannte** sowie eine oder mehrere Betriebszustände.
+Bei Speicherplätzen werden Volumes auf virtuellen Datenträgern (Speicherplätzen) platziert, die aus freiem Speicherplatz in einem Pool aufgeteilt sind. Jeder virtuelle Datenträger hat den Integritäts Status "fehlerfrei" **, "** **Warnung** **", "** fehlerhaft" oder " **unbekannt** " sowie einen oder mehrere Betriebszustände.
 
-Um herauszufinden, welche Status virtuelle Datenträger werden, verwenden Sie die folgenden PowerShell-Befehle aus:
+Verwenden Sie die folgenden PowerShell-Befehle, um herauszufinden, in welchem Zustand die virtuellen Datenträger sich befinden:
 
 ```PowerShell
 Get-VirtualDisk | Select-Object FriendlyName,HealthStatus, OperationalStatus, DetachedReason
 ```
 
-Hier ist ein Beispiel der Ausgabe zeigt einen getrennten virtuellen Datenträger und eine heruntergestuft/unvollständige virtuelle Festplatte:
+Im folgenden finden Sie ein Beispiel für die Ausgabe eines getrennten virtuellen Datenträgers und eines herunter gestuften/unvollständigen virtuellen Datenträgers:
 
 ```
 FriendlyName HealthStatus OperationalStatus      DetachedReason
@@ -95,95 +95,95 @@ Volume1      Unknown      Detached               By Policy
 Volume2      Warning      {Degraded, Incomplete} None
 ```
 
-Den folgenden Abschnitten wird die Integrität und Betriebszustände.
+In den folgenden Abschnitten werden die Integritäts-und Betriebszustände aufgeführt.
 
-### <a name="virtual-disk-health-state-healthy"></a>Integritätsstatus des virtuellen Datenträgers: Fehlerfrei
+### <a name="virtual-disk-health-state-healthy"></a>Integritäts Status des virtuellen Datenträgers: Fehlerfrei
 
-|Betriebszustand    |Beschreibung|
+|Betriebsstatus    |Beschreibung|
 |---------            |---------          |
 |OK    |Der virtuelle Datenträger ist fehlerfrei.|
-|Suboptimale    |Daten wird nicht gleichmäßig auf Laufwerken geschrieben. <br><br>**Aktion**: Optimieren der laufwerknutzung im Speicherpool mit der [Optimize-StoragePool](https://technet.microsoft.com/itpro/powershell/windows/storage/optimize-storagepool) Cmdlet.|
+|Suboptimalen    |Daten werden nicht gleichmäßig auf die Laufwerke geschrieben. <br><br>**Aktion**: Optimieren Sie die Laufwerk Auslastung im Speicherpool, indem Sie das Cmdlet " [optimieren-storagepool](https://technet.microsoft.com/itpro/powershell/windows/storage/optimize-storagepool) " ausführen.|
 
-### <a name="virtual-disk-health-state-warning"></a>Integritätsstatus des virtuellen Datenträgers: Warnung
+### <a name="virtual-disk-health-state-warning"></a>Integritäts Status des virtuellen Datenträgers: Warnung
 
-Wenn der virtuelle Datenträger wird ein **Warnung** Integrität aufweist, es bedeutet, dass eine oder mehrere Kopien Ihrer Daten nicht verfügbar sind, aber die Speicherplätze können mindestens eine Kopie Ihrer Daten weiterhin lesen.
+Wenn sich der virtuelle Datenträger in einem **Warnungs** Integritäts Status befindet, bedeutet dies, dass eine oder mehrere Kopien Ihrer Daten nicht verfügbar sind. Speicherplätze können aber trotzdem mindestens eine Kopie Ihrer Daten lesen.
 
-|Betriebszustand    |Beschreibung|
+|Betriebsstatus    |Beschreibung|
 |---------            |---------          |
-|Im Dienst            |Windows ist des virtuellen Datenträgers, z. B. nach dem Hinzufügen oder entfernen ein Laufwerk repariert werden. Wenn die Reparatur abgeschlossen ist, muss der virtuelle Datenträger an den Zustand des OK zurückgeben.|
-|Unvollständig           |Die resilienz des virtuellen Datenträgers wird reduziert, da eine oder mehrere Festplatten fehlgeschlagen ist oder fehlt. Allerdings enthalten die fehlenden Laufwerke auf dem neuesten Stand Kopien Ihrer Daten.<br><br> **Aktion**: <br>1. Schließen Sie alle fehlenden Laufwerke wieder, ersetzen Sie alle fehlerhaften Laufwerke aus, und wenn Sie "direkte Speicherplätze" verwenden, schalten Sie online alle Server, die offline sind. <br>2. Wenn Sie "direkte Speicherplätze" nicht verwenden, als Nächstes reparieren Sie die virtuellen Datenträger mithilfe der [Repair-VirtualDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/repair-virtualdisk) Cmdlet.<br> "Direkte Speicherplätze" startet automatisch eine Reparatur, bei Bedarf nach dem Wiederherstellen der Verbindung oder ein Laufwerk zu ersetzen.|
-|Verringert             |Die resilienz des virtuellen Datenträgers wird reduziert, da eine oder mehrere Festplatten Fehler oder fehlen und veraltete Kopien Ihrer Daten auf diesen Laufwerken vorhanden sind. <br><br>**Aktion**: <br> 1. Schließen Sie alle fehlenden Laufwerke wieder, ersetzen Sie alle fehlerhaften Laufwerke aus, und wenn Sie "direkte Speicherplätze" verwenden, schalten Sie online alle Server, die offline sind. <br> 2. Wenn Sie "direkte Speicherplätze" nicht verwenden, als Nächstes reparieren Sie die virtuellen Datenträger mithilfe der [Repair-VirtualDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/repair-virtualdisk) Cmdlet. <br>"Direkte Speicherplätze" startet automatisch eine Reparatur, bei Bedarf nach dem Wiederherstellen der Verbindung oder ein Laufwerk zu ersetzen.|
+|In Dienst            |Windows repariert den virtuellen Datenträger, z. b. nach dem Hinzufügen oder Entfernen eines Laufwerks. Nach Abschluss der Reparatur sollte der virtuelle Datenträger in den Integritäts Status OK zurückkehren.|
+|Ständig           |Die Resilienz des virtuellen Datenträgers wird verringert, weil mindestens ein Laufwerk ausgefallen ist oder nicht vorhanden ist. Die fehlenden Laufwerke enthalten jedoch aktuelle Kopien Ihrer Daten.<br><br> **Aktion**: <br>1. Verbinden Sie fehlende Laufwerke erneut, ersetzen Sie alle fehlgeschlagenen Laufwerke, und schalten Sie, wenn Sie direkte Speicherplätze verwenden, alle Server Online, die offline sind. <br>2. Wenn Sie direkte Speicherplätze nicht verwenden, reparieren Sie die virtuelle Festplatte als nächstes mithilfe des Cmdlets [Repair-virtualdisk](https://technet.microsoft.com/itpro/powershell/windows/storage/repair-virtualdisk) .<br> Direkte Speicherplätze automatisch eine Reparatur startet, wenn dies nach dem erneuten Verbinden oder Austauschen eines Laufwerks erforderlich ist.|
+|Verringert             |Die Resilienz des virtuellen Datenträgers wird verringert, weil mindestens ein Laufwerk ausgefallen ist oder nicht vorhanden ist und auf diesen Laufwerken veraltete Kopien Ihrer Daten vorhanden sind. <br><br>**Aktion**: <br> 1. Verbinden Sie fehlende Laufwerke erneut, ersetzen Sie alle fehlgeschlagenen Laufwerke, und schalten Sie, wenn Sie direkte Speicherplätze verwenden, alle Server Online, die offline sind. <br> 2. Wenn Sie direkte Speicherplätze nicht verwenden, reparieren Sie die virtuelle Festplatte als nächstes mithilfe des Cmdlets [Repair-virtualdisk](https://technet.microsoft.com/itpro/powershell/windows/storage/repair-virtualdisk) . <br>Direkte Speicherplätze automatisch eine Reparatur startet, wenn dies nach dem erneuten Verbinden oder Austauschen eines Laufwerks erforderlich ist.|
 
-### <a name="virtual-disk-health-state-unhealthy"></a>Integritätsstatus des virtuellen Datenträgers: Unhealthy
+### <a name="virtual-disk-health-state-unhealthy"></a>Integritäts Status des virtuellen Datenträgers: Unhealthy
 
-Wenn ein virtueller Datenträger ist einer **fehlerhaft** Integritätsstatus, dass einige oder alle Daten auf dem virtuellen Datenträger ist zurzeit nicht verfügbar.
+Wenn sich ein virtueller Datenträger in **einem Fehler** haften Integritäts Status befindet, ist der Zugriff auf einige oder alle Daten auf dem virtuellen Datenträger derzeit nicht möglich.
 
-|Betriebszustand    |Beschreibung|
+|Betriebsstatus    |Beschreibung|
 |---------            |--------   |
-|Keine Redundanz|Der virtuelle Datenträger hat Daten verloren gehen, da zu viele Laufwerke fehlgeschlagen ist.<br><br>**Aktion**: Ersetzen Sie fehlerhafte Laufwerke aus, und klicken Sie dann wiederherstellen Sie die Daten aus einer Sicherung.|
+|Keine Redundanz|Der virtuelle Datenträger hat Daten verloren, weil zu viele Laufwerke fehlgeschlagen sind.<br><br>**Aktion**: Ersetzen Sie die fehlerhaften Laufwerke, und stellen Sie die Daten dann aus der Sicherung|
 
-### <a name="virtual-disk-health-state-informationunknown"></a>Integritätsstatus des virtuellen Datenträgers: Informationen/unbekannt
+### <a name="virtual-disk-health-state-informationunknown"></a>Integritäts Status des virtuellen Datenträgers: Informationen/unbekannt
 
-Das virtuelle Laufwerk kann auch sein, der **Informationen** Integritätsstatus (Siehe das Storage Spaces Control Panel-Element) oder **unbekannte** Integrität Status (wie in PowerShell gezeigt), wenn ein Administrator den virtuellen Datenträger übernommen hat. Offline oder wurde der virtuelle Datenträger getrennt werden.
+Der virtuelle Datenträger kann sich auch im Integritäts Status des Zustands (wie im System Steuerungselement "Speicherplätze" gezeigt) oder in einem **unbekannten** Integritäts Status (wie in PowerShell gezeigt) befinden, wenn ein Administrator den virtuellen **Daten** Träger offline geschaltet hat oder der virtuelle Datenträger zu ab.
 
-|Betriebszustand    |Getrennte Grund |Beschreibung|
+|Betriebsstatus    |Getrennter Grund |Beschreibung|
 |---------            |---------       |--------   |
-|„Getrennt“             |Von der Richtlinie            |Ein Administrator hat Sie den virtuellen Datenträger offline, oder legen Sie die virtuelle Datenträger manuell Anlage erforderlich ist, in diesem Fall müssen Sie den virtuellen Datenträger manuell angefügt wird, jedes Mal, wenn Windows neu gestartet wird.,<br><br>**Aktion**: Schalten Sie den virtuellen Datenträger wieder online geschaltet. Zu diesem Zweck, wenn der virtuelle Datenträger in einen clusterspeicherpool befindet, wählen Sie im Failovercluster-Manager **Storage** > **Pools** > **virtuelle Datenträger** , wählen Sie den virtuellen Datenträger, die zeigt, die **Offline** Status, und wählen Sie dann **Online schalten**. <br><br>Um einen virtuellen Datenträger wieder online geschaltet, nicht in einem Cluster zu bringen, öffnen Sie eine PowerShell-Sitzung als Administrator aus, und wiederholen Sie dann mithilfe des folgenden Befehls:<br><br> <code>Get-VirtualDisk \| Where-Object -Filter { $_.OperationalStatus -eq "Detached" } \| Connect-VirtualDisk</code><br><br>Um automatisch alle nicht gruppierten virtuellen Datenträger anzufügen, nachdem Windows neu gestartet wurde, öffnen Sie eine PowerShell-Sitzung als Administrator aus, und klicken Sie dann verwenden Sie den folgenden Befehl:<br><br> <code>Get-VirtualDisk \| Set-VirtualDisk -ismanualattach $false</code>|
-|            |Mehrheit Datenträger fehlerhaft |Zu viele Laufwerke, die von diesem virtuellen Datenträger verwendet werden. Fehler bei, fehlen oder veralteten Daten.   <br><br>**Aktion**: <br> 1. Schließen Sie alle fehlenden Laufwerke, und wenn Sie "direkte Speicherplätze" verwenden, schalten Sie online alle Server, die offline sind. <br> 2. Nachdem alle Laufwerke und Server online sind, ersetzen Sie alle fehlerhaften Laufwerke. Finden Sie unter [Integritätsdienst](../../failover-clustering/health-service-overview.md) Details. <br>"Direkte Speicherplätze" startet automatisch eine Reparatur, bei Bedarf nach dem Wiederherstellen der Verbindung oder ein Laufwerk zu ersetzen.<br>3. Wenn Sie "direkte Speicherplätze" nicht verwenden, als Nächstes reparieren Sie die virtuellen Datenträger mithilfe der [Repair-VirtualDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/repair-virtualdisk) Cmdlet.  <br><br>Wenn weitere Datenträger fehlgeschlagen ist, als Sie Kopien Ihrer Daten und des virtuellen Datenträgers nicht reparierten dazwischen Fehler war, alle Daten auf dem virtuellen Datenträger dauerhaft verloren ist. Löschen Sie in diesem Fall leider den virtuellen Datenträger, erstellen Sie einen neuen virtuellen Datenträger und dann aus einer Sicherung wiederherstellen.|
-|                     |Unvollständig |Nicht genügend Laufwerke sind vorhanden, um den virtuellen Datenträger zu lesen.    <br><br>**Aktion**: <br> 1. Schließen Sie alle fehlenden Laufwerke, und wenn Sie "direkte Speicherplätze" verwenden, schalten Sie online alle Server, die offline sind. <br> 2. Nachdem alle Laufwerke und Server online sind, ersetzen Sie alle fehlerhaften Laufwerke. Finden Sie unter [Integritätsdienst](../../failover-clustering/health-service-overview.md) Details. <br>"Direkte Speicherplätze" startet automatisch eine Reparatur, bei Bedarf nach dem Wiederherstellen der Verbindung oder ein Laufwerk zu ersetzen.<br>3. Wenn Sie "direkte Speicherplätze" nicht verwenden, als Nächstes reparieren Sie die virtuellen Datenträger mithilfe der [Repair-VirtualDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/repair-virtualdisk) Cmdlet.<br><br>Wenn weitere Datenträger fehlgeschlagen ist, als Sie Kopien Ihrer Daten und des virtuellen Datenträgers nicht reparierten dazwischen Fehler war, alle Daten auf dem virtuellen Datenträger dauerhaft verloren ist. Löschen Sie in diesem Fall leider den virtuellen Datenträger, erstellen Sie einen neuen virtuellen Datenträger und dann aus einer Sicherung wiederherstellen.|
-| |Zeitüberschreitung|Anfügen des virtuellen Datenträgers hat zu lange gedauert <br><br> **Aktion:** Dies sollte nicht häufig vorkommen, sodass Sie möglicherweise versuchen, festzustellen, ob die Bedingung, in Zeit erfüllt. Oder Sie können versuchen, trennen den virtuellen Datenträger mit der [Disconnect-VirtualDisk](https://docs.microsoft.com/powershell/module/storage/disconnect-virtualdisk?view=win10-ps) -Cmdlet, klicken Sie dann mit der [Connect-VirtualDisk](https://docs.microsoft.com/powershell/module/storage/connect-virtualdisk?view=win10-ps) Cmdlets, die Verbindung herzustellen. |
+|„Getrennt“             |Nach Richtlinie            |Ein Administrator hat den virtuellen Datenträger offline geschaltet oder den virtuellen Datenträger so festgelegt, dass er eine manuelle Anlage erfordert. in diesem Fall müssen Sie den virtuellen Datenträger bei jedem Neustart von Windows manuell anfügen.<br><br>**Aktion**: Schalten Sie den virtuellen Datenträger wieder online. Um dies zu tun, wenn sich der virtuelle Datenträger in einem Cluster Speicherpool befindet, wählen Sie in Failovercluster-Manager **Speicher** > **Pools** > **virtuelle**Datenträger auswählen den virtuellen Datenträger aus, der den **Offline** Status anzeigt, und wählen Sie dann die Option **Bring Online**. <br><br>Um einen virtuellen Datenträger wieder online zu schalten, wenn er sich nicht in einem Cluster befinden, öffnen Sie eine PowerShell-Sitzung als Administrator, und versuchen Sie es dann mit dem folgenden Befehl:<br><br> <code>Get-VirtualDisk \| Where-Object -Filter { $_.OperationalStatus -eq "Detached" } \| Connect-VirtualDisk</code><br><br>Um alle nicht gruppierten virtuellen Datenträger nach dem Neustart von Windows automatisch anzufügen, öffnen Sie eine PowerShell-Sitzung als Administrator, und verwenden Sie dann den folgenden Befehl:<br><br> <code>Get-VirtualDisk \| Set-VirtualDisk -ismanualattach $false</code>|
+|            |Mehrheits Datenträger |Zu viele von dieser virtuellen Festplatte verwendete Laufwerke konnten nicht ausgeführt werden, fehlen oder haben veraltete Daten.   <br><br>**Aktion**: <br> 1. Verbinden Sie fehlende Laufwerke erneut, und schalten Sie, wenn Sie direkte Speicherplätze verwenden, alle Server Online, die offline sind. <br> 2. Wenn alle Laufwerke und Server online sind, ersetzen Sie alle fehlgeschlagenen Laufwerke. Weitere Informationen finden Sie unter [Integritätsdienst](../../failover-clustering/health-service-overview.md) . <br>Direkte Speicherplätze automatisch eine Reparatur startet, wenn dies nach dem erneuten Verbinden oder Austauschen eines Laufwerks erforderlich ist.<br>3. Wenn Sie direkte Speicherplätze nicht verwenden, reparieren Sie die virtuelle Festplatte als nächstes mithilfe des Cmdlets [Repair-virtualdisk](https://technet.microsoft.com/itpro/powershell/windows/storage/repair-virtualdisk) .  <br><br>Wenn mehr Datenträger fehlschlagen, als Sie Kopien Ihrer Daten haben und der virtuelle Datenträger nicht zwischen Fehlern repariert wurde, gehen alle Daten auf dem virtuellen Datenträger dauerhaft verloren. Löschen Sie in diesem unglücklichen Fall den virtuellen Datenträger, erstellen Sie einen neuen virtuellen Datenträger, und stellen Sie dann eine Wiederherstellung von einer Sicherung durch.|
+|                     |Ständig |Zum Lesen der virtuellen Festplatte sind nicht genügend Laufwerke vorhanden.    <br><br>**Aktion**: <br> 1. Verbinden Sie fehlende Laufwerke erneut, und schalten Sie, wenn Sie direkte Speicherplätze verwenden, alle Server Online, die offline sind. <br> 2. Wenn alle Laufwerke und Server online sind, ersetzen Sie alle fehlgeschlagenen Laufwerke. Weitere Informationen finden Sie unter [Integritätsdienst](../../failover-clustering/health-service-overview.md) . <br>Direkte Speicherplätze automatisch eine Reparatur startet, wenn dies nach dem erneuten Verbinden oder Austauschen eines Laufwerks erforderlich ist.<br>3. Wenn Sie direkte Speicherplätze nicht verwenden, reparieren Sie die virtuelle Festplatte als nächstes mithilfe des Cmdlets [Repair-virtualdisk](https://technet.microsoft.com/itpro/powershell/windows/storage/repair-virtualdisk) .<br><br>Wenn mehr Datenträger fehlschlagen, als Sie Kopien Ihrer Daten haben und der virtuelle Datenträger nicht zwischen Fehlern repariert wurde, gehen alle Daten auf dem virtuellen Datenträger dauerhaft verloren. Löschen Sie in diesem unglücklichen Fall den virtuellen Datenträger, erstellen Sie einen neuen virtuellen Datenträger, und stellen Sie dann eine Wiederherstellung von einer Sicherung durch.|
+| |Timeout|Das Anfügen des virtuellen Datenträgers hat zu lange gedauert. <br><br> **Hinspiel** Dies sollte nicht häufig vorkommen, weshalb Sie möglicherweise versuchen, festzustellen, ob die Bedingung rechtzeitig verstrichen ist. Sie können auch versuchen, den virtuellen Datenträger mit dem [Disconnect-virtualdisk-](https://docs.microsoft.com/powershell/module/storage/disconnect-virtualdisk?view=win10-ps) Cmdlet zu trennen und dann das [Connect-virtualdisk-](https://docs.microsoft.com/powershell/module/storage/connect-virtualdisk?view=win10-ps) Cmdlet zum erneuten Verbinden zu verwenden. |
 
-## <a name="drive-physical-disk-states"></a>Laufwerkstatus (physischer Datenträger)
+## <a name="drive-physical-disk-states"></a>Zustände des Laufwerks (physischer Datenträger)
 
-Den folgenden Abschnitten werden die Zustände, die ein Laufwerk in sein kann. Laufwerke in einem Pool werden dargestellt in PowerShell als *physischer Datenträger* Objekte.
+In den folgenden Abschnitten werden die Integritäts Zustände eines Laufwerks beschrieben. Laufwerke in einem Pool werden in PowerShell als *physische* Datenträger Objekte dargestellt.
 
-### <a name="drive-health-state-healthy"></a>Laufwerk-Integritätsstatus: Fehlerfrei
+### <a name="drive-health-state-healthy"></a>Laufwerks Integritäts Status: Fehlerfrei
 
-|Betriebszustand    |Beschreibung|
+|Betriebsstatus    |Beschreibung|
 |---------            |---------          |
 |OK|Das Laufwerk ist fehlerfrei.|
-|Im Dienst|Das Laufwerk ist einige interne organisatorische Vorgänge ausführen. Wenn die Aktion abgeschlossen ist, sollte das Laufwerk zum Zurückgeben der *OK* Integritätsstatus.|
+|In Dienst|Das Laufwerk führt einige interne Betriebs Vorgänge aus. Wenn die Aktion beendet ist, sollte das Laufwerk in den Integritäts Status *OK* zurückkehren.|
 
-### <a name="drive-health-state-warning"></a>Laufwerk-Integritätsstatus: Warnung
+### <a name="drive-health-state-warning"></a>Laufwerks Integritäts Status: Warnung
 
-Ein Laufwerk in der Warnung Zustand kann lesen und Schreiben von Daten erfolgreich, aber hat ein Problem.
+Ein Laufwerk im Warnungs Status kann Daten erfolgreich lesen und schreiben, weist jedoch ein Problem auf.
 
-|Betriebszustand    |Beschreibung|
+|Betriebsstatus    |Beschreibung|
 |---------            |---------          |
-|Verlust der Kommunikation|Das Laufwerk ist nicht vorhanden. Wenn Sie "direkte Speicherplätze" verwenden, kann dies sein, da ein Server ausgefallen ist.<br><br>**Aktion**: Wenn Sie "direkte Speicherplätze" verwenden, schalten Sie alle Server wieder online geschaltet. Wenn, die sie nicht beheben, schließen Sie das Laufwerk wieder, ersetzen oder Abrufen ausführliche Diagnoseinformationen zu diesem Laufwerk mithilfe der Schritte zur Problembehandlung mithilfe der Windows-Fehlerberichterstattung > [Timeout des physischen Datenträgers](../../failover-clustering/troubleshooting-using-wer-reports.md#physical-disk-timed-out).|
-|Aus Pool entfernen|Speicherplätze sind beim Entfernen des Laufwerks aus dem Speicherpool. <br><br> Dies ist ein temporärer Zustand. Nach der Deinstallation ist abgeschlossen, wenn für das System, das Laufwerk angefügt ist geht das Laufwerk in einem anderen Betriebsstatus (in der Regel OK) in einem ursprünglichen Pool.|
-|Wartungsmodus starten|Speicherplätze sind gerade platzieren das Laufwerk in den Wartungsmodus versetzt, nachdem ein Administrator das Laufwerk in den Wartungsmodus versetzt. Dies ist ein temporärer Zustand: das Laufwerk muss sich in Kürze der *In den Wartungsmodus* Zustand.|
-|In den Wartungsmodus|Ein Administrator platziert das Laufwerk im Wartungsmodus befindet, liest und schreibt in das Laufwerk anhalten. Dies erfolgt in der Regel vor dem Aktualisieren der Firmware oder beim Testen von Fehlern.<br><br>**Aktion**: Um das Laufwerk aus dem Wartungsmodus nutzen zu können, verwenden Sie die [Disable-StorageMaintenanceMode](https://technet.microsoft.com/itpro/powershell/windows/storage/disable-storagemaintenancemode) Cmdlet.|
-|Beenden des Wartungsmodus|Ein Administrator hat das Laufwerk aus dem Wartungsmodus, und Speicherplätze das Laufwerk wieder online geschaltet wird. Dies ist ein temporärer Zustand: das Laufwerk sollte in Kürze in einen anderen Zustand – im Idealfall *fehlerfrei*.|
-|Vorhersehbarer Fehler|Das Laufwerk hat gemeldet, dass sie in der Nähe fehlerhaften ist.<br><br>**Aktion**: Ersetzen Sie das Laufwerk an.|
-|E/a-Fehler|Es wurde ein temporärer Fehler, die Zugriff auf das Laufwerk ein.<br><br>**Aktion**: <br>1. Wenn das Laufwerk an Übergang nicht die **OK** aufweist, können Sie versuchen, mithilfe der [Reset-PhysicalDisk](https://docs.microsoft.com/powershell/module/storage/reset-physicaldisk) Cmdlet, um das Laufwerk zu löschen. <br> 2. Verwendung [Repair-VirtualDisk](https://docs.microsoft.com/powershell/module/storage/repair-virtualdisk) die resilienz des betroffenen virtuellen Datenträger wiederherstellen. <br>3. Wenn dies häufiger auftritt, ersetzen Sie das Laufwerk ein.|
-|Vorübergehender Fehler|Es wurde ein vorübergehender Fehler bei dem Laufwerk. Dies bedeutet normalerweise das Laufwerk hat nicht reagiert, aber es kann auch bedeuten, dass die Speicherplätze Schutzpartition aus dem Laufwerk nicht ordnungsgemäß entfernt wurde. <br><br>**Aktion**: <br>1. Wenn das Laufwerk an Übergang nicht die **OK** aufweist, können Sie versuchen, mithilfe der [Reset-PhysicalDisk](https://docs.microsoft.com/powershell/module/storage/reset-physicaldisk) Cmdlet, um das Laufwerk zu löschen. <br> 2. Verwendung [Repair-VirtualDisk](https://docs.microsoft.com/powershell/module/storage/repair-virtualdisk) die resilienz des betroffenen virtuellen Datenträger wiederherstellen. <br>3. Wenn dies häufiger auftritt, ersetzen Sie das Laufwerk, oder Abrufen von ausführliche Diagnoseinformationen zu diesem Laufwerk mithilfe der Schritte zur Problembehandlung mithilfe der Windows-Fehlerberichterstattung > [physischer Datenträger konnte nicht online geschaltet](../../failover-clustering/troubleshooting-using-wer-reports.md#physical-disk-failed-to-come-online).|
-|Ungewöhnliche Latenz|Das Laufwerk ist langsam, gemessen an den Health-Dienst in "direkte Speicherplätze" ausführen.<br><br>**Aktion**: Wenn dies häufiger auftritt, ersetzen Sie das Laufwerk, damit es nicht die Leistung von Speicherplätzen als Ganzes reduziert wird.
+|Verlorene Kommunikation|Das Laufwerk fehlt. Wenn Sie direkte Speicherplätze verwenden, könnte dies daran liegen, dass ein Server herunter ist.<br><br>**Aktion**: Wenn Sie direkte Speicherplätze verwenden, schalten Sie alle Server wieder online. Wenn dies nicht behoben werden kann, verbinden Sie das Laufwerk erneut, ersetzen Sie es, oder führen Sie ausführliche Diagnoseinformationen zu diesem Laufwerk aus, indem Sie die Schritte unter Problembehandlung mithilfe Windows-Fehlerberichterstattung > physischen Datenträgers durch [führen](../../failover-clustering/troubleshooting-using-wer-reports.md#physical-disk-timed-out).|
+|Entfernen aus Pool|Speicherplätze entfernen gerade das Laufwerk aus dem Speicherpool. <br><br> Dies ist ein temporärer Zustand. Wenn das Laufwerk nach Abschluss des Entfernens noch an das System angefügt ist, wechselt es in einem ursprünglichen Pool in einen anderen Betriebsstatus (normalerweise OK).|
+|Starten des Wartungsmodus|Bei Speicherplätzen wird das Laufwerk in den Wartungsmodus versetzt, nachdem ein Administrator das Laufwerk in den Wartungsmodus versetzt hat. Dies ist ein temporärer Zustand: das Laufwerk sollte sich bald im *Wartungsmodus* befindet.|
+|Im Wartungsmodus|Ein Administrator hat das Laufwerk in den Wartungsmodus versetzt, wobei Lese-und Schreibvorgänge vom Laufwerk angehalten werden. Dies erfolgt in der Regel vor dem Aktualisieren der Laufwerks Firmware oder beim Testen von Fehlern.<br><br>**Aktion**: Wenn Sie das Laufwerk aus dem Wartungsmodus entfernen möchten, verwenden Sie das Cmdlet " [Deaktivierte storagemaintenancemode](https://technet.microsoft.com/itpro/powershell/windows/storage/disable-storagemaintenancemode) ".|
+|Beenden des Wartungsmodus|Ein Administrator hat das Laufwerk aus dem Wartungsmodus genommen, und Speicherplätze werden gerade wieder online geschaltet. Dies ist ein temporärer Zustand: das Laufwerk sollte bald in einem anderen Zustand sein *, idealerweise*fehlerfrei.|
+|Vorhersagefehler|Das Laufwerk hat gemeldet, dass es sich in der Nähe des Fehlers befindet.<br><br>**Aktion**: Ersetzen Sie das Laufwerk.|
+|IO-Fehler|Vorübergehender Fehler beim Zugriff auf das Laufwerk.<br><br>**Aktion**: <br>1. Wenn das Laufwerk nicht wieder in den Zustand **OK** wechselt, können Sie versuchen, das Laufwerk mithilfe des [Reset-PhysicalDisk-](https://docs.microsoft.com/powershell/module/storage/reset-physicaldisk) Cmdlets zurückzusetzen. <br> 2. Verwenden Sie [Repair-virtualdisk](https://docs.microsoft.com/powershell/module/storage/repair-virtualdisk) , um die Resilienz der betroffenen virtuellen Datenträger wiederherzustellen. <br>3. Wenn dies der Fall ist, ersetzen Sie das Laufwerk.|
+|Vorübergehender Fehler|Temporärer Fehler beim Laufwerk. Dies bedeutet in der Regel, dass das Laufwerk nicht reagiert, aber auch bedeutet, dass die Schutz Partition der Speicherplätze nicht ordnungs mäßig vom Laufwerk entfernt wurde. <br><br>**Aktion**: <br>1. Wenn das Laufwerk nicht wieder in den Zustand **OK** wechselt, können Sie versuchen, das Laufwerk mithilfe des [Reset-PhysicalDisk-](https://docs.microsoft.com/powershell/module/storage/reset-physicaldisk) Cmdlets zurückzusetzen. <br> 2. Verwenden Sie [Repair-virtualdisk](https://docs.microsoft.com/powershell/module/storage/repair-virtualdisk) , um die Resilienz der betroffenen virtuellen Datenträger wiederherzustellen. <br>3. Wenn dies der Fall ist, ersetzen Sie das Laufwerk, oder führen Sie ausführliche Diagnoseinformationen zu diesem Laufwerk aus, indem Sie die Schritte unter Problembehandlung mithilfe Windows-Fehlerberichterstattung > physischer Datenträger [konnte nicht online](../../failover-clustering/troubleshooting-using-wer-reports.md#physical-disk-failed-to-come-online)geschaltet werden.|
+|Ungewöhnliche Latenz|Das Laufwerk führt langsam aus, gemessen an der Integritätsdienst in direkte Speicherplätze.<br><br>**Aktion**: Wenn dies der Fall ist, ersetzen Sie das Laufwerk, sodass es nicht die Leistung von Speicherplätzen als Ganzes verringert.
 
-### <a name="drive-health-state-unhealthy"></a>Laufwerk-Integritätsstatus: Unhealthy
+### <a name="drive-health-state-unhealthy"></a>Laufwerks Integritäts Status: Unhealthy
 
-Ein Laufwerk in einem fehlerhaften Zustand kann nicht gerade geschrieben oder zugegriffen werden.
+Auf ein Laufwerk im fehlerhaften Zustand kann derzeit nicht geschrieben werden oder es kann nicht darauf zugegriffen werden.
 
-|Betriebszustand    |Beschreibung|
+|Betriebsstatus    |Beschreibung|
 |---------            |---------          |
-|Nicht verwendet werden.|Dieses Laufwerk kann nicht von Speicherplätze verwendet werden. Weitere Informationen finden Sie unter ["direkte Speicherplätze" hardwareanforderungen](storage-spaces-direct-hardware-requirements.md); Wenn Sie "direkte Speicherplätze", nicht verwenden, finden Sie unter [Storage Spaces Overview](https://technet.microsoft.com/library/hh831739(v=ws.11).aspx#Requirements).|
-|Teilen|Das Laufwerk wurde aus dem Pool getrennt werden.<br><br>**Aktion**: Setzen Sie das Laufwerk, löschen alle Daten aus dem Laufwerk und das Hinzufügen an den Pool ein leeres Laufwerk zurück. Zu diesem Zweck öffnen Sie eine PowerShell-Sitzung als Administrator führen Sie die [Reset-PhysicalDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/reset-physicaldisk) -Cmdlet, und führen Sie dann [Repair-VirtualDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/repair-virtualdisk). <br><br>Führen Sie die Schritte zur Problembehandlung mithilfe der Windows-Fehlerberichterstattung, rufen Sie ausführliche Diagnoseinformationen zu diesem Laufwerk > [physischer Datenträger konnte nicht online geschaltet](../../failover-clustering/troubleshooting-using-wer-reports.md#physical-disk-failed-to-come-online).|
-|Veraltete Metadaten|Speicherplätze wurde die alten Metadaten auf dem Laufwerk gefunden.<br><br>**Aktion**: Dabei sollte es sich um einen vorübergehenden Zustand handeln. Wenn das Laufwerk an OK Übergang nicht, können Sie ausführen [Repair-VirtualDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/repair-virtualdisk) zum Starten eines Reparaturvorgangs auf die betroffenen virtuellen Datenträger. Wenn es sich bei, die das Problem nicht behoben wird, können Sie das Laufwerk, auf dem Zurücksetzen der [Reset-PhysicalDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/reset-physicaldisk) -Cmdlet, alle Daten aus dem Laufwerk, und führen Sie dann [Repair-VirtualDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/repair-virtualdisk).|
-|Nicht erkannte Metadaten|Speicherplätze nicht erkannte Metadaten auf dem Laufwerk, in der Regel bedeutet, dass das Laufwerk Metadaten aus einem anderen Pool darauf zu finden.<br><br>**Aktion**: Um das Laufwerk zurücksetzen und den aktuellen Pool hinzufügen, setzen Sie das Laufwerk zurück. Öffnen Sie eine PowerShell-Sitzung als Administrator ausführen, um das Laufwerk zurückgesetzt, die [Reset-PhysicalDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/reset-physicaldisk) -Cmdlet, und führen Sie dann [Repair-VirtualDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/repair-virtualdisk).|
-|Fehlerhafter Datenträger|Das Laufwerk ist fehlgeschlagen und wird nicht mehr von Speicherplätzen verwendet werden.<br><br>**Aktion**: Ersetzen Sie das Laufwerk an. <br><br>Führen Sie die Schritte zur Problembehandlung mithilfe der Windows-Fehlerberichterstattung, rufen Sie ausführliche Diagnoseinformationen zu diesem Laufwerk > [physischer Datenträger konnte nicht online geschaltet](../../failover-clustering/troubleshooting-using-wer-reports.md#physical-disk-failed-to-come-online).|
-|Hardwarefehler des Geräts|Es wurde ein Hardwarefehler auf diesem Laufwerk. <br><br>**Aktion**: Ersetzen Sie das Laufwerk an.|
-|Aktualisieren der Firmware|Die Firmware auf dem Laufwerk wird von Windows aktualisiert werden. Dies ist ein temporärer Zustand, der in der Regel weniger als eine Minute dauert und während der Zeit, die anderen Laufwerken im Pool alle verarbeiten liest und schreibt. Weitere Informationen finden Sie unter [Aktualisieren von laufwerkfirmware](../update-firmware.md).|
-|Starten|Das Laufwerk erhält betriebsbereit. Dies sollte ein temporärer Zustand – nach Abschluss des Vorgangs das Laufwerk in einen anderen operativen Zustand wechseln sollte.|
+|Nicht verwendbar|Dieses Laufwerk kann nicht von Speicherplätzen verwendet werden. Weitere Informationen finden Sie unter [direkte Speicherplätze Hardwareanforderungen](storage-spaces-direct-hardware-requirements.md). Wenn Sie direkte Speicherplätze nicht verwenden, finden Sie weitere Informationen unter [Übersicht über Speicherplätze](https://technet.microsoft.com/library/hh831739(v=ws.11).aspx#Requirements).|
+|Getrennt|Das Laufwerk wurde vom Pool getrennt.<br><br>**Aktion**: Setzen Sie das Laufwerk zurück, löschen Sie alle Daten vom Laufwerk, und fügen Sie es als leeres Laufwerk wieder zum Pool hinzu. Öffnen Sie hierzu eine PowerShell-Sitzung als Administrator, führen Sie das Cmdlet [Reset-PhysicalDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/reset-physicaldisk) aus, und führen Sie dann [Repair-virtualdisk](https://technet.microsoft.com/itpro/powershell/windows/storage/repair-virtualdisk)aus. <br><br>Um ausführliche Diagnoseinformationen zu diesem Laufwerk zu erhalten, führen Sie die Schritte unter Problembehandlung mithilfe Windows-Fehlerberichterstattung aus, > physischer Datenträger [nicht online](../../failover-clustering/troubleshooting-using-wer-reports.md#physical-disk-failed-to-come-online)geschaltet werden konnte.|
+|Veraltete Metadaten|Auf dem Laufwerk wurden alte Metadaten gefunden.<br><br>**Aktion**: Dies sollte ein temporärer Zustand sein. Wenn das Laufwerk nicht wieder in OK übergeht, können Sie [Repair-virtualdisk](https://technet.microsoft.com/itpro/powershell/windows/storage/repair-virtualdisk) ausführen, um einen Reparaturvorgang auf betroffenen virtuellen Datenträgern zu starten. Wenn das Problem nicht behoben wird, können Sie das Laufwerk mit dem Cmdlet " [Reset-PhysicalDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/reset-physicaldisk) " zurücksetzen, alle Daten vom Laufwerk löschen und dann " [Repair-virtualdisk](https://technet.microsoft.com/itpro/powershell/windows/storage/repair-virtualdisk)" ausführen.|
+|Unbekannte Metadaten|Speicherplätze haben unbekannte Metadaten auf dem Laufwerk gefunden. Dies bedeutet in der Regel, dass das Laufwerk über Metadaten aus einem anderen Pool verfügt.<br><br>**Aktion**: Wenn Sie das Laufwerk zurücksetzen und dem aktuellen Pool hinzufügen möchten, setzen Sie das Laufwerk zurück. Öffnen Sie zum Zurücksetzen des Laufwerks eine PowerShell-Sitzung als Administrator, führen Sie das Cmdlet [Reset-PhysicalDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/reset-physicaldisk) aus, und führen Sie dann [Repair-virtualdisk](https://technet.microsoft.com/itpro/powershell/windows/storage/repair-virtualdisk)aus.|
+|Fehlerhafte Medien|Das Laufwerk ist fehlgeschlagen und wird nicht mehr von Speicherplätzen verwendet.<br><br>**Aktion**: Ersetzen Sie das Laufwerk. <br><br>Um ausführliche Diagnoseinformationen zu diesem Laufwerk zu erhalten, führen Sie die Schritte unter Problembehandlung mithilfe Windows-Fehlerberichterstattung aus, > physischer Datenträger [nicht online](../../failover-clustering/troubleshooting-using-wer-reports.md#physical-disk-failed-to-come-online)geschaltet werden konnte.|
+|Gerätehardware Fehler|Auf diesem Laufwerk ist ein Hardwarefehler aufgetreten. <br><br>**Aktion**: Ersetzen Sie das Laufwerk.|
+|Aktualisieren der Firmware|Die Firmware auf dem Laufwerk wird von Windows aktualisiert. Dies ist ein temporärer Zustand, der in der Regel weniger als eine Minute dauert und während der andere Laufwerke im Pool alle Lese-und Schreibvorgänge verarbeiten. Weitere Informationen finden Sie unter [Aktualisieren der Laufwerks Firmware](../update-firmware.md).|
+|Starten|Das Laufwerk ist betriebsbereit. Dies sollte ein temporärer Status sein. nach Abschluss des Vorgangs sollte das Laufwerk in einen anderen Betriebsstatus übergehen.|
 
-## <a name="reasons-a-drive-cant-be-pooled"></a>Aus Gründen, ein Laufwerk können nicht in einem Pool zusammengefasst werden
+## <a name="reasons-a-drive-cant-be-pooled"></a>Gründe für das poolte eines Laufwerks
 
-Einige Laufwerke sind, nicht nur in einem Speicherpool bereit. Sie können herausfinden, warum ein Laufwerk für anhand pooling geeignet ist, nicht die `CannotPoolReason` Eigenschaft eines physischen Datenträgers. Hier ist ein Beispiel-PowerShell-Skript zum Anzeigen der CannotPoolReason-Eigenschaft ein:
+Einige Laufwerke sind nur in einem Speicherpool bereit. Sie können herausfinden, warum ein Laufwerk nicht für das Pooling geeignet ist, indem Sie sich die `CannotPoolReason`-Eigenschaft eines physischen Datenträgers ansehen. Im folgenden finden Sie ein Beispiel für ein PowerShell-Skript zum Anzeigen der cannotpoolreason-Eigenschaft:
 
 ```PowerShell
 Get-PhysicalDisk | Format-Table FriendlyName,MediaType,Size,CanPool,CannotPoolReason
 ```
 
-Hier ist eine Beispielausgabe:
+Im folgenden finden Sie eine Beispielausgabe:
 
 ```
 FriendlyName          MediaType          Size CanPool CannotPoolReason
@@ -193,23 +193,23 @@ Msft Virtual Disk     SSD         10737418240    True
 Generic Physical Disk SSD        119990648832   False In a Pool
 ```
 
-Die folgende Tabelle enthält ein wenig detaillierter auf jeder der Gründe an.
+In der folgenden Tabelle werden die einzelnen Gründe ausführlicher erläutert.
 
 |Grund|Beschreibung|
 |---|---|
-|In einem pool|Das Laufwerk gehört bereits zu einem Speicherpool. <br><br>Laufwerke können jeweils nur einem einzelnen Speicherpool angehören. Um dieses Laufwerk in einem anderen Speicherpool zu verwenden, entfernen Sie zuerst das Laufwerk, aus dem vorhandenen Pool, der Speicherplätze zum Verschieben der Daten auf dem Laufwerk auf anderen Laufwerken im Pool darüber informiert werden. Oder das Laufwerk zurückgesetzt, wenn das Laufwerk ohne Benachrichtigung Speicherplätze aus dem Pool getrennt wurde. <br><br>Um ein Laufwerk sicher aus einem Speicherpool zu entfernen, verwenden [Remove-PhysicalDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/remove-physicaldisk), oder wechseln Sie zum Server-Manager > **Datei- und Speicherdienste** > **Speicherpools**, > **Physische Datenträger**mit der rechten Maustaste auf das Laufwerk, und wählen Sie dann **Datenträger entfernen**.<br><br>Verwenden Sie zum Zurücksetzen eines Laufwerks [Reset-PhysicalDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/reset-physicaldisk).|
-|Nicht fehlerfrei|Das Laufwerk ist nicht in einem fehlerfreien Zustand und möglicherweise ersetzt werden müssen.|
-|Wechselmedien|Das Laufwerk wird als ein Wechseldatenträger klassifiziert. <br><br>Speicherplätze unterstützt keine Medien, die von Windows als Wechseldatenträger, z. B. Blu-Ray-Laufwerke erkannt werden. Obwohl Sie repariert viele Laufwerke werden Wechselmedien Slots im Allgemeinen Medien, die *klassifiziert* von Windows als Wechselmedium nicht für die Verwendung mit Speicherplätzen geeignet sind.|
-|Vom Cluster verwendet|Das Laufwerk wird derzeit von einem Failovercluster verwendet.|
-|Offline|Das Laufwerk ist offline. <br><br>Um alle offline-Laufwerke online und legen Lese-/Schreibzugriff zu bringen, öffnen Sie eine PowerShell-Sitzung als Administrator aus, und verwenden Sie die folgenden Skripts:<br><br><code>Get-Disk \| Where-Object -Property OperationalStatus -EQ "Offline" \| Set-Disk -IsOffline $false</code><br><br><code>Get-Disk \| Where-Object -Property IsReadOnly -EQ $true \| Set-Disk -IsReadOnly $false</code>|
-|Nicht genügend Kapazität|Dies tritt normalerweise auf, wenn der freie Speicherplatz auf dem Laufwerk und verbraucht dabei Partitionen vorhanden sind. <br><br>**Aktion**: Löschen Sie alle Volumes auf dem Laufwerk, das alle Daten auf dem Laufwerk gelöscht werden. Eine Möglichkeit, dies ist die Verwendung der [Clear-Disk](https://docs.microsoft.com/powershell/module/storage/clear-disk?view=win10-ps) PowerShell-Cmdlet.|
-|Überprüfung wird durchgeführt|Die [Integritätsdienst](../../failover-clustering/health-service-overview.md#supported-components-document) wird überprüft, um festzustellen, ob das Laufwerk oder die Firmware auf dem Laufwerk für die Verwendung der Serveradministrator genehmigt wird.|
-|Fehler bei der Überprüfung|Die [Integritätsdienst](../../failover-clustering/health-service-overview.md#supported-components-document) konnten nicht überprüfen, um festzustellen, ob das Laufwerk oder die Firmware auf dem Laufwerk für die Verwendung der Serveradministrator genehmigt wird.|
-|Nicht konforme Firmware|Die Firmware auf dem physischen Laufwerk befindet sich nicht in der Liste der genehmigten Firmwareversionen, die vom Serveradministrator mithilfe von angegeben die [Integritätsdienst](../../failover-clustering/health-service-overview.md#supported-components-document). |
-|Hardware, die nicht kompatibel.|Das Laufwerk ist nicht in der Liste der genehmigten Speichermodelle, die vom Serveradministrator mithilfe von angegeben die [Integritätsdienst](../../failover-clustering/health-service-overview.md#supported-components-document).|
+|In einem Pool|Das Laufwerk gehört bereits zu einem Speicherpool. <br><br>Laufwerke können jeweils nur zu einem einzelnen Speicherpool gehören. Um dieses Laufwerk in einem anderen Speicherpool zu verwenden, entfernen Sie zunächst das Laufwerk aus dem vorhandenen Pool, das Speicherplätze anweist, die Daten auf dem Laufwerk auf andere Laufwerke im Pool zu verschieben. Oder setzen Sie das Laufwerk zurück, wenn das Laufwerk vom Pool getrennt wurde, ohne Speicherplätze zu benachrichtigen. <br><br>Verwenden Sie zum sicheren Entfernen eines Laufwerks aus einem Speicherpool [Remove-PhysicalDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/remove-physicaldisk), oder wechseln Sie zu Server-Manager > **Datei-und Speicherdienste** > -**Speicherpools**, > **physischen**Datenträgern, klicken Sie mit der rechten Maustaste auf das Laufwerk, und wählen Sie dann entfernen aus.  **Datenträger.**<br><br>Verwenden Sie zum Zurücksetzen eines Laufwerks [Reset-PhysicalDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/reset-physicaldisk).|
+|Nicht fehlerfrei|Das Laufwerk befindet sich nicht in einem fehlerfreien Zustand und muss möglicherweise ersetzt werden.|
+|Wechselmedien|Das Laufwerk ist als Wechsel Datenträger klassifiziert. <br><br>Speicherplätze unterstützen keine Medien, die von Windows als Wechselmedien erkannt werden, z. b. Blu-ray-Laufwerke. Obwohl sich viele Festplattenlaufwerke in Wechsel Datenträgern befinden, sind Medien, die von Windows als Wechsel Datenträger *klassifiziert* werden, nicht für die Verwendung mit Speicherplätzen geeignet.|
+|Wird vom Cluster verwendet|Das Laufwerk wird zurzeit von einem Failovercluster verwendet.|
+|Offline|Das Laufwerk ist offline. <br><br>Um alle Offline Laufwerke Online zu schalten und auf Lese-/Schreibzugriff festzulegen, öffnen Sie eine PowerShell-Sitzung als Administrator, und verwenden Sie die folgenden Skripts:<br><br><code>Get-Disk \| Where-Object -Property OperationalStatus -EQ "Offline" \| Set-Disk -IsOffline $false</code><br><br><code>Get-Disk \| Where-Object -Property IsReadOnly -EQ $true \| Set-Disk -IsReadOnly $false</code>|
+|Unzureichende Kapazität|Dies tritt normalerweise auf, wenn Partitionen den freien Speicherplatz auf dem Laufwerk einnehmen. <br><br>**Aktion**: Löschen Sie alle Volumes auf dem Laufwerk, und löschen Sie alle Daten auf dem Laufwerk. Eine Möglichkeit hierfür ist die Verwendung des PowerShell-Cmdlets [Clear-Disk](https://docs.microsoft.com/powershell/module/storage/clear-disk?view=win10-ps) .|
+|Überprüfung wird durchgeführt|Der [Integritätsdienst](../../failover-clustering/health-service-overview.md#supported-components-document) überprüft, ob das Laufwerk oder die Firmware auf dem Laufwerk für die Verwendung durch den Server Administrator genehmigt ist.|
+|Überprüfung fehlgeschlagen|Der [Integritätsdienst](../../failover-clustering/health-service-overview.md#supported-components-document) konnte nicht überprüfen, ob das Laufwerk oder die Firmware auf dem Laufwerk für die Verwendung durch den Server Administrator genehmigt ist.|
+|Firmware nicht kompatibel|Die Firmware auf dem physischen Laufwerk ist nicht in der Liste der genehmigten Firmwarerevisionen enthalten, die vom Server Administrator mithilfe des [Integritätsdienst](../../failover-clustering/health-service-overview.md#supported-components-document)angegeben werden. |
+|Hardware nicht kompatibel|Das Laufwerk ist nicht in der Liste der genehmigten Speicher Modelle enthalten, die vom Server Administrator mithilfe des [Integritätsdienst](../../failover-clustering/health-service-overview.md#supported-components-document)angegeben werden.|
 
 ## <a name="see-also"></a>Siehe auch
 
-- ["Direkte Speicherplätze"](storage-spaces-direct-overview.md)
-- [Storage Spaces Direct-hardwareanforderungen](storage-spaces-direct-hardware-requirements.md)
-- [Grundlegendes zu-Cluster und Pool-quorum](understand-quorum.md)
+- [Direkte Speicherplätze](storage-spaces-direct-overview.md)
+- [Direkte Speicherplätze Hardwareanforderungen](storage-spaces-direct-hardware-requirements.md)
+- [Grundlegendes zum Cluster- und Poolquorum](understand-quorum.md)

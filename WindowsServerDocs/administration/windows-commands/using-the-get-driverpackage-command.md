@@ -1,8 +1,8 @@
 ---
-title: Mithilfe des Befehls Get-DriverPackage /
-description: 'Windows-Befehle Thema ***- '
+title: Verwenden des Befehls Get-DriverPackage
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b0f123d281625140b3c4ba46316cb9b773bf5fee
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f3d31d9a02454b0f7fca06b28a4df27174f7b02e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440517"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363191"
 ---
-# <a name="using-the-get-driverpackage-command"></a>Mithilfe des Befehls Get-DriverPackage /
+# <a name="using-the-get-driverpackage-command"></a>Verwenden des Befehls Get-DriverPackage
 
 
 
-Zeigt Informationen zu einem Treiberpaket auf dem Server.
+Zeigt Informationen zu einem Treiber Paket auf dem Server an.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,14 +36,14 @@ WDSUTIL /Get-DriverPackage [/Server:<Server name>] {/DriverPackage:<Package Name
 
 |        Parameter         |                                                                           Beschreibung                                                                            |
 |--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [/ Server:\<Servername >] |              Gibt den Namen des Servers an. Dies kann den NetBIOS-Namen oder den vollqualifizierten Domänennamen sein. Wenn kein Servername angegeben wird, wird der lokale Server verwendet.               |
-| [/ DriverPackage /:\<Name >] |                                                        Gibt den Namen des Treiberpakets angezeigt.                                                         |
-|    [/PackageId:\<ID>]    | Gibt an, die Windows Deployment Services-ID des Treiberpakets angezeigt. Sie müssen die ID angeben, wenn das Treiberpaket eindeutig anhand des Namens identifiziert werden kann. |
+| [/Server: \<Server Name >] |              Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Namen handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.               |
+| [/DriverPackage: \<name >] |                                                        Gibt den Namen des anzuzeigenden Treiber Pakets an.                                                         |
+|    [/PackageId: \<ID >]    | Gibt die ID der Windows-Bereitstellungs Dienste des Treiber Pakets an, das angezeigt werden soll. Sie müssen die ID angeben, wenn das Treiber Paket nicht anhand des Namens eindeutig identifiziert werden kann. |
 |     [/Show: {Drivers     |                                                                              Dateien                                                                               |
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Geben Sie einen der folgenden Schritte aus, zum Anzeigen von Informationen zu einem Treiberpaket:
+Wenn Sie Informationen zu einem Treiber Paket anzeigen möchten, geben Sie eine der folgenden Informationen ein:
 ```
 WDSUTIL /Get-DriverPackage /PackageId:{4D36E972-E325-11CE-BFC1-08002BE10318}
 ```

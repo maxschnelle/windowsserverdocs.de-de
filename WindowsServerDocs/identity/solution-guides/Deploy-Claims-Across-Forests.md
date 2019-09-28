@@ -7,20 +7,20 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 7d78258d8f1db9889b6d2db8c497780940ed35a1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 21ddcbd3b71a8d623950f1600b654e04ecc41f1e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890651"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357568"
 ---
 # <a name="deploy-claims-across-forests"></a>Bereitstellen von Ansprüchen über Gesamtstrukturen
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-In Windows Server 2012 ist ein Anspruchstyp eine Aussage zum Objekt, das er zugeordnet ist. Anspruchstypen werden pro Gesamtstruktur in Active Directory definiert. Es gibt viele Szenarien, in denen ein Sicherheitsprinzipal für den Zugriff auf Ressourcen in einer vertrauenswürdigen Gesamtstruktur eine Vertrauensstellungsgrenze durchlaufen muss. Gesamtstrukturübergreifende Anspruchstransformation in Windows Server 2012 können Sie ein- und ausgehender Ansprüche transformieren, die Gesamtstrukturen durchlaufen, damit die Ansprüche werden erkannt und in den vertrauenden und vertrauenswürdigen Gesamtstrukturen akzeptiert. Es folgen einige praktische Szenarien für die Transformation von Ansprüchen:  
+In Windows Server 2012 ist ein Anspruchstyp eine Aussage über das Objekt, dem es zugeordnet ist. Anspruchstypen werden pro Gesamtstruktur in Active Directory definiert. Es gibt viele Szenarien, in denen ein Sicherheitsprinzipal für den Zugriff auf Ressourcen in einer vertrauenswürdigen Gesamtstruktur eine Vertrauensstellungsgrenze durchlaufen muss. Die Gesamtstruktur übergreifende Anspruchs Transformation in Windows Server 2012 ermöglicht es Ihnen, ausgehende und eingehende Ansprüche zu transformieren, die Gesamtstrukturen durchlaufen, damit die Ansprüche in den vertrauenden und vertrauenswürdigen Gesamtstrukturen erkannt und akzeptiert werden. Es folgen einige praktische Szenarien für die Transformation von Ansprüchen:  
   
 -   Vertrauende Gesamtstrukturen können die Transformation von Ansprüchen als Schutz gegen die Erhöhung von Berechtigungen nutzen, indem die eingehenden Ansprüche mit bestimmten Werten gefiltert werden.  
   
@@ -45,11 +45,11 @@ In der Standardeinstellung erlaubt eine vertrauenswürdige Gesamtstruktur allen 
 ## <a name="in-this-scenario"></a>Inhalt dieses Szenarios  
 Für dieses Szenario gilt folgende Leitlinie:  
   
--   [Bereitstellen von Ansprüchen über Gesamtstrukturen &#40;Demonstrationsschritte&#41;](Deploy-Claims-Across-Forests--Demonstration-Steps-.md)  
+-   [Stellen Sie Anspruchs übergreifende &#40;Demonstrations Schritte bereit&#41;](Deploy-Claims-Across-Forests--Demonstration-Steps-.md)  
   
--   [Ansprüche Transformation Regeln Sprache](Claims-Transformation-Rules-Language.md)  
+-   [Sprache zum Schreiben von Regeln für die Transformation von Ansprüchen](Claims-Transformation-Rules-Language.md)  
   
-## <a name="BKMK_NEW"></a>In diesem Szenario enthaltene Rollen und features  
+## <a name="BKMK_NEW"></a>In diesem Szenario enthaltene Rollen und Features  
 In der folgenden Tabelle sind die Rollen und Features dieses Szenarios und die Art der bereitgestellten Unterstützung aufgeführt.  
   
 |Rolle/Feature|Auf welche Weise dieses Szenario unterstützt wird|  

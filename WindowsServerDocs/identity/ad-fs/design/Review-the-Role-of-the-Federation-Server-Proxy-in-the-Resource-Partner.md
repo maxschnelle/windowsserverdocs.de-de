@@ -7,27 +7,27 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 377baa8f282f3886284a53b686944fe145b1b15e
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: df9e291d85ea8899d7f546956276c60582893fe8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190887"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359045"
 ---
 # <a name="review-the-role-of-the-federation-server-proxy-in-the-resource-partner"></a>Überprüfen der Rolle des Verbundserverproxys beim Ressourcenpartner
 
-Eines Verbundserverproxys in Active Directory-Verbunddienste \(AD FS\) -Funktion in eine oder mehrere der folgenden Rollen, je nachdem, wie Sie den Server, um die Anforderungen der Ressourcenpartnerorganisation konfigurieren können:  
+Ein Verbund Server Proxy in Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1 kann in einer oder mehreren der folgenden Rollen funktionieren, je nachdem, wie Sie den Server so konfigurieren, dass er die Anforderungen der Ressourcen Partnerorganisation erfüllt:  
   
--   **Ermittlung von Kontopartnern**: Ein internetclientcomputer muss bestimmen, welcher Kontopartner ihn authentifiziert wird. Der Client findet den Kontopartner mithilfe eines Discovery-Webformular \(discoverclientrealm.aspx\), die auf des Verbundserverproxys beim Ressourcenpartner gespeichert ist. Wenn mehr als ein Kontopartner konfiguriert ist im AD FS-Verwaltungs-Snap-\-in einem Dropdown\--Menü angezeigt wird, an den Client mit allen verfügbaren Kontopartnern, die für internetclientcomputer sichtbar sind, die den Kontopartner zugreifen Webformular zum ermitteln. Sie können ändern, wie das Webformular zum Ermitteln von Kontopartnern auf Clientcomputern dargestellt wird, indem Sie die Datei "discoverclientrealm.aspx" bearbeiten.  
+-   **Konto Partner**Ermittlung: Ein Internet Client Computer muss bestimmen, welcher Konto Partner ihn authentifiziert. Der Client findet den Konto Partner mithilfe eines Webformulars für die Konto Partner Ermittlung @no__t -0discoverclientrealm. aspx @ no__t-1, der auf dem Verbund Server Proxy im Ressourcen Partner gespeichert ist. Wenn mehr als ein Konto Partner im AD FS Management-Snap @ no__t-0in konfiguriert ist, wird dem Client ein Drop @ no__t-1down-Menü mit allen verfügbaren Konto Partnern angezeigt, die für Internet Client Computer sichtbar sind, die auf das Web der Konto Partner Ermittlung zugreifen. gehören. Sie können ändern, wie das Webformular zum Ermitteln von Kontopartnern auf Clientcomputern dargestellt wird, indem Sie die Datei "discoverclientrealm.aspx" bearbeiten.  
   
--   **Umleitung von Sicherheitstoken**: Des Verbundserverproxys beim Kontopartner sendet die Sicherheitstoken an den Ressourcenpartner. Der Verbundserverproxy für die Ressource akzeptiert diese Token und übergibt sie an der Verbundserver in der Ressourcenpartnerorganisation. Der Ressourcenverbundserver klicken Sie dann Sicherheitstoken ein, das für einen bestimmten Webserver gebunden ist. Der Verbundserverproxy für die Ressource leitet dann das Token wird an den Client.  
+-   **Umleitung von Sicherheits Token**: Der Verbund Server Proxy im Konto Partner sendet die Sicherheits Token an den Ressourcen Partner. Der Ressourcen Verbund Server Proxy akzeptiert diese Token und übergibt sie an den Verbund Server im Ressourcen Partner. Der Ressourcen Verbund Server gibt dann ein Sicherheits Token aus, das an einen bestimmten ressourcenweb Server gebunden ist. Der Ressourcen Verbund Server Proxy leitet das Token dann an den Client um.  
   
-Zusammenfassend lässt sich sagen, erleichtert ein Ressourcen-Verbundserverproxys den verbundanmeldevorgang durch das Umleiten von Clientcomputern bei einem Verbundserver, der die Clients authentifizieren können. Verbundserverproxys für eine Ressource fungiert außerdem als Proxy für Client-Sicherheitstoken für Ressourcenverbundserver.  
+Zusammenfassend ermöglicht ein Ressourcen Verbund Server Proxy den Verbund Anmeldevorgang durch Umleitung von Client Computern an einen Verbund Server, der die Clients authentifizieren kann. Ein Ressourcen Verbund Server Proxy fungiert auch als Proxy für Client Sicherheits Token für Ressourcen Verbund Server.  
   
 > [!NOTE]  
-> Wenn es erforderlich, um die Menge an Hardware und die Anzahl der erforderlichen Zertifikate zu reduzieren, kann der Verbundserverproxy auf dem gleichen Computer wie der Webserver befinden.  
+> Wenn es notwendig ist, die Menge an Hardware und die Anzahl der erforderlichen Zertifikate zu verringern, kann sich der Verbund Server Proxy auf demselben Computer wie der Webserver befinden.  
   
 ## <a name="see-also"></a>Siehe auch
 [AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

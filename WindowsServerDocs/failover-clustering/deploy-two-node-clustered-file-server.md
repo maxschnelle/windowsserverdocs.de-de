@@ -1,30 +1,30 @@
 ---
-title: Bereitstellen eines gruppierten Dateiservers mit zwei Knoten
-ms.prod: windows-server-threshold
+title: Bereitstellen eines Cluster Dateiservers mit zwei Knoten
+ms.prod: windows-server
 ms.manager: eldenc
 ms.technology: failover-clustering
 ms.topic: article
 author: johnmarlin-msft
 ms.date: 02/01/2019
-description: Dieser Artikel beschreibt das Erstellen eines dateiserverclusters mit zwei Knoten
-ms.openlocfilehash: 9f50470b379bd0ab05834eb3c5a35be0f5e9e93a
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+description: In diesem Artikel wird das Erstellen eines Dateiserver Clusters mit zwei Knoten beschrieben.
+ms.openlocfilehash: 03e78495b3fc85449d3d383706fb82541dd10372
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66452999"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361302"
 ---
-# <a name="deploying-a-two-node-clustered-file-server"></a>Bereitstellen eines gruppierten Dateiservers mit zwei Knoten
+# <a name="deploying-a-two-node-clustered-file-server"></a>Bereitstellen eines Cluster Dateiservers mit zwei Knoten
 
 > Gilt für: Windows Server 2019, Windows Server 2016
 
 Ein Failovercluster besteht aus einer Gruppe von unabhängigen Computern, die miteinander interagieren und somit die Verfügbarkeit von Anwendungen und Diensten erhöhen. Die Clusterserver (sogenannte Knoten) sind durch physische Kabel und durch Software miteinander verbunden. Wenn auf einem der Clusterknoten ein Fehler auftritt, werden seine Aufgaben sofort auf einen anderen Knoten übertragen. Dies wird als Failover bezeichnet. So ergeben sich für die Benutzer nur minimale Unterbrechungen des Betriebs.
 
-Dieses Handbuch beschreibt die Schritte zum Installieren und konfigurieren einen allgemeiner Dateiserver-Failovercluster, der über zwei Knoten verfügt. Durch die Konfiguration in dieser Anleitung erstellt haben, können mehr über Failovercluster erfahren und machen Sie sich mit den Failovercluster-Verwaltungs-Snap-in-Schnittstelle in Windows Server-2019 oder Windows Server 2016.
+In dieser Anleitung werden die Schritte zum Installieren und Konfigurieren eines allgemeinen Dateiserver-Failoverclusters mit zwei Knoten beschrieben. Wenn Sie die Konfiguration in dieser Anleitung erstellen, können Sie sich über Failovercluster informieren und sich mit der Snap-in-Schnittstelle für Failoverclusterverwaltung in Windows Server 2019 oder Windows Server 2016 vertraut machen.
 
 ## <a name="overview-for-a-two-node-file-server-cluster"></a>Übersicht über einen Dateiservercluster mit zwei Knoten
 
-Server in einem Failovercluster können in einer Vielzahl von Rollen, einschließlich der Rollen der Scale-Out File Server, Hyper-V-Server oder Datenbank-Server fungieren, und es können hohe Verfügbarkeit für eine Vielzahl von anderen Diensten und Anwendungen bereitstellen. In dieser Anleitung wird die Konfiguration eines Dateiserverclusters mit zwei Knoten beschrieben.
+Server in einem Failovercluster können in einer Vielzahl von Rollen eingesetzt werden, einschließlich der Rollen von Dateiserver, Hyper-V-Server oder Datenbankserver. Sie können Hochverfügbarkeit für eine Vielzahl anderer Dienste und Anwendungen bereitstellen. In dieser Anleitung wird die Konfiguration eines Dateiserverclusters mit zwei Knoten beschrieben.
 
 Ein Failovercluster enthält normalerweise eine Speichereinheit, die mit allen Servern im Cluster physisch verbunden ist, obwohl auf jedes Volume im Speicher immer nur von je einem Server zugegriffen wird. Im folgenden Diagramm finden Sie einen Failovercluster mit zwei Knoten, der an mit einer Speichereinheit verbunden ist.
 
@@ -40,60 +40,60 @@ Das folgende Szenario beschreibt, wie ein Dateiserver-Failovercluster konfigurie
 
 ## <a name="shared-folders-in-a-failover-cluster"></a>Freigegebene Ordner in einem Failovercluster
 
-Die folgende Liste beschreibt die freigegebenen Ordner Funktionen, die in das Failoverclustering integriert ist:
+In der folgenden Liste werden die Konfigurationsfunktionen für freigegebene Ordner beschrieben, die in Failoverclustering integriert sind:
 
-- Anzeige ist auf nur gruppierte freigegebene Ordner (keine Vermischung mit nicht gruppierten freigegebenen Ordnern) begrenzt: Wenn ein Benutzer freigegebene Ordner durch Angabe des Pfads eines Clusterdateiservers, umfasst die Anzeige nur die freigegebenen Ordner, die Teil der Serverrolle "Datei" sind. Er schließt nicht gruppierte freigegebene Ordner und Freigaben Teil separate Datei-Serverrollen, die auf einem Knoten des Clusters sind.
+- Die Anzeige ist auf freigegebene Clusterordner beschränkt (keine Mischung mit nicht gruppierten freigegebenen Ordnern): Wenn ein Benutzer freigegebene Ordner durch Angabe des Pfads eines gruppierten Dateiservers anzeigt, enthält die Anzeige nur die freigegebenen Ordner, die Teil der jeweiligen Dateiserver Rolle sind. Nicht gruppierte freigegebene Ordner werden ausgeschlossen, und es wird ein Teil von separaten Dateiserver Rollen verwendet, die sich auf einem Cluster Knoten befinden.
 
-- -Zugriffsbasierte Aufzählung: Sie können die zugriffsbasierte Aufzählung verwenden, um einen bestimmten Ordner für Benutzer auszublenden. Anstatt den Ordner für den Benutzer anzuzeigen, ihn jedoch nicht darauf zugreifen zu lassen, können Sie den Ordner einfach ganz ausblenden. Sie können die zugriffsbasierte Aufzählung für einen geclusterten freigegebenen Ordner auf die gleiche Weise wie für einen nicht gruppierten freigegebenen Ordner konfigurieren.
+- Zugriffs basierte Enumeration: Sie können die zugriffsbasierte Aufzählung verwenden, um einen bestimmten Ordner für Benutzer auszublenden. Anstatt den Ordner für den Benutzer anzuzeigen, ihn jedoch nicht darauf zugreifen zu lassen, können Sie den Ordner einfach ganz ausblenden. Sie können die Zugriffs basierte Enumeration für einen geclusterten freigegebenen Ordner auf die gleiche Weise wie für einen nicht gruppierten freigegebenen Ordner konfigurieren.
 
-- Offline-Zugriff: Sie können den Offlinezugriff (Zwischenspeichern) für einen geclusterten freigegebenen Ordner auf die gleiche Weise wie für nicht geclusterte freigegebene Ordner konfigurieren.
+- Offline Zugriff: Sie können den Offlinezugriff (Zwischenspeichern) für einen geclusterten freigegebenen Ordner auf die gleiche Weise wie für nicht geclusterte freigegebene Ordner konfigurieren.
 
-- Geclusterte Datenträger werden immer als Teil des Clusters erkannt: Unabhängig davon, ob Sie die failoverclusterschnittstelle, Windows-Explorer oder das Freigabe- und Speicherverwaltung-Snap-in, erkennt Windows an, ob ein Datenträger als in den Clusterspeicher festgelegt wurde. Wenn solch ein Datenträger bereits im Failovercluster-Verwaltung als Teil eines Clusterdateiservers konfiguriert wurde, klicken Sie dann können eine der zuvor erwähnten Schnittstellen Sie um eine Freigabe auf dem Datenträger zu erstellen. Wenn der Datenträger nicht als Teil eines Clusterdateiservers konfiguriert wurde, ist es nicht möglich, versehentlich eine Freigabe darauf zu erstellen. Stattdessen gibt eine Fehlermeldung an, dass der Datenträger zuerst als Teil eines Clusterdateiservers konfiguriert werden muss, bevor er freigegeben werden kann.
+- Gruppierte Datenträger werden immer als Teil des Clusters erkannt: Unabhängig davon, ob Sie die Failoverclusterschnittstelle, Windows-Explorer oder das Freigabe-und Speicher Verwaltungs-Snap-in verwenden, erkennt Windows, ob ein Datenträger als im Cluster Speicher festgelegt wurde. Wenn ein solcher Datenträger bereits in der Failoverclusterverwaltung als Teil eines Cluster Dateiservers konfiguriert wurde, können Sie mithilfe einer der oben erwähnten Schnittstellen eine Freigabe auf dem Datenträger erstellen. Wenn der Datenträger nicht als Teil eines Clusterdateiservers konfiguriert wurde, ist es nicht möglich, versehentlich eine Freigabe darauf zu erstellen. Stattdessen gibt eine Fehlermeldung an, dass der Datenträger zuerst als Teil eines Clusterdateiservers konfiguriert werden muss, bevor er freigegeben werden kann.
 
-- Die Integration von Diensten für NFS: Die Rolle "Dateiserver" in Windows Server enthält den optionalen Rollendienst, der Dienste für Network File System (NFS) aufgerufen. Durch Installieren des Rollendiensts und Konfigurieren von freigegebenen Ordner mit Diensten für NFS können Sie einen Clusterdateiserver erstellen, der UNIX-basierte Clients unterstützt.
+- Integration von Diensten für das Netzwerkdatei System: Die Rolle "Datei Server" in Windows Server umfasst den optionalen Rollen Dienst "Dienste für NFS (Network File System)". Durch Installieren des Rollendiensts und Konfigurieren von freigegebenen Ordner mit Diensten für NFS können Sie einen Clusterdateiserver erstellen, der UNIX-basierte Clients unterstützt.
 
 ## <a name="requirements-for-a-two-node-failover-cluster"></a>Anforderungen für einen Failovercluster mit zwei Knoten
 
-Für einen Failovercluster in Windows Server 2016 oder Windows Server-2019 von Microsoft eine offiziell unterstützte Lösung berücksichtigt werden muss die Lösung die folgenden Kriterien erfüllen.
+Damit ein Failovercluster in Windows Server 2016 oder Windows Server 2019 als offiziell unterstützte Lösung von Microsoft angesehen wird, muss die Lösung die folgenden Kriterien erfüllen.
 
-- Alle Hardware- und Softwarekomponenten müssen die Qualifikationen für das entsprechende Logo erfüllen. Für Windows Server 2016 ist dies das Logo "Zertifiziert für WindowsServer 2016". Für Windows Server-2019 ist dies das Logo "Zertifiziert für WindowsServer 2019". Weitere Informationen dazu, welche Hardware und Software-Systeme zertifiziert wurden, finden Sie auf der Microsoft [Windows Server-Katalog](https://www.windowsservercatalog.com/default.aspx) Standort.
+- Alle Hardware- und Softwarekomponenten müssen die Qualifikationen für das entsprechende Logo erfüllen. Für Windows Server 2016 ist dies das Logo "Certified for Windows Server 2016". Für Windows Server 2019 ist dies das Logo "Certified for Windows Server 2019". Weitere Informationen dazu, welche Hardware-und Softwaresysteme zertifiziert wurden, finden Sie auf der Microsoft [Windows Server-Katalog](https://www.windowsservercatalog.com/default.aspx) Website.
 
-- Die vollständig konfigurierte Lösung (Server, Netzwerk und Speicher) muss alle Tests in den überprüfungs-Assistenten bestehen, der den Failovercluster-Snap-ins gehört.
+- Die vollständig konfigurierte Lösung (Server, Netzwerk und Speicher) muss alle Tests im Validierungs-Assistenten bestehen, der Teil des Failovercluster-Snap-Ins ist.
 
-Im folgenden wird für einen Failovercluster mit zwei Knoten benötigt.
+Für einen Failovercluster mit zwei Knoten ist Folgendes erforderlich:
 
-- **Server:** Es wird empfohlen, mit einem entsprechenden Computer mit identischen oder ähnlichen Komponenten.  Die Server für einen Failovercluster mit zwei Knoten müssen die gleiche Version von Windows Server ausführen. Sie sollten auch die gleichen Softwareupdates (Patches) haben.
+- **Webserver** Es wird empfohlen, übereinstimmende Computer mit denselben oder ähnlichen Komponenten zu verwenden.  Auf den Servern für einen Failovercluster mit zwei Knoten muss die gleiche Version von Windows Server ausgeführt werden. Sie sollten auch die gleichen Software Updates (Patches) enthalten.
 
-- **Netzwerkadapter und Kabel:** Netzwerkhardware wie andere Komponenten der Failoverclusterlösung muss mit Windows Server 2016 oder Windows Server-2019 kompatibel sein. Wenn Sie iSCSI verwenden, müssen der Netzwerkadapter, Netzwerkkommunikation oder für iSCSI, nicht jedoch für beides verwendet werden. Vermeiden Sie in der Netzwerkinfrastruktur, über die die Clusterknoten verbunden sind, die Verwendung von Komponenten, deren Ausfall einen Ausfall des Gesamtsystems zur Folge hätte. Es gibt mehrere Methoden, dies zu erreichen. Sie können die Clusterknoten durch mehrere unterschiedliche Netzwerke verbinden. Zudem können Sie die Clusterknoten mit einem Netzwerk verbinden, das aus Netzwerkadapterteams, redundanten Switches, redundanten Routern oder ähnlicher Hardware besteht, die einzelne Fehlerpunkte beseitigt.
+- **Netzwerkadapter und Kabel:** Die Netzwerkhardware muss wie andere Komponenten in der Failoverclusterlösung mit Windows Server 2016 oder Windows Server 2019 kompatibel sein. Wenn Sie iSCSI verwenden, müssen die Netzwerkadapter entweder für die Netzwerkkommunikation oder für iSCSI, nicht jedoch für beides dediziert sein. Vermeiden Sie in der Netzwerkinfrastruktur, über die die Clusterknoten verbunden sind, die Verwendung von Komponenten, deren Ausfall einen Ausfall des Gesamtsystems zur Folge hätte. Es gibt mehrere Methoden, dies zu erreichen. Sie können die Clusterknoten durch mehrere unterschiedliche Netzwerke verbinden. Zudem können Sie die Clusterknoten mit einem Netzwerk verbinden, das aus Netzwerkadapterteams, redundanten Switches, redundanten Routern oder ähnlicher Hardware besteht, die einzelne Fehlerpunkte beseitigt.
 
    > [!NOTE]
-   > Wenn die Clusterknoten mit einem Netzwerk verbunden sind, wird das Netzwerk den Konfigurationsüberprüfungs-Assistenten die Redundanz Anforderung übergeben.  Allerdings wird der Bericht enthält eine Warnung, dass das Netzwerk nicht auf eine einzelne Fehlerquelle haben soll.
+   > Wenn die Cluster Knoten mit einem einzelnen Netzwerk verbunden sind, übergibt das Netzwerk die Redundanz Anforderung im Konfigurationsüberprüfungs-Assistenten.  Der Bericht enthält jedoch eine Warnung, dass das Netzwerk keine Single Point of Failure haben sollte.
 
-- **Gerätecontroller oder entsprechende Adapter für Speicher:**
-    - **Serial Attached SCSI oder Fibre Channel:** Wenn Sie SAS oder Fibre Channel verwenden, sollten alle Komponenten des Speicherstapels aller geclusterten Server identisch sein. Es ist erforderlich, das Multipfad e/a (MPIO)-Software und die Geräte bestimmten Modul (DSM) Softwarekomponenten, die identisch sein.  Es wird empfohlen, identische Massenspeichergerätecontroller zu verwenden, d. h. Hostbusadapter (HBA), HBA-Treiber und HBA-Firmware. Wenn Sie unterschiedliche HBAs verwenden, sollten Sie gemeinsam mit dem Speicheranbieter überprüfen, ob die unterstützten oder empfohlenen Konfigurationen eingehalten werden.
-    - **iSCSI:** Wenn Sie iSCSI verwenden, muss jeder Clusterserver über verfügen, eine oder mehrere Netzwerkadapter oder Hostbusadapter an, die den iSCSI-Speicher zugeordnet sind. Das Netzwerk, das Sie für iSCSI verwenden, kann nicht für die Netzwerkkommunikation verwendet werden. Die zum Herstellen von Verbindungen mit dem iSCSI-Speicherziel verwendeten Netzwerkadapter müssen für alle Clusterserver identisch sein, und es empfiehlt sich, Gigabit Ethernet oder höher zu verwenden.  
+- **Geräte Controller oder geeignete Adapter für den Speicher:**
+    - **Serielle angehängte SCSI-oder-Fibre Channel:** Wenn Sie SAS oder Fibre Channel verwenden, sollten alle Komponenten des Speicherstapels aller geclusterten Server identisch sein. Es ist erforderlich, dass die Multipfad-e/a (MPIO)-Software und DSM-Softwarekomponenten (Device Specific Module) identisch sind.  Es wird empfohlen, identische Massenspeichergerätecontroller zu verwenden, d. h. Hostbusadapter (HBA), HBA-Treiber und HBA-Firmware. Wenn Sie unterschiedliche HBAs verwenden, sollten Sie gemeinsam mit dem Speicheranbieter überprüfen, ob die unterstützten oder empfohlenen Konfigurationen eingehalten werden.
+    - **iSCSI-** Wenn Sie iSCSI verwenden, muss jeder Cluster Server über mindestens einen Netzwerkadapter oder Hostbus Adapter verfügen, der für den iSCSI-Speicher reserviert ist. Das Netzwerk, das Sie für iSCSI verwenden, kann nicht für die Netzwerkkommunikation verwendet werden. Die zum Herstellen von Verbindungen mit dem iSCSI-Speicherziel verwendeten Netzwerkadapter müssen für alle Clusterserver identisch sein, und es empfiehlt sich, Gigabit Ethernet oder höher zu verwenden.  
 
-- **Speicher:** Sie müssen die freigegebenen Speicher verwenden, der für Windows Server 2016 oder Windows Server-2019 zertifiziert ist.
+- **Speicher** Sie müssen freigegebenen Speicher verwenden, der für Windows Server 2016 oder Windows Server 2019 zertifiziert ist.
   
-    Für einen Failovercluster mit zwei Knoten sollte der Speicher mindestens zwei separaten Volumes (LUNs) enthalten, wenn einen Zeugendatenträger für ein Quorum zu verwenden. Bei einem Zeugendatenträger handelt es sich um einen Datenträger im Clusterspeicher, auf dem eine Kopie der Clusterkonfigurationsdatenbank gespeichert ist. Cluster mit zwei Knoten in diesem Beispiel wird die Quorumkonfiguration Knoten- und Datenträgermehrheit sein. Knoten- und Datenträgermehrheit bedeutet, dass die Knoten und der Zeugendatenträger jeweils zwei Kopien der Clusterkonfiguration enthalten, und der Cluster besitzt das Quorum, solange die Mehrheit (zwei von drei) diese Kopien sind verfügbar. Das andere Volume (LUN) enthält die Dateien, die für Benutzer freigegeben sind.
+    Bei einem Failovercluster mit zwei Knoten sollte der Speicher mindestens zwei separate Volumes (LUNs) enthalten, wenn ein Zeugen Datenträger für das Quorum verwendet wird. Bei einem Zeugendatenträger handelt es sich um einen Datenträger im Clusterspeicher, auf dem eine Kopie der Clusterkonfigurationsdatenbank gespeichert ist. Bei diesem Beispiel für einen Cluster mit zwei Knoten ist die Quorum Konfiguration Knoten-und Datenträger Mehrheit. Knoten-und Datenträger Mehrheit bedeutet, dass die Knoten und der Zeugen Datenträger jeweils Kopien der Cluster Konfiguration enthalten, und der Cluster verfügt über ein Quorum, solange die Mehrheit (zwei von drei) dieser Kopien verfügbar ist. Das andere Volume (LUN) enthält die Dateien, die für die Benutzer freigegeben werden.
 
     Die Speicheranforderungen beinhalten Folgendes:
 
     - Um die systemeigene, im Failoverclustering enthaltene Datenträgerunterstützung verwenden zu können, müssen anstelle von dynamischen Datenträgern Basisdatenträger verwendet werden.
     - Die Formatierung als NTFS-Partitionen wird empfohlen (die Partition des Zeugendatenträgers muss NTFS-formatiert sein).
     - Als Partitionsstil des Datenträgers können Sie entweder MBR (Master Boot Record) oder GPT (GUID-Partitionstabelle) verwenden.
-    - Der Speicher muss ordnungsgemäß auf bestimmte SCSI-Befehle reagiert. muss der Speicher dem Standard, die SCSI-3 Primary Commands-(SPC-3) wird aufgerufen, entsprechen. Insbesondere muss der Speicher permanente Reservierungen unterstützen, wie im SPC-3-Standard angegeben. 
+    - Der Speicher muss ordnungsgemäß auf bestimmte SCSI-Befehle Antworten. der Speicher muss dem Standard entsprechen, der als SCSI Primary Commands-3 (SPC-3) bezeichnet wird. Insbesondere muss der Speicher permanente Reservierungen unterstützen, wie im SPC-3-Standard angegeben. 
     -  Der für den Speicher verwendete Miniporttreiber muss mit dem StorPort-Speichertreiber von Microsoft kompatibel sein.
 
 ## <a name="deploying-storage-area-networks-with-failover-clusters"></a>Bereitstellen von SANs (Storage Area Networks) mit Failoverclustern
 
-Wenn Sie ein Storage Area Network (SAN) für einen Failovercluster bereitstellen, sollten die folgenden Richtlinien beachtet werden.
+Beim Bereitstellen einer Storage Area Network (San) mit einem Failovercluster sollten die folgenden Richtlinien beachtet werden.
 
-- **Bestätigen Sie die Zertifizierung des Speichers:** Mithilfe der [Windows Server-Katalog](https://www.windowsservercatalog.com/default.aspx) Standorts, des Anbieters Speicher, einschließlich Treiber, Firmware und Software, hat eine Zertifizierung für Windows Server 2016 oder Windows Server-2019 zu bestätigen.
+- **Bestätigen Sie die Zertifizierung des Speichers:** Bestätigen Sie mithilfe der [Windows Server-Katalog](https://www.windowsservercatalog.com/default.aspx) Website, dass der Speicher des Anbieters, einschließlich der Treiber, Firmware und Software, für Windows Server 2016 oder Windows Server 2019 zertifiziert ist.
 
-- **Isolieren Sie Speichergeräte, ein Cluster pro Gerät:** Server unterschiedlicher Cluster dürfen nicht auf dieselben Speichergeräte zugreifen. In den meisten Fällen sollte eine LUN, die für einen Satz von Clusterservern verwendet wird, durch LUN-Maskierung oder -Zoneneinteilung von allen anderen Servern isoliert werden.
+- **Isolieren Sie Speichergeräte, einen Cluster pro Gerät:** Server unterschiedlicher Cluster dürfen nicht auf dieselben Speichergeräte zugreifen. In den meisten Fällen sollte eine LUN, die für einen Satz von Clusterservern verwendet wird, durch LUN-Maskierung oder -Zoneneinteilung von allen anderen Servern isoliert werden.
 
-- **Verwenden Sie ggf. Multipfad e/a-Software:** In einem Speicherfabric mit hoher Verfügbarkeit können Sie mit MPIO-Software Failovercluster mit mehreren Hostbusadaptern bereitstellen. Auf diese Weise erhalten Sie den höchsten Grad an Redundanz und Verfügbarkeit. Die multipfadlösung muss auf Microsoft Multipfad-e/a (MPIO) basieren. Die Hardware-Speicheranbieter kann möglicherweise ein MPIO gerätespezifischen Modul (DSM) für die Hardware angeben, obwohl Windows Server 2016 und Windows Server-2019 mindestens ein DSM als Bestandteil des Betriebssystems enthalten.
+- **Verwenden Sie ggf. Multipfad-e/a-Software:** In einem Speicherfabric mit hoher Verfügbarkeit können Sie mit MPIO-Software Failovercluster mit mehreren Hostbusadaptern bereitstellen. Auf diese Weise erhalten Sie den höchsten Grad an Redundanz und Verfügbarkeit. Die Multipfadlösung muss auf Microsoft Multipfad-e/a (MPIO) basieren. Der Speicherhardware Hersteller kann ein Geräte spezifisches MPIO-Modul (DSM) für die Hardware bereitstellen, obwohl Windows Server 2016 und Windows Server 2019 mindestens eine DSMs als Teil des Betriebssystems enthalten.
 
 ## <a name="network-infrastructure-and-domain-account-requirements"></a>Anforderungen an die Netzwerkinfrastruktur und das Domänenkonto
 
@@ -103,17 +103,17 @@ Für einen Failovercluster mit zwei Knoten benötigen Sie die folgende Netzwerki
 
     Wenn Sie über private Netzwerke verfügen, die nicht an die übrige Netzwerkinfrastruktur weitergeleitet werden, muss sichergestellt werden, dass jedes dieser privaten Netzwerke ein eindeutiges Subnetz verwendet. Dies ist auch dann erforderlich, wenn jeder Netzwerkadapter über eine eindeutige IP-Adresse verfügt. Wenn Sie beispielsweise in einer Zentrale mit einem physischen Netzwerk über einen Clusterknoten und in einer Filiale mit einem separaten physischen Netzwerk über einen weiteren Knoten verfügen, sollte 10.0.0.0/24 selbst dann nicht für beide Netzwerke angegeben werden, wenn Sie jedem Adapter eine eindeutige IP-Adresse zuweisen.
 
-    Weitere Informationen zu den Netzwerkadaptern finden Sie unter "hardwareanforderungen für einen zwei-Knoten-Failovercluster, in diesem Handbuch".
+    Weitere Informationen zu den Netzwerkadaptern finden Sie weiter oben in dieser Anleitung unter Hardware Anforderungen für einen Failovercluster mit zwei Knoten.
 
-- **DNS:** Die Server im Cluster müssen für die Namensauflösung DNS (Domain Name System) verwenden. Das Protokoll für das dynamische DNS-Update kann verwendet werden.
+- **DNS-** Die Server im Cluster müssen für die Namensauflösung DNS (Domain Name System) verwenden. Das Protokoll für das dynamische DNS-Update kann verwendet werden.
 
-- **Domänenrolle:** Alle Server im Cluster müssen sich in der gleichen Active Directory-Domäne befinden. Als bewährte Methode sollten alle geclusterten Server über dieselbe Domänenrolle verfügen (entweder Mitgliedsserver oder Domänencontroller). Die empfohlene Rolle ist Mitgliedsserver.
+- **Domänen Rolle:** Alle Server im Cluster müssen sich in der gleichen Active Directory-Domäne befinden. Als bewährte Methode sollten alle geclusterten Server über dieselbe Domänenrolle verfügen (entweder Mitgliedsserver oder Domänencontroller). Die empfohlene Rolle ist Mitgliedsserver.
 
-- **Domänencontroller:** Es wird empfohlen, dass es sich bei den geclusterten Servern um Mitgliedsserver handelt. Ist dies der Fall, benötigen Sie einen zusätzlichen Server, der in der Domäne, die den Failovercluster enthält, als Domänencontroller fungiert.
+- **Domänen Controller:** Es wird empfohlen, dass es sich bei den geclusterten Servern um Mitgliedsserver handelt. Ist dies der Fall, benötigen Sie einen zusätzlichen Server, der in der Domäne, die den Failovercluster enthält, als Domänencontroller fungiert.
 
-- **-Clients:** Wenn es für Tests erforderlich ist, können Sie einen oder mehrere vernetzte Clients mit dem Failovercluster verbinden, den Sie erstellen. Beobachten Sie die Auswirkungen auf einen Client, wenn Sie den Clusterdateiserver von einem Clusterknoten zum anderen verschieben bzw. einen Failover ausführen.
+- **Unseren** Wenn es für Tests erforderlich ist, können Sie einen oder mehrere vernetzte Clients mit dem Failovercluster verbinden, den Sie erstellen. Beobachten Sie die Auswirkungen auf einen Client, wenn Sie den Clusterdateiserver von einem Clusterknoten zum anderen verschieben bzw. einen Failover ausführen.
 
-- **Konto zum Verwalten des Clusters:** Beim erstmaligen Erstellen eines Clusters oder beim Hinzufügen von Servern zu diesem Cluster, müssen Sie an der Domäne mit einem Konto angemeldet sein, das über Administratorrechte und Berechtigungen für alle Server in diesem Cluster verfügt. Dabei muss es sich nicht unbedingt um ein Domänenadministratorenkonto handeln. Es kann auch ein Domänenbenutzerkonto verwendet werden, das der Gruppe "Administratoren" für die einzelnen Clusterserver angehört. Darüber hinaus ist das Konto kein-Admins-domänenadministratorenkonto, das Konto (oder die Gruppe, die das Konto ein Mitglied ist) muss angegeben werden die **Erstellen von Computerobjekten** und **Lesen aller Eigenschaften** Berechtigungen in der Domäne Organisationseinheit (OU), ist befinden in.
+- **Konto zum Verwalten des Clusters:** Beim erstmaligen Erstellen eines Clusters oder beim Hinzufügen von Servern zu diesem Cluster, müssen Sie an der Domäne mit einem Konto angemeldet sein, das über Administratorrechte und Berechtigungen für alle Server in diesem Cluster verfügt. Dabei muss es sich nicht unbedingt um ein Domänenadministratorenkonto handeln. Es kann auch ein Domänenbenutzerkonto verwendet werden, das der Gruppe "Administratoren" für die einzelnen Clusterserver angehört. Wenn es sich bei dem Konto nicht um ein Domänen-Admins-Konto handelt, muss dem Konto (oder der Gruppe, der das Konto angehört) außerdem die Berechtigung zum **Erstellen von Computer Objekten** und zum **Lesen aller Eigenschaften** in der Organisationseinheit der Domäne (OE) erteilt werden. befinden sich in.
 
 ## <a name="steps-for-installing-a-two-node-file-server-cluster"></a>Schritte zum Installieren eines Dateiserverclusters mit zwei Knoten
 
@@ -127,7 +127,7 @@ Schritt 3: Überprüfen der Clusterkonfiguration
 
 Schritt 4: Erstellen des Clusters
 
-Wenn Sie die Clusterknoten bereits installiert haben und einen Dateiserver-Failovercluster konfigurieren möchten, finden Sie unter Schritten konfigurieren einen zwei-Knoten-Dateiservercluster, weiter unten in diesem Handbuch.
+Wenn Sie die Cluster Knoten bereits installiert haben und einen Dateiserver-Failovercluster konfigurieren möchten, lesen Sie die Schritte zum Konfigurieren eines Dateiserver Clusters mit zwei Knoten weiter unten in dieser Anleitung.
 
 ### <a name="step-1-connect-the-cluster-servers-to-the-networks-and-storage"></a>Schritt 1: Verbinden der Clusterserver mit den Netzwerken und dem Speicher
 
@@ -137,7 +137,7 @@ Für einen Dateiservercluster mit zwei Knoten müssen Sie mindestens zwei Volume
 
 #### <a name="to-connect-the-cluster-servers-to-the-networks-and-storage"></a>So verbinden Sie den Clusterserver mit den Netzwerken und dem Speicher
 
-1. Überprüfen Sie die Details zu Netzwerken in hardwareanforderungen für einen Failovercluster mit zwei Knoten und Netzwerk Netzwerkinfrastruktur- und domänenkontenanforderungen für einen zwei-Knoten-Failovercluster, in diesem Handbuch.
+1. Lesen Sie die Details zu Netzwerken unter Hardware Anforderungen für einen Failovercluster mit zwei Knoten und Netzwerkinfrastruktur-und Domänen Kontoanforderungen für einen Failovercluster mit zwei Knoten weiter oben in dieser Anleitung.
 
 2. Verbinden und konfigurieren Sie die Netzwerke, die die Server im Cluster verwenden.
 
@@ -151,199 +151,199 @@ Für einen Dateiservercluster mit zwei Knoten müssen Sie mindestens zwei Volume
 
     - Wenn Sie iSCSI verwenden, eine entsprechende iSCSI-Schnittstelle
 
-6. Wenn Sie Software erworben haben, die das Format oder die Funktion des Datenträgers gesteuert wird, befolgen Sie die Anweisungen des Anbieters zur Verwendung dieser Software mit Windows Server.
+6. Wenn Sie Software erworben haben, mit der das Format oder die Funktion des Datenträgers gesteuert wird, befolgen Sie die Anweisungen des Herstellers, um zu erfahren, wie Sie diese Software mit Windows Server verwenden.
 
-7. Klicken Sie auf einem der Server, die Sie verwenden möchten, gruppieren, klicken Sie auf Start auf Verwaltung, klicken Sie auf ' Computerverwaltung, und klicken Sie dann die Datenträgerverwaltung auf. (Wenn das Dialogfeld "Benutzerkontensteuerung" angezeigt wird, bestätigen Sie, dass die gewünschte Aktion angezeigt wird, was Sie möchten, und klicken Sie dann auf Weiter.) In der Datenträgerverwaltung Vergewissern Sie sich, dass die Clusterdatenträger sichtbar sind.
+7. Klicken Sie auf einem der Server, die Sie gruppieren möchten, auf Start, klicken Sie auf Verwaltung, klicken Sie auf Computer Verwaltung, und klicken Sie dann auf Datenträgerverwaltung. (Wenn das Dialogfeld Benutzerkontensteuerung angezeigt wird, vergewissern Sie sich, dass die gewünschte Aktion angezeigt wird, und klicken Sie dann auf Weiter.) Vergewissern Sie sich unter Datenträgerverwaltung, dass die Cluster Datenträger sichtbar sind.
 
-8. Wenn Sie ein Speichervolume mit mehr als zwei Terabyte erstellen möchten und Sie zum Steuern des Datenträgerformats die Windows-Benutzeroberfläche verwenden, konvertieren Sie diesen Datenträger in den Partitionstyp GPT (GUID-Partitionstabelle). Hierzu, Sichern Sie alle Daten auf dem Datenträger löschen Sie alle Volumes auf dem Datenträger, und klicken Sie dann in der Datenträgerverwaltung mit der rechten Maustaste des Datenträgers (nicht auf eine Partition), und klicken Sie auf GPT-Datenträger konvertieren.  Für Volumes mit weniger als zwei Terabyte können Sie statt GPT den Partitionstyp MBR (Master Boot Record) verwenden.
+8. Wenn Sie ein Speichervolume mit mehr als zwei Terabyte erstellen möchten und Sie zum Steuern des Datenträgerformats die Windows-Benutzeroberfläche verwenden, konvertieren Sie diesen Datenträger in den Partitionstyp GPT (GUID-Partitionstabelle). Sichern Sie dazu alle Daten auf dem Datenträger, löschen Sie alle Volumes auf dem Datenträger, und klicken Sie dann in der Datenträgerverwaltung mit der rechten Maustaste auf den Datenträger (nicht auf eine Partition), und klicken Sie auf in GPT-Datenträger konvertieren.  Für Volumes mit weniger als zwei Terabyte können Sie statt GPT den Partitionstyp MBR (Master Boot Record) verwenden.
 
 9. Überprüfen Sie das Format aller verfügbar gemachten Volumes bzw. LUNs. Es wird empfohlen, als Format NTFS zu verwenden (für den Zeugendatenträger muss NTFS verwendet werden).
 
-### <a name="step-2-install-the-file-server-role-and-failover-cluster-feature"></a>Schritt 2: Installieren Sie die Datei Server-Rolle und Failover-Cluster-Funktion
+### <a name="step-2-install-the-file-server-role-and-failover-cluster-feature"></a>Schritt 2: Installieren der Dateiserver Rolle und des Failoverclusterfeatures
 
-In diesem Schritt wird die Datei Server-Rolle und Failover-Cluster-Funktion installiert werden. Beide Server müssen entweder Windows Server 2016 oder Windows Server-2019 ausgeführt werden.
+In diesem Schritt werden die Dateiserver Rolle und das Failoverclusterfeature installiert. Auf beiden Servern muss entweder Windows Server 2016 oder Windows Server 2019 ausgeführt werden.
 
-#### <a name="using-server-manager"></a>Mit dem Server-Manager
+#### <a name="using-server-manager"></a>Verwenden von Server-Manager
 
-1. Open **Server-Manager** und wählen Sie unter den **verwalten** öffnen Sie die Dropdownliste, wählen Sie **Hinzufügen von Rollen und Features**.
+1. Öffnen Sie **Server-Manager** , und wählen Sie in der Dropdown-Dropdown- **Verwaltung** **Rollen und Features hinzufügen**.
 
-   ![Funktion hinzufügen](media/Cluster-File-Server/Cluster-FS-Add-Feature.png)
+   ![Feature hinzufügen](media/Cluster-File-Server/Cluster-FS-Add-Feature.png)
 
-2. Wenn die **vor dem Beginn** Fenster geöffnet wird, wählen Sie **Weiter**.
+2. Wenn das Fenster **vor dem Beginn** geöffnet wird, wählen Sie **weiter**aus.
 
-3. Für die **Installationstyp**Option **rollenbasierte oder featurebasierte Installation** und **Weiter**.
+3. Wählen Sie für **Installationstyp**die Option **rollenbasierte oder featurebasierte Installation** und **dann weiter**aus.
 
-4. Stellen Sie sicher **wählen Sie einen Server aus dem Serverpool** wird ausgewählt, der Name des Computers wird hervorgehoben, und **Weiter**.
+4. Stellen Sie sicher, dass **Server aus dem Server Pool auswählen** ausgewählt ist, der Name des Computers hervorgehoben ist und **dann weiter**.
 
-5. Öffnen Sie für die Server-Rolle, aus der Liste der Rollen, **Dateidienste**Option **Dateiserver**, und **Weiter**.
+5. Öffnen Sie für die Server Rolle in der Liste der Rollen die **Dateidienste**, und wählen Sie dann **Datei Server**und **weiter**aus.
 
    ![Rolle hinzufügen](media/Cluster-File-Server/Cluster-FS-Add-FS-Role-1.png)
 
-6. Wählen Sie für die Funktionen, aus der Liste der Features, **Failover-Clusterunterstützung**.  Ein Popupdialogfeld zeigt, dass, die Verwaltungstools auch installierenden aufgelistet sind.  Alle beibehalten der ausgewählten Option **Features hinzufügen** und **Weiter**.
+6. Wählen Sie für die Features in der Liste der Features **Failoverclustering**aus.  Ein Popup Dialogfeld wird angezeigt, in dem die zu installierende Verwaltungs Tools aufgelistet sind.  Behalten Sie alle ausgewählten Optionen bei, wählen Sie **Features hinzufügen** und **weiter**aus.
 
-   ![Funktion hinzufügen](media/Cluster-File-Server/Cluster-FS-Add-WSFC-1.png)
+   ![Feature hinzufügen](media/Cluster-File-Server/Cluster-FS-Add-WSFC-1.png)
 
-7. Wählen Sie auf der Seite "Bestätigung" installieren.
+7. Wählen Sie auf der Seite Bestätigung die Option installieren aus.
 
-8. Nach Abschluss der Installation starten Sie den Computer neu.
+8. Nachdem die Installation abgeschlossen ist, starten Sie den Computer neu.
 
-9. Wiederholen Sie die Schritte auf dem zweiten Computer ein.
+9. Wiederholen Sie die Schritte auf dem zweiten Computer.
 
 #### <a name="using-powershell"></a>Mithilfe der PowerShell
 
-1. Öffnen Sie eine administrative PowerShell-Sitzung, indem Sie einen Rechtsklick auf die Schaltfläche "Start", und wählen Sie dann **Windows PowerShell (Admin)** .
-2. Führen Sie zum Installieren der Rolle für Dateiserver den Befehl ein:
+1. Öffnen Sie eine administrative PowerShell-Sitzung, indem Sie mit der rechten Maustaste auf die Schaltfläche Start klicken und dann **Windows PowerShell (admin)** auswählen.
+2. Um die Datei Server Rolle zu installieren, führen Sie den folgenden Befehl aus:
 
     ```PowerShell
     Install-WindowsFeature -Name FS-FileServer
     ```
 
-3. Um das Feature "Failoverclustering" und die Verwaltungstools zu installieren, führen Sie den Befehl aus:
+3. Führen Sie den folgenden Befehl aus, um das Failoverclustering-Feature und seine Verwaltungs Tools zu installieren:
 
     ```PowerShell
     Install-WindowsFeature -Name Failover-Clustering -IncludeManagementTools
     ```
 
-4. Wenn sie abgeschlossen haben, können Sie überprüfen, dass sie mit den Befehlen installiert sind:
+4. Sobald Sie abgeschlossen sind, können Sie mit den folgenden Befehlen überprüfen, ob Sie installiert sind:
 
     ```PowerShell
     Get-WindowsFeature -Name FS-FileServer
     Get-WindowsFeature -Name Failover-Clustering
     ```
 
-5. Nachdem Sie geprüft, ob sie installiert sind, starten Sie den Computer mit dem Befehl neu:
+5. Wenn Sie überprüft haben, starten Sie den Computer mit dem folgenden Befehl neu:
 
     ```PowerShell
     Restart-Computer
     ```
 
-6. Wiederholen Sie die Schritte auf dem zweiten Server aus.
+6. Wiederholen Sie die Schritte auf dem zweiten Server.
 
 ### <a name="step-3-validate-the-cluster-configuration"></a>Schritt 3: Überprüfen der Clusterkonfiguration
 
 Es wird dringend empfohlen, vor dem Erstellen eines Clusters die Konfiguration zu überprüfen. Anhand der Überprüfung können Sie sicherstellen, dass die Konfiguration der Server, Netzwerke und Speicher eine Reihe bestimmter Anforderungen für Failovercluster erfüllt.
 
-#### <a name="using-failover-cluster-manager"></a>Failovercluster-Manager
+#### <a name="using-failover-cluster-manager"></a>Verwenden von Failovercluster-Manager
 
-1. Von **Server-Manager**, wählen Sie die **Tools** Dropdownliste aus, und wählen Sie **Failovercluster-Manager**.
+1. Wählen Sie in **Server-Manager**das Dropdown- **Tool** aus, und wählen Sie **Failovercluster-Manager**aus.
 
-2. In **Failovercluster-Manager**, fahren Sie mit der mittleren Spalte unter **Management** , und wählen Sie **Konfiguration überprüfen**.
+2. Wechseln Sie in **Failovercluster-Manager**zur mittleren Spalte unter **Verwaltung** , und klicken Sie auf **Konfiguration**überprüfen.
 
-3. Wenn die **vor dem Beginn** Fenster geöffnet wird, wählen Sie **Weiter**.
+3. Wenn das Fenster **vor dem Beginn** geöffnet wird, wählen Sie **weiter**aus.
 
-4. In der **Server auswählen oder in einem Cluster** Fenster in den Namen der zwei Computer, die die Knoten des Clusters hinzufügen.  Beispielsweise wenn die Namen NODE1 und NODE2 sind, geben Sie den Namen, und wählen Sie **hinzufügen**.  Sie können auch die **Durchsuchen** Schaltfläche, um die Active Directory nach den Namen zu suchen.  Sobald beide unter aufgeführten **ausgewählten Servern**, wählen Sie **Weiter**.
+4. Fügen Sie im Fenster **Server oder Cluster auswählen** die Namen der beiden Computer hinzu, die die Knoten des Clusters sein werden.  Wenn die Namen z. b. Node1 und Node2 lauten, geben Sie den Namen ein, und wählen Sie **Hinzufügen**aus.  Sie können auch auf die Schaltfläche **Durchsuchen** klicken, um Active Directory nach den Namen zu suchen.  Wenn beide unter **ausgewählte Server**aufgeführt sind, wählen Sie **weiter**aus.
 
-5. In der **Testoptionen** wählen Sie im Fenster **alle Tests ausführen (empfohlen)** , und **Weiter**.
+5. Wählen Sie im Fenster **Test Optionen die Option** **alle Tests ausführen (empfohlen)** und **weiter**aus.
 
-6. Auf der **Bestätigung** Seite haben Sie die Auflistung aller Tests überprüft.  Wählen Sie **Weiter** und die Tests beginnen.
+6. Auf der **Bestätigungs** Seite erhalten Sie die Liste aller Tests, die überprüft werden.  Wählen Sie **weiter** aus, und die Tests werden gestartet.
 
-7. Nach Abschluss des Vorgangs, der **Zusammenfassung** Seite wird angezeigt, nachdem die Tests ausgeführt. Um Hilfethemen anzuzeigen, die Ihnen bei der Interpretation der Ergebnisse helfen, klicken Sie auf **Weitere Informationen über Clustervalidierungstests**.
+7. Nach Abschluss des Vorgangs wird die Seite **Zusammenfassung** angezeigt, nachdem die Tests ausgeführt wurden. Um Hilfethemen anzuzeigen, die Ihnen bei der Interpretation der Ergebnisse helfen, klicken Sie auf **Weitere Informationen über Clustervalidierungstests**.
 
-8. Klicken Sie auf Bericht anzeigen und Lesen Sie die Testergebnisse, immer noch auf der Seite "Zusammenfassung". Nehmen Sie alle erforderlichen Änderungen in der Konfiguration, und führen Sie die Tests erneut aus. <br>Die Ergebnisse der Tests nach dem Schließen des Assistenten finden Sie unter *SystemRoot\Cluster\Reports\Validation Report Date and time.html*.
+8. Klicken Sie auf der Seite Zusammenfassung auf Bericht anzeigen, und lesen Sie die Testergebnisse. Nehmen Sie erforderliche Änderungen an der Konfiguration vor, und führen Sie die Tests erneut aus. <br>Informationen zum Anzeigen der Ergebnisse der Tests, nachdem Sie den Assistenten geschlossen haben, finden Sie unter *systemroot\cluster\reports\validation Report Date and Time. html*.
 
-9. Zum Anzeigen von Hilfethemen über die clustervalidierung nach des Assistenten auf Failover-Clusterverwaltung schließen klicken Sie auf Hilfe, klicken Sie auf Hilfethemen, klicken Sie auf der Registerkarte "Inhalt", erweitern Sie den Inhalt für die failoverclusterhilfe, und klicken Sie auf die Konfiguration des Failoverclusters überprüfen .
+9. Wenn Sie Hilfe Themen zur Cluster Überprüfung anzeigen möchten, nachdem Sie den Assistenten geschlossen haben, klicken Sie in der Failoverclusterverwaltung auf Hilfe, klicken Sie auf Hilfe Themen, klicken Sie auf die Registerkarte Inhalt, erweitern Sie den Inhalt der Hilfe zum Failovercluster, und klicken Sie auf Überprüfen einer FAI .
 
 #### <a name="using-powershell"></a>Mithilfe der PowerShell
 
-1. Öffnen Sie eine administrative PowerShell-Sitzung, indem Sie einen Rechtsklick auf die Schaltfläche "Start", und wählen Sie dann **Windows PowerShell (Admin)** .
+1. Öffnen Sie eine administrative PowerShell-Sitzung, indem Sie mit der rechten Maustaste auf die Schaltfläche Start klicken und dann **Windows PowerShell (admin)** auswählen.
 
-2. Um die Computer (z. B. Namen der Computer wird von NODE1 und NODE2) für Failover-Clusterunterstützung zu überprüfen, führen Sie den Befehl aus:
+2. Führen Sie den folgenden Befehl aus, um die Computer (z. b. die Computernamen Node1 und Node2) für das Failoverclustering zu überprüfen:
 
     ```PowerShell
     Test-Cluster -Node "NODE1","NODE2"
     ```
-4. Die Ergebnisse der Tests nach dem Schließen des Assistenten finden Sie unter der angegebenen Datei (in SystemRoot\Cluster\Reports\), nehmen Sie alle erforderlichen Änderungen in der Konfiguration, und führen Sie die Tests erneut aus.
+4. Wenn Sie die Ergebnisse der Tests anzeigen möchten, nachdem Sie den Assistenten geschlossen haben, sehen Sie sich die angegebene Datei (in systemroot\cluster\reports @ no__t-0 an, nehmen Sie dann alle erforderlichen Änderungen an der Konfiguration vor, und führen Sie die Tests erneut aus.
 
-Weitere Informationen finden Sie unter [Überprüfen einer Failoverclusterkonfiguration](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134244(v=ws.11)).
+Weitere Informationen finden Sie unter [Validieren einer Failoverclusterkonfiguration](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134244(v=ws.11)).
 
 ### <a name="step-4-create-the-cluster"></a>Schritt 4: Erstellen des Clusters
 
-Im folgenden wird ein Cluster erstellt aus der Computer und die Konfiguration, was man.
+Im folgenden wird ein Cluster aus den Computern und der Konfiguration erstellt, die Sie besitzen.
 
-#### <a name="using-failover-cluster-manager"></a>Failovercluster-Manager
+#### <a name="using-failover-cluster-manager"></a>Verwenden von Failovercluster-Manager
 
-1. Von **Server-Manager**, wählen Sie die **Tools** Dropdownliste aus, und wählen Sie **Failovercluster-Manager**.
+1. Wählen Sie in **Server-Manager**das Dropdown- **Tool** aus, und wählen Sie **Failovercluster-Manager**aus.
 
-2. In **Failovercluster-Manager**, fahren Sie mit der mittleren Spalte unter **Management** , und wählen Sie **Clustererstellungs**.
+2. Wechseln Sie in **Failovercluster-Manager**zur mittleren Spalte unter **Verwaltung** , und klicken Sie auf **Cluster erstellen**.
 
-3. Wenn die **vor dem Beginn** Fenster geöffnet wird, wählen Sie **Weiter**.
+3. Wenn das Fenster **vor dem Beginn** geöffnet wird, wählen Sie **weiter**aus.
 
-4. In der **Server auswählen** Fenster in den Namen der zwei Computer, die die Knoten des Clusters hinzufügen.  Beispielsweise wenn die Namen NODE1 und NODE2 sind, geben Sie den Namen, und wählen Sie **hinzufügen**.  Sie können auch die **Durchsuchen** Schaltfläche, um die Active Directory nach den Namen zu suchen.  Sobald beide unter aufgeführten **ausgewählten Servern**, wählen Sie **Weiter**.
+4. Fügen Sie im Fenster **Server auswählen** die Namen der beiden Computer hinzu, die die Knoten des Clusters sein werden.  Wenn die Namen z. b. Node1 und Node2 lauten, geben Sie den Namen ein, und wählen Sie **Hinzufügen**aus.  Sie können auch auf die Schaltfläche **Durchsuchen** klicken, um Active Directory nach den Namen zu suchen.  Wenn beide unter **ausgewählte Server**aufgeführt sind, wählen Sie **weiter**aus.
 
-5. In der **Zugriffspunkt zum Verwalten des Clusters** Fenster, geben Sie den Namen des Clusters, die Sie verwenden.  Bitte beachten Sie, dass dies nicht der Name, die Sie für die Verbindung an den Dateifreigaben mit verwenden werden.  Dies ist für den Cluster einfach zu verwalten.
+5. Geben Sie im **Zugriffspunkt für die Verwaltung des Cluster** Fensters den Namen des Clusters ein, den Sie verwenden werden.  Beachten Sie, dass dies nicht der Name ist, den Sie für die Verbindung mit den Dateifreigaben mit verwenden werden.  Dies dient lediglich der Verwaltung des Clusters.
 
    > [!NOTE]
-   > Wenn Sie statische IP-Adressen verwenden, müssen Sie wählen Sie das Netzwerk zu verwenden, und geben Sie die IP-Adresse, die sie für den Namen des Clusters verwenden.  Wenn Sie DHCP für Ihre IP-Adressen verwenden, wird die IP-Adresse automatisch für Sie konfiguriert werden.
+   > Wenn Sie statische IP-Adressen verwenden, müssen Sie das zu verwendende Netzwerk auswählen und die IP-Adresse eingeben, die für den Cluster Namen verwendet werden soll.  Wenn Sie DHCP für Ihre IP-Adressen verwenden, wird die IP-Adresse automatisch für Sie konfiguriert.
 
-6. Wählen Sie **Weiter**.
+6. Wählen Sie **weiter**aus.
 
-7. Auf der **Bestätigung** Seite, überprüfen Sie, wie Sie konfiguriert haben, und wählen Sie **Weiter** zum Erstellen des Clusters.
+7. Überprüfen Sie auf der Seite **Bestätigung** , was Sie konfiguriert haben, und klicken Sie auf **weiter** , um den Cluster zu erstellen.
 
-8. Auf der **Zusammenfassung** Seite haben Sie die Konfiguration, die sie erstellt.  Sie können die View-Bericht zum Anzeigen des Berichts, der die Erstellung auswählen.
+8. Auf der Seite **Zusammenfassung** erhalten Sie die Konfiguration, die Sie erstellt hat.  Sie können Bericht anzeigen auswählen, um den Bericht der Erstellung anzuzeigen.
 
 #### <a name="using-powershell"></a>Mithilfe der PowerShell
 
-1. Öffnen Sie eine administrative PowerShell-Sitzung, indem Sie einen Rechtsklick auf die Schaltfläche "Start", und wählen Sie dann **Windows PowerShell (Admin)** .
+1. Öffnen Sie eine administrative PowerShell-Sitzung, indem Sie mit der rechten Maustaste auf die Schaltfläche Start klicken und dann **Windows PowerShell (admin)** auswählen.
 
-2. Führen Sie den folgenden Befehl zum Erstellen des Clusters, wenn Sie statische IP-Adressen verwenden.  Z. B. die Namen der Computer sind NODE1 und NODE2, der Namen des Clusters werden die CLUSTER und die IP-Adresse werden 1.1.1.1.
+2. Führen Sie den folgenden Befehl aus, um den Cluster zu erstellen, wenn Sie statische IP-Adressen verwenden.  Die Computernamen sind z. b. Node1 und Node2, der Name des Clusters ist Cluster, und die IP-Adresse lautet 1.1.1.1.
 
    ```PowerShell
     New-Cluster -Name CLUSTER -Node "NODE1","NODE2" -StaticAddress 1.1.1.1
    ```
 
-3. Führen Sie den folgenden Befehl zum Erstellen des Clusters, wenn Sie DHCP für IP-Adressen verwenden.  Z. B. die Namen der Computer sind NODE1 und NODE2, und der Namen des Clusters werden die CLUSTER.
+3. Führen Sie den folgenden Befehl aus, um den Cluster zu erstellen, wenn Sie DHCP für IP-Adressen verwenden.  Die Computernamen sind z. b. Node1 und Node2, und der Name des Clusters ist Cluster.
 
    ```PowerShell    
    New-Cluster -Name CLUSTER -Node "NODE1","NODE2"
    ```
 
-### <a name="steps-for-configuring-a-file-server-failover-cluster"></a>Schritte zum Konfigurieren von einem Dateiserver-Failoverclusters
+### <a name="steps-for-configuring-a-file-server-failover-cluster"></a>Schritte zum Konfigurieren eines Dateiserver-Failoverclusters
 
-Um eine Dateiserver-Failovercluster zu konfigurieren, führen Sie die folgenden Schritte aus.
+Führen Sie die folgenden Schritte aus, um einen Dateiserver-Failovercluster zu konfigurieren.
 
-1. Von **Server-Manager**, wählen Sie die **Tools** Dropdownliste aus, und wählen Sie **Failovercluster-Manager**.
+1. Wählen Sie in **Server-Manager**das Dropdown- **Tool** aus, und wählen Sie **Failovercluster-Manager**aus.
 
-2. Wenn Failovercluster-Manager geöffnet wird, sollte sie automatisch den Namen des Clusters angezeigt, die Sie erstellt haben.  Wenn dies nicht der Fall ist, wechseln Sie auf der mittleren Spalte unter **Management** , und wählen Sie **Herstellen einer Verbindung mit Cluster**.  Geben Sie den Namen des erstellten Clusters und **OK**.
+2. Wenn Failovercluster-Manager geöffnet wird, sollte der Name des Clusters, den Sie erstellt haben, automatisch angezeigt werden.  Wenn dies nicht der Fall ist, wechseln Sie in der mittleren Spalte unter **Verwaltung** , und wählen Sie **mit Cluster verbinden**aus.  Geben Sie den Namen des Clusters ein, den Sie erstellt haben, und **OK**.
 
-3. Klicken Sie in der Konsolenstruktur auf den ">" neben den Cluster, den Sie erstellt haben, um die untergeordneten Elemente zu erweitern.
+3. Klicken Sie in der Konsolen Struktur neben dem Cluster, den Sie erstellt haben, auf das Zeichen ">", um die darunter liegenden Elemente zu erweitern.
 
-4. Auf der rechten Maustaste **Rollen** , und wählen Sie **Rolle konfigurieren**.
+4. Klicken Sie mit der rechten Maustaste auf **Rollen** , und wählen Sie **Rolle konfigurieren**.
 
-5. Wenn die **vor dem Beginn** Fenster geöffnet wird, wählen Sie **Weiter**.
+5. Wenn das Fenster **vor dem Beginn** geöffnet wird, wählen Sie **weiter**aus.
 
-6. Wählen Sie in der Liste der Rollen, **Dateiserver** und **Weiter**.
+6. Wählen Sie in der Liste der Rollen **Datei Server** und **dann weiter**aus.
 
-7. Wählen Sie für die Dateiservertyp **Dateiserver zur allgemeinen Verwendung** und **Weiter**.<br>Weitere Informationen zu den Scale-Out File Server, finden Sie unter [Scale-Out File Server Overview](sofs-overview.md).
+7. Wählen Sie für den Datei Servertyp die Option **Dateiserver zur allgemeinen Verwendung** und **dann weiter**aus.<br>Informationen zu Dateiserver mit horizontaler Skalierung finden Sie unter [Dateiserver mit horizontaler Skalierung Übersicht](sofs-overview.md).
 
-   ![Dateiservertyp](media/Cluster-File-Server/Cluster-FS-File-Server-Type.png)
+   ![Datei Servertyp](media/Cluster-File-Server/Cluster-FS-File-Server-Type.png)
 
-8. In der **Clientzugriffspunkt** Fenster, geben Sie den Namen des Dateiservers, die Sie verwenden.  Beachten Sie, dass dies nicht der Name des Clusters ist.  Dies ist für die Datei-Freigabe-Konnektivität.  Angenommen, ich möchte, für die Verbindung \\SERVER, würde der Name der eingegebenen SERVER sein.
+8. Geben Sie im Fenster **Client Zugriffspunkt** den Namen des Dateiservers ein, den Sie verwenden werden.  Beachten Sie, dass dies nicht der Name des Clusters ist.  Dies gilt für die Verbindung mit der Dateifreigabe.  Wenn beispielsweise eine Verbindung mit \\Server hergestellt werden soll, lautet der Name, der als "Server" verwendet wird.
 
    > [!NOTE]
-   > Wenn Sie statische IP-Adressen verwenden, müssen Sie wählen Sie das Netzwerk zu verwenden, und geben Sie die IP-Adresse, die sie für den Namen des Clusters verwenden.  Wenn Sie DHCP für Ihre IP-Adressen verwenden, wird die IP-Adresse automatisch für Sie konfiguriert werden.
+   > Wenn Sie statische IP-Adressen verwenden, müssen Sie das zu verwendende Netzwerk auswählen und die IP-Adresse eingeben, die für den Cluster Namen verwendet werden soll.  Wenn Sie DHCP für Ihre IP-Adressen verwenden, wird die IP-Adresse automatisch für Sie konfiguriert.
 
-6. Wählen Sie **Weiter**.
+6. Wählen Sie **weiter**aus.
 
-7. In der **Speicher auswählen** Fenster, wählen Sie das zusätzliche Laufwerk (kein Zeuge), die Ihre Dateifreigaben erhalten soll und **Weiter**.
+7. Wählen Sie im Fenster **Speicher auswählen** das zusätzliche Laufwerk (nicht den Zeugen) aus, auf dem sich die Freigaben **befinden.**
 
-8. Auf der **Bestätigung** Seite überprüfen Sie Ihre Konfiguration, und wählen Sie **Weiter**.
+8. Überprüfen Sie auf der Seite **Bestätigung** Ihre Konfiguration, und wählen Sie **weiter**aus.
 
-9. Auf der **Zusammenfassung** Seite haben Sie die Konfiguration, die sie erstellt.  Sie können die View-Bericht zum Anzeigen des Berichts, der Erstellung des Datei-Server-Rolle auswählen.
+9. Auf der Seite **Zusammenfassung** erhalten Sie die Konfiguration, die Sie erstellt hat.  Sie können Bericht anzeigen auswählen, um den Bericht zur Erstellung der Dateiserver Rolle anzuzeigen.
 
-10. Klicken Sie unter **Rollen** in der Konsolenstruktur, sehen Sie die neue Rolle, die Sie erstellt haben als den Namen der erstellten aufgeführt.  Mit er hervorgehoben, unter dem **Aktionen** wählen Sie auf der rechten Seite **Hinzufügen einer Freigabe**.
+10. Unter **Rollen** in der Konsolen Struktur sehen Sie, dass die neu erstellte Rolle als der von Ihnen erstellte Name aufgeführt wird.  Wählen Sie unter dem Bereich **Aktionen** auf der rechten Seite die Option **Freigabe hinzufügen**aus.
 
-11. Führen Sie über den Assistenten Folgendes eingeben:
+11. Führen Sie den Freigabe-Assistenten aus, und geben Sie Folgendes ein:
 
-    - Typ der Freigabe für die Komponente wird
-    - Location-Path wird der Ordner freigegeben werden.
-    - Der Name der Freigabe wird eine Verbindung mit
-    - Zusätzliche Einstellungen wie z. B. die zugriffsbasierte Aufzählung, Zwischenspeicherung, Verschlüsselung usw.
-    - Wenn sie als die Standardwerte werden Dateiberechtigungen Sie auf
+    - Typ der Freigabe
+    - Speicherort/Pfad des freigegebenen Ordners
+    - Der Name der Freigabe, mit der Benutzer eine Verbindung herstellen.
+    - Zusätzliche Einstellungen wie z. b. Zugriffs basierte Aufzählung, Caching, Verschlüsselung usw.
+    - Berechtigungen auf Dateiebene, wenn Sie nicht die Standardwerte sind
 
-12. Auf der **Bestätigung** Seite, überprüfen Sie, wie Sie konfiguriert haben, und wählen Sie **erstellen** Dateiserverfreigabe zu erstellen.
+12. Überprüfen Sie auf der Seite **Bestätigung** , was Sie konfiguriert haben, und wählen Sie **Erstellen** aus, um die Dateiserver Freigabe zu erstellen.
 
-13. Auf der **Ergebnisse** Seite, wählen Sie schließen, wenn es sich um die Freigabe erstellt.  Wenn sie die Freigabe nicht erstellen konnte, wird Sie Fehler entstehen können.
+13. Wählen Sie auf der Seite **Ergebnisse** die Option schließen aus, wenn die Freigabe erstellt wurde.  Wenn die Freigabe nicht erstellt werden konnte, erhalten Sie die Fehler.
 
-14. Wählen Sie **schließen**.
+14. Wählen Sie **Schließen**aus.
 
-15. Wiederholen Sie diesen Vorgang für alle zusätzlichen Freigaben ein.
+15. Wiederholen Sie diesen Vorgang für alle weiteren Freigaben.

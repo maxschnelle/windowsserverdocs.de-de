@@ -1,8 +1,8 @@
 ---
-title: Auftrag zum Beenden des Wbadmin
-description: 'Windows-Befehle Thema ***- '
+title: Auftrag zum Abbrechen von Wbadmin
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7a9e71fe2e4883c52c2418e21fc8764fd14e6c81
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 671ab48722970af214a040d8ca7fea807a525698
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889721"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362207"
 ---
-# <a name="wbadmin-stop-job"></a>Auftrag zum Beenden des Wbadmin
+# <a name="wbadmin-stop-job"></a>Auftrag zum Abbrechen von Wbadmin
 
 
 
-Bricht ab, der Backup- oder Recovery-Vorgang, der derzeit ausgeführt wird. Abgebrochenen Vorgänge nicht neu gestartet werden – Sie müssen erneut ausführen, einen abgebrochenen Backup- oder Recovery-Vorgang ab.
+Bricht den Sicherungs-oder Wiederherstellungs Vorgang ab, der derzeit ausgeführt wird. Abgebrochene Vorgänge können nicht neu gestartet werden – Sie müssen einen abgebrochenen Sicherungs-oder Wiederherstellungs Vorgang von Anfang an erneut ausführen.
 
-Um einen sicherungs- oder Wiederherstellungsaufgaben-Vorgang mit diesen Unterbefehl zu beenden, müssen Sie Mitglied werden die **Sicherungs-Operatoren** Gruppe oder die **Administratoren** Gruppe, oder Sie wurde die entsprechende Berechtigung delegiert. Darüber hinaus müssen Sie ausführen **Wbadmin** eine Eingabeaufforderung mit erhöhten Rechten. (Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten mit der rechten Maustaste **Eingabeaufforderung** , und klicken Sie dann auf **als Administrator ausführen**.)
+Um einen Sicherungs-oder Wiederherstellungs Vorgang mit diesem Unterbefehl zu verhindern, müssen Sie Mitglied der Gruppe " **Sicherungs-Operatoren** " oder der Gruppe " **Administratoren** " sein, oder die entsprechende Berechtigung muss an Sie delegiert worden sein. Außerdem müssen Sie **Wbadmin** über eine Eingabeaufforderung mit erhöhten Rechten ausführen. (Um eine Eingabeaufforderung mit erhöhten Rechten zu öffnen, klicken Sie mit der rechten Maustaste auf **Eingabeaufforderung** und dann auf **als Administrator ausführen**.)
 
 ## <a name="syntax"></a>Syntax
 
@@ -39,9 +39,9 @@ wbadmin stop job
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|-quiet|Wird keine aufforderungen den Unterbefehl für dem Benutzer ausgeführt.|
+|-quiet|Führt den Unterbefehl ohne Aufforderungen an den Benutzer aus.|
 
 #### <a name="additional-references"></a>Weitere Verweise
 
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)

@@ -1,66 +1,66 @@
 ---
 title: Konfigurieren und Anzeigen von VLAN-Einstellungen für virtuelle Hyper-V-Switchports
-description: Sie können in diesem Thema verwenden, um bewährte Methoden für die Konfiguration und Anzeige von Einstellungen des virtuellen LAN (VLAN) auf einem virtuellen Hyper-V-Switch Port in Windows Server 2016 zu erfahren.
+description: In diesem Thema erfahren Sie mehr über bewährte Methoden zum Konfigurieren und Anzeigen von Einstellungen für virtuelle lokale Netzwerke (VLAN) auf einem virtuellen Hyper-V-Switchport in Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: article
 ms.assetid: 69e0e28a-98ae-4ade-bd27-ce2ad7eb310f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 1e4843b0ffee86d728736ae212b953bb7c8552c0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 28abdfe8295ad3f9fac29b8cc80aeebe2992392c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820551"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366872"
 ---
 # <a name="configure-and-view-vlan-settings-on-hyper-v-virtual-switch-ports"></a>Konfigurieren und Anzeigen von VLAN-Einstellungen für virtuelle Hyper-V-Switchports
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können in diesem Thema verwenden, um bewährte Methoden für die Konfiguration und Anzeige von Einstellungen des virtuellen LAN (VLAN) auf einem virtuellen Hyper-V-Switch Port zu erfahren.
+In diesem Thema finden Sie bewährte Methoden zum Konfigurieren und Anzeigen von Einstellungen für virtuelle lokale Netzwerke (VLAN) auf einem virtuellen Hyper-V-Switchport.
 
-Wenn Sie die VLAN-Einstellungen für virtuelle Hyper-V-Switch-Ports konfigurieren möchten, können Sie entweder Windows&reg; Server 2016 Hyper-V-Manager oder System Center Virtual Machine Manager (VMM).
+Wenn Sie VLAN-Einstellungen auf virtuellen Hyper-v-Switchports konfigurieren möchten, können Sie entweder Windows @ no__t-0 Server 2016 Hyper-V-Manager oder System Center Virtual Machine Manager (VMM) verwenden.
 
-Wenn Sie VMM verwenden, verwendet VMM die folgenden Windows PowerShell-Befehl den Switchport konfigurieren.
+Wenn Sie VMM verwenden, verwendet VMM den folgenden Windows PowerShell-Befehl, um den Switchport zu konfigurieren.
 
 ```
 Set-VMNetworkAdapterIsolation <VM-name|-managementOS> -IsolationMode VLAN -DefaultIsolationID <vlan-value> -AllowUntaggedTraffic $True
 ```
-Wenn Sie VMM nicht verwenden und den Switchport in Windows Server konfigurieren, können Sie die Hyper-V-Manager-Konsole oder den folgenden Windows PowerShell-Befehl.
+Wenn Sie VMM nicht verwenden und den Switchport in Windows Server konfigurieren, können Sie die Hyper-V-Manager-Konsole oder den folgenden Windows PowerShell-Befehl verwenden.
 ```
 Set-VMNetworkAdapterVlan <VM-name|-managementOS> -Access -VlanID <vlan-value>
 ```
 
-Aufgrund dieser zwei Methoden für VLAN-Einstellungen für den virtuellen Hyper-V-Switch-Ports konfigurieren ist es möglich, wenn Sie versuchen, die Switch-Port-Einstellungen anzeigen, es für Sie angezeigt wird, die VLAN-Einstellungen nicht konfiguriert sind, auch wenn sie konfiguriert sind –.
+Aufgrund dieser zwei Methoden zum Konfigurieren der VLAN-Einstellungen auf virtuellen Hyper-V-Switchports ist es möglich, dass beim Versuch, die Einstellungen für den Switchport anzuzeigen, angezeigt wird, dass die VLAN-Einstellungen nicht konfiguriert sind, auch wenn Sie konfiguriert sind.
 
-## <a name="use-the-same-method-to-configure-and-view-switch-port-vlan-settings"></a>Verwenden Sie die gleiche Methode zum Konfigurieren und Anzeigen der Switch Port VLAN-Einstellungen
+## <a name="use-the-same-method-to-configure-and-view-switch-port-vlan-settings"></a>Verwenden Sie dieselbe Methode, um Switchport-VLAN-Einstellungen zu konfigurieren und anzuzeigen.
 
-Um sicherzustellen, dass Sie keine dieser Probleme auftreten, müssen Sie dieselbe Methode verwenden, die Switch Port VLAN-Einstellungen anzeigen, die Sie zum Konfigurieren der Switch Port VLAN-Einstellungen verwendet.
+Um sicherzustellen, dass diese Probleme nicht auftreten, müssen Sie die gleiche Methode zum Anzeigen der VLAN-Einstellungen für den Switchport verwenden, die Sie zum Konfigurieren der VLAN-Einstellungen für den Switchport verwendet haben.
 
-Zum Konfigurieren und Anzeigen von VLAN-Switch Port-Einstellungen, gehen Sie folgendermaßen vor:
+Gehen Sie folgendermaßen vor, um die Port Einstellungen für den VLAN-Switch zu konfigurieren und anzuzeigen:
 
-- Wenn Sie VMM oder den Netzwerkcontroller zum Einrichten und Verwalten Ihres Netzwerks verwenden und Sie Software Defined Networking (SDN) bereitgestellt haben, müssen Sie die **VMNetworkAdapterIsolation** Cmdlets. 
-- Wenn Sie Windows Server 2016 Hyper-V-Manager oder Windows PowerShell-Cmdlets verwenden, und Sie keine Software Defined Networking (SDN) bereitgestellt haben, müssen Sie verwenden die **VMNetworkAdapterVlan** Cmdlets.
+- Wenn Sie VMM oder den Netzwerk Controller zum Einrichten und Verwalten Ihres Netzwerks verwenden und Sie Software-Defined Networking (SDN) bereitgestellt haben, müssen Sie die **vmnetworkadapterisolation** -Cmdlets verwenden. 
+- Wenn Sie Windows Server 2016 Hyper-V-Manager oder Windows PowerShell-Cmdlets verwenden und keine Software-Defined Networking (SDN) bereitgestellt haben, müssen Sie die **vmnetworkadaptervlan** -Cmdlets verwenden.
 
 ### <a name="possible-issues"></a>Mögliche Probleme
 
-Wenn Sie diese Richtlinien nicht befolgen können Sie die folgenden Probleme auftreten.
+Wenn Sie diese Richtlinien nicht befolgen, stoßen Sie möglicherweise auf die folgenden Probleme.
 
-- In Fällen, in dem Sie SDN bereitgestellt haben, und verwenden Sie VMM, Netzwerkcontroller, oder die **VMNetworkAdapterIsolation** Cmdlets zum Konfigurieren von VLAN-Einstellungen auf einem virtuellen Switch für Hyper-V-Port: Wenn Sie Hyper-V-Manager verwenden oder **Get-VMNetworkAdapterVlan** um die Konfigurationseinstellungen anzuzeigen, wird die Ausgabe des Befehls die VLAN-Einstellungen nicht angezeigt. Sie müssen stattdessen die **Get-VMNetworkIsolation** Cmdlet, um die VLAN-Einstellungen anzuzeigen.
-- In Fällen, in dem Sie keine SDN bereitgestellt haben, und verwenden Sie stattdessen Hyper-V-Manager, oder das **VMNetworkAdapterVlan** Cmdlets zum Konfigurieren von VLAN-Einstellungen auf einem virtuellen Switch für Hyper-V-Port: Bei Verwendung der **Get-VMNetworkIsolation** Cmdlet, um die Konfigurationseinstellungen anzuzeigen die Ausgabe des Befehls wird die VLAN-Einstellungen nicht angezeigt. Sie müssen stattdessen die **Get-VMNetworkAdapterVlan** Cmdlet, um die VLAN-Einstellungen anzuzeigen.
+- In Fällen, in denen Sie Sdn bereitgestellt haben und VMM, den Netzwerk Controller oder die **vmnetworkadapterisolation** -Cmdlets verwenden, um VLAN-Einstellungen auf einem virtuellen Hyper-V-Switchport zu konfigurieren: Wenn Sie den Hyper-V-Manager verwenden oder **vmnetworkadaptervlan** zum Anzeigen der Konfigurationseinstellungen verwenden, werden die VLAN-Einstellungen in der Befehlsausgabe nicht angezeigt. Stattdessen müssen Sie das Cmdlet **Get-vmnetworkisolation** verwenden, um die VLAN-Einstellungen anzuzeigen.
+- In Fällen, in denen Sie Sdn noch nicht bereitgestellt haben, verwenden Sie stattdessen Hyper-V-Manager oder die **vmnetworkadaptervlan** -Cmdlets, um VLAN-Einstellungen auf einem virtuellen Hyper-V-Switchport zu konfigurieren: Wenn Sie das **Get-vmnetworkisolation** -Cmdlet zum Anzeigen der Konfigurationseinstellungen verwenden, werden die VLAN-Einstellungen in der Befehlsausgabe nicht angezeigt. Stattdessen müssen Sie das Cmdlet **Get vmnetworkadaptervlan** verwenden, um die VLAN-Einstellungen anzuzeigen.
 
-Es ist auch wichtig, nicht versuchen, die gleichen Switch Port VLAN-Einstellungen mit beiden Konfigurationsmethoden zu konfigurieren. Wenn Sie dies tun, der Switch-Port ist falsch konfiguriert, und das Ergebnis ist möglicherweise ein Fehler bei der Netzwerkkommunikation.
+Es ist auch wichtig, nicht zu versuchen, dieselben VLAN-Einstellungen für den Switchport mithilfe beider Konfigurations Methoden zu konfigurieren. Wenn Sie dies tun, ist der Switchport falsch konfiguriert, und das Ergebnis ist möglicherweise ein Fehler bei der Netzwerkkommunikation.
 
 ### <a name="resources"></a>Ressourcen
 
-Weitere Informationen zu den Windows PowerShell-Befehlen, die in diesem Thema erwähnt werden, finden Sie hier:
+Weitere Informationen zu den in diesem Thema erwähnten Windows PowerShell-Befehlen finden Sie in den folgenden Themen:
 
-- [Set-VmNetworkAdapterIsolation](https://technet.microsoft.com/library/dn464283.aspx)
-- [Get-VmNetworkAdapterIsolation](https://technet.microsoft.com/library/dn464277.aspx)
-- [Set-VMNetworkAdapterVlan](https://technet.microsoft.com/library/hh848475.aspx)
-- [Get-VMNetworkAdapterVlan](https://technet.microsoft.com/library/hh848516.aspx)
+- [Set-vmnetworkadapterisolation](https://technet.microsoft.com/library/dn464283.aspx)
+- [Get-vmnetworkadapterisolation](https://technet.microsoft.com/library/dn464277.aspx)
+- [Set-vmnetworkadaptervlan](https://technet.microsoft.com/library/hh848475.aspx)
+- [Get-vmnetworkadaptervlan](https://technet.microsoft.com/library/hh848516.aspx)
 
 
 

@@ -1,8 +1,8 @@
 ---
 title: verifier
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2ab0833d4fdb11c4962d4916ec2e32097e08ca04
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cc2482fa25d0236991889c3951cb522e27bf520d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865871"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362686"
 ---
 # <a name="verifier"></a>verifier
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Treiberüberprüfungs-Manager.  
+Treiberverifier-Manager.  
 
 ## <a name="syntax"></a>Syntax  
 ```  
@@ -44,13 +44,13 @@ verifier /log <LogFileName> [/interval <seconds>]
 ### <a name="parameters"></a>Parameter  
 |Parameter|Beschreibung|  
 |-------|--------|  
-|\<flags>|Eine Zahl in Dezimal oder Hexadezimal, eine Kombination von Bits muss sein:<br /><br />-   **Wert: Beschreibung**<br />-   **Bit 0:** spezieller Pool überprüfen<br />-   **Um Bit 1:** Irql-Überprüfung zu erzwingen<br />-   **Bit 2:** wenig Ressourcen Simulation<br />-   **Bit 3:** Pool nachverfolgen<br />-   **bit 4:** E/a-Überprüfung<br />-   **Bit-5:** deadlock Erkennung<br />-   **6 Bit:** nicht verwendet<br />-   **bit 7:** DMA-Überprüfung<br />-   **8-Bit:** sicherheitsüberprüfungen<br />-   **9-Bit:** ausstehende e/a-Anforderungen erzwingen<br />-   **bit 10:** IRP-Protokollierung<br />-   **Bit-11:** verschiedene Überprüfungen<br /><br />z. B. **/27 flags** ist gleichbedeutend mit   **/flags 0x1B**|  
-|/volatile|Verwendet, um die Einstellungen für die Verifier dynamisch zu ändern, ohne einen Neustart des Systems. Wenn das System neu gestartet wird, werden alle neuen Einstellungen verloren gehen.|  
-|\<probability>|Zahl zwischen 1 und 10.000 angeben der Wahrscheinlichkeit der Fault Injection. Angeben von 100 bedeutet beispielsweise, eine Fault Injection-Wahrscheinlichkeit von 1 % (100/10.000).<br /><br />Wenn dieser Parameter nicht angegeben ist, wird der standardwahrscheinlichkeit 6 % verwendet werden.|  
-|\<tags>|Gibt die Pooltags, die eingefügt werden mit Fehlern, die durch Leerzeichen getrennt an. Wenn dieser Parameter nicht angegeben ist, kann auf die Pool-Zuweisung mit Fehlern eingefügt werden.|  
-|\<applications>|Gibt den Namen der Bilddatei der Anwendungen, die eingefügt werden mit Fehlern, die durch Leerzeichen getrennt an. Wenn dieser Parameter nicht angegeben ist kann dann Simulation unzureichender Ressourcen in jeder Anwendung stattfinden.|  
-|\<minutes>|Eine positive Zahl, die die Länge des Zeitraums nach dem Neustart werden in Minuten an, während ohne die Fault Injection angelaufen wird. Wenn dieser Parameter nicht angegeben ist, wird die standardmäßige Länge 8 Minuten verwendet werden.|  
+|\<flags >|Muss eine Zahl im Dezimal-oder Hexadezimal Format sein, eine Kombination aus Bits:<br /><br />-   -**Wert: Beschreibung**<br />-   **Bit 0:** Überprüfung des speziellen Pools<br />-   -**Bit 1:** erzwingen der Überprüfung von unql<br />-   **Bit 2:** Simulation mit geringer Ressourcen<br />-   **Bit 3:** Pool Überwachung<br />-   **Bit 4:** E/a-Überprüfung<br />-   **Bit 5:** Deadlockerkennung<br />-   **Bit 6:** nicht verwendet<br />-   **Bit 7:** DMA-Überprüfung<br />-   **Bit 8:** Sicherheitsüberprüfungen<br />-   **Bit 9:** ausstehende e/a-Anforderungen erzwingen<br />-   **Bit 10:** Unp-Protokollierung<br />-   **Bit 11:** sonstige Überprüfungen<br /><br />Beispielsweise entspricht **/Flags 27** **/Flags 0x1B** .|  
+|/volatile|Wird verwendet, um die verifizierereinstellungen dynamisch zu ändern, ohne das System neu zu starten. Alle neuen Einstellungen gehen verloren, wenn das System neu gestartet wird.|  
+|\<wahrscheinlichkeits >|Zahl zwischen 1 und 10.000, die die Wahrscheinlichkeit für die Fehler Injektion angibt. Wenn Sie z. b. 100 angeben, wird eine Fehler einschleusungs Wahrscheinlichkeit von 1% (100/10000) angegeben.<br /><br />Wenn dieser Parameter nicht angegeben wird, wird die Standard Wahrscheinlichkeit von 6% verwendet.|  
+|\<tags >|Gibt die Pooltags an, die durch Leerzeichen getrennt eingefügt werden. Wenn dieser Parameter nicht angegeben wird, kann eine Pool Zuordnung mit Fehlern eingefügt werden.|  
+|\<applications >|Gibt den Bilddateinamen der Anwendungen an, die durch Leerzeichen getrennt eingefügt werden. Wenn dieser Parameter nicht angegeben wird, kann es vorkommen, dass eine geringe Ressourcen Simulation in jeder Anwendung stattfindet.|  
+|\<minutes >|Eine positive Zahl, die die Länge des Zeitraums nach dem Neustart (in Minuten) angibt, in dem keine Fehler Injektion stattfindet. Wenn dieser Parameter nicht angegeben wird, wird die Standardlänge von 8 Minuten verwendet.|  
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|  
 
 ## <a name="additional-references"></a>Weitere Verweise  
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

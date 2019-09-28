@@ -1,8 +1,8 @@
 ---
-title: Mithilfe des neuen CaptureImage-Befehls
-description: 'Windows-Befehle Thema ***- '
+title: Verwenden des Befehls "New-CaptureImage"
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 00f15ae7ee1a7ab1ac1f71599d2cae9bb51d921e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: fb48cb76ef99eac51b862a5e1a3d1999a1cfc89d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440417"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363051"
 ---
-# <a name="using-the-new-captureimage-command"></a>Mithilfe des neuen CaptureImage-Befehls
+# <a name="using-the-new-captureimage-command"></a>Verwenden des Befehls "New-CaptureImage"
 
 
 
-Erstellt ein neues Capture-Image aus einem vorhandenen Startabbild an. Aufzeichnungsimages sind, dass die Startabbilder, die der Windows-Bereitstellungsdienste starten Hilfsprogramm statt Setup erfassen. Wenn Sie einen Referenzcomputer zugreifen (die mit Sysprep vorbereitet wurde) mit einem aufzeichnungsimage starten, wird ein Assistent erstellt ein Installationsimage des Referenzcomputers und speichert es als eine Windows-Abbilddatei (WIM). Sie können auch das Bild hinzufügen, auf die Medien (z. B. einer CD, DVD oder USB-Laufwerk), und starten Sie dann auf einen Computer aus, dass die Medien. Nachdem Sie das Installationsabbild erstellt haben, können Sie das Image mit dem Server für die Bereitstellung der PXE-Start hinzufügen. Weitere Informationen finden Sie unter Erstellen von Images ([https://go.microsoft.com/fwlink/?LinkId=115311](https://go.microsoft.com/fwlink/?LinkId=115311)).
+Erstellt ein neues Erfassungs Image aus einem vorhandenen Start Abbild. Aufzeichnungs Images sind Start Abbilder, mit denen das Erfassungs Hilfsprogramm der Windows-Bereitstellungs Dienste gestartet wird, anstatt Setup Wenn Sie einen Referenz Computer, der mit syunp vorbereitet wurde, in ein Aufzeichnungs Abbild starten, erstellt ein Assistent ein Installations Abbild des Referenz Computers und speichert es als Windows-Abbild Datei (WIM-Datei). Sie können das Image auch Medien hinzufügen (z. b. eine CD, DVD oder ein USB-Laufwerk) und dann einen Computer von diesem Medium aus starten. Nachdem Sie das Installations Abbild erstellt haben, können Sie das Abbild dem Server für die PXE-Start Bereitstellung hinzufügen. Weitere Informationen finden Sie unter Erstellen von Bildern ([https://go.microsoft.com/fwlink/?LinkId=115311](https://go.microsoft.com/fwlink/?LinkId=115311)).
 
 ## <a name="syntax"></a>Syntax
 
@@ -45,19 +45,19 @@ WDSUTIL [Options] /New-CaptureImage [/Server:<Server name>]
 
 |        Parameter         |                                                                                                                                                                                                                         Beschreibung                                                                                                                                                                                                                          |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [/ Server:\<Servername >] |                                                                                                                                       Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben wird, wird der lokale Server verwendet werden.                                                                                                                                        |
-|   / Image:\<Image-Name >   |                                                                                                                                                                                                         Gibt den Namen des Startabbilds Quelle.                                                                                                                                                                                                         |
-|   / Architektur: {x 86    |                                                                                                                                                                                                                             ia64                                                                                                                                                                                                                             |
-| [/ Filename: \<Dateiname >] |                                                                                                                                                                            Wenn das Bild kann nicht eindeutig anhand des Namens identifiziert werden, müssen Sie diese Option verwenden, um den Dateinamen angeben.                                                                                                                                                                            |
-|    /DestinationImage     | Gibt die Einstellungen für das Zielabbild. Sie geben Sie die Einstellungen, die mithilfe der folgenden Optionen:</br>-   /FilePath: \<Dateipfad und > legt den vollständigen Pfad für das neue Capture-Image.</br>-[/ Name: \<Name >]-legt den Anzeigenamen des Images fest. Wenn kein Anzeigename angegeben wird, wird der Anzeigename des Quellbilds verwendet werden.</br>-[/ Description: \<Beschreibung >]-legt die Beschreibung des Images fest.</br>-[/ Overwrite: {Yes |
+| [/Server: \<Server Name >] |                                                                                                                                       Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.                                                                                                                                        |
+|   /Image: \<bildname >   |                                                                                                                                                                                                         Gibt den Namen des Quell Start Abbilds an.                                                                                                                                                                                                         |
+|   /Architecture: {x86    |                                                                                                                                                                                                                             ia64                                                                                                                                                                                                                             |
+| /Filename \<filename >] |                                                                                                                                                                            Wenn das Bild nicht eindeutig anhand des Namens identifiziert werden kann, müssen Sie diese Option verwenden, um den Dateinamen anzugeben.                                                                                                                                                                            |
+|    /DestinationImage     | Gibt die Einstellungen für das Ziel Image an. Sie geben die Einstellungen mithilfe der folgenden Optionen an:</br>/FilePath \<dateipfad und-Name > legt den vollständigen Dateipfad für das neue Aufzeichnungs Abbild fest.</br>-[/Name: \<name >]: der Anzeige Name des Bilds wird festgelegt. Wenn kein Anzeige Name angegeben ist, wird der Anzeige Name des Quell Bilds verwendet.</br>-[/Description: \<description >]: legt die Beschreibung des Bilds fest.</br>-[/Overwrite: {Yes |
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Erstellen ein Aufzeichnungsabbild, und nennen Sie sie WinPECapture.wim, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um ein Aufzeichnungs Abbild zu erstellen, und nennen Sie es winpecapture. Wim:
 ```
 WDSUTIL /New-CaptureImage /Image:"WinPE boot image" /Architecture:x86 /DestinationImage /FilePath:"C:\Temp\WinPECapture.wim"
 ```
-Um ein Aufzeichnungsabbild erstellen und die angegebenen Einstellungen anzuwenden, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um ein Aufzeichnungs Abbild zu erstellen und die angegebenen Einstellungen anzuwenden:
 ```
 WDSUTIL /Verbose /Progress /New-CaptureImage /Server:MyWDSServer /Image:"WinPE boot image" /Architecture:x64 /Filename:boot.wim 
 /DestinationImage /FilePath:"\\Server\Share\WinPECapture.wim" /Name:"New WinPE image" /Description:"WinPE image with capture utility" /Overwrite:No /UnattendFilePath:"\\Server\Share\WDSCapture.inf"

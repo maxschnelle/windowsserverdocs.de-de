@@ -1,8 +1,8 @@
 ---
-title: Mithilfe des Befehls Get-Namespace
-description: 'Windows-Befehle Thema ***- '
+title: Verwenden des Befehls Get-Namespace
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8c30f9ef375bdf368f81f5a69961746851a2aac8
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 607fb758db64cfc938a08b070b520fe2950aa482
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440433"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363081"
 ---
-# <a name="using-the-get-namespace-command"></a>Mithilfe des Befehls Get-Namespace
+# <a name="using-the-get-namespace-command"></a>Verwenden des Befehls Get-Namespace
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zeigt Informationen zu benutzerdefinierten Namespace.
+Zeigt Informationen zu einem benutzerdefinierten Namespace an.
 ## <a name="syntax"></a>Syntax
 Windows Server 2008 R2
 ```
@@ -38,21 +38,21 @@ wdsutil /Get-Namespace /Namespace:<Namespace name> [/Server:<Server name>] [/det
 
 |               Parameter               |                                                                                                                                                                                         Beschreibung                                                                                                                                                                                          |
 |---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|      /Namespace:<Namespace name>      | Gibt den Namen des Namespaces. Beachten Sie, dass dies nicht der Anzeigename, und muss eindeutig sein.<br /><br />-Bereitstellungsserver: Die Syntax für Namespacename ist /Namspace:WDS:<ImageGroup>/<ImageName>/<Index>. Zum Beispiel: **WDS:ImageGroup1/install.wim/1**<br />-Transport-Server: Dieser Wert sollte der Name für den Namespace bei der Erstellung auf dem Server übereinstimmen. |
-|        [/Server:<Server name>]        |                                                                                                             Gibt den Namen des Servers an. Dies kann den NetBIOS-Namen oder den vollständig qualifizierten Domänennamen (FQDN) sein. Wenn kein Servername angegeben wird, wird der lokale Server verwendet.                                                                                                              |
-| [/ Anzeigen: Clients] oder [/ Details: Clients] |                                                                                                                                                  Zeigt Informationen zu Clientcomputern, die auf den angegebenen Namespace verbunden sind.                                                                                                                                                  |
+|      /Namespace: <Namespace name>      | Gibt den Namen des Namespaces an. Beachten Sie, dass dies nicht der Anzeige Name ist und eindeutig sein muss.<br /><br />-Bereitstellungs Server: Die Syntax für den Namespace Namen lautet/Namspace: WDS: <ImageGroup> @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4. Zum Beispiel: **WDS: ImageGroup1/install. wim/1**<br />-Transport Server: Dieser Wert sollte dem Namen entsprechen, der dem Namespace bei der Erstellung auf dem Server zugewiesen wurde. |
+|        [/Server:<Server name>]        |                                                                                                             Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Domänen Namen (FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.                                                                                                              |
+| [/Show: Clients] oder [/Details: Clients] |                                                                                                                                                  Hiermit werden Informationen zu Client Computern angezeigt, die mit dem angegebenen Namespace verbunden sind.                                                                                                                                                  |
 
-## <a name="BKMK_examples"></a>Beispiele für
-Um Informationen zum Namespace anzuzeigen, geben Sie Folgendes ein:
+## <a name="BKMK_examples"></a>Beispiele
+Geben Sie Folgendes ein, um Informationen zu einem Namespace anzuzeigen:
 ```
 wdsutil /Get-Namespace /Namespace:"Custom Auto 1"
 ```
-Zum Anzeigen von Informationen zu einem Namespace und den Clients, die verbunden sind, geben Sie eine der folgenden:
+Zum Anzeigen von Informationen zu einem Namespace und den Clients, die verbunden sind, geben Sie eine der folgenden Informationen ein:
 - Windows Server 2008: `wdsutil /Get-Namespace /Server:MyWDSServer /Namespace:"Custom Auto 1" /Show:Clients`
 - Windows Server 2008 R2: `wdsutil /Get-Namespace /Server:MyWDSServer /Namespace:"Custom Auto 1" /details:Clients`
-  #### <a name="additional-references"></a>Zusätzliche Referenzen
-  [Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-  [mit dem Befehl Get-AllNamespaces](using-the-get-allnamespaces-command.md)
-  [mit dem neuen Namespace-Befehl](using-the-new-namespace-command.md)
-  [verwenden den Befehl Remove-Namespace](using-the-remove-namespace-command.md)
+  #### <a name="additional-references"></a>Weitere Verweise
+  [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+  [mithilfe des Befehls get-allnamespaces](using-the-get-allnamespaces-command.md)
+   mithilfe[des New-Namespace](using-the-new-namespace-command.md)-Befehls 
+   mithilfe des[Remove-Namespace](using-the-remove-namespace-command.md)-Befehls 
   [Unterbefehl: Start-Namespace](subcommand-start-namespace.md)

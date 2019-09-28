@@ -1,8 +1,8 @@
 ---
-title: Verwenden den Befehl Remove-Namespace
-description: 'Windows-Befehle Thema ***- '
+title: Verwenden des Remove-Namespace-Befehls
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 115c0a90a60e18ee4b89758200773d1dfec2163f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b4c087442c43fd885fe4554cb29f9b2788420e05
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842041"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362789"
 ---
-# <a name="using-the-remove-namespace-command"></a>Verwenden den Befehl Remove-Namespace
+# <a name="using-the-remove-namespace-command"></a>Verwenden des Remove-Namespace-Befehls
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Entfernt einen benutzerdefinierten Namespace an.
+entfernt einen benutzerdefinierten Namespace.
 ## <a name="syntax"></a>Syntax
 ```
 wdsutil /remove-Namespace /Namespace:<Namespace name> [/Server:<Server name>] [/force]
@@ -32,20 +32,20 @@ wdsutil /remove-Namespace /Namespace:<Namespace name> [/Server:<Server name>] [/
 ## <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
-|/Namespace:<Namespace name>|Gibt den Namen des Namespaces. Dies ist nicht den Anzeigenamen, und muss eindeutig sein.<br /><br />-   **Deployment Server-Rollendienst**: Die Syntax für Namespacename ist /Namespace:WDS:<ImageGroup>/<ImageName>/<Index>. Zum Beispiel: **WDS:ImageGroup1/install.wim/1**<br />-   **Transport-Server-Rollendienst**: Dieser Wert muss der Name für den Namespace bei der Erstellung auf dem Server übereinstimmen.|
-|[/Server:<Server name>]|Gibt den Namen des Servers an. Dies kann den NetBIOS-Namen oder den vollständig qualifizierten Domänennamen (FQDN) sein. Wenn kein Servername angegeben wird, wird der lokale Server verwendet.|
-|[/force]|Entfernt den Namespace sofort, und alle Clients beendet. Beachten Sie, dass es sei denn, Sie geben **/force**, vorhandene Clients können die Übertragung abgeschlossen, aber neue Clients sind nicht beitreten.|
-## <a name="BKMK_examples"></a>Beispiele für
-So beenden Sie einen Namespace (aktuelle Clients können die Übertragung abgeschlossen, aber neue Clients sind nicht beitreten), Typ:
+|/Namespace: <Namespace name>|Gibt den Namen des Namespaces an. Dies ist nicht der Anzeige Name, und er muss eindeutig sein.<br /><br />-   **Bereitstellungs Server-Rollen Dienst**: Die Syntax für den Namespace Namen lautet/Namespace: WDS: <ImageGroup> @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4. Zum Beispiel: **WDS: ImageGroup1/install. wim/1**<br />-   **Transport Server-Rollen Dienst**: Dieser Wert muss dem Namen entsprechen, der dem Namespace bei der Erstellung auf dem Server zugewiesen wurde.|
+|[/Server:<Server name>]|Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Domänen Namen (FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
+|/Force|entfernt den Namespace sofort und beendet alle Clients. Beachten Sie, dass vorhandene Clients die Übertragung durchführen können, es sei denn, Sie geben **/Force**an. neue Clients können jedoch nicht beitreten.|
+## <a name="BKMK_examples"></a>Beispiele
+Geben Sie Folgendes ein, um einen Namespace zu beenden (aktuelle Clients können die Übertragung beenden, aber keine neuen Clients beitreten). Geben Sie Folgendes ein:
 ```
 wdsutil /remove-Namespace /Namespace:"Custom Auto 1"
 ```
-Um die Beendigung aller Clients zu erzwingen, geben Sie Folgendes ein:
+Wenn Sie die Beendigung aller Clients erzwingen möchten, geben Sie Folgendes ein:
 ```
 wdsutil /remove-Namespace /Server:MyWDSServer /Namespace:"Custom Auto 1" /force
 ```
-#### <a name="additional-references"></a>Zusätzliche Referenzen
-[Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-[mit dem Befehl Get-AllNamespaces](using-the-get-allnamespaces-command.md)
-[mit dem neuen Namespace-Befehl](using-the-new-namespace-command.md) 
- [ Unterbefehl: Start-Namespace](subcommand-start-namespace.md)
+#### <a name="additional-references"></a>Weitere Verweise
+[Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+[mithilfe des Befehls get-allnamespaces](using-the-get-allnamespaces-command.md)
+[mit dem Befehl New-Namespace](using-the-new-namespace-command.md)
+[unter Command: Start-Namespace](subcommand-start-namespace.md)

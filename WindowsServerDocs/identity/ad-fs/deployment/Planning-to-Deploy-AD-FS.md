@@ -6,25 +6,25 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 1459cade5071374ca39d453b9915a68e4bcfe539
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: ed2082706975d58a1535aaeb61e6c5283d23306a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192042"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359501"
 ---
 # <a name="planning-to-deploy-ad-fs"></a>Planen der Bereitstellung von AD FS
 
 
-Nachdem Sie die Informationen zu Ihrer Umgebung gesammelt und eine Active Directory Federation Services erfordert \(AD FS\) Entwurf anhand der Anleitungen in den [AD FS-Entwurfshandbuch in Windows Server 2012](https://technet.microsoft.com/library/dd807036.aspx), Sie können beginnen, die Bereitstellung von AD FS-Entwurfs Ihrer Organisation zu planen. Mit dem fertigen Entwurf und die Informationen in diesem Thema können Sie die Aufgaben zum Bereitstellen von AD FS in Ihrer Organisation ermitteln.  
+Nachdem Sie Informationen zu Ihrer Umgebung gesammelt haben und sich für einen Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1-Entwurf entschieden haben, indem Sie die Anweisungen im [Leitfaden zum AD FS Design in Windows Server 2012](https://technet.microsoft.com/library/dd807036.aspx)befolgen, können Sie mit der Planung der Bereitstellung von beginnen. der AD FS Entwurf Ihrer Organisation. Mit dem abgeschlossenen Entwurf und den Informationen in diesem Thema können Sie ermitteln, welche Aufgaben zum Bereitstellen von AD FS in Ihrer Organisation durchgeführt werden müssen.  
   
 ## <a name="reviewing-your-ad-fs-design"></a>Überprüfen Ihres AD FS-Entwurfs  
-Wenn das Entwurfsteam, das der ursprünglichen AD FS erstellt Entwurf unterscheidet Ihrer Organisation das Bereitstellungsteam, die tatsächliche Implementierung bereitstellt, stellen Sie sicher, dass das Bereitstellungsteam den endgültigen Entwurf mit dem Entwurfsteam überprüft. Überprüfen Sie die folgenden Punkte in Bezug auf den Entwurf:  
+Wenn das Entwurfs Team, das den ursprünglichen AD FS Entwurf für Ihre Organisation erstellt hat, nicht mit dem Bereitstellungs Team identisch ist, das die Bereitstellung implementiert, müssen Sie sicherstellen, dass das Bereitstellungs Team den endgültigen Entwurf mit dem Entwurfs Team überprüft. Überprüfen Sie die folgenden Punkte in Bezug auf den Entwurf:  
   
--   Die Strategie des Entwurfsteams zur Festlegung der besten Topologie für die Platzierung der Verbundserver in Ihrem Unternehmens- oder Umkreisnetzwerk. Das Bereitstellungsteam kann in der Dokumentation zu diesem Thema finden Sie durch den folgenden Themen in der AD FS-Entwurfshandbuch überprüfen:  
+-   Die Strategie des Entwurfsteams zur Festlegung der besten Topologie für die Platzierung der Verbundserver in Ihrem Unternehmens- oder Umkreisnetzwerk. Das Bereitstellungs Team kann die Dokumentation zu diesem Thema lesen, indem Sie die folgenden Themen im AD FS Entwurfs Leit Faden betrachten:  
   
     -   [Rolle der AD FS-Konfigurationsdatenbank](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)  
   
@@ -34,6 +34,6 @@ Wenn das Entwurfsteam, das der ursprünglichen AD FS erstellt Entwurf unterschei
   
     Möglicherweise überlässt das Entwurfsteam das Thema der Platzierung des Verbundservers oder des Verbundserverproxys dem Bereitstellungsteam. Das Bereitstellungsteam ist dann für die Dokumentation und Implementierung der physischen Topologie der Server verantwortlich.  
   
--   Die geschäftlichen Gründe für die Festlegung Ihrer Organisation als Anspruchsanbieter, vertrauende Seite oder beides innerhalb des Umfangs des dokumentierten AD FS-Entwurfs. Stellen Sie sicher, dass die Mitglieder des Bereitstellungsteams die Gründe, warum AD FS bereitgestellt wird, und welche anderen Unternehmen oder Organisationen verstehen der verbundpartnerschaft beteiligt. Stellen Sie sicher, dass Mitglieder des Bereitstellungsteams auch die Einschränkungen verstehen, die für die anderen Unternehmen oder Organisationen vorhanden \(begrenzte Hardware, keine Extranetumgebung und So weiter\) , die möglicherweise den Geltungsbereich des Entwurfs in irgendeiner Form. Weitere Informationen zur Partnerorganisationen finden Sie unter [Planen Ihrer Bereitstellung](https://technet.microsoft.com/library/dd807083.aspx).  
+-   Die geschäftlichen Gründe für die Festlegung Ihrer Organisation als Anspruchsanbieter, vertrauende Seite oder beides innerhalb des Umfangs des dokumentierten AD FS-Entwurfs. Stellen Sie sicher, dass die Mitglieder des Bereitstellungs Teams die Gründe verstehen, warum AD FS bereitgestellt wird und welche anderen Unternehmen oder Organisationen an der Verbund Partnerschaft beteiligt sind. Stellen Sie sicher, dass die Mitglieder des Bereitstellungs Teams auch die Einschränkungen kennen, die für die anderen Unternehmen oder Organisationen bestehen \(limited Hardware, keine Extranetumgebung usw. @ no__t-1, die den Umfang des Entwurfs möglicherweise auf irgendeine Weise einschränkt. Weitere Informationen zur Partnerorganisationen finden Sie unter [Planen Ihrer Bereitstellung](https://technet.microsoft.com/library/dd807083.aspx).  
   
-Nachdem sich das Entwurfs- und Bereitstellung verständigt haben auf dieser Probleme bei der Bereitstellung von AD FS-Entwurfs fortgesetzt werden kann. Weitere Informationen finden Sie unter [Implementieren des AD FS-Entwurfsplans](Implementing-Your-AD-FS-Design-Plan.md).  
+Nachdem die Entwurfs Teams und Bereitstellungs Teams diese Probleme zugestimmt haben, können Sie mit der Bereitstellung des AD FS Entwurfs fortfahren. Weitere Informationen finden Sie unter [Implementieren des AD FS-Entwurfsplans](Implementing-Your-AD-FS-Design-Plan.md).  

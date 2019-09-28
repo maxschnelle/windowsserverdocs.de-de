@@ -1,6 +1,6 @@
 ---
-title: Integritätsdienst in WindowsServer
-ms.prod: windows-server-threshold
+title: Integritätsdienst in Windows Server
+ms.prod: windows-server
 manager: eldenc
 ms.author: cosdar
 ms.technology: storage-health-service
@@ -8,34 +8,34 @@ ms.topic: article
 ms.assetid: 5bc71e71-920e-454f-8195-afebd2a23725
 author: cosmosdarwin
 ms.date: 02/09/2018
-ms.openlocfilehash: 5afb64dcf0c59697ed55d7cf51ef1bc36e7e0e36
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: df455dfb0d2936192a3c2d7825e2d6d031cfe892
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863811"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361070"
 ---
-# <a name="health-service-in-windows-server"></a>Integritätsdienst in WindowsServer
+# <a name="health-service-in-windows-server"></a>Integritätsdienst in Windows Server
 
-> Gilt für Windows Server 2016
+> Gilt für: Windows Server 2019, Windows Server 2016
 
-Der Integritätsdienst ist ein neues Feature in Windows Server 2016, die die tägliche Überwachung verbessert und Erfahrungen für Cluster "direkte Speicherplätze".
+Der Integritätsdienst ist ein neues Feature in Windows Server 2016, das die tägliche Überwachung und Betriebsbereitschaft für Cluster mit direkte Speicherplätze verbessert.
 
-## <a name="prerequisites"></a>Vorraussetzungen  
+## <a name="prerequisites"></a>Erforderliche Komponenten  
 
-Für „Direkte Speicherplätze“ ist der Integritätsdienst standardmäßig aktiviert. Für seine Einrichtung und seinen Start sind keine weiteren Aktionen erforderlich. Weitere Informationen zu "direkte Speicherplätze" finden Sie unter ["direkte Speicherplätze" in Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md).  
+Für „Direkte Speicherplätze“ ist der Integritätsdienst standardmäßig aktiviert. Für seine Einrichtung und seinen Start sind keine weiteren Aktionen erforderlich. Weitere Informationen zu direkte Speicherplätze finden Sie unter [direkte Speicherplätze in Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md).  
 
 ## <a name="reports"></a>Berichte
 
-Finden Sie unter [Integritätsdienst meldet](health-service-reports.md).
+Siehe [Integritätsdienst Berichte](health-service-reports.md).
 
 ## <a name="faults"></a>Fehler
 
-Finden Sie unter [Integritätsdienst Fehler](health-service-faults.md).
+Siehe [Integritätsdienst Fehler](health-service-faults.md).
 
 ## <a name="actions"></a>Aktionen
 
-Finden Sie unter [Integritätsdienst Aktionen](health-service-actions.md).
+Siehe [Integritätsdienst Aktionen](health-service-actions.md).
 
 ## <a name="automation"></a>Automatisierung  
 
@@ -76,34 +76,34 @@ Falls möglich, aktiviert der Integritätsdienst das Blinken der Leuchte auf dem
 
 #### <a name="physical-replacement"></a>Physischer Austausch  
 
-Nach Möglichkeit sollten Sie den deaktivierten physischen Datenträger austauschen. In den meisten Fällen diese besteht aus einer hot-Swap – d. h. das Ausschalten der Knotens oder Speichergehäuses ist nicht erforderlich. In den Informationen zum Fehler finden Sie hilfreiche Angaben zu Stelle und Teil.  
+Nach Möglichkeit sollten Sie den deaktivierten physischen Datenträger austauschen. In den meisten Fällen besteht dies aus einem Hot-Swap-Vorgang, d. h., das Ausschalten des Knotens oder des Speicher Gehäuses ist nicht erforderlich. In den Informationen zum Fehler finden Sie hilfreiche Angaben zu Stelle und Teil.  
 
 #### <a name="verification"></a>Überprüfung
 
-Wenn der austauschdatenträger eingebaut wurde, wird es für das Dokument für die unterstützten Komponenten überprüft werden (siehe nächster Abschnitt).
+Wenn der Ersetzungs Datenträger eingefügt wird, wird er anhand des Dokuments "Unterstützte Komponenten" überprüft (Weitere Informationen finden Sie im nächsten Abschnitt).
 
 #### <a name="pooling"></a>Erstellen von Pools  
 
 Falls zulässig, wird der Austauschdatenträger automatisch dem Pool seines Vorgängers hinzugefügt, um den Betrieb aufzunehmen. Sobald der Fehler verschwunden ist, wird das System in seinen Ausgangszustand mit perfekter Integrität zurückgesetzt.  
 
-## <a name="supported-components-document"></a>Unterstützte Komponenten Dokument  
+## <a name="supported-components-document"></a>Dokument zu unterstützten Komponenten  
 
-Der Integritätsdienst bietet einen Erzwingungsmechanismus zum Beschränken der Komponenten, die von "direkte Speicherplätze" verwendet werden, mit denen in einem Dokument Komponenten unterstützt durch den Administrator oder Lösungsanbieter bereitgestellt. Diese kann verwendet werden, um eine versehentliche Nutzung nicht unterstützter Hardware durch Sie oder andere zu verhindern, sodass Garantie- und Supportvertragsbedingungen besser eingehalten werden. Diese Funktion ist derzeit begrenzt auf physische Datenträger, einschließlich SSDs zu HDDs und NVMe-Laufwerke. Das Dokument für die unterstützten Komponenten können auf das Modell, Hersteller (optional) und -Firmware-Version (optional) einschränken.
+Der Integritätsdienst stellt einen Erzwingungs Mechanismus bereit, mit dem die von direkte Speicherplätze verwendeten Komponenten auf die von dem Administrator oder dem Lösungs Hersteller bereitgestellten Komponenten beschränkt werden. Diese kann verwendet werden, um eine versehentliche Nutzung nicht unterstützter Hardware durch Sie oder andere zu verhindern, sodass Garantie- und Supportvertragsbedingungen besser eingehalten werden. Diese Funktion ist zurzeit auf physische Festplattengeräte beschränkt, einschließlich SSDs, HDDs und nvme-Laufwerke. Das Dokument "Unterstützte Komponenten" kann für das Modell, den Hersteller (optional) und die Firmwareversion (optional) eingeschränkt werden.
 
 ### <a name="usage"></a>Verwendung  
 
-Das Dokument für die unterstützten Komponenten wird eine XML-inspiriert Syntax verwendet. Es wird empfohlen, Ihren bevorzugten Texteditor, beispielsweise die kostenlose [Visual Studio Code](http://code.visualstudio.com/) oder Editor, um ein XML-Dokument erstellen, das Sie speichern und wiederverwenden können.
+Im Dokument "Unterstützte Komponenten" wird eine XML-inspirierte Syntax verwendet. Es wird empfohlen, Ihren bevorzugten Text-Editor, z. b. die kostenlose [Visual Studio Code](http://code.visualstudio.com/) oder den Editor, zum Erstellen eines XML-Dokuments zu verwenden, das Sie speichern und wieder verwenden können.
 
-#### <a name="sections"></a>Abschnitte
+#### <a name="sections"></a>Strecken
 
-Das Dokument besteht aus zwei unabhängige Abschnitten: `Disks` und `Cache`.
+Das Dokument weist zwei unabhängige Abschnitte auf: `Disks` und `Cache`.
 
-Wenn die `Disks` Abschnitt bereitgestellt wird, werden nur die Laufwerke aufgeführt (als `Disk`) sind zulässig, um Pools zu verknüpfen. Alle nicht aufgeführten Laufwerke werden daran gehindert Verknüpfen von Pools, die eingesetzt werden können in der Produktion. Wenn in diesem Abschnitt leer gelassen wird, wird jedes Laufwerk Verknüpfen des Pools zulässig.
+Wenn der `Disks`-Abschnitt angegeben ist, können nur die aufgeführten Laufwerke (als `Disk`) Pools beitreten. Nicht aufgelistete Laufwerke werden daran gehindert, Pools beizutreten, was die Verwendung in der Produktion praktisch ausschließt. Wenn dieser Abschnitt leer bleibt, wird jedem Laufwerk das beitreten zu Pools gestattet.
 
-Wenn die `Cache` Abschnitt bereitgestellt wird, werden nur die Laufwerke aufgeführt (als `CacheDisk`) werden für die Zwischenspeicherung verwendet. Wenn in diesem Abschnitt leer gelassen wird, "direkte Speicherplätze" versucht, [Raten basierend auf den Medientyp und Bustyp](../storage/storage-spaces/understand-the-cache.md#cache-drives-are-selected-automatically). Laufwerke, die hier aufgeführten sollte auch aufgeführt werden `Disks`.
+Wenn der Abschnitt "`Cache`" angegeben wird, werden nur die aufgeführten Laufwerke (wie `CacheDisk`) für die Zwischenspeicherung verwendet. Wenn dieser Abschnitt leer bleibt, versucht direkte Speicherplätze, [basierend auf Medientyp und Bustyp zu erraten](../storage/storage-spaces/understand-the-cache.md#cache-drives-are-selected-automatically). Die hier aufgeführten Laufwerke sollten auch in `Disks` aufgeführt werden.
 
 >[!IMPORTANT]
-> Das Dokument für die unterstützten Komponenten wird nicht rückwirkend für Laufwerke, die bereits in einem Pool zusammengefasst und angewendet.  
+> Das Dokument "Unterstützte Komponenten" gilt nicht rückwirkend für bereits in einem Pool zusammengefasste und verwendete Laufwerke.  
 
 #### <a name="example"></a>Beispiel
 
@@ -141,16 +141,16 @@ Wenn die `Cache` Abschnitt bereitgestellt wird, werden nur die Laufwerke aufgef�
 
 ```
 
-Um mehrere Laufwerke aufzulisten, fügen Sie einfach zusätzliche `<Disk>` oder `<CacheDisk>` Tags.
+Fügen Sie zum Auflisten mehrerer Laufwerke einfach zusätzliche `<Disk>`-oder `<CacheDisk>`-Tags hinzu.
 
-Um diesen XML-Code einzufügen, wenn Sie "direkte Speicherplätze" bereitstellen, verwenden Sie die `-XML` Parameter:
+Um diese XML-Datei beim Bereitstellen von direkte Speicherplätze einzufügen, verwenden Sie den Parameter "`-XML`":
 
 ```PowerShell
 $MyXML = Get-Content <Filepath> | Out-String  
 Enable-ClusterS2D -XML $MyXML
 ```
 
-Festlegen oder ändern Sie das Dokument für die unterstützten Komponenten aus, sobald "direkte Speicherplätze" bereitgestellt wurde:
+So können Sie das Dokument "Unterstützte Komponenten" nach der Bereitstellung direkte Speicherplätze festlegen oder ändern:
 
 ```PowerShell
 $MyXML = Get-Content <Filepath> | Out-String  
@@ -168,12 +168,12 @@ Get-PhysicalDisk | Select Model, Manufacturer, FirmwareVersion
 
 ## <a name="settings"></a>Einstellungen
 
-Finden Sie unter [Integritätsdienst Einstellungen](health-service-settings.md).
+Siehe [Integritätsdienst Einstellungen](health-service-settings.md).
 
 ## <a name="see-also"></a>Siehe auch
 
-- [Integritätsdienst-Berichte](health-service-reports.md)
-- [Integritätsdienst-Dienstfehler](health-service-faults.md)
-- [Integrität von Dienstaktionen](health-service-actions.md)
-- [Service Health-Einstellungen](health-service-settings.md)
-- ["Direkte Speicherplätze" unter WindowsServer 2016](../storage/storage-spaces/storage-spaces-direct-overview.md)
+- [Integritätsdienst Berichte](health-service-reports.md)
+- [Integritätsdienst Fehler](health-service-faults.md)
+- [Integritätsdienst Aktionen](health-service-actions.md)
+- [Integritätsdienst Einstellungen](health-service-settings.md)
+- [Direkte Speicherplätze in Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md)

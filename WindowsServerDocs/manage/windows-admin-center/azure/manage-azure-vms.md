@@ -1,76 +1,76 @@
 ---
-title: Verwalten von Azure IaaS-Computer
-description: Verwalten von Azure IaaS-VMs mit Windows Admin Center (Projekt Honolulu)
+title: Verwalten von virtuellen Azure-IaaS-Computern
+description: Verwalten von Azure-IaaS-VMS mit Windows Admin Center (Project Honolulu)
 ms.technology: manage
 ms.topic: article
 author: haley-rowland
 ms.author: harowl
 ms.date: 09/07/2018
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: ac98f42c4ad5606cc8d2b142f209f9bdb2b9611c
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.prod: windows-server
+ms.openlocfilehash: 7b85f64d108283d4865b718b565ad3ba40f14f02
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445899"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357338"
 ---
-# <a name="manage-azure-iaas-virtual-machines-with-windows-admin-center"></a>Verwalten von Azure-IaaS-virtuellen Computern mit Windows Admin Center
+# <a name="manage-azure-iaas-virtual-machines-with-windows-admin-center"></a>Verwalten von virtuellen Azure-IaaS-Computern mit dem Windows Admin Center
 
-Sie können Windows Admin Center verwenden, zum Verwalten Ihrer virtuellen Azure-Computern sowie auf lokalen Computern. Es sind mehrere unterschiedliche Konfigurationen möglich – wählen Sie die Konfiguration, die für Ihre Umgebung sinnvoll ist:
-- [Verwalten von Azure-VMs über ein Gateway des lokalen Windows Admin Center](#manage-with-an-on-premises-windows-admin-center-gateway)
-- [Verwalten von Azure-VMs über ein Windows Admin Center-Gateway auf einer Azure-VM installiert](#use-a-windows-admin-center-gateway-deployed-in-azure)
+Mit Windows Admin Center kannst du deine virtuellen Azure-Computer und lokalen Computer verwalten. Es sind verschiedene Konfigurationen möglich. Wählen Sie die Konfiguration aus, die für Ihre Umgebung sinnvoll ist:
+- [Verwalten von Azure-VMS über ein lokales Windows Admin Center-Gateway](#manage-with-an-on-premises-windows-admin-center-gateway)
+- [Verwalten von Azure-VMS über ein auf einem virtuellen Azure-Computer installiertes Windows Admin Center](#use-a-windows-admin-center-gateway-deployed-in-azure)
 
-## <a name="manage-with-an-on-premises-windows-admin-center-gateway"></a>Mit einem Gateway des lokalen Windows Admin Center verwalten
+## <a name="manage-with-an-on-premises-windows-admin-center-gateway"></a>Verwalten mit einem lokalen Windows Admin Center-Gateway
 
-Wenn Sie bereits Windows Admin Center auf einem lokalen Gateway (entweder unter Windows 10 oder Windows Server 2016) installiert haben, können Sie diese dasselbe Gateway verwenden, zum Verwalten von Windows 10 oder Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 oder Windows Server 2008 R2 Virtuelle Computer in Azure. 
+Wenn Sie Windows Admin Center bereits auf einem lokalen Gateway (entweder unter Windows 10 oder Windows Server 2016) installiert haben, können Sie dieses Gateway zum Verwalten von Windows 10 oder Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 oder Windows Server 2008 R2 verwenden. VMS in Azure. 
 
-### <a name="connecting-to-vms-with-a-public-ip"></a>Herstellen einer Verbindung mit virtuellen Computern mit einer öffentlichen IP-Adresse
+### <a name="connecting-to-vms-with-a-public-ip"></a>Herstellen einer Verbindung mit VMS mit einer öffentlichen IP-Adresse
 
-Wenn Ihr Ziel-VMs (die virtuellen Computer mit Windows Admin Center verwalten möchten), öffentliche IP-Adressen verfügen, fügen sie IP-Adresse oder FQDN mit dem Windows Admin Center-Gateway hinzu. Es gibt einige Überlegungen zu berücksichtigen:
+Wenn Ihre Ziel-VMS (die VMs, die Sie mit Windows Admin Center verwalten möchten) über öffentliche IPS verfügen, fügen Sie Sie Ihrem Windows Admin Center-Gateway über die IP-Adresse oder den FQDN hinzu. Beachten Sie die folgenden Punkte:
 
-- Sie müssen WinRM-Zugriffs auf Ihre Ziel-VM aktivieren, durch Ausführen des folgenden Befehls in PowerShell oder die Eingabeaufforderung auf dem virtuellen Zielcomputer: `winrm quickconfig`
-- Wenn Sie mit der Azure-VM domänenverknüpfung nicht getan haben, der virtuellen Computer verhält sich wie ein Server in einer Arbeitsgruppe, damit Sie sicherstellen, dass Sie berücksichtigen müssen [mithilfe von Windows Admin Center in einer Arbeitsgruppe](../support/troubleshooting.md#using-windows-admin-center-in-a-workgroup).
-- Sie müssen auch eingehende Verbindungen an Port 5985 für WinRM in der Reihenfolge für Windows Admin Center zum Verwalten der Ziels-VM über HTTP aktivieren:
-  1. Führen Sie das folgende PowerShell-Skript auf der Ziel-VM, um eingehende Verbindungen an Port 5985 unter dem Gastbetriebssystem zu aktivieren:   
+- Sie müssen den WinRM-Zugriff auf den virtuellen Zielcomputer aktivieren, indem Sie Folgendes in PowerShell oder über die Eingabeaufforderung auf der Ziel-VM ausführen: `winrm quickconfig`
+- Wenn Sie nicht der Azure-VM angehören, verhält sich der virtuelle Computer wie ein Server in der Arbeitsgruppe. Daher müssen Sie sicherstellen, dass Sie das [Windows Admin Center in einer Arbeitsgruppe verwenden](../support/troubleshooting.md#using-windows-admin-center-in-a-workgroup).
+- Sie müssen auch eingehende Verbindungen mit Port 5985 für WinRM über HTTP aktivieren, damit Windows Admin Center die Ziel-VM verwalten kann:
+  1. Führen Sie das folgende PowerShell-Skript auf der Ziel-VM aus, um eingehende Verbindungen mit Port 5985 auf dem Gast Betriebssystem zu ermöglichen:   
      `Set-NetFirewallRule -Name WINRM-HTTP-In-TCP-PUBLIC -RemoteAddress Any`
 
-  2. Darüber hinaus müssen Sie den Port in Azure-Netzwerken öffnen:
+  2. Sie müssen den Port auch in Azure-Netzwerken öffnen:
 
-     - Wählen Sie Ihre Azure-VM, **Networking**, klicken Sie dann **hinzufügen eingehender Portregel**. 
-     - Stellen Sie sicher **grundlegende** ausgewählt ist, am oberen Rand der **eingangssicherheitsregel hinzufügen** Bereich.
-     - In der **Port Bereiche** Feld **5985**.
+     - Wählen Sie Ihren virtuellen Azure-Computer aus, klicken Sie auf **Netzwerk**und dann auf **eingehende Port Regel** 
+     - Stellen Sie sicher, dass im oberen Bereich des Bereichs **Eingangs Sicherheitsregel hinzufügen** die Option **einfach** ausgewählt ist.
+     - Geben Sie im Feld **Port Bereiche** den Wert **5985**ein.
     
-     Wenn Ihr Gateway Windows Admin Center eine statische IP-Adresse verfügt, können Sie auswählen, um nur eingehenden Zugriffs auf WinRM von Ihrem Windows Admin Center-Gateway zur Erhöhung der Sicherheit zu ermöglichen.
-     Wählen Sie zu diesem Zweck **erweitert** am oberen Rand der **eingangssicherheitsregel hinzufügen** Bereich.
+     Wenn Ihr Windows Admin Center-Gateway über eine statische IP-Adresse verfügt, können Sie auswählen, dass nur eingehender WinRM-Zugriff von Ihrem Windows Admin Center-Gateway aus für zusätzliche Sicherheit zulässig ist.
+     Wählen Sie hierzu im oberen Bereich des Bereichs **Eingangs Sicherheitsregel hinzufügen** die Option **erweitert** aus.
 
-     Für **Quelle**Option **IP-Adressen**, geben Sie dann auf die Quell-IP-Adresse, die mit dem Gateway Windows Admin Center entspricht.
+     Wählen Sie unter **Quelle**die Option **IP-Adressen**aus, und geben Sie dann die IP-Quelladresse Ihres Windows Admin Center-Gateways ein.
 
-     - Für **Protokoll** wählen **TCP**.
-     - Die übrigen kann als Standard übernommen werden.
+     - Wählen Sie als **Protokoll** **TCP**aus.
+     - Der Rest kann als Standard belassen werden.
 
 > [!NOTE]
-> Sie müssen eine benutzerdefinierte Portregel erstellen. Die WinRM-Port-Regel bereitgestellt, die von Azure-Netzwerke verwendet Port 5986 (HTTPS) anstelle von 5985 (über HTTP). 
+> Sie müssen eine benutzerdefinierte Portregel erstellen. Die von Azure-Netzwerken bereitgestellte WinRM-Portregel verwendet Port 5986 (über HTTPS) anstelle von 5985 (über HTTP). 
 
-### <a name="connecting-to-vms-without-a-public-ip"></a>Herstellen einer Verbindung mit virtuellen Computern ohne eine öffentliche IP-Adresse
+### <a name="connecting-to-vms-without-a-public-ip"></a>Herstellen einer Verbindung mit virtuellen Computern ohne öffentliche IP-Adresse
 
-Wenn Ihr Ziel Azure-VMs nicht öffentliche IP-Adressen, und Sie diese virtuellen Computer über ein Gateway für Windows Admin Center in Ihrem lokalen Netzwerk verwalten möchten, müssen Sie zum Konfigurieren Ihres lokalen Netzwerks über eine Verbindung mit dem VNet, auf denen die Ziel-VMs sind, verfügen verbunden. Es gibt 3 Möglichkeiten, die Sie dies tun können: ExpressRoute-Standort-zu-Standort-VPN- oder Punkt-zu-Standort-VPN. [Erfahren Sie, welche Verbindungsoption in Ihrer Umgebung sinnvoll ist.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design) 
+Wenn Ihre virtuellen Azure-Zielcomputer nicht über öffentliche IP-Adressen verfügen und Sie diese virtuellen Computer über ein Windows Admin Center-Gateway verwalten möchten, das in Ihrem lokalen Netzwerk bereitgestellt wird, müssen Sie das lokale Netzwerk so konfigurieren, dass es eine Verbindung mit dem vnet herstellen kann, in dem sich die Ziel-VMs befinden. hängt. Es gibt drei Möglichkeiten, wie Sie dies tun können: Expressroute, Site-to-Site-VPN oder Punkt-zu-Standort-VPN. [Erfahren Sie, welche Konnektivitätsoption in Ihrer Umgebung sinnvoll ist.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design) 
 
 >[!TIP]
->Wenn Sie möchten ein Punkt-zu-Standort-VPN zum Verbinden Ihres Windows Admin Center-Gateways mit einem Azure-VNet zum Verwalten von Azure-VMs, VNet, Sie verwenden können, verwenden die [Netzwerkadapter für die Azure](https://aka.ms/WACNetworkAdapter) -Feature in Windows Admin Center. Zu diesem Zweck Verbinden mit dem Server, auf dem Windows Admin Center installiert ist, navigieren Sie zu der Netzwerk-Tool aus, und wählen Sie "Azure – Netzwerkadapter hinzufügen". Wenn Sie die erforderlichen Details bereitzustellen, und klicken Sie auf "einrichten", Windows Admin Center wird ein Punkt-zu-Standort-VPN mit dem Azure-VNet, das Sie angeben, nach dem, Sie können Herstellen einer Verbindung mit und Verwalten von Azure-VMs von Ihrem lokalen Windows Admin Center-Gateway konfigurieren.
+>Wenn Sie ein Point-to-Site-VPN zum Verbinden Ihres Windows Admin Center-Gateways mit einem Azure-vnet verwenden möchten, um virtuelle Azure-Computer in diesem vnet zu verwalten, können Sie die [Azure-Netzwerk Adapter](https://aka.ms/WACNetworkAdapter) Funktion im Windows Admin Center verwenden. Stellen Sie dazu eine Verbindung mit dem Server her, auf dem Windows Admin Center installiert ist, navigieren Sie zum Netzwerk Tool, und wählen Sie "Azure-Netzwerk Adapter hinzufügen" aus. Wenn Sie die erforderlichen Details angeben und auf "einrichten" klicken, wird von Windows Admin Center ein Punkt-zu-Standort-VPN für das von Ihnen angegebene Azure-vnet konfiguriert. Anschließend können Sie über Ihr lokales Windows Admin Center-Gateway eine Verbindung mit virtuellen Azure-Computern herstellen und diese verwalten.
 
-Stellen Sie sicher, dass WinRM auf dem Zielcomputer VMs durch Ausführen des folgenden Befehls in PowerShell oder die Eingabeaufforderung auf dem virtuellen Zielcomputer ausgeführt wird: `winrm quickconfig`
+Stellen Sie sicher, dass WinRM auf ihren Ziel-VMS ausgeführt wird, indem Sie Folgendes in PowerShell oder über die Eingabeaufforderung auf der Ziel-VM ausführen: `winrm quickconfig`
 
-Wenn Sie mit der Azure-VM domänenverknüpfung nicht getan haben, der virtuellen Computer verhält sich wie ein Server in einer Arbeitsgruppe, damit Sie sicherstellen, dass Sie berücksichtigen müssen [mithilfe von Windows Admin Center in einer Arbeitsgruppe](../support/troubleshooting.md#using-windows-admin-center-in-a-workgroup).
+Wenn Sie nicht der Azure-VM angehören, verhält sich der virtuelle Computer wie ein Server in der Arbeitsgruppe. Daher müssen Sie sicherstellen, dass Sie das [Windows Admin Center in einer Arbeitsgruppe verwenden](../support/troubleshooting.md#using-windows-admin-center-in-a-workgroup).
 
-Wenn Probleme auftreten, wenden Sie sich an [Problembehandlung Windows Admin Center](../support/troubleshooting.md) um festzustellen, ob zusätzliche Schritte für die Konfiguration erforderlich sind (z. B., wenn Sie eine Verbindung mit einem lokalen Administratorkonto an, oder sind nicht mit domänenverknüpfung).
+Wenn Probleme auftreten, finden Sie unter Problembehandlung bei [Windows Admin Center](../support/troubleshooting.md) weitere Schritte, die für die Konfiguration erforderlich sind (z. b. Wenn Sie eine Verbindung mit einem lokalen Administrator Konto herstellen oder nicht mit der Domäne verknüpft sind).
 
-## <a name="use-a-windows-admin-center-gateway-deployed-in-azure"></a>Verwenden von Gateways in Azure bereitgestellten Windows Admin Center
+## <a name="use-a-windows-admin-center-gateway-deployed-in-azure"></a>Verwenden eines in Azure bereitgestellten Windows Admin Center-Gateways
 
-Sie können Azure-VMs ohne eine Abhängigkeit lokal verwalten, durch die Bereitstellung von Windows Admin Center im VNet, in dem Ihre Ziel-VMs verbunden sind. 
+Sie können virtuelle Azure-Computer ohne lokale Abhängigkeit verwalten, indem Sie das Windows Admin Center in dem vnet bereitstellen, mit dem Ihre Ziel-VMS verbunden sind. 
 
-Zum Verwalten von VMs außerhalb des VNet auf dem das Gateway Windows Admin Center bereitgestellt wird, müssen Sie die VNet-zu-VNet-Konnektivität zwischen dem VNet des Gateways Windows Admin Center und dem VNet der Zielserver einrichten. Sie können diese Konnektivität mit VNet-Peering, VNet-zu-VNet-Verbindung oder eine Standort-zu-Standort-Verbindung herstellen. [Erfahren Sie mehr über die VNet-zu-VNet-Konnektivität Option in Ihrer Umgebung sinnvoll ist.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal)
+Zum Verwalten von virtuellen Computern außerhalb des vnets, auf dem das Windows Admin Center-Gateway bereitgestellt wird, müssen Sie eine vnet-zu-vnet-Konnektivität zwischen dem vnet des Windows Admin Center-Gateways und dem vnet der Zielserver einrichten. Sie können diese Konnektivität mit vnet-Peering, vnet-zu-vnet-Verbindung oder einer Site-to-Site-Verbindung herstellen. [Erfahren Sie mehr darüber, welche vnet-zu-vnet-Konnektivitätsoption in Ihrer Umgebung sinnvoll ist.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal)
 
-Windows Admin Center kann auf einem vorhandenen oder neu bereitgestellte Computer in Ihrer Umgebung installiert werden. Der virtuelle Computer, die Sie für die Installation von Windows Admin Center auswählen, müssen einen öffentlichen IP-Adresse und DNS-Namen.
+Windows Admin Center kann auf einem vorhandenen oder neu bereitgestellten virtuellen Computer in Ihrer Umgebung installiert werden. Der virtuelle Computer, den Sie für die Installation des Windows Admin Centers auswählen, muss über eine öffentliche IP und einen DNS-Namen verfügen.
 
 [Weitere Informationen zum Bereitstellen eines Windows Admin Center-Gateways in Azure](deploy-wac-in-azure.md)

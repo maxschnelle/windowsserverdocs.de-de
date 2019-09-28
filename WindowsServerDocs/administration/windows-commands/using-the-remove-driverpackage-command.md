@@ -1,8 +1,8 @@
 ---
-title: Verwenden den Befehl Remove-DriverPackage /
-description: 'Windows-Befehle Thema ***- '
+title: Verwenden des Remove-DriverPackage-Befehls
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 217ff23b8724464670520d0b2d5b196df5a4af47
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 923a86805134c4162b36cdade98c2122b3cb7ccd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440302"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362808"
 ---
-# <a name="using-the-remove-driverpackage-command"></a>Verwenden den Befehl Remove-DriverPackage /
+# <a name="using-the-remove-driverpackage-command"></a>Verwenden des Remove-DriverPackage-Befehls
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 > 
 > 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Entfernt ein Treiberpaket von einem Server an.
+entfernt ein Treiber Paket von einem Server.
 ## <a name="syntax"></a>Syntax
 ```
 wdsutil /remove-DriverPackage [/Server:<Server name>] {/DriverPackage:<Package Name> | /PackageId:<ID>}
@@ -36,18 +36,18 @@ wdsutil /remove-DriverPackage [/Server:<Server name>] {/DriverPackage:<Package N
 
 |        Parameter        |                                                                            Beschreibung                                                                             |
 |-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [/Server:<Server name>] |              Gibt den Namen des Servers an. Dies kann den NetBIOS-Namen oder den vollqualifizierten Domänennamen sein. Wenn ein Servername nicht angegeben ist, wird der lokale Server verwendet.              |
-| [/DriverPackage:<Name>] |                                                        Gibt den Namen des Treiberpakets zu entfernen.                                                         |
-|    [/PackageId:<ID>]    | Gibt an, die Windows Deployment Services-ID des Treiberpakets zu entfernen. Sie müssen die ID angeben, wenn das Treiberpaket eindeutig anhand des Namens identifiziert werden kann. |
+| [/Server:<Server name>] |              Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Namen handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.              |
+| [/DriverPackage: <Name>] |                                                        Gibt den Namen des zu entfernenden Treiber Pakets an.                                                         |
+|    [/PackageId: <ID>]    | Gibt die ID der Windows-Bereitstellungs Dienste des Treiber Pakets an, das entfernt werden soll. Sie müssen die ID angeben, wenn das Treiber Paket nicht anhand des Namens eindeutig identifiziert werden kann. |
 
-## <a name="BKMK_examples"></a>Beispiele für
-Geben Sie einen der folgenden Schritte aus, zum Anzeigen von Informationen zu den Images:
+## <a name="BKMK_examples"></a>Beispiele
+Wenn Sie Informationen zu den Bildern anzeigen möchten, geben Sie eine der folgenden Informationen ein:
 ```
 wdsutil /remove-DriverPackage /PackageId:{4D36E972-E325-11CE-Bfc1-08002BE10318}
 ```
 ```
 wdsutil /remove-DriverPackage /Server:MyWdsServer /DriverPackage:MyDriverPackage
 ```
-#### <a name="additional-references"></a>Zusätzliche Referenzen
-[Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-[mit dem Remove-DriverPackages-Befehl](using-the-remove-driverpackages-command.md)
+#### <a name="additional-references"></a>Weitere Verweise
+[Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+[mit dem Befehl "Remove-DriverPackages](using-the-remove-driverpackages-command.md) "

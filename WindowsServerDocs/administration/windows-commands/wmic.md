@@ -1,8 +1,8 @@
 ---
 title: wmic
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6c68866fbe0c8f5b16dae77e2121331f06cdc726
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e9840bc20ddf6193241fe36055698e2bd3222496
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885841"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361878"
 ---
 # <a name="wmic"></a>wmic
 
 
 
-Zeigt die WMI-Informationen in eine interaktive Befehlsshell.
+Zeigt WMI-Informationen in einer interaktiven Befehlsshell an.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -36,30 +36,30 @@ command </parameter>
 
 ## <a name="sub-commands"></a>Unterbefehle
 
-Die folgenden Unterbefehle stehen immer zur Verfügung:
+Die folgenden Unterbefehle sind jederzeit verfügbar:
 
 |Unterbefehl|Beschreibung|
 |-----------|-----------|
-|Klasse|Escapezeichen aus der Alias-Standardmodus von WMIC Klassen im WMI-Schema direkt zugreifen.|
-|path|Der Alias-Standardmodus von WMIC im WMI-Schema direkt den Zugriff auf Instanzen beendet.|
-|Kontext|Zeigt die aktuellen Werte aller globalen Schalter.|
+|Klasse|Schützt den Standardalias Modus von WMIC, um direkt auf Klassen im WMI-Schema zuzugreifen.|
+|path|Gibt einen Escapezeichen aus dem Standardalias Modus von WMIC für den direkten Zugriff auf Instanzen im WMI-Schema aus.|
+|Kontext|Zeigt die aktuellen Werte aller globalen Switches an.|
 |[beenden \| beenden]|Beendet die WMIC-Befehlsshell.|
 
 ## <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|</parameter>|\<Präzise Beschreibung, beginnt mit einem Verb. >|
-|</param2>|\<Eine andere präzise Beschreibung, beginnt mit einem Verb. >|
+|</parameter>|\<concise Description, beginnt mit einem Verb. >|
+|</param2>|\<eine kurze Kurzbeschreibung, beginnt mit einem Verb. >|
 
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um die aktuellen Werte aller globalen Schalter anzuzeigen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um die aktuellen Werte aller globalen Switches anzuzeigen:
 ```
 wmic context
 ```
-Eine Ausgabe ähnlich der folgenden angezeigt:
+Ausgabe ähnlich der folgenden anzeigen:
 ```
 NAMESPACE    : root\cimv2
 ROLE         : root\cli
@@ -78,11 +78,11 @@ APPEND       : STDOUT
 USER         : N/A
 AGGREGATE    : ON
 ```
-Zum Ändern der Sprache verwendet die ID mithilfe der Befehlszeile auf Englisch (Gebietsschema-ID-409), Typ:
+Wenn Sie die von der Befehlszeile verwendete Sprach-ID in Englisch (Gebiets Schema-ID 409) ändern möchten, geben Sie Folgendes ein:
 ```
 wmic /locale:ms_409
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

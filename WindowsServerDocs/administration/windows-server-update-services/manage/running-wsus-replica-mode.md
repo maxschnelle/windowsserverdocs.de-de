@@ -1,7 +1,7 @@
 ---
 title: Ausführen des WSUS-Replikatmodus
-description: 'Windows Server Update Service (WSUS)-Thema - Replikatmodus konfigurieren '
-ms.prod: windows-server-threshold
+description: 'Thema zu Windows Server Update Service (WSUS): Konfigurieren des Replikat Modus '
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-wsus
@@ -12,34 +12,34 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3b4139354a3f0f7b1f1a97107d2f6b28db2b02c2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5323210962298ff3f2d0b159cba7726adfbb89d1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878741"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361622"
 ---
 # <a name="running-wsus-replica-mode"></a>Ausführen des WSUS-Replikatmodus
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Ein WSUS-Server im Replikatmodus erbt, der die updategenehmigungen und Computergruppen, die auf einem Verwaltungsserver erstellt wurden. In einem Szenario, Replikatmodus verwendet haben, müssen Sie normalerweise einen einzelner Verwaltungsserver und eine oder mehrere untergeordnete WSUS-Replikatserver in der gesamten Organisation, basierend auf der Standort- bzw. organisationstopografie verteilt. Sie genehmigen Updates und erstellen Computergruppen auf dem Verwaltungsserver, die der replikatmodusserver anschließend spiegelt. Replikatmodusserver können nur während der WSUS-Setup eingerichtet werden, und falls Sie dieses Szenario implementiert, ist es wahrscheinlich daran, dass in Ihrer Organisation, die Genehmigungen aktualisieren ist es wichtig, und Computergruppen werden zentral verwaltet.
+Ein WSUS-Server im Replikat Modus erbt die Update Genehmigungen und Computer Gruppen, die auf einem Verwaltungs Server erstellt wurden. In einem Szenario, in dem der Replikat Modus verwendet wird, verfügen Sie in der Regel über einen einzelnen Verwaltungs Server, und ein oder mehrere untergeordnete WSUS-Replikat Server werden in der gesamten Organisation basierend auf der Standort-oder Organisations Sie genehmigen Updates und erstellen Computer Gruppen auf dem Verwaltungs Server, auf dem die Replikat Modus-Server dann gespiegelt werden. Server im Replikat Modus können nur während der WSUS-Installation eingerichtet werden. Wenn Sie dieses Szenario implementiert haben, ist es wahrscheinlich, dass es in Ihrer Organisation wichtig ist, dass Update Genehmigungen und Computer Gruppen zentral verwaltet werden.
 
-Wenn Ihr WSUS-Server im Replikatmodus ausgeführt wird, werden Sie möglicherweise nur begrenzte Verwaltungsfunktionen auf dem Server ausführen, die in erster Linie enthalten soll:
+Wenn Ihr WSUS-Server im Replikat Modus ausgeführt wird, können Sie nur eingeschränkte Verwaltungsfunktionen auf dem Server ausführen, die hauptsächlich aus folgenden Elementen bestehen:
 
--   Das Hinzufügen und Entfernen von Computern aus Computergruppen. Gruppenmitgliedschaft für Computer wird nicht an Replikatserver verteilt, die nur auf der Computer Gruppen selbst. Auf einen Replikatserver Modus, werden Sie daher die Computergruppen, die Sie auf dem Verwaltungsserver erstellt erben. Allerdings werden die Gruppe leer sein. Sie müssen den Client dann Computer zuweisen, die auf den Replikatserver für die Computergruppen zu verbinden.
+-   Hinzufügen und Entfernen von Computern zu Computer Gruppen. Die Mitgliedschaft in der Computergruppe wird nicht an Replikat Server verteilt, sondern nur Computer Gruppen selbst. Auf einem Replikat Modus-Server erben Sie daher die Computer Gruppen, die Sie auf dem-Verwaltungs Server erstellt haben. Die Computer Gruppen sind jedoch leer. Anschließend müssen Sie die Client Computer, die eine Verbindung mit dem Replikat Server herstellen, den Computer Gruppen zuweisen.
 
 -   Festlegen eines Synchronisierungszeitplans
 
--   Proxyserver Einstellungen
+-   Angeben von Proxy/Server-Einstellungen
 
--   Angeben der Updatequelle. Dies kann einem anderen Server als dem Verwaltungsserver sein.
+-   Angeben der Update Quelle. Dabei kann es sich um einen anderen Server als den Verwaltungs Server handeln.
 
 -   Aufrufen verfügbarer Updates
 
--   Überwachen von Update "," Synchronisierung "," des Computers, und "WSUS-Einstellungen auf dem server
+-   Überwachen der Update-, Synchronisierungs-, Computer Status-und WSUS-Einstellungen auf dem Server
 
--   Replikatmodusserver Berichte verfügbare mit allen standard WSUS
+-   Ausführen aller standardmäßigen WSUS-Berichte auf Replikat Modus-Servern
 
 
 

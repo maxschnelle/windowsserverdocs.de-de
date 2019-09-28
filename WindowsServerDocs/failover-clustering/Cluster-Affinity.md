@@ -1,32 +1,32 @@
 ---
-title: Cluster-Affinität
-ms.prod: windows-server-threshold
+title: Cluster Affinität
+ms.prod: windows-server
 ms.manager: eldenc
 ms.technology: failover-clustering
 ms.topic: article
 author: johnmarlin-msft
 ms.date: 03/07/2019
-description: Dieser Artikel beschreibt die Failover-Cluster-Affinität und AntiAffinity-Ebenen
-ms.openlocfilehash: 67929e6d3399633ebfec0b908463131973aecaf7
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+description: In diesem Artikel werden Failovercluster-Affinität und antiaffinitäts Stufen beschrieben
+ms.openlocfilehash: 9a269d2b14e953daee849008a473c750dfbfe84b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453029"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361458"
 ---
-# <a name="cluster-affinity"></a>Cluster-Affinität
+# <a name="cluster-affinity"></a>Cluster Affinität
 
 > Gilt für: Windows Server 2019, Windows Server 2016
 
-Ein Failovercluster kann zahlreiche Rollen enthalten, die zwischen den Knoten zu verschieben und ausführen können.  Es gibt Situationen, wann bestimmte Rollen (d. h. virtuelle Computer, Ressourcengruppen, usw.) nicht auf demselben Knoten ausgeführt werden soll.  Möglicherweise liegt Ressourcenverbrauch, arbeitsspeicherauslastung usw.  Beispielsweise stehen zwei virtuellen Maschinen, die Arbeitsspeicher- und CPU-intensiv sind, und wenn die beiden virtuellen Computer auf demselben Knoten ausgeführt werden, eine oder beide der virtuellen Computer möglicherweise Auswirkungen auf Leistungsprobleme.  In diesem Artikel wird erläutert, cluster antiaffinity Ebenen und wie Sie sie verwenden können.
+Ein Failovercluster kann zahlreiche Rollen enthalten, die zwischen Knoten wechseln und ausgeführt werden können.  Es gibt Zeiten, in denen bestimmte Rollen (z. b. virtuelle Computer, Ressourcengruppen usw.) nicht auf demselben Knoten ausgeführt werden dürfen.  Dies kann auf den Ressourcenverbrauch, die Arbeitsspeicher Auslastung usw. zurückzuführen sein.  Beispielsweise gibt es zwei virtuelle Computer, die Arbeitsspeicher und CPU-intensiv sind. wenn die beiden virtuellen Computer auf demselben Knoten ausgeführt werden, können sich auf einem oder beiden virtuellen Computern Probleme mit der Leistungs Beeinträchtigung ergeben.  In diesem Artikel werden die Cluster-antiaffinitäts Stufen und deren Verwendung erläutert.
 
-## <a name="what-is-affinity-and-antiaffinity"></a>Was ist die Affinität und AntiAffinity?
+## <a name="what-is-affinity-and-antiaffinity"></a>Was ist Affinität und antiaffinität?
 
-Affinität ist eine Regel, die Sie eingerichtet werden, die eine Beziehung zwischen mindestens zwei Rollen (i, e, virtuelle Computer, Ressourcengruppen, usw.), werden zusammen aufzubewahren, herstellt.  AntiAffinity ist identisch, aber es wird verwendet, um das Testen und die angegebenen Rollen getrennt halten.  Failovercluster werden AntiAffinity für die Rollen verwenden.  Genauer gesagt die ["AntiAffinityClassNames"](https://docs.microsoft.com/previous-versions/windows/desktop/mscs/groups-antiaffinityclassnames) Parameter für die Rollen definiert wurden, sodass sie nicht auf demselben Knoten ausgeführt werden.  
+Die Affinität ist eine Regel, die Sie einrichten, die eine Beziehung zwischen zwei oder mehr Rollen (i, e, Virtual Machines, Ressourcengruppen usw.) herstellt, um sie zusammenzuhalten.  Die antiaffinität ist identisch, wird jedoch verwendet, um zu versuchen, die angegebenen Rollen voneinander getrennt zu halten.  Failovercluster verwenden die antiaffinität für Ihre Rollen.  Genauer gesagt, ist der [AntiAffinityClassNames](https://docs.microsoft.com/previous-versions/windows/desktop/mscs/groups-antiaffinityclassnames) -Parameter für die Rollen definiert, sodass Sie nicht auf demselben Knoten ausgeführt werden.  
 
 ## <a name="antiaffinityclassnames"></a>AntiAffinityClassnames
 
-Wenn Sie die Eigenschaften einer Gruppe zu suchen, die Parameter "AntiAffinityClassNames" vorhanden ist, und es ist standardmäßig leer.  In den folgenden Beispielen müssen Gruppe1 und Gruppe2 getrennt werden, auf dem gleichen Knoten ausgeführt.  Um die Eigenschaft anzuzeigen, wäre die PowerShell-Befehl und das Ergebnis:
+Wenn Sie sich die Eigenschaften einer Gruppe ansehen, gibt es den Parameter AntiAffinityClassNames, der Standardwert ist leer.  In den folgenden Beispielen sollten group1 und group2 von der Ausführung auf dem gleichen Knoten getrennt werden.  Zum Anzeigen der-Eigenschaft lauten der PowerShell-Befehl und das-Ergebnis wie folgt:
 
     PS> Get-ClusterGroup Group1 | fl AntiAffinityClassNames
     AntiAffinityClassNames : {}
@@ -34,7 +34,7 @@ Wenn Sie die Eigenschaften einer Gruppe zu suchen, die Parameter "AntiAffinityCl
     PS> Get-ClusterGroup Group2 | fl AntiAffinityClassNames
     AntiAffinityClassNames : {}
 
-Da "AntiAffinityClassNames" können diese Rollen zusammen ausgeführt werden oder voneinander entfernt sind standardmäßig nicht definiert sind.  Ziel ist es, halten Sie sie getrennt werden.  Der Wert für "AntiAffinityClassNames" können sie beliebig sein, müssen sie nur identisch sein.  Angenommen Sie, dass Gruppe1 und Gruppe2 sind Domänencontroller, die auf virtuellen Computern ausgeführt, und sie am besten bereitgestellt werden würden, die auf verschiedenen Knoten ausgeführt.  Da dieser Domänencontroller sind, werde ich DC für den Namen der Klasse verwenden.  Um den Wert festzulegen, wäre die PowerShell-Befehl und die Ergebnisse:
+Da "AntiAffinityClassNames" nicht als Standard definiert ist, können diese Rollen gleichzeitig ausgeführt werden.  Das Ziel besteht darin, diese getrennt zu halten.  Der Wert für "AntiAffinityClassNames" kann der gewünschte Wert sein. Sie müssen lediglich identisch sein.  Das heißt, group1 und group2 sind Domänen Controller, die auf virtuellen Computern ausgeführt werden und am besten auf verschiedenen Knoten ausgeführt werden.  Da es sich hierbei um Domänen Controller handelt, verwende ich DC als Klassenname.  Um den Wert festzulegen, lauten der PowerShell-Befehl und die folgenden Ergebnisse:
 
     PS> $AntiAffinity = New-Object System.Collections.Specialized.StringCollection
     PS> $AntiAffinity.Add("DC")
@@ -47,31 +47,31 @@ Da "AntiAffinityClassNames" können diese Rollen zusammen ausgeführt werden ode
     PS> Get-ClusterGroup "Group2" | fl AntiAffinityClassNames
     AntiAffinityClassNames : {DC}
 
-Nun, da sie festgelegt wurden, versucht die Failover-Clusterunterstützung auseinander halten.  
+Nachdem Sie festgelegt wurden, versucht das Failoverclustering, Sie zu trennen.  
 
-Der AntiAffinityClassName-Parameter ist ein "soft" Block.  Dies bedeutet, es wird versucht, diese auseinander zu halten, aber nicht, sie können trotzdem auf demselben Knoten ausgeführt.  Beispielsweise werden die Gruppen auf einem Failovercluster mit zwei Knoten ausgeführt.  Wenn ein Knoten für die Wartung ausfallen muss, würde dies bedeuten, dass beide Gruppen auf demselben Knoten ausgeführt werden würde.  In diesem Fall wäre es kein Problem haben.  Er möglicherweise nicht in die ideale, aber beide Computer Virtial werden noch ausgeführt wird, innerhalb der Bereiche für eine akzeptable Leistung.
+Der antiaffinityclassname-Parameter ist ein "Soft"-Block.  Das heißt, es wird versucht, Sie zu trennen, aber wenn dies nicht möglich ist, können Sie es dennoch auf demselben Knoten ausführen.  Beispielsweise werden die Gruppen auf einem Failovercluster mit zwei Knoten ausgeführt.  Wenn ein Knoten für die Wartung Herunterfahren muss, bedeutet dies, dass beide Gruppen auf demselben Knoten ausgeführt werden.  In diesem Fall wäre es in Ordnung, dies zu tun.  Dies ist möglicherweise nicht die ideale, aber beide virtial Computer werden weiterhin in akzeptablen Leistungsbereichen ausgeführt.
 
 ## <a name="i-need-more"></a>Ich benötige weitere
 
-Wie bereits erwähnt, ist "AntiAffinityClassNames" ein soft Block.  Aber was geschieht, wenn ein hard Block wird benötigt?  Die virtuellen Computer kann nicht ausgeführt werden, auf die er denselben Knoten Auswirkungen auf die Leistung wird andernfalls auftreten und dazu führen, dass einige Dienste möglicherweise ausfällt.
+Wie bereits erwähnt, ist AntiAffinityClassNames ein weicher Block.  Aber was ist, wenn eine harte Blockierung erforderlich ist?  Die virtuellen Maschinen können nicht auf demselben Knoten ausgeführt werden. Andernfalls treten Leistungseinbußen auf und bewirken, dass einige Dienste möglicherweise ausfallen.
 
-Für diese Fälle ist eine zusätzliche Clustereigenschaft des ClusterEnforcedAntiAffinity vorhanden.  Derartige antiaffinity um jeden Preis eines dieselben Werte für "AntiAffinityClassNames" verhindert, dass auf dem gleichen Knoten ausgeführt wird.
+In diesen Fällen ist eine zusätzliche Cluster Eigenschaft von clusterenforcedantiaffinität vorhanden.  Diese antiaffinitäts Ebene verhindert, dass alle gleichen AntiAffinityClassNames-Werte auf demselben Knoten ausgeführt werden.
 
-Zum Anzeigen der Eigenschaft und Wert wäre die PowerShell-Befehl (und das Ergebnis):
+Zum Anzeigen der Eigenschaft und des Werts lautet der PowerShell-Befehl (und das Ergebnis) wie folgt:
 
     PS> Get-Cluster | fl ClusterEnforcedAntiAffinity
     ClusterEnforcedAntiAffinity : 0
 
-Der Wert "0" bedeutet, dass er deaktiviert ist, und nicht erzwungen werden.  Der Wert "1" aktiviert und ist die feste.  Um diesen festen Block zu aktivieren, werden der Befehl (und Ergebnis):
+Der Wert "0" bedeutet, dass er deaktiviert ist und nicht erzwungen werden soll.  Der Wert "1" aktiviert dies und ist der feste Block.  Zum Aktivieren dieser festen Blockierung lautet der Befehl (und das Ergebnis) wie folgt:
 
     PS> (Get-Cluster).ClusterEnforcedAntiAffinity = 1
     ClusterEnforcedAntiAffinity : 1
 
-Wenn beide Werte festgelegt sind, werden die Gruppe daran gehindert, neue online zusammen.  Wenn sie sich auf demselben Knoten befinden, ist dies an, was Sie im Failovercluster-Manager sehen würden.
+Wenn beide festgelegt sind, wird verhindert, dass die Gruppe online geschaltet wird.  Wenn Sie sich auf demselben Knoten befinden, werden Sie in Failovercluster-Manager angezeigt.
 
-![Cluster-Affinität](media/Cluster-Affinity/Cluster-Affinity-1.png)
+![Cluster Affinität](media/Cluster-Affinity/Cluster-Affinity-1.png)
 
-In einer PowerShell-Auflistung der Gruppen, wird Folgendes angezeigt:
+In einer PowerShell-Auflistung der Gruppen würden Sie Folgendes sehen:
 
     PS> Get-ClusterGroup
 
@@ -80,13 +80,13 @@ In einer PowerShell-Auflistung der Gruppen, wird Folgendes angezeigt:
     Group1     Offline(Anti-Affinity Conflict)
     Group2     Online
 
-## <a name="additional-comments"></a>Zusätzliche Kommentare
+## <a name="additional-comments"></a>Weitere Kommentare
 
-- Stellen Sie sicher, dass Sie die richtige AntiAffinity Einstellung je nach den Anforderungen verwenden.
-- Beachten Sie, dass in einem Szenario zwei Knoten und ClusterEnforcedAntiAffinity, wenn ein Knoten nach unten, beide Gruppen wird nicht ausgeführt werden.  
+- Stellen Sie sicher, dass Sie die richtige antiaffinitäts Einstellung abhängig von den Anforderungen verwenden.
+- Beachten Sie, dass in einem Szenario mit zwei Knoten und clusterenforcedantiaffinität, wenn ein Knoten instand ist, beide Gruppen nicht ausgeführt werden.  
 
-- Die Verwendung der bevorzugten Besitzer für Gruppen kann in einem Cluster mit drei oder mehr Knoten mit AntiAffinity kombiniert werden.
-- Die Einstellungen für "AntiAffinityClassNames" und ClusterEnforcedAntiAffinity nur, erfolgt nachdem eine Wiederverwendung von Ressourcen. D. H. Sie können sie festlegen, aber Sie sind, wenn beide Gruppen auf demselben Knoten online. Wenn festgelegt, sie beide weiterhin online bleiben.
+- Die Verwendung bevorzugter Besitzer für Gruppen kann mit der antiaffinität in einem Cluster mit drei oder mehr Knoten kombiniert werden.
+- Die Einstellungen für "AntiAffinityClassNames" und "clusterenforcedantiaffinität" werden erst nach der Wiederverwendung der Ressourcen ausgeführt. Z.B. Sie können diese festlegen, aber wenn beide Gruppen auf dem gleichen Knoten online sind, wenn Sie festgelegt sind, bleiben beide weiterhin online.
 
 
 

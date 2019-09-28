@@ -1,25 +1,25 @@
 ---
 ms.assetid: f7f6bac2-1100-4b00-a248-4ca3eb3cdbe9
-title: Ändern das Firmenlogo auf den AD FS-Anmeldeseite
+title: Ändern des Unternehmens Logos auf der AD FS-Anmeldeseite
 description: ''
 author: billmath
 ms.author: billmath
 manager: femila
 ms.date: 03/08/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: fe5c138466ea288b5dfb8c7c284603150ab9d874
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: b22c969e0113081e1ca8a662ae81a2ee24829835
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190027"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358302"
 ---
-# <a name="changing-the-company-logo-on-the-ad-fs-sign-in-page"></a>Ändern das Firmenlogo auf den AD FS-Anmeldeseite
+# <a name="changing-the-company-logo-on-the-ad-fs-sign-in-page"></a>Ändern des Unternehmens Logos auf der AD FS-Anmeldeseite
 
 #### <a name="change-company-logo"></a>Ändern des Unternehmenslogos  
-So ändern Sie das Logo des Unternehmens, die auf die Anmeldeseite angezeigt wird\-auf der Seite verwenden Sie die folgenden PowerShell-Windows-PowerShell-Cmdlets und Syntax.  
+Verwenden Sie das folgende PowerShell-Windows PowerShell-Cmdlet und die folgende Syntax, um das auf der Seite Sign @ no__t-0in angezeigte Logo des Unternehmens zu ändern.  
 
 ![Logo ändern](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom2.png)
   
@@ -31,7 +31,7 @@ So ändern Sie das Logo des Unternehmens, die auf die Anmeldeseite angezeigt wir
 
   
 > [!NOTE]  
-> Der `TargetName` -Parameter ist erforderlich. Das mit AD FS veröffentlichte Standarddesign heißt *Standard*.  
+> Der `TargetName` -Parameter ist erforderlich. Das Standarddesign, das mit AD FS freigegeben wird, hat den Namen *default*.  
 
 ## <a name="additional-references"></a>Weitere Verweise 
-[AD FS-Anmeldung Benutzeranpassung](AD-FS-user-sign-in-customization.md)  
+[AD FS Anpassung der Benutzeranmeldung](AD-FS-user-sign-in-customization.md)  

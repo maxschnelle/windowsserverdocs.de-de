@@ -1,8 +1,8 @@
 ---
-title: Mithilfe des Befehls der kopieren-DriverGroup
-description: 'Windows-Befehle Thema ***- '
+title: Verwenden des Befehls "Copy-drivergroup"
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 68d9c6f4ca78991bb4c286042a6172211161dd1e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c08ce616c9b0e2bf79c7f13f922e27d7f7f7ca62
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842081"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363595"
 ---
-# <a name="using-the-copy-drivergroup-command"></a>Mithilfe des Befehls der kopieren-DriverGroup
+# <a name="using-the-copy-drivergroup-command"></a>Verwenden des Befehls "Copy-drivergroup"
 
 
 
-Dupliziert die vorhandene Treibergruppe auf dem Server, einschließlich Filter, Treiberpakete und aktivierten/deaktivierten Status.
+Dupliziert eine vorhandene Treiber Gruppe auf dem Server, einschließlich der Filter, Treiber Pakete und aktivierten/deaktivierten Status.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,13 +36,13 @@ WDSUTIL /Copy-DriverGroup [/Server:<Server name>] /DriverGroup:<Source Group Nam
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|[/ Server:\<Servername >]|Gibt den Namen des Servers an. Dies kann den NetBIOS-Namen oder den vollqualifizierten Domänennamen sein. Wenn kein Servername angegeben wird, wird der lokale Server verwendet.|
-|/ DriverGroup:\<Quellgruppe-Name >|Gibt den Namen der Treiber Quellgruppe.|
-|/ GroupName:\<neuen Gruppennamen ein >|Gibt den Namen der neuen Gruppe "Treiber".|
+|[/Server: \<Server Name >]|Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Namen handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
+|/DriverGroup: \<quellgruppenname >|Gibt den Namen der Quell Treiber Gruppe an.|
+|/GroupName: \<neuer Gruppen Name >|Gibt den Namen der neuen Treiber Gruppe an.|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Geben Sie eine der folgenden Schritte aus, um eine Treibergruppe zu kopieren:
+Geben Sie eine der folgenden Informationen ein, um eine Treiber Gruppe zu kopieren:
 ```
 WDSUTIL /Copy-DriverGroup /Server:MyWdsServer /DriverGroup:PrinterDrivers /GroupName:X86PrinterDrivers
 ```
@@ -52,4 +52,4 @@ WDSUTIL /Copy-DriverGroup /DriverGroup:PrinterDrivers /GroupName:ColorPrinterDri
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,7 +1,7 @@
 ---
-title: 'Schritt 1: Installieren der WSUS-Serverrolle'
-description: Windows Server Update Service (WSUS)-Thema – beschreibt, wie zum Installieren der Serverrolle mit Server-Manager
-ms.prod: windows-server-threshold
+title: 'Schritt 1: Installieren der WSUS-Server Rolle'
+description: 'Thema zu Windows Server Update Service (WSUS): Beschreibt die Installation der Server Rolle mit Server-Manager'
+ms.prod: windows-server
 ms.reviewer: na
 ms.technology: manage-wsus
 ms.topic: article
@@ -10,16 +10,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4027f7656c17b2ba46fdf44e3af4de42bb056a6f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 22554a9669c30cc827c509824f187fbaaedb1272
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814001"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361702"
 ---
-# <a name="step-1-install-the-wsus-server-role"></a>Schritt 1: Installieren der WSUS-Serverrolle
+# <a name="step-1-install-the-wsus-server-role"></a>Schritt 1: Installieren der WSUS-Server Rolle
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Der nächste Schritt zur Bereitstellung des WSUS-Servers ist die Installation der WSUS-Serverrolle. Anhand des folgenden Verfahrens wird die Installation der WSUS-Serverrolle mithilfe von Server-Manager beschrieben.
 
@@ -30,17 +30,17 @@ Der nächste Schritt zur Bereitstellung des WSUS-Servers ist die Installation de
 
 1.  Melden Sie sich an dem Server, auf dem Sie die WSUS-Serverrolle installieren möchten, mit einem Konto an, das Mitglied der Gruppe %%amp;quot;Lokale Administratoren%%amp;quot; ist.
 
-2.  In **Server-Manager**, klicken Sie auf **verwalten**, und klicken Sie dann auf **Rollen und Features hinzufügen**.
+2.  Klicken Sie in **Server-Manager**auf **Verwalten**, und klicken Sie dann auf **Rollen und Features hinzufügen**.
 
 3.  Klicken Sie auf der Seite **Vorbereitung** auf **Weiter**.
 
-4.  In der **Installationstyp** Seite sicher, dass **rollenbasierte oder featurebasierte Installation** Option ausgewählt ist, und klicken Sie auf **Weiter**.
+4.  Vergewissern Sie sich, dass auf der Seite **Installationstyp auswählen** die Option **rollenbasierte oder featurebasierte Installation** ausgewählt ist, und klicken Sie auf **weiter**.
 
-5.  Auf der **Zielserver auswählen** Seite, aus, wo sich der Server befindet (in einem Serverpool oder über eine virtuelle Festplatte). Wählen Sie nach der Auswahl des Orts den Server aus, auf dem Sie die WSUS-Serverrolle installieren möchten, und klicken Sie dann auf **Weiter**.
+5.  Wählen Sie auf der Seite **Zielserver auswählen** aus, wo sich der Server befindet (in einem Server Pool oder auf einer virtuellen Festplatte). Wählen Sie nach der Auswahl des Orts den Server aus, auf dem Sie die WSUS-Serverrolle installieren möchten, und klicken Sie dann auf **Weiter**.
 
-6.  Auf der **Serverrollen auswählen** Seite **Windows Server Update Services**.  **Sollen für Windows Server Update Services erforderliche Features hinzugefügt werden?** wird geöffnet. Klicken Sie auf **Features hinzufügen**und dann auf **Weiter**.
+6.  Wählen Sie auf der Seite **Server Rollen auswählen** die Option **Windows Server Update Services**aus.  **Sollen für Windows Server Update Services erforderliche Features hinzugefügt werden?** wird geöffnet. Klicken Sie auf **Features hinzufügen**und dann auf **Weiter**.
 
-7.  Auf der **Funktionen auswählen**Seite. Behalten Sie die Standardeinstellungen, und klicken Sie dann auf **Weiter**.
+7.  Auf der Seite **Features auswählen**. behalten Sie die Standardauswahl bei, und klicken Sie dann auf **weiter**.
 
     > [!IMPORTANT]
     > Für WSUS ist nur die Standardkonfiguration der Webserverrolle erforderlich. Wenn Sie beim Einrichten von WSUS aufgefordert werden, die Webserverrolle weiter zu konfigurieren, können Sie ohne Bedenken die Standardeinstellungen akzeptieren und die WSUS-Einrichtung fortsetzen.
@@ -54,7 +54,7 @@ Der nächste Schritt zur Bereitstellung des WSUS-Servers ist die Installation de
 
 10. Geben Sie auf der Seite **Auswahl des Inhaltsspeicherorts** einen gültigen Speicherort zum Speichern der Updates ein. Sie können z. B. einen Ordner mit dem Namen "WSUS_database" im Stammverzeichnis von Laufwerks K: speziell für diesen Zweck erstellen und **k:\WSUS_database** als gültigen Speicherort eingeben.
 
-11. Klicken Sie auf **Weiter**. Die Seite **Webserverrolle (IIS)** wird geöffnet. Überprüfen Sie die Informationen, und klicken Sie dann auf **Weiter**. In **die Rollendienste auszuwählen, die für Webserver (IIS) installieren**, behalten Sie die Standardeinstellungen, und klicken Sie dann auf **Weiter**.
+11. Klicken Sie auf **Weiter**. Die Seite **Webserverrolle (IIS)** wird geöffnet. Überprüfen Sie die Informationen, und klicken Sie dann auf **Weiter**. Behalten **Sie in wählen Sie die Rollen Dienste aus, die für den Webserver (IIS) installiert werden müssen**die Standardeinstellungen bei, und klicken Sie dann auf **weiter**.
 
 12. Überprüfen Sie die auf der Seite **Installationsauswahl bestätigen** ausgewählten Optionen, und klicken Sie dann auf **Installieren**. Der WSUS-Installations-Assistent ausgeführt wird. Dieser Vorgang kann einige Minuten dauern.
 
@@ -63,5 +63,5 @@ Der nächste Schritt zur Bereitstellung des WSUS-Servers ist die Installation de
 14. Überprüfen Sie, ob in **Server-Manager** eine Benachrichtigung erscheint, die Sie über einen erforderlichen Neustart informiert. Dies kann je nach installierter Serverrolle variieren. Falls ein Neustart erforderlich ist, starten Sie den Server neu, um die Installation abzuschließen.
 
 > [!IMPORTANT]
-> An diesem Punkt der Installationsvorgang abgeschlossen ist, damit WSUS funktionale müssen Sie jedoch mit fortfahren [Schritt2: Konfigurieren von WSUS](2-configure-wsus.md).
+> An diesem Punkt ist der Installationsvorgang abgeschlossen. damit WSUS jedoch funktionsfähig ist, müssen Sie mit [Schritt 2 fortfahren: Konfigurieren Sie WSUS @ no__t-0.
 

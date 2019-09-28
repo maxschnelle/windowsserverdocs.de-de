@@ -6,40 +6,40 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: da91a3e8c34c86f7fd03ca875b3800fdb6001750
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: b1c602d0cdfa562469419de223f5691ec2ff4527
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192118"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359562"
 ---
 # <a name="import-a-server-authentication-certificate-to-the-default-web-site"></a>Importieren eines Serverauthentifizierungszertifikats in die Standardwebsite
 
-Nachdem Sie ein Serverauthentifizierungszertifikat von einer Zertifizierungsstelle erhalten \(Zertifizierungsstelle\), müssen Sie manuell installieren dieses Zertifikats auf der Standardwebsite für jeden Verbundserver oder Verbundserverproxy in einer Serverfarm.  
+Nachdem Sie ein Server Authentifizierungszertifikat von einer Zertifizierungsstelle erhalten \(ca @ no__t-1, müssen Sie dieses Zertifikat manuell auf der Standard Website für jeden Verbund Server oder Verbund Server Proxy in einer Serverfarm installieren.  
   
 Für Webserver müssen Sie das Serverauthentifizierungszertifikat manuell auf der entsprechenden Website oder in dem virtuellen Verzeichnis installieren, im dem sich Ihre Verbundanwendung befindet.  
   
 Wenn Sie eine Farm einrichten, achten Sie darauf, dass Sie dieses Verfahren auf jedem der Server in der Farm identisch – mit exakt denselben Einstellungen – durchführen.  
   
 > [!NOTE]  
-> Die AD FS-Verwaltungs-Snap\-in bezeichnet Serverauthentifizierungszertifikate für Verbundserver als dienstkommunikationszertifikate.  
+> Das AD FS-Verwaltungs-Snap @ no__t-0in bezieht sich auf Server Authentifizierungs Zertifikate für Verbund Server als Dienst Kommunikations Zertifikate.  
   
-Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Weitere Informationen zur Verwendung der geeigneten Konten und Gruppenmitgliedschaften unter [lokale und Domänenstandardgruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
 ### <a name="to-import-a-server-authentication-certificate-to-the-default-web-site"></a>So importieren Sie ein Serverauthentifizierungszertifikat auf der Standardwebsite  
   
-1.  Auf der **starten** geben**Internet Information Services \(IIS\) Manager**, und drücken Sie dann die EINGABETASTE.  
+1.  Geben Sie auf dem **Start** Bildschirm**Internetinformationsdienste \(iis @ no__t-3 Manager**ein, und drücken Sie dann die EINGABETASTE.  
   
 2.  Klicken Sie in der Konsolenstruktur auf **ComputerName**.  
   
-3.  Doppelklicken Sie im mittleren Bereich\-klicken Sie auf **Serverzertifikate**.  
+3.  Doppelklicken Sie im mittleren Bereich auf **Server Zertifikate**no__t-0.  
   
 4.  Klicken Sie im Bereich **Aktionen** auf **Importieren**.  
   
-5.  In der **Zertifikatimport** Dialogfeld klicken Sie auf die **...** .  
+5.  Klicken Sie im Dialogfeld **Zertifikat importieren** auf die **...** .  
   
 6.  Navigieren Sie zum Speicherort der PFX-Zertifikatdatei, markieren Sie diese, und klicken Sie dann auf **Öffnen**.  
   

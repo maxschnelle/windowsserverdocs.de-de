@@ -1,39 +1,39 @@
 ---
-title: Problembehandlung bei einem Failovercluster mithilfe der Windows-Fehlerberichterstattung
-description: Problembehandlung bei einem Failovercluster, die bestimmte Details zum Sammeln von Berichten und häufig auftretende Probleme zu diagnostizieren, WER Berichte, mit ein.
-keywords: -Failovercluster "," WER Berichte "," Diagnose "," Cluster "," Windows-Fehlerberichterstattung
-ms.prod: windows-server-threshold
+title: Behandeln von Problemen mit einem Failovercluster mithilfe von Windows-Fehlerberichterstattung
+description: Problembehandlung bei einem Failovercluster mithilfe von wer-Berichten mit spezifischen Details zum Erfassen von Berichten und diagnostizieren allgemeiner Probleme.
+keywords: Failovercluster, wer meldet, Diagnose, Cluster, Windows-Fehlerberichterstattung
+ms.prod: windows-server
 ms.technology: storage-failover-clustering
 ms.author: vpetter
 ms.topic: article
 author: vpetter
 ms.date: 03/27/2018
 ms.localizationpriority: ''
-ms.openlocfilehash: 0b0c75f8e2d09a1fc17374428c48fb856465bb5a
-ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
+ms.openlocfilehash: 46c633af8cf82ac43d2a787a7193685d88ad0ecc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67469535"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361011"
 ---
-# <a name="troubleshooting-a-failover-cluster-using-windows-error-reporting"></a>Problembehandlung bei einem Failovercluster mithilfe der Windows-Fehlerberichterstattung 
+# <a name="troubleshooting-a-failover-cluster-using-windows-error-reporting"></a>Behandeln von Problemen mit einem Failovercluster mithilfe von Windows-Fehlerberichterstattung 
 
-> Gilt für: WindowsServer 2019, WindowsServer 2016, WindowsServer
+> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server
 
-Windows-Fehlerberichterstattung (WER) ist eine flexible ereignisbasierten Feedback-Infrastruktur, die entwickelt, um Hilfe bei der erfahrene Administratoren oder Ebene-3-Unterstützung, die Informationen über die Hardware- und Probleme zu erfassen, die von Windows erkannt werden können, die Informationen an Microsoft melden und geben Sie Benutzern keine verfügbaren Lösungen. Dies [Verweis](https://docs.microsoft.com/powershell/module/windowserrorreporting/) enthält Beschreibungen und Syntax für alle WindowsErrorReporting-Cmdlets.
+Windows-Fehlerberichterstattung (wer) ist eine flexible ereignisbasierte Feedback Infrastruktur, mit der erweiterte Administratoren oder Support von Ebene 3 Informationen zu den Hardware-und Softwareproblemen sammeln können, die von Windows erkannt werden können, und die Informationen an Microsoft übertragen. und bieten Benutzern alle verfügbaren Lösungen. Diese [Referenz](https://docs.microsoft.com/powershell/module/windowserrorreporting/) enthält Beschreibungen und Syntax für alle windowserrorreporting-Cmdlets.
 
-Die Informationen zur Problembehandlung bei der unten aufgeführten wird für die erweiterte Problembehandlung hilfreich sein, wurde eskaliert und sich möglicherweise, die Daten für die Selektierung an Microsoft gesendet werden.
+Die folgenden Informationen zur Problembehandlung sind hilfreich bei der Behebung erweiterter Probleme, die eskaliert wurden und möglicherweise erfordern, dass Daten für die Selektierung an Microsoft gesendet werden.
 
-## <a name="enabling-event-channels"></a>Aktivieren der Kanäle für Ereignisse
+## <a name="enabling-event-channels"></a>Aktivieren von Ereignis Kanälen
 
-Wenn Windows Server installiert ist, sind viele Kanäle für Ereignisse standardmäßig aktiviert. Aber manchmal, wenn ein Problem zu diagnostizieren, wir können einige Kanäle für diese Ereignisse zu aktivieren, da es Ihnen helfen, die Selektierung und Diagnose von Systemfehlern ermöglicht.
+Wenn Windows Server installiert ist, sind viele Ereignis Kanäle standardmäßig aktiviert. Doch manchmal möchten wir bei der Diagnose eines Problems einige dieser Ereignis Kanäle aktivieren, da dies bei der Selektierung und Diagnose von Systemproblemen hilfreich sein wird.
 
-Sie können zusätzliche ereigniskanäle auf jedem Serverknoten in Ihrem Cluster je nach Bedarf aktivieren; Dieser Ansatz bietet jedoch zwei Probleme:
+Sie können je nach Bedarf zusätzliche Ereignis Kanäle auf jedem Server Knoten in Ihrem Cluster aktivieren. Dieser Ansatz stellt jedoch zwei Probleme dar:
 
-1. Denken Sie daran, den gleichen ereigniskanäle für jeden neuen Server-Knoten zu aktivieren, die Sie in Ihrem Cluster hinzufügen müssen.
-2. Bei der Diagnose, kann es mühsam sein, Kanäle für bestimmte Ereignisse aktivieren, reproduzieren Sie den Fehler und wiederholen diesen Vorgang, bis Sie die Ursache Stamm.
+1. Beachten Sie, dass Sie die gleichen Ereignis Kanäle auf allen neuen Server Knoten aktivieren müssen, die Sie dem Cluster hinzufügen.
+2. Bei der Diagnose kann es mühsam sein, bestimmte Ereignis Kanäle zu aktivieren, den Fehler zu reproduzieren und diesen Vorgang zu wiederholen, bis Sie die Ursache ermitteln.
 
-Um diese Probleme zu vermeiden, können Sie Kanäle für die Ereignisse beim Start des Clusters aktivieren. Die Liste der aktivierten ereigniskanäle in Ihrem Cluster kann konfiguriert werden, verwenden die öffentliche Eigenschaft **EnabledEventLogs**. Standardmäßig werden die folgenden ereigniskanäle aktiviert:
+Um diese Probleme zu vermeiden, können Sie Ereignis Kanäle beim Starten des Clusters aktivieren. Die Liste der aktivierten Ereignis Kanäle im Cluster kann mit der öffentlichen Eigenschaft " **enabledeventlogs**" konfiguriert werden. Standardmäßig sind die folgenden Ereignis Kanäle aktiviert:
 
 ```powershell
 PS C:\Windows\system32> (get-cluster).EnabledEventLogs
@@ -47,26 +47,26 @@ Microsoft-Windows-SMBServer/Analytic
 Microsoft-Windows-Kernel-LiveDump/Analytic
 ```
 
-Die **EnabledEventLogs** Eigenschaft ist eine mehrteilige Zeichenfolge, bei jeder Zeichenfolge in der Form: **Kanal-Name, Protokollebene, Schlüsselwortmaske**. Die **Schlüsselwortmaske** möglich ein hexadezimalen (Präfix 0 X), oktale (Präfix 0) oder die Anzahl der decimal-Zahl (ohne Präfix). Beispielsweise um einen neuen ereigniskanal zur Liste hinzuzufügen und so konfigurieren Sie beide **Protokolliergrad** und **Schlüsselwortmaske** ausführen können:
+Die **enabledeventlogs** -Eigenschaft ist eine Multizeichenfolge, bei der jede Zeichenfolge das folgende Format hat: **Channel-Name, Protokollebene, Schlüsselwort Maske**. Das **Schlüsselwort Mask** kann ein hexadezimales Zeichen (Präfix 0x), oktal (Präfix 0) oder Dezimalzahl (ohne Präfix) sein. Um beispielsweise der Liste einen neuen Ereignis Kanal hinzuzufügen und sowohl **Protokoll-** als auch **Schlüsselwort Maske** zu konfigurieren, können Sie Folgendes ausführen:
 
 ```powershell
 (get-cluster).EnabledEventLogs += "Microsoft-Windows-WinINet/Analytic,2,321"
 ```
 
-Wenn Sie festlegen möchten die **Protokolliergrad** behalten Sie jedoch die **Schlüsselwortmaske** auf den Standardwert festgelegt, können Sie mithilfe eines der folgenden Befehle:
+Wenn Sie die **Protokollebene** festlegen, aber die **Schlüsselwort Maske** mit dem Standardwert behalten möchten, können Sie einen der folgenden Befehle verwenden:
 
 ```powershell
 (get-cluster).EnabledEventLogs += "Microsoft-Windows-WinINet/Analytic,2"
 (get-cluster).EnabledEventLogs += "Microsoft-Windows-WinINet/Analytic,2,"
 ```
 
-Wenn Sie beibehalten möchten die **Protokolliergrad** den Standardwert festgelegt, aber die **Schlüsselwortmaske** können Sie den folgenden Befehl ausführen:
+Wenn Sie den Standardwert auf **Protokollebene** beibehalten möchten, aber die **Schlüsselwort Maske** festlegen, können Sie den folgenden Befehl ausführen:
 
 ```powershell
 (get-cluster).EnabledEventLogs += "Microsoft-Windows-WinINet/Analytic,,0xf1"
 ```
 
-Wenn Sie beide beibehalten möchten die **Protokolliergrad** und **Schlüsselwortmaske** Standardwerte, können Sie die folgenden Befehle ausführen:
+Wenn Sie sowohl die **Protokollebene** als auch die **Schlüsselwort Maske** mit ihren Standardwerten belassen möchten, können Sie einen der folgenden Befehle ausführen:
 
 ```powershell
 (get-cluster).EnabledEventLogs += "Microsoft-Windows-WinINet/Analytic"
@@ -74,36 +74,36 @@ Wenn Sie beide beibehalten möchten die **Protokolliergrad** und **Schlüsselwor
 (get-cluster).EnabledEventLogs += "Microsoft-Windows-WinINet/Analytic,,"
 ```
 
-Diese Kanäle für Ereignisse werden auf jedem Clusterknoten aktiviert werden, wenn der Clusterdienst gestartet wird oder wenn die **EnabledEventLogs** -Eigenschaft geändert wird.
+Diese Ereignis Kanäle werden auf jedem Cluster Knoten aktiviert, wenn der Cluster Dienst gestartet wird, oder wenn die **enabledeventlogs** -Eigenschaft geändert wird.
 
-## <a name="gathering-logs"></a>Sammeln von Protokollen
+## <a name="gathering-logs"></a>Protokolle werden gesammelt.
 
-Nachdem Sie die Kanäle für Ereignisse aktiviert haben, können Sie mithilfe der **DumpLogQuery** zum Sammeln von Protokollen. Die Type-Eigenschaft für Öffentliche Ressourcengruppe **DumpLogQuery** ist ein Mutistring-Wert. Jede Zeichenfolge ist ein [XPATH-Abfrage, die hier beschriebenen](https://msdn.microsoft.com/library/windows/desktop/dd996910(v=vs.85).aspx).
+Nachdem Sie Ereignis Kanäle aktiviert haben, können Sie die **dumplogquery** verwenden, um Protokolle zu erfassen. Die öffentliche Ressourcentyp Eigenschaft **dumplogquery** ist ein mutistring-Wert. Jede Zeichenfolge ist eine [XPath-Abfrage, wie hier beschrieben](https://msdn.microsoft.com/library/windows/desktop/dd996910(v=vs.85).aspx).
 
-Bei der Problembehandlung, wenn Sie Kanäle für zusätzliche Ereignisse sammeln möchten, können Sie die Änderung der **DumpLogQuery** Eigenschaft durch Hinzufügen von zusätzlichen Abfragen oder Ändern der Liste.
+Wenn Sie bei der Problembehandlung weitere Ereignis Kanäle erfassen müssen, können Sie die **dumplogquery** -Eigenschaft ändern, indem Sie zusätzliche Abfragen hinzufügen oder die Liste ändern.
 
-Zu diesem Zweck zunächst testen die XPath-Abfrage mithilfe der [Get-WinEvent](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Diagnostics/Get-WinEvent?view=powershell-5.1) PowerShell-Cmdlet:
+Testen Sie hierzu zunächst die XPath-Abfrage mithilfe des PowerShell-Cmdlets [Get-WinEvent](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Diagnostics/Get-WinEvent?view=powershell-5.1) :
 
 ```powershell
 get-WinEvent -FilterXML "<QueryList><Query><Select Path='Microsoft-Windows-GroupPolicy/Operational'>*[System[TimeCreated[timediff(@SystemTime) &gt;= 600000]]]</Select></Query></QueryList>"
 ```
 
-Fügen Sie dann die Abfrage die **DumpLogQuery** -Eigenschaft der Ressource:
+Fügen Sie anschließend die Abfrage an die **dumplogquery** -Eigenschaft der Ressource an:
 
 ```powershell
 (Get-ClusterResourceType -Name "Physical Disk".DumpLogQuery += "<QueryList><Query><Select Path='Microsoft-Windows-GroupPolicy/Operational'>*[System[TimeCreated[timediff(@SystemTime) &gt;= 600000]]]</Select></Query></QueryList>"
 ```
 
-Und wenn Sie eine Liste von Abfragen zu verwenden, führen Sie abrufen möchten:
+Wenn Sie eine Liste der zu verwendenden Abfragen erhalten möchten, führen Sie Folgendes aus:
 ```powershell
 (Get-ClusterResourceType -Name "Physical Disk").DumpLogQuery
 ```
 
-## <a name="gathering-windows-error-reporting-reports"></a>Sammeln von Windows-Fehlerberichterstattung Berichte
+## <a name="gathering-windows-error-reporting-reports"></a>Sammeln von Windows-Fehlerberichterstattung Berichten
 
-Windows Error Reporting Reports befinden sich im **%ProgramData%\Microsoft\Windows\WER**
+Windows-Fehlerberichterstattung Berichte werden in **%ProgramData%\microsoft\windows\wer** gespeichert.
 
-In der **WER** Ordner die **ReportsQueue** Ordner enthält Berichte, die darauf warten, Watson hochgeladen werden.
+Im Ordner **wer** enthält der Ordner **reportsqueue** Berichte, die darauf warten, in Watson hochgeladen zu werden.
 
 ```powershell
 PS C:\Windows\system32> dir c:\ProgramData\Microsoft\Windows\WER\ReportQueue
@@ -140,7 +140,7 @@ Directory of C:\ProgramData\Microsoft\Windows\WER\ReportQueue
               20 Dir(s)  23,291,658,240 bytes free
 ```
 
-In der **WER** Ordner die **ReportsArchive** Ordner enthält Berichte, die bereits in Watson hochgeladen wurden. Daten in diesen Berichten werden gelöscht, aber die **Report.wer** Datei weiterhin besteht.
+Im Ordner **wer** enthält der Ordner **reportsarchive** Berichte, die bereits in Watson hochgeladen wurden. Die Daten in diesen Berichten werden gelöscht, aber die Datei " **Report. Wer** " bleibt erhalten.
 
 ```powershell
 PS C:\Windows\system32> dir C:\ProgramData\Microsoft\Windows\WER\ReportArchive
@@ -161,14 +161,14 @@ Directory of c:\ProgramData\Microsoft\Windows\WER\ReportArchive
 
 ```
 
-Windows-Fehlerberichterstattung bietet viele Einstellungen, um das Problem berichterstellungsumgebung anzupassen. Weitere Informationen finden Sie auf die Windows-Fehlerberichterstattung [Dokumentation](https://msdn.microsoft.com/library/windows/desktop/bb513638(v=vs.85).aspx).
+Windows-Fehlerberichterstattung bietet viele Einstellungen zur Anpassung der Problembericht Erstellungs Umgebung. Weitere Informationen finden Sie in der Windows-Fehlerberichterstattung- [Dokumentation](https://msdn.microsoft.com/library/windows/desktop/bb513638(v=vs.85).aspx).
 
 
-## <a name="troubleshooting-using-windows-error-reporting-reports"></a>Problembehandlung mithilfe von Windows Error Reporting-Berichten
+## <a name="troubleshooting-using-windows-error-reporting-reports"></a>Problembehandlung mithilfe von Windows-Fehlerberichterstattung Berichten
 
-### <a name="physical-disk-failed-to-come-online"></a>Physische Datenträger konnte nicht online geschaltet werden.
+### <a name="physical-disk-failed-to-come-online"></a>Der physische Datenträger konnte nicht online geschaltet werden.
 
-Um dieses Problem zu diagnostizieren, navigieren Sie zu den WER-Berichtsordner:
+Navigieren Sie zum Bericht "Wer-Bericht", um dieses Problem zu diagnostizieren:
 
 ```powershell
 PS C:\Windows\system32> dir C:\ProgramData\Microsoft\Windows\WER\ReportArchive\Critical_PhysicalDisk_b46b8883d892cfa8a26263afca228b17df8133d_00000000_cab_08abc39c
@@ -228,7 +228,7 @@ Volume Serial Number is 4031-E397
 <date>  <time>            13,340 WERC38D.tmp.txt
 ```
 
-Starten Sie als Nächstes aus Selektierung der **Report.wer** Datei – dies informiert Sie darüber, welcher Vorgang fehlgeschlagen ist.
+Beginnen Sie als nächstes mit der Selektierung aus der Datei " **Report. Wer** " – Dadurch wird angezeigt, was nicht.
 
 ```
 EventType=Failover_clustering_resource_error 
@@ -255,7 +255,7 @@ DynamicSig[29].Name=FailureTime
 DynamicSig[29].Value=2017//12//12-22:38:05.485
 ```
 
-Da die Ressource konnte nicht online geschaltet werden, keine Speicherabbilder erfasst wurden, aber der Windows-Fehlerberichterstattung Bericht Sammeln von Protokollen. Wenn Sie alle offenen **EVTX** Dateien, die mit Microsoft Message Analyzer, sehen Sie alle Informationen, die mithilfe der folgenden Abfragen über die Systemkanal, anwendungskanal, Failover Cluster-Diagnose-Kanälen gesammelt wurden , und einige andere generische Kanäle.
+Da die Ressource nicht online geschaltet werden konnte, wurden keine Abbilder erfasst, aber der Windows-Fehlerberichterstattung Bericht hat Protokolle erfasst. Wenn Sie alle **evtx** -Dateien mithilfe von Microsoft Message Analyzer öffnen, werden alle gesammelten Informationen mithilfe der folgenden Abfragen über den systemchannel, den Anwendungs Kanal, Failovercluster-Diagnose Kanäle und einige andere Informationen angezeigt. generische Kanäle.
 
 ```powershell
 PS C:\Windows\system32> (Get-ClusterResourceType -Name "Physical Disk").DumpLogQuery
@@ -294,22 +294,22 @@ Hier ist ein Beispiel für die Ausgabe angegeben:
 <QueryList><Query Id="0"><Select Path="Microsoft-Windows-Hyper-V-VmSwitch-Diagnostic">*[System[TimeCreated[timediff(@SystemTime) &lt;= 600000]]]</Select></Query></QueryList>
 ```
 
-Message Analyzer ermöglicht Ihnen zu erfassen, anzeigen und Analysieren des Datenverkehrs messaging Protocol. Außerdem können Sie die Ablaufverfolgung und Systemereignisse und anderen Meldungen von Windows-Komponenten zu bewerten. Sie können [Microsoft Message Analyzer von hier aus](https://www.microsoft.com/download/details.aspx?id=44226). Wenn Sie die Protokolle in Message Analyzer laden, sehen Sie die folgenden Anbieter und Nachrichten über protokollkanäle.
+Message Analyzer ermöglicht Ihnen das erfassen, anzeigen und Analysieren des Protokollnachrichten Verkehrs. Außerdem können Sie Systemereignisse und andere Meldungen von Windows-Komponenten verfolgen und bewerten. Hier können Sie [Microsoft Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226)herunterladen. Wenn Sie die Protokolle in Message Analyzer laden, werden die folgenden Anbieter und Meldungen aus den Protokoll Kanälen angezeigt.
 
-![Laden Protokolle in Message Analyzer](media/troubleshooting-using-WER-reports/loading-logs-into-message-analyzer.png)
+![Laden von Protokollen in Message Analyzer](media/troubleshooting-using-WER-reports/loading-logs-into-message-analyzer.png)
 
-Sie können auch von Anbietern zum Abrufen der folgenden Ansicht gruppieren:
+Sie können auch nach Anbietern gruppieren, um die folgende Ansicht anzuzeigen:
 
-![Protokolle, gruppiert nach Anbieter](media/troubleshooting-using-WER-reports/logs-grouped-by-providers.png)
+![Protokolle gruppiert nach Anbietern](media/troubleshooting-using-WER-reports/logs-grouped-by-providers.png)
 
-Um zu ermitteln, warum der Datenträger ausgefallen, navigieren Sie auf die Ereignisse unter **FailoverClustering bzw. Diagnose** und **FailoverClustering/DiagnosticVerbose**. Führen Sie dann die folgende Abfrage aus: **EventLog.EventData["LogString"] contains "Cluster Disk 10"** .  Auf diese Weise erhalten Sie bieten Ihnen die folgende Ausgabe:
+Um zu ermitteln, warum der Datenträger fehlgeschlagen ist, navigieren Sie zu den Ereignissen unter **Failoverclustering/Diagnose** und **Failoverclustering/diagnosticverbose**. Führen Sie dann die folgende Abfrage aus: **EventLog. EVENTDATA ["logstring"] enthält "Cluster Disk 10"** .  Dadurch erhalten Sie die folgende Ausgabe:
 
-![Ausgabe der ausgeführten Abfrage des Protokolls](media/troubleshooting-using-WER-reports/output-of-running-log-query.png)
+![Ausgabe der ausgelaufenden Protokoll Abfrage](media/troubleshooting-using-WER-reports/output-of-running-log-query.png)
 
 
-### <a name="physical-disk-timed-out"></a>Timeout bei der physischer Datenträger.
+### <a name="physical-disk-timed-out"></a>Timeout des physischen Datenträgers
 
-Um dieses Problem zu diagnostizieren, navigieren Sie zu den Berichtordner an WER. Der Ordner enthält, Protokolldateien und Sicherungsdateien für **RS**, **clussvc.exe**, und der Prozess, hostet der "**Smphost**"-Diensten, wie unten dargestellt:
+Navigieren Sie zum Bericht, um dieses Problem zu diagnostizieren. Der Ordner enthält Protokolldateien und Dumpdateien für **RHS**, **ClusSvc. exe**und den Prozess, der den Dienst "**smphost**" hostet, wie unten dargestellt:
 
 ```powershell
 PS C:\Windows\system32> dir C:\ProgramData\Microsoft\Windows\WER\ReportArchive\Critical_PhysicalDisk_64acaf7e4590828ae8a3ac3c8b31da9a789586d4_00000000_cab_1d94712e
@@ -373,7 +373,7 @@ Volume Serial Number is 4031-E397
 <date>  <time>            13,340 WER7100.tmp.txt
 ```
 
-Starten Sie als Nächstes aus Selektierung der **Report.wer** Datei – dies informiert Sie darüber, welcher Aufruf oder eine Ressource hängende ist.
+Beginnen Sie als nächstes mit der Selektierung aus der Datei " **Report. Wer** " – Hiermit wird angezeigt, welcher oder welche Ressource nicht mehr angezeigt wird.
 
 ```
 EventType=Failover_clustering_resource_timeout_2
@@ -398,13 +398,13 @@ DynamicSig[29].Name=HangThreadId
 DynamicSig[29].Value=10008
 ```
 
-Die Liste der Dienste und Prozesse, die wir in Dumps erfassen, wird durch die folgende Eigenschaft gesteuert: **PS C:\Windows\system32> (Get-ClusterResourceType -Name "Physical Disk").DumpServicesSmphost**
+Die Liste der Dienste und Prozesse, die wir in einem Dump erfassen, wird durch die folgende Eigenschaft gesteuert: **PS c:\Windows\System32 > (Get-clusterresourcetype-Name "physischer Datenträger"). Dumpservicessmphost**
 
-Um zu ermitteln, warum der Absturz aufgetreten ist, öffnen Sie die Dum-Dateien. Führen Sie dann die folgende Abfrage aus: **EventLog.EventData["LogString"] enthält "Clusterdatenträger 10"** auf diese Weise erhalten Sie bieten Ihnen die folgende Ausgabe:
+Um zu ermitteln, warum der Absturz aufgetreten ist, öffnen Sie die trag Dateien. Führen Sie dann die folgende Abfrage aus: **EventLog. EVENTDATA ["logstring"] enthält "Cluster Disk 10"**  Dadurch erhalten Sie die folgende Ausgabe:
 
-![Ausgabe des ausgeführten Protokollabfrage 2](media/troubleshooting-using-WER-reports/output-of-running-log-query-2.png)
+![Ausgabe der ausgelaufenden Protokoll Abfrage 2](media/troubleshooting-using-WER-reports/output-of-running-log-query-2.png)
 
-Wir können dies mit dem Thread aus cross-examine der **memory.hdmp** Datei:
+Wir können dies mit dem Thread aus der Datei " **Memory. hdmp** " überprüfen:
 
 ```
 # 21  Id: 1d98.2718 Suspend: 0 Teb: 0000000b`f1f7b000 Unfrozen

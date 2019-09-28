@@ -1,8 +1,8 @@
 ---
-title: Verwenden den Befehl Remove-MulticastTransmission
-description: 'Windows-Befehle Thema ***- '
+title: Verwenden des Remove-MulticastTransmission-Befehls
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,24 +13,24 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dc3ba385644ef9da9b5d592142091ff087cd7545
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 279554124b046f645b3c83e1490657aa8782104a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839681"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362819"
 ---
-# <a name="using-the-remove-multicasttransmission-command"></a>Verwenden den Befehl Remove-MulticastTransmission
+# <a name="using-the-remove-multicasttransmission-command"></a>Verwenden des Remove-MulticastTransmission-Befehls
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Deaktiviert die multicast-Übertragung für ein Bild. Es sei denn, Sie geben **/force**, vorhandene Clients führen die Übertragung des Images neue Clients sind jedoch nicht zulässig, beizutreten.
+Deaktiviert die Multicast Übertragung für ein Bild. Wenn Sie **/Force**nicht angeben, wird die Abbild Übertragung durch vorhandene Clients beendet, der Beitritt neuer Clients ist jedoch nicht gestattet.
 ## <a name="syntax"></a>Syntax
 **Windows Server 2008**
 ```
 wdsutil /remove-MulticastTransmissiomedia:<Image name> [/Server:<Server name>mediatype:InstallmediaGroup:<Image Group>] [/Filename:<File name>] [/force]
 ```
-**Windows Server 2008 R2** für Startabbilder:
+**Windows Server 2008 R2** für Start Abbilder:
 ```
 wdsutil [Options] /remove-MulticastTransmissiomedia:<Image name>
 \x20    [/Server:<Server name>]
@@ -38,7 +38,7 @@ wdsutil [Options] /remove-MulticastTransmissiomedia:<Image name>
 \x20    /Architecture:{x86 | ia64 | x64}
 \x20    [/Filename:<File name>]
 ```
-bei Installationsabbildern:
+für Installations Images:
 ```
 wdsutil [Options] /remove-MulticastTransmissiomedia:<Image name>
         [/Server:<Server name>]
@@ -49,15 +49,15 @@ wdsutil [Options] /remove-MulticastTransmissiomedia:<Image name>
 ## <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
-Medien:<Image name>|Gibt den Namen des Bilds.|
-|[/Server:<Server name>]|Gibt den Namen des Servers an. Dies kann den NetBIOS-Namen oder den vollständig qualifizierten Domänennamen (FQDN) sein. Wenn kein Servername angegeben wird, wird der lokale Server verwendet.|
-mediatype:{Install&#124;Boot}|Gibt den Bildtyp an. Beachten Sie, die diese Option muss, um festgelegt werden **installieren** für Windows Server 2008.|
-|/Architecture:{x86 &#124; ia64 &#124; x64}|Gibt die Architektur des Startabbilds, das die Übertragung gestartet zugeordnet ist. Da es möglich, dass der gleiche ImageName für Startabbilder in verschiedenen Architekturen handelt, sollten Sie angeben, die Architektur, um sicherzustellen, dass die richtigen Übertragung verwendet wird.|
-|\mediaGroup:<Image group name>]|Gibt die Image-Gruppe, die das Bild enthält. Wenn kein Bild-Gruppenname angegeben und nur eine Abbildgruppe auf dem Server vorhanden ist, wird diese Abbildgruppe verwendet. Wenn mehr als eine Abbildgruppe auf dem Server vorhanden ist, müssen Sie diese Option verwenden, den Namen des Abbilds an.|
-|[/Filename:<File name>]|Gibt den Dateinamen an. Wenn das Quellbild eindeutig anhand des Namens identifiziert werden kann, müssen Sie diese Option verwenden, um den Dateinamen angeben.|
-|[/force]|die Übertragung entfernt, und alle Clients beendet. Es sei denn, Sie geben Sie einen Wert für die **/force** Option vorhandene Clients kann die Übertragung des Images ausführen, aber neue Clients sind nicht beitreten.|
-## <a name="BKMK_examples"></a>Beispiele für
-So beenden Sie einen Namespace (aktuellen Clients werden die Übertragung abgeschlossen, aber neue Clients werden nicht in der Lage, verknüpfen), Typ:
+Medien: <Image name>|Gibt den Namen des Bilds an.|
+|[/Server:<Server name>]|Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Domänen Namen (FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
+MediaType: {Install&#124;Boot}|Gibt den Bildtyp an. Beachten Sie, dass diese Option für die **Installation** von für Windows Server 2008 festgelegt werden muss.|
+|/Architecture: {x86 &#124; ia64 &#124; x64}|Gibt die Architektur des Start Abbilds an, das mit der zu startenden Übertragung verknüpft ist. Da es möglich ist, den gleichen Image Namen für Start Images in verschiedenen Architekturen zu verwenden, sollten Sie die Architektur angeben, um sicherzustellen, dass die richtige Übertragung verwendet wird.|
+|\mediagroup: <Image group name>]|Gibt die Bild Gruppe an, die das Bild enthält. Wenn kein Bildgruppen Name angegeben wird und nur eine Abbild Gruppe auf dem Server vorhanden ist, wird diese Abbild Gruppe verwendet. Wenn auf dem Server mehr als eine Abbild Gruppe vorhanden ist, müssen Sie diese Option verwenden, um den Namen der Abbild Gruppe anzugeben.|
+|[/Filename:<File name>]|Gibt den Dateinamen an. Wenn das Quell Image nicht anhand des Namens eindeutig identifiziert werden kann, müssen Sie diese Option verwenden, um den Dateinamen anzugeben.|
+|/Force|entfernt die Übertragung und beendet alle Clients. Wenn Sie keinen Wert für die Option **/Force** angeben, können vorhandene Clients die Abbild Übertragung beenden, aber neue Clients können nicht beitreten.|
+## <a name="BKMK_examples"></a>Beispiele
+Geben Sie Folgendes ein, um einen Namespace zu beenden (aktuelle Clients schließen die Übertragung ab, aber neue Clients können nicht beitreten). Geben Sie Folgendes ein:
 ```
 wdsutil /remove-MulticastTransmissiomedia:"Vista with Office"
 /Imagetype:Install
@@ -66,15 +66,15 @@ wdsutil /remove-MulticastTransmissiomedia:"Vista with Office"
 wdsutil /remove-MulticastTransmissiomedia:"x64 Boot Image"
 /Imagetype:Boot /Architecture:x64
 ```
-Um die Beendigung aller Clients zu erzwingen, geben Sie Folgendes ein:
+Wenn Sie die Beendigung aller Clients erzwingen möchten, geben Sie Folgendes ein:
 ```
 wdsutil /remove-MulticastTransmission /Server:MyWDSServer
 /Image:"Vista with Officemediatype:InstalmediaGroup:ImageGroup1
 /Filename:install.wim /force
 ```
-#### <a name="additional-references"></a>Zusätzliche Referenzen
-[Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-[mit dem Befehl Get-AllMulticastTransmissions](using-the-get-allmulticasttransmissions-command.md)
-[mit dem Befehl Get-MulticastTransmission](using-the-get-multicasttransmission-command.md) 
- [Mit dem Befehl new-MulticastTransmission](using-the-new-multicasttransmission-command.md)
-[Unterbefehl: Start-MulticastTransmission](subcommand-start-multicasttransmission.md)
+#### <a name="additional-references"></a>Weitere Verweise
+[Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+[mithilfe des Befehls Get-allmulticasttransmission](using-the-get-allmulticasttransmissions-command.md)
+ mithilfe[des Befehls Get-MulticastTransmission](using-the-get-multicasttransmission-command.md)
+ mit[dem Befehl New-MulticastTransmission](using-the-new-multicasttransmission-command.md)
+[ Unterbefehl: Start-MulticastTransmission](subcommand-start-multicasttransmission.md)

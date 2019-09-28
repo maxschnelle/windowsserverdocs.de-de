@@ -1,8 +1,8 @@
 ---
-title: Liste von Anbietern
-description: 'Windows-Befehle Thema ***- '
+title: Anbieter auflisten
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f94df982205d639f64dde2cfb014c851bac02b61
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ed2da9e5c38c13377e694f9e39a63a15b9f144b2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840641"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374740"
 ---
-# <a name="list-providers"></a>Liste von Anbietern
+# <a name="list-providers"></a>Anbieter auflisten
 
 
 
-Listet die Volumeschattenkopie-Anbieter, die derzeit auf dem System registriert sind.
+Listet Schattenkopieanbieter auf, die derzeit auf dem System registriert sind.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -34,13 +34,13 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_e
 list providers
 ```
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um die aktuell registrierte Schattenkopieanbieter aufzulisten, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um die derzeit registrierten Schattenkopieanbieter aufzulisten:
 ```
 list providers
 ```
-Die Ausgabe, die an der folgenden ähnlich ist:
+Ausgabe, die den folgenden anzeigen ähnelt:
 ```
 * ProviderID: {b5946137-7b9f-4925-af80-51abd60b20d5}
         Type: [1] VSS_PROV_SYSTEM
@@ -52,4 +52,4 @@ Die Ausgabe, die an der folgenden ähnlich ist:
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

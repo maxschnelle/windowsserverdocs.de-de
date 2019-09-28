@@ -1,8 +1,8 @@
 ---
-title: Mithilfe des Befehls Add-ImageGroup
-description: 'Windows-Befehle Thema ***- '
+title: Verwenden des Befehls "Add-ImageGroup"
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 71050bfecdac4933bfe36f40ce09dae626735664
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5e870bd5435e1aa2b155fee880d32c0d784ac398
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829901"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363678"
 ---
-# <a name="using-the-add-imagegroup-command"></a>Mithilfe des Befehls Add-ImageGroup
+# <a name="using-the-add-imagegroup-command"></a>Verwenden des Befehls "Add-ImageGroup"
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Fügt eine Abbildgruppe auf einem Windows-Bereitstellungsdiensteserver hinzu.
+Fügt einem Windows-Bereitstellungsdiensteserver eine Abbild Gruppe hinzu.
 ## <a name="syntax"></a>Syntax
 ```
 wdsutil [Options] /add-ImageGroumediaGroup:<Image group name> [/Server:<Server name>]
@@ -32,17 +32,17 @@ wdsutil [Options] /add-ImageGroumediaGroup:<Image group name> [/Server:<Server n
 ## <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
-mediaGroup:<Image group name>|Gibt den Namen der Abbildgruppe hinzugefügt werden.|
+mediagroup: <Image group name>|Gibt den Namen der hinzu zufügenden Abbild Gruppe an.|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn Sie keinen Servernamen angeben, wird der lokale Server verwendet.|
-## <a name="BKMK_examples"></a>Beispiele für
-Geben Sie eine der folgenden Schritte aus, zum Hinzufügen einer Abbildgruppe enthalten:
+## <a name="BKMK_examples"></a>Beispiele
+Zum Hinzufügen einer Abbild Gruppe geben Sie eine der folgenden Informationen ein:
 ```
 wdsutil /add-ImageGroumediaGroup:ImageGroup2
 wdsutil /verbose /add-ImageGroumediaGroup:"My Image Group" /Server:MyWDSServer
 ```
-#### <a name="additional-references"></a>Zusätzliche Referenzen
-[Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-[mit dem Befehl Get-AllImageGroups](using-the-get-allimagegroups-command.md)
-[mit dem Befehl Get-ImageGroup](using-the-get-imagegroup-command.md) 
- [ Indem Sie den Befehl Remove-ImageGroup](using-the-remove-imagegroup-command.md)
+#### <a name="additional-references"></a>Weitere Verweise
+[Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+[mithilfe des Befehls Get-allimagegroups](using-the-get-allimagegroups-command.md)
+ mithilfe[des Befehls Get-ImageGroup](using-the-get-imagegroup-command.md)
+ mit[dem Befehl Remove-ImageGroup](using-the-remove-imagegroup-command.md)
 [Unterbefehl: Set-ImageGroup](subcommand-set-imagegroup.md)

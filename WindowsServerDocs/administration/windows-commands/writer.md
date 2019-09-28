@@ -1,8 +1,8 @@
 ---
-title: Writer
-description: 'Windows-Befehle Thema ***- '
+title: Maschine
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8aee4ecca85c7d5f46ee79f3ad928b746c02e7bb
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6c00f6067cd5f6cf741cddbd6d62c5bcbb1f37a9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439983"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361858"
 ---
-# <a name="writer"></a>Writer
+# <a name="writer"></a>Maschine
 
 
 
-Überprüft, ob ein Writer oder eine Komponente enthalten ist oder ein Writer oder eine Komponente aus der Sicherung oder Wiederherstellung Prozedur schließt. Wenn Sie ohne Angabe von Parametern **Writer** zeigt die Hilfe an der Eingabeaufforderung.
+Überprüft, ob ein Writer oder eine Komponente ein Writer oder eine Komponente aus dem Sicherungs-oder Wiederherstellungsverfahren enthält bzw. schließt. Bei Verwendung ohne Parameter zeigt **Writer** die Hilfe an der Eingabeaufforderung an.
 
 ## <a name="syntax"></a>Syntax
 
@@ -37,17 +37,17 @@ writer exclude [<Writer> | <Component>]
 
 | Parameter  |                                                                                      Beschreibung                                                                                      |
 |------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   verify   | Stellt sicher, dass die angegebenen Writer oder die Komponente in der Backup- oder Restore-Prozedur enthalten ist. Die Backup- oder Restore-Prozedur schlägt fehl, wenn der Writer oder die Komponente nicht enthalten ist. |
-|  exclude   |                                                   Schließt die angegebenen Writer oder die Komponente aus der Backup- oder Restore-Prozedur aus.                                                    |
-| [\<Writer> |                                                                                     <Component>]                                                                                      |
+|   verify   | Überprüft, ob der angegebene Writer oder die angegebene Komponente in der Sicherungs-oder Wiederherstellungs Prozedur enthalten ist. Die Sicherungs-oder Wiederherstellungs Prozedur schlägt fehl, wenn der Writer oder die Komponente nicht enthalten ist. |
+|  exclude   |                                                   Schließt den angegebenen Writer oder die Komponente vom Sicherungs-oder Wiederherstellungsverfahren aus.                                                    |
+| [\<writer > |                                                                                     <Component>]                                                                                      |
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um einen Writer durch Angabe der GUID (für dieses Beispiel 4dc3bdd4-ab48-4d07-adb0-3bee2926fd7f) zu überprüfen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um einen Writer zu überprüfen, indem Sie die GUID angeben (in diesem Beispiel 4dc3bdd4-AB48-4d07-adb0-3bee2926fd7f):
 ```
 writer verify {4dc3bdd4-ab48-4d07-adb0-3bee2926fd7f}
 ```
-Um einen Writer, mit dem Namen "Systemgenerator" ausschließen möchten, geben Sie Folgendes ein:
+Um einen Writer mit dem Namen "System Schreiber" auszuschließen, geben Sie Folgendes ein:
 ```
 writer exclude "System Writer"
 ```

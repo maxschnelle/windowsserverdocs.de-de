@@ -1,8 +1,8 @@
 ---
-title: Mithilfe des Befehls Get-TransportServer
-description: 'Windows-Befehle Thema ***- '
+title: Verwenden des Befehls Get-TransportServer
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 08aa1273d09ba92de15e13f7bfcc8283ac2fedb6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 282b69162cf3550c5bcba3282b60f15072c96ed6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817421"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363070"
 ---
-# <a name="using-the-get-transportserver-command"></a>Mithilfe des Befehls Get-TransportServer
+# <a name="using-the-get-transportserver-command"></a>Verwenden des Befehls Get-TransportServer
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zeigt Informationen über einen bestimmten Transport-Server.
+Zeigt Informationen zu einem angegebenen Transport Server an.
 ## <a name="syntax"></a>Syntax
 ```
 wdsutil [Options] /Get-TransportServer [/Server:<Server name>] /Show:{Config}
@@ -32,21 +32,21 @@ wdsutil [Options] /Get-TransportServer [/Server:<Server name>] /Show:{Config}
 ## <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
-|[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben wird, wird der lokale Server verwendet werden.|
-|/Show:{Config}|Gibt Konfigurationsinformationen über den angegebenen Transport-Server zurück.|
-## <a name="BKMK_examples"></a>Beispiele für
-Um Informationen zum Server anzuzeigen, geben Sie Folgendes ein:
+|[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
+|/Show: {config}|Gibt Konfigurationsinformationen zum angegebenen Transport Server zurück.|
+## <a name="BKMK_examples"></a>Beispiele
+Geben Sie Folgendes ein, um Informationen zum Server anzuzeigen:
 ```
 wdsutil /Get-TransportServer /Show:Config
 ```
-Um die Konfigurationsinformationen anzuzeigen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um die Konfigurationsinformationen anzuzeigen:
 ```
 wdsutil /Get-TransportServer /Server:MyWDSServer /Show:Config
 ```
-#### <a name="additional-references"></a>Zusätzliche Referenzen
-[Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-[mit dem Disable-TransportServer-Befehl](using-the-disable-transportserver-command.md)
-[mithilfe des Befehls Enable-TransportServer](using-the-enable-transportserver-command.md) 
- [ Unterbefehl: Set-TransportServer](subcommand-set-transportserver.md)
+#### <a name="additional-references"></a>Weitere Verweise
+[Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+[mit dem Befehl "Enable-Transportserver](using-the-disable-transportserver-command.md)" 
+[mit dem Befehl enable-Transportserver](using-the-enable-transportserver-command.md)
+[unter Command: Set-TransportServer](subcommand-set-transportserver.md)
 [Unterbefehl: Start-TransportServer](subcommand-start-transportserver.md)
-[Unterbefehl: Stop-TransportServer](subcommand-stop-transportserver.md)
+-[Unterbefehl: "stoppt-Transportserver](subcommand-stop-transportserver.md) "

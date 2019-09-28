@@ -1,8 +1,8 @@
 ---
 title: ver
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 384a5e8adb6c8304033f7dc645184ff2b674ae39
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e48b3b1061edf793c88693b3353753c6a4cedcfc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887171"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362722"
 ---
 # <a name="ver"></a>ver
 
 
 
-Zeigt die Versionsnummer des Betriebssystems.
+Zeigt die Versionsnummer des Betriebssystems an.
 
-Mit diesem Befehl wird in der Windows-Eingabeaufforderung (Cmd.exe), aber nicht in PowerShell unterstützt.
+Dieser Befehl wird in der Windows-Eingabeaufforderung (cmd. exe) unterstützt, jedoch nicht in PowerShell.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -42,15 +42,15 @@ ver
 |---------|-----------|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um die Versionsnummer des Betriebssystems von der Befehlsshell (cmd.exe) zu erhalten, geben Sie Folgendes ein:
+Zum Abrufen der Versionsnummer des Betriebssystems von der Befehlsshell (cmd. exe) geben Sie Folgendes ein:
 
 ```
 ver
 ```
 
-Die Ver-Befehl funktioniert nicht in PowerShell. Um die Version von PowerShell zu erhalten, geben Sie Folgendes ein:
+Der Befehl "Ver" funktioniert nicht in PowerShell. Geben Sie Folgendes ein, um die Betriebssystemversion von PowerShell zu erhalten:
 
 ```powershell
 $PSVersionTable.BuildVersion
@@ -59,4 +59,4 @@ $PSVersionTable.BuildVersion
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,8 +1,8 @@
 ---
 title: vol
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 57233c58cf8c1c27288d94503c56733f287652f8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 19f7de75b633903b2fcc0b7188846c7d6d7370a4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825601"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362569"
 ---
 # <a name="vol"></a>vol
 
 
 
-Der Volumebezeichnung und Seriennummer, angezeigt werden, wenn sie vorhanden sind.  Wenn Sie ohne Angabe von Parametern **Vol** zeigt Informationen für das aktuelle Laufwerk.
+Zeigt die Datenträgervolumebezeichnung und die Seriennummer an, falls vorhanden.  Bei Verwendung ohne Parameter zeigt **Vol** Informationen für das aktuelle Laufwerk an.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,9 +36,9 @@ vol [<Drive>:]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<Laufwerk >:|Gibt an, das Laufwerk, das der Datenträger enthält, für den Sie die Bezeichnung und Seriennummer anzeigen möchten.|
+|> \<drive:|Gibt das Laufwerk an, das den Datenträger enthält, für den Sie die Volumebezeichnung und Seriennummer anzeigen möchten.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

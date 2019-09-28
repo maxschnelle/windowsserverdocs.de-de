@@ -7,35 +7,35 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 36cdacec27e64586c359146b858a9d68750e5026
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ffc2849fa5e18f7984814d6187cf83d68566409b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858261"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369640"
 ---
 # <a name="simplified-administration-appendix"></a>Anhang für vereinfachte Verwaltung
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
   
--   [Server-Manager hinzufügen, Dialogfeld "Server" (Active Directory)](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_AddServers)  
+-   [Dialog Server-Manager "Server hinzufügen" (Active Directory)](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_AddServers)  
   
--   [Server-Manager Remote-Serverstatus](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_ServerMgrStatus)  
+-   [Status des Remote Servers Server-Manager](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_ServerMgrStatus)  
   
--   [Windows PowerShell-Modul laden](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_PSLoadModule)  
+-   [Laden von Windows PowerShell-Modulen](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_PSLoadModule)  
   
--   [RID-Ausstellung Hotfixes für frühere Betriebssysteme](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_Rid)  
+-   [Hotfixes für die RID-Ausstellung für vorherige Betriebssysteme](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_Rid)  
   
--   [Ntdsutil.exe Install from Media Changes](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_IFM)  
+-   [Ntdsutil. exe-Installation von Medien Änderungen](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_IFM)  
   
-## <a name="BKMK_AddServers"></a>Server-Manager hinzufügen, Dialogfeld "Server" (Active Directory)  
+## <a name="BKMK_AddServers"></a>Dialog Server-Manager "Server hinzufügen" (Active Directory)  
 
-Die **Hinzufügen von Servern** Dialogfeld ermöglicht das Durchsuchen von Active Directory bei Servern, vom Betriebssystem mithilfe von Platzhaltern, und nach Standort. Im Dialogfeld können auch mithilfe von DNS-Abfragen durch vollständig qualifizierten Domänennamen oder den Präfixnamen. Diese Suchvorgänge verwenden systemeigene DNS- und LDAP-Protokolle implementiert, die über .NET nicht AD Windows PowerShell für das AD Management Gateway, über SOAP - Dies bedeutet, dass die Domänencontroller kontaktiert vom Server-Manager auch Windows Server 2003 ausgeführt werden können. Sie können auch eine Datei mit dem Namen der Server für die Bereitstellung zu importieren.  
+Im Dialogfeld **Server hinzufügen können Sie** Active Directory nach Servern, nach Betriebssystem, unter Verwendung von Platzhaltern und nach Standort suchen. Im Dialogfeld können DNS-Abfragen auch mit einem voll qualifizierten Domänen Namen oder Präfix Namen verwendet werden. Diese Suchvorgänge verwenden systemeigene DNS-und LDAP-Protokolle, die über .NET implementiert werden, nicht AD Windows PowerShell für das AD-Verwaltungs Gateway über SOAP. Dies bedeutet, dass die von Server-Manager verbundenen Domänen Controller sogar Windows Server 2003 ausführen können. Sie können auch eine Datei mit Servernamen zu Bereitstellungs Zwecken importieren.  
   
-Die Active Directory-Suche verwendet die folgenden LDAP-Filter:  
+Bei der Active Directory Suche werden die folgenden LDAP-Filter verwendet:  
   
 ```  
 (&(ObjectCategory=computer)  
@@ -50,22 +50,22 @@ Die Active Directory-Suche verwendet die folgenden LDAP-Filter:
   
 ```  
   
-Die Active Directory-Suche gibt die folgenden Attribute:  
+Die Active Directory Suche gibt die folgenden Attribute zurück:  
   
 ```  
 ( dnsHostName )( operatingSystem )( cn )  
   
 ```  
   
-## <a name="BKMK_ServerMgrStatus"></a>Server-Manager Remote-Serverstatus  
-Server-Manager überprüft die remote-Server-Zugriff, die über Address Routing Protocol. Alle Server reagiert nicht auf ARP-Anfragen sind nicht aufgeführt, auch wenn sie im Pool sind.  
+## <a name="BKMK_ServerMgrStatus"></a>Status des Remote Servers Server-Manager  
+Server-Manager testet die Barrierefreiheit des Remote Servers mithilfe des Adress Routing Protokolls. Alle Server, die nicht auf ARP-Anforderungen reagieren, werden nicht aufgeführt, auch wenn Sie sich im Pool befinden.  
   
-Wenn ARP antwortet, klicken Sie dann DCOM- und WMI-Verbindungen mit dem Server erfolgen Statusinformationen zurückgeben. Wenn der RPC-, DCOM- und WMI nicht erreichbar sind, kann nicht den Server von Server-Manager vollständig verwalten.  
+Wenn ARP antwortet, werden DCOM-und WMI-Verbindungen zum Server hergestellt, um Statusinformationen zurückzugeben. Wenn RPC, DCOM und WMI nicht erreichbar sind, kann der Server von Server-Manager nicht vollständig verwaltet werden.  
   
-## <a name="BKMK_PSLoadModule"></a>Windows PowerShell-Modul laden  
-Windows PowerShell 3.0 implementiert, dynamisches Modul geladen wird. Mithilfe der **Import-Module** Cmdlet ist in der Regel nicht mehr erforderlich; stattdessen wird das Modul einfach im Aufrufen der Cmdlets, Alias oder Funktion automatisch geladen.  
+## <a name="BKMK_PSLoadModule"></a>Laden von Windows PowerShell-Modulen  
+Windows PowerShell 3,0 implementiert dynamisches Laden von Modulen. Die Verwendung des **Import-Module-** Cmdlets ist in der Regel nicht mehr erforderlich. Stattdessen wird das Modul durch einfaches Aufrufen des Cmdlets, des Alias oder der Funktion automatisch geladen.  
   
-Um geladenen Module anzuzeigen, verwenden die **Get-Module** Cmdlet.  
+Verwenden Sie das Cmdlet **Get-Module** , um geladene Module anzuzeigen.  
   
 ```  
 Get-Module  
@@ -74,14 +74,14 @@ Get-Module
   
 ![Vereinfachte Verwaltung](media/Simplified-Administration-Appendix/ADDS_PSGetModule.gif)  
   
-Um alle installierten Module mit ihren exportierten Funktionen und Cmdlets anzuzeigen, verwenden Sie:  
+Um alle installierten Module mit ihren exportierten Funktionen und Cmdlets anzuzeigen, verwenden Sie Folgendes:  
   
 ```  
 Get-Module -ListAvailable  
   
 ```  
   
-Die wichtigsten Argumente für die Verwendung der **Import-Module** Befehl ist, wenn Sie den Zugriff auf die "AD:" Windows PowerShell-Laufwerk und nichts anderes hat bereits das Modul geladen. Verwenden Sie beispielsweise die folgenden Befehle ein:  
+Der Hauptgrund für die Verwendung des **Import-Module-** Befehls ist, wenn Sie Zugriff auf "AD:" benötigen. Virtuelles Windows PowerShell-Laufwerk, und das Modul wurde noch nicht geladen. Verwenden Sie beispielsweise die folgenden Befehle:  
   
 ```  
 import-module activedirectory  
@@ -90,19 +90,19 @@ dir
   
 ```  
   
-## <a name="BKMK_Rid"></a>RID-Ausstellung Hotfixes für frühere Betriebssysteme  
-Finden Sie unter [ein Update ist verfügbar, um zu erkennen und zu verhindern, dass zu viel Ressourcenverbrauch des globalen RID-Pools auf einem Domänencontroller, auf denen Windows Server 2008 R2 ausgeführt wird](https://support.microsoft.com/kb/2618669).  
+## <a name="BKMK_Rid"></a>Hotfixes für die RID-Ausstellung für vorherige Betriebssysteme  
+Weitere Informationen finden [Sie unter ein Update ist verfügbar, um zu viel Verbrauch des globalen RID-Pools auf einem Domänen Controller mit Windows Server 2008 R2 zu erkennen und zu vermeiden](https://support.microsoft.com/kb/2618669).  
   
-## <a name="BKMK_IFM"></a>Ntdsutil.exe Install from Media Changes  
-Windows Server 2012 fügt zwei zusätzliche Optionen für das Befehlszeilenprogramm "Ntdsutil.exe" für die **IFM (IFM-Medien-Erstellung)** Menü. Diese können Sie IFM-Speicher zu erstellen, ohne zunächst eine Offlinedefragmentierung der exportierten Datei NTDS ausgeführt. DIT-Datei. Wenn Speicherplatz nicht Premium ist, speichert dieser Zeit mit der Erstellung der IFM.  
+## <a name="BKMK_IFM"></a>Ntdsutil. exe-Installation von Medien Änderungen  
+Windows Server 2012 fügt dem Befehlszeilen Tool "Ntdsutil. exe" für das **IFM-Menü (IFM-Medien Erstellung)** zwei zusätzliche Optionen hinzu. Diese ermöglichen es Ihnen, IFM-Speicher zu erstellen, ohne zuvor eine Offline-decofragmentierung der exportierten NTDS auszuführen. DIT-Datenbankdatei. Wenn der Speicherplatz kein Premium-Speicherplatz ist, spart das Erstellen der IFM Zeit.  
   
-Die folgende Tabelle beschreibt die zwei neuen Menüelemente an:  
+In der folgenden Tabelle werden die zwei neuen Menü Elemente beschrieben:  
   
 |||  
 |-|-|  
-|Menüelement|Erläuterung|  
-|Erstellen Sie vollständige NoDefrag %s|Erstellen von IFM-Medien ohne für eine vollständige Active Directory-Domänencontroller oder AD/LDS-Instanz in den Ordner "%s" Defragmentierung|  
-|Erstellen der Sysvol-voll-NoDefrag %s|Erstellen von IFM-Medien mit SYSVOL und ohne Defragmentieren für einen vollständigen AD-DC in Ordner "%s"|  
+|Menü Element|Erläuterung|  
+|Vollständige NoDebug-% s erstellen|Erstellen Sie IFM-Medien ohne die Fragmentierung für einen vollständigen AD DC oder eine AD/LDS-Instanz in den Ordner "% s".|  
+|Create SYSVOL Full Node Frag% s|Erstellen von IFM-Medien mit SYSVOL und ohne decofragmentierung eines vollständigen AD-Domänen Controllers in den Ordner "% s"|  
   
 ![Vereinfachte Verwaltung](media/Simplified-Administration-Appendix/ADDS_PSIFM.png)  
   

@@ -7,29 +7,29 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 0b2303bc837cdaf9f6e7ebd4b3ccbf6c66aa7ad2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2cafb040257b0fbc511e8225b0f07a2071012122
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879341"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71360127"
 ---
 # <a name="virtualized-domain-controller-cloning-test-guidance-for-application-vendors"></a>Testleitfaden: Klonen von virtualisierten Domänencontrollern für Anwendungsanbieter
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-In diesem Thema wird erläutert, was Anbieter von Anwendungen berücksichtigen sollten, um sicherzustellen, dass ihre Anwendung weiterhin funktioniert wie erwartet, nachdem der Prozess für das Klonen virtualisierter Domänencontroller (DC) abgeschlossen ist. Hierin sind die Aspekte des klonprozesses, Anbieter von Interesse sind Anwendungen und Szenarien, in denen möglicherweise zusätzliche Tests zu rechtfertigen. Anbieter von Anwendungen, die überprüft haben, dass ihre Anwendung auf virtuellen Domänencontrollern funktioniert, die geklont wurden, werden aufgefordert, den Namen der Anwendung in der Community-Inhalt am Ende dieses Themas zusammen mit einem Link zur Liste Ihrer Website der Organisation, in denen Benutzer mehr über die Validierung erfahren können.  
+In diesem Thema wird erläutert, welche Anwendungshersteller in Erwägung gezogen werden sollten, um sicherzustellen, dass Ihre Anwendung nach Abschluss des Klonens des virtualisierten Domänen Controllers (DC) weiterhin erwartungsgemäß funktioniert. Dabei werden die Aspekte des Klon Prozesses behandelt, bei denen es sich um Anwendungsanbieter und Szenarios handelt, die möglicherweise zusätzliche Tests rechtfertigen Anwendungshersteller, die überprüft haben, ob Ihre Anwendung auf virtualisierten Domänen Controllern funktioniert, die geklont wurden, werden aufgefordert, den Namen der Anwendung im Inhalt der Community am Ende dieses Themas zusammen mit einem Link zu Ihrem Website der Organisation, auf der Benutzer mehr über die Validierung erfahren können.  
   
-## <a name="overview-of-virtualized-dc-cloning"></a>Übersicht über die virtualisierte Domänencontroller Klonen  
-Der virtuelle Domänencontroller, der Prozess für das Klonen wird ausführlich beschrieben [Einführung in die Active Directory Domain Services (AD DS) Virtualization (Level 100)](https://technet.microsoft.com/library/hh831734.aspx) und [Domäne-Controller mit technischen virtualisiert Referenz (Stufe 300)](https://technet.microsoft.com/library/jj574214.aspx). Aus Sicht des Anbieters, der eine Anwendung sind dies einige Überlegungen zu berücksichtigen, bei der Bewertung der Auswirkungen des Klonens zu Ihrer Anwendung:  
+## <a name="overview-of-virtualized-dc-cloning"></a>Übersicht über das Klonen virtualisierter Domänen Controller  
+Der Prozess für das Klonen virtualisierter Domänen Controller wird ausführlich in [Einführung in Active Directory Domain Services (AD DS) Virtualisierung (Stufe 100)](https://technet.microsoft.com/library/hh831734.aspx) und [Technische Referenz für virtualisierte Domänen Controller (Level 300)](https://technet.microsoft.com/library/jj574214.aspx)beschrieben. Aus der Perspektive eines Anwendungs Herstellers sind dies einige Aspekte zu berücksichtigen, die bei der Bewertung der Auswirkungen des Klonens auf Ihre Anwendung zu berücksichtigen sind:  
   
--   Der ursprüngliche Computer wird nicht zerstört. Es bleibt im Netzwerk, die Interaktion mit Clients. Im Gegensatz zu einer Umbenennung, in denen die DNS-Einträge des ursprünglichen Computers entfernt werden, bleiben die ursprünglichen Datensätzen für die Quell-Domänencontroller.  
+-   Der ursprüngliche Computer wird nicht zerstört. Sie verbleibt im Netzwerk und interagiert mit Clients. Im Gegensatz zu einem umbenennen, bei dem die DNS-Einträge des ursprünglichen Computers entfernt werden, verbleiben die ursprünglichen Datensätze für den Quell Domänen Controller.  
   
--   Während des Klonens wird der neue Computer ursprünglich für einen kurzen Zeitraum unter der Identität des vom alten Computer ausgeführt, bis der Prozess für das Klonen initiiert wird, und die erforderlichen Änderungen führt. Anwendungen, die Datensätze, die über den Host erstellen sorgen dafür, dass der geklonte Computer Datensätze über dem ursprünglichen Host nicht während des Klonens überschrieben wird.  
+-   Während des Klon Vorgangs wird der neue Computer zunächst für einen kurzen Zeitraum unter der Identität des alten Computers ausgeführt, bis der Klonprozess initiiert wird und die erforderlichen Änderungen vorgenommen werden. Anwendungen, die Datensätze über den Host erstellen, sollten sicherstellen, dass der geklonte Computer während des Klon Vorgangs keine Datensätze zum ursprünglichen Host überschreibt.  
   
--   Das Klonen ist eine bestimmte Bereitstellung ausschließlich für virtualisierte Domänencontroller, kein allgemeiner Erweiterung anderer Serverrollen zu klonen. Einige Serverrollen werden insbesondere nicht für das Klonen unterstützt:  
+-   Das Klonen ist eine bestimmte Bereitstellungs Funktion ausschließlich für virtualisierte Domänen Controller und keine allgemeine Erweiterung zum Klonen anderer Server Rollen. Einige Server Rollen werden für das Klonen nicht unterstützt:  
   
     -   Dynamic Host Configuration-Protokoll (DHCP)  
   
@@ -37,48 +37,48 @@ Der virtuelle Domänencontroller, der Prozess für das Klonen wird ausführlich 
   
     -   Active Directory Lightweight Directory Services (ADLDS)  
   
--   Als Teil des klonprozesses wird die gesamte VM, die den ursprünglichen DC darstellt kopiert, sodass auch alle Anwendungszustand auf diesem virtuellen Computer kopiert wird. Überprüfen Sie, dass die Anwendung an die Änderung des Status des lokalen Hosts auf dem geklonten Domänencontroller, anpasst, oder wenn Eingreifen erforderlich ist, z. B. ein Neustart des Diensts ist.  
+-   Im Rahmen des Klon Vorgangs wird die gesamte VM, die den ursprünglichen Domänen Controller darstellt, kopiert, sodass jeder Anwendungs Zustand auf diesem virtuellen Computer ebenfalls kopiert wird. Überprüfen Sie, ob die Anwendung an diese Änderung im Status des lokalen Hosts auf dem geklonten Domänen Controller angepasst ist oder ob ein Eingriff erforderlich ist, z. b. ein Neustart des Diensts.  
   
--   Als Teil des Klonens erhält der neue Domänencontroller eine neue Computeridentität und Bestimmungen selbst als einen Replikat-DC in der Topologie. Überprüfen Sie, ob die Computeridentität z. B. Name, Konto, SID, und So weiter die Anwendung abhängig. Anpassen es automatisch auf die Änderung der Identität des Computers auf dem Klon? Wenn die Anwendung Daten zwischengespeichert werden, stellen Sie sicher, dass es nicht auf den Computer Identitätsdaten abhängig ist, die zwischengespeichert werden kann.  
+-   Im Rahmen des Klonens erhält der neue Domänen Controller eine neue Computer Identität und stellt sich selbst als Replikat-DC in der Topologie bereit. Überprüfen Sie, ob die Anwendung von der Computer Identität abhängt, z. b. Name, Konto, sid usw. Wird es automatisch an die Änderung der Computer Identität im Klon angepasst? Wenn diese Anwendung Daten zwischenspeichert, müssen Sie sicherstellen, dass Sie sich nicht auf Computer Identitätsdaten verlassen, die zwischengespeichert werden können.  
   
-## <a name="what-is-interesting-for-application-vendors"></a>Was ist für Anbieter von Anwendungen?  
+## <a name="what-is-interesting-for-application-vendors"></a>Was ist für Anwendungshersteller interessant?  
   
-### <a name="customdccloneallowlistxml"></a>CustomDCCloneAllowList.xml  
-Ein Domänencontroller, der Ihre Anwendung oder Ihr Dienst ausgeführt wird kann nicht geklont werden, bis die Anwendung oder Dienst ist entweder:  
+### <a name="customdccloneallowlistxml"></a>Customdccloneallowlist. XML  
+Ein Domänen Controller, auf dem die Anwendung oder der Dienst ausgeführt wird, kann erst geklont werden, wenn die Anwendung bzw. der Dienst  
   
--   Die Datei %% amp;quot;customdccloneallowlist.XML%%amp;quot; hinzugefügt, mit dem Get-ADDCCloningExcludedApplicationList Windows PowerShell-cmdlet  
+-   Mithilfe des Windows PowerShell-Cmdlets "Get-addccloningexcludedapplicationlist" zur Datei "customdccloneallowlist. xml" hinzugefügt.  
   
 – Oder –  
   
--   Vom Domänencontroller entfernt  
+-   Vom Domänen Controller entfernt  
   
-Der ersten Ausführung der Benutzer das Cmdlet Get-ADDCCloningExcludedApplicationList gibt es eine Liste der Dienste und Anwendungen, die auf dem Domänencontroller ausgeführt werden, jedoch sind nicht in die Standardliste der Dienste und Anwendungen, die für das Klonen unterstützt werden. Standardmäßig wird Ihr Dienst oder diese Anwendung nicht aufgeführt werden. Zum Hinzufügen von Ihrem Dienst oder Anwendung in die Liste der Anwendungen und Dienste, die sicher sein können geklont, die Benutzer ausgeführt wird, die file-Get-ADDCCloningExcludedApplicationList-Cmdlet erneut mit der Option – GenerateXML, damit er zu CustomDCCloneAllowList.xml hinzugefügt. Weitere Informationen finden Sie unter [Schritt2: Führen Sie Get-ADDCCloningExcludedApplicationList Cmdlet](https://technet.microsoft.com/library/hh831734.aspx#bkmk6_run_get_addccloningexcludedapplicationlist_cmdlet).  
+Beim ersten Ausführen des Cmdlets "Get-addccloningexcludedapplicationlist" wird eine Liste der Dienste und Anwendungen zurückgegeben, die auf dem Domänen Controller ausgeführt werden, sich aber nicht in der Standardliste der Dienste und Anwendungen befinden, die für das Klonen unterstützt werden. Standardmäßig wird der Dienst oder die Anwendung nicht aufgelistet. Um den Dienst oder die Anwendung der Liste der Anwendungen und Dienste hinzuzufügen, die sicher geklont werden können, führt der Benutzer das Get-addccloningexcludedapplicationlist-Cmdlet erneut mit der Option-generatexml aus, um es der Datei customdccloneallowlist. XML hinzuzufügen. Weitere Informationen finden Sie unter [step 2: Führen Sie das Get-addccloningexcludedapplicationlist-Cmdlet @ no__t-0 aus.  
   
-### <a name="distributed-system-interactions"></a>Verteiltes System Interaktionen  
-In der Regel Dienste, die auf dem lokalen Computer isoliert entweder erfolgreich oder Fehler beim Klonen beteiligt. Verteilte Dienste müssen bedenken, die gleichzeitig mit zwei Instanzen des Host-Computers im Netzwerk für einen kurzen Zeitraum sein. Dies kann manifest als eine Dienstinstanz, die versuchen, das Abrufen von Informationen von einem Partnersystem, auf dem der Klon als der Identität des neuen Anbieter registriert. Oder beide Instanzen des Diensts möglicherweise push-Informationen in AD DS-Datenbank zur gleichen Zeit mit unterschiedlichen Ergebnissen. Beispielsweise ist es nicht deterministisch, mit welchem Computer kommuniziert werden wird, wenn zwei Computer, auf denen Windows testen WTT (Technologies)-Dienst auf dem Netzwerk mit dem Domänencontroller befinden.  
+### <a name="distributed-system-interactions"></a>Verteilte System Interaktionen  
+In der Regel werden Dienste, die auf dem lokalen Computer isoliert sind, bei der Teilnahme am Klonen bestanden oder schlagen fehl Verteilte Dienste müssen sich für einen kurzen Zeitraum gleichzeitig mit zwei Instanzen des Host Computers im Netzwerk beschäftigen. Dies kann sich als eine Dienst Instanz erweisen, die versucht, Informationen von einem Partner System abzurufen, in dem sich der Klon als neuer Anbieter der Identität registriert hat. Oder beide Instanzen des dienstanzen können Informationen mit unterschiedlichen Ergebnissen zur gleichen Zeit in die AD DS Datenbank überführen. Beispielsweise ist es nicht deterministisch, mit welchem Computer kommuniziert wird, wenn sich zwei Computer mit dem Windows-Testtechnologie Dienst (WTT) im Netzwerk mit dem Domänen Controller befinden.  
   
-Für den verteilten DNS-Serverdienst vermeidet der Klonvorgang sorgfältig, überschreiben die DNS-Einträge dem Quelldomänencontroller beim Start des geklonten Domänencontrollers mit einer neuen IP-Adresse.  
+Für den verteilten DNS-Server Dienst vermeidet der Klon Vorgang sorgfältig das Überschreiben der DNS-Einträge des Quell Domänen Controllers, wenn der geklonte Domänen Controller mit einer neuen IP-Adresse beginnt.  
   
-Sie sollten nicht auf dem Computer zum Entfernen aller die alte Identität bis zum Ende des Klonens verlassen. Wählen Sie der neuen Domänencontroller in der neue Kontext höher gestuft worden ist, Sysprep-Anbieter ausgeführt werden, um den zusätzlichen Zustand des Computers zu bereinigen. Beispielsweise ist es an diesem Punkt werden die alten Zertifikate des Computers entfernt, und die Kryptografie-Geheimnisse, die auf der Computer zugreifen kann geändert werden.  
+Sie sollten sich nicht auf den Computer verlassen, um die alte Identität bis zum Ende des Klonens zu entfernen. Nachdem der neue Domänen Controller in den neuen Kontext herauf gestuft wurde, wählen Sie die Option systatp-Anbieter werden ausgeführt aus, um den zusätzlichen Status des Computers zu bereinigen. Beispielsweise können Sie an diesem Punkt die alten Zertifikate des Computers entfernen, und die kryptografiegeheimnisse, auf die der Computer zugreifen kann, werden geändert.  
   
-Der wichtigste Faktor ist, der die zeitplanung für das Klonen abhängig ist, wie viele Objekte vorhanden sind, von den PDC zu replizieren. Ältere Media erhöht den Zeitaufwand für die vollständige klonen.  
+Der größte Faktor, der die zeitliche Steuerung des Klonens variiert, ist die Anzahl der Objekte, die vom PDC repliziert werden müssen. Ältere Medien erhöhen die Zeit, die zum Abschließen des Klonens benötigt wird.  
   
-Da es sich bei Ihrem Dienst oder Anwendung unbekannt ist, wird es weiterhin ausgeführt. Der Klonvorgang ändert nicht den Status der nicht-Windows-Dienste.  
+Da der Dienst oder die Anwendung unbekannt ist, wird er noch nicht ausgeführt. Beim Klon Vorgang wird der Status von nicht-Windows-Diensten nicht geändert.  
   
-Darüber hinaus hat der neue Computer eine andere IP-Adresse als der ursprüngliche Computer. Dieses Verhalten können Nebeneffekte zu Ihrem Dienst oder die Anwendung wird je nach dem Dienst oder eine Anwendung in dieser Umgebung Verhalten führen.  
+Außerdem hat der neue Computer eine andere IP-Adresse als der ursprüngliche Computer. Diese Verhaltensweisen können Nebenwirkungen auf Ihren Dienst oder Ihre Anwendung verursachen, abhängig davon, wie sich der Dienst oder die Anwendung in dieser Umgebung verhält.  
   
-## <a name="additional-scenarios-suggested-for-testing"></a>Zusätzliche Szenarien, die für Tests empfohlen.  
+## <a name="additional-scenarios-suggested-for-testing"></a>Weitere Szenarien, die für Tests vorgeschlagen werden  
   
-### <a name="cloning-failure"></a>Fehler beim Klonen  
-Dienstanbietern Testen dieses Szenarios sollten, da beim Klonen tritt der Computer in Directory Services Repair-Wiederherstellungsmodus (DSRM), eine Form des abgesicherten Modus gestartet wird. An diesem Punkt wurde der Computer nicht das Klonen abgeschlossen. Kann ein Status sich geändert haben, und ein Zustand, der von der ursprünglichen Domäne bleiben kann. Testen Sie dieses Szenario, um zu verstehen, welche Auswirkungen es auf Ihre Anwendung auswirken kann.  
+### <a name="cloning-failure"></a>Klon Fehler  
+Dienstanbieter sollten dieses Szenario testen, da der Computer beim Klonen nicht in den Verzeichnisdienst-Reparatur Modus (Directory Services Repair Mode, DSRM), eine Form des abgesicherten Modus wechselt. An diesem Punkt hat der Computer den Klon Vorgang nicht abgeschlossen. Möglicherweise hat sich ein Status geändert, und ein Status kann vom ursprünglichen Domänen Controller verbleiben. Testen Sie dieses Szenario, um zu verstehen, welche Auswirkungen es auf Ihre Anwendung haben kann.  
   
-Zum Auslösen eines Fehlers beim Klonen, versuchen Sie es auf einen Domänencontroller zu klonen, ohne das Erteilen der Berechtigung, geklont zu werden. In diesem Fall der Computer nur mehr IP-Adressen und immer noch über die meisten seinen Zustand aus dem ursprünglichen Domänencontroller. Weitere Informationen zum Gewähren von einer Domäne-Controller-Berechtigung, geklont zu werden, finden Sie unter [Schritt 1: Gewähren Sie dem virtualisierten Quelldomänencontroller die Berechtigung, geklont zu werden](https://technet.microsoft.com/library/hh831734.aspx#bkmk4_grant_source).  
+Wenn Sie einen Klon Fehler auslösen möchten, versuchen Sie, einen Domänen Controller zu klonen, ohne ihm die Berechtigung zum Klonen zu erteilen. In diesem Fall hat der Computer nur die IP-Adressen geändert und hat weiterhin den Großteil seines Zustands vom ursprünglichen Domänen Controller. Weitere Informationen zum Erteilen der Berechtigung zum Klonen eines Domänen Controllers finden Sie unter [step 1: Erteilen Sie dem virtualisierten Quell Domänen Controller die Berechtigung, geklont zu werden @ no__t-0.  
   
-### <a name="pdc-emulator-cloning"></a>Klonen der PDC-emulator  
-Dienst- und Lieferanten Testen dieses Szenarios sollten, da bei einem weiteren Neustart vorhanden ist, wenn der PDC-Emulator geklont wird. Darüber hinaus wird die Mehrheit der Klonen in eine temporäre Identität zu dem neuen Klon für die Interaktion mit dem PDC-Emulator während des Klonvorgangs ausgeführt.  
+### <a name="pdc-emulator-cloning"></a>Klonen des PDC-Emulators  
+Dienst-und Anwendungshersteller sollten dieses Szenario testen, da ein zusätzlicher Neustart erfolgt, wenn der PDC-Emulator geklont wird. Außerdem wird der Großteil des Klonens unter einer temporären Identität ausgeführt, damit der neue Klon während des Klon Vorgangs mit dem PDC-Emulator interagieren kann.  
   
-### <a name="writable-versus-read-only-domain-controllers"></a>Im Vergleich zu schreibgeschützten Domänencontrollern beschreibbaren  
-Dienst- und Lieferanten sollten testen, Klonen die gleiche Art von Domänencontroller mit (d. h. auf einem Domänencontroller beschreibbar oder schreibgeschützt) Dienst geplant ist, für die Ausführung auf.  
+### <a name="writable-versus-read-only-domain-controllers"></a>Schreibgeschützte und schreibgeschützte Domänen Controller  
+Dienst-und Anwendungshersteller sollten das Klonen mithilfe desselben Domänen Controller Typs (d. h. auf einem beschreibbaren oder schreibgeschützten Domänen Controller) testen, auf dem der Dienst ausgeführt werden soll.  
   
 
 

@@ -1,9 +1,9 @@
 ---
 title: Schritt 3 Überprüfen der Bereitstellung
-description: Dieses Thema ist Teil des Leitfadens verwalten DirectAccess-Clients Remote in Windows Server 2016.
+description: Dieses Thema ist Teil des Handbuchs zur Remote Verwaltung von DirectAccess-Clients in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,30 +12,30 @@ ms.topic: article
 ms.assetid: 6a78a078-d2e7-4cbd-b8d5-20cfb6d1524b
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 8d2b0b27d4b1d33971564672954667b49a87a4e0
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 81ac8bf7321df915330d8d706fa5ba3912b8f54c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282767"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71367295"
 ---
 # <a name="step-3-verify-the-deployment"></a>Schritt 3 Überprüfen der Bereitstellung
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Dieses Thema beschreibt, wie Sie sicher, dass Sie die Bereitstellung für die Remoteverwaltung von DirectAccess-Clients ordnungsgemäß konfiguriert haben.  
+In diesem Thema wird beschrieben, wie Sie überprüfen, ob die Bereitstellung für die Remote Verwaltung von DirectAccess-Clients ordnungsgemäß konfiguriert wurde.  
   
-### <a name="to-verify-proper-deployment"></a>So überprüfen ordnungsgemäße Bereitstellung.  
+### <a name="to-verify-proper-deployment"></a>So überprüfen  
   
-1.  Einen DirectAccess-Clientcomputer mit dem Unternehmensnetzwerk herstellen, und das Gruppenrichtlinienobjekt zu erhalten.  
+1.  Verbinden eines DirectAccess-Client Computers mit dem Unternehmensnetzwerk und Abrufen des Gruppenrichtlinie Objekts.  
   
-2.  Klicken Sie auf dem Clientcomputer auf die **Netzwerkverbindungen** Symbol im Infobereich der Taskleiste auf dem DirectAccess-Medienverwaltung zuzugreifen.  
+2.  Klicken Sie auf dem Client Computer im Benachrichtigungsbereich auf das Symbol **Netzwerkverbindungen** , um auf den DirectAccess-Medien-Manager zuzugreifen.  
   
-3.  Klicken Sie auf **DirectAccess-Verbindung**, und Sie sehen, dass der Status **lokal verbundenen**.  
+3.  Klicken Sie auf **DirectAccess-Verbindung**, und Sie werden feststellen, dass der Status **Lokal verbunden**ist.  
   
-4.  Entfernen Sie den Computer aus dem Unternehmensnetzwerk, und verbinden Sie es mit einem öffentlichen Netzwerk.  
+4.  Entfernen Sie den Computer aus dem Unternehmensnetzwerk, und verbinden Sie ihn mit einem öffentlichen Netzwerk.  
   
-5.  Geben Sie an einer Eingabeaufforderung den Befehl **Nltest/dsgetdc: [vollständig qualifizierter Domänenname]** . Dieser Befehl prüft, ob im Unternehmensnetzwerk an den Client verfügbar ist. Ist der Domänencontroller nicht zugegriffen werden kann, wird die folgende Fehlermeldung angezeigt, Berichten, die die Domäne nicht vorhanden ist: ERROR_NO_SUCH_DOMAIN.  
+5.  Geben Sie an einer Eingabeaufforderung **nltest/dsgetdc: [voll qualifizierter Domänen Name]** ein. Mit diesem Befehl wird überprüft, ob der Client über das Unternehmensnetzwerk erreichbar ist. Wenn auf den Domänen Controller nicht zugegriffen werden kann, wird in der folgenden Fehlermeldung angezeigt, dass die Domäne nicht vorhanden ist: ERROR_NO_SUCH_DOMAIN.  
   
 
 

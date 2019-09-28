@@ -1,8 +1,8 @@
 ---
-title: Mithilfe der hinzufügen-Befehl
-description: 'Windows-Befehle Thema ***- '
+title: Verwenden des Befehls "hinzufügen"
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,28 +13,28 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 14b9249116a4a1415ecbf5747cff9311b4cca521
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fb60d0790fb4f8ab08e02664e26bc7ca6697b5c5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817301"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363866"
 ---
-# <a name="using-the-add-command"></a>Mithilfe der hinzufügen-Befehl
+# <a name="using-the-add-command"></a>Verwenden des Befehls "hinzufügen"
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 ## <a name="subcommands"></a>Unterbefehle
 |Unterbefehl|Beschreibung|
 |-------|--------|
-|[Mithilfe des Befehls Hinzufügen von Geräten](using-the-add-device-command.md)|Fortschrittsdialogfeld von einem Computer in active Directory.|
-|[Mithilfe des Add-Image-Befehl](using-the-add-image-command.md)|Fügt die Start- oder Installationsimages.|
-|[Mithilfe des Befehls Add-ImageGroup](using-the-add-imagegroup-command.md)|Fügt eine Abbildgruppe enthalten.|
-|[Mithilfe des Befehls Add-DriverGroupPackage](using-the-add-drivergrouppackage-command.md)|eine Treibergruppe wird einem Treiberpaket hinzugefügt.|
-|[Mithilfe des Befehls Add-DriverGroupPackages](using-the-add-drivergrouppackages-command.md)|eine Treibergruppe hinzugefügt Treiberpakete haben.|
-|[Mithilfe des Befehls Add-DriverPackage /](using-the-add-driverpackage-command.md)|Fügt einem Treiberpaket an den Server an.|
-|[Mithilfe des Befehls Add-ImageDriverPackage](using-the-add-imagedriverpackage-command.md)|Fügt ein Treiberpaket, das im Driver Store auf ein vorhandenes Startabbild auf dem Server ist. Die Version des Images muss Windows 7 oder Windows Server 2008 R2 oder höher.|
-|[Mithilfe des Befehls Add-ImageDriverPackages](using-the-add-imagedriverpackages-command.md)|ein Startimage auf dem Server hinzugefügt Treiberpakete aus dem Treiberspeicher. Die Version des Images muss Windows 7 oder Windows Server 2008 R2 oder höher.|
-|[Verwenden des Add-AllDriverPackages Unterbefehls](using-the-add-alldriverpackages-subcommand.md)|ein Server hinzugefügt Treiberpakete aus einem Ordner.|
-|[Mithilfe des Befehls Add-DriverGroup](using-the-add-drivergroup-command.md)|Fügt eine Treibergruppe auf einen Server hinzu.|
-|[Mithilfe des Befehls Add-DriverGroupFilter](using-the-add-drivergroupfilter-command.md)|Fügt einen Filter eine Treibergruppe auf einem Server an.|
+|[Verwenden des Befehls "Add-Device"](using-the-add-device-command.md)|Vorab Stufen eines Computers in Active Directory.|
+|[Verwenden des Befehls "Add-Image"](using-the-add-image-command.md)|Hiermit werden Start-oder Installations Images hinzugefügt.|
+|[Verwenden des Befehls "Add-ImageGroup"](using-the-add-imagegroup-command.md)|Fügt eine Bild Gruppe hinzu.|
+|[Verwenden des Befehls "Add-drivergrouppackage"](using-the-add-drivergrouppackage-command.md)|Fügt einer Treiber Gruppe ein Treiber Paket hinzu.|
+|[Verwenden des Befehls "Add-drivergrouppackages"](using-the-add-drivergrouppackages-command.md)|Fügt einer Treiber Gruppe Treiber Pakete hinzu.|
+|[Verwenden des Befehls "Add-DriverPackage"](using-the-add-driverpackage-command.md)|Fügt dem Server ein Treiber Paket hinzu.|
+|[Verwenden des Befehls "Add-imagedriverpackage"](using-the-add-imagedriverpackage-command.md)|Fügt einem vorhandenen Start Abbild auf dem-Server ein Treiber Paket hinzu, das sich im Treiber Speicher befindet. Die Image Version muss Windows 7 oder Windows Server 2008 R2 oder höher sein.|
+|[Verwenden des Add-ImageDriverPackages-Befehls](using-the-add-imagedriverpackages-command.md)|Hinzufügen von Treiber Paketen aus dem Treiber Speicher zu einem Start Abbild auf dem Server. Die Image Version muss Windows 7 oder Windows Server 2008 R2 oder höher sein.|
+|[Verwenden des Add-AllDriverPackages-Unterbefehls](using-the-add-alldriverpackages-subcommand.md)|Fügt einem Server Treiber Pakete aus einem Ordner hinzu.|
+|[Verwenden des Befehls "Add-drivergroup"](using-the-add-drivergroup-command.md)|Fügt einem Server eine Treiber Gruppe hinzu.|
+|[Verwenden des Befehls "Add-drivergroupfilter"](using-the-add-drivergroupfilter-command.md)|Fügt einer Treiber Gruppe auf einem Server einen Filter hinzu.|

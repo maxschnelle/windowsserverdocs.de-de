@@ -1,8 +1,8 @@
 ---
-title: Bdehdcfg newdriveletter
-description: Windows-Befehle Thema Bdehdcfg Newdriveletter - weist einen neuen Laufwerksbuchstaben zu den Teil eines Laufwerks als Systemlaufwerk verwendet.
+title: bdehdcfg newdriveletter
+description: 'Thema Windows-Befehle für bdehdcfg newdriveletter: weist dem Teil eines Laufwerks, das als Systemlaufwerk verwendet wird, einen neuen Laufwerk Buchstaben zu.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cd40942dfb724d46c0fa9a43c4646e1db09d2a76
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e2abd4a686f358b5dd844514735edb3ffaa13845
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887141"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382229"
 ---
-# <a name="bdehdcfg-newdriveletter"></a>Bdehdcfg: Newdriveletter
+# <a name="bdehdcfg-newdriveletter"></a>bdehdcfg: newdriveletter
 
 
 
-Weist einen neuen Laufwerksbuchstaben, der Teil eines Laufwerks als Systemlaufwerk verwendet. Ein Beispiel, wie dieser Befehl verwendet werden kann, finden Sie unter [Beispiele](#BKMK_Examples).
+Weist dem Teil eines Laufwerks, das als Systemlaufwerk verwendet wird, einen neuen Laufwerk Buchstaben zu. Ein Beispiel für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,20 +36,20 @@ bdehdcfg -target {default|unallocated|<DriveLetter> shrink|<DriveLetter> merge} 
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<DriveLetter>|Definiert den Laufwerkbuchstaben, der für das angegebene Ziellaufwerk zugewiesen wird.|
+|\<driveletter >|Definiert den Laufwerk Buchstaben, der dem angegebenen Ziellaufwerk zugewiesen wird.|
 
 ## <a name="remarks"></a>Hinweise
 
-Als bewährte Methode empfiehlt es sich, dass Sie auf das Systemlaufwerk keinen Laufwerkbuchstaben zuweisen.
+Als bewährte Vorgehensweise wird empfohlen, dem Systemlaufwerk keinen Laufwerk Buchstaben zuzuweisen.
 
-## <a name="BKMK_Examples"></a>Beispiele für
+## <a name="BKMK_Examples"></a>Beispiele
 
-Das folgende Beispiel zeigt das Standardlaufwerk gruppenzuweisung für den Laufwerkbuchstaben P.
+Im folgenden Beispiel wird gezeigt, wie dem Standard Laufwerk der Laufwerk Buchstabe P zugewiesen wird.
 ```
 bdehdcfg -target default -newdriveletter P:
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Bdehdcfg](bdehdcfg.md)

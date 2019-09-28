@@ -6,51 +6,51 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 1a7e59dd83ebc9a9eabd5bda1dc598d320f5028d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 8e1bbeddc4bae1c420b6cc78b52d6b873320ae8f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442501"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359581"
 ---
 # <a name="export-the-private-key-portion-of-a-server-authentication-certificate"></a>Exportieren des Teils eines privaten Schlüssels aus einem Serverauthentifizierungszertifikat
 
-Jedes Verbundservers in einer Active Directory Federation Services \(AD FS\) Farm benötigen Zugriff auf den privaten Schlüssel des serverauthentifizierungszertifikats. Wenn Sie eine Serverfarm mit Verbundserver oder Webservern implementieren, müssen Sie ein einzelnes Authentifizierungszertifikat verfügen. Dieses Zertifikat muss von einer Unternehmenszertifizierungsstelle ausgestellt sein \(Zertifizierungsstelle\), und sie müssen einen exportierbaren privaten Schlüssel. Der private Schlüssel des Serverauthentifizierungszertifikats muss exportierbar sein, damit er für alle Server in der Farm zur Verfügung gestellt werden kann.  
+Jeder Verbund Server in einer Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1-Farm muss Zugriff auf den privaten Schlüssel des Server Authentifizierungs Zertifikats haben. Wenn Sie eine Serverfarm mit Verbund Servern oder Webservern implementieren, benötigen Sie ein einzelnes Authentifizierungszertifikat. Dieses Zertifikat muss von einer Unternehmens Zertifizierungsstelle \(ca @ no__t-1 ausgestellt werden, und es muss über einen exportierbaren privaten Schlüssel verfügen. Der private Schlüssel des Serverauthentifizierungszertifikats muss exportierbar sein, damit er für alle Server in der Farm zur Verfügung gestellt werden kann.  
   
-Dasselbe Konzept gilt für Verbund-Proxy-Serverfarmen in dem Sinne, dass alle Verbundserverproxys in einer Farm Teil mit den privaten Schlüssel des das gleiche Serverauthentifizierungszertifikat verwenden, müssen zur Verfügung.  
+Dasselbe Konzept gilt für Verbund Server Proxy-Farmen in dem Sinne, dass alle Verbund Server Proxys in einer Farm den privaten Schlüsselteil desselben Server Authentifizierungs Zertifikats gemeinsam nutzen müssen.  
   
 > [!NOTE]  
-> Die AD FS-Verwaltungs-Snap\-in bezeichnet Serverauthentifizierungszertifikate für Verbundserver als dienstkommunikationszertifikate.  
+> Das AD FS-Verwaltungs-Snap @ no__t-0in bezieht sich auf Server Authentifizierungs Zertifikate für Verbund Server als Dienst Kommunikations Zertifikate.  
   
-Je nachdem welche Rolle dieser Computer spielen wird, verwenden Sie dieses Verfahren auf dem verbundservercomputer oder Verbundserverproxy-Computer, auf dem Sie das Serverauthentifizierungszertifikat mit dem privaten Schlüssel installiert. Wenn das Verfahren abgeschlossen ist, können Sie dieses Zertifikat dann auf der Standardwebsite jedes Servers in der Farm importieren. Weitere Informationen finden Sie unter [Importieren eines Serverauthentifizierungszertifikats auf die Standardwebsite](Import-a-Server-Authentication-Certificate-to-the-Default-Web-Site.md).  
+Abhängig von der Rolle, die dieser Computer wieder gibt, verwenden Sie dieses Verfahren auf dem Verbund Server Computer oder dem Verbund Server Proxy-Computer, auf dem Sie das Server Authentifizierungszertifikat mit dem privaten Schlüssel installiert haben. Wenn das Verfahren abgeschlossen ist, können Sie dieses Zertifikat dann auf der Standardwebsite jedes Servers in der Farm importieren. Weitere Informationen finden Sie unter [Importieren eines Server Authentifizierungs Zertifikats auf die Standard Website](Import-a-Server-Authentication-Certificate-to-the-Default-Web-Site.md).  
   
-Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Weitere Informationen zur Verwendung der geeigneten Konten und Gruppenmitgliedschaften unter [lokale und Domänenstandardgruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
 ### <a name="to-export-the-private-key-portion-of-a-server-authentication-certificate"></a>So exportieren Sie den Bereich mit dem privaten Schlüssel eines Serverauthentifizierungszertifikats  
   
-1. Auf der **starten** geben**Internet Information Services \(IIS\) Manager**, und drücken Sie dann die EINGABETASTE.  
+1. Geben Sie auf dem **Start** Bildschirm**Internetinformationsdienste \(iis @ no__t-3 Manager**ein, und drücken Sie dann die EINGABETASTE.  
   
 2. Klicken Sie in der Konsolenstruktur auf **ComputerName**.  
   
-3. Doppelklicken Sie im mittleren Bereich\-klicken Sie auf **Serverzertifikate**.  
+3. Doppelklicken Sie im mittleren Bereich auf **Server Zertifikate**no__t-0.  
   
-4. Klicken Sie im mittleren Bereich der rechten Maustaste\-klicken Sie auf das Zertifikat, das Sie exportieren möchten, und klicken Sie dann auf **exportieren**.  
+4. Klicken Sie im mittleren Bereich mit der rechten Maustaste auf das Zertifikat, das Sie exportieren möchten, und klicken Sie dann auf **exportieren**.  
   
-5. In der **Zertifikat exportieren** Dialogfeld klicken Sie auf die **...** .  
+5. Klicken Sie im Dialogfeld **Zertifikat exportieren** auf die **...** .  
   
-6. In **Dateiname**, Typ **C:\\** <em>Name des Zerttifikats</em>, und klicken Sie dann auf **öffnen**.  
+6. Geben Sie unter **Dateiname den Namen** **C: \\** <em>nameof Certificate</em>ein, und klicken Sie dann auf **Öffnen**.  
   
 7. Geben Sie das Kennwort für das Zertifikat ein, bestätigen Sie das Kennwort, und klicken Sie dann auf **OK**.  
   
 8. Überprüfen Sie den Erfolg Ihres Exportvorgangs, indem Sie bestätigen, dass die von Ihnen angegebene Daten am angegebenen Standort erstellt wird.  
   
    > [!IMPORTANT]  
-   > Damit dieses Zertifikat in den lokalen Zertifikatspeicher auf dem neuen Server importiert werden, müssen Sie die Datei auf ein physisches Speichermedium übertragen und ihre Sicherheit während des Transports auf den neuen Server sichern. Es ist äußerst wichtig, die Sicherheit des privaten Schlüssels zu gewähren. Wenn dieser Schlüssel gefährdet ist, die Sicherheit der gesamten AD FS-Bereitstellung \(das Einschließen von Ressourcen in Ihrer Organisation und in ressourcenpartnerorganisationen\) gefährdet ist.  
+   > Damit dieses Zertifikat in den lokalen Zertifikatspeicher auf dem neuen Server importiert werden, müssen Sie die Datei auf ein physisches Speichermedium übertragen und ihre Sicherheit während des Transports auf den neuen Server sichern. Es ist äußerst wichtig, die Sicherheit des privaten Schlüssels zu gewähren. Wenn dieser Schlüssel gefährdet ist, wird die Sicherheit der gesamten AD FS Bereitstellung \(einschließlich der Ressourcen in Ihrer Organisation und in den Ressourcen Partnerorganisationen @ no__t-1 beeinträchtigt.  
   
-9. Importieren Sie das exportierte Serverauthentifizierungszertifikat in den Zertifikatspeicher auf dem neuen Server, bevor Sie den Verbunddienst installieren. Informationen dazu, wie Sie das Zertifikat zu importieren, finden Sie unter Importieren eines Serverzertifikats \( [http:\/\/"go.Microsoft.com"\/Fwlink\/? LinkId\=108283](https://go.microsoft.com/fwlink/?LinkId=108283)\).  
+9. Importieren Sie das exportierte Serverauthentifizierungszertifikat in den Zertifikatspeicher auf dem neuen Server, bevor Sie den Verbunddienst installieren. Weitere Informationen zum Importieren des Zertifikats finden Sie unter Importieren eines Server Zertifikats \([http: @no__t -2\/GO.Microsoft.com @ no__t-4fwlink @ no__t-5? linkid @ no__t-6108283](https://go.microsoft.com/fwlink/?LinkId=108283)\).  
   
 ## <a name="additional-references"></a>Weitere Verweise  
 [Prüfliste: Einrichten eines Verbundservers](Checklist--Setting-Up-a-Federation-Server.md)  

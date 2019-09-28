@@ -6,15 +6,15 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 82added5018d83aeb9fe7d8033204a0d19bd047a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 37dd52b8771eda695069dd996fbd920e31f80ef1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868098"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359809"
 ---
 # <a name="configure-performance-monitoring"></a>Konfigurieren der Leistungsüberwachung
   
@@ -41,7 +41,7 @@ AD FS umfasst eigene dedizierte Leistungsindikatoren, die Sie beim Überwachen d
   
 7. Wenn Sie zum Hinzufügen von Registrierungs Schlüsseln zur Überwachung aufgefordert werden, klicken Sie auf **weiter**.  
   
-8. Wenn Sie zum Angeben des Speicher Orts für die Leistungsdaten aufgefordert werden, können Sie den Standard Speicherort \( **% System Drive%\\Perflogs\\admin\\** _< Data\_Collector akzeptieren. legen\_Sie > fest_, und klicken Sie dann auf **weiter**.  
+8. Wenn Sie aufgefordert werden, den Speicherort anzugeben, an dem die Leistungsdaten gespeichert werden sollen, können Sie den Standard Speicherort \( **% System Drive% \\perflogs @ no__t-3admin @ no__t-4** _< Data @ no__t-6collector @ no__t-7set >_ annehmen und dann auf **Als nächstes**.  
   
 9. Wenn Sie zum Erstellen des Datensammler Satzes aufgefordert werden, wählen Sie **Speichern und schließen**aus, und klicken Sie dann auf **Fertig**stellen.  
   

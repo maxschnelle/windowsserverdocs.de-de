@@ -7,22 +7,22 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: acdecd4afd9c55bdbd71cea9e01f3b3024870ced
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 55291293349ce77337c5b35585dd3ea8e0d8c9e2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191517"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359168"
 ---
 # <a name="deploying-ad-fs-in-the-resource-partner-organization"></a>Konfigurieren von AD FS in der Ressourcenpartnerorganisation
 
-Die Ressourcenpartnerorganisation in Active Directory Federation Services \(AD FS\) stellt die Organisation, deren Webserver möglicherweise durch eine Ressource geschützt\-Verbundserver für die Seite. Der Verbundserver in der Ressourcenpartner verwendet die Sicherheitstoken, die erstellt werden, durch den Kontopartner Ansprüche an die Webserver bereitstellen, die beim Ressourcenpartner befinden.  
+Die Ressourcen Partnerorganisation in Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1 stellt die Organisation dar, deren Webserver möglicherweise durch einen no__t-zweiten Verbund Server geschützt werden. Der Verbund Server beim Ressourcen Partner verwendet die Sicherheits Token, die vom Konto Partner erstellt werden, um Ansprüche an die Webserver zu stellen, die sich im Ressourcen Partner befinden.  
   
-In Szenarien, in denen Sie Zugriff auf verbundene Dienste oder Anwendungen für viele verschiedene Benutzer angeben müssen, wenn einige Benutzer, die in verschiedenen Organisationen befinden – Sie können den Ressourcenverbundserver konfigurieren, sodass Sie mehrere Kontopartner bereitstellen können.  
+In Szenarien, in denen Sie den Zugriff auf Verbund Dienste oder-Anwendungen für viele verschiedene Benutzer bereitstellen müssen – wenn sich einige Benutzer in verschiedenen Organisationen befinden – können Sie den Ressourcen Verbund Server so konfigurieren, dass Sie mehrere Konto Partner bereitstellen können.  
   
-Weitere Informationen über das Einrichten und Konfigurieren der Ressourcenpartnerorganisation finden Sie unter [Prüfliste: Konfigurieren der Ressourcenpartnerorganisation](../../ad-fs/deployment/Checklist--Configuring-the-Resource-Partner-Organization.md).  
+Weitere Informationen zum Einrichten und Konfigurieren einer Ressourcen Partnerorganisation finden Sie unter [checkliste: Konfigurieren der Ressourcen Partner Organisation @ no__t-0.  
   
 ## <a name="in-this-section"></a>Inhalt dieses Abschnitts  
   

@@ -1,8 +1,8 @@
 ---
-title: Verwenden die Copy-Image-Befehl
-description: 'Windows-Befehle Thema ***- '
+title: Verwenden des Befehls "Copy-Image"
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 52c9c0bb45e60e76077bf90534e93f2c6fc1df18
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2f269884e9c1f96151c9e1220242fad917b76831
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884041"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363558"
 ---
-# <a name="using-the-copy-image-command"></a>Verwenden die Copy-Image-Befehl
+# <a name="using-the-copy-image-command"></a>Verwenden des Befehls "Copy-Image"
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Kopiert Images, die innerhalb der gleichen Image-Gruppe sind. Verwenden Sie zum Kopieren von Images zwischen Abbildgruppen der [mithilfe des Export-Image-Befehls](using-the-export-image-command.md) Befehl und klicken Sie dann die [mit dem Befehl-Add-Image](using-the-add-image-command.md) Befehl.
-Beispiele, wie Sie diesen Befehl verwenden können, finden Sie unter [Beispiele](#BKMK_examples).
+Kopiert Bilder, die sich innerhalb derselben Bild Gruppe befinden. Um Bilder zwischen Bildgruppen zu kopieren, verwenden Sie den Befehl [Export-Image](using-the-export-image-command.md) , und verwenden Sie dann den Befehl [Add-Image](using-the-add-image-command.md) .
+Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 ## <a name="syntax"></a>Syntax
 ```
 wdsutil [Options] /copy-Imagmedia:<Image name> [/Server:<Server name>]
@@ -40,27 +40,26 @@ wdsutil [Options] /copy-Imagmedia:<Image name> [/Server:<Server name>]
 ## <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
-Medien:<Image name>|Gibt den Namen des Bildes, das kopiert werden.|
-|[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben wird, wird der lokale Server verwendet werden.|
-mediatype:Install|Gibt den Typ der zu kopierende Bild. Diese Option muss festgelegt werden, um **installieren**.|
-|\mediaGroup:<Image group name>]|Gibt die Image-Gruppe, die die zu kopierende Bild enthält. Wenn keine Abbildgruppe angegeben ist, und nur eine Gruppe, die auf dem Server vorhanden ist, wird standardmäßig diese Abbildgruppe verwendet werden. Wenn auf dem Server mehr als eine Abbildgruppe vorhanden ist, müssen Sie die Abbildgruppe angeben.|
-|[/Filename:<Filename>]|Gibt den Dateinamen des Bildes, das kopiert werden. Wenn das Quellbild eindeutig anhand des Namens identifiziert werden kann, müssen Sie den Dateinamen angeben.|
-|/DestinationImage|Gibt die Einstellungen für das Zielabbild an, wie in der folgenden Tabelle beschrieben.<br /><br />-/ Name:<Name> -legt den Anzeigenamen des Bildes, das kopiert werden.<br />-/ FileName:<Filename> -legt den Namen der Ziel-Bilddatei, die die imagekopie enthält.<br />-[/ Description: <Description>]-Legt die Beschreibung des Kopiervorgangs Image fest.|
-## <a name="BKMK_examples"></a>Beispiele für
-Erstellen eine Kopie des angegebenen Bilds, und nennen Sie sie WindowsVista.wim, geben Sie Folgendes ein:
+Medien: <Image name>|Gibt den Namen des zu kopierenden Bilds an.|
+|[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
+MediaType: Installieren|Gibt den Typ des zu kopierenden Bilds an. Diese Option muss auf **Installieren**festgelegt sein.|
+|\mediagroup: <Image group name>]|Gibt die Bild Gruppe an, die das zu kopierende Bild enthält. Wenn keine Abbild Gruppe angegeben wird und nur eine Gruppe auf dem Server vorhanden ist, wird diese Abbild Gruppe standardmäßig verwendet. Wenn auf dem Server mehr als eine Abbildgruppe vorhanden ist, müssen Sie die Abbildgruppe angeben.|
+|[/Filename:<Filename>]|Gibt den Dateinamen des zu kopierenden Bilds an. Wenn das Quell Image nicht anhand des Namens eindeutig identifiziert werden kann, müssen Sie den Dateinamen angeben.|
+|/DestinationImage|Gibt die Einstellungen für das Ziel Image an, wie in der folgenden Tabelle beschrieben.<br /><br />-/Name: <Name>: legt den anzeigen amen des Bilds fest, das kopiert werden soll.<br />-/Filename: <Filename>: legt den Namen der Zielbilddatei fest, die die Bild Kopie enthalten soll.<br />-[/Description: <Description>]: Legt die Beschreibung der Bild Kopie fest.|
+## <a name="BKMK_examples"></a>Beispiele
+Geben Sie Folgendes ein, um eine Kopie des angegebenen Images zu erstellen und diese mit windowsvista. wim zu benennen:
 ```
 wdsutil /copy-Imagmedia:"Windows Vista with Officemediatype:Install /DestinationImage /Name:"copy of Windows Vista with Office" /Filename:"WindowsVista.wim"
 ```
-Um eine Kopie des angegebenen Bilds zu erstellen, Anwenden der angegebenen Einstellungen, und nennen Sie die Kopie WindowsVista.wim, Typ:
+Wenn Sie eine Kopie des angegebenen Bilds erstellen möchten, wenden Sie die angegebenen Einstellungen an, und benennen Sie die Kopie windowsvista. wim. Geben Sie Folgendes ein:
 ```
 wdsutil /verbose /Progress /copy-Imagmedia:"Windows Vista with Office" /Server:MyWDSServemediatype:InstalmediaGroup:ImageGroup1 
 /Filename:install.wim /DestinationImage /Name:"copy of Windows Vista with Office" /Filename:"WindowsVista.wim" /Description:"This is a copy of the original Windows image with Office installed"
 ```
-#### <a name="additional-references"></a>Zusätzliche Referenzen
-[Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-[mit dem Befehl-Add-Image](using-the-add-image-command.md)
-[mithilfe des Export-Image-Befehls](using-the-export-image-command.md)
-[mithilfe der Get-Image-Befehl](using-the-get-image-command.md)
-[mit dem Remove-Image-Befehl](using-the-remove-image-command.md)
-[mit dem Replace-Image-Befehl](using-the-replace-image-command.md) 
- [ Unterbefehl: Set-Image](subcommand-set-image.md)
+#### <a name="additional-references"></a>Weitere Verweise
+[Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+ mithilfe des Befehls "[Add-Image](using-the-add-image-command.md)" 
+ mithilfe des Befehls "[Export-](using-the-export-image-command.md)Image" 
+ mithilfe des Befehls "[Get-](using-the-get-image-command.md)Image" 
+ mit dem Befehl "[Remove-](using-the-remove-image-command.md)Image" 
+ mithilfe[der Replace-Image-Befehl](using-the-replace-image-command.md)1-[Unterbefehl: Set-Image](subcommand-set-image.md)
