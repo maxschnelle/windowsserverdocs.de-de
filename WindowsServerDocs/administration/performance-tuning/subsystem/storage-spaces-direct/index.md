@@ -1,19 +1,19 @@
 ---
 title: Leistungsoptimierung für „Direkte Speicherplätze“
 description: „Direkte Speicherplätze“ optimiert seine Leistung automatisch basierend auf der Cachekonfiguration der Hardware, die Sie verwenden, wie in diesem Thema beschrieben.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.assetid: 15a519fa-37cc-4d84-a9fe-097d33bb71ea
 author: phstee
 ms.author: Vshankar; DanLo; clausjor; StevenEk
 ms.date: 4/14/2017
-ms.openlocfilehash: 280d0e298afe5c9628fe73872e0983f819f2a3b1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dabfadb30666ec93aa36985e2bc55a3f496e6d34
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59891301"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383470"
 ---
 # <a name="performance-tuning-for-storage-spaces-direct"></a>Leistungsoptimierung für „Direkte Speicherplätze“
 
@@ -36,7 +36,7 @@ Beachten Sie, dass Zwischenspeichern über ein SSD- oder NVMe-Gerät standardmä
 
 Verwenden Sie zum Anzeigen und Ändern der Cachekonfiguration das [Get-ClusterStorageSpacesDirect](https://technet.microsoft.com/library/mt634616.aspx)- und [Set-ClusterStorageSpacesDirect](https://technet.microsoft.com/library/mt763265.aspx)-Cmdlet. Die Eigenschaften `CacheModeHDD` und `CacheModeSSD` definieren, wie der Cache bei Kapazitätsmedien des angegeben Typs funktioniert.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 - [Grundlegendes zu „Direkte Speicherplätze“](../../../../storage/storage-spaces/understand-storage-spaces-direct.md)
 - [Planen für „Direkte Speicherplätze“](../../../../storage/storage-spaces/plan-storage-spaces-direct.md)

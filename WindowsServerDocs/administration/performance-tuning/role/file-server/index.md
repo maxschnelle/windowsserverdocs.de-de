@@ -1,18 +1,18 @@
 ---
 title: Leistungsoptimierung für Dateiserver
 description: Leistungsoptimierung für Dateiserver mit Windows Server
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 author: phstee
 ms.author: NedPyle; Danlo; DKruse
 ms.date: 4/14/2017
-ms.openlocfilehash: dc8a845a6d352fa03517e2a092c44b6d1c1def4b
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 5f772d2333acb2d48bf27168aca42754013dd8be
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811466"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370223"
 ---
 # <a name="performance-tuning-for-file-servers"></a>Leistungsoptimierung für Dateiserver
 
@@ -216,10 +216,10 @@ Mit den allgemeinen Optimierungsparametern für Clientcomputer kann ein Computer
 | Parameter                   | Wert | Standard |
 |-----------------------------|-------|---------|
 | DisableBandwidthThrottling  | 1     | 0       |
-| FileInfoCacheEntriesMax     | 32\.768 | 64      |
+| FileInfoCacheEntriesMax     | 32.768 | 64      |
 | DirectoryCacheEntriesMax    | 4\.096  | 16      |
-| FileNotFoundCacheEntriesMax | 32\.768 | 128     |
-| MaxCmds                     | 32\.768 | 15      |
+| FileNotFoundCacheEntriesMax | 32.768 | 128     |
+| MaxCmds                     | 32.768 | 15      |
 
  
 
