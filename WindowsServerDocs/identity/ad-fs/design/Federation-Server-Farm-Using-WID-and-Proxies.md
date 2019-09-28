@@ -7,61 +7,61 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: d49ae34d83d4a0b912bd92dbb9de16e18cc5b7ff
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 6a123afaebba002b8ee4fb98d5cee5aded286a96
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191338"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359132"
 ---
 # <a name="federation-server-farm-using-wid-and-proxies"></a>Verbundserverfarm mit WID und Proxys
 
-Dieser Bereitstellungstopologie für Active Directory Federation Services \(AD FS\) ist mit der Verbundserverfarm mit internen Windows-Datenbank \(WID\) Topologie, sondern fügt Proxycomputer, auf die Umkreisnetzwerk zur Unterstützung von externer Benutzern. Diese Proxys umleiten clientauthentifizierungsanforderungen, die von außerhalb des Unternehmensnetzwerks an die Verbundserverfarm stammen. In früheren Versionen von AD FS wurden diese Proxys Verbundserverproxys aufgerufen.  
+Diese Bereitstellungs Topologie für Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1 ist mit der Verbund Serverfarm mit der internen Windows-Datenbank \(WiD @ no__t-3-Topologie identisch, fügt jedoch dem Umkreis Netzwerk Proxy Computer zur Unterstützung von externe Benutzer. Diese Proxys leiten Client Authentifizierungsanforderungen, die von außerhalb Ihres Unternehmensnetzwerks stammen, an die Verbund Serverfarm um. In früheren Versionen von AD FS wurden diese Proxys als Verbund Server Proxys bezeichnet.  
   
 > [!IMPORTANT]  
-> In Active Directory-Verbunddienste \(AD FS\) in Windows Server 2012 R2, ist die Rolle eines Verbundserverproxys durch einen neuen Remotezugriff-Rollendienst namens Webanwendungsproxy übernommen. Zum Aktivieren von AD FS für Zugriff von außerhalb des Unternehmensnetzwerks, das war der Zweck der Bereitstellung eines Verbundserverproxys in Legacyversionen von AD FS, z. B. AD FS 2.0 und AD FS unter Windows Server 2012 können Sie eine oder mehrere webanwendungsproxys für ein bereitstellen. D-FS unter Windows Server 2012 R2.  
+> In Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1 in Windows Server 2012 R2 wird die Rolle eines Verbund Server Proxys von einem neuen Remote Zugriffs Rollen Dienst namens webanwendungsproxy behandelt. Um Ihre AD FS für den Zugriff von außerhalb des Unternehmensnetzwerks zu aktivieren. Dies war der Zweck der Bereitstellung eines Verbund Server Proxys in Legacy Versionen von AD FS, wie z. b. AD FS 2,0 und AD FS in Windows Server 2012, Sie können einen oder mehrere webanwendungsproxys für einen D FS in Windows Server 2012 R2.  
 >   
-> Im Kontext von AD FS-Webanwendungsproxy als einen AD FS-Verbundserverproxy Funktionen. Darüber hinaus bietet der Webanwendungsproxy Reverseproxyfunktionen für Webanwendungen in Ihrem Unternehmensnetzwerk, damit Benutzer außerhalb des Unternehmensnetzwerks von allen Geräten auf die Anwendungen zugreifen können. Weitere Informationen zum Webanwendungsproxy-Rollendienst finden Sie unter „Übersicht über den Webanwendungsproxy“.  
+> Im Kontext von AD FS fungiert der webanwendungsproxy als AD FS Verbund Server Proxy. Darüber hinaus bietet der Webanwendungsproxy Reverseproxyfunktionen für Webanwendungen in Ihrem Unternehmensnetzwerk, damit Benutzer außerhalb des Unternehmensnetzwerks von allen Geräten auf die Anwendungen zugreifen können. Weitere Informationen zum Webanwendungsproxy-Rollendienst finden Sie unter „Übersicht über den Webanwendungsproxy“.  
 >   
 > Bei der Planung die Bereitstellung von Web Application Proxy können Sie die Informationen in den folgenden Themen lesen:  
 >   
-> -   [Planen der Infrastruktur für Webanwendungsproxy (WAP)](https://technet.microsoft.com/library/dn383648.aspx)  
-> -   [Planen Sie die Webanwendungsproxy-Servers](https://technet.microsoft.com/library/dn383647.aspx)  
+> -   [Planen der Infrastruktur für den webanwendungsproxy (WAP)](https://technet.microsoft.com/library/dn383648.aspx)  
+> -   [Planen des webanwendungsproxy-Servers](https://technet.microsoft.com/library/dn383647.aspx)  
   
 ## <a name="deployment-considerations"></a>Überlegungen zur Bereitstellung  
-Dieser Abschnitt beschreibt verschiedene Überlegungen zu den Zielgruppe, Vorteile und Einschränkungen, die mit dieser Bereitstellungstopologie verknüpft sind.  
+In diesem Abschnitt werden verschiedene Überlegungen zu den beabsichtigten Zielgruppen, Vorteilen und Einschränkungen beschrieben, die mit dieser Bereitstellungs Topologie verknüpft sind.  
   
 ### <a name="who-should-use-this-topology"></a>Wer sollte diese Topologie verwenden?  
   
--   Organisationen mit bis zu 100 konfigurierten Vertrauensstellungen, die sowohl für ihre interne Benutzer und externe Benutzer bieten \(angemeldet sind auf Computern, die physisch außerhalb des Unternehmensnetzwerks befinden\) mit einzelnen Anmeldung\-auf \(SSO\) Zugriff auf verbundanwendungen oder-Dienste  
+-   Organisationen mit 100 oder weniger konfigurierten Vertrauens Stellungen, die sowohl interne als auch externe Benutzer \(bereit stellen müssen, die auf Computern angemeldet sind, die sich physisch außerhalb des Unternehmensnetzwerks befinden @ no__t-1 mit einmaligem Vorzeichen @ no__t-2ON \(sso @ no__t-4-Zugriff auf Verbund Anwendungen oder-Dienste  
   
--   Organisationen, die sowohl ihre internen Benutzer als auch die externe Benutzer SSO-Zugriff für Microsoft Office 365 bereitstellen müssen  
+-   Organisationen, die sowohl internen als auch externen Benutzern SSO-Zugriff auf Microsoft Office 365 bereitstellen müssen  
   
--   Kleinere Organisationen, die externe Benutzer und redundant, skalierbare Dienste erfordern  
+-   Kleinere Unternehmen, die externe Benutzer haben und redundante, skalierbare Dienste benötigen  
   
-### <a name="what-are-the-benefits-of-using-this-topology"></a>Was sind die Vorteile der Verwendung dieser Topologie?  
+### <a name="what-are-the-benefits-of-using-this-topology"></a>Welche Vorteile bietet die Verwendung dieser Topologie?  
   
--   Die gleichen Vorteile wie für die [Federation Server Farm mit WID](Federation-Server-Farm-Using-WID.md) Topologie sowie den Vorteil, dass bietet zusätzlichen Zugriff für externe Benutzer  
+-   Die gleichen Vorteile wie für die Verbund [Server Farm mit der wid](Federation-Server-Farm-Using-WID.md) -Topologie sowie die Vorteile der Bereitstellung von zusätzlichem Zugriff für externe Benutzer.  
   
-### <a name="what-are-the-limitations-of-using-this-topology"></a>Was sind die Einschränkungen bei der Verwendung dieser Topologie?  
+### <a name="what-are-the-limitations-of-using-this-topology"></a>Welche Einschränkungen gelten für die Verwendung dieser Topologie?  
   
--   Dieselben Einschränkungen wie für die aufgelisteten der [Federation Server Farm mit WID](Federation-Server-Farm-Using-WID.md) Topologie  
+-   Die gleichen Einschränkungen wie für die Verbund [Server Farm werden mithilfe der wid](Federation-Server-Farm-Using-WID.md) -Topologie aufgelistet.  
 
-||1 \- 100 RP-Vertrauensstellungen|Mehr als 100 RP-Vertrauensstellungen 
+||1 \- 100 RP-Vertrauens Stellungen|Mehr als 100 RP-Vertrauens Stellungen 
 | ----- |-----| ------ |
-|1 \- 30 AD FS-Knoten|WID unterstützt|Nicht unterstützt, mit WID \- SQL erforderlich 
-|Mehr als 30 AD FS-Knoten|Nicht unterstützt, mit WID \- SQL erforderlich|Nicht unterstützt, mit WID \- SQL erforderlich  
+|1 \- 30 AD FS Knoten|Unterstützt wid|Nicht unterstützt, \- wenn wid SQL erforderlich ist 
+|Mehr als 30 AD FS Knoten|Nicht unterstützt, \- wenn wid SQL erforderlich ist|Nicht unterstützt, \- wenn wid SQL erforderlich ist  
   
-## <a name="server-placement-and-network-layout-recommendations"></a>Server Platzierung und Netzwerk-Layout-Empfehlungen  
-Zum Bereitstellen dieser Topologie wird zusätzlich zum Hinzufügen von zwei webanwendungsproxys, achten Sie darauf, dass es sich bei Ihrem Umkreisnetzwerk, auch über Zugriff auf einen Domain Name System ermöglicht \(DNS\) Server und eine zweite Netzwerklastenausgleich \( NLB\) Host. Der zweite NLB-Host muss konfiguriert werden, mit einem NLB-Cluster, die einen mit dem Internet verwendet\-zugegriffen werden Cluster-IP-Adresse, und es müssen die gleiche Cluster-DNS-namenseinstellung verwenden, wie der vorherige NLB-Cluster, die Sie über das Unternehmensnetzwerk konfiguriert \( "FS.Fabrikam.com"\). Die webanwendungsproxys auch mit dem Internet konfiguriert werden\-zugegriffen werden IP-Adressen.  
+## <a name="server-placement-and-network-layout-recommendations"></a>Empfehlungen zur Server Platzierung und zum Netzwerk Layout  
+Um diese Topologie zusätzlich zum Hinzufügen von zwei webanwendungsproxys bereitzustellen, müssen Sie sicherstellen, dass Ihr Umkreis Netzwerk auch Zugriff auf einen Domain Name System \(dns @ no__t-1-Server und auf einen zweiten Netzwerk Lastenausgleich \(nlb @ no__t-3-Host bereitstellen kann. Der zweite NLB-Host muss mit einem NLB-Cluster konfiguriert werden, der eine IP-Adresse für den Internet basierten @ no__t-IP-Cluster verwendet, und er muss die gleiche DNS-Namen Einstellung für den Cluster wie der vorherige NLB-Cluster verwenden, den Sie im Unternehmensnetzwerk @no__t -1FS. fabrikam. com @ no__t-2 konfiguriert haben. Die webanwendungsproxys sollten auch mit Internet @ no__t-0accessible IP-Adressen konfiguriert werden.  
   
-Die folgende Abbildung zeigt die vorhandenen Verbundserverfarm mit WID-Topologie, die zuvor beschrieben wurde, und wie das fiktive Unternehmen Fabrikam, Inc., einem Umkreis-DNS-Server, ermöglicht hinzugefügt ein zweiter NLB-Host mit dem gleichen DNS-Clusternamen \("FS.Fabrikam.com"\), und fügt zwei webanwendungsproxys \(wap1 und wap2\) mit dem Umkreisnetzwerk.  
+Die folgende Abbildung zeigt die vorhandene Verbund Serverfarm mit der zuvor beschriebenen wid-Topologie und die Funktionsweise der fiktiven fabrikam. Inc., Unternehmen ermöglicht den Zugriff auf einen Umkreis-DNS-Server, fügt einen zweiten NLB-Host mit dem gleichen DNS-Cluster Namen @no__t -0FS. fabrikam. com @ no__t-1 hinzu und fügt dem Umkreis Netzwerk zwei webanwendungsproxys \(wap1 und WAP2 @ no__t-3 hinzu.  
   
-![Farm mit WID und Proxys](media/WIDFarmADFSBlue.gif)  
+![WID-Farm und Proxys](media/WIDFarmADFSBlue.gif)  
   
-Weitere Informationen dazu, wie Sie Ihre Netzwerkumgebung für die Verwendung mit Verbundserver oder webanwendungsproxys konfigurieren zu können, finden Sie unter "Anforderungen für die namensauflösung" im Abschnitt [AD FS-Anforderungen](AD-FS-Requirements.md) und [planen Sie das Web Infrastruktur für Webanwendungsproxy (WAP)](https://technet.microsoft.com/library/dn383648.aspx).  
+Weitere Informationen zum Konfigurieren der Netzwerkumgebung für die Verwendung mit Verbund Servern oder webanwendungsproxys finden Sie im Abschnitt "Anforderungen für die Namensauflösung" unter [AD FS Anforderungen](AD-FS-Requirements.md) und [Planen der Infrastruktur für den webanwendungsproxy. (WAP)](https://technet.microsoft.com/library/dn383648.aspx).  
   
 ## <a name="see-also"></a>Siehe auch  
 [Planen der AD FS-Bereitstellungstopologie](Plan-Your-AD-FS-Deployment-Topology.md)  

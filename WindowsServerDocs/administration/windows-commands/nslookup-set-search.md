@@ -1,8 +1,8 @@
 ---
 title: nslookup set search
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d95ebe30ce45430787bebbfe63766a571a436bbf
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d9da08a296d61789dbafeccde5d46c8a220d874c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436592"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372778"
 ---
 # <a name="nslookup-set-search"></a>nslookup set search
 
 
 
-Fügt der Domain Name System (DNS)-Domänennamen in der Suchliste für DNS-Domäne auf die Anforderung, bis eine Antwort empfangen wird. Dies gilt, wenn die Gruppe und die Suche nach Anforderung muss mindestens einen Punkt enthalten, aber nicht mit einem Punkt enden.
+Fügt Domain Name System die DNS-Domänen Namen (DNS) in der DNS-Domänen Suchliste an die Anforderung an, bis eine Antwort empfangen wird. Dies gilt, wenn die Set-und die Suche-Anforderung mindestens einen Zeitraum enthalten, aber nicht mit einem nachfolgenden Zeitraum enden.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,8 +36,8 @@ set [no]search
 
 |  Parameter   |                                                                          Beschreibung                                                                          |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **nosearch** |                            Beendet den Domain Name System (DNS)-Domänennamen in der Suchliste für DNS-Domäne auf die Anforderung anfügen.                            |
-|  **search**  | Fügt der Domain Name System (DNS)-Domänennamen in der Suchliste für DNS-Domäne auf die Anforderung, bis eine Antwort empfangen wird. Die Standardsyntax ist **Suche**. |
+| **noSearch** |                            Beendet das Anfügen der Domain Name System (DNS)-Domänen Namen in der DNS-Domänen Suchliste an die Anforderung.                            |
+|  **Such**  | Fügt Domain Name System die DNS-Domänen Namen (DNS) in der DNS-Domänen Suchliste an die Anforderung an, bis eine Antwort empfangen wird. Die Standard Syntax lautet **Search**. |
 |    {Hilfe     |                                                                              ?}                                                                               |
 
 #### <a name="additional-references"></a>Weitere Verweise

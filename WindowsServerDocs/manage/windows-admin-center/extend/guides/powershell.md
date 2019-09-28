@@ -7,13 +7,13 @@ author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 05/09/2019
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: c30f8a9b856db8250a16210931e6f8dd73c07aa7
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.prod: windows-server
+ms.openlocfilehash: 6e99fc43d4acb7a70dfd3a8ba19dae6492c41b2b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869608"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357050"
 ---
 # <a name="using-powershell-in-your-extension"></a>PowerShell in Erweiterungen verwenden #
 
@@ -92,7 +92,7 @@ Durch Bereitstellen des Knoten namens für die Methode "kreatesession" wird eine
 ### <a name="key-options"></a>Schlüsseloptionen ###
 Beim Aufrufen der PowerShell-API stehen einige Optionen zur Verfügung. Jedes Mal, wenn eine Sitzung erstellt wird, kann Sie mit oder ohne Schlüssel erstellt werden. 
 
-**Wichtigen** Dadurch wird eine Schlüssel gebundene Sitzung erstellt, die auch über Komponenten hinweg gesucht und wieder verwendet werden kann (was bedeutet, dass Component1 eine Sitzung mit dem Schlüssel "SME-Rocks" erstellen kann, und Component2 kann dieselbe Sitzung verwenden). Wenn ein Schlüssel angegeben wird, muss die erstellte Sitzung verworfen werden, indem "verwerfen ()" aufgerufen wird, wie im obigen Beispiel gezeigt. Eine Sitzung sollte nicht beibehalten werden, ohne dass Sie länger als 5 Minuten verworfen wird. 
+**Schlüssel:** Dadurch wird eine Schlüssel gebundene Sitzung erstellt, die auch über Komponenten hinweg gesucht und wieder verwendet werden kann (was bedeutet, dass Component1 eine Sitzung mit dem Schlüssel "SME-Rocks" erstellen kann, und Component2 kann dieselbe Sitzung verwenden). Wenn ein Schlüssel angegeben wird, muss die erstellte Sitzung verworfen werden, indem "verwerfen ()" aufgerufen wird, wie im obigen Beispiel gezeigt. Eine Sitzung sollte nicht beibehalten werden, ohne dass Sie länger als 5 Minuten verworfen wird. 
 ```ts
   const session = this.appContextService.powerShell.createSession('{!TargetNode}', '{!Key}');
 ```

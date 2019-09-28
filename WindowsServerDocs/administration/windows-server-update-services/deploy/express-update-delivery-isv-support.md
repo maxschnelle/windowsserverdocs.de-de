@@ -1,7 +1,7 @@
 ---
 title: ISV-Unterstützung für Express-Updatebereitstellung
 description: 'Windows Server Update Service (WSUS)-Thema: wie unabhängige Software Anbieter (ISV) die Express-Update Bereitstellung mithilfe von WSUS konfigurieren können'
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-wsus
@@ -11,12 +11,12 @@ author: sakitong
 ms.author: coreyp
 manager: lizapo
 ms.date: 10/16/2017
-ms.openlocfilehash: 0f5893d47219e9263ed7f35bee472848a47c6164
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: a4880a1a66d9c722cfda9e194c4eff38c5058674
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868736"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361723"
 ---
 # <a name="express-update-delivery-isv-support"></a>ISV-Unterstützung für Express-Updatebereitstellung
 
@@ -95,7 +95,7 @@ Der ISV-Dateicache muss mit Dateien aufgefüllt werden, die mit den auf verwalte
 
 1. Verwenden Sie [WSUS-APIs](https://msdn.microsoft.com/library/windows/desktop/microsoft.updateservices.administration.updatefile(v=vs.85).aspx) , um auf den Dateipfad und den Dateinamen des Updates für den mu-Dienst zuzugreifen.
 
-    Die Metadaten für jedes Update auf dem WSUS-Server enthalten den Dateipfad und den Dateinamen des Updates auf Microsoft Update wie folgt (Microsoft Update Hostname Fett, gefolgt von Dateipfad **<http://download.windowsupdate.com>** und Dateiname):/c/msdownload/Update/Software/updt/2016/09/ Windows 10.0-kb3195781-x64_0c06079bccc35cba35a48bd2b1ec46f818bd2e74. msu
+    Die Metadaten für jedes Update auf dem WSUS-Server enthalten den Dateipfad und den Dateinamen des Updates auf Microsoft Update wie folgt (Microsoft Update Hostname Fett, gefolgt von Dateipfad und Dateiname): **<http://download.windowsupdate.com>** /c/msdownload/Update/Software/updt/2016/09/ Windows 10.0-kb3195781-x64_0c06079bccc35cba35a48bd2b1ec46f818bd2e74. msu
 
 2. Laden Sie Dateien aus Microsoft Update herunter, und speichern Sie Sie im ISV-Dateicache mithilfe einer dieser beiden Methoden: 
 

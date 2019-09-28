@@ -1,7 +1,7 @@
 ---
-title: Zusammengeführte (Network Interface Card, NIC)-Konfigurationsrichtlinien
-description: Zusammengeführte Netzwerkschnittstellenkarte (NIC) kann RDMA über eine virtuelle Netzwerkkarte (vNIC) von Host-Partition verfügbar zu machen, damit die Partition Hostdienste Remote Direct Memory Access (RDMA) auf den gleichen NICs zugreifen können, die die Hyper-V-Gäste für TCP/IP-Datenverkehr verwenden.
-ms.prod: windows-server-threshold
+title: Leitfaden für die Konfiguration der Netzwerkschnittstellenkarte (Network Interface Card, NIC)
+description: Die konvergierte Netzwerkschnittstellenkarte (Network Interface Card, NIC) ermöglicht das verfügbar machen von RDMA über eine virtuelle NIC (Virtual NIC, VNIC) mit Host Partitionen, sodass die Host Partitions Dienste auf die gleichen Netzwerkkarten zugreifen können, die von den Hyper-V-Gast Computern für TCP/IP-Datenverkehr verwendet werden.
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: d7642338-9b33-4dce-8100-8b2c38d7127a
@@ -9,59 +9,59 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/13/2018
-ms.openlocfilehash: e9f5180285dda790e11cec543a109d0cb58edd2d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d791e0d51278d1f83f344250d38b1c7005c1a14a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838841"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355437"
 ---
-# <a name="converged-network-interface-card-nic-configuration-guidance"></a>Converged Network Interface Card \(NIC\) Konfigurationsrichtlinien
+# <a name="converged-network-interface-card-nic-configuration-guidance"></a>Konvergierte Netzwerkschnittstellenkarte \(nic @ no__t-1 Konfigurations Leit Faden
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Zusammengeführtes Netzwerk-Schnittstellenkarte \(NIC\) können Sie RDMA über einen Host verfügbar machen\-Partitionieren Sie die virtuellen NIC \(vNIC\) , damit die Partition Hostdienste Remote Direct Memory Access zugreifen können \(RDMA\) auf den gleichen Netzwerkkarten, die die Hyper-V-Gäste für TCP/IP-Datenverkehr verwenden.
+Konvergierte Netzwerkschnittstellenkarte \(nic @ no__t-1 ermöglicht Ihnen das verfügbar machen von RDMA über eine virtuelle NIC von Host "@ no__t-2Partition" \(vnic @ no__t-4, damit die Host Partitions Dienste auf den Remote Zugriff auf den direkten Speicher \(rdma @ no__t-6 auf denselben NICs zugreifen können. die Hyper-V-Gast Betriebssysteme für TCP/IP-Datenverkehr verwenden.
 
-Bevor Sie die zusammengeführte NIC-Funktion, Management \(hosten Partitions\) Dienste, die RDMA verwenden möchten, verwenden Sie dedizierte RDMA mussten\-fähige NICs, selbst wenn die Bandbreite auf den Netzwerkkarten verfügbar war, die an den Hyper-V gebunden wurden Virtuellen Switch.
+Vor der konvergierten NIC-Funktion mussten Management \(host Partition @ no__t-1-Dienste, die RDMA verwenden wollten, dedizierte RDMA @ no__t-fähige NICs verwenden, auch wenn die Bandbreite auf den NICs verfügbar war, die an den virtuellen Hyper-V-Switch gebunden waren.
 
-Zusammengeführte NIC, die zwei Workloads \(Management-Benutzer, der RDMA und Gastdatenverkehr\) können teilen den gleichen physischen NICs, sodass Sie weniger Netzwerkkarten in Ihren Servern zu installieren.
+Mit konvergierter NIC können die beiden Workloads \(management-Benutzer von RDMA und Gast Datenverkehr @ no__t-1 dieselben physischen NICs gemeinsam nutzen, sodass Sie weniger NICs auf Ihren Servern installieren können.
 
-Bei der Bereitstellung NIC Converged mit Windows Server 2016 Hyper-V-Hosts und virtuellen Hyper-V-Switches, wird der vNIC auf den Hyper-V-Hosts verfügbar zu machen RDMA-Dienste zum Hosten von Prozessen mit RDMA über alle Ethernet\-RDMA-Technologie basiert.
-
->[!NOTE]
->Um zusammengeführte NIC-Technologie verwenden zu können, müssen die zertifizierte Netzwerkadapter auf Ihren Servern RDMA-Unterstützung.
-
-Dieses Handbuch enthält zwei Sätze von Anweisungen für Bereitstellungen, in dem Ihre Server einen einzigen Netzwerkadapter installiert ist, verfügen, der eine grundlegende Bereitstellung von zusammengeführten NIC ist; und einen anderen Satz von Anweisungen, die Ihre Server, in denen mindestens zwei Netzwerkadapter installiert ist haben, wird eine Bereitstellung von zusammengeführten NIC über einen Switch Embedded Teaming \(festgelegt\) Team von RDMA\-fähigen Netzwerkadaptern.
-
-
-## <a name="prerequisites"></a>Vorraussetzungen
-
-Es folgen die Voraussetzungen für die Basic- und Datacenter-Bereitstellungen Converged Netzwerkkarte.
+Wenn Sie konvergierte NIC mit Windows Server 2016 Hyper-v-Hosts und virtuellen Hyper-v-Switches bereitstellen, machen die vNICs auf den Hyper-v-Hosts RDMA-Dienste zum Hosten von Prozessen mithilfe von RDMA über eine beliebige Ethernet @ no__t-0basierte RDMA-Technologie verfügbar.
 
 >[!NOTE]
->Für den bereitgestellten Beispielen verwenden wir ein Mellanox ConnectX-3 Pro 40 Gbit/s Ethernet-Adapter, jedoch können Sie eines der Windows Server zertifiziert RDMA\-fähigen Netzwerkadaptern, die dieses Feature zu unterstützen. Weitere Informationen zu kompatiblen Netzwerkadaptern finden Sie im Windows Server-Katalog Thema [LAN-Karten](https://www.windowsservercatalog.com/results.aspx?&bCatID=1468&cpID=0&avc=85&ava=0&avt=0&avq=46&OR=1).
+>Um die konvergierte NIC-Technologie verwenden zu können, müssen die zertifizierten Netzwerkadapter auf Ihren Servern RDMA unterstützen.
 
-### <a name="basic-converged-nic-prerequisites"></a>Grundlegende Converged NIC-Voraussetzungen
+Dieses Handbuch enthält zwei Sätze von Anweisungen, eine für bereit Stellungen, bei denen auf Ihren Servern ein einzelner Netzwerkadapter installiert ist. Hierbei handelt es sich um eine grundlegende Bereitstellung von konvergierter NIC. und eine weitere Anleitung, bei der auf Ihren Servern mindestens zwei Netzwerkadapter installiert sind. Hierbei handelt es sich um eine Bereitstellung einer konvergenten NIC über einen Switch Embedded Teaming-\(set @ no__t-1-Team von RDMA @ no__t-2fähigen Netzwerkadaptern.
 
-Um die Schritte in diesem Handbuch für die Basiskonfiguration Converged NIC ausführen zu können, müssen Sie die folgenden verfügen.
 
-- Zwei Server, auf denen Windows Server 2016 Datacenter-Edition oder Windows Server 2016 Standard Edition ausgeführt wird.
-- Eine RDMA-fähigen, zertifiziert Netzwerkadapter auf jedem Server installiert.
-- Hyper-V-Serverrolle auf jedem Server installiert.
+## <a name="prerequisites"></a>Erforderliche Komponenten
 
-### <a name="datacenter-converged-nic-prerequisites"></a>Zusammengeführtes Datacenter-NIC-Voraussetzungen
+Im folgenden sind die Voraussetzungen für die grundlegenden und Daten Center Bereitstellungen von konvergiertem NIC angegeben.
 
-Um die Schritte in diesem Handbuch für die NIC zusammengeführten Datacenters ausführen zu können, müssen Sie die folgenden verfügen.
+>[!NOTE]
+>In den bereitgestellten Beispielen wird ein Mellanox ConnectX-3 pro 40 Gbit/s-Ethernet-Adapter verwendet, Sie können jedoch jeden der Windows Server Certified RDMA @ no__t-fähigen Netzwerkadapter verwenden, die dieses Feature unterstützen. Weitere Informationen zu kompatiblen Netzwerkadaptern finden Sie im Windows Server-Katalog Thema [LAN-Karten](https://www.windowsservercatalog.com/results.aspx?&bCatID=1468&cpID=0&avc=85&ava=0&avt=0&avq=46&OR=1).
 
-- Zwei Server, auf denen Windows Server 2016 Datacenter-Edition oder Windows Server 2016 Standard Edition ausgeführt wird.
-- Zwei RDMA-fähigen, zertifiziert Netzwerkadapter auf jedem Server installiert.
-- Hyper-V-Serverrolle auf jedem Server installiert.
-- Sie müssen mit Switch Embedded Teaming vertraut sein \(festgelegt\), eine alternative NIC-Teaming-Lösung, die in Umgebungen, die Hyper-V und den Stapel Software Defined Networking (SDN) in Windows Server 2016 enthalten verwendet. SET integriert einige Funktionen mit NIC-Teamvorgang in den virtuellen Hyper-V-Switch. Weitere Informationen finden Sie unter [(Remote Direct Memory Access, RDMA) und Switch Embedded Teaming (SET)](../../../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).
+### <a name="basic-converged-nic-prerequisites"></a>Grundlegende zusammen geteilte NIC-Komponenten
+
+Zum Ausführen der Schritte in dieser Anleitung für die grundlegende konvergierte NIC-Konfiguration benötigen Sie Folgendes:
+
+- Zwei Server, auf denen Windows Server 2016 Datacenter Edition oder Windows Server 2016 Standard Edition ausgeführt wird.
+- Ein RDMA-fähiger, zertifizierter Netzwerkadapter, der auf jedem Server installiert ist.
+- Auf jedem Server ist die Hyper-V-Server Rolle installiert.
+
+### <a name="datacenter-converged-nic-prerequisites"></a>Voraussetzungen für Rechenzentrums konvergierte NIC
+
+Zum Ausführen der Schritte in dieser Anleitung für die konvergierte NIC-Konfiguration im Daten Center müssen Sie über Folgendes verfügen:
+
+- Zwei Server, auf denen Windows Server 2016 Datacenter Edition oder Windows Server 2016 Standard Edition ausgeführt wird.
+- Zwei RDMA-fähige, zertifizierte Netzwerkadapter, die auf jedem Server installiert sind.
+- Auf jedem Server ist die Hyper-V-Server Rolle installiert.
+- Sie müssen mit Switch Embedded Teaming \(set @ no__t-1 vertraut sein. eine Alternative NIC-Team Vorgangs Lösung wird in Umgebungen verwendet, die Hyper-V und den Sdn-Stapel (Software Defined Networking) in Windows Server 2016 enthalten. Set integriert einige NIC-Team Vorgangs Funktionen in den virtuellen Hyper-V-Switch. Weitere Informationen finden Sie unter [Remote Direct Memory Access (RDMA) und Switch Embedded Teaming (Set)](../../../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).
 
 ## <a name="related-topics"></a>Verwandte Themen
-- [Zusammengeführte NIC-Konfiguration mit einem einzelnen Netzwerkadapter](cnic-single.md)
-- [Zusammengeführte NIC in einem Team verwendete NIC-Konfiguration](cnic-datacenter.md)
-- [Konfiguration der physischen Switch für zusammengeführte NIC](cnic-app-switch-config.md)
-- [Problembehandlung bei Converged NIC-Konfigurationen](cnic-app-troubleshoot.md)
+- [Konvergierte NIC-Konfiguration mit einem einzelnen Netzwerk Adapter](cnic-single.md)
+- [Konvergierte NIC-Konfiguration mit Nic](cnic-datacenter.md)
+- [Konfiguration des physischen Switches für konvergierte NIC](cnic-app-switch-config.md)
+- [Problembehandlung bei zusammen getauschten NIC](cnic-app-troubleshoot.md)
 
 ---

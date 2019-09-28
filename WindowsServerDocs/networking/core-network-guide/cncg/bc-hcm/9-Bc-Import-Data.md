@@ -1,42 +1,42 @@
 ---
 title: Importieren von Datenpaketen auf dem gehosteten Cacheserver (optional)
-description: Dieses Handbuch enthält Anweisungen zum Bereitstellen von BranchCache im Modus für gehostete Caches auf Computern unter Windows Server 2016 und Windows 10
+description: Dieses Handbuch enthält Anweisungen zum Bereitstellen von BranchCache im Modus "gehosteter Cache" auf Computern unter Windows Server 2016 und Windows 10.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: article
 ms.assetid: d6159e91-f77c-42ec-9180-14bbb230ad17
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 440ef1e04143cba09213ffea634aa9d4fea51dab
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 61a6b1ac1dede4caf8d5633ce6a75e2005e190df
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888001"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356200"
 ---
-# <a name="import-data-packages-on-the-hosted-cache-server-optional"></a>Importieren Sie Datenpakete auf dem gehosteten Cacheserver \(Optional\)
+# <a name="import-data-packages-on-the-hosted-cache-server-optional"></a>Importieren von Datenpaketen auf dem gehosteten Cache Server \(optional @ no__t-1
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Sie können dieses Verfahren verwenden, Datenpakete importieren und Vorabladen von Inhalt auf die gehosteten Cacheserver.
+Mit diesem Verfahren können Sie Datenpakete importieren und Inhalte vorab auf ihren gehosteten Cache Servern laden.
 
-Dieses Verfahren ist optional, da Sie auf die gehosteten Cacheserver nicht zu prehash und preload Inhalten erforderlich sind.
+Dieses Verfahren ist optional, weil Sie den Inhalt auf ihren gehosteten Cache Servern nicht vorab in den Hash laden und vorab laden müssen.
 
-Wenn Sie nicht vor tun\-laden Inhalt, auf Daten werden auf dem gehosteten Cache automatisch hinzugefügt, wie sie über die WAN-Verbindung von Clients heruntergeladen.
+Wenn Sie den Inhalt nicht vor @ no__t-0 laden, werden die Daten automatisch dem gehosteten Cache hinzugefügt, wenn Sie von Clients über die WAN-Verbindung heruntergeladen werden.
 
 Sie müssen Mitglied der Gruppe Administratoren sein, um dieses Verfahren auszuführen.
 
-## <a name="to-import-data-packages-on-the-hosted-cache-server"></a>Zum Importieren von Daten auf dem gehosteten Cacheserver-Pakete  
+## <a name="to-import-data-packages-on-the-hosted-cache-server"></a>So importieren Sie Datenpakete auf den gehosteten Cache Server  
 
-1. Öffnen Sie auf dem Server-Computer Windows PowerShell mit Administratorrechten aus.
+1. Öffnen Sie Windows PowerShell mit Administrator Rechten auf dem Server Computer.
 
-2. Geben Sie den folgenden Befehl ein, und Ersetzen Sie den Wert für den-Path-Parameter mit dem Speicherort, in dem Sie Ihre Datenpakete gespeichert haben, und drücken Sie dann die EINGABETASTE.
+2. Geben Sie den folgenden Befehl ein, und ersetzen Sie den Wert für den Parameter – path durch den Speicherort des Ordners, in dem Sie die Datenpakete gespeichert haben, und drücken Sie dann die Eingabe
 
     ```  
     Import-BCCachePackage –Path D:\temp\PeerDistPackage.zip
     ```  
 
-3. Wenn Sie mehr als einen gehosteten Cacheserver verfügen, in dem Sie Inhalt vorab laden möchten, führen Sie dieses Verfahren auf jedem Server gehosteten Cache.
+3. Wenn Sie über mehr als einen gehosteten Cache Server verfügen, auf dem Sie Inhalt vorab laden möchten, führen Sie dieses Verfahren auf jedem gehosteten Cache Server aus.
 
-Mit diesem Handbuch finden Sie [konfigurieren Sie automatische gehosteten Cache Clientermittlung nach Dienstverbindungspunkt](10-Bc-Client-By-Scp.md).
+Weitere Informationen zum Fortsetzen dieses Handbuchs finden Sie unter [Konfigurieren der automatischen Client Cache Ermittlung durch den Dienst Verbindungspunkt](10-Bc-Client-By-Scp.md).

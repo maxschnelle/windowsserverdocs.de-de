@@ -7,39 +7,39 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 31e2e1b04383adc8bec12e7290a7acec80e0402f
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 5fa89a4a57c618fd711234b8770a35750f3099bd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190788"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358964"
 ---
 # <a name="stand-alone-federation-server-using-wid"></a>Eigenständiger Verbundserver mit WID
 
-Ein eigenständiger\-allein Verbundserver in Active Directory Federation Services \(AD FS\) besteht aus einem einzelnen Server, der einen Verbunddienst für die Verwendung der internen Windows-Datenbank konfiguriert hostet \(WID\). Dieser AD FS-Topologie ist für Test-Labs. Nicht empfohlen es für produktionsumgebungen, da es ein Limit von nur einem Verbundserver hat, und er nicht verwendet werden, um weitere Server zentral hochskalieren.  
+Ein eigenständiger @ no__t-0federation-Server in Active Directory-Verbunddienste (AD FS) \(AD FS @ no__t-2 besteht aus einem einzelnen Server, der einen Verbunddienst hostet, der für die Verwendung der internen Windows-Datenbank \(wid @ no__t-4 konfiguriert ist. Diese AD FS Topologie ist für Testumgebungen vorgesehen. Dies wird für Produktionsumgebungen nicht empfohlen, da es nur einen Verbund Server beschränkt und nicht zum zentralen hochskalieren auf weitere Server verwendet werden kann.  
   
-Wenn Sie das Testlabor Weitere Verbundserver hinzufügen möchten, müssen Sie den Verbunddienst von Grund auf neu erstellen, durch die Bereitstellung von allen anderen Topologien erläuterungen weiter unten in diesem Abschnitt. Daher wird empfohlen, dass die Verwendung dieser Topologie für eine testumgebung oder einer Proof\-von\-Concept-Umgebung in Ihrem privaten testen Netzwerk, in denen ein einzelnen Verbundservers ausreichend, ist wie in der folgenden Abbildung dargestellt.  
+Wenn Sie der Testumgebung weitere Verbund Server hinzufügen möchten, müssen Sie die Verbunddienst von Grund auf neu erstellen, indem Sie alle anderen Topologien bereitstellen, die weiter unten in diesem Abschnitt erwähnt werden. Daher empfiehlt es sich, diese Topologie für eine Testumgebung oder eine Proof @ no__t-0of @ no__t-1concept-Umgebung in Ihrem privaten Test Netzwerk zu verwenden, in dem ein einzelner Verbund Server ausreichend ist, wie in der folgenden Abbildung dargestellt.  
   
-![Server mit WID](media/FedServerWID.gif)  
+![Server mit wid](media/FedServerWID.gif)  
   
-## <a name="test-lab-considerations"></a>Überlegungen zum Test-lab  
-Dieser Abschnitt beschreibt verschiedene Überlegungen zu den Zielgruppe, Vorteile und Einschränkungen, die diese Topologie wird für den Test Lab-Umgebungen zugeordnet sind.  
+## <a name="test-lab-considerations"></a>Überlegungen zu Test Labors  
+In diesem Abschnitt werden verschiedene Überlegungen zu den beabsichtigten Zielgruppen, Vorteilen und Einschränkungen beschrieben, die mit dieser Topologie für Testumgebungen verknüpft sind.  
   
 ### <a name="who-should-use-this-topology"></a>Wer sollte diese Topologie verwenden?  
   
--   Informationstechnologie \(IT\) -Experten oder IT-Architekten, die zu auszuwertenden oder einen Proof of Concept für diese Technologie entwickeln möchten  
+-   Informationstechnologie \(it @ no__t-1 Professionals oder IT-Architekten, die einen Proof of Concept für diese Technologie evaluieren oder entwickeln möchten  
   
-### <a name="what-are-the-benefits-of-using-this-topology"></a>Was sind die Vorteile der Verwendung dieser Topologie?  
+### <a name="what-are-the-benefits-of-using-this-topology"></a>Welche Vorteile bietet die Verwendung dieser Topologie?  
   
--   Einfach in eine testumgebung einrichten  
+-   Einfache Einrichtung in einer Testumgebung  
   
-### <a name="what-are-the-limitations-of-using-this-topology"></a>Was sind die Einschränkungen bei der Verwendung dieser Topologie?  
+### <a name="what-are-the-limitations-of-using-this-topology"></a>Welche Einschränkungen gelten für die Verwendung dieser Topologie?  
   
--   Nur einem Verbundserver pro Verbunddienst \(keine Möglichkeit, die auf einer Farm zentral hochskalieren\)  
+-   Nur ein Verbund Server pro Verbunddienst \(no-Funktion zum horizontalen hochskalieren auf eine Farm @ no__t-1  
   
--   Nicht redundante \(nur eine einzige Instanz der AD FS-Konfigurationsdatenbank vorhanden ist.\)  
+-   Nicht redundant \(es ist nur eine einzige Instanz der AD FS Konfigurations Datenbank vorhanden @ no__t-1  
   
 
 ## <a name="see-also"></a>Siehe auch

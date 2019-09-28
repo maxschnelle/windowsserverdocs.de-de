@@ -7,14 +7,14 @@ ms.author: billmath
 manager: mtillman
 ms.date: 11/14/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 586f2d7b73c6017f8b69103a09f6b38bb31f542d
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 12c47f98af24331b25355178370cc4cd28c0aa10
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865801"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358050"
 ---
 # <a name="configuring-alternate-login-id"></a>Konfigurieren von alternativen Anmelde-ID
 
@@ -212,7 +212,7 @@ Im folgenden finden Sie verschiedene Fehlerfälle und die entsprechenden Auswirk
 
 
 
-|                       **Fehlerfälle**                        | **Auswirkung auf die Anmelde Darstellung** |                                                              **Event**                                                              |
+|                       **Fehlerfälle**                        | **Auswirkung auf die Anmelde Darstellung** |                                                              **Veranstalter**                                                              |
 |--------------------------------------------------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | Es konnte kein Wert für "samAccountName" für das Benutzerobjekt "" erhalten werden. |          Anmeldefehler           |                  Ereignis-ID 364 mit Ausnahme Meldung MSIS8012: Der sAMAccountName für den Benutzer wurde nicht gefunden:{0}"".                   |
 |        Auf das CanonicalName-Attribut kann nicht zugegriffen werden.         |          Anmeldefehler           |               Ereignis-ID 364 mit Ausnahme Meldung MSIS8013: CanonicalName: '{0}' des Benutzers: '{1}' weist ein ungültiges Format auf.                |

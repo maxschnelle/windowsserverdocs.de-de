@@ -1,8 +1,8 @@
 ---
 title: FTP-remotehelp_1
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bd64af157f7ce05330cdafe6e4db6787fa765859
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bac6fbe4a55c3fed4caab4e30ba848ec9ea68e21
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889591"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376026"
 ---
-# <a name="ftp-remotehelp1"></a>FTP: remotehelp_1
+# <a name="ftp-remotehelp_1"></a>FTP: remotehelp_1
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zeigt die Hilfe für remote-Befehle.   
+Zeigt die Hilfe für Remote Befehle an.   
 ## <a name="syntax"></a>Syntax  
 ```  
 remotehelp [<Command>]  
@@ -32,18 +32,18 @@ remotehelp [<Command>]
 ### <a name="parameters"></a>Parameter  
 |Parameter|Beschreibung|  
 |-------|--------|  
-|[<Command>]|Gibt den Namen des Befehls dazu, welche Sie Hilfe benötigen. Wenn *Befehl* nicht angegeben ist, **ftp** zeigt eine Liste von allen Remotebefehlen.|  
+|[<Command>]|Gibt den Namen des Befehls an, zu dem Sie Hilfe benötigen. Wenn der *Befehl* nicht angegeben wird, zeigt **FTP** eine Liste aller Remote Befehle an.|  
 ## <a name="remarks"></a>Hinweise  
-Ausführen von Remotebefehlen, die mit **Anführungszeichen** oder **literal**.  
-## <a name="BKMK_Examples"></a>Beispiele für  
-Eine Liste der Remotebefehle angezeigt.  
+Sie können Remote Befehle mithilfe von **Anführungs** Zeichen oder **literalen**ausführen.  
+## <a name="BKMK_Examples"></a>Beispiele  
+Zeigt eine Liste der Remote Befehle an.  
 ```  
 remotehelp  
 ```  
-Zeigt die Syntax für die **Feat** Remotebefehle ausführen.  
+Zeigt die Syntax für den Befehl " **feat** Remote" an.  
 ```  
 remotehelp feat  
 ```  
-## <a name="additional-references"></a>Zusätzliche Referenzen  
--   [ftp: quote](ftp-quote.md)  
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
+## <a name="additional-references"></a>Weitere Verweise  
+-   [FTP: Anführungszeichen](ftp-quote.md)  
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

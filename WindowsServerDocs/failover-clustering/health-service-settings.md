@@ -1,6 +1,6 @@
 ---
-title: Service Health-Einstellungen
-ms.prod: windows-server-threshold
+title: Integritätsdienst Einstellungen
+ms.prod: windows-server
 manager: eldenc
 ms.author: cosdar
 ms.technology: storage-health-service
@@ -8,21 +8,21 @@ ms.topic: article
 ms.assetid: ''
 author: cosmosdarwin
 ms.date: 08/14/2017
-ms.openlocfilehash: 569cf7ba30fd3f993394efd3735a56d116c067e0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1b10d7c5432b10262e8df85d427f17f402d4f64a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858331"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361042"
 ---
-# <a name="health-service-settings"></a>Service Health-Einstellungen
-> Gilt für Windows Server 2016
+# <a name="health-service-settings"></a>Integritätsdienst Einstellungen
+> Gilt für: Windows Server 2019, Windows Server 2016
 
-Der Integritätsdienst ist ein neues Feature in Windows Server 2016, die die tägliche Überwachung verbessert und Erfahrungen für Cluster "direkte Speicherplätze".
+Der Integritätsdienst ist ein neues Feature in Windows Server 2016, das die tägliche Überwachung und Betriebsbereitschaft für Cluster mit direkte Speicherplätze verbessert.
 
-Viele der Parameter, die steuern das Verhalten des Integritätsdiensts werden als Einstellungen verfügbar gemacht. Sie können ändern, diese an die Aggressivität der Fehler oder Aktionen zu optimieren, aktivieren Sie bestimmte Verhaltensweisen aktivieren/deaktivieren und vieles mehr.
+Viele der Parameter, die das Verhalten der Integritätsdienst steuern, werden als Einstellungen verfügbar gemacht. Sie können diese ändern, um die Aggressivität von Fehlern oder Aktionen zu optimieren, bestimmte Verhalten ein-/ausschalten und vieles mehr.
 
-Verwenden Sie das folgende PowerShell-Cmdlet zum Festlegen oder Ändern von Einstellungen.
+Verwenden Sie das folgende PowerShell-Cmdlet, um Einstellungen festzulegen oder zu ändern.
 
 ### <a name="usage"></a>Verwendung
 
@@ -38,9 +38,9 @@ Get-StorageSubSystem Cluster* | Set-StorageHealthSetting -Name "System.Storage.V
 
 ### <a name="common-settings"></a>Allgemeine Einstellungen
 
-Einige häufig geänderten Einstellungen sind, sowie die Standardwerte aufgeführt.
+Einige häufig geänderte Einstellungen sind im folgenden aufgeführt, zusammen mit ihren Standardwerten.
 
-#### <a name="volume-capacity-threshold"></a>Kapazität der Replikatvolume-Schwellenwert
+#### <a name="volume-capacity-threshold"></a>Schwellenwert für Volumenkapazität
 
 ```
 "System.Storage.Volume.CapacityThreshold.Enabled"  = True
@@ -48,7 +48,7 @@ Einige häufig geänderten Einstellungen sind, sowie die Standardwerte aufgefüh
 "System.Storage.Volume.CapacityThreshold.Critical" = 90
 ```
 
-#### <a name="pool-reserve-capacity-threshold"></a>Pool reservierte Kapazität-Schwellenwert
+#### <a name="pool-reserve-capacity-threshold"></a>Schwellenwert für Pool Reserve Kapazität
 
 ```
 "System.Storage.StoragePool.CheckPoolReserveCapacity.Enabled" = True
@@ -65,11 +65,11 @@ Einige häufig geänderten Einstellungen sind, sowie die Standardwerte aufgefüh
 "System.Storage.PhysicalDisk.Unresponsive.Reset.CountAllowed"              = 3
 ```
 
-#### <a name="supported-components-document"></a>Unterstützte Komponenten Dokument
+#### <a name="supported-components-document"></a>Dokument zu unterstützten Komponenten
 
-Finden Sie im vorherigen Abschnitt aus.
+Weitere Informationen finden Sie im vorherigen Abschnitt.
 
-#### <a name="firmware-rollout"></a>Rollout der Firmware
+#### <a name="firmware-rollout"></a>Firmware-Rollout
 
 ```
 "System.Storage.PhysicalDisk.AutoFirmwareUpdate.SingleDrive.Enabled"       = True
@@ -80,7 +80,7 @@ Finden Sie im vorherigen Abschnitt aus.
 "System.Storage.PhysicalDisk.AutoFirmwareUpdate.RollOut.FailureTolerance"  = 3
 ```
 
-#### <a name="platform--quiescence"></a>Plattform / Momentaufnahmedatenbank
+#### <a name="platform--quiescence"></a>Plattform/ineszenz
 
 ```
 "Platform.Quiescence.MinDelaySeconds" = 120 (i.e. 2 minutes)
@@ -101,5 +101,5 @@ Finden Sie im vorherigen Abschnitt aus.
 
 ## <a name="see-also"></a>Siehe auch
 
-- [Integritätsdienst in WindowsServer 2016](health-service-overview.md)
-- ["Direkte Speicherplätze" unter WindowsServer 2016](../storage/storage-spaces/storage-spaces-direct-overview.md)
+- [Integritätsdienst in Windows Server 2016](health-service-overview.md)
+- [Direkte Speicherplätze in Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md)

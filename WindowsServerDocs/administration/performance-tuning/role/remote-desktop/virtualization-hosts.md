@@ -1,18 +1,18 @@
 ---
 title: Leistungsoptimierung Remotedesktop Virtualisierungshosts
 description: Leistungsoptimierung für Remotedesktop Virtualisierungshosts
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: HammadBu; VladmiS
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 24e3243d4e9791c8941729d396e0a96cd8b11a7d
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 6aad1560fa9f9429af94426487d9a33369137ded
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866440"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370026"
 ---
 # <a name="performance-tuning-remote-desktop-virtualization-hosts"></a>Leistungsoptimierung Remotedesktop Virtualisierungshosts
 
@@ -129,7 +129,7 @@ Die folgenden Leistungsindikatoren sind auf dem remotefx-Server verfügbar, um d
 
 -   **VRAM Verfügbare MB pro** GPU-Umfang des dedizierten Grafik Speichers, der nicht verwendet wird
 
--   **VRAM % Pro GPU** -Prozentsatz des dedizierten Grafik Speichers reserviert, der für remotefx reserviert ist
+-   **VRAM Reservierter Prozentsatz pro GPU @ no__t-0 Prozent des dedizierten Grafik Speichers, der für remotefx reserviert ist
 
 **Remotefx-Software**
 
@@ -207,7 +207,7 @@ Es ist sinnvoll, Windows-Features und-Dienste zu deaktivieren, die vom permanent
 
 Jeder bestimmte Dienst sollte vor jeder breiten Bereitstellung angemessen ausgewertet werden. Im folgenden sind einige der folgenden Punkte zu beachten:
 
-| Dienst                                      | Weshalb?                                                                                                                                                                                                      |
+| Service                                      | Weshalb?                                                                                                                                                                                                      |
 |----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Automatisch aktualisieren                                  | In einem Pool zusammengefasste virtuelle Desktops werden aktualisiert, indem die Vorlage für virtuelle Desktops neu erstellt wird.                                                                                                                          |
 | Offline Dateien                                | Virtuelle Desktops sind immer online und über einen Netzwerk Ansichts Punkt verbunden.                                                                                                                         |

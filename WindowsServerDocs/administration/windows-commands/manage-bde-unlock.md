@@ -1,8 +1,8 @@
 ---
-title: Verwalten von-Bde entsperren
-description: 'Windows-Befehle Thema ***- '
+title: "\"manage-bde Unlock\""
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a86267890449be2048221940e5955e49f30f99f3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 92ed2e00babfad890be83e45827ae8e0080cac40
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814601"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373870"
 ---
-# <a name="manage-bde-unlock"></a>Verwalten von-Bde: nicht entsperren
+# <a name="manage-bde-unlock"></a>manage-bde: entsperren
 
 
 
-Wird ein mit BitLocker geschütztes Laufwerk mit einer Wiederherstellungskennwort oder Wiederherstellungsschlüssel entsperrt. Beispiele wie dieser Befehl verwendet werden kann, finden Sie unter [Beispiele](#BKMK_Examples).
+Entsperrt ein durch BitLocker geschütztes Laufwerk mit einem Wiederherstellungs Kennwort oder einem Wiederherstellungs Schlüssel. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,28 +36,28 @@ manage-bde -unlock {-recoverypassword <Password>|-recoverykey <PathToExternalKey
 
 |Parameter|Wert|Beschreibung|
 |---------|-----|-----------|
-|-recoverypassword||Gibt an, dass ein Wiederherstellungskennwort zum Entsperren des Laufwerks verwendet werden. Abkürzung: - rp|
-||\<Kennwort >|Stellt das Wiederherstellungskennwort, das zum Entsperren des Laufwerks verwendet werden kann.|
-|-recoverykey||Gibt an, dass eine externe wiederherstellungsschlüsseldatei zum Entsperren des Laufwerks verwendet werden. Abbreviation: -rk|
-||\<PathToExternalKeyFile>|Stellt die externen Wiederherstellungsschlüssel-Datei, die zum Entsperren des Laufwerks verwendet werden kann.|
-||\<Drive>|Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar.|
-|-Zertifikat||Das lokale Zertifikat für ein BitLocker-Zertifikat, das Volume unclock befindet sich im Zertifikatspeicher Locat-Benutzers. Abbreviation: -cert|
-||<-Cf PathToCertificateFile >|Pfad zur Datei cerficate|
-||<-ct CertificateThumbprint >|Fingerabdruck des Zertifikats, z. B. optional die PIN (-Pin).|
-|-Kennwort||Stellt eine Eingabeaufforderung für das Kennwort zum Entsperren des Volumes an. Abkürzung: Pw-|
-|-computername||Gibt an, dass bde.exe verwendet wird, um die BitLocker-Schutz auf einem anderen Computer zu ändern. Abbreviation: -cn|
-||\<Name>|Stellt den Namen des Computers, auf dem BitLocker-Schutz zu ändern. Akzeptierte Werte sind die NetBIOS-Namen des Computers und die IP-Adresse des Computers.|
-|-? oder /?||Zeigt eine kurze Hilfe an der Eingabeaufforderung.|
-|---Help oder-h||Führen Sie zeigt Hilfe an der Eingabeaufforderung ein.|
+|-wiederherstellungkennwort||Gibt an, dass ein Wiederherstellungs Kennwort verwendet wird, um das Laufwerk zu entsperren. Abkürzung:-RP|
+||\<password >|Stellt das Wiederherstellungs Kennwort dar, das verwendet werden kann, um das Laufwerk zu entsperren.|
+|-Wiederherstellungsschlüssel||Gibt an, dass eine externe Wiederherstellungs Schlüsseldatei verwendet wird, um das Laufwerk zu entsperren. Abkürzung:-RK|
+||\<pathdeexternalkeyfile >|Stellt die externe Wiederherstellungs Schlüsseldatei dar, die zum Entsperren des Laufwerks verwendet werden kann.|
+||\<laufwerk >|Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar.|
+|-Zertifikat||Das lokale Benutzerzertifikat für ein BitLocker-Zertifikat zum deinstalcken des Volumes befindet sich im Speiche-Benutzerzertifikat Speicher. Abkürzung:-CERT|
+||<-CF pathycertificatefile >|Pfad zur Zertifikatsdatei|
+||< CT certifipaethumschlag-Druck >|Der Zertifikat Fingerabdruck, der optional die PIN (-PIN) enthalten kann.|
+|-Kennwort||Zeigt eine Eingabeaufforderung für das Kennwort zum Entsperren des Volumes an. Abkürzung:-PW|
+|-Computername||Gibt an, dass "manage-bde. exe verwendet wird, um den BitLocker-Schutz auf einem anderen Computer zu ändern. Abkürzung:-CN|
+||\<Name >|Stellt den Namen des Computers dar, auf dem der BitLocker-Schutz geändert werden soll. Akzeptierte Werte sind der NetBIOS-Name des Computers und die IP-Adresse des Computers.|
+|-? oder /?||Zeigt eine kurze Hilfe an der Eingabeaufforderung an.|
+|-Help oder-h||Zeigt die gesamte Hilfe an der Eingabeaufforderung an.|
 
-## <a name="BKMK_Examples"></a>Beispiele für
+## <a name="BKMK_Examples"></a>Beispiele
 
-Das folgende Beispiel veranschaulicht die Verwendung der **-nicht entsperren** Befehl aus, um das Laufwerk E: mit einer Schlüsseldatei für die Wiederherstellung zu entsperren, die auf einem anderen Laufwerk in einen Sicherungsordner gespeichert wurde.
+Das folgende Beispiel veranschaulicht die Verwendung des Befehls " **-Unlock** " zum Entsperren von Laufwerk E mit einer Wiederherstellungs Schlüsseldatei, die in einem Sicherungsordner auf einem anderen Laufwerk gespeichert wurde.
 ```
 manage-bde –unlock E: -recoverykey "F:\Backupkeys\recoverykey.bek"
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
--   [Befehlszeilensyntax](command-line-syntax-key.md)
--   [Verwalten von-bde](manage-bde.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Manage-bde](manage-bde.md)

@@ -1,8 +1,8 @@
 ---
 title: Scwcmd-Ansicht
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2ef1dd72903108edd6c5fb450c536a9325fcf546
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a69db16696f42950af97b62ba6f28c4083954137
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889551"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371187"
 ---
 # <a name="scwcmd-view"></a>scwcmd: view
 
 > Gilt für: Windows Server 2012 R2, Windows Server 2012
 
-Rendert eine XML-Datei mit einer angegebenen XSL-Transformation. Dieser Befehl kann zum Anzeigen von XML-Dateien (Security Configuration Wizard, SCW) mit anderen Ansichten nützlich sein.
+Rendert eine XML-Datei mithilfe einer angegebenen XSL-Transformation. Dieser Befehl kann nützlich sein, um SCW (Security Configuration Wizard). XML-Dateien unter Verwendung verschiedener Ansichten anzuzeigen.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,21 +36,21 @@ scwcmd view /x:<Xmlfile.xml> [/s:<Xslfile.xsl>]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|/ x:\<Xmlfile.xml >|Gibt die XML-Datei angezeigt werden. Dieser Parameter muss angegeben werden.|
-|/s:\<Xslfile.xsl>|Gibt an, die XSL-Transformation, die für die XML-Datei als Teil des Renderingprozesses gelten. Dieser Parameter ist optional, für die SCW-XML-Dateien. Wenn die **Ansicht** Befehl wird verwendet, um eine XML-Datei mit dem Sicherheitskonfigurations-Assistenten zu rendern, wird automatisch versucht, die richtige Standard-Transformation für die angegebene XML-Datei zu laden. Wenn eine XSL-Transformation angegeben ist, muss die Transformation unter der Annahme geschrieben werden, die die XML-Datei im gleichen Verzeichnis wie die XSL-Transformation ist.|
+|/x: @no__t -0xmlfile. XML >|Gibt die XML-Datei an, die angezeigt werden soll. Dieser Parameter muss angegeben werden.|
+|/s: @no__t -0xslfile. xsl >|Gibt die XSL-Transformation an, die als Teil des Renderingprozesses auf die XML-Datei angewendet werden soll. Dieser Parameter ist für SCW. XML-Dateien optional. Wenn der **View** -Befehl verwendet wird, um eine SCW. XML-Datei zu rendieren, wird automatisch versucht, die richtige Standard Transformation für die angegebene XML-Datei zu laden. Wenn eine XSL-Transformation angegeben ist, muss die Transformation unter der Annahme geschrieben werden, dass sich die XML-Datei im gleichen Verzeichnis wie die XSL-Transformation befindet.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
-Scwcmd.exe ist nur auf Computern unter Windows Server 2008 R2, Windows Server 2008 oder Windows Server 2003 verfügbar.
+Scwcmd. exe ist nur auf Computern verfügbar, auf denen Windows Server 2008 R2, Windows Server 2008 oder Windows Server 2003 ausgeführt wird.
 
-## <a name="BKMK_Examples"></a>Beispiele für
+## <a name="BKMK_Examples"></a>Beispiele
 
-Um mit der Transformation für Policyview.xsl Policyfile.xml anzeigen, geben Sie Folgendes ein:
+Wenn Sie policyFile. XML mithilfe der Transformation policyview. xsl anzeigen möchten, geben Sie Folgendes ein:
 ```
 scwcmd view /x:C:\policies\Policyfile.xml /s:C:\viewers\Policyview.xsl
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

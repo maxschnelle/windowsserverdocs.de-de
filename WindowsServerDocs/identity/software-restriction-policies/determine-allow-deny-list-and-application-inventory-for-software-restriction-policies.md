@@ -2,7 +2,7 @@
 title: Festlegen der Zulassen bzw. Verweigern-Liste und des Anwendungsinventars für Richtlinien für die Softwareeinschränkung
 description: Windows Server-Sicherheit
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: security-software-restriction-policies
@@ -13,65 +13,65 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 60e78912284715649938567d66ffb90b9890b1b9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4ddea6daeb2150bd9fd3131a8457a6a4b408cfc3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847291"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357659"
 ---
 # <a name="determine-allow-deny-list-and-application-inventory-for-software-restriction-policies"></a>Festlegen der Zulassen bzw. Verweigern-Liste und des Anwendungsinventars für Richtlinien für die Softwareeinschränkung
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Dieses Thema für IT-Experten bietet Anleitungen wie Erstellen zulassen und verweigern-Liste für Anwendungen, für die Verwaltung mit Windows Server 2008 und Windows Vista (Software Restriction Policies, SRP) ab.
+In diesem Thema für IT-Experten wird beschrieben, wie Sie eine Zulassungs-und Verweigerungs Liste für Anwendungen erstellen, die mit Software Einschränkungs Richtlinien (SRP) ab Windows Server 2008 und Windows Vista verwaltet werden.
 
 ## <a name="introduction"></a>Einführung
-Die Richtlinien für Softwareeinschränkung (Software Restriction Policies, SRP) sind ein auf der Gruppenrichtlinie basierendes Feature, das Softwareprogramme identifiziert, die auf Computern in einer Domäne ausgeführt werden, und die Fähigkeit zur Ausführung dieser Programme steuert. Sie können Richtlinien für Softwareeinschränkung auch verwenden, um eine stark eingeschränkte Konfiguration für Computer zu erstellen, in der Sie ausschließlich die Ausführung explizit angegebener Anwendungen zulassen. Diese in Microsoft Active Directory-Domänendienste und Gruppenrichtlinien integriert sind, aber auch auf eigenständigen Computern konfiguriert werden. Ausgangspunkt für Richtlinien für Softwareeinschränkung, finden Sie unter den [Richtlinien für Softwareeinschränkung](software-restriction-policies.md).
+Die Richtlinien für Softwareeinschränkung (Software Restriction Policies, SRP) sind ein auf der Gruppenrichtlinie basierendes Feature, das Softwareprogramme identifiziert, die auf Computern in einer Domäne ausgeführt werden, und die Fähigkeit zur Ausführung dieser Programme steuert. Sie können Richtlinien für Softwareeinschränkung auch verwenden, um eine stark eingeschränkte Konfiguration für Computer zu erstellen, in der Sie ausschließlich die Ausführung explizit angegebener Anwendungen zulassen. Diese sind in Microsoft Active Directory Domain Services und Gruppenrichtlinie integriert, können aber auch auf eigenständigen Computern konfiguriert werden. Einen Ausgangspunkt für SRP finden Sie in den [Richtlinien für Software Einschränkung](software-restriction-policies.md).
 
-Ab Windows Server 2008 R2 und Windows 7, Windows AppLocker anstelle oder zusammen mit Richtlinien für Softwareeinschränkung für einen Teil Ihrer anwendungssteuerungsstrategie dienen.
+Ab Windows Server 2008 R2 und Windows 7 kann Windows AppLocker anstelle von oder in zusammen mit SRP für einen Teil ihrer Anwendungs Steuerungsstrategie verwendet werden.
 
-Informationen zum Ausführen bestimmte Aufgaben mithilfe von Richtlinien für Softwareeinschränkung finden Sie hier:
+Informationen zum Ausführen bestimmter Aufgaben mithilfe von SRP finden Sie in den folgenden Bereichen:
 
--   [Arbeiten Sie mit Richtlinien für die Softwareeinschränkungsregeln](work-with-software-restriction-policies-rules.md)
+-   [Arbeiten mit Regeln der Richtlinien für Softwareeinschränkung](work-with-software-restriction-policies-rules.md)
 
--   [Verwenden von Richtlinien für Softwareeinschränkungen zum Schutz Ihres Computers vor einem e-Mail-Virus](use-software-restriction-policies-to-help-protect-your-computer-against-an-email-virus.md)
+-   [Verwenden von Richtlinien für Software Einschränkung zum Schutz Ihres Computers vor einem e-Mail-Virus](use-software-restriction-policies-to-help-protect-your-computer-against-an-email-virus.md)
 
-### <a name="what-default-rule-to-choose-allow-or-deny"></a>Welche Standardregel auswählen: Zulassen oder verweigern
-Richtlinien für softwareeinschränkung können in zwei Modi bereitgestellt werden, die die Grundlage für Ihre Standardregel sind: Liste der zugelassenen oder Verweigerungsliste. Sie können eine Richtlinie erstellen, die jede Anwendung identifiziert, die in Ihrer Umgebung ausgeführt werden darf; die Standardregel in Ihrer Richtlinie ist eingeschränkt, und wird blockiert alle Anwendungen, die nicht explizit zuzulassen ausgeführt. Oder Sie erstellen eine Richtlinie, die jede Anwendung identifiziert, die nicht ausgeführt werden kann; die Standardregel ist nicht eingeschränkt und nur die Anwendungen, die Sie explizit aufgelistet haben beschränkt.
+### <a name="what-default-rule-to-choose-allow-or-deny"></a>Die Standardregel, die ausgewählt werden soll: Zulassen oder verweigern
+Software Einschränkungs Richtlinien können in einem von zwei Modi bereitgestellt werden, die die Basis ihrer Standardregel sind: Liste zulassen oder verweigern. Sie können eine Richtlinie erstellen, die jede Anwendung identifiziert, die in Ihrer Umgebung ausgeführt werden darf. die Standardregel in der Richtlinie ist eingeschränkt und blockiert alle Anwendungen, die nicht explizit ausgeführt werden dürfen. Oder Sie können eine Richtlinie erstellen, die jede Anwendung identifiziert, die nicht ausgeführt werden kann. die Standardregel ist uneingeschränkt und schränkt nur die Anwendungen ein, die Sie explizit aufgelistet haben.
 
 > [!IMPORTANT]
-> Der Modus für die verweigern-Liste möglicherweise eine hohe-Wartungsstrategie für Ihre Organisation in Bezug auf die anwendungssteuerung. Erstellen und verwalten eine wachsende Liste, die verhindert, sämtlicher Malware und anderer problematischen Anwendungen dass wäre zeitaufwendig und anfällig für Fehler.
+> Der Ablehnungs Listenmodus ist möglicherweise eine hoch Wartungsstrategie für Ihre Organisation in Bezug auf die Anwendungssteuerung. Das Erstellen und Verwalten einer sich entwickelnden Liste, die alle Malware und andere problematische Anwendungen untersagt, wäre zeitaufwändig und anfällig für Fehler.
 
-### <a name="create-an-inventory-of-your-applications-for-the-allow-list"></a>Erstellung eines Inventars aus Ihrer Anwendung in der Zulassungsliste
-Um die Standard-Zulassungsregel effektiv nutzen zu können, müssen Sie bestimmen, welche Anwendungen in Ihrer Organisation erforderlich sind. Es gibt Tools, die zum Erzeugen eines Anwendungsbestands, z. B. dem Inventory Collector in die Microsoft Application Compatibility Toolkit entworfen. Jedoch SRP verfügt über ein Feature zur erweiterten Protokollierung können Sie entnehmen, genau wie die Anwendungen in Ihrer Umgebung ausgeführt werden.
+### <a name="create-an-inventory-of-your-applications-for-the-allow-list"></a>Erstellen eines Inventars Ihrer Anwendungen für die Zulassungsliste
+Um die Zulassungs Standardregel effektiv verwenden zu können, müssen Sie genau feststellen, welche Anwendungen in Ihrer Organisation erforderlich sind. Es gibt Tools, die entwickelt wurden, um ein Anwendungs Inventar zu entwickeln, z. b. den Inventur Sammler im Microsoft Application Compatibility Toolkit. SRP verfügt jedoch über eine erweiterte Protokollierungsfunktion, mit der Sie genau verstehen können, welche Anwendungen in Ihrer Umgebung ausgeführt werden.
 
-##### <a name="to-discover-which-applications-to-allow"></a>Welche Anwendungen zu ermitteln.
+##### <a name="to-discover-which-applications-to-allow"></a>So ermitteln Sie, welche Anwendungen zugelassen werden
 
-1.  Bereitstellen Sie in einer testumgebung der Richtlinie für Softwareeinschränkung mit dem Standard-Regelsatz, um eine uneingeschränkte aus, und entfernen Sie alle zusätzlichen Regeln. Wenn Sie Richtlinien für Softwareeinschränkung aktivieren, ohne dass sie alle Anwendungen zu beschränken, werden SPR überwachen, welche Anwendungen ausgeführt werden, sind.
+1.  Stellen Sie in einer Testumgebung die Software Einschränkungs Richtlinie mit der Standardregel auf uneingeschränkt bereit, und entfernen Sie alle zusätzlichen Regeln. Wenn Sie SRP aktivieren, ohne dies zu erzwingen, um Anwendungen einzuschränken, kann SPR überwachen, welche Anwendungen ausgeführt werden.
 
-2.  Erstellen Sie den folgenden Registrierungswert, um das Feature zur erweiterten Protokollierung zu aktivieren, und legen Sie den Pfad, in dem die Protokolldatei geschrieben werden soll.
+2.  Erstellen Sie den folgenden Registrierungs Wert, um das Feature erweiterte Protokollierung zu aktivieren, und legen Sie den Pfad auf den Speicherort der Protokolldatei fest.
 
-    **"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Safer\ CodeIdentifiers"**
+    **"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Safer\ CodeIdentifier"**
 
-    String-Wert: *NameLogFile Pfad NameLogFile*
+    Zeichen folgen Wert: *Namelogfile-Pfad zu namelogfile*
 
-    Da Softwareeinschränkungsrichtlinien bei der Ausführung aller Anwendungen auswertet, wird ein Eintrag in die Protokolldatei geschrieben *NameLogFile* jedes Mal, die Anwendung ausgeführt wird.
+    Da SRP alle Anwendungen evaluiert, wenn diese ausgeführt werden, wird jedes Mal, wenn die Anwendung ausgeführt wird, ein Eintrag in die Protokolldatei *namelogfile* geschrieben.
 
-3.  Auswerten der Protokolldatei.
+3.  Auswerten der Protokolldatei
 
-    Jeder Protokolleintrag gibt:
+    Jeder Protokolleintrag lautet:
 
-    -   der Aufrufer der Softwareeinschränkungsrichtlinie und die Prozess-ID (PID) des aufrufenden Prozesses
+    -   der Aufrufer der Software Einschränkungs Richtlinie und die Prozess-ID (PID) des aufrufenden Prozesses.
 
-    -   Das Ziel ausgewertet wird
+    -   Das auszuwertende Ziel
 
-    -   die SRP-Regel, die aufgetreten ist, wenn die Anwendung ausgeführt wurde
+    -   die SRP-Regel, die gefunden wurde, als diese Anwendung ausgeführt wurde.
 
-    -   Ein Bezeichner für die SRP-Regel.
+    -   ein Bezeichner für die SRP-Regel.
 
-    Ein Beispiel für die Ausgabe in eine Protokolldatei geschrieben:
+    Ein Beispiel für die Ausgabe, die in eine Protokolldatei geschrieben wird:
 
-**Explorer.exe (PID = 4728) identifiedC:\Windows\system32\onenote.exe uneingeschränkten Usingpath gilt, Guid = {320bd852-aa7c-4674-82c5-9a80321670a3}** alle Anwendungen und den zugehörigen Code, der Richtlinien für Softwareeinschränkung überprüft und blockieren in das Protokoll angegeben Datei, die Sie verwenden können, um zu bestimmen, welche ausführbare Dateien, die für die Liste der zulässigen berücksichtigt werden sollen.
+**Explorer. exe (PID = 4728) identifiedc: \ windows\system32\onenote.exe als unbeschränkte usingpath-Regel, GUID = {320bd852-AA7C-4674-82c5-9a80321670a3}**    Alle Anwendungen und zugeordneten Code, die von SRP überprüft und auf Block festgelegt werden, werden in der Protokolldatei vermerkt. Diese können Sie dann verwenden, um zu bestimmen, welche ausführbaren Dateien für die zulässige Liste berücksichtigt werden sollen.
 
 

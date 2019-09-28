@@ -7,54 +7,54 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: a1f5c724d041a9f64c3b2697a8b5acd17a2a7bd9
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 200d592bc68562856bbdee623e70d73d41457c15
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445810"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357578"
 ---
 # <a name="claims-transformation-rules-language"></a>Sprache zum Schreiben von Regeln für die Transformation von Ansprüchen
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Die gesamtstrukturübergreifende Ansprüche Transformation können Sie Bridge für die dynamische Zugriffssteuerung über Gesamtstrukturgrenzen hinweg, Ansprüche durch Festlegen von Transformationsrichtlinien für die für gesamtstrukturübergreifende Vertrauensstellungen für Ansprüche. Die primäre Komponente aller Richtlinien ist, die in Ansprüche Transformation Regeln Sprache geschrieben werden. Dieses Thema enthält Details zu dieser Sprache und enthält Anleitungen zum Erstellen von anspruchstransformationsregeln.  
+Die Gesamtstruktur übergreifende Anspruchs Transformations Funktion ermöglicht es Ihnen, Ansprüche für dynamische Access Control über Gesamtstruktur Grenzen hinweg durch Festlegen von Anspruchs Transformations Richtlinien auf Gesamtstruktur übergreifende Vertrauens Stellungen zu überbrücken. Die primäre Komponente aller Richtlinien sind Regeln, die in der Sprache der Anspruchs Transformationsregeln geschrieben sind. Dieses Thema enthält ausführliche Informationen zu dieser Sprache und enthält Anleitungen zum Erstellen von Anspruchs Transformationsregeln.  
   
-Die Windows PowerShell-Cmdlets für die Transformation für Richtlinien für die gesamtstrukturübergreifende Vertrauensstellungen Optionen einfache Richtlinien festlegen, die sind in gängigen Szenarien müssen. Diese Cmdlets die Benutzereingabe Richtlinien und Regeln in der Ansprüche Transformation Regeln Sprache übersetzt, und klicken Sie dann in das vorgeschriebene Format in Active Directory speichern. Weitere Informationen zu den Cmdlets für die Transformation von Ansprüchen finden Sie unter den [AD DS-Cmdlets für die dynamische Zugriffssteuerung](https://go.microsoft.com/fwlink/?LinkId=243150).  
+Die Windows PowerShell-Cmdlets für Transformations Richtlinien für Gesamtstruktur übergreifende Vertrauens Stellungen haben Optionen zum Festlegen einfacher Richtlinien, die in gängigen Szenarien erforderlich sind. Diese Cmdlets übersetzen die Benutzereingaben in Richtlinien und Regeln in der Sprache der Anspruchs Transformationsregeln und speichern Sie dann im vorgeschriebenen Format in Active Directory. Weitere Informationen zu Cmdlets für die Transformation von Ansprüchen finden Sie in den [AD DS Cmdlets für dynamisches Access Control](https://go.microsoft.com/fwlink/?LinkId=243150).  
   
-Abhängig von der Konfiguration der Ansprüche und die Anforderungen für die gesamtstrukturübergreifende Vertrauensstellung in Ihrer Active Directory-Gesamtstrukturen platziert Ihre Ansprüche Transformationsrichtlinien möglicherweise komplexer als die Richtlinien, die von der Windows PowerShell-Cmdlets für Active unterstützt werden Das Verzeichnis. Um effektiv solcher Richtlinien zu erstellen, ist es wichtig, die Ansprüche Transformation Regeln Sprachsyntax und Semantik zu verstehen. Diese Ansprüche Transformation Regeln Sprache ("die Sprache") in Active Directory ist eine Teilmenge der Programmiersprache, mit dem [Active Directory Federation Services](https://go.microsoft.com/fwlink/?LinkId=243982) für ähnliche Zwecke, und es hat eine sehr ähnliche Syntax und Semantik verwendet. Allerdings stehen weniger Vorgänge zulässig, und zusätzliche Syntax Einschränkungen sind in der Active Directory-Version der Sprache.  
+Abhängig von der Anspruchs Konfiguration und den Anforderungen, die für die Gesamtstruktur übergreifende Vertrauensstellung in Ihren Active Directory Gesamtstrukturen gelten, müssen ihre Anspruchs Transformations Richtlinien möglicherweise komplexer sein als die Richtlinien, die von den Windows PowerShell-Cmdlets für aktiv unterstützt werden. Befinden. Um solche Richtlinien effektiv zu verfassen, ist es von entscheidender Bedeutung, die Sprachsyntax und die Semantik der Anspruchs Transformationsregeln zu verstehen. Diese Anspruchs Transformations Regel-Sprache ("die Sprache") in Active Directory ist eine Teilmenge der Sprache, die von [Active Directory-Verbunddienste (AD FS)](https://go.microsoft.com/fwlink/?LinkId=243982) zu ähnlichen Zwecken verwendet wird, und Sie weist eine sehr ähnliche Syntax und Semantik auf. Es sind jedoch weniger Vorgänge zulässig, und zusätzliche Syntax Einschränkungen werden in der Active Directory Version der Sprache platziert.  
   
-In diesem Thema wird kurz erläutert, die Syntax und Semantik der Ansprüche Transformation Regeln Sprache in Active Directory und Überlegungen beim Erstellen von Richtlinien vorgenommen werden. Es bietet mehrere Sätze von Beispielregeln können Sie sofort loslegen und Beispiele für falsche Syntax und die Nachrichten, die sie generieren, mit denen Sie die Fehlermeldungen zu entschlüsseln, wenn Sie die Regeln erstellen, die aus.  
+In diesem Thema wird die Syntax und Semantik der Anspruchs Transformations Regel-Sprache in Active Directory erläutert, und es werden Überlegungen zum Erstellen von Richtlinien erläutert. Sie enthält mehrere Sätze von Beispiel Regeln, um Ihnen den Einstieg zu erleichtern, sowie Beispiele falscher Syntax und der von Ihnen generierten Meldungen, um beim Erstellen der Regeln Fehlermeldungen zu entschlüsseln.  
   
-## <a name="tools-for-authoring-claims-transformation-policies"></a>Tools zum Erstellen von Ansprüche-Transformationsrichtlinien  
-**Windows PowerShell-Cmdlets für Active Directory**: Dies ist die bevorzugte und empfohlene Möglichkeit, zu erstellen und Ansprüche Transformationsrichtlinien. Diese Cmdlets Switches für einfache Richtlinien bereitstellen, und überprüfen die Regeln, die für eine komplexere Richtlinien festgelegt werden.  
+## <a name="tools-for-authoring-claims-transformation-policies"></a>Tools zum Erstellen von Anspruchs Transformations Richtlinien  
+**Windows PowerShell-Cmdlets für Active Directory**: Dies ist die bevorzugte und empfohlene Methode zum Erstellen und Festlegen von Anspruchs Transformations Richtlinien. Diese Cmdlets bieten Schalter für einfache Richtlinien und überprüfen Regeln, die für komplexere Richtlinien festgelegt sind.  
   
-**LDAP**: Richtlinien für die Transformation von Ansprüchen können in Active Directory über Lightweight Directory Access Protocol (LDAP) bearbeitet werden. Dies ist jedoch nicht empfohlen, da die Richtlinien mehrere komplexe Komponenten wurden und die Tools, mit denen Sie die Richtlinie vor dem Schreiben es in Active Directory können nicht überprüft werden. Dies erfordert möglicherweise anschließend viel Zeit, um Probleme zu diagnostizieren.  
+**LDAP**: Anspruchs Transformations Richtlinien können in Active Directory mithilfe von LDAP (Lightweight Directory Access Protocol) bearbeitet werden. Dies wird jedoch nicht empfohlen, da die Richtlinien mehrere komplexe Komponenten aufweisen und die von Ihnen verwendeten Tools die Richtlinie möglicherweise nicht validieren, bevor Sie Sie in Active Directory schreiben. Dies kann später eine beträchtliche Zeit für die Diagnose von Problemen erfordern.  
   
-## <a name="active-directory-claims-transformation-rules-language"></a>Active Directory-Ansprüche Transformation Regeln Sprache  
+## <a name="active-directory-claims-transformation-rules-language"></a>Active Directory Anspruchs Transformationsregeln-Sprache  
   
-### <a name="syntax-overview"></a>Übersicht über die Syntax  
-Hier ist eine kurze Übersicht über die Syntax und Semantik der Sprache:  
+### <a name="syntax-overview"></a>Syntax Übersicht  
+Im folgenden finden Sie eine kurze Übersicht über die Syntax und die Semantik der Sprache:  
   
--   Die Menge der Ausgabeansprüche Transformation Regel besteht aus null oder mehr Regeln. Jede Regel verfügt über zwei aktive Teilen: **Wählen Sie die Liste der Bedingungen** und **Regelaktion**. Wenn die **Select-Liste von Bedingung** zu TRUE ausgewertet, die entsprechende Regelaktion ausgeführt wird.  
+-   Der Regelsatz der Anspruchs Transformation besteht aus null oder mehr Regeln. Jede Regel verfügt über zwei aktive Teile: **Wählen Sie Bedingungs Liste** und **Regel Aktion**aus. Wenn die **Liste Bedingung auswählen** als true ausgewertet wird, wird die entsprechende Regel Aktion ausgeführt.  
   
--   **Wählen Sie die Liste der Bedingungen** verfügt über 0 (null) oder mehr **Bedingungen wählen**. Alle der **Bedingungen auswählen** für "true" ergeben muss die **Select-Liste von Bedingung** zu "true" ausgewertet werden soll.  
+-   Die **Auswahl Bedingungs Liste** enthält keine oder mehrere SELECT- **Bedingungen**. Alle SELECT- **Bedingungen** müssen als true ausgewertet werden, damit die **Liste Bedingung auswählen** als true ausgewertet wird.  
   
--   Jede **Bedingung auswählen** verfügt über einen Satz von NULL oder mehr **Bedingungen für die Übereinstimmung**. Alle der **Bedingungen für die Übereinstimmung** muss für die Bedingung wählen Sie auf "true" ergibt "true" ausgewertet. Alle diese Bedingungen werden für ein einzelner Anspruch ausgewertet. Einen Anspruch, eine **Bedingung auswählen** können gekennzeichnet werden, indem ein **Bezeichner** bezeichnet, in der **Regelaktion**.  
+-   Jede **Select-Bedingung** hat einen Satz von NULL oder mehr **übereinstimmenden Bedingungen**. Alle **übereinstimmenden Bedingungen** müssen als true ausgewertet werden, damit die Select-Bedingung als true ausgewertet wird. Alle diese Bedingungen werden anhand eines einzelnen Anspruchs ausgewertet. Ein Anspruch, der einer **Select-Bedingung** entspricht, kann durch einen **Bezeichner** gekennzeichnet werden und in der **Regel Aktion**darauf verwiesen werden.  
   
--   Jede **Bedingung übereinstimmenden** gibt die Bedingung entsprechend der **Typ** oder **Wert** oder **ValueType** des Anspruchs mit verschiedenen  **Operatoren für die erste Bedingung** und **Zeichenfolgenliterale**.  
+-   Jede **übereinstimmende Bedingung** gibt die Bedingung an, mit der der **Typ** oder **Wert** oder **ValueType** eines Anspruchs mithilfe verschiedener Bedingungs **Operatoren** und **Zeichen folgen Literale**übereinstimmen.  
   
-    -   Bei Angabe einer **Bedingung übereinstimmenden** für eine **Wert**, müssen Sie auch angeben eine **Bedingung übereinstimmenden** für einen bestimmten **ValueType** und umgekehrt. Diese Bedingungen müssen nebeneinander in der Syntax sein.  
+    -   Wenn Sie eine abgleichsbedingung für **einen Wert**angeben, müssen Sie auch eine **entsprechende Bedingung** für einen bestimmten **ValueType** angeben und umgekehrt. Diese Bedingungen müssen in der-Syntax nebeneinander liegen.  
   
-    -   **ValueType** übereinstimmungsbedingungen muss bestimmte verwenden **ValueType** nur Literale.  
+    -   **ValueType** -Übereinstimmungs Bedingungen müssen nur bestimmte **ValueType** -Literale verwenden.  
   
--   Ein **Regelaktion** können kopieren, einen Anspruch, der mit gekennzeichnet ist ein **Bezeichner** oder geben Sie einen Anspruch, basierend auf einen Anspruch, der mit einer ID gekennzeichnet ist, und/oder Zeichenfolgenliterale angegeben.  
+-   Eine **Regel Aktion** kann einen Anspruch kopieren, der mit einem **Bezeichner** gekennzeichnet ist, oder einen Anspruch auf der Grundlage eines Anspruchs, der mit einem Bezeichner und/oder angegebenen Zeichenfolgenliteralen gekennzeichnet ist, ausstellen.  
   
-**Beispielregel**  
+**Beispiel Regel**  
   
-Dieses Beispiel zeigt eine Regel, die verwendet werden kann, um die Ansprüche Typ zwischen zwei Gesamtstrukturen zu übersetzen, vorausgesetzt, sie dieselben Ansprüche Werttypen verwenden und die gleichen Interpretationen für die forderungs-Werte für diesen Typ. Die Regel verfügt über eine entsprechende Bedingung und eine Problem-Anweisung, die Zeichenfolgenliterale und einem übereinstimmenden Ansprüche-Verweis verwendet.  
+Dieses Beispiel zeigt eine Regel, die verwendet werden kann, um den Anspruchstyp zwischen zwei Gesamtstrukturen zu übersetzen, vorausgesetzt, Sie verwenden die gleichen Anspruchs ValueTypes und weisen die gleichen Interpretationen für Anspruchs Werte für diesen Typ auf. Die Regel verfügt über eine übereinstimmende Bedingung und eine Issue-Anweisung, die Zeichen folgen Literale und einen übereinstimmenden Anspruchs Verweis verwendet.  
   
 ```  
 C1: [TYPE=="EmployeeType"]    
@@ -64,36 +64,36 @@ ISSUE (TYPE= "EmpType", VALUE = C1.VALUE, VALUETYPE = C1.VALUETYPE) == Rule Acti
   
 ```  
   
-### <a name="runtime-operation"></a>Runtime-Vorgang  
-Es ist wichtig zu verstehen, die Runtime-Vorgang von Transformationen von Ansprüchen zum effektiven Regeln zu erstellen. Die Runtime-Vorgang verwendet drei Sätze von Ansprüchen:  
+### <a name="runtime-operation"></a>Lauf Zeit Vorgang  
+Es ist wichtig, den Lauf Zeit Vorgang von Anspruchs Transformationen zu verstehen, um die Regeln effektiv zu verfassen. Der Lauf Zeit Vorgang verwendet drei Sätze von Ansprüchen:  
   
-1.  **Satz von Ansprüchen Eingabe**: Der Eingabe Satz von Ansprüchen, die für den Betrieb der Ansprüche Transformation angegeben werden.  
+1.  **Eingabe Anspruchssatz**: Der Eingabe Satz der Ansprüche, die an den Anspruchs Transformations Vorgang übergeben werden.  
   
-2.  **Verwenden die Menge der Ausgabeansprüche**: Intermediate Ansprüche, die aus gelesen und geschrieben während die Transformation von Ansprüchen.  
+2.  **Arbeits Anspruchssatz**: Zwischen Ansprüche, die während der Anspruchs Transformation gelesen und geschrieben werden.  
   
-3.  **Ausgabe von Ansprüchen Satz**: Die Ausgabe des Vorgangs Transformation Ansprüche.  
+3.  **Ausgabeforderungs Satz**: Ausgabe des Anspruchs Transformations Vorgangs.  
   
-Hier ist eine kurze Übersicht über die Common Language Runtime Ansprüche Datentransformation:  
+Im folgenden finden Sie eine kurze Übersicht über den Vorgang der Transformation für Lauf Zeit Ansprüche:  
   
-1.  Eingabeansprüche für die Transformation von Ansprüchen werden verwendet, um das Workingset-Ansprüche zu initialisieren.  
+1.  Die Eingabe Ansprüche für die Transformation von Ansprüchen werden verwendet, um den Arbeits Anspruchssatz zu initialisieren.  
   
-    1.  Bei der Verarbeitung jeder Regel wird das Workingset-Ansprüche für den Eingabeansprüchen verwendet.  
+    1.  Beim Verarbeiten jeder Regel wird der Arbeits Anspruchssatz für die Eingabe Ansprüche verwendet.  
   
-    2.  Die Auswahlliste für die Bedingung in einer Regel ist mit allen möglichen Sätze von Ansprüchen, aus dem Arbeitssatz der Ansprüche verglichen.  
+    2.  Die Auswahl Bedingungs Liste in einer Regel wird mit allen möglichen Sätzen von Ansprüchen aus dem Arbeits Anspruchssatz verglichen.  
   
-    3.  Jeder Satz übereinstimmender Ansprüche dient zum Ausführen der Aktion in dieser Regel.  
+    3.  Jeder Satz übereinstimmender Ansprüche wird verwendet, um die Aktion in dieser Regel auszuführen.  
   
-    4.  Die Ausführung einer Regel Aktionsergebnisse in einen Anspruch, der mit der Ausgabe angefügt wird beansprucht, Gruppe und die Menge der Ausgabeansprüche arbeiten. Daher ist die Ausgabe von einer Regel für die nachfolgenden Regeln im Regelsatz als Eingabe verwendet.  
+    4.  Das Ausführen einer Regel Aktion führt zu einem Anspruch, der an den Ausgabe Anspruchssatz und den funktionierenden Anspruchssatz angefügt wird. Daher wird die Ausgabe einer Regel als Eingabe für nachfolgende Regeln im Regelsatz verwendet.  
   
-2.  Die Regeln im Regelsatz werden in sequenzieller Reihenfolge, beginnend mit der ersten Regel verarbeitet.  
+2.  Die Regeln im Regelsatz werden in sequenzieller Reihenfolge verarbeitet, beginnend mit der ersten Regel.  
   
-3.  Wenn der gesamte Regelsatz verarbeitet wird, wird die Menge der Ausgabeansprüche verarbeitet, um doppelte Ansprüche zu entfernen und für andere Sicherheitsrisiken. Die resultierenden Ansprüchen handelt es sich um die Ausgabe einer Transformation Ansprüche.  
+3.  Wenn der gesamte Regelsatz verarbeitet wird, wird der Ausgabe Anspruchssatz verarbeitet, um doppelte Ansprüche und andere Sicherheitsprobleme zu entfernen. Die resultierenden Ansprüche sind die Ausgabe des Anspruchs Transformationsprozesses.  
   
-Es ist möglich, Schreiben komplexer Anspruchstransformationen auf die Laufzeit das vorherige Verhalten basieren.  
+Komplexe Anspruchs Transformationen können basierend auf dem vorherigen Laufzeitverhalten geschrieben werden.  
   
-**Beispiel: Runtime-Vorgang**  
+**Beispiel Lauf Zeit Operation @ no__t-0  
   
-Dieses Beispiel zeigt den Runtime-Vorgang, der eine Transformation von Ansprüchen, die zwei Regeln verwendet.  
+Dieses Beispiel zeigt den Lauf Zeit Vorgang einer Anspruchs Transformation, die zwei Regeln verwendet.  
   
 ```  
   
@@ -128,102 +128,102 @@ Final Output:
   
 ```  
   
-### <a name="special-rules-semantics"></a>Spezielle Regeln-Semantik  
-Im folgenden finden spezielle Syntax für die Regeln:  
+### <a name="special-rules-semantics"></a>Semantik für spezielle Regeln  
+Im folgenden finden Sie eine spezielle Syntax für Regeln:  
   
-1.  Leere Regelsatz keine Ausgabeansprüche ==  
+1.  Leerer Regelsatz = = keine Ausgabe Ansprüche  
   
-2.  Leere Select-Liste von Bedingung == alle Anspruch entspricht der Liste der Bedingungen auswählen  
+2.  Leere Auswahl Bedingungs Liste = = jeder Anspruch stimmt mit der Liste der SELECT-Bedingungen überein.  
   
-    **Beispiel: Leere Option Bedingungsliste**  
+    **Beispiel Leere Auswahl Bedingungs Liste @ no__t-0  
   
-    Die folgende Regel entspricht jeden Anspruch in das Workingset.  
+    Die folgende Regel gleicht jeden Anspruch im Workingset ab.  
   
     ```  
     => Issue (Type = "UserType", Value = "External", ValueType = "string")  
     ```  
   
-3.  Wählen Sie übereinstimmende Liste leer == jeder Anspruch entspricht der Liste der Bedingungen auswählen  
+3.  Leere SELECT Match List = = jeder Anspruch stimmt mit der Liste der ausgewählten Bedingungen überein  
   
-    **Beispiel: Bedingungen für die leere Übereinstimmung**  
+    **Beispiel Leere übereinstimmende Bedingungen @ no__t-0  
   
-    Die folgende Regel entspricht jeden Anspruch in das Workingset. Dies ist die grundlegende "Allow-All"-Regel, wenn es allein verwendet wird.  
+    Die folgende Regel gleicht jeden Anspruch im Workingset ab. Dies ist die grundlegende "allow-all"-Regel, wenn Sie allein verwendet wird.  
   
     ```  
     C1:[] => Issule (claim = C1);  
     ```  
   
 ## <a name="security-considerations"></a>Sicherheitsüberlegungen  
-**Ansprüche, die eine Gesamtstruktur eingeben**  
+**Ansprüche, die in eine Gesamtstruktur eintreten**  
   
-Die bereitgestellten von Prinzipalen, die in einer Gesamtstruktur eingehenden Ansprüche müssen sorgfältig überprüft werden muss, um sicherzustellen, dass wir zulassen, oder geben Sie nur die Richtigkeit der Ansprüche. Nicht ordnungsgemäße Ansprüche können der Gesamtstruktur die Sicherheit beeinträchtigen, und Dies dürfte eine wichtige Rolle beim Erstellen von Transformationsrichtlinien für die für Ansprüche, die eine Gesamtstruktur eingeben.  
+Die Ansprüche, die von Prinzipale vorgelegt werden, die in einer Gesamtstruktur eingehenden werden, müssen gründlich geprüft werden, um sicherzustellen, dass wir nur die richtigen Ansprüche zulassen oder ausstellen. Nicht ordnungsgemäße Ansprüche können die Gesamtstruktur Sicherheit beeinträchtigen, und dies sollte bei der Erstellung von Transformations Richtlinien für Ansprüche, die eine Gesamtstruktur eintreten, eine hohe Priorität haben.  
   
-Active Directory verfügt über die folgenden Funktionen aus, um zu verhindern, dass die Fehlkonfiguration von Ansprüchen, die eine Gesamtstruktur eingeben:  
+Active Directory verfügt über die folgenden Funktionen, um eine Fehlkonfiguration von Ansprüchen zu verhindern, die in eine Gesamtstruktur eintreten:  
   
--   Wenn eine Gesamtstruktur-Vertrauensstellung ist keine Ansprüche Transformation Richtliniensatz für die Ansprüche, die eine Gesamtstruktur, für die Sicherheit zu erhöhen, geben Sie löscht Active Directory die principal Ansprüche, die die Gesamtstruktur eingeben.  
+-   Wenn für eine Gesamtstruktur-Vertrauensstellung für die Ansprüche, die in eine Gesamtstruktur eintreten, keine Anspruchs Transformations Richtlinie festgelegt ist, werden aus Sicherheits Active Directory Gründen alle Prinzipal Ansprüche gelöscht, die in die Gesamtstruktur eintreten.  
   
--   Wenn den Regelsatz auf Ansprüchen ausgeführt, der eine Gesamtstruktur-Ergebnisse in Ansprüchen eingibt, die nicht in der Gesamtstruktur definiert sind, werden die nicht definierten Ansprüche aus die Ausgabeansprüche gelöscht.  
+-   Wenn die Ausführung des Regelsatzes für Ansprüche, die in eine Gesamtstruktur eintritt, zu Ansprüchen führt, die nicht in der Gesamtstruktur definiert sind, werden die nicht definierten Ansprüche aus den Ausgabe Ansprüchen gelöscht.  
   
-**Ansprüche, die verlassen eine Gesamtstruktur**  
+**Ansprüche, die eine Gesamtstruktur verlassen**  
   
-Ansprüche, die verlassen eine Gesamtstruktur vorhanden, weniger Sicherheit wichtig ist für die Gesamtstruktur als die Ansprüche, die die Gesamtstruktur eingeben. Ansprüche können die Gesamtstruktur wie der lassen – ist, auch wenn keine entsprechenden Ansprüche transformationsrichtlinie vorhanden. Es ist auch möglich, die Ansprüche ausgeben, die nicht, in der Gesamtstruktur als Teil definiert sind der Transformation von Ansprüchen, die von der Gesamtstruktur zu lassen. Dies ist ganz einfach einrichten gesamtstrukturübergreifende Vertrauensstellungen mit Ansprüchen. Ein Administrator kann bestimmen, ob Ansprüche, die die Gesamtstruktur eingeben müssen, transformiert und die entsprechende Richtlinie einrichten werden. Beispielsweise kann ein Administrator eine Richtlinie festlegen, wenn besteht die Notwendigkeit, einen Anspruch, um die Offenlegung von Informationen ausblenden.  
+Ansprüche, die eine Gesamtstruktur verlassen, stellen für die Gesamtstruktur weniger Sicherheitsbedenken dar als die Ansprüche, die in die Gesamtstruktur eintreten. Ansprüche dürfen die Gesamtstruktur unverändert belassen, auch wenn keine entsprechende Anspruchs Transformations Richtlinie vorhanden ist. Es ist auch möglich, Ansprüche auszugeben, die nicht in der Gesamtstruktur als Teil der Transformation von Ansprüchen definiert sind, die die Gesamtstruktur verlassen. Dies dient zum einfachen Einrichten von Gesamtstruktur übergreifenden Vertrauens Stellungen mit Ansprüchen. Ein Administrator kann ermitteln, ob Ansprüche, die in die Gesamtstruktur eintreten, transformiert werden müssen, und die entsprechende Richtlinie einrichten. Beispielsweise könnte ein Administrator eine Richtlinie festlegen, wenn es erforderlich ist, einen Anspruch auszublenden, um die Offenlegung von Informationen zu verhindern.  
   
-**Syntaxfehler im Transformationsregeln für Ansprüche**  
+**Syntax Fehler in Anspruchs Transformationsregeln**  
   
-Wenn eine bestimmte Ansprüche Transformation-Richtlinie verfügt über einen Regelsatz, der syntaktisch falsch ist, oder wenn andere Probleme Syntax oder Speicher vorliegen, die Richtlinie ist ungültig. Dies ist anders als die oben genannten standardbedingungen behandelt.  
+Wenn für eine bestimmte Anspruchs Transformations Richtlinie ein Regelsatz vorliegt, der syntaktisch falsch ist, oder wenn andere Syntax-oder Speicherprobleme vorliegen, wird die Richtlinie als ungültig eingestuft. Dies wird anders behandelt als die zuvor erwähnten Standardbedingungen.  
   
-Active Directory kann nicht das Ziel in diesem Fall ermitteln und wechselt in den ein Abgesicherter Modus, wodurch keine Ausgabeansprüche generiert werden, auf diese Vertrauensstellung und die Richtung des Durchlaufs. Eingreifen des Administrators ist erforderlich, um das Problem zu beheben. Dies kann passieren, wenn LDAP verwendet wird, um die Ansprüche Transformation-Richtlinie zu bearbeiten. Windows PowerShell-Cmdlets für Active Directory haben Validierung, um zu verhindern, schreiben eine Richtlinie mit Syntaxfehler.  
+Active Directory kann die Absicht in diesem Fall nicht ermitteln und wechselt in einen ausfallsicheren Modus, in dem keine Ausgabe Ansprüche für diese Vertrauensstellung und Richtung des Durchlaufs generiert werden. Zum Beheben des Problems ist ein Administrator Eingriff erforderlich. Dies kann vorkommen, wenn LDAP zum Bearbeiten der Anspruchs Transformations Richtlinie verwendet wird. Windows PowerShell-Cmdlets für Active Directory Überprüfung durchgeführt werden, um das Schreiben einer Richtlinie mit Syntax Problemen zu verhindern.  
   
-## <a name="other-language-considerations"></a>Andere sprachbezogene Aspekte  
+## <a name="other-language-considerations"></a>Weitere Überlegungen zur Sprache  
   
-1.  Es gibt mehrere Schlüsselwörter oder Zeichen an, die in dieser Sprache (bezeichnet als Terminals) besonders sind. Diese werden angezeigt, der [Sprache Terminals](Claims-Transformation-Rules-Language.md#BKMK_LT) Tabelle weiter unten in diesem Thema. Die Fehlermeldungen werden die Tags für diese Terminals für Mehrdeutigkeit verwenden.  
+1.  Es gibt mehrere Schlüsselwörter oder Sonderzeichen, die in dieser Sprache spezifisch sind (als Terminals bezeichnet). Diese werden in der Tabelle " [sprach Terminals](Claims-Transformation-Rules-Language.md#BKMK_LT) " weiter unten in diesem Thema angezeigt. In den Fehlermeldungen werden die Tags für diese Terminals für die Mehrdeutigkeit verwendet.  
   
-2.  Terminale können manchmal als Zeichenfolgenliterale verwendet werden. Jedoch solche Nutzung zu Konflikten mit der Sprachdefinition oder haben möglicherweise unerwartete Ergebnisse liefern. Diese Art von Auslastung wird nicht empfohlen.  
+2.  Terminals können mitunter als Zeichenfolgenliterale verwendet werden. Diese Verwendung kann jedoch mit der Sprachdefinition in Konflikt stehen oder unbeabsichtigte Folgen haben. Diese Art der Verwendung wird nicht empfohlen.  
   
-3.  Die Regelaktion kann ausführen, typkonvertierungen Anspruchswerte und ein Regelsatz, der eine solche Regelaktion enthält, wird als ungültig angesehen. Dies würde dazu führen, dass einen Laufzeitfehler, und es werden keine Ausgabeansprüche generiert.  
+3.  Von der Regel Aktion können keine Typkonvertierungen für Anspruchs Werte ausgeführt werden, und ein Regelsatz, der eine solche Regel Aktion enthält, wird als ungültig angesehen. Dies führt zu einem Laufzeitfehler, und es werden keine Ausgabe Ansprüche erzeugt.  
   
-4.  Wenn eine Regelaktion auf einen Bezeichner, die nicht in der Select-Liste von Bedingung Teil der Regel verwendet wurde verweist, ist es eine ungültige Verwendung. Dies würde dazu führen, dass ein Syntaxfehler aufgetreten.  
+4.  Wenn eine Regel Aktion auf einen Bezeichner verweist, der nicht im Abschnitt Select Condition List der Regel verwendet wurde, handelt es sich um eine ungültige Verwendung. Dies würde einen Syntax Fehler verursachen.  
   
-    **Beispiel: Falscher Verweis für Bezeichner**  
-    Die folgende Regel zeigt nicht den korrekten Bezeichner, die in einer Regelaktion verwendet.  
+    **Beispiel Falscher bezeichnerverweis @ no__t-0  
+    Die folgende Regel veranschaulicht einen falschen Bezeichner, der in der Regel Aktion verwendet wird.  
   
     ```  
     C1:[] => Issue (claim = C2);  
     ```  
   
-## <a name="sample-transformation-rules"></a>Beispiel-Transformationsregeln  
+## <a name="sample-transformation-rules"></a>Beispiele für Transformationsregeln  
   
--   **Alle Ansprüche eines bestimmten Typs zu ermöglichen**  
+-   **Alle Ansprüche eines bestimmten Typs zulassen**  
   
-    Exakten Typ  
+    Genauer Typ  
   
     ```  
     C1:[type=="XYZ"] => Issue (claim = C1);  
     ```  
   
-    Mithilfe von Regex  
+    Verwenden von Regex  
   
     ```  
     C1: [type =~ "XYZ*"] => Issue (claim = C1);  
     ```  
   
--   **Verweigert einen bestimmten Anspruchstyp**  
-    Exakten Typ  
+-   **Einen bestimmten Anspruchstyp nicht zulassen**  
+    Genauer Typ  
   
     ```  
     C1:[type != "XYZ"] => Issue (claim=C1);  
     ```  
   
-    Mithilfe von Regex  
+    Verwenden von Regex  
   
     ```  
     C1:[Type !~ "XYZ?"] => Issue (claim=C1);  
     ```  
   
-## <a name="examples-of-rules-parser-errors"></a>Beispiele für Regeln Parser-Fehler  
-Transformationsregeln für Ansprüche werden durch einen benutzerdefinierten Parser überprüft auf Syntaxfehler analysiert. Dieser Parser wird von zugehörigen Windows PowerShell-Cmdlets ausgeführt, bevor Regeln in Active Directory gespeichert. Fehler bei der Analyse Syntaxfehler, einschließlich der Regeln werden in der Konsole ausgegeben. Domänencontroller den Parser auch vor der Verwendung von Regeln zum Transformieren von Ansprüchen ausgeführt, und sie Fehler im Ereignisprotokoll protokollieren (Hinzufügen von Ereignisprotokoll Zahlen).  
+## <a name="examples-of-rules-parser-errors"></a>Beispiele für Regel Parser-Fehler  
+Anspruchs Transformationsregeln werden von einem benutzerdefinierten Parser analysiert, um auf Syntax Fehler zu überprüfen. Dieser Parser wird von zugehörigen Windows PowerShell-Cmdlets ausgeführt, bevor Regeln in Active Directory gespeichert werden. Alle Fehler beim Parsen der Regeln, einschließlich Syntax Fehlern, werden in der Konsole gedruckt. Domänen Controller führen auch den Parser aus, bevor Sie die Regeln zum Transformieren von Ansprüchen verwenden, und protokollieren Fehler im Ereignisprotokoll (Ereignisprotokoll Nummern hinzufügen).  
   
-In diesem Abschnitt sind einige Beispiele für Regeln, die Fehler mit falscher Syntax und die entsprechende Syntax geschrieben werden, die vom Parser generiert werden.  
+In diesem Abschnitt werden einige Beispiele für Regeln veranschaulicht, die mit falscher Syntax geschrieben werden, sowie die entsprechenden Syntax Fehler, die vom Parser generiert werden.  
   
 1. Beispiel:  
   
@@ -231,11 +231,11 @@ In diesem Abschnitt sind einige Beispiele für Regeln, die Fehler mit falscher S
    c1;[]=>Issue(claim=c1);  
    ```  
   
-   In diesem Beispiel hat ein falsch verwendeter Semikolon anstelle von einem Doppelpunkt.   
+   In diesem Beispiel ist ein Semikolon anstelle eines Doppelpunkts falsch verwendet.   
    **Fehlermeldung:**  
-   *POLICY0002: Richtliniendaten konnte nicht analysiert werden.*  
-   *Zeilennummer: 1, Spaltennummer: 2, fehlertoken:;. Line: 'c1;[]=>Issue(claim=c1);'.*  
-   *Fehler im Parser: "POLICY0030: Syntaxfehler: Unerwartetes ';', erwartet eine der folgenden: ":". "*  
+   *POLICY0002: Richtlinien Daten konnten nicht analysiert werden.*  
+   *zeilennummer: 1, Spaltennummer: 2, Fehler Token:;. Zeile: ' C1; [] = > Problem (Claim = C1); '.*  
+   *parser-Fehler: 'POLICY0030: Syntax Fehler, unerwartetes '; ', erwartet wird eine der folgenden: ': '. '*  
   
 2. Beispiel:  
   
@@ -243,9 +243,9 @@ In diesem Abschnitt sind einige Beispiele für Regeln, die Fehler mit falscher S
    c1:[]=>Issue(claim=c2);  
    ```  
   
-   In diesem Beispiel ist das Tag "Bezeichner" in der ausstellungsanweisung kopieren nicht definiert.   
+   In diesem Beispiel ist das bezeichnertag in der Copy-Ausstellungs Anweisung nicht definiert.   
    **Fehlermeldung**:   
-   *POLICY0011: Keine Bedingungen in der Anspruchsregel mit dem die Bedingungstag, die in der CopyIssuanceStatement angegeben: "c2".*  
+   *POLICY0011: Keine Bedingungen in der Anspruchs Regel entsprechen dem Bedingungs Tag, das in copyissuancestatement: ' C2 ' angegeben ist.*  
   
 3. Beispiel:  
   
@@ -253,11 +253,11 @@ In diesem Abschnitt sind einige Beispiele für Regeln, die Fehler mit falscher S
    c1:[type=="x1", value=="1", valuetype=="bool"]=>Issue(claim=c1)  
    ```  
   
-   "Bool" ist nicht mit einem Terminal aus, in der Sprache, und es ist dabei nicht um eine gültige ValueType. Gültige Terminals werden in der folgenden Fehlermeldung aufgeführt.   
+   "bool" ist kein Terminal in der Sprache und kein gültiger ValueType. Gültige Terminals sind in der folgenden Fehlermeldung aufgeführt.   
    **Fehlermeldung:**  
-   *POLICY0002: Richtliniendaten konnte nicht analysiert werden.*  
-   Zeilennummer: 1, Spaltennummer: 39, fehlertoken: "Bool". Line: 'c1:[type=="x1", value=="1",valuetype=="bool"]=>Issue(claim=c1);'.   
-   *Fehler im Parser: "POLICY0030: Syntaxfehler: Unerwartetes 'STRING', erwartet eine der folgenden: 'INT64_TYPE' 'UINT64_TYPE' 'STRING_TYPE' 'BOOLEAN_TYPE' 'IDENTIFIER'*  
+   *POLICY0002: Richtlinien Daten konnten nicht analysiert werden.*  
+   Zeilennummer: 1, Spaltennummer: 39, Fehler Token: "bool". Zeile: ' C1: [Type = = "x1", Value = = "1", ValueType = = "bool"] = > Issue (Claim = C1); ".   
+   *parser-Fehler: 'POLICY0030: Syntax Fehler, unerwartetes Zeichen "String". es wird eine der folgenden Punkte erwartet: ' INT64_TYPE ' ' UINT64_TYPE ' ' STRING_TYPE ' ' BOOLEAN_TYPE ' ' IDENTIFIER '*  
   
 4. Beispiel:  
   
@@ -265,10 +265,10 @@ In diesem Abschnitt sind einige Beispiele für Regeln, die Fehler mit falscher S
    c1:[type=="x1", value==1, valuetype=="boolean"]=>Issue(claim=c1);  
    ```  
   
-   Die Zahl **1** in diesem Beispiel ist kein gültiges Token in der Sprache, und die Nutzung ist in einer übereinstimmungsbedingung nicht zulässig. Er muss in doppelte Anführungszeichen ein, um es zu eine Zeichenfolge machen eingeschlossen werden.   
+   Die Ziffer **1** in diesem Beispiel ist kein gültiges Token in der Sprache, und eine solche Verwendung ist in einer übereinstimmenden Bedingung nicht zulässig. Er muss in doppelte Anführungszeichen eingeschlossen werden, um ihn zu einer Zeichenfolge zu machen.   
    **Fehlermeldung:**  
-   *POLICY0002: Richtliniendaten konnte nicht analysiert werden.*  
-   *Zeilennummer: 1, Spaltennummer: 23 fehlertoken: 1. Line: 'c1:[type=="x1", value==1, valuetype=="bool"]=>Issue(claim=c1);'.* <em>Parser error: "POLICY0029: Unerwartete Eingabe.</em>  
+   *POLICY0002: Richtlinien Daten konnten nicht analysiert werden.*  
+   *zeilennummer: 1, Spaltennummer: 23, Fehler Token: 1. Zeile: ' C1: [Type = = "x1", Value = = 1, ValueType = = "bool"] = > Issue (Claim = C1); ".*  @ no__t-1parser-Fehler: 'POLICY0029: Unerwartete Eingabe. </em>  
   
 5. Beispiel:  
   
@@ -278,12 +278,12 @@ In diesem Abschnitt sind einige Beispiele für Regeln, die Fehler mit falscher S
         Issue(type = c1.type, value="0", valuetype == "boolean");  
    ```  
   
-   Dieses Beispiel verwendet ein doppeltes Gleichheitszeichen (==), anstatt ein einzelnes Gleichheitszeichen (=).   
+   In diesem Beispiel wurde ein doppeltes Gleichheitszeichen (= =) anstelle eines einzelnen Gleichheitszeichens (=) verwendet.   
    **Fehlermeldung:**  
-   *POLICY0002: Richtliniendaten konnte nicht analysiert werden.*  
-   *Zeilennummer: 1, Spaltennummer: 91, fehlertoken: ==. Line: 'c1:[type=="x1", value=="1",*  
-   *valuetype=="boolean"]=>Issue(type=c1.type, value="0", valuetype=="boolean");'.*  
-   *Fehler im Parser: "POLICY0030: Syntaxfehler, unerwartetes "==", eine der folgenden erwartet: '='*  
+   *POLICY0002: Richtlinien Daten konnten nicht analysiert werden.*  
+   *zeilennummer: 1, Spaltennummer: 91, Fehler Token: = =. Zeile: ' C1: [Type = = ' x1 ', value = = ' 1 ',*  
+   *ValueType = = "Boolean"] = > Issue (Type = C1. Type, Value = "0", ValueType = = "Boolean"); ".*  
+   *parser-Fehler: 'POLICY0030: Syntax Fehler, unerwartetes ' = = ', erwartet wird eine der folgenden Elemente: ' = '*  
   
 6. Beispiel:  
   
@@ -293,42 +293,42 @@ In diesem Abschnitt sind einige Beispiele für Regeln, die Fehler mit falscher S
          Issue(type=c1.type, value=c1.value, valuetype = "string");  
    ```  
   
-   In diesem Beispiel ist syntaktisch und semantisch richtig. Verwenden jedoch "Boolean" auf, wie Sie ein Zeichenfolgenwert an für Verwirrung sorgen, gebunden ist, und sollte vermieden werden. Wie bereits erwähnt, mithilfe der Sprache Terminals wie Ansprüche Werte sollten möglichst vermieden werden.  
+   Dieses Beispiel ist syntaktisch und semantisch korrekt. Die Verwendung von "Boolean" als Zeichen folgen Wert ist jedoch an Verwirrung gebunden und sollte vermieden werden. Wie bereits erwähnt, sollten die Verwendung von sprach Terminals als Anspruchs Werte nach Möglichkeit vermieden werden.  
   
-## <a name="BKMK_LT"></a>Language-terminals  
-Die folgende Tabelle enthält den vollständigen Satz von Terminaldienste-Zeichenfolgen und die zugeordnete Sprache-Terminals, die in der Ansprüche Transformation Regeln Sprache verwendet werden. Diese Definitionen werden Groß-/Kleinschreibung UTF-16-Zeichenfolgen verwenden.  
+## <a name="BKMK_LT"></a>Sprach Terminals  
+In der folgenden Tabelle sind die kompletten Terminal Zeichenfolgen und die zugehörigen sprach Terminals aufgelistet, die in der Anspruchs Transformations-Regel Sprache verwendet werden. In diesen Definitionen werden UTF-16-Zeichen folgen ohne Beachtung der Groß-und  
   
-|Zeichenfolge|Terminaldienste|  
+|Zeichenfolge|Vergütungen|  
 |----------|------------|  
-|"=>"|IMPLIZIEREN|  
-|";"|DURCH SEMIKOLONS|  
+|"= >"|BEIN|  
+|";"|SEMIKOLON|  
 |":"|DOPPELPUNKT|  
-|","|COMMA|  
-|"."|PUNKT|  
+|","|KOMMA|  
+|"."|GEWINN|  
 |"["|O_SQ_BRACKET|  
 |"]"|C_SQ_BRACKET|  
 |"("|O_BRACKET|  
 |")"|C_BRACKET|  
-|"=="|EQ|  
+|"=="|STECKEN|  
 |"!="|NEQ|  
 |"=~"|REGEXP_MATCH|  
 |"!~"|REGEXP_NOT_MATCH|  
-|"="|WEISEN SIE|  
-|"&&"|AND|  
-|"Issue"|PROBLEM|  
-|"Type"|TYPE|  
-|"Value"|WERT|  
-|"Valuetype"|VALUE_TYPE|  
-|"claim"|ANSPRUCH|  
-|"[_A-Za-z][_A-Za-z0-9]*"|BEZEICHNER|  
-|"\\" [^\\"\n]*\\" "|ZEICHENFOLGE|  
-|"uint64"|UINT64_TYPE|  
-|"int64"|INT64_TYPE|  
-|"string"|STRING_TYPE|  
-|"boolean"|BOOLEAN_TYPE|  
+|"="|EINRÄUMEN|  
+|"& &"|AND|  
+|betrifft|PROBLEM|  
+|Sorte|TYPE|  
+|Wert|WERT|  
+|ValueType|VALUE_TYPE|  
+|erheben|ERHEBEN|  
+|"[_A-za-z] [_a-zA-Z0-9] *"|FIGUR|  
+|"\\" [^ \\ "\n] * \\" "|SCHNÜR|  
+|UInt64|UINT64_TYPE|  
+|Int64|INT64_TYPE|  
+|Schnür|STRING_TYPE|  
+|booleschen|BOOLEAN_TYPE|  
   
 ## <a name="language-syntax"></a>Sprachsyntax  
-Die folgenden Ansprüche Transformation Regeln Sprache wird in ABNF Formular angegeben. Diese Definition verwendet die Terminals, die in der vorherigen Tabelle zusätzlich zu den hier definierten ABNF Produktionen angegeben werden. Die Regeln in UTF-16 codiert werden müssen, und der Vergleich von Zeichenfolgen müssen Groß-/Kleinschreibung behandelt werden.  
+Die folgende Sprache für Anspruchs Transformationsregeln wird in ABNF-Form angegeben. In dieser Definition werden die in der vorherigen Tabelle angegebenen Terminals zusätzlich zu den hier definierten ABNF-Produktionen verwendet. Die Regeln müssen in UTF-16 codiert werden, und die Zeichen folgen Vergleiche müssen bei der Groß-/Kleinschreibung nicht beachtet werden.  
   
 ```  
 Rule_set        = ;/*Empty*/  

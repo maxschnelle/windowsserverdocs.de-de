@@ -1,8 +1,8 @@
 ---
-title: Online-volume
-description: 'Windows-Befehle Thema ***- '
+title: Online Volume
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,24 +13,24 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6bacba1e204f1eee2e3d4772ff9024aedbfc4fed
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 06a3c81313180b2880c1e47c3b6c12236fda4245
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882001"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372519"
 ---
-# <a name="online-volume"></a>Online-volume
+# <a name="online-volume"></a>Online Volume
 
 
 
-Bringt Volumes, die gerade in einen Onlinestatus offline sind.
-
-> [!IMPORTANT]
-> Dieser Befehl ist nicht in jeder Edition von Windows Vista verfügbar.
+Schaltet Volumes, die derzeit offline sind, in einen Online Status
 
 > [!IMPORTANT]
-> Dieser Befehl schlägt fehl, wenn es auf einem schreibgeschützten Volume verwendet wird.
+> Dieser Befehl ist in keiner Edition von Windows Vista verfügbar.
+
+> [!IMPORTANT]
+> Dieser Befehl schlägt fehl, wenn er auf einem schreibgeschützten Volume verwendet wird.
 
 ## <a name="syntax"></a>Syntax
 
@@ -42,21 +42,21 @@ online volume [noerr]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Diskpart|nur für Skripts. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden.|
+|Noerr|Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.|
 
 ## <a name="remarks"></a>Hinweise
 
--   Dieser Befehl wird auf Volumes, die fehlgeschlagen sind, schlagen fehl oder befinden sich im Zustand Fehlerhafte Redundanz ausgeführt.
--   Ein Volume muss ausgewählt werden, damit dieser Befehl erfolgreich ausgeführt werden. Verwenden der **wählen Volume** Befehl aus, wählen Sie ein Volume und verschiebt den Fokus auf sie.
+-   Dieser Befehl funktioniert auf Volumes, bei denen Fehler aufgetreten sind, bei denen Fehler auftreten oder der Redundanz Status nicht erfüllt ist.
+-   Ein Volume muss ausgewählt werden, damit dieser Befehl erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl **Volume auswählen** ein Volume aus, und verschieben Sie den Fokus auf das Volume.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Geben Sie Folgendes ein, um das Volume mit Fokus in den Onlinezustand zu versetzen:
+Geben Sie Folgendes ein, um das Volume mit dem Fokus online zu schalten:
 ```
 online volume
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

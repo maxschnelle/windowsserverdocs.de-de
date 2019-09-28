@@ -1,6 +1,6 @@
 ---
-title: Integrität von Dienstaktionen
-ms.prod: windows-server-threshold
+title: Integritätsdienst Aktionen
+ms.prod: windows-server
 manager: eldenc
 ms.author: cosdar
 ms.technology: storage-health-service
@@ -8,18 +8,18 @@ ms.topic: article
 ms.assetid: ''
 author: cosmosdarwin
 ms.date: 08/14/2017
-ms.openlocfilehash: efdf8f04e68fcbdc7051e78d6725cb919e740ffa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 519f0321f36fb7afc86962950aeab729d7a38adb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843021"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361097"
 ---
-# <a name="health-service-actions"></a>Integrität von Dienstaktionen
+# <a name="health-service-actions"></a>Integritätsdienst Aktionen
 
-> Gilt für Windows Server 2016
+> Gilt für: Windows Server 2019, Windows Server 2016
 
-Der Integritätsdienst ist ein neues Feature in Windows Server 2016, die die tägliche Überwachung verbessert und Erfahrungen für Cluster "direkte Speicherplätze".
+Der Integritätsdienst ist ein neues Feature in Windows Server 2016, das die tägliche Überwachung und Betriebsbereitschaft für Cluster mit direkte Speicherplätze verbessert.
 
 ## <a name="actions"></a>Aktionen  
 
@@ -35,7 +35,7 @@ Get-StorageHealthAction
 
 ### <a name="coverage"></a>Abdeckung  
 
-In Windows Server 2016 die **Get-StorageHealthAction** Cmdlet kann die folgenden Informationen zurück:  
+In Windows Server 2016 kann das Cmdlet **Get-storagehealthaction** die folgenden Informationen zurückgeben:  
 
 -   Außerbetriebnahme misslungen, Verbindung verloren oder nicht reagierender physischer Datenträger  
 
@@ -47,5 +47,5 @@ In Windows Server 2016 die **Get-StorageHealthAction** Cmdlet kann die folgenden
 
 ## <a name="see-also"></a>Siehe auch
 
-- [Integritätsdienst in WindowsServer 2016](health-service-overview.md)
-- [Dokumentation für Entwickler, Beispielcode und API-Referenz auf MSDN](https://msdn.microsoft.com/windowshealthservice)
+- [Integritätsdienst in Windows Server 2016](health-service-overview.md)
+- [Entwicklerdokumentation, Beispielcode und API-Referenz auf MSDN](https://msdn.microsoft.com/windowshealthservice)

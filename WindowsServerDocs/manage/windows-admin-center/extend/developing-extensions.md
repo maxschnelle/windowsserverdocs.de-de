@@ -1,37 +1,37 @@
 ---
-title: Entwickeln Sie eine Erweiterung für Windows Admin Center
-description: Entwickeln Sie eine Erweiterung für Windows Admin Center-SDK (Projekt Honolulu)
+title: Entwickeln einer Erweiterung für Windows Admin Center
+description: Entwickeln einer Erweiterung für das Windows Admin Center SDK (Project Honolulu)
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 09/19/2018
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 53000b6a8391667768069f24658df28f8e271357
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.prod: windows-server
+ms.openlocfilehash: 4b3d5b371a9ebec27dafa74610f8c6a87c404d82
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829591"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357118"
 ---
-# <a name="develop-an-extension-for-windows-admin-center"></a>Entwickeln Sie eine Erweiterung für Windows Admin Center
+# <a name="develop-an-extension-for-windows-admin-center"></a>Entwickeln einer Erweiterung für Windows Admin Center
 
->Gilt für: Windows Admin Center, Windows Admin Center Preview
+>Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
-Windows Admin Center unterstützt drei Arten von Erweiterungen – toolerweiterungen "," Projektmappe-Erweiterungen "und" Gateway-Plug-Ins. Das SDK enthält Inhalte und Beispiele, die Sie bei der Erstellung der verschiedenen Typen von Erweiterungen/Plug-Ins führen.
+Das Windows Admin Center unterstützt drei Arten von Erweiterungen: Tool Erweiterungen, projektmappenerweiterungen und Plug-Ins für Gateways. Das SDK enthält Inhalte und Beispiele, die Sie beim Aufbau der verschiedenen Typen von Erweiterungen/Plug-Ins unterstützen.
 
 > [!NOTE]
-> Sie sind nicht mit anderen Erweiterungstypen vertraut? Erfahren Sie mehr über die [Erweiterbarkeit Architektur und die Erweiterung Typen](understand-extensions.md).
+> Sie sind mit den unterschiedlichen Erweiterungs Typen nicht vertraut? Erfahren Sie mehr über die [Erweiterbarkeits Architektur und die Erweiterungs Typen](understand-extensions.md).
 
-## <a name="development-step-by-step"></a>Schrittweise Entwicklung
+## <a name="development-step-by-step"></a>Schritt-für-Schritt-Entwicklung
 
-- [Bereiten Sie vor](prepare-development-environment.md) Ihrer Entwicklungsumgebung
+- [Vorbereiten](prepare-development-environment.md) der Entwicklungsumgebung
 - Erstellen Sie eine Erweiterung [tool](develop-tool.md)
 - Erstellen Sie eine [Lösung](develop-solution.md) -Erweiterung
 - Erstellen Sie ein [Gateway-Plug-in](develop-gateway-plugin.md)
 - Weitere Informationen finden Sie mit unserem [Führungslinien](guides.md)
 
-## <a name="sdk-design-toolkit"></a>SDK-Design-toolkit
+## <a name="sdk-design-toolkit"></a>SDK-Entwurfs-Toolkit
 
-Sehen Sie sich unsere Windows Admin Center [SDK Entwurf Toolkit](https://github.com/Microsoft/windows-admin-center-sdk/blob/master/WindowsAdminCenterDesignToolkit.zip)! Dieses Toolkit wurde entwickelt, können Sie die Erweiterungen in PowerPoint – Dank Windows Admin Center Stile, Steuerelemente und Seitenvorlagen schnell zu modellieren. Erfahren Sie, wie die Erweiterung in Windows Admin Center aussehen kann vor dem Programmieren!
+Sehen Sie sich unser Windows Admin Center [SDK Design Toolkit](https://github.com/Microsoft/windows-admin-center-sdk/blob/master/WindowsAdminCenterDesignToolkit.zip)an! Dieses Toolkit soll Ihnen helfen, Erweiterungen in PowerPoint mithilfe von Windows Admin Center-Stilen,-Steuerelementen und-Seitenvorlagen schnell zu bereinigen. Sehen Sie sich an, wie Ihre Erweiterung im Windows Admin Center aussehen kann, bevor Sie mit dem Programmieren beginnen!

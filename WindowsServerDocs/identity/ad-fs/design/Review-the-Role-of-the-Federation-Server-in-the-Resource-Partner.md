@@ -7,26 +7,26 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b2ed7a09bbc50c83d3bf6f8f2688152ed5202abc
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: fd9f20eb7559f5862ee50bdd8364fa1604d3c1b6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190818"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358966"
 ---
 # <a name="review-the-role-of-the-federation-server-in-the-resource-partner"></a>Überprüfen der Rolle des Verbundservers beim Ressourcenpartner
 
-Der Verbundserver in der Ressourcenpartnerorganisation fängt eingehende Sicherheitstoken, die von einem Kontoverbundserver gesendet werden, überprüft und signiert sie und gibt dann eigene Sicherheitstoken, die für das Web bestimmt sind\-basierend die Anwendung.  
+Der Verbund Server in der Ressourcen Partnerorganisation fängt eingehende Sicherheits Token ab, die von einem Konto Verbund Server gesendet werden, überprüft und signiert Sie und gibt dann eigene Sicherheits Token aus, die für die Web @ no__t-0based-Anwendung bestimmt sind. .  
   
 > [!NOTE]  
-> Wenn Verbundbenutzer ihren Webbrowser verwenden, um den Zugriff auf Web\-basierenden Anwendungen, die Verbundserver in der Ressourcenpartnerorganisation erstellt ein neues Authentifizierungscookie und schreibt sie in den Browser. Dieses Cookie ermöglicht einzelnen\-anmelden\-auf \(SSO\) Funktionen, damit Benutzer nicht erneut anmelden auf dem Verbundserver in der Kontopartner, wenn die Benutzer versuchen, den Zugriff auf verschiedene Web verfügen\- -basierte Anwendungen in der Ressourcenpartnerorganisation.  
+> Wenn Verbund Benutzer mit ihren Webbrowsern auf Web @ no__t-0basierte Anwendungen zugreifen, erstellt der Verbund Server in der Ressourcen Partnerorganisation ein neues Authentifizierungs Cookie und schreibt es in den Browser. Dieses Cookie aktiviert das einmalige @ no__t-0sign @ no__t-1On \(sso @ no__t-3-Funktionen, damit Benutzer sich nicht erneut beim Verbund Server beim Konto Partner anmelden müssen, wenn die Benutzer versuchen, auf verschiedene Web @ no__t-4based-Anwendungen in der Ressource zuzugreifen. Partners.  
   
-In den Web-SSO-Entwurf muss mindestens eine Verbundservers im Umkreisnetzwerk installiert sein. Im Federated-Web-SSO-Entwurf muss mindestens ein Verbundserver im Unternehmensnetzwerk der Kontopartnerorganisation installiert und mindestens ein Verbundserver im Unternehmensnetzwerk der Ressourcenpartnerorganisation installiert vorhanden sein.  
+Im Web-SSO-Entwurf muss mindestens ein Verbund Server im Umkreis Netzwerk installiert sein. Im Federated-Web-SSO-Entwurf muss mindestens ein Verbund Server im Unternehmensnetzwerk der Konto Partnerorganisation und mindestens ein Verbund Server im Unternehmensnetzwerk der Ressourcen Partnerorganisation installiert sein.  
   
 > [!NOTE]  
-> Bevor Sie einen Verbund-Server-Computer in der Ressourcenpartnerorganisation einrichten können, müssen Sie den Computer einer Active Directory-Domäne in der Ressourcenpartnerorganisation hinzufügen. Weitere Informationen finden Sie unter [Prüfliste: Das Einrichten eines Verbundservers](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server.md).  
+> Vor dem Einrichten eines Verbund Server Computers in der Ressourcen Partnerorganisation müssen Sie den Computer zunächst einer beliebigen Active Directory Domäne in der Ressourcen Partnerorganisation hinzufügen. Weitere Informationen finden Sie unter [checkliste: Einrichten eines Verbund Servers @ no__t-0.  
   
 ## <a name="see-also"></a>Siehe auch
 [AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

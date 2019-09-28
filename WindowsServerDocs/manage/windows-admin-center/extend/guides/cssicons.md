@@ -1,23 +1,23 @@
 ---
-title: Aktuelle Liste der Symbole in Windows Admin Center
-description: Aktuelle Liste der Symbole in Windows Admin Center-SDK (Projekt Honolulu)
+title: Aktuelle Liste der Symbole im Windows Admin Center
+description: Aktuelle Liste der Symbole im Windows Admin Center SDK (Project Honolulu)
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 06/18/2018
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: e908e088cd92127a785004e22d51934c13afc1ff
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.prod: windows-server
+ms.openlocfilehash: 4b9ffe55b97bac93ab983b25e0971e2c07eeb520
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844561"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357093"
 ---
-# <a name="current-list-of-icons-in-windows-admin-center"></a>Aktuelle Liste der Symbole in Windows Admin Center
+# <a name="current-list-of-icons-in-windows-admin-center"></a>Aktuelle Liste der Symbole im Windows Admin Center
 
->Gilt für: Windows Admin Center, Windows Admin Center Preview
+>Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
 ```
 .icon-win-globalNavButton:before { content: "\E700"; }

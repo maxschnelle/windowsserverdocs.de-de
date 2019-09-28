@@ -1,35 +1,35 @@
 ---
 title: Empfangen von Segmentkoaleszenz (RSC) im vSwitch
-description: Empfangen von Segment Coalescing (RSC) in der vSwitch ist ein Feature in Windows Server-2019 und Windows 10 Oktober 2018 aktualisieren, dass der Host-CPU-Auslastung und erhöhen den Durchsatz für virtuelle auslastungen reduziert durch die Zusammenfügung mehrerer TCP-Segmente in weniger aber größere Segmente. Die Verarbeitung von weniger große Segmente mit (vereinigt) ist effizienter als die Verarbeitung zahlreicher kleinen Segmenten.
+description: Receive Segment Sammel (RSC) im Vswitch ist eine Funktion in Windows Server 2019 und dem Windows 10-Update vom Oktober 2018, mit der die CPU-Auslastung des Hosts reduziert und der Durchsatz für virtuelle Arbeits Auslastungen erhöht wird, indem mehrere TCP-Segmente in weniger, aber größere vergeben. Die Verarbeitung von weniger großen Segmenten (zusammen Fügung) ist effizienter als die Verarbeitung zahlreicher, kleiner Segmente.
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: ''
 ms.author: dacuo
 author: shortpatti
 ms.date: 09/07/2018
-ms.openlocfilehash: 667e795e398443cadd4c966cc31e65eeee4962f7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dce890d5ae542789c49bf08b5e7f25e62ea2e8c2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827781"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355301"
 ---
-# <a name="rsc-in-the-vswitch"></a>RSC in vSwitches
+# <a name="rsc-in-the-vswitch"></a>RSC im Vswitch
 >Gilt für: Windows Server 2019
 
-Empfangen von Segment Coalescing (RSC) in der vSwitch ist ein Feature in Windows Server-2019 und Windows 10 Oktober 2018 aktualisieren, dass der Host-CPU-Auslastung und erhöhen den Durchsatz für virtuelle auslastungen reduziert durch die Zusammenfügung mehrerer TCP-Segmente in weniger aber größere Segmente. Die Verarbeitung von weniger große Segmente mit (vereinigt) ist effizienter als die Verarbeitung zahlreicher kleinen Segmenten.
+Receive Segment Sammel (RSC) im Vswitch ist eine Funktion in Windows Server 2019 und dem Windows 10-Update vom Oktober 2018, mit der die CPU-Auslastung des Hosts reduziert und der Durchsatz für virtuelle Arbeits Auslastungen erhöht wird, indem mehrere TCP-Segmente in weniger, aber größere vergeben. Die Verarbeitung von weniger großen Segmenten (zusammen Fügung) ist effizienter als die Verarbeitung zahlreicher, kleiner Segmente.
 
-WindowsServer 2012 und höher enthalten eine Version hardwarespezifischen Auslagerung der Technologie auch bekannt als Empfang zusammengeführter Segmente (implementiert in den physischen Netzwerkadapter). Dieser ausgelagerten RSC-Version ist weiterhin verfügbar, in höheren Versionen von Windows. Es ist jedoch nicht kompatibel mit virtueller arbeitsauslastungen und wurde deaktiviert, sobald ein vSwitch ein physischen Netzwerkadapter zugeordnet ist. Weitere Informationen zu der Hardware reine Softwareversion von RSC, finden Sie unter [erhalten Segment Coalescing (RSC)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh997024(v=ws.11)).
+Windows Server 2012 und höher enthielt eine nur-Hardware-Auslagerung-Version (implementiert im physischen Netzwerkadapter) der Technologie, die auch als Empfangs Segment Zusammenfassung bezeichnet wird. Diese offloaded-Version von RSC ist in neueren Windows-Versionen weiterhin verfügbar. Es ist jedoch nicht mit virtuellen Workloads kompatibel und wurde deaktiviert, sobald ein physischer Netzwerkadapter an einen Vswitch angefügt wurde. Weitere Informationen zur reinen Hardware Version von RSC finden Sie unter [Receive Segment Coalescing (RSC)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh997024(v=ws.11)).
 
-## <a name="scenarios-that-benefit-from-rsc-in-the-vswitch"></a>Szenarien, die über RSC in vSwitches profitieren
+## <a name="scenarios-that-benefit-from-rsc-in-the-vswitch"></a>Szenarien, die von RSC im Vswitch profitieren
 
-Workloads, deren Datenpfad mit einen virtuellen Switch durchläuft, profitiert von dieser Funktion.
+Workloads, deren Datenpfad einen virtuellen Switch durchläuft, profitiert von diesem Feature.
 
 Zum Beispiel:
 
--   Virtuelle NICs des Hosts einschließlich:
+-   Virtuelle Netzwerkkarten für Hosts einschließlich:
 
     -   Software-Defined Networking
 
@@ -43,39 +43,39 @@ Zum Beispiel:
 
 -   Container
 
-Workloads, die nicht mit diesem Feature kompatibel sind enthalten:
+Workloads, die mit dieser Funktion nicht kompatibel sind, umfassen Folgendes:
 
--   Software-Defined Networking-IPSEC-Gateways
+-   Software-Defined Networking-IPSec-Gateways
 
--   SR-IOV aktiviert virtuelle NICs
+-   SR-IOV-aktivierte virtuelle NICs
 
 -   SMB Direct
 
-## <a name="configure-rsc-in-the-vswitch"></a>Konfigurieren von RSC in vSwitches
+## <a name="configure-rsc-in-the-vswitch"></a>RSC im Vswitch konfigurieren
 
 
-RSC ist standardmäßig auf externe vSwitches aktiviert.
+Auf externen vSwitches ist RSC standardmäßig aktiviert.
 
-**Zeigen Sie die aktuellen Einstellungen an:**
+**Anzeigen der aktuellen Einstellungen:**
 
 ```PowerShell
 Get-VMSwitch -Name vSwitchName | Select-Object *RSC*
 ```
 
-**Aktivieren oder Deaktivieren von RSC in vSwitches**
+**Aktivieren oder Deaktivieren von RSC im Vswitch**
 
 
 >[!IMPORTANT]
->Wichtig: RSC in vSwitches aktiviert, und klicken Sie auf die im laufenden Betrieb ohne Auswirkungen auf vorhandene Verbindungen deaktiviert werden kann.
+>Wichtig: RSC im Vswitch kann dynamisch aktiviert und deaktiviert werden, ohne Auswirkungen auf vorhandene Verbindungen zu haben.
 
 
-**RSC in vSwitches deaktivieren**
+**RSC im Vswitch deaktivieren**
 
 ```PowerShell
 Set-VMSwitch -Name vSwitchName -EnableSoftwareRsc $false
 ```
 
-**Erneutes Aktivieren von RSC ins vSwitches**
+**RSC im Vswitch erneut aktivieren**
 
 ```PowerShell
 Set-VMSwitch -Name vSwitchName -EnableSoftwareRsc $True

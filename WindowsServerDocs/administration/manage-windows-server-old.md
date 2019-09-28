@@ -1,23 +1,23 @@
 ---
 title: Windows Server verwalten
 description: Tools, Empfehlungen und Anleitungen zum Verwalten von Windows Server
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: manage
 ms.topic: article
 author: lizap
 ms.author: elizapo
 ms.date: 03/16/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 7ae87b12997aa3cb3ae3fe290c9243995b30d6b0
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.openlocfilehash: 880f8da5bfb872fba6fe4886198d932c91f4bf86
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66452819"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370474"
 ---
 # <a name="manage-windows-server"></a>Windows Server verwalten
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 >[!TIP]
 > Suchen Sie nach Informationen zu älteren Versionen von Windows? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf „docs.microsoft.com“ an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
@@ -45,17 +45,17 @@ ms.locfileid: "66452819"
 </ul> 
 
 ## <a name="manage-windows-server-systems-and-environments"></a>Verwalten von Windows Server-Systemen und Umgebungen
-Die Tools, die Sie zum Verwalten von Windows Server-Instanzen verwenden, hängen in hohem Maße von den bereitgestellten Systemtypen (Windows Server mit Desktop Experience oder Server Core), physischen und virtuellen Computern sowie dem Standort der Server ab. Verwenden Sie die folgenden Informationen, um grundlegende Verwaltungsaufgaben unter Windows Server durchzuführen.
+Die Tools, die Sie zum Verwalten von Windows Server-Instanzen verwenden, hängen in hohem Maße von den bereitgestellten Systemtypen (Windows Server mit Desktop Experience oder Server Core), physischen und virtuellen Computern sowie dem Standort der Server ab. Verwenden Sie die folgenden Informationen, um grundlegende Verwaltungsaufgaben unter Windows Server auszuführen.
 
 Verwenden Sie die folgende Tabelle, um ermitteln, welche Tools wann zu verwenden sind.
 
 | Ich bin   | Installieren und Ausführen von Windows Admin Center | Server Manager unter Windows Server ausführen | Server Manager in RSAT unter Windows 10 ausführen |
 |--------|----------------------|--------------------------------------|------------------------------------------|
-| Benutzer an einem Windows 10-PC | X  |                                      | X                                        |
-| Benutzer an einem Windows Server-System, das mit der Desktopoberfläche arbeitet | X | X | X |
-| Benutzer an einem Windows Server-System, das mit Server Core arbeitet |X (unter Windows 10 installieren, verwenden zum Verwalten von Server Core) | | X |
-| weit von meinem Windows Server-System entfernt |X | | X |
-| weit von meinem Windows Server-System entfernt, das mit der Desktopoberfläche arbeitet |X | Verwendung von RDS für die Remoteverbindung mit dem Server, dann Verwendung von Server-Manager | X |
+| Benutzer an einem Windows 10-PC | X  |                                      | X                                        |
+| Benutzer an einem Windows Server-System, das mit der Desktopdarstellung arbeitet | X | X | X |
+| Benutzer an einem Windows Server-System, das mit Server Core arbeitet |X (unter Windows 10 installieren, zum Verwalten von Server Core verwenden) | | X |
+| Von meinem Windows Server-System weit entfernt |X | | X |
+| Von meinem Windows Server-System, das mit der Desktopdarstellung arbeitet, weit entfernt |X | Verwendung von RDS für die Remoteverbindung mit dem Server, dann Verwendung von Server-Manager | X |
 
 Zusätzlich zu den unten aufgeführten Tools können Sie auch [Remotedesktopdienste](../remote/remote-desktop-services/welcome-to-rds.md) für den Zugriff auf lokale, remote und virtuelle Server verwenden. Dann können Sie mit Server-Manager Verwaltungsaufgaben ausführen.
 
@@ -66,7 +66,7 @@ Zusätzlich zu den unten aufgeführten Tools können Sie auch [Remotedesktopdien
 >Windows Admin Center ist der offizielle Name was von "Projekt Honolulu."
 
 ### <a name="manage-on-premises-systems-with-server-manager"></a>Verwalten von lokalen Systemen mit Server-Manager
-[Server-Manager](server-manager/server-manager.md) ist eine Verwaltungskonsole, die in der vollständigen Installation von Windows Server enthalten ist. (Es ist nicht verfügbar für Installationen, die keine Benutzeroberfläche haben – Server Core Server-Manager beinhaltet keine). Verwenden von Server-Manager zum Installieren und Entfernen von Serverrollen, hinzufügen und Entfernen von Remoteservern, starten und Beenden von Diensten und Anzeigen von Daten über Ihre Umgebung gesammelt.
+[Server-Manager](server-manager/server-manager.md) ist eine Verwaltungskonsole, die in der vollständigen Installation von Windows Server enthalten ist. (Es ist nicht verfügbar bei Installationen ohne Benutzeroberfläche – in Server Core ist Server-Manager nicht enthalten). Verwenden Sie Server-Manager zum Installieren und Entfernen von Serverrollen, Hinzufügen und Entfernen von Remoteservern, Starten und Beenden von Diensten sowie zum Anzeigen von Daten, die über Ihre Umgebung gesammelt wurden.
 
 ### <a name="manage-remote-systems-and-systems-without-ui-with-remote-server-administration-tools-rsat"></a>Verwalten von Remotesystemen und Systemen ohne Benutzeroberfläche mit Remote Server Administration Tools (RSAT)
 Wenn Ihre Umgebung Installationen von Server Core oder Remoteservern (lokal oder virtuelle Computer) enthält, können Sie diese Systeme mithilfe der [Remote Server Administration Tools (RSAT)](../remote/remote-server-administration-tools.md) verwalten. RSAT enthält Server-Manager, sodass Sie alle Ihre Server verwalten können.
@@ -84,21 +84,21 @@ Viele der Entscheidungen, die Sie als Administrator treffen, hängen von Daten �
 
 Beginnen Sie mit [Konfigurieren von Windows-Diagnosedaten in Ihrer Organisation](/windows/configuration/configure-windows-diagnostic-data-in-your-organization). Dort finden Sie Informationen über die Diagnosedaten, die von Windows 10 und Windows Server gesammelt werden können.
 
-### <a name="setup-and-boot-event-collectionget-started-with-setup-and-boot-event-collectionmd"></a>[Setup und Start-Ereignissammlung](get-started-with-setup-and-boot-event-collection.md)
-Das Feature „Setup and Boot Event Collection”ermöglicht die Festlegung eines Sammelcomputers, der eine Reihe von wichtigen Ereignissen erfasst, die auf anderen Computern auftreten, während diese Computer gestartet werden oder den Setupvorgang durchlaufen. Die erfassten Ereignisse können Sie später mit der Ereignisanzeige, Message Analyzer, Wevtutil oder Windows PowerShell-Cmdlets analysieren. 
+### <a name="setup-and-boot-event-collectionget-started-with-setup-and-boot-event-collectionmd"></a>[Ereignissammlung für Setup und Start](get-started-with-setup-and-boot-event-collection.md)
+Mit „Ereignissammlung für Setup und Start“ können Sie einen Computer zum „Sammeln“ angeben, der eine Vielzahl von wichtigen Ereignissen erfasst, die auf anderen Computern auftreten, wenn sie starten oder den Installationsvorgang durchlaufen. Die erfassten Ereignisse können Sie später mit der Ereignisanzeige, Message Analyzer, Wevtutil oder Windows PowerShell-Cmdlets analysieren. 
 
-### <a name="software-inventory-logging-silsoftware-inventory-loggingget-started-with-software-inventory-loggingmd"></a>[(SIL) Protokollierung des Softwarebestands](software-inventory-logging/get-started-with-software-inventory-logging.md)
+### <a name="software-inventory-logging-silsoftware-inventory-loggingget-started-with-software-inventory-loggingmd"></a>[Protokollierung des Softwarebestands (Software Inventory Logging, SIL)](software-inventory-logging/get-started-with-software-inventory-logging.md)
 
 Die Protokollierung des Softwarebestands in Windows Server ist ein Feature mit einer Reihe einfacher PowerShell-Cmdlets, über die Serveradministratoren eine Liste der auf Servern installierten Microsoft-Software abrufen können. Darüber hinaus bietet sie die Möglichkeit, diese Daten für die Aggregation in regelmäßigen Abständen mithilfe des HTTPS-Protokolls über das Netzwerk zu sammeln und an einen Zielwebserver weiterzuleiten. Zum Verwalten des Features – in erster Linie zum stündlichen Sammeln und Weiterleiten – werden ebenfalls PowerShell-Befehle verwendet.
 
-### <a name="user-access-logging-ualuser-access-loggingget-started-with-user-access-loggingmd"></a>[User Access Logging (UAL)](user-access-logging/get-started-with-user-access-logging.md)
+### <a name="user-access-logging-ualuser-access-loggingget-started-with-user-access-loggingmd"></a>[Benutzerzugriffsprotokollierung (User Access Logging, UAL)](user-access-logging/get-started-with-user-access-logging.md)
 
-Die Benutzerzugriffsprotokollierung aggregiert eindeutige Ereignisse auf Clientgeräten sowie Benutzeranforderungsereignisse, die auf einem Computer unter Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 in einer lokalen Datenbank protokolliert wurden. Diese Datensätze werden dann (über die Abfrage eines Serveradministrators) zur Verfügung gestellt, um Mengen und Instanzen nach Serverrolle, Benutzer, Gerät, lokalem Server und Datum abzurufen. Zudem bietet UAL auch Nicht-Microsoft-Softwareentwicklern die Möglichkeit, ihre UAL-Ereignisse zu instrumentieren und zu aggregieren. 
+Die Benutzerzugriffsprotokollierung aggregiert eindeutige Ereignisse auf Clientgeräten sowie Benutzeranforderungsereignisse, die auf einem Computer unter Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 in einer lokalen Datenbank protokolliert wurden. Diese Datensätze werden dann (über die Abfrage eines Serveradministrators) zur Verfügung gestellt, um Mengen und Instanzen nach Serverrolle, Benutzer, Gerät, lokalem Server und Datum abzurufen. Außerdem bietet UAL auch Nicht-Microsoft-Softwareentwicklern die Möglichkeit, ihre UAL-Ereignisse für die Aggregierung zu instrumentieren. 
 
 ## <a name="tune-your-windows-server-environment-for-performance"></a>Leistungsoptimierung für die Windows Server-Umgebung
 Verwenden Sie die folgende Informationen, um Ihre Umgebung leistungsmäßig zu optimieren.
 
-### <a name="performance-tuning-guidelinesperformance-tuningindexmd"></a>[Richtlinien zur leistungsoptimierung](performance-tuning/index.md)
+### <a name="performance-tuning-guidelinesperformance-tuningindexmd"></a>[Richtlinien zur Leistungsoptimierung](performance-tuning/index.md)
 Nutzen Sie eine Reihe von Richtlinien, mit denen Sie die Servereinstellungen in Windows Server 2016 optimieren und Leistungs- oder Energieeffizienzsteigerungen erzielen können, insbesondere wenn sich die Art der Auslastung im Laufe der Zeit nur wenig ändert.
 
 ### <a name="microsoft-server-performance-advisorserver-performance-advisormicrosoft-server-performance-advisormd"></a>[Microsoft Server Performance Advisor](server-performance-advisor/microsoft-server-performance-advisor.md)
@@ -115,7 +115,7 @@ Windows PowerShell ist eine Sprache für die Befehlszeile und zudem eine Skripts
 
 ### <a name="windows-commandswindows-commandswindows-commandsmd"></a>[Windows-Befehle](windows-commands/windows-commands.md)
 
-Die Windows-Befehlszeilentools dienen zum Durchführen von Verwaltungsaufgaben in Windows. Mit der Befehlsreferenz können Sie sich mit den Befehlszeilentools vertraut machen, mehr über die Befehlsshell erfahren und Befehlszeilenaufgaben mithilfe von Stapeldateien oder Skripting-Tools automatisieren.
+Die Windows-Befehlszeilentools dienen zum Ausführen von Verwaltungsaufgaben in Windows. Mit der Befehlsreferenz können Sie sich mit den Befehlszeilentools vertraut machen, mehr über die Befehlsshell erfahren und Befehlszeilenaufgaben mithilfe von Stapeldateien oder Skripting-Tools automatisieren.
 
 ## <a name="windows-server-insider-preview"></a>Windows Server-Insider – Vorschau
 ### <a name="system-insightsmanagesystem-insightsoverviewmd"></a>[Systemdaten](../manage/system-insights/overview.md)

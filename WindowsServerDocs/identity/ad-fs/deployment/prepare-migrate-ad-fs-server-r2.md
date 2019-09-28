@@ -6,14 +6,14 @@ ms.author: billmath
 manager: femila
 ms.date: 07/10/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 73ac72abbf6f69beb202531c15257d75d08cce1b
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 149e3d3fc4d4eee22fa9330475f0eed9d945f8b9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867919"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359309"
 ---
 # <a name="prepare-to-migrate-the-ad-fs-20-federation-server-to-ad-fs-on-windows-server-2012-r2"></a>Vorbereiten der Migration des AD FS 2,0-Verbund Servers zu AD FS unter Windows Server 2012 R2
 
@@ -115,7 +115,7 @@ Wenn Sie in Ihrer vorhandenen AD FS-Farm eine Webseiten Anpassung haben, die Sie
   
 - Windows Server 2008 R2  
   
-- Windows Server 2008  
+- WindowsServer 2008  
   
   Wenn Sie ein Gruppen verwaltetes Dienst Konto (Group Managed Service Account, GMSA) als Dienst Konto für AD FS verwenden möchten, müssen Sie mindestens einen Domänen Controller in Ihrer Umgebung verwenden, der unter dem Betriebssystem Windows Server 2012 oder Windows Server 2012 R2 ausgeführt wird.  
   

@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b8832e7e53e94761a489e850726bbd206b8be62b
-ms.sourcegitcommit: 02f1e11ba37a83e12d8ffa3372e3b64b20d90d00
+ms.openlocfilehash: 4b0ea70bd9346bf8abee4e0d96a8915e29cac462
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68863430"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357781"
 ---
 # <a name="ad-fs-customization-in-windows-server-2016"></a>AD FS Anpassung in Windows Server 2016
 
@@ -85,7 +85,7 @@ Informationen zur Unterschiede bei der Startbereichs Anpassung finden Sie unter 
 Weitere Informationen zum Anpassen der Seite zum Aktualisieren des Kennworts finden Sie unter [Anpassen der AD FS Anmelde Seiten](https://technet.microsoft.com/library/dn280950.aspx).  
   
 ## <a name="customizing-and-alternate-ids"></a>Anpassen und Alternative IDs  
-Benutzer können sich bei Active Directory-Verbunddienste (AD FS) (AD FS)-aktivierten Anwendungen mit einer beliebigen Form von Benutzer Bezeichnern anmelden, die von Active Directory Domain Services (AD DS) akzeptiert wird. Hierzu gehören Benutzer Prinzipal Namen (User Principal Namesjohndoe@contoso.com, UPNs) () oder Domänen qualifizierte SAM-Kontonamen (contoso\johndoe oder contoso. com\johndoe).  Weitere Informationen hierzu finden Sie unter [Konfigurieren einer alternativen Anmelde-ID.](Configuring-Alternate-Login-ID.md)  
+Benutzer können sich bei Active Directory-Verbunddienste (AD FS) (AD FS)-aktivierten Anwendungen mit einer beliebigen Form von Benutzer Bezeichnern anmelden, die von Active Directory Domain Services (AD DS) akzeptiert wird. Hierzu gehören Benutzer Prinzipal Namen (User Principal Names, UPNs) (johndoe@contoso.com) oder Domänen qualifizierte SAM-Kontonamen (contoso\johndoe oder contoso. com\johndoe).  Weitere Informationen hierzu finden Sie unter [Konfigurieren einer alternativen Anmelde-ID.](Configuring-Alternate-Login-ID.md)  
   
 Sie können außerdem die AD FS Anmeldeseite anpassen, um Endbenutzern einen Hinweis zur alternativen Anmelde-ID zu senden. Weitere Informationen finden Sie in der Beschreibung der angepassten Anmeldeseite. Weitere Informationen finden Sie unter [Anpassen der AD FS Anmelde Seiten.](https://technet.microsoft.com/library/dn280950.aspx)   
   

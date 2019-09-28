@@ -1,100 +1,100 @@
 ---
 ms.assetid: 777aab65-c9c7-4dc9-a807-9ab73fac87b8
-title: Konfigurieren von AD FS-Extranetsperrschutz
+title: Konfigurieren von AD FS extranetsperrschutz
 description: ''
 author: billmath
 ms.author: billmath
 manager: femila
 ms.date: 02/01/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 6612c05e664b50c5a50b10b712b91715cc85d230
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: bb5958f8205271fe3ab2258ed9812ae03f2a0be0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189880"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358211"
 ---
-# <a name="configure-ad-fs-extranet-lockout-protection"></a>Konfigurieren von AD FS-Extranetsperrschutz
+# <a name="configure-ad-fs-extranet-lockout-protection"></a>Konfigurieren von AD FS extranetsperrschutz
 
-In AD FS unter Windows Server 2012 R2 vorgestellt eine Sicherheitsfunktion, die Extranet-Sperre aufgerufen.  Mit diesem Feature wird AD FS "stop" das Konto "böswilliger" Benutzer von außerhalb für eine bestimmte Zeitspanne authentifizieren.  Dadurch wird verhindert, dass Ihre Benutzerkonten in Active Directory gesperrt wird.  Zusätzlich zum Schutz von Benutzern aus einer AD-kontosperrungen, schützt AD FS extranet Lockout auch für Kennwortermittlung brute-Force-Angriffen
+In AD FS auf Windows Server 2012 R2 haben wir ein Sicherheits Feature namens extranetsperre eingeführt.  Mit dieser Funktion wird die Authentifizierung des "böswilligen" Benutzerkontos von außerhalb eines bestimmten Zeitraums beendet AD FS.  Dadurch wird verhindert, dass ihre Benutzerkonten in Active Directory gesperrt werden.  Zusätzlich zum Schutz Ihrer Benutzer vor einer AD-Konto Sperre schützt AD FS extranetsperrungs-Lock auch vor Brute-Force-Angriffen, die Kenn Wörter erraten
 
 > [!NOTE]
-> Dieses Feature funktioniert nur für die **Extranetszenario** bei der Authentifizierung anfordert, über den Webanwendungsproxy stammen und gilt nur für **Benutzernamen-und Kennwortauthentifizierung**.
+> Diese Funktion funktioniert nur für das **Extranetszenario** , bei dem die Authentifizierungsanforderungen über den webanwendungsproxy gesendet werden und nur für die **Benutzernamen-und Kenn Wort Authentifizierung**gelten
 
-## <a name="advantages-of-extranet-lockout"></a>Vorteile der Extranetsperre
-Extranetsperre bietet folgende wichtige Vorteile:
-- Es schützt Ihre Benutzerkonten aus **Brute-force-Angriffe** , in denen ein Angreifer versucht, das Kennwort eines Benutzers zu erraten, indem Sie kontinuierlich Senden von authentifizierungsanforderungen. In diesem Fall wird AD FS böswilliger Benutzerkonto für den Extranetzugriff gesperrt
-- Es schützt Ihre Benutzerkonten aus **böswillige kontosperrung** , in dem ein Angreifer möchte Sperren ein Benutzerkonto durch Senden von authentifizierungsanforderungen durch falsche Kennwörter. In diesem Fall wird jedoch das Benutzerkonto, das von AD FS für Extranetzugriff gesperrt sein wird, das tatsächliche Benutzerkonto in AD nicht gesperrt ist und der Benutzer kann weiterhin Unternehmensressourcen innerhalb der Organisation zugreifen. Dies bezeichnet man als ein **vorläufig Sperre**.
+## <a name="advantages-of-extranet-lockout"></a>Vorteile der extranetsperre
+Die extranetsperre bietet die folgenden wichtigen Vorteile:
+- Sie schützt Ihre Benutzerkonten vor **Brute-Force-Angriffen** , bei denen ein Angreifer versucht, das Kennwort eines Benutzers zu erraten, indem er kontinuierlich Authentifizierungsanforderungen sendet. In diesem Fall wird das böswillige Benutzerkonto für den Extranetzugriff von AD FS gesperrt.
+- Sie schützt Ihre Benutzerkonten vor **böswilliger Konto** Sperre, bei der ein Angreifer ein Benutzerkonto sperren möchte, indem Authentifizierungsanforderungen mit falschen Kenn Wörtern gesendet werden. In diesem Fall wird das tatsächliche Benutzerkonto in AD nicht gesperrt, und der Benutzer kann weiterhin auf Unternehmensressourcen innerhalb der Organisation zugreifen, obwohl das Benutzerkonto von AD FS für den Extranetzugriff gesperrt wird. Dies wird als **Weiche Sperre**bezeichnet.
 
 ## <a name="how-it-works"></a>Funktionsweise
-Es gibt 3 Einstellungen in AD FS, die Sie benötigen, so konfigurieren, dass um dieses Feature zu aktivieren: 
-- **EnableExtranetLockout &lt;booleschen&gt;**  legen Sie diesen booleschen Wert gleich "true", wenn Sie Extranetsperre aktivieren möchten.
-- **ExtranetLockoutThreshold &lt;Ganzzahl&gt;**  definiert die maximale Anzahl der Versuche mit falschem Kennwort. Sobald der Schwellenwert erreicht ist, AD FS wird sofort die Anforderungen abgelehnt über extranet ohne zu versuchen, den Domänencontroller für die Authentifizierung, ganz gleich, wenden Sie sich an, ob das Kennwort gut oder schlecht, bis das extranet Beobachtung Fenster übergeben wird. Dies bedeutet, dass den Wert des **BadPwdCount** Attribut von einem AD-Konto wird nicht erhöht, während das Konto vorläufig gesperrt wurde.
-- **ExtranetObservationWindow &lt;TimeSpan&gt;**  Dadurch wird bestimmt, für wie lange der Benutzer Konto Soft-gesperrt werden. AD FS wird gestartet, Benutzername und Kennwort-Authentifizierung erneut durchgeführt, wenn das Fenster übergeben wird. AD FS verwendet BadPasswordTime der AD-Attribut als Verweis, um zu bestimmen, ob das Fenster extranet Beobachtung oder nicht bestanden hat. Das Fenster wurde übergeben, wenn die aktuelle Uhrzeit > BadPasswordTime + ExtranetObservationWindow. 
+Es gibt drei Einstellungen in AD FS, die Sie konfigurieren müssen, um dieses Feature zu aktivieren: 
+- **Enableextranetlockout &lt;boolean @ no__t-2** legen Sie diesen booleschen Wert auf "true" fest, wenn Sie die extranetsperre aktivieren möchten.
+- **Extranetlockoutthreshold &lt;integer @ no__t-2** Hiermit wird die maximale Anzahl ungültiger Kenn Wort Versuche definiert. Nachdem der Schwellenwert erreicht wurde, lehnt AD FS die Anforderungen vom Extranet sofort ab, ohne zu versuchen, den Domänen Controller für die Authentifizierung zu kontaktieren, unabhängig davon, ob das Kennwort ein gutes oder ungültiges Kennwort ist. Dies bedeutet, dass sich der Wert des **BadPwdCount** -Attributs eines AD-Kontos nicht erhöht, während das Konto vorläufig gesperrt ist.
+- **Extranetobservationwindow &lt;timespan @ no__t-2** legt fest, wie lange das Benutzerkonto vorläufig gesperrt wird. AD FS beginnt, die Benutzernamen-und Kenn Wort Authentifizierung erneut auszuführen, wenn das Fenster überschritten wird. AD FS verwendet das AD-Attribut badpasswordtime als Referenz, um zu bestimmen, ob das extranetbeobachtsfenster übergeben wurde oder nicht. Das Fenster wurde übergeben, wenn die aktuelle Zeit > badpasswordtime + extranetobservationwindow ist. 
 
 > [!NOTE]
-> AD FS extranet Lockout Funktionen unabhängig von der AD-Kontosperrungsrichtlinien. Allerdings wird dringend empfohlen, Sie legen die **ExtranetLockoutThreshold** Parameterwert ein Wert, der kleiner als der Schwellenwert für AD-kontosperrung ist. Ist dies nicht der Fall würde dazu führen, dass AD FS nicht verhindern, dass Konten in Active Directory gesperrt wird. 
+> AD FS extranetsperr Funktionen unabhängig von den AD-Sperr Richtlinien. Es wird jedoch dringend empfohlen, den Wert des Parameters **extranetlockoutthreshold** auf einen Wert festzulegen, der kleiner als der Schwellenwert für die AD-Konto Sperre ist. Wenn dies nicht der Fall ist, konnte AD FS die Konten nicht vor der Sperrung in Active Directory geschützt werden. 
 
-Ein Beispiel für die Aktivierung Extranetsperre-Funktion mit maximal 15 Anzahl der Versuche mit falschem Kennwort und 30 Minuten Soft-Sperrdauer lautet wie folgt aus:
+Ein Beispiel für das Aktivieren der extranetsperrungsfunktion mit maximal 15 Anzahl fehlerhafter Kenn Wort Versuche und einer Dauer von 30 Minuten für die Dauer der vorläufigen Sperrung:
 
 ```powershell
 Set-AdfsProperties -EnableExtranetLockout $true -ExtranetLockoutThreshold 15 -ExtranetObservationWindow (new-timespan -Minutes 30)
 ```
 
-Diese Einstellungen gelten für alle Domänen, die der AD FS-Dienst authentifizieren können. Es funktioniert so, ist, wenn AD FS eine Authentifizierungsanforderung empfängt, wird Zugriff auf den primären Domänencontroller (PDC) über einen LDAP-Aufruf und führen Sie eine Suche nach der **BadPwdCount** Attribut für den Benutzer auf dem PDC. Wenn AD FS den Wert der findet **BadPwdCount** > = ExtranetLockoutThreshold-Einstellung und die Zeit, die definiert, im Extranet Beobachtung Fenster nicht überschritten hat noch, AD FS lehnt die Anforderung sofort, d. unabhängig davon, ob h. die Benutzer wird ein gut oder schlecht Kennwort eingibt, über extranet die Anmeldung fehl, da AD FS in AD nicht die Anmeldeinformationen sendet. AD FS behält nicht bei einem beliebigen Zustand in Bezug auf **BadPwdCount** oder Benutzerkonten gesperrt. AD FS verwendet AD für alle Zustände, die nachverfolgung. 
+Diese Einstellungen gelten für alle Domänen, die der AD FS-Dienst authentifizieren kann. Dies funktioniert, wenn AD FS eine Authentifizierungsanforderung empfängt, über einen LDAP-Befehl auf den primären Domänen Controller (PDC) zugreifen und eine Suche nach dem **BadPwdCount** -Attribut für den Benutzer auf dem PDC durchführen. Wenn AD FS den Wert der **BadPwdCount** -> = extranetlockoutthreshold-Einstellung findet und die im extranetbeobachtsfenster definierte Zeit noch nicht weitergegeben wurde, wird die Anforderung von AD FS sofort abgelehnt. Dies bedeutet unabhängig davon, ob der Benutzer einen guten oder schlechten Wert eingibt. Kennwort aus dem Extranet. die Anmeldung schlägt fehl, weil AD FS die Anmelde Informationen nicht an AD sendet. AD FS behält keinen Zustand in Bezug auf **BadPwdCount** oder gesperrte Benutzerkonten bei. AD FS verwendet AD für die gesamte Zustands Nachverfolgung. 
 
 > [!warning]
-> Wenn AD FS Extranet Lockout auf Server 2012 R2 aktiviert ist, werden alle authentifizierungsanforderungen über das WAP von AD FS auf dem PDC überprüft. Wenn der primäre Domänencontroller nicht verfügbar ist, werden Benutzer kann nicht aus dem extranet authentifiziert werden.
+> Wenn AD FS extranetsperre auf Server 2012 R2 aktiviert ist, werden alle Authentifizierungsanforderungen über den WAP durch AD FS auf dem PDC überprüft. Wenn der PDC nicht verfügbar ist, können sich Benutzer nicht über das Extranet authentifizieren.
 
-Server 2016 bietet einen zusätzlichen Parameter, der AD FS für fallback auf einen anderen Domänencontroller ermöglicht, wenn der primäre Domänencontroller nicht verfügbar ist:
+Server 2016 bietet einen zusätzlichen Parameter, der AD FS ein Fall Back auf einen anderen Domänen Controller ermöglicht, wenn der PDC nicht verfügbar ist:
 
-- **ExtranetLockoutRequirePDC &lt;booleschen&gt;**  – Wenn aktiviert: extranetsperre erfordert primärer Domänencontroller (PDC). Wenn deaktiviert: extranetsperre erfolgt ein Fallback auf einen anderen Domänencontroller für den Fall, dass der PDC nicht verfügbar ist.
+- **Extranetlockeinquirepdc &lt;boolean @ no__t-2** -Wenn aktiviert: extranetsperre erfordert einen primären Domänen Controller (PDC). Wenn deaktiviert: die extranetsperre wird auf einen anderen Domänen Controller zurückgreifen, falls der PDC nicht verfügbar ist.
 
-Sie können den folgenden Windows PowerShell-Befehl verwenden, so konfigurieren Sie die AD FS extranet Lockout unter Server 2016:
+Sie können den folgenden Windows PowerShell-Befehl verwenden, um die AD FS extranetsperre auf Server 2016 zu konfigurieren:
 
 ```powershell
 Set-AdfsProperties -EnableExtranetLockout $true -ExtranetLockoutThreshold 15 -ExtranetObservationWindow (new-timespan -Minutes 30) -ExtranetLockoutRequirePDC $false
 ```
 
-## <a name="working-with-the-active-directory-lockout-policy"></a>Arbeiten mit Active Directory-Kontosperrung Richtlinie
-Das Feature "Extranetsperre" in AD FS funktioniert unabhängig von der AD-Sperrrichtlinien. Allerdings müssen Sie sicherstellen, die Einstellungen für das Extranet Lockout ordnungsgemäß konfiguriert ist, damit es zwecks Sicherheit mit der AD-Sperrrichtlinien dienen kann.
-Werfen wir einen Blick auf die AD-Sperrrichtlinien erste. Es gibt drei Einstellungen in Bezug auf Sperrrichtlinien in AD:
-- **Schwellenwert für Computerkontosperrung Konto**: Diese Einstellung entspricht der Einstellung "ExtranetLockoutThreshold" in AD FS. Bestimmt die Anzahl der fehlgeschlagenen Anmeldeversuche, die bewirkt ein Benutzerkonto gesperrt wird. Um Ihre Benutzerkonten von böswillige Account Lockout Angriffen zu schützen, Sie den Wert der ExtranetLockoutThreshold in AD FS festlegen möchten &lt; der Schwellenwert für Computerkontosperrung-Wert in AD
-- **Berücksichtigen Sie die Dauer der Sperrung**: Diese Einstellung legt fest, für wie lange ein Benutzer Konto gesperrt ist. Diese Einstellung spielt keine Rolle viel in dieser Konversation wie Extranetsperre immer geschehen soll, bevor die AD-Sperre erfolgt, wenn ordnungsgemäß konfiguriert
-- **Kontosperrungszähler nach zurücksetzen**: Diese Einstellung bestimmt, wie viel Zeit verstreichen muss, vom Benutzer des letzten Fehler bei der Anmeldung vor dem **BadPwdCount** auf 0 zurückgesetzt. Damit für in AD FS Extranet Lockout-Funktion kann auch bei AD-Sperrrichtlinien ordnungsgemäß funktionieren, Sie möchten den Wert der ExtranetObservationWindow in AD FS sicherstellen &gt; der Kontosperrungszähler zurückgesetzt nach Wert in Active Directory. Die folgenden Beispiele werden erläutert, warum.  
+## <a name="working-with-the-active-directory-lockout-policy"></a>Arbeiten mit der Active Directory Sperrungs Richtlinie
+Das extranetsperrungsfeature in AD FS funktioniert unabhängig von der AD-Sperr Richtlinie. Sie müssen jedoch sicherstellen, dass die Einstellungen für die extranetsperre ordnungsgemäß konfiguriert sind, damit Sie Ihren Sicherheits Zweck mit der AD-Sperr Richtlinie erfüllen kann.
+Sehen wir uns zunächst die AD-Sperr Richtlinie an. Es gibt drei Einstellungen für die Sperrungs Richtlinie in AD:
+- **Schwellenwert für die Kontosperrung**: Diese Einstellung ähnelt der Einstellung extranetlockoutthreshold in AD FS. Es bestimmt die Anzahl der fehlgeschlagenen Anmeldeversuche, die bewirken, dass ein Benutzerkonto gesperrt wird. Wenn Sie Ihre Benutzerkonten vor einem böswilligen Konto Sperr Angriff schützen möchten, legen Sie den Wert von extranetlockoutthreshold in AD FS &lt; den Schwellenwert für die Kontosperrung in AD fest.
+- **Konto Sperr Dauer**: Diese Einstellung bestimmt, wie lange ein Benutzerkonto gesperrt wird. Diese Einstellung ist in dieser Konversation nicht besonders wichtig, da die extranetsperre vor der ordnungsgemäßen Konfiguration immer erfolgen muss, bevor die AD-Sperre erfolgt.
+- **Konto Sperr Zähler zurücksetzen nach**: Diese Einstellung bestimmt, wie lange der letzte Anmeldefehler des Benutzers veralten werden muss, bevor **BadPwdCount** auf 0 zurückgesetzt wird. Damit das extranetsperrungsfeature in AD FS gut mit der AD-Sperrungs Richtlinie funktioniert, müssen Sie sicherstellen, dass der Wert von extranetobservationwindow in AD FS &gt; den Wert für Konto Sperr Ende zurücksetzen nach Wert in AD. In den folgenden Beispielen wird erläutert, warum.  
 
-Wir betrachten Sie zwei Beispiele für und finden Sie unter wie **BadPwdCount** ändert sich im Laufe der Zeit, die basierend auf unterschiedlichen Einstellungen und Status. Nehmen wir an, in beiden Beispielen **Kontensperrungsschwelle** = 4 und **ExtranetLockoutThreshold** = 2. Die **roten** Pfeil stellt Kennworteingabeversuchen, die **Grün** Pfeil stellt einen guten Kennworteingabe dar. Im Beispiel #1 **ExtranetObservationWindow** &gt; **Kontosperrungszähler zurückgesetzt nach**. Im Beispiel #2 **ExtranetObservationWindow** &lt; **Kontosperrungszähler zurückgesetzt nach**. 
+Sehen wir uns nun zwei Beispiele an, und Sie sehen, wie **BadPwdCount** sich im Laufe der Zeit auf der Grundlage unterschiedlicher Einstellungen und Zustände ändert. Nehmen wir an, dass in beiden Beispielen **Konto Sperr Schwellenwert** = 4 und **extranetlockoutthreshold** = 2. Der **Rote** Pfeil stellt einen ungültigen Kenn Wort Versuch dar, der **grüne** Pfeil stellt einen guten Kenn Wort Versuch dar. Beispiel #1: **extranetobservationwindow** &gt; Konto Sperrungs **Zählers nach Zurücksetzen**. Beispiel #2: **extranetobservationwindow** &lt; Konto Sperrungs **Zählers nach Zurücksetzen**. 
 
 ### <a name="example-1"></a>Beispiel 1
-![Beispiel 1](media/Configure-AD-FS-Extranet-Lockout-Protection/one.png)
+!["Example1"](media/Configure-AD-FS-Extranet-Lockout-Protection/one.png)
 
 ### <a name="example-2"></a>Beispiel 2
-![Beispiel 1](media/Configure-AD-FS-Extranet-Lockout-Protection/two.png)
+!["Example1"](media/Configure-AD-FS-Extranet-Lockout-Protection/two.png)
 
-Wie Sie oben sehen können, es gibt zwei Bedingungen, wenn **BadPwdCount** wird auf 0 zurückgesetzt. Eines ist, wenn eine erfolgreiche Anmeldung vorhanden ist. Die andere ist, wenn es darum, diese Zähler zurückgesetzt wird, gemäß **Kontosperrungszähler zurückgesetzt nach** festlegen. Wenn **Kontosperrungszähler zurückgesetzt nach** &lt; **ExtranetObservationWindow**, ein Konto verfügt nicht über alle in Bezug auf, die Sie von AD gesperrt werden. Aber wenn **Kontosperrungszähler zurückgesetzt nach** &gt; **ExtranetObservationWindow**, besteht die Möglichkeit, die ein Konto von AD jedoch in "verzögert Weise" gesperrt werden kann. Es dauert eine Weile erhalten Sie ein Konto gesperrt, durch AD abhängig von Ihrer Konfiguration wie AD FS nur ein Kennworteingabeversuchen während des Zeitfensters für die Beobachtung erst zugelassen wird **BadPwdCount** erreicht **Schwellenwert für Computerkontosperrung** .
+Wie Sie oben sehen können, gibt es zwei Bedingungen, wenn **BadPwdCount** auf 0 zurückgesetzt wird. Eine ist, wenn eine erfolgreiche Anmeldung vorliegt. Der andere Zeitpunkt liegt vor, wenn dieser Leistungswert zurückgesetzt werden soll, wie unter **Zurücksetzen des Konto Sperrungs Zählers nach** der Einstellung definiert. Beim **Zurücksetzen des Konto Sperrungs Zählers nach** &lt; **extranetobservationwindow**besteht kein Risiko, dass das Konto durch AD gesperrt wird. Wenn Sie die **Kontosperrung jedoch nach** &gt; **extranetobservationwindow**zurücksetzen, besteht die Möglichkeit, dass ein Konto durch AD gesperrt ist, aber in einer "verzögerten Art" angezeigt wird. Abhängig von Ihrer Konfiguration kann es eine Weile dauern, bis ein Konto von AD gesperrt ist, da AD FS während des Überwachungs Fensters nur einen ungültigen Kenn Wort Versuch zulässt, bis **BadPwdCount** den **Schwellenwert für die Kontosperrung**erreicht.
 
-Weitere Informationen finden Sie unter [Kontosperrung konfigurieren](https://blogs.technet.microsoft.com/secguide/2014/08/13/configuring-account-lockout/). 
+Weitere Informationen finden Sie unter [Konfigurieren der Kontosperrung](https://blogs.technet.microsoft.com/secguide/2014/08/13/configuring-account-lockout/). 
 
 ## <a name="known-issues"></a>Bekannte Probleme
-Es ist ein bekanntes Problem, der AD-Benutzerkonto mit AD FS authentifizieren kann, da, die **BadPwdCount** Attribut wird nicht repliziert, an den Domänencontroller, die AD FS abgefragt wird. Finden Sie unter [2971171](https://support.microsoft.com/help/2971171/adfs-authentication-issue-for-active-directory-users-when-extranet-loc) Weitere Details. Sie finden alle AD FS QFEs, die bisher veröffentlicht wurden [hier](../deployment/updates-for-active-directory-federation-services-ad-fs.md).
+Es gibt ein bekanntes Problem, bei dem das AD-Benutzerkonto nicht mit AD FS authentifiziert werden kann, da das **BadPwdCount** -Attribut nicht auf den Domänen Controller repliziert wird, den ADFS abfragt. Weitere Informationen finden Sie unter [2971171](https://support.microsoft.com/help/2971171/adfs-authentication-issue-for-active-directory-users-when-extranet-loc) . [Hier](../deployment/updates-for-active-directory-federation-services-ad-fs.md)finden Sie alle AD FS QFEs, die bisher veröffentlicht wurden.
 
-## <a name="key-points-to-remember"></a>Wichtige Punkte beachtet
-- Die Extranetsperre-Funktion funktioniert nur für die **Extranetszenario** kommen die authentifizierungsanforderungen über den Webanwendungsproxy
-- Die Extranetsperre-Funktion gilt nur für **Benutzernamen und das Kennwort-Authentifizierung**
-- AD FS hält keine verfolgen **BadPwdCount** oder Benutzer, die Sie vorläufig gesperrt sind. AD FS verwendet AD für alle Zustände, die nachverfolgung
-- AD FS führt eine Suche nach der **BadPwdCount** über LDAP-Aufruf für den Benutzer auf dem PDC bei jedem Authentifizierungsversuch Attribut  
-- AD FS, die älter als 2016 schlägt fehl, wenn es sich bei den PDC nicht darauf zugreifen können. AD FS 2016 eingeführten Verbesserungen, die ermöglichen, dass AD FS Fallback auf andere Domänencontroller, bei dem PDC nicht verfügbar ist. 
-- AD FS können authentifizierungsanforderungen aus dem extranet bei BadPwdCount < ExtranetLockoutThreshold 
-- Wenn **BadPwdCount** >= **ExtranetLockoutThreshold** und **BadPasswordTime** + **ExtranetObservationWindow** < Aktuelle Uhrzeit in AD FS lehnt authentifizierungsanforderungen aus dem extranet
-- Um böswillige kontosperrungen zu vermeiden, stellen Sie sicher **ExtranetLockoutThreshold** < **Kontensperrungsschwelle** und **ExtranetObservationWindow**  >  **Kontosperrungszähler zurücksetzen**
+## <a name="key-points-to-remember"></a>Wichtige Punkte zu merken
+- Das extranetsperrungsfeature funktioniert nur für das **Extranetszenario** , bei dem die Authentifizierungsanforderungen über den webanwendungsproxy gesendet werden.
+- Die extranetsperrungsfunktion gilt nur für **Benutzername & Kenn Wort Authentifizierung** .
+- AD FS behält weder **BadPwdCount** noch Benutzer bei, die vorläufig gesperrt sind. AD FS verwendet AD für die gesamte Zustandsüberwachung.
+- AD FS führt für jeden Authentifizierungs Versuch eine Suche nach dem **BadPwdCount** -Attribut durch LDAP-Aufrufe für den Benutzer auf dem PDC aus.  
+- AD FS älter als 2016 schlägt fehl, wenn der Zugriff auf den PDC nicht möglich ist. In AD FS 2016 wurden Verbesserungen eingeführt, die AD FS für den Fall, dass der PDC nicht verfügbar ist, auf andere Domänen Controller zurückgreifen können. 
+- Bei der AD FS werden Authentifizierungsanforderungen vom Extranet zugelassen, wenn BadPwdCount < extranetlockoutthreshold 
+- Wenn **BadPwdCount** >= **extranetlockoutthreshold** und **badpasswordtime** + **extranetobservationwindow** < aktuelle Zeit, lehnt AD FS Authentifizierungsanforderungen aus dem Extranet ab.
+- Um eine böswillige Kontosperrung zu vermeiden, sollten Sie sicherstellen, dass der **extranetlockoutthreshold**- < -Konto Sperrungs**Schwellenwert** und der **extranetobservationwindow** > -**Konto Sperr Wert zurückgesetzt** wird.
 
 
 ## <a name="additional-references"></a>Weitere Verweise  
-- [Bewährte Methoden zum Schützen von Active Directory Federation Services](../../ad-fs/deployment/best-practices-securing-ad-fs.md)
+- [Bewährte Methoden zum Sichern von Active Directory-Verbunddienste (AD FS)](../../ad-fs/deployment/best-practices-securing-ad-fs.md)
 - [Delegieren des AD FS-PowerShell-Cmdlet-Zugriffs an Benutzer ohne Administratorrechte](delegate-ad-fs-pshell-access.md)
-- [Set-AdfsProperties](https://technet.microsoft.com/itpro/powershell/windows/adfs/set-adfsproperties)
+- [Set-ADF sproperties](https://technet.microsoft.com/itpro/powershell/windows/adfs/set-adfsproperties)
 
 [AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md)
 

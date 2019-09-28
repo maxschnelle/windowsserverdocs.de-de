@@ -6,14 +6,14 @@ ms.topic: article
 author: jwwool
 ms.author: jeffrew
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.date: 06/07/2019
-ms.openlocfilehash: b222cd4b97beecd25c14b9f8f39627bf46cb7716
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: a579d0274ff4b53a72c17760a6d53ef796625d3a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869540"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356912"
 ---
 # <a name="windows-admin-center-known-issues"></a>Windows Admin Center – bekannte Probleme
 
@@ -146,7 +146,7 @@ Wenn dies nicht der Fall ist, können Sie [herunterladen und WMF 5.1 installiere
 
 ### <a name="files"></a>Dateien
 
-- Hoch- oder heruntergeladen großer Dateien wird noch nicht unterstützt. (\~Limit von 100 MB) [12524234]
+- Hoch- oder heruntergeladen großer Dateien wird noch nicht unterstützt. (\~100mb Limit) [12524234]
 
 ### <a name="powershell"></a>PowerShell
 

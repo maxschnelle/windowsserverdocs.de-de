@@ -1,38 +1,38 @@
 ---
 title: Netzwerk-Anleitung für Windows Server Core
-description: Dieses Thema enthält eine Übersicht über das Handbuch zum Hauptnetzwerk, wodurch Sie zum Planen und Bereitstellen der Kernkomponenten erforderlich sind, für eine voll funktionsfähige Netzwerks und eine neue Active Directory-Domäne in eine neue Gesamtstruktur mit Windows Server 2016
+description: Dieses Thema enthält eine Übersicht über das Handbuch zum Hauptnetzwerk, mit dem Sie die Kernkomponenten, die für ein voll funktionsfähiges Netzwerk erforderlich sind, und eine neue Active Directory Domäne in einer neuen Gesamtstruktur mit Windows Server 2016 planen und bereitstellen können.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.date: ''
 ms.assetid: 9b3ef3eb-4246-4e0e-8bf1-53224ca5f2f9
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a905fd0c11237edd3a408998f8f71aa25a054328
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 52f8b9e1446b5b3f3b1e7060cc737204771d1eae
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847901"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356066"
 ---
 # <a name="core-network-guidance-for-windows-server"></a>Netzwerk-Anleitung für Windows Server Core
 
 >Gilt für: Windows Server, Windows Server 2016
 
-Dieses Thema enthält eine Übersicht über die Core-Netzwerk-Anleitung für Windows Server&reg; 2016 und enthält die folgenden Abschnitte.  
+Dieses Thema enthält eine Übersicht über die grundlegenden Netzwerk Anleitungen für Windows Server @ no__t-0 2016 und enthält die folgenden Abschnitte.  
   
--   [Einführung in die Windows Server-Hauptnetzwerk](#bkmk_intro)  
+-   [Einführung in das Windows Server Core-Netzwerk](#bkmk_intro)  
   
--   [Kernnetzwerkhandbuch für WindowsServer](#bkmk_core)  
+-   [Handbuch zum Hauptnetzwerk für Windows Server](#bkmk_core)  
   
-## <a name="bkmk_intro"></a>Einführung in die Windows Server-Hauptnetzwerk
+## <a name="bkmk_intro"></a>Einführung in das Windows Server Core-Netzwerk
 
 Ein Hauptnetzwerk ist eine Sammlung von Netzwerkhardware, Geräten und Software, die die grundlegenden Dienste für die Anforderungen der Informationstechnologie (IT) Ihres Unternehmens bereitstellt.
 
 Ein Windows Server-Hauptnetzwerk bietet Ihnen zahlreiche Vorteile, wie zum Beispiel:
 
-- Kern-Protokolle für Netzwerkkonnektivität zwischen Computern und anderen TCP/IP-kompatiblen Geräten. TCP/IP ist eine Suite von Standardprotokollen für die Verbindung von Computern und die Erstellung von Netzwerken. TCP/IP ist eine Netzwerkprotokollsoftware, die von Microsoft bereitgestellten&reg; Windows&reg; Suite für Betriebssysteme, die implementiert und unterstützt die TCP/IP-Protokoll.
+- Kern-Protokolle für Netzwerkkonnektivität zwischen Computern und anderen TCP/IP-kompatiblen Geräten. TCP/IP ist eine Suite von Standardprotokollen für die Verbindung von Computern und die Erstellung von Netzwerken. TCP/IP ist eine Netzwerkprotokoll Software, die mit Microsoft @ no__t-0 Windows @ no__t-1-Betriebssystemen bereitgestellt wird, die die TCP/IP-Protokoll Suite implementieren und unterstützen.
 
 - Automatische IP-Adressierung des DHCP-Servers (Dynamic Host Configuration Protocol). Die manuelle Konfiguration von IP-Adressen auf allen Computern in Ihrem Netzwerk ist zeitaufwändig und weniger flexibel als die dynamische Bereitstellung von IP-Adressleases für Computer und andere Geräte durch einen DHCP-Server.
 
@@ -44,11 +44,11 @@ Ein Windows Server-Hauptnetzwerk bietet Ihnen zahlreiche Vorteile, wie zum Beisp
 
 - Eine Datenbank für Benutzer- und Computerkonten. Der Verzeichnisdienst stellt eine zentralisierte Benutzerkontendatenbank bereit. Diese ermöglicht die Erstellung von Benutzer- und Computerkonten für Personen und Computer, die berechtigt sind, eine Verbindung mit Ihrem Netzwerk herzustellen und auf die Netzwerkressourcen (beispielsweise Anwendungen, Datenbanken, freigegebene Dateien und Ordner sowie Drucker) zuzugreifen.
 
-Ein Hauptnetzwerk ermöglicht außerdem eine Größenanpassung Ihres Netzwerks, wenn Ihr Unternehmen wächst und sich die IT-Anforderungen ändern. Mit einem Hauptnetzwerk können Sie beispielsweise Domänen, IP-Subnetze, RAS-Dienste, Drahtlosdienste und weitere Features und Serverrollen, die von Windows Server 2016 bereitgestellte hinzufügen.
+Ein Hauptnetzwerk ermöglicht außerdem eine Größenanpassung Ihres Netzwerks, wenn Ihr Unternehmen wächst und sich die IT-Anforderungen ändern. Mit einem Kern Netzwerk können Sie beispielsweise Domänen, IP-Subnetze, RAS-Dienste, drahtlose Dienste und andere Features und Server Rollen hinzufügen, die von Windows Server 2016 bereitgestellt werden.
 
-## <a name="bkmk_core"></a>Kernnetzwerkhandbuch für WindowsServer
+## <a name="bkmk_core"></a>Handbuch zum Hauptnetzwerk für Windows Server
 
-Windows Server 2016 Core Network Guide enthält Anweisungen zum Planen und Bereitstellen der Kernkomponenten erforderlich, die für eine voll funktionsfähige Netzwerks und einer neuen Active Directory sind&reg; Domäne in einer neuen Gesamtstruktur. Mithilfe dieses Handbuchs können Sie Computer bereitstellen, die mit folgenden Windows-Serverkomponenten konfiguriert wurden:
+Im Windows Server 2016-Kern Netzwerk Handbuch finden Sie Anweisungen zum Planen und Bereitstellen der Kernkomponenten, die für ein voll funktionsfähiges Netzwerk und eine neue Active Directory @ no__t-0-Domäne in einer neuen Gesamtstruktur erforderlich sind. Mithilfe dieses Handbuchs können Sie Computer bereitstellen, die mit folgenden Windows-Serverkomponenten konfiguriert wurden:
 
 - AD DS-Serverrolle (Active Directory Domain Services, Active Directory-Domänendienste)
 
@@ -62,9 +62,9 @@ Windows Server 2016 Core Network Guide enthält Anweisungen zum Planen und Berei
 
 - TCP/IP v4-Verbindungen (Transmission Control Protocol/Internet Protocol Version 4) mit einzelnen Servern
 
-Dieses Handbuch ist an folgendem Speicherort verfügbar.
+Dieses Handbuch ist unter folgendem Speicherort verfügbar.
 
-- Die [Core Network Guide](../core-network-guide/Core-Network-Guide.md) in der technischen Bibliothek für Windows Server 2016.
+- Das [Handbuch](../core-network-guide/Core-Network-Guide.md) zum Hauptnetzwerk in der technischen Bibliothek zu Windows Server 2016.
   
 
 

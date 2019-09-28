@@ -6,14 +6,14 @@ ms.author: billmath
 manager: femila
 ms.date: 07/10/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: d72217d9e8dc3b0f47382e08346dca977ac14b67
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 9e947f1894516de232a0db50bcbb56c7452098cd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867931"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359420"
 ---
 # <a name="migrate-the-ad-fs-20-federation-server-to-ad-fs-on-windows-server-2012-r2"></a>Migrieren des AD FS 2,0-Verbund Servers zu AD FS unter Windows Server 2012 R2
 
@@ -103,14 +103,14 @@ Get-ADFSClaimDescription | Out-File “.\claimtypes.txt”`.
   
 ###  <a name="to-export-claims-provider-trusts-and-relying-party-trusts"></a>So exportieren Sie Anspruchsanbieter-Vertrauensstellungen und Vertrauensstellungen der vertrauenden Seite  
   
-1.  Wenn Sie AD FS Anspruchs Anbieter-Vertrauens Stellungen und Vertrauens Stellungen der vertrauenden Seite exportieren möchten, müssen Sie sich als Administrator (jedoch nicht als Domänen Administrator) auf dem Verbund Server anmelden und das folgende Windows PowerShell-Skript ausführen, das sich im **Medium "Media/server_support" befindet.** Ordner "/ADFS" der Windows Server 2012 R2-Installations `export-federationconfiguration.ps1`-CD:.  
+1.  Wenn Sie AD FS Anspruchs Anbieter-Vertrauens Stellungen und Vertrauens Stellungen der vertrauenden Seite exportieren möchten, müssen Sie sich als Administrator (jedoch nicht als Domänen Administrator) auf dem Verbund Server anmelden und das folgende Windows PowerShell-Skript ausführen, das sich im **Medium "Media/server_support" befindet.** Ordner "/ADFS" der Windows Server 2012 R2-Installations-CD: `export-federationconfiguration.ps1`.  
   
 > [!IMPORTANT]
 >  Das Exportskript enthält die folgenden Parameter:  
 > 
-> - Export-FederationConfiguration. ps1-Path < String\> [-Computername < String\>] [-Credential < PSCredential\>] [-Force] [-certifierepassword < SecureString\>]  
->   -   Export-FederationConfiguration. ps1-Path < String\> [-Computername < String\>] [-Credential < PSCredential\>] [-Force] [-certifierepassword < SecureString\>] [- Relyingpartytrustidentifier < String [] >] [-claimsprovidertrustidentifier < String [] >]  
->   -   Export-FederationConfiguration. ps1-Path < String\> [-Computername < String\>] [-Credential < PSCredential\>] [-Force] [-certifierepassword < SecureString\>] [- Relyingpartytrustname < String [] >] [-claimsprovidertrustname < String [] >]  
+> - Export-FederationConfiguration. ps1-Path < String @ no__t-0 [-Computername < String @ no__t-1] [-Credential < PSCredential @ no__t-2] [-Force] [-Certifi-epassword < SecureString @ no__t-3]  
+>   -   Export-FederationConfiguration. ps1-Path < String @ no__t-0 [-Computername < String @ no__t-1] [-Credential < PSCredential @ no__t-2] [-Force] [-Certifi-epassword < SecureString @ no__t-3] [-relyingpartytrustidentifier < String [] >] [-claimsprovidertrustidentifier < String [] >]  
+>   -   Export-FederationConfiguration. ps1-Path < String @ no__t-0 [-Computername < String @ no__t-1] [-Credential < PSCredential @ no__t-2] [-Force] [-Certifi-epassword < SecureString @ no__t-3] [-relyingpartytrustname < String [] >] [- Claimsprovidertrustname < Zeichenfolge [] >]  
 > 
 >   **-Relyingpartytrustidentifier < String [] >** : das Cmdlet exportiert nur Vertrauens Stellungen der vertrauenden Seite, deren Bezeichner im Zeichen folgen Array angegeben sind. Standardmäßig werden KEINE Vertrauensstellungen der vertrauenden Seite exportiert. Wenn weder %%amp;quot;RelyingPartyTrustIdentifier%%amp;quot;, %%amp;quot;ClaimsProviderTrustIdentifier%%amp;quot;, %%amp;quot;RelyingPartyTrustName%%amp;quot; noch %%amp;quot;ClaimsProviderTrustName%%amp;quot; angegeben ist, werden vom Skript alle Vertrauensstellungen der vertrauenden Seite und Anspruchsanbieter-Vertrauensstellungen exportiert.  
 > 
@@ -130,7 +130,7 @@ Get-ADFSClaimDescription | Out-File “.\claimtypes.txt”`.
 > 
 >   **-Certifi-epassword < SecureString\>**  : gibt ein Kennwort zum Exportieren der privaten Schlüssel AD FS Zertifikate an. Wird dieser Parameter nicht angegeben, wird vom Skript ein Kennwort angefordert, wenn ein AD FS-Zertifikat mit privatem Schlüssel exportiert werden muss.  
 > 
->   **Eingaben**: None  
+>   **Eingaben**: Keine  
 > 
 >   Zeichenfolge **Outputs**: – Dieses Cmdlet gibt den Ordnerpfad für den Export an. Sie können das zurückgegebene Objekt über die Pipeline an %%amp;quot;Import-FederationConfiguration%%amp;quot; übergeben.  
   
@@ -193,9 +193,9 @@ import-federationconfiguration.ps1
 > [!IMPORTANT]
 >  Das Importskript enthält die folgenden Parameter:  
 > 
-> - Import-FederationConfiguration. ps1-Path < String\> [-Computername < String\>] [-Credential < PSCredential\>] [-Force] [-logPath < String\>] [-certifiassepassword < SecureString \>]  
->   -   Import-FederationConfiguration. ps1-Path < String\> [-Computername < String\>] [-Credential < PSCredential\>] [-Force] [-logPath < String\>] [-certifiassepassword < SecureString \>] [-Relyingpartytrustidentifier < String [] >] [-claimsprovidertrustidentifier < String [] >  
->   -   Import-FederationConfiguration. ps1-Path < String\> [-Computername < String\>] [-Credential < PSCredential\>] [-Force] [-logPath < String\>] [-certifiassepassword < SecureString \>] [-Relyingpartytrustname < String [] >] [-claimsprovidertrustname < String [] >]  
+> - Import-FederationConfiguration. ps1-Path < String @ no__t-0 [-Computername < String @ no__t-1] [-Credential < PSCredential @ no__t-2] [-Force] [-logPath < String @ no__t-3] [-Certifi-epassword < SecureString @ no__t-4]  
+>   -   Import-FederationConfiguration. ps1-Path < String @ no__t-0 [-Computername < String @ no__t-1] [-Credential < PSCredential @ no__t-2] [-Force] [-logPath < String @ no__t-3] [-Certifi-epassword < SecureString @ no__t-4] [- Relyingpartytrustidentifier < String [] >] [-claimsprovidertrustidentifier < String [] >  
+>   -   Import-FederationConfiguration. ps1-Path < String @ no__t-0 [-Computername < String @ no__t-1] [-Credential < PSCredential @ no__t-2] [-Force] [-logPath < String @ no__t-3] [-Certifi-epassword < SecureString @ no__t-4] [- Relyingpartytrustname < String [] >] [-claimsprovidertrustname < String [] >]  
 > 
 >   **-Relyingpartytrustidentifier < String [] >** : das Cmdlet importiert nur Vertrauens Stellungen der vertrauenden Seite, deren Bezeichner im Zeichen folgen Array angegeben sind. Standardmäßig werden KEINE Vertrauensstellungen der vertrauenden Seite importiert. Wenn weder %%amp;quot;RelyingPartyTrustIdentifier%%amp;quot;, %%amp;quot;ClaimsProviderTrustIdentifier%%amp;quot;, %%amp;quot;RelyingPartyTrustName%%amp;quot; noch %%amp;quot;ClaimsProviderTrustName%%amp;quot; angegeben ist, werden vom Skript alle Vertrauensstellungen der vertrauenden Seite und Anspruchsanbieter-Vertrauensstellungen importiert.  
 > 

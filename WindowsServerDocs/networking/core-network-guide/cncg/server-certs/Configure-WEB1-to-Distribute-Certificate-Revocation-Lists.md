@@ -1,54 +1,54 @@
 ---
-title: Konfigurieren von WEB1 zum Verteilen von Zertifikatsperrlisten (CRLs)
-description: Dieses Thema ist Teil des Handbuchs Bereitstellen von Serverzertifikaten für 802.1 X verkabelte und drahtlose Bereitstellungen
+title: Konfigurieren von WEB1 zum Verteilen von Zertifikat Sperr Listen (CRLs)
+description: Dieses Thema ist Teil des Handbuchs Bereitstellen von Server Zertifikaten für drahtlose und drahtlose 802.1 x-bereit Stellungen.
 manager: brianlic
 ms.topic: article
 ms.assetid: fa4a8c41-8c2a-425c-8511-736fe5d196ac
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 57fa45eff87a1f0cdaae8b780d7f605e54ff6871
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5d53cbba37699346db110f0748a9c3e0c834c18e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839191"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356286"
 ---
-# <a name="configure-web1-to-distribute-certificate-revocation-lists-crls"></a>Konfigurieren von WEB1 zum Verteilen von Zertifikatsperrlisten (CRLs)
+# <a name="configure-web1-to-distribute-certificate-revocation-lists-crls"></a>Konfigurieren von WEB1 zum Verteilen von Zertifikat Sperr Listen (CRLs)
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können dieses Verfahren verwenden, so konfigurieren Sie den Webserver WEB1 zur Verteilung von Zertifikatsperrlisten.  
+Mithilfe dieses Verfahrens können Sie den Webserver WEB1 für die Verteilung von CRLs konfigurieren.  
   
-In den Erweiterungen der Stamm-ZS, wurde angegeben, dass die Zertifikatsperrliste der Stammzertifizierungsstelle über verfügbar wäre https://pki.corp.contoso.com/pki. Derzeit besteht kein virtuelles PKI-Verzeichnis auf WEB1 sodass muss es erstellt werden.  
+In den Erweiterungen der Stamm Zertifizierungsstelle wurde angegeben, dass die CRL der Stamm Zertifizierungsstelle über https://pki.corp.contoso.com/pki verfügbar wäre. Zurzeit ist kein virtuelles PKI-Verzeichnis auf WEB1 vorhanden, daher muss eine erstellt werden.  
   
-Um dieses Verfahren auszuführen, müssen Sie Mitglied werden **Domänen-Admins**.  
+Um dieses Verfahren auszuführen, müssen Sie Mitglied der Gruppe " **Domänen-Admins**" sein.  
   
 > [!NOTE]  
-> Ersetzen Sie im folgenden Verfahren den Benutzerkontonamen, den Namen des Webservers, Ordnernamen und Speicherorte und andere Werte durch die für Ihre Bereitstellung geeignet sind.  
+> Ersetzen Sie im folgenden Verfahren den Benutzerkonto Namen, den Webserver Namen, die Ordnernamen und-Speicherorte sowie andere Werte durch die Werte, die für Ihre Bereitstellung geeignet sind.  
   
-#### <a name="to-configure-web1-to-distribute-certificates-and-crls"></a>So konfigurieren Sie WEB1 zum Verteilen von Zertifikaten und Zertifikatsperrlisten  
+#### <a name="to-configure-web1-to-distribute-certificates-and-crls"></a>So konfigurieren Sie WEB1 für die Verteilung von Zertifikaten und CRLs  
   
-1.  Geben Sie auf WEB1, führen Sie Windows PowerShell als Administrator `explorer c:\`, und drücken Sie dann die EINGABETASTE. Windows-Explorer wird geöffnet, auf Laufwerk c:.   
+1.  Führen Sie auf WEB1 Windows PowerShell als Administrator aus, geben Sie "`explorer c:\`" ein, und drücken Sie dann die EINGABETASTE. Windows-Explorer wird mit Laufwerk C geöffnet.   
   
-2.  Erstellen Sie einen neuen Ordner mit dem Namen PKI, auf dem Laufwerk "c:". Zu diesem Zweck klicken Sie auf **Startseite**, und klicken Sie dann auf **neuer Ordner**. Ein neuer Ordner wird mit den temporären Namen hervorgehoben erstellt. Typ **Pki** und drücken Sie dann die EINGABETASTE.  
+2.  Erstellen Sie auf Laufwerk C: einen neuen Ordner mit dem Namen PKI. Klicken Sie hierzu auf **Startseite**, und klicken Sie dann auf **neuer Ordner**. Es wird ein neuer Ordner erstellt, in dem der temporäre Name hervorgehoben ist. Geben Sie **PKI** ein, und drücken Sie die EINGABETASTE  
   
-3.  Im Windows-Explorer mit der Maustaste des Ordners, die Sie gerade erstellt haben, zeigen Sie den Mauszeiger auf **freigeben**, und klicken Sie dann auf **bestimmte Personen**. Das Dialogfeld **Dateifreigabe** wird geöffnet.  
+3.  Klicken Sie in Windows Explorer mit der rechten Maustaste auf den soeben erstellten Ordner, zeigen Sie mit dem Mauszeiger auf die **Freigabe**, und klicken Sie dann auf **bestimmte Personen**. Das Dialogfeld **Dateifreigabe** wird geöffnet.  
   
-4.  In **Dateifreigabe**, Typ **Zertifikatherausgeber**, und klicken Sie dann auf **hinzufügen**. Die Gruppe "Zertifikatherausgeber" wird zur Liste hinzugefügt. In der Liste der in **Berechtigungsebene**, klicken Sie auf den Pfeil neben **Zertifikatherausgeber**, und klicken Sie dann auf **Lese-/Schreibzugriff**. Klicken Sie auf **Freigabe**, und klicken Sie dann auf **Fertig**.  
+4.  Geben Sie in **Dateifreigabe** **Zertifikat**Herausgeber ein, und klicken Sie dann auf **Hinzufügen**. Die Gruppe Zertifikat Herausgeber wird der Liste hinzugefügt. Klicken Sie in der Liste unter **Berechtigungsstufe**auf den Pfeil neben **Zertifikat**Herausgeber, und klicken Sie dann auf **Lesen/Schreiben**. Klicken Sie auf **Freigeben**und dann auf **done**.  
   
-5.  Schließen Sie Windows Explorer.  
+5.  Schließen Sie Windows-Explorer.  
   
 6.  Öffnen Sie die IIS-Konsole. Klicken Sie in Server-Manager auf **Extras**, klicken Sie auf Verwaltung, und klicken Sie dann auf **Internetinformationsdienste-Manager**.  
   
-7.  Erweitern Sie in der Konsolenstruktur von Internetinformationsdienste (Internet Information Services, IIS) Manager **WEB1**. Wenn Sie gefragt werden, ob Sie mit Microsoft-Webplattform beginnen möchten, klicken Sie auf **Abbrechen**.  
+7.  Erweitern Sie in der Konsolen Struktur Internetinformationsdienste (IIS)-Manager den Eintrag **WEB1**. Wenn Sie gefragt werden, ob Sie mit Microsoft-Webplattform beginnen möchten, klicken Sie auf **Abbrechen**.  
   
 8.  Erweitern Sie **Websites**, klicken Sie mit der rechten Maustaste auf **Standardwebsite**, und klicken Sie dann auf **Virtuelles Verzeichnis hinzufügen**.  
   
-9. In **Alias**, Typ **Pki**. In **physischer Pfad** Typ **C:\pki**, klicken Sie dann auf **OK**.  
+9. GebenSie als Alias **PKI**ein. Geben Sie unter **physischer Pfad** **c:\pki**ein, und klicken Sie dann auf **OK**.  
   
-10. Aktivieren Sie den anonymen Zugriff auf auf das virtuelle Pki-Verzeichnis, sodass alle Clients die Gültigkeit der ZS-Zertifikate und Zertifikatsperrlisten überprüfen kann. Gehen Sie hierzu wie folgt vor:  
+10. Aktivieren Sie den anonymen Zugriff auf das virtuelle PKI-Verzeichnis, sodass jeder Client die Gültigkeit der Zertifizierungsstellen Zertifikate und CRLs überprüfen kann. Gehen Sie hierzu wie folgt vor:  
   
     1.  Stellen Sie im Bereich **Verbindungen** sicher, dass **pki** ausgewählt ist.  
   
@@ -60,13 +60,13 @@ Um dieses Verfahren auszuführen, müssen Sie Mitglied werden **Domänen-Admins*
   
     5.  Klicken Sie im Dialogfeld **Berechtigungen für pki** auf **Hinzufügen**.  
   
-    6.  In der **Auswahl von Benutzern, Computern, Dienstkonten oder Gruppen**, Typ **ANONYMOUS-Anmeldung; Jeder** , und klicken Sie dann auf **Namen überprüfen**. Klicken Sie auf **OK**.  
+    6.  Geben **Sie unter Benutzer, Computer, Dienst Konten oder Gruppen auswählen** **Anonyme Anmeldung ein. Und klicken** Sie dann auf **Namen überprüfen**. Klicken Sie auf **OK**.  
   
-    7.  Klicken Sie auf **OK** auf die **Auswahl von Benutzern, Computern, Dienstkonten oder Gruppen** Dialogfeld.  
+    7.  Klicken Sie im Dialogfeld **Benutzer, Computer, Dienst Konten oder Gruppen auswählen** auf **OK** .  
   
-    8.  Klicken Sie auf **OK** auf die **Berechtigungen für Pki** Dialogfeld.  
+    8.  Klicken Sie im Dialogfeld **Berechtigungen für PKI** auf **OK** .  
   
-11. Klicken Sie auf **OK** auf die **Pki Eigenschaften** Dialogfeld.  
+11. Klicken Sie im Dialogfeld **PKI-Eigenschaften** auf **OK** .  
   
 12. Doppelklicken Sie im Bereich **pki-Startseite** auf **Anforderungsfilterung**.  
   
@@ -74,8 +74,8 @@ Um dieses Verfahren auszuführen, müssen Sie Mitglied werden **Domänen-Admins*
   
 14. Wählen Sie unter **Einstellungen für die Anforderungsfilterung bearbeiten**die Option **Doppelte Escapezeichen zulassen** aus, und klicken Sie dann auf **OK**.  
   
-15. Klicken Sie in der MMC (Internet Information Services, IIS) Manager auf den Namen des Webservers. Z. B. wenn der Webserver WEB1 benannt wird, klicken Sie auf **WEB1**.  
+15. Klicken Sie im Internetinformationsdienste (IIS)-Manager-MMC auf den Namen Ihres Webservers. Wenn der Webserver z. b. den Namen WEB1 hat, klicken Sie auf **WEB1**.  
   
-16. In **Aktionen**, klicken Sie auf **Neustart**. Internet-Dienste werden beendet und neu gestartet.  
+16. Klicken Sie unter **Aktionen**auf **neu starten**. Internet Dienste werden beendet und dann neu gestartet.  
   
 

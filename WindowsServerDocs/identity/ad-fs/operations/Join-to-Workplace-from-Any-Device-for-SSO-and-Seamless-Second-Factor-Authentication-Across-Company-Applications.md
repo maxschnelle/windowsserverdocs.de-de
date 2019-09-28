@@ -7,20 +7,20 @@ ms.author: billmath
 manager: femila
 ms.date: 12/05/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: e9d6161666be89673cff6ef1a975d3205fa4b5c9
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 05a8b8bb5685c31ece29ed8eb38d37a424e478b8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189087"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357936"
 ---
 # <a name="join-to-workplace-from-any-device-for-sso-and-seamless-second-factor-authentication-across-company-applications"></a>Arbeitsplatzbeitritt von einem beliebigen Gerät für SSO und die nahtlose zweistufige Authentifizierung bei allen Unternehmensanwendungen
 
 
 
-Der rasche Anstieg der Anzahl von Verbrauchergeräten und des universellen Informationszugriffs ändert die Art und Weise, in der wir Technologie wahrnehmen. Die ständige Verwendung von Informationstechnologie im Laufe des Tages und der einfache Zugriff auf Informationen lassen die herkömmlichen Grenzen zwischen Berufs- und Privatleben verschwimmen. Sich verschiebenden Grenzen werden von dem glauben begleitet, persönliche Technologie als auch benutzerdefinierte Benutzer persönlichkeiten, Aktivitäten und Zeitpläne anpassen – sollte auf den Arbeitsplatz ausgeweitet. Um die wachsende Anforderung einer Anbindung von persönlichen Verbrauchergeräten an Unternehmensnetzwerke zu erfüllen, werden die zwei folgenden Wertbeiträge eingeführt:
+Der rasche Anstieg der Anzahl von Verbrauchergeräten und des universellen Informationszugriffs ändert die Art und Weise, in der wir Technologie wahrnehmen. Die ständige Verwendung von Informationstechnologie im Laufe des Tages und der einfache Zugriff auf Informationen lassen die herkömmlichen Grenzen zwischen Berufs- und Privatleben verschwimmen. Diese Verschiebungs Grenzen werden von einem Glauben begleitet, dass persönliche Technologie ausgewählt und an die Benutzer-, Aktivitäten und Zeitpläne angepasst werden muss. Um die wachsende Anforderung einer Anbindung von persönlichen Verbrauchergeräten an Unternehmensnetzwerke zu erfüllen, werden die zwei folgenden Wertbeiträge eingeführt:
 
 -   Administratoren können steuern, wer Zugriff auf Unternehmensressourcen hat, die auf Anwendungen, Benutzer, Geräte und Standorte basieren.
 
@@ -31,10 +31,10 @@ Der rasche Anstieg der Anzahl von Verbrauchergeräten und des universellen Infor
 ### <a name="workplace-join"></a>Arbeitsplatzbeitritt
 Mit der Verwendung des Arbeitsplatzbeitritts können Information-Worker ihre persönlichen Geräte zu den Arbeitsplatzcomputern ihres Unternehmens hinzufügen, um auf Unternehmensressourcen und -dienste zuzugreifen. Wenn Sie Ihr persönliches Gerät mit dem Arbeitsplatz verbinden, wird es zu einem bekannten Gerät und stellt die nahtlose zweistufige Authentifizierung und ein einmaliges Anmelden für Arbeitsplatzressourcen und -anwendungen bereit. Wenn ein Gerät über den Arbeitsplatzbeitritt hinzugefügt wird, können Attribute des Geräts vom Verzeichnis abgerufen werden, um einen bedingten Zugriff für den Zweck der autorisierenden Ausstellung von Sicherheitstoken für Anwendungen zu fördern. Durch Arbeitsplatzbeitritt können Windows 8.1-, iOS 6.0+- sowie Android 4.0+-Geräte zusammengeführt werden.
 
-### <a name="BKMK_DRS"></a>Azure Active Directory Device Registration service
+### <a name="BKMK_DRS"></a>Azure Active Directory Device Registration-Dienst
 Arbeitsplatzbeitritt wird durch den Azure Active Directory-Geräteregistrierungsdienst ermöglicht. Wenn ein Gerät über den Arbeitsplatzbeitritt hinzugefügt wird, stellt der Dienst ein Geräteobjekt in Azure Active Directory bereit und legt einen Schlüssel auf dem lokalen Gerät fest, der die Geräteidentität darstellt. Diese Geräteidentität kann dann mit Zugriffssteuerungsregeln für Anwendungen verwendet werden, die in der Cloud und lokal gehostet werden.
 
-Weitere Informationen finden Sie unter [Einführung in die geräteverwaltung in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/device-management-introduction).
+Weitere Informationen finden Sie unter [Einführung in die Geräteverwaltung in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/device-management-introduction).
 
 ### <a name="workplace-join-as-a-seamless-second-factor-authentication"></a>Arbeitsplatzbeitritt als nahtlose zweistufige Authentifizierung
 Unternehmen können das mit dem Informationszugriff verbundene Risiko verwalten und Governance und Compliance fördern, gleichzeitig aber Verbrauchergeräten Zugriff auf Unternehmensressourcen gewähren. Der Arbeitsplatzbeitritt auf Geräte bietet Administratoren die folgenden Funktionen:
@@ -61,7 +61,7 @@ In den folgenden Lösungshandbüchern finden Sie die einzelnen Schritte für die
 3.  [Exemplarische Vorgehensweise: Arbeitsplatzbeitritt mit einem Android-Gerät](../../ad-fs/operations/walkthrough--workplace-join-to-an-android-device.md)
 
 ## <a name="see-also"></a>Siehe auch
-[Konfigurieren eines Verbundservers mit Device Registration Service](../deployment/configure-a-federation-server-with-device-registration-service.md)
+[Konfigurieren eines Verbund Servers mit dem Geräte Registrierungsdienst](../deployment/configure-a-federation-server-with-device-registration-service.md)
 
 
 

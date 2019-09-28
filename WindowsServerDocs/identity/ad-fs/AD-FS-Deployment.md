@@ -7,19 +7,19 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 6ea73506bbd67dd44fa23b4b87d4744ebbbd71cb
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 264a7d3399757e903e794dc4ec554e7ea63dd0e5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192567"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71360153"
 ---
 # <a name="ad-fs-deployment"></a>ADFS-Bereitstellung
 
 
-Dieses Dokument enthält eine Liste aller von der Dokumentation für die Bereitstellung von AD FS für WindowsServer 2016. Dazu gehören unter anderem:
+Dieses Dokument enthält eine Liste der Dokumentation zum Bereitstellen von AD FS für Windows Server 2016. Dazu gehören unter anderem:
   
 * [Bewährte Methoden zum Schützen von AD FS](deployment/Best-Practices-Securing-AD-FS.md)
 
@@ -42,9 +42,9 @@ Dieses Dokument enthält eine Liste aller von der Dokumentation für die Bereits
 
 * [AD FS in Azure mit Azure Traffic Manager](deployment/active-directory-adfs-in-azure-with-azure-traffic-manager.md)  
 
-* [Bereitstellungshandbuch für Windows Server 2016 und 2012 R2](deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)
+* [Bereitstellungs Handbuch für Windows Server 2016 und 2012 R2](deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)
 
-* [Windows Server 2012-Bereitstellungshandbuch](deployment/Windows-Server-2012-AD-FS-Deployment-Guide.md)
+* [Windows Server 2012-Bereitstellungs Handbuch](deployment/Windows-Server-2012-AD-FS-Deployment-Guide.md)
 
 
 

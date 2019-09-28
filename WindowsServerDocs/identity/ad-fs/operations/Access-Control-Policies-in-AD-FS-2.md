@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b73baacc1115359b1d3d8b494cc285b5edd7c5fc
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: b0d6133a6fb43b8624dc1329db632fb5dd4aa070
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866029"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358452"
 ---
 # <a name="client-access-control-policies-in-ad-fs-20"></a>Client Access Control Richtlinien in AD FS 2,0
 Mit den Client Zugriffsrichtlinien in Active Directory-Verbunddienste (AD FS) 2,0 können Sie Benutzern den Zugriff auf Ressourcen einschränken oder gewähren.  In diesem Dokument wird beschrieben, wie Sie Client Zugriffsrichtlinien in AD FS 2,0 aktivieren und die gängigsten Szenarien konfigurieren.
@@ -23,7 +23,7 @@ Mit den Client Zugriffsrichtlinien in Active Directory-Verbunddienste (AD FS) 2,
 
 Führen Sie die folgenden Schritte aus, um die Client Zugriffs Richtlinie zu aktivieren.
 
-### <a name="step-1-install-the-update-rollup-2-for-ad-fs-20-package-on-your-ad-fs-servers"></a>Schritt 1: Installieren Sie das Paket Updaterollup 2 für AD FS 2,0 auf Ihren AD FS Servern.
+### <a name="step-1-install-the-update-rollup-2-for-ad-fs-20-package-on-your-ad-fs-servers"></a>Schritt 1: Installieren Sie das Paket Updaterollup 2 für AD FS 2,0 auf Ihren AD FS Servern.
 
 Laden Sie das Paket [Updaterollup 2 für Active Directory-Verbunddienste (AD FS) (AD FS) 2,0](https://support.microsoft.com/en-us/help/2681584/description-of-update-rollup-2-for-active-directory-federation-services-ad-fs-2.0) herunter, und installieren Sie es auf allen Verbund Servern und Verbund Server Proxys.
 
@@ -209,7 +209,7 @@ Dadurch können wir zwei unterschiedliche IP-Adressen wie folgt mit einem or-Aus
 
 Ein Beispiel für die Anpassung von nur zwei Adressen (z. b. 192.168.1.1 oder 10.0.0.1) lautet\.: \b192\.168\.1 1 \ b | \b10\.\.0\.0 1 \ b
 
-Auf diese Weise können Sie eine beliebige Anzahl von Adressen eingeben. Wenn ein Adressbereich zulässig sein muss, z. b. 192.168.1.1 – 192.168.1.25, muss der Abgleich Zeichen nach Zeichen durchgeführt werden:\.\b192 168\.1\.([1-9] | 1 [0-9] | 2 [0-5]) \b
+Auf diese Weise können Sie eine beliebige Anzahl von Adressen eingeben. Wenn ein Adressbereich zulässig sein muss, z. b. 192.168.1.1 – 192.168.1.25, muss der Abgleich Zeichen nach Zeichen durchgeführt werden: \b192 @ no__t-0168 @ no__t-11 @ no__t-2 ([1-9] | 1 [0-9] | 2 [0-5]) \b
 
 >[!Note] 
 >Die IP-Adresse wird als Zeichenfolge und nicht als Zahl behandelt.
@@ -229,9 +229,9 @@ Folgendes entspricht den Bereichen, die für den Teil der Adresse nach dem letzt
 >[!Note]
 >Die Klammern müssen ordnungsgemäß positioniert werden, damit Sie nicht mit anderen Teilen von IP-Adressen übereinstimmen.
 
-Wenn der 192-Block übereinstimmt, können wir einen ähnlichen Ausdruck für den 10-Block schreiben:\.\b10 0\.0\.([1-9] | 1 [0-4]) \b
+Wenn der 192-Block übereinstimmt, können wir einen ähnlichen Ausdruck für den 10-Block schreiben: \b10 @ no__t-00 @ no__t-10 @ no__t-2 ([1-9] | 1 [0-4]) \b
 
-Der folgende Ausdruck muss alle Adressen für "192.168.1.1 ~ 25" und "10.0.0.1 ~ 14\.": \b192 168\.1\.([1-9] | 1 [0-9] | 2 [0-5]) \b | \b10\.0\.0\. ([1-9] | 1 [0-4]) \b
+Wenn Sie diese zusammenstellen, sollte der folgende Ausdruck mit allen Adressen für "192.168.1.1 ~ 25" und "10.0.0.1 ~ 14" identisch sein: \b192 @ no__t-0168 @ no__t-11 @ no__t-2 ([1-9] | 1 [0-9] | 2 [0-5]) \b | \b10 @ no__t-30 @ no__t-40 @ no__t-5 ([1-9] | 1 [0-4]) \b
 
 #### <a name="testing-the-expression"></a>Testen des Ausdrucks
 

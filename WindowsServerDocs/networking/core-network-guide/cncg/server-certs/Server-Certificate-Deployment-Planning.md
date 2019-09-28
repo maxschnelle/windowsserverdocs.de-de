@@ -1,62 +1,62 @@
 ---
 title: Planen der Bereitstellung SSL
-description: Dieses Thema ist Teil des Handbuchs Bereitstellen von Serverzertifikaten für 802.1 X verkabelte und drahtlose Bereitstellungen
+description: Dieses Thema ist Teil des Handbuchs Bereitstellen von Server Zertifikaten für drahtlose und drahtlose 802.1 x-bereit Stellungen.
 manager: brianlic
 ms.topic: article
 ms.assetid: 7eb746e0-1046-4123-b532-77d5683ded44
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b0d14ed33c9bf389433f59774c04ff15e37256cc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1ec5bc315381f85434753f9becc94409a74271b7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839531"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356105"
 ---
 # <a name="server-certificate-deployment-planning"></a>Planen der Bereitstellung SSL
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Bevor Sie Server-Zertifikate bereitstellen, müssen Sie Folgendes planen:  
+Vor dem Bereitstellen von Server Zertifikaten müssen Sie die folgenden Elemente planen:  
   
 -   [Planen der grundlegenden Serverkonfiguration](#bkmk_basic)  
   
--   [Zugriff auf den Plan-Domäne](#bkmk_domain)  
+-   [Planen des Domänen Zugriffs](#bkmk_domain)  
   
--   [Planen Sie den Speicherort und Namen des virtuellen Verzeichnisses auf dem Webserver](#bkmk_virtual)  
+-   [Planen Sie den Speicherort und den Namen des virtuellen Verzeichnisses auf dem Webserver.](#bkmk_virtual)  
   
--   [Planen Sie einen DNS-Alias (CNAME)-Eintrag für Ihre Web-server](#bkmk_cname)  
+-   [Planen eines DNS-Alias Satzes (CNAME) für Ihren Webserver](#bkmk_cname)  
   
--   [Planen der Konfiguration der Datei "CAPolicy.inf"](#bkmk_capolicy)  
+-   [Planen der Konfiguration von "capolicy. inf"](#bkmk_capolicy)  
   
--   [Planen der Konfiguration der CDP- und AIA-Erweiterungen auf CA1](#bkmk_cdp)  
+-   [Planen der Konfiguration der CDP-und AIA-Erweiterungen auf CA1](#bkmk_cdp)  
   
--   [Planen Sie den Kopiervorgang zwischen der CA und dem Webserver](#bkmk_copy)  
+-   [Planen des Kopiervorgangs zwischen der Zertifizierungsstelle und dem Webserver](#bkmk_copy)  
   
--   [Planen Sie die Konfiguration der Zertifikatvorlage für die Zertifizierungsstelle](#bkmk_template)  
+-   [Planen der Konfiguration der Serverzertifikat Vorlage für die Zertifizierungsstelle](#bkmk_template)  
   
 ## <a name="bkmk_basic"></a>Planen der grundlegenden Serverkonfiguration  
-Nach der Installation von Windows Server 2016 auf den Computern, die Sie als Zertifizierungsstelle und Webserver verwenden möchten, müssen Sie Umbenennen des Computers und zuweisen und konfigurieren eine statische IP-Adresse für den lokalen Computer.  
+Nachdem Sie Windows Server 2016 auf den Computern installiert haben, die Sie als Zertifizierungsstelle und Webserver verwenden möchten, müssen Sie den Computer umbenennen und eine statische IP-Adresse für den lokalen Computer zuweisen und konfigurieren.  
   
-Weitere Informationen finden Sie unter Windows Server 2016 [Core Network Guide](../../../core-network-guide/Core-Network-Guide.md).  
+Weitere Informationen finden Sie im Windows Server 2016- [Kern Netzwerk Handbuch](../../../core-network-guide/Core-Network-Guide.md).  
   
-## <a name="bkmk_domain"></a>Zugriff auf den Plan-Domäne  
-Zum Anmelden an der Domäne der Computer muss ein Domänenmitgliedscomputer sein, und das Benutzerkonto muss vor der Anmeldung in AD DS erstellt werden. Darüber hinaus erfordern die meisten Verfahren in diesem Handbuch an, dass das Benutzerkonto ist ein Mitglied der Gruppen "Organisations-Admins oder Domänen-Admins" in Active Directory-Benutzer und-Computer aus, damit Sie mit der Zertifizierungsstelle mit einem Konto anmelden müssen, die die entsprechende Gruppe Mitglied ist.  
+## <a name="bkmk_domain"></a>Planen des Domänen Zugriffs  
+Wenn Sie sich bei der Domäne anmelden möchten, muss es sich bei dem Computer um einen Domänen Mitglieds Computer handeln, und das Benutzerkonto muss vor dem Anmeldeversuch in AD DS erstellt werden. Außerdem erfordern die meisten Prozeduren in diesem Handbuch, dass das Benutzerkonto Mitglied der Gruppe Organisations-Admins oder Domänen-Admins in Active Directory Benutzer und Computer ist. Daher müssen Sie sich bei der Zertifizierungsstelle mit einem Konto anmelden, das über die entsprechende Gruppenmitgliedschaft verfügt.  
   
-Weitere Informationen finden Sie unter Windows Server 2016 [Core Network Guide](../../../core-network-guide/Core-Network-Guide.md).  
+Weitere Informationen finden Sie im Windows Server 2016- [Kern Netzwerk Handbuch](../../../core-network-guide/Core-Network-Guide.md).  
   
-## <a name="bkmk_virtual"></a>Planen Sie den Speicherort und Namen des virtuellen Verzeichnisses auf dem Webserver  
-Um Zugriff auf die Zertifikatsperrliste und das Zertifizierungsstellenzertifikat auf anderen Computern zu ermöglichen, müssen Sie diese Elemente in einem virtuellen Verzeichnis auf Ihrem Webserver speichern. In diesem Leitfaden befindet sich das virtuelle Verzeichnis auf dem Webserver WEB1. In diesem Ordner auf dem Laufwerk "C:" ist und Sie heißt "Pki". Sie können das virtuelle Verzeichnis auf dem Webserver auf einem beliebigen Ordner suchen, die für Ihre Bereitstellung geeignet ist.  
+## <a name="bkmk_virtual"></a>Planen Sie den Speicherort und den Namen des virtuellen Verzeichnisses auf dem Webserver.  
+Zum Bereitstellen des Zugriffs auf die CRL und das Zertifizierungsstellen Zertifikat auf anderen Computern müssen Sie diese Elemente in einem virtuellen Verzeichnis auf dem Webserver speichern. In diesem Handbuch befindet sich das virtuelle Verzeichnis auf dem Webserver WEB1. Dieser Ordner befindet sich auf dem Laufwerk "C:" und hat den Namen "PKI". Sie finden Ihr virtuelles Verzeichnis auf dem Webserver an einem beliebigen Ordner Speicherort, der für Ihre Bereitstellung geeignet ist.  
   
-## <a name="bkmk_cname"></a>Planen Sie einen DNS-Alias (CNAME)-Eintrag für Ihre Web-server  
-Alias (CNAME)-Ressourceneinträge werden manchmal auch kanonischen Namen-Ressourceneinträge genannt. Diese Datensätze können Sie mehr als einen Namen, zeigen Sie auf einen einzelnen Host, und Dies erleichtert u.a. der Host sowohl eines Protokolls FTP (File Transfer)-Servers als auch einen Webserver auf demselben Computer ausgeführt werden. Beispielsweise sind die bekannten Servernamen ("ftp", "Www") mithilfe von Aliasressourceneintrags (CNAME)-Ressourceneinträge, die an den Domain Name System (DNS) Hostnamen an, wie z. B. WEB1 für die Server-Computer, der als Host zuordnen dieser Dienste registriert.  
+## <a name="bkmk_cname"></a>Planen eines DNS-Alias Satzes (CNAME) für Ihren Webserver  
+Alias Ressourcen Einträge (CNAME) werden manchmal auch als kanonische namens Ressourcen Einträge bezeichnet. Mit diesen Datensätzen können Sie mehr als einen Namen verwenden, um auf einen einzelnen Host zu verweisen, sodass es einfach ist, sowohl einen Dateiübertragungsprotokoll (FTP)-Server als auch einen Webserver auf demselben Computer zu hosten. Beispielsweise werden die bekannten Servernamen (FTP, www) mithilfe von Alias Ressourcen Einträge (CNAME) registriert, die dem Domain Name System (DNS)-Hostnamen (z. b. WEB1) für den Server Computer zugeordnet sind, der diese Dienste hostet.  
   
-Dieses Handbuch enthält Anweisungen zum Konfigurieren von Ihrem Webserver zum Hosten der Zertifikatsperrliste (CRL) Ihrer Zertifizierungsstelle (CA). Da möglicherweise Sie auch den Webserver für andere Zwecke, z. B. zu verwenden, um eine FTP- oder -Website zu hosten möchten, ist es eine gute Idee, einen Aliasressourceneintrag im DNS für Ihre Web-Server zu erstellen. In diesem Handbuch der CNAME-Eintrag wird mit der Bezeichnung "Pki", jedoch können Sie einen Namen, der für Ihre Bereitstellung geeignet ist.  
+Dieses Handbuch enthält Anweisungen zum Konfigurieren des Webservers zum Hosten der Zertifikat Sperr Liste (CRL) für Ihre Zertifizierungsstelle (Certification Authority, ca). Da Sie den Webserver möglicherweise auch für andere Zwecke verwenden möchten, z. b. zum Hosten einer FTP-oder-Website, empfiehlt es sich, einen Alias Ressourcen Daten Satz in DNS für Ihren Webserver zu erstellen. In dieser Anleitung heißt der CNAME-Datensatz "PKI", aber Sie können einen Namen auswählen, der für Ihre Bereitstellung geeignet ist.  
   
-## <a name="bkmk_capolicy"></a>Planen der Konfiguration der Datei "CAPolicy.inf"  
-Vor der Installation von AD CS müssen Sie auf der Zertifizierungsstelle mit Informationen, die für die Bereitstellung richtig ist, die Datei "CAPolicy.inf" konfigurieren. Eine Datei "CAPolicy.inf" enthält die folgenden Informationen an:  
+## <a name="bkmk_capolicy"></a>Planen der Konfiguration von "capolicy. inf"  
+Vor der Installation von AD CS müssen Sie CAPolicy. inf auf der Zertifizierungsstelle mit Informationen konfigurieren, die für die Bereitstellung korrekt sind. Eine CAPolicy. inf-Datei enthält die folgenden Informationen:  
   
 ```  
 [Version]  
@@ -78,17 +78,17 @@ AlternateSignatureAlgorithm=1
 ```  
 Sie müssen die folgenden Elemente für diese Datei planen:  
   
--   **URL**. Die Beispieldatei für die Datei "CAPolicy.inf" verfügt über einen URL-Wert, der **https://pki.corp.contoso.com/pki/cps.txt**. Dies ist daran, dass der Webserver in diesem Handbuch WEB1 heißt und verfügt über einen DNS CNAME-Ressourceneintrag PKI. Der Webserver ist auch mit der Domäne corp.contoso.com verknüpft. Darüber hinaus besteht ein virtuelles Verzeichnis auf dem Webserver, der mit dem Namen "Pki", in dem der Sperrliste gespeichert ist. Stellen Sie sicher, dass den Wert, den Sie für die URL in der Datei "CAPolicy.inf" in ein virtuelles Verzeichnis auf Ihrem Webserver in der Domäne bereitstellen.  
+-   **URL**. Die CAPolicy. inf-Beispieldatei hat den URL **-Wert https://pki.corp.contoso.com/pki/cps.txt** . Der Grund hierfür ist, dass der Webserver in dieser Anleitung den Namen "WEB1" hat und über einen DNS CNAME-Ressourcen Datensatz der PKI verfügt. Der Webserver wird auch der Corp.contoso.com-Domäne hinzugefügt. Außerdem gibt es ein virtuelles Verzeichnis auf dem Webserver mit dem Namen "PKI", in dem die Zertifikat Sperr Liste gespeichert wird. Stellen Sie sicher, dass der Wert, den Sie für die URL in der CAPolicy. inf-Datei angeben, auf ein virtuelles Verzeichnis auf dem Webserver in Ihrer Domäne verweist.  
   
--   **RenewalKeyLength**. Die Standard-Erneuerung-Schlüssellänge für AD CS in Windows Server 2012 ist 2048. Die Länge des Schlüssels, die Sie auswählen sollten werden so lange wie möglich Gewährleistung der Kompatibilität mit Anwendungen, die Sie verwenden möchten.  
+-   **RenewalKeyLength**. Der Standardwert für die Erneuerungs Schlüssellänge für AD CS in Windows Server 2012 ist 2048. Die Schlüssellänge, die Sie auswählen, sollte so lange wie möglich sein, während Sie weiterhin Kompatibilität mit den Anwendungen bereitstellt, die Sie verwenden möchten.  
   
--   **RenewalValidityPeriodUnits**. Die Beispieldatei für die Datei "CAPolicy.inf" verfügt über einen RenewalValidityPeriodUnits-Wert von fünf Jahren. Dies ist, da die erwartete Lebensdauer von der Zertifizierungsstelle ca. zehn Jahren ist. Der Wert RenewalValidityPeriodUnits sollten wider, die allgemeine Gültigkeitsdauer der Zertifizierungsstelle oder der höchsten Anzahl von Jahren, die für die Sie die Registrierung bereitstellen möchten.  
+-   **RenewalValidityPeriodUnits**. Die CAPolicy. inf-Beispieldatei weist den Wert "RenewalValidityPeriodUnits" von 5 Jahren auf. Dies liegt daran, dass die erwartete Lebensdauer der Zertifizierungsstelle ungefähr zehn Jahre beträgt. Der Wert von RenewalValidityPeriodUnits sollte die Gesamt Gültigkeitsdauer der Zertifizierungsstelle oder die höchste Anzahl von Jahren widerspiegeln, für die Sie die Registrierung bereitstellen möchten.  
   
--   **CRLPeriodUnits**. Die Beispieldatei für die Datei "CAPolicy.inf" verfügt über CRLPeriodUnits Wert 1. Dies ist, da das Beispiel-Aktualisierungsintervall für die Zertifikatsperrliste in diesem Handbuch 1 Woche ist. Bei dem Intervallwert, den Sie mit dieser Einstellung angeben, müssen Sie Veröffentlichen der Zertifikatsperrliste bei der Zertifizierungsstelle auf das Web Server virtuelle Verzeichnis, in dem Sie die Zertifikatsperrliste gespeichert, und ermöglichen den Zugriff auf die sie für Computer, die bei der Authentifizierung benötigt werden.  
+-   **CRLPeriodUnits**. Die CAPolicy. inf-Beispieldatei weist einen CRLPeriodUnits-Wert von 1 auf. Dies liegt daran, dass das Aktualisierungs Intervall für die Zertifikat Sperr Liste in dieser Anleitung 1 Woche beträgt. Mit dem Intervall Wert, den Sie mit dieser Einstellung festlegen, müssen Sie die Zertifikat Sperr Liste für die Zertifizierungsstelle auf dem virtuellen Webserver Verzeichnis veröffentlichen, in dem Sie die Zertifikat Sperr Liste speichern und für Computer, die sich im Authentifizierungsprozess befinden, Zugriff darauf gewähren.  
   
--   **AlternateSignatureAlgorithm**. Diese Datei "CAPolicy.inf" implementiert einen Mechanismus für die Verbesserung der Sicherheit durch Implementieren von anderen Signatur Formate. Sie sollten diese Einstellung nicht implementieren, wenn Sie noch Windows XP-Clients verfügen, die Zertifikate von dieser Zertifizierungsstelle benötigen.  
+-   " **Alternativen**Wert" Mit dieser CAPolicy. inf-Datei wird ein verbesserter Sicherheitsmechanismus implementiert, indem Alternative Signatur Formate implementiert werden. Diese Einstellung sollte nicht implementiert werden, wenn Sie noch über Windows XP-Clients verfügen, die Zertifikate von dieser Zertifizierungsstelle benötigen.  
   
-Wenn Sie nicht zum Hinzufügen von jedem untergeordneten Zertifizierungsstellen zu Ihrer public Key-Infrastruktur zu einem späteren Zeitpunkt planen und Sie das Hinzufügen aller untergeordneten Zertifizierungsstellen verhindern möchten, können Sie den Schlüssel "pathLength" zu Ihrer Datei "CAPolicy.inf" mit einem Wert von 0 hinzufügen. Um diesen Schlüssel hinzuzufügen, kopieren Sie den folgenden Code in die Datei:  
+Wenn Sie nicht beabsichtigen, der Public Key-Infrastruktur zu einem späteren Zeitpunkt untergeordnete Zertifizierungsstellen hinzuzufügen, und wenn Sie das Hinzufügen von untergeordneten Zertifizierungsstellen verhindern möchten, können Sie den Schlüssel "pathLength" der Datei "capolicy. inf" mit dem Wert "0" hinzufügen. Kopieren Sie den folgenden Code, und fügen Sie ihn in die Datei ein, um diesen Schlüssel hinzuzufügen:  
   
 ```  
 [BasicConstraintsExtension]  
@@ -97,35 +97,35 @@ Critical=Yes
 ```  
   
 > [!IMPORTANT]  
-> Es wird nicht empfohlen, dass Sie alle anderen Einstellungen in der Datei "CAPolicy.inf" ändern, es sei denn, Sie einen bestimmten Grund dafür haben.  
+> Es wird nicht empfohlen, andere Einstellungen in der Datei "capolicy. inf" zu ändern, es sei denn, Sie haben einen bestimmten Grund dafür.  
   
-## <a name="bkmk_cdp"></a>Planen der Konfiguration der CDP- und AIA-Erweiterungen auf CA1  
-Wenn Sie die Windows-Verwaltungsinstrumentation (Certificate Revocation List, CRL) Verteilungspunkt (CDP) und die Windows-Verwaltungsinstrumentation (Authority Information Access, AIA)-Einstellungen auf CA1 konfigurieren, benötigen Sie den Namen des Webservers sowie Ihren Domänennamen ein. Außerdem benötigen Sie den Namen des virtuellen Verzeichnisses, die Sie auf dem Webserver erstellen, wo die Zertifikatsperrliste (CRL) und das Zertifikat gespeichert werden.  
+## <a name="bkmk_cdp"></a>Planen der Konfiguration der CDP-und AIA-Erweiterungen auf CA1  
+Wenn Sie die Zertifikat Sperr Listen-Verteilungs Punkte (CRL) und die AIA-Einstellungen (Authority Information Access) auf CA1 konfigurieren, benötigen Sie den Namen des Webservers und den Domänen Namen. Außerdem benötigen Sie den Namen des virtuellen Verzeichnisses, das Sie auf dem Webserver erstellen, auf dem die Zertifikat Sperr Liste (CRL) und das Zertifikat der Zertifizierungsstelle gespeichert werden.  
   
-Die CDP-Speicherort, den Sie, während dieses Schritts für die Bereitstellung eingeben müssen hat das Format:  
+Der CDP-Speicherort, den Sie während dieses Bereitstellungs Schritts eingeben müssen, hat folgendes Format:  
       
     `http:\/\/*DNSAlias\(CNAME\)RecordName*.*Domain*.com\/*VirtualDirectoryName*\/<CaName><CRLNameSuffix><DeltaCRLAllowed>.crl.`  
       
-Z. B. wenn es sich bei Ihrem Webserver heißt WEB1 und Ihrem DNS-CNAME-Eintrag für den Webserver alias "Pki", Ihrer Domäne "corp.contoso.com", und das virtuelle Verzeichnis wird mit dem Namen Pki ist der CDP-Speicherort ist:  
+Wenn Ihr Webserver z. b. den Namen WEB1 hat und Ihr DNS-Alias CNAME-Datensatz für den Webserver "PKI", Ihre Domäne "Corp.contoso.com" lautet und Ihr virtuelles Verzeichnis "PKI" lautet, lautet der CDP-Speicherort wie folgt:  
       
     `http:\/\/pki.corp.contoso.com\/pki\/<CaName><CRLNameSuffix><DeltaCRLAllowed>.crl`  
       
-Die AIA-Speicherort, den Sie eingeben müssen, hat das Format:  
+Der AIA-Speicherort, den Sie eingeben müssen, hat folgendes Format:  
       
     `http:\/\/*DNSAlias\(CNAME\)RecordName*.*Domain*.com\/*VirtualDirectoryName*\/<ServerDNSName>\_<CaName><CertificateName>.crt.`  
       
-Z. B. wenn der Webserver heißt WEB1 und Ihrem DNS-CNAME-Eintrag für den Webserver alias "Pki", die Domäne ist "corp.contoso.com", und das virtuelle Verzeichnis wird mit dem Namen Pki, der AIA-Speicherort ist:  
+Wenn Ihr Webserver z. b. den Namen WEB1 hat und Ihr DNS-Alias CNAME-Datensatz für den Webserver "PKI", Ihre Domäne "Corp.contoso.com" lautet und Ihr virtuelles Verzeichnis "PKI" lautet, ist der AIA-Speicherort:  
       
     `http:\/\/pki.corp.contoso.com\/pki\/<ServerDNSName>\_<CaName><CertificateName>.crt`  
       
-## <a name="bkmk_copy"></a>Planen Sie den Kopiervorgang zwischen der CA und dem Webserver  
-Um die Zertifikatsperrlisten und CA-Zertifikat von der Zertifizierungsstelle auf das virtuelle Verzeichnis des Web-Server zu veröffentlichen, können Sie den Certutil - Crl der Befehl ausführen, nachdem Sie die CDP- und AIA-Speicherorten für die Zertifizierungsstelle konfiguriert haben. Stellen Sie sicher, dass Sie die richtigen Pfade zu den Eigenschaften der Zertifizierungsstelle konfigurieren **Erweiterungen** Registerkarte vor dem Ausführen dieses Befehls mithilfe der Anweisungen in diesem Handbuch. Darüber hinaus um das Unternehmens-ZS-Zertifikat an den Webserver zu kopieren, müssen Sie bereits das virtuelle Verzeichnis auf dem Webserver erstellt und konfiguriert haben den Ordner als freigegebener Ordner.  
+## <a name="bkmk_copy"></a>Planen des Kopiervorgangs zwischen der Zertifizierungsstelle und dem Webserver  
+Wenn Sie die Zertifikat Sperr Liste und das Zertifizierungsstellen Zertifikat von der Zertifizierungsstelle auf dem virtuellen Webserver Verzeichnis veröffentlichen möchten, können Sie den Befehl certutil-crl ausführen, nachdem Sie die CDP-und AIA-Standorte der Zertifizierungsstelle konfiguriert haben. Stellen Sie sicher, dass Sie die richtigen Pfade auf der Registerkarte **Erweiterungen** der Zertifizierungsstellen Eigenschaften konfigurieren, bevor Sie diesen Befehl mithilfe der Anweisungen in diesem Handbuch ausführen. Wenn Sie das Zertifikat der Unternehmens Zertifizierungsstelle auf den Webserver kopieren möchten, müssen Sie das virtuelle Verzeichnis auf dem Webserver bereits erstellt und als freigegebenen Ordner konfiguriert haben.  
   
-## <a name="bkmk_template"></a>Planen Sie die Konfiguration der Zertifikatvorlage für die Zertifizierungsstelle  
-Um automatisch registrierte Serverzertifikate bereitzustellen, müssen Sie die Zertifikatvorlage, die mit dem Namen kopieren **RAS- und IAS-Server**. Standardmäßig heißt diese Kopie **Kopie von RAS- und IAS-Server**. Wenn Sie diese Kopie der Vorlage umbenennen möchten, sollten Sie den Namen, den Sie während dieses Schritts für die Bereitstellung verwenden möchten.  
+## <a name="bkmk_template"></a>Planen der Konfiguration der Serverzertifikat Vorlage für die Zertifizierungsstelle  
+Zum Bereitstellen von automatisch registrierten Server Zertifikaten müssen Sie die Zertifikat Vorlage **RAS-und IAS-Server**kopieren. Standardmäßig wird diese Kopie als **Kopie der RAS-und IAS-Server verwendet**. Wenn Sie diese Vorlagen Kopie umbenennen möchten, planen Sie den Namen, den Sie während dieses Bereitstellungs Schritts verwenden möchten.  
   
 > [!NOTE]  
-> In den letzten drei Bereitstellung Abschnitten in diesem Handbuch – Was können Sie zum Konfigurieren der automatischen Registrierung von Serverzertifikaten Gruppenrichtlinie auf Servern aktualisieren, und stellen Sie sicher, dass die Server ein gültiges Serverzertifikat von der Zertifizierungsstelle erhalten haben - ist keine zusätzliche Planung erforderlich. die Schritte.  
+> In den letzten drei Bereitstellungs Abschnitten in diesem Handbuch wird beschrieben, wie Sie die automatische Registrierung von Server Zertifikaten konfigurieren, Gruppenrichtlinie auf Servern aktualisieren und überprüfen, ob die Server ein gültiges Serverzertifikat von der Zertifizierungsstelle erhalten haben. zusätzliche Planung ist nicht erforderlich. nehmen.  
   
 
 

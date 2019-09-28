@@ -1,8 +1,8 @@
 ---
 title: verify
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e5e99237c2bac93625dedec0254c274e4f8dbc9f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 840fd3609ed3aded1c9cfebd4e395ddcc6d5588b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827251"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363101"
 ---
 # <a name="verify"></a>verify
 
 
 
-Teilt **Cmd** stellen Sie sicher, dass Ihre Dateien ordnungsgemäß auf einen Datenträger geschrieben werden sollen. Wenn Sie ohne Angabe von Parametern **überprüfen** zeigt die aktuelle Einstellung.
+Weist **cmd** an, zu überprüfen, ob Ihre Dateien ordnungsgemäß auf einen Datenträger geschrieben wurden. Bei Verwendung ohne **Parameter zeigt die** aktuelle Einstellung an.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -38,20 +38,20 @@ verify [on | off]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|[auf \| deaktiviert]|Switches die **überprüfen** Einstellung aktivieren oder deaktivieren.|
+|[on \| off]|Schaltet die **Überprüfung** ein oder aus.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Zeigt das aktuelle **überprüfen** Einstellung:
+Geben Sie Folgendes ein, um die aktuelle **Verify** -Einstellung anzuzeigen:
 ```
 verify
 ```
-Zum Aktivieren der **überprüfen** festlegen, geben:
+Geben Sie Folgendes ein, um die Einstellung **überprüfen** für zu aktivieren:
 ```
 Verify on
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

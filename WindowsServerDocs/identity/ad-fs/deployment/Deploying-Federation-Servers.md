@@ -6,42 +6,42 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 1f3b2e1ce901df1df1a232dfba51c292c8e1c29c
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 785dcad4ac8e03cc59730fb533e30a001569dd63
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192181"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359630"
 ---
 # <a name="deploying-federation-servers"></a>Bereitstellen von Verbundservern
 
-Zum Bereitstellen von Verbundservern in Active Directory Federation Services \(AD FS\), füllen Sie die einzelnen Aufgaben [Prüfliste: Das Einrichten eines Verbundservers](Checklist--Setting-Up-a-Federation-Server.md).  
+Führen Sie zum Bereitstellen von Verbund Servern in Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1 alle Aufgaben in [checkliste aus: Einrichten eines Verbund Servers @ no__t-0.  
   
 > [!NOTE]  
-> Wenn Sie diese Prüfliste verwenden, es wird empfohlen, die Verweise auf Federation Server-Planung im Vorfeld zu lesen der [AD FS-Entwurfshandbuch in Windows Server 2012](https://technet.microsoft.com/library/dd807036.aspx) bevor Sie die Verfahren zum Konfigurieren der Server beginnen. Befolgen die Checkliste auf diese Weise bietet ein besseres Verständnis des Prozesses Entwurf und Bereitstellung für Verbundserver.  
+> Wenn Sie diese Prüfliste verwenden, empfiehlt es sich, zuerst die Verweise auf die Verbund Server Planung im [AD FS Entwurfs Handbuch in Windows Server 2012](https://technet.microsoft.com/library/dd807036.aspx) zu lesen, bevor Sie mit den Vorgehensweisen zum Konfigurieren der Server beginnen. Wenn Sie die Prüfliste auf diese Weise befolgen, erhalten Sie ein besseres Verständnis des Entwurfs-und Bereitstellungs Prozesses für Verbund Server.  
   
-## <a name="about-federation-servers"></a>Informationen zu den Verbundserver  
-Verbundserver sind die Computer unter Windows Server 2008 mit der AD FS-Software installiert, die konfiguriert wurden, um auf die Verbundserver-Rolle fungieren. Verbundserver authentifizieren oder Weiterleiten von Anforderungen von Benutzerkonten in anderen Organisationen und von Clientcomputern, die an einer beliebigen Stelle im Internet gefunden werden können.  
+## <a name="about-federation-servers"></a>Informationen zu Verbund Servern  
+Verbund Server sind Computer, auf denen Windows Server 2008 mit installierter AD FS Software ausgeführt wird, die für die Verbund Server Rolle konfiguriert wurde. Verbund Server authentifizieren oder leiten Anforderungen von Benutzerkonten in anderen Organisationen und von Client Computern weiter, die sich an einer beliebigen Stelle im Internet befinden können.  
   
-Die Installation der AD FS-Software auf einem Computer, und verwenden die AD FS Konfigurations-Assistenten für die Einstellung für die Verbundserver-Rolle wird dieser Computer eines Verbundservers. Darüber hinaus wird die AD FS-Verwaltungs-Snap\-in zur Verfügung, auf dem Computer in der **starten\\Verwaltung\\**  Menü, damit Sie die folgenden angeben können:  
+Wenn Sie die AD FS Software auf einem Computer installieren und mithilfe des Konfigurations-Assistenten für AD FS-Verbund Server für die Verbund Server Rolle konfigurieren, wird dieser Computer zu einem Verbund Server. Außerdem wird der AD FS Verwaltungs-Snap @ no__t-0in im Menü **Start @ no__t-2administrative Tools @ no__t-3** auf diesem Computer verfügbar, damit Sie Folgendes angeben können:  
   
--   Der AD FS-Hostname, wohin Partnerorganisationen und Anwendungen token-Anforderungen und-Antworten senden wird  
+-   Der AD FS Hostname, in dem Partnerorganisationen und Anwendungen Tokenanforderungen und-Antworten senden.  
   
--   Der AD FS-Bezeichner, der Zusammenarbeit von Organisationen und Anwendungen verwendet zum Identifizieren von eindeutigen Namen oder Speicherort Ihrer Organisation  
+-   Der AD FS Bezeichner, den Partnerorganisationen und Anwendungen verwenden werden, um den eindeutigen Namen oder Speicherort Ihrer Organisation zu identifizieren.  
   
--   Das Token\-Signaturzertifikat aus, die allen Verbundservern in einer Serverfarm, die zum Ausstellen und Signieren von Token verwendet werden  
+-   Das Token @ no__t-0signing Certificate, das alle Verbund Server in einer Serverfarm zum Ausstellen und Signieren von Token verwenden.  
   
--   Der Speicherort der benutzerdefinierten ASP.NET-Webseiten für Client anmelden, Abmelden und zur Ermittlung von Kontopartnern, die die Clientfunktionen voranbringen  
+-   Der Speicherort der angepassten ASP.NET Webseiten für die Client Anmeldung, die Abmeldung und die Ermittlung von Konto Partnern, die die Client Leistung verbessern.  
   
     > [!NOTE]  
-    > Die meisten dieser core Benutzeroberfläche \(UI\) Einstellungen befinden sich in der Datei web.config auf jedem Verbundserver. Der Hostname des AD FS und AD FS-ID-Werte werden in der Datei "Web.config" nicht angegeben.  
+    > Die meisten dieser Kern Benutzeroberflächen \(ui @ no__t-1-Einstellungen sind in der Datei "Web. config" auf jedem Verbund Server enthalten. Die AD FS Hostnamen und AD FS Bezeichnerwerte werden in der Datei "Web. config" nicht angegeben.  
   
-Verbundservern wird eine anspruchsausstellungs-Engine, der basierend auf den Anmeldeinformationen Token ausstellt \(z. B. Benutzername und Kennwort\) , die es angezeigt werden. Ein Sicherheitstoken ist eine kryptografisch signierte Dateneinheit, die eine oder mehrere Ansprüche ausdrückt. Ein Anspruch ist eine Anweisung, die zu einem Server macht \(z. B. Name, Identität, Schlüssel, Gruppe, Berechtigung oder Funktion\) zu einem Client. Nachdem die Anmeldeinformationen, auf dem Verbundserver überprüft wurden \(über dem Benutzeranmeldeprozess\), Ansprüche für den Benutzer werden gesammelt, durch die Prüfung der Attribute, die im angegebenen Attribut-Speicher gespeichert sind.  
+Verbund Server hosten ein Anspruchs Ausstellungs Modul, das Tokens basierend auf den Anmelde Informationen ausgibt @no__t z. b. Benutzername und Kennwort @ no__t-1, die diesem angezeigt werden. Ein Sicherheits Token ist eine kryptografisch signierte Dateneinheit, die einen oder mehrere Ansprüche ausdrückt. Ein Anspruch ist eine-Anweisung, die ein Server \(z. b. Name, Identität, Schlüssel, Gruppe, Berechtigung oder Funktion @ no__t-1 über einen Client erstellt. Nachdem die Anmelde Informationen auf dem Verbund Server \(durch den Benutzer Anmeldevorgang @ no__t-1 überprüft wurden, werden Ansprüche für den Benutzer durch Überprüfung der Benutzerattribute gesammelt, die im angegebenen Attribut Speicher gespeichert sind.  
   
-Im Federated Web einzelne\-anmelden\-auf \(SSO\) Entwürfe \(AD FS entwirft, in denen zwei oder mehr Unternehmen beteiligt sind\), Ansprüche durch Anspruchsregeln für eine bestimmte vertrauende Seite geändert werden können die Partei. Die Ansprüche werden in ein Token erstellt, die bei einem Verbundserver in der Ressourcenpartnerorganisation gesendet wird. Nachdem die Ansprüche als eingehende Ansprüche ein Verbundservers beim Ressourcenpartner empfangen hat, führt er die anspruchsausstellungs-Engine zum Ausführen eines Satzes von Anspruchsregeln zu filtern, pass-through oder transformiert diese Ansprüche. Die Ansprüche werden dann in ein neues Token erstellt, die an den Webserver beim Ressourcenpartner gesendet wird.  
+In Federated Web Single @ no__t-0sign @ no__t-1On \(sso @ no__t-3 Entwürfe \(AD FS-Entwürfe, in denen mindestens zwei Organisationen an no__t-5 beteiligt sind, können Ansprüche durch Anspruchs Regeln für eine bestimmte vertrauende Seite geändert werden. Die Ansprüche werden in ein Token integriert, das an einen Verbund Server in der Ressourcen Partnerorganisation gesendet wird. Nachdem ein Verbund Server im Ressourcen Partner die Ansprüche als eingehende Ansprüche empfängt, führt er das Anspruchs Ausstellungs Modul aus, um einen Satz von Anspruchs Regeln zum Filtern, weiterleiten oder Transformieren dieser Ansprüche auszuführen. Die Ansprüche werden dann in ein neues Token integriert, das im Ressourcen Partner an den Webserver gesendet wird.  
   
-In der Web-SSO-Entwurf \(eine AD FS-Entwurfs, der in dem nur einer Organisation beteiligt ist\), ein einzelnen Verbundservers kann verwendet werden, sodass Mitarbeiter einmal anmelden und weiterhin auf mehrere Anwendungen zugreifen können.  
+Im Web-SSO-Entwurf \(ein AD FS Entwurf, in dem nur eine Organisation beteiligt ist @ no__t-1, kann ein einzelner Verbund Server verwendet werden, damit sich Mitarbeiter einmalig anmelden und weiterhin auf mehrere Anwendungen zugreifen können.  
   

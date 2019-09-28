@@ -1,173 +1,173 @@
 ---
-title: Verwalten von virtuellen Computern mit Windows Admin Center
-description: Verwalten von Hyper-V-Hosts und virtuellen Computern mit Windows Admin Center (Projekt Honolulu)
+title: Verwalten von Virtual Machines mit dem Windows Admin Center
+description: Verwalten von Hyper-V-Hosts und virtuellen Maschinen mit dem Windows Admin Center (Project Honolulu)
 ms.technology: manage
 ms.topic: article
 author: daniellee-msft
 ms.author: jol
 ms.date: 06/18/2018
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 84e1ce7864f04550ee25253bcf038afdd7b919fe
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.prod: windows-server
+ms.openlocfilehash: 02a33383b466e8bade2db0bbddaff66f0196954c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811674"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356855"
 ---
-# <a name="managing-virtual-machines-with-windows-admin-center"></a>Verwalten von virtuellen Computern mit Windows Admin Center
+# <a name="managing-virtual-machines-with-windows-admin-center"></a>Verwalten von Virtual Machines mit dem Windows Admin Center
 
->Gilt für: Windows Admin Center, Windows Admin Center Preview
+>Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
-Das Tool für die virtuellen Computer steht in [Server](manage-servers.md), [Failovercluster](manage-failover-clusters.md) oder [Hyper-Converged Cluster](manage-hyper-converged.md) Verbindungen, wenn die Hyper-V-Rolle auf dem Server oder Cluster aktiviert ist. Sie können das Tool für die virtuellen Computer verwenden, zum Verwalten von Hyper-V-Hosts unter Windows Server 2012 oder höher, entweder mit Desktopdarstellung oder als Server Core installiert. Hyper-V Server 2012, 2016 und 2019 werden ebenfalls unterstützt.
+Das Virtual Machines Tool ist in [Server](manage-servers.md)-, [Failovercluster](manage-failover-clusters.md) -oder [hyperkonvergierten Cluster](manage-hyper-converged.md) Verbindungen verfügbar, wenn die Hyper-V-Rolle auf dem Server oder Cluster aktiviert ist. Mit dem Virtual Machines Tool können Sie Hyper-V-Hosts verwalten, auf denen Windows Server 2012 oder höher ausgeführt wird, die entweder mit Desktop Darstellung oder als Server Core installiert werden. Hyper-V Server 2012, 2016 und 2019 werden ebenfalls unterstützt.
 
 ## <a name="key-features"></a>Hauptmerkmale
 
-Der virtuelle Computer-Tool in Windows Admin Center bietet folgende Vorteile:
+Zu den Highlights des Virtual Machines Tools im Windows Admin Center gehören:
 
-- **Allgemeine Hyper-V-Host Ressourcen überwachen.** Anzeigen von allgemeinen CPU-und speicherauslastung, e/a-Leistungsmetriken, VM-Health-Warnungen und Ereignisse für die Hyper-V-Hostserver oder im gesamten Cluster in einem einzelnen Dashboard.
-- **Einheitliche Funktionen für Hyper-V-Manager und Failovercluster-Manager-Funktionen vereinen.** Zeigen Sie alle virtuellen Computer in einem Cluster und einen Drilldown in einem einzelnen virtuellen Computer für die erweiterte Verwaltung und Problembehandlung.
-- **Vereinfachte, aber leistungsfähiges-Workflows für die Verwaltung virtueller Computer.** Neue Benutzeroberflächen, die auf IT-Verwaltung-Szenarios zu erstellen, verwalten und Replizieren von virtuellen Computern zugeschnitten sind.
+- **Übergeordnete Hyper-V-Host Ressourcenüberwachung.** Anzeigen der CPU-und Speicherauslastung insgesamt, e/a-Leistungsmetriken, VM-Integritäts Warnungen und-Ereignisse für den Hyper-V-Host Server oder den gesamten Cluster in einem einzelnen Dashboard
+- **Einheitliche Funktionen für die gemeinsame Nutzung von Hyper-V-Manager und Failovercluster-Manager Funktionen.** Zeigen Sie alle virtuellen Computer in einem Cluster an, und führen Sie einen Drilldown zu einem einzelnen virtuellen Computer für die Erweiterte Verwaltung und Problembehandlung durch
+- **Vereinfachte, aber leistungsstarke Workflows für die Verwaltung virtueller Computer.** Neue Benutzeroberflächen Umgebungen, die auf IT-Verwaltungs Szenarien zum Erstellen, verwalten und replizieren virtueller Computer zugeschnitten sind.
 
-Hier sind einige der Hyper-V-Aufgaben, die Sie in Windows Admin Center ausführen können:
+Im folgenden sind einige der Hyper-V-Aufgaben aufgeführt, die Sie im Windows Admin Center ausführen können:
 
-- [Hyper-V-Host-Ressourcen und Leistung überwachen](#monitor-hyper-v-host-resources-and-performance)
-- [Die virtuellen Computer Bestand anzeigen](#view-virtual-machine-inventory)
-- [Erstellen eines neuen virtuellen Computers](#create-a-new-virtual-machine)
-- [Ändern der Einstellungen des virtuellen Computers](#change-virtual-machine-settings)
-- [Die Livemigration eines virtuellen Computers auf einen anderen Clusterknoten](#live-migrate-a-virtual-machine-to-another-cluster-node)
-- [Erweiterte Verwaltung und Problembehandlung für ein einzelner virtueller Computer](#advanced-management-and-troubleshooting-for-a-single-virtual-machine)
-- [Verwalten eines virtuellen Computers über Hyper-V-Hosts (VMConnect)](#manage-a-virtual-machine-through-the-hyper-v-host-vmconnect)
-- [Ändern der Einstellungen des Hyper-V-host](#change-hyper-v-host-settings)
-- [Hyper-V-Ereignisprotokolle anzeigen](#view-hyper-v-event-logs)
-- [Schützen Sie virtueller Computer mit Azure Site Recovery](#protect-virtual-machines-with-azure-site-recovery)
+- [Überwachen von Hyper-V-Host Ressourcen und-Leistung](#monitor-hyper-v-host-resources-and-performance)
+- [Inventur der virtuellen Maschine anzeigen](#view-virtual-machine-inventory)
+- [Neuen virtuellen Computer erstellen](#create-a-new-virtual-machine)
+- [Einstellungen für virtuelle Maschinen ändern](#change-virtual-machine-settings)
+- [Live Migration einer virtuellen Maschine zu einem anderen Cluster Knoten](#live-migrate-a-virtual-machine-to-another-cluster-node)
+- [Erweiterte Verwaltung und Problembehandlung für einen einzelnen virtuellen Computer](#advanced-management-and-troubleshooting-for-a-single-virtual-machine)
+- [Verwalten einer virtuellen Maschine über den Hyper-V-Host (VMConnect)](#manage-a-virtual-machine-through-the-hyper-v-host-vmconnect)
+- [Ändern der Hyper-V-Host Einstellungen](#change-hyper-v-host-settings)
+- [Anzeigen von Hyper-V-Ereignisprotokollen](#view-hyper-v-event-logs)
+- [Schützen virtueller Computer mit Azure Site Recovery](#protect-virtual-machines-with-azure-site-recovery)
 
-## <a name="monitor-hyper-v-host-resources-and-performance"></a>Hyper-V-Host-Ressourcen und Leistung überwachen
+## <a name="monitor-hyper-v-host-resources-and-performance"></a>Überwachen von Hyper-V-Host Ressourcen und-Leistung
 
-![Übersichtsbildschirm für den virtuellen Computer](../media/manage-virtual-machines/virtual-machines-summary.png)
+![Virtual Machines Zusammenfassungs Bildschirm](../media/manage-virtual-machines/virtual-machines-summary.png)
 
-1. Klicken Sie auf die **VMs** Tool im Navigationsbereich mit der linken Seite.
-2. Befinden sich zwei Registerkarten am oberen Rand der **virtuelle Computer** -Tool die **Zusammenfassung** Registerkarte und der **Inventur** Registerkarte. Die **Zusammenfassung** Registerkarte bietet eine Übersicht über Hyper-V-Host-Ressourcen und Leistung für den aktuellen Server oder den gesamten Cluster, einschließlich der folgenden:
-    - Die Anzahl von VMs, gruppiert nach Zustand - ausgeführt wird, deaktiviert, angehalten und gespeichert
-    - Aktuelle Health-Warnungen oder Hyper-V-Ereignisprotokoll-Ereignisse (Warnungen sind nur für den hyperkonvergenten Cluster unter Windows Server 2016 oder höher verfügbar)
-    - Auslastung von CPU und Arbeitsspeicher mit Host und Gast Aufschlüsselung
-    - Nutzen die CPU- und Speicherressourcen Top-VMs
-    - Live- und historische Daten Liniendiagramme für den IOPS- und e/a-Durchsatz (Storage Performance Liniendiagramme sind nur für den hyperkonvergenten Cluster unter Windows Server 2016 oder höher verfügbar. Historische Daten ist nur für hyper-konvergiert für Cluster unter Windows Server-2019 verfügbar)
+1. Klicken Sie im Navigationsbereich auf der linken Seite auf das **Virtual Machines** Tool.
+2. Es gibt zwei Registerkarten am oberen Rand des **Virtual Machines** Tools, die Registerkarte **Zusammenfassung** und die Registerkarte **Inventur** . Die Registerkarte **Zusammenfassung** bietet eine ganzheitliche Ansicht der Hyper-V-Host Ressourcen und-Leistung für den aktuellen Server oder gesamten Cluster, einschließlich der folgenden:
+    - Die Anzahl der VMS, gruppiert nach Status: wird ausgeführt, aus, angehalten und gespeichert
+    - Aktuelle Integritäts Warnungen oder Hyper-V-Ereignisprotokoll Ereignisse (Warnungen sind nur für hyperkonvergierte Cluster mit Windows Server 2016 oder höher verfügbar)
+    - CPU-und Speicherauslastung mit Host-vs-Gast Aufschlüsselung
+    - Die größten VMS, die die meisten CPU-und Arbeitsspeicher Ressourcen beanspruchen
+    - Live-und Verlaufs Daten Liniendiagramme für IOPS-und e/a-Durchsatz (Speicher Leistungs Liniendiagramme sind nur für hyperkonvergierte Cluster mit Windows Server 2016 oder höher verfügbar. Verlaufs Daten sind nur für hyperkonvergierte Cluster mit Windows Server 2019 verfügbar.)
 
-## <a name="view-virtual-machine-inventory"></a>Die virtuellen Computer Bestand anzeigen
+## <a name="view-virtual-machine-inventory"></a>Inventur der virtuellen Maschine anzeigen
 
-![Bildschirm der Inventur von virtuellen Computern](../media/manage-virtual-machines/virtual-machines-inventory.png)
+![Virtual Machines Inventur Bildschirm](../media/manage-virtual-machines/virtual-machines-inventory.png)
 
-1. Klicken Sie auf die **VMs** Tool im Navigationsbereich mit der linken Seite.
-2. Befinden sich zwei Registerkarten am oberen Rand der **virtuelle Computer** -Tool die **Zusammenfassung** Registerkarte und der **Inventur** Registerkarte. Die **Inventur** Registerkarte enthält Befehle zum Verwalten einzelnen virtueller Computer und führt die virtuellen Maschinen auf dem aktuellen Server oder den gesamten Cluster zur Verfügung. Sie haben folgende Möglichkeiten:
-    - Anzeigen einer Liste der virtuellen Computer auf dem aktuellen Server oder Cluster ausgeführt wird.
-    - Anzeigen der VM Status und die Host-Server an, wenn Sie virtuelle Computer für einen Cluster anzeigen. Auch zeigen Sie an, Auslastung von CPU und Arbeitsspeicher aus der Perspektive des Servers, einschließlich arbeitsspeicherauslastung, Speicherbedarf und zugewiesenen Speichers und des virtuellen Computers Betriebszeit, Heartbeat-Status und Schutzstatus mit Azure Site Recovery.
-    - [Erstellen eines neues virtuellen Computers](#create-a-new-virtual-machine).
-    - Löschen, starten, deaktivieren, Herunterfahren, anhalten, fortsetzen, zurückgesetzt oder Umbenennen eines virtuellen Computers. Auch speichern Sie der virtuelle Computer zu, löschen Sie einen gespeicherten Zustand oder erstellen Sie einen Prüfpunkt.
-    - [Ändern der Einstellungen für eine virtuelle Maschine](#change-virtual-machine-settings).
-    - Verbinden Sie mit einer Konsole für virtuelle Computer unter Verwendung von VMConnect über Hyper-V-Hosts.
-    - [Replikation eines virtuellen Computers mit Azure Site Recovery](#protect-virtual-machines-with-azure-site-recovery).
-    - Für Vorgänge, die auf mehreren virtuellen Computern, z. B. starten, Herunterfahren, speichern, anhalten, ausgeführt werden können können zu löschen, zurücksetzen, Sie mehrere virtuelle Computer auswählen, und führen Sie den Vorgang auf einmal.
+1. Klicken Sie im Navigationsbereich auf der linken Seite auf das **Virtual Machines** Tool.
+2. Es gibt zwei Registerkarten am oberen Rand des **Virtual Machines** Tools, die Registerkarte **Zusammenfassung** und die Registerkarte **Inventur** . Auf der Registerkarte **Inventur** werden die auf dem aktuellen Server oder im gesamten Cluster verfügbaren virtuellen Maschinen aufgelistet, und es werden Befehle zum Verwalten einzelner virtueller Maschinen bereitgestellt. Sie haben folgende Möglichkeiten:
+    - Anzeigen einer Liste der virtuellen Computer, die auf dem aktuellen Server oder Cluster ausgeführt werden.
+    - Zeigen Sie den Zustand und den Host Server des virtuellen Computers an, wenn Sie virtuelle Computer für einen Cluster anzeigen. Sehen Sie sich auch die CPU-und Speicherauslastung aus der Host Perspektive an, einschließlich Arbeitsspeicher Auslastung, Speicherbedarf und zugewiesenem Arbeitsspeicher sowie die Betriebszeit des virtuellen Computers, den Takt Status und den Schutzstatus mithilfe Azure Site Recovery.
+    - [Erstellen Sie einen neuen virtuellen Computer](#create-a-new-virtual-machine).
+    - Löschen, starten, ausschalten, Herunterfahren, anhalten, fortsetzen, zurücksetzen oder Umbenennen eines virtuellen Computers. Speichern Sie auch den virtuellen Computer, löschen Sie einen gespeicherten Zustand, oder erstellen Sie einen Prüfpunkt.
+    - [Ändern Sie die Einstellungen für einen virtuellen Computer](#change-virtual-machine-settings).
+    - Stellen Sie mithilfe von VMConnect über den Hyper-V-Host eine Verbindung mit einer Konsole für virtuelle Maschinen her.
+    - [Replizieren Sie einen virtuellen Computer mit Azure Site Recovery](#protect-virtual-machines-with-azure-site-recovery).
+    - Für Vorgänge, die auf mehreren VMS ausgeführt werden können, z. b. starten, Herunterfahren, speichern, anhalten, löschen, zurücksetzen, können Sie mehrere VMS auswählen und den Vorgang gleichzeitig ausführen.
 
-HINWEIS: Wenn Sie in einem Cluster verbunden sind, zeigt das Tool für die virtuellen Computer nur virtuelle Clustercomputer. Wir planen, auch nicht gruppierte virtuelle Computer in der Zukunft angezeigt.
+HINWEIS: Wenn Sie mit einem Cluster verbunden sind, zeigt das Tool für virtuelle Maschinen nur gruppierte virtuelle Maschinen an. Wir planen auch, nicht gruppierte virtuelle Computer in Zukunft anzuzeigen.
 
 ## <a name="create-a-new-virtual-machine"></a>Erstellen eines neuen virtuellen Computers
 
-![Bildschirm für neue virtuelle Maschine erstellen](../media/manage-virtual-machines/new-vm.png)
+![Bildschirm zum Erstellen eines neuen virtuellen Computers](../media/manage-virtual-machines/new-vm.png)
 
-1. Klicken Sie auf die **VMs** Tool im Navigationsbereich mit der linken Seite.
-2. Wählen Sie am Anfang des VM-Tools, die **Inventur** Registerkarte, und klicken Sie dann **neu** um einen neuen virtuellen Computer zu erstellen.
-3. Geben Sie den virtuellen Computer ein, und wählen Sie zwischen virtuellen Computern der Generation 1 und 2.
-4. Wenn Sie einen virtuellen Computer in einem Cluster erstellen, können Sie die Hostgruppen, auf dem virtuellen Computer auf die erste Erstellung auswählen. Wenn Sie WindowsServer 2016 oder höher ausführen, wird das Tool eine Host-Empfehlung für Sie bereit.
-5. Wählen Sie einen Pfad für die Dateien der virtuellen Maschine. Wählen Sie ein Volume aus der Dropdownliste aus, oder klicken Sie auf **Durchsuchen** um einen Ordner, die über die Ordnerauswahl auszuwählen. Die Konfigurationsdateien der virtuellen Computer und die VHD-Datei werden gespeichert in einem einzigen Ordner unter dem `\Hyper-V\\[virtual machine name]` Pfad des ausgewählten Volumes oder der Pfad.
+1. Klicken Sie im Navigationsbereich auf der linken Seite auf das **Virtual Machines** Tool.
+2. Wählen Sie am oberen Rand des Virtual Machines Tools die Registerkarte **Inventur** aus, und klicken Sie dann auf **neu** , um einen neuen virtuellen Computer zu erstellen.
+3. Geben Sie den Namen des virtuellen Computers ein, und wählen Sie zwischen virtuellen Computern der Generation 1 und 2.
+4. Wenn Sie einen virtuellen Computer in einem Cluster erstellen, können Sie den Host auswählen, auf dem die virtuelle Maschine zunächst erstellt werden soll. Wenn Sie Windows Server 2016 oder höher ausführen, stellt das Tool eine Host Empfehlung für Sie bereit.
+5. Wählen Sie einen Pfad für die Dateien der virtuellen Maschine aus. Wählen Sie ein Volume aus der Dropdown Liste aus, oder klicken Sie auf **Durchsuchen** , um einen Ordner mithilfe der Ordner Auswahl auszuwählen. Die Konfigurationsdateien und virtuellen Festplatten Dateien der virtuellen Maschine werden in einem einzelnen Ordner unter dem `\Hyper-V\\[virtual machine name]` Pfad des ausgewählten Volumes oder Pfads gespeichert.
 
    >[!Tip]
-   > Können Sie Ordner das Element in der alle verfügbare SMB-Freigabe im Netzwerk durchsuchen, indem Sie die Eingabe des Pfads in der **Ordnername** -Feld als ```\\server\share```. Mit einer Netzwerkfreigabe aus, für die VM-Speicher benötigen [CredSSP](../understand/faq.md#does-windows-admin-center-use-credssp).
+   > Sie können in der Ordner Auswahl eine beliebige verfügbare SMB-Freigabe im Netzwerk durchsuchen, indem Sie den Pfad im Feld **Ordnername** als ```\\server\share``` eingeben. Die Verwendung einer Netzwerkfreigabe für den VM-Speicher erfordert " [kredssp](../understand/faq.md#does-windows-admin-center-use-credssp)".
 
-6. Wählen Sie die Anzahl virtueller Prozessoren, ob Sie die geschachtelte Virtualisierung aktiviert werden soll, konfigurieren Einstellungen für den Arbeitsspeicher, Netzwerkadapter, virtuelle Festplatten und auswählen, ob ein Betriebssystem von einer ISO-Abbilddatei oder vom Netzwerk installiert werden soll.
+6. Wählen Sie die Anzahl der virtuellen Prozessoren aus, egal ob Sie die aktivierte aktivierte Virtualisierung aktivieren möchten, konfigurieren Sie Arbeitsspeicher Einstellungen, Netzwerkadapter und virtuelle Festplatten, und wählen Sie aus, ob Sie ein Betriebssystem aus einer ISO-Abbild Datei oder aus dem Netzwerk installieren möchten.
 7. Klicken Sie auf **Erstellen**, um die virtuelle Maschine zu erstellen.
-8. Nachdem Sie den virtuellen Computer erstellt und wird in der Liste der virtuellen Computer angezeigt, können Sie den virtuellen Computer starten.
-9. Nachdem der virtuelle Computer gestartet wurde, können Sie mit der VM Konsole über das VMConnect zum Installieren des Betriebssystems verbinden. Wählen Sie den virtuellen Computer aus der Liste aus, klicken Sie auf **weitere** > **Connect** zum Herunterladen der RDP-Datei. Öffnen Sie die RDP-Datei, in der app für die Remotedesktopverbindung. Da dies in der VM Konsole verbunden ist, müssen Sie den Hyper-V-Host-Administratoranmeldeinformationen einzugeben.
+8. Nachdem der virtuelle Computer erstellt und in der Liste der virtuellen Computer angezeigt wird, können Sie den virtuellen Computer starten.
+9. Nachdem der virtuelle Computer gestartet wurde, können Sie über VMConnect eine Verbindung mit der Konsole des virtuellen Computers herstellen, um das Betriebssystem zu installieren. Wählen Sie den virtuellen Computer aus der Liste aus, klicken Sie auf **Weitere** > **Verbindung** , um die RDP-Datei herunterzuladen. Öffnen Sie die RDP-Datei in der Remotedesktopverbindung-app. Da diese Verbindung mit der Konsole des virtuellen Computers hergestellt wird, müssen Sie die Administrator Anmelde Informationen für den Hyper-V-Host eingeben.
 
-## <a name="change-virtual-machine-settings"></a>Ändern der Einstellungen des virtuellen Computers
+## <a name="change-virtual-machine-settings"></a>Einstellungen für virtuelle Maschinen ändern
 
-![Virtuellen Computer für den Bildschirm "Einstellungen"](../media/manage-virtual-machines/vm-settings.png)
+![Bildschirm für Einstellungen der virtuellen Maschine](../media/manage-virtual-machines/vm-settings.png)
 
-1. Klicken Sie auf die **VMs** Tool im Navigationsbereich mit der linken Seite.
-2. Wählen Sie am Anfang des VM-Tools, die **Inventur** Registerkarte. Wählen Sie einen virtuellen Computer aus der Liste aus, und klicken Sie auf **weitere** > **Einstellungen**.
-3. Wechseln Sie zwischen den **allgemeine**, **Sicherheit**, **Arbeitsspeicher**, **Prozessoren**, **Datenträger**, **Netzwerke**, **Startreihenfolge** und **Prüfpunkte** Registerkarte, konfigurieren Sie die erforderlichen Einstellungen, und klicken Sie dann **speichern** zum Speichern der aktuellen Registerkarte Einstellungen. Die verfügbaren Einstellungen variieren abhängig von der VM Generation. Darüber hinaus einige Einstellungen können nicht geändert werden, für die Ausführung von virtuellen Computern aus, und Sie müssen zuerst den virtuellen Computer zu beenden.
+1. Klicken Sie im Navigationsbereich auf der linken Seite auf das **Virtual Machines** Tool.
+2. Wählen Sie am oberen Rand des Virtual Machines Tools die Registerkarte **Inventur** aus. Wählen Sie einen virtuellen Computer aus der Liste aus, und klicken Sie auf **Weitere** > -**Einstellungen**.
+3. Wechseln Sie zwischen den Registerkarten **Allgemein**, **Sicherheit**, Arbeits **Speicher**, **Prozessoren** **, Daten**Träger, **Netzwerke**, **Start Reihenfolge** und **Prüfpunkte** , konfigurieren Sie die erforderlichen Einstellungen, und klicken Sie dann zum Speichern auf **Speichern** die Einstellungen der aktuellen Registerkarte. Welche Einstellungen verfügbar sind, hängt von der Generation des virtuellen Computers ab. Außerdem können einige Einstellungen für die Ausführung virtueller Maschinen nicht geändert werden, und Sie müssen den virtuellen Computer zuerst abbrechen.
 
-## <a name="live-migrate-a-virtual-machine-to-another-cluster-node"></a>Die Livemigration eines virtuellen Computers auf einen anderen Clusterknoten
+## <a name="live-migrate-a-virtual-machine-to-another-cluster-node"></a>Live Migration einer virtuellen Maschine zu einem anderen Cluster Knoten
 
-Wenn Sie in einem Cluster verbunden sind, können Sie einen virtuellen Computer live auf einen anderen Clusterknoten migrieren.
+Wenn Sie eine Verbindung mit einem Cluster hergestellt haben, können Sie eine virtuelle Maschine Live zu einem anderen Cluster Knoten migrieren.
 
-1. Ein Failovercluster oder eine zusammengeführte Verbindung, klicken Sie auf die **VMs** Tool im Navigationsbereich mit der linken Seite.
-2. Wählen Sie am Anfang des VM-Tools, die **Inventur** Registerkarte. Wählen Sie einen virtuellen Computer aus der Liste aus, und klicken Sie auf **weitere** > **verschieben**.
-3. Wählen Sie einen Server aus der Liste der verfügbaren Clusterknoten, und klicken Sie auf **verschieben**.
-4. Benachrichtigungen für die Move-Status werden in der oberen rechten Ecke von Windows Admin Center angezeigt. Wenn die Verschiebung erfolgreich war, sehen Sie den Namen des Hostservers in der Liste der virtuellen Computer geändert.
+1. Klicken Sie in einem Failovercluster oder einer hyperkonvergierten Cluster Verbindung im Navigationsbereich auf der linken Seite auf das **Virtual Machines** Tool.
+2. Wählen Sie am oberen Rand des Virtual Machines Tools die Registerkarte **Inventur** aus. Wählen Sie einen virtuellen Computer aus der Liste aus, und klicken Sie auf **Weitere** > **verschieben**.
+3. Wählen Sie einen Server aus der Liste der verfügbaren Cluster Knoten aus, und klicken Sie auf **verschieben**.
+4. Benachrichtigungen für den Verschiebungs Fortschritt werden in der oberen rechten Ecke des Windows Admin Centers angezeigt. Wenn die Verschiebung erfolgreich ist, wird der Name des Host Servers in der Liste der virtuellen Computer geändert.
 
-## <a name="advanced-management-and-troubleshooting-for-a-single-virtual-machine"></a>Erweiterte Verwaltung und Problembehandlung für ein einzelner virtueller Computer
+## <a name="advanced-management-and-troubleshooting-for-a-single-virtual-machine"></a>Erweiterte Verwaltung und Problembehandlung für einen einzelnen virtuellen Computer
 
-![Detailbildschirm für die einzelnen virtuellen Computer](../media/manage-virtual-machines/vm-details.png)
+![Detailbildschirm für einen einzelnen virtuellen Computer](../media/manage-virtual-machines/vm-details.png)
 
-Sie können ausführliche Informationen und Leistungsdiagramme für einen einzelnen virtuellen Computer auf der Seite für die einzelnen virtuellen Computer anzeigen.
+Auf der Seite einzelner virtueller Computer können Sie detaillierte Informationen und Leistungsdiagramme für einen einzelnen virtuellen Computer anzeigen.
 
-1. Klicken Sie auf die **VMs** Tool im Navigationsbereich mit der linken Seite.
-2. Wählen Sie am Anfang des VM-Tools, die **Inventur** Registerkarte. Klicken Sie auf den Namen eines virtuellen Computers aus der Liste der virtuellen Computer.
-3. Klicken Sie auf der einzelnen virtuellen Computer können Sie folgende Aktionen ausführen:
-    - Detaillierte Informationen für den virtuellen Computer anzeigen.
-    - Anzeigen von Live und Liniendiagramme für historische Daten für CPU, Arbeitsspeicher, Netzwerk, IOPS und e/a-Durchsatz (Historische Daten ist nur für hyperkonvergenten Cluster unter Windows Server-2019 verfügbar.)
-    - Anzeigen, erstellen, anzuwenden, umbenennen und Löschen von Prüfpunkten.
-    - Zeigen Sie Details für den VM Dateien der virtuellen Festplatte (VHD), Netzwerkadapter und Hostserver.
-    - Löschen, starten, deaktivieren, Herunterfahren, anhalten, fortsetzen, zurückgesetzt oder benennen Sie den virtuellen Computer. Auch speichern Sie der virtuelle Computer zu, löschen Sie einen gespeicherten Zustand oder erstellen Sie einen Prüfpunkt.
-    - [Ändern der Einstellungen für den virtuellen Computer](#change-virtual-machine-settings).
-    - Verbinden Sie mit der Konsole des virtuellen Computers über Hyper-V-Host unter Verwendung von VMConnect.
+1. Klicken Sie im Navigationsbereich auf der linken Seite auf das **Virtual Machines** Tool.
+2. Wählen Sie am oberen Rand des Virtual Machines Tools die Registerkarte **Inventur** aus. Klicken Sie in der Liste der virtuellen Computer auf den Namen eines virtuellen Computers.
+3. Auf der Seite einzelner virtueller Computer können Sie folgende Aktionen ausführen:
+    - Ausführliche Informationen zum virtuellen Computer anzeigen.
+    - Anzeigen von Live-und Verlaufs Daten Linien Diagrammen für CPU, Arbeitsspeicher, Netzwerk, IOPS und e/a-Durchsatz (Verlaufs Daten sind nur für hyperkonvergierte Cluster unter Windows Server 2019 verfügbar)
+    - Anzeigen, erstellen, anwenden, umbenennen und Löschen von Prüfpunkten.
+    - Anzeigen von Details für die virtuellen Festplatten Dateien (VHD-Dateien) der virtuellen Maschine, Netzwerkadapter und Host Server.
+    - Löschen, starten, ausschalten, Herunterfahren, anhalten, fortsetzen, zurücksetzen oder Umbenennen des virtuellen Computers. Speichern Sie auch den virtuellen Computer, löschen Sie einen gespeicherten Zustand, oder erstellen Sie einen Prüfpunkt.
+    - [Ändern Sie die Einstellungen für die virtuelle Maschine](#change-virtual-machine-settings).
+    - Stellen Sie mithilfe von VMConnect über den Hyper-V-Host eine Verbindung mit der Konsole für virtuelle Maschinen her.
     - [Replizieren Sie den virtuellen Computer mit Azure Site Recovery](#protect-virtual-machines-with-azure-site-recovery).
 
-## <a name="manage-a-virtual-machine-through-the-hyper-v-host-vmconnect"></a>Verwalten eines virtuellen Computers über Hyper-V-Hosts (VMConnect)
+## <a name="manage-a-virtual-machine-through-the-hyper-v-host-vmconnect"></a>Verwalten einer virtuellen Maschine über den Hyper-V-Host (VMConnect)
 
-![Virtuellen Computer eine Verbindung herstellen über Ihren Webbrowser](../media/manage-virtual-machines/vm-connect.png)
+![VM-Verbindung über Ihren Webbrowser](../media/manage-virtual-machines/vm-connect.png)
 
-1. Klicken Sie auf die **VMs** Tool im Navigationsbereich mit der linken Seite.
-2. Wählen Sie am Anfang des VM-Tools, die **Inventur** Registerkarte. Wählen Sie einen virtuellen Computer aus der Liste aus, und klicken Sie auf **weitere** > **Connect** oder **Herunterladen der RDP-Datei**. **Herstellen einer mit** können Sie für die Interaktion mit der Gast-VM über den Remotedesktop-Webkonsole in integriert, um Windows Admin Center. **Herunterladen der RDP-Datei** wird eine RDP-Datei, die Sie, mit der Anwendung Remotedesktopverbindung (mstsc.exe öffnen können) herunterladen. Beide Optionen zum Herstellen einer Verbindung über den Hyper-V-Host der Gast-VM mit VMConnect verwenden und erfordert, dass Sie zur Eingabe von Administratoranmeldeinformationen für den Hyper-V-Hostserver.
+1. Klicken Sie im Navigationsbereich auf der linken Seite auf das **Virtual Machines** Tool.
+2. Wählen Sie am oberen Rand des Virtual Machines Tools die Registerkarte **Inventur** aus. Wählen Sie einen virtuellen Computer aus der Liste aus, und klicken Sie auf **Weitere** > **verbinden** oder **herunterladen der RDP-Datei**. **Connect** ermöglicht Ihnen die Interaktion mit der Gast-VM über die Remotedesktop Webkonsole, die in Windows Admin Center integriert ist. **RDP-Datei herunterladen** lädt eine RDP-Datei herunter, die Sie mit der Remotedesktopverbindung-Anwendung (mstsc. exe) öffnen können. Bei beiden Optionen wird VMConnect verwendet, um eine Verbindung mit dem virtuellen Gastcomputer über den Hyper-v-Host herzustellen, und Sie müssen die Administrator Anmelde Informationen für den Hyper-v-Host Server eingeben.
 
-## <a name="change-hyper-v-host-settings"></a>Ändern der Einstellungen des Hyper-V-host
+## <a name="change-hyper-v-host-settings"></a>Ändern der Hyper-V-Host Einstellungen
 
-![Hyper-V-Host für den Bildschirm "Einstellungen"](../media/manage-virtual-machines/host-settings.png)
+![Bildschirm für Hyper-V-Host Einstellungen](../media/manage-virtual-machines/host-settings.png)
 
-1. Klicken Sie auf eine Verbindung zum Server, hyperkonvergente Cluster oder Failovercluster, auf die **Einstellungen** im Menü am unteren Rand der Links im Navigationsbereich.
-2. Auf einem Hyper-V-Hostserver oder Cluster, sehen Sie eine **Einstellungen des Hyper-V-Host** Gruppe mit den folgenden Abschnitten:
-    - Allgemein: Ändern virtueller Festplatten und virtuelle Computer Dateipfad und -Hypervisor Zeitplantyp (sofern unterstützt)
-    - Erweiterten Sitzungsmodus
+1. Klicken Sie auf einem Server, einem hyperkonvergenten Cluster oder einer failoverclusterverbindung auf das **Einstellungs** Menü unten im Navigationsbereich auf der linken Seite.
+2. Auf einem Hyper-v-Host Server oder-Cluster wird eine **Hyper-v-Host Einstellungs** Gruppe mit den folgenden Abschnitten angezeigt:
+    - Generellen Ändern von virtuellen Festplatten und virtuellen Computern Dateipfad und Typ des hypervisorzeitplans (falls unterstützt)
+    - Erweiterter Sitzungs Modus
     - NUMA-Aufteilung
     - Livemigration
-    - Speichermigration
-3. Wenn Sie alle Hyper-V-Hosts, die die Einstellung ändert sich in einer Verbindung hyperkonvergente Cluster oder Failover-Cluster vornehmen, wird die Änderung auf alle Clusterknoten angewendet werden.
+    - Speicher Migration
+3. Wenn Sie Änderungen an Hyper-V-Host Einstellungen in einem hyperkonvergierten Cluster oder einer failoverclusterverbindung vornehmen, wird die Änderung auf alle Cluster Knoten angewendet.
 
-## <a name="view-hyper-v-event-logs"></a>Hyper-V-Ereignisprotokolle anzeigen
+## <a name="view-hyper-v-event-logs"></a>Anzeigen von Hyper-V-Ereignisprotokollen
 
-Sie können Hyper-V-Ereignisprotokolle direkt aus dem Tool für die virtuellen Computer anzeigen.
+Sie können die Hyper-V-Ereignisprotokolle direkt über das Virtual Machines Tool anzeigen.
 
-1. Klicken Sie auf die **VMs** Tool im Navigationsbereich mit der linken Seite.
-2. Wählen Sie am Anfang des VM-Tools, die **Zusammenfassung** Registerkarte. Klicken Sie in der oberen rechten Abschnitt Events auf **Ansicht aller Ereignisse**.
-3. Das Ereignis-Viewer-Tool wird die Hyper-V-ereigniskanäle im linken Bereich angezeigt. Wählen Sie einen Kanal aus, um die Ereignisse im rechten Bereich anzuzeigen. Wenn Sie einen Failovercluster oder einen hyperkonvergenten Cluster verwalten, zeigt die Ereignisprotokolle Ereignisse für alle Clusterknoten, die das Host-Server in der Spalte für die Computer anzeigen.
+1. Klicken Sie im Navigationsbereich auf der linken Seite auf das **Virtual Machines** Tool.
+2. Wählen Sie am oberen Rand des Virtual Machines Tools die Registerkarte **Zusammenfassung** aus. Klicken Sie im Abschnitt Top Right Events auf **alle Ereignisse anzeigen**.
+3. Das Ereignisanzeige Tool zeigt die Hyper-V-Ereignis Kanäle im linken Bereich an. Wählen Sie einen Kanal aus, um die Ereignisse im rechten Bereich anzuzeigen. Wenn Sie einen Failovercluster oder einen hyperkonvergenten Cluster verwalten, werden in den Ereignisprotokollen Ereignisse für alle Cluster Knoten angezeigt, und der Host Server wird in der Spalte Computer angezeigt.
 
-## <a name="protect-virtual-machines-with-azure-site-recovery"></a>Schützen Sie virtueller Computer mit Azure Site Recovery
+## <a name="protect-virtual-machines-with-azure-site-recovery"></a>Schützen virtueller Computer mit Azure Site Recovery
 
-Sie können Windows Admin Center verwenden, konfigurieren Sie Azure Site Recovery und replizieren Ihre lokalen virtuellen Computer in Azure. [Weitere Informationen](../azure/azure-site-recovery.md)
+Sie können das Windows Admin Center verwenden, um Azure Site Recovery zu konfigurieren und ihre lokalen virtuellen Computer in Azure zu replizieren. [Weitere Informationen](../azure/azure-site-recovery.md)
 
-## <a name="more-coming"></a>Weitere folgen
+## <a name="more-coming"></a>Weitere Informationen
 
-Verwaltungsdienst für virtuelle Computer in Windows Admin Center wird aktiv weiterentwickelt, und werden in naher Zukunft neue Funktionen hinzugefügt werden. Sie können den Status und stimmen Sie für Funktionen in UserVoice anzeigen:
+Die Verwaltung virtueller Computer im Windows Admin Center befindet sich aktiv in der Entwicklungsphase, und in naher Zukunft werden neue Funktionen hinzugefügt. Sie können den Status anzeigen und die Features in UserVoice abstimmen:
 
-- [Import/Export-VM](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31481971--virtual-machines-import-export-vms)
-- [Sortieren von VMs in Ordnern](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31494712--virtual-machines-ability-to-sort-vm-into-folder)
-- [Zusätzliche VM-Einstellungen werden unterstützt](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31915264--virtual-machines-expose-all-configurable-setting)
-- [Unterstützung für Hyper-V-Replikate](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/32040253--virtual-machines-setup-and-manage-hyper-v-replic)
-- [VM-Eigentümerschaft delegieren](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31663837--virtual-machines-owner-delegation)
-- [Klonen virtueller Maschinen](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31783288--virtual-machines-add-a-button-to-clone-a-vm)
+- [Importieren/Exportieren von virtuellen Computern](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31481971--virtual-machines-import-export-vms)
+- [Virtuelle Maschinen in Ordnern sortieren](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31494712--virtual-machines-ability-to-sort-vm-into-folder)
+- [Zusätzliche Einstellungen für virtuelle Computer unterstützen](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31915264--virtual-machines-expose-all-configurable-setting)
+- [Hyper-V-Replikat Unterstützung](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/32040253--virtual-machines-setup-and-manage-hyper-v-replic)
+- [Delegieren des Besitzes der virtuellen Maschine](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31663837--virtual-machines-owner-delegation)
+- [Virtuellen Computer Klonen](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31783288--virtual-machines-add-a-button-to-clone-a-vm)
 - [Erstellen einer Vorlage aus einer vorhandenen virtuellen Maschine](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31494649--virtual-machines-create-a-template-from-an-exist)
-- [Anzeigen von virtuellen Computern auf Hyper-V-hosts](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31734559--virtual-machines-find-vms-on-host-screen)
-- [VLAN im Bereich der neuen virtuellen Computer konfigurieren](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31710979--virtual-machines-new-new-vm-pane-need-vlan-opt)
+- [Anzeigen von virtuellen Maschinen auf Hyper-V-Hosts](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31734559--virtual-machines-find-vms-on-host-screen)
+- [VLAN im Bereich "neuer virtueller Computer" Konfigurieren](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31710979--virtual-machines-new-new-vm-pane-need-vlan-opt)
 
-[Alle anzeigen oder neue Funktionen vorzuschlagen](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5Bvirtual%20machines%5D).
+[Alle anzeigen oder neue Features vorschlagen](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5Bvirtual%20machines%5D).

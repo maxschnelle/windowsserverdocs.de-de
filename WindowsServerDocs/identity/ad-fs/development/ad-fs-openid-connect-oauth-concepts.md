@@ -6,14 +6,14 @@ ms.author: billmath
 manager: daveba
 ms.date: 08/09/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 6a0a1da3dd5c92dff885478c1669bbda5ae07fe5
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 0e680e07ce1ee27a73791e310a71b85ad76d6318
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867475"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358761"
 ---
 # <a name="ad-fs-openid-connectoauth-concepts"></a>AD FS OpenID Connect/OAuth-Konzepte
 Gilt für AD FS 2016 und höher
@@ -34,7 +34,7 @@ Das folgende Diagramm stellt die grundlegende Beziehung zwischen den Akteuren da
 ## <a name="application-types"></a>Anwendungs Typen 
  
 
-|Anwendungstyp|Beschreibung|Rolle|
+|Anwendungstyp|Beschreibung|Role-Eigenschaft|
 |-----|-----|-----|
 |Native Anwendung|Dies wird manchmal als **öffentlicher Client**bezeichnet und soll eine Client-App sein, die auf einem PC oder einem Gerät ausgeführt wird und mit dem der Benutzer interagiert.|Fordert Token vom autorisierungsserver (AD FS) an, um Benutzer Zugriff auf Ressourcen zu erhalten. Sendet HTTP-Anforderungen an geschützte Ressourcen und verwendet dabei die Token als HTTP-Header.| 
 |Server Anwendung (Web-App)|Eine Webanwendung, die auf einem Server ausgeführt wird und im Allgemeinen für Benutzer über einen Browser zugänglich ist. Da es in der Lage ist, seinen eigenen geheimen Client Schlüssel oder Anmelde Informationen beizubehalten, wird es manchmal als **vertraulicher Client**bezeichnet. |Fordert Token vom autorisierungsserver (AD FS) an, um Benutzer Zugriff auf Ressourcen zu erhalten. Vor dem Anfordern von Token muss sich der Client (Web-App) mithilfe seines geheimen Schlüssels authentifizieren. | 
@@ -55,7 +55,7 @@ Die moderne Authentifizierung verwendet die folgenden Tokentypen:
  
 Beim Registrieren einer Ressource in AD FS können Bereiche so konfiguriert werden, dass AD FS bestimmte Aktionen ausführen kann. Zusätzlich zum Konfigurieren des Bereichs muss auch der Bereichs Wert in der Anforderung gesendet werden, um AD FS die Aktion auszuführen. Beispielsweise muss der Administrator während der Ressourcen Registrierung den Bereich als OpenID konfigurieren, und die Anwendung (Client) muss Scope = OpenID in der Authentifizierungsanforderung senden, damit AD FS das ID-Token ausgibt. Details zu den in AD FS verfügbaren Bereichen werden unten bereitgestellt. 
  
-- Aza: Wenn die [OAuth 2,0-Protokoll Erweiterungen für Broker Clients](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapxbc/2f7d8875-0383-4058-956d-2fb216b44706) verwendet werden und der Scope-Parameter den Bereich "Aza" enthält, gibt der Server ein neues primäres Aktualisierungs Token aus und legt es im refresh_token-Feld der Antwort fest. Außerdem wird das refresh_token_expires_in-Feld bis zur Lebensdauer des neuen primären Aktualisierungs Tokens, wenn eine erzwungen wird. 
+- Aza: bei Verwendung [von OAuth 2,0-Protokoll Erweiterungen für Broker Clients](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapxbc/2f7d8875-0383-4058-956d-2fb216b44706) und wenn der Bereichs Parameter den Bereich "Aza" enthält, gibt der Server ein neues primäres Aktualisierungs Token aus und legt es im refresh_token-Feld der Antwort fest. Außerdem wird das refresh_ token_expires_in-Feld bis zur Lebensdauer des neuen primären Aktualisierungs Tokens, wenn eine erzwungen wird. 
 - OpenID: ermöglicht es der Anwendung, die Verwendung des OpenID Connect-Autorisierungs Protokolls anzufordern. 
 - logon_cert: der logon_cert-Bereich ermöglicht es einer Anwendung, Anmelde Zertifikate anzufordern, die für die interaktive Anmeldung von authentifizierten Benutzern verwendet werden können. Der AD FS Server lässt den access_token-Parameter aus der Antwort aus und stellt stattdessen eine Base64-codierte CMS-Zertifikatskette oder eine SMTP-vollständige PKI-Antwort bereit. Weitere Informationen finden Sie [hier](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-oapx/32ce8878-7d33-4c02-818b-6c9164cc731e).
 - user_impersonation: der Bereich "user_impersonation" ist erforderlich, um erfolgreich ein Zugriffs Token aus AD FS anzufordern. Ausführliche Informationen zur Verwendung dieses Bereichs finden Sie unter [Erstellen einer Anwendung mit mehreren Stufen mithilfe von "on-Auftrag-of" (OBO) mithilfe von OAuth mit AD FS 2016](ad-fs-on-behalf-of-authentication-in-windows-server.md). 

@@ -6,29 +6,29 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: b027bff4645203c44e228f11c651b767fa4502e0
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 8240903b3c446d4f02ca93dc053e520480f5e8ca
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192059"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359489"
 ---
 # <a name="manually-configure-a-service-account-for-a-federation-server-farm"></a>Manuelles Konfigurieren eines Dienstkontos für eine Verbundserverfarm
 
-Wenn Sie beabsichtigen, eine Verbundserverfarm-Umgebung in Active Directory Federation Services konfigurieren \(AD FS\), müssen Sie erstellen und konfigurieren Sie ein dediziertes Dienstkonto in Active Directory Domain Services \(AD DS\) , in dem die Farm befinden. Dann legen Sie in der Konfiguration jedes Verbundservers in der Farm fest, dass dieses Konto verwendet wird. Wenn Sie Clients im Unternehmensnetzwerk einen Verbundserver in einer AD FS-Farm mithilfe der integrierten Windows-Authentifizierung authentifizieren zulassen möchten, müssen Sie die folgenden Aufgaben in Ihrer Organisation ausführen.  
+Wenn Sie beabsichtigen, eine Verbund Serverfarm-Umgebung in Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1 zu konfigurieren, müssen Sie ein dediziertes Dienst Konto in Active Directory Domain Services \(AD DS @ no__t-3 erstellen und konfigurieren, in dem die Farm wird gespeichert. Dann legen Sie in der Konfiguration jedes Verbundservers in der Farm fest, dass dieses Konto verwendet wird. Sie müssen die folgenden Aufgaben in Ihrer Organisation durchführen, wenn Sie zulassen möchten, dass sich Client Computer im Unternehmensnetzwerk mithilfe der integrierten Windows-Authentifizierung bei einem der Verbund Server in einer AD FS-Farm authentifizieren können.  
 
 > [!IMPORTANT]
-> Zum Zeitpunkt der AD FS 3.0 (Windows Server 2012 R2) unterstützt AD FS die Verwendung von einem [Gruppenverwalteten Dienstkontos](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) \(gMSA\) als Dienstkonto.  Dies ist die empfohlene Option, da die Notwendigkeit entfällt für die Verwaltung des Kennworts für das im Laufe der Zeit.  Dieses Dokument beschreibt die alternative Groß-/Kleinschreibung mit einem herkömmlichen Dienst-Konto, z. B. in Domänen, die noch ausgeführt wird, ein Windows Server 2008 R2 oder früheren Domänenfunktionsebene \(Domänenfunktionsebene\).
+> Ab AD FS 3,0 (Windows Server 2012 R2) unterstützt AD FS die Verwendung eines [Gruppen verwalteten Dienst Kontos](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) \(gmsa @ no__t-2 als Dienst Konto.  Dies ist die empfohlene Option, da es nicht mehr erforderlich ist, das Dienst Konto Kennwort über einen Zeitraum zu verwalten.  In diesem Dokument werden die alternativen Fälle bei der Verwendung eines herkömmlichen Dienst Kontos behandelt, z. b. in Domänen, die noch eine Windows Server 2008 R2-oder frühere Domänen Funktionsebene \(dfl @ no__t-1 ausführen.
 
 > [!NOTE]  
-> Die Aufgaben in dieser Prozedur müssen Sie nur einmal für die gesamte Verbundserverfarm ausführen. Später, wenn Sie einen Verbundserver mithilfe der AD FS Konfigurations-Assistenten erstellen, geben Sie dieses Konto auf dem **Dienstkonto** Seite des Assistenten auf jedem Verbundserver in der Farm.  
+> Die Aufgaben in dieser Prozedur müssen Sie nur einmal für die gesamte Verbundserverfarm ausführen. Wenn Sie später einen Verbund Server mithilfe des Konfigurations-Assistenten für AD FS-Verbund Server erstellen, müssen Sie dieses Konto auf der Assistenten Seite **Dienst Konto** auf jedem Verbund Server in der Farm angeben.  
   
 #### <a name="create-a-dedicated-service-account"></a>Erstellen eines dedizierten Dienstkontos  
   
-1.  Erstellen Sie einen dedizierten Benutzer\/-Dienstkonto in Active Directory-Gesamtstruktur, die in der identitätsanbieterorganisation befindet. Dieses Konto ist erforderlich, damit die Kerberos-Authentifizierungsprotokoll in einem farmszenario funktionieren und Pass zu\-über die Authentifizierung auf jedem Verbundserver. Verwenden Sie dieses Konto nur für die Zwecke der die Verbundserverfarm gerichtet werden.  
+1.  Erstellen Sie ein dediziertes Benutzerkonto "@ no__t-0service" in der Active Directory-Gesamtstruktur, die sich in der Identitäts Anbieter Organisation befindet. Dieses Konto ist erforderlich, damit das Kerberos-Authentifizierungsprotokoll in einem Farm Szenario funktioniert und Pass @ no__t-0through-Authentifizierung auf jedem der Verbund Server zulässt. Verwenden Sie dieses Konto nur für die Verbund Serverfarm.  
   
 2.  Bearbeiten Sie die Benutzerkonteneigenschaften, und aktivieren Sie das Kontrollkästchen **Kennwort läuft nie ab** . Mit dieser Aktion stellen Sie sicher, dass die Funktion dieses Dienstkontos nicht aufgrund von Änderungsanforderungen für das Domänenkennwort unterbrochen wird.  
   
@@ -37,13 +37,13 @@ Wenn Sie beabsichtigen, eine Verbundserverfarm-Umgebung in Active Directory Fede
   
 #### <a name="to-set-the-spn-of-the-service-account"></a>Sie richten Sie den SPN des Dienstkontos ein  
   
-1.  Da die Identität des Anwendungspools für die AD FS-AppPool als Domänenbenutzer ausgeführt wird\/-Dienstkontos verwenden, müssen Sie den Dienstprinzipalnamen konfigurieren \(SPN\) für dieses Konto in der Domäne mit dem Befehl "Setspn.exe"\-Tools "Linie". Setspn.exe wird standardmäßig auf Computern unter Windows Server 2008 installiert. Führen den folgenden Befehl auf einem Computer, der mit der gleichen Domäne angehört, in denen der Benutzer\/Dienstkonto befindet:  
+1.  Da die Anwendungs Pool Identität für den AD FS AppPool als Domänen Benutzer @ no__t-0service-Konto ausgeführt wird, müssen Sie den Dienst Prinzipal Namen \(spn @ no__t-2 für dieses Konto in der Domäne mit dem Befehl "Setspn. exe" @ no__t-3LINE konfigurieren. Setspn. exe wird standardmäßig auf Computern installiert, auf denen Windows Server 2008 ausgeführt wird. Führen Sie den folgenden Befehl auf einem Computer aus, der mit derselben Domäne verknüpft ist, in der sich das Benutzerkonto "@ no__t-0service" befindet:  
   
     ```  
     setspn -a host/<server name> <service account>  
     ```  
   
-    Z. B. in einem Szenario, in der sich alle verbundnachrichtenklassen Server unter dem Domain Name System Cluster \(DNS\) Host Name "FS.Fabrikam.com" und den Namen des Dienstkontos aus, die die AD FS-AppPool zugeordnet ist, adfs2farm lautet, geben Sie den Befehl wie folgt, und drücken Sie dann die EINGABETASTE:  
+    Beispiel: in einem Szenario, in dem alle Verbund Server unter dem Domain Name System \(dns @ no__t-1-Hostname) gruppiert sind und der Dienst Konto Name, der dem AD FS AppPool zugewiesen ist, den Namen adfs2farm hat, geben Sie den Befehl wie folgt ein, und Drücken Sie dann die EINGABETASTE:  
   
     ```  
     setspn -a host/fs.fabrikam.com adfs2farm  
@@ -51,6 +51,6 @@ Wenn Sie beabsichtigen, eine Verbundserverfarm-Umgebung in Active Directory Fede
   
     Sie müssen diese Aufgabe für dieses Konto nur einmal durchführen.  
   
-2.  Nachdem die AD FS-AppPool-Identität für das Dienstkonto geändert wurde, legen Sie die Access Control Lists \(ACLs\) in der SQL Server-Datenbank, um Lesezugriff auf dieses neue Konto zulassen, damit der AD FS-AppPool die Richtliniendaten lesen kann.  
+2.  Nachdem die AD FS AppPool-Identität in das Dienst Konto geändert wurde, legen Sie die Zugriffs Steuerungs Listen \(acls @ no__t-1 für die SQL Server-Datenbank fest, um Lesezugriff auf dieses neue Konto zuzulassen, damit der AD FS AppPool die Richtlinien Daten lesen kann.  
   
 

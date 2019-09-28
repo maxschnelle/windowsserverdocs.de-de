@@ -2,33 +2,33 @@
 title: DNS-Richtlinien (Übersicht)
 description: Dieses Thema ist Teil des DNS-Richtlinien szenariohandbuchs für Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: 566bc270-81c7-48c3-a904-3cba942ad463
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 687864619c981b3ab8d24ef540c759bc29314c90
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 613bb7f43b382389dc0db953a48668147cfaee88
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544663"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356051"
 ---
 # <a name="dns-policies-overview"></a>DNS-Richtlinien (Übersicht)
 
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-In diesem Thema erfahren Sie mehr über die DNS-Richtlinie, die in Windows Server 2016 neu ist. Sie können die DNS-Richtlinie für die georedunte Datenverkehrs Verwaltung, intelligente DNS-Antworten basierend auf der Tageszeit, die Verwaltung eines einzelnen DNS-\-Servers, der für die Split Brain-Bereitstellung konfiguriert ist, das Anwenden von Filtern auf DNS-Abfragen und vieles mehr. Die folgenden Elemente bieten weitere Details zu diesen Funktionen.
+In diesem Thema erfahren Sie mehr über die DNS-Richtlinie, die in Windows Server 2016 neu ist. Sie können die DNS-Richtlinie für die georeduntbasierte Datenverkehrs Verwaltung, intelligente DNS-Antworten basierend auf der Tageszeit, die Verwaltung eines einzelnen DNS-Servers, der für die Split @ no__t-0brain-Bereitstellung konfiguriert ist, das Anwenden von Filtern auf DNS-Abfragen usw. verwenden. Die folgenden Elemente bieten weitere Details zu diesen Funktionen.
 
 -   **Anwendungs Lastenausgleich.** Wenn Sie mehrere Instanzen einer Anwendung an verschiedenen Speicherorten bereitgestellt haben, können Sie die DNS-Richtlinie verwenden, um die Auslastung des Datenverkehrs zwischen den verschiedenen Anwendungs Instanzen auszugleichen und die Datenverkehrs Last für die Anwendung dynamisch zuzuweisen.
 
--   **\-Standortbasierte Datenverkehrs Verwaltung** Mithilfe der DNS-Richtlinie können primäre und sekundäre DNS-Server auf DNS-Client Abfragen basierend auf dem geografischen Standort des Clients und der Ressource, mit der der Client eine Verbindung herzustellen versucht, Antworten, und dem Client wird die IP-Adresse des nächstgelegenen Ressource. 
+-   **Geor@ no__t-1 Location based Traffic Management.** Mithilfe der DNS-Richtlinie können primäre und sekundäre DNS-Server auf DNS-Client Abfragen basierend auf dem geografischen Standort des Clients und der Ressource, mit der der Client eine Verbindung herzustellen versucht, Antworten, und dem Client wird die IP-Adresse des nächstgelegenen Ressource. 
 
--   **Teilen Sie das Hirn-DNS.** Mit Split\-Brain DNS werden DNS-Einträge in verschiedene Zonen Bereiche auf demselben DNS-Server aufgeteilt, und DNS-Clients erhalten eine Antwort, je nachdem, ob es sich bei den Clients um interne oder externe Clients handelt. Sie können Split\-Brain DNS für Active Directory integrierte Zonen oder Zonen auf eigenständigen DNS-Servern konfigurieren.
+-   **Teilen Sie das Hirn-DNS.** Mit Split @ no__t-0brain-DNS werden DNS-Einträge in verschiedene Zonen Bereiche auf demselben DNS-Server aufgeteilt, und DNS-Clients erhalten eine Antwort, je nachdem, ob es sich bei den Clients um interne oder externe Clients handelt. Sie können Split @ no__t-0brain-DNS für Active Directory integrierte Zonen oder Zonen auf eigenständigen DNS-Servern konfigurieren.
 
 -   **Filterung.** Sie können die DNS-Richtlinie konfigurieren, um Abfrage Filter basierend auf den von Ihnen angegebenen Kriterien zu erstellen. Mithilfe von Abfrage Filtern in der DNS-Richtlinie können Sie den DNS-Server so konfigurieren, dass er basierend auf der DNS-Abfrage und dem DNS-Client, der die DNS-Abfrage sendet, Benutzer definiert reagiert 
--   **Forensik.** Sie können DNS-Richtlinien verwenden, um böswillige DNS-\-Clients an eine nicht vorhandene IP-Adresse umzuleiten, anstatt Sie an den Computer weiterzuleiten, den Sie zu erreichen versuchen.
+-   **Forensik.** Sie können DNS-Richtlinien verwenden, um böswillige DNS-Clients an eine nicht-@ no__t-0vorhandene IP-Adresse umzuleiten, anstatt Sie an den Computer weiterzuleiten, den Sie zu erreichen versuchen.
 
 -   **Uhrzeit der täglichen Umleitung.** Mithilfe der DNS-Richtlinie können Sie den Anwendungs Datenverkehr mithilfe von DNS-Richtlinien, die auf der Tageszeit basieren, über verschiedene geografisch verteilte Instanzen einer Anwendung verteilen.
 
@@ -67,13 +67,13 @@ Das Feld DNS-Richtlinien Kriterien besteht aus zwei Elementen:
 
 |              Name               |                                         Beschreibung                                          |                                                                                                                               Beispiel Werte                                                                                                                               |
 |---------------------------------|----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|        **Clientsubnetz**        | Name eines vordefinierten Clientsubnetzes. Wird verwendet, um das Subnetz zu überprüfen, aus dem die Abfrage gesendet wurde. |                             -   **EQ, Spanien, Frankreich** : wird zu true aufgelöst, wenn das Subnetz entweder als Spanien oder Frankreich identifiziert wird.<br />-   **Ne, Kanada, Mexiko** : wird zu true aufgelöst, wenn das clientsubnetz ein anderes Subnetz als Kanada und Mexiko ist.                             |
+|        **Clientsubnetz**        | Name eines vordefinierten Clientsubnetzes. Wird verwendet, um das Subnetz zu überprüfen, aus dem die Abfrage gesendet wurde. |                             -   **EQ, Spanien, Frankreich** : wird zu true aufgelöst, wenn das Subnetz entweder als Spanien oder Frankreich identifiziert wird.<br />-   **ne, Kanada, Mexiko** : wird zu true aufgelöst, wenn das clientsubnetz ein anderes Subnetz als Kanada und Mexiko ist.                             |
 |     **Transport Protokoll**      |        Das Transport Protokoll, das in der Abfrage verwendet wird. Mögliche Einträge sind **UDP** und **TCP** .        |                                                                                                                    -   **EQ, TCP**<br />-   **EQ, UDP**                                                                                                                     |
 |      **Internet Protokoll**      |        In der Abfrage verwendetes Netzwerkprotokoll. Mögliche Einträge sind **IPv4** und **IPv6** .        |                                                                                                                   -   **EQ, IPv4**<br />-   **EQ, IPv6**                                                                                                                    |
 | **IP-Adresse der Server Schnittstelle** |                   IP-Adresse für die Netzwerkschnittstelle des eingehenden DNS-Servers                   |                                                                                                              -   **EQ, 10.0.0.1**<br />-   **EQ, 192.168.1.1**                                                                                                              |
-|            **FQDN**             |            Der voll qualifizierte Daten Satz in der Abfrage mit der Möglichkeit, eine Platzhalter Karte zu verwenden.            | -   **EQ, www. Configuration. com** : löst nur den auf true aus, wenn die Abfrage versucht, den <em>www.contoso.com</em> -FQDN aufzulösen.<br />-   **EQ,\*. contoso.com,\*. Woodgrove.com** -wird zu true aufgelöst, wenn die Abfrage für einen Datensatz gilt, der in *contoso.com***oder***Woodgrove.com* endet. |
-|         **Abfragetyp**          |                          Typ des Datensatzes, der abgefragt wird (A, SRV, txt)                          |                                                  -   **EQ, txt, SRV** -wird in "true" aufgelöst, wenn die Abfrage einen txt- **oder** SRV-Datensatz anfordert.<br />-   **EQ, MX** : wird zu true aufgelöst, wenn die Abfrage einen MX-Datensatz anfordert.                                                   |
-|         **Tageszeit**         |                              Tageszeit, zu der die Abfrage empfangen wird                               |                                                                    -   **EQ, 10:00-12:00, 22:00-23:00** -wird in "true" aufgelöst, wenn die Abfrage zwischen 10 Uhr und 12 Uhr mittags **oder** zwischen 10PM und 11Uhr empfangen wird.                                                                    |
+|            **FQDN**             |            Der voll qualifizierte Daten Satz in der Abfrage mit der Möglichkeit, eine Platzhalter Karte zu verwenden.            | Wenn die Abfrage versucht, den <em>www.contoso.com</em> -FQDN aufzulösen, -   **EQ, www.** ".<br />-   **EQ, \*.contoso.com, \*.Woodgrove.com** -aufgelöst zu true, wenn die Abfrage für einen Datensatz gilt, der in *contoso.com***oder***Woodgrove.com* endet |
+|         **Abfragetyp**          |                          Typ des Datensatzes, der abgefragt wird (A, SRV, txt)                          |                                                  -   **EQ, txt, SRV** -wird zu "true" aufgelöst, wenn die Abfrage einen txt- **oder** SRV-Datensatz anfordert.<br />-   **EQ, MX** : wird zu true aufgelöst, wenn die Abfrage einen MX-Datensatz anfordert.                                                   |
+|         **Tageszeit**         |                              Tageszeit, zu der die Abfrage empfangen wird                               |                                                                    -   **EQ, 10:00-12:00, 22:00-23:00** -wird zu true aufgelöst, wenn die Abfrage zwischen 10 Uhr und Mittag **oder** zwischen 10PM und 11Uhr empfangen wird.                                                                    |
 
 Mithilfe der obigen Tabelle als Ausgangspunkt könnte die folgende Tabelle verwendet werden, um ein Kriterium zu definieren, das zum Abgleichen von Abfragen für beliebige Daten Satz Typen verwendet wird, aber SRV-Einträge in der contoso.com-Domäne, die von einem Client im 10.0.0.0/24-Subnetz über TCP zwischen 8 und 10 Uhr bis i stammt. Schnittstellen 10.0.0.3:  
 
@@ -174,7 +174,7 @@ Add-DnsServerClientSubnet -Name "AllowedSubnet" -IPv4Subnet 172.21.33.0/24
 Add-DnsServerZoneTransferPolicy -Name "NorthAmericaPolicy" -Action IGNORE -ClientSubnet "ne,AllowedSubnet"  
 ```  
 
-In der ersten Zeile des Skripts wird ein Subnetzobjekt *mit dem* Namen "" und dem IP-Block "172.21.33.0/24" erstellt. In der zweiten Zeile wird eine Zonen Übertragungs Richtlinie erstellt, um Zonenübertragungen an einen beliebigen DNS-Server im zuvor erstellten Subnetz zuzulassen.  
+In der ersten Zeile des Skripts wird ein *Subnetzobjekt mit dem* Namen "" und dem IP-Block "172.21.33.0/24" erstellt. In der zweiten Zeile wird eine Zonen Übertragungs Richtlinie erstellt, um Zonenübertragungen an einen beliebigen DNS-Server im zuvor erstellten Subnetz zuzulassen.  
 
 ### <a name="create-a-zone-level-zone-transfer-policy"></a>Zonen Übertragungs Richtlinie auf Zonenebene erstellen  
 Sie können auch Zonen Übertragungs Richtlinien auf Zonenebene erstellen. Im folgenden Beispiel werden alle Anforderungen an eine Zonen Übertragung für contoso.com ignoriert, die von einer Server Schnittstelle mit der IP-Adresse 10.0.0.33 stammen:  

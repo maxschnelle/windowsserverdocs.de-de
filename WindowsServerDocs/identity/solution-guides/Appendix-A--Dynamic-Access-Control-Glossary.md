@@ -7,48 +7,48 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: b2044355812e95b9a5bfe90e33257f11ce78cf93
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5508c3397039a1a70c07f1dc5f29e06bd02234a0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856701"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357610"
 ---
-# <a name="appendix-a-dynamic-access-control-glossary"></a>Anhang A: Dynamic Access Control-Glossar
+# <a name="appendix-a-dynamic-access-control-glossary"></a>Anhang A: Dynamisches Access Control Glossar
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Im folgenden werden die Liste der Begriffe und Definitionen, die in der Dynamic Access Control-Szenario enthalten sind.  
+Im folgenden finden Sie eine Liste der Begriffe und Definitionen, die im Szenario für dynamische Access Control enthalten sind.  
   
 |Begriff|Definition|  
 |--------|--------------|  
-|Automatische Klassifizierung|Klassifizierung, die auftritt, basierend auf den Klassifizierungseigenschaften, die von Klassifizierungsregeln, die von einem Administrator konfiguriert bestimmt werden.|  
-|CAPID|Zentrale Zugriffsrichtlinien Richtlinien-ID. Diese ID verweist auf eine bestimmte zentrale Zugriffsrichtlinie aus, und es wird verwendet, um die Richtlinie aus der Sicherheitsbeschreibung der Dateien und Ordner zu verweisen.|  
-|Zentrale Zugriffsregel|Eine Regel, die eine Bedingung und einen Ausdruck für den enthält.|  
-|Zentrale Zugriffsrichtlinie|Richtlinien, die erstellt und in Active Directory gehostet werden.|  
-|Anspruchsbasierte Zugriffssteuerung|Ein Modell, das Ansprüche zum treffen von Entscheidungen hinsichtlich der Zugriffssteuerung auf Ressourcen verwendet.|  
-|Klassifizierung|Der Prozess der Ermittlung der Klassifizierungseigenschaften von Ressourcen und die Metadaten, die mit den Ressourcen zugeordnet ist, diese Eigenschaften zuweisen. Siehe auch REF AutomaticClassification \h \\* MERGEFORMAT automatische Klassifizierung, REF-InheritedClassification \h \\ \* Klassifizierung MERGEFORMAT geerbt und REF ManualClassification \h \\ \* MERGEFORMAT manuelle Klassifizierung.|  
-|Geräteanspruch|Einen Anspruch, der mit dem System verbunden ist.  Mit benutzeransprüchen ist es in das Token eines Benutzers auf eine Ressource zuzugreifen versuchen, enthalten.|  
-|Besitzerverwaltete Zugriffssteuerungsliste (DACL)|Eine Access Control List, die Vertrauensnehmer identifiziert, die zugelassen oder verweigert den Zugriff auf eine sicherungsfähige Ressource. Sie können nach dem Ermessen des der Besitzer der Ressource geändert werden.|  
-|Ressourceneigenschaft|Eigenschaften (z. B. Bezeichnungen), die eine Datei beschreiben und Dateien über die automatische Klassifizierung oder die manuelle Klassifizierung zugewiesen sind. Dazu gehören: Zeitraum für Vertraulichkeit, Projekt- und Aufbewahrung.|  
-|Ressourcen-Manager für Dateiserver|Eine Funktion in das Windows Server-Betriebssystem, das Verwaltung von ordnerkontingenten, dateiprüfung, Speicherberichte, dateiklassifizierung und Datei-Management-Aufträge auf einem Dateiserver bietet.|  
-|Ordnereigenschaften und Bezeichnungen|Eigenschaften und Bezeichnungen, die einen Ordner zu beschreiben und von Administratoren und Besitzern der Ordner manuell zugewiesen werden. Diese Eigenschaften weisen standardmäßig Eigenschaftswerte auf die Dateien in diesen Ordnern, z. B. Secrecy oder Abteilung.|  
-|Gruppenrichtlinie|Ein Satz von Regeln und Richtlinien, die arbeitsumgebung von Benutzern und Computern in einer Active Directory-Umgebung zu steuern.|  
-|NEAR Real-Time-Klassifizierung|Die automatische Klassifizierung, die ausgeführt wird, kurz nachdem eine Datei erstellt oder geändert wird.|  
-|NEAR Real-Time-Dateiserver verwenden Dateiverwaltungsaufgaben|Dateiverwaltungsaufgaben, die kurz nach ausgeführt werden (eine Datei erstellt oder geändert wird. Diese Aufgaben werden durch die nahezu in Echtzeit Klassifizierung ausgelöst.|  
-|Organisationseinheit (OU)|Active Directory-Container, der hierarchische, logische Strukturen innerhalb einer Organisation darstellt. Es ist die kleinste Einheit der Gruppenrichtlinien-Einstellungen angewendet werden.|  
-|Sichern Sie die Eigenschaft|Eine Klassifizierungseigenschaft, die die Laufzeit für die Autorisierung vertrauen kann, um eine gültige Assertion zur Ressource an einem bestimmten Zeitpunkt Point-in-werden. In der anspruchsbasierten Zugriffssteuerung wird eine sichere-Eigenschaft, die auf eine Ressource zugewiesen ist als Ressourcenanspruch behandelt.|  
-|Sicherheitsbeschreibung|Eine Datenstruktur, die eine sicherungsfähige Ressource, z. B. Zugriffssteuerungslisten zugeordneten Sicherheitsinformationen enthält.|  
-|Security Descriptor Definition language|Eine Spezifikation, die Informationen in einer Sicherheitsbeschreibung als Textzeichenfolge beschreibt.|  
-|Staging-Richtlinie|Eine zentrale Zugriffsrichtlinie, die nicht noch gültig ist.|  
-|Systemzugriffssteuerungsliste (SACL)|Eine Access Control List, die die Arten von Zugriffsversuchen durch bestimmte Vertrauensnehmer angibt, für die Überwachungsdatensätze, die generiert werden müssen.|  
-|Benutzeranspruch.|Die Attribute eines Benutzers, die in den Sicherheitstoken des Benutzers bereitgestellt werden. Dazu gehören: Abteilung, Unternehmen, Projekt, und sicherheitsbestätigung.  Informationen im Benutzertoken von Systemen vor Windows Server 2012, z. B. die Sicherheitsgruppen, denen der Benutzer angehört, kann auch von benutzeransprüchen betrachtet werden. Einige Benutzeransprüche über Active Directory bereitgestellt werden, und andere werden dynamisch berechnet, wie z. B., ob der Benutzer angemeldet mit einer Smartcard anmelden.|  
-|Benutzertoken|Ein Objekt, das angibt, einen Benutzer und die von benutzeransprüchen und geräteansprüchen, die diesem Benutzer zugeordnet sind. Es wird verwendet, um den Benutzerzugriff auf Ressourcen zu autorisieren.|  
+|Automatische Klassifizierung|Klassifizierung, die auf der Grundlage von Klassifizierungs Eigenschaften erfolgt, die durch von einem Administrator konfigurierte Klassifizierungsregeln bestimmt werden.|  
+|CAPID|ID der zentralen Zugriffs Richtlinie. Diese ID verweist auf eine bestimmte zentrale Zugriffs Richtlinie und wird verwendet, um auf die Richtlinie aus der Sicherheits Beschreibung von Dateien und Ordnern zu verweisen.|  
+|Zentrale Zugriffs Regel|Eine Regel, die eine Bedingung und einen Zugriffs Ausdruck enthält.|  
+|Zentrale Zugriffs Richtlinie|Richtlinien, die in Active Directory erstellt und gehostet werden.|  
+|Anspruchs basierte Zugriffs Steuerung|Ein Paradigma, das Ansprüche verwendet, um Zugriffs Steuerungs Entscheidungen für Ressourcen zu treffen.|  
+|Klassifizierung|Der Prozess der Bestimmung der Klassifizierungs Eigenschaften von Ressourcen und Zuweisen dieser Eigenschaften zu den Metadaten, die den Ressourcen zugeordnet sind. Siehe auch Ref automaticclassification \h \\ * MERGEFORMAT Automatic Classification, Ref eritedclassification \h \\ @ no__t-2 MERGEFORMAT geerbt Classification und ref manualclassification \h \\ @ no__t-4 MERGEFORMAT Manual Ordnung.|  
+|Geräteanspruch|Ein Anspruch, der dem System zugeordnet ist.  Mit Benutzer Ansprüchen ist Sie im Token eines Benutzers enthalten, der versucht, auf eine Ressource zuzugreifen.|  
+|Freigegebene Zugriffs Steuerungs Liste (DACL)|Eine Zugriffs Steuerungs Liste, die Vertrauens nehmer identifiziert, denen der Zugriff auf eine Sicherungs fähige Ressource gestattet oder verweigert wird. Er kann nach Ermessen des Ressourcen Besitzers geändert werden.|  
+|Ressourcen Eigenschaft|Eigenschaften (z. b. Bezeichnungen), die eine Datei beschreiben und Dateien mithilfe der automatischen Klassifizierung oder manuellen Klassifizierung zugewiesen werden. Dazu gehören: Sensitivität, Projekt und Beibehaltungs Dauer.|  
+|Ressourcen-Manager für Dateiserver|Eine Funktion des Windows Server-Betriebssystems, die die Verwaltung von Ordner Kontingenten, Dateiüberprüfung, Speicher Berichten, Datei Klassifizierungs-und Datei Verwaltungs Aufträgen auf einem Datei Server ermöglicht.|  
+|Ordnereigenschaften und-Bezeichnungen|Eigenschaften und Bezeichnungen, die einen Ordner beschreiben und manuell von Administratoren und Ordner Besitzern zugewiesen werden. Diese Eigenschaften weisen den Dateien innerhalb dieser Ordner Standardeigenschaftswerte zu, z. b. Geheimhaltung oder Abteilung.|  
+|Gruppenrichtlinie|Eine Reihe von Regeln und Richtlinien, mit denen die Arbeitsumgebung von Benutzern und Computern in einer Active Directory Umgebung gesteuert wird.|  
+|Near Real Time Classification|Automatische Klassifizierung, die kurz nach dem Erstellen oder Ändern einer Datei ausgeführt wird.|  
+|Near Real-Time File Management Tasks|Datei Verwaltungsaufgaben, die kurz nach ausgeführt werden (eine Datei wird erstellt oder geändert. Diese Aufgaben werden durch die Near Real-Time-Klassifizierung ausgelöst.|  
+|Organisationseinheit (OU)|Ein Active Directory Container, der hierarchische logische Strukturen innerhalb einer Organisation darstellt. Dies ist der kleinste Bereich, auf den Gruppenrichtlinie Einstellungen angewendet werden.|  
+|Secure-Eigenschaft|Eine Klassifizierungs Eigenschaft, der die Autorisierungs Laufzeit Vertrauen kann, damit Sie zu einem bestimmten Zeitpunkt über die Ressource verfügt. In der Anspruchs basierten Zugriffs Steuerung wird eine sichere Eigenschaft, die einer Ressource zugewiesen ist, als Ressourcen Anspruch behandelt.|  
+|Sicherheits Beschreibung|Eine Datenstruktur, die Sicherheitsinformationen enthält, die einer Sicherungs fähigen Ressource zugeordnet sind, z. b. Zugriffs Steuerungs Listen.|  
+|Definitions Sprache für Sicherheits Deskriptoren|Eine Spezifikation, die die Informationen in einer Sicherheits Beschreibung als Text Zeichenfolge beschreibt.|  
+|Staging-Richtlinie|Eine zentrale Zugriffs Richtlinie, die noch nicht wirksam ist.|  
+|System-Zugriffs Steuerungs Liste (SACL)|Eine Zugriffs Steuerungs Liste, die die Arten von Zugriffsversuchen durch bestimmte Vertrauens nehmer angibt, für die Überwachungsdaten Sätze generiert werden müssen.|  
+|Benutzer Anspruch|Attribute eines Benutzers, die im Sicherheits Token des Benutzers bereitgestellt werden. Dazu gehören: Abteilung, Unternehmen, Projekt und Sicherheit.  Informationen im Benutzer Token von Systemen vor Windows Server 2012, z. b. die Sicherheitsgruppen, denen der Benutzer gehört, können auch als Benutzer Ansprüche angesehen werden. Einige Benutzer Ansprüche werden über Active Directory bereitgestellt, und andere werden dynamisch berechnet, z. b. ob der Benutzer sich mit einer Smartcard angemeldet hat.|  
+|Benutzer Token|Ein Datenobjekt, mit dem ein Benutzer und die Benutzer Ansprüche und Geräteansprüche identifiziert werden, die diesem Benutzer zugeordnet sind. Sie wird verwendet, um den Zugriff des Benutzers auf Ressourcen zu autorisieren.|  
   
 ## <a name="see-also"></a>Siehe auch  
-[Dynamische Zugriffssteuerung: Übersicht über das Szenario](Dynamic-Access-Control--Scenario-Overview.md)  
+[Dynamische Zugriffsteuerung: Szenarioübersicht](Dynamic-Access-Control--Scenario-Overview.md)  
   
 
 

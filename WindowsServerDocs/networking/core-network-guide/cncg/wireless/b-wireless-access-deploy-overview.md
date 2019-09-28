@@ -1,104 +1,104 @@
 ---
 title: Übersicht über die Bereitstellung des Funkzugriffs
-description: Dieses Thema ist Teil des Windows Server 2016-Networking Guide "Deploy Password-Based 802.1 X Authenticated Wireless Access"
+description: Dieses Thema ist Teil des Windows Server 2016-Netzwerk Handbuchs "Bereitstellen von Kenn Wort basiertem 802.1 x authentifizierten drahtlosen Zugriff".
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 29ae0f54-f045-465a-a08e-5867979345f2
 author: shortpatti
 ms.author: pashort
-ms.openlocfilehash: 6658c4750ba2f71b24acd4f7da02029da63179bd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 93fb80c550771e4e7d8bc400d647b520b0c67fdf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818921"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356085"
 ---
 # <a name="wireless-access-deployment-overview"></a>Übersicht über die Bereitstellung des Funkzugriffs
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Die folgende Abbildung zeigt die Komponenten, die erforderlich sind, zum Bereitstellen von 802.1 X-Drahtloszugriff mit PEAP\-MS\-CHAP-v2.  
+In der folgenden Abbildung sind die Komponenten dargestellt, die für die Bereitstellung des drahtlos Zugriffs mit 802.1 x-Authentifizierung mit dem Wert von "Peer-no__t-0ms @ no__t-1chap V2" erforderlich sind.  
 
-![Übersicht über die Bereitstellung-Infrastruktur mit 802.1X-Authentifizierung](../../../media/8021X-Deploy-Overview/8021X-Deploy-Overview.jpg)
+![Übersicht der 802.1 x-Bereitstellungs Infrastruktur](../../../media/8021X-Deploy-Overview/8021X-Deploy-Overview.jpg)
 
-## <a name="wireless-access-deployment-components"></a>Bereitstellungskomponenten für drahtlosen Zugriff
-Die folgende Infrastruktur ist für diese Bereitstellung des funkzugriffs erforderlich:
+## <a name="wireless-access-deployment-components"></a>Bereitstellungs Komponenten für den drahtlos Zugriff
+Für diese drahtlos Zugriffs Bereitstellung ist die folgende Infrastruktur erforderlich:
 
-### <a name="8021x-capable-wireless-access-points"></a>802.1 X\-kann drahtlose Zugriffspunkte
-Nachdem die erforderlichen Netzwerk-Infrastrukturdienste, die Unterstützung von Ihrem drahtlosen lokalen Netzwerks vorhanden sind, können Sie den Entwurfsprozess für den Speicherort der drahtlosen Zugriffspunkte beginnen. Der Entwurfsprozess der drahtlose AP-Bereitstellung umfasst die folgenden Schritte aus:
+### <a name="8021x-capable-wireless-access-points"></a>802.1 x @ no__t-0fähige drahtlos Zugriffspunkte
+Nachdem die erforderlichen Netzwerkinfrastruktur Dienste, die Ihr Drahtlos Netzwerk unterstützen, vorhanden sind, können Sie den Entwurfsprozess für den Speicherort der drahtlos Zugriffspunkte starten. Der Entwurfsprozess für drahtlos Bereitstellungen umfasst die folgenden Schritte:
 
-- Identifizieren Sie die Bereiche der Abdeckung für Mobiltelefone. Bestimmen Sie identifizieren die Bereiche der Abdeckung, um festzustellen, ob der Dienst für drahtlose außerhalb des Gebäudes bieten möchten Sie sicher sein, und wenn Ja, genau, in dem die externen Bereiche.
+- Identifizieren Sie die Bereiche der Abdeckung für drahtlose Benutzer. Wenn Sie die Bereiche der Abdeckung identifizieren, achten Sie darauf, dass Sie einen drahtlosen Dienst außerhalb des Aufbaus bereitstellen möchten. wenn dies der Fall ist, legen Sie fest, wo sich diese externen Bereiche befinden.
 
-- Bestimmen, wie viele Drahtloszugriffspunkten, um sicherzustellen, dass ausreichende Abdeckung bereitstellen.
+- Bestimmen Sie, wie viele drahtlos Zugriffspunkte bereitgestellt werden, um eine angemessene Abdeckung sicherzustellen
 
-- Bestimmen des Installationsorts für die drahtlosen Zugriffspunkte zu platzieren.
+- Bestimmen Sie, wo drahtlose APS platziert werden sollen.
 
-- Wählen Sie die Häufigkeit der Kanal für drahtlose APs.
+- Wählen Sie die Kanal Frequenzen für drahtlos Zugriffspunkte aus.
 
 ### <a name="active-directory-domain-services"></a>Active Directory Domain Services
-Die folgenden Elemente von AD DS sind für die Bereitstellung des funkzugriffs erforderlich.
+Die folgenden Elemente AD DS sind für die Bereitstellung des drahtlos Zugriffs erforderlich.
 
-#### <a name="users-and-computers"></a>Benutzer und-Computer
+#### <a name="users-and-computers"></a>Benutzer und Computer
 
-Verwenden Sie Active Directory-Benutzer und Computer ausrichten\-in zum Erstellen und Verwalten von Benutzerkonten, und klicken Sie auf eine drahtlose Sicherheitsgruppe zu erstellen, der jedes Mitglied der Domäne enthält, an den drahtlosen Zugriff zu gewähren.
+Verwenden Sie den Active Directory Benutzer und Computer Snap @ no__t-0in zum Erstellen und Verwalten von Benutzerkonten sowie zum Erstellen einer drahtlos Sicherheitsgruppe, die die einzelnen Domänen Mitglieder enthält, denen Sie drahtlos Zugriff gewähren möchten.
 
-#### <a name="wireless-network-ieee-80211-policies"></a>Drahtlosnetzwerk \(IEEE 802.11\) Richtlinien
+#### <a name="wireless-network-ieee-80211-policies"></a>Drahtlos Netzwerk \(ieee 802.11 @ no__t-1-Richtlinien
 
-Sie können sich auf dem Drahtlosnetzwerk \(IEEE 802.11\) richtlinienerweiterung der Gruppenrichtlinien-Verwaltungskonsole zum Konfigurieren von Richtlinien, die an drahtlose Computer angewendet werden, wenn sie versuchen, auf das Netzwerk zugreifen.
+Sie können das Drahtlos Netzwerk \(ieee 802.11 @ no__t-1 Policies-Erweiterung von Gruppenrichtlinie Management verwenden, um Richtlinien zu konfigurieren, die auf drahtlos Computer angewendet werden, wenn Sie versuchen, auf das Netzwerk zuzugreifen.
 
-Im Gruppenrichtlinienverwaltungs-Editor, wenn Sie nach rechts\-klicken Sie auf **Drahtlosnetzwerk \(IEEE 802.11\) Richtlinien**, Sie haben die folgenden zwei Optionen für den Typ der Richtlinie für Drahtlosnetzwerke, die Sie erstellen.
+Wenn Sie in Gruppenrichtlinienverwaltungs-Editor mit der rechten Maustaste @ no__t-0klicken Sie auf **Drahtlos Netzwerk \(ieee 802.11 @ no__t-3-Richtlinien**, stehen Ihnen die folgenden beiden Optionen für den Typ der von Ihnen erstellten drahtlosen Richtlinie zur Anwendung.
 
-- **Erstellen Sie eine neue Richtlinie für Drahtlosnetzwerke für Windows Vista und spätere Versionen**
+- **Neue Richtlinie für Drahtlos Netzwerke für Windows Vista und spätere Releases erstellen**
 
-- **Erstellen einer neuen Windows XP-Richtlinie**
+- **Neue Windows XP-Richtlinie erstellen**
 
 >[!TIP]
->Wenn Sie eine neue Richtlinie für Drahtlosnetzwerke zu konfigurieren, müssen Sie die Möglichkeit, den Namen und eine Beschreibung der Richtlinie zu ändern. Wenn Sie den Namen der Richtlinie ändern, wird die Änderung übernommen, der **Details** Bereich des Gruppenrichtlinienverwaltungs-Editor und in der Titelleiste des Dialogfelds Drahtlosnetzwerk-Richtlinie. Unabhängig davon, wie Sie Ihre Richtlinien umbenennen, die neue XP-Drahtlosnetzwerkrichtlinie stets aufgelistet in Gruppenrichtlinienverwaltungs-Editor mit der **Typ** anzeigen **XP**. Andere Richtlinien sind aufgeführt, mit der **Typ** mit **Vista und neuere Versionen**.  
+>Beim Konfigurieren einer neuen Drahtlos Netzwerk Richtlinie haben Sie die Möglichkeit, den Namen und die Beschreibung der Richtlinie zu ändern. Wenn Sie den Namen der Richtlinie ändern, wird die Änderung im **Detail** Bereich von Gruppenrichtlinienverwaltungs-Editor und auf der Titelleiste des Dialog Felds Drahtlos Netzwerk Richtlinie widergespiegelt. Unabhängig davon, wie Sie Ihre Richtlinien umbenennen, wird die neue drahtlose XP-Richtlinie immer in Gruppenrichtlinienverwaltungs-Editor mit dem **Typ** " **XP**" aufgeführt. Weitere Richtlinien sind mit dem **Typ** , der **Vista und spätere Releases**anzeigt, aufgeführt.  
 
-Das Wireless Network Policy für Windows Vista und neuere Versionen können Sie konfigurieren, zu priorisieren und verwalten mehrere WLAN-Profilen. Ein drahtloses Profil ist eine Auflistung von Konnektivitäts- und Sicherheitseinstellungen, die für die Verbindung mit einem bestimmten drahtlosen Netzwerk verwendet werden. Wenn Gruppenrichtlinien auf Ihren drahtlosen Client-Computern aktualisiert wird, werden die Profile, die Sie in der Drahtlosnetzwerkrichtlinie erstellen automatisch an der Konfiguration auf Ihren drahtlosen Client-Computern hinzugefügt, der Drahtlosnetzwerkrichtlinie gilt.
+Die Richtlinie für Drahtlos Netzwerke für Windows Vista und spätere Versionen ermöglicht Ihnen das konfigurieren, priorisieren und Verwalten mehrerer drahtloser Profile. Ein drahtlos Profil ist eine Sammlung von Verbindungs-und Sicherheitseinstellungen, die verwendet werden, um eine Verbindung mit einem bestimmten Drahtlos Netzwerk herzustellen. Wenn Gruppenrichtlinie auf Ihren drahtlosen Client Computern aktualisiert wird, werden die in der Drahtlos Netzwerk Richtlinie erstellten Profile automatisch der Konfiguration auf Ihren drahtlosen Client Computern hinzugefügt, für die die Richtlinie für Drahtlos Netzwerke gilt.
 
-##### <a name="allowing-connections-to-multiple-wireless-networks"></a>Zulassen von Verbindungen mit mehreren drahtlosen Netzwerken
+##### <a name="allowing-connections-to-multiple-wireless-networks"></a>Zulassen von Verbindungen mit mehreren Drahtlos Netzwerken
 
-Wenn Sie drahtlose Clients, die verschiedene physische Standorte in Ihrer Organisation verschoben werden verfügen, empfiehlt z. B. zwischen hauptniederlassung und eine Filiale, Computer keine Verbindung mit mehr als einem drahtlosen Netzwerk. In diesem Fall können Sie ein Drahtlosprofil konfigurieren, die die spezifischen Konnektivität und Sicherheit der Einstellungen für jedes Netzwerk enthält.
+Wenn Sie über drahtlose Clients verfügen, die an physische Standorte in Ihrer Organisation verschoben werden (z. b. zwischen einem Hauptsitz und einer Zweigniederlassung), sollten Sie möchten, dass Computer eine Verbindung mit mehr als einem Drahtlos Netzwerk herstellen. In dieser Situation können Sie ein drahtlos Profil konfigurieren, das die spezifischen Konnektivitätseinstellungen und Sicherheitseinstellungen für jedes Netzwerk enthält.
 
-Nehmen wir beispielsweise an, die Ihr Unternehmen verfügt über ein drahtloses Netzwerk für die wichtigsten Unternehmenszentrale mit einem Service Set Identifier \(SSID\) WlanCorp.
+Nehmen Sie beispielsweise an, dass Ihr Unternehmen über ein drahtloses Netzwerk für die Hauptniederlassung des Unternehmens verfügt und über einen Service Set Identifier \(ssid @ no__t-1 wlancorp verfügt.
 
-Die Zweigstelle verfügt auch über ein drahtloses Netzwerk, das Sie auch eine Verbindung herstellen möchten. Die Zweigstelle hat die SSID als WlanBranch konfiguriert.
+Ihre Zweigstelle verfügt auch über ein Drahtlos Netzwerk, mit dem Sie auch eine Verbindung herstellen möchten. Die SSID ist in der Zweigstelle als wlanbranch konfiguriert.
 
-In diesem Szenario können Sie konfigurieren, ein Profil für jedes Netzwerk, und Computer oder andere Geräte, die in beiden der Unternehmenszentrale verwendet werden, und Filiale kann auf die drahtlosen Netzwerke verbinden, wenn sie physisch im Bereich der Bereich des Netzwerks sind.
+In diesem Szenario können Sie ein Profil für jedes Netzwerk konfigurieren, und Computer oder andere Geräte, die sowohl in der Firmenniederlassung als auch in der Filiale verwendet werden, können eine Verbindung mit einem der Drahtlos Netzwerke herstellen, wenn Sie sich physisch im Bereich der Abdeckung eines Netzwerks befinden.
 
-##### <a name="mixed-mode-wireless-networks"></a>Gemischte\-Modus drahtlosen Netzwerken
+##### <a name="mixed-mode-wireless-networks"></a>Gemischte @ no__t-0mode-Drahtlos Netzwerke
 
-Alternativ können Sie davon ausgehen Sie, dass Ihr Netzwerk sind eine Mischung von wireless-Computer und Geräte, die verschiedene Sicherheitsstandards zu unterstützen. Vielleicht haben einige ältere Computer Drahtlosadapter, mit denen nur WPA können\-Enterprise, während neuere Geräte, die eine stärkere WPA2 verwenden können\-Enterprise-Standard.
+Angenommen, Ihr Netzwerk verfügt über eine Mischung aus drahtlosen Computern und Geräten, die verschiedene Sicherheitsstandards unterstützen. Möglicherweise haben einige ältere Computer drahtlose Adapter, die nur WPA @ no__t-0enter Prise verwenden können, während neuere Geräte den stärkeren WPA2 @ no__t-1enter Prise Standard verwenden können.
 
-Sie können zwei verschiedene Profile erstellen, die die gleiche SSID und die nahezu identische Einstellungen für Konnektivität und Sicherheit zu verwenden.
+Sie können zwei verschiedene Profile erstellen, die die gleiche SSID und nahezu identische Konnektivitätseinstellungen und Sicherheitseinstellungen verwenden.
 
-Sie können die Drahtlosauthentifizierung WPA2 festlegen, in einem Profil\-Enterprise mit AES und dem anderen Profil können Sie angeben, dass WPA\-Enterprise und TKIP.
+In einem Profil können Sie die drahtlose Authentifizierung auf WPA2 @ no__t-0enter Prise mit AES festlegen. im anderen Profil können Sie WPA @ no__t-1enter Prise mit TKIP angeben.
 
-Dies wird auch bezeichnet als eine gemischte\-im Modus für Bereitstellungen, und sie können Sie Computer unterschiedliche Typen und wireless-Funktionen auf das gleiche drahtlose Netzwerk freigeben.
+Dies wird häufig als gemischte @ no__t-0mode-Bereitstellung bezeichnet und ermöglicht Computern mit unterschiedlichen Typen und drahtlosen Funktionen das Freigeben desselben drahtlos Netzwerks.
 
-### <a name="network-policy-server-nps"></a>Netzwerkrichtlinienserver \(NPS\)
-NPS ermöglicht Ihnen das Erstellen und Durchsetzen von Netzwerkzugriffsrichtlinien für die Anforderung von Verbindungsauthentifizierung und Autorisierung.
+### <a name="network-policy-server-nps"></a>Netzwerk Richtlinien Server-\(nps @ no__t-1
+Mithilfe von NPS können Sie Netzwerk Zugriffsrichtlinien für die Authentifizierung und Autorisierung von Verbindungsanforderungen erstellen und erzwingen.
 
-Wenn Sie NPS als RADIUS-Server verwenden, konfigurieren Sie Netzwerkzugriffsserver, z. B. drahtlose Zugriffspunkte als RADIUS-Clients in NPS. Außerdem konfigurieren Sie die Netzwerkrichtlinien, die NPS verwendet, um auf Clients zu authentifizieren und autorisieren die eigenen verbindungsanforderungen an.  
+Wenn Sie NPS als RADIUS-Server verwenden, konfigurieren Sie Netzwerk Zugriffs Server, z. b. drahtlos Zugriffspunkte, als RADIUS-Clients in NPS. Außerdem konfigurieren Sie die Netzwerk Richtlinien, die NPS verwendet, um Zugriffs Clients zu authentifizieren und deren Verbindungsanforderungen zu autorisieren.  
 
-### <a name="wireless-client-computers"></a>Drahtlose Clientcomputer
-In diesem Handbuch sind drahtlose Clientcomputer, Computer und andere Geräte verfügen, die über Adapter für IEEE 802.11-Drahtlosnetzwerke und Windows-Client oder Windows Server-Betriebssysteme ausgeführt werden.
+### <a name="wireless-client-computers"></a>Drahtlose Client Computer
+Im Rahmen dieses Handbuchs sind drahtlose Client Computer Computer und andere Geräte, die mit IEEE 802,11-drahtlos Netzwerkadaptern ausgestattet sind und auf denen Windows-Client-oder Windows Server-Betriebssysteme ausgeführt werden.
 
-#### <a name="server-computers-as-wireless-clients"></a>Server-Computer als drahtlose clients
+#### <a name="server-computers-as-wireless-clients"></a>Server Computer als drahtlose Clients
 
-Standardmäßig ist die Funktionalität für drahtlose 802.11 auf Computern deaktiviert, die Windows Server ausgeführt werden.
+Standardmäßig ist die Funktionalität für 802,11 Wireless auf Computern, auf denen Windows Server ausgeführt wird, deaktiviert.
 
-Um drahtlose Verbindungen auf Computern mit Serverbetriebssystemen zu aktivieren, müssen Sie installieren und aktivieren Sie die w-LAN \(WLAN\) mithilfe von Windows PowerShell oder das Hinzufügen von Rollen und Features-Assistenten in Server-Service-Funktion -Manager.
+Um die drahtlose Konnektivität auf Computern zu ermöglichen, auf denen Server Betriebssysteme ausgeführt werden, müssen Sie das Wireless LAN \(wlan @ no__t-1-Dienst Feature mithilfe von Windows PowerShell oder dem Assistenten zum Hinzufügen von Rollen und Features in Server-Manager installieren und aktivieren.
 
-Bei der Installation der **WLAN-Dienst** Features des neuen Diensts **WLAN-Autokonfigurationsdienst** ist installiert **Services**. Wenn die Installation abgeschlossen ist, müssen Sie den Server neu starten.
+Wenn Sie das Feature des **Drahtlos-LAN-Diensts** installieren, wird die neue automatische Dienst- **WLAN-Konfiguration** in den- **Diensten**installiert. Wenn die Installation beendet ist, müssen Sie den Server neu starten.
 
-Nach dem Neustart des Servers, können Sie WLAN-Autokonfigurationsdienst zugreifen, wenn Sie auf **starten**, **Windows-Verwaltung**, und **Services**.
+Nachdem der Server neu gestartet wurde, können Sie auf die automatische WLAN-Konfiguration zugreifen, wenn Sie auf **Start**, **Windows-Verwaltungs Tools**und **Dienste**klicken.
 
-Nach der Installation und Server neu zu starten, der Dienst befindet sich im Status "beendet" als Starttyp des WLAN-Autokonfigurationsdienst **automatische**. Um den Dienst zu starten, doppelklicken Sie auf **WLAN-Autokonfigurationsdienst**. Auf der **allgemeine** auf **starten**, und klicken Sie dann auf **OK**.
+Nach der Installation und dem Neustart des Servers befindet sich der Dienst für die automatische WLAN-Konfiguration in einem beendeten Zustand mit dem Starttyp " **automatisch**". Um den Dienst zu starten, doppelklicken Sie auf **WLAN AutoConfig**. Klicken Sie auf der Registerkarte **Allgemein** auf **Start**, und klicken Sie dann auf **OK**.
 
-Der WLAN-Autokonfigurationsdienst listet Drahtlosadapter und verwaltet werden, sowohl für drahtlose Verbindungen als auch für das WLAN-Profilen, die Einstellungen enthalten, die für die Serverkonfiguration für die Verbindung mit einem drahtlosen Netzwerk erforderlich sind.
+Der Dienst für die automatische WLAN-Konfiguration listet drahtlose Adapter auf und verwaltet sowohl drahtlos Verbindungen als auch drahtlos Profile, die Einstellungen enthalten, die zum Konfigurieren des Servers für die Verbindung mit einem Drahtlos Netzwerk erforderlich sind.
 
-Einen Überblick über die Bereitstellung des funkzugriffs, finden Sie unter [drahtlosen Zugriff Bereitstellungsprozess](c-wireless-access-deploy-process.md).
+Einen Überblick über die Bereitstellung des drahtlos Zugriffs finden Sie unter [Bereitstellungs Prozess für drahtlos Zugriff](c-wireless-access-deploy-process.md).

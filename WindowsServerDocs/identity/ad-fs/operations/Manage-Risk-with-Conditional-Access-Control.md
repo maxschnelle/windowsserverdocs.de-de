@@ -7,28 +7,28 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 2c399467a8bb70e723a86618aa37fc54425f4e7d
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: e73cf77e9590496f0ff3f881fd8ac4556450b5f0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189047"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357760"
 ---
 # <a name="manage-risk-with-conditional-access-control"></a>Verwalten von Risiken mit der bedingten Zugriffssteuerung
 
 
 
 
--   [Wichtige Konzepte – bedingte Zugriffssteuerung in AD FS](../../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md#BKMK_1)
+-   [Schlüsselkonzepte: bedingte Zugriffs Steuerung in AD FS](../../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md#BKMK_1)
 
--   [Verwalten von Risiken mit der bedingten Zugriffssteuerung](../../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md#BKMK_2)
+-   [Verwalten von Risiken mit bedingtem Access Control](../../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md#BKMK_2)
 
-## <a name="BKMK_1"></a>Wichtige Konzepte – bedingte Zugriffssteuerung in AD FS
-Die allgemeine Funktion von AD FS ist ein Zugriffstoken ausstellen, die einen Satz von Ansprüchen enthält. Die Entscheidung, welche Ansprüche, die AD FS akzeptiert und gibt dann unterliegt Anspruchsregeln.
+## <a name="BKMK_1"></a>Schlüsselkonzepte: bedingte Zugriffs Steuerung in AD FS
+Die allgemeine Funktion von AD FS besteht darin, ein Zugriffs Token auszugeben, das einen Satz von Ansprüchen enthält. Die Entscheidung bezüglich der Ansprüche, die AD FS akzeptiert und dann Probleme behandelt, unterliegt den Anspruchs Regeln.
 
-Zugriffssteuerung in AD FS wird implementiert, mit der Ausstellung von Anspruchsregeln, die verwendet werden, um die Ausstellung eines Zulassungs- oder verweigerungsansprüche, der bestimmt, ob ein Benutzer oder eine Gruppe von Benutzern werden auf AD FS-gesicherte Ressourcen oder nicht zugreifen darf. Autorisierungsregeln können nur für Vertrauensstellungen der vertrauenden Seite festgelegt werden.
+Die Zugriffs Steuerung in AD FS wird mit Anspruchs Regeln für Ausstellungs Autorisierung implementiert, mit denen Zulassungs-oder Verweigerungs Ansprüche ausgegeben werden, die bestimmen, ob ein Benutzer oder eine Gruppe von Benutzern auf AD FS gesicherte Ressourcen zugreifen darf. Autorisierungsregeln können nur für Vertrauensstellungen der vertrauenden Seite festgelegt werden.
 
 |Regeloption|Regellogik|
 |---------------|--------------|
@@ -38,9 +38,9 @@ Zugriffssteuerung in AD FS wird implementiert, mit der Ausstellung von Anspruchs
 
 Weitere Informationen zu diesen Regeloptionen und zur Logik finden Sie unter [When to Use an Authorization Claim Rule](https://technet.microsoft.com/library/ee913560.aspx).
 
-In AD FS in Windows Server 2012 R2 wurde die Zugriffssteuerung durch mehrere Faktoren, einschließlich Benutzer, Gerät, Standort und Authentifizierungsdaten verbessert. Dies wird durch eine größere Vielfalt an für die Autorisierungsanspruchsregeln verfügbaren Anspruchstypen ermöglicht.  Das heißt, in den AD FS in Windows Server 2012 R2 können Sie erzwingen bedingte Zugriffssteuerung basierend auf Benutzer Benutzeridentität oder der Gruppenmitgliedschaft, Netzwerkadresse, Gerät (sei es Arbeitsplatz, Weitere Informationen finden Sie unter [Verbinden mit einem Arbeitsplatz von einem Gerät für SSO und nahtlose Second Factor Authentication Across Company Applications](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)), und der Authentifizierungsstatus (ob Multi-Factor Authentication (MFA) ausgeführt wurde).
+In AD FS in Windows Server 2012 R2 wurde die Zugriffs Steuerung durch mehrere Faktoren erweitert, einschließlich Benutzer-, Geräte-, Standort-und Authentifizierungsdaten. Dies wird durch eine größere Vielfalt an für die Autorisierungsanspruchsregeln verfügbaren Anspruchstypen ermöglicht.  Anders ausgedrückt: in AD FS in Windows Server 2012 R2 können Sie die bedingte Zugriffs Steuerung basierend auf der Benutzeridentität oder der Gruppenmitgliedschaft, dem Netzwerk Speicherort und dem Gerät (mit dem Arbeitsplatz Beitritt) erzwingen. Weitere Informationen finden Sie unter [Verbinden mit Workplace von einem beliebigen Gerät für SSO. und die nahtlose zweistufige Authentifizierung bei allen Unternehmensanwendungen](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)) und der Authentifizierungs Status (unabhängig davon, ob mehrstufige Authentifizierung (Multi-Factor Authentication, MFA) ausgeführt wurde).
 
-Bedingte Zugriffssteuerung in AD FS unter Windows Server 2012 R2, bietet die folgenden Vorteile:
+Die bedingte Zugriffs Steuerung in AD FS in Windows Server 2012 R2 bietet die folgenden Vorteile:
 
 -   Flexible und deutliche Autorisierungsrichtlinien pro Anwendung, wodurch der Zugriff basierend auf Benutzer, Gerät, Netzwerkadresse und Authentifizierungsstatus zugelassen oder verweigert werden kann
 
@@ -50,9 +50,9 @@ Bedingte Zugriffssteuerung in AD FS unter Windows Server 2012 R2, bietet die fol
 
 -   Umfassende Unterstützung von Anspruchssprachen und Windows PowerShell für erweiterte Szenarien der bedingten Zugriffssteuerung
 
--   Benutzerdefiniert (pro vertrauender Seite der Anwendung) Nachrichten "Zugriff verweigert". Weitere Informationen finden Sie unter [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx). Da diese Meldungen angepasst werden können, können Sie erläutern, warum einem Benutzer der Zugriff verweigert wird und außerdem die eigenständige Wartung dort vereinfachen, wo es möglich ist. Fordern Sie beispielsweise Benutzer dazu auf, eine Verbindung zwischen ihren Geräten und dem Arbeitsplatz herzustellen. Weitere Informationen finden Sie unter [Arbeitsplatzbeitritt von einem beliebigen Gerät für SSO und die nahtlose zweistufige Authentifizierung bei allen Unternehmensanwendungen](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
+-   Benutzerdefinierte Meldung "Zugriff verweigert" (pro Anwendung der vertrauenden Seite). Weitere Informationen finden Sie unter [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx). Da diese Meldungen angepasst werden können, können Sie erläutern, warum einem Benutzer der Zugriff verweigert wird und außerdem die eigenständige Wartung dort vereinfachen, wo es möglich ist. Fordern Sie beispielsweise Benutzer dazu auf, eine Verbindung zwischen ihren Geräten und dem Arbeitsplatz herzustellen. Weitere Informationen finden Sie unter [Arbeitsplatzbeitritt von einem beliebigen Gerät für SSO und die nahtlose zweistufige Authentifizierung bei allen Unternehmensanwendungen](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
 
-Die folgende Tabelle enthält Anspruchstypen in AD FS verfügbar unter Windows Server 2012 R2 für die Implementierung der bedingten Zugriffssteuerung verwendet werden soll.
+In der folgenden Tabelle sind alle in AD FS in Windows Server 2012 R2 verfügbaren Anspruchs Typen enthalten, die für die Implementierung der bedingten Zugriffs Steuerung verwendet werden können.
 
 |Anspruchstyp|Beschreibung|
 |--------------|---------------|
@@ -119,16 +119,16 @@ Die folgende Tabelle enthält Anspruchstypen in AD FS verfügbar unter Windows S
 |Kennwortaktualisierungs-URL|Zeigt die Webadresse des Kennwortaktualisierungsdiensts an|
 |Authentifizierungsmethodenreferenzen|Gibt alle Authentifizierungsmethoden an, die zum Authentifizieren des Benutzers verwendet werden|
 
-## <a name="BKMK_2"></a>Verwalten von Risiken mit der bedingten Zugriffssteuerung
+## <a name="BKMK_2"></a>Verwalten von Risiken mit bedingtem Access Control
 Mithilfe der verfügbaren Einstellungen können Risiken durch Implementierung der bedingten Zugriffssteuerung verwaltet werden.
 
 ### <a name="common-scenarios"></a>Allgemeine Szenarien
-Angenommen Sie, ein einfaches Szenario der Implementierung der bedingten Zugriffssteuerung auf Grundlage der Gruppenmitgliedschaftsdaten des Benutzers, für eine bestimmte Anwendung (relying Party Trust). Das heißt, Sie können einrichten eine ausstellungsautorisierungsregel auf Ihrem Verbundserver, die Benutzern ermöglicht, die einer bestimmten Gruppe, in der Active Directory gehören Domänenzugriff auf eine bestimmte Anwendung, die von AD FS geschützt ist.  Die ausführlichen Schritte (mithilfe der Benutzeroberfläche und Windows PowerShell) zum Implementieren dieses Szenarios finden Sie im [Handbuch mit exemplarischer Vorgehensweise: Verwalten von Risiken mit der bedingten Zugriffssteuerung](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md). Um die Schritte in dieser exemplarischen Vorgehensweise ausführen zu können, müssen Sie eine Lab-Umgebung einrichten und führen Sie die Schritte in [Einrichten der testumgebung für AD FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md).
+Stellen Sie sich z. b. ein einfaches Szenario für die Implementierung der bedingten Zugriffs Steuerung auf Grundlage der Gruppen Mitgliedschafts Daten eines Benutzers für eine bestimmte Anwendung (Vertrauensstellung der vertrauenden Seite) vor. Anders ausgedrückt: Sie können eine Ausstellungs Autorisierungs Regel auf dem Verbund Server einrichten, um Benutzern, die einer bestimmten Gruppe in Ihrer AD-Domäne angehören, Zugriff auf eine bestimmte Anwendung zu gewähren, die durch AD FS gesichert ist.  Ausführliche Anweisungen (über die Benutzeroberfläche und Windows PowerShell) zum Implementieren dieses Szenarios finden Sie in [exemplarischen Vorgehensweisen: Verwalten von Risiken mit bedingtem Access Control @ no__t-0. Um die Schritte in dieser exemplarischen Vorgehensweise ausführen zu können, müssen Sie eine Lab-Umgebung einrichten und die Schritte unter [Einrichten der Lab-Umgebung für AD FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)ausführen.
 
 ### <a name="advanced-scenarios"></a>Erweiterte Szenarien
-Weitere Beispiele für die Implementierung der bedingten Zugriffssteuerung in AD FS unter Windows Server 2012 R2: die folgenden
+Weitere Beispiele für die Implementierung der bedingten Zugriffs Steuerung in AD FS in Windows Server 2012 R2:
 
--   Lassen Sie den Zugriff auf eine Anwendung, die durch AD FS gesicherten, nur dann, wenn die Identität des Benutzers mit der MFA bestätigt wurde
+-   Gewähren Sie den Zugriff auf eine durch AD FS gesicherte Anwendung nur dann, wenn die Identität dieses Benutzers mit MFA bestätigt wurde.
 
     Sie können den folgenden Code verwenden:
 
@@ -139,7 +139,7 @@ Weitere Beispiele für die Implementierung der bedingten Zugriffssteuerung in AD
 
     ```
 
--   Lassen Sie den Zugriff auf eine Anwendung, die durch AD FS gesicherten, nur dann, wenn die zugriffsanforderung von einem aus dem Arbeitsplatz verbundenen Gerät an, das registriert wird, die dem Benutzer
+-   Gewähren Sie den Zugriff auf eine durch AD FS gesicherte Anwendung nur dann, wenn die Zugriffs Anforderung von einem mit dem Arbeitsplatz verbundenen Gerät stammt, das für den Benutzer registriert ist.
 
     Sie können den folgenden Code verwenden:
 
@@ -150,7 +150,7 @@ Weitere Beispiele für die Implementierung der bedingten Zugriffssteuerung in AD
 
     ```
 
--   Lassen Sie den Zugriff auf eine Anwendung, die durch AD FS gesicherten, nur dann, wenn die zugriffsanforderung ein aus dem Arbeitsplatz verbundenen Gerät an, das registriert wird, wird zu einem Benutzer stammt, dessen Identität mit der MFA bestätigt wurde
+-   Gewähren Sie den Zugriff auf eine durch AD FS gesicherte Anwendung nur dann, wenn die Zugriffs Anforderung von einem mit dem Arbeitsplatz verbundenen Gerät stammt, das für einen Benutzer registriert ist, dessen Identität mit der MFA bestätigt wurde.
 
     Sie können den folgenden Code verwenden:
 
@@ -162,7 +162,7 @@ Weitere Beispiele für die Implementierung der bedingten Zugriffssteuerung in AD
 
     ```
 
--   Ermöglichen Sie extranet-Zugriff auf eine Anwendung, die durch AD FS gesicherten, nur dann, wenn die zugriffsanforderung von einem Benutzer stammt, dessen Identität mit der MFA bestätigt wurde.
+-   Lassen Sie den Extranetzugriff auf eine durch AD FS gesicherte Anwendung nur zu, wenn die Zugriffs Anforderung von einem Benutzer stammt, dessen Identität mit der MFA bestätigt wurde.
 
     Sie können den folgenden Code verwenden:
 
@@ -175,8 +175,7 @@ Weitere Beispiele für die Implementierung der bedingten Zugriffssteuerung in AD
     ```
 
 ## <a name="see-also"></a>Siehe auch
-[Handbuch mit exemplarischer Vorgehensweise: Verwalten von Risiken mit der bedingten Zugriffssteuerung](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)
-[Einrichten der testumgebung für AD FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
+[Handbuch mit exemplarischer Vorgehensweise: Verwalten von Risiken mit bedingtem Access Control @ no__t-0 @ no__t-1[Einrichten der Lab-Umgebung für AD FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
 
 
 

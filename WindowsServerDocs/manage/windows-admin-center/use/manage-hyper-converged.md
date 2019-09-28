@@ -7,13 +7,13 @@ author: daniellee-msft
 ms.author: jol
 ms.date: 03/01/2019
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 5df035b448b80aa147067004c6a2f14aa03a9684
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.prod: windows-server
+ms.openlocfilehash: d692251e1ba0fef43e4eeee6f259f26f4347f3c0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869088"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356883"
 ---
 # <a name="manage-hyper-converged-infrastructure-with-windows-admin-center"></a>Verwalten der hyperkonvergierten Infrastruktur mit dem Windows Admin Center
 
@@ -157,7 +157,7 @@ Das Windows Admin Center für hyperkonvergierte Infrastrukturen hängt von den M
 
 Windows Admin Center ist ohne zusätzliche Kosten über Windows erhältlich.
 
-Sie können Windows Admin Center (als separater Download verfügbar) mit gültigen Lizenzen von Windows Server oder Windows 10 ohne zusätzliche Kosten verwenden. es ist unter einem ergänzenden Windows-EULA lizenziert.
+Sie können Windows Admin Center (als separater Download verfügbar) mit den gültigen Lizenzen für Windows Server oder Windows 10 ohne zusätzliche Kosten verwenden – es ist unter einer ergänzenden Windows-EULA (ENDBENUTZER-LIZENZVERTRAG) lizenziert.
 
 ### <a name="does-windows-admin-center-require-system-center"></a>Erfordert Windows Admin Center das System Center?
 
@@ -278,7 +278,7 @@ Sie können das virtuelle Netzwerk auch konfigurieren, wenn Sie einen virtuellen
 
 ![Überwachen der Sdn-Infrastruktur](../media/manage-hyper-converged/sdn-monitoring.png)
 
-## <a name="feedback"></a>Feedback
+## <a name="feedback"></a>Feedback senden
 
 Ihr Feedback ist alles! Der wichtigste Vorteil von häufigen Updates besteht darin, zu erfahren, was funktioniert und was verbessert werden muss. Im folgenden finden Sie einige Möglichkeiten, uns zu informieren, was Sie denken:
 

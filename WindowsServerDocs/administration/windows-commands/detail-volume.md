@@ -1,8 +1,8 @@
 ---
-title: Detail-volume
-description: 'Windows-Befehle Thema ***- '
+title: Detail Volume
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b7cae6dc9b82992b58c4f94801f90c0b7072492b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f8cd5889bfd2aea835cb64ef1a4076faee0f39b3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856921"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378466"
 ---
-# <a name="detail-volume"></a>Detail-volume
+# <a name="detail-volume"></a>Detail Volume
 
 
 
-Zeigt die Datenträger auf denen das aktuelle Volume befindet.
+Zeigt die Datenträger an, auf denen sich das aktuelle Volume befindet.
 
 ## <a name="syntax"></a>Syntax
 
@@ -34,17 +34,17 @@ detail volume
 
 ## <a name="remarks"></a>Hinweise
 
--   Ein Volume muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden. Verwenden der **wählen Volume** Befehl aus, wählen Sie ein Volume und verschiebt den Fokus auf sie.
--   Die volumedetails gelten nicht auf schreibgeschützten Volumes, z. B. eine DVD-ROM oder CD-ROM-Laufwerk.
+-   Ein Volume muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl **Volume auswählen** ein Volume aus, und verschieben Sie den Fokus auf das Volume.
+-   Die Volumedetails gelten nicht für schreibgeschützte Volumes, wie z. b. ein DVD-ROM-oder CD-ROM-Laufwerk.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um alle Datenträger angezeigt, in denen das aktuelle Volume befindet, geben Sie Folgendes ein:
+Um alle Datenträger anzuzeigen, in denen sich das aktuelle Volume befindet, geben Sie Folgendes ein:
 ```
 detail volume
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

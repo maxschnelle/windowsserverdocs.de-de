@@ -1,72 +1,72 @@
 ---
 title: Planung der Bereitstellung des BranchCache-Modus „Gehosteter Cache“
-description: Dieses Handbuch enthält Anweisungen zum Bereitstellen von BranchCache im Modus für gehostete Caches auf Computern unter Windows Server 2016 und Windows 10
+description: Dieses Handbuch enthält Anweisungen zum Bereitstellen von BranchCache im Modus "gehosteter Cache" auf Computern unter Windows Server 2016 und Windows 10.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: article
 ms.assetid: bc44a7db-f7a5-4e95-9d95-ab8d334e885f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: e7232f8732e7476b955115741b5582a585dc6068
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0fe55bc9971606559af652d592a91db7a89544a7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890681"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356371"
 ---
 # <a name="branchcache-hosted-cache-mode-deployment-planning"></a>Planung der Bereitstellung des BranchCache-Modus „Gehosteter Cache“
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Sie können in diesem Thema verwenden, zum Planen der Bereitstellung von BranchCache im Modus für gehostete Caches.
+Sie können dieses Thema verwenden, um die Bereitstellung von BranchCache im Modus "gehosteter Cache" zu planen.
 
 >[!IMPORTANT]
->Der gehosteten Cacheserver muss Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 ausgeführt werden.
+>Auf dem gehosteten Cache Server muss Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 ausgeführt werden.
 
-Bevor Sie den gehosteten Cacheserver bereitstellen, müssen Sie Folgendes planen:
+Bevor Sie den gehosteten Cache Server bereitstellen, müssen Sie die folgenden Elemente planen:
 
 - [Planen der grundlegenden Serverkonfiguration](#bkmk_basic)
 
-- [Zugriff auf den Plan-Domäne](#bkmk_domain)
+- [Planen des Domänen Zugriffs](#bkmk_domain)
 
-- [Planen Sie die Position und Größe des gehosteten Caches](#bkmk_cachelocation)
+- [Planen Sie den Speicherort und die Größe des gehosteten Caches.](#bkmk_cachelocation)
 
-- [Planen Sie die Freigabe, die die Inhaltsserver-Pakete, die zu kopierenden sind](#bkmk_package)
+- [Planen der Freigabe, in die die Inhalts Server Pakete kopiert werden sollen](#bkmk_package)
 
-- [Plan prehashing und Daten der paketerstellung auf Inhaltsserver](#bkmk_prehash)
+- [Planen von prähash-und Datenpaket Erstellung auf Inhalts Servern](#bkmk_prehash)
 
 ## <a name="bkmk_basic"></a>Planen der grundlegenden Serverkonfiguration
   
-Wenn Sie, zur Verwendung von eines vorhandenen Servers in der Zweigstelle als den gehosteten Cacheserver beabsichtigen, müssen Sie nicht diesen Schritt bei der Planung, ausgeführt werden, da der Computer ist bereits mit dem Namen und eine IP-Adresskonfiguration.
+Wenn Sie beabsichtigen, einen vorhandenen Server in Ihrer Zweigstelle als gehosteten Cache Server zu verwenden, müssen Sie diesen Planungsschritt nicht ausführen, da der Computer bereits mit einer IP-Adress Konfiguration benannt ist und über eine IP-Adress Konfiguration verfügt.
 
-Nachdem Sie Windows Server 2016 auf den gehosteten Cacheserver installieren, müssen Sie Umbenennen des Computers und zuweisen und konfigurieren eine statische IP-Adresse für den lokalen Computer.
+Nachdem Sie Windows Server 2016 auf dem gehosteten Cache Server installiert haben, müssen Sie den Computer umbenennen und eine statische IP-Adresse für den lokalen Computer zuweisen und konfigurieren.
 
 >[!NOTE]
->In diesem Handbuch wird der gehostete Cacheserver HCS1, mit dem Namen, aber Sie sollten einen Servernamen verwenden, der für Ihre Bereitstellung geeignet ist.
+>In diesem Handbuch heißt der gehostete Cache Server HCS1. Sie sollten jedoch einen Servernamen verwenden, der für Ihre Bereitstellung geeignet ist.
 
-## <a name="bkmk_domain"></a>Zugriff auf den Plan-Domäne
+## <a name="bkmk_domain"></a>Planen des Domänen Zugriffs
 
-Wenn Sie, zur Verwendung von eines vorhandenen Servers in der Zweigstelle als den gehosteten Cacheserver beabsichtigen müssen nicht Sie führen Sie diesen Schritt bei der Planung, es sei denn, der Computer derzeit nicht mit der Domäne verknüpft ist.
+Wenn Sie beabsichtigen, einen vorhandenen Server in Ihrer Zweigstelle als gehosteten Cache Server zu verwenden, müssen Sie diesen Planungsschritt nicht ausführen, es sei denn, der Computer ist derzeit nicht der Domäne beigetreten.
   
-Zum Anmelden an der Domäne der Computer muss ein Domänenmitgliedscomputer sein, und das Benutzerkonto muss vor der Anmeldung in AD DS erstellt werden. Darüber hinaus müssen Sie die der Beitritt zur Domäne mit einem Konto an, die die entsprechende Gruppe Mitglied ist.
+Wenn Sie sich bei der Domäne anmelden möchten, muss es sich bei dem Computer um einen Domänen Mitglieds Computer handeln, und das Benutzerkonto muss vor dem Anmeldeversuch in AD DS erstellt werden. Außerdem müssen Sie den Computer mit einem Konto, das über die entsprechende Gruppenmitgliedschaft verfügt, der Domäne hinzufügen.
 
-## <a name="bkmk_cachelocation"></a>Planen Sie die Position und Größe des gehosteten Caches
+## <a name="bkmk_cachelocation"></a>Planen Sie den Speicherort und die Größe des gehosteten Caches.
 
-HCS1 ermitteln Sie, in dem auf den gehosteten Cacheserver sollen den gehosteten Cache zu suchen. Entscheiden Sie beispielsweise die Festplatte, Datenträger und Speicherort des Ordners, in dem den Cache gespeichert werden sollen.
+Legen Sie auf HCS1 fest, wo der gehostete Cache Server den gehosteten Cache Server finden soll. Entscheiden Sie sich beispielsweise für die Festplatte, das Volume und den Speicherort des Ordners, in der der Cache gespeichert werden soll.
 
-Darüber hinaus entscheiden Sie, welcher Prozentsatz des Speicherplatzes, die Sie für den gehosteten Cache zuordnen möchten.
+Außerdem müssen Sie entscheiden, welcher Prozentsatz des Speicherplatzes für den gehosteten Cache belegt werden soll.
 
-## <a name="bkmk_package"></a>Planen Sie die Freigabe, die die Inhaltsserver-Pakete, die zu kopierenden sind
+## <a name="bkmk_package"></a>Planen der Freigabe, in die die Inhalts Server Pakete kopiert werden sollen
 
-Nachdem Sie auf der Inhaltsserver Datenpakete erstellt haben, müssen Sie diese über das Netzwerk auf eine Freigabe für den gehosteten Cacheserver kopieren.
+Nachdem Sie Datenpakete auf Ihren Inhalts Servern erstellt haben, müssen Sie Sie über das Netzwerk in eine Freigabe auf dem gehosteten Cache Server kopieren.
 
-Planen Sie den Ordner und Freigabeberechtigungen für den freigegebenen Ordner. Darüber hinaus, wenn der Inhaltsserver eine große Menge von Daten hosten und die Pakete, die Sie erstellen großer Dateien werden, den Kopiervorgang während der Off\ – Spitzenzeiten ausführen möchten Sie, damit Sie WAN-Bandbreite nicht von den Kopiervorgang während eines Zeitraums verarbeitet wird, wenn andere Personen verwenden müssen  die Bandbreite für den normalen Geschäftsbetrieb.
+Planen Sie den Speicherort des Ordners und die Freigabe Berechtigungen für den freigegebenen Ordner. Wenn Ihre Inhalts Server außerdem eine große Datenmenge hosten und die von Ihnen erstellten Pakete große Dateien sind, planen Sie die Ausführung des Kopiervorgangs außerhalb von \ –-Spitzenzeiten, damit die WAN-Bandbreite während einer Zeitspanne, in der andere Benutzer verwenden müssen, nicht durch den Kopiervorgang verbraucht wird.  die Bandbreite für den normalen Geschäftsbetrieb.
 
-## <a name="bkmk_prehash"></a>Plan prehashing und Daten der paketerstellung auf Inhaltsserver
+## <a name="bkmk_prehash"></a>Planen von prähash-und Datenpaket Erstellung auf Inhalts Servern
 
-Bevor Sie Inhalte auf der Inhaltsserver unterziehen, müssen Sie ermitteln, die Ordner und Dateien, die Inhalt enthalten, die Sie das Paket hinzufügen möchten. 
+Vor dem vorab Hash von Inhalten auf Ihren Inhalts Servern müssen Sie die Ordner und Dateien identifizieren, die Inhalte enthalten, die Sie dem Datenpaket hinzufügen möchten. 
 
-Darüber hinaus müssen Sie auf den lokalen Ordner an planen, in dem Sie die Datenpakete speichern können, bevor sie für den gehosteten Cacheserver kopiert werden.
+Außerdem müssen Sie den Speicherort des lokalen Ordners planen, in dem Sie die Datenpakete speichern können, bevor Sie Sie auf den gehosteten Cache Server kopieren.
 
-Mit diesem Handbuch finden Sie [BranchCache Hosted Cache-Modus-Bereitstellung](4-Bc-Hcm-Deployment.md).
+Informationen zum Fortsetzen dieses Handbuchs finden Sie unter [Bereitstellung des BranchCache-gehosteten Cache Modus](4-Bc-Hcm-Deployment.md).

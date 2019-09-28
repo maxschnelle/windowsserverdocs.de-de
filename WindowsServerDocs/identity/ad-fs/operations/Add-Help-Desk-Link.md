@@ -7,22 +7,22 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: fb186c3ba5cfb3acb9bfd0c3139b09b992fb8863
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 1673e6ee6357a9d59e8ac5891625d453bb434088
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190210"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358464"
 ---
 # <a name="add-help-desk-link"></a>Hinzufügen eines Helpdesklinks 
 
 
-## <a name="to-add-a-help-desk-link"></a>Hinzufügen einer Helpdesklinks  
-Helpdesklinks hinzufügen, die auf die Anmeldeseite angezeigt wird\-auf der Seite verwenden Sie die folgenden Windows PowerShell-Cmdlets und Syntax.  
+## <a name="to-add-a-help-desk-link"></a>So fügen Sie einen Helpdesk-Link hinzu  
+Zum Hinzufügen des helpdesklinks, der auf der Seite Sign @ no__t-0in angezeigt wird, verwenden Sie das folgende Windows PowerShell-Cmdlet und die folgende Syntax.  
 
-![Fügen Sie beim Helpdesk](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom2.png)
+![Helpdesk hinzufügen](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom2.png)
   
 
 `Set-AdfsGlobalWebContent -HelpDeskLink https://fs1.contoso.com/help/ -HelpDeskLinkText Help`  
@@ -33,4 +33,4 @@ Helpdesklinks hinzufügen, die auf die Anmeldeseite angezeigt wird\-auf der Seit
 
 
 ## <a name="additional-references"></a>Weitere Verweise 
-[AD FS-Anmeldung Benutzeranpassung](AD-FS-user-sign-in-customization.md)  
+[AD FS Anpassung der Benutzeranmeldung](AD-FS-user-sign-in-customization.md)  

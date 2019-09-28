@@ -4,17 +4,17 @@ description: Dieses Thema ist Teil des Handbuchs Bereitstellen von Server Zertif
 manager: dougkim
 ms.topic: article
 ms.assetid: a1b5fa23-9cb1-4c32-916f-2d75f48b42c7
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
 ms.date: 07/19/2018
-ms.openlocfilehash: 9dbe14bec1c39ab5b967276c4faf3e9fc5a9aae3
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.openlocfilehash: 335efc4fae1f12f2af8443e91c67ff6ba936edb0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546534"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356213"
 ---
 # <a name="copy-the-ca-certificate-and-crl-to-the-virtual-directory"></a>Kopieren des Zertifizierungsstellen Zertifikats und der CRL in das virtuelle Verzeichnis
 
@@ -30,15 +30,15 @@ Um dieses Verfahren auszuführen, müssen Sie Mitglied der Gruppe " **Domänen-A
   
     - Geben Sie `certutil -crl` ein, und drücken Sie dann die EINGABETASTE.  
 
-    - Wenn Sie das CA1-Zertifikat in die Dateifreigabe auf dem Webserver kopieren möchten `copy C:\Windows\system32\certsrv\certenroll\*.crt \\WEB1\pki`, geben Sie ein, und drücken Sie dann die EINGABETASTE.  
+    - Geben Sie `copy C:\Windows\system32\certsrv\certenroll\*.crt \\WEB1\pki` ein, und drücken Sie dann die EINGABETASTE, um das CA1-Zertifikat in die Dateifreigabe auf dem Webserver zu kopieren.  
     
-    - Um die Zertifikat Sperr Listen auf die Dateifreigabe auf dem Webserver zu kopieren, geben `copy C:\Windows\system32\certsrv\certenroll\*.crl \\WEB1\pki`Sie ein, und drücken Sie dann die EINGABETASTE.  
+    - Geben Sie `copy C:\Windows\system32\certsrv\certenroll\*.crl \\WEB1\pki` ein, und drücken Sie dann die EINGABETASTE, um die Zertifikat Sperr Listen auf den Webserver in die Dateifreigabe zu kopieren.  
   
-2.  Geben `pkiview.msc`Sie ein, und drücken Sie dann die EINGABETASTE, um zu überprüfen, ob Ihre CDP-und AIA-Erweiterungs Standorte ordnungsgemäß Die PKI-MMC für PKIView Enterprise wird geöffnet.  
+2.  Geben Sie `pkiview.msc` ein, und drücken Sie dann die EINGABETASTE, um zu überprüfen, ob Ihre CDP-und AIA-Erweiterungs Standorte ordnungsgemäß konfiguriert Die PKI-MMC für PKIView Enterprise wird geöffnet.  
   
 3.  Klicken Sie im linken Bereich auf den Namen Ihrer Zertifizierungsstelle.<p>Wenn Ihr ZS-Name beispielsweise Corp-CA1-ca lautet, klicken Sie auf **Corp-CA1-ca**. 
 
-4. Überprüfen Sie in der Spalte Status des Ergebnis Bereichs, ob die Werte für Folgendes angezeigtwerden:
+4. Überprüfen Sie in der Spalte Status des Ergebnis Bereichs, ob die Werte für **Folgendes angezeigt werden**:
 
     - **Zertifizierungsstellen Zertifikat**
     - **AIA-Speicherort #1**

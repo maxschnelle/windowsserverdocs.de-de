@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 247381b35a038627b5d8c91ac4dda0cc4fab6195
-ms.sourcegitcommit: ccec91c1d32a978159f9b8bb5e39ead5805c26c4
+ms.openlocfilehash: 720c20437f7e6da875b809b2816f0d4df5d210d6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71143776"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359189"
 ---
 # <a name="ad-fs-requirements"></a>AD FS-Anforderungen
 
@@ -185,7 +185,7 @@ AD FS erstellt Sitzungs\-basierte und persistente Cookies, die auf Client Comput
 ## <a name="BKMK_extranet"></a>Extranetanforderungen  
 Um Extranetzugriff auf den AD FS-Dienst bereitzustellen, müssen Sie den webanwendungsproxy-Rollen Dienst als Extranet-Rolle bereitstellen, die Authentifizierungsanforderungen auf sichere Weise für den AD FS-Dienst proamt. Dies ermöglicht die Isolierung der AD FS Dienst Endpunkte sowie die Isolierung aller Sicherheitsschlüssel \(, wie z. b. Tokensignaturzertifikate\) von Anforderungen, die aus dem Internet stammen. Darüber hinaus erfordern Features wie die vorläufige Konto Sperre für das Extranet die Verwendung des webanwendungsproxys. Weitere Informationen zum webanwendungsproxy finden Sie unter [webanwendungsproxy](https://technet.microsoft.com/library/dn584107.aspx).  
   
-Wenn\-Sie einen Drittanbieter Proxy für den Extranetzugriff verwenden möchten, muss der Proxy dieses Dritt\-Anbieters das in [http:\/\/\/Download.Microsoft.com Download\/ definierte Protokoll unterstützen. 9\/5E\/95ef66af\-9026\-\-4bb0A41D\-A4F81802D92C%\/5bms adfspip% 5 d. pdf.\-\/](https://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-ADFSPIP%5d.pdf)  
+Wenn Sie einen dritten @ no__t-0party-Proxy für den Extranetzugriff verwenden möchten, dieser dritte @ no__t-1party-Proxy muss das Protokoll unterstützen, das in [http: @no__t -3\/download.Microsoft.com @ no__t-5download @ no__t-69 @ no__t-75 @ no__t-8E @ no__t-995ef66af @ no__t-109026 @ no__t-114 BB0 @ no__t-12a41d @ no__t-13a4f81802d92c @ no__t-14%5bMS\-5ADFSPIP%5D.PDF](https://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-ADFSPIP%5d.pdf)definiert ist.  
   
 ## <a name="BKMK_7"></a>Netzwerk Anforderungen  
 Die ordnungsgemäß Konfigurierung der folgenden Netzwerkdienste ist wichtig für eine erfolgreiche Bereitstellung von AD FS in Ihrer Organisation:  

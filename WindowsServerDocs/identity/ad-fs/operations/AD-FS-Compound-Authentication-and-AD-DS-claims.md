@@ -6,14 +6,14 @@ ms.author: billmath
 manager: femila
 ms.date: 09/07/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b67177c8bf0ce9869aa51c3012d57f3208ac02f5
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 78db6f8b6961cecea55b8d371e9abf952cafdab3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866286"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358667"
 ---
 # <a name="compound-authentication-and-ad-ds-claims-in-ad-fs"></a>Zusammengesetzte Authentifizierung und AD DS-Ansprüchen in AD FS
 Windows Server 2012 verbessert die Kerberos-Authentifizierung durch die Einführung der Verbund Authentifizierung.  Die Verbund Authentifizierung ermöglicht es, dass eine Kerberos-TGS-Anforderung (Ticket Gewährung Service) zwei Identitäten umfasst: 
@@ -40,7 +40,7 @@ Sie können eine umfassendere Zugriffs Steuerung für Verbund Anwendungen mithil
 ## <a name="steps-for-configuring-ad-fs-in-windows-server-2012-r2"></a>Schritte zum Konfigurieren von AD FS in Windows Server 2012 R2
 Verwenden Sie die folgenden Schritte zum Konfigurieren der Verbund Authentifizierung und der Ansprüche. 
 
-### <a name="step-1--enable-kdc-support-for-claims-compound-authentication-and-kerberos-armoring-on-the-default-domain-controller-policy"></a>Schritt 1:  Aktivieren der KDC-Unterstützung für Ansprüche, Verbund Authentifizierung und Kerberos armoring in der Standard Domänen Controller-Richtlinie
+### <a name="step-1--enable-kdc-support-for-claims-compound-authentication-and-kerberos-armoring-on-the-default-domain-controller-policy"></a>Schritt 1:  Aktivieren der KDC-Unterstützung für Ansprüche, Verbund Authentifizierung und Kerberos armoring in der Standard Domänen Controller-Richtlinie
 1.  Wählen Sie in Server-Manager Tools, **Gruppenrichtlinie Verwaltung**aus.
 2.  Navigieren Sie zur **Standard Domänen Controller Richtlinie**, klicken Sie mit der rechten Maustaste, und wählen Sie **Bearbeiten**aus.
 ![Gruppenrichtlinie Verwaltung](media/AD-FS-Compound-Authentication-and-AD-DS-claims/gpmc1.png)
@@ -62,7 +62,7 @@ Verwenden Sie die folgenden Schritte zum Konfigurieren der Verbund Authentifizie
 ### <a name="step-3-ensure-the-ad-fs-servers-have-been-updated"></a>Schritt 3: Stellen Sie sicher, dass die AD FS Server aktualisiert wurden.
 Sie müssen sicherstellen, dass die folgenden Updates auf dem AD FS-Server installiert sind.
 
-|Update|Beschreibung|
+|Update/Aktualisieren|Beschreibung|
 |----- | ----- |
 |[KB2919355](https://www.microsoft.com/download/details.aspx?id=42335)|Kumulatives Sicherheitsupdate (umfasst KB2919355, KB2932046, KB2934018, KB2937592, KB2938439)|
 |[KB2959977](https://www.microsoft.com/download/details.aspx?id=42530)|Update für Server 2012 R2|
@@ -86,7 +86,7 @@ Set-AdfsGlobalAuthenticationPolicy -PrimaryIntranetAuthenticationProvider 'Windo
 >In einer wid-basierten Farm muss der PowerShell-Befehl auf dem primären AD FS Server ausgeführt werden.
 >In einer SQL-basierten Farm kann der PowerShell-Befehl auf jedem AD FS Server ausgeführt werden, der Mitglied der Farm ist.
 
-### <a name="step-5--add-the-claim-description-to-ad-fs"></a>Schritt 5:  Fügen Sie die Anspruchs Beschreibung AD FS
+### <a name="step-5--add-the-claim-description-to-ad-fs"></a>Schritt 5:  Fügen Sie die Anspruchs Beschreibung AD FS
 1. Fügen Sie der Farm die folgende Anspruchs Beschreibung hinzu. Diese Anspruchs Beschreibung ist in ADFS 2012 R2 standardmäßig nicht vorhanden und muss manuell hinzugefügt werden.
 2. Klicken Sie in AD FS Verwaltung unter **Dienst**mit der rechten Maustaste auf **Anspruchs Beschreibung** , und wählen Sie **Anspruchs Beschreibung hinzufügen** aus.
 3. Geben Sie in der Anspruchs Beschreibung die folgenden Informationen ein:
@@ -108,7 +108,7 @@ Set-AdfsGlobalAuthenticationPolicy -PrimaryIntranetAuthenticationProvider 'Windo
 >In einer wid-basierten Farm muss der PowerShell-Befehl auf dem primären AD FS Server ausgeführt werden.
 >In einer SQL-basierten Farm kann der PowerShell-Befehl auf jedem AD FS Server ausgeführt werden, der Mitglied der Farm ist.
 
-### <a name="step-6--enable-the-compound-authentication-bit-on-the-msds-supportedencryptiontypes-attribute"></a>Schritt 6:  Aktivieren Sie das Verbund Authentifizierungs Bit für das msDS-supportedencryptiontypes-Attribut.
+### <a name="step-6--enable-the-compound-authentication-bit-on-the-msds-supportedencryptiontypes-attribute"></a>Schritt 6:  Aktivieren Sie das Verbund Authentifizierungs Bit für das msDS-supportedencryptiontypes-Attribut.
 
 1.  Aktivieren Sie das Verbund Authentifizierungs Bit für das msDS-supportedencryptiontypes-Attribut im Konto, das Sie zum Ausführen des AD FS Dienstanbieter mit dem PowerShell-Cmdlet " **Set-ADServiceAccount** " angegeben haben.  
 
@@ -126,7 +126,7 @@ Set-ADServiceAccount -Identity “ADFS Service Account” -CompoundIdentitySuppo
 >**Lösung**: Temporäres Festlegen von compoundidentitysupported auf $false. Dieser Schritt bewirkt, dass ADFS das Ausstellen von windowsdevicegroup-Ansprüchen beendet. Set-ADServiceAccount-Identity "ADFS-Dienst Konto"-compoundidentitysupported: $false das GMSA auf dem neuen Server installieren und compoundidentitysupported wieder auf $true aktivieren.
 Wenn Sie compoundidentitysupported deaktivieren und dann erneut aktivieren, muss der ADFS-Dienst nicht neu gestartet werden.
 
-### <a name="step-7-update-the-ad-fs-claims-provider-trust-for-active-directory"></a>Schritt 7: Aktualisieren Sie die AD FS Anspruchs Anbieter-Vertrauensstellung für Active Directory
+### <a name="step-7-update-the-ad-fs-claims-provider-trust-for-active-directory"></a>Schritt 7: Aktualisieren Sie die AD FS Anspruchs Anbieter-Vertrauensstellung für Active Directory
 
 1. Aktualisieren Sie die AD FS Anspruchs Anbieter-Vertrauensstellung für Active Directory, um die folgende "Pass-Through"-Anspruchs Regel für den Anspruch "windowsdevicegroup" einzuschließen.
 2.  Klicken Sie in **AD FS Verwaltung**auf **Anspruchs Anbieter** -Vertrauens Stellungen, und klicken Sie im rechten Bereich auf **Active Directory** , und wählen Sie **Anspruchs Regeln bearbeiten**aus.
@@ -148,7 +148,7 @@ Wenn Sie compoundidentitysupported deaktivieren und dann erneut aktivieren, muss
 ## <a name="steps-for-configuring-ad-fs-in-windows-server-2016"></a>Schritte zum Konfigurieren von AD FS in Windows Server 2016
 Im folgenden werden die Schritte zum Konfigurieren der Verbund Authentifizierung auf AD FS für Windows Server 2016 ausführlich erläutert.
 
-### <a name="step-1--enable-kdc-support-for-claims-compound-authentication-and-kerberos-armoring-on-the-default-domain-controller-policy"></a>Schritt 1:  Aktivieren der KDC-Unterstützung für Ansprüche, Verbund Authentifizierung und Kerberos armoring in der Standard Domänen Controller-Richtlinie
+### <a name="step-1--enable-kdc-support-for-claims-compound-authentication-and-kerberos-armoring-on-the-default-domain-controller-policy"></a>Schritt 1:  Aktivieren der KDC-Unterstützung für Ansprüche, Verbund Authentifizierung und Kerberos armoring in der Standard Domänen Controller-Richtlinie
 1.  Wählen Sie in Server-Manager Tools, **Gruppenrichtlinie Verwaltung**aus.
 2.  Navigieren Sie zur **Standard Domänen Controller Richtlinie**, klicken Sie mit der rechten Maustaste, und wählen Sie **Bearbeiten**aus.
 3.  Erweitern Sie auf der **Gruppenrichtlinienverwaltungs-Editor**unter **Computer Konfiguration**nacheinander **Richtlinien**, **Administrative Vorlagen**, **System**und **KDC**.
@@ -197,7 +197,7 @@ Set-ADServiceAccount -Identity “ADFS Service Account” -CompoundIdentitySuppo
 >**Lösung**: Temporäres Festlegen von compoundidentitysupported auf $false. Dieser Schritt bewirkt, dass ADFS das Ausstellen von windowsdevicegroup-Ansprüchen beendet. Set-ADServiceAccount-Identity "ADFS-Dienst Konto"-compoundidentitysupported: $false das GMSA auf dem neuen Server installieren und compoundidentitysupported wieder auf $true aktivieren.
 Wenn Sie compoundidentitysupported deaktivieren und dann erneut aktivieren, muss der ADFS-Dienst nicht neu gestartet werden.
 
-### <a name="step-5-update-the-ad-fs-claims-provider-trust-for-active-directory"></a>Schritt 5: Aktualisieren Sie die AD FS Anspruchs Anbieter-Vertrauensstellung für Active Directory
+### <a name="step-5-update-the-ad-fs-claims-provider-trust-for-active-directory"></a>Schritt 5: Aktualisieren Sie die AD FS Anspruchs Anbieter-Vertrauensstellung für Active Directory
 
 1. Aktualisieren Sie die AD FS Anspruchs Anbieter-Vertrauensstellung für Active Directory, um die folgende "Pass-Through"-Anspruchs Regel für den Anspruch "windowsdevicegroup" einzuschließen.
 2.  Klicken Sie in **AD FS Verwaltung**auf **Anspruchs Anbieter** -Vertrauens Stellungen, und klicken Sie im rechten Bereich auf **Active Directory** , und wählen Sie **Anspruchs Regeln bearbeiten**aus.
@@ -207,14 +207,14 @@ Wenn Sie compoundidentitysupported deaktivieren und dann erneut aktivieren, muss
 6.  Klicken Sie auf **Fertig stellen**.  Klicken **Sie** auf übernehmen und **OK**. 
 
 
-### <a name="step-6-on-the-relying-party-where-the-windowsdevicegroup-claims-are-expected-add-a-similar-pass-through-or-transform-claim-rule"></a>Schritt 6: Fügen Sie auf der vertrauenden Seite, in der die "windowsdevicegroup"-Ansprüche erwartet werden, eine ähnliche "Pass-Through"-oder "Transform"-Anspruchs Regel hinzu.
+### <a name="step-6-on-the-relying-party-where-the-windowsdevicegroup-claims-are-expected-add-a-similar-pass-through-or-transform-claim-rule"></a>Schritt 6: Fügen Sie auf der vertrauenden Seite, in der die "windowsdevicegroup"-Ansprüche erwartet werden, eine ähnliche "Pass-Through"-oder "Transform"-Anspruchs Regel hinzu.
 2. Klicken Sie in **AD FS Verwaltung**auf Vertrauens Stellungen der vertrauenden **Seite** , und klicken Sie im rechten Bereich mit der rechten Maustaste auf Ihre RP, und wählen Sie **Anspruchs Regeln bearbeiten**aus.
 3. Klicken Sie in den Ausstellungs **Transformationsregeln** auf **Regel hinzufügen**.
 4. Wählen Sie im **Assistenten zum Hinzufügen von Transformations Anspruchs Regeln** die **Option weiterleiten oder eingehenden Anspruch Filtern** aus, und klicken Sie auf **weiter**
 5. Fügen Sie einen anzeigen Amen hinzu, und wählen Sie **Windows-Gerätegruppe** aus der Dropdown-Datei **eingehender Anspruchstyp** aus.
 6. Klicken Sie auf **Fertig stellen**.  Klicken **Sie** auf übernehmen und **OK**.
 
-## <a name="validation"></a>Validierung
+## <a name="validation"></a>Überprüfung
 Erstellen Sie zum Überprüfen der Veröffentlichung von "windowsdevicegroup"-Ansprüchen mithilfe von .NET 4,6 eine Anwendung zum Testen von Ansprüchen. Mit WIF SDK 4,0.
 Konfigurieren Sie die Anwendung als vertrauende Seite in AD FS, und aktualisieren Sie Sie mit der Anspruchs Regel, wie in den obigen Schritten angegeben.
 Bei der Authentifizierung bei der Anwendung mit dem integrierten Windows-Authentifizierungs Anbieter von ADFS werden die folgenden Ansprüche eingefügt.

@@ -1,8 +1,8 @@
 ---
 title: nslookup ls
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6a11867ff2ec69b1ef938149ac485ff8827b58de
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: ecc419a72599b661865af6283821129a7021938a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436922"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373089"
 ---
 # <a name="nslookup-ls"></a>nslookup ls
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Listet Informationen für eine Domäne (DNS, Domain Name System).
+Listet Informationen für eine Domain Name System Domäne (DNS) auf.
 ## <a name="syntax"></a>Syntax
 ```
 ls [<Option>] <DNSDomain> [{[>] <FileName>|[>>] <FileName>}]
@@ -33,13 +33,13 @@ ls [<Option>] <DNSDomain> [{[>] <FileName>|[>>] <FileName>}]
 
 |    Parameter    |                                                                                                                                                                                                                                                                                                               Beschreibung                                                                                                                                                                                                                                                                                                                |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    <Option>     | Die folgende Tabelle enthält die gültige Optionen.<br /><br />--t: Listet alle Datensätze des angegebenen Typs. Eine Beschreibung der <querytype>, finden Sie unter **Setquerytype** in zusätzliche Verweise.<br />--a: Listet die Aliase der Computer in der DNS-Domäne. Dieser Parameter ist ein Synonym für **- t CNAME-Eintrag**<br />-: "d:" listet alle Einträge für die DNS-Domäne. Dieser Parameter ist ein Synonym für **- t ANY**<br />--h: Listet Informationen zu CPU und Betriebssystem für die DNS-Domäne. Dieser Parameter ist ein Synonym für **- t HINFO**<br />--s: bekannten Dienste von Computern in der DNS-Domäne aufgelistet. Dieser Parameter ist ein Synonym für **-t "wks" beginnen**. |
-|   <DNSDomain>   |                                                                                                                                                                                                                                                                                         Gibt die DNS-Domäne für die Sie Informationen möchten.                                                                                                                                                                                                                                                                                         |
-|   <FileName>    |                                                                                                                                                                                                                                 Gibt einen Dateinamen in dem die Ausgabe zu speichern. Sie können es verwenden, der größer als (>) und doppeltes größer als (>>) Zeichen, die die Ausgabe umgeleitet, auf die übliche Weise.                                                                                                                                                                                                                                  |
-| {help &#124; ?} |                                                                                                                                                                                                                                                                                          Zeigt eine kurze Zusammenfassung der **Nslookup** Unterbefehle.                                                                                                                                                                                                                                                                                           |
+|    <Option>     | In der folgenden Tabelle sind die gültigen Optionen aufgeführt.<br /><br />--t: Listet alle Datensätze des angegebenen Typs auf. Eine Beschreibung <querytype> finden Sie unter **SetQueryType** in "Weitere Verweise".<br />--a: Listet die Aliase von Computern in der DNS-Domäne auf. Dieser Parameter ist ein Synonym für **-t CNAME** .<br />--d: Listet alle Datensätze für die DNS-Domäne auf. Dieser Parameter ist ein Synonym für " **-t any** ".<br />--h: Listet die CPU-und Betriebssysteminformationen für die DNS-Domäne auf. Dieser Parameter ist ein Synonym für **-t hinfo** .<br />--s: listet bekannte Dienste von Computern in der DNS-Domäne auf. Dieser Parameter ist ein Synonym für **-t-WGs**. |
+|   <DNSDomain>   |                                                                                                                                                                                                                                                                                         Gibt die DNS-Domäne an, für die Sie Informationen wünschen.                                                                                                                                                                                                                                                                                         |
+|   <FileName>    |                                                                                                                                                                                                                                 Gibt einen Dateinamen an, in dem die Ausgabe gespeichert werden soll. Sie können die Zeichen "größer als" (>) und "Double größer als" (> >) verwenden, um die Ausgabe auf die übliche Weise umzuleiten.                                                                                                                                                                                                                                  |
+| {Help &#124; ?} |                                                                                                                                                                                                                                                                                          Zeigt eine kurze Zusammenfassung der **nslookup** -Unterbefehle an.                                                                                                                                                                                                                                                                                           |
 
 ## <a name="remarks"></a>Hinweise
-- Die Standardausgabe enthält, die Computernamen und die IP-Adressen. Bei der Ausgabe in eine Datei weitergeleitet wird, werden Nummernzeichen für alle 50 Datensätze, die vom Server empfangene gedruckt.
-  ## <a name="additional-references"></a>Zusätzliche Referenzen
-  [Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-  [Nslookup festgelegt Querytype](nslookup-set-querytype.md)
+- Die Standardausgabe enthält Computernamen und Ihre IP-Adressen. Wenn die Ausgabe an eine Datei weitergeleitet wird, werden für alle vom Server empfangenen 50-Datensätze Hash Marken ausgegeben.
+  ## <a name="additional-references"></a>Weitere Verweise
+  [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+  [nslookup Set QueryType](nslookup-set-querytype.md)

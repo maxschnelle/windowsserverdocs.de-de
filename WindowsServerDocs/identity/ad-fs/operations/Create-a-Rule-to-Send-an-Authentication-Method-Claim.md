@@ -7,169 +7,169 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 1109965d3a0045f9ebfa080380b9d7303209fce8
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 4efcae02b96904c9f869a5ed9e14eba161892b74
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66444994"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358156"
 ---
 # <a name="create-a-rule-to-send-an-authentication-method-claim"></a>Erstellen einer Regel zum Senden eines Authentifizierungsmethodenanspruchs
 
 
-Verwenden Sie entweder die **Send Group Membership als Ansprüche** Regelvorlage oder **Transformieren eines eingehenden Anspruchs** Regelvorlage zum Senden eines authentifizierungsanspruchs-Methode. Die abhängige Partei kann mithilfe ein authentifizierungsanspruchs-Methode bestimmen den Mechanismus für die Benutzeranmeldung, die der Benutzer verwendet wird, zu authentifizieren und Abrufen von Ansprüchen aus Active Directory Federation Services \(AD FS\). Sie können auch die Authentifizierungsmechanismuszusicherung-Funktion von Active Directory Federation Services \(AD FS\) in Windows Server 2012 R2 als Eingabe zum Generieren der Methode authentifizierungsansprüchen für Situationen, in dem die vertrauende Seite Sie möchte die Zugriffsebene zu ermitteln, die auf einer Smartcard-Anmeldungen basiert. Entwickler kann beispielsweise verschiedene Zugriffsebenen Verbundbenutzer, die von der Anwendung der vertrauenden Seite zuweisen. Die Ebenen des Zugriffs hängen davon ab, ob der Benutzer mit ihren Benutzer und Kennwort-Anmeldeinformationen, und ihre Smartcards nicht anmelden.  
+Sie können entweder die Regel Vorlage " **Gruppenmitgliedschaft als Ansprüche senden** " oder " **eingehende Anspruchs Vorlage transformieren** " verwenden, um einen Authentifizierungsmethoden Anspruch zu senden. Die vertrauende Seite kann mithilfe eines Authentifizierungsmethoden Anspruchs den Anmelde Mechanismus bestimmen, den der Benutzer zum Authentifizieren und Abrufen von Ansprüchen von Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1 verwendet. Sie können auch das Authentifizierungsmechanismus-Sicherungs Feature von Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1 in Windows Server 2012 R2 als Eingabe verwenden, um Authentifizierungsmethoden Ansprüche für Situationen zu generieren, in denen die vertrauende Seite bestimmen möchte. die Zugriffsebene, die auf Smartcardanmeldungen basiert. Ein Entwickler kann beispielsweise unterschiedliche Zugriffsebenen für Verbund Benutzer der Anwendung der vertrauenden Seite zuweisen. Die Zugriffsebenen basieren darauf, ob sich die Benutzer mit Ihren Benutzernamen-und Kennwort-Anmelde Informationen anmelden (im Gegensatz zu ihren Smartcards).  
 
-Verwenden Sie je nach den Anforderungen Ihrer Organisation eine der folgenden Verfahren aus:  
+Verwenden Sie je nach den Anforderungen Ihrer Organisation eines der folgenden Verfahren:  
 
--   Erstellen Sie mit dieser Regel mithilfe der **Send Group Membership als Ansprüche** Regelvorlage \- können Sie diese Regelvorlage verwenden, wenn Sie möchten, dass die Gruppe, die Sie in dieser Vorlage angeben, letztlich bestimmen, welche Authentifizierungsmethode Anspruch ausstellen.  
+-   Erstellen Sie diese Regel mithilfe der Regel Vorlage " **Sende Gruppenmitgliedschaft als Ansprüche** " \- Sie können diese Regel Vorlage verwenden, wenn Sie möchten, dass die von Ihnen in dieser Vorlage angegebene Gruppe letztendlich festlegt, welche Authentifizierungsmethode ausgegeben werden soll.  
 
--   Erstellen Sie mit dieser Regel mithilfe der **Transformieren eines eingehenden Anspruchs** Regelvorlage \- können Sie diese Regelvorlage verwenden, wenn Sie möchten, um die vorhandene Authentifizierungsmethode in eine neue Authentifizierungsmethode zu ändern, die mit einem Produkt funktioniert nicht erkannt, die standard-Methode Ansprüche für AD FS-Authentifizierung.  
+-   Erstellen Sie diese Regel mithilfe der Regel Vorlage zum **Transformieren eines eingehenden Anspruchs** \- Sie können diese Regel Vorlage verwenden, wenn Sie die vorhandene Authentifizierungsmethode in eine neue Authentifizierungsmethode ändern möchten, die mit einem nicht erkannten Produkt funktioniert. Standard AD FS Authentifizierungsmethoden Ansprüche.  
 
 
 
-## <a name="to-create-by-using-the-send-group-membership-as-claims-rule-template-on-a-relying-party-trust-in-windows-server-2016"></a>So erstellen Sie mit das Versenden der Gruppenmitgliedschaft als Ansprüche Regelvorlage auf a Relying Party Trust in Windows Server 2016 
+## <a name="to-create-by-using-the-send-group-membership-as-claims-rule-template-on-a-relying-party-trust-in-windows-server-2016"></a>So erstellen Sie mithilfe der Regel Vorlage "Gruppenmitgliedschaft als Ansprüche senden" für eine Vertrauensstellung der vertrauenden Seite in Windows Server 2016 
 
-1.  Klicken Sie im Server-Manager **Tools**, und wählen Sie dann **AD FS-Verwaltung**.  
+1.  Klicken Sie in Server-Manager **auf Extras**, und wählen Sie dann **AD FS Verwaltung**aus.  
 
-2.  In der Konsolenstruktur unter **AD FS**, klicken Sie auf **Vertrauensstellungen für vertrauende Seiten**. 
+2.  Klicken Sie in der Konsolen Struktur unter **AD FS**auf Vertrauens Stellungen der vertrauenden **Seite**. 
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule9.PNG)  
 
-3.  Rechts\-klicken Sie auf der ausgewählten Vertrauensstellung, und klicken Sie dann auf **Anspruchsausstellungsrichtlinie bearbeiten**.
+3.  Klicken\-Sie mit der rechten Maustaste auf die ausgewählte Vertrauensstellung, und klicken Sie dann auf **Richtlinie**zum
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule10.PNG)   
 
-4.  In der **Anspruchsausstellungsrichtlinie bearbeiten** Dialogfeld **Ausstellungstransformationsregeln** klicken Sie auf **Regel hinzufügen** um die Regel-Assistenten zu starten. 
+4.  Klicken Sie im Dialogfeld **Richtlinie für Anspruchs Ausstellung bearbeiten** unter Ausstellungs **Transformationsregeln** auf **Regel hinzufügen** , um den Regel-Assistenten zu starten. 
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule11.PNG)    
 
-5.  Auf der **Regelvorlage auswählen** Seite **anspruchsregelvorlage**Option **Senden der Gruppenmitgliedschaft als Anspruch** aus der Liste aus, und klicken Sie dann auf **Weiter**.  
+5.  Wählen Sie auf der Seite **Regel Vorlage auswählen** unter **Anspruchs Regel Vorlage**die Option **Gruppenmitgliedschaft als Anspruch senden** aus der Liste aus, und klicken Sie dann auf **weiter**.  
 ![Regel erstellen](media/Create-a-Rule-to-Send-Group-Membership-as-a-Claim/group3.PNG)      
 
-6.  Auf der **Regel konfigurieren** geben anspruchsregelname.  
+6.  Geben Sie auf der Seite **Regel konfigurieren** einen Anspruchs Regel Namen ein.  
 
-7.  Klicken Sie auf **Durchsuchen**, wählen Sie die Gruppe, deren Mitglieder erhalten diese Methode authentifizierungsanspruch soll, und klicken Sie dann auf **OK**.  
+7.  Klicken Sie auf **Durchsuchen**, wählen Sie die Gruppe aus, deren Mitglieder diesen Authentifizierungsmethoden Anspruch erhalten sollen, und klicken Sie dann auf **OK**.  
 
-8.  In **Typ des ausgehenden Anspruchs**Option **Authentifizierungsmethode** in der Liste.  
+8.  Wählen Sie unter **Typ des ausgehenden Anspruchs**in der Liste die Option **Authentifizierungsmethode** aus.  
 
-9. In **ausgehender Anspruchswert**, geben Sie eine der standardmäßigen uniform Resource Identifier \(URI\) Werte in der folgenden Tabelle, abhängig von der bevorzugten Authentifizierungsmethode aus, klicken Sie auf **abgeschlossen**, und klicken Sie dann auf **OK** um die Regel zu speichern.  
+9. Geben Sie unter **Wert des ausgehenden Anspruchs**einen der standardmäßigen Uniform Resource Identifier \(uri @ no__t-2-Werte in der folgenden Tabelle ein, klicken Sie auf **Fertig**stellen, und klicken Sie dann auf **OK** , um die Regel zu speichern.  
 
 |                            Tatsächliche Authentifizierungsmethode                             |                                Entsprechender URI                                 |
 |-------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 |                        Authentifizierung mit Benutzername und Kennwort                        | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password  |
 |                               Windows-Authentifizierung                                |  https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows  |
-| Transport Layer Security \(TLS\) gegenseitige Authentifizierung, die x. 509-Zertifikate verwendet. | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/tlsclient |
-|                  X. 509\--basierte Authentifizierung, die keine TLS verwendet                  |   https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/x509    |
+| Transport Layer Security \(tls @ no__t-1 gegenseitige Authentifizierung, die X. 509-Zertifikate verwendet | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/tlsclient |
+|                  X. 509 @ no__t-0basierte Authentifizierung, die TLS nicht verwendet                  |   https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/x509    |
 
 ![Regel erstellen](media/Create-a-Rule-to-Send-an-Authentication-Method-Claim/auth2.PNG)
 
-## <a name="to-create-by-using-the-send-group-membership-as-claims-rule-template-on-a-claims-provider-trust-in-windows-server-2016"></a>So erstellen Sie mit das Versenden der Gruppenmitgliedschaft als Ansprüche-Vorlage für eine Anspruchsanbieter-Vertrauensstellung in Windows Server 2016 
+## <a name="to-create-by-using-the-send-group-membership-as-claims-rule-template-on-a-claims-provider-trust-in-windows-server-2016"></a>So erstellen Sie mithilfe der Regel Vorlage "Gruppenmitgliedschaft als Ansprüche senden" für eine Anspruchs Anbieter-Vertrauensstellung in Windows Server 2016 
 
-1.  Klicken Sie im Server-Manager **Tools**, und wählen Sie dann **AD FS-Verwaltung**.  
+1.  Klicken Sie in Server-Manager **auf Extras**, und wählen Sie dann **AD FS Verwaltung**aus.  
 
-2.  In der Konsolenstruktur unter **AD FS**, klicken Sie auf **Anspruchsanbieter-Vertrauensstellungen**. 
+2.  Klicken Sie in der Konsolen Struktur unter **AD FS**auf **Anspruchs Anbieter**-Vertrauens Stellungen. 
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule1.PNG)  
 
-3.  Rechts\-klicken Sie auf der ausgewählten Vertrauensstellung, und klicken Sie dann auf **Edit Claim Rules**.
+3.  Klicken\-Sie mit der rechten Maustaste auf die ausgewählte Vertrauensstellung und dann auf **Anspruchs Regeln bearbeiten**.
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule2.PNG)   
 
-4.  In der **Edit Claim Rules** Dialogfeld **Akzeptanztransformationsregeln** klicken Sie auf **Regel hinzufügen** um die Regel-Assistenten zu starten.
+4.  Klicken Sie im Dialogfeld **Anspruchs Regeln bearbeiten** unter **Akzeptanz Transformationsregeln** auf **Regel hinzufügen** , um den Regel-Assistenten zu starten.
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule3.PNG)    
 
-5.  Auf der **Regelvorlage auswählen** Seite **anspruchsregelvorlage**Option **Senden der Gruppenmitgliedschaft als Anspruch** aus der Liste aus, und klicken Sie dann auf **Weiter**.  
+5.  Wählen Sie auf der Seite **Regel Vorlage auswählen** unter **Anspruchs Regel Vorlage**die Option **Gruppenmitgliedschaft als Anspruch senden** aus der Liste aus, und klicken Sie dann auf **weiter**.  
 ![Regel erstellen](media/Create-a-Rule-to-Send-Group-Membership-as-a-Claim/group3.PNG)     
 
-6.  Auf der **Regel konfigurieren** geben anspruchsregelname.  
+6.  Geben Sie auf der Seite **Regel konfigurieren** einen Anspruchs Regel Namen ein.  
 
-7.  Klicken Sie auf **Durchsuchen**, wählen Sie die Gruppe, deren Mitglieder erhalten diese Methode authentifizierungsanspruch soll, und klicken Sie dann auf **OK**.  
+7.  Klicken Sie auf **Durchsuchen**, wählen Sie die Gruppe aus, deren Mitglieder diesen Authentifizierungsmethoden Anspruch erhalten sollen, und klicken Sie dann auf **OK**.  
 
-8.  In **Typ des ausgehenden Anspruchs**Option **Authentifizierungsmethode** in der Liste.  
+8.  Wählen Sie unter **Typ des ausgehenden Anspruchs**in der Liste die Option **Authentifizierungsmethode** aus.  
 
-9. In **ausgehender Anspruchswert**, geben Sie eine der standardmäßigen uniform Resource Identifier \(URI\) Werte in der folgenden Tabelle, abhängig von der bevorzugten Authentifizierungsmethode aus, klicken Sie auf **abgeschlossen**, und klicken Sie dann auf **OK** um die Regel zu speichern.  
+9. Geben Sie unter **Wert des ausgehenden Anspruchs**einen der standardmäßigen Uniform Resource Identifier \(uri @ no__t-2-Werte in der folgenden Tabelle ein, klicken Sie auf **Fertig**stellen, und klicken Sie dann auf **OK** , um die Regel zu speichern.  
 
 |                            Tatsächliche Authentifizierungsmethode                             |                                Entsprechender URI                                 |
 |-------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 |                        Authentifizierung mit Benutzername und Kennwort                        | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password  |
 |                               Windows-Authentifizierung                                |  https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows  |
-| Transport Layer Security \(TLS\) gegenseitige Authentifizierung, die x. 509-Zertifikate verwendet. | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/tlsclient |
-|                  X. 509\--basierte Authentifizierung, die keine TLS verwendet                  |   https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/x509    |
+| Transport Layer Security \(tls @ no__t-1 gegenseitige Authentifizierung, die X. 509-Zertifikate verwendet | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/tlsclient |
+|                  X. 509 @ no__t-0basierte Authentifizierung, die TLS nicht verwendet                  |   https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/x509    |
 
 ![Regel erstellen](media/Create-a-Rule-to-Send-an-Authentication-Method-Claim/auth2.PNG)
 
 
-## <a name="to-create-this-rule-by-using-the-transform-an-incoming-claim-rule-template-on-a-relying-party-trust-in-windows-server-2016"></a>Zum Erstellen dieser Regel mithilfe der Transformation ein eingehender Anspruch auf a Relying Party Trust in Windows Server 2016-Vorlage 
+## <a name="to-create-this-rule-by-using-the-transform-an-incoming-claim-rule-template-on-a-relying-party-trust-in-windows-server-2016"></a>So erstellen Sie diese Regel mithilfe der Regel Vorlage zum Transformieren eines eingehenden Anspruchs für eine Vertrauensstellung der vertrauenden Seite in Windows Server 2016 
 
-1.  Klicken Sie im Server-Manager **Tools**, und wählen Sie dann **AD FS-Verwaltung**.  
+1.  Klicken Sie in Server-Manager **auf Extras**, und wählen Sie dann **AD FS Verwaltung**aus.  
 
-2.  In der Konsolenstruktur unter **AD FS**, klicken Sie auf **Vertrauensstellungen für vertrauende Seiten**. 
+2.  Klicken Sie in der Konsolen Struktur unter **AD FS**auf Vertrauens Stellungen der vertrauenden **Seite**. 
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule9.PNG)  
 
-3.  Rechts\-klicken Sie auf der ausgewählten Vertrauensstellung, und klicken Sie dann auf **Anspruchsausstellungsrichtlinie bearbeiten**.
+3.  Klicken\-Sie mit der rechten Maustaste auf die ausgewählte Vertrauensstellung, und klicken Sie dann auf **Richtlinie**zum
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule10.PNG)   
 
-4.  In der **Anspruchsausstellungsrichtlinie bearbeiten** Dialogfeld **Ausstellungstransformationsregeln** klicken Sie auf **Regel hinzufügen** um die Regel-Assistenten zu starten. 
+4.  Klicken Sie im Dialogfeld **Richtlinie für Anspruchs Ausstellung bearbeiten** unter Ausstellungs **Transformationsregeln** auf **Regel hinzufügen** , um den Regel-Assistenten zu starten. 
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule11.PNG)    
 
-5.  Auf der **Regelvorlage auswählen** Seite **anspruchsregelvorlage**Option **Transformieren eines eingehenden Anspruchs** aus der Liste aus, und klicken Sie dann auf **Weiter**.  
+5.  Wählen Sie auf der Seite **Regel Vorlage auswählen** unter **Anspruchs Regel Vorlage**die **Option eingehenden Anspruch** in der Liste umwandeln aus, und klicken Sie dann auf **weiter**.  
 ![Regel erstellen](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform3.PNG)      
 
-6.  Auf der **Regel konfigurieren** geben anspruchsregelname.  
+6.  Geben Sie auf der Seite **Regel konfigurieren** einen Anspruchs Regel Namen ein.  
 
-7.  In **eingehender Anspruchstyp**Option **Authentifizierungsmethode** in der Liste.  
+7.  Wählen Sie unter **Typ des eingehenden Anspruchs**in der Liste die Option **Authentifizierungsmethode** aus.  
 
-8.  In **Typ des ausgehenden Anspruchs**Option **Authentifizierungsmethode** in der Liste.  
+8.  Wählen Sie unter **Typ des ausgehenden Anspruchs**in der Liste die Option **Authentifizierungsmethode** aus.  
 
-9. Wählen Sie **ersetzen Sie einen eingehenden Anspruchswert durch einen anderen ausgehenden Anspruchswert**, und führen Sie Folgendes:  
+9. Wählen Sie **einen eingehenden Anspruchs Wert durch einen anderen ausgehenden Anspruchs Wert ersetzen**aus, und führen Sie dann die folgenden Schritte aus:  
 
-    1.  In **eingehender Anspruchswert**, geben Sie den folgenden URI-Werte, die auf die tatsächliche Authentifizierungsmethode URI basieren, die ursprünglich verwendet wurde, klicken Sie auf **Fertig stellen**, und klicken Sie dann auf **OK** um die Regel zu speichern.  
+    1.  Geben Sie unter **eingehender Anspruchs Wert**einen der folgenden URI-Werte ein, die auf dem ursprünglich verwendeten Authentifizierungsmethoden-URI basieren, klicken Sie auf **Fertig**stellen, und klicken Sie dann auf **OK** , um die Regel zu speichern.  
 
-    2.  In **ausgehender Anspruchswert**, geben Sie einen der Standard-URI-Werte in der folgenden Tabelle, die von Ihrer neuen bevorzugten authentifizierungswahl durch Methode abhängig ist, klicken Sie auf **Fertig stellen**, und klicken Sie dann auf **OK**  um die Regel zu speichern.  
+    2.  Geben Sie unter **Wert des ausgehenden Anspruchs**einen der Standard-URI-Werte in der folgenden Tabelle ein, der von der neuen bevorzugten Authentifizierungsmethode abhängt, klicken Sie auf **Fertig**stellen, und klicken Sie dann auf **OK** , um die Regel zu speichern.  
 
 |              Tatsächliche Authentifizierungsmethode              |                                Entsprechender URI                                 |
 |--------------------------------------------------------|----------------------------------------------------------------------------------|
 |         Authentifizierung mit Benutzername und Kennwort          | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password  |
 |                 Windows-Authentifizierung                 |  https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows  |
-| Gegenseitige TLS-Authentifizierung, der x. 509-Zertifikate verwendet. | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/tlsclient |
-|   X. 509\--basierte Authentifizierung, die keine TLS verwendet    |   https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/x509    |
+| Gegenseitige TLS-Authentifizierung, die X. 509-Zertifikate verwendet | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/tlsclient |
+|   X. 509 @ no__t-0basierte Authentifizierung, die TLS nicht verwendet    |   https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/x509    |
 
 ![Regel erstellen](media/Create-a-Rule-to-Send-an-Authentication-Method-Claim/auth4.PNG)
 
 > [!NOTE]  
-> Andere URI-Werte können zusätzlich zu den Werten in der Tabelle verwendet werden. Die URI-Werte, die Ion angezeigt werden die vorherige Tabelle reflektieren die URIs, die die vertrauende Seite in der Standardeinstellung akzeptiert.  
+> Andere URI-Werte können zusätzlich zu den Werten in der Tabelle verwendet werden. Die URI-Werte, die in der vorherigen Tabelle angezeigt werden, entsprechen den URIs, die von der vertrauenden Seite standardmäßig akzeptiert werden.  
 
-## <a name="to-create-this-rule-by-using-the-transform-an-incoming-claim-rule-template-on-a-claims-provider-trust-in-windows-server-2016"></a>Zum Erstellen dieser Regel mithilfe der Transformation ein eingehender Anspruch auf eine Anspruchsanbieter-Vertrauensstellung in Windows Server 2016-Vorlage 
+## <a name="to-create-this-rule-by-using-the-transform-an-incoming-claim-rule-template-on-a-claims-provider-trust-in-windows-server-2016"></a>So erstellen Sie diese Regel mithilfe der Regel Vorlage zum Transformieren eines eingehenden Anspruchs für eine Anspruchs Anbieter-Vertrauensstellung in Windows Server 2016 
 
-1.  Klicken Sie im Server-Manager **Tools**, und wählen Sie dann **AD FS-Verwaltung**.  
+1.  Klicken Sie in Server-Manager **auf Extras**, und wählen Sie dann **AD FS Verwaltung**aus.  
 
-2.  In der Konsolenstruktur unter **AD FS**, klicken Sie auf **Anspruchsanbieter-Vertrauensstellungen**. 
+2.  Klicken Sie in der Konsolen Struktur unter **AD FS**auf **Anspruchs Anbieter**-Vertrauens Stellungen. 
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule1.PNG)  
 
-3.  Rechts\-klicken Sie auf der ausgewählten Vertrauensstellung, und klicken Sie dann auf **Edit Claim Rules**.
+3.  Klicken\-Sie mit der rechten Maustaste auf die ausgewählte Vertrauensstellung und dann auf **Anspruchs Regeln bearbeiten**.
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule2.PNG)   
 
-4.  In der **Edit Claim Rules** Dialogfeld **Akzeptanztransformationsregeln** klicken Sie auf **Regel hinzufügen** um die Regel-Assistenten zu starten.
+4.  Klicken Sie im Dialogfeld **Anspruchs Regeln bearbeiten** unter **Akzeptanz Transformationsregeln** auf **Regel hinzufügen** , um den Regel-Assistenten zu starten.
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule3.PNG)    
 
-5.  Auf der **Regelvorlage auswählen** Seite **anspruchsregelvorlage**Option **Transformieren eines eingehenden Anspruchs** aus der Liste aus, und klicken Sie dann auf **Weiter**.  
+5.  Wählen Sie auf der Seite **Regel Vorlage auswählen** unter **Anspruchs Regel Vorlage**die **Option eingehenden Anspruch** in der Liste umwandeln aus, und klicken Sie dann auf **weiter**.  
 ![Regel erstellen](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform3.PNG)      
 
-6.  Auf der **Regel konfigurieren** geben anspruchsregelname.  
+6.  Geben Sie auf der Seite **Regel konfigurieren** einen Anspruchs Regel Namen ein.  
 
-7.  In **eingehender Anspruchstyp**Option **Authentifizierungsmethode** in der Liste.  
+7.  Wählen Sie unter **Typ des eingehenden Anspruchs**in der Liste die Option **Authentifizierungsmethode** aus.  
 
-8.  In **Typ des ausgehenden Anspruchs**Option **Authentifizierungsmethode** in der Liste.  
+8.  Wählen Sie unter **Typ des ausgehenden Anspruchs**in der Liste die Option **Authentifizierungsmethode** aus.  
 
-9. Wählen Sie **ersetzen Sie einen eingehenden Anspruchswert durch einen anderen ausgehenden Anspruchswert**, und führen Sie Folgendes:  
+9. Wählen Sie **einen eingehenden Anspruchs Wert durch einen anderen ausgehenden Anspruchs Wert ersetzen**aus, und führen Sie dann die folgenden Schritte aus:  
 
-    1.  In **eingehender Anspruchswert**, geben Sie den folgenden URI-Werte, die auf die tatsächliche Authentifizierungsmethode URI basieren, die ursprünglich verwendet wurde, klicken Sie auf **Fertig stellen**, und klicken Sie dann auf **OK** um die Regel zu speichern.  
+    1.  Geben Sie unter **eingehender Anspruchs Wert**einen der folgenden URI-Werte ein, die auf dem ursprünglich verwendeten Authentifizierungsmethoden-URI basieren, klicken Sie auf **Fertig**stellen, und klicken Sie dann auf **OK** , um die Regel zu speichern.  
 
-    2.  In **ausgehender Anspruchswert**, geben Sie einen der Standard-URI-Werte in der folgenden Tabelle, die von Ihrer neuen bevorzugten authentifizierungswahl durch Methode abhängig ist, klicken Sie auf **Fertig stellen**, und klicken Sie dann auf **OK**  um die Regel zu speichern.  
+    2.  Geben Sie unter **Wert des ausgehenden Anspruchs**einen der Standard-URI-Werte in der folgenden Tabelle ein, der von der neuen bevorzugten Authentifizierungsmethode abhängt, klicken Sie auf **Fertig**stellen, und klicken Sie dann auf **OK** , um die Regel zu speichern.  
 
 |              Tatsächliche Authentifizierungsmethode              |                                Entsprechender URI                                 |
 |--------------------------------------------------------|----------------------------------------------------------------------------------|
 |         Authentifizierung mit Benutzername und Kennwort          | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password  |
 |                 Windows-Authentifizierung                 |  https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows  |
-| Gegenseitige TLS-Authentifizierung, der x. 509-Zertifikate verwendet. | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/tlsclient |
-|   X. 509\--basierte Authentifizierung, die keine TLS verwendet    |   https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/x509    |
+| Gegenseitige TLS-Authentifizierung, die X. 509-Zertifikate verwendet | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/tlsclient |
+|   X. 509 @ no__t-0basierte Authentifizierung, die TLS nicht verwendet    |   https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/x509    |
 
 ![Regel erstellen](media/Create-a-Rule-to-Send-an-Authentication-Method-Claim/auth4.PNG)
 
@@ -195,97 +195,97 @@ Verwenden Sie je nach den Anforderungen Ihrer Organisation eine der folgenden Ve
 
 
 
-## <a name="to-create-this-rule-by-using-the-send-group-membership-as-claims-rule-template-in-windows-server-2012-r2"></a>So erstellen Sie mit dieser Regel verwenden das Versenden der Gruppenmitgliedschaft als Ansprüche Regelvorlage in Windows Server 2012 R2  
+## <a name="to-create-this-rule-by-using-the-send-group-membership-as-claims-rule-template-in-windows-server-2012-r2"></a>So erstellen Sie diese Regel mithilfe der Regel Vorlage "Gruppenmitgliedschaft als Ansprüche senden" in Windows Server 2012 R2  
 
-1.  Klicken Sie im Server-Manager **Tools**, und wählen Sie dann **AD FS-Verwaltung**.  
+1.  Klicken Sie in Server-Manager **auf Extras**, und wählen Sie dann **AD FS Verwaltung**aus.  
 
-2.  In der Konsolenstruktur unter **AD FS\\Vertrauensstellungen**, klicken Sie auf **Anspruchsanbieter-Vertrauensstellungen** oder **Vertrauensstellungen für vertrauende Seiten**, und klicken Sie dann auf einen bestimmten Vertrauen Sie in der Liste, die zum Erstellen dieser Regel werden sollen.  
+2.  Klicken Sie in der Konsolen Struktur **unter\\AD FS Vertrauens**Stellungen entweder auf **Anspruchs Anbieter** -Vertrauens Stellungen oder Vertrauens Stellungen der vertrauenden **Seite**, und klicken Sie dann auf eine bestimmte Vertrauensstellung in der Liste, in der Sie diese Regel erstellen möchten.  
 
-3.  Rechts\-klicken Sie auf der ausgewählten Vertrauensstellung, und klicken Sie dann auf **Edit Claim Rules**.
+3.  Klicken\-Sie mit der rechten Maustaste auf die ausgewählte Vertrauensstellung und dann auf **Anspruchs Regeln bearbeiten**.
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule6.PNG)  
 
-4.  In der **Edit Claim Rules** im Dialogfeld Wählen Sie eine der folgenden Registerkarten, abhängig von der Vertrauensstellung, die Sie bearbeiten und welche Regel legen Sie diese Regel in erstellen möchten, und klicken Sie dann auf **Regel hinzufügen** um die Regel zu starten. Legen Sie den Assistenten, der dieser Regel zugeordnet ist:  
+4.  Wählen Sie im Dialogfeld **Anspruchs Regeln bearbeiten** je nach der zu bearbeitenden Vertrauensstellung und dem Regelsatz, in dem Sie diese Regel erstellen möchten, eine der folgenden Registerkarten aus, und klicken Sie dann auf **Regel hinzufügen** , um den Regel-Assistenten zu starten, der diesem Regelsatz zugeordnet ist. :  
 
-    -   **Akzeptanztransformationsregeln**  
+    -   **Akzeptanz Transformationsregeln**  
 
-    -   **Ausstellungstransformationsregeln**  
+    -   **Ausstellungs Transformationsregeln**  
 
-    -   **Ausstellungsautorisierungsregeln**  
+    -   **Ausstellungs Autorisierungs Regeln**  
 
-    -   **Autorisierungsregeln**  
+    -   **Delegierungs Autorisierungs Regeln**  
 ![Regel erstellen](media/Create-a-Rule-to-Permit-All-Users/permitall5.PNG)
 
-5.  Auf der **Regelvorlage auswählen** Seite **anspruchsregelvorlage**Option **Senden der Gruppenmitgliedschaft als Anspruch** aus der Liste aus, und klicken Sie dann auf **Weiter**.  
+5.  Wählen Sie auf der Seite **Regel Vorlage auswählen** unter **Anspruchs Regel Vorlage**die Option **Gruppenmitgliedschaft als Anspruch senden** aus der Liste aus, und klicken Sie dann auf **weiter**.  
 ![Regel erstellen](media/Create-a-Rule-to-Send-Group-Membership-as-a-Claim/group1.PNG)
 
-6.  Auf der **Regel konfigurieren** geben anspruchsregelname.  
+6.  Geben Sie auf der Seite **Regel konfigurieren** einen Anspruchs Regel Namen ein.  
 
-7.  Klicken Sie auf **Durchsuchen**, wählen Sie die Gruppe, deren Mitglieder erhalten diese Methode authentifizierungsanspruch soll, und klicken Sie dann auf **OK**.  
+7.  Klicken Sie auf **Durchsuchen**, wählen Sie die Gruppe aus, deren Mitglieder diesen Authentifizierungsmethoden Anspruch erhalten sollen, und klicken Sie dann auf **OK**.  
 
-8.  In **Typ des ausgehenden Anspruchs**Option **Authentifizierungsmethode** in der Liste.  
+8.  Wählen Sie unter **Typ des ausgehenden Anspruchs**in der Liste die Option **Authentifizierungsmethode** aus.  
 
-9. In **ausgehender Anspruchswert**, geben Sie eine der standardmäßigen uniform Resource Identifier \(URI\) Werte in der folgenden Tabelle, abhängig von der bevorzugten Authentifizierungsmethode aus, klicken Sie auf **abgeschlossen**, und klicken Sie dann auf **OK** um die Regel zu speichern.  
+9. Geben Sie unter **Wert des ausgehenden Anspruchs**einen der standardmäßigen Uniform Resource Identifier \(uri @ no__t-2-Werte in der folgenden Tabelle ein, klicken Sie auf **Fertig**stellen, und klicken Sie dann auf **OK** , um die Regel zu speichern.  
 
 |                            Tatsächliche Authentifizierungsmethode                             |                                Entsprechender URI                                 |
 |-------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 |                        Authentifizierung mit Benutzername und Kennwort                        | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password  |
 |                               Windows-Authentifizierung                                |  https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows  |
-| Transport Layer Security \(TLS\) gegenseitige Authentifizierung, die x. 509-Zertifikate verwendet. | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/tlsclient |
-|                  X. 509\--basierte Authentifizierung, die keine TLS verwendet                  |   https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/x509    |
+| Transport Layer Security \(tls @ no__t-1 gegenseitige Authentifizierung, die X. 509-Zertifikate verwendet | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/tlsclient |
+|                  X. 509 @ no__t-0basierte Authentifizierung, die TLS nicht verwendet                  |   https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/x509    |
 
 ![Regel erstellen](media/Create-a-Rule-to-Send-an-Authentication-Method-Claim/auth1.PNG)
 
 > [!NOTE]  
-> Andere URI-Werte können zusätzlich zu den Werten in der Tabelle verwendet werden. Die URI-Werte, die in der vorherigen Tabelle aufgeführten wider, die URIs, die die vertrauende Seite in der Standardeinstellung akzeptiert wird.  
+> Andere URI-Werte können zusätzlich zu den Werten in der Tabelle verwendet werden. Die URI-Werte, die in der vorherigen Tabelle angezeigt werden, entsprechen den URIs, die von der vertrauenden Seite standardmäßig akzeptiert werden.  
 
-## <a name="to-create-this-rule-by-using-the-transform-an-incoming-claim-rule-template-in-windows-server-2012-r2"></a>Zum Erstellen dieser Regel mithilfe der Transformation einer eingehenden anspruchsregelvorlage in Windows Server 2012 R2  
+## <a name="to-create-this-rule-by-using-the-transform-an-incoming-claim-rule-template-in-windows-server-2012-r2"></a>So erstellen Sie diese Regel mithilfe der Regel Vorlage zum Transformieren eines eingehenden Anspruchs in Windows Server 2012 R2  
 
 
 
-1.  Klicken Sie im Server-Manager **Tools**, und klicken Sie dann auf **AD FS-Verwaltung**.  
+1.  Klicken Sie in Server-Manager **auf Extras, und**klicken Sie dann auf **AD FS Verwaltung**.  
 
-2.  In der Konsolenstruktur unter **AD FS\\Vertrauensstellungen**, klicken Sie auf **Anspruchsanbieter-Vertrauensstellungen** oder **Vertrauensstellungen für vertrauende Seiten**, und klicken Sie dann auf einen bestimmten Vertrauen Sie in der Liste, die zum Erstellen dieser Regel werden sollen.  
+2.  Klicken Sie in der Konsolen Struktur **unter\\AD FS Vertrauens**Stellungen entweder auf **Anspruchs Anbieter** -Vertrauens Stellungen oder Vertrauens Stellungen der vertrauenden **Seite**, und klicken Sie dann auf eine bestimmte Vertrauensstellung in der Liste, in der Sie diese Regel erstellen möchten.  
 
-3.  Rechts\-klicken Sie auf der ausgewählten Vertrauensstellung, und klicken Sie dann auf **Edit Claim Rules**.  
+3.  Klicken\-Sie mit der rechten Maustaste auf die ausgewählte Vertrauensstellung und dann auf **Anspruchs Regeln bearbeiten**.  
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule6.PNG) 
 
-4.  In der **Edit Claim Rules** (Dialogfeld), wählen Sie eine der folgenden Registerkarten, die für die Vertrauensstellung abhängt, die Sie bearbeiten und in der Regel legen Sie möchten, erstellen diese Regel, und klicken Sie dann auf **Regel hinzufügen** um die Regel zu starten. Legen Sie den Assistenten, der dieser Regel zugeordnet ist:  
+4.  Wählen Sie im Dialogfeld **Anspruchs Regeln bearbeiten** eine der folgenden Registerkarten aus, die von der zu bearbeitenden Vertrauensstellung und dem Regelsatz abhängt, den Sie diese Regel erstellen möchten, und klicken Sie dann auf **Regel hinzufügen** , um den Regel-Assistenten zu starten, der diesem Regelsatz zugeordnet ist. :  
 
-    -   **Akzeptanztransformationsregeln**  
+    -   **Akzeptanz Transformationsregeln**  
 
-    -   **Ausstellungstransformationsregeln**  
+    -   **Ausstellungs Transformationsregeln**  
 
-    -   **Ausstellungsautorisierungsregeln**  
+    -   **Ausstellungs Autorisierungs Regeln**  
 
-    -   **Autorisierungsregeln**  
+    -   **Delegierungs Autorisierungs Regeln**  
 ![Regel erstellen](media/Create-a-Rule-to-Permit-All-Users/permitall5.PNG)
 
-5.  Auf der **Regelvorlage auswählen** Seite **anspruchsregelvorlage**Option **Transformieren eines eingehenden Anspruchs** aus der Liste aus, und klicken Sie dann auf **Weiter**.  
+5.  Wählen Sie auf der Seite **Regel Vorlage auswählen** unter **Anspruchs Regel Vorlage**die **Option eingehenden Anspruch** in der Liste umwandeln aus, und klicken Sie dann auf **weiter**.  
 ![Regel erstellen](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform1.PNG)    
 
-6.  Auf der **Regel konfigurieren** geben anspruchsregelname.  
+6.  Geben Sie auf der Seite **Regel konfigurieren** einen Anspruchs Regel Namen ein.  
 
-7.  In **eingehender Anspruchstyp**Option **Authentifizierungsmethode** in der Liste.  
+7.  Wählen Sie unter **Typ des eingehenden Anspruchs**in der Liste die Option **Authentifizierungsmethode** aus.  
 
-8.  In **Typ des ausgehenden Anspruchs**Option **Authentifizierungsmethode** in der Liste.  
+8.  Wählen Sie unter **Typ des ausgehenden Anspruchs**in der Liste die Option **Authentifizierungsmethode** aus.  
 
-9. Wählen Sie **ersetzen Sie einen eingehenden Anspruchswert durch einen anderen ausgehenden Anspruchswert**, und führen Sie Folgendes:  
+9. Wählen Sie **einen eingehenden Anspruchs Wert durch einen anderen ausgehenden Anspruchs Wert ersetzen**aus, und führen Sie dann die folgenden Schritte aus:  
 
-    1.  In **eingehender Anspruchswert**, geben Sie den folgenden URI-Werte, die auf die tatsächliche Authentifizierungsmethode URI basieren, die ursprünglich verwendet wurde, klicken Sie auf **Fertig stellen**, und klicken Sie dann auf **OK** um die Regel zu speichern.  
+    1.  Geben Sie unter **eingehender Anspruchs Wert**einen der folgenden URI-Werte ein, die auf dem ursprünglich verwendeten Authentifizierungsmethoden-URI basieren, klicken Sie auf **Fertig**stellen, und klicken Sie dann auf **OK** , um die Regel zu speichern.  
 
-    2.  In **ausgehender Anspruchswert**, geben Sie einen der Standard-URI-Werte in der folgenden Tabelle, die von Ihrer neuen bevorzugten authentifizierungswahl durch Methode abhängig ist, klicken Sie auf **Fertig stellen**, und klicken Sie dann auf **OK**  um die Regel zu speichern.  
+    2.  Geben Sie unter **Wert des ausgehenden Anspruchs**einen der Standard-URI-Werte in der folgenden Tabelle ein, der von der neuen bevorzugten Authentifizierungsmethode abhängt, klicken Sie auf **Fertig**stellen, und klicken Sie dann auf **OK** , um die Regel zu speichern.  
 
 |              Tatsächliche Authentifizierungsmethode              |                                Entsprechender URI                                 |
 |--------------------------------------------------------|----------------------------------------------------------------------------------|
 |         Authentifizierung mit Benutzername und Kennwort          | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password  |
 |                 Windows-Authentifizierung                 |  https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows  |
-| Gegenseitige TLS-Authentifizierung, der x. 509-Zertifikate verwendet. | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/tlsclient |
-|   X. 509\--basierte Authentifizierung, die keine TLS verwendet    |   https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/x509    |
+| Gegenseitige TLS-Authentifizierung, die X. 509-Zertifikate verwendet | https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/tlsclient |
+|   X. 509 @ no__t-0basierte Authentifizierung, die TLS nicht verwendet    |   https://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/x509    |
 
 ![Regel erstellen](media/Create-a-Rule-to-Send-an-Authentication-Method-Claim/auth3.PNG)
 
 > [!NOTE]  
-> Andere URI-Werte können zusätzlich zu den Werten in der Tabelle verwendet werden. Die URI-Werte, die Ion angezeigt werden die vorherige Tabelle reflektieren die URIs, die die vertrauende Seite in der Standardeinstellung akzeptiert.  
+> Andere URI-Werte können zusätzlich zu den Werten in der Tabelle verwendet werden. Die URI-Werte, die in der vorherigen Tabelle angezeigt werden, entsprechen den URIs, die von der vertrauenden Seite standardmäßig akzeptiert werden.  
 
 ## <a name="additional-references"></a>Weitere Verweise 
 [Konfigurieren von Anspruchsregeln](Configure-Claim-Rules.md)  
@@ -294,7 +294,7 @@ Verwenden Sie je nach den Anforderungen Ihrer Organisation eine der folgenden Ve
 
 [Prüfliste: Erstellen von Anspruchsregeln für eine Anspruchsanbieter-Vertrauensstellung](https://technet.microsoft.com/library/ee913564.aspx)  
 
-[Wenn Use an Authorization Claim Rule](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
+[Wann sollte eine Autorisierungs Anspruchs Regel verwendet werden?](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 
 [Rolle von Ansprüchen](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
 

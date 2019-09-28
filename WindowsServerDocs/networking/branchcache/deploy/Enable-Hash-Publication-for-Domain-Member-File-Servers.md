@@ -1,35 +1,35 @@
 ---
 title: Aktivieren der Hashveröffentlichung für Dateiserver in der Domäne
-description: Dieses Thema ist Teil von BranchCache Deployment Guide für Windows Server 2016, die veranschaulicht, wie Sie BranchCache in verteilter und gehosteter Cachemodus zur Optimierung der WAN-bandbreitennutzung in Zweigstellen bereitstellen
+description: Dieses Thema ist Teil des BranchCache-Bereitstellungs Handbuchs für Windows Server 2016, das zeigt, wie BranchCache im Modus für verteilte und gehostete Caches bereitgestellt wird, um die WAN-Bandbreitenauslastung in Zweigniederlassungen zu optimieren.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: a3f1f7c4-d9b2-43e6-8bfa-fac707bbd4d3
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 174e83c950d2aff8afba4f05641a74861b9a7938
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1e450b9a2282cb4820b8802aa6d36e822f56ca12
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865461"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356594"
 ---
 # <a name="enable-hash-publication-for-domain-member-file-servers"></a>Aktivieren der Hashveröffentlichung für Dateiserver in der Domäne
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Wenn Sie Active Directory Domain Services (AD DS) verwenden, können Sie die Gruppenrichtlinie auf Domänenebene verwenden, um BranchCache-hashveröffentlichung für mehrere Server zu aktivieren. In diesem Fall müssen Sie eine Organisationseinheit (OU), Erstellen der Organisationseinheit Dateiserver hinzufügen, erstellen Sie einen BranchCache-hashveröffentlichung (Group Policy Object, GPO) und dann konfigurieren Sie das Gruppenrichtlinienobjekt.  
+Wenn Sie Active Directory Domain Services (AD DS) verwenden, können Sie Domänen Gruppenrichtlinie verwenden, um die BranchCache-Hash Veröffentlichung für mehrere Dateiserver zu aktivieren. Hierzu müssen Sie eine Organisationseinheit (OU) erstellen, der Organisationseinheit Dateiserver hinzufügen, ein BranchCache-Hash Veröffentlichungs Gruppenrichtlinie Objekt (GPO) erstellen und dann das Gruppenrichtlinien Objekt konfigurieren.  
   
-Finden Sie unter den folgenden Themen zum Aktivieren von hashveröffentlichung für mehrere Server.  
+Weitere Informationen zum Aktivieren der Hash Veröffentlichung für mehrere Dateiserver finden Sie in den folgenden Themen.  
   
 -   [Erstellen der BranchCache-Dateiserver-Organisationseinheit](../../branchcache/deploy/Create-the-BranchCache-File-Servers-Organizational-Unit.md)  
   
--   [Verschieben Sie Dateiserver, die BranchCache-Dateiserver-Organisationseinheit](../../branchcache/deploy/Move-File-Servers-to-the-BranchCache-File-Servers-Organizational-Unit.md)  
+-   [Verschieben von Dateiservern in die Organisationseinheit der BranchCache-Dateiserver](../../branchcache/deploy/Move-File-Servers-to-the-BranchCache-File-Servers-Organizational-Unit.md)  
   
--   [Erstellen der BranchCache-Hash Gruppenrichtlinienobjekts](../../branchcache/deploy/Create-the-BranchCache-Hash-Publication-Group-Policy-Object.md)  
+-   [Erstellen der BranchCache-Hash Veröffentlichung Gruppenrichtlinie-Objekts](../../branchcache/deploy/Create-the-BranchCache-Hash-Publication-Group-Policy-Object.md)  
   
--   [Konfigurieren Sie die BranchCache-Hash Gruppenrichtlinienobjekts](../../branchcache/deploy/Configure-the-BranchCache-Hash-Publication-Group-Policy-Object.md)  
+-   [Konfigurieren des BranchCache-Hash Veröffentlichungs Gruppenrichtlinie Objekts](../../branchcache/deploy/Configure-the-BranchCache-Hash-Publication-Group-Policy-Object.md)  
   
 
 

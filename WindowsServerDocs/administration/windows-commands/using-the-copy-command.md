@@ -1,8 +1,8 @@
 ---
-title: Anhand der Kopie-Befehl
-description: 'Windows-Befehle Thema ***- '
+title: Verwenden des Befehls "Copy"
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2e6c5dd84463b227735e4da83165350b180b1d67
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9e0511e12fc01fbdc98840c7beae55b4ee5b9176
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874111"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363607"
 ---
-# <a name="using-the-copy-command"></a>Anhand der Kopie-Befehl
+# <a name="using-the-copy-command"></a>Verwenden des Befehls "Copy"
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Kopiert ein Bild oder eine Treibergruppe.
+Kopiert ein Bild oder eine Treiber Gruppe.
 ## <a name="subcommands"></a>Unterbefehle
 |Unterbefehl|Beschreibung|
 |-------|--------|
-|[Verwenden die Copy-Image-Befehl](using-the-copy-image-command.md)|Kopiert Images, die innerhalb der gleichen Image-Gruppe sind.|
-|[Mithilfe des Befehls der kopieren-DriverGroup](using-the-copy-drivergroup-command.md)|Kopiert eine vorhandene Treibergruppe auf dem Server.|
+|[Verwenden des Befehls "Copy-Image"](using-the-copy-image-command.md)|Kopiert Bilder, die sich innerhalb derselben Bild Gruppe befinden.|
+|[Verwenden des Befehls "Copy-drivergroup"](using-the-copy-drivergroup-command.md)|Kopiert eine vorhandene Treiber Gruppe auf dem Server.|

@@ -1,7 +1,7 @@
 ---
 title: Assistent für die Serverbereinigung
-description: Windows Server Update Service (WSUS)-Thema – wie Sie die Server-Bereinigung-Assistenten zu verwenden, um Speicherplatz auf dem Datenträger verwalten
-ms.prod: windows-server-threshold
+description: 'Thema zu Windows Server Update Service (WSUS): Verwenden des Assistenten zum Bereinigen von Servern zum Verwalten von Speicherplatz'
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-wsus
@@ -12,46 +12,46 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9d9287bb8bfc0fd51c53c598ccbc1f0498942e2f
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: e285e59a27b6bf0ef1bf3b1ab0f78a96efa60c87
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439813"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361533"
 ---
 # <a name="the-server-cleanup-wizard"></a>Assistent für die Serverbereinigung
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Das Server-Cleanup-Assistent ist in der Benutzeroberfläche integriert und kann verwendet werden, helfen Ihnen beim Verwalten Ihres Speicherplatzes. Mit diesem Assistenten kann die folgenden Vorgänge ausführen:
+Der Server Bereinigung-Assistent ist in die Benutzeroberfläche integriert und kann verwendet werden, um Ihnen bei der Verwaltung des Speicherplatzes zu helfen. Mit diesem Assistenten können die folgenden Vorgänge ausgeführt werden:
 
-- Entfernen nicht verwendeter Updates und Updaterevisionen entfernen Sie alle älteren Updates und Update-Änderungen, die nicht genehmigt wurden.
+- Entfernen nicht verwendeter Updates und Update Revisionen entfernen Sie alle älteren Updates, und aktualisieren Sie Revisionen, die nicht genehmigt wurden.
 
-- Löschen von Computern, die nicht wenden Sie sich an den Server Löschen aller Clientcomputer, auf denen die Server innerhalb von mindestens 30 Tage lang nicht kontaktiert haben.
+- Löschen Sie Computer, die keine Verbindung mit dem Server herstellen, löschen Sie alle Client Computer, die den Server innerhalb von dreißig Tagen oder mehr nicht kontaktiert haben
 
-- Löschen nicht benötigte Dateien löschen aktualisieren, aktualisieren Sie alle nicht benötigten Dateien, die durch Updates oder Downstreamserver.
+- Nicht benötigte Update Dateien löschen löscht alle Update Dateien, die nicht von Updates oder Downstreamservern benötigt werden.
 
-- Ablehnen von abgelaufenen Updates ablehnen alle Updates, die von Microsoft abgelaufen.
+- Abgelaufene Updates ablehnen ablehnen alle Updates, die von Microsoft abgelaufen sind.
 
-- Lehnt ersetzte Updates abgelehnt werden alle Updates, die alle folgenden Kriterien erfüllen:
+- Ablehnen von abgelösten Updates ablehnen alle Updates, die alle folgenden Kriterien erfüllen:
 
-  -   Das ersetzte Update ist nicht zwingend erforderlich
+  -   Das ersetzte Update ist nicht obligatorisch.
 
-  -   Das ersetzte Update wurde für mindestens 30 Tage lang auf dem Server wurde.
+  -   Das erersetzte Update befindet sich seit dreißig Tagen oder länger auf dem Server.
 
-  -   Das ersetzte Update wird derzeit nicht gemeldet, von jedem Client nach Bedarf
+  -   Das erersetzte Update wird zurzeit von keinem Client als erforderlich gemeldet.
 
-  -   Das ersetzte Update wurde nicht explizit auf eine Computergruppe für mindestens 90 Tage lang bereitgestellt
+  -   Das abgelösten Update wurde mindestens 90 Tage lang nicht explizit für eine Computergruppe bereitgestellt.
 
-  -   Das ersetzende Update muss für die Installation zu einer Computergruppe genehmigt werden
+  -   Das ersetzende Update muss für die Installation in einer Computergruppe genehmigt werden.
 
   > [!WARNING]
-  >  In einer Hierarchie WSUS wird dringend empfohlen, dass Sie zuerst den Cleanup-Prozess auf dem untersten, downstream replikatcache WSUS-Server ausführen, und klicken Sie dann der Hierarchie nach oben zu verschieben. Fälschlicherweise die Bereinigung auf alle upstream-Server vor dem Ausführen der Cleanup für alle Downstreamserver mit dem Server ausgeführt, kann einen Konflikt zwischen den Daten, die im upstream Datenbanken vorhanden ist und downstream-Datenbanken. Der Konflikt bei den kann zwischen den Upstream- und downstream-Servern zu Synchronisierungsfehlern führen. 
+  >  In einer WSUS-Hierarchie wird dringend empfohlen, zuerst den Bereinigungs Prozess auf dem untersten, Downstream/Replikat-WSUS-Server auszuführen und dann die Hierarchie nach oben zu verschieben. Eine nicht ordnungsgemäße Ausführung der Bereinigung auf einem Upstream-Server vor dem Ausführen der Bereinigung auf jedem Downstreamserver kann zu einem Konflikt zwischen den Daten in upstreamdatenbanken und downstreamdatenbanken führen. Der Daten Konflikt kann zu Synchronisierungs Fehlern zwischen den Upstream-und Downstreamservern führen. 
   > 
   > [!IMPORTANT]
-  >  Wenn Sie nicht mehr benötigten Inhalt mithilfe des Serverbereinigungs-Assistenten entfernen, werden auch alle privaten Update-Dateien, die Sie von der Microsoft Update-Katalog-Website heruntergeladen haben entfernt. Sie müssen diese Dateien nach dem Ausführen des Serverbereinigungs-Assistenten erneut importieren. 
+  >  Wenn Sie unnötige Inhalte mit dem Server Bereinigungs-Assistenten entfernen, werden alle privaten Update Dateien, die Sie von der Microsoft Update Katalog-Website heruntergeladen haben, ebenfalls entfernt. Sie müssen diese Dateien nach dem Ausführen des Server Bereinigungs-Assistenten erneut importieren. 
 
-Wenn Updates sind mit einer Regel zur automatischen Genehmigung genehmigt sie möglicherweise immer noch im Zustand "Genehmigt" und der Server-Cleanup-Assistent nicht entfernt werden. Zum Entfernen von Updates automatisch genehmigt, die in einem "approved" Zustand sind, müssen - die WSUS-Administrator mindestens - manuell festlegen den Genehmigungsstatus von ersetzten Updates "Nicht genehmigt", damit sie für die Ablehnung durch die Bereinigung der Server Assistenten geeignet sein werden. Die Server-Bereinigung, die Assistenten ein neueres Update gewährleistet genehmigt wurde und noch keine Client-System, die Berichte aktualisieren, je nach Bedarf, bevor Sie das Update als "Abgelehnt".
+Wenn Updates mithilfe einer Regel für die automatische Genehmigung genehmigt werden, befinden Sie sich möglicherweise weiterhin im Status "genehmigt" und werden nicht durch den Server Bereinigungs-Assistenten entfernt. Zum Entfernen automatisch genehmigter Updates, die den Status "genehmigt" aufweisen, muss der WSUS-Administrator mindestens manuell den Genehmigungs Status der abgelösten Updates auf "nicht genehmigt" festlegen, damit Sie vom Server Bereinigungs-Assistenten zur Entschlüsselung berechtigt werden. Der Server Bereinigung-Assistent stellt sicher, dass ein neueres Update genehmigt wird und dass das Update von keinem Client System nach Bedarf gemeldet wird, bevor das Update als "abgelehnt" markiert wird.
 
 
 

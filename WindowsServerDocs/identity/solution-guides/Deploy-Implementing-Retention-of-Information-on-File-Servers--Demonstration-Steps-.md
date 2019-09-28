@@ -7,18 +7,18 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 0acfa6eec1d83c246c43ad32f7548ea771eb3c11
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 994eadfa205b62c5a512ab130c71fa6c22d1cff6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445760"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357540"
 ---
 # <a name="deploy-implementing-retention-of-information-on-file-servers-demonstration-steps"></a>Deploy Implementing Retention of Information on File Servers (Demonstration Steps)
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Mithilfe der Dateiklassifizierungsinfrastruktur und dem Ressourcen-Manager für Dateiserver können Sie die Aufbewahrungsdauer für Ordner festlegen und Dateien eine rechtliche Aufbewahrungspflicht zuweisen.  
   
@@ -26,24 +26,24 @@ Mithilfe der Dateiklassifizierungsinfrastruktur und dem Ressourcen-Manager für 
   
 -   [Voraussetzungen](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Prereqs)  
   
--   [Schritt 1: Erstellen von ressourceneigenschaftsdefinitionen](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step1)  
+-   [Schritt 1: Erstellen von Ressourcen Eigenschafts Definitionen @ no__t-0  
   
--   [Schritt 2: Konfigurieren von Benachrichtigungen](Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-.md#BKMK_Step2)  
+-   [Schritt 2: Konfigurieren von Benachrichtigungen @ no__t-0  
   
--   [Schritt 3: Erstellen Sie eine Dateiverwaltungsaufgabe](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step3)  
+-   [Schritt 3: Erstellen einer Datei Verwaltungsaufgabe @ no__t-0  
   
--   [Schritt 4: Manuelles Klassifizieren einer Datei](Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-.md#BKMK_Step4)  
+-   [Schritt 4: Manuelles klassifizieren einer Datei @ no__t-0  
   
 > [!NOTE]  
 > Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit denen Sie einige der beschriebenen Vorgehensweisen automatisieren können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="prerequisites"></a>Vorraussetzungen  
+## <a name="prerequisites"></a>Erforderliche Komponenten  
 Für die Schritte in diesem Thema wird angenommen, dass Sie einen SMTP-Server für Dateiablaufbenachrichtigungen konfiguriert haben.  
   
 ## <a name="BKMK_Step1"></a>Schritt 1: Erstellen von Ressourceneigenschaftsdefinitionen  
 In diesem Schritt werden die Ressourceneigenschaften für Aufbewahrungsdauer und Erkennbarkeit aktiviert, sodass diese Ressourceneigenschaften von der Dateiklassifizierungsinfrastruktur zum Kennzeichnen von Dateien verwendet werden können, die in einem freigegebenen Netzwerkordner gescannt werden.  
   
-[Führen Sie diesen Schritt mithilfe von Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep1)  
+[Führen Sie diesen Schritt mithilfe von Windows PowerShell aus.](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep1)  
   
 #### <a name="to-create-resource-property-definitions"></a>So erstellen Sie Ressourceneigenschaftsdefinitionen  
   
@@ -57,7 +57,7 @@ In diesem Schritt werden die Ressourceneigenschaften für Aufbewahrungsdauer und
   
 5.  Klicken Sie mit der rechten Maustaste auf **Erkennbarkeit**, und klicken Sie dann auf **Aktivieren**.  
   
-![Lösungshandbücher](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
+![solution Guides](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -69,7 +69,7 @@ Set-ADResourceProperty -Enabled:$true -Identity:'CN=Discoverability_MS,CN=Resour
 ## <a name="BKMK_Step2"></a>Schritt 2: Konfigurieren von Benachrichtigungen  
 In diesem Schritt wird die Konsole für den Ressourcen-Manager für Dateiserver zum Konfigurieren des SMTP-Servers, der Standard-E-Mail-Adresse des Administrators und der Standard-E-Mail-Adresse verwendet, mit der die Berichte gesendet werden.  
   
-[Führen Sie diesen Schritt mithilfe von Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep2)  
+[Führen Sie diesen Schritt mithilfe von Windows PowerShell aus.](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep2)  
   
 #### <a name="to-configure-notifications"></a>So konfigurieren Sie Benachrichtigungen  
   
@@ -87,11 +87,11 @@ In diesem Schritt wird die Konsole für den Ressourcen-Manager für Dateiserver 
   
     -   Geben Sie in das Feld **Standardadministratorempfänger** die E-Mail-Adresse des Administrators ein, der die Benachrichtigung erhalten soll.  
   
-    -   In der **standardmäßig die "e-Mail-Adresse aus"** geben die e-Mail-Adresse, die zum Senden von Benachrichtigungen verwendet werden soll.  
+    -   Geben Sie im Feld **Standard-e-Mail-Adresse** die e-Mail-Adresse ein, die zum Senden der Benachrichtigungen verwendet werden soll.  
   
 6.  Klicken Sie auf **OK**.  
   
-![Lösungshandbücher](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
+![solution Guides](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -108,7 +108,7 @@ In diesem Schritt wird die Konsole für den Ressourcen-Manager für Dateiserver 
   
 -   Die Datei wurde in den letzten 10 Jahren nicht geändert.  
   
-[Führen Sie diesen Schritt mithilfe von Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep3)  
+[Führen Sie diesen Schritt mithilfe von Windows PowerShell aus.](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep3)  
   
 #### <a name="to-create-a-file-management-task"></a>So erstellen Sie eine Dateiverwaltungsaufgabe  
   
@@ -142,7 +142,7 @@ In diesem Schritt wird die Konsole für den Ressourcen-Manager für Dateiserver 
   
 11. Klicken Sie auf **OK**.  
   
-![Lösungshandbücher](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
+![solution Guides](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
