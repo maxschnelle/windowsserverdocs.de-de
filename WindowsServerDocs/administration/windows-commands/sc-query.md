@@ -1,8 +1,8 @@
 ---
 title: SC-Abfrage
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 60b6e945c4b2944f97d40cbc27694acc2915c615
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 4d2f3f603ad173b5ab90bc56a9a4e589c0fe9d8a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441621"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384343"
 ---
 # <a name="sc-query"></a>SC-Abfrage
 
 
 
-Ruft ab und zeigt Informationen zu den angegebenen Dienst, Treiber, Diensttyp oder Typ des Treibers.
+Ruft Informationen zum angegebenen Dienst, Treiber, Diensttyp oder Typ des Treibers ab und zeigt diese an.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -38,62 +38,62 @@ sc [<ServerName>] query [<ServiceName>] [type= {driver | service | all}] [type= 
 
 |       Parameter        |                                                                                                                          Beschreibung                                                                                                                          |
 |------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     \<ServerName>      |                       Gibt den Namen des Remoteservers auf dem sich der Dienst befindet. Der Name muss das Universal Naming Convention (UNC)-Format verwenden (z. B. \\ \\"myserver"). Um SC.exe lokal ausführen zu können, müssen lassen Sie diesen Parameter Weg.                        |
-|     \<ServiceName>     |                                      Gibt den Dienstnamen, die zurückgegeben werden, indem die **Getkeyname** Vorgang. Dies **Abfrage** Parameter wird nicht verwendet, im Zusammenhang mit anderen **Abfrage** Parameter (außer *ServerName*).                                      |
-|     Typ = {-Treiber      |                                                                                                                            Dienst                                                                                                                            |
-|       Typ = {besitzen       |                                                                                                                             Freigeben                                                                                                                             |
-|     Status = {Aktiv     |                                                                                                                           inaktiv                                                                                                                            |
-| bufsize= \<BufferSize> |                     Gibt die Größe (in Byte) des Puffers Enumeration. Die Standardpuffergröße ist 1.024 Bytes. Sie sollten die Größe des Puffers Enumeration erhöhen, wenn die Anzeige, die aus einer Abfrage resultierenden 1.024 Bytes überschreitet.                      |
-|   ri= \<ResumeIndex>   | Gibt die Indexnummer, die bei der Enumeration ist, um zu beginnen oder fortsetzen. Der Standardwert ist **0** (null). Verwenden Sie diesen Parameter in Verbindung mit der **Bufsize =** Parameter an, wenn Informationen von einer Abfrage zurückgegeben wird, als der Standardpuffer angezeigt werden kann. |
-|  group= \<GroupName>   |                                                                             Gibt die Dienstgruppe aufgelistet werden sollen. Standardmäßig werden alle Gruppen aufgelistet (**Group = ""** ).                                                                              |
+|     \<servername >      |                       Gibt den Namen des Remote Servers an, auf dem sich der Dienst befindet. Der Name muss das Universal Naming Convention Format (UNC) verwenden (z. b. \\ @ no__t-1myserver). Wenn Sie "SC. exe" lokal ausführen möchten, lassen Sie diesen Parameter Weg.                        |
+|     \<servicename >     |                                      Gibt den Dienstnamen an, der vom **getkeyname** -Vorgang zurückgegeben wird. Dieser **Abfrage** Parameter wird nicht in Verbindung mit anderen **Abfrage** Parametern (mit Ausnahme von *Servername*) verwendet.                                      |
+|     Type = {Driver      |                                                                                                                            Dienst                                                                                                                            |
+|       Type = {Own       |                                                                                                                             Freigeben                                                                                                                             |
+|     State = {Active     |                                                                                                                           VSTE                                                                                                                            |
+| buf size = \<buffersize > |                     Gibt die Größe (in Bytes) des enumerationspuffers an. Die Standardpuffergröße beträgt 1.024 Bytes. Sie sollten die Größe des enumerationspuffers erhöhen, wenn die aus einer Abfrage resultierende Anzeige 1.024 Bytes überschreitet.                      |
+|   RI = \<resumeindex >   | Gibt die Indexnummer an, bei der die Enumeration gestartet oder fortgesetzt werden soll. Der Standardwert ist **0** (null). Verwenden Sie diesen Parameter in Verbindung mit dem Parameter " **bussize =** ", wenn mehr Informationen von einer Abfrage zurückgegeben werden, als der Standard Puffer anzeigen kann. |
+|  Group = \<groupname >   |                                                                             Gibt die aufzuzählende Dienstgruppe an. Standardmäßig werden alle Gruppen aufgelistet (**Group = ""** ).                                                                              |
 |           /?           |                                                                                                             Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                              |
 
 ## <a name="remarks"></a>Hinweise
 
-- Ohne Leerzeichen zwischen einem Parameter und dessen Wert (d. h. **Typ = eigenen**, nicht **Typ = eigenen**), der Vorgang schlägt fehl.
-- Die **Abfrage** Prozess zeigt die folgende Informationen zu einem Dienst: SERVICE_NAME (des Diensts Registrierung Unterschlüsselnamen), TYPE, STATE (sowie die Zustände, die nicht verfügbar sind), WIN32_EXIT_B, SERVICE_EXIT_B, CHECKPOINT und WAIT_HINT.
-- Die **Typ =** Parameter kann in einigen Fällen zweimal verwendet werden. Die erste Darstellung der **Typ =** Parameter gibt an, ob Dienste, Treiber oder beide Abfragen (**alle**). Die zweite Darstellung der **Typ =** Parameter gibt an, einen Typ aus der **erstellen** Vorgang, um den Umfang einer Abfrage einzugrenzen.
-- Wenn die Anzeige, die aus einem **Abfrage** Befehl überschreitet die Größe des Puffers Enumeration ist, wird eine Meldung ähnlich der folgenden angezeigt:  
+- Ohne Leerzeichen zwischen einem Parameter und dessen Wert (d. h. **Type = own**, nicht **Type = own**) schlägt der Vorgang fehl.
+- Der **Abfrage** Vorgang zeigt die folgenden Informationen zu einem Dienst an: SERVICE_NAME (Name des Registrierungs unter Schlüssels des dienstanders), Typ, Status (sowie nicht verfügbare Zustände), WIN32_EXIT_B, SERVICE_EXIT_B, Checkpoint und WAIT_HINT.
+- Der **Type =** -Parameter kann in einigen Fällen zweimal verwendet werden. Die erste Darstellung des **Type =** -Parameters gibt an, ob Dienste, Treiber oder beides (**alle**) abgefragt werden sollen. Die zweite Darstellung des **Type =** -Parameters gibt einen Typ aus dem **Create** -Vorgang an, um den Bereich einer Abfrage weiter einzugrenzen.
+- Wenn die von einem **Abfrage** Befehl resultierende Anzeige die Größe des enumerationspuffers überschreitet, wird eine Meldung ähnlich der folgenden angezeigt:  
   ```
   Enum: more data, need 1822 bytes start resume at index 79
   ```  
-  Zum Anzeigen der verbleibenden **Abfrage** Informationen erneut ausführen **Abfrage**, wobei **Bufsize =** gleich der Anzahl der Bytes und die Einstellung **ri =** auf der angegebene Index. Beispielsweise würde die verbleibende Ausgabe angezeigt werden, indem Sie Folgendes an der Eingabeaufforderung eingeben:  
+  Um die restlichen **Abfrage** Informationen anzuzeigen, führen Sie die **Abfrage**erneut aus, und legen Sie für " **bufsize =** " die Anzahl von Bytes und für " **RI =** " den angegebenen Index fest. Beispielsweise würde die verbleibende Ausgabe angezeigt werden, indem Sie an der Eingabeaufforderung Folgendes eingeben:  
   ```
   sc query bufsize= 1822 ri= 79
   ```
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Geben Sie zum Anzeigen von Informationen für die aktiven Dienste nur einen der folgenden Befehle aus:
+Wenn Sie nur Informationen für aktive Dienste anzeigen möchten, geben Sie einen der folgenden Befehle ein:
 ```
 sc query
 sc query type= service
 ```
-Informationen für den aktiven Dienste an, und geben Sie eine Puffergröße von 2.000 Bytes, geben Sie ein:
+Um Informationen für aktive Dienste anzuzeigen und eine Puffergröße von 2.000 Bytes anzugeben, geben Sie Folgendes ein:
 ```
 sc query type= all bufsize= 2000
 ```
-Um Informationen für den Dienst WUAUSERV anzuzeigen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um Informationen für den wuauserv-Dienst anzuzeigen:
 ```
 sc query wuauserv
 ```
-Anzeigen von Informationen für alle Dienste (aktive und inaktive) Geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um Informationen für alle Dienste anzuzeigen (aktiv und inaktiv):
 ```
 sc query state= all
 ```
-Um Informationen für alle Dienste ("aktiv" und "inaktiv"), beginnend bei Zeile 56 anzuzeigen, geben Sie Folgendes ein:
+Zum Anzeigen von Informationen für alle Dienste (aktiv und inaktiv) geben Sie ab Zeile 56 Folgendes ein:
 ```
 sc query state= all ri= 56
 ```
-Um Informationen für die interaktive Dienste anzuzeigen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um Informationen für interaktive Dienste anzuzeigen:
 ```
 sc query type= service type= interact
 ```
-Um Informationen für Treiber nur anzuzeigen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um nur Informationen für Treiber anzuzeigen:
 ```
 sc query type= driver
 ```
-Um Informationen für den Treiber in der Gruppe der Network Driver Interface Specification (NDIS) anzuzeigen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um Informationen für Treiber in der Network Driver Interface Specification (NDIS)-Gruppe anzuzeigen:
 ```
 sc query type= driver group= ndis
 ```

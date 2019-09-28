@@ -1,9 +1,9 @@
 ---
 title: Konfigurieren von Zugriffssteuerungslisten für die Rechenzentrumsfirewall
-description: Sie können bestimmte ACLs auf Netzwerkschnittstellen anwenden.  Wenn ACLs auch für das virtuelle Subnetz festgelegt sind mit denen die Netzwerkschnittstelle verbunden ist, sowohl ACLs werden angewendet, aber die Netzwerkschnittstelle ACLs werden über das virtuelle Subnetz ACLs priorisiert.
+description: Sie können bestimmte ACLs auf Netzwerkschnittstellen anwenden.  Wenn ACLs auch für das virtuelle Subnetz festgelegt sind, mit dem die Netzwerkschnittstelle verbunden ist, werden beide ACLs angewendet, aber die ACLs der Netzwerkschnittstelle sind oberhalb der ACLs des virtuellen Subnetzes priorisiert.
 manager: dougkim
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -13,76 +13,76 @@ ms.assetid: 25f18927-a63e-44f3-b02a-81ed51933187
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: 77a7706e39da265eedd65342a0ccf2174ab050ea
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2e3f365a820de67dec87ea209cbfeb22d9091616
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853401"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406110"
 ---
-# <a name="configure-datacenter-firewall-access-control-lists-acls"></a>Konfigurieren der Datacenter Firewall Zugriffssteuerungslisten (ACLs)
+# <a name="configure-datacenter-firewall-access-control-lists-acls"></a>Konfigurieren von Rechenzentrums Firewall-Access Control Listen (ACLs)
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sobald Sie eine ACL erstellt und ein virtuelles Subnetz zugewiesen haben, empfiehlt es sich, diese Standard-ACL auf das virtuelle Subnetz mit der eine bestimmte ACL für eine einzelne Netzwerkschnittstelle außer Kraft zu setzen.  In diesem Fall wenden Sie spezielle ACLs, direkt auf Netzwerkschnittstellen, VLANs, anstelle des virtuellen Netzwerks. Wenn Sie die ACLs für das virtuelle Subnetz verbunden, die der Netzwerkschnittstelle festgelegt haben, werden beide ACLs werden angewendet und priorisiert die ACLs, die über die Zugriffssteuerungslisten für das virtuelle Subnetz der Netzwerkschnittstelle.
+Nachdem Sie eine ACL erstellt und einem virtuellen Subnetz zugewiesen haben, können Sie diese Standard-ACL im virtuellen Subnetz mit einer bestimmten Zugriffs Steuerungs Liste für eine einzelne Netzwerkschnittstelle außer Kraft setzen.  In diesem Fall wenden Sie bestimmte ACLs direkt auf Netzwerkschnittstellen an, die an VLANs angefügt sind, anstelle des virtuellen Netzwerks. Wenn Sie ACLs für das virtuelle Subnetz festgelegt haben, das mit der Netzwerkschnittstelle verbunden ist, werden beide Zugriffs Steuerungs Listen angewendet und priorisiert die ACLs der Netzwerkschnittstelle oberhalb der ACLs des virtuellen Subnetzes.
 
 >[!IMPORTANT]
->Wenn Sie keine ACL erstellt und ein virtuelles Netzwerk zugewiesen haben, finden Sie unter [verwenden Zugriffssteuerungslisten (ACLs) zum Verwalten von Datencenter-Netzwerk fließt der Datenverkehr](Use-Access-Control-Lists--ACLs--to-Manage-Datacenter-Network-Traffic-Flow.md) eine ACL erstellen und zu einem virtuellen Subnetz zuweisen.  
+>Wenn Sie keine ACL erstellt und einem virtuellen Netzwerk zugewiesen haben, finden Sie weitere Informationen unter [Verwenden von Access Control Listen (ACLs) zum Verwalten des Netzwerk Datenverkehrs für Daten Center](Use-Access-Control-Lists--ACLs--to-Manage-Datacenter-Network-Traffic-Flow.md) , um eine ACL zu erstellen und Sie einem virtuellen Subnetz zuzuweisen.  
 
-In diesem Thema erfahren Sie, wie eine Netzwerkschnittstelle eine ACL hinzu. Wir zeigen auch, wie zum Entfernen einer ACL von einer Netzwerkschnittstelle, die mithilfe von Windows PowerShell und die Netzwerk-Controller-REST-API.
+In diesem Thema erfahren Sie, wie Sie einer Netzwerkschnittstelle eine ACL hinzufügen. Wir zeigen Ihnen außerdem, wie Sie eine ACL mithilfe von Windows PowerShell und der Rest-API des Netzwerk Controllers aus einer Netzwerkschnittstelle entfernen.
 
-- [Beispiel: Hinzufügen einer ACL zu einer Netzwerkschnittstelle](#example-add-an-acl-to-a-network-interface)
-- [Beispiel: Entfernen Sie eine ACL mithilfe von Windows Powershell und die Netzwerk-Controller-REST-API von einer Netzwerkschnittstelle](#example-remove-an-acl-from-a-network-interface-by-using-windows-powershell-and-the-network-controller-rest-api)
+- [Beispiel Hinzufügen einer ACL zu einer Netzwerkschnittstelle @ no__t-0
+- [Beispiel Entfernen einer ACL aus einer Netzwerkschnittstelle mithilfe von Windows PowerShell und der Netzwerk Controller-Rest-API @ no__t-0
 
 
 ## <a name="example-add-an-acl-to-a-network-interface"></a>Beispiel: Hinzufügen einer ACL zu einer Netzwerkschnittstelle
-In diesem Beispiel wir veranschaulicht, wie eine ACL zu einem virtuellen Netzwerk hinzufügen. 
+In diesem Beispiel wird veranschaulicht, wie Sie einem virtuellen Netzwerk eine ACL hinzufügen. 
 
 >[!TIP]
->Es ist auch möglich, eine ACL gleichzeitig hinzuzufügen, die Sie die Netzwerkschnittstelle erstellen.
+>Es ist auch möglich, eine ACL hinzuzufügen, wenn Sie die Netzwerkschnittstelle erstellen.
 
-1. Rufen Sie aus, oder erstellen Sie die Netzwerkschnittstelle, die Sie die ACL hinzufügen möchten.
+1. Rufen Sie die Netzwerkschnittstelle ab, der Sie die ACL hinzufügen möchten, oder erstellen Sie Sie.
  
    ```PowerShell
    $nic = get-networkcontrollernetworkinterface -ConnectionUri $uri -ResourceId "MyVM_Ethernet1"
    ```
  
-2. Rufen Sie aus, oder erstellen Sie die ACL, die Sie die Netzwerkschnittstelle hinzufügen möchten.
+2. Rufen Sie die ACL ab, die Sie der Netzwerkschnittstelle hinzufügen, oder erstellen Sie Sie.
  
    ```PowerShell
    $acl = get-networkcontrolleraccesscontrollist -ConnectionUri $uri -resourceid "AllowAllACL"
    ```
  
-3. Weisen Sie der ACL der AccessControlList-Objekt-Eigenschaft der Netzwerkschnittstelle
+3. Zuweisen der ACL zur AccessControlList-Eigenschaft der Netzwerkschnittstelle
  
    ```PowerShell
     $nic.properties.ipconfigurations[0].properties.AccessControlList = $acl
    ```
  
-4. Die Netzwerkschnittstelle im Netzwerkcontroller hinzufügen
+4. Hinzufügen der Netzwerkschnittstelle im Netzwerk Controller
  
    ```
    new-networkcontrollernetworkinterface -ConnectionUri $uri -Properties $nic.properties -ResourceId $nic.resourceid
    ```
  
-## <a name="example-remove-an-acl-from-a-network-interface-by-using-windows-powershell-and-the-network-controller-rest-api"></a>Beispiel: Entfernen Sie eine ACL mithilfe von Windows Powershell und die Netzwerk-Controller-REST-API von einer Netzwerkschnittstelle
-In diesem Beispiel erläutert, wie Sie eine ACL zu entfernen. Entfernt eine ACL wendet den Standardsatz von Regeln, die der Netzwerkschnittstelle. Der Standardsatz von Regeln können die gesamte ausgehenden Datenverkehr jedoch sämtlicher eingehenden Datenverkehr blockiert.
+## <a name="example-remove-an-acl-from-a-network-interface-by-using-windows-powershell-and-the-network-controller-rest-api"></a>Beispiel: Entfernen einer ACL aus einer Netzwerkschnittstelle mithilfe von Windows PowerShell und der Netzwerk Controller-Rest-API
+In diesem Beispiel erfahren Sie, wie Sie eine ACL entfernen. Durch das Entfernen einer ACL wird der Standardsatz von Regeln auf die Netzwerkschnittstelle angewendet. Der Standardsatz von Regeln ermöglicht den gesamten ausgehenden Datenverkehr, blockiert jedoch den gesamten eingehenden Datenverkehr.
 
 >[!NOTE]
->Wenn Sie alle eingehenden Datenverkehr zulassen möchten, müssen Sie die vorherige befolgen [Beispiel](#example-add-an-acl-to-a-network-interface) eine ACL hinzufügen, die sämtlichen eingehenden und den gesamten ausgehenden Datenverkehr zulässt.
+>Wenn Sie den gesamten eingehenden Datenverkehr zulassen möchten, müssen Sie dem vorherigen [Beispiel](#example-add-an-acl-to-a-network-interface) folgen, um eine ACL hinzuzufügen, die den gesamten eingehenden und ausgehenden Datenverkehr zulässt.
 
 
-1. Rufen Sie die ACL der Netzwerkschnittstelle aus, die Sie entfernen möchten.<br>
+1. Holen Sie sich die Netzwerkschnittstelle, von der Sie die ACL entfernen.<br>
    ```PowerShell
    $nic = get-networkcontrollernetworkinterface -ConnectionUri $uri -ResourceId "MyVM_Ethernet1"
    ```
  
-2. $NULL und die Eigenschaft AccessControlList-Objekt, von der IP-Konfiguration zuweisen.<br>
+2. Weisen Sie $NULL der AccessControlList-Eigenschaft der ipconfiguration zu.<br>
    ```PowerShell
    $nic.properties.ipconfigurations[0].properties.AccessControlList = $null
    ```
  
-3. Fügen Sie das Netzwerkschnittstellenobjekt im Netzwerkcontroller hinzu.<br>
+3. Fügen Sie das Netzwerkschnittstellen Objekt im Netzwerk Controller hinzu.<br>
    ```PowerShell
    new-networkcontrollernetworkinterface -ConnectionUri $uri -Properties $nic.properties -ResourceId $nic.resourceid
    ```

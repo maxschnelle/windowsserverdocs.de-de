@@ -1,65 +1,65 @@
 ---
-title: 'Abgeschirmte VMs: Vorbereiten eines virtuellen Computers, die VHD für Schutzhilfsprogramm'
+title: 'Abgeschirmte VMS: Vorbereiten einer VHD für ein VM-Schutz Hilfsprogramm'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: 0e3414cf-98ca-4e91-9e8d-0d7bce56033b
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 81e6ed7950fe13c5bed4a3f8850d64e7185b8ddd
-ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
+ms.openlocfilehash: 7984d1c965c15f7d8c3f3abfdc99f01e3adc215f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67469641"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403431"
 ---
-# <a name="shielded-vms---preparing-a-vm-shielding-helper-vhd"></a>Abgeschirmte VMs: Vorbereiten eines virtuellen Computers, die VHD für Schutzhilfsprogramm
+# <a name="shielded-vms---preparing-a-vm-shielding-helper-vhd"></a>Abgeschirmte VMS: Vorbereiten einer VHD für ein VM-Schutz Hilfsprogramm
 
->Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 > [!IMPORTANT]
-> Bevor Sie diese Schritte ausführen, stellen Sie sicher, dass Sie das neueste kumulative Update für Windows Server 2016 installiert haben, oder das neueste Windows 10 verwenden- [Remoteserver-Verwaltungstools](https://www.microsoft.com/en-us/download/details.aspx?id=45520). Andernfalls funktioniert die Prozeduren nicht. 
+> Bevor Sie mit diesen Verfahren beginnen, stellen Sie sicher, dass Sie das neueste kumulative Update für Windows Server 2016 installiert haben oder die neuesten Windows 10- [Remoteserver-Verwaltungstools](https://www.microsoft.com/en-us/download/details.aspx?id=45520)verwenden. Andernfalls funktionieren die Prozeduren nicht. 
 
-Dieser Abschnitt enthält Schritte, die vom hosting-Anbieter um Unterstützung für die Konvertierung vorhandener VMs in abgeschirmte VMs zu aktivieren.
+In diesem Abschnitt werden die Schritte beschrieben, die von einem hostingdienstanbieter ausgeführt werden, um die Unterstützung für die Umstellung vorhandener virtueller
 
-Um zu verstehen, wie in diesem Thema in den gesamten Vorgang der Bereitstellung von abgeschirmten VMs passt, finden Sie unter [Service Provider-Konfigurationsschritte für das Hosten von überwachten Hosts und abgeschirmte VMs](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md).
+Informationen dazu, wie sich dieses Thema in den Gesamtprozess der Bereitstellung von abgeschirmten VMS einfügt, finden Sie unter [Hosten von Dienstanbietern Konfigurationsschritte für geschützte Hosts und abgeschirmte VMS](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md).
 
-## <a name="which-vms-can-be-shielded"></a>Die VMs können geschützt werden?
+## <a name="which-vms-can-be-shielded"></a>Welche VMs können geschützt werden?
 
-Des geschützten Prozesses für vorhandene virtuelle Computer ist nur verfügbar, für VMs, die die folgenden Voraussetzungen erfüllen:
+Der Schutz Vorgang für vorhandene VMS ist nur für VMS verfügbar, die die folgenden Voraussetzungen erfüllen:
 
-- Das Gastbetriebssystem ist Windows Server 2012, 2012 R2, 2016 oder einem halbjährlicher Kanal-Version. Vorhandene virtuelle Linux-Computer kann nicht in abgeschirmte VMs konvertiert werden.
-- Der virtuelle Computer ist eine Generation 2 VM (UEFI-Firmware)
-- Differenzierende Datenträger ist für die BS-Volume des virtuellen Computers nicht verwendet.
+- Das Gast Betriebssystem ist Windows Server 2012, 2012 R2, 2016 oder eine halbjährliche Kanal Version. Vorhandene virtuelle Linux-Computer können nicht in abgeschirmte VMS konvertiert werden.
+- Der virtuelle Computer ist eine VM der Generation 2 (UEFI-Firmware).
+- Der virtuelle Computer verwendet keine differenzierenden Datenträger für das Betriebssystem Volume.
 
-## <a name="prepare-helper-vhd"></a>Hilfsprogramm-VHD vorbereiten
+## <a name="prepare-helper-vhd"></a>Vorbereiten der VHD
 
-1.  Auf einem Computer mit Hyper-V und das Feature der Remoteserver-Verwaltungstools **Tools für geschützte VMs** installiert haben, erstellen Sie eine neue Generation 2 VM mit einem leeren VHDX und installieren Sie Windows Server 2016, mit der ISO-Datei von Windows Server-Installation Medien. Dieser virtuelle Computer nicht geschützt werden und muss, werden die Server Core oder Server mit Desktopdarstellung ausführen.
+1.  Erstellen Sie auf einem Computer mit Hyper-V und dem Remoteserver-Verwaltungstools Feature **abgeschirmte VM-Tools** installiert einen neuen virtuellen Computer der Generation 2 mit einer leeren vhdx-Datei, und installieren Sie Windows Server 2016 mithilfe der ISO-Installationsmedien von Windows Server. Diese VM sollte nicht geschützt werden und muss Server Core oder Server mit Desktop Darstellung ausführen.
 
     > [!IMPORTANT]
-    > Die VM VHD für das Schutzhilfsprogramm **darf nicht** verknüpft werden kann, die im erstellten vorlagedatenträger [Hosting-Service-Anbieter erstellt die Vorlage für eine abgeschirmte VM](guarded-fabric-create-a-shielded-vm-template.md). Wenn Sie einen vorlagendatenträger erneut verwenden, fallen ein Datenträger Signatur Konflikt während des geschützten Prozesses da beide Datenträger auf die gleiche GPT-Datenträger-ID zugreifen können. Sie können dies vermeiden, erstellen eine neue (leere) virtuelle Festplatte, und installieren Windows Server 2016 auf dem ISO-Installationsmedium verwenden.
+    > Die VHD für das VM-Schutz Hilfsprogramm **darf nicht** mit den Vorlagen Datenträgern verknüpft sein, die Sie im [hostingdienstanbieter](guarded-fabric-create-a-shielded-vm-template.md)erstellt haben. Wenn Sie einen Vorlagen Datenträger wieder verwenden, wird während des Schutz Vorgangs ein Datenträger Signatur Konflikt festgestellt, da beide Datenträger denselben GPT-Datenträger Bezeichner aufweisen. Sie können dies vermeiden, indem Sie eine neue (leere) VHD erstellen und Windows Server 2016 mithilfe der ISO-Installationsmedien auf diesem Server installieren.
 
-2.  Starten Sie die VM, Setupschritte ausführen, und melden Sie sich bei dem Desktop. Nachdem Sie, dass der virtuelle Computer in einem lauffähigen Zustand ist überprüft haben, müssen Sie den virtuellen Computer herunterfahren.
+2.  Starten Sie den virtuellen Computer, führen Sie alle Setup Schritte aus, und melden Sie sich beim Desktop an. Nachdem Sie überprüft haben, dass sich die VM in einem funktionierenden Zustand befindet, fahren Sie den virtuellen Computer herunter.
 
-3.  Führen Sie in einer Windows PowerShell-Fenster mit erhöhten Rechten den folgenden Befehl aus, um einen Datenträger für virtuelle Computer das schutzhilfsprogramm werden zuvor erstellte VHDX vorbereiten. Aktualisieren Sie den Pfad durch den korrekten Pfad für Ihre Umgebung.
+3.  Führen Sie in einem Windows PowerShell-Fenster mit erhöhten Rechten den folgenden Befehl aus, um die zuvor erstellte vhdx-Datei als VM-schutzhilfshilf-Daten Träger vorzubereiten. Aktualisieren Sie den Pfad mit dem richtigen Pfad für Ihre Umgebung.
 
     ```powershell
     Initialize-VMShieldingHelperVHD -Path 'C:\VHD\shieldingHelper.vhdx'
     ```
 
-4.  Nachdem der Befehl erfolgreich abgeschlossen wurde, kopieren Sie die VHDX in Ihrer VMM-Bibliotheksfreigabe aus. **Nicht** starten Sie den virtuellen Computer aus Schritt 1. Auf diese Weise wird der Datenträger beschädigt.
+4.  Nachdem der Befehl erfolgreich abgeschlossen wurde, kopieren Sie die vhdx-Datei in die VMM-Bibliotheks Freigabe. Starten Sie den virtuellen Computer **nicht** erneut aus Schritt 1. Dadurch wird der hilfsprogrammdatenträger beschädigt.
 
-5.  Sie können nun den virtuellen Computer aus Schritt 1 unter Hyper-V löschen.
+5.  Nun können Sie den virtuellen Computer aus Schritt 1 in Hyper-V löschen.
 
-## <a name="configure-vmm-host-guardian-server-settings"></a>Konfigurieren der VMM-Host-Überwachungsdienst-Server-Einstellungen
+## <a name="configure-vmm-host-guardian-server-settings"></a>VMM-Host-Überwachungs Server Einstellungen konfigurieren
 
-Öffnen Sie in der VMM-Konsole den Bereich "abfrageeinstellungen" und dann **Einstellungen für Host-Überwachungsdienst** unter **allgemeine**. Am unteren Rand dieses Fensters gibt es ein Feld so konfigurieren Sie den Speicherort des Hilfsprogramm-VHD. Verwenden Sie die Schaltfläche zum Durchsuchen, um die virtuelle Festplatte aus der Bibliotheksfreigabe auszuwählen. Wenn Sie Ihre Datenträger in die Freigabe nicht angezeigt werden, müssen Sie manuell aktualisieren, die Bibliothek im VMM, damit sie angezeigt werden.
+Öffnen Sie in der VMM-Konsole den Bereich Einstellungen, und wählen Sie dann unter **Allgemein**die Einstellungen des Überwachungs **Diensts** . Am unteren Rand dieses Fensters befindet sich ein Feld, in dem Sie den Speicherort der Hilfs-VHD konfigurieren können. Verwenden Sie die Schaltfläche Durchsuchen, um die VHD aus der Bibliotheks Freigabe auszuwählen. Wenn der Datenträger in der Freigabe nicht angezeigt wird, müssen Sie die Bibliothek in VMM möglicherweise manuell aktualisieren, damit Sie angezeigt wird.
 
-![VMM - Einstellungen für Host-Überwachungsdienst](../media/Guarded-Fabric-Shielded-VM/guarded-host-vmm-hgs-settings-01.png)
+![VMM-Einstellungen für den Host-Überwachungsdienst](../media/Guarded-Fabric-Shielded-VM/guarded-host-vmm-hgs-settings-01.png)
 
 ## <a name="see-also"></a>Siehe auch
 
-- [Hosten von Service Provider-Konfigurationsschritte für die überwachten Hosts und abgeschirmten VMs](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
+- [Konfigurationsschritte des hostingdienstanbieters für geschützte Hosts und abgeschirmte VMS](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Geschütztes Fabric und abgeschirmte VMs](guarded-fabric-and-shielded-vms-top-node.md)

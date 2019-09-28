@@ -1,8 +1,8 @@
 ---
-title: Unterbefehl Stop-Server
-description: 'Windows-Befehle Thema ***- '
+title: Unterbefehl "Ende-Server"
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ddb681234cfcbe6d02e56f2e366167faeeb25280
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7584dcbca5bfc52d303f187f62be24cbad407416
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834731"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383743"
 ---
-# <a name="subcommand-stop-server"></a>Unterbefehl: Stop-Server
+# <a name="subcommand-stop-server"></a>Unterbefehl: "Ende-Server"
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Beendet alle Dienste auf einem Windows-Bereitstellungsdiensteserver.
 ## <a name="syntax"></a>Syntax
@@ -32,19 +32,17 @@ wdsutil [Options] /Stop-Server [/Server:<Server name>]
 ## <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
-|[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben wird, wird der lokale Server verwendet werden.|
-## <a name="BKMK_examples"></a>Beispiele für
-Geben Sie eine der folgenden Schritte aus, um die Dienste zu beenden:
+|[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
+## <a name="BKMK_examples"></a>Beispiele
+Geben Sie eine der folgenden Informationen ein, um die Dienste zu unterbinden:
 ```
 wdsutil /Stop-Server
 wdsutil /verbose /Stop-Server /Server:MyWDSServer
 ```
-#### <a name="additional-references"></a>Zusätzliche Referenzen
-[Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-[mit dem Disable-Server-Befehl](using-the-disable-server-command.md)
-[mit dem Enable-Server-Befehl](using-the-enable-server-command.md)
-[mithilfe der Get-Server-Befehl](using-the-get-server-command.md)
-[mithilfe des Befehls Initialize-Server](using-the-initialize-server-command.md)
-[Unterbefehl: Set-Server](subcommand-set-server.md) 
- [ Unterbefehl: Start-Server](subcommand-start-server.md)
-[die Uninitialize-Server-Option](the-uninitialize-server-option.md)
+#### <a name="additional-references"></a>Weitere Verweise
+[Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+[mithilfe des](using-the-disable-server-command.md)Befehls "Enable-Server" 
+ mit dem Befehl "[enable-](using-the-enable-server-command.md)Server" 
+ mithilfe des Befehls "[Get-](using-the-get-server-command.md)Server" 
+ mit[dem Befehl "Initialize-Server](using-the-initialize-server-command.md)" 
+[ Unterbefehl: Set-Server](subcommand-set-server.md)1[Unterbefehl: Start-Server](subcommand-start-server.md)3[die Option "Uninitialize-Server](the-uninitialize-server-option.md) "

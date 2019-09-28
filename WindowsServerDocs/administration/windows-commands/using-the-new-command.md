@@ -1,8 +1,8 @@
 ---
-title: Verwenden den neuen Befehl
-description: 'Windows-Befehle Thema ***- '
+title: Verwenden des neuen Befehls
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,22 +13,22 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4d61d1fe652f3b41e5a02f9ec8a0d204d4dc8324
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e8ca818468050cf21a55a4c9963ea2411ab018c7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873941"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392076"
 ---
-# <a name="using-the-new-command"></a>Verwenden den neuen Befehl
+# <a name="using-the-new-command"></a>Verwenden des neuen Befehls
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-erstellt, erfasst und Abbilder, Multicastübertragungen und Namespaces zu ermitteln.
+erstellt Erfassungs-und Ermittlungs Images, Multicast Übertragungen und Namespaces.
 ## <a name="subcommands"></a>Unterbefehle
 |Unterbefehl|Beschreibung|
 |-------|--------|
-|[Mithilfe des neuen CaptureImage-Befehls](using-the-new-captureimage-command.md)|Erstellt ein neues Capture-Image aus einem vorhandenen Startabbild an.|
-|[Mithilfe des neuen DiscoverImage-Befehls](using-the-new-discoverimage-command.md)|erstellt ein neues Discover-Image aus einem vorhandenen Startabbild an.|
-|[Mithilfe des Befehls new-MulticastTransmission](using-the-new-multicasttransmission-command.md)|erstellt eine neue Multicastübertragung an.|
-|[Mithilfe des neuen Namespace-Befehls](using-the-new-namespace-command.md)|erstellt einen neuen Namespace.|
+|[Verwenden des Befehls "New-CaptureImage"](using-the-new-captureimage-command.md)|Erstellt ein neues Erfassungs Image aus einem vorhandenen Start Abbild.|
+|[Verwenden des Befehls "New-DiscoverImage"](using-the-new-discoverimage-command.md)|Erstellt ein neues Ermittlungs Image aus einem vorhandenen Start Abbild.|
+|[Verwenden des New-MulticastTransmission-Befehls](using-the-new-multicasttransmission-command.md)|erstellt eine neue Multicast Übertragung.|
+|[Verwenden des New-Namespace-Befehls](using-the-new-namespace-command.md)|erstellt einen neuen Namespace.|

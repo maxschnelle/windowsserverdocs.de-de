@@ -1,80 +1,80 @@
 ---
 title: Verwenden von DNS-Richtlinien für intelligente DNS-Antworten basierend auf der Tageszeit
-description: Dieses Thema ist Teil des DNS-Richtlinie Szenario Handbuch für Windows Server 2016
+description: Dieses Thema ist Teil des DNS-Richtlinien szenariohandbuchs für Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: 161446ff-a072-4cc4-b339-00a04857ff3a
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: c36475dacb8664352f4ab270878357118d281c60
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: e497b0d73c816f0295588aa77a21c49d376c0dcf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446418"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406188"
 ---
 # <a name="use-dns-policy-for-intelligent-dns-responses-based-on-the-time-of-day"></a>Verwenden von DNS-Richtlinien für intelligente DNS-Antworten basierend auf der Tageszeit
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können in diesem Thema verwenden, erfahren Sie, wie zum Verteilen von Datenverkehr in verschiedenen geografisch verteilten Instanzen einer Anwendung mithilfe von DNS-Richtlinien, die auf die Uhrzeit basieren.  
+In diesem Thema erfahren Sie, wie Sie den Anwendungs Datenverkehr mithilfe von DNS-Richtlinien, die auf der Tageszeit basieren, über verschiedene geografisch verteilte Instanzen einer Anwendung verteilen.  
   
-Dieses Szenario ist hilfreich in Situationen, in denen Sie möchten zum Leiten des Datenverkehrs in einer Zeitzone in anderen Anwendungsserver wie z. B. Webserver, die in einer anderen Zeitzone befinden. Dadurch können Sie den Lastenausgleich für Datenverkehr über Anwendungsinstanzen Spitzenlast Zeiträume, die bei Ihrer primären Server mit Datenverkehr überladen werden.   
+Dieses Szenario ist nützlich, wenn Sie Datenverkehr in einer Zeitzone an Alternative Anwendungsserver (z. b. Webserver) weiterleiten möchten, die sich in einer anderen Zeitzone befinden. Dies ermöglicht Ihnen den Lastenausgleich für Datenverkehr über Anwendungs Instanzen hinweg in Spitzenzeiten, in denen Ihre primären Server mit Datenverkehr überlastet sind.   
   
-### <a name="bkmk_example1"></a>Beispiel für intelligente DNS-Antworten basierend auf dem Zeitpunkt des Tages  
-Es folgt ein Beispiel für die Verwendung von DNS-Richtlinien auf Lastenausgleich der Anwendung basierend auf dem Zeitpunkt des Tages.  
+### <a name="bkmk_example1"></a>Beispiel für intelligente DNS-Antworten basierend auf der Tageszeit  
+Im folgenden finden Sie ein Beispiel dafür, wie Sie mithilfe der DNS-Richtlinie den Anwendungs Datenverkehr basierend auf der Tageszeit ausgleichen können.  
   
-Dieses Beispiel verwendet ein fiktives Unternehmen, Contoso Geschenk-Dienste, die Geschenken onlinelösungen auf der ganzen Welt über die Website bietet, contosogiftservices.com.   
+In diesem Beispiel wird ein fiktives Unternehmen mit dem Dienst "contosogiftservices.com" verwendet, das Online-giftinglösungen auf der ganzen Welt über die Website bereitstellt,.   
   
-Der contosogiftservices.com-Website wird in zwei Rechenzentren, in Seattle (Nordamerika) und eine andere in Dublin (Europa) gehostet. Die DNS-Server werden für das Senden von GeoLocation bewusst Antworten, die mithilfe von DNS-Richtlinien konfiguriert. Mit einem aktuellen Anstieg Business contosogiftservices.com hat eine höhere Anzahl von Besuchern täglich und haben einige Kunden Problemen der dienstverfügbarkeit gemeldet.  
+Die contosogiftservices.com-Website wird in zwei Rechenzentren gehostet, eine in Seattle (Nordamerika) und eine andere in Dublin (Europa). Die DNS-Server sind für das Senden von georeporfähigen Antworten mithilfe der DNS-Richtlinie konfiguriert. Bei einer kürzlich erfolgten Zunahme des Geschäfts hat contosogiftservices.com täglich eine größere Anzahl von Besuchern, und einige Kunden haben Probleme bei der Dienst Verfügbarkeit gemeldet.  
   
-Contoso Geschenk Dienste einer Website analysiert und ermittelt, dass jeden Abend zwischen 18: 00 Uhr und 21: 00 Uhr Ortszeit, eine Zunahme der Anzahl der Datenverkehr an die Webserver besteht. Der Webserver können nicht skaliert, um dem stärkeren Datenverkehr Rechnung während dieser Spitzenzeiten zu verarbeiten, was einen Denial of Service für Kunden. Die gleiche maximale Stunde Datenverkehr Überladung erfolgt im Europäischen und American Datencenter. Zu anderen Zeiten des Tages behandeln die Servern Datenverkehrsvolumen eingesetzt, die weit von ihren maximale Funktion sind.  
+Die Dienstleistungen von "Configuration Manager" führen eine Standortanalyse durch und stellen fest, dass der Datenverkehr für die Webserver jeden Abend zwischen 6 Uhr und 9 Uhr Ortszeit zunimmt. Die Webserver können nicht skaliert werden, um den zunehmenden Datenverkehr zu diesen Spitzenzeiten zu bewältigen, was zu einem Denial of Service für Kunden führt. Dieselbe Datenverkehrs Überladung für Spitzenzeiten erfolgt in den Rechenzentren in den europäischen und in den USA. Zu anderen Tageszeiten verarbeiten die Server datenverkehrvolumes, deren maximale Kapazität unter der maximalen Kapazität liegt.  
   
-Contoso Geschenk Dienste möchte, um sicherzustellen, dass contosogiftservices.com Kunden eine reaktionsfähige Benutzeroberfläche von der Website, manche Dublin-Datenverkehr an der Seattle-Anwendungsservern zwischen 18: 00 Uhr und 21: 00 Uhr in Dublin umzuleiten; und sie möchten einige Seattle-Datenverkehr zu den Dublin-Anwendungsservern zwischen 18: 00 Uhr und 21: 00 Uhr in Seattle umleiten.  
+Um sicherzustellen, dass contosogiftservices.com-Kunden eine reaktionsfähige Darstellung von der Website erhalten, möchte der Dienst von "von den Kunden in Dublin" einen Teil von Dublin-Datenverkehr an die Seattle-Anwendungsserver zwischen 6 Uhr und 9 Uhr umleiten. und Sie möchten den Datenverkehr von Seattle an die Dublin-Anwendungsserver zwischen 6 Uhr und 9 Uhr in Seattle umleiten.  
   
-Die folgende Abbildung zeigt dieses Szenario.  
+In der folgenden Abbildung ist dieses Szenario dargestellt.  
   
-![Zeitpunkt der DNS-Tage-Richtlinie-Beispiel](../../media/DNS-Policy-Tod1/dns_policy_tod1.jpg)  
+![Beispiel für den Zeitpunkt der DNS-Richtlinie](../../media/DNS-Policy-Tod1/dns_policy_tod1.jpg)  
   
-### <a name="bkmk_works1"></a>Wie intelligente DNS-Antworten basierend auf der Zeit des Tages funktioniert  
+### <a name="bkmk_works1"></a>Funktionsweise intelligenter DNS-Antworten basierend auf der Tageszeit  
   
-Der DNS-Server führt Folgendes aus, wenn der DNS-Server mit der Zeit der DNS-Richtlinie von Tagen zwischen 18: 00 Uhr und 21: 00 Uhr an jedem geografischen Standort, konfiguriert ist.  
+Wenn der DNS-Server mit der Tageszeit-DNS-Richtlinie konfiguriert ist, die zwischen 6 Uhr und 9 Uhr an jedem geografischen Standort liegt, führt der DNS-Server Folgendes aus.  
   
-- Antworten auf die ersten vier Abfragen, die sie mit der IP-Adresse des Webservers im lokalen Rechenzentrum empfängt.  
-- Enthält Antworten auf die fünfte Abfrage, die sie mit der IP-Adresse des Webservers in der remoterechenzentrum empfängt.   
+- Beantwortet die ersten vier Abfragen, die Sie mit der IP-Adresse des Webservers im lokalen Daten Center empfängt.  
+- Beantwortet die fünfte Abfrage, die Sie empfängt, mit der IP-Adresse des Webservers im Remote Datacenter.   
   
-Dieses Verhalten richtlinienbasierten lagert Suchradius von zwanzig %aller Datenverkehrslast des lokalen Webservers, mit dem remote Webserver, der Verkehr auf dem lokalen Anwendungsserver vereinfachen und Verbessern der Leistung von Websites für Kunden.  
+Dieses Richtlinien basierte Verhalten verlagert 20 Prozent der Datenverkehrs Last des lokalen Webservers auf den Remoteweb Server, wodurch die Belastung des lokalen Anwendungs Servers und die Verbesserung der Website Leistung für Kunden erhöht werden.  
   
-Während der Spitzenzeiten ausführen die DNS-Server normale geostandorte basierte Verwaltung des Datenverkehrs. Darüber hinaus DNS-Clients, die an anderen Speicherorten als Nordamerika oder in Europa, Abfragen senden verteilt DNS-Server den Datenverkehr in den Datencentern Seattle "und" Dublin.  
+Außerhalb der Spitzenzeiten führen die DNS-Server eine normale Datenverkehrs Verwaltung auf der Basis der georedunzierten Standorte aus. Außerdem wird für DNS-Clients, die Abfragen von anderen Speicherorten als Nordamerika oder Europa senden, ein Lastenausgleich für den Datenverkehr in den Rechenzentren Seattle und Dublin durch den DNS-Server ausgeführt.  
   
-Wenn mehrere DNS-Richtlinien im DNS konfiguriert werden, sie sind eine geordnete Menge von Regeln, und verarbeitet werden von DNS von der höchsten zur niedrigsten Priorität. DNS verwendet die erste Richtlinie, die die Umstände, einschließlich der Zeit des Tages entspricht. Aus diesem Grund sollte die spezifischere Richtlinien höhere Priorität haben. Wenn Sie von Tag-Richtlinien erstellen, und sie in der Liste der Richtlinien für hohe Priorität geben, DNS verarbeitet, und Sie werden zunächst diese Richtlinien verwendet, wenn sie die Parameter von der Abfrage des DNS-Client und die in der Richtlinie definierten Kriterien übereinstimmen. Wenn sie nicht übereinstimmen, verschiebt DNS in der Liste der Richtlinien die Standardrichtlinien für verarbeitet, bis eine Übereinstimmung gefunden.  
+Wenn mehrere DNS-Richtlinien in DNS konfiguriert sind, handelt es sich um eine geordnete Gruppe von Regeln, die von DNS von der höchsten Priorität bis zur niedrigsten Priorität verarbeitet werden. DNS verwendet die erste Richtlinie, die den Umständen entspricht, einschließlich Tageszeit. Aus diesem Grund sollten spezifischere Richtlinien eine höhere Priorität haben. Wenn Sie Richtlinien für Datum und Uhrzeit erstellen und Ihnen in der Liste der Richtlinien eine hohe Priorität einräumen, werden diese Richtlinien von DNS verarbeitet und zuerst verwendet, wenn Sie mit den Parametern der DNS-Client Abfrage und den in der Richtlinie definierten Kriterien übereinstimmen. Wenn Sie nicht identisch sind, werden die Richtlinien von DNS nach unten verschoben, um die Standardrichtlinien zu verarbeiten, bis eine Entsprechung gefunden wird.  
   
-Weitere Informationen zu den Richtlinien und Kriterien finden Sie unter [DNS-Richtlinien (Übersicht)](../../dns/deploy/DNS-Policies-Overview.md).  
+Weitere Informationen zu Richtlinien Typen und Kriterien finden Sie unter [Übersicht über DNS-Richtlinien](../../dns/deploy/DNS-Policies-Overview.md).  
   
-### <a name="bkmk_how1"></a>Konfigurieren von DNS-Richtlinien für intelligente DNS-Antworten basierend auf der Tageszeit  
-Um DNS-Richtlinien für Antworten auf Abfragen zeitbasierte von Tag-Anwendung mit Lastenausgleich konfigurieren zu können, müssen Sie die folgenden Schritte ausführen.  
+### <a name="bkmk_how1"></a>Konfigurieren der DNS-Richtlinie für intelligente DNS-Antworten basierend auf der Tageszeit  
+Führen Sie die folgenden Schritte aus, um die DNS-Richtlinie für den Zeitraum für den Anwendungs Lastenausgleich auf Anwendungs Basis zu konfigurieren.  
   
-- [Erstellen Sie die DNS-Client-Subnetze](#bkmk_subnets)  
-- [Erstellen Sie die Bereiche der Zone](#bkmk_zscopes)  
-- [Hinzufügen von Datensätzen, die Bereiche der Zone](#bkmk_records)  
-- [Erstellen Sie die DNS-Richtlinien](#bkmk_policies)  
+- [Erstellen der DNS-Clientsubnetze](#bkmk_subnets)  
+- [Erstellen der Zonen Bereiche](#bkmk_zscopes)  
+- [Hinzufügen von Datensätzen zu den Zonen Bereichen](#bkmk_records)  
+- [Erstellen der DNS-Richtlinien](#bkmk_policies)  
   
 >[!NOTE]
->Sie müssen diese Schritte auf dem DNS-Server ausführen, die für die Zone autorisierend ist, die Sie konfigurieren möchten. Mitgliedschaft in **DnsAdmins**, oder die entsprechende ist erforderlich, um die folgenden Schritte ausführen.  
+>Sie müssen diese Schritte auf dem DNS-Server ausführen, der für die Zone autorisierend ist, die Sie konfigurieren möchten. Um die folgenden Prozeduren ausführen zu können, ist die Mitgliedschaft in **DnsAdmins**oder einer entsprechenden Gruppe erforderlich.  
   
-Die folgenden Abschnitte enthalten ausführliche konfigurationsanweisungen.  
+In den folgenden Abschnitten finden Sie ausführliche Konfigurations Anweisungen.  
   
 >[!IMPORTANT]
->Die folgenden Abschnitte enthalten Windows PowerShell-Beispielbefehle, die Beispielwerte für viele Parameter enthalten. Stellen Sie sicher, dass Sie die Beispielwerte in diesen Befehlen durch Werte, die für die Bereitstellung sinnvoll sind ersetzen, bevor Sie diese Befehle ausführen.  
+>Die folgenden Abschnitte enthalten Beispiele für Windows PowerShell-Befehle, die Beispiel Werte für viele Parameter enthalten. Stellen Sie sicher, dass Sie die Beispiel Werte in diesen Befehlen durch Werte ersetzen, die für die Bereitstellung geeignet sind, bevor Sie diese Befehle ausführen.  
   
-#### <a name="bkmk_subnets"></a>Erstellen Sie die DNS-Client-Subnetze  
-Der erste Schritt besteht, identifizieren Sie die Subnetze oder die IP-Adressbereich, der die Regionen, die für die Sie Datenverkehr leiten möchten. Sie können zum Umleiten von Datenverkehr für die USA und Europa müssen Sie z. B. die Subnetze oder die IP-Adressbereiche dieser Regionen zu identifizieren.  
+#### <a name="bkmk_subnets"></a>Erstellen der DNS-Clientsubnetze  
+Der erste Schritt besteht darin, die Subnetze oder den IP-Adressraum der Regionen zu identifizieren, für die Sie den Datenverkehr umleiten möchten. Wenn Sie z. b. den Datenverkehr für die USA und Europa umleiten möchten, müssen Sie die Subnetze oder IP-Adressräume dieser Regionen identifizieren.  
   
-Sie können diese Informationen über Geo-IP-Karten erhalten. Dieser Geo-IP-Distributionen müssen Sie die "DNS-Client-Subnetze". erstellen Sie basierend auf Ein DNS-Client-Subnetz ist eine logische Gruppierung von IPv4 oder IPv6-Subnetze, die von denen Abfragen an einen DNS-Server gesendet werden.  
+Diese Informationen können Sie von den georedunzierten Karten abrufen. Basierend auf diesen georedundantenverteilungen müssen Sie die DNS-Clientsubnetze erstellen. Ein DNS-clientsubnetz ist eine logische Gruppierung von IPv4-oder IPv6-Subnetzen, von denen Abfragen an einen DNS-Server gesendet werden.  
   
-Sie können die folgenden Windows PowerShell-Befehle zum Erstellen von DNS-Client-Subnetzen verwenden.  
+Sie können die folgenden Windows PowerShell-Befehle verwenden, um DNS-Clientsubnetze zu erstellen.  
   
 ```  
 Add-DnsServerClientSubnet -Name "AmericaSubnet" -IPv4Subnet "192.0.0.0/24, 182.0.0.0/24"  
@@ -82,19 +82,19 @@ Add-DnsServerClientSubnet -Name "AmericaSubnet" -IPv4Subnet "192.0.0.0/24, 182.0
 Add-DnsServerClientSubnet -Name "EuropeSubnet" -IPv4Subnet "141.1.0.0/24, 151.1.0.0/24"  
   
 ```  
-Weitere Informationen finden Sie unter [hinzufügen-DnsServerClientSubnet](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps).  
+Weitere Informationen finden Sie unter [Add-dnsserverclientsubnet](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps).  
   
-#### <a name="bkmk_zscopes"></a>Erstellen Sie die Bereiche der Zone  
-Nachdem die Client-Subnetze konfiguriert wurden, müssen Sie die Zone, für deren Datenverkehr Sie in zwei Bereiche für andere Zone, umleiten möchten, einen Bereich für jeden der DNS-Client Subnetze partitionieren, die Sie konfiguriert haben.  
+#### <a name="bkmk_zscopes"></a>Erstellen der Zonen Bereiche  
+Nachdem die Clientsubnetze konfiguriert wurden, müssen Sie die Zone partitionieren, deren Datenverkehr Sie in zwei verschiedene Zonen Bereiche umleiten möchten, einen Bereich für jedes der von Ihnen konfigurierten DNS-Clientsubnetze.  
   
-Wenn Sie Datenverkehr für die DNS-Namen www.contosogiftservices.com umleiten möchten, müssen Sie z. B. zwei Bereiche der anderen Zone in der Zone contosogiftservices.com, eine für die USA und eine für "Europa" erstellen.  
+Wenn Sie z. b. den Datenverkehr für den DNS-Namen www.contosogiftservices.com umleiten möchten, müssen Sie zwei verschiedene Zonen Bereiche in der contosogiftservices.com-Zone erstellen, eine für die USA und eine für Europa.  
   
-Ein Bereich für die Zone ist eine eindeutige Instanz der Zone. Eine DNS-Zone kann mehrere Zone Bereiche, mit jeder Zone Bereich enthält einen eigenen Satz von DNS-Einträge haben. Der gleiche Datensatz kann in mehrere Bereiche, die mit unterschiedlichen IP-Adressen oder die gleiche IP-Adressen vorhanden sein.  
+Ein Zonen Bereich ist eine eindeutige Instanz der Zone. Eine DNS-Zone kann über mehrere Zonen Bereiche verfügen, wobei jeder Zonen Bereich einen eigenen Satz von DNS-Einträgen enthält. Derselbe Datensatz kann in mehreren Bereichen mit unterschiedlichen IP-Adressen oder den gleichen IP-Adressen vorhanden sein.  
   
 >[!NOTE]
->Standardmäßig befindet sich ein Bereich für die Zone auf DNS-Zonen. Dieser Bereich Zone hat den gleichen Namen wie die Zone, und ältere DNS-Vorgängen arbeiten, der für diesen Bereich.  
+>In den DNS-Zonen ist standardmäßig ein Zonen Bereich vorhanden. Dieser Zonen Bereich hat denselben Namen wie die Zone, und ältere DNS-Vorgänge funktionieren in diesem Bereich.  
   
-Sie können folgende Windows PowerShell-Befehle verwenden, um Bereiche der Zone zu erstellen.  
+Sie können die folgenden Windows PowerShell-Befehle verwenden, um Zonen Bereiche zu erstellen.  
   
 ```  
 Add-DnsServerZoneScope -ZoneName "contosogiftservices.com" -Name "SeattleZoneScope"  
@@ -102,14 +102,14 @@ Add-DnsServerZoneScope -ZoneName "contosogiftservices.com" -Name "SeattleZoneSco
 Add-DnsServerZoneScope -ZoneName "contosogiftservices.com" -Name "DublinZoneScope"  
   
 ```  
-Weitere Informationen finden Sie unter [hinzufügen-DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps).  
+Weitere Informationen finden Sie unter [Add-dnsserverzonescope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps).  
   
-#### <a name="bkmk_records"></a>Hinzufügen von Datensätzen, die Bereiche der Zone  
-Jetzt müssen Sie die Datensätze, die der Web-Server-Host darstellt, in der Zone mit zwei Bereichen hinzufügen.  
+#### <a name="bkmk_records"></a>Hinzufügen von Datensätzen zu den Zonen Bereichen  
+Nun müssen Sie die Datensätze, die den Webserver Host darstellen, in den zwei Zonen Bereichen hinzufügen.  
   
-Z. B. in **SeattleZoneScope**, den Datensatz <strong>www.contosogiftservices.com</strong> wird hinzugefügt, mit der IP-Adresse 192.0.0.1, die sich in einem Datencenter Seattle befindet. Auf ähnliche Weise in **DublinZoneScope**, den Datensatz <strong>www.contosogiftservices.com</strong> mit IP-Adresse 141.1.0.3 im Datencenter Dublin hinzugefügt wird  
+Beispielsweise wird in " **sattlezonescope**" der Datensatz " <strong>www.contosogiftservices.com</strong> " mit der IP-Adresse 192.0.0.1 hinzugefügt, die sich in einem Seattle-Daten Center befindet. Analog dazu wird in Dublin **zonescope**der Datensatz <strong>www.contosogiftservices.com</strong> mit IP-Adresse 141.1.0.3 im Dublin-Daten Center hinzugefügt.  
   
-Sie können die folgenden Windows PowerShell-Befehle verwenden, Datensätze die Bereiche der Zone hinzufügen.  
+Sie können die folgenden Windows PowerShell-Befehle verwenden, um Datensätze zu den Zonen Bereichen hinzuzufügen.  
   
 ```  
 Add-DnsServerResourceRecord -ZoneName "contosogiftservices.com" -A -Name "www" -IPv4Address "192.0.0.1" -ZoneScope "SeattleZoneScope  
@@ -117,26 +117,26 @@ Add-DnsServerResourceRecord -ZoneName "contosogiftservices.com" -A -Name "www" -
 Add-DnsServerResourceRecord -ZoneName "contosogiftservices.com" -A -Name "www" -IPv4Address "141.1.0.3" -ZoneScope "DublinZoneScope"  
   
 ```  
-Der ZoneScope-Parameter ist nicht enthalten, wenn Sie einen Eintrag in der Standardbereich hinzufügen. Dies ist identisch mit dem Hinzufügen von Datensätzen mit einer standard-DNS-Zone.  
+Der zonescope-Parameter ist nicht eingeschlossen, wenn Sie einen Datensatz im Standardbereich hinzufügen. Dies ist das gleiche wie das Hinzufügen von Datensätzen zu einer standardmäßigen DNS-Zone.  
   
-Weitere Informationen finden Sie unter [hinzufügen-DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).  
+Weitere Informationen finden Sie unter [Add-dnsserverresourcerecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).  
   
-#### <a name="bkmk_policies"></a>Erstellen Sie die DNS-Richtlinien  
-Nachdem Sie die Subnetze erstellt haben, die Partitionen (Zone-Bereiche), und Sie Datensätze hinzugefügt haben, müssen Sie Richtlinien, die die Subnetze und Partitionen, eine Verbindung herstellen erstellen, damit die Abfrageantwort von zurückgegeben wird, wenn eine Abfrage aus einer Quelle in einem der Subnetze DNS-Client geht, den richtigen Bereich der Zone. Keine Richtlinien sind für die Zuordnung des Standardbereich für die Zone erforderlich.  
+#### <a name="bkmk_policies"></a>Erstellen der DNS-Richtlinien  
+Nachdem Sie die Subnetze, die Partitionen (Zonen Bereiche) und Datensätze hinzugefügt haben, müssen Sie Richtlinien erstellen, mit denen die Subnetze und Partitionen verbunden werden, sodass bei einer Abfrage aus einer Quelle in einem der DNS-Clientsubnetze die Abfrage Antwort von der richtige Bereich der Zone. Zum Mapping des Standard Zonen Bereichs sind keine Richtlinien erforderlich.  
   
-Nachdem Sie diese DNS-Richtlinien konfiguriert haben, ist das Verhalten von DNS-Server wie folgt:  
+Nachdem Sie diese DNS-Richtlinien konfiguriert haben, lautet das DNS-Server Verhalten wie folgt:  
   
-1. Europäischen DNS-Clients werden die IP-Adresse des Webservers im Datencenter Dublin in ihren DNS-Abfrage-Antwort erhalten.  
-2. American DNS-Clients werden die IP-Adresse des Webservers im Datencenter Seattle in ihren DNS-Abfrage-Antwort erhalten.  
-3. Zwischen 18: 00 Uhr und 21: 00 Uhr in Dublin erhalten die 20 % der Abfragen von europäischen Clients die IP-Adresse des Webservers im Datencenter Seattle in ihren DNS-Abfrage-Antwort.  
-4. Zwischen 18: 00 Uhr und 21: 00 Uhr in Seattle erhalten die 20 % der Abfragen aus der American Clients die IP-Adresse des Webservers im Datencenter Dublin in ihren DNS-Abfrage-Antwort.  
-5. Die Hälfte der Abfragen aus dem Rest der Welt die IP-Adresse des Rechenzentrums Seattle erhalten, und die andere Hälfte erhalten, die IP-Adresse des Rechenzentrums Dublin.  
+1. Europäische DNS-Clients erhalten die IP-Adresse des Webservers im Dublin-Daten Center in der DNS-Abfrage Antwort.  
+2. American DNS-Clients erhalten die IP-Adresse des Webservers im Daten Center Seattle in der DNS-Abfrage Antwort.  
+3. Zwischen 6 Uhr und 9 Uhr in Dublin erhalten 20% der Abfragen von europäischen Clients die IP-Adresse des Webservers im Daten Center Seattle in der DNS-Abfrage Antwort.  
+4. Zwischen 6 Uhr und 9 Uhr in Seattle erhalten 20% der Abfragen von den US-amerikanischen Clients die IP-Adresse des Webservers im Dublin-Daten Center in der DNS-Abfrage Antwort.  
+5. Die Hälfte der Abfragen aus dem Rest der Welt empfängt die IP-Adresse des Seattle Datacenter und die andere Hälfte die IP-Adresse des Dublin-Rechenzentrums.  
   
   
-Sie können folgende Windows PowerShell-Befehle verwenden, um eine DNS-Richtlinie, verknüpft die DNS-Client-Subnetze und die Bereiche der Zone zu erstellen.  
+Mithilfe der folgenden Windows PowerShell-Befehle können Sie eine DNS-Richtlinie erstellen, mit der die DNS-Clientsubnetze und die Zonen Bereiche verknüpft werden.  
   
 >[!NOTE]
->In diesem Beispiel ist der DNS-Server in der GMT-Zeitzone, damit die Spitzenzeiten Zeiträume in die entsprechende GMT-Zeit ausgedrückt werden, müssen.  
+>In diesem Beispiel befindet sich der DNS-Server in der GMT-Zeitzone, sodass die Zeitspanne für die Spitzenzeiten in der entsprechenden GMT-Zeit ausgedrückt werden muss.  
   
 ```  
 Add-DnsServerQueryResolutionPolicy -Name "America6To9Policy" -Action ALLOW -ClientSubnet "eq,AmericaSubnet" -ZoneScope "SeattleZoneScope,4;DublinZoneScope,1" -TimeOfDay "EQ,01:00-04:00" -ZoneName "contosogiftservices.com" -ProcessingOrder 1  
@@ -150,12 +150,12 @@ Add-DnsServerQueryResolutionPolicy -Name "EuropePolicy" -Action ALLOW -ClientSub
 Add-DnsServerQueryResolutionPolicy -Name "RestOfWorldPolicy" -Action ALLOW --ZoneScope "DublinZoneScope,1;SeattleZoneScope,1" -ZoneName "contosogiftservices.com" -ProcessingOrder 5  
   
 ```  
-Weitere Informationen finden Sie unter [hinzufügen-DnsServerQueryResolutionPolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).  
+Weitere Informationen finden Sie unter [Add-dnsserverqueryresolutionpolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).  
   
-Jetzt ist der DNS-Server mit den erforderlichen DNS-Richtlinien zum Umleiten von Datenverkehr basierend auf dem geografischen Standort und die Uhrzeit konfiguriert.  
+Nun wird der DNS-Server mit den erforderlichen DNS-Richtlinien konfiguriert, um den Datenverkehr basierend auf dem Standort und der Tageszeit umzuleiten.  
   
-Wenn der DNS-Server Namensauflösungsabfrage empfängt, wertet der DNS-Server die Felder in der DNS-Anforderung anhand der konfigurierten DNS-Richtlinien. Wenn die IP-Quelladresse in der Anforderung zur Auflösung der Richtlinien entspricht, den Geltungsbereich der zugeordneten Zone wird verwendet, um auf die Abfrage zu reagieren, und der Benutzer angewiesen, die Ressource, die sie geografisch am nächsten ist.  
+Wenn der DNS-Server namens Auflösungs Abfragen empfängt, wertet der DNS-Server die Felder in der DNS-Anforderung anhand der konfigurierten DNS-Richtlinien aus. Wenn die Quell-IP-Adresse in der namens Auflösungs Anforderung mit einer der Richtlinien übereinstimmt, wird der zugehörige Zonen Bereich verwendet, um auf die Abfrage zu antworten, und der Benutzer wird an die Ressource weitergeleitet, die geografisch am nächsten liegt.  
   
-Sie können erstellen Tausende von DNS-Richtlinien entsprechend Ihren Datenverkehr verwaltungsanforderungen, und alle neue Richtlinien werden dynamisch – ohne Neustart des DNS-Servers: eingehende Abfragen angewendet.
+Sie können Tausende von DNS-Richtlinien gemäß Ihren Anforderungen für die Datenverkehrs Verwaltung erstellen, und alle neuen Richtlinien werden dynamisch angewendet, ohne dass der DNS-Server bei eingehenden Abfragen neu gestartet wird.
 
 

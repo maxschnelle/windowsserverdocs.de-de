@@ -7,42 +7,42 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: b5bf2fb3b06a47d730b9dd124b2b66a0a4c9c691
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2c54279f591545c6207dfec1536f16e29e69aa99
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864851"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408660"
 ---
 # <a name="service-administrator-scope-of-authority"></a>Dienstadministrator: Autoritätsumfang
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Wenn Sie Active Directory-Gesamtstruktur teilnehmen möchten, müssen Sie der Gesamtstrukturbesitzer und die Dienstadministratoren vertrauenswürdig. Die Gesamtstrukturbesitzer sind verantwortlich für das auswählen und die Dienstadministratoren verwalten; Wenn Sie einen Gesamtstrukturbesitzer vertrauen, vertrauen Sie daher auch die Dienstadministratoren, die der Gesamtstrukturbesitzer verwaltet. Diese Dienstadministratoren haben Zugriff auf alle Ressourcen in der Gesamtstruktur. Vor der Entscheidung zur Teilnahme an einer Gesamtstruktur, ist es wichtig zu wissen, dass der Gesamtstrukturbesitzer und die Dienstadministratoren Vollzugriff auf Ihre Daten. Dieser Zugriff lässt sich nicht verhindern.  
+Wenn Sie sich für die Teilnahme an einer Active Directory Gesamtstruktur entscheiden, müssen Sie dem Gesamtstruktur Besitzer und den Dienst Administratoren Vertrauen. Die Gesamtstruktur Besitzer sind dafür verantwortlich, die Dienst Administratoren auszuwählen und zu verwalten. Wenn Sie einen Gesamtstruktur Besitzer als vertrauenswürdig einstufen, Vertrauen Sie daher auch den Dienst Administratoren, die der Gesamtstruktur Besitzer verwaltet. Diese Dienst Administratoren haben Zugriff auf alle Ressourcen in der Gesamtstruktur. Bevor Sie sich für die Teilnahme an einer Gesamtstruktur entscheiden, ist es wichtig zu verstehen, dass der Gesamtstruktur Besitzer und die Dienst Administratoren vollen Zugriff auf Ihre Daten haben. Dieser Zugriff kann nicht verhindert werden.  
   
-Aller Dienstadministratoren in einer Gesamtstruktur über Vollzugriff auf alle Daten und Dienste auf allen Computern in der Gesamtstruktur verfügen. Administratoren haben die Möglichkeit, die folgenden Schritte ausführen:  
+Alle Dienst Administratoren in einer Gesamtstruktur verfügen über vollständige Kontrolle über alle Daten und Dienste auf allen Computern in der Gesamtstruktur. Dienst Administratoren haben folgende Möglichkeiten:  
   
--   Beheben von Fehlern auf Zugriffssteuerungslisten (ACLs) von Objekten. Dies ermöglicht dem Dienstadministrator, lesen, ändern oder Löschen von Objekten unabhängig von den ACLs, die für diese Objekte festgelegt werden.  
+-   Korrigieren von Fehlern in Zugriffs Steuerungs Listen (ACLs) von Objekten. Dies ermöglicht es dem Dienst Administrator, Objekte unabhängig von den ACLs, die für diese Objekte festgelegt sind, zu lesen, zu ändern oder zu löschen.  
   
--   Ändern Sie die Systemsoftware auf einem Domänencontroller, normale sicherheitsüberprüfungen zu umgehen. Dies ermöglicht dem Dienstadministrator, anzeigen oder ändern jedes Objekt in der Domäne, unabhängig von der ACL des Objekts.  
+-   Ändern Sie die Systemsoftware auf einem Domänen Controller, um normale Sicherheitsüberprüfungen zu umgehen. Dies ermöglicht es dem Dienst Administrator, ein beliebiges Objekt in der Domäne unabhängig von der ACL des Objekts anzuzeigen oder zu bearbeiten.  
   
--   Verwenden Sie die Sicherheitsrichtlinie für eingeschränkte Gruppen Benutzer oder Gruppe administrativen Zugriff auf einem beliebigen Computer in der Domäne gewähren. Auf diese Weise können Dienstadministratoren Kontrolle von einem beliebigen Computer in der Domäne unabhängig von den Zweck der Besitzer des Computers zu erhalten.  
+-   Verwenden Sie die Sicherheitsrichtlinie eingeschränkte Gruppen, um allen Benutzern oder Gruppen administrativen Zugriff auf jeden Computer zu gewähren, der der Domäne beigetreten ist. Auf diese Weise können Dienst Administratoren unabhängig von den Absichten des Computer Besitzers die Kontrolle über jeden Computer erhalten, der der Domäne beigetreten ist.  
   
--   Zurücksetzen von Kennwörtern, oder ändern Sie die Gruppenmitgliedschaften für Benutzer.  
+-   Zurücksetzen von Kenn Wörtern oder Ändern von Gruppenmitgliedschaften für Benutzer.  
   
--   Erhalten Sie Zugriff auf andere Domänen in der Gesamtstruktur, indem Sie die Systemsoftware auf einem Domänencontroller ändern. Dienstadministratoren können Auswirkungen auf einer beliebigen Domäne in der Gesamtstruktur, anzeigen oder Ändern der Konfigurationsdaten der Gesamtstruktur, anzeigen oder Bearbeiten von Daten in einer beliebigen Domäne aus, und anzeigen oder bearbeiten Daten auf einem beliebigen Computer in der Gesamtstruktur.  
+-   Sie erhalten Zugriff auf andere Domänen in der Gesamtstruktur, indem Sie die Systemsoftware auf einem Domänen Controller ändern. Dienst Administratoren können den Betrieb einer beliebigen Domäne in der Gesamtstruktur beeinflussen, Gesamtstruktur-Konfigurationsdaten anzeigen oder bearbeiten, in einer beliebigen Domäne gespeicherte Daten anzeigen oder bearbeiten und auf jedem Computer, der der Gesamtstruktur hinzugefügt wird, gespeicherte Daten anzeigen oder bearbeiten.  
   
-Aus diesem Grund Gruppen, die Daten in Organisationseinheiten (OEs) in der Gesamtstruktur und Join-Computer in einer Gesamtstruktur vertrauen müssen, die Dienstadministratoren zu speichern. Für eine Gruppe eine Gesamtstruktur zu verknüpfen müssen sie auswählen, aller Dienstadministratoren in der Gesamtstruktur vertrauen. Dies umfasst, um sicherzustellen, dass:  
+Aus diesem Grund müssen Gruppen, die Daten in Organisationseinheiten (OUs) in der Gesamtstruktur speichern und den Computern in einer Gesamtstruktur beitreten, den Dienst Administratoren Vertrauen. Damit eine Gruppe einer Gesamtstruktur beitreten kann, muss Sie alle Dienst Administratoren in der Gesamtstruktur als vertrauenswürdig einstufen. Dazu muss Folgendes sichergestellt werden:  
   
--   Der Gesamtstrukturbesitzer kann im Interesse der Gruppe fungieren vertrauenswürdig sein und hat keinen Grund, die für die Gruppe in böswilliger Absicht fungiert.  
+-   Der Gesamtstruktur Besitzer kann als vertrauenswürdig eingestuft werden, um in den Interessen der Gruppe zu agieren, und es besteht keine Begründung, um für die Gruppe böswillig zu agieren.  
   
--   Der Gesamtstrukturbesitzer beschränkt entsprechend physischen Zugriff auf Domänencontroller. Domänencontroller in einer Gesamtstruktur darf nicht voneinander isoliert sein. Es ist möglich, dass ein Angreifer mit physischem Zugriff auf einen einzelnen Domänencontroller offline Änderungen vornehmen, um die Directory-Datenbank und auf diese Weise, beeinträchtigt den Betrieb von einer beliebigen Domäne in der Gesamtstruktur, anzeigen oder Bearbeiten von Daten an einer beliebigen Stelle in der Gesamtstruktur , und anzeigen oder Bearbeiten von Daten, die auf einem beliebigen Computer in der Gesamtstruktur gespeichert. Aus diesem Grund muss die physischer Zugriff auf den Domänencontrollern auf vertrauenswürdige Mitarbeiter beschränkt sein.  
+-   Der Gesamtstruktur Besitzer schränkt den physischen Zugriff auf Domänen Controller entsprechend ein. Domänen Controller innerhalb einer Gesamtstruktur können nicht voneinander isoliert werden. Ein Angreifer, der überphysischen Zugriff auf einen einzelnen Domänen Controller verfügt, kann offline Änderungen an der Verzeichnis Datenbank vornehmen. Dadurch stören Sie den Betrieb von Domänen in der Gesamtstruktur, zeigen Sie Daten an, die an beliebiger Stelle in der Gesamtstruktur gespeichert sind, oder bearbeiten Sie Sie. und können Daten anzeigen oder bearbeiten, die auf einem Computer gespeichert sind, der der Gesamtstruktur hinzugefügt wurde. Aus diesem Grund muss der physische Zugriff auf Domänen Controller auf vertrauenswürdige Mitarbeiter beschränkt sein.  
   
--   Verstehen und akzeptieren Sie das potenzielle Risiko, das als, dass die Dienstadministratoren umgewandelt werden können vertrauenswürdig, in die Sicherheit des Systems beeinträchtigen.  
+-   Sie verstehen und übernehmen das potenzielle Risiko, dass vertrauenswürdige Dienst Administratoren die Sicherheit des Systems beeinträchtigen können.  
   
-Einige Gruppen können bestimmen, dass die Zusammenarbeit und kostengünstiges Vorteile der Teilnahme an einer freigegebenen Infrastruktur gegenüber den Risiken, die Dienstadministratoren missbrauchen werden oder werden überwiegen in ihre Autorität für die Verwendung umgewandelt werden. Diese Gruppen können gemeinsame Gesamtstruktur und Organisationseinheiten, um Autorität zu delegieren. Jedoch können andere Gruppen dieses Risiko nicht akzeptiert, da die Folgen einer Gefährdung der Sicherheit zu schwerwiegend sind. Diese Gruppen erfordern separate Gesamtstrukturen.  
+Einige Gruppen können feststellen, dass die gemeinsamen und kostensparenden Vorteile der Teilnahme an einer gemeinsam genutzten Infrastruktur die Risiken überwiegen, die Dienst Administratoren missbrauchen oder in ihre Autorität missbrauchen werden. Diese Gruppen können eine Gesamtstruktur gemeinsam verwenden und Organisationseinheiten verwenden, um Autorität zu delegieren. Andere Gruppen akzeptieren dieses Risiko jedoch möglicherweise nicht, da die Folgen einer Gefährdung der Sicherheit zu schwer sind. Diese Gruppen erfordern separate Gesamtstrukturen.  
   
 
 

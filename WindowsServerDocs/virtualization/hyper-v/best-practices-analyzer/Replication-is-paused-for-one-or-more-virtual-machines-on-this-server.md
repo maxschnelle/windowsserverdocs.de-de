@@ -1,7 +1,7 @@
 ---
-title: Replikation wird für eine oder mehrere virtuelle Computer auf diesem Server angehalten.
-description: Die Onlineversion des Texts für diese Best Practices Analyzer-Regel.
-ms.prod: windows-server-threshold
+title: Die Replikation für mindestens eine virtuelle Maschine auf diesem Server wurde angehalten.
+description: Online Version des Texts für diese Best Practices Analyzer Regel.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,38 +10,38 @@ ms.topic: article
 ms.assetid: e1119a40-eda3-4058-8648-7df81cbc6c29
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 248b5fbdbfb54380e441d14cde6beaa9146ce800
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 17d50f116c6cee488367c924bfbce3791a8d879f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827771"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393539"
 ---
-# <a name="replication-is-paused-for-one-or-more-virtual-machines-on-this-server"></a>Replikation wird für eine oder mehrere virtuelle Computer auf diesem Server angehalten.
+# <a name="replication-is-paused-for-one-or-more-virtual-machines-on-this-server"></a>Die Replikation für mindestens eine virtuelle Maschine auf diesem Server wurde angehalten.
 
 >Gilt für: Windows Server 2016
 
-Weitere Informationen zu best Practices und Überprüfungen finden Sie unter [Run Best Practices Analyzer Scans und Manage Scan Results](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
+Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausführen von Best Practices Analyzer Scans und Verwalten der Scan Ergebnisse](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
 |Eigenschaft|Details|  
 |-|-|  
 |**Betriebssystem**|Windows Server 2016|  
-|**Produkt /-Funktion**|Hyper-V|  
-|**Schweregrad**|Warnung|  
+|**Produkt/Feature**|Hyper-V|  
+|**Zunehmen**|Warnung|  
 |**Kategorie**|Vorgänge|  
   
-In den folgenden Abschnitten Kursivschrift gibt an Benutzeroberflächentext, die im Best Practices Analyzer-Tool für dieses Problem angezeigt wird.  
+In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.  
   
 ## <a name="issue"></a>Problem  
-*Replikation wird für eine oder mehrere virtuelle Computer angehalten. Während der primäre virtuelle Computer angehalten wird, werden alle Änderungen, die auftreten, werden gesammelt werden und werden an den replizierten virtuellen Computer gesendet werden, nachdem die Replikation fortgesetzt wird.*  
+die *replikation wurde für mindestens einen virtuellen Computer angehalten. Während der primäre virtuelle Computer angehalten wird, werden alle auftretenden Änderungen akkumuliert und nach dem Fortsetzen der Replikation an den virtuellen Replikat Computer gesendet.*  
   
 ## <a name="impact"></a>Auswirkungen  
-*Solange die Replikation angehalten wurde, werden die angefallenen Änderungen, die in den primären virtuellen Computer auftreten verfügbarer Speicherplatz auf dem primären Server genutzt. Nachdem die Replikation fortgesetzt wird, gibt es möglicherweise ein großes plötzlichen Ansturms von Netzwerkdatenverkehr an den Replikatserver. Dies wirkt sich auf die folgenden virtuellen Computer aus:*  
+*solange die Replikation angehalten ist, verbraucht akkumulierte Änderungen, die auf dem primären virtuellen Computer auftreten, den verfügbaren Speicherplatz auf dem primären Server. Nach dem Fortsetzen der Replikation kann es zu einem großen Anstieg des Netzwerk Datenverkehrs zum Replikat Server kommen. Dies wirkt sich auf die folgenden virtuellen Computer aus:*  
   
-\<Liste der virtuellen Computer >  
+\<list of Virtual Machines >  
   
 ## <a name="resolution"></a>Auflösung  
-*Vergewissern Sie sich, dass die Replikation angehalten vorgesehen war. Wenn zu wenig Speicherplatz oder die Netzwerkkonnektivität Adresse Replikation angehalten wurde, setzen die Replikation fort, sobald diese Probleme behoben wurden.*  
+*vergewissern Sie sich, dass das Anhalten der Replikation beabsichtigt war. Wenn die Replikation angehalten wurde, um wenig Speicherplatz oder Netzwerk Konnektivität zu beheben, setzen Sie die Replikation fort, sobald diese Probleme behoben sind.*  
   
 
 

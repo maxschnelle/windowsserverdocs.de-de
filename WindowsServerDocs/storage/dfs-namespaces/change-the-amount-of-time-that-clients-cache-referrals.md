@@ -2,22 +2,22 @@
 title: Ändern des Zeitraums für die Zwischenspeicherung von Verweisen auf Clients
 description: Dieser Artikel beschreibt, wie Sie die Dauer der Zwischenspeicherung von Verweisen auf Clients
 ms.date: 6/5/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 08a1212c983de6e2492609330c1be222286e9e8f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c6fcf64dc15404ca59e3ce5552b258f782441cfb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888771"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402262"
 ---
 # <a name="change-the-amount-of-time-that-clients-cache-referrals"></a>Ändern Sie den Zeitraum für die Zwischenspeicherung von Verweisen auf Clients
 
-> Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2, WindowsServer 2008
+> Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
 Ein Verweis ist eine sortierte Zielliste, die ein Client-PC von einem Domänencontroller oder Namespaceserver empfängt, wenn der Benutzer auf einen Namespacestamm oder -ordner mit Zielen im Namespace zugreift. Sie können den Zwischenspeicherungszeitraum bis zur Anforderung eines neuen Verweises durch die Clients anpassen.
 

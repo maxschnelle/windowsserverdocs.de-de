@@ -1,7 +1,7 @@
 ---
-title: Windows Server 2008 R2 muss mindestens die Mindestmenge an Arbeitsspeicher mit konfiguriert
-description: Enthält Anweisungen zur Behebung des Problems gemeldet wird, die von dieser Best Practices Analyzer-Regel.
-ms.prod: windows-server-threshold
+title: Windows Server 2008 R2 sollte mit mindestens der Mindestmenge an Arbeitsspeicher konfiguriert werden.
+description: Enthält Anweisungen zum Beheben des Problems, das von dieser Best Practices Analyzer Regel gemeldet wird.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 12418668-52d3-4e70-b56f-85dcb144a8c0
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 0a5219a39f5c74f8044fa76b52add66304468ab4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 776742c3a28d0f99bbfdfc73bb3d20200bc65d64
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818841"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364459"
 ---
-# <a name="windows-server-2008-r2-should-be-configured-with-at-least-the-minimum-amount-of-memory"></a>Windows Server 2008 R2 muss mindestens die Mindestmenge an Arbeitsspeicher mit konfiguriert
+# <a name="windows-server-2008-r2-should-be-configured-with-at-least-the-minimum-amount-of-memory"></a>Windows Server 2008 R2 sollte mit mindestens der Mindestmenge an Arbeitsspeicher konfiguriert werden.
 
 >Gilt für: Windows Server 2016
 
@@ -26,53 +26,53 @@ Weitere Informationen zu bewährten Methoden und Überprüfungen finden Sie unte
 |Eigenschaft|Details|  
 |-|-|  
 |**Betriebssystem**|Windows Server 2016|  
-|**Produkt /-Funktion**|Hyper-V|  
-|**Schweregrad**|Fehler|  
+|**Produkt/Feature**|Hyper-V|  
+|**Zunehmen**|Fehler|  
 |**Kategorie**|Konfiguration|  
   
-In den folgenden Abschnitten Kursivschrift gibt an Benutzeroberflächentext, die im Best Practices Analyzer-Tool für dieses Problem angezeigt wird.  
+In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.  
   
 ## <a name="issue"></a>Problem  
   
-*Ein virtuellen Computer mit Windows Server 2008 R2 wird mit weniger als die minimale Größe des Arbeitsspeichers, konfiguriert und 512 MB beträgt.*  
+*Ein virtueller Computer, auf dem Windows Server 2008 R2 ausgeführt wird, ist mit einer geringeren Anzahl von RAM (512 MB) konfiguriert.*  
   
 ## <a name="impact"></a>Auswirkungen  
   
-*Das Gastbetriebssystem auf die folgenden virtuellen Computer möglicherweise nicht ausgeführt oder unberechenbar Verhalten führen kann:*  
+*Das Gast Betriebssystem auf den folgenden virtuellen Computern wird möglicherweise nicht ausgeführt oder kann nicht zuverlässig ausgeführt werden:*  
   
   
-\<Liste von Namen virtueller Computer >  
+\<liste der Namen der virtuellen Computer >  
   
 ## <a name="resolution"></a>Auflösung  
   
-*Verwenden Sie Hyper-V-Manager, um die Speichermenge für diese virtuelle Maschine über mindestens 512 MB erhöhen.*  
+*Verwenden Sie den Hyper-V-Manager, um den Arbeitsspeicher, der diesem virtuellen Computer zugeordnet ist, auf mindestens 512 MB zu erhöhen.*  
   
-### <a name="to-increase-the-memory-using-hyper-v"></a>Um den Arbeitsspeicher mit Hyper-V zu erhöhen.  
+### <a name="to-increase-the-memory-using-hyper-v"></a>So vergrößern Sie den Arbeitsspeicher mit Hyper-V  
   
 1.  Öffnen Sie den Hyper-V-Manager. Klicken Sie auf **Start**, zeigen Sie auf **Verwaltung**, und klicken Sie dann auf **Hyper-V-Manager**.  
   
-2.  Klicken Sie im Ergebnisbereich unter **VMs**, wählen Sie den virtuellen Computer, die Sie konfigurieren möchten. Der Status des virtuellen Computers sollte als aufgelistet werden **aus**. Wenn sie nicht der Fall ist, mit der rechten Maustaste den virtuellen Computer, und klicken Sie dann auf **Herunterfahren**.  
+2.  Wählen Sie im Ergebnisbereich unter **Virtual Machines**den virtuellen Computer aus, den Sie konfigurieren möchten. Der Status der virtuellen Maschine sollte als **Off**aufgeführt werden. Wenn dies nicht der Fall ist, klicken Sie mit der rechten Maustaste auf den virtuellen Computer und dann auf **herunter**fahren.  
   
 3.  Klicken Sie im Bereich **Aktion** unter dem Namen des virtuellen Computers auf **Einstellungen**.  
   
-4.  Klicken Sie im Navigationsbereich auf **Arbeitsspeicher**.  
+4.  Klicken Sie im Navigationsbereich auf Arbeits **Speicher**.  
   
-5.  Auf der **Arbeitsspeicher** Seite die **RAM beim Start** mindestens 512 MB, und klicken Sie dann auf **OK**.  
+5.  Legen Sie auf der Seite Arbeits **Speicher** den **Start-RAM** auf mindestens 512 MB fest, und klicken Sie dann auf **OK**.  
   
-### <a name="increase-the-memory-using-windows-powershell"></a>Geben Sie Speicher mithilfe von Windows PowerShell  
+### <a name="increase-the-memory-using-windows-powershell"></a>Vergrößern des Arbeitsspeichers mithilfe von Windows PowerShell  
   
-1.  Öffnen Sie Windows PowerShell. (Klicken Sie auf dem Desktop auf **starten** und beginnen mit der Eingabe **Windows PowerShell**.)  
+1.  Öffnen Sie Windows PowerShell. (Klicken Sie auf dem Desktop auf **Start** , und beginnen Sie mit der Eingabe von **Windows PowerShell**.)  
   
-2.  Mit der rechten Maustaste **Windows PowerShell** , und klicken Sie auf **als Administrator ausführen**.  
+2.  Klicken Sie mit der rechten Maustaste auf **Windows PowerShell** und dann auf **als Administrator ausführen**.  
   
-3.  Führen Sie diesen Befehl nach dem Ersetzen \<MyVM > durch den Namen des virtuellen Computers:  
+3.  Führen Sie den folgenden Befehl aus, nachdem Sie \<myvm > durch den Namen des virtuellen Computers ersetzt haben:  
   
 ```  
 Set-VMMemory <MyVM> -StartupBytes 512MB  
 ```  
   
 ## <a name="see-also"></a>Siehe auch  
-[Set-VMMemory](https://technet.microsoft.com/library/hh848572.aspx)  
+[Set-vmmemory](https://technet.microsoft.com/library/hh848572.aspx)  
   
 
 

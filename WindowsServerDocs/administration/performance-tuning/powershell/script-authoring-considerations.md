@@ -1,50 +1,50 @@
 ---
-title: Leistungsaspekte der PowerShell-Skript
+title: Überlegungen zur PowerShell-Skript Leistung
 description: Skripterstellung für die Leistung in PowerShell
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: JasonSh
 author: lzybkr
 ms.date: 10/16/2017
-ms.openlocfilehash: df406c7e382907ca32006ec4dae6537a140a91cf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2898cf5ee965da77c9f6a3473e55c1cee6b53f2b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830371"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71354975"
 ---
-# <a name="powershell-scripting-performance-considerations"></a>Leistungsaspekte der PowerShell-Skript
+# <a name="powershell-scripting-performance-considerations"></a>Überlegungen zur PowerShell-Skript Leistung
 
-PowerShell-Skripts, die .NET direkt nutzen, und vermeiden Sie die Pipeline tendenziell schneller als idiomatischen PowerShell. Idiomatische PowerShell werden Cmdlets in der Regel verwendet, und PowerShell-Funktionen stark, häufig die Pipeline genutzt und löschen Sie die in .NET nur bei Bedarf.
+PowerShell-Skripts, die .net direkt nutzen und die Pipeline vermeiden, sind tendenziell schneller als idiomatisch PowerShell. Idiomatische PowerShell verwendet in der Regel Cmdlets und PowerShell-Funktionen, die häufig die Pipeline nutzen und nur bei Bedarf in .net abgelegt werden.
 
 >[!Note] 
-> Viele der hier beschriebenen Techniken sind nicht idiomatische PowerShell und können die Lesbarkeit der ein PowerShell-Skript verringern. Skriptautoren werden empfohlen, idiomatische PowerShell verwenden, es sei denn, die Leistung zuzuweisen.
+> Viele der hier beschriebenen Verfahren sind keine idiomatischen PowerShell und können die Lesbarkeit eines PowerShell-Skripts verringern. Skript Autoren wird empfohlen, idiomatische PowerShell zu verwenden, es sei denn, die Leistung ist anders.
 
 ## <a name="suppressing-output"></a>Unterdrücken der Ausgabe
 
-Es gibt viele Möglichkeiten, um zu vermeiden, Schreiben von Objekten in der Pipeline:
+Es gibt viele Möglichkeiten, um das Schreiben von Objekten in die Pipeline zu vermeiden:
 
 ```PowerShell
 $null = $arrayList.Add($item)
 [void]$arrayList.Add($item)
 ```
 
-Zuweisung zu `$null` oder um Casting `[void]` sind weitgehend und sollten in der Regel bevorzugte, in denen Leistung entscheidend ist.
+Die Zuweisung zu `$null` oder die Umwandlung in `[void]` ist ungefähr gleichwertig und sollte im allgemeinen bevorzugt werden, wenn die Leistung wichtig ist.
 
 ```PowerShell
 $arrayList.Add($item) > $null
 ```
 
-Umleitung zu Datei `$null` ist fast so gut wie die vorherigen alternativen verwenden, die meisten Skripts würde nie Beachten Sie den Unterschied.
-Je nach Szenario führt Datei Umleitung ein wenig Aufwand jedoch.
+Die Datei Umleitung zu "`$null`" ist nahezu so gut wie die vorherigen Alternativen. die meisten Skripts würden den Unterschied nie bemerken.
+Abhängig vom Szenario führt die Datei Umleitung jedoch zu einem gewissen Aufwand.
 
 ```PowerShell
 $arrayList.Add($item) | Out-Null
 ```
 
-An weitergeleitet `Out-Null` einen erheblichen Mehraufwand im Vergleich zu alternativen.
-Sie sollten in sicherheitsrelevanten Code Leistung vermieden werden.
+Die Weiterleitung an `Out-Null` hat gegenüber den alternativen einen erheblichen mehr Aufwand.
+Dies sollte bei Leistungs sensiblem Code vermieden werden.
 
 ```PowerShell
 $null = . {
@@ -53,14 +53,14 @@ $null = . {
 }
 ```
 
-Einführung in einen Skriptblock und Aufruf (mit der Dot-sourcing oder anderweitig) und dann das Ergebnis, das Zuweisen von `$null` ist eine einfache Technik zum Unterdrücken der Ausgabe eines großen informationsblocks des Skripts.
-Dieses Verfahren führt ungefähr sowie Piping an `Out-Null` und sollte in sensible Skript Leistung vermieden werden.
-Der Mehraufwand in diesem Beispiel ergibt sich aus der Erstellung und einen Skriptblock, der zuvor Inlineskript war aufgerufen.
+Wenn Sie einen Skriptblock einführen und ihn aufrufen (indem Sie die Punkt Ermittlung verwenden oder andernfalls), dann wird das Ergebnis `$null` verwendet, um die Ausgabe eines großen Skript Blocks zu unterdrücken.
+Diese Vorgehensweise erfolgt ungefähr so gut wie die Weiterleitung an `Out-Null` und sollte in einem Leistungs sensiblen Skript vermieden werden.
+Der zusätzliche mehr Aufwand in diesem Beispiel ergibt sich aus der Erstellung und dem Aufrufen eines Skript Blocks, der zuvor Inline Skript war.
 
 
-## <a name="array-addition"></a>Array hinzufügen
+## <a name="array-addition"></a>Array Addition
 
-Generieren eine Liste von Elementen erfolgt häufig mit einem Array mit der Addition-Operator:
+Das Erstellen einer Liste von Elementen erfolgt häufig mithilfe eines Arrays mit dem Additions Operator:
 
 ```PowerShell
 $results = @()
@@ -69,13 +69,13 @@ $results += Do-SomethingElse
 $results
 ```
 
-Dies kann sehr Inefficent sein, da Arrays unveränderlich sind.
-Jede Hinzufügung zum Array tatsächlich erstellt ein neues Array, das groß genug, um alle Elemente der linken und rechten Operanden enthalten, und kopiert die Elemente der beiden Operanden in das neue Array.
-Bei kleinen Auflistungen kann dieser Aufwand nicht wichtig.
-Für große Auflistungen kann dies definitiv ein Problem sein.
+Dies kann sehr effizient sein, da Arrays unveränderlich sind.
+Jede Addition zum Array erstellt tatsächlich ein neues Array, das groß genug ist, um alle Elemente des linken und des rechten Operanden aufzubewahren, und kopiert dann die Elemente beider Operanden in das neue Array.
+Bei kleinen Auflistungen spielt dieser Aufwand möglicherweise keine Rolle.
+Bei großen Auflistungen kann dies definitiv ein Problem sein.
 
-Es gibt eine Reihe von alternativen.
-Wenn Sie ein Array tatsächlich nicht erforderlich ist, sollten Sie stattdessen, ArrayList mit:
+Es gibt einige Alternativen.
+Wenn Sie nicht tatsächlich ein Array benötigen, sollten Sie stattdessen die Verwendung einer ArrayList in Erwägung gezogen haben:
 
 ```PowerShell
 $results = [System.Collections.ArrayList]::new()
@@ -84,8 +84,8 @@ $results.AddRange((Do-SomethingElse))
 $results
 ```
 
-Wenn Sie ein Array benötigen, können Sie Ihre eigenen `ArrayList` und rufen Sie ganz einfach `ArrayList.ToArray` Wenn das Array angezeigt werden sollen.
-Sie können auch PowerShell erstellen lassen die `ArrayList` und `Array` für Sie:
+Wenn Sie ein Array benötigen, können Sie Ihre eigene `ArrayList` verwenden und einfach `ArrayList.ToArray` aufzurufen, wenn Sie das Array verwenden möchten.
+Alternativ können Sie PowerShell die `ArrayList` und `Array` für Sie erstellen lassen:
 
 ```PowerShell
 $results = @(
@@ -94,18 +94,18 @@ $results = @(
 )
 ```
 
-In diesem Beispiel PowerShell erstellt einen `ArrayList` für die Ergebnisse in die Pipeline innerhalb des Arrayausdrucks geschrieben.
-Unmittelbar vor zuweisen `$results`, PowerShell konvertiert die `ArrayList` auf eine `object[]`.
+In diesem Beispiel erstellt PowerShell einen `ArrayList`, um die Ergebnisse zu speichern, die in die Pipeline innerhalb des Array Ausdrucks geschrieben werden.
+Direkt vor der Zuweisung zu "`$results`" konvertiert PowerShell den `ArrayList` in einen `object[]`.
 
-## <a name="processing-large-files"></a>Verarbeitung großer Dateien
+## <a name="processing-large-files"></a>Verarbeitungs große Dateien
 
-Die idiomatische Möglichkeit zum Verarbeiten von einer Datei in PowerShell kann wie folgt aussehen:
+Die idiomatische Methode zum Verarbeiten einer Datei in PowerShell könnte etwa wie folgt aussehen:
 
 ```PowerShell
 Get-Content $path | Where-Object { $_.Length -gt 10 }
 ```
 
-Dies kann beinahe eine Zehnerpotenz langsamer als die Verwendung von .NET APIs direkt sein:
+Dies kann eine Größenordnung von ungefähr einer Größenordnung sein, als die Verwendung von .NET-APIs direkt:
 
 ```PowerShell
 try
@@ -125,11 +125,11 @@ finally
 }
 ```
 
-## <a name="avoid-write-host"></a>Vermeiden von Write-Host
+## <a name="avoid-write-host"></a>Write-Host vermeiden
 
-Gilt dies in der Regel keine empfohlene Vorgehensweise, um die Ausgabe direkt an die Konsole zu schreiben, aber wenn dies sinnvoll ist, verwenden Sie viele Skripts `Write-Host`.
+Es ist in der Regel eine schlechte Übung, Ausgaben direkt in die Konsole zu schreiben. wenn es aber sinnvoll ist, verwenden viele Skripts `Write-Host`.
 
-Wenn Sie viele Nachrichten in der Konsole schreiben müssen `Write-Host` möglich bedeutend langsamer als `[Console]::WriteLine()`. Bedenken Sie jedoch, `[Console]::WriteLine()` ist nur eine geeignete Alternative bestimmte Hosts wie "powershell.exe" oder "powershell_ise.exe: funktioniert auf allen Hosts ist nicht gewährleistet.
+Wenn Sie viele Nachrichten in die Konsole schreiben müssen, kann `Write-Host` eine Größenordnung sein, die langsamer als `[Console]::WriteLine()` ist. Beachten Sie jedoch, dass "`[Console]::WriteLine()`" nur eine geeignete Alternative für bestimmte Hosts wie "PowerShell. exe" oder "powershell_ise. exe" ist. es ist nicht garantiert, dass Sie in allen Hosts funktioniert.
 
-Anstelle von `Write-Host`, erwägen Sie die Verwendung [Write-Output](/powershell/module/Microsoft.PowerShell.Utility/Write-Output?view=powershell-5.1).
+Anstatt `Write-Host` zu verwenden, sollten Sie die Verwendung von [Write-Output](/powershell/module/Microsoft.PowerShell.Utility/Write-Output?view=powershell-5.1)in Erwägung gezogen.
 

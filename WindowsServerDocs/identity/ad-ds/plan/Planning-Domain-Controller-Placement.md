@@ -7,37 +7,37 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 68406d4973dd585bf0a98562c987c1b1512c095c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ff0cba67454080db7cca4b012ae0a2d5cb40e412
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883361"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408750"
 ---
 # <a name="planning-domain-controller-placement"></a>Planen der Domänencontrollerkapazität
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Nachdem Sie die Netzwerk-Informationen gesammelt haben, die zum Entwerfen der Standorttopologie verwendet werden, Planen Sie Domänencontroller, einschließlich Domänencontrollern im Gesamtstrukturstamm, der regionalen Domänencontroller, der Betriebsmasterrolle, einfügen möchten, und globale Katalogserver.  
+Nachdem Sie alle Netzwerkinformationen gesammelt haben, die zum Entwerfen der Standort Topologie verwendet werden, planen Sie, wo Sie Domänen Controller platzieren möchten, einschließlich der Gesamtstruktur-Stamm Domänen Controller, regionaler Domänen Controller, Betriebs Master-Rollen Inhaber und globale Katalogserver.  
   
-In Windows Server 2008 können Sie auch von schreibgeschützten Domänencontrollern (RODCs) nutzen. Einen RODC handelt es sich um eine neue Art von Domänencontroller, die schreibgeschützten Partitionen der Active Directory-Datenbank hostet. Mit Ausnahme von Kontokennwörtern sind ein RODC enthalten alle Active Directory-Objekte und Attribute, die ein beschreibbarer Domänencontroller verfügt. Änderungen können nicht jedoch in der Datenbank vorgenommen werden, die auf dem RODC gespeichert ist. Änderungen müssen auf einen beschreibbaren Domänencontroller vorgenommen und dann zurück auf den RODC repliziert werden.  
+In Windows Server 2008 können Sie auch schreibgeschützte Domänen Controller (Read-Only Domain Controllers, RODCs) nutzen. Ein RODC ist eine neue Art von Domänen Controller, der schreibgeschützte Partitionen der Active Directory Datenbank hostet. Mit Ausnahme von Konto Kennwörtern enthält ein RODC alle Active Directory Objekte und Attribute, die ein Beschreib barer Domänen Controller enthält. Es können jedoch keine Änderungen an der Datenbank vorgenommen werden, die auf dem RODC gespeichert ist. Änderungen müssen an einem beschreibbaren Domänen Controller vorgenommen und dann zurück auf den RODC repliziert werden.  
   
-Ein RODC dient in erster Linie für die Bereitstellung in Remotebüros oder zweigstellenumgebungen, die in der Regel relativ wenige Benutzer, die eine schlechte physische Sicherheit, die relativ schwache Netzwerkbandbreite zu einem Hubstandort vorhanden sind, und der Mitarbeiter mit eingeschränkten Kenntnissen von Informationen Informationstechnologie (IT). Bereitstellen von RODCs führt verbesserte Sicherheit und effizienter Zugriff auf Netzwerkressourcen. Weitere Informationen zu RODC-Funktionen finden Sie in AD DS: Read-Only Domain Controller ([https://go.microsoft.com/fwlink/?LinkID=106616](https://go.microsoft.com/fwlink/?LinkID=106616)). Informationen zum Bereitstellen eines RODC, finden Sie unter der schrittweisen Anleitung für Read-Only-Domänencontroller ([https://go.microsoft.com/fwlink/?LinkID=92728](https://go.microsoft.com/fwlink/?LinkID=92728)).  
+Ein RODC wurde hauptsächlich für die Bereitstellung in Remote Umgebungen oder in Zweigstellen Umgebungen entwickelt, die in der Regel nur relativ wenige Benutzer, schlechte physische Sicherheit, eine relativ schlechte Netzwerkbandbreite für eine Hub-Site und Mitarbeiter mit eingeschränkten Informationen zu Informationen haben. Technologie (IT). Das Bereitstellen von RODCs führt zu einer verbesserten Sicherheit und einem effizienteren Zugriff auf Netzwerkressourcen. Weitere Informationen zu RODC-Funktionen finden Sie unter AD DS: Schreibgeschützte Domänen Controller ([https://go.microsoft.com/fwlink/?LinkID=106616](https://go.microsoft.com/fwlink/?LinkID=106616)). Informationen zum Bereitstellen eines RODC finden Sie in der Schritt-für-Schritt-Anleitung für schreibgeschützte Domänen Controller ([https://go.microsoft.com/fwlink/?LinkID=92728](https://go.microsoft.com/fwlink/?LinkID=92728)).  
   
 > [!NOTE]  
-> Dieses Handbuch wird nicht erläutert, wie Sie ermitteln, die richtige Anzahl von Domänencontrollern und der Hardware domänencontrolleranforderungen für jede Domäne, die an jedem Standort dargestellt wird.  
+> In diesem Handbuch wird nicht erläutert, wie Sie die richtige Anzahl von Domänen Controllern und die Hardwareanforderungen des Domänen Controllers für jede Domäne ermitteln, die an jedem Standort repräsentiert wird.  
   
 ## <a name="in-this-section"></a>Inhalt dieses Abschnitts  
   
 -   [Planen der Platzierung der Stammdomänencontroller der Gesamtstruktur](../../ad-ds/plan/Planning-Forest-Root-Domain-Controller-Placement.md)  
   
--   [Planen der Platzierung der regionalen Domänencontroller](../../ad-ds/plan/Planning-Regional-Domain-Controller-Placement.md)  
+-   [Planen der Platzierung regionaler Domänen Controller](../../ad-ds/plan/Planning-Regional-Domain-Controller-Placement.md)  
   
 -   [Planen der Platzierung des globalen Katalogservers](../../ad-ds/plan/Planning-Global-Catalog-Server-Placement.md)  
   
--   [Planen der Platzierung der Vorgänge](../../ad-ds/plan/Planning-Operations-Master-Role-Placement.md)  
+-   [Planen der Platzierung der Rolle „Betriebsmaster“](../../ad-ds/plan/Planning-Operations-Master-Role-Placement.md)  
   
 
 

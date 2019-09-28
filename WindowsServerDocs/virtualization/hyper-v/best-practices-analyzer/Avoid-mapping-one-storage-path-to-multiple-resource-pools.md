@@ -1,7 +1,7 @@
 ---
-title: Vermeiden Sie die Zuordnung einen Speicherpfad auf mehreren Ressourcenpools
-description: Die Onlineversion des Texts für diese Best Practices Analyzer-Regel.
-ms.prod: windows-server-threshold
+title: Vermeiden Sie die Zuordnung von einem Speicherpfad zu mehreren Ressourcenpools.
+description: Online Version des Texts für diese Best Practices Analyzer Regel.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,38 +10,38 @@ ms.topic: article
 ms.assetid: 24992453-762b-4892-9a50-55d237b9b7f2
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 7c012836309f722e55c28b2ddbe3d54de641b4af
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e89c0382d20d586d8c0b50396ddbd56d6fdadf0b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59823961"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365263"
 ---
-# <a name="avoid-mapping-one-storage-path-to-multiple-resource-pools"></a>Vermeiden Sie die Zuordnung einen Speicherpfad auf mehreren Ressourcenpools
+# <a name="avoid-mapping-one-storage-path-to-multiple-resource-pools"></a>Vermeiden Sie die Zuordnung von einem Speicherpfad zu mehreren Ressourcenpools.
 
 >Gilt für: Windows Server 2016
 
-Weitere Informationen zu best Practices und Überprüfungen finden Sie unter [Run Best Practices Analyzer Scans und Manage Scan Results](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
+Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausführen von Best Practices Analyzer Scans und Verwalten der Scan Ergebnisse](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
 |Eigenschaft|Details|  
 |-|-|  
 |**Betriebssystem**|Windows Server 2016|  
-|**Produkt /-Funktion**|Hyper-V|  
-|**Schweregrad**|Warnung|  
+|**Produkt/Feature**|Hyper-V|  
+|**Zunehmen**|Warnung|  
 |**Kategorie**|Vorgänge|  
   
-In den folgenden Abschnitten Kursivschrift gibt an Benutzeroberflächentext, die im Best Practices Analyzer-Tool für dieses Problem angezeigt wird.
+In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.
   
 ## <a name="issue"></a>**Problem:**  
-*Ein Pfad zur Speicherdatei ist mehreren Ressourcenpools zugeordnet.*  
+*Ein Speicher Dateipfad ist mehreren Ressourcenpools zugeordnet.*  
   
-## <a name="impact"></a>**Auswirkungen**  
-*Für den angegebenen Pool Speichertyp teilen die folgenden übergeordneten und untergeordneten Pools den gleichen Speicherpfad:*  
+## <a name="impact"></a>**Auswirkt**  
+*Für den angegebenen Speicher Pooltyp verwenden die folgenden über-und untergeordneten Pools denselben Speicherpfad:*  
   
-\<Liste der Pools >  
+\<liste der Pools >  
   
-## <a name="resolution"></a>**Lösung**  
-*Verwenden Sie Windows PowerShell, um die Speicherpools für die Ressource neu konfigurieren, damit mehrere Pools nicht den gleichen Speicherpfad verwenden.*  
+## <a name="resolution"></a>**Auflösung**  
+*Verwenden Sie Windows PowerShell, um die Speicherressourcen Pools so neu zu konfigurieren, dass mehrere Pools nicht denselben Speicherpfad verwenden.*  
   
 
 

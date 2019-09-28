@@ -1,7 +1,7 @@
 ---
-title: Einrichten von Hosts für die Livemigration ohne Failoverclustering
-description: Bietet eine Anleitung zum Einrichten von Livemigration in einer Umgebung ohne Cluster
-ms.prod: windows-server-threshold
+title: Einrichten von Hosts für die Live Migration ohne Failoverclustering
+description: Enthält Anweisungen zum Einrichten einer Live Migration in einer nicht geclusterten Umgebung.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,71 +11,71 @@ ms.assetid: b5e3c405-cb76-4ff2-8042-c2284448c435
 author: KBDAzure
 ms.author: kathydav
 ms.date: 9/30/2016
-ms.openlocfilehash: 49e36d7fae5eec07772fd6f82c5a5d69838351d8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ad5c3da632df3afc4c7b22c4e1c79b3b92ea7508
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821991"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364290"
 ---
-# <a name="set-up-hosts-for-live-migration-without-failover-clustering"></a>Einrichten von Hosts für die Livemigration ohne Failoverclustering
+# <a name="set-up-hosts-for-live-migration-without-failover-clustering"></a>Einrichten von Hosts für die Live Migration ohne Failoverclustering
 
->Gilt für: WindowsServer 2016 wird Microsoft Hyper-V Server 2016, WindowsServer 2019, Microsoft Hyper-V-Server 2019
+>Gilt für: Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
-In diesem Artikel veranschaulicht, um Hosts einzurichten, die gruppiert werden nicht, damit Sie Migrationen zwischen ihnen Leben können. Verwenden Sie diese Anweisungen, wenn Sie live-Migration eingerichtet haben, bei der Installation von Hyper-V, oder wenn Sie die Einstellungen ändern möchten. Um geclusterte Hosts einzurichten, verwenden Sie Tools für die Failover-Clusterunterstützung ein.  
+In diesem Artikel erfahren Sie, wie Sie Hosts einrichten, die nicht gruppiert sind, damit Sie Live Migrationen zwischen Ihnen ausführen können. Verwenden Sie diese Anweisungen, wenn Sie bei der Installation von Hyper-V keine Live Migration eingerichtet haben, oder wenn Sie die Einstellungen ändern möchten. Verwenden Sie zum Einrichten von gruppierten Hosts die Tools für Failoverclustering.  
   
-## <a name="requirements-for-setting-up-live-migration"></a>Anforderungen für die Einrichtung von live-migration  
+## <a name="requirements-for-setting-up-live-migration"></a>Anforderungen für die Einrichtung einer Live Migration  
   
-Um nicht geclusterten Hosts für die Livemigration einzurichten, müssen Sie:   
+Um nicht gruppierte Hosts für die Live Migration einzurichten, benötigen Sie Folgendes:   
   
--  Ein Benutzerkonto mit der Berechtigung zum Ausführen der verschiedenen Schritte. Mitgliedschaft in der lokalen Administratorengruppe von Hyper-V oder die Gruppe "Administratoren" auf den Quell-und Ziel erfüllt diese Anforderung, aus, es sei denn, Sie eingeschränkten Delegierung konfigurieren. Mitgliedschaft in der Gruppe der Domänenadministratoren ist erforderlich, um die eingeschränkte Delegierung konfigurieren.  
+-  Ein Benutzerkonto mit der Berechtigung zum Ausführen der verschiedenen Schritte. Die Mitgliedschaft in der lokalen Hyper-V-Administrator Gruppe oder der Gruppe "Administratoren" auf dem Quell-und dem Zielcomputer erfüllt diese Anforderung, es sei denn, Sie konfigurieren die eingeschränkte Delegierung. Die Mitgliedschaft in der Gruppe Domänen Administratoren ist erforderlich, um die eingeschränkte Delegierung zu konfigurieren.  
   
-- Die Hyper-V-Rolle in Windows Server 2016 oder Windows Server 2012 R2 auf den Quell- und Ziel-Servern installiert werden soll. Sie erreichen eine Livemigration zwischen Hosts, auf denen Windows Server 2016 und Windows Server 2012 R2, ob die virtuelle Maschine mindestens Version 5. <br>Version Anweisungen finden Sie unter [Upgrade VM-Konfigurationsversion in Hyper-V unter Windows 10 oder Windows Server 2016](Upgrade-virtual-machine-version-in-Hyper-V-on-Windows-or-Windows-Server.md). Installationsanweisungen finden Sie unter [Installieren der Hyper-V-Serverrolle unter Windows Server](../get-started/Install-the-Hyper-V-role-on-Windows-Server.md).  
+- Die Hyper-V-Rolle in Windows Server 2016 oder Windows Server 2012 R2, die auf dem Quell-und dem Zielserver installiert ist. Sie können eine Live Migration zwischen Hosts ausführen, auf denen Windows Server 2016 und Windows Server 2012 R2 ausgeführt wird, wenn der virtuelle Computer mindestens Version 5 ist. <br>Anweisungen zur Versions Aktualisierung finden Sie unter [Aktualisieren der Version virtueller Computer in Hyper-V unter Windows 10 oder Windows Server 2016](Upgrade-virtual-machine-version-in-Hyper-V-on-Windows-or-Windows-Server.md). Installationsanweisungen finden Sie unter [Installieren der Hyper-V-Rolle unter Windows Server](../get-started/Install-the-Hyper-V-role-on-Windows-Server.md).  
   
-- Quelle und Ziel-Computer, die entweder zu derselben Active Directory-Domäne gehören, oder gehören zu Domänen, die sich gegenseitig vertrauen.    
-- Die Hyper-V-Verwaltungstools auf einem Computer unter Windows Server 2016 oder Windows 10 installiert werden, es sei denn, auf dem Quell- oder Ziel-Server, und Sie die Tools installiert sind, werden die Tools auf dem Server ausführen.  
+- Quell-und Zielcomputer, die entweder zur gleichen Active Directory Domäne gehören oder zu Domänen gehören, die einander vertrauen.    
+- Die Hyper-V-Verwaltungs Tools, die auf einem Computer installiert sind, auf dem Windows Server 2016 oder Windows 10 ausgeführt wird, es sei denn, die Tools sind auf dem Quell-oder Ziel Server installiert, und Sie führen die Tools vom Server aus.  
   
-## <a name="consider-options-for-authentication-and-networking"></a>Erwägen Sie die Optionen für die Authentifizierung und Netzwerk  
+## <a name="consider-options-for-authentication-and-networking"></a>Optionen für Authentifizierung und Netzwerk  
   
 Beachten Sie, wie Sie Folgendes einrichten möchten:  
   
--  **Authentifizierung**: Welches Protokoll zum Authentifizieren des livemigrations-Datenverkehr zwischen Quell-und Ziel verwendet wird? Die Auswahl bestimmt, ob Sie vor dem Starten einer Livemigration auf dem Quellserver anmelden müssen:   
-   - Kerberos können Sie die zu vermeiden, dass sich an den Server im, erfordert jedoch die eingeschränkte Delegierung eingerichtet werden. Anweisungen finden Sie unten.  
-   - CredSSP können Sie vermeiden, Konfigurieren der eingeschränkten Delegierung, erfordert jedoch, dass Sie auf dem Quellserver anmelden. Sie erreichen dies über eine lokale konsolensitzung, eine Remotedesktopsitzung oder eine Windows PowerShell-Remotesitzung.  
+-  **Authentifizierung**: Welches Protokoll wird verwendet, um den Datenverkehr für die Live Migration zwischen den Quell-und Ziel Servern zu authentifizieren? Die Auswahl bestimmt, ob Sie sich beim Quell Server anmelden müssen, bevor Sie eine Live Migration starten:   
+   - Mithilfe von Kerberos können Sie sich nicht beim Server anmelden, sondern müssen die eingeschränkte Delegierung einrichten. Weitere Informationen finden Sie weiter unten.  
+   - Mit "kredssp" können Sie die Konfiguration der eingeschränkten Delegierung vermeiden. Sie müssen sich jedoch beim Quell Server anmelden. Hierzu können Sie eine lokale Konsolen Sitzung, eine Remotedesktop Sitzung oder eine Windows PowerShell-Remote Sitzung verwenden.  
   
-      CredSPP muss die Anmeldung für Situationen, in denen möglicherweise nicht offensichtlich. Wenn Sie sich testserver01 zum Verschieben eines virtuellen Computers auf testserver02 anmelden anmelden, und klicken Sie dann die virtuelle Maschine wieder auf TestServer01 verschieben möchten, müssen Sie z. B. TestServer02 anmelden, bevor Sie versuchen, den virtuellen Computer wieder auf TestServer01 verschieben. Wenn Sie dies nicht tun, wird der Authentifizierungsversuch fehlschlägt, ein Fehler auftritt, und die folgende Meldung wird angezeigt:  
+      Für "kredspp" ist eine Anmeldung in Situationen erforderlich, die möglicherweise nicht offensichtlich sind. Wenn Sie sich beispielsweise bei TestServer01 anmelden, um eine virtuelle Maschine zu Bezeichnung testserver02 zu verschieben, und die virtuelle Maschine anschließend wieder in TestServer01 verschieben möchten, müssen Sie sich bei Bezeichnung testserver02 anmelden, bevor Sie versuchen, die virtuelle Maschine zurück auf TestServer01 zu verschieben. Wenn Sie dies nicht tun, schlägt der Authentifizierungs Versuch fehl, es tritt ein Fehler auf, und die folgende Meldung wird angezeigt:  
     
-      "VM-Migration Fehler bei Vorgang an der Migrationsquelle.  
-      Fehler beim Herstellen einer Verbindung mit Host *Computername*: Sind keine Anmeldeinformationen im Sicherheitspaket 0x8009030E verfügbar."
+      "Fehler beim Migrations Vorgang für den virtuellen Computer bei der Migrations Quelle.  
+      Fehler beim Herstellen einer Verbindung mit dem Host *Computernamen*: Im Sicherheitspaket 0x8009030E sind keine Anmelde Informationen verfügbar. "
   
--   **Leistung**: Sinnvoll es, Leistungsoptionen konfigurieren? Diese Optionen können reduzieren, Netzwerk- und CPU-Auslastung, als auch live-Migrationen schneller machen. Betrachten Sie Ihren Anforderungen und Ihrer Infrastruktur, und Testen Sie unterschiedliche Konfigurationen, damit Sie entscheiden können. Die Optionen werden am Ende von Schritt 2 beschrieben.  
+-   **Leistung**: Ist es sinnvoll, Leistungsoptionen zu konfigurieren? Diese Optionen können die Netzwerk-und CPU-Auslastung reduzieren und die Live Migrationen schneller machen. Stellen Sie Ihre Anforderungen und ihre Infrastruktur in Erwägung, und testen Sie verschiedene Konfigurationen, um Ihnen die Entscheidung zu erleichtern. Die Optionen werden am Ende von Schritt 2 beschrieben.  
   
--  **Netzwerk-Einstellung**: Lassen Sie den Datenverkehr für die Livemigration über ein beliebiges verfügbares Netzwerk zu, oder möchten Sie den Datenverkehr in speziellen Netzwerken isolieren? Als bewährte Sicherheitsmethode wird empfohlen, den Datenverkehr auf vertrauenswürdige, private Netzwerken zu isolieren, da der Datenverkehr für die Livemigration beim Senden über das Netzwerk nicht verschlüsselt wird. Die Netzwerkisolation kann über ein physisch isoliertes Netzwerk oder über eine andere vertrauenswürdige Netzwerktechnologie, z. B. VLANs, erreicht werden.  
+-  **Netzwerk Präferenz**: Lassen Sie den Datenverkehr für die Livemigration über ein beliebiges verfügbares Netzwerk zu, oder möchten Sie den Datenverkehr in speziellen Netzwerken isolieren? Als bewährte Sicherheitsmethode wird empfohlen, den Datenverkehr auf vertrauenswürdige, private Netzwerken zu isolieren, da der Datenverkehr für die Livemigration beim Senden über das Netzwerk nicht verschlüsselt wird. Die Netzwerkisolation kann über ein physisch isoliertes Netzwerk oder über eine andere vertrauenswürdige Netzwerktechnologie, z. B. VLANs, erreicht werden.  
   
 ## <a name="BKMK_Step1"></a>Schritt 1: Konfigurieren der eingeschränkten Delegierung (optional)  
-Wenn Sie entschieden haben, die Verwendung von Kerberos zur Authentifizierung von live Migration-Traffic, konfigurieren Sie eingeschränkte Delegierung mit einem Konto an, die Mitglied der Gruppe der Domänenadministratoren ist.  
+Wenn Sie sich für die Verwendung von Kerberos zum Authentifizieren des Datenverkehrs für die Live Migration entschieden haben, konfigurieren Sie die eingeschränkte Delegierung mithilfe eines Kontos, das Mitglied der Gruppe Domänen Administratoren ist.  
   
-### <a name="use-the-users-and-computers-snap-in-to-configure-constrained-delegation"></a>Verwenden Sie den Benutzer und Computer-Snap-in zum Konfigurieren der eingeschränkten Delegierung  
+### <a name="use-the-users-and-computers-snap-in-to-configure-constrained-delegation"></a>Verwenden des Snap-Ins "Benutzer und Computer" zum Konfigurieren der eingeschränkten Delegierung  
   
-1.  Öffnen Sie das Snap-In %%amp;quot;Active Directory-Benutzer und -Computer%%amp;quot;. (In Server-Manager, wählen Sie den Server, wenn es nicht aktiviert ist, klicken Sie auf **Tools** >> **Active Directory-Benutzer und-Computer**).  
+1.  Öffnen Sie das Snap-In %%amp;quot;Active Directory-Benutzer und -Computer%%amp;quot;. (Wählen Sie unter Server-Manager den Server aus, wenn er nicht ausgewählt ist **, klicken Sie**auf Extras  >> **Active Directory Benutzer und Computer**).  
   
-2.  Im Navigationsbereich in **Active Directory-Benutzer und-Computer**, wählen Sie die Domäne, und doppelklicken Sie auf die **Computer** Ordner.  
+2.  Wählen Sie im Navigationsbereich von **Active Directory Benutzer und Computer**die Domäne aus, und doppelklicken Sie auf den Ordner **Computer** .  
   
-3.  Von der **Computer** Ordner mit der rechten Maustaste in des Computerkontos des Quellservers, und klicken Sie dann auf **Eigenschaften**.  
+3.  Klicken Sie im Ordner **Computer** mit der rechten Maustaste auf das Computer Konto des Quell Servers, und klicken Sie dann auf **Eigenschaften**.  
   
-4.  Von **Eigenschaften**, klicken Sie auf die **Delegierung** Registerkarte.  
+4.  Klicken Sie in **Eigenschaften**auf die Registerkarte **Delegierung** .  
   
-5.  Wählen Sie auf der Registerkarte "Delegierung" **Computer bei Delegierungen angegebener Dienste vertrauen** und wählen Sie dann **Beliebiges Authentifizierungsprotokoll verwenden**.  
+5.  Wählen Sie auf der Registerkarte Delegierung die Option **Computer nur bei Delegierungen angegebener Dienste vertrauen aus** , und wählen Sie dann **beliebiges Authentifizierungsprotokoll verwenden**aus.  
   
 6.  Klicken Sie auf **Hinzufügen**.  
   
-7.  Von **Dienste hinzufügen**, klicken Sie auf **Benutzer oder Computer**.  
+7.  Klicken Sie unter **Dienste hinzufügen**auf **Benutzer oder Computer**.  
   
-8.  Von **Benutzer oder Computer auswählen**, geben Sie den Namen des Zielservers. Klicken Sie auf **Namen überprüfen** zu überprüfen, und klicken Sie dann auf **OK**.  
+8.  Geben **Sie in Benutzer oder Computer auswählen**den Namen des Zielservers ein. Klicken Sie auf **Namen überprüfen** , um Sie zu überprüfen, und klicken Sie auf **OK**  
   
-9. Von **Dienste hinzufügen**, in der Liste der verfügbaren Dienste, gehen Sie folgendermaßen vor, und klicken Sie dann auf **OK**:  
+9. Führen Sie in der Liste der verfügbaren Dienste unter **Dienste hinzufügen**die folgenden Schritte aus, und klicken Sie dann auf **OK**:  
   
-    -   Wenn Sie den Speicher des virtuellen Computers entfernen möchten, wählen Sie **cifs**aus. Dies ist erforderlich, wenn Sie möchten den Speicher zusammen mit dem virtuellen Computer verschieben sowie als wenn nur ein VM Speicher verschoben werden soll. Wenn der Server für die Verwendung des SMB-Speichers für Hyper-V konfiguriert ist, wurde diese Auswahl bereits getroffen.  
+    -   Wenn Sie den Speicher des virtuellen Computers entfernen möchten, wählen Sie **cifs**aus. Dies ist erforderlich, wenn Sie den Speicher zusammen mit dem virtuellen Computer verschieben möchten, und wenn Sie nur den Speicher eines virtuellen Computers verschieben möchten. Wenn der Server für die Verwendung des SMB-Speichers für Hyper-V konfiguriert ist, wurde diese Auswahl bereits getroffen.  
   
     -   Wenn Sie virtuelle Computer verschieben möchten, wählen Sie den **Migrationsdienst für virtuelles System von Microsoft** aus.  
   
@@ -83,43 +83,43 @@ Wenn Sie entschieden haben, die Verwendung von Kerberos zur Authentifizierung vo
   
 11. Wählen Sie im Ordner **Computers** das Computerkonto des Zielservers aus, und wiederholen Sie den Prozess. Vergewissern Sie sich, dass Sie im Dialogfeld **Benutzer oder Computer auswählen** den Namen des Quellservers angegeben haben.  
   
-Die konfigurationsänderungen wirksam, nach dem Auftreten von beide der folgenden:  
+Die Konfigurationsänderungen treten in Kraft, nachdem die beiden folgenden Aktionen durchgeführt wurden:  
   
-  -  Die Änderungen werden auf die Domänencontroller repliziert, denen die Server mit Hyper-V angemeldet sind.  
-  -  Der Domänencontroller gibt ein neues Kerberos-Ticket.  
+  -  Die Änderungen werden auf die Domänen Controller repliziert, bei denen die Server, auf denen Hyper-V ausgeführt wird, angemeldet sind.  
+  -  Der Domänen Controller gibt ein neues Kerberos-Ticket aus.  
   
-## <a name="BKMK_Step2"></a>Schritt 2: Einrichten der Quelle und Ziel-Computer für die Livemigration  
-Dieser Schritt umfasst die Auswahl der Option für die Authentifizierung und Netzwerk. Als best Practice für die Sicherheit wird empfohlen, dass Sie bestimmte Netzwerke für livemigrations-Datenverkehr verwenden auswählen, wie oben beschrieben. Dieser Schritt zeigt, auch die Option "Performance" auswählen.   
+## <a name="BKMK_Step2"></a>Schritt 2: Einrichten der Quell-und Zielcomputer für die Live Migration  
+Dieser Schritt umfasst die Auswahl von Optionen für die Authentifizierung und das Netzwerk. Als bewährte Sicherheitsmaßnahme empfiehlt es sich, bestimmte Netzwerke auszuwählen, die für den Datenverkehr für die Live Migration verwendet werden sollen, wie oben erläutert. Außerdem wird in diesem Schritt gezeigt, wie Sie die Option Leistung auswählen.   
   
-### <a name="use-hyper-v-manager-to-set-up-the-source-and-destination-computers-for-live-migration"></a>Verwenden von Hyper-V-Manager der Quelle und Ziel für die Livemigration eingerichtet  
+### <a name="use-hyper-v-manager-to-set-up-the-source-and-destination-computers-for-live-migration"></a>Verwenden des Hyper-V-Managers zum Einrichten der Quell-und Zielcomputer für die Live Migration  
   
-1.  Öffnen Sie den Hyper-V-Manager. (In Server-Manager, klicken Sie auf **Tools** >>**Hyper-V-Manager**.)  
+1.  Öffnen Sie den Hyper-V-Manager. ( **Klicken Sie**in Server-Manager auf Extras  >>**Hyper-V-Manager**.)  
   
-2.  Wählen Sie im Navigationsbereich einen der Server aus. (Wenn er nicht angegeben ist, mit der rechten Maustaste **Hyper-V-Manager**, klicken Sie auf **Herstellen einer Verbindung mit Server**, geben Sie den Servernamen ein, und klicken Sie auf **OK**. Wiederholen Sie zum Hinzufügen weiterer Server.)  
+2.  Wählen Sie im Navigationsbereich einen der Server aus. (Falls nicht aufgeführt, klicken Sie mit der rechten Maustaste auf **Hyper-V-Manager**, klicken Sie auf **Verbindung mit Server herstellen**, geben Sie den Servernamen ein, und klicken Sie auf **OK** Wiederholen Sie den Vorgang, um weitere Server hinzuzufügen.  
   
-3.  In der **Aktion** Bereich, klicken Sie auf **Hyper-V-Einstellungen** >>**Livemigrationen**.  
+3.  Klicken Sie im Bereich **Aktion** auf **Hyper-V-Einstellungen** >>**Live Migrationen**.  
   
 4.  Aktivieren Sie im Bereich **Livemigrationen** die Option **Ein- und ausgehende Livemigrationen ermöglichen**.  
   
-5.  Klicken Sie unter **gleichzeitige livemigrationen**, eine andere Anzahl angeben, wenn Sie nicht die Standardeinstellung 2 verwenden möchten.  
+5.  Geben Sie unter **gleichzeitige Live Migrationen**eine andere Zahl an, wenn Sie nicht den Standardwert von 2 verwenden möchten.  
   
 6.  Wenn spezielle Netzwerkverbindungen den Datenverkehr für die Livemigration akzeptieren sollen, klicken Sie unter **Eingehende Livemigrationen**auf **Hinzufügen** , um die IP-Adressinformationen einzugeben. Klicken Sie anderenfalls auf **Beliebiges Netzwerk für Livemigration verwenden**. Klicken Sie auf **OK**.  
   
-7.  Um Kerberos und Leistungsoptionen auszuwählen, erweitern Sie **Livemigrationen** und wählen Sie dann **erweiterte Features**.  
+7.  Um die Kerberos-und Leistungsoptionen auszuwählen, erweitern Sie **Live Migrationen** , und wählen Sie dann **Erweiterte Funktionen**aus.  
   
-    - Wenn Sie die eingeschränkte Delegierung unter konfiguriert haben **Authentifizierungsprotokoll**Option **Kerberos**.  
-    - Klicken Sie unter **Leistungsoptionen**, überprüfen Sie die Details, und wählen Sie eine andere Option aus, wenn es für Ihre Umgebung geeignet ist.   
+    - Wenn Sie die eingeschränkte Delegierung konfiguriert haben, wählen Sie unter **Authentifizierungsprotokoll**die Option **Kerberos**aus.  
+    - Überprüfen Sie unter **Leistungsoptionen**die Details, und wählen Sie eine andere Option aus, wenn Sie für Ihre Umgebung geeignet ist.   
   
 8. Klicken Sie auf **OK**.  
   
-9. Wählen Sie den anderen Server im Hyper-V-Manager, und wiederholen Sie die Schritte.  
+9. Wählen Sie im Hyper-V-Manager den anderen Server aus, und wiederholen Sie die Schritte.  
   
-### <a name="use-windows-powershell-to-set-up-the-source-and-destination-computers-for-live-migration"></a>Verwenden von Windows PowerShell, um die Quelle und Ziel-Computer für die Livemigration einzurichten  
+### <a name="use-windows-powershell-to-set-up-the-source-and-destination-computers-for-live-migration"></a>Verwenden von Windows PowerShell zum Einrichten der Quell-und Zielcomputer für die Live Migration  
   
-Drei Cmdlets sind verfügbar für die Konfiguration von Livemigration auf nicht geclusterten Hosts: [Enable-VMMigration](https://technet.microsoft.com/library/hh848544.aspx), [Set-VMMigrationNetwork](https://technet.microsoft.com/library/hh848467.aspx), und [Set-VMHost](https://technet.microsoft.com/library/hh848524.aspx). In diesem Beispiel alle drei verwendet und führt folgende Schritte aus:   
-  - Live-Migration konfiguriert auf dem lokalen host  
-  - Können eingehenden Datenverkehr nur in einem bestimmten Netzwerk  
-  - Wählt Kerberos als Authentifizierungsprotokoll   
+Zum Konfigurieren der Live Migration auf nicht gruppierten Hosts stehen drei Cmdlets zur Verfügung: [Aktivieren Sie "-vmmigration](https://technet.microsoft.com/library/hh848544.aspx)", " [Set-vmmigrationnetwork](https://technet.microsoft.com/library/hh848467.aspx)" und " [Set-VMHost](https://technet.microsoft.com/library/hh848524.aspx)". In diesem Beispiel werden alle drei verwendet und folgende Aktionen durchführt:   
+  - Hiermit wird die Live Migration auf dem lokalen Host konfiguriert.  
+  - Ermöglicht eingehenden Migrations Datenverkehr nur in einem bestimmten Netzwerk.  
+  - Wählt Kerberos als Authentifizierungsprotokoll aus.   
   
 Jede Zeile entspricht einem separaten Befehl.  
   
@@ -131,24 +131,24 @@ PS C:\> Set-VMMigrationNetwork 192.168.10.1
 PS C:\> Set-VMHost -VirtualMachineMigrationAuthenticationType Kerberos  
   
 ```  
-Set-VMHost kann auch eine Option "Performance" (und viele andere Einstellungen für den Host) auswählen. Geben Sie z. B., um zu SMB wählen lassen das Authentifizierungsprotokoll, das auf den Standardwert von CredSSP festgelegt:  
+Mit "Set-VMHost" können Sie auch eine Leistungs Option (und viele andere Host Einstellungen) auswählen. Wenn Sie z. b. SMB auswählen, aber das Authentifizierungsprotokoll auf den Standardwert von "kredssp" festlegen, geben Sie Folgendes ein:  
   
 ```  
 PS C:\> Set-VMHost -VirtualMachineMigrationPerformanceOption SMBTransport  
   
 ```  
   
-In dieser Tabelle wird beschrieben, wie die Leistungsoptionen zu funktionieren.  
+In dieser Tabelle wird beschrieben, wie die Leistungsoptionen funktionieren.  
   
 |Option|Beschreibung|  
 |----------|---------------|  
-    |TCP/IP|Der Arbeitsspeicher des virtuellen Computers kopiert auf den Zielserver. über eine TCP/IP-Verbindung.|  
-    |Komprimierung|Komprimiert der Speicherinhalt des virtuellen Computers, bevor Sie sie über eine TCP/IP-Verbindung auf den Zielserver kopieren. **Hinweis**: Dies ist die **Standard** festlegen.|  
-    |SMB|Der Arbeitsspeicher des virtuellen Computers kopiert auf den Zielserver. über eine SMB 3.0-Verbindung.<br /><br />-SMB Direct wird verwendet, wenn die Netzwerkadapter auf dem Quell- und Ziel (Remote Direct Memory Access, RDMA)-Funktionen, die aktiviert haben.<br />-SMB Multichannel automatisch erkennt und verwendet mehrere Verbindungen, wenn eine ordnungsgemäße Konfiguration von SMB Multichannel identifiziert wird.<br /><br />Weitere Informationen finden Sie unter [Improve Performance of a File Server with SMB Direct](https://technet.microsoft.com/library/jj134210(WS.11).aspx).|  
+    |TCP/IP|Der Arbeitsspeicher des virtuellen Computers wird über eine TCP/IP-Verbindung auf den Zielserver kopiert.|  
+    |Komprimierung|Komprimiert den Speicherinhalt der virtuellen Maschine, bevor Sie über eine TCP/IP-Verbindung auf den Zielserver kopiert wird. **Hinweis**: Dies ist die **Standard** Einstellung.|  
+    |SMB|Der Arbeitsspeicher des virtuellen Computers wird über eine SMB 3,0-Verbindung auf den Zielserver kopiert.<br /><br />-SMB Direct wird verwendet, wenn für die Netzwerkadapter auf den Quell-und Ziel Servern RDMA (Remote Direct Memory Access)-Funktionen aktiviert sind.<br />-SMB Multichannel erkennt und verwendet automatisch mehrere Verbindungen, wenn eine entsprechende SMB Multichannel-Konfiguration identifiziert wird.<br /><br />Weitere Informationen finden Sie unter [Improve Performance of a File Server with SMB Direct](https://technet.microsoft.com/library/jj134210(WS.11).aspx).|  
       
  ## <a name="next-steps"></a>Nächste Schritte
  
- Nachdem Sie die Hosts eingerichtet haben, können Sie eine Livemigration. Anweisungen hierzu finden Sie unter [mit der Livemigration ohne Failoverclustering zum Verschieben eines virtuellen Computers](../manage/Use-live-migration-without-Failover-Clustering-to-move-a-virtual-machine.md). 
+ Nachdem Sie die Hosts eingerichtet haben, sind Sie bereit, eine Live Migration durchzuführen. Anweisungen hierzu finden [Sie unter Verwenden der Live Migration ohne Failoverclustering zum Verschieben einer virtuellen Maschine](../manage/Use-live-migration-without-Failover-Clustering-to-move-a-virtual-machine.md). 
     
 
 

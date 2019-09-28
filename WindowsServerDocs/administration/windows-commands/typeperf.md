@@ -2,7 +2,7 @@
 title: typeperf
 description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cfcbac82b88c0c8d8bcc706ebfd807f96e359de7
-ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
+ms.openlocfilehash: 087b201c51d5aec8e6f61c7469c59307d3ed8b4d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66440786"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392297"
 ---
 # <a name="typeperf"></a>typeperf
 
@@ -41,30 +41,30 @@ typeperf -qx [object] [options]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<Counter [Counter [...]] >|Gibt die zu überwachenden Leistungsindikatoren an.|
+|\<counter [Counter [...]] >|Gibt die zu überwachenden Leistungsindikatoren an.|
 
 > [!NOTE]
-> Counter > der vollständige Name eines Leistungs Zählers im  *\\ \\*  **\<**  **\\computer\object (Instance) \Counter-Format, z. b. Server1\Processor(0)\\\%Benutzer Zeit**.
+> **\< Counter >** ist der vollständige Name eines Leistungs Zählers im *\\ @ no__t-4Computer\Object (Instance) \Counter* -Format, z. b. **\\ @ no__t-7Server1\Processor (0) \%-Benutzer Zeit**.
 
 ## <a name="options"></a>Optionen
 
 |                   Option                   |                                                         Beschreibung                                                          |
 |--------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
 |                     -?                     |                                               Zeigt die kontextbezogene Hilfe an.                                               |
-| -f \<CSV&verbar;TSV&verbar;bin&verbar;SQL > |                                    Gibt das Format der Ausgabedatei an. Der Standardwert ist CSV.                                     |
+| -f \<csv @ no__t-1tsv @ no__t-2bin @ no__t-3sql > |                                    Gibt das Format der Ausgabedatei an. Der Standardwert ist CSV.                                     |
 |              -CF \<filename >               |              Gibt eine Datei an, die eine Liste der zu überwachenden Leistungsindikatoren mit einem Zähler pro Zeile enthält.               |
 |             -Si < [[hh:] mm:] SS >             |                                  Gibt das Stichproben Intervall an. Der Standardwert ist 1 Sekunde.                                   |
-|               -o \<Dateiname >               |     Gibt den Pfad für die Ausgabedatei oder die SQL-Datenbank an. Der Standardwert ist stdout (in das Befehlsfenster geschrieben).      |
-|                -q [Objekt]                 | Zeigt eine Liste installierter Leistungsindikatoren (keine Instanzen) an. Zum Auflisten der Zähler für ein Objekt fügen Sie den Objektnamen ein. \*\*\*BEISPIEL |
+|               -o \<filename >               |     Gibt den Pfad für die Ausgabedatei oder die SQL-Datenbank an. Der Standardwert ist stdout (in das Befehlsfenster geschrieben).      |
+|                -q [Objekt]                 | Zeigt eine Liste installierter Leistungsindikatoren (keine Instanzen) an. Zum Auflisten der Zähler für ein Objekt fügen Sie den Objektnamen ein. \* @ NO__T-1 @ NO__T-2EXAMPLE |
 |                -QX [Objekt]                |        Zeigt eine Liste installierter Leistungsindikatoren mit Instanzen an. Zum Auflisten der Zähler für ein Objekt fügen Sie den Objektnamen ein.        |
-|               -SC \<-Beispiele >               |             Gibt die Anzahl der zu sammelnden Stichproben an. Der Standardwert ist das Sammeln von Daten, bis STRG + C gedrückt wird.              |
+|               -SC \<samples >               |             Gibt die Anzahl der zu sammelnden Stichproben an. Der Standardwert ist das Sammeln von Daten, bis STRG + C gedrückt wird.              |
 |            -Konfigurations \<Dateiname >             |                                    Gibt eine Einstellungsdatei an, die Befehlsoptionen enthält.                                     |
 |            -s \<computer_name >             |                   Gibt einen Remote Computer an, der überwacht werden soll, wenn im Verbindungs Pfad kein Computer angegeben ist.                    |
 |                     -y                     |                                        Antworten Sie auf Ja, um alle Fragen zu beantworten.                                        |
 
 ## <a name="BKMK_EXAMPLES"></a>Beispiele
 
-- Im folgenden Beispiel werden die Werte für die Prozessorzeit des Leistungs Leistungs  **\\ \\Prozessors (_Total\% )** des lokalen Computers in das Befehlsfenster in einem standardmäßigen Stichproben Intervall von 1 Sekunde geschrieben, bis STRG + C gedrückt ist. .  
+- Im folgenden Beispiel werden die Werte für den Leistungsdaten Bereich des lokalen Computers **\\ @ no__t-2processor (_Total) \%-Prozessorzeit** in das Befehlsfenster in einem standardmäßigen Stichproben Intervall von 1 Sekunde geschrieben, bis STRG + C gedrückt wird.  
   ```
   typeperf "\Processor(_Total)\% Processor Time"
   ```  

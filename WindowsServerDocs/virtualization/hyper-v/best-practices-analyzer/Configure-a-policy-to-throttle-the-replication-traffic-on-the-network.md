@@ -1,7 +1,7 @@
 ---
-title: Konfigurieren Sie eine Richtlinie zum Einschränken der Replikations-Datenverkehr im Netzwerk
-description: Die Onlineversion des Texts für diese Best Practices Analyzer-Regel.
-ms.prod: windows-server-threshold
+title: Konfigurieren einer Richtlinie zur Drosselung des Replikations Datenverkehrs im Netzwerk
+description: Online Version des Texts für diese Best Practices Analyzer Regel.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,38 +10,38 @@ ms.topic: article
 ms.assetid: 82cb1aef-cdc3-4d0a-88d4-ef497ab79606
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 2c1f1865fa1d611c0b5baaf981140f9807b51458
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5b3afd594f56973007a2f0f4318de8a8c7a98209
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818691"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365113"
 ---
-# <a name="configure-a-policy-to-throttle-the-replication-traffic-on-the-network"></a>Konfigurieren Sie eine Richtlinie zum Einschränken der Replikations-Datenverkehr im Netzwerk
+# <a name="configure-a-policy-to-throttle-the-replication-traffic-on-the-network"></a>Konfigurieren einer Richtlinie zur Drosselung des Replikations Datenverkehrs im Netzwerk
 
 >Gilt für: Windows Server 2016
 
-Weitere Informationen zu best Practices und Überprüfungen finden Sie unter [Run Best Practices Analyzer Scans und Manage Scan Results](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
+Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausführen von Best Practices Analyzer Scans und Verwalten der Scan Ergebnisse](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
 |Eigenschaft|Details|  
 |-|-|  
 |**Betriebssystem**|Windows Server 2016|  
-|**Produkt /-Funktion**|Hyper-V|  
-|**Schweregrad**|Warnung|  
+|**Produkt/Feature**|Hyper-V|  
+|**Zunehmen**|Warnung|  
 |**Kategorie**|Konfiguration|  
   
-In den folgenden Abschnitten Kursivschrift gibt an Benutzeroberflächentext, die im Best Practices Analyzer-Tool für dieses Problem angezeigt wird.  
+In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.  
   
 ## <a name="issue"></a>Problem  
-*Gibt es möglicherweise kein Grenzwert für die Menge an Netzwerkbandbreite ist zulässig, dass die Replikation nutzen.*  
+*Möglicherweise gibt es keine Beschränkung für die Menge an Netzwerkbandbreite, die von der Replikation beansprucht werden darf.*  
   
 ## <a name="impact"></a>Auswirkungen  
-*Die Netzwerkbandbreite kann vollständig von Replikationsdatenverkehr, Auswirkungen auf andere kritische Netzwerkaktivität beherrscht werden. Dies wirkt sich die folgenden Ports:*  
+die Netzwerkbandbreite von @no__t 0könnte vollständig vom Replikations Datenverkehr dominiert werden, was Auswirkungen auf andere wichtige Netzwerkaktivitäten hat Dies wirkt sich auf die folgenden Ports aus: *  
   
-\<Liste der virtuellen Computer >  
+\<list of Virtual Machines >  
   
 ## <a name="resolution"></a>Auflösung  
-*Wenn Sie eine andere Methode zum Einschränken des Netzwerkdatenverkehrs verwenden, können Sie dies ignorieren. Verwenden Sie andernfalls die Gruppenrichtlinien-Editor zum Konfigurieren einer Richtlinie, die den Netzwerkdatenverkehr auf diesen Port des Replikatservers einschränkt.*  
+*wenn Sie eine andere Methode zum Einschränken des Netzwerk Datenverkehrs verwenden, können Sie dies ignorieren. Verwenden Sie andernfalls Gruppenrichtlinie-Editor, um eine Richtlinie zu konfigurieren, die den Netzwerk Datenverkehr auf den relevanten Port des Replikat Servers drosselt.*  
   
   
 

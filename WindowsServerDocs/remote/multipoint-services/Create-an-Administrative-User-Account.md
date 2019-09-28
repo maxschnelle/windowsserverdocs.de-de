@@ -1,8 +1,8 @@
 ---
 title: Erstellen eines Administratorkontos
-description: Erstellen Sie ein Konto mit Administratorrechten in MultiPoint Services
+description: Erstellen eines Kontos mit Administratorrechten in Multipoint Services
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,15 +13,15 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: bf460107e57de5e19f8eaa311e497e9d984680e7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6737f7b96396a13aa18485095e0687425cf8b93e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879761"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389700"
 ---
 # <a name="create-an-administrative-user-account"></a>Erstellen eines Administratorkontos
-Erstellen Sie *Administratorkonten* für diejenigen Benutzer, die das MultiPoint Services-System verwalten werden. Um zu sehen, die Administratorzugriff, im MultiPoint-Manager hat klicken Sie auf die **Benutzer** Registerkarte. Administratorkonten werden in der Spalte Kontotyp als **Administrator** angezeigt. *Administratoren* haben Zugriff auf alle MultiPoint-Manager-Aufgaben, die Einstellungen für Desktop- und Systemeinstellungen, wie z. B. zu ändern:  
+Erstellen Sie *Administratorkonten* für diejenigen Benutzer, die das MultiPoint Services-System verwalten werden. Klicken Sie im Multipoint-Manager auf die Registerkarte **Benutzer** , um zu sehen, wer über Administrator Zugriff verfügt. Administratorkonten werden in der Spalte Kontotyp als **Administrator** angezeigt. Administratoren *haben Zugriff* auf alle Multipoint Manager-Aufgaben, die Desktop-und Systemeinstellungen ändern, wie z. b.:  
   
 -   Erstellen von Konten  
   
@@ -40,7 +40,7 @@ Weitere Informationen zu Problemen, die Sie als Administrator beim Erstellen und
   
 #### <a name="to-create-an-administrative-user-account"></a>So erstellen Sie ein Administratorkonto  
   
-1.  MultiPoint-Manager, klicken Sie auf die **Benutzer** Registerkarte.  
+1.  Klicken Sie im Multipoint-Manager auf die Registerkarte **Benutzer** .  
   
 2.  Klicken Sie unter **Benutzeraufgaben** auf **Benutzerkonto hinzufügen**. Der Assistent **Benutzerkonto hinzufügen** wird geöffnet.  
   

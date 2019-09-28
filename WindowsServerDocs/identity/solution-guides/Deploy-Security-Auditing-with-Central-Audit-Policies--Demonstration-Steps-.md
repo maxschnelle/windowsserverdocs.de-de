@@ -7,34 +7,34 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: b14ded98c4f1a340349119bd9f5f42e3a1bf9434
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: ecbaa33d83d7b37f376a426571c0d2df89c7695d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445747"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407112"
 ---
 # <a name="deploy-security-auditing-with-central-audit-policies-demonstration-steps"></a>Bereitstellen der Sicherheitsüberwachung mit zentralen Überwachungsrichtlinien (Demonstrationsschritte)
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-In diesem Szenario überwachen Sie den Zugriff auf Dateien im Ordner "Finance Documents" mithilfe der Finanzrichtlinie, die Sie in erstellt [Bereitstellen einer zentralen Zugriffsrichtlinie &#40;Demonstrationsschritte&#41;](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md). Wenn ein Benutzer, der nicht auf den Ordner zugreifen darf, dennoch versucht, darauf zuzugreifen, wird die Aktivität in der Ereignisanzeige aufgezeichnet.   
+In diesem Szenario überwachen Sie den Zugriff auf Dateien im Ordner "Finance Documents" mithilfe der Finance-Richtlinie, die Sie unter Bereitstellen [einer &#40;zentralen Zugriffs&#41;Richtlinie](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md)erstellt haben. Wenn ein Benutzer, der nicht auf den Ordner zugreifen darf, dennoch versucht, darauf zuzugreifen, wird die Aktivität in der Ereignisanzeige aufgezeichnet.   
  Zum Testen dieses Szenarios sind die folgenden Schritte erforderlich.  
   
 |Aufgabe|Beschreibung|  
 |--------|---------------|  
-|[Konfigurieren Sie die globale Objektzugriffsüberwachung](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md#BKMK_1)|In diesem Schritt konfigurieren Sie die globale Objektzugriffsrichtlinie auf dem Domänencontroller.|  
-|[Aktualisieren der Gruppenrichtlinieneinstellungen](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md#BKMK_2)|Melden Sie sich am Dateiserver an, und wenden Sie die Gruppenrichtlinienaktualisierung an.|  
-|[Stellen Sie sicher, dass die globale objektzugriffsrichtlinie angewendet wurde.](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md#BKMK_3)|Zeigen Sie die relevanten Ereignisse in der Ereignisanzeige an. Die Ereignisse sollten Metadaten für das Land und den Dokumenttyp umfassen.|  
+|[Konfigurieren des globalen Objekt Zugriffs](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md#BKMK_1)|In diesem Schritt konfigurieren Sie die globale Objektzugriffsrichtlinie auf dem Domänencontroller.|  
+|[Aktualisieren von Gruppenrichtlinie Einstellungen](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md#BKMK_2)|Melden Sie sich am Dateiserver an, und wenden Sie die Gruppenrichtlinienaktualisierung an.|  
+|[Überprüfen Sie, ob die globale Objekt Zugriffs Richtlinie angewendet wurde.](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md#BKMK_3)|Zeigen Sie die relevanten Ereignisse in der Ereignisanzeige an. Die Ereignisse sollten Metadaten für das Land und den Dokumenttyp umfassen.|  
   
-## <a name="BKMK_1"></a>Konfigurieren Sie die globale objektzugriffsrichtlinie  
+## <a name="BKMK_1"></a>Globale Objekt Zugriffs Richtlinie konfigurieren  
 In diesem Schritt konfigurieren Sie die globale Objektzugriffsrichtlinie auf dem Domänencontroller.  
   
 #### <a name="to-configure-a-global-object-access-policy"></a>So konfigurieren Sie eine globale Objektzugriffsrichtlinie  
   
-1. Melden Sie sich bei dem Domänencontroller DC1 als %% amp;quot;Contoso\Administrator%%amp;quot; mit dem Kennwort <strong>pass@word1</strong>.  
+1. Melden Sie sich beim Domänen Controller DC1 als condeso\administrator mit dem Kennwort <strong>pass@word1</strong>an.  
   
 2. Zeigen Sie in Server-Manager auf **Extras**, und klicken Sie dann auf **Gruppenrichtlinienverwaltung**.  
   
@@ -58,19 +58,19 @@ In diesem Schritt konfigurieren Sie die globale Objektzugriffsrichtlinie auf dem
   
 12. Wählen Sie im Feld **Überwachungseintrag für SACL der Globaldatei** die Option **Vollzugriff** im Feld **Berechtigungen** aus.  
   
-13. In der **fügen Sie eine Bedingung hinzu:** auf **Hinzufügen einer Bedingung** und führt Sie in der Dropdownliste wählen   
-    [**Ressource**] [**Abteilung**] [**eines**] [**Wert**] [**Finance**].  
+13. Klicken Sie im Abschnitt **Bedingung hinzufügen** auf **Bedingung hinzufügen** , und wählen Sie in den Dropdown Listen die Option   
+    [**Ressource**] [**Abteilung**] [**Any von**] [**Wert**] [**Finanzen**].  
   
 14. Klicken Sie dreimal auf **OK**, um die Konfiguration der Richtlinieneinstellung für die globale Objektzugriffsüberwachung abzuschließen.  
   
 15. Klicken Sie im Navigationsbereich auf **Objektzugriff**, und doppelklicken Sie im Ergebnisbereich auf **Handleänderung überwachen**. Klicken Sie auf **Folgende Überwachungsereignisse konfigurieren**, **Erfolgreich** und **Fehler**, klicken Sie auf **OK**, und schließen Sie dann das GPO für den flexiblen Zugriff.  
   
-## <a name="BKMK_2"></a>Aktualisierung der gruppenrichtlinieneinstellungen  
+## <a name="BKMK_2"></a>Aktualisieren von Gruppenrichtlinie Einstellungen  
 In diesem Schritt aktualisieren Sie die Gruppenrichtlinieneinstellungen, nachdem Sie die Überwachungsrichtlinie erstellt haben.  
   
 #### <a name="to-update-group-policy-settings"></a>So aktualisieren Sie die Gruppenrichtlinieneinstellungen  
   
-1. Melden Sie sich am Dateiserver FILE1 als "Contoso\Administrator" mit dem Kennwort bei <strong>pass@word1</strong>.  
+1. Melden Sie sich am Dateiserver file1 als condeso\administrator mit dem Kennwort <strong>pass@word1</strong>an.  
   
 2. Drücken Sie die Windows-Taste+R, und geben Sie **cmd** ein, um ein Befehlseingabefenster zu öffnen.  
   
@@ -79,12 +79,12 @@ In diesem Schritt aktualisieren Sie die Gruppenrichtlinieneinstellungen, nachdem
   
 3. Geben Sie **gpupdate /force** ein, und drücken Sie dann die EINGABETASTE.  
   
-## <a name="BKMK_3"></a>Stellen Sie sicher, dass die globale objektzugriffsrichtlinie angewendet wurde.  
+## <a name="BKMK_3"></a>Überprüfen Sie, ob die globale Objekt Zugriffs Richtlinie angewendet wurde.  
 Nachdem die Gruppenrichtlinieneinstellungen angewendet wurden, können Sie überprüfen, ob die Überwachungsrichtlinieneinstellungen richtig angewendet wurden.  
   
 #### <a name="to-verify-that-the-global-object-access-policy-has-been-applied"></a>So stellen Sie sicher, dass die globale Objektzugriffsrichtlinie angewendet wurde  
   
-1.  Melden Sie sich am Clientcomputer CLIENT1 als %%amp;quot;Contoso\MReid%%amp;quot; an. Navigieren Sie zum Ordner HYPERLINK "file:///\\\\\\\ID_AD_FILE1\\\Finance" \\\ FILE1\Finance Dokumente, und Ändern von Word-Dokument 2.  
+1.  Melden Sie sich am Clientcomputer CLIENT1 als %%amp;quot;Contoso\MReid%%amp;quot; an. Navigieren Sie zum Ordner Hyperlink "file:///\\ @ no__t-1 @ no__t-2\ID_AD_FILE1 @ no__t-3\Finance" \\ \ FILE1\Finance Dokumente, und ändern Sie Word Document 2.  
   
 2.  Melden Sie sich am Dateiserver FILE1 als %%amp;quot;contoso\administrator%%amp;quot; an. Öffnen Sie die Ereignisanzeige, wechseln Sie zu **Windows-Protokolle**, wählen Sie **Sicherheit** aus, und vergewissern Sie sich, dass Ihre Aktivitäten zu den Überwachungsereignissen **4656** und **4663** geführt haben (obwohl sie keine expliziten Überwachungs-SACLs für die erstellten, geänderten und gelöschten Dateien oder Ordner festgelegt haben).  
   

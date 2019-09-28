@@ -7,86 +7,86 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/08/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: a3fbe76302199888dce19f845b1c838c07facb82
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: eb17ed55ba7d7ba23d21162fd41f4022821948fe
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870891"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402531"
 ---
 # <a name="planning-operations-master-role-placement"></a>Planen der Platzierung der Rolle „Betriebsmaster“
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Active Directory-Domänendienste (AD DS) unterstützt die Multimasterreplikation von Verzeichnisdaten, d. h. einen beliebigen Domänencontroller kann Änderungen übernehmen und die Änderungen auf allen anderen Domänencontrollern repliziert werden. Es gibt jedoch bestimmte Änderungen, z. B. schemaänderungen, unpraktisch, die auf mehreren Mastern Weise ausführen. Aus diesem Grund speichern für bestimmte Domänencontroller, bekannt als der Betriebsmaster Rollen für die Annahme von Anforderungen für bestimmte spezifischen Änderungen zuständig.  
+Active Directory Domain Services (AD DS) unterstützt die Multimasterreplikation von Verzeichnis Daten. Dies bedeutet, dass jeder Domänen Controller Verzeichnisänderungen annehmen und die Änderungen auf allen anderen Domänen Controllern replizieren kann. Bestimmte Änderungen, wie z. b. Schema Änderungen, sind jedoch unpraktisch für die Ausführung im multimasterstil. Aus diesem Grund enthalten bestimmte Domänen Controller, die als Betriebs Master bezeichnet werden, Rollen, die für die Annahme von Anforderungen für bestimmte spezifische Änderungen zuständig sind.  
   
 > [!NOTE]  
-> Betriebsmasterrolle müssen einige Informationen in Active Directory-Datenbank schreiben können. Aufgrund der Active Directory-Datenbank auf einem schreibgeschützten Domänencontroller (RODC), nur-Lese **RODCs können nicht als Betriebsmasterrolle dienen**.  
+> Die Inhaber von Betriebs Master Rollen müssen in der Lage sein, Informationen in die Active Directory Datenbank zu schreiben. Aufgrund der schreibgeschützten Daten Bank Active Directory auf einem schreibgeschützten Domänen Controller (Read-Only Domain Controller, RODC) **können RODCs nicht als Inhaber von Betriebs Master Rollen fungieren**.  
   
-Drei Betriebsmasterrollen (auch bekannt als flexible einfache Mastervorgänge oder FSMO-Funktion) in jeder Domäne vorhanden ist:  
+Drei Betriebs Master Rollen (auch als Flexible Single Master Operations oder FSMO bezeichnet) sind in jeder Domäne vorhanden:  
   
-- Emulationsbetriebsmaster des primären Domänencontrollers (PDC) verarbeitet alle kennwortaktualisierungen an.  
+- Der Emulator-Betriebs Master des primären Domänen Controllers (PDC) verarbeitet alle Kenn Wort Aktualisierungen.  
 
-- Der relativen ID (RID) Betriebsmaster verwaltet den globale RID-Pool für die Domäne und ordnet lokalen RIDs Pools auf allen Domänencontrollern, um sicherzustellen, dass alle Sicherheitsprinzipale in der Domäne erstellt einen eindeutigen Bezeichner verfügen.  
-- Der Infrastrukturbetriebsmaster für eine bestimmte Domäne verwaltet eine Liste der Sicherheitsprinzipale aus anderen Domänen, die Mitglieder von Gruppen in der Domäne sind.  
+- Der RID-Betriebs Master (relative ID) verwaltet den globalen RID-Pool für die Domäne und ordnet allen Domänen Controllern lokale RIDs-Pools zu, um sicherzustellen, dass alle in der Domäne erstellten Sicherheits Prinzipale über einen eindeutigen Bezeichner verfügen.  
+- Der Infrastruktur Betriebs Master für eine bestimmte Domäne verwaltet eine Liste der Sicherheits Prinzipale aus anderen Domänen, die Mitglieder von Gruppen innerhalb der Domäne sind.  
 
-Zusätzlich zu den drei auf Domänenebene Betriebsmasterrollen zwei Betriebsmasterrollen, die in jeder Gesamtstruktur vorhanden sein:  
+Zusätzlich zu den drei Betriebs Master Rollen auf Domänen Ebene sind zwei Betriebs Master Rollen in jeder Gesamtstruktur vorhanden:  
   
-- Der Schemabetriebsmaster gesteuert, wie Änderungen am Schema.  
-- Vorgänge der Domänennamenmaster hinzugefügt und entfernt die Domänen und andere Partitionen (z. B. Domain Name System (DNS) Anwendungspartitionen) in und aus der Gesamtstruktur.  
+- Der Schema Betriebs Master regelt Änderungen am Schema.  
+- Der Domänen Namen-Betriebs Master fügt Domänen und andere Verzeichnis Partitionen (z. b. Domain Name System (DNS)-Anwendungs Partitionen) der Gesamtstruktur hinzu und entfernt diese.  
   
-Platzieren Sie den Domänencontroller hostet diese Betriebsmasterrollen in Bereichen, in denen Zuverlässigkeit des Netzwerks hoch ist, und stellen Sie sicher, dass der PDC-Emulator und dem RID-Master durchgängig verfügbar sind.  
+Platzieren Sie die Domänen Controller, auf denen diese Betriebs Master Rollen gehostet werden, in Bereichen, in denen die Netzwerk Zuverlässigkeit hoch ist, und stellen Sie sicher, dass der PDC-Emulator und der RID-Master  
   
-Betriebsmasterrolle werden automatisch zugewiesen, wenn der erste Domänencontroller in einer bestimmten Domäne erstellt wird. Der erste Domänencontroller in einer Gesamtstruktur erstellt werden die beiden auf Gesamtstrukturebene-Rollen (Schemamaster und Domänennamenmaster) zugewiesen. Darüber hinaus werden die drei Rollen der Domänenebene (RID-Master, Infrastruktur-Master und PDC-Emulator) des ersten Domänencontrollers, der Domäne zugewiesen.  
+Die Inhaber von Betriebs Master Rollen werden automatisch zugewiesen, wenn der erste Domänen Controller in einer bestimmten Domäne erstellt wird. Die zwei Rollen auf Gesamtstruktur Ebene (Schema Master und Domänen namens Master) werden dem ersten Domänen Controller zugewiesen, der in einer Gesamtstruktur erstellt wurde. Außerdem werden den ersten Domänen Controllern, die in einer Domäne erstellt werden, die drei Rollen auf Domänen Ebene (RID-Master, Infrastruktur Master und PDC-Emulator) zugewiesen.  
   
 > [!NOTE]  
-> Automatische Zuweisung von Inhaber Betriebsmasterfunktionen erfolgen nur, wenn eine neue Domäne erstellt wird und eine aktuelle Inhaber der Rolle tiefer gestuft wird. Alle weiteren Änderungen an der Rolleninhaber müssen von einem Administrator initiiert werden.  
+> Inhaber Zuweisungen für die automatische Betriebs Master Rolle werden nur erstellt, wenn eine neue Domäne erstellt wird und wenn ein aktueller Rollen Inhaber herabgestuft wird. Alle anderen Änderungen an Rollen Besitzern müssen von einem Administrator initiiert werden.  
   
-Diese automatische Zuweisung von Betriebsmasterfunktionen kann sehr hohen CPU-Auslastung auf dem ersten Domänencontroller in der Gesamtstruktur oder in der Domäne erstellt. Um dies zu vermeiden, weisen Sie (Transfer)-Vorgänge Betriebsmasterrollen auf verschiedenen Domänencontrollern in Ihrer Gesamtstruktur oder Domäne an. Platzieren Sie die Domänencontroller, dass der Host in Bereichen Betriebsmasterfunktionen, in denen das Netzwerk zuverlässig ist und, in denen die Betriebsmaster von allen anderen Domänencontrollern in der Gesamtstruktur zugegriffen werden kann.  
+Diese automatischen Betriebs Master Rollenzuweisungen können zu einer sehr hohen CPU-Auslastung auf dem ersten Domänen Controller führen, der in der Gesamtstruktur oder in der Domäne erstellt wird. Um dies zu vermeiden, weisen Sie Betriebs Master Rollen unterschiedlichen Domänen Controllern in Ihrer Gesamtstruktur oder Domäne zu (übertragen). Platzieren Sie die Domänen Controller, die Betriebs Master Rollen hosten, in Bereichen, in denen das Netzwerk zuverlässig ist und auf die die Betriebs Master von allen anderen Domänen Controllern in der Gesamtstruktur zugreifen können.  
   
-Sie sollten auch festlegen, Standby (alternative) Operations Master für alle Vorgänge Betriebsmasterrollen. Der standby-Betriebsmaster sind Domänencontroller, die an denen Sie die Betriebsmasterfunktionen übertragen konnte, Fall, dass die ursprünglichen Rolleninhaber fehlschlagen. Stellen Sie sicher, dass die standby-Betriebsmaster direkten Replikationspartner der tatsächlichen Betriebsmaster sind.  
+Außerdem sollten Sie Standby-Betriebs Master (Alternate) für alle Betriebs Master Rollen festlegen. Bei den standbyvorgängen handelt es sich um Domänen Controller, für die Sie die Betriebs Master Rollen übertragen können, falls die ursprünglichen Rollen Inhaber fehlschlagen. Stellen Sie sicher, dass die standbyvorgängen direkt Replikations Partner der tatsächlichen Betriebs Master sind.  
   
-## <a name="planning-the-pdc-emulator-placement"></a>Planen der Platzierung der PDC-emulator
+## <a name="planning-the-pdc-emulator-placement"></a>Planen der Platzierung des PDC-Emulators
 
-Der PDC-Emulator verarbeitet Änderungen am Client-Kennwort. Nur ein Domänencontroller fungiert als PDC-Emulator in jeder Domäne in der Gesamtstruktur.  
+Der PDC-Emulator verarbeitet Client Kennwort-Änderungen. Nur ein Domänen Controller fungiert in jeder Domäne in der Gesamtstruktur als PDC-Emulator.  
   
-Auch wenn alle Domänencontroller Windows 2000, Windows Server 2003 und Windows Server 2008 aktualisiert werden, und die Domäne auf der systemeigenen Windows 2000-Funktionsebene ausgeführt wird, empfängt der PDC-Emulator Zugriffscode Replikation von kennwortänderungen ausgeführt von anderen Domänencontrollern in der Domäne. Wenn ein Kennwort kürzlich geändert wurde, wird diese Änderung auf alle Domänencontroller in der Domäne repliziert. Wenn die Anmeldeauthentifizierung auf einem anderen Domänencontroller aufgrund eines falschen Kennworts ein Fehler auftritt, weitergeleitet dieses Domänencontrollers die Authentifizierungsanforderung für dem PDC-Emulator vor der Entscheidung, ob das annehmen oder Ablehnen des Anmeldeversuchs an.  
+Auch wenn alle Domänen Controller auf Windows 2000, Windows Server 2003 und Windows Server 2008 aktualisiert wurden und die Domäne auf der systemeigenen Windows 2000-Funktionsebene ausgeführt wird, empfängt der PDC-Emulator die bevorzugte Replikation von Kenn Wort Änderungen. von anderen Domänen Controllern in der Domäne. Wenn ein Kennwort kürzlich geändert wurde, nimmt diese Änderung Zeit in die Replikation auf allen Domänen Controllern in der Domäne. Wenn die Anmelde Authentifizierung auf einem anderen Domänen Controller aufgrund eines ungültigen Kennworts fehlschlägt, leitet dieser Domänen Controller die Authentifizierungsanforderung an den PDC-Emulator weiter, bevor er entscheidet, ob der Anmeldeversuch angenommen oder abgelehnt wird.  
   
-Platzieren Sie den PDC-Emulator in einem Speicherort, der eine große Anzahl von Benutzern aus der Domäne für das Kennwort, die Weiterleitung von Vorgängen, bei Bedarf enthält. Darüber hinaus stellen Sie sicher, dass der Speicherort und an anderen Speicherorten zur Minimierung der Replikationswartezeit verbunden ist.  
+Platzieren Sie den PDC-Emulator an einem Speicherort, der bei Bedarf eine große Anzahl von Benutzern aus dieser Domäne für Vorgänge zur Kenn Wort Weiterleitung enthält. Stellen Sie außerdem sicher, dass der Standort mit anderen Standorten verbunden ist, um die Replikations Latenz zu minimieren.  
   
-Ein Arbeitsblatt, hilft Ihnen bei der Dokumentieren der Informationen zu sollen platzieren PDC-Emulatoren und die Anzahl der Benutzer für jede Domäne, die an jedem Standort dargestellt wird, finden Sie unter Auftrag Hilfsmittel für Windows Server 2003 Deployment Kit ([ https://go.microsoft.com/fwlink/?LinkID=102558 ](https://go.microsoft.com/fwlink/?LinkID=102558)), Job_Aids_Designing_and_Deploying_Directory_and_Security_Services.zip herunterladen und öffnen Sie die Platzierung der Domänencontroller (DSSTOPO_4.doc).  
+Ein Arbeitsblatt unterstützt Sie bei der Dokumentation der Informationen zum Platzieren von PDC-Emulatoren und der Anzahl der Benutzer für jede Domäne, die an jedem Standort dargestellt wird, Unterauftrags Hilfen für Windows Server 2003 Deployment Kit ([https://go.microsoft.com/fwlink/?LinkID=102558](https://go.microsoft.com/fwlink/?LinkID=102558)), Download Auftrag _Aids_Designing_and_Deploying_Directory_and_Security_Services. zip und Open Domain Controller Placement (DSSTOPO_4. doc).  
   
-Sie müssen auf die Informationen zu Speicherorten finden in der PDC-Emulatoren zu platzieren, beim Bereitstellen von Regionaldomänen werden sollen. Weitere Informationen zum Bereitstellen von Regionaldomänen finden Sie unter [Bereitstellen von Windows Server 2008 Regionaldomänen](https://technet.microsoft.com/library/cc755118.aspx).  
+Sie müssen die Informationen zu Standorten, an denen Sie PDC-Emulatoren platzieren müssen, auf die Bereitstellung regionaler Domänen verweisen. Weitere Informationen zum Bereitstellen von regionalen Domänen finden Sie unter Bereitstellen von [regionalen Windows Server 2008-Domänen](https://technet.microsoft.com/library/cc755118.aspx).  
   
-## <a name="requirements-for-infrastructure-master-placement"></a>Anforderungen für die Infrastruktur-master-Platzierung  
+## <a name="requirements-for-infrastructure-master-placement"></a>Anforderungen für die Platzierung der Infrastruktur Master  
 
-Der Infrastrukturmaster aktualisiert die Namen von Sicherheitsprinzipalen aus anderen Domänen, die Gruppen in seiner eigenen Domäne hinzugefügt werden. Z. B. wenn ein Benutzer von einer Domäne ein Mitglied einer Gruppe in eine zweite Domäne ist aus, und den Namen des Benutzers in der ersten Domäne geändert wird, die zweite Domäne nicht benachrichtigt, dass der Name des Benutzers in die Liste der Mitglieder der Gruppe aktualisiert werden muss. Da Domänencontroller in einer Domäne Sicherheitsprinzipale auf Domänencontrollern in einer anderen Domäne nicht repliziert werden, wird die zweite Domäne nicht über die Änderung in Ermangelung der Infrastrukturmaster.  
+Der Infrastruktur Master aktualisiert die Namen von Sicherheits Prinzipalen aus anderen Domänen, die Gruppen in der eigenen Domäne hinzugefügt werden. Wenn ein Benutzer aus einer Domäne z. b. Mitglied einer Gruppe in einer zweiten Domäne ist und der Name des Benutzers in der ersten Domäne geändert wird, wird die zweite Domäne nicht benachrichtigt, dass der Name des Benutzers in der Mitgliedschafts Liste der Gruppe aktualisiert werden muss. Da Domänen Controller in einer Domäne Sicherheits Prinzipale nicht auf Domänen Controllern in einer anderen Domäne replizieren, wird die zweite Domäne nie von der Änderung der Abwesenheit des Infrastruktur Masters informiert.  
   
-Der Infrastrukturmaster Gruppenmitgliedschaften ständig überwacht, von Sicherheitsprinzipalen aus anderen Domänen suchen. Wenn es gefunden wird, wird mit der Domäne des Sicherheitsprinzipals, um sicherzustellen, dass die Informationen aktualisiert werden überprüft. Wenn die Informationen nicht mehr aktuell ist, wird der Infrastrukturmaster führt die Aktualisierung und die Änderung auf die anderen Domänencontroller in seiner Domäne repliziert werden.  
+Der Infrastruktur Master überwacht ständig Gruppenmitgliedschaften und sucht nach Sicherheits Prinzipalen aus anderen Domänen. Wenn ein solcher gefunden wird, überprüft er die Domäne des Sicherheits Prinzipals, um zu überprüfen, ob die Informationen aktualisiert wurden. Wenn die Informationen veraltet sind, wird das Update vom Infrastruktur Master durchführt, und dann wird die Änderung auf die anderen Domänen Controller in der Domäne repliziert.  
   
-Zwei Ausnahmen gelten für diese Regel. Zuerst, wenn alle Domänencontroller über globale Katalogserver sind, ist der Domänencontroller, der die Infrastrukturmasterrolle hostet unbedeutend da globale Kataloge, die aktualisierte Informationen unabhängig von der Domäne repliziert, die sie angehören. Andererseits verfügt die Gesamtstruktur nur eine Domäne, ist der Domänencontroller, der die Infrastrukturmasterrolle hostet unbedeutend, da von Sicherheitsprinzipalen aus anderen Domänen nicht vorhanden sind.  
+Für diese Regel gelten zwei Ausnahmen. Wenn alle Domänen Controller als globale Katalogserver dienen, ist der Domänen Controller, der die Infrastruktur Master Rolle hostet, unerheblich, weil globale Kataloge die aktualisierten Informationen unabhängig von der Domäne replizieren, zu der Sie gehören. Zweitens: Wenn die Gesamtstruktur nur über eine Domäne verfügt, ist der Domänen Controller, der die Infrastruktur Master Rolle hostet, unerheblich, da keine Sicherheits Prinzipale aus anderen Domänen vorhanden sind.  
   
-Platzieren Sie den Infrastruktur-Master nicht auf einem Domänencontroller, der auch ein globaler Katalogserver ist. Wenn die Infrastruktur-Master und den globalen Katalog auf dem gleichen Domänencontroller sind, funktioniert der Infrastrukturmaster nicht. Der Infrastrukturmaster werden nie Daten finden, die nicht mehr aktuell ist. aus diesem Grund werden sie niemals Änderungen auf die anderen Domänencontroller in der Domäne repliziert.  
+Platzieren Sie den Infrastruktur Master nicht auf einem Domänen Controller, der auch globaler Katalogserver ist. Wenn sich der Infrastruktur Master und der globale Katalog auf demselben Domänen Controller befinden, funktioniert der Infrastruktur Master nicht. Der Infrastruktur Master findet nie Daten, die veraltet sind. aus diesem Grund werden keine Änderungen an den anderen Domänen Controllern in der Domäne repliziert.  
   
-## <a name="operations-master-placement-for-networks-with-limited-connectivity"></a>Operations master-Platzierung für Netzwerke mit eingeschränkter Konnektivität
+## <a name="operations-master-placement-for-networks-with-limited-connectivity"></a>Betriebs Master Platzierung für Netzwerke mit eingeschränkter Konnektivität
 
-Denken Sie daran, dass wenn Ihrer Umgebung vorhanden ist, einen zentralen Standort oder den Hub-Website, die in dem Sie die Betriebsmasterrolle platzieren können, bestimmte den Betrieb von Domänencontrollern, die abhängig von der Verfügbarkeit dieser Vorgänge mit Rolle beherrschen, die Platzhalter betroffen sein könnten.  
+Wenn Ihre Umgebung über einen zentralen Standort oder einen zentralen Hub-Standort verfügt, an dem Sie Betriebs Master Rollen Inhaber platzieren können, sind bestimmte Domänen Controller Vorgänge, die von der Verfügbarkeit dieser Betriebs Master Rollen Inhaber abhängen, möglicherweise beeinträchtigt.  
   
-Nehmen wir beispielsweise an, dass eine Organisation, Standorten A, B, C erstellt und d standortverknüpfungen zwischen bestehen A und B, zwischen B und C sowie zwischen C und d Netzwerkkonnektivität spiegelt genau auf die Netzwerkverbindung, der die standortverknüpfungen. In diesem Beispiel alle Vorgänge, die Betriebsmasterrollen sich in befinden einer und die Option aus, um site **überbrücken aller standortverknüpfungen** nicht ausgewählt ist.  
+Nehmen wir beispielsweise an, dass eine Organisation die Standorte a, b, C und d erstellt. zwischen a und b, zwischen B und c und zwischen c und d sind Standort Verknüpfungen vorhanden, die die Netzwerk Konnektivität der Standort Verknüpfungen exakt widerspiegeln. In diesem Beispiel werden alle Betriebs Master Rollen an Standort A platziert, und die Option zum über **Brücken aller Standort Verknüpfungen** ist nicht ausgewählt.  
   
-Obwohl diese Konfiguration bei der erfolgreichen Replikation zwischen allen Standorten führt, weisen die Betriebsfunktionen der Schemabetriebsmaster-Rolle die folgenden Einschränkungen:  
+Obwohl diese Konfiguration zu einer erfolgreichen Replikation zwischen allen Standorten führt, gelten für die Betriebs Master-Rollen Funktionen folgende Einschränkungen:  
   
-- Domänencontroller an Standorten, C und D können nicht die PDC-Emulator an Standort A ein Kennwort zu aktualisieren oder ein Kennwort überprüft werden, die vor kurzem aktualisiert wurde zugegriffen werden.  
-- Domänencontroller an Standorten, C und D können nicht an Standort A, die Sie erhalten einen ersten RID-Pool nach der Installation der Active Directory und RID-Pools aktualisieren, wie sie aufgebraucht werden der RID-Master zugegriffen werden.  
-- Domänencontroller an Standorten, C und D nicht möglich oder Directory, DNS- oder benutzerdefinierte Anwendungspartitionen entfernen.  
-- Domänencontroller an Standorten, C und D vornehmen keine Änderungen am Datenbankschema.  
+- Die Domänen Controller an den Standorten C und D können nicht auf den PDC-Emulator an Standort A zugreifen, um ein Kennwort zu aktualisieren oder es auf ein kürzlich aktualisiertes Kennwort zu überprüfen.  
+- Die Domänen Controller an den Standorten C und D können nicht auf den RID-Master an Standort A zugreifen, um nach der Active Directory Installation einen ersten RID-Pool abzurufen und die RID-Pools zu aktualisieren, sobald sie erschöpft sind  
+- Domänen Controller an Standorten C und D können keine Verzeichnis-, DNS-oder benutzerdefinierten Anwendungs Partitionen hinzufügen oder entfernen.  
+- Die Domänen Controller an den Standorten C und D können keine Schema Änderungen vornehmen.  
   
-Ein Arbeitsblatt, das Sie beim Planen der Platzierung der Operations-Rolle unterstützen, finden Sie unter [Auftrag Hilfsmittel für Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), Job_Aids_Designing_and_Deploying_Directory_and_Security_Services.zip herunterladen, und öffnen Platzierung der Domänencontroller (DSSTOPO_4.doc).  
+Ein Arbeitsblatt, das Sie bei der Planung der Platzierung von Betriebs Master Rollen unterstützt, finden Sie unter [Auftrags Hilfen für Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), Herunterladen von Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip und Öffnen von Domänen Controllern. Platzierung (DSSTOPO_4. doc).  
   
-Sie benötigen, um auf diese Informationen verweisen, bei der Erstellung der Gesamtstruktur-Stammdomäne und Regionaldomänen. Weitere Informationen zum Bereitstellen der Stammdomäne der Gesamtstruktur finden Sie unter Bereitstellen von einer [Bereitstellen einer Gesamtstruktur-Stammdomäne von Windows Server 2008](https://technet.microsoft.com/library/cc731174.aspx). Weitere Informationen zum Bereitstellen von Regionaldomänen finden Sie unter [Bereitstellen von Windows Server 2008 Regionaldomänen](https://technet.microsoft.com/library/cc755118.aspx).  
+Sie müssen diese Informationen beachten, wenn Sie die Stamm Domäne der Gesamtstruktur und die regionalen Domänen erstellen. Weitere Informationen zum Bereitstellen der Stamm Domäne der Gesamtstruktur finden Sie unter Bereitstellen einer [Windows Server 2008](https://technet.microsoft.com/library/cc731174.aspx)-Gesamtstruktur-Stamm Domäne. Weitere Informationen zum Bereitstellen von regionalen Domänen finden Sie unter Bereitstellen von [regionalen Windows Server 2008-Domänen](https://technet.microsoft.com/library/cc755118.aspx).  
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zur Platzierung der FSMO-Rolle finden Sie im Thema Unterstützung [FSMO Platzierung und-Optimierung für Active Directory-Domänencontroller](https://support.microsoft.com/help/223346)
+Weitere Informationen zur Platzierung der Rolle "die Platzierung von Rollen" finden Sie im Thema zum unterstützen der [Platzierung und Optimierung von Rollen in Active Directory Domänen Controllern](https://support.microsoft.com/help/223346) .

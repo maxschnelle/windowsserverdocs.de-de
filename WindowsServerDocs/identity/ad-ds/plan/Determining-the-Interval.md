@@ -7,60 +7,60 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 57b282102f10a595ce3842ac3a4eb1d289b86d22
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 065b4ff707bdd8b82e33e06ad2b52c57a746045f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822161"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402625"
 ---
 # <a name="determining-the-interval"></a>Bestimmen des Intervalls
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Sie müssen festlegen, dass die Site Link Replikation Interval-Eigenschaft, um anzugeben, wie oft die Replikation während der Zeiten auftreten, wenn der Zeitplan Replikation kann, soll. Z. B. wenn der Zeitplan ermöglicht die Replikation zwischen 04:00 Uhr, 02:00 Uhr und das Intervall der Replikation wird für 30 Minuten festgelegt Replikation kann bis zu vier Mal während der geplanten Zeit stattfinden. Das Standardintervall für die Replikation beträgt 180 Minuten oder 3 Stunden. Das minimale Intervall beträgt 15 Minuten.  
+Sie müssen die Eigenschaft Standort Verknüpfungs Replikations Intervall festlegen, um anzugeben, wie häufig die Replikation während der Zeiten erfolgen soll, zu denen der Zeitplan die Replikation zulässt. Wenn der Zeitplan z. b. die Replikation zwischen 02:00 Stunden und 04:00 Stunden zulässt und das Replikations Intervall für 30 Minuten festgelegt ist, kann die Replikation während der geplanten Zeit bis zu vier Mal erfolgen. Das Standard Replikations Intervall beträgt 180 Minuten oder 3 Stunden. Das Mindestintervall beträgt 15 Minuten.  
   
-Berücksichtigen Sie die folgenden Kriterien fest, wie oft erfolgt Replikation innerhalb der Planungszeitraum:  
+Beachten Sie die folgenden Kriterien, um zu bestimmen, wie oft die Replikation innerhalb des Zeit Plan Fensters erfolgt:  
   
--   Einen kurzen Zeitraum verringert die Latenz erhöht jedoch die die Menge des Datenverkehrs für wide Area Network (WAN).  
+-   Ein kleines Intervall verringert die Latenz und erhöht den WAN-Datenverkehr (Wide Area Network).  
   
--   Um Domänenverzeichnispartitionen auf dem neuesten Stand zu halten, wird mit geringer Latenz bevorzugt.  
+-   Um Domänen Verzeichnis Partitionen auf dem neuesten Stand zu halten, wird geringe Latenz bevorzugt.  
   
-Mit einer Strategie für die speichern-und-Weiterleiten-Replikation ist es schwierig zu bestimmen, wie lange ein Verzeichnisupdate dauern kann, auf jedem Domänencontroller repliziert werden sollen. Um eine konservative Schätzung der maximalen Latenz zu ermöglichen, müssen führen Sie diese Aufgaben aus:  
+Bei einer Strategie für die Speicher-und vorwärts Replikation ist es schwierig zu bestimmen, wie lange ein Verzeichnis Update auf jeden Domänen Controller repliziert werden kann. Führen Sie die folgenden Aufgaben aus, um eine konservative Schätzung der maximalen Latenzzeit bereitzustellen:  
   
--   Erstellen Sie eine Tabelle mit allen Standorten in Ihrem Netzwerk an, wie im folgenden Beispiel gezeigt:  
-  
-    |Websites|Seattle|Boston|Los Angeles|New York|Washington, D.C.|  
-    |---------|-----------|----------|---------------|------------|--------------------|  
-    |Seattle|0.25|||||  
-    |Boston||0.25||||  
-    |Los Angeles|||0.25|||  
-    |New York||||0.25||  
-    |Washington, D.C.|||||0.25|  
-  
-    Eine Worst-Case Latenz innerhalb eines Standorts wird auf 15 Minuten werden geschätzt.  
-  
--   Anhand der Replikationszeitplan ermitteln Sie die maximale Replikationswartezeit an, die auf einen beliebigen Link Standort möglich ist, die zwei nabenstandorten verbindet.  
-  
-    Wenn die Replikation zwischen Seattle und New York alle drei Stunden auftritt, ist die maximale Verzögerung für die Replikation zwischen diesen Standorten beispielsweise drei Stunden. Die replikationsverzögerung zwischen der New York "und" Seattle ist die längste geplante Verzögerung zwischen allen Hubstandorten, die maximale Latenz zwischen allen Hubs drei Stunden.  
-  
--   Erstellen Sie eine Tabelle mit die maximale Latenz zwischen dem Hubstandort und dessen Satelliten-Standorte, für jeden Hubstandort.  
-  
-    Beispielsweise ist die maximale Latenz zwischen New York und dessen Satelliten Wenn wird die Replikation zwischen New York "und" Washington, D.C., alle vier Stunden, und dies die längste replikationsverzögerung zwischen der New York und dessen Satelliten-Standorte ist, vier Stunden.  
-  
--   Kombinieren Sie diese maximale Latenz, um die maximale Latenzzeit für das gesamte Netzwerk zu ermitteln.  
-  
-    Die maximale Latenz zwischen Seattle und dessen Satellitenstandort in Los Angeles beispielsweise ein Tag, die maximale Replikationswartezeit für diesen Satz von Links (Washington, D.C.-in New York-Seattle-Berlin) ist 31 Stunden, d. h. 4 (Washington, D.C.-in New York) + (neu 3 York-Seattle) + 24 (Seattle-Berlin), wie in der folgenden Tabelle gezeigt.  
+-   Erstellen Sie eine Tabelle aller Websites in Ihrem Netzwerk, wie im folgenden Beispiel gezeigt:  
   
     |Websites|Seattle|Boston|Los Angeles|New York|Washington, D.C.|  
     |---------|-----------|----------|---------------|------------|--------------------|  
-    |Seattle|0.25|4+3|24.00|3.00|4+3|  
-    |Boston||0.25|4+3+24|4,00|4,00|  
-    |Los Angeles|||0.25|24 + 3|24+3+4|  
-    |New York||||0.25|4,00|  
-    |Washington, D.C.|||||0.25|  
+    |Seattle|0,25|||||  
+    |Boston||0,25||||  
+    |Los Angeles|||0,25|||  
+    |New York||||0,25||  
+    |Washington, D.C.|||||0,25|  
+  
+    Die Latenzzeit des ungünstigsten Falls innerhalb eines Standorts beträgt 15 Minuten.  
+  
+-   Bestimmen Sie anhand des Replikations Zeitplans die maximale Replikations Wartezeit, die für eine beliebige Standort Verknüpfung möglich ist, die zwei Hub-Standorte verbindet.  
+  
+    Wenn die Replikation z. b. alle drei Stunden zwischen Seattle und New York erfolgt, beträgt die maximale Verzögerung für die Replikation zwischen diesen Standorten drei Stunden. Wenn die Replikations Verzögerung zwischen New York und Seattle die längste geplante Verzögerung zwischen allen Hub-Standorten ist, beträgt die maximale Latenz zwischen allen Hubs drei Stunden.  
+  
+-   Erstellen Sie für jede Hub-Site eine Tabelle mit den maximalen Latenzzeiten zwischen dem Hub-Standort und seinen Satellitenstandorten.  
+  
+    Wenn beispielsweise die Replikation zwischen New York und Washington, D.C. alle vier Stunden erfolgt und dies die längste Replikations Verzögerung zwischen New York und seinen Satellitenstandorten ist, beträgt die maximale Latenz zwischen New York und seinen Satelliten vier Stunden.  
+  
+-   Kombinieren Sie diese maximalen Latenzzeiten, um die maximale Wartezeit für das gesamte Netzwerk zu ermitteln.  
+  
+    Wenn beispielsweise die maximale Latenz zwischen Seattle und der Satelliten Site in Los Angeles einen Tag beträgt, ist die maximale Replikations Wartezeit für diese Gruppe von Verknüpfungen (Washington, D.C.-New York-Seattle-Los Angeles) 31 Stunden, d. h. 4 (Washington, D.C.-New York) + 3 (neu). York-Seattle) + 24 (Seattle-Los Angeles), wie in der folgenden Tabelle gezeigt.  
+  
+    |Websites|Seattle|Boston|Los Angeles|New York|Washington, D.C.|  
+    |---------|-----------|----------|---------------|------------|--------------------|  
+    |Seattle|0,25|4 + 3|24,00|3,00|4 + 3|  
+    |Boston||0,25|4 + 3 + 24|4,00|4,00|  
+    |Los Angeles|||0,25|24 + 3|24 + 3 + 4|  
+    |New York||||0,25|4,00|  
+    |Washington, D.C.|||||0,25|  
   
 
 

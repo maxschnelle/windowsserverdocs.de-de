@@ -1,7 +1,7 @@
 ---
-title: Konfigurieren Sie mindestens die erforderliche Menge an Arbeitsspeicher für einen virtuellen Computer Windows 8 ausgeführt wird und für dynamischen Arbeitsspeicher aktiviert
-description: Die Onlineversion des Texts für diese Best Practices Analyzer-Regel.
-ms.prod: windows-server-threshold
+title: Konfigurieren Sie mindestens die erforderliche Arbeitsspeicher Menge für einen virtuellen Computer, auf dem Windows 8 ausgeführt wird und für den dynamischer Arbeitsspeicher aktiviert ist.
+description: Online Version des Texts für diese Best Practices Analyzer Regel.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,60 +10,60 @@ ms.topic: article
 ms.assetid: 1dab6af6-852f-4243-9600-afe541a0f4cd
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 2c3bfa9c5c365bec89b7dbe7b00704ae2384e896
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 167eb189506b1efff0444ae5dd15b3b23a99eca5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886211"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366383"
 ---
-# <a name="configure-at-least-the-required-amount-of-memory-for-a-virtual-machine-running-windows-8-and-enabled-for-dynamic-memory"></a>Konfigurieren Sie mindestens die erforderliche Menge an Arbeitsspeicher für einen virtuellen Computer Windows 8 ausgeführt wird und für dynamischen Arbeitsspeicher aktiviert
+# <a name="configure-at-least-the-required-amount-of-memory-for-a-virtual-machine-running-windows-8-and-enabled-for-dynamic-memory"></a>Konfigurieren Sie mindestens die erforderliche Arbeitsspeicher Menge für einen virtuellen Computer, auf dem Windows 8 ausgeführt wird und für den dynamischer Arbeitsspeicher aktiviert ist.
 
 >Gilt für: Windows Server 2016
 
-Weitere Informationen zu best Practices und Überprüfungen finden Sie unter [Run Best Practices Analyzer Scans und Manage Scan Results](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
+Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausführen von Best Practices Analyzer Scans und Verwalten der Scan Ergebnisse](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
 |Eigenschaft|Details|  
 |-|-|  
 |**Betriebssystem**|Windows Server 2016|  
-|**Produkt /-Funktion**|Hyper-V|  
-|**Schweregrad**|Fehler|  
+|**Produkt/Feature**|Hyper-V|  
+|**Zunehmen**|Fehler|  
 |**Kategorie**|Konfiguration|  
   
-In den folgenden Abschnitten Kursivschrift gibt an Benutzeroberflächentext, die im Best Practices Analyzer-Tool für dieses Problem angezeigt wird.  
+In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.  
   
 ## <a name="issue"></a>**Problem:**  
-*Eine oder mehrere virtuelle Computer sind mit weniger als die Menge an Speicher für Windows 8 für die Verwendung von dynamischem Arbeitsspeicher konfiguriert.*  
+*Mindestens ein virtueller Computer ist für die Verwendung von dynamischer Arbeitsspeicher mit weniger als dem für Windows 8 erforderlichen Arbeitsspeicher konfiguriert.*  
   
-## <a name="impact"></a>**Auswirkungen**  
-*Das Gastbetriebssystem auf die folgenden virtuellen Computer möglicherweise nicht ausgeführt oder unberechenbar Verhalten führen kann:*  
+## <a name="impact"></a>**Auswirkt**  
+*Das Gast Betriebssystem auf den folgenden virtuellen Computern wird möglicherweise nicht ausgeführt oder kann nicht zuverlässig ausgeführt werden:*  
   
-\<Liste der virtuellen Computer >  
+\<list of Virtual Machines >  
   
-## <a name="resolution"></a>**Lösung**  
-*Verwenden Sie Hyper-V-Manager, um den minimalen Arbeitsspeicher an, mindestens 256 MB, und der Arbeitsspeicher beim Start und maximale Arbeitsspeicher auf mindestens 512 MB für diesen virtuellen Computer zu erhöhen.*  
+## <a name="resolution"></a>**Auflösung**  
+*Verwenden Sie den Hyper-V-Manager, um den minimalen Arbeitsspeicher auf mindestens 256 MB und den Start Speicher und den maximalen Arbeitsspeicher für diesen virtuellen Computer auf mindestens 512 MB zu erhöhen.*  
   
-### <a name="increase-memory-using-hyper-v-manager"></a>Erhöhen Sie den Arbeitsspeicher mit Hyper-V-Manager  
+### <a name="increase-memory-using-hyper-v-manager"></a>Erhöhen des Arbeitsspeichers mit dem Hyper-V-Manager  
   
-1.  Öffnen Sie den Hyper-V-Manager. (In Server-Manager, klicken Sie auf **Tools** > **Hyper-V-Manager**.)  
+1.  Öffnen Sie den Hyper-V-Manager. ( **Klicken Sie**in Server-Manager auf Extras  > **Hyper-V-Manager**.)  
   
-2.  In der Liste von virtuellen Computern Maustaste diejenige werden soll, und klicken Sie dann **Einstellungen**.  
+2.  Klicken Sie in der Liste der virtuellen Computer mit der rechten Maustaste auf das gewünschte, und klicken Sie dann auf **Einstellungen**.  
   
-3.  Klicken Sie im Navigationsbereich auf **Arbeitsspeicher**.  
+3.  Klicken Sie im Navigationsbereich auf Arbeits **Speicher**.  
   
-4.  Ändern der **RAM** auf mindestens 512 MB.  
+4.  Ändern Sie den **RAM** auf mindestens 512 MB.  
   
-5.  Unter **dynamischer Arbeitsspeicher**, ändern Sie die **Mindestarbeitsspeicher** auf mindestens 256 MB und die **maximaler RAM** auf 512 MB.  
+5.  Ändern Sie unter **dynamischer Arbeitsspeicher**den **minimalen RAM** auf mindestens 256 MB und den **maximalen RAM** auf 512 MB.  
   
 6.  Klicken Sie auf **OK**.  
   
-### <a name="increase-memory-using-windows-powershell"></a>Erhöhen Sie den Arbeitsspeicher, die mithilfe von Windows PowerShell  
+### <a name="increase-memory-using-windows-powershell"></a>Erhöhen des Arbeitsspeichers mithilfe von Windows PowerShell  
   
-1.  Öffnen Sie Windows PowerShell. (Klicken Sie auf dem Desktop auf **starten** und beginnen mit der Eingabe **Windows PowerShell**.)  
+1.  Öffnen Sie Windows PowerShell. (Klicken Sie auf dem Desktop auf **Start** , und beginnen Sie mit der Eingabe von **Windows PowerShell**.)  
   
-2.  Mit der rechten Maustaste **Windows PowerShell** , und klicken Sie auf **als Administrator ausführen**.  
+2.  Klicken Sie mit der rechten Maustaste auf **Windows PowerShell** und dann auf **als Administrator ausführen**.  
   
-3.  Führen Sie einen Befehl ähnlich dem folgenden und MyVM durch den Namen Ihres virtuellen Computers und den Arbeitsspeicher und Ersetzen Sie dabei Werte mit mindestens die unten aufgeführten Werte.  
+3.  Führen Sie einen Befehl aus, der dem folgenden ähnelt, und ersetzen Sie dabei MyVM durch den Namen des virtuellen Computers und die Arbeitsspeicher Werte mit mindestens den unten gezeigten Werten.  
   
 ```  
 Get-VM MyVM | Set-VMMemory -DynamicMemoryEnabled $True -MaximumBytes 512 GB -MinimumBytes 256MB -StartupBytes 512MB  

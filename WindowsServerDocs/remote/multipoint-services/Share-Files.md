@@ -1,8 +1,8 @@
 ---
 title: Freigeben von Dateien
-description: Erfahren Sie, wie zum Freigeben von Dateien in MultiPoint Services mithilfe von freigegebenen Ordnern und das Netzwerk
+description: Erfahren Sie, wie Sie Dateien in Multipoint Services mithilfe von freigegebenen Ordnern und dem Netzwerk freigeben.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,19 +13,19 @@ author: lizap
 manager: dongill
 ms.date: 08/04/2016
 ms.author: elizapo
-ms.openlocfilehash: 130bd81affba68d92d7db6b691e7817dedfbb22c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f050691603ed0989ab3b0ea3aac34a5fd74e1fbd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857471"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394985"
 ---
 # <a name="share-files"></a>Freigeben von Dateien
 Inhalte können für andere MultiPoint Services-Benutzer freigegeben werden, indem sie in einem öffentlichen Ordner im Windows-Explorer gespeichert werden. Alle Inhalte, die in einem MultiPoint Services-System in öffentlichen Ordnern im Windows-Explorer gespeichert werden, sind für alle Benutzer im MultiPoint Services-System zugänglich.  
   
-Sie können auch Inhalt durch Speichern auf Wechselmedien, freigeben, wie in beschrieben [speichern und Freigeben von Dateien auf einem USB-Flashlaufwerk](Save-and-Share-Files-on-a-USB-Flash-Drive.md).  
+Sie können Inhalte auch freigeben, indem Sie Sie auf Wechselmedien speichern, wie unter [Speichern und Freigeben von Dateien auf einem USB-](Save-and-Share-Files-on-a-USB-Flash-Drive.md)Speicherstick beschrieben.  
   
-Informationen zum Schützen privater Inhalte finden Sie unter [Schützen von Dateien](Keep-Files-Private.md).  
+Informationen zur privaten Aufbewahrung von Inhalten finden Sie unter [beibehalten von Dateien privat](Keep-Files-Private.md).  
   
 ## <a name="to-share-content-with-other-users-by-using-public-folders"></a>So geben Sie mithilfe öffentlicher Ordner Inhalte für andere Benutzer frei  
   
@@ -35,13 +35,13 @@ Sie können Dateien auch auf mehreren Computern freigeben, die MultiPoint Servic
   
 ## <a name="to-share-files-across-multiple-computers-in-a-multipoint-services-network"></a>So geben Sie Ordner für mehrere Computer in einem MultiPoint Services-Netzwerk frei  
   
-1.  Mit der rechten Maustaste auf einem Desktop, und klicken Sie dann auf **neu**.  
+1.  Klicken Sie mit der rechten Maustaste auf einen Desktop, und klicken Sie dann auf **neu**.  
   
 2.  Klicken Sie auf **Ordner**, und geben Sie einen Namen für den Ordner ein.  
   
 3.  Doppelklicken Sie auf den Ordner, um ihn zu öffnen.  
   
-4.  Klicken Sie auf **freigeben**, und klicken Sie dann auf **bestimmte Personen**.  
+4.  Klicken Sie auf **Freigeben**für, und klicken Sie dann auf **bestimmte Personen**.  
   
 5.  Wählen Sie bestimmte Benutzer aus, oder klicken Sie auf **Jeder**.  
   

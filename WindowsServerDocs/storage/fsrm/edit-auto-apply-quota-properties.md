@@ -2,22 +2,22 @@
 title: Bearbeiten der Eigenschaften des automatisch zugewiesenen Kontingents
 description: Dieser Artikel beschreibt, wie automatisch zugewiesenes Kontingenteigenschaften bearbeitet werden
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: aa2155268d42293ade925d53da5e29142d13aae4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4b4fda5cdfeed8df02fee922c8dc5fddc75c56ff
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878061"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403115"
 ---
 # <a name="edit-auto-apply-quota-properties"></a>Bearbeiten der Eigenschaften des automatisch zugewiesenen Kontingents
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Wenn Sie Änderungen an einem automatisch zugewiesenen Kontingent vornehmen, haben Sie die Möglichkeit, diese Änderungen auf vorhandene Kontingente des automatisch zugewiesenen Kontingentpfads anzuwenden. Sie haben die Möglichkeit, nur die Kontingente zu ändern, die mit dem ursprünglichen automatisch zugewiesenen Kontingent übereinstimmen oder alle Kontingente des automatisch zugewiesenen Kontingentpfads zu ändern, unabhängig von den Änderungen, die an den Kontingenten vorgenommen wurden, seit sie erstellt wurden. Dieses Feature vereinfacht das Aktualisieren der Eigenschaften von Kontingenten, die von einem automatisch zugewiesenen Kontingent abgeleitet wurden, da alle Updates an einem zentralen Ort ausgeführt werden können.
 
@@ -44,7 +44,7 @@ Wenn Sie Änderungen an einem automatisch zugewiesenen Kontingent vornehmen, hab
 
 ## <a name="see-also"></a>Siehe auch
 
--   [Management von sollvorgaben](quota-management.md)
+-   [Kontingentverwaltung](quota-management.md)
 -   [Erstellen eines automatisch zugewiesenen Kontingents](create-auto-apply-quota.md)
 
 

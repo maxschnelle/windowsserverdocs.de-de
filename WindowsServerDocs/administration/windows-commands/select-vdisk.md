@@ -1,8 +1,8 @@
 ---
-title: Wählen Sie die virtuellen Datenträger
-description: 'Windows-Befehle Thema ***- '
+title: Vdisk auswählen
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a71a5c15c05a1e969d0720bc8e67e669d553f649
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1bfa6450d1704cde1e5ff2a50a8e3b61a30d0766
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852571"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384189"
 ---
-# <a name="select-vdisk"></a>Wählen Sie die virtuellen Datenträger
+# <a name="select-vdisk"></a>Vdisk auswählen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Wählt das angegebene virtuelle Festplatte \(VHD\) und verlagert den Fokus auf sie.  
+wählt die angegebene virtuelle Festplatte \(vhd @ no__t-1 aus und verschiebt den Fokus darauf.  
   
 > [!NOTE]  
-> Dieser Befehl gilt nur für Windows 7 und Windows Server 2008 R2 zur Verfügung.  
+> Dieser Befehl gilt nur für Windows 7 und Windows Server 2008 R2.  
   
 ## <a name="syntax"></a>Syntax  
   
@@ -39,33 +39,33 @@ select vdisk file=<full path> [noerr]
   
 |Parameter|Beschreibung|  
 |-------|--------|  
-|Datei\=<full path>|Gibt den vollständigen Pfad und Dateiname den Namen einer vorhandenen VHD-Datei an.|  
-|Diskpart|Nur für Skripting verwendet. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden.|  
+|file @ no__t-0 @ no__t-1|Gibt den vollständigen Pfad und den Dateinamen einer vorhandenen VHD-Datei an.|  
+|Noerr|Wird nur für die Skripterstellung verwendet. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.|  
   
-## <a name="BKMK_examples"></a>Beispiele für  
-Um den Fokus auf die virtuelle Festplatte mit dem Namen Test.vhd verschieben möchten, geben Sie Folgendes ein:  
+## <a name="BKMK_examples"></a>Beispiele  
+Um den Fokus auf die VHD mit dem Namen Test. VHD zu verschieben, geben Sie Folgendes ein:  
   
 ```  
 select vdisk file="c:\test\test.vhd"  
 ```  
   
-#### <a name="additional-references"></a>Zusätzliche Referenzen  
+#### <a name="additional-references"></a>Weitere Verweise  
   
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
--   [attach vdisk](attach-vdisk.md)  
+-   [Vdisk anfügen](attach-vdisk.md)  
   
--   [compact vdisk](compact-vdisk.md)  
+-   [Compact Vdisk](compact-vdisk.md)  
   
   
   
--   [Trennen Sie die virtuellen Datenträger](detach-vdisk.md)  
+-   [Vdisk trennen](detach-vdisk.md)  
   
--   [detail vdisk](detail-vdisk.md)  
+-   [Detail-Vdisk](detail-vdisk.md)  
   
--   [Erweitern Sie die virtuellen Datenträger](expand-vdisk.md)  
+-   [Erweitern von Vdisk](expand-vdisk.md)  
   
--   [Zusammenführen von virtuellen Datenträger](merge-vdisk.md)  
+-   [Vdisk zusammenführen](merge-vdisk.md)  
   
 -   [list_1](list_1.md)  
   

@@ -7,45 +7,45 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/07/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: bf8d9d164bf07151572785cda906be911f97b53e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 41caeca82819eaea3d86d5f1eb4883ab8bbf53cc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835331"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408792"
 ---
 # <a name="identifying-forest-design-requirements"></a>Identifizieren von Gesamtstruktur-Entwurfsanforderungen
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Um eine Gesamtstrukturentwurf für Ihre Organisation zu erstellen, müssen Sie die geschäftlichen Anforderungen identifizieren, die die Verzeichnisstruktur zu berücksichtigen. Dies beinhaltet, wie viel Autonomie bestimmen die Gruppen in den Bedarf Ihrer Organisation zum Verwalten ihrer Netzwerkressourcen und angibt, ob jede Gruppe muss, um ihre Ressourcen im Netzwerk aus anderen Gruppen zu isolieren.  
+Um einen Gesamtstruktur Entwurf für Ihre Organisation zu erstellen, müssen Sie die geschäftlichen Anforderungen ermitteln, die Ihre Verzeichnisstruktur erfüllen muss. Dies umfasst die Festlegung, wie viel Autonomie die Gruppen in Ihrer Organisation benötigen, um Ihre Netzwerkressourcen zu verwalten, und ob die einzelnen Gruppen ihre Ressourcen im Netzwerk von anderen Gruppen isolieren müssen.  
   
-Active Directory-Domänendienste (AD DS) ermöglicht es Ihnen zum Entwerfen einer Directory-Infrastruktur, die mehrere Gruppen innerhalb einer Organisation ausgelegt ist, die besondere verwaltungsanforderungen und strukturelle und operative Unabhängigkeit zwischen den Gruppen zu erreichen. Je nach Bedarf.  
+Mit Active Directory Domain Services (AD DS) können Sie eine Verzeichnis Infrastruktur entwerfen, die mehrere Gruppen innerhalb einer Organisation mit eindeutigen Verwaltungsanforderungen und der strukturellen und operativen Unabhängigkeit zwischen Gruppen unterstützt. nach Bedarf.  
   
-Gruppen in Ihrer Organisation möglicherweise einige der folgenden Typen von Anforderungen:  
+Für Gruppen in Ihrer Organisation sind möglicherweise einige der folgenden Arten von Anforderungen erforderlich:  
   
--   **Anforderungen an die Organisationsstruktur**. Teile einer Organisation möglicherweise teilnehmen, in einer freigegebenen Infrastruktur sparen Sie Kosten aber erfordern die Fähigkeit, unabhängig vom Rest des Unternehmens ausgeführt werden. Beispielsweise kann eine Research-Gruppe in einer großen Organisation müssen Kontrolle über ihre eigenen Research-Daten zu verwalten.  
+-   **Anforderungen an die Organisationsstruktur**. Teile einer Organisation könnten an einer gemeinsam genutzten Infrastruktur teilnehmen, um Kosten zu sparen, müssen jedoch unabhängig vom Rest der Organisation agieren können. Beispielsweise muss eine Forschungsgruppe innerhalb einer großen Organisation möglicherweise die Kontrolle über alle eigenen Forschungsdaten behalten.  
   
--   **Betriebsanforderungen**. Ein Mitglied einer Organisation möglicherweise unique-Einschränkungen für die Konfiguration des Verzeichnisdienstes, Verfügbarkeit oder die Sicherheit zu platzieren oder Anwendungen, die unique-Einschränkungen für das Verzeichnis platzieren verwenden. Einzelne Unternehmenseinheiten innerhalb einer Organisation können z. B. AD-aktivierte Anwendungen, die der Directory-Schema ändern bereitstellen, die nicht von anderen Geschäftseinheiten bereitgestellt werden. Da alle Domänen in der Gesamtstruktur des Directory-Schemas gemeinsam verwendet wird, ist das Erstellen von mehreren Gesamtstrukturen eine Lösung für ein solches Szenario aus. Weitere Beispiele finden Sie in der folgenden Organisationen und Szenarien:  
+-   **Betriebliche Anforderungen**. Ein Teil einer Organisation kann eindeutige Einschränkungen der Verzeichnisdienst Konfiguration, der Verfügbarkeit oder der Sicherheit oder Anwendungen verwenden, die UNIQUE-Einschränkungen für das Verzeichnis platzieren. Beispielsweise können einzelne Geschäftseinheiten innerhalb eines Unternehmens Verzeichnis aktivierte Anwendungen bereitstellen, die das Verzeichnisschema ändern, das nicht von anderen Geschäftseinheiten bereitgestellt wird. Da das Verzeichnisschema für alle Domänen in der Gesamtstruktur freigegeben ist, ist das Erstellen mehrerer Gesamtstrukturen eine Lösung für ein solches Szenario. Weitere Beispiele finden Sie in den folgenden Organisationen und Szenarien:  
   
     -   Militärische Organisationen  
   
-    -   Hosting-Szenarios  
+    -   Hostingszenarios  
   
-    -   Organisationen, die ein Verzeichnis zu verwalten, die verfügbar ist intern und extern (z. B. diejenigen, die von Benutzern im Internet öffentlich zugänglich sind)  
+    -   Organisationen, die ein Verzeichnis verwalten, das sowohl intern als auch extern verfügbar ist (z. b. solche, die für Benutzer im Internet öffentlich zugänglich sind)  
   
--   **Rechtliche Bestimmungen**. Einige Organisationen verfügen über rechtlichen Anforderungen für den Betrieb in eine bestimmte Art und Weise, z. B. Einschränken des Zugriffs auf bestimmte Informationen, wie in einem Business-Vertrag angegeben. Einige Organisationen verfügen über sicherheitsanforderungen, die in isolierten, internen Netzwerken ausgeführt werden. Die folgenden Anforderungen erfüllen kann zum Verlust des Vertrags und ggf. rechtliche Schritte führen.  
+-   **Rechtliche Anforderungen**. Einige Organisationen haben gesetzliche Anforderungen für eine bestimmte Methode, z. b. das Einschränken des Zugriffs auf bestimmte Informationen, wie in einem Geschäftsvertrag angegeben. Einige Organisationen verfügen über Sicherheitsanforderungen, um auf isolierten internen Netzwerken zu arbeiten. Wenn diese Anforderungen nicht erfüllt werden, kann dies zu einem Verlust des Vertrags und möglicherweise zu rechtlichen Aktionen führen.  
   
-Identifizieren den Grad, zu dem Gruppen in Ihrer Organisation die potenziellen Gesamtstrukturbesitzer und ihrer Dienstadministratoren vertrauen können, und Identifizieren der Anforderungen Autonomie und Isolation für jeden Identifizieren Ihrer Gesamtstruktur-entwurfsanforderungen gehört die Gruppe in Ihrer Organisation.  
+Zum Identifizieren der Gesamtstruktur-Entwurfs Anforderungen müssen Sie angeben, inwieweit Gruppen in Ihrer Organisation den potenziellen Gesamtstruktur Besitzern und deren Dienst Administratoren vertrauen können und welche Autonomie-und Isolations Anforderungen für die einzelnen in Ihrer Organisation gruppieren.  
   
-Das Designteam muss die Isolation und Autonomie Anforderungen für die Verwaltung von Dienst und die Daten für jede Gruppe in der Organisation dokumentieren, die AD DS verwenden möchte. Das Team muss alle Bereiche der eingeschränkte Konnektivität Beachten Sie außerdem, die die Bereitstellung von AD DS auswirken.  
+Das Entwurfs Team muss die Isolations-und Autonomie Anforderungen für die Dienst-und Datenverwaltung für jede Gruppe in der Organisation dokumentieren, die AD DS verwenden soll. Das Team muss auch alle Bereiche eingeschränkter Konnektivität beachten, die sich auf die Bereitstellung von AD DS auswirken können.  
   
-Das Designteam muss die Isolation und Autonomie Anforderungen für die Verwaltung von Dienst und die Daten für jede Gruppe in der Organisation dokumentieren, die AD DS verwenden möchte. Das Team muss alle Bereiche der eingeschränkte Konnektivität Beachten Sie außerdem, die die Bereitstellung von AD DS auswirken. Bei einem Arbeitsblatt zur Unterstützung beim Dokumentieren der Regions, die Sie angegeben haben, laden Sie Job_Aids_Designing_and_Deploying_Directory_and_Security_Services.zip aus [Auftrag Hilfsmittel für Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558) , und öffnen Sie "-Gesamtstruktur Entwerfen Sie Anforderungen an"(DSSLOGI_2.doc).  
+Das Entwurfs Team muss die Isolations-und Autonomie Anforderungen für die Dienst-und Datenverwaltung für jede Gruppe in der Organisation dokumentieren, die AD DS verwenden soll. Das Team muss auch alle Bereiche eingeschränkter Konnektivität beachten, die sich auf die Bereitstellung von AD DS auswirken können. Für ein Arbeitsblatt, das Sie bei der Dokumentation der identifizierten Regionen unterstützt, laden Sie Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip aus den [Auftrags Hilfen für das Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558) herunter, und öffnen Sie "Gesamtstruktur-Entwurfs Anforderungen" ( DSSLOGI_2. doc).  
   
 ## <a name="in-this-section"></a>Inhalt dieses Abschnitts  
   
--   [Dienstadministrator-Bereich der Zertifizierungsstelle](../../ad-ds/plan/Service-Administrator-Scope-of-Authority.md)  
+-   [Dienstadministrator: Autoritätsumfang](../../ad-ds/plan/Service-Administrator-Scope-of-Authority.md)  
   
--   [Autonomie im Vergleich zu Isolation](../../ad-ds/plan/Autonomy-vs.-Isolation.md)  
+-   [Gegenüberstellung von Autonomie und Isolation](../../ad-ds/plan/Autonomy-vs.-Isolation.md)  

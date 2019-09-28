@@ -1,7 +1,7 @@
 ---
-title: dfsutil Root
+title: Dfsutil-Stamm
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,17 +13,17 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ec0b5fa7f12f6401ab99df73035a70fb46d7aaea
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 09d0008cea0e642314aa2ba50362457863555788
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872761"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377993"
 ---
-# <a name="dfsutil-root"></a>dfsutil Root
+# <a name="dfsutil-root"></a>Dfsutil-Stamm
 
 
 
-## <a name="this-topic-is-no-longer-available"></a>In diesem Thema ist nicht mehr verfügbar
+## <a name="this-topic-is-no-longer-available"></a>Dieses Thema ist nicht mehr verfügbar.
 
-Es tut uns leid, die von Ihnen angeforderte Thema ist nicht mehr verfügbar.
+Das von Ihnen angeforderte Thema ist leider nicht mehr verfügbar.

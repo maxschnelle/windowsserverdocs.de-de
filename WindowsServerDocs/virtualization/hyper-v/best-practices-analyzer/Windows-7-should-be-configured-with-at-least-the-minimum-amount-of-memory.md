@@ -1,7 +1,7 @@
 ---
-title: Windows 7 muss mindestens die Mindestmenge an Arbeitsspeicher mit konfiguriert
-description: Bietet eine Anleitung zur Behebung des Problems gemeldet wird, die von dieser Best Practices Analyzer-Regel."
-ms.prod: windows-server-threshold
+title: Windows 7 sollte mit mindestens der Mindestmenge an Arbeitsspeicher konfiguriert werden.
+description: Enthält Anweisungen zum Beheben des Problems, das von dieser Best Practices Analyzer Regel gemeldet wird. "
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 1b81ec0b-ceca-4fba-83ea-90d5f1d9bda8
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: de9b39731bb1e0376cbc54add33d4b91974d11c2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fee0fb772ff0f3c2344ed3ef4ef2b9786480ff8e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840411"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393224"
 ---
-# <a name="windows-7-should-be-configured-with-at-least-the-minimum-amount-of-memory"></a>Windows 7 muss mindestens die Mindestmenge an Arbeitsspeicher mit konfiguriert
+# <a name="windows-7-should-be-configured-with-at-least-the-minimum-amount-of-memory"></a>Windows 7 sollte mit mindestens der Mindestmenge an Arbeitsspeicher konfiguriert werden.
 
 >Gilt für: Windows Server 2016
 
@@ -26,52 +26,52 @@ Weitere Informationen zu bewährten Methoden und Überprüfungen finden Sie unte
 |Eigenschaft|Details|  
 |-|-|  
 |**Betriebssystem**|Windows Server 2016|  
-|**Produkt /-Funktion**|Hyper-V|  
-|**Schweregrad**|Fehler|  
+|**Produkt/Feature**|Hyper-V|  
+|**Zunehmen**|Fehler|  
 |**Kategorie**|Konfiguration|  
 
-In den folgenden Abschnitten Kursivschrift gibt an Benutzeroberflächentext, die im Best Practices Analyzer-Tool für dieses Problem angezeigt wird.
+In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.
 
 ## <a name="issue"></a>Problem  
   
-*Ein virtuellen Computer mit Windows 7 wird mit weniger als die minimale Größe des Arbeitsspeichers, konfiguriert und 512 MB beträgt.*  
+*Ein virtueller Computer, auf dem Windows 7 ausgeführt wird, ist mit weniger als dem minimalen RAM (512 MB) konfiguriert.*  
   
 ## <a name="impact"></a>Auswirkungen  
   
-*Das Gastbetriebssystem auf die folgenden virtuellen Computer möglicherweise nicht ausgeführt oder unberechenbar Verhalten führen kann:*  
+*Das Gast Betriebssystem auf den folgenden virtuellen Computern wird möglicherweise nicht ausgeführt oder kann nicht zuverlässig ausgeführt werden:*  
 ```  
 <list of virtual machine names>  
 ```  
 ## <a name="resolution"></a>Auflösung  
   
-*Verwenden Sie Hyper-V-Manager, um die Speichermenge für diese virtuelle Maschine über mindestens 512 MB erhöhen.*  
+*Verwenden Sie den Hyper-V-Manager, um den Arbeitsspeicher, der diesem virtuellen Computer zugeordnet ist, auf mindestens 512 MB zu erhöhen.*  
   
-### <a name="to-increase-the-memory-using-hyper-v-manager"></a>Um den Speicher mit Hyper-V-Manager zu erhöhen.  
+### <a name="to-increase-the-memory-using-hyper-v-manager"></a>So vergrößern Sie den Arbeitsspeicher mit dem Hyper-V-Manager  
   
 1.  Öffnen Sie den Hyper-V-Manager. Klicken Sie auf **Start**, zeigen Sie auf **Verwaltung**, und klicken Sie dann auf **Hyper-V-Manager**.  
   
-2.  Klicken Sie im Ergebnisbereich unter **VMs**, wählen Sie den virtuellen Computer, die Sie konfigurieren möchten. Der Status des virtuellen Computers sollte als aufgelistet werden **aus**. Wenn sie nicht der Fall ist, mit der rechten Maustaste den virtuellen Computer, und klicken Sie dann auf **Herunterfahren**.  
+2.  Wählen Sie im Ergebnisbereich unter **Virtual Machines**den virtuellen Computer aus, den Sie konfigurieren möchten. Der Status der virtuellen Maschine sollte als **Off**aufgeführt werden. Wenn dies nicht der Fall ist, klicken Sie mit der rechten Maustaste auf den virtuellen Computer und dann auf **herunter**fahren.  
   
 3.  Klicken Sie im Bereich **Aktion** unter dem Namen des virtuellen Computers auf **Einstellungen**.  
   
-4.  Klicken Sie im Navigationsbereich auf **Arbeitsspeicher**.  
+4.  Klicken Sie im Navigationsbereich auf Arbeits **Speicher**.  
   
-5.  Auf der **Arbeitsspeicher** Seite die **RAM beim Start** mindestens 512 MB, und klicken Sie dann auf **OK**.  
+5.  Legen Sie auf der Seite Arbeits **Speicher** den **Start-RAM** auf mindestens 512 MB fest, und klicken Sie dann auf **OK**.  
   
-### <a name="increase-the-memory-using-windows-powershell"></a>Geben Sie Speicher mithilfe von Windows PowerShell  
+### <a name="increase-the-memory-using-windows-powershell"></a>Vergrößern des Arbeitsspeichers mithilfe von Windows PowerShell  
   
-1.  Öffnen Sie Windows PowerShell. (Klicken Sie auf dem Desktop auf **starten** und beginnen mit der Eingabe **Windows PowerShell**.)  
+1.  Öffnen Sie Windows PowerShell. (Klicken Sie auf dem Desktop auf **Start** , und beginnen Sie mit der Eingabe von **Windows PowerShell**.)  
   
-2.  Mit der rechten Maustaste **Windows PowerShell** , und klicken Sie auf **als Administrator ausführen**.  
+2.  Klicken Sie mit der rechten Maustaste auf **Windows PowerShell** und dann auf **als Administrator ausführen**.  
   
-3.  Führen Sie diesen Befehl nach dem Ersetzen \<MyVM > durch den Namen des virtuellen Computers:  
+3.  Führen Sie den folgenden Befehl aus, nachdem Sie \<myvm > durch den Namen des virtuellen Computers ersetzt haben:  
   
 ```  
 Set-VMMemory <MyVM> -StartupBytes 512MB  
 ```  
   
 ## <a name="see-also"></a>Siehe auch  
-[Set-VMMemory](https://technet.microsoft.com/library/hh848572.aspx)  
+[Set-vmmemory](https://technet.microsoft.com/library/hh848572.aspx)  
   
 
 

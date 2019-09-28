@@ -1,6 +1,6 @@
 ---
 title: Übersicht über Ressourcen-Manager für Dateiserver (File Server Resource Manager, FSRM)
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: jgerend
 ms.manager: brianlic
 ms.technology: storage
@@ -8,12 +8,12 @@ ms.topic: article
 author: jasongerend
 ms.date: 5/14/2018
 description: File Server Ressourcen-Manager (FSRM) ist ein Tool, mit dem Sie Daten auf einem Windows Server-Dateiserver verwalten und klassifizieren können.
-ms.openlocfilehash: 49e7731c9f1e0f312728894e99bc88b0391738d8
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 719176307afc320ad676fd1acfc07ad9d15920cf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866944"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394166"
 ---
 # <a name="file-server-resource-manager-fsrm-overview"></a>Übersicht über Ressourcen-Manager für Dateiserver (File Server Resource Manager, FSRM)
 
@@ -88,7 +88,7 @@ Führen Sie die folgenden Schritte aus, um zu verhindern, dass Datei Server Ress
                     System Reserved \\?\Volume{8d3c9e8a-0000-0000-0000-100000000000}\
         C                           \\?\Volume{8d3c9e8a-0000-0000-0000-501f00000000}\
        ```
-    2. Klicken Sie im Registrierungs-Editor mit der rechten Maustaste auf die **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SrmSvc\Settings** -Taste, und wählen Sie dann **neuer** > **Wert für mehrere Zeichen**Folgen aus.
+    2. Klicken Sie im Registrierungs-Editor mit der rechten Maustaste auf die **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SrmSvc\Settings** -Taste, und wählen Sie dann **neuer** > -**Zeichen folgen Wert**aus.
     3. Benennen Sie den `SkipUSNCreationForVolumes`Wert.
     4. Geben Sie den Pfad für jedes Volume ein, auf dem Sie das Erstellen eines Änderungs Journals überspringen, und platzieren Sie die einzelnen Pfade in einer separaten Zeile. Zum Beispiel:
 
@@ -98,7 +98,7 @@ Führen Sie die folgenden Schritte aus, um zu verhindern, dass Datei Server Ress
         ```
 
         > [!NOTE] 
-        > Der Registrierungs-Editor weist möglicherweise darauf hin, dass leere Zeichen folgen entfernt wurden. diese Warnung wird angezeigt, die Sie sicher ignorieren können: *Daten vom Typ "REG_MULTI_SZ" dürfen keine leeren Zeichen folgen enthalten. Der Registrierungs-Editor entfernt alle gefundenen leeren Zeichen folgen.*
+        > Der Registrierungs-Editor weist möglicherweise darauf hin, dass leere Zeichen folgen entfernt wurden. diese Warnung wird angezeigt, die Sie sicher ignorieren können: *-Daten vom Typ REG_MULTI_SZ dürfen keine leeren Zeichen folgen enthalten. Der Registrierungs-Editor entfernt alle gefundenen leeren Zeichen folgen.*
 
 7. Starten Sie den Dienst SRMSVC. Geben Sie `Start-Service SrmSvc`z. b. in einer PowerShell-Sitzung ein.
 

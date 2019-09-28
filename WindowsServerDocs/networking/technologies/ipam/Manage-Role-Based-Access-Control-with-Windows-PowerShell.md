@@ -1,9 +1,9 @@
 ---
 title: Verwalten der rollenbasierten Zugriffssteuerung mit Windows PowerShell
-description: Dieses Thema ist Teil des Leitfadens Verwaltung von IP-Adressverwaltung (IPAM) in Windows Server 2016.
+description: Dieses Thema ist Teil des Verwaltungs Handbuchs für die IP-Adressverwaltung (IPAM) in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ipam
@@ -12,35 +12,35 @@ ms.topic: article
 ms.assetid: 4f13f78e-0114-4e41-9a28-82a4feccecfc
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 11dd417be4720b09851fc03f111edaaf06b55e59
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: dec5c9b9b5d5fe858e063af70ff0a8e16991e632
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282133"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355220"
 ---
 # <a name="manage-role-based-access-control-with-windows-powershell"></a>Verwalten der rollenbasierten Zugriffssteuerung mit Windows PowerShell
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können in diesem Thema verwenden, erfahren, wie IPAM zum Verwalten der rollenbasierten Zugriffssteuerung mit Windows PowerShell verwenden.  
+In diesem Thema erfahren Sie, wie Sie IPAM zum Verwalten der rollenbasierten Zugriffs Steuerung mit Windows PowerShell verwenden.  
   
 >[!NOTE]
->Der IPAM-Windows-PowerShell-Befehlsreferenz finden Sie unter den [IpamServer-Cmdlets in Windows PowerShell](https://docs.microsoft.com/powershell/module/ipamserver/?view=win10-ps).  
+>Die IPAM-Windows PowerShell-Befehlsreferenz finden Sie unter [ipamserver-Cmdlets in Windows PowerShell](https://docs.microsoft.com/powershell/module/ipamserver/?view=win10-ps).  
   
-Die neue Windows PowerShell-IPAM-Befehle bieten Ihnen die Möglichkeit zum Abrufen und ändern den zugriffsbereichen der DNS- und DHCP-Objekte. Die folgende Tabelle zeigt den richtigen Befehl für die einzelnen IPAM-Objekte verwenden.  
+Mit den neuen Windows PowerShell-IPAM-Befehlen können Sie die Zugriffs Bereiche von DNS-und DHCP-Objekten abrufen und ändern. Die folgende Tabelle veranschaulicht den korrekten Befehl, der für die einzelnen IPAM-Objekte verwendet werden soll.  
   
 |IPAM-Objekt|Befehl|Beschreibung|  
 |---------------|-----------|---------------|  
-|DNS-Server|Get-IpamDnsServer|Dieses Cmdlet gibt die DNS-Server-Objekt zurück, in IPAM|  
-|DNS-Zone|Get-IpamDnsZone|Dieses Cmdlet gibt die DNS-Zone-Objekts zurück, in IPAM|  
-|DNS-Ressourceneintrag|Get-IpamResourceRecord|Dieses Cmdlet gibt die DNS-Datensatz Ressourcenobjekt in IPAM zurück.|  
-|DNS-Weiterleitung mit Bedingungen|Get-IpamDnsConditionalForwarder|Dieses Cmdlet gibt die bedingte Weiterleitung DNS-Objekts zurück, in IPAM|  
-|DHCP-Server|Get-IpamDhcpServer|Dieses Cmdlet gibt die DHCP-Server-Objekt zurück, in IPAM|  
-|DHCP-Bereichsgruppierung|Get-IpamDhcpSuperscope|Dieses Cmdlet gibt die DHCP-Bereichsgruppierung-Objekt zurück, in IPAM|  
-|DHCP-Bereich|Get-IpamDhcpScope|Dieses Cmdlet gibt das Bereichsobjekt DHCP in IPAM zurück.|  
+|DNS-Server|Get-ipamdnsserver|Mit diesem Cmdlet wird das DNS-Server Objekt in IPAM zurückgegeben.|  
+|DNS-Zone|Get-ipamdnszone|Mit diesem Cmdlet wird das DNS-Zonen Objekt in IPAM zurückgegeben.|  
+|DNS-Ressourcen Daten Satz|Get-ipamresourcerecord|Dieses Cmdlet gibt das DNS-Ressourcen Daten Satz Objekt in IPAM zurück.|  
+|Bedingte DNS-Weiterleitung|Get-ipamdnsconditionalforwarder|Dieses Cmdlet gibt das DNS-Objekt für die bedingte Weiterleitung in IPAM zurück.|  
+|DHCP-Server|Get-ipamdhcpserver|Dieses Cmdlet gibt das DHCP-Server Objekt in IPAM zurück.|  
+|DHCP-Bereichsgruppierung|Get-ipamdhcpsuperscope|Dieses Cmdlet gibt das DHCP-Bereichs Gruppierung-Objekt in IPAM zurück.|  
+|DHCP-Bereich|Get-ipamdhcpscope|Dieses Cmdlet gibt das DHCP-Bereichs Objekt in IPAM zurück.|  
   
-Im folgenden Beispiel der Ausgabe des Befehls der `Get-IpamDnsZone` Cmdlet Ruft die **dublin.contoso.com** DNS-Zone.  
+Im folgenden Beispiel der Befehlsausgabe Ruft das `Get-IpamDnsZone`-Cmdlet die **Dublin.contoso.com** -DNS-Zone ab.  
   
 ```  
 PS C:\Users\Administrator.CONTOSO> Get-IpamDnsZone -ZoneType Forward -ZoneName dublin.contoso.com  
@@ -53,8 +53,8 @@ DynamicUpdateStatus  : None
 ScavengeStaleRecords : False  
 ```  
   
-## <a name="setting-access-scopes-on-ipam-objects"></a>Festlegen von Zugriffsbereichen für IPAM-Objekte  
-Sie können zugriffsbereiche für IPAM-Objekte festlegen, mit der `Set-IpamAccessScope` Befehl. Sie können diesen Befehl verwenden, um den Zugriffsbereich auf einen bestimmten Wert für ein Objekt festgelegt oder dazu führen, dass die Objekte des Zugriffsbereichs von übergeordneten Objekten geerbt. Es folgen die Objekte, die Sie mit dem folgenden Befehl konfigurieren können.  
+## <a name="setting-access-scopes-on-ipam-objects"></a>Festlegen von Zugriffs Bereichen für IPAM-Objekte  
+Sie können Zugriffs Bereiche für IPAM-Objekte mithilfe des Befehls `Set-IpamAccessScope` festlegen. Sie können diesen Befehl verwenden, um den Zugriffs Bereich auf einen bestimmten Wert für ein Objekt festzulegen oder um zu bewirken, dass die Objekte den Zugriffs Bereich von übergeordneten Objekten erben. Im folgenden finden Sie die Objekte, die Sie mit diesem Befehl konfigurieren können.  
   
 -   DHCP-Bereich  
   
@@ -62,9 +62,9 @@ Sie können zugriffsbereiche für IPAM-Objekte festlegen, mit der `Set-IpamAcces
   
 -   DHCP-Bereichsgruppierung  
   
--   DNS-Weiterleitung mit Bedingungen  
+-   Bedingte DNS-Weiterleitung  
   
--   DNS-Ressourceneinträgen  
+-   DNS-Ressourcen Einträge  
   
 -   DNS-Server  
   
@@ -74,11 +74,11 @@ Sie können zugriffsbereiche für IPAM-Objekte festlegen, mit der `Set-IpamAcces
   
 -   IP-Adressbereich  
   
--   IP-Adressbereich  
+-   IP-Adressraum  
   
 -   IP-Adresssubnetz  
   
-Nachfolgend ist die Syntax für die `Set-IpamAccessScope` Befehl.  
+Im folgenden finden Sie die Syntax für den Befehl "`Set-IpamAccessScope`".  
   
 ```  
 NAME  
@@ -116,7 +116,7 @@ SYNTAX
     Set-IpamAccessScope [-IpamBlock] -InputObject <ciminstance[]> [-AccessScopePath <string>] [-IsInheritedAccessScope] [-PassThru] [-CimSession <CimSession[]>] [-ThrottleLimit <int>] [-AsJob] [-WhatIf] [-Confirm]  [<CommonParameters>]  
 ```  
   
-Im folgenden Beispiel ist der DNS-Zone auf den Zugriffsbereich **dublin.contoso.com** ändert sich von **Dublin** zu **Europa**.  
+Im folgenden Beispiel wird der Zugriffs Bereich der DNS-Zone **Dublin.contoso.com** von **Dublin** in **Europa**geändert.  
   
 ```  
 PS C:\Users\Administrator.CONTOSO> Get-IpamDnsZone -ZoneType Forward -ZoneName dublin.contoso.com  

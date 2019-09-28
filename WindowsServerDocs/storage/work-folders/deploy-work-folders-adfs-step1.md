@@ -1,6 +1,6 @@
 ---
 title: Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy -Schritt 1, Einrichten von AD FS
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-work-folders
 ms.topic: article
 manager: klaasl
@@ -8,31 +8,31 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 10/18/2018
 ms.assetid: 938cdda2-f17e-4964-9218-f5868fd96735
-ms.openlocfilehash: 4f4119e893b215bd9f6d713bc5a17218b751c3d3
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 0920d091d6e8b5f3db9bf945a966fdd577918179
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812684"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365786"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-1-set-up-ad-fs"></a>Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 1: Einrichten von AD FS
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-1-set-up-ad-fs"></a>Arbeitsordner mit AD FS und webanwendungsproxy bereitstellen: Schritt 1: Einrichten AD FS
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 In diesem Thema wird der erste Schritt bei der Bereitstellung von Arbeitsordnern mit Active Directory-Verbunddiensten (AD FS) und Webanwendungsproxy beschrieben. Weitere Schritte des Prozesses finden Sie in folgenden Themen:  
   
--   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Übersicht über die](deploy-work-folders-adfs-overview.md)  
+-   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Übersicht @ no__t-0  
   
--   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 2, und AD FS-Konfiguration nach der Arbeit](deploy-work-folders-adfs-step2.md)  
+-   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 2, AD FS Arbeit nach der Konfiguration @ no__t-0  
   
--   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 3, Einrichten von Arbeitsordnern](deploy-work-folders-adfs-step3.md)  
+-   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 3: Einrichten von Arbeits Ordnern @ no__t-0  
   
--   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 4: Einrichten des Webanwendungsproxys](deploy-work-folders-adfs-step4.md)  
+-   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 4: Einrichten des webanwendungsproxys @ no__t-0  
   
--   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 5, richten Sie Clients](deploy-work-folders-adfs-step5.md)  
+-   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 5: Einrichten von Clients @ no__t-0  
   
 > [!NOTE]
->   Die Anweisungen in diesem Abschnitt behandelten sind für eine Windows Server-2019 oder Windows Server 2016-Umgebung. Wenn Sie Windows Server 2012 R2 verwenden, folgen Sie den [Anweisungen für Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
+>   Die in diesem Abschnitt behandelten Anweisungen gelten für eine Windows Server 2019-oder Windows Server 2016-Umgebung. Wenn Sie Windows Server 2012 R2 verwenden, folgen Sie den [Anweisungen für Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
 
 Gehen Sie folgendermaßen vor, um AD FS für die Verwendung mit Arbeitsordnern einzurichten.  
   
@@ -104,7 +104,7 @@ Im Testbeispiel sind diese Werte wie folgt:
 Der „Enterpriseregistration”-SAN ist für Workplace Join erforderlich.  
   
 ### <a name="set-the-server-ip-address"></a>Legen Sie die IP-Adresse des -Servers fest  
-Ändern Sie die IP-Adresse des Servers in eine statische IP-Adresse. Verwenden Sie für das Testbeispiel-IP-Klasse ein, die 192.168.0.160 / Subnetzmaske: 255.255.0.0 / Standard-Gateway: 192.168.0.1 / bevorzugte DNS: 192.168.0.150 (die IP-Adresse des Domänencontrollers\).  
+Ändern Sie die IP-Adresse des Servers in eine statische IP-Adresse. Verwenden Sie für das Testbeispiel die IP-Klasse A, d. h. 192.168.0.160/Subnetzmaske: 255.255.0.0/Standard Gateway: 192.168.0.1/bevorzugtes DNS: 192.168.0.150 (die IP-Adresse Ihres Domänen Controllers @ no__t-0.  
   
 ## <a name="install-the-ad-fs-role-service"></a>Installieren des AD FS-Rollendiensts  
 Führen Sie folgende Schritte aus, um AD FS zu installieren:  
@@ -182,9 +182,9 @@ $thumbprint = $cert.Thumbprint
 Install-ADFSFarm -CertificateThumbprint $thumbprint -FederationServiceDisplayName "Contoso Corporation" –FederationServiceName blueadfs.contoso.com -GroupServiceAccountIdentifier contoso\ADFSService$ -OverwriteConfiguration -ErrorAction Stop  
 ```  
   
-Nächster Schritt: [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 2, und AD FS-Konfiguration nach der Arbeit](deploy-work-folders-adfs-step2.md)  
+Nächster Schritt: [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 2, AD FS Arbeit nach der Konfiguration @ no__t-0  
   
 ## <a name="see-also"></a>Siehe auch  
-[Übersicht: Arbeitsordner](Work-Folders-Overview.md)  
+[Übersicht über Arbeitsordner](Work-Folders-Overview.md)  
   
 

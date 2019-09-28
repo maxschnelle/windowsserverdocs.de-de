@@ -7,53 +7,53 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 8c3db2873e1c7a0fa217ba37b9439cc38dfafc36
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 48436f8e98af965f2bc2b38d296c4a15924e4db1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191001"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407950"
 ---
 # <a name="provide-your-active-directory-users-access-to-your-claims-aware-applications-and-services"></a>Bereitstellen von Zugriff auf Ihre Ansprüche unterstützenden Anwendungen und Dienste für Active Directory-Benutzer
 
-Wenn Sie ein Administrator in der Kontopartnerorganisation in einer Active Directory Federation Services sind \(AD FS\) Bereitstellung, und Sie haben ein Bereitstellungsziel darin besteht, zu einzelnen\-anmelden\-auf \( SSO\) Zugriff für Mitarbeiter im Unternehmensnetzwerk auf Ihre gehosteten Ressourcen:  
+Wenn Sie ein Administrator in der Konto Partnerorganisation in einer Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1-Bereitstellung sind und ein Bereitstellungs Ziel zum Bereitstellen von Single @ no__t-2sign @ no__t-3on \(sso @ no__t-5 Access für Mitarbeiter auf das Unternehmensnetzwerk zu ihren gehosteten Ressourcen:  
   
--   Mitarbeiter, die im Unternehmensnetzwerk bei der Active Directory-Gesamtstruktur angemeldet sind, können mit SSO im Umkreisnetzwerk in Ihrer Organisation auf mehrere Programme oder Dienste zugreifen. Diese Anwendungen und Dienste werden von AD FS geschützt werden.  
+-   Mitarbeiter, die im Unternehmensnetzwerk bei der Active Directory-Gesamtstruktur angemeldet sind, können mit SSO im Umkreisnetzwerk in Ihrer Organisation auf mehrere Programme oder Dienste zugreifen. Diese Anwendungen und Dienste werden durch AD FS gesichert.  
   
-    Fabrikam kann z. B. Mitarbeiter im Unternehmensnetzwerk verbundzugriff auf Web verbundzugriff\--basierte Anwendungen, die im Umkreisnetzwerk für Fabrikam gehostet werden.  
+    Fabrikam könnte z. b. wünschen, dass Mitarbeiter im Unternehmensnetzwerk Verbund Zugriff auf Web @ no__t-0based-Anwendungen haben, die im Umkreis Netzwerk für Fabrikam gehostet werden.  
   
--   Remotemitarbeiter, die Active Directory-Domäne angemeldet sind, können AD FS-Token erhalten, von dem Verbundserver in Ihrer Organisation, um verbundzugriff auf AD FS zu erhalten\-gesicherte Web\-basierte Anwendungen oder Dienste, die auch im befinden. Ihre Organisation.  
+-   Remote Mitarbeiter, die bei einer Active Directory Domäne angemeldet sind, können AD FS Token vom Verbund Server in Ihrer Organisation erhalten, um Verbund Zugriff auf AD FS @ no__t-0gesicherte Web @ no__t-1-basierte Anwendungen oder Dienste zu erhalten, die sich ebenfalls in Ihrem Ordnung.  
   
 -   Die AD FS-Tokens der Mitarbeiter können mit Informationen aus dem Active Directory-Attributspeicher aufgefüllt werden.  
   
 Die folgenden Komponenten sind für dieses Bereitstellungsziel erforderlich:  
   
--   **Active Directory-Domänendienste \(AD DS\):** AD DS enthält die Mitarbeiterbenutzerkonten, die zum Generieren von AD FS-Token verwendet werden. Informationen, wie z. B. Gruppenmitgliedschaften und Attribute, werden als Gruppenansprüche und benutzerdefinierte Ansprüche in AD FS-Tokens kopiert.  
+-   **Active Directory Domain Services \(AD DS @ no__t-2:** AD DS enthält die Mitarbeiterbenutzerkonten, die zum Generieren von AD FS-Token verwendet werden. Informationen, wie z. B. Gruppenmitgliedschaften und Attribute, werden als Gruppenansprüche und benutzerdefinierte Ansprüche in AD FS-Tokens kopiert.  
   
     > [!NOTE]  
-    > Sie können auch Lightweight Directory Access Protocol \(LDAP\) oder Structured Query Language \(SQL\) enthalten die Identitäten für AD FS-token generieren.  
+    > Sie können auch Lightweight Directory Access Protocol \(ldap @ no__t-1 oder strukturierte Abfragesprache \(sql @ no__t-3 verwenden, um die Identitäten für die AD FS tokengenerierung zu enthalten.  
   
--   **Unternehmens-DNS:** Diese Implementierung des Domain Name System \(DNS\) enthält einen einfachen Host \(ein\) Ressource aufzeichnen, sodass Intranetclients den Konto-Verbund-Server lokalisieren können. Diese DNS-Implementierung kann auch andere DNS-Einträge hosten, die im Unternehmensnetzwerk erforderlich sind. Weitere Informationen finden Sie unter [Name Resolution Requirements for Federation Servers](Name-Resolution-Requirements-for-Federation-Servers.md).  
+-   **Unternehmens-DNS:** Diese Implementierung von Domain Name System \(dns @ no__t-1 enthält einen einfachen Host \(a @ no__t-3-Ressourcen Daten Satz, sodass Intranetclients den Konto Verbund Server finden können. Diese DNS-Implementierung kann auch andere DNS-Einträge hosten, die im Unternehmensnetzwerk erforderlich sind. Weitere Informationen finden Sie unter [Name Resolution Requirements for Federation Servers](Name-Resolution-Requirements-for-Federation-Servers.md).  
   
--   **Kontoverbundserver Partner:** Dieser Verbundserver gehört zu einer Domäne in der Kontopartner-Gesamtstruktur. Er authentifiziert Mitarbeiterbenutzerkonten und generiert AD FS-Tokens. Der Clientcomputer für den Mitarbeiter führt die integrierte Windows-Authentifizierung für den Verbundserver ein AD FS-Token zu generieren. Weitere Informationen finden Sie unter [Review the Role of the Federation Server in the Account Partner](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md).  
+-   **Konto Partner Verbund Server:** Dieser Verbund Server ist einer Domäne in der Konto Partner-Gesamtstruktur hinzugefügt. Er authentifiziert Mitarbeiterbenutzerkonten und generiert AD FS-Tokens. Der Client Computer für den Mitarbeiter führt die integrierte Windows-Authentifizierung für diesen Verbund Server aus, um ein AD FS Token zu generieren. Weitere Informationen finden Sie unter [Überprüfen der Rolle des Verbundservers beim Kontopartner](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md).  
   
-    Die Konto-Partnerverbundserver kann die folgenden Benutzer authentifizieren:  
+    Der Verbund Server des Konto Partners kann die folgenden Benutzer authentifizieren:  
   
     -   Mitarbeiter mit Benutzerkonten in dieser Domäne  
   
     -   Mitarbeiter mit Benutzerkonten an beliebiger Stelle in der Gesamtstruktur  
   
-    -   Mitarbeiter mit Benutzerkonten, die überall in Gesamtstrukturen, die von dieser Gesamtstruktur als vertrauenswürdig eingestuft werden \(über ein\-wie Windows-Vertrauensstellung\)  
+    -   Mitarbeiter mit Benutzerkonten an beliebiger Stelle in Gesamtstrukturen, denen diese Gesamtstruktur vertraut \(bis zu einem zwei @ no__t-1Way Windows trust @ no__t-2  
   
--   **Mitarbeiter:** Ein Mitarbeiter greift auf eine Web\--basierten Diensts \(durch eine Anwendung\) oder eines Webdiensts\--basierten Anwendung \(über einen unterstützten Webbrowser\) während er angemeldet ist die Unternehmensnetzwerk. Client-Computer des Mitarbeiters im Unternehmensnetzwerk kommuniziert direkt mit der Verbundserver für die Authentifizierung.  
+-   **Mitarbeiter:** Ein Mitarbeiter greift auf einen Webdienst @ no__t-0based zu, \(Durch eine Anwendung @ no__t-2 oder eine Web @ no__t-3based-Anwendung \(through einem unterstützten Webbrowser @ no__t-5, während er beim Unternehmensnetzwerk angemeldet ist. Der Client Computer des Mitarbeiters im Unternehmensnetzwerk kommuniziert zur Authentifizierung direkt mit dem Verbund Server.  
   
-Nach dem Durchlesen der Informationen in den verknüpften Themen können Sie beginnen können, Umsetzung dieses Bereitstellungsziels anhand der Schritte in [Prüfliste: Implementieren eines Federated-Web-SSO-Entwurfs](../../ad-fs/deployment/Checklist--Implementing-a-Federated-Web-SSO-Design.md).  
+Nachdem Sie die Informationen in den verknüpften Themen überprüft haben, können Sie mit der Bereitstellung dieses Ziels beginnen, indem Sie die Schritte in [checkliste befolgen: Implementieren eines Federated-Web-SSO-Entwurfs @ no__t-0.  
   
-Die folgende Abbildung zeigt jede der erforderlichen Komponenten für dieses Bereitstellungsziel für AD FS.  
+Die folgende Abbildung zeigt die einzelnen erforderlichen Komponenten für dieses AD FS Bereitstellungs Ziel.  
   
-![der Zugriff auf Ihre Ansprüche](media/31394ea8-fecb-4372-ac3f-cc3cf566ffc9.gif)  
+![Zugriff auf Ihre Ansprüche](media/31394ea8-fecb-4372-ac3f-cc3cf566ffc9.gif)  
   
 ## <a name="see-also"></a>Siehe auch
 [AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

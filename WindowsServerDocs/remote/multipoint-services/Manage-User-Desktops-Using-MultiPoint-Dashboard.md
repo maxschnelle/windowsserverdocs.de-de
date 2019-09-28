@@ -1,8 +1,8 @@
 ---
 title: Verwalten von Benutzerdesktops mit dem MultiPoint-Dashboard
-description: Bietet eine Übersicht über das MultiPoint-Dashboard
+description: Bietet eine Übersicht über das Multipoint-Dashboard.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,17 +13,17 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 049910029f0ed2623ae34131d3755964d3499d0e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b250d820e7086054d18d62eebe8ce9d3686f8d5d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837341"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405100"
 ---
 # <a name="manage-user-desktops-using-multipoint-dashboard"></a>Verwalten von Benutzerdesktops mit dem MultiPoint-Dashboard
-In einem MultiPoint Services-System ist ein Desktop die Softwarebenutzeroberfläche, die auf dem Monitor jeder *Benutzerstation* angezeigt wird. MultiPoint-Dashboard ist ein Tool, das Ihnen das Verwalten dieser Desktops ermöglicht.   
+In einem MultiPoint Services-System ist ein Desktop die Softwarebenutzeroberfläche, die auf dem Monitor jeder *Benutzerstation* angezeigt wird. Das Multipoint-Dashboard ist ein Tool, das Sie bei der Verwaltung dieser Desktops unterstützt.   
   
-MultiPoint-Dashboard auf die **Startseite** Registerkarte können Sie Folgendes tun:  
+Im Multipoint-Dashboard können Sie auf der Registerkarte **Startseite** die folgenden Aktionen ausführen:  
   
 - Anzeigen von Desktops  
 Sie können die Miniaturansichten für jeden aktiven Desktop anzeigen. Informationen zum Anzeigen von Miniaturansichten finden Sie im Thema [View Options for Session Thumbnails](View-Options-for-Session-Thumbnails-in-MultiPoint-Dashboard.md) (Anzeigeoptionen für Sitzungsminiaturansichten).  
@@ -40,7 +40,7 @@ Sie können Anwendungen auf einer Station starten oder schließen. Informationen
 - Kommunizieren mit Chat  
 Sie können mit ausgewählten Benutzern über den Chat kommunizieren. Die Chatnachricht ist nur für den Dashboardbenutzer und den Benutzer der ausgewählten Sitzung sichtbar. Weitere Informationen finden Sie unter [Kommunizieren mit Chat](Use-IM.md).  
 - Ändern der Größe von Miniaturansichten  
-Sie können die Größe der Miniaturansichten ändern, die im MultiPoint-Dashboard anzeigen. Informationen zum Ändern der Größe von Miniaturansichten finden Sie unter [View Options for Session Thumbnails](View-Options-for-Session-Thumbnails-in-MultiPoint-Dashboard.md) (Anzeigeoptionen für Sitzungsminiaturansichten).
+Sie können die Größe der Miniaturansichten ändern, die im Multipoint-Dashboard angezeigt werden. Informationen zum Ändern der Größe von Miniaturansichten finden Sie unter [View Options for Session Thumbnails](View-Options-for-Session-Thumbnails-in-MultiPoint-Dashboard.md) (Anzeigeoptionen für Sitzungsminiaturansichten).
 - Anzeigen aller Stationen  
 Sie können alle mit Ihrem System verbundenen Stationen anzeigen, einschließlich der nicht aktiven Stationen. Informationen zum Anzeigen aller Stationen finden Sie im Thema [Anzeigen aller Stationen](Show-All-Stations.md).  
 - Suchen und Sortieren von Miniaturansichten  

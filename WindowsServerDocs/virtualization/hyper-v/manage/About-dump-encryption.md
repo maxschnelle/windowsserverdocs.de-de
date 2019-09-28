@@ -1,19 +1,19 @@
 ---
 title: Informationen zur dumpverschlüsselung
 description: Beschreibt das Verschlüsseln von Dumpdateien und die Problembehandlung bei der Verschlüsselung.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: dongill
 ms.topic: article
 author: larsiwer
 ms.asset: b78ab493-e7c3-41f5-ab36-29397f086f32
 ms.author: kathydav
 ms.date: 11/03/2016
-ms.openlocfilehash: d46deee7fc9d911de2a6ee44ae097affe1d658a3
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: e1e374a75c11321820393bede83ca9ea225f5424
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872140"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392815"
 ---
 # <a name="about-dump-encryption"></a>Informationen zur dumpverschlüsselung
 Die dumpverschlüsselung kann verwendet werden, um Absturz Abbilder und Live Abbilder zu verschlüsseln, die für ein System generiert werden. Die Abbilder werden mit einem symmetrischen Verschlüsselungsschlüssel verschlüsselt, der für jedes Abbild generiert wird. Dieser Schlüssel selbst wird dann mit dem öffentlichen Schlüssel verschlüsselt, der vom vertrauenswürdigen Administrator des Hosts angegeben wird (Schutzvorrichtung für Absturz Abbild Verschlüsselung). Dadurch wird sichergestellt, dass nur jemand, der über den entsprechenden privaten Schlüssel verfügt, den Inhalt des Abbilds entschlüsseln und somit darauf zugreifen kann Diese Funktion wird in einem geschützten Fabric genutzt.

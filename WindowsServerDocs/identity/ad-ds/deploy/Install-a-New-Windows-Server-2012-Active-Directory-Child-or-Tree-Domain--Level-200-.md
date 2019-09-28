@@ -7,52 +7,52 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 7292f76155c2bcb47b6c632b969f54f3afb93d50
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d0944377739f43ea5d9b8d0d9c94c13e9f18985f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853701"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390888"
 ---
 # <a name="install-a-new-windows-server-2012-active-directory-child-or-tree-domain-level-200"></a>Installieren einer neuen untergeordneten oder Active Directory-Gesamtstrukturdomäne in Windows Server 2012 (Stufe 200)
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dieser Artikel beschreibt, wie Sie untergeordnete und Strukturdomänen mithilfe von Server-Manager oder Windows PowerShell zu einer existierenden Windows Server 2012-Gesamtstruktur hinzufügen können.  
   
--   [Untergeordnete und Tree Domain-Workflow](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md#BKMK_Workflow)  
+-   [Workflow für untergeordnete und Struktur Domänen](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md#BKMK_Workflow)  
   
--   [Untergeordnete und Strukturdomänen in Windows PowerShell](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md#BKMK_PS)  
+-   [Untergeordnete und Struktur Domänen Windows PowerShell](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md#BKMK_PS)  
   
 -   [Bereitstellung](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md#BKMK_Deployment)  
   
-## <a name="BKMK_Workflow"></a>Untergeordnete und Tree Domain-Workflow  
+## <a name="BKMK_Workflow"></a>Workflow für untergeordnete und Struktur Domänen  
 Das folgende Diagramm zeigt den Konfigurationsprozess für Active Directory-Domänendienste, wenn Sie die AD DS-Rolle zuvor installiert haben und den Konfigurations-Assistenten für die Active Directory-Domänendienste über den Server-Manager gestartet haben, um eine neue Domäne in einer existierenden Gesamtstruktur zu erstellen.  
   
-![Installieren Sie eine neue AD untergeordnete](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/adds_childtreedeploy_beta1.png)  
+![Neues untergeordnetes Ad-Element installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/adds_childtreedeploy_beta1.png)  
   
-## <a name="BKMK_PS"></a>Untergeordnete und Strukturdomänen in Windows PowerShell  
+## <a name="BKMK_PS"></a>Untergeordnete und Struktur Domänen Windows PowerShell  
   
 |||  
 |-|-|  
-|**Cmdlet "ADDSDeployment"**|Argumente (erforderliche Argumente sind **fett** markiert. Argumente in *Kursivschrift* können mithilfe von Windows PowerShell oder dem AD DS-Konfigurations-Assistenten angegeben werden.)|  
-|**Install-AddsDomain**|-SkipPreChecks<br /><br />***-NewDomainName***<br /><br />***-ParentDomainName***<br /><br />***-SafeModeAdministratorPassword***<br /><br />*-ADPrepCredential*<br /><br />-AllowDomainReinstall<br /><br />-Confirm<br /><br />*-CreateDNSDelegation*<br /><br />***-Credential***<br /><br />*-DatabasePath*<br /><br />*-DNSDelegationCredential*<br /><br />-NoDNSOnNetwork<br /><br />*-DomainMode*<br /><br />***-DomainType***<br /><br />-Force<br /><br />*-InstallDNS*<br /><br />*-LogPath*<br /><br />*-NewDomainNetBIOSName*<br /><br />*-NoGlobalCatalog*<br /><br />-NoNorebootoncompletion<br /><br />*-ReplicationSourceDC*<br /><br />*-SiteName*<br /><br />-SkipAutoConfigureDNS<br /><br />*-SYSVOLPath*<br /><br />*-Whatif*|  
+|**Addsdeployment-Cmdlet**|Argumente (erforderliche Argumente sind **fett** markiert. Argumente in *Kursivschrift* können mithilfe von Windows PowerShell oder dem AD DS-Konfigurations-Assistenten angegeben werden.)|  
+|**Install-addsdomain**|-SkipPreChecks<br /><br />***-NewDomainName***<br /><br />***-ParentDomainName***<br /><br />***-SafeModeAdministratorPassword***<br /><br />*-Adprepcredential*<br /><br />-AllowDomainReinstall<br /><br />-Confirm<br /><br />*-"-Kreatednsdelegation"*<br /><br />***-Credential***<br /><br />*-DatabasePath*<br /><br />*-Dnsdelegationcredential*<br /><br />-NoDNSOnNetwork<br /><br />*-DomainMode*<br /><br />***-DomainType***<br /><br />-Force<br /><br />*-InstallDNS*<br /><br />*-LogPath*<br /><br />*-Newdomainnetbiosname*<br /><br />*-Noglobalcatalog*<br /><br />-NoNorebootoncompletion<br /><br />*-ReplicationSourceDC*<br /><br />*-Sitename*<br /><br />-SkipAutoConfigureDNS<br /><br />*-Sysvolpath*<br /><br />*-WhatIf*|  
   
 > [!NOTE]  
 > Das Argument **-credential** ist nur erforderlich, wenn Sie derzeit nicht als Mitglied der Gruppe Organisations-Admins angemeldet sind. Das Argument **-NewDomainNetBIOSName** ist erforderlich, wenn Sie den automatisch generierten 15-stelligen Namen, der auf dem DNS-Domänennamenspräfix basiert, ändern möchten oder wenn der Name mehr als 15 Zeichen enthält.  
   
-## <a name="BKMK_Deployment"></a>Bereitstellung  
+## <a name="BKMK_Deployment"></a>Nutzung  
   
 ### <a name="deployment-configuration"></a>Bereitstellungskonfiguration  
 Der folgende Screenshot zeigt die Optionen beim Hinzufügen einer untergeordneten Domäne:  
   
-![Installieren Sie eine neue AD untergeordnete](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildDeployConfig.png)  
+![Neues untergeordnetes Ad-Element installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildDeployConfig.png)  
   
 Der folgende Screenshot zeigt die Optionen beim Hinzufügen einer Strukturdomäne:  
   
-![Installieren Sie eine neue AD untergeordnete](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_TreeDeployConfig.png)  
+![Neues untergeordnetes Ad-Element installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_TreeDeployConfig.png)  
   
 In Server-Manager beginnt jede Heraufstufung eines Domänencontrollers auf der Seite **Bereitstellungskonfiguration** . Die restlichen Optionen und erforderlichen Felder auf dieser Seite und den folgenden Seiten variieren in Abhängigkeit von dem von Ihnen ausgewählten Bereitstellungsvorgang.  
   
@@ -77,7 +77,7 @@ Install-AddsDomain
 ```  
   
 ### <a name="domain-controller-options"></a>Domänencontrolleroptionen  
-![Installieren Sie eine neue AD untergeordnete](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_DCOptions_Child.gif)  
+![Neues untergeordnetes Ad-Element installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_DCOptions_Child.gif)  
   
 Auf der Seite **Domänencontrolleroptionen** können Sie die Domänencontrolleroptionen für den neuen Domänencontroller eingeben. Die konfigurierbaren Domänencontrolleroptionen lauten **DNS-Server** und **Globaler Katalog**. Das Konfigurieren eines schreibgeschützten Domänencontrollers als ersten Domänencontroller in einer neuen Domäne ist nicht möglich.  
   
@@ -157,7 +157,7 @@ Das ADDSDeployment-Modul bietet eine zusätzliche Option zum Überspringen der a
 ```  
   
 ### <a name="dns-options-and-dns-delegation-credentials"></a>DNS-Optionen und DNS-Delegierungs-Anmeldeinformationen  
-![Installieren Sie eine neue AD untergeordnete](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildDNSOptions.png)  
+![Neues untergeordnetes Ad-Element installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildDNSOptions.png)  
   
 Auf der Seite **DNS-Optionen** können Sie alternative DNS-Administratoranmeldeinformationen für die Delegierung einrichten.  
   
@@ -173,7 +173,7 @@ Die Argumente des Windows PowerShell-Cmdlets "ADDSDeployment" für die **DNS-Opt
 Weitere Informationen zur DNS-Delegierung finden Sie unter [Grundlegendes zur Zonendelegierung](https://technet.microsoft.com/library/cc771640.aspx).  
   
 ### <a name="additional-options"></a>Zusätzliche Optionen  
-![Installieren Sie eine neue AD untergeordnete](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildAdditionalOptions.png)  
+![Neues untergeordnetes Ad-Element installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildAdditionalOptions.png)  
   
 Auf der Seite **Zusätzliche Optionen** wird der NetBIOS-Name der Domäne angezeigt, und es besteht die Möglichkeit, den Namen zu überschreiben. Standardmäßig stimmt der NetBIOS-Domänenname mit dem linken Teil des vollqualifizierten Domänennamens überein, der auf der Seite **Bereitstellungskonfiguration** eingegeben wurde. Wenn Sie z. B. den vollqualifizierten Domänennamen corp.contoso.com eingegeben haben, dann ist der Standard-NetBIOS-Name CORP.  
   
@@ -198,7 +198,7 @@ Das ADDSDeployment Windows PowerShell-Argument für **Zusätzliche Optionen** is
 ```  
   
 ### <a name="paths"></a>Pfade  
-![Installieren Sie eine neue AD untergeordnete](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_UpgradePaths.png)  
+![Neues untergeordnetes Ad-Element installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_UpgradePaths.png)  
   
 Auf der Seite **Pfade** können Sie die standardmäßigen Ordnerpfade der AD DS-Datenbank, der Datenbankprotokolle und der SYSVOL-Freigabe überschreiben. Die Standardspeicherorte befinden sich grundsätzlich in Unterverzeichnissen von %systemroot%.  
   
@@ -211,7 +211,7 @@ Die **Pfade** -Argumente für das Cmdlet „ADDSDeployment“ sind:
 ```  
   
 ### <a name="review-options-and-view-script"></a>Optionen prüfen und Skript anzeigen  
-![Installieren Sie eine neue AD untergeordnete](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildReviewOptions.png)  
+![Neues untergeordnetes Ad-Element installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildReviewOptions.png)  
   
 Auf der Seite **Optionen prüfen** können Sie vor dem Starten der Installation Ihre Einstellungen überprüfen und sicherstellen, dass Ihre Anforderungen erfüllt werden. Dies ist jedoch nicht die letzte Möglichkeit, um die Installation mit Server-Manager zu stoppen. Dies ist lediglich eine Option zum Bestätigen Ihrer Einstellungen, bevor Sie die Konfiguration fortsetze  
   
@@ -247,10 +247,10 @@ Install-ADDSDomain `
   
 Verwenden Sie das optionale **Whatif** -Argument für das Cmdlet **Install-ADDSForest** , um die Konfigurationsinformationen zu überprüfen. Auf diese Weise können Sie die impliziten und expliziten Argumentwerte für ein Cmdlet anzeigen.  
   
-![Installieren Sie eine neue AD untergeordnete](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildWhatIf.png)  
+![Neues untergeordnetes Ad-Element installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildWhatIf.png)  
   
 ### <a name="prerequisites-check"></a>Voraussetzungsüberprüfung  
-![Installieren Sie eine neue AD untergeordnete](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildPrereqCheck.png)  
+![Neues untergeordnetes Ad-Element installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildPrereqCheck.png)  
   
 Die **Voraussetzungsüberprüfung** ist ein neues Feature in der AD DS-Domänenkonfiguration. Diese neue Phase prüft, ob die Serverkonfiguration in der Lage ist, eine neue AD DS-Domäne zu unterstützen.  
   
@@ -272,7 +272,7 @@ Bei Verwendung des Server-Managers können Sie die **Voraussetzungsüberprüfung
 Klicken Sie auf **Installieren**, um mit der Domänencontroller-Heraufstufung zu beginnen. Dies ist die letzte Gelegenheit, um die Installation abzubrechen. Der Heraufstufungsprozess kann während der Ausführung nicht unterbrochen werden. Der Computer wird nach der Heraufstufung automatisch neu gestartet, unabhängig von deren Ergebnis.  
   
 ### <a name="installation"></a>Installation  
-![Installieren Sie eine neue AD untergeordnete](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildInstallation.png)  
+![Neues untergeordnetes Ad-Element installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildInstallation.png)  
   
 Wenn die Seite **Installation** angezeigt wird, beginnt die Konfiguration des Domänencontrollers und kann nicht angehalten oder abgebrochen werden. Detaillierte Informationen werden auf dieser Seite angezeigt und in die Protokolle geschrieben:  
   
@@ -288,9 +288,9 @@ Install-addsdomain
   
 Siehe [Untergeordnete und Strukturdomänen in Windows PowerShell](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md#BKMK_PS) für benötigte und optionale Argumente. Das **Install-addsdomain**-Cmdlet besteht nur aus zwei Phasen (Voraussetzungsüberprüfung und Installation). Die beiden folgenden Abbildungen zeigen die Installationsphase mit den benötigten Mindestargumenten **-domaintype**, **-newdomainname**, -**parentdomainname** und **-credential**. Ebenso wie beim Server-Manager werden Sie von **Install-ADDSDomain** darauf hingewiesen, dass der Server beim Heraufstufen automatisch neu gestartet wird.  
   
-![Installieren Sie eine neue AD untergeordnete](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_PSInstallADDSDomain.png)  
+![Neues untergeordnetes Ad-Element installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_PSInstallADDSDomain.png)  
   
-![Installieren Sie eine neue AD untergeordnete](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_PSInstallADDSDomainProgress.png)  
+![Neues untergeordnetes Ad-Element installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_PSInstallADDSDomainProgress.png)  
   
 Mit dem **-force** -Argument oder dem **-confirm:$false** -Argument können Sie den Neustart in allen Windows PowerShell-Cmdlets vom Typ „ADDSDeployment“ automatisch akzeptieren. Verwenden Sie das **-norebootoncompletion**-Argument, um den automatischen Neustart am Ende der Heraufstufung zu verhindern.  
   
@@ -298,7 +298,7 @@ Mit dem **-force** -Argument oder dem **-confirm:$false** -Argument können Sie 
 > Es wird davon abgeraten, den Neustart zu verhindern. Der Domänencontroller muss neu gestartet werden, um korrekt zu funktionieren  
   
 ### <a name="results"></a>Ergebnisse  
-![Installieren Sie eine neue AD untergeordnete](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ForestSignOff.png)  
+![Neues untergeordnetes Ad-Element installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ForestSignOff.png)  
   
 Auf der Seite **Ergebnisse** werden Erfolg bzw. Misserfolg der Heraufstufung sowie alle wichtigen Administrationsinformationen angezeigt. Der Domänencontroller wird automatisch nach 10 Sekunden neu gestartet.  
   

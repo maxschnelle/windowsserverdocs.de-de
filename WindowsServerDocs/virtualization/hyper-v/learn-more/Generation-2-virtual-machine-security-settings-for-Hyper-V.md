@@ -1,7 +1,7 @@
 ---
-title: Generation 2 VM-Sicherheitseinstellungen für Hyper-V
-description: Beschreibt die Sicherheitseinstellungen, die in Hyper-V-Manager für virtuelle Maschinen der Generation 2 verfügbar
-ms.prod: windows-server-threshold
+title: Sicherheitseinstellungen für virtuelle Computer der Generation 2 für Hyper-V
+description: Beschreibt die Sicherheitseinstellungen, die im Hyper-V-Manager für virtuelle Maschinen der Generation 2 verfügbar sind
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,61 +11,61 @@ ms.assetid: 06ab4f5f-6b8e-4058-8108-76785aa93d4c
 author: larsiwer
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: 90a2b7234ee55d8469b6e02ba3de3a0efc080a3e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 82544a58a8d46b3063605557be3c63cfa799e4fb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889501"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364238"
 ---
-# <a name="generation-2-virtual-machine-security-settings-for-hyper-v"></a>Generation 2 VM-Sicherheitseinstellungen für Hyper-V
+# <a name="generation-2-virtual-machine-security-settings-for-hyper-v"></a>Sicherheitseinstellungen für virtuelle Computer der Generation 2 für Hyper-V
 
->Gilt für: WindowsServer 2016 wird Microsoft Hyper-V Server 2016, WindowsServer 2019, Microsoft Hyper-V-Server 2019
+>Gilt für: Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
-Verwenden Sie die Sicherheitseinstellungen für den virtuellen Computer in Hyper-V-Manager, zum Schutz der Daten und des Status eines virtuellen Computers. Sie können virtuelle Computer schützen, von der Untersuchung, Diebstahl und Manipulation von Schadsoftware, die auf dem Host, und Administratoren im Rechenzentrum ausgeführt werden kann. Die Sicherheitsstufe, die Sie erhalten, hängt von der Hosthardware, die Sie die Generation des virtuellen Computers ausgeführt, ein, und, ob Sie den Dienst wird aufgerufen, die Host-Überwachungsdienst einrichten autorisiert, die Hosts abgeschirmte virtuelle Computer zu starten.  
+Verwenden Sie die Sicherheitseinstellungen des virtuellen Computers im Hyper-V-Manager, um die Daten und den Zustand einer virtuellen Maschine zu schützen. Sie können virtuelle Computer vor Untersuchung, Diebstahl und Manipulation durch Schadsoftware schützen, die auf dem Host ausgeführt werden kann, und Daten Center Administratoren. Die Sicherheitsstufe, die Sie erhalten, hängt von der Host Hardware, die Sie ausführen, von der Generierung des virtuellen Computers und davon ab, ob Sie den Dienst einrichten, der als Host-Überwachungsdienst bezeichnet wird, der Hosts autorisiert, abgeschirmte virtuelle Computer zu starten.  
 
-Host-Überwachungsdienst ist eine neue Rolle in Windows Server 2016. Es gibt berechtigte Hyper-V-Hosts und können sie einen bestimmten virtuellen Computer ausgeführt. Sie würden am häufigsten von Host-Überwachungsdienst für ein Datencenter einrichten. Aber Sie können eine geschützte virtuelle Maschine, um sie lokal auszuführen, ohne das Einrichten einer Host-Überwachungsdienst erstellen. Sie können später die geschützte virtuelle Maschine mit einem Host-Überwachungsdienst-Fabric verteilen.  
+Der Host-Überwachungsdienst ist eine neue Rolle in Windows Server 2016. Es identifiziert legitime Hyper-V-Hosts und ermöglicht Ihnen die Durchführung einer bestimmten virtuellen Maschine. Am häufigsten richten Sie den Host-Überwachungsdienst für ein Daten Center ein. Sie können jedoch einen abgeschirmten virtuellen Computer erstellen, um ihn lokal auszuführen, ohne einen Host-Überwachungsdienst einzurichten. Sie können den abgeschirmten virtuellen Computer später an ein Host-überwachungsfabric verteilen.  
 
-Wenn Sie Host-Überwachungsdienst eingerichtet haben, oder führen sie im lokalen Modus auf dem Hyper-V-Host und überwachungsschlüssels für den Besitzer des virtuellen Computers auf dem Host ist, können Sie die in diesem Thema beschriebenen Einstellungen ändern.   Besitzer eines Schlüssels Überwachungsdienst ist eine Organisation, die erstellt und Freigaben, die ein privater oder öffentlicher Schlüssel, besitzen alle virtuellen Computer mit diesem Schlüssel erstellt.  
+Wenn Sie den Host-Überwachungsdienst nicht eingerichtet haben oder ihn im lokalen Modus auf dem Hyper-V-Host ausführen und der Host den Wächter Schlüssel des virtuellen Computers besitzt, können Sie die in diesem Thema beschriebenen Einstellungen ändern.   Ein Besitzer eines Wächter Schlüssels ist eine Organisation, die einen privaten oder öffentlichen Schlüssel erstellt und freigibt, um alle mit diesem Schlüssel erstellten virtuellen Computer zu besitzen.  
 
-Um zu erfahren, wie Sie Ihre virtuellen Computer mit Host-Überwachungsdienst sicherer machen können, finden Sie unter den folgenden Ressourcen.  
+Informationen dazu, wie Sie Ihre virtuellen Computer mit dem Host-Überwachungsdienst sicherer machen können, finden Sie in den folgenden Ressourcen.  
 
-- [Absichern des Fabrics: Schützen die Mandanten-Geheimnisse in Hyper-V (Ignite-video)](https://go.microsoft.com/fwlink/?LinkId=746379)
-- [Geschütztes Fabric und abgeschirmte VMs](https://go.microsoft.com/fwlink/?LinkId=746381)
+- [„Harden the Fabric: Schützen von Mandanten Geheimnissen in Hyper-V (Ignite-Video) ](https://go.microsoft.com/fwlink/?LinkId=746379)
+- [Geschütztes Fabric und abgeschirmte VMS](https://go.microsoft.com/fwlink/?LinkId=746381)
 
-## <a name="secure-boot-setting-in-hyper-v-manager"></a>Secure Boot-Einstellung im Hyper-V-Manager  
+## <a name="secure-boot-setting-in-hyper-v-manager"></a>Einstellung für den sicheren Start im Hyper-V-Manager  
 
-Der sichere Start ist ein Feature, mit virtuellen Maschinen der Generation 2 zur Verfügung, das wird verhindert, dass nicht autorisierte Firmware, Betriebssysteme oder Unified Extensible Firmware Interface (UEFI)-Treiber (auch bekannt als Options-ROMs) zur Startzeit ausgeführt. Der sichere Start ist standardmäßig aktiviert. Sie können der sichere Start mit virtuellen Maschinen der Generation 2 verwenden, auf denen Windows oder Linux-Distribution-Betriebssystemen ausgeführt.  
+Der sichere Start ist ein Feature, das bei virtuellen Computern der Generation 2 verfügbar ist, mit denen verhindert wird, dass nicht autorisierte Firmware, Betriebssysteme oder Unified Extensible Firmware Interface (UEFI)-Treiber (auch als Options-Roms bezeichnet) zur Startzeit ausgeführt werden. Der sichere Start ist standardmäßig aktiviert. Sie können den sicheren Start mit virtuellen Computern der Generation 2 verwenden, auf denen Windows-oder Linux-Verteilungs Betriebssysteme ausgeführt werden.  
 
-Die in der folgenden Tabelle beschriebenen Vorlagen finden Sie in der Zertifikate, die Sie zum Überprüfen der Integrität des Startvorgangs benötigen.  
+Die in der folgenden Tabelle beschriebenen Vorlagen beziehen sich auf die Zertifikate, die Sie benötigen, um die Integrität des Startvorgangs zu überprüfen.  
 
 |Vorlagenname|Beschreibung|  
 |-----------------|---------------|  
-|Microsoft Windows|Wählen Sie den virtuellen Computer für ein Windows-Betriebssystem, für den sicheren Start.|  
-|Microsoft-UEFI-Zertifizierungsstelle|Wählen Sie für den sicheren Start des virtuellen Computers für eine Linux-Distribution-Betriebssystem.|  
-|Open-Source-abgeschirmte VM|Mit dieser Vorlage wird genutzt, um den sicheren Start für [Linux-basierte abgeschirmte VMs](https://docs.microsoft.com/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-create-a-linux-shielded-vm-template).|
+|Microsoft Windows|Wählen Sie diese Option aus, um den virtuellen Computer für ein Windows-Betriebssystem zu starten.|  
+|Microsoft UEFI-Zertifizierungsstelle|Wählen Sie diese Option aus, um den virtuellen Computer für ein Linux-Verteilungs Betriebssystem zu schützen.|  
+|Geschützte Open Source-VM|Diese Vorlage wird zum Sichern des Starts für [Linux-basierte abgeschirmte VMS](https://docs.microsoft.com/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-create-a-linux-shielded-vm-template)genutzt.|
 
 Weitere Informationen finden Sie in den folgenden Themen.  
 
-- [Sicherheitsübersicht für Windows 10](https://docs.microsoft.com/windows/security/threat-protection/overview-of-threat-mitigations-in-windows-10)  
-- [Sollte ich virtuelle Computer der Generation 1 oder 2 in Hyper-V erstellen?](../plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md)  
-- [Linux- und FreeBSD-Maschinen in Hyper-V](../Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)  
+- [Übersicht über die Sicherheit in Windows 10](https://docs.microsoft.com/windows/security/threat-protection/overview-of-threat-mitigations-in-windows-10)  
+- [Sollte ich einen virtuellen Computer der Generation 1 oder 2 in Hyper-V erstellen?](../plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md)  
+- [Linux-und FreeBSD-Virtual Machines unter Hyper-V](../Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)  
 
-## <a name="encryption-support-settings-in-hyper-v-manager"></a>Unterstützung der verschlüsselungseinstellungen im Hyper-V-Manager
+## <a name="encryption-support-settings-in-hyper-v-manager"></a>Verschlüsselungs Unterstützungs Einstellungen in Hyper-V-Manager
 
-Sie können dazu die folgenden Verschlüsselungsoptionen für die Unterstützung der Daten und des Status des virtuellen Computers zu schützen.  
+Sie können zum Schutz der Daten und des Zustands des virtuellen Computers beitragen, indem Sie die folgenden Optionen für die Verschlüsselungs Unterstützung auswählen.  
 
-- **Aktivieren von Trusted Platform Module** -diese Einstellung wird einen virtualisierte Trusted Platform Module (TPM)-Chip zur Verfügung, mit dem virtuellen Computer. Dadurch wird den Gast Datenträger des virtuellen Computers mit BitLocker verschlüsselt.
-  - Wenn Ihre Hyper-V-Host mit Windows 10 1511 ausgeführt wird, müssen Sie isolierten Benutzermodus zu aktivieren. 
-- **Verschlüsseln von Status und die VM-Migration-Traffic** - verschlüsselt-Status des virtuellen Computers gespeichert und livemigrations-Datenverkehr.
+- **Trusted Platform Module aktivieren** : bei dieser Einstellung wird dem virtuellen Computer ein virtualisierter Trusted Platform Module (TPM)-Chip zur Verfügung gestellt. Dies ermöglicht es dem Gast, den Datenträger des virtuellen Computers mithilfe von BitLocker zu verschlüsseln.
+  - Wenn auf Ihrem Hyper-V-Host Windows 10 1511 ausgeführt wird, müssen Sie den isolierten Benutzermodus aktivieren. 
+- **Verschlüsseln von Zustands-und VM-Migrations Datenverkehr** : verschlüsselt den gespeicherten Zustand des virtuellen Computers und den Datenverkehr für die Live Migration.
 
-### <a name="enable-isolated-user-mode"></a>Isolierter Benutzermodus aktivieren
+### <a name="enable-isolated-user-mode"></a>Isolierten Benutzermodus aktivieren
 
-Bei Auswahl von **aktivieren Trusted Platform Module** auf Hyper-V-Hosts, auf denen Versionen von Windows vor Windows 10 Anniversary Update ausgeführt, müssen Sie die isolierten Benutzermodus aktivieren. Sie müssen nicht dies tun, Hyper-V-Hosts, Ausführen von Windows Server 2016 oder Windows 10 Anniversary Update oder höher.
+Wenn Sie Trusted Platform Module auf Hyper-V-Hosts **aktivieren** , auf denen ältere Windows-Versionen als Windows 10 Anniversary Update ausgeführt werden, müssen Sie den isolierten Benutzermodus aktivieren. Dies ist für Hyper-V-Hosts, auf denen Windows Server 2016 oder Windows 10 Anniversary Update oder höher ausgeführt wird, nicht erforderlich.
 
-Isolierter Benutzermodus ist die Runtime-Umgebung, die Anwendungen innerhalb virtueller sicherer Modus auf dem Hyper-V-Host hostet. Virtueller sicherer Modus dient zum Sichern und schützen den Status des virtuellen TPM-Chips.  
+Der isolierte Benutzermodus ist die Laufzeitumgebung, die Sicherheitsanwendungen im virtuellen sicheren Modus auf dem Hyper-V-Host hostet. Der virtuelle sichere Modus wird verwendet, um den Status des virtuellen TPM-Chips zu sichern und zu schützen.  
 
-So aktivieren Sie isolierten Benutzermodus, auf dem Hyper-V-Host, auf denen frühere Versionen von Windows 10 ausgeführt,  
+So aktivieren Sie den isolierten Benutzermodus auf dem Hyper-V-Host, auf dem frühere Versionen von Windows 10 ausgeführt werden  
 
 1.  Öffnen Sie die Windows PowerShell als Administrator.  
 
@@ -78,11 +78,11 @@ So aktivieren Sie isolierten Benutzermodus, auf dem Hyper-V-Host, auf denen frü
 
     ```  
 
-Sie können einen virtuellen Computer migrieren, mit virtuellen TPM aktiviert, um alle Hosts, die die Ausführung von Windows Server 2016, Windows 10 build 10586 oder höhere Versionen. Aber wenn Sie es auf einen anderen Host migrieren, möglicherweise nicht gestartet werden können. Sie müssen die Schlüsselschutzvorrichtung für die virtuelle Maschine zum Autorisieren des neuen Hosts zum Ausführen des virtuellen Computers aktualisieren. Weitere Informationen finden Sie unter [geschützten Fabric und abgeschirmte VMs](https://go.microsoft.com/fwlink/?LinkId=746381) und [Systemanforderungen für Hyper-V unter Windows Server](../System-requirements-for-Hyper-V-on-Windows.md).  
+Sie können einen virtuellen Computer mit aktiviertem virtuellem TPM zu einem beliebigen Host migrieren, auf dem Windows Server 2016, Windows 10 Build 10586 oder höhere Versionen ausgeführt werden. Wenn Sie Sie jedoch zu einem anderen Host migrieren, können Sie Sie möglicherweise nicht starten. Sie müssen die Schlüssel Schutzvorrichtung für diesen virtuellen Computer aktualisieren, um den neuen Host zum Ausführen der virtuellen Maschine zu autorisieren. Weitere Informationen finden Sie unter geschütztes [Fabric und abgeschirmte VMS](https://go.microsoft.com/fwlink/?LinkId=746381) und [System Anforderungen für Hyper-V unter Windows Server](../System-requirements-for-Hyper-V-on-Windows.md).  
 
-## <a name="security-policy-in-hyper-v-manager"></a>Die Sicherheitsrichtlinien in Hyper-V-Manager  
-Verwenden Sie für weitere VM-Sicherheit, die **Schutz aktivieren** Option aus, um Verwaltungsfunktionen wie Konsolenverbindung, PowerShell Direct und einige Komponenten zu deaktivieren. Bei Auswahl dieser Option **sicherer Start**, **aktivieren Trusted Platform Module**, und **Encrypt-Status und die VM-Migration-Traffic** Optionen aktiviert und erzwungen werden.   
+## <a name="security-policy-in-hyper-v-manager"></a>Sicherheitsrichtlinie im Hyper-V-Manager  
+Verwenden Sie für eine höhere Sicherheit der virtuellen Computer die Option Schutz **aktivieren** , um Verwaltungsfunktionen wie Konsolen Verbindung, PowerShell Direct und einige Integrations Komponenten zu deaktivieren. Wenn Sie diese Option auswählen, werden die Optionen " **sicherer Start**", " **Trusted Platform Module aktivieren**" und " **Verschlüsselungs Status und VM-Migration** " ausgewählt und erzwungen.   
 
-Sie können die abgeschirmten virtuellen Computer lokal ausführen, ohne eine Host-Überwachungsdienst einrichten zu müssen. Aber wenn Sie es auf einen anderen Host migrieren, möglicherweise nicht gestartet werden können. Sie müssen die Schlüsselschutzvorrichtung für die virtuelle Maschine zum Autorisieren des neuen Hosts zum Ausführen des virtuellen Computers aktualisieren. Weitere Informationen finden Sie unter [Geschütztes Fabric und abgeschirmte VMs](https://go.microsoft.com/fwlink/?LinkId=746381).  
+Sie können den abgeschirmten virtuellen Computer lokal ausführen, ohne einen Host-Überwachungsdienst einzurichten. Wenn Sie Sie jedoch zu einem anderen Host migrieren, können Sie Sie möglicherweise nicht starten. Sie müssen die Schlüssel Schutzvorrichtung für diesen virtuellen Computer aktualisieren, um den neuen Host zum Ausführen der virtuellen Maschine zu autorisieren. Weitere Informationen finden Sie unter [Geschütztes Fabric und abgeschirmte VMs](https://go.microsoft.com/fwlink/?LinkId=746381).  
 
-Weitere Informationen zur Sicherheit in Windows Server finden Sie unter [Sicherheit und Zusicherungen](../../../security/Security-and-Assurance.md).  
+Weitere Informationen zur Sicherheit in Windows Server finden Sie unter [Sicherheit und](../../../security/Security-and-Assurance.md)Sicherheit.  

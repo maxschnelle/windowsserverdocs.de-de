@@ -7,80 +7,80 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 909be9e4bbcd12b00fd60ff061b1f4e2ede34546
-ms.sourcegitcommit: 8eea7aadbe94f5d4635c4ffedc6a831558733cc0
+ms.openlocfilehash: 4539e8abd1af1eca7bacb51971e6d355bb0aab28
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66308539"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407653"
 ---
 # <a name="create-a-claims-provider-trust"></a>Erstellen einer Anspruchsanbieter-Vertrauensstellung
 
-Zum Hinzufügen einer neuen Anspruchsanbieter-Vertrauensstellung mithilfe der AD FS-Verwaltungs-Snap\-in und manuell konfigurieren Sie die Einstellungen, führen Sie das folgende Verfahren auf einen Ressourcenverbundserver für Partner in der Ressourcenpartnerorganisation.  
+Zum Hinzufügen einer neuen Anspruchs Anbieter-Vertrauensstellung mithilfe des AD FS-Verwaltungs-Snap @ no__t-0in und manuelles Konfigurieren der Einstellungen führen Sie das folgende Verfahren auf einem Ressourcen Partner Verbund Server in der Ressourcen Partnerorganisation aus.  
   
-Mitgliedschaft in **Administratoren**, oder einer entsprechenden, auf dem lokalen Computer die Mindestanforderung zum Ausführen dieses Verfahrens.  Weitere Informationen zur Verwendung der geeigneten Konten und Gruppenmitgliedschaften unter [lokale und Domänenstandardgruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Sie müssen mindestens Mitglied der Gruppe **Administratoren**oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
 ## <a name="to-create-a-claims-provider-trust-manually"></a>So erstellen Sie manuell eine Anspruchsanbieter-Vertrauensstellung  
   
-1.  Klicken Sie im Server-Manager **Tools**, und wählen Sie dann **AD FS-Verwaltung**.  
+1.  Klicken Sie in Server-Manager **auf Extras**, und wählen Sie dann **AD FS Verwaltung**aus.  
   
-2.  Klicken Sie unter **Aktionen**, klicken Sie auf **Anspruchsanbieter-Vertrauensstellung hinzufügen**.  
-![Anspruchsanbieter-Vertrauensstellung](media/Create-a-Claims-Provider-Trust/addclaim1.PNG)   
+2.  Klicken Sie unter **Aktionen**auf **Anspruchs Anbieter-Vertrauensstellung hinzufügen**.  
+![anspruchs Anbieter-Vertrauensstellung @ no__t-1   
   
 3.  Klicken Sie auf der Seite **Willkommen** auf **Start**. 
-![Anspruchsanbieter-Vertrauensstellung](media/Create-a-Claims-Provider-Trust/addclaim2.PNG)    
+![anspruchs Anbieter-Vertrauensstellung @ no__t-1    
   
 4.  Klicken Sie auf der Seite **Datenquelle auswählen** auf **Daten über die Anspruchsanbieter-Vertrauensstellung manuell eingeben**, und klicken Sie anschließend auf **Weiter**.  
-![Anspruchsanbieter-Vertrauensstellung](media/Create-a-Claims-Provider-Trust/addclaim3.PNG)     
+![anspruchs Anbieter-Vertrauensstellung @ no__t-1     
 
 5.  Geben Sie auf der Seite **Anzeigename angeben** einen **Anzeigenamen** und unter **Anmerkungen** eine Beschreibung für diese Anspruchsanbieter-Vertrauensstellung ein, und klicken Sie dann auf **Weiter**.  
-![Anspruchsanbieter-Vertrauensstellung](media/Create-a-Claims-Provider-Trust/addclaim4.PNG)     
+![anspruchs Anbieter-Vertrauensstellung @ no__t-1     
 
-6.  Auf der **-URL konfigurieren** Seite die **URL des passiven WS-Verbund** ggf., und klicken Sie auf **Weiter**.
-![Anspruchsanbieter-Vertrauensstellung](media/Create-a-Claims-Provider-Trust/addclaim5.PNG)     
+6.  Geben Sie auf der Seite **URL konfigurieren** die **passive WS-Verbund-URL** an, sofern zutreffend, und klicken Sie auf **weiter**.
+![anspruchs Anbieter-Vertrauensstellung @ no__t-1     
 
 8. Geben Sie auf der Seite **Bezeichner konfigurieren** unter **Bezeichner für Anspruchsanbieter-Vertrauensstellung:** den entsprechenden Bezeichner ein, und klicken Sie dann auf **Weiter**.  
-![Anspruchsanbieter-Vertrauensstellung](media/Create-a-Claims-Provider-Trust/addclaim6.PNG)    
+![anspruchs Anbieter-Vertrauensstellung @ no__t-1    
 
 9. Klicken Sie auf der Seite **Zertifikate konfigurieren** auf **Hinzufügen**, um zu einer Zertifikatdatei zu navigieren und sie zur Zertifikatliste hinzuzufügen. Klicken Sie anschließend auf **Weiter**.  
-![Anspruchsanbieter-Vertrauensstellung](media/Create-a-Claims-Provider-Trust/addclaim7.PNG)    
+![anspruchs Anbieter-Vertrauensstellung @ no__t-1    
 
 10. Klicken Sie auf der Seite **Bereit zum Hinzufügen der Vertrauensstellung** auf **Weiter**, um die Informationen zur Anspruchsanbieter-Vertrauensstellung zu speichern.  
-![Anspruchsanbieter-Vertrauensstellung](media/Create-a-Claims-Provider-Trust/addclaim8.PNG)    
+![anspruchs Anbieter-Vertrauensstellung @ no__t-1    
 
-11. Klicken Sie auf der Seite **Fertig stellen** auf **Schließen**. Dadurch wird automatisch das Dialogfeld **Anspruchsregeln bearbeiten** angezeigt. Weitere Informationen zum Hinzufügen Anspruchsregeln für diese Anspruchsanbieter-Vertrauensstellung, finden Sie die folgenden zusätzliche Verweise.  
-![Anspruchsanbieter-Vertrauensstellung](media/Create-a-Claims-Provider-Trust/addclaim9.PNG)
+11. Klicken Sie auf der Seite **Fertig stellen** auf **Schließen**. Dadurch wird automatisch das Dialogfeld **Anspruchsregeln bearbeiten** angezeigt. Weitere Informationen dazu, wie Sie mit dem Hinzufügen von Anspruchs Regeln für diese Anspruchs Anbieter-Vertrauensstellung fortfahren, finden Sie in den folgenden zusätzlichen verweisen.  
+![anspruchs Anbieter-Vertrauensstellung @ no__t-1
 
-## <a name="to-create-a-claims-provider-trust-using-federation-metadata"></a>Zum Erstellen einer Anspruchsanbieter-Vertrauensstellung mithilfe von Verbundmetadaten
-Zum Hinzufügen einer neuen Anspruchsanbieter-Vertrauensstellung, verwenden das AD FS-Verwaltungs-Snap-in, automatisches Importieren von Konfigurationsdaten zum Partner aus Verbundmetadaten, die der Partner in einem lokalen Netzwerk oder im Internet veröffentlicht hat führen Sie das folgende Verfahren auf einem der Verbundserver in der Ressourcenpartnerorganisation.
+## <a name="to-create-a-claims-provider-trust-using-federation-metadata"></a>So erstellen Sie eine Anspruchs Anbieter-Vertrauensstellung mithilfe von Verbund Metadaten
+Zum Hinzufügen einer neuen Anspruchs Anbieter-Vertrauensstellung verwenden Sie das Snap-in "AD FS-Verwaltung", indem Sie Konfigurationsdaten zum Partner aus Verbund Metadaten, die der Partner in einem lokalen Netzwerk oder im Internet veröffentlicht hat, automatisch importieren. führen Sie dazu das folgende Verfahren auf einem Verbund Server in der Ressourcen Partnerorganisation.
 
 >[!NOTE]
->Wenn sie lange gängige Praxis, Zertifikate mit nicht qualifizierten Hostnamen wie Https verwendet wurde:\//myserver, diese Zertifikate haben keinen Sicherheitswert und können einem Angreifer ermöglichen, einen Verbunddienst zu imitieren, der Verbundmetadaten veröffentlicht die Metadaten. Aus diesem Grund beim Abfragen von Verbundmetadaten, Sie sollten nur verwenden einen vollständig qualifizierten Domänennamen wie z. B. `https://myserver.contoso.com`.
+>Obwohl es seit langem üblich ist, Zertifikate mit nicht qualifizierten Hostnamen wie z. b. https: \//MyServer zu verwenden, haben diese Zertifikate keinen Sicherheitswert und können einem Angreifer ermöglichen, die Identität eines Verbunddienst zu annehmen, der den Verbund veröffentlicht. benötigten. Daher sollten Sie beim Abfragen von Verbund Metadaten nur einen voll qualifizierten Domänen Namen wie `https://myserver.contoso.com` verwenden.
 
-1.  Klicken Sie im Server-Manager **Tools**, und wählen Sie dann **AD FS-Verwaltung**.  
+1.  Klicken Sie in Server-Manager **auf Extras**, und wählen Sie dann **AD FS Verwaltung**aus.  
   
-2.  Klicken Sie unter **Aktionen**, klicken Sie auf **Anspruchsanbieter-Vertrauensstellung hinzufügen**.  
-![Anspruchsanbieter-Vertrauensstellung](media/Create-a-Claims-Provider-Trust/addclaim1.PNG)   
+2.  Klicken Sie unter **Aktionen**auf **Anspruchs Anbieter-Vertrauensstellung hinzufügen**.  
+![anspruchs Anbieter-Vertrauensstellung @ no__t-1   
   
 3.  Klicken Sie auf der Seite **Willkommen** auf **Start**. 
-![Anspruchsanbieter-Vertrauensstellung](media/Create-a-Claims-Provider-Trust/addclaim2.PNG)    
+![anspruchs Anbieter-Vertrauensstellung @ no__t-1    
   
-4.  Klicken Sie auf der Seite **Datenquelle auswählen** auf **Online oder in einem lokalen Netzwerk veröffentlichte Daten über den Anspruchsanbieter importieren**. Geben Sie im Verbund Metadatenaustausch-Adresse (Hostname oder URL), die **Verbundmetadaten-URL der** oder den Hostnamen für den Partner, und klicken Sie dann auf **Weiter**.
-![Anspruchsanbieter-Vertrauensstellung](media/Create-a-Claims-Provider-Trust/addclaim10.PNG)    
+4.  Klicken Sie auf der Seite **Datenquelle auswählen** auf **Online oder in einem lokalen Netzwerk veröffentlichte Daten über den Anspruchsanbieter importieren**. Geben Sie in Verbund Metadaten-Adresse (Hostname oder URL) die Verbund **Metadaten-URL** oder den Hostnamen für den Partner ein, und klicken Sie dann auf **weiter**.
+![anspruchs Anbieter-Vertrauensstellung @ no__t-1    
 
-5.  Klicken Sie auf den Anzeigenamen angeben Seite Art einer **Anzeigenamen**, geben Sie unter Anmerkungen eine Beschreibung für diese Anspruchsanbieter-Vertrauensstellung ein, und klicken Sie dann auf **Weiter**.
+5.  Geben Sie auf der Seite Anzeige Name angeben einen **anzeigen Amen**ein, geben Sie unter Notes eine Beschreibung für diese Anspruchs Anbieter-Vertrauensstellung ein, und klicken Sie dann auf **weiter**.
 
-6.  Klicken Sie auf der Seite bereit zum Hinzufügen der Vertrauensstellung auf **Weiter** von Ansprüchen vertrauen Anbieterinformationen gespeichert.
+6.  Klicken Sie auf der Seite bereit zum Hinzufügen der Vertrauensstellung auf **weiter** , um die Vertrauens Informationen Ihres Anspruchs Anbieters zu speichern.
 
-7.  Klicken Sie auf der Seite zum Fertigstellen auf **schließen**. Dadurch wird automatisch das Dialogfeld "Anspruchsregeln bearbeiten" angezeigt. Weitere Informationen zum Hinzufügen Anspruchsregeln für diese Anspruchsanbieter-Vertrauensstellung, finden Sie im Abschnitt Weitere Verweise.
+7.  Klicken Sie auf der Seite Fertigstellen auf **Schließen**. Dadurch wird automatisch das Dialogfeld "Anspruchs Regeln bearbeiten" angezeigt. Weitere Informationen zum Hinzufügen von Anspruchs Regeln für diese Anspruchs Anbieter-Vertrauensstellung finden Sie im Abschnitt Zusätzliche Verweise weiter unten.
 
 
 
     
 ## <a name="additional-references"></a>Weitere Verweise  
-[Prüfliste: Konfigurieren der Ressourcenpartnerorganisation](../../ad-fs/deployment/Checklist--Configuring-the-Resource-Partner-Organization.md)  
+[Prüfliste: Konfigurieren der Ressourcen Partner Organisation @ no__t-0  
   
 [Prüfliste: Erstellen von Anspruchsregeln für eine Anspruchsanbieter-Vertrauensstellung](../../ad-fs/deployment/Checklist--Creating-Claim-Rules-for-a-Claims-Provider-Trust.md)  
   

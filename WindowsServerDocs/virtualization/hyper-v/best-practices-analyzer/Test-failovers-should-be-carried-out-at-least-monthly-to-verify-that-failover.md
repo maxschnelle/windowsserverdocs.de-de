@@ -1,7 +1,7 @@
 ---
-title: Test-Failover sollte mindestens einmal monatlich durchgeführt werden, um sicherzustellen, dass das Failover erfolgreich ausgeführt, und, dass Workloads auf virtuellen Computern, als ausgeführt werden nach dem Failover erwartet
-description: Die Onlineversion des Texts für diese Best Practices Analyzer-Regel.
-ms.prod: windows-server-threshold
+title: Test Failover sollten mindestens monatlich durchgeführt werden, um zu überprüfen, ob das Failover erfolgreich ist und die Arbeits Auslastungen virtueller Computer nach dem Failover erwartungsgemäß ausgeführt werden.
+description: Online Version des Texts für diese Best Practices Analyzer Regel.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,38 +10,38 @@ ms.topic: article
 ms.assetid: 57a8aa50-e59e-4a4b-8571-1099d5a8eee4
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 879c860caede942393f0929faab9e4d567f225a6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c7f7c0e1076358ef417b4d98632bd65257989df3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856141"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393456"
 ---
-# <a name="test-failovers-should-be-carried-out-at-least-monthly-to-verify-that-failover-will-succeed-and-that-virtual-machine-workloads-will-operate-as-expected-after-failover"></a>Test-Failover sollte mindestens einmal monatlich durchgeführt werden, um sicherzustellen, dass das Failover erfolgreich ausgeführt, und, dass Workloads auf virtuellen Computern, als ausgeführt werden nach dem Failover erwartet
+# <a name="test-failovers-should-be-carried-out-at-least-monthly-to-verify-that-failover-will-succeed-and-that-virtual-machine-workloads-will-operate-as-expected-after-failover"></a>Test Failover sollten mindestens monatlich durchgeführt werden, um zu überprüfen, ob das Failover erfolgreich ist und die Arbeits Auslastungen virtueller Computer nach dem Failover erwartungsgemäß ausgeführt werden.
 
 >Gilt für: Windows Server 2016
 
-Weitere Informationen zu best Practices und Überprüfungen finden Sie unter [Run Best Practices Analyzer Scans und Manage Scan Results](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
+Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausführen von Best Practices Analyzer Scans und Verwalten der Scan Ergebnisse](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
 |Eigenschaft|Details|  
 |-|-|  
 |**Betriebssystem**|Windows Server 2016| 
-|**Produkt /-Funktion**|Hyper-V|  
-|**Schweregrad**|Warnung|  
+|**Produkt/Feature**|Hyper-V|  
+|**Zunehmen**|Warnung|  
 |**Kategorie**|Vorgänge|  
   
-In den folgenden Abschnitten Kursivschrift gibt an Benutzeroberflächentext, die im Best Practices Analyzer-Tool für dieses Problem angezeigt wird.  
+In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.  
   
 ## <a name="issue"></a>Problem  
-*Es wurde kein testfailover in mindestens einen Monat.*  
+*Es gab in mindestens einem Monat kein Test Failover.*  
   
 ## <a name="impact"></a>Auswirkungen  
-*Es gibt keine Bestätigung, die ein geplantes oder ungeplantes Failover erfolgreich ist oder ein arbeitsauslastungsvorgänge ordnungsgemäß nach einem Failover weiterhin aus. Dies wirkt sich auf die folgenden virtuellen Computer aus:*  
+*es gibt keine Bestätigung, dass ein geplantes oder ungeplantes Failover erfolgreich ist oder Arbeits Auslastungs Vorgänge nach einem Failover ordnungsgemäß fortgesetzt werden. Dies wirkt sich auf die folgenden virtuellen Computer aus:*  
   
-\<Liste der virtuellen Computer >  
+\<list of Virtual Machines >  
   
 ## <a name="resolution"></a>Auflösung  
-*Verwenden Sie Hyper-V-Manager, um ein testfailover durchführen.*  
+*Verwenden Sie den Hyper-V-Manager, um ein Test Failover durchzuführen.*  
   
 
 

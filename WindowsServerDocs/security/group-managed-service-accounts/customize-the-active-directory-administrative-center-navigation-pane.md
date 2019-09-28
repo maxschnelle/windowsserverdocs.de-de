@@ -1,6 +1,6 @@
 ---
-title: Anpassen des Navigationsbereichs des Active Directory-Verwaltungscenter
-ms.prod: windows-server-threshold
+title: Active Directory-Verwaltungscenter Navigationsbereich anpassen
+ms.prod: windows-server
 description: Windows Server-Sicherheit
 ms.custom: na
 ms.reviewer: na
@@ -11,43 +11,43 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: a4cab0246226cf22a1b7212b832a902783952407
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 63038014207acd3846cb8db20c7836718615df51
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446504"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403753"
 ---
-# <a name="customize-the-active-directory-administrative-center-navigation-pane"></a>Anpassen des Navigationsbereichs des Active Directory-Verwaltungscenter
+# <a name="customize-the-active-directory-administrative-center-navigation-pane"></a>Active Directory-Verwaltungscenter Navigationsbereich anpassen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-  Sie können mithilfe der Strukturansicht, die in der Konsolenstruktur Active Directory-Benutzer und-Computer vergleichbar ist, oder Verwenden der Listenansicht im Navigationsbereich des Active Directory Administrative Center durchsuchen.
+  Sie können den Navigationsbereich Active Directory-Verwaltungscenter in der Strukturansicht durchsuchen, die der Konsolen Struktur Active Directory Benutzer und Computer ähnelt, oder indem Sie die Listenansicht verwenden.
 
- Unabhängig davon, ob Sie die Strukturansicht oder der Liste angezeigt, können Sie den Navigationsbereich des Active Directory Administrative Center jederzeit anpassen, indem Sie verschiedene Container aus der lokalen Domäne oder einer beliebigen fremden Domäne hinzufügen \(, also einer anderen Domäne als der lokalen Domäne eine Vertrauensstellung mit der lokalen Domäne Listenfeldsteuerelement\) zum Navigationsbereich als separate Knoten. Anpassen des Navigationsbereichs des Active Directory Administrative Center bieten schnelleren Zugriff auf Active Directory-Objekte. Weitere Informationen finden Sie unter [verwalten Unterschiedlicher Domänen im Active Directory Administrative Center](manage-different-domains-in-active-directory-administrative-center.md).
+ Unabhängig davon, ob Sie die Strukturansicht oder die Listenansicht verwenden, können Sie den Active Directory-Verwaltungscenter Navigationsbereich jederzeit anpassen, indem Sie verschiedene Container aus der lokalen Domäne oder einer beliebigen fremden Domäne hinzufügen \(D. h. eine Domäne, die nicht der lokalen Domäne entspricht. verfügt über eine festgelegte Vertrauensstellung mit der lokalen Domäne @ no__t-1 als separate Knoten für den Navigationsbereich. Durch das Anpassen des Active Directory-Verwaltungscenter Navigationsbereichs können Sie einen schnelleren Zugriff auf Active Directory Objekte bereitstellen. Weitere Informationen finden Sie unter [Verwalten unterschiedlicher Domänen in Active Directory-Verwaltungscenter](manage-different-domains-in-active-directory-administrative-center.md).
 
  Um den Navigationsbereich weiter anzupassen, können Sie die manuell hinzugefügten Navigationsbereichsknoten umbenennen oder entfernen, die Knoten duplizieren oder im Navigationsbereich nach oben oder unten verschieben.
 
 > [!NOTE]
 >  Der Standardknoten für die lokale Domäne kann nicht angepasst werden.
 
-### <a name="to-customize-the-active-directory-administrative-center-navigation-pane"></a>Um die Anpassung des Navigationsbereichs des Active Directory-Verwaltungscenter
+### <a name="to-customize-the-active-directory-administrative-center-navigation-pane"></a>So passen Sie den Active Directory-Verwaltungscenter Navigationsbereich an
 
-1. Direkt in den Navigationsbereich des Active Directory Administrative Center,\-klicken Sie auf den Knoten, die Sie ändern möchten. Sie können die Position oder den Namen des Knotens ändern oder den Knoten duplizieren.
+1. Klicken Sie im Navigationsbereich Active Directory-Verwaltungscenter mit der rechten Maustaste auf den Knoten, den Sie ändern möchten. Sie können die Position oder den Namen des Knotens ändern oder den Knoten duplizieren.
 
-2. Klicken Sie auf die folgenden Befehle aus:
+2. Klicken Sie auf einen der folgenden Befehle:
 
    -   **Rename**
 
-   -   **Doppelten Knoten erstellen**
+   -   **Duplizierten Knoten erstellen**
 
    -   **Entfernen**
 
    -   **Nach oben**
 
-   -   **Nach unten verschieben**
+   -   **Nach unten**
 
-   Mithilfe der Listenansicht können Sie profitieren von der zuletzt verwendeten \(MRU\) Liste. Die MRU-Liste wird automatisch unter einem Navigationsknoten angezeigt, wenn Sie mindestens einen Container in dieses Navigationsknotens besuchen. Sie können auch die aktuelle MRU-Liste anzeigen, erweitern Sie die Breadcrumb-Leiste am oberen Rand des Fensters für die Active Directory Administrative Center. Die MRU-Liste enthält immer die letzten drei Container, die Sie in einem bestimmten Navigationsknoten besucht haben. Jedes Mal, wenn Sie einen bestimmten Container auswählen, wird dieser Container am Anfang der Liste der zuletzt besuchten Objekte hinzugefügt, und der letzte Container in der Liste der zuletzt besuchten Objekte wird entfernt.
+   Mithilfe der Listenansicht können Sie die zuletzt verwendete \(mru @ no__t-1-Liste nutzen. Die MRU-Liste wird automatisch unter einem Navigations Knoten angezeigt, wenn Sie mindestens einen Container in diesem Navigations Knoten besuchen. Sie können die aktuelle MRU-Liste auch anzeigen, indem Sie die Breadcrumb-Leiste am oberen Rand des Active Directory-Verwaltungscenter Fensters erweitern. Die MRU-Liste enthält immer die letzten drei Container, die Sie in einem bestimmten Navigations Knoten besucht haben. Jedes Mal, wenn Sie einen bestimmten Container auswählen, wird dieser Container am Anfang der Liste der zuletzt besuchten Objekte hinzugefügt, und der letzte Container in der Liste der zuletzt besuchten Objekte wird entfernt.
 
   
 

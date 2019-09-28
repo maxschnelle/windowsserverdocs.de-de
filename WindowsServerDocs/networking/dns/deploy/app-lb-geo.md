@@ -1,114 +1,114 @@
 ---
 title: Verwenden der DNS-Richtlinie für den Anwendungslastenausgleich mit Geolocation-Informationen
-description: Dieses Thema ist Teil des DNS-Richtlinie Szenario Handbuch für Windows Server 2016
+description: Dieses Thema ist Teil des DNS-Richtlinien szenariohandbuchs für Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: b6e679c6-4398-496c-88bc-115099f3a819
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 9f76163e6b064ac3225ab4d755afd548e1cb720b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: ea3f959612de0f2bc56a887ba73aba47f1d3f141
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446409"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406213"
 ---
 # <a name="use-dns-policy-for-application-load-balancing-with-geo-location-awareness"></a>Verwenden der DNS-Richtlinie für den Anwendungslastenausgleich mit Geolocation-Informationen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können in diesem Thema verwenden, um Informationen zum Konfigurieren von DNS-Richtlinien für den Lastenausgleich einer Anwendung mit GeoLocation-Informationen.
+In diesem Thema erfahren Sie, wie Sie eine DNS-Richtlinie konfigurieren, um einen Lastenausgleich für eine Anwendung mit georedundanstand zu erreichen.
 
-Im vorherigen Thema in diesem Handbuch [verwenden DNS-Richtlinien für den Anwendungslastenausgleich](https://technet.microsoft.com/windows-server-docs/networking/dns/deploy/app-lb)verwendet ein Beispiel für ein fiktives Unternehmen – Contoso Geschenk Dienste – online umfassendes bietet Dienste und die über eine Website mit dem Namen verfügt. contosogiftservices.com. Contoso Geschenk Services einen Lastenausgleich für ihre onlinewebanwendung zwischen Servern in Nordamerika Rechenzentren, die in Seattle, Washington, Chicago, IL, und Dallas, Texas.
+Im vorherigen Thema in dieser Anleitung, [Verwenden der DNS-Richtlinie für den Anwendungs Lastenausgleich](https://technet.microsoft.com/windows-server-docs/networking/dns/deploy/app-lb), wird ein Beispiel für ein fiktives Unternehmen, das die Online-betreffenden-Dienste bereitstellt und die eine Website mit dem Namen contosogiftservices.com enthält, verwendet. Der Lastenausgleich für die Benutzer in den Daten Centern in Seattle, WA, Chicago, Il und Dallas (TX) wird von der Verwendung der Online-Webanwendung zwischen den Servern in Nordamerika-Daten Centern ausgeglichen.
 
 >[!NOTE]
->Es wird empfohlen, dass Sie sich mit dem Thema vertraut machen [verwenden DNS-Richtlinien für den Anwendungslastenausgleich](https://technet.microsoft.com/windows-server-docs/networking/dns/deploy/app-lb) vor dem Ausführen der Anweisungen in diesem Szenario.
+>Es wird empfohlen, dass Sie sich mit dem Thema [Verwenden der DNS-Richtlinie für den Anwendungs Lastenausgleich](https://technet.microsoft.com/windows-server-docs/networking/dns/deploy/app-lb) vertraut machen, bevor Sie die Anweisungen in diesem Szenario ausführen.
 
-In diesem Thema verwendet die gleichen fiktiven Unternehmen und die Netzwerkinfrastruktur, als Grundlage für eine neue beispielbereitstellung, die GeoLocation-Informationen enthält.
+In diesem Thema wird die gleiche fiktive Firma und Netzwerkinfrastruktur als Grundlage für eine neue Beispiel Bereitstellung verwendet, die Informationen zur georedunzierung enthält.
 
-In diesem Beispiel ist Contoso Geschenk Dienste erfolgreich ihre Anwesenheit auf der ganzen Welt erweitern.
+In diesem Beispiel wird das vorhanden sein des Diensts "" von "" in der ganzen Welt erfolgreich erweitert.
 
-Ähnlich wie Nordamerika, das Unternehmen verfügt jetzt über Webserver, die in Europäischen Rechenzentren gehostet.
+Ähnlich wie bei Nordamerika verfügt das Unternehmen jetzt über Webserver, die in europäischen Rechenzentren gehostet werden.
 
-DNS-Administratoren von Contoso Geschenk Services so konfigurieren Sie den für den Anwendungslastenausgleich Europäischen Rechenzentren auf ähnliche Weise für die Implementierung des DNS-Richtlinie in den USA mit Anwendungsdatenverkehr auf Webservern, die in befinden verteilt werden soll Dublin, Irland, Amsterdam, Niederlande, und an anderer Stelle.
+Die DNS-Administratoren von Administratoren von Administratoren möchten den Anwendungs Lastenausgleich für die europäischen Rechenzentren auf ähnliche Weise wie die Implementierung der DNS-Richtlinie im USA konfigurieren, wobei der Anwendungs Datenverkehr auf Webserver verteilt ist, die sich unter befinden. Dublin, Irland, Amsterdam, Holland und anderswo.
 
-DNS-Administratoren sollten auch alle Abfragen, die von anderen Speicherorten in der Welt, die gleichmäßig zwischen allen ihren Rechenzentren verteilt sind.
+DNS-Administratoren möchten außerdem, dass alle Abfragen von anderen Standorten auf der Welt gleichmäßig zwischen allen Rechenzentren verteilt sind.
 
-In den nächsten Abschnitten erhalten Sie, wie Sie ähnliche Ziele, die von der Contoso-DNS-Administratoren in Ihrem eigenen Netzwerk erreichen.
+In den nächsten Abschnitten erfahren Sie, wie Sie ähnliche Ziele wie die DNS-Administratoren von "Configuration Manager" in Ihrem eigenen Netzwerk erreichen können.
 
-## <a name="how-to-configure-application-load-balancing-with-geo-location-awareness"></a>Vorgehensweise: Konfigurieren Sie den Anwendungslastenausgleich mit GeoLocation-Informationen
+## <a name="how-to-configure-application-load-balancing-with-geo-location-awareness"></a>Konfigurieren des Anwendungs Lastenausgleichs mit der georedunzierung
 
-Die folgenden Abschnitte zeigen Sie die DNS-Richtlinien für den Anwendungslastenausgleich mit GeoLocation-Informationen konfigurieren.
+In den folgenden Abschnitten erfahren Sie, wie Sie die DNS-Richtlinie für den Anwendungs Lastenausgleich mit georedundanzinformationen konfigurieren
 
 >[!IMPORTANT]
->Die folgenden Abschnitte enthalten Windows PowerShell-Beispielbefehle, die Beispielwerte für viele Parameter enthalten. Stellen Sie sicher, dass Sie die Beispielwerte in diesen Befehlen durch Werte, die für die Bereitstellung sinnvoll sind ersetzen, bevor Sie diese Befehle ausführen.
+>Die folgenden Abschnitte enthalten Beispiele für Windows PowerShell-Befehle, die Beispiel Werte für viele Parameter enthalten. Stellen Sie sicher, dass Sie die Beispiel Werte in diesen Befehlen durch Werte ersetzen, die für die Bereitstellung geeignet sind, bevor Sie diese Befehle ausführen.
 
-### <a name="bkmk_clientsubnets"></a>Erstellen Sie die DNS-Client-Subnetze
+### <a name="bkmk_clientsubnets"></a>Erstellen der DNS-Clientsubnetze
 
-Sie müssen zunächst die Subnetze oder die IP-Adressbereich, der in den Regionen Nordamerika und Europa identifizieren.
+Sie müssen zuerst die Subnetze oder den IP-Adressraum der Regionen Nordamerika und Europa identifizieren.
 
-Sie können diese Informationen über Geo-IP-Karten erhalten. Basierend auf diesen Geo-IP-Distributionen, müssen Sie die DNS-Client-Subnetze erstellen.
+Diese Informationen können Sie von den georedunzierten Karten abrufen. Basierend auf diesen georedundantenverteilungen müssen Sie die DNS-Clientsubnetze erstellen.
 
-Ein DNS-Client-Subnetz ist eine logische Gruppierung von IPv4 oder IPv6-Subnetze, die von denen Abfragen an einen DNS-Server gesendet werden.
+Ein DNS-clientsubnetz ist eine logische Gruppierung von IPv4-oder IPv6-Subnetzen, von denen Abfragen an einen DNS-Server gesendet werden.
 
-Sie können die folgenden Windows PowerShell-Befehle zum Erstellen von DNS-Client-Subnetzen verwenden. 
+Sie können die folgenden Windows PowerShell-Befehle verwenden, um DNS-Clientsubnetze zu erstellen. 
 
     
     Add-DnsServerClientSubnet -Name "AmericaSubnet" -IPv4Subnet 192.0.0.0/24,182.0.0.0/24
     Add-DnsServerClientSubnet -Name "EuropeSubnet" -IPv4Subnet 141.1.0.0/24,151.1.0.0/24
     
-Weitere Informationen finden Sie unter [hinzufügen-DnsServerClientSubnet](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps).
+Weitere Informationen finden Sie unter [Add-dnsserverclientsubnet](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps).
 
-### <a name="bkmk_zscopes2"></a>Erstellen Sie die Bereiche der Zone
+### <a name="bkmk_zscopes2"></a>Erstellen der Zonen Bereiche
 
-Nachdem Sie die Client-Subnetze vorhanden sind, müssen Sie die Zone contosogiftservices.com in andere Zone Bereiche, für ein Rechenzentrum partitionieren.
+Nachdem die Clientsubnetze vorhanden sind, müssen Sie die Zone contosogiftservices.com in verschiedene Zonen Bereiche, jeweils für ein Daten Center, partitionieren.
 
-Ein Bereich für die Zone ist eine eindeutige Instanz der Zone. Eine DNS-Zone kann mehrere Zone Bereiche, mit jeder Zone Bereich enthält einen eigenen Satz von DNS-Einträge haben. Der gleiche Datensatz kann in mehrere Bereiche, die mit unterschiedlichen IP-Adressen oder die gleiche IP-Adressen vorhanden sein.
+Ein Zonen Bereich ist eine eindeutige Instanz der Zone. Eine DNS-Zone kann über mehrere Zonen Bereiche verfügen, wobei jeder Zonen Bereich einen eigenen Satz von DNS-Einträgen enthält. Derselbe Datensatz kann in mehreren Bereichen mit unterschiedlichen IP-Adressen oder den gleichen IP-Adressen vorhanden sein.
 
 >[!NOTE]
->Standardmäßig befindet sich ein Bereich für die Zone auf DNS-Zonen. Dieser Bereich Zone hat den gleichen Namen wie die Zone, und ältere DNS-Vorgängen arbeiten, der für diesen Bereich.
+>In den DNS-Zonen ist standardmäßig ein Zonen Bereich vorhanden. Dieser Zonen Bereich hat denselben Namen wie die Zone, und ältere DNS-Vorgänge funktionieren in diesem Bereich.
 
-Das vorherige Szenario für den Anwendungslastenausgleich veranschaulicht, wie drei Zone Bereiche für Rechenzentren in Nordamerika zu konfigurieren.
+Im vorherigen Szenario für den Anwendungs Lastenausgleich wird veranschaulicht, wie drei Zonen Bereiche für Rechenzentren in Nordamerika konfiguriert werden.
 
-Mit den folgenden Befehlen können Sie zwei weitere Zone Bereiche, jeweils eine für die Dublin und Amsterdam Datencenter erstellen. 
+Mit den folgenden Befehlen können Sie zwei weitere Zonen Bereiche erstellen, jeweils eine für die Daten Center Dublin und Amsterdam. 
 
-Sie können diese Bereiche der Zone ohne Änderungen zu speichern, die drei vorhandenen Nordamerika Zone Bereiche in der gleichen Zone hinzufügen. Darüber hinaus nach der Erstellung diese Bereiche der Zone müssen nicht Sie Ihre DNS-Server neu zu starten.
+Sie können diese Zonen Bereiche ohne Änderungen an den drei vorhandenen Nordamerika Zonen Bereichen in der gleichen Zone hinzufügen. Nachdem Sie diese Zonen Bereiche erstellt haben, müssen Sie den DNS-Server außerdem nicht neu starten.
 
-Sie können folgende Windows PowerShell-Befehle verwenden, um Bereiche der Zone zu erstellen.
+Sie können die folgenden Windows PowerShell-Befehle verwenden, um Zonen Bereiche zu erstellen.
 
     
     Add-DnsServerZoneScope -ZoneName "contosogiftservices.com" -Name "DublinZoneScope"
     Add-DnsServerZoneScope -ZoneName "contosogiftservices.com" -Name "AmsterdamZoneScope"
     
 
-Weitere Informationen finden Sie unter [hinzufügen-DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps)
+Weitere Informationen finden Sie unter [Add-dnsserverzonescope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps) .
 
-### <a name="bkmk_records2"></a>Hinzufügen von Datensätzen, die Bereiche der Zone
+### <a name="bkmk_records2"></a>Hinzufügen von Datensätzen zu den Zonen Bereichen
 
-Jetzt müssen Sie die Datensätze, die die Web-Server-Host darstellt, in die Bereiche der Zone hinzufügen.
+Nun müssen Sie die Datensätze, die den Webserver Host darstellen, zu den Zonen Bereichen hinzufügen.
 
-Die Einträge für die Datencenter America wurden im vorherigen Szenario hinzugefügt. Sie können folgende Windows PowerShell-Befehle verwenden, die Bereiche der Zone für Europäischen Datencenter Datensätze hinzufügen.
+Die Datensätze für die Rechenzentren in den USA wurden im vorherigen Szenario hinzugefügt. Mithilfe der folgenden Windows PowerShell-Befehle können Sie den Zonen Bereichen für europäische Daten Center Datensätze hinzufügen.
  
     
     Add-DnsServerResourceRecord -ZoneName "contosogiftservices.com" -A -Name "www" -IPv4Address "151.1.0.1" -ZoneScope "DublinZoneScope”
     Add-DnsServerResourceRecord -ZoneName "contosogiftservices.com" -A -Name "www" -IPv4Address "141.1.0.1" -ZoneScope "AmsterdamZoneScope"
     
 
-Weitere Informationen finden Sie unter [hinzufügen-DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
+Weitere Informationen finden Sie unter [Add-dnsserverresourcerecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
 
-### <a name="bkmk_policies2"></a>Erstellen Sie die DNS-Richtlinien
+### <a name="bkmk_policies2"></a>Erstellen der DNS-Richtlinien
 
-Nachdem Sie die Partitionen (Zone-Bereiche) erstellt haben, und Sie die Datensätze hinzugefügt haben, müssen Sie DNS-Richtlinien erstellen, die die eingehenden Abfragen auf diese Bereiche zu verteilen.
+Nachdem Sie die Partitionen (Zonen Bereiche) erstellt und Datensätze hinzugefügt haben, müssen Sie DNS-Richtlinien erstellen, die die eingehenden Abfragen über diese Bereiche verteilen.
 
-In diesem Beispiel werden die Verteilung von Abfragen über Anwendungsserver in unterschiedlichen Rechenzentren befinden die folgenden Kriterien erfüllt.
+In diesem Beispiel erfüllt die Abfrage Verteilung zwischen Anwendungsservern in verschiedenen Rechenzentren die folgenden Kriterien.
 
-1. Wenn die DNS-Abfrage aus einer Quelle in einem Clientsubnetz Nordamerika empfangen wird, 50 % der DNS-Antworten zu zeigen, in der Seattle-Rechenzentrum, zeigen Sie 25 % der Reaktionen auf das Chicago-Rechenzentrum, und zeigen Sie die verbleibende 25 % der Antworten, die mit dem Dallas-Datencenter.
-2. Wenn die DNS-Abfrage aus einer Quelle in einem Clientsubnetz Europäischen empfangen wird, 50 % der DNS-Antworten zeigen, in das Datencenter Dublin, und 50 % der DNS-Antworten zeigen, in das Datencenter Amsterdam.
-3. Wenn die Abfrage aus der an anderer Stelle in der ganzen Welt stammen, werden die DNS-Antworten auf alle fünf Rechenzentren verteilt.
+1. Wenn die DNS-Abfrage von einer Quelle in einem nordamerikanischen clientsubnetz empfangen wird, sind 50% der DNS-Antworten auf das Rechenzentrum Seattle und 25% der Antworten auf das Chicago-Rechenzentrum, und die verbleibenden 25% der Antworten zeigen auf das Dallas-Rechenzentrum.
+2. Wenn die DNS-Abfrage von einer Quelle in einem europäischen clientsubnetz empfangen wird, werden 50% der DNS-Antworten auf das Dublin-Rechenzentrum und 50% der DNS-Antworten auf das Rechenzentrum in Amsterdam verweisen.
+3. Wenn die Abfrage von einer beliebigen Stelle in der Welt stammt, werden die DNS-Antworten auf alle fünf Rechenzentren verteilt.
 
-Sie können folgende Windows PowerShell-Befehle verwenden, implementieren Sie diese DNS-Richtlinien.
+Sie können die folgenden Windows PowerShell-Befehle verwenden, um diese DNS-Richtlinien zu implementieren.
 
     
     Add-DnsServerQueryResolutionPolicy -Name "AmericaLBPolicy" -Action ALLOW -ClientSubnet "eq,AmericaSubnet" -ZoneScope "SeattleZoneScope,2;ChicagoZoneScope,1; TexasZoneScope,1" -ZoneName "contosogiftservices.com" –ProcessingOrder 1
@@ -119,8 +119,8 @@ Sie können folgende Windows PowerShell-Befehle verwenden, implementieren Sie di
     
     
 
-Weitere Informationen finden Sie unter [hinzufügen-DnsServerQueryResolutionPolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).
+Weitere Informationen finden Sie unter [Add-dnsserverqueryresolutionpolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).
 
-Sie haben nun erfolgreich eine DNS-Richtlinie erstellt, die Anwendung lastenverteilung über mehrere Web-Server, die in fünf verschiedenen Rechenzentren Kontinenten befinden bereitstellt.
+Sie haben nun erfolgreich eine DNS-Richtlinie erstellt, die den Anwendungs Lastenausgleich über Webserver hinweg ermöglicht, die sich in fünf verschiedenen Rechenzentren auf mehreren Kontinenten befinden.
 
-Sie können erstellen Tausende von DNS-Richtlinien entsprechend Ihren Datenverkehr verwaltungsanforderungen, und alle neue Richtlinien werden dynamisch – ohne Neustart des DNS-Servers: eingehende Abfragen angewendet.
+Sie können Tausende von DNS-Richtlinien gemäß Ihren Anforderungen für die Datenverkehrs Verwaltung erstellen, und alle neuen Richtlinien werden dynamisch angewendet, ohne dass der DNS-Server bei eingehenden Abfragen neu gestartet wird.

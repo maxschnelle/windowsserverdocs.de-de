@@ -1,225 +1,225 @@
 ---
 title: Konfigurieren von Netzwerkrichtlinien
-description: Dieses Thema enthält einen Überblick über die Netzwerkkonfiguration der Richtlinie für Netzwerkrichtlinienserver unter Windows Server 2016.
+description: Dieses Thema bietet einen Überblick über die Netzwerk Richtlinien Konfiguration für den Netzwerk Richtlinien Server unter Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: fe77655a-e2be-4949-92e1-aaaa215d86ea
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: e8a03a6c67ddd59549cefc9742ca92e0702f92a7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a2bde42ba9b9489ddcd8fb3673ec5ddf1fd4d970
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842001"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71396361"
 ---
 # <a name="configure-network-policies"></a>Konfigurieren von Netzwerkrichtlinien
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können in diesem Thema verwenden, um Netzwerkrichtlinien in NPS konfigurieren.
+In diesem Thema können Sie Netzwerk Richtlinien in NPS konfigurieren.
 
-## <a name="add-a-network-policy"></a>Hinzufügen einer Netzwerkrichtlinie
+## <a name="add-a-network-policy"></a>Netzwerk Richtlinie hinzufügen
 
-Netzwerkrichtlinienserver \(NPS\) verwendet Netzwerk Richtlinien und die DFÜ-Eigenschaften von Benutzerkonten, um zu bestimmen, ob eine verbindungsanforderung autorisiert ist, eine Verbindung mit dem Netzwerk herstellen.
+Der Netzwerk Richtlinien Server \(nps @ no__t-1 verwendet Netzwerk Richtlinien und die Einwähleigenschaften von Benutzerkonten, um zu bestimmen, ob eine Verbindungsanforderung zum Herstellen einer Verbindung mit dem Netzwerk autorisiert ist.
 
-Sie können dieses Verfahren verwenden, so konfigurieren Sie eine neue Netzwerkrichtlinie in der NPS-Konsole oder der RAS-Konsole.
+Mit diesem Verfahren können Sie eine neue Netzwerk Richtlinie in der NPS-Konsole oder der Remote Zugriffs Konsole konfigurieren.
 
-### <a name="performing-authorization"></a>Durchführen der Autorisierung
+### <a name="performing-authorization"></a>Ausführen der Autorisierung
 
-Wenn die Autorisierung des eine verbindungsanforderung von NPS ausgeführt wird, vergleicht er die Anforderung mit dem jede Netzwerkrichtlinie in der sortierten Liste der Richtlinien, beginnend mit der ersten Richtlinie, und klicken Sie dann in der Liste der konfigurierten Richtlinien verschieben. Wenn NPS eine Richtlinie findet, dessen Bedingungen die verbindungsanforderung übereinstimmen, verwendet NPS der Abgleichsrichtlinie und die Einwähleigenschaften des Benutzerkontos ein, um für die Autorisierung. Wenn die Einwähleigenschaften des Benutzerkontos so konfiguriert sind, dass der Zugriff oder Steuerelement Zugriff über die Netzwerkrichtlinien- und die verbindungsanforderung autorisiert ist, gilt der NPS die Einstellungen, die in der Netzwerkrichtlinie für die Verbindung konfiguriert sind.
+Wenn die Autorisierung einer Verbindungsanforderung von NPS durchführt wird, wird die Anforderung mit jeder Netzwerk Richtlinie in der geordneten Liste der Richtlinien verglichen, beginnend mit der ersten Richtlinie und anschließend durch die Liste der konfigurierten Richtlinien. Wenn NPS eine Richtlinie findet, deren Bedingungen der Verbindungsanforderung entsprechen, verwendet NPS die abgleichsrichtlinie und die DFÜ-Eigenschaften des Benutzerkontos, um die Autorisierung auszuführen. Wenn die DFÜ-Eigenschaften des Benutzerkontos konfiguriert sind, um Zugriff zu gewähren oder den Zugriff über die Netzwerk Richtlinie zu steuern, und die Verbindungsanforderung autorisiert ist, wendet NPS die in der Netzwerk Richtlinie konfigurierten Einstellungen auf die Verbindung an.
 
-Wenn Sie NPS nicht mit eine Netzwerkrichtlinie findet, die die verbindungsanforderung entspricht, wird die verbindungsanforderung abgelehnt, es sei denn, der DFÜ-Eigenschaften für das Benutzerkonto festgelegt werden, um Zugriff zu gewähren.
+Wenn NPS keine Netzwerk Richtlinie findet, die mit der Verbindungsanforderung übereinstimmt, wird die Verbindungsanforderung zurückgewiesen, es sei denn, die DFÜ-Eigenschaften für das Benutzerkonto sind so festgelegt, dass der Zugriff gewährt wird.
 
-Wenn die Einwähleigenschaften des Benutzerkontos ein, den Zugriff verweigern festgelegt sind, wird die verbindungsanforderung von NPS abgelehnt.
+Wenn die DFÜ-Eigenschaften des Benutzerkontos so festgelegt sind, dass der Zugriff verweigert wird, wird die Verbindungsanforderung von NPS abgelehnt.
 
-### <a name="key-settings"></a>Wichtige Einstellungen
+### <a name="key-settings"></a>Schlüssel Einstellungen
 
-Wenn Sie den Assistenten für neue Netzwerkrichtlinien verwenden, um eine Netzwerkrichtlinie, die den Wert zu erstellen, die Sie, in angeben **Netzwerk Verbindungsmethode** wird verwendet, um automatisch konfigurieren die **Richtlinientyp** Bedingung: 
+Wenn Sie den Assistenten für neue Netzwerk Richtlinien verwenden, um eine Netzwerk Richtlinie zu erstellen, wird der Wert, den Sie in der **Netzwerk Verbindungsmethode** angeben, zur automatischen Konfiguration der Richtlinientyp Bedingung verwendet: 
 
-- Wenn Sie den Standardwert nicht angegeben lassen, wird die Netzwerkrichtlinie, die Sie Erstellen von NPS für alle Netzwerktypen Verbindung ausgewertet, die jede Art von Netzwerkzugriffsserver (NAS) verwenden.
-- Wenn Sie eine Methode für die Verbindung angeben, wertet NPS die Netzwerkrichtlinie, nur dann, wenn die verbindungsanforderung aus dem Typ des Netzwerkzugriffsservers stammt, die Sie angeben.
+- Wenn Sie den Standardwert nicht angegeben beibehalten, wird die von Ihnen erstellte Netzwerk Richtlinie von NPS für alle Netzwerk Verbindungstypen ausgewertet, die eine beliebige Art von Netzwerk Zugriffs Server (NAS) verwenden.
+- Wenn Sie eine Netzwerk Verbindungsmethode angeben, wertet NPS die Netzwerk Richtlinie nur aus, wenn die Verbindungsanforderung vom Typ des von Ihnen angegebenen Netzwerk Zugriffs Servers stammt.
 
-Auf der **Zugriffsberechtigung** Seite Wählen Sie **Zugriffsgewährung** , wenn Sie die Richtlinie Benutzer mit dem Netzwerk verbinden können soll. Wenn Sie die Richtlinie verhindert, dass Benutzer die Verbindung mit Ihrem Netzwerk wählen möchten **Zugriffsverweigerung**. 
+Auf der Seite **Zugriffsberechtigung** müssen Sie **Zugriff gewährt** auswählen, wenn die Richtlinie Benutzern das Herstellen einer Verbindung mit Ihrem Netzwerk gestatten soll. Wenn Sie verhindern möchten, dass Benutzer eine Verbindung mit Ihrem Netzwerk herstellen, wählen Sie **Zugriff verweigert**aus. 
 
-Zugriffsberechtigungen für die durch die Dial-in Eigenschaften von Benutzerkonten in Active Directory ermittelt werden ggf.&reg; Domain Services \(AD DS\), können Sie auswählen, die **Zugriff durch Benutzer DFÜ-Eigenschaftengesteuertwird** Kontrollkästchen.
+Wenn Sie möchten, dass die Zugriffsberechtigung mithilfe der DFÜ-Eigenschaften des Benutzerkontos in Active Directory @ no__t-0 Domänen Dienste \(AD DS @ no__t-2 festgelegt wird, können Sie das Kontrollkästchen **Zugriff wird durch Benutzer-DFÜ-Eigenschaften bestimmt** auswählen.
 
 Grundvoraussetzung für die Ausführung dieses Vorgangs ist die Mitgliedschaft in **Domänen-Admins** oder einer gleichwertigen Gruppe.
 
-### <a name="to-add-a-network-policy"></a>Hinzufügen eine Netzwerkrichtlinie 
+### <a name="to-add-a-network-policy"></a>So fügen Sie eine Netzwerk Richtlinie hinzu 
 
 1. Öffnen Sie die NPS-Konsole, und doppelklicken Sie dann auf **Richtlinien**.
 
-2. In der Konsolenstruktur mit der Maustaste **Netzwerkrichtlinien**, und klicken Sie auf **neu**. Der Assistent für neue Netzwerkrichtlinien wird geöffnet.
+2. Klicken Sie in der Konsolen Struktur mit der rechten Maustaste auf **Netzwerk Richtlinien**, und klicken Sie dann auf **neu**. Der Assistent für neue Netzwerk Richtlinien wird geöffnet.
 
-3. Verwenden Sie den Assistenten für neue Netzwerkrichtlinien, um eine Richtlinie zu erstellen.
+3. Verwenden Sie den Assistenten für neue Netzwerk Richtlinien, um eine Richtlinie zu erstellen.
 
-## <a name="create-network-policies-for-dial-up-or-vpn-with-a-wizard"></a>Erstellen von Netzwerkrichtlinien für DFÜ- oder VPN mithilfe eines Assistenten
+## <a name="create-network-policies-for-dial-up-or-vpn-with-a-wizard"></a>Erstellen von Netzwerk Richtlinien für die DFÜ-oder VPN-Verbindung mit einem Assistenten
 
-Sie können dieses Verfahren verwenden, Request-Richtlinien für die Verbindung erstellt und Netzwerkrichtlinien, die zur Bereitstellung von DFÜ-Server oder virtuellen privaten Netzwerk erforderlich \(VPN\) -Servern als Remote Authentication Dial-in User Service \(RADIUS\) Clients an den NPS RADIUS-Server.
+Mithilfe dieses Verfahrens können Sie die Verbindungs Anforderungs Richtlinien und Netzwerk Richtlinien erstellen, die erforderlich sind, um DFÜ-Server oder ein virtuelles privates Netzwerk \(vpn @ no__t-1-Server als Remote Authentication Dial-in User Service \(radius @ no__t-3 bereitzustellen. Clients auf dem NPS-RADIUS-Server.
 
 >[!NOTE]
->Clientcomputer, z. B. Laptops und andere Computer mit Clientbetriebssystemen, sind keine RADIUS-Clients. RADIUS-Clients sind Netzwerkzugriffsserver – z. B. Drahtloszugriffspunkte, 802.1X-Authentifizierungsswitches, virtuelles privates Netzwerk \(VPN\) -Server und DFÜ-Server, da diese Geräte das RADIUS-Protokoll verwenden, um die Kommunikation mit RADIUS-Servern, z. B. NPSs.
+>Client Computer, z. b. Laptop Computer und andere Computer, auf denen Client Betriebssysteme ausgeführt werden, sind keine RADIUS-Clients. RADIUS-Clients sind Netzwerk Zugriffs Server – z. b. drahtlos Zugriffspunkte, 802.1 x-authentifizierende Switches, virtuelles privates Netzwerk \(vpn @ no__t-1-Server und DFÜ-Server – da diese Geräte das RADIUS-Protokoll für die Kommunikation mit RADIUS verwenden. Server, wie z. b. NPSS.
 
-Dieses Verfahren wird erläutert, wie die Assistenten für neue DFÜ- oder VPN-Verbindungen auf dem Netzwerkrichtlinienserver zu öffnen.
+In diesem Verfahren wird erläutert, wie der Assistent für neue DFÜ-oder virtuelle private Netzwerkverbindungen in NPS geöffnet wird.
 
-Nachdem Sie den Assistenten ausführen, werden die folgenden Richtlinien erstellt:
+Nachdem Sie den Assistenten ausgeführt haben, werden die folgenden Richtlinien erstellt:
 
-- Eine Verbindungsanforderungsrichtlinie
-- Eine Netzwerkrichtlinie
+- Eine Verbindungs Anforderungs Richtlinie
+- Eine Netzwerk Richtlinie
 
-Jedes Mal, wenn Sie neue Richtlinien für die DFÜ-Server und VPN-Server erstellen müssen, können Sie den Assistenten für neue DFÜ- oder VPN-Verbindungen ausführen.
+Sie können den Assistenten für neue DFÜ-oder virtuelle private Netzwerkverbindungen jedes Mal ausführen, wenn Sie neue Richtlinien für DFÜ-Server und VPN-Server erstellen müssen.
 
-Mit dem Assistenten für neue DFÜ- oder VPN-Verbindungen ist nicht der einzige Schritt, die zum Bereitstellen von DFÜ- oder VPN-Server als RADIUS-Clients an den NPS erforderlich. Beide Methoden für den Netzwerkzugriff erfordern, dass Sie zusätzliche Hardware und Software-Komponenten bereitstellen.
-
-Grundvoraussetzung für die Ausführung dieses Vorgangs ist die Mitgliedschaft in **Domänen-Admins** oder einer gleichwertigen Gruppe.
-
-### <a name="to-create-policies-for-dial-up-or-vpn-with-a-wizard"></a>Um Richtlinien für DFÜ- oder VPN mit einem Assistenten erstellen
-
-1. Öffnen Sie die NPS-Konsole. Wenn sie nicht bereits ausgewählt ist, klicken Sie auf **NPS \(lokalen\)**. Wenn Sie eine remote-NPS-Richtlinien erstellen möchten, wählen Sie den Server.
-
-2. In **Einstieg** und **Standardkonfiguration**Option **RADIUS-Server für DFÜ- oder VPN-Verbindungen**. Der Text und Links unter den Text ändern sich entsprechend Ihrer Auswahl.
-
-3. Klicken Sie auf **konfigurieren VPN- oder DFÜ-Verbindung mit einem Assistenten**. Der Assistent für DFÜ- oder VPN-Verbindungen wird geöffnet.
-
-4. Führen Sie die Anweisungen im Assistenten, um die Erstellung Ihrer neuen Richtlinien abzuschließen.
-
-## <a name="create-network-policies-for-8021x-wired-or-wireless-with-a-wizard"></a>Erstellen von Netzwerkrichtlinien für 802.1 X Kabel- oder Drahtlosnetzwerk mithilfe eines Assistenten
-
-Sie können dieses Verfahren verwenden, erstellt die Verbindungsanforderungsrichtlinie und Netzwerkrichtlinie, die zum Bereitstellen von entweder 802.1X-Authentifizierungsswitches oder 802.1 X drahtlose Zugriffspunkte als Remote Authentication Dial-in User Service (RADIUS)-Clients an den NPS erforderlich sind RADIUS-Server.
-
-Dieses Verfahren wird erläutert, wie den Assistenten für neue IEEE 802.1 X sichere verkabelte und drahtlose Verbindungen auf dem Netzwerkrichtlinienserver zu starten.
-
-Nachdem Sie den Assistenten ausführen, werden die folgenden Richtlinien erstellt:
-
-- Eine Verbindungsanforderungsrichtlinie
-- Eine Netzwerkrichtlinie
-
-Sie können den Assistenten für neue IEEE 802.1 X Secure verkabelte und drahtlose ausführen, jedes Mal, wenn Sie neue Richtlinien für den Zugriff mit 802.1X-Authentifizierung erstellen möchten.
-
-Ausführen des Assistenten für neue IEEE 802.1 X sichere verkabelte und Drahtlosverbindungen ist nicht der einzige Schritt, die zum Bereitstellen von 802.1 X Authentifizierung Switches und drahtlose Zugriffspunkte als RADIUS-Clients an den NPS erforderlich. Beide Methoden für den Netzwerkzugriff erfordern, dass Sie zusätzliche Hardware und Software-Komponenten bereitstellen.
+Das Ausführen des Assistenten für neue DFÜ-oder VPN-Verbindungen ist nicht der einzige Schritt, der erforderlich ist, um DFÜ-oder VPN-Server als RADIUS-Clients für den NPS bereitzustellen. Für beide Netzwerk Zugriffsmethoden ist es erforderlich, dass Sie zusätzliche Hardware-und Softwarekomponenten bereitstellen.
 
 Grundvoraussetzung für die Ausführung dieses Vorgangs ist die Mitgliedschaft in **Domänen-Admins** oder einer gleichwertigen Gruppe.
 
-### <a name="to-create-policies-for-8021x-wired-or-wireless-with-a-wizard"></a>Um Richtlinien für 802.1X-authentifizierte Kabel- oder Drahtlosnetzwerk mithilfe eines Assistenten erstellen
+### <a name="to-create-policies-for-dial-up-or-vpn-with-a-wizard"></a>So erstellen Sie Richtlinien für die DFÜ-oder VPN-Richtlinie mit einem Assistenten
 
-1. Klicken Sie auf den NPS, im Server-Manager auf **Tools**, und klicken Sie dann auf **Netzwerkrichtlinienserver**. Die NPS-Konsole wird geöffnet. 
+1. Öffnen Sie die NPS-Konsole. Wenn Sie nicht bereits ausgewählt ist, klicken Sie auf  **\(NPS local\)** . Wenn Sie Richtlinien für eine Remote-NPS erstellen möchten, wählen Sie den Server aus.
 
-2. Wenn sie nicht bereits ausgewählt ist, klicken Sie auf **NPS \(lokalen\)**. Wenn Sie eine remote-NPS-Richtlinien erstellen möchten, wählen Sie den Server.
+2. Wählen Sie unter " **Start** " und " **Standard Konfiguration**" die Option **RADIUS-Server für DFÜ-oder VPN-Verbindungen**. Der Text und die Links unter dem Text ändern sich, um die Auswahl widerzuspiegeln.
 
-3. In **Einstieg** und **Standardkonfiguration**Option **RADIUS-Server für 802.1 X drahtlose oder verkabelte 802.1X-Verbindungen**. Der Text und Links unter den Text ändern sich entsprechend Ihrer Auswahl.
+3. Klicken Sie auf **VPN oder DFÜ mit einem Assistenten konfigurieren**. Der Assistent für neue DFÜ-oder virtuelle private Netzwerkverbindungen wird geöffnet.
 
-4. Klicken Sie auf **konfigurieren 802.1 X mithilfe eines Assistenten**. Der neue IEEE 802.1 X Secure verkabelte und drahtlose-Assistent wird geöffnet.
+4. Befolgen Sie die Anweisungen im Assistenten, um die Erstellung der neuen Richtlinien abzuschließen.
 
-5. Führen Sie die Anweisungen im Assistenten, um die Erstellung Ihrer neuen Richtlinien abzuschließen.
+## <a name="create-network-policies-for-8021x-wired-or-wireless-with-a-wizard"></a>Erstellen von Netzwerk Richtlinien für 802.1 x-Kabel-oder drahtlos Netzwerke mit einem Assistenten
 
-## <a name="configure-nps-to-ignore-user-account-dial-in-properties"></a>Konfigurieren von NPS, um die Einwähleigenschaften des Kontos ignorieren
+Mithilfe dieses Verfahrens können Sie die Verbindungs Anforderungs Richtlinie und die Netzwerk Richtlinie erstellen, die für die Bereitstellung von 802.1 x-authentifizier enden Switches oder drahtlosen 802.1 x-Zugriffs Punkten als Remote Authentication Dial-in User Service (RADIUS)-Clients an den NPS erforderlich sind. RADIUS-Server.
 
-Verwenden Sie dieses Verfahren zum Konfigurieren einer Netzwerkrichtlinie NPS, um die DFÜ-Eigenschaften von Benutzerkonten in Active Directory während des Autorisierungsprozesses zu ignorieren. Benutzerkonten in Active Directory-Benutzer und-Computer verfügen DFÜ-Eigenschaften, die NPS während des Autorisierungsprozesses ausgewertet wird, es sei denn, die **Netzwerk Zugriffsberechtigung** des Benutzerkontos-Eigenschaftensatz auf **Steuerelement Zugriff über die Netzwerkrichtlinie für NPS**. 
+In diesem Verfahren wird erläutert, wie Sie den neuen IEEE 802.1 x-Assistenten für sichere Kabel-und Drahtlos Verbindungen in NPS starten.
 
-Es gibt zwei Situationen, in dem Sie NPS, um das Ignorieren der DFÜ-Eigenschaften von Benutzerkonten in Active Directory konfigurieren möchten:
+Nachdem Sie den Assistenten ausgeführt haben, werden die folgenden Richtlinien erstellt:
 
-- Wenn Sie NPS-Autorisierung mithilfe Netzwerks Gruppenrichtlinie vereinfachen möchten, aber nicht alle Ihre Benutzerkonten haben die **Netzwerk Zugriffsberechtigung** -Eigenschaft auf festgelegt **steuern den Zugriff über die Netzwerkrichtlinie für NPS**. Einige Benutzerkonten möglicherweise z. B. die **Netzwerk-Zugriffsberechtigung** Eigenschaftensatz des Benutzerkontos ein, um **Verweigern des Zugriffs** oder **zulassen des Zugriffs**.
+- Eine Verbindungs Anforderungs Richtlinie
+- Eine Netzwerk Richtlinie
 
-- Wenn andere DFÜ-Eigenschaften von Benutzerkonten nicht in den Verbindungstyp gelten, die in der Netzwerkrichtlinie konfiguriert ist. Z. B. Eigenschaften außer die **Netzwerk Zugriffsberechtigung** Einstellung gelten nur für DFÜ- oder VPN-Verbindungen, aber die Netzwerkrichtlinie, die Sie erstellen, die für Switch- oder drahtlosen Verbindungen ist.
+Wenn Sie neue Richtlinien für den 802.1 x-Zugriff erstellen müssen, können Sie den neuen IEEE 802.1 x-Assistenten für sichere Kabel-und Drahtlos Verbindungen ausführen.
 
-Sie können dieses Verfahren verwenden, Konfigurieren von NPS, um die Einwähleigenschaften des Kontos ignorieren. Wenn eine verbindungsanforderung die Netzwerkrichtlinie übereinstimmt, in dem Sie das Kontrollkästchen aktiviert ist, wird NPS nicht die Einwähleigenschaften des Benutzerkontos um zu bestimmen, ob der Benutzer oder Computer autorisiert ist, auf das Netzwerk zugreifen verwendet. nur die Einstellungen in der Netzwerkrichtlinie werden verwendet, um die Autorisierung zu ermitteln.
+Das Ausführen des neuen IEEE 802.1 x-Assistenten für sichere Kabel-und Drahtlos Verbindungen ist nicht der einzige Schritt, der erforderlich ist, um 802.1 x-authentifizier Ende Switches und drahtlos Zugriffspunkte als RADIUS-Clients für den NPS bereitzustellen. Für beide Netzwerk Zugriffsmethoden ist es erforderlich, dass Sie zusätzliche Hardware-und Softwarekomponenten bereitstellen.
+
+Grundvoraussetzung für die Ausführung dieses Vorgangs ist die Mitgliedschaft in **Domänen-Admins** oder einer gleichwertigen Gruppe.
+
+### <a name="to-create-policies-for-8021x-wired-or-wireless-with-a-wizard"></a>So erstellen Sie Richtlinien für 802.1 x-Kabel-oder drahtlos Verbindungen mit einem Assistenten
+
+1. Klicken Sie auf dem NPS in Server-Manager auf **Extras, und klicken Sie dann**auf **Netzwerk Richtlinien Server**. Die NPS-Konsole wird geöffnet. 
+
+2. Wenn Sie nicht bereits ausgewählt ist, klicken Sie auf  **\(NPS local\)** . Wenn Sie Richtlinien für eine Remote-NPS erstellen möchten, wählen Sie den Server aus.
+
+3. Wählen Sie unter " **Start** " und " **Standard Konfiguration**" **RADIUS-Server für drahtlose oder verkabelte 802.1 x-Verbindungen aus**. Der Text und die Links unter dem Text ändern sich, um die Auswahl widerzuspiegeln.
+
+4. Klicken Sie **mit einem Assistenten auf 802.1 x konfigurieren**. Der neue IEEE 802.1 x-Assistent für sichere Kabel-und Drahtlos Verbindungen wird geöffnet.
+
+5. Befolgen Sie die Anweisungen im Assistenten, um die Erstellung der neuen Richtlinien abzuschließen.
+
+## <a name="configure-nps-to-ignore-user-account-dial-in-properties"></a>Konfigurieren von NPS zum Ignorieren von Benutzerkonto-DFÜ-Eigenschaften
+
+Verwenden Sie dieses Verfahren, um eine NPS-Netzwerk Richtlinie so zu konfigurieren, dass die DFÜ-Eigenschaften von Benutzerkonten in Active Directory während des Autorisierungs Vorgangs ignoriert werden. Benutzerkonten in Active Directory Benutzern und Computern verfügen über DFÜ-Eigenschaften, die NPS während der Autorisierung auswertet, es sei denn, die Eigenschaft **Netzwerk Zugriffsberechtigung** des Benutzerkontos ist so festgelegt, dass der **Zugriff über NPS-Netzwerk Richtlinie gesteuert wird** . 
+
+Es gibt zwei Situationen, in denen Sie NPS so konfigurieren möchten, dass die DFÜ-Eigenschaften von Benutzerkonten in Active Directory ignoriert werden:
+
+- Wenn Sie die NPS-Autorisierung mithilfe der Netzwerk Richtlinie vereinfachen möchten, aber nicht für alle Benutzerkonten die Eigenschaft **Netzwerk Zugriffsberechtigung** festgelegt ist, um den **Zugriff über die NPS-Netzwerk Richtlinie zu steuern**. Beispielsweise kann für einige Benutzerkonten die Eigenschaft **Netzwerk Zugriffsberechtigung** für das Benutzerkonto festgelegt werden, um **Zugriff zu verweigern** oder **Zugriff zuzulassen**.
+
+- Wenn andere Einwähleigenschaften von Benutzerkonten nicht auf den Verbindungstyp anwendbar sind, der in der Netzwerk Richtlinie konfiguriert ist. Beispielsweise gelten andere Eigenschaften als die Einstellung für die **Netzwerk Zugriffsberechtigung** nur für Einwähl-oder VPN-Verbindungen, aber die Netzwerk Richtlinie, die Sie erstellen, ist für drahtlose oder authentifizier Ende Switchverbindungen vorgesehen.
+
+Mit diesem Verfahren können Sie NPS so konfigurieren, dass Benutzerkonto-Einwähleigenschaften ignoriert werden. Wenn eine Verbindungsanforderung mit der Netzwerk Richtlinie übereinstimmt, in der dieses Kontrollkästchen aktiviert ist, verwendet NPS nicht die DFÜ-Eigenschaften des Benutzerkontos, um zu bestimmen, ob der Benutzer bzw. der Computer für den Zugriff auf das Netzwerk autorisiert ist. nur die Einstellungen in der Netzwerk Richtlinie werden zur Bestimmung der Autorisierung verwendet.
 
 Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe sein, damit Sie dieses Verfahren durchführen können.
 
-1. Klicken Sie auf den NPS, im Server-Manager auf **Tools**, und klicken Sie dann auf **Netzwerkrichtlinienserver**. Die NPS-Konsole wird geöffnet.
+1. Klicken Sie auf dem NPS in Server-Manager auf **Extras, und klicken Sie dann**auf **Netzwerk Richtlinien Server**. Die NPS-Konsole wird geöffnet.
 
-2. Doppelklicken Sie auf **Richtlinien**, klicken Sie auf **Netzwerkrichtlinien**, und doppelklicken Sie dann im Detailbereich auf die Richtlinie, die Sie konfigurieren möchten.
+2. Doppelklicken Sie auf **Richtlinien**, klicken Sie auf **Netzwerk Richtlinien**, und doppelklicken Sie dann im Detailbereich auf die Richtlinie, die Sie konfigurieren möchten.
 
-3. In der Richtlinie **Eigenschaften** Dialogfelds die **Übersicht über die** Registerkarte **Zugriffsberechtigung**, wählen die **ignorieren DFÜ-Eigenschaften des Benutzerkontos**, und klicken Sie dann auf **OK**.
+3. Aktivieren Sie im Dialogfeld Richtlinien **Eigenschaften** auf der Registerkarte **Übersicht** unter **Zugriffsberechtigung**das Kontrollkästchen **Benutzerkonto-Einwähleigenschaften ignorieren** , und klicken Sie dann auf **OK**.
 
-### <a name="to-configure-nps-to-ignore-user-account-dial-in-properties"></a>So konfigurieren Sie den NPS, um die Einwähleigenschaften des Kontos ignorieren
+### <a name="to-configure-nps-to-ignore-user-account-dial-in-properties"></a>So konfigurieren Sie NPS zum Ignorieren von Benutzerkonto-Einwähleigenschaften
 
 
 
 ## <a name="configure-nps-for-vlans"></a>Konfigurieren von NPS für VLANs
 
-Mithilfe von VLAN-fähigen Netzwerkzugriffsserver und NPS in Windows Server 2016, können Sie Gruppen von Benutzern mit nur den Zugriff auf die Netzwerkressourcen bereitstellen, die für ihre Sicherheitsberechtigungen geeignet sind. Beispielsweise können Sie Besucher mit drahtlosen Zugriff mit dem Internet bereitstellen ohne diese Zugriff auf das Netzwerk Ihrer Organisation. 
+Mithilfe von VLAN-fähigen Netzwerk Zugriffs Servern und NPS in Windows Server 2016 können Sie Gruppen von Benutzern mit Zugriff auf die Netzwerkressourcen bereitstellen, die für Ihre Sicherheits Berechtigungen geeignet sind. Beispielsweise können Sie den Besuchern drahtlosen Zugriff auf das Internet ermöglichen, ohne dass Sie auf Ihr Organisations Netzwerk zugreifen können. 
 
-Darüber hinaus können VLANs Sie logisch Netzwerk Ressourcen gruppieren, die in unterschiedlichen physischen Standorten oder auf andere physische Subnetze vorhanden sind. Z. B. Mitglieder Ihre Vertriebsabteilung wenden und ihre Netzwerkressourcen wie Client-Computern, Servern und Drucker, möglicherweise in mehreren verschiedenen Gebäuden in Ihrer Organisation befinden, aber Sie können all diese Ressourcen platzieren, auf ein VLAN, die die gleiche IP-Adresse verwendet Adressbereich. Das VLAN und die Funktionen, die aus Sicht der Endbenutzer kann als ein einzelnes Subnetz.
+Darüber hinaus ermöglichen VLANs das logische Gruppieren von Netzwerkressourcen, die sich an unterschiedlichen physischen Standorten oder in verschiedenen physischen Subnetzen befinden. Beispielsweise können sich die Mitglieder Ihrer Vertriebsabteilung und ihre Netzwerkressourcen, z. b. Client Computer, Server und Drucker, in verschiedenen Gebäuden in Ihrer Organisation befinden, aber Sie können all diese Ressourcen in einem VLAN platzieren, das dieselbe IP-Adresse verwendet. Adressbereich. Das VLAN fungiert dann aus der Sicht des Endbenutzers als einzelnes Subnetz.
 
-Sie können auch die VLANs verwenden, wenn Sie ein Netzwerk zwischen den verschiedenen Gruppen von Benutzern verteilen möchten. Nachdem Sie ermittelt haben, wie Sie Ihre Gruppen definieren möchten, können Sie Sicherheitsgruppen in Active Directory-Benutzer und Computer-Snap-in erstellen, und klicken Sie dann die Gruppen Mitglieder hinzufügen.
+Sie können auch VLANs verwenden, wenn Sie ein Netzwerk zwischen verschiedenen Benutzergruppen trennen möchten. Nachdem Sie festgelegt haben, wie Sie Ihre Gruppen definieren möchten, können Sie im Snap-in Active Directory Benutzer und Computer Sicherheitsgruppen erstellen und dann den Gruppenmitglieder hinzufügen.
 
-### <a name="configure-a-network-policy-for-vlans"></a>Konfigurieren einer Netzwerkrichtlinie für VLANs
+### <a name="configure-a-network-policy-for-vlans"></a>Konfigurieren einer Netzwerk Richtlinie für VLANs
 
-Sie können dieses Verfahren verwenden, so konfigurieren Sie eine Netzwerkrichtlinie, die von Benutzern mit einem VLAN zugewiesen. Bei der Verwendung von VLAN-fähigen Netzwerkhardware wie Router, Switches und den Zugriff auf Controller, können Sie die Netzwerkrichtlinie um anzuweisen, die Clientzugriffsservern Mitgliedern bestimmter Active Directory-Gruppen auf bestimmten VLANs platzieren konfigurieren. Diese Möglichkeit, die Gruppe von Netzwerkressourcen mit VLANs logisch bietet Flexibilität beim Entwerfen und Implementieren von netzwerklösungen.
+Mithilfe dieses Verfahrens können Sie eine Netzwerk Richtlinie konfigurieren, die Benutzer einem VLAN zuweist. Bei der Verwendung von VLAN-fähigen Netzwerkhardware (z. b. Routern, Switches und Zugriffs Controllern) können Sie die Netzwerk Richtlinie so konfigurieren, dass die Zugriffs Server Mitglieder bestimmter Active Directory Gruppen auf bestimmten VLANs platzieren. Diese Möglichkeit, Netzwerkressourcen logisch mit VLANs zu gruppieren, bietet Flexibilität beim Entwerfen und Implementieren von Netzwerklösungen.
 
-Wenn Sie die Einstellungen von einem NPS-Netzwerkrichtlinien für die Verwendung mit VLANs konfigurieren, müssen Sie konfigurieren, dass die Attribute **Mittel-Tunneltyp**, **Tunnel-Pvt-Group-ID**, **Tunneltyp**, und **Tunnel-Tag**. 
+Wenn Sie die Einstellungen einer NPS-Netzwerk Richtlinie für die Verwendung mit VLANs konfigurieren, müssen Sie die Attribute **Tunnel-mittlere-Typ**, **Tunnel-Pvt-Gruppen-ID**, **Tunneltyp**und **tunneltag**konfigurieren. 
 
-Dieses Verfahren wird als Richtlinie bereitgestellt wird. Konfiguration des Netzwerks möglicherweise andere Einstellungen als die unten beschrieben.
-
-Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe sein, damit Sie dieses Verfahren durchführen können.
-
-### <a name="to-configure-a-network-policy-for-vlans"></a>So konfigurieren Sie eine Netzwerkrichtlinie für VLANs
-
-1. Klicken Sie auf den NPS, im Server-Manager auf **Tools**, und klicken Sie dann auf **Netzwerkrichtlinienserver**. Die NPS-Konsole wird geöffnet.
-
-2. Doppelklicken Sie auf **Richtlinien**, klicken Sie auf **Netzwerkrichtlinien**, und doppelklicken Sie dann im Detailbereich auf die Richtlinie, die Sie konfigurieren möchten.
-
-3. In der Richtlinie **Eigenschaften** Dialogfeld klicken Sie auf die **Einstellungen** Registerkarte.
-
-4. In der Richtlinie **Eigenschaften**im **Einstellungen**im **RADIUS-Attribute**, sicher, dass **Standard** ausgewählt ist.
-
-5. Klicken Sie im Bereich "Details" in **Attribute**, **Diensttyp** Attribut konfiguriert ist, hat den Standardwert des **"eingerahmt"**. Standardmäßig wird für Richtlinien mit VPN- und DFÜ-Zugriff auf Methoden der **"eingerahmt"-Protokoll** Attribut konfiguriert ist, mit dem Wert **PPP**. Wenn zusätzliche Verbindung erforderliche Attribute für VLANs angeben möchten, klicken Sie auf **hinzufügen**. Die **RADIUS-Standardattribut** Dialogfeld wird geöffnet.
-
-6. In **RADIUS-Standardattribut**im Attribute einen Bildlauf nach unten zu, und fügen Sie die folgenden Attribute hinzu:
-
-    - **Tunnel-Medium-Type**. Wählen Sie einen Wert für die zuvor vorgenommenen Auswahlen, die Sie für die Richtlinie vorgenommen haben. Wählen Sie z. B. ist die Netzwerkrichtlinie, die Sie Konfigurieren einer Richtlinie für Drahtlosnetzwerke, **Wert: 802 (umfasst alle 802 Media plus kanonischen Format Ethernet)**.
-
-    - **Tunnel-Pvt-Group-ID**. Geben Sie die ganze Zahl, die die VLAN-Nummer darstellt, die Mitglieder der Gruppe zugewiesen werden soll. 
-
-    - **Tunnel-Type**. Wählen Sie **virtuelle LANs (VLANs)**.
-
-
-7. In **RADIUS-Standardattribut**, klicken Sie auf **schließen**. 
-
-8. Wenn Ihre Netzwerkzugriffsserver (NAS) erforderlich ist der **Tunnel-Tag** Attribut, verwenden Sie die folgenden Schritte aus, zum Hinzufügen der **Tunnel-Tag** -Attribut auf die Netzwerkrichtlinie. Wenn die dieses Attribut nicht von der NAS-Dokumentation erwähnt werden, fügen Sie es nicht an der Richtlinie. Falls erforderlich, fügen Sie die Attribute wie folgt:
-
-    - In der Richtlinie **Eigenschaften**im **Einstellungen**im **RADIUS-Attribute**, klicken Sie auf **Hersteller bestimmte**. 
-
-    - Klicken Sie im Detailbereich auf **hinzufügen**. Die **bestimmten Hersteller-Attribut hinzufügen** Dialogfeld wird geöffnet.
-
-    - In **Attribute**, führen Sie einen Bildlauf nach unten zu, und wählen Sie **Tunnel-Tag**, und klicken Sie dann auf **hinzufügen**. Die **Attributinformationen** Dialogfeld wird geöffnet. 
-
-    - In **-Attributwert**, geben Sie den Wert an, die Sie in der Hardwaredokumentation zu erhalten.
-
-## <a name="configure-the-eap-payload-size"></a>Konfigurieren Sie die Größe der EAP-Nutzlast
-
-In einigen Fällen verwerfen Routern oder Firewalls Pakete, da sie konfiguriert sind, um Pakete zu verwerfen, die Fragmentierung zu erfordern.
-
-Wenn Sie NPS bereitstellen, mit den Netzwerkrichtlinien, die das Extensible Authentication-Protokoll verwenden \(EAP\) mit Transport Layer Security \(TLS\), oder EAP-TLS als Authentifizierungsmethode, der maximale Standardwert Maximum Transmission Unit \(MTU\) NPS für EAP-Nutzlasten verwendet 1500 Bytes ist. 
-
-Diese maximale Größe für die EAP-Nutzlast kann RADIUS-Nachrichten erstellen, die Fragmentierung durch einen Router oder eine Firewall zwischen den NPS- und RADIUS-Client erfordern. Ist dies der Fall, kann einen Router oder Firewall zwischen dem RADIUS-Client und dem NPS positioniert automatisch einige Fragmente Authentifizierungsfehler und der Unfähigkeit des Access-Clients für die Verbindung mit dem Netzwerk zu verwerfen.
-
-Verwenden Sie das folgende Verfahren, um die maximale Größe zu verringern, die NPS für EAP-Nutzlasten verwendet werden, indem Sie das "eingerahmt"-MTU-Attribut in einer Netzwerkrichtlinie auf einen Wert nicht größer als 1344 anpassen.
+Dieses Verfahren wird als Richtlinie bereitgestellt. die Netzwerkkonfiguration erfordert möglicherweise andere Einstellungen als die unten beschriebenen Einstellungen.
 
 Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe sein, damit Sie dieses Verfahren durchführen können.
 
-### <a name="to-configure-the-framed-mtu-attribute"></a>So konfigurieren Sie das Attribut "eingerahmt"-MTU
+### <a name="to-configure-a-network-policy-for-vlans"></a>So konfigurieren Sie eine Netzwerk Richtlinie für VLANs
 
-1. Klicken Sie auf den NPS, im Server-Manager auf **Tools**, und klicken Sie dann auf **Netzwerkrichtlinienserver**. Die NPS-Konsole wird geöffnet.
+1. Klicken Sie auf dem NPS in Server-Manager auf **Extras, und klicken Sie dann**auf **Netzwerk Richtlinien Server**. Die NPS-Konsole wird geöffnet.
+
+2. Doppelklicken Sie auf **Richtlinien**, klicken Sie auf **Netzwerk Richtlinien**, und doppelklicken Sie dann im Detailbereich auf die Richtlinie, die Sie konfigurieren möchten.
+
+3. Klicken Sie im Dialogfeld Richtlinien **Eigenschaften** auf die Registerkarte **Einstellungen** .
+
+4. Stellen Sie in den Richtlinien **Eigenschaften**unter **Einstellungen**in **RADIUS-Attribute**sicher, dass **Standard** ausgewählt ist.
+
+5. Im Detailbereich wird in **Attribute**das **Service Type-** Attribut mit dem Standardwert " **gerahmt**" konfiguriert. Standardmäßig wird für Richtlinien mit Zugriffsmethoden für VPN und DFÜ das Attribut " **Attributes Protokoll** " mit dem Wert **PPP**konfiguriert. Zum Angeben zusätzlicher Verbindungs Attribute, die für VLANs erforderlich sind, klicken Sie auf **Hinzufügen**. Das Dialogfeld **Standard-RADIUS-Attribut hinzufügen** wird geöffnet.
+
+6. Scrollen Sie unter **Standard-RADIUS-Attribut hinzufügen**in Attribute zu, und fügen Sie die folgenden Attribute hinzu:
+
+    - **Tunnel-Mittel--Typ**. Wählen Sie einen Wert aus, der der vorherigen Auswahl entspricht, die Sie für die Richtlinie vorgenommen haben. Wenn beispielsweise die Netzwerk Richtlinie, die Sie konfigurieren, eine drahtlos Richtlinie ist, wählen Sie **wert aus: 802 (enthält alle 802 Medien und das kanonische Ethernet-Format)** .
+
+    - **Tunnel-Pvt-Group-ID**. Geben Sie die ganze Zahl ein, die die VLAN-Nummer darstellt, der Gruppenmitglieder zugewiesen werden. 
+
+    - **Tunneltyp**. Wählen Sie **virtuelle LANs (VLAN)** aus.
+
+
+7. Klicken Sie in **Standard-RADIUS-Attribut hinzufügen**auf **Schließen**. 
+
+8. Wenn Ihr Netzwerk Zugriffs Server (NAS) die Verwendung des **Tunnel-Tag-** Attributs erfordert, führen Sie die folgenden Schritte aus, um das **Tunnel-Tag-** Attribut der Netzwerk Richtlinie hinzuzufügen. Wenn dieses Attribut in der NAS-Dokumentation nicht erwähnt wird, fügen Sie es nicht der Richtlinie hinzu. Fügen Sie die Attribute bei Bedarf wie folgt hinzu:
+
+    - Klicken Sie in den Richtlinien **Eigenschaften**unter **Einstellungen**in **RADIUS-Attribute**auf **Hersteller spezifisch**. 
+
+    - Klicken Sie im Detailbereich auf **Hinzufügen**. Das Dialogfeld **Anbieter spezifisches Attribut hinzufügen** wird geöffnet.
+
+    - Führen Sie unter **Attribute**einen Bildlauf nach unten durch, und wählen Sie **tunneltag**aus. Klicken Sie dann auf **Hinzufügen** Das Dialogfeld **Attributinformationen** wird geöffnet. 
+
+    - Geben Sie in **Attribut Wert**den Wert ein, den Sie aus der Hardware Dokumentation abgerufen haben.
+
+## <a name="configure-the-eap-payload-size"></a>Konfigurieren der EAP-Nutzlastgröße
+
+In einigen Fällen werden von Routern oder Firewalls Pakete gelöscht, da Sie so konfiguriert sind, dass Sie Pakete verwerfen, die Fragmentierungen erfordern.
+
+Wenn Sie NPS mit Netzwerk Richtlinien bereitstellen, die das Extensible Authentication-Protokoll \(eap @ no__t-1 mit Transport Layer Security \(tls @ no__t-3 oder EAP-TLS als Authentifizierungsmethode verwenden, wird die standardmäßige maximale Übertragungseinheit \(mtu @ no_ _T-5, die NPS für EAP-Nutzlasten verwendet, beträgt 1500 Bytes. 
+
+Diese maximale Größe für die EAP-Nutzlast kann RADIUS-Nachrichten erstellen, die eine Fragmentierung von einem Router oder einer Firewall zwischen dem NPS und einem RADIUS-Client erfordern. Wenn dies der Fall ist, werden von einem Router oder einer Firewall, der zwischen dem RADIUS-Client und dem NPS positioniert ist, möglicherweise einige Fragmente verworfen, was zu einem Authentifizierungsfehler und zum Ausfall der Verbindungs Herstellung mit dem Netzwerk führen kann.
+
+Gehen Sie folgendermaßen vor, um die maximale Größe zu verringern, die NPS für EAP-Nutzlasten verwendet, indem Sie das Attribut "gerahmt-MTU" in einer Netzwerk Richtlinie auf einen Wert "nicht größer als 1344" einstellen.
+
+Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe sein, damit Sie dieses Verfahren durchführen können.
+
+### <a name="to-configure-the-framed-mtu-attribute"></a>So konfigurieren Sie das Attribut "gerahmte MTU"
+
+1. Klicken Sie auf dem NPS in Server-Manager auf **Extras, und klicken Sie dann**auf **Netzwerk Richtlinien Server**. Die NPS-Konsole wird geöffnet.
  
-2. Doppelklicken Sie auf **Richtlinien**, klicken Sie auf **Netzwerkrichtlinien**, und doppelklicken Sie dann im Detailbereich auf die Richtlinie, die Sie konfigurieren möchten.
+2. Doppelklicken Sie auf **Richtlinien**, klicken Sie auf **Netzwerk Richtlinien**, und doppelklicken Sie dann im Detailbereich auf die Richtlinie, die Sie konfigurieren möchten.
 
-3. In der Richtlinie **Eigenschaften** Dialogfeld klicken Sie auf die **Einstellungen** Registerkarte.
+3. Klicken Sie im Dialogfeld Richtlinien **Eigenschaften** auf die Registerkarte **Einstellungen** .
 
-4. In **Einstellungen**im **RADIUS-Attribute**, klicken Sie auf **Standard**. Klicken Sie im Detailbereich auf **hinzufügen**. Die **RADIUS-Standardattribut** Dialogfeld wird geöffnet.
+4. Klicken Sie unter **Einstellungen**in **RADIUS-Attribute**auf **Standard**. Klicken Sie im Detailbereich auf **Hinzufügen**. Das Dialogfeld **Standard-RADIUS-Attribut hinzufügen** wird geöffnet.
 
-5. In **Attribute**, scrollen Sie zu, und klicken Sie auf **"eingerahmt"-MTU**, und klicken Sie dann auf **hinzufügen**. Die **Attributinformationen** Dialogfeld wird geöffnet.
+5. Führen Sie unter **Attribute**einen Bildlauf nach unten durch, und klicken Sie auf **gerahmt-MTU**und dann auf **Hinzufügen**. Das Dialogfeld **Attributinformationen** wird geöffnet.
 
-6. In **Attributwert**, geben Sie einen Wert gleich oder kleiner als **1344**. Klicken Sie auf **OK**, klicken Sie auf **schließen**, und klicken Sie dann auf **OK**.
+6. Geben Sie in **Attribut Wert**einen Wert ein, der kleiner oder gleich **1344**ist. Klicken Sie auf **OK**, auf **Schließen**und dann auf **OK**.
 
 
 
-Weitere Informationen zu Richtlinien für Netzwerke, finden Sie unter [Netzwerkrichtlinien](nps-np-overview.md).
+Weitere Informationen zu Netzwerk Richtlinien finden Sie unter [Netzwerk Richtlinien](nps-np-overview.md).
 
-Beispiele für die Syntax zum Angeben von Mustervergleich Richtlinienattribute Netzwerk, finden Sie unter [Verwenden von regulären Ausdrücken in NPS](nps-crp-reg-expressions.md).
+Beispiele für Muster Vergleichs Syntax zum Angeben von Netzwerk Richtlinien Attributen finden Sie unter [Verwenden regulärer Ausdrücke in NPS](nps-crp-reg-expressions.md).
 
-Weitere Informationen zu NPS finden Sie unter [(Network Policy Server, NPS)](nps-top.md).
+Weitere Informationen zu NPS finden Sie unter [Netzwerk Richtlinien Server (Network Policy Server, NPS)](nps-top.md).

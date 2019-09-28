@@ -1,8 +1,8 @@
 ---
 title: FTP-bell_1
-description: Windows-Befehle-Thema für FTP-bell_1
+description: Windows-Befehls Thema für FTP bell_1
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f93c7a5f11b88b06c04d1525c5edc2953cafe700
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: eb47bc8eb4dff06596a332a4d5875e7442e8df96
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882851"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376606"
 ---
-# <a name="ftp-bell1"></a>FTP: bell_1
+# <a name="ftp-bell_1"></a>FTP: bell_1
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Schaltet ein akustisches Signal stattfinden, nachdem jede Dateiübertragungsbefehls abgeschlossen ist.   
+Schaltet einen hörbaren Sound um, der nach Abschluss der einzelnen Datei Übertragungs Befehle auftritt.   
 ## <a name="syntax"></a>Syntax  
 ```  
 bell  
@@ -33,10 +33,10 @@ bell
 none  
 ## <a name="remarks"></a>Hinweise  
 Standardmäßig ist Bell deaktiviert.  
-## <a name="BKMK_Examples"></a>Beispiele für  
-Schalten Sie ein akustisches Signal stattfinden, nachdem jede Dateiübertragungsbefehls abgeschlossen ist.  
+## <a name="BKMK_Examples"></a>Beispiele  
+Schalten Sie einen hörbaren Sound ein, der nach Abschluss der einzelnen Datei Übertragungs Befehle auftritt.  
 ```  
 bell  
 ```  
-## <a name="additional-references"></a>Zusätzliche Referenzen  
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
+## <a name="additional-references"></a>Weitere Verweise  
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

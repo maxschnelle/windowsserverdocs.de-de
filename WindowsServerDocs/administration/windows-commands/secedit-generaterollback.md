@@ -1,8 +1,8 @@
 ---
-title: secedit:generaterollback
-description: 'Windows-Befehle Thema ***- '
+title: 'secedit: generaterollback'
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: aa655d80c2698430827ad814c2b476e526529323
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 3ce4bd83e6eda24c10f65bd9d450a204906ff7fd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441553"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384222"
 ---
-# <a name="seceditgeneraterollback"></a>secedit:generaterollback
+# <a name="seceditgeneraterollback"></a>secedit: generaterollback
 
 
 
-Können Sie eine Rollbackvorlage für eine Vorlage für die angegebene Konfiguration zu generieren. Beispiele wie dieser Befehl verwendet werden kann, finden Sie unter [Beispiele](#BKMK_Examples).
+Ermöglicht das Generieren einer Rollback-Vorlage für eine angegebene Konfigurations Vorlage. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,25 +36,25 @@ Secedit /generaterollback /db <database file name> /cfg <configuration file name
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|db|Erforderlich.</br>Gibt den Pfad und Dateinamen Namen einer Datenbank, die die gespeicherte Konfiguration enthält, für die Analyse ausgeführt wird.</br>Wenn Dateiname, eine Datenbank, die nicht über eine Sicherheitsvorlage angibt (dargestellt durch die Konfigurationsdatei) zugeordnet, wurde die `/cfg \<configuration file name>` Befehlszeilenoption muss auch angegeben werden.|
-|cfg|Erforderlich.</br>Gibt an, der Pfad und Dateiname für die Sicherheitsvorlage, die in der Datenbank für die Analyse importiert werden.</br>Diese/cfg-Option ist nur gültig, wenn Sie mit der `/db \<database file name>` Parameter. Wenn dies nicht angegeben wird, erfolgt die Analyse für eine Konfiguration, die bereits in der Datenbank gespeichert.|
-|rbk|Erforderlich.</br>Gibt an, eine Sicherheitsvorlage, die in der die Rollbackinformationen geschrieben wird. Sicherheitsvorlagen werden mithilfe des MMC-Snap-Ins Sicherheitsvorlagen erstellt. Rollbackdateien können mit diesem Befehl erstellt werden.|
-|log|Optional.</br>Gibt den Pfad und Dateiname den Namen der Protokolldatei für den Prozess.|
-|Quiet|Optional.</br>Unterdrückt die Ausgabe von Bildschirm und Protokolldateien. Sie können dennoch Analyseergebnisse Ansicht mit der Sicherheitskonfiguration und-Analyse-Snap-in auf der Microsoft Management Console (MMC).|
+|Utility|Erforderlich.</br>Gibt den Pfad und den Dateinamen einer Datenbank an, die die gespeicherte Konfiguration enthält, für die die Analyse ausgeführt wird.</br>Wenn der Dateiname eine Datenbank angibt, der keine Sicherheits Vorlage (wie durch die Konfigurationsdatei dargestellt) zugeordnet ist, muss auch `/cfg \<configuration file name>` die Befehlszeilenoption angegeben werden.|
+|cfg|Erforderlich.</br>Gibt den Pfad und den Dateinamen für die Sicherheits Vorlage an, die zur Analyse in die Datenbank importiert werden.</br>Diese/cfg-Option ist nur gültig, wenn Sie `/db \<database file name>` mit dem-Parameter verwendet wird. Wenn dies nicht angegeben ist, wird die Analyse für jede Konfiguration ausgeführt, die bereits in der Datenbank gespeichert ist.|
+|RBK|Erforderlich.</br>Gibt eine Sicherheits Vorlage an, in die die Roll Back Informationen geschrieben werden. Sicherheits Vorlagen werden mithilfe des Snap-Ins "Sicherheits Vorlagen" erstellt. Rollback-Dateien können mit diesem Befehl erstellt werden.|
+|angezeigt|Optional.</br>Gibt den Pfad und den Dateinamen der Protokolldatei für den Prozess an.|
+|Geschwiegen|Optional.</br>Unterdrückt die Bildschirm-und Protokoll Ausgabe. Sie können weiterhin Analyseergebnisse anzeigen, indem Sie das Snap-in "Sicherheitskonfiguration und-Analyse" in der Microsoft Management Console (MMC) verwenden.|
 
 ## <a name="remarks"></a>Hinweise
 
-Wenn der Pfad für die Protokolldatei nicht, die Standardprotokolldatei, bereitgestellt wird (*Systemroot*\Users \*UserAccount<em>\My Documents\Security\Logs\*DatabaseName</em>.log) wird verwendet.
+Wenn der Pfad für die Protokolldatei nicht bereitgestellt wird, wird die Standardprotokoll Datei (*systemroot*\Users \*Useraccount<em>\My\*documents\security\logs DatabaseName</em>. log) verwendet.
 
-Ab Windows Server 2008, `Secedit /refreshpolicy` wurde durch ersetzt `gpupdate`. Informationen zum Aktualisieren von Sicherheitseinstellungen, finden Sie unter [Gpupdate](gpupdate.md).
+Ab Windows Server 2008 `Secedit /refreshpolicy` wurde durch `gpupdate`ersetzt. Weitere Informationen zum Aktualisieren von Sicherheitseinstellungen finden Sie unter [gpupdate](gpupdate.md).
 
-Die erfolgreiche Ausführung dieses Befehls wird Status "die Aufgabe erfolgreich abgeschlossen wurde." und die Protokolle nur die Konflikte zwischen den angegebenen Sicherheitsvorlage und Konfiguration von Sicherheitsrichtlinien. Diese Konflikte in der scesrv.log aufgeführt.
+Bei erfolgreicher Ausführung dieses Befehls wird der Status "der Task wurde erfolgreich abgeschlossen" angezeigt. und protokolliert nur die Konflikte zwischen der angegebenen Sicherheits Vorlage und der Konfiguration der Sicherheitsrichtlinie. Diese Konflikte werden in der Datei "Scesrv. log" aufgeführt.
 
-Wenn eine vorhandenen Rollbackvorlage für das angegeben wird, wird mit diesem Befehl überschrieben. Sie können eine neue Rollbackvorlage für das mit diesem Befehl erstellen. Es sind keine zusätzlichen Parameter für die Bedingung erforderlich.
+Wenn eine vorhandene Rollback-Vorlage angegeben ist, wird Sie durch diesen Befehl überschrieben. Mit diesem Befehl können Sie eine neue Rollback-Vorlage erstellen. Für beide Bedingungen sind keine zusätzlichen Parameter erforderlich.
 
-## <a name="BKMK_Examples"></a>Beispiele für
+## <a name="BKMK_Examples"></a>Beispiele
 
-Erstellen Sie nach dem Erstellen der Sicherheitsvorlage mit der Sicherheitskonfiguration und des Analysis-Snap-in SecTmplContoso.inf, die Rollback-Konfigurationsdatei, um die ursprünglichen Einstellungen zu speichern. Schreiben Sie die Aktion in der Protokolldatei FY11.
+Nachdem Sie die Sicherheits Vorlage mithilfe des Sicherheitskonfigurations-und Analyse-Snap-Ins erstellt haben, erstellen Sie die Rollback-Konfigurationsdatei, um die ursprünglichen Einstellungen zu speichern. Schreiben Sie die Aktion in die FY11-Protokolldatei.
 ```
 Secedit /generaterollback /db C:\Security\FY11\SecDbContoso.sdb /cfg sectmplcontoso.inf /rbk sectmplcontosoRBK.inf /log C:\Security\FY11\SecAnalysisContosoFY11.log
 ```

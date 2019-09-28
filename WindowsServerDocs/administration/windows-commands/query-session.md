@@ -1,8 +1,8 @@
 ---
-title: abfragesitzung
-description: 'Windows-Befehle Thema ***- '
+title: Abfrage Sitzung
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,22 +13,22 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 25e2457d792b463ca861f0cba29f1c290684e7b0
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: bde9a246f2c46eaa466f2863c2cfc3c28a3a04eb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442046"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384909"
 ---
-# <a name="query-session"></a>abfragesitzung
+# <a name="query-session"></a>Abfrage Sitzung
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zeigt Informationen zu Sitzungen auf einem Server Remote Desktop Session Host (rd Session Host).
-Die Liste enthält Informationen, die nicht nur zu aktiven Sitzungen, sondern auch zu anderen Sitzungen, die der Server ausgeführt wird.
-Beispiele für diesen Befehl verwenden, finden Sie unter [Beispiele](#BKMK_examples).
+Zeigt Informationen zu Sitzungen auf einem Remotedesktop-Sitzungshost Server (RD-Sitzungs Host) an.
+Die Liste enthält nicht nur Informationen zu aktiven Sitzungen, sondern auch zu anderen Sitzungen, die vom Server ausgeführt werden.
+Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 > [!NOTE]
-> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Neuerungen in der neuesten Version finden Sie unter [welche s New in Remote Desktop Services in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der technischen Bibliothek für Windows Server.
+> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der TechNet-Bibliothek für Windows Server.
 > ## <a name="syntax"></a>Syntax
 > ```
 > query session [<SessionName> | <UserName> | <SessionID>] [/server:<ServerName>] [/mode] [/flow] [/connect] [/counter]
@@ -37,20 +37,20 @@ Beispiele für diesen Befehl verwenden, finden Sie unter [Beispiele](#BKMK_examp
 > 
 > |      Parameter       |                                                      Beschreibung                                                      |
 > |----------------------|-----------------------------------------------------------------------------------------------------------------------|
-> |    <SessionName>     |                               Gibt den Namen der Sitzung, die Sie abfragen möchten.                               |
-> |      <UserName>      |                           Gibt den Namen des Benutzers, dessen Sitzungen Sie abfragen möchten.                            |
-> |     <SessionID>      |                                Gibt die ID der Sitzung, die Sie abfragen möchten.                                |
-> | /server:<ServerName> |                  Identifiziert den rd-Sitzungshostserver auf Abfrage. Der Standardwert ist der aktuelle Server.                   |
-> |        / Mode         |                                            Zeigt die Einstellungen der aktuellen Zeile.                                            |
-> |        /flow         |                                        Zeigt die aktuellen Einstellungen der flusssteuerung.                                        |
-> |       /connect       |                                          Zeigt den aktuellen Verbindungseinstellungen.                                           |
-> |       Sys       | Zeigt aktuelle Informationen zu Leistungsindikatoren, die Gesamtzahl der Sitzungen erstellt, einschließlich getrennt, sodass die Verbindung wiederhergestellt. |
+> |    <SessionName>     |                               Gibt den Namen der Sitzung an, die Sie Abfragen möchten.                               |
+> |      <UserName>      |                           Gibt den Namen des Benutzers an, dessen Sitzungen Sie Abfragen möchten.                            |
+> |     <SessionID>      |                                Gibt die ID der Sitzung an, die Sie Abfragen möchten.                                |
+> | /server:<ServerName> |                  Identifiziert den Remote Desktop-Sitzungs Host Server für die Abfrage. Der Standardwert ist der aktuelle Server.                   |
+> |        /Mode         |                                            Zeigt die aktuellen Zeilen Einstellungen an.                                            |
+> |        /flow         |                                        Zeigt die aktuellen Einstellungen für die Fluss Steuerung an.                                        |
+> |       /Connect       |                                          Zeigt die aktuellen Verbindungseinstellungen an.                                           |
+> |       /Counter       | Zeigt aktuelle Zähler Informationen an, einschließlich der Gesamtzahl der erstellten, getrennten Sitzungen und der Wiederherstellung der Verbindung. |
 > |          /?          |                                         Zeigt die Hilfe an der Eingabeaufforderung an.                                          |
 > 
 > ## <a name="remarks"></a>Hinweise
-> - Benutzer können immer die Sitzung Abfragen, zu der der Benutzer zurzeit angemeldet ist. Um anderen Sitzungen abzufragen, muss der Benutzer Informationen beschränkten Zugriffsberechtigungen verfügen.
-> - Wenn Sie eine Sitzung nicht mithilfe von angeben <*Sitzungsname*>, <*Benutzername*>, oder <*SessionID*>, **Abfragen Sitzung** Zeigt Informationen zu allen aktiven Sitzungen im System an.
-> - Wenn **Abfragen Sitzung** gibt Informationen zurück, ein größer-als (>) ein wird vor der aktuellen Sitzung angezeigt. Es folgt die Ausgabe des Beispiels für **Abfragen Sitzung**:
+> - Ein Benutzer kann immer die Sitzung Abfragen, an der der Benutzer zurzeit angemeldet ist. Um andere Sitzungen abzufragen, muss der Benutzer über die Berechtigung "spezielle Zugriffsberechtigung für Abfrage Informationen" verfügen.
+> - Wenn Sie keine Sitzung angeben, indem Sie <*Sessionname*>, <*username*> oder <*SessionID*> verwenden, werden in der **Abfrage Sitzung** Informationen zu allen aktiven Sitzungen im System angezeigt.
+> - Wenn die **Abfrage Sitzung** Informationen zurückgibt, wird vor der aktuellen Sitzung ein größer-als-Symbol (>) angezeigt. Im folgenden finden Sie eine Beispielausgabe für die **Abfrage Sitzung**:
 >   ```
 >   C:\>query session
 >    SESSIONNAME    USERNAME       ID STATE  TYPE   DEVICE
@@ -60,17 +60,16 @@ Beispiele für diesen Befehl verwenden, finden Sie unter [Beispiele](#BKMK_examp
 >                                   4 idle
 >                                   5 idle
 >   ```
->   Das größere als (>) Symbol gibt an, die aktuelle Sitzung. Sitzungsname Gibt den Namen der Sitzung an. Benutzername Gibt an, den Benutzernamen des Benutzers mit der Sitzung verbunden wird. Status bietet Informationen zu den aktuellen Status der Sitzung. Typ gibt an, den Sitzungstyp. Gerät, das nicht für die Konsole oder das Netzwerk verbundenen Sitzungen vorhanden ist, wird der Gerätename, die der Sitzung zugewiesen. Der Kommentar nach Informationen zur Sitzung wird aus dem Sitzungsprofil. Alle Sitzungen, in dem der anfängliche Zustand, als deaktiviert konfiguriert ist, werden nicht angezeigt, der **Abfragen Sitzung** auflisten, bis sie aktiviert sind.
->   ## <a name="BKMK_examples"></a>Beispiele für
-> - Um Informationen zu allen aktiven Sitzungen auf SERver2-Server anzuzeigen, geben Sie Folgendes ein:
+>   Das Symbol "größer als (>)" gibt die aktuelle Sitzung an. Sessionname gibt den Namen an, der der Sitzung zugewiesen ist. USERNAME gibt den Benutzernamen des Benutzers an, der mit der Sitzung verbunden ist. State enthält Informationen zum aktuellen Status der Sitzung. Typ gibt den Sitzungstyp an. Das Gerät, das für die-Konsole oder die mit dem Netzwerk verbundenen Sitzungen nicht vorhanden ist, ist der Gerätename, der der Sitzung zugewiesen ist. Der Kommentar nach den Sitzungsinformationen wird aus dem Sitzungs Profil entfernt. Alle Sitzungen, in denen der Anfangszustand als deaktiviert konfiguriert ist, werden erst dann in der Liste der **Abfrage** Sitzungen angezeigt, wenn Sie aktiviert sind.
+>   ## <a name="BKMK_examples"></a>Beispiele
+> - Geben Sie Folgendes ein, um Informationen zu allen aktiven Sitzungen auf dem Server SERver2 anzuzeigen:
 >   ```
 >   query session /server:SERver2
 >   ```
-> - Um Informationen zu aktiven Sitzung modeM02 anzuzeigen, geben Sie Folgendes ein:
+> - Geben Sie Folgendes ein, um Informationen zu aktiven Sitzungs-modeM02 anzuzeigen:
 >   ```
 >   query session modeM02
 >   ```
->   #### <a name="additional-references"></a>Zusätzliche Referenzen
->   [Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
->   [Abfrage](query.md)
->   [Remote Desktop Services &#40;"Terminal Services"&#41; -Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)
+>   #### <a name="additional-references"></a>Weitere Verweise
+>   [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+>   -[Abfrage](query.md)@no__t-[3 &#40;Remotedesktopdienste Befehls&#41; Referenz für Terminal Dienste](remote-desktop-services-terminal-services-command-reference.md)

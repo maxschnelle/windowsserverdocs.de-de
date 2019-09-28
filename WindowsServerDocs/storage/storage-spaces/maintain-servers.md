@@ -1,6 +1,6 @@
 ---
 title: Server für Direkte Speicherplätze zu Wartungszwecken offline schalten
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: eldenc
 ms.manager: eldenc
 ms.technology: storage-spaces
@@ -10,12 +10,12 @@ ms.date: 10/08/2018
 Keywords: Direkte Speicherplätze (S2D), Wartung
 ms.assetid: 73dd8f9c-dcdb-4b25-8540-1d8707e9a148
 ms.localizationpriority: medium
-ms.openlocfilehash: 96ae0ad0d1def12ab68466f0a9ae60d0afcc2c17
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 20439a06c255a73f20a297f765e6ed11abfde6f2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871221"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402825"
 ---
 # <a name="taking-a-storage-spaces-direct-server-offline-for-maintenance"></a>Server für Direkte Speicherplätze zu Wartungszwecken offline schalten
 
@@ -97,7 +97,7 @@ MyVolume2    Mirror                Incomplete        Warning      True          
 MyVolume3    Mirror                Incomplete        Warning      True           1 TB
 ```
 
-Unvollständig oder Operational Status "heruntergestuft" ist normal, wenn Knoten heruntergefahren werden, oder Starten/Beenden des Clusters auf einem Knoten service und sollten kein Problem. Alle Ihre Volumes bleiben online und verfügbar.
+Der Status "unvollständig" oder "heruntergestuft" ist normal, wenn Knoten heruntergefahren werden oder der Cluster Dienst auf einem Knoten gestartet bzw. angehalten wird und keine Probleme auftreten sollten. Alle Ihre Volumes bleiben online und verfügbar.
 
 ## <a name="resuming-the-server"></a>Den Server fortsetzen
 
@@ -121,7 +121,7 @@ Um dies im Failovercluster-Manager durchzuführen, wechseln Sie zu **Knoten**, k
 
 ## <a name="waiting-for-storage-to-resync"></a>Auf Neusynchronisierung des Speichers warten
 
-Wenn der Server wieder aufgenommen wird, müssen neuen Schreibvorgänge, die aufgetreten sind, während sie nicht verfügbar war erneut synchronisieren. Dies erfolgt automatisch. Bei der Verwendung der intelligenten Änderungsnachverfolgung ist es nicht erforderlich, *alle* Daten zu überprüfen oder zu synchronisieren sondern nur diejenigen, die geändert wurden. Dieser Prozess wird gedrosselt, um den Einfluss auf die Produktionsarbeitsauslastungen zu verringern. Je nachdem, wie lange der Server angehalten wurde und wie viel neue Daten geschrieben wurden kann dies mehrere Minuten dauern.
+Beim Fortsetzen des Servers müssen alle neuen Schreibvorgänge, die während der Nichtverfügbarkeit nicht verfügbar waren, neu synchronisiert werden. Dies erfolgt automatisch. Bei der Verwendung der intelligenten Änderungsnachverfolgung ist es nicht erforderlich, *alle* Daten zu überprüfen oder zu synchronisieren sondern nur diejenigen, die geändert wurden. Dieser Prozess wird gedrosselt, um den Einfluss auf die Produktionsarbeitsauslastungen zu verringern. Je nachdem, wie lange der Server angehalten wurde und wie viel neue Daten geschrieben wurden kann dies mehrere Minuten dauern.
 
 Sie müssen warten, bis die Synchronisierung abgeschlossen ist, bevor Sie einen anderen Server im Cluster offline nehmen.
 
@@ -167,24 +167,24 @@ MyVolume3    Mirror                OK                Healthy      True          
 
 Sie können andere Server im Cluster jetzt anhalten und neu starten.
 
-## <a name="how-to-update-storage-spaces-direct-nodes-offline"></a>Vorgehensweise beim Aktualisieren von "direkte Speicherplätze" Knoten offline geschaltet
-Verwenden Sie die folgenden Schritte aus, um den Pfad Ihrem "direkte Speicherplätze" System schnell. Sie umfasst Planung eines Wartungsfensters und das System herunterzufahren, für das Patchen. Liegt ein wichtiges Sicherheitsupdate, das Sie benötigen schnell angewendet werden, oder vielleicht müssen Sie sicherstellen, dass das Patchen des Wartungsfensters abgeschlossen wird, kann diese Methode für Sie sein. Dieser Prozess bietet Sie den Cluster "direkte Speicherplätze", sie patches und schaltet sie Sie erneut. Der Nachteil besteht in Ausfallzeiten für die gehosteten Ressourcen.
+## <a name="how-to-update-storage-spaces-direct-nodes-offline"></a>Vorgehensweise beim Offline Aktualisieren von direkte Speicherplätze Knoten
+Führen Sie die folgenden Schritte aus, um das direkte Speicherplätze System schnell zu. Dazu gehört die Planung eines Wartungs Fensters und das herunter schalten des Systems zum Patchen. Wenn ein kritisches Sicherheitsupdate vorliegt, das Sie schnell anwenden müssen, oder wenn Sie sicherstellen müssen, dass das Patchen in Ihrem Wartungsfenster abgeschlossen ist, ist diese Methode möglicherweise für Sie vorgesehen. Durch diesen Vorgang wird der direkte Speicherplätze Cluster herunterskalieren, gepatcht und wieder zusammengeführt. Der Kompromiss ist die Ausfallzeit der gehosteten Ressourcen.
 
-1. Planen des Wartungsfensters an.
+1. Planen Sie Ihr Wartungsfenster.
 2. Schalten Sie die virtuellen Datenträger offline.
-3. Beenden Sie den Cluster, um den Speicherpool offline zu schalten. Führen Sie die **Stop-Cluster** Cmdlet oder verwenden Sie Failovercluster-Manager, um den Cluster zu beenden.
-4. Legen Sie den Clusterdienst auf **deaktiviert** in "Services.msc" auf jedem Knoten. Dadurch wird verhindert, dass den Clusterdienst gestartet und gepatcht werden.
-5. Wenden Sie das kumulative Update für Windows Server, und alle erforderlichen Servicing Stack-Updates an alle Knoten. (Sie können aktualisieren alle Knoten gleichzeitig, keinen Grund zu warten, da der Cluster ausgefallen ist).  
-6. Starten Sie den Knoten neu, und stellen Sie sicher, dass alles in Ordnung ist.
-7. Gruppe, die der Clusterdienst an **automatische** auf jedem Knoten.
-8. Starten Sie den Cluster ein. Führen Sie die **Start des Clusters** Cmdlet oder Failovercluster-Manager verwenden. 
+3. Beendet den Cluster, um den Speicherpool offline zu schalten. Führen Sie das Cmdlet " **stoppt** " aus, oder verwenden Sie Failovercluster-Manager, um den Cluster anzuhalten.
+4. Legen Sie in "Services. msc" für jeden Knoten den Cluster Dienst auf " **deaktiviert** " fest. Dadurch wird verhindert, dass der Cluster Dienst beim Patchen gestartet wird.
+5. Wenden Sie das kumulative Update für Windows Server und alle erforderlichen Wartungs Stapel Updates auf alle Knoten an. (Sie können alle Knoten gleichzeitig aktualisieren, da der Cluster nicht gewartet werden muss.)  
+6. Starten Sie die Knoten neu, und stellen Sie sicher, dass alles gut aussieht
+7. Legen Sie den Cluster Dienst auf den einzelnen Knoten auf **automatisch** zurück.
+8. Starten Sie den Cluster. Führen Sie das Cmdlet **Start-Cluster** aus, oder verwenden Sie Failovercluster-Manager. 
 
-   Warten sie einige Minuten.  Stellen Sie sicher, dass der Speicherpool fehlerfrei ist.
-9. Schalten Sie die virtuellen Datenträger wieder online geschaltet.
-10. Überwachen des Status der virtuellen Datenträger durch Ausführen der **Get-Volume** und **Get-VirtualDisk** Cmdlets.
+   Warten Sie einige Minuten.  Stellen Sie sicher, dass der Speicherpool fehlerfrei ist.
+9. Schalten Sie die virtuellen Datenträger wieder online.
+10. Überwachen Sie den Status der virtuellen Datenträger, indem Sie die Cmdlets " **Get-Volume** " und " **Get-virtualdisk** " ausführen.
 
 
 ## <a name="see-also"></a>Siehe auch
 
-- [Übersicht über Storage "direkte Speicherplätze"](storage-spaces-direct-overview.md)
-- [Cluster-Aware aktualisieren (CAU)](https://technet.microsoft.com/library/hh831694.aspx)
+- [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)
+- [Cluster fähiges aktualisieren (Cau)](https://technet.microsoft.com/library/hh831694.aspx)

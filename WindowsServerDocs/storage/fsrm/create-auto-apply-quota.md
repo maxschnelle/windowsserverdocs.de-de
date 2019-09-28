@@ -2,22 +2,22 @@
 title: Erstellen eines automatisch zugewiesenen Kontingents
 description: Dieser Artikel enthält Informationen zum Erstellen von automatisch zugewiesenen Kontingenten basierend auf einer Kontingentvorlage
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: e2837df448434252470d783a6c06f0690ba09021
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 68967ff920f25c05affc206ed45bad9275e781b6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847921"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394235"
 ---
 # <a name="create-an-auto-apply-quota"></a>Erstellen eines automatisch zugewiesenen Kontingents
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Mit automatisch zugewiesenen Kontingenten können Sie einem übergeordneten Volume oder Ordner eine Kontingentvorlage zuweisen. Der Ressourcen-Manager für Dateiserver generiert automatisch Kontingente, die auf dieser Vorlage basieren. Kontingente werden für jede der vorhandenen Unterordner und alle Unterordner erstellt, die Sie in der Zukunft zu erstellen.
 
@@ -42,5 +42,5 @@ Sie können z. B. ein automatisch zugewiesenes Kontingent für Unterordner erst
 
 ## <a name="see-also"></a>Siehe auch
 
--   [Management von sollvorgaben](quota-management.md)
--   [Bearbeiten Sie die automatische Anwenden von Kontingenteigenschaften](edit-auto-apply-quota-properties.md)
+-   [Kontingentverwaltung](quota-management.md)
+-   [Bearbeiten der Eigenschaften des automatisch zugewiesenen Kontingents](edit-auto-apply-quota-properties.md)

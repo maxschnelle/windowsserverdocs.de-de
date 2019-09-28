@@ -1,9 +1,9 @@
 ---
-title: Schritt 4 installieren und Konfigurieren von RSA und EDGE1
-description: 'Dieses Thema ist Teil der Testumgebungsanleitung: veranschaulichen von DirectAccess mit OTP-Authentifizierung und RSA SecurID für Windows Server 2016'
+title: Schritt 4 installieren und Konfigurieren von RSA und Edge1
+description: 'Dieses Thema ist Teil der Test Umgebungs Anleitung: veranschaulichen von DirectAccess mit OTP-Authentifizierung und RSA SecurID für Windows Server 2016'
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,92 +12,92 @@ ms.topic: article
 ms.assetid: d46ede6f-1a21-414d-b8c3-6b5c87344b9d
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 5280a02568305512f868f559fe35d11dc618f2b4
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 3519e9d6e89b26a733b6b0178334f86e284bddfb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283070"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404760"
 ---
-# <a name="step-4-install-and-configure-rsa-and-edge1"></a>Schritt 4 installieren und Konfigurieren von RSA und EDGE1
+# <a name="step-4-install-and-configure-rsa-and-edge1"></a>Schritt 4 installieren und Konfigurieren von RSA und Edge1
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-RSA ist der RADIUS- und der OTP-Server, und vor dem Konfigurieren von RADIUS und OTP installiert ist.  
+RSA ist der RADIUS-und OTP-Server und wird vor dem Konfigurieren von RADIUS und OTP installiert.  
   
-Sie führt die folgenden Schritte aus, um den RSA-Bereitstellung zu konfigurieren:  
+Zum Konfigurieren der RSA-Bereitstellung führen Sie die folgenden Schritte aus:  
   
-1. Installieren des Betriebssystems auf dem RSA-Server an. Installieren Sie Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 auf der RSA-Server an.  
+1. Installieren Sie das Betriebssystem auf dem RSA-Server. Installieren Sie Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 auf dem RSA-Server.  
   
-2. Konfigurieren von TCP/IP auf RSA. Konfigurieren Sie TCP/IP-Einstellungen auf der RSA-Server.  
+2. Konfigurieren von TCP/IP auf RSA Konfigurieren Sie die TCP/IP-Einstellungen auf dem RSA-Server.  
   
-3. Kopieren Sie Authentifizierungs-Manager-Installationsdateien auf den RSA-Server. Nach der Installation des Betriebssystems auf RSA, die Authentifizierungs-Manager Dateien auf den RSA-Computer kopieren.  
+3. Kopieren Sie die Authentifizierungs-Manager-Installationsdateien auf den RSA-Server. Nachdem Sie das Betriebssystem auf RSA installiert haben, kopieren Sie die Authentifizierungs-Manager-Dateien auf den RSA-Computer.  
   
-4. Fügen Sie den RSA-Server in der Domäne CORP an. Verknüpfen Sie RSA, mit der CORP-Domäne.  
+4. Fügen Sie den RSA-Server der Corp-Domäne hinzu. Verknüpfen Sie RSA mit der Corp-Domäne.  
   
-5. Deaktivieren Sie die Windows-Firewall auf RSA. Deaktivieren Sie die Windows-Firewall auf den RSA-Server.  
+5. Deaktivieren Sie die Windows-Firewall auf RSA. Deaktivieren Sie die Windows-Firewall auf dem RSA-Server.  
   
-6. Installieren Sie RSA Authentication Manager auf dem RSA-Server. RSA Authentication Manager zu installieren.  
+6. Installieren Sie den RSA Authentication Manager auf dem RSA-Server. Installieren Sie den RSA Authentication Manager.  
   
-7. Konfigurieren Sie RSA Authentication Manager. Konfigurieren Sie die Authentifizierungs-Manager.  
+7. Konfigurieren Sie den RSA Authentication Manager. Konfigurieren Sie den Authentifizierungs-Manager.  
   
-8. Erstellen Sie DAProbeUser. Erstellen Sie ein Benutzerkonto für den Test-Zwecke.  
+8. Erstellen Sie daprobeuser. Erstellen Sie ein Benutzerkonto zu Testzwecken.  
   
-9. Installieren Sie RSA SecurID-Software-Token auf "client1" an. Installieren Sie RSA SecurID-Software-Token auf "client1" an.  
+9. Installieren Sie das RSA SecurID-Software Token auf CLIENT1. Installieren Sie das RSA SecurID-Software Token auf CLIENT1.  
   
-10. Konfigurieren von EDGE1 als RSA Authentication Agent. Konfigurieren Sie auf EDGE1 RSA Authentication Agent.  
+10. Konfigurieren Sie Edge1 als RSA-Authentifizierungs-Agent. Konfigurieren Sie den RSA-Authentifizierungs-Agent auf Edge1.  
   
-11. Konfigurieren von EDGE1 zu OTP-Authentifizierung unterstützen. Konfigurieren von Einmalkennwörtern für DirectAccess, und überprüfen Sie die Konfiguration.  
+11. Konfigurieren Sie Edge1 zur Unterstützung der OTP-Authentifizierung. Konfigurieren Sie OTP für DirectAccess, und überprüfen Sie die Konfiguration.  
   
-## <a name="InstallOS"></a>Installieren des Betriebssystems auf dem RSA-server  
+## <a name="InstallOS"></a>Installieren des Betriebssystems auf dem RSA-Server  
   
-1.  Starten Sie auf RSA die Installation von Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 aus.  
+1.  Starten Sie unter RSA die Installation von Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012.  
   
-2.  Führen Sie die Anweisungen zum Abschließen der Installations und geben Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 (vollständige Installation) und ein sicheres Kennwort für das lokale Administratorkonto an. Melden Sie sich beim lokalen Administratorkonto an.  
+2.  Befolgen Sie die Anweisungen, um die Installation abzuschließen, indem Sie Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 (vollständige Installation) und ein sicheres Kennwort für das lokale Administrator Konto angeben. Melden Sie sich beim lokalen Administratorkonto an.  
   
-3.  Verbinden Sie RSA mit einem Netzwerk, das über Internetzugriff verfügt, und führen Sie Windows Update, um die neuesten Updates für Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 installieren, und klicken Sie dann aus dem Internet zu trennen.  
+3.  Verbinden Sie RSA mit einem Netzwerk, das über Internet Zugriff verfügt, und führen Sie Windows Update aus, um die neuesten Updates für Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 zu installieren, und trennen Sie dann die Verbindung mit dem Internet.  
   
-4.  Verbinden Sie RSA, mit dem Subnetz "Corpnet".  
+4.  Stellen Sie eine Verbindung mit dem Subnetz "Corpnet" her.  
   
 ## <a name="TCP"></a>Konfigurieren von TCP/IP auf RSA  
   
-1.  Aufgaben zur Erstkonfiguration, klicken Sie auf **Netzwerk konfigurieren**.  
+1.  Klicken Sie in Aufgaben zur Erstkonfiguration auf **Netzwerk konfigurieren**.  
   
-2.  In **Netzwerkverbindungen**, mit der rechten Maustaste **LAN-Verbindung**, und klicken Sie dann auf **Eigenschaften**.  
+2.  Klicken Sie unter **Netzwerkverbindungen**mit der rechten Maustaste auf LAN- **Verbindung**, und klicken Sie dann auf **Eigenschaften**.  
   
 3.  Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)** , und klicken Sie dann auf **Eigenschaften**.  
   
-4.  Klicken Sie auf **Folgende IP-Adresse verwenden**. Geben Sie im Feld **IP-Adresse**die Adresse **10.0.0.5**ein. Geben Sie im Feld **Subnetzmaske**den Wert **255.255.255.0**ein. In **Standardgateway**, Typ **10.0.0.2**. Klicken Sie auf **verwenden Sie die folgenden DNS-Serveradressen**im **Bevorzugter DNS-Server**, Typ **10.0.0.1**.  
+4.  Klicken Sie auf **Folgende IP-Adresse verwenden**. Geben Sie im Feld **IP-Adresse**die Adresse **10.0.0.5**ein. Geben Sie im Feld **Subnetzmaske**den Wert **255.255.255.0**ein. Geben Sie unter **Standard Gateway**den Namen **10.0.0.2**ein. Klicken Sie auf **folgende DNS-Serveradressen verwenden**, geben Sie unter **Bevorzugter DNS-Server**den Namen **10.0.0.1**ein.  
   
 5.  Klicken Sie auf **Erweitert** und dann auf die Registerkarte **DNS**.  
   
-6.  In **DNS-Suffix für diese Verbindung**, Typ **"corp.contoso.com"** , und klicken Sie dann auf **OK** zweimal.  
+6.  Geben Sie unter **DNS-Suffix für diese Verbindung** **Corp.contoso.com**ein, und klicken Sie dann zweimal auf **OK** .  
   
-7.  Auf der **Eigenschaften von LAN-Verbindung** Dialogfeld klicken Sie auf **schließen**.  
+7.  Klicken Sie im Dialogfeld Eigenschaften von LAN- **Verbindung** auf **Schließen**.  
   
 8.  Schließen Sie das Fenster **Netzwerkverbindungen**.  
   
-## <a name="copyinstfiles"></a>Kopieren von Authentifizierungs-Manager-Installationsdateien auf den RSA-server  
+## <a name="copyinstfiles"></a>Kopieren von Authentifizierungs-Manager-Installationsdateien auf den RSA-Server  
   
-1.  Erstellen Sie den Ordner C:\RSA-Installation, auf dem RSA-Server.  
+1.  Erstellen Sie auf dem RSA-Server den Ordner "c:\rsa-Installation".  
   
-2.  Kopieren Sie den Inhalt der Medien RSA Authentication Manager 7.1 SP4, in den C:\RSA-Installationsordner.  
+2.  Kopieren Sie den Inhalt des RSA Authentication Manager 7,1 SP4-Mediums in den Installationsordner "c:\rsa".  
   
-3.  Erstellen Sie die Unterordner C:\RSA Installation\License und -Token.  
+3.  Erstellen Sie den Unterordner c:\rsa installation\license und Token.  
   
-4.  Kopieren Sie die Lizenzdateien RSA C:\RSA Installation\License und Token.  
+4.  Kopieren Sie die RSA-Lizenzdateien nach c:\rsa installation\license und Token.  
   
-## <a name="JoinDomain"></a>Verknüpfen des RSA-Servers mit der CORP-Domäne  
+## <a name="JoinDomain"></a>Fügen Sie den RSA-Server der Corp-Domäne hinzu.  
   
-1.  Mit der rechten Maustaste **Arbeitsplatz**, und klicken Sie auf **Eigenschaften**.  
+1.  Klicken Sie mit der rechten Maustaste auf **Arbeitsplatz**und dann auf **Eigenschaften**.  
   
 2.  Klicken Sie im Dialogfeld **Systemeigenschaften** auf der Registerkarte **Computername** auf **Ändern**.  
   
-3.  In **Computername**, Typ **RSA**. In **Mitglied**, klicken Sie auf **Domäne**, Typ **"corp.contoso.com"** , und klicken Sie auf **OK**.  
+3.  Geben Sie unter **Computer Name den Namen** **RSA**ein. Klicken Sie unter **Mitglied von**auf **Domäne**, geben Sie **Corp.contoso.com**ein, und klicken Sie dann auf **OK**.  
   
-4.  Wenn Sie für einen Benutzernamen und Kennwort aufgefordert werden, geben Sie **"user1"** und dieses Kennwort, und die auf **OK**.  
+4.  Wenn Sie zur Eingabe eines Benutzernamens und Kennworts aufgefordert werden, geben Sie **User1** und sein Kennwort ein, und klicken Sie auf **OK**.  
   
-5.  Klicken Sie auf der Domäne begrüßt im Dialogfeld auf **OK**.  
+5.  Klicken Sie im Dialogfeld Domäne Willkommen auf **OK**.  
   
 6.  Klicken Sie auf **OK**, wenn Sie zum Neustarten des Computers aufgefordert werden.  
   
@@ -105,247 +105,247 @@ Sie führt die folgenden Schritte aus, um den RSA-Bereitstellung zu konfiguriere
   
 8.  Klicken Sie auf **Jetzt neu starten**, wenn Sie aufgefordert werden, den Computer neu zu starten.  
   
-9. Geben Sie nach dem Neustart des Computers, **"user1"** und das Kennwort ein, wählen Sie die CORP in die **melden Sie sich an:** Dropdown-Liste, und klicken Sie auf **OK**.  
+9. Nachdem der Computer neu gestartet wurde, geben Sie **User1** und das Kennwort ein, wählen Sie Corp in der Dropdown Liste **Anmelden an:** aus, und klicken Sie auf **OK**.  
   
-## <a name="BKMK_Firewall"></a>Deaktivieren von Windows-Firewall auf RSA  
+## <a name="BKMK_Firewall"></a>Deaktivieren der Windows-Firewall auf RSA  
   
-1.  Klicken Sie auf **starten**, klicken Sie auf **Systemsteuerung**, klicken Sie auf **System und Sicherheit**, und klicken Sie auf **Windows-Firewall**.  
+1.  Klicken Sie auf **Start**, klicken Sie auf System **Steuerung**, klicken Sie auf **System und Sicherheit**und dann auf **Windows-Firewall**.  
   
-2.  Klicken Sie auf **Windows-Firewall ein- oder ausschalten**.  
+2.  Klicken Sie **auf Windows-Firewall aktivieren oder deaktivieren**.  
   
-3.  **Deaktivieren Sie Windows-Firewall** für alle Einstellungen.  
+3.  **Deaktivieren** Sie die Windows-Firewall für alle Einstellungen.  
   
-4.  Klicken Sie auf **OK** und Windows-Firewall zu schließen.  
+4.  Klicken Sie auf **OK** , und schließen Sie Windows-Firewall.  
   
-## <a name="install"></a>Installieren Sie RSA Authentication Manager auf dem RSA-Server.  
+## <a name="install"></a>Installieren Sie den RSA Authentication Manager auf dem RSA-Server.  
   
-1.  Wenn Sie die Sicherheitswarnung-Nachricht zu einem beliebigen Zeitpunkt während des Prozesses angezeigt werden soll, klicken Sie auf **ausführen** um den Vorgang fortzusetzen.  
+1.  Wenn die Sicherheits Warnmeldung während des Vorgangs zu einem beliebigen Zeitpunkt angezeigt wird, klicken Sie auf **Ausführen** , um fortzufahren.  
   
-2.  Öffnen Sie den C:\RSA-Installationsordner, und doppelklicken Sie auf **autorun.exe**.  
+2.  Öffnen Sie den Installationsordner c:\rsa, und doppelklicken Sie auf **Autorun. exe**.  
   
-3.  Klicken Sie auf **jetzt installieren**, klicken Sie auf **Weiter**, wählen Sie die Top-Option für Amerika, und klicken Sie auf **Weiter**.  
+3.  Klicken Sie auf **jetzt installieren**, klicken Sie auf **weiter**, wählen Sie die Top-Option für die Americas aus, und klicken Sie auf **weiter**  
   
-4.  Wählen Sie **ich stimme den Bedingungen des Lizenzvertrags**, und klicken Sie auf **Weiter**.  
+4.  Wählen Sie **Ich akzeptiere die Bedingungen des Lizenzvertrags aus**, und klicken Sie auf **weiter**.  
   
-5.  Wählen Sie **primäre Instanz**, und klicken Sie auf **Weiter**.  
+5.  Wählen Sie **primäre Instanz**aus, und klicken Sie auf **weiter**.  
   
-6.  In der **Verzeichnisname:** Feldtyp **C:\RSA**, und klicken Sie auf **Weiter**.  
+6.  Geben Sie im Feld **Verzeichnis Name:** **c:\rsa**ein, und klicken Sie auf **weiter**.  
   
-7.  Überprüfen Sie den Servernamen (RSA.corp.contoso.com) und die IP-Adresse richtig sind, und klicken Sie auf **Weiter**.  
+7.  Überprüfen Sie, ob der Servername (RSA.Corp.contoso.com) und die IP-Adresse richtig sind, und klicken Sie auf **weiter**.  
   
-8.  Navigieren Sie zu C:\RSA Installation\License und Token, und klicken Sie auf **Weiter**.  
+8.  Navigieren Sie zu c:\rsa installation\license und Token, und klicken Sie auf **weiter**.  
   
-9. Auf der **überprüfen Lizenzdatei** auf **Weiter**.  
+9. Klicken Sie auf der Seite **Lizenzdatei überprüfen** auf **weiter**.  
   
-10. In der **Benutzer-ID** Feldtyp **Administrator**, und klicken Sie in der **Kennwort** und **Kennwort bestätigen** Felder Geben Sie ein sicheres Kennwort ein. Klicken Sie auf **Weiter**.  
+10. Geben Sie in das Feld **Benutzer-ID** **ein, und**geben Sie in die Felder **Kennwort** und **Kennwort bestätigen** ein sicheres Kennwort ein. Klicken Sie auf **Weiter**.  
   
-11. Klicken Sie auf dem Auswahlbildschirm des Protokolls, akzeptieren Sie die Standardeinstellungen, und klicken Sie auf **Weiter**.  
+11. Übernehmen Sie auf dem Bildschirm Protokoll Auswahl die Standardeinstellungen, und klicken Sie auf **weiter**.  
   
-12. Klicken Sie auf dem Bildschirm mit der Zusammenfassung auf **installieren**.  
+12. Klicken Sie auf dem Bildschirm Zusammenfassung auf **Installieren**.  
   
-13. Nachdem die Installation abgeschlossen ist, klicken Sie auf **Fertig stellen**.  
+13. Klicken Sie nach Abschluss der Installation auf **Fertig**stellen.  
   
-## <a name="confiauthmgr"></a>RSA Authentication Manager konfigurieren  
+## <a name="confiauthmgr"></a>Konfigurieren des RSA-Authentifizierungs-Managers  
   
-1.  Wenn der RSA Security-Konsole nicht automatisch geöffnet wird, doppelklicken Sie dann auf den RSA-PC-Desktop auf "RSA Security-Konsole".  
+1.  Wenn die RSA-Sicherheits Konsole nicht automatisch geöffnet wird, doppelklicken Sie auf dem RSA-Computer Desktop auf "RSA Security Console".  
   
-2.  Wenn die Sicherheit Warnung Zertifikat / sicherheitswarnung angezeigt, klicken Sie auf **Laden dieser Website fortsetzen** oder klicken Sie auf **Ja** um fortzusetzen, und fügen Sie diese Website zu vertrauenswürdigen Sites gegebenenfalls.  
+2.  Wenn das Sicherheitszertifikat Warnung/Sicherheitswarnung angezeigt wird, klicken Sie **auf diese Website fortsetzen** , oder klicken Sie auf **Ja** , um den Vorgang fortzusetzen, und fügen Sie diese Website den vertrauenswürdigen Sites hinzu.  
   
-3.  In der **Benutzer-ID** Feldtyp **Administrator** , und klicken Sie auf **OK**.  
+3.  Geben Sie **Administrator** im Feld **Benutzer-ID** ein, und klicken Sie auf **OK**.  
   
-4.  In der **Kennwort** Feld das Kennwort für das Administratorkonto ein, und klicken Sie auf **anmelden**.  
+4.  Geben Sie im Feld **Kennwort** das Kennwort für das Administrator Konto ein, und klicken Sie auf **Anmelden**.  
   
-5.  Fügen Sie die Token-Informationen.  
+5.  Fügt Tokeninformationen ein.  
   
-    1.  In der **RSA Security-Konsole** klicken Sie auf **Authentifizierung** , und klicken Sie auf **SecurID-Token**.  
+    1.  Klicken Sie in der **RSA-Sicherheits Konsole** auf **Authentifizierung** , und klicken Sie auf **SecurID Tokens**.  
   
-    2.  Klicken Sie auf **Token Importauftrag**, und klicken Sie dann auf **Add New**.  
+    2.  Klicken Sie auf **Token importieren Auftrag**, und klicken Sie dann auf **neue hinzufügen**.  
   
-    3.  In der **Importoptionen** Abschnitt auf **Durchsuchen**. Navigieren Sie zu, und wählen Sie die Token-XML-Datei in die C:\ RSA Installation\License und Token-Ordner, und klicken Sie auf **öffnen**.  
+    3.  Klicken Sie im Abschnitt **Import Optionen** auf **Durchsuchen**. Navigieren Sie zu der XML-Token-Datei in C:\. Ordner RSA installation\license und Token, und klicken Sie auf **Öffnen**.  
   
-    4.  Klicken Sie auf **Submit Job** am unteren Rand der Seite.  
+    4.  Klicken Sie unten auf der Seite auf **Auftrag übermitteln** .  
   
-6.  OTP-neuen Benutzer zu erstellen.  
+6.  Erstellen Sie einen neuen OTP-Benutzer.  
   
-    1.  In der **RSA Security-Konsole** klicken Sie auf die **Identität** auf **Benutzer**, und klicken Sie auf **Add New**.  
+    1.  Klicken Sie in der **RSA-Sicherheits Konsole** auf die Registerkarte **Identität** , klicken Sie auf **Benutzer**und dann auf **neue hinzufügen**.  
   
-    2.  In der **Nachname:** Abschnitt Typ **Benutzer**, und klicken Sie in der **Benutzer-ID:** Abschnitt Typ **"user1"** (Benutzer-ID muss identisch mit der AD-Benutzername, der zum Dieses Lab).  In der **Kennwort:** und **Kennwort bestätigen:** Abschnitte geben Sie ein sicheres Kennwort ein. Deaktivieren der **"Muss der Benutzer sein Kennwort bei der nächsten Anmeldung ändern"** Kontrollkästchen und klicken Sie auf **speichern**.  
+    2.  Im **Nachnamen:** Abschnitt **User**und im Abschnitt **User ID:** Section Type **User1** (UserID muss mit dem für dieses Lab verwendeten AD-Benutzernamen identisch sein).  Geben Sie in den Abschnitten **Kennwort:** und **Kennwort bestätigen:** ein sicheres Kennwort ein. Deaktivieren Sie das Kontrollkästchen **"Benutzer muss Kennwort bei der nächsten Anmeldung ändern",** und klicken Sie auf **Speichern**.  
   
-7.  Weisen Sie auf eines der importierten Token "user1" ein.  
+7.  Weisen Sie user1 einem der importierten Token zu.  
   
-    1.  Auf der **Benutzer** auf **"user1"** , und klicken Sie auf **SecurID-Token**.  
+    1.  Klicken Sie auf der Seite **Benutzer** auf **User1** , und klicken Sie auf **SecurID Tokens**.  
   
-    2.  Klicken Sie auf **SecurID-Token** , und klicken Sie auf **Token zuweisen**.  
+    2.  Klicken Sie auf **SecurID Tokens** , und klicken Sie auf **Token zuweisen**.  
   
-    3.  Unter den **Seriennummer** Überschrift klicken Sie auf die erste Zahl aufgeführt, und klicken Sie auf **weisen**.  
+    3.  Klicken Sie unter der Überschrift **Seriennummer** auf die erste aufgeführte Zahl, und klicken Sie auf **zuweisen**.  
   
-    4.  Klicken Sie auf das zugewiesene Token, und klicken Sie auf **bearbeiten**. In der **SecurID-PIN-Verwaltung** Abschnitt **Benutzer die Authentifizierungsanforderung**wählen **erfordern keine PIN (nur Tokencode)** .  
+    4.  Klicken Sie auf das zugewiesene Token, und klicken Sie auf **Bearbeiten**. Wählen Sie im Abschnitt **SecurID-PIN-Verwaltung** für **Benutzer Authentifizierungsanforderung**die Option **PIN nicht erforderlich (nur Tokencode)** aus.  
   
-    5.  Klicken Sie auf **speichern und Verteilen von Token**.  
+    5.  Klicken Sie auf **Token Speichern und verteilen**.  
   
-    6.  Auf der **Verteilen von Software-Token** auf der Seite die **Grundlagen** auf **Problem Token Datei (SDTID)** .  
+    6.  Klicken Sie im Abschnitt **Grundlagen** auf der Seite **Software Token verteilen** auf **Issue Token File (sdtid)** .  
   
-    7.  Auf der **Verteilen von Software-Token** auf der Seite die **Token Dateioptionen** deaktivieren Sie im Abschnitt der **Kopierschutz aktivieren** Kontrollkästchen. Klicken Sie auf **kein Kennwort** und **Weiter**.  
+    7.  Deaktivieren Sie auf der Seite **Software Token verteilen** im Abschnitt **tokendateioptionen** das Kontrollkästchen **Kopierschutz aktivieren** . Klicken Sie auf **kein Kennwort** und **weiter**.  
   
-    8.  Auf der **Verteilen von Software-Token** auf der Seite die **Herunterladen der Datei** auf **jetzt herunterladen**. Klicken Sie auf **Speichern**. Navigieren Sie zu C:\RSA-Installation, und klicken Sie auf **speichern** und **schließen**.  
+    8.  Klicken Sie im Abschnitt **Downloaddatei** auf der Seite **Software Token verteilen** auf **jetzt herunterladen**. Klicken Sie auf **Speichern**. Navigieren Sie zu c:\rsa-Installation, und klicken Sie auf **Speichern** und **Schließen**.  
   
-    9. Minimieren der **RSA Security-Konsole** zur späteren Verwendung.  
+    9. Minimieren Sie die **RSA-Sicherheits Konsole** für die spätere Verwendung.  
   
-8.  Konfigurieren Sie Authentifizierungs-Manager als RADIUS-Server.  
+8.  Konfigurieren Sie den Authentifizierungs-Manager als RADIUS-Server.  
   
-    1.  Klicken Sie auf den desktop Doppelklick des RSA-Computer **"RSA Security Operations-Konsole"** .  
+    1.  Doppelklicken Sie auf dem RSA-Computer Desktop auf **"RSA-Sicherheits Betriebs Konsole"** .  
   
-    2.  Wenn die Sicherheit Warnung Zertifikat / sicherheitswarnung angezeigt, klicken Sie auf **Laden dieser Website fortsetzen** oder klicken Sie auf **Ja** fortfahren und diesen Standort zu vertrauenswürdigen Websites hinzufügen werden, wenn angefordert.  
+    2.  Wenn das Sicherheitszertifikat Warnung/Sicherheitswarnung angezeigt wird, klicken Sie **auf diese Website fortsetzen** , oder klicken Sie auf **Ja** , um den Vorgang fortzusetzen, und fügen Sie diese Website den vertrauenswürdigen Sites hinzu  
   
-    3.  Geben Sie den Benutzer-ID und das Kennwort ein, und klicken Sie auf **anmelden**.  
+    3.  Geben Sie Benutzer-ID und Kennwort ein, und klicken Sie **auf Anmelden**.  
   
-    4.  Klicken Sie auf **Bereitstellungskonfiguration - RADIUS - Konfiguration**.  
+    4.  Klicken Sie auf **Bereitstellungs Konfiguration-RADIUS-Server konfigurieren**.  
   
-    5.  Auf der **zusätzliche Administratoranmeldeinformationen erforderlich** Seite Geben Sie den Administrator-Benutzer-ID und das Kennwort, und klicken Sie auf **OK**.  
+    5.  Geben Sie auf der Seite **zusätzliche Anmelde Informationen erforderlich** die Benutzer-ID und das Kennwort des Administrators ein, **und klicken Sie**  
   
-    6.  Auf der **RADIUS-Server konfigurieren** Seite Geben Sie das gleiche Kennwort für den Administratorbenutzer für die **Geheimnisse** und **Masterkennwort**. Geben Sie den Administrator-Benutzer-ID und das Kennwort ein, und klicken Sie auf **konfigurieren**.  
+    6.  Geben Sie auf der Seite **RADIUS-Server konfigurieren** dasselbe Kennwort ein, das für den Administrator Benutzer für die **geheimen** Schlüssel und das **Master Kennwort**verwendet wurde Geben Sie die Administrator Benutzer-ID und das Kennwort ein, und klicken Sie auf **Konfigurieren**  
   
-    7.  Überprüfen Sie, ob die Nachricht **"wurde erfolgreich konfiguriert RADIUS-Server"** wird angezeigt. Klicken Sie auf **Fertig**. Schließen der **RSA-Betriebskonsole**.  
+    7.  Vergewissern Sie sich, dass die Meldung **"der RADIUS-Server wurde erfolgreich konfiguriert"** angezeigt wird. Klicken Sie auf **Fertig**. Schließen Sie die **RSA-Betriebs Konsole**.  
   
-    8.  Wechseln Sie zurück zu den **"RSA Security-Konsole"** .  
+    8.  Wechseln Sie zurück zur **"RSA-Sicherheits Konsole"** .  
   
-    9. Auf der **RADIUS** Registerkarte auf **RADIUS-Servern**. Stellen Sie sicher, dass diese rsa.corp.contoso.com aufgeführt ist.  
+    9. Klicken Sie auf der Registerkarte **RADIUS** auf **RADIUS-Server**. Vergewissern Sie sich, dass RSA.Corp.contoso.com aufgeführt ist.  
   
-9. Konfigurieren Sie RSA-Server als RSA-Authentifizierungsclient.  
+9. Konfigurieren Sie den RSA-Server als RSA-Authentifizierungs Client.  
   
-    1.  Auf der **RADIUS** auf **RADIUS-Clients** und **Add New**.  
+    1.  Klicken Sie auf der Registerkarte **RADIUS** auf **RADIUS-Clients** , und **fügen Sie neue hinzu**.  
   
-    2.  Klicken Sie auf die **ANY RADIUS-Client** Kontrollkästchen.  
+    2.  Aktivieren Sie das Kontrollkästchen **beliebiger RADIUS-Client** .  
   
-    3.  Geben Sie ein sicheres Kennwort Ihrer Wahl in der **gemeinsamer geheimer Schlüssel** Feld. Sie werden später beim Konfigurieren von EDGE1 für OTP, das gleiche Kennwort verwenden.  
+    3.  Geben Sie im Feld **gemeinsamer geheimer** Schlüssel ein sicheres Kennwort Ihrer Wahl ein. Dieses Kennwort wird später beim Konfigurieren von Edge1 für OTP verwendet.  
   
-    4.  Lassen Sie die **IP-Adresse** Feld "Blank", und die **stellen / Modell** Eintrag als **Standard RADIUS**.  
+    4.  Lassen Sie das Feld **IP-Adresse** leer, und **Erstellen** Sie den Eintrag als **Standard-RADIUS**.  
   
-    5.  Klicken Sie auf **speichern, ohne die RSA-Agent**.  
+    5.  Klicken Sie auf **ohne RSA-Agent speichern**.  
   
-10. Erstellen Sie Dateien, die zum Konfigurieren von EDGE1 als RSA Authentication Agent erforderlich.  
+10. Erstellen Sie Dateien, die zum Konfigurieren von Edge1 als RSA-Authentifizierungs-Agent erforderlich sind.  
   
-    1.  Auf der **Zugriff** Registerkarte, markieren Sie **Authentifizierungs-Agents**, und klicken Sie auf **Add New**.  
+    1.  Markieren Sie auf der Registerkarte **Zugriff** die **Authentifizierungs-Agents**, und klicken Sie auf **neue hinzufügen**.  
   
-    2.  Typ **EDGE1** in die **Hostname** ein, und klicken Sie auf **Auflösen von IP-** .  
+    2.  Geben Sie **Edge1** in das Feld **Hostname** ein, und klicken Sie auf **IP auflösen**.  
   
-    3.  Beachten Sie, die die IP-Adresse EDGE1 jetzt, in angezeigt wird der **IP-Adresse** Feld. Klicken Sie auf **Speichern**.  
+    3.  Beachten Sie, dass die IP-Adresse für Edge1 jetzt im Feld **IP-Adresse** angezeigt wird. Klicken Sie auf **Speichern**.  
   
-11. Generieren Sie eine Konfigurationsdatei für den EDGE1-Server (AM_Config.zip).  
+11. Generieren Sie eine Konfigurationsdatei für den Edge1-Server (AM_Config. zip).  
   
-    1.  Auf der **Zugriff** Registerkarte, markieren Sie **Authentifizierungs-Agents**, und klicken Sie auf **Konfigurationsdatei generieren**.  
+    1.  Markieren Sie auf der Registerkarte **Zugriff** die **Authentifizierungs-Agents**, und klicken Sie auf **Konfigurationsdatei generieren**.  
   
-    2.  Auf der **Konfigurationsdatei generieren** auf **Config-Datei generieren**, und klicken Sie dann auf **jetzt herunterladen**.  
+    2.  Klicken Sie auf der Seite **Konfigurationsdatei generieren** auf **Konfigurationsdatei generieren**, und klicken Sie dann auf **jetzt herunterladen**.  
   
-    3.  Klicken Sie auf **speichern**, navigieren Sie zu C:\ RSA-Installation, und klicken Sie auf **speichern**.  
+    3.  Klicken Sie auf **Speichern**, navigieren Sie zu C:\. RSA-Installation, und klicken Sie auf **Speichern**.  
   
-    4.  Klicken Sie auf **schließen** auf die **Download beendet** Dialogfeld.  
+    4.  Klicken Sie im Dialogfeld **Download abgeschlossen** auf **Schließen** .  
   
-12. Generiert eine geheimnisdatei von Knoten für den EDGE1-Server (EDGE1_NodeSecret.zip).  
+12. Generieren Sie eine geheime Knoten Datei für den Edge1-Server (EDGE1_NodeSecret. zip).  
   
-    1.  Auf der **Zugriff** Registerkarte, markieren Sie **Authentifizierungs-Agents**, und klicken Sie auf **Verwalten vorhandener**.  
+    1.  Markieren Sie auf der Registerkarte **Zugriff** die **Authentifizierungs-Agents**, und klicken Sie auf **vorhandene verwalten**.  
   
-    2.  Klicken Sie auf den aktuellen konfigurierten Knoten EDGE1, und klicken Sie auf **geheimen Schlüssel Verwalten von Knoten**.  
+    2.  Klicken Sie auf den aktuell konfigurierten Knoten Edge1, und klicken Sie auf **Knoten Geheimnis verwalten**.  
   
-    3.  Überprüfen Sie die **zufälligen Knoten neues Geheimnis erstellen und exportieren Sie den Knoten geheimen Schlüssel in eine Datei** Kontrollkästchen.  
+    3.  Aktivieren Sie das Kontrollkästchen **neuen zufälligen Knoten erstellen, und exportieren Sie das Knoten Geheimnis in eine Datei** .  
   
-    4.  Geben Sie das gleiche Kennwort für den Benutzer mit Administratorrechten in verwendet die **Verschlüsselungskennwort** und **Verschlüsselungskennwort bestätigen** Felder, und klicken Sie auf **speichern**.  
+    4.  Geben Sie das Kennwort ein, das für den Administrator Benutzer in den Feldern **Verschlüsselungs Kennwort** und **Verschlüsselungs Kennwort bestätigen** verwendet wird, und klicken Sie auf **Speichern**.  
   
-    5.  Auf der **Knoten Secret-Datei generiert** auf **jetzt herunterladen**.  
+    5.  Klicken Sie auf der Seite für die Datei mit dem **geheimen Knoten Schlüssel** auf **Download Now**  
   
-    6.  Auf der **Dateidownload** Dialogfeld auf **speichern**, navigieren Sie zu C:\RSA-Installation, und klicken Sie auf **speichern**. Klicken Sie auf **schließen** auf die **Download beendet** Dialogfeld.  
+    6.  Klicken Sie im Dialogfeld **Datei Download** auf **Speichern**, navigieren Sie zu c:\rsa-Installation, und klicken Sie auf **Speichern**. Klicken Sie im Dialogfeld **Download abgeschlossen** auf **Schließen** .  
   
-    7.  Aus den RSA Authentication Manager Media Kopie \auth_mgr\windows-x86_64\am\rsa-ace_nsload\win32-5.0-x86\agent_nsload.exe C:\RSA-Installation.  
+    7.  Über den RSA Authentication Manager Media Copy \auth_mgr\windows-x86_64\am\rsa-ace_nsload\win32-5.0-x86\agent_nsload.exe to c:\rsa Installation.  
   
-## <a name="BKMK_DAProbeUser"></a>Erstellen von DAProbeUser  
+## <a name="BKMK_DAProbeUser"></a>Erstellen von daprobeuser  
   
-1.  In der **RSA Security-Konsole** klicken Sie auf die **Identität** auf **Benutzer**, und klicken Sie auf **Add New**.  
+1.  Klicken Sie in der **RSA-Sicherheits Konsole** auf die Registerkarte **Identität** , klicken Sie auf **Benutzer**und dann auf **neue hinzufügen**.  
   
-2.  In der **Nachname:** Abschnitt Typ **Prüfpunkt**, und klicken Sie in der **Benutzer-ID:** Abschnitt Typ **DAProbeUser**. In der **Kennwort:** und **Kennwort bestätigen:** Abschnitte geben Sie ein sicheres Kennwort ein. Deaktivieren der **"Muss der Benutzer sein Kennwort bei der nächsten Anmeldung ändern"** Kontrollkästchen und klicken Sie auf **speichern**.  
+2.  Geben Sie im Abschnitt **Nachname die Bezeichnung** Type **Probe**ein, und geben Sie im Abschnitt **User ID:** den Typ **daprobeuser**ein. Geben Sie in den Abschnitten **Kennwort:** und **Kennwort bestätigen:** ein sicheres Kennwort ein. Deaktivieren Sie das Kontrollkästchen **"Benutzer muss Kennwort bei der nächsten Anmeldung ändern",** und klicken Sie auf **Speichern**.  
   
-## <a name="InstToken"></a>Installieren von RSA SecurID-Software-Token auf "client1"  
-Verwenden Sie dieses Verfahren, um SecurID-Software-Token auf "client1" zu installieren.  
+## <a name="InstToken"></a>Installieren des RSA SecurID-Software Tokens auf CLIENT1  
+Verwenden Sie dieses Verfahren, um das SecurID-Software Token auf CLIENT1 zu installieren.  
   
-#### <a name="install-securid-software-token"></a>Installieren der SecurID-Software-token  
+#### <a name="install-securid-software-token"></a>SecurID-Software Token installieren  
   
-1.  Erstellen Sie den Ordner C:\RSA-Dateien, auf dem Computer "client1". Kopieren Sie die Datei Software_Tokens.zip C:\RSA-Installation auf dem Computer RSA C:\RSA Dateien ein. Extrahieren Sie die Datei User1_000031701832.SDTID C:\RSA Dateien auf CLIENT1 an.  
+1.  Erstellen Sie auf dem Computer Client1 den Ordner c:\rsa-Dateien. Kopieren Sie die Datei Software_Tokens. zip aus der c:\rsa-Installation auf dem RSA-Computer in c:\rsa-Dateien. Extrahieren Sie die Datei User1_000031701832. sdtid in c:\rsa-Dateien auf CLIENT1.  
   
-2.  Zugriff auf die Medienquelle RSA SecurID-Software token, und doppelklicken Sie auf RSASECURIDTOKEN410 in die **SecurID SoftwareToken-Client-app** Ordner, um die RSA SecurID-Installation zu starten. Wenn die **Datei öffnen - Sicherheitswarnung** Meldung angezeigt wird, klicken Sie dann auf **ausführen**.  
+2.  Greifen Sie auf die RSA SecurID-Software Token-Medienquelle zu, und doppelklicken Sie im Ordner **SecurID Softwaretoken Client App** auf RSASECURIDTOKEN410, um die RSA SecurID-Installation zu starten. Wenn die Meldung **Datei öffnen-Sicherheitswarnung** angezeigt wird, klicken Sie auf **Ausführen**.  
   
-3.  Auf der **RSA SecurID-Software-Token - InstallShield-Assistent** Dialogfeld auf **Weiter** zweimal.  
+3.  Klicken Sie im Dialogfeld **RSA SecurID Software Token-InstallShield Wizard** zweimal auf **weiter** .  
   
-4.  Akzeptieren Sie den Lizenzvertrag, und klicken Sie auf **Weiter**.  
+4.  Akzeptieren Sie den Lizenzvertrag, und klicken Sie auf **weiter**.  
   
-5.  Auf der **Setuptyp** Dialogfeld **Standard**, klicken Sie auf **Weiter**, und klicken Sie auf **installieren**.  
+5.  Wählen Sie im Dialogfeld **Installationstyp** die Option **typisch**aus, klicken Sie auf **weiter und dann**auf **Installieren**.  
   
 6.  Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
   
-7.  Wählen Sie die **starten RSA SecurID-Software-Token** , und klicken Sie auf **Fertig stellen**.  
+7.  Aktivieren Sie das Kontrollkästchen **RSA SecurID-Software Token starten** , und klicken Sie auf **Fertig**stellen.  
   
 8.  Klicken Sie auf **aus Datei importieren**.  
   
-9. Klicken Sie auf **Durchsuchen**C:\RSA Files\User1_000031701832.SDTID auswählen, und klicken Sie auf **öffnen**.  
+9. Klicken Sie auf **Durchsuchen**, wählen Sie c:\rsa Files\User1_000031701832.SDTID, und klicken Sie auf **Öffnen**.  
   
 10. Klicken Sie zweimal auf **OK** .  
   
-## <a name="configAuthAgt"></a>Konfigurieren von EDGE1 als einen RSA-Authentifizierungs-Agent  
-Verwenden Sie dieses Verfahren zum Konfigurieren von EDGE1 zum Ausführen der RSA-Authentifizierung.  
+## <a name="configAuthAgt"></a>Konfigurieren von Edge1 als RSA-Authentifizierungs-Agent  
+Verwenden Sie dieses Verfahren, um Edge1 zum Ausführen der RSA-Authentifizierung zu konfigurieren.  
   
-#### <a name="configure-the-rsa-authentication-agent"></a>Konfigurieren Sie den RSA Authentication Agent  
+#### <a name="configure-the-rsa-authentication-agent"></a>Konfigurieren des RSA-Authentifizierungs-Agents  
   
-1. Öffnen Sie Windows Explorer, und erstellen Sie den Ordner C:\RSA-Dateien, auf EDGE1. Navigieren Sie zu den RSA-ACE-Installationsmedien.  
+1. Öffnen Sie auf Edge1 Windows-Explorer, und erstellen Sie den Ordner c:\rsa-Dateien. Navigieren Sie zu den RSA ACE-Installationsmedien.  
   
-2. Kopieren Sie die agent_nsload.exe Dateien, AM_Config.zip und EDGE1_NodeSecret.zip vom RSA-Medium auf C:\RSA-Dateien.  
+2. Kopieren Sie die Dateien agent_nsload. exe, AM_Config. zip und EDGE1_NodeSecret. zip aus dem RSA-Medium in c:\rsa-Dateien.  
   
-3. Extrahieren Sie den Inhalt der beiden Zip-Dateien in der folgenden Speicherorte:  
+3. Extrahieren Sie den Inhalt der beiden ZIP-Dateien an die folgenden Speicherorte:  
   
-   1.  C:\Windows\system32\  
+   1.  C:\Windows\System32  
   
-   2.  C:\Windows\SysWOW64\  
+   2.  C:\windows\syswow64\  
   
-4. Copy agent_nsload.exe to C:\Windows\SysWOW64\\.  
+4. Kopieren Sie agent_nsload. exe nach c:\windows\SysWOW64 @ no__t-0.  
   
-5. Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, und navigieren Sie zu C:\Windows\SysWOW64.  
+5. Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, und navigieren Sie zu c:\windows\SysWOW64.  
   
-6. Typ **agent_nsload.exe -f nodesecret.rec -p <password>**  , in denen <password> das starke Kennwort, das Sie während der anfänglichen RSA-Konfiguration erstellt wird. Drücken Sie die EINGABETASTE.  
+6. Geben Sie **agent_nsload. exe-f nodesecret. rec-p <password>** ein, wobei <password> das starke Kennwort ist, das Sie bei der ersten RSA-Konfiguration erstellt haben. Drücken Sie die EINGABETASTE.  
   
-7. Copy C:\Windows\SysWOW64\securid to C:\Windows\System32.  
+7. Kopieren Sie c:\windows\syswow64\securid nach c:\Windows\System32.  
   
-## <a name="configOTP"></a>Konfigurieren von EDGE1 zu OTP-Authentifizierung unterstützen  
-Verwenden Sie dieses Verfahren zum Konfigurieren von OTP für DirectAccess, und überprüfen Sie die Konfiguration.  
+## <a name="configOTP"></a>Konfigurieren von Edge1 für die Unterstützung der OTP-Authentifizierung  
+Verwenden Sie dieses Verfahren, um OTP für DirectAccess zu konfigurieren und die Konfiguration zu überprüfen.  
   
-#### <a name="configure-otp-for-directaccess"></a>Konfigurieren von Einmalkennwörtern für DirectAccess  
+#### <a name="configure-otp-for-directaccess"></a>Konfigurieren von OTP für DirectAccess  
   
-1.  Klicken Sie auf EDGE1, öffnen Sie Server-Manager, und klicken Sie auf **RAS** im linken Bereich.  
+1.  Öffnen Sie auf Edge1 Server-Manager, und klicken Sie im linken Bereich auf **Remote Zugriff** .  
   
-2.  Mit der rechten Maustaste **EDGE1** in den Bereich "Server", und wählen **Remotezugriffsverwaltung**.  
+2.  Klicken Sie im Bereich Server mit der rechten Maustaste auf **Edge1** , und wählen Sie **Remote Zugriffs Verwaltung**aus.  
   
 3.  Klicken Sie auf **Konfiguration**.  
   
-4.  In der **DirectAccess-Setup** Fenster unter **Schritt2: RAS-Server**, klicken Sie auf **bearbeiten**.  
+4.  Klicken Sie im Fenster **DirectAccess-Setup** unter **Schritt 2-RAS-Server**auf **Bearbeiten**.  
   
-5.  Klicken Sie auf **Weiter** dreimal aus, und klicken Sie in der **Authentifizierung** Abschnitt **zweistufige Authentifizierung** und **OTP verwenden**, und stellen sicher, dass **Computerzertifikate** aktiviert ist. Stellen Sie sicher, dass die Stammzertifizierungsstelle, um festgelegt ist **CN = corp-APP1-CA**. Klicken Sie auf **Weiter**.  
+5.  Klicken Sie dreimal auf **weiter** , und wählen Sie im Abschnitt **Authentifizierung** die Option **zweistufige Authentifizierung** aus, und vergewissern **Sie sich,** dass die Option **Computer Zertifikate verwenden** aktiviert ist. Vergewissern Sie sich, dass die Stamm Zertifizierungsstelle auf **CN = Corp-App1-ca**festgelegt ist. Klicken Sie auf **Weiter**.  
   
-6.  In der **OTP RADIUS-Server** Abschnitt, doppelklicken Sie auf die leere **Servernamen** Feld.  
+6.  Doppelklicken Sie im Abschnitt " **OTP RADIUS-Server** " auf das Feld "leerer **Server Name** ".  
   
-7.  In der **Hinzufügen eines RADIUS-Servers** Dialogfelds **RSA** in die **Servernamen** Feld. Klicken Sie auf **Änderung** neben der **gemeinsamer geheimer Schlüssel** ein, und geben Sie das gleiche Kennwort, die Sie beim Konfigurieren der RADIUS-Clients auf dem Server "RSA" in verwendet die **neuer geheimer** und  **Neuen geheimen Schlüssel bestätigen** Felder. Klicken Sie auf **OK** zweimal aus, und klicken Sie auf **Weiter**.  
+7.  Geben Sie im Dialogfeld **RADIUS-Server hinzufügen** **RSA** in das Feld **Server Name** ein. Klicken Sie neben dem Feld **gemeinsamer geheimer** Schlüssel auf **ändern** , und geben Sie das Kennwort ein, das Sie beim Konfigurieren der RADIUS-Clients auf dem RSA-Server in den Feldern **neuer geheimer** Schlüssel und **neues Geheimnis bestätigen** verwendet haben. Klicken Sie zweimal auf **OK** , und klicken Sie auf **weiter**.  
   
     > [!NOTE]  
-    > Wenn der RADIUS-Server in einer Domäne ist, anders als der RAS-Server ist, die **Servernamen** Feld muss den FQDN des RADIUS-Servers angeben.  
+    > Wenn sich der RADIUS-Server in einer anderen Domäne als der RAS-Server befindet, muss im Feld **Server Name** der voll qualifizierte Domänen Name des RADIUS-Servers angegeben werden.  
   
-8.  In der **OTP-Zertifizierungsstellenserver** wählen APP1.corp.contoso.com Abschnitt, und klicken Sie auf **hinzufügen**. Klicken Sie auf **Weiter**.  
+8.  Wählen Sie im Abschnitt **OTP** -Zertifizierungsstellen Server App1.Corp.contoso.com aus, und klicken Sie auf **Hinzufügen**. Klicken Sie auf **Weiter**.  
   
-9. Auf der **OTP-Zertifikatvorlagen** auf **Durchsuchen** , wählen Sie eine Zertifikatvorlage, die verwendet wird, für die Registrierung von Zertifikaten, die ausgegeben werden, für die OTP-Authentifizierung, und auf die  **Zertifikatvorlagen** aktivieren Sie im Dialogfeld **DAOTPLogon**. Klicken Sie auf **OK**. Klicken Sie auf **Durchsuchen** , wählen Sie eine Zertifikatvorlage, die zum Registrieren von OTP-zertifikatregistrierungsanforderungen anmelden und auf die RAS-Server verwendeten Zertifikats verwendet die **Zertifikatvorlagen** (Dialogfeld) Wählen Sie **DAOTPRA**. Klicken Sie auf **OK**. Klicken Sie auf **Weiter**.  
+9. Klicken Sie auf der Seite **OTP-Zertifikat Vorlagen** auf **Durchsuchen** , um eine Zertifikat Vorlage auszuwählen, die für die Registrierung von Zertifikaten verwendet wird, die für die OTP-Authentifizierung ausgestellt wurden, und wählen Sie im Dialogfeld **Zertifikat Vorlagen** die Option **daotplogon.** . Klicken Sie auf **OK**. Klicken Sie auf **Durchsuchen** , um eine Zertifikat Vorlage auszuwählen, die zum Registrieren des vom RAS-Server verwendeten Zertifikats zum Signieren von OTP-Zertifikat Registrierungsanforderungen verwendet wird, und wählen Sie im Dialogfeld **Zertifikat Vorlagen** die Option **daotpra**aus. Klicken Sie auf **OK**. Klicken Sie auf **Weiter**.  
   
-10. Auf der **RAS-Server-Setup** auf **Fertig stellen**, und klicken Sie auf **Fertig stellen** auf die **Experten DirectAccess-Assistenten**.  
+10. Klicken Sie auf der Seite **Setup des Remote Zugriffs Servers** auf **Fertig**stellen, und klicken Sie dann auf **Fertig** stellen im **Assistenten für DirectAccess-Experten**  
   
-11. Auf der **Überprüfung des Remotezugriffs** Dialogfeld auf **übernehmen**, warten Sie, bis die DirectAccess-Richtlinie aktualisiert werden, und klicken Sie auf **schließen**.  
+11. Klicken Sie im Dialogfeld **Remote Zugriffs Überprüfung** auf über **nehmen, warten Sie,** bis die DirectAccess-Richtlinie aktualisiert wurde, und klicken Sie dann auf **Schließen**.  
   
-12. Auf der **starten** geben**powershell.exe**, mit der rechten Maustaste **Powershell**, klicken Sie auf **erweitert**, und klicken Sie auf **Ausführen als Administrator**. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+12. Geben Sie im **Start** Bildschirm**PowerShell. exe**ein, klicken Sie mit der rechten Maustaste auf **PowerShell**, klicken Sie auf **erweitert**, und klicken Sie dann auf **als Administrator ausführen**. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
   
-13. Geben Sie in Windows PowerShell-Fenster **Gpupdate/force** und drücken Sie EINGABETASTE.  
+13. Geben Sie im Windows PowerShell-Fenster **gpupdate/force** ein, und drücken Sie die EINGABETASTE.  
   
-14. Schließen und öffnen Sie die Remotezugriffs-Verwaltungskonsole, und stellen Sie sicher, dass alle OTP-Einstellungen richtig sind.  
+14. Schließen Sie die Remote Zugriffs-Verwaltungskonsole, und öffnen Sie Sie erneut. Vergewissern Sie sich, dass alle OTP-Einstellungen  
   
 
 

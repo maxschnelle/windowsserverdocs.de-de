@@ -1,33 +1,33 @@
 ---
 title: Egress Messung im virtuellen Netzwerk
-description: 'Ein wesentlicher Aspekt der Cloud-networking monetarisierung ist für ausgehenden Netzwerkdatenverkehr Bandbreite. Beispiel: überträgt ausgehende Daten In Microsoft Azure-Business-Modell. Ausgehende Datenübertragungen werden basierend auf der Gesamtmenge der Daten, die in einem bestimmten Abrechnungszyklus über das Internet aus dem Azure-Datencentern übertragen berechnet.'
+description: 'Ein grundlegender Aspekt der cloudantennetzwerkmonetarisierung ist die ausgehende Netzwerkbandbreite. Beispiel: ausgehende Datenübertragungen in Microsoft Azure Geschäftsmodell. Ausgehende Daten werden basierend auf der Gesamtmenge der Daten berechnet, die aus den Azure-Rechenzentren über das Internet in einem bestimmten Abrechnungszeitraum verschoben werden.'
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.assetid: ''
 ms.author: pashort
 author: shortpatti
 ms.date: 10/02/2018
-ms.openlocfilehash: bdfb2b7321d5a4d119c9710e9ad93fc2e91ea536
-ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
+ms.openlocfilehash: e68a3889867b75152ea941ac1d8eb113b9acd3cb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67792291"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406009"
 ---
 # <a name="egress-metering-in-a-virtual-network"></a>Egress-Messung in einem virtuellen Netzwerk
 
 >Gilt für: Windows Server 2019
 
 
-Ein wesentlicher Aspekt der Cloud-networking Möglichkeit zur Vermarktung wird zum Abrechnen der Nutzung der Netzwerkbandbreite können. Ausgehende Datenübertragungen werden auf Basis der Gesamtmenge von Daten aus dem Rechenzentrum in einem bestimmten Abrechnungszyklus über das Internet übertragen berechnet.
+Ein grundlegender Aspekt der cloudantennetzwerkmonetarisierung ist die Abrechnung nach der Auslastung der Netzwerkbandbreite. Ausgehende Daten werden basierend auf der Gesamtmenge der Daten berechnet, die über das Internet in einem bestimmten Abrechnungszeitraum aus dem Rechenzentrum verschoben werden.
 
-Ausgang der Messung für SDN-Netzwerkdatenverkehr in Windows Server-2019 bietet die Möglichkeit zu bieten nutzungsverbrauchseinheiten für ausgehende Datenübertragungen. Netzwerkdatenverkehr, der bewirkt, dass jedes virtuelles Netzwerk, jedoch bleibt innerhalb des Rechenzentrums kann durch separat nachverfolgt, damit es von abrechnungsberechnungen ausgeschlossen werden kann. Pakete, die Grenze für die Ziel-IP-Adressen, die nicht in einem-Adressbereiche enthalten sind, die nachverfolgt werden, als ausgehende Datenübertragungen abgerechnet.
+Die ausgehende Messung des SDN-Netzwerk Datenverkehrs in Windows Server 2019 ermöglicht das anbieten von Nutzungs Zählern für ausgehende Datenübertragungen. Netzwerk Datenverkehr, der die einzelnen virtuellen Netzwerke verlässt, aber innerhalb des Rechenzentrums verbleibt, kann einzeln nachverfolgt werden, sodass Sie von Abrechnungs Berechnungen ausgeschlossen werden können. An Ziel-IP-Adressen gebundene Pakete, die nicht in einem der nicht berechneten Adressbereiche enthalten sind, werden als in Rechnung gestellte ausgehende Datenübertragungen nachverfolgt.
 
-## <a name="virtual-network-unbilled-address-ranges-whitelist-of-ip-ranges"></a>Virtuelles Netzwerk nicht abgerechnete-Adressbereiche (Whitelist der IP-Bereiche)
+## <a name="virtual-network-unbilled-address-ranges-whitelist-of-ip-ranges"></a>Nicht berechnete Adressbereiche des virtuellen Netzwerks (Whitelist von IP-Bereichen)
 
-Finden Sie im Abschnitt Adressbereiche unter der **UnbilledAddressRanges** Eigenschaft von einem vorhandenen virtuellen Netzwerk. Es werden standardmäßig keine Adressbereiche hinzugefügt.
+Sie finden nicht berechnete Adressbereiche unter der **unbilledaddressranges** -Eigenschaft eines vorhandenen virtuellen Netzwerks. Standardmäßig werden keine Adressbereiche hinzugefügt.
 
    ```PowerShell
    import-module NetworkController
@@ -36,7 +36,7 @@ Finden Sie im Abschnitt Adressbereiche unter der **UnbilledAddressRanges** Eigen
    (Get-NetworkControllerVirtualNetwork -ConnectionURI $URI -ResourceId "VNet1").properties
    ```
 
-Die Ausgabe sieht etwa wie folgt:
+Ihre Ausgabe sieht in etwa wie folgt aus:
    ```
     AddressSpace           : Microsoft.Windows.NetworkController.AddressSpace
     DhcpOptions            :
@@ -51,11 +51,11 @@ Die Ausgabe sieht etwa wie folgt:
    ```
 
 
-## <a name="example-manage-the-unbilled-address-ranges-of-a-virtual-network"></a>Beispiel: Verwalten Sie nicht abgerechnete Adressbereiche eines virtuellen Netzwerks
+## <a name="example-manage-the-unbilled-address-ranges-of-a-virtual-network"></a>Beispiel: Verwalten der nicht berechneten Adressbereiche eines virtuellen Netzwerks
 
-Sie können verwalten, den Satz von IP-Subnetzpräfixe ausschließen, in Rechnung gestellt Ausgang softwaremessung durch Festlegen der **UnbilledAddressRange** Eigenschaft eines virtuellen Netzwerks.  Gesamten Datenverkehr von Netzwerkschnittstellen auf das virtuelle Netzwerk mit einer IP-Zieladresse, die eines der Präfixe entspricht, wird nicht in der Eigenschaft BilledEgressBytes enthalten werden.
+Sie können den Satz von IP-Subnetzpräfixen, die von der Abrechnungs Messung in Rechnung ausgeschlossen werden sollen, durch Festlegen der **unbilledaddressrange** -Eigenschaft eines virtuellen Netzwerks verwalten.  Sämtlicher Datenverkehr, der von Netzwerkschnittstellen im virtuellen Netzwerk mit einer Ziel-IP-Adresse gesendet wird, die mit einem der Präfixe übereinstimmt, ist nicht in der billedegressbytes-Eigenschaft enthalten.
 
-1.  Update der **UnbilledAddressRanges** Eigenschaft, um die Subnetze enthalten, die für den Zugriff nicht in Rechnung gestellt wird.
+1.  Aktualisieren Sie die **unbilledaddressranges** -Eigenschaft so, dass Sie die Subnetze enthält, für die kein Zugriff in Rechnung gestellt wird.
 
     ```PowerShell
     $vnet = Get-NetworkControllerVirtualNetwork -ConnectionUri $uri -ResourceID "VNet1"
@@ -63,15 +63,15 @@ Sie können verwalten, den Satz von IP-Subnetzpräfixe ausschließen, in Rechnun
     ```
 
     >[!TIP]
-    >Wenn Sie mehrere IP-Subnetze hinzufügen, verwenden Sie ein Komma zwischen den einzelnen IP-Subnetz ein.  Enthalten Sie keine Leerzeichen vor oder nach dem Komma.
+    >Wenn Sie mehrere IP-Subnetze hinzufügen, verwenden Sie ein Komma zwischen jedem der IP-Subnetze.  Fügen Sie keine Leerzeichen vor oder nach dem Komma ein.
 
-2.  Aktualisieren von Virtual Network-Ressource mit dem geänderten **UnbilledAddressRanges** Eigenschaft.
+2.  Aktualisieren Sie die Virtual Network Ressource mit der geänderten **unbilledaddressranges** -Eigenschaft.
 
     ```PowerShell
     New-NetworkControllerVirtualNetwork -ConnectionUri $uri -ResourceId "VNet1" -Properties $unbilled.Properties -PassInnerException
     ```
 
-    Die Ausgabe sieht etwa wie folgt:
+    Ihre Ausgabe sieht in etwa wie folgt aus:
       ```
          Confirm
          Performing the operation 'New-NetworkControllerVirtualNetwork' on entities of type
@@ -90,13 +90,13 @@ Sie können verwalten, den Satz von IP-Subnetzpräfixe ausschließen, in Rechnun
       ```
 
 
-3. Überprüfen Sie das Virtuellenetzwerk aus, um den konfigurierten finden Sie unter **UnbilledAddressRanges**.
+3. Überprüfen Sie die Virtual Network, um die konfigurierten **unbilledaddressranges**anzuzeigen.
 
    ```PowerShell
    (Get-NetworkControllerVirtualNetwork -ConnectionUri $uri -ResourceID "VNet1").properties
    ```
 
-   Die Ausgabe sieht nun etwa wie folgt:
+   Ihre Ausgabe sieht nun in etwa wie folgt aus:
    ```
    AddressSpace           : Microsoft.Windows.NetworkController.AddressSpace
    DhcpOptions            :
@@ -110,23 +110,23 @@ Sie können verwalten, den Satz von IP-Subnetzpräfixe ausschließen, in Rechnun
    LogicalNetwork         : Microsoft.Windows.NetworkController.LogicalNetwork
    ```
 
-## <a name="check-the-billed-the-unbilled-egress-usage-of-a-virtual-network"></a>Überprüfen Sie die kostenpflichtigen die Nutzung nicht abgerechnete ausgehenden Datenverkehr eines virtuellen Netzwerks
+## <a name="check-the-billed-the-unbilled-egress-usage-of-a-virtual-network"></a>Überprüfen der kostenpflichtigen ausgehenden Nutzung eines virtuellen Netzwerks
 
-Nach dem Konfigurieren der **UnbilledAddressRanges** -Eigenschaft, sehen Sie sich die Nutzung in Rechnung gestellt und nicht abgerechnete ausgehenden Datenverkehr aller Subnetze in einem virtuellen Netzwerk. Ausgehender Datenverkehr wird mit die Gesamtzahl der Bytes der Bereiche in Rechnung gestellt und alle vier Minuten aktualisiert.
+Nachdem Sie die **unbilledaddressranges** -Eigenschaft konfiguriert haben, können Sie die in Rechnung gestellte und nicht in Rechnung gestellte ausgehende Nutzung der einzelnen Subnetze innerhalb eines virtuellen Netzwerks überprüfen. Der ausgehende Datenverkehr wird alle vier Minuten durch die Gesamtanzahl der Bytes der in Rechnung gestellten und nicht berechneten Bereiche aktualisiert.
 
-Die folgenden Eigenschaften stehen für jedes virtuelle Subnetz zur Verfügung:
+Die folgenden Eigenschaften sind für jedes virtuelle Subnetz verfügbar:
 
--   **UnbilledEgressBytes** zeigt die Anzahl der gesendete Bytes nach Netzwerkschnittstellen, die mit diesem virtuellen Subnetz verbunden ist. Nicht abgerechnete Bytes sind-Adressbereiche, die Teil der gesendeten Bytes der **UnbilledAddressRanges** Eigenschaft des übergeordneten virtuellen Netzwerks.
+-   **Unbilledegressbytes** zeigt die Anzahl der nicht in Rechnung gestellten Bytes an, die von Netzwerkschnittstellen gesendet werden, die mit diesem virtuellen Subnetz verbunden sind. Nicht berechnete Bytes sind bytes, die an Adressbereiche gesendet werden, die Teil der **unbilledaddressranges** -Eigenschaft des übergeordneten virtuellen Netzwerks sind.
 
--   **BilledEgressBytes** zeigt die Anzahl der in Rechnung gestellt, Netzwerkschnittstellen, die mit diesem virtuellen Subnetz verbunden gesendeten Bytes. Abgerechnete Bytes sind-Adressbereiche, die nicht gesendeten Bytes Teil der **UnbilledAddressRanges** Eigenschaft des übergeordneten virtuellen Netzwerks.
+-   **Billedegressbytes** zeigt die Anzahl der in Rechnung gestellten Bytes an, die von den mit diesem virtuellen Subnetz verbundenen Netzwerkschnittstellen gesendet werden. In Rechnung gestellte Bytes werden an Adressbereiche gesendet, die nicht Teil der **unbilledaddressranges** -Eigenschaft des übergeordneten virtuellen Netzwerks sind.
 
-Verwenden Sie das folgende Beispiel aus, um die Verwendung von Abfragen ausgehend:
+Verwenden Sie das folgende Beispiel, um die ausgehende Verwendung abzufragen:
 
 ```PowerShell
 (Get-NetworkControllerVirtualNetwork -ConnectionURI $URI -ResourceId "VNet1").properties.subnets.properties | ft AddressPrefix,BilledEgressBytes,UnbilledEgressBytes
 ```
 
-Die Ausgabe sieht etwa wie folgt:
+Ihre Ausgabe sieht in etwa wie folgt aus:
 ```
 AddressPrefix BilledEgressBytes UnbilledEgressBytes
 ------------- ----------------- -------------------

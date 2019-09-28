@@ -2,22 +2,22 @@
 title: Erstellen einer Dateiprüfungsausnahme
 description: In diesem Artikel wird beschrieben, wie Sie eine Dateiprüfungsausnahme erstellen
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 1f0e93cb2535862b9259d438de00c3b769c2282c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6a0fa660db6b03104b585c8ee78a4f20aafe5c88
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59866301"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403144"
 ---
 # <a name="create-a-file-screen-exception"></a>Erstellen einer Dateiprüfungsausnahme
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Gelegentlich sind Ausnahmen bei der Dateiprüfung notwendig. Wenn Sie beispielsweise Videodateien von einem Dateiserver sperren möchten, jedoch Ihrer Schulungsgruppe das Speichern der Video-Dateien für ihre Lernprogramm erlauben müssen. Um Dateien zuzulassen, die von anderen Dateiprüfungen blockiert werden, erstellen Sie eine *Dateiprüfungsausnahme*.
 
@@ -40,14 +40,14 @@ Um Dateigruppen zuzuweisen, die bestimmen, welche Dateitypen für die Dateiprüf
 4.  So geben Sie die Dateien an, die von der Dateiprüfung ausgeschlossen werden sollen:
 
     -   Wählen Sie unter **Dateigruppen** jede Dateigruppe aus, die von Ihrer Dateiprüfung ausgeschlossen werden sollen. (Um das Kontrollkästchen für die Dateigruppe zu aktivieren, doppelklicken Sie auf die Bezeichnung der Dateigruppe.)
-    -   Wenn Sie verwenden möchten, zeigen Sie die Dateitypen, die eine Dateigruppe enthält, und schließt, klicken Sie auf die Bezeichnung für "Group", und auf **bearbeiten**.
+    -   Wenn Sie die Dateitypen anzeigen möchten, die eine Datei Gruppe einschließt und ausschließt, klicken Sie auf die Dateigruppen Bezeichnung, und klicken Sie auf **Bearbeiten**.
     -   Klicken Sie zum Erstellen einer neuen Dateigruppe auf **Erstellen**.
 
 5.  Klicken Sie auf **OK**.
 
 ## <a name="see-also"></a>Siehe auch
 
--   [Dateiprüfungsverwaltung](file-screening-management.md)
--   [Definieren von Dateigruppen für die Sichtung](define-file-groups-for-screening.md)
+-   [Datei Prüfungsverwaltung](file-screening-management.md)
+-   [Definieren von Dateigruppen für die Prüfung](define-file-groups-for-screening.md)
 
 

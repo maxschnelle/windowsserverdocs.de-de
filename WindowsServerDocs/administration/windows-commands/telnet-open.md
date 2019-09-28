@@ -1,8 +1,8 @@
 ---
-title: Telnet öffnen
-description: 'Windows-Befehle Thema ***- '
+title: Telnet geöffnet
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 186664a75978f589a9a26047c72b9db74dd2dc4d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 4528b728c89bbdfc99de94c7fefebb18c8e1ad97
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441126"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383653"
 ---
-# <a name="telnet-open"></a>Telnet: Öffnen
+# <a name="telnet-open"></a>Telnet: offen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Eine Verbindung mit einem Telnet-Server.    
+Stellt eine Verbindung mit einem Telnet-Server her.    
 ## <a name="syntax"></a>Syntax  
 ```  
 o[pen] <hostname> [<Port>]  
@@ -33,13 +33,13 @@ o[pen] <hostname> [<Port>]
 
 | Parameter  |                                        Beschreibung                                         |
 |------------|--------------------------------------------------------------------------------------------|
-| <hostname> |                         Gibt den Computernamen oder IP-Adresse.                         |
-|  [<Port>]  | Gibt den TCP-Port, dem der Telnet-Server überwacht. Der Standardwert ist die TCP-Port 23. |
+| <hostname> |                         Gibt den Computernamen oder die IP-Adresse an.                         |
+|  [<Port>]  | Gibt den TCP-Port an, an dem der Telnet-Server lauscht. Der Standardwert ist TCP-Port 23. |
 
-## <a name="BKMK_Examples"></a>Beispiele für  
-Verbinden Sie mit einem Telnetserver telnet.microsoft.com.  
+## <a name="BKMK_Examples"></a>Beispiele  
+Herstellen einer Verbindung mit einem Telnet-Server unter Telnet.Microsoft.com.  
 ```  
 o telnet.microsoft.com  
 ```  
-## <a name="additional-references"></a>Zusätzliche Referenzen  
+## <a name="additional-references"></a>Weitere Verweise  
 -   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

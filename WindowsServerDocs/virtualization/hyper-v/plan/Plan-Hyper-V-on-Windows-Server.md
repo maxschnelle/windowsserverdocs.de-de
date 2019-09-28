@@ -1,7 +1,7 @@
 ---
-title: Planen Sie für Hyper-V unter WindowsServer 2016
-description: Enthält Links zu Artikeln zu den planungsüberlegungen für das Hyper-V
-ms.prod: windows-server-threshold
+title: Planen von Hyper-V unter Windows Server 2016
+description: Enthält Links zu Artikeln zu Planungsüberlegungen für Hyper-V.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,24 +11,24 @@ ms.assetid: fba1e964-3ac3-4852-83dc-eb20752765fd
 author: KBDAzure
 ms.author: kathydav
 ms.date: 02/13/2017
-ms.openlocfilehash: fcc60009f8a486ac178f5b65e65b3fb045754a25
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 27bc96022943c76e052178a3c6c928ce5e7eec57
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874071"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392499"
 ---
-# <a name="plan-for-hyper-v-on-windows-server"></a>Planen Sie für Hyper-V unter WindowsServer
+# <a name="plan-for-hyper-v-on-windows-server"></a>Planen von Hyper-V unter Windows Server
 
->Gilt für: WindowsServer 2016, WindowsServer 2019
+>Gilt für: Windows Server 2016, Windows Server 2019
 
-Verwenden Sie diese Ressourcen helfen Ihnen beim Planen der Hyper-V-Bereitstellung.
+Verwenden Sie diese Ressourcen, um Ihre Hyper-V-Bereitstellung zu planen.
    
--  [Hyper-V-Skalierbarkeit unter Windows Server](plan-hyper-v-scalability-in-windows-server.md)  
+-  [Hyper-V-Skalierbarkeit in Windows Server](plan-hyper-v-scalability-in-windows-server.md)  
 -  [Hyper-V-Sicherheit in Windows Server](plan-hyper-v-security-in-windows-server.md)
--  [Netzwerken unter WindowsServer](plan-hyper-v-networking-in-windows-server.md) 
--  [Sollte ich die virtuelle Maschine der Generation 1 oder 2 erstellen?](Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md)
-- [Plan für die Bereitstellung von Geräten verwenden diskrete Gerätezuordnung](plan-for-deploying-devices-using-discrete-device-assignment.md)
+-  [Netzwerke in Windows Server](plan-hyper-v-networking-in-windows-server.md) 
+-  [Sollte ich einen virtuellen Computer der Generation 1 oder 2 erstellen?](Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md)
+- [Planen der Bereitstellung von Geräten mit diskreter Geräte Zuweisung](plan-for-deploying-devices-using-discrete-device-assignment.md)
   
 
 

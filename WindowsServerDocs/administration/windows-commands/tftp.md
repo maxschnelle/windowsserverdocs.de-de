@@ -1,8 +1,8 @@
 ---
 title: tftp
-description: Übertragen von Dateien zu und von einem Remotecomputer befindet.
+description: Übertragen von Dateien auf und von einem Remote Computer.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ad195409076840fda0e8d6bf5cd0c295a62cdede
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 66f729d090a78b74bc0334cd9b7276219a980e8c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845901"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370213"
 ---
 # <a name="tftp"></a>tftp
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Überträgt Dateien in und aus einem remote-Computer in der Regel einem Computer mit UNIX, auf dem das Trivial File Transfer Protocol (Tftp)-Dienst oder der Daemon ausgeführt wird. TFTP wird normalerweise verwendet, von embedded-Geräten oder Systemen, die Firmware, Informationen zur Konfiguration oder ein Systemabbild während des Startvorgangs von einem Tftp-Server abrufen.   
+Überträgt Dateien an und von einem Remote Computer, in der Regel auf einem Computer mit UNIX, auf dem der Trivial File Transfer Protocol-Dienst oder-Daemon ausgeführt wird. TFTP wird in der Regel von eingebetteten Geräten oder Systemen verwendet, die während des Startvorgangs von einem TFTP-Server aus Firmware, Konfigurationsinformationen oder ein System Abbild abrufen.   
 
 ## <a name="syntax"></a>Syntax  
 ```  
@@ -34,23 +34,23 @@ tftp [-i] [<Host>] [{get | put}] <Source> [<Destination>]
 ### <a name="parameters"></a>Parameter  
 |Parameter|Beschreibung|  
 |-------|--------|  
-|-i|Gibt an, binäres Abbild Übertragungsmodus (auch als Oktett-Modus bezeichnet). Die Datei wird im Binärmodus byteweise übertragen. Verwenden Sie diesen Modus, bei der Übertragung von Binärdateien. Wenn **-i** wird weggelassen, wird die Datei im ASCII-Modus übertragen. Dies ist der Standardmodus für die Übertragung. In diesem Modus konvertiert die End-of-Line (EOL)-Zeichen in ein geeignetes Format für den angegebenen Computer an. Verwenden Sie diesen Modus, bei der Übertragung von Textdateien. Wenn eine Dateiübertragung erfolgreich ist, wird die Datenübertragungsrate angezeigt.|  
-|\<Host\>|Gibt den lokalen Computer oder Remotecomputer an.|  
-|Put|Überträgt die Datei *Quelle* auf dem lokalen Computer, auf die Datei *Ziel* auf dem Remotecomputer. Da das Tftp-Protokoll nicht der Benutzerauthentifizierung unterstützt, muss der Benutzer angemeldet sein, auf dem Remotecomputer, und die Dateien müssen auf dem Remotecomputer beschreibbar sein.|  
-|get|Überträgt die Datei *Ziel* auf dem Remotecomputer in die Datei *Quelle* auf dem lokalen Computer.|  
-|\<Quelle\>|Gibt die Datei übertragen.|  
-|\<Ziel\>|Gibt an, um die Datei übertragen.|  
+|-i|Gibt den binären Bild Übertragungsmodus (auch als Octett-Modus bezeichnet) an. Im binären Bild Modus wird die Datei in 1-Byte-Einheiten übertragen. Verwenden Sie diesen Modus beim Übertragen von Binärdateien. Wenn **-i** weggelassen wird, wird die Datei im ASCII-Modus übertragen. Dies ist der Standard Übertragungsmodus. In diesem Modus werden die Zeilenende (EOL)-Zeichen in ein entsprechendes Format für den angegebenen Computer konvertiert. Verwenden Sie diesen Modus beim Übertragen von Textdateien. Wenn eine Dateiübertragung erfolgreich ist, wird die Datenübertragungsrate angezeigt.|  
+|\<host @ no__t-1|Gibt den lokalen oder Remote Computer an.|  
+|stellte|Überträgt die Datei *Quelle* auf dem lokalen Computer an das *Dateiziel* auf dem Remote Computer. Da das TFTP-Protokoll keine Benutzerauthentifizierung unterstützt, muss der Benutzer auf dem Remote Computer angemeldet sein, und die Dateien müssen auf dem Remote Computer beschreibbar sein.|  
+|get|Überträgt das *Dateiziel* auf dem Remote Computer an die Datei *Quelle* auf dem lokalen Computer.|  
+|\<Quelle\>|Gibt die zu übertragenden Datei an.|  
+|\<Ziel\>|Gibt an, wohin die Datei übertragen werden soll.|  
 
 ## <a name="remarks"></a>Hinweise  
--   Sie können mit den Funktionen Assistenten zum Hinzufügen den Tftp-Client installieren.  
--   Der Tftp-Protokoll unterstützt keine Authentifizierung oder Verschlüsselung Mechanismus, und daher kann ein Sicherheitsrisiko darstellen einführen. Installieren den Tftp-Client sollte nicht für Systeme, die mit dem Internet verbunden.  
--   Der Tftp-Client ist eine optionale Software und als unter Windows Vista und höheren Versionen des Windows-Betriebssystems als veraltet markiert. Ein Tftp-Server-Dienst wird aus Sicherheitsgründen nicht mehr von Microsoft bereitgestellt.  
+-   Der TFTP-Client kann mithilfe des Assistenten zum Hinzufügen von Features installiert werden.  
+-   Das TFTP-Protokoll unterstützt keinen Authentifizierungs-oder Verschlüsselungsmechanismus und kann daher ein Sicherheitsrisiko darstellen, wenn es vorhanden ist. Die Installation des TFTP-Clients wird für Systeme, die mit dem Internet verbunden sind, nicht empfohlen.  
+-   Der TFTP-Client ist optionale Software und wird unter Windows Vista und höheren Versionen des Windows-Betriebssystems als veraltet markiert. Ein TFTP-Server Dienst wird von Microsoft aus Sicherheitsgründen nicht mehr bereitgestellt.  
 
-## <a name="BKMK_Examples"></a>Beispiele für  
-Kopieren Sie die Datei **boot.img** vom Remotecomputer **"host1"**.  
+## <a name="BKMK_Examples"></a>Beispiele  
+Kopieren Sie die Datei **Boot. img** vom Remote Computer **host1**.  
 ```  
 tftp  -i Host1 get boot.img  
 ```  
 
 ## <a name="additional-references"></a>Weitere Verweise  
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

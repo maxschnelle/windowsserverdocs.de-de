@@ -7,89 +7,89 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b000d4cfd4ded7ad37dbb235a9d33c83d8951707
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: a0d32edd7ebc23fa724439710c6511642d9c49a3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66444362"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407644"
 ---
 # <a name="create-a-relying-party-trust"></a>Erstellen einer Vertrauensstellung der vertrauenden Seite
 
 
-Das folgende Dokument enthält Informationen für eine Vertrauensstellung der vertrauenden Seite manuell zu erstellen und mithilfe von Verbundmetadaten.
+Das folgende Dokument enthält Informationen zum manuellen Erstellen einer Vertrauensstellung der vertrauenden Seite und zum Verwenden von Verbund Metadaten.
   
-## <a name="to-create-a-claims-aware-relying-party-trust-manually"></a>Zum Erstellen einer Ansprüche Beachten der vertrauenden Seite Vertrauensstellung manuell 
+## <a name="to-create-a-claims-aware-relying-party-trust-manually"></a>So erstellen Sie manuell eine Ansprüche unterstützende Vertrauensstellung der vertrauenden Seite 
 
-Neue Anspruchsanbieter-Vertrauensstellung hinzufügen, mit der AD FS-Verwaltungs-Snap\-in und manuell konfigurieren Sie die Einstellungen, führen Sie die folgende Schritte auf einem Verbundserver.  
+Zum Hinzufügen einer neuen Vertrauensstellung der vertrauenden Seite mithilfe des AD FS-Verwaltungs-Snap @ no__t-0in und manuelles Konfigurieren der Einstellungen führen Sie das folgende Verfahren auf einem Verbund Server aus.  
 
-Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Weitere Informationen zur Verwendung der geeigneten Konten und Gruppenmitgliedschaften unter [lokale und Domänenstandardgruppen](https://go.microsoft.com/fwlink/?LinkId=83477).
+Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).
   
-1. Klicken Sie im Server-Manager **Tools**, und wählen Sie dann **AD FS-Verwaltung**.  
+1. Klicken Sie in Server-Manager **auf Extras**, und wählen Sie dann **AD FS Verwaltung**aus.  
   
-2.  Klicken Sie unter **Aktionen**, klicken Sie auf **Partei Vertrauensstellung der vertrauenden Seite hinzufügen**.  
-![vertrauende Seite](media/Create-a-Relying-Party-Trust/addtrust1.PNG)   
+2.  Klicken Sie unter **Aktionen**auf Vertrauensstellung der **vertrauenden Seite hinzufügen**.  
+![vertrauende Seite @ no__t-1   
 
-3.  Auf der **Willkommen** Seite **als eine Ansprüche unterstützende** , und klicken Sie auf **starten**.  
-![vertrauende Seite](media/Create-a-Relying-Party-Trust/addtrust2.PNG) 
+3.  Wählen Sie auf der Seite **Willkommen** die Option **Ansprüche beachten** aus, und klicken Sie auf **starten**.  
+![vertrauende Seite @ no__t-1 
   
 4.  Klicken Sie auf der Seite **Datenquelle auswählen** auf **Daten über die vertrauende Seite manuell eingeben**, und klicken Sie anschließend auf **Weiter**.  
-![vertrauende Seite](media/Create-a-Relying-Party-Trust/addtrust3.PNG) 
+![vertrauende Seite @ no__t-1 
   
-5.  Auf der **Anzeigename angeben** geben einen Namen im **Anzeigenamen**unter **Anmerkungen zu dieser** Geben Sie eine Beschreibung für diese Vertrauensstellung der vertrauenden Seite, und klicken Sie dann auf **weiter** .  
-![vertrauende Seite](media/Create-a-Relying-Party-Trust/addtrust4.PNG) 
+5.  Geben Sie auf der Seite **Anzeige Name angeben** einen Namen in das Feld **Anzeige Name**ein, geben Sie unter **Hinweise** eine Beschreibung für diese Vertrauensstellung der vertrauenden Seite ein, und klicken Sie dann auf **weiter**.  
+![vertrauende Seite @ no__t-1 
 
-6. Auf der **Zertifikat konfigurieren** Seite, wenn Sie ein optionales tokenverschlüsselungszertifikat, klicken Sie auf haben **Durchsuchen** , suchen Sie eine Zertifikatdatei, und klicken Sie dann auf **Weiter**.  
-![vertrauende Seite](media/Create-a-Relying-Party-Trust/addtrust5.PNG) 
+6. Wenn Sie über ein optionales tokenverschlüsselungszertifikat verfügen, klicken Sie auf der Seite **Zertifikat konfigurieren** auf **Durchsuchen** , um eine Zertifikat Datei zu suchen, und klicken Sie dann auf **weiter**.  
+![vertrauende Seite @ no__t-1 
 
-7.  Auf der **-URL konfigurieren** Seite, führen Sie eine oder beide der folgenden, klicken Sie auf **Weiter**, und klicken Sie dann mit Schritt 8:  
+7.  Führen Sie auf der Seite **URL konfigurieren** eine oder beide der folgenden Aktionen aus, klicken Sie auf **weiter**, und fahren Sie dann mit Schritt 8:  
   
-    -   Wählen Sie die **Aktivieren der Unterstützung für WS\-Verbund Passive Protocol** Kontrollkästchen. Klicken Sie unter **der vertrauenden Seite Partei WS\-URL des passiven Verbund**, geben Sie die URL für diese Vertrauensstellung der vertrauenden Seite, und klicken Sie dann auf **Weiter**.  
+    -   Aktivieren Sie das Kontrollkästchen **Unterstützung für das passive WS @ no__t-1federation-Protokoll aktivieren** . Geben Sie unter **vertrauende Seite WS @ no__t-1federation passive Protokoll-URL**die URL für diese Vertrauensstellung der vertrauenden Seite ein, und klicken Sie dann auf **weiter**.  
   
-    -   Aktivieren Sie das Kontrollkästchen **Unterstützung für das SAML 2.0 WebSSO-Protokoll aktivieren**. Klicken Sie unter **Partei SAML 2.0 SSO-Dienst-URL der vertrauenden Seite**, geben Sie die Security Assertion Markup Language \(SAML\) -Dienstendpunkt-URL für diese Vertrauensstellung der vertrauenden Seite, und klicken Sie dann auf **Weiter**.  
-![vertrauende Seite](media/Create-a-Relying-Party-Trust/addtrust6.PNG)   
+    -   Aktivieren Sie das Kontrollkästchen **Unterstützung für das SAML 2.0 WebSSO-Protokoll aktivieren**. Geben Sie unter **SAML 2,0 SSO-Dienst-URL**der vertrauenden Seite die Security Assertion Markup Language \(saml @ no__t-2-Dienst Endpunkt-URL für diese Vertrauensstellung der vertrauenden Seite ein, und klicken Sie dann auf **weiter**  
+![vertrauende Seite @ no__t-1   
 
 8. Geben Sie auf der Seite **Konfigurieren von Bezeichnern** einen oder mehrere Bezeichner für diese vertrauende Seite an, klicken Sie auf **Hinzufügen**, um diese der Liste hinzufügen, und klicken Sie dann auf **Weiter**.  
-![vertrauende Seite](media/Create-a-Relying-Party-Trust/addtrust8.PNG)
+![vertrauende Seite @ no__t-1
   
-9.  Auf der **Zugriffssteuerungsrichtlinien wählen** wählen Sie eine Richtlinie, und klicken Sie auf **Weiter**.  Weitere Informationen zu Access Control-Richtlinien, finden Sie unter [Zugriffssteuerungsrichtlinien in AD FS](Access-Control-Policies-in-AD-FS.md). 
-![vertrauende Seite](media/Create-a-Relying-Party-Trust/addtrust9.PNG)
+9.  Wählen Sie unter **Access Control Richtlinie auswählen** eine Richtlinie aus, und klicken Sie auf **weiter**.  Weitere Informationen zu Access Control Richtlinien finden Sie unter [Access Control Policies in AD FS](Access-Control-Policies-in-AD-FS.md). 
+![vertrauende Seite @ no__t-1
 
 10. Überprüfen Sie auf der Seite **Bereit zum Hinzufügen der Vertrauensstellung** die Einstellungen, und klicken Sie dann auf **Weiter**, um die Informationen zur Vertrauensstellung der vertrauenden Seite zu speichern.  
-   ![vertrauende Seite](media/Create-a-Relying-Party-Trust/addtrust10.PNG) 
+   ![vertrauende Seite @ no__t-1 
 11. Klicken Sie auf der Seite **Fertig stellen** auf **Schließen**. Dadurch wird automatisch das Dialogfeld **Anspruchsregeln bearbeiten** angezeigt.  
-![vertrauende Seite](media/Create-a-Relying-Party-Trust/addtrust11.PNG) 
+![vertrauende Seite @ no__t-1 
 
-## <a name="to-create-a-claims-aware-relying-party-trust-using-federation-metadata"></a>Zum Erstellen einer Ansprüche Beachten der vertrauenden Seite Vertrauensstellung mithilfe von Verbundmetadaten
+## <a name="to-create-a-claims-aware-relying-party-trust-using-federation-metadata"></a>So erstellen Sie eine Ansprüche unterstützende Vertrauensstellung der vertrauenden Seite mit Verbund Metadaten
 
-Zum Hinzufügen einer neuen Vertrauensstellung der vertrauenden das AD FS-Verwaltungs-Snap-in, automatisches Importieren von Konfigurationsdaten zum Partner aus Verbundmetadaten, die der Partner in einem lokalen Netzwerk oder mit dem Internet veröffentlicht mit führen Sie das folgende Verfahren auf einem der Verbundserver in der Kontopartnerorganisation.
+Zum Hinzufügen einer neuen Vertrauensstellung der vertrauenden Seite verwenden Sie das Snap-in "AD FS-Verwaltung", indem Sie Konfigurationsdaten über den Partner automatisch aus Verbund Metadaten importieren, die der Partner in einem lokalen Netzwerk oder im Internet veröffentlicht hat. führen Sie dazu das folgende Verfahren auf einem Verbund Server in der Konto Partnerorganisation.
 
 >[!NOTE]
->Wenn sie lange gängige Praxis, Zertifikate mit nicht qualifizierten Hostnamen verwenden, z. B. wurde https://myserver, diese Zertifikate haben keinen Sicherheitswert und können einem Angreifer ermöglichen, einen Verbunddienst zu imitieren, die Verbundmetadaten veröffentlicht. Aus diesem Grund beim Abfragen von Verbundmetadaten, Sie sollten nur verwenden einen vollständig qualifizierten Domänennamen wie z. B. https://myserver.contoso.com.
+>Obwohl es seit langem üblich ist, Zertifikate mit nicht qualifizierten Hostnamen wie z. b. https://myserver zu verwenden, haben diese Zertifikate keinen Sicherheitswert und können einem Angreifer ermöglichen, die Identität eines Verbunddienst anzunehmen, der Verbund Metadaten veröffentlicht. Daher sollten Sie beim Abfragen von Verbund Metadaten nur einen voll qualifizierten Domänen Namen wie https://myserver.contoso.com verwenden.
 
-Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Weitere Informationen zur Verwendung der geeigneten Konten und Gruppenmitgliedschaften unter [lokale und Domänenstandardgruppen](https://go.microsoft.com/fwlink/?LinkId=83477).
+Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).
 
 
-1. Klicken Sie im Server-Manager **Tools**, und wählen Sie dann **AD FS-Verwaltung**.  
+1. Klicken Sie in Server-Manager **auf Extras**, und wählen Sie dann **AD FS Verwaltung**aus.  
   
-2. Klicken Sie unter **Aktionen**, klicken Sie auf **Partei Vertrauensstellung der vertrauenden Seite hinzufügen**.  
-   ![vertrauende Seite](media/Create-a-Relying-Party-Trust/addtrust1.PNG)   
+2. Klicken Sie unter **Aktionen**auf Vertrauensstellung der **vertrauenden Seite hinzufügen**.  
+   ![vertrauende Seite @ no__t-1   
 
-3. Auf der **Willkommen** Seite **als eine Ansprüche unterstützende** , und klicken Sie auf **starten**.  
-   ![vertrauende Seite](media/Create-a-Relying-Party-Trust/addtrust2.PNG) 
+3. Wählen Sie auf der Seite **Willkommen** die Option **Ansprüche beachten** aus, und klicken Sie auf **starten**.  
+   ![vertrauende Seite @ no__t-1 
   
-4. Auf der **Auswählen einer Datenquelle** auf <strong>veröffentlichte Daten über die vertrauende Seite importieren, online oder in einem lokalen Netzwerk *. In ** Verbundmetadaten-Adresse (Hostname oder URL)</strong>, geben Sie den Verbund-Metadaten URL oder den Hostnamen der Namen für den Partner aus, und klicken Sie dann auf **Weiter**.  
-   ![vertrauende Seite](media/Create-a-Relying-Party-Trust/addtrust12.PNG) 
+4. Klicken Sie auf der Seite **Datenquelle auswählen** auf <strong>importieren von Daten über die vertrauende Seite, die Online oder in einem lokalen Netzwerk veröffentlicht ist *. Geben Sie in * * Verbund Metadaten-Adresse (Hostname oder URL)</strong>  die Verbund Metadaten-URL oder den Hostnamen für den Partner ein, und klicken Sie dann auf **weiter**.  
+   ![vertrauende Seite @ no__t-1 
 
-5. Geben Sie auf der Seite Anzeigename angeben einen Namen in **Anzeigenamen**, klicken Sie unter Hinweise geben Sie eine Beschreibung für diese Vertrauensstellung der vertrauenden Seite, und klicken Sie dann auf **Weiter**.
+5. Geben Sie auf der Seite Anzeige Name angeben einen Namen unter **Anzeige Name**ein, geben Sie unter Hinweise eine Beschreibung für diese Vertrauensstellung der vertrauenden Seite ein, und klicken Sie dann auf **weiter**.
 
-6. Wählen Sie auf der Seite auswählen von Ausstellungsautorisierungsregeln entweder **allen Benutzern Zugriff auf diese vertrauende** oder **allen Benutzern Zugriff auf diese vertrauende Seite Verweigern**, und klicken Sie dann auf **Weiter**.
+6. Wählen Sie auf der Seite Ausstellungs Autorisierungs Regeln auswählen entweder **allen Benutzern den Zugriff auf diese** vertrauende Seite gestatten aus, oder **verweigern Sie allen Benutzern den Zugriff auf diese**vertrauende Seite, und klicken Sie dann auf **weiter**.
 
-7. Klicken Sie auf der Seite bereit zum Hinzufügen der Vertrauensstellung, überprüfen Sie die Einstellungen, und klicken Sie dann auf **Weiter** Ihre vertrauende Seite speichern Informationen zu vertrauen.
+7. Überprüfen Sie auf der Seite bereit zum Hinzufügen der Vertrauensstellung die Einstellungen, und klicken Sie dann auf **weiter** , um die Informationen zur Vertrauensstellung der vertrauenden Seite
 
-8. Klicken Sie auf der Seite zum Fertigstellen auf **schließen**. Diese Aktion zeigt automatisch das Dialogfeld "Anspruchsregeln bearbeiten". Weitere Informationen zum Hinzufügen von Anspruchsregeln für diese Vertrauensstellung für die vertrauende Seite finden Sie unter „Weitere Referenzen“.
+8. Klicken Sie auf der Seite Fertigstellen auf **Schließen**. Diese Aktion zeigt automatisch das Dialogfeld Anspruchs Regeln bearbeiten an. Weitere Informationen zum Hinzufügen von Anspruchsregeln für diese Vertrauensstellung für die vertrauende Seite finden Sie unter „Weitere Referenzen“.
 
 
 

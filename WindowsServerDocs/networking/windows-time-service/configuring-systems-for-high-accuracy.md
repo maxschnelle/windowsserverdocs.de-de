@@ -1,169 +1,169 @@
 ---
 ms.assetid: ''
 title: Konfigurieren von Systemen für hohe Genauigkeit
-description: Zeitsynchronisierung in Windows 10 und Windows Server 2016 wurde erheblich verbessert.  Unter betriebsbedingungen sinnvoll, Systeme zum Verwalten von 1 ms (Millisekunden) konfiguriert werden können Genauigkeit oder höher (in Bezug auf UTC).
+description: Die Zeitsynchronisierung in Windows 10 und Windows Server 2016 wurde wesentlich verbessert.  Unter angemessenen Betriebsbedingungen können Systeme so konfiguriert werden, dass Sie eine Genauigkeit von 1 ms (Millisekunden) oder eine bessere Genauigkeit (in Bezug auf die UTC) erhalten.
 author: shortpatti
 ms.author: dacuo
 ms.date: 05/08/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 9bfa4e7d4f8777f8fef299cf3991238e31564ace
-ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
+ms.openlocfilehash: b7cd256fdbbdbe7432e5b5d5b16254314132560f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67469597"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405200"
 ---
 # <a name="configuring-systems-for-high-accuracy"></a>Konfigurieren von Systemen für hohe Genauigkeit
->Gilt für: Windows Server 2016 und Windows 10 Version 1607 oder höher
+>Gilt für: Windows Server 2016 und Windows 10, Version 1607 oder höher
 
-Zeitsynchronisierung in Windows 10 und Windows Server 2016 wurde erheblich verbessert.  Unter betriebsbedingungen sinnvoll, Systeme zum Verwalten von 1 ms (Millisekunden) konfiguriert werden können Genauigkeit oder höher (in Bezug auf UTC).
+Die Zeitsynchronisierung in Windows 10 und Windows Server 2016 wurde wesentlich verbessert.  Unter angemessenen Betriebsbedingungen können Systeme so konfiguriert werden, dass Sie eine Genauigkeit von 1 ms (Millisekunden) oder eine bessere Genauigkeit (in Bezug auf die UTC) erhalten.
 
-Die folgende Anleitung helfen bei der Ihre Systeme mit hohen Genauigkeit erreichen zu konfigurieren.  In diesem Artikel werden die folgenden Anforderungen:
+Anhand der folgenden Anleitungen können Sie Ihre Systeme so konfigurieren, dass eine hohe Genauigkeit erzielt wird.  In diesem Artikel werden die folgenden Anforderungen behandelt:
 
 - Unterstützte Betriebssysteme
 - Systemkonfiguration 
 
 > [!WARNING]
-> **Die Genauigkeit Ziele früheren Betriebssystemen**<br>
->Windows Server 2012 R2 und kann im folgenden nicht die gleichen hoher Genauigkeit Ziele erfüllen. Diese Betriebssysteme werden für die hohe Genauigkeit nicht unterstützt.
+> **Vorherige Genauigkeits Ziele für Betriebssysteme**<br>
+>Windows Server 2012 R2 und höher können nicht die gleichen hohen Genauigkeits Ziele erfüllen. Diese Betriebssysteme werden für hohe Genauigkeit nicht unterstützt.
 >
->Bei diesen Versionen erfüllt der Windows-Zeitdienst die folgenden Anforderungen:
+>In diesen Versionen erfüllt der Windows-Zeit Dienst die folgenden Anforderungen:
 >
-> - Bereitgestellt, die lange Genauigkeit um Anforderungen an die Kerberos V5-Authentifizierung zu erfüllen.
-> - Lose genaue Uhrzeit bereitgestellt für die Windows-Clients und Servern, die eingebunden in eine allgemeine Active Directory-Gesamtstruktur.
+> - Die erforderliche Zeit Genauigkeit wurde bereitgestellt, um die Authentifizierungsanforderungen der Kerberos-Version 5 zu erfüllen.
+> - Bietet eine lose genaue Zeit für Windows-Clients und-Server, die mit einer allgemeinen Active Directory Gesamtstruktur verknüpft sind.
 >
->Größere Toleranzen unter 2012 R2 und unten befinden sich außerhalb der Entwurfsspezifikation der Windows-Zeitdienst.
+>Höhere Toleranzen in 2012 R2 und niedriger sind außerhalb der Entwurfs Spezifikation des Windows-Zeit Dienstanbieter.
 
-## <a name="windows-10-and-windows-server-2016-default-configuration"></a>Windows 10 und Windows Server 2016-Standardkonfiguration
+## <a name="windows-10-and-windows-server-2016-default-configuration"></a>Windows 10-und Windows Server 2016-Standardkonfiguration
 
-Während wir die Genauigkeit bis zu 1 ms unter Windows 10 oder Windows Server 2016 unterstützt, die meisten Kunden benötigen keine äußerst präzise Zeit.
+Während wir die Genauigkeit von bis zu 1 MS unter Windows 10 oder Windows Server 2016 unterstützen, benötigen die meisten Kunden keine sehr genaue Zeit.
 
-Daher ist es möglich, die **Standardkonfiguration** dient als früheren Betriebssystemen die gleichen Anforderungen erfüllen, wozu die sind:
+Daher ist die **Standardkonfiguration** für die Erfüllung der gleichen Anforderungen wie für vorherige Betriebssysteme gedacht, für die Folgendes gilt:
 
-- Geben Sie die Genauigkeit erforderlichen Zeit, um Anforderungen an die Kerberos V5-Authentifizierung zu erfüllen.
-- Geben Sie Lose genaue Uhrzeit für die Windows-Clients und Server, die einen allgemeinen Active Directory-Gesamtstruktur angehören.
+- Geben Sie die erforderliche Zeit Genauigkeit an, um die Authentifizierungsanforderungen der Kerberos-Version 5 zu erfüllen.
+- Geben Sie für Windows-Clients und-Server, die einer gemeinsamen Active Directory Gesamtstruktur angehören, eine lose Zeitangabe
 
 ## <a name="how-to-configure-systems-for-high-accuracy"></a>Konfigurieren von Systemen für hohe Genauigkeit
 
 >[!IMPORTANT]
->**Hinweis zu Unterstützungsmöglichkeiten für das äußerst präzise Systeme**<br>
-> Genauigkeit der Zeit umfasst die End-to-End-Verteilung der genaue Uhrzeit aus der verbindlichen Zeitquelle, das Endgerät.  Alle Elemente, die hinzugefügt wird, dass Assymetry in Messungen entlang dieses Pfads Genauigkeit negativ beeinflussen wirkt sich die Genauigkeit, die auf Ihren Geräten erreicht.
+>**Hinweis zur Unterstützung von streng präzisen Systemen**<br>
+> Die Zeit Genauigkeit umfasst die End-to-End-Verteilung der exakten Zeit zwischen der autorisierenden Zeit Quelle und dem Endgerät.  Alle Elemente, die assymetry in Messungen entlang dieses Pfades hinzufügen, wirken sich negativ auf die Genauigkeit aus, die auf Ihren Geräten erreicht werden kann.
 >
->Aus diesem Grund haben wir dokumentiert die [Unterstützung Grenze so konfigurieren Sie den Windows-Zeitdienst für Umgebungen mit hoher Genauigkeit](support-boundary.md) Gliederung der umgebungsanforderungen, die ebenfalls erfüllt sein müssen, um hohe Genauigkeit Ziele zu erreichen.
+>Aus diesem Grund haben wir die [Unterstützungs Grenze zum Konfigurieren des Windows-Zeit diensdienstanbieter für Umgebungen mit hoher Genauigkeit](support-boundary.md) dokumentiert, in denen die Umgebungs Anforderungen beschrieben werden, die ebenfalls erfüllt sein müssen, um hochwertige Ziele zu erreichen.
 
 ### <a name="operating-system-requirements"></a>Betriebssystemanforderungen
 
-Hohe Genauigkeit-Konfigurationen erfordern, dass Windows 10 oder Windows Server 2016.  Alle Windows-Geräte in der Topologie Zeit erfüllt diese Anforderung, einschließlich der höheren Stratum Windows Time-Server, und in virtualisierte Szenarien, die Hyper-V-Hosts, auf denen die zeitkritische virtuellen Computer ausgeführt. Alle diese Geräte muss mindestens Windows 10 oder Windows Server 2016.
+Konfigurationen mit hoher Genauigkeit erfordern Windows 10 oder Windows Server 2016.  Alle Windows-Geräte in der Zeit Topologie müssen diese Anforderung erfüllen, einschließlich der höheren Windows-Zeitserver und der Hyper-V-Hosts, auf denen die Zeit empfindlichen virtuellen Maschinen ausgeführt werden. Alle diese Geräte müssen mindestens Windows 10 oder Windows Server 2016 sein.
 
-In der Abbildung unten sind die virtuellen Computer, die hohen Genauigkeit erfordern Windows 10 oder Windows Server 2016 ausgeführt.  Ebenso müssen die Hyper-V-Host, auf denen die virtuellen Computer befinden, und dem Upstreamserver der Zeit von Windows auch Windows Server 2016 ausführen.
+In der unten gezeigten Abbildung werden die virtuellen Computer, die eine hohe Genauigkeit erfordern, Windows 10 oder Windows Server 2016 ausführen.  Ebenso muss der Hyper-V-Host, auf dem sich die virtuellen Computer befinden, und der Upstream-Windows-Zeitserver auch Windows Server 2016 ausführen.
 
-![Time-Topologie – 1607](../media/Windows-Time-Service/Configuring-Systems-for-High-Accuracy/Topology2016.png)
+![Zeit Topologie-1607](../media/Windows-Time-Service/Configuring-Systems-for-High-Accuracy/Topology2016.png)
 
 
 >[!TIP] 
->**Bestimmen der Windows-Version**<br>
-> Sie können den Befehl ausführen `winver` an einer Eingabeaufforderung aus, um zu überprüfen, ob das Betriebssystem Version 1607 (oder höher), OS Build 14393 (oder höher) wie unten dargestellt:
+>**Ermitteln der Windows-Version**<br>
+> Sie können den Befehl `winver` an einer Eingabeaufforderung ausführen, um zu überprüfen, ob die Betriebssystemversion 1607 (oder höher) und der OS-Build 14393 (oder höher) ist, wie unten dargestellt:
 >
-> ![Winver - 2016 1607](../media/Windows-Time-Service/Configuring-Systems-for-High-Accuracy/winver2016.png)
+> ![Winver-2016 1607](../media/Windows-Time-Service/Configuring-Systems-for-High-Accuracy/winver2016.png)
 
 ### <a name="system-configuration"></a>Systemkonfiguration
 
-Hohe Genauigkeit Ziele zu erreichen, ist die Systemkonfiguration erforderlich.  Es gibt eine Vielzahl von Möglichkeiten zum Ausführen dieser Konfiguration, einschließlich direkt in der Registrierung oder über Gruppenrichtlinien.  Weitere Informationen für jede dieser Einstellungen finden Sie in der Windows-Dienst technische Referenz zur – [Windows-Zeitdienst: Tools](Windows-Time-Service-Tools-and-Settings.md#windows-time-service-tools).
+Das erreichen von Zielen mit hoher Genauigkeit erfordert eine Systemkonfiguration.  Es gibt eine Vielzahl von Möglichkeiten, diese Konfiguration auszuführen, einschließlich direkt in der Registrierung oder über die Gruppenrichtlinie.  Weitere Informationen zu den einzelnen Einstellungen finden Sie in der technischen Referenz für den Windows-Zeit Dienst – [Windows-Zeit Dienst Tools](Windows-Time-Service-Tools-and-Settings.md#windows-time-service-tools).
 
-#### <a name="windows-time-service-startup-type"></a>Windows-Zeitdienst Starttyp
+#### <a name="windows-time-service-startup-type"></a>Starttyp für Windows-Zeit Dienst
 
-Der Windows-Zeitdienst (W32Time) muss kontinuierlich ausgeführt.  Zu diesem Zweck konfigurieren Sie den Windows-Zeitdienst Starttyp "Automatisch" starten.
+Der Windows-Zeit Dienst (W32Time) muss fortlaufend ausgeführt werden.  Zu diesem Zweck konfigurieren Sie den Starttyp des Windows-Zeit diensdienstanbieter auf "automatisch starten".
 
 ![Automatische Konfiguration](../media/Windows-Time-Service/Configuring-Systems-for-High-Accuracy/AutomaticService.PNG)
 
-#### <a name="cumulative-one-way-network-latency"></a>Kumulative unidirektionale Netzwerklatenz
+#### <a name="cumulative-one-way-network-latency"></a>Kumulative unidirektionale Netzwerk Latenz
 
-Messung Unsicherheit und das "Rauschen durch" ausgeprägte im Netzwerk Latenz zunimmt.  Daher ist es zwingend erforderlich, dass eine Netzwerklatenz innerhalb einer angemessenen Grenze sein.  Die spezifischen Anforderungen sind abhängig von Ihrem Ziel Genauigkeit und sind die [Unterstützung Grenze so konfigurieren Sie den Windows-Zeitdienst für Umgebungen mit hoher Genauigkeit](support-boundary.md) Artikel.
+Messung der Messung und "Rauschen" bei steigender Netzwerk Latenz.  Daher ist es zwingend erforderlich, dass eine Netzwerk Latenz innerhalb einer angemessenen Grenze liegt.  Die spezifischen Anforderungen sind von der Zielgenauigkeit abhängig und werden im Artikel [unterstützte Grenzen zum Konfigurieren des Windows-Zeit Dienstanbieter für hochwertige Umgebungen](support-boundary.md) beschrieben.
 
-Fügen Sie zum Berechnen der kumulative unidirektionale Netzwerklatenz die einzelne unidirektionale Verzögerungen zwischen Paaren von NTP-Client / Server-Knoten in der Time-Topologie, beginnend mit dem Ziel, und endet bei der High-Genauigkeit Stratum 1 Zeitquelle hinzu.
+Fügen Sie zum Berechnen der kumulativen unidirektionalen Netzwerk Latenz die einzelnen unidirektionalen Verzögerungen zwischen Paaren von NTP-Client-Server-Knoten in der Zeit Topologie hinzu, beginnend mit dem Ziel und enden bei der hochpräzisen Stratum 1-Zeit Quelle.
 
-Zum Beispiel: Erwägen Sie eine Zeithierarchie für die Synchronisierung mit der eine äußerst präzise Quelle, zwei zwischengeschaltete NTP-Server A und B und dem Zielcomputer in dieser Reihenfolge aus. Die kumulative Netzwerklatenz zwischen Ziel und Quelle zu erhalten, messen den durchschnittlichen einzelne NTP-Roundtrip zwischen ein Timeout (RTTs):
+Zum Beispiel: Stellen Sie sich eine Zeit Synchronisierungs Hierarchie mit einer äußerst exakten Quelle, zwei zwischengeschalteten NTP-Servern a und B sowie den Zielcomputer in dieser Reihenfolge vor. Um die kumulative Netzwerk Latenz Zwischenziel und Quelle zu ermitteln, Messen Sie die durchschnittlichen einzelnen NTP-Roundtrip-Zeiten (RTTS) zwischen den folgenden Werten:
 
-- Das Ziel und die Uhrzeit Server B
-- , Zeitserver B und Zeit ein
-- Time-Server A und der Quelle
+- Der Ziel-und Uhrzeit Server B
+- Zeitserver B und Zeitserver a
+- Zeitserver A und die Quelle
 
-Diese Messung kann mit dem Posteingang w32tm.exe Tool abgerufen werden.  Gehen Sie dazu wie folgt vor:
+Diese Messung kann mithilfe des Posteingangs Tools W32tm. exe abgerufen werden.  Gehen Sie dazu wie folgt vor:
 
-1. Die Berechnung auf dem Ziel und die Uhrzeit Server b ausführen.
+1. Führen Sie die Berechnung auf dem Ziel-und Uhrzeit Server B aus.
     
     `w32tm /stripchart /computer:TimeServerB /rdtsc /samples:450 > c:\temp\Target_TsB.csv`
 
-2. Führen Sie die Berechnung von Zeit Server b gegen ein (zeigt auf) Zeitserver ein.
+2. Führen Sie die Berechnung von Time Server b mit (gezeigt durch) Zeitserver a aus.
     
     `w32tm /stripchart /computer:TimeServerA /rdtsc /samples:450 > c:\temp\Target_TsA.csv`
 
-3. Führen Sie die Berechnung von Zeitserver eine für die Quelle aus.
+3. Führen Sie die Berechnung von Time Server a für die Quelle aus.
  
-4. Als Nächstes fügen Sie, dass die durchschnittliche RoundTripDelay im vorherigen Schritt gemessen und Division durch 2, um die kumulativen netzwerkverzögerung zwischen Quelle und Ziel zu erhalten.
+4. Fügen Sie als nächstes die durchschnittliche roundtripdelay hinzu, die im vorherigen Schritt gemessen wurde, und Dividieren Sie durch 2, um die kumulative Netzwerkverzögerung Zwischenziel und Quelle zu erhalten.
 
 #### <a name="registry-settings"></a>Registrierungseinstellungen
 
-# <a name="minpollintervaltabminpollinterval"></a>[MinPollInterval](#tab/MinPollInterval)
-Konfiguriert das kleinste Intervall in log2 Sekunden, die für den Abruf von System zulässig.
+# <a name="minpollintervaltabminpollinterval"></a>[Minpollinterval](#tab/MinPollInterval)
+Konfiguriert das kleinste Intervall in log2 Sekunden, das für den System Abruf zulässig ist.
 
 |  |  | 
 |---------|---------|
-|Speicherort des Schlüssels an     | HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\Config        |
+|Schlüssel Speicherort     | HKLM: \ system\currentcontrolset\services\w32time\config        |
 |Einstellung    | 6        |
-|Ergebnis | Das minimale Abrufintervall ist jetzt 64 Sekunden. |
+|Ergebnis | Das minimale Abruf Intervall beträgt nun 64 Sekunden. |
 
-Der folgende Befehl signalisiert Windows-Zeit, um die aktualisierten Einstellungen zu übernehmen:
+Der folgende Befehl signalisiert der Windows-Zeit, die aktualisierten Einstellungen zu übernehmen:
 
 `w32tm /config /update`
 
 
 # <a name="maxpollintervaltabmaxpollinterval"></a>[MaxPollInterval](#tab/MaxPollInterval)
-Konfiguriert das größte Intervall in log2 Sekunden, die für den Abruf von System zulässig.
+Konfiguriert das größte Intervall in log2 Sekunden, das für den System Abruf zulässig ist.
 
 |  |  |  
 |---------|---------|
-|Speicherort des Schlüssels an     | HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\Config        |
+|Schlüssel Speicherort     | HKLM: \ system\currentcontrolset\services\w32time\config        |
 |Einstellung    | 6        |
-|Ergebnis | Das maximale Abrufintervall ist jetzt 64 Sekunden.  |
+|Ergebnis | Das maximale Abruf Intervall beträgt nun 64 Sekunden.  |
 
-Der folgende Befehl signalisiert Windows-Zeit, um die aktualisierten Einstellungen zu übernehmen:
+Der folgende Befehl signalisiert der Windows-Zeit, die aktualisierten Einstellungen zu übernehmen:
 
 `w32tm /config /update`
 
-# <a name="updateintervaltabupdateinterval"></a>[UpdateInterval](#tab/UpdateInterval)
-Die Anzahl der Zeiteinheiten zwischen Phase Korrektur Anpassungen.
+# <a name="updateintervaltabupdateinterval"></a>[Updateingeterval](#tab/UpdateInterval)
+Die Anzahl der Takt Intervalle zwischen den Phasenkorrektur Anpassungen.
 
 |  |  |  
 |---------|---------|
-|Speicherort des Schlüssels an     | HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\Config       |
+|Schlüssel Speicherort     | HKLM: \ system\currentcontrolset\services\w32time\config       |
 |Einstellung    | 100        |
-|Ergebnis | Die Anzahl der Zeiteinheiten zwischen Phase Korrektur Anpassungen ist jetzt 100 Ticks. |
+|Ergebnis | Die Anzahl der Takt Einheiten zwischen den Anpassungen der Phasenkorrektur beträgt nun 100 Ticks. |
 
-Der folgende Befehl signalisiert Windows-Zeit, um die aktualisierten Einstellungen zu übernehmen:
+Der folgende Befehl signalisiert der Windows-Zeit, die aktualisierten Einstellungen zu übernehmen:
 
 `w32tm /config /update`
 
 # <a name="specialpollintervaltabspecialpollinterval"></a>[SpecialPollInterval](#tab/SpecialPollInterval)
-Konfiguriert das Abrufintervall in Sekunden, wenn das SpecialInterval 0 x 1-Flag aktiviert ist.
+Konfiguriert das Abruf Intervall in Sekunden, wenn das SpecialInterval-Flag 0x1 aktiviert ist.
 
 |  |  |  
 |---------|---------|
-|Speicherort des Schlüssels an     | HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders\NtpClient        |
+|Schlüssel Speicherort     | HKLM: \ system\currentcontrolset\services\w32time\timeproviders\ntpclient        |
 |Einstellung    | 64        |
-|Ergebnis | Das Abrufintervall ist jetzt 64 Sekunden. |
+|Ergebnis | Das Abruf Intervall beträgt nun 64 Sekunden. |
 
-Der folgende Befehl neu gestartet wird, Windows-Zeit, um die aktualisierten Einstellungen zu übernehmen:
+Mit dem folgenden Befehl wird die Windows-Zeit neu gestartet, um die aktualisierten Einstellungen zu übernehmen:
 
 `net stop w32time && net start w32time`
 
-# <a name="frequencycorrectratetabfrequencycorrectrate"></a>[FrequencyCorrectRate](#tab/FrequencyCorrectRate)
+# <a name="frequencycorrectratetabfrequencycorrectrate"></a>[Frequendcycorrectrate](#tab/FrequencyCorrectRate)
 
 |  |  |  
 |---------|---------|
-|Speicherort des Schlüssels an     | HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\Config      |
+|Schlüssel Speicherort     | HKLM: \ system\currentcontrolset\services\w32time\config      |
 |Einstellung    | 2        |
 
 

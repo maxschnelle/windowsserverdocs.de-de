@@ -1,9 +1,9 @@
 ---
 title: Schritte zum Konfigurieren der Testumgebung für DirectAccess-Cluster-NLB
-description: 'Dieses Thema ist Teil der Testumgebungsanleitung: Vorführen von DirectAccess in einem Cluster mit Windows NLB für Windows Server 2016'
+description: Dieses Thema ist Teil der Test Umgebungs Anleitung zum Veranschaulichen von DirectAccess in einem Cluster mit Windows NLB für Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,36 +12,36 @@ ms.topic: article
 ms.assetid: e508d3ee-ffa6-463f-a3dd-9e35e745c005
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 2ebda017b41f27c2f69c7b850de44e771732415d
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 108c63298ad3382f5ece790258f2d278bb03b78b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283330"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388403"
 ---
 # <a name="steps-for-configuring-the-directaccess-cluster-nlb-test-lab"></a>Schritte zum Konfigurieren der Testumgebung für DirectAccess-Cluster-NLB
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Die folgenden Schritte beschreiben das Konfigurieren der remotezugriffinfrastruktur, die RAS-Server und Clients zu konfigurieren und Testen der DirectAccess-Konnektivität über das Internet und Homenet-Subnetz.  
+In den folgenden Schritten wird beschrieben, wie Sie die Remote Zugriffs Infrastruktur konfigurieren, die RAS-Server und-Clients konfigurieren und die DirectAccess-Konnektivität aus den Subnetzen Internet und homenet testen.  
   
-In diesem Test aktiviert testumgebungsanleitung für die Sie erstellen einen Network Load Balancing (NLB) Testumgebungsbereitstellung eines remotezugriffsclusters, indem Sie die folgenden Schritte ausführen:  
+In dieser Test Umgebungs Anleitung erstellen Sie einen NLB-aktivierten Remote Zugriffs Cluster, indem Sie die folgenden Schritte ausführen:  
   
--   [Schritt 1 vervollständigen die DirectAccess-Konfiguration](STEP-1-Complete-the-DirectAccess-Configuration.md). Führen Sie alle Schritte in der [Test Lab Guide: Veranschaulichen von DirectAccess Single Server-Setup mit gemischten IPv4 und IPv6-](https://go.microsoft.com/fwlink/p/?LinkId=237004).  
+-   [Schritt 1: vervollständigen Sie die DirectAccess-Konfiguration](STEP-1-Complete-the-DirectAccess-Configuration.md). Führen Sie alle Schritte in der Test Umgebungs Anleitung für [aus: Veranschaulichen der Einrichtung eines einzelnen Servers für DirectAccess mit gemischtem IPv4 und IPv6 @ no__t-0.  
   
--   [SCHRITT 2: Konfigurieren von EDGE1](STEP-2-Configure-EDGE1.md). Konfigurieren Sie die remotezugriffsrolle auf EDGE1 für den Lastenausgleich.  
+-   [SCHRITT 2: Konfigurieren Sie Edge1 @ no__t-0. Konfigurieren Sie die Remote Zugriffs Rolle auf Edge1 für den Lastenausgleich.  
   
--   [SCHRITT 3: Installieren und Konfigurieren von EDGE2](STEP-3-Install-and-Configure-EDGE2.md). EDGE2 fungiert als die zweite RAS-Server in einem Cluster den Remotezugriff.  
+-   [SCHRITT 3: Installieren und konfigurieren Sie EDGE2 @ no__t-0. EDGE2 fungiert als zweiter RAS-Server in einem Remote Zugriffs Cluster.  
   
--   [SCHRITT 4: Erstellen Sie den Cluster Network Load Balancing RAS](STEP-4-Create-the-Network-Load-Balanced-Remote-Access-Cluster.md)-EDGE1 als der erste Server in einem Cluster den Remotezugriff konfiguriert ist. EDGE2 mit dem Cluster verknüpft ist, und NLB für den Cluster konfiguriert ist.  
+-   [SCHRITT 4: Erstellen des Remote Zugriffs Clusters mit Netzwerk Lastenausgleich @ no__t-0-Edge1 wird als erster Server in einem Remote Zugriffs Cluster konfiguriert. EDGE2 wird dem Cluster hinzugefügt, und NLB ist für den Cluster konfiguriert.  
   
--   [SCHRITT 5: Testen der DirectAccess-Konnektivität aus dem Internet und durch den Cluster](STEP-5-Test-DirectAccess-Connectivity-from-the-Internet-and-Through-the-Cluster.md). Nach Abschluss der Konfiguration von NLB und Cluster können Sie DirectAccess-Client-Konnektivität über den Load-Cluster mit Lastenausgleich testen.  
+-   [SCHRITT 5: Testen Sie die DirectAccess-Konnektivität über das Internet und über den Cluster @ no__t-0. Nach Abschluss der NLB-und Cluster Konfiguration können Sie die DirectAccess-Client Konnektivität über den Cluster mit Lastenausgleich testen.  
   
--   [SCHRITT 6: Testen der DirectAccess-Clientkonnektivität hinter einem NAT-Gerät](STEP-6-Test-DirectAccess-Client-Connectivity-from-Behind-a-NAT-Device.md). Verschieben Sie die Clientcomputer hinter einem NAT-Gerät zum Testen der DirectAccess-Clientkonnektivität hinter einem Router home zu simulieren.  
+-   [SCHRITT 6: Testen Sie die DirectAccess-Client Konnektivität hinter einem NAT-Gerät @ no__t-0. Verschieben Sie den Client Computer hinter ein NAT-Gerät, um das Testen der DirectAccess-Client Konnektivität hinter einem Heim Router zu simulieren.  
   
--   [SCHRITT 7: Testen der Konnektivität bei der Rückkehr zum Unternehmensnetzwerk](STEP-7-Test-Connectivity-When-Returning-to-the-Corpnet.md). Stellen Sie sicher, dass der Clientcomputer immer noch auf Unternehmensressourcen zugreifen kann, bei der Rückkehr zum Unternehmensnetzwerk.  
+-   [SCHRITT 7: Testen Sie die Konnektivität bei der Rückkehr zum Corpnet @ no__t-0. Stellen Sie sicher, dass der Client Computer bei der Rückkehr zu Corpnet weiterhin auf Unternehmensressourcen zugreifen kann.  
   
--   [SCHRITT 8: Eine Momentaufnahme der Konfiguration](da-cluster-nlb-s8-snapshot.md). Nach Abschluss der testumgebung können eine Momentaufnahme der arbeiten Remote Access-NLB-Cluster, damit Sie zurückkehren können, um diese später, um zusätzliche Szenarien zu testen.  
+-   [SCHRITT 8: Momentaufnahme der Konfiguration @ no__t-0. Nachdem Sie die Testumgebung abgeschlossen haben, erstellen Sie eine Momentaufnahme des funktionierenden NLB-Clusters für den Remote Zugriff, damit Sie später wieder zurückkehren können, um weitere Szenarios zu testen.  
   
 
 

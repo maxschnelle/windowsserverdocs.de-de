@@ -7,37 +7,37 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: ba5a7ee8b7d9728c48e2798853aab8d55047e86f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 357c136f108c6d8e9e2a15dd9449ab61663079e2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59866561"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408991"
 ---
 # <a name="assigning-domain-names"></a>Zuweisen von Domänennamen
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Sie müssen einen Namen und jeder Domäne in Ihrem Plan zuweisen. Active Directory-Domänendienste (AD DS)-Domänen haben zwei Typen von Namen: Namen von Domain Name System (DNS) und NetBIOS-Namen. Beide Namen sind im Allgemeinen für Endbenutzer sichtbar. Die DNS-Namen des Active Directory-Domänen gehören zwei Komponenten: ein Präfix und Suffix. Beim Erstellen von Domänennamen ermitteln Sie zunächst das DNS-Präfix. Dies ist die erste Bezeichnung im DNS-Namen der Domäne. Wenn Sie den Namen der Stammdomäne der Gesamtstruktur auswählen, wird das Suffix bestimmt. Die folgende Tabelle enthält die Präfix-Benennungsregeln für DNS-Namen.  
+Sie müssen jeder Domäne in Ihrem Plan einen Namen zuweisen. Active Directory Domain Services Domänen (AD DS) haben zwei Arten von Namen: Domain Name System (DNS)-Namen und NetBIOS-Namen. Im Allgemeinen sind beide Namen für Endbenutzer sichtbar. Die DNS-Namen Active Directory Domänen umfassen zwei Teile: ein Präfix und ein Suffix. Wenn Sie Domänen Namen erstellen, bestimmen Sie zuerst das DNS-Präfix. Dies ist die erste Bezeichnung im DNS-Namen der Domäne. Das Suffix wird bestimmt, wenn Sie den Namen der Gesamtstruktur-Stamm Domäne auswählen. In der folgenden Tabelle werden die Präfix-Benennungs Regeln für DNS-Namen aufgelistet.  
   
 |Regel|Erläuterung|  
 |--------|---------------|  
-|Wählen Sie ein Präfix, das nicht wahrscheinlich veraltet ist.|Vermeiden Sie Namen, z. B. eine Produktlinie oder das Betriebssystem, das in der Zukunft ändern kann. Es wird empfohlen, mithilfe von geografischen Namen.|  
-|Wählen Sie ein Präfix, das Internet nur standardmäßige Zeichen enthält.|A-Z, a – Z, 0-9 und (-), aber nicht vollständig numerische.|  
-|15 Zeichen enthalten oder weniger in das Präfix.|Bei Auswahl eine Präfixlänge von höchstens 15 Zeichen ist der NetBIOS-Name identisch mit dem Präfix.|  
+|Wählen Sie ein Präfix aus, das wahrscheinlich nicht mehr veraltet ist.|Vermeiden Sie Namen wie z. b. eine Produktlinie oder ein Betriebssystem, die sich in der Zukunft ändern können. Es wird empfohlen, geografische Namen zu verwenden.|  
+|Wählen Sie ein Präfix aus, das nur Internet Standard Zeichen enthält.|A-z, a-z, 0-9 und (-), aber nicht vollständig numerisch.|  
+|Fügen Sie im Präfix höchstens 15 Zeichen ein.|Wenn Sie eine Präfix Länge von höchstens 15 Zeichen auswählen, ist der NetBIOS-Name das gleiche wie das Präfix.|  
   
-Weitere Informationen finden Sie in der Namenskonventionen in Active Directory für Computer, Domänen, Standorte und Organisationseinheiten ([https://go.microsoft.com/fwlink/?LinkId=106629](https://go.microsoft.com/fwlink/?LinkId=106629)).  
+Weitere Informationen finden Sie unter Benennungs Konventionen in Active Directory für Computer, Domänen, Standorte und Organisationseinheiten ([https://go.microsoft.com/fwlink/?LinkId=106629](https://go.microsoft.com/fwlink/?LinkId=106629)).  
   
 > [!NOTE]  
->  Obwohl Sie mit Dcpromo.exe in Windows Server 2008 und Windows Server 2003 einen einteiligen DNS-Domänennamen erstellen können, sollten Sie diesen für eine Domäne aus mehreren Gründen nicht verwenden. In Windows Server 2008 R2 können Sie mit Dcpromo.exe einen einteiligen DNS-Domänennamen für eine Domäne nicht erstellen. Weitere Informationen finden Sie unter [ https://go.microsoft.com/fwlink/?LinkId=92467.](https://go.microsoft.com/fwlink/?LinkId=92467)   
+>  Obwohl Sie mit Dcpromo.exe in Windows Server 2008 und Windows Server 2003 einen einteiligen DNS-Domänennamen erstellen können, sollten Sie diesen für eine Domäne aus mehreren Gründen nicht verwenden. In Windows Server 2008 R2 können Sie mit Dcpromo.exe einen einteiligen DNS-Domänennamen für eine Domäne nicht erstellen. Weitere Informationen finden Sie unter [https://go.microsoft.com/fwlink/?LinkId=92467.](https://go.microsoft.com/fwlink/?LinkId=92467)   
   
-Wenn die aktuelle NetBIOS-Namen der Domäne nicht zulässig ist, der die Region darstellt oder nicht die Präfix-Benennungsregeln entsprechen, wählen Sie ein neues Präfix. In diesem Fall unterscheidet sich der NetBIOS-Name der Domäne aus dem DNS-Präfix der Domäne.  
+Wenn der aktuelle NetBIOS-Name der Domäne ungeeignet ist, um den Bereich darzustellen, oder die Präfix-Benennungs Regeln nicht erfüllen, wählen Sie ein neues Präfix aus. In diesem Fall unterscheidet sich der NetBIOS-Name der Domäne vom DNS-Präfix der Domäne.  
   
-Wählen Sie für jede neue Domäne, die Sie bereitstellen ein Präfix, für die Region geeignet ist und die Präfix-Benennungsregeln entspricht. Es wird empfohlen, der NetBIOS-Namen der Domäne, die das DNS-Präfix identisch sein.  
+Wählen Sie für jede neu bereitgestellte Domäne ein Präfix aus, das für die Region geeignet ist und die Präfix-Benennungs Regeln erfüllt. Es wird empfohlen, dass der NetBIOS-Name der Domäne mit dem DNS-Präfix identisch ist.  
   
-Dokumentieren Sie den DNS-Präfix und der NetBIOS-Namen, die Sie für jede Domäne in der Gesamtstruktur auswählen. Sie können die Informationen für DNS- und NetBIOS-Namen in das Arbeitsblatt "Planen der Domäne" hinzufügen, die Sie erstellt haben, um Ihren Plan für neue und aktualisierte Domänen zu dokumentieren. Laden Sie zum Öffnen von Auftrag Hilfsmittel für Windows Server 2003 Deployment Kit Job_Aids_Designing_and_Deploying_Directory_and_Security_Services.zip herunter ([https://go.microsoft.com/fwlink/?LinkID=102558](https://go.microsoft.com/fwlink/?LinkID=102558)), und öffnen Sie "Domäne" Planning"(DSSLOGI_5.doc).  
+Dokumentieren Sie das DNS-Präfix und die NetBIOS-Namen, die Sie für jede Domäne in der Gesamtstruktur auswählen. Sie können die DNS-und NetBIOS-Namensinformationen dem Arbeitsblatt "Domänen Planung" hinzufügen, das Sie erstellt haben, um den Plan für neue und aktualisierte Domänen zu dokumentieren. Um es zu öffnen, laden Sie Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip aus den Auftrags Hilfen für Windows Server 2003 Deployment Kit ([https://go.microsoft.com/fwlink/?LinkID=102558](https://go.microsoft.com/fwlink/?LinkID=102558)) herunter, und öffnen Sie "Domänen Planung" (DSSLOGI_5. doc).  
   
 
 

@@ -2,24 +2,24 @@
 title: Verwenden vererbter Berechtigungen mit zugriffsbasierter Aufzählung
 description: In diesem Artikel wird beschrieben, wie Sie vererbte Berechtigungen mit zugriffsbasierten Aufzählungen verwenden
 ms.date: 6/5/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: e6bd7a018a7f3a245581b5a9c63494048c7187a2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 433fe53a3d580aafc50b152ec20156436b05481f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812131"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402139"
 ---
 # <a name="using-inherited-permissions-with-access-based-enumeration"></a>Verwenden vererbter Berechtigungen mit zugriffsbasierter Aufzählung
 
-> Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2, WindowsServer 2008
+> Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
-Standardmäßig werden die Berechtigungen für einen DFS-Ordner vom lokalen Dateisystem des Namespaceservers geerbt. Die Berechtigungen werden geerbt, aus dem Stammverzeichnis des Systemlaufwerks, und gewähren Sie dem DOMÄNENBENUTZER\\Leseberechtigungen für die Gruppe Benutzer. Daher bleiben auch nach der Aktivierung der zugriffsbasierten Aufzählung alle Ordner im Namespace für alle Domänenbenutzer sichtbar.
+Standardmäßig werden die Berechtigungen für einen DFS-Ordner vom lokalen Dateisystem des Namespaceservers geerbt. Die Berechtigungen werden vom Stammverzeichnis des System Laufwerks geerbt und gewähren der Domäne @ no__t-0users Gruppe Leseberechtigungen. Daher bleiben auch nach der Aktivierung der zugriffsbasierten Aufzählung alle Ordner im Namespace für alle Domänenbenutzer sichtbar.
 
 ## <a name="advantages-and-limitations-of-inherited-permissions"></a>Vor- und Nachteile der geerbten Berechtigungen
 
@@ -42,7 +42,7 @@ Trotz der Vorteile haben vererbte Berechtigungen in DFS-Namespaces viele Einschr
 
 Um einzuschränken, welche Benutzer einen DFS-Ordner anzeigen können, müssen Sie eine der folgenden Aufgaben ausführen:
 
--   **Legen Sie explizite Berechtigungen für den Ordner, die Vererbung wird deaktiviert.** Um explizite Berechtigungen für einen Ordner mit Zielen (Links) mithilfe der DFS-Verwaltung oder **Dfsutil** festzulegen, lesen Sie weitere Informationen unter [Aktivieren der zugriffsbasierten Aufzählung für einen Namespace](enable-access-based-enumeration-on-a-namespace.md).
+-   **Legen Sie explizite Berechtigungen für den Ordner fest, und deaktivieren Sie die Vererbung.** Um explizite Berechtigungen für einen Ordner mit Zielen (Links) mithilfe der DFS-Verwaltung oder **Dfsutil** festzulegen, lesen Sie weitere Informationen unter [Aktivieren der zugriffsbasierten Aufzählung für einen Namespace](enable-access-based-enumeration-on-a-namespace.md).
 -   **Ändern von geerbten Berechtigungen um übergeordneten Element des lokalen Dateisystems**. Um die geerbten Berechtigungen eines Ordners mit Zielen zu ändern, wenn Sie bereits explizite Berechtigungen für den Ordner festgelegt haben, wechseln Sie zu geerbten Berechtigungen von expliziten Berechtigungen, wie im folgenden Verfahren beschrieben. Verwenden Sie anschließend Windows Explorer oder den Befehl **Icacls**, um die Berechtigungen des Ordners zu ändern, von dem der Ordner mit Zielen seine Berechtigungen erbt.
 
 > [!NOTE]
@@ -60,4 +60,4 @@ Um einzuschränken, welche Benutzer einen DFS-Ordner anzeigen können, müssen S
 
 ## <a name="see-also"></a>Siehe auch
 
--   [Erstellen Sie eine DFS-Namespace](create-a-dfs-namespace.md)
+-   [Erstellen eines DFS-Namespaces](create-a-dfs-namespace.md)

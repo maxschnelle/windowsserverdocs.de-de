@@ -1,8 +1,8 @@
 ---
-title: ksetup:addkdc
-description: 'Windows-Befehle Thema ***- '
+title: 'Ksetup: addkdc'
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0466bee0b357e896bd971152a56da57612472672
-ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.openlocfilehash: 66efe4e56007aff39b83c92dfea2afaadcfc0210
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65564726"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375211"
 ---
-# <a name="ksetupaddkdc"></a>ksetup:addkdc
+# <a name="ksetupaddkdc"></a>Ksetup: addkdc
 
 
 
-Fügt ein Schlüsselverteilungscenter (Key Distribution Center, KDC)-Adresse für den angegebenen Kerberos-Bereich hinzu. Beispiele wie dieser Befehl verwendet werden kann, finden Sie unter [Beispiele](#BKMK_Examples).
+Fügt eine Schlüsselverteilungscenter (KDC)-Adresse für den angegebenen Kerberos-Bereich hinzu. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,24 +36,24 @@ ksetup /addkdc <RealmName> [<KDCName>]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<RealmName>|Der Bereichsname ist als Großbuchstaben DNS-Name, wie z. B. CORP. angegeben. "Contoso.com", und es wird als den Standardbereich aufgeführt beim **Ksetup** ausgeführt wird. Es ist in diesem Bereich, die Sie andere KDC hinzufügen möchten.|
-|\<KDCName>|Der KDC-Name wird als Groß-und Kleinschreibung den vollqualifizierten Domänennamen, z. B. mitkdc.microsoft.com angegeben. Wenn der KDC-Name fehlt, wird DNS KDCs suchen.|
+|\<realmname >|Der Bereichs Name wird als Großbuchstabe (DNS-Name) angegeben, z. b. Corp. CONTOSO.com, und es wird als Standardbereich aufgeführt, wenn **Ksetup** ausgeführt wird. In diesem Bereich versuchen Sie, den anderen KDC hinzuzufügen.|
+|\<kdcname >|Der KDC-Name wird als voll qualifizierter Domänen Name angegeben, z. b. mitkdc.Microsoft.com. Wenn der KDC-Name ausgelassen wird, sucht DNS nach KDCs.|
 
 ## <a name="remarks"></a>Hinweise
 
-Diese Zuordnungen werden gespeichert, in der Registrierung unter **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\LSA\Kerberos\Domains**. Um die Konfigurationsdaten für Kerberos-Bereich auf mehreren Computern bereitstellen, verwenden Sie die Vorlage für die Sicherheitskonfiguration-Snap-in und richtlinienverteilung anstelle von **Ksetup** explizit auf einzelnen Computern.
+Diese Zuordnungen werden in der Registrierung unter **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\LSA\Kerberos\Domains**gespeichert. Um Kerberos-Bereichs Konfigurationsdaten auf mehreren Computern bereitzustellen, verwenden Sie das Snap-in "Sicherheits Konfigurations Vorlage" und die Richtlinien Verteilung anstelle der expliziten Verwendung von **Ksetup** auf einzelnen Computern.
 
-Der Computer muss neu gestartet werden, bevor die neue Einstellung für den Bereich verwendet wird.
+Der Computer muss neu gestartet werden, bevor die neue Bereichseinstellung verwendet wird.
 
-Führen Sie den Standardnamen der Bereich für den Computer zu überprüfen oder zu überprüfen, ob dieser Befehl funktioniert wie vorgesehen, **Ksetup** an der Eingabeaufforderung, und überprüfen Sie die Ausgabe für den hinzugefügten KDC.
+Um den Standard Bereichs Namen für den Computer zu überprüfen oder um zu überprüfen, ob dieser Befehl wie beabsichtigt funktioniert, führen Sie **Ksetup** an der Eingabeaufforderung aus, und überprüfen Sie die Ausgabe für den hinzugefügten KDC.
 
-## <a name="BKMK_Examples"></a>Beispiele für
+## <a name="BKMK_Examples"></a>Beispiele
 
-Konfigurieren Sie einen nicht - Windows-KDC-Server und dem Bereich, den die Arbeitsstation verwendet werden soll:
+Konfigurieren Sie einen nicht-Windows-KDC-Server und den Bereich, der von der Arbeitsstation verwendet werden soll:
 ```
 ksetup /addkdc CORP.CONTOSO.COM mitkdc.contoso.com
 ```
-Führen Sie das Ksetup-Tool in der Befehlszeile aus dem gleichen Computer wie der vorhergehende Befehl legen Sie das Kennwort des lokalen Computerkontos auf "p@sswrd1%". Klicken Sie dann starten Sie den Computer neu.
+Führen Sie das Ksetup-Tool in der Befehlszeile desselben Computers wie im vorherigen Befehl aus, um das Kennwort für das lokale Computer Konto auf "p@sswrd1%" festzulegen. Starten Sie dann den Computer neu.
 ```
 Ksetup /setcomputerpassword p@sswrd1%
 ```

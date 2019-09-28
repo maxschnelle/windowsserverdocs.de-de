@@ -6,15 +6,15 @@ ms.author: billmath
 manager: femila
 ms.date: 07/07/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.assetid: dda9d148-d72f-4bff-aa2a-f2249fa47e4c
 ms.technology: identity-adfs
-ms.openlocfilehash: 0c2d411be7ef807198df30074ea706d7c5398617
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: ff4c43bb8dc5582716638f0a3f6e4f6a8022aece
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869360"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407375"
 ---
 # <a name="the-role-of-the-claim-rule-language"></a>Rolle der Anspruchsregelsprache
 Die Anspruchs Regel Sprache Active Directory-Verbunddienste (AD FS) (AD FS) fungiert als administrativer Baustein für das Verhalten von eingehenden und ausgehenden Ansprüchen, während die Anspruchs-Engine als Verarbeitungs-Engine für die Logik in der Anspruchs Regel Sprache fungiert, die definiert die benutzerdefinierte Regel. Weitere Informationen zur Verarbeitung aller Regeln durch die Anspruchs-Engine finden Sie [unter der Rolle der Anspruchs](The-Role-of-the-Claims-Engine.md)-Engine.  
@@ -144,7 +144,7 @@ Die folgenden Anspruchseigenschaften sind verfügbar:
 
 -   Claim.ValueType  
 
--   Claim. Properties\[-\_Eigenschaften\] Name (diese Eigenschaft gibt eine leere Zeichenfolge zurück, wenn die _name-Eigenschaft in der Properties-Auflistung des Anspruchs nicht gefunden werden kann. )  
+-   Claim. Properties @ no__t-0property @ no__t-1name @ no__t-2 (diese Eigenschaft gibt eine leere Zeichenfolge zurück, wenn die Eigenschaft _name in der Properties-Auflistung des Anspruchs nicht gefunden werden kann. )  
 
 Die RegexReplace-Funktion kann innerhalb eines Ausdrucks für Aufrufe verwendet werden. Diese Funktion übernimmt einen Eingabeausdruck und vergleicht ihn mit dem angegebenen Muster. Wenn das Muster übereinstimmt, wird die Ausgabe der Übereinstimmung durch den Ersatzwert ersetzt.  
 

@@ -7,38 +7,38 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: c0f8dca425f644952c36a289ec72651f6383e846
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: e5507cd567114d17c6500655ee210b70bd9ea1ec
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192187"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408416"
 ---
 # <a name="deploying-a-federation-server-farm"></a>Bereitstellen einer Verbundserverfarm
 
 
 Führen Sie die Aufgaben in dieser Prüfliste in der angegebenen Reihenfolge aus, um eine Verbundserverfarm bereitzustellen. Wenn ein Link auf ein grundlegendes Thema verweist, kehren Sie nach der Durchsicht des grundlegenden Themas zu dieser Prüfliste zurück, um die übrigen Aufgaben in dieser Prüfliste auszuführen.  
   
-![Bereitstellen von Verbund-Serverfarm](media/2b05dce3-938f-4168-9b8f-1f4398cbdb9b.gif)**Prüfliste: Bereitstellen einer Verbundserverfarm**  
+![bereitstellung der Verbund Serverfarm @ no__t-1prüfliste: Bereitstellen einer Verbund Server Farm @ no__t-0  
   
 ||Aufgabe|Referenz|  
 |-|--------|-------------|  
-|![Verbund-Serverfarm bereitstellen](media/icon_checkboxo.gif)|Überprüfen Sie wichtige Konzepte und Überlegungen, wie die Vorbereitung der Bereitstellung von Active Directory Federation Services \(AD FS\). **Hinweis**:|![Bereitstellen von Verbund-Serverfarm](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[AD FS-Entwurfshandbuch in Windows Server 2012 R2](../../ad-fs/design/AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)<br /><br />![Bereitstellen von Verbund-Serverfarm](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[Understanding Key AD FS Concepts](../../ad-fs/technical-reference/Understanding-Key-AD-FS-Concepts.md)|  
-||Wenn Sie Microsoft SQL Server als AD FS-Konfigurationsspeicher verwenden möchten, stellen Sie das Bereitstellen einer funktionsfähigen Instanz von SQL Server sicher.|[SQLServer](https://technet.microsoft.com/sqlserver) **Warnung:** Wenn Sie in Windows Server 2012 R2 eine AD FS-Farm erstellen und Ihre Konfigurationsdaten mithilfe von SQL Server speichern möchten, können Sie SQL Server 2008 und höhere Versionen, einschließlich SQL Server 2012, verwenden.|  
-|![Verbund-Serverfarm bereitstellen](media/icon_checkboxo.gif)|Hinzufügen Ihres Computers zu einer Active Directory-Domäne.|![Bereitstellen von Verbund-Serverfarm](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[Hinzufügen eines Computers zu einer Domäne](Join-a-Computer-to-a-Domain.md)|  
-|![Verbund-Serverfarm bereitstellen](media/icon_checkboxo.gif)|Registrieren Sie eine Secure Sockets Layer \(SSL\) Zertifikats für AD FS.|![Bereitstellen von Verbund-Serverfarm](media/bc6cea1a-1c6c-4124-8c8f-1df5adfe8c88.gif)[Registrieren eines SSL-Zertifikats für AD FS](Enroll-an-SSL-Certificate-for-AD-FS.md)|  
-|![Verbund-Serverfarm bereitstellen](media/icon_checkboxo.gif)|Installieren des AD FS-Rollendiensts.|![Bereitstellen von Verbund-Serverfarm](media/bc6cea1a-1c6c-4124-8c8f-1df5adfe8c88.gif)[Installieren der AD FS-Rollendiensts](Install-the-AD-FS-Role-Service.md)|  
-|![Verbund-Serverfarm bereitstellen](media/icon_checkboxo.gif)|Konfigurieren eines Verbundservers.|![Bereitstellen von Verbund-Serverfarm](media/bc6cea1a-1c6c-4124-8c8f-1df5adfe8c88.gif)[Konfigurieren eines Verbundservers](Configure-a-Federation-Server.md)|  
-|![Verbund-Serverfarm bereitstellen](media/icon_checkboxo.gif)|Optionaler Schritt: Konfigurieren eines Verbundservers mit Device Registration Service \(DRS\).|![Bereitstellen von Verbund-Serverfarm](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[Konfigurieren eines Verbundservers mit Device Registration Service](Configure-a-federation-server-with-Device-Registration-Service.md)|  
-|![Verbund-Serverfarm bereitstellen](media/icon_checkboxo.gif)|Hinzufügen eines Hosts \(ein\) und Alias \(CNAME\) Unternehmens Domain Name System-Ressourceneintrag \(DNS\) für den Verbunddienst und DRS.|![Bereitstellen von Verbund-Serverfarm](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[Konfigurieren von Unternehmens-DNS für den Verbunddienst und DRS](Configure-Corporate-DNS-for-the-Federation-Service-and-DRS.md)|  
-|![Verbund-Serverfarm bereitstellen](media/icon_checkboxo.gif)|Überprüfen, ob ein Verbundserver betriebsbereit ist.|![Bereitstellen von Verbund-Serverfarm](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[überprüfen Sie, ob ein Verbund Server Betriebsbereitschaft](Verify-That-a-Federation-Server-Is-Operational.md)|  
+|![Bereitstellen einer Verbund Serverfarm](media/icon_checkboxo.gif)|Überprüfen Sie wichtige Konzepte und Überlegungen bei der Vorbereitung der Bereitstellung Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1. **Hinweis**:|![bereit Stellung einer Verbund Serverfarm](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[AD FS Entwurfs Handbuch in Windows Server 2012 R2](../../ad-fs/design/AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)<br /><br />![bereit stellen einer Verbund Serverfarm Grundlegendes zu](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[Schlüssel AD FS Konzepten](../../ad-fs/technical-reference/Understanding-Key-AD-FS-Concepts.md)|  
+||Wenn Sie Microsoft SQL Server als AD FS-Konfigurationsspeicher verwenden möchten, stellen Sie das Bereitstellen einer funktionsfähigen Instanz von SQL Server sicher.|[SQL Server](https://technet.microsoft.com/sqlserver) **Warnung:** Wenn Sie in Windows Server 2012 R2 eine AD FS-Farm erstellen und Ihre Konfigurationsdaten mithilfe von SQL Server speichern möchten, können Sie SQL Server 2008 und höhere Versionen, einschließlich SQL Server 2012, verwenden.|  
+|![Bereitstellen einer Verbund Serverfarm](media/icon_checkboxo.gif)|Hinzufügen Ihres Computers zu einer Active Directory-Domäne.|![bereit stellen einer Verbund Serverfarm](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[Hinzufügen eines Computers zu einer Domäne](Join-a-Computer-to-a-Domain.md)|  
+|![Bereitstellen einer Verbund Serverfarm](media/icon_checkboxo.gif)|Registrieren Sie ein sicheres socketlayer-\(ssl @ no__t-1-Zertifikat für AD FS.|![bereitstellung einer Verbund Serverfarm](media/bc6cea1a-1c6c-4124-8c8f-1df5adfe8c88.gif)[registrieren Sie ein SSL-Zertifikat für AD FS](Enroll-an-SSL-Certificate-for-AD-FS.md)|  
+|![Bereitstellen einer Verbund Serverfarm](media/icon_checkboxo.gif)|Installieren des AD FS-Rollendiensts.|![bereitstellung der Verbund Serverfarm](media/bc6cea1a-1c6c-4124-8c8f-1df5adfe8c88.gif)[Installieren des AD FS-Rollen Dienstanbieter](Install-the-AD-FS-Role-Service.md)|  
+|![Bereitstellen einer Verbund Serverfarm](media/icon_checkboxo.gif)|Konfigurieren eines Verbundservers.|![bereit stellen einer Verbund Serverfarm](media/bc6cea1a-1c6c-4124-8c8f-1df5adfe8c88.gif)[Konfigurieren eines Verbund Servers](Configure-a-Federation-Server.md)|  
+|![Bereitstellen einer Verbund Serverfarm](media/icon_checkboxo.gif)|Optionaler Schritt: Konfigurieren eines Verbund Servers mit dem Geräte Registrierungsdienst \(drs @ no__t-1.|![bereit stellen einer Verbund Serverfarm](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[Konfigurieren eines Verbund Servers mit dem Geräte Registrierungsdienst](Configure-a-federation-server-with-Device-Registration-Service.md)|  
+|![Bereitstellen einer Verbund Serverfarm](media/icon_checkboxo.gif)|Fügen Sie dem Unternehmens Domain Name System \(dns @ no__t-5 für den Verbund Dienst und DRS einen Host \(A @ no__t-1 und einen Alias \(cname @ no__t-3-Ressourcen Daten Satz hinzu.|![bereitstellung einer Verbund Serverfarm](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[Konfigurieren des Unternehmens-DNS für die Verbunddienst und DRS](Configure-Corporate-DNS-for-the-Federation-Service-and-DRS.md)|  
+|![Bereitstellen einer Verbund Serverfarm](media/icon_checkboxo.gif)|Überprüfen, ob ein Verbundserver betriebsbereit ist.|![bereitstellung einer Verbund Serverfarm](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[überprüfen, ob ein Verbund Serverbetriebs bereit ist](Verify-That-a-Federation-Server-Is-Operational.md)|  
   
 
 ## <a name="see-also"></a>Siehe auch  
 [AD FS-Bereitstellung](../../ad-fs/AD-FS-Deployment.md)  
 
-[Windows Server 2012 R2 AD FS-Bereitstellung geführt.](../../ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)  
+[Windows Server 2012 R2 AD FS Bereitstellungs Handbuch](../../ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)  
   
 

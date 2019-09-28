@@ -1,50 +1,50 @@
 ---
 title: Neues in DHCP
-description: Dieses Thema enthält eine Übersicht über neue Funktionen für Dynamic Host Configuration Protocol (DHCP) in Windows Server 2016.
+description: Dieses Thema enthält eine Übersicht über die neuen Features für DHCP (Dynamic Host Configuration Protocol) in Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-dhcp
 ms.topic: get-started-article
 ms.assetid: c6f36998-5b64-45d1-b1f0-0f0d6604dbe3
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 73cc5134f7af5063c912ad578fa7d660b3194aa1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8032b7c8e78170d57b0367775672577d9fd900e2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840231"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355451"
 ---
 # <a name="whats-new-in-dhcp"></a>Neues in DHCP
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Dieses Thema beschreibt die Dynamic Host Configuration Protocol (DHCP) Funktionen, die neue oder geänderte in Windows Server 2016.
+In diesem Thema werden die DHCP-Funktionen (Dynamic Host Configuration Protocol) beschrieben, die in Windows Server 2016 neu oder geändert wurden.
   
-DHCP ist ein Internet Engineering Task Force (IETF)-Standard, der den Verwaltungsaufwand und die Komplexität beim Konfigurieren von Hosts in einem TCP/IP reduzieren\-basierten Netzwerk, z. B. einem privaten Intranet. Der DHCP-Serverdienst führt den Konfigurationsprozess für TCP/IP auf DHCP-Clients automatisch durch.
+DHCP ist ein IETF (Internet Engineering Task Force)-Standard, der den Verwaltungsaufwand und die Komplexität beim Konfigurieren von Hosts in einem TCP/IP @ no__t-basierten Netzwerk, wie z. b. einem privaten Intranet, reduziert. Der DHCP-Serverdienst führt den Konfigurationsprozess für TCP/IP auf DHCP-Clients automatisch durch.
 
-Die folgenden Abschnitte enthalten Informationen zu neuen Features und Änderungen an der Funktionalität für DHCP.
+In den folgenden Abschnitten finden Sie Informationen zu neuen Features und Funktionsänderungen für DHCP.
 
-## <a name="dhcp-subnet-selection-options"></a>Auswahloptionen für DHCP-Subnetz
+## <a name="dhcp-subnet-selection-options"></a>Optionen für das DHCP-subnetzauswahl
 
-DHCP unterstützt nun Optionen 118 und 82 \(untergeordnete option 5\). Sie können diese Optionen verwenden, um DHCP-Proxy-Clients und -Relay-Agents zum Anfordern einer IP-Adresse für ein bestimmtes Subnetz, und von einer bestimmten IP-Adressbereich und den Bereich zu ermöglichen.
+DHCP unterstützt nun die Optionen 118 und 82 \(sub-Option 5 @ no__t-1. Mithilfe dieser Optionen können Sie DHCP-Proxy Clients und Relay-Agents gestatten, eine IP-Adresse für ein bestimmtes Subnetz und einen bestimmten IP-Adressbereich und-Bereich anzufordern.
 
 
-Wenn Sie einen DHCP-Relay-Agent verwenden, der mit DHCP-Option 82 konfiguriert ist, sub\-option 5 der Relay-Agent kann eine IP-Adresslease für DHCP-Clients aus einem bestimmten Bereich von IP-Adresse anfordern.
+Wenn Sie einen DHCP-Relay-Agent verwenden, der mit der DHCP-Option 82, Sub @ no__t-0option 5 konfiguriert ist, kann der Relay-Agent eine IP-Adress Lease für DHCP-Clients von einem bestimmten IP-Adressbereich anfordern.
 
-Weitere Informationen finden Sie unter [DHCP-Subnetz-Auswahloptionen](dhcp-subnet-options.md).
+Weitere Informationen finden Sie unter [Auswahl Optionen für das DHCP-Subnetz](dhcp-subnet-options.md).
 
-## <a name="new-logging-events-for-dns-registration-failures-by-the-dhcp-server"></a>Neue Protokollierung von Ereignissen für DNS-Fehler bei der Registrierung vom DHCP-Server
+## <a name="new-logging-events-for-dns-registration-failures-by-the-dhcp-server"></a>Neue Protokollierungs Ereignisse für DNS-Registrierungsfehler durch den DHCP-Server
 
-DHCP enthält jetzt die Protokollierung von Ereignissen für Situationen, in dem sich DHCP-Server DNS-Datensatz Registrierungen auf dem DNS-Server fehl.
+DHCP umfasst nun Protokollierungs Ereignisse für Situationen, in denen DHCP-Server-DNS-Einträge auf dem DNS-Server fehlschlagen.
 
-Weitere Informationen finden Sie unter [DHCP-Protokollierung von Ereignissen für DNS-Datensatz Registrierungen](dhcp-dns-events.md).
+Weitere Informationen finden Sie unter [DHCP-Protokollierungs Ereignisse für DNS-Daten Satz Registrierungen](dhcp-dns-events.md).
 
-## <a name="dhcp-nap-is-not-supported-in-windows-server-2016"></a>DHCP-NAP wird unter WindowsServer 2016 nicht unterstützt.
+## <a name="dhcp-nap-is-not-supported-in-windows-server-2016"></a>DHCP-NAP wird in Windows Server 2016 nicht unterstützt.
 
-Netzwerkzugriffsschutz \(NAP\) veraltetes Feature in Windows Server 2012 R2 und Windows Server 2016 die DHCP-Serverrolle NAP nicht mehr unterstützt. Weitere Informationen finden Sie unter [Features Removed or Deprecated in Windows Server 2012 R2](https://technet.microsoft.com/library/dn303411.aspx).  
+Der Netzwerk Zugriffsschutz \(nap @ no__t-1 ist in Windows Server 2012 R2 veraltet, und in Windows Server 2016 unterstützt die DHCP-Server Rolle NAP nicht mehr. Weitere Informationen finden Sie unter [in Windows Server 2012 R2 entfernte oder veraltete Features](https://technet.microsoft.com/library/dn303411.aspx).  
   
-NAP-Unterstützung wurde der DHCP-Serverrolle in Windows Server 2008 eingeführt und wird in Windows-Client und Server-Betriebssystemen vor Windows 10 und Windows Server 2016 unterstützt. Die folgende Tabelle enthält die Unterstützung für NAP in Windows Server.  
+Die NAP-Unterstützung wurde mit Windows Server 2008 in die DHCP-Server Rolle eingeführt und wird in Windows-Client-und Server Betriebssystemen vor Windows 10 und Windows Server 2016 unterstützt. In der folgenden Tabelle wird die Unterstützung für NAP in Windows Server zusammengefasst.  
   
 |Betriebssystem|NAP-Unterstützung|  
 |--------------------|---------------|  
@@ -54,11 +54,11 @@ NAP-Unterstützung wurde der DHCP-Serverrolle in Windows Server 2008 eingeführt
 | Windows Server 2012 R2 |Unterstützt|  
 | Windows Server 2016|Nicht unterstützt.|  
   
-In einer NAP-Bereitstellung kann ein DHCP-Server unter einem Betriebssystem, das NAP unterstützt als eine NAP-Erzwingungspunkt für die NAP-DHCP-Erzwingungsmethode fungieren. Weitere Informationen zu DHCP nap finden Sie unter [Prüfliste: Implementieren eines DHCP-Erzwingung Entwurfs](https://technet.microsoft.com/library/dd314186.aspx).  
+In einer NAP-Bereitstellung kann ein DHCP-Server mit einem Betriebssystem, das NAP unterstützt, als NAP-Erzwingungs Punkt für die NAP-Erzwingungs Methode fungieren. Weitere Informationen zu DHCP in NAP finden Sie unter [checkliste: Implementieren eines DHCP-Erzwingungs Entwurfs @ no__t-0.  
   
-In Windows Server 2016 erzwingen DHCP-Server nicht NAP-Richtlinien und DHCP-Bereiche nicht NAP\-aktiviert. Senden von DHCP-Clientcomputer, die auch NAP-Clients ein Statement of Health \(SoH\) mit der DHCP-Anforderung. Wenn der DHCP-Server Windows Server 2016 ausgeführt wird, werden diese Anforderungen verarbeitet, als ob keine SoH vorhanden ist. Der DHCP-Server gewährt eine normalen DHCP-Clientlease an dem Client. 
+In Windows Server 2016 erzwingen DHCP-Server keine NAP-Richtlinien, und DHCP-Bereiche können nicht NAP @ no__t-0aktiviert werden. DHCP-Client Computer, die auch NAP-Clients sind, senden ein Statement of Health-\(soh @ no__t-1 mit der DHCP-Anforderung. Wenn auf dem DHCP-Server Windows Server 2016 ausgeführt wird, werden diese Anforderungen so verarbeitet, als ob kein SoH vorhanden ist. Der DHCP-Server gewährt dem Client eine normale DHCP-Lease. 
 
-Wenn Server, auf denen Windows Server 2016 ausgeführt werden, RADIUS-Proxys sind, die authentifizierungsanforderungen an einem Netzwerkrichtlinienserver weitergeleitet \(NPS\) , das NAP unterstützt, diese NAP-Clients werden ausgewertet, von NPS als nicht NAP\-fähig ist, und NAP Verarbeitung ein Fehler auftritt.
+Wenn Server, auf denen Windows Server 2016 ausgeführt wird, RADIUS-Proxys sind, die Authentifizierungsanforderungen an einen Netzwerk Richtlinien Server weiterleiten \(nps @ no__t-1, der NAP unterstützt, werden diese NAP-Clients von NPS als nicht-NAP @ no__t-fähig ausgewertet, und die NAP-Verarbeitung schlägt fehl.
   
 ## <a name="see-also"></a>Siehe auch  
   

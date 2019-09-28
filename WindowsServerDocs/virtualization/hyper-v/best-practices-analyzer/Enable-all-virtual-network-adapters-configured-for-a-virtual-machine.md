@@ -1,7 +1,7 @@
 ---
-title: Aktivieren Sie alle virtuellen Netzwerkadapter konfiguriert, die für einen virtuellen Computer
-description: Die Onlineversion des Texts für diese Best Practices Analyzer-Regel.
-ms.prod: windows-server-threshold
+title: Alle für einen virtuellen Computer konfigurierten virtuellen Netzwerkadapter aktivieren
+description: Online Version des Texts für diese Best Practices Analyzer Regel.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: fcd350b7-4240-4359-aadd-93e7ac4d314e
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: fbb1ef5283f6ccf8dfa355a09a86040be80f53e9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bdca25be4af41d0f6ddfafe885f8c2b1301b71fb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844231"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393649"
 ---
-# <a name="enable-all-virtual-network-adapters-configured-for-a-virtual-machine"></a>Aktivieren Sie alle virtuellen Netzwerkadapter konfiguriert, die für einen virtuellen Computer
+# <a name="enable-all-virtual-network-adapters-configured-for-a-virtual-machine"></a>Alle für einen virtuellen Computer konfigurierten virtuellen Netzwerkadapter aktivieren
 
 >Gilt für: Windows Server 2016
 
@@ -26,25 +26,25 @@ Weitere Informationen zu bewährten Methoden und Überprüfungen finden Sie unte
 |Eigenschaft|Details|  
 |-|-|  
 |**Betriebssystem**|Windows Server 2016|  
-|**Produkt /-Funktion**|Hyper-V|  
-|**Schweregrad**|Warnung|  
+|**Produkt/Feature**|Hyper-V|  
+|**Zunehmen**|Warnung|  
 |**Kategorie**|Konfiguration|  
   
-In den folgenden Abschnitten Kursivschrift gibt an Benutzeroberflächentext, die im Best Practices Analyzer-Tool für dieses Problem angezeigt wird.  
+In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.  
   
 ## <a name="issue"></a>Problem  
   
-*Ist möglicherweise eine oder mehrere Netzwerkadapter auf einem virtuellen Computer deaktiviert.*  
+*Ein oder mehrere Netzwerkadapter sind möglicherweise auf einem virtuellen Computer deaktiviert.*  
   
 ## <a name="impact"></a>Auswirkungen  
   
-*Die folgenden virtuellen Computer möglicherweise nicht über eine Netzwerkverbindung verfügen:*  
+*Die folgenden virtuellen Computer verfügen möglicherweise nicht über eine Netzwerk Konnektivität:*  
   
-\<Liste von Namen virtueller Computer >  
+\<liste der Namen der virtuellen Computer >  
   
 ## <a name="resolution"></a>Auflösung  
   
-*Verwenden Sie Geräte-Manager im Gastbetriebssystem, um alle virtuellen Netzwerkadapter zu aktivieren. Wenn der Adapter nicht erforderlich ist, verwenden Sie Hyper-V-Manager, um es aus dem virtuellen Computer zu entfernen.*  
+*verwenden Sie Geräte-Manager im Gast Betriebssystem, um alle virtuellen Netzwerkadapter zu aktivieren. Wenn der Adapter nicht erforderlich ist, entfernen Sie ihn mit dem Hyper-V-Manager aus dem virtuellen Computer.*  
   
 
 

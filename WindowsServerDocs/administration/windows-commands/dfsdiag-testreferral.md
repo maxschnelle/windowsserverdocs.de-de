@@ -1,8 +1,8 @@
 ---
-title: Dfsdiag TestReferral
-description: 'Windows-Befehle Thema ***- '
+title: Dfsdiag testreferral
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,28 +13,28 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cd1b87befa8a9cfda5ea27a4ce5a5105ea1a1009
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: af22520d2c89f9d9f9d91ea6f43a33f3ff9c57f1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848021"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378360"
 ---
-# <a name="dfsdiag-testreferral"></a>Dfsdiag TestReferral
+# <a name="dfsdiag-testreferral"></a>Dfsdiag testreferral
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Überprüft, Distributed File System \(DFS\) verweisen, indem Sie die folgenden Tests ausführen:  
+Prüft verteiltes Dateisystem \(dfs @ no__t-1-Verweise durch Ausführen der folgenden Tests:  
   
--   Wenn Sie den Parameter DFSpath ohne Argumente verwenden, mit diesem Befehl wird überprüft, ob die Liste der Verweise auf alle vertrauenswürdige Domänen umfasst.  
+-   Wenn Sie den dfspath-Parameter ohne Argumente verwenden, überprüft dieser Befehl, ob die Verweis Liste alle vertrauenswürdigen Domänen enthält.  
   
--   Wenn Sie eine Domäne angeben, führt der Befehl eine Überprüfung der Integrität von Domänencontrollern \(Dfsdiag \/Testdcs\) und testet den standortzuordnungen und Domänencache des lokalen Hosts.  
+-   Wenn Sie eine Domäne angeben, führt der Befehl eine Integritäts Überprüfung der Domänen Controller \(dfsdiag \/testdcs @ no__t-2 aus und testet die Site Zuordnungen und den Domänen Cache des lokalen Hosts.  
   
--   Wenn Sie eine Domäne angeben und \\SYSvol oder \\NETLOGON, zusätzlich zum Ausführen der gleichen Integritäts überprüft werden, als wenn Sie eine Domäne angeben, der Befehl, der die Time To Live, Gültigkeitsdauer überprüft \(Gültigkeitsdauer (TTL)\) SYSVOL- und NETLOGON-Weiterleitungen entspricht den Standardwert von 900 Sekunden.  
+-   Wenn Sie eine Domäne und \\sysvol oder \\netlogon angeben und die gleichen Integritätsprüfungen wie bei der Angabe einer Domäne durchführen, prüft der Befehl, dass die Gültigkeitsdauer \(ttl @ no__t-3 von SYSVOL-oder Netlogon-Referenzen mit dem Standardwert von übereinstimmt. 900 Sekunden.  
   
--   Wenn Sie einen Namespacestamm, zusätzlich zum Ausführen der gleichen Integritäts angeben, überprüft der Befehl eine Überprüfung der DFS-Konfiguration ausführt, wenn Sie eine Domäne angeben, \(Dfsdiag \/TestDFSConfig\) und einen Namespace-integritätsprüfung \(Dfsdiag \/TestDFSIntegrity\).  
+-   Wenn Sie einen Namespace Stamm angeben und die gleichen Integritätsprüfungen wie bei der Angabe einer Domäne durchführen, führt der Befehl eine DFS-Konfigurations Überprüfung \(dfsdiag \/testdfsconfig @ no__t-2 und eine Namespace Integritäts Überprüfung \(dfsdiag aus @no__ t-4testdfsintegrity @ no__t-5.  
   
--   Wenn Sie einen DFS-Ordner angeben \(Link\), zusätzlich zum Ausführen der gleichen integritätsprüfungen während der Befehl die Standortkonfiguration für Ordnerziele, wenn Sie einen Namespacestamm angeben überprüft, \(Dfsdiag \/ Testsites\) und überprüft die Zuordnung der Standort des lokalen Hosts.  
+-   Wenn Sie einen DFS-Ordner \(link @ no__t-1 angeben und die gleichen Integritätsprüfungen wie bei der Angabe eines Namespace Stamms ausführen, überprüft der Befehl die Standort Konfiguration für die Ordner Ziele \(dfsdiag \/testsites @ no__t-4 und überprüft. die Site Zuordnung des lokalen Hosts.  
   
   
   
@@ -48,24 +48,24 @@ dfsdiag /TestReferral /DFSpath:<DFS path for getting referrals> [/Full]
   
 |Parameter|Beschreibung|  
 |-------|--------|  
-|\/DFSpath:<path for getting referrals>|Dieser Pfad für die DFS-kann es sich um eine der folgenden sein:<br /><br />-   \(blank\): Tests vertrauenswürdigen Domänen.<br />-   \\\\Domäne: Domain-Controller-Weiterleitungen.<br />-   \\\\Domain\\SYSvol: SYSvol-Verweise.<br />-   \\\\Domain\\NETLOGON: NETLOGON-Verweise.<br />-   \\\\<Domain or server>\\<Namespace Root>: Namespace-stammweiterleitungen.<br />-   \\\\<Domain or server>\\<Namespace root>\\<DFS folder>: DFS-Ordner \(Link\) Verweise.|  
-|\/Vollständige|Nur auf die Domäne und zu den Root-Verweisen angewendet wird. überprüft die Konsistenz von Standortinformationen über die Zuordnung zwischen der Registrierung und die active Directory-Domänendienste \(AD DS\).|  
+|\/dfspath: <path for getting referrals>|Dieser DFS-Pfad kann eine der folgenden sein:<br /><br />-    @ no__t-1blank @ no__t-2: Testet vertrauenswürdige Domänen.<br />-    @ no__t-1 @ no__t-2domain: Verweise auf Domänen Controller.<br />-    @ no__t-1 @ no__t-2domain @ no__t-3sysvol: SYSVOL-Verweise.<br />-    @ no__t-1 @ no__t-2domain @ no__t-3netlogon: Anmelde Verweise.<br />-    @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5: Namespace-Stamm Verweise.<br />-    @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6 @ no__t-7: DFS-Ordner \(link @ no__t-1 referenrals.|  
+|\/full|Wird nur auf Domänen-und Stamm Verweise angewendet. überprüft die Konsistenz der Standort Zuordnungs Informationen zwischen der Registrierung und den Active Directory-Domänen Diensten \(ad DS @ no__t-1.|  
   
-## <a name="BKMK_Examples"></a>Beispiele für  
-Geben Sie um noch festzulegen ein:  
+## <a name="BKMK_Examples"></a>Beispiele  
+Geben Sie in TBD Folgendes ein:  
   
 ```  
 dfsdiag /TestReferral /DFSpath:\\Contoso.com\MyNamespace  
 ```  
   
-Geben Sie um noch festzulegen ein:  
+Geben Sie in TBD Folgendes ein:  
   
 ```  
 dfsdiag /TestReferral /DFSpath:  
 ```  
   
-## <a name="additional-references"></a>Zusätzliche Referenzen  
+## <a name="additional-references"></a>Weitere Verweise  
   
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
 

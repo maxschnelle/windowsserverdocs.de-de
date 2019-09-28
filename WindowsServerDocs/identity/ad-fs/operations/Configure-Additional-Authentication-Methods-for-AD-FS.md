@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 07/26/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: adb587412d65506c35705c5eaa8dbea8c660d117
-ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
+ms.openlocfilehash: f78c60ccd65b4c9148d53d894c572a4402948806
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2019
-ms.locfileid: "68590362"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407688"
 ---
 # <a name="configure-additional-authentication-methods-for-ad-fs"></a>Konfigurieren zusätzlicher Authentifizierungsmethoden für AD FS
 
@@ -23,7 +23,7 @@ Um die mehrstufige Authentifizierung (Multi-Factor Authentication, MFA) zu aktiv
 > [!NOTE]
 > Stellen Sie bei Auswahl der Zertifikatauthentifizierung sicher, dass die Smartcard-Zertifikate auf sichere Weise bereitgestellt wurden und PIN-Anforderungen dafür festgelegt wurden.
 
-Wussten Sie, dass Microsoft Azure eine ähnliche Funktionalität in der Cloud bietet? Erfahren Sie mehr zu [Microsoft Azure-Identitätslösungen](http://aka.ms/m2w274).<br /><br />Erstellen einer hybriden Identitätslösung in Microsoft Azure:<br /> - [Erfahren Sie mehr über Azure Multi-Factor Authentication.](http://aka.ms/ey6o9r)<br /> - [Verwalten von Identitäten für Hybrid Umgebungen mit einer einzelnen Gesamtstruktur mithilfe der cloudauthentifizierung.](http://aka.ms/g1jat8)<br /> - [Verwalten von Risiken mit zusätzlicher mehrstufiger Authentifizierung für sensible Anwendungen.](http://aka.ms/kt1bbm)
+Wussten Sie, dass Microsoft Azure eine ähnliche Funktionalität in der Cloud bietet? Erfahren Sie mehr zu [Microsoft Azure-Identitätslösungen](http://aka.ms/m2w274).<br /><br />Erstellen einer hybriden Identitätslösung in Microsoft Azure:<br /> - [erfahren Sie mehr über Azure Multi-Factor Authentication.](http://aka.ms/ey6o9r)<br /> - [: Verwalten von Identitäten für Hybrid Umgebungen mit einer einzelnen Gesamtstruktur mithilfe der cloudauthentifizierung.](http://aka.ms/g1jat8)<br /> - [Verwalten Sie Risiken mit zusätzlichen Multi-Factor Authentication für sensible Anwendungen.](http://aka.ms/kt1bbm)
 
 ## <a name="microsoft-and-third-party-additional-authentication-methods"></a>Zusätzliche Authentifizierungsmethoden von Microsoft und Drittanbietern
 Sie können auch Authentifizierungsmethoden von Microsoft und Drittanbietern in AD FS in Windows Server 2012 R2 konfigurieren und aktivieren. Nach der Installation und Registrierung bei AD FS können Sie MFA als Teil der globalen oder pro Authentifizierungs Richtlinie für die vertrauende Seite erzwingen.
@@ -45,7 +45,7 @@ Mide | Mide Ye-Authentifizierungs Anbieter für ADFS | [Die zweistufige Authenti
 |Eine Identität| Defender-AD FS|[Defender AD FS-Adapter](https://www.oneidentity.com/products/defender/)|
 |Ping-Identität|Pgid-MFA-Adapter für AD FS|[Pgid-MFA-Adapter für AD FS](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_PingIDforADFSSSO.html)|
 |RSA, The Security Division of EMC|RSA SecurID Authentication Agent for Microsoft Active Directory Federation Services|[RSA SecurID Authentication Agent für Microsoft Active Directory-Verbunddienste (AD FS)](http://www.emc.com/security/rsa-securid/rsa-authentication-agents/microsoft-ad-fs.htm)|
-|SafeNet, Inc.|SafeNet Authentication Service (SAS) Agent for AD FS|[SafeNet-Authentifizierungsdienst: AD FS Agent Configuration Guide](http://www.safenet-inc.com/resources/integration-guide/data-protection/Safenet_Authentication_Service/SafeNet_Authentication_Service__AD_FS_Agent_Configuration_Guide/?langtype=1033)|
+|SafeNet, Inc.|SafeNet Authentication Service (SAS) Agent for AD FS|[safenet-Authentifizierungsdienst: AD FS Agent Configuration Guide](http://www.safenet-inc.com/resources/integration-guide/data-protection/Safenet_Authentication_Service/SafeNet_Authentication_Service__AD_FS_Agent_Configuration_Guide/?langtype=1033)|
 |Securemfa|Securemfa OTP-Anbieter| [AD FS-Anbieter für Multi-Factor Authentication](https://www.securemfa.com/)|
 |Swisscom|Mobile ID Authentication Service and Signature Services|[Dienst für die Mobile ID-Authentifizierung](http://swisscom.ch/mid)|
 |Symantec|Symantec Validation and ID Protection Service (VIP)|[Symantec-Validierung und ID-Schutzdienst (VIP)](http://www.symantec.com/vip-authentication-service)|

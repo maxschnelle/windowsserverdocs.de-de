@@ -1,9 +1,9 @@
 ---
-title: Schritte zum Migrieren von MultiPoint Services
-description: Führt Sie durch die Schritte zum Migrieren zu MultiPoint Services in Windows Server 2016
+title: Schritte zum Migrieren von Multipoint Services
+description: Führt Sie durch die Schritte zum Migrieren zu Multipoint Services in Windows Server 2016.
 ms.custom: na
 ms.date: 07/29/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,39 +13,39 @@ ms.assetid: 3ee77efa-7cc5-4ddf-aaff-b5634a717014
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: b63ef4bf63ce990aa0b0ba7624905ba8f14dde98
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 862e9b70cfafa9de0928a4789c5d23dfa0fbb530
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854811"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389026"
 ---
-# <a name="migrate-to--multipoint-services-in-windows-server-2016"></a>Migrieren Sie zu MultiPoint Services unter WindowsServer 2016
+# <a name="migrate-to--multipoint-services-in-windows-server-2016"></a>Migrieren zu Multipoint Services in Windows Server 2016
 
 >Gilt für: Windows Server 2016
 
-Verwenden Sie die folgenden Schritte sowie die Informationen, die Sie in das Arbeitsblatt für die Migration planen, zu MultiPoint Services in Windows Server 2016 zu migrieren gesammelt haben.
+Führen Sie die folgenden Schritte aus, zuzüglich der Informationen, die Sie im Arbeitsblatt zur Migrationsplanung gesammelt haben, um zu Multipoint Services in Windows Server 2016 zu migrieren.
 
-## <a name="transfer-server-settings"></a>Übertragen von servereinstellungen
-Öffnen Sie MultiPoint-Manager, auf dem Zielserver. Klicken Sie auf **Bearbeiten von servereinstellungen**. Wenden Sie die Einstellungen entsprechend dem Arbeitsblatt für die Planung der Migration.
-
-> [!NOTE]
-> Wenn Sie zum Aktivieren des datenträgerschutzes auf dem Zielserver müssen, warten Sie bis nach dem MultiPoint Services konfigurieren.
-
-## <a name="transfer-station-settings"></a>Übertragen von stationseinstellungen
-Stellen Sie sicher, dass die Stationen, auf dem Zielserver und alle zugeordnet verbunden sind, bevor Sie die stationseinstellungen anwenden. Die Stationen werden automatisch erkannt. Befolgen Sie die Anweisungen auf den einzelnen Bildschirmen Station, um die Server-Zuordnung von Benutzerkonsolen und angeschlossene USB-Geräte zu definieren. Wenden Sie Ihre bevorzugte stationseinstellungen, wie im Arbeitsblatt für die Planung Migration beschrieben.
-
-## <a name="migrate-the-vdi-template"></a>Migrieren Sie die VDI-Vorlage
-
-Bevor Sie die VDI-Vorlage des Quellservers importieren können, können Sie virtuelle Desktops auf dem Zielserver mithilfe von MultiPoint-Manager aktiviert:
-
-1. Wechseln Sie zu der **virtuelle Desktops** Registerkarte im MultiPoint-Manager.
-2. Klicken Sie auf **aktiviert virtuelle Desktops**. Der Server wird die Hyper-V-Rolle installieren und dann neu starten.
-3. Öffnen Sie MultiPoint-Manager, und navigieren Sie zurück zur **virtuelle Desktops**.
-4. Klicken Sie auf **Import-Vorlage für virtuelle Desktops**. Führen Sie die Anweisungen, um die Vorlage vom Quellserver zu importieren.
+## <a name="transfer-server-settings"></a>Servereinstellungen übertragen
+Öffnen Sie auf dem Zielserver den Multipoint-Manager. Klicken Sie auf **Servereinstellungen bearbeiten**. Übernehmen Sie die Einstellungen gemäß dem Arbeitsblatt für die Migrationsplanung.
 
 > [!NOTE]
-> Wenn Sie eine Vorlage für virtuelle Desktops importieren, werden bei Anpassungen auf die Vorlage angewendet zurückgesetzt. 
+> Wenn Sie den Datenträger Schutz auf dem Zielserver aktivieren müssen, warten Sie, bis Sie Multipoint Services konfiguriert haben.
+
+## <a name="transfer-station-settings"></a>Übertragungs Stations Einstellungen
+Stellen Sie sicher, dass die Stationen mit dem Zielserver verbunden sind und alle zugeordnet sind, bevor Sie die Stations Einstellungen anwenden. Die Stationen werden automatisch erkannt. Befolgen Sie die Anweisungen auf den einzelnen Stations Bildschirm, um die Server Zuordnung von Benutzer Stationen und verbundenen USB-Geräten zu definieren. Wenden Sie die im Arbeitsblatt für die Migrationsplanung aufgeführten bevorzugten Stations Einstellungen an.
+
+## <a name="migrate-the-vdi-template"></a>Migrieren der VDI-Vorlage
+
+Bevor Sie die VDI-Vorlage vom Quell Server importieren können, können Sie virtuelle Desktops auf dem Zielserver mithilfe von Multipoint Manager aktivieren:
+
+1. Wechseln Sie im Multipoint-Manager zur Registerkarte **virtuelle Desktops** .
+2. Klicken Sie auf **aktivierte virtuelle Desktops**. Der Server installiert die Hyper-V-Rolle und startet dann neu.
+3. Öffnen Sie den Multipoint-Manager, und navigieren Sie zurück zu **virtuelle Desktops**.
+4. Klicken Sie auf **Vorlage für virtuellen Desktop importieren**. Befolgen Sie die Anweisungen, um die Vorlage vom Quell Server zu importieren.
+
+> [!NOTE]
+> Wenn Sie eine Vorlage für virtuelle Desktops importieren, werden alle Anpassungen, die auf die Vorlage angewendet werden, zurückgesetzt. 
 
 ## <a name="next-step"></a>Nächster Schritt
-[Überprüfen Sie die neue MultiPoint Services-Bereitstellung.](multipoint-services-post-migration-steps.md)
+[Überprüfen Sie die neue Multipoint Services-Bereitstellung.](multipoint-services-post-migration-steps.md)

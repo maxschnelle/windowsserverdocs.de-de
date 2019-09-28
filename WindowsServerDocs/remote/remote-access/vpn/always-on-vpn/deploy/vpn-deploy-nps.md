@@ -1,7 +1,7 @@
 ---
 title: Installieren und Konfigurieren von NPS-Servers
 description: Die NPS-Server Verarbeitung von Verbindungsanforderungen, die vom VPN-Server gesendet werden, überprüft, ob der Benutzer über die Berechtigung zum Herstellen einer Verbindung und die Identität des Benutzers verfügt, und protokolliert die Aspekte der Verbindungsanforderung, die Sie beim Konfigurieren der RADIUS-Kontoführung in NPS ausgewählt haben.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: ''
@@ -9,12 +9,12 @@ ms.localizationpriority: medium
 ms.author: pashort
 author: shortpatti
 ms.date: 08/30/2018
-ms.openlocfilehash: 553f3327e6252d2b03744b2e0fc88f340701f3a9
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 5cb0d342afec9c28259efb7a2e15666358f3cb5b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871331"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404254"
 ---
 # <a name="step-4-install-and-configure-the-network-policy-server-nps"></a>Schritt 4 Installieren und Konfigurieren des Netzwerk Richtlinien Servers (NPS)
 

@@ -1,8 +1,8 @@
 ---
-title: Bereitstellen einer Software-Defined Networking-Infrastruktur mithilfe von Skripts
-description: In diesem Thema wird beschrieben, wie eine Software Defined Network (SDN) von Microsoft-Infrastruktur mithilfe von Skripts in Windows Server 2016 bereitstellen wird.
+title: Bereitstellen einer Software definierten Netzwerkinfrastruktur mithilfe von Skripts
+description: In diesem Thema wird beschrieben, wie Sie eine Microsoft-Sdn-Infrastruktur (Software Defined Network) mithilfe von Skripts in Windows Server 2016 bereitstellen.
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: virtual-network
 ms.technology: networking-sdn
 ms.topic: get-started-article
@@ -10,215 +10,215 @@ ms.assetid: 5ba5bb37-ece0-45cb-971b-f7149f658d19
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: ce88659f6065ddd0957b95831a4e3065f09dc9e9
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 29013827d0cde0447c48afa7a42551760ab9e940
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446372"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355995"
 ---
 # <a name="deploy-a-software-defined-network-infrastructure-using-scripts"></a>Bereitstellen einer Software-Defined Networking-Infrastruktur mithilfe von Skripts
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-In diesem Thema stellen Sie eine Software Defined Network (SDN) von Microsoft-Infrastruktur mithilfe von Skripts bereit. Die Infrastruktur umfasst einen hoher Verfügbarkeit (HA) vom Netzwerkcontroller, einen HA Software Load Balancer (SLB) / MUX, virtuelle Netzwerke und die zugehörigen Zugriffssteuerungslisten (ACLs). Darüber hinaus stellt ein weiteres Skript eine mandantenarbeitslast Sie zur Überprüfung Ihrer SDN-Infrastruktur.  
+In diesem Thema stellen Sie eine Microsoft-Sdn-Infrastruktur (Software Defined Network) mithilfe von Skripts bereit. Die Infrastruktur umfasst einen hochverfügbaren Netzwerk Controller (ha), eine SLB-/Mux (HA Software Load Balancer), virtuelle Netzwerke und zugehörige Access Control Listen (ACLs). Darüber hinaus stellt ein weiteres Skript eine Mandanten Arbeitsauslastung bereit, damit Sie Ihre Sdn-Infrastruktur überprüfen können.  
 
-Wenn Sie die arbeitsauslastungen Ihrer Mandanten außerhalb von ihren virtuellen Netzwerken kommunizieren möchten, können Sie die SLB-NAT-Regeln, Standort-zu-Standort-Gateway-Tunnel oder Layer-3-Weiterleitung zum Weiterleiten von zwischen virtuellen und physischen Workloads einrichten.  
+Wenn Sie möchten, dass Ihre mandantenworkloads außerhalb Ihrer virtuellen Netzwerke kommunizieren, können Sie SLB-NAT-Regeln, Site-to-Site-gatewaytunnel oder Layer-3-Weiterleitung einrichten, um zwischen virtuellen und physischen Workloads zu leiten.  
 
-Sie können auch eine SDN-Infrastruktur mit Virtual Machine Manager (VMM) bereitstellen. Weitere Informationen finden Sie unter [richten Sie eine Infrastruktur (Software Defined Network, SDN) im VMM-Fabric](https://technet.microsoft.com/system-center-docs/vmm/scenario/sdn-overview).  
+Sie können auch eine Sdn-Infrastruktur mithilfe von Virtual Machine Manager (VMM) bereitstellen. Weitere Informationen finden Sie unter [Einrichten einer Sdn-Infrastruktur (Software Defined Network) im VMM-Fabric](https://technet.microsoft.com/system-center-docs/vmm/scenario/sdn-overview).  
 
 
 ## <a name="pre-deployment"></a>Vor der Bereitstellung  
 
 > [!IMPORTANT]  
-> Vor der Bereitstellung, müssen Sie planen und konfigurieren Sie Ihren Hosts und der physischen Netzwerkinfrastruktur. Weitere Informationen finden Sie unter [Planen einer Software-Defined Networking-Infrastruktur](../../sdn/plan/Plan-a-Software-Defined-Network-Infrastructure.md).  
+> Bevor Sie mit der Bereitstellung beginnen, müssen Sie Ihre Hosts und die physische Netzwerkinfrastruktur planen und konfigurieren. Weitere Informationen finden Sie unter [Planen einer Software-Defined Networking-Infrastruktur](../../sdn/plan/Plan-a-Software-Defined-Network-Infrastructure.md).  
 
-Alle Hyper-V-Hosts müssen Windows Server 2016 installiert haben.  
+Auf allen Hyper-V-Hosts muss Windows Server 2016 installiert sein.  
 
 ## <a name="deployment-steps"></a>Bereitstellungsschritte  
-Zunächst konfigurieren die Hyper-V-Hosts (physische Server) Hyper-V virtual Switch und IP-Adresszuweisung. Jeder Storage-Typ, der mit Hyper-V, freigegebenen oder lokalen kompatibel ist, kann verwendet werden.  
+Beginnen Sie, indem Sie den virtuellen Hyper-v-Switch und die IP-Adresszuweisung für Hyper-v-Hosts konfigurieren. Jeder Speichertyp, der mit Hyper-V, Shared oder local kompatibel ist, kann verwendet werden.  
 
-### <a name="install-host-networking"></a>Installieren Sie Hostnetzwerk  
+### <a name="install-host-networking"></a>Installieren von Host Netzwerken  
 
-1. Installieren Sie die neuesten Netzwerktreiber für die NIC-Hardware zur Verfügung.  
-2. Installieren der Hyper-V-Rolle auf allen Hosts (Weitere Informationen finden Sie unter [erste Schritte mit Hyper-V unter Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/Get-started-with-Hyper-V-on-Windows).   
+1. Installieren Sie die neuesten Netzwerktreiber, die für Ihre NIC-Hardware verfügbar sind.  
+2. Installieren Sie die Hyper-v-Rolle auf allen Hosts (Weitere Informationen finden [Sie unter Get Started with Hyper-v on Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/Get-started-with-Hyper-V-on-Windows).   
 
    ```PowerShell
    Install-WindowsFeature -Name Hyper-V -ComputerName <computer_name> -IncludeManagementTools -Restart
    ```  
 
-3. Erstellen Sie den virtuellen Hyper-V-Switch.<p>Verwenden Sie den gleichen Parameternamen für alle Hosts, z. B. **SdnSwitch**. Konfigurieren Sie mindestens einen Netzwerkadapter oder, wenn SET zu verwenden, konfigurieren Sie mindestens zwei Netzwerkadapter. Maximale Zuweisung von eingehenden tritt auf, wenn Sie zwei Netzwerkkarten verwenden.  
+3. Erstellen Sie den virtuellen Hyper-V-Switch.<p>Verwenden Sie den gleichen Switchnamen für alle Hosts, z. b. **sdnswitch**. Konfigurieren Sie mindestens einen Netzwerkadapter, oder konfigurieren Sie bei Verwendung von Set mindestens zwei Netzwerkadapter. Die maximale eingehende Verteilung erfolgt bei Verwendung von zwei NICs.  
 
    ```PowerShell
    New-VMSwitch "<switch name>" -NetAdapterName "<NetAdapter1>" [, "<NetAdapter2>" -EnableEmbeddedTeaming $True] -AllowManagementOS $True
    ```  
    >[!TIP] 
-   >Sie können die Schritte 4 und 5 überspringen, wenn Sie separate Management NICs verfügen.
+   >Sie können die Schritte 4 und 5 überspringen, wenn Sie über separate Verwaltungs-NICs verfügen.
 
-3. Im Thema zur Planung finden Sie unter ([Planen einer Software Defined Networking-Infrastruktur](../../sdn/plan/../../sdn/plan/../../sdn/plan/Plan-a-Software-Defined-Network-Infrastructure.md)) und das Arbeiten mit Ihrem Netzwerkadministrator die VLAN-ID des VLAN Management zu erhalten. Fügen Sie die vNIC Verwaltung des neu erstellten virtuellen Switches, mit dem Management-VLAN. Dieser Schritt kann ausgelassen werden, wenn Ihre Umgebung keine VLAN-Tags verwendet.  
+3. Informationen zum Abrufen der VLAN-ID des Verwaltungs-VLANs finden Sie im Thema zur Planung ([Planen einer Software-Defined Network-Infrastruktur](../../sdn/plan/../../sdn/plan/../../sdn/plan/Plan-a-Software-Defined-Network-Infrastructure.md)) und zusammenarbeiten mit Ihrem Netzwerkadministrator. Fügen Sie die Verwaltungs-vNIC des neu erstellten virtuellen Switches dem Verwaltungs-VLAN hinzu. Dieser Schritt kann ausgelassen werden, wenn in Ihrer Umgebung keine VLAN-Tags verwendet werden.  
 
    ```PowerShell
    Set-VMNetworkAdapterIsolation -ManagementOS -IsolationMode Vlan -DefaultIsolationID <Management VLAN> -AllowUntaggedTraffic $True
    ```  
 
-4. Im Thema zur Planung finden Sie unter ([Planen einer Software Defined Networking-Infrastruktur](../../sdn/plan/../../sdn/plan/../../sdn/plan/Plan-a-Software-Defined-Network-Infrastructure.md)) und das Arbeiten mit Ihrem Netzwerkadministrator verwenden Sie entweder DHCP oder statischen IP-Adresszuweisungen die vNIC Verwaltung des neu erstellten IP-Adresse zuweisen vSwitch. Im folgende Beispiel veranschaulicht das Erstellen einer statischen IP-Adresse und der vNIC Verwaltung des vSwitches zuweisen:  
+4. Informationen zum Zuweisen einer IP-Adresse zur Verwaltungs-vNIC des neu erstellten vSwitches finden Sie im Thema zur Planung ([Planen einer Software-Defined Network-Infrastruktur](../../sdn/plan/../../sdn/plan/../../sdn/plan/Plan-a-Software-Defined-Network-Infrastructure.md)) und zusammenarbeiten mit Ihrem Netzwerkadministrator. Im folgenden Beispiel wird gezeigt, wie eine statische IP-Adresse erstellt und der Verwaltungs-vNIC des Vswitch zugewiesen wird:  
 
    ```PowerShell
    New-NetIPAddress -InterfaceAlias "vEthernet (<switch name>)" -IPAddress <IP> -DefaultGateway <Gateway IP> -AddressFamily IPv4 -PrefixLength <Length of Subnet Mask - for example: 24>
    ```  
 
-5. [Optional] Bereitstellen eines virtuellen Computers zum Hosten von Active Directory Domain Services ([Install Active Directory Domain Services (Stufe 100)](https://technet.microsoft.com/library/hh472162.aspx) und einen DNS-Server.  
+5. Optionale Stellen Sie eine virtuelle Maschine auf dem Host Active Directory Domain Services bereit ([Installieren Sie Active Directory Domain Services (Stufe 100)](https://technet.microsoft.com/library/hh472162.aspx) und einen DNS-Server.  
 
-    a. Verbinden Sie die Active Directory-/DNS-Server-VM mit dem Management-VLAN:
+    a. Verbinden Sie den virtuellen Computer für den Active Directory/DNS-Server mit dem Verwaltungs-VLAN:
 
        ```PowerShell
        Set-VMNetworkAdapterIsolation -VMName "<VM Name>" -Access -VlanId <Management VLAN> -AllowUntaggedTraffic $True  
        ```   
 
-   b. Installieren von Active Directory-Domänendienste und DNS.  
+   b. Installieren Sie Active Directory Domain Services und DNS.  
 
    >[!NOTE]
-   >Die Netzwerkcontroller unterstützt sowohl Kerberos als auch x. 509-Zertifikate für die Authentifizierung. Dieses Handbuch verwendet beide Authentifizierungsmechanismen für unterschiedliche Zwecke, (obwohl nur eine erforderlich ist).  
+   >Der Netzwerk Controller unterstützt Kerberos-und X. 509-Zertifikate für die Authentifizierung. In diesem Leitfaden werden beide Authentifizierungsmechanismen für verschiedene Zwecke verwendet (es ist jedoch nur eine erforderlich).  
 
-6. Verknüpfen Sie alle Hyper-V-Hosts mit der Domäne. Vergewissern Sie sich den DNS-Server-Eintrag für den Netzwerkadapter, der IP-Adresse zugewiesen, der Netzwerk-Verwaltungspunkt mit einem DNS-Server, der den Domänennamen auflösen können. 
+6. Verknüpfen Sie alle Hyper-V-Hosts mit der Domäne. Stellen Sie sicher, dass der DNS-Server Eintrag für den Netzwerkadapter mit einer dem Verwaltungs Netzwerk zugewiesenen IP-Adresse auf einen DNS-Server verweist, der den Domänen Namen auflösen kann. 
 
    ```PowerShell   
    Set-DnsClientServerAddress -InterfaceAlias "vEthernet (<switch name>)" -ServerAddresses <DNS Server IP>  
    ```
 
-   a. Mit der rechten Maustaste **starten**, klicken Sie auf **System**, und klicken Sie dann auf **Change Settings**.  
+   a. Klicken Sie mit der rechten Maustaste auf **Start**, klicken Sie auf **System**und dann auf **Einstellungen ändern**.  
    b. Klicken Sie auf **Ändern**.  
-   c. Klicken Sie auf **Domäne** und den Domänennamen angeben.  
+   c. Klicken Sie auf **Domäne** , und geben Sie den Domänen Namen  
    d. Klicken Sie auf **OK**.  
-   e. Geben Sie Namen und das Kennwort die Anmeldeinformationen des Benutzers bei Aufforderung ein.  
+   e. Geben Sie bei entsprechender Aufforderung den Benutzernamen und das Kennwort ein.  
    f. Starten Sie den Server neu.  
 
 ### <a name="validation"></a>Überprüfung  
-Verwenden Sie die folgenden Schritte aus, um zu überprüfen, Host, Netzwerk ordnungsgemäß installiert wurde.  
+Mithilfe der folgenden Schritte können Sie überprüfen, ob das Host Netzwerk ordnungsgemäß eingerichtet ist.  
 
-1. Stellen Sie sicher, dass die VM-Switch erfolgreich erstellt wurde:  
+1. Stellen Sie sicher, dass der virtuelle Computer erfolgreich erstellt wurde:  
 
    ```PowerShell
    Get-VMSwitch "<switch name>"
    ```  
 
-2. Stellen Sie sicher, dass die vNIC Management auf dem VM-Switch mit dem Management-VLAN verbunden ist:  
+2. Vergewissern Sie sich, dass die Verwaltungs-vNIC auf dem VM-Switch mit dem Verwaltungs-VLAN verbunden ist:  
 
    >[!NOTE]
-   >Nur relevant, wenn Verwaltungs- und Mandanten-Datenverkehr dieselbe NIC Teilen    
+   >Nur relevant, wenn der Verwaltungs-und Mandanten Datenverkehr dieselbe NIC gemeinsam verwenden.    
 
    ```PowerShell
    Get-VMNetworkAdapterIsolation -ManagementOS
    ```
 
-3. Überprüfen Sie alle Hyper-V-Hosts und -Verwaltung externer Ressourcen, z. B. DNS-Server.<p>Stellen Sie sicher, dass sie über Ping mithilfe ihrer Verwaltungs-IP-Adresse bzw. den vollständig qualifizierten Domänennamen (FQDN) zugegriffen werden kann.   
+3. Überprüfen Sie alle Hyper-V-Hosts und externen Verwaltungsressourcen, z. b. DNS-Server.<p>Stellen Sie sicher, dass Sie über Ping über ihre Verwaltungs-IP-Adresse und/oder den voll qualifizierten Domänen Namen (FQDN) zugänglich sind.   
 
    ``ping <Hyper-V Host IP>``  
    ``ping <Hyper-V Host FQDN>``  
 
-4. Führen Sie den folgenden Befehl auf dem Bereitstellungshost aus, und geben Sie der FQDN der einzelnen Hyper-V-Hosts, um sicherzustellen, dass die Kerberos-Anmeldeinformationen, die zum Zugriff auf alle Server bereitstellt.  
+4. Führen Sie den folgenden Befehl auf dem Bereitstellungs Host aus, und geben Sie den FQDN jedes Hyper-V-Hosts an, um sicherzustellen, dass die verwendeten Kerberos-Anmelde Informationen Zugriff auf alle Server bieten.  
 
    ``winrm id -r:<Hyper-V Host FQDN>``  
 
-### <a name="nano-installation-requirements-and-notes"></a>Nano-Installationsanforderungen und Anmerkungen zu dieser Version  
+### <a name="nano-installation-requirements-and-notes"></a>Nano-Installationsanforderungen und-Hinweise  
 
-Wenn Sie Nano als Hyper-V-Hosts (physische Server) für die Bereitstellung verwenden, gelten folgende zusätzliche Anforderungen:  
+Wenn Sie nano als Hyper-V-Hosts (physische Server) für die Bereitstellung verwenden, müssen die folgenden zusätzlichen Anforderungen erfüllt sein:  
 
-1. Alle Nano-Knoten müssen das DSC-Paket, die mit dem Language Pack installiert ist:  
+1. Alle Nano-Knoten müssen das DSC-Paket mit dem Language Pack installiert haben:  
 
-   - Microsoft-NanoServer-DSC-Package.cab  
-   - Microsoft-NanoServer-DSC-Package_en-us.cab
+   - Microsoft-NanoServer-DSC-Package. cab  
+   - Microsoft-NanoServer-DSC-Package_en-US. cab
 
      ``dism /online /add-package /packagepath:<Path> /loglevel:4``  
 
-2. Die Skripts mit SDN Express müssen von einem nicht-Nano-Host (Windows Server Core oder Windows Server mit grafischer Benutzeroberfläche) ausgeführt werden. PowerShell-Workflows werden auf Nano nicht unterstützt.  
+2. Die Sdn Express-Skripts müssen von einem nicht-Nano-Host (Windows Server Core oder Windows Server w/GUI) ausgeführt werden. PowerShell-Workflows werden unter Nano nicht unterstützt.  
 
-3. Die NorthBound-API von Netzwerkcontroller aufrufen muss mithilfe von PowerShell oder der NC-REST-Wrapper (mit Invoke-WebRequest "und" Invoke-RestMethod abhängen) von einem nicht-Nano-Host ausgeführt werden.  
+3. Das Aufrufen der Northbound-API des Netzwerk Controllers mithilfe von PowerShell oder NC-Rest-Wrapper (die auf "aufrufen-WebRequest" und "aufrufen-restmethod" basieren) muss von einem nicht-Nano-Host aus erfolgen.  
 
 
-### <a name="run-sdn-express-scripts"></a>Ausführen von Skripts mit SDN Express  
+### <a name="run-sdn-express-scripts"></a>Ausführen von Sdn Express-Skripts  
 
-1. Wechseln Sie zu der [Microsoft SDN GitHub-Repository](https://github.com/Microsoft/SDN.git) für die Installationsdateien.
+1. Wechseln Sie zum [Microsoft Sdn GitHub-Repository](https://github.com/Microsoft/SDN.git) für die Installationsdateien.
 
-2. Herunterladen der Installationsdateien aus dem Repository auf dem Bereitstellungscomputer der angegebenen. Klicken Sie auf **Klonen oder herunterladen** , und klicken Sie dann auf **Download ZIP**.  
+2. Laden Sie die Installationsdateien aus dem Repository auf den angegebenen Bereitstellungs Computer herunter. Klicken Sie auf **Klonen oder herunterladen** und dann auf **ZIP herunterladen**.  
 
    >[!NOTE]
-   >Die angegebene Bereitstellungscomputer muss WindowsServer 2016 oder höher ausgeführt werden.
+   >Auf dem angegebenen Bereitstellungs Computer muss Windows Server 2016 oder höher ausgeführt werden.
 
-3. Erweitern Sie die Zip-Datei, und kopieren die **SDNExpress** Ordner auf des Bereitstellungscomputer `C:\` Ordner.  
+3. Erweitern Sie die ZIP-Datei, und kopieren Sie den Ordner **sdnexpress** in den Ordner `C:\` des Bereitstellungs Computers.  
 
-4. Freigabe der `C:\SDNExpress` Ordner wie "**SDNExpress**" mit der Berechtigung für **jeder** zu **Lese-/Schreibzugriff**.  
+4. Geben Sie den Ordner "`C:\SDNExpress`" als "**sdnexpress**" mit der Berechtigung an, **Lese-/Schreibzugriff** **zu erhalten** .  
 
-5. Navigieren Sie zu der `C:\SDNExpress` Ordner.<p>Sie finden Sie in den folgenden Ordnern:  
+5. Navigieren Sie zum Ordner "`C:\SDNExpress`".<p>Die folgenden Ordner werden angezeigt:  
 
 
    | Ordnername |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
    |-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   |  AgentConf  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   Enthält neue Exemplare OVSDB Schemas, die von den SDN-Host-Agent auf jedem Windows Server 2016 Hyper-V-Host zum Programm Netzwerkrichtlinie verwendet.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-   |    Zertifikate    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         Temporärer freigegebenen Speicherort für die NC-Zertifikatsdatei.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-   |   Abbilder    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         Leere, setzen Sie hier Ihre Vhdx-Abbild von Windows Server 2016                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-   |    Tools    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Dienstprogramme für die Problembehandlung und Debuggen.  Für die Hosts und virtuelle Computer kopiert.  Es wird empfohlen, dass Sie den Netzwerkmonitor oder Wireshark hier platzieren, damit sie bei Bedarf verfügbar ist.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-   |   Scripts   | Bereitstellungsskripts.<br /><br />-   **SDNExpress.ps1**<br />    Bereitgestellt wird, und konfiguriert das Fabric, einschließlich der virtuellen Maschinen von des Netzwerkcontrollers, virtuellen SLB Mux-Maschinen, Gateway-Pools und der HNV-Gateway virtuellen Computer, die für die Empfangsfunktionen.<br />-   **FabricConfig.psd1**<br />    Eine Datei Konfigurationsvorlage für das Skript SDNExpress.  Dies wird für Ihre Umgebung angepasst werden.<br />-   **SDNExpressTenant.ps1**<br />    Stellt eine mandantenarbeitslast Beispiel, in einem virtuellen Netzwerk eine Lastenausgleich-VIP-Adresse bereit.<br />    Auch stellt ein oder mehr Netzwerkverbindungen (IPSec-S2S-VPN, GRE, L3) bereit, auf den Service-Anbieter Edge-Gateways, die mit der zuvor erstellten mandantenarbeitslast verbunden sind. Die IPSec- und GRE-Gateways sind über die entsprechenden VIP-IP-Adresse und der L3-weiterleitungs-Gateway für Verbindungen verfügbar, über die entsprechenden-Adresspool.<br />    Dieses Skript kann zum Löschen der entsprechenden Konfigurations mit einer Rückgängig-Option auch verwendet werden.<br />-   **TenantConfig.psd1**<br />    Eine Vorlage-Konfigurationsdatei für Workloads von Mandanten und S2S-Gateway-Konfiguration.<br />-   **SDNExpressUndo.ps1**<br />    Bereinigt die Fabric-Umgebung, und klicken Sie auf einen Anfangszustand zurückgesetzt wird.<br />-   **SDNExpressEnterpriseExample.ps1**<br />    Stellt eine oder mehrere Standort unternehmensumgebungen mit einem Remote-Access-Gateway und (optional) eine entsprechende Enterprise-VM pro Standort bereit. Die IPSec oder GRE-Enterprise-Gateways eine Verbindung mit der entsprechenden VIP-IP-Adresse des dienstanbietergateways die S2S-Tunnel herstellen. Der L3-Gateway weitergeleitet, die über die entsprechenden Peer-IP-Adresse hergestellt werden. <br />            Dieses Skript kann zum Löschen der entsprechenden Konfigurations mit einer Rückgängig-Option auch verwendet werden.<br />-   **EnterpriseConfig.psd1**<br />    Eine Vorlage-Konfigurationsdatei für den Enterprise-Standort-zu-Standort-Gateway und die Client-VM-Konfiguration. |
-   | TenantApps  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             Dateien, die zum Bereitstellen von mandantenworkloads Beispiel verwendet werden.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+   |  Agentconf  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   Enthält neue Kopien von ovsdb-Schemas, die vom Sdn-Host-Agent auf jedem Windows Server 2016 Hyper-V-Host zum Programmieren der Netzwerk Richtlinie verwendet werden.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+   |    Zertifikate    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         Temporärer frei gegebener Speicherort für die NC-Zertifikat Datei.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+   |   Abbilder    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         Leer, platzieren Sie Ihr Windows Server 2016 vhdx-Abbild hier.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+   |    Tools    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Dienstprogramme für Problembehandlung und Debuggen.  Auf die Hosts und virtuellen Maschinen kopiert.  Es wird empfohlen, dass Sie hier Netzwerkmonitor oder wireshark platzieren, damit es bei Bedarf verfügbar ist.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+   |   Scripts   | Bereitstellungs Skripts.<br /><br />-   **sdnexpress. ps1**<br />    Stellt das Fabric bereit und konfiguriert es, einschließlich der virtuellen Computer des Netzwerk Controllers, der virtuellen SLB MUX-Computer, der gatewaypools und der virtuellen HNV-Gateway-Computer, die den Pools entsprechen.<br />-   **fabricconfig. psd1**<br />    Eine Konfigurationsdatei Vorlage für das sdnexpress-Skript.  Dies wird für Ihre Umgebung angepasst.<br />-   **sdnexpresstenant. ps1**<br />    Stellt eine Beispiel-Mandanten Arbeitsauslastung in einem virtuellen Netzwerk mit einer VIP mit Lastenausgleich bereit.<br />    Außerdem wird von eine oder mehrere Netzwerkverbindungen (IPSec S2S VPN, GRE, L3) auf den Edge-Gateways des Dienstanbieters bereitgestellt, die mit der zuvor erstellten Mandanten Arbeitsauslastung verbunden sind. Die IPSec-und GRE-Gateways sind für Konnektivität über die entsprechende VIP-IP-Adresse und das L3-Weiterleitungs Gateway über den entsprechenden Adresspool verfügbar.<br />    Dieses Skript kann auch verwendet werden, um die entsprechende Konfiguration mit einer Option zum Rückgängigmachen zu löschen.<br />-   **tenantconfig. psd1**<br />    Eine Vorlagen Konfigurationsdatei für die Mandanten Arbeitsauslastung und die S2S-Gatewaykonfiguration.<br />-   **sdnexpressundo. ps1**<br />    Bereinigt die Fabric-Umgebung und setzt Sie auf den Startzustand zurück.<br />-   **sdnexpressenterpriseexample. ps1**<br />    Stellt eine oder mehrere Unternehmens Standort Umgebungen mit einem Remote Zugriffs Gateway und (optional) einem entsprechenden virtuellen Unternehmens Computer pro Standort bereit. Die IPSec-oder GRE Enterprise-Gateways verbinden sich mit der entsprechenden VIP-IP-Adresse des Dienstanbieter Gateways, um die S2S-Tunnel einzurichten. Das L3-Weiterleitungs Gateway verbindet sich über die entsprechende Peer-IP-Adresse. <br />            Dieses Skript kann auch verwendet werden, um die entsprechende Konfiguration mit einer Option zum Rückgängigmachen zu löschen.<br />-   **enterpriseconfig. psd1**<br />    Eine Vorlagen Konfigurationsdatei für das Standort-zu-Standort-Gateway für Unternehmen und die Konfiguration der Client-VM. |
+   | Tenantapps  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             Zum Bereitstellen von Beispiel-mandantenworkloads verwendete Dateien.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 
    ---
 
-6. Überprüfen Sie, ob die Windows Server 2016-VHDX-Datei die **Images** Ordner.  
+6. Vergewissern Sie sich, dass sich die vhdx-Datei von Windows Server 2016 im Ordner **Images** befindet.  
 
-7. Anpassen die Datei SDNExpress\scripts\FabricConfig.psd1 durch Ändern der **<< Ersetzen >>** Tags mit bestimmten Werten Ihrer Lab-Infrastruktur, einschließlich von Hostnamen, Domänennamen, Benutzernamen und Kennwörtern, anpassen und Informationen zum Netzwerk für die Netzwerke, die im Thema Planen von Netzwerk aufgeführt.  
+7. Passen Sie die Datei "sdnexpress\script\fabricconfig.psd1" an, indem Sie die **< < ersetzen > >** Tags durch bestimmte Werte an Ihre Lab-Infrastruktur anpassen, einschließlich Hostnamen, Domänen Namen, Benutzernamen und Kenn Wörter sowie Netzwerkinformationen für das Netzwerke, die im Thema Planning Network aufgeführt sind.  
 
-8. Erstellen Sie einen Host A-Eintrag im DNS für die NetworkControllerRestName (FQDN) und NetworkControllerRestIP.  
+8. Erstellen Sie einen Host a-Datensatz in DNS für networkcontrollerrestname (vollständig) und networkcontrollerrestip.  
 
-9. Führen Sie das Skript als Benutzer mit Domänenadministrator-Anmeldeinformationen:  
+9. Führen Sie das Skript als Benutzer mit Anmelde Informationen des Domänen Administrators aus:  
 
    ``SDNExpress\scripts\SDNExpress.ps1 -ConfigurationDataFile FabricConfig.psd1 -Verbose``  
 
-10. Wenn alle Vorgänge rückgängig machen möchten, führen Sie den folgenden Befehl aus:  
+10. Um alle Vorgänge rückgängig zu machen, führen Sie den folgenden Befehl aus:  
 
     ``SDNExpress\scripts\SDNExpressUndo.ps1 -ConfigurationDataFile FabricConfig.psd1 -Verbose``  
 
 #### <a name="validation"></a>Überprüfung  
 
-Vorausgesetzt, dass das Skript mit SDN Express bis zum Abschluss ausgeführt, ohne Fehler meldet, können Sie den folgenden Schritt aus, um sicherzustellen, dass Fabric-Ressourcen wurden ordnungsgemäß bereitgestellt und stehen für die mandantenbereitstellung durchführen.  
+Vorausgesetzt, dass das Sdn Express-Skript bis zum Abschluss ausgeführt wurde, ohne Fehler zu melden, können Sie den folgenden Schritt ausführen, um sicherzustellen, dass die fabricressourcen ordnungsgemäß bereitgestellt und für die Mandanten Bereitstellung  
 
-Verwendung [Diagnosetools](https://docs.microsoft.com/windows-server/networking/sdn/troubleshoot/troubleshoot-windows-server-software-defined-networking-stack) um sicherzustellen, dass auf jedem Fabric-Ressourcen im Netzwerkcontroller keine Fehler vorhanden sind.  
+Verwenden Sie [Diagnosetools](https://docs.microsoft.com/windows-server/networking/sdn/troubleshoot/troubleshoot-windows-server-software-defined-networking-stack) , um sicherzustellen, dass keine Fehler in Fabric-Ressourcen im Netzwerk Controller vorhanden sind.  
 
    ``Debug-NetworkControllerConfigurationState -NetworkController <FQDN of Network Controller Rest Name>``  
 
 
-### <a name="deploy-a-sample-tenant-workload-with-the-software-load-balancer"></a>Bereitstellen einer beispielworkload eine Mandanten mit den Software Load balancer  
+### <a name="deploy-a-sample-tenant-workload-with-the-software-load-balancer"></a>Bereitstellen einer Beispiel-Mandanten Arbeitsauslastung mit dem Software Load Balancer  
 
-Nun, dass Fabric-Ressourcen bereitgestellt wurden, können Sie Ihre SDN-Bereitstellung End-to-End durch Bereitstellen einer beispielworkload eine Mandanten überprüfen. Diese Mandanten-arbeitsauslastung besteht aus zwei virtuelle Subnetze (Web- und Datenbankebene) über die Zugriffssteuerungsliste (ACL)-Regeln, die mit der verteilte SDN-Firewall geschützt. Die Webschicht-Subnetz ist über die SLB/MUX-unter Verwendung einer virtuellen IP-Adresse (VIP) Adresse zugänglich. Das Skript wird automatisch bereitgestellt werden, zwei virtuelle Computer der Webebene und eine virtuelle Maschine für eine Datenbank-Ebene und verbindet diese mit den virtuellen Subnetzen.  
+Nachdem nun Fabric-Ressourcen bereitgestellt wurden, können Sie die End-to-End-Bereitstellung Ihrer Sdn-Bereitstellung überprüfen Diese Mandanten Arbeitsauslastung besteht aus zwei virtuellen Subnetzen (webetier-und Datenbankebene), die über Access Control List-Regeln (ACL) mithilfe der verteilten Sdn-Firewall geschützt sind. Der Zugriff auf das virtuelle Subnetz der webeebene erfolgt über SLB/MUX mithilfe einer virtuellen IP-Adresse (VIP). Das Skript stellt automatisch zwei virtuelle Computer der webeebene und einen virtuellen Computer der Datenbankebene bereit und verbindet diese mit den virtuellen Subnetzen.  
 
-1.  Anpassen die Datei SDNExpress\scripts\TenantConfig.psd1 durch Ändern der **<< Ersetzen >>** Tags mit bestimmten Werten (z. B.: VHD-Image-Name, netzwerkcontrollername REST, vSwitch Namen usw. wie zuvor in der Datei FabricConfig.psd1 definiert)  
+1.  Passen Sie die Datei sdnexpress\script\tenantconfig.psd1 an, indem Sie die **< < ersetzen > >** Tags durch bestimmte Werte ändern (z. b.: VHD-Abbild Name, Netzwerk Controller-Rest-Name, Name des vswitchs usw., wie zuvor in der Datei fabricconfig. psd1 definiert)  
 
-2.  Führen Sie das Skript ein. Zum Beispiel:  
+2.  Führen Sie das Skript aus. Zum Beispiel:  
 
     ``SDNExpress\scripts\SDNExpressTenant.ps1 -ConfigurationDataFile TenantConfig.psd1 -Verbose``  
 
-3.  Führen Sie die Konfiguration rückgängig machen, die das gleiche Skript mit dem **Rückgängig** Parameter. Zum Beispiel:  
+3.  Um die Konfiguration rückgängig zu machen, führen Sie das gleiche Skript mit dem Parameter **Rückgängig** aus. Zum Beispiel:  
 
     ``SDNExpress\scripts\SDNExpressTenant.ps1 -Undo -ConfigurationDataFile TenantConfig.psd1 -Verbose``  
 
 #### <a name="validation"></a>Überprüfung  
 
-Um zu überprüfen, dass die mandantenbereitstellung erfolgreich war, führen Sie folgende Schritte aus:
+Gehen Sie folgendermaßen vor, um zu überprüfen, ob die Mandanten Bereitstellung erfolgreich war:
 
-1. Melden Sie sich bei den virtuellen Datenbankcomputer Tarif und pingen Sie die IP-Adresse eines der virtuellen Computer der Webebene (Stellen Sie sicher, dass die Windows-Firewall im virtuellen Computer der Webebene deaktiviert ist).  
+1. Melden Sie sich bei dem virtuellen Computer der Datenbankebene an, und versuchen Sie, die IP-Adresse eines der virtuellen Computer der webeebene zu pingen. (stellen Sie sicher, dass die Windows-Firewall auf virtuellen Computern der  
 
-2. Überprüfen Sie die Controller-Mandanten-Netzwerkressourcen für alle Fehler an. Führen Sie den folgenden von jedem Hyper-V-Host mit Layer-3-Konnektivität und den Netzwerkcontroller:  
+2. Überprüfen Sie die Netzwerk Controller-Mandanten Ressourcen auf Fehler. Führen Sie auf jedem Hyper-V-Host mit Layer-3-Konnektivität mit dem Netzwerk Controller Folgendes aus:  
 
    ``Debug-NetworkControllerConfigurationState -NetworkController <FQDN of Network Controller REST Name>``
 
-3. Um sicherzustellen, dass der Load Balancer ordnungsgemäß ausgeführt wird, führen Sie den folgenden von jedem Hyper-V-Host aus:
+3. Um zu überprüfen, ob der Load Balancer ordnungsgemäß ausgeführt wird, führen Sie auf jedem Hyper-V-Host Folgendes aus:
 
    ``wget <VIP IP address>/unique.htm -disablekeepalive -usebasicparsing``
 
-   wo `<VIP IP address>` der Webebene VIP-IP-Adresse, die Sie in der Datei TenantConfig.psd1 konfiguriert ist. 
+   Dabei ist `<VIP IP address>` die IP-Adresse der webeebene, die Sie in der Datei "tenantconfig. psd1" konfiguriert haben. 
 
    >[!TIP]
-   >Suchen Sie nach der `VIPIP` TenantConfig.psd1 Variable.
+   >Suchen Sie in "tenantconfig. psd1" nach der Variablen "`VIPIP`".
 
-   Führen Sie diese mehreren Male auf, um den Lastenausgleich zwischen den verfügbaren DIPs wechseln, finden Sie unter. Sie können dieses Verhalten mithilfe eines Webbrowsers auch beobachten. Wechseln Sie zu `<VIP IP address>/unique.htm`. Schließen Sie den Browser und öffnen Sie eine neue Instanz, und navigieren Sie erneut. Sehen Sie die Seite "Blau" und die grüne Seite alternativen, außer wenn der Browser die Seite zwischenspeichert, bevor das Zeitlimit für des Caches.
+   Führen Sie diese mehrerer-Zeiten aus, um den Lasten Ausgleichs Schalter zwischen den verfügbaren Dips anzuzeigen. Dieses Verhalten können Sie auch mithilfe eines Webbrowsers beobachten. Wechseln Sie zu `<VIP IP address>/unique.htm`. Schließen Sie den Browser, öffnen Sie eine neue Instanz, und suchen Sie dann erneut. Die blaue Seite und die grüne Seite werden angezeigt, es sei denn, der Browser speichert die Seite vor dem Timeout des Caches zwischen.
 
 ---

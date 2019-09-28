@@ -1,40 +1,40 @@
 ---
-title: Problembehandlung für AD FS - Ausstellung von Ansprüchen
-description: In diesem Dokument wird beschrieben, wie tokenausstellungs-Problembehandlung mit AD FS
+title: 'AD FS Problembehandlung: Anspruchs Ausstellung'
+description: In diesem Dokument wird beschrieben, wie Probleme bei der Tokenausstellung mit AD FS behoben werden.
 author: billmath
 ms.author: billmath
 manager: mtillman
 ms.date: 01/03/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: fdf8851fe9b35f82191458ba3313fda2dc3ee4cf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ea0e6112f00f9cace6a0c580661a5319b5adaea5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839661"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366238"
 ---
-# <a name="ad-fs-troubleshooting---claims-issuance"></a>Problembehandlung für AD FS - Ausstellung von Ansprüchen
-Ein Anspruch ist eine Anweisung, ein Subjekt macht über sich selbst oder einen anderen Antragsteller.  Ansprüche werden durch eine vertrauende Seite ausgestellt, und sie erhalten Sie einen oder mehrere Werte sind, und klicken Sie dann in Sicherheitstoken, die von AD FS-Servers ausgestellt werden verpackt.  Da in diesen Prozess mehrere Variable Komponenten vorhanden sind, kann Ausstellung von Ansprüchen in diese wichtige Teile unterteilt werden.
+# <a name="ad-fs-troubleshooting---claims-issuance"></a>AD FS Problembehandlung: Anspruchs Ausstellung
+Ein Anspruch ist eine-Anweisung, die ein Subjekt über sich selbst oder einen anderen Betreff trifft.  Ansprüche werden von einer vertrauenden Seite ausgegeben, und Sie erhalten einen oder mehrere Werte und werden dann in Sicherheits Token verpackt, die vom AD FS Server ausgestellt werden.  Da in diesem Prozess mehrere bewegliche Teile vorhanden sind, kann die Anspruchs Ausstellung in diese wichtigen Teile aufgeteilt werden.
 
 >[!NOTE]  
->Können Sie [ClaimsXRay](https://adfshelp.microsoft.com/ClaimsXray/TokenRequest) auf die [AD FS-Hilfe](https://adfshelp.microsoft.com) Site zur Problembehandlung behauptet Probleme.   
+>Sie können [claimsxray](https://adfshelp.microsoft.com/ClaimsXray/TokenRequest) auf der [ADFS-Hilfe](https://adfshelp.microsoft.com) Website verwenden, um die Behandlung von Anspruchs Problemen zu unterstützen.   
 
-## <a name="token-request"></a>Anforderung eines Zugriffstokens
-Wenn Sie zu einer vertrauenden leitet es Sie AD FS mit einer token-Anforderung.  Probleme können mit der Anforderung auftreten.  Insbesondere:
+## <a name="token-request"></a>Tokenanforderung
+Wenn Sie zu einer vertrauenden Seite wechseln, werden Sie mit einer Tokenanforderung an AD FS umgeleitet.  Probleme können mit der Anforderung auftreten.  Insbesondere:
 
-### <a name="the-request-formatting-with-3rd-parties-particularly-saml"></a>Die Anforderung, die Formatierung mit 3. Parteien (insbesondere SAML)
+### <a name="the-request-formatting-with-3rd-parties-particularly-saml"></a>Die Anforderungs Formatierung mit Drittanbietern (insbesondere SAML)
 
-### <a name="pre-formated-urls-that-have-typos"></a>Pre-formatiertes URLs, die von Tippfehlern
-Wenn Sie ein Token von WS-Federaion vertrauende Seiten, Sicherheitstoken-Anforderung ausgeben mit URL-Abfragezeichenfolgenparametern geht auf.  Wenn die vertrauende Seite angeben und nicht die richtigen Parameter in diese URL wird die Umleitung zu AD FS kann dies ein Problem mit der Anforderung führen.
+### <a name="pre-formated-urls-that-have-typos"></a>Vorformatierte URLs mit Tippfehler
+Beim Ausgeben eines Tokens von WS-federaion-vertrauenden Seiten, die die Tokenanforderung mit URL-Abfrage Zeichenfolgen-Parametern ergibt.  Wenn die vertrauende Seite die richtigen Parameter in dieser URL nicht angibt, wenn Sie die Umleitung zu AD FS, kann dies ein Problem mit der Anforderung verursachen.
 
 
-Damit auf Verifiy das tokenformat kann ein Web Debugger-Tool verwendet werden
+Zur Überprüfung des Tokenformats kann ein webdebugger-Tool verwendet werden.
 
 
 ## <a name="token-response"></a>Tokenantwort
 
 ## <a name="authentication"></a>Authentifizierung
 
-## <a name="claim-rule-processing"></a>Anspruch Regelverarbeitung
+## <a name="claim-rule-processing"></a>Verarbeitung von Anspruchs Regeln

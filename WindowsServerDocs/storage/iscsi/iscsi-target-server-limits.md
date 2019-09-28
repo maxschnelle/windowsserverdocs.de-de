@@ -1,27 +1,27 @@
 ---
-title: iSCSI Target Server Skalierbarkeitsgrenzen
+title: Skalierbarkeits Limits für iSCSI-Ziel Server
 TOCTitle: iSCSI Target Server Scalability Limits
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-iscsi
 ms.topic: article
 author: JasonGerend
 manager: dougkim
 ms.author: jgerend
 ms.date: 09/11/2018
-ms.openlocfilehash: d912047ab0e3136c6dc05064f3a28aaaafd36c79
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d92ed347288bc9a0dd3893148a31152ae8b8a313
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447727"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393994"
 ---
-# <a name="iscsi-target-server-scalability-limits"></a>iSCSI Target Server Skalierbarkeitsgrenzen
+# <a name="iscsi-target-server-scalability-limits"></a>Skalierbarkeits Limits für iSCSI-Ziel Server
 
-Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Dieses Thema enthält getestet und unterstützt Microsoft iSCSI Target Server Grenzwerte unter Windows Server. Die folgenden Tabellen zeigen die getesteten Unterstützungsgrenzen und, falls zutreffend, ob die Grenzwerte erzwungen werden.
+Dieses Thema enthält die unterstützten und getesteten Beschränkungen von Microsoft iSCSI-Ziel Servern unter Windows Server. In den folgenden Tabellen werden die unterstützten Grenzwerte und ggf. die Grenzwerte für die Durchsetzung der Grenzwerte angezeigt.
 
-## <a name="general-limits"></a>Allgemeine Einschränkungen
+## <a name="general-limits"></a>Allgemeine Grenzwerte
 
 <table>
 <colgroup>
@@ -33,52 +33,52 @@ Dieses Thema enthält getestet und unterstützt Microsoft iSCSI Target Server Gr
 <thead>
 <tr class="header">
 <th><p>Element</p></th>
-<th><p>Support-Grenzwert</p></th>
-<th><p>Erzwungen?</p></th>
+<th><p>Unterstützungs Limit</p></th>
+<th><p>Erzwun?</p></th>
 <th><p>Kommentar</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>iSCSI-Ziel-Instanzen pro iSCSI-Zielserver</p></td>
+<td><p>iSCSI-Ziel Instanzen pro iSCSI-Ziel Server</p></td>
 <td><p>256</p></td>
 <td><p>Nein</p></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><p>iSCSI-logische Einheiten (LUs) oder virtuelle Festplatten pro iSCSI-Zielserver</p></td>
+<td><p>logische iSCSI-Einheiten (LUs) oder virtuelle Datenträger pro iSCSI-Ziel Server</p></td>
 <td><p>512</p></td>
 <td><p>Nein</p></td>
-<td><p>Testen von Konfigurationen enthalten: 8-LUs pro Zielinstanz mit einer durchschnittlichen mehr als 64-Ziele und 256 Zielinstanzen mit einer LU pro Ziel.</p></td>
+<td><p>Testkonfigurationen enthalten: 8 lus pro Ziel Instanz mit durchschnittlich über 64 Zielen und 256 Ziel Instanzen mit einer lu pro Ziel.</p></td>
 </tr>
 <tr class="odd">
-<td><p>iSCSI-LUs oder virtuelle Festplatten pro iSCSI-Ziel-Instanz</p></td>
-<td><p>256 (128 unter WindowsServer 2012)</p></td>
+<td><p>iSCSI-lus oder virtuelle Datenträger pro iSCSI-Ziel Instanz</p></td>
+<td><p>256 (128 unter Windows Server 2012)</p></td>
 <td><p>Ja</p></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><p>Sitzungen, die gleichzeitig mit einer Instanz des iSCSI-Ziel verbunden werden kann</p></td>
-<td><p>544 (512 unter WindowsServer 2012)</p></td>
+<td><p>Sitzungen, die gleichzeitig eine Verbindung mit einer iSCSI-Ziel Instanz herstellen können</p></td>
+<td><p>544 (512 unter Windows Server 2012)</p></td>
 <td><p>Ja</p></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><p>Momentaufnahmen pro LU</p></td>
+<td><p>Momentaufnahmen pro lu</p></td>
 <td><p>512</p></td>
 <td><p>Ja</p></td>
-<td><p>Es sind maximal 512 Snapshots pro Volume für unabhängige iSCSI-Anwendung ein.</p></td>
+<td><p>Es gibt ein Limit von 512 Momentaufnahmen pro unabhängigem iSCSI-Anwendungs Volume.</p></td>
 </tr>
 <tr class="even">
 <td><p>Lokal bereitgestellte virtuelle Datenträger oder Momentaufnahmen pro Speichergerät</p></td>
 <td><p>32</p></td>
 <td><p>Ja</p></td>
-<td><p>Lokal bereitgestellt haben, virtuelle Datenträger Don&#39;t-Angebot, die alle iSCSI-spezifischen Funktionen und sind als veraltet markiert: Weitere Informationen finden Sie unter <a href="https://technet.microsoft.com/library/dn303411.aspx">Features Removed or Deprecated in Windows Server 2012 R2</a>.</p></td>
+<td><p>Lokal bereitgestellte virtuelle&#39;Datenträger bieten keine iSCSI-spezifischen Funktionen an und sind veraltet. Weitere Informationen finden Sie unter <a href="https://technet.microsoft.com/library/dn303411.aspx">in Windows Server 2012 R2 entfernte oder veraltete Features</a>.</p></td>
 </tr>
 </tbody>
 </table>
 
-## <a name="fault-tolerance-limits"></a>Fehlertoleranz beschränkt.
+## <a name="fault-tolerance-limits"></a>Limits für die Fehlertoleranz
 
 <table>
 <colgroup>
@@ -90,27 +90,27 @@ Dieses Thema enthält getestet und unterstützt Microsoft iSCSI Target Server Gr
 <thead>
 <tr class="header">
 <th><p>Element</p></th>
-<th><p>Support-Grenzwert</p></th>
-<th><p>Erzwungen?</p></th>
+<th><p>Unterstützungs Limit</p></th>
+<th><p>Erzwun?</p></th>
 <th><p>Kommentar</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><p>Failoverclusterknoten</p></td>
-<td><p>8 (5 unter WindowsServer 2012)</p></td>
+<td><p>8 (5 auf Windows Server 2012)</p></td>
 <td><p>Nein</p></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><p>Mehrere aktive Clusterknoten</p></td>
+<td><p>Mehrere aktive Cluster Knoten</p></td>
 <td><p>Unterstützt</p></td>
 <td> 
 <p>Nicht zutreffend</p></td>
-<td><p>Jeden aktiven Knoten im Failovercluster besitzt eine gruppierte Instanz für andere iSCSI-Zielservers mit anderen Knoten, der als möglicher Besitzerknoten fungiert.</p></td>
+<td><p>Jeder aktive Knoten im Failovercluster besitzt eine andere gruppierte Instanz des iSCSI-Zielservers mit anderen Knoten, die als mögliche Besitzer Knoten fungieren.</p></td>
 </tr>
 <tr class="odd">
-<td><p>Fehler-wiederherstellungsebene (ERL)</p></td>
+<td><p>Fehler Wiederherstellungs Ebene (ERL)</p></td>
 <td><p>0</p></td>
 <td><p>Ja</p></td>
 <td></td>
@@ -122,13 +122,13 @@ Dieses Thema enthält getestet und unterstützt Microsoft iSCSI Target Server Gr
 <td></td>
 </tr>
 <tr class="odd">
-<td><p>Sitzungen, die gleichzeitig mit einer Instanz des iSCSI-Ziel verbunden werden kann</p></td>
-<td><p>544 (512 unter WindowsServer 2012)</p></td>
+<td><p>Sitzungen, die gleichzeitig eine Verbindung mit einer iSCSI-Ziel Instanz herstellen können</p></td>
+<td><p>544 (512 unter Windows Server 2012)</p></td>
 <td><p>Nein</p></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><p>Multipfad-e/a (MPIO)</p></td>
+<td><p>Multipath-Eingabe/-Ausgabe (MPIO)</p></td>
 <td><p>Unterstützt</p></td>
 <td><p>Nicht zutreffend</p></td>
 <td></td>
@@ -140,15 +140,15 @@ Dieses Thema enthält getestet und unterstützt Microsoft iSCSI Target Server Gr
 <td></td>
 </tr>
 <tr class="even">
-<td><p>Konvertieren einen eigenständigen iSCSI-Zielserver in einem gruppierten iSCSI-Zielserver und umgekehrt</p></td>
+<td><p>Die Umstellung eines eigenständigen iSCSI-Zielservers auf einen geclusterten iSCSI-Zielserver oder umgekehrt</p></td>
 <td><p>Nicht unterstützt.</p></td>
 <td><p>Nein</p></td>
-<td><p>Der iSCSI-Ziel-Instanz und die virtuelle Festplatte Konfigurationsdaten, einschließlich momentaufnahmemetadaten werden während der Konvertierung verloren gehen.</p></td>
+<td><p>Die iSCSI-Ziel Instanz und die Konfigurationsdaten des virtuellen Datenträgers, einschließlich der Momentaufnahme Metadaten, gehen bei der Konvertierung verloren.</p></td>
 </tr>
 </tbody>
 </table>
 
-## <a name="network-limits"></a>Netzwerkgrenzwerte
+## <a name="network-limits"></a>Netzwerk Grenzwerte
 
 <table>
 <colgroup>
@@ -160,17 +160,17 @@ Dieses Thema enthält getestet und unterstützt Microsoft iSCSI Target Server Gr
 <thead>
 <tr class="header">
 <th><p>Element</p></th>
-<th><p>Support-Grenzwert</p></th>
-<th><p>Erzwungen?</p></th>
+<th><p>Unterstützungs Limit</p></th>
+<th><p>Erzwun?</p></th>
 <th><p>Kommentar</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>Maximale Anzahl von aktiven Netzwerkadapter</p></td>
+<td><p>Maximale Anzahl aktiver Netzwerkadapter</p></td>
 <td><p>8</p></td>
 <td><p>Nein</p></td>
-<td><p>Gilt für Netzwerkadapter, die iSCSI-Datenverkehr, anstatt die Gesamtanzahl der Netzwerkadapter auf dem Gerät zugeordnet sind.</p></td>
+<td><p>Gilt für Netzwerkadapter, die für iSCSI-Datenverkehr dediziert sind, und nicht die Gesamtanzahl der Netzwerkadapter in der Appliance.</p></td>
 </tr>
 <tr class="even">
 <td><p>Portal (IP-Adressen) unterstützt</p></td>
@@ -179,8 +179,8 @@ Dieses Thema enthält getestet und unterstützt Microsoft iSCSI Target Server Gr
 <td></td>
 </tr>
 <tr class="odd">
-<td><p>Netzwerk – portgeschwindigkeit</p></td>
-<td><p>1 Gbit/s, 10 Gbit/s, 40Gbps, 56-Gbit/s (Windows Server 2012 R2 und höher nur)</p></td>
+<td><p>Netzwerk Port Geschwindigkeit</p></td>
+<td><p>1 Gbit/s, 10 Gbit/s, 40 Gbit/s, 56 Gbit/s (nur Windows Server 2012 R2 und höher)</p></td>
 <td><p>Nein</p></td>
 <td></td>
 </tr>
@@ -200,7 +200,7 @@ Dieses Thema enthält getestet und unterstützt Microsoft iSCSI Target Server Gr
 <td><p>TCP-Abladung</p></td>
 <td><p>Unterstützt</p></td>
 <td><p>Nicht zutreffend</p></td>
-<td><p>Nutzen Sie große senden (Segmentierung), die Prüfsumme, interruptüberprüfung und RSS-Auslagerung</p></td>
+<td><p>Nutzen Sie große Sende Vorgänge (Segmentierung), Prüfsumme, interruptmoderation und RSS-Abladung</p></td>
 </tr>
 <tr class="odd">
 <td><p>iSCSI-Auslagerung</p></td>
@@ -229,7 +229,7 @@ Dieses Thema enthält getestet und unterstützt Microsoft iSCSI Target Server Gr
 </tbody>
 </table>
 
-## <a name="iscsi-virtual-disk-limits"></a>Grenzwerte für iSCSI-Datenträger
+## <a name="iscsi-virtual-disk-limits"></a>Einschränkungen für virtuelle iSCSI-Datenträger
 
 <table>
 <colgroup>
@@ -241,80 +241,80 @@ Dieses Thema enthält getestet und unterstützt Microsoft iSCSI Target Server Gr
 <thead>
 <tr class="header">
 <th><p>Element</p></th>
-<th><p>Support-Grenzwert</p></th>
-<th><p>Erzwungen?</p></th>
+<th><p>Unterstützungs Limit</p></th>
+<th><p>Erzwun?</p></th>
 <th><p>Kommentar</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>Über einen iSCSI-Initiator des virtuellen Datenträgers von einem Basisdatenträger in einen dynamischen Datenträger zu konvertieren </p></td>
+<td><p>Von einem iSCSI-Initiator, der den virtuellen Datenträger von einem Basis Datenträger in einen dynamischen Datenträger </p></td>
 <td><p>Ja</p></td>
 <td><p>Nein</p></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><p>Format der virtuellen Festplatte</p></td>
-<td><p>vhdx (Windows Server 2012 R2 und höher nur)</p>
+<td><p>vhdx (nur Windows Server 2012 R2 und höher)</p>
 <p>VHD</p></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><p>Minimale Format VHD-Größe</p></td>
-<td><p>.vhdx: 3 MB</p>
-<p>VHD-Datei: 8 MB</p></td>
+<td><p>Mindestformatgröße für VHD</p></td>
+<td><p>vhdx 3 MB</p>
+<p>VHD 8 MB</p></td>
 <td><p>Ja</p></td>
-<td><p>Gilt für alle unterstützten VHD-Dateitypen: übergeordneten, differenzierende und behoben.</p></td>
+<td><p>Gilt für alle unterstützten VHD-Typen: übergeordnet, Differenzierung und korrigiert.</p></td>
 </tr>
 <tr class="even">
-<td><p>Max. Größe des übergeordneten VHD</p></td>
-<td><p>.vhdx: 64 TB</p>
-<p>VHD-Datei: 2 TB</p></td>
+<td><p>Maximale Größe der übergeordneten VHD</p></td>
+<td><p>vhdx 64 TB</p>
+<p>VHD 2 TB</p></td>
 <td><p>Ja</p></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><p>Feste VHD Max. Größe</p></td>
-<td><p>.vhdx: 64 TB</p>
-<p>VHD-Datei: 16 TB</p></td>
+<td><p>Maximale VHD-Größe</p></td>
+<td><p>vhdx 64 TB</p>
+<p>VHD 16 TB</p></td>
 <td><p>Ja</p></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><p>Maximalgröße der differenzierenden VHD</p></td>
-<td><p>.vhdx: 64 TB</p>
-<p>VHD-Datei: 2 TB</p></td>
+<td><p>Maximale Größe für differenzierende VHD</p></td>
+<td><p>vhdx 64 TB</p>
+<p>VHD 2 TB</p></td>
 <td><p>Ja</p></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><p>VHD mit festem format</p></td>
+<td><p>Festes VHD-Format</p></td>
 <td><p>Unterstützt</p></td>
 <td><p>Nein</p></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><p>Differenzierende VHD-format</p></td>
+<td><p>VHD-differenzierungsformat</p></td>
 <td><p>Unterstützt</p></td>
 <td><p>Nein</p></td>
-<td><p>Momentaufnahmen können nicht von differenzierenden virtuellen iSCSI-basierte VHD-Datenträgern erstellt werden.</p></td>
+<td><p>Momentaufnahmen können nicht für differenzierende VHD-basierte virtuelle iSCSI-Datenträger verwendet werden.</p></td>
 </tr>
 <tr class="odd">
-<td><p>Anzahl der differenzierende virtuelle Festplatten pro übergeordnete virtuelle Festplatte</p></td>
+<td><p>Anzahl differenzierender VHDs pro übergeordneter VHD</p></td>
 <td><p>256</p></td>
-<td><p>Nein (Ja auf WindowsServer 2012)</p></td>
-<td><p>Zwei Ebenen (untergeordneten Knoten zweiter Ordnung vhdx-Dateien) ist das Maximum für vhdx-Dateien. eine Ebene (untergeordnete VHD-Dateien) ist das Maximum für VHD-Dateien.</p></td>
+<td><p>Nein (ja unter Windows Server 2012)</p></td>
+<td><p>Der Höchstwert für vhdx-Dateien ist der Höchstwert für die vhdx-Dateien. eine Ebene der Tiefe (untergeordnete VHD-Dateien) ist das Maximum für VHD-Dateien.</p></td>
 </tr>
 <tr class="even">
-<td><p>Dynamische VHD-format</p></td>
-<td><p>.vhdx: Ja</p>
-<p>VHD-Datei: Ja (Nein unter WindowsServer 2012)</p></td>
+<td><p>Dynamisches VHD-Format</p></td>
+<td><p>vhdx Ja</p>
+<p>VHD Ja (Nein unter Windows Server 2012)</p></td>
 <td><p>Ja</p></td>
-<td><p>Ist die Zuordnung aufheben&#39;t unterstützt.</p></td>
+<td><p>Aufheben der Zuordnung von&#39;steht t unterstützt.</p></td>
 </tr>
 <tr class="odd">
-<td><p>ExFAT/FAT/FAT32 (hosting Volume der virtuellen Festplatte)</p></td>
+<td><p>exFAT/FAT32/FAT (hostingvolume der VHD)</p></td>
 <td><p>Nicht unterstützt.</p></td>
 <td><p>Ja</p></td>
 <td></td>
@@ -338,7 +338,7 @@ Dieses Thema enthält getestet und unterstützt Microsoft iSCSI Target Server Gr
 <td></td>
 </tr>
 <tr class="odd">
-<td><p>Non-Microsoft CFS</p></td>
+<td><p>Nicht-Microsoft-CFS</p></td>
 <td><p>Nicht unterstützt.</p></td>
 <td><p>Ja</p></td>
 <td></td>
@@ -347,19 +347,19 @@ Dieses Thema enthält getestet und unterstützt Microsoft iSCSI Target Server Gr
 <td><p>Schlanke Speicherzuweisung</p></td>
 <td><p>Nein</p></td>
 <td><p>Nicht zutreffend</p></td>
-<td><p>Dynamische virtuelle Festplatten werden unterstützt, jedoch ist die Zuordnung aufheben&#39;t unterstützt.</p></td>
+<td><p>Dynamische VHDs werden unterstützt, aber die Zuordnung von&#39;steht t wird nicht unterstützt.</p></td>
 </tr>
 <tr class="odd">
-<td><p>Logische Einheit verkleinern</p></td>
-<td><p>Ja (Windows Server 2012 R2 und höher nur)</p></td>
+<td><p>Verkleinerung der logischen Einheit</p></td>
+<td><p>Ja (nur Windows Server 2012 R2 und höher)</p></td>
 <td><p>Nicht zutreffend</p></td>
-<td><p>Verwendung <a href="https://docs.microsoft.com/powershell/module/iscsitarget/resize-iscsivirtualdisk">Resize-iSCSIVirtualDisk</a> eine LUN zu verkleinern.</p></td>
+<td><p>Verwenden Sie <a href="https://docs.microsoft.com/powershell/module/iscsitarget/resize-iscsivirtualdisk">Resize-iscsivirtualdisk</a> , um eine LUN zu verkleinern.</p></td>
 </tr>
 <tr class="even">
-<td><p>Logische Einheit, die Klonen</p></td>
+<td><p>Klonen logischer Einheiten</p></td>
 <td><p>Nicht unterstützt.</p></td>
 <td><p>Nicht zutreffend</p></td>
-<td><p>Sie können die Daten auf Datenträger schnell durch differenzierende virtuelle Festplatten klonen.</p></td>
+<td><p>Sie können Datenträger Daten mithilfe differenzierender VHDs schnell Klonen.</p></td>
 </tr>
 </tbody>
 </table>
@@ -375,7 +375,7 @@ Dieses Thema enthält getestet und unterstützt Microsoft iSCSI Target Server Gr
 <thead>
 <tr class="header">
 <th><p>Element</p></th>
-<th><p>Support-Grenzwert</p></th>
+<th><p>Unterstützungs Limit</p></th>
 <th><p>Kommentar</p></th>
 </tr>
 </thead>
@@ -391,48 +391,48 @@ Dieses Thema enthält getestet und unterstützt Microsoft iSCSI Target Server Gr
 <td></td>
 </tr>
 <tr class="odd">
-<td><p>Beschreibbarer Momentaufnahmen</p></td>
+<td><p>Beschreibbare Momentaufnahmen</p></td>
 <td><p>Nicht unterstützt.</p></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><p>Momentaufnahme – vollständige konvertieren</p></td>
+<td><p>Momentaufnahme – in vollständig konvertieren</p></td>
 <td><p>Nicht unterstützt.</p></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><p>Momentaufnahme – online zurücksetzen</p></td>
+<td><p>Momentaufnahme – online-Rollback</p></td>
 <td><p>Nicht unterstützt.</p></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><p>Momentaufnahme – auf beschreibbaren konvertieren</p></td>
+<td><p>Momentaufnahme – in beschreibbare konvertieren</p></td>
 <td><p>Nicht unterstützt.</p></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><p>Momentaufnahme - Umleitung</p></td>
+<td><p>Momentaufnahme Umleitung</p></td>
 <td><p>Nicht unterstützt.</p></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><p>Momentaufnahme - anheften</p></td>
+<td><p>Momentaufnahme-anhenung</p></td>
 <td><p>Nicht unterstützt.</p></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><p>Lokale Bereitstellung</p></td>
+<td><p>Lokales einbinden</p></td>
 <td><p>Unterstützt</p></td>
-<td><p>Virtuelle lokal bereitgestellten iSCSI-Datenträger sind veraltet: Weitere Informationen, finden Sie unter <a href="https://technet.microsoft.com/library/dn303411.aspx">Features Removed or Deprecated in Windows Server 2012 R2</a>. Dynamische Datenträger-Momentaufnahmen können nicht lokal bereitgestellt werden.</p></td>
+<td><p>Lokal bereitgestellte virtuelle iSCSI-Datenträger sind veraltet. Weitere Informationen finden Sie unter <a href="https://technet.microsoft.com/library/dn303411.aspx">in Windows Server 2012 R2 entfernte oder veraltete Features</a>. Dynamische Datenträger Momentaufnahmen können nicht lokal bereitgestellt werden.</p></td>
 </tr>
 </tbody>
 </table>
 
-## <a name="iscsi-target-server-manageability-and-backup"></a>iSCSI-Zielserver-Verwaltung und Sicherung
+## <a name="iscsi-target-server-manageability-and-backup"></a>Verwaltbarkeit und Sicherung von iSCSI-Ziel Servern
 
-Wenn Sie Volume Schattenkopien (VSS-Momentaufnahmen von Open-Datei) von Daten auf virtuellen iSCSI-Datenträgern aus einem Anwendungsserver erstellen, oder möchten virtuelle iSCSI-Datenträger mit einer älteren Anwendung (z. B. den Befehl Diskraid) zu verwalten, die eine Dienst für virtuelle Datenträger (Virtual Disk Service, VDS) Hardware erforderlich ist Anbieter, installieren Sie den iSCSI-Zielspeicheranbieter auf dem Server, die von dem Sie eine Momentaufnahme, oder verwenden Sie eine VDS-app möchten.
+Wenn Sie Volumeschattenkopien (VSS-Open-File-Momentaufnahmen) von Daten auf virtuellen iSCSI-Datenträgern von einem Anwendungsserver erstellen möchten, oder wenn Sie virtuelle iSCSI-Datenträger mit einer älteren App verwalten möchten (z. b. dem Diskraid-Befehl), die eine VDS-Hardware (Virtual Disk Service) erfordert. Anbieter installieren Sie den iSCSI-Zielspeicher Anbieter auf dem Server, von dem Sie eine Momentaufnahme erstellen möchten, oder verwenden Sie eine VDS-Verwaltungs-app.
 
-Der iSCSI-Zielspeicheranbieter ist ein Rollendienst in Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012. Sie können auch herunterladen und installieren Sie [iSCSI-Ziel-Speicheranbieter / (VDS, VSS) für kompatible Anwendungsserver](http://www.microsoft.com/download/details.aspx?id=34759) von den folgenden Betriebssystemen unterstützt, solange der iSCSI-Zielserver unter Windows Server 2012 ausgeführt wird:
+Der iSCSI-Zielspeicher Anbieter ist ein Rollen Dienst in Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012. Sie können auch [iSCSI-Zielspeicher Anbieter (VDS/VSS) für downlevelanwendungsserver](http://www.microsoft.com/download/details.aspx?id=34759) unter den folgenden Betriebssystemen herunterladen und installieren, solange der iSCSI-Ziel Server unter Windows Server 2012 ausgeführt wird:
 
   - Windows Storage Server 2008 R2
 
@@ -442,13 +442,13 @@ Der iSCSI-Zielspeicheranbieter ist ein Rollendienst in Windows Server 2016, Wind
 
   - Windows HPC Server 2008
 
-Beachten Sie, dass wenn der iSCSI-Zielserver gehostet von einem Server mit Windows Server 2012 R2 oder höher und VSS oder VDS von einem Remoteserver verwenden möchten, wird der Remoteserver verfügt, auch die gleiche Version von Windows Server ausgeführt und die Rolle der iSCSI-Zielspeicheranbieter cachebenachrichtigungen e, die installiert werden. Beachten Sie außerdem, dass in allen Versionen von Windows nur eine Version des iSCSI-Zielspeicheranbieter-Rollendienst installiert werden soll.
+Beachten Sie Folgendes: Wenn der iSCSI-Zielserver von einem Server gehostet wird, auf dem Windows Server 2012 R2 oder höher ausgeführt wird, und Sie VSS oder VDS von einem Remote Server aus verwenden möchten, muss auf dem Remote Server ebenfalls dieselbe Version von Windows Server ausgeführt werden, und der iSCSI-Zielspeicher Anbieter-Rollen Dienst e installiert. Beachten Sie außerdem, dass Sie in allen Versionen von Windows nur eine Version des Rollen Dienstanbieters für den iSCSI-Zielspeicher Anbieter installieren sollten.
 
-Weitere Informationen zum iSCSI-Zielspeicheranbieter finden Sie unter [iSCSI Target / (VDS, VSS) Speicheranbieter](http://blogs.technet.com/b/filecab/archive/2012/10/08/iscsi-target-storage-vds-vss-provider.aspx).
+Weitere Informationen zum iSCSI-Zielspeicher Anbieter finden Sie unter [iSCSI-Zielspeicher Anbieter (VDS/VSS)](http://blogs.technet.com/b/filecab/archive/2012/10/08/iscsi-target-storage-vds-vss-provider.aspx).
 
 ## <a name="tested-compatibility-with-iscsi-initiators"></a>Getestete Kompatibilität mit iSCSI-Initiatoren
 
-Wir haben die iSCSI-Zielserver-Software mit den folgenden iSCSI-Initiatoren getestet:
+Wir haben die iSCSI-Ziel Server Software mit den folgenden iSCSI-Initiatoren getestet:
 
 <table>
 <colgroup>
@@ -459,7 +459,7 @@ Wir haben die iSCSI-Zielserver-Software mit den folgenden iSCSI-Initiatoren gete
 </colgroup>
 <tbody>
 <tr class="odd">
-<td><p>Initiator</p></td>
+<td><p>Photo</p></td>
 <td><p>Windows Server 2012 R2</p></td>
 <td><p>Windows Server 2012</p></td>
 <td><p>Kommentare</p></td>
@@ -477,28 +477,28 @@ Wir haben die iSCSI-Zielserver-Software mit den folgenden iSCSI-Initiatoren gete
 <td></td>
 </tr>
 <tr class="even">
-<td><p>VMWare vSphere 5</p></td>
+<td><p>VMware vSphere 5</p></td>
 <td></td>
 <td><p>Überprüft</p></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><p>VMWare ESXi 5.0</p></td>
+<td><p>VMware ESXi 5,0</p></td>
 <td><p>Überprüft</p></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><p>VMWare ESX 4.1</p></td>
+<td><p>VMware ESX 4,1</p></td>
 <td><p>Überprüft</p></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><p>CentOS 6.x</p></td>
+<td><p>CentOS 6. x</p></td>
 <td><p>Überprüft</p></td>
 <td></td>
-<td><p>Muss eine Sitzung abmelden und wieder anmelden, um ein Größe virtueller Datenträger zu erkennen.</p></td>
+<td><p>Sie müssen eine Sitzung abmelden und wieder anmelden, um einen virtuellen Datenträger mit Größenänderung zu ermitteln.</p></td>
 </tr>
 <tr class="even">
 <td><p>Red Hat Enterprise Linux 6</p></td>
@@ -507,7 +507,7 @@ Wir haben die iSCSI-Zielserver-Software mit den folgenden iSCSI-Initiatoren gete
 <td></td>
 </tr>
 <tr class="odd">
-<td><p>Red Hat Enterprise Linux 5 und 5</p></td>
+<td><p>RedHat Enterprise Linux 5 und 5</p></td>
 <td><p>Überprüft</p></td>
 <td><p>Überprüft</p></td>
 <td></td>
@@ -519,7 +519,7 @@ Wir haben die iSCSI-Zielserver-Software mit den folgenden iSCSI-Initiatoren gete
 <td></td>
 </tr>
 <tr class="odd">
-<td><p>Oracle Solaris 11.x</p></td>
+<td><p>Oracle Solaris 11. x</p></td>
 <td><p>Überprüft</p></td>
 <td></td>
 <td></td>
@@ -527,23 +527,23 @@ Wir haben die iSCSI-Zielserver-Software mit den folgenden iSCSI-Initiatoren gete
 </tbody>
 </table>
 
-Wir haben auch die folgenden iSCSI-Initiatoren, die einen Start ohne Datenträger von virtuellen Datenträgern, die vom iSCSI-Zielserver gehostet ausführen getestet:
+Wir haben auch die folgenden iSCSI-Initiatoren getestet, die einen Datenträger losen Start von virtuellen Datenträgern ausführen, die vom iSCSI-Ziel Server gehostet werden:
 
   - Windows Server 2012 R2
 
   - Windows Server 2012
 
-  - PCIe NIC mit iPXE
+  - PCIe-NIC mit IPxE
 
-  - CD oder USB-Datenträger mit iPXE
+  - CD oder USB-Datenträger mit IPxE
 
 ## <a name="see-also"></a>Siehe auch
 
 Die folgende Liste enthält zusätzliche Ressourcen zum iSCSI-Zielserver und zu verwandten Technologien.
 
-- [iSCSI-Zielblockspeicher: Übersicht Ziel](iscsi-target-server.md)
+- [iSCSI-Ziel Block Speicher (Übersicht)](iscsi-target-server.md)
 
-- [iSCSI-Ziel-Zielstart (Übersicht)](iscsi-boot-overview.md)
+- [iSCSI-Ziel Start (Übersicht)](iscsi-boot-overview.md)
 
-- [Speicher in WindowsServer](../storage.md)
+- [Speicher](../storage.md)
 

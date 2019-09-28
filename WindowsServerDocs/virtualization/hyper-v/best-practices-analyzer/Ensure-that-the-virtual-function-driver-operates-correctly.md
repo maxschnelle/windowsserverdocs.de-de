@@ -1,7 +1,7 @@
 ---
-title: Stellen Sie sicher, dass der Treiber für die virtuelle Funktion, die ordnungsgemäß ausgeführt wird, wenn SR-IOV verwendet ein virtuellen Computer konfiguriert ist
-description: Die Onlineversion des Texts für diese Best Practices Analyzer-Regel.
-ms.prod: windows-server-threshold
+title: Stellen Sie sicher, dass der virtuelle Funktions Treiber ordnungsgemäß funktioniert, wenn ein virtueller Computer für die Verwendung von SR-IOV konfiguriert ist.
+description: Online Version des Texts für diese Best Practices Analyzer Regel.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,38 +10,38 @@ ms.topic: article
 ms.assetid: d21e4b93-29bf-423a-a635-71c6d48dc49e
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 8d3d0a5008b55d4823cef9a8dd2a7bce4a6a2a33
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5e2c666973aa1ac0d5eb2c4e0d5d29793dc0ce75
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852081"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393617"
 ---
-# <a name="ensure-that-the-virtual-function-driver-operates-correctly-when-a-virtual-machine-is-configured-to-use-sr-iov"></a>Stellen Sie sicher, dass der Treiber für die virtuelle Funktion, die ordnungsgemäß ausgeführt wird, wenn SR-IOV verwendet ein virtuellen Computer konfiguriert ist
+# <a name="ensure-that-the-virtual-function-driver-operates-correctly-when-a-virtual-machine-is-configured-to-use-sr-iov"></a>Stellen Sie sicher, dass der virtuelle Funktions Treiber ordnungsgemäß funktioniert, wenn ein virtueller Computer für die Verwendung von SR-IOV konfiguriert ist.
 
 >Gilt für: Windows Server 2016
 
-Weitere Informationen zu best Practices und Überprüfungen finden Sie unter [Run Best Practices Analyzer Scans und Manage Scan Results](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
+Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausführen von Best Practices Analyzer Scans und Verwalten der Scan Ergebnisse](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
 |Eigenschaft|Details|  
 |-|-|  
 |**Betriebssystem**|Windows Server 2016|  
-|**Produkt /-Funktion**|Hyper-V|  
-|**Schweregrad**|Warnung|  
+|**Produkt/Feature**|Hyper-V|  
+|**Zunehmen**|Warnung|  
 |**Kategorie**|Konfiguration|  
   
-In den folgenden Abschnitten Kursivschrift gibt an Benutzeroberflächentext, die im Best Practices Analyzer-Tool für dieses Problem angezeigt wird.  
+In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.  
   
 ## <a name="issue"></a>Problem  
-*Der virtuelle Funktion, die Treiber ist im Gastbetriebssystem, das eine oder mehrere virtuelle Computer nicht ordnungsgemäß.*  
+*Der Treiber für virtuelle Funktionen wird im Gast Betriebssystem von mindestens einer virtuellen Maschine nicht ordnungsgemäß ausgeführt.*  
   
 ## <a name="impact"></a>Auswirkungen  
-*Netzwerkleistung ist nicht optimal ist, auf die folgenden virtuellen Computer:*  
+*Die Netzwerkleistung ist auf den folgenden virtuellen Computern nicht optimal:*  
   
-\<Liste der virtuellen Computer >  
+\<list of Virtual Machines >  
   
 ## <a name="resolution"></a>Auflösung  
-*Führen Sie im Gastbetriebssystem folgende Schritte aus: Stellen Sie sicher, dass die richtigen Treiber installiert sind, und alle Netzwerkgeräte sind aktiviert, und überprüfen Sie das Ereignisprotokoll auf Fehler oder Warnungen.*  
+Führen Sie *im Gast Betriebssystem die folgenden Schritte aus: Vergewissern Sie sich, dass die entsprechenden Treiber installiert sind und alle Netzwerkgeräte aktiviert sind, und überprüfen Sie das Ereignisprotokoll auf Fehler oder Warnungen.*  
   
 
 

@@ -1,9 +1,9 @@
 ---
-title: Schritt 2 konfigurieren den DirectAccess-VPN-Server
-description: Dieses Thema ist Teil des Handbuchs Add DirectAccess zu einer vorhandenen Remotezugriffsbereitstellung (VPN)-Bereitstellung für WindowsServer 2016
+title: 'Schritt 2: Konfigurieren des DirectAccess-VPN-Servers'
+description: Dieses Thema ist Teil des Handbuchs Hinzufügen von DirectAccess zu einer vorhandenen Remote Zugriffs Bereitstellung (VPN) für Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,20 +12,20 @@ ms.topic: article
 ms.assetid: fe221fc9-c7d9-4508-b8a1-000d2515283c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 83dfd5663a07bf10f7c27acb25d2dec9af3e7c7b
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 7ee691a02df385e29bdac9656d50bc2c6d3af087
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281840"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388737"
 ---
-#  <a name="step-2-configure-the-directaccess-vpn-server"></a>Schritt 2 konfigurieren den DirectAccess-VPN-Server
+#  <a name="step-2-configure-the-directaccess-vpn-server"></a>Schritt 2: Konfigurieren des DirectAccess-VPN-Servers
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 In diesem Thema wird die Konfiguration der Client- und Servereinstellungen erläutert, die für eine einfache Remotezugriffsbereitstellung mit dem Assistenten zum Aktivieren von DirectAccess erforderlich sind.
 
-Die folgende Tabelle enthält eine Übersicht über die Schritte, die Sie mithilfe dieses Themas durchführen können.
+In der folgenden Tabelle finden Sie eine Übersicht über die Schritte, die Sie in diesem Thema ausführen können.
 
 |Aufgabe       |Beschreibung|
 |-----------|-----------|
@@ -36,9 +36,9 @@ Die folgende Tabelle enthält eine Übersicht über die Schritte, die Sie mithil
 
 ## <a name="to-start-the-enable-directacces-wizard"></a>So starten Sie den Assistenten zum Aktivieren von DirectAccess
 
-1. Klicken Sie im Server-Manager **Tools**, und klicken Sie dann auf **RAS**. Der Assistent zum Aktivieren von DirectAccess wird automatisch gestartet, es sei denn, die Sie ausgewählt haben **dieser Bildschirm nicht mehr anzeigen**. 
+1. Klicken Sie in Server-Manager **auf Extras, und**klicken Sie dann auf **Remote Zugriff**. Der Assistent zum Aktivieren von DirectAccess wird automatisch gestartet, es sei denn, Sie haben den **Bildschirm nicht mehr anzeigen**ausgewählt. 
 
-2. Wenn der Assistent nicht automatisch gestartet wird, mit der rechten Maustaste den Knoten für den Server in der Routing- und RAS-Struktur, und klicken Sie dann auf **Aktivieren von DirectAccess**.
+2. Wenn der Assistent nicht automatisch gestartet wird, klicken Sie mit der rechten Maustaste auf den Server Knoten in der Struktur Routing und RAS, und klicken Sie dann auf **DirectAccess aktivieren**.
 
 3. Klicken Sie auf **Weiter**.
 
@@ -64,21 +64,21 @@ Um den Remotezugriff bereitzustellen, müssen Sie den Remotezugriffsserver mit k
 
 ## <a name="configure-the-dns-suffix-search-list"></a>Konfigurieren der Suchliste für DNS-Suffixe
 
-Für DNS-Clients können Sie eine Suchliste für ein DNS-Domänensuffixe konfigurieren, die die DNS-Suchfunktionen erweitert oder überprüft. Indem Sie zusätzliche Suffixe zu der Liste hinzufügen, können Sie in mehreren angegebenen DNS-Domänen nach kurzen, nicht qualifizierten Computernamen suchen. Klicken Sie dann, wenn eine DNS-Abfrage ein Fehler auftritt, kann der DNS-Clientdienst diese Liste verwenden, fügen Sie andere Namen Suffix Zeilenenden auf Ihre ursprünglichen Namen, und wiederholen den DNS-Server DNS-Abfragen für diese alternativen FQDNs.
+Für DNS-Clients können Sie eine Suchliste für ein DNS-Domänensuffixe konfigurieren, die die DNS-Suchfunktionen erweitert oder überprüft. Indem Sie zusätzliche Suffixe zu der Liste hinzufügen, können Sie in mehreren angegebenen DNS-Domänen nach kurzen, nicht qualifizierten Computernamen suchen. Wenn eine DNS-Abfrage fehlschlägt, kann der DNS-Client Dienst diese Liste verwenden, um andere Namen Suffix-Endungen an ihren ursprünglichen Namen anzufügen und DNS-Abfragen für diese alternativen FQDNs an den DNS-Server zu wiederholen.
 
 1. Wählen Sie **DirectAccess-Clients mit der Suchliste für DNS-Clientsuffixe konfigurieren**, um zusätzliche Suffixe für Clientnamen-Suchvorgänge anzugeben.
 
-2. Geben Sie einen neuen Suffixnamen in **neues Suffix** , und klicken Sie dann auf **hinzufügen**. Darüber hinaus können Sie die Suchreihenfolge ändern und entfernen Sie die Suffixe aus **zu verwendende Domänensuffixe**.
+2. Geben Sie in **Neues Suffix** einen neuen Suffix ein, und klicken Sie dann auf **Hinzufügen**. Außerdem können Sie die Such Reihenfolge ändern und Suffixe aus **Domänen Suffixen entfernen, um Sie zu verwenden**.
 
->[HINWEIS] In einem zusammenhanglosen Namespace-Szenario \(, in denen eine oder mehrere Domänencomputer ein DNS-Suffix, das nicht zu dem die Computer gehören Active Directory-Domäne entspricht hat\), Sie sollten sicherstellen, dass die Suchliste angepasst wird, um alle der erforderlichen Suffixe. Der RAS-Assistent konfiguriert den Active Directory-DNS-Namen standardmäßig als primäres DNS-Suffix auf dem Client. Der Administrator sollte sicherstellen, dass er das von den Clients zur Namensauflösung verwendete DNS-Suffix hinzufügt.
+>Nebenbei In einem Zusammenhang losen Namespace-Szenario \(, bei dem ein oder mehrere Domänen Computer ein DNS-Suffix aufweisen, das nicht mit der Active Directory Domäne identisch ist, zu der die Computer gehören @ no__t-1, sollten Sie sicherstellen, dass die Suchliste so angepasst ist, dass Sie alle erforderlichen Suffixe. Der RAS-Assistent konfiguriert den Active Directory-DNS-Namen standardmäßig als primäres DNS-Suffix auf dem Client. Der Administrator sollte sicherstellen, dass er das von den Clients zur Namensauflösung verwendete DNS-Suffix hinzufügt.
 
-Für Computer und Server wird der folgende DNS-Standardsuchverhalten vorbestimmt und beim Abschließen und Auflösen von kurzen, nicht qualifizierten Namen verwendet. Bei die Suffixsuchliste leer oder nicht angegeben ist, wird das primäre DNS-Suffix des Computers ist an kurze nicht qualifizierten Namen angehängt, und eine DNS-Abfrage wird verwendet, um den resultierenden FQDN aufzulösen. 
+Für Computer und Server ist das folgende standardmäßige DNS-Suchverhalten vorgegeben und wird verwendet, wenn kurze, nicht qualifizierte Namen vervollständigt und aufgelöst werden. Wenn die Suffixsuchliste leer oder nicht angegeben ist, wird das primäre DNS-Suffix des Computers an kurze, nicht qualifizierte Namen angehängt, und eine DNS-Abfrage wird verwendet, um den resultierenden FQDN aufzulösen. 
 
-Wenn diese Abfrage fehlschlägt, kann der Computer zusätzliche Abfragen für alternativen FQDNs versuchen, durch Anfügen von einem verbindungsspezifischen DNS-Suffix für Netzwerkverbindungen konfiguriert. Wenn keine Verbindungsspezifische Suffixe konfiguriert sind, oder Abfragen für diese resultierende verbindungsspezifischen FQDNs nicht, wird der Client Abfragen basierend auf dem primären Suffix (auch bekannt als Verkürzung) systematische reduziert wiederholen anschließend beginnen kann.
+Wenn bei der Abfrage ein Fehler auftritt, kann der Computer zusätzliche Abfragen für alternative voll qualifizierte Namen durchführen, indem ein beliebiges Verbindungs spezifisches DNS-Suffix angehängt wird, das für Netzwerkverbindungen konfiguriert ist. Wenn keine Verbindungs spezifischen Suffixe konfiguriert sind oder Abfragen für diese resultierenden Verbindungs spezifischen FQDNs fehlschlagen, kann der Client dann mit dem Wiederholen von Abfragen auf der Grundlage der systematischen Reduzierung des primären Suffixe (auch als "Devolution" bezeichnet) beginnen.
 
-Z. B. wenn das primäre Suffix "example.microsoft.com" ist, können die Verkürzung Abfragen für den kurzen Namen erneut nach einer Suche in der Domäne "microsoft.com" und "com".
+Wenn das primäre Suffix z. b. "example.Microsoft.com" ist, kann der Prozess der Verkürzung Abfragen für den Kurznamen wiederholen, indem er in den Domänen "Microsoft.com" und "com" danach sucht.
 
-Wenn der Suffixsuchliste Liste ist nicht leer und verfügt über mindestens ein DNS-Suffix angegeben wird, versucht, zu qualifizieren und kurze DNS-Namen aufzulösen, auf die Suche nur die FQDNs, die durch das der angegebenen Suffixliste beschränkt. 
+Wenn die Suffixsuchliste nicht leer ist und mindestens ein DNS-Suffix angegeben wurde, ist der Versuch, kurze DNS-Namen zu qualifizieren und aufzulösen, nur auf die durch die angegebene Suffixliste möglichen FQDNs beschränkt. 
 
 Wenn die Abfragen für alle durch das Anfügen und Versuchen der Suffixe in der Liste gebildeten FQDNs nicht aufgelöst werden können, schlägt der Abfragevorgang fehl und als Ergebnis wird "Name nicht gefunden" ausgegeben. 
 
@@ -89,16 +89,16 @@ Wenn die Abfragen für alle durch das Anfügen und Versuchen der Suffixe in der 
 
 ## <a name="gpo-configuration"></a>Konfiguration der Gruppenrichtlinienobjekte
 
-Wenn Sie Remotezugriff konfigurieren, werden die DirectAccess-Einstellungen in der Windows-Verwaltungsinstrumentation (Group Policy Objects, GPO) erfasst. 
+Wenn Sie den Remote Zugriff konfigurieren, werden DirectAccess-Einstellungen in Gruppenrichtlinie Objekte (GPO) gesammelt. 
 
-In **GPO-Einstellungen**, die DirectAccess-Server-Gruppenrichtlinienobjekt-Namen und die Client-Gruppenrichtlinienobjektname aufgelistet sind. Zusätzlich können Sie die GPO-Auswahleinstellungen ändern.
+Unter **GPO-Einstellungen**werden der Name des Gruppenrichtlinien Objekts für den DirectAccess-Server und der Name des Gruppenrichtlinien Objekts aufgeführt. Zusätzlich können Sie die GPO-Auswahleinstellungen ändern.
 
-Zwei Gruppenrichtlinienobjekte werden automatisch mit DirectAccess-Einstellungen aufgefüllt, und auf diese Weise verteilt:
+Zwei GPOs werden automatisch mit DirectAccess-Einstellungen aufgefüllt und auf diese Weise verteilt:
 
 1. **DirectAccess-Client-Gruppenrichtlinienobjekt**. Dieses Gruppenrichtlinienobjekt enthält die Client-Einstellungen, einschließlich der Einstellungen für die IPv6-Übergangstechnologie, der Einträge in der Richtlinientabelle für die Namensauflösung und der Verbindungssicherheitsregeln für die Windows-Firewall mit erweiterter Sicherheit. Das Gruppenrichtlinienobjekt wird auf die für die Clientcomputer angegebenen Sicherheitsgruppen angewendet.
 
-2. **DirectAccess-Server-Gruppenrichtlinienobjekt**. Dieses Gruppenrichtlinienobjekt enthält die DirectAccess-Konfigurationseinstellungen, die auf den konfigurierten als RAS-Server in Ihrer Bereitstellung angewendet werden. Außerdem enthält es die Verbindungssicherheitsregeln für die Windows-Firewall mit erweiterter Sicherheit.
+2. **DirectAccess-Server-Gruppenrichtlinienobjekt**. Dieses Gruppenrichtlinien Objekt enthält die DirectAccess-Konfigurationseinstellungen, die auf jeden als RAS-Server konfigurierten Server in Ihrer Bereitstellung angewendet werden. Außerdem enthält es die Verbindungssicherheitsregeln für die Windows-Firewall mit erweiterter Sicherheit.
 
 ## <a name="summary"></a>Zusammenfassung
 
-Sobald die Konfiguration des Remotezugriffs abgeschlossen ist. die **Zusammenfassung** wird angezeigt. Sie können die konfigurierten Einstellungen ändern, oder klicken Sie auf **Fertig stellen** zum Anwenden der Konfiguration.
+Sobald die Konfiguration des Remote Zugriffs fertiggestellt ist, wird die **Zusammenfassung** angezeigt. Sie können die konfigurierten Einstellungen ändern oder auf **Fertig** stellen klicken, um die Konfiguration zu übernehmen.

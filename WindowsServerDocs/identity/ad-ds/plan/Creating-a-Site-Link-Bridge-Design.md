@@ -7,36 +7,36 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/08/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 4a194aa2fe2594c518d310cd86549945487d101e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 79e91481c357d05617ee0ddc716e2bf6e90b8b27
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813991"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408960"
 ---
 # <a name="creating-a-site-link-bridge-design"></a>Erstellen eines Entwurfs für Standortverknüpfungsbrücken
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Eine Standortverknüpfungsbrücke verbindet zwei oder mehr Standort verknüpft und ermöglicht die Transitivität zwischen standortverknüpfungen. Jede standortverknüpfung in einer Bridge muss es sich um einen Standort enthält, die auch einen anderen Standort-Link in der Bridge verfügen. Die Konsistenzprüfung (KCC) verwendet die Informationen für jede standortverknüpfung, um die Kosten für die Replikation zwischen Standorten in einer standortverknüpfung und Standorte in der anderen standortverknüpfungen, die von der Bridge zu berechnen. Ohne die das Vorhandensein von einem gemeinsamen Standort zwischen standortverknüpfungen kann die konsistenzprüfung (KCC) auch direkte Verbindungen zwischen Domänencontrollern am Standort herstellen, die durch die gleichen Standortverknüpfungsbrücke verbunden sind.  
+Eine Standort Verknüpfungs Brücke verbindet zwei oder Mehrstandort Verknüpfungen und ermöglicht Transitivität Zwischenstandort Verknüpfungen. Jede Standort Verknüpfung in einer Bridge muss über einen gemeinsamen Standort mit einer anderen Standort Verknüpfung in der Bridge verfügen. Die Konsistenzprüfung (KCC) verwendet die Informationen an den einzelnen Standort Verknüpfungen, um die Kosten für die Replikation Zwischenstand Orten in einer Standort Verknüpfung und Standorte in den anderen Standort Verknüpfungen der Bridge zu berechnen. Ohne eine gemeinsame Site Zwischenstandort Verknüpfungen kann die KCC auch keine direkten Verbindungen zwischen Domänen Controllern an den Standorten einrichten, die über dieselbe Standort Verknüpfungs Brücke verbunden sind.  
   
-Standardmäßig sind alle standortverknüpfungen transitiv. Es wird empfohlen, die Sie durch die Änderung nicht auf des Standardwerts Transitivität halten **überbrücken aller standortverknüpfungen** (standardmäßig aktiviert). Sie müssen jedoch deaktivieren **überbrücken aller standortverknüpfungen** und ein Entwurfs für standortverknüpfungen Bridge abgeschlossen, wenn:  
+Standardmäßig sind alle Standort Verknüpfungen transitiv. Es wird empfohlen, die Transitivität zu aktivieren, indem Sie nicht den Standardwert **Bridge alle Standort Verknüpfungen überbrücken** (standardmäßig aktiviert) ändern. Allerdings müssen Sie **alle Standort Verknüpfungen überbrücken** deaktivieren und den Entwurf einer Standort Verknüpfungs Brücke durchführen, wenn Folgendes gilt:  
 
-- Ihre IP-Netzwerk ist nicht vollständig weitergeleitet. Wenn Sie deaktivieren **überbrücken aller standortverknüpfungen**, alle standortverknüpfungen gelten nicht transitiv, und Sie können erstellen, und Standortverknüpfungsbrücken-Objekte zum Modellieren von der tatsächlichen Routingverhalten Ihres Netzwerks zu konfigurieren.  
-- Sie müssen den Datenfluss für Replikation Änderungen in Active Directory Domain Services (AD DS) zu steuern. Durch Deaktivierung **überbrücken aller standortverknüpfungen** für den Website-Link-IP-Transport und eine Standortverknüpfungsbrücke konfigurieren, wird die Standortverknüpfungsbrücke das Äquivalent von einem separaten Netzwerk. Alle standortverknüpfungen in der Standortverknüpfungsbrücke transitiv weiterleiten können, aber sie nicht außerhalb der Standortverknüpfungsbrücke weiterleiten.  
+- Ihr IP-Netzwerk wird nicht vollständig weitergeleitet. Wenn Sie **alle Standort Verknüpfungen überbrücken**deaktivieren, werden alle Standort Verknüpfungen als nicht transitiv betrachtet, und Sie können Standort Verknüpfungs Brücken-Objekte erstellen und konfigurieren, um das tatsächliche Routing Verhalten Ihres Netzwerks zu modellieren.  
+- Sie müssen den Replikations Fluss der in Active Directory Domain Services vorgenommenen Änderungen (AD DS) steuern. Durch Deaktivieren der **Bridge aller Standort Verknüpfungen** für den IP-Transport der Standort Verknüpfung und Konfigurieren einer Standort Verknüpfungs Brücke wird die Standort Verknüpfungs Brücke zum Äquivalent zu einem separaten Netzwerk. Alle Standort Verknüpfungen innerhalb der Standort Verknüpfungs Brücke können transitiv weitergeleitet werden, Sie werden jedoch nicht außerhalb der Standort Verknüpfungs Brücke weitergeleitet.  
 
-Weitere Informationen dazu, wie Sie das Active Directory-Standorte und -Dienste-Snap-in verwenden Sie zum Deaktivieren der **überbrücken aller standortverknüpfungen** festlegen, finden Sie im Artikel [aktivieren oder deaktivieren Sie Standortverknüpfungsbrücken](https://go.microsoft.com/fwlink/?LinkId=107073).  
+Weitere Informationen zur Verwendung des Snap-Ins "Active Directory Standorte und Dienste" zum Deaktivieren der Einstellung " **alle Standort Verknüpfungen überbrücken** " finden Sie im Artikel [Aktivieren oder Deaktivieren von Standort](https://go.microsoft.com/fwlink/?LinkId=107073)Verknüpfungs Brücken.  
   
-## <a name="controlling-ad-ds-replication-flow"></a>Steuern des Ablaufs von AD DS-Replikation
+## <a name="controlling-ad-ds-replication-flow"></a>Steuern AD DS Replikations Flusses
 
-Zwei Szenarien, in denen Sie eine Brücke Entwurfs für standortverknüpfungen zum Steuern der Datenfluss für Replikation benötigen, enthalten Steuern der Replikation, Failover und Steuern der Replikation über eine Firewall.  
+Zwei Szenarios, in denen Sie einen Standort Verknüpfungs Brücken-Entwurf zum Steuern des Replikations Flusses benötigen, umfassen das Steuern des Replikations Failovers und das Steuern der  
   
-### <a name="controlling-replication-failover"></a>Steuern der Failover der Replikation
+### <a name="controlling-replication-failover"></a>Steuern des Replikations Failovers
 
-Wenn Ihre Organisation eine Hub-Spoke-Netzwerktopologie ist, in der Regel sollten Sie nicht die Satelliten-Standorte replikationsverbindungen an andere Standorte Satelliten erstellen, wenn alle Domänencontroller in der Hubwebsite ein Fehler auftritt. In solchen Szenarien müssen Sie deaktivieren **überbrücken aller standortverknüpfungen** , und Standortverknüpfungsbrücken erstellen, sodass replikationsverbindungen zwischen Satellitenstandort und einem anderen Hubstandort, der nur ein oder zwei Hops von Satellitenstandort erstellt werden.  
+Wenn Ihre Organisation über eine Hub-und-Sprachnetzwerk Topologie verfügt, sollten Sie im Allgemeinen nicht möchten, dass die Satellitenstandorte Replikations Verbindungen mit anderen Satellitenstandorten herstellen, wenn alle Domänen Controller am Hub-Standort ausfallen. In solchen Szenarien müssen Sie **alle Standort Verknüpfungen überbrücken** deaktivieren und Standort Verknüpfungs Brücken erstellen, damit Replikations Verbindungen zwischen dem Satelliten Standort und einem anderen Hub-Standort hergestellt werden, der nur ein oder zwei Hops vom Satelliten Standort entfernt ist.  
   
-### <a name="controlling-replication-through-a-firewall"></a>Steuern der Replikation über eine firewall
+### <a name="controlling-replication-through-a-firewall"></a>Steuern der Replikation über eine Firewall
 
-Wenn zwei Domänencontroller, die die gleiche Domäne in zwei verschiedenen Standorten darstellt ausdrücklich zugelassen sind, für die Kommunikation untereinander nur über eine Firewall, können Sie deaktivieren, **überbrücken aller standortverknüpfungen** , und Standortverknüpfungsbrücken für erstellen Websites auf derselben Seite der Firewall. Wenn Ihr Netzwerk durch Firewalls voneinander getrennt sind, empfehlen wir, Transitivität von standortverknüpfungen deaktivieren und Standortverknüpfungsbrücken für das Netzwerk auf einer Seite der Firewall zu erstellen. Informationen zum Verwalten der Replikation über Firewalls finden Sie im Artikel [Active Directory in Netzwerken durch Firewalls segmentiert](https://go.microsoft.com/fwlink/?LinkId=107074).
+Wenn zwei Domänen Controller, die dieselbe Domäne auf zwei verschiedenen Standorten darstellen, ausdrücklich miteinander kommunizieren dürfen, können Sie **alle Standort Verknüpfungen überbrücken und Standort Verknüpfungs** Brücken für Standorte auf der gleichen Seite des Brand. Wenn Ihr Netzwerk durch Firewalls getrennt ist, wird daher empfohlen, die Transitivität von Standort Verknüpfungen zu deaktivieren und Standort Verknüpfungs Brücken für das Netzwerk auf einer Seite der Firewall zu erstellen. Informationen zum Verwalten der Replikation über Firewalls finden Sie im Artikel [Active Directory in von Firewalls segmentierten Netzwerken](https://go.microsoft.com/fwlink/?LinkId=107074).

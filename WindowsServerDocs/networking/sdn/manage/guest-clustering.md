@@ -1,9 +1,9 @@
 ---
 title: Gastclustering in einem virtuellen Netzwerk
-description: Mit einem virtuellen Netzwerk verbundene virtuelle Computer sind nur zulässig, die IP-Adressen verwenden, die dem Netzwerkcontroller für die Kommunikation im Netzwerk zugewiesen wurden.  Clustering-Technologien, die erfordern eine floating IP-Adresse, z. B. Microsoft-Failoverclustering, erfordern einige zusätzliche Schritte ordnungsgemäß funktioniert.
+description: Virtuelle Computer, die mit einem virtuellen Netzwerk verbunden sind, dürfen nur die IP-Adressen verwenden, die der Netzwerk Controller für die Kommunikation im Netzwerk zugewiesen hat.  Clustering-Technologien, die eine Floating IP-Adresse erfordern, z. b. Microsoft-Failoverclustering, erfordern einige zusätzliche Schritte, um ordnungsgemäß zu funktionieren
 manager: dougkim
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -13,29 +13,29 @@ ms.assetid: 8e9e5c81-aa61-479e-abaf-64c5e95f90dc
 ms.author: grcusanz
 author: shortpatti
 ms.date: 08/26/2018
-ms.openlocfilehash: 97c20fd07d06b609686daf4d6308a9f248873036
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 05704beeae27bd9de9ad0c5cf578581c650a976f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446343"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406034"
 ---
 # <a name="guest-clustering-in-a-virtual-network"></a>Gastclustering in einem virtuellen Netzwerk
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Mit einem virtuellen Netzwerk verbundene virtuelle Computer sind nur zulässig, die IP-Adressen verwenden, die dem Netzwerkcontroller für die Kommunikation im Netzwerk zugewiesen wurden.  Clustering-Technologien, die erfordern eine floating IP-Adresse, z. B. Microsoft-Failoverclustering, erfordern einige zusätzliche Schritte ordnungsgemäß funktioniert.
+Virtuelle Computer, die mit einem virtuellen Netzwerk verbunden sind, dürfen nur die IP-Adressen verwenden, die der Netzwerk Controller für die Kommunikation im Netzwerk zugewiesen hat.  Clustering-Technologien, die eine Floating IP-Adresse erfordern, z. b. Microsoft-Failoverclustering, erfordern einige zusätzliche Schritte, um ordnungsgemäß zu funktionieren
 
-Die Methode zum Bereitstellen der floating IP-Adresse erreichbar ist, verwenden Sie einen Softwarelastenausgleich \(SLB\) virtuelle IP-Adresse \(VIP\).  Des Software Load Balancer muss mit einen Integritätstest für einen Port für diese IP-Adresse konfiguriert werden, sodass SLB leitet Datenverkehr an den Computer weiter, der derzeit diese IP-Adresse aufweist.
+Die Methode zum Erreichen der gleitenden IP-Adresse ist die Verwendung eines Software Load Balancer \(slb @ no__t-1 virtuelle IP-Adresse \(vip @ no__t-3.  Der Software Load Balancer muss mit einem Integritätstest an einem Port auf dieser IP-Adresse konfiguriert werden, damit der SLB Datenverkehr an den Computer weiterleitet, der diese IP-Adresse zurzeit besitzt.
 
 
-## <a name="example-load-balancer-configuration"></a>Beispiel: Load Balancer-Konfiguration
+## <a name="example-load-balancer-configuration"></a>Beispiel: Konfiguration des Lasten Ausgleichs Moduls
 
-In diesem Beispiel wird davon ausgegangen, dass Sie bereits die virtuellen Computer erstellt haben, die zu Clusterknoten werden, und sie mit einem virtuellen Netzwerk verbunden.  Anleitungen finden Sie unter [Erstellen eines virtuellen Computers und Herstellen einer Verbindung mit einem virtuellen Mandantennetzwerk oder VLAN](https://technet.microsoft.com/windows-server-docs/networking/sdn/manage/create-a-tenant-vm).  
+In diesem Beispiel wird davon ausgegangen, dass Sie bereits die virtuellen Computer erstellt haben, die zu Cluster Knoten werden, und diese an eine Virtual Network anfügen.  Anleitungen finden Sie unter [Erstellen eines virtuellen Computers und Herstellen einer Verbindung mit einem Mandanten Virtual Network oder VLAN](https://technet.microsoft.com/windows-server-docs/networking/sdn/manage/create-a-tenant-vm).  
 
-In diesem Beispiel werden Sie eine virtuelle IP-Adresse (192.168.2.100) zur Darstellung der floating IP-Adresse des Clusters zu erstellen und konfigurieren einen Integritätstest zur Überwachung von TCP-Port 59999 verwendet, um zu bestimmen, welcher Knoten aktiv ist.
+In diesem Beispiel erstellen Sie eine virtuelle IP-Adresse (192.168.2.100), die die Floating IP-Adresse des Clusters darstellt, und konfigurieren einen Integritätstest zum Überwachen von TCP-Port 59999, um zu bestimmen, welcher Knoten der aktive Knoten ist.
 
-1. Wählen Sie die VIP-Adresse ein.<p>Bereiten Sie vor, indem Sie eine VIP-IP--Adresse, die möglicherweise eine beliebige nicht verwendete oder reservierte Adresse im gleichen Subnetz wie die Clusterknoten zuweisen.  Die VIP-Adresse muss die floating-Adresse des Clusters überein.
+1. Wählen Sie die VIP aus.<p>Bereiten Sie eine VIP-IP-Adresse vor, bei der es sich um eine beliebige nicht verwendete oder reservierte Adresse im gleichen Subnetz wie die Cluster Knoten handeln kann.  Die VIP muss mit der Gleit Komma Adresse des Clusters identisch sein.
 
    ```PowerShell
    $VIP = "192.168.2.100"
@@ -44,13 +44,13 @@ In diesem Beispiel werden Sie eine virtuelle IP-Adresse (192.168.2.100) zur Dars
    $ResourceId = "MyNetwork_InternalVIP"
    ```
 
-2. Erstellen Sie den Load Balancer-Eigenschaften-Objekt.
+2. Erstellen Sie das Eigenschaften Objekt des Load Balancers.
 
    ```PowerShell
    $LoadBalancerProperties = new-object Microsoft.Windows.NetworkController.LoadBalancerProperties
    ```
 
-3. Erstellen Sie eine Front\-end-IP-Adresse.
+3. Erstellen Sie eine Front-End-IP-Adresse no__t-0end.
 
    ```PowerShell
    $LoadBalancerProperties.frontendipconfigurations += $FrontEnd = new-object Microsoft.Windows.NetworkController.LoadBalancerFrontendIpConfiguration
@@ -63,7 +63,7 @@ In diesem Beispiel werden Sie eine virtuelle IP-Adresse (192.168.2.100) zur Dars
    $FrontEnd.properties.privateIPAllocationMethod = "Static"
    ```
 
-4. Eine Sicherung erstellen\-end-Pool, um die Clusterknoten enthalten.
+4. Erstellen Sie einen Back-End-@ no__t-0end-Pool, der die Cluster Knoten enthalten soll.
 
    ```PowerShell
    $BackEnd = new-object Microsoft.Windows.NetworkController.LoadBalancerBackendAddressPool
@@ -73,10 +73,10 @@ In diesem Beispiel werden Sie eine virtuelle IP-Adresse (192.168.2.100) zur Dars
    $LoadBalancerProperties.backendAddressPools += $BackEnd
    ```
 
-5. Fügen Sie einen Test aus, um die Clusterknoten zu ermitteln, die floating-Adresse auf derzeit aktiv ist. 
+5. Fügen Sie einen Test hinzu, um zu ermitteln, auf welchem Cluster Knoten die Gleit Komma Adresse derzeit aktiv ist. 
 
    >[!NOTE]
-   >Die Test-Abfrage für permanente Adresse des virtuellen Computers, auf den Port, die nachstehend definiert werden soll.  Der Port muss nur auf dem aktiven Knoten reagieren. 
+   >Die Test Abfrage für die permanente Adresse der VM an dem unten definierten Port.  Der Port muss nur auf dem aktiven Knoten Antworten. 
 
    ```PowerShell
    $LoadBalancerProperties.probes += $lbprobe = new-object Microsoft.Windows.NetworkController.LoadBalancerProbe
@@ -90,7 +90,7 @@ In diesem Beispiel werden Sie eine virtuelle IP-Adresse (192.168.2.100) zur Dars
    $lbprobe.properties.NumberOfProbes = 11
    ```
 
-6. Fügen Sie die lastenausgleichsregeln für TCP-Port 1433 hinzu.<p>Sie können das Protokoll und Port nach Bedarf ändern.  Sie können auch diesen Schritt mehrmals für zusätzliche Ports und Protcols für diese VIP wiederholen.  Es ist wichtig, dass EnableFloatingIP auf $true festgelegt ist, da dadurch den Load Balancer zum Senden des Pakets auf den Knoten mit der ursprünglichen VIP-Adresse eingerichtet wird.
+6. Fügen Sie die Lasten Ausgleichs Regeln für den TCP-Port 1433 hinzu.<p>Sie können das Protokoll und den Port nach Bedarf ändern.  Sie können diesen Schritt auch mehrmals wiederholen, um zusätzliche Ports und protkols auf dieser VIP zu erhalten.  Es ist wichtig, dass enablefloatingip auf $true festgelegt ist, da der Load Balancer das Paket an den Knoten mit der ursprünglichen VIP sendet.
 
    ```PowerShell
    $LoadBalancerProperties.loadbalancingRules += $lbrule = new-object Microsoft.Windows.NetworkController.LoadBalancingRule
@@ -106,13 +106,13 @@ In diesem Beispiel werden Sie eine virtuelle IP-Adresse (192.168.2.100) zur Dars
    $lbrule.properties.Probe = $lbprobe
    ```
 
-7. Erstellen des Load Balancers im Netzwerkcontroller.
+7. Erstellen Sie den Load Balancer im Netzwerk Controller.
 
    ```PowerShell
    $lb = New-NetworkControllerLoadBalancer -ConnectionUri $URI -ResourceId $ResourceId -Properties $LoadBalancerProperties -Force
    ```
 
-8. Fügen Sie die Clusterknoten in den Back-End-Pool hinzu.<p>Sie können beliebig viele Knoten dem Pool gewünscht, für den Cluster hinzufügen.
+8. Fügen Sie die Cluster Knoten zum Back-End-Pool hinzu.<p>Sie können dem Pool beliebig viele Knoten hinzufügen, die Sie für den Cluster benötigen.
 
    ```PowerShell
    # Cluster Node 1
@@ -128,15 +128,15 @@ In diesem Beispiel werden Sie eine virtuelle IP-Adresse (192.168.2.100) zur Dars
    $nic = new-networkcontrollernetworkinterface  -connectionuri $uri -resourceid $nic.resourceid -properties $nic.properties -force
    ```
 
-   Sobald Sie den Load Balancer erstellt und die Netzwerkschnittstellen an den Back-End-Pool hinzugefügt haben, können Sie den Cluster zu konfigurieren.  
+   Nachdem Sie den Load Balancer erstellt und die Netzwerkschnittstellen zum Back-End-Pool hinzugefügt haben, können Sie den Cluster konfigurieren.  
 
-9. (Optional) Wenn Sie ein Microsoft-Failover-Cluster verwenden, fahren Sie mit der im nächsten Beispiel fort. 
+9. Optionale Wenn Sie einen Microsoft-Failovercluster verwenden, fahren Sie mit dem nächsten Beispiel fort. 
 
 ## <a name="example-2-configuring-a-microsoft-failover-cluster"></a>Beispiel 2: Konfigurieren eines Microsoft-Failoverclusters
 
-Sie können die folgenden Schritte aus verwenden, um einen Failovercluster konfigurieren.
+Mit den folgenden Schritten können Sie einen Failovercluster konfigurieren.
 
-1. Installieren Sie und konfigurieren Sie Eigenschaften für einen Failovercluster.
+1. Installieren und konfigurieren Sie die Eigenschaften für einen Failovercluster.
 
    ```PowerShell
    add-windowsfeature failover-clustering -IncludeManagementTools
@@ -151,25 +151,25 @@ Sie können die folgenden Schritte aus verwenden, um einen Failovercluster konfi
    $nodes = @("DB1", "DB2")
    ```
 
-2. Erstellen Sie den Cluster auf einem Knoten ein.
+2. Erstellen Sie den Cluster auf einem Knoten.
 
    ```PowerShell
    New-Cluster -Name $ClusterName -NoStorage -Node $nodes[0]
    ```
 
-3. Beenden Sie die Clusterressource.
+3. Stoppt die Cluster Ressource.
 
    ```PowerShell
    Stop-ClusterResource "Cluster Name" 
    ```
 
-4. Legen Sie den Cluster IP-Adresse und Test-Port.<p>Die IP-Adresse muss die Front-End-IP-Adresse im vorherigen Beispiel übereinstimmen, und der testport muss den testport im vorherigen Beispiel übereinstimmen.
+4. Legen Sie die Cluster-IP und den testport fest.<p>Die IP-Adresse muss mit der Front-End-IP-Adresse identisch sein, die im vorherigen Beispiel verwendet wurde, und der testport muss mit dem testport im vorherigen Beispiel identisch sein.
 
    ```PowerShell
    Get-ClusterResource "Cluster IP Address" | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
-5. Starten Sie die Clusterressourcen.
+5. Starten Sie die Cluster Ressourcen.
 
    ```PowerShell
     Start-ClusterResource "Cluster IP Address"  -Wait 60 
@@ -182,6 +182,6 @@ Sie können die folgenden Schritte aus verwenden, um einen Failovercluster konfi
    Add-ClusterNode $nodes[1]
    ```
 
-_**Ihren Cluster ist aktiv.** _ Datenverkehr für die VIP-Adresse auf dem angegebenen Port wird an den aktiven Knoten weitergeleitet.
+_**Ihr Cluster ist aktiv.**_ Der Datenverkehr an die VIP-Adresse des angegebenen Ports wird an den aktiven Knoten weitergeleitet.
 
 ---

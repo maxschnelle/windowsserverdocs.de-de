@@ -1,8 +1,8 @@
 ---
-title: Beibehalten
-description: 'Windows-Befehle Thema ***- '
+title: erhalten
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4b437e9f0c8d671e4378311d450aa0ac7639219f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3b076e12c833645833f53a06476e62bbf44f2690
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852171"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384488"
 ---
-# <a name="retain"></a>Beibehalten
+# <a name="retain"></a>erhalten
 
 
 
-Bereitet eine vorhandene dynamische Volumes als ein Start verwendet werden soll oder Systemvolume vor.
+Bereitet ein vorhandenes dynamisches einfaches Volume vor, das als Start-oder System Volume verwendet werden soll.
 
 ## <a name="syntax"></a>Syntax
 
@@ -34,8 +34,8 @@ retain
 
 ## <a name="remarks"></a>Hinweise
 
--   Auf einem master Boot Record (MBR) dynamischen Datenträger erstellt dieser Befehl einen Partitionseintrag in der master Boot Record.
--   Auf einem Datenträger GUID-Partitionstabelle (GPT) dynamische erstellt dieser Befehl einen Partitionseintrag in der GUID-Partitionstabelle.
+-   Auf einem dynamischen Datenträger mit Master Boot Record (MBR) erstellt dieser Befehl einen Partitionseintrag im Master Boot Record.
+-   Bei einem dynamischen GPT-Datenträger (GUID-Partitionstabelle) erstellt dieser Befehl einen Partitionseintrag in der GUID-Partitionstabelle.
 
 #### <a name="additional-references"></a>Weitere Verweise
 

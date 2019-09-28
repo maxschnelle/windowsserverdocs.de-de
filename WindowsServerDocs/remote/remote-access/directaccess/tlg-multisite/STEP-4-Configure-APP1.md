@@ -1,9 +1,9 @@
 ---
-title: Schritt 4 Konfigurieren von APP1
-description: 'Dieses Thema ist Teil der Testumgebungsanleitung: veranschaulichen von DirectAccess Multisite-Bereitstellung für Windows Server 2016'
+title: Schritt 4 App1 konfigurieren
+description: 'Dieses Thema ist Teil der Test Umgebungs Anleitung: veranschaulichen einer DirectAccess-Bereitstellung für mehrere Standorte für Windows Server 2016'
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,36 +12,36 @@ ms.topic: article
 ms.assetid: 7000e80f-31b1-43c5-b51e-1469d26909e5
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 208839b827965d5fdbef4927f25a2477e117999b
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: dc4715fcec778d1fa63ff84e801961572b9cd589
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283195"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404789"
 ---
-# <a name="step-4-configure-app1"></a>Schritt 4 Konfigurieren von APP1
+# <a name="step-4-configure-app1"></a>Schritt 4 App1 konfigurieren
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Konfigurieren Sie statische IPv6-Adressierung und Gateway-Einstellungen zum Aktivieren des APP1-Zugriffs auf das 2-Corpnet-Subnetz.  
+Konfigurieren Sie die statische IPv6-Adressierung und die Gatewayeinstellungen, um App1 den Zugriff auf das Subnetz 2-Corpnet zu aktivieren  
   
-- Das Standardgateway und DNS-Server zu konfigurieren. Die Konfiguration für mehrere Standorte verwendet der ROUTER1-Computer als Standard-Gateway. Konfigurieren Sie die Standard-Gateway auf dem Computer APP1 an.  
+- So konfigurieren Sie das Standard Gateway und den DNS-Server Bei der Konfiguration für mehrere Standorte wird der Computer ROUTER1 als Standard Gateway verwendet. Konfigurieren Sie das Standard Gateway auf App1.  
   
-## <a name="to-configure-the-default-gateway-and-dns-server"></a>So konfigurieren Sie das Standardgateway und DNS-server  
+## <a name="to-configure-the-default-gateway-and-dns-server"></a>So konfigurieren Sie das Standard Gateway und den DNS-Server  
   
-1.  Klicken Sie in der Server-Manager-Konsole auf **lokalen Server**, und klicken Sie dann in der **Eigenschaften** Bereich, der neben **verkabelte Ethernetverbindung**, klicken Sie auf den Link.  
+1.  Klicken Sie in der Server-Manager Konsole auf **lokaler Server**, und klicken Sie dann im Bereich **Eigenschaften** neben **verkabelte Ethernet-Verbindung**auf den Link.  
   
-2.  In der **Netzwerkverbindungen** Fenster mit der rechten Maustaste **verkabelte Ethernetverbindung**, und klicken Sie dann auf **Eigenschaften**.  
+2.  Klicken Sie im Fenster **Netzwerkverbindungen** mit der rechten Maustaste auf **verkabelte Ethernet-Verbindung**, und klicken Sie dann auf **Eigenschaften**.  
   
-3.  Auf der **Verbindungseigenschaften von Ethernetkabelverbindung** Dialogfeld klicken Sie auf **Internet Protocol Version 4 (TCP/IPv4)** , und klicken Sie dann auf **Eigenschaften**.  
+3.  Klicken Sie im Dialogfeld **Eigenschaften für verkabelte Ethernet-Verbindung** auf **Internet Protokoll Version 4 (TCP/IPv4)** , und klicken Sie dann auf **Eigenschaften**.  
   
-4.  In **Standardgateway**, Typ **10.0.0.254**, und klicken Sie in **alternativer DNS-Server**, Typ **10.2.0.1**, und klicken Sie dann auf **OK** .  
+4.  Geben Sie im **Standard Gateway** **10.0.0.254**ein, und geben Sie in **Alternativer DNS-Server** **10.2.0.1 bis**ein, und klicken Sie dann auf **OK**.  
   
-5.  Auf der **Verbindungseigenschaften von Ethernetkabelverbindung** Dialogfeld klicken Sie auf **Internet Protocol Version 6 (TCP/IPv6)** , und klicken Sie dann auf **Eigenschaften**.  
+5.  Klicken Sie im Dialogfeld **Eigenschaften für verkabelte Ethernet-Verbindung** auf **Internet Protokoll Version 6 (TCP/IPv6)** , und klicken Sie dann auf **Eigenschaften**.  
   
-6.  In **Standardgateway**, Typ **2001:db8:1::fe**. In **alternativer DNS-Server**, Typ **2001:db8:2::1**, und klicken Sie dann auf **OK**.  
+6.  Geben Sie unter **Standard Gateway**den Wert **2001: db8:1:: FE ein**. Geben Sie im **alternativen DNS-Server** **2001: db8:2:: 1 ein**, und klicken Sie dann auf **OK**.  
   
-7.  Auf der **Verbindungseigenschaften von Ethernetkabelverbindung** Dialogfeld klicken Sie auf **schließen**, und schließen Sie dann die **Netzwerkverbindungen** Fenster.  
+7.  Klicken Sie im Dialogfeld **Eigenschaften für verkabelte Ethernet-Verbindung** auf **Schließen**, und schließen Sie dann das Fenster **Netzwerkverbindungen** .  
   
 
 

@@ -1,18 +1,18 @@
 ---
 title: Verwalten von Server Core
 description: Erfahren Sie, wie Sie eine Server Core-Installation von Windows Server verwalten.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.mktglfcycl: manage
 ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 07/23/2019
-ms.openlocfilehash: bbb04e761dbb1dd48d95e15d11c91608f4d6c240
-ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
+ms.openlocfilehash: bd96dbfc93f3999d8fb3ddf7ec94cc11025bba30
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476547"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383397"
 ---
 # <a name="manage-a-server-core-server"></a>Verwalten eines Server Core-Servers
  
@@ -30,7 +30,7 @@ Sie können auch Hardware hinzufügen und Treiber lokal verwalten, solange Sie d
 
 Beim Arbeiten mit Server Core sind einige wichtige Einschränkungen und Tipps zu beachten:
 
-- Wenn Sie alle Eingabe Aufforderungs Fenster schließen und ein neues Eingabe Aufforderungs Fenster öffnen möchten, können Sie dies über den Task-Manager tun. Drücken **Sie\+STRG\+alt**ENTF, klicken Sie auf **Task-Manager starten**, klicken Sie auf **Weitere Details > Datei > Ausführen**, und geben Sie dann **cmd. exe**ein. (Geben Sie " **PowerShell. exe** " ein, um ein PowerShell-Befehlsfenster zu öffnen.) Alternativ können Sie sich abmelden und dann wieder anmelden.
+- Wenn Sie alle Eingabe Aufforderungs Fenster schließen und ein neues Eingabe Aufforderungs Fenster öffnen möchten, können Sie dies über den Task-Manager tun. Drücken Sie **STRG @ no__t-1alt @ no__t-2delete**, klicken Sie auf **Task-Manager starten**, klicken Sie auf **Weitere Details > Datei > Ausführen**, und geben Sie dann **cmd. exe**ein. (Geben Sie " **PowerShell. exe** " ein, um ein PowerShell-Befehlsfenster zu öffnen.) Alternativ können Sie sich abmelden und dann wieder anmelden.
 - Befehle oder Tools, die versuchen, Windows Explorer zu öffnen, funktionieren nicht. Beispiel: Ausführung von **starten.** an einer Eingabeaufforderung funktioniert nicht.
 - Das HTML-Rendering oder die HTML-Hilfe in Server Core wird nicht unterstützt.
 - Server Core unterstützt Windows Installer im stillen Modus, sodass Sie Tools und Hilfsprogramme aus Windows Installer Dateien installieren können. Verwenden Sie bei der Installation von Windows Installer-Paketen auf Server Core die **/qb** -Option, um die grundlegende Benutzeroberfläche anzuzeigen.
@@ -149,4 +149,4 @@ Um einen Gerätetreiber zu deaktivieren, führen Sie Folgendes aus:
 sc delete <service_name>
 ```
 
-Dabei ist *SERVICE_NAME* der Name des Dienstanbieter, den Sie beim Durchlaufen der SC-Abfragetyp **= Treiber**erhalten haben.
+Dabei ist *SERVICE_NAME* der Name des Dienstanbieter, den Sie beim Durchlaufen der **SC-Abfragetyp = Treiber**erhalten haben.

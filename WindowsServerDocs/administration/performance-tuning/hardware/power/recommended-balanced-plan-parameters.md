@@ -1,34 +1,34 @@
 ---
-title: Ausgeglichene Power-Plan-Parameter empfohlen für die schnelle Antwortzeiten
-description: Ausgeglichene Power-Plan-Parameter empfohlen für die schnelle Antwortzeit
-ms.prod: windows-server-threshold
+title: Empfohlene ausgeglichene Energie Sparplan Parameter für schnelle Antwortzeiten
+description: Empfohlene ausgeglichene Energie Sparplan Parameter für die schnelle Reaktionszeit
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Qizha;TristanB
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 134e868e1400729f754039fc8120cea0c73945bf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 96037a577c9f2a835e9c49bf9339ed8dc6da1a6b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878791"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383514"
 ---
-# <a name="recommended-balanced-power-plan-parameters-for-workloads-requiring-quick-response-times"></a>Für Workloads empfohlen mit Lastenausgleich Power-Plan-Parameter erfordern schnelle Antwortzeiten
+# <a name="recommended-balanced-power-plan-parameters-for-workloads-requiring-quick-response-times"></a>Empfohlene ausgeglichene Energie Sparplan Parameter für Workloads, die schnelle Antwortzeiten erfordern
 
-Der Standardwert **ausgeglichen** power Plans verwendet **Durchsatz** als die Leistungsmetrik für die Optimierung. Während der stabilen Zustand **Durchsatz** ändert sich nicht mit unterschiedlichen von Nutzungsdaten bis das System vollständig überladene (~ Auslastung von 100 %) ist.  Daher die **ausgeglichen** Energiesparplan begünstigt Leistung sehr viel mit der Prozessorfrequenz minimieren und Maximieren der Nutzung.
+Der standardmäßige **ausgeglichene** Energie Sparplan verwendet den **Durchsatz** als Leistungs Metrik für die Optimierung. Während des stabilen Zustands ändert sich der **Durchsatz** nicht mit unterschiedlichen Verwendungs Anforderungen, bis das System vollständig überladen ist (~ 100% Auslastung).  Demzufolge begünstigt der **ausgeglichene** Energie Sparplan die Leistung erheblich, indem die Prozessorfrequenz minimiert und die Auslastung maximiert wird.
 
-Jedoch **Antwortzeit** konnte mit Auslastung steigt exponentiell steigen. Heutzutage ist die Anforderung der schnelle Antwortzeit deutlich gestiegen. Obwohl Microsoft die Benutzern, wechseln zu vorgeschlagenen der **High Performance** Energiesparplan von Computern bei Bedarf schnell Antwortzeit, einige Benutzer möchten nicht den Vorteil, dass Power während Licht auf mittlerer Last Ebenen zu verlieren. Daher stellt Microsoft die folgenden empfohlenen Parameternamen Änderungen für die arbeitsauslastungen, die schnelle Antwortzeit erfordern.
+Die **Reaktionszeit** kann jedoch exponentiell zunehmen, wenn die Auslastung zunimmt. Heutzutage hat sich die Anforderung der schnellen Reaktionszeit erheblich erhöht. Obwohl Microsoft die Benutzer dazu vorgeschlagen hat, zum **hochleistungsfähigen** Energie Sparplan zu wechseln, wenn er eine schnelle Reaktionszeit benötigt, ist es für einige Benutzer nicht empfehlenswert, den energievorteil bei der leichten bis mittleren Auslastung zu verlieren. Daher bietet Microsoft die folgenden vorgeschlagenen Parameteränderungen für die Arbeits Auslastungen, die eine schnelle Reaktionszeit erfordern.
 
 
-| Parameter | Beschreibung | Standardwert | Vorgeschlagener Wert |
+| Parameter | Beschreibung | Standardwert | Vorgeschlagene Werte |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Prozessor-Leistungsschwellenwert erhöhen | Verwendungsschwellenwert oben wird die Häufigkeit erhöhen | 90 | 60 |
-| Prozessor-Leistungsschwellenwert verringern | Verwendungsschwellenwert unten wird die Häufigkeit zu verringern | 80 | 40 |
-| Erhöhen der Leistung Prozessorzeit | Anzahl von Seiten pro Minute überprüfen, bevor die Häufigkeit ist, erhöhen | 3 | 1 |
-| Prozessor-Leistungsrichtlinie erhöhen | Wie schnell kann die Häufigkeit erhöhen | einzelne | Ideal |
+| Schwellenwert für die Prozessorleistung erhöhen | Schwellenwert für die Auslastung oberhalb der Häufigkeit | 90 | 60 |
+| Schwellenwert für die Prozessorleistung verringern | Schwellenwert für die Auslastung, unter dem die Häufigkeit verringert werden soll | 80 | 40 |
+| Zeit zur Steigerung der Prozessorleistung | Anzahl von ppm-Check Fenstern, bevor die Häufigkeit erhöht wird | 3 | 1 |
+| Richtlinie zur Erhöhung der Prozessorleistung | Wie schnell die Häufigkeit erhöht werden muss | Gänger | Ideal |
 
-Um die vorgeschlagenen Werte festzulegen, können die Benutzer mit Administrator die folgenden Befehle in einem Fenster ausführen:
+Um die vorgeschlagenen Werte festzulegen, können die Benutzer die folgenden Befehle in einem Fenster mit Administratorrechten ausführen:
 
 ``` syntax
 Powercfg -setacvalueindex scheme_balanced sub_processor PERFINCTHRESHOLD 60
@@ -38,35 +38,35 @@ Powercfg -setacvalueindex scheme_balanced sub_processor PERFINCPOL 0
 Powercfg -setactive scheme_balanced
 ```
 
-Diese Änderung basiert auf die Leistung und die Analyse der Stromversorgung Kompromiss verwenden die folgenden Workloads. Optimieren der Benutzer, denen weiter genau die Energieeffizienz mit bestimmten SLA-Anforderungen finden Sie in [Überlegungen zur Leistung von Server-Hardware](../power.md).
+Diese Änderung basiert auf der Leistungs-und Leistungsanalyse Analyse mithilfe der folgenden Arbeits Auslastungen. Informationen zu den Benutzern, die die Energieeffizienz mit bestimmten SLA-Anforderungen optimieren möchten, finden Sie unter [Überlegungen zur Server Hardware Leistung](../power.md).
 
 >[!Note]
-> Finden Sie weitere Empfehlungen und Einblick in die Nutzung von Energiesparplänen, virtualisierte arbeitsauslastungen zu optimieren, [Hyper-V-Konfiguration](../../role/hyper-v-server/configuration.md)
+> Weitere Empfehlungen und Einblicke in die Nutzung von Energie Sparplänen zum Optimieren virtualisierter Workloads finden Sie unter [Hyper-v-Konfiguration](../../role/hyper-v-server/configuration.md) .
 
-## <a name="specpower--java-workload"></a>SPECpower – JAVA-workload
+## <a name="specpower--java-workload"></a>Specpower – Java-Arbeitsauslastung
 
-[SPECpower\_ssj2008](http://spec.org/power_ssj2008/), wird die beliebte Industriestandard-SPEC-Benchmark für Servereigenschaften Leistungsfähigkeit, wird verwendet, um überprüfen Sie die Auswirkungen des Power. Da es nur verwendet **Durchsatz** als Leistungsmetrik, die Standardeinstellung **ausgeglichen** Energiesparplan von Computern bietet den besten Energieeffizienz.
+[Specpower @ no__t-1ssj2008](http://spec.org/power_ssj2008/), der beliebteste standardmäßige Spezifikations Benchmark für Serverleistung und Leistungsmerkmale, wird verwendet, um die Auswirkungen auf die Leistung zu überprüfen. Da es nur einen **Durchsatz** als Leistungs Metrik verwendet, bietet der standardmäßige **ausgeglichene** Energie Sparplan die beste Energieeffizienz.
 
-Die vorgeschlagene parameteränderung leicht höhere Leistung auf das Licht verbraucht (d. h. < = 20 %) Laden Sie die Ebenen. Aber mit der höheren Ebene der Unterschied steigt geladen, und Nutzen der gleichen Leistungsstärke wie beginnt der **hohe Leistung** Energiesparplan von Computern nach der 60 % Load-Ebene. Um die vorgeschlagene Änderung-Parameter verwenden, sollten die Benutzer bei der kapazitätsplanung ihre Rack Beachten der Stromkosten in mittleren bis hohen Auslastungsgrad sein.
+Die vorgeschlagene Parameter Änderung verbraucht etwas höhere Stromversorgung (d. h. < = 20%). Lade Ebenen. Mit der höheren Auslastung erhöht sich der Unterschied, und es wird damit begonnen, die gleiche Leistung wie der **High Performance** -Energie Sparplan nach der Auslastung von 60% zu verbrauchen. Um die vorgeschlagenen Änderungs Parameter zu verwenden, sollten die Benutzer während der Planung der Gestell-Kapazität die Stromkosten bei mittelgroßen bis hohen Lade Graden berücksichtigen.
 
-## <a name="geekbench-3"></a>GeekBench 3
+## <a name="geekbench-3"></a>Geekbench 3
 
-[GeekBench 3](http://www.geekbench.com/geekbench3/) ist eine plattformübergreifende-Prozessor-Benchmark, die die Ergebnisse für die Leistung von Einzelkern- und mit mehreren Kernen trennt. Es wird eine Reihe von Workloads, einschließlich Integer-Workloads (Verschlüsselungen, kompatibel, das eine bildverarbeitung, usw.), floating Point-Workloads (Modellierung, Fraktal, Schärfe Image, Abbild Unschärfe, usw.) und Memory-Workloads (streaming) simuliert.
+[Geekbench 3](http://www.geekbench.com/geekbench3/) ist ein plattformübergreifender Prozessor-Benchmark, der die Ergebnisse für die Einzel-und multikernleistung trennt. Es simuliert eine Reihe von Arbeits Auslastungen, z. b. ganzzahlige Workloads (Verschlüsselungen, Komprimierungen, Bildverarbeitung usw.), Gleit Komma-Arbeits Auslastungen (Modellierung, Dezimalstelle, Bildschärfung, Bildunschärfe usw.) und arbeitsspeicherworkloads (Streaming).
 
-**Antwortzeit** ist eine wichtige Kennzahl in seiner bewertungsberechnung. In unserem getesteten System, der Standardwert **ausgeglichen** Energiesparplan hat ca. 18 % Regression Einzelkern-Tests und etwa 40 % der Regression mit mehreren Kernen-Tests, die im Vergleich zu den **hohe Leistung** Energiesparplan. Die vorgeschlagene Änderung entfernt diese Regressionen.
+Die **Antwortzeit** ist ein wichtiges Measure in der Ergebnisberechnung. In unserem getesteten System hat der standardmäßige **ausgeglichene** Energie Sparplan eine Regression von ungefähr 18% in einzelkerntests und eine Regression von ungefähr 40% bei mehr Kern Tests im Vergleich zum **Hochleistungs** Energie Sparplan. Durch die vorgeschlagene Änderung werden diese Regressionen entfernt.
 
 ## <a name="diskspd"></a>DiskSpd
 
-[Diskspd](https://en.wikipedia.org/wiki/Diskspd) ist ein Befehlszeilentool, bei Vergleichstests Speicher, die von Microsoft entwickelt wurden. Es wird häufig verwendet, um eine Vielzahl von Anforderungen von Speichersystemen für die Leistungsanalyse für Speicher zu generieren.
+[Diskspd](https://en.wikipedia.org/wiki/Diskspd) ist ein Befehlszeilen Tool für Speicher Benchmarktests, das von Microsoft entwickelt wurde. Es wird häufig verwendet, um eine Vielzahl von Anforderungen für Speichersysteme für die Speicher Leistungsanalyse zu generieren.
 
-Wir richten Sie einen [Failovercluster] und Diskspd zum Generieren von zufälligen und sequenzielle und read und Schreibvorgänge, die auf die lokalen und Remotespeicher-Systeme in unterschiedlichen e/a-Größen verwendet. Unsere Tests haben gezeigt, dass die e/a-Antwortzeit unter unterschiedliche Energiesparpläne sehr empfindlich, was Prozessorfrequenz befindet. Die **ausgeglichen** Energiesparplan konnte double die Antwortzeit, die von der **hohe Leistung** Energiesparplan von Computern unter bestimmten Arbeitsbedingungen. Die vorgeschlagene Änderung entfernt die meisten Regressionen.
+Wir haben einen [Failovercluster] eingerichtet und mithilfe von diskspd zufällige und sequenzielle Generierung erstellt und IOS in den lokalen und Remote-Speichersystemen mit unterschiedlichen e/a-Größen gelesen und geschrieben. Unsere Tests zeigen, dass die e/a-Antwortzeit für die Prozessor Häufigkeit unter verschiedenen Energie Sparplänen sehr empfindlich ist. Der **ausgeglichene** Energie Sparplan könnte die Antwortzeit des **hochleistungsfähigen** Energie Sparplans unter bestimmten Workloads verdoppeln. Die vorgeschlagene Änderung entfernt die meisten Regressionen.
 
 >[!Important]
->[Broadwell]-Intel-Prozessoren, die unter Windows Server 2016 ab, die meisten der Processor Power managemententscheidungen im Prozessor anstelle von OS-Ebene erfolgen schneller macht eine Anpassung, um die Änderungen der arbeitsauslastung zu erreichen. Die ältere PPM-Parameter, die vom Betriebssystem verwendet eine minimale Auswirkung auf die tatsächliche Häufigkeit Entscheidungen treffen – mit Ausnahme dem Prozessor mitgeteilt wird, ob es Leistung oder Energieverbrauch bewährten vorziehen sollen oder Taskausführungsanforderungen begrenzt wird, die minimalen und maximalen Häufigkeit an. Daher ist die vorgeschlagene Änderung der PPM-Parameter nur für die Pre-Broadwell-Systeme als Ziel.
+>Ab Intel [Broadwell]-Prozessoren, die Windows Server 2016 ausführen, werden die meisten Verwaltungsentscheidungen für die Prozessorleistung im Prozessor statt auf der Betriebssystemebene vorgenommen, um eine schnellere Anpassung an die Änderungen an der Arbeitsauslastung zu erzielen. Die vom Betriebssystem verwendeten älteren ppm-Parameter wirken sich nur minimal auf die tatsächlichen Häufigkeits Entscheidungen aus, mit dem Unterschied, dass der Prozessor eine Stromversorgung oder Leistungsfähigkeit bevorzugen oder die minimalen und maximalen Frequenzen umrechnen muss. Daher ist die vorgeschlagene Änderung von ppm-Parametern nur für die Pre-Broadwell-Systeme ausgelegt.
 
 ## <a name="see-also"></a>Siehe auch
-- [Überlegungen zur Leistung von Server-Hardware](../index.md)
-- [Überlegungen zur Power von Server-Hardware](../power.md)
-- [Leistung und Leistungsoptimierung](power-performance-tuning.md)
-- [Processor Power Management-Optimierung](processor-power-management-tuning.md)
+- [Überlegungen zur Server Hardware Leistung](../index.md)
+- [Server Hardware Power Considerations](../power.md) (Überlegungen zum Energiebedarf von Serverhardware)
+- [Power and Performance Tuning](power-performance-tuning.md) (Leistungs- und Energieoptimierung)
+- [Processor Power Management (PPM) Tuning for the Windows Server Balanced Power Plan](processor-power-management-tuning.md) (Optimieren der Prozessorenergieverwaltung (Processor Power Management (PPM)) für den ausgewogenen Energiesparplan von Windows Server)
 - [Failovercluster](https://technet.microsoft.com/library/cc725923.aspx)

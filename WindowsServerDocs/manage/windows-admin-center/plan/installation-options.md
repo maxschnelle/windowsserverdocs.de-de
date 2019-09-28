@@ -6,14 +6,14 @@ ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.date: 06/07/2019
-ms.openlocfilehash: 36c9dfcb38ef417df56206cdb18633cc877183c4
-ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
+ms.openlocfilehash: 144c57bba621ee1b94a66914f8d9b6c0292f8b03
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658897"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406877"
 ---
 # <a name="what-type-of-installation-is-right-for-you"></a>Welche Art von Installation ist für Sie geeignet?
 
@@ -41,15 +41,15 @@ Sie können Windows Admin Center unter den folgenden Windows-Betriebssystemen **
 
 So betreiben Sie Windows Admin Center:
 
-- **In lokalem Client Szenario:** Starten Sie das Windows Admin Center-Gateway über das Startmenü, und stellen Sie über einen Client Webbrowser eine `https://localhost:6516`Verbindung dazu her, indem Sie auf zugreifen.
-- **In anderen Szenarien:** Herstellen einer Verbindung mit dem Windows Admin Center-Gateway auf einem anderen Computer als einem Client Browser über die URL, z. b.`https://servername.contoso.com`
+- **In lokalem Client Szenario:** Starten Sie das Windows Admin Center-Gateway über das Startmenü, und stellen Sie über einen Client Webbrowser eine Verbindung her, indem Sie auf `https://localhost:6516` zugreifen.
+- **In anderen Szenarien:** Herstellen einer Verbindung mit dem Windows Admin Center-Gateway auf einem anderen Computer als einem Client Browser über die URL, z. b. `https://servername.contoso.com`
 
 > [!WARNING]
 > Die Installation von Windows Admin Center auf einem Domänen Controller wird nicht unterstützt. [Weitere Informationen finden Sie unter Bewährte Sicherheitsmethoden für Domänen Controller](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack). 
 
 ## <a name="installation-supported-web-browsers"></a>Install Unterstützte Webbrowser
 
-Microsoft Edge und Google Chrome werden auf Windows 10 getestet und unterstützt. Andere Webbrowser – einschließlich Internet Explorer und Firefox – sind zurzeit nicht Teil unserer Test Matrix und werden daher nicht *offiziell* unterstützt. Diese Browser haben möglicherweise Probleme beim Ausführen des Windows Admin Centers. Firefox verfügt beispielsweise über einen eigenen Zertifikat Speicher, sodass Sie das `Windows Admin Center Client` Zertifikat in Firefox importieren müssen, damit Windows Admin Center unter Windows 10 verwendet werden kann. Weitere Informationen finden Sie unter [browserspezifische bekannte Probleme](../support/known-issues.md#browser-specific-issues).
+Microsoft Edge und Google Chrome werden auf Windows 10 getestet und unterstützt. Andere Webbrowser – einschließlich Internet Explorer und Firefox – sind zurzeit nicht Teil unserer Test Matrix und werden daher nicht *offiziell* unterstützt. Diese Browser haben möglicherweise Probleme beim Ausführen des Windows Admin Centers. Firefox verfügt beispielsweise über einen eigenen Zertifikat Speicher, sodass Sie das `Windows Admin Center Client`-Zertifikat in Firefox importieren müssen, damit Windows Admin Center unter Windows 10 verwendet werden kann. Weitere Informationen finden Sie unter [browserspezifische bekannte Probleme](../support/known-issues.md#browser-specific-issues).
 
 ## <a name="management-target-supported-operating-systems"></a>Verwaltungs Ziel: Unterstützte Betriebssysteme
 

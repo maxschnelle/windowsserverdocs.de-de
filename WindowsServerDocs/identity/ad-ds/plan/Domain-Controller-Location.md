@@ -7,22 +7,22 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 6b66b224278f15b6abeecbef8fe0778a98159bb7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 48ea357b952738c63274d194b4a5aa5d4adcb3d8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872621"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408846"
 ---
 # <a name="domain-controller-location"></a>Domänencontrollersuche
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Clients verwenden Domain Name System (DNS), die um von Domänencontrollern auf vollständige Vorgänge wie das Verarbeiten von anmeldeanforderungen, oder suchen Sie das Verzeichnis für veröffentlichte Ressourcen zu suchen. Domänencontroller registrieren verschiedener Datensätze in DNS, um Clients zu unterstützen, und suchen Sie andere Computer sie. Diese Datensätze werden zusammenfassend als die Locatoreinträge bezeichnet.  
+Clients verwenden Domain Name System (DNS), um Domänen Controller zum Ausführen von Vorgängen wie das Verarbeiten von Anmelde Anforderungen oder das Durchsuchen des Verzeichnisses nach veröffentlichten Ressourcen zu finden. Domänen Controller registrieren eine Reihe von Datensätzen in DNS, damit Sie von Clients und anderen Computern gefunden werden. Diese Datensätze werden zusammen als Locatoreinträge bezeichnet.  
   
-Domänencontroller werden auch DNS verwenden, um andere Domänencontroller zu finden und zu Aufgaben, z. B. die Replikation. Der Prozess, mit dem Domänencontroller auf andere Domänencontroller finden, ist identisch mit der Prozess, mit dem Clients Domänencontroller finden.  
+Domänen Controller verwenden auch DNS, um andere Domänen Controller zu suchen und Aufgaben wie die Replikation auszuführen. Der Prozess, mit dem Domänen Controller nach anderen Domänen Controllern suchen, ist identisch mit dem Prozess, mit dem Clients Domänen Controller suchen.  
   
 
 
