@@ -1,48 +1,48 @@
 ---
 title: Schritte nach der Bereitstellung für den Netzwerkcontroller
-description: Dieses Thema enthält Anweisungen für nicht-Kerberos-Bereitstellungen von Netzwerkcontroller in Windows Server 2016 Datacenter Zertifikat.
+description: Dieses Thema enthält Anweisungen zur Zertifikat Konfiguration für nicht-Kerberos-bereit Stellungen von Netzwerk Controllern in Windows Server 2016 Datacenter.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: eea0aca9-8d89-48fb-8068-fca40c90d34b
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: f7d6bbd50537e24f392eabde7d103c91a4f07c90
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3f95d2884a808239c1d171eecbc983e26e799102
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871081"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355615"
 ---
 # <a name="post-deployment-steps-for-network-controller"></a>Schritte nach der Bereitstellung für den Netzwerkcontroller
 
-Bei der Installation von Netzwerkcontroller können Sie Kerberos oder nicht-Kerberos-Bereitstellungen.
+Wenn Sie den Netzwerk Controller installieren, können Sie Kerberos-oder nicht-Kerberos-bereit Stellungen auswählen.
 
-Für nicht\-Kerberos-Bereitstellungen müssen Sie Zertifikate konfigurieren.
+Für nicht-@ no__t-0kerberos-bereit Stellungen müssen Sie Zertifikate konfigurieren.
 
-## <a name="configure-certificates-for-non-kerberos-deployments"></a>Konfigurieren von Zertifikaten für nicht-Kerberos-Bereitstellungen
+## <a name="configure-certificates-for-non-kerberos-deployments"></a>Konfigurieren von Zertifikaten für nicht-Kerberos-bereit Stellungen
 
-Wenn die Computer oder virtuelle Computer \(VMs\) für Netzwerkcontroller und den Management-Client nicht Domäne\-verknüpft ist, müssen Sie Zertifikat konfigurieren\--basierte Authentifizierung dazu die folgenden die Schritte.
+Wenn die Computer oder virtuellen Computer \(vms @ no__t-1 für den Netzwerk Controller und den Verwaltungs Client nicht Domäne @ no__t-2verknüpft sind, müssen Sie die Zertifikat-@ no__t-3based-Authentifizierung konfigurieren, indem Sie die folgenden Schritte ausführen.
 
-- Erstellen Sie ein Zertifikat auf dem Netzwerkcontroller für die Computerauthentifizierung. Antragstellername des Zertifikats muss der DNS-Name des Netzwerkcontroller-Computer oder virtuellen Computer identisch sein.
+- Erstellen Sie ein Zertifikat auf dem Netzwerk Controller für die Computer Authentifizierung. Der Antragsteller Name des Zertifikats muss mit dem DNS-Namen des Netzwerk Controller Computers oder der VM identisch sein.
 
-- Erstellen Sie ein Zertifikat auf dem Management-Client. Dieses Zertifikat muss durch den Netzwerkcontroller vertrauenswürdig sein.
+- Erstellen Sie ein Zertifikat auf dem Verwaltungs Client. Dieses Zertifikat muss vom Netzwerk Controller als vertrauenswürdig eingestuft werden.
   
-- Registrieren Sie ein Zertifikat auf dem Netzwerkcontroller-Computer oder virtuellen Computer. Das Zertifikat muss die folgenden Anforderungen erfüllen.
+- Registrieren Sie ein Zertifikat auf dem Netzwerk Controller Computer oder der VM. Das Zertifikat muss die folgenden Anforderungen erfüllen.
   
-    -  Sowohl den Zertifizierungszweck der Serverauthentifizierung als auch den Zertifizierungszweck der Clientauthentifizierung im Enhanced Key Usage konfiguriert sein \(EKU\) oder Anwendungsrichtlinien-Erweiterungen. Die Objekt-ID für die Serverauthentifizierung ist 1.3.6.1.5.5.7.3.1. Die Objekt-ID für die Clientauthentifizierung ist 1.3.6.1.5.5.7.3.2.
+    -  Sowohl der Zweck der Server Authentifizierung als auch der Zweck der Client Authentifizierung müssen in der erweiterten Schlüssel Verwendung \(eku @ no__t-1 oder Anwendungsrichtlinien Erweiterungen konfiguriert werden. Der Objekt Bezeichner für die Server Authentifizierung ist 1.3.6.1.5.5.7.3.1. Der Objekt Bezeichner für die Client Authentifizierung ist 1.3.6.1.5.5.7.3.2.
   
-    - Antragstellername des Zertifikats sollte aufgelöst:
+    - Der Antragsteller Name des Zertifikats sollte in Folgendes aufgelöst werden:
   
-        - Die IP-Adresse des Netzwerkcontroller-Computer oder der VM, wenn die Bereitstellung des Netzwerkcontrollers auf einem einzelnen Computer oder virtuellen Computer.
+        - Die IP-Adresse des Netzwerk Controller Computers oder der VM, wenn der Netzwerk Controller auf einem einzelnen Computer oder virtuellen Computer bereitgestellt wird.
 
-        - Die REST-IP-Adresse an, wenn die Bereitstellung des Netzwerkcontrollers auf mehreren Computern, mehreren virtuellen Computern oder beides.
+        - Die Rest-IP-Adresse, wenn der Netzwerk Controller auf mehreren Computern, mehreren VMS oder beidem bereitgestellt wird.
   
-    - Dieses Zertifikat muss von allen REST-Clients vertrauenswürdig sein. Das Zertifikat muss auch vertrauenswürdig sein, indem Sie den Multiplexer (Software Load Balancing, SLB) (MUX) und die southbound-Host-Computer, die vom Netzwerkcontroller verwaltet werden.
+    - Dieses Zertifikat muss von allen Rest-Clients als vertrauenswürdig eingestuft werden. Das Zertifikat muss auch vom Software Lastenausgleich (Software Load Balancing, SLB) Multiplexer (MUX) und den von einem Netzwerk Controller verwalteten, von einem Netzwerk Controller verwalteten Host Computern als vertrauenswürdig eingestuft werden.
   
-    - Das Zertifikat von einer Zertifizierungsstelle (CA) registriert werden oder ein selbstsigniertes Zertifikat handeln. Selbstsignierte Zertifikate werden für produktionsbereitstellungen nicht empfohlen, aber zulässig für Test Lab-Umgebungen sind.
+    - Das Zertifikat kann von einer Zertifizierungsstelle (Certification Authority, ca) registriert werden oder ein selbst signiertes Zertifikat sein. Selbst signierte Zertifikate werden für Produktions Bereitstellungen nicht empfohlen, sind jedoch für Testumgebungen akzeptabel.
   
-    - Das gleiche Zertifikat muss auf allen Knoten für den Netzwerkcontroller bereitgestellt werden. Nach dem Erstellen des Zertifikats auf einem Knoten können Sie das Exportieren des Zertifikats (mit dem privaten Schlüssel) und importieren sie auf den anderen Knoten.
+    - Das gleiche Zertifikat muss auf allen Netzwerk Controller Knoten bereitgestellt werden. Nachdem Sie das Zertifikat auf einem Knoten erstellt haben, können Sie das Zertifikat (mit dem privaten Schlüssel) exportieren und auf die anderen Knoten importieren.
 
 Weitere Informationen finden Sie unter [Network Controller](Network-Controller.md).

@@ -1,7 +1,7 @@
 ---
 title: Nur Software (SO)-Features und -Technologien
 description: Diese Funktionen werden als Teil des Betriebssystems implementiert und sind unabhängig von den zugrunde liegenden NIC (s). Manchmal erfordern diese Features eine Optimierung der NIC für optimalen Betrieb. Beispiele hierfür sind Hyper-v-Features wie Virtual Machine Quality of Service (vmqos), Access Control Listen (ACLs) und nicht-Hyper-v-Features wie NIC-Team Vorgänge.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 0cafb1cc-5798-42f5-89b6-3ffe7ac024ba
@@ -9,12 +9,12 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/20/2018
-ms.openlocfilehash: 27fbbcc5eedb1bc8ee37a85356542335c2eac77a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 8c354d53db983d0437749de918b2d5f12ede0f5b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871930"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405699"
 ---
 # <a name="software-only-so-features-and-technologies"></a>Nur Software (SO)-Features und -Technologien
 Reine Software Funktionen werden als Teil des Betriebssystems implementiert und sind unabhängig von den zugrunde liegenden NIC (s). Manchmal erfordern diese Features eine Optimierung der NIC für optimalen Betrieb. Beispiele hierfür sind Hyper-v-Features wie Virtual Machine Quality of Service (vmqos), Access Control Listen (ACLs) und nicht-Hyper-v-Features wie NIC-Team Vorgänge.

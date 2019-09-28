@@ -1,8 +1,8 @@
 ---
-title: Detail-Datenträger
-description: 'Windows-Befehle Thema ***- '
+title: Detail Festplatte
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2c7a5063edf3cb2e190e8aec957e1b571c1f15bc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ff78a3f9e27cde35a7e19bdf1565c515a127261b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819101"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378583"
 ---
-# <a name="detail-disk"></a>Detail-Datenträger
+# <a name="detail-disk"></a>Detail Festplatte
 
 
 
@@ -34,17 +34,17 @@ detail disk
 
 ## <a name="remarks"></a>Hinweise
 
--   Ein Datenträger muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden. Verwenden der **select Disk** Befehl aus, wählen Sie einen Datenträger und verschiebt den Fokus auf sie.
--   Wenn der ausgewählte Datenträger eine virtuelle Festplatte (VHD), ist **Detail Datenträger** meldet der datenträgerbustyp als virtuelle.
+-   Ein Datenträger muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl Datenträger **auswählen** einen Datenträger aus, und verschieben Sie den Fokus auf den Datenträger.
+-   Wenn es sich bei der ausgewählten Festplatte um eine virtuelle Festplatte (VHD) handelt, meldet der **Detail** Datenträger den Bustyp des Datenträgers als virtuell
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um die Eigenschaften des ausgewählten Datenträgers, und Informationen über die Volumes auf dem Datenträger anzuzeigen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um die Eigenschaften des ausgewählten Datenträgers und Informationen zu den Volumes auf dem Datenträger anzuzeigen:
 ```
 detail disk
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

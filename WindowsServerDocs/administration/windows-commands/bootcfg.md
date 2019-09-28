@@ -1,8 +1,8 @@
 ---
 title: bootcfg
-description: 'Windows-Befehle Thema **Bootcfg** : konfiguriert, Abfragen oder ändert die Einstellungen der Datei "Boot.ini".'
+description: 'Windows-Befehle-Thema für **bootcfg** : konfiguriert, fragt oder ändert die Datei Einstellungen der Boot. ini-Datei.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 79a1c0e22a3b162ba9492c80d114b2d5b943c744
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2d66296327a2221093e5434f69e15e7c55df1f6b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867021"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379851"
 ---
 # <a name="bootcfg"></a>bootcfg
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Ermöglicht das Konfigurieren, Abfragen oder Ändern von Einstellungen in der Datei „Boot.ini“.  
 ## <a name="syntax"></a>Syntax  
@@ -32,14 +32,14 @@ bootcfg <parameter> [arguments...]
 ## <a name="parameters"></a>Parameter  
 |Parameter|Beschreibung|  
 |-------|--------|  
-|[BOOTCFG addsw](bootcfg-addsw.md)|Fügt Betriebssystem Ladeoptionen für einen angegebenen Betriebssystem-Eintrag hinzu.|  
-|[BOOTCFG kopieren](bootcfg-copy.md)|Erstellt eine Kopie eines vorhandenen Starteintrags, zu dem Sie Befehlszeilenoptionen hinzufügen können.|  
-|[bootcfg dbg1394](bootcfg-dbg1394.md)|Konfiguriert die 1394 Port für einen bestimmten Betriebssystemeintrag Debuggen.|  
-|[BOOTCFG Debuggen](bootcfg-debug.md)|Hinzufügen oder Ändern der Einstellungen zum Debuggen für einen bestimmten Betriebssystemeintrag.|  
-|[BOOTCFG Standard](bootcfg-default.md)|Gibt den Betriebssystemeintrag als Standard festgelegt werden soll.|  
-|[BOOTCFG löschen](bootcfg-delete.md)|Löscht einen Betriebssystem-Eintrag in der **[Betriebssysteme]** -Abschnitt der Datei "Boot.ini".|  
-|[BOOTCFG ems](bootcfg-ems.md)|Ermöglicht es dem Benutzer hinzufügen oder ändern die Einstellungen für die Umleitung der Emergency Management Services-Konsole mit einem Remotecomputer aus.|  
-|[bootcfg query](bootcfg-query.md)|Fragt ab und zeigt das [Startladeprogramm] und **[Betriebssysteme]** Abschnitt Einträge aus der Datei "Boot.ini".|  
-|[unformatierte bootcfg](bootcfg-raw.md)|Fügt der Betriebssystem-Ladeoptionen angegeben werden, als eine Zeichenfolge, die ein Betriebssystem-Eintrag in der **[Betriebssysteme]** -Abschnitt der Datei "Boot.ini".|  
-|[BOOTCFG rmsw](bootcfg-rmsw.md)|Optionen zum Laden von Betriebssystem für einen angegebenen Betriebssystem-Eintrag wird entfernt.|  
-|[Bootcfg-timeout](bootcfg-timeout.md)|Ändert den Betriebssystem-Timeout-Wert.|  
+|[bootcfg addsw](bootcfg-addsw.md)|Fügt Optionen für das Laden von Betriebssystemen für einen angegebenen Betriebssystem Eintrag hinzu.|  
+|[bootcfg copy](bootcfg-copy.md)|Erstellt eine Kopie eines vorhandenen Start Eintrags, dem Sie Befehlszeilenoptionen hinzufügen können.|  
+|[bootcfg dbg1394](bootcfg-dbg1394.md)|Konfiguriert 1394-Port Debugging für einen angegebenen Betriebssystem Eintrag.|  
+|[bootcfg debug](bootcfg-debug.md)|Fügt die Debugeinstellungen für einen angegebenen Betriebssystem Eintrag hinzu oder ändert Sie.|  
+|[bootcfg default](bootcfg-default.md)|Gibt den Betriebssystem Eintrag an, der als Standard festgelegt werden soll.|  
+|[bootcfg delete](bootcfg-delete.md)|Löscht einen Betriebssystem Eintrag im Abschnitt **[Betriebssysteme]** der Datei "Boot. ini".|  
+|[bootcfg ems](bootcfg-ems.md)|Ermöglicht es dem Benutzer, die Einstellungen für die Umleitung der Notfall Verwaltungsdienste-Konsole einem Remote Computer hinzuzufügen oder zu ändern.|  
+|[bootcfg query](bootcfg-query.md)|Abfragen und Anzeigen der Abschnitts Einträge [Boot Loader] und **[Betriebssysteme]** aus der Datei "Boot. ini".|  
+|[bootcfg raw](bootcfg-raw.md)|Fügt einem Betriebssystem Eintrag im Abschnitt **[Betriebssysteme]** der Datei "Boot. ini" die Optionen für das Betriebssystem laden hinzu, die als Zeichenfolge angegeben sind.|  
+|[bootcfg rmsw](bootcfg-rmsw.md)|entfernt Optionen für das Laden von Betriebssystemen für einen angegebenen Betriebssystem Eintrag.|  
+|[bootcfg timeout](bootcfg-timeout.md)|ändert den Timeout Wert des Betriebssystems.|  

@@ -1,79 +1,79 @@
 ---
 title: Entwickeln eines Gateway-Plug-Ins
-description: Entwickeln Sie ein Plug-In für Gateway-SDK für Windows Admin Center (Projekt Honolulu)
+description: Entwickeln eines Gateway-Plug-ins Windows Admin Center SDK (Projekt Honolulu)
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 66e36a349fc6bd38a77ccf4f00d380788ea4b422
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.prod: windows-server
+ms.openlocfilehash: 2b096b226190ad1ca3fd07c38b7b939d019ee30f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445957"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406938"
 ---
 # <a name="develop-a-gateway-plugin"></a>Entwickeln eines Gateway-Plug-Ins
 
->Gilt für: Windows Admin Center, Windows Admin Center Preview
+>Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
-Eine Windows Admin Center-Gateway-Plug-in kann API-Kommunikation über die Benutzeroberfläche des Tools oder der Projektmappe mit einem Zielknoten.  Windows Admin Center hostet einen Gatewaydienst, der Befehle und Skripts von Gateway-Plug-Ins auf den Zielknoten ausgeführt werden, überträgt. Der Gateway-Dienst kann erweitert werden, um benutzerdefiniertes Gateway-Plug-Ins enthalten, die Protokolle als die Standardfarben zu unterstützen.
+Ein Windows Admin Center Gateway-Plug-in ermöglicht die API-Kommunikation über die Benutzeroberfläche des Tools oder der Lösung mit einem Zielknoten.  Windows Admin Center hostet einen Gatewaydienst, der Befehle und Skripts von gatewayplug-ins überträgt, die auf Zielknoten ausgeführt werden. Der Gatewaydienst kann erweitert werden, um benutzerdefinierte Gateway-Plug-ins einzubeziehen, die andere Protokolle als die Standardeinstellungen unterstützen.
 
-Diese Gateway-Plug-Ins sind standardmäßig mit Windows Admin Center enthalten:
+Diese Gateway-Plug-ins sind standardmäßig im Windows Admin Center enthalten:
 
-* PowerShell-Gateway-Plug-in
-* WMI-Gateway-Plug-in
+* PowerShell Gateway-Plug-in
+* WMI Gateway-Plug-in
 
-Wenn Sie, für die Kommunikation mit dem ein anderes Protokoll als PowerShell oder WMI möchten können z. B. mit REST Sie Ihren eigenen Gateway-Plug-in erstellen.  Gateway-Plug-Ins in einer separaten AppDomain aus der vorhandenen Gatewayprozess geladen, aber der gleichen Ebene wie die Erhöhung für Rechte.
+Wenn Sie mit einem anderen Protokoll als PowerShell oder WMI (z. b. mit Rest) kommunizieren möchten, können Sie ein eigenes Gateway-Plug-in erstellen.  Gateway-Plug-ins werden aus dem vorhandenen Gatewayprozess in eine separate AppDomain geladen, verwenden jedoch die gleiche Berechtigungsstufe für Rechte.
 
 > [!NOTE]
-> Sie sind nicht mit anderen Erweiterungstypen vertraut? Erfahren Sie mehr über die [Erweiterbarkeit Architektur und die Erweiterung Typen](understand-extensions.md).
+> Sie sind mit den unterschiedlichen Erweiterungs Typen nicht vertraut? Erfahren Sie mehr über die [Erweiterbarkeits Architektur und die Erweiterungs Typen](understand-extensions.md).
 
 ## <a name="prepare-your-environment"></a>Vorbereiten der Umgebung
 
-Wenn Sie nicht bereits geschehen, [Vorbereiten der Umgebung](prepare-development-environment.md) durch die Installation von Abhängigkeiten und globale Voraussetzungen für alle Projekte.
+Wenn Sie dies noch nicht getan haben, [bereiten Sie Ihre Umgebung](prepare-development-environment.md) vor, indem Sie die Abhängigkeiten und globalen Voraussetzungen für alle Projekte installieren.
 
-## <a name="create-a-gateway-plugin-c-library"></a>Erstellen Sie einen Gateway-Plug-in (C# Bibliothek)
+## <a name="create-a-gateway-plugin-c-library"></a>Erstellen eines Gateway-PlugC# -ins (Bibliothek)
 
-Um ein benutzerdefiniertes Gateway-Plug-in zu erstellen, erstellen Sie ein neues C# Klasse, die implementiert die ```IPlugIn``` -Schnittstelle aus der ```Microsoft.ManagementExperience.FeatureInterfaces``` Namespace.  
+Um ein benutzerdefiniertes Gateway-Plug-in C# zu erstellen, erstellen Sie eine neue Klasse, die die ```IPlugIn```-Schnittstelle aus dem Namespace ```Microsoft.ManagementExperience.FeatureInterfaces``` implementiert  
 
 > [!NOTE]
-> Die ```IFeature``` Schnittstelle, die in früheren Versionen des SDK verfügbar, wird jetzt als veraltet gekennzeichnet.  Alle Gateway-Plug-in Development sollten IPlugIn (oder optional die abstrakte HttpPlugIn-Klasse) verwenden.
+> Die in früheren Versionen des SDK verfügbare ```IFeature```-Schnittstelle ist nun als veraltet gekennzeichnet.  Für alle gatewayplug-in-Entwicklungen sollte IPlugin (oder optional die abstrakte httpplugin-Klasse) verwendet werden.
 
 ### <a name="download-sample-from-github"></a>Beispiel von GitHub herunterladen
 
-Um schnell mit einem benutzerdefinierten Gateway-Plug-in zu beginnen, können Sie Klonen oder Herunterladen der eine Kopie des unsere [Beispiel C# -Plug-in-Projekt](https://github.com/Microsoft/windows-admin-center-sdk/tree/master/GatewayPluginExample/Plugin) aus unserem Windows Admin Center-SDK [GitHub-Website](https://aka.ms/wacsdk).
+Um schnell mit einem benutzerdefinierten Gateway-Plug-in zu beginnen, können Sie eine Kopie des [ C# beispielplug](https://github.com/Microsoft/windows-admin-center-sdk/tree/master/GatewayPluginExample/Plugin) -in-Projekts auf der [GitHub-Website](https://aka.ms/wacsdk)des Windows Admin Center SDK Klonen oder herunterladen.
 
-### <a name="add-content"></a>Fügen Sie Inhalt hinzu
+### <a name="add-content"></a>Inhalt hinzufügen
 
-Neue Inhalte hinzufügen, um die geklonte Kopie der [Beispiel C# -Plug-in-Projekt](https://github.com/Microsoft/windows-admin-center-sdk/tree/master/GatewayPluginExample/Plugin) Projekts (oder Ihres eigenen Projekts verwenden), Ihre benutzerdefinierten APIs enthalten, und erstellen Ihr benutzerdefiniertes Gateway Plug-in-DLL-Datei, um in den nächsten Schritten verwendet werden.
+Fügen Sie Ihrer geklonten Kopie des [ C# beispielplug](https://github.com/Microsoft/windows-admin-center-sdk/tree/master/GatewayPluginExample/Plugin) -in-projektprojekts (oder Ihrem eigenen Projekt) neuen Inhalt hinzu, um Ihre benutzerdefinierten APIs aufzunehmen, und erstellen Sie dann die benutzerdefinierte Gateway-Plug-in-DLL-Datei, die in den nächsten Schritten
 
-### <a name="deploy-plugin-for-testing"></a>Bereitstellen von-Plug-In für Tests
+### <a name="deploy-plugin-for-testing"></a>Plug-in zum Testen bereitstellen
 
-Testen Sie Ihr benutzerdefiniertes Gateway Plug-in-DLL, indem Sie laden in Windows Admin Center-Gatewayprozess.
+Testen Sie Ihre benutzerdefinierte Gateway-Plug-in-dll durch Laden in den Windows Admin Center
 
-Windows Admin Center sucht alle Plug-Ins in einer ```plugins``` Ordner im Ordner "Anwendungsdaten" des aktuellen Computers (mithilfe den CommonApplicationData-Wert, der der Environment.SpecialFolder-Enumeration). Unter Windows 10 ist der Speicherort dieses ```C:\ProgramData\Server Management Experience```.  Wenn die ```plugins``` Ordner noch nicht vorhanden ist, Sie können den Ordner selbst erstellen.
+Das Windows Admin Center sucht in einem ```plugins```-Ordner im Ordner "Anwendungsdaten" des aktuellen Computers nach allen Plug-ins (mit dem CommonApplicationData-Wert der "Environment. SpecialFolder"-Enumeration). Unter Windows 10 ist dieser Speicherort ```C:\ProgramData\Server Management Experience```.  Wenn der Ordner "```plugins```" noch nicht vorhanden ist, können Sie den Ordner selbst erstellen.
 
 > [!NOTE]
-> Sie können den Speicherort des Plug-Ins in einem Debugbuild überschreiben, indem Sie den Konfigurationswert "StaticsFolder" aktualisieren. Wenn Sie lokal debuggen, können Sie diese Einstellung in "App.config" der Desktop-Lösung ist. 
+> Sie können den Speicherort des Plug-ins in einem Debugbuild überschreiben, indem Sie den Konfigurations Wert "staticsfolder" aktualisieren. Wenn Sie lokal debuggen, befindet sich diese Einstellung in der Datei "App. config" der Desktop Lösung. 
 
-In den Ordner "Plug-Ins" (in diesem Beispiel ```C:\ProgramData\Server Management Experience\plugins```)
+Innerhalb des Plug-in-Ordners (in diesem Beispiel ```C:\ProgramData\Server Management Experience\plugins```)
 
-* Erstellen Sie einen neuen Ordner mit dem gleichen Namen wie die ```Name``` Eigenschaftswert, der die ```Feature``` in Ihr benutzerdefiniertes Gateway Plug-in-DLL (in unserem Beispielprojekt die ```Name``` ist "Beispiel Uno")
-* Kopieren Sie Ihr benutzerdefiniertes Gateway-Plug-in-DLL-Datei in diesen neuen Ordner
-* Starten Sie den Windows Admin Center-Prozess
+* Erstellen Sie einen neuen Ordner mit dem gleichen Namen wie der ```Name```-Eigenschafts Wert von ```Feature``` in Ihrer benutzerdefinierten Gateway-Plug-in-dll (in unserem Beispiel Projekt ist der ```Name``` "Sample UNO").
+* Kopieren Sie die DLL-Datei für das benutzerdefinierte Gateway-Plugin in diesen neuen
+* Windows Admin Center-Prozess neu starten
 
-Nachdem die Windows-Admin-Prozess neu gestartet wird, Sie werden so führen Sie die APIs in Ihr benutzerdefiniertes Gateway Plug-in-DLL aus, durch das Ausgeben eines GET, PUT, PATCH, DELETE oder in Posten ```http(s)://{domain|localhost}/api/nodes/{node}/features/{feature name}/{identifier}```
+Nachdem der Windows-Administrator Prozess neu gestartet wurde, können Sie die APIs in Ihrer benutzerdefinierten Gateway-Plug-in-dll ausführen, indem Sie einen Get-, Put-, Patch-, DELETE-oder Post-Vorgang für ```http(s)://{domain|localhost}/api/nodes/{node}/features/{feature name}/{identifier}``` ausgeben.
 
-### <a name="optional-attach-to-plugin-for-debugging"></a>Optional: Fügen Sie-Plug-In für das Debuggen
+### <a name="optional-attach-to-plugin-for-debugging"></a>Optional: An Plug-in für Debugging anfügen
 
-Wählen Sie in Visual Studio 2017 klicken Sie im Menü "Debuggen" "An den Prozess anhängen" ein. Im nächsten Fenster einen Bildlauf durch die Liste Verfügbare Prozesse SMEDesktop.exe auswählen, und klicken Sie auf "Anfügen". Einmal können der Debugger gestartet wird, Sie einen Haltepunkt im Code der Funktion und dann Übung über die obige URL-Format platzieren. Für unser Beispielprojekt (Name des Features: "Beispiel Uno") die URL lautet: "<http://localhost:6516/api/nodes/fake-server.my.domain.com/features/Sample%20Uno>"
+Wählen Sie in Visual Studio 2017 im Menü Debuggen die Option "an den Prozess anhängen" aus. Führen Sie im nächsten Fenster einen Bildlauf durch die Liste Verfügbare Prozesse durch, und wählen Sie "smedesktop. exe" aus. Nachdem der Debugger gestartet wurde, können Sie einen Haltepunkt in Ihrem Featurecode platzieren und dann das obige URL-Format ausführen. Für das Beispiel Projekt (Funktionsname: "Beispiel-UNO") die URL lautet: "<http://localhost:6516/api/nodes/fake-server.my.domain.com/features/Sample%20Uno>"
 
-## <a name="create-a-tool-extension-with-the-windows-admin-center-cli"></a>Erstellen Sie eine toolerweiterung, mit der Windows Admin Center-CLI ##
+## <a name="create-a-tool-extension-with-the-windows-admin-center-cli"></a>Erstellen einer Tool Erweiterung mit der Windows Admin Center-CLI ##
 
-Nun müssen wir eine Tools-Erweiterung zu erstellen, von der Sie Ihr benutzerdefiniertes Gateway-Plug-in aufrufen können.  Erstellen Sie, oder navigieren Sie zu einem Ordner, in dem Speicherort der Projektdateien, eine Eingabeaufforderung öffnen und diesen Ordner als Arbeitsverzeichnis festgelegt werden soll.  Erstellen Sie eine neue Erweiterung verwenden die Windows Admin Center-CLI, die zuvor installiert wurde, mit der folgenden Syntax aus:
+Nun müssen wir eine Tool Erweiterung erstellen, aus der Sie Ihr benutzerdefiniertes Gateway-Plug-in abrufen können.  Erstellen oder navigieren Sie zu einem Ordner, in dem Sie die Projektdateien speichern möchten, öffnen Sie eine Eingabeaufforderung, und legen Sie diesen Ordner als Arbeitsverzeichnis fest.  Erstellen Sie mithilfe der zuvor installierten Windows Admin Center-CLI eine neue Erweiterung mit der folgenden Syntax:
 
 ```
 wac create --company "{!Company Name}" --tool "{!Tool Name}"
@@ -81,8 +81,8 @@ wac create --company "{!Company Name}" --tool "{!Tool Name}"
 
 | Wert | Erläuterung | Beispiel |
 | ----- | ----------- | ------- |
-| ```{!Company Name}``` | Den Namen Ihres Unternehmens (mit Leerzeichen) | ```Contoso Inc``` |
-| ```{!Tool Name}``` | Der Name des Tools (mit Leerzeichen) | ```Manage Foo Works``` |
+| ```{!Company Name}``` | Name Ihres Unternehmens (mit Leerzeichen) | ```Contoso Inc``` |
+| ```{!Tool Name}``` | Ihr Toolname (mit Leerzeichen) | ```Manage Foo Works``` |
 
 Beispiel zur Verwendung:
 
@@ -90,26 +90,26 @@ Beispiel zur Verwendung:
 wac create --company "Contoso Inc" --tool "Manage Foo Works"
 ```
 
-Dies erstellt einen neuen Ordner in das aktuelle Arbeitsverzeichnis, das mit dem Namen, den Sie für Ihr Tool angegeben, kopiert alle erforderlichen Vorlagendateien in Ihr Projekt und die Dateien durch den Namen Ihres Unternehmens und das Tool konfiguriert.  
+Dadurch wird im aktuellen Arbeitsverzeichnis ein neuer Ordner mit dem Namen erstellt, den Sie für das Tool angegeben haben. alle erforderlichen Vorlagen Dateien werden in das Projekt kopiert, und die Dateien werden mit dem Namen Ihres Unternehmens und des Tools konfiguriert.  
 
-Als Nächstes wechseln Sie zu dem Ordner, der gerade erstellt haben, und installieren Sie erforderliche lokale Abhängigkeiten zu, indem Sie den folgenden Befehl ausführen:
+Wechseln Sie als nächstes das Verzeichnis in den soeben erstellten Ordner, und installieren Sie die erforderlichen lokalen Abhängigkeiten, indem Sie den folgenden Befehl ausführen:
 
 ```
 npm install
 ```
 
-Sobald dies abgeschlossen ist, haben Sie alles, was einrichten, die Sie die neue Erweiterung in Windows Admin Center zu laden müssen. 
+Nachdem dieser Vorgang abgeschlossen ist, haben Sie alles eingerichtet, was Sie benötigen, um Ihre neue Erweiterung in das Windows Admin Center zu laden. 
 
-## <a name="connect-your-tool-extension-to-your-custom-gateway-plugin"></a>Verbinden Sie Ihre toolerweiterung Ihr benutzerdefiniertes Gateway-Plug-in
+## <a name="connect-your-tool-extension-to-your-custom-gateway-plugin"></a>Verbinden Sie Ihre Tool Erweiterung mit Ihrem benutzerdefinierten Gateway-Plug-in
 
-Nun, dass Sie eine Erweiterung mit der Windows Admin Center-CLI erstellt haben, können Sie Ihre toolerweiterung zu Ihrem Plug-in benutzerdefiniertes Gateway verbinden, mit folgenden Schritten:
+Nachdem Sie nun mit der Windows Admin Center-CLI eine Erweiterung erstellt haben, können Sie Ihre Tool Erweiterung mit Ihrem benutzerdefinierten Gateway-Plug-in verbinden, indem Sie die folgenden Schritte ausführen:
 
-- Hinzufügen einer [leere-Modul](guides/add-module.md)
-- Verwenden Ihrer [benutzerdefiniertes Gateway-Plug-Ins](guides/use-custom-gateway-plugin.md) in Ihrer Tools-Erweiterung
+- Hinzufügen eines [leeren Moduls](guides/add-module.md)
+- Verwenden des [benutzerdefinierten Gateway-Plug](guides/use-custom-gateway-plugin.md) -ins in ihrer Tool Erweiterung
  
-## <a name="build-and-side-load-your-extension"></a>Erstellen und die Seite laden die Erweiterung
+## <a name="build-and-side-load-your-extension"></a>Erstellen und neben Laden Ihrer Erweiterung
 
-Laden Sie als Nächstes erstellen und die Seite die Erweiterung in Windows Admin Center.  Öffnen Sie ein Befehlsfenster, wechseln Sie in Ihrem Quellverzeichnis, sind Sie bereit zum Erstellen.
+Erstellen Sie als nächstes die Erweiterung, und laden Sie Sie auf das Windows Admin Center.  Öffnen Sie ein Befehlsfenster, wechseln Sie zum Quellverzeichnis, und erstellen Sie das Verzeichnis.
 
 * Erstellen und mit schlucken dienen:
 
@@ -134,6 +134,6 @@ Das Projekt kann Seite in eine lokale Instanz des Windows Admin Center zu Testzw
 
 Das Projekt wird jetzt in der Liste Tools mit (Seite geladen) neben dem Namen angezeigt.
 
-## <a name="target-a-different-version-of-the-windows-admin-center-sdk"></a>Eine andere Version des Windows Admin Center-SDK
+## <a name="target-a-different-version-of-the-windows-admin-center-sdk"></a>Eine andere Version des Windows Admin Center SDK als Zielversion
 
-Halten die Erweiterung auf dem neuesten Stand mit SDK-Änderungen und Plattform ist einfach.  Erfahren Sie, wie Sie [eine andere Version](target-sdk-version.md) Windows Admin Center SDK.
+Es ist einfach, ihre Erweiterung mit SDK-Änderungen und Platt Formänderungen auf dem neuesten Stand zu halten.  Informieren Sie sich über das [Ziel einer anderen Version](target-sdk-version.md) des Windows Admin Center SDK.

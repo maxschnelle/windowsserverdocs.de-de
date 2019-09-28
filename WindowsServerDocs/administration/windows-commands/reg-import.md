@@ -1,8 +1,8 @@
 ---
-title: REG import
-description: 'Windows-Befehle Thema ***- '
+title: reg-Import
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7d1dd1b61848671b528c62fd22fe656e14fda7b1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2e1c7920a64469717c30cfcddda7b8002db5ba10
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861841"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384733"
 ---
-# <a name="reg-import"></a>REG import
+# <a name="reg-import"></a>reg-Import
 
 
 
-Kopiert den Inhalt der Datei, die enthält exportiert Registrierungsunterschlüssel, Einträge und Werte in die Registrierung des lokalen Computers.
+Kopiert den Inhalt einer Datei, die exportierte Registrierungs Unterschlüssel, Einträge und Werte enthält, in die Registrierung des lokalen Computers.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -38,25 +38,25 @@ Reg import FileName
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<FileName>|Gibt den Namen und Pfad der Datei, die Inhalte der Registrierung des lokalen Computers kopiert werden soll. Diese Datei muss im Voraus erstellt werden, mithilfe von **Reg Export**.|
-|/?|Zeigt die Hilfe für **Reg Import** an der Eingabeaufforderung.|
+|\<Dateiname >|Gibt den Namen und Pfad der Datei an, die Inhalte enthält, die in die Registrierung des lokalen Computers kopiert werden sollen. Diese Datei muss im Voraus mit dem reg- **Export**erstellt werden.|
+|/?|Zeigt die Hilfe für den **reg-Import** an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
-Die folgende Tabelle enthält die Rückgabewerte für die **Reg Import** Vorgang.
+In der folgenden Tabelle sind die Rückgabewerte für den **reg-Import** Vorgang aufgeführt.
 
-|Wert|Beschreibung|
+|Wert|Description|
 |-----|-----------|
 |0|Erfolgreich|
 |1|Nicht möglich|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um Einträge in der Registrierung aus der Datei mit dem Namen AppBkUp.reg zu importieren, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um Registrierungseinträge aus der Datei mit dem Namen appbkup. reg zu importieren:
 ```
 reg import AppBkUp.reg
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

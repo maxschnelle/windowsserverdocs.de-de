@@ -1,7 +1,7 @@
 ---
-title: Systemanforderungen für Hyper-V unter Windows Server
-description: Listet die Hardware und Firmware-Anforderungen für Hyper-V unter Windows Server
-ms.prod: windows-server-threshold
+title: System Anforderungen für Hyper-V unter Windows Server
+description: Listet die Hardware-und Firmwareanforderungen für Hyper-V in Windows Server auf.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,86 +11,86 @@ ms.assetid: bc4a4971-f727-40cd-91f5-2ee6d24b54cb
 author: KBDAzure
 ms.author: kathydav
 ms.date: 9/30/2016
-ms.openlocfilehash: 97fb1b9003705ba8ad26c2b3e71eda34e88642ee
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: fabaa1933fef836bb6ce3fc01badf337b832d072
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812617"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365439"
 ---
-# <a name="system-requirements-for-hyper-v-on-windows-server"></a>Systemanforderungen für Hyper-V unter Windows Server
+# <a name="system-requirements-for-hyper-v-on-windows-server"></a>System Anforderungen für Hyper-V unter Windows Server
 
->Gilt für: WindowsServer 2016 wird Microsoft Hyper-V Server 2016, WindowsServer 2019, Microsoft Hyper-V-Server 2019
+>Gilt für: Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
-Hyper-V gelten bestimmte Hardware, und einige Hyper-V-Funktionen verfügen über zusätzliche Anforderungen. Verwenden Sie die Details in diesem Artikel, um zu entscheiden, welche Anforderungen Ihr System erfüllen muss, um Hyper-V die Möglichkeit zu verwenden, der Sie möchten. Überprüfen Sie dann die [Windows Server-Katalog](https://www.windowsservercatalog.com/). Bedenken Sie, dass die Anforderungen für Hyper-V die allgemeine Mindestanforderungen für Windows Server 2016 überschreiten, da es sich bei eine Virtualisierungsumgebung mehr Computerressourcen erfordert.
+Für Hyper-v gelten bestimmte Hardwareanforderungen, und einige Hyper-v-Features haben zusätzliche Anforderungen. Verwenden Sie die Details in diesem Artikel, um zu entscheiden, welche Anforderungen Ihr System erfüllen muss, damit Sie Hyper-V wie geplant verwenden können. Überprüfen Sie anschließend den [Windows Server-Katalog](https://www.windowsservercatalog.com/). Beachten Sie, dass die Anforderungen für Hyper-V die allgemeinen Mindestanforderungen für Windows Server 2016 überschreiten, da eine Virtualisierungsumgebung mehr computeressourcen erfordert.
 
-Wenn Sie bereits Hyper-V verwenden, ist es wahrscheinlich, dass Sie die vorhandene Hardware verwenden können. Die allgemeine hardwareanforderungen wurden deutlich von Windows Server 2012 R2 nicht geändert.  Allerdings benötigen Sie neueren Hardware zu verwenden, die abgeschirmte VMs oder diskrete gerätezuordnung. Diese Funktionen basieren auf bestimmten Hardware-Support, wie unten beschrieben. Davon abgesehen ist der Hauptunterschied besteht darin, in der Hardware die Adresse der zweiten Ebene Translation (SLAT) ist jetzt erforderlich, nicht empfohlen.
+Wenn Sie Hyper-V bereits verwenden, ist es wahrscheinlich, dass Sie Ihre vorhandene Hardware verwenden können. Die allgemeinen Hardwareanforderungen wurden von Windows Server 2012 R2 nicht signifikant geändert.  Sie benötigen jedoch neuere Hardware, um abgeschirmte virtuelle Computer oder eine diskrete Geräte Zuweisung zu verwenden. Diese Features basieren auf einer bestimmten Hardwareunterstützung, wie unten beschrieben. Der wichtigste Unterschied bei der Hardware besteht darin, dass die Adressübersetzung (slat) der zweiten Ebene jetzt anstelle von "empfohlen" erforderlich ist.
 
-Informationen zur maximal unterstützten Konfigurationen für Hyper-V, z. B. die Anzahl der ausgeführten virtuellen Computern finden Sie unter [Planen der Hyper-V-Skalierbarkeit unter Windows Server 2016](plan/Plan-for-Hyper-V-scalability-in-Windows-Server-2016.md). Die Liste der Betriebssysteme, die Sie, auf Ihren virtuellen Computern ausführen können finden Sie im [unterstützt Windows-Gastbetriebssysteme für Hyper-V unter Windows Server](Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows.md).
+Ausführliche Informationen zu den maximal unterstützten Konfigurationen für Hyper-v, wie z. b. die Anzahl der aktiven virtuellen Maschinen, finden Sie unter [Planen der Hyper-v-Skalierbarkeit in Windows Server 2016](plan/Plan-for-Hyper-V-scalability-in-Windows-Server-2016.md). Die Liste der Betriebssysteme, die Sie auf Ihren virtuellen Computern ausführen können, finden Sie [unter Unterstützte Windows-Gast Betriebssysteme für Hyper-V unter Windows Server](Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows.md).
 
 ## <a name="general-requirements"></a>Allgemeine Anforderungen
 
-Unabhängig von der Hyper-V-Features, die Sie verwenden möchten, benötigen Sie Folgendes:
+Unabhängig von den Hyper-V-Features, die Sie verwenden möchten, benötigen Sie Folgendes:
 
-- Eine 64-Bit-Prozessor mit Second-Level-Adressübersetzung (SLAT). Um die Hyper-V-Virtualisierung-Komponenten wie z.B. Windows Hypervisor installieren zu können, muss der Prozessor SLAT verfügen. Allerdings ist es nicht erforderlich, um Hyper-V-Verwaltungstools wie die Verbindung mit virtuellen Computern (VMConnect), Hyper-V-Manager und Hyper-V-Cmdlets für Windows PowerShell zu installieren. Finden Sie unten unter "Gewusst wie: Überprüfen Sie für Hyper-V-Anforderungen", um zu ermitteln, ob Sie den Prozessor hat SLAT.
+- Ein 64-Bit-Prozessor mit Adressübersetzung der zweiten Ebene (Address Translation, slat). Zum Installieren der Hyper-V-Virtualisierungskomponenten, z. b. Windows-Hypervisor, muss der Prozessor über slat verfügen. Es ist jedoch nicht erforderlich, Hyper-v-Verwaltungs Tools wie die Verbindung mit virtuellen Computern (VMConnect), den Hyper-v-Manager und die Hyper-v-Cmdlets für Windows PowerShell zu installieren. Weitere Informationen finden Sie unter "Vorgehensweise beim Überprüfen der Hyper-V-Anforderungen" unten, um zu ermitteln, ob Ihr Prozessor slat hat.
 
-- VM Monitor Mode extensions
+- Erweiterungen des VM-Monitor Modus
 
-- Genügend Arbeitsspeicher - Plan für *mindestens* 4 GB RAM. Mehr Arbeitsspeicher ist besser. Sie benötigen genügend Speicher für den Host und alle virtuellen Computer, die zur gleichen Zeit ausgeführt werden soll.
+- Ausreichender Speicher Plan für mindestens *4 GB* RAM. Mehr Arbeitsspeicher ist besser. Für den Host und alle virtuellen Computer, die Sie gleichzeitig ausführen möchten, benötigen Sie ausreichend Arbeitsspeicher.
 
 - Virtualisierungsunterstützung im BIOS oder UEFI aktiviert:
 
-  - Hardwareunterstützte Virtualisierung. Dies ist in Prozessoren, die eine Virtualisierungsoption – insbesondere Prozessoren mit Intel Virtualization Technology (Intel VT) oder AMD Virtualization (AMD-V)-Technologie verfügbar.
+  - Hardwareunterstützte Virtualisierung. Dies ist in Prozessoren verfügbar, die eine Virtualisierungsoption enthalten, insbesondere Prozessoren mit Intel-Virtualisierungstechnologie (Intel VT) oder AMD Virtualization (AMD-V)-Technologie.
 
-  - Von der Hardware erzwungene Datenausführungsverhinderung (DEP) muss verfügbar und aktiviert sein. Für Intel-Systemen, ist dies die XD-Bit (execute Disable Bit). AMD-Systeme ist dies das NX-Bit (keine Execute Bit).
+  - Von der Hardware erzwungene Datenausführungsverhinderung (DEP) muss verfügbar und aktiviert sein. Bei Intel-Systemen ist dies der XD-Bit-Wert (deaktivierte Bit ausführen). Bei AMD-Systemen ist dies das NX-Bit (No Execute Bit).
 
-## <a name="how-to-check-for-hyper-v-requirements"></a>So prüfen Sie für Hyper-V-Anforderungen
+## <a name="how-to-check-for-hyper-v-requirements"></a>Überprüfen der Hyper-V-Anforderungen
 
-Öffnen Sie Windows PowerShell oder eine Eingabeaufforderung und geben:
+Öffnen Sie Windows PowerShell oder eine Eingabeaufforderung, und geben Sie Folgendes ein:
 
 ```cmd
 Systeminfo.exe
 ```
 
-Scrollen Sie zum Abschnitt Hyper-V-Anforderungen, um den Bericht zu überprüfen.
+Scrollen Sie zum Abschnitt "Hyper-V-Anforderungen", um den Bericht zu überprüfen.
 
-## <a name="requirements-for-specific-features"></a>Anforderungen für bestimmte Funktionen
+## <a name="requirements-for-specific-features"></a>Anforderungen für bestimmte Features
 
-Hier sind die Anforderungen für die diskrete gerätezuordnung und geschützten virtuellen Maschinen ein. Beschreibungen dieser Funktionen finden Sie [Neues in Hyper-V unter Windows Server](What-s-new-in-Hyper-V-on-Windows.md).
+Dies sind die Anforderungen für die diskrete Geräte Zuweisung und geschützte virtuelle Computer. Beschreibungen dieser Features finden Sie unter [Neues in Hyper-V unter Windows Server](What-s-new-in-Hyper-V-on-Windows.md).
 
-### <a name="discrete-device-assignment"></a>Diskrete gerätezuordnung
+### <a name="discrete-device-assignment"></a>Diskrete Geräte Zuweisung
 
-**Host** Anforderungen sind vergleichbar mit der vorhandenen Anforderungen für die SR-IOV-Funktion in Hyper-V.
+Die **Host** Anforderungen ähneln den vorhandenen Anforderungen für die SR-IOV-Funktion in Hyper-v.
 
-- Der Prozessor muss es sich um entweder Intel Extended Seite Tabelle (EPT) oder AMD geschachtelte Seite Tabelle (NPT) verfügen.
+- Der Prozessor muss entweder die erweiterte Seiten Tabelle (EPT) von Intel oder die Nested Page Table (Atom) der AMD (Nested Page Table) enthalten.
 
-- Der Chipsatz benötigen:
+- Der Chipsatz muss Folgendes aufweisen:
 
-  - Unterbrechen Sie die neuzuordnung - Intel VT-d mit der Funktion unterbrechen Neuzuordnung (VT-d2) oder eine beliebige Version von AMD-e/a-Speicherverwaltungseinheit (MMU e/a).
+  - Neuzuordnung unterbrechen: die VT-d von Intel mit der Funktion zum Neuzuordnen von Unterbrechungen (VT-D2) oder eine beliebige Version der AMD-e/a-Speicherverwaltungseinheit (e/a-MMU).
 
-  - Neuzuordnen von DMA - Intel VT-d mit Invalidierungen in die Warteschlange eingereiht oder alle AMD-e/a-MMU.
+  - DMA-Neuzuordnung: die VT-d von Intel mit Invalidierungen in der Warteschlange oder eine beliebige AMD-e/a-MMU.
 
-  - Zugriffssteuerungsdienste (ACS) auf der PCI Express-root-Ports.
+  - Zugriffs Steuerungs Dienste (ACS) auf PCI Express-stammports.
 
-- Die Firmware-Tabellen müssen die e/a-MMU an den Windows-Hypervisor verfügbar machen. Beachten Sie, dass diese Funktion in der UEFI oder BIOS deaktiviert werden kann. Anleitungen hierzu finden Sie in der Hardwaredokumentation, oder wenden Sie sich an Ihren Hardwarehersteller.
+- In den firmwaretabellen muss das e/a-MMU für den Windows-Hypervisor verfügbar gemacht werden. Beachten Sie, dass diese Funktion in UEFI oder BIOS deaktiviert werden kann. Anweisungen finden Sie in der Hardware Dokumentation, oder wenden Sie sich an den Hardwarehersteller.
 
-**Geräte** muss express GPU oder nicht flüchtigen Speicher (NVMe). Für GPU unterstützt nur bestimmte Geräte diskrete gerätezuordnung an. Um zu überprüfen, finden Sie in der Hardwaredokumentation, oder wenden Sie sich an Ihren Hardwarehersteller. Ausführliche Informationen zu dieser Funktion, wie Sie es und Überlegungen zu verwenden, finden Sie im Beitrag "[diskrete Gerätezuordnung – Beschreibung und Hintergrund](https://blogs.technet.com/b/virtualization/archive/2015/11/19/discrete-device-assignment.aspx)" in der Blog zum Thema Virtualisierung.
+**Geräte** benötigen GPU oder Non-volatile Memory Express (nvme). Bei GPU unterstützen nur bestimmte Geräte die diskrete Geräte Zuweisung. Informationen zur Überprüfung finden Sie in der Hardware Dokumentation, oder wenden Sie sich an den Hardwarehersteller Ausführliche Informationen zu diesem Feature, einschließlich der Verwendungsweise und Überlegungen, finden Sie im Beitrag "[diskrete Geräte Zuweisung--Beschreibung und Hintergrund](https://blogs.technet.com/b/virtualization/archive/2015/11/19/discrete-device-assignment.aspx)" im virtualisierungsblog.
 
 ### <a name="shielded-virtual-machines"></a>Abgeschirmte VMs
 
-Diese virtuellen Computer basieren auf Virtualisierung basierende Sicherheitsverfahren und sind ab Windows Server 2016 verfügbar.
+Diese virtuellen Computer basieren auf virtualisierungsbasierter Sicherheit und sind ab Windows Server 2016 verfügbar.
 
-**Host** Anforderungen sind:
+Die **Host** Anforderungen lauten:
 
-- UEFI 2.3. 1 c - unterstützt sichere, kontrollierter Start
+- UEFI 2.3.1 c: unterstützt sicheren, gemessenen Start
 
-  Die folgenden zwei sind im Allgemeinen für die virtualisierungsbasierte Sicherheit optional, jedoch für den Host erforderlich, wenn Sie den Schutz wünschen, die, den diese Features bieten:
+  Die folgenden beiden sind optional für die virtualisierungsbasierte Sicherheit im Allgemeinen, aber für den Host erforderlich, wenn Sie den Schutz der Features gewährleisten möchten:
 
-- TPM-v2. 0 - schützt Bestand der Plattform-Sicherheit
-- UNTERSTÜTZT (Intel VT-D): damit der Hypervisor direct Memory Access (DMA) Schutz bereitstellen können
+- TPM v 2.0: schützt Platt Form sicherheitsassets
+- IOMMU (Intel VT-D): der Hypervisor kann somit den Zugriff auf den direkten Speicher (DMA) bereitstellen.
 
-**VM** Anforderungen sind:
+Anforderungen an **virtuelle Computer** :
 
 - Zweite Generation
-- WindowsServer 2012 oder höher als Gastbetriebssystem
+- Windows Server 2012 oder höher als Gast Betriebssystem
 

@@ -7,44 +7,37 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 55e93eb24707fb1a583d060f44131ac794b00d22
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: a8af10fd54f557e4f4a2127dbd1cc178d53d93a4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442555"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402482"
 ---
 # <a name="replication-error-1396-logon-failure-the-target-account-name-is-incorrect"></a>Replikationsfehler 1396: Anmeldefehler. Der Zielkontoname ist falsch
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 
-<developerConceptualDocument xmlns="https://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="https://www.w3.org/1999/xlink" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://ddue.schemas.microsoft.com/authoring/2003/5 http://clixdevr3.blob.core.windows.net/ddueschema/developer.xsd"> <introduction>
-    <para>In diesem Artikel wird beschrieben, die Symptome, Ursachen und Behebung von Active Directory-Replikation mit dem Win32-Fehler 1396: &quot;Anmeldung fehlgeschlagen: Der Zielkontoname ist falsch.&quot; </para>
-    <list class="bullet">
-      <listItem>
-        <para>
+<developerConceptualDocument xmlns="https://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="https://www.w3.org/1999/xlink" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://ddue.schemas.microsoft.com/authoring/2003/5 http://clixdevr3.blob.core.windows.net/ddueschema/developer.xsd"> <introduction> @ no__t-2 @ no__t-3<para>In diesem Artikel werden die Symptome, Ursachen und Fehlerbehebung Active Directory Replikation mit dem Win32-Fehler 1396 beschrieben: &quot;Anmeldung fehlgeschlagen: Der Name des Ziel Kontos ist falsch. &quot; </para>
+    <list class="bullet"> <listItem> @ no__t-2 @ no__t-3<para>
           <link xlink:href="d3a01966-74c9-4c49-ba11-354b9acf7519#BKMK_Symptoms">Symptome</link>
-        </para>
-      </listItem> <listItem>
-        <para>
-          <link xlink:href="d3a01966-74c9-4c49-ba11-354b9acf7519#BKMK_Causes">Bewirkt, dass</link>
-        </para>
-      </listItem> <listItem>
-        <para>
-          <link xlink:href="d3a01966-74c9-4c49-ba11-354b9acf7519#BKMK_Resolutions">Lösungen</link>
-        </para>
+ @ no__t-2</para>
+      </listItem> <listItem> @ no__t-2 @ no__t-3<para>
+          <link xlink:href="d3a01966-74c9-4c49-ba11-354b9acf7519#BKMK_Causes">Bewirkt</link>
+ @ no__t-2</para>
+      </listItem> <listItem> @ no__t-2 @ no__t-3<para>
+          <link xlink:href="d3a01966-74c9-4c49-ba11-354b9acf7519#BKMK_Resolutions">Auflösungen</link>
+ @ no__t-2</para>
       </listItem>
     </list>
   </introduction>
   <section address="BKMK_Symptoms">
-    <title>Symptome</title>
-    <content>
-      <para />
+    <title>symptome @ no__t-1 @ no__t-2 @ no__t-3<para />
       <list class="ordered">
-<listItem><para>DCDIAG-Berichte, die der Test für die Active Directory-Replikationen mit Fehler 1396 fehlgeschlagen ist: Fehler bei der Anmeldung: Der Zielkontoname ist falsch.&quot;</para><code>Testing server: &lt;Site name&gt;&lt;DC Name&gt;
+<listItem><para>Dcdiag meldet, dass der Active Directory Replications-Test mit Fehler 1396 fehlgeschlagen ist: Anmeldefehler: Der Name des Ziel Kontos ist falsch. &quot;</para><code>Testing server: &lt;Site name&gt;&lt;DC Name&gt;
 Starting test: Replications
 [Replications Check,&lt;DC Name&gt;] A recent replication attempt failed:
 From &lt;source DC&gt; to &lt;destination DC&gt;
@@ -53,7 +46,7 @@ Naming Context: CN=&lt;DN path of naming context&gt;
 Logon Failure: The target account name is incorrect.</codeFeaturedElement>
 The failure occurred at &lt;date&gt; &lt;time&gt;.
 The last success occurred at &lt;date&gt; &lt;time&gt;.
-XX failures have occurred since the last success</code></listItem><listItem><para>REPADMIN. EXE-Berichte, die dem letzten Replikationsversuch mit dem Status 1396 fehlgeschlagen ist.</para><para>REPADMIN-Befehle, die, die dies häufig an den 1396 Status enthalten, jedoch sind nicht darauf beschränkt:</para><table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11"><tbody><tr><TD><list class="bullet"><listItem><para>REPADMIN/ADD</para></listItem><listItem><para>REPADMIN/REPLSUM</para></listItem><listItem><para>REPADMIN /REHOST</para></listItem><listItem><para>REPADMIN/SHOWVECTOR/LATENCY</para></listItem></list></TD><TD><list class="bullet"><listItem><para>REPADMIN/SHOWREPS</para></listItem><listItem><para>REPADMIN/SHOWREPL</para></listItem><listItem><para>REPADMIN/SYNCALL</para></listItem></list></TD></tr></tbody></table><para>Beispiel einer Ausgabe &quot;REPADMIN/SHOWREPS&quot; mit eingehende Replikation vom CONTOSO-DC2 CONTOSO-DC1 mit der &quot;Fehler bei der Anmeldung: Der Zielkontoname ist falsch. &quot; Fehler wird im folgenden dargestellt:</para><code>Default-First-Site-NameCONTOSO-DC1
+XX failures have occurred since the last success</code></listItem><listItem><para>REPADMIN. EXE meldet, dass der letzte Replikations Versuch mit dem Status 1396 fehlgeschlagen ist.</para><para>Repadmin-Befehle, die häufig den 1396-Status angeben, enthalten u. a. die folgenden:</para><table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11"><tbody><tr><TD><list class="bullet"><listItem><para>REPADMIN/ADD</para></listItem><listItem><para>REPADMIN/REPLSUM</para></listItem><listItem><para>REPADMIN/REHOST</para></listItem><listItem><para>REPADMIN/SHOWVECTOR/LATENCY</para></listItem></list></TD><TD><list class="bullet"><listItem><para>REPADMIN/SHOWREPS</para></listItem><listItem><para>REPADMIN/SHOWREPL</para></listItem><listItem><para>REPADMIN/SYNCALL</para></listItem></list></TD></tr></tbody></table><para>Beispielausgabe von &quot;repadmin/SHOWREPS @ no__t-1, @no__t die die eingehende Replikation von "Configuration Manager" zu "" in "" darstellt. Der Name des Ziel Kontos ist falsch. &quot;-Fehler wird unten angezeigt:</para><code>Default-First-Site-NameCONTOSO-DC1
 DSA Options: IS_GC 
 Site Options: (none)
 DSA object GUID: b6dc8589-7e00-4a5d-b688-045aef63ec01
@@ -66,76 +59,67 @@ Last attempt @ &lt;date&gt; &lt;time&gt; failed, <codeFeaturedElement>result 139
 Logon Failure: The target account name is incorrect.</codeFeaturedElement>
 &lt;#&gt; consecutive failure(s).
 Last success @ &lt;date&gt; &lt;time&gt;.
-</code></listItem><listItem><para>Die <ui>Jetzt replizieren</ui> gibt der Befehl in Active Directory-Standorte und-Dienste &quot;Fehler bei der Anmeldung: Der Zielkontoname ist falsch.&quot;</para><para>Mit der rechten Maustaste auf das Verbindungsobjekt aus einem Quell-DC und Auswahl <ui>Jetzt replizieren</ui> schlägt mit &quot;Fehler bei der Anmeldung: Der Zielkontoname ist falsch.&quot; Die Fehlermeldung wird auf dem Bildschirm unten gezeigt:</para><para>Titel des dialogtexts:</para><para>Jetzt replizieren</para><para>Dialogfeld-Nachrichtentext: </para><para>Der folgende Fehler aufgetreten ist, bei dem Versuch, die namenskontextsynchronisierung &lt;Pfad der Systempartition DNS&gt; vom Domänencontroller &lt;Quell-DC&gt; Domänencontroller &lt;Ziel-DC&gt;: Fehler bei der Anmeldung: Der Zielkontoname ist falsch. Dieser Vorgang wird nicht fortgesetzt werden. </para></listItem><listItem><para>NTDS KCC, NTDS-Allgemein oder Microsoft-Windows-ActiveDirectory_DomainService Ereignisse mit dem Status 1396 werden in das Verzeichnisdienst-Ereignisprotokoll in der Ereignisanzeige protokolliert.</para><para>Active Directory-Ereignisse, die häufig den Status 1396 zitieren umfassen, aber es sind nicht darauf beschränkt:</para><table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11"><thead><tr><TD><para>Ereignis-ID</para></TD><TD><para>Ereignisquelle</para></TD><TD><para>Ereigniszeichenfolge</para></TD></tr></thead><tbody><tr><TD><para>1125</para></TD><TD><para>Microsoft-Windows-ActiveDirectory_DomainService</para></TD><TD><para>Die Active Directory Domain Services Installations-Assistenten (Dcpromo) konnte nicht zum Herstellen der Verbindung mit dem folgenden Domänencontroller.</para></TD></tr><tr><TD><para>1645</para><para>Dieses Ereignis Listet den SPN dreiteiligen.</para></TD><TD><para>NTDS-Replikation</para></TD><TD><para>Active Directory hat den authentifizierten Remoteprozeduraufruf (RPC) zu einer anderen Domäne nicht ausgeführt, weil der gewünschte Dienstprinzipalname (SPN) für den Zieldomänencontroller im Schlüsselverteilungscenter (KDC)-Domänencontroller, der zum SPN gehört, nicht registriert ist.</para></TD></tr><tr><TD><para>1655</para></TD><TD><para>Microsoft-Windows-ActiveDirectory_DomainService</para></TD><TD><para>Active Directory Domain Services, die für die Kommunikation mit dem folgenden globalen Katalog hat versucht, und die Versuche nicht erfolgreich waren.</para></TD></tr><tr><TD><para>2847</para></TD><TD><para>Microsoft-Windows-ActiveDirectory_DomainService</para></TD><TD><para>Die Konsistenzprüfung befindet sich eine replikationsverbindung für den Dienst für lokales Verzeichnis für nur-Lese und versucht, per Remotezugriff in der folgenden Directory-Service-Instanz zu aktualisieren. Der Vorgang ist fehlgeschlagen. Er wird wiederholt.</para></TD></tr><tr><TD><para>1925</para></TD><TD><para>NTDS KCC</para></TD><TD><para>Fehler beim Herstellen ein Replikationslinks für die folgenden schreibbare Verzeichnispartition.</para></TD></tr><tr><TD><para>1926</para></TD><TD><para>NTDS KCC</para></TD><TD><para>Der Versuch zum Herstellen eines Replikationslinks zu einer Verzeichnispartition nur-Lese mit den folgenden Parametern, die Fehler.</para></TD></tr><tr><TD><para>5781</para></TD><TD><para>NETLOGON</para></TD><TD><para> Der Server kann nicht seinen Namen im DNS registrieren.</para></TD></tr></tbody></table></listItem><listItem><para>DCPROMO schlägt fehl mit Fehler auf dem Bildschirm</para><para>Titel des Dialogtexts:</para><para>Fehler bei der Active Directory-Installation.</para><para>Dialogfeld-Nachrichtentext:</para><para>Fehler beim Ausführen des Vorgangs: Active Directory konnte das Serverobjekt für CN erstellen NTDS Settings, CN = ServerBeingPromoted, CN = Servers, CN = = Standort, CN = Sites, CN = Configuration, DC = Contoso, DC = com auf dem Server ReplicationSourceDC.contoso.com. </para><para>Vergewissern Sie sich die bereitgestellten Anmeldeinformationen für das Netzwerk über ausreichende Zugriffsrechte zum Hinzufügen eines Replikats haben. </para><para>
-&quot;Fehler bei der Anmeldung: Der Zielkontoname ist falsch. &quot;</para><para>In diesem Fall werden die Ereignis-ID 1168, 1645 und 1125 auf dem Server, der heraufgestuft wird protokolliert.</para></listItem><listItem><para>Ordnen Sie ein Laufwerk mit <embeddedLabel>net verwenden</embeddedLabel>:</para><code>C:&gt;net use z: &lt;server_name&gt;c$
+</code></listItem><listItem><para>Der Befehl " <ui>Jetzt replizieren</ui> " in Active Directory Websites und Dienste gibt &quot;logon-Fehler zurück: Der Name des Ziel Kontos ist falsch. &quot;</para><para>Wenn Sie von einem Quell Domänen Controller mit der rechten Maustaste auf das Verbindungs Objekt klicken und <ui>Jetzt replizieren</ui> auswählen, tritt ein Fehler &quot;logon auf: Der Name des Ziel Kontos ist falsch. &quot; Die Bildschirm Fehlermeldung wird unten angezeigt:</para><para>Text des Dialog Titels:</para><para>Jetzt replizieren</para><para>Text der Dialog Meldung: </para><para>Fehler beim Versuch, den namens Kontext &lt;partition-DNS-Pfad @ no__t-1 vom Domänen Controller &lt;source DC @ no__t-3 an den Domänen Controller zu synchronisieren &lt;destination DC @ no__t-5: Anmeldefehler: Der Name des Ziel Kontos ist falsch. Dieser Vorgang wird nicht fortgesetzt. </para></listItem><listItem><para>NTDS-KCC-, NTDS-allgemeine oder Microsoft-Windows-ActiveDirectory_DomainService-Ereignisse mit dem 1396-Status werden im Verzeichnisdienste-Protokoll Ereignisanzeige protokolliert.</para><para>Active Directory Ereignisse, die den 1396-Status häufig erwähnen, sind u. a. die folgenden:</para><table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11"><thead><tr><TD><para>Ereignis-ID</para></TD><TD><para>Ereignisquelle</para></TD><TD><para>Ereignis Zeichenfolge</para></TD></tr></thead><tbody><tr><TD><para>1125</para></TD><TD><para>Microsoft-Windows-ActiveDirectory_DomainService</para></TD><TD><para>Die Assistent zum Installieren von Active Directory Domain Services (Dcpromo) konnte keine Verbindung mit dem folgenden Domänen Controller herstellen.</para></TD></tr><tr><TD><para>1645</para><para>Dieses Ereignis listet den dreiteiligen SPN auf.</para></TD><TD><para>NTDS-Replikation</para></TD><TD><para>Active Directory hat den authentifizierten Remoteprozeduraufruf (RPC) zu einer anderen Domäne nicht ausgeführt, weil der gewünschte Dienstprinzipalname (SPN) für den Zieldomänencontroller im Schlüsselverteilungscenter (KDC)-Domänencontroller, der zum SPN gehört, nicht registriert ist.</para></TD></tr><tr><TD><para>1655</para></TD><TD><para>Microsoft-Windows-ActiveDirectory_DomainService</para></TD><TD><para>Active Directory Domain Services versuchte, mit dem folgenden globalen Katalog zu kommunizieren, und die Versuche waren nicht erfolgreich.</para></TD></tr><tr><TD><para>2847</para></TD><TD><para>Microsoft-Windows-ActiveDirectory_DomainService</para></TD><TD><para>Die Konsistenzprüfung hat eine Replikations Verbindung für den lokalen schreibgeschützten Verzeichnisdienst gefunden und versucht, Sie Remote auf der folgenden Verzeichnisdienst Instanz zu aktualisieren. Der Vorgang ist fehlgeschlagen. Der Vorgang wird wiederholt.</para></TD></tr><tr><TD><para>1925</para></TD><TD><para>NTDS-KCC</para></TD><TD><para>Der Versuch, einen Replikations Link für die folgende beschreibbare Verzeichnis Partition einzurichten, ist fehlgeschlagen.</para></TD></tr><tr><TD><para>1926</para></TD><TD><para>NTDS-KCC</para></TD><TD><para>Der Versuch, einen Replikations Link mit einer schreibgeschützten Verzeichnis Partition mit den folgenden Parametern zu erstellen, ist fehlgeschlagen.</para></TD></tr><tr><TD><para>5781</para></TD><TD><para>NETLOGON</para></TD><TD><para> Der Server kann seinen Namen nicht in DNS registrieren.</para></TD></tr></tbody></table></listItem><listItem><para>DCPROMO schlägt mit einem Bildschirm Fehler fehl</para><para>Text des Dialog Titels:</para><para>Active Directory Installation fehlgeschlagen</para><para>Text der Dialog Meldung:</para><para>Fehler beim Ausführen des Vorgangs: Der Verzeichnisdienst konnte das Server Objekt für CN = NTDS Settings, CN = serverbeinggestuft, CN = Servers, CN = site, CN = Sites, CN = Configuration, DC =%% amp; quot; DC = com auf Server ReplicationSourceDC.contoso.com nicht erstellen. </para><para>Stellen Sie sicher, dass die bereitgestellten Netzwerk Anmelde Informationen über ausreichende Zugriffsrechte für das Hinzufügen eines </para><para>
+&quot;logon-Fehler: Der Name des Ziel Kontos ist falsch. [mailto:johndoe@mydomain.com](&quot;)</para><para>In diesem Fall werden die Ereignis-ID 1645, 1168 und 1125 auf dem Server protokolliert, der höher gestuft wird.</para></listItem><listItem><para>Zuordnen eines Laufwerks mithilfe von " <embeddedLabel>net use</embeddedLabel>":</para><code>C:&gt;net use z: &lt;server_name&gt;c$
 System error 1396 has occurred.
-Logon Failure: The target account name is incorrect.</code><para>In diesem Fall die Protokollierung auch 333 der Ereignis-ID in das Systemereignisprotokoll kann der Server, und verwenden Sie einen hohen Betrag an virtuellem Arbeitsspeicher für eine Anwendung z. B. SQL Server.</para></listItem><listItem><para>Der Domänencontroller ist falsch.</para></listItem><listItem><para>Das KDC wird nicht auf einem RODC nach einer Wiederherstellung des Krbtgt-Kontos für den RODC, gestartet, die gelöscht wurde. Die wird nach einer Wiederherstellung, z. B. Fehler 1396 ein. </para><para>
-Ereignis-ID 1645 wird auf dem RODC protokolliert. </para><para>
-Dcdiag gibt auch eine entsprechende Fehlermeldung das Krbtgt-Konto des RODC nicht aktualisiert werden kann. </para></listItem>
+Logon Failure: The target account name is incorrect.</code><para>In diesem Fall kann der Server auch die Ereignis-ID 333 im System Ereignisprotokoll protokollieren und eine große Menge an virtuellem Arbeitsspeicher für eine Anwendung verwenden, wie z. b. SQL Server.</para></listItem><listItem><para>Die DC-Zeit ist falsch.</para></listItem><listItem><para>Der KDC startet nicht auf einem RODC, nachdem das krbtgt-Konto für den RODC wieder hergestellt wurde, das gelöscht wurde. Nach einer Wiederherstellung wird z. b. Fehler 1396 angezeigt. </para><para>
+Die Ereignis-ID 1645 wird auf dem RODC protokolliert. </para><para>
+Dcdiag meldet außerdem eine Fehlermeldung, dass das RODC-krbtgt-Konto nicht aktualisiert werden kann. </para></listItem>
 </list>
     </content>
   </section>
   <section address="BKMK_Causes">
-    <title>Bewirkt, dass</title>
-    <content>
-      <para />
+    <title>bewirkt @ no__t-1 @ no__t-2 @ no__t-3<para />
       <list class="ordered">
         <listItem>
-          <para>Der SPN für den globalen Katalog vom KDC durchsucht wird, im Auftrag des Clients, es wird versucht, mithilfe von Kerberos authentifizieren ist nicht vorhanden.</para>
-          <para>Im Kontext des Active Directory-Replikation der Kerberos-Client ist, dass das Ziel-DC, das Ausführen der SPN-Suche KDC wahrscheinlich der Ziel-DC selbst ist jedoch möglicherweise eine remote-DC.</para>
+          <para>Der SPN ist nicht im globalen Katalog vorhanden, der vom KDC durchsucht wird, wenn der Client versucht, sich mithilfe von Kerberos zu authentifizieren.</para>
+          <para>Im Zusammenhang mit Active Directory Replikation ist der Kerberos-Client der Ziel-DC. der KDC, der die SPN-Suche ausführt, ist wahrscheinlich der Ziel-DC selbst, kann jedoch ein Remote-DC sein.</para>
         </listItem>
         <listItem>
-          <para>Der Benutzer oder das Dienstkonto, das enthalten Service principal Name, der gesucht wird, sollte ist auf den globalen Katalog vom KDC durchsucht wird, im Auftrag von Ziel-DC versuchen, zu replizieren nicht vorhanden.</para>
-          <para>Im Kontext des Active Directory-Replikation ist die Quell-DC-Computerkonto für den globalen Katalog, die vom Domänencontroller gesucht, für die Durchführung eingehende Replikation von Ziel-DC nicht vorhanden.</para>
+          <para>Das Benutzer-oder Dienst Konto, das den zu suchenden Dienst Prinzipal Namen enthalten soll, ist nicht im globalen Katalog vorhanden, der vom KDC im Auftrag des Zieldomänen Controllers, der die Replikation versucht, durchsucht wurde.</para>
+          <para>Im Zusammenhang mit Active Directory Replikation ist das Computer Konto des Quell Domänen Controllers in dem globalen Katalog, der vom Domänen Controller für den Zieldomänen Controller nach der eingehenden Replikation durchsucht wird, nicht vorhanden</para>
         </listItem>
         <listItem>
-          <para>Das Ziel-DC verfügt nicht über die LSA-Schlüssel für die Quelldomäne-DCs.</para>
+          <para>Auf dem Ziel-DC fehlt ein LSA-Geheimnis für die Domäne der Quell Domänen Controller.</para>
         </listItem>
         <listItem>
-          <para>Der SPN, der gesucht werden, die auf einem anderen Computer-Konto als das Quell-DC vorhanden ist.</para>
+          <para>Der SPN, der gesucht wird, ist auf einem anderen Computer Konto als der Quell Domänen Controller vorhanden.</para>
         </listItem>
       </list>
     </content>
   </section>
   <section address="BKMK_Resolutions">
-    <title>Lösungen</title>
-    <content>
-      <list class="ordered">
-        <listItem>
-          <para>Überprüfen Sie das Verzeichnisdienst-Ereignisprotokoll auf der Ziel-DC für NTDS-Replikationsereignisses 1645, und beachten Sie Folgendes:</para>
-          <para>Der Name des Ziel-DC</para>
-          <para>Der SPN, der gesucht wird (E3514235-4B06-11D1-AB04-00C04FC2DCD2 /&lt;Objekt-Guid für die Quelle DCs NTDS-Einstellungsobjekt&gt;/&lt;Zieldomäne&amp;Amp; Gt;. &amp;Amp; Lt; Tld&amp;Amp; Gt; @&lt;Zieldomäne&gt;.&lt; TLD&gt;</para>
-          <para>Das KDC, die von der Ziel-DC verwendet wird</para>
+    <title>auflösungen @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5<para>Überprüfen Sie das Verzeichnisdienst-Ereignisprotokoll auf dem Ziel-DC für das NTDS-Replikations Ereignis 1645. Beachten Sie Folgendes:</para>
+          <para>Der Name des Ziel-DC.</para>
+          <para>Der SPN, der gesucht wird (E3514235-4B06-11d1-AB04-00C04FC2DCD2/&lt;objekt-GUID für Quell Domänen Controller NTDS-Einstellungs Objekt @ no__t-1 @ no__t-2 @ no__t-3target Domäne @ no__t-4Amp; gt;. &amp;Amp; lt; TLD @ no__t-6amp; gt; @ &lt;target Domäne @ no__t-8. &lt;tld @ no__t-10</para>
+          <para>Der vom Ziel-DC verwendete KDC</para>
         </listItem>
         <listItem>
-          <para>In der Konsole des in Schritt 1 identifizierten KDC Folgendes ein: </para>
+          <para>Geben Sie in der Konsole des KDC, der in Schritt 1 identifiziert wurde, Folgendes ein: </para>
           <code>nltest /dsgetdc &lt;forest root DNS domain name &gt; /gc</code>
-          <para>Führen Sie den NLTEST-Locator-Test einen Replikationsversuch auf, der mit dem Fehler 1396 auf den Zieldomänencontroller nicht unmittelbar folgt. </para>
-          <para>Dies sollten diesen globalen Katalogserver ermitteln, die das KDC SPN Suchvorgänge für ausführt. </para>
-          <para>Der Garbage Collector vom KDC durchsucht wird möglicherweise auch in Microsoft-Windows-ActiveDirectory_DomainService Ereignis 1655 erfasst werden.</para>
+          <para>Führen Sie den NLTEST-Serverlocatorpunkt-Test direkt nach einem Replikations Versuch aus, der mit dem Fehler 1396 auf dem Ziel-DC fehlschlägt. </para>
+          <para>Dadurch sollte der GC identifiziert werden, mit dem der KDC SPN-suchen ausführt. </para>
+          <para>Der GC, der vom KDC durchsucht wird, kann auch in Microsoft-Windows-ActiveDirectory_DomainService-Ereignis 1655 aufgezeichnet werden.</para>
         </listItem>
         <listItem>
-          <para>Suchen Sie nach dem SPN, der in Schritt 1 für den globalen Katalog, die in Schritt 2 ermittelt wurden ermittelt.</para>
+          <para>Suchen Sie nach dem in Schritt 1 ermittelten Dienst Prinzipal Namen im globalen Katalog, der in Schritt 2 erkannt wurde.</para>
           <code>C:&gt;repadmin /showattr Server_Name DC=corp,DC=contoso,dc=com &lt;GC used by KDC&gt; &lt;DN path of forest root domain&gt; /filter:&quot;(serviceprincipalname=&lt;SPN cited in the NTDS Replication event 1645&gt;)&quot; /gc /subtree /atts:cn,serviceprincipalname</code>
           <para>oder</para>
           <code>C:&gt;dsquery * forestroot -scope subtree -filter &quot;(serviceprincipalname=E3514235-4B06-11D1-AB04-00C04FC2DCD2/65cead9f-4949-46a3-a49a-f1fbfe13d2b3*)&quot; -attr * -s Server_Name.europe.corp.contoso.com</code>
-          <para>Stellen Sie sicher, dass das Hostobjekt für den SPN vorhanden ist.</para>
-          <para>Überprüfen Sie den DN-Pfad für das Objekt des Hosts einschließlich, ob das Objekt CNF ist / Konflikt geändert oder befindet sich in den LostAndFound-Container aus.</para>
-          <para>Stellen Sie sicher, dass die Quelle DCs Active Directory-Replikation SPN nur auf dem Quellcomputer Domänencontroller das Computerkonto registriert ist.</para>
-          <para>Wenn der Replikations-SPN nicht vorhanden ist, bestimmen Sie, wenn der Quell-DC mit sich selbst der SPN registriert und, ob der SPN auf die GC das KDC aufgrund von einfachen Replikationswartezeit oder aufgrund eines Replikationsfehlers ein, die nicht vorhanden ist.</para>
+          <para>Vergewissern Sie sich, dass das Host Objekt für den SPN vorhanden ist.</para>
+          <para>Überprüfen Sie den DN-Pfad für das Host Objekt, z. b., ob das Objekt cnf/Konflikt hat oder sich im verlorenen und gefundenen Container befindet.</para>
+          <para>Vergewissern Sie sich, dass die Quell Domänen Controller Active Directory Replikations-SPN nur auf dem Computer Konto der Quell Domänen Controller</para>
+          <para>Wenn der Replikations-SPN fehlt, stellen Sie fest, ob der Quell Domänen Controller seinen SPN bei sich selbst registriert hat und ob der SPN auf der vom KDC verwendeten GC aufgrund einer einfachen Replikations Latenz oder eines Replikations Fehlers fehlt.</para>
         </listItem>
         <listItem>
-          <para>Überprüfen Sie die Integrität des sicheren Kanals, und vertrauen Sie Integrität.</para>
+          <para>Überprüfen Sie die Integrität des sicheren Kanals und den Vertrauens Zustand.</para>
         </listItem>
       </list>
     </content>
   </section>
-  <relatedTopics>
-    <externalLink>
-      <linkText>Problembehandlung bei Active Directory-Vorgänge, bei denen Fehler 1396: Fehler bei der Anmeldung: Der Zielkontoname ist falsch.</linkText>
+  <relatedTopics> @ no__t-1 @ no__t-2troubleshooting Active Directory Vorgänge, die mit Fehler 1396 fehlschlagen: Anmeldefehler: Der Name des Ziel Kontos ist falsch. </linkText>
       <linkUri><a href="https://support.microsoft.com/kb/2183411/en-gb" data-raw-source="https://support.microsoft.com/kb/2183411/en-gb">https://support.microsoft.com/kb/2183411/en-gb</a></linkUri>
     </externalLink>
-  </relatedTopics>
-</developerConceptualDocument>
+  </relatedTopics> @ no__t-6
 
 

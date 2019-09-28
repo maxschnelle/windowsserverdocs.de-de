@@ -1,8 +1,8 @@
 ---
 title: chglogon
-description: 'Windows-Befehle Thema '
+description: 'Thema für Windows-Befehle für '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,23 +13,22 @@ ms.date: 10/16/2017
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: aca42e39a520e6e801bb8e7fa8cb2605f3028566
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 52cc465bb220c0a30678f75dcf0a37061fd80d56
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434443"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379509"
 ---
 # <a name="chglogon"></a>chglogon
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 
-Aktiviert oder deaktiviert die Anmeldungen von Clientsitzungen auf einen Remotedesktop-Sitzungshostserver oder zeigt den aktuellen Status der Anmeldung.
+Aktiviert oder deaktiviert Anmeldungen von Client Sitzungen auf einem Remote Desktop-Sitzungs Host Server oder zeigt den aktuellen Anmeldestatus an.
 > [!NOTE]
-> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Neuerungen in der neuesten Version finden Sie unter [welche s New in Remote Desktop Services in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der technischen Bibliothek für Windows Server.
+> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der TechNet-Bibliothek für Windows Server.
 > ## <a name="remarks"></a>Hinweise
-> Dieser Befehl ist identisch mit der **Anmeldung ändern** Befehl.
-> #### <a name="additional-references"></a>Zusätzliche Referenzen
-> [Ändern Sie die Anmeldung](change-logon.md)
-> [Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-> [Remote Desktop Services &#40;"Terminal Services"&#41; -Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)
+> Dieser Befehl ist mit dem Befehl zum **Ändern der Anmeldung** identisch.
+> #### <a name="additional-references"></a>Weitere Verweise
+> [Ändern des Anmelde](change-logon.md)
+> [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)@no__t-[3 &#40;Remotedesktopdienste Befehls&#41; Referenz für Terminal Dienste](remote-desktop-services-terminal-services-command-reference.md)

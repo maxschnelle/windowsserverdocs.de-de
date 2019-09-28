@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin-Cache und getexpirationtime
-description: Windows-Befehle Thema **Bitsadmin Cache und Getexpirationtime** -Ruft die Ablaufzeit für den Cache.
+title: BI-admin-Cache und getexpirationtime
+description: 'Windows-Befehle-Thema für den **BI-admin-Cache und getexpirationtime** : Ruft den Cache Ablauf Zeitpunkt ab.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8f5bf145b02de111cc6c009375d6ab46e46c18ac
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 01a2443a5f2ff78adfdead3e17b4bd1c24dd4b5b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868061"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382052"
 ---
-# <a name="bitsadmin-cache-and-getexpirationtime"></a>Bitsadmin-Cache und getexpirationtime
+# <a name="bitsadmin-cache-and-getexpirationtime"></a>BI-admin-Cache und getexpirationtime
 
 
 
-Ruft die Ablaufzeit für den Cache ab.
+Ruft den Cache Ablauf Zeitpunkt ab.
 
 ## <a name="syntax"></a>Syntax
 
@@ -32,13 +32,13 @@ Ruft die Ablaufzeit für den Cache ab.
 bitsadmin /Cache /GetExpirationTime 
 ```
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Die folgenden Ruft die Ablaufzeit für den Cache ab.
+Im folgenden wird die Ablaufzeit für den Cache abgerufen.
 ```
 C:\>bitsadmin /Cache /GetExpirationTime
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

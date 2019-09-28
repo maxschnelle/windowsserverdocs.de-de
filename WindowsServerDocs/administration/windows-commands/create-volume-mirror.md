@@ -1,8 +1,8 @@
 ---
-title: Erstellen von Volume-Spiegelung
-description: 'Windows-Befehle Thema ***- '
+title: volumespiegelung erstellen
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 72d80fdf6eca1262a858cbe2a98ed8c9c421bff6
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 72ecc4e0ede163857c47c5b7013aacdd49719ac8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434079"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378868"
 ---
-# <a name="create-volume-mirror"></a>Erstellen von Volume-Spiegelung
+# <a name="create-volume-mirror"></a>volumespiegelung erstellen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-erstellt eine Spiegelung Volumes mit den zwei angegebenen dynamischen Datenträgern.  
+erstellt eine volumespiegelung mithilfe der beiden angegebenen dynamischen Datenträger.  
   
 > [!NOTE]  
 > Dieser Befehl ist nur in Windows 7 und Windows Server 2008 R2 verfügbar.  
@@ -41,23 +41,23 @@ create volume mirror [size=<n>] disk=<n>,<n>[,<n>,...] [align=<n>] [noerr] [noer
   
 |         Parameter         |                                                                                                                                     Beschreibung                                                                                                                                     |
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         Größe\=<n>         |                 Gibt die Menge des Speicherplatzes in Megabyte \(MB\), die das Volume auf jedem Datenträger belegen wird. Wenn keine Größe angegeben wird, beansprucht das neue Volume der verbleibende freie Speicherplatz auf der kleinste Datenträger und gleich viel Speicherplatz auf jedem nachfolgenden Datenträger ab.                 |
-| Datenträger\=<n>,<n>\[,<n>,...\] |                       Gibt an, den dynamischen Datenträgern auf denen das Volume erstellt wird. Sie benötigen zwei dynamische Datenträger, um ein Volume für die Spiegelung zu erstellen. Der Speicherplatz, der gleich der Größe, die mit angegebenen die **Größe** Parameter wird auf jedem Datenträger zugeordnet.                        |
-|        align\=<n>         | Richtet alle Volume-Blöcke auf der nächsten. Dieser Parameter wird in der Regel verwendet, mit der Hardware-RAID, logische Gerätenummer \(LUN\) Arrays zur Verbesserung der Leistung. *n* ist die Anzahl der Kilobytes \(KB\) vom Anfang des Datenträgers an, die am nächsten Ausrichtungsgrenze. |
-|           Diskpart           |                                        Nur für Skripting verwendet. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit einem Fehler beendet.                                         |
+|         Size @ no__t-0 @ no__t-1         |                 Gibt die Größe des Speicherplatzes in Megabyte \(MB @ no__t-1 an, die das Volume auf den einzelnen Datenträgern einnimmt. Wenn keine Größe angegeben ist, nimmt das neue Volume den verbleibenden freien Speicherplatz auf dem kleinsten Datenträger und den gleichen Speicherplatz auf jedem nachfolgenden Datenträger an.                 |
+| Disk @ no__t-0 @ no__t-1, <n> @ no__t-3, <n>,... \] |                       Gibt die dynamischen Datenträger an, auf denen das Spiegelungs Volume erstellt wird. Zum Erstellen eines Spiegelungs Volumes benötigen Sie zwei dynamische Datenträger. Eine Menge an Speicherplatz, die der Größe entspricht, die mit dem **size** -Parameter angegeben wird, wird auf jedem Datenträger zugeordnet.                        |
+|        align @ no__t-0 @ no__t-1         | Richtet alle volumeblöcke an der nächstgelegenen Ausrichtungs Grenze aus. Dieser Parameter wird in der Regel mit der \(lun @ no__t-1-Arrays der Hardware-RAID-Einheit verwendet, um die Leistung zu verbessern. *n* ist die Anzahl der Kilobyte \( KB @ no__t-2 vom Anfang des Datenträgers bis zur nächstgelegenen Ausrichtungs Grenze. |
+|           Noerr           |                                        Wird nur für die Skripterstellung verwendet. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehler beendet wird.                                         |
   
 ## <a name="remarks"></a>Hinweise  
   
--   Nachdem Sie das Volume erstellt haben, wechselt der Fokus automatisch auf das neue Volume.  
+-   Nachdem Sie das Volume erstellt haben, wird der Fokus automatisch auf das neue Volume verlagert.  
   
-## <a name="BKMK_examples"></a>Beispiele für  
-Geben Sie Folgendes ein, um ein gespiegeltes Volume von 1000 MB Größe auf Datenträger 1 und 2 zu erstellen:  
+## <a name="BKMK_examples"></a>Beispiele  
+Geben Sie auf den Datenträgern 1 und 2 Folgendes ein, um ein gespiegeltes Volume mit einer Größe von 1000 Megabyte zu erstellen:  
   
 ```  
 create volume mirror size=1000 disk=1,2  
 ```  
   
-#### <a name="additional-references"></a>Zusätzliche Referenzen  
+#### <a name="additional-references"></a>Weitere Verweise  
 [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
 

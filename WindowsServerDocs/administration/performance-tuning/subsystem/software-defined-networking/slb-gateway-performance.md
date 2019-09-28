@@ -1,44 +1,44 @@
 ---
-title: In der Software Optimierung der Leistung von SLB-Gateway definierten Netzwerken
-description: SLB-Gateway Richtlinien zur leistungsoptimierung für SDN-Netzwerke
-ms.prod: windows-server-threshold
+title: Leistungsoptimierung des SLB-Gateways in Software definierten Netzwerken
+description: Leitfaden zur Leistungsoptimierung für SLB-Gateways in Sdn-Netzwerken
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: grcusanz; AnPaul
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: fede7d404ddbb4f465eff435cc340db1907ce9d2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9a0d239da2ca321333ec757db22bbaf9a9b8ba30
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829931"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383459"
 ---
-# <a name="slb-gateway-performance-tuning-in-software-defined-networks"></a>In der Software Optimierung der Leistung von SLB-Gateway definierten Netzwerken
+# <a name="slb-gateway-performance-tuning-in-software-defined-networks"></a>Leistungsoptimierung des SLB-Gateways in Software definierten Netzwerken
 
-Softwarelastenausgleich wird durch eine Kombination aus einem Load Balancer-Manager in die Netzwerkcontroller-VMs, die den virtuellen Hyper-V-Switch und eine Gruppe von VMs mit Laden von Lastenausgleich Multixplexor (Mux) bereitgestellt.
+Der Software Lastenausgleich wird durch eine Kombination aus einem Load Balancer Manager in den virtuellen Netzwerk Controller Computern, dem virtuellen Hyper-V-Switch und einer Reihe von Load Balancer virtuellen Computern mit mehreren xplexor-VMS (MUX) bereitgestellt.
 
-Keine zur weiteren leistungsoptimierung ist erforderlich, um den Netzwerkcontroller konfigurieren oder der Hyper-V-Host für den Lastenausgleich hinausgehen wird beschrieben, in der [Software Defined Networking](index.md) Abschnitt, es sei denn, Sie SR-IOV für verwenden die MUX ab, wie unten beschrieben.
+Es ist keine zusätzliche Leistungsoptimierung erforderlich, um den Netzwerk Controller oder den Hyper-V-Host für den Lastenausgleich zu konfigurieren, der über die im Abschnitt [Software Defined Networking](index.md) beschriebenen Komponenten hinausgeht, es sei denn, Sie verwenden SR-IOV für die muxes, wie unten beschrieben.
 
-## <a name="slb-mux-vm-configuration"></a>SLB/Mux-VM-Konfiguration
+## <a name="slb-mux-vm-configuration"></a>SLB MUX-VM-Konfiguration
 
-Virtuellen SLB Mux-Maschinen werden in einer Aktiv / Aktiv-Konfiguration bereitgestellt.  Dies bedeutet, dass jede Mux-VM, die bereitgestellt und hinzugefügt, die dem Netzwerkcontroller eingehende Anforderungen verarbeiten kann.  Daher wird der gesamte aggregierte Durchsatz aller Verbindungen nur durch Mux-VM-Anzahl beschränkt, die Sie bereitgestellt haben.  
+Virtuelle SLB MUX-Computer werden in einer aktiv/aktiv-Konfiguration bereitgestellt.  Dies bedeutet, dass jeder virtuelle MUX-Computer, der dem Netzwerk Controller bereitgestellt und hinzugefügt wird, eingehende Anforderungen verarbeiten kann.  Folglich wird der gesamte aggregierte Durchsatz aller Verbindungen nur durch die Anzahl der von Ihnen bereitgestellten MUX-VMS beschränkt.  
 
-Eine einzelne Verbindung zu einer virtuellen IP (VIP) werden immer gesendet, die gleichen MUX-Instanz, vorausgesetzt, die Anzahl der MUX konstant bleibt, und daher der Durchsatz kann auf den Durchsatz einer einzelnen Mux-VM beschränkt.  MUX verarbeiten nur eingehenden Datenverkehr, der für eine VIP-Adresse bestimmt ist.  Antwortpaketen wechseln Sie direkt von den virtuellen Computer, die die Antwort auf physischen Switch gesendet wird, der sie sich an den Client weiterleitet.
+Eine einzelne Verbindung mit einer virtuellen IP-Adresse (VIP) wird immer an dieselbe MUX-Adresse gesendet, wobei angenommen wird, dass die Anzahl der Mux konstant bleibt. Infolgedessen wird der Durchsatz auf den Durchsatz einer einzelnen MUX-VM beschränkt.  Muxes verarbeiten nur den eingehenden Datenverkehr, der an eine VIP-Adresse gerichtet ist.  Antwort Pakete gelangen direkt von der VM, die die Antwort an den physischen Switch sendet, der Sie an den Client weiterleitet.
 
-In einigen Fällen, wenn die Quelle der Anforderung vom SDN-Host stammt, die den gleichen Netzwerkcontroller hinzugefügt wird, die verwaltet die VIP-Adresse, eine weitere Optimierung der eingehenden Pfad für die Anforderung auch erfolgt dadurch können die meisten Pakete direkt über .NET-Remotegrenzen übertragen der der Client auf dem Server, der Mux-VM vollständig umgehen.  Keine zusätzliche Konfiguration ist erforderlich, für die Optimierung erfolgen soll.
+In einigen Fällen, in denen die Quelle der Anforderung von einem Sdn-Host stammt, der demselben Netzwerk Controller hinzugefügt wird, der die VIP verwaltet, wird auch die weitere Optimierung des eingehenden Pfads für die Anforderung ausgeführt, sodass die meisten Pakete direkt vom Client an den Server, wobei die MUX-VM vollständig umgangen wird.  Es ist keine zusätzliche Konfiguration erforderlich, damit diese Optimierung stattfindet.
 
-Jede SLB/Mux-VM muss gemäß den Richtlinien in SDN VM-Rolle Anforderungen im Abschnitt zur Infrastruktur der Größe angepasst werden die [Planen einer Software Defined Networking-Infrastruktur](../../../../networking/sdn/plan/Plan-a-Software-Defined-Network-Infrastructure.md) Thema.
+Jeder SLB MUX-VM muss gemäß den Richtlinien, die im Abschnitt [Planen einer Software definierten Netzwerkinfrastruktur](../../../../networking/sdn/plan/Plan-a-Software-Defined-Network-Infrastructure.md) beschrieben werden, gemäß den Richtlinien für die Rollenanforderungen für virtuelle Computer in Sdn-Infrastruktur angegeben werden.
 
-## <a name="single-root-io-virtualization-sr-iov"></a>Einzelne Root-e/a-Virtualisierung (SR-IOV)
+## <a name="single-root-io-virtualization-sr-iov"></a>Single-root-e/a-Virtualisierung (SR-IOV)
 
-Wenn Sie 40 Ethernet verwenden zu können, wird die Möglichkeit für den virtuellen Switch zum Verarbeiten von Paketen für die Mux-VM der einschränkende Faktor Mux-VM-Durchsatz.  Aus diesem Grund empfiehlt es sich, dass SR-IOV auf dem SLB VMs VM-Netzwerkadapter aktiviert werden, um sicherzustellen, dass der virtuelle Switch nicht zum Engpass wird.
+Bei Verwendung von 40Gbit Ethernet wird die Möglichkeit des virtuellen Switches zum Verarbeiten von Paketen für die MUX-VM zum einschränkenden Faktor für den MUX-VM-Durchsatz.  Aus diesem Grund wird empfohlen, SR-IOV auf dem VM-Netzwerk Adapter der SLB-VM zu aktivieren, um sicherzustellen, dass der virtuelle Switch nicht der Engpass ist.
 
-Um SR-IOV aktivieren möchten, müssen Sie es auf dem virtuellen Switch aktivieren, wenn der virtuelle Switch erstellt wird.  In diesem Beispiel erstellen wir einen virtuellen Switch mit dem Switch embedded teaming (SET) und SR-IOV:
+Wenn Sie SR-IOV aktivieren möchten, müssen Sie es auf dem virtuellen Switch aktivieren, wenn der virtuelle Switch erstellt wird.  In diesem Beispiel erstellen wir einen virtuellen Switch mit Switch Embedded Team Vorgang (Set) und SR-IOV:
 ``` syntax
     new-vmswitch -Name SDNSwitch -EnableEmbeddedTeaming $true -NetAdapterName @("NIC1", "NIC2") -EnableIOV $true
 ```
-Anschließend muss aktiviert sein, auf dem virtuellen Netzwerkadapter von der SLB/Mux-VM, der den Datenverkehr zu verarbeiten.  In diesem Beispiel wird auf allen Netzwerkkarten SR-IOV aktiviert:
+Anschließend muss Sie auf den virtuellen Netzwerkadaptern der SLB MUX-VM aktiviert werden, die den Datenverkehr verarbeiten.  In diesem Beispiel wird SR-IOV auf allen Adaptern aktiviert:
 ``` syntax
     get-vmnetworkadapter -VMName SLBMUX1 | set-vmnetworkadapter -IovWeight 50
 ```

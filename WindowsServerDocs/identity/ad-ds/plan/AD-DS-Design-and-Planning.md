@@ -7,45 +7,45 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/07/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 24fc96aae268d9847bd3b32460ada33d2c6e0d65
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5267561e4a3d19514d9105f21122db73f85bffb9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848691"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71409022"
 ---
 # <a name="ad-ds-design-and-planning"></a>AD DS-Entwurf und -Planung
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Durch die Bereitstellung von Windows Server Active Directory Domain Services (AD DS) in Ihrer Umgebung können Sie nutzen die zentralisierte, delegierte Verwaltungsmodell und einmaliges Anmelden (SSO) Funktion, die AD DS bietet. Nachdem Sie die Bereitstellungsaufgaben und die aktuelle Umgebung für Ihre Organisation ermittelt haben, können Sie die AD DS-Bereitstellungsstrategie erstellen, die den Anforderungen Ihres Unternehmens erfüllt.  
+Durch die Bereitstellung von Windows Server Active Directory Domain Services (AD DS) in Ihrer Umgebung können Sie die Vorteile des zentralisierten, Delegierten Verwaltungsmodells und der Single Sign-On-Funktion (SSO) nutzen, die von AD DS bereitgestellt wird. Nachdem Sie die Bereitstellungs Aufgaben und die aktuelle Umgebung für Ihre Organisation ermittelt haben, können Sie die AD DS Bereitstellungs Strategie erstellen, die den Anforderungen Ihrer Organisation entspricht.  
   
 ## <a name="about-this-guide"></a>Informationen zur Anleitung
 
-Dieses Handbuch enthält Empfehlungen zum Entwickeln einer AD DS-Bereitstellungsstrategie, die basierend auf den Anforderungen Ihrer Organisation und des gewünschten Entwurfs, die Sie erstellen möchten. Dieses Handbuch ist für die Verwendung durch infrastrukturspezialisten oder Systemarchitekten vorgesehen. Bevor Sie dieses Handbuch lesen, sollten Sie ein gutes Verständnis der Funktionsweise von AD DS auf einer Funktionsebene verfügen. Sie sollten einen fundierten Überblick über die organisatorischen Anforderungen, die widergespiegelt werden auch in Ihrer AD DS-Bereitstellungsstrategie verfügen.  
+Dieses Handbuch enthält Empfehlungen, die Ihnen helfen, eine AD DS Bereitstellungs Strategie basierend auf den Anforderungen Ihrer Organisation und dem jeweiligen Entwurf zu entwickeln, den Sie erstellen möchten. Dieses Handbuch ist für die Verwendung durch Infrastruktur Spezialisten oder Systemarchitekten vorgesehen. Bevor Sie dieses Handbuch lesen, sollten Sie wissen, wie AD DS auf einer Funktionsebene funktioniert. Außerdem sollten Sie über ein gutes Verständnis der Organisations Anforderungen verfügen, die in Ihrer AD DS Bereitstellungs Strategie berücksichtigt werden.  
   
-Dieser Leitfaden beschreibt verschiedene Aufgaben für verschiedene mögliche Ausgangspunkte einer Bereitstellung von Windows Server 2008 AD DS. Das Handbuch können Sie die am besten geeignete Bereitstellungsstrategie für Ihre Umgebung zu ermitteln.  
+In dieser Anleitung werden die Aufgaben für verschiedene mögliche Ausgangspunkte einer Windows Server 2008-AD DS Bereitstellung beschrieben. Mit diesem Handbuch können Sie die am besten geeignete Bereitstellungs Strategie für Ihre Umgebung bestimmen.  
   
-Obwohl die Strategien, die in diesem Handbuch präsentiert werden für fast alle Server betriebssystembereitstellungen geeignet sind, haben speziell für Umgebungen, die mit weniger als 100.000 Benutzern und weniger als 1.000 Standorten enthalten sie wurden getestet und überprüft Netzwerkverbindungen von mindestens 28,8 Kilobit pro Sekunde (Kbit/s). Wenn Ihre Umgebung diese Kriterien nicht erfüllt, sollten erwägen Sie, eine Beratungsfirma zu wenden, die Erfahrung im Bereitstellen von AD DS in komplexeren Umgebungen zu verwenden.  
+Obwohl die in diesem Handbuch vorgestellten Strategien für fast alle Server-Betriebssystem Bereitstellungen geeignet sind, wurden Sie speziell für Umgebungen getestet und überprüft, die weniger als 100.000 Benutzer und weniger als 1.000 Websites enthalten. Netzwerkverbindungen von mindestens 28,8 kbit pro Sekunde (Kbit/s). Wenn Ihre Umgebung diese Kriterien nicht erfüllt, empfiehlt es sich, ein Beratungsunternehmen zu verwenden, das AD DS in komplexeren Umgebungen bereitstellt.  
   
-Weitere Informationen zum Testen des AD DS-Bereitstellungsprozess finden Sie im Artikel [testen und überprüfen den Bereitstellungsprozess](https://go.microsoft.com/fwlink/?LinkId=100206).  
+Weitere Informationen zum Testen des AD DS Bereitstellungs Prozesses finden Sie im Artikel [Testen und Überprüfen des Bereitstellungs Prozesses](https://go.microsoft.com/fwlink/?LinkId=100206).  
   
 ## <a name="in-this-guide"></a>Inhalt dieser Anleitung
 
-[Grundlegendes zu AD DS-Entwurf](Understanding-AD-DS-Design.md)  
+[Grundlegendes zum AD DS-Entwurf](Understanding-AD-DS-Design.md)  
   
-[Identifizieren Ihre AD DS-Entwurf und Anforderungen für die Bereitstellung](Identifying-Your-AD-DS-Design-and-Deployment-Requirements.md)  
+[Bestimmen der AD DS-Entwurfs- und -Bereitstellungsanforderungen](Identifying-Your-AD-DS-Design-and-Deployment-Requirements.md)  
   
-[Zuordnen Ihren Anforderungen zu einer AD DS-Bereitstellungsstrategie](Mapping-Your-Requirements-to-an-AD-DS-Deployment-Strategy.md)  
+[Zuordnen Ihrer Anforderungen zu einer AD DS-Bereitstellungsstrategie](Mapping-Your-Requirements-to-an-AD-DS-Deployment-Strategy.md)  
   
 [Entwerfen der logischen Struktur für Windows Server 2008 AD DS](Designing-the-Logical-Structure.md)  
   
-[Entwerfen der Standorttopologie für Windows Server 2008 AD DS](Designing-the-Site-Topology.md)  
+[Entwerfen der Standort Topologie für Windows Server 2008 AD DS](Designing-the-Site-Topology.md)  
   
-[Aktivieren erweiterter Funktionen für AD DS](Enabling-Advanced-Features-for-AD-DS.md)  
+[Aktivieren erweiterter Funktionen für die AD DS](Enabling-Advanced-Features-for-AD-DS.md)  
   
-[Auswerten von AD DS-Bereitstellungsstrategie: Beispiele](Evaluating-AD-DS-Deployment-Strategy-Examples.md)  
+[Bewerten der AD DS-Bereitstellungsstrategie: Beispiele](Evaluating-AD-DS-Deployment-Strategy-Examples.md)  
   
-[Anhang A: Überprüfen die wichtigsten AD DS-Begriffe](Appendix-A--Reviewing-Key-AD-DS-Terms.md)  
+[Anhang A: Die wichtigsten AD DS-Begriffe](Appendix-A--Reviewing-Key-AD-DS-Terms.md)  

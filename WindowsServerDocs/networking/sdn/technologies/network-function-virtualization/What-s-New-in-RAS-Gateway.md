@@ -1,9 +1,9 @@
 ---
 title: Neuerungen beim RAS-Gateway
-description: Sie können in diesem Thema verwenden, sich zu neuen Features für RAS-Gateway, ein softwarebasierter ist, mehrinstanzenfähiger, Border Gateway Protocol (BGP)-fähiger Router in Windows Server 2016.
+description: In diesem Thema erfahren Sie mehr über die neuen Features für das RAS-Gateway, ein softwarebasierter, mehr Instanzen fähiger, Border Gateway Protocol (BGP)-fähiger Router in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -12,87 +12,87 @@ ms.topic: get-started-article
 ms.assetid: 709cb192-313a-47b5-954e-eb5f6fee51a7
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 5cc7d8bab3f2783750dbd723da745b1df3c2e462
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 85595c47c599a72039e93e67ea2f33f92af7200c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863021"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405899"
 ---
 # <a name="whats-new-in-ras-gateway"></a>Neuerungen beim RAS-Gateway
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können in diesem Thema verwenden, sich zu neuen Features für RAS-Gateway, ein softwarebasierter ist, mehrinstanzenfähiger, Border Gateway Protocol (BGP)-fähiger Router in Windows Server 2016. Der RAS-Gateway mehrinstanzenfähige BGP-Router dient für Clouddienstanbieter (CSPs) und Unternehmen, die mehrinstanzenfähige virtuelle Netzwerke mithilfe der Hyper-V-Netzwerkvirtualisierung hosten.  
+In diesem Thema erfahren Sie mehr über die neuen Features für das RAS-Gateway, ein softwarebasierter, mehr Instanzen fähiger, Border Gateway Protocol (BGP)-fähiger Router in Windows Server 2016. Der mehrinstanzfähige RAS-BGP-Router ist für clouddienstanbieter (Cloud Service Providers, CSPs) und Unternehmen konzipiert, die mehrere virtuelle Mandanten Netzwerke mithilfe der Hyper-V-Netzwerkvirtualisierung  
   
 > [!NOTE]  
-> RAS-Gateway ist in Windows Server 2012 R2 RRAS-Gateway benannt werden. und in System Center Virtual Machine Manager-RAS-Gateway ist mit dem Namen Windows Server-Gateway.  
+> In Windows Server 2012 R2 hat das RAS-Gateway den Namen RRAS-Gateway. in System Center Virtual Machine Manager wird das RAS-Gateway als Windows Server-Gateway bezeichnet.  
   
 Dieses Thema enthält die folgenden Abschnitte:  
   
--   [Konnektivitätsoptionen für die Standort-zu-Standort](#bkmk_s2s)  
+-   [Optionen für die Standort-zu-Standort-Konnektivität](#bkmk_s2s)  
   
 -   [Gatewaypools](#bkmk_pools)  
   
--   [Gateway-Pool-Skalierbarkeit](#bkmk_gps)  
+-   [Skalierbarkeit des gatewaypools](#bkmk_gps)  
   
--   [Gateway-Pool-Redundanz M + N](#bkmk_m)  
+-   [Mehr als die gatewaypoolpoolredundanz](#bkmk_m)  
   
--   [Route-Reflector](#bkmk_rr)  
+-   [Routen Reflektor](#bkmk_rr)  
   
-## <a name="bkmk_s2s"></a>Konnektivitätsoptionen für die Standort-zu-Standort  
-RAS-Gateway unterstützt jetzt drei Arten von VPN-Standort-zu-Standort-Verbindungen:  Internet Key Exchange Version 2 (IKEv2) Generic Routing Encapsulation (GRE), Standort-zu-Standort für virtuelle private Netzwerke (VPN) und Layer-3 (L3) VPN-Tunnel.  
+## <a name="bkmk_s2s"></a>Optionen für die Standort-zu-Standort-Konnektivität  
+RAS-Gateway unterstützt jetzt drei Arten von VPN-Standort-zu-Standort-Verbindungen:  Internetschlüsselaustausch, Version 2 (IKEv2) Site-to-Site-VPN (Virtual Private Networking), VPN-VPN (Layer 3) und GRE-Tunnel (Generic Routing Kapselung).  
   
-Weitere Informationen zu GRE, finden Sie unter [GRE Tunneling in Windows Server 2016](../../../../remote/remote-access/ras-gateway/gre-tunneling-windows-server.md).  
+Weitere Informationen zu GRE finden Sie unter [GRE tunnelingin Windows Server 2016](../../../../remote/remote-access/ras-gateway/gre-tunneling-windows-server.md).  
   
 ## <a name="bkmk_pools"></a>Gatewaypools  
-In Windows Server 2016 können Sie gatewaypools verschiedener Typen erstellen. Gatewaypools enthalten viele Instanzen des RAS-Gateway und Weiterleiten von Netzwerkdatenverkehr zwischen physischen und virtuellen Netzwerken. Die einzelne Gateway-Funktionen – Internet Key Exchange Version 2 (IKEv2) ausführen, gatewaypools können Standort-zu-Standort für virtuelle private Netzwerke (VPN), Generic Routing Encapsulation (GRE) und Layer-3 (L3) VPN-Tunnel - oder des Pools kann alle diese ausführen Funktionen und Act als gemischte Pool.  
+In Windows Server 2016 können Sie gatewaypools mit unterschiedlichen Typen erstellen. Gatewaypools enthalten viele Instanzen des RAS-Gateways und leiten Netzwerk Datenverkehr zwischen physischen und virtuellen Netzwerken weiter. Gatewaypools können alle einzelnen Gatewayfunktionen ausführen: Internetschlüsselaustausch Version 2 (IKEv2) Site-to-Site Virtual Private Networking (VPN), Layer 3 (L3)-VPN und generische Routing Kapselungs Tunnel (GRE), oder der Pool kann alle diese Vorgänge durchführen. fungiert als gemischter Pool und fungiert als gemischter Pool.  
   
-Sie können die Logik, die Sie bevorzugen, basierend auf der infrastrukturanforderungen gatewaypools erstellen. Beispielsweise können Sie die gatewaypools, die basierend auf einem der folgenden Eigenschaften erstellen.  
+Sie können gatewaypools mithilfe einer beliebigen Logik erstellen, die Sie basierend auf Ihren Infrastrukturanforderungen bevorzugen. Beispielsweise können Sie gatewaypools basierend auf den folgenden Merkmalen erstellen.  
   
--   Tunneltypen (L3-VPN IKEv2-VPN GRE VPN)  
+-   Tunnel Typen (IKEv2-VPN, L3-VPN, GRE-VPN)  
   
 -   Kapazität  
   
--   Redundanzebene (Zuverlässigkeit basierend auf Ihrem Abrechnungsplan für Mandanten)  
+-   Redundanz Stufe (Zuverlässigkeit basierend auf Ihrem Abrechnungsplan für Mandanten)  
   
--   Benutzerdefinierte Trennung für Kunden  
+-   Angepasste Trennung für Kunden  
   
-Weitere Informationen finden Sie unter [RAS-Gateway: hohe Verfügbarkeit](RAS-Gateway-High-Availability.md).  
+Weitere Informationen finden Sie unter [hohe Verfügbarkeit des RAS-Gateways](RAS-Gateway-High-Availability.md).  
   
-## <a name="bkmk_gps"></a>Gateway-Pool-Skalierbarkeit  
-Sie können ganz einfach einen gatewaypool nach oben oder unten skalieren durch Hinzufügen oder Entfernen der Gateway-VMs im Pool. Entfernen oder Hinzufügen des Gateways ist nicht die Dienste unterbrochen werden, die von einem Pool bereitgestellt werden. Sie können auch hinzufügen und entfernen die gesamte Pools von Gateways.  
+## <a name="bkmk_gps"></a>Skalierbarkeit des gatewaypools  
+Sie können einen gatewaypool problemlos zentral hoch-oder herunterskalieren, indem Sie Gateway-VMS im Pool hinzufügen oder entfernen. Das Entfernen oder Hinzufügen von Gateways beeinträchtigt nicht die Dienste, die von einem Pool bereitgestellt werden. Sie können auch die gesamten Pools von Gateways hinzufügen und entfernen.  
   
-Weitere Informationen finden Sie unter [RAS-Gateway: hohe Verfügbarkeit](RAS-Gateway-High-Availability.md).  
+Weitere Informationen finden Sie unter [hohe Verfügbarkeit des RAS-Gateways](RAS-Gateway-High-Availability.md).  
   
-## <a name="bkmk_m"></a>Gateway-Pool-Redundanz M + N  
-Jede gatewaypool ist M + N ist redundant. Dies bedeutet, dass ein bin "Anzahl der aktiven Gateway-VMs (VMs) werden" n "die Anzahl der standby-Gateway-VMs gesichert. M + N-Redundanz bietet mehr Flexibilität bei der Bestimmung der Grad an Zuverlässigkeit, die beim Bereitstellen des RAS-Gateways erforderlich sind. Anstatt nur eine standby-RAS-Gateway pro aktiven RAS-Gateway-VM – was bedeutet die einzige Konfigurationsoption mit Windows Server 2012 R2 – können Sie jetzt so viele standby VMs wie gewünscht konfigurieren. Das Network Controller Gateway Service Manager-Feature verwendet die standby-RAS-Gateway-VM-Kapazität effizient zuverlässige Failover bereitstellen, wenn ein aktiver RAS-Gateway-VM ein Fehler auftritt oder die Netzwerkverbindung unterbrochen.  
+## <a name="bkmk_m"></a>Mehr als die gatewaypoolpoolredundanz  
+Jeder gatewaypool ist M + N redundant. Dies bedeutet, dass die Anzahl der aktiven Gateway-VMS (Virtual Gateway, VMS) durch eine "N"-Anzahl von virtuellen standbygatewaycomputern gesichert wird. Die Redundanz von M + N bietet Ihnen mehr Flexibilität bei der Ermittlung des Zuverlässigkeits Niveaus, das Sie bei der Bereitstellung des RAS-Gateways benötigen. Anstatt nur ein Standby-RAS-Gateway pro Active RAS-Gateway-VM zu verwenden, das die einzige Konfigurationsoption mit Windows Server 2012 R2 ist, können Sie nun beliebig viele Standby-VMS konfigurieren. Das Netzwerk Controller Gateway Service Manager Feature verwendet die VM-Kapazität des Standby-RAS-Gateways, um ein zuverlässiges Failover bereitzustellen, wenn ein aktiver RAS-Gateway-Computer ausfällt oder die Konnektivität verliert.  
   
-Weitere Informationen finden Sie unter [RAS-Gateway: hohe Verfügbarkeit](RAS-Gateway-High-Availability.md).  
+Weitere Informationen finden Sie unter [hohe Verfügbarkeit des RAS-Gateways](RAS-Gateway-High-Availability.md).  
   
-## <a name="bkmk_rr"></a>Route-Reflector  
-Die Route-Reflector Border Gateway Protocol (BGP) ist jetzt mit der RAS-Gateway enthalten und stellt eine Alternative zur BGP-full-Mesh-Topologie, die für die Route Synchronisierung zwischen Routern erforderlich ist. Bei der Synchronisierung vollständig vermaschte müssen alle BGP-Router mit allen anderen Routern in die Routingtopologie verbinden. Bei Verwendung von Route-Reflector ist die Route-Reflector jedoch der einzige Router, der mit allen anderen Routern, BGP-Clients, um so Route Synchronisierung zu vereinfachen und Reduzierung des Netzwerkverkehrs wird aufgerufen, eine Verbindung herstellt. Die Route-Reflector lernt alle Routen, berechnet der beste Routen und die beste Routen zu den BGP-Clients verteilt.  
+## <a name="bkmk_rr"></a>Routen Reflektor  
+Der Border Gateway Protocol (BGP)-Routen Reflektor ist nun im RAS-Gateway enthalten und bietet eine Alternative zur vollständigen BGP-Mesh-Topologie, die für die Routen Synchronisierung zwischen Routern erforderlich ist. Bei der vollständigen Netzwerksynchronisierung müssen alle BGP-Router eine Verbindung mit allen anderen Routern in der Routing Topologie herstellen. Wenn Sie jedoch den Routen Reflektor verwenden, ist der Routen Reflektor der einzige Router, der mit allen anderen Routern verbunden ist, die als BGP-Clients bezeichnet werden. Dadurch wird die Routen Synchronisierung vereinfacht und der Netzwerk Datenverkehr reduziert. Der Routen Reflektor lernt alle Routen, berechnet die besten Routen und verteilt die besten Routen an seine BGP-Clients.  
   
-Mit Windows Server 2016 können Sie einen einzelnen Mandanten RAS-Tunnel zum Beenden auf mehr als eine RAS-Gateway-VM konfigurieren. Dies bietet mehr Flexibilität für Cloud Service Providers bei Fällen, in denen kann nicht einem RAS-Gateway-VM erfüllen aller Anforderungen an die Netzwerkbandbreite der Mandanten-Verbindungen.  
+Mit Windows Server 2016 können Sie die Remote Zugriffs Tunnel eines einzelnen Mandanten so konfigurieren, dass Sie auf mehr als einem virtuellen RAS-Gateway-Computer beendet werden. Dies bietet mehr Flexibilität für clouddienstanbieter, wenn eine RAS-Gateway-VM nicht alle Bandbreitenanforderungen der Mandanten Verbindungen erfüllen kann.  
   
-Diese Funktion führt jedoch die zusätzliche Komplexität der Verwaltung der Route und effektive Synchronisierung von Routen zwischen den Remotestandorten Mandanten und deren virtuellen Ressourcen in der Cloud-Datencenter. Bereitstellen von Mandanten mit Verbindungen für mehrere RAS-Gateways führt auch zusätzliche Komplexität in der Konfiguration am Ende Unternehmen, in dem jeder mandantenstandort separate routing Nachbarn hat.  
+Diese Funktion führt jedoch zu einer zusätzlichen Komplexität der Routen Verwaltung und effektiven Synchronisierungen von Routen zwischen den Remote Standorten des Mandanten und den zugehörigen virtuellen Ressourcen im cloudrechenzentrum. Wenn Mandanten Verbindungen mit mehreren RAS-Gateways bereitstellen, wird auch eine zusätzliche Komplexität der Konfiguration am Unternehmens Ende eingeführt, bei der jede Mandanten Site separate Routing Nachbarn hat.  
   
-Eine BGP-Route-Reflector Steuerungsebene behandelt diese Probleme, und es werden die CSP-internen Fabric-Bereitstellung für den Enterprise-Mandanten. Es folgen einige wichtige Punkte hinsichtlich der BGP-Route-Reflector, die in der RAS-Gateway enthalten und in den Netzwerkcontroller integriert.  
+Ein BGP-Routen Reflektor in der Steuerungsebene löst diese Probleme und macht die interne CSP-Fabric-Bereitstellung für die Unternehmens Mandanten transparent. Im folgenden finden Sie einige wichtige Punkte zum BGP-Routen Reflektor, der im RAS-Gateway enthalten und in den Netzwerk Controller integriert ist.  
   
--   Eine Route-Reflector in einer Software Defined Networking-Bereitstellung ist eine logische Entität, die auf der Steuerungsebene zwischen den RAS-Gateways und dem Netzwerkcontroller befindet. Er wird jedoch nicht der Fall, in die Daten auf Datenebene routing berücksichtigt.  
+-   Ein Routen Reflektor in einer Software definierten Netzwerk Bereitstellung ist eine logische Entität, die sich auf der Steuerungsebene zwischen den RAS-Gateways und dem Netzwerk Controller befindet. Es ist jedoch nicht Teil des Routings auf Datenebene.  
   
--   Wenn Sie einen neuen Mandanten in Ihrem Rechenzentrum hinzufügen, konfiguriert den Netzwerkcontroller automatisch den ersten Mandanten RAS-Gateway als eine Route-Reflector.  
+-   Wenn Sie Ihrem Rechenzentrum einen neuen Mandanten hinzufügen, konfiguriert der Netzwerk Controller automatisch das erste Mandanten-RAS-Gateway als Routen Reflektor.  
   
--   Jeder Mandant verfügt über eine entsprechende Route-Reflector, und es befindet sich auf einen der RAS-Gateway-VMs, die diesem Mandanten zugeordnet sind.  
+-   Jeder Mandant verfügt über einen entsprechenden Routen Reflektor und befindet sich auf einem der RAS-Gateway-VMS, die diesem Mandanten zugeordnet sind.  
   
--   Ein Route-Reflector-Mandanten fungiert als die Route-Reflector für alle RAS-Gateway-VMs, die dem Mandanten zugeordnet sind. Als der RAS-Gateway-Route-Reflector-Mandanten-computergateways sind die Route-Reflector-Clients. Die Route-Reflector führt die Route-Synchronisierung zwischen allen Clients der Route-Reflector so, dass die tatsächlichen Daten Path routing auftreten kann.  
+-   Ein mandantenweiterleitungs-Reflektor fungiert als Routen Reflektor für alle RAS-Gateway-VMS, die dem Mandanten zugeordnet sind. Andere Mandanten Gateways als der RAS-gatewayweiterleitungs-Reflektor sind die Routen Reflektor-Clients. Der Routen Reflektor führt die Routen Synchronisierung zwischen allen Routen reflektorclients aus, sodass das tatsächliche Routing des Daten Pfads erfolgen kann.  
   
--   Eine Route-Reflector bietet keine Route-Reflector-Dienste für das RAS-Gateway auf dem es konfiguriert ist.  
+-   Ein Routen Reflektor bietet keine Routen reflektordienste für das RAS-Gateway, auf dem es konfiguriert ist.  
   
--   Eine Route-Reflector aktualisiert Netzwerkcontroller mit den Enterprise-Routen, die entsprechen, für Unternehmensstandorte des Mandanten. Dadurch können den Netzwerkcontroller für die erforderlichen Hyper-V-Netzwerkvirtualisierungs-Richtlinien auf das virtuelle Netzwerk des Mandanten für den Datenpfad für End-to-End-Zugriff konfigurieren.  
+-   Ein Routen Reflektor aktualisiert den Netzwerk Controller mit den Unternehmens Routen, die den Unternehmensstandorten des Mandanten entsprechen. Dadurch kann der Netzwerk Controller die erforderlichen Hyper-V-netzwerkvirtualisierungsrichtlinien im virtuellen Mandanten Netzwerk für den End-to-End-Datenpfad-Zugriff konfigurieren.  
   
--   Wenn Ihre Enterprise-Kunden BGP-Routing in der Customer-Adressraum verwenden, ist die RAS-Gateway-Route-Reflector nur externe BGP (eBGP)-Nachbarn für alle Websites der entsprechenden Mandanten an. Dies gilt unabhängig von der Enterprise-Mandanten Tunnel Beendigung Punkte. Das heißt, unabhängig davon, welche RAS-Gateway-VM im CSP-Datencenter beendet die Standort-zu-Standort-VPN-Tunnel für eine mandantenwebsite, die eBGP-Peers für alle mandantenwebsites ist die Route-Reflector.  
+-   Wenn Ihre Unternehmenskunden das BGP-Routing im Kunden Adressraum verwenden, ist der RAS-gatewayweiterleitungs-Reflektor der einzige externe BGP-Nachbar (EBGP) für alle Standorte des entsprechenden Mandanten. Dies gilt unabhängig von den Tunnel Beendigungs Punkten des Unternehmens. Anders ausgedrückt: unabhängig davon, welche RAS-Gateway-VM im CSP-Rechenzentrum den Standort-zu-Standort-VPN-Tunnel für eine Mandanten Site beendet, ist der EBGP-Peer für alle Mandanten Sites der Routen Reflektor.  
   
-Weitere Informationen finden Sie unter [RAS-Gateway: Bereitstellungsarchitektur](RAS-Gateway-Deployment-Architecture.md) und der Internet Engineering Task Force (IETF)-Anforderung für Kommentare Thema [RFC 4456 BGP-Route-Reflektion: Eine Alternative zur vollständigen Mesh internes BGP (IBGP)](https://tools.ietf.org/html/rfc4456).  
+Weitere Informationen finden Sie unter [RAS-gatewaybereitstellungsarchitektur](RAS-Gateway-Deployment-Architecture.md) und im IETF (Internet Engineering Task Force) Request for Comments-Thema [rfc 4456 BGP-Routen Reflektion: Eine Alternative zum vollständigen Mesh Internal BGP (IBGP)-](https://tools.ietf.org/html/rfc4456).  
   
 

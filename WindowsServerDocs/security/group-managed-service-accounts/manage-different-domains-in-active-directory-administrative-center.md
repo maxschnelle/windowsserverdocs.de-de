@@ -1,6 +1,6 @@
 ---
-title: Verwalten Sie unterschiedliche Domänen im Active Directory-Verwaltungscenter
-ms.prod: windows-server-threshold
+title: Verwalten unterschiedlicher Domänen in Active Directory-Verwaltungscenter
+ms.prod: windows-server
 description: Windows Server-Sicherheit
 ms.custom: na
 ms.reviewer: na
@@ -11,86 +11,86 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: bd5650724272422d09e87b7eecf10f825b00fabf
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 71edf6bb38cc665fe5c780ce986d0c0b8807d6ab
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447040"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386929"
 ---
-# <a name="manage-different-domains-in-active-directory-administrative-center"></a>Verwalten Sie unterschiedliche Domänen im Active Directory-Verwaltungscenter
+# <a name="manage-different-domains-in-active-directory-administrative-center"></a>Verwalten unterschiedlicher Domänen in Active Directory-Verwaltungscenter
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-  Beim Öffnen von Active Directory Administrative, die Domäne, die Sie zurzeit auf diesem Computer angemeldet sind \(der lokalen Domäne\) wird in den Navigationsbereich des Active Directory Administrative Center \(im linken Bereich\). Je nach den rechten Ihrer aktuellen Satz von Anmeldeinformationen können Sie anzeigen oder Verwalten von Active Directory-Objekte in dieser lokalen Domäne.
+  Wenn Sie Active Directory Verwaltung öffnen, wird die Domäne, bei der Sie zurzeit auf diesem Computer angemeldet sind \(Die lokale Domäne @ no__t-1 im Navigationsbereich Active Directory-Verwaltungscenter \(The left pane @ no__t-3 angezeigt. Abhängig von den rechten Ihres aktuellen Anmelde Informations Satzes können Sie die Active Directory Objekte in dieser lokalen Domäne anzeigen oder verwalten.
 
- Sie können auch den gleichen Satz von Anmeldeinformationen und der gleichen Instanz von Active Directory-Verwaltungscenter verwenden, anzeigen oder Verwalten von Active Directory-Objekte in einer beliebigen anderen Domäne in der gleichen Gesamtstruktur oder einer Domäne in einer anderen Gesamtstruktur, die eine Vertrauensstellung mit der lokalen die Domäne. Sowohl\-bidirektionaler Vertrauensstellung und zwei\-bidirektionaler Vertrauensstellung werden unterstützt.
+ Sie können auch denselben Satz von Anmelde Informationen und dieselbe Instanz von Active Directory-Verwaltungscenter verwenden, um Active Directory Objekte in einer beliebigen anderen Domäne in derselben Gesamtstruktur anzuzeigen oder zu verwalten, oder eine Domäne in einer anderen Gesamtstruktur, die eine Vertrauensstellung mit dem lokalen -. Sowohl eine @ no__t-0way-Vertrauensstellung als auch zwei @ no__t-1Way-Vertrauens Stellungen werden unterstützt.
 
 > [!NOTE]
->  Wenn eine Version\-Weise Vertrauensstellung zwischen Domäne A und Domäne B über die Benutzer in Domäne A können Ressourcen in Domäne B zugreifen, aber Benutzer in Domäne B nicht auf Ressourcen in Domäne A zugreifen, wenn Sie Active Directory-Verwaltungscenter auf dem Computer ausgeführt werden steht Ihrer lokalen Domäne, in Domäne A können Sie zu Domäne B mit den aktuellen Satz von Anmeldeinformationen und in der gleichen Instanz von Active Directory Administrative Center eine Verbindung herstellen. Wenn Sie Active Directory-Verwaltungscenter auf dem Computer ausgeführt werden, in Domäne B Ihrer lokalen Domäne ist, Sie aber nicht mit den gleichen Satz von Anmeldeinformationen in der gleichen Instanz von Active Directory-Verwaltungscenter-Domäne ein.
+>  Wenn eine @ no__t-0way-Vertrauensstellung zwischen Domäne a und Domäne b vorhanden ist, über die Benutzer in Domäne a auf Ressourcen in Domäne b zugreifen können. Benutzer in Domäne b können jedoch nicht auf Ressourcen in Domäne a zugreifen, wenn Sie Active Directory-Verwaltungscenter auf dem Computer ausführen, auf dem Domäne A ist Ihre lokale Domäne. Sie können eine Verbindung mit Domäne B mit dem aktuellen Satz von Anmelde Informationen und in derselben Instanz von Active Directory-Verwaltungscenter herstellen. Wenn Sie jedoch Active Directory-Verwaltungscenter auf dem Computer ausführen, auf dem Domäne B Ihre lokale Domäne ist, können Sie keine Verbindung mit Domäne A mit demselben Satz von Anmelde Informationen in derselben Instanz des Active Directory-Verwaltungscenter herstellen.
 
  Zum Abschließen dieses Verfahrens besteht keine Mindestanforderung an eine Gruppenmitgliedschaft.
 
-### <a name="windows-server-2012-to-manage-a-foreign-domain-in-the-selected-instance-of-active-directory-administrative-center-using-the-current-set-of-logon-credentials"></a>Windows Server 2012: Um eine fremde Domäne in der ausgewählten Instanz von Active Directory Administrative Center, die mit den aktuellen Satz von Anmeldeinformationen zu verwalten.
+### <a name="windows-server-2012-to-manage-a-foreign-domain-in-the-selected-instance-of-active-directory-administrative-center-using-the-current-set-of-logon-credentials"></a>Windows Server 2012: So verwalten Sie eine fremde Domäne in der ausgewählten Instanz von Active Directory-Verwaltungscenter mithilfe des aktuellen Anmelde Informations Satzes
 
-1.  Um in Active Directory-Verwaltungscenter öffnen **Server-Manager**, klicken Sie auf **Tools**, und klicken Sie dann auf **Active Directory Administrative Center**.
+1.  Klicken Sie zum Öffnen vonActive Directory-Verwaltungscenter in Server-Manager **auf Extras, und**klicken Sie dann auf **Active Directory-Verwaltungscenter**.
 
     > [!NOTE]
-    >  Klicken Sie auf eine andere Möglichkeit, Active Directory-Verwaltungscenter zu öffnen ist **starten**, und geben Sie dann **dsac.exe**.
+    >  Sie können Active Directory-Verwaltungscenter auch öffnen, indem Sie auf **Start**klicken und dann **Dsac. exe**eingeben.
 
-2.  Zum Öffnen **Navigationsknoten hinzufügen**, klicken Sie auf **verwalten**, klicken Sie dann auf **Navigationsknoten hinzufügen** wie in der folgenden Abbildung dargestellt.
+2.  Klicken Sie zum Öffnen von **Navigations Knoten hinzufügen**auf **Verwalten**, und klicken Sie dann auf **Navigations Knoten hinzufügen** , wie in der folgenden Abbildung dargestellt.
 
-     ![Screenshot mit ** Navigation Knoten ** UI hinzufügen](media/ADDS_ADACAddNavNode.gif)
+     ![Screenshot: * * Navigations Knoten hinzufügen * * UI](media/ADDS_ADACAddNavNode.gif)
 
-3.  In **Navigationsknoten hinzufügen**, klicken Sie auf **Herstellen einer Verbindung mit anderen Domänen** wie in der folgenden Abbildung dargestellt.
+3.  Klicken Sie in **Navigations Knoten hinzufügen**auf **Verbindung mit anderen Domänen herstellen** , wie in der folgenden Abbildung dargestellt.
 
-     ![Screenshot mit ** Navigation Knoten ** UI hinzufügen](media/ADDS_ADACConnectToDomain.gif)
+     ![Screenshot: * * Navigations Knoten hinzufügen * * UI](media/ADDS_ADACConnectToDomain.gif)
 
-4.  In **Herstellen einer Verbindung mit**, geben Sie den Namen der fremden Domäne ein, die Sie verwalten möchten \(z. B. **"contoso.com"** \), und klicken Sie dann auf **OK**.
+4.  Geben Sie in **Verbindung herstellen**den Namen der fremden Domäne ein, die Sie verwalten möchten \(Z. b. **contoso.com**\), und klicken Sie dann auf **OK**.
 
-5.  Wenn Sie mit der fremden Domäne verbunden sind, navigieren Sie in den Spalten im der **Navigationsknoten hinzufügen** Fenster, wählen Sie den Container oder den Container, um den Navigationsbereich des Active Directory Administrative Center, hinzufügen und Klicken Sie dann auf **OK**.
+5.  Wenn Sie erfolgreich eine Verbindung mit der fremden Domäne hergestellt haben, Durchsuchen Sie die Spalten im Fenster **Navigations Knoten hinzufügen** , wählen Sie den Container aus, den Sie dem Navigationsbereich Active Directory-Verwaltungscenter hinzufügen möchten, und klicken Sie dann auf **OK.** .
 
-### <a name="windows-server-2008-r2-to-manage-a-foreign-domain-in-the-selected-instance-of-active-directory-administrative-center-using-the-current-set-of-logon-credentials"></a>Windows Server 2008 R2: Um eine fremde Domäne in der ausgewählten Instanz von Active Directory Administrative Center, die mit den aktuellen Satz von Anmeldeinformationen zu verwalten.
+### <a name="windows-server-2008-r2-to-manage-a-foreign-domain-in-the-selected-instance-of-active-directory-administrative-center-using-the-current-set-of-logon-credentials"></a>Windows Server 2008 R2: So verwalten Sie eine fremde Domäne in der ausgewählten Instanz von Active Directory-Verwaltungscenter mithilfe des aktuellen Anmelde Informations Satzes
 
-1. Um Active Directory-Verwaltungscenter zu öffnen, klicken Sie auf **starten**, klicken Sie auf **Verwaltung**, und klicken Sie dann auf **Active Directory Administrative Center**.
-
-   > [!NOTE]
-   >  Klicken Sie auf eine andere Möglichkeit, Active Directory-Verwaltungscenter zu öffnen ist **starten**, klicken Sie auf **ausführen**, und geben Sie dann **dsac.exe**.
-
-2. Zum Öffnen **Navigationsknoten hinzufügen**, klicken Sie im oberen Bereich des Fensters Active Directory-Verwaltungscenter auf **Navigationsknoten hinzufügen** wie in der folgenden Abbildung dargestellt.
-
-    ![Screenshot mit ** Navigation Knoten ** UI hinzufügen](media/click_add_nav_nodes.gif)
+1. Klicken Sie zum Öffnen von Active Directory-Verwaltungscenter auf **Start**, klicken Sie auf **Verwaltung**, und klicken Sie dann auf **Active Directory-Verwaltungscenter**.
 
    > [!NOTE]
-   >  Eine weitere Möglichkeit zum Öffnen **Navigationsknoten hinzufügen** nach rechts ist\-klicken Sie auf eine beliebige Stelle in den leeren Bereich in den Navigationsbereich des Active Directory Administrative Center, und klicken Sie dann auf **Navigationsknoten hinzufügen**.
+   >  Sie können Active Directory-Verwaltungscenter auch öffnen, indem Sie auf **Start**und auf **Ausführen**klicken und dann **Dsac. exe**eingeben.
 
-3. In **Navigationsknoten hinzufügen**, klicken Sie auf **Herstellen einer Verbindung mit anderen Domänen** wie in der folgenden Abbildung dargestellt.
+2. Um **Navigations Knoten hinzufügen**zu öffnen, klicken Sie im oberen Bereich des Fensters Active Directory-Verwaltungscenter auf **Navigations Knoten hinzufügen** , wie in der folgenden Abbildung dargestellt.
 
-    ![Screenshot mit ** hinzufügen Navigation Knoten ** ** Herstellen einer Verbindung mit anderen Domänen ** UI](media/add_nav_nodes.gif)
+    ![Screenshot: * * Navigations Knoten hinzufügen * * UI](media/click_add_nav_nodes.gif)
 
-4. In **Herstellen einer Verbindung mit**, geben Sie den Namen der fremden Domäne ein, die Sie verwalten möchten \(z. B. **"contoso.com"** \), und klicken Sie dann auf **OK**.
+   > [!NOTE]
+   >  Eine weitere Möglichkeit, **Navigations Knoten hinzufügen** zu öffnen, ist die Rechte @ no__t-1Click an einer beliebigen Stelle im leeren Bereich im Navigationsbereich Active Directory-Verwaltungscenter, und klicken Sie dann auf **Navigations Knoten hinzufügen**.
 
-5. Wenn Sie mit der fremden Domäne verbunden sind, navigieren Sie in den Spalten im der **Navigationsknoten hinzufügen** Fenster, wählen Sie den Container oder den Container, um den Navigationsbereich des Active Directory Administrative Center, hinzufügen und Klicken Sie dann auf **OK**.
+3. Klicken Sie in **Navigations Knoten hinzufügen**auf **Verbindung mit anderen Domänen herstellen** , wie in der folgenden Abbildung dargestellt.
 
-   Weitere Informationen zum Anpassen des Navigationsbereichs des Active Directory Administrative Center finden Sie unter [Anpassen von Active Directory Administrative Center im Navigationsbereich](customize-the-active-directory-administrative-center-navigation-pane.md).
+    ![Screenshot: * * Navigations Knoten hinzufügen * * * * Verbindung mit anderen Domänen herstellen * * UI](media/add_nav_nodes.gif)
 
-   Sie können auch die Active Directory Administrative Center öffnen, mithilfe eines Satzes von Anmeldeinformationen, das sich mit Ihren aktuellen Anmeldeinformationen unterscheidet. Der Befehl im folgenden Verfahren ist hilfreich, wenn Sie auf dem Computer angemeldet sind, die Active Directory Administrative Center mit normalen Anmeldeinformationen ausgeführt wird, aber Sie Active Directory-Verwaltungscenter auf diesem Computer verwenden, um verwalten möchten Ihre lokale Domäne als Administrator. \(Mit diesem Befehl kann auch nützlich sein, wenn Sie Active Directory Administrative Center zur Remoteverwaltung von einer fremden Domäne ein, die mit Ihrer lokalen Domäne mit einem Satz von Anmeldeinformationen unterscheidet, die sich von den aktuellen Satz von Anmeldeinformationen verwenden möchten. Allerdings muss die fremde Domäne eine Vertrauensstellung mit der lokalen Domäne müssen.\)
+4. Geben Sie in **Verbindung herstellen**den Namen der fremden Domäne ein, die Sie verwalten möchten \(Z. b. **contoso.com**\), und klicken Sie dann auf **OK**.
+
+5. Wenn Sie erfolgreich eine Verbindung mit der fremden Domäne hergestellt haben, Durchsuchen Sie die Spalten im Fenster **Navigations Knoten hinzufügen** , wählen Sie den Container aus, den Sie dem Navigationsbereich Active Directory-Verwaltungscenter hinzufügen möchten, und klicken Sie dann auf **OK.** .
+
+   Weitere Informationen zum Anpassen des Navigationsbereichs Active Directory-Verwaltungscenter finden Sie unter [Anpassen des Navigationsbereichs Active Directory-Verwaltungscenter](customize-the-active-directory-administrative-center-navigation-pane.md).
+
+   Sie können Active Directory-Verwaltungscenter auch öffnen, indem Sie einen Satz von Anmelde Informationen verwenden, der sich von dem aktuellen Satz von Anmelde Informationen unterscheidet. Der Befehl im folgenden Verfahren kann nützlich sein, wenn Sie auf dem Computer angemeldet sind, auf dem Active Directory-Verwaltungscenter mit normalen Benutzer Anmelde Informationen ausgeführt wird. Sie möchten jedoch Active Directory-Verwaltungscenter auf diesem Computer verwenden, um Ihre lokale Domäne als Administrator. \(dieser Befehl kann auch nützlich sein, wenn Sie Active Directory-Verwaltungscenter verwenden möchten, um eine fremde fremde Domäne, die sich von Ihrer lokalen Domäne unterscheidet, mit einem Satz von Anmelde Informationen, die sich von ihren aktuellen Anmelde Informationen unterscheiden, Remote zu verwalten. Allerdings muss die fremde Domäne über eine festgelegte Vertrauensstellung mit der lokalen Domäne verfügen. \)
 
    Zum Abschließen dieses Verfahrens besteht keine Mindestanforderung an eine Gruppenmitgliedschaft.
 
 ### <a name="to-manage-a-domain-using-logon-credentials-that-are-different-from-the-current-set-of-logon-credentials"></a>So verwalten Sie eine Domäne mithilfe von Anmeldeinformationen, die nicht mit den aktuellen Anmeldeinformationen identisch sind
 
-1.  Um Active Directory Administrative Center, an der Eingabeaufforderung zu öffnen, geben Sie den folgenden Befehl aus, und drücken Sie dann die EINGABETASTE:
+1.  Um Active Directory-Verwaltungscenter zu öffnen, geben Sie an einer Eingabeaufforderung den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE:
 
      `runas /user:<domain\user> dsac`
 
-     In denen `<domain\user>` ist ein Satz von Anmeldeinformationen, mit denen Sie Active Directory-Verwaltungscenter öffnen möchten, und `dsac` ist der Name des Active Directory Administrative Center ausführbare Datei \(Dsac.exe\).
+     Dabei ist `<domain\user>` der Satz von Anmelde Informationen, die Sie Active Directory-Verwaltungscenter öffnen möchten, und `dsac` der Active Directory-Verwaltungscenter Name der ausführbaren Datei @no__t -2dsac. exe @ no__t-3.
 
      Geben Sie beispielsweise den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE:
 
      `runas /user:contoso\administrator dsac`
 
-2.  Wenn Active Directory-Verwaltungscenter geöffnet ist, navigieren Sie im Navigationsbereich anzeigen oder Verwalten von Active Directory-Domäne.
+2.  Wenn Active Directory-Verwaltungscenter geöffnet ist, navigieren Sie zum Navigationsbereich, um Ihre Active Directory Domäne anzuzeigen oder zu verwalten.
 
   
 

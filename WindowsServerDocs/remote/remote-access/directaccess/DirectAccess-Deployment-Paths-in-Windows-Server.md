@@ -1,9 +1,9 @@
 ---
 title: DirectAccess-Bereitstellungspfade in Windows Server
-description: Dieses Thema enthält eine Liste der Dokumentation für die zwei wichtigsten DirectAccess-Bereitstellungspfade in Windows Server 2016-rswindowsbasic "und" Erweitert.
+description: Dieses Thema enthält eine Auflistung der Dokumentation für die beiden Haupt-DirectAccess-Bereitstellungs Pfade in Windows Server 2016 RSWindowsBasic und Advanced.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,30 +12,30 @@ ms.topic: article
 ms.assetid: 22ccd5c3-0a26-484c-88c8-54119d1228cc
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 11514ef67cb18e7cbecd9f6a15a3e2be36aceb6c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: edbc9a3e44f3f2aa2586f7c82462255beec3733b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860241"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404993"
 ---
 # <a name="directaccess-deployment-paths-in-windows-server"></a>DirectAccess-Bereitstellungspfade in Windows Server
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Dieses Thema enthält eine Liste der Dokumentation für den zwei wichtigsten RAS-Bereitstellungspfaden: **Grundlegende** und **erweiterte**.  
+Dieses Thema enthält eine Liste der Dokumentation für die beiden Haupt Bereitstellungs Pfade für den Remote Zugriff: **Basic** und **erweitert**.  
   
-Können Sie im Abschnitt weiter unten erhalten Sie einen Überblick über die Unterschiede zwischen dem DirectAccess-Basic und die Pfade für erweiterte Bereitstellung und können Sie die dokumentationslinks um im Bereitstellungshandbuch zu suchen, das auf Ihre Ziele am besten geeignet ist.  
+Im folgenden Abschnitt finden Sie Informationen zu den Unterschieden zwischen den grundlegenden und erweiterten Bereitstellungs Pfaden von DirectAccess. Sie können auch die Dokumentations Links verwenden, um das Bereitstellungs Handbuch zu finden, das für Ihre Ziele am besten geeignet ist.  
   
-## <a name="deploy-basic-directaccess"></a>Bereitstellen von einfachen DirectAccess  
-Mit einer einfachen DirectAccess-Bereitstellung ist DirectAccess mithilfe ein Assistenten, ohne dass die Notwendigkeit zur Konfiguration von infrastruktureinstellungen wie einer Zertifizierungsstelle (CA) oder Active Directory-Sicherheitsgruppen mit den Standardeinstellungen konfiguriert.  
+## <a name="deploy-basic-directaccess"></a>Grundlegende DirectAccess-Bereitstellung  
+Bei einer einfachen DirectAccess-Bereitstellung wird DirectAccess mithilfe eines Assistenten mit den Standardeinstellungen konfiguriert, ohne dass Infrastruktur Einstellungen wie eine Zertifizierungsstelle oder Active Directory Sicherheitsgruppen konfiguriert werden müssen.  
   
--   [Bereitstellen eines DirectAccess-Servers mit dem Assistenten für erste Schritte](../../remote-access/directaccess/single-server-wizard/Deploy-a-Single-DirectAccess-Server-Using-the-Getting-Started-Wizard.md). Sie können dieses Handbuch verwenden, grundlegende DirectAccess in einer produktionsumgebung bereitstellen.  
+-   Stellen [Sie mithilfe des Assistenten für die ersten Schritte einen einzelnen DirectAccess-Server](../../remote-access/directaccess/single-server-wizard/Deploy-a-Single-DirectAccess-Server-Using-the-Getting-Started-Wizard.md)bereit. Sie können dieses Handbuch verwenden, um grundlegende DirectAccess-bereit Stellungen in einer Produktionsumgebung bereitzustellen.  
   
-## <a name="deploy-advanced-directaccess"></a>Bereitstellen des erweiterten DirectAccess  
-Mit einer erweiterten DirectAccess-Bereitstellung Bereitstellen eines einzelnen DirectAccess-Servers und netzwerkinfrastrukturserver zur Unterstützung von DirectAccess zu konfigurieren.  
+## <a name="deploy-advanced-directaccess"></a>Bereitstellen von Advanced DirectAccess  
+Bei einer erweiterten DirectAccess-Bereitstellung stellen Sie einen einzelnen DirectAccess-Server bereit und konfigurieren Netzwerkinfrastruktur Server für die Unterstützung von DirectAccess.  
   
--   [Bereitstellen eines einzelnen DirectAccess-Servers mit erweiterten Einstellungen](../../remote-access/directaccess/single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md). Dieses Handbuch können DirectAccess mit erweiterten Einstellungen in einer produktionsumgebung bereitstellen.  
+-   Stellen Sie [einen einzelnen DirectAccess-Server mit erweiterten Einstellungen](../../remote-access/directaccess/single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md)bereit. Mithilfe dieses Handbuchs können Sie DirectAccess mit erweiterten Einstellungen in einer Produktionsumgebung bereitstellen.  
   
 
 

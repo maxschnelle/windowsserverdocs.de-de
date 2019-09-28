@@ -1,9 +1,9 @@
 ---
 title: Erstellen einer Zugriffsrichtlinie
-description: Dieses Thema ist Teil des Leitfadens Verwaltung von IP-Adressverwaltung (IPAM) in Windows Server 2016.
+description: Dieses Thema ist Teil des Verwaltungs Handbuchs für die IP-Adressverwaltung (IPAM) in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ipam
@@ -12,55 +12,55 @@ ms.topic: article
 ms.assetid: 854bd064-2f86-4678-a940-a04b3e48ae10
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 3e72d47dc3c32db7465f7c47b16dcdc777636fd9
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: da5cc366a08f9a3f5b69952a2dff1f717fb1647b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282222"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355359"
 ---
 # <a name="create-an-access-policy"></a>Erstellen einer Zugriffsrichtlinie
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können in diesem Thema verwenden, erstellen Sie eine Zugriffsrichtlinie in der IPAM-Clientkonsole.  
+Sie können dieses Thema verwenden, um eine Zugriffs Richtlinie in der IPAM-Client Konsole zu erstellen.  
   
 Die Mitgliedschaft in **Administratoren** oder einer entsprechenden Gruppe ist die Mindestanforderung für die Durchführung dieses Verfahrens.  
   
 > [!NOTE]  
-> Sie können eine Zugriffsrichtlinie für einen bestimmten Benutzer oder eine Benutzergruppe in Active Directory erstellen. Wenn Sie eine Zugriffsrichtlinie erstellen, müssen Sie auswählen, einer integrierten IPAM-Rolle oder eine benutzerdefinierte Rolle, die Sie erstellt haben. Weitere Informationen zu benutzerdefinierten Rollen finden Sie unter [Erstellen einer Benutzerrolle für die Zugriffssteuerung](../../technologies/ipam/Create-a-User-Role-for-Access-Control.md).  
+> Sie können in Active Directory eine Zugriffs Richtlinie für einen bestimmten Benutzer oder eine Benutzergruppe erstellen. Wenn Sie eine Zugriffs Richtlinie erstellen, müssen Sie entweder eine integrierte IPAM-Rolle oder eine benutzerdefinierte Rolle auswählen, die Sie erstellt haben. Weitere Informationen zu benutzerdefinierten Rollen finden Sie unter [Erstellen einer Benutzerrolle für Access Control](../../technologies/ipam/Create-a-User-Role-for-Access-Control.md).  
   
-### <a name="to-create-an-access-policy"></a>Erstellen eine Zugriffsrichtlinie  
+### <a name="to-create-an-access-policy"></a>So erstellen Sie eine Zugriffs Richtlinie  
   
-1.  Klicken Sie im Server-Manager **IPAM**. Die IPAM-Clientkonsole angezeigt wird.  
+1.  Klicken Sie in Server-Manager auf **IPAM**. Die IPAM-Client Konsole wird angezeigt.  
   
-2.  Klicken Sie im Navigationsbereich auf **ZUGRIFFSSTEUERUNG**. Im unteren Navigationsbereich, mit der Maustaste **Zugriffsrichtlinien**, und klicken Sie dann auf **Zugriffsrichtlinie hinzufügen**.  
+2.  Klicken Sie im Navigationsbereich auf **Zugriffs Steuerung**. Klicken Sie im unteren Navigationsbereich mit der rechten Maustaste auf **Zugriffsrichtlinien**, und klicken Sie dann auf **Zugriffs Richtlinie hinzufügen**.  
   
-    ![Zugriffsrichtlinie hinzufügen](../../media/Create-an-Access-Policy/ipam_CreateAP_01.jpg)  
+    ![Zugriffs Richtlinie hinzufügen](../../media/Create-an-Access-Policy/ipam_CreateAP_01.jpg)  
   
-3.  Die **Zugriffsrichtlinie hinzufügen** Dialogfeld wird geöffnet. In **Benutzereinstellungen**, klicken Sie auf **hinzufügen**.  
+3.  Das Dialogfeld **Zugriffs Richtlinie hinzufügen** wird geöffnet. Klicken Sie unter **Benutzereinstellungen**auf **Hinzufügen**.  
   
-    ![Zugriffsrichtlinie hinzufügen](../../media/Create-an-Access-Policy/ipam_CreateAP_02.jpg)  
+    ![Zugriffs Richtlinie hinzufügen](../../media/Create-an-Access-Policy/ipam_CreateAP_02.jpg)  
   
-4.  Die **Benutzer oder Gruppe auswählen** Dialogfeld wird geöffnet. Klicken Sie auf **Speicherorte**.  
+4.  Das Dialogfeld **Benutzer oder Gruppe auswählen** wird geöffnet. Klicken Sie auf **Standorte**.  
   
-    ![Benutzer oder eine Gruppe von Standorten](../../media/Create-an-Access-Policy/ipam_CreateAP_03.jpg)  
+    ![Benutzer-oder Gruppen Standorte](../../media/Create-an-Access-Policy/ipam_CreateAP_03.jpg)  
   
-5.  Die **Speicherorte** Dialogfeld wird geöffnet. Navigieren Sie zum Speicherort, die dem Benutzerkonto aus, wählen Sie den Speicherort, und klicken Sie dann auf **OK**. Die **Speicherorte** Dialogfeld wird geschlossen.  
+5.  Das Dialogfeld Speicher **Orte** wird geöffnet. Navigieren Sie zu dem Speicherort, der das Benutzerkonto enthält, wählen Sie den Speicherort aus, und klicken Sie dann auf **OK**. Das Dialogfeld Speicher **Orte** wird geschlossen.  
   
-    ![Speicherort auswählen](../../media/Create-an-Access-Policy/ipam_CreateAP_04.jpg)  
+    ![Standort auswählen](../../media/Create-an-Access-Policy/ipam_CreateAP_04.jpg)  
   
-6.  In der **Benutzer oder Gruppe auswählen** Dialogfeld **Geben Sie den zu verwendenden Objektnamen**, geben Sie den Benutzerkontonamen, für die Sie eine Zugriffsrichtlinie erstellen möchten. Klicken Sie auf **OK**.  
+6.  Geben Sie im Dialogfeld **Benutzer oder Gruppe auswählen** unter **Geben Sie die zu**erstellenden Objektnamen ein den Namen des Benutzerkontos ein, für das Sie eine Zugriffs Richtlinie erstellen möchten. Klicken Sie auf **OK**.  
   
-7.  In **Zugriffsrichtlinie hinzufügen**im **Benutzereinstellungen**, **Benutzeralias** enthält jetzt das Benutzerkonto, das für die die Richtlinie gilt. In **Zugriffseinstellungen**, klicken Sie auf **neu**.  
+7.  Unter **Zugriffs Richtlinie hinzufügen**unter **Benutzereinstellungen**enthält **Benutzeralias** jetzt das Benutzerkonto, für das die Richtlinie gilt. Klicken Sie unter **Zugriffs Einstellungen**auf **neu**.  
   
-    ![Neue Einstellung für den Zugriff](../../media/Create-an-Access-Policy/ipam_CreateAP_05.jpg)  
+    ![Neue Zugriffs Einstellung](../../media/Create-an-Access-Policy/ipam_CreateAP_05.jpg)  
   
-8.  In **Zugriffsrichtlinie hinzufügen**, **Zugriffseinstellungen** Änderungen an **neue Einstellung**.  
+8.  In **Zugriffs Richtlinie hinzufügen**ändert sich die Einstellung **Zugriffs Einstellungen** in **neue Einstellung**.  
   
-    ![Dialogfeld den Namen ändern, um die neue Einstellung](../../media/Create-an-Access-Policy/ipam_CreateAP_06.jpg)  
+    ![Dialog Feld Name in neue Einstellung ändern](../../media/Create-an-Access-Policy/ipam_CreateAP_06.jpg)  
   
-9. Klicken Sie auf **; Rollendienste auswählen%** zum Erweitern der Liste der Rollen. Wählen Sie eine der integrierten Rollen oder, wenn Sie neue Rollen erstellt haben, wählen Sie eine der Rollen, die Sie erstellt haben. Z. B. Wenn Sie für den Benutzer gelten die IPAMSrv Rolle erstellt haben, klicken Sie auf **IPAMSrv**.  
+9. Klicken Sie auf **Rolle auswählen** , um die Liste der Rollen zu erweitern. Wählen Sie eine der integrierten Rollen aus, oder wählen Sie, wenn Sie neue Rollen erstellt haben, eine der Rollen aus, die Sie erstellt haben. Wenn Sie z. b. die ipamsrv-Rolle erstellt haben, die für den Benutzer gelten soll, klicken Sie auf **ipamsrv**.  
   
     ![Rolle auswählen](../../media/Create-an-Access-Policy/ipam_CreateAP_07.jpg)  
   
@@ -68,16 +68,16 @@ Die Mitgliedschaft in **Administratoren** oder einer entsprechenden Gruppe ist d
   
     ![Neue Einstellung hinzufügen](../../media/Create-an-Access-Policy/ipam_CreateAP_08.jpg)  
   
-11. Die Rolle wird der Zugriffsrichtlinie hinzugefügt. Um zusätzliche Richtlinien zu erstellen, klicken Sie auf **übernehmen**, und wiederholen Sie diese Schritte für jede Richtlinie, die Sie erstellen möchten. Wenn Sie nicht, um zusätzliche Richtlinien zu erstellen möchten, klicken Sie auf **OK**.  
+11. Die Rolle wird der Zugriffs Richtlinie hinzugefügt. Um zusätzliche Zugriffsrichtlinien zu erstellen, **Klicken Sie**auf übernehmen, und wiederholen Sie dann diese Schritte für jede Richtlinie, die Sie erstellen möchten. Wenn Sie keine weiteren Richtlinien erstellen möchten, klicken Sie auf **OK**.  
   
-    ![Klicken Sie auf Anwenden oder ' OK '](../../media/Create-an-Access-Policy/ipam_CreateAP_09.jpg)  
+    ![Klicken Sie auf anwenden oder OK.](../../media/Create-an-Access-Policy/ipam_CreateAP_09.jpg)  
   
-12. Stellen Sie sicher, dass die neue Richtlinie erstellt wurde, im Bereich IPAM Client Console anzeigen.  
+12. Überprüfen Sie im Anzeigebereich der IPAM-Client Konsole, ob die neue Zugriffs Richtlinie erstellt wurde.  
   
-    ![Die neue Richtlinie anzeigen](../../media/Create-an-Access-Policy/ipam_CreateAP_09a.jpg)  
+    ![Anzeigen der neuen Zugriffs Richtlinie](../../media/Create-an-Access-Policy/ipam_CreateAP_09a.jpg)  
   
 ## <a name="see-also"></a>Siehe auch  
-[Rollenbasierte Zugriffssteuerung](Role-based-Access-Control.md)  
+[Rollenbasierte Access Control](Role-based-Access-Control.md)  
 [Verwalten von IPAM](Manage-IPAM.md)  
   
 

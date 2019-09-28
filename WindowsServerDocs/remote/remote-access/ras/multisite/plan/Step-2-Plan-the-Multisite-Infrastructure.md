@@ -1,9 +1,9 @@
 ---
 title: Schritt 2 Planen der Infrastruktur für mehrere Standorte
-description: Dieses Thema ist Teil des Handbuchs bereitstellen mehrere RAS-Server in einer Bereitstellung für mehrere Standorte in Windows Server 2016.
+description: Dieses Thema ist Teil des Handbuchs Bereitstellen mehrerer Remote Zugriffs Server in einer Bereitstellung mit mehreren Standorten in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,145 +12,145 @@ ms.topic: article
 ms.assetid: 64c10107-cb03-41f3-92c6-ac249966f574
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a2655f4de83576ef62b113419a69badaacc868f9
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: ff8a58aa679691132d074ef52b876cea05366ab5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280997"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71367103"
 ---
 # <a name="step-2-plan-the-multisite-infrastructure"></a>Schritt 2 Planen der Infrastruktur für mehrere Standorte
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Der nächste Schritt im Bereitstellen des Remotezugriffs in einer Topologie für mehrere Standorte ist zum Abschließen der Planung der Infrastruktur für mehrere Standorte. wie z.B., Active Directory-Sicherheitsgruppen und Gruppenrichtlinienobjekte.  
-## <a name="bkmk_2_1_AD"></a>2.1 Planen von Active Directory  
-Eine remotezugriffsbereitstellung für mehrere Standorte kann in einer Reihe von Topologien konfiguriert werden:  
+Der nächste Schritt beim Bereitstellen des Remote Zugriffs in einer Topologie mit mehreren Standorten besteht darin, die Infrastrukturplanung für mehrere Standorte abzuschließen. einschließlich, Active Directory, Sicherheitsgruppen und Gruppenrichtlinie Objekten.  
+## <a name="bkmk_2_1_AD"></a>2,1 Plan Active Directory  
+Eine Remote Zugriffs Bereitstellung für mehrere Standorte kann in einer Reihe von Topologien konfiguriert werden:  
   
--   **Einzelne Active Directory-Standort, der mehrere Einstiegspunkte**– In dieser Topologie haben Sie einen einzelnen Active Directory-Standort für Ihre gesamte Organisation mit schnellen Intranet-Links, die in der Website, aber Sie haben mehrere RAS-Server bereitgestellt in der gesamten Organisation, jede fungiert als Einstiegspunkt. Eine geografische Beispiel dieser Topologie ist einen einzelnen Active Directory-Standort für die USA Einstiegspunkte für die Ostküste und der Westküste haben.  
+-   **Einzelne Active Directory Site, mehrere Einstiegspunkte**: in dieser Topologie verfügen Sie über einen einzelnen Active Directory Standort für Ihre gesamte Organisation mit schnellen intranetverknüpfungen auf der gesamten Website, aber Sie haben mehrere RAS-Server, die im gesamten Standort bereitgestellt werden. Ihre Organisation fungiert als Einstiegspunkt. Ein geografisches Beispiel für diese Topologie ist die Verwendung einer einzelnen Active Directory Site für die USA mit Einstiegspunkten an der Ostküste und der Westküste.  
   
     ![Infrastruktur für mehrere Standorte](../../../../media/Step-2-Plan-the-Multisite-Infrastructure/RAMultisiteTopo1.png)  
   
--   **Mehrere Active Directory-Standorte, mehrere Einstiegspunkte**– In dieser Topologie haben Sie zwei oder mehr Active Directory-Standorte mit einem RAS-Server, die als Einstiegspunkt für jeden Standort bereitgestellt. Jeder RAS-Server, die mit dem Active Directory-Domänencontroller für den Standort zugeordnet ist. Eine geografische Beispiel dieser Topologie ist Active Directory-Standort für die USA und eine für "Europa" mit einem einzelnen Einstiegspunkt für die einzelnen Standorte verfügen. Beachten Sie, dass wenn Sie über mehrere Active Directory-Standorte verfügen Sie nicht benötigen, ein Einstiegspunkts an jedem Standort zugeordnet haben. Darüber hinaus können einige Active Directory-Standorten mehr als ein Einstiegspunkt zugeordnet haben.  
+-   **Mehrere Active Directory Standorte, mehrere Einstiegspunkte**: in dieser Topologie verfügen Sie über zwei oder mehr Active Directory Standorte mit einem Remote Zugriffs Server, die als Einstiegspunkt für jeden Standort bereitgestellt werden. Jeder RAS-Server ist dem Active Directory Domänen Controller für den Standort zugeordnet. Ein geografisches Beispiel für diese Topologie ist die Verwendung einer Active Directory Site für die USA und eines für Europa mit einem einzelnen Einstiegspunkt für jeden Standort. Beachten Sie Folgendes: Wenn Sie über mehrere Active Directory Standorte verfügen, benötigen Sie keinen Einstiegspunkt, der mit jedem Standort verknüpft ist. Außerdem können einigen Active Directory Websites mehrere Einstiegspunkte zugeordnet werden.  
   
-    ![-Topologie für mehrere Standorte](../../../../media/Step-2-Plan-the-Multisite-Infrastructure/RAMultisiteTopo2.png)  
+    ![Topologie mit mehreren Standorten](../../../../media/Step-2-Plan-the-Multisite-Infrastructure/RAMultisiteTopo2.png)  
   
-In einem Einstiegspunkt Sie können eine einzelne RAS-Server mehrere RAS-Server konfigurieren, oder RAS-Server-Clustern.   
+An einem Einstiegspunkt mit mehreren Standorten können Sie einen einzelnen RAS-Server, mehrere RAS-Server oder einen Remote Zugriffs Server-Cluster konfigurieren.   
   
-### <a name="active-directory-best-practices-and-recommendations"></a>Active Directory best Practices und Empfehlungen  
-Beachten Sie die folgenden Empfehlungen und Einschränkungen für die Active Directory-Bereitstellung in einem Szenario mit mehreren Standorten:  
+### <a name="active-directory-best-practices-and-recommendations"></a>Bewährte Methoden und Empfehlungen Active Directory  
+Beachten Sie die folgenden Empfehlungen und Einschränkungen für Active Directory-Bereitstellung in einem Szenario mit mehreren Standorten:  
   
-1.  Jeder Active Directory-Standort kann es sich um eine oder mehrere RAS-Server oder einen Server-Cluster für mehrere Standorte Einstiegspunkte für Clientcomputer ordnungsgemäß enthalten. Active Directory-Standort ist jedoch nicht erforderlich, um ein Einstiegspunkt zu erhalten.  
+1.  Jede Active Directory Site kann einen oder mehrere RAS-Server oder einen Server Cluster enthalten, der als Einstiegspunkte für mehrere Standorte für Client Computer fungiert. Es ist jedoch nicht erforderlich, dass eine Active Directory Site einen Einstiegspunkt hat.  
   
-2.  Ein Einstiegspunkt kann nur einen einzelnen Active Directory-Standort zugeordnet werden. Wenn Clientcomputer mit Windows 8 mit einem bestimmten Einstiegspunkt verbinden, gelten sie als zu dieser Einstiegspunkt zugeordneten Active Directory-Standort gehören.  
+2.  Ein Einstiegspunkt mit mehreren Standorten kann nur einer einzelnen Active Directory Site zugeordnet werden. Wenn auf Client Computern, auf denen Windows 8 ausgeführt wird, eine Verbindung mit einem bestimmten Einstiegspunkt hergestellt wird, werden Sie als zu der Active Directory Site, die dem Einstiegspunkt zugeordnet ist, als  
   
-3.  Es wird empfohlen, dass jeder Active Directory-Standort ein Domänencontroller verfügt. Der Domänencontroller kann schreibgeschützt sein.  
+3.  Es wird empfohlen, dass jeder Active Directory Standort über einen Domänen Controller verfügt. Der Domänen Controller kann schreibgeschützt sein.  
   
-4.  Wenn jeder Active Directory-Standort einen Domänencontroller enthält, wird das Gruppenrichtlinienobjekt für einen Server im Einstiegspunkt von einer der Domänencontroller in der Active Directory-Standort, der dem Endpunkt zugeordneten verwaltet. Wenn keine Domänencontroller mit aktiviertem Schreibzugriff in diesem Standort vorhanden sind, wird das Gruppenrichtlinienobjekt für einen Server auf einem Domänencontroller mit Schreibzugriff verwaltet, die mit der ersten RAS-Server am nächsten befindet, die in den Einstiegspunkt konfiguriert ist. Wird am nächsten gelegenen durch einen Link, der Berechnung Kosten bestimmt werden kann. Beachten Sie, dass in diesem Szenario wird nach dem Ändern der Konfiguration gibt es möglicherweise einer Verzögerung bei der Replikation zwischen dem Domänencontroller verwalten das GPO und dem schreibgeschützten Domänencontroller in Active Directory-Standort des Servers.  
+4.  Wenn jeder Active Directory Standort einen Domänen Controller enthält, wird das Gruppenrichtlinien Objekt für einen Server im Einstiegspunkt von einem der Domänen Controller in der Active Directory Site verwaltet, die dem Endpunkt zugeordnet ist. Wenn an diesem Standort keine Domänen Controller mit aktiviertem Schreibzugriff vorhanden sind, wird das Gruppenrichtlinien Objekt für einen Server auf einem Domänen Controller mit aktiviertem Schreibzugriff verwaltet, der dem ersten Remote Zugriffs Server am nächsten liegt, der im Einstiegspunkt konfiguriert ist. Der nächstgelegene Wert wird durch eine Berechnung der Link Kosten festgelegt. Beachten Sie, dass in diesem Szenario nach dem vornehmen von Konfigurationsänderungen bei der Replikation zwischen dem Domänen Controller, der das Gruppenrichtlinien Objekt verwaltet, und dem schreibgeschützten Domänen Controller auf dem Active Directory Standort des Servers eine Verzögerung auftreten kann.  
   
-5.  Client-Gruppenrichtlinienobjekte und optional Application Server, die GPOs auf dem Domänencontroller ausgeführt wird, wie des Emulators des primären-Domänencontrollers (PDC) verwaltet werden. Dies bedeutet, dass diese Gruppenrichtlinienobjekte werden nicht unbedingt in Active Directory-Standort, der den Einstiegspunkt enthält verwaltet Client an dem Clients eine Verbindung herstellen.  
+5.  Client-Gruppenrichtlinien Objekte und optionale Anwendungsserver-Gruppenrichtlinien Objekte werden auf dem Domänen Controller verwaltet, der als primärer Domänen Controller Emulator (PDC) ausgeführt wird. Dies bedeutet, dass Client-Gruppenrichtlinien Objekte nicht notwendigerweise an der Active Directory Site verwaltet werden, die den Einstiegspunkt enthält, mit dem Clients eine Verbindung herstellen.  
   
-6.  Wenn der Domänencontroller für Active Directory-Standort nicht erreichbar ist, wird der RAS-Server mit einem anderen Domänencontroller am Standort (sofern verfügbar) verbinden. Wenn dies nicht der Fall ist, wird er mit dem Domänencontroller für einen anderen Standort, um aktualisierte Gruppenrichtlinienobjekte zu empfangen und zum Authentifizieren von Clients eine Verbindung herstellt. In beiden Fällen kann die Remotezugriffs-Verwaltungskonsole und die PowerShell-Cmdlets verwendet werden, abrufen und Ändern von Konfigurationseinstellungen, bis der Domänencontroller verfügbar ist. Beachten Sie Folgendes:  
+6.  Wenn der Domänen Controller für einen Active Directory Standort nicht erreichbar ist, stellt der RAS-Server eine Verbindung mit einem alternativen Domänen Controller am Standort her (falls verfügbar). Wenn dies nicht der Fall ist, wird eine Verbindung mit dem Domänen Controller eines anderen Standorts hergestellt, um ein aktualisiertes GPO abzurufen und Clients zu authentifizieren. In beiden Fällen können die Remote Zugriffs-Verwaltungskonsole und die PowerShell-Cmdlets nicht zum Abrufen oder Ändern von Konfigurationseinstellungen verwendet werden, bis der Domänen Controller verfügbar ist. Beachten Sie Folgendes:  
   
-    1.  Wenn der Server ausgeführt wird, als PDC-Emulator nicht verfügbar ist, müssen Sie einen verfügbaren Domänencontroller festlegen, der als PDC-Emulator Gruppenrichtlinienobjekte aktualisiert wurde.  
+    1.  Wenn der Server, auf dem der PDC-Emulator ausgeführt wird, nicht verfügbar ist, müssen Sie einen verfügbaren Domänen Controller mit aktualisierten GPOs als PDC-Emulator angeben.  
   
-    2.  Wenn der Domänencontroller, der einen Server-Gruppenrichtlinienobjekt verwaltet nicht verfügbar ist, verwenden Sie das Set-DAEntryPointDC-PowerShell-Cmdlet, um einen neuen Domänencontroller mit dem Einstiegspunkt zuzuordnen. Der neue Domänencontroller muss auf dem neuesten Stand Gruppenrichtlinienobjekte werden, vor dem Ausführen des Cmdlets.  
+    2.  Wenn der Domänen Controller, von dem ein Server-Gruppenrichtlinien Objekt verwaltet wird, nicht verfügbar ist, verwenden Sie das PowerShell-Cmdlet Set-daentrypointdc, um einen neuen Domänen Controller dem Einstiegspunkt zuzuordnen. Der neue Domänen Controller muss vor dem Ausführen des Cmdlets über aktuelle GPOs verfügen.  
   
-## <a name="bkmk_2_2_SG"></a>2.2 Planen von Sicherheitsgruppen  
-Während der Bereitstellung eines einzelnen Servers mit erweiterten Einstellungen wurden alle Clientcomputer, die Zugriff auf das interne Netzwerk über DirectAccess in einer Sicherheitsgruppe erfasst. In einer Bereitstellung für mehrere Standorte wird dieser Sicherheitsgruppe für Windows 8-Clientcomputer verwendet. Bei einer Bereitstellung für mehrere Standorte werden Windows 7-Clientcomputer in separate Sicherheitsgruppen für jeden Einstiegspunkt in die Bereitstellung für mehrere Standorte gesammelt werden. Z. B. Wenn Sie zuvor alle Clientcomputer in der Gruppe DA_Clients gruppiert haben, müssen Sie jetzt entfernen alle Windows 7-Computer aus dieser Gruppe und platzieren Sie sie in einer anderen Sicherheitsgruppe. In der mehrere Active Directory-Standorte, z. B. Topologie für mehrere Einstiegspunkte, Sie erstellen eine Sicherheitsgruppe für den Einstiegspunkt für die USA (DA_Clients_US) und eine für den Einstiegspunkt für Europa (DA_Clients_Europe). Alle Windows 7-Clientcomputer in der United States in der Gruppe DA_Clients_US und alle befindet sich in "Europa" in der Gruppe DA_Clients_Europe zu platzieren. Wenn Sie keine Windows 7-Clientcomputer verfügen, müssen Sie keine Sicherheitsgruppen für Windows 7-Computer zu planen.  
+## <a name="bkmk_2_2_SG"></a>2,2 Planen von Sicherheitsgruppen  
+Während der Bereitstellung eines einzelnen Servers mit erweiterten Einstellungen wurden alle Client Computer, die über DirectAccess auf das interne Netzwerk zugreifen, in einer Sicherheitsgruppe gesammelt. Bei einer Bereitstellung mit mehreren Standorten wird diese Sicherheitsgruppe nur für Windows 8-Client Computer verwendet. Bei einer Bereitstellung mit mehreren Standorten werden Windows 7-Client Computer für jeden Einstiegspunkt in der Bereitstellung für mehrere Standorte in separaten Sicherheitsgruppen erfasst. Wenn Sie z. b. zuvor alle Client Computer in der Gruppe DA_Clients gruppiert haben, müssen Sie jetzt alle Windows 7-Computer aus dieser Gruppe entfernen und Sie in einer anderen Sicherheitsgruppe platzieren. Beispielsweise erstellen Sie in der Topologie mehrere Einstiegspunkte für mehrere Active Directory Standorte eine Sicherheitsgruppe für den USA Einstiegspunkt (DA_Clients_US) und einen für den Einstiegspunkt Europa (DA_Clients_Europe). Platzieren Sie alle Windows 7-Client Computer, die sich in der USA befinden, in der Gruppe "DA_Clients_US" und alle in Europa in der Gruppe "DA_Clients_Europe". Wenn Sie über keine Windows 7-Client Computer verfügen, müssen Sie keine Sicherheitsgruppen für Windows 7-Computer planen.  
   
-Erforderlichen Sicherheitsgruppen lauten wie folgt aus:  
+Die folgenden Sicherheitsgruppen sind erforderlich:  
   
--   Eine Sicherheitsgruppe für alle Windows 8-Clientcomputer. Es wird empfohlen, um eine eindeutige Sicherheits-Gruppe für diese Clients für jede Domäne zu erstellen.  
+-   Eine Sicherheitsgruppe für alle Windows 8-Client Computer. Es wird empfohlen, für jede Domäne eine eindeutige Sicherheitsgruppe für diese Clients zu erstellen.  
   
--   Eine eindeutige Sicherheits-Gruppe, die Windows 7-Clientcomputer für jeden Einstiegspunkt enthält. Es wird empfohlen, um eine eindeutige Gruppe für jede Domäne erstellen. Zum Beispiel: Domain1\DA_Clients_Europe; Domain2\DA_Clients_Europe; Domain1\DA_Clients_US; Domain2\DA_Clients_US.  
+-   Eine eindeutige Sicherheitsgruppe, die Windows 7-Client Computer für jeden Einstiegspunkt enthält. Es wird empfohlen, für jede Domäne eine eindeutige Gruppe zu erstellen. Zum Beispiel: Domain1\DA_Clients_Europe; Domain2\DA_Clients_Europe; Domain1\DA_Clients_US; Domain2\DA_Clients_US.  
   
-## <a name="bkmk_2_3_GPO"></a>2.3 Planen von Gruppenrichtlinienobjekten  
-Während der Bereitstellung des Remotezugriffs konfigurierten DirectAccess-Einstellungen werden in GPOs gesammelt. Die Einzelserver-Bereitstellung bereits verwendet Gruppenrichtlinienobjekte für DirectAccess-Clients, die RAS-Server und optional für Anwendungsserver. Eine Bereitstellung für mehrere Standorte erfordert die folgenden Gruppenrichtlinienobjekte:  
+## <a name="bkmk_2_3_GPO"></a>2,3 planen Gruppenrichtlinie Objekte  
+DirectAccess-Einstellungen, die während der Remote Zugriffs Bereitstellung konfiguriert werden, werden in GPOs gesammelt. Ihre Einzel Server Bereitstellung verwendet bereits GPOs für DirectAccess-Clients, den Remote Zugriffs Server und optional für Anwendungsserver. Für eine Bereitstellung mit mehreren Standorten sind folgende Gruppenrichtlinien Objekte erforderlich:  
   
--   Ein Server-Gruppenrichtlinienobjekt für jeden Einstiegspunkt.  
+-   Ein Server-GPO für jeden Einstiegspunkt.  
   
--   Ein Gruppenrichtlinienobjekt für jede Domäne, mit Windows 8-Clientcomputer enthalten.  
+-   Ein Gruppenrichtlinien Objekt für jede Domäne mit Client Computern, auf denen Windows 8 ausgeführt wird.  
   
--   Ein Gruppenrichtlinienobjekt für jeden Einstiegspunkt und jede Domäne, die Windows 7-Clientcomputer enthalten.  
+-   Ein Gruppenrichtlinien Objekt für jeden Einstiegspunkt und jede Domäne, die Windows 7-Client Computer enthält.  
   
-Gruppenrichtlinienobjekte können wie folgt konfiguriert werden:  
+GPOs können wie folgt konfiguriert werden:  
   
--   **Automatisch**– Sie können angeben, dass Gruppenrichtlinienobjekte automatisch vom Remotezugriff erstellt werden. Ein Standardname für jedes Gruppenrichtlinienobjekt angegeben ist, und kann geändert werden.  
+-   **Automatisch**: Sie können angeben, dass GPOs automatisch durch den Remote Zugriff erstellt werden. Für jedes GPO wird ein Standardname angegeben, der geändert werden kann.  
   
--   **Manuell**– Sie können Gruppenrichtlinienobjekte verwenden, die von Active Directory-Administrator manuell erstellt wurden.  
+-   **Manuell**: Sie können Gruppenrichtlinien Objekte verwenden, die vom Active Directory-Administrator manuell erstellt wurden.  
   
 > [!NOTE]  
-> Nachdem DirectAccess Verwendung bestimmter Gruppenrichtlinienobjekte konfiguriert wurde, kann nicht es konfiguriert werden, um Gruppenrichtlinienobjekte zu verwenden.  
+> Wenn DirectAccess für die Verwendung bestimmter Gruppenrichtlinien Objekte konfiguriert ist, kann es nicht für die Verwendung unterschiedlicher GPOs konfiguriert werden.  
   
-### <a name="231-automatically-created-gpos"></a>2.3.1 automatisch erstellter Gruppenrichtlinienobjekte  
+### <a name="231-automatically-created-gpos"></a>2.3.1 automatisch erstellte Gruppenrichtlinien Objekte  
 Beachten Sie beim Verwenden automatisch erstellter Gruppenrichtlinienobjekte Folgendes:  
   
 -   Automatisch erstellte Gruppenrichtlinienobjekte werden entsprechend des Speicherorts und Verknüpfungszielparameters wie folgt angewendet:  
   
-    -   Bei Gruppenrichtlinienobjekten des Servers zeigen den Speicherort und die Verknüpfungsparameter, auf die Domäne, die mit dem RAS-Server.  
+    -   Für das Server-Gruppenrichtlinien Objekt zeigen der Speicherort und die Verknüpfungs Parameter auf die Domäne, die den Remote Zugriffs Server enthält.  
   
-    -   Für Client-Gruppenrichtlinienobjekte wird das Ziel des Links auf den Stamm der Domäne festgelegt, in dem das Gruppenrichtlinienobjekt erstellt wurde. Ein Gruppenrichtlinienobjekt erstellt für jede Domäne, die Clientcomputer enthält, und das Gruppenrichtlinienobjekt wird mit dem Stamm jeder Domäne verknüpft werden. .  
+    -   Für Client-Gruppenrichtlinien Objekte wird das Verknüpfungs Ziel auf den Stamm der Domäne festgelegt, in der das Gruppenrichtlinien Objekt erstellt wurde. Für jede Domäne, die Client Computer enthält, wird ein Gruppenrichtlinien Objekt erstellt, und das Gruppenrichtlinien Objekt wird mit dem Stamm der einzelnen Domänen verknüpft. .  
   
--   Für die automatisch erstellte Gruppenrichtlinienobjekte benötigt Serveradministrator zum Anwenden der DirectAccess-Einstellungen des RAS die folgenden Berechtigungen:  
+-   Für automatisch erstellte Gruppenrichtlinien Objekte benötigt der RAS-Server Administrator die folgenden Berechtigungen, um DirectAccess-Einstellungen anzuwenden:  
   
-    -   Berechtigungen für die erforderlichen Domänen für die Gruppenrichtlinienobjekte.  
+    -   Berechtigungen zum Erstellen von Gruppenrichtlinien Objekten für erforderliche Domänen.  
   
     -   Verknüpfungsberechtigungen für alle ausgewählten Clientdomänenstämme.  
   
-    -   Berechtigung zum Erstellen des WMI-Filters für Gruppenrichtlinienobjekte ist erforderlich, wenn DirectAccess konfiguriert wurde, um nur mobile Computer arbeiten.  
+    -   Die Berechtigung zum Erstellen des WMI-Filters für GPOs ist erforderlich, wenn DirectAccess nur für mobile Computer konfiguriert wurde.  
   
-    -   Verknüpfungsberechtigungen für die Stämme von Domänen, die die Einstiegspunkte (die Server-GPO-Domänen) zugeordnet  
+    -   Link Berechtigungen für die Stämme von Domänen, die den Einstiegspunkten zugeordnet sind (die Server-GPO-Domänen)  
   
-    -   Es wird empfohlen, dass der Remotezugriffsadministrator über Leserechte für Gruppenrichtlinienobjekte für jede Domäne verfügt. Dadurch werden Remote Access, um sicherzustellen, dass Gruppenrichtlinienobjekte mit doppelten Namen beim Erstellen von Gruppenrichtlinienobjekten für die Bereitstellung für mehrere Standorte nicht vorhanden.  
+    -   Es wird empfohlen, dass der Remotezugriffsadministrator über Leserechte für Gruppenrichtlinienobjekte für jede Domäne verfügt. Dadurch wird der Remote Zugriff aktiviert, um sicherzustellen, dass GPOs mit doppelten Namen beim Erstellen von Gruppenrichtlinien Objekten für die Bereitstellung für mehrere Standorte nicht vorhanden sind.  
   
-    -   Active Directory-Replikation-Berechtigungen für Domänen, die Einstiegspunkte zugeordnet. Dies ist, da beim Hinzufügen von Einstiegspunkten zunächst das Server-GPO für den Einstiegspunkt auf dem Domänencontroller, die am nächsten an dieser Einstiegspunkt erstellt wird. Allerdings da verknüpfungserstellung auf dem PDC-Emulator unterstützt wird, muss das Gruppenrichtlinienobjekt vom Domänencontroller repliziert werden auf dem sie mit dem Domänencontroller, der als PDC-Emulator ausgeführt wird, vor dem Erstellen des Links erstellt wurde.  
+    -   Active Directory Replikations Berechtigungen für Domänen, die Einstiegspunkten zugeordnet sind. Dies liegt daran, dass beim ersten Hinzufügen von Einstiegspunkten das Server-GPO für den Einstiegspunkt auf dem Domänen Controller erstellt wird, der diesem Einstiegspunkt am nächsten ist. Da die Verknüpfungs Erstellung jedoch nur auf dem PDC-Emulator unterstützt wird, muss das Gruppenrichtlinien Objekt vom Domänen Controller, auf dem es erstellt wurde, auf den Domänen Controller repliziert werden, auf dem der PDC-Emulator ausgeführt wird, bevor der Link erstellt wird  
   
-Beachten Sie, wenn die richtigen Berechtigungen für die Replikation und das Verknüpfen von Gruppenrichtlinienobjekten nicht vorhanden sind, eine Warnung ausgegeben wird. Der Remotezugriffsvorgang wird fortgesetzt, aber Replikation und das Verknüpfen erfolgt nicht. Wenn eine Warnung ausgegeben wird Verknüpfung wird Links nicht automatisch erstellt werden, auch nachdem die Berechtigungen vorhanden sind. Stattdessen muss der Administrator die Links manuell erstellen.  
+Beachten Sie, dass eine Warnung ausgegeben wird, wenn die richtigen Berechtigungen für die Replikation und verknüpfte Gruppenrichtlinien Objekte nicht vorhanden sind. Der Remote Zugriffs Vorgang wird fortgesetzt, die Replikation und Verknüpfung werden jedoch nicht ausgeführt. Wenn eine Link Warnung ausgegeben wird, werden Verknüpfungen nicht automatisch erstellt, auch nachdem die Berechtigungen vorhanden sind. Stattdessen muss der Administrator die Links manuell erstellen.  
   
-### <a name="232-manually-created-gpos"></a>2.3.2 manuell erstellte Gruppenrichtlinienobjekte  
+### <a name="232-manually-created-gpos"></a>manuell erstellte Gruppenrichtlinien Objekte  
 Beachten Sie beim Verwenden manuell erstellter Gruppenrichtlinienobjekte Folgendes:  
   
--   Die folgenden Gruppenrichtlinienobjekte sollte für die Bereitstellung für mehrere Standorte manuell erstellt werden:  
+-   Die folgenden Gruppenrichtlinien Objekte sollten für die Bereitstellung für mehrere Standorte manuell erstellt werden:  
   
-    -   **Server-Gruppenrichtlinienobjekt**– ein Server-Gruppenrichtlinienobjekt für jeden Einstiegspunkt (in der Domäne, in dem sich der Einstiegspunkt befindet). Dieses Gruppenrichtlinienobjekt wird auf jedem RAS-Server im Einstiegspunkt angewendet werden.  
+    -   **Server-GPO**: ein Server-Gruppenrichtlinien Objekt für jeden Einstiegspunkt (in der Domäne, in der sich der Einstiegspunkt befindet). Dieses GPO wird auf jedem RAS-Server im Einstiegspunkt angewendet.  
   
-    -   **Client-Gruppenrichtlinienobjekt (Windows 7)** – ein Gruppenrichtlinienobjekt für jeden Einstiegspunkt und jede Domäne, die mit Windows 7-Clientcomputer, die an Einstiegspunkte in die Bereitstellung mit mehreren Standorten eine Verbindung herstellen. Z. B. Domain1\DA_W7_Clients_GPO_Europe; Domain2\DA_W7_Clients_GPO_Europe; Domain1\DA_W7_Clients_GPO_US; Domain2\DA_W7_Clients_GPO_US. Wenn keine Windows 7-Clientcomputer auf Einstiegspunkte verbunden sind werden, sind die Gruppenrichtlinienobjekte nicht erforderlich.  
+    -   **Client-GPO (Windows 7)** : ein Gruppenrichtlinien Objekt für jeden Einstiegspunkt und jede Domäne mit Windows 7-Client Computern, die eine Verbindung zu Einstiegspunkten in der Bereitstellung für mehrere Standorte herstellen. Beispiel Domain1\DA_W7_Clients_GPO_Europe; Domain2\DA_W7_Clients_GPO_Europe; Domain1\DA_W7_Clients_GPO_US; Domain2\DA_W7_Clients_GPO_US. Wenn keine Windows 7-Client Computer eine Verbindung mit Einstiegspunkten herstellen, sind GPOs nicht erforderlich.  
   
--   Es ist nicht erforderlich, die zusätzliche Gruppenrichtlinienobjekte für Windows 8-Client zu erstellen. Ein Gruppenrichtlinienobjekt für jede Domäne, die Clientcomputer enthalten wurde bereits erstellt, wenn der RAS-Servers bereitgestellt wurde. Diese Client-Gruppenrichtlinienobjekte funktionieren in einer Bereitstellung für mehrere Standorte wie die Gruppenrichtlinienobjekte für Windows 8-Clients verwendet wird.  
+-   Es ist nicht erforderlich, zusätzliche GPOs für Windows 8-Client Computer zu erstellen. Ein Gruppenrichtlinien Objekt für jede Domäne, die Client Computer enthält, wurde bereits erstellt, als der einzelne RAS-Server bereitgestellt wurde. Bei einer Bereitstellung mit mehreren Standorten fungieren diese Client-Gruppenrichtlinien Objekte als GPOs für Windows 8-Clients.  
   
--   Die Gruppenrichtlinienobjekte sollten vorhanden sein, bevor Sie auf die Schaltfläche "Commit" in den Assistenten für die Bereitstellung für mehrere Standorte.  
+-   Die GPOs sollten vorhanden sein, bevor Sie in den Bereitstellungs-Assistenten für mehrere Standorte auf die Schaltfläche Commit klicken  
   
 -   Beim Verwenden manuell erstellter Gruppenrichtlinienobjekte wird in der gesamten Domäne eine Suche nach einer Verknüpfung zum Gruppenrichtlinienobjekt durchgeführt. Wenn das Gruppenrichtlinienobjekt in der Domäne nicht verknüpft ist, wird im Domänenstamm automatisch eine Verknüpfung erstellt. Wenn die zum Erstellen der Verknüpfung erforderlichen Berechtigungen nicht verfügbar sind, wird eine Warnung ausgegeben.  
   
--   Beim muss verwenden manuell-Gruppenrichtlinienobjekte, um DirectAccess-Einstellungen zu übernehmen den RAS-Server-Administrator uneingeschränkte Berechtigungen (bearbeiten, löschen, Ändern der Sicherheit) in den manuell erstellten Gruppenrichtlinienobjekten.  
+-   Wenn Sie die DirectAccess-Einstellungen mithilfe von manuell erstellten Gruppenrichtlinien Objekten anwenden, benötigt der RAS-Server Administrator vollständige GPO-Berechtigungen (bearbeiten, löschen, Ändern der Sicherheit) für die manuell erstellten Gruppenrichtlinien Objekte.  
   
-Beachten Sie, wenn die richtigen Berechtigungen für die Replikation und das Verknüpfen von Gruppenrichtlinienobjekten nicht vorhanden sind, eine Warnung ausgegeben wird. Der Remotezugriffsvorgang wird fortgesetzt, aber Replikation und das Verknüpfen erfolgt nicht. Wenn eine Warnung ausgegeben wird Verknüpfung wird Links nicht automatisch erstellt werden, auch nachdem die Berechtigungen vorhanden sind. Stattdessen muss der Administrator die Links manuell erstellen.  
+Beachten Sie, dass eine Warnung ausgegeben wird, wenn die richtigen Berechtigungen für die Replikation und verknüpfte Gruppenrichtlinien Objekte nicht vorhanden sind. Der Remote Zugriffs Vorgang wird fortgesetzt, die Replikation und Verknüpfung werden jedoch nicht ausgeführt. Wenn eine Link Warnung ausgegeben wird, werden Verknüpfungen nicht automatisch erstellt, auch nachdem die Berechtigungen vorhanden sind. Stattdessen muss der Administrator die Links manuell erstellen.  
   
-### <a name="233-managing-gpos-in-a-multi-domain-controller-environment"></a>2.3.3 Verwaltung von Gruppenrichtlinienobjekten in einer Umgebung mit mehreren Domänencontrollern  
-Jedes Gruppenrichtlinienobjekt wird von einem bestimmten Domänencontroller wie folgt verwaltet werden:  
+### <a name="233-managing-gpos-in-a-multi-domain-controller-environment"></a>2.3.3 Verwalten von Gruppenrichtlinien Objekten in einer Umgebung mit mehreren Domänen Controllern  
+Jedes GPO wird von einem bestimmten Domänen Controller wie folgt verwaltet:  
   
--   Das Server-Gruppenrichtlinienobjekt von einem der Domänencontroller in Zusammenhang mit dem Server Active Directory-Standort verwaltet wird, oder wenn der Domänencontroller an diesem Standort schreibgeschützt sind, zeigen Sie von einem mit aktiviertem Schreibzugriff Domänencontroller, der erste Server in den Eintrag am nächsten liegt.  
+-   Das Server-Gruppenrichtlinien Objekt wird von einem der Domänen Controller an der Active Directory Site verwaltet, die dem Server zugeordnet ist, oder, wenn Domänen Controller an diesem Standort schreibgeschützt sind, von einem schreibgeschützten Domänen Controller, der dem ersten Server am Einstiegspunkt am nächsten ist.  
   
--   Client-Gruppenrichtlinienobjekte werden vom Domänencontroller als PDC-Emulator verwaltet.  
+-   Client-Gruppenrichtlinien Objekte werden vom Domänen Controller verwaltet, der als PDC-Emulator ausgeführt wird.  
   
-Wenn Sie manuell möchten Hinweis der GPO-Einstellungen Folgendes geändert:  
+Beachten Sie Folgendes, wenn Sie GPO-Einstellungen manuell ändern möchten:  
   
--   Führen Sie für Gruppenrichtlinienobjekte, um zu ermitteln, welcher Domänencontroller mit einem bestimmten Einstiegspunkt verknüpft ist, das PowerShell-Cmdlet `Get-DAEntryPointDC -EntryPointName <name of entry point>`.  
+-   Führen Sie für Server-Gruppenrichtlinien Objekte das PowerShell-Cmdlet `Get-DAEntryPointDC -EntryPointName <name of entry point>` aus, um zu ermitteln, welcher Domänen Controller einem bestimmten Einstiegspunkt zugeordnet ist.  
   
--   Wenn Sie Änderungen mit PowerShell-Cmdlets für Netzwerke oder der Gruppenrichtlinien-Verwaltungskonsole, vornehmen, wird standardmäßig der Domänencontroller fungiert als PDC-Emulator verwendet.  
+-   Wenn Sie mit den PowerShell-Cmdlets für Netzwerke oder der Gruppenrichtlinie Management Console Änderungen vornehmen, wird standardmäßig der Domänen Controller verwendet, der als PDC-Emulator fungiert.  
   
--   Wenn Sie Einstellungen auf einem Domänencontroller, die nicht auf dem Domänencontroller, der den Einstiegspunkt (für Server-GPOs) oder der PDC-Emulator (für Client-Gruppenrichtlinienobjekte) zugeordnet ist ändern, beachten Sie Folgendes:  
+-   Beachten Sie Folgendes, wenn Sie Einstellungen auf einem Domänen Controller ändern, bei dem es sich nicht um den Domänen Controller handelt, der dem Einstiegspunkt (für Server-Gruppenrichtlinien Objekte) oder dem PDC-Emulator (für Client-GPOs) zugeordnet ist:  
   
-    1.  Stellen Sie sicher, dass der Domänencontroller mit einem aktuellen Gruppenrichtlinienobjekt, repliziert werden, vor der Änderung der Einstellungen, und [sichern Sie die GPO-Einstellungen](https://go.microsoft.com/fwlink/?LinkID=257928), bevor die Änderungen. Wenn das Gruppenrichtlinienobjekt nicht aktualisiert wird, können Merge-Konflikte während der Replikation, sodass einer beschädigten Remotezugriffskonfiguration auftreten.  
+    1.  Stellen Sie vor dem Ändern der Einstellungen sicher, dass der Domänen Controller mit einem aktuellen GPO repliziert wird, und [Sichern Sie GPO-Einstellungen](https://go.microsoft.com/fwlink/?LinkID=257928), bevor Sie Änderungen vornehmen. Wenn das Gruppenrichtlinien Objekt nicht aktualisiert wird, können Konflikte bei der Replikation auftreten, was zu einer beschädigten Remote Zugriffs Konfiguration führt.  
   
-    2.  Nach dem Ändern der Einstellungen, müssen Sie warten, für die Änderungen an den Domänencontroller repliziert werden, die den Gruppenrichtlinienobjekten zugeordnet ist. Nehmen Sie keine zusätzliche Änderungen, die mithilfe der Remotezugriffs-Verwaltungskonsole oder Remotezugriffs-PowerShell-Cmdlets, bis die Replikation abgeschlossen ist. Wenn Sie ein Gruppenrichtlinienobjekt auf zwei verschiedenen Domänencontrollern bearbeitet wurde, bevor die Replikation abgeschlossen ist, können Zusammenführungskonflikte, wodurch einer fehlerhaften Konfiguration auftreten  
+    2.  Nachdem Sie die Einstellungen geändert haben, müssen Sie darauf warten, dass die Änderungen auf den Domänen Controller repliziert werden, der den Gruppenrichtlinien Objekten zugeordnet ist. Nehmen Sie keine weiteren Änderungen mithilfe der Remote Zugriffs-Verwaltungskonsole oder PowerShell-Cmdlets für den Remote Zugriff vor, bis die Replikation beendet ist. Wenn ein Gruppenrichtlinien Objekt auf zwei verschiedenen Domänen Controllern bearbeitet wird, bevor die Replikation beendet ist, können Mergekonflikte auftreten, was zu einer beschädigten Konfiguration führt.  
   
--   Alternativ können Sie ändern, die standardmäßig die Einstellung mithilfe der **Domänencontroller ändern** Dialogfeld Feld in der Gruppenrichtlinien-Verwaltungskonsole oder über die **Open-NetGPO** PowerShell-Cmdlet, damit die Änderungen wurden mithilfe der Konsole oder der Netzwerk-Cmdlets verwenden den Domänencontroller, die Sie angeben.  
+-   Alternativ können Sie die Standardeinstellung im Dialogfeld **Domänen Controller ändern** in der Gruppenrichtlinie-Verwaltungskonsole oder mithilfe des PowerShell-Cmdlets **Open-netgpo** ändern, damit Änderungen, die über die-Konsole oder die-Cmdlets für Netzwerke vorgenommen wurden, vorgenommen werden. Verwenden Sie den von Ihnen angegebenen Domänen Controller.  
   
-    1.  Zu diesem Zweck in der Gruppenrichtlinien-Verwaltungskonsole mit der rechten Maustaste in des Containers Domänen- oder Standortcontainer, und klicken Sie auf **Domänencontroller ändern**.  
+    1.  Klicken Sie hierzu in der Gruppenrichtlinie-Verwaltungskonsole mit der rechten Maustaste auf den Domänen-oder Standort Container, und klicken Sie dann auf **Domänen Controller ändern**.  
   
-    2.  Geben Sie den DomainController-Parameter für das Open-NetGPO-Cmdlet, zu diesem Zweck in PowerShell. Um die privaten und öffentlichen Profile in der Windows-Firewall auf einem Gruppenrichtlinienobjekt namens domain1\DA_Server_GPO _Europe über einen Domänencontroller namens Europe-DC.corp.contoso.com zu aktivieren, führen Sie z. B. Folgendes ein:  
+    2.  Geben Sie in PowerShell den Parameter Domain Controller für das Cmdlet Open-netgpo an. Um z. b. die privaten und öffentlichen Profile in der Windows-Firewall auf einem Gruppenrichtlinien Objekt mit dem Namen domain1\DA_Server_GPO _Europe unter Verwendung eines Domänen Controllers namens Europe-DC.Corp.contoso.com zu aktivieren, gehen Sie wie folgt vor  
   
         ```  
         $gpoSession = Open-NetGPO -PolicyStore "domain1\DA_Server_GPO _Europe" -DomainController "europe-dc.corp.contoso.com"  
@@ -158,30 +158,30 @@ Wenn Sie manuell möchten Hinweis der GPO-Einstellungen Folgendes geändert:
         Save-NetGPO -GpoSession $gpoSession  
         ```  
   
-#### <a name="modifying-domain-controller-association"></a>Ändern die Zuordnung der Domänen-controller  
-Um die Einheitlichkeit der Konfiguration in einer Bereitstellung für mehrere Standorte zu wahren, müssen Sie sicherstellen, dass jedes GPO von einem einzigen Domänencontroller verwaltet wird. In einigen Szenarien kann es erforderlich, für ein Gruppenrichtlinienobjekt ein anderen Domänencontrollers zuweisen:  
+#### <a name="modifying-domain-controller-association"></a>Ändern der Domänen Controller Zuordnung  
+Um die Einheitlichkeit der Konfiguration in einer Bereitstellung für mehrere Standorte zu wahren, müssen Sie sicherstellen, dass jedes GPO von einem einzigen Domänencontroller verwaltet wird. In einigen Szenarien kann es erforderlich sein, einen anderen Domänen Controller für ein GPO zuzuweisen:  
   
--   **Wartung der Domänencontroller und Ausfallzeiten**– Wenn der Domänencontroller, der ein Gruppenrichtlinienobjekt verwaltet nicht verfügbar ist, es kann erforderlich sein, das Gruppenrichtlinienobjekt auf einem anderen Domänencontroller verwalten.  
+-   **Wartung und Ausfall von Domänen Controllern**: Wenn der Domänen Controller, von dem ein Gruppenrichtlinien Objekt verwaltet wird, nicht verfügbar ist, kann es erforderlich sein, das GPO auf einem anderen Domänen Controller zu verwalten.  
   
--   **Optimierung der konfigurationsverteilung**-nachdem Netzwerkinfrastruktur geändert hat, ist es möglicherweise erforderlich, um das Server-GPO eines Einstiegspunkts auf einem Domänencontroller in derselben Active Directory-Standort als Einstiegspunkt zu verwalten.   
+-   **Optimierung der Konfigurations Verteilung**: nach der Änderung der Netzwerkinfrastruktur ist es möglicherweise erforderlich, das Server-Gruppenrichtlinien Objekt eines Einstiegs Punkts auf einem Domänen Controller an demselben Active Directory Standort wie den Einstiegspunkt zu verwalten.   
   
-## <a name="bkmk_2_4_DNS"></a>2.4 Planen von DNS  
-Beachten Sie Folgendes ein, bei der Planung von DNS für eine Bereitstellung für mehrere Standorte:  
+## <a name="bkmk_2_4_DNS"></a>2,4 Planen des DNS  
+Beachten Sie beim Planen von DNS für eine Bereitstellung mit mehreren Standorten Folgendes:  
   
-1.  Clientcomputer verwenden die ConnectTo-Adresse, um eine Verbindung mit dem RAS-Server herzustellen. Jeden Einstiegspunkt in der Bereitstellung erfordert eine andere ConnectTo-Adresse. Jeder Eintrag Punkt ConnectTo-Adresse muss in der öffentlichen DNS verfügbar sein, und die von Ihnen gewählte Adresse muss der Antragstellername des IP-HTTPS-Zertifikats, die Sie für die IP-HTTPS-Verbindung bereitstellen übereinstimmen.   
+1.  Client Computer verwenden die ConnectTo-Adresse, um eine Verbindung mit dem Remote Zugriffs Server herzustellen. Für jeden Einstiegspunkt in der Bereitstellung ist eine andere ConnectTo-Adresse erforderlich. Jeder Einstiegspunkt "ConnectTo Address" muss im öffentlichen DNS verfügbar sein, und die von Ihnen gewählte Adresse muss mit dem Antragsteller Namen des IP-HTTPS-Zertifikats, das Sie für die IP-HTTPS-Verbindung bereitstellen, identisch sein.   
   
-2.  Darüber hinaus erzwingt RAS symmetrisches routing; aus diesem Grund können nur Teredo und IP-HTTPS-Clients verbinden, wenn eine Bereitstellung für mehrere Standorte aktiviert ist. Damit um systemeigene IPv6-Clients eine Verbindung herstellen zu können, muss die ConnectTo-Adresse (die IP-HTTPS-URL) in beide die externen (Internetverbindung) IPv6 und IPv4-Adressen auf dem RAS-Server aufgelöst werden.  
+2.  Außerdem erzwingt der Remote Zugriff das symmetrische Routing. Daher können nur Teredo-und IP-HTTPS-Clients eine Verbindung herstellen, wenn eine Bereitstellung für mehrere Standorte aktiviert ist. Damit systemeigene IPv6-Clients eine Verbindung herstellen können, muss die ConnectTo-Adresse (die IP-HTTPS-URL) sowohl in die externen IPv6-und IPv4-Adressen des Remote Zugriffs Servers aufgelöst werden.  
   
-3.  RAS erstellt einen Standard-Webtest, der von DirectAccess-Clientcomputern dazu verwendet wird, die Konnektivität zum internen Netzwerk zu prüfen. Während der Konfiguration des einzelnen Servers sollten die folgenden Namen im DNS registriert wurden:  
+3.  RAS erstellt einen Standard-Webtest, der von DirectAccess-Clientcomputern dazu verwendet wird, die Konnektivität zum internen Netzwerk zu prüfen. Während der Konfiguration des einzelnen Servers sollten die folgenden Namen in DNS registriert werden:  
   
-    1.  DirectAccess-WebProbeHost – sollte auflösen, um die interne IPv4-Adresse des RAS-Servers und zur IPv6-Adresse in einer reinen IPv6-Umgebung.  
+    1.  DirectAccess-WebProbe Host: sollte in die interne IPv4-Adresse des RAS-Servers oder die IPv6-Adresse in einer reinen IPv6-Umgebung aufgelöst werden.  
   
-    2.  DirectAccess-CorpConnectivityHost – sollte auflösen in eine Adresse "localhost" (Loopback) (entweder:: 1 "oder" 127.0.0.1, je nachdem, ob IPv6 im Unternehmensnetzwerk bereitgestellt wird).  
+    2.  DirectAccess-corpconnectivityhost: sollte in eine localhost-Adresse (Loopback) aufgelöst werden (entweder: 1 oder 127.0.0.1, je nachdem, ob IPv6 im Unternehmensnetzwerk bereitgestellt wird).  
   
-    In einer Bereitstellung mit mehreren Standorten muss ein weiterer DNS-Eintrag für die Directaccess-WebProbeHost für jeden Einstiegspunkt erstellt werden. Wenn Sie einen Einstiegspunkt hinzufügen, versucht RAS automatisch, diesen zusätzlichen Directaccess-WebProbeHost-Eintrag erstellen. Allerdings bei einem Fehler eine Warnung wird angezeigt, und Sie müssen den Eintrag manuell erstellen.  
+    Bei einer Bereitstellung für mehrere Standorte muss für jeden Einstiegspunkt ein zusätzlicher DNS-Eintrag für DirectAccess-WebProbe Host erstellt werden. Beim Hinzufügen eines Einstiegs Punkts versucht der Remote Zugriff, diesen zusätzlichen DirectAccess-WebProbe Host-Eintrag automatisch zu erstellen. Wenn dies jedoch nicht möglich ist, wird eine Warnung angezeigt, und Sie müssen den Eintrag manuell erstellen.  
   
     > [!NOTE]  
-    > Wenn DNS-Bereinigung in der DNS-Infrastruktur aktiviert ist, wird empfohlen, deaktivieren die Bereinigung auf die DNS-Einträge, die automatisch vom Remotezugriff erstellt.  
+    > Wenn DNS-Bereinigung in Ihrer DNS-Infrastruktur aktiviert ist, wird empfohlen, das Bereinigung für die DNS-Einträge zu deaktivieren, die automatisch durch den Remote Zugriff erstellt werden.  
   
 
   

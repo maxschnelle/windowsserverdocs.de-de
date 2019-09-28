@@ -1,9 +1,9 @@
 ---
 title: DirectAccess
-description: In diesem Thema können eine kurze Übersicht von DirectAccess in Windows Server 2016.
+description: In diesem Thema finden Sie eine kurze Übersicht über DirectAccess in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,58 +12,58 @@ ms.topic: article
 ms.assetid: 6b71d18e-1939-4fc0-bb42-29e0e5ffc8da
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 11c5aa093ddd5aa4777e88c536195bb70bd846db
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 4cc5ed275a6dc3cd235aa0ff1bfb0f0f46350a2b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281922"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394513"
 ---
 # <a name="directaccess"></a>DirectAccess
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können die in diesem Thema für einen kurzen Überblick über DirectAccess möglich, einschließlich der Server und Client-Betriebssysteme mit Unterstützung von DirectAccess und Links zu zusätzlicher Dokumentation von DirectAccess für Windows Server 2016 verwenden.  
+In diesem Thema finden Sie eine kurze Übersicht über DirectAccess, einschließlich Server-und Client Betriebssystemen, die DirectAccess unterstützen, sowie Links zu weiteren DirectAccess-Dokumentationen für Windows Server 2016.  
   
 > [!NOTE]  
-> Zusätzlich zu diesem Thema wird die folgende Dokumentation zum DirectAccess verfügbar.  
+> Zusätzlich zu diesem Thema ist die folgende DirectAccess-Dokumentation verfügbar.  
 >   
-> -   [DirectAccess-Bereitstellungspfade in WindowsServer](DirectAccess-Deployment-Paths-in-Windows-Server.md)  
+> -   [DirectAccess-Bereitstellungs Pfade in Windows Server](DirectAccess-Deployment-Paths-in-Windows-Server.md)  
 > -   [Erforderliche Komponenten für die Bereitstellung von DirectAccess](Prerequisites-for-Deploying-DirectAccess.md)  
 > -   [DirectAccess: Nicht unterstützte Konfigurationen](DirectAccess-Unsupported-Configurations.md)  
 > -   [DirectAccess-Testumgebung: Leitfäden](DirectAccess-Test-Lab-Guides.md)  
 > -   [DirectAccess: Bekannte Probleme](DirectAccess-Known-Issues.md)  
 > -   [DirectAccess-Kapazitätsplanung](DirectAccess-Capacity-Planning.md) 
-> -   [DirectAccess-Offline-Domänenbeitritt](DirectAccess-Offline-Domain-Join.md)  
+> -   [DirectAccess-Offline-Domänen Beitritt](DirectAccess-Offline-Domain-Join.md)  
 > -   [Problembehandlung von DirectAccess](Troubleshooting-DirectAccess.md)  
-> -   [Bereitstellen eines DirectAccess-Servers mit dem Assistenten für erste Schritte](single-server-wizard/Deploy-a-Single-DirectAccess-Server-Using-the-Getting-Started-Wizard.md)  
+> -   [Bereitstellen eines einzelnen DirectAccess-Servers mit dem Assistenten für die ersten Schritte](single-server-wizard/Deploy-a-Single-DirectAccess-Server-Using-the-Getting-Started-Wizard.md)  
 > -   [Bereitstellen eines einzelnen DirectAccess-Servers mit erweiterten Einstellungen](single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md)  
 > -   [Hinzufügen von DirectAccess zu einer vorhandenen Remotezugriffsbereitstellung (VPN)](add-to-existing-vpn/Add-DirectAccess-to-an-Existing-Remote-Access-VPN-Deployment.md)  
   
-Mit DirectAccess können Verbindungen für Remotebenutzer auf Netzwerkressourcen für Unternehmen ohne herkömmliche virtuelles privates Netzwerk (VPN)-Verbindungen. Mit DirectAccess-Verbindungen immer Remoteclient-Computern in Ihrer Organisation verbunden sind, – besteht keine Notwendigkeit für Remotebenutzer, die zum Starten und Beenden von Verbindungen, wie Sie mit VPN-Verbindungen erforderlich ist. Darüber hinaus können Ihre IT-Administratoren DirectAccess-Clientcomputer verwalten, wenn diese ausgeführt werden, und eine Verbindung zum Internet.
+DirectAccess ermöglicht Remote Benutzern die Konnektivität von Netzwerkressourcen, ohne herkömmliche VPN-Verbindungen (virtuelles privates Netzwerk) zu benötigen. Bei DirectAccess-Verbindungen sind Remote Client Computer immer mit Ihrer Organisation verbunden. Remote Benutzer müssen keine Verbindungen starten und Abbrechen, wie dies bei VPN-Verbindungen erforderlich ist. Außerdem können Ihre IT-Administratoren DirectAccess-Client Computer verwalten, wenn Sie ausgeführt werden und eine Internet Verbindung besteht.
 
 >[!IMPORTANT]
->Versuchen Sie nicht zum Bereitstellen von Remotezugriff auf einem virtuellen Computer \(VM\) in Microsoft Azure. Verwenden Remote Access in Microsoft Azure wird nicht unterstützt. Sie können nicht Remote Access in einer Azure-VM verwenden, zum Bereitstellen von VPN, DirectAccess oder jede andere RAS-Funktion in Windows Server 2016 oder früheren Versionen von Windows Server. Weitere Informationen finden Sie unter [Unterstützung der Microsoft-Serversoftware für Microsoft Azure-Computern](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
+>Versuchen Sie nicht, den Remote Zugriff auf einem virtuellen Computer \(vm @ no__t-1 in Microsoft Azure bereitzustellen. Die Verwendung des Remote Zugriffs in Microsoft Azure wird nicht unterstützt. Sie können den Remote Zugriff auf einem virtuellen Azure-Computer nicht verwenden, um VPN, DirectAccess oder andere Remote Zugriffs Funktionen in Windows Server 2016 oder früheren Versionen von Windows Server bereitzustellen. Weitere Informationen finden Sie [unter Microsoft Server Software Support for Microsoft Azure Virtual Machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
   
-DirectAccess bietet Unterstützung nur für die Domäne eingebundene Clients, die betriebssystemunterstützung für DirectAccess enthalten.  
+DirectAccess bietet Unterstützung nur für in die Domäne eingebundenen Clients, die die Betriebssystemunterstützung für DirectAccess einschließen.  
   
-Die folgenden Serverbetriebssysteme wird DirectAccess unterstützt.  
+DirectAccess wird von den folgenden Server Betriebssystemen unterstützt.  
   
--   Sie können alle Versionen von Windows Server 2016 als einem DirectAccess-Client oder einem DirectAccess-Server bereitstellen.  
+-   Sie können alle Versionen von Windows Server 2016 als DirectAccess-Client oder DirectAccess-Server bereitstellen.  
   
--   Sie können alle Versionen von Windows Server 2012 R2 als ein DirectAccess-Client oder einem DirectAccess-Server bereitstellen.  
+-   Sie können alle Versionen von Windows Server 2012 R2 als DirectAccess-Client oder DirectAccess-Server bereitstellen.  
   
--   Sie können alle Versionen von Windows Server 2012 als ein DirectAccess-Client oder einem DirectAccess-Server bereitstellen.  
+-   Sie können alle Versionen von Windows Server 2012 als DirectAccess-Client oder DirectAccess-Server bereitstellen.  
   
--   Sie können alle Versionen von Windows Server 2008 R2 als ein DirectAccess-Client oder einem DirectAccess-Server bereitstellen.  
+-   Sie können alle Versionen von Windows Server 2008 R2 als DirectAccess-Client oder DirectAccess-Server bereitstellen.  
   
-Die folgenden Client-Betriebssysteme wird DirectAccess unterstützt.  
+DirectAccess wird von den folgenden Client Betriebssystemen unterstützt.  
   
 -   Windows 10 Enterprise  
   
--   Windows 10 Enterprise 2015 Long-Term Servicing Branch (LTSB)  
+-   Windows 10 Enterprise 2015 Long Term Servicing Branch (ltenb)  
   
--   Windows 8 und 8.1 Enterprise  
+-   Windows 8 und 8,1 Enterprise  
   
 -   Windows 7 Ultimate  
   

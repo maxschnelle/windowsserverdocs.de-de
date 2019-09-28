@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin getclientcertificate
-description: Windows-Befehle Thema **Bitsadmin Getclientcertificate** -Ruft das Clientzertifikat aus dem Auftrag ab.
+title: BI-admin getclientcertificate
+description: Windows-Befehls Thema für **bigsadmin getclientcertificate** -Ruft das Client Zertifikat aus dem Auftrag ab.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 113d733d1deb9fbb1c89231495cb7af668a444d5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 613feafb442f63513d34e9038647c4dbeb278630
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869041"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381716"
 ---
-# <a name="bitsadmin-getclientcertificate"></a>Bitsadmin getclientcertificate
+# <a name="bitsadmin-getclientcertificate"></a>BI-admin getclientcertificate
 
 
 
-Ruft das Clientzertifikat aus dem Auftrag ab.
+Ruft das Client Zertifikat aus dem Auftrag ab.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,15 +36,15 @@ bitsadmin /GetClientCertificate <Job>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Das folgende Beispiel ruft das Clientzertifikat für den Auftrag mit dem Namen *MyDownloadJob*.
+Im folgenden Beispiel wird das Client Zertifikat für den Auftrag mit dem Namen " *mydownloadjob*" abgerufen.
 ```
 C:\>bitsadmin / GetClientCertificate myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

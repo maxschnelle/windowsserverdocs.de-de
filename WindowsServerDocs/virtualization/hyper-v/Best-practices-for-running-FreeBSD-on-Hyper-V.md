@@ -1,7 +1,7 @@
 ---
 title: Bewährte Methoden für die Ausführung von FreeBSD unter Hyper-V
 description: Bietet Empfehlungen zum Ausführen von FreeBSD auf virtuellen Computern.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,12 +11,12 @@ ms.assetid: 0c66f1c8-2606-43a3-b4cc-166acaaf2d2a
 author: shirgall
 ms.author: kathydav
 ms.date: 01/09/2017
-ms.openlocfilehash: 598087411b35dde2e4a1cb606fae6a4602fe588e
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 1d284b38e1bdb642aa40ecbb8e82caa7712f7aad
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544688"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365631"
 ---
 # <a name="best-practices-for-running-freebsd-on-hyper-v"></a>Bewährte Methoden für die Ausführung von FreeBSD unter Hyper-V
 
@@ -28,13 +28,13 @@ Dieses Thema enthält eine Liste der Empfehlungen zum Ausführen von FreeBSD als
 
 Das Common Address Redundanz-Protokoll (CARP) ermöglicht es mehreren Hosts, dieselbe IP-Adresse und virtuelle Host-ID (vhid) zu verwenden, um eine hohe Verfügbarkeit für einen oder mehrere Dienste zu gewährleisten. Wenn mindestens ein Host ausfällt, übernehmen die anderen Hosts transparent, sodass Benutzer keinen Dienst Fehler bemerken. Um Karpfen in FreeBSD 10,2 zu verwenden, befolgen Sie die Anweisungen im [FreeBSD-Handbuch](https://www.freebsd.org/doc/en/books/handbook/carp.html) , und führen Sie im Hyper-V-Manager die folgenden Schritte aus.
 
-* Vergewissern Sie sich, dass der virtuelle Computer über einen Netzwerk Adapter verfügt und ihm ein virtueller Switch zugewiesen ist. Wählen Sie den virtuellen Computer aus, und wählen Sie **Aktions** > **Einstellungen**.
+* Vergewissern Sie sich, dass der virtuelle Computer über einen Netzwerk Adapter verfügt und ihm ein virtueller Switch zugewiesen ist. Wählen Sie den virtuellen Computer aus, und wählen Sie **Aktionen** > -**Einstellungen**aus.
 
 ![Screenshot der Einstellungen für virtuelle Computer mit ausgewähltem Netzwerkadapter](media/Hyper-V_Settings_NetworkAdapter.png)
 
 * Spoofing von Mac-Adressen aktivieren. Gehen Sie hierzu wie folgt vor:
 
-   1. Wählen Sie den virtuellen Computer aus, und wählen Sie **Aktions** > **Einstellungen**.
+   1. Wählen Sie den virtuellen Computer aus, und wählen Sie **Aktionen** > -**Einstellungen**aus.
 
    2. Erweitern Sie **Netzwerk Adapter** , und wählen Sie **Erweiterte Features**aus.
 

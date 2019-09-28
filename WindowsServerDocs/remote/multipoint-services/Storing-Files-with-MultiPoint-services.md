@@ -1,9 +1,9 @@
 ---
 title: Speichern von Dateien mit MultiPoint Services
-description: Erfahren Sie mehr über die Dateispeicher in MultiPoint Services
+description: Weitere Informationen zum Dateispeicher in Multipoint Services
 ms.custom: na
 ms.date: 07/22/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,23 +13,23 @@ ms.assetid: c9eb0461-3846-4ddc-97ff-de10f03f30cf
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: b432ca793b156997761f9fadab7340c394e3b553
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bf31f5c582cffb5b38cff8cb15fcfdb4b3f76386
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817341"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389299"
 ---
 # <a name="storing-files-with-multipoint-services"></a>Speichern von Dateien mit MultiPoint Services
-MultiPoint Services unterstützt das Speichern von Benutzerdateien, es gibt folgende Möglichkeiten:  
+Multipoint Services unterstützt das Speichern von Benutzer Dateien auf folgende Weise:  
   
--   **Auf der Partition für das Betriebssystem das Festplattenlaufwerk.** Standardmäßig speichert MultiPoint Services Benutzerdateien auf der Festplatte mit dem Betriebssystem.  
+-   **In der Betriebssystem Partition des Festplatten Laufwerks.** Standardmäßig speichert Multipoint Services Benutzer Dateien auf der Festplatte mit dem Betriebssystem.  
   
--   **In einer separaten Partition von der Festplatte.** Wenn Sie das MultiPoint Services-System zum ersten Mal eingerichtet ist, können Sie *Partition* der Festplatte. D. h. können Sie einen Abschnitt des Laufwerks konfigurieren, damit, dass er funktioniert, als handele es sich um ein separates Laufwerk. Dies erleichtert es zum Wiederherstellen oder ein upgrade des Betriebssystems ohne Auswirkungen auf Benutzerdateien. Weitere Informationen finden Sie unter [erstellen Sie eine Partition oder ein logisches Laufwerk](https://go.microsoft.com/fwlink/?LinkId=182618) in der technischen Bibliothek für Windows Server.  
+-   **In einer separaten Partition des Festplatten Laufwerks.** Wenn das Multipoint Services-System erstmalig eingerichtet wird, können Sie die Festplatte *Partitionieren* . Das heißt, Sie können einen Abschnitt des Laufwerks so konfigurieren, dass er so funktioniert, als ob es sich um ein separates Laufwerk handelt. Dadurch ist es einfacher, das Betriebssystem wiederherzustellen, ohne dass sich dies auf die Benutzer Dateien auswirkt. Weitere Informationen finden Sie unter [Erstellen einer Partition oder eines logischen Laufwerks](https://go.microsoft.com/fwlink/?LinkId=182618) in der technischen Bibliothek für Windows Server.  
   
--   **Auf einem zusätzlichen internen oder externen Festplattenlaufwerk.** Sie können zusätzliche interne oder externe Festplattenlaufwerke mit MultiPoint Services für das Speichern und Sichern von Daten anfügen.  
+-   **Auf einem zusätzlichen internen oder externen Festplattenlaufwerk.** Sie können zusätzliche interne oder externe Festplattenlaufwerke an Multipoint Services anfügen, um Daten zu speichern und zu sichern.  
   
--   **In einem freigegebenen Netzwerkordner.** Um Benutzerdateien über jede Station verfügbar zu machen, können Sie einen freigegebenen Ordner im Netzwerk erstellen. Dies erfordert einen anderen Computer oder Server zusätzlich zu dem Computer, auf dem MultiPoint Services ausgeführt wird. Dies ist die empfohlene Methode zum Speichern von Dateien aus, wenn ein Dateiserver verfügbar ist.  
+-   **In einem freigegebenen Netzwerkordner.** Um Benutzer Dateien von einer beliebigen Station aus verfügbar zu machen, können Sie einen freigegebenen Ordner im Netzwerk erstellen. Dies erfordert zusätzlich zum Computer, auf dem Multipoint Services ausgeführt wird, einen anderen Computer oder Server. Dies ist die empfohlene Methode zum Speichern von Dateien, wenn ein Dateiserver verfügbar ist.  
   
-    Für kleine Systeme 2 und 3-Computer mit MultiPoint-Dienste, die keine Dateiserver verfügbar kann einer der MultiPoint Services-Computer als Dateiserver für alle der MultiPoint Services-Computer fungieren. Sie würden dann Benutzerkonten für alle Benutzer in der MultiPoint Services erstellen, die als Dateiserver dient.  
+    Bei kleinen Systemen mit 2-3 Computern, auf denen Multipoint Services ohne verfügbaren Dateiserver ausgeführt wird, kann einer der Multipoint Services-Computer als Dateiserver für alle Multipoint Services-Computer fungieren. Anschließend erstellen Sie Benutzerkonten für alle Benutzer in den Multipoint Services, die als Dateiserver fungieren.  
   

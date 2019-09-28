@@ -2,7 +2,7 @@
 title: Filtern, Sortieren und Abfragen von Daten in Server-Manager-Kacheln
 description: Server-Manager
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-server-manager
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 51c0e1f3af727c4e7ddf18024fab9a95808d2338
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 89604b73fd071030d0f800b3a38a7ac3858ef1c6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868911"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383203"
 ---
 # <a name="filter-sort-and-query-data-in-server-manager-tiles"></a>Filtern, Sortieren und Abfragen von Daten in Server-Manager-Kacheln
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-In Windows Server-Kacheln in Server-Manager können Sie filtern und Sortieren von Daten, und erstellen und Speichern von benutzerdefinierten Abfragen. Sie können zu sortieren, Schlüsselwörtern filtern und Ausführen von Abfragen für Listeneinträge in den Kacheln für Ereignisse, Leistung, Best Practices Analyzer, Services, sowie Rollen und Features auf Server Rollen- oder Gruppenseiten in Server-Manager.  
+In Windows Server können Sie mit Kacheln in Server-Manager Daten filtern und sortieren sowie benutzerdefinierte Abfragen erstellen und speichern. Sie können in den Kacheln "Ereignisse", "Leistung", "Best Practices Analyzer", "Dienste", "Rollen" und "Features" in Server-Manager Kacheln zum Sortieren, verwenden von Schlüsselwort Filtern und Ausführen von Abfragen für Listeneinträge ausführen.  
   
 Dieses Thema enthält die folgenden Abschnitte:  
   
@@ -32,48 +32,48 @@ Dieses Thema enthält die folgenden Abschnitte:
   
 -   [Sortieren von Listeneinträgen in Kacheln](#BKMK_sort)  
   
--   [Erstellen Sie und führen Sie benutzerdefinierter Abfragen für Kacheldaten aus](#BKMK_query)  
+-   [Erstellen und Ausführen benutzerdefinierter Abfragen für Kachel Daten](#BKMK_query)  
   
 ## <a name="BKMK_tiles"></a>Filtern von Listeneinträgen in Kacheln  
 Mit dem Textfeld **Filtern** können Sie die Liste der Einträge, die in einer Kachel angezeigt werden, schnell auf Einträge reduzieren, die eine bestimmte Zeichenfolge enthalten.  
   
 #### <a name="to-apply-a-filter-to-the-list-of-entries-in-a-tile"></a>So wenden Sie einen Filter auf die Listeneinträge in Kacheln an  
   
-1.  Öffnen Sie eine Rollen- oder Gruppenseite im Server-Manager.  
+1.  Öffnen Sie eine Rollen-oder Server Gruppenseite in Server-Manager.  
   
-2.  In der **Filter** Geben Sie im Textfeld, einer Kachel Ereignisse, Leistung, Best Practices Analyzer, Dienste oder Rollen und Features, eine Zeichenfolge, die auf dem Sie filtern möchten.  
+2.  Geben Sie im Textfeld **Filter** auf der Kachel Ereignisse, Leistung, Best Practices Analyzer, Dienste oder Rollen und Features eine Zeichenfolge ein, nach der Sie filtern möchten.  
   
-    Geben Sie beispielsweise, wenn Sie nur Ereignisse mit der Ereignis-ID 1014 anzeigen möchten, **1014** in die **Filter** Textfeld. Alle gesammelten Ereignisse, in denen die Zeichenfolge **1014** in mindestens einem Feld enthalten ist, werden als Ergebnisse zurückgegeben.  
+    Wenn Sie z. b. nur Ereignisse mit der Ereignis-ID 1014 anzeigen möchten, geben Sie im **Filter** Textfeld **1014** ein. Alle gesammelten Ereignisse, in denen die Zeichenfolge **1014** in mindestens einem Feld enthalten ist, werden als Ergebnisse zurückgegeben.  
   
 3.  Hinweis: Der Filter ändert die Beschreibung unter dem Titel der Kachel. Anstelle von **Alle** steht nun **Gefilterte Ergebnisse**.  
   
 4.  Um den Filter zu löschen, löschen Sie die Zeichenfolge im Filterfeld, oder klicken Sie auf **X**.  
   
 ## <a name="BKMK_sort"></a>Sortieren von Listeneinträgen in Kacheln  
-Sortieren von Listeneinträgen in Kacheln von Server-Manager durch Klicken auf Spaltenüberschriften. Durch einmaliges Klicken auf eine Spaltenüberschrift werden die Spaltenwerte in aufsteigender alphanumerischer Reihenfolge sortiert (Pfeil zeigt nach oben). Durch erneutes Klicken werden die Spaltenwerte in absteigender alphanumerischer Reihenfolge sortiert (Pfeil zeigt nach unten).  
+Sortieren Sie die Listeneinträge in Server-Manager Kacheln durch Klicken auf Spaltenüberschriften. Durch einmaliges Klicken auf eine Spaltenüberschrift werden die Spaltenwerte in aufsteigender alphanumerischer Reihenfolge sortiert (Pfeil zeigt nach oben). Durch erneutes Klicken werden die Spaltenwerte in absteigender alphanumerischer Reihenfolge sortiert (Pfeil zeigt nach unten).  
   
-## <a name="BKMK_query"></a>Erstellen Sie und führen Sie benutzerdefinierter Abfragen für Kacheldaten aus  
-Sie können benutzerdefinierte Abfragen erstellen, in den Kacheln für Ereignisse, Leistung, Best Practices Analyzer, Dienste oder Rollen und Features im Server-Manager. Standardmäßig ist der Bereich der kachelleiste, in dem Sie die Kriterien zum Erstellen einer benutzerdefinierten Abfrage auswählen, ausgeblendet. Klicken Sie auf **erweitern** (Chevron-Schaltfläche am rechten Rand der kachelleiste), die die Abfragekriterien anzuzeigen.  
+## <a name="BKMK_query"></a>Erstellen und Ausführen benutzerdefinierter Abfragen für Kachel Daten  
+In den Kacheln Ereignisse, Leistung, Best Practices Analyzer, Dienste oder Rollen und Features in Server-Manager können Sie benutzerdefinierte Abfragen erstellen. Der Bereich der Kachel Symbolleiste, in dem Sie Kriterien zum Erstellen einer benutzerdefinierten Abfrage auswählen, ist standardmäßig ausgeblendet. Klicken Sie auf **erweitern** (Chevron-Schaltfläche am rechten Rand der Kachel Symbolleiste), um die Abfrage Kriterien anzuzeigen.  
   
 #### <a name="to-create-a-custom-query-for-tile-data"></a>So erstellen Sie eine benutzerdefinierte Abfrage für Kacheldaten  
   
-1.  Öffnen Sie eine Rollen- oder Gruppenseite im Server-Manager.  
+1.  Öffnen Sie eine Rollen-oder Server Gruppenseite in Server-Manager.  
   
-2.  Erweitern Sie den Bereich zum Erstellen von Abfragen in einer Kachel, Ereignisse, Leistung, Best Practices Analyzer, Dienste oder Rollen und Features, durch Klicken auf **erweitern**.  
+2.  Erweitern Sie auf der Kachel Ereignisse, Leistung, Best Practices Analyzer, Dienste oder Rollen und Features den Bereich Abfrage-Building, indem Sie auf **erweitern**klicken.  
   
-3.  Klicken Sie auf **Kriterien hinzufügen** , öffnen Sie eine Liste mit Attributen (oder Feldern), die auf die Einträge in der Kachel zutreffen.  
+3.  Klicken Sie auf **Kriterien hinzufügen** , um eine Liste mit Attributen (oder Feldern) zu öffnen, die auf die Einträge in der Kachel angewendet werden.  
   
-4.  die wählen Sie Kriterien zum Hinzufügen aus. Wenn Sie fertig sind, klicken Sie auf **hinzufügen**. Die ausgewählten Kriterien werden dem Bereich zum Erstellen von Abfragen hinzugefügt.  
+4.  Wählen Sie Kriterien zum Hinzufügen aus. Wenn Sie fertig sind, klicken Sie auf **Hinzufügen**. Die ausgewählten Kriterien werden dem Bereich zum Erstellen von Abfragen hinzugefügt.  
   
 5.  Klicken Sie auf den Hypertextoperator, um einen Operator auszuwählen. Der Standardoperator für numerische Kriterien bzw. datums- und uhrzeitbezogene Kriterien ist **Kleiner oder gleich**.  
   
-6.  Geben Sie akzeptable Werte für die Kriterien ein. Bei Auswahl von beispielsweise **Datums- /**, geben Sie ein Datum im Format *dd.mm.yyyy*.  
+6.  Geben Sie akzeptable Werte für die Kriterien ein. Wenn Sie z. b. **Datum und Uhrzeit**ausgewählt haben, geben Sie ein Datum im Format *m/d/yyyy*an.  
   
 7.  Wiederholen Sie die Schritte ab Schritt 3, um der Abfrage weitere Kriterien hinzuzufügen.  
   
     Sie können Kriterien, die bereits in der Abfrage vorhanden sind, duplizieren. Die Duplikate werden der Abfrage jedoch mit dem Operator **oder** hinzugefügt.  
   
-    z. B. für die Abfrage nach den Ereignis-IDs 1003 oder 1014 Sie zuerst die ID-Kriterium zur Abfrage hinzufügen, stellen Sie den Wert der ID gleich **1003**, und klicken Sie dann ein zweites ID-Kriterium hinzufügen, um Ihrer Abfrage, die den Wert der zweiten ID gleich  **1014**. Sie erhalten die Abfrage **und ID gleich 1003 oder ID gleich 1014**.  
+    Wenn Sie z. b. die Ereignis-IDs 1003 oder 1014 Abfragen möchten, fügen Sie zuerst die ID-Kriterien zu Ihrer Abfrage hinzu, legen Sie den Wert der ID auf **1003**fest, und fügen Sie dann der Abfrage ein zweites ID-Kriterium hinzu, wobei der Wert der zweiten ID **1014**entspricht. Sie erhalten die Abfrage **und ID gleich 1003 oder ID gleich 1014**.  
   
 8.  Klicken Sie nach dem Hinzufügen der Kriterien und der Angabe der Operatoren und Werte auf **Speichern** , um die Abfrage zu speichern.  
   
@@ -86,7 +86,7 @@ Sie können benutzerdefinierte Abfragen erstellen, in den Kacheln für Ereigniss
 12. Um eine gespeicherte Abfrage zu löschen, klicken Sie auf **Gespeicherte Suchabfragen**, und klicken Sie auf **X** neben dem Namen der gespeicherten Abfragen, die Sie löschen möchten.  
   
 ## <a name="see-also"></a>Siehe auch  
-[Server Manager](server-manager.md)  
+[Server-Manager](server-manager.md)  
 [Anzeigen und Konfigurieren von Leistungs-, Ereignis- und Dienstdaten](view-and-configure-performance-event-and-service-data.md)  
   
 

@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin-Cache und deleteurl
-description: Windows-Befehle Thema **Bitsadmin Cache und Deleteurl** -löscht alle Einträge im Cache für die angegebene URL.
+title: biout admin Cache und DeleteUrl
+description: 'Windows-Befehls Thema für den **BI-admin-Cache und DeleteUrl** : Löscht alle Cache Einträge für die angegebene URL.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a831c49e1461761cb7466b46e7a5ad8e037f4ec9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 869d3bc0f011cc82aaea9b7468667964051e1c00
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816651"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382057"
 ---
-# <a name="bitsadmin-cache-and-deleteurl"></a>Bitsadmin-Cache und deleteurl
+# <a name="bitsadmin-cache-and-deleteurl"></a>biout admin Cache und DeleteUrl
 
 
 
-Löscht alle Einträge im Cache für die angegebene URL.
+Löscht alle Cache Einträge für die angegebene URL.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,15 +36,15 @@ bitsadmin /DeleteURL url
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|URL|Der Uniform Resource Locator, die eine entfernte Datei identifiziert.|
+|URL|Der Uniform Resource Locator, der eine Remote Datei identifiziert.|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Das folgende Beispiel löscht alle Cacheeinträge für https://www.microsoft.com/en/us/default.aspx
+Im folgenden Beispiel werden alle Cache Einträge für https://www.microsoft.com/en/us/default.aspx gelöscht.
 ```
 C:\>bitsadmin /DeleteURL https://www.microsoft.com/en/us/default.aspx 
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

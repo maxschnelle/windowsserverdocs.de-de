@@ -1,8 +1,8 @@
 ---
 title: bitsadmin rawreturn
-description: Windows-Befehle Thema **Bitsadmin Rawreturn** – gibt Daten zurück, für die Analyse geeignet ist.
+description: 'Windows-Befehls Thema für **bitionadmin rawreturn** : gibt Daten zurück, die für die-Verarbeitung geeignet sind.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4e12c8e621021d35ac618b4592515fe38c36be0e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 86d769de460538acda696194348980de5752d6d8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434888"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380876"
 ---
 # <a name="bitsadmin-rawreturn"></a>bitsadmin rawreturn
 
-Gibt Daten zurück, das für die Analyse geeignet ist.
+Gibt Daten zurück, die für die-Verarbeitung geeignet sind.
 
 ## <a name="syntax"></a>Syntax
 
@@ -32,13 +32,13 @@ bitsadmin /RawReturn
 
 ## <a name="remarks"></a>Hinweise
 
-Zeilenumbruchzeichen leisten und die Formatierung aus der Ausgabe.
+Entfernt Zeilen mit Zeilen und Formatierungen aus der Ausgabe.
 
-Normalerweise verwenden Sie diesen Befehl in Verbindung mit der **erstellen** und **erhalten\\** * Switches, um nur den Wert zu erhalten. Sie müssen diesen Switch vor anderen Schaltern angeben.
+In der Regel verwenden Sie diesen Befehl zusammen mit den Switches **Create** und **Get @ no__t-2***, um nur den Wert zu erhalten. Dieser Switch muss vor anderen Schaltern angegeben werden.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Das folgende Beispiel ruft die Rohdaten für den Status des Auftrags mit dem Namen *MyDownloadJob*.
+Im folgenden Beispiel werden die Rohdaten für den Status des Auftrags mit dem Namen " *mydownloadjob*" abgerufen.
 ```
 C:\>bitsadmin /RawReturn /GetState myDownloadJob
 ```

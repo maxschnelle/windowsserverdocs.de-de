@@ -7,52 +7,52 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/08/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 7550bdcea4e7b06d31463744bfdc3319c012c62c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ed7663242ae254ecea945a749ee3ce5fac8f96f6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880361"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408832"
 ---
 # <a name="enabling-clients-to-locate-the-next-closest-domain-controller"></a>Ermöglichen, dass Clients den nächstgelegenen Domänencontroller finden
 
 >Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Wenn Sie einen Domänencontroller, die WindowsServer 2008 oder höher ausgeführt wird haben, können Sie machen es möglich, dass Clientcomputer mit Windows Vista oder höher oder WindowsServer 2008 oder neuer Suche nach Domänencontrollern effizienter durch Aktivieren der **versuchen Sie es weiter Am nächstgelegenen Standort** gruppenrichtlinieneinstellung. Diese Einstellung verbessert die Domänencontroller-Locator (Domänencontrollerlocator) dazu beiträgt, die den Netzwerkdatenverkehr, insbesondere in großen Unternehmen zu optimieren, die vielen Zweigstellen und Websites verfügen.
+Wenn Sie über einen Domänen Controller verfügen, auf dem Windows Server 2008 oder höher ausgeführt wird, können Sie auf Client Computern, auf denen Windows Vista oder höher oder Windows Server 2008 oder höher ausgeführt wird, das Auffinden von Domänen Controllern ermöglichen, indem Sie den **nächstgelegenen Standort testen.** Gruppenrichtlinie Einstellung. Diese Einstellung verbessert den Domänencontrollerlocator (Domänencontrollerlocator), indem der Netzwerkverkehr optimiert wird, insbesondere in großen Unternehmen, die über viele Zweigstellen und Standorte verfügen.
 
-Diese neue Einstellung kann beeinflussen, wie Sie Standortverknüpfungskosten konfigurieren, da es die Reihenfolge auswirkt, in der Domänencontroller gespeichert sind. Für Unternehmen, die viele nabenstandorten und Filialen haben, können Sie deutlich Active Directory-Datenverkehrs im Netzwerk reduzieren, indem Sie sicherstellen, dass Clients Failover zum nächsten Hubstandort ausgeführt wird, wenn einen Domänencontroller am nächstgelegenen Hubstandort gefunden werden kann.
+Diese neue Einstellung kann sich auf die Konfiguration der Standort Verknüpfungs Kosten auswirken, da Sie sich auf die Reihenfolge auswirkt, in der sich Domänen Controller befinden. Für Unternehmen, die über viele Hub-Standorte und Zweigstellen verfügen, können Sie Active Directory Datenverkehr im Netzwerk erheblich reduzieren, indem Sie sicherstellen, dass Clients ein Failover zum nächstgelegenen Hub-Standort durchführen, wenn Sie keinen Domänen Controller am nächstgelegenen Hub-Standort finden.
 
-Als allgemeine bewährte Methode sollten Sie Ihre Standorttopologie vereinfachen und die standortverknüpfung Kosten so weit wie möglich, wenn Sie aktivieren die **versuchen Sie es am nächstgelegenen Standort** festlegen. In Unternehmen mit vielen nabenstandorten kann dadurch alle Pläne vereinfachen, die Sie vornehmen, für die Behandlung von Situationen, in denen Clients an einem Standort, müssen für ein Failover zu einem Domänencontroller an einem anderen Standort.
+Als allgemeine bewährte Vorgehensweise sollten Sie die Standort Topologie und die Standort Verknüpfungs Kosten so weit wie möglich vereinfachen, wenn Sie die Einstellung **nächste Site testen** aktivieren. In Unternehmen mit vielen Hub-Standorten können dadurch alle Pläne vereinfacht werden, die Sie für die Behandlung von Situationen treffen, in denen Clients an einem Standort ein Failover zu einem Domänen Controller an einem anderen Standort ausführen müssen.
 
-In der Standardeinstellung die **versuchen Sie es am nächstgelegenen Standort** -Einstellung nicht aktiviert. Wenn die Einstellung nicht aktiviert ist, verwendet Domänencontrollerlocator des folgenden Algorithmus, um das Auffinden eines Domänencontrollers:
+Standardmäßig ist die Einstellung **nächstgelegene Site testen** nicht aktiviert. Wenn die Einstellung nicht aktiviert ist, verwendet der Domänen Controller-Locator den folgenden Algorithmus, um einen Domänen Controller zu finden:
 
-- Versuchen Sie, ein Domänencontroller am selben Standort gefunden.
-- Wenn sich am selben Standort kein Domänencontroller verfügbar ist, versuchen Sie es auf einen beliebigen Domänencontroller in der Domäne zu finden.
-
-> [!NOTE]
-> Dies ist der gleiche Algorithmus, den Domänencontrollerlocator in früheren Versionen von Active Directory verwendet. Weitere Informationen finden Sie im Artikel [wie DNS-Unterstützung für die Funktionsweise von Active Directory](https://go.microsoft.com/fwlink/?LinkId=108587).
-
-Wenn Sie aktivieren die **versuchen Sie es am nächstgelegenen Standort** Einstellung Domänencontrollerlocator anhand des folgenden Algorithmus zum Auffinden eines Domänencontrollers:
-
-- Versuchen Sie, ein Domänencontroller am selben Standort gefunden.
-- Wenn sich am selben Standort kein Domänencontroller verfügbar ist, versuchen Sie, einen Domänencontroller in der am nächstgelegenen Standort suchen. Ein Standort ist genauer, wenn sie eine niedrigere-standortverknüpfung Kosten als einen anderen Standort mit einem höheren Kosten Standort-Link verfügt.
-- Wenn es sich bei dem nächstliegenden Standort kein Domänencontroller verfügbar ist, versucht, einen beliebigen Domänencontroller in der Domäne zu finden.
-
-Die **versuchen Sie es am nächstgelegenen Standort** Einstellung, die in Koordination mit automatischen standortabdeckung funktioniert. Wenn der nächstliegenden Standort kein Domänencontroller ist, versucht Domänencontrollerlocator beispielsweise der Domänencontroller gesucht, der automatische standortabdeckung für diesen Standort ausführt.
-
-In der Standardeinstellung berücksichtigt Domänencontrollerlocator nicht einem beliebigen Standort, der einem schreibgeschützten Domänencontroller (RODC) enthält, wenn es feststellt, dass die am nächstgelegenen Standort. Darüber hinaus, wenn der Client eine Antwort von einem Domänencontroller, die eine Version älter als Windows Server 2008 ausgeführt wird erhält, entspricht das Verhalten der Domänencontrollerlocator Wenn wird nicht aktiviert ist.
-
-Nehmen wir beispielsweise an, dass eine Topologie vier Standorte mit den Werten des Standort-Link in der folgenden Abbildung verfügt. In diesem Beispiel sind alle Domänencontroller beschreibbare Domänencontroller, auf denen WindowsServer 2008 oder höher ausgeführt wird.
-
-![Clients nach Domänencontroller suchen](media/Enabling-Clients-to-Locate-the-Next-Closest-Domain-Controller/beff4087-fb2a-463b-96ac-d440a9e29b75.gif)
-
-Wenn die **versuchen Sie es am nächstgelegenen Standort** gruppenrichtlinieneinstellung wird in diesem Beispiel aktiviert, wenn ein Clientcomputer in greift versucht wird, um einen Domänencontroller zu suchen, zuerst wird versucht, einen Domänencontroller in seiner eigenen greift finden. Wenn kein in greift verfügbar ist, versucht, einen Domänencontroller passenden zu finden.
-
-Wenn die Einstellung nicht aktiviert ist, versucht der Client, einen Domänencontroller in passenden Site_C oder Site_D gesucht werden soll, wenn keine Domänencontroller in greift verfügbar ist.
+- Versuchen Sie, einen Domänen Controller am selben Standort zu finden.
+- Wenn kein Domänen Controller am selben Standort verfügbar ist, versuchen Sie, einen beliebigen Domänen Controller in der Domäne zu finden.
 
 > [!NOTE]
-> Die **versuchen Sie es am nächstgelegenen Standort** Einstellung, die in Koordination mit automatischen standortabdeckung funktioniert. Wenn der nächstliegenden Standort kein Domänencontroller ist, versucht Domänencontrollerlocator beispielsweise der Domänencontroller gesucht, der automatische standortabdeckung für diesen Standort ausführt.
+> Dabei handelt es sich um denselben Algorithmus, den der DC-Locator in früheren Versionen von Active Directory verwendet hat. Weitere Informationen finden Sie im Artikel über die [Funktionsweise der DNS-Unterstützung für Active Directory](https://go.microsoft.com/fwlink/?LinkId=108587).
 
-Anwenden der **versuchen Sie es am nächstgelegenen Standort** festlegen, können Sie ein Gruppenrichtlinienobjekt (GPO) erstellen und verknüpfen Sie ihn in das entsprechende Objekt für Ihre Organisation, oder Ändern der Standarddomänenrichtlinie so, dass sie alle Clients auswirken, auf denen Windows ausgeführt. Vista oder höher und WindowsServer 2008 oder neuer in der Domäne. Weitere Informationen zum Festlegen der **versuchen Sie es am nächstgelegenen Standort** finden Sie unter [ermöglichen Clients das Auffinden eines Domänencontrollers in der am nächstgelegenen Standort](https://technet.microsoft.com/library/cc772592.aspx).
+Wenn Sie die Einstellung für den nächst **gelegenen Standort testen** aktivieren, verwendet der Domänen Controller-Locator den folgenden Algorithmus, um einen Domänen Controller zu finden:
+
+- Versuchen Sie, einen Domänen Controller am selben Standort zu finden.
+- Wenn kein Domänen Controller am selben Standort verfügbar ist, versuchen Sie, am nächstgelegenen Standort einen Domänen Controller zu finden. Ein Standort ist genauer, wenn er über einen niedrigeren Standort Verknüpfungs Aufwand als ein anderer Standort mit höheren Standort Verknüpfungs Kosten verfügt.
+- Wenn am nächstgelegenen Standort kein Domänen Controller verfügbar ist, versuchen Sie, einen beliebigen Domänen Controller in der Domäne zu finden.
+
+Die Einstellung am **nächsten gelegenen Standort testen** funktioniert mit der automatischen Standort Abdeckung. Wenn beispielsweise der nächstgelegene Standort keinen Domänen Controller aufweist, versucht der Domänencontrollerlocator, den Domänen Controller zu finden, der die automatische Standort Abdeckung für diesen Standort ausführt.
+
+Standardmäßig berücksichtigt der Domänen Controller-Locator keine Standorte, die einen schreibgeschützten Domänen Controller (Read-Only Domain Controller, RODC) enthalten, wenn er den nächstgelegenen Standort festlegt. Wenn der Client eine Antwort von einem Domänen Controller erhält, auf dem eine frühere Version als Windows Server 2008 ausgeführt wird, ist das Verhalten des Domänen Controller-Locators außerdem identisch mit dem Zeitpunkt, an dem die Einstellung nicht aktiviert ist.
+
+Nehmen wir beispielsweise an, dass eine Standort Topologie über vier Standorte mit den Standort Verknüpfungs Werten in der folgenden Abbildung verfügt. In diesem Beispiel sind alle Domänen Controller beschreibbare Domänen Controller, auf denen Windows Server 2008 oder höher ausgeführt wird.
+
+![Clients können Domänen Controller suchen](media/Enabling-Clients-to-Locate-the-Next-Closest-Domain-Controller/beff4087-fb2a-463b-96ac-d440a9e29b75.gif)
+
+Wenn in diesem Beispiel die Einstellung **nächste Site am nächstgelegenen Standort** Gruppenrichtlinie aktiviert ist und ein Client Computer in Site_B versucht, einen Domänen Controller zu finden, versucht er zunächst, einen Domänen Controller in seinem eigenen Site_B zu suchen. Wenn in Site_B keine verfügbar ist, wird versucht, in Site_A einen Domänen Controller zu finden.
+
+Wenn die Einstellung nicht aktiviert ist, versucht der Client, einen Domänen Controller in Site_A, Site_C oder Site_D zu finden, wenn in Site_B kein Domänen Controller verfügbar ist.
+
+> [!NOTE]
+> Die Einstellung am **nächsten gelegenen Standort testen** funktioniert mit der automatischen Standort Abdeckung. Wenn beispielsweise der nächstgelegene Standort keinen Domänen Controller aufweist, versucht der Domänencontrollerlocator, den Domänen Controller zu finden, der die automatische Standort Abdeckung für diesen Standort ausführt.
+
+Sie können ein Gruppenrichtlinie Objekt (GPO) erstellen und mit dem entsprechenden Objekt für Ihre Organisation verknüpfen **, indem Sie die Standard** Domänen Richtlinie so ändern, dass Sie sich auf alle Clients auswirkt, auf denen Windows Vista oder höher ausgeführt wird. Windows Server 2008 oder neuer in der Domäne. Weitere Informationen zum Festlegen der nächst **gelegenen Site** -Einstellung finden Sie unter Aktivieren von [Clients zum Auffinden eines Domänen Controllers am nächstgelegenen Standort](https://technet.microsoft.com/library/cc772592.aspx).

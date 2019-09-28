@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin getsecurityflags
-description: Windows-Befehle Thema **Bitsadmin Getsecurityflags** – meldet die HTTP-Security-Flags für die URL-Umleitung und für das Serverzertifikat überprüft, während der Übertragung.
+title: bitadmin getsecurityflags
+description: Windows-Befehls Thema für **bitadmin getsecurityflags** -meldet die http-sicherheitsflags für die URL-Umleitung und Überprüfungen, die für das Serverzertifikat während der Übertragung ausgeführt werden.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6e1db167b12d47afccb8842da617f1e9fe72acff
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: fb53664a6366b411ae1eb9b0fe7c93392d60b542
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434959"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381458"
 ---
-# <a name="bitsadmin-getsecurityflags"></a>Bitsadmin getsecurityflags
+# <a name="bitsadmin-getsecurityflags"></a>bitadmin getsecurityflags
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Berichte der HTTP-Security-Flags für URL-Umleitung und überprüft, die auf dem Serverzertifikat während der Übertragung ausgeführt wird.
+Meldet die http-sicherheitsflags für die URL-Umleitung und Überprüfungen, die für das Serverzertifikat während der Übertragung ausgeführt werden.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,16 +36,16 @@ bitsadmin /GetSecurityFlags <Job>
 
 |Parameter|Beschreibung|
 |-------|--------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
 
-## <a name="BKMK_examples"></a>Beispiele für
-Das folgende Beispiel ruft die Flags Securitly aus einem Auftrag mit dem Namen *MyJob*.
+## <a name="BKMK_examples"></a>Beispiele
+Im folgenden Beispiel werden die "securitly"-Flags aus einem Auftrag mit dem Namen " *MyJob*" abgerufen.
 
 ```
 C:\>bitsadmin /GetSecurityFlags myJob 
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 

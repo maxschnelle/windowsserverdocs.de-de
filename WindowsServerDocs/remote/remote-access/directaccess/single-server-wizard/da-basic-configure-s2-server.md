@@ -1,9 +1,9 @@
 ---
-title: Schritt 2 der grundlegenden DirectAccess-Server konfigurieren
-description: Dieses Thema ist Teil des Handbuchs Bereitstellen eines einzelnen DirectAccess-Servers mithilfe der erste Schritte-Assistenten für Windows Server 2016
+title: Schritt 2 Konfigurieren des grundlegenden DirectAccess-Servers
+description: Dieses Thema ist Teil des Handbuchs Bereitstellen eines einzelnen DirectAccess-Servers mit dem Assistenten für die ersten Schritte für Windows Server 2016
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,18 +12,18 @@ ms.topic: article
 ms.assetid: 82bf5fed-93b3-4fa6-8e71-522146eccdb1
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 5bd248e36c316b11ea5e272707b75624d73dc49a
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: a21e5799824c968b29c719585ca16b6b45a9ef37
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283427"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404921"
 ---
-# <a name="step-2-configure-the-basic-directaccess-server"></a>Schritt 2 der grundlegenden DirectAccess-Server konfigurieren
+# <a name="step-2-configure-the-basic-directaccess-server"></a>Schritt 2 Konfigurieren des grundlegenden DirectAccess-Servers
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-In diesem Thema wird die Konfiguration der Client- und Servereinstellungen erläutert, die für einen einfachen DirectAccess erforderlich sind. Stellen Sie sicher, dass Sie die in beschriebenen Planungsschritte abgeschlossen haben, bevor Sie mit den Schritten zur Bereitstellung, [Planen einer einfachen DirectAccess-Bereitstellung](Plan-a-Basic-DirectAccess-Deployment.md).  
+In diesem Thema wird die Konfiguration der Client- und Servereinstellungen erläutert, die für einen einfachen DirectAccess erforderlich sind. Vergewissern Sie sich vor Beginn der Bereitstellungs Schritte, dass Sie die in [Planen einer einfachen DirectAccess-Bereitstellung](Plan-a-Basic-DirectAccess-Deployment.md)beschriebenen Planungsschritte abgeschlossen haben.  
   
 |Aufgabe|Beschreibung|  
 |----|--------|  
@@ -34,12 +34,12 @@ In diesem Thema wird die Konfiguration der Client- und Servereinstellungen erlä
 > [!NOTE]  
 > Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit denen Sie einige der beschriebenen Vorgehensweisen automatisieren können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="BKMK_Role"></a>Installieren der Rolle "Remotezugriff"  
+## <a name="BKMK_Role"></a>Installieren der Remote Zugriffs Rolle  
 Um den Remotezugriff bereitzustellen, müssen Sie die Remotezugriffsrolle auf einem Server in Ihrer Organisation installieren, der als Remotezugriffsserver fungiert.  
   
 #### <a name="to-install-the-remote-access-role"></a>So installieren Sie die Remotezugriffsrolle  
   
-1.  Klicken Sie auf dem RAS-Server in der Server-Manager-Konsole in der **Dashboard**, klicken Sie auf **Rollen und Features hinzufügen**.  
+1.  Klicken Sie auf dem Remote Zugriffs Server in der Server-Manager-Konsole im **Dashboard**auf **Rollen und Features hinzufügen**.  
   
 2.  Klicken Sie dreimal auf **Weiter** , um zur Anzeige für die Serverrollenauswahl zu gelangen.  
   
@@ -47,19 +47,19 @@ Um den Remotezugriff bereitzustellen, müssen Sie die Remotezugriffsrolle auf ei
   
 4.  Klicken Sie im Dialogfeld **Features auswählen** auf **Weiter**.  
   
-5.  Klicken Sie auf **Weiter**, und klicken Sie dann auf die **Rollendienste auswählen** Dialogfeld klicken Sie auf die **DirectAccess und VPN (RAS)** Kontrollkästchen.  
+5.  Klicken Sie auf **weiter**, und aktivieren Sie dann im Dialogfeld **Rollen Dienste auswählen** das Kontrollkästchen **DirectAccess und VPN (RAS)** .  
   
-6.  Klicken Sie auf **Features hinzufügen**, klicken Sie auf **Weiter**, und klicken Sie dann auf **installieren**.  
+6.  Klicken Sie auf **Features hinzufügen**, klicken Sie auf **weiter**und dann auf **Installieren**.  
   
 7.  Überprüfen Sie im Dialogfeld **Installationsstatus**, ob die Installation erfolgreich war, und klicken Sie dann auf **Schließen**.  
   
-![Windows PowerShell](../../../media/Step-2-Configure-the-DirectAccess-Server/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
+](../../../media/Step-2-Configure-the-DirectAccess-Server/PowerShellLogoSmall.gif)***<em>äquivalente Windows PowerShell-Befehle</em> mit @no__t 0shell***  
   
-Installieren die Rolle "Remotezugriff" die folgenden Windows PowerShell-Cmdlets: 
+Mit dem folgenden Windows PowerShell-Cmdlet oder den folgenden Cmdlets wird die Remote Zugriffs Rolle installiert: 
 
-1. Öffnen Sie PowerShell als Administrator an.
+1. Öffnen Sie PowerShell als Administrator.
 
-2. Installieren Sie RAS-Funktion:
+2. Remote Zugriffs Feature installieren:
 
    ```  
    Install-WindowsFeature RemoteAccess   
@@ -71,7 +71,7 @@ Installieren die Rolle "Remotezugriff" die folgenden Windows PowerShell-Cmdlets:
    Restart-Computer
    ```
    
-4. Installieren Sie PowerShell für den Remotezugriff:
+4. Installieren Sie PowerShell für den Remote Zugriff:
 
    ```
    Install-WindowsFeature RSAT-RemoteAccess-PowerShell
@@ -86,7 +86,7 @@ Installieren die Rolle "Remotezugriff" die folgenden Windows PowerShell-Cmdlets:
   
 1.  Klicken Sie im Server-Manager auf **Tools**, und klicken Sie anschließend auf **Remotezugriffsverwaltung**.  
   
-2.  Wählen Sie in der Remotezugriffs-Verwaltungskonsole, die Sie den Rollendienst so konfigurieren Sie im linken Navigationsbereich, und klicken Sie dann auf **führen Sie den Assistenten für erste Schritte**.  
+2.  Wählen Sie in der Remote Zugriffs-Verwaltungskonsole im linken Navigationsbereich den zu konfigurierendes Rollen Dienst aus, und klicken Sie dann auf **Assistent für die**ersten Schritte ausführen.  
   
 3.  Klicken Sie auf **Nur DirectAccess bereitstellen**.  
   
@@ -105,7 +105,7 @@ Installieren die Rolle "Remotezugriff" die folgenden Windows PowerShell-Cmdlets:
   
 #### <a name="to-update-directaccess-clients"></a>So aktualisieren Sie DirectAccess-Clients  
   
-1.  Öffnen Sie PowerShell als Administrator an.  
+1.  Öffnen Sie PowerShell als Administrator.  
   
 2.  Geben Sie im PowerShell-Fenster **gpupdate** ein, und drücken Sie dann die **EINGABETASTE**.  
   
@@ -119,13 +119,13 @@ Installieren die Rolle "Remotezugriff" die folgenden Windows PowerShell-Cmdlets:
   
 6.  Geben Sie **Get-DAConnectionStatus**, und drücken Sie dann die **EINGABETASTE**. Da der Client die Netzwerkadressenserver-URL erreichen kann, wird der Status **Lokal verbunden** angezeigt.  
   
-## <a name="BKMK_Links"></a>Vorherigen Schritt  
+## <a name="BKMK_Links"></a>Vorheriger Schritt  
   
 -   [Schritt 1: Konfigurieren der DirectAccess-Infrastruktur](Step-1-Configure-the-DirectAccess-Infrastructure.md)  
   
 ## <a name="next-step"></a>Nächster Schritt  
   
--   [Schritt 3 Überprüfen der grundlegenden DirectAccess-Bereitstellungen](da-basic-configure-s3-verify.md)  
+-   [Schritt 3 Überprüfen der grundlegenden DirectAccess-bereit Stellungen](da-basic-configure-s3-verify.md)  
   
 
 

@@ -7,46 +7,46 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/08/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: d88cc2fafd9aa4fc221efc901c48fa41ef007a21
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5642963caee47ac48f841a13b47852b6b7d9b241
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867041"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408982"
 ---
 # <a name="collecting-network-information"></a>Sammeln von Informationen zum Netzwerk
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Der erste Schritt beim Entwerfen einer effektiven Standorttopologie in Active Directory Domain Services (AD DS) ist, finden Sie in Ihrer Organisation Netzwerkgruppe zum Sammeln von Informationen und regelmäßig über die physischen Netzwerktopologie mit ihnen kommunizieren.  
+Der erste Schritt beim Entwerfen einer effektiven Standort Topologie in Active Directory Domain Services (AD DS) besteht darin, die Netzwerkgruppe Ihrer Organisation zu bitten, Informationen zu sammeln und regelmäßig über die physische Netzwerktopologie mit Ihnen zu kommunizieren.  
   
-## <a name="creating-a-location-map"></a>Erstellen einer Standortkarte
+## <a name="creating-a-location-map"></a>Erstellen einer Location map
 
-Erstellen Sie eine standortzuordnung, die die physischen Netzwerkinfrastruktur Ihres Unternehmens darstellt. Identifizieren Sie auf der Karte Speicherort die geografischen Standorte, die Gruppen von Computern mit einer internen Konnektivität von 10 Megabit pro Sekunde (Mbit/s) oder höher (Geschwindigkeit des lokalen Netzwerks (LAN) oder besser) enthalten.  
+Erstellen Sie eine Standort Zuordnung, die die physische Netzwerkinfrastruktur Ihres Unternehmens darstellt. Identifizieren Sie auf der Location map die geografischen Standorte, die Gruppen von Computern mit interner Konnektivität von 10 meits pro Sekunde (Mbit/s) oder höher (LAN-Geschwindigkeit (Local Area Network) oder höher) enthalten.  
   
-## <a name="listing-communication-links-and-available-bandwidth"></a>Auflisten von kommunikationsverbindungen und die verfügbare Bandbreite
+## <a name="listing-communication-links-and-available-bandwidth"></a>Auflisten von Kommunikations Links und verfügbarer Bandbreite
 
-Dokumentieren Sie den Typ der kommunikationsverbindung, die verbindungsgeschwindigkeit und die verfügbare Bandbreite zwischen jedem Standort, nach der Erstellung einer standortzuordnung können. Abrufen einer wide Area Network (WAN)-Topologie aus Ihrer Gruppe Netzwerkbetrieb. Eine Liste der häufig verwendeten Typen von WAN-Verbindung und ihre Bandbreiten, finden Sie unter "Festlegen, die Kosten" im Abschnitt [Erstellen eines Entwurfs für Standortverknüpfungen](../../ad-ds/plan/Creating-a-Site-Link-Design.md). Sie benötigen diese Informationen weiter unten in den Entwurfsprozess der Standorttopologie standortverknüpfungen zu erstellen.  
+Nachdem Sie eine Speicherort Zuordnung erstellt haben, dokumentieren Sie den Typ des Kommunikations Links, seine Verbindungsgeschwindigkeit und die verfügbare Bandbreite zwischen den einzelnen Standorten. Rufen Sie eine WAN-Topologie (Wide Area Network) von ihrer Netzwerkgruppe ab. Eine Liste der allgemeinen WAN-Verbindungstypen und ihrer Bandbreiten finden Sie im Abschnitt "Bestimmen der Kosten" unter [Erstellen eines Standort](../../ad-ds/plan/Creating-a-Site-Link-Design.md)Verknüpfungs Entwurfs. Sie benötigen diese Informationen, um später im Entwurfsprozess der Standort Topologie Standort Verknüpfungen zu erstellen.  
   
-Bandbreite bezieht sich auf die Menge der Daten, mit denen Sie über einen Kommunikationskanal in einem bestimmten Zeitraum übertragen können. Verfügbare Bandbreite bezieht sich auf die Menge an Bandbreite, die tatsächlich für die Verwendung von AD DS verfügbar sind. Verfügbare Bandbreiteninformationen erhalten Sie von Ihrer Gruppe Netzwerkbetrieb, oder Sie können Datenverkehr für jede Verbindung mit einem Netzwerkprotokoll-Analyseprogramm wie Network Monitor analysieren. Informationen zum Installieren von Network Monitor finden Sie im Artikel [Überwachung des Netzwerkdatenverkehrs](https://go.microsoft.com/fwlink/?LinkId=107058).  
+Bandbreite bezieht sich auf die Datenmenge, die Sie in einem bestimmten Zeitraum über einen Kommunikationskanal übertragen können. Verfügbare Bandbreite bezieht sich auf die Menge an Bandbreite, die zur Verwendung durch AD DS tatsächlich verfügbar ist. Sie können Informationen zur verfügbaren Bandbreite von ihrer Netzwerkgruppe abrufen, oder Sie können den Datenverkehr auf den einzelnen Links analysieren, indem Sie eine Protokollanalyse wie Netzwerkmonitor verwenden. Weitere Informationen zum Installieren von Netzwerkmonitor finden Sie im Artikel über [Wachen von Netzwerk Datenverkehr](https://go.microsoft.com/fwlink/?LinkId=107058).  
   
-Dokumentieren Sie jeden Standort und die anderen Standorte, die verknüpft sind. Notieren Sie außerdem die Art der kommunikationsverbindung und die verfügbare Bandbreite. Ein Arbeitsblatt, das Sie beim Auflisten von kommunikationsverbindungen und die verfügbare Bandbreite zu unterstützen, finden Sie unter [Auftrag Hilfsmittel für Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), Job_Aids_Designing_and_Deploying_Directory_and_Security_Services.zip, herunterladen und Öffnen Sie "Geografische Standorte und Kommunikationsverbindungen" (DSSTOPO_1.doc).  
+Dokumentieren Sie jeden Standort und die anderen verknüpften Speicherorte. Notieren Sie außerdem den Typ der Kommunikations Verknüpfung und die verfügbare Bandbreite. Ein Arbeitsblatt, das Sie bei der Auflistung von Kommunikations Verknüpfungen und der verfügbaren Bandbreite unterstützt, finden Sie unter [Auftrags Hilfen für Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), Herunterladen von Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip und Öffnen von "geografisch Standorte und Kommunikations Links "(DSSTOPO_1. doc).  
   
-## <a name="listing-ip-subnets-within-each-location"></a>Auflisten von IP-Subnetze an jedem Standort
+## <a name="listing-ip-subnets-within-each-location"></a>Auflisten von IP-Subnetzen an jedem Standort
 
-Nachdem Sie die kommunikationsverbindungen und die verfügbare Bandbreite zwischen einzelnen Standorten zu dokumentieren, notieren Sie die IP-Subnetze an jedem Standort. Wenn Sie die Subnetzmaske und die IP-Adresse, an jedem Standort noch nicht kennen, finden Sie in Ihrer Gruppe Netzwerkbetrieb.  
+Nachdem Sie die Kommunikations Links und die verfügbare Bandbreite zwischen den einzelnen Standorten dokumentiert haben, notieren Sie die IP-Subnetze innerhalb der einzelnen Speicherorte. Wenn Sie die Subnetzmaske und die IP-Adresse innerhalb der einzelnen Speicherorte nicht bereits kennen, wenden Sie sich an Ihre Netzwerkgruppe.  
   
-AD DS ordnet eine Arbeitsstation mit einer Website durch Vergleichen der Arbeitsstation des IP-Adresse mit den Subnetzen, die von jedem Standort zugeordnet sind. Wenn Sie Domänencontroller einer Domäne hinzufügen, wird in AD DS auch überprüft ihre IP-Adressen und platziert sie in den am besten geeigneten Standort.  
+AD DS ordnet eine Arbeitsstation einem Standort zu, indem Sie die IP-Adresse der Arbeitsstation mit den Subnetzen vergleicht, die den einzelnen Standorten zugeordnet sind. Wenn Sie einer Domäne Domänen Controller hinzufügen, werden AD DS auch Ihre IP-Adressen untersucht und am am besten geeigneten Standort platziert.  
   
-Ein Arbeitsblatt, das Sie beim Auflisten der IP-Subnetze an jedem Standort unterstützen, finden Sie unter [Auftrag Hilfsmittel für Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558)Job_Aids_Designing_and_Deploying_Directory_and_Security_Services.zip herunterladen und öffnen Sie " Standorte und Subnetze"(DSSTOPO_2.doc).  
+Ein Arbeitsblatt, das Sie beim Auflisten der IP-Subnetze an den einzelnen Standorten unterstützt, finden Sie unter [Auftrags Hilfen für das Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), Herunterladen von Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip und Öffnen von "Speicherorten und Subnetzen" ( DSSTOPO_2. doc).  
   
 > [!NOTE]  
-> Zusätzlich zu den IP-Version 4 (IPv4)-Adressen, Windows Server unterstützt auch die IP-Version 6 (IPv6) Subnetzpräfixe. Ein Arbeitsblatt, das Sie beim Auflisten der IPv6-Subnetzpräfixe unterstützen, finden Sie unter [Anhang A: Speicherorte und Subnetzpräfixe](../../ad-ds/plan/Appendix-A--Locations-and-Subnet-Prefixes.md).  
+> Zusätzlich zu IPv4-Adressen (IP Version 4) unterstützt Windows Server auch IPv6-Subnetzpräfixe (IP Version 6). Ein Arbeitsblatt, das Sie beim Auflisten der IPv6-Subnetzpräfixe unterstützt, finden Sie unter [anhang a: Speicherorte und Subnetzpräfixe @ no__t-0.  
 
-## <a name="listing-domains-and-number-of-users-for-each-location"></a>Auflisten von Domänen und die Anzahl der Benutzer für jeden Standort
+## <a name="listing-domains-and-number-of-users-for-each-location"></a>Auflisten von Domänen und der Anzahl von Benutzern für jeden Standort
 
-Die Anzahl der Benutzer für jede Regionaldomäne, die an einem Ort dargestellt wird ist einer der Faktoren, die bestimmen, die Platzierung der regionalen Domänencontroller und globalen Katalogservern, die im nächsten in den Entwurfsprozess der Standorttopologie Schritt. Planen Sie beispielsweise einen regionalen Domänencontroller an einem Speicherort zu platzieren, die mehr als 100 Regionaldomäne-Benutzer enthält, damit sie weiterhin mit der Domäne anmelden können, wenn die WAN-Verbindung ein Fehler auftritt.  
+Die Anzahl der Benutzer für jede regionale Domäne, die an einem Standort dargestellt wird, ist einer der Faktoren, die die Platzierung von regionalen Domänen Controllern und globalen Katalog Servern bestimmen. Dies ist der nächste Schritt im Entwurfsprozess der Standort Topologie. Planen Sie z. b., einen regionalen Domänen Controller an einem Speicherort zu platzieren, der mehr als 100 regionale Domänen Benutzer enthält, damit Sie sich weiterhin bei der Domäne anmelden können, wenn die WAN-Verbindung fehlschlägt.  
   
-Notieren Sie die Standorte, Domänen, die dargestellt werden, in jedem Speicherort sowie die Anzahl der Benutzer für jede Domäne, die an jedem Standort dargestellt wird. Ein Arbeitsblatt, hilft Ihnen bei der Auflistung, die Domänen und die Anzahl der Benutzer, die an jedem Standort dargestellt werden, finden Sie unter [Auftrag Hilfsmittel für Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), Job_Aids_Designing_and_Deploying_Directory_and_ herunterladen Security_Services.ZIP, und öffnen "Domänen und Benutzer in jeder Location" (DSSTOPO_3.doc).  
+Notieren Sie die Standorte, die an jedem Standort dargestellten Domänen und die Anzahl der Benutzer für jede Domäne, die an jedem Standort dargestellt wird. Ein Arbeitsblatt, in dem Sie die Domänen und die Anzahl der Benutzer auflisten können, die an den einzelnen Standorten dargestellt werden, finden Sie unter [Job Aids for Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), Download Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip, und öffnen Sie "Domänen und Benutzer an jedem Standort" (DSSTOPO_3. doc).  

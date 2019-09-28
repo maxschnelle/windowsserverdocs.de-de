@@ -6,62 +6,62 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 7d046c720c5c6250b6efa03e068aa66e2a6bbe3d
-ms.sourcegitcommit: 9a4ab3a0d00b06ff16173aed616624c857589459
+ms.openlocfilehash: de4627f2e03e6432f4e678cd9ca932819cb483d5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828524"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408434"
 ---
 # <a name="configure-name-resolution-for-a-federation-server-proxy-in-a-dns-zone-that-serves-only-the-perimeter-network"></a>Konfigurieren der Namensauflösung für einen Verbundserverproxy in einer DNS-Zone, die nur das Umkreisnetzwerk bedient
 
 
-Damit erfolgreich funktioniert die namensauflösung für Verbundserver in einer Active Directory Federation Services kann \(AD FS\) Szenario in der eine oder mehrere Domain Name System \(DNS\) Zonen dienen nur den Umkreis vernetzen, das die folgenden Aufgaben müssen abgeschlossen sein:  
+Damit die Namensauflösung für einen Verbund Server in einem Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1-Szenario, in dem mindestens eine Domain Name System \(dns @ no__t-3-Zonen nur dem Umkreis Netzwerk dienen, erfolgreich funktioniert, gilt Folgendes: Tasks müssen abgeschlossen sein:  
   
--   Die Hostdatei auf dem Verbundserverproxy muss aktualisiert werden, um die IP-Adresse einen Verbundserver hinzuzufügen.  
+-   Die Hostdatei auf dem Verbund Server Proxy muss aktualisiert werden, um die IP-Adresse eines Verbund Servers hinzuzufügen.  
   
--   DNS im Umkreisnetzwerk muss konfiguriert werden, um zu beheben, dass alle Clientanforderungen für die AD FS-Namen, um den Verbundserverproxy hosten. Zu diesem Zweck fügen Sie einen Host \(ein\) Umkreis-DNS für die Verbundserverproxy-Ressourceneintrag.  
+-   DNS im Umkreis Netzwerk muss so konfiguriert werden, dass alle Client Anforderungen für den AD FS Hostnamen in den Verbund Server Proxy aufgelöst werden. Zu diesem Zweck fügen Sie dem Umkreis-DNS für den Verbund Server Proxy einen Host \(A @ no__t-1-Ressourcen Daten Satz hinzu.  
   
 > [!NOTE]  
-> Diese Verfahren wird davon ausgegangen, die einen Host \(ein\) -Ressourceneintrag für der Verbundserver im Unternehmensnetzwerk bereits erstellt wurde Netzwerk-DNS. Wenn dieser Eintrag noch nicht vorhanden ist, erstellen Sie diesen Eintrag, und klicken Sie dann diese Verfahren ausgeführt. Weitere Informationen zum Erstellen des Hosts \(ein\) -Ressourceneintrag für den Verbundserver finden Sie unter [Hinzufügen eines Hosts &#40;ein&#41; -Ressourceneintrag auf Unternehmens-DNS für einen Verbundserver](Add-a-Host--A--Resource-Record-to-Corporate-DNS-for-a-Federation-Server.md).  
+> Bei diesen Prozeduren wird davon ausgegangen, dass bereits ein Host \(A @ no__t-1-Ressourcen Daten Satz für den Verbund Server im Unternehmensnetzwerk-DNS erstellt wurde. Wenn dieser Datensatz noch nicht vorhanden ist, erstellen Sie diesen Datensatz, und führen Sie dann diese Verfahren aus. Weitere Informationen zum Erstellen des Host \(A @ no__t-1-Ressourcen Datensatzes für den Verbund Server finden Sie unter [Hinzufügen eines &#40;Host&#41; a-Ressourceneinsatzes zu einem Unternehmens-DNS für einen Verbund Server](Add-a-Host--A--Resource-Record-to-Corporate-DNS-for-a-Federation-Server.md).  
   
-## <a name="add-the-ip-address-of-a-federation-server-to-the-hosts-file"></a>Fügen Sie die IP-Adresse eines Verbundservers zur Hosts-Datei hinzu.  
-Damit ein Verbundserverproxy erwartungsgemäß im Umkreisnetzwerk der Kontopartner arbeiten kann, müssen Sie einen Eintrag hinzufügen, die Datei "Hosts" auf diesem Verbundserverproxy, die auf den DNS-Hostnamen eines Verbundservers verweist \(z. B. "FS.Fabrikam.com". \) und IP-Adresse \(z. B. 192.168.1.4\) im Unternehmensnetzwerk des Kontopartners. Durch Hinzufügen dieses Eintrags zur Hosts-Datei verhindert, dass den Verbundserverproxy wenden sich ein Client auflösen\-initiierten Aufruf eines Verbundservers beim Kontopartner.  
+## <a name="add-the-ip-address-of-a-federation-server-to-the-hosts-file"></a>Hinzufügen der IP-Adresse eines Verbund Servers zur Hostdatei  
+Damit ein Verbund Server Proxy im Umkreis Netzwerk eines Konto Partners erwartungsgemäß funktionieren kann, Sie müssen der Hosts-Datei auf dem Verbund Server Proxy einen Eintrag hinzufügen, der auf den DNS-Hostnamen eines Verbund Servers verweist \(z. b. "FS. fabrikam. com @ no__t-1" und "IP-Adresse" \(Z. b. "192.168.1.4 @ no__t-3" im Unternehmensnetzwerk des Konto Partners. Durch Hinzufügen dieses Eintrags zur Hostdatei wird verhindert, dass sich der Verbund Server Proxy an sich selbst kontaktiert, um einen Client mit dem @ no__t-0initiierten Rückruf an einen Verbund Server im Konto Partner aufzulösen.  
   
-Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Weitere Informationen zur Verwendung der geeigneten Konten und Gruppenmitgliedschaften unter [lokale und Domänenstandardgruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
-#### <a name="to-add-the-ip-address-of-a-federation-server-to-the-hosts-file"></a>Die Datei "Hosts" die IP-Adresse eines Verbundservers hinzu  
+#### <a name="to-add-the-ip-address-of-a-federation-server-to-the-hosts-file"></a>So fügen Sie die IP-Adresse eines Verbund Servers der Hosts-Datei hinzu  
   
-1.  Navigieren Sie zu % SystemRoot%\\Winnt\\"System32"\\Treiber-Verzeichnisordner, und suchen Sie die **Hosts** Datei.  
+1.  Navigieren Sie zum Verzeichnis% systemroot% \\winnt @ no__t-1system32 @ no__t-2drivers, und suchen Sie die Datei **Hosts** .  
   
 2.  Starten Sie Editor, und öffnen Sie dann die Datei **hosts**.  
   
-3.  Fügen Sie die IP-Adresse und den Hostnamen eines Verbundservers beim Kontopartner auf dem **Hosts** Datei, wie im folgenden Beispiel gezeigt:  
+3.  Fügen Sie die IP-Adresse und den Hostnamen eines Verbund Servers im Konto Partner der **Hosts** -Datei hinzu, wie im folgenden Beispiel gezeigt:  
   
     **192.168.1.4fs.fabrikam.com**  
   
 4.  Speichern und schließen Sie die Datei.  
   
-## <a name="add-a-host-a-resource-record-to-perimeter-dns-for-a-federation-server-proxy"></a>Hinzufügen eines Hosts \(ein\) Umkreis-DNS für einen Verbundserverproxy-Ressourceneintrag  
-Damit Clients im Internet erfolgreich einen Verbundserver mithilfe eines neu bereitgestellten Verbundserverproxys zugreifen können, müssen Sie zunächst einen Host erstellen \(ein\) Ressourcendatensatz in der Umkreis-DNS. Dieser Ressourceneintrag löst den Hostnamen des Verbundservers Konto \(z. B. "FS.Fabrikam.com"\) auf die IP-Adresse des Kontos Verbundserverproxys \(z. B. 131.107.27.68\) in der Umkreisnetzwerk.  
+## <a name="add-a-host-a-resource-record-to-perimeter-dns-for-a-federation-server-proxy"></a>Hinzufügen eines Host-\(A @ no__t-1-Ressourcen Datensatzes zu Umkreis-DNS für einen Verbund Server Proxy  
+Damit Clients im Internet über einen neu bereitgestellten Verbund Server Proxy erfolgreich auf einen Verbund Server zugreifen können, müssen Sie zunächst einen Host \(A @ no__t-1-Ressourcen Daten Satz im Umkreis-DNS erstellen. Mit diesem Ressourcen Daten Satz wird der Hostname des Konto Verbund Servers \(z. b. "FS. fabrikam. com @ no__t-1" in die IP-Adresse des Konto-Verbund Server Proxys \(Z.b. 131.107.27.68 @ no__t-3 im Umkreis Netzwerk aufgelöst.  
   
 > [!NOTE]  
-> Es wird vorausgesetzt, dass Sie einen DNS-Server, verwenden unter Windows 2000 Server, Windows Server 2003 oder Windows Server 2008 mit dem DNS-Server-Dienst zum Steuern der Umkreis-DNS-Zone.  
+> Es wird davon ausgegangen, dass Sie einen DNS-Server verwenden, auf dem Windows 2000 Server, Windows Server 2003 oder Windows Server 2008 mit dem DNS-Server Dienst ausgeführt wird, um die DNS-Umkreis Zone zu steuern.  
   
-Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe sein, damit Sie dieses Verfahren durchführen können.  Weitere Informationen zur Verwendung der geeigneten Konten und Gruppenmitgliedschaften unter [lokale und Domänenstandardgruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe sein, damit Sie dieses Verfahren durchführen können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
-#### <a name="to-add-a-host-a-resource-record-to-perimeter-dns-for-a-federation-server-proxy"></a>Beim Hinzufügen eines Hosts \(ein\) Umkreis-DNS für einen Verbundserverproxy-Ressourceneintrag  
+#### <a name="to-add-a-host-a-resource-record-to-perimeter-dns-for-a-federation-server-proxy"></a>So fügen Sie dem Umkreis-DNS für einen Verbund Server Proxy einen Host \(A @ no__t-1-Ressourcen Daten Satz hinzu  
   
-1.  Öffnen Sie auf einen DNS-Server im Umkreisnetzwerk, die DNS-Snap\-in. Klicken Sie auf **starten**, zeigen Sie auf **Verwaltung**, und klicken Sie dann auf **DNS**.  
+1.  Öffnen Sie auf einem DNS-Server für das Umkreis Netzwerk das DNS-Snap-in @ no__t-0in. Klicken Sie auf **Start**, zeigen Sie auf **Verwaltung**, und klicken Sie dann auf **DNS**.  
   
-2.  Direkt in der Konsolenstruktur\-klicken Sie auf die betreffende forward-Lookupzone, und klicken Sie dann auf **neuen Host \(A oder AAAA\)** .  
+2.  Klicken Sie in der Konsolen Struktur mit der rechten Maustaste auf die entsprechende Forward-Lookupzone, und klicken Sie dann auf **neuer Host \(a oder AAAA @ no__t-3**.  
   
-3.  In **Namen**, geben Sie nur den Computernamen des Verbundservers. Beispielsweise für den vollständig qualifizierten Domänennamen \(FQDN\) "FS.Fabrikam.com", Typ **fs**.  
+3.  Geben Sie unter **Name**nur den Computernamen des Verbund Servers ein. Geben Sie z. b. für den voll qualifizierten Domänen Namen \(fqdn @ no__t-1 FS.fabrikam.com **FS**ein.  
   
-4.  In **IP-Adresse**, geben Sie die IP-Adresse für den neuen Federation Serverproxy, z. B. **131.107.27.68**.  
+4.  Geben Sie unter **IP-Adresse**die IP-Adresse für den neuen Verbund Server Proxy ein, z. b. **131.107.27.68**.  
   
 5.  Klicken Sie auf **Host hinzufügen**.  
   

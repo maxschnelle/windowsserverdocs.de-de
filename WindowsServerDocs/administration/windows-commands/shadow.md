@@ -1,8 +1,8 @@
 ---
 title: shadow
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 125b2971d5d4783ea0b974c45b988cbd1c58a2bf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cb2fad4b0a553e736755f2dc56e5d88297a1fef5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877111"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383962"
 ---
 # <a name="shadow"></a>shadow
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Ermöglicht Ihnen, die eine aktive Sitzung eines anderen Benutzers auf einem Remotedesktop-Sitzungshost (rd Session Host)-Server Remote zu steuern.
-Beispiele für diesen Befehl verwenden, finden Sie unter [Beispiele](#BKMK_examples).
+Ermöglicht die Remote Steuerung einer aktiven Sitzung eines anderen Benutzers auf einem Remotedesktop-Sitzungshost Server (RD-Sitzungs Host).
+Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
 ## <a name="syntax"></a>Syntax
 ```
@@ -35,31 +35,31 @@ shadow {<SessionName> | <SessionID>} [/server:<ServerName>] [/v]
 ### <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
-|\<SessionName>|Gibt den Namen der Sitzung, die Sie Remote steuern möchten.|
-|\<SessionID>|Gibt die ID der Sitzung, die Sie Remote steuern möchten. Verwendung **Abfrage** um die Liste von Sitzungen und die Sitzungs-IDs anzuzeigen.|
-|/server:\<ServerName>|Gibt an, den RD-Sitzungshost-Server, die mit der Sitzung, die Sie Remote steuern möchten. Standardmäßig wird der aktuelle RD-Sitzung: Host4-Server verwendet.|
-|/v|Zeigt Informationen zu den Aktionen, die ausgeführt wird.|
+|\<sessionname >|Gibt den Namen der Sitzung an, die Sie remote steuern möchten.|
+|\<sessionid >|Gibt die ID der Sitzung an, die Sie remote steuern möchten. Verwenden Sie den **Abfrage Benutzer** , um die Liste der Sitzungen und ihre Sitzungs-IDs anzuzeigen.|
+|/Server: \<servername >|Gibt den Remote Desktop-Sitzungs Host Server mit der Sitzung an, die Sie remote steuern möchten. Standardmäßig wird der aktuelle RD-Sitzung Host4-Server verwendet.|
+|/v|Zeigt Informationen zu den Aktionen an, die ausgeführt werden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
--   Sie können anzeigen oder die Sitzung aktiv steuern. Wenn Sie eine benutzersitzung aktiv steuern möchten, werden Sie können mit Tastatureingaben und Aktionen der Sitzung.
--   Können Sie Ihre eigenen Sitzungen (mit Ausnahme von der aktuellen Sitzung) immer Remote steuern, aber Sie benötigen Full Control-Berechtigung oder die Berechtigung für Remotesteuerung beschränkten Zugriff auf eine andere Sitzung Remote zu steuern.
--   Sie können die Remotesteuerung auch initiieren, mit der Remotedesktopdienste-Manager.
--   Vor Beginn der Überwachung, informiert der Server den Benutzer, die die Sitzung Remote gesteuert werden, es sei denn, diese Warnung deaktiviert ist. Die Sitzung möglicherweise ein paar Sekunden fixiert werden, während er darauf wartet, dass eine Antwort des Benutzers angezeigt. Verwenden Sie zum Konfigurieren der Remotesteuerung für Benutzer und Sitzungen das Remote Desktop Services-Konfigurationstool oder das Remote Desktop Services-Erweiterungen für lokale Benutzer und Gruppen und active Directory-Benutzer und Computer aus.
--   Die Sitzung muss unterstützen die Bildschirmauflösung, die verwendet werden, in der Sitzung, die Sie Remote Steuern des oder der Vorgang fehlschlägt.
--   Die konsolensitzung kann weder Remote Steuern einer anderen Sitzung, noch können sie Remote gesteuert werden von einer anderen Sitzung.
--   Wenn Sie die Remotesteuerung (shadowing) beenden möchten, drücken Sie STRG + * (mit \* auf der Zehnertastatur).
+-   Sie können die Sitzung entweder anzeigen oder aktiv steuern. Wenn Sie die Sitzung eines Benutzers aktiv steuern möchten, können Sie Tastatur-und Mausaktionen für die Sitzung eingeben.
+-   Sie können Ihre eigenen Sitzungen (außer der aktuellen Sitzung) jederzeit Remote steuern. Sie müssen jedoch über die Berechtigung "Vollzugriff" oder "Remote Steuerung" verfügen, um eine andere Sitzung Remote zu steuern.
+-   Sie können die Remote Steuerung auch mithilfe von Remotedesktopdienste-Manager initiieren.
+-   Vor Beginn der Überwachung warnt der Server den Benutzer, dass die Sitzung remote gesteuert wird, es sei denn, diese Warnung ist deaktiviert. Die Sitzung scheint einige Sekunden lang eingefroren zu sein, während Sie auf eine Antwort des Benutzers wartet. Verwenden Sie zum Konfigurieren der Remote Steuerung für Benutzer und Sitzungen das Remotedesktopdienste-Konfigurationstool oder die Remotedesktopdienste Erweiterungen für lokale Benutzer und Gruppen sowie für Active Directory-Benutzer und-Computer.
+-   Ihre Sitzung muss in der Lage sein, die Videoauflösung zu unterstützen, die in der Sitzung verwendet wird, für die Sie eine Remote Steuerung durchführt.
+-   Die Konsolen Sitzung kann keine Remote Steuerung einer anderen Sitzung durchführt, und Sie kann nicht von einer anderen Sitzung remote gesteuert werden.
+-   Wenn Sie die Remote Steuerung beenden möchten (Shadowing), drücken Sie STRG + \* (nur mit \* von der numerischen Tastatur).
 
-## <a name="BKMK_examples"></a>Beispiele für
--   Geben Sie zum Spiegeln von Sitzung 93:
+## <a name="BKMK_examples"></a>Beispiele
+-   Zum Schatten der Sitzung 93 geben Sie Folgendes ein:
     ```
     shadow 93
     ```
--   Geben Sie Folgendes ein, um die Sitzung ACCTG01:
+-   Geben Sie Folgendes ein, um die Sitzungs ACCTG01 zu schattieren
     ```
     shadow ACCTG01
     ```
 
-#### <a name="additional-references"></a>Zusätzliche Referenzen
-[Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-[Remotedesktopdienste &#40;Terminaldienste&#41; -Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)
+#### <a name="additional-references"></a>Weitere Verweise
+[Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+[Remotedesktopdienste &#40;Befehlsreferenz&#41; für Terminal Dienste](remote-desktop-services-terminal-services-command-reference.md)

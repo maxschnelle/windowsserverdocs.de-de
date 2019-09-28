@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getreplyprogress
-description: Windows-Befehle Thema **Bitsadmin Getreplyprogress** -Ruft die Größe und der Status, der die Antwort des Servers ab.
+description: 'Thema Windows-Befehle für **BITSAdmin getreplyprogress** : Ruft die Größe und den Fortschritt der Serverantwort ab.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: aafecfb5873392ef86e6f7cceb139091b15e3b99
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c791fe98271b497e5ecf48338ab3bbb0cc50de98
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852931"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381239"
 ---
 # <a name="bitsadmin-getreplyprogress"></a>bitsadmin getreplyprogress
 
-Ruft ab, die Größe und den Status der Serverantwort.
+Ruft die Größe und den Fortschritt der Serverantwort ab.
 
-**BITS-Version 1.2 und früher**: Nicht unterstützt.
+**Bits 1,2 und früher**: Nicht unterstützt.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,19 +36,19 @@ bitsadmin /GetReplyProgress <Job>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
 
 ## <a name="remarks"></a>Hinweise
 
-Gilt nur für den Upload-Antwort-Aufträge.
+Nur für Upload-Antwort-Aufträge gültig.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Das folgende Beispiel ruft den Status der Antwort für den Auftrag mit dem Namen *MyDownloadJob*.
+Im folgenden Beispiel wird der Antwortstatus des Auftrags mit dem Namen " *mydownloadjob*" abgerufen.
 ```
 C:\>bitsadmin /GetReplyProgress myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

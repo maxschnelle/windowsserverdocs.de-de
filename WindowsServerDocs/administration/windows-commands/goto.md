@@ -1,8 +1,8 @@
 ---
 title: goto
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f1ad0190519d58bd879ae391f378d800760c204f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1caf3da3e8b873150af5be7ed8316cfcb526db83
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857531"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375691"
 ---
 # <a name="goto"></a>goto
 
 
 
-Leitet cmd.exe an einer Marke in einem Batchprogramm. In einem Batchprogramm und **Goto** leitet die befehlsverarbeitung zu einer Zeile, die von einer Bezeichnung identifiziert wird. Wenn die Bezeichnung gefunden wird, setzt Verarbeitung fort, beginnend mit den Befehlen, die in der nächsten Zeile beginnen.
+Leitet "cmd. exe" an eine gekennzeichnete Zeile in einem Batch-Programm weiter. In einem Batch Programm leitet **goto** die Befehls Verarbeitung an eine Zeile weiter, die durch eine Bezeichnung gekennzeichnet ist. Wenn die Bezeichnung gefunden wird, wird die Verarbeitung fortgesetzt, beginnend mit den Befehlen, die in der nächsten Zeile beginnen.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -38,33 +38,33 @@ goto <Label>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<Label>|Gibt eine Zeichenfolge, die als Bezeichnung in der Batch-Anwendung verwendet wird.|
+|die Bezeichnung "\<" >|Gibt eine Text Zeichenfolge an, die im Batch Programm als Bezeichnung verwendet wird.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
--   Arbeiten mit befehlserweiterungen
+-   Arbeiten mit Befehls Erweiterungen
 
-    Wenn befehlserweiterungen sind aktiviert (Standard), und Sie verwenden die **Goto** mit einer Bezeichnung Ziel des Befehls **: EOF**, Sie Nichtverwendung die Steuerung an das Ende des die aktuelle Batch-Skriptdatei, und beenden Sie die Batch-Skriptdatei ohne die Definition einer Bezeichnung. Bei Verwendung von **Goto** mit der **: EOF** Bezeichnung, müssen Sie einen Doppelpunkt vor der Marke einfügen. Zum Beispiel:  
+    Wenn Befehls Erweiterungen aktiviert sind (Standardeinstellung), und Sie den **goto** -Befehl mit der Ziel Bezeichnung **: EOF**verwenden, übertragen Sie die Steuerung an das Ende der aktuellen Batch Skriptdatei und beenden die Batch Skriptdatei, ohne eine Bezeichnung zu definieren. Wenn Sie " **goto** " mit der Bezeichnung " **: EOF** " verwenden, müssen Sie vor der Bezeichnung einen Doppelpunkt einfügen. Zum Beispiel:  
     ```
     goto:EOF
     ```  
--   Mit gültigen *Bezeichnung* Werte
+-   Verwenden gültiger Bezeichnungs Werte
 
-    Können Sie Leerzeichen in der *Bezeichnung* -Parameter, aber Sie darf keine andere Trennzeichen (z. B. ein Semikolon oder Gleichheitszeichen) enthalten.
--   Übereinstimmende *Bezeichnung* mit der Bezeichnung in der Batch-Anwendung
+    Sie können Leerzeichen im *Label* -Parameter verwenden, aber Sie können keine anderen Trennzeichen (z. b. Semikolons oder Gleichheitszeichen) einschließen.
+-   Übereinstimmende *Bezeichnung* mit der Bezeichnung im Batch-Programm
 
-    Die *Bezeichnung* von Ihnen angegebene Wert muss eine Bezeichnung in der Batch-Anwendung entsprechen. Die Bezeichnung auf die Batch-Anwendung muss mit einem Doppelpunkt (:).) beginnen. Wenn eine Zeile mit einem Doppelpunkt beginnt, wird er als eine Bezeichnung behandelt, und alle Befehle in dieser Zeile werden ignoriert. Wenn Ihr Batchprogramm nicht mit die Bezeichnung, die Sie angeben enthält, in *Bezeichnung*, die Batch-Anwendung beendet und wird die folgende Meldung angezeigt:  
+    Der von Ihnen angegebene Bezeichnungs *Wert muss mit einer Bezeichnung im* Batch Programm identisch sein. Die Bezeichnung im Batch Programm muss mit einem Doppelpunkt (:) beginnen. Wenn eine Zeile mit einem Doppelpunkt beginnt, wird Sie als Bezeichnung behandelt, und alle Befehle in dieser Zeile werden ignoriert. Wenn das Batch Programm nicht die Bezeichnung enthält, die Sie in der *Bezeichnung*angegeben haben, wird das Batch Programm angehalten und zeigt die folgende Meldung an:  
     ```
     Label not found
     ```  
--   Mithilfe von **Goto** für bedingte Vorgänge
+-   Verwenden von **goto** für bedingte Vorgänge
 
-    Sie können **Goto** mit anderen Befehlen zum Ausführen von bedingten Vorgängen. Weitere Informationen zur Verwendung von **Goto** bedingte finden Sie unter den [Wenn](if.md) -Befehlsreferenz.
+    Sie können " **goto** " mit anderen Befehlen verwenden, um bedingte Vorgänge auszuführen. Weitere Informationen zur Verwendung von **goto** für bedingte Vorgänge finden Sie in der [if](if.md) -Befehlsreferenz.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Die folgenden Batch-Anwendung formatiert eine Diskette in Laufwerk A als Systemdatenträger. Wenn der Vorgang erfolgreich ist, ist die **Goto** Befehl leitet die Verarbeitung der **: End** Bezeichnung:
+Das folgende Batch Programm formatiert einen Datenträger in Laufwerk a als System Datenträger. Wenn der Vorgang erfolgreich ist, leitet der **goto** -Befehl die Verarbeitung an die **: End** -Bezeichnung weiter:
 ```
 echo off
 format a: /s
@@ -76,8 +76,8 @@ echo End of batch program.
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 [Cmd](cmd.md)
 
-[If](if.md)
+[Sei](if.md)

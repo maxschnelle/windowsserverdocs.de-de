@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 06/05/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 43a42c211557a41400fada17baaab6a0d5ab822a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 517582661374c388d44362538da6933a916b0039
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866103"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407758"
 ---
 # <a name="access-control-policies-in-windows-server-2012-r2-and-windows-server-2012-ad-fs"></a>Access Control Richtlinien in Windows Server 2012 R2 und Windows Server 2012 AD FS
 
@@ -25,7 +25,7 @@ Die in diesem Artikel beschriebenen Richtlinien nutzen zwei Arten von Ansprüche
 
 2.  Anspruchs AD FS erstellt basierend auf Informationen, die vom Client als HTTP-Header an AD FS weitergeleitet werden.  
 
->**Wichtig:** Die unten beschriebenen Richtlinien blockieren Windows 10-Domänen Beitritt und-Anmelde Szenarien, die Zugriff auf die folgenden zusätzlichen Endpunkte erfordern.
+>**Wichtig**: Die unten beschriebenen Richtlinien blockieren Windows 10-Domänen Beitritt und-Anmelde Szenarien, die Zugriff auf die folgenden zusätzlichen Endpunkte erfordern.
 
 AD FS Endpunkte, die für das beitreten und Anmelden von Windows 10-Domänen erforderlich sind
 - [Verbund Dienst Name]/ADFS/Services/Trust/2005/windowstransport
@@ -87,7 +87,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
 7.  Klicken Sie im Dialogfeld **Anspruchs Regeln bearbeiten** auf **OK**, um die neuen Regeln zu speichern. Die resultierende Liste sollte wie folgt aussehen.  
 
-     ![Regeln] für die Ausstellungs Authentifizierung (media/Access-Control-Policies-W2K12/clientaccess1.png "ADFS_Client_Access_1")  
+     Ausstellungs Authentifizierungs ![Regeln](media/Access-Control-Policies-W2K12/clientaccess1.png "ADFS_Client_Access_1")  
 
 ###  <a name="scenario2"></a>Szenario 2: Den gesamten externen Zugriff auf Office 365 mit Ausnahme von Exchange ActiveSync blockieren  
  Im folgenden Beispiel wird der Zugriff auf alle Office 365-Anwendungen einschließlich Exchange Online von internen Clients einschließlich Outlook ermöglicht. Der Zugriff von Clients, die sich außerhalb des Unternehmensnetzwerks befinden, wird durch die Client-IP-Adresse, mit Ausnahme von Exchange ActiveSync-Clients wie Smartphones, blockiert.  
@@ -259,7 +259,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
   Ein Beispiel für die Anpassung von nur zwei Adressen (z. b. 192.168.1.1 oder 10.0.0.1)\\lautet: \b192.\\\\168.1 \&#124;b\\\b10\\0\\0.1 \ b  
 
-  Auf diese Weise können Sie eine beliebige Anzahl von Adressen eingeben. Wenn ein Adressbereich zulässig sein muss, z. b\\\\. 192.168.1.1 – 192.168.1.25, muss der Abgleich Zeichen nach Zeichen durchgeführt werden: \b192\\. 168 1. ( [1-9] &#124;1 [0-9]&#124;2 [0-5]) \b  
+  Auf diese Weise können Sie eine beliebige Anzahl von Adressen eingeben. Wenn ein Adressbereich zulässig sein muss, z. b. 192.168.1.1 – 192.168.1.25, muss der Abgleich Zeichen nach Zeichen durchgeführt werden: \b192 @ no__t-0.168 @ no__t-1.1 @ no__t-2. ([1-9]&#124;1 [0-9]&#124;2 [0-5]) \b  
 
   Bitte beachten Sie Folgendes:  
 
@@ -279,9 +279,9 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
 - Beachten Sie, dass die Klammern ordnungsgemäß positioniert werden müssen, damit Sie nicht mit anderen Teilen von IP-Adressen übereinstimmen.  
 
-- Wenn der 192-Block übereinstimmt, können wir einen ähnlichen Ausdruck für den 10-Block schreiben:\\\b10 0\\0\\. ( [1-9] &#124;1 [0-4]) \b  
+- Wenn der 192-Block übereinstimmt, können wir einen ähnlichen Ausdruck für den 10-Block schreiben: \b10 @ no__t-0,0 @ no__t-1.0 @ no__t-2. ([1-9]&#124;1 [0-4]) \b  
 
-- Der folgende Ausdruck muss alle Adressen für "192.168.1.1 ~ 25" und "10.0.0.1 ~ 14": \b192\\.\\168\\1 entsprechen. [1-9] &#124;1 [0-9]&#124;2 [0-5]) \b&#124;\b10\\0\\0\\. ( [1-9] &#124;1 [0-4]) \b  
+- Der folgende Ausdruck muss alle Adressen für "192.168.1.1 ~ 25" und "10.0.0.1 ~ 14": \b192 @ no__t-0.168 @ no__t-1.1 @ no__t-2 erfüllen. ([1-9]&#124;1 [0-9]&#124;2 [0-5]) \b&#124;\b10 @ no__t-6.0 @ no__t-7.0 @ no__t-8. ([1-9]&#124;1 [0-4]) \b  
 
 ### <a name="testing-the-expression"></a>Testen des Ausdrucks  
  Regex-Ausdrücke können recht kompliziert werden, daher wird dringend empfohlen, ein Regex-Überprüfungs Tool zu verwenden. Wenn Sie eine Internetsuche nach "Online-Regex Expression Builder" durchführen, finden Sie mehrere gute Online Dienstprogramme, mit denen Sie Ihre Ausdrücke anhand von Beispiel Daten ausprobieren können.  

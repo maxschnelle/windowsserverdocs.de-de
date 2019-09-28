@@ -1,8 +1,8 @@
 ---
-title: Heben Sie die Verfügbarkeit
-description: 'Windows-Befehle Thema ***- '
+title: Heben des
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fe9cb5dfd8ae6c71fdc72ddc1e8421229f98f5d0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4e10126739ef82b060e271e9b804a77658b5ec82
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837471"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392263"
 ---
-# <a name="unexpose"></a>Heben Sie die Verfügbarkeit
+# <a name="unexpose"></a>Heben des
 
 
 
-Unexposes eine Schattenkopie, die verfügbar gemacht wurde die **verfügbar zu machen** Befehl. Die verfügbar gemachten Schattenkopie kann anhand der Schattenkopie-ID, Laufwerkbuchstaben, Freigabe oder Bereitstellungspunkt angegeben werden.
+macht eine Schatten Kopie verfügbar **, die mit dem verfügbar** gemachten Befehl verfügbar gemacht wurde. Die verfügbar gemachte Schatten Kopie kann durch die Schatten-ID, den Laufwerk Buchstaben, die Freigabe oder den Einfügepunkt angegeben werden.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -38,22 +38,22 @@ unexpose {<ShadowID> | <Drive:> | <Share> | <MountPoint>}
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<ShadowID>|Die Schattenkopie anhand der angegebenen Schattenkopien-ID angegebene unexposes|
-|\<Drive:>|Unexposes die Schattenkopie der angegebene Laufwerkbuchstabe (z. B. Laufwerk P) zugeordnet.|
-|\<Share>|Die Schattenkopie der angegebenen Freigabe unexposes (z. B. \\ \\ *"MachineName"*\).|
-|\<MountPoint>|Die Schattenkopie der angegebene Bereitstellungspunkt zugeordneten unexposes (z. B. C:\shadowcopy\).|
+|\<shadowid >|Macht die von der angegebenen Schatten-ID angegebene Schatten Kopie nicht verfügbar.|
+|\<laufwerk: >|Macht die Schatten Kopie verfügbar, die dem angegebenen Laufwerk Buchstaben zugeordnet ist (z. b. Laufwerk P).|
+|\<freigabe >|Macht die der angegebenen Freigabe zugeordnete Schatten Kopie (z. b. \\ @ no__t-1*MachineName*\) verfügbar.|
+|\<mountpoint >|Macht die Schatten Kopie verfügbar, die dem angegebenen Einstellungspunkt zugeordnet ist (z. b. c:\shadowcopy @ no__t-0.|
 
 ## <a name="remarks"></a>Hinweise
 
--   Sie können einen vorhandenen Alias oder eine Umgebungsvariable anstelle von *ShadowID*. Verwendung **hinzufügen** ohne Parameter, um die vorhandenen Aliase finden Sie unter.
+-   Anstelle von *shadowid*können Sie einen vorhandenen Alias oder eine Umgebungsvariable verwenden. Verwenden **Sie hinzufügen** ohne Parameter, um vorhandene Aliase anzuzeigen.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um die Schattenkopie zugeordnete Laufwerk P zu schließen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um die verfügbar machung der dem Laufwerk P zugeordneten Schatten Kopie anzuzeigen:
 ```
 unexpose P:
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

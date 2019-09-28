@@ -1,9 +1,9 @@
 ---
-title: Schritt 2-Plan, die erweiterte DirectAccess-Bereitstellungen
-description: Dieses Thema ist Teil des Handbuchs Bereitstellen eines einzelnen DirectAccess-Servers mit erweiterten Einstellungen für Windows Server 2016
+title: Schritt 2 Planen von erweiterten DirectAccess-bereit Stellungen
+description: Dieses Thema ist Teil des Handbuchs Bereitstellen eines einzelnen DirectAccess-Servers mit erweiterten Einstellungen für Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,26 +12,26 @@ ms.topic: article
 ms.assetid: 3bba28d4-23e2-449f-8319-7d2190f68d56
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: c946d5bbdf6e8660aaa9e47ced44aed91cfb71da
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: b093c4cbf5ceb06e84d5e07c8735106797932bc1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283462"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404927"
 ---
-# <a name="step-2-plan-advanced-directaccess-deployments"></a>Schritt 2-Plan, die erweiterte DirectAccess-Bereitstellungen
+# <a name="step-2-plan-advanced-directaccess-deployments"></a>Schritt 2 Planen von erweiterten DirectAccess-bereit Stellungen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 Nach der Planung der DirectAccess-Infrastruktur besteht der nächste Schritt der Bereitstellung des erweiterten DirectAccess auf einem einzelnen Server mit IPv4 und IPv6 darin, die Einstellungen für den Remotezugriffs-Setup-Assistenten vorzunehmen.  
   
 |Aufgabe|Beschreibung|  
 |----|--------|  
-|[2.1 Planen der Clientbereitstellung](#21-plan-for-client-deployment)|Planen Sie die Methode zum Verbinden der Clientcomputer mithilfe von DirectAccess. Entscheiden Sie, welche verwalteten Computer als DirectAccess-Clients konfiguriert werden, und planen Sie die Bereitstellung von NCA (Network Connectivity Assistant) oder DCA (DirectAccess Connectivity Assistant) auf den Clientcomputern.|  
-|[2.2 Planen der Directacess-serverbereitstellung](#22-plan-for-directaccess-server-deployment)|Planen Sie die Bereitstellung des DirectAccess-Servers.|  
-|[2.3 Planen der Infrastrukturserver](#23-plan-infrastructure-servers)|Planen Sie die Infrastrukturserver für Ihre DirectAccess-Bereitstellung, dazu gehört der DirectAccess-Netzwerkadressenserver, die DNS-Server (Domain Name System) und die DirectAccess-Verwaltungsserver.|  
-|[2.4 Planen der Anwendungsserver](#24-plan-application-servers)|Planen Sie die IPv4- und IPv6-Anwendungsserver, und ziehen Sie die optionale Möglichkeit in Betracht, eine obligatorische End-to-End-Authentifizierung zwischen DirectAccess-Clientcomputern und internen Anwendungsservern einzurichten.|  
-|[2.5 Planen von DirectAccess und Drittanbieter-VPN-clients](#25-plan-directaccess-and-third-party-vpn-clients)|Bei der Bereitstellung von DirectAccess mit VPN-Clients von Drittanbietern kann es erforderlich sein, die folgenden Registrierungswerte festzulegen, um die nahtlose gleichzeitige Verwendung der beiden Remotezugriffslösungen zu aktivieren.|  
+|[2,1 Planen der Client Bereitstellung](#21-plan-for-client-deployment)|Planen Sie die Methode zum Verbinden der Clientcomputer mithilfe von DirectAccess. Entscheiden Sie, welche verwalteten Computer als DirectAccess-Clients konfiguriert werden, und planen Sie die Bereitstellung von NCA (Network Connectivity Assistant) oder DCA (DirectAccess Connectivity Assistant) auf den Clientcomputern.|  
+|[2,2 Planen der DirectAccess-Server Bereitstellung](#22-plan-for-directaccess-server-deployment)|Planen Sie die Bereitstellung des DirectAccess-Servers.|  
+|[2,3 Planen der Infrastruktur Server](#23-plan-infrastructure-servers)|Planen Sie die Infrastrukturserver für Ihre DirectAccess-Bereitstellung, dazu gehört der DirectAccess-Netzwerkadressenserver, die DNS-Server (Domain Name System) und die DirectAccess-Verwaltungsserver.|  
+|[2,4 Planen von Anwendungsservern](#24-plan-application-servers)|Planen Sie die IPv4- und IPv6-Anwendungsserver, und ziehen Sie die optionale Möglichkeit in Betracht, eine obligatorische End-to-End-Authentifizierung zwischen DirectAccess-Clientcomputern und internen Anwendungsservern einzurichten.|  
+|[2,5 Planen von DirectAccess und VPN-Clients von Drittanbietern](#25-plan-directaccess-and-third-party-vpn-clients)|Bei der Bereitstellung von DirectAccess mit VPN-Clients von Drittanbietern kann es erforderlich sein, die folgenden Registrierungswerte festzulegen, um die nahtlose gleichzeitige Verwendung der beiden Remotezugriffslösungen zu aktivieren.|  
   
 ## <a name="21-plan-for-client-deployment"></a>2.1 Planen der Clientbereitstellung  
 Bei der Planung Ihrer Clientbereitstellung müssen drei Entscheidungen getroffen werden:  
@@ -42,7 +42,7 @@ Bei der Planung Ihrer Clientbereitstellung müssen drei Entscheidungen getroffen
   
 2.  In welchen Sicherheitsgruppen sollen die DirectAccess-Clientcomputer enthalten sein?  
   
-    Die DirectAccess-Clienteinstellungen befinden sich in dem Gruppenrichtlinienobjekt des DirectAccess-Clients. Das Gruppenrichtlinienobjekt wird auf Computer angewendet, die in den Sicherheitsgruppen enthalten sind, die Sie in dem DirectAccess-Client-Setup-Assistenten angegeben haben. Sie können angeben, dass Sicherheitsgruppen in einer beliebigen unterstützten Domäne enthalten sein sollen. Weitere Informationen finden Sie im Abschnitt [1.7 Planen der Active Directory Domain Services](da-adv-plan-s1-infrastructure.md#17-plan-active-directory-domain-services).  
+    Die DirectAccess-Clienteinstellungen befinden sich in dem Gruppenrichtlinienobjekt des DirectAccess-Clients. Das Gruppenrichtlinienobjekt wird auf Computer angewendet, die in den Sicherheitsgruppen enthalten sind, die Sie in dem DirectAccess-Client-Setup-Assistenten angegeben haben. Sie können angeben, dass Sicherheitsgruppen in einer beliebigen unterstützten Domäne enthalten sein sollen. Weitere Informationen finden Sie im Abschnitt [1,7 Plan Active Directory Domain Services](da-adv-plan-s1-infrastructure.md#17-plan-active-directory-domain-services).  
   
     Bevor Sie DirectAccess konfigurieren, sollten Sie die Sicherheitsgruppen erstellen. Nach Abschluss der DirectAccess-Bereitstellung können Sie Computer zur Sicherheitsgruppe hinzufügen, wenn Sie jedoch Clientcomputer hinzufügen, die sich in einer anderen Domäne befinden wie die Sicherheitsgruppe, dann wird das Client-Gruppenrichtlinienobjekt nicht auf diese Clients angewendet. Wenn Sie beispielsweise SG1 in Domäne A für DirectAccess-Clients erstellen und später Clients von Domäne B zu dieser Gruppe hinzufügen, wird das Client-Gruppenrichtlinienobjekt nicht auf Clients von Domäne B angewendet. Sie können dieses Problem vermeiden, indem Sie eine neue Client-Sicherheitsgruppe für jede Domäne erstellen, die die DirectAccess-Clientcomputer enthält. Alternativ dazu können Sie auch das Windwows PowerShell-Cmdlet **Add-DAClient** mit dem Namen des neuen Gruppenrichtlinienobjekts für die neue Domäne ausführen, wenn Sie keine neue Sicherheitsgruppe erstellen möchten.  
   
@@ -50,7 +50,7 @@ Bei der Planung Ihrer Clientbereitstellung müssen drei Entscheidungen getroffen
   
     Der Netzwerkkonnektivitäts-Assistent wird auf Clientcomputern ausgeführt, er stellt zusätzliche Informationen zur DirectAccess-Verbindung mit Endbenutzern bereit. Im DirectAccess-Client-Setup-Assistenten können Sie Folgendes konfigurieren:  
   
-    -   **Verbindungsprüfer**  
+    -   **Konnektivitätsverifier**  
   
         Ein Standardwebtest wird erstellt, den Clients verwenden, um die Verbindung zum internen Netzwerk zu prüfen. Der Standardname lautet:  
   
@@ -62,11 +62,11 @@ Bei der Planung Ihrer Clientbereitstellung müssen drei Entscheidungen getroffen
   
         Wenn Endbenutzer Probleme mit der DirectAccess-Verbindung haben, können Sie eine E-Mail mit Diagnoseinformationen an den DirectAccess-Administrator senden, um das Problem zu beheben.  
   
-    -   **Ein DirectAccess-Verbindungsnamens.**  
+    -   **Ein DirectAccess-Verbindungs Name**  
   
         Geben Sie einen DirectAccess-Verbindungsnamen an, damit Endbenutzer die DirectAccess-Verbindung auf ihren Computern leichter identifizieren können.  
   
-    -   **Ermöglichen von DirectAccess-Clients, die lokale namensauflösung verwenden**  
+    -   **DirectAccess-Clients die Verwendung der lokalen Namensauflösung gestatten**  
   
         Clients benötigen eine Methode, um Namen lokal aufzulösen. Wenn Sie zulassen, dass DirectAccess-Clients die lokale Namensauflösung verwenden, können Endbenutzer zum Auflösen von Namen lokale DNS-Server verwenden. Wenn Endbenutzer die Verwendung lokaler DNS-Server zur Namensauflösung auswählen, sendet DirectAccess keine Anforderungen zum Auflösen einzelner Bezeichnungsnamen an den internen Unternehmens-DNS-Server. Stattdessen verwendet er die lokale Namensauflösung, indem er die Multicastnamenauflösung für lokale Verbindungen (Link-Local Multicast Name Resolution, LLMNR) und NetBIOS über TCP/IP-Protokolle verwendet.  
   
@@ -81,7 +81,7 @@ Berücksichtigen Sie folgende Entscheidungen bei der Bereitstellung Ihres Direct
   
     -   **Ein Netzwerkadapter**. In dieser Konfiguration ist der Server hinter einem Edgegerät wie z. B. einer Firewall oder einem Router installiert. Der Netzwerkadapter ist mit dem internen Netzwerk verbunden.  
   
-    Weitere Informationen zur Auswahl der Topologie für Ihre Bereitstellung finden Sie unter [1.1 Plan-Netzwerktopologie und-Einstellungen](da-adv-plan-s1-infrastructure.md#11-plan-network-topology-and-settings).  
+    Weitere Informationen zum Auswählen der Topologie für Ihre Bereitstellung finden Sie unter [1,1 Planen der Netzwerktopologie und-Einstellungen](da-adv-plan-s1-infrastructure.md#11-plan-network-topology-and-settings).  
   
 -   **ConnectTo-Adresse**  
   
@@ -97,20 +97,20 @@ Berücksichtigen Sie folgende Entscheidungen bei der Bereitstellung Ihres Direct
   
 -   **IPv6-Präfixe**  
   
-    Wenn der Setup-Assistent für den Remotezugriffsserver erkennt, dass IPv6 auf den Netzwerkadaptern bereitgestellt wurde, füllt er automatisch IPv6-Präfixe für das interne Netzwerk auf. Ein IPv6-Präfix zum Zuweisen für die DirectAccess-Clientcomputer und ein IPv6-Präfix zum Zuweisen für die VPN-Clientcomputer. Wenn die automatisch generierten Präfixe nicht mit Ihrer systemeigenen IPv6-Infrastruktur übereinstimmen, müssen Sie sie manuell ändern. Weitere Informationen finden Sie unter [1.1 Plan-Netzwerktopologie und-Einstellungen](da-adv-plan-s1-infrastructure.md#11-plan-network-topology-and-settings).  
+    Wenn der Setup-Assistent für den Remotezugriffsserver erkennt, dass IPv6 auf den Netzwerkadaptern bereitgestellt wurde, füllt er automatisch IPv6-Präfixe für das interne Netzwerk auf. Ein IPv6-Präfix zum Zuweisen für die DirectAccess-Clientcomputer und ein IPv6-Präfix zum Zuweisen für die VPN-Clientcomputer. Wenn die automatisch generierten Präfixe nicht mit Ihrer systemeigenen IPv6-Infrastruktur übereinstimmen, müssen Sie sie manuell ändern. Weitere Informationen finden Sie unter [1,1 Planen der Netzwerktopologie und-Einstellungen](da-adv-plan-s1-infrastructure.md#11-plan-network-topology-and-settings).  
   
 -   **Authentifizierung**  
   
     Entscheiden Sie, wie DirectAccess-Clients sich mit dem DirectAccess-Server authentifizieren sollen:  
   
-    -   **Benutzerauthentifizierung**. Sie können für Benutzer die zweistufige oder die Authentifizierung mit Active Directory-Anmeldeinformationen aktivieren. Weitere Informationen zur zweistufigen Authentifizierung finden Sie unter [Bereitstellen des Remotezugriffs mit OTP-Authentifizierung](https://technet.microsoft.com/library/hh831379.aspx).  
+    -   **Benutzerauthentifizierung**. Sie können für Benutzer die zweistufige oder die Authentifizierung mit Active Directory-Anmeldeinformationen aktivieren. Weitere Informationen zum Authentifizieren mit zweistufiger Authentifizierung finden Sie unter Bereitstellen des [Remote Zugriffs mit OTP-Authentifizierung](https://technet.microsoft.com/library/hh831379.aspx).  
   
-    -   **Computerauthentifizierung**. Sie können die Computerauthentifizierung so konfigurieren, dass sie im Auftrag des Clients Zertifikate oder den DirectAccess-Server als Kerberos-Proxy verwendet. Weitere Informationen finden Sie unter [1.3 Plan zertifikatanforderungen](da-adv-plan-s1-infrastructure.md#13-plan-certificate-requirements).  
+    -   **Computerauthentifizierung**. Sie können die Computerauthentifizierung so konfigurieren, dass sie im Auftrag des Clients Zertifikate oder den DirectAccess-Server als Kerberos-Proxy verwendet. Weitere Informationen finden Sie unter [1,3 Planen der Zertifikat Anforderungen](da-adv-plan-s1-infrastructure.md#13-plan-certificate-requirements).  
   
-    -   **Windows 7-Clients**. Standardmäßig Verbindung keine Clientcomputer, auf denen Windows 7 ausführen, mit einer Windows Server 2012 R2 oder Windows Server 2012 DirectAccess-Bereitstellung. Wenn Sie Clients in Ihrer Organisation, die Windows 7 ausgeführt werden, und der Remotezugriff auf interne Ressourcen benötigen, können Sie eine Verbindung hergestellt. Clientcomputer, die auf interne Ressourcen zugreifen sollen, müssen Mitglied einer Sicherheitsgruppe sein, die Sie im DirectAccess-Client-Setup-Assistenten angeben.  
+    -   **Windows 7-Clients**. Standardmäßig können Client Computer, auf denen Windows 7 ausgeführt wird, keine Verbindung mit einer DirectAccess-Bereitstellung von Windows Server 2012 R2 oder Windows Server 2012 herstellen. Wenn Sie über Clients in Ihrer Organisation verfügen, auf denen Windows 7 ausgeführt wird, und Sie den Remote Zugriff auf interne Ressourcen benötigen, können Sie eine Verbindung herstellen. Clientcomputer, die auf interne Ressourcen zugreifen sollen, müssen Mitglied einer Sicherheitsgruppe sein, die Sie im DirectAccess-Client-Setup-Assistenten angeben.  
   
         > [!NOTE]  
-        > Ermöglicht Clients, auf denen Windows 7 mithilfe von DirectAccess eine Verbindung herstellen muss, dass Sie die Computerzertifikatauthentifizierung verwenden.  
+        > Wenn Sie zulassen, dass Clients, auf denen Windows 7 ausgeführt wird, eine Verbindung mithilfe von DirectAccess herstellen, muss die Computer Zertifikat Authentifizierung  
   
 -   **VPN-Konfiguration**  
   
@@ -133,7 +133,7 @@ Anwendungsserver sind Server im Unternehmensnetzwerk, die von Clientcomputern ü
   
 Optional können Sie auch die End-to-End-Authentifizierung und -Verschlüsselung zwischen DirectAccess-Client und ausgewählten internen Anwendungsservern voraussetzen. Wenn Sie die End-to-End-Authentifizierung konfigurieren, verwenden DirectAccess-Clients eine IPsec-Transportrichtlinie. Bei der Verwendung dieser Richtlinie muss die Authentifizierung und der Schutz der IPsec-Sitzungen auf den angegebenen Anwendungsservern beendet werden. In diesem Fall leitet der Remotezugriffsserver die authentifizierten und geschützten IPsec-Sitzungen an die Anwendungsserver weiter.  
   
-Standardmäßig wird bei der Erweiterung der Authentifizierung auf Anwendungsserver die Datennutzlast zwischen DirectAccess-Client und Anwendungsserver verschlüsselt. Sie können auch auswählen, den Datenverkehr nicht zu verschlüsseln und nur die Authentifizierung verwenden. Allerdings ist dies weniger sicher als die Verwendung von Authentifizierung und Verschlüsselung, und wird nur für Anwendungsserver, die Ausführung des Windows Server 2008 R2 oder Windows Server 2012-Betriebssystemen unterstützt.  
+Standardmäßig wird bei der Erweiterung der Authentifizierung auf Anwendungsserver die Datennutzlast zwischen DirectAccess-Client und Anwendungsserver verschlüsselt. Sie können auch auswählen, den Datenverkehr nicht zu verschlüsseln und nur die Authentifizierung verwenden. Dies ist jedoch weniger sicher als die Verwendung der-Authentifizierung und-Verschlüsselung und wird nur für Anwendungsserver unterstützt, auf denen die Betriebssysteme Windows Server 2008 R2 oder Windows Server 2012 ausgeführt werden.  
   
 ## <a name="25-plan-directaccess-and-third-party-vpn-clients"></a>2.5 Planen von DirectAccess und VPN-Clients von Drittanbietern  
 Einige VPN-Clients von Drittanbietern erstellen im Ordner Netzwerkverbindungen keine Verbindungen. Dies kann dazu führen, dass DirectAccess keine Intranetkonnektivität erkennt, wenn die VPN-Verbindung hergestellt ist und eine Verbindung zum Intranet besteht. Diese Bedingung tritt auf, wenn VPN-Clients von Drittanbietern ihre Schnittstellen registrieren, indem sie diese als (NDIS) ENDPOINT-Typen (Network Device Interface Specification) definieren. Sie können die gleichzeitige Verwendung dieser VPN-Clienttypen aktivieren, indem Sie den folgenden Registrierungswert auf 1 festlegen.  
@@ -146,11 +146,11 @@ Bei Konfigurationen mit geteiltem Tunneln wird die Standardgatewayeinstellung f�
   
 Wenn die VPN-Verbindung das Standardgateway als leer oder nur Nullen (0.0.0.0) anzeigt, ist Ihr  VPN-Client entsprechend konfiguriert. Standardmäßig erkennt der DirectAccess-Client geteilte Tunnelkonfigurationen nicht. Um DirectAccess-Clients für eine Erkennung dieser VPN-Clientkonfigurationstypen zu konfigurieren, müssen Sie den folgenden Registrierungswert auf 1 festlegen.  
   
-**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\NlaSvc\Parameters\Internet\ EnableNoGatewayLocationDetection (REG_DWORD)**  
+**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\NlaSvc\Parameters\Internet\ enablenogatewaylocationerkennungs (REG_DWORD)**  
   
 ## <a name="previous-step"></a>Vorheriger Schritt  
   
--   [Schritt 1: Planen der DirectAccess-Infrastruktur](da-adv-plan-s1-infrastructure.md)  
+-   [Schritt 1: Planen der DirectAccess-Infrastruktur @ no__t-0  
   
 
 

@@ -1,9 +1,9 @@
 ---
 title: Erstellen einer DNS-Zone
-description: Dieses Thema ist Teil des Leitfadens Verwaltung von IP-Adressverwaltung (IPAM) in Windows Server 2016.
+description: Dieses Thema ist Teil des Verwaltungs Handbuchs für die IP-Adressverwaltung (IPAM) in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ipam
@@ -12,32 +12,32 @@ ms.topic: article
 ms.assetid: a030ff51-a815-4fc4-b26d-aae41c3e4ce5
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 83e3865308fd45e88b800753b20ab298f9a14c96
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: dbd46ad129a4b3e5bbbe55f584f1bae43bd077c3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282253"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355414"
 ---
 # <a name="create-a-dns-zone"></a>Erstellen einer DNS-Zone
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können in diesem Thema verwenden, um eine DNS-Zone mithilfe der IPAM-Clientkonsole zu erstellen.  
+Sie können dieses Thema verwenden, um eine DNS-Zone mit der IPAM-Client Konsole zu erstellen.  
   
 Die Mitgliedschaft in **Administratoren** oder einer entsprechenden Gruppe ist die Mindestanforderung für die Durchführung dieses Verfahrens.  
   
-### <a name="to-create-a-dns-zone"></a>Zum Erstellen einer DNS-zone  
+### <a name="to-create-a-dns-zone"></a>So erstellen Sie eine DNS-Zone  
   
-1.  Klicken Sie im Server-Manager **IPAM**. Die IPAM-Clientkonsole angezeigt wird.  
+1.  Klicken Sie in Server-Manager auf **IPAM**. Die IPAM-Client Konsole wird angezeigt.  
   
-2.  Klicken Sie im Navigationsbereich in **ÜBERWACHEN und verwalten**, klicken Sie auf **DNS- und DHCP-Server**. Klicken Sie im Anzeigebereich auf **Servertyp**, und klicken Sie dann auf **DNS**. Alle DNS-Server, die von IPAM verwaltet werden, werden in den Suchergebnissen aufgeführt.  
+2.  Klicken Sie im Navigationsbereich unter **überwachen und verwalten**auf **DNS-und DHCP-Server**. Klicken Sie im Anzeigebereich auf **Servertyp**, und klicken Sie dann auf **DNS**. Alle DNS-Server, die von IPAM verwaltet werden, werden in den Suchergebnissen aufgeführt.  
   
-3.  Suchen Sie den Server, in dem Sie eine Zone hinzufügen möchten, und mit der rechten Maustaste in des Servers.  Klicken Sie auf **DNS-Zone erstellen**.  
+3.  Suchen Sie den Server, auf dem Sie eine Zone hinzufügen möchten, und klicken Sie mit der rechten Maustaste auf den Server.  Klicken Sie auf **DNS-Zone erstellen**.  
   
-    ![DNS-Zone erstellen](../../media/Create-a-DNS-Zone/ipam_CreateDNSZone_01a.jpg)  
+    ![Erstellen einer DNS-Zone](../../media/Create-a-DNS-Zone/ipam_CreateDNSZone_01a.jpg)  
   
-4.  Die **die DNS-Zone erstellen** Dialogfeld wird geöffnet. In **allgemeine Eigenschaften**, wählen Sie eine Zone-Kategorie, einen Typ, und geben Sie einen Namen in **Zonenname**. Wählen Sie auch Werte, die für Ihre Bereitstellung in **erweiterte Eigenschaften**, und klicken Sie dann auf **OK**.  
+4.  Das Dialogfeld **DNS-Zone erstellen** wird geöffnet. Wählen Sie unter **Allgemeine Eigenschaften**eine Zonen Kategorie, einen Zonentyp aus, und geben Sie in **Zonenname**einen Namen ein. Wählen Sie in **Erweiterte Eigenschaften**auch Werte für Ihre Bereitstellung aus, und klicken Sie dann auf **OK**.  
   
     ![Erweiterte Eigenschaften](../../media/Create-a-DNS-Zone/ipam_CreateDNSZone_02a.jpg)  
   

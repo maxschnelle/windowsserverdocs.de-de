@@ -1,38 +1,38 @@
 ---
-title: Initialisieren Sie den Host-Überwachungsdienst-Cluster mithilfe von Schlüssel-Modus in einer geschützten Gesamtstruktur
+title: Initialisieren des HGS-Clusters mithilfe des Schlüssel Modus in einer geschützten Gesamtstruktur
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: e785ee17bf68c07d965816480baa0d59062fc434
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: e72de1c85e0a9c3decf1fd3b5085363b57ca387c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447421"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403639"
 ---
-# <a name="initialize-the-hgs-cluster-using-key-mode-in-an-existing-bastion-forest"></a>Initialisieren Sie den Host-Überwachungsdienst-Cluster, die mithilfe von Modus-Taste in einer vorhandenen geschützten Gesamtstruktur
+# <a name="initialize-the-hgs-cluster-using-key-mode-in-an-existing-bastion-forest"></a>Initialisieren des HGS-Clusters mithilfe des Schlüssel Modus in einer vorhandenen geschützten Gesamtstruktur
 
 > Gilt für: Windows Server 2019
 > 
 > [!div class="step-by-step"]
-> [«Installieren Sie die Host-Überwachungsdienst in einer neuen Gesamtstruktur](guarded-fabric-install-hgs-in-a-bastion-forest.md)
-> [erstellen Hostschlüssel»](guarded-fabric-create-host-key.md)
+> [«Installieren von HGS in einer neuen](guarded-fabric-install-hgs-in-a-bastion-forest.md)Gesamtstruktur 
+> [Create Host Key»](guarded-fabric-create-host-key.md)
 
-Active Directory Domain Services auf dem Computer installiert werden, aber nicht konfigurierte bleiben sollen.
+Active Directory Domain Services wird auf dem Computer installiert, sollte jedoch nicht konfiguriert bleiben.
 
 [!INCLUDE [Obtain certificates for HGS](../../../includes/guarded-fabric-initialize-hgs-default-step-two.md)] 
 
-Bevor Sie fortfahren, stellen Sie sicher, dass Sie vorab Ihre Clusterobjekte für die Host-Überwachungsdienst bereitgestellten und dem angemeldeten Benutzer erteilt **Vollzugriff** über die Objekte VCO und CNO in Active Directory.
-Den Namen des virtuellen Computers-Objekt übergeben werden muss die `-HgsServiceName` Parameter und den Namen des Clusters, um die `-ClusterName` Parameter.
+Bevor Sie fortfahren, stellen Sie sicher, dass Sie die Cluster Objekte für den Host-Überwachungsdienst vorab bereitgestellt haben, und gewähren Sie dem angemeldeten Benutzer die **vollständige Kontrolle** über die VCO-und CNO-Objekte in Active Directory.
+Der Name des virtuellen Computer Objekts muss an den Parameter "`-HgsServiceName`" und der Cluster Name an den Parameter "`-ClusterName`" übergeben werden.
 
 > [!TIP]
-> Überprüfen Sie haben Ihre Active Directory-Domänencontroller, um sicherzustellen, dass die Clusterobjekte auf allen Domänencontrollern vor dem Fortfahren repliziert werden.
+> Überprüfen Sie die AD-Domänen Controller, um sicherzustellen, dass Ihre Cluster Objekte auf alle DCS repliziert wurden
 
-Wenn Sie PFX-Zertifikate verwenden, führen Sie die folgenden Befehle auf dem Host-Überwachungsdienst-Server:
+Wenn Sie PFX-basierte Zertifikate verwenden, führen Sie auf dem HGS-Server die folgenden Befehle aus:
 
 ```powershell
 $signingCertPass = Read-Host -AsSecureString -Prompt "Signing certificate password"
@@ -43,5 +43,5 @@ Install-ADServiceAccount -Identity 'HGSgMSA'
 Initialize-HgsServer -UseExistingDomain -ServiceAccount 'HGSgMSA' -JeaReviewersGroup 'HgsJeaReviewers' -JeaAdministratorsGroup 'HgsJeaAdmins' -HgsServiceName 'HgsService' -ClusterName 'HgsCluster' -SigningCertificatePath '.\signCert.pfx' -SigningCertificatePassword $signPass -EncryptionCertificatePath '.\encCert.pfx' -EncryptionCertificatePassword $encryptionCertPass -TrustHostKey
 ```
 
-Wenn Sie Zertifikate installiert sind, auf dem lokalen Computer (z. B. HSM-gesicherten Zertifikate und nicht exportierbare Zertifikate) verwenden, verwenden Sie die `-SigningCertificateThumbprint` und `-EncryptionCertificateThumbprint` Parameter stattdessen.
+Wenn Sie Zertifikate verwenden, die auf dem lokalen Computer installiert sind (z. b. HSM-gestützte Zertifikate und nicht exportierbare Zertifikate), verwenden Sie stattdessen die Parameter "`-SigningCertificateThumbprint`" und "`-EncryptionCertificateThumbprint`".
 

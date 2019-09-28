@@ -2,7 +2,7 @@
 title: Group Managed Service Accounts Overview
 description: Windows Server-Sicherheit
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: security-gmsa
@@ -13,61 +13,61 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 24e3e3c15544de2f3bed4a7ef177b659e8095385
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4e7f46739dd8def6ffc34c6cc50210c0e6999c79
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836971"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403744"
 ---
 # <a name="group-managed-service-accounts-overview"></a>Group Managed Service Accounts Overview
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-In diesem Thema ändert für IT-Spezialisten das gruppenverwaltete Dienstkonto eingeführt. hierzu werden praktische Anwendungen, sich in der Microsoft-Implementierung und Hardware- und softwareanforderungen.
+In diesem Thema für IT-Experten wird das Gruppen verwaltete Dienst Konto eingeführt. hierzu werden praktische Anwendungen, Änderungen in der Implementierung von Microsoft sowie Hardware-und Softwareanforderungen beschrieben.
 
 
-## <a name="BKMK_OVER"></a>Featurebeschreibung
-Eine eigenständige Managed Service Account (sMSA) wird von verwalteten Domänenkonten, die automatische kennwortverwaltung, vereinfachte Dienstprinzipalnamen (SPN) für dienstverwaltung sowie die Möglichkeit, die Verwaltung an andere Administratoren delegieren bereitstellt. Diese Art von verwalteten Dienstkonto (MSA) wurde in Windows Server 2008 R2 und Windows 7 eingeführt.
+## <a name="BKMK_OVER"></a>Funktionsbeschreibung
+Ein eigenständiges verwaltetes Dienst Konto (Managed Service Account, SMSA) ist ein verwaltetes Domänen Konto, das die automatische Kenn Wort Verwaltung, vereinfachte Dienst Prinzipal Namen-Verwaltung (Service Principal Name, SPN) und die Möglichkeit zum Delegieren der Verwaltung Diese Art von verwaltetem Dienst Konto (MSA) wurde in Windows Server 2008 R2 und Windows 7 eingeführt.
 
-Die Gruppe Managed Service Account (gMSA) bietet die gleiche Funktionalität innerhalb der Domäne, aber erweitert diese Funktion auch über mehrere Server. Bei der Verbindung an eines Diensts, gehostet in einer Serverfarm, z. B. Netzwerk-Lastenausgleich-Lösung erfordern die Authentifizierungsprotokolle mit gegenseitiger Authentifizierung an, dass alle Instanzen der Dienste den gleichen Prinzipal verwenden. Wenn ein gMSA als Dienstprinzipale verwendet wird, verwaltet das Windows-Betriebssystem das Kennwort für das Konto nicht die des Administrators das Kennwort zu verwalten.
+Das Gruppen verwaltete Dienst Konto (Group Managed Service Account, GMSA) bietet die gleiche Funktionalität innerhalb der Domäne, erweitert diese Funktionalität aber auch auf mehrere Server. Beim Herstellen einer Verbindung mit einem auf einer Serverfarm gehosteten Dienst, wie z. b. der Lösung für Netzwerk Lastenausgleich, erfordern die Authentifizierungsprotokolle, die gegenseitige Authentifizierung unterstützen, dass alle Instanzen der Dienste denselben Prinzipal Wenn ein GMSA als Dienst Prinzipale verwendet wird, verwaltet das Windows-Betriebssystem das Kennwort für das Konto, anstatt sich auf den Administrator zu verlassen, um das Kennwort zu verwalten.
 
-Die Microsoft-Schlüsselverteilungsdienst \("kdssvc.dll"\) stellt den Mechanismus, um sicher zu den neuesten Schlüssel oder ein angegebener Schlüssel mit einer schlüsselkennung für ein Active Directory-Konto erhalten. Vom Schlüsselverteilungsdienst werden geheime Informationen zur Erstellung von Schlüsseln für das Konto bereitgestellt. Diese Schlüssel werden regelmäßig geändert. Für ein gruppenverwaltetes Dienstkonto berechnet der Domänencontroller das Kennwort für den Schlüssel von Key Distribution Services, zusätzlich zu anderen Attributen des gMSA bereitgestellt.  Die aktuellen und preceding Password Values erhalten-mitgliedshosts durch kontaktieren eines-Domänencontrollers.
+Der Microsoft-Schlüssel Verteilungsdienst @no__t -0kdssvc. dll @ no__t-1 bietet den Mechanismus zum sicheren Abrufen des aktuellen Schlüssels oder eines bestimmten Schlüssels mit einer Schlüssel Kennung für ein Active Directory Konto. Vom Schlüsselverteilungsdienst werden geheime Informationen zur Erstellung von Schlüsseln für das Konto bereitgestellt. Diese Schlüssel werden regelmäßig geändert. Bei einem GMSA berechnet der Domänen Controller das Kennwort für den Schlüssel, der von den Schlüssel Verteilungs Diensten bereitgestellt wird, zusätzlich zu anderen Attributen des GMSA.  Mitglieder Hosts können die aktuellen und vorangehenden Kenn Wort Werte abrufen, indem Sie einen Domänen Controller kontaktieren.
 
 ## <a name="BKMK_APP"></a>Praktische Anwendungen
-gMSAs bieten eine einzelidentitätslösung für Dienste, die in einer Serverfarm oder auf Systemen hinter einem Network Load Balancer ausgeführt. Indem Sie ein gMSA-Lösung verwenden, Dienste können so konfiguriert werden, für die neuen Gmsas Dienstprinzipal, und die kennwortverwaltung wird von Windows verarbeitet.
+gmsas bieten eine einzelne Identitäts Lösung für Dienste, die in einer Serverfarm oder auf Systemen hinter Netzwerk Load Balancer ausgeführt werden. Durch die Bereitstellung einer GMSA-Lösung können Dienste für den neuen GMSA-Prinzipal konfiguriert werden, und die Kenn Wort Verwaltung wird von Windows verarbeitet.
 
-Verwendung eines gruppenverwalteten Dienstkontos, müssen Dienste oder Dienstadministratoren nicht die kennwortsynchronisierung zwischen Dienstinstanzen zu verwalten. Das gruppenverwaltete Dienstkonto unterstützt Hosts, die für einen längeren Zeitraum und die Verwaltung von mitgliedshosts für alle Instanzen eines Diensts offline gespeichert werden. Sie können also eine Serverfarm bereitstellen, die eine einzelne Identität unterstützt, gegenüber der sich vorhandene Clientcomputer authentifizieren können, ohne zu wissen, mit welcher Instanz des Diensts eine Verbindung hergestellt wird.
+Durch die Verwendung eines GMSA müssen Dienste oder Dienst Administratoren die Kenn Wort Synchronisierung zwischen Dienst Instanzen nicht verwalten. Das GMSA unterstützt Hosts, die über einen längeren Zeitraum offline gehalten werden, sowie die Verwaltung von Mitglieds Hosts für alle Instanzen eines Diensts. Sie können also eine Serverfarm bereitstellen, die eine einzelne Identität unterstützt, gegenüber der sich vorhandene Clientcomputer authentifizieren können, ohne zu wissen, mit welcher Instanz des Diensts eine Verbindung hergestellt wird.
 
 Failovercluster unterstützen keine gruppenverwalteten Dienstkonten. Dienste, die oben im Clusterdienst ausgeführt werden, können jedoch ein gMSA oder sMSA verwenden, wenn sie ein Windows-Dienst, ein App-Pool, eine geplante Aufgabe oder gMSA oder sMSA systemeigen unterstützen.
 
-## <a name="BKMK_SOFT"></a>Softwareanforderungen
+## <a name="BKMK_SOFT"></a>Software Anforderungen
 
-Ein 64\--Bit-Architektur ist erforderlich, um die Windows PowerShell-Befehle ausführen, die zum Verwalten von gMSAs verwendet werden.
+Zum Ausführen der Windows PowerShell-Befehle, die zur Verwaltung von gmsas verwendet werden, ist eine 64 @ no__t-0bit-Architektur erforderlich.
 
-Ein verwaltetes Dienstkonto ist abhängig von Verschlüsselungstypen mit Kerberos-Unterstützung. Wenn sich ein Clientcomputer gegenüber einem Server per Kerberos authentifiziert, wird vom Domänencontroller ein Kerberos-Dienstticket erstellt, das mit einer Verschlüsselung geschützt ist, die sowohl vom Domänencontroller als auch vom Server unterstützt wird. Der Domänencontroller verwendet das Konto des MsDS\-SupportedEncryptionTypes-Attribut, um zu bestimmen, was das Server-Verschlüsselung unterstützt und, wenn kein Attribut vorhanden ist, es wird vorausgesetzt der Clientcomputer unterstützt keine sicherere Verschlüsselungsarten. Wenn der Host zur Unterstützung von RC4 nicht konfiguriert ist, schlägt die Authentifizierung immer fehl. Aus diesem Grund muss AES für verwaltete Dienstkonten immer explizit konfiguriert sein.
+Ein verwaltetes Dienstkonto ist abhängig von Verschlüsselungstypen mit Kerberos-Unterstützung. Wenn sich ein Clientcomputer gegenüber einem Server per Kerberos authentifiziert, wird vom Domänencontroller ein Kerberos-Dienstticket erstellt, das mit einer Verschlüsselung geschützt ist, die sowohl vom Domänencontroller als auch vom Server unterstützt wird. Der Domänen Controller verwendet das msDS @ no__t-0supportedencryptiontypes-Attribut des Kontos, um zu bestimmen, welche Verschlüsselung der Server unterstützt. Wenn kein Attribut vorhanden ist, wird davon ausgegangen, dass der Client Computer keine stärkeren Verschlüsselungstypen unterstützt. Wenn der Host so konfiguriert ist, dass RC4 nicht unterstützt wird, tritt bei der Authentifizierung immer ein Fehler auf. Aus diesem Grund muss AES für verwaltete Dienstkonten immer explizit konfiguriert sein.
 
 > [!NOTE]
 > Ab Windows Server 2008 R2 ist DES standardmäßig deaktiviert. Weitere Informationen zu den unterstützten Verschlüsselungsarten finden Sie unter [Changes in Kerberos Authentication](https://technet.microsoft.com/library/dd560670(WS.10).aspx).
 
-gMSAs gelten nicht für Windows-Betriebssysteme vor Windows Server 2012.
+gmsas gelten nicht für Windows-Betriebssysteme vor Windows Server 2012.
 
 ## <a name="server-manager-information"></a>Informationen zum Server-Manager
-Es sind keine Konfigurationsschritte erforderlich, Implementieren von verwalteten Dienstkonten und gruppenverwaltetes Dienstkonto mithilfe von Server-Manager oder die Installation\-WindowsFeature-Cmdlets.
+Es sind keine Konfigurationsschritte erforderlich, um MSA und GMSA mithilfe von Server-Manager oder mit dem Cmdlet Install @ no__t-0windows Feature zu implementieren.
 
 ## <a name="BKMK_LINKS"></a>Siehe auch
 In der folgenden Tabelle sind Links zu weiterführenden Ressourcen im Zusammenhang mit verwalteten Dienstkonten und gruppenverwalteten Dienstkonten aufgeführt.
 
 |Inhaltstyp|Verweise|
 |--------|-------|
-|**Produktbewertung**|[Neues für verwaltete Dienstkonten](what-s-new-for-managed-service-accounts.md)<br /><br />[Dokumentation zu Windows 7 und Windows Server 2008 R2 für gruppenverwaltete Dienstkonten](https://technet.microsoft.com/library/ff641731(v=ws.10).aspx)<br /><br />[Dienstkonten Schritt\-von\-Schritt-Handbuch für](https://technet.microsoft.com/library/dd548356(v=ws.10).aspx)|
+|**Produktbewertung**|[Neuerungen bei verwalteten Dienst Konten](what-s-new-for-managed-service-accounts.md)<br /><br />[Dokumentation zu verwalteten Dienst Konten für Windows 7 und Windows Server 2008 R2](https://technet.microsoft.com/library/ff641731(v=ws.10).aspx)<br /><br />[Dienst Konten Schritt @ no__t-1BY @ no__t-2 Step Guide](https://technet.microsoft.com/library/dd548356(v=ws.10).aspx)|
 |**Planung**|Noch nicht verfügbar|
 |**Bereitstellung**|Noch nicht verfügbar|
-|**Betrieb**|[Verwaltete Dienstkonten in Active Directory](https://technet.microsoft.com/library/dd378925(v=ws.10).aspx)|
+|**Betrieb**|[Verwaltete Dienst Konten in Active Directory](https://technet.microsoft.com/library/dd378925(v=ws.10).aspx)|
 |**Problembehandlung**|Noch nicht verfügbar|
-|**Auswertung**|[Erste Schritte mit der Gruppe von verwalteten Dienstkonten](getting-started-with-group-managed-service-accounts.md)|
-|**Tools und Einstellungen**|[Verwaltete Dienstkonten in Active Directory-Domänendienste](https://technet.microsoft.com/library/dd378925(v=WS.10).aspx)|
-|**Communityressourcen**|[Verwaltete Dienstkonten: Grundlegendes, Implementierung, bewährte Methoden und Problembehandlung](http://blogs.technet.com/b/askds/archive/2009/09/10/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting.aspx)|
-|**Verwandte Technologien**|[Übersicht über Active Directory-Domänendienste](active-directory-domain-services-overview.md)|
+|**Evaluation**|[Erste Schritte mit gruppenverwalteten Dienstkonten](getting-started-with-group-managed-service-accounts.md)|
+|**Tools und Einstellungen**|[Verwaltete Dienst Konten in Active Directory Domain Services](https://technet.microsoft.com/library/dd378925(v=WS.10).aspx)|
+|**Communityressourcen**|[verwaltete Dienst Konten: Grundlegendes, Implementierung, bewährte Methoden und Problembehandlung bei @ no__t-0|
+|**Verwandte Technologien**|[Übersicht über die Active Directory Domain Services](active-directory-domain-services-overview.md)|
 
 

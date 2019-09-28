@@ -1,8 +1,8 @@
 ---
-title: dfsdiag
-description: 'Windows-Befehle Thema ***- '
+title: Dfsdiag
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ab5c86ce7ed4760aef4941de55e8dcf8efe48c8f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 61a6ab9a90e4d0220cfe27d2d21120be19b9ff1f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819141"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378310"
 ---
-# <a name="dfsdiag"></a>dfsdiag
+# <a name="dfsdiag"></a>Dfsdiag
 
 
 
-Die `Dfsdiag` Befehl bietet Diagnoseinformationen für DFS-Namespaces.
+Der Befehl "`Dfsdiag`" stellt Diagnoseinformationen für DFS-Namespaces bereit.
 
 ## <a name="syntax"></a>Syntax
 
@@ -37,13 +37,13 @@ dfsdiag [ /TestDCs [/Domain:<Domain name>]| /TestSites </Machine:<server name>| 
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|[Dfsdiag TestDCs](dfsdiag-testdcs.md)|Überprüft die Konfiguration des Domänencontrollers.|
-|[Dfsdiag TestSites](dfsdiag-testsites.md)|Überprüfungen site Zuordnungen.|
-|[Dfsdiag TestDFSConfig](dfsdiag-testdfsconfig.md)|Überprüft die Konfiguration der DFS-Namespace.|
-|[Dfsdiag TestDFSIntegrity](dfsdiag-testdfsintegrity.md)|Überprüft die Integrität des DFS-Namespace.|
-|[Dfsdiag TestReferral](dfsdiag-testreferral.md)|Überprüft die Weiterleitung von Reaktionen.|
+|[Dfsdiag-testdcs](dfsdiag-testdcs.md)|Überprüft die Konfiguration des Domänen Controllers.|
+|[Dfsdiag Testsites](dfsdiag-testsites.md)|Überprüft Site Zuordnungen.|
+|[Dfsdiag testdfsconfig](dfsdiag-testdfsconfig.md)|Überprüft die DFS-Namespace Konfiguration.|
+|[Dfsdiag testdfsintegrity](dfsdiag-testdfsintegrity.md)|Überprüft die Integrität des DFS-Namespace.|
+|[Dfsdiag testreferral](dfsdiag-testreferral.md)|Überprüft Verweis Antworten.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 #### <a name="additional-references"></a>Weitere Verweise
 
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

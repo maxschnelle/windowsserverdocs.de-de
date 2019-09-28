@@ -1,8 +1,8 @@
 ---
 title: change logon
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 45c171a1b14cf69abf039d57697cad933a2dd87b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: c04eaffe366dce079aed53351589c1b5026954e3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434570"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379644"
 ---
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 # <a name="change-logon"></a>change logon
-Aktiviert oder deaktiviert die Anmeldungen von Clientsitzungen, oder zeigt den aktuellen Status der Anmeldung.
-Dieses Dienstprogramm ist hilfreich für Systemwartung.
-Beispiele für diesen Befehl verwenden, finden Sie unter [Beispiele](#BKMK_examples).
+Aktiviert oder deaktiviert Anmeldungen von Client Sitzungen oder zeigt den aktuellen Anmeldestatus an.
+Dieses Hilfsprogramm ist für die Systemwartung nützlich.
+Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 > [!NOTE]
-> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Neuerungen in der neuesten Version finden Sie unter [welche s New in Remote Desktop Services in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der technischen Bibliothek für Windows Server.
+> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der TechNet-Bibliothek für Windows Server.
 > ## <a name="syntax"></a>Syntax
 > ```
 > change logon {/query | /enable | /disable | /drain | /drainuntilrestart}
@@ -36,30 +36,29 @@ Beispiele für diesen Befehl verwenden, finden Sie unter [Beispiele](#BKMK_examp
 > 
 > |     Parameter      |                                                       Beschreibung                                                        |
 > |--------------------|--------------------------------------------------------------------------------------------------------------------------|
-> |       /query       |                             Zeigt den aktuellen Status für die Anmeldung an, ob aktiviert oder deaktiviert.                              |
-> |      / Enable /       |                              Können Anmeldungen von Clientsitzungen, jedoch nicht aus der Konsole an.                              |
-> |      / Disable      |  Deaktiviert Weitere Anmeldungen von Clientsitzungen, jedoch nicht aus der Konsole an. Derzeit angemeldete Benutzer hat keine Auswirkungen auf.   |
-> |       /drain       |                 Anmeldungen von neuen Clientsitzungen deaktiviert, aber erneute Verbindungen zu vorhandenen Sitzungen können.                 |
-> | /drainuntilrestart | Deaktiviert die Anmeldungen vom neuen Clientsitzungen, bis der Computer neu gestartet wird, jedoch ermöglicht die erneute Verbindungen zu vorhandenen Sitzungen. |
+> |       /Query "aus       |                             Zeigt den aktuellen Anmeldestatus an, ob aktiviert oder deaktiviert.                              |
+> |      /enable       |                              Aktiviert Anmeldungen von Client Sitzungen, jedoch nicht über die-Konsole.                              |
+> |      /Disable      |  Deaktiviert nachfolgende Anmeldungen von Client Sitzungen, jedoch nicht über die-Konsole. Wirkt sich nicht auf derzeit angemeldete Benutzer aus.   |
+> |       /drain       |                 Deaktiviert Anmeldungen von neuen Client Sitzungen, ermöglicht aber das erneute Herstellen von Verbindungen mit vorhandenen Sitzungen.                 |
+> | /drainuntilrestart | Deaktiviert Anmeldungen von neuen Client Sitzungen, bis der Computer neu gestartet wird, ermöglicht aber das erneute Herstellen von Verbindungen mit vorhandenen Sitzungen. |
 > |         /?         |                                           Zeigt die Hilfe an der Eingabeaufforderung an.                                           |
 > 
 > ## <a name="remarks"></a>Hinweise
-> - Nur Administratoren können die **Anmeldung ändern** Befehl.
-> - Anmeldungen werden erneut aktiviert, wenn Sie das System neu starten. Wenn Sie von einer Clientsitzung mit dem Remotedesktop-Sitzungshost (rd Session Host)-Server verbunden sind und Deaktivieren von Anmeldungen, und melden Sie sich vor der erneuten Aktivierung von Anmeldungen, werden Sie nicht eine Verbindung mit der Sitzung herstellen können. Melden Sie sich an der Konsole an, um Anmeldungen von Clientsitzungen erneut zu aktivieren.
->   ## <a name="BKMK_examples"></a>Beispiele für
-> - Um den aktuellen Status der Anmeldung anzuzeigen, geben Sie Folgendes ein:
+> - Nur Administratoren können den Befehl zum **Ändern der Anmeldung** verwenden.
+> - Anmeldungen werden erneut aktiviert, wenn Sie das System neu starten. Wenn Sie eine Verbindung mit dem Remotedesktop-Sitzungshost-Server (RD-Sitzungs Host Server) aus einer Client Sitzung hergestellt haben und Anmeldungen deaktivieren und dann abmelden, bevor Sie Anmeldungen erneut aktivieren, können Sie keine erneute Verbindung mit ihrer Sitzung herstellen. Zum erneuten Aktivieren von Anmeldungen aus Client Sitzungen melden Sie sich an der Konsole an.
+>   ## <a name="BKMK_examples"></a>Beispiele
+> - Geben Sie Folgendes ein, um den aktuellen Anmeldestatus anzuzeigen:
 >   ```
 >   change logon /query
 >   ```
-> - Geben Sie Folgendes ein, um Anmeldungen von Clientsitzungen zu aktivieren:
+> - Geben Sie Folgendes ein, um Anmeldungen von Client Sitzungen zu aktivieren:
 >   ```
 >   change logon /enable
 >   ```
-> - Geben Sie Folgendes ein, um Clients zu deaktivieren:
+> - Um Client Anmeldungen zu deaktivieren, geben Sie Folgendes ein:
 >   ```
 >   change logon /disable
 >   ```
->   #### <a name="additional-references"></a>Zusätzliche Referenzen
->   [Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
->   [ändern](change.md)
->   [Remote Desktop Services &#40;"Terminal Services"&#41; -Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)
+>   #### <a name="additional-references"></a>Weitere Verweise
+>   [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+>   -[Änderung](change.md)@no__t-[3 &#40;Remotedesktopdienste Befehls&#41; Referenz für Terminal Dienste](remote-desktop-services-terminal-services-command-reference.md)

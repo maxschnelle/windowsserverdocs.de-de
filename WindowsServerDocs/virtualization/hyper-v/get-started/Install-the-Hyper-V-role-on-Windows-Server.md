@@ -1,7 +1,7 @@
 ---
-title: Installieren der Hyper-V-Serverrolle unter Windows Server
-description: Enthält Anweisungen zum Installieren von Hyper-V über Server-Manager oder Windows PowerShell
-ms.prod: windows-server-threshold
+title: Installieren der Hyper-V-Rolle unter Windows Server
+description: Enthält Anweisungen zum Installieren von Hyper-V mithilfe von Server-Manager oder Windows PowerShell.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,28 +11,28 @@ ms.assetid: 8e871317-09d2-4314-a6ec-ced12b7aee89
 author: KBDAzure
 ms.author: kathydav
 ms.date: 12/02/2016
-ms.openlocfilehash: 80154c569701608ad190fb76eb3737578895d187
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 2687a907852e2a81f03b147df1425cd01b34fb76
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812380"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392809"
 ---
-# <a name="install-the-hyper-v-role-on-windows-server"></a>Installieren der Hyper-V-Serverrolle unter Windows Server
+# <a name="install-the-hyper-v-role-on-windows-server"></a>Installieren der Hyper-V-Rolle unter Windows Server
 
->Gilt für: WindowsServer 2016, WindowsServer 2019
+>Gilt für: Windows Server 2016, Windows Server 2019
   
-Installieren Sie zum Erstellen und Ausführen von virtuellen Computern, die Hyper-V-Rolle unter Windows Server mithilfe von Server-Manager oder das **Install-WindowsFeature** Windows PowerShell-Cmdlet. Windows 10, finden Sie unter [Installieren von Hyper-V unter Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
+Um virtuelle Computer zu erstellen und auszuführen, installieren Sie die Hyper-V-Rolle unter Windows Server, indem Sie Server-Manager oder das Cmdlet **install-Windows Feature** in Windows PowerShell verwenden. Informationen zu Windows 10 finden Sie unter [Installieren von Hyper-V unter Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
 
-Weitere Informationen zu Hyper-V finden Sie unter den [Übersicht über die Hyper-V-Technologie](../Hyper-V-Technology-Overview.md). Um Windows Server-2019 auszuprobieren, können Sie herunterladen und installieren eine Evaluierungsversion. Finden Sie unter den [Evaluierungscenter](https://www.microsoft.com/evalcenter/evaluate-windows-server-2019).
+Weitere Informationen zu Hyper-v finden Sie in der [Übersicht über die Hyper-v-Technologie](../Hyper-V-Technology-Overview.md). Zum Ausprobieren von Windows Server 2019 können Sie eine Evaluierungsversion herunterladen und installieren. Weitere Informationen finden Sie im [Evaluation Center](https://www.microsoft.com/evalcenter/evaluate-windows-server-2019).
 
-Vor der Installation von Windows Server und Hyper-V-Rolle hinzufügen, stellen Sie sicher, dass:
-- Die Computerhardware ist kompatibel. Weitere Informationen finden Sie unter [System Requirements for Windows Server](../../../get-started/System-Requirements.md) und [Systemanforderungen für Hyper-V unter Windows Server](../System-requirements-for-Hyper-V-on-Windows.md).
-- Sie möchten keine apps von Drittanbietern verwenden, die die gleichen Prozessorfunktionen verwenden, die Hyper-V erfordert. Beispiele: VMWare Workstation und VirtualBox. Sie können Hyper-V installieren, ohne diese anderen apps zu deinstallieren. Aber wenn Sie versuchen, diese verwenden, um virtuelle Computer verwalten, wenn der Hyper-V-Hypervisor ausgeführt wird, wird die virtuellen Computer möglicherweise nicht gestartet oder unberechenbar Verhalten führen kann. Details und Anweisungen zum Deaktivieren des Hyper-V-Hypervisors, wenn Sie eine dieser apps verwenden müssen, finden Sie unter [Virtualization-Anwendungen funktionieren nicht zusammen mit Hyper-V, Device Guard und Credential Guard](https://support.microsoft.com/help/3204980/virtualization-applications-do-not-work-together-with-hyper-v-device-g).
+Stellen Sie vor dem Installieren von Windows Server oder dem Hinzufügen der Hyper-V-Rolle Folgendes sicher:
+- Die Computer Hardware ist kompatibel. Weitere Informationen finden Sie unter [Systemanforderungen für Windows Server](../../../get-started/System-Requirements.md) und [Systemanforderungen für Hyper-V unter Windows Server](../System-requirements-for-Hyper-V-on-Windows.md).
+- Sie beabsichtigen nicht, Virtualisierungsanwendungen von Drittanbietern zu verwenden, die auf den gleichen Prozessor Features basieren, die von Hyper-V benötigt werden. Beispiele hierfür sind VMware-Arbeitsstation und VirtualBox. Sie können Hyper-V installieren, ohne diese anderen apps zu deinstallieren. Wenn Sie jedoch versuchen, Sie zum Verwalten virtueller Maschinen zu verwenden, wenn der Hyper-V-Hypervisor ausgeführt wird, werden die virtuellen Computer möglicherweise nicht zuverlässig gestartet oder nicht zuverlässig ausgeführt. Ausführliche Informationen und Anweisungen zum Ausschalten des Hyper-v-Hypervisors, wenn Sie eine dieser Apps verwenden müssen, finden Sie unter [Virtualisierungsanwendungen funktionieren nicht zusammen mit Hyper-v, Device Guard und Credential Guard](https://support.microsoft.com/help/3204980/virtualization-applications-do-not-work-together-with-hyper-v-device-g).
 
-Wenn Sie nur die Verwaltungstools, wie z. B. Hyper-V-Manager installieren möchten, finden Sie unter [Remoteverwaltung von Hyper-V-Hosts mit Hyper-V-Manager](../Manage/Remotely-manage-Hyper-V-hosts.md).
+Wenn Sie nur die Verwaltungs Tools (z. b. Hyper-v-Manager) installieren möchten, finden Sie weitere Informationen unter [Remote Verwaltung von Hyper-v-Hosts mit Hyper-v-Manager](../Manage/Remotely-manage-Hyper-V-hosts.md).
   
-## <a name="install-hyper-v-by-using-server-manager"></a>Installieren von Hyper-V mithilfe von Server-Manager  
+## <a name="install-hyper-v-by-using-server-manager"></a>Installieren von Hyper-V mit Server-Manager  
   
 1. Klicken Sie im **Server-Manager** im Menü **Verwalten** auf **Rollen und Funktionen hinzufügen**.  
   
@@ -50,33 +50,33 @@ Wenn Sie nur die Verwaltungstools, wie z. B. Hyper-V-Manager installieren möcht
   
 8. Wählen Sie auf der Seite **Installationsauswahl bestätigen** die Option **Zielserver bei Bedarf automatisch neu starten**, und klicken Sie dann auf **Installieren**.  
   
-9. Wenn die Installation abgeschlossen ist, stellen Sie sicher, dass Hyper-V ordnungsgemäß installiert. Öffnen der **alle Server** Seite im Server-Manager, und wählen Sie einen Server, auf dem Sie Hyper-V installiert. Überprüfen Sie die **Rollen und Features** Kachel auf der Seite für den ausgewählten Server.  
+9. Vergewissern Sie sich nach Abschluss der Installation, dass Hyper-V ordnungsgemäß installiert ist. Öffnen Sie in Server-Manager die Seite **alle Server** , und wählen Sie einen Server aus, auf dem Hyper-V installiert ist. Überprüfen Sie die Kachel **Rollen und Features** auf der Seite für den ausgewählten Server.  
   
-## <a name="install-hyper-v-by-using-the-install-windowsfeature-cmdlet"></a>Installieren von Hyper-V mithilfe des Install-WindowsFeature-Cmdlets  
+## <a name="install-hyper-v-by-using-the-install-windowsfeature-cmdlet"></a>Installieren von Hyper-V mithilfe des Cmdlets "Install-Windows Feature"  
   
 1. Klicken Sie auf dem Windows-Desktop auf die Schaltfläche „Start“, und geben Sie einen beliebigen Teil des Namens **Windows PowerShell** ein.  
   
-2. Mit der rechten Maustaste in Windows PowerShell, und wählen Sie **als Administrator ausführen**.  
+2. Klicken Sie mit der rechten Maustaste auf Windows PowerShell, und wählen Sie **als Administrator ausführen**.  
   
-3. Um Hyper-V auf einem Server installieren Sie Remote verbunden sind, führen Sie den folgenden Befehl aus, und Ersetzen Sie `<computer_name>` mit den Namen des Servers.  
+3. Wenn Sie Hyper-V auf einem Server installieren möchten, mit dem Sie eine Remote Verbindung hergestellt haben, führen Sie den folgenden Befehl aus, und ersetzen Sie `<computer_name>` durch den Namen des Servers.  
   
     ```powershell
     Install-WindowsFeature -Name Hyper-V -ComputerName <computer_name> -IncludeManagementTools -Restart  
     ```  
   
-    Wenn Sie lokal auf dem Server verbunden sind, führen Sie den Befehl ohne `-ComputerName <computer_name>`.  
+    Wenn Sie lokal mit dem Server verbunden sind, führen Sie den Befehl ohne `-ComputerName <computer_name>` aus.  
   
-4. Nach dem Neustart des Servers werden Sie sehen, dass die Hyper-V-Rolle installiert ist, und informieren Sie andere Rollen und Features installiert, indem Sie den folgenden Befehl ausführen:  
+4. Nachdem der Server neu gestartet wurde, können Sie sehen, dass die Hyper-V-Rolle installiert ist, und sehen, welche anderen Rollen und Features installiert werden, indem Sie den folgenden Befehl ausführen:  
   
     ```powershell
     Get-WindowsFeature -ComputerName <computer_name>  
     ```  
   
-    Wenn Sie lokal auf dem Server verbunden sind, führen Sie den Befehl ohne `-ComputerName <computer_name>`.  
+    Wenn Sie lokal mit dem Server verbunden sind, führen Sie den Befehl ohne `-ComputerName <computer_name>` aus.  
   
 > [!NOTE]  
-> Wenn Sie diese Rolle auf einem Server installiert, die die Server Core-Installationsoption von Windows Server 2016 ausgeführt wird, und verwenden Sie den Parameter `-IncludeManagementTools`, nur die Hyper-V-Modul für Windows PowerShell installiert ist. Sie können die GUI-Verwaltungstool, Hyper-V-Manager verwenden, auf einem anderen Computer zur Remoteverwaltung von Hyper-V-Host, der auf einer Server Core-Installation ausgeführt wird. Anweisungen dazu, eine Remoteverbindung herstellen, finden Sie unter [Remoteverwaltung von Hyper-V-Hosts mit Hyper-V-Manager](../Manage/Remotely-manage-Hyper-V-hosts.md).  
+> Wenn Sie diese Rolle auf einem Server installieren, auf dem die Server Core-Installationsoption von Windows Server 2016 ausgeführt wird, und den Parameter `-IncludeManagementTools` verwenden, wird nur das Hyper-V-Modul für Windows PowerShell installiert. Sie können das GUI-Verwaltungs Tool Hyper-v-Manager auf einem anderen Computer verwenden, um einen Hyper-v-Host, der auf einer Server Core-Installation ausgeführt wird, Remote zu verwalten. Anweisungen zum Herstellen einer Remote Verbindung finden Sie unter [Remote Verwaltung von Hyper-v-Hosts mit dem Hyper-v-Manager](../Manage/Remotely-manage-Hyper-V-hosts.md).  
   
 ## <a name="see-also"></a>Siehe auch  
   
-- [Install-WindowsFeature](https://docs.microsoft.com/powershell/module/Microsoft.Windows.ServerManager.Migration/Install-WindowsFeature)  
+- [Install-Windows Feature](https://docs.microsoft.com/powershell/module/Microsoft.Windows.ServerManager.Migration/Install-WindowsFeature)  

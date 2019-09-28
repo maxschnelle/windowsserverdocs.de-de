@@ -1,8 +1,8 @@
 ---
 title: chgport
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,23 +13,23 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 49502f23c5659c6d43b50c01ddbd9cf1fd896820
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: fb03014811d006e9dd60f5af75a076c559981fe2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434397"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379504"
 ---
 # <a name="chgport"></a>chgport
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Listet oder ändert die COM-Port-Zuordnungen mit MS-DOS-Anwendungen kompatibel ist.
+Listet die COM-Port Zuordnungen auf, die mit MS-DOS-Anwendungen kompatibel sind, oder ändert Sie.
 > [!NOTE]
-> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Neuerungen in der neuesten Version finden Sie unter [welche s New in Remote Desktop Services in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der technischen Bibliothek für Windows Server.
+> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der TechNet-Bibliothek für Windows Server.
 > ## <a name="remarks"></a>Hinweise
-> Dieser Befehl ist identisch mit der **Port ändern** Befehl.
-> #### <a name="additional-references"></a>Zusätzliche Referenzen
-> [Ändern Sie Port](change-port.md)
-> [Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-> [Remote Desktop Services &#40;"Terminal Services"&#41; -Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)
+> Dieser Befehl ist identisch mit dem Befehl **Port ändern** .
+> #### <a name="additional-references"></a>Weitere Verweise
+> [ändern](change-port.md)des[Befehlszeilen-Syntax Schlüssels](command-line-syntax-key.md)für Port 
+>  
+> [ &#40;Remotedesktopdienste&#41; Befehlsreferenz für Terminal Dienste](remote-desktop-services-terminal-services-command-reference.md)

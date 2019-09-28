@@ -2,22 +2,22 @@
 title: Speicherberichtmanagement
 description: Dieser Artikel beschreibt, wie Speicherberichte in regelmäßigen Abständen generiert, geplant und überwacht werden
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 62215aa802e2509be5305aef53069ae9643562f1
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: c78718508194cec834d248f30459b7e50a32b3b0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476101"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403065"
 ---
 # <a name="storage-reports-management"></a>Speicherberichtmanagement
 
-> Gilt für: WindowsServer 2019, WindowsServer 2016, WindowsServer (Halbjährlicher Kanal), Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
+> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Sie können auf dem Knoten **Speicherberichteverwaltung** des Ressourcen-Manager für Dateiserver Microsoft <sup>®</sup> Management Console (MMC)-Snap-Ins folgende Aufgaben ausführen:
 

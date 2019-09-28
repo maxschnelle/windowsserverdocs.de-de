@@ -3,7 +3,7 @@ title: Glossar
 description: Definiert Wörter, Begriffe und Konzepte in Multipoint Services
 ms.custom: na
 ms.date: 07/22/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ ms.assetid: 807bce1d-b993-49c6-9783-b01a3c55846c
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 759dc5d0b8210dc4d8da3ef18caff2ee3ca2cceb
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 0c966f0c8e1ad239769c58e4648832ae5020d0dc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871691"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389650"
 ---
 # <a name="glossary"></a>Glossar
 **Zuordnen einer Station**  
