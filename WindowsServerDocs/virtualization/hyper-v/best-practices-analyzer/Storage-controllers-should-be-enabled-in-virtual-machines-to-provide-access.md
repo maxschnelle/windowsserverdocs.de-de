@@ -1,7 +1,7 @@
 ---
-title: Speichercontroller sollte auf virtuellen Computern aktiviert werden, um Zugriff auf den angefügten Speicher bereitzustellen.
-description: Enthält Anweisungen zur Behebung des Problems gemeldet wird, die von dieser Best Practices Analyzer-Regel.
-ms.prod: windows-server-threshold
+title: Speichercontroller müssen in virtuellen Computern aktiviert werden, um Zugriff auf den angeschlossenen Speicher bereitzustellen.
+description: Enthält Anweisungen zum Beheben des Problems, das von dieser Best Practices Analyzer Regel gemeldet wird.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 532548a1-8ffe-4b5b-902e-ed2f0819012b
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 42803a0eef84bf006e9f9e7ed6297ea21b4eb7b1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f0d10ab4c419a6014a9edb4b7f721714dc92798d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849161"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393492"
 ---
-# <a name="storage-controllers-should-be-enabled-in-virtual-machines-to-provide-access-to-attached-storage"></a>Speichercontroller sollte auf virtuellen Computern aktiviert werden, um Zugriff auf den angefügten Speicher bereitzustellen.
+# <a name="storage-controllers-should-be-enabled-in-virtual-machines-to-provide-access-to-attached-storage"></a>Speichercontroller müssen in virtuellen Computern aktiviert werden, um Zugriff auf den angeschlossenen Speicher bereitzustellen.
 
 >Gilt für: Windows Server 2016
 
@@ -26,41 +26,41 @@ Weitere Informationen zu bewährten Methoden und Überprüfungen finden Sie unte
 |Eigenschaft|Details|  
 |-|-|  
 |**Betriebssystem**|Windows Server 2016|  
-|**Produkt /-Funktion**|Hyper-V|  
-|**Schweregrad**|Warnung|  
+|**Produkt/Feature**|Hyper-V|  
+|**Zunehmen**|Warnung|  
 |**Kategorie**|Konfiguration|  
 
-In den folgenden Abschnitten Kursivschrift gibt an Benutzeroberflächentext, die im Best Practices Analyzer-Tool für dieses Problem angezeigt wird.
+In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.
 
 ## <a name="issue"></a>Problem  
   
-*Eine oder mehrere Speichercontroller möglicherweise auf einem virtuellen Computer deaktiviert.*  
+*Ein oder mehrere Speichercontroller sind möglicherweise auf einem virtuellen Computer deaktiviert.*  
   
 ## <a name="impact"></a>Auswirkungen  
   
-*Virtuelle Computer kann nicht mit einem deaktivierten Speichercontroller verbundenen Speicher verwenden. Dies wirkt sich auf die folgenden virtuellen Computer aus:*  
+virtuelle Computer mit @no__t 0können keinen mit einem deaktivierten Speichercontroller verbundenen Speicher verwenden. Dies wirkt sich auf die folgenden virtuellen Computer aus: *  
   
-\<Liste von Namen virtueller Computer >  
+\<liste der Namen der virtuellen Computer >  
   
 ## <a name="resolution"></a>Auflösung  
   
-*Verwenden Sie Geräte-Manager im Gastbetriebssystem, um alle Speichercontroller zu aktivieren. Wenn der Speichercontroller nicht erforderlich ist, verwenden Sie Hyper-V-Manager, um es aus dem virtuellen Computer zu entfernen.*  
+*verwenden Sie Geräte-Manager im Gast Betriebssystem, um alle Speichercontroller zu aktivieren. Wenn der Speichercontroller nicht erforderlich ist, entfernen Sie ihn mit dem Hyper-V-Manager aus dem virtuellen Computer.*  
   
-Anweisungen dazu, wie Sie die Geräte-Manager verwenden finden Sie Hilfe im Gastbetriebssystem. Anweisungen dazu, wie Sie den Storage-Controller zu entfernen finden Sie im folgende Verfahren.  
+Anweisungen zur Verwendung von Geräte-Manager finden Sie in der Hilfe zum Gast Betriebssystem. Anweisungen zum Entfernen des Speicher Controllers finden Sie im folgenden Verfahren.  
   
-#### <a name="to-remove-a-scsi-storage-controller-from-the-virtual-machine"></a>So entfernen Sie einen SCSI-Controller-Speicher des virtuellen Computers  
+#### <a name="to-remove-a-scsi-storage-controller-from-the-virtual-machine"></a>So entfernen Sie einen SCSI-Speichercontroller von der virtuellen Maschine  
   
 1.  Öffnen Sie den Hyper-V-Manager. Klicken Sie auf **Start**, zeigen Sie auf **Verwaltung**, und klicken Sie dann auf **Hyper-V-Manager**.  
   
-2.  Klicken Sie im Ergebnisbereich unter **VMs**, wählen Sie den virtuellen Computer, die Sie konfigurieren möchten.  
+2.  Wählen Sie im Ergebnisbereich unter **Virtual Machines**den virtuellen Computer aus, den Sie konfigurieren möchten.  
   
-3.  Wenn der virtuelle Computer ausgeführt wird, müssen Sie den virtuellen Computer heruntergefahren. Mit der rechten Maustaste den virtuellen Computer aus, und klicken Sie auf **Herunterfahren**.  
+3.  Wenn die virtuelle Maschine ausgeführt wird, fahren Sie den virtuellen Computer herunter. Klicken Sie mit der rechten Maustaste auf den virtuellen Computer und dann auf **herunter**fahren.  
   
 4.  Klicken Sie im Bereich **Aktion** unter dem Namen des virtuellen Computers auf **Einstellungen**.  
   
-5.  Klicken Sie im linken Bereich die **Einstellungen** Dialogfeld **Hardware**, klicken Sie auf **SCSI-Controller**.  
+5.  Klicken Sie im linken Bereich des Dialog Felds **Einstellungen** unter **Hardware**auf SCSI- **Controller**.  
   
-6.  Klicken Sie im rechten Bereich auf **entfernen**.  
+6.  Klicken Sie im rechten Bereich auf **Entfernen**.  
   
 
 

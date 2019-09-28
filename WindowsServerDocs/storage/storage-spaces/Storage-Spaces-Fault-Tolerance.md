@@ -1,6 +1,6 @@
 ---
 title: Fehlertoleranz und Speichereffizienz in Direkte Speicherplätze
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: cosmosdarwin
 ms.manager: eldenc
 ms.technology: storage-spaces
@@ -10,12 +10,12 @@ ms.date: 10/11/2017
 ms.assetid: 5e1d7ecc-e22e-467f-8142-bad6d82fc5d0
 description: Eine Erläuterung der Resilienzoptionen in Direkte Speicherplätze, einschließlich Spiegelung und Parität.
 ms.localizationpriority: medium
-ms.openlocfilehash: 4e6a29e82a85ec9570cda827060dfe1cdf192c53
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d2220584c0021352110b27c3107d1113eb17ef59
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849571"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393810"
 ---
 # <a name="fault-tolerance-and-storage-efficiency-in-storage-spaces-direct"></a>Fehlertoleranz und Speichereffizienz in Direkte Speicherplätze
 
@@ -102,7 +102,7 @@ Die Speichereffizienz einer durch Spiegelung beschleunigten Parität liegt zwisc
 > [!IMPORTANT]
 > Es wird empfohlen, für die meisten leistungsabhängigen Arbeitslasten eine Spiegelung zu verwenden. Weitere Informationen zum Ausgleich der Leistung und Kapazität je nach Ihrer Workload finden Sie unter [Volumes planen](plan-volumes.md#choosing-the-resiliency-type).
 
-## <a name="summary"></a>Zusammenfassung
+## <a name="summary"></a>FAS
 
 Dieser Abschnitt enthält die in „Direkte Speicherplätze“ verfügbaren Resilienztypen, die Mindestanforderungen für die Skalierung bei Verwendung der einzelnen Typen, die Anzahl von tolerierbaren Fehlern pro Typ und die entsprechende Speichereffizienz.
 
@@ -171,7 +171,7 @@ In dieser Tabelle sind die Speichereffizienz der dualen Parität und die Codes f
 |    15                 |    RS 6+2           |    75,0 %        |
 |    16                 |    LRC (12, 2, 1)   |    80,0 %        |
 
-## <a name="examples"></a>Beispiele für
+## <a name="examples"></a>Beispiele
 
 Sofern Sie nicht nur zwei Server verwenden, empfehlen wir Ihnen die Nutzung der Drei-Wege-Spiegelung bzw. der dualen Parität, weil dies eine bessere Fehlertoleranz ermöglicht. Es wird sichergestellt, dass alle Daten auch dann sicher und ständig verfügbar sind, wenn zwei Fehlerdomänen – bei „Direkte Speicherplätze“ also zwei Server – von gleichzeitigen Ausfällen betroffen sind.
 
@@ -179,18 +179,18 @@ Sofern Sie nicht nur zwei Server verwenden, empfehlen wir Ihnen die Nutzung der 
 
 Diese sechs Beispiele verdeutlichen, was bei der Drei-Wege-Spiegelung bzw. der dualen Parität toleriert werden **kann**.
 
-- **1.**    Ein Laufwerk verloren geht (einschließlich Cachelaufwerken)
-- **2.**    Ein Server, die verloren gehen
+- **1.**    Ein Laufwerk ist verloren gegangen (schließt Cache Laufwerke ein)
+- **2.**    Ein Server geht verloren.
 
 ![fault-tolerance-examples-1-and-2](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-12.png)
 
-- **3.**    Ein Server und ein Laufwerk verloren.
-- **4.**    Zwei Laufwerke verloren gehen in unterschiedlichen-Servern
+- **3.**    Ein Server und ein Laufwerk sind verloren gegangen.
+- **4.**    Zwei Laufwerke sind auf unterschiedlichen Servern verloren
 
 ![fault-tolerance-examples-3-and-4](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-34.png)
 
-- **5.**    Mehr als zwei Laufwerke verloren, sofern höchstens zwei Server betroffen sind
-- **6.**    Zwei Server, die verloren gehen
+- **5.**    Es sind mehr als zwei Laufwerke verloren, solange höchstens zwei Server betroffen sind.
+- **6.**    Zwei Server verloren
 
 ![fault-tolerance-examples-5-and-6](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-56.png)
 
@@ -200,8 +200,8 @@ In all diesen Fällen bleiben alle Volumes online. (Stellen Sie sicher, dass fü
 
 Während ihrer gesamten Lebensdauer können Speicherplätze eine beliebige Anzahl von Ausfällen tolerieren, da die Resilienz nach jedem Ausfall vollständig wiederhergestellt wird, sofern genügend Zeit ist. Es können aber jeweils nur maximal zwei Fehlerdomänen von einem Fehler betroffen sein, ohne dass es zu Problemen kommt. Daher sind hier Beispiele dafür angegeben, was bei der Drei-Wege-Spiegelung bzw. der dualen Parität toleriert werden **kann**.
 
-- **7.** Laufwerke gleichzeitig in drei oder mehr Servern verloren
-- **8.** Drei oder mehr Servern auf einmal verloren.
+- **7.** Laufwerke, die auf drei oder mehr Servern gleichzeitig verloren gehen
+- **8.** Drei oder mehr Server, die gleichzeitig verloren gehen
 
 ![fault-tolerance-examples-7-and-8](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-78.png)
 
@@ -213,10 +213,10 @@ Sehen Sie sich [Erstellen von Volumes in direkten Speicherplätzen](create-volum
 
 Alle folgenden Links sind inline im Text dieses Themas vorhanden.
 
-- ["Direkte Speicherplätze" unter WindowsServer 2016](storage-spaces-direct-overview.md)
-- [Fehlerdomänenunterstützung in WindowsServer 2016](../../failover-clustering/fault-domains.md)
+- [Direkte Speicherplätze in Windows Server 2016](storage-spaces-direct-overview.md)
+- [Fehler Domänen Bewusstsein in Windows Server 2016](../../failover-clustering/fault-domains.md)
 - [Erasure Coding in Azure von Microsoft Research](https://www.microsoft.com/en-us/research/publication/erasure-coding-in-windows-azure-storage/)
-- [Lokale Code und schnellere Paritätsvolumes](https://blogs.technet.microsoft.com/filecab/2016/09/06/volume-resiliency-and-efficiency-in-storage-spaces-direct/)
+- [Lokale Wiederherstellungscodes und schnellere Paritäts Volumes](https://blogs.technet.microsoft.com/filecab/2016/09/06/volume-resiliency-and-efficiency-in-storage-spaces-direct/)
 - [Volumes in der Speicherverwaltungs-API](https://blogs.technet.microsoft.com/filecab/2016/08/29/deep-dive-volumes-in-spaces-direct/)
-- [Storage Effizienz Demo bei Microsoft Ignite 2016](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=36m55s)
-- [Capacity-Rechner-Vorschau für den Speicher "direkte Speicherplätze"](http://aka.ms/s2dcalc)
+- [Demo zur Speichereffizienz bei Microsoft Ignite 2016](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=36m55s)
+- [Kapazitäts Rechner Vorschau für direkte Speicherplätze](http://aka.ms/s2dcalc)

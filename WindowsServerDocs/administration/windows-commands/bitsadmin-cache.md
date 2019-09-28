@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin-cache
-description: 'Windows-Befehle Thema **Bitsadmin Cache** wechselt: enthält eine Liste mit den Bitsadmin/Cache-switches'
+title: biout admin-Cache
+description: 'Thema "Windows-Befehle" für **BI-admin-Cache** Switches: enthält eine Liste der BI-admin/Cache Switches.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 80077957df0891d738364552491a66a00e831168
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: aaf1df20c7f0be97a9449fc952523dc7dfacc16b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435051"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381863"
 ---
-# <a name="bitsadmin-cache"></a>Bitsadmin-cache
+# <a name="bitsadmin-cache"></a>biout admin-Cache
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 ## <a name="syntax"></a>Syntax
 
@@ -43,18 +43,18 @@ bitsadmin /Cache /SetExpirationtime
 
 |Parameter|Beschreibung|
 |-------|--------|
-|[bitsadmin cache and help](bitsadmin-cache-and-help.md)|Der Befehl zeigt\-Zeile Nutzung für die \/Switches Zwischenspeichern.|
+|[bitsadmin cache and help](bitsadmin-cache-and-help.md)|Zeigt den Befehls @ no__t-0line-Verwendung für die \/cache-Switches an.|
 |[bitsadmin cache and clear](bitsadmin-cache-clear.md)|Löscht den lokalen Cache.|
-|[bitsadmin cache and delete](bitsadmin-cache-and-delete.md)|Löscht einen Eintrag im Cache.|
-|[bitsadmin cache and deleteurl](bitsadmin-cache-and-deleteurl.md)|Löscht alle Einträge im Cache für die angegebene URL.|
-|[bitsadmin cache and list](bitsadmin-cache-and-list.md)|Listet alle Einträge im Cache.|
-|[bitsadmin cache and info](bitsadmin-cache-and-info.md)|Gibt einen bestimmten Cacheeintrag.|
-|[bitsadmin cache and getlimit](bitsadmin-cache-and-getlimit.md)|Ruft das CacheLimit ab.|
-|[bitsadmin cache and setlimit](bitsadmin-cache-and-setlimit.md)|Legt das CacheLimit.|
-|[bitsadmin cache and getexpirationtime](bitsadmin-cache-and-getexpirationtime.md)|Ruft die Ablaufzeit für den Cache ab.|
+|[bitsadmin cache and delete](bitsadmin-cache-and-delete.md)|Löscht einen Cache Eintrag.|
+|[bitsadmin cache and deleteurl](bitsadmin-cache-and-deleteurl.md)|Löscht alle Cache Einträge für die angegebene URL.|
+|[bitsadmin cache and list](bitsadmin-cache-and-list.md)|Listet alle Cache Einträge auf.|
+|[bitsadmin cache and info](bitsadmin-cache-and-info.md)|Sichert einen bestimmten Cache Eintrag.|
+|[bitsadmin cache and getlimit](bitsadmin-cache-and-getlimit.md)|Ruft das Cache Limit ab.|
+|[bitsadmin cache and setlimit](bitsadmin-cache-and-setlimit.md)|Legt den Cache Grenzwert fest.|
+|[bitsadmin cache and getexpirationtime](bitsadmin-cache-and-getexpirationtime.md)|Ruft den Cache Ablauf Zeitpunkt ab.|
 |[bitsadmin cache and setexpirationtime](bitsadmin-cache-and-setexpirationtime.md)|Legt die Ablaufzeit für den Cache fest.|
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 

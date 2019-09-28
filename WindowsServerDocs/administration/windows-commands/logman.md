@@ -1,8 +1,8 @@
 ---
 title: logman
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7d4819169ae59d3fed83fc10e6e98f7b39ce8a43
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 420c591a8a6c15d563a344d0450be5eb7da46191
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831901"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374260"
 ---
 # <a name="logman"></a>logman
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-**Logman** erstellt und verwaltet die Ereignisablaufverfolgungs-Sitzung und Leistungsprotokolle und unterstützt viele Funktionen des Systemmonitors über die Befehlszeile.
+**logman** erstellt und verwaltet Ereignis Ablauf Verfolgungs Sitzungen und Leistungs Protokolle und unterstützt viele Funktionen des System Monitors von der Befehlszeile aus.
 ## <a name="syntax"></a>Syntax
 ```
 logman [create | query | start | stop | delete| update | import | export | /?] [options]
@@ -32,9 +32,9 @@ logman [create | query | start | stop | delete| update | import | export | /?] [
 ## <a name="actions"></a>Aktionen
 |Aktion|Beschreibung|
 |-----|--------|
-|[Logman erstellen](logman-create.md)|Erstellen Sie einen Indikator, Ablaufverfolgung, Konfiguration Datensammler oder -API.|
-|[logman query](logman-query.md)|Eigenschaften des Datensammlers Abfrage.|
-|[logman start &#124; stop](logman-start-stop.md)|Starten Sie oder beenden Sie der Datensammlung.|
-|[logman delete](logman-delete.md)|Löschen Sie die vorhandenen Sammlungen.|
-|[Logman update](logman-update.md)|Aktualisieren Sie die Eigenschaften eines vorhandenen Sammlungen.|
-|[logman import &#124; export](logman-import-export.md)|einen datensammlersatz aus einer XML-Datei importieren oder Exportieren eines Sammlungssatzes, der in eine XML-Datei.|
+|[logman create](logman-create.md)|Erstellen Sie einen Counter, eine Ablauf Verfolgung, einen Konfigurationsdaten Sammler oder eine API.|
+|[logman query](logman-query.md)|Eigenschaften des Abfrage Daten Sammlers.|
+|[logman start &#124; stop](logman-start-stop.md)|startet oder beendet die Datensammlung.|
+|[logman delete](logman-delete.md)|Löschen eines vorhandenen Daten Sammlers.|
+|[logman update](logman-update.md)|Aktualisieren Sie die Eigenschaften eines vorhandenen Daten Sammlers.|
+|[logman import &#124; export](logman-import-export.md)|Importieren Sie einen Datensammler Satz aus einer XML-Datei, oder exportieren Sie einen Datensammler Satz in eine XML-Datei.|

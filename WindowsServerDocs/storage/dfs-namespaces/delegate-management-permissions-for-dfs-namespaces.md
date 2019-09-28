@@ -2,22 +2,22 @@
 title: Delegieren von Verwaltungsberechtigungen für DFS-Namespaces
 description: In diesem Artikel wird beschrieben, wie Sie Verwaltungsberechtigungen für DFS-Namespaces delegieren und welche Gruppen standardmäßig Namespaceaufgaben ausführen können
 ms.date: 6/5/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 7895432ca16dd13c6425d966f99104fc03db100d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5bf23498c95d4b44d5c17aecd216921dc70819a3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829491"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402219"
 ---
 # <a name="delegate-management-permissions-for-dfs-namespaces"></a>Delegieren von Verwaltungsberechtigungen für DFS-Namespaces
 
-> Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2, WindowsServer 2008
+> Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
 Die folgende Tabelle beschreibt die Gruppen, die grundlegende Namespaceaufgaben standardmäßig ausführen können, und die Methode für das Delegieren der Fähigkeit zum Ausführen dieser Aufgaben:
 
@@ -32,4 +32,4 @@ Die folgende Tabelle beschreibt die Gruppen, die grundlegende Namespaceaufgaben 
 
 <br />
 
-\*Delegieren von Verwaltungsberechtigungen zum Verwalten eines eigenständigen Namespaces gewährt nicht dem Benutzer die Möglichkeit zum Anzeigen und Verwalten der Sicherheit mithilfe der **Delegierung** Registerkarte, sofern der Benutzer ein Mitglied der lokalen Gruppe "Administratoren" auf der Namespaceserver. Dieses Problem tritt auf, da der DFS-Verwaltungs-Snap-In die freigegebenen Zugriffssteuerungslisten (Discretionary Access Control Lists, DACLs) für den eigenständigen Namespace in der Registrierung nicht abrufen kann. Um das Snap-In zur Anzeige von Delegierungsinformationen zu aktivieren, müssen Sie die Schritte in der Microsoft befolgen<sup>®</sup> Knowledge Base-Artikel: [KB314837: Gewusst wie: Verwalten des Remotezugriffs in der Registrierung](https://go.microsoft.com/fwlink?linkid=46803)
+\*delegieren von Verwaltungs Berechtigungen zum Verwalten eines eigenständigen Namespace gewährt dem Benutzer nicht die Möglichkeit, die Sicherheit auf der Registerkarte **Delegierung** anzuzeigen und zu verwalten, es sei denn, der Benutzer ist ein Mitglied der lokalen Administratoren Gruppe auf dem Namespace Server. Dieses Problem tritt auf, da der DFS-Verwaltungs-Snap-In die freigegebenen Zugriffssteuerungslisten (Discretionary Access Control Lists, DACLs) für den eigenständigen Namespace in der Registrierung nicht abrufen kann. Um das Snap-in zum Anzeigen von Delegierungs Informationen zu aktivieren, müssen Sie die Schritte im Microsoft<sup>®</sup> Knowledge Base-Artikel ausführen: [KB314837: Verwalten des Remote Zugriffs auf die Registrierung @ no__t-0

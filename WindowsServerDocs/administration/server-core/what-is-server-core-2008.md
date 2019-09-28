@@ -1,106 +1,106 @@
 ---
 title: Was ist Server Core 2008?
-description: Erfahren Sie mehr über die Server Core-Installationsoption in Windows Server 2008
-ms.prod: windows-server-threshold
+description: Weitere Informationen zur Server Core-Installationsoption in Windows Server 2008
+ms.prod: windows-server
 ms.author: helohr
 ms.date: 11/01/2017
 ms.topic: article
 author: Heidilohr
-ms.openlocfilehash: 8d1aaf8b61142155ea7b2a5391367cc677596ebe
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 0a109d0bfc4fc09b5e8097059d68b728d17752a6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435601"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383381"
 ---
 # <a name="what-is-server-core-2008"></a>Was ist Server Core 2008?
 >Gilt für: WindowsServer 2008
 
 >[!NOTE]
->Diese Informationen gelten für Windows Server 2008. Weitere Informationen zu Server Core unter Windows Server, finden Sie unter [Was ist, dass die Server Core-Installation unter Windows Server](https://docs.microsoft.com/windows-server/administration/server-core/what-is-server-core). 
+>Diese Informationen gelten für Windows Server 2008. Weitere Informationen zu Server Core in Windows Server finden Sie unter [Was ist die Server Core-Installation in Windows Server](https://docs.microsoft.com/windows-server/administration/server-core/what-is-server-core). 
 
-Die Server Core-Option wird eine neue Minimalinstallation-Option, die verfügbar ist, wenn Sie die Standard, Enterprise oder Datacenter Edition von Windows Server 2008 bereitstellen. Server Core bietet Ihnen eine Minimalinstallation von Windows Server 2008, die unterstützt die Installation nur für bestimmte Serverrollen, wie weiter unten in diesem Kapitel beschrieben. Vergleichen Sie dies mit der vollständigen Installationsoption für Windows Server 2008, die unterstützt wird, installieren alle verfügbaren Serverrollen und andere Microsoft oder Drittanbieter-serveranwendungen wie Microsoft Exchange Server oder SAP. 
+Bei der Server Core-Option handelt es sich um eine neue minimale Installationsoption, die verfügbar ist, wenn Sie die Standard Edition, Enterprise oder Datacenter Edition von Windows Server 2008 bereitstellen. Server Core bietet eine minimale Installation von Windows Server 2008, die die Installation bestimmter Server Rollen unterstützt, wie weiter unten in diesem Kapitel beschrieben. Vergleichen Sie dies mit der vollständigen Installationsoption für Windows Server 2008, die die Installation aller verfügbaren Server Rollen sowie anderer Microsoft-oder Drittanbieter-Server Anwendungen wie Microsoft Exchange Server oder SAP unterstützt. 
 
-Bevor wir fortfahren, muss der Ausdruck "Installationsoption" erläutert. Wenn Sie eine Kopie von Windows Server 2008 erwerben, kaufen Sie normalerweise eine Lizenz zur Nutzung von bestimmten Editionen oder die Stock Keeping-Einheiten (SKUs). Tabelle 1: 1 listet die verschiedenen Editionen von Windows Server 2008, die verfügbar sind. Die Tabelle gibt auch an, welche Installationsoptionen (vollständig, Server Core oder beides) für jede Edition verfügbar sind.
+Bevor wir fortfahren, muss der Begriff "Installationsoption" erläutert werden. Wenn Sie eine Kopie von Windows Server 2008 erwerben, erwerben Sie normalerweise eine Lizenz zur Verwendung bestimmter Editionen oder Stock-Keeping Units (SKUs). In Tabelle 1-1 sind die verschiedenen verfügbaren Editionen von Windows Server 2008 aufgeführt. Die Tabelle gibt auch an, welche Installationsoptionen (Full, Server Core oder beides) für jede Edition verfügbar sind.
 
-**Tabelle 1: 1** Windows Server 2008-Editionen und deren Unterstützung für die Installationsoptionen
+**Tabelle 1-1** Windows Server 2008-Editionen und deren Unterstützung für Installationsoptionen
 
 | Edition       | Vollständig          | Server Core  |
 | ------------- | :-------------: | :------------: |
-| Windows Server 2008 Standard (X86- und X64)       | X | X        |
-| Windows Server 2008 Enterprise (X86- und X64)       | X | X        |
-| Windows Server 2008 Datacenter (X86- und X64)        | X | X       |
-| Windows Web Server 2008 (X86- und X64)       | X | X  |
+| Windows Server 2008 Standard (x86 und x64)       | X | X        |
+| Windows Server 2008 Enterprise (x86 und x64)       | X | X        |
+| Windows Server 2008 Datacenter (x86 und x64)        | X | X       |
+| Windows-Webserver 2008 (x86 und x64)       | X | X  |
 | Windows Server 2008 für Itanium-basierte Systeme       | X |     |
-| Windows HPC Server 2008 (nur X64)       | X |   |
-| Windows Server 2008 Standard ohne Hyper-V (X86- und X64) | X | X |
-| Windows Server 2008 Enterprise ohne Hyper-V (X86- und X64)  | X | X |
-| Windows Server 2008 Standard ohne Hyper-V (X86- und X64) | X | X |
+| Windows HPC Server 2008 (nur x64)       | X |   |
+| Windows Server 2008 Standard ohne Hyper-V (x86 und x64) | X | X |
+| Windows Server 2008 Enterprise ohne Hyper-V (x86 und x64)  | X | X |
+| Windows Server 2008 Standard ohne Hyper-V (x86 und x64) | X | X |
 
-Um zu verstehen, was eine "Installationsoption ist", nehmen wir an, dass Sie eine Volumenlizenz erworben haben, in dem Sie eine Kopie von Windows Server 2008 Enterprise Edition installieren können. Beim Einfügen von Ihrem volumenlizenzierte Medieninhalts in einem System und beginnen, wie in Abbildung 1 – 1 dargestellt, während des Installationsvorgangs eine Bildschirme, die Sie sehen, bietet Ihnen die Wahl zwischen verschiedenen Editionen und Installationsoptionen.
+Um zu verstehen, was eine "Installationsoption" ist, nehmen wir an, dass Sie eine Volumenlizenz erworben haben, mit der Sie eine Kopie von Windows Server 2008 Enterprise Edition installieren können. Wenn Sie Ihre Volumen lizenzierten Medien in ein System einfügen und den Installationsvorgang starten, können Sie auf einem der angezeigten Bildschirme, wie in Abbildung 1-1 dargestellt, Editionen und Installationsoptionen auswählen.
 
-![Wählen eine Server Core-Installationsoption installiert](../media/what-is-server-core-2008/FIg1-1.png)
+![Auswählen einer Server Core-Installationsoption für die Installation](../media/what-is-server-core-2008/FIg1-1.png)
 
-**Abbildung 1-1** eine Server Core-Installationsoption installiert auswählen
+**Abbildung 1-1** Auswählen einer Server Core-Installationsoption für die Installation
 
-In Abbildung 1 – 1, Ihre Volumenlizenzen (oder Product Key für Einzelhandelsmedien) bietet Ihnen zwei Installationsoptionen, Sie zwischen können: die zweite Option (eine vollständige Installation von Windows Server 2008 Enterprise) und die fünfte Option (eine Server Core-Installation von Windows Server 2008 Enterprise), der zweiten Option ausgewählt, die in diesem Beispiel. 
+In Abbildung 1-1 bietet Ihre Volumenlizenz (oder Product Key für Einzelhandels Medien) zwei Installationsoptionen, zwischen denen Sie wählen können: die zweite Option (eine vollständige Installation von Windows Server 2008 Enterprise) und die fünfte Option (eine Server Core-Installation von Windows). Server 2008 Enterprise), wobei der zweite in diesem Beispiel ausgewählt ist. 
 
-## <a name="full-vs-server-core"></a>Vollständige Visual Studio. Server Core 
-Seit den Anfängen der Microsoft Windows-Plattform, Windows Server wurden im Prinzip "Alles" Servern, die alle Arten von Funktionen enthalten, von denen einige möglicherweise nie in Ihrer Netzwerkumgebung Verwendung. Z. B. bei der Installation von Windows Server 2003 auf einem System wurden die Binärdateien für den Routing- und RAS-Dienst (RRAS) auf dem Server installiert, auch wenn Sie keine Notwendigkeit für diesen Dienst mussten (auch wenn immer noch mussten Sie konfigurieren und Aktivieren von RRAS, bevor sie funktionieren würde). Windows Server 2008 verbessert die frühere Versionen durch Installieren der Binärdateien, die von einer Serverrolle nur erforderlich, wenn Sie dieser spezifischen Rolle auf dem Server installieren möchten. Die vollständige Installationsoption von Windows Server 2008 installiert jedoch noch viele Dienste und andere Komponenten, die für ein bestimmtes Einsatzszenario zugängig häufig nicht erforderlich sind. 
+## <a name="full-vs-server-core"></a>Vollständig im Vergleich zu Server Core 
+Seit den frühen Tagen der Microsoft Windows-Plattform waren Windows-Server im wesentlichen "alles"-Server, die alle Arten von Features enthielt, von denen Sie in Ihrer Netzwerkumgebung möglicherweise nie tatsächlich verwendet werden. Wenn Sie z. b. Windows Server 2003 auf einem System installiert haben, wurden die Binärdateien für den Routing-und RAS-Dienst (RRAS) auf dem Server installiert, auch wenn Sie diesen Dienst nicht benötigen (obwohl Sie weiterhin RRAS konfigurieren müssen, bevor dies funktioniert). Windows Server 2008 verbessert frühere Versionen, indem die von einer Server Rolle benötigten Binärdateien nur installiert werden, wenn Sie diese Rolle auf dem Server installieren. Bei der vollständigen Installation von Windows Server 2008 werden jedoch weiterhin viele Dienste und andere Komponenten installiert, die für ein bestimmtes Verwendungs Szenario häufig nicht benötigt werden. 
 
-Dies ist der Grund, die Microsoft-erstellt eine zweite Installationsoption – Server Core – für Windows Server 2008: um zu vermeiden, alle Dienste und andere Funktionen, die nicht wichtig sind, für die Unterstützung bestimmter Serverrollen häufig verwendet wird. Beispielsweise kein Domain Name System (DNS)-Server nicht unbedingt darauf installiert werden, da Sie aus einem DNS-Server aus Sicherheitsgründen das Web durchsuchen möchten, wäre nicht von Windows Internet Explorer. Und ein DNS-Server nicht einmal eine grafische Benutzeroberfläche (GUI), da Sie fast alle Aspekte von DNS verwalten können entweder über die Befehlszeile mit dem leistungsfähigen Dnscmd.exe-Befehl aus, oder Remote mithilfe der DNS-Microsoft Management Console (MMC)-Snap-in.
+Dies ist der Grund, warum Microsoft eine zweite Installationsoption – Server Core – für Windows Server 2008 erstellt hat:, um Dienste und andere Features zu eliminieren, die für die Unterstützung bestimmter häufig verwendeter Server Rollen nicht von wesentlicher Bedeutung sind. Beispielsweise muss auf einem Domain Name System (DNS)-Server nicht Windows Internet Explorer installiert sein, da Sie aus Sicherheitsgründen nicht das Web von einem DNS-Server durchsuchen möchten. Und ein DNS-Server benötigt nicht einmal eine grafische Benutzeroberfläche (GUI), da Sie praktisch alle Aspekte von DNS entweder über die Befehlszeile mit dem leistungsstarken Befehl "dnscmd. exe" oder Remote mithilfe des DNS Microsoft Management Console (MMC)-Snap-Ins verwalten können.
 
-Um dies zu vermeiden, Microsoft entschieden, um alles von Windows Server 2008 zu entfernen, die nicht unbedingt für die Ausführung von Core-Netzwerkdienste wie Active Directory Domain Services (AD DS), DNS, Dynamic Host Configuration-Protokoll (DHCP), Datei, und drucken, war und ein Einige andere Serverrollen. Das Ergebnis ist der neue Server Core-Installationsoption, die verwendet werden kann, um einen Server zu erstellen, der nur eine begrenzte Anzahl von Rollen und Features unterstützt. 
+Um dies zu vermeiden, entschied sich Microsoft, alles aus Windows Server 2008 zu entfernen, das nicht unbedingt für die Ausführung von Kern Netzwerkdiensten wie Active Directory Domain Services (AD DS), DNS, DHCP (Dynamic Host Configuration Protocol), Datei-und Druckvorgänge und einer einige andere Server Rollen. Das Ergebnis ist die neue Server Core-Installationsoption, die zum Erstellen eines Servers verwendet werden kann, der nur eine begrenzte Anzahl von Rollen und Features unterstützt. 
 
-## <a name="the-server-core-gui"></a>Der Server Core-GUI
-Wenn Sie fertig sind, installieren Server Core zum ersten Mal auf einem System und anmelden, haben Sie für etwas überrascht. Abbildung 1-2 zeigt die Server Core-Benutzeroberfläche nach der ersten Anmeldung an.
+## <a name="the-server-core-gui"></a>Die Server Core-GUI
+Wenn Sie die Installation von Server Core auf einem System abgeschlossen haben und sich zum ersten Mal anmelden, sind Sie etwas überraschend. In Abbildung 1-2 wird die Server Core-Benutzeroberfläche nach der ersten Anmeldung angezeigt.
 
 ![Server Core-Benutzeroberfläche](../media/what-is-server-core-2008/Fig1-2.png)
 
-**Abbildung 1 – 2** Server Core-Benutzeroberfläche
+**Abbildung 1-2** Server Core-Benutzeroberfläche
 
-Es gibt keine Desktop! Es ist, also keine Windows-Explorer-Shell, mit dessen Menü "Start", Taskleiste und anderen Features, die Sie anzeigen möchten, verwendet werden können. Sie müssen lediglich eine Eingabeaufforderung, was bedeutet, dass die meisten Aufgaben der Konfiguration einer Server Core-Installations möchten entweder durch Eingabe von Befehlen, die einem an einem bestimmten Zeitpunkt langsam ist, oder mit Skripts und Batchdateien, kann nützlich sein, zu beschleunigen und vereinfachen Ihre Configurati ist auf diese Automatisierung von Aufgaben. Sie können auch einige Aufgaben zur Erstkonfiguration mithilfe von Antwortdateien, bei der Durchführung einer unbeaufsichtigten Installations von Server Core ausführen. 
+Es gibt keinen Desktop! Das heißt, es gibt keine Windows-Explorer-Shell, mit dem Startmenü, der Taskleiste und den anderen Features, die Sie möglicherweise verwenden. Sie verfügen lediglich über eine Eingabeaufforderung. Dies bedeutet, dass Sie den größten Teil der Konfiguration einer Server Core-Installation durchführen müssen, indem Sie nacheinander Befehle einzeln eingeben, was langsam ist, oder indem Sie Skripts und Batch Dateien verwenden, die Ihnen helfen können, ihre configurati zu beschleunigen und zu vereinfachen. bei Aufgaben durch Automatisierung. Sie können auch einige erst Konfigurationsaufgaben mithilfe von Antwort Dateien ausführen, wenn Sie eine unbeaufsichtigte Installation von Server Core durchführen. 
 
-Konfigurieren und Verwalten von Server Core-Installation können für Administratoren, die mithilfe von Befehlszeilentools wie Netsh.exe, Dfscmd.exe und Dnscmd.exe Experten sind, einfache und sogar unterhaltsam sein. Für diejenigen, die keine Experten sind, jedoch ist nicht alles verloren. Sie können weiterhin die standardmäßigen Windows Server 2008-MMC-Tools verwenden, für die Verwaltung einer Server Core-Installations. Sie müssen lediglich diese auf einem anderen System ausgeführt wird entweder eine vollständige Installation von Windows Server 2008 oder Windows Vista mit Service Pack 1 verwenden. 
+Administratoren, die über Befehlszeilen Tools wie "Netsh. exe", "Dfscmd. exe" und "dnscmd. exe" verfügen, können die Konfiguration und Verwaltung einer Server Core-Installation einfach und sogar Spaß machen. Personen, die keine Experten sind, gehen jedoch nicht verloren. Sie können weiterhin die standardmäßigen Windows Server 2008-MMC-Tools für die Verwaltung einer Server Core-Installation verwenden. Sie müssen Sie nur auf einem anderen System verwenden, auf dem entweder eine vollständige Installation von Windows Server 2008 oder Windows Vista mit Service Pack 1 ausgeführt wird. 
 
-Sie erfahren mehr zum Konfigurieren und Verwalten von Server Core-Installationen in Kapitel 3 bis 6 dieses Buchs, beim Verwalten von bestimmten Serverrollen und andere Komponenten spätere Kapitel behandeln. Weitere Informationen zu den verschiedenen Windows-Befehlszeilentools und deren Verwendung, gibt es zwei gute Ressourcen zurate ziehen, um:
-* Die Befehlsreferenz-Abschnitt der technischen Bibliothek zu Windows Server 2008) 
-* *Die Windows Befehlszeilen Administrator's Pocket Consultant* von William (Microsoft Press, 2008) 
+Weitere Informationen zum Konfigurieren und Verwalten einer Server Core-Installation finden Sie in Kapitel 3 bis 6 dieses Buchs, während in späteren Kapiteln die Verwaltung bestimmter Server Rollen und anderer Komponenten behandelt wird. Weitere Informationen zu den verschiedenen Windows-Befehlszeilen Tools und deren Verwendung finden Sie in den folgenden zwei guten Ressourcen:
+* Der Befehlsreferenz Abschnitt der technischen Bibliothek zu Windows Server 2008 () 
+* *Der Windows-Befehlszeilen Administrator (Pocket Consultant* ) von William R. Stanek (Microsoft Press, 2008) 
 
-Tabelle 1 – 2 listet die wichtigsten GUI-Anwendungen, zusammen mit ihrer ausführbaren Dateien, die in einer Server Core-Installation verfügbar sind.
+In Tabelle 1-2 sind die Haupt-GUI-Anwendungen sowie die ausführbaren Dateien aufgeführt, die in einer Server Core-Installation verfügbar sind.
 
-**Tabelle 1 – 2** GUI-Anwendungen, die in einer Server Core-Installation verfügbar
+**Tabelle 1-2** In einer Server Core-Installation verfügbare GUI-Anwendungen
 
-| GUI-Anwendung | Ausführbare Datei mit dem Pfad |
+| GUI-Anwendung | Ausführbare Datei mit Pfad |
 | -------------   | -------------       | 
-| Eingabeaufforderung | %WINDIR%\System32\Cmd.exe |
-| Microsoft-Support-Diagnosetool | %WINDIR%\System32\MSdt.exe |
-| Editor | %WINDIR%\System32\Notepad.exe |
-| Registrierungs-editor | %WINDIR%\System32\Regedt32.exe |
-| Systeminformationen | %WINDIR%\System32\MSinfo32.exe |
-| Task-Manager | %WINDIR%\System32\Taskmgr.exe |
+| Eingabeaufforderung | %Windir%\system32\cmd.exe |
+| Diagnose Tool für Microsoft-Support | %Windir%\system32\msdt.exe |
+| Editor | %Windir%\system32\notepad.exe |
+| Registrierungs-Editor | %Windir%\system32\regedt32.exe |
+| System Informationen | %Windir%\system32\msinfo32.exe |
+| Task-Manager | %Windir%\system32\taskmgr.exe |
 | Windows Installer | %WINDIR%\System32\MSiexec.exe |
 
-Das ist eine sehr kurze Liste! Hier ist jetzt eine Liste der Elemente der Benutzeroberfläche, die nicht in Server Core enthalten sind:
-* Der Windows-Explorer-desktop-Shell (Explorer.exe) und unterstützenden Funktionen wie z. B. Designs 
+Das ist eine ziemlich kurze Liste. Im folgenden finden Sie eine Liste der Benutzeroberflächen Elemente, die nicht in Server Core enthalten sind:
+* Windows Explorer-Desktop Shell (Explorer. exe) und alle unterstützenden Features, wie z. b. Designs 
 * Alle MMC-Konsolen 
-* Alle Systemsteuerung-Hilfsprogramme, mit Ausnahme von Regions-und Sprachoptionen ("Intl.cpl") und das Datum und Uhrzeit ("timedate.cpl") 
+* Alle System Steuerungsprogramme, mit Ausnahme von Regions-und Sprachoptionen (Intl. cpl) und Datum und Uhrzeit (timedate. cpl) 
 * Alle Hypertext Markup Language (HTML) Rendering-Engines, einschließlich Internet Explorer und HTML-Hilfe 
 * Windows Mail 
 * Windows Media Player 
-* Die meisten Zubehör wie Paint, Rechner und Wordpad
+* Die meisten Zubehör, wie z. b. Paint, Calculator und WordPad
 
-.NET Framework ist auch nicht in Server Core, was bedeutet, dass es gibt keine Unterstützung für die Ausführung von verwaltetem Code auf einer Server Core-Installation vorhanden. Nur systemeigenen Code – Code geschrieben wurde, mit Windows Application programming Interfaces (APIs), können auf Server Core ausgeführt werden. Zusammenfassend alle GUI-Anwendungen, die auf .NET Framework abhängig sind, oder klicken Sie auf die Explorer.exe nicht Shell unter Server Core ausgeführt. 
+Der .NET Framework ist auch nicht in Server Core vorhanden. Dies bedeutet, dass es keine Unterstützung für die Ausführung von verwaltetem Code auf einer Server Core-Installation gibt. Nur System eigener Code – Code, der mithilfe von Windows-APIs (Application Programming Interfaces) geschrieben wurde – kann auf Server Core ausgeführt werden. Zusammenfassend lässt sich sagen, dass alle GUI-Anwendungen, die entweder vom .NET Framework oder der Explorer. exe-Shell abhängen, nicht auf Server Core ausgeführt werden. 
 
 >[!NOTE]
->Da Windows PowerShell auf .NET Framework erforderlich ist, wird Sie nicht Windows PowerShell auf Server Core installieren. Sie können jedoch verwalten eine Server Core-Installation Remote mithilfe von Windows PowerShell, sofern Sie nur die PowerShell-WMI-Befehle verwenden.
+>Da für Windows PowerShell das .NET Framework erforderlich ist, können Sie Windows PowerShell nicht auf Server Core installieren. Sie können eine Server Core-Installation jedoch Remote mithilfe von Windows PowerShell verwalten, solange Sie nur PowerShell-WMI-Befehle verwenden.
 
-## <a name="supported-server-roles"></a>Unterstützte Serverrollen 
-Server Core-Installation umfasst nur eine begrenzte Anzahl von Serverrollen, die im Vergleich zu einer vollständigen Installation von Windows Server 2008. Tabelle 1 bis 3 vergleicht die Rollen für vollständige Installation und Server Core-Installationen von Windows Server 2008 Enterprise Edition verfügbar sind. 
+## <a name="supported-server-roles"></a>Unterstützte Server Rollen 
+Eine Server Core-Installation umfasst nur eine begrenzte Anzahl von Server Rollen im Vergleich zu einer vollständigen Installation von Windows Server 2008. In Tabelle 1-3 werden die verfügbaren Rollen für vollständige und Server Core-Installationen von Windows Server 2008 Enterprise Edition verglichen. 
 
-**Tabelle 1 bis 3** Vergleich von Serverrollen für vollständige Installation und Server Core-Installationen von Windows Server 2008 Enterprise Edition
+**Tabelle 1-3** Vergleich der Server Rollen für vollständige und Server Core-Installationen von Windows Server 2008 Enterprise Edition
 
-| Serverrolle  | In der Vollversion verfügbar  | In Server Core verfügbar  |
+| Serverrolle  | In vollständiger Installation verfügbar  | Verfügbar in Server Core  |
 | ------------- | :-------------: | :------------: |
 | Active Directory-Zertifikatdienste (AD CS)  | X |  |
 | Active Directory-Domänendienste (AD DS)  | X  | X |
@@ -121,38 +121,38 @@ Server Core-Installation umfasst nur eine begrenzte Anzahl von Serverrollen, die
 | Webserver (IIS) | X | X |
 | Windows-Bereitstellungsdienste  | X |  |
 
-Zwar die Rollen für Server Core verfügbar sind in der Regel unabhängig von der Architektur (X86 oder X64) und die Produktversion aus, gibt es jedoch einige Ausnahmen:
-* Die Rolle Hyper-V (Virtualisierung) ist nur verfügbar, wenn Sie Windows Server 2008 mit Hyper-V-Produktmedien erworben (Hyper-V steht nur für X64 Versionen). Wenn Sie nicht über diese Rolle benötigen, können Sie stattdessen Windows Server 2008 ohne Hyper-V-Produktmedien erwerben. 
-* Die Rolle "Dateidienste" auf Standard Edition ist auf einem eigenständigen (Distributed File System, DFS)-Stamm und Cross-File Replication (DFS-R) wird nicht unterstützt. 
-* Bevor Sie die Streaming-Media Services-Rolle auf Server Core installieren können, müssen Sie aus dem Microsoft Download Center herunterladen und installieren das entsprechende Microsoft eigenständige Updatepaket (MSU-Datei) für Ihr Server Architektur (X86 oder X64).
-* Die Rolle Webserver (IIS) wird ASP.NET nicht unterstützt. Dies ist, da .NET Framework unter Server Core, wodurch eingeschränkt, was Sie tun können, mit einem Server Core-Web-Server, nicht unterstützt wird. 
+Die Rollen, die für Server Core verfügbar sind, sind in der Regel unabhängig von der Architektur (x86 oder x64) und der Produkt Edition gleich. es gibt jedoch einige Ausnahmen:
+* Die Rolle "Hyper-v (Virtualization)" ist nur verfügbar, wenn Sie Windows Server 2008 mit Hyper-v-Produktmedien erworben haben (Hyper-v ist nur für x64-Versionen verfügbar). Wenn Sie diese Rolle nicht benötigen, können Sie stattdessen Windows Server 2008 ohne Hyper-V-Produktmedien erwerben. 
+* Die Rolle "Dateidienste" in der Standard Edition ist auf einen DFS-Stamm (Standalone verteiltes Dateisystem) beschränkt und unterstützt keine Datei übergreifende Replikation (DFS-R). 
+* Bevor Sie die Streaming Media Services-Rolle auf Server Core installieren können, müssen Sie das entsprechende Microsoft Update eigenständige Paket (MSU-Datei) für die Architektur Ihres Servers (x86 oder x64) aus dem Microsoft Download Center herunterladen und installieren.
+* Die Rolle "Webserver (IIS)" unterstützt ASP.net nicht. Dies liegt daran, dass die .NET Framework auf Server Core nicht unterstützt wird, was die Möglichkeiten eines Server Core-Webservers einschränkt. 
 
-## <a name="supported-optional-features"></a>Unterstützt optionalen features
-Server Core-Installation unterstützt auch nur eine begrenzte Teilmenge der verfügbaren Funktionen auf einer vollständigen Installation von Windows Server 2008. Tabelle 1 – 4 vergleicht die Funktionen, die für die vollständige Installation und Server Core-Installationen von Windows Server 2008 Enterprise Edition verfügbar.
+## <a name="supported-optional-features"></a>Unterstützte optionale Funktionen
+Eine Server Core-Installation unterstützt auch nur eine begrenzte Teilmenge der Features, die bei einer vollständigen Installation von Windows Server 2008 verfügbar sind. In Tabelle 1-4 werden die verfügbaren Funktionen für vollständige und Server Core-Installationen von Windows Server 2008 Enterprise Edition verglichen.
 
-**Tabelle 1 – 4** Vergleich der Funktionen für vollständige Installation und Server Core-Installationen von Windows Server 2008 Enterprise Edition
+**Tabelle 1-4** Vergleich der Features für vollständige und Server Core-Installationen von Windows Server 2008 Enterprise Edition
 
-| Feature  | In der Vollversion verfügbar  | In Server Core verfügbar  |
+| Feature  | In vollständiger Installation verfügbar  | Verfügbar in Server Core  |
 | ------------- | :-------------: | :------------: |
-| .NET Framework 3.0-Features  | X  |  |
+| .NET Framework 3,0-Features  | X  |  |
 | BitLocker-Laufwerkverschlüsselung  | X  | X |
-| BITS-Servererweiterungen  | X  |  |
+| BITS-Server Erweiterungen  | X  |  |
 | Verbindungs-Manager-Verwaltungskit  | X |  |
 | Desktopdarstellung  | X |  |
 | Failoverclustering  | X  | X |
 | Gruppenrichtlinienverwaltung  | X  |  |
 | Internetdruckclient  | X  |  |
-| Internet Storage Namenserver  | X  |  |
+| Internet-Speicher Namen Server  | X  |  |
 | LPR-Portüberwachung  | X  |  |
 | Message Queuing  | X  |  |
-| Multipfad-e/a  | X  | X |
+| Multipfad-IO  | X  | X |
 | Netzwerklastenausgleich  | X  | X |
 | Peer Name Resolution-Protokoll  | X  |  |
 | Verbessertes Audio-/Videostreaming unter Windows  | X |  |
 | Remoteunterstützung  | X  |  |
 | RDC (Remote Differential Compression) | X  |  |
 | Remoteserver-Verwaltungstools  | X  |  |
-| Wechselmedien-Manager | X  | X |
+| Wechsel Speicher-Manager | X  | X |
 | RPC-über-HTTP-Proxy | X  |  |
 | Einfache TCP/IP-Dienste  | X  |  |
 | SMTP-Server  | X  |  |
@@ -164,122 +164,122 @@ Server Core-Installation unterstützt auch nur eine begrenzte Teilmenge der verf
 | TFTP-Client  | X   |  |
 | Interne Windows-Datenbank  | X  |  |
 | Windows PowerShell  | X  |  |
-| Aktivierungsdienst für Windows-Produkt  | X   |  |
-| Windows Server-Sicherungsfeatures  | X  | X  |
+| Windows-Produkt Aktivierungs Dienst  | X   |  |
+| Windows Server-Sicherung Features  | X  | X  |
 | Windows-Systemressourcen-Manager  | X  |  |
 | WINS-Server  | X | X |
 | WLAN-Dienst | X  |  |
 
-In diesem Fall sind einige Punkte müssen Sie wissen, zu die Funktionen, die auf Server Core verfügbar:
-* Einige Features erfordern möglicherweise besondere Hardware funktionieren ordnungsgemäß (oder überhaupt) auf Server Core. Zu diesen Funktionen gehören die BitLocker-Laufwerkverschlüsselung, Failover-Clusterunterstützung, Multipfad-e/a, Netzwerklastenausgleich und Wechselmedien. 
-* Es ist nicht verfügbar in Standard Edition, Failover-Clusterunterstützung.
+Auch hier gibt es einige Punkte, die Sie über die auf Server Core verfügbaren Features wissen müssen:
+* Einige Features erfordern möglicherweise spezielle Hardware, damit Sie (oder überhaupt) auf Server Core ordnungsgemäß funktioniert. Zu diesen Features gehören BitLocker-Laufwerkverschlüsselung, Failoverclustering, Multipfad-e/a, Netzwerk Lastenausgleich und Wechselmedien. 
+* Failoverclustering ist in der Standard Edition nicht verfügbar.
 
 ## <a name="server-core-architecture"></a>Server Core-Architektur
-Genauerer Blick auf Server Core, kurz betrachten wir die Architektur von Server Core-Installationen von Windows Server 2008 durch einen Vergleich mit der eine vollständige Installation. Zuerst Denken Sie daran, dass Server Core keine andere Version von Windows Server 2008 jedoch einfach eine Installationsoption, die Sie auswählen können, bei der Installation von Windows Server 2008 auf einem System ist. Dies impliziert Folgendes:
-* Der Kernel auf einer Server Core-Installation ist der gleiche finden Sie auf eine vollständige Installation von der gleichen Hardware-Architektur (X86 oder X64) und die Edition. 
-* Wenn eine Binärdatei auf einer Server Core-Installation vorhanden ist, hat eine vollständige Installation von die gleiche Hardware-Architektur (X86 oder X64) und die Edition die gleiche Version von dieser bestimmten Binärdatei (mit zwei Ausnahmen, die weiter unten erläutert). 
-* Wenn eine bestimmte Einstellung (z. B. eine bestimmte Firewall-Ausnahme oder der Starttyp des einen bestimmten Dienst) eine bestimmte Standardkonfiguration auf einer Server Core-Installation verfügt, wird genau die gleiche Weise auf eine Vollversion des gleichen diese Einstellung konfiguriert werden. Hardware-Architektur (X86 oder X64) "und" Edition ".
+Sehen wir uns die Architektur einer Server Core-Installation von Windows Server 2008 genauer an, indem wir Sie mit der einer vollständigen Installation vergleichen. Denken Sie zunächst daran, dass es sich bei Server Core nicht um eine andere Version von Windows Server 2008, sondern lediglich um eine Installationsoption handelt, die Sie bei der Installation von Windows Server 2008 auf einem System auswählen können. Dies impliziert Folgendes:
+* Der Kernel einer Server Core-Installation ist derselbe, der bei einer vollständigen Installation derselben Hardwarearchitektur (x86 oder x64) und Edition gefunden wurde. 
+* Wenn eine Binärdatei in einer Server Core-Installation vorhanden ist, hat eine vollständige Installation der gleichen Hardwarearchitektur (x86 oder x64) und Edition dieselbe Version dieser speziellen Binärdatei (mit zwei Ausnahmen, die später besprochen werden). 
+* Wenn eine bestimmte Einstellung (z. b. eine bestimmte Firewallausnahme oder der Starttyp eines bestimmten dienstanztyps) eine bestimmte Standardkonfiguration für eine Server Core-Installation aufweist, wird diese Einstellung in einer vollständigen Installation von genauso konfiguriert wie Hardwarearchitektur (x86 oder x64) und Edition.
 
-Abbildung 1 – 3 zeigt eine vereinfachte Ansicht der Architektur von einer vollständigen Installation und Server Core-Installationen von Windows Server 2008. Die gepunktete Linie gibt die Architektur von Server Core, während das gesamte Diagramm, die Architektur einer vollständigen Installation darstellt an. 
+In Abbildung 1-3 wird eine vereinfachte Ansicht der Architektur einer vollständigen Installation und einer Server Core-Installation von Windows Server 2008 veranschaulicht. Die gepunktete Linie zeigt die Architektur von Server Core an, während das gesamte Diagramm die Architektur einer vollständigen Installation darstellt. 
 
-Das Diagramm veranschaulicht die modulare Architektur von Windows Server 2008 mit Server Core, die auf eine Teilmenge der die Kernfunktionen des Betriebssystems erstellt wird. Für die gleiche Hardware-Architektur und die Edition ist jede Datei, die auf eine Neuinstallation von Server Core vorhanden, auch auf eine Vollversion, mit Ausnahme von zwei spezielle Dateien (Scregedit.wsf und Oclist.exe), die nur auf Server Core vorhanden sind. Diese speziellen Dateien enthalten waren auf Server Core, um die erste Konfiguration von einer Server Core-Installation und das Hinzufügen oder Entfernen von Rollen und optionalen Komponenten zu vereinfachen. 
+Das Diagramm veranschaulicht die modulare Architektur von Windows Server 2008, wobei Server Core auf einer Teilmenge der wichtigsten Betriebssystem Features erstellt wird. Bei der gleichen Hardwarearchitektur und Edition ist jede Datei, die auf einer Neuinstallation von Server Core vorhanden ist, auch in einer vollständigen Installation vorhanden, mit Ausnahme zweier spezieller Dateien (scregedit. wsf und oclist. exe), die nur auf Server Core vorhanden sind. Diese speziellen Dateien waren in Server Core enthalten, um die Erstkonfiguration einer Server Core-Installation und das Hinzufügen oder Entfernen von Rollen und optionalen Komponenten zu vereinfachen. 
 
-![Die Architekturen von Server Core und die vollständige Installation](../media/what-is-server-core-2008/Fig1-3.png)
+![Die Architekturen von Server Core-und vollständigen Installationen](../media/what-is-server-core-2008/Fig1-3.png)
 
-**Abbildung 1 – 3** die Architekturen von Server Core und die vollständige Installation
+**Abbildung 1-3** Die Architekturen von Server Core-und vollständigen Installationen
 
 ## <a name="driver-support"></a>Treiberunterstützung
-Architekturdiagramm von Server Core, dargestellt in Abbildung 1 – 3 ist natürlich vereinfacht. eine Sache, die es nicht angezeigt, ist der Unterschied bei der treiberunterstützung Gerät zwischen Server Core und vollständige Installationen. Eine vollständige Installation von Windows Server 2008 enthält Tausende von in-Box-Treiber für verschiedene Arten von Geräten, die Ihnen ermöglichen, installieren Sie Produkte auf einer Vielzahl von verschiedenen Hardwarekonfigurationen. (Client-Betriebssystemen wie Windows Vista enthalten noch mehr Treiber zur Unterstützung von Geräten, z. B. Digitalkameras und Scanner, die normalerweise nicht mit Servern verwendet werden.) 
+Das Architektur Diagramm von Server Core, das in Abbildung 1-3 dargestellt wird, ist offensichtlich vereinfacht. der Unterschied bei der Gerätetreiber Unterstützung zwischen Server Core-und vollständigen Installationen ist nicht zu sehen. Eine vollständige Installation von Windows Server 2008 enthält Tausende von in-Box-Treibern für verschiedene Gerätetypen, mit denen Sie Produkte auf einer Vielzahl verschiedener Hardware Konfigurationen installieren können. (Client Betriebssysteme wie Windows Vista enthalten noch mehr Treiber zur Unterstützung von Geräten, wie z. b. digitale Kameras und Scanner, die normalerweise nicht mit Servern verwendet werden.) 
 
-Wenn ein neues Gerät verbunden ist (oder im installiert) eine vollständige Installation von Windows Server 2008, das Subsystem Plug & Play (PnP) überprüft zuerst, ob ein in-Box-Treiber für das Gerät vorhanden ist. Wenn ein kompatibler mitgelieferten Treiber gefunden wird, an das Plug & Play-Subsystem automatisch installiert, der Treiber und das Gerät und arbeitet. Auf einer vollständigen Installation von Windows Server 2008 kann eine Popup-Sprechblase angezeigt werden, der angibt, dass der Treiber installiert wurde und das Gerät für die Verwendung bereit ist. 
+Wenn ein neues Gerät mit einer vollständigen Installation von Windows Server 2008 verbunden ist (oder darin installiert ist), überprüft das Plug & Play (PNP)-Subsystem zunächst, ob ein in-Box-Treiber für das Gerät vorhanden ist. Wenn ein kompatibler in-Box-Treiber gefunden wird, installiert das PNP-Subsystem automatisch den Treiber, und das Gerät wird dann betrieben. Bei einer vollständigen Installation von Windows Server 2008 wird möglicherweise eine Benachrichtigung über eine Sprechblase angezeigt, die anzeigt, dass der Treiber installiert wurde und das Gerät einsatzbereit ist. 
 
-Auf einer Server Core-Installation ist der Installationsvorgang Treiber identisch (die Plug & Play-Subsystem unter Server Core vorhanden ist) mit beiden Qualifikationen. Server Core enthält zunächst nur eine minimale Anzahl von in-Box-Treibern und nur für die folgenden Arten von Geräten:
-* Eine Video-Graphics-Array (VGA) Standardtreiber 
+Bei einer Server Core-Installation ist der Treiber Installationsvorgang identisch (das PNP-Subsystem ist auf Server Core vorhanden) und hat zwei Qualifikationen. Zuerst umfasst Server Core nur eine minimale Anzahl von in-Box-Treibern und nur für die folgenden Gerätetypen:
+* Ein standardmäßiger Video Grafik Array-Videotreiber (VGA) 
 * Treiber für Speichergeräte 
 * Treiber für Netzwerkadapter
 
-Beachten Sie, dass für jeden der drei Gerätekategorien, die hier gezeigten, Server Core die gleichen mitgelieferten Treiber enthält, die für eine entsprechende vollständige Installation (für die gleiche Hardwarearchitektur) gefunden werden. 
+Beachten Sie, dass für jede der drei hier gezeigten Gerätekategorien Server Core dieselben in-Box-Treiber enthält, die in einer entsprechenden vollständigen Installation (für die gleiche Hardwarearchitektur) gefunden werden. 
 
-Auch bei den PnP-Subsystem ein Treibers für ein neues Gerät automatisch installiert wird, dies erfolgt automatisch – keine Popups Sprechblase angezeigt wird. Warum nicht? Da keine grafische Benutzeroberfläche auf Server Core ist ist keine Taskleiste, es gibt also keine Infobereich der Taskleiste auf der Taskleiste! 
+Wenn das PNP-Subsystem automatisch einen Treiber für ein neues Gerät installiert, erfolgt dies automatisch – es wird keine Benachrichtigung über eine Sprechblase angezeigt. Warum nicht? Da keine GUI auf Server Core vorhanden ist, gibt es keine Taskleiste, sodass auf der Taskleiste kein Benachrichtigungsbereich vorhanden ist. 
 
-Was also können Sie tun, wenn Sie eine Server Core-Installation der Rolle "Druckdienste" hinzu, und Sie einen Drucker installieren möchten? Sie fügen den Druckertreiber manuell hinzu, auf dem Server, Serverkern hat keine in-Box-Druckertreiber.
+Was tun Sie also, wenn Sie die Rolle "Druckdienste" zu einer Server Core-Installation hinzufügen und einen Drucker installieren möchten? Der Druckertreiber wird dem Server manuell hinzugefügt – Server Core verfügt über keine in-Box-Drucktreiber.
 
-## <a name="service-footprint"></a>Dienst-Speicherbedarf
-Da es sich bei Server Core über eine minimale Installation handelt, hat er einen Geringerer Speicherbedarf Dienst als eine entsprechende vollständige Installation von der gleichen Hardware-Architektur und die Edition. Ungefähr 75 Systemdienste werden z. B. auf einer vollständigen Installation von Windows Server 2008 standardmäßig installiert der ungefähr 50 für den automatischen Start konfiguriert sind. Server Core weist im Gegensatz dazu nur etwa 70 Dienste, die automatisch installiert, standardmäßig und weniger als 40 diese Start auf. 
+## <a name="service-footprint"></a>Dienst Bedarf
+Da Server Core eine minimale Installation ist, verfügt sie über einen geringeren Systemdienst-Speicherbedarf als eine entsprechende vollständige Installation derselben Hardwarearchitektur und Edition. Beispielsweise werden ungefähr 75 Systemdienste standardmäßig bei einer vollständigen Installation von Windows Server 2008 installiert, von denen ungefähr 50 für den automatischen Start konfiguriert sind. Im Gegensatz dazu sind bei Server Core standardmäßig nur 70 Dienste installiert, und weniger als 40 davon werden automatisch gestartet. 
 
-Tabelle 1 bis 5 werden die Dienste aufgeführt, die auf einer Server Core-Installation mit den Startmodus für standardmäßig installiert sind und Konto, die vom jeweiligen Dienst verwendet.
+In Tabelle 1-5 werden die Dienste aufgelistet, die standardmäßig in einer Server Core-Installation installiert werden, wobei der Start Modus für und das von den einzelnen Diensten verwendete Konto verwendet wird.
 
-**Tabelle 1 – 5** Systemdienste, die standardmäßig unter Server Core installiert werden
+**Tabelle 1-5** Standardmäßig installierte System Dienste auf Server Core
 
-| Dienstname  | Anzeigename  | Startmodus  | Konto  |
+| Dienstname  | Anzeigename  | Start Modus  | Konto  |
 | ------------- | ------------- | ------------ | ------------ |
-| AeLookupSvc  | Anwendungskomfort  | Auto | LocalSystem |
+| Aelookupsvc  | Anwendungs Darstellung  | Auto | LocalSystem |
 | AppMgmt  | Anwendungsverwaltung  | Manuell | LocalSystem |
-| BFE | Basis-Engine-Filterung  | Auto | LocalService |
+| BFE | Basisfiltermodul  | Auto | LocalService |
 | BITS | Intelligenter Hintergrundübertragungsdienst (Background Intelligent Transfer Service, BITS)  | Auto | LocalSystem |
-| Browser | Computer-Browser  | Manuell | LocalSystem |
-| CertPropSvc | Zertifikat-Verteilung  | Manuell | LocalSystem |
-| COMSysApp  | COM+-Anwendung  | Manuell | LocalSystem |
-| CryptSvc  | Kryptografische Dienste  | Auto | Netzwerk-Dienst |
-| DcomLaunch  | DCOM-Prozess-Startprogramm  | Auto | LocalSystem |
+| Browser | Computerbrowser  | Manuell | LocalSystem |
+| CertPropSvc | Zertifikatverteilung  | Manuell | LocalSystem |
+| COMSysApp  | COM+-Systemanwendung  | Manuell | LocalSystem |
+| CryptSvc  | Kryptografiedienste  | Auto | Netzwerkdienst |
+| DcomLaunch  | DCOM-Server-Prozessstart  | Auto | LocalSystem |
 | Dhcp  | DHCP-Client  | Auto | LocalService |
-| DnsCache | DNS-Client  | Auto | Netzwerk-Dienst |
-| DPS  | Diagnostic Policy-Dienst  | Auto | LocalService |
-| Ereignisprotokoll | Windows-Ereignisprotokoll  | Auto | LocalService |
+| Dnscache | DNS-Client  | Auto | Netzwerkdienst |
+| DPS  | Diagnoserichtliniendienst  | Auto | LocalService |
+| EventLog | Windows-Ereignisprotokoll  | Auto | LocalService |
 | EventSystem  | COM+-Ereignissystem  | Auto | LocalService |
-| FCRegSvc  | Microsoft Fibre Channel-Plattform-Geräteregistrierungsdienst  | Manuell | LocalService |
+| "F"  | Registrierungsdienst für Microsoft Fibre Channel-Plattform  | Manuell | LocalService |
 | gpsvc  | Gruppenrichtlinienclient  | Auto | LocalSystem |
-| hidserv | Zugriff auf Eingabegeräte  | Manuell | LocalSystem |
-| hkmsvc  | Integritätsdienst-Schlüssel und Zertifikate verwalten  | Manuell | LocalSystem |
+| hidserv | Eingabegeräte Zugriff  | Manuell | LocalSystem |
+| hkmsvc  | Integritäts Schlüssel und Zertifikat Verwaltung  | Manuell | LocalSystem |
 | IKEEXT  | IKE- und AuthIP IPsec-Schlüsselerstellungsmodule  | Auto | LocalSystem |
 | iphlpsvc  | IP-Hilfsprogramm  | Auto | LocalSystem |
-| KeyIso | CNG-Schlüssel-Isolation  | Manuell | LocalSystem |
-| KtmRm  | KtmRm für Distributed Transaction Coordinator  | Auto | Netzwerk-Dienst |
+| KeyIso | CNG-Schlüsselisolation  | Manuell | LocalSystem |
+| KtmRm  | KtmRm für Distributed Transaction Coordinator  | Auto | Netzwerkdienst |
 | LanmanServer  | Server  | Auto | LocalSystem |
 | LanmanWorkstation  | Workstatione  | Auto | LocalService |
-| lltdsvc  | Zuordnung für Verbindungsschicht-Topologie  | Manuell | LocalService |
-| lmhosts  | TCP/IP-NetBIOS-Hilfsprogramm  | Auto | LocalService |
+| lltdsvc  | Verbindungsschicht-Topologieerkennungs-Zuordnungsprogramm  | Manuell | LocalService |
+| lmhosts  | TCP/IP-NetBIOS-Hilfsdienst  | Auto | LocalService |
 | MpsSvc  | Windows-Firewall  | Auto | LocalService |
-| MSDTC  | Distributed Transaction Coordinator  | Auto | Netzwerk-Dienst |
+| MSDTC  | Distributed Transaction Coordinator  | Auto | Netzwerkdienst |
 | MSiSCSI  | Microsoft iSCSI-Initiator-Dienst  | Manuell | LocalSystem |
-| MSIServer  | Windows Installer  | Manuell | LocalSystem |
-| napagent  | Netzwerkzugriffsschutz-Agent  | Manuell | Netzwerk-Dienst |
+| msiserver  | Windows Installer  | Manuell | LocalSystem |
+| NAPAgent  | Netzwerkzugriffsschutz-Agent  | Manuell | Netzwerkdienst |
 | Netlogon  | Netlogon  | Manuell | LocalSystem |
 | netprofm  | Netzwerklistendienst  | Auto | LocalService |
-| NlaSvc  | Network Location Awareness  | Auto | Netzwerk-Dienst |
-| nsi  | Network Store Interface-Dienst  | Auto | LocalService |
-| PLA  | Leistungsprotokolle und Warnungen  | Manuell | LocalService |
-| PlugPlay  | Plug & Play  | Auto | LocalSystem |
-| PolicyAgent  | IPsec-Richtlinien-Agent  | Auto | Netzwerk-Dienst |
+| NlaSvc  | NLA (Network Location Awareness)  | Auto | Netzwerkdienst |
+| nsi  | Netzwerkspeicher-Schnittstellendienst  | Auto | LocalService |
+| pla  | Leistungsprotokolle und -warnungen  | Manuell | LocalService |
+| PlugPlay  | Plug & Play  | Auto | LocalSystem |
+| PolicyAgent  | IPsec-Richtlinien-Agent  | Auto | Netzwerkdienst |
 | ProfSvc  | Benutzerprofildienst  | Auto | LocalSystem |
-| ProtectedStorage  | Geschützten Speicher  | Manuell | LocalSystem |
+| ProtectedStorage  | Geschützter Speicher  | Manuell | LocalSystem |
 | RemoteRegistry  | Remoteregistrierung  | Auto | LocalService |
-| RpcSs  | Remoteprozeduraufruf (RPC)  | Auto | Netzwerk-Dienst |
-| RSoPProv | Richtlinienergebnissatz-Richtlinienanbieter  | Manuell | LocalSystem |
-| Sacsvr  | Hilfsprogramm für spezielle Verwaltungskonsole  | Manuell | LocalSystem |
-| SamSs  | Sicherheitskonten-Manager  | Auto | LocalSystem |
+| RpcSs  | Remoteprozeduraufruf (RPC)  | Auto | Netzwerkdienst |
+| RSoPProv | Richtlinienergebnissatzanbieter  | Manuell | LocalSystem |
+| sacsvr  | Hilfsprogramm für spezielle Verwaltungskonsole  | Manuell | LocalSystem |
+| SamSs  | Sicherheitskonto-Manager  | Auto | LocalSystem |
 | SCardSvr | Smartcard  | Manuell | LocalService |
 | Zeitplan | Aufgabenplanung  | Auto | LocalSystem |
-| SCPolicySvc | Entfernen des Smartcard-Richtlinie  | Manuell | LocalSystem |
-| Seclogon | Sekundäre Anmeldung  | Auto | LocalSystem |
+| SCPolicySvc | Richtlinie zum Entfernen der Smartcard  | Manuell | LocalSystem |
+| seclogon | Sekundäre Anmeldung  | Auto | LocalSystem |
 | SENS | Benachrichtigungsdienst für Systemereignisse  | Auto | LocalSystem |
 | SessionEnv | Terminaldienstekonfiguration  | Manuell | LocalSystem |
-| slsvc  | Softwarelizenzierung | Auto | Netzwerk-Dienst |
+| SLsvc  | Softwarelizenzierung | Auto | Netzwerkdienst |
 | SNMPTRAP  | SNMP-Trap  | Manuell | LocalService |
-| swprv  | Microsoft Software Schattenkopieanbieter | Manuell | LocalSystem |
-| TBS | TPM-Basisdienste  | Manuell | LocalService |
-| TermService  | Terminaldienste | Auto | Netzwerk-Dienst |
-| TrustedInstaller | Windows-Modulinstallation  | Auto | LocalSystem |
-| UmRdpService | Anschlussumleitung für Terminaldienst-Redirector  | Manuell | LocalSystem |
-| vds | Virtuelles Laufwerk  | Manuell | LocalSystem |
-| VSS | Volumeschattenkopie-Dienst  | Manuell | LocalSystem |
+| swprv  | Microsoft-Softwareschattenkopie-Anbieter | Manuell | LocalSystem |
+| TB | TPM-Basisdienste  | Manuell | LocalService |
+| TermService  | Terminaldienste | Auto | Netzwerkdienst |
+| TrustedInstaller | Windows Modules Installer  | Auto | LocalSystem |
+| UmRdpService | Terminal Dienste-portredirector für usermode  | Manuell | LocalSystem |
+| vds | Virtueller Datenträger  | Manuell | LocalSystem |
+| VSS | Volumeschattenkopie  | Manuell | LocalSystem |
 | W32Time | Windows-Zeitdienst  | Auto | LocalService |
-| WcsPlugInService  | Windows-Farbsystem  | Manuell | LocalService |
-| WdiServiceHost  | Diagnose-Diensthost  | Manuell | LocalService |
-| WdiSystemHost  | Diagnosesystem-Host  | Manuell | LocalSystem |
-| Wecsvc | Windows-Ereignissammlung  | Manuell | Netzwerk-Dienst |
-| WinHttpAuto-ProxySvc  | WinHTTP-Web Proxy Auto-Discovery-Dienst  | Auto | LocalService |
+| WcsPlugInService  | Windows-Farb System  | Manuell | LocalService |
+| WdiServiceHost  | Diagnosediensthost  | Manuell | LocalService |
+| WdiSystemHost  | Diagnosesystemhost  | Manuell | LocalSystem |
+| Wecsvc | Windows-Ereignissammlung  | Manuell | Netzwerkdienst |
+| Winhttpauto-proxysvc  | WinHTTP-Web Proxy Auto-Discovery-Dienst  | Auto | LocalService |
 | Winmgmt | Windows-Verwaltungsinstrumentation | Auto | LocalSystem |
-| WinRM  | Windows-Remoteverwaltung (WS-Management) | Auto | Netzwerk-Dienst |
+| WinRM  | Windows-Remoteverwaltung (WS-Verwaltung) | Auto | Netzwerkdienst |
 | wmiApSrv  | WMI-Leistungsadapter  | Manuell | LocalSystem |
 | wuauserv | Windows Update | Auto | LocalSystem |

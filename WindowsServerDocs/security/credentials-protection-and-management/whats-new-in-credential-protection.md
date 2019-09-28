@@ -1,8 +1,8 @@
 ---
-title: Neues in den Schutz von Anmeldeinformationen
+title: Neues beim Schutz von Anmelde Informationen
 description: Windows Server-Sicherheit
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: security-credential-protection
@@ -13,77 +13,77 @@ author: gitmichiko
 ms.author: michikos
 manager: dongill
 ms.date: 03/06/2017
-ms.openlocfilehash: 475b6a0b24b811008ee213c1604d98d9aa9eb092
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 2351be82ad1d8b9af17715ce363836f57c71ea66
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447034"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386909"
 ---
-# <a name="whats-new-in-credential-protection"></a>Neues in den Schutz von Anmeldeinformationen
+# <a name="whats-new-in-credential-protection"></a>Neues beim Schutz von Anmelde Informationen
 
-## <a name="credential-guard-for-signed-in-user"></a>Credential Guard für den angemeldeten Benutzer
+## <a name="credential-guard-for-signed-in-user"></a>Credential Guard für angemeldeten Benutzer
 
-Ab Windows 10, Version 1507 verwenden Kerberos und NTLM virtualisierungsbasierte Sicherheit zum Schutz von Kerberos und NTLM-Geheimnissen von der anmeldesitzung für den angemeldeten Benutzer. 
+Ab Windows 10, Version 1507, Kerberos und NTLM, verwenden Sie virtualisierungsbasierte Sicherheit, um Kerberos-& NTLM-Geheimnisse der Anmelde Sitzung des angemeldeten Benutzers zu schützen. 
 
-Ab Windows 10, Version 1511 verwendet Credential Manager virtualisierungsbasierte Sicherheit, um die gespeicherte Anmeldeinformationen der Typ der Anmeldeinformationen zu schützen. Angemeldet von Anmeldeinformationen und gespeicherte Anmeldeinformationen werden nicht mit einem Remotehost mithilfe von Remotedesktop übergeben werden. Ohne UEFI-Sperre kann Credential Guard aktiviert werden.
+Ab Windows 10, Version 1511, verwendet Anmelde Informationen Manager die virtualisierungsbasierte Sicherheit, um gespeicherte Anmelde Informationen des Domänen Anmelde Informations Typs zu schützen. Anmelde Informationen und gespeicherte Domänen Anmelde Informationen werden nicht mithilfe von Remote Desktop an einen Remote Host übermittelt. Credential Guard kann ohne UEFI-Sperre aktiviert werden.
 
-Ab Windows 10, Version 1607 ist die isolierten Benutzermodus in Hyper-V enthalten, damit es nicht mehr separat für die Bereitstellung des Credential Guard installiert ist.
+Ab Windows 10, Version 1607, ist der isolierte Benutzermodus in Hyper-V enthalten, sodass er nicht mehr separat für die Credential Guard-Bereitstellung installiert wird.
 
-[Weitere Informationen zu Credential Guard](https://technet.microsoft.com/itpro/windows/keep-secure/credential-guard).
+[Erfahren Sie mehr über Credential Guard](https://technet.microsoft.com/itpro/windows/keep-secure/credential-guard).
 
 
-## <a name="remote-credential-guard-for-signed-in-user"></a>Remote Credential Guard für den angemeldeten Benutzer
+## <a name="remote-credential-guard-for-signed-in-user"></a>Remote Credential Guard für angemeldeten Benutzer
 
-Remote Credential Guard, die ab Windows 10, Version 1607, schützt die Anmeldeinformationen des angemeldeten Benutzers, bei Verwendung von Remotedesktop, indem Sie die Kerberos- und NTLM geheimen Schlüssel, auf dem Clientgerät zu schützen. Für den remote-Host zum Bewerten von Netzwerkressourcen als der Benutzer anfordern, dass authentifizierungsanforderungen Client die geheimen Schlüssel zu verwenden.
+Ab Windows 10, Version 1607, schützt Remote Credential Guard Anmelde Informationen für angemeldete Benutzer, wenn Remotedesktop, indem die Kerberos-und NTLM-Geheimnisse auf dem Client Gerät geschützt werden. Damit der Remote Host die Netzwerkressourcen als Benutzer bewerten kann, müssen die geheimen Anforderungen vom Client Gerät verwendet werden.
 
-Remote Credential Guard, die ab Windows 10, Version 1703, schützt die angegebenen Anmeldeinformationen, bei Verwendung von Remotedesktop.
+Ab Windows 10, Version 1703, schützt Remote Credential Guard bereitgestellte Benutzer Anmelde Informationen, wenn Sie Remotedesktop verwenden.
 
-[Erfahren Sie mehr über Remote Credential Guard](https://technet.microsoft.com/itpro/windows/keep-secure/remote-credential-guard).
+[Erfahren Sie mehr über Remote Anmelde Informationen Guard](https://technet.microsoft.com/itpro/windows/keep-secure/remote-credential-guard).
 
-## <a name="domain-protections"></a>Domäne Schutzmaßnahmen
+## <a name="domain-protections"></a>Domänen Schutz
 
-Domäne Schutz erfordern Active Directory-Domäne.
+Für den Domänen Schutz ist eine Active Directory Domäne erforderlich.
 
-### <a name="domain-joined-device-support-for-authentication-using-public-key"></a>Zur Domäne gehörenden Gerät-Unterstützung für die Authentifizierung mit öffentlichen Schlüssel
+### <a name="domain-joined-device-support-for-authentication-using-public-key"></a>Unterstützung von in die Domäne eingebundenen Geräten für die Authentifizierung mit öffentlichem Schlüssel
 
-Mit Windows 10 Version 1507 und Windows Server 2016 ab, wenn eine Domäne eingebundenes Gerät gebundenen öffentlichen Schlüssel mit einem Windows Server 2016-Domänencontroller (DC) registrieren kann, kann das Gerät mit dem öffentlichen Schlüssel, die mithilfe von Kerberos PKINIT authentifiziert Authentifizierung bei einem Windows Server 2016-Domänencontroller.
+Ab Windows 10, Version 1507 und Windows Server 2016, kann das Gerät mithilfe von Kerberos PKINIT mit dem öffentlichen Schlüssel authentifiziert werden, wenn ein in eine Domäne eingebundenes Gerät seinen gebundenen öffentlichen Schlüssel bei einem Windows Server 2016-Domänen Controller (DC) registrieren kann. Authentifizierung bei einem Windows Server 2016-DC.
 
-Ab Windows Server 2016 unterstützen KDCs Authentifizierung unter Verwendung von Kerberos-Schlüssel.  
+Ab Windows Server 2016 unterstützen KDCs die Authentifizierung mithilfe der Kerberos-Schlüssel Vertrauensstellung.  
 
-[Erfahren Sie mehr über die public Key-Unterstützung für die Domäne eingebundene Geräte & Schlüssel Kerberos-Vertrauensstellung](https://technet.microsoft.com/windows-server-docs/security/kerberos/whats-new-in-kerberos-authentication).
+[Erfahren Sie mehr über die Unterstützung öffentlicher Schlüssel für in die Domäne eingebundenen Geräten & Kerberos-Schlüssel Vertrauen](https://technet.microsoft.com/windows-server-docs/security/kerberos/whats-new-in-kerberos-authentication).
 
-### <a name="pkinit-freshness-extension-support"></a>Unterstützung von PKINIT Aktualität
+### <a name="pkinit-freshness-extension-support"></a>PKINIT-Aktualität-Erweiterungs Unterstützung
 
-Ab Windows 10, Version 1507 und Windows Server 2016, versucht Kerberos-Clients die PKInit Aktualität-Erweiterung für öffentlichen Schlüssel basiert anmelden. 
+Ab Windows 10, Version 1507 und Windows Server 2016, versuchen die Kerberos-Clients, die PKINIT-Aktualitäts Erweiterung für Anmeldungen mit öffentlichem Schlüssel zu unterstützen. 
 
-Ab Windows Server 2016 können KDCs PKInit Aktualität Erweiterung unterstützen.  Standardmäßig bietet KDCs nicht die Erweiterung der PKInit-Aktualität. 
+Ab Windows Server 2016 können KDCs die Erweiterung PKINIT-Aktualität unterstützen.  Standardmäßig bieten KDCs keine PKINIT-Aktualität-Erweiterung. 
 
-[Erfahren Sie mehr über die Unterstützung von PKINIT Aktualität](https://technet.microsoft.com/windows-server-docs/security/kerberos/whats-new-in-kerberos-authentication).
+[Weitere Informationen zur Unterstützung von PKINIT-Erweiterungen](https://technet.microsoft.com/windows-server-docs/security/kerberos/whats-new-in-kerberos-authentication).
 
-### <a name="rolling-public-key-only-users-ntlm-secrets"></a>Nur Benutzer des öffentlichen Schlüssels des NTLM-Geheimnisse parallelen
+### <a name="rolling-public-key-only-users-ntlm-secrets"></a>Nur die NTLM-Geheimnisse des öffentlichen Schlüssels des öffentlichen Schlüssels
 
-Ab Windows Server 2016-Domänenfunktionsebene (DFL) können DCs unterstützen, ein eine einzige Benutzer des öffentlichen Schlüssels des NTLM-Geheimnisse. Dieses Feature ist darin in niedrigeren DFLs.
+Beginnend mit der Windows Server 2016-Domänen Funktionsebene (DFL) können DCS die NTLM-Geheimnisse eines öffentlichen Schlüssels eines öffentlichen Schlüssels unterstützen. Diese Funktion ist in niedrigeren dfls nicht verfügbar.
 
 > [!WARNING] 
-> Hinzufügen eines Domänencontrollers zu einer Domäne mit rollierenden NTLM-Geheimnisse, die aktiviert werden, bevor der Domänencontroller mit mindestens vom 8. November 2016 aktualisiert wurde Wartung ausgeführt wird das Risiko der Domänencontroller abstürzt. 
+> Wenn Sie einen Domänen Controller zu einer Domäne hinzufügen, bei der parallele NTLM-Geheimnisse aktiviert sind 2016, bevor der DC mit mindestens dem 8 
 
-Konfiguration: Für neue Domänen ist dieses Feature standardmäßig aktiviert. Für vorhandene Domänen müssen sie in den Active Directory-Verwaltungscenter konfiguriert werden: 
+Konfiguration: Bei neuen Domänen ist dieses Feature standardmäßig aktiviert. Für vorhandene Domänen muss Sie im Active Directory Verwaltungs Center konfiguriert werden: 
 
-1. Maustaste auf die Domäne im linken Bereich auf, aus dem Active Directory Administrative Center, und wählen **Eigenschaften**.
+1. Klicken Sie im Active Directory Verwaltungs Center im linken Bereich mit der rechten Maustaste auf die Domäne, und wählen Sie **Eigenschaften**aus.
 
-    ![Domäneneigenschaften](../media/Credentials-Protection-And-Management/domain-properties.png)
+    ![Domänen Eigenschaften](../media/Credentials-Protection-And-Management/domain-properties.png)
 
-2. Wählen Sie **aktivieren ablaufende NTLM geheimer Schlüssel, für Benutzer, die Verwendung von Microsoft Passport oder eine Smartcard für die interaktive Anmeldung erforderlich sind bei der parallelen**.
+2. Aktivieren Sie das **Aktivieren des Rollbacks abgelaufener NTLM-Geheimnisse während der Anmeldung, für Benutzer, die Microsoft Passport oder Smartcard für die interaktive Anmeldung verwenden müssen**.
 
-    ![Autoroll ablaufende NTLM Geheimnisse](../media/Credentials-Protection-And-Management/autoroll-ntlm.png)
+    ![Autoroll-ablaufende NTLM-Geheimnisse](../media/Credentials-Protection-And-Management/autoroll-ntlm.png)
 
 3. Klicken Sie auf **OK**. 
 
-### <a name="allowing-network-ntlm-when-user-is-restricted-to-specific-domain-joined-devices"></a>Lässt die NTLM bei der Benutzer auf bestimmte Domäne eingebundene Geräte beschränkt ist
+### <a name="allowing-network-ntlm-when-user-is-restricted-to-specific-domain-joined-devices"></a>Netzwerk-NTLM zulassen, wenn der Benutzer auf bestimmte in die Domäne eingebundenen Geräte beschränkt ist
 
-Ab WindowsServer 2016-Domänenfunktionsebene (DFL), DCs unterstützen und ermöglicht Netzwerk NTLM, wenn ein Benutzer beschränkt, die Domäne eingebundenen Geräten ist. Dieses Feature ist in der unteren DFLs nicht verfügbar.
+Beginnend mit der Windows Server 2016-Domänen Funktionsebene (DFL) können DCS das Zulassen von Netzwerk-NTLM unterstützen, wenn ein Benutzer auf bestimmte in die Domäne eingebundenen Geräte beschränkt ist. Diese Funktion ist in niedrigeren dfls nicht verfügbar.
 
-Konfiguration: Klicken Sie auf die Authentifizierungsrichtlinie auf **Netzwerkauthentifizierung NTLM zulassen, wenn der Benutzer auf beschränkt ist ausgewählten Geräte**. 
+Konfiguration: Klicken Sie unter Authentifizierungs Richtlinie auf **NTLM-Netzwerk Authentifizierung zulassen, wenn der Benutzer auf ausgewählte Geräte beschränkt ist**. 
 
-[Weitere Informationen zu Authentifizierungsrichtlinien](https://technet.microsoft.com/windows-server-docs/security/credentials-protection-and-management/authentication-policies-and-authentication-policy-silos).
+[Weitere Informationen zu Authentifizierungs Richtlinien](https://technet.microsoft.com/windows-server-docs/security/credentials-protection-and-management/authentication-policies-and-authentication-policy-silos).

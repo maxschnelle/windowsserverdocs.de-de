@@ -1,7 +1,7 @@
 ---
 ms.assetid: 2e748187-6a10-4bb0-aed5-34f886a250d2
 title: Fsutil
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
@@ -9,50 +9,50 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 08/21/2018
-ms.openlocfilehash: df8d25b01b67010734deb8dd7e42f3233e6011fe
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0f338c80dca0ed88ca206aea5aeb415bc191e03a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59866811"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376669"
 ---
 # <a name="fsutil"></a>Fsutil
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, WindowsServer 2012, Windows 8, Windows Server 2008 R2, Windows 7
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
 
-Führt Aufgaben aus, die in der Zuordnung (Table, DATEIZUORDNUNGSTABELLE) und NTFS-Dateisystemen wie Verwalten von Analysepunkten Datei verweist Verwalten von Dateien mit geringer Dichte oder Aufheben der Bereitstellung eines Volumes, verknüpft sind. Wenn es ohne Parameter verwendet wird **Fsutil** zeigt eine Liste der unterstützten Unterbefehle. 
+Führt Aufgaben im Zusammenhang mit Datei Zuordnungs Tabellen-und NTFS-Dateisystemen aus, z. b. das Verwalten von Analyse Punkten, das Verwalten von sparsesdateien oder das Aufheben der Bereitstellung eines Volumes. Wenn Sie ohne Parameter verwendet wird, zeigt " **f** " eine Liste der unterstützten Unterbefehle an. 
 
 > [!Note] 
-> Sie müssen als Administrator oder Mitglied der Gruppe "Administratoren" zur Verwendung von Fsutil angemeldet werden. Der Befehl "Fsutil" ist sehr leistungsstark und sollten nur von erfahrenen Benutzern, die über umfassende Kenntnisse in Windows-Betriebssystemen verwendet werden.
+> Sie müssen als Administrator oder Mitglied der Gruppe "Administratoren" angemeldet sein, damit Sie fsutil verwenden können. Der Befehl "f" ist sehr leistungsstark und sollte nur von fortgeschrittenen Benutzern verwendet werden, die über umfassende Kenntnisse der Windows-Betriebssysteme verfügen.
 >
->Sie müssen die Windows-Subsystem für Linux aktivieren, vor dem Ausführen **Fsutil**. Führen Sie den folgenden Befehl als Administrator in PowerShell, um diese optionale Funktion zu aktivieren:
+>Sie müssen das Windows-Subsystem für Linux aktivieren, bevor Sie **fsutil**ausführen können. Führen Sie den folgenden Befehl als Administrator in PowerShell aus, um dieses optionale Feature zu aktivieren:
 >
 >```
 > Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 >```
-> Sie werden aufgefordert, den Computer neu starten, nachdem es installiert ist. Nach dem Neustart des Computers Sie Lage sein, führen Sie **Fsutil** als Administrator.
+> Sie werden aufgefordert, den Computer nach der Installation neu zu starten. Nachdem der Computer neu gestartet wurde, können Sie **fsutil** als Administrator ausführen.
 
 ## <a name="parameters"></a>Parameter
 
 |Unterbefehl |Beschreibung|
 |---|---|
-|[Fsutil 8dot3name](fsutil-8dot3name.md) | Abfragen oder Änderungen der Einstellungen für Kurznamen-Verhalten des Systems, z. B., generiert der 8.3-Dateinamen Zeichen. Abkürzungen für alle Dateien in einem Verzeichnis entfernt. Scannen ein Verzeichnis und Identifizieren von Registrierungsschlüsseln, die betroffen sein könnten, wenn Sie kurze Namen aus den Dateien im Verzeichnis entfernt wurden.|
-|[Fsutil behavior](fsutil-behavior.md) |Volume-Verhalten Abfragen, oder legt ihn fest.|
-|[Fsutil geändert](fsutil-dirty.md)| Fragt ab, ob dirty Bit des Volumes festgelegt ist, oder legt diesen dirty Bit des Volumes fest. Wenn ein Volume geändert ist Bit festgelegt ist, **Autochk** automatisch geprüft, ob das Volume für Fehler beim nächsten des Computers Neustart.|
-|[Fsutil-Datei](fsutil-file.md)|Sucht nach einer Datei über den Benutzernamen, (wenn Datenträgerkontingente aktiviert sind), fragt zugewiesene Bereiche für eine Datei, legt den kurzen Namen, einer Datei gültige Datenlänge, legt keine Daten für eine Datei fest, erstellt eine neue Datei mit einer angegebenen Größe, sucht nach einer Datei-ID, wenn der Name , oder sucht einen Dateinamen für die Verknüpfung für eine angegebene Datei-ID.|
-|[Fsutil fsinfo](fsutil-fsinfo.md)|Listet alle Laufwerke und fragt die Laufwerkstyp, Informationen über Volume, NTFS-Volumeinformationen oder System Dateistatistiken ab.|
-|[Fsutil hardlink](fsutil-hardlink.md)|Listet die festen Links für eine Datei oder einen festen Link (einem Verzeichniseintrag für eine Datei) erstellt. Jede Datei kann betrachtet werden, um mindestens einen festen Link zu erhalten. Auf NTFS-Volumes kann jede Datei mehrere feste Links, sein, damit eine einzelne Datei in mehreren Verzeichnissen (oder sogar im gleichen Verzeichnis, mit unterschiedlichen Namen) angezeigt werden können. Da alle Verknüpfungen auf dieselbe Datei verweisen, können Programme öffnen einen der Links, und ändern Sie die Datei. Nur verwendet werden, nachdem alle Links, gelöscht wurden, wird eine Datei aus dem Dateisystem gelöscht. Nachdem Sie einen festen Link erstellt haben, können Programme wie jeden anderen Dateinamen verwenden.|
-|[Fsutil-Objekt-ID](fsutil-objectid.md)|Verwaltet die Objektbezeichner, die durch das Windows-Betriebssystem verwendet werden, um Objekte wie Dateien und Verzeichnissen zu verfolgen.|
-|[Fsutil quota](fsutil-quota.md)|Verwaltet Datenträgerkontingente auf NTFS-Volumes, um eine genauere Steuerung der Netzwerk-basierten Speicher bereitzustellen. Datenträgerkontingente pro Volume implementiert, und aktivieren beide schwierig und Soft-Storage - Beschränkungen auf pro-Benutzer implementiert werden.|
-|[Fsutil repair](fsutil-repair.md)|Abfragen, oder legt die Selbstreparatur Status des Volumes. Selbst heilen NTFS versucht, die Beschädigungen des NTFS-Dateisystem ohne korrigieren **Chkdsk.exe** ausgeführt werden. Enthält, auf dem Datenträger Überprüfung initiiert, und Warten auf Abschluss der Reparatur.|
-|[Fsutil reparsepoint](fsutil-reparsepoint.md)|Abfragen oder Löschvorgänge Analysepunkte (NTFS Dateisystemobjekte, die definierbare Attribute mit benutzergesteuerten Daten haben). Reparse Points werden verwendet, um die Funktionalität in der Eingabe/Ausgabe (e/a)-Subsystem zu erweitern. Sie werden für Directory Verknüpfungspunkte und Volumebereitstellungspunkten verwendet. Sie werden auch von Dateisystemfilter-Treiber verwendet, um bestimmte Dateien als Sonderzeichen auf diesen Treiber zu markieren.|
-|[Fsutil-Ressource](fsutil-resource.md)|Erstellt einen sekundären Transaktionsressourcen-Manager., beginnt oder beendet einen Transaktionsressourcen-Manager., zeigt die Informationen über eine transaktionale Ressource-Manager an oder ändert sein Verhalten.|
-|[Fsutil-sparsedatei](fsutil-sparse.md)|Verwaltet die Dateien mit geringer Dichte. Eine Datei mit geringer Dichte ist eine Datei mit einer oder mehreren Regionen des nicht zugeordneten Daten. Ein Programm, wird diese nicht zugewiesenen Regionen als mit Bytes, die mit dem Wert 0 (null) angezeigt, aber kein Speicherplatz wird verwendet, um diese Nullen darstellen. Alle Daten von Bedeutung sind oder ungleich NULL sind reserviert, während alle nicht lesbare Daten (lange Zeichenfolgen von Daten aus Nullen) ist nicht zugeordnet. Wenn eine Datei mit geringer Dichte gelesen wird, zugeordnete Daten werden zurückgegeben, da gespeichert und nicht zugeordnete Daten werden als Nullen (standardmäßig in Übereinstimmung mit der C2-Sicherheitsspezifikation Anforderung) zurückgegeben. Unterstützung der Datei mit geringer Dichte kann Daten an einer beliebigen Stelle in der Datei aufgehoben werden soll.|
-|[Fsutil-tiering](fsutil-tiering.md)|Ermöglicht die Verwaltung von Speicher-Tier-Funktionen, wie das Festlegen und das Deaktivieren der Flags und eine Liste der Ebenen.|
-|[Fsutil-Transaktion](fsutil-transaction.md)|Führt einen Commit für eine angegebene Transaktion, eine angegebene Transaktion wird ein Rollback ausgeführt, oder zeigt Informationen über die Transaktion.|
-|[Fsutil usn](fsutil-usn.md)|Verwaltet Update Sequence Number (USN) Änderung Erfassung, die enthält alle Änderungen an Dateien auf dem Volume, dauerhaft protokolliert.|
-|[Fsutil volume](fsutil-volume.md)|Verwaltet ein Volume. Hebt die Bereitstellung eines Volumes, Abfragen, um festzustellen, wie viel freier Speicherplatz auf einem Datenträger verfügbar ist, oder sucht nach einer Datei, die einen angegebenen Cluster verwendet wird.|
-|[Fsutil-wim](fsutil-wim.md)|Stellt Funktionen zur Erkennung und Verwaltung von WIM-gesicherten Dateien bereit.|
+|["F", "8dot3name"](fsutil-8dot3name.md) | Abfragen oder Ändern der Einstellungen für das Kurznamen Verhalten im System, z. b. Generieren von Dateinamen mit einer Länge von 8,3 Zeichen. Entfernt Kurznamen für alle Dateien in einem Verzeichnis. Scannt ein Verzeichnis und identifiziert Registrierungsschlüssel, die möglicherweise betroffen sind, wenn Kurznamen aus den Dateien im Verzeichnis entfernt wurden.|
+|[Verhalten von "f"](fsutil-behavior.md) |Fragt das Volumen Verhalten ab oder legt es fest.|
+|[Nicht geändert](fsutil-dirty.md)| Fragt ab, ob das geänderte Bit des Volumes festgelegt ist, oder legt das geänderte Bit eines Volumes fest. Wenn das geänderte Bit eines Volumes festgelegt ist, überprüft **Autochk** automatisch das Volume auf Fehler, wenn der Computer das nächste Mal neu gestartet wird.|
+|[Datei "Datei"](fsutil-file.md)|Sucht eine Datei anhand des Benutzernamens (Wenn Datenträger Kontingente aktiviert sind), fragt zugeordnete Bereiche für eine Datei ab, legt den Kurznamen einer Datei fest, legt die gültige Daten Länge einer Datei fest, legt für eine Datei null fest, erstellt eine neue Datei mit einer angegebenen Größe, ermittelt eine Datei-ID, wenn der Name angegeben wird. , oder sucht einen Datei Verknüpfungs Namen für eine angegebene Datei-ID.|
+|[F-Datei (f)](fsutil-fsinfo.md)|Listet alle Laufwerke auf und fragt den Laufwerkstyp, die Volumeinformationen, die NTFS-spezifischen Volumeinformationen oder die Statistiken des Dateisystems ab.|
+|[Mit hardlink "f"](fsutil-hardlink.md)|Listet feste Links für eine Datei auf oder erstellt einen festen Link (einen Verzeichniseintrag für eine Datei). Jede Datei kann als mindestens eine feste Verknüpfung angesehen werden. Auf NTFS-Volumes kann jede Datei über mehrere feste Links verfügen, sodass eine einzelne Datei in vielen Verzeichnissen (oder sogar im gleichen Verzeichnis mit unterschiedlichen Namen) angezeigt werden kann. Da alle Links auf dieselbe Datei verweisen, können Programme alle Links öffnen und die Datei ändern. Eine Datei wird nur dann aus dem Dateisystem gelöscht, nachdem alle Verknüpfungen damit gelöscht wurden. Nachdem Sie einen festen Link erstellt haben, kann er von Programmen wie jeder andere Dateiname verwendet werden.|
+|[' F '-ObjectID](fsutil-objectid.md)|Verwaltet Objekt Bezeichner, die vom Windows-Betriebssystem zum Nachverfolgen von Objekten wie Dateien und Verzeichnissen verwendet werden.|
+|[Nicht-Kontingent](fsutil-quota.md)|Verwaltet Datenträger Kontingente auf NTFS-Volumes, um eine präzisere Steuerung des netzwerkbasierten Speichers zu ermöglichen. Datenträger Kontingente werden pro Volume implementiert und ermöglichen die Implementierung von Hard-und Soft-Storage-Limits auf Benutzerbasis.|
+|[Nicht reparieren](fsutil-repair.md)|Fragt den selbst reparierenden Zustand des Volumes ab oder legt ihn fest. Die Selbstreparatur von NTFS versucht, die Beschädigungen des NTFS-Dateisystems online zu korrigieren, ohne dass " **Chkdsk. exe** " ausgeführt werden muss. Umfasst das Initiieren der Überprüfung auf dem Datenträger und das warten auf den Abschluss der Reparatur|
+|["F"-Analyse Punkt](fsutil-reparsepoint.md)|Fragt Analyse Punkte ab oder löscht sie (NTFS-Dateisystem Objekte, die über ein definierbares Attribut verfügen, das benutzergesteuerte Daten enthält). Analyse Punkte werden verwendet, um die Funktionalität des e/a-Subsystems (Input/Output, e/a) zu erweitern. Sie werden für Verzeichnis Verknüpfungs Punkte und volumeeinstellungspunkte verwendet. Sie werden auch von Dateisystem Filter-Treibern verwendet, um bestimmte Dateien als spezielle Dateien für diesen Treiber zu markieren.|
+|[Ressource "f"](fsutil-resource.md)|Erstellt eine sekundäre Transaktions Ressourcen-Manager, startet oder beendet eine transaktionale Ressourcen-Manager, zeigt Informationen zu einem transaktionalen Ressourcen-Manager an oder ändert das Verhalten.|
+|[Geringe Dichte](fsutil-sparse.md)|Verwaltet Dateien mit geringer Dichte. Eine sparsedatei ist eine Datei mit einer oder mehreren Regionen nicht zugeordneter Daten. Die nicht zugeordneten Regionen werden von einem Programm als Bytes mit dem Wert 0 (null) angezeigt, es wird jedoch kein Speicherplatz zur Darstellung dieser Nullen verwendet. Alle aussagekräftigen Daten oder Daten, die nicht NULL sind, werden zugeordnet, während alle nicht aussagekräftigen Daten (große Daten Zeichenfolgen aus Nullen) nicht zugeordnet werden. Wenn eine sparsedatei gelesen wird, werden zugeordnete Daten als gespeicherte Daten zurückgegeben, und nicht zugeordnete Daten werden als Nullen zurückgegeben (standardmäßig in Übereinstimmung mit der C2-Sicherheits Anforderungsspezifikation). Unterstützung für die Unterstützung von geringer Dichte ermöglicht die Zuordnung von Daten von jedem beliebigen Speicherort in der Datei|
+|[Untergeordnetes Tiering](fsutil-tiering.md)|Ermöglicht die Verwaltung von Funktionen für die Speicher Ebene, z. b. das Festlegen und Deaktivieren von Flags und das Auflisten von Ebenen.|
+|[Ssutil-Transaktion](fsutil-transaction.md)|Führt einen Commit für eine angegebene Transaktion aus, führt ein Rollback für eine angegebene Transaktion aus oder zeigt Informationen zur Transaktion an.|
+|[Nicht zutreffend](fsutil-usn.md)|Verwaltet das Änderungs Journal der Update Sequenznummer (USN), das ein dauerhaftes Protokoll aller an Dateien auf dem Volume vorgenommenen Änderungen bereitstellt.|
+|[Volume "Volume"](fsutil-volume.md)|Verwaltet ein Volume. Hebt die Bereitstellung eines Volumes auf, um zu sehen, wie viel freier Speicherplatz auf einem Datenträger verfügbar ist, oder sucht eine Datei, die einen angegebenen Cluster verwendet.|
+|[Wim](fsutil-wim.md)|Stellt Funktionen zum Ermitteln und Verwalten von Wim-gestützten Dateien bereit.|
 
 ## <a name="see-also"></a>Siehe auch
-[Befehlszeilensyntax](Command-Line-Syntax-Key.md)
+[Erläuterung zur Befehlszeilensyntax](Command-Line-Syntax-Key.md)

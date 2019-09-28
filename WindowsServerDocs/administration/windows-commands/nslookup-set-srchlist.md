@@ -1,8 +1,8 @@
 ---
 title: nslookup set srchlist
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 39b28e7d43df2427caae46d323cd30f03b6b484c
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: fb93a9f7cf969161536e88bec929b7e6ba0f0e5d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436573"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372772"
 ---
 # <a name="nslookup-set-srchlist"></a>nslookup set srchlist
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Ändert den Standard Domain Name System (DNS) Domäne Name "und" suchen.
+ändert den Domain Name System Standard-DNS-Domänen Namen und die Suchliste.
 
 ## <a name="syntax"></a>Syntax
 ```
@@ -34,17 +34,17 @@ Set srchlist=<DomainName>[/...]
 
 |    Parameter    |                                                                                        Beschreibung                                                                                        |
 |-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  <DomainName>   | Gibt neue Namen für die Standard-DNS-Domäne, und suchen. Der Name der domänenstandardwert basiert auf den Namen des Hosts. Sie können maximal sechs Namen, die durch Schrägstriche (/) getrennt angeben. |
-| {help &#124; ?} |                                                                   Zeigt eine kurze Zusammenfassung der **Nslookup** Unterbefehle.                                                                   |
+|  <DomainName>   | Gibt neue Namen für die DNS-Standard Domäne und-Suchliste an. Der Standardwert für den Domänen Namen basiert auf dem Hostnamen. Sie können maximal sechs Namen angeben, die durch Schrägstriche (/) getrennt sind. |
+| {Help &#124; ?} |                                                                   Zeigt eine kurze Zusammenfassung der **nslookup** -Unterbefehle an.                                                                   |
 
 ## <a name="remarks"></a>Hinweise
-- Die **Srchlist festgelegt**Befehl überschreibt der standardmäßigen DNS-Namen, und suchen Sie Domänenliste der **Satz Domäne** Befehl. Verwenden der **alle festlegen** Befehl aus, um die Liste anzuzeigen.
-  ## <a name="BKMK_examples"></a>Beispiele für
-  Im folgenden Beispiel wird die DNS-Domäne mfg.widgets.com und der Liste "Suchen" auf die drei Namen:
+- Der Befehl **set srchlist**überschreibt den Standard-DNS-Domänen Namen und die Suchliste des Befehls **Set Domain** . Verwenden Sie den Befehl **alle festlegen** , um die Liste anzuzeigen.
+  ## <a name="BKMK_examples"></a>Beispiele
+  Im folgenden Beispiel wird die DNS-Domäne auf MFG.widgets.com und die Suchliste auf die drei Namen festgelegt:
   ```
   set srchlist=mfg.widgets.com/mrp2.widgets.com/widgets.com
   ```
-  ## <a name="additional-references"></a>Zusätzliche Referenzen
-  [Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-  [Domäne fest, Nslookup](nslookup-set-domain.md)
-  [Nslookup alle festlegen](nslookup-set-all.md)
+  ## <a name="additional-references"></a>Weitere Verweise
+  [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+  [nslookup Domäne](nslookup-set-domain.md)
+  [nslookup alle festlegen](nslookup-set-all.md)

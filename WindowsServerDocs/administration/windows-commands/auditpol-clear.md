@@ -1,8 +1,8 @@
 ---
-title: "\"auditpol\" deaktivieren"
-description: Windows-Befehle Thema **"auditpol" clear** -löscht die Überwachungsrichtlinie pro Benutzer, für alle Benutzer, Zurücksetzen von Kennwörtern (deaktiviert) des Systems Überwachungsrichtlinie für alle Unterkategorien aus, und legt alle die Überwachung auf "Optionen" deaktiviert.
+title: Auditpol Clear
+description: 'Thema für Windows-Befehle für **Auditpol Clear** : Löscht die Überwachungsrichtlinie pro Benutzer für alle Benutzer, setzt die System Überwachungsrichtlinie für alle Unterkategorien zurück (deaktiviert Sie) und legt alle Überwachungs Optionen auf deaktiviert fest.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 86b56386ba9bed2486cdf8cdbb4486fcec6c6265
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 4fd2cce2b860ee41725b698dcd36ca38b2c4c6a8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435152"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382419"
 ---
-# <a name="auditpol-clear"></a>"auditpol" deaktivieren
+# <a name="auditpol-clear"></a>Auditpol Clear
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Löscht die Überwachungsrichtlinie pro Benutzer, für alle Benutzer, Zurücksetzen von Kennwörtern (deaktiviert) des Systems Überwachungsrichtlinie für alle Unterkategorien aus, und legt Optionen für alle die Überwachung deaktiviert.
+Löscht die Überwachungsrichtlinie pro Benutzer für alle Benutzer, setzt die System Überwachungsrichtlinie für alle Unterkategorien zurück (deaktiviert Sie) und legt alle Überwachungs Optionen auf deaktiviert fest.
 
 ## <a name="syntax"></a>Syntax
 ```
@@ -34,21 +34,21 @@ auditpol /clear [/y]
 
 | Parameter |                                   Beschreibung                                    |
 |-----------|----------------------------------------------------------------------------------|
-|    /y     | Unterdrückt die Eingabeaufforderung zur Bestätigung, wenn alle sicherheitsüberwachungs-Richtlinieneinstellungen, die gelöscht werden sollen. |
+|    /y     | Unterdrückt die Eingabeaufforderung, um zu bestätigen, dass alle Überwachungs Richtlinien Einstellungen gelöscht werden sollen. |
 |    /?     |                       Zeigt die Hilfe an der Eingabeaufforderung an.                       |
 
 ## <a name="remarks"></a>Hinweise
-für Vorgänge für die pro-Benutzer und Systemrichtlinien zum Löschen müssen Sie schreiben müssen, oder Full Control-Berechtigung für dieses Objekt festgelegt werden, in der Sicherheitsbeschreibung. Sie können auch den Löschvorgang ausführen, indem besitzt die **Verwalten von überwachungs- und Sicherheitsprotokollen** Benutzerrecht (SeSecurityPrivilege). Diese Berechtigung ermöglicht jedoch zusätzliche Zugriffsrechte, die nicht erforderlich, um den Löschvorgang auszuführen ist.
-## <a name="BKMK_examples"></a>Beispiele für
-Geben die sicherheitsüberwachungs-Richtlinieneinstellungen deaktiviert, die an einer Eingabeaufforderung zur Bestätigung, um die Überwachungsrichtlinie pro Benutzer, für alle Benutzer, zurücksetzen (deaktivieren) der Dateisystem-Überwachungsrichtlinie für alle Unterkategorien und Set zu löschen:
+für Löschvorgänge für die Richtlinie und die System Richtlinie pro Benutzer müssen Sie über die Berechtigung Schreiben oder Vollzugriff für dieses Objekt verfügen, das in der Sicherheits Beschreibung festgelegt ist. Sie können den Löschvorgang auch durchführen, indem Sie das Benutzerrecht zum Verwalten von Überwachungs **-und Sicherheitsprotokollen** (SeSecurityPrivilege) besitzen. Dieses Recht ermöglicht jedoch zusätzlichen Zugriff, der nicht erforderlich ist, um den Löschvorgang auszuführen.
+## <a name="BKMK_examples"></a>Beispiele
+Wenn Sie die Überwachungsrichtlinie pro Benutzer für alle Benutzer löschen möchten, setzen Sie die System Überwachungsrichtlinie für alle Unterkategorien zurück (deaktivieren Sie Sie), und legen Sie alle Überwachungs Richtlinien Einstellungen in einer Bestätigungsaufforderung auf deaktiviert fest. Geben Sie Folgendes ein:
 ```
 auditpol /clear
 ```
-Um die Überwachungsrichtlinie pro Benutzer, für alle Benutzer zu löschen, Zurücksetzen der System-sicherheitsüberwachungs-Richtlinieneinstellungen für alle Unterkategorien, und Einstellungen festlegen, dass alle die Überwachung deaktiviert, ohne eine bestätigungsaufforderung, Typ:
+Wenn Sie die Überwachungsrichtlinie für alle Benutzer pro Benutzer löschen möchten, setzen Sie die System Überwachungs Richtlinien Einstellungen für alle Unterkategorien zurück, und legen Sie alle Überwachungs Richtlinien Einstellungen ohne Bestätigungsaufforderung auf deaktiviert fest. Geben Sie Folgendes ein:
 ```
 auditpol /clear /y
 ```
 > [!NOTE]
-> Im vorherige Beispiel ist nützlich, wenn ein Skript verwenden, um diesen Vorgang auszuführen.
-> #### <a name="additional-references"></a>Zusätzliche Referenzen
+> Das vorangehende Beispiel ist nützlich, wenn ein Skript verwendet wird, um diesen Vorgang auszuführen.
+> #### <a name="additional-references"></a>Weitere Verweise
 > [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

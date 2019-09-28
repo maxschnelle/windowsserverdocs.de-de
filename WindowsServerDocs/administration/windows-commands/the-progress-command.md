@@ -1,8 +1,8 @@
 ---
-title: Der Status-Befehl
-description: 'Windows-Befehle Thema ***- '
+title: Der Status Befehl
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5fff31c91b4d267011f2d738b4fc3acb3f0f2377
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 841d9103354e3162489492ba7dd97e726b37d37d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832701"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370176"
 ---
-# <a name="the-progress-command"></a>Der Status-Befehl
+# <a name="the-progress-command"></a>Der Status Befehl
 
 
 
-Zeigt Status an, während ein Befehl ausgeführt wird. Sie können **/progress** mit andere WDSUTIL-Befehle, die Sie ausführen. Beachten Sie, den Sie angeben, müssen **/ verbose** und **/progress** direkt nach **WDSUTIL**.
+Zeigt den Fortschritt während der Ausführung eines Befehls an. Sie können **/Progress** mit allen anderen WDSUTIL-Befehlen verwenden, die Sie ausführen. Beachten Sie, dass Sie **/verbose** und **/Progress** direkt nach " **WDSUTIL**" angeben müssen.
 
 ## <a name="syntax"></a>Syntax
 
@@ -34,7 +34,7 @@ WDSUTIL /progress <commands>
 
 ## <a name="examples"></a>Beispiele
 
-Um den Server zu initialisieren und Anzeigen des Fortschritts, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um den Server zu initialisieren und Fortschritt anzuzeigen:
 ```
 WDSUTIL /Verbose /Progress /Initialize-Server /Server:MyWDSServer /RemInst:"C:\RemoteInstall"
 ```

@@ -1,8 +1,8 @@
 ---
-title: Erstellen der Partition efi
-description: 'Windows-Befehle Thema ***- '
+title: Erstellen von EFI-Partitionen
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 99970fba41a747a6bb4b1ca6cc4b7f603c547790
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 76d97129fd67345f23eee2fc7b300493a1632cc6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434158"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379009"
 ---
-# <a name="create-partition-efi"></a>Erstellen der Partition efi
+# <a name="create-partition-efi"></a>Erstellen von EFI-Partitionen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Auf Itanium\--basierten Computern erstellt eine Extensible Firmware Interface \(EFI\) Systempartition auf eine GUID-Partitionstabelle \(Gpt\) Datenträger.  
+Erstellt auf Itanium @ no__t-0based Computers eine Extensible Firmware Interface \(efi @ no__t-2-Systempartition in einer GUID-Partitionstabelle \(gpt @ no__t-4-Datenträger.  
   
   
   
@@ -38,24 +38,24 @@ create partition efi [size=<n>] [offset=<n>] [noerr]
   
 |  Parameter  |                                                                                             Beschreibung                                                                                              |
 |-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  Größe\=<n>  |                         Die Größe der Partition in Megabytes \(MB\). Wenn keine Größe angegeben wird, wird die Partition erst in der aktuellen Region nicht mehr Speicherplatz verfügbar ist.                         |
-| offset\=<n> |             Der Offset in Kilobyte \(KB\), an dem die Partition erstellt wird. Wird kein Offset angegeben wird, wird die Partition in der ersten Datenträgerbereich platziert, die groß genug für die sie enthalten ist.              |
-|    Diskpart    | nur für Skripts. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden. |
+|  Size @ no__t-0 @ no__t-1  |                         Die Größe der Partition in Megabyte \(MB @ no__t-1. Wenn keine Größe angegeben wird, wird die Partition so lange fortgesetzt, bis in der aktuellen Region kein freier Speicherplatz mehr verfügbar ist.                         |
+| Offset @ no__t-0 @ no__t-1 |             Der Offset in Kilobyte \(KB @ no__t-1, bei dem die Partition erstellt wird. Wenn kein Offset angegeben wird, wird die Partition in den ersten Datenträger Block eingefügt, der groß genug ist, um Sie zu speichern.              |
+|    Noerr    | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
   
 ## <a name="remarks"></a>Hinweise  
   
--   Nachdem Sie die Partition erstellt wurde, erhält der Fokus in die neue Partition.  
+-   Nachdem die Partition erstellt wurde, wird der Fokus auf die neue Partition festgestellt.  
   
--   Ein Gpt-Datenträger muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden. Verwenden der **select Disk** Befehl aus, wählen Sie einen Datenträger und verschiebt den Fokus auf sie.  
+-   Ein GPT-Datenträger muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl Datenträger **auswählen** einen Datenträger aus, und verschieben Sie den Fokus auf den Datenträger.  
   
-## <a name="BKMK_examples"></a>Beispiele für  
-Um eine EFI-Systempartition von 1000 MB auf den ausgewählten Datenträger zu erstellen, geben Sie Folgendes ein:  
+## <a name="BKMK_examples"></a>Beispiele  
+Geben Sie Folgendes ein, um eine EFI-Partition von 1000 Megabyte auf dem ausgewählten Datenträger zu erstellen:  
   
 ```  
 create partition efi size=1000  
 ```  
   
-#### <a name="additional-references"></a>Zusätzliche Referenzen  
+#### <a name="additional-references"></a>Weitere Verweise  
 [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
 

@@ -1,8 +1,8 @@
 ---
-title: Satz mit "auditpol"
-description: 'Windows-Befehle Thema **Auditpol Set** : Legt die Überwachungsrichtlinie pro Benutzer, die Dateisystem-Überwachungsrichtlinie oder Optionen für die Überwachung.'
+title: Auditpol-Satz
+description: 'Windows-Befehls Thema für **Auditpol Set** : legt die Überwachungsrichtlinie pro Benutzer, die System Überwachungsrichtlinie oder die Überwachungs Optionen fest.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8778401efb272a167aaa3d9abb4ecafc67e5f50d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f3c9ec2fab4cad408e0bb845fe157cfdf94f8e09
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435112"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382404"
 ---
-# <a name="auditpol-set"></a>Satz mit "auditpol"
+# <a name="auditpol-set"></a>Auditpol-Satz
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Legt den pro-Benutzer-Überwachungsrichtlinie, Dateisystem-Überwachungsrichtlinie oder Optionen für die Überwachung.
+Legt die Überwachungsrichtlinie pro Benutzer, die System Überwachungsrichtlinie oder die Überwachungs Optionen fest.
 
 ## <a name="syntax"></a>Syntax
 ```
@@ -40,49 +40,49 @@ auditpol /set
 
 |  Parameter   |                                                                                                                                          Beschreibung                                                                                                                                           |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    / User     |                                        Der Sicherheitsprinzipal für den benutzerspezifischen Überwachungsrichtlinie angegeben werden, indem Sie die Kategorie oder Unterkategorie festgelegt ist. Entweder die Kategorie oder Unterkategorie-Option muss angegeben werden, als Sicherheits-ID (SID) oder Namen.                                         |
-|   /include   | Mit %% amp;quot;/User%%amp;quot; angegeben. Gibt an, dass die Richtlinie des Benutzers pro Benutzer führt eine Überwachung, auch wenn er nicht, wird der Dateisystem-Überwachungsrichtlinie angegeben wird generiert werden. Diese Einstellung ist die Standardeinstellung und wird automatisch angewendet, wenn weder der / enthalten oder/EXCLUDE-Parameter explizit angegeben werden. |
-|   /exclude   |                                Mit %% amp;quot;/User%%amp;quot; angegeben. Gibt an, dass die Richtlinie des Benutzers pro Benutzer verursacht eine Überwachung, die unabhängig von der Dateisystem-Überwachungsrichtlinie unterdrückt werden. Für Benutzer, die Mitglieder der lokalen Gruppe Administratoren sind, ist diese Einstellung ignoriert.                                |
-|  /category   |                                                                            Eine oder mehrere Überwachungskategorien von global eindeutigen Bezeichner (GUID) oder den Namen angegeben. Wenn kein Benutzer angegeben wird, wird die Systemrichtlinie festgelegt.                                                                             |
-| /subcategory |                                                                                         Eine oder mehrere überwachungsunterkategorien anhand des GUID oder den Namen. Wenn kein Benutzer angegeben wird, wird die Systemrichtlinie festgelegt.                                                                                          |
-|   /success   |                 Gibt die erfolgreiche Überwachung. Diese Einstellung ist die Standardeinstellung und wird automatisch angewendet, wenn weder /success noch /failure Parameter explizit angegeben werden. Diese Einstellung muss mit einem Parameter, der angibt, ob aktivieren oder deaktivieren Sie die Einstellung verwendet werden.                 |
-|   /failure   |                                                                                  Gibt die Fehlerüberwachung. Diese Einstellung muss mit einem Parameter, der angibt, ob aktivieren oder deaktivieren Sie die Einstellung verwendet werden.                                                                                   |
-|   /option    |                                                                                   Legt die Überwachungsrichtlinie für die CrashOnAuditFail FullprivilegeAuditing, AuditBaseObjects oder AuditBasedirectories Optionen fest.                                                                                    |
-|     /sd      |                 Legt die Sicherheitsbeschreibung, die zum Delegieren des Zugriffs auf die Überwachungsrichtlinie fest. Die Sicherheitsbeschreibung muss angegeben werden, mit der Security Descriptor Definition Language (SDDL). Die Sicherheitsbeschreibung muss es sich um eine besitzerverwaltete Zugriffssteuerungsliste (DACL) verfügen.                 |
+|    /User     |                                        Der Sicherheits Prinzipal, für den die von der Kategorie oder Unterkategorie angegebene Überwachungsrichtlinie pro Benutzer festgelegt ist. Die Option Category oder SubCategory muss als Sicherheits-ID (SID) oder Name angegeben werden.                                         |
+|   /include   | Angegeben mit/User; Gibt an, dass die Richtlinie pro Benutzer des Benutzers bewirkt, dass eine Überwachung generiert wird, auch wenn Sie nicht von der System Überwachungsrichtlinie angegeben wird. Diese Einstellung ist die Standardeinstellung und wird automatisch angewendet, wenn weder der/include-noch der/Exclude-Parameter explizit angegeben wird. |
+|   /Exclude   |                                Angegeben mit/User; Gibt an, dass die Richtlinie pro Benutzer des Benutzers bewirkt, dass eine Überwachung unabhängig von der System Überwachungsrichtlinie unterdrückt wird. Diese Einstellung wird für Benutzer ignoriert, die Mitglieder der lokalen Administrator Gruppe sind.                                |
+|  /Category   |                                                                            Eine oder mehrere Überwachungs Kategorien, die durch Globally Unique Identifier (GUID) oder den Namen angegeben werden. Wenn kein Benutzer angegeben ist, wird die System Richtlinie festgelegt.                                                                             |
+| /SubCategory |                                                                                         Eine oder mehrere Überwachungs Unterkategorien, die durch GUID oder Name angegeben werden. Wenn kein Benutzer angegeben ist, wird die System Richtlinie festgelegt.                                                                                          |
+|   /Success   |                 Gibt die erfolgreiche Überwachung an. Diese Einstellung ist die Standardeinstellung und wird automatisch angewendet, wenn weder der/Success-noch der/Failure-Parameter explizit angegeben wird. Diese Einstellung muss mit einem Parameter verwendet werden, der angibt, ob die Einstellung aktiviert oder deaktiviert werden soll.                 |
+|   /Failure   |                                                                                  Gibt die Fehlerüberwachung an. Diese Einstellung muss mit einem Parameter verwendet werden, der angibt, ob die Einstellung aktiviert oder deaktiviert werden soll.                                                                                   |
+|   /Option    |                                                                                   Legt die Überwachungsrichtlinie für die Optionen CrashOnAuditFail, FullPrivilegeAuditing, auditbaseobjects oder auditbasedirectories fest.                                                                                    |
+|     /sd      |                 Legt die Sicherheits Beschreibung fest, die zum Delegieren des Zugriffs auf die Überwachungsrichtlinie verwendet wird. Die Sicherheits Beschreibung muss mithilfe der Security Deskriptor Definition Language (SDDL) angegeben werden. Die Sicherheits Beschreibung muss über eine freigegebene Zugriffs Steuerungs Liste (DACL) verfügen.                 |
 |      /?      |                                                                                                                              Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                              |
 
 ## <a name="remarks"></a>Hinweise
-für alle Vorgänge für die pro-Benutzer und Systemrichtlinien müssen Sie schreiben müssen, oder Full Control-Berechtigung für dieses Objekt festgelegt werden, in der Sicherheitsbeschreibung. Sie können auch die Set-Vorgänge ausführen, indem besitzt die **Verwalten von überwachungs- und Sicherheitsprotokollen** Benutzerrecht (SeSecurityPrivilege). Allerdings ermöglicht dieses Recht zusätzliche Zugriffsrechte, die nicht zum Ausführen des Set-Vorgangs erforderlich ist.
-## <a name="BKMK_examples"></a>Beispiele für
+für alle festgelegten Vorgänge für die Richtlinie und die System Richtlinie pro Benutzer müssen Sie über die Berechtigung Schreiben oder Vollzugriff für dieses Objekt verfügen, das in der Sicherheits Beschreibung festgelegt ist. Sie können auch Set-Vorgänge durchführen, indem Sie das Benutzerrecht zum Verwalten von Überwachungs **-und Sicherheitsprotokollen** (SeSecurityPrivilege) besitzen. Dieses Recht ermöglicht jedoch zusätzlichen Zugriff, der zum Ausführen des Set-Vorgangs nicht erforderlich ist.
+## <a name="BKMK_examples"></a>Beispiele
 ### <a name="examples-for-the-per-user-audit-policy"></a>Beispiele für die Überwachungsrichtlinie pro Benutzer
-Zum Festlegen Überwachungsrichtlinie der benutzerspezifischen für alle Unterkategorien in der ausführlichen Überwachung Kategorie für den Benutzer Mikedan, damit alles, was die erfolgreiche Versuche des Benutzers überwacht werden sollen, geben:
+Geben Sie Folgendes ein, um die Überwachungsrichtlinie pro Benutzer für alle Unterkategorien in der Kategorie detaillierte Nachverfolgung für den Benutzer Mikedan festzulegen, damit alle erfolgreichen Versuche des Benutzers überwacht werden:
 ```
 auditpol /set /user:mikedan /category:"detailed Tracking" /include /success:enable
 ```
-Um die Überwachungsrichtlinie pro Benutzer, für den angegebenen Namen und GUID und Unterkategorien, die anhand des GUID zum Unterdrücken der Überwachung für alle erfolgreichen oder fehlgeschlagenen Versuche Kategorien festzulegen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um die Überwachungsrichtlinie pro Benutzer für durch Name und GUID angegebene Kategorien und Unterkategorien festzulegen, die durch GUID angegeben werden, um die Überwachung für erfolgreiche oder fehlgeschlagene Versuche zu unterdrücken:
 ```
 auditpol /set /user:mikedan /exclude /category:"Object Access","System",{6997984b-797a-11d9-bed3-505054503030} 
 /subcategory:{0ccee9210-69ae-11d9-bed3-505054503030},:{0ccee9211-69ae-11d9-bed3-505054503030}, /success:enable /failure:enable
 ```
-Um die Überwachungsrichtlinie pro Benutzer für den angegebenen Benutzer für alle Kategorien für die Unterdrückung der Überwachung von alle bis auf erfolgreiche Versuche festzulegen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um die Überwachungsrichtlinie pro Benutzer für den angegebenen Benutzer für alle Kategorien festzulegen, um die Überwachung aller bis auf erfolgreiche Versuche zu unterdrücken:
 ```
 auditpol /set /user:mikedan /exclude /category:* /success:enable
 ```
-### <a name="examples-for-the-system-audit-policy"></a>Beispiele für die Dateisystem-Überwachungsrichtlinie
-Um die Systemüberwachungsrichtlinie für alle Unterkategorien unter der Kategorie ausführliche Überwachung gehören die Überwachung für nur erfolgreiche Versuche festzulegen, geben Sie Folgendes ein:
+### <a name="examples-for-the-system-audit-policy"></a>Beispiele für die System Überwachungsrichtlinie
+Geben Sie Folgendes ein, um die System Überwachungsrichtlinie für alle Unterkategorien in der Kategorie "detaillierte Nachverfolgung" so festzulegen, dass nur erfolgreiche Versuche überwacht werden:
 ```
 auditpol /set /category:"detailed Tracking" /success:enable
 ```
 > [!NOTE]
-> Die Einstellung wird nicht geändert.
-> Geben Sie Folgendes ein, um die Systemüberwachungsrichtlinie für den Zugriff auf Objekte und System-Kategorien (die impliziert wird, da die Unterkategorien aufgeführt sind) und Unterkategorien, die anhand des GUIDs für die Unterdrückung der fehlgeschlagenen Versuche und die Überwachung der erfolgreichen Versuche festzulegen:
+> Die Fehler Einstellung wird nicht geändert.
+> Geben Sie Folgendes ein, um die System Überwachungsrichtlinie für die Objekt Zugriffs-und System Kategorien festzulegen (was impliziert ist, weil Unterkategorien aufgeführt sind) und Unterkategorien, die von GUIDs für die Unterdrückung fehlgeschlagener Versuche und die Überwachung erfolgreicher Versuche angegeben werden:
 > ```
 > auditpol /set /subcategory:{0ccee9210-69ae-11d9-bed3-505054503030},{0ccee9211-69ae-11d9-bed3-505054503030}, /failure:disable /success:enable
 > ```
-> ### <a name="example-for-auditing-options"></a>Beispiel für die Optionen für die Überwachung
-> Um die Überwachungsoptionen zu den aktivierten Zustand für die Option CrashOnAuditFail festzulegen, geben Sie Folgendes ein:
+> ### <a name="example-for-auditing-options"></a>Beispiel für Überwachungs Optionen
+> Geben Sie Folgendes ein, um die Überwachungs Optionen auf den aktivierten Status für die CrashOnAuditFail-Option festzulegen:
 > ```
 > auditpol /set /option:CrashOnAuditFail /value:enable
 > ```
-> #### <a name="additional-references"></a>Zusätzliche Referenzen
+> #### <a name="additional-references"></a>Weitere Verweise
 > [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

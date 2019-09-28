@@ -1,8 +1,8 @@
 ---
 title: prnjobs
-description: Erfahren Sie, wie Druckaufträge über die Befehlszeile zu verwalten.
+description: Erfahren Sie, wie Druckaufträge über die Befehlszeile verwaltet werden.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 5e9e71a21acac73aa27e8a936360c6a1e9f9b754
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: c4fb9be9545274bbbf33926042f7a4deec5ceb05
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436167"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372097"
 ---
 # <a name="prnjobs"></a>prnjobs
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Wird angehalten, fortgesetzt wird, bricht ab und listet Druckaufträge.
+hält Druckaufträge an, setzt Sie fort, bricht Sie ab und listet Sie auf.
 
 ## <a name="syntax"></a>Syntax
 ```
@@ -36,29 +36,29 @@ cscript Prnjobs {-z | -m | -x | -l | -?} [-s <ServerName>]
 
 |          Parameter           |                                                                                                                                                                                        Beschreibung                                                                                                                                                                                        |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|              -z              |                                                                                                                                                                 Hält den Auftrag angegeben wird, mit der **+ j** Parameter.                                                                                                                                                                 |
-|              -m              |                                                                                                                                                                Setzt den Auftrag angegeben wird, mit der **+ j** Parameter.                                                                                                                                                                 |
-|              -x              |                                                                                                                                                                Bricht den Druckauftrag mit angegebenen ab der **+ j** Parameter.                                                                                                                                                                 |
-|              -l              |                                                                                                                                                                        Listet alle Druckaufträge in einer Druckwarteschlange an.                                                                                                                                                                         |
-|       -s \<ServerName >       |                                                                                                                  Gibt den Namen des Remotecomputers, der den Drucker hostet, den Sie verwalten möchten. Wenn Sie einen Computer nicht angeben, wird der lokale Computer verwendet.                                                                                                                  |
-|      -p \<Druckername >       |                                                                                                                                                           Gibt den Namen des Druckers, den Sie verwalten möchten. Erforderlich.                                                                                                                                                            |
-|         + j \<Auftrags-ID >          |                                                                                                                                                                Gibt den Druckauftrag, die, den Sie abbrechen möchten, (den ID-Nummer) an.                                                                                                                                                                 |
-| -u \<UserName > -w <Password> | Gibt ein Konto mit Berechtigungen zum Verbinden mit dem Computer, der den Drucker hostet, den Sie verwalten möchten. Alle Mitglieder der lokalen Gruppe Administratoren des Zielcomputers über diese Berechtigungen verfügen, aber die Berechtigungen können auch für andere Benutzer erteilt werden. Wenn Sie ein Konto nicht angeben, müssen Sie über ein Konto mit Berechtigungen für der Befehl funktioniert angemeldet sein. |
+|              -z              |                                                                                                                                                                 hält den Druckauftrag an, der mit dem **-j-** Parameter angegeben wird.                                                                                                                                                                 |
+|              -m              |                                                                                                                                                                Setzt den mit dem **-j-** Parameter angegebenen Druckauftrag fort.                                                                                                                                                                 |
+|              -x              |                                                                                                                                                                Bricht den mit dem **-j-** Parameter angegebenen Druckauftrag ab.                                                                                                                                                                 |
+|              -l              |                                                                                                                                                                        Listet alle Druckaufträge in einer Druck Warteschlange auf.                                                                                                                                                                         |
+|       -s \<servername >       |                                                                                                                  Gibt den Namen des Remote Computers an, der den Drucker hostet, den Sie verwalten möchten. Wenn Sie keinen Computer angeben, wird der lokale Computer verwendet.                                                                                                                  |
+|      -p \<printername >       |                                                                                                                                                           Gibt den Namen des Druckers an, den Sie verwalten möchten. Erforderlich.                                                                                                                                                            |
+|         -j \<jobid >          |                                                                                                                                                                Gibt (nach ID-Nummer) den Druckauftrag an, den Sie abbrechen möchten.                                                                                                                                                                 |
+| -u \<username >-w <Password> | Gibt ein Konto mit Berechtigungen zum Herstellen einer Verbindung mit dem Computer an, der den zu verwaltenden Drucker hostet. Alle Mitglieder der lokalen Administratoren Gruppe des Ziel Computers verfügen über diese Berechtigungen, die Berechtigungen können jedoch auch anderen Benutzern erteilt werden. Wenn Sie kein Konto angeben, müssen Sie unter einem Konto mit diesen Berechtigungen angemeldet sein, damit der Befehl funktioniert. |
 |              /?              |                                                                                                                                                                           Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                                            |
 
 ## <a name="remarks"></a>Hinweise
--   Die **Prnjobs** Befehl ist eine Visual Basic-Skript befindet sich in der %WINdir%\System32\printing_Admin_Scripts\\ <language> Verzeichnis. Um diesen Befehl an einer Eingabeaufforderung verwenden möchten, geben **Cscript** gefolgt von den vollständigen Pfad und die Prnjobs-Datei, oder wechseln in den entsprechenden Ordner. Zum Beispiel:
+-   Der **prnjobs** -Befehl ist ein Visual Basic Skript, das sich im Verzeichnis%WINdir%\System32\printing_Admin_Scripts @ no__t-1 @ no__t-2 befindet. Wenn Sie diesen Befehl verwenden möchten, geben Sie an einer Eingabeaufforderung **cscript** gefolgt vom vollständigen Pfad zur Datei prnjobs ein, oder ändern Sie die Verzeichnisse in den entsprechenden Ordner. Zum Beispiel:
     ```
     cscript %WINdir%\System32\printing_Admin_Scripts\en-US\prnjobs.vbs
     ```
--   Wenn die Informationen, die Sie angeben, die Leerzeichen enthält, verwenden Sie den Text in Anführungszeichen (z. B. `"computer Name"`).
+-   Wenn die Informationen, die Sie angeben, Leerzeichen enthalten, verwenden Sie den Text in Anführungszeichen (z. b. `"computer Name"`).
 
-## <a name="BKMK_examples"></a>Beispiele für
-Geben Sie zum Anhalten eines Druckauftrags mit eine Auftrags-ID 27, die auf den Remotecomputer mit dem Namen HRServer für den Druck auf dem Drucker mit dem Namen Colorprinter gesendet:
+## <a name="BKMK_examples"></a>Beispiele
+Geben Sie Folgendes ein, um einen Druckauftrag mit der Auftrags-ID 27 anzuhalten, die auf dem Remote Computer mit dem Namen HRServer zum Drucken auf dem Drucker mit dem Namen COLORPRINTER gesendet wurde:
 ```
 cscript prnjobs.vbs -z -s HRServer -p colorprinter -j 27
 ```
-Um alle aktuellen Druckaufträge in der Warteschlange für den lokalen Drucker mit dem Namen Farbdrucker_2 aufzulisten, geben Sie Folgendes ein:
+Um alle aktuellen Druckaufträge in der Warteschlange für den lokalen Drucker mit dem Namen colorprinter_2 aufzulisten, geben Sie Folgendes ein:
 ```
 cscript prnjobs.vbs -l -p colorprinter_2
 ```

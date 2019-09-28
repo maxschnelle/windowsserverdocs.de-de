@@ -2,7 +2,7 @@
 title: Beginnen Sie mit der Protokollierung des Software Bestands
 description: Beschreibt, wie die Protokollierung des Software Bestands installiert und gestartet wird.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: manage-software-inventory-logging
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3f3530b7456df9962aff9500d401b2cd884775e3
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: a38c984b2d81fc4db980a969ef0312109950b867
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866387"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382997"
 ---
 # <a name="get-started-with-software-inventory-logging"></a>Beginnen Sie mit der Protokollierung des Software Bestands
 

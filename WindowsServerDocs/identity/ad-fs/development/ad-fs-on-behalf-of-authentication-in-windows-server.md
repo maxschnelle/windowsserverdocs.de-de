@@ -7,14 +7,14 @@ ms.author: billmath
 manager: mtillman
 ms.date: 02/22/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 89b2bf8422fb1151a7e502b381f9842f77009277
-ms.sourcegitcommit: 4fa147d552481d8279a5390f458a9f7788061977
+ms.openlocfilehash: 9c6c6e7d2c12b6b822989bba05370015f7cd1833
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70009129"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407811"
 ---
 # <a name="build-a-multi-tiered-application-using-on-behalf-of-obo-using-oauth-with-ad-fs-2016-or-later"></a>Erstellen einer Anwendung mit mehreren Stufen mithilfe von "on-Auftrag-of" (OBO) mithilfe von OAuth mit AD FS 2016 oder höher
 
@@ -276,12 +276,12 @@ Fahren Sie mit dem Assistenten fort, wie bei der Konfiguration der WebAPI "dedol
 
 | Key                      | Wert                                                                                                                                                                                                                   |
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Ida: Audience             | Die ID des TodoListService, wie AD FS beim Konfigurieren der WebAPI TodoListService angegeben wird, z. b. https://localhost:44321/                                                                                         |
-| Ida: ClientID             | Die ID des TodoListService, wie AD FS beim Konfigurieren der WebAPI TodoListService angegeben wird, z. b.<https://localhost:44321/> </br>**Es ist sehr wichtig, dass die "Ida: Audience" und "Ida: ClientID" einander entsprechen.** |
+| Ida: Audience             | ID des TodoListService, wie AD FS beim Konfigurieren der WebAPI TodoListService angegeben wird, z. b. https://localhost:44321/                                                                                         |
+| Ida: ClientID             | ID des TodoListService, wie AD FS beim Konfigurieren der WebAPI TodoListService angegeben wird, z. b. <https://localhost:44321/> </br>**Es ist sehr wichtig, dass die "Ida: Audience" und "Ida: ClientID" einander entsprechen.** |
 | Ida: clientsecret         | Dies ist der geheime Schlüssel, der beim Konfigurieren des Clients "dedolistservice" in generiert AD FS AD FS                                                                                                                   |
-| Ida: AdfsMetadataEndpoint | Dies ist die URL zu ihren AD FS-Metadaten, z. b. https://fs.anandmsft.com/federationmetadata/2007-06/federationmetadata.xml                                                                                             |
-| Ida: obowebapibase        | Dies ist die Basisadresse, die wir verwenden werden, um die Back-End-API aufzurufen, z. b. https://localhost:44300                                                                                                                     |
-| Ida: Authority            | Dies ist die URL für Ihren AD FS-Dienst, z. b. https://fs.anandmsft.com/adfs/                                                                                                                                          |
+| Ida: AdfsMetadataEndpoint | Dies ist die URL zu ihren AD FS Metadaten, z. b. https://fs.anandmsft.com/federationmetadata/2007-06/federationmetadata.xml                                                                                             |
+| Ida: obowebapibase        | Dies ist die Basisadresse, die wir verwenden, um die Back-End-API aufzurufen, z. b. https://localhost:44300                                                                                                                     |
+| Ida: Authority            | Dies ist die URL für den AD FS Dienst, z. b. https://fs.anandmsft.com/adfs/                                                                                                                                          |
 
 Alle anderen Ida: XXXXXXX-Schlüssel im Knoten " **appSettings** " können auskommentiert oder gelöscht werden.
 
@@ -494,10 +494,10 @@ Bei einem erfolgreichen Vorgang sehen Sie, dass das Element der Liste mit der zu
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO27.PNG)
 
 Sie können auch die detaillierten Ablauf Verfolgungen für "fddler" sehen. Starten Sie "fddler" und aktivieren Sie die HTTPS-Entschlüsselung. Sie können sehen, dass wir zwei Anforderungen an den/ADFS/oautincludes-Endpunkt senden.
-In der ersten Interaktion präsentieren wir den Zugriffs Code für den tokenendpunkt und erhalten ein Zugriffs Token für https://localhost:44321/ ![ AD FS OBO.](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO22.PNG)
+In der ersten Interaktion präsentieren wir den Zugriffs Code für den tokenendpunkt und erhalten ein Zugriffs Token für https://localhost:44321/ ![ AD FS OBO @ no__t-2
 
-In der zweiten Interaktion mit dem tokenendpunkt sehen Sie, dass **requested_token_use** als **on_behalf_of** festgelegt ist und wir das Zugriffs Token verwenden, das für den Webdienst der mittleren Ebene abgerufen wurde, https://localhost:44321/ d. h. als die-Assertion zum Abrufen der "im Auftrag von"-Token.
-![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO23.PNG)
+In der zweiten Interaktion mit dem tokenendpunkt sehen Sie, dass **requested_token_use** als **on_behalf_of** festgelegt ist und wir das Zugriffs Token verwenden, das für den Webdienst der mittleren Ebene abgerufen wurde, d. h. https://localhost:44321/ als die-Assertion zum Abrufen der "im Auftrag von"-Token.
+![AD FS OBO @ NO__T-1
 
 ## <a name="next-steps"></a>Nächste Schritte
 [AD FS-Entwicklung](../../ad-fs/AD-FS-Development.md)  

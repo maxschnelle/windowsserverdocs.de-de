@@ -1,66 +1,66 @@
 ---
-title: NPS-Proxy-Server den Lastenausgleich
-description: Sie können in diesem Thema verwenden, um mehr über Windows Server 2016 und Windows 10-VPN-Features und Funktionen erfahren.
-ms.prod: windows-server-threshold
+title: NPS-Proxy Server-Lastenausgleich
+description: In diesem Thema erfahren Sie mehr über Windows Server 2016-und Windows 10-VPN-Features und-Funktionen.
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 528280e6-b47e-489f-b310-b257d434aa0d
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 04f466f7646fc5109af7379cab1240d8cd6829ff
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2d138b9891fb3cfa8e15060be312ff945942c660
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874401"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405431"
 ---
-# <a name="nps-proxy-server-load-balancing"></a>NPS-Proxy-Server den Lastenausgleich
+# <a name="nps-proxy-server-load-balancing"></a>NPS-Proxy Server-Lastenausgleich
 
 Gilt für: Windows Server 2016
 
-Remote Authentication Dial-in User Service (RADIUS)-Clients, die Netzwerkzugriffsserver, z. B. virtuelles privates Netzwerk (VPN)-Servern und drahtlose Zugriffspunkte sind, erstellen die Weiterleitung von verbindungsanforderungen und senden sie, wie z. B. NPS RADIUS-Server. In einigen Fällen ein NPS zu vielen verbindungsanforderungen gleichzeitig ausführen möchten, möglicherweise zu Leistungseinbußen oder eine Überladung. Wenn ein NPS überladen ist, ist es eine gute Idee, weitere NPSs mit dem Netzwerk hinzufügen und Konfigurieren des Lastenausgleichs. Wenn Sie zwischen mehreren NPSs um zu verhindern, die Überladung von ein oder mehrere NPSs eingehende verbindungsanforderungen gleichmäßig verteilen, spricht man den Lastenausgleich.
+RADIUS-Clients (Remote Authentication Dial-in User Service), die Netzwerk Zugriffs Server wie VPN-Server (virtuelles privates Netzwerk) und drahtlos Zugriffspunkte sind, erstellen Verbindungsanforderungen und senden Sie an RADIUS-Server wie z. b. NPS. In einigen Fällen kann ein NPS zu viele Verbindungsanforderungen gleichzeitig empfangen, was zu einer Beeinträchtigung der Leistung oder einer Überlastung führt. Wenn ein NPS überladen ist, empfiehlt es sich, dem Netzwerk weitere NPSS hinzuzufügen und den Lastenausgleich zu konfigurieren. Wenn Sie eingehende Verbindungsanforderungen gleichmäßig auf mehrere NPSS verteilen, um zu verhindern, dass ein oder mehrere NPSS überladen werden, wird dies als Lastenausgleich bezeichnet.
 
-Lastenausgleich ist besonders nützlich für:
+Der Lastenausgleich ist besonders nützlich für:
 
-- Organisationen, Extensible Authentication Protocol-Transport Layer Security \(EAP-TLS\) oder Protected Extensible Authentication Protocol \(PEAP\)- TLS für die Authentifizierung. Da dieser zwei Authentifizierungsmethoden Zertifikate für Server-Authentifizierung und für Benutzer oder Clientcomputer-Authentifizierung verwenden, ist die Last auf RADIUS-Proxys und Servern größer ist als wenn kennwortbasierte Authentifizierungsmethoden verwendet werden.
-- Organisationen, die ununterbrochene Verfügbarkeit des Diensts zu bewältigen müssen.
-- Internetdienstanbieter \(ISPs\) , die VPN-Zugriff für andere Organisationen ausgelagert. Die externe VPN-Dienste können eine große Anzahl von Authentifizierungsdatenverkehr generieren.
+- Organisationen, die das Extensible Authentication-Protokoll Transport Layer Security \(eap-TLS @ no__t-1 oder Protected Extensible Authentication Protocol \(peap @ no__t-3-TLS für die Authentifizierung verwenden. Da diese Authentifizierungsmethoden Zertifikate für die Server Authentifizierung und entweder für die Authentifizierung von Benutzern oder Client Computern verwenden, ist die Auslastung von RADIUS-Proxys und-Servern schwerer als bei der Verwendung von Kenn Wort basierten Authentifizierungsmethoden.
+- Organisationen, die die fortlaufende Dienst Verfügbarkeit aufrechterhalten müssen.
+- Internet Dienstanbieter \(isps @ no__t-1, die den VPN-Zugriff für andere Organisationen auslagern. Die ausgelagerten VPN-Dienste können eine große Menge an Authentifizierungs Datenverkehr generieren.
 
-Es gibt zwei Methoden, die Sie verwenden können, um den Lastenausgleich von verbindungsanforderungen an Ihre NPSs gesendet:
+Es gibt zwei Methoden, mit denen Sie die Last von Verbindungsanforderungen, die an Ihren NPSS gesendet werden, ausgleichen können:
 
-- Konfigurieren Sie Ihre Netzwerkzugriffsserver zum Senden von verbindungsanforderungen an mehrere RADIUS-Server. Wenn Sie 20 Drahtloszugriffspunkten und zwei RADIUS-Server haben, konfigurieren Sie z. B. jeden Zugriffspunkt zum Senden von verbindungsanforderungen an beide RADIUS-Server. Sie können Lastenausgleich und Failover in jeden Netzwerkzugriffsserver bereitstellen, indem Sie den Access-Server zum Senden von verbindungsanforderungen an mehrere RADIUS-Server in einer bestimmten Reihenfolge ihrer Priorität konfigurieren. Diese Methode für den Lastenausgleich ist in der Regel sich am besten für kleine Unternehmen, die keine große Anzahl von RADIUS-Clients bereitstellen.
-- Verwenden Sie NPS als RADIUS-Proxy konfiguriert, um verbindungsanforderungen für Lastenausgleich zwischen mehreren NPSs oder andere RADIUS-Server zu laden. Wenn Sie 100 Drahtloszugriffspunkten, einem NPS-Proxy und drei RADIUS-Server verfügen, können Sie z. B. die Zugriffspunkte zum Senden von sämtlichen Datenverkehr an den NPS-Proxy konfigurieren. Konfigurieren Sie auf dem NPS-Proxy Lastenausgleich, damit der Proxy gleichmäßig auf die Anforderungen von Verbindungen zwischen den drei RADIUS-Servern verteilt. Diese Methode für den Lastenausgleich ist am besten für mittlere und große Organisationen, die viele RADIUS-Clients und Servern verfügen.
+- Konfigurieren Sie Ihre Netzwerk Zugriffs Server so, dass Verbindungsanforderungen an mehrere RADIUS-Server gesendet werden. Wenn Sie z. b. über 20 drahtlos Zugriffspunkte und zwei RADIUS-Server verfügen, konfigurieren Sie jeden Zugriffspunkt so, dass Verbindungsanforderungen an beide RADIUS-Server gesendet werden. Sie können einen Lastenausgleich auf jedem Netzwerk Zugriffs Server ausführen und ein Failover bereitstellen, indem Sie den Zugriffs Server so konfigurieren, dass Verbindungsanforderungen in einer bestimmten Reihenfolge der Priorität an mehrere RADIUS-Server gesendet werden. Diese Methode des Lasten Ausgleichs ist für kleine Unternehmen, die keine große Anzahl von RADIUS-Clients bereitstellen, in der Regel am besten geeignet.
+- Verwenden Sie als RADIUS-Proxy konfigurierte NPS für den Lastenausgleich von Verbindungsanforderungen zwischen mehreren NPSS-oder anderen RADIUS-Servern. Wenn Sie z. b. über 100 drahtlose Zugriffspunkte, einen NPS-Proxy und drei RADIUS-Server verfügen, können Sie die Zugriffspunkte so konfigurieren, dass der gesamte Datenverkehr an den NPS-Proxy gesendet wird. Konfigurieren Sie den Lastenausgleich auf dem NPS-Proxy so, dass der Proxy die Verbindungsanforderungen zwischen den drei RADIUS-Servern gleichmäßig verteilt. Diese Methode des Lasten Ausgleichs eignet sich am besten für mittelgroße und große Unternehmen, die über viele RADIUS-Clients und-Server verfügen.
 
-In vielen Fällen ist der beste Ansatz für den Lastenausgleich so konfigurieren Sie RADIUS-Clients zum Senden von verbindungsanforderungen an zwei NPS-Proxyserver, und konfigurieren Sie die NPS-Proxys für den Lastenausgleich zwischen RADIUS-Server. Dieser Ansatz bietet sowohl für Failover als auch für den Lastenausgleich für die NPS-Proxys und RADIUS-Server.
+In vielen Fällen besteht die beste Methode für den Lastenausgleich darin, RADIUS-Clients so zu konfigurieren, dass Verbindungsanforderungen an zwei NPS-Proxy Server gesendet werden, und dann die NPS-Proxys für den Lastenausgleich zwischen RADIUS-Servern zu konfigurieren Dieser Ansatz ermöglicht sowohl Failover als auch Lastenausgleich für NPS-Proxys und RADIUS-Server.
 
-## <a name="radius-server-priority-and-weight"></a>RADIUS-Server-Priorität und Gewichtung
+## <a name="radius-server-priority-and-weight"></a>Priorität und Gewichtung des RADIUS-Servers
 
-Während des Konfigurationsvorgangs der NPS-Proxy können Sie remote-RADIUS-Servergruppen erstellen und klicken Sie dann die RADIUS-Server für jede Gruppe hinzuzufügen. Um einen Lastenausgleich konfigurieren, müssen Sie mehrere RADIUS-Server pro remote-RADIUS-Servergruppe verfügen. Beim Hinzufügen von Gruppenmitgliedern oder nach dem RADIUS-Server als Mitglied einer Gruppe zu erstellen können Sie das Hinzufügen von RADIUS-Server-Dialogfeld zum Konfigurieren die folgenden Elemente auf der Registerkarte "Lastenausgleich" zugreifen:
+Während der Konfiguration des NPS-Proxys können Sie RADIUS-Remote Server Gruppen erstellen und dann jeder Gruppe RADIUS-Server hinzufügen. Zum Konfigurieren des Lasten Ausgleichs müssen Sie über mehr als einen RADIUS-Server pro RADIUS-Remote Server Gruppe verfügen. Beim Hinzufügen von Gruppenmitgliedern oder nach dem Erstellen eines RADIUS-Servers als Gruppenmitglied können Sie auf das Dialogfeld RADIUS-Server hinzufügen zugreifen, um die folgenden Elemente auf der Registerkarte Lastenausgleich zu konfigurieren:
 
-- **Priorität**. Priorität Gibt die Reihenfolge der Wichtigkeit des RADIUS-Servers mit dem NPS-Proxyserver an. Prioritätsstufe muss ein Wert zugewiesen werden, der eine ganze Zahl, z. B. 1, 2 oder 3 ist. Je niedriger die Zahl, die höhere Priorität der NPS-Proxy an den RADIUS-Server erhalten. Z. B. wenn der RADIUS-Server mit die höchste Priorität 1 zugewiesen ist, sendet der NPS-Proxy verbindungsanforderungen an den RADIUS-Server zuerst; Wenn Server mit Priorität 1 nicht verfügbar sind, schickt NPS verbindungsanforderungen an RADIUS-Servern mit Priorität 2 und So weiter. Sie können mehrere RADIUS-Server die gleiche Priorität zuweisen, und klicken Sie dann die Einstellung der Gatewaygewichtung verwenden, für den Lastenausgleich zwischen ihnen.
+- **Priorität**. Priorität gibt die Reihenfolge der Wichtigkeit des RADIUS-Servers zum NPS-Proxy Server an. Der Prioritätsstufe muss ein Wert zugewiesen werden, der eine ganze Zahl ist, z. b. 1, 2 oder 3. Je niedriger die Zahl, desto höher die Priorität des NPS-Proxys für den RADIUS-Server. Wenn dem RADIUS-Server z. b. die höchste Priorität 1 zugewiesen wird, sendet der NPS-Proxy zuerst Verbindungsanforderungen an den RADIUS-Server. Wenn Server mit Priorität 1 nicht verfügbar sind, sendet NPS Verbindungsanforderungen an RADIUS-Server mit Priorität 2 usw. Sie können mehreren RADIUS-Servern dieselbe Priorität zuweisen und dann die Gewichtungs Einstellung verwenden, um einen Lastenausgleich zwischen den Servern durchführen.
 
-- **Gewichtung**. NPS-verwendet, die diese Gewichtung-Einstellung, um zu bestimmen, wie viele-Anforderungen an die einzelnen gesendet Gruppenmitglied, wenn die Mitglieder der Gruppe dieselbe Prioritätsstufe aufweisen. Einstellung der gatewaygewichtung muss einen Wert zwischen 1 und 100 zugewiesen werden, und der Wert stellt einen Prozentsatz von 100 Prozent. Wenn der remote-RADIUS-Servergruppe zwei Member enthält, dass beide verfügen über eine Prioritätsstufe 1 und eine Bewertung von Gewichtung von 50, leitet der NPS-Proxy z. B. 50 Prozent der verbindungsanforderungen an jeden RADIUS-Server weiter.
+- **Gewichtung**. NPS verwendet diese Gewichtungs Einstellung, um zu bestimmen, wie viele Verbindungsanforderungen an die einzelnen Gruppenmitglieder gesendet werden sollen, wenn die Gruppenmitglieder die gleiche Prioritätsstufe haben. Der Gewichtungs Einstellung muss ein Wert zwischen 1 und 100 zugewiesen werden, und der Wert stellt einen Prozentsatz von 100 Prozent dar. Wenn z. b. die Remote-RADIUS-Server Gruppe zwei Mitglieder mit der Prioritätsstufe 1 und der Gewichtungs Bewertung 50 enthält, leitet der NPS-Proxy 50 Prozent der Verbindungsanforderungen an die einzelnen RADIUS-Server weiter.
 
-- **Erweiterte Einstellungen**. Diese Failovereinstellungen bieten eine Möglichkeit für den NPS, um festzustellen, ob der remote-RADIUS-Server nicht verfügbar ist. NPS fest, dass es sich bei ein RADIUS-Server nicht verfügbar ist, können sie beginnen, Senden von verbindungsanforderungen an andere Mitglieder der Gruppe. Mit diesen Einstellungen können Sie die Anzahl der Sekunden konfigurieren, die der NPS-Proxy auf eine Antwort vom RADIUS-Server wartet, bevor sie die Anforderung als verworfen berücksichtigt. die maximale Anzahl von gelöschten Anforderungen vor der NPS-Proxy identifiziert den RADIUS-Server als nicht verfügbar. und die Anzahl der Sekunden, die zwischen Anforderungen, bevor Sie die NPS-Proxy vergehen kann, identifiziert den RADIUS-Server als nicht verfügbar.
+- **Erweiterte Einstellungen**. Mit diesen Failovereinstellungen kann NPS ermitteln, ob der Remote-RADIUS-Server nicht verfügbar ist. Wenn der NPS feststellt, dass ein RADIUS-Server nicht verfügbar ist, kann er mit dem Senden von Verbindungsanforderungen an andere Gruppenmitglieder beginnen. Mit diesen Einstellungen können Sie die Anzahl der Sekunden konfigurieren, die der NPS-Proxy auf eine Antwort vom RADIUS-Server wartet, bevor die Anforderung abgewartet wird. die maximale Anzahl von gelöschten Anforderungen, bevor der NPS-Proxy den RADIUS-Server als nicht verfügbar identifiziert. und die Anzahl der Sekunden, die zwischen Anforderungen vergehen kann, bevor der RADIUS-Server vom NPS-Proxy als nicht verfügbar identifiziert wird.
 
-## <a name="configure-nps-proxy-load-balancing"></a>Konfigurieren Sie die NPS-Proxy-Lastenausgleich
+## <a name="configure-nps-proxy-load-balancing"></a>Konfigurieren des NPS-Proxy Lastenausgleichs
 
-Vor dem Konfigurieren des Lastenausgleichs, erstellen Sie einen Bereitstellungsplan, der wie viele RADIUS-Remoteservergruppen Sie benötigen, enthält die Server der einzelnen Gruppe und die Einstellung Priorität und-Gewichtung für jeden Server angehören.
+Erstellen Sie vor dem Konfigurieren des Lasten Ausgleichs einen Bereitstellungs Plan, der enthält, wie viele RADIUS-Remote Server Gruppen Sie benötigen, welche Server Mitglieder einer bestimmten Gruppe sind und welche Priorität und Gewichtung für die einzelnen Server bestehen.
 
 >[!NOTE]
->Die folgenden Schritte wird davon ausgegangen, dass Sie bereits bereitgestellt und RADIUS-Server konfiguriert haben.
+>Bei den folgenden Schritten wird davon ausgegangen, dass Sie bereits RADIUS-Server bereitgestellt und konfiguriert haben.
 
-Zum Konfigurieren von NPS, fungiert als Proxy-Server und Weiterleiten von verbindungsanforderungen von RADIUS-Clients, RADIUS-Remoteserver müssen Sie die folgenden Aktionen ausführen:
+Wenn Sie NPS als Proxy Server konfigurieren und Verbindungsanforderungen von RADIUS-Clients an Remote-RADIUS-Server weiterleiten möchten, müssen Sie die folgenden Aktionen ausführen:
 
-1. Ihre RADIUS-Clients bereitstellen \(VPN-Server, DFÜ-Server, Terminaldienste-Gateway-Server, 802.1X-Authentifizierungsswitches und 802.1X-authentifizierte drahtloser Zugriffspunkte\) und konfigurieren sie zum Senden von verbindungsanforderungen an den NPS-Proxy Server.
+1. Stellen Sie Ihre RADIUS-Clients \(vpn-Server, DFÜ-Server, Terminal Dienste-Gatewayservern, 802.1 x-authentifizier enden Switches und 802.1 x-drahtlos Zugriffs Punkten @ no__t-1 bereit, und konfigurieren Sie Sie so, dass Verbindungsanforderungen an Ihre NPS-Proxy Server gesendet werden.
 
-2. Konfigurieren Sie der Netzwerkzugriffsserver auf dem Proxy NPS als RADIUS-Clients. Weitere Informationen finden Sie unter [Konfigurieren von RADIUS-Clients](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-radius-clients-configure).
+2. Konfigurieren Sie auf dem NPS-Proxy die Netzwerk Zugriffs Server als RADIUS-Clients. Weitere Informationen finden Sie unter [Konfigurieren von RADIUS-Clients](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-radius-clients-configure).
 
-3. Erstellen Sie eine oder mehrere RADIUS-Remoteservergruppen auf dem NPS-Proxy. Während dieses Vorgangs wird die RADIUS-Remoteservergruppen RADIUS-Server hinzugefügt. Weitere Informationen finden Sie unter [konfigurieren Sie RADIUS-Remoteservergruppen](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-crp-rrsg-configure).
+3. Erstellen Sie auf dem NPS-Proxy eine oder mehrere RADIUS-Remote Server Gruppen. Fügen Sie während dieses Vorgangs RADIUS-Server zu den RADIUS-Remote Server Gruppen hinzu. Weitere Informationen finden Sie unter [Konfigurieren von Remote-RADIUS-Server Gruppen](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-crp-rrsg-configure).
 
-4. Klicken Sie auf dem RADIUS-Server, auf dem NPS-Proxy, für jeden RADIUS-Server, mit denen Sie eine remote-RADIUS-Servergruppe hinzugefügt **Lastenausgleich** Registerkarte, und konfigurieren Sie **Priorität**, **Gewichtung** , und **Erweiterte Einstellungen**.
+4. Klicken Sie auf dem NPS-Proxy für jeden RADIUS-Server, den Sie einer RADIUS-Remote Server Gruppe hinzufügen, auf die Registerkarte RADIUS-Server- **Lastenausgleich** , und konfigurieren Sie dann die Einstellungen für **Priorität**, **Gewichtung**und **erweitert**.
 
-5. Konfigurieren Sie Verbindungsanforderungsrichtlinien, die zum Weiterleiten von Authentifizierungs- und kontoführungsanforderungen an remote-RADIUS-Servergruppen, auf dem NPS-Proxy. Sie müssen eine Verbindungsanforderungsrichtlinie pro remote-RADIUS-Servergruppe erstellen. Weitere Informationen finden Sie unter [Konfigurieren von Verbindungsanforderungsrichtlinien](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-crp-configure).
+5. Konfigurieren Sie auf dem NPS-Proxy Verbindungs Anforderungs Richtlinien, um Authentifizierungs-und Buchhaltungs Anforderungen an Remote-RADIUS-Server Gruppen weiterzuleiten. Sie müssen eine Verbindungs Anforderungs Richtlinie pro RADIUS-Remote Server Gruppe erstellen. Weitere Informationen finden Sie unter [Konfigurieren von Verbindungs Anforderungs Richtlinien](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-crp-configure).
 
 

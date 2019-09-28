@@ -1,7 +1,7 @@
 ---
-title: Integrationsservices installiert werden müssen, vor dem primären können Replikat-VMs auch eine alternative IP-Adresse nach einem failover
-description: Die Onlineversion des Texts für diese Best Practices Analyzer-Regel, mit Links zu weiteren Informationen.
-ms.prod: windows-server-threshold
+title: Integration Services muss installiert werden, bevor primäre oder virtuelle Replikat Computer nach einem Failover eine Alternative IP-Adresse verwenden können.
+description: Online Version des Texts für diese Best Practices Analyzer Regel mit Links zu weiteren Informationen.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,39 +10,39 @@ ms.topic: article
 ms.assetid: a7fdd185-d6c8-4f58-9b58-2df5827bb056
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 1ff8dbfd71655aee86ba7d0feac87ec2267a2171
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 58e744c182fb2013e55e91f58140c6ba14181f9f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865511"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393588"
 ---
-# <a name="integration-services-must-be-installed-before-primary-or-replica-virtual-machines-can-use-an-alternate-ip-address-after-a-failover"></a>Integrationsservices installiert werden müssen, vor dem primären können Replikat-VMs auch eine alternative IP-Adresse nach einem failover
+# <a name="integration-services-must-be-installed-before-primary-or-replica-virtual-machines-can-use-an-alternate-ip-address-after-a-failover"></a>Integration Services muss installiert werden, bevor primäre oder virtuelle Replikat Computer nach einem Failover eine Alternative IP-Adresse verwenden können.
 
 >Gilt für: Windows Server 2016
 
-Weitere Informationen zu best Practices und Überprüfungen finden Sie unter [Run Best Practices Analyzer Scans und Manage Scan Results](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
+Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausführen von Best Practices Analyzer Scans und Verwalten der Scan Ergebnisse](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
 |Eigenschaft|Details|  
 |-|-|  
 |**Betriebssystem**|Windows Server 2016|  
-|**Produkt /-Funktion**|Hyper-V|  
-|**Schweregrad**|Fehler|  
+|**Produkt/Feature**|Hyper-V|  
+|**Zunehmen**|Fehler|  
 |**Kategorie**|Konfiguration|  
   
-In den folgenden Abschnitten Kursivschrift gibt an Benutzeroberflächentext, die im Best Practices Analyzer-Tool für dieses Problem angezeigt wird.  
+In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.  
   
 ## <a name="issue"></a>Problem  
-*So, dass eine bestimmte IP-Adresse bei Failover, aber nur, wenn Integrationsdienste im Gastbetriebssystem, das der virtuellen Maschine installiert sind, können virtuelle Computer, die bei der Replikation beteiligt sein.*  
+*Virtuelle Computer, die an der Replikation teilnehmen, können so konfiguriert werden, dass bei einem Failover eine bestimmte IP-Adresse verwendet wird, jedoch nur, wenn Integrationsdienste im Gast Betriebssystem des virtuellen Computers installiert sind.*  
   
 ## <a name="impact"></a>Auswirkungen  
-*Im Fall eines Failovers (geplant, ungeplant oder test) wird der replizierte virtuelle Computer online ist, verwenden die IP-Adresse als der primäre virtuelle Computer stehen. Diese Konfiguration kann dazu führen, dass Probleme mit der Netzwerkkonnektivität. Dies wirkt sich auf die folgenden virtuellen Computer aus:*  
+*im Falle eines Failovers (geplant, ungeplant oder Test) wird der virtuelle Replikat Computer mit der gleichen IP-Adresse wie der primäre virtuelle Computer online geschaltet. Diese Konfiguration kann Verbindungsprobleme verursachen. Dies wirkt sich auf die folgenden virtuellen Computer aus:*  
   
-\<Liste der virtuellen Computer >  
+\<list of Virtual Machines >  
   
 ## <a name="resolution"></a>Auflösung  
-*Verwenden Sie Verbindung mit virtuellen Computern, um Integrationsservices auf dem virtuellen Computer zu installieren.*  
+*Verwenden Sie die Verbindung mit dem virtuellen Computer, um Integration Services auf dem virtuellen Computer zu installieren.*  
   
-Ab Windows Server 2016 werden die Integrationsdienste für Windows-VMs über Windows Update bereitgestellt. Stellen Sie sicher, dass diese virtuellen Computer konfiguriert sind, um Windows-Updates, rufen Sie die neueste Version von Integrationsservices zu erhalten. Der Linux-Kernel nun enthält Linux-Integrationsdienste (LIS) und wird für neue Versionen aktualisiert, aber der Linux-Distributionen, die basierend auf älteren Kernels möglicherweise nicht die neuesten Verbesserungen oder Updates. Weitere Informationen finden Sie unter [unterstützt Linux und FreeBSD-VMs für Hyper-V unter Windows](../Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md).
+Ab Windows Server 2016 werden die Integrationsdienste für virtuelle Windows-Computer über Windows Update bereitgestellt. Stellen Sie sicher, dass diese virtuellen Computer für den Empfang von Windows-Updates konfiguriert sind, um die neueste Version von Integration Services zu erhalten Der Linux-Kernel enthält jetzt Linux-Integrationsdienste (LIS) und wird für neue Releases aktualisiert, aber Linux-Distributionen, die auf älteren Kernel basieren, verfügen möglicherweise nicht über die neuesten Verbesserungen oder Korrekturen. Weitere Informationen finden Sie [unter Unterstützte virtuelle Linux-und FreeBSD-Computer für Hyper-V unter Windows](../Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md).
 
 

@@ -1,8 +1,8 @@
 ---
 title: Volume löschen
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6d25ed68077f594c765cf5630648ad52528d8fe3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 35b22e1bfc6fbfca8ef7bd29bfe1b7e28d7d35d5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872511"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378652"
 ---
 # <a name="delete-volume"></a>Volume löschen
 
@@ -36,21 +36,21 @@ delete volume [noerr]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Diskpart|nur für Skripts. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden.|
+|Noerr|Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.|
 
 ## <a name="remarks"></a>Hinweise
 
 -   Systemvolume, Startvolume sowie das Volume, das die aktive Auslagerungsdatei oder das Absturzabbild (Speicherabbild) enthält, können nicht gelöscht werden.
--   Ein Volume muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden. Verwenden der **wählen Volume** Befehl aus, wählen Sie ein Volume und verschiebt den Fokus auf sie.
+-   Ein Volume muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl **Volume auswählen** ein Volume aus, und verschieben Sie den Fokus auf das Volume.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um das Volume mit den Fokus zu löschen, geben Sie Folgendes ein:
+Um das Volume mit dem Fokus zu löschen, geben Sie Folgendes ein:
 ```
 delete volume
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

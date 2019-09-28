@@ -1,7 +1,7 @@
 ---
-title: Verwenden der Livemigration ohne Failoverclustering zum Verschieben eines virtuellen Computers
-description: Erhalten die Voraussetzungen und Anweisungen zum Ausführen einer Livemigration in einer eigenständigen Umgebung.
-ms.prod: windows-server-threshold
+title: Verwenden der Live Migration ohne Failoverclustering zum Verschieben einer virtuellen Maschine
+description: Bietet Voraussetzungen und Anweisungen zum Durchführen einer Live Migration in einer eigenständigen Umgebung.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,44 +11,44 @@ ms.assetid: 75c32e42-97f7-48df-aac9-1d82d34825e1
 author: KBDAzure
 ms.author: kathydav
 ms.date: 01/17/2017
-ms.openlocfilehash: 9be61fbc860e9d8c5cbc020d6dd4082722e32509
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 55c96ff4696871e4013c3abd6247209d0d4517c0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812098"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392554"
 ---
-# <a name="use-live-migration-without-failover-clustering-to-move-a-virtual-machine"></a>Verwenden der Livemigration ohne Failoverclustering zum Verschieben eines virtuellen Computers
+# <a name="use-live-migration-without-failover-clustering-to-move-a-virtual-machine"></a>Verwenden der Live Migration ohne Failoverclustering zum Verschieben einer virtuellen Maschine
 
 >Gilt für: Windows Server 2016
 
-In diesem Artikel wird das Verschieben eines virtuellen Computers durch Ausführen einer Livemigration ohne Failover-Clusterunterstützung veranschaulicht. Eine Livemigration verschiebt die ausgeführten virtuellen Computer zwischen Hyper-V-Hosts ohne nennenswerte Ausfallzeit.   
+In diesem Artikel erfahren Sie, wie Sie einen virtuellen Computer mithilfe einer Live Migration ohne Failoverclustering verschieben. Bei einer Live Migration werden virtuelle Maschinen ohne erkennbare Ausfallzeiten zwischen Hyper-V-Hosts verschoben.   
   
-Um zu diesem Zweck können, benötigen Sie:   
+Um dies zu erreichen, benötigen Sie Folgendes:   
 
-- Ein Benutzerkonto, das ein Mitglied der lokalen Administratorengruppe von Hyper-V oder die Gruppe "Administratoren" auf den Quell- und Ziel-Computern ist. 
+- Ein Benutzerkonto, das Mitglied der lokalen Gruppe "Hyper-V-Administratoren" oder der Gruppe "Administratoren" auf dem Quell-und dem Zielcomputer ist. 
   
-- Hyper-V-Rolle in Windows Server 2016 oder Windows Server 2012 R2 auf den Quell- und Ziel-Anwendungsservern installiert, und richten Sie für livemigrationen. Sie erreichen eine Livemigration zwischen Hosts, auf denen Windows Server 2016 und Windows Server 2012 R2, ob die virtuelle Maschine mindestens Version 5.
+- Die Hyper-V-Rolle in Windows Server 2016 oder Windows Server 2012 R2, die auf dem Quell-und Zielserver installiert ist und für Live Migrationen eingerichtet ist. Sie können eine Live Migration zwischen Hosts ausführen, auf denen Windows Server 2016 und Windows Server 2012 R2 ausgeführt wird, wenn der virtuelle Computer mindestens Version 5 ist.
 
-    Version Anweisungen finden Sie unter [Upgrade VM-Konfigurationsversion in Hyper-V unter Windows 10 oder Windows Server 2016](../deploy/Upgrade-virtual-machine-version-in-Hyper-V-on-Windows-or-Windows-Server.md). Installationsanweisungen finden Sie unter [Einrichten von Hosts für die Livemigration](../deploy/Set-up-hosts-for-live-migration-without-Failover-Clustering.md).
+    Anweisungen zur Versions Aktualisierung finden Sie unter [Aktualisieren der Version virtueller Computer in Hyper-V unter Windows 10 oder Windows Server 2016](../deploy/Upgrade-virtual-machine-version-in-Hyper-V-on-Windows-or-Windows-Server.md). Installationsanweisungen finden Sie unter [Einrichten von Hosts für die Live Migration](../deploy/Set-up-hosts-for-live-migration-without-Failover-Clustering.md).
 
-- Die Hyper-V-Verwaltungstools auf einem Computer unter Windows Server 2016 oder Windows 10 installiert werden, es sei denn, die Tools, auf dem Quell- oder Ziel-Server, und Sie installiert sind werden sie von dort aus auszuführen.  
+- Die Hyper-V-Verwaltungs Tools sind auf einem Computer installiert, auf dem Windows Server 2016 oder Windows 10 ausgeführt wird, es sei denn, die Tools sind auf dem Quell-oder Ziel Server installiert, und Sie führen Sie von dort aus.  
    
-## <a name="use-hyper-v-manager-to-move-a-running-virtual-machine"></a>Verwenden Sie Hyper-V-Manager, um einen ausgeführten virtuellen Computer verschieben  
+## <a name="use-hyper-v-manager-to-move-a-running-virtual-machine"></a>Verwenden des Hyper-V-Managers zum Verschieben eines laufenden virtuellen Computers  
   
-1.  Öffnen Sie den Hyper-V-Manager. (In Server-Manager, klicken Sie auf **Tools** >>**Hyper-V-Manager**.)  
+1.  Öffnen Sie den Hyper-V-Manager. ( **Klicken Sie**in Server-Manager auf Extras  >>**Hyper-V-Manager**.)  
   
-2.  Wählen Sie im Navigationsbereich einen der Server aus. (Wenn er nicht angegeben ist, mit der rechten Maustaste **Hyper-V-Manager**, klicken Sie auf **Herstellen einer Verbindung mit Server**, geben Sie den Servernamen ein, und klicken Sie auf **OK**. Wiederholen Sie zum Hinzufügen weiterer Server.)  
+2.  Wählen Sie im Navigationsbereich einen der Server aus. (Falls nicht aufgeführt, klicken Sie mit der rechten Maustaste auf **Hyper-V-Manager**, klicken Sie auf **Verbindung mit Server herstellen**, geben Sie den Servernamen ein, und klicken Sie auf **OK** Wiederholen Sie den Vorgang, um weitere Server hinzuzufügen.  
   
-3.  Von der **VMs** Bereich mit der rechten Maustaste den virtuellen Computer, und klicken Sie dann auf **verschieben**. Dies öffnet den Assistenten zum Verschieben. 
+3.  Klicken Sie im **Virtual Machines** Bereich mit der rechten Maustaste auf den virtuellen Computer, und klicken Sie dann auf **verschieben**. Der Verschiebungs-Assistent wird geöffnet. 
   
-4.  Verwenden Sie die Seiten des Assistenten, um den Typ des verschieben, Zielserver und Optionen auswählen.
+4.  Verwenden Sie die Seiten des Assistenten, um den Typ der Verschiebung, den Zielserver und die Optionen auszuwählen.
   
 5.  Überprüfen Sie auf der Seite **Zusammenfassung** die von Ihnen ausgewählten Einstellungen, und klicken Sie dann auf **Fertig stellen**.  
 
-## <a name="use-windows-powershell-to-move-a-running-virtual-machine"></a>Verwenden Sie Windows PowerShell, um einen ausgeführten virtuellen Computer verschieben
+## <a name="use-windows-powershell-to-move-a-running-virtual-machine"></a>Verwenden von Windows PowerShell zum Verschieben eines laufenden virtuellen Computers
   
-Im folgenden Beispiel wird das Cmdlet "Move-VM" zum Verschieben eines virtuellen Computers mit dem Namen *LMTest* zu einem Zielserver mit dem Namen *TestServer02* und verschiebt die virtuellen Festplatten und die andere Datei, die solche Prüfpunkte und Smart-Auslagerungsdateien, zu der *D:\LMTest* Verzeichnis auf dem Zielserver.  
+Im folgenden Beispiel wird das Cmdlet Move-VM verwendet, um einen virtuellen Computer mit dem Namen *lmtest* auf einen Zielserver mit dem Namen *Bezeichnung testserver02* zu verschieben und die virtuellen Festplatten und anderen Dateien, z. b. Prüfpunkte und Smart Paging-Dateien, in *d:\lmtest* zu verschieben. Verzeichnis auf dem Zielserver.  
   
 ```  
 PS C:\> Move-VM LMTest TestServer02 -IncludeStorage -DestinationStoragePath D:\LMTest  
@@ -56,29 +56,29 @@ PS C:\> Move-VM LMTest TestServer02 -IncludeStorage -DestinationStoragePath D:\L
   
 ## <a name="troubleshooting"></a>Problembehandlung
 
-### <a name="failed-to-establish-a-connection"></a>Fehler beim Herstellen einer Verbindung 
+### <a name="failed-to-establish-a-connection"></a>Fehler beim Herstellen einer Verbindung. 
 
-Wenn Sie die eingeschränkte Delegierung eingerichtet haben, müssen Sie auf Quellserver anmelden, bevor Sie einen virtuellen Computer verschieben können. Wenn Sie dies nicht tun, wird der Authentifizierungsversuch fehlschlägt, ein Fehler auftritt, und diese Meldung wird angezeigt:  
+Wenn Sie die eingeschränkte Delegierung noch nicht eingerichtet haben, müssen Sie sich beim Quell Server anmelden, bevor Sie einen virtuellen Computer verschieben können. Wenn Sie dies nicht tun, schlägt der Authentifizierungs Versuch fehl, es tritt ein Fehler auf, und die Meldung wird angezeigt:  
   
-"VM-Migration Fehler bei Vorgang an der Migrationsquelle.  
-Fehler beim Herstellen einer Verbindung mit Host *Computername*: Sind keine Anmeldeinformationen im Sicherheitspaket 0x8009030E verfügbar."
+"Fehler beim Migrations Vorgang für den virtuellen Computer bei der Migrations Quelle.  
+Fehler beim Herstellen einer Verbindung mit dem Host *Computernamen*: Im Sicherheitspaket 0x8009030E sind keine Anmelde Informationen verfügbar. "
   
- Um dieses Problem zu beheben, melden Sie sich auf dem Quellserver, und versuchen Sie es die Verschiebung erneut aus. Richten Sie nicht auf einem Quellserver melden Sie sich vor dem Ausführen einer Livemigration, die eingeschränkte Delegierung. Sie benötigen Domänenadministrator-Anmeldeinformationen, um die eingeschränkte Delegierung einzurichten. Anweisungen hierzu finden Sie unter [Einrichten von Hosts für die Livemigration](../deploy/Set-up-hosts-for-live-migration-without-Failover-Clustering.md). 
+ Um dieses Problem zu beheben, melden Sie sich beim Quell Server an, und wiederholen Sie den Vorgang. Um zu vermeiden, dass Sie sich vor einer Live Migration bei einem Quell Server anmelden müssen, richten Sie die eingeschränkte Delegierung ein. Zum Einrichten der eingeschränkten Delegierung benötigen Sie Domänen Administrator-Anmelde Informationen. Anweisungen hierzu finden [Sie unter Einrichten von Hosts für die Live Migration](../deploy/Set-up-hosts-for-live-migration-without-Failover-Clustering.md). 
  
- ### <a name="failed-because-the-host-hardware-isnt-compatible"></a>Fehler bei, da die Hosthardware nicht kompatibel ist
+ ### <a name="failed-because-the-host-hardware-isnt-compatible"></a>Fehler, weil die Host Hardware nicht kompatibel ist.
  
- Wenn ein virtueller Computer verfügt nicht über die Prozessorkompatibilität aktiviert und verfügt über eine oder mehrere Momentaufnahmen, schlägt die Verschiebung die Hosts mit verschiedenen Prozessorversionen haben. Ein Fehler auftritt, und diese Meldung wird angezeigt:
+ Wenn für einen virtuellen Computer die Prozessor Kompatibilität nicht aktiviert ist und eine oder mehrere Momentaufnahmen vorhanden sind, schlägt der Verschiebe Vorgang fehl, wenn die Hosts über unterschiedliche Prozessor Versionen verfügen. Es tritt ein Fehler auf, und diese Meldung wird angezeigt:
  
-**Die virtuelle Maschine kann nicht auf dem Zielcomputer nicht verschoben werden. Die Hardware auf dem Zielcomputer ist nicht kompatibel mit der hardwareanforderungen für diesen virtuellen Computer.**
+**der virtuelle Computer kann nicht auf den Zielcomputer verschoben werden. Die Hardware auf dem Zielcomputer ist nicht mit den Hardwareanforderungen dieser virtuellen Maschine kompatibel.**
  
- Um dieses Problem zu beheben, fahren Sie den virtuellen Computer herunter, und aktivieren Sie die kompatibilitätseinstellung für den Prozessor.
+ Um dieses Problem zu beheben, fahren Sie den virtuellen Computer herunter, und aktivieren Sie die Einstellung für die Prozessor Kompatibilität.
  
-1. Hyper-V-Manager in der **VMs** Bereich mit der rechten Maustaste den virtuellen Computer, und klicken Sie auf Einstellungen.
-2. Erweitern Sie im Navigationsbereich **Prozessoren** , und klicken Sie auf **Kompatibilität**.
-3. Überprüfen Sie **zu einem Computer mit einer anderen Prozessorversion migrieren**.
+1. Klicken Sie im Hyper-V-Manager im **Virtual Machines** Bereich mit der rechten Maustaste auf den virtuellen Computer, und klicken Sie dann auf Einstellungen.
+2. Erweitern Sie im Navigationsbereich die Option **Prozessoren** , und klicken Sie auf **Kompatibilität**.
+3. Überprüfen Sie **die Migration zu einem Computer mit einer anderen Prozessor Version**.
 4. Klicken Sie auf **OK**.
  
-   Verwenden Sie zur Verwendung von Windows PowerShell die [Set-VMProcessor](https://technet.microsoft.com/library/hh848533.aspx) Cmdlet:
+   Verwenden Sie zum Verwenden von Windows PowerShell das Cmdlet [Set-vmprocessor](https://technet.microsoft.com/library/hh848533.aspx) :
  
    ```
    PS C:\> Set-VMProcessor TestVM -CompatibilityForMigrationEnabled $true

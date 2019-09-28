@@ -1,36 +1,36 @@
 ---
 ms.assetid: a33bd54c-e6db-4b58-8264-c0f34bd8ba39
-title: 'Exemplarische Vorgehensweise: Arbeitsplatzbeitritt auf einem Android-Gerät'
+title: 'Exemplarische Vorgehensweise: Workplace Join zu einem Android-Gerät'
 description: ''
 author: billmath
 ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 73dbe4d62d460f9487467c7d4198d62b3b6af539
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: c021e8b67963df4f885059c75eff5e94d6dcdafb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188932"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407471"
 ---
-# <a name="walkthrough-workplace-join-to-an-android-device"></a>Exemplarische Vorgehensweise: Arbeitsplatzbeitritt auf einem Android-Gerät
+# <a name="walkthrough-workplace-join-to-an-android-device"></a>Exemplarische Vorgehensweise: Workplace Join zu einem Android-Gerät
 
 
 
 ## <a name="join-your-device-with-workplace-join"></a>Hinzufügen Ihres Geräts mit dem Arbeitsplatzbeitritt
 
 > [!NOTE]
-> Android arbeitsplatzbeitritt erfordert Azure Active Directory Device Registration Service. Um die bedingten Richtlinien für ein lokales zu erzwingen, muss die Tool für die Verzeichnissynchronisierung (DirSync) Gerät Objekt kennwortrückschreiben-Feature-Option aktiviert bereitgestellt werden. Momentan ist kann gerätezurückschreibung in Active Directory von Azure Active Directory bis zu drei Stunden dauern. Daher müssen Benutzer drei Stunden auf lokale Webanwendungen zugreifen, nach dem Erstellen eines Geschäftskontos warten. Weitere Informationen zum Bereitstellen von Azure Active Directory Device Registration service, finden Sie unter, [Azure Active Directory Device Registration Service Overview](https://msdn.microsoft.com/library/azure/dn788908.aspx)
+> Der Android Workplace Join erfordert Azure Active Directory Device Registration-Dienst. Um Richtlinien für bedingte Geräte lokal zu erzwingen, muss das Verzeichnis Synchronisierungs Tool (Dirsync) mit aktivierter Option für das Zurückschreiben von Geräte Objekten bereitgestellt werden. Zum jetzigen Zeitpunkt kann das Zurückschreiben von Geräten auf Active Directory von Azure Active Directory bis zu drei Stunden dauern. Daher müssen Benutzer nach dem Erstellen eines Geschäfts Kontos 3 Stunden auf lokale Webanwendungen warten. Weitere Informationen zum Bereitstellen Azure Active Directory Device Registration Dienstanbieter finden Sie unter Übersicht über den [Azure Active Directory Device Registration-Dienst](https://msdn.microsoft.com/library/azure/dn788908.aspx) .
 
-#### <a name="create-a-work-account-that-joins-your-device-with-workplace-join"></a>Erstellen Sie ein Geschäftskonto, die Ihr Gerät bei Workplace Join verknüpft.
+#### <a name="create-a-work-account-that-joins-your-device-with-workplace-join"></a>Erstellen eines Geschäfts Kontos, das Ihr Gerät mit dem Arbeitsplatz Beitritt verknüpft
 
-1.  Sie benötigen, installieren Azure Authenticator-App auf Ihrem Gerät um ein Geschäftskonto zu erstellen, der Ihr Gerät mit arbeitsplatzbeitritt verbunden. Die folgende URL umfasst Anweisungen zum Installieren der Azure Authenticator-app auf Ihrem Android-Gerät und Hinzufügen eines Geschäftskontos. Das Geschäftskonto können Ihr Android-Gerät in einem vertrauenswürdigen Gerät und bietet einmaliges Anmelden (SSO) für die Anwendungen auf dem Gerät. Gemäß Empfehlung von Ihrem IT-Administrator, können Sie das vertrauenswürdige Gerät Access-Webanwendungen und moderne Branchen-Anwendungen. Weitere Informationen finden Sie unter [Azure Authenticator für Android](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to).
+1.  Sie müssen Azure Authenticator Anwendung auf Ihrem Gerät installieren, um ein Geschäftskonto zu erstellen, mit dem Ihr Gerät mit dem Arbeitsplatz Beitritt verknüpft wird. Die folgende URL enthält Anweisungen zum Installieren der Azure Authenticator-App auf Ihrem Android-Gerät und zum Hinzufügen eines Geschäfts Kontos. Das Geschäftskonto macht Ihr Android-Gerät in ein vertrauenswürdiges Gerät und bietet einmaliges Anmelden (Single Sign-on, SSO) für die Anwendungen auf dem Gerät. Sie können das vertrauenswürdige Gerät verwenden, um auf Webanwendungen und moderne Branchen Anwendungen zuzugreifen, wie Sie vom IT-Administrator empfohlen werden. Weitere Informationen finden Sie unter [Azure Authenticator für Android](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to).
 
 ## <a name="see-also"></a>Siehe auch
-[Verbinden mit einem Arbeitsplatz von einem beliebigen Gerät für SSO und nahtlose Second Factor Authentication Across Company Applications](Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)
-[Einrichten des lokalen bedingten Zugriffs, die mithilfe der Azure Active Directory Device Registration Service](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup)
+[Arbeitsplatz Beitritt von einem beliebigen Gerät für SSO und die nahtlose zweistufige Authentifizierung bei allen Unternehmensanwendungen](Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)
+ Einrichten des lokalen[bedingten Zugriffs mithilfe Azure Active Directory Device Registration Dienstanbieter](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup)
 
 

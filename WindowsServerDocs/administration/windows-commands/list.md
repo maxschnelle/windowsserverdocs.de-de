@@ -1,8 +1,8 @@
 ---
 title: list
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: aacc93e1c7a16a7327ddbd17515f19cf41a5b458
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 91b42925fc822b10157bb488167d06fe82cfe1e3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825541"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374697"
 ---
 # <a name="list"></a>list
 
 
 
-Listen-Writer, Schattenkopien und gegenwärtig registrierten Volumeschattenkopie-Anbieter, die auf dem System sind. Wenn Sie ohne Angabe von Parametern **Liste** zeigt die Hilfe an der Eingabeaufforderung.
+Listet Writer, Schatten Kopien oder derzeit registrierte Schattenkopieanbieter auf, die sich auf dem System befinden. Bei Verwendung ohne Parameter zeigt **List** die Hilfe an der Eingabeaufforderung an.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -40,17 +40,17 @@ list providers
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Schreiber|Listen-Writer. Finden Sie unter [List Writers](list-writers.md) für die Syntax und Parameter.|
-|Zeichnen von Schatten|Listet dauerhaft ist und vorhandene nicht persistenter Schattenkopien. Finden Sie unter [Liste Shadows](list-shadows.md) für die Syntax und Parameter.|
-|Anbieter|Listet die registrierten derzeit Volumeschattenkopie-Anbieter. Finden Sie unter [Liste von Anbietern](list-providers.md) für die Syntax und Parameter.|
+|Writer|Listet Writer auf. Syntax und Parameter finden Sie unter [Auflisten von Writern](list-writers.md) .|
+|Schattet|Listet persistente und vorhandene nicht persistente Schatten Kopien auf. Informationen zu Syntax und Parametern finden Sie unter [list shadows](list-shadows.md) .|
+|Anbieter|Listet derzeit registrierte Schattenkopieanbieter auf. Informationen zu Syntax und Parametern finden Sie unter [List Providers](list-providers.md) .|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um alle Schattenkopien aufzulisten, geben Sie Folgendes ein:
+Um alle Schatten Kopien aufzulisten, geben Sie Folgendes ein:
 ```
 list shadows all
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

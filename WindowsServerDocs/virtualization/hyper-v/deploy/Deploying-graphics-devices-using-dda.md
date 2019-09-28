@@ -1,7 +1,7 @@
 ---
 title: Bereitstellen von Grafik Geräten mithilfe der diskreten Geräte Zuweisung
 description: Erfahren Sie, wie Sie mit DDA Grafikgeräte in Windows Server bereitstellen.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 ms.technology: hyper-v
 ms.tgt_pltfrm: na
@@ -9,12 +9,12 @@ ms.topic: article
 author: chrishuybregts
 ms.author: chrihu
 ms.assetid: 67a01889-fa36-4bc6-841d-363d76df6a66
-ms.openlocfilehash: 94ba561f35ea257a897f51cb3522196f7988eb71
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 3b37abaf5a2341aff66ff0064ecc4f52faf47f06
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872099"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392994"
 ---
 # <a name="deploy-graphics-devices-using-discrete-device-assignment"></a>Bereitstellen von Grafik Geräten mithilfe der diskreten Geräte Zuweisung
 
@@ -86,7 +86,7 @@ Der letzte Schritt besteht darin, Hyper-V mitzuteilen, dass ein virtueller Compu
 Add-VMAssignableDevice -LocationPath $locationPath -VMName VMName
 ```
 
-## <a name="whats-next"></a>Weitere Informationen
+## <a name="whats-next"></a>Was kommt als nächstes
 Nachdem ein Gerät erfolgreich auf einem virtuellen Computer bereitgestellt wurde, können Sie diesen virtuellen Computer starten und mit dem Gerät interagieren, wie Sie es normalerweise bei einem Bare-Metal-System ausführen würden.  Dies bedeutet, dass Sie jetzt die Treiber des Hardware Anbieters auf dem virtuellen Computer installieren können und Anwendungen sehen können, dass die Hardware vorhanden ist.  Sie können dies überprüfen, indem Sie in der Gast-VM den Geräte-Manager öffnen und sehen, dass die Hardware jetzt angezeigt wird.
 
 ## <a name="removing-a-device-and-returning-it-to-the-host"></a>Entfernen eines Geräts und Zurückgeben des Geräts an den Host

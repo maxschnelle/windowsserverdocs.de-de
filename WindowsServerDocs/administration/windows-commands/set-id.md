@@ -1,8 +1,8 @@
 ---
-title: Satz-id
-description: 'Windows-Befehle Thema ***- '
+title: ID festlegen
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: da870c4a9676a08070e22f5391164af0bffd4df0
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 5b48cc701716412c4a79cedddb4458c57ba25ad5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441341"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384075"
 ---
-# <a name="set-id"></a>Satz-id
+# <a name="set-id"></a>ID festlegen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Der Befehl Diskpart-festlegen-ID ändert es sich um das Feld "Type" für die Partition mit dem Fokus.  
+Der DiskPart-Satz-ID-Befehl ändert das Feld Partitionstyp für die Partition mit dem Fokus.  
   
 > [!IMPORTANT]  
-> Dieser Befehl dient zur Verwendung durch Originalgerätehersteller \(OEMs\) nur. Partition Typfelder mit diesem Parameter ändern kann dazu führen, dass Ihr Computer ausfällt oder nicht für den Start. Es sei denn, Sie ein OEM sind oder bereits über Erfahrung mit Gpt-Datenträger, sollten Sie Partition-Feldern auf Gpt-Datenträgern durch Verwendung dieses Parameters nicht ändern. Verwenden Sie stattdessen immer die [erstellen Partition Efi](create-partition-efi.md) Befehl zum Erstellen von Partitionen für EFI-System, die [erstellen Partition Msr](create-partition-msr.md) Befehl aus, um Microsoft Reserved Partitionen zu erstellen und die [erstellen primäre Partition](create-partition-primary.md) Befehl ohne den ID-Parameter, um primäre Partitionen auf Gpt-Datenträgern zu erstellen.  
+> Dieser Befehl ist für die Verwendung durch die Originalgerätehersteller bestimmt \(oems @ no__t-1. Das Ändern von Partitionstyp Feldern mit diesem Parameter kann dazu führen, dass der Computer ausfällt oder nicht gestartet werden kann. Wenn Sie nicht OEM sind oder mit GPT-Datenträgern vertraut sind, sollten Sie die Partitionstyp Felder auf GPT-Datenträgern nicht mithilfe dieses Parameters ändern. Verwenden Sie stattdessen immer den Befehl [create partition efi](create-partition-efi.md) zum Erstellen von EFI-Systempartitionen, den [create partition msr](create-partition-msr.md) -Befehl zum Erstellen von reservierten Microsoft-Partitionen und den [create partition primary](create-partition-primary.md) -Befehl ohne den ID-Parameter für Erstellen Sie primäre Partitionen auf GPT-Datenträgern.  
   
   
   
@@ -41,31 +41,31 @@ set id={ <byte> | <GUID> } [override] [noerr]
   
 | Parameter |                                                                                                                                                                                                                                                                                                                                                                   Beschreibung                                                                                                                                                                                                                                                                                                                                                                   |
 |-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  <byte>   |                                                                                                                                                                                                       für den master Boot Records \(MBR\) Datenträger, den neuen Wert für das Typfeld im hexadezimalen Format, für die Partition angibt. Jede Partition Typ Byte kann mit diesem Parameter mit Ausnahme von Typ 0 x 42, angegeben werden, die eine LDM-Partition angibt. Beachten Sie, dass das Präfix 0 X weggelassen wird, wenn Sie die hexadezimale Partitionstyp angeben.                                                                                                                                                                                                       |
-|  <GUID>   | GUID-Partitionstabelle \(Gpt\) Datenträger, den neuen GUID-Wert für das Typfeld für die Partition angibt. Erkannte GUIDs einschließen möchten:<br /><br />-EFI Systempartition: c12a7328\-f81f\-11d 2\-ba4b\-00a0c93ec93b<br />-Einfache Datenpartition: ebd0a0a2\-b9e5\-4433\-87c 0\-68b6b72699c7<br /><br />Alle Partitionstyp GUID kann mit diesem Parameter mit Ausnahme der folgenden angegeben werden:<br /><br />– Microsoft Reserved-Partition: e3c9e316\-0b5c\-4db8\-817d\-f92df00215ae<br />-LDM Metadatenpartition auf einem dynamischen Datenträger: 5808c8aa\-7e8f\-42e0\-85d 2\-e1e90434cfb3<br />-LDM Datenpartition für einen dynamischen Datenträger: af9b60a0\-1431\-4f62\-bc68\-3311714a69ad<br />-Cluster-Metadatenpartition: db97dba9\-0840\-4bae\-97f0\-ffb9a327c7e1 |
-| override  |                                                                Erzwingt, dass das Dateisystem auf dem Volume vor dem Ändern des Partitionstyps aufgehoben. Beim Ausführen der **IDs** Befehl DiskPart versucht wird, Sperren und Aufheben der Bereitstellung des Dateisystems auf dem Volume. Wenn **außer Kraft setzen** nicht angegeben ist, und der Aufruf, Sperren das Dateisystem fehlschlägt \(z. B. weil es ein geöffnetes Handle liegt\), der Vorgang schlägt fehl. Wenn **überschreiben** angegeben ist, DiskPart erzwingt die Aufheben der Bereitstellung, auch wenn der Aufruf von Sperren im Dateisystem ein Fehler auftritt, und alle geöffneten Handles zum Volume ungültig Dadurch werden.<br /><br />Dieser Befehl ist nur für Windows 7 und Windows Server 2008 R2 verfügbar.                                                                 |
-|   Diskpart   |                                                                                                                                                                                                                                                                    Nur für Skripting verwendet. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden.                                                                                                                                                                                                                                                                    |
+|  <byte>   |                                                                                                                                                                                                       gibt für Master Boot Record \(mbr @ no__t-1-Datenträgern den neuen Wert für das typanfeld (in Hexadezimal Form) für die Partition an. Alle Partitionstypen Bytes können mit diesem Parameter angegeben werden, mit Ausnahme des Typs 0x42, der eine LDM-Partition angibt. Beachten Sie, dass das führende 0x beim Angeben des hexadezimalen Partitions Typs ausgelassen wird.                                                                                                                                                                                                       |
+|  <GUID>   | gibt für die GUID-Partitionstabelle \(gpt @ no__t-1-Datenträger den neuen GUID-Wert für das typanfeld für die Partition an. Zu den erkannten GUIDs zählen:<br /><br />-EFI-Systempartition: c12a7328 @ no__t-0f81f @ no__t-111d2 @ no__t-2ba4b @ no__t-300a0c93ec93b<br />-Basic Data Partition: ebd0a0a2 @ no__t-0b9e5 @ no__t-14433 @ no__t-287c0 @ no__t-368b6b72699c7<br /><br />Jeder GUID des Partitions Typs kann mit diesem Parameter angegeben werden, mit Ausnahme der folgenden:<br /><br />-Microsoft Reserved Partition: e3c9e316 @ no__t-00b5c @ no__t-14db8 @ no__t-2817d @ no__t-3F 92 df00215ae<br />-LDM-Metadatenpartition auf einem dynamischen Datenträger: 5808c8aa @ no__t-07e8f @ no__t-142e0 @ no__t-285d2 @ no__t-3e1e90434cfb3<br />-LDM-Daten Partition auf einem dynamischen Datenträger: af9b60a0 @ no__t-01431 @ no__t-14f 62 @ no__t-2bc68 @ no__t-33311714a69ad<br />-Cluster Metadatenpartition: db97dba9 @ no__t-00840 @ no__t-14bae @ no__t-297f0 @ no__t-3ffb9a327c7e1 |
+| Dire  |                                                                erzwingt das Aufheben der Einbindung des Dateisystems auf dem Volume, bevor der Partitionstyp geändert wird. Wenn Sie den Befehl **Set ID** ausführen, versucht Diskpart, das Dateisystem auf dem Volume zu sperren und zu entfernen. Wenn **override** nicht angegeben wird und der aufzurufende Befehl zum Sperren des Dateisystems \(Z. b., weil ein geöffnetes Handle @ no__t-2 vorhanden ist, schlägt der Vorgang fehl. Wenn **override** angegeben wird, erzwingt DiskPart die Aufhebung der Einbindung, auch wenn der aufzurufende Befehl zum Sperren des Dateisystems fehlschlägt und alle geöffneten Handles für das Volume ungültig werden.<br /><br />Dieser Befehl ist nur für Windows 7 und Windows Server 2008 R2 verfügbar.                                                                 |
+|   Noerr   |                                                                                                                                                                                                                                                                    Wird nur für die Skripterstellung verwendet. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.                                                                                                                                                                                                                                                                    |
   
 ## <a name="remarks"></a>Hinweise  
   
--   Keine Einschränkungen bereits erwähnt, DiskPart überprüft nicht die Gültigkeit der von Ihnen angegebenen Wert \(außer sicherstellen, dass es ein Byte im hexadezimalen Format oder eine GUID ist\).  
+-   Abgesehen von den zuvor erwähnten Einschränkungen überprüft DiskPart nicht die Gültigkeit des Werts, den Sie angeben, \(, außer um sicherzustellen, dass es sich um ein Byte in Hexadezimal Form oder um eine GUID @ no__t-1 handelt.  
   
--   Dieser Befehl funktioniert nicht auf dynamischen Datenträgern oder auf Microsoft Reserved-Partition.  
+-   Dieser Befehl funktioniert nicht auf dynamischen Datenträgern oder auf von Microsoft reservierten Partitionen.  
   
-## <a name="BKMK_examples"></a>Beispiele für  
-Legen Sie das Typfeld auf 0 x 07, und erzwingen das Dateisystem zu entfernen, geben Sie Folgendes ein:  
+## <a name="BKMK_examples"></a>Beispiele  
+Geben Sie Folgendes ein, um das typanfeld auf 0x07 festzulegen und das Aufheben der Einbindung des Dateisystems zu erzwingen:  
   
 ```  
 set id=0x07 override  
 ```  
   
-Um das Typfeld werden einer Partition Basisdaten festzulegen, geben Sie Folgendes ein:  
+Geben Sie Folgendes ein, um das typanfeld als einfache Daten Partition festzulegen:  
   
 ```  
 set id=ebd0a0a2-b9e5-4433-87c0-68b6b72699c7  
 ```  
   
-#### <a name="additional-references"></a>Zusätzliche Referenzen  
+#### <a name="additional-references"></a>Weitere Verweise  
 [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
 

@@ -1,8 +1,8 @@
 ---
-title: gpt
-description: 'Windows-Befehle Thema ***- '
+title: GPT
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cba9839f98dfd5a72289838273a057dd0e09a7e5
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: e99e6c23dcb9173d3cdd712a141b99d6ac1fe649
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438183"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375677"
 ---
-# <a name="gpt"></a>gpt
+# <a name="gpt"></a>GPT
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Grundlegende Datenträger GUID-Partitionstabelle (Gpt) weist die GPT-Attribute auf die Partition mit dem Fokus.  GPT-Partitionsattribute bieten zusätzliche Informationen zur Verwendung der Partition an. Einige Attribute sind spezifisch für den Partitionstyp GUID.
+Bei einfachen GPT-Datenträgern (GUID-Partitionstabelle) werden die GPT-Attribute der Partition mit dem Fokus zugewiesen.  GPT-Partitions Attribute bietet zusätzliche Informationen zur Verwendung der Partition. Einige Attribute sind spezifisch für die GUID des Partitions Typs.
 
 > [!CAUTION]
-> Ändern der GPT-Attribute möglicherweise die Basisdaten Volumes Laufwerkbuchstaben zugewiesen werden soll, oder, um zu verhindern, dass das Dateisystem Einbindung fehlschlägt. Sie sollten die Gpt-Attribute nicht ändern, es sei denn, Sie sind ein Originalgerätehersteller (OEM) oder IT-Experte, der bereits über Erfahrung mit Gpt-Datenträger ist.
+> Das Ändern der GPT-Attribute kann dazu führen, dass ihren grundlegenden Datenvolumes keine Laufwerk Buchstaben zugewiesen werden, oder dass die Bereitstellung des Dateisystems verhindert wird. Sie sollten die GPT-Attribute nur dann ändern, wenn Sie ein ursprünglicher Gerätehersteller (OEM) oder IT-Experte sind, der mit GPT-Datenträgern vertraut ist.
 > ## <a name="syntax"></a>Syntax
 > ```
 > gpt attributes=<n>
@@ -36,13 +36,13 @@ Grundlegende Datenträger GUID-Partitionstabelle (Gpt) weist die GPT-Attribute a
 > 
 > |   Parameter    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 > |----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | attributes=<n> | Gibt den Wert für das Attribut, das Sie auf die Partition mit dem Fokus anwenden möchten. Das Feld der Gpt-Attribut ist ein 64-Bit-Feld, das zwei Unterfeldern. Das höhere Feld wird nur im Rahmen der Partitions-ID, interpretiert, während das untere Feld für alle Partitions-IDs ist. Zulässige Werte sind:<br /><br />-   **0 x 0000000000000001**. Gibt an, dass die Partition durch den Computer erforderlich ist, ordnungsgemäß funktioniert.<br />-   **0x8000000000000000**. Gibt an, dass die Partition nicht erhält einen Laufwerkbuchstaben standardmäßig, wenn der Datenträger verschoben wird, auf einen anderen Computer oder der Datenträger von einem Computer zum ersten Mal angezeigt wird.<br />-   **0x4000000000000000**. Blendet eine Partition des Volumes an. Die Partition wird von der bereitstellungs-Manager, also nicht erkannt werden.<br />-   **0x2000000000000000**. Gibt an, dass die Partition eine Schattenkopie von einer anderen Partition.<br />-   **0x1000000000000000**. Gibt an, dass die Partition schreibgeschützt ist. Dieses Attribut verhindert, dass das Volume geschrieben wird.<br /><b />Weitere Informationen zu diesen Attributen finden Sie im Attributabschnitt "am [Create_PARTITION_PARAMETERS Struktur](https://go.microsoft.com/fwlink/?LinkId=203812) (<https://go.microsoft.com/fwlink/?LinkId=203812>). |
+> | Attribute = <n> | Gibt den Wert für das Attribut an, das Sie auf die Partition mit dem Fokus anwenden möchten. Das GPT-Attribut Feld ist ein 64-Bit-Feld, das zwei Unterfelder enthält. Das höhere Feld wird nur im Kontext der Partitions-ID interpretiert, während das untere Feld allen Partitions-IDs gemeinsam ist. Akzeptierte Werte sind:<br /><br />-   **0x0000000000000001**. Gibt an, dass die Partition für den ordnungsgemäßen Betrieb des Computers erforderlich ist.<br />-   **0x8000000000000000**. Gibt an, dass die Partition standardmäßig keinen Laufwerk Buchstaben erhält, wenn der Datenträger auf einen anderen Computer verschoben wird oder wenn der Datenträger zum ersten Mal von einem Computer angezeigt wird.<br />-   **0x4000000000000000**. Blendet das Volume einer Partition aus. Das heißt, die Partition wird vom Mount Manager nicht erkannt.<br />-   **0x2000000000000000**. Gibt an, dass die Partition eine Schatten Kopie einer anderen Partition ist.<br />-   **0x1000000000000000**. Gibt an, dass die Partition schreibgeschützt ist. Dieses Attribut verhindert, dass das Volume in geschrieben wird.<br /><b />weitere Informationen zu diesen Attributen finden Sie im Abschnitt "Attribute" unter [create_PARTITION_PARAMETERS Structure](https://go.microsoft.com/fwlink/?LinkId=203812) (<https://go.microsoft.com/fwlink/?LinkId=203812>). |
 > 
 > ## <a name="remarks"></a>Hinweise
-> - Die EFI-Systempartition enthält nur die Binärdateien, die zum Starten des Betriebssystems. Dies erleichtert es OEM-Binärdateien oder Binärdateien spezifisch für ein Betriebssystem in anderen Partitionen platziert werden.
-> - Eine einfache GPT-Partition muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden. Verwenden der **wählen Partition** Befehl aus, wählen Sie eine einfache Gpt-Partition und verschiebt den Fokus auf sie.
->   ## <a name="BKMK_examples"></a>Beispiele für
->   Wenn Sie einen Gpt-Datenträger auf einem neuen Computer verschieben und möchte verhindern, dass dieser Computer automatisch ein Laufwerkbuchstabe zugewiesen, auf die Partition mit Fokus, Typ:
+> - Die EFI-System Partition enthält nur die Binärdateien, die zum Starten des Betriebssystems erforderlich sind. Dies vereinfacht das Platzieren von OEM-Binärdateien oder Binärdateien, die für ein betriebssystemspezifisch sind, auf anderen Partitionen.
+> - Eine grundlegende GPT-Partition muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt wird. Wählen Sie mit dem Befehl **Partition auswählen** eine einfache GPT-Partition aus, und verschieben Sie den Fokus darauf.
+>   ## <a name="BKMK_examples"></a>Beispiele
+>   Wenn Sie einen GPT-Datenträger auf einen neuen Computer verschieben und verhindern möchten, dass dieser Computer der Partition mit dem Fokus automatisch einen Laufwerk Buchstaben zuweist, geben Sie Folgendes ein:
 >   ```
 >   gpt attributes=0x8000000000000000
 >   ```

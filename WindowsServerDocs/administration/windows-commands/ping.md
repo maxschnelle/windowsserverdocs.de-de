@@ -1,8 +1,8 @@
 ---
 title: ping
-description: Verwenden Sie Ping, um die Netzwerkverbindung zu überprüfen.
+description: Verwenden Sie Ping, um die Netzwerk Konnektivität zu überprüfen.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 1ac02a148061cd6eb8480c67f15e934f5fd57768
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7d9841c12d403d91e14021ff9df65246d322debd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816751"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372307"
 ---
 # <a name="ping"></a>ping
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Die **Ping** Befehl überprüft die Konnektivität auf IP-Ebene auf einen anderen TCP/IP-Computer per Internet Control Message Protocol (ICMP)-Echo Request-Meldungen. Die Bestätigung des entsprechenden echo Reply-Meldungen angezeigt werden, zusammen mit Roundtripzeiten. Ping ist der wichtigste TCP/IP-Befehl verwendet, um die Konnektivität, namensauflösung und Erreichbarkeit zu beheben. Ohne Parameter verwendet **Ping** zeigt die Hilfe.
+Der **Ping** -Befehl überprüft die Konnektivität auf IP-Ebene zu einem anderen TCP/IP-Computer, indem ICMP-Echo Anforderungs Nachrichten (Internet Control Message Protocol) gesendet werden. Der Empfang entsprechender Echo Antwort Nachrichten wird zusammen mit Roundtrip-Zeiten angezeigt. Ping ist der primäre TCP/IP-Befehl, der verwendet wird, um die Konnektivität, Erreichbarkeit und Namensauflösung zu beheben. Wird ohne Parameter verwendet, **Ping** zeigt Hilfe an.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,33 +36,33 @@ ping [/t] [/a] [/n <Count>] [/l <Size>] [/f] [/I <TTL>] [/v <TOS>] [/r <Count>] 
 
 |Parameter|Beschreibung|
 |-------|--------|
-|/t|Gibt an, Ping weiterhin Echo Request-Meldungen an das Ziel, bis unterbrochen gesendet. Zum Unterbrechen und Statistiken anzuzeigen, drücken Sie STRG + UNTBR. Unterbrechen und **Ping**, drücken Sie STRG + C.|
-|/a|Gibt an, dass Reversenamensauflösung für die Ziel-IP-Adresse ausgeführt wird. Wenn dies erfolgreich ist, zeigt Ping an den entsprechenden Hostnamen an.|
-|/ n \<Anzahl\>|Gibt die Anzahl der Echo gesendeten Daten anzufordern. Der Standardwert ist 4.|
-|/ l \<Größe\>|Gibt die Länge in Bytes des Datenfelds in der Echo-Anforderung gesendete Nachrichten. Der Standardwert ist 32. Die maximale Größe beträgt 65,527.|
-|/f|Gibt an, die echo Request-Nachrichten werden gesendet, mit dem nicht fragmentiert-Kennzeichen in den IP-Header auf 1 (verfügbar auf nur IPv4) festgelegt. Das Echo Request-Nachricht kann nicht von Routern im Pfad für das Ziel nicht fragmentiert werden. Dieser Parameter ist hilfreich zur Problembehebung bei der Path-Maximum Transmission Unit (PMTU).|
-|/I \<TTL\>|Gibt den Wert des TTL-Felds in die IP-Header für Echo gesendeten Daten anzufordern. Der Standardwert ist der Standardwert der Gültigkeitsdauer (TTL) für den Host. Die maximale *Gültigkeitsdauer (TTL)* ist 255.|
-|/ v \<: Themen zur Vorgehensweise\>|Gibt den Wert des Typs des Diensts (TOS)-Felds in die IP-Header für Echo Anforderungsnachrichten gesendet (verfügbar auf nur IPv4). Der Standardwert ist 0. *Themen zur Vorgehensweise* als Dezimalwert zwischen 0 und 255 angegeben ist.|
-|/ r \<Anzahl\>|Gibt an, dass der Datensatz-Routing-Option im IP-Header verwendet wird, um den Pfad, indem das Echo Request-Nachricht aufzeichnen und entsprechende echoantwortmeldung (verfügbar auf nur IPv4). Jeden Hop im Pfad verwendet einen Eintrag in die Datensatz-Route-Option. Geben Sie möglichst ein *Anzahl* ist gleich oder größer als die Anzahl der Hops zwischen Quelle und Ziel. Die *Anzahl* muss mindestens 1 und maximal 9.|
-|/ s \<Anzahl\>|Gibt an, dass die Internet-Timestamp-Option in der IP-Header verwendet wird, um den Zeitpunkt des Eingangs für das Echo Request-Nachricht aufzeichnen und entsprechende echoantwortmeldung für jeden Hop. Die *Anzahl* muss mindestens 1 und maximal 4 sein. Dies ist für Link-Local-Zieladressen erforderlich.|
-|/j \<Hostlist\>|Gibt an, dass die Echo-Nachrichten verwenden für die Anforderung der Loose Source-Route in der IP-Header mit dem Satz von Zwischenziele, die im angegebenen option *Hostlist* (verfügbar auf nur IPv4). Mit losen Quell-routing, können nachfolgende Zwischenziele durch einen oder mehrere Router getrennt werden. Die maximale Anzahl von Adressen oder Namen in der Hostliste ist 9. Die Hostliste wird eine Reihe von IP-Adressen (in punktierter Dezimalschreibweise), die durch Leerzeichen getrennt.|
-|/k \<Hostlist\>|Gibt an, dass die Echo-Nachrichten verwenden für die Anforderung der Strict Source-Route in der IP-Header mit dem Satz von Zwischenziele, die im angegebenen option *Hostlist* (verfügbar auf nur IPv4). Mit strict-Quell-routing, das nächste intermediate-Ziel direkt erreicht werden (es muss ein Nachbar für eine Schnittstelle des Routers sein). Die maximale Anzahl von Adressen oder Namen in der Hostliste ist 9. Die Hostliste wird eine Reihe von IP-Adressen (in punktierter Dezimalschreibweise), die durch Leerzeichen getrennt.|
-|/w \<timeout\>|Gibt die Zeitspanne in Millisekunden, für das Echo Reply-Nachricht, die einen angegebenen Echo Request-Nachricht für den Empfang entspricht. Wenn das Echo Reply-Nachricht nicht innerhalb des Timeouts empfangen wird, wird die Fehlermeldung "Timeout der Anforderung" angezeigt. Das Standardtimeout beträgt 4.000 (4 Sekunden).|
-|/R|Gibt an, dass es sich bei der Round-Trip-Pfad (verfügbar nur in IPv6) verfolgt werden.|
-|/S \<Srcaddr\>|Gibt die Quelladresse (verfügbar nur in IPv6) verwenden.|
-|/4|Gibt an, dass IPv4 verwendet wird, ein Pingsignal an. Dieser Parameter ist nicht erforderlich, auf den Zielhost mit einer IPv4-Adresse zu identifizieren. Es ist nur erforderlich, den Zielhost identifizieren anhand des Namens.|
-|/6|Gibt an, dass IPv6 verwendet wird, ein Pingsignal an. Dieser Parameter ist nicht erforderlich, auf den Zielhost mit einer IPv6-Adresse zu identifizieren. Es ist nur erforderlich, den Zielhost identifizieren anhand des Namens.|
-|\<TargetName\>|Gibt den Hostnamen oder IP-Adresse des Ziels.|
+|/t|Gibt an, dass der Ping das Senden von Echo Request-Nachrichten an das Ziel fortsetzen soll Um die Statistiken zu unterbrechen und anzuzeigen, drücken Sie Strg + Pause. Drücken Sie STRG + C, um das **Ping**zu unterbrechen und zu beenden.|
+|/a|Gibt an, dass die umgekehrte Namensauflösung für die Ziel-IP-Adresse ausgeführt wird. Wenn dies erfolgreich ist, zeigt Ping den entsprechenden Hostnamen an.|
+|/n \<count @ no__t-1|Gibt die Anzahl der gesendeten Echo Request-Meldungen an. Der Standardwert ist 4.|
+|/l \<size @ no__t-1|Gibt die Länge des Daten Felds in den gesendeten Echo Anforderungs Nachrichten in Bytes an. Der Standardwert ist 32. Die maximale Größe beträgt 65.527.|
+|/f|Gibt an, dass Echo Request-Nachrichten mit dem Flag do not Fragment im IP-Header, der auf 1 festgelegt ist, gesendet werden (nur auf IPv4 verfügbar). Die Echo Anforderungs Nachricht kann nicht von Routern im Pfad zum Ziel fragmentiert werden. Dieser Parameter ist für die Problembehandlung bei PMTU-Problemen (maximale Übertragungseinheit) nützlich.|
+|/I \<TTL @ NO__T-1|Gibt den Wert des TTL-Felds im IP-Header für gesendete Echo Anforderungs Nachrichten an. Der Standardwert ist der standardmäßige TTL-Wert für den Host. Die maximale Gültigkeitsdauer beträgt 255.|
+|/v \<tos @ no__t-1|Gibt den Wert des Felds Type of Service (TOS) im IP-Header für gesendete Echo Anforderungs Nachrichten an (nur auf IPv4 verfügbar). Die Standardeinstellung ist 0. " *TOS* " wird als Dezimalwert zwischen 0 und 255 angegeben.|
+|/r \<count @ no__t-1|Gibt an, dass die Daten Satz-Routen Option im IP-Header verwendet wird, um den Pfad aufzuzeichnen, der von der Echo Anforderungs Nachricht und der entsprechenden Echo Antwortnachricht (nur auf IPv4 verfügbar) verwendet wird. Jeder Hop im Pfad verwendet einen Eintrag in der Daten Satz-Routen Option. Geben Sie nach *Möglichkeit eine Anzahl an, die* gleich oder größer als die Anzahl der Hops zwischen Quelle und Ziel ist. Die *Anzahl* muss mindestens 1 und maximal 9 betragen.|
+|/s \<count @ no__t-1|Gibt an, dass die Option Internet Zeitstempel im IP-Header verwendet wird, um die Ankunftszeit für die Echo Anforderungs Nachricht und die entsprechende Echo Antwortnachricht für jeden Hop aufzuzeichnen. Die *Anzahl* muss mindestens 1 und maximal 4 betragen. Dies ist für Verbindungs lokale Zieladressen erforderlich.|
+|/j \<hostlist @ no__t-1|Gibt an, dass die Echo Anforderungs Nachrichten die Option lose Quell Route im IP-Header mit dem Satz von zwischen Zielen verwenden, die in der *Hostliste* angegeben sind (nur auf IPv4 verfügbar). Beim losen Quell Routing können aufeinander folgende Zwischenziele durch einen oder mehrere Router getrennt werden. Die maximale Anzahl von Adressen oder Namen in der Hostliste beträgt 9. Die Hostliste ist eine Reihe von IP-Adressen (in punktierter Dezimal Schreibweise), getrennt durch Leerzeichen.|
+|/k \<hostlist @ no__t-1|Gibt an, dass die Echo Request-Nachrichten die strikte Quell Route-Option im IP-Header mit dem Satz von zwischen Zielen verwenden, die in der *Hostliste* angegeben sind (nur auf IPv4 verfügbar). Beim strengen Quell Routing muss das nächste Zwischenziel direkt erreichbar sein (es muss ein Nachbar auf einer Schnittstelle des Routers sein). Die maximale Anzahl von Adressen oder Namen in der Hostliste beträgt 9. Die Hostliste ist eine Reihe von IP-Adressen (in punktierter Dezimal Schreibweise), getrennt durch Leerzeichen.|
+|/w \<timeout @ no__t-1|Gibt die Zeitspanne in Millisekunden an, die auf die Antwortnachricht gewartet werden soll, die einer bestimmten Echo Anforderungs Nachricht entspricht. Wenn die Echo-Antwortnachricht nicht innerhalb des Timeouts empfangen wird, wird die Fehlermeldung "Timeout der Anforderung" angezeigt. Das Standard Timeout beträgt 4000 (4 Sekunden).|
+|/R|Gibt an, dass der Roundtrip-Pfad verfolgt wird (nur auf IPv6 verfügbar).|
+|/S \<srcaddr @ no__t-1|Gibt die zu verwendende Quelladresse an (nur auf IPv6 verfügbar).|
+|/4|Gibt an, dass IPv4 zum Pingen verwendet wird. Dieser Parameter ist nicht erforderlich, um den Zielhost mit einer IPv4-Adresse zu identifizieren. Der Zielhost muss nur anhand des Namens identifiziert werden.|
+|/6|Gibt an, dass IPv6 zum Pingen verwendet wird. Dieser Parameter ist nicht erforderlich, um den Zielhost mit einer IPv6-Adresse zu identifizieren. Der Zielhost muss nur anhand des Namens identifiziert werden.|
+|\<targetname @ no__t-1|Gibt den Hostnamen oder die IP-Adresse des Ziels an.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
--   Sie können **Ping** sowohl den Computernamen und die IP-Adresse des Computers zu testen. Wenn die IP-Adresse Ping erfolgreich ist, aber Pingen den Namen des Computers nicht ist, Sie möglicherweise ein Problem beim Auflösen von Namen. In diesem Fall sicher, dass der Computername, die Sie angegeben haben, können auch über die lokale Hosts-Datei, aufgelöst werden, mithilfe von Domain Name System (DNS) Abfragen, oder benennen mit NetBIOS-Verfahren zur Auflösung an.
--   Dieser Befehl ist nur verfügbar, wenn das Internetprotokoll (TCP/IP)-Protokoll als Komponente in den Eigenschaften eines Netzwerkadapters in den Netzwerkverbindungen installiert ist.
+-   Mit **Ping** können Sie den Computernamen und die IP-Adresse des Computers testen. Wenn das Pingen der IP-Adresse erfolgreich ist, das Pingen des Computer namens jedoch nicht der Fall ist, liegt möglicherweise ein Problem mit der Namensauflösung vor. Stellen Sie in diesem Fall sicher, dass der Computername, den Sie angeben, über die lokale Hostdatei aufgelöst werden kann, indem Sie Domain Name System (DNS)-Abfragen oder NetBIOS-Namens Auflösungsverfahren verwenden.
+-   Dieser Befehl ist nur verfügbar, wenn das TCP/IP-Protokoll (Internet Protocol) als Komponente in den Eigenschaften eines Netzwerkadapters in Netzwerkverbindungen installiert ist.
 
-## <a name="BKMK_Examples"></a>Beispiele für
+## <a name="BKMK_Examples"></a>Beispiele
 
-Das folgende Beispiel zeigt **Ping** Befehlsausgabe:
+Das folgende Beispiel zeigt die Ausgabe des **Ping** -Befehls:
 
 ```
 C:\>ping example.microsoft.com       
@@ -73,29 +73,29 @@ C:\>ping example.microsoft.com
          Reply from 192.168.239.132: bytes=32 time=120ms TTL=124
 ```
 
-Um eine pinganforderung an die Ziels 10.0.99.221 auszuführen und 10.0.99.221 in seinen Hostnamen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um das Ziel 10.0.99.221 zu pingen und 10.0.99.221 in seinen Hostnamen aufzulösen:
 
 ```
 ping /a 10.0.99.221
 ```
 
-Das Ziel 10.0.99.221 auszuführen mit 10-Echo Request-Meldungen, einen Ping, von das jedes ein Datenfeld von 1000 Bytes aufweist, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um das Ziel 10.0.99.221 mit 10 Echo Anforderungs Nachrichten zu pingen, von denen jedes über ein Datenfeld mit einer Größe von 1000 Bytes verfügt:
 
 ```
 ping /n 10 /l 1000 10.0.99.221
 ```
 
-Um eine pinganforderung an die Ziels 10.0.99.221 auszuführen, und notieren Sie die Route für 4 Hops, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um das Ziel 10.0.99.221 zu pingen und die Route für vier Hops aufzuzeichnen:
 
 ```
 ping /r 4 10.0.99.221
 ```
 
-Pingen das Ziel 10.0.99.221 auszuführen, und geben Sie die Route losen Quellen 10.12.0.1-10.29.3.1-10.1.44.1, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um das Ziel 10.0.99.221 zu pingen und die lose Quell Route von 10.12.0.1-10.29.3.1-10.1.44.1 anzugeben:
 
 ```
 ping /j 10.12.0.1 10.29.3.1 10.1.44.1 10.0.99.221
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+## <a name="additional-references"></a>Weitere Verweise
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

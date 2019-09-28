@@ -1,18 +1,18 @@
 ---
 title: Patchen von Server Core
 description: Erfahren Sie, wie Sie eine Server Core-Installation von Windows Server aktualisieren.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.mktglfcycl: manage
 ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 10/17/2017
-ms.openlocfilehash: b649a3cc16bc1a527c5df0b4a0d543da22a882d2
-ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
+ms.openlocfilehash: eacb80d89e7bcc95d6b5c12269d7587dc7d6870c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476485"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383317"
 ---
 # <a name="patch-a-server-core-installation"></a>Patchen einer Server Core-Installation
 
@@ -58,7 +58,7 @@ Führen Sie die folgenden Schritte aus, um den Server automatisch mit Windows Up
    Net start wuauserv 
    ```
 
-Wenn der Server Mitglied einer Domäne ist, können Sie Windows Update auch mithilfe einer Gruppenrichtlinie konfigurieren. Weitere Informationen finden Sie unter https://go.microsoft.com/fwlink/?LinkId=192470. Wenn Sie diese Methode verwenden, ist jedoch nur Option 4 ("Automatisches herunterladen und Planen der Installation") für Server Core-Installationen relevant, weil keine grafische Oberfläche verfügbar ist. Um besser steuern zu können, welche Updates zu welchem Zeitpunkt installiert werden, können Sie ein Skript verwenden. Das Skript stellt ein Befehlszeilenäquivalent der meisten Optionen der grafischen Windows Update-Benutzeroberfläche dar. Weitere Informationen zum Skript finden https://go.microsoft.com/fwlink/?LinkId=192471 Sie unter.
+Wenn der Server Mitglied einer Domäne ist, können Sie Windows Update auch mithilfe einer Gruppenrichtlinie konfigurieren. Weitere Informationen finden Sie unter https://go.microsoft.com/fwlink/?LinkId=192470. Wenn Sie diese Methode verwenden, ist jedoch nur Option 4 ("Automatisches herunterladen und Planen der Installation") für Server Core-Installationen relevant, weil keine grafische Oberfläche verfügbar ist. Um besser steuern zu können, welche Updates zu welchem Zeitpunkt installiert werden, können Sie ein Skript verwenden. Das Skript stellt ein Befehlszeilenäquivalent der meisten Optionen der grafischen Windows Update-Benutzeroberfläche dar. Weitere Informationen zum Skript finden Sie unter https://go.microsoft.com/fwlink/?LinkId=192471.
 
 Führen Sie den folgenden Befehl aus, um zu erzwingen, dass Windows Update alle verfügbaren Updates sofort erkennt und installiert:
 

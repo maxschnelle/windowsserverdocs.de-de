@@ -1,9 +1,9 @@
 ---
 title: Schritt 1 Konfigurieren der grundlegenden DirectAccess-Infrastruktur
-description: Dieses Thema ist Teil des Handbuchs Bereitstellen eines einzelnen DirectAccess-Servers mithilfe der erste Schritte-Assistenten für Windows Server 2016
+description: Dieses Thema ist Teil des Handbuchs Bereitstellen eines einzelnen DirectAccess-Servers mit dem Assistenten für die ersten Schritte für Windows Server 2016
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,18 +12,18 @@ ms.topic: article
 ms.assetid: ba4de2a4-f237-4b14-a8a7-0b06bfcd89ad
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 2a8fb9565c5a84844104b202d749e74337101601
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 2cd84949dddf75730aca6302f1244f784b5933d0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281733"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388575"
 ---
 # <a name="step-1-configure-the-basic-directaccess-infrastructure"></a>Schritt 1 Konfigurieren der grundlegenden DirectAccess-Infrastruktur
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-In diesem Thema wird die Konfiguration der Infrastruktur beschrieben, die für eine grundlegende DirectAccess-Bereitstellung mit einem einzelnen DirectAccess-Server in einer gemischten IPv4- und IPv6-Umgebung erforderlich ist. Stellen Sie sicher, dass Sie die in beschriebenen Planungsschritte abgeschlossen haben, bevor Sie mit den Schritten zur Bereitstellung, [Planen einer einfachen DirectAccess-Bereitstellung](../../../remote-access/directaccess/single-server-wizard/Plan-a-Basic-DirectAccess-Deployment.md).  
+In diesem Thema wird die Konfiguration der Infrastruktur beschrieben, die für eine grundlegende DirectAccess-Bereitstellung mit einem einzelnen DirectAccess-Server in einer gemischten IPv4- und IPv6-Umgebung erforderlich ist. Vergewissern Sie sich vor Beginn der Bereitstellungs Schritte, dass Sie die in [Planen einer einfachen DirectAccess-Bereitstellung](../../../remote-access/directaccess/single-server-wizard/Plan-a-Basic-DirectAccess-Deployment.md)beschriebenen Planungsschritte abgeschlossen haben.  
   
 |Aufgabe|Beschreibung|  
 |----|--------|  
@@ -38,7 +38,7 @@ In diesem Thema wird die Konfiguration der Infrastruktur beschrieben, die für e
 > [!NOTE]  
 > Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit denen Sie einige der beschriebenen Vorgehensweisen automatisieren können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="ConfigNetworkSettings"></a>Konfigurieren von servernetzwerkeinstellungen  
+## <a name="ConfigNetworkSettings"></a>Konfigurieren von Servernetzwerk Einstellungen  
 Für eine einzelne Serverbereitstellung in einer Umgebung mit IPv4 und IPv6 sind folgende Netzwerkschnittstelleneinstellungen erforderlich. Sämtliche IP-Adressen können im **Netzwerk- und Freigabecenter** von Windows mit der Option **Adaptereinstellungen ändern** konfiguriert werden.  
   
 -   Edgetopologie  
@@ -81,12 +81,12 @@ Konfigurieren Sie das Routing im Unternehmensnetzwerk wie folgt:
   
 -   Konfigurieren Sie die IPv4- und IPv6-Routen der Organisation manuell auf den Remotezugriffsservern. Fügen Sie eine öffentliche Route hinzu, sodass der gesamte Datenverkehr mit Organisations-IPv6-Präfix (/48) an das interne Netzwerk weitergeleitet wird. Fügen Sie außerdem für IPv4-Datenverkehr explizite Routen hinzu, damit IPv4-Datenverkehr an das interne Netzwerk weitergeleitet wird.  
   
-## <a name="ConfigFirewalls"></a>Konfigurieren von firewalls  
+## <a name="ConfigFirewalls"></a>Konfigurieren von Firewalls  
 Wenden Sie bei zusätzlichen Firewalls in der Bereitstellung die folgenden Firewallausnahmen mit Internetzugriff für RAS-Datenverkehr an, wenn der RAS-Server sich im IPv4-Internet befindet:  
   
--   6to4 Datenverkehr - IP-Protokoll 41 ein- und ausgehend.  
+-   IPv6-zu-IPv4-Datenverkehr-IP-Protokoll 41 eingehend und ausgehend.  
   
--   IP-HTTPS-Protokoll TCP (Transmission Control)-Zielport 443 und TCP-Quellport 443 ausgehend. Hat der RAS-Server nur einen Netzwerkadapter und der Netzwerkadressenserver ist auf dem RAS-Server, wird auch TCP-Port 62000 benötigt.  
+-   IP-HTTPS-TCP (Transmission Control Protocol)-Zielport 443 und TCP-Quellport 443 ausgehend. Hat der RAS-Server nur einen Netzwerkadapter und der Netzwerkadressenserver ist auf dem RAS-Server, wird auch TCP-Port 62000 benötigt.  
   
     > [!NOTE]  
     > Diese Ausnahme muss auf dem RAS-Server konfiguriert werden. Alle anderen Ausnahmen müssen in der Edgefirewall konfiguriert werden.  
@@ -102,16 +102,16 @@ Wenden Sie bei zusätzlichen Firewalls die folgenden Firewallausnahmen mit Inter
   
 Wenden Sie bei zusätzlichen Firewalls die folgenden internen Netzwerkfirewallausnahmen für RAS-Datenverkehr an:  
   
--   ISATAP – Protokoll 41 ein- und ausgehend  
+-   ISATAP-Protokoll 41 eingehend und ausgehend  
   
 -   TCP/UDP für den gesamten IPv4/IPv6-Datenverkehr  
   
-## <a name="ConfigDNS"></a>Konfigurieren Sie den DNS-server  
+## <a name="ConfigDNS"></a>Konfigurieren des DNS-Servers  
 Sie müssen einen DNS-Eintrag für die Netzwerkadressenserver-Website für das interne Netzwerk in Ihrer Bereitstellung manuell konfigurieren.  
   
-### <a name="NLS_DNS"></a>Zum Erstellen der Netzwerkadresse Prüfpunkt-Server und NCSI-DNS-Einträge  
+### <a name="NLS_DNS"></a>So erstellen Sie die DNS-Einträge für den Netzwerkadressen Server und den ncsi-Test  
   
-1.  Führen Sie auf dem internen Netzwerk DNS-Server **dnsmgmt.msc** und drücken Sie dann die EINGABETASTE.  
+1.  Führen Sie auf dem internen Netzwerk-DNS-Server **dnsmgmt. msc** aus, und drücken Sie dann die EINGABETASTE.  
   
 2.  Erweitern Sie im linken Bereich der **DNS-Manager**-Konsole die Forward-Lookupzone für Ihre Domäne. Klicken Sie mit der rechten Maustaste auf die Domäne, und anschließend auf **Neuer Host (A oder AAAA)** .  
   
@@ -121,7 +121,7 @@ Sie müssen einen DNS-Eintrag für die Netzwerkadressenserver-Website für das i
   
 5.  Klicken Sie auf **Fertig**.  
   
-![Windows PowerShell](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
+](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>äquivalente Windows PowerShell-Befehle</em> mit @no__t 0shell***  
 
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -132,9 +132,9 @@ Add-DnsServerResourceRecordAAAA -Name <network_location_server_name> -ZoneName <
   
 Außerdem müssen Sie die DNS-Einträge für folgende Elemente konfigurieren:  
   
--   **IP-HTTPS-Servers** - DirectAccess-Clients müssen in der Lage, den DNS-Namen des RAS-Servers aus dem Internet aufzulösen.  
+-   **Der IP-HTTPS-Server** : DirectAccess-Clients müssen in der Lage sein, den DNS-Namen des Remote Zugriffs Servers aus dem Internet aufzulösen.  
   
--   **Sperrüberprüfungen der Zertifikatsperrliste** – DirectAccess verwendet Zertifikatsperrüberprüfung für die IP-HTTPS-Verbindung zwischen DirectAccess-Clients und RAS-Servers und für die HTTPS-basierte Verbindung zwischen dem DirectAccess-Client und dem Netzwerkadressenserver. In beiden Fällen müssen DirectAccess-Clients in der Lage sein, auf den Zertifikatsperrlisten-Verteilungspunkt zuzugreifen und ihn aufzulösen.  
+-   **CRL** -Sperr Überprüfung: DirectAccess verwendet Zertifikat Sperr Überprüfungen für die IP-HTTPS-Verbindung zwischen DirectAccess-Clients und dem RAS-Server sowie für die HTTPS-basierte Verbindung zwischen dem DirectAccess-Client und dem Netzwerk. Standort Server. In beiden Fällen müssen DirectAccess-Clients in der Lage sein, auf den Zertifikatsperrlisten-Verteilungspunkt zuzugreifen und ihn aufzulösen.  
   
 ## <a name="ConfigAD"></a>Konfigurieren von Active Directory  
 Der Remotezugriffsserver und alle DirectAccess-Clientcomputer müssen zu einer Active Directory-Domäne zusammengeführt werden. DirectAccess-Clientcomputer müssen Mitglied folgender Domänentypen sein:  
@@ -165,7 +165,7 @@ Der Remotezugriffsserver und alle DirectAccess-Clientcomputer müssen zu einer A
   
 #### <a name="to-join-client-computers-to-the-domain"></a>So fügen Sie Clientcomputer zur Domäne hinzu  
   
-1.  Führen Sie **explorer.exe**.  
+1.  Führen Sie **Explorer. exe**aus.  
   
 2.  Klicken Sie mit der rechten Maustaste auf das Computersymbol und klicken Sie dann auf **Eigenschaften**.  
   
@@ -183,7 +183,7 @@ Der Remotezugriffsserver und alle DirectAccess-Clientcomputer müssen zu einer A
   
 9. Klicken Sie im Dialogfeld **Systemeigenschaften** auf „Schließen“. Klicken Sie bei Aufforderung auf **Jetzt neu starten**.  
   
-![Windows PowerShell](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
+](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>äquivalente Windows PowerShell-Befehle</em> mit @no__t 0shell***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -194,28 +194,28 @@ Add-Computer -DomainName <domain_name>
 Restart-Computer  
 ```  
   
-## <a name="ConfigGPOs"></a>Konfigurieren der Gruppenrichtlinienobjekte  
-Um den Remotezugriff bereitzustellen, benötigen Sie mindestens zwei Gruppenrichtlinienobjekte: ein Gruppenrichtlinienobjekt enthält Einstellungen für den RAS-Server und eine der Einstellungen für DirectAccess-Clientcomputer enthält. Wenn Sie Remotezugriff konfigurieren, erstellt der Assistent automatisch die erforderlichen Gruppenrichtlinienobjekt. Allerdings müssen, wenn Ihre Organisation eine Benennungskonvention erzwingt oder Sie haben nicht die erforderlichen Berechtigungen zum Erstellen oder Bearbeiten von Gruppenrichtlinienobjekten, sie erstellt werden vor dem Konfigurieren des Remotezugriffs.  
+## <a name="ConfigGPOs"></a>Konfigurieren von GPOs  
+Zum Bereitstellen des Remote Zugriffs benötigen Sie mindestens zwei Gruppenrichtlinien Objekte: ein Gruppenrichtlinien Objekt enthält Einstellungen für den RAS-Server und eine enthält Einstellungen für DirectAccess-Client Computer. Wenn Sie den Remote Zugriff konfigurieren, erstellt der Assistent automatisch das erforderliche Gruppenrichtlinien Objekt. Wenn Ihre Organisation jedoch eine Benennungs Konvention erzwingt oder Sie nicht über die erforderlichen Berechtigungen zum Erstellen oder Bearbeiten von Gruppenrichtlinien Objekten verfügen, müssen Sie vor dem Konfigurieren des Remote Zugriffs erstellt werden.  
   
-Um ein Gruppenrichtlinienobjekt erstellen möchten, finden Sie unter [erstellen und Bearbeiten eines Gruppenrichtlinienobjekts](https://technet.microsoft.com/library/cc754740.aspx).  
+Informationen zum Erstellen eines Gruppenrichtlinien Objekts finden Sie unter [Erstellen und Bearbeiten eines Gruppenrichtlinie Objekts](https://technet.microsoft.com/library/cc754740.aspx).  
   
 > [!IMPORTANT]  
-> Der Administrator kann das DirectAccess-Gruppenrichtlinienobjekt manuell in eine Organisationseinheit mithilfe der folgenden Schritte verknüpfen:  
+> Der Administrator kann das DirectAccess-Gruppenrichtlinien Objekt mit den folgenden Schritten manuell mit einer Organisationseinheit verknüpfen:  
 >   
 > 1.  Verknüpfen Sie die erstellten Gruppenrichtlinienobjekte mit den entsprechenden Organisationseinheiten, bevor Sie DirectAccess konfigurieren.  
 > 2.  Wenn Sie DirectAccess konfigurieren, sollten Sie eine Sicherheitsgruppe für die Clientcomputer angeben.  
 > 3.  Der Remotezugriffsadministrator verfügt möglicherweise über Berechtigungen zum Vernüpfen der Gruppenrichtlinienobjekte mit der Domäne, oder das ist nicht der Fall. In beiden Fällen werden die Gruppenrichtlinienobjekte automatisch konfiguriert. Wenn die Gruppenrichtlinienobjekte bereits mit einer Organisationseinheit verknüpft sind, werden die Verknüpfungen nicht entfernt. Die Gruppenrichtlinienobjekte werden auch nicht mit der Domäne verknüpft. Für ein Server-Gruppenrichtlinienobjekt muss die Organisationseinheit das Servercomputerobjekt enthalten, andernfalls wird das Gruppenrichtlinienobjekt mit dem Domänenstamm verknüpft.  
-> 4.  Wenn Sie vor dem Ausführen des DirectAccess-Assistenten keine Verknüpfung zur Organisationseinheit hinzugefügt haben, kann der Administrator die DirectAccess-Gruppenrichtlinienobjekte nach Abschluss der Konfiguration mit den erforderlichen Organisationseinheiten verknüpfen. Die Verknüpfung zur Domäne kann entfernt werden. Für die Verknüpfung eines Gruppenrichtlinienobjekts mit einer Organisationseinheit finden Sie die Schritte [hier](https://technet.microsoft.com/library/cc732979.aspx)  
+> 4.  Wenn Sie vor dem Ausführen des DirectAccess-Assistenten keine Verknüpfung zur Organisationseinheit hinzugefügt haben, kann der Administrator die DirectAccess-Gruppenrichtlinienobjekte nach Abschluss der Konfiguration mit den erforderlichen Organisationseinheiten verknüpfen. Die Verknüpfung zur Domäne kann entfernt werden. Die Schritte zum Verknüpfen eines Gruppenrichtlinien Objekts mit einer Organisationseinheit finden Sie [hier](https://technet.microsoft.com/library/cc732979.aspx) .  
   
 > [!NOTE]  
-> Wenn ein Gruppenrichtlinienobjekt manuell erstellt wurde, kann während der DirectAccess-Konfiguration, dass das Gruppenrichtlinienobjekt nicht zur Verfügung stehen. Das Gruppenrichtlinienobjekt kann nicht auf dem nächstgelegenen Domänencontroller vom Verwaltungscomputer repliziert wurden. In diesem Fall kann der Administrator warten, bis die Replikation abgeschlossen ist oder er kann die Replikation erzwingen.  
+> Wenn ein Gruppenrichtlinien Objekt manuell erstellt wurde, kann es während der DirectAccess-Konfiguration vorkommen, dass das Gruppenrichtlinien Objekt nicht verfügbar ist. Das Gruppenrichtlinien Objekt wurde möglicherweise nicht auf den nächstgelegenen Domänen Controller des Verwaltungs Computers repliziert. In diesem Fall kann der Administrator warten, bis die Replikation abgeschlossen ist oder er kann die Replikation erzwingen.  
   
 ## <a name="ConfigSGs"></a>Konfigurieren von Sicherheitsgruppen  
-Der DirectAccess-Einstellungen in der Gruppenrichtlinienobjekte für Client-Computer werden nur auf Computer angewendet, die Mitglieder der Sicherheitsgruppe, die Sie beim Konfigurieren des Remotezugriffs angeben.  
+Die DirectAccess-Einstellungen, die in den Gruppenrichtlinien Objekten des Client Computers enthalten sind, werden nur auf Computer angewendet, die Mitglieder der Sicherheitsgruppe sind, die Sie beim Konfigurieren des Remote Zugriffs angeben.  
   
-### <a name="Sec_Group"></a>So erstellen eine Sicherheitsgruppe für DirectAccess-clients  
+### <a name="Sec_Group"></a>So erstellen Sie eine Sicherheitsgruppe für DirectAccess-Clients  
   
-1.  Führen Sie **dsa.msc**. Erweitern Sie in der Konsole **Active Directory-Benutzer und -Computers** im linken Bereich die Domäne, die die Sicherheitsgruppe enthält, klicken Sie mit der rechten Maustaste auf **Benutzer**, zeigen Sie auf **Neu** und klicken Sie dann auf **Gruppe**.  
+1.  Führen Sie **DSA. msc**aus. Erweitern Sie in der Konsole **Active Directory-Benutzer und -Computers** im linken Bereich die Domäne, die die Sicherheitsgruppe enthält, klicken Sie mit der rechten Maustaste auf **Benutzer**, zeigen Sie auf **Neu** und klicken Sie dann auf **Gruppe**.  
   
 2.  Geben Sie im Dialogfeld **Neues Objekt - Gruppe** unter **Gruppenname** den Namen für die Sicherheitsgruppe ein.  
   
@@ -227,7 +227,7 @@ Der DirectAccess-Einstellungen in der Gruppenrichtlinienobjekte für Client-Comp
   
 6.  Wählen Sie im Dialogfeld zum **Auswählen von Benutzern, Kontakten Computern oder Dienstkonten** die Clientcomputer aus, für die DirectAccess aktiviert werden soll, und klicken Sie anschließend auf **OK**.  
   
-![Windows PowerShell](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)**gleichwertige Windows PowerShell-Befehle**  
+](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)**äquivalente Windows PowerShell-Befehle** mit @no__t 0shell  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -236,7 +236,7 @@ New-ADGroup -GroupScope global -Name <DirectAccess_clients_group_name>
 Add-ADGroupMember -Identity DirectAccess_clients_group_name -Members <computer_name>  
 ```  
   
-## <a name="BKMK_Links"></a>Als Nächstes  
+## <a name="BKMK_Links"></a>Nächster Schritt  
   
 -   [Schritt 2: Konfigurieren des allgemeinen DirectAccess-Servers](da-basic-configure-s2-server.md)  
   

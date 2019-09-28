@@ -1,8 +1,8 @@
 ---
-title: Ausführliche festlegen
-description: 'Windows-Befehle Thema ***- '
+title: Ausführlich festlegen
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ec47dea822c338dfe1b809c662d1e31e9a5a9703
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: dcd9dbf5d3f2d371bc348400db932100de2c0523
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441329"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370938"
 ---
-# <a name="set-verbose"></a>Ausführliche festlegen
+# <a name="set-verbose"></a>Ausführlich festlegen
 
 
 
-Gibt an, ob die ausführlicher Ausgabe während der Erstellung von Schattenkopien angegeben wird. Wenn Sie ohne Angabe von Parametern **festgelegt ausführliche** zeigt die Hilfe an der Eingabeaufforderung.
+Gibt an, ob die ausführliche Ausgabe während der Erstellung der Schatten Kopie bereitgestellt wird. Wenn Sie ohne Parameter verwendet wird, wird in " **ausführliche** " die Hilfe an der Eingabeaufforderung angezeigt.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,11 +36,11 @@ set verbose {on | off}
 
 | Parameter | Beschreibung |
 |-----------|-------------|
-|    {on    |    {Off}     |
+|    {on    |    abgeschrieben     |
 
 ## <a name="remarks"></a>Hinweise
 
--   Wenn ausführlicher Modus befindet, **festgelegt** stellt Details der Writer inklusions- oder Ausschlussliste und Details der Metadaten-Komprimierung und Extrahierung bereit.
+-   Wenn der ausführliche Modus auf on **festgelegt** ist, stellt Set Details zum einschließen oder Ausschließen von Writer und Details zur metadatenkomprimierung und-Extraktion bereit.
 
 #### <a name="additional-references"></a>Weitere Verweise
 

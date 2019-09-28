@@ -1,8 +1,8 @@
 ---
 title: rd
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 94231e3ec032280beb91a14db7949a1296c2d811
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 029935bcd8773e41adefcd6ca916d75edcea3065
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442028"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371801"
 ---
 # <a name="rd"></a>rd
 
 
 
-Löscht ein Verzeichnis. Dieser Befehl ist identisch mit der **Rmdir** Befehl.
+Löscht ein Verzeichnis. Dieser Befehl ist mit dem Befehl **rmdir** identisch.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -39,35 +39,35 @@ rmdir [<Drive>:]<Path> [/s [/q]]
 
 |     Parameter     |                                                                 Beschreibung                                                                  |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| [\<Drive>:]<Path> |                      Gibt den Speicherort und den Namen des Verzeichnisses, das Sie löschen möchten. *Pfad* ist erforderlich.                       |
-|        /s         |                     Löscht eine Verzeichnisstruktur (das angegebene Verzeichnis und allen seinen Unterverzeichnisse, einschließlich aller Dateien).                      |
-|        /q         | Gibt den stillen Modus. Wird nicht zur Bestätigung aufgefordert werden, wenn Sie eine Verzeichnisstruktur zu löschen. (Beachten Sie, dass **/q /** funktioniert nur, wenn **/s** angegeben ist.) |
+| [\<laufwerk >:] <Path> |                      Gibt den Speicherort und den Namen des Verzeichnisses an, das Sie löschen möchten. Der *Pfad* ist erforderlich.                       |
+|        /s         |                     Löscht eine Verzeichnisstruktur (das angegebene Verzeichnis und alle Unterverzeichnisse einschließlich aller Dateien).                      |
+|        /q         | Gibt den stillen Modus an. Beim Löschen einer Verzeichnisstruktur wird nicht zur Bestätigung aufgefordert. (Beachten Sie, dass **/q** nur funktioniert, wenn **/s** angegeben wird.) |
 |        /?         |                                                     Zeigt die Hilfe an der Eingabeaufforderung an.                                                     |
 
 ## <a name="remarks"></a>Hinweise
 
--   Sie können nicht gelöscht, ein Verzeichnis mit Dateien, einschließlich der ausgeblendeten oder Systemdateien. Wenn Sie versuchen möchten, wird die folgende Meldung angezeigt:
+-   Sie können kein Verzeichnis löschen, das Dateien enthält, einschließlich ausgeblendeter Dateien oder Systemdateien. Wenn Sie versuchen, dies zu tun, wird die folgende Meldung angezeigt:
 
     `The directory is not empty`
 
-    Verwenden der **Dir/a** Befehl zum Auflisten aller Dateien (einschließlich der ausgeblendete Dateien und Systemdateien). Verwenden Sie dann die **Attrib** Befehl **-h** versteckte Dateiattribute zu entfernen **-s** System Dateiattribute, entfernen oder **-h -s** entfernen Beide ausgeblendet und Dateiattributen System. Nach dem Ausblend- und Attribute der Datei entfernt wurden, können Sie die Dateien löschen.
--   Wenn Sie einen umgekehrten Schrägstrich (\) am Anfang des *Pfad*, *Pfad* beginnt im Stammverzeichnis (unabhängig vom aktuellen Verzeichnis).
--   Sie können keine **rd** im aktuelle Verzeichnis zu löschen. Wenn Sie versuchen, die das aktuelle Verzeichnis zu löschen, wird die folgende Fehlermeldung angezeigt:
+    Verwenden Sie den Befehl **dir/a** , um alle Dateien (einschließlich ausgeblendeter Dateien und Systemdateien) aufzulisten. Verwenden Sie dann den **atphb** -Befehl mit **-h** , um ausgeblendete Dateiattribute zu entfernen, **-s** , um Systemdatei Attribute zu entfernen, oder **-h-s** , um ausgeblendete Attribute und Dateiattribute zu entfernen Nachdem die ausgeblendeten Attribute und Dateien entfernt wurden, können Sie die Dateien löschen.
+-   Wenn Sie einen umgekehrten Schrägstrich (\) am Anfang des *Pfads*einfügen, wird der *Pfad* im Stammverzeichnis (unabhängig vom aktuellen Verzeichnis) gestartet.
+-   Sie können **RD** nicht zum Löschen des aktuellen Verzeichnisses verwenden. Wenn Sie versuchen, das aktuelle Verzeichnis zu löschen, wird die folgende Fehlermeldung angezeigt:
 
     `The process cannot access the file because it is being used by another process.`
 
-    Wenn Sie diese Fehlermeldung erhalten, müssen Sie in ein anderes Verzeichnis (kein Unterverzeichnis des aktuellen Verzeichnisses) ändern und dann **rd** (Geben Sie *Pfad* bei Bedarf).
--   Die **rd** -Befehl, mit verschiedenen Parametern finden Sie in der Wiederherstellungskonsole.
+    Wenn Sie diese Fehlermeldung erhalten, müssen Sie in ein anderes Verzeichnis wechseln (kein Unterverzeichnis des aktuellen Verzeichnisses) und anschließend **RD** verwenden ( *Pfad* angeben, falls erforderlich).
+-   Der **RD** -Befehl mit unterschiedlichen Parametern ist über die Wiederherstellungskonsole verfügbar.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Das Verzeichnis, das Sie gerade arbeiten, kann nicht gelöscht werden. Sie müssen in einem Verzeichnis ändern, die nicht im aktuellen Verzeichnis vorhanden ist. Geben Sie beispielsweise, um in das übergeordnete Verzeichnis zu ändern:
+Das Verzeichnis, in dem Sie gerade arbeiten, kann nicht gelöscht werden. Sie müssen zu einem Verzeichnis wechseln, das sich nicht im aktuellen Verzeichnis befindet. Um z. b. in das übergeordnete Verzeichnis zu wechseln, geben Sie Folgendes ein:
 ```
 cd ..
 ```
-Sie können jetzt problemlos auf das gewünschte Verzeichnis entfernen.
+Sie können das gewünschte Verzeichnis nun sicher entfernen.
 
-Verwenden der **/s** Option zum Entfernen einer Verzeichnisstruktur. Z. B. So entfernen Sie ein Verzeichnis namens Test (und alle seine Unterverzeichnisse und Dateien) aus dem aktuellen Verzeichnis, Typ:
+Verwenden Sie die **/s** -Option, um eine Verzeichnisstruktur zu entfernen. Wenn Sie z. b. ein Verzeichnis mit dem Namen Test (und alle zugehörigen Unterverzeichnisse und Dateien) aus dem aktuellen Verzeichnis entfernen möchten, geben Sie Folgendes ein:
 ```
 rd /s test
 ```
@@ -77,7 +77,7 @@ rd /s /q test
 ```
 
 > [!CAUTION]
-> Beim Ausführen von **rd/s** im stillen Modus, wird die gesamte Verzeichnisstruktur ohne Bestätigung gelöscht. Stellen Sie sicher, dass wichtige Dateien verschoben oder gesichert, bevor Sie mit der **/q /** Befehlszeilenoption.
+> Wenn Sie **RD/s** im stillen Modus ausführen, wird die gesamte Verzeichnisstruktur ohne Bestätigung gelöscht. Stellen Sie sicher, dass wichtige Dateien verschoben oder gesichert werden, bevor Sie die Befehlszeilenoption **/q** verwenden.
 
 #### <a name="additional-references"></a>Weitere Verweise
 

@@ -1,9 +1,9 @@
 ---
 title: Problembehandlung bei der Aktivierung von OTP
-description: Dieses Thema ist Teil des Leitfadens Bereitstellen von Remotezugriff mit OTP-Authentifizierung in Windows Server 2016.
+description: Dieses Thema ist Teil des Handbuchs Bereitstellen des Remote Zugriffs mit OTP-Authentifizierung in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,98 +12,98 @@ ms.topic: article
 ms.assetid: b58252ca-4c1d-4664-a3c4-7301e2121517
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 55314f3bd5e3500847beed256580b1924521abc9
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: a1c18f264a6a8d263f3e9f50bc325ef97f4240af
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280796"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366917"
 ---
 # <a name="troubleshooting-enabling-otp"></a>Problembehandlung bei der Aktivierung von OTP
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Dieses Thema enthält Problembehandlungsinformationen für Probleme beim Aktivieren von DirectAccess-OTP-Authentifizierung, die entweder die **aktivieren-DAOtpAuthentication** PowerShell-Cmdlets oder die Remotezugriffs-Verwaltungskonsole.
+Dieses Thema enthält Informationen zur Problembehandlung bei Problemen im Zusammenhang mit dem Aktivieren der DirectAccess-OTP-Authentifizierung über das PowerShell-Cmdlet " **enable-daotpauthentication** " oder über die Remote Zugriffs-Verwaltungskonsole.
   
-## <a name="failed-to-enroll-the-otp-signing-certificate"></a>Fehler bei der Registrierung des OTP-Signaturzertifikats  
-**Fehler** (Server-Ereignisprotokoll). Ein OTP-Signaturzertifikat kann nicht mit der Zertifikatvorlage < OTP_signing_template_name > registriert werden  
+## <a name="failed-to-enroll-the-otp-signing-certificate"></a>Fehler beim Registrieren des OTP-Signatur Zertifikats.  
+**Fehler** (Server Ereignisprotokoll). Ein OTP-Signaturzertifikat kann nicht mithilfe der Zertifikat Vorlage < OTP_signing_template_name registriert werden >  
   
 **Ursache**  
   
-Es gibt drei mögliche Ursachen für diesen Fehler aus:  
+Für diesen Fehler gibt es drei mögliche Ursachen:  
   
 -   Die Vorlage ist nicht vorhanden.  
   
--   Die Berechtigungen für die Vorlage lassen sich nicht auf den DirectAccess-Server für die Registrierung aus.  
+-   Die in der Vorlage festgelegten Berechtigungen lassen nicht zu, dass sich der DirectAccess-Server registrieren kann.  
   
--   Es ist keine Netzwerkkonnektivität und die ausstellende Zertifizierungsstelle (CA).  
+-   Es ist keine Netzwerkverbindung mit der ausstellenden Zertifizierungsstelle (Certification Authority, ca) vorhanden.  
   
 **Lösung**  
   
-1.  Stellen Sie sicher, dass das Codesignaturzertifikat OTP-Vorlage mit dem angegebenen Namen:  
+1.  Stellen Sie sicher, dass die OTP-Signaturzertifikat Vorlage mit dem angegebenen Namen lautet:  
   
-    1.  Vorhanden ist und über die richtigen Berechtigungen verfügt.  
+    1.  Ist vorhanden und verfügt über die entsprechenden Berechtigungen.  
   
-    2.  Wird von mindestens eine Zertifizierungsstelle ausgestellt werden, die Zertifikate, auf dem DirectAccess-Server ausstellen können festgelegt.  
+    2.  Ist so festgelegt, dass Sie von mindestens einer Zertifizierungsstelle ausgestellt wird, die Zertifikate an den DirectAccess-Server ausstellen kann.  
   
-2.  Wenn die Vorlage nicht vorhanden, erstellen Sie ihn der registrierungsstellenzertifikats 3.3 Plan unter oder wenn eine andere entsprechende Vorlage vorhanden ist, konfigurieren DirectAccess-OTP mit dem neuen Vorlagennamen.  
+2.  Wenn die Vorlage nicht vorhanden ist, erstellen Sie Sie wie in 3,3 Planen des Registrierungsstellen Zertifikats beschrieben. Wenn eine andere entsprechende Vorlage vorhanden ist, konfigurieren Sie DirectAccess OTP mit dem neuen Vorlagen Namen neu.  
   
-## <a name="failed-to-enable-directaccess-otp-when-webdav-is-installed"></a>Fehler beim Aktivieren von DirectAccess-OTP wenn WebDAV installiert ist  
-**Szenario**. Beim Versuch, die zum Anwenden der DirectAccess-OTP-Konfiguration in der Remotezugriffs-Verwaltungskonsole oder mithilfe der `Enable-DAOtpAuthentication` PowerShell-Cmdlet, schlägt der Vorgang fehl.  
+## <a name="failed-to-enable-directaccess-otp-when-webdav-is-installed"></a>Fehler beim Aktivieren von DirectAccess OTP, wenn WebDAV installiert ist.  
+**Szenario**. Bei dem Versuch, die DirectAccess-OTP-Konfiguration in der Remote Zugriffs-Verwaltungskonsole oder mithilfe des `Enable-DAOtpAuthentication`-PowerShell-Cmdlets anzuwenden, schlägt der Vorgang fehl.  
   
-**Fehler** (Server-Ereignisprotokoll). DirectAccess-OTP-Einstellungen können nicht angewendet werden, da die WebDAV IIS-Erweiterung auf dem Server ausgeführt wird. Entfernen Sie WebDAV, und wenden Sie die Einstellungen erneut.  
+**Fehler** (Server Ereignisprotokoll). DirectAccess-OTP-Einstellungen können nicht angewendet werden, weil die WebDAV-IIS-Erweiterung auf dem Server ausgeführt wird. Entfernen Sie WebDAV, und wenden Sie die Einstellungen erneut an.  
   
 **Ursache**  
   
-Der DirectAccess-OTP-Dienst ist nicht kompatibel mit der WebDAV-Veröffentlichung-Funktion und kann nicht aktiviert werden, während WebDAV installiert wird.  
+Der DirectAccess-OTP-Dienst ist nicht mit der WebDAV-Veröffentlichungs Funktion kompatibel und kann nicht aktiviert werden, während WebDAV installiert ist.  
   
 **Lösung**  
   
 Deinstallieren Sie die WebDAV-Rolle:  
   
-1.  Klicken Sie in der Server-Manager-Konsole in den linken Bereich auf **IIS**.  
+1.  Klicken Sie in der Server-Manager Konsole im linken Bereich auf **IIS**.  
   
-2.  Im Hauptfenster einen Bildlauf zu **von Rollen und FEATURES**.  
+2.  Scrollen Sie im Hauptbereich zu **Rollen und Features**.  
   
-3.  Mit der rechten Maustaste **WebDAV-Veröffentlichung**, und klicken Sie dann auf **Rolle oder Feature entfernen**.  
+3.  Klicken Sie mit der rechten Maustaste auf **WebDAV-Veröffentlichung**, und klicken Sie dann auf **Rolle oder Feature entfernen**.  
   
-4.  Führen Sie das Entfernen von Rollen und Features-Assistenten.  
+4.  Vervollständigen Sie den Assistenten zum Entfernen von Rollen und Features.  
   
-5.  Wenden Sie die DirectAccess-OTP-Konfiguration an.  
+5.  Wenden Sie die Konfiguration von DirectAccess OTP erneut an.  
   
-## <a name="no-templates-available-in-the-remote-access-management-console"></a>Keine Vorlagen verfügbar, in der Remotezugriffs-Verwaltungskonsole  
-**Szenario**. Beim Konfigurieren von OTP oder Registrierung Zertifikatsvorlagen verwenden die Remotezugriffs-Verwaltungskonsole, einige oder alle Vorlagen aus dem Fenster fehlen.  
-  
-**Ursache**  
-  
-Es gibt zwei mögliche Ursachen für diesen Fehler aus:  
-  
--   Die Vorlage ist nicht gemäß den Anforderungen für DirectAccess-OTP konfiguriert, und daher nicht ausgewählt werden.  
-  
--   Die ausgewählten Zertifizierungsstellen unter **OTP-Zertifizierungsstellenserver** sind nicht so konfiguriert, dass die erforderlichen Vorlagen ausgeben.  
-  
-**Lösung**  
-  
-1.  Stellen Sie sicher, dass die OTP-anmelden-Vorlage und der OTP-Zertifikatvorlage Signieren ordnungsgemäß konfiguriert sind wie beschrieben in 3.2 Plan für die OTP-Zertifikatvorlage und 3.3 der registrierungsstellenzertifikats planen.  
-  
-2.  Stellen Sie sicher, dass die konfigurierten Zertifizierungsstellen in der **OTP-Zertifizierungsstellenserver** Liste sind so konfiguriert, dass die Probleme die relevanten Vorlagen:  
-  
-    1.  Öffnen Sie auf dem Zertifizierungsstellenserver die Zertifizierungsstellenkonsole.  
-  
-    2.  Erweitern Sie im linken Bereich ausgewählte ZS-Servers ein.  
-  
-    3.  Klicken Sie auf **Zertifikatvorlagen** und stellen Sie sicher, dass die erforderlichen Vorlagen aktiviert sind. Falls nicht, mit der rechten Maustaste **Zertifikatvorlagen**, klicken Sie auf **neu**, klicken Sie auf **Auszustellende Zertifikatvorlage ausstellen**, und wählen Sie dann die Vorlagen, die Sie aktivieren möchten.  
-  
-## <a name="cannot-set-renewal-period-of-otp-template-to-1-hour"></a>Erneuerungszeitraums der OTP-Vorlage kann nicht auf 1 Stunde festgelegt werden.  
-**Szenario**. Wenn die DirectAccess-OTP-anmelden-Vorlage mithilfe von Windows 2003-Zertifizierungsstelle zu konfigurieren, ist es nicht möglich, den Erneuerungszeitraum der Vorlage auf 1 Stunde festgelegt.  
+## <a name="no-templates-available-in-the-remote-access-management-console"></a>In der Remote Zugriffs-Verwaltungskonsole sind keine Vorlagen verfügbar.  
+**Szenario**. Beim Konfigurieren von OTP-oder Registrierungsstellen-Zertifikat Vorlagen mithilfe der Remote Zugriffs-Verwaltungskonsole fehlen einige oder alle Vorlagen in den Auswahl Fenstern.  
   
 **Ursache**  
   
-Das Zertifikatvorlagen-MMC-Snap-in in Windows Server 2003 kann nicht den Erneuerungszeitraum einer Vorlage auf 1 Stunde festlegen.  
+Für diesen Fehler gibt es zwei mögliche Ursachen:  
+  
+-   Die Vorlage ist nicht gemäß den Anforderungen des DirectAccess-OTP konfiguriert und kann daher nicht ausgewählt werden.  
+  
+-   Die ausgewählten Zertifizierungsstellen unter den **OTP** -Zertifizierungsstellen Servern sind nicht so konfiguriert, dass die erforderlichen Vorlagen ausgestellt werden.  
   
 **Lösung**  
   
-Zertifikatvorlagen-Snap-in auf einem nach der Windows Server 2003-Server installieren und verwenden sie zum Konfigurieren der OTP-anmelden-Vorlage finden Sie unter [installieren, die Zertifikatvorlagen-Snap-Ins](https://technet.microsoft.com/library/cc732445.aspx).  
+1.  Stellen Sie sicher, dass die OTP-Anmeldevorlage und die OTP-Signaturzertifikat Vorlage ordnungsgemäß konfiguriert sind, wie in 3,2 Planen der OTP-Zertifikat Vorlage und 3,3 Planen des Registrierungsstellen Zertifikats beschrieben.  
+  
+2.  Stellen Sie sicher, dass die konfigurierten Zertifizierungsstellen in der Liste der **OTP** -Zertifizierungsstellen Server so konfiguriert sind, dass Sie die relevanten Vorlagen  
+  
+    1.  Öffnen Sie auf dem Zertifizierungsstellen Server die Konsole Zertifizierungsstelle.  
+  
+    2.  Erweitern Sie im linken Bereich den ausgewählten Zertifizierungsstellen Server.  
+  
+    3.  Klicken Sie auf **Zertifikat Vorlagen** , und stellen Sie sicher, dass die erforderlichen Vorlagen aktiviert sind. Falls nicht, klicken Sie mit der rechten Maustaste auf **Zertifikat Vorlagen**, klicken Sie auf **neu**, dann auf Auszustellende **Zertifikat Vorlage**, und wählen Sie dann die Vorlagen aus, die Sie aktivieren möchten.  
+  
+## <a name="cannot-set-renewal-period-of-otp-template-to-1-hour"></a>Erneuerungs Zeitraum der OTP-Vorlage kann nicht auf 1 Stunde festgelegt werden.  
+**Szenario**. Bei der Konfiguration der DirectAccess OTP-Anmeldevorlage mithilfe von Windows 2003 ca ist es nicht möglich, den Erneuerungs Zeitraum der Vorlage auf 1 Stunde festzulegen.  
+  
+**Ursache**  
+  
+Mit dem MMC-Snap-in "Zertifikat Vorlagen" in Windows Server 2003 können Sie den Erneuerungs Zeitraum einer Vorlage nicht auf eine Stunde festlegen.  
+  
+**Lösung**  
+  
+Installieren Sie das Zertifikat Vorlagen-Snap-in auf einem Post-Windows Server 2003-Server, und verwenden Sie es zum Konfigurieren der OTP-Anmeldevorlage. Weitere Informationen finden Sie unter [Installieren des Zertifikat Vorlagen-Snap-Ins](https://technet.microsoft.com/library/cc732445.aspx)  
   
 
 

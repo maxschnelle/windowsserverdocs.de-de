@@ -1,7 +1,7 @@
 ---
-title: Mehr als einem Netzwerkadapter sollte verfügbar sein.
-description: Die Onlineversion des Texts für diese Best Practices Analyzer-Regel.
-ms.prod: windows-server-threshold
+title: Es sollten mehrere Netzwerkadapter verfügbar sein.
+description: Online Version des Texts für diese Best Practices Analyzer Regel.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 59940e56-e06a-490f-90ea-cf30d9f80b09
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 678c0161e97b8dd022bbf0037d9add5de0281f77
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6b043900c6fde4522e5805a1f0c1a635de335e31
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884601"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364797"
 ---
-# <a name="more-than-one-network-adapter-should-be-available"></a>Mehr als einem Netzwerkadapter sollte verfügbar sein.
+# <a name="more-than-one-network-adapter-should-be-available"></a>Es sollten mehrere Netzwerkadapter verfügbar sein.
 
 >Gilt für: Windows Server 2016
 
@@ -26,25 +26,25 @@ Weitere Informationen zu bewährten Methoden und Überprüfungen finden Sie unte
 |Eigenschaft|Details|  
 |-|-|  
 |**Betriebssystem**|Windows Server 2016|  
-|**Produkt /-Funktion**|Hyper-V|  
-|**Schweregrad**|Fehler|  
+|**Produkt/Feature**|Hyper-V|  
+|**Zunehmen**|Fehler|  
 |**Kategorie**|Konfiguration|  
 
-In den folgenden Abschnitten Kursivschrift gibt an Benutzeroberflächentext, die im Best Practices Analyzer-Tool für dieses Problem angezeigt wird.
+In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.
 
 ## <a name="issue"></a>Problem  
   
-*Dieser Server wird konfiguriert, mit einem Netzwerkadapter und vom Verwaltungsbetriebssystem freigegeben werden muss und alle virtuellen Computer, die Zugriff auf einem physischen Netzwerk erforderlich ist.*  
+*Dieser Server ist mit einem Netzwerkadapter konfiguriert, der vom Verwaltungs Betriebssystem und allen virtuellen Computern gemeinsam genutzt werden muss, die Zugriff auf ein physisches Netzwerk benötigen.*  
   
 ## <a name="impact"></a>Auswirkungen  
   
-*Netzwerkleistung kann im Verwaltungsbetriebssystem beeinträchtigt.*  
+*Die Netzwerkleistung kann im Verwaltungs Betriebssystem beeinträchtigt werden.*  
   
 ## <a name="resolution"></a>Auflösung  
   
-*Fügen Sie für diesen Computer mehrere Netzwerkadapter hinzu. Um einen Netzwerkadapter für die ausschließliche Verwendung durch das Verwaltungsbetriebssystem reserviert werden muss, nicht konfigurieren Sie für die Verwendung mit einem externen virtuellen Netzwerk.*  
+*fügen Sie diesem Computer weitere Netzwerkadapter hinzu. Um einen Netzwerkadapter für die ausschließliche Verwendung durch das Verwaltungs Betriebssystem zu reservieren, konfigurieren Sie ihn nicht für die Verwendung mit einem externen virtuellen Netzwerk.*  
   
-Informationen zum Hinzufügen von eines Netzwerkadapters auf dem Computer finden Sie in der Dokumentation für den Computer oder den Netzwerkadapter. Um es ausschließlich für das Verwaltungsbetriebssystem reserviert werden sollen, verbinden Sie nicht ihn mit einem virtuellen Switch.   
+Weitere Informationen zum Hinzufügen eines Netzwerkadapters zum Computer finden Sie in der Dokumentation für den Computer oder den Netzwerkadapter. Um es dann ausschließlich für das Verwaltungs Betriebssystem zu reservieren, verbinden Sie es nicht mit einem virtuellen Switch.   
   
 
 

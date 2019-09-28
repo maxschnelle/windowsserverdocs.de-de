@@ -7,69 +7,69 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 1721190bf592b6f7a1274d60d47bbc755eeff1c2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 21bece55ef64a552ddc641befd94d3ce19e78db6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820651"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408885"
 ---
 # <a name="determining-the-number-of-forests-required"></a>Bestimmen der Anzahl der erforderlichen Gesamtstrukturen
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Um die Anzahl der Gesamtstrukturen zu ermitteln, die Sie bereitstellen müssen, müssen Sie sorgfältig ermitteln und bewerten die Anforderungen für jede Gruppe in Ihrer Organisation isoliert und Autonomie und ordnen Sie diese Anforderungen an die entsprechende Gesamtstruktur-Entwurfsmodelle.  
+Um die Anzahl der Gesamtstrukturen zu ermitteln, die Sie bereitstellen müssen, müssen Sie die Isolations-und Autonomie Anforderungen für jede Gruppe in Ihrer Organisation sorgfältig ermitteln und auswerten und diese Anforderungen den entsprechenden Gesamtstruktur-Entwurfs Modellen zuordnen.  
   
-Wenn Sie die Anzahl der Gesamtstrukturen, die für Ihre Organisation bereitstellen zu bestimmen, beachten Sie Folgendes ein:  
+Beachten Sie Folgendes, wenn Sie die Anzahl der Gesamtstrukturen ermitteln, die für Ihre Organisation bereitgestellt werden sollen:  
   
--   Die mandantenisolation beschränken Ihre Entwurfsoptionen. Wenn Sie die mandantenisolation identifiziert haben, stellen Sie daher sicher, dass die Gruppen tatsächlich die Datenisolation erforderlich und Datenautonomie für ihre Bedürfnisse nicht ausreicht. Stellen Sie sicher, dass die verschiedenen Gruppen in Ihrer Organisation eindeutig die Konzepte der Isolation und Autonomie verstehen.  
+-   Durch Isolations Anforderungen werden Ihre Entwurfs Optionen eingeschränkt. Wenn Sie Isolations Anforderungen identifizieren, sollten Sie daher sicherstellen, dass die Gruppen tatsächlich eine Daten Isolation erfordern und dass die Daten Autonomie für Ihre Anforderungen nicht ausreicht. Stellen Sie sicher, dass die verschiedenen Gruppen in Ihrer Organisation die Konzepte der Isolation und Autonomie eindeutig verstehen.  
   
--   Aushandeln des Entwurfs, kann ein langwieriger Prozess sein. Es kann für die Gruppen aus, um eine Vereinbarung hinsichtlich des Besitzes stammen schwierig sein, und verwendet für die verfügbaren Ressourcen. Stellen Sie sicher, dass Sie genügend Zeit für die Gruppen in Ihrer Organisation, die zum Identifizieren der ihre Anforderungen geeignete Forschungsarbeit zulassen. Festlegen Sie gute Stichtage für entwurfsentscheidungen und erhalten Sie Konsens aus allen Parteien in der festgelegten Frist.  
+-   Das Aushandeln des Entwurfs kann ein langwieriger Prozess sein. Es kann schwierig sein, dass Gruppen zu einer Vereinbarung über den Besitz und die Verwendung für verfügbare Ressourcen gelangen. Stellen Sie sicher, dass Sie genügend Zeit für die Durchführung geeigneter Forschungsarbeiten für die Gruppen in Ihrer Organisation benötigen. Legen Sie feste Fristen für Entwurfsentscheidungen fest, und erhalten Sie einen Konsens von allen Parteien zu den festgelegten Terminen.  
   
--   Bestimmen der Anzahl der Gesamtstrukturen bereitstellen muss die Kosten bei Vorteile. Eine Gesamtstruktur-Modell ist die kostengünstigste Option und dem geringstmöglichen Verwaltungsaufwand erfordert. Obwohl eine Gruppe in der Organisation autonome Dienstvorgänge vorziehen, kann es kostengünstiger ist für die Organisation zum Abonnieren von Service-Bereitstellung aus einer zentralen vertrauenswürdige Informationen Informationstechnologie (IT)-Gruppe sein. Dadurch können die Gruppe für die datenverwaltung der eigenen, ohne die zusätzlichen Kosten der dienstverwaltung erstellen zu müssen. Lastenausgleich Kosten bei Vorteile möglicherweise die Eingabe aus dem ausführenden Auftraggeber.  
+-   Die Ermittlung der Anzahl der bereit zustellenden Gesamtstrukturen umfasst den Ausgleich der Kosten gegen die Vorteile. Ein Modell mit einer einzelnen Gesamtstruktur ist die kostengünstigste Option und erfordert den minimalen Verwaltungsaufwand. Obwohl eine Gruppe in der Organisation autonome Dienst Vorgänge bevorzugen könnte, kann es für die Organisation kostengünstiger sein, die Dienst Bereitstellung von einer zentralisierten und vertrauenswürdigen Informationstechnologie (IT) zu abonnieren. Dies ermöglicht es der Gruppe, die Datenverwaltung zu verwalten, ohne die zusätzlichen Kosten für die Dienst Verwaltung zu schaffen. Der Ausgleich von Kosten für die Vorteile erfordert möglicherweise Eingaben vom Executive-Sponsor.  
   
-    Eine einzelne Gesamtstruktur ist die einfachste Konfiguration verwalten. Es ermöglicht maximale Zusammenarbeit in der Umgebung, da:  
+    Eine einzelne Gesamtstruktur ist die einfachste Konfiguration, die Sie verwalten können. Dies ermöglicht die maximale Zusammenarbeit innerhalb der Umgebung aus folgenden Gründen:  
   
-    -   Alle Objekte in einer einzelnen Gesamtstruktur werden in den globalen Katalog aufgeführt. Daher ist keine Synchronisierung zwischen Gesamtstrukturen erforderlich.  
+    -   Alle Objekte in einer einzelnen Gesamtstruktur sind im globalen Katalog aufgeführt. Daher ist keine Gesamtstruktur übergreifende Synchronisierung erforderlich.  
   
-    -   Verwaltung von einer doppelten Infrastruktur ist nicht erforderlich.  
+    -   Die Verwaltung einer doppelten Infrastruktur ist nicht erforderlich.  
   
--   Wir empfehlen Co-ownership einer einzelnen Gesamtstruktur nicht zwei separate und autonome IT-Organisationen. In Zukunft möglicherweise die Ziele der beiden IT-Gruppen ändern, sodass sie nicht mehr freigegebenes Steuerelement annehmen können.  
+-   Es wird nicht empfohlen, den Besitz einer einzelnen Gesamtstruktur mit zwei separaten und autonomen IT-Organisationen zu übernehmen. In Zukunft können sich die Ziele der beiden IT-Gruppen ändern, sodass Sie das freigegebene Steuerelement nicht mehr akzeptieren können.  
   
--   Outsourcing-Service-Verwaltung mit mehr als einem außerhalb von Partner wird nicht empfohlen. Multinationale Unternehmen, die Gruppen in unterschiedlichen Ländern oder Regionen verfügen möglicherweise zur Auslagerung der dienstverwaltung zu einem anderen externen Partner für jedes Land bzw. die Region wählen. Da mehrere externe Partner voneinander isoliert sein können, können die Aktionen von einem Partner die Auswirkungen auf den Dienst der anderen, dadurch ist es schwierig, die Partner verantwortlich für die Service Level Agreements aufnehmen.  
+-   Es wird nicht empfohlen, die Dienst Verwaltung für mehr als einen externen Partner auszulagern. Multinationale Organisationen mit Gruppen in unterschiedlichen Ländern oder Regionen können sich dafür entscheiden, die Dienst Verwaltung für jedes Land oder jede Region an einen anderen externen Partner auszulagern. Da es nicht möglich ist, mehrere externe Partner voneinander zu isolieren, können sich die Aktionen eines Partners auf den Dienst der anderen Anwendung auswirken. dadurch ist es schwierig, die Partner, die für ihre Vereinbarungen zum Service Level verantwortlich sind, zu halten.  
   
--   Nur eine Instanz des Active Directory-Domäne sollte zu einem beliebigen Zeitpunkt vorhanden sein. Microsoft unterstützt nicht das Klonen, aufteilen oder von Domänencontrollern in einer Domäne in einem Versuch, eine zweite Instanz derselben Domäne herzustellen. Weitere Informationen zu dieser Einschränkung finden Sie unter den folgenden Abschnitt.  
+-   Es sollte immer nur eine Instanz einer Active Directory Domäne vorhanden sein. Microsoft unterstützt das Klonen, aufteilen oder Kopieren von Domänen Controllern aus einer Domäne nicht, wenn versucht wird, eine zweite Instanz derselben Domäne einzurichten. Weitere Informationen zu dieser Einschränkung finden Sie im folgenden Abschnitt.  
   
-## <a name="restructuring-limitations"></a>Umstrukturieren von Einschränkungen  
-Wenn ein Unternehmen bereitstellt, einem anderen Unternehmen, Geschäftseinheit, oder -Produktlinie, das Kaufverhalten Unternehmen sollten auch zum Abrufen der entsprechenden IT-Ressourcen des Verkäufers. Insbesondere sollten der Käufer abrufen einiger oder aller der Domänencontroller, auf denen hosten, die Benutzerkonten, Computerkonten und Sicherheitsgruppen, die die geschäftlichen Ressourcen entsprechen, die abgerufen werden. Die einzigen unterstützten Methoden für den Käufer, die IT-Ressourcen abzurufen, die in Active Directory-Gesamtstruktur des Verkäufers gespeichert sind, lauten wie folgt:  
+## <a name="restructuring-limitations"></a>Einschränkungen bei der Umstrukturierung  
+Wenn ein Unternehmen ein anderes Unternehmen, eine andere Geschäftseinheit oder eine Produktlinie erwirbt, möchte das Kauf Unternehmen möglicherweise auch entsprechende IT-Ressourcen vom Verkäufer erwerben. Der Käufer möchte insbesondere einige oder alle Domänen Controller erwerben, die die Benutzerkonten, Computer Konten und Sicherheitsgruppen hosten, die den zu erwerbenden Geschäftsressourcen entsprechen. Die einzigen unterstützten Methoden für den Käufer zum Abrufen der IT-Ressourcen, die in der Active Directory-Gesamtstruktur des Verkäufers gespeichert sind, lauten wie folgt:  
   
-1.  Abgerufen Sie die einzige Instanz der Gesamtstruktur, einschließlich von allen Domänencontrollern und Verzeichnisdaten in der Gesamtstruktur des Verkäufers werden.  
+1.  Erwerben Sie die einzige Instanz der Gesamtstruktur, einschließlich aller Domänen Controller und Verzeichnis Daten in der Gesamtstruktur des Verkäufers.  
   
-2.  Migrieren Sie mindestens einen Vertreter des Käufers Domänen erforderlichen Verzeichnisdaten aus des Verkäufers Gesamtstrukturen oder Domänen. Das Ziel für eine Migration dieser Art möglicherweise eine völlig neue Gesamtstruktur oder einer oder mehreren vorhandenen Domänen, die bereits in die Vertreter des Käufers Gesamtstruktur bereitgestellt werden.  
+2.  Migrieren Sie die erforderlichen Verzeichnis Daten aus der Gesamtstruktur oder den Domänen des Verkäufers in eine oder mehrere der Käufer Domänen. Das Ziel einer solchen Migration kann eine völlig neue Gesamtstruktur oder eine oder mehrere vorhandene Domänen sein, die bereits in der Gesamtstruktur des Käufers bereitgestellt wurden.  
   
-Diese Einschränkung Unterstützung vorhanden ist, da:  
+Diese Unterstützungs Beschränkung besteht aus folgenden Gründen:  
   
--   Jede Domäne in Active Directory-Gesamtstruktur wird eine eindeutige Identität während der Erstellung der Gesamtstruktur zugewiesen werden. Kopieren der Domänencontroller aus einer ursprünglichen Domäne um einem geklonten gefährdet die Sicherheit von Domänen und der Gesamtstruktur. Bedrohungen für die ursprüngliche Domäne und die geklonte Domäne umfassen Folgendes:  
+-   Jeder Domäne in einer Active Directory Gesamtstruktur wird während der Erstellung der Gesamtstruktur eine eindeutige Identität zugewiesen. Beim Kopieren von Domänen Controllern aus einer ursprünglichen Domäne in eine geklonte Domäne wird die Sicherheit der Domänen und der Gesamtstruktur beeinträchtigt. Bedrohungen der ursprünglichen Domäne und der geklonten Domäne umfassen Folgendes:  
   
-    -   Freigabe von Kennwörtern, die verwendet werden kann, um den Zugriff auf Ressourcen zu erhalten.  
+    -   Freigabe von Kenn Wörtern, die verwendet werden können, um Zugriff auf Ressourcen zu erhalten  
   
-    -   Einblicke in Bezug auf die privilegierten Benutzerkonten und Gruppen  
+    -   Einblicke in privilegierte Benutzerkonten und-Gruppen  
   
-    -   Zuordnung von IP-Adressen, Computernamen  
+    -   Zuordnung von IP-Adressen zu Computernamen  
   
-    -   Hinzufügungen, löschungen und Änderungen von Verzeichnisinformationen, wenn der Domänencontroller in einer geklonten Domäne jemals die Netzwerkkonnektivität mit Domänencontrollern in der ursprünglichen Domäne herstellen  
+    -   Ergänzungen, Löschungen und Änderungen der Verzeichnisinformationen, wenn Domänen Controller in einer geklonten Domäne jemals Netzwerkverbindungen mit Domänen Controllern aus der ursprünglichen Domäne herstellen  
   
--   Geklonte Domänen Teilen eine allgemeinen Sicherheitsidentität; aus diesem Grund können keine Vertrauensstellungen zwischen den beiden hergestellt werden, auch wenn eine oder beide der Domänen umbenannt wurden.  
+-   Geklonte Domänen haben eine gemeinsame Sicherheitsidentität; Daher können Vertrauens Stellungen nicht zwischen Ihnen eingerichtet werden, auch wenn eine oder beide Domänen umbenannt wurden.  
   
 ## <a name="in-this-section"></a>Inhalt dieses Abschnitts  
   
 -   [Gesamtstruktur-Entwurfsmodelle](https://technet.microsoft.com/library/cc770439.aspx)  
   
--   [Zuordnen von Entwurfsanforderungen zu Gesamtstruktur-Entwurfsmodelle](Forest-Design-Models.md)  
+-   [Zuordnung von Entwurfs Anforderungen zu Gesamtstruktur-Entwurfs Modellen](Forest-Design-Models.md)  
   
--   [Verwenden des organisatorischen Domänengesamtstruktur-Modells](../../ad-ds/plan/Using-the-Organizational-Domain-Forest-Model.md)  
+-   [Verwenden des Domänen Gesamtstruktur Modells der Organisation](../../ad-ds/plan/Using-the-Organizational-Domain-Forest-Model.md)  
   
 
 

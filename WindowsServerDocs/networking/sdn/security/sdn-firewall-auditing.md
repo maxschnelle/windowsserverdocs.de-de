@@ -1,32 +1,32 @@
 ---
 title: SDN Firewall Überwachung
-description: Für die Überwachung von Firewall ist eine neue Funktion für die SDN-Firewall in Windows Server-2019. Wenn Sie SDN-Firewall aktivieren, ruft beliebigen Flow von SDN-Firewall-Regeln (ACLs), die Protokollierung aktiviert ist verarbeitet aufgezeichnet.
+description: Die firewallüberwachung ist eine neue Funktion für die Sdn-Firewall in Windows Server 2019. Wenn Sie die Sdn-Firewall aktivieren, werden alle Flows aufgezeichnet, die von Sdn-Firewallregeln (ACLs) mit aktivierter Protokollierung verarbeitet werden.
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: c4e2f6c7-0364-4bf8-bb66-9af59c0bbd74
 ms.author: pashort
 author: shortpatti
 ms.date: 08/22/2018
-ms.openlocfilehash: a73cdc443dd55b16f6e6cb187e001581620ce771
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 246adc6b4fd3ea130196cf1786f7fa130703de1a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890901"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355756"
 ---
 # <a name="sdn-firewall-auditing"></a>SDN Firewall Überwachung
 
 >Gilt für: Windows Server 2019
 
-Für die Überwachung von Firewall ist eine neue Funktion für die SDN-Firewall in Windows Server-2019. Wenn Sie SDN-Firewall aktivieren, ruft beliebigen Flow von SDN-Firewall-Regeln (ACLs), die Protokollierung aktiviert ist verarbeitet aufgezeichnet. Die Protokolldateien muss sich in einer Syntax, die konsistent mit der [Azure Network Watcher-datenflussprotokollen](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Diese Protokolle für die Diagnose verwendet, oder zur späteren Analyse archiviert werden können. 
+Die firewallüberwachung ist eine neue Funktion für die Sdn-Firewall in Windows Server 2019. Wenn Sie die Sdn-Firewall aktivieren, werden alle Flows aufgezeichnet, die von Sdn-Firewallregeln (ACLs) mit aktivierter Protokollierung verarbeitet werden. Die Protokolldateien müssen eine Syntax aufweisen, die mit den [Azure Network Watcher Flow-Protokollen](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)konsistent ist. Diese Protokolle können für die Diagnose verwendet werden oder zur späteren Analyse archiviert werden. 
 
-Wir erhalten in Kürze einige Beispiele für diese Dateien mithilfe von Tools wie Power BI zu verarbeiten.
+In Kürze werden einige Beispiele für die Verarbeitung dieser Dateien mithilfe von Tools wie Power BI bereitgestellt.
 
-_**Probieren Sie es aus, und uns Feedback!**_
+_**Probieren Sie es aus, und geben Sie uns Feedback!**_
 
-Hier ist eine Beispielskript, Firewall, die Überwachung auf den Hyper-V-Hosts zu aktivieren. Aktualisieren Sie die Variablen am Anfang, und führen Sie dies auf einem Computer Windows Server-2019, dem die RSAT-NetworkController-Feature installiert:
+Hier ist ein Beispielskript zum Aktivieren der firewallüberwachung auf den Hyper-V-Hosts. Aktualisieren Sie die Variablen am Anfang, und führen Sie Sie auf einem Windows Server 2019-Computer mit installierter RSAT-networkcontroller-Funktion aus:
 
 ```PowerShell
 $logpath = "C:\test\log1"
@@ -54,7 +54,7 @@ foreach ($s in $servers) {
 }
 ```
 
-Nach der Aktivierung einer neuen Datei wird im angegebenen Verzeichnis auf jedem Host zu einmal pro Stunde angezeigt.  Sie sollten in regelmäßigen Abständen diese Dateien verarbeitet und von den Hosts entfernen.  Die aktuelle Datei hat die Länge Null und ist gesperrt, bis bei der nächsten Stunde Markierung geleert:
+Nach der Aktivierung wird eine neue Datei im angegebenen Verzeichnis auf jedem Host ca. einmal pro Stunde angezeigt.  Sie sollten diese Dateien regelmäßig verarbeiten und aus den Hosts entfernen.  Die aktuelle Datei hat eine Länge von 0 (null) und ist gesperrt, bis Sie an der nächsten Stunden Markierung geleert wurde:
 
 ```syntax
 PS C:\test\log1> dir
@@ -70,7 +70,7 @@ Mode                LastWriteTime         Length Name
 -a----        7/19/2018   9:28 AM              0 SdnFirewallAuditing.d8b3b697-5355-40e2-84d2-1bf2f0e0dc4a.20180719TL162803464.json
 ```
 
-Diese Dateien enthalten, z. B. eine Sequenz von Flow-Ereignisse:
+Diese Dateien enthalten eine Sequenz von Fluss Ereignissen, z. b.:
 
 ```syntax
 { 
@@ -100,7 +100,7 @@ Diese Dateien enthalten, z. B. eine Sequenz von Flow-Ereignisse:
 ```
 
 
-Beachten Sie, dass die Protokollierung erfolgt nur für Regeln mit **Protokollierung** festgelegt **aktiviert**, z.B.:
+Beachten Sie, dass die Protokollierung nur für Regeln durchgeführt wird, für die die **Protokollierung** **aktiviert**ist. Beispiel:
 
 ```syntax
 {

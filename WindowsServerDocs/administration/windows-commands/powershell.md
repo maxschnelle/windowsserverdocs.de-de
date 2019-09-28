@@ -1,8 +1,8 @@
 ---
 title: PowerShell
-description: Erfahren Sie, wie die PowerShell-Konsole über eine Eingabeaufforderung zu öffnen.
+description: Erfahren Sie, wie Sie die PowerShell-Konsole über eine Eingabeaufforderung öffnen.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,64 +13,64 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 1e2ccf6187e4480f94b30632b6f8f9f092052541
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 2c43c71fce9bb25efcf3f03284160d5534475a8a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811074"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372196"
 ---
 # <a name="powershell"></a>PowerShell
 
-Windows PowerShell ist eine aufgabenbasierte Befehlszeilenshell und Skriptsprache, die speziell für die systemverwaltung entwickelt wurde. Windows PowerShell basiert auf .NET Framework und unterstützt IT-Experten und erfahrene Benutzer beim Steuern und Automatisieren der Verwaltung von Windows-Betriebssystemen sowie von Anwendungen, die unter Windows ausgeführt werden.
+Windows PowerShell ist eine aufgabenbasierte Befehlszeilenshell und Skriptsprache, die speziell für die Systemverwaltung entwickelt wurde. Windows PowerShell basiert auf .NET Framework und unterstützt IT-Experten und erfahrene Benutzer beim Steuern und Automatisieren der Verwaltung von Windows-Betriebssystemen sowie von Anwendungen, die unter Windows ausgeführt werden.
 
-Die **PowerShell.exe** Befehlszeilentool startet eine Windows PowerShell-Sitzung in einem Eingabeaufforderungsfenster. Bei Verwendung von **PowerShell.exe**, Sie können ihrer optionalen Parameter verwenden, um die Sitzung anzupassen. Beispielsweise können Sie eine Sitzung starten, die einer bestimmten Ausführungsrichtlinie oder eine, die ein Windows PowerShell-Profil schließt verwendet. Andernfalls ist mit die Sitzung identisch mit einer beliebigen Sitzung, die in der Windows PowerShell-Konsole gestartet wird.
+Mit dem Befehlszeilen Tool " **PowerShell. exe** " wird in einem Eingabe Aufforderungs Fenster eine Windows PowerShell-Sitzung gestartet. Wenn Sie " **PowerShell. exe**" verwenden, können Sie die entsprechenden optionalen Parameter verwenden, um die Sitzung anzupassen. Beispielsweise können Sie eine Sitzung starten, die eine bestimmte Ausführungs Richtlinie verwendet, oder eine Sitzung, von der ein Windows PowerShell-Profil ausgeschlossen wird. Andernfalls ist die Sitzung mit jeder Sitzung identisch, die in der Windows PowerShell-Konsole gestartet wird.
 
-## <a name="using-powershellexe"></a>Verwenden von PowerShell.exe
+## <a name="using-powershellexe"></a>Verwenden von "PowerShell. exe"
 
-Sie können die **PowerShell.exe** Befehlszeilentool, mit eine Windows PowerShell-Sitzung in einem Eingabeaufforderungsfenster starten.
+Sie können das Befehlszeilen Tool " **PowerShell. exe** " verwenden, um eine Windows PowerShell-Sitzung in einem Eingabe Aufforderungs Fenster zu starten.
 
-- Geben Sie zum Starten einer Windows PowerShell-Sitzungs in einem Eingabeaufforderungsfenster `PowerShell`. Ein **PS** Präfix wird an der Eingabeaufforderung aus, um anzugeben, dass Sie in einer Windows PowerShell-Sitzung hinzugefügt.
+- Geben Sie `PowerShell` ein, um eine Windows PowerShell-Sitzung in einem Eingabe Aufforderungs Fenster zu starten. Der Eingabeaufforderung wird ein **PS** -Präfix hinzugefügt, um anzugeben, dass Sie sich in einer Windows PowerShell-Sitzung befinden.
 
-- Verwenden Sie zum Starten einer Sitzungs mit einer bestimmten Ausführung der **ExecutionPolicy** Parameter.
+- Verwenden Sie zum Starten einer Sitzung mit einer bestimmten Ausführungs Richtlinie den **ExecutionPolicy** -Parameter.
 
     ```
     PowerShell.exe -ExecutionPolicy Restricted
     ```
 
-- Verwenden Sie zum Starten einer Windows PowerShell-Sitzungs, ohne Ihre Windows PowerShell-Profile die **NoProfile** Parameter.
+- Verwenden Sie den **NoProfile** -Parameter, um eine Windows PowerShell-Sitzung ohne Ihre Windows PowerShell-Profile zu starten.
 
     ```
     PowerShell.exe -NoProfile
     ```
   
-- Verwenden Sie zum Starten einer Sitzungs die **ExecutionPolicy** Parameter.
+- Verwenden Sie den **ExecutionPolicy** -Parameter, um eine Sitzung zu starten.
 
     ```
     PowerShell.exe -ExecutionPolicy Restricted
     ```
   
-- Um die Hilfedatei PowerShell.exe anzuzeigen, verwenden Sie das folgende Befehlsformat.  
+- Verwenden Sie das folgende Befehls Format, um die Hilfedatei von "PowerShell. exe" anzuzeigen.  
     
     ```
     PowerShell.exe -help, -?, /?
     ```
 
-- Geben Sie zum Beenden einer Windows PowerShell-Sitzungs in einem Eingabeaufforderungsfenster `exit`. Die typische Eingabeaufforderung kehrt zurück.
+- Um eine Windows PowerShell-Sitzung in einem Eingabe Aufforderungs Fenster zu beenden, geben Sie `exit` ein. Die typische Eingabeaufforderung gibt zurück.
 
-Eine vollständige Liste der **PowerShell.exe** Befehlszeilenparameter, finden Sie unter [about_PowerShell.Exe](https://go.microsoft.com/fwlink/?LinkID=113439).
+Eine komplette Liste der Befehlszeilenparameter von " **PowerShell. exe** " finden Sie unter [about_PowerShell. exe](https://go.microsoft.com/fwlink/?LinkID=113439).
 
-## <a name="other-ways-to-start-windows-powershell"></a>Weitere Informationen zum Starten von Windows PowerShell
+## <a name="other-ways-to-start-windows-powershell"></a>Weitere Möglichkeiten zum Starten von Windows PowerShell
 
-Weitere Informationen über andere Möglichkeiten zum Starten von Windows PowerShell finden Sie unter [Starten von Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=135259).
+Informationen zu anderen Möglichkeiten zum Starten von Windows PowerShell finden Sie unter [Starten von Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=135259).
 
 ## <a name="remarks"></a>Hinweise
 
-Windows PowerShell wird auf die Server Core-Installationsoption von Windows Server-Betriebssysteme ausgeführt werden. Jedoch Features, die einen grafischen Benutzer erfordern Schnittstelle, z. B. die [Windows PowerShell Integrated Scripting Environment (ISE)](https://technet.microsoft.com/library/hh849182), und die [Out-GridView](https://go.microsoft.com/fwlink/?LinkID=113364) und [Show-Command](https://go.microsoft.com/fwlink/?LinkID=217448)-Cmdlets auf Server Core-Installationen nicht ausführen.
+Windows PowerShell wird auf der Server Core-Installationsoption von Windows Server-Betriebssystemen ausgeführt. Features, die eine grafische Benutzeroberfläche erfordern, wie z. b. die [Windows PowerShell Integrated Scripting Environment (ISE)](https://technet.microsoft.com/library/hh849182)und die Cmdlets " [out-GridView](https://go.microsoft.com/fwlink/?LinkID=113364) " und " [Show-Command](https://go.microsoft.com/fwlink/?LinkID=217448) ", können jedoch nicht auf Server Core-Installationen ausgeführt werden.
 
 ## <a name="additional-references"></a>Weitere Verweise
 
-[about_PowerShell.exe](https://go.microsoft.com/fwlink/?LinkID=113439)
-[about_PowerShell_Ise.exe](https://go.microsoft.com/fwlink/?LinkId=256512)
+[about_PowerShell. exe](https://go.microsoft.com/fwlink/?LinkID=113439)
+[about_PowerShell_Ise. exe](https://go.microsoft.com/fwlink/?LinkId=256512)
 [Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=107116)
-[Skripterstellung mit Windows PowerShell](https://technet.microsoft.com/scriptcenter/dd742419) Siehe auch
+-[Skripterstellung mit Windows PowerShell](https://technet.microsoft.com/scriptcenter/dd742419) siehe auch

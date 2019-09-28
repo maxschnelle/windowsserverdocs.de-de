@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getnotifycmdline
-description: Windows-Befehle Thema **Bitsadmin Getnotifycmdline** -Ruft die Befehlszeile, die Übertragung von Daten nach Abschluss des Auftrags ausgeführt wird.
+description: 'Thema Windows-Befehle für **bizadmin getnotifycmdline** : Ruft den Befehlszeilen Befehl ab, der ausgeführt wird, wenn der Auftrag das Übertragen von Daten abgeschlossen hat.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3ca7b2e67c0b5672733a25465fba89d1bd69d07a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b91d2c71ad4bedaac65e23041ca78a70ade99977
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817291"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381488"
 ---
 # <a name="bitsadmin-getnotifycmdline"></a>bitsadmin getnotifycmdline
 
-Ruft die Befehlszeile ausgeführt wird, Übertragen von Daten nach Abschluss des Auftrags ab.
+Ruft den Befehlszeilen Befehl ab, der ausgeführt werden soll, wenn der Auftrag das Übertragen von Daten abgeschlossen hat.
 
-**BITS-Version 1.2 und früher**: Nicht unterstützt.
+**Bits 1,2 und früher**: Nicht unterstützt.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,15 +36,15 @@ bitsadmin /GetNotifyCmdLine <Job>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Das folgende Beispiel ruft die Befehlszeile, die vom Dienst verwendet wird, wenn der Auftrag mit dem Namen *MyDownloadJob* abgeschlossen ist.
+Im folgenden Beispiel wird der Befehlszeilen Befehl abgerufen, der vom-Dienst verwendet wird, wenn der Auftrag mit dem Namen *mydownloadjob* abgeschlossen ist.
 ```
 C:\>bitsadmin /GetNotifyCmdLine myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,7 +1,7 @@
 ---
 title: Aktualisieren von Windows Server 2008 und Windows Server 2008 R2
 description: Windows Server 2008 und 2008 R2 werden demnächst eingestellt. Erfahren Sie, wie Sie sie lokal aktualisieren oder auf Azure erneut hosten können.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.mktglfcycl: manage
 ms.sitesec: library
 author: mikeblodge
@@ -10,12 +10,12 @@ ms.date: 07/12/2018
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.localizationpriority: high
-ms.openlocfilehash: a1453ee225ab138f1808c990506145f73c50e5a5
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: cc666c253975396412188896ff223f2c808f098d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868468"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391556"
 ---
 # <a name="upgrade-windows-server-2008-and-windows-server-2008-r2"></a>Aktualisieren von Windows Server 2008 und Windows Server 2008 R2
 

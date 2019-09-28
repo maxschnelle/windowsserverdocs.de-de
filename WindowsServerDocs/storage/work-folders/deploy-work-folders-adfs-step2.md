@@ -1,6 +1,6 @@
 ---
 title: Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy - Schritt 2, Konfigurationsaufgaben nach dem Einrichten von AD FS
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-work-folders
 ms.topic: article
 manager: klaasl
@@ -8,31 +8,31 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 06/06/2019
 ms.assetid: 0a48852e-48cc-4047-ae58-99f11c273942
-ms.openlocfilehash: 5497651f57a0276daced614687e89f8047af9116
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 6364c3f8dc35fbafa518a106780ae6b767d4d40c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812678"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365781"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-2-ad-fs-post-configuration-work"></a>Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 2, und AD FS-Konfiguration nach der Arbeit
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-2-ad-fs-post-configuration-work"></a>Arbeitsordner mit AD FS und webanwendungsproxy bereitstellen: Schritt 2 AD FS arbeiten nach der Konfiguration
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 In diesem Thema wird der zweite Schritt bei der Bereitstellung von Arbeitsordnern mit Active Directory-Verbunddiensten (AD FS) und Webanwendungsproxy beschrieben. Weitere Schritte des Prozesses finden Sie in folgenden Themen:  
   
--   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Übersicht über die](deploy-work-folders-adfs-overview.md)  
+-   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Übersicht @ no__t-0  
   
--   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 1: Einrichten der AD FS](deploy-work-folders-adfs-step1.md)  
+-   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 1: Einrichten AD FS @ no__t-0  
   
--   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 3, Einrichten von Arbeitsordnern](deploy-work-folders-adfs-step3.md)  
+-   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 3: Einrichten von Arbeits Ordnern @ no__t-0  
   
--   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 4: Einrichten des Webanwendungsproxys](deploy-work-folders-adfs-step4.md)  
+-   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 4: Einrichten des webanwendungsproxys @ no__t-0  
   
--   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 5, richten Sie Clients](deploy-work-folders-adfs-step5.md)  
+-   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 5: Einrichten von Clients @ no__t-0  
   
 > [!NOTE]
-> Die Anweisungen in diesem Abschnitt behandelten sind für eine Windows Server-2019 oder Windows Server 2016-Umgebung. Wenn Sie Windows Server 2012 R2 verwenden, folgen Sie den [Anweisungen für Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
+> Die in diesem Abschnitt behandelten Anweisungen gelten für eine Windows Server 2019-oder Windows Server 2016-Umgebung. Wenn Sie Windows Server 2012 R2 verwenden, folgen Sie den [Anweisungen für Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
 
 In Schritt 1 wurde AD FS installiert und konfiguriert. Jetzt müssen Sie folgende Schritte nach der Konfiguration für AD FS durchführen.  
   
@@ -104,7 +104,7 @@ So richten Sie die Vertrauensstellung der vertrauenden Seite ein:
   
 7.  Klicken Sie auf der Seite **URL konfigurieren** auf **Weiter**.  
   
-8. Auf der **Konfigurieren von Bezeichnern** Seite fügen Sie die folgenden Bezeichner: `https://windows-server-work-folders/V1`. Dieser Bezeichner ist eine hartcodierter Wert, der von den Arbeitsordnern verwendet wird und wird durch den Arbeitsordnerdienst gesendet wird, wenn er mit AD FS kommuniziert. Klicken Sie auf **Weiter**.  
+8. Fügen Sie auf der Seite Bezeichner **Konfigurieren** den folgenden Bezeichner hinzu: `https://windows-server-work-folders/V1`. Dieser Bezeichner ist eine hartcodierter Wert, der von den Arbeitsordnern verwendet wird und wird durch den Arbeitsordnerdienst gesendet wird, wenn er mit AD FS kommuniziert. Klicken Sie auf **Weiter**.  
   
 9. Wählen Sie auf der Seite „Zugriffssteuerungsrichtlinie” **Jeder** und klicken Sie dann auf **Weiter**.  
   
@@ -124,13 +124,13 @@ So richten Sie die Vertrauensstellung der vertrauenden Seite ein:
   
 17. Geben Sie in der Zuordnungstabelle diese Werte ein:  
   
-    -   User-Principal-Name: UPN  
+    -   Benutzer Prinzipal Name: UPN  
   
     -   Anzeigename: Name  
   
-    -   Nachname: Nachname  
+    -   Nachname Nachname  
   
-    -   Angegebene-Name: Angegebener Name  
+    -   Vorname: Angegebener Name  
   
 18. Klicken Sie auf **Fertig stellen**. In der Registerkarte für Ausstellungstransformationsregeln sehen Sie die Regel der Arbeitsordner. Klicken Sie auf **OK**.  
   
@@ -242,15 +242,15 @@ Sie müssen dem AD FS-Dienstkonto Zugriff auf den privaten Schlüssel des neuen 
   
 13. Geben Sie im Fenster **Berechtigungen** dem Konto mindestens Leseberechtigungen und klicken Sie auf **OK**.  
   
-Wenn Sie nicht die Option zum Verwalten von privaten Schlüssel haben, müssen Sie möglicherweise den folgenden Befehl ausführen: `certutil -repairstore my *`  
+Wenn Sie nicht über die Option zum Verwalten von privaten Schlüsseln verfügen, müssen Sie möglicherweise den folgenden Befehl ausführen: `certutil -repairstore my *`  
   
 ## <a name="verify-that-ad-fs-is-operational"></a>Stellen Sie sicher, dass AD FS betriebsbereit ist
 
-Um sicherzustellen, dass AD FS funktioniert, öffnen Sie ein Browserfenster, und wechseln Sie zu `https://blueadfs.contoso.com/federationmetadata/2007-06/federationmetadata.xml`, ändern die URL entsprechend Ihrer Umgebung.
+Um zu überprüfen, ob AD FS funktionstüchtig ist, öffnen Sie ein Browserfenster, und navigieren Sie zu `https://blueadfs.contoso.com/federationmetadata/2007-06/federationmetadata.xml`, und ändern Sie die URL entsprechend Ihrer Umgebung.
   
 Im Browser-Fenster werden die Verbundservermetadaten ohne Formatierung angezeigt. Wenn die Daten ohne SSL-Fehler oder -Warnungen angezeigt wird, ist Ihr Verbundserver betriebsbereit.  
   
-Nächster Schritt: [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 3, Einrichten von Arbeitsordnern](deploy-work-folders-adfs-step3.md)  
+Nächster Schritt: [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 3: Einrichten von Arbeits Ordnern @ no__t-0  
   
 ## <a name="see-also"></a>Siehe auch  
-[Übersicht: Arbeitsordner](Work-Folders-Overview.md)
+[Übersicht über Arbeitsordner](Work-Folders-Overview.md)

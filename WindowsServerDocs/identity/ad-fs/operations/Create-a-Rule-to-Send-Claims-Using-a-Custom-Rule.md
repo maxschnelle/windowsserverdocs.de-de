@@ -7,71 +7,71 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: ade2a8304288d102608c81a0c29155478e5a4b7b
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 8cd3e6d0073061710bd9ee76958891e036688472
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189432"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407608"
 ---
 # <a name="create-a-rule-to-send-claims-using-a-custom-rule"></a>Erstellen einer Regel zum Senden von Ansprüchen mithilfe einer benutzerdefinierten Regel
 
 
-Mithilfe der **Ansprüche mit benutzerdefinierter Regel senden** Vorlage in Active Directory-Verbunddienste (AD FS), Sie können benutzerdefinierte Anspruchsregeln für die Situation, in dem eine standardregelvorlage nicht die Anforderungen des erfüllt, erstellen Ihre die Organisation. Benutzerdefinierte Anspruchsregeln in der anspruchsregelsprache geschrieben sind, und klicken Sie dann in kopiert werden müssen die **benutzerdefinierte Regel** Textfeld, bevor sie in einem Regelsatz verwendet werden können. Informationen über die Syntax für eine erweiterte Regel erstellen, finden Sie unter [The Role of the Claim Rule Language](../../ad-fs/technical-reference/The-Role-of-the-Claim-Rule-Language.md).  
+Mithilfe der Vorlage " **Ansprüche mithilfe einer benutzerdefinierten Regel senden** " in Active Directory-Verbunddienste (AD FS) (AD FS) können Sie benutzerdefinierte Anspruchs Regeln für Situationen erstellen, in denen eine Standardregel Vorlage nicht den Anforderungen Ihrer Organisation entspricht. Benutzerdefinierte Anspruchs Regeln werden in der Anspruchs Regel Sprache geschrieben und müssen dann in das Textfeld **benutzerdefinierte Regel** kopiert werden, bevor Sie in einem Regelsatz verwendet werden können. Weitere Informationen zum Erstellen der Syntax für eine erweiterte Regel finden Sie [unter der Rolle der Anspruchs Regel Sprache](../../ad-fs/technical-reference/The-Role-of-the-Claim-Rule-Language.md).  
   
-Sie können das folgende Verfahren zum Erstellen einer Anspruchsregel mithilfe der AD FS-Verwaltungs-Snap\-in.  
+Mithilfe des folgenden Verfahrens können Sie eine Anspruchs Regel erstellen, indem Sie das AD FS Verwaltungs-Snap @ no__t-0in verwenden.  
   
-Mitgliedschaft in **Administratoren**, oder einer entsprechenden, auf dem lokalen Computer die Mindestanforderung zum Ausführen dieses Verfahrens.  Weitere Informationen zur Verwendung der geeigneten Konten und Gruppenmitgliedschaften unter [lokale und Domänenstandardgruppen](https://go.microsoft.com/fwlink/?LinkId=83477).
+Sie müssen mindestens Mitglied der Gruppe **Administratoren**oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).
 
 
 
-## <a name="to-create-a-rule-to-pass-through-or-filter-an-incoming-claim-on-a-relying-party-trust-in-windows-server-2016"></a>Erstellen Sie eine Regel, um die pass-through oder Filtern eines eingehenden Anspruchs auf a Relying Party Trust in Windows Server 2016 
+## <a name="to-create-a-rule-to-pass-through-or-filter-an-incoming-claim-on-a-relying-party-trust-in-windows-server-2016"></a>So erstellen Sie eine Regel zum Weiterleiten oder Filtern eines eingehenden Anspruchs für eine Vertrauensstellung der vertrauenden Seite in Windows Server 2016 
 
-1.  Klicken Sie im Server-Manager **Tools**, und wählen Sie dann **AD FS-Verwaltung**.  
+1.  Klicken Sie in Server-Manager **auf Extras**, und wählen Sie dann **AD FS Verwaltung**aus.  
   
-2.  In der Konsolenstruktur unter **AD FS**, klicken Sie auf **Vertrauensstellungen für vertrauende Seiten**. 
+2.  Klicken Sie in der Konsolen Struktur unter **AD FS**auf Vertrauens Stellungen der vertrauenden **Seite**. 
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule9.PNG)  
   
-3.  Rechts\-klicken Sie auf der ausgewählten Vertrauensstellung, und klicken Sie dann auf **Anspruchsausstellungsrichtlinie bearbeiten**.
+3.  Klicken\-Sie mit der rechten Maustaste auf die ausgewählte Vertrauensstellung, und klicken Sie dann auf **Richtlinie**zum
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule10.PNG)   
   
-4.  In der **Anspruchsausstellungsrichtlinie bearbeiten** Dialogfeld **Ausstellungstransformationsregeln** klicken Sie auf **Regel hinzufügen** um die Regel-Assistenten zu starten. 
+4.  Klicken Sie im Dialogfeld **Richtlinie für Anspruchs Ausstellung bearbeiten** unter Ausstellungs **Transformationsregeln** auf **Regel hinzufügen** , um den Regel-Assistenten zu starten. 
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule11.PNG)    
 
-5.  Auf der **Regelvorlage auswählen** Seite **anspruchsregelvorlage**Option **Ansprüche mit benutzerdefinierter Regel senden** aus der Liste aus, und klicken Sie dann auf **Weiter**.  
+5.  Wählen Sie auf der Seite **Regel Vorlage auswählen** unter **Anspruchs Regel Vorlage**die Option **Ansprüche mithilfe einer benutzerdefinierten Regel senden** aus der Liste aus, und klicken Sie dann auf **weiter**.  
 ![Regel erstellen](media/Create-a-Rule-to-Send-Claims-Using-a-Custom-Rule/custom3.PNG)   
   
-6.  Auf der **Regel konfigurieren** Seite **anspruchsregelname**, geben Sie den Anzeigenamen für diese Regel. Klicken Sie unter **benutzerdefinierte Regel**geben oder fügen Sie die Anspruchsregel-Sprachsyntax, die Sie für diese Regel verwenden möchten.  
+6.  Geben Sie auf der Seite **Regel konfigurieren** unter **Anspruchs Regel Name**den anzeigen Amen für diese Regel ein. Geben Sie unter **benutzerdefinierte Regel**die Syntax der Anspruchs Regel Sprache ein, die Sie für diese Regel benötigen, oder fügen Sie Sie ein.  
 ![Regel erstellen](media/Create-a-Rule-to-Send-Claims-Using-a-Custom-Rule/custom4.PNG)     
 
 7.  Klicken Sie auf **Fertig stellen**.  
   
-8.  In der **Edit Claim Rules** Dialogfeld klicken Sie auf **OK** um die Regel zu speichern.   
+8.  Klicken Sie im Dialogfeld **Anspruchs Regeln bearbeiten** auf **OK** , um die Regel zu speichern.   
   
-## <a name="to-create-a-rule-to-pass-through-or-filter-an-incoming-claim-on-a-claims-provider-trust-in-windows-server-2016"></a>Erstellen Sie eine Regel, um die pass-through oder Filtern eines eingehenden Anspruchs auf eine Anspruchsanbieter-Vertrauensstellung in Windows Server 2016 
+## <a name="to-create-a-rule-to-pass-through-or-filter-an-incoming-claim-on-a-claims-provider-trust-in-windows-server-2016"></a>So erstellen Sie eine Regel zum Weiterleiten oder Filtern eines eingehenden Anspruchs für eine Anspruchs Anbieter-Vertrauensstellung in Windows Server 2016 
   
-1.  Klicken Sie im Server-Manager **Tools**, und wählen Sie dann **AD FS-Verwaltung**.  
+1.  Klicken Sie in Server-Manager **auf Extras**, und wählen Sie dann **AD FS Verwaltung**aus.  
   
-2.  In der Konsolenstruktur unter **AD FS**, klicken Sie auf **Anspruchsanbieter-Vertrauensstellungen**. 
+2.  Klicken Sie in der Konsolen Struktur unter **AD FS**auf **Anspruchs Anbieter**-Vertrauens Stellungen. 
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule1.PNG)  
   
-3.  Rechts\-klicken Sie auf der ausgewählten Vertrauensstellung, und klicken Sie dann auf **Edit Claim Rules**.
+3.  Klicken\-Sie mit der rechten Maustaste auf die ausgewählte Vertrauensstellung und dann auf **Anspruchs Regeln bearbeiten**.
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule2.PNG)   
   
-4.  In der **Edit Claim Rules** Dialogfeld **Akzeptanztransformationsregeln** klicken Sie auf **Regel hinzufügen** um die Regel-Assistenten zu starten.
+4.  Klicken Sie im Dialogfeld **Anspruchs Regeln bearbeiten** unter **Akzeptanz Transformationsregeln** auf **Regel hinzufügen** , um den Regel-Assistenten zu starten.
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule3.PNG)    
 
-5.  Auf der **Regelvorlage auswählen** Seite **anspruchsregelvorlage**Option **Ansprüche mit benutzerdefinierter Regel senden** aus der Liste aus, und klicken Sie dann auf **Weiter**.  
+5.  Wählen Sie auf der Seite **Regel Vorlage auswählen** unter **Anspruchs Regel Vorlage**die Option **Ansprüche mithilfe einer benutzerdefinierten Regel senden** aus der Liste aus, und klicken Sie dann auf **weiter**.  
 ![Regel erstellen](media/Create-a-Rule-to-Send-Claims-Using-a-Custom-Rule/custom3.PNG)   
   
-6.  Auf der **Regel konfigurieren** Seite **anspruchsregelname**, geben Sie den Anzeigenamen für diese Regel. Klicken Sie unter **benutzerdefinierte Regel**geben oder fügen Sie die Anspruchsregel-Sprachsyntax, die Sie für diese Regel verwenden möchten.  
+6.  Geben Sie auf der Seite **Regel konfigurieren** unter **Anspruchs Regel Name**den anzeigen Amen für diese Regel ein. Geben Sie unter **benutzerdefinierte Regel**die Syntax der Anspruchs Regel Sprache ein, die Sie für diese Regel benötigen, oder fügen Sie Sie ein.  
 ![Regel erstellen](media/Create-a-Rule-to-Send-Claims-Using-a-Custom-Rule/custom4.PNG)     
 
 7.  Klicken Sie auf **Fertig stellen**.  
   
-8.  In der **Edit Claim Rules** Dialogfeld klicken Sie auf **OK** um die Regel zu speichern.   
+8.  Klicken Sie im Dialogfeld **Anspruchs Regeln bearbeiten** auf **OK** , um die Regel zu speichern.   
 
 
 
@@ -91,35 +91,35 @@ Mitgliedschaft in **Administratoren**, oder einer entsprechenden, auf dem lokale
 
    
   
-## <a name="to-create-a-rule-to-send-claims-by-using-a-custom-claim-in-windows-server-2012-r2"></a>Erstellen Sie eine Regel, um Ansprüche zu senden, indem Sie einen benutzerdefinierten Anspruch in Windows Server 2012 R2 
+## <a name="to-create-a-rule-to-send-claims-by-using-a-custom-claim-in-windows-server-2012-r2"></a>So erstellen Sie eine Regel zum Senden von Ansprüchen mithilfe eines benutzerdefinierten Anspruchs in Windows Server 2012 R2 
   
-1.  Klicken Sie im Server-Manager **Tools**, und klicken Sie dann auf **AD FS-Verwaltung**.  
+1.  Klicken Sie in Server-Manager **auf Extras, und**klicken Sie dann auf **AD FS Verwaltung**.  
   
-2.  In der Konsolenstruktur unter **AD FS\\Vertrauensstellungen**, klicken Sie auf **Anspruchsanbieter-Vertrauensstellungen** oder **Vertrauensstellungen für vertrauende Seiten**, und klicken Sie dann auf einen bestimmten Vertrauen Sie in der Liste, die zum Erstellen dieser Regel werden sollen.  
+2.  Klicken Sie in der Konsolen Struktur **unter\\AD FS Vertrauens**Stellungen entweder auf **Anspruchs Anbieter** -Vertrauens Stellungen oder Vertrauens Stellungen der vertrauenden **Seite**, und klicken Sie dann auf eine bestimmte Vertrauensstellung in der Liste, in der Sie diese Regel erstellen möchten.  
   
-3.  Rechts\-klicken Sie auf der ausgewählten Vertrauensstellung, und klicken Sie dann auf **Edit Claim Rules**.  
+3.  Klicken\-Sie mit der rechten Maustaste auf die ausgewählte Vertrauensstellung und dann auf **Anspruchs Regeln bearbeiten**.  
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule6.PNG) 
   
-4.  In der **Edit Claim Rules** (Dialogfeld), wählen Sie eine der folgenden Registerkarten, die für die Vertrauensstellung abhängt, die Sie bearbeiten und in der Regel legen Sie möchten, erstellen diese Regel, und klicken Sie dann auf **Regel hinzufügen** um die Regel zu starten. Legen Sie den Assistenten, der dieser Regel zugeordnet ist:  
+4.  Wählen Sie im Dialogfeld **Anspruchs Regeln bearbeiten** eine der folgenden Registerkarten aus, die von der zu bearbeitenden Vertrauensstellung und dem Regelsatz abhängt, den Sie diese Regel erstellen möchten, und klicken Sie dann auf **Regel hinzufügen** , um den Regel-Assistenten zu starten, der diesem Regelsatz zugeordnet ist. :  
   
-    -   **Akzeptanztransformationsregeln**  
+    -   **Akzeptanz Transformationsregeln**  
   
-    -   **Ausstellungstransformationsregeln**  
+    -   **Ausstellungs Transformationsregeln**  
   
-    -   **Ausstellungsautorisierungsregeln**  
+    -   **Ausstellungs Autorisierungs Regeln**  
   
-    -   **Autorisierungsregeln**  
+    -   **Delegierungs Autorisierungs Regeln**  
 ![Regel erstellen](media/Create-a-Rule-to-Permit-All-Users/permitall5.PNG)
   
-5.  Auf der **Regelvorlage auswählen** Seite **anspruchsregelvorlage**Option **Ansprüche mit benutzerdefinierter Regel senden** aus der Liste aus, und klicken Sie dann auf **Weiter**.  
+5.  Wählen Sie auf der Seite **Regel Vorlage auswählen** unter **Anspruchs Regel Vorlage**die Option **Ansprüche mithilfe einer benutzerdefinierten Regel senden** aus der Liste aus, und klicken Sie dann auf **weiter**.  
 ![Regel erstellen](media/Create-a-Rule-to-Send-Claims-Using-a-Custom-Rule/custom1.PNG)   
   
-6.  Auf der **Regel konfigurieren** Seite **anspruchsregelname**, geben Sie den Anzeigenamen für diese Regel. Klicken Sie unter **benutzerdefinierte Regel**geben oder fügen Sie die Anspruchsregel-Sprachsyntax, die Sie für diese Regel verwenden möchten.  
+6.  Geben Sie auf der Seite **Regel konfigurieren** unter **Anspruchs Regel Name**den anzeigen Amen für diese Regel ein. Geben Sie unter **benutzerdefinierte Regel**die Syntax der Anspruchs Regel Sprache ein, die Sie für diese Regel benötigen, oder fügen Sie Sie ein.  
 ![Regel erstellen](media/Create-a-Rule-to-Send-Claims-Using-a-Custom-Rule/custom2.PNG)     
 
 7.  Klicken Sie auf **Fertig stellen**.  
   
-8.  In der **Edit Claim Rules** Dialogfeld klicken Sie auf **OK** um die Regel zu speichern.  
+8.  Klicken Sie im Dialogfeld **Anspruchs Regeln bearbeiten** auf **OK** , um die Regel zu speichern.  
 
 ## <a name="additional-references"></a>Weitere Verweise 
 [Konfigurieren von Anspruchsregeln](Configure-Claim-Rules.md)  
@@ -128,7 +128,7 @@ Mitgliedschaft in **Administratoren**, oder einer entsprechenden, auf dem lokale
 
 [Prüfliste: Erstellen von Anspruchsregeln für eine Anspruchsanbieter-Vertrauensstellung](https://technet.microsoft.com/library/ee913564.aspx)  
   
-[Wenn Use an Authorization Claim Rule](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
+[Wann sollte eine Autorisierungs Anspruchs Regel verwendet werden?](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 
 [Rolle von Ansprüchen](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
   

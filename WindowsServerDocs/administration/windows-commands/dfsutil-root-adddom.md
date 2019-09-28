@@ -1,7 +1,7 @@
 ---
-title: DFSutil Stamm addDom
+title: Dfsutil-root adddom
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -12,17 +12,17 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 511b68e2c45f5fd6b7060228c0835747fe2ea20e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6f7a39a535d1ddd48aa0ffbf9ad1c3272c454fc8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886441"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378151"
 ---
-# <a name="dfsutil-root-adddom"></a>DFSutil Stamm addDom
+# <a name="dfsutil-root-adddom"></a>Dfsutil-root adddom
 
 
 
-## <a name="this-topic-is-no-longer-available"></a>In diesem Thema ist nicht mehr verfügbar
+## <a name="this-topic-is-no-longer-available"></a>Dieses Thema ist nicht mehr verfügbar.
 
-Es tut uns leid, die von Ihnen angeforderte Thema ist nicht mehr verfügbar.
+Das von Ihnen angeforderte Thema ist leider nicht mehr verfügbar.

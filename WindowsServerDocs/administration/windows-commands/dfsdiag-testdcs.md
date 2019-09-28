@@ -1,8 +1,8 @@
 ---
-title: Dfsdiag TestDCs
-description: 'Windows-Befehle Thema ***- '
+title: Dfsdiag-testdcs
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,24 +13,24 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 62956ae65d2311939ac0db6a4b86950f21dba407
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a193e68b6f015b1535a98e20b52deb2a4a14034c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836601"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378438"
 ---
-# <a name="dfsdiag-testdcs"></a>Dfsdiag TestDCs
+# <a name="dfsdiag-testdcs"></a>Dfsdiag-testdcs
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Überprüft die Konfiguration der Domänencontroller anhand der folgenden Tests auf jedem Domänencontroller in der angegebenen Domäne:  
+Überprüft die Konfiguration von Domänen Controllern, indem die folgenden Tests auf den einzelnen Domänen Controllern in der angegebenen Domäne durchgeführt werden:  
   
--   überprüft, ob das Distributed File System \(DFS\) Namespace-Dienst ausgeführt wird und, die der Starttyp auf automatisch gesetzt ist.  
+-   überprüft, ob die verteiltes Dateisystem \(dfs @ no__t-1-Namespace Dienst ausgeführt wird und ob der Starttyp auf "automatisch" festgelegt ist.  
   
--   Überprüft, ob die Unterstützung des Standorts\-mit Kosten Verweise für Netlogon- und SYSvol.  
+-   Hiermit wird die Unterstützung von "Site @ no__t-0costed Verweise" für "Netlogon" und "SYSVOL" überprüft.  
   
--   überprüft die Konsistenz der sitezuordnung von Hostnamen und IP-Adresse an.  
+-   überprüft die Konsistenz der Site Zuordnung nach Hostname und IP-Adresse.  
   
   
   
@@ -44,22 +44,22 @@ dfsdiag /TestDCs [/Domain:<Domain name>]
   
 |Parameter|Beschreibung|  
 |-------|--------|  
-|\/Domäne:<Domain name>|Domäne, die Sie überprüfen möchten.|  
+|\/domäne: <Domain name>|Die Domäne, die Sie überprüfen möchten.|  
   
 ## <a name="remarks"></a>Hinweise  
-\/Domäne ist ein optionaler Parameter. Der Standardwert ist die lokale Domäne, der mit der lokale Host verknüpft ist.  
+\/domäne ist ein optionaler Parameter. Der Standardwert ist die lokale Domäne, mit der der lokale Host verknüpft ist.  
   
-## <a name="BKMK_Examples"></a>Beispiele für  
-Geben Sie Folgendes ein, um die Konfiguration von Domänencontrollern in der Domäne "contoso.com" zu überprüfen:  
+## <a name="BKMK_Examples"></a>Beispiele  
+Zum Überprüfen der Konfiguration von Domänen Controllern in der Domäne contoso.com geben Sie Folgendes ein:  
   
 ```  
 dfsdiag /TestDCs /Domain:Contoso.com  
 ```  
   
-## <a name="additional-references"></a>Zusätzliche Referenzen  
+## <a name="additional-references"></a>Weitere Verweise  
   
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
--   [dfsdiag](dfsdiag.md)  
+-   [Dfsdiag](dfsdiag.md)  
   
 

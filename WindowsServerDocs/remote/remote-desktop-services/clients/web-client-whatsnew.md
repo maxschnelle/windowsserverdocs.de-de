@@ -2,7 +2,7 @@
 title: Neues beim Webclient
 description: Hier erfährst du mehr über aktuelle Änderungen für den Remotedesktop-Webclient.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -13,12 +13,12 @@ manager: daveba
 ms.author: helohr
 ms.date: 09/11/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 14d5eab00271ea825bb84a2d8189a44c38fa5388
-ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
+ms.openlocfilehash: d233708c6d206569f42f2a883bd342e90813f6a3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70987374"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404095"
 ---
 # <a name="whats-new-in-the-web-client"></a>Neues beim Webclient
 

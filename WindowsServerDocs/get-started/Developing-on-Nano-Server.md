@@ -1,7 +1,7 @@
 ---
 title: Entwickeln für Nano Server
 description: PowerShell-Remoting und CIM-Sitzungen
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: DonGill
 ms.technology: server-nano
@@ -12,12 +12,12 @@ ms.assetid: 57079470-a1c1-4fdc-af15-1950d3381860
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 8d793dde9c41bc99b55eeb0da3a5ee4b025f08d6
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 6cf21d9db4221fd6bd76cfd5c362bb9f168d1ce9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66443640"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71360321"
 ---
 # <a name="developing-for-nano-server"></a>Entwickeln für Nano Server
 
@@ -55,9 +55,9 @@ Enter-PSSession -ComputerName $ip -Credential $user
 Sie können nun wie gewohnt Windows PowerShell-Befehle auf dem Nano Server ausführen.  
   
 > [!NOTE]  
-> In diesem Release von Nano Server sind nicht alle Windows PowerShell-Befehle verfügbar. Führe `Get-Command -CommandType Cmdlet` aus, um die verfügbaren Befehle anzuzeigen.  
+> In diesem Release von Nano Server sind nicht alle Windows PowerShell-Befehle verfügbar. Führen Sie `Get-Command -CommandType Cmdlet` aus, um die verfügbaren Befehle anzuzeigen.  
   
-Beende die Remotesitzung mit dem Befehl `Exit-PSSession`.  
+Beenden Sie die Remotesitzung mit dem Befehl `Exit-PSSession`.  
   
 ## <a name="using-windows-powershell-cim-sessions-over-winrm"></a>Verwenden von Windows PowerShell-CIM-Sitzungen über WinRM  
 Sie können CIM-Sitzungen und -Instanzen in Windows PowerShell verwenden, um WMI-Befehle über die Windows-Remoteverwaltung (Windows Remote Management, WinRM) auszuführen.  

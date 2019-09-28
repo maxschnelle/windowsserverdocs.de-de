@@ -1,42 +1,42 @@
 ---
-title: Wiederherstellung der AD-Gesamtstruktur – Entfernen des globalen Katalogs
+title: 'AD-Gesamtstruktur Wiederherstellung: Entfernen des globalen Katalogs'
 description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/09/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.assetid: 60087a62-11e6-4750-a70e-510f35315688
 ms.technology: identity-adds
-ms.openlocfilehash: d730ce65fc179aee6a98f7cfc1a5b693bfcd6c93
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3ba1336828ad6031ce7fb47a659d084494466e4a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817071"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71409098"
 ---
-# <a name="ad-forest-recovery---removing-the-global-catalog"></a>AD-Gesamtstruktur-Wiederherstellung: Entfernen des globalen Katalogs  
+# <a name="ad-forest-recovery---removing-the-global-catalog"></a>AD-Gesamtstruktur Wiederherstellung: Entfernen des globalen Katalogs  
 
 >Gilt für: Windows Server 2016, Windows Server 2012 und 2012 R2, Windows Server 2008 und 2008 R2
 
- Verwenden Sie das folgende Verfahren, um den globalen Katalog von einem Domänencontroller zu entfernen. 
+ Verwenden Sie das folgende Verfahren, um den globalen Katalog von einem DC zu entfernen. 
   
- Wiederherstellen von einem globalen Katalogserver aus einer Sicherung kann im globalen Katalog enthält neuere Daten für eine ihrer partiellen Replikate nicht mit der entsprechenden Domäne, die für dieses Replikat autorisierend ist führen. In diesem Fall wird die neuere Daten nicht aus dem globalen Katalog entfernt und möglicherweise sogar auf anderen globalen Katalogserver repliziert. Daher sollten auch, wenn Sie einen Domänencontroller, der entweder ein globaler Katalogserver, versehentlich wurde wiederhergestellt wurde oder das einzelne Sicherung war Sie als vertrauenswürdig eingestuft, Sie den globalen Katalog entfernen sobald der Wiederherstellungsvorgang abgeschlossen ist. Wenn der globale Katalog entfernt wird, entfernt der Computer seine Teilreplikate. 
+ Wenn Sie einen globalen Katalogserver aus einer Sicherung wiederherstellen, kann dies dazu führen, dass der globale Katalog neuere Daten für eines seiner partiellen Replikate enthält als die entsprechende Domäne, die für dieses partielle Replikat In einem solchen Fall werden die neueren Daten nicht aus dem globalen Katalog entfernt und können sogar auf andere globale Katalogserver repliziert werden. Daher sollten Sie den globalen Katalog kurz nach Abschluss des Wiederherstellungs Vorgangs entfernen, auch wenn Sie einen Domänen Controller wieder hergestellt haben, der ein globaler Katalogserver war, entweder versehentlich oder weil es sich dabei um die alleinige vertrauenswürdige Sicherung handelt. Beim Entfernen des globalen Katalogs entfernt der Computer alle Teil Replikate. 
   
-## <a name="to-remove-the-global-catalog-using-active-directory-sites-and-services"></a>So entfernen Sie den globalen Katalog mithilfe der Active Directory-Standorte und-Dienste  
+## <a name="to-remove-the-global-catalog-using-active-directory-sites-and-services"></a>So entfernen Sie den globalen Katalog mithilfe Active Directory Standorte und Dienste  
  
-1. Öffnen Sie Server-Manager, klicken Sie auf **Tools** , und klicken Sie auf **Active Directory-Standorte und-Dienste**. 
-2. Erweitern Sie in der Konsolenstruktur der **Websites** Container, und wählen Sie dann den entsprechenden Standort an, die den Zielserver enthält. 
-3. Erweitern Sie die **Server** Container, und erweitern Sie dann die *Server* Objekt für den DC, der von dem der globale Katalog entfernt werden sollen. 
-4. Mit der rechten Maustaste **NTDS-Einstellungen**, und klicken Sie dann auf **Eigenschaften**. 
-5. Deaktivieren der **globalen Katalog** Kontrollkästchen. 
-   ![Entfernen von GC](media/AD-Forest-Recovery-Remove-GC/removegc1.png)
+1. Öffnen Sie Server-Manager, klicken Sie auf Extras **, und klicken Sie auf** **Active Directory Websites und Dienste**. 
+2. Erweitern Sie in der Konsolen Struktur den Container **Standorte** , und wählen Sie dann den entsprechenden Standort aus, der den Zielserver enthält. 
+3. Erweitern Sie den Container **Server** , und erweitern Sie dann das *Server* Objekt für den Domänen Controller, von dem aus Sie den globalen Katalog entfernen möchten. 
+4. Klicken Sie mit der rechten Maustaste auf **NTDS-Einstellungen**, und klicken Sie auf **Eigenschaften**. 
+5. Deaktivieren Sie das Kontrollkästchen **globaler Katalog** . 
+   ![remove GC @ no__t-1
 6. Klicken Sie auf **Übernehmen**.
   
-## <a name="to-remove-the-global-catalog-using-repadmin"></a>So entfernen Sie den globalen Katalog mit Repadmin  
+## <a name="to-remove-the-global-catalog-using-repadmin"></a>So entfernen Sie den globalen Katalog mithilfe von "repadmin"  
   
-Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, geben Sie den folgenden Befehl, und drücken Sie die EINGABETASTE:  
+Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, geben Sie folgenden Befehl ein, und drücken Sie die EINGABETASTE:  
 
    ```
    repadmin.exe /options DC_NAME –IS_GC  
@@ -44,5 +44,5 @@ ms.locfileid: "59817071"
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Für die Wiederherstellung des AD-Gesamtstruktur](AD-Forest-Recovery-Guide.md)
-- [Wiederherstellung der Gesamtstruktur der Active Directory - Prozeduren](AD-Forest-Recovery-Procedures.md)
+- [Wiederherstellung der AD-Gesamtstruktur: Leitfaden](AD-Forest-Recovery-Guide.md)
+- [Wiederherstellung der AD-Gesamtstruktur: Verfahren](AD-Forest-Recovery-Procedures.md)

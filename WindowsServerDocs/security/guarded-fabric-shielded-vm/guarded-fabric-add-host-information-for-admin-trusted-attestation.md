@@ -1,57 +1,57 @@
 ---
-title: Fügen Sie die Hostinformationen für Admin-vertrauenswürdiger Nachweis
+title: Hinzufügen von Hostinformationen für den Administrator vertrauenswürdigen Nachweis
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: 87089ebc-b953-4aa3-96b5-966cf91acb02
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 7949711dbb0f89f5404b491d60938985bfa98c22
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 946f91d05063475ae45fb334c67f8d5081d3984d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849461"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403713"
 ---
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-# <a name="authorize-hyper-v-hosts-using-admin-trusted-attestation"></a>Autorisieren von Hyper-V-Hosts, die Admin-vertrauenswürdiger Nachweis verwenden
+# <a name="authorize-hyper-v-hosts-using-admin-trusted-attestation"></a>Autorisieren von Hyper-V-Hosts mithilfe von Administrator vertrauenswürdigem Nachweis
 
 >[!IMPORTANT]
->Admin-vertrauenswürdiger Nachweis (Active Directory-Modus) ist veraltet, beginnend mit Windows Server-2019. Konfigurieren Sie für Umgebungen, in denen ist TPM-Nachweis nicht möglich, [hosten den schlüsselnachweis](guarded-fabric-initialize-hgs-key-mode.md). Host den schlüsselnachweis bietet eine ähnliche Garantie in den Active Directory-Modus, und es ist leichter einzurichten. 
+>Der admin-Trusted Nachweis (AD-Modus) ist ab Windows Server 2019 veraltet. Für Umgebungen, in denen ein TPM-Nachweis nicht möglich ist, konfigurieren Sie den [Host Schlüssel](guarded-fabric-initialize-hgs-key-mode.md)Nachweis. Der Host Schlüssel Nachweis bietet eine ähnliche Garantie für den AD-Modus und ist einfacher einzurichten. 
 
 
-So autorisieren Sie als überwachten Host im AD-Modus 
+So autorisieren Sie einen überwachten Host im AD-Modus: 
 
-1. Fügen Sie in der Fabric-Domäne die Hyper-V-Hosts zu einer Sicherheitsgruppe hinzu.
-2. Registrieren Sie in der Domäne des Host-Überwachungsdienst die SID der Sicherheitsgruppe mit Host-Überwachungsdienst. 
+1. Fügen Sie die Hyper-V-Hosts in der Fabric-Domäne einer Sicherheitsgruppe hinzu.
+2. Registrieren Sie in der HGS-Domäne die SID der Sicherheitsgruppe bei HGS. 
 
-## <a name="add-the-hyper-v-host-to-a-security-group-and-reboot-the-host"></a>Der Hyper-V-Host zu einer Sicherheitsgruppe hinzugefügt und den Host neu starten
+## <a name="add-the-hyper-v-host-to-a-security-group-and-reboot-the-host"></a>Hinzufügen des Hyper-V-Hosts zu einer Sicherheitsgruppe und Neustarten des Hosts
 
-1. Erstellen Sie eine **GLOBAL** Sicherheit in der Fabric-Domäne, und fügen Sie abgeschirmte VMs Hyper-V-Hosts, die ausgeführt werden. 
-   Starten Sie den Host aktualisieren ihre Gruppenmitgliedschaft neu.
+1. Erstellen Sie eine **globale** Sicherheitsgruppe in der Fabric-Domäne, und fügen Sie Hyper-V-Hosts hinzu, auf denen geschützte VMS ausgeführt werden. 
+   Starten Sie die Hosts neu, um deren Gruppenmitgliedschaft zu aktualisieren.
 
-2. Verwenden Sie Get-ADGroup, um die Sicherheits-ID (SID) der Sicherheitsgruppe zu erhalten, und geben Sie sie an den HGS-Administrator. 
+2. Verwenden Sie Get-adgroup zum Abrufen der Sicherheits-ID (SID) der Sicherheitsgruppe, und stellen Sie Sie für den HGS-Administrator bereit. 
 
    ```powershell
    Get-ADGroup "Guarded Hosts"
    ```
 
-   ![Get-AdGroup-Befehl mit der Ausgabe](../media/Guarded-Fabric-Shielded-VM/guarded-host-get-adgroup.png)
+   ![Befehl "Get-adgroup" mit Ausgabe](../media/Guarded-Fabric-Shielded-VM/guarded-host-get-adgroup.png)
 
-## <a name="register-the-sid-of-the-security-group-with-hgs"></a>Registrieren Sie die SID der Sicherheitsgruppe mit Host-Überwachungsdienst  
+## <a name="register-the-sid-of-the-security-group-with-hgs"></a>Registrieren der SID der Sicherheitsgruppe bei HGS  
 
-1. Rufen Sie die SID der Sicherheitsgruppe für überwachte Hosts von der Fabric-Administrator, und führen Sie den folgenden Befehl, der Sicherheitsgruppe "bei HGS registriert. 
-   Führen Sie den Befehl erneut aus, bei Bedarf für zusätzliche Gruppen. 
-   Geben Sie einen Anzeigenamen für die Gruppe ein. 
-   Es muss nicht mit dem Active Directory Security Group-Namen übereinstimmen. 
+1. Rufen Sie die SID der Sicherheitsgruppe für geschützte Hosts vom Fabric-Administrator ab, und führen Sie den folgenden Befehl aus, um die Sicherheitsgruppe bei HGS zu registrieren. 
+   Führen Sie den Befehl bei Bedarf erneut für weitere Gruppen aus. 
+   Geben Sie einen anzeigen Amen für die Gruppe an. 
+   Er muss nicht mit dem Namen der Active Directory Sicherheitsgruppe identisch sein. 
 
    ```powershell
    Add-HgsAttestationHostGroup -Name "<GuardedHostGroup>" -Identifier "<SID>"
    ```
 
-2. Führen Sie zum Überprüfen, ob die Gruppe hinzugefügt wurde, [Get-HgsAttestationHostGroup](https://technet.microsoft.com/library/mt652172.aspx). 
+2. Führen [Sie Get-hgsattestationhostgroup](https://technet.microsoft.com/library/mt652172.aspx)aus, um zu überprüfen, ob die Gruppe hinzugefügt wurde. 
 
 

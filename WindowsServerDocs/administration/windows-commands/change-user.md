@@ -1,8 +1,8 @@
 ---
 title: change user
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bedef9f996554a3b5745b47f646204646fdfa9a6
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 771e39182c17b9a6710e49eff2f5302e539bdbb5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434413"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379570"
 ---
 # <a name="change-user"></a>change user
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Ändert den Installationsmodus für den Server Remote Desktop Session Host (rd Session Host).
-Beispiele für diesen Befehl verwenden, finden Sie unter [Beispiele](#BKMK_examples).
+ändert den Installationsmodus für den Remotedesktop-Sitzungshost Server (RD-Sitzungs Host).
+Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 > [!NOTE]
-> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Neuerungen in der neuesten Version finden Sie unter [welche s New in Remote Desktop Services in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der technischen Bibliothek für Windows Server.
+> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der TechNet-Bibliothek für Windows Server.
 > ## <a name="syntax"></a>Syntax
 > ```
 > change user {/execute | /install | /query}
@@ -36,32 +36,31 @@ Beispiele für diesen Befehl verwenden, finden Sie unter [Beispiele](#BKMK_examp
 > 
 > | Parameter |                                                                                                 Beschreibung                                                                                                  |
 > |-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | / Ausführen  |                                                                Ermöglicht die Zuordnung von INI-Datei in das Stammverzeichnis. Dies ist die Standardeinstellung.                                                                 |
-> | / Install  | Deaktiviert die Zuordnung der INI-Dateien in das Stammverzeichnis. Alle INI-Dateien gelesen und geschrieben werden, für das Systemverzeichnis. Bei der Installation von Anwendungen auf einen Remotedesktop-Sitzungshostserver, müssen Sie die Zuordnung der INI-Dateien deaktivieren. |
-> |  /query   |                                                                             Zeigt die aktuelle Einstellung für die Zuordnung der INI-Dateien.                                                                              |
+> | /execute  |                                                                Ermöglicht die Zuordnung von INI-Dateien zum Basisverzeichnis. Dies ist die Standardeinstellung.                                                                 |
+> | /install  | Deaktiviert die Zuordnung der INI-Datei zum Basisverzeichnis. Alle INI-Dateien werden gelesen und in das System Verzeichnis geschrieben. Wenn Sie Anwendungen auf einem Remote Desktop-Sitzungs Host Server installieren, müssen Sie die INI-Datei Zuordnung deaktivieren. |
+> |  /Query "aus   |                                                                             Zeigt die aktuelle Einstellung für die INI-Datei Zuordnung an.                                                                              |
 > |    /?     |                                                                                     Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                     |
 > 
 > ## <a name="remarks"></a>Hinweise
-> - Verwendung **Change User/install** vor der Installation einer Anwendung auf die INI-Dateien für die Anwendung im Verzeichnis Systems zu erstellen. Diese Dateien werden als Quelle verwendet, wenn benutzerspezifische INI-Dateien erstellt werden. Verwenden Sie nach der Installation der Anwendung **Benutzer ändern / execute** , um die Zuordnung der INI-Dateien wiederherzustellen.
-> - Beim ersten, die Sie beim Ausführen der Anwendung sucht er das Basisverzeichnis für die INI-Dateien. Wenn die INI-Dateien sind im home-Verzeichnis nicht gefunden, aber sich im Systemverzeichnis befinden, kopiert Remote Desktop Services die INI-Dateien in das Stammverzeichnis, um sicherzustellen, dass jeder Benutzer eine eindeutige Kopie der INI-Dateien der Anwendung. Alle neuen INI-Dateien werden im Basisverzeichnis erstellt.
-> - Jeder Benutzer muss eine eindeutige Kopie der INI-Dateien für eine Anwendung verfügen. Dies verhindert, dass Instanzen, in denen verschiedene Konfigurationen inkompatible Anwendung, (z. B. verschiedene dem Standard entsprechenden Verzeichnissen oder bildschirmauflösungen) von Benutzern eventuell.
-> - Wenn das System ist in den Installationsmodus wechseln (d. h. **Change User/install**), verschiedene Dinge passieren. Alle Registrierungseinträge, die erstellt werden, sind unter schattiert **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\Currentversion\Terminal Server\Install**, entweder in der **\SOFTWARE** Unterschlüssel oder die **\MACHINE** Unterschlüssel. Unterschlüssel hinzugefügt **HKEY_CURrenT_USER** werden unter kopiert die **\SOFTWARE** Unterschlüssel, und der Unterschlüssel hinzugefügt **HKEY_LOCAL_MACHINE** werden kopiert, unter der **\ Computer** Unterschlüssel. Wenn die Anwendung das Windows-Verzeichnis abfragt, mithilfe von Systemaufrufen, z. B. GetWindowsdirectory gibt der Remotedesktop-Sitzungshostserver des Verzeichnisses Systemroot zurück. Wenn INI-Dateieinträge hinzugefügt werden, mithilfe von Systemaufrufen, wie WritePrivateProfileString, werden sie in der INI-Dateien im Verzeichnis Systemroot hinzugefügt.
-> - Das System in den Ausführungsmodus zurück (d. h. **ändern Sie die Benutzer aus, und führen Sie**), und die Anwendung versucht, einen Registrierungseintrag unter Lesen **HKEY_CURrenT_USER** , die nicht vorhanden, Remote Desktop Services überprüft, ob eine Kopie des Schlüssels unter vorhanden ist. die **\Terminal Server\Install** Unterschlüssel. Wenn dies der Fall ist, werden die Unterschlüssel an die gewünschte Position unter kopiert **HKEY_CURrenT_USER**. Wenn die Anwendung versucht, die aus einer INI-Datei zu lesen, die nicht vorhanden ist, durchsucht Remote Desktop Services für die Initialisierungsdatei unter dem Systemstamm. Ist die INI-Datei im Stammverzeichnis Systems, wird es in das Unterverzeichnis "\Windows" der home-Verzeichnis des Benutzers kopiert. Wenn die Anwendung über das Windows-Verzeichnis abfragt, gibt der Remotedesktop-Sitzungshostserver Unterverzeichnis "\Windows" des home-Verzeichnis des Benutzers zurück.
-> - Wenn Sie sich anmelden, überprüft Remote Desktop Services, ob die System-INI-Dateien neuer als die INI-Dateien auf Ihrem Computer. Wenn die Systemversion neuer ist, ist die INI-Datei entweder ersetzt oder zusammengeführt wird, mit der neueren Version. Dies hängt davon, ob die INISYNC, 0 x 40-bit, ist für diese Initialisierungsdatei. Die vorherige Version der INI-Datei ist Inifile.ctx umbenannt. Wenn die Registrierung des Systems unter Werten der **\Terminal Server\Install** Unterschlüssel aktuellere Ihre Version unter **HKEY_CURrenT_USER**, Ihre Version der Unterschlüssel gelöscht und durch die neue Unterschlüssel ersetzt von **\Terminal Server\Install**.
->   ## <a name="BKMK_examples"></a>Beispiele für
-> - Um die Zuordnung der INI-Dateien im Basisverzeichnis deaktivieren möchten, geben Sie Folgendes ein:
+> - Verwenden Sie **Benutzer ändern/install** , bevor Sie eine Anwendung installieren, um INI-Dateien für die Anwendung im System Verzeichnis zu erstellen. Diese Dateien werden als Quelle verwendet, wenn benutzerspezifische ini-Dateien erstellt werden. Verwenden Sie nach der Installation der Anwendung **Change user/execute** , um die Datei Zuordnung der Standard-INI-Datei wiederherzustellen.
+> - Wenn Sie die Anwendung zum ersten Mal ausführen, wird das Basisverzeichnis nach den zugehörigen ini-Dateien durchsucht. Wenn die INI-Dateien nicht im Basisverzeichnis gefunden werden, aber im System Verzeichnis gefunden werden, werden Remotedesktopdienste die INI-Dateien in das Basisverzeichnis kopiert, um sicherzustellen, dass jeder Benutzer über eine eindeutige Kopie der INI-Dateien der Anwendung verfügt. Alle neuen ini-Dateien werden im Basisverzeichnis erstellt.
+> - Jeder Benutzer muss über eine eindeutige Kopie der INI-Dateien für eine Anwendung verfügen. Dadurch wird verhindert, dass Instanzen, in denen unterschiedliche Benutzer möglicherweise nicht kompatible Anwendungs Konfigurationen aufweisen (z. b. verschiedene Standard Verzeichnisse oder Bildschirmauflösungen).
+> - Wenn sich das System im Installationsmodus befindet (d. h. **Benutzer/install ändern**), treten mehrere Dinge auf. Alle Registrierungseinträge, die erstellt werden, werden unter **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Terminal server\install**in den Unterschlüssel **\Software** oder den Unterschlüssel **\Machine** schattiert. Zu **HKEY_CURrenT_USER** hinzugefügte Unterschlüssel werden unter dem Unterschlüssel **\Software** kopiert, und die zu **HKEY_LOCAL_MACHINE** hinzugefügten Unterschlüssel werden unter dem Unterschlüssel **\Machine** kopiert. Wenn die Anwendung das Windows-Verzeichnis mithilfe von Systemaufrufen abfragt (z. b. GetWindowsDirectory), gibt der RD-Sitzungs Host Server das Verzeichnis systemroot zurück. Wenn eine INI-Datei Einträge mithilfe von Systemaufrufen (z. b. "Write-PrivateProfileString") hinzugefügt werden, werden Sie den INI-Dateien im Verzeichnis "SystemRoot" hinzugefügt.
+> - Wenn das System in den Ausführungs Modus zurückkehrt (d. h. **Benutzer/Execute ändern**) und die Anwendung versucht, einen Registrierungs Eintrag unter **HKEY_CURrenT_USER** zu lesen, der nicht vorhanden ist, überprüft Remotedesktopdienste, ob eine Kopie des Schlüssels vorhanden ist. der Unterschlüssel **\terminal server\install** . Wenn dies der Fall ist, werden die Unterschlüssel an den entsprechenden Speicherort unter **HKEY_CURrenT_USER**kopiert. Wenn die Anwendung versucht, aus einer nicht vorhandenen ini-Datei zu lesen, sucht Remotedesktopdienste nach dieser INI-Datei im Stammverzeichnis des Systems. Wenn sich die INI-Datei im Stammverzeichnis des Systems befindet, wird Sie in das Unterverzeichnis "\Windows" des Basisverzeichnisses des Benutzers kopiert. Wenn die Anwendung das Windows-Verzeichnis abfragt, gibt der RD-Sitzungs Host Server das Unterverzeichnis "\Windows" des Basisverzeichnisses des Benutzers zurück.
+> - Wenn Sie sich anmelden, wird Remotedesktopdienste überprüft, ob die System. ini-Dateien neuer als die INI-Dateien auf dem Computer sind. Wenn die System Version neuer ist, wird die INI-Datei entweder ersetzt oder mit der neueren Version zusammengeführt. Dies hängt davon ab, ob das INISYNC-Bit 0x40 für diese INI-Datei festgelegt ist. Ihre vorherige Version der INI-Datei wurde in "inifile. ctx" umbenannt. Wenn die System Registrierungs Werte unter dem Unterschlüssel **\terminal server\install** neuer als Ihre Version unter **HKEY_CURrenT_USER**sind, wird Ihre Version der Unterschlüssel gelöscht und durch die neuen untergeordneten Schlüssel von **\terminal server\install**ersetzt.
+>   ## <a name="BKMK_examples"></a>Beispiele
+> - Geben Sie Folgendes ein, um die INI-Datei Zuordnung im Basisverzeichnis zu deaktivieren:
 >   ```
 >   change user /install
 >   ```
-> - Um-dateizuordnung die INI-Datei im Basisverzeichnis zu aktivieren, geben Sie Folgendes ein:
+> - Geben Sie Folgendes ein, um die INI-Datei Zuordnung im Basisverzeichnis zu aktivieren:
 >   ```
 >   change user /execute
 >   ```
-> - Um die aktuelle Einstellung für die Zuordnung der INI-Dateien anzuzeigen, geben Sie Folgendes ein:
+> - Geben Sie Folgendes ein, um die aktuelle Einstellung für die INI-Datei Zuordnung anzuzeigen:
 >   ```
 >   change user /query
 >   ```
->   #### <a name="additional-references"></a>Zusätzliche Referenzen
->   [Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
->   [ändern](change.md)
->   [Remote Desktop Services &#40;"Terminal Services"&#41; -Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)
+>   #### <a name="additional-references"></a>Weitere Verweise
+>   [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+>   -[Änderung](change.md)@no__t-[3 &#40;Remotedesktopdienste Befehls&#41; Referenz für Terminal Dienste](remote-desktop-services-terminal-services-command-reference.md)

@@ -7,37 +7,37 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 8e454a9b1a7375be5cfdbc1e76316ad62ff40067
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 05da1b7df2e3242c9b68bd7858c824f91e81a563
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445802"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407102"
 ---
 # <a name="deploy-encryption-of-office-files-demonstration-steps"></a>Bereitstellen der Verschlüsselung von Office-Dateien (Demonstrationsschritte)
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Finanzabteilung von Contoso verfügt über eine Anzahl von Dateiservern, die ihre Dokumente zu speichern. Diese Dokumente können von allgemeiner Natur oder aber unternehmenskritisch sein, d. h. großen geschäftsrelevanten Einfluss (High Business Impact, HBI) haben. So werden beispielsweise alle Dokumente mit vertraulichen Informationen von Contoso als HBI-Dokumente erachtet. Contoso möchte sicherstellen, dass die gesamte Firmendokumentation ein Mindestmaß an Schutz erhält und der Zugriff auf die HBI-Dokumente auf die richtigen (entsprechend berechtigten) Personen beschränkt ist. Um dies zu erreichen, Contoso File Classification mithilfe der Dateiklassifizierungsinfrastruktur (FCI) und AD RMS, die in Windows Server 2012 verfügbar ist. Mithilfe der FCI klassifiziert Contoso alle auf dem Dateiserver vorhandenen Dokumente basierend auf dem Inhalt und verwendet dann AD RMS, um die richtigen Benutzerrechterichtlinien anzuwenden.  
+Die Finanzabteilung von "die Finanzabteilung von" ist eine Reihe von Dateiservern, auf denen Ihre Dokumente gespeichert werden. Diese Dokumente können von allgemeiner Natur oder aber unternehmenskritisch sein, d. h. großen geschäftsrelevanten Einfluss (High Business Impact, HBI) haben. So werden beispielsweise alle Dokumente mit vertraulichen Informationen von Contoso als HBI-Dokumente erachtet. Contoso möchte sicherstellen, dass die gesamte Firmendokumentation ein Mindestmaß an Schutz erhält und der Zugriff auf die HBI-Dokumente auf die richtigen (entsprechend berechtigten) Personen beschränkt ist. Zu diesem Zweck wird von "Configuration Manager" die Verwendung der Datei Klassifizierungs Infrastruktur (File Classification Infrastructure, FCI) und der AD RMS untersucht, die in Windows Server 2012 verfügbar ist. Mithilfe der FCI klassifiziert Contoso alle auf dem Dateiserver vorhandenen Dokumente basierend auf dem Inhalt und verwendet dann AD RMS, um die richtigen Benutzerrechterichtlinien anzuwenden.  
   
-In diesem Szenario müssen Sie die folgenden Schritte ausführen:  
+In diesem Szenario führen Sie die folgenden Schritte aus:  
   
 |Aufgabe|Beschreibung|  
 |--------|---------------|  
-|[Aktivieren von Ressourceneigenschaften](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_1.1)|Aktivieren Sie die Ressourceneigenschaften **Auswirkung** und **Personenbezogene Informationen** (Personally Identifiable Information, PII).|  
+|[Aktivieren von Ressourcen Eigenschaften](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_1.1)|Aktivieren Sie die Ressourceneigenschaften **Auswirkung** und **Personenbezogene Informationen** (Personally Identifiable Information, PII).|  
 |[Erstellen von Klassifizierungsregeln](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_2)|Erstellen Sie die folgenden Klassifizierungsregeln: **HBI-Klassifizierungsregel** und **PII-Klassifizierungsregel**.|  
-|[Verwenden von Dateiverwaltungsaufgaben zum automatischen Schützen von Dokumenten mit AD RMS](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_3)|Erstellen Sie eine Dateiverwaltungsaufgabe, die AD RMS automatisch verwendet, um Dokumente mit personenbezogenen Informationen (Personally Identifiable Information, PII) zu schützen. Nur Mitglieder der Gruppe "FinanzAdmin" haben Zugriff auf Dokumente mit High PII.|  
+|[Verwenden von Datei Verwaltungsaufgaben zum automatischen schützen von Dokumenten mit AD RMS](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_3)|Erstellen Sie eine Dateiverwaltungsaufgabe, die AD RMS automatisch verwendet, um Dokumente mit personenbezogenen Informationen (Personally Identifiable Information, PII) zu schützen. Nur Mitglieder der Gruppe "FinanzAdmin" haben Zugriff auf Dokumente mit High PII.|  
 |[Anzeigen der Ergebnisse](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_4)|Prüfen Sie die Klassifizierungen der Dokumente, und beobachten Sie, wie sich diese ändern, wenn Sie den Inhalt des Dokuments ändern. Überprüfen Sie zudem, wie das Dokument von AD RMS geschützt wird.|  
-|[Überprüfen Sie die AD RMS-Schutz](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_5)|Überprüfen Sie, ob das Dokument mit AD RMS geschützt ist.|  
+|[Überprüfen des AD RMS Schutzes](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md#BKMK_5)|Überprüfen Sie, ob das Dokument mit AD RMS geschützt ist.|  
 |||  
   
 ## <a name="BKMK_1.1"></a>Schritt 1: Aktivieren von Ressourceneigenschaften  
   
 #### <a name="to-enable-resource-properties"></a>So aktivieren Sie Ressourceneigenschaften  
   
-1. Stellen Sie in Hyper-V-Manager eine Verbindung mit dem Server "ID_AD_DC1" her. Melden Sie sich an den Server als "Contoso\Administrator" mit dem Kennwort <strong>pass@word1</strong>.  
+1. Stellen Sie in Hyper-V-Manager eine Verbindung mit dem Server "ID_AD_DC1" her. Melden Sie sich mit dem Kennwort <strong>pass@word1</strong>beim Server an.  
   
 2. Öffnen Sie das Active Directory-Verwaltungscenter, und klicken Sie auf **Strukturansicht**.  
   
@@ -51,7 +51,7 @@ In diesem Szenario müssen Sie die folgenden Schritte ausführen:
   
 7. Klicken Sie auf **Hinzufügen**, führen Sie einen Bildlauf zu **Auswirkung** durch, und klicken Sie dann darauf, um die Eigenschaft zur Liste hinzuzufügen. Führen Sie dieselben Aktionen für **Personenbezogene Informationen** aus. Klicken Sie abschließend zweimal auf **OK** .  
   
-![Lösungshandbücher](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
+![solution Guides](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -61,13 +61,13 @@ Set-ADResourceProperty -Enabled:$true -Identity:"CN=PII_MS,CN=Resource Propertie
 ```  
   
 ## <a name="BKMK_2"></a>Schritt 2: Erstellen von Klassifizierungsregeln  
-Hier erfahren Sie, wie die Klassifizierungsregel **High Impact** erstellt wird. Mit dieser Regel wird den Inhalt von Dokumenten gesucht, und wenn die Zeichenfolge "Contoso vertraulich" gefunden wird, erfolgt die Klassifizierung des dieses Dokuments als High Business Impact vorhanden. Diese Klassifizierung setzt alle zuvor zugewiesenen Klassifizierungen vom Typ LBI (Low Business Impact) außer Kraft.  
+Hier erfahren Sie, wie die Klassifizierungsregel **High Impact** erstellt wird. Mit dieser Regel wird der Inhalt von Dokumenten durchsucht, und wenn die Zeichenfolge "" mit dem Wert "" von "" "," Diese Klassifizierung setzt alle zuvor zugewiesenen Klassifizierungen vom Typ LBI (Low Business Impact) außer Kraft.  
   
 Außerdem erstellen Sie die Regel **High PII** . Mit dieser Regel wird der Inhalt von Dokumenten durchsucht, und wenn eine Sozialversicherungsnummer gefunden wird, erfolgt die Klassifizierung des Dokuments als High PII-Dokument.  
   
 #### <a name="to-create-the-high-impact-classification-rule"></a>So erstellen Sie die Klassifizierungsregel "High Impact"  
   
-1. Stellen Sie in Hyper-V-Manager eine Verbindung mit dem Server "ID_AD_FILE1" her. Melden Sie sich an den Server als "Contoso\Administrator" mit dem Kennwort <strong>pass@word1</strong>.  
+1. Stellen Sie in Hyper-V-Manager eine Verbindung mit dem Server "ID_AD_FILE1" her. Melden Sie sich mit dem Kennwort <strong>pass@word1</strong>beim Server an.  
   
 2. Sie müssen die globalen Ressourceneigenschaften aus Active Directory aktualisieren. Öffnen Sie Windows PowerShell, geben Sie `Update-FSRMClassificationPropertyDefinition`ein, und drücken Sie dann die EINGABETASTE. Schließen Sie Windows PowerShell.  
   
@@ -81,7 +81,7 @@ Außerdem erstellen Sie die Regel **High PII** . Mit dieser Regel wird der Inhal
   
 7. Geben Sie im Feld **Regelname** die Zeichenfolge **High Business Impact** ein.  
   
-8. In der **Beschreibung** geben **bestimmt, ob das Dokument großen geschäftsrelevanten Einfluss basierend auf dem Vorhandensein der Zeichenfolge "Contoso vertraulich" verfügt.**  
+8. Geben Sie im Feld **Beschreibung** **ein, um zu ermitteln, ob das Dokument aufgrund des Vorhandenseins der Zeichenfolge "kontoso Confidential" eine hohe geschäftliche Auswirkung hat** .  
   
 9. Klicken Sie auf der Registerkarte **Bereich** auf **Ordnerverwaltungseigenschaften festlegen**. Wählen Sie **Ordnerverwendung**aus, klicken Sie auf **Hinzufügen**, und klicken Sie dann auf **Durchsuchen**. Navigieren Sie zum Pfad "D:\Finance Documents", klicken Sie auf **OK**, und wählen Sie dann einen Eigenschaftswert namens **Gruppendateien** aus, und klicken Sie auf **Schließen**. Nachdem Sie die Verwaltungseigenschaften festgelegt haben, können Sie auf der Registerkarte **Regelbereich** die Option **Gruppendateien**auswählen.  
   
@@ -95,7 +95,7 @@ Außerdem erstellen Sie die Regel **High PII** . Mit dieser Regel wird der Inhal
   
 14. Klicken Sie auf die Registerkarte **Evaluierungstyp** .  Klicken Sie auf Vorhandene Eigenschaftenwerte erneut auswerten, auf **Vorhandenen Wert überschreiben**und dann auf **OK** , um den Vorgang abzuschließen.  
   
-![Lösungshandbücher](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
+![solution Guides](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -109,9 +109,9 @@ New-FSRMClassificationRule -Name "High Business Impact" -Property "Impact_MS" -D
   
 #### <a name="to-create-the-high-pii-classification-rule"></a>So erstellen Sie die Klassifizierungsregel "High PII"  
   
-1. Stellen Sie in Hyper-V-Manager eine Verbindung mit dem Server "ID_AD_FILE1" her. Melden Sie sich an den Server als "Contoso\Administrator" mit dem Kennwort <strong>pass@word1</strong>.  
+1. Stellen Sie in Hyper-V-Manager eine Verbindung mit dem Server "ID_AD_FILE1" her. Melden Sie sich mit dem Kennwort <strong>pass@word1</strong>beim Server an.  
   
-2. Öffnen Sie auf dem Desktop den Ordner **Reguläre Ausdrücke**, und öffnen Sie dann das Textdokument **RegEx-SSN**. Markieren und kopieren Sie die folgende reguläre Ausdruckszeichenfolge: **^ (?! 000) ([0-7] \d{2}| 7([0-7]\d|7[012])) ([-]?) (?! 00) \d\d\3 (?! 0000) \d{4}$** . Diese Zeichenfolge wird im späteren Verlauf in diesem Schritt verwendet. Belassen Sie sie daher in der Zwischenablage.  
+2. Öffnen Sie auf dem Desktop den Ordner **Reguläre Ausdrücke**, und öffnen Sie dann das Textdokument **RegEx-SSN**. Markieren und kopieren Sie die folgende reguläre Ausdrucks Zeichenfolge: **^ (?! 000) ([0-7] \d @ no__t-1 | 7 ([0-7] \d | 7 [012])) ([-]?) (?! 00) \d\d\3 (?! 0000) \d @ no__t-2 $** . Diese Zeichenfolge wird im späteren Verlauf in diesem Schritt verwendet. Belassen Sie sie daher in der Zwischenablage.  
   
 3. Öffnen Sie den Ressourcen-Manager für Dateiserver. Klicken Sie zum Öffnen des Ressourcen-Managers für Dateiserver auf **Start**, geben Sie **Ressourcen-Manager für Dateiserver**ein, und klicken Sie dann auf **Ressourcen-Manager für Dateiserver**.  
   
@@ -130,14 +130,14 @@ New-FSRMClassificationRule -Name "High Business Impact" -Property "Impact_MS" -D
 10. Wählen Sie unter **Wert angeben** in der Dropdownliste den Eintrag **Hoch** aus.  
   
 11. Klicken Sie unter **Parameter** auf **Konfigurieren**.   
-    Klicken Sie im Bereich **Klassifizierungsparameter**in der Liste **Ausdruckstyp** die Option **Regulärer Ausdruck**. In der **Ausdruck** fügen Sie den Text aus der Zwischenablage: **^ (?! 000) ([0-7] \d{2}| 7([0-7]\d|7[012])) ([-]?) (?! 00) \d\d\3 (?! 0000) \d{4}$** , und klicken Sie dann auf **OK**.  
+    Klicken Sie im Bereich **Klassifizierungsparameter**in der Liste **Ausdruckstyp** die Option **Regulärer Ausdruck**. Fügen Sie im Feld **Ausdruck** den Text aus der Zwischenablage ein: **^ (?! 000) ([0-7] \d @ no__t-2 | 7 ([0-7] \d | 7 [012])) ([-]?) (?! 00) \d\d\3 (?! 0000) \d @ no__t-3 $** , und klicken Sie dann auf **OK**.  
   
     > [!NOTE]  
     > Dieser Ausdruck lässt ungültige Sozialversicherungsnummern zu. Dadurch können wir in der Demonstration frei erfundene Sozialversicherungsnummern verwenden.  
   
 12. Klicken Sie auf die Registerkarte **Evaluierungstyp** .  Wählen Sie Vorhandene Eigenschaftenwerte erneut auswerten, **Vorhandenen Wert überschreiben**, und klicken Sie dann auf **OK** , um den Vorgang abzuschließen.  
   
-![Lösungshandbücher](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
+![solution Guides](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -151,12 +151,12 @@ Sie verfügen jetzt über zwei Klassifizierungsregeln:
   
 -   High PII  
   
-## <a name="BKMK_3"></a>Schritt 3: Verwenden von Dateiverwaltungsaufgaben zum automatischen Schützen von Dokumenten mit AD RMS  
-Nun, dass Sie Regeln zum automatischen Klassifizieren von Dokumenten auf Grundlage des Inhalts erstellt haben, besteht der nächste Schritt, um eine Dateiverwaltungsaufgabe zu erstellen, die AD RMS zu verwenden, um bestimmte Dokumente basierend auf deren Klassifizierung automatisch zu schützen. In diesem Schritt erstellen Sie eine Dateiverwaltungsaufgabe, die Dokumente mit personenbezogenen Informationen vom Typ "High PII" automatisch schützt. Nur Mitglieder der Gruppe "FinanzAdmin" haben Zugriff auf Dokumente mit High PII.  
+## <a name="BKMK_3"></a>Schritt 3: Verwenden von Datei Verwaltungsaufgaben zum automatischen schützen von Dokumenten mit AD RMS  
+Nachdem Sie nun Regeln zum automatischen klassifizieren von Dokumenten basierend auf Inhalt erstellt haben, ist der nächste Schritt das Erstellen einer Datei Verwaltungsaufgabe, die AD RMS verwendet, um bestimmte Dokumente basierend auf deren Klassifizierung automatisch zu schützen. In diesem Schritt erstellen Sie eine Dateiverwaltungsaufgabe, die Dokumente mit personenbezogenen Informationen vom Typ "High PII" automatisch schützt. Nur Mitglieder der Gruppe "FinanzAdmin" haben Zugriff auf Dokumente mit High PII.  
   
 #### <a name="to-protect-documents-with-ad-rms"></a>So schützen Sie Dokumente mit AD RMS  
   
-1. Stellen Sie in Hyper-V-Manager eine Verbindung mit dem Server "ID_AD_FILE1" her. Melden Sie sich an den Server als "Contoso\Administrator" mit dem Kennwort <strong>pass@word1</strong>.  
+1. Stellen Sie in Hyper-V-Manager eine Verbindung mit dem Server "ID_AD_FILE1" her. Melden Sie sich mit dem Kennwort <strong>pass@word1</strong>beim Server an.  
   
 2. Öffnen Sie den Ressourcen-Manager für Dateiserver. Klicken Sie zum Öffnen des Ressourcen-Managers für Dateiserver auf **Start**, geben Sie **Ressourcen-Manager für Dateiserver**ein, und klicken Sie dann auf **Ressourcen-Manager für Dateiserver**.  
   
@@ -174,7 +174,7 @@ Nun, dass Sie Regeln zum automatischen Klassifizieren von Dokumenten auf Grundla
   
 9. Wählen Sie im Abschnitt **Fortlaufende Ausführung** die Option **Für neue Dateien fortlaufend ausführen**aus, und klicken Sie dann auf **OK**. Sie verfügen jetzt über eine Dateiverwaltungsaufgabe mit dem Namen "High PII".  
   
-![Lösungshandbücher](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
+![solution Guides](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -187,11 +187,11 @@ $fmj1=New-FSRMFileManagementJob -Name "High PII" -Description "Automatic RMS pro
 ```  
   
 ## <a name="BKMK_4"></a>Schritt 4: Anzeigen der Ergebnisse  
-Es ist nun einen Blick auf Ihre neue automatische Klassifizierung und den Regeln für AD RMS-Schutz in Aktion. In diesem Schritt prüfen Sie die Klassifizierungen der Dokumente und beobachten, wie sich diese ändern, wenn Sie den Inhalt des Dokuments ändern.  
+Es ist an der Zeit, sich die neuen Regeln für die automatische Klassifizierung und AD RMS Schutz in Aktion anzusehen. In diesem Schritt prüfen Sie die Klassifizierungen der Dokumente und beobachten, wie sich diese ändern, wenn Sie den Inhalt des Dokuments ändern.  
   
 #### <a name="to-view-the-results"></a>So zeigen Sie die Ergebnisse an  
   
-1. Stellen Sie in Hyper-V-Manager eine Verbindung mit dem Server "ID_AD_FILE1" her. Melden Sie sich an den Server als "Contoso\Administrator" mit dem Kennwort <strong>pass@word1</strong>.  
+1. Stellen Sie in Hyper-V-Manager eine Verbindung mit dem Server "ID_AD_FILE1" her. Melden Sie sich mit dem Kennwort <strong>pass@word1</strong>beim Server an.  
   
 2. Navigieren Sie in Windows-Explorer zum Ordner "D:\Finance Documents".  
   
@@ -201,7 +201,7 @@ Es ist nun einen Blick auf Ihre neue automatische Klassifizierung und den Regeln
   
 5. Klicken Sie auf die Registerkarte **Klassifizierung**. Beachten Sie, dass der Eigenschaft **Personenbezogene Informationen** aktuell kein Wert zugewiesen ist. Klicken Sie auf **Abbrechen**.  
   
-6. Wechseln Sie zu "CLIENT1". Melden, der angemeldet ist, und melden Sie sich als "contoso\mreid" mit dem Kennwort <strong>pass@word1</strong>.  
+6. Wechseln Sie zu "CLIENT1". Melden Sie alle angemeldeten Benutzer ab, und melden Sie sich dann als "condeso\mreid" mit dem Kennwort <strong>pass@word1</strong>an.  
   
 7. Öffnen Sie auf dem Desktop den freigegebenen Ordner **Finance Documents** .  
   
@@ -220,7 +220,7 @@ Es ist nun einen Blick auf Ihre neue automatische Klassifizierung und den Regeln
   
 13. . Klicken Sie auf die Registerkarte **Klassifizierung**. Beachten Sie, dass die Eigenschaft Personenbezogene Informationen jetzt auf **Hoch** festgelegt ist. Klicken Sie auf **Abbrechen**.  
   
-## <a name="BKMK_5"></a>Schritt 5: Überprüfen Sie die AD RMS-Schutzes  
+## <a name="BKMK_5"></a>Schritt 5: Überprüfen des Schutzes mit AD RMS  
   
 #### <a name="to-verify-that-the-document-is-protected"></a>So überprüfen Sie, ob das Dokument geschützt ist  
   

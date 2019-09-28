@@ -1,28 +1,28 @@
 ---
 title: Übersicht über geschütztes Fabric und abgeschirmte VMs
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 579012be66969ffc584b4b4ea021f11acbbdfb78
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ace6eb30ae6df2dc29aacc05eb7852e03145df4f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855901"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386861"
 ---
 # <a name="guarded-fabric-and-shielded-vms-overview"></a>Übersicht über geschütztes Fabric und abgeschirmte VMs
 
->Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 ## <a name="overview-of-the-guarded-fabric"></a>Übersicht zu geschütztem Fabric
 
-Virtualisierungssicherheit ist ein bedeutender investitionsbereich in Hyper-V. Zusätzlich zum Schutz von Hosts oder anderen virtuellen Computern vor einem virtuellen Computer mit Malware müssen wir virtuelle Computer auch vor einem gefährdeten Host schützen. Dies ist eine grundlegende Gefahr für jede Virtualisierungsplattform heute, ob es sich um Hyper-V, VMware oder andere ist. Ganz einfach – wenn ein virtueller Computer aus einer Organisation herausgenommen wird (in böswilliger Absicht oder versehentlich), kann diese VM auf jedem anderen System ausgeführt werden. Der Schutz wertvoller Ressourcen in Ihrer Organisation, z.B. Domänencontroller, vertrauliche Dateiserver und Personalverwaltungssysteme, hat oberste Priorität.
+Virtualisierungssicherheit ist ein wichtiger Investitionsbereich in Hyper-V. Zusätzlich zum Schutz von Hosts oder anderen virtuellen Computern vor einem virtuellen Computer mit Malware müssen wir virtuelle Computer auch vor einem gefährdeten Host schützen. Dies ist eine grundlegende Gefahr für jede Virtualisierungsplattform, egal ob Hyper-V, VMware oder eine andere Virtualisierungsplattform. Ganz einfach – wenn ein virtueller Computer aus einer Organisation herausgenommen wird (in böswilliger Absicht oder versehentlich), kann diese VM auf jedem anderen System ausgeführt werden. Der Schutz wertvoller Ressourcen in Ihrer Organisation, z.B. Domänencontroller, vertrauliche Dateiserver und Personalverwaltungssysteme, hat oberste Priorität.
 
-Windows Server 2016 Hyper-V eingeführt, zum Schutz vor gefährdeten Virtualisierungs-Fabric von abgeschirmten VMs. Eine geschützte VM ist eine Generation 2 VM (unterstützt unter Windows Server 2012 und höher), die ein virtuelles TPM mit BitLocker verschlüsselt ist, und kann nur auf fehlerfreien und genehmigten Hosts im Fabric ausgeführt. Abgeschirmte VMs und geschütztes Fabric ermöglichen Clouddienstanbietern oder Private Cloud-Administratoren in Unternehmen, eine sichere Umgebung für Mandanten-VMs bereitzustellen. 
+Zur Unterstützung des Schutzes vor kompromittiertem virtualisierungsfabric führte Windows Server 2016 Hyper-V abgeschirmte VMS ein. Eine abgeschirmte VM ist eine VM der Generation 2 (unterstützt unter Windows Server 2012 und höher), die über ein virtuelles TPM verfügt, mit BitLocker verschlüsselt ist und nur auf fehlerfreien und genehmigten Hosts im Fabric ausgeführt werden kann. Abgeschirmte VMs und geschütztes Fabric ermöglichen Clouddienstanbietern oder Private Cloud-Administratoren in Unternehmen, eine sichere Umgebung für Mandanten-VMs bereitzustellen. 
 
 Ein geschütztes Fabric besteht aus:
 
@@ -34,36 +34,36 @@ Wenn ein Mandant abgeschirmte VMs erstellt, die auf einem geschützten Fabric au
 
 ![Geschütztes Hostfabric](../media/Guarded-Fabric-Shielded-VM/Guarded-Host-Overview-Diagram.png)
 
-## <a name="video-introduction-to-shielded-virtual-machines"></a>Video: Einführung in abgeschirmte VMs 
+## <a name="video-introduction-to-shielded-virtual-machines"></a>Video: Einführung in abgeschirmte virtuelle Computer 
 
 <iframe src="https://channel9.msdn.com/Shows/Mechanics/Introduction-to-Shielded-Virtual-Machines-in-Windows-Server-2016/player" width="650" height="440" allowFullScreen frameBorder="0"></iframe>
 
 ## <a name="attestation-modes-in-the-guarded-fabric-solution"></a>Nachweismodi in der „Geschütztes Fabric“-Lösung
 
-Der Host-Überwachungsdienst unterstützt verschiedene nachweismodi für ein geschütztes Fabric:
+Die HGS unterstützen verschiedene Nachweis Modi für ein geschütztes Fabric:
 
-- TPM-vertrauenswürdiger Nachweis (Hardware-basiert)
-- Host-schlüsselnachweis (auf der Grundlage der asymmetrischer Schlüsselpaaren)
+- TPM-vertrauenswürdiger Nachweis (Hardware basiert)
+- Host Schlüssel Nachweis (basierend auf asymmetrischen Schlüsselpaaren)
 
-Der TPM-vertrauenswürdige Nachweis wird empfohlen, da er stärkere Garantien bietet, wie in der folgenden Tabelle beschrieben, setzt aber voraus, dass Ihre Hyper-V-Hosts über TPM 2.0 verfügen. Wenn Sie derzeit kein TPM 2.0 oder jede TPM haben, können Sie den schlüsselnachweis Host. Wenn Sie sich für den Wechsel zum TPM-vertrauenswürdigen Nachweis entscheiden, wenn Sie neue Hardware erwerben, können Sie den Nachweismodus auf dem Host-Überwachungsdienst mit minimaler oder ohne Unterbrechung Ihres Fabrics wechseln.
+Der TPM-vertrauenswürdige Nachweis wird empfohlen, da er stärkere Garantien bietet, wie in der folgenden Tabelle beschrieben, setzt aber voraus, dass Ihre Hyper-V-Hosts über TPM 2.0 verfügen. Wenn Sie derzeit nicht über TPM 2,0 oder ein TPM verfügen, können Sie den Host Schlüssel Nachweis verwenden. Wenn Sie sich für den Wechsel zum TPM-vertrauenswürdigen Nachweis entscheiden, wenn Sie neue Hardware erwerben, können Sie den Nachweismodus auf dem Host-Überwachungsdienst mit minimaler oder ohne Unterbrechung Ihres Fabrics wechseln.
 
-| **Nachweismodus, den Sie für Hosts auswählen**                                            | **Hostgarantien** |
+| **Nachweis Modus, den Sie für Hosts auswählen**                                            | **Host Zusicherungen** |
 |-------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|**TPM-vertrauenswürdiger Nachweis:** Bietet den stärksten Schutz erfordert jedoch auch weitere Konfigurationsschritte erforderlich. Hosthardware und-Firmware müssen TPM 2.0 und UEFI 2.3.1 mit aktiviertem sicheren Start enthalten. | Überwachte Hosts werden genehmigt basierend auf ihre TPM-Identität gemessen Startsequenz und codeintegritätsrichtlinien, um sicherzustellen, dass sie nur genehmigten Code ausgeführt.| 
-| **Host-schlüsselnachweise verwenden:** Soll vorhandene Hosthardware unterstützen, in dem kein TPM 2.0 verfügbar. Erfordert weniger Konfigurationsschritte und ist kompatibel mit gängiger Serverhardware. | Überwachte Hosts werden genehmigt basierend auf den Besitz des Schlüssels. | 
+|**TPM-vertrauenswürdiger Nachweis:** Bietet die bestmöglichen Schutzmaßnahmen, erfordert aber auch weitere Konfigurationsschritte. Host Hardware und Firmware müssen TPM 2,0 und UEFI 2.3.1 mit aktiviertem sicheren Start einschließen. | Geschützte Hosts werden basierend auf der TPM-Identität, der gemessenen Startsequenz und den Code Integritäts Richtlinien genehmigt, um sicherzustellen, dass Sie nur genehmigten Code ausführen.| 
+| **Host Schlüssel Nachweis:** Dient zur Unterstützung vorhandener Host Hardware, bei der TPM 2,0 nicht verfügbar ist. Erfordert weniger Konfigurationsschritte und ist kompatibel mit gängiger Serverhardware. | Geschützte Hosts werden basierend auf dem Besitz des Schlüssels genehmigt. | 
 
-Einen anderen Modus mit dem Namen **Admin-vertrauenswürdiger Nachweis** ist veraltet, beginnend mit Windows Server-2019. In diesem Modus basiert auf der Mitgliedschaft von überwachten Hosts in einer angegebenen Sicherheitsgruppe in Active Directory Domain Services (AD DS). Host-schlüsselnachweis ähnliche hostidentifikation und ist leichter einzurichten. 
+Ein anderer Modus mit dem Namen **Admin-Trusted Nachweis** ist ab Windows Server 2019 veraltet. Dieser Modus basiert auf der überwachten Host Mitgliedschaft in einer festgelegten Active Directory Domain Services (AD DS)-Sicherheitsgruppe. Der Host Schlüssel Nachweis bietet eine ähnliche Host Identifizierung und ist leichter einzurichten. 
 
 ## <a name="assurances-provided-by-the-host-guardian-service"></a>Garantien, die der Host-Überwachungsdienst bietet
 
 Der Host-Überwachungsdienst bietet zusammen mit den Methoden zum Erstellen abgeschirmter VMs die folgenden Garantien.
 
-| **Typ der Garantie für VMs**                         | **Garantien für abgeschirmte VMs vom Schlüsselschutzdienst und von Erstellungsmethoden für abgeschirmte VMs** |
+| **Art der Sicherung für VMS**                         | **Geschützte VM-Zusicherungen, vom Schlüsselschutz Dienst und von Erstellungs Methoden für abgeschirmte VMS** |
 |----------------------------|--------------------------------------------------|
-| **Mit BitLocker verschlüsselte Datenträger (Betriebssystemdatenträger und Datenträger für Daten)**   | Abgeschirmte VMs verwenden BitLocker zum Schutz ihrer Datenträger. Die BitLocker-Schlüssel, die zum Starten der VM und Entschlüsseln der Datenträger werden durch die abgeschirmte VM virtuelles TPM mithilfe von branchenweit bewährten Technologien wie z. B. sicheren kontrollierten Start geschützt. Während abgeschirmte VMs den Betriebssystemdatenträger nur automatisch verschlüsseln und schützen, können Sie der abgeschirmten VM angefügte [Datenlaufwerke gleichermaßen verschlüsseln](https://technet.microsoft.com/itpro/windows/keep-secure/bitlocker-overview). |
-| **Bereitstellung neuer abgeschirmter VMs aus "vertrauenswürdigen" vorlagedatenträgern/-Images** | Bei der Bereitstellung neuer abgeschirmter VMs können Mandanten angeben, welche Vorlagedatenträger sie als vertrauenswürdig einstufen. Abgeschirmte Vorlagedatenträger verfügen über Signaturen, die zu einem Zeitpunkt berechnet werden, wenn ihre Inhalte als vertrauenswürdig eingestuft werden. Die Datenträgersignaturen werden dann in einem Signaturenkatalog gespeichert, den Mandanten beim Erstellen von abgeschirmten VMs sicher dem Fabric bereitstellen. Während der Bereitstellung abgeschirmter VMs wird die Signatur des Datenträgers erneut berechnet und mit den vertrauenswürdigen Signaturen im Katalog verglichen. Wenn die Signaturen übereinstimmen, wird die abgeschirmte VM bereitgestellt. Wenn die Signaturen nicht übereinstimmen, gilt der abgeschirmte Vorlagedatenträger als nicht vertrauenswürdig, und bei der Bereitstellung tritt ein Fehler auf. |
-| **Schutz von Kennwörtern und andere Geheimnisse, wenn eine abgeschirmte VM wird erstellt.** | Wenn Sie virtuelle Computer zu erstellen, ist es erforderlich, um sicherzustellen, dass vertrauliche Informationen wie die vertrauenswürdigen Datenträgersignaturen, RDP-Zertifikate und das Kennwort des lokalen Administratorkonto des virtuellen Computers, nicht an das Fabric weitergegeben werden. Diese vertraulichen Informationen befinden sich in einer als geschützte Datendatei (PDK-Datei) bezeichneten verschlüsselten Datei, die von Mandantenschlüsseln geschützt und vom Mandanten in das Fabric hochgeladen wird. Beim Erstellen einer abgeschirmten VM wählt der Mandant die zu verwendenden geschützten Daten aus, wodurch diese Informationen sicher nur den vertrauenswürdigen Komponenten innerhalb des geschützten Fabrics zur Verfügung gestellt werden. |
-| **Mandanten steuern, in dem der virtuelle Computer gestartet werden kann** | Zu den geschützten Daten zählt auch eine Liste der geschützten Fabrics, in denen eine bestimmte abgeschirmte VM ausgeführt werden darf. Dies ist z.B. in Fällen hilfreich, in denen eine abgeschirmte VM sich typischerweise in einer lokalen privaten Cloud befindet, jedoch möglicherweise zur Wiederherstellung im Notfall zu einer anderen (öffentlichen oder privaten) Cloud migriert werden muss. Die Zielcloud oder das Zielfabric muss abgeschirmte VMs unterstützen, und die abgeschirmte VM muss dem Fabric die Ausführung genehmigen. |
+| **BitLocker-verschlüsselte Datenträger (Betriebssystem-Datenträger und Datenträger)**   | Abgeschirmte VMs verwenden BitLocker zum Schutz ihrer Datenträger. Die BitLocker-Schlüssel, die zum Starten des virtuellen Computers und zum Entschlüsseln der Datenträger erforderlich sind, werden vom virtuellen TPM der abgeschirmten VM mithilfe von branchenspezifischen Technologien wie dem sicheren gemessenen Start geschützt. Während abgeschirmte VMs den Betriebssystemdatenträger nur automatisch verschlüsseln und schützen, können Sie der abgeschirmten VM angefügte [Datenlaufwerke gleichermaßen verschlüsseln](https://technet.microsoft.com/itpro/windows/keep-secure/bitlocker-overview). |
+| **Bereitstellung neuer abgeschirmter VMS aus "vertrauenswürdigen" Vorlagen Datenträgern/Images** | Bei der Bereitstellung neuer abgeschirmter VMs können Mandanten angeben, welche Vorlagedatenträger sie als vertrauenswürdig einstufen. Abgeschirmte Vorlagedatenträger verfügen über Signaturen, die zu einem Zeitpunkt berechnet werden, wenn ihre Inhalte als vertrauenswürdig eingestuft werden. Die Datenträgersignaturen werden dann in einem Signaturenkatalog gespeichert, den Mandanten beim Erstellen von abgeschirmten VMs sicher dem Fabric bereitstellen. Während der Bereitstellung abgeschirmter VMs wird die Signatur des Datenträgers erneut berechnet und mit den vertrauenswürdigen Signaturen im Katalog verglichen. Wenn die Signaturen übereinstimmen, wird die abgeschirmte VM bereitgestellt. Wenn die Signaturen nicht übereinstimmen, gilt der abgeschirmte Vorlagedatenträger als nicht vertrauenswürdig, und bei der Bereitstellung tritt ein Fehler auf. |
+| **Schutz von Kenn Wörtern und anderen Geheimnissen beim Erstellen einer abgeschirmten VM** | Beim Erstellen von VMS muss sichergestellt werden, dass die VM-Geheimnisse, wie z. b. die vertrauenswürdigen Datenträger Signaturen, RDP-Zertifikate und das Kennwort des lokalen Administrator Kontos der VM, nicht an das Fabric weitergegeben werden. Diese vertraulichen Informationen befinden sich in einer als geschützte Datendatei (PDK-Datei) bezeichneten verschlüsselten Datei, die von Mandantenschlüsseln geschützt und vom Mandanten in das Fabric hochgeladen wird. Beim Erstellen einer abgeschirmten VM wählt der Mandant die zu verwendenden geschützten Daten aus, wodurch diese Informationen sicher nur den vertrauenswürdigen Komponenten innerhalb des geschützten Fabrics zur Verfügung gestellt werden. |
+| **Mandanten Kontrolle über den Standort, an dem die VM gestartet werden kann** | Zu den geschützten Daten zählt auch eine Liste der geschützten Fabrics, in denen eine bestimmte abgeschirmte VM ausgeführt werden darf. Dies ist z.B. in Fällen hilfreich, in denen eine abgeschirmte VM sich typischerweise in einer lokalen privaten Cloud befindet, jedoch möglicherweise zur Wiederherstellung im Notfall zu einer anderen (öffentlichen oder privaten) Cloud migriert werden muss. Die Zielcloud oder das Zielfabric muss abgeschirmte VMs unterstützen, und die abgeschirmte VM muss dem Fabric die Ausführung genehmigen. |
 
 ## <a name="what-is-shielding-data-and-why-is-it-necessary"></a>Was sind geschützte Daten, und warum sind sie notwendig?
 
@@ -73,7 +73,7 @@ Unter anderem enthalten geschützte Datendateien geheime Schlüssel wie z. B.:
 
 - Administratoranmeldeinformationen
 - Eine Antwortdatei („unattend.xml“)
-- Eine Sicherheitsrichtlinie, die bestimmt, ob der virtuelle Computer erstellt, mit diesen geschützten Daten werden so konfiguriert, als abgeschirmt oder durch Verschlüsselung unterstützt
+- Eine Sicherheitsrichtlinie, die bestimmt, ob mit diesen Schutz Daten erstellte virtuelle Computer als abgeschirmt oder Verschlüsselung unterstützt werden.
     - Beachten Sie, dass als abgeschirmt konfigurierte VMs vor Fabricadministratoren geschützt sind, durch Verschlüsselung unterstützte VMs hingegen nicht.
 - Ein RDP-Zertifikat zum Sichern der Remotedesktopkommunikation mit der VM
 - Ein Volumesignaturkatalog, der eine Liste vertrauenswürdiger, signierter Vorlagedatenträger-Signaturen enthält, auf deren Basis eine neue VM erstellt werden kann
@@ -97,7 +97,7 @@ Durch Verschlüsselung unterstützte VMs sollen dort eingesetzt werden, wo die F
 
 Abgeschirmte virtuelle Computer dienen zur Verwendung in Fabrics, in denen Daten und Status des virtuellen Computers sowohl vor Fabricadministratoren als auch nicht vertrauenswürdiger Software, die möglicherweise auf den Hyper-V-Hosts ausgeführt wird, geschützt werden müssen. Abgeschirmte VMs würden z.B. nie eine VM-Konsolenverbindung zulassen, während ein Fabricadministrator diesen Schutz für durch Verschlüsselung unterstützte VMs aktivieren oder deaktivieren kann.
 
-Die folgende Tabelle fasst die Unterschiede zwischen verschlüsselungsunterstützung und abgeschirmten VMs.
+In der folgenden Tabelle werden die Unterschiede zwischen Verschlüsselungs unterstütztem und abgeschirmten VMS zusammengefasst.
 
 | Funktion        | Generation 2 – durch Verschlüsselung unterstützt     | Generation 2 – abgeschirmt         |
 |----------|--------------------|----------------|
@@ -105,15 +105,15 @@ Die folgende Tabelle fasst die Unterschiede zwischen verschlüsselungsunterstüt
 |Vtpm               | Ja, erforderlich, aber konfigurierbar        | Ja, erforderlich und erzwungen    |
 |Verschlüsseln des VM-Status und Livemigrations-Datenverkehr | Ja, erforderlich, aber konfigurierbar |  Ja, erforderlich und erzwungen  |
 |Integrationskomponenten | Konfigurierbar durch Fabricadministrator      | Bestimmte Integrationskomponenten blockiert (z.B. Datenaustausch, PowerShell Direct) |
-|Verbindung mit virtuellen Computern (Konsole), HID-Geräte (z.B. Tastatur, Maus) | Ein, kann nicht deaktiviert werden | Aktiviert auf Hosts mit Windows Server-Version 1803 ab. Auf früheren Hosts deaktiviert |
+|Verbindung mit virtuellen Computern (Konsole), HID-Geräte (z.B. Tastatur, Maus) | Ein, kann nicht deaktiviert werden | Aktiviert auf Hosts ab Windows Server-Version 1803; Auf früheren Hosts deaktiviert |
 |COM/serielle Anschlüsse   | Unterstützt                             | Deaktiviert (kann nicht aktiviert werden) |
-|Anfügen eines Debuggers (an der VM-Prozess)<sup>1</sup>| Unterstützt          | Deaktiviert (kann nicht aktiviert werden) |
+|Anfügen eines Debuggers (an den VM-Prozess)<sup>1</sup>| Unterstützt          | Deaktiviert (kann nicht aktiviert werden) |
 
-<sup>1</sup> herkömmliche Debugger, die direkt an einen Prozess, z. B. WinDbg.exe, sind für abgeschirmte VMs blockiert, weil die VM Arbeitsprozess (VMWP.exe) eines geschützten Prozesses Lichts (PPL) ist. Alternative Debugtechniken, wie z. B. von LiveKd.exe, werden nicht blockiert. Im Gegensatz zu abgeschirmten VMs wird der Arbeitsprozess für die Verschlüsselung unterstützte VMs nicht ausgeführt, wie eine PPL, so wie von herkömmliche Debuggern WinDbg.exe weiterhin normal ausgeführt werden. 
+<sup>1</sup> herkömmliche Debugger, die direkt an einen Prozess angefügt werden (z. b. WinDbg. exe), werden für abgeschirmte VMS blockiert, da der Arbeitsprozess des virtuellen Computers (VMWP. exe) eine geschützte Prozess Beleuchtung (PPL) ist. Alternative Debuggingtechniken, z. b. die von LiveKd. exe verwendeten, werden nicht blockiert. Anders als bei abgeschirmten VMS wird der Arbeitsprozess für die Verschlüsselung unterstützte VMS nicht als ppl ausgeführt, sodass herkömmliche Debugger wie WinDBG. exe weiterhin normal funktionieren. 
 
 Sowohl abgeschirmte als auch durch Verschlüsselung unterstützte VMs unterstützen weiterhin gängige Fabricverwaltungsfunktionen wie Livemigration, Hyper-V-Replikat, VM-Prüfpunkt usw.
 
-## <a name="the-host-guardian-service-in-action-how-a-shielded-vm-is-powered-on"></a>Host-Überwachungsdienst in Aktion: Wie ein abgeschirmter virtuelle Computer eingeschaltet wird
+## <a name="the-host-guardian-service-in-action-how-a-shielded-vm-is-powered-on"></a>Der Host-Überwachungsdienst in Aktion: Einschalten einer abgeschirmten VM
 
 ![Geschützte Datendatei](../media/Guarded-Fabric-Shielded-VM/shielded-vms-how-a-shielded-vm-is-powered-on.png)
 
@@ -125,25 +125,25 @@ Sowohl abgeschirmte als auch durch Verschlüsselung unterstützte VMs unterstüt
 
     Der geschützte Host fordert einen Nachweis an. Der Nachweismodus wird durch den Host-Überwachungsdienst vorgegeben:
 
-    **TPM-vertrauenswürdiger Nachweis**: Hyper-V-Host sendet Informationen einschließlich:
+    **TPM-vertrauenswürdiger**Nachweis: Der Hyper-V-Host sendet Informationen, die Folgendes beinhalten:
 
        - TPM-identifizierende Informationen (seinen Endorsement Key)
        - Informationen zu Prozessen, die während der letzten Startsequenz (TCG-Protokoll) gestartet wurden
-       - Informationen zur Codeintegritätsrichtlinie (CI)-Richtlinie, die auf dem Host angewendet wurde. 
+       - Informationen zur Richtlinie für die Code Integrität (CI), die auf dem Host angewendet wurde. 
 
        Attestation happens when the host starts and every 8 hours thereafter. If for some reason a host doesn't have an attestation certificate when a VM tries to start, this also triggers attestation.
 
-    **Hosten Sie den schlüsselnachweis**: Hyper-V-Host sendet dem öffentlichen Hälfte des Schlüsselpaars. Host-Überwachungsdienst überprüft den Host Schlüssel registriert ist. 
+    **Host Schlüssel**Nachweis: Der Hyper-V-Host sendet die öffentliche Hälfte des Schlüssel Paars. HGS überprüft, dass der Host Schlüssel registriert ist. 
     
-    **Admin-vertrauenswürdiger Nachweis**: Hyper-V-Host sendet ein Kerberos-Ticket, das die Sicherheitsgruppen identifiziert, denen der Host ist. Der Host-Überwachungsdienst überprüft, ob der Host zu einer Sicherheitsgruppe gehört, die zuvor vom vertrauenswürdigen HGS-Administrator konfiguriert wurde.
+    **Admin-vertrauenswürdiger**Nachweis: Der Hyper-V-Host sendet ein Kerberos-Ticket, das die Sicherheitsgruppen identifiziert, in denen sich der Host befindet. Der Host-Überwachungsdienst überprüft, ob der Host zu einer Sicherheitsgruppe gehört, die zuvor vom vertrauenswürdigen HGS-Administrator konfiguriert wurde.
 
 3. Nachweis erfolgreich (oder mit Fehler).
 
-    Der nachweismodus wird bestimmt, welche Überprüfungen erforderlich sind, erfolgreich bestätigen, dass der Host fehlerfrei ist. Mit TPM-vertrauenswürdiger Nachweis des Hosts TPM Identität, kontrollierten Starts und codeintegritätsrichtlinie überprüft. Mit den schlüsselnachweis hosten wird nur die Registrierung des hostschlüssels überprüft. 
+    Der Nachweis Modus bestimmt, welche Überprüfungen erforderlich sind, um erfolgreich zu bestätigen, dass der Host fehlerfrei ist. Mit dem TPM-vertrauenswürdigen Nachweis werden die TPM-Identität des Hosts, Start Messungen und die Code Integritätsrichtlinie überprüft. Beim Nachweis des Host Schlüssels wird nur die Registrierung des Host Schlüssels überprüft. 
 
 4. Nachweiszertifikat wird an den Host gesendet.
 
-    Vorausgesetzt, dass ein Nachweis war erfolgreich, ein Integritätszertifikat wird an den Host gesendet, und der Host gilt als "geschützt" (autorisiert zum Ausführen geschützter VMs). Der Host verwendet das Integritätszertifikat, um den Schlüsselschutzdienst zur sicheren Freigabe der Schlüssel zu autorisieren, die zur Arbeit mit abgeschirmten virtuellen Computern benötigt werden.
+    Wenn der Nachweis erfolgreich war, wird ein Integritäts Zertifikat an den Host gesendet, und der Host wird als "geschützt" (autorisiert zum Ausführen von abgeschirmten VMS) betrachtet. Der Host verwendet das Integritätszertifikat, um den Schlüsselschutzdienst zur sicheren Freigabe der Schlüssel zu autorisieren, die zur Arbeit mit abgeschirmten virtuellen Computern benötigt werden.
 
 5. Der Host fordert einen VM-Schlüssel an.
 
@@ -158,7 +158,7 @@ Sowohl abgeschirmte als auch durch Verschlüsselung unterstützte VMs unterstüt
 
 7. Der Schlüssel wird an den Host zurückgegeben.
 
-    Wenn das Integritätszertifikat gültig ist, versucht KPS, den geheimen Schlüssel zu entschlüsseln und die zum Einschalten der VM erforderlichen Schlüssel sicher zurückzugeben. Beachten Sie, dass die Schlüssel, der geschützte Host VBS verschlüsselt werden.
+    Wenn das Integritätszertifikat gültig ist, versucht KPS, den geheimen Schlüssel zu entschlüsseln und die zum Einschalten der VM erforderlichen Schlüssel sicher zurückzugeben. Beachten Sie, dass die Schlüssel in den VSB des geschützten Hosts verschlüsselt werden.
 
 8. Host schaltet auf VM01 ein.
 
@@ -167,18 +167,18 @@ Sowohl abgeschirmte als auch durch Verschlüsselung unterstützte VMs unterstüt
 | Begriff              | Definition           |
 |----------|------------|
 | Host-Überwachungsdienst (Host Guardian Service, HGS) | Eine Windows Server-Rolle, die auf einem gesicherten Cluster von Bare-Metal-Servern installiert ist, die die Integrität eines Hyper-V-Hosts messen und Schlüssel für fehlerfreie Hyper-V-Hosts freigeben können, wenn sie abgeschirmte VMs einschalten bzw. mit ihnen eine Livemigration durchführen. Diese zwei Funktionen sind ein wesentlicher Bestandteil einer Lösung mit einer abgeschirmten VM und werden als **Nachweisdienst** und **Schlüsselschutzdienst** bezeichnet. |
-| geschützter Host | Ein Hyper-V-Host, auf dem abgeschirmte VMs ausgeführt werden können. Ein Host kann nur betrachtet werden _überwachten_ wenn er wurde als fehlerfrei eingestuft wurde vom HGS nachweisdienst. Abgeschirmte VMs können nicht eingeschaltet oder live auf einen Hyper-V-Host migriert werden, für den noch kein Nachweis geführt werden konnte, bzw. der den Nachweis nicht erbringen konnte. |
+| geschützter Host | Ein Hyper-V-Host, auf dem abgeschirmte VMs ausgeführt werden können. Ein Host kann nur als _geschützt_ betrachtet werden, wenn er vom HGS-Nachweis Dienst als fehlerfrei eingestuft wurde. Abgeschirmte VMs können nicht eingeschaltet oder live auf einen Hyper-V-Host migriert werden, für den noch kein Nachweis geführt werden konnte, bzw. der den Nachweis nicht erbringen konnte. |
 | geschütztes Fabric    | Dies ist der Sammelbegriff zur Beschreibung eines Fabrics mit Hyper-V-Hosts und deren Host-Überwachungsdienst, der die Fähigkeit zum Verwalten und Ausführen abgeschirmter VMs hat. |
 | abgeschirmter virtueller Computer (VM) | Ein virtueller Computer, der nur auf geschützten Hosts ausgeführt werden kann und vor Untersuchung, Manipulation und Diebstahl durch bösartige Fabricadministratoren und Hostmalware geschützt ist. |
 | Fabricadministrator | Ein Public Cloud- oder Private Cloud-Administrator, der virtuelle Computer verwalten kann. Im Rahmen eines geschützten Fabrics hat ein Fabricadministrator keinen Zugriff auf abgeschirmte VMs oder die Richtlinien, die bestimmen, auf welchen Hosts abgeschirmte VMs ausgeführt werden können. |
 | HGS-Administrator | Ein vertrauenswürdiger Administrator in der Public oder Private Cloud, der über die Berechtigung zum Verwalten der Richtlinien und des kryptografischen Materials für geschützte Hosts verfügt, d.h. Hosts, auf denen eine abgeschirmte VM ausgeführt werden kann.|
 | Bereitstellungsdatendatei oder geschützte Datendatei (PDK-Datei) | Eine verschlüsselte Datei, die ein Mandant oder Benutzer erstellt, um wichtige Informationen der VM-Konfiguration zu speichern und vor dem Zugriff anderer Benutzern zu schützen. Eine geschützte Datendatei kann z.B. das Kennwort enthalten, das dem lokalen Administratorkonto zugewiesen wird, wenn die VM erstellt wird. |
-| Virtualisierungsbasierte Sicherheit (VBS) | Eine Hyper-V-basierte Verarbeitungs- und speicherumgebung, die vor Administratoren geschützt ist. Virtueller sicherer Modus gibt dem System die Möglichkeit zum Speichern von Betriebssystemschlüsseln, die für den Betriebssystemadministrator unsichtbar sind.|
-| virtuelles TPM | Eine virtualisierte Version eines Trusted Platform Module (TPM). Beginnen mit Hyper-V in Windows Server 2016, können Sie ein virtuelles TPM 2.0-Gerät bereitstellen, damit virtuelle Computer verschlüsselt werden können, wie ein physisches TPM die Verschlüsselung ein physisches Computers ermöglicht.|
+| Virtualisierungsbasierte Sicherheit (VBS) | Eine Hyper-V-basierte Verarbeitungs-und Speicherumgebung, die vor Administratoren geschützt ist. Virtueller sicherer Modus gibt dem System die Möglichkeit zum Speichern von Betriebssystemschlüsseln, die für den Betriebssystemadministrator unsichtbar sind.|
+| virtuelles TPM | Eine virtualisierte Version eines Trusted Platform Module (TPM). Ab Hyper-V in Windows Server 2016 können Sie ein virtuelles TPM 2,0-Gerät bereitstellen, damit virtuelle Computer verschlüsselt werden können, so wie ein physisches TPM die Verschlüsselung eines physischen Computers ermöglicht.|
 
 ## <a name="see-also"></a>Siehe auch
 
 - [Geschütztes Fabric und abgeschirmte VMs](guarded-fabric-and-shielded-vms-top-node.md)
-- Blog: [Datacenter and Private Cloud Security-Blog](https://blogs.technet.microsoft.com/datacentersecurity/)
-- Video: [Einführung in abgeschirmte VMs](https://channel9.msdn.com/Shows/Mechanics/Introduction-to-Shielded-Virtual-Machines-in-Windows-Server-2016)
-- Video: [Einführung in abgeschirmte VMs mit Windows Server 2016 Hyper-V](https://channel9.msdn.com/events/Ignite/2016/BRK3124)
+- Blog: [Datacenter-und Private Cloud-Sicherheits Blog](https://blogs.technet.microsoft.com/datacentersecurity/)
+- Video: [Einführung in abgeschirmte Virtual Machines](https://channel9.msdn.com/Shows/Mechanics/Introduction-to-Shielded-Virtual-Machines-in-Windows-Server-2016)
+- Video: [Informationen zu abgeschirmten VMS mit Windows Server 2016 Hyper-V](https://channel9.msdn.com/events/Ignite/2016/BRK3124)

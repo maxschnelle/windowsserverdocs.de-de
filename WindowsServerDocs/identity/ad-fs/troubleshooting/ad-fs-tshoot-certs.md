@@ -6,14 +6,14 @@ ms.author: billmath
 manager: mtillman
 ms.date: 02/21/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: cee87ce864e333b98e92fa64e939f2ead7edc156
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: fdadbefc138562246c72f7707b303d966bff0989
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869189"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407199"
 ---
 # <a name="ad-fs-troubleshooting---certificates"></a>AD FS Problembehandlung: Zertifikate
 AD FS erfordert die folgenden Zertifikate, um ordnungsgemäß zu funktionieren.  Wenn eine dieser Einstellungen nicht eingerichtet oder ordnungsgemäß konfiguriert wurde, können Probleme auftreten.  
@@ -46,7 +46,7 @@ Im folgenden finden Sie eine Liste der Dinge, die auftreten können und überpr�
 ## <a name="common-certificate-errors"></a>Allgemeine Zertifikat Fehler
 In der folgenden Tabelle sind häufige Fehler und mögliche Ursachen aufgeführt.
 
-|event|Ursache|Auflösung
+|Ereignis|Ursache|Auflösung
 |-----|-----|-----|
 |Ereignis 249: im Zertifikat Speicher wurde kein Zertifikat gefunden. In Szenarios für den zertifikatrol Lover kann dies möglicherweise zu einem Fehler führen, wenn die Verbunddienst mit diesem Zertifikat signiert oder entschlüsselt wird.|Das betreffende Zertifikat ist nicht im lokalen Zertifikat Speicher vorhanden, oder das Dienst Konto verfügt nicht über die Berechtigung für den privaten Schlüssel des Zertifikats.|Stellen Sie sicher, dass das Zertifikat im Speicher LocalMachine\MY auf dem AD FS Server installiert ist. Stellen Sie sicher, dass das AD FS-Dienst Konto über Lesezugriff auf den privaten Schlüssel des Zertifikats verfügt.|
 |Ereignis 315: Fehler beim Versuch, die Zertifikat Kette für das Anspruchs Anbieter-Vertrauensstellungs Zertifikat zu erstellen.|Das Zertifikat wurde gesperrt.</br></br>Die Zertifikatskette kann nicht überprüft werden.</br></br>Das Zertifikat ist abgelaufen oder noch nicht gültig.|Stellen Sie sicher, dass das Zertifikat gültig ist und nicht widerrufen wurde.</br></br>Stellen Sie sicher, dass die CRL zugänglich ist.|

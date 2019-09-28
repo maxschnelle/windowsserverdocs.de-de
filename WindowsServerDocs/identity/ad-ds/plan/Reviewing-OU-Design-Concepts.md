@@ -7,44 +7,44 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: f05104466c1cedcfbc8d94060ffa8fbfd9d18033
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6dc2cbb7ddff8725876f8dd4ec2760e828fd4e4c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832171"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402512"
 ---
 # <a name="reviewing-ou-design-concepts"></a>Überprüfen von Entwurfskonzepten für Organisationseinheiten
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Die Struktur der Organisationseinheit (OU) für eine Domäne umfasst Folgendes:  
   
--   Ein Diagramm der Hierarchie der Organisationseinheiten  
+-   Ein Diagramm der OE-Hierarchie  
   
--   Eine Liste von Organisationseinheiten  
+-   Eine Liste der Organisationseinheiten  
   
 -   Für jede Organisationseinheit:  
   
-    -   Der Zweck der Organisationseinheit  
+    -   Zweck der Organisationseinheit  
   
-    -   Eine Liste von Benutzern oder Gruppen, die Kontrolle über die Organisationseinheit oder die Objekte in der Organisationseinheit verfügen.  
+    -   Eine Liste von Benutzern oder Gruppen, die die Kontrolle über die Organisationseinheit oder die Objekte in der Organisationseinheit haben  
   
-    -   Der Typ des Steuerelements, die Benutzer und Gruppen über die Objekte in der Organisationseinheit  
+    -   Der Typ des Steuer Elements, das Benutzer und Gruppen über die Objekte in der Organisationseinheit verfügen.  
   
-Die Hierarchie der Organisationseinheiten muss nicht von der Organisation oder die Gruppe der Abteilung Hierarchie entspricht. Organisationseinheiten sind für einen bestimmten Zweck, z. B. die Delegierung der Verwaltung auf, die Anwendung der Gruppenrichtlinie oder die Sichtbarkeit von Objekten beschränken erstellt.  
+Die Hierarchie der Organisationseinheiten muss die Abteilungs Hierarchie der Organisation oder Gruppe nicht widerspiegeln. Organisationseinheiten werden für einen bestimmten Zweck erstellt, z. b. die Delegierung der Verwaltung, die Anwendung von Gruppenrichtlinie oder das Einschränken der Sichtbarkeit von Objekten.  
   
-Sie können die Struktur der Organisationseinheit Delegieren der Verwaltung an Einzelpersonen oder Gruppen in Ihrer Organisation, die die Autonomie verwalten ihre eigenen Ressourcen und die Daten erfordern entwerfen. Organisationseinheiten Verwaltungsgrenzen darstellen und ermöglichen es Ihnen, den Umfang der Autorität für die der Datenadministratoren steuern.  
+Sie können Ihre OE-Struktur so entwerfen, dass die Verwaltung an Einzelpersonen oder Gruppen in Ihrem Unternehmen delegiert wird, die Autonomie benötigen, um Ihre eigenen Ressourcen und Daten zu verwalten. Organisationseinheiten stellen administrative Grenzen dar und ermöglichen es Ihnen, den Gültigkeitsbereich von Daten Administratoren zu steuern.  
   
-Sie können z. B. erstellen eine Organisationseinheit, die mit dem Namen ResourceOU und verwenden, um alle Computerkonten zu speichern, die die Datei- und Druckserver verwaltet, die von einer Gruppe angehören. Anschließend können Sie in der Organisationseinheit Sicherheit konfigurieren, damit nur Datenadministratoren in der Gruppe haben Zugriff auf die Organisationseinheit. Dadurch wird verhindert, dass Data-Administratoren in anderen Gruppen der Datei- und Druckserver Konten manipulieren.  
+Beispielsweise können Sie eine Organisationseinheit mit dem Namen "ResourceOU" erstellen und diese zum Speichern aller Computer Konten verwenden, die zu den von einer Gruppe verwalteten Datei-und Druckservern gehören. Anschließend können Sie die Sicherheit für die Organisationseinheit so konfigurieren, dass nur Daten Administratoren in der Gruppe Zugriff auf die Organisationseinheit haben. Dadurch wird verhindert, dass Daten Administratoren in anderen Gruppen die Datei-und Druckserver Konten manipulieren.  
   
-Sie können die Struktur der Organisationseinheit weiter optimieren, durch das Erstellen von Unterstrukturen von Organisationseinheiten für bestimmte Zwecke, z. B. die Anwendung der Gruppenrichtlinie oder die Sichtbarkeit der geschützte Objekte zu beschränken, sodass nur bestimmte Benutzer, die sie sehen können. Z. B. Wenn Sie die Gruppenrichtlinie für eine ausgewählte Gruppe von Benutzern oder Ressourcen anwenden müssen, können Sie diese Benutzer oder die Ressourcen mit einer Organisationseinheit hinzufügen und dann anwenden der Gruppenrichtlinie zu dieser Organisationseinheit. Sie können die Hierarchie der Organisationseinheiten auch verwenden, um Delegierung von Verwaltungsfunktionen weiter zu aktivieren.  
+Sie können Ihre OE-Struktur weiter verfeinern, indem Sie Unterstrukturen von Organisationseinheiten für bestimmte Zwecke erstellen, z. b. die Anwendung von Gruppenrichtlinie, oder um die Sichtbarkeit geschützter Objekte einzuschränken, sodass nur bestimmte Benutzer Sie sehen können. Wenn Sie z. b. Gruppenrichtlinie auf eine ausgewählte Gruppe von Benutzern oder Ressourcen anwenden müssen, können Sie diese Benutzer oder Ressourcen einer Organisationseinheit hinzufügen und dann Gruppenrichtlinie auf diese Organisationseinheit anwenden. Sie können auch die Hierarchie der Organisationseinheiten verwenden, um die Delegierung der administrativen Kontrolle zu aktivieren.  
   
-Es gibt zwar keine technische Grenze um die Anzahl der Ebenen in Ihrer Organisationsstruktur, zu Zwecken der Verwaltbarkeit empfehlen wir die Struktur der Organisationseinheit zu einer Tiefe von maximal 10 Ebenen zu beschränken. Es gibt keine technische Grenze auf die Anzahl von OEs für jede Ebene ein. Beachten Sie, Active Directory Domain Services (AD DS)-aktivierte Anwendungen verfügen möglicherweise über Einschränkungen für die Anzahl der Zeichen, die in den distinguished Name (d. h. den vollständigen Lightweight Directory Access Protocol (LDAP) Pfad auf das Objekt in das Verzeichnis) verwendet oder auf der Organisationseinheit Tiefe innerhalb der Hierarchie.  
+Es gibt zwar keine technische Beschränkung für die Anzahl der Ebenen in der OE-Struktur, aber für die Verwaltbarkeit wird empfohlen, dass Sie Ihre OE-Struktur auf eine Tiefe von höchstens 10 Ebenen beschränken. Es gibt keine technische Beschränkung für die Anzahl der Organisationseinheiten auf jeder Ebene. Beachten Sie, dass Active Directory Domain Services (AD DS)-aktivierten Anwendungen möglicherweise Einschränkungen hinsichtlich der Anzahl von Zeichen aufweisen, die im Distinguished Name verwendet werden (d. h. der LDAP-Pfad (Full Lightweight Directory Access Protocol) für das Objekt im Verzeichnis) oder auf dem Organisations Tiefe innerhalb der Hierarchie.  
   
-Die Struktur der Organisationseinheiten in AD DS ist nicht vorgesehen, für den Endbenutzer sichtbar sein soll. Die OE-Struktur ist ein Verwaltungstool für Dienstadministratoren und Datenadministratoren, und es ist einfach, zu ändern. Überprüfen und Aktualisieren des Entwurfs der OE-Struktur an eine Verwaltungsstruktur widerzuspiegeln und zur Unterstützung der Richtlinie der richtlinienbasierten Verwaltung weiterhin.  
+Die OE-Struktur in AD DS sollte nicht für Endbenutzer sichtbar sein. Die OE-Struktur ist ein Verwaltungs Tool für Dienst Administratoren und für Daten Administratoren und kann leicht geändert werden. Überprüfen und aktualisieren Sie den Entwurf ihrer OU-Struktur, um Änderungen an der administrativen Struktur und die Unterstützung der Richtlinien basierten Verwaltung zu berücksichtigen.  
   
 
 

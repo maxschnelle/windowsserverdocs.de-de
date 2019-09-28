@@ -7,13 +7,13 @@ author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 06/07/2019
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 19013c3f132b7486647ade2c9c4950b65c21b8e7
-ms.sourcegitcommit: feec5cbe983c8c5800ccd4fc214914084fcceaba
+ms.prod: windows-server
+ms.openlocfilehash: 72e71ce2d1427f392aa02d32597f92d031f9a5c9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975319"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407005"
 ---
 # <a name="prepare-your-environment-for-windows-admin-center"></a>Vorbereiten der Umgebung für die Windows Admin Center
 
@@ -108,7 +108,7 @@ Zum Verwalten von Microsoft Hyper-V Server 2012 R2 mit Windows Admin Center sind
 3. Aktivieren Sie die Datei-Serverrolle
 4. Aktivieren Sie Hyper-V-Modul für PowerShell
 
-### <a name="step-1-install-windows-management-framework-51"></a>Schritt 1: Installieren von Windows Management Framework 5,1
+### <a name="step-1-install-windows-management-framework-51"></a>Schritt 1: Installieren von Windows Management Framework 5,1
 
 Windows Admin Center erfordert PowerShell-Features, die nicht in Microsoft Hyper-V Server 2012 R2 standardmäßig enthalten sind. Zum Verwalten von Microsoft Hyper-V Server 2012 R2 mit Windows Admin Center müssen Sie WMF Version 5.1 oder höher zu installieren.
 

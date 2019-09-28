@@ -1,7 +1,7 @@
 ---
-title: Physischen Switch-Konfiguration für zusammengeführte NIC
-description: In diesem Thema bieten wir Richtlinien für den physischen Switches konfigurieren.
-ms.prod: windows-server-threshold
+title: Konfiguration des physischen Switches für konvergierte NIC
+description: In diesem Thema erhalten Sie Richtlinien für die Konfiguration physischer Switches.
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 6d53c797-fb67-4b9e-9066-1c9a8b76d2aa
@@ -9,52 +9,52 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/14/2018
-ms.openlocfilehash: e31d7b83fee84d9055d938f77b49389205786244
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d10e8ca6e4689b89a8b9532f77613f17280282b1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829401"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355476"
 ---
-# <a name="physical-switch-configuration-for-converged-nic"></a>Physischen Switch-Konfiguration für zusammengeführte NIC
+# <a name="physical-switch-configuration-for-converged-nic"></a>Konfiguration des physischen Switches für konvergierte NIC
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-In diesem Thema bieten wir Richtlinien für den physischen Switches konfigurieren. 
+In diesem Thema erhalten Sie Richtlinien für die Konfiguration physischer Switches. 
 
 
-Dies sind nur für Befehle und deren Verwendung. Sie müssen die Ports, mit denen die NICs verbunden sind, in Ihrer Umgebung bestimmen. 
+Dabei handelt es sich nur um Befehle und deren Verwendung. Sie müssen die Ports, mit denen die NICs verbunden sind, in Ihrer Umgebung bestimmen. 
 
 >[!IMPORTANT]
->Stellen Sie sicher, dass das VLAN und nicht ablegen-Richtlinie festgelegt ist, für die Priorität, die über den SMB konfiguriert ist.
+>Stellen Sie sicher, dass die VLAN-und die No-Drop-Richtlinie für die Priorität festgelegt ist, über die SMB konfiguriert ist
 
-## <a name="arista-switch-dcs-7050s-64-eos-4137m"></a>Arista Switch \(Dcs\-7050s\-64, EOS\-4.13.7M\)
+## <a name="arista-switch-dcs-7050s-64-eos-4137m"></a>Arista Switch \(dcs @ no__t-17050s @ no__t-264, EOS @ no__t-34.13.7 m @ no__t-4
 
-1.  En \(wechseln Sie zur Administratormodus, in der Regel nach einem Kennwort gefragt.\)
-2.  Config \(in den Konfigurationsmodus eingeben\)
-3.  Anzeigen der Ausführung \(zeigt aktuell ausgeführte Konfiguration\)
-4.  Erfahren Sie, Switch-Ports, die mit denen Ihre NICs verbunden sind. Im folgenden Beispiel sind sie 14/1,15/1,16/1,17/1.
-5.  Int-Eth 14/1,15/1,16/1,17/1 \(Geben Sie in der Config-Modus für diese Ports\)
-6.  Dcbx Modus ieee
-7.  flusspriorisierung Modus auf
-8.  Switchport native Trunk-Vlan 225
-9.  Switchport "Trunk" zulässige Vlan 100 bis 225
-10. Switchport im Modus "Trunk"
-11. Priorität der flusssteuerung Priorität 3 keine Ablage
-12. QoS vertrauen, cos
-13. Anzeigen der Ausführung \(stellen Sie sicher, dass die Konfiguration ist die Einrichtung ordnungsgemäß an den Ports\)
-14. WR \(, stellen die Einstellungen weiterhin besteht, über den Switch-Neustart\)
+1.  en \(gehe zu Admin-Modus, fordert normalerweise ein Kennwort an (@ no__t-1).
+2.  config \(to Enter into Configuration Mode @ no__t-1
+3.  Ausführung anzeigen \(zeigt die aktuell aktive Konfiguration @ no__t-1
+4.  Suchen Sie die Switchports, mit denen die NICs verbunden sind. In diesem Beispiel lauten Sie 14/1, 15/1, 16/1, 17/1.
+5.  int ETH 14/1, 15/1, 16/1, 17/1 \(enter into config Mode für diese Ports @ no__t-1
+6.  dcbx-Modus IEEE
+7.  Prioritäts Fluss-Steuerungs Modus für
+8.  Switchport-trunk natives VLAN 225
+9.  Switchport-trunk zulässige VLAN 100-225
+10. switchportmodus-trunk
+11. Prioritäts Fluss-Steuerungs Priorität 3 nicht ablegen
+12. QoS Trust COS
+13. Run Show \(vergewissern Sie sich, dass die Konfiguration auf den Ports @ no__t-1 ordnungsgemäß eingerichtet ist.
+14. WR \(, damit die Einstellungen über den switchneustart @ no__t-1 beibehalten werden.
 
-### <a name="tips"></a>Tipps:
-1.  Keine #Command # negiert ein Befehls
-2.  Gewusst wie: Hinzufügen ein neues VLAN: Int Vlan 100 \(Speichernetzwerk ist auf VLAN 100\)
-3.  So prüfen Sie vorhandene VLANs: Anzeigen von Vlan
-4.  Weitere Informationen zum Konfigurieren von Arista Switch, suchen Sie online nach: Arista EOS manuell
-5.  Mit diesem Befehl können Sie um PCF-Einstellungen zu überprüfen: flusspriorisierung Leistungsindikatoren Details anzeigen
+### <a name="tips"></a>Chti
+1.  Nein #Command # negiert einen Befehl.
+2.  Vorgehensweise beim Hinzufügen eines neuen VLANs: int VLAN 100 \(if Storage Network on VLAN 100 @ no__t-1
+3.  Überprüfen vorhandener VLANs: VLAN anzeigen
+4.  Weitere Informationen zum Konfigurieren des Arista-Schalters finden Sie online nach: Arista EOS manuell
+5.  Verwenden Sie diesen Befehl, um die PFC-Einstellungen zu überprüfen: Details der Prioritäts Fluss-Steuerungs Zähler anzeigen
 
 --- 
 
-## <a name="dell-switch-s4810-ftos-99-00"></a>Dell-Switch \(S4810, FTOS 9.9 \(0,0\)\)
+## <a name="dell-switch-s4810-ftos-99-00"></a>Dell Switch \(s4810, f-9,9 \(0.0 @ no__t-2 @ no__t-3
 
     
     !
@@ -74,7 +74,7 @@ Dies sind nur für Befehle und deren Verwendung. Sie müssen die Ports, mit dene
     
 --- 
 
-## <a name="cisco-switch-nexus-3132-version-602u61"></a>Cisco-Switch \(Nexus 3132, Version 6.0\(2\)U6\(1\)\)
+## <a name="cisco-switch-nexus-3132-version-602u61"></a>Cisco Switch \(nexus 3132, Version 6.0 @ no__t-12 @ no__t-2u6 @ no__t-31 @ no__t-4 @ no__t-5
 
 ### <a name="global"></a>Global
     
@@ -105,7 +105,7 @@ Dies sind nur für Befehle und deren Verwendung. Sie müssen die Ports, mit dene
     service-policy type network-qos QOS_NETWORK
     
 
-### <a name="port-specific"></a>Bestimmte Ports
+### <a name="port-specific"></a>Port spezifisch
 
     
     switchport mode trunk
@@ -121,8 +121,8 @@ Dies sind nur für Befehle und deren Verwendung. Sie müssen die Ports, mit dene
 
 ## <a name="related-topics"></a>Verwandte Themen
 
-- [Zusammengeführte NIC-Konfiguration mit einem einzelnen Netzwerkadapter](cnic-single.md)
-- [Zusammengeführte NIC in einem Team verwendete NIC-Konfiguration](cnic-datacenter.md)
-- [Problembehandlung bei Converged NIC-Konfigurationen](cnic-app-troubleshoot.md)
+- [Konvergierte NIC-Konfiguration mit einem einzelnen Netzwerk Adapter](cnic-single.md)
+- [Konvergierte NIC-Konfiguration mit Nic](cnic-datacenter.md)
+- [Problembehandlung bei zusammen getauschten NIC](cnic-app-troubleshoot.md)
 
 --- 

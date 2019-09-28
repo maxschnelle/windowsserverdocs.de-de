@@ -1,8 +1,8 @@
 ---
 title: defrag
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6b5f6231273fb9fe9a99a1cd1bf72dbd0bad71af
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 2d930e224ac1610b5e49cbf5701778bfb6f14b2e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433913"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378708"
 ---
 # <a name="defrag"></a>defrag
 
->Gilt für: Windows 10, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows 10, Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Sucht und konsolidiert fragmentierte Dateien auf lokalen Volumes die Systemleistung zu verbessern.
-Mitgliedschaft in der lokalen **Administratoren** oder einer gleichwertigen Gruppe, ist die mindestvoraussetzung, um diesen Befehl auszuführen.
+In werden fragmentierte Dateien auf lokalen Volumes lokalisiert und konsolidiert, um die Systemleistung zu verbessern.
+Sie müssen mindestens Mitglied der lokalen Gruppe **Administratoren** oder einer entsprechenden Gruppe sein, um diesen Befehl ausführen zu können.
 
 ## <a name="syntax"></a>Syntax
 ```
@@ -38,72 +38,72 @@ defrag <volume> [/<Parameter>]*
 
 |Parameter|Beschreibung|
 |-------|--------|
-|`<volume>`|Gibt an, der Laufwerkbuchstabe oder Bereitstellungspunkt Punkt Laufwerkpfad des Volumes, defragmentiert oder analysiert werden soll.|
-|A|Führen Sie auf die angegebenen Volumes Analyse.|
-|c|Führen Sie den Vorgang für alle Volumes.|
-|D|Führen Sie die herkömmlichen Defrag (Dies ist die Standardeinstellung). Herkömmliche Defragmentierung ist jedoch auf einem mehrstufigen Volume nur auf der Kapazität-Ebene ausgeführt.|
-|E|Führen Sie den Vorgang für alle Volumes mit Ausnahme derjenigen angegeben.|
-|G|Optimieren Sie die Speicherebenen für die angegebenen Volumes.|
-|H|Führen Sie den Vorgang mit normaler Priorität (Standard ist niedrig).|
-|Ich n|Ebenenoptimierung würde für maximal n Sekunden auf jedem Volume ausgeführt.|
-|K|Durchführen der bereichskonsolidierung auf den angegebenen Volumes.|
-|L|Führen Sie auf die angegebenen Volumes erneut optimieren.|
-|M [n]|Den Vorgang auf jedem Volume werden parallel im Hintergrund ausgeführt. Höchstens n Threads die Speicherebenen parallel zu optimieren.|
-|O|Führen Sie die richtige Optimierung für jeden Medientyp.|
-|T|Verfolgen eines Vorgangs bereits auf dem angegebenen Volume.|
-|U|Drucken Sie den Fortschritt des Vorgangs auf dem Bildschirm.|
-|B|Drucken Sie die ausführlichen Ausgabe, die mit der Fragmentierungsstatistik.|
-|X|Führen Sie auf die angegebenen Volumes Speicherplatz Konsolidierung.|
-|?|Zeigt diese Hilfeinformationen an.|
+|`<volume>`|Gibt den Laufwerk Buchstaben oder den Bereitstellungspunktpfad des Volumes an, das zerlegt oder analysiert werden soll.|
+|A|Führt eine Analyse der angegebenen Volumes aus.|
+|c|Führen Sie den Vorgang auf allen Volumes aus.|
+|D|Führen Sie herkömmliche Debug-Vorgänge aus (Dies ist die Standardeinstellung). Bei einem mehrstufigen Volume wird die herkömmliche decofragmentierung jedoch nur auf der Kapazitäts Ebene ausgeführt.|
+|E|Führen Sie den Vorgang auf allen Volumes außer den angegebenen Volumes aus.|
+|G|Optimieren Sie die Speicherebenen auf den angegebenen Volumes.|
+|H|Der Vorgang wird mit normaler Priorität ausgeführt (standardmäßig niedrig).|
+|I n|Die ebenenoptimierung wird für jedes Volume höchstens n Sekunden ausgeführt.|
+|K|Führt eine Zusammenfassung der Laufwerke auf den angegebenen Volumes aus.|
+|L|Führt den Abruf auf den angegebenen Volumes aus.|
+|M [n]|Führen Sie den Vorgang auf jedem Volume parallel im Hintergrund aus. Höchstens n Threads optimieren die Speicherebenen parallel.|
+|O|Führen Sie die richtige Optimierung für jeden Medientyp aus.|
+|T|Verfolgt einen bereits in Bearbeitung befindlichen Vorgang auf dem angegebenen Volume.|
+|U|Gibt den Fortschritt des Vorgangs auf dem Bildschirm aus.|
+|B|ausführliche Ausgabe Drucken, die die Fragmentierung-Statistik enthält.|
+|X|Führen Sie die Konsolidierung des freien Speicherplatzes auf den angegebenen Volumes aus.|
+|?|Zeigt diese Hilfe Informationen an.|
 
 ## <a name="remarks"></a>Hinweise
-- Sie können keine bestimmte Typen von Dateisystem-Datenträger oder Laufwerke defragmentieren:
-  -   Sie können keine Volumes zu defragmentieren, die im Dateisystem gesperrt hat.
-  -   Sie können keine Defragmentieren Volumes, die im Dateisystem als fehlerhaft gekennzeichnet wurde gibt möglicherweise an. Sie müssen ausführen **Chkdsk** auf einen fehlerhaften Datenträger zu defragmentieren können. Sie können feststellen, ob ein Volume fehlerhaft ist, mit der **Fsutil** Abfragebefehl geändert. Weitere Informationen zu **Chkdsk** und **Fsutil** modifizierte, finden Sie unter [zusätzliche Verweise](defrag.md#BKMK_additionalRef).
-  -   Sie können keine Netzwerklaufwerke defragmentieren.
-  -   Sie können keine CD-ROMs defragmentieren.
-  -   Sie können keine Dateisystemlaufwerke, die nicht defragmentieren **NTFS**, **ReFS**, **Fat** oder **Fat32**.
-- Mit WindowsServer 2008 R2, Windows Server 2008 und Windows Vista können Sie planen, um ein Volume defragmentiert. Allerdings können Sie keine planen Defragmentieren ein Solid State Drive (SSD) oder ein Volume auf einer virtuellen Festplatte (VHD), die sich auf einem SSD-befindet.
-- Um diese Schritte ausführen zu können, müssen Sie auf dem lokalen Computer ein Mitglied der Gruppe %%amp;quot;Administratoren%%amp;quot; sein oder Ihnen muss die entsprechende Berechtigung übertragen worden sein. Wenn der Computer zu einer Domäne gehört, können möglicherweise Mitglieder der Gruppe "Domänen-Admins" dieses Verfahren ausführen. Als Security best Practices, sollten Sie verwenden **ausführenden** zum Ausführen dieses Verfahrens.
-- Das Volume muss mindestens 15 % freier Speicherplatz für gibt **Defragmentieren** vollständig und ordnungsgemäß defragmentiert werden kann. **Defragmentieren** verwendet diesen als Sortierbereich zum Dateifragmente. Wenn ein Volume mit weniger als 15 % freien Speicherplatz, verfügt **Defragmentieren** wird nur teilweise defragmentiert werden. Um den freien Speicherplatz auf einem Volume zu erhöhen, nicht benötigte Dateien löschen, oder auf einen anderen Datenträger verschieben.
-- Während **Defragmentieren** ist analysieren und Defragmentieren eines Volumes, einen blinkenden Cursor angezeigt. Wenn **Defragmentieren** ist fertig analysieren und Defragmentieren das Volume, er zeigt den Bericht, Defragmentierungsberichts oder beide Berichte, beendet das Hilfsprogramm dann to the commund Prompt.
-- In der Standardeinstellung **Defragmentieren** wird eine Zusammenfassung der Analyse und die Defragmentierung Berichte angezeigt, wenn Sie nicht angeben der **/a** oder **/v** Parameter.
-- Sie können die Berichte in eine Textdatei senden, indem Sie eingeben **>** <em>Dateiname.txt</em>, wobei *Dateiname.txt* ist ein Dateiname, die Sie angeben. Beispiel: `defrag volume /v > FileName.txt`
-- Um die Defragmentierung ab, in der Befehlszeile zu unterbrechen, drücken Sie **STRG + C**.
-- Ausführen der **Defragmentieren** Befehl und Defragmentierung schließen sich gegenseitig. Wenn Sie die Defragmentierung Defragmentieren ein Volumes verwenden und Ausführen der **Defragmentieren** -Befehl an einer Befehlszeile, die **Defragmentieren** Befehl schlägt fehl. Im Gegensatz dazu, wenn das Ausführen der **Defragmentieren** Befehl, und Öffnen von Defragmentierung, für die Defragmentierungsoptionen in der Defragmentierung nicht verfügbar sind.
+- Sie können keine bestimmten Typen von Datei Systemvolumes oder-Laufwerken defragmentieren:
+  -   Sie können keine Volumes defragmentieren, die das Dateisystem gesperrt hat.
+  -   Sie können keine Volumes defragmentieren, die das Dateisystem als geändert markiert hat. Dies deutet auf eine mögliche Beschädigung hin. Sie müssen **chkdsk** auf einem Dirty Volume ausführen, bevor Sie es zerlegen können. Sie können ermitteln, ob ein Volume geändert wird, indem Sie den Befehl "bereinigen" **mit der Befehls** Zeilen Änderung verwenden. Weitere Informationen zu CHKDSK **und zum** fehlerhaften **Befehl "Chkdsk** " finden Sie unter [Zusätzliche Verweise](defrag.md#BKMK_additionalRef).
+  -   Netzwerklaufwerke können nicht zerlegt werden.
+  -   CDROMs können nicht defragmentieren.
+  -   Sie können keine Datei Systemvolumes defragmentieren, bei denen es sich nicht um **NTFS**, **Refs**, **FAT** oder **FAT32**handelt.
+- Mit Windows Server 2008 R2, Windows Server 2008 und Windows Vista können Sie das Defragmentieren eines Volumes planen. Es ist jedoch nicht möglich, ein Festplattenlaufwerk (Solid State Drive, SSD) oder ein Volume auf einer virtuellen Festplatte (VHD), die sich auf einem SSD befindet, zu defragmentieren.
+- Um diese Schritte ausführen zu können, müssen Sie auf dem lokalen Computer ein Mitglied der Gruppe %%amp;quot;Administratoren%%amp;quot; sein oder Ihnen muss die entsprechende Berechtigung übertragen worden sein. Wenn der Computer zu einer Domäne gehört, können möglicherweise Mitglieder der Gruppe "Domänen-Admins" dieses Verfahren ausführen. Als bewährte Sicherheitsmaßnahme sollten Sie die Verwendung von " **Ausführen als** " verwenden, um dieses Verfahren auszuführen.
+- Ein Volume muss über mindestens 15% freien Speicherplatz verfügen, damit es von der **decofragmentierung** vollständig und ordnungsgemäß zerlegt werden kann. **Defragmentierung** verwendet dieses Leerzeichen als Sortierbereich für Dateifragmente. Wenn ein Volume über weniger als 15% freien Speicherplatz verfügt, wird es von der **decofragmentierung** nur teilweise zerlegt. Um den freien Speicherplatz auf einem Volume zu erhöhen, löschen Sie nicht benötigte Dateien, oder verschieben Sie Sie auf einen anderen Datenträger.
+- Beim **analysieren und decomieren** eines Volumes durch die Debug-Funktionen wird ein blinkender Cursor angezeigt. Wenn die **Defragmentierung** das analysieren und Defragmentieren des Volumes abgeschlossen hat, werden der Analysebericht, der Defragmentierungs Bericht oder beide Berichte angezeigt und dann an der Eingabeaufforderung beendet.
+- Standardmäßig zeigt **Defragmentierung** eine Zusammenfassung der Analyse-und Defragmentierungsberichte an, wenn Sie die Parameter **/a** und **/v** nicht angeben.
+- Sie können die Berichte an eine Textdatei senden, indem Sie **>** <em>filename. txt</em>eingeben, wobei *filename. txt* für einen von Ihnen angegebenen Dateinamen steht. Beispiel: `defrag volume /v > FileName.txt`
+- Um den Defragmentierungs Prozess zu unterbrechen, drücken Sie in der Befehlszeile **STRG + C**.
+- **Das Ausführen** des Befehls "Debug" und "Disk Debug" schließen sich gegenseitig aus. Wenn Sie die Datenträger Defragmentierung zum Defragmentieren eines Volumes verwenden und den **Defragmentierung** -Befehl in einer Befehlszeile ausführen, schlägt der **Defragmentierung** -Befehl fehl. Wenn Sie hingegen den Defragmentierungsbefehl ausführen und die Datenträger Defragmentierung öffnen, sind die Defragmentierungsoptionen in der Datenträger Defragmentierung nicht verfügbar.
 
-## <a name="BKMK_examples"></a>Beispiele für
-Geben Sie Folgendes ein, um das Volume auf dem Laufwerk C: zu defragmentieren und gleichzeitig ausgeführt und die ausführliche Ausgabe:
+## <a name="BKMK_examples"></a>Beispiele
+Geben Sie Folgendes ein, um das Volume auf Laufwerk C beim Bereitstellen von Fortschritt und ausführlicher Ausgabe zu defragmentieren:
 ```
 defrag C: /U /V
 ```
-Geben Sie Folgendes ein, um die Volumes auf einem Laufwerk C und D parallel im Hintergrund zu defragmentieren:
+Wenn Sie die Volumes auf den Laufwerken C und D parallel im Hintergrund defragmentieren möchten, geben Sie Folgendes ein:
 ```
 defrag C: D: /M
 ```
-Zum Durchführen einer Analyse der Fragmentierung eines Volumes auf Laufwerk C bereitgestellt, und geben Sie Status, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um eine Fragmentierungs Analyse eines Volumes auszuführen, das auf Laufwerk C eingebunden ist, und den Fortschritt
 ```
 defrag C: mountpoint /A /U
 ```
-Um alle Volumes mit normaler Priorität zu defragmentieren, und geben Sie die ausführlichen Ausgabe, geben Sie Folgendes ein:
+Wenn Sie alle Volumes mit normaler Priorität defragmentieren und eine ausführliche Ausgabe bereitstellen möchten, geben Sie Folgendes ein:
 ```
 defrag /C /H /V
 ```
 
-## <a name="BKMK_scheduledTask"></a>Geplante Aufgabe
-Defragmentieren des Task ausgeführt wird als ein Wartungstask und wird in der Regel geplant, jede Woche auszuführen. Administrator kann die Häufigkeit mit ändern **Laufwerke optimieren** Anwendung.
-- Wenn von den geplanten Task ausführen **Defragmentieren** hat folgende Richtlinie für SSDs:
-   - **Traditionell Defragmentieren** (d. h. Verschieben von Dateien, um sie angemessen zusammenhängend zu machen) und **retrim** nur einmal monatlich ausgeführt wird.
-   - Wenn beide **herkömmliche Defragmentieren** und **retrim** werden übersprungen, **Analysis** wird nicht ausgeführt.
-      - Wenn Benutzer ausgeführt haben **herkömmliche Defragmentieren** manuell auf einem SSD-Speicher, z. B., drei Wochen nach der letzten geplanten task ausführen, und klicken Sie dann der nächsten geplante Task ausführen führt **Analysis** und **retrim** jedoch Überspringen Sie **herkömmliche Defragmentieren** auf dieser SSD.
-   - Wenn **Analysis** wird übersprungen; das **der letzten Ausführung** Zeit in **Laufwerke optimieren** wird nicht aktualisiert werden.  Für SSDs der **der letzten Ausführung** Zeit in **Laufwerke optimieren** kann ein Monat Alt sein.
-- Dieser Wartungstask möglicherweise alle Volumes, nicht zu Zeiten defragmentieren, da diese Aufgabe Folgendes durchführt:
-   - Der Computer nicht aktiviert werden, um die Defragmentierung
-   - Startet nur, wenn der Computer über das Netzteil ist, und wird beendet, wenn der Computer auf Akkubetrieb umschaltet
-   - Wird beendet, wenn der Computer nicht mehr im Leerlauf befinden
+## <a name="BKMK_scheduledTask"></a>Geplanter Task
+Die geplante Aufgabe Defrag wird als Wartungs Task ausgeführt und ist in der Regel wöchentlich geplant. Der Administrator kann die Häufigkeit mit der App "App **optimieren** " ändern.
+- Bei der Ausführung aus dem geplanten Task weist **Defragmentierung** die Richtlinie für SSDs auf:
+   - **Herkömmliche** defragmentierungsdateien (d. h. das Verschieben von Dateien, um Sie in angemessener zusammenhängend zu gestalten) und das **Abrufen** werden nur einmal monatlich ausgeführt.
+   - Wenn sowohl **herkömmliche** als auch **Abruf** Vorgang übersprungen werden, wird die **Analyse** nicht ausgeführt.
+      - Wenn der Benutzer **herkömmliche Defragmentierung** manuell auf einem SSD ausgeführt hat, beispielsweise 3 Wochen nach der letzten geplanten Aufgabe, führt die nächste geplante Task Ausführung eine **Analyse** durch und **Ruft** Sie ab, überspringt aber die **herkömmliche Defragmentierung** auf diesem SSD.
+   - Wenn die **Analyse** übersprungen wird, wird die **Letzte Laufzeit** in **Optimierungs Laufwerken** nicht aktualisiert.  Daher kann für SSDs die **Letzte Laufzeit** in **Optimierungs Laufwerken** ein monatlicher Zeitraum sein.
+- Mit diesem Wartungs Task werden möglicherweise nicht alle Volumes defragmentiert, es sei denn, diese Aufgabe führt folgende Schritte aus:
+   - Der Computer wird nicht zum Ausführen von "Debug" aktiviert.
+   - Startet nur, wenn sich der Computer in der Stromversorgung befindet, und wird beendet, wenn der Computer in den Akku Betrieb wechselt.
+   - Wird beendet, wenn der Computer nicht mehr im Leerlauf ist.
 
-## <a name="BKMK_additionalRef"></a>Zusätzliche Referenzen
+## <a name="BKMK_additionalRef"></a>Weitere Verweise
 -   [chkdsk](chkdsk.md)
 -   [fsutil](fsutil.md)
--   [fsutil dirty](fsutil-dirty.md)
+-   [nicht geändert](fsutil-dirty.md)
 -   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

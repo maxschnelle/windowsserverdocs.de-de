@@ -1,8 +1,8 @@
 ---
 title: Importieren
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 379d5923a9355db2965b56c27cedd207b1b63006
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ca0a15e73e4aa913ece34e083a8070be3b4b190d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885991"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375408"
 ---
 # <a name="import"></a>Importieren
 
 
 
-Eine Gruppe von fremden Datenträger importiert in der Datenträgergruppe des lokalen Computers.
+Importiert eine fremde Datenträger Gruppe in die Datenträger Gruppe des lokalen Computers.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,21 +36,21 @@ import [noerr]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Diskpart|nur für Skripts. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden.|
+|Noerr|Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.|
 
 ## <a name="remarks"></a>Hinweise
 
--   Der Importbefehl importiert alle Datenträger, der in derselben Gruppe wie das Laufwerk mit dem Fokus.
--   Ein dynamischer Datenträger in einer fremden Datenträger-Gruppe muss ausgewählt werden, für diesen Vorgang erfolgreich ausgeführt werden kann. Verwenden der **select Disk** Befehl aus, wählen Sie einen Datenträger und verschiebt den Fokus auf sie.
+-   Der Import-Befehl importiert jeden Datenträger, der sich in derselben Gruppe wie der Datenträger mit dem Fokus befindet.
+-   Ein dynamischer Datenträger in einer Gruppe von fremden Datenträgern muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl Datenträger **auswählen** einen Datenträger aus, und verschieben Sie den Fokus auf den Datenträger.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um jeden Datenträger importieren, die in derselben Datenträgergruppe als der Datenträger mit dem Fokus in der Datenträgergruppe des lokalen Computers befindet, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um alle Datenträger zu importieren, die sich in der gleichen Datenträger Gruppe wie der Datenträger mit dem Fokus auf die Datenträger Gruppe des lokalen Computers befinden
 ```
 import
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

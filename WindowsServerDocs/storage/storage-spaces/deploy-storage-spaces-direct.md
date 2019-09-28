@@ -1,6 +1,6 @@
 ---
 title: Bereitstellen von direkte Speicherplätze
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: eldenc
 ms.author: stevenek
 ms.technology: storage-spaces
@@ -10,12 +10,12 @@ author: stevenek
 ms.date: 06/07/2019
 description: Eine Schritt-für-Schritt-Anleitung zum Bereitstellen von Software definiertem Speicher mit direkte Speicherplätze in Windows Server als hyperkonvergierte Infrastruktur oder konvergierte Infrastruktur (auch als disaggiert bezeichnet).
 ms.localizationpriority: medium
-ms.openlocfilehash: 69cd27cba09bd9d23a461978416217a20b2979ec
-ms.sourcegitcommit: b68ff64ecd87959cd2acde4a47506a01035b542a
+ms.openlocfilehash: 0ab96f737f7700e202c9d0382c06859c4ea84118
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68830904"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402815"
 ---
 # <a name="deploy-storage-spaces-direct"></a>Bereitstellen von direkte Speicherplätze
 
@@ -45,7 +45,7 @@ Sammeln Sie die folgenden Informationen:
 
 - **VLAN-ID.** Beachten Sie die VLAN-ID, die für Verwaltungs Betriebssystem-Netzwerkadapter auf den Servern verwendet werden soll, sofern vorhanden. Diese sollten Sie von Ihrem Netzwerkadministrator erhalten.
 
-## <a name="step-1-deploy-windows-server"></a>Schritt 1: Bereitstellen von Windows Server
+## <a name="step-1-deploy-windows-server"></a>Schritt 1: Bereitstellen von Windows Server
 
 ### <a name="step-11-install-the-operating-system"></a>Schritt 1,1: Installieren des Betriebssystems
 
@@ -84,19 +84,19 @@ Geben Sie die PS-Sitzung ein, und verwenden Sie entweder den Servernamen oder di
 >   
 > `Set-Item WSMAN:\Localhost\Client\TrustedHosts -Value Server01 -Force`
 >  
-> Hinweis: die Liste vertrauenswürdiger Hosts unterstützt Platzhalter `Server*`, wie z. b.
+> Hinweis: die Liste der vertrauenswürdigen Hosts unterstützt Platzhalter, wie z. b. `Server*`.
 >
-> Geben `Get-Item WSMAN:\Localhost\Client\TrustedHosts`Sie ein, um die Liste der vertrauenswürdigen Hosts anzuzeigen.  
+> Geben Sie `Get-Item WSMAN:\Localhost\Client\TrustedHosts` ein, um die Liste der vertrauenswürdigen Hosts anzuzeigen.  
 >   
-> Geben `Clear-Item WSMAN:\Localhost\Client\TrustedHost`Sie ein, um die Liste zu leeren.  
+> Geben Sie `Clear-Item WSMAN:\Localhost\Client\TrustedHost` ein, um die Liste zu leeren.  
 
 ### <a name="step-13-join-the-domain-and-add-domain-accounts"></a>Schritt 1,3: Beitreten zur Domäne und Hinzufügen von Domänen Konten
 
-Bisher haben Sie die einzelnen Server mit dem lokalen Administrator Konto `<ComputerName>\Administrator`konfiguriert.
+Bisher haben Sie die einzelnen Server mit dem lokalen Administrator Konto konfiguriert, `<ComputerName>\Administrator`.
 
 Um direkte Speicherplätze zu verwalten, müssen Sie die Server einer Domäne hinzufügen und ein Active Directory Domain Services Domänen Konto verwenden, das sich in der Gruppe "Administratoren" auf jedem Server befindet.
 
-Öffnen Sie aus dem Verwaltungssystem eine PowerShell-Konsole mit Administrator Rechten. Verwenden `Enter-PSSession` Sie, um eine Verbindung zu den einzelnen Servern herzustellen, und führen Sie das folgende Cmdlet aus. ersetzen Sie dabei ihre eigenen Computernamen, Domänen Namen und Domänen Anmelde Informationen
+Öffnen Sie aus dem Verwaltungssystem eine PowerShell-Konsole mit Administrator Rechten. Verwenden Sie `Enter-PSSession`, um eine Verbindung zu den einzelnen Servern herzustellen, und führen Sie das folgende Cmdlet aus. ersetzen Sie dabei ihre eigenen Computernamen, Domänen Namen und Domänen Anmelde Informationen
 
 ```PowerShell  
 Add-Computer -NewName "Server01" -DomainName "contoso.com" -Credential "CONTOSO\User" -Restart -Force  
@@ -204,7 +204,7 @@ Count Name                          PSComputerName
 
 ### <a name="step-32-validate-the-cluster"></a>Schritt 3,2: Überprüfen des Clusters
 
-In diesem Schritt führen Sie das Cluster Validierungs Tool aus, um sicherzustellen, dass die Server Knoten ordnungsgemäß konfiguriert sind, um einen Cluster mit direkte Speicherplätze zu erstellen. Wenn die Cluster Überprüfung`Test-Cluster`() ausgeführt wird, bevor der Cluster erstellt wird, werden die Tests ausgeführt, mit denen überprüft wird, ob die Konfiguration für eine erfolgreiche Funktion als Failovercluster geeignet ist. Im direkt folgenden Beispiel wird der `-Include` -Parameter verwendet, und anschließend werden die spezifischen Testkategorien angegeben. Dadurch wird sichergestellt, dass die für „Direkte Speicherplätze“ spezifischen Tests in der Validierung enthalten sind.
+In diesem Schritt führen Sie das Cluster Validierungs Tool aus, um sicherzustellen, dass die Server Knoten ordnungsgemäß konfiguriert sind, um einen Cluster mit direkte Speicherplätze zu erstellen. Wenn die Cluster Überprüfung (`Test-Cluster`) vor der Erstellung des Clusters ausgeführt wird, werden die Tests ausgeführt, mit denen überprüft wird, ob die Konfiguration für eine erfolgreiche Funktion als Failovercluster geeignet ist. Im folgenden Beispiel wird der Parameter "`-Include`" verwendet, und anschließend werden die spezifischen Testkategorien angegeben. Dadurch wird sichergestellt, dass die für „Direkte Speicherplätze“ spezifischen Tests in der Validierung enthalten sind.
 
 Verwenden Sie den folgenden PowerShell-Befehl, um eine Gruppe von Servern zu überprüfen, die als Cluster für „Direkte Speicherplätze“ verwendet werden soll.
 
@@ -238,7 +238,7 @@ Weitere Informationen finden Sie unter den folgenden Themen:
 
 ### <a name="step-35-enable-storage-spaces-direct"></a>Schritt 3,5: Aktivieren von „Direkte Speicherplätze“
 
-Verwenden Sie nach dem Erstellen des Clusters `Enable-ClusterStorageSpacesDirect` das PowerShell-Cmdlet, das das Speichersystem in den direkte Speicherplätze Modus versetzt, und führen Sie die folgenden Schritte automatisch aus:
+Verwenden Sie nach dem Erstellen des Clusters das PowerShell-Cmdlet "`Enable-ClusterStorageSpacesDirect`", mit dem das Speichersystem in den direkte Speicherplätze Modus versetzt wird, und führen Sie die folgenden Schritte automatisch aus:
 
 -   **Erstellen eines Pools:** Erstellt einen einzelnen großen Pool mit einem Namen wie "S2D on Cluster1".
 
@@ -258,17 +258,17 @@ Wenn die Ausführung des Befehls beendet ist, was einige Minuten dauern kann, is
 
 ### <a name="step-36-create-volumes"></a>Schritt 3,6: Erstellen von Volumes
 
-Es wird empfohlen, `New-Volume` das Cmdlet zu verwenden, da es die schnellste und einfachste Möglichkeit bietet. Dieses einzelne Cmdlet erstellt, partitioniert und formatiert automatisch den virtuellen Datenträger, erstellt das Volume mit demselben Namen und fügt es freigegebenen Clustervolumes hinzu – alles in einem einfachen Schritt.
+Es wird empfohlen, das Cmdlet "`New-Volume`" zu verwenden, da es die schnellste und einfachste Möglichkeit bietet. Dieses einzelne Cmdlet erstellt, partitioniert und formatiert automatisch den virtuellen Datenträger, erstellt das Volume mit demselben Namen und fügt es freigegebenen Clustervolumes hinzu – alles in einem einfachen Schritt.
 
 Weitere Informationen finden Sie unter [Erstellen von Volumes in Direkte Speicherplätze](create-volumes.md).
 
 ### <a name="step-37-optionally-enable-the-csv-cache"></a>Schritt 3,7: Aktivieren Sie optional den CSV-Cache.
 
-Optional können Sie den CSV-Cache (Cluster Shared Volume) für die Verwendung von System Arbeitsspeicher (RAM) als Schreibvorgang auf Blockebene von Lesevorgängen aktivieren, die nicht bereits vom Windows-Cache-Manager zwischengespeichert wurden. Dies kann die Leistung für Anwendungen wie Hyper-V verbessern. Der CSV-Cache kann die Leistung von Lese Anforderungen steigern und eignet sich auch für Datei Server Szenarien mit horizontaler Skalierung.
+Optional können Sie den CSV-Cache (Cluster Shared Volume) für die Verwendung von System Arbeitsspeicher (RAM) als Schreibvorgang auf Blockebene von Lesevorgängen aktivieren, die nicht bereits vom Windows-Cache-Manager zwischengespeichert wurden. Dies kann die Leistung für Anwendungen wie Hyper-V verbessern. Der CSV-Cache kann die Leistung von Lese Anforderungen steigern und ist auch für Dateiserver mit horizontaler Skalierung-Szenarien nützlich.
 
 Wenn Sie den CSV-Cache aktivieren, verringert sich der Arbeitsspeicher, der für die Ausführung von VMS in einem hyperkonvergenten Cluster verfügbar ist. Daher müssen Sie die Speicherleistung mit dem für VHDs verfügbaren Arbeitsspeicher ausgleichen.
 
-Öffnen Sie zum Festlegen der Größe des CSV-Caches eine PowerShell-Sitzung auf dem Verwaltungssystem mit einem Konto, das über Administrator Berechtigungen für den Speicher Cluster verfügt, und verwenden Sie dieses Skript `$ClusterName` , `$CSVCacheSize` um die Variablen und nach Bedarf zu ändern (dies Beispiel: legt einen 2 GB großen CSV-Cache pro Server fest):
+Öffnen Sie zum Festlegen der Größe des CSV-Caches eine PowerShell-Sitzung auf dem Verwaltungssystem mit einem Konto, das über Administrator Berechtigungen für den Speicher Cluster verfügt, und verwenden Sie dieses Skript, um die Variablen "`$ClusterName`" und "`$CSVCacheSize`" nach Bedarf zu ändern (in diesem Beispiel wird 2 festgelegt. GB-CSV-Cache pro Server):
 
 ```PowerShell
 $ClusterName = "StorageSpacesDirect1"
@@ -287,56 +287,56 @@ Weitere Informationen finden Sie unter [Verwenden des CSV-Speichers im Arbeitssp
 
 Wenn Sie einen hyperkonvergierten Cluster bereitstellen, besteht der letzte Schritt darin, virtuelle Maschinen auf dem direkte Speicherplätze Cluster bereitzustellen.
 
-Die Dateien der virtuellen Maschine sollten im CSV-Namespace des Systems (z. b. c\\: ClusterStorage\\volume1) genau wie gruppierte VMs in Failoverclustern gespeichert werden.
+Die Dateien der virtuellen Maschine sollten im CSV-Namespace des Systems gespeichert werden (Beispiel: c: \\clusterstorage @ no__t-1volume1), genau wie gruppierte VMs in Failoverclustern.
 
 Sie können die in-Box-Tools oder andere Tools verwenden, um den Speicher und die virtuellen Maschinen zu verwalten, z. b. System Center Virtual Machine Manager.
 
-## <a name="step-4-deploy-scale-out-file-server-for-converged-solutions"></a>Schritt 4: Bereitstellen eines Dateiservers mit horizontaler Skalierung für konvergierte Lösungen
+## <a name="step-4-deploy-scale-out-file-server-for-converged-solutions"></a>Schritt 4: Bereitstellen von Dateiserver mit horizontaler Skalierung für konvergierte Lösungen
 
-Wenn Sie eine konvergierte Lösung bereitstellen, besteht der nächste Schritt darin, eine Datei Server Instanz mit horizontaler Skalierung zu erstellen und einige Dateifreigaben einzurichten. Wenn Sie einen hyperkonvergierten Cluster bereitstellen, sind Sie fertig und benötigen diesen Abschnitt nicht.
+Wenn Sie eine konvergierte Lösung bereitstellen, ist der nächste Schritt das Erstellen einer Dateiserver mit horizontaler Skalierung Instanz und das Einrichten einiger Dateifreigaben. Wenn Sie einen hyperkonvergierten Cluster bereitstellen, sind Sie fertig und benötigen diesen Abschnitt nicht.
 
-### <a name="step-41-create-the-scale-out-file-server-role"></a>Schritt 4,1: Erstellen der Rolle für Datei Server mit horizontaler Skalierung
+### <a name="step-41-create-the-scale-out-file-server-role"></a>Schritt 4,1: Erstellen der Dateiserver mit horizontaler Skalierung Rolle
 
-Der nächste Schritt beim Einrichten der Cluster Dienste für den Dateiserver besteht darin, die Cluster Dateiserver-Rolle zu erstellen. Dies ist der Fall, wenn Sie die Instanz des Dateiservers mit horizontaler Skalierung erstellen, auf der die fortlaufend verfügbaren Dateifreigaben gehostet werden.
+Der nächste Schritt beim Einrichten der Cluster Dienste für den Dateiserver ist das Erstellen der Cluster Dateiserver-Rolle. Dies ist der Fall, wenn Sie die Dateiserver mit horizontaler Skalierung Instanz erstellen, auf der die fortlaufend verfügbaren Dateifreigaben gehostet werden.
 
-#### <a name="to-create-a-scale-out-file-server-role-by-using-server-manager"></a>So erstellen Sie eine Datei Server Rolle mit horizontaler Skalierung mithilfe von Server-Manager
+#### <a name="to-create-a-scale-out-file-server-role-by-using-server-manager"></a>So erstellen Sie eine Dateiserver mit horizontaler Skalierung Rolle mithilfe von Server-Manager
 
 1. Wählen Sie in Failovercluster-Manager den Cluster aus, navigieren Sie zu **Rollen**, und klicken Sie dann auf **Rolle konfigurieren...** .<br>Der Assistent für hohe Verfügbarkeit wird angezeigt.
 2. Klicken Sie auf der Seite **Rolle auswählen** auf **Datei Server**.
-3. Klicken Sie auf der Seite **Datei Servertyp** auf Dateiserver mit horizontaler **Skalierung für Anwendungsdaten**.
-4. Geben Sie auf der Seite **Client Zugriffspunkt** einen Namen für den Datei Server mit horizontaler Skalierung ein.
+3. Klicken Sie auf der Seite **Datei Servertyp** auf **Dateiserver mit horizontaler Skalierung für Anwendungsdaten**.
+4. Geben Sie auf der Seite **Client Zugriffspunkt** einen Namen für das Dateiserver mit horizontaler Skalierung ein.
 5. Überprüfen Sie, ob die Rolle erfolgreich eingerichtet wurde, indem Sie zu **Rollen** wechseln und sicherstellen, dass in der Spalte **Status** neben der erstellten Cluster Dateiserver-Rolle **ausgeführt** wird, wie in Abbildung 1 dargestellt.
 
-   ![Screenshot der Failovercluster-Manager, die den Datei Server] mit horizontaler Skalierung anzeigt (media/Hyper-converged-solution-using-Storage-Spaces-Direct-in-Windows-Server-2016/SOFS_in_FCM.png "Failovercluster-Manager, der den Datei Server") mit horizontaler Skalierung anzeigt
+   ![Screenshot der Failovercluster-Manager, die die Dateiserver mit horizontaler Skalierung](media/Hyper-converged-solution-using-Storage-Spaces-Direct-in-Windows-Server-2016/SOFS_in_FCM.png "Failovercluster-Manager anzeigt, die die Dateiserver mit horizontaler Skalierung")
 
-    **Abbildung 1** Failovercluster-Manager des Dateiservers mit horizontaler Skalierung mit dem Status "wird ausgeführt" angezeigt
+    **Abbildung 1** Failovercluster-Manager mit dem Status "wird ausgeführt" Dateiserver mit horizontaler Skalierung angezeigt
 
 > [!NOTE]
 >  Nach dem Erstellen der Cluster Rolle können einige Verzögerungen bei der Netzwerk Weitergabe auftreten, die das Erstellen von Dateifreigaben für ein paar Minuten oder potenziell länger verhindern können.  
   
-#### <a name="to-create-a-scale-out-file-server-role-by-using-windows-powershell"></a>So erstellen Sie eine Datei Server Rolle mit horizontaler Skalierung mithilfe von Windows PowerShell
+#### <a name="to-create-a-scale-out-file-server-role-by-using-windows-powershell"></a>So erstellen Sie eine Dateiserver mit horizontaler Skalierung Rolle mithilfe von Windows PowerShell
 
- Geben Sie in einer Windows PowerShell-Sitzung, die mit dem Dateiserver Cluster verbunden ist, die folgenden Befehle ein, um die Rolle für den Dateiserver mit horizontaler Skalierung zu erstellen, und ändern Sie den Namen des Clusters entsprechend dem Namen Ihres Clusters. Datei Server Rolle mit horizontaler Skalierung:
+ Geben Sie in einer Windows PowerShell-Sitzung, die mit dem Dateiserver Cluster verbunden ist, die folgenden Befehle ein, um die Dateiserver mit horizontaler Skalierung-Rolle zu erstellen, und ändern Sie den *fscluester* so, dass er dem Namen Ihres Clusters entspricht, und *sofs* entsprechend dem Namen, den Sie dem Dateiserver mit horizontaler Skalierung Rolle:
 
 ```PowerShell
 Add-ClusterScaleOutFileServerRole -Name SOFS -Cluster FSCLUSTER
 ```
 
 > [!NOTE]
->  Nach dem Erstellen der Cluster Rolle können einige Verzögerungen bei der Netzwerk Weitergabe auftreten, die das Erstellen von Dateifreigaben für ein paar Minuten oder potenziell länger verhindern können. Wenn die sofs-Rolle nicht sofort ausfällt und nicht gestartet werden kann, liegt dies möglicherweise daran, dass das Computer Objekt des Clusters nicht über die Berechtigung zum Erstellen eines Computer Kontos für die sofs-Rolle verfügt. Hilfe hierzu finden Sie in diesem Blogbeitrag: [Die Rolle "Datei Server mit horizontaler Skalierung" kann nicht mit den Ereignis-IDs 1205, 1069 und 1194 gestartet](http://www.aidanfinn.com/?p=14142)werden.
+>  Nach dem Erstellen der Cluster Rolle können einige Verzögerungen bei der Netzwerk Weitergabe auftreten, die das Erstellen von Dateifreigaben für ein paar Minuten oder potenziell länger verhindern können. Wenn die sofs-Rolle nicht sofort ausfällt und nicht gestartet werden kann, liegt dies möglicherweise daran, dass das Computer Objekt des Clusters nicht über die Berechtigung zum Erstellen eines Computer Kontos für die sofs-Rolle verfügt. Hilfe hierzu finden Sie in diesem Blogbeitrag: [Dateiserver mit horizontaler Skalierung Rolle kann nicht mit den Ereignis-IDs 1205, 1069 und 1194 gestartet](http://www.aidanfinn.com/?p=14142)werden.
 
 ### <a name="step-42-create-file-shares"></a>Schritt 4,2: Erstellen von Dateifreigaben
 
 Nachdem Sie die virtuellen Datenträger erstellt und den csvs hinzugefügt haben, ist es an der Zeit, Dateifreigaben auf diesen zu erstellen, eine Dateifreigabe pro CSV und virtuellem Datenträger. System Center Virtual Machine Manager (VMM) ist wahrscheinlich die schwierigste Methode, da Sie die Berechtigungen für Sie erledigt, aber wenn Sie Sie nicht in Ihrer Umgebung haben, können Sie die Bereitstellung mithilfe von Windows PowerShell teilweise automatisieren.
 
-Verwenden Sie die Skripts in der [SMB-Freigabe Konfiguration für Hyper-V-Arbeits](http://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a) Auslastungs Skripts, die den Prozess zum Erstellen von Gruppen und Freigaben teilweise automatisiert. Sie wird für Hyper-V-Arbeits Auslastungen geschrieben. Wenn Sie also andere Workloads bereitstellen, müssen Sie möglicherweise die Einstellungen ändern oder weitere Schritte ausführen, nachdem Sie die Freigaben erstellt haben. Wenn Sie z. b. Microsoft SQL Server verwenden, muss dem SQL Server-Dienst Konto Vollzugriff auf die Freigabe und das Dateisystem gewährt werden.
+Verwenden Sie die Skripts in der [SMB-Freigabe Konfiguration für Hyper-V-Arbeits Auslastungs](http://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a) Skripts, die den Prozess zum Erstellen von Gruppen und Freigaben teilweise automatisiert. Sie wird für Hyper-V-Arbeits Auslastungen geschrieben. Wenn Sie also andere Workloads bereitstellen, müssen Sie möglicherweise die Einstellungen ändern oder weitere Schritte ausführen, nachdem Sie die Freigaben erstellt haben. Wenn Sie z. b. Microsoft SQL Server verwenden, muss dem SQL Server-Dienst Konto Vollzugriff auf die Freigabe und das Dateisystem gewährt werden.
 
 > [!NOTE]
 >  Sie müssen die Gruppenmitgliedschaft aktualisieren, wenn Sie Cluster Knoten hinzufügen, es sei denn, Sie verwenden System Center Virtual Machine Manager, um Ihre Freigaben zu erstellen.
 
 Gehen Sie folgendermaßen vor, um Dateifreigaben mithilfe von PowerShell-Skripts zu erstellen:
 
-1. Laden Sie die in der [SMB-Freigabe Konfiguration für Hyper-V-Arbeits](http://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a) Auslastungen enthaltenen Skripts auf einen der Knoten des Dateiserver Clusters herunter.
+1. Laden Sie die in der [SMB-Freigabe Konfiguration für Hyper-V-Arbeits Auslastungen](http://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a) enthaltenen Skripts auf einen der Knoten des Dateiserver Clusters herunter.
 2. Öffnen Sie eine Windows PowerShell-Sitzung mit Anmelde Informationen des Domänen Administrators auf dem Verwaltungssystem, und erstellen Sie dann mit dem folgenden Skript eine Active Directory Gruppe für die Hyper-V-Computer Objekte. ändern Sie die Werte für die Variablen entsprechend Ihren Umgebung
 
     ```PowerShell
@@ -371,7 +371,7 @@ Gehen Sie folgendermaßen vor, um Dateifreigaben mithilfe von PowerShell-Skripts
 
 ### <a name="step-43-enable-kerberos-constrained-delegation"></a>Schritt 4,3 Aktivieren der eingeschränkten Kerberos-Delegierung
 
-Wenn Sie die eingeschränkte Kerberos-Delegierung für die Remote szenarioverwaltung einrichten und die Livemigration Sicherheit erhöhen möchten, verwenden Sie auf einem der Speicher Cluster Knoten das in der [SMB-Freigabe Konfiguration für Hyper-V-Arbeits](http://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a)Auslastungen enthaltene Skript kcdsetup. ps1. Hier ist ein kleines Wrapper für das Skript:
+Wenn Sie die eingeschränkte Kerberos-Delegierung für die Remote szenarioverwaltung einrichten und die Livemigration Sicherheit erhöhen möchten, verwenden Sie auf einem der Speicher Cluster Knoten das in der [SMB-Freigabe Konfiguration für Hyper-V-Arbeits Auslastungen](http://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a)enthaltene Skript kcdsetup. ps1. Hier ist ein kleines Wrapper für das Skript:
 
 ```PowerShell
 $HyperVClusterName = "Compute01"

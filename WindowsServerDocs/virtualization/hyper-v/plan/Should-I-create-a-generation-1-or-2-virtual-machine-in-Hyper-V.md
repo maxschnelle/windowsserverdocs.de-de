@@ -1,7 +1,7 @@
 ---
-title: Sollte ich virtuelle Computer der Generation 1 oder 2 in Hyper-V erstellen?
-description: Stellt Überlegungen wie z. B. unterstützte-Startmethoden und andere featureunterschiede, damit Sie wählen, welche Generation Ihren Anforderungen entspricht.
-ms.prod: windows-server-threshold
+title: Sollte ich einen virtuellen Computer der Generation 1 oder 2 in Hyper-V erstellen?
+description: Bietet Überlegungen wie z. b. unterstützte Startmethoden und andere Funktions Unterschiede, damit Sie entscheiden können, welche Generierung Ihren Anforderungen entspricht.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,51 +11,51 @@ ms.assetid: 02e31413-6140-4723-a8d6-46c7f667792d
 author: KBDAzure
 ms.author: kathydav
 ms.date: 12/05/2016
-ms.openlocfilehash: 95ececde8a1b8c591ea2baf367a93f63ee55a6e3
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: bd0b50534096bc06edb41390ef2c4ec3554d8406
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811985"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364079"
 ---
-# <a name="should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v"></a>Sollte ich virtuelle Computer der Generation 1 oder 2 in Hyper-V erstellen?
+# <a name="should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v"></a>Sollte ich einen virtuellen Computer der Generation 1 oder 2 in Hyper-V erstellen?
 
->Gilt für: Windows 10, WindowsServer 2016, Microsoft Hyper-V Server 2016, WindowsServer 2019, Microsoft Hyper-V-Server 2019
+>Gilt für: Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
 > [!NOTE]
-> Wenn Sie jemals eine Windows-VMs (VMs) hochladen möchten aus dem lokalen Microsoft Azure, der Generationen 1 und der VMs der 2. Generation in die VHD-Dateiformat und ein Datenträger mit fester Größe unterstützt werden. Finden Sie unter [VMs der 2. Generation in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) Weitere Informationen zu Generation 2-Funktionen, die in Azure unterstützt. Weitere Informationen zum Hochladen einer Windows-VHD oder VHDX, finden Sie unter [Vorbereiten einer Windows-VHD oder -VHDX zum Hochladen in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+> Wenn Sie einen virtuellen Windows-Computer (VM) von einem lokalen Standort in Microsoft Azure hochladen möchten, werden VMS der Generation 1 und der Generation 2 im VHD-Dateiformat unterstützt, die einen Datenträger mit fester Größe aufweisen. Weitere Informationen zu den in Azure unterstützten Funktionen der Generation 2 finden Sie unter [VMS der Generation](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) 2 in Azure. Weitere Informationen zum Hochladen einer Windows-VHD-oder vhdx-Datei finden Sie unter [Vorbereiten einer Windows-VHD oder vhdx zum Hochladen in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
 
-Ihrer Wahl zum Erstellen einer Generation 1 oder eine virtuelle Maschine der Generation 2 abhängig ist, klicken Sie auf der Gast-Betriebssystem installieren und die Startmethode, die Sie verwenden, um die virtuelle Maschine bereitstellen möchten werden sollen. Es wird empfohlen, dass Sie einen virtuellen Computer der Generation 2 erstellen um Features wie der sichere Start nutzen, es sei denn, eine der folgenden Aussagen zutrifft:  
+Die Entscheidung, einen virtuellen Computer der Generation 1 oder 2 zu erstellen, hängt von dem Gast Betriebssystem ab, das Sie installieren möchten, und von der Start Methode, die Sie zum Bereitstellen der virtuellen Maschine verwenden möchten. Es wird empfohlen, einen virtuellen Computer der Generation 2 zu erstellen, um Funktionen wie den sicheren Start zu nutzen, es sei denn, eine der folgenden Anweisungen ist true:  
 
-- Die virtuelle Festplatte aus gestartet werden soll, ist kein [UEFI-kompatiblen](https://technet.microsoft.com/library/hh824898.aspx).  
-- Generation 2 unterstützt nicht das Betriebssystem, die auf dem virtuellen Computer ausgeführt werden soll.  
-- Generation 2 unterstützt nicht die Startmethode, die Sie verwenden möchten.  
+- Die VHD, die Sie starten möchten, ist nicht [UEFI-kompatibel](https://technet.microsoft.com/library/hh824898.aspx).  
+- Generation 2 unterstützt nicht das Betriebssystem, das Sie auf dem virtuellen Computer ausführen möchten.  
+- Generation 2 unterstützt die gewünschte Start Methode nicht.  
 
-Weitere Informationen dazu, welche Features mit virtuellen Maschinen der Generation 2 verfügbar sind, finden Sie unter [Hyper-V-Feature-Kompatibilität nach Generation und Gast](../Hyper-V-feature-compatibility-by-generation-and-guest.md).
+Weitere Informationen zu den Features, die mit virtuellen Computern der Generation 2 verfügbar sind, finden Sie unter [Hyper-V-Funktions Kompatibilität nach Generierung und Gast](../Hyper-V-feature-compatibility-by-generation-and-guest.md).
 
-Sie können nicht Generation eines virtuellen Computers, nach dem Erstellen noch ändern. Daher empfehlen wir, dass Sie die Überlegungen hier als auch wählen Sie das Betriebssystem, Startmethode und Funktionen, die Sie verwenden, bevor Sie eine Generation auswählen möchten.  
+Die Generierung eines virtuellen Computers kann nach dem Erstellen nicht mehr geändert werden. Daher wird empfohlen, dass Sie die Überlegungen hier überprüfen und das Betriebssystem, die Start Methode und die Features auswählen, die Sie verwenden möchten, bevor Sie eine Generation auswählen.  
 
-## <a name="which-guest-operating-systems-are-supported"></a>Welche Gastbetriebssysteme werden unterstützt?
+## <a name="which-guest-operating-systems-are-supported"></a>Welche Gast Betriebssysteme werden unterstützt?
 
-Virtuelle Computer der Generation 1 unterstützt die meisten Gastbetriebssysteme. Virtuelle Computer der Generation 2 unterstützen die 64-Bit-Versionen von Windows und aktuelleren Versionen von Linux und FreeBSD-Betriebssystemen. Verwenden Sie die folgenden Abschnitten, um anzuzeigen, welche Generation des virtuellen Computers des Gastbetriebssystems unterstützt, die Sie installieren möchten.  
+Virtuelle Computer der Generation 1 unterstützen die meisten Gast Betriebssysteme. Virtuelle Computer der Generation 2 unterstützen die meisten 64-Bit-Versionen von Windows und höhere Versionen von Linux-und FreeBSD-Betriebssystemen. Verwenden Sie die folgenden Abschnitte, um zu sehen, welche Generation des virtuellen Computers das Gast Betriebssystem unterstützt, das Sie installieren möchten.  
 
-- [Betriebssystemunterstützung für Windows-Gast](#windows-guest-operating-system-support)  
+- [Unterstützung für Windows-Gast Betriebssysteme](#windows-guest-operating-system-support)  
 
-- [CentOS und Red Hat Enterprise Linux gastbetriebssystemunterstützung](#centos-and-red-hat-enterprise-linux-guest-operating-system-support)  
+- [Unterstützung von CentOS und Red Hat Enterprise Linux Gastbetriebssystemen](#centos-and-red-hat-enterprise-linux-guest-operating-system-support)  
 
-- [Debian gastbetriebssystemunterstützung](#debian-guest-operating-system-support)  
+- [Unterstützung für Debian-Gast Betriebssystem](#debian-guest-operating-system-support)  
 
-- [FreeBSD gastbetriebssystemunterstützung](#freebsd-guest-operating-system-support)  
+- [Unterstützung für FreeBSD-Gast Betriebssysteme](#freebsd-guest-operating-system-support)  
 
-- [Oracle Linux-Gast-Betriebssystem-Unterstützung](#oracle-linux-guest-operating-system-support)  
+- [Unterstützung für Oracle Linux Gast Betriebssystem](#oracle-linux-guest-operating-system-support)  
 
-- [SUSE gastbetriebssystemunterstützung](#suse-guest-operating-system-support)  
+- [Unterstützung für SUSE-Gast Betriebssysteme](#suse-guest-operating-system-support)  
 
-- [Ubuntu gastbetriebssystemunterstützung](#ubuntu-guest-operating-system-support)  
+- [Unterstützung für Ubuntu-Gast Betriebssysteme](#ubuntu-guest-operating-system-support)  
 
-### <a name="windows-guest-operating-system-support"></a>Betriebssystemunterstützung für Windows-Gast
+### <a name="windows-guest-operating-system-support"></a>Unterstützung für Windows-Gast Betriebssysteme
 
-Die folgende Tabelle zeigt, welche 64-Bit-Versionen von Windows Sie als Gast-Betriebssystem für die Generation 1 und Generation 2 virtueller Maschinen verwenden können.  
+In der folgenden Tabelle wird gezeigt, welche 64-Bit-Versionen von Windows als Gast Betriebssystem für virtuelle Maschinen der Generation 1 und Generation 2 verwendet werden können.  
 
 |64-Bit-Versionen von Windows|Erste Generation|Zweite Generation|  
 |-------------------------------|----------------|----------------|  
@@ -70,7 +70,7 @@ Die folgende Tabelle zeigt, welche 64-Bit-Versionen von Windows Sie als Gast-Bet
 |Windows 8|&#10004;|&#10004;|  
 |Windows 7|&#10004;| &#10006;|
 
-Die folgende Tabelle zeigt, welche 32-Bit-Versionen von Windows Sie als Gast-Betriebssystem für die Generation 1 und Generation 2 virtueller Maschinen verwenden können.
+In der folgenden Tabelle wird gezeigt, welche 32-Bit-Versionen von Windows als Gast Betriebssystem für virtuelle Maschinen der Generation 1 und Generation 2 verwendet werden können.
 
 |32-Bit-Versionen von Windows|Erste Generation|Zweite Generation|  
 |-------------------------------|----------------|----------------|  
@@ -79,109 +79,109 @@ Die folgende Tabelle zeigt, welche 32-Bit-Versionen von Windows Sie als Gast-Bet
 |Windows 8|&#10004;| &#10006;|  
 |Windows 7|&#10004;| &#10006;|  
 
-### <a name="centos-and-red-hat-enterprise-linux-guest-operating-system-support"></a>CentOS und Red Hat Enterprise Linux gastbetriebssystemunterstützung
+### <a name="centos-and-red-hat-enterprise-linux-guest-operating-system-support"></a>Unterstützung von CentOS und Red Hat Enterprise Linux Gastbetriebssystemen
 
-Die folgende Tabelle zeigt, welche Versionen von Red Hat Enterprise Linux \(RHEL\) und CentOS können Sie als Gast-Betriebssystem verwenden, für die Generation 1 und virtuelle Maschinen der Generation 2.
-
-|Betriebssystemversionen|Erste Generation|Zweite Generation|  
-|-----------------------------|----------------|----------------|  
-|RHEL/CentOS 7.x-Serie|&#10004;|&#10004;|  
-|RHEL/CentOS 6.x-Serie|&#10004;|&#10004;<br />**Hinweis**: Nur unterstützt unter Windows Server 2016 und höher.|  
-|RHEL/CentOS 5.x-Reihe|&#10004;| &#10006;|  
-
-Weitere Informationen finden Sie unter [CentOS und Red Hat Enterprise Linux virtuelle Maschinen auf Hyper-V](../Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V.md).  
-
-### <a name="debian-guest-operating-system-support"></a>Debian gastbetriebssystemunterstützung  
-
-Die folgende Tabelle zeigt, welche Versionen von Debian Sie als Gast-Betriebssystem für die Generation 1 und Generation 2 virtueller Maschinen verwenden können.
+Die folgende Tabelle zeigt, welche Versionen von Red Hat Enterprise Linux \(rhel @ no__t-1 und CentOS als Gast Betriebssystem für virtuelle Maschinen der Generation 1 und Generation 2 verwendet werden können.
 
 |Betriebssystemversionen|Erste Generation|Zweite Generation|  
 |-----------------------------|----------------|----------------|  
-|Debian 7.x-Serie|&#10004;| &#10006;|  
-|Debian 8.x-Serie|&#10004;|&#10004;|  
+|RHEL/CentOS 7. x-Serie|&#10004;|&#10004;|  
+|RHEL/CentOS 6. x-Reihe|&#10004;|&#10004;<br />**Hinweis**: Wird nur unter Windows Server 2016 und höher unterstützt.|  
+|RHEL/CentOS 5. x-Reihe|&#10004;| &#10006;|  
+
+Weitere Informationen finden Sie unter [CentOS und Red Hat Enterprise Linux von virtuellen Computern auf Hyper-V](../Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V.md).  
+
+### <a name="debian-guest-operating-system-support"></a>Unterstützung für Debian-Gast Betriebssystem  
+
+Die folgende Tabelle zeigt, welche Versionen von Debian als Gast Betriebssystem für virtuelle Maschinen der Generation 1 und Generation 2 verwendet werden können.
+
+|Betriebssystemversionen|Erste Generation|Zweite Generation|  
+|-----------------------------|----------------|----------------|  
+|Debian 7. x-Reihe|&#10004;| &#10006;|  
+|Debian 8. x-Reihe|&#10004;|&#10004;|  
 
 Weitere Informationen finden Sie unter [virtuelle Debian-Computer auf Hyper-V](../Supported-Debian-virtual-machines-on-Hyper-V.md).  
 
-### <a name="freebsd-guest-operating-system-support"></a>FreeBSD gastbetriebssystemunterstützung
+### <a name="freebsd-guest-operating-system-support"></a>Unterstützung für FreeBSD-Gast Betriebssysteme
 
-Die folgende Tabelle zeigt, welche Versionen von FreeBSD Sie als Gast-Betriebssystem für die Generation 1 und Generation 2 virtueller Maschinen verwenden können.  
+In der folgenden Tabelle sind die Versionen von FreeBSD aufgeführt, die Sie als Gast Betriebssystem für virtuelle Maschinen der Generation 1 und Generation 2 verwenden können.  
 
 |Betriebssystemversionen|Erste Generation|Zweite Generation|  
 |-----------------------------|----------------|----------------|  
-|FreeBSD 10 und 10.1|&#10004;| &#10006;|  
-|FreeBSD 9.1 und 9.3|&#10004;| &#10006;|  
-|FreeBSD 8.4|&#10004;| &#10006;|  
+|FreeBSD 10 und 10,1|&#10004;| &#10006;|  
+|FreeBSD 9,1 und 9,3|&#10004;| &#10006;|  
+|FreeBSD 8,4|&#10004;| &#10006;|  
 
-Weitere Informationen finden Sie unter [FreeBSD-Maschinen auf Hyper-V](../Supported-FreeBSD-virtual-machines-on-Hyper-V.md).  
+Weitere Informationen finden Sie unter [FreeBSD Virtual Machines on Hyper-V](../Supported-FreeBSD-virtual-machines-on-Hyper-V.md).  
 
-### <a name="oracle-linux-guest-operating-system-support"></a>Oracle Linux-Gast-Betriebssystem-Unterstützung  
+### <a name="oracle-linux-guest-operating-system-support"></a>Unterstützung für Oracle Linux Gast Betriebssystem  
 
-Die folgende Tabelle zeigt, welche Versionen von Red Hat-kompatible Kernel Reihen Sie als Gast-Betriebssystem für die Generation 1 und Generation 2 virtueller Maschinen verwenden können.  
+In der folgenden Tabelle ist aufgeführt, welche Versionen der red hat-kompatiblen Kernel Serie Sie als Gast Betriebssystem für virtuelle Computer der Generation 1 und Generation 2 verwenden können.  
 
-|Kernelserie der Red Hat-kompatible Versionen|Erste Generation|Zweite Generation|  
+|Red hat-kompatible Kernel Reihen Versionen|Erste Generation|Zweite Generation|  
 |---------------------------------------------|----------------|----------------|  
-|Oracle Linux 7.x-Serie|&#10004;|&#10004;|
-|Oracle Linux 6.x-Serie|&#10004;| &#10006;|  
+|Oracle Linux 7. x-Serie|&#10004;|&#10004;|
+|Oracle Linux 6. x-Reihe|&#10004;| &#10006;|  
 
-Die folgende Tabelle zeigt, welche Versionen der Unbreakable Enterprise Kernel Sie als Gast-Betriebssystem für die Generation 1 und Generation 2 virtueller Maschinen verwenden können.
+Die folgende Tabelle zeigt, welche Versionen von nicht breakable Enterprise Kernel Sie als Gast Betriebssystem für virtuelle Maschinen der Generation 1 und Generation 2 verwenden können.
 
-|Der unbreakable Enterprise Kernel (UEK)-Versionen|Erste Generation|Zweite Generation|  
+|Nicht breakable Enterprise Kernel (UEK)-Versionen|Erste Generation|Zweite Generation|  
 |--------------------------------------------------|----------------|----------------|  
 |Oracle Linux UEK R3 QU3|&#10004;| &#10006;|  
 |Oracle Linux UEK R3 QU2|&#10004;| &#10006;|  
 |Oracle Linux UEK R3 QU1|&#10004;| &#10006;|  
 
-Weitere Informationen finden Sie unter [Oracle Linux-VMs auf Hyper-V](../Supported-Oracle-Linux-virtual-machines-on-Hyper-V.md).  
+Weitere Informationen finden Sie unter [Oracle Linux Virtual Machines on Hyper-V](../Supported-Oracle-Linux-virtual-machines-on-Hyper-V.md).  
 
-### <a name="suse-guest-operating-system-support"></a>SUSE gastbetriebssystemunterstützung
+### <a name="suse-guest-operating-system-support"></a>Unterstützung für SUSE-Gast Betriebssysteme
 
-Die folgende Tabelle zeigt, welche Versionen von SUSE Sie als Gast-Betriebssystem für die Generation 1 und Generation 2 virtueller Maschinen verwenden können.
+Die folgende Tabelle zeigt, welche SUSE-Versionen Sie als Gast Betriebssystem für virtuelle Maschinen der Generation 1 und Generation 2 verwenden können.
 
 |Betriebssystemversionen|Erste Generation|Zweite Generation|  
 |-----------------------------|----------------|----------------|  
 |SUSE Linux Enterprise Server 12-Serie|&#10004;|&#10004;|  
 |SUSE Linux Enterprise Server 11-Serie|&#10004;| &#10006;|  
-|Öffnen Sie SUSE 12.3|&#10004;| &#10006;|  
+|Öffnen Sie SuSE 12,3.|&#10004;| &#10006;|  
 
-Weitere Informationen finden Sie unter [SUSE-Computer auf Hyper-V](../Supported-SUSE-virtual-machines-on-Hyper-V.md).  
+Weitere Informationen finden Sie unter [SUSE Virtual Machines on Hyper-V](../Supported-SUSE-virtual-machines-on-Hyper-V.md).  
 
-### <a name="ubuntu-guest-operating-system-support"></a>Ubuntu gastbetriebssystemunterstützung
+### <a name="ubuntu-guest-operating-system-support"></a>Unterstützung für Ubuntu-Gast Betriebssysteme
 
-Die folgende Tabelle zeigt, welche Versionen von Ubuntu Sie als Gast-Betriebssystem für die Generation 1 und Generation 2 virtueller Maschinen verwenden können.
+Die folgende Tabelle zeigt, welche Versionen von Ubuntu Sie als Gast Betriebssystem für virtuelle Maschinen der Generation 1 und Generation 2 verwenden können.
 
 |Betriebssystemversionen|Erste Generation|Zweite Generation|  
 |-----------------------------|----------------|----------------|  
-|Ubuntu 14.04 und höher|&#10004;|&#10004;|  
+|Ubuntu 14,04 und höhere Versionen|&#10004;|&#10004;|  
 |Ubuntu 12.04|&#10004;| &#10006;|  
 
-Weitere Informationen finden Sie unter [virtuellen Ubuntu-Computern auf Hyper-V](../Supported-Ubuntu-virtual-machines-on-Hyper-V.md).  
+Weitere Informationen finden Sie unter [Ubuntu Virtual Machines on Hyper-V](../Supported-Ubuntu-virtual-machines-on-Hyper-V.md).  
 
 ## <a name="how-can-i-boot-the-virtual-machine"></a>Wie kann ich den virtuellen Computer starten?
 
-Die folgende Tabelle zeigt, welche Startimages, die Methoden von Generation 1 und virtuelle Maschinen der Generation 2 unterstützt werden.  
+Die folgende Tabelle zeigt, welche Startmethoden von virtuellen Maschinen der Generation 1 und der Generation 2 unterstützt werden.  
 
-|Startmethode|Erste Generation|Zweite Generation|  
+|Start Methode|Erste Generation|Zweite Generation|  
 |---------------|----------------|----------------|  
 |PXE-Start mithilfe einer standardmäßigen Netzwerkkarte| &#10006;|&#10004;|  
-|PXE-Start mit der eine ältere Netzwerkkarte|&#10004;| &#10006;|  
-|Zum Starten von einer virtuellen SCSI-Festplatte (. VHDX) oder virtuelle DVD (. ISO)| &#10006;|&#10004;|  
-|Zum Starten von virtuellen Festplatte von IDE-Controller (. VHD-Datei) oder virtuelle DVD (. ISO)|&#10004;| &#10006;|  
-|Zum Starten von Diskette (. VFD)|&#10004;| &#10006;|  
+|PXE-Start mithilfe eines Legacy-Netzwerkadapters|&#10004;| &#10006;|  
+|Starten von einer virtuellen SCSI-Festplatte (. Vhdx) oder virtuelle DVD (. ISO| &#10006;|&#10004;|  
+|Starten von der virtuellen Festplatte des IDE-Controllers (. VHD) oder virtuelle DVD (. ISO|&#10004;| &#10006;|  
+|Start von Diskette (. VFD|&#10004;| &#10006;|  
 
-## <a name="what-are-the-advantages-of-using-generation-2-virtual-machines"></a>Was sind die Vorteile der Verwendung von virtuellen Maschinen der Generation 2?
+## <a name="what-are-the-advantages-of-using-generation-2-virtual-machines"></a>Was sind die Vorteile der Verwendung von virtuellen Computern der Generation 2?
 
-Hier sind einige der Vorteile, die Sie erhalten, wenn Sie die virtuelle Maschine der Generation 2 verwenden:  
-- **Sicherer Start** Dies ist ein Feature, das überprüft, das Startladeprogramm ist signiert, von einer vertrauenswürdigen Stelle in der UEFI-Datenbank ob, um zu verhindern, dass nicht autorisierte Firmware, Betriebssysteme oder UEFI-Treiber zur Startzeit ausgeführt. Der sichere Start ist standardmäßig bei virtuellen Computern der Generation 2 aktiviert. Wenn Sie möchten die Gast-Betriebssystem ausführen, die von der sichere Start nicht unterstützt wird, können Sie es nach dem Erstellen des virtuellen Computers deaktivieren.  Weitere Informationen finden Sie unter [Sicherer Start](https://technet.microsoft.com/library/dn486875.aspx).  
+Im folgenden finden Sie einige der Vorteile, die Sie bei der Verwendung eines virtuellen Computers der Generation 2 erhalten:  
+- **Sicherer Start** Dies ist ein Feature, mit dem überprüft wird, ob das Start Lade Paket von einer vertrauenswürdigen Zertifizierungsstelle in der UEFI-Datenbank signiert ist, um zu verhindern, dass nicht autorisierte Firmware, Betriebssysteme oder UEFI-Treiber zur Startzeit ausgeführt werden. Der sichere Start ist standardmäßig bei virtuellen Computern der Generation 2 aktiviert. Wenn Sie ein Gast Betriebssystem ausführen müssen, das vom sicheren Start nicht unterstützt wird, können Sie es nach der Erstellung des virtuellen Computers deaktivieren.  Weitere Informationen finden Sie unter [Sicherer Start](https://technet.microsoft.com/library/dn486875.aspx).  
 
-    Zum sicheren Start Generation 2 virtueller Linux-Computer müssen Sie die UEFI CA Secure Boot-Vorlage auswählen, wenn Sie den virtuellen Computer erstellen.  
+    Zum Sichern von virtuellen Linux-Computern der Start Generation müssen Sie die Vorlage für den sicheren Start der UEFI-Zertifizierungsstelle auswählen, wenn Sie den virtuellen Computer erstellen.  
 
-- **Größere Startvolume** das maximale Startvolume für virtuelle Maschinen der Generation 2 beträgt 64 TB. Dies ist die maximale Datenträgergröße von unterstützt ein. VHDX. Für virtuelle Maschinen der Generation 1 ist das maximale Startvolume 2TB für ein. VHDX und Größe von 2040GB für ein. VHD-DATEI. Weitere Informationen finden Sie unter [Hyper-V Virtual Hard Disk Format Overview](https://technet.microsoft.com/library/hh831446.aspx).  
+- **Größeres Start Volume** Das maximale Start Volume für virtuelle Maschinen der Generation 2 beträgt 64 TB. Dies ist die maximale Datenträger Größe, die von einem unterstützt wird. VHDX. Bei virtuellen Computern der Generation 1 beträgt das maximale Start Volume 2 TB für ein. Vhdx und 2040gb für ein. VHD. Weitere Informationen finden Sie unter [Übersicht über die Hyper-V-Format für virtuelle Festplatten](https://technet.microsoft.com/library/hh831446.aspx).  
 
-  Sie können auch einer leichten Verbesserung der virtuellen Computer der Start- und Installationszeiten mit virtuellen Maschinen der Generation 2 finden Sie unter.
+  Sie können auch eine geringfügige Verbesserung der Start-und Installationszeiten virtueller Maschinen mit virtuellen Computern der Generation 2 festzustellen.
 
-## <a name="whats-the-difference-in-device-support"></a>Was ist der Unterschied in der Unterstützung für Geräte?
+## <a name="whats-the-difference-in-device-support"></a>Worin besteht der Unterschied bei der Geräte Unterstützung?
 
-Die folgende Tabelle vergleicht die Geräte, die zwischen der Generation 1 und virtuelle Maschinen der Generation 2 verfügbar.  
+In der folgenden Tabelle werden die verfügbaren Geräte zwischen virtuellen Maschinen der Generation 1 und der Generation 2 verglichen.  
 
 |Gerät der Generation 1|Ersatz der Generation 2|Erweiterungen der Generation 2|  
 |-----------------------|----------------------------|-----------------------------|  
@@ -202,57 +202,57 @@ Die folgende Tabelle vergleicht die Geräte, die zwischen der Generation 1 und v
 
 ## <a name="more-about-generation-2-virtual-machines"></a>Weitere Informationen zu virtuellen Maschinen der Generation 2
 
-Hier sind einige zusätzliche Tipps zur Verwendung von virtuellen Maschinen der Generation 2.
+Hier finden Sie einige zusätzliche Tipps zur Verwendung virtueller Computer der Generation 2.
 
-### <a name="attach-or-add-a-dvd-drive"></a>Fügen Sie an, oder fügen Sie ein DVD-Laufwerk
+### <a name="attach-or-add-a-dvd-drive"></a>Anfügen oder Hinzufügen eines DVD-Laufwerks
 
-- Sie können kein physisches CD- oder DVD-Laufwerk an einen virtuellen Computer der Generation 2 anfügen. Das virtuelle DVD-Laufwerk in virtuellen Computern der Generation 2 unterstützt nur ISO-Imagedateien. Zum Erstellen einer ISO-Imagedatei einer Windows-Umgebung können Sie das Befehlszeilentool Oscdimg verwenden. Weitere Informationen finden Sie unter [Befehlszeilenoptionen von Oscdimg](https://msdn.microsoft.com/library/hh824847.aspx).
-- Bei der Erstellung eines neuen virtuellen Computers mit dem New-VM mit Windows PowerShell-Cmdlet keine virtuelle Maschine der Generation 2 ein DVD-Laufwerk. Sie können ein DVD-Laufwerk hinzufügen, während die virtuelle Maschine ausgeführt wird.
+- Sie können ein physisches CD-oder DVD-Laufwerk nicht an einen virtuellen Computer der Generation 2 anfügen. Das virtuelle DVD-Laufwerk in virtuellen Computern der Generation 2 unterstützt nur ISO-Imagedateien. Zum Erstellen einer ISO-Imagedatei einer Windows-Umgebung können Sie das Befehlszeilentool Oscdimg verwenden. Weitere Informationen finden Sie unter [Befehlszeilenoptionen von Oscdimg](https://msdn.microsoft.com/library/hh824847.aspx).
+- Wenn Sie einen neuen virtuellen Computer mit dem Windows PowerShell-Cmdlet "New-VM" erstellen, verfügt der virtuelle Computer der Generation 2 über kein DVD-Laufwerk. Sie können ein DVD-Laufwerk hinzufügen, während der virtuelle Computer ausgeführt wird.
 
-### <a name="use-uefi-firmware"></a>Verwenden von UEFI-firmware
+### <a name="use-uefi-firmware"></a>UEFI-Firmware verwenden
 
-- Sicherer Start oder UEFI-Firmware ist nicht erforderlich, auf dem physischen Hyper-V-Host. Hyper-V bietet die virtuelle Firmware zu virtuellen Computern, die unabhängig vom Inhalt auf dem Hyper-V-Host.
-- UEFI-Firmware auf einem virtuellen Computer der Generation 2 unterstützt Setupmodus für den sicheren Start nicht.
-- Mit eine UEFI-Shell oder andere UEFI-Anwendungen in virtuelle Computer der Generation 2 unterstützt nicht. Die Verwendung einer Microsoft-fremden UEFI-Shell oder von UEFI-Anwendungen ist technisch zwar möglich, wenn sie direkt von den Quellen kompiliert werden. Wenn diese Anwendungen nicht entsprechend digital signiert sind, müssen Sie den sicheren Start für den virtuellen Computer deaktivieren.
+- Der sichere Start oder UEFI-Firmware ist auf dem physischen Hyper-V-Host nicht erforderlich. Hyper-v stellt virtuelle Maschinen für virtuelle Maschinen bereit, die unabhängig von den auf dem Hyper-v-Host sind.
+- UEFI-Firmware auf einem virtuellen Computer der Generation 2 unterstützt den Setup Modus für den sicheren Start nicht.
+- Das Ausführen einer UEFI-Shell oder anderer UEFI-Anwendungen auf einem virtuellen Computer der Generation 2 wird nicht unterstützt. Die Verwendung einer Microsoft-fremden UEFI-Shell oder von UEFI-Anwendungen ist technisch zwar möglich, wenn sie direkt von den Quellen kompiliert werden. Wenn diese Anwendungen nicht ordnungs entsprechend digital signiert sind, müssen Sie den sicheren Start für den virtuellen Computer deaktivieren.
 
-### <a name="work-with-vhdx-files"></a>Arbeiten mit VHDX-Dateien
+### <a name="work-with-vhdx-files"></a>Arbeiten mit vhdx-Dateien
 
-- Sie können die Größe eine VHDX-Datei ändern, die das Startvolume für einen virtuellen Computer der Generation 2 enthält, während die virtuelle Maschine ausgeführt wird.
-- Wir nicht unterstützen oder wird empfohlen, dass Sie eine VHDX-Datei erstellen, die der Generation 1 und virtuelle Maschinen der Generation 2 gestartet werden.  
-- Die Generation des virtuellen Computers ist eine Eigenschaft des virtuellen Computers und keine Eigenschaft der virtuellen Festplatte. Daher kann nicht ermittelt, ob eine VHDX-Datei durch eine Generation 1 oder virtuelle Computer der Generation 2 erstellt wurde.  
-- Eine VHDX-Datei erstellt, die mit einer der Generation 2 VM, die an den IDE-Controller oder den SCSI-Controller der virtuellen Maschine der Generation 1 angefügt werden können. Allerdings ist dies eine startbare VHDX-Datei, wird nicht die virtuelle Maschine der Generation 1 starten.
+- Sie können die Größe einer vhdx-Datei ändern, die das Start Volume für einen virtuellen Computer der Generation 2 enthält, während der virtuelle Computer ausgeführt wird.
+- Die Erstellung einer vhdx-Datei, die auf virtuellen Computern der Generation 1 und der Generation 2 gestartet werden kann, wird nicht unterstützt oder empfohlen.  
+- Die Generation des virtuellen Computers ist eine Eigenschaft des virtuellen Computers und keine Eigenschaft der virtuellen Festplatte. Daher können Sie nicht feststellen, ob eine vhdx-Datei von einem virtuellen Computer der Generation 1 oder der Generation 2 erstellt wurde.  
+- Eine mit einem virtuellen Computer der Generation 2 erstellte vhdx-Datei kann an den IDE-Controller oder den SCSI-Controller eines virtuellen Computers der Generation 1 angefügt werden. Wenn es sich jedoch um eine startbare vhdx-Datei handelt, wird der virtuelle Computer der Generation 1 nicht gestartet.
 
-### <a name="use-ipv6-instead-of-ipv4"></a>Verwenden von IPv6 statt IPv4
+### <a name="use-ipv6-instead-of-ipv4"></a>Verwenden von IPv6 anstelle von IPv4
 
-Virtuelle Computer der Generation 2 verwenden standardmäßig IPv4. Wenn um IPv6 stattdessen zu verwenden, führen Sie die [Set-VMFirmware](https://technet.microsoft.com/library/dn464287.aspx) Windows PowerShell-Cmdlet. Beispielsweise legt der folgende Befehl das bevorzugte Protokoll für IPv6 für einen virtuellen Computer namens "testvm":  
+Virtuelle Computer der Generation 2 verwenden standardmäßig IPv4. Um stattdessen IPv6 zu verwenden, führen Sie das Windows PowerShell-Cmdlet [Set-vmfirmware](https://technet.microsoft.com/library/dn464287.aspx) aus. Mit dem folgenden Befehl wird beispielsweise das bevorzugte Protokoll für einen virtuellen Computer namens "testvm" auf IPv6 festgelegt:  
 
 ```powershell
 Set-VMFirmware -VMName TestVM -IPProtocolPreference IPv6  
 ```  
 
-## <a name="add-a-com-port-for-kernel-debugging"></a>Fügen Sie einen COM-Port für die Kernel-debugging
+## <a name="add-a-com-port-for-kernel-debugging"></a>Hinzufügen eines COM-Ports für das Kernel Debugging
 
-COM-Anschlüsse nicht im virtuellen Maschinen der Generation 2 verfügbar sind, bis Sie sie hinzufügen. Dies ist mit Windows PowerShell oder Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI) möglich. Diese Schritte veranschaulichen, wie Sie ihn mit Windows PowerShell.
+COM-Ports sind auf virtuellen Computern der Generation 2 nicht verfügbar, bis Sie Sie hinzufügen. Hierfür können Sie Windows PowerShell oder Windows-Verwaltungsinstrumentation (WMI) verwenden. Diese Schritte zeigen, wie Sie dies mit Windows PowerShell durchführen können.
 
-So fügen Sie ein COM-Anschluss hinzu:  
+So fügen Sie einen COM-Port hinzu:  
 
-1. Deaktivieren Sie den sicheren Start. Kernel-debugging ist nicht kompatibel mit dem sicheren Start. Stellen Sie sicher, dass die virtuelle Maschine, die in einem ausgeschalteten Zustand befindet, und verwenden Sie die [Set-VMFirmware](https://technet.microsoft.com/library/dn464287.aspx) Cmdlet. Beispielsweise deaktiviert der folgende Befehl sicherer Start auf virtuelle Computer "testvm":  
+1. Deaktivieren Sie den sicheren Start. Das Kernel Debugging ist mit dem sicheren Start nicht kompatibel. Stellen Sie sicher, dass der virtuelle Computer ausgeschaltet ist, und verwenden Sie dann das Cmdlet [Set-vmfirmware](https://technet.microsoft.com/library/dn464287.aspx) . Beispielsweise deaktiviert der folgende Befehl den sicheren Start auf dem virtuellen Computer "testvm":  
 
     ```powershell  
     Set-VMFirmware -Vmname TestVM -EnableSecureBoot Off  
     ```  
 
-2. Fügen Sie einen COM-Port. Verwenden der [Set-VMComPort](https://technet.microsoft.com/library/hh848616.aspx) Cmdlet, um diese auszuführen. Der folgende Befehl werden z. B. den erste COM-Anschluss auf virtuellen Computer "testvm", Verbindung mit der named Pipe, TestPipe, auf dem lokalen Computer konfiguriert:  
+2. Fügen Sie einen COM-Port hinzu. Verwenden Sie hierfür das Cmdlet [Set-vmcomport](https://technet.microsoft.com/library/hh848616.aspx) . Mit dem folgenden Befehl wird z. b. der erste com-Port auf dem virtuellen Computer "testvm" konfiguriert, um eine Verbindung mit dem Named Pipe "testpipe" auf dem lokalen Computer herzustellen:  
 
     ```powershell
     Set-VMComPort -VMName TestVM 1 \\.\pipe\TestPipe  
     ```  
 
 > [!NOTE]  
-> Konfigurierte COM-Ports werden nicht in den Einstellungen eines virtuellen Computers in Hyper-V-Manager aufgeführt.
+> Konfigurierte COM-Ports sind nicht in den Einstellungen eines virtuellen Computers im Hyper-V-Manager aufgeführt.
 
 ## <a name="see-also"></a>Siehe auch  
 
-- [Linux- und FreeBSD-Maschinen in Hyper-V](../Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)
-- [Verwenden Sie lokaler Ressourcen auf Hyper-V-VM mit VMConnect](../learn-more/Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md)
-- [Planen der Hyper-V-Skalierbarkeit unter Windows Server 2016](Plan-for-Hyper-V-scalability-in-Windows-Server-2016.md)
+- [Linux-und FreeBSD-Virtual Machines unter Hyper-V](../Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)
+- [Lokale Ressourcen auf dem virtuellen Hyper-V-Computer mit VMConnect verwenden](../learn-more/Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md)
+- [Planen der Hyper-V-Skalierbarkeit in Windows Server 2016](Plan-for-Hyper-V-scalability-in-Windows-Server-2016.md)

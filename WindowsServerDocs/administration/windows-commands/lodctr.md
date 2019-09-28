@@ -1,8 +1,8 @@
 ---
 title: lodctr
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b67c11b24013adb911309ab2ea9bdbfdfc3408da
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 96a2818110b766071eb83822abd34d8c0d00132d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437892"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374573"
 ---
 # <a name="lodctr"></a>lodctr
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Lässt Sie sich registrieren oder Performance Counter-Namen und die Registrierung konfiguriert in einer Datei speichern und vertrauenswürdigen Dienste festlegen.
+Hiermit können Sie den Namen und die Registrierungs Einstellungen des Leistungs Zählers in einer Datei registrieren oder speichern und vertrauenswürdige Dienste festlegen.
 ## <a name="syntax"></a>Syntax
 ```
 lodctr <filename> [/s:<filename>] [/r:<filename>] [/t:<servicename>]
@@ -33,20 +33,20 @@ lodctr <filename> [/s:<filename>] [/r:<filename>] [/t:<servicename>]
 
 |    Parameter     |                                                                                                                                         Beschreibung                                                                                                                                          |
 |------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    <filename>    |                                                                                          Registriert die leistungsindikatoreinstellungen Name und erläuternden Texts in der FileName-Initialisierungsdatei bereitgestellt.                                                                                          |
-|  /s:<filename>   |                                                                                                       Speichert Leistungsindikator-registrierungseinstellungen, und Erläutern Sie Text in Datei <filename>.                                                                                                       |
-|        /r        |                                Wird von Leistungsindikator-registrierungseinstellungen und eine erläuternden Texts aus aktuellen registrierungseinstellungen und zwischengespeicherte Leistung-Dateien, die im Zusammenhang mit der Registrierung.<br /><br />Diese Option ist nur in das Betriebssystem Windows Server 2003 verfügbar.                                |
-|  /r:<filename>   | Wiederherstellungen Leistungsindikator-registrierungseinstellungen, und Erläutern Sie Text aus Datei <filename>. **Warnung:** bei Verwendung der **Lodctr/r** können Sie alle Leistungsindikator-registrierungseinstellungen überschrieben und Erklärungstext, ersetzt sie durch die Konfiguration, die in der angegebenen Datei definiert. |
-| /t:<servicename> |                                                                                                                       Gibt an, diesen Dienst <servicename> ist vertrauenswürdig.                                                                                                                       |
+|    <filename>    |                                                                                          Registriert die namens Einstellungen des Leistungs Zählers und erläutert den in der Initialisierungsdatei Dateiname angegebenen Text.                                                                                          |
+|  /s: <filename>   |                                                                                                       Speichert die Registrierungs Einstellungen des Leistungs Zählers und erläutert Text in Datei <filename>.                                                                                                       |
+|        /r        |                                Stellt die Registrierungs Einstellungen für den-Leistungs-und-Text aus aktuellen Registrierungs Einstellungen und zwischengespeicherten Leistungs Dateien für die Registrierung wieder her.<br /><br />Diese Option ist nur im Betriebssystem Windows Server 2003 verfügbar.                                |
+|  /r: <filename>   | Stellt die Registrierungs Einstellungen des Leistungs Zählers wieder her und erläutert Text aus der Datei <filename>. **Warnung:** Wenn Sie den Befehl **Lodctr/r** verwenden, überschreiben Sie alle Registrierungs Einstellungen des Leistungs Zählers und erläutern den Text, sodass Sie durch die in der angegebenen Datei definierte Konfiguration ersetzt werden. |
+| /t: <servicename> |                                                                                                                       Gibt an, dass der Dienst <servicename> vertrauenswürdig ist.                                                                                                                       |
 |        /?        |                                                                                                                             Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                             |
 
 ## <a name="remarks"></a>Hinweise
-Wenn die Informationen, die Sie angeben, die Leerzeichen enthält, verwenden Sie den Text in Anführungszeichen (z. B. "<filename>").
-## <a name="BKMK_Examples"></a>Beispiele für
-Speichern die aktuellen registrierungseinstellungen für die Leistung und erläuternden Text in Datei Leistungsindikator **Perf backup1.txt**:
+Wenn die Informationen, die Sie angeben, Leerzeichen enthalten, verwenden Sie den Text in Anführungszeichen (z. b. "<filename>").
+## <a name="BKMK_Examples"></a>Beispiele
+So speichern Sie die aktuellen Registrierungs Einstellungen und den Leistungs Bestellungstext in der Datei **Leistungs Sicherung 1. txt**:
 ```
 lodctr /s:"perf backup1.txt"
 ```
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 -   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

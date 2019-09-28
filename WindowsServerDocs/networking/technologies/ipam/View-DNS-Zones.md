@@ -1,9 +1,9 @@
 ---
 title: Anzeigen von DNS-Zonen
-description: Dieses Thema ist Teil des Leitfadens Verwaltung von IP-Adressverwaltung (IPAM) in Windows Server 2016.
+description: Dieses Thema ist Teil des Verwaltungs Handbuchs für die IP-Adressverwaltung (IPAM) in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ipam
@@ -12,36 +12,36 @@ ms.topic: article
 ms.assetid: 2cfe4e40-ec6d-4541-baa9-d772409fe27c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 22d00865d1fb30faa2cf9cd79479772f768bfbbe
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: a362eb5d7b1a80d8b90bdf565debecb187d7a254
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283778"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405588"
 ---
 # <a name="view-dns-zones"></a>Anzeigen von DNS-Zonen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können in diesem Thema verwenden, um DNS-Zonen in der IPAM-Clientkonsole anzuzeigen.  
+Sie können dieses Thema verwenden, um DNS-Zonen in der IPAM-Client Konsole anzuzeigen.  
   
 Die Mitgliedschaft in **Administratoren** oder einer entsprechenden Gruppe ist die Mindestanforderung für die Durchführung dieses Verfahrens.  
   
-### <a name="to-view-dns-zones-in-the-ipam-client-console"></a>DNS-Zonen in der IPAM-Clientkonsole anzeigen  
+### <a name="to-view-dns-zones-in-the-ipam-client-console"></a>So zeigen Sie DNS-Zonen in der IPAM-Client Konsole an  
   
-1.  Klicken Sie im Server-Manager **IPAM**. Die IPAM-Clientkonsole angezeigt wird.  
+1.  Klicken Sie in Server-Manager auf **IPAM**. Die IPAM-Client Konsole wird angezeigt.  
   
-2.  Klicken Sie im Navigationsbereich in **ÜBERWACHEN und verwalten**, klicken Sie auf **DNS-Zonen**.  Im Navigationsbereich, die in einer oberen Navigationsbereich und einer unteren Navigationsbereich unterteilt werden.  
+2.  Klicken Sie im Navigationsbereich unter **überwachen und verwalten**auf **DNS-Zonen**.  Der Navigationsbereich gliedert sich in einen oberen Navigationsbereich und einen niedrigeren Navigationsbereich.  
   
-3.  Stellen Sie im unteren Navigationsbereich wird eine der folgenden Optionen aus:  
+3.  Stellen Sie im unteren Navigationsbereich eine der folgenden Optionen zur Auswahl:  
   
-    -   Forward-Lookupzone  
+    -   Forward-Lookup  
   
-    -   IPv4 Reverse-Lookup  
+    -   IPv4-Reverse-Lookup  
   
     -   IPv6-Reverse-Lookup  
   
-    -   Weiterleitung mit Bedingungen  
+    -   Bedingte Weiterleitung  
   
 ## <a name="see-also"></a>Siehe auch  
 [DNS-Zonenverwaltung](DNS-Zone-Management.md)  

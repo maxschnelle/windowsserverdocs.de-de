@@ -1,9 +1,9 @@
 ---
 title: Verwenden der Remotezugriffsüberwachung und Ressourcenerfassung
-description: Dieses Thema ist Teil des Leitfadens für die Überwachung des Remotezugriffs und Kontoführung in Windows Server 2016.
+description: Dieses Thema ist Teil des Leitfadens für die Remote Zugriffs Überwachung und-Kontoführung in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: 92519b49-0df4-43c1-9717-f13570644212
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: c794d4b8169c81c63162f119467f5f03d10ce756
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: eb7c052358bc50f9b466b7ac862e77be7b044685
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282652"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71367147"
 ---
 # <a name="use-remote-access-monitoring-and-accounting"></a>Verwenden der Remotezugriffsüberwachung und Ressourcenerfassung
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 Die Überwachung des Remotezugriffs meldet Remotebenutzeraktivitäten und den Status der DirectAccess- und VPN-Verbindungen. Sie zeichnet die Anzahl und die Dauer der Clientverbindungen (und weitere Statistiken) auf und überwacht den Betriebsstatus des Servers. Eine benutzerfreundliche Überwachungskonsole stellt Ihnen eine Ansicht der gesamten Remotezugriffinfrastruktur bereit. Die Überwachungsansichten sind für einzelne Server-, Cluster- und Konfigurationen für mehrere Standorte.  
   
@@ -32,7 +32,7 @@ Die Überwachung des Remotezugriffs meldet Remotebenutzeraktivitäten und den St
 >   
 > -   [Überwachen der vorhandenen Last auf dem Remotezugriffsserver](Monitor-the-existing-load-on-the-Remote-Access-server.md)  
 > -   [Überwachen des Konfigurationsverteilungsstatus des Remotezugriffsservers](Monitor-the-configuration-distribution-status-of-the-Remote-Access-server.md)  
-> -   [Überwachen des Betriebsstatus des RAS-Server und dessen Komponenten](Monitor-the-operations-status-of-the-Remote-Access-server-and-its-components.md)  
+> -   [Überwachen des Betriebs Status des Remote Zugriffs Servers und seiner Komponenten](Monitor-the-operations-status-of-the-Remote-Access-server-and-its-components.md)  
 > -   [Identifizieren und Beheben von Betriebsproblemen auf dem Remotezugriffsserver](Identify-and-resolve-Remote-Access-server-operations-problems.md)  
 > -   [Überwachen der Aktivitäten und des Status von verbundenen Remoteclients](Monitor-connected-remote-clients-for-activity-and-status.md)  
 > -   [Erstellen eines Nutzungsberichts für Remoteclients mithilfe von Verlaufsdaten](Generate-a-usage-report-for-remote-clients-using-historical-data.md)  

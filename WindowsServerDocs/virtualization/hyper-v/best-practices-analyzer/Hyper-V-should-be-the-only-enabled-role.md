@@ -1,7 +1,7 @@
 ---
 title: Hyper-V sollte die einzige aktivierte Rolle sein.
-description: Enthält Anweisungen zur Behebung des Problems gemeldet wird, die von dieser Best Practices Analyzer-Regel.
-ms.prod: windows-server-threshold
+description: Enthält Anweisungen zum Beheben des Problems, das von dieser Best Practices Analyzer Regel gemeldet wird.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,12 +10,12 @@ ms.topic: article
 ms.assetid: 5a0ed176-048f-40b1-b56c-8391b805fd37
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: bd03554396696a43b4821aff0f4ed893933484c6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9b16a3be1e2f842c251ff3ab31d467ef7f128c8a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886461"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364759"
 ---
 # <a name="hyper-v-should-be-the-only-enabled-role"></a>Hyper-V sollte die einzige aktivierte Rolle sein.
 
@@ -26,36 +26,36 @@ Weitere Informationen zu bewährten Methoden und Überprüfungen finden Sie unte
 |Eigenschaft|Details|  
 |-|-|  
 |**Betriebssystem**|Windows Server 2016|  
-|**Produkt /-Funktion**|Hyper-V|  
-|**Schweregrad**|Warnung|  
+|**Produkt/Feature**|Hyper-V|  
+|**Zunehmen**|Warnung|  
 |**Kategorie**|Konfiguration|  
   
-In den folgenden Abschnitten Kursivschrift gibt an Benutzeroberflächentext, die im Best Practices Analyzer-Tool für dieses Problem angezeigt wird.  
+In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.  
   
 ## <a name="issue"></a>Problem  
   
-*Rollen, ausgenommen Hyper-V sind auf diesem Server aktiviert.*  
+*Andere Rollen als Hyper-V sind auf diesem Server aktiviert.*  
   
-In den meisten Fällen ist es nicht über eine gute Idee, andere Rollen auf einem Server mit Hyper-V-Rolle installieren. Remote Remotedesktop-Virtualisierungshost-Rollendienst ist eine Ausnahme aus, da sie Teil der Rolle "Remotedesktopdienste ist" und Hyper-V auf dem gleichen Server installiert werden muss.  
+In den meisten Fällen ist es keine gute Idee, andere Rollen auf einem Server zu installieren, auf dem die Hyper-V-Rolle ausgeführt wird. Remotedesktop-Virtualisierungshost Rollen Dienst stellt eine Ausnahme dar, da Sie Teil der Remotedesktopdienste Rolle ist und Hyper-V auf dem gleichen Server installiert werden muss.  
   
 ## <a name="impact"></a>Auswirkungen  
   
-*Hyper-V-Rolle sollte die einzige Rolle auf einem Server aktiviert sein.*  
+*Die Hyper-V-Rolle sollte die einzige Rolle sein, die auf einem Server aktiviert ist.*  
   
-Dieser bewährten Methode können Sie das Hostbetriebssystem keine Rollen, Features und Anwendungen, die Hyper-V ausführen, nicht erforderlich. Durch Befolgen dieser bewährten Methode und die Ausführung von Hyper-V auf Nano Server reduziert die Anzahl der Updates, die Sie benötigen, da nur die Nano Server, die Hyper-V-Dienstkomponenten und der Windows-Hypervisor unterliegen Softwareupdates wäre.  
+Diese bewährte Vorgehensweise trägt dazu bei, das Host Betriebssystem für Rollen, Features und Anwendungen, die nicht zum Ausführen von Hyper-V erforderlich sind, frei zu halten. Wenn Sie diese bewährte Vorgehensweise befolgen und Hyper-v auf Nano Server ausführen, können Sie die Anzahl der benötigten Updates verringern, da nur Nano Server, die Hyper-v-Dienst Komponenten und der Windows-Hypervisor Software Updates unterliegen.  
   
 ## <a name="resolution"></a>Auflösung  
   
-*Verwenden Sie Server-Manager, um alle Serverrollen außer Hyper-V zu entfernen.*  
+*Verwenden Sie Server-Manager, um alle Rollen mit Ausnahme von Hyper-V zu entfernen.*  
   
-Server-Manager enthält den Assistenten zum Entfernen von Rollen. Mit diesem Assistenten können Sie mehrere Rollen gleichzeitig zu entfernen. Vor dem Entfernen von Rollen, überprüft den Assistenten zum Entfernen von Rollen für Abhängigkeiten, um das Risiko des Entfernens der Software, die anderen Rollen abhängig. Wenn Abhängigkeiten gefunden werden, fordert der Assistent Sie so genehmigen Sie das Entfernen von anderen Rollen, Rollendienste oder Software, die von den installierten Rollen benötigt.   
+Server-Manager enthält den Assistenten zum Entfernen von Rollen. Mit diesem Assistenten können Sie mehrere Rollen gleichzeitig entfernen. Vor dem Entfernen von Rollen prüft der Assistent zum Entfernen von Rollen auf Abhängigkeiten, um das Risiko zu verringern, dass Software, auf der andere Rollen basieren, entfernt wird. Wenn Abhängigkeiten gefunden werden, werden Sie vom Assistenten aufgefordert, das Entfernen anderer Rollen, Rollen Dienste oder Software zu genehmigen, die für installierte Rollen erforderlich sind.   
   
-Um Server-Manager zu verwenden, müssen Sie auf den Computer als Administrator angemeldet sein.  
+Wenn Sie Server-Manager verwenden möchten, müssen Sie auf dem Computer als Administrator angemeldet sein.  
   
 #### <a name="to-remove-a-role"></a>So entfernen Sie eine Rolle  
   
-1.  Öffnen Sie Server-Manager mithilfe von Tastenkombinationen auf der **starten** im Menü auf der Windows-Taskleiste oder in der Verwaltung.  
-2.   In der **Rollenübersicht** Bereich des Server-Manager-Hauptfensters, klicken Sie auf **Entfernen von Rollen**. Führen Sie die Anweisungen im Assistenten, um die Rolle zu entfernen.   
+1.  Öffnen Sie Server-Manager mithilfe von Verknüpfungen im **Startmenü** , auf der Windows-Taskleiste oder in "Verwaltung".  
+2.   Klicken Sie im Bereich **Rollen Zusammenfassung** des Server-Manager Hauptfensters auf **Rollen entfernen**. Befolgen Sie die Anweisungen im Assistenten, um die Rolle zu entfernen.   
   
   
   

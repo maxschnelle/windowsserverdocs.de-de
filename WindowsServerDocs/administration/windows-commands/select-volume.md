@@ -1,8 +1,8 @@
 ---
 title: Volume auswählen
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 98f42324dbd4c6b3add3333cf4687d1613b1f700
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: cc981131c8de2dc4534e390645ef45c39a7b02ab
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441427"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371063"
 ---
 # <a name="select-volume"></a>Volume auswählen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Wählt das angegebene Volume und verlagert den Fokus auf sie. Dieser Befehl kann auch verwendet werden, um das Volume anzuzeigen, das gegenwärtig den Fokus in den ausgewählten Datenträger besitzt.  
+wählt das angegebene Volume aus und verschiebt den Fokus auf das Volume. Dieser Befehl kann auch verwendet werden, um das Volume anzuzeigen, das derzeit den Fokus auf dem ausgewählten Datenträger hat.  
   
   
   
@@ -38,21 +38,21 @@ select volume={<n>|<d>}
   
 | Parameter |                                                                               Beschreibung                                                                                |
 |-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    <n>    | Die Anzahl der dem Volume, das den Fokus erhalten. Sehen Sie die Zahlen für alle Volumes auf dem Datenträger, die derzeit ausgewählt wird, mithilfe der **Liste Volume** in DiskPart den Befehl. |
-|    <d>    |                                                 Der Laufwerkbuchstabe oder Bereitstellungspunkt Punkt Laufwerkpfad des Volumes, das den Fokus erhalten.                                                 |
+|    <n>    | Die Nummer des Volumes, das den Fokus erhalten soll. Sie können die Zahlen für alle Volumes auf dem aktuell ausgewählten Datenträger anzeigen, indem Sie den Befehl **Volume auflisten** in DiskPart verwenden. |
+|    <d>    |                                                 Der Laufwerk Buchstabe oder der einstellungspunktpfad des Volumes, das den Fokus erhalten soll.                                                 |
   
 ## <a name="remarks"></a>Hinweise  
   
--   Wenn kein Volume angegeben wird, zeigt dieser Befehl das Volume, das gegenwärtig den Fokus in den ausgewählten Datenträger besitzt.  
+-   Wenn kein Volume angegeben ist, zeigt dieser Befehl das Volume an, das derzeit den Fokus auf dem ausgewählten Datenträger hat.  
   
--   Auf einem Basisdatenträger ein Volume erhält auswählen auch den Fokus auf die entsprechende Partition.  
+-   Auf einem Basis Datenträger wird beim Auswählen eines Volumes auch der Fokus auf die entsprechende Partition fest.  
   
 -   Wenn ein Volume mit einer entsprechenden Partition ausgewählt ist, wird die Partition automatisch ausgewählt.  
   
--   Wenn eine Partition mit einer entsprechenden Menge ausgewählt ist, wird das Volume automatisch ausgewählt.  
+-   Wenn eine Partition mit einem entsprechenden Volume ausgewählt wird, wird das Volume automatisch ausgewählt.  
   
-## <a name="BKMK_examples"></a>Beispiele für  
-Um den Fokus auf Volume 2 zu verschieben, geben Sie Folgendes ein:  
+## <a name="BKMK_examples"></a>Beispiele  
+Wenn Sie den Fokus auf Volume 2 verschieben möchten, geben Sie Folgendes ein:  
   
 ```  
 select volume=2  
@@ -64,19 +64,19 @@ Um den Fokus auf Laufwerk C zu verschieben, geben Sie Folgendes ein:
 select volume=c  
 ```  
   
-Um den Fokus auf das Volume bereitgestellt, die für einen Ordner mit dem Namen "Mountpath" verschieben möchten, geben Sie Folgendes ein:  
+Um den Fokus auf das Volume zu verschieben, das in einem Ordner namens "mountpath" eingebunden ist, geben Sie Folgendes ein:  
   
 ```  
 select volume=c:\mountpath  
 ```  
   
-Um das Volume anzuzeigen, das gerade den Fokus in den ausgewählten Datenträger besitzt, geben Sie Folgendes ein:  
+Geben Sie Folgendes ein, um das Volume anzuzeigen, das derzeit den Fokus auf dem ausgewählten Datenträger hat:  
   
 ```  
 select volume  
 ```  
   
-#### <a name="additional-references"></a>Zusätzliche Referenzen  
+#### <a name="additional-references"></a>Weitere Verweise  
 [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
 

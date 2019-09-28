@@ -1,18 +1,18 @@
 ---
 title: Was ist Server Core?
 description: Weitere Informationen zur Server Core-Installationsoption in Windows Server
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.mktglfcycl: manage
 ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 02/20/2018
-ms.openlocfilehash: ce00bc973b7b750e33326cdec24193ba537b5294
-ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
+ms.openlocfilehash: 269be253367ba2bc692a5903e7d519a40f487d8b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476479"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383341"
 ---
 # <a name="what-is-the-server-core-installation-option-in-windows-server"></a>Was ist die Server Core-Installationsoption in Windows Server?
 
@@ -41,7 +41,7 @@ Neben der Benutzeroberfläche unterscheidet sich auch Server Core vom Server mit
 - Keine OOBE (Out-of-Box-Umgebung) für die Einrichtung von Server Core
 - Keine Audiounterstützung
 
-In der folgenden Tabelle sind die Anwendungen aufgeführt, die *lokal* auf Server Core vs Server mit Desktop Darstellung verfügbar sind. **Wichtig:** In den meisten Fällen können Anwendungen, die unten als "nicht verfügbar" aufgeführt sind, Remote von einem Windows-Client Computer aus ausgeführt und zum Verwalten der Server Core-Installation verwendet werden.
+In der folgenden Tabelle sind die Anwendungen aufgeführt, die *lokal* auf Server Core vs Server mit Desktop Darstellung verfügbar sind. **Wichtig**: In den meisten Fällen können Anwendungen, die unten als "nicht verfügbar" aufgeführt sind, Remote von einem Windows-Client Computer aus ausgeführt und zum Verwalten der Server Core-Installation verwendet werden.
 
 > [!NOTE]
 > Diese Liste ist für kurz Verweise gedacht. Sie ist nicht als umfassende Liste vorgesehen.
@@ -83,7 +83,7 @@ In der folgenden Tabelle sind die Anwendungen aufgeführt, die *lokal* auf Serve
 | Hyper-V-Manager                    | nicht verfügbar  | verfügbar                      |
 
 
-Weitere Informationen zu den Funktionen  von Server Core finden Sie unter [Rollen, Rollen Dienste und Features, die in Windows Server-Server Core enthalten](server-core-roles-and-services.md)sind. Informationen dazu, was nicht in Server Core enthalten *ist* , finden Sie unter [Rollen, Rollen Dienste und Features, die nicht in Server Core enthalten](server-core-removed-roles.md) sind.
+Weitere Informationen zu den Funktionen von Server Core finden Sie unter [Rollen, Rollen Dienste und Features, die in Windows Server-Server Core enthalten](server-core-roles-and-services.md) *sind.* Informationen dazu, was nicht in Server Core enthalten *ist* , finden Sie unter [Rollen, Rollen Dienste und Features, die nicht in Server Core enthalten](server-core-removed-roles.md) sind.
 
 ## <a name="get-started-using-server-core"></a>Einstieg in die Verwendung von Server Core
 Verwenden Sie die folgenden Informationen, um die Server Core-Installationsoption von Windows Server zu installieren, zu konfigurieren und zu verwalten.

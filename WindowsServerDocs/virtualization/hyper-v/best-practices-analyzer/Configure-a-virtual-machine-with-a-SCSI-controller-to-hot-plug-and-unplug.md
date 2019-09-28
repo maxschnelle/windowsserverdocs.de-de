@@ -1,7 +1,7 @@
 ---
-title: Konfigurieren eines virtuellen Computers mit einem SCSI-Controller in der Lage zu "Hot" Plug & trennen Sie Speicher im laufenden Systembetrieb
-description: Die Onlineversion des Texts für diese Best Practices Analyzer-Regel.
-ms.prod: windows-server-threshold
+title: Konfigurieren Sie einen virtuellen Computer mit einem SCSI-Controller, um das Plug-in und den Hot-trennen Sie-Speicher zu integrieren.
+description: Online Version des Texts für diese Best Practices Analyzer Regel.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,47 +10,47 @@ ms.topic: article
 ms.assetid: 511e1172-aeef-463d-b5dd-2bffae411ff1
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 755e7485e54ee58e0acd7ebd75a7ee591aa655f9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5b901ee8f11942b8ad50a3c34c53354a5998e105
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843281"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365068"
 ---
-# <a name="configure-a-virtual-machine-with-a-scsi-controller-to-be-able-to-hot-plug-and-hot-unplug-storage"></a>Konfigurieren eines virtuellen Computers mit einem SCSI-Controller in der Lage zu "Hot" Plug & trennen Sie Speicher im laufenden Systembetrieb
+# <a name="configure-a-virtual-machine-with-a-scsi-controller-to-be-able-to-hot-plug-and-hot-unplug-storage"></a>Konfigurieren Sie einen virtuellen Computer mit einem SCSI-Controller, um das Plug-in und den Hot-trennen Sie-Speicher zu integrieren.
 
 >Gilt für: Windows Server 2016
 
 
   
-*Weitere Informationen zu best Practices und Überprüfungen finden Sie unter* [Best Practices Analyzer](https://go.microsoft.com/fwlink/?LinkId=122786).  
+*Weitere Informationen zu bewährten Methoden und Scans finden Sie unter* [Best Practices Analyzer](https://go.microsoft.com/fwlink/?LinkId=122786).  
   
 |Eigenschaft|Details|  
 |-|-|  
 |**Betriebssystem**|Windows Server 2016|  
-|**Produkt /-Funktion**|Hyper-V|  
-|**Schweregrad**|Warnung|  
+|**Produkt/Feature**|Hyper-V|  
+|**Zunehmen**|Warnung|  
 |**Kategorie**|Konfiguration|  
   
-In den folgenden Abschnitten Kursivschrift gibt an Benutzeroberflächentext, die im Best Practices Analyzer-Tool für dieses Problem angezeigt wird.  
+In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.  
   
 ## <a name="issue"></a>Problem  
   
-*Ein virtuellen Computer wurde gefunden, die nicht mit einem SCSI-Controller konfiguriert ist.*  
+*Ein virtueller Computer wurde gefunden, der nicht mit einem SCSI-Controller konfiguriert ist.*  
   
 ## <a name="impact"></a>Auswirkungen  
   
-*Es werden nicht möglich "heiß" Plug oder Speicher für die folgenden virtuellen Computer "Hot" zu trennen:*  
+*Sie sind nicht in der Lage, den trennen Sie-in-Plug-in-Speicher für die folgenden virtuellen Computer zu schließen:*  
   
-\<Liste von Namen virtueller Computer >  
+\<liste der Namen der virtuellen Computer >  
   
-Die Möglichkeit, "heiß" Plug oder trennen Sie Speicher im laufenden Systembetrieb erleichtert es, um die speicheranforderungen eines virtuellen Computers zu verwalten, ohne Ausfallzeiten. Virtuelle Computer ohne SCSI-Controller muss heruntergefahren werden, hinzufügen oder Entfernen von Speicher zu können.  
+Durch die Fähigkeit, ein Hot-Plug-in oder Hot-trennen Sie-Speicher zu ermöglichen, ist es einfacher, die Speicheranforderungen eines virtuellen Computers ohne Ausfallzeiten zu verwalten Virtuelle Computer ohne SCSI-Controller müssen heruntergefahren werden, bevor Sie Speicher hinzufügen oder entfernen können.  
   
 ## <a name="resolution"></a>Auflösung  
   
-*Wenn Sie nicht benötigen, "heiß" Plug oder Speicher für diesen virtuellen Computer "Hot" zu trennen, ist keine Aktion erforderlich. Andernfalls fahren Sie den virtuellen Computer herunter, und der Konfiguration einen SCSI-Controller hinzufügen.*  
+*wenn Sie nicht für den virtuellen Computer einen Hot-Plug-in-oder Hot-trennen Sie-Speicher benötigen, ist keine Aktion erforderlich. Fahren Sie andernfalls den virtuellen Computer herunter, und fügen Sie der Konfiguration einen SCSI-Controller hinzu.*  
   
-Um verwenden Sie einen SCSI-Controller an "Hot", und trennen Sie Speicher im laufenden Systembetrieb, muss das Gastbetriebssystem die aktuelle Version von Integrationsservices ausgeführt werden.  
+Um einen SCSI-Controller für das Hot-Plug-in und den Hot-trennen Sie-Speicher zu verwenden, muss auf dem Gast Betriebssystem die aktuelle Version von Integration Services ausgeführt werden.  
   
 
 

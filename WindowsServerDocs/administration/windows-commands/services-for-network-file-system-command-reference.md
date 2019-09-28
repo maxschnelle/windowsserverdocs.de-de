@@ -1,8 +1,8 @@
 ---
 title: Dienste für Network File System-Befehlsreferenz
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,27 +13,27 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9dcfd62f994d20d21cc9045a26f5fe313b0e338e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 247adb10411970129303c04b7d8790ad06e8c583
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861781"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384057"
 ---
 # <a name="services-for-network-file-system-command-reference"></a>Dienste für Network File System-Befehlsreferenz
 
 
 
-Dienste für Network File System (NFS) stellt eine dateifreigabelösung, die Sie zum Übertragen von Dateien zwischen PCs unter Windows Server 2008 und UNIX-Betriebssystemen, die über das NFS-Protokoll ermöglicht.
+Services for Network File System (NFS) stellt eine Dateifreigabe Lösung bereit, die es Ihnen ermöglicht, Dateien zwischen Computern mit Windows Server 2008-und UNIX-Betriebssystemen mit dem NFS-Protokoll zu übertragen.
 
-Folgendes ist eine Liste der NFS-Befehlszeilentools.
+Im folgenden finden Sie eine Liste der NFS-Befehlszeilen Tools.
 
 |Befehl|Beschreibung|
 |-------|-----------|
-|[mapadmin](mapadmin.md)|Verwalten Sie Benutzernamen, die für Microsoft Services for Network File System zuordnen.|
-|[Bereitstellungspunkt](mount.md)|Netzwerkfreigaben für Mount-Network File System (NFS).|
-|[Nfsadmin](nfsadmin.md)|Verwalten von Server für NFS- und Client für NFS.|
-|[Nfsshare](nfsshare.md)|Network File System (NFS) Freigaben zu steuern.|
-|[Nfsstat](nfsstat.md)|Zeigen Sie an oder Zurücksetzen Sie der Anzahl der Aufrufe, die an den Server für NFS.|
-|[Rpcinfo](rpcinfo.md)|Auflisten von Programmen auf Remotecomputern.|
-|[Showmount](showmount.md)|Zeigen Sie die bereitgestellten Verzeichnisse.|
+|[mapadmin](mapadmin.md)|Verwalten Sie Benutzernamenzuordnung für Microsoft-Dienste für das Netzwerkdatei System.|
+|[LIS](mount.md)|Einbinden von Network File System (NFS)-Netzwerkfreigaben.|
+|[Nfsadmin](nfsadmin.md)|Verwalten Sie Server für NFS und Client für NFS.|
+|[Nfsshare](nfsshare.md)|Steuern von NFS-Freigaben (Network File System).|
+|[Nfsstat](nfsstat.md)|Anzeigen oder Zurücksetzen der Anzahl der Aufrufe von Server für NFS.|
+|[Rpcinfo](rpcinfo.md)|Auflisten von Programmen auf Remote Computern.|
+|[Showmount](showmount.md)|Zeigt eingebundene Verzeichnisse an.|

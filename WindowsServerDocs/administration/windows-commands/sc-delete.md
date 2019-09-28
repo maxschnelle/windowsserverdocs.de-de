@@ -1,8 +1,8 @@
 ---
-title: SC delete
-description: 'Windows-Befehle Thema ***- '
+title: SC löschen
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 68af5f118b2cc9d7941abddccd2a1bc7fde4c6d0
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: ad64d0f7c772b8d29a191b5f3e690d74c8765717
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222934"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371277"
 ---
-# <a name="sc-delete"></a>SC delete
+# <a name="sc-delete"></a>SC löschen
 
 
 
-Löscht einen Unterschlüssel Service aus der Registrierung. Wenn der Dienst ausgeführt wird, oder wenn ein anderer Prozess ein geöffnetes Handle an den Dienst verfügt, wird der Dienst zum Löschen markiert.
+Löscht einen Dienst Unterschlüssel aus der Registrierung. Wenn der Dienst ausgeführt wird oder wenn ein anderer Prozess über ein geöffnetes Handle für den Dienst verfügt, wird der Dienst zum Löschen markiert.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#examples).
 
@@ -38,17 +38,17 @@ sc [<ServerName>] delete [<ServiceName>]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<ServerName>|Gibt den Namen des Remoteservers auf dem sich der Dienst befindet. Der Name muss das Universal Naming Convention (UNC)-Format verwenden (z. B. \\ \\"myserver"). Um SC.exe lokal ausführen zu können, müssen lassen Sie diesen Parameter Weg.|
-|\<ServiceName>|Gibt den Dienstnamen, die zurückgegeben werden, indem die **Getkeyname** Vorgang.|
+|\<servername >|Gibt den Namen des Remote Servers an, auf dem sich der Dienst befindet. Der Name muss das Universal Naming Convention Format (UNC) verwenden (z. b. \\ @ no__t-1myserver). Wenn Sie "SC. exe" lokal ausführen möchten, lassen Sie diesen Parameter Weg.|
+|\<servicename >|Gibt den Dienstnamen an, der vom **getkeyname** -Vorgang zurückgegeben wird.|
 |?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
-Verwendung **Software** auf **Systemsteuerung** DHCP, DNS oder andere Dienste integriertes Betriebssystem zu löschen. Beachten Sie, dass **Software** nicht nur der Unterschlüssel der Registrierung für den Dienst entfernt, aber es außerdem deinstallieren Sie den Dienst und löschen Sie alle Verknüpfungen.
+Verwenden **Sie** die Option "Software" in der **Systemsteuerung** , um DHCP, DNS oder andere integrierte Betriebssystem Dienste zu löschen. Beachten Sie, dass durch **Hinzufügen oder entfernen** von Software nicht nur der Registrierungs Unterschlüssel für den Dienst entfernt, sondern auch der Dienst deinstalliert und Verknüpfungen zu diesem Dienst gelöscht werden.
 
 ## <a name="examples"></a>Beispiele
 
-So löschen Sie den Dienstunterschlüssel **NewServ** Geben Sie an der Registrierung auf dem lokalen Computer:
+Um den Dienst Unterschlüssel **newserv** aus der Registrierung auf dem lokalen Computer zu löschen, geben Sie Folgendes ein:
 ```
 sc delete newserv
 ```

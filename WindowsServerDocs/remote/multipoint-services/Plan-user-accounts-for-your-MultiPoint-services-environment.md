@@ -1,9 +1,9 @@
 ---
 title: Planen von Benutzerkonten für eine MultiPoint Services-Umgebung
-description: Informationen zur Planung für Benutzerkonten in MultiPoint Services
+description: Planungsinformationen für Benutzerkonten in Multipoint Services
 ms.custom: na
 ms.date: 07/22/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,32 +13,32 @@ ms.assetid: d47be540-e891-47bd-85da-6df4bbf93b2f
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 02862c1a317dfe5deff75be4a80595c8dc8bc3f7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 056c3b9773387cf00b40baf6f14e4e1f3583f6c9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864171"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405003"
 ---
 # <a name="plan-user-accounts-for-your-multipoint-services-environment"></a>Planen von Benutzerkonten für eine MultiPoint Services-Umgebung
-Die beste Möglichkeit zum Implementieren von Benutzerkonten in MultiPoint Services hängt von der Größe und Komplexität der Bereitstellung ab:  
+Die beste Methode zum Implementieren von Benutzerkonten in Multipoint Services hängt von der Größe und Komplexität Ihrer Bereitstellung ab:  
   
--   **Lokale Benutzerkonten** – für eine kleine Bereitstellung mit nur wenigen Computern ausgeführten MultiPoind Dienste und einigen Benutzern unter Umständen am einfachsten mit *lokale Benutzerkonten* , die in MultiPoint Services erstellt werden. Sie können ein einzelnes Konto für jede Person erstellen, die das System verwendet wird, oder erstellen Sie ein allgemeines Konto für jede Station, die jeder Benutzer zum Anmelden verwenden können. MultiPoint Services-Administratoren erstellen und Verwalten von lokalen Benutzerkonten mit dem MultiPoint-Manager. Die lokalen Konten können Administratoren sein, über Administratorrechte nur über begrenzte oder werden reguläre Benutzer ohne Zugriff auf die MultiPoint Services-Desktop oder eine MultiPoint-Manager.  
+-   **Lokale Benutzerkonten** : für eine kleine Bereitstellung mit nur wenigen Computern, auf denen multipoind-Dienste und wenige Benutzer ausgeführt werden, ist es möglicherweise am einfachsten, *lokale Benutzerkonten* zu verwenden, die in Multipoint Services erstellt werden. Sie können für jede Person, die das System verwendet, ein einzelnes Konto erstellen oder ein allgemeines Konto für jede Station erstellen, das jeder zum Anmelden verwenden kann. Multipoint Services-Administratoren erstellen und verwalten lokale Benutzerkonten mithilfe von Multipoint-Manager. Bei den lokalen Konten kann es sich um Administratoren mit eingeschränkten Administratorrechten oder um reguläre Benutzer ohne Zugriff auf den Multipoint Services-Desktop oder den Multipoint-Manager handeln.  
   
--   **Domänenkonten** -weist Ihre Umgebung auf zahlreichen Computern mit MultiPoint Services und viele Benutzer, Sie werden wahrscheinlich ist es sinnvoller, eine Active Directory Domain Services einrichten \(AD DS\) Domänen- und Verwendung *Domänenbenutzerkonten*, die ermöglichen, dass eines Benutzers sein eigenes Benutzerdateien und-Einstellungen über jede Station in der Domäne den Zugriff auf. Domänenbenutzerkonten müssen auf dem Domänencontroller von einem Domänenadministrator erstellt werden.  
+-   **Domänen Konten** : Wenn in Ihrer Umgebung viele Computer mit Multipoint Services und vielen Benutzern ausgeführt werden, ist es wahrscheinlich sinnvoller, eine Active Directory Domain Services \(AD DS @ no__t-2-Domäne einzurichten und *Domänen Benutzerkonten*zu verwenden. Dadurch kann ein Benutzer von einer beliebigen Station in der Domäne aus auf sein eigenes Benutzerprofil und seine eigenen Einstellungen zugreifen. Domänen Benutzerkonten müssen von einem Domänen Administrator auf dem Domänen Controller erstellt werden.  
   
 > [!NOTE]  
-> Den folgenden Abschnitten werden Szenarien, die Sie für lokale Benutzerkonten in MultiPoint Services implementieren können. Wenn Sie Domänenbenutzerkonten verwenden, finden Sie unter "einen oder mehrere MultiPoint Server in einer Netzwerkumgebung für die Domäne" Szenario in [Beispielszenarien: MultiPoint Services-Benutzerkonten](Example-scenarios--MultiPoint-Services-user-accounts.md).  
+> In den folgenden Abschnitten werden Szenarien erörtert, die Sie möglicherweise für lokale Benutzerkonten in Multipoint Services implementieren. Wenn Sie Domänen Benutzerkonten verwenden, sehen Sie sich das Szenario "mindestens ein Multipoint-Server in einer Domänen Netzwerkumgebung" in [example-Szenarien an: Multipoint Services-Benutzerkonten @ no__t-0.  
   
-## <a name="planning-local-user-accounts"></a>Planen der lokalen Benutzerkonten  
-In den folgenden Abschnitten betrachten Sie die Vorteile, Nachteile und Anforderungen für mehrere Möglichkeiten, die einzeln oder gemeinsam genutzten lokalen Benutzerkonten in Ihrer Windows MultiPoint Services-Umgebung zu implementieren.  
+## <a name="planning-local-user-accounts"></a>Planen von lokalen Benutzerkonten  
+In den folgenden Abschnitten werden die vor-und Nachteile sowie die Anforderungen für verschiedene Methoden zum Implementieren einzelner oder gemeinsam genutzter lokaler Benutzerkonten in Ihrer Windows-MultiPoint Services-Umgebung berücksichtigt.  
   
-### <a name="use-individual-local-user-accounts"></a>Verwenden Sie die einzelnen lokalen Benutzerkonten  
-Wenn Sie lokale Benutzerkonten erstellen zu können, müssen Sie die Option zwei Ansätze.  Weisen Sie jedem Benutzer mit einem bestimmten Server, dem MultiPoint Services ausgeführt wird, und erstellen ein einzelnes Konto für jeden Benutzer. Oder erstellen Sie lokale Benutzerkonten für alle Benutzer auf jedem Computer, auf dem Multipoint Services ausgeführt wird. Ein wichtiger Vorteil der einzelne Benutzerkonten zu implementieren ist, dass jeder Benutzer verfügt über ein eigenes Windows-desktopdarstellung, die private Ordner zum Speichern von Daten enthält. 
+### <a name="use-individual-local-user-accounts"></a>Einzelne lokale Benutzerkonten verwenden  
+Wenn Sie lokale Benutzerkonten erstellen, haben Sie die Option zwei Ansätze.  Weisen Sie jeden Benutzer einem bestimmten Server zu, auf dem Multipoint Services ausgeführt wird, und erstellen Sie ein einzelnes Konto für jeden Benutzer. Oder erstellen Sie lokale Benutzerkonten für alle Benutzer auf jedem Computer, auf dem Multipoint Services ausgeführt wird. Ein wichtiger Vorteil der Implementierung einzelner Benutzerkonten besteht darin, dass jeder Benutzer über seine eigene Windows-Desktop Darstellung verfügt, die private Ordner zum Speichern von Daten umfasst. 
   
-Vom Standpunkt Management System kann das Zuweisen von Benutzern zu einem bestimmten MultiPoint Server-Computer besser geeignet sein. Z. B. Wenn Sie zwei MultiPoint Server mit fünf Stationen verfügen, können Sie lokale Benutzerkonten erstellen, wie in der folgenden Tabelle dargestellt.  
+Aus Sicht der Systemverwaltung ist es möglicherweise bequemer, Benutzer einem bestimmten Multipoint Services-Computer zuzuweisen. Wenn Sie z. b. über zwei Multipoint-Server mit jeweils fünf Stationen verfügen, können Sie lokale Benutzerkonten erstellen, wie in der folgenden Tabelle veranschaulicht.  
   
-**Tabelle 1: Zuweisen von lokalen Benutzerkonten auf bestimmte Computer, auf dem MultiPoint Services ausgeführt wird**  
+**tabelle 1: Zuweisen von lokalen Benutzerkonten zu bestimmten Computern, auf denen Multipoint Services ausgeführt wird @ no__t-0  
   
 |Computer A|Computer B|  
 |--------------|--------------|  
@@ -48,11 +48,11 @@ Vom Standpunkt Management System kann das Zuweisen von Benutzern zu einem bestim
 |UserAccount_04|UserAccount_09|  
 |UserAccount_05|UserAccount_10|  
   
-In diesem Szenario verfügt jeder Benutzer ein einzelnes Konto auf einem bestimmten Computer. Aus diesem Grund jeder Benutzer, die ein lokales Konto auf Computer A kann über jede Station mit Computer A. verknüpft ihr oder seinem Konto anmelden verfügt Diese Benutzer jedoch zugreifen nicht ihren Konten, wenn sie eine Station, verknüpft mit Computer B (und umgekehrt) verwenden. Ein Vorteil dieses Ansatzes ist, indem Sie immer auf demselben Computer verbinden, Benutzer können immer finden und Zugriff auf ihre Dateien.  
+In diesem Szenario hat jeder Benutzer ein einzelnes Konto auf einem bestimmten Computer. Daher können sich alle Benutzer, die über ein lokales Konto auf Computer a verfügen, bei Ihrem Konto von einer beliebigen Station anmelden, die mit Computer a verknüpft ist. Diese Benutzer können jedoch nicht auf Ihre Konten zugreifen, wenn Sie eine Station verwenden, die Computer B zugeordnet ist, und umgekehrt. Ein Vorteil dieses Ansatzes besteht darin, dass Benutzer immer Ihre Dateien finden und darauf zugreifen können, indem Sie immer eine Verbindung mit dem gleichen Computer herstellen.  
   
-Im Gegensatz dazu ist es auch möglich, einzelne Benutzerkonten auf allen Computern mit MultiPoint Services zu replizieren, wie in der folgenden Tabelle dargestellt.  
+Im Gegensatz dazu ist es auch möglich, einzelne Benutzerkonten auf allen Computern zu replizieren, auf denen Multipoint Services ausgeführt wird, wie in der folgenden Tabelle veranschaulicht.  
   
-**Tabelle 2: Replizieren von Benutzerkonten auf allen Computern, auf dem MultiPoint Services ausgeführt wird**  
+**tabelle 2: Replizieren von Benutzerkonten auf allen Computern, auf denen Multipoint Services ausgeführt wird @ no__t-0  
   
 |Computer A|Computer B|  
 |--------------|--------------|  
@@ -62,12 +62,12 @@ Im Gegensatz dazu ist es auch möglich, einzelne Benutzerkonten auf allen Comput
 |UserAccount_04|UserAccount_04|  
 |UserAccount_05|UserAccount_05|  
   
-Ein Vorteil dieses Ansatzes ist, dass Benutzer ein lokales Benutzerkonto auf jedem verfügbaren MultiPoint-Dienste. Die Nachteile überwiegen jedoch möglicherweise diesen Vorteil. Auch wenn Sie den Benutzernamen und das Kennwort für eine bestimmte Person auf beiden Computern identisch sind, sind z. B. die Konten nicht miteinander verknüpft. Aus diesem Grund, wenn ein Benutzer sich an seinem meldet oder ihr Konto auf Computer A am Montag, speichert eine Datei, und klicken Sie dann meldet sich an seinem Konto auf Computer B am Dienstag, werden er kann nicht zum Zugriff auf die Datei, die zuvor gespeicherte auf Computer A. außerdem , Replizieren von Benutzerkonten auf mehreren Computern wird der administrative Aufwand und speicheranforderungen erhöht.  
+Ein Vorteil dieses Ansatzes besteht darin, dass Benutzer über ein lokales Benutzerkonto für alle verfügbaren Multipoint Services verfügen. Dieser Vorteil kann jedoch durch die Nachteile aufwiegen. Wenn z. b. der Benutzername und das Kennwort für eine bestimmte Person auf beiden Computern identisch sind, sind die Konten nicht miteinander verknüpft. Wenn sich ein Benutzer am Montag bei seinem Konto auf Computer a anmeldet, speichert eine Datei und meldet sich dann bei seinem Konto auf Computer B am Dienstag an, und er kann nicht auf die zuvor auf Computer a gespeicherte Datei zugreifen. Das Replizieren von Benutzerkonten auf mehreren Computern erhöht den Verwaltungsaufwand und die Speicheranforderungen.  
   
-### <a name="use-generic-local-user-accounts"></a>Verwenden Sie die generische lokale Benutzerkonten  
-Wenn Ihre MultiPoint Services-System nicht mit einer Domäne verbunden ist und Sie kein einzelnes Konto für jeden Benutzer erstellen möchten, können Sie allgemeine Konten für jede Station erstellen. Wenn Sie zwei Computer, auf dem MultiPoint Services ausgeführt wird, und fünf Stationen mit allen Computern verknüpft sind, könnten Sie z. B. Benutzerkonten ähneln denen in der folgenden Tabelle zu erstellen.  
+### <a name="use-generic-local-user-accounts"></a>Generische lokale Benutzerkonten verwenden  
+Wenn Ihr Multipoint Services-System nicht mit einer Domäne verbunden ist und Sie kein einzelnes Konto für jeden Benutzer erstellen möchten, können Sie für jede Station generische Konten erstellen. Wenn Sie beispielsweise über zwei Computer verfügen, auf denen Multipoint Services ausgeführt wird, und jedem Computer fünf Stationen zugeordnet sind, können Sie Benutzerkonten erstellen, die den in der folgenden Tabelle aufgeführten ähneln.  
   
-**Tabelle 3: Erstellen generischer-Benutzerkonten, ein Konto pro station**  
+**tabelle 3: Erstellen generischer Benutzerkonten, ein Konto pro Station @ no__t-0  
   
 |Computer A|Computer B|  
 |--------------|--------------|  
@@ -77,11 +77,11 @@ Wenn Ihre MultiPoint Services-System nicht mit einer Domäne verbunden ist und S
 |Computer_A-Station_04|Computer_B-Station_04|  
 |Computer_A-Station_05|Computer_B-Station_05|  
   
-In diesem Szenario wird für jedes Konto Station hat das gleiche Kennwort, und sowohl die generische Benutzernamen für die Kennwörter für alle Benutzer verfügbar sind. Ein Vorteil dieses Ansatzes ist, dass der Mehraufwand für die Verwaltung von Benutzerkonten wahrscheinlich weniger als verwendet werden, wenn einzelne Konten verwenden, da es weniger Stationen als Benutzer in der Regel sind. Darüber hinaus lässt sich der Mehraufwand durch die Replikation von Benutzerkonten auf jedem Server verursacht.  
+In diesem Szenario hat jedes Stationskonto das gleiche Kennwort, und sowohl die Kenn Wörter als auch die Namen der generischen Benutzerkonten sind für alle Benutzer verfügbar. Ein Vorteil dieses Ansatzes besteht darin, dass der Aufwand für die Verwaltung von Benutzerkonten wahrscheinlich weniger als bei der Verwendung einzelner Konten ist, weil es in der Regel weniger Stationen als Benutzer gibt. Außerdem wird der Aufwand, der durch das Replizieren von Benutzerkonten auf jedem Server verursacht wird, beseitigt.  
   
-Eine weitere Möglichkeit ist die Erstellung von allgemeinen Konten auf jedem Server. Jeder Benutzer meldet sich mit einem Server unter dem gleichen Konto. Um dies zu ermöglichen, müssen Sie mehrere Sitzungen pro Konto aktivieren. Sie können weiter vereinfachen, indem Sie den gleichen Kontonamen und das Kennwort auf allen Servern mit verwendet wird. Dies vereinfacht die Anmeldung für die Benutzer, die nur einen Kontonamen und das Kennwort jede Station auf einem beliebigen Server kennen müssen. Anzumerken ist, in diesem Szenario alle Benutzer, die jeder Benutzer macht alle Änderungen sehen können. Wenn eine Datei auf dem Desktop gespeichert wird, können alle Benutzer beispielsweise die Datei sehen.  
+Eine andere Möglichkeit ist das Erstellen von generischen Konten auf jedem Server. Jeder Benutzer meldet sich als dasselbe Konto bei einem Server an. Um dies zuzulassen, müssen Sie mehrere Sitzungen pro Konto aktivieren. Sie können weitere vereinfachen, indem Sie den gleichen Kontonamen und das gleiche Kennwort auf allen Servern verwenden. Dies vereinfacht die Anmeldung für die Benutzer, die nur einen Kontonamen und ein Kennwort kennen müssen, damit eine beliebige Station auf einem beliebigen Server verwendet werden kann. Beachten Sie, dass in diesem Szenario alle Benutzer jede beliebige Änderung sehen können. Wenn eine Datei z. b. auf dem Desktop gespeichert wird, können alle Benutzer die Datei sehen.  
   
 > [!IMPORTANT]  
-> Es ist wichtig zu verstehen, dass beim Benutzer, ein Benutzerkonto an, die entweder einer pro Server oder eine einzelne Station freigeben, Dateien, die auf dem Server – sogar Dateien im Ordner Eigene Dateien gespeichert - gespeichert nicht privat sind. Jeder Benutzer, die mit dem Konto anmeldet hat Zugriff auf diese Dateien. Wenn Sie ein Konto pro-Station verwenden, wenn ein Benutzer Dateien, Eigene Dateien auf einer Station speichert, wird der Benutzer nicht auf diese Dateien auf einer anderen Station zugreifen. Dasselbe gilt für die Anmeldung auf andere MultiPoint Server-Computer.  
+> Es ist wichtig zu wissen, dass Benutzer, die auf dem Server gespeichert sind (entweder eine pro Server oder eine pro Station), auf dem Server gespeicherte Dateien – auch in eigenen Dokumenten gespeicherte Dateien nicht privat sind. Jeder Benutzer, der sich mit dem Konto anmeldet, hat Zugriff auf diese Dateien. Wenn Sie ein Konto pro Station verwenden und ein Benutzer auf einer Station Dateien in meinen Dokumenten speichert, hat der Benutzer keinen Zugriff auf diese Dateien auf einer anderen Station. Dasselbe Problem tritt auf, wenn Sie sich bei verschiedenen Multipoint Services-Computern anmelden.  
   
-Damit Benutzer auf ihre Dateien über jede Station zugreifen können, können Sie Dateiserver verwenden, eine Dateifreigabe für jedes Benutzerkonto erstellen oder können Benutzer ihre persönlichen Dokumente auf einem USB-Flashlaufwerk oder andere private Speichergerät gespeichert. Einzelne USB-Flashlaufwerke aktivieren Sie einzelne Benutzern um private Dokumente zu speichern, selbst wenn sie ein Benutzerkonto in einem MultiPoint Services gemeinsam nutzen.
+Damit Benutzer von einer beliebigen Station aus auf Ihre Dateien zugreifen können, können Sie einen Dateiserver verwenden, eine Dateifreigabe für jedes Benutzerkonto erstellen oder Benutzern gestatten, Ihre persönlichen Dokumente auf einem USB-Speicherstick oder einem anderen privaten Speichergerät zu speichern. Einzelne USB-Speicherstick ermöglichen einzelnen Benutzern das Speichern privater Dokumente, auch wenn Sie ein Benutzerkonto in einem Multipoint Services-Dienst freigeben.

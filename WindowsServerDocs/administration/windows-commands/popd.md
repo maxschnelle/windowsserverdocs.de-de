@@ -1,8 +1,8 @@
 ---
 title: popd
-description: Erfahren Sie, wie Sie das Verzeichnis in das Verzeichnis, das die zuletzt gespeicherte durch pushd ändern.
+description: Erfahren Sie, wie Sie das Verzeichnis in das Verzeichnis ändern, das zuletzt vom Befehl pushd gespeichert wurde.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 6da6dc9d1fc2d8965f8a081831cb1150375209a4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8a9e0a301a5f8b46e1907a4f43c5ed9247b85f77
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827461"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372228"
 ---
 # <a name="popd"></a>popd
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Ändert das aktuelle Verzeichnis in das Verzeichnis, das durch die zuletzt gespeichert wurde die **Pushd** Befehl.
-Beispiele für diesen Befehl verwenden, finden Sie unter [Beispiele](#BKMK_examples).
+Ändert das aktuelle Verzeichnis in das Verzeichnis, das zuletzt durch den Befehl **pushd** gespeichert wurde.
+Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
 ## <a name="syntax"></a>Syntax
 ```
@@ -38,13 +38,13 @@ popd
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
--   Jedes Mal, wenn Sie verwenden die **Pushd** Befehl wird ein einzelnes Verzeichnis für Ihre Verwendung gespeichert. Sie können jedoch mehrere Verzeichnisse speichern, mithilfe der **Pushd** Befehl mehrmals.
-    Die Verzeichnisse werden nacheinander in einem virtuellen Stapel gespeichert werden. Bei Verwendung der **Pushd** Befehl, nachdem das Verzeichnis, in denen, die Sie den Befehl verwenden, an das Ende des Stapels platziert wird. Wenn Sie den Befehl erneut ausführen, wird das zweite Verzeichnis zusätzlich zu dem ersten platziert. Der Vorgang wird wiederholt, jedes Mal, wenn Sie verwenden die **Pushd** Befehl.
-    Können Sie die **Popd** Befehl aus, um das aktuelle Verzeichnis in das Verzeichnis, das die zuletzt gespeicherten Ändern der **Pushd** Befehl. Bei Verwendung der **Popd** -Befehls das Verzeichnis des Stapels wird aus dem Stapel entfernt, und das aktuelle Verzeichnis auf das Verzeichnis geändert wird. Bei Verwendung der **Popd** erneut den Befehl Weitere Verzeichnis auf dem Stapel entfernt wird.
--   Wenn der befehlserweiterungen aktiviert sind, die **Popd** Befehl entfernt alle Laufwerkbuchstaben Assignations erstellt **Pushd**.
+-   Jedes Mal, wenn Sie den Befehl **pushd** verwenden, wird ein einzelnes Verzeichnis für ihre Verwendung gespeichert. Sie können jedoch mehrere Verzeichnisse mehrmals mit dem Befehl **pushd** speichern.
+    Die Verzeichnisse werden sequenziell in einem virtuellen Stapel gespeichert. Wenn Sie den Befehl **pushd** einmal verwenden, wird das Verzeichnis, in dem Sie den Befehl verwenden, am unteren Rand des Stapels platziert. Wenn Sie den Befehl erneut verwenden, wird das zweite Verzeichnis auf dem ersten Verzeichnis platziert. Der Vorgang wird jedes Mal wiederholt, wenn Sie den Befehl **pushd** verwenden.
+    Mit dem Befehl **popd** können Sie das aktuelle Verzeichnis in das Verzeichnis ändern, das zuletzt vom Befehl **pushd** gespeichert wurde. Wenn Sie den **popd-** Befehl verwenden, wird das Verzeichnis am oberen Rand des Stapels aus dem Stapel entfernt, und das aktuelle Verzeichnis wird in dieses Verzeichnis geändert. Wenn Sie den Befehl " **popd** " erneut verwenden, wird das nächste Verzeichnis auf dem Stapel entfernt.
+-   Wenn Befehls Erweiterungen aktiviert sind, entfernt der **popd-** Befehl alle von **pushd**erstellten Laufwerksbuchstaben-Zuweisungen.
 
-## <a name="BKMK_examples"></a>Beispiele für
-Das folgende Beispiel zeigt Informationen zur Verwendung der **Pushd** Befehl und die **Popd** in einer Batchdatei so ändern Sie das aktuelle Verzeichnis als dem in dem das Batch-Programm ausgeführt wurde, und ändern sie wieder den Befehl:
+## <a name="BKMK_examples"></a>Beispiele
+Im folgenden Beispiel wird gezeigt, wie Sie den Befehl **pushd** und den Befehl **popd** in einem Batch Programm verwenden können, um das aktuelle Verzeichnis von dem Verzeichnis zu ändern, in dem das Batch Programm ausgeführt wurde, und es dann wieder zurück zu ändern:
 
 ```
 @echo off
@@ -56,7 +56,7 @@ cls
 echo All text files deleted in the %1 directory
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 -   [pushd](pushd.md)
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

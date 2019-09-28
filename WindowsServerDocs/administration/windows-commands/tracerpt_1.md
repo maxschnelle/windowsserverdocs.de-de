@@ -2,7 +2,7 @@
 title: tracerpt
 description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 25014d23c797f37dcc488b5fea20c73907eb6f4c
-ms.sourcegitcommit: feec5cbe983c8c5800ccd4fc214914084fcceaba
+ms.openlocfilehash: 1c8e85acc59383d0a027c8d5ec51e68942a76b85
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975301"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385685"
 ---
 # <a name="tracerpt"></a>tracerpt
 
@@ -57,7 +57,7 @@ tracerpt <[-l] <value [value [...]]>|-rt <session_name [session_name [...]]>> [o
 |           -Bericht [Dateiname]           |                                  Generiert eine textausgabeberichtsdatei. Der Dateiname, wenn er nicht angegeben wird                                   |
 |                  -LR                   |                        Geben Sie "weniger restriktiv" an. Dies verwendet die bestmöglichen Anstrengungen für Ereignisse, die nicht dem Ereignis Schema entsprechen.                         |
 |           -Export [Dateiname]           |                                  Generieren Sie eine Ereignis Schema-Exportdatei. Der Dateiname, wenn nicht angegeben, ist Schema. man.                                   |
-|       [-l] \<Wert [Wert [...]] >        |                                                   Geben Sie die zu verarbeitende Ereignis Ablauf Verfolgungs Protokoll-Datei an.                                                    |
+|       [-l] \<wert [Wert [...]] >        |                                                   Geben Sie die zu verarbeitende Ereignis Ablauf Verfolgungs Protokoll-Datei an.                                                    |
 | -RT \<session_name [session_name [...]] > |                                                Geben Sie Datenquellen für Ereignis Ablauf Verfolgungs Sitzungen in Echtzeit an.                                                |
 
 ## <a name="BKMK_EXAMPLES"></a>Beispiele

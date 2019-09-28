@@ -7,178 +7,178 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: c690f81620f97622a2f068b07c36e0a6c59e90d4
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 27eb5b4b52dd727afae5cffc60e7d9749dd5d59f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190336"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407766"
 ---
 # <a name="access-control-policies-in-windows-server-2016-ad-fs"></a>Zugriffsrichtlinien in für Windows Server 2016 AD FS
 
   
-## <a name="access-control-policy-templates-in-ad-fs"></a>Access Control-Richtlinienvorlagen in AD FS  
-Active Directory Federation Services unterstützt jetzt die Verwendung von Vorlagen für Access Control.  Mithilfe von Access Control-Richtlinienvorlagen kann Administrator Richtlinieneinstellungen erzwingen, durch die Richtlinienvorlage auf eine Gruppe von vertrauenden Seiten (RPs) zuweisen. Administrator kann auch Updates an der Vorlage vornehmen und die Änderungen gelten für die vertrauenden Seiten automatisch, wenn es kein Benutzereingriff erforderlich ist.  
+## <a name="access-control-policy-templates-in-ad-fs"></a>Access Control Richtlinien Vorlagen in AD FS  
+Active Directory-Verbunddienste (AD FS) unterstützt jetzt die Verwendung von Richtlinien Vorlagen für die Zugriffs Steuerung.  Mithilfe von Richtlinien Vorlagen für die Zugriffs Steuerung kann ein Administrator Richtlinien Einstellungen erzwingen, indem er die Richtlinien Vorlage einer Gruppe von vertrauenden Seiten (RPS) zuweist. Der Administrator kann auch Aktualisierungen an der Richtlinien Vorlage vornehmen, und die Änderungen werden automatisch auf die vertrauenden Seiten angewendet, wenn keine Benutzerinteraktion erforderlich ist.  
   
-## <a name="what-are-access-control-policy-templates"></a>Was sind die Access Control-Richtlinienvorlagen?  
-Die AD FS-Core-Pipeline für die Verarbeitung der Gruppenrichtlinie erfolgt in drei Phasen: Authentifizierung, Autorisierung und Anspruch Ausstellung. Derzeit müssen AD FS-Administratoren eine Richtlinie für jede dieser Phasen separat zu konfigurieren.  Dies umfasst auch die Kenntnis der Auswirkungen dieser Richtlinien, und wenn diese Richtlinien zwischen Abhängigkeiten verfügen. Darüber hinaus müssen Administratoren verstehen die Regel Sprache und Autor von benutzerdefinierten Anspruchsregeln So aktivieren Sie einige einfache/allgemeine Richtlinie (z.B.) externen Zugriff blockieren).  
+## <a name="what-are-access-control-policy-templates"></a>Was sind Access Control Richtlinien Vorlagen?  
+Die AD FS Core-Pipeline für die Richtlinien Verarbeitung umfasst drei Phasen: Authentifizierung, Autorisierung und Anspruchs Ausstellung. Derzeit müssen AD FS Administratoren eine Richtlinie für jede dieser Phasen separat konfigurieren.  Dies umfasst auch das Verständnis der Auswirkungen dieser Richtlinien und, wenn diese Richtlinien eine gegenseitige Abhängigkeit aufweisen. Außerdem müssen Administratoren die Anspruchs Regel Sprache verstehen und benutzerdefinierte Regeln erstellen, um eine einfache/allgemeine Richtlinie zu aktivieren (z.b. externen Zugriff blockieren).  
   
-Welche Access Control-Richtlinie, die Vorlagen sind, ersetzen Sie dies wird Anspruchsanbieter dieses alte Modell, in dem Administratoren haben, so konfigurieren Sie mithilfe von Regeln für Ausstellungsautorisierung-Sprache.  Die alte PowerShell-Cmdlets von Ausstellungsautorisierungsregeln weiterhin gültig, aber schließen sich gegenseitig aus und das neue Modell. Administratoren können entweder auf das neue Modell oder dem alten Modell verwenden.  Das neue Modell kann Administratoren steuern, wann das Gewähren von Zugriff, einschließlich Multi-Factor Authentication zu erzwingen.  
+Welche Zugriffs Steuerungs-Richtlinien Vorlagen sind das alte Modell, in dem Administratoren Ausstellungs Autorisierungs Regeln mithilfe der Anspruchs Sprache konfigurieren müssen.  Die alten PowerShell-Cmdlets der Ausstellungs Autorisierungs Regeln gelten weiterhin, aber Sie schließen das neue Modell gegenseitig aus. Administratoren können wählen, ob Sie das neue Modell oder das alte Modell verwenden möchten.  Mit dem neuen Modell können Administratoren steuern, wann der Zugriff gewährt werden soll, einschließlich der Durchsetzung der Multi-Factor Authentication.  
   
-Access Control-Richtlinienvorlagen verwenden ein Modell gewähren.  Dies bedeutet in der Standardeinstellung, hat Zugriff und den Zugriff explizit erteilt werden muss.  Allerdings ist dies nicht einfach alles oder nichts ermöglichen.  Administratoren können Ausnahmen für die IPSec Zulassungsregel hinzufügen.  Beispielsweise kann ein Administrator möchten Zugriff basierend auf einem bestimmten Netzwerk diese Option aus, und geben den IP-Adressbereich zu gewähren.  Jedoch der Administrator hinzufügen kann und die Ausnahme, z. B. der Administrator kann eine Ausnahme aus einem bestimmten Netzwerk hinzufügen und diese IP-Adressbereich angeben.  
+Zugriffs Steuerungs-Richtlinien Vorlagen verwenden ein Zulassungs Modell.  Dies bedeutet standardmäßig, dass niemand Zugriff hat und dass der Zugriff explizit erteilt werden muss.  Dabei handelt es sich jedoch nicht nur um eine all-oder Nothing-Berechtigung.  Administratoren können der Zulassungs Regel Ausnahmen hinzufügen.  Ein Administrator möchte z. b. möglicherweise den Zugriff auf Grundlage eines bestimmten Netzwerks gewähren, indem er diese Option auswählt und den IP-Adressbereich angibt.  Der Administrator kann beispielsweise hinzufügen und eine Ausnahme hinzufügen, der Administrator kann beispielsweise eine Ausnahme von einem bestimmten Netzwerk hinzufügen und diesen IP-Adressbereich angeben.  
   
-![Access Control-Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP2.PNG)  
+![Zugriffs Steuerungs Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP2.PNG)  
   
-## <a name="built-in-access-control-policy-templates-vs-custom-access-control-policy-templates"></a>Integrierten Zugriff Steuerelement Vorlagen Vs benutzerdefinierten Zugriff Steuerelement Richtlinie Richtlinienvorlagen  
-AD FS umfasst mehrere integrierte Access Control-Richtlinienvorlagen.  Diese einige häufig verwendete Szenarien mit den gleichen Satz von Anforderungen, z. B. Clientzugriffsrichtlinie für Office 365 als Ziel.  Diese Vorlagen werden nicht geändert.  
+## <a name="built-in-access-control-policy-templates-vs-custom-access-control-policy-templates"></a>Integrierte Zugriffs Steuerungs Richtlinien Vorlagen im Vergleich zu benutzerdefinierten Zugriffs Steuerungs Richtlinien Vorlagen  
+AD FS umfasst mehrere integrierte Zugriffs Steuerungs Richtlinien Vorlagen.  Diese zielen auf einige gängige Szenarien ab, die über die gleichen Richtlinien Anforderungen verfügen, z. b. Client Zugriffsrichtlinien für Office 365.  Diese Vorlagen können nicht geändert werden.  
   
-![Access Control-Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP3.PNG)  
+![Zugriffs Steuerungs Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP3.PNG)  
   
-Um mehr Flexibilität, um Ihre geschäftlichen Anforderungen zu ermöglichen, können Administratoren ihren eigenen Zugriff Vorlagen erstellen.  Diese können nach der Erstellung geändert werden, und Änderungen an benutzerdefinierten Richtlinienvorlage gelten für alle der RPS-Wert die von diesen Richtlinienvorlagen kontrolliert werden.  Zum Hinzufügen eine benutzerdefinierten Vorlage klicken Sie einfach Hinzufügen von Access Control-Richtlinie aus in AD FS-Verwaltung.  
+Um höhere Flexibilität bei der Bewältigung ihrer geschäftlichen Anforderungen zu bieten, können Administratoren eigene Zugriffsrichtlinien Vorlagen erstellen.  Diese können nach der Erstellung geändert werden, und Änderungen an der benutzerdefinierten Richtlinien Vorlage gelten für alle RPS, die von diesen Richtlinien Vorlagen gesteuert werden.  Um eine benutzerdefinierte Richtlinien Vorlage hinzuzufügen, klicken Sie in AD FS Verwaltung einfach auf Access Control Richtlinie hinzufügen.  
   
-Um eine Vorlage zu erstellen, muss ein Administrator zunächst angeben, unter welchen Bedingungen eine Anforderung für die tokenausstellung und/oder autorisiert wird. In der folgenden Tabelle werden die Bedingung und Aktion Optionen angezeigt.   Bedingungen in Fettschrift können vom Administrator mit verschiedenen oder neue Werte weiter konfiguriert werden. Administratoren kann auch Ausnahmen angeben, falls vorhanden. Wenn eine Bedingung erfüllt ist, wird eine IPSec Zulassungsaktion wird nicht ausgelöst, wenn eine angegebene Ausnahme vorhanden ist, und der eingehenden Anforderung passt, die in der Ausnahme angegebene Bedingung.  
+Zum Erstellen einer Richtlinien Vorlage muss ein Administrator zuerst festlegen, unter welchen Bedingungen eine Anforderung für die Tokenausstellung und/oder Delegierung autorisiert wird. Bedingungs-und Aktions Optionen sind in der folgenden Tabelle aufgeführt.   Fett formatierte Bedingungen können vom Administrator mit unterschiedlichen oder neuen Werten weiter konfiguriert werden. Der Administrator kann ggf. auch Ausnahmen angeben. Wenn eine Bedingung erfüllt ist, wird eine Zulassungs Aktion nicht ausgelöst, wenn eine Ausnahme angegeben wird und die eingehende Anforderung mit der in der Ausnahme angegebenen Bedingung übereinstimmt.  
   
-|Benutzer zulassen|Mit der Ausnahme| 
+|Benutzern gestatten|Davon| 
 | --- | --- | 
- |Von **bestimmte** Netzwerk|Von **bestimmte** Netzwerk<br /><br />Von **bestimmte** Gruppen<br /><br />Von Geräten mit **bestimmte** Vertrauensebenen<br /><br />Mit **bestimmte** Ansprüche in der Anforderung|  
-|Von **bestimmte** Gruppen|Von **bestimmte** Netzwerk<br /><br />Von **bestimmte** Gruppen<br /><br />Von Geräten mit **bestimmte** Vertrauensebenen<br /><br />Mit **bestimmte** Ansprüche in der Anforderung|  
-|Von Geräten mit **bestimmte** Vertrauensebenen|Von **bestimmte** Netzwerk<br /><br />Von **bestimmte** Gruppen<br /><br />Von Geräten mit **bestimmte** Vertrauensebenen<br /><br />Mit **bestimmte** Ansprüche in der Anforderung|  
-|Mit **bestimmte** Ansprüche in der Anforderung|Von **bestimmte** Netzwerk<br /><br />Von **bestimmte** Gruppen<br /><br />Von Geräten mit **bestimmte** Vertrauensebenen<br /><br />Mit **bestimmte** Ansprüche in der Anforderung|  
-|Und Multi-Factor Authentication anfordern|Von **bestimmte** Netzwerk<br /><br />Von **bestimmte** Gruppen<br /><br />Von Geräten mit **bestimmte** Vertrauensebenen<br /><br />Mit **bestimmte** Ansprüche in der Anforderung|  
+ |Aus **spezifischem** Netzwerk|Aus **spezifischem** Netzwerk<br /><br />Aus **bestimmten** Gruppen<br /><br />Von Geräten mit **bestimmten** Vertrauens Stufen<br /><br />Mit **bestimmten** Ansprüchen in der Anforderung|  
+|Aus **bestimmten** Gruppen|Aus **spezifischem** Netzwerk<br /><br />Aus **bestimmten** Gruppen<br /><br />Von Geräten mit **bestimmten** Vertrauens Stufen<br /><br />Mit **bestimmten** Ansprüchen in der Anforderung|  
+|Von Geräten mit **bestimmten** Vertrauens Stufen|Aus **spezifischem** Netzwerk<br /><br />Aus **bestimmten** Gruppen<br /><br />Von Geräten mit **bestimmten** Vertrauens Stufen<br /><br />Mit **bestimmten** Ansprüchen in der Anforderung|  
+|Mit **bestimmten** Ansprüchen in der Anforderung|Aus **spezifischem** Netzwerk<br /><br />Aus **bestimmten** Gruppen<br /><br />Von Geräten mit **bestimmten** Vertrauens Stufen<br /><br />Mit **bestimmten** Ansprüchen in der Anforderung|  
+|Und erfordern die Multi-Factor Authentication|Aus **spezifischem** Netzwerk<br /><br />Aus **bestimmten** Gruppen<br /><br />Von Geräten mit **bestimmten** Vertrauens Stufen<br /><br />Mit **bestimmten** Ansprüchen in der Anforderung|  
   
-Wenn ein Administrator mehrere Bedingungen auswählt, werden sie von **und** Beziehung. Aktionen schließen sich gegenseitig aus, und für eine Richtlinienregel können Sie nur eine Aktion auswählen. Wenn ein Administrator mehrere Ausnahmen auswählt, werden sie von einem **oder** Beziehung. Ein paar Beispiele für Richtlinien sind im folgenden dargestellt:  
+Wenn ein Administrator mehrere Bedingungen auswählt, bestehen diese aus der Beziehung **und** . Aktionen schließen sich gegenseitig aus, und für eine Richtlinien Regel können Sie nur eine Aktion auswählen. Wenn der Administrator mehrere Ausnahmen auswählt, handelt es sich um eine- **oder** -Beziehung. Unten sind einige Beispiele für Richtlinien Regeln aufgeführt:  
   
-|**Richtlinie**|**Die Regeln**|
+|**Richtlinie**|**Richtlinien Regeln**|
 | --- | --- |  
-|Extranet-Zugriff erfordert MFA<br /><br />Alle Benutzer sind zulässig.|**Regel #1**<br /><br />von **extranet**<br /><br />und mit der MFA<br /><br />Zulassen<br /><br />**Regel Nr. 2**<br /><br />von **Intranet**<br /><br />Zulassen|  
-|Externer Zugriff sind nicht zulässig, außer den nicht-FTE<br /><br />Intranetzugriff für FTE auf Gerät mit dem Arbeitsplatz beigetreten sind zulässig.|**Regel #1**<br /><br />von **extranet**<br /><br />daraus **nicht: FTE** Gruppe<br /><br />Zulassen<br /><br />**Regel #2**<br /><br />von **Intranet**<br /><br />daraus **Arbeitsplatz** Gerät<br /><br />daraus **FTE** Gruppe<br /><br />Zulassen|  
-|Extranet-Zugriff ist MFA mit Ausnahme von "Dienstadministrator" erforderlich.<br /><br />Alle Benutzer zugreifen dürfen|**Regel #1**<br /><br />von **extranet**<br /><br />und mit der MFA<br /><br />Zulassen<br /><br />Mit Ausnahme von **Gruppe "Administratoren"**<br /><br />**Regel #2**<br /><br />Immer<br /><br />Zulassen|  
-|nicht arbeiten für ein direktes eingebundenes Gerät den Zugriff auf über extranet erfordert MFA<br /><br />AD-Fabrics für Intranet- und extranet-Zugriff zulassen|**Regel #1**<br /><br />von **Intranet**<br /><br />Daraus **AD-Fabrics** Gruppe<br /><br />Zulassen<br /><br />**Regel #2**<br /><br />von **extranet**<br /><br />daraus **nicht mit dem Arbeitsplatz beigetreten** Gerät<br /><br />Daraus **AD-Fabrics** Gruppe<br /><br />und mit der MFA<br /><br />Zulassen<br /><br />**Regel #3**<br /><br />von **extranet**<br /><br />daraus **Arbeitsplatz** Gerät<br /><br />Daraus **AD-Fabrics** Gruppe<br /><br />Zulassen|  
+|Der Extranetzugriff erfordert MFA.<br /><br />Alle Benutzer sind zulässig.|**Regel #1**<br /><br />aus **Extranet**<br /><br />und mit MFA<br /><br />Aufenthal<br /><br />**Regel 2**<br /><br />aus **Intranet**<br /><br />Aufenthal|  
+|Externer Zugriff ist außer nicht-FTE nicht zulässig.<br /><br />Intranetzugriff für FTE auf Arbeitsplatz verknüpften Geräten ist zulässig.|**Regel #1**<br /><br />Aus **Extranet**<br /><br />und aus **nicht-FTE-** Gruppe<br /><br />Aufenthal<br /><br />**Regel #2**<br /><br />aus **Intranet**<br /><br />und vom mit dem **Arbeitsplatz verbundenen** Gerät<br /><br />und aus der Gruppe " **FTE** "<br /><br />Aufenthal|  
+|Für den Extranetzugriff ist MFA außer "Service Admin" erforderlich.<br /><br />Alle Benutzer sind berechtigt, auf zuzugreifen.|**Regel #1**<br /><br />aus **Extranet**<br /><br />und mit MFA<br /><br />Aufenthal<br /><br />Mit Ausnahme der **Dienst Administrator Gruppe**<br /><br />**Regel #2**<br /><br />Immer<br /><br />Aufenthal|  
+|für den Zugriff auf das Extranet nicht in den Arbeitsplatz eingebundenes Gerät erfordert MFA<br /><br />Zulassen von AD Fabric für Intranet-und Extranetzugriff|**Regel #1**<br /><br />aus **Intranet**<br /><br />Und aus der **AD Fabric** -Gruppe<br /><br />Aufenthal<br /><br />**Regel #2**<br /><br />aus **Extranet**<br /><br />und von **nicht mit dem Arbeitsplatz verknüpften** Geräten<br /><br />und aus der **AD Fabric** -Gruppe<br /><br />und mit MFA<br /><br />Aufenthal<br /><br />**Regel #3**<br /><br />aus **Extranet**<br /><br />und vom mit dem **Arbeitsplatz verbundenen** Gerät<br /><br />und aus der **AD Fabric** -Gruppe<br /><br />Aufenthal|  
   
-## <a name="parameterized-policy-template-vs-non-parameterized-policy-template"></a>Parametrisierte Richtlinie Vorlage Vs nicht parametrisierten Richtlinienvorlage  
-Access Control-Richtlinien werden können  
+## <a name="parameterized-policy-template-vs-non-parameterized-policy-template"></a>Parametrisierte Richtlinien Vorlage im Vergleich zu nicht parametrisierten Richtlinien Vorlagen  
+Zugriffs Steuerungs Richtlinien können  
   
-Eine parametrisierte Richtlinienvorlage ist eine Richtlinienvorlage aus, die über Parameter verfügt. Ein Administrator muss für die Eingabe, dass der Wert für diese Parameter beim Zuweisen von dieser Vorlage zu RPs.An Administrator Änderungen an parametrisierte Richtlinienvorlage vornehmen kann nicht, nachdem es erstellt wurde.  Ein Beispiel für eine parametrisierte Richtlinie ist die integrierte Richtlinie, eine bestimmte Gruppe zulassen.  Wenn diese Richtlinie auf eine RP angewendet wird, muss dieser Parameter angegeben werden.  
+Eine parametrisierte Richtlinien Vorlage ist eine Richtlinien Vorlage, die über Parameter verfügt. Ein Administrator muss beim Zuweisen dieser Vorlage zu RPS.an den Wert für diese Parameter eingeben, wenn der Administrator keine Änderungen an der parametrisierten Richtlinien Vorlage vornehmen kann, nachdem er erstellt wurde.  Ein Beispiel für eine parametrisierte Richtlinie ist die integrierte Richtlinie, eine bestimmte Gruppe zulassen.  Wenn diese Richtlinie auf eine RP angewendet wird, muss dieser Parameter angegeben werden.  
   
-![Access Control-Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP5.PNG)  
+![Zugriffs Steuerungs Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP5.PNG)  
   
-Eine Vorlage für nicht parametrisierte ist eine Richtlinienvorlage aus, die nicht über Parameter verfügt. Ein Administrator kann diese Vorlage in RPs zuweisen, ohne irgendwelche Eingaben erforderlich und kann Änderungen an einer Vorlage für nicht parametrisierte vornehmen, nachdem es erstellt wurde.  Ein Beispiel hierfür ist die integrierte Richtlinie, alle zulassen und MFA anfordern.  
+Eine nicht parametrisierte Richtlinien Vorlage ist eine Richtlinien Vorlage, die keine Parameter enthält. Ein Administrator kann diese Vorlage RPS zuweisen, ohne dass eine Eingabe erforderlich ist, und kann Änderungen an einer nicht parametrisierten Richtlinien Vorlage vornehmen, nachdem Sie erstellt wurde.  Ein Beispiel hierfür ist die integrierte Richtlinie, alle zulassen und MFA erforderlich.  
   
-![Access Control-Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP4.PNG)  
+![Zugriffs Steuerungs Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP4.PNG)  
   
-## <a name="how-to-create-a-non-parameterized-access-control-policy"></a>Vorgehensweise: Erstellen Sie eine nicht parametrisierte Access-Control-Richtlinie  
-Zum Erstellen von einer nicht parametrisierten Zugriffs Control-Richtlinie gehen Sie folgendermaßen vor  
+## <a name="how-to-create-a-non-parameterized-access-control-policy"></a>Erstellen einer nicht parametrisierten Zugriffs Steuerungs Richtlinie  
+Verwenden Sie das folgende Verfahren, um eine nicht parametrisierte Zugriffs Steuerungs Richtlinie zu erstellen:  
   
-#### <a name="to-create-a-non-parameterized-access-control-policy"></a>Um eine nicht parametrisierte Access-Control-Richtlinie zu erstellen.  
+#### <a name="to-create-a-non-parameterized-access-control-policy"></a>So erstellen Sie eine nicht parametrisierte Zugriffs Steuerungs Richtlinie  
   
-1.  Wählen Sie Access Control-Richtlinien, und klicken Sie auf der rechten Seite auf Access Control-Richtlinie hinzufügen, von AD FS-Verwaltung auf der linken Seite.  
+1.  Wählen Sie in AD FS Verwaltung auf der linken Seite Access Control Richtlinien aus, und klicken Sie mit der rechten Maustaste auf Access Control Richtlinie  
   
-2.  Geben Sie einen Namen und eine Beschreibung ein.  Zum Beispiel:  Benutzer mit authentifizierten Geräten zulassen.  
+2.  Geben Sie einen Namen und eine Beschreibung ein.  Zum Beispiel:  Erlauben Sie Benutzern mit authentifizierten Geräten.  
   
-3.  Klicken Sie unter **Zugriff zulassen, wenn eine der folgenden Regeln erfüllt ist**, klicken Sie auf **hinzufügen**.  
+3.  Klicken Sie unter **Zugriff zulassen, wenn eine der folgenden Regeln erfüllt**ist auf **Hinzufügen**.  
   
-4.  Unter zulassen, und setzen Sie ein Häkchen im Feld neben **von Geräten mit bestimmten Vertrauensebene**  
+4.  Aktivieren Sie unter Zulassen das Kontrollkästchen neben **Geräte mit spezifischer Vertrauens Ebene** .  
   
-5.  Wählen Sie im unteren Bereich das unterstrichene **bestimmte**  
+5.  Wählen Sie unten das unterstrichene **spezifische**  
   
-6.  Wählen Sie im Fenster oben, Pops **authentifiziert** aus der Dropdownliste aus.  Klicken Sie auf **OK**.  
+6.  Wählen Sie im angezeigten Fenster in der Dropdown-Dropdown-Dropdown-Option **authentifiziert** aus.  Klicken Sie auf **OK**.  
   
-    ![Access Control-Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP6.PNG)  
-  
-7.  Klicken Sie auf **OK**. Klicken Sie auf **OK**.  
-  
-    ![Access Control-Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP7.PNG)  
-  
-## <a name="how-to-create-a-parameterized-access-control-policy"></a>Vorgehensweise: erstellen eine parametrisierten Access-Control-Richtlinie  
-Erstellen Sie eine parametrisierte Zugriffssteuerung Richtlinie gehen Sie folgendermaßen vor  
-  
-#### <a name="to-create-a-parameterized-access-control-policy"></a>Um eine parametrisierte Access-Control-Richtlinie zu erstellen.  
-  
-1.  Wählen Sie Access Control-Richtlinien, und klicken Sie auf der rechten Seite auf Access Control-Richtlinie hinzufügen, von AD FS-Verwaltung auf der linken Seite.  
-  
-2.  Geben Sie einen Namen und eine Beschreibung ein.  Zum Beispiel:  Ermöglichen Sie Benutzern mit einem bestimmten Anspruch.  
-  
-3.  Klicken Sie unter **Zugriff zulassen, wenn eine der folgenden Regeln erfüllt ist**, klicken Sie auf **hinzufügen**.  
-  
-4.  Unter zulassen, und setzen Sie ein Häkchen im Feld neben **mit bestimmten Ansprüchen in der Anforderung**  
-  
-5.  Wählen Sie im unteren Bereich das unterstrichene **bestimmte**  
-  
-6.  Wählen Sie im Fenster oben, Pops **-Parameter angegeben, wenn die Access-Control-Richtlinie zugewiesen wird**.  Klicken Sie auf **OK**.  
-  
-    ![Access Control-Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP8.PNG)  
+    ![Zugriffs Steuerungs Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP6.PNG)  
   
 7.  Klicken Sie auf **OK**. Klicken Sie auf **OK**.  
   
-    ![Access Control-Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP9.PNG)  
+    ![Zugriffs Steuerungs Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP7.PNG)  
   
-## <a name="how-to-create-a-custom-access-control-policy-with-an-exception"></a>Vorgehensweise: erstellen eine benutzerdefinierten Access-Control-Richtlinie mit einer Ausnahme  
-Klicken Sie zum Erstellen eines Steuerelements Zugriff Richtlinie mit einer Ausnahme das folgende Verfahren verwenden.  
+## <a name="how-to-create-a-parameterized-access-control-policy"></a>Erstellen einer parametrisierten Zugriffs Steuerungs Richtlinie  
+Verwenden Sie das folgende Verfahren, um eine parametrisierte Zugriffs Steuerungs Richtlinie zu erstellen:  
   
-#### <a name="to-create-a-custom-access-control-policy-with-an-exception"></a>Erstellen Sie eine benutzerdefinierte Access-Control-Richtlinie mit einer Ausnahme  
+#### <a name="to-create-a-parameterized-access-control-policy"></a>So erstellen Sie eine parametrisierte Zugriffs Steuerungs Richtlinie  
   
-1.  Wählen Sie Access Control-Richtlinien, und klicken Sie auf der rechten Seite auf Access Control-Richtlinie hinzufügen, von AD FS-Verwaltung auf der linken Seite.  
+1.  Wählen Sie in AD FS Verwaltung auf der linken Seite Access Control Richtlinien aus, und klicken Sie mit der rechten Maustaste auf Access Control Richtlinie  
   
-2.  Geben Sie einen Namen und eine Beschreibung ein.  Zum Beispiel:  IPSec-Zulassungs-Benutzer mit Geräten authentifiziert, aber nicht verwaltet.  
+2.  Geben Sie einen Namen und eine Beschreibung ein.  Zum Beispiel:  Erlauben Sie Benutzern mit einem bestimmten Anspruch.  
   
-3.  Klicken Sie unter **Zugriff zulassen, wenn eine der folgenden Regeln erfüllt ist**, klicken Sie auf **hinzufügen**.  
+3.  Klicken Sie unter **Zugriff zulassen, wenn eine der folgenden Regeln erfüllt**ist auf **Hinzufügen**.  
   
-4.  Unter zulassen, und setzen Sie ein Häkchen im Feld neben **von Geräten mit bestimmten Vertrauensebene**  
+4.  Aktivieren Sie unter Zulassen das Kontrollkästchen neben **bestimmte Ansprüche in der Anforderung** .  
   
-5.  Wählen Sie im unteren Bereich das unterstrichene **bestimmte**  
+5.  Wählen Sie unten das unterstrichene **spezifische**  
   
-6.  Wählen Sie im Fenster oben, Pops **authentifiziert** aus der Dropdownliste aus.  Klicken Sie auf **OK**.  
+6.  Wählen Sie im Fenster, das angezeigt wird, **den Parameter aus, der angegeben wird, wenn die Zugriffs Steuerungs Richtlinie zugewiesen wird**.  Klicken Sie auf **OK**.  
   
-7.  Unter außer, setzen Sie ein Häkchen im Feld neben **von Geräten mit bestimmten Vertrauensebene**  
+    ![Zugriffs Steuerungs Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP8.PNG)  
   
-8.  Klicken Sie unten unter außer, wählen Sie das unterstrichene **bestimmte**  
+7.  Klicken Sie auf **OK**. Klicken Sie auf **OK**.  
   
-9. Wählen Sie im Fenster oben, Pops **verwaltet** aus der Dropdownliste aus.  Klicken Sie auf **OK**.  
+    ![Zugriffs Steuerungs Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP9.PNG)  
+  
+## <a name="how-to-create-a-custom-access-control-policy-with-an-exception"></a>Erstellen einer benutzerdefinierten Zugriffs Steuerungs Richtlinie mit einer Ausnahme  
+Verwenden Sie das folgende Verfahren, um eine Zugriffs Steuerungs Richtlinie mit einer Ausnahme zu erstellen.  
+  
+#### <a name="to-create-a-custom-access-control-policy-with-an-exception"></a>So erstellen Sie eine benutzerdefinierte Zugriffs Steuerungs Richtlinie mit einer Ausnahme  
+  
+1.  Wählen Sie in AD FS Verwaltung auf der linken Seite Access Control Richtlinien aus, und klicken Sie mit der rechten Maustaste auf Access Control Richtlinie  
+  
+2.  Geben Sie einen Namen und eine Beschreibung ein.  Zum Beispiel:  Benutzer mit authentifizierten Geräten zulassen, aber nicht verwaltet.  
+  
+3.  Klicken Sie unter **Zugriff zulassen, wenn eine der folgenden Regeln erfüllt**ist auf **Hinzufügen**.  
+  
+4.  Aktivieren Sie unter Zulassen das Kontrollkästchen neben **Geräte mit spezifischer Vertrauens Ebene** .  
+  
+5.  Wählen Sie unten das unterstrichene **spezifische**  
+  
+6.  Wählen Sie im angezeigten Fenster in der Dropdown-Dropdown-Dropdown-Option **authentifiziert** aus.  Klicken Sie auf **OK**.  
+  
+7.  Aktivieren Sie unter außer eine Kontrollkästchen neben **Geräte mit spezifischer Vertrauens Ebene** .  
+  
+8.  Wählen Sie unten unter außer die unterstrichene **spezifische**  
+  
+9. Wählen Sie im daraufhin angezeigten Fenster in der Dropdown-Dropdown-Dropdown-Option **verwaltet** aus.  Klicken Sie auf **OK**.  
   
 10. Klicken Sie auf **OK**. Klicken Sie auf **OK**.  
   
-    ![Access Control-Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP10.PNG)  
+    ![Zugriffs Steuerungs Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP10.PNG)  
   
-## <a name="how-to-create-a-custom-access-control-policy-with-multiple-permit-conditions"></a>Vorgehensweise: erstellen eine benutzerdefinierten Access-Control-Richtlinie mit mehreren IPSec-Zulassungs-Bedingungen  
-Verwenden zum Erstellen einer Access-Control-Richtlinie mit mehreren zulassen Bedingungen wie folgt vor  
+## <a name="how-to-create-a-custom-access-control-policy-with-multiple-permit-conditions"></a>Erstellen einer benutzerdefinierten Zugriffs Steuerungs Richtlinie mit mehreren Zulassungsbedingungen  
+Verwenden Sie das folgende Verfahren, um eine Zugriffs Steuerungs Richtlinie mit mehreren Zulassungsbedingungen zu erstellen.  
   
-#### <a name="to-create-a-parameterized-access-control-policy"></a>Um eine parametrisierte Access-Control-Richtlinie zu erstellen.  
+#### <a name="to-create-a-parameterized-access-control-policy"></a>So erstellen Sie eine parametrisierte Zugriffs Steuerungs Richtlinie  
   
-1.  Wählen Sie Access Control-Richtlinien, und klicken Sie auf der rechten Seite auf Access Control-Richtlinie hinzufügen, von AD FS-Verwaltung auf der linken Seite.  
+1.  Wählen Sie in AD FS Verwaltung auf der linken Seite Access Control Richtlinien aus, und klicken Sie mit der rechten Maustaste auf Access Control Richtlinie  
   
-2.  Geben Sie einen Namen und eine Beschreibung ein.  Zum Beispiel:  Ermöglichen Sie Benutzern mit der ein bestimmter Anspruch und aus einer bestimmten Gruppe.  
+2.  Geben Sie einen Namen und eine Beschreibung ein.  Zum Beispiel:  Erlauben Sie Benutzern mit einem bestimmten Anspruch und einer bestimmten Gruppe.  
   
-3.  Klicken Sie unter **Zugriff zulassen, wenn eine der folgenden Regeln erfüllt ist**, klicken Sie auf **hinzufügen**.  
+3.  Klicken Sie unter **Zugriff zulassen, wenn eine der folgenden Regeln erfüllt**ist auf **Hinzufügen**.  
   
-4.  Unter zulassen, und setzen Sie ein Häkchen im Feld neben **aus einer bestimmten Gruppe** und **mit bestimmten Ansprüchen in der Anforderung**  
+4.  Aktivieren Sie unter Zulassen das Kontrollkästchen neben einer **bestimmten Gruppe** und **mit bestimmten Ansprüchen in der Anforderung** .  
   
-5.  Wählen Sie im unteren Bereich das unterstrichene **bestimmte** für die erste Bedingung, neben Gruppen  
+5.  Wählen Sie unten die unterstrichene **spezifische** Bedingung für die erste Bedingung neben Gruppen aus.  
   
-6.  Wählen Sie im Fenster oben, Pops **-Parameter angegeben, wenn die Richtlinie zugewiesen ist**.  Klicken Sie auf **OK**.  
+6.  Wählen Sie im Fenster, das angezeigt wird, **den Parameter aus, der angegeben wird, wenn die Richtlinie zugewiesen wird**.  Klicken Sie auf **OK**.  
   
-7.  Wählen Sie im unteren Bereich das unterstrichene **bestimmte** für die zweite Bedingung an, neben Ansprüchen  
+7.  Wählen Sie unten die unterstrichene **spezifische** Bedingung für die zweite Bedingung nebenansprüche aus.  
   
-8.  Wählen Sie im Fenster oben, Pops **-Parameter angegeben, wenn die Access-Control-Richtlinie zugewiesen wird**.  Klicken Sie auf **OK**.  
+8.  Wählen Sie im Fenster, das angezeigt wird, **den Parameter aus, der angegeben wird, wenn die Zugriffs Steuerungs Richtlinie zugewiesen wird**.  Klicken Sie auf **OK**.  
   
 9. Klicken Sie auf **OK**. Klicken Sie auf **OK**.  
   
-![Access Control-Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP12.PNG)  
+![Zugriffs Steuerungs Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP12.PNG)  
   
-## <a name="how-to-assign-an-access-control-policy-to-a-new-application"></a>Wie Sie eine neue Anwendung eine Access-Control-Richtlinie zuweisen  
-Zuweisen einer Access-Control-Richtlinie in eine neue Anwendung ist sehr einfach aufgebaut und hat nun in den Assistenten zum Hinzufügen von einer RP integriert wurde.  Mit dem Assistenten für Vertrauensstellungen der Relying Party können Sie die Access-Control-Richtlinie auswählen, die Sie zuweisen möchten.  Dies ist eine Anforderung, wenn neue Anspruchsanbieter-Vertrauensstellung zu erstellen.  
+## <a name="how-to-assign-an-access-control-policy-to-a-new-application"></a>Zuweisen einer Zugriffs Steuerungs Richtlinie zu einer neuen Anwendung  
+Das Zuweisen einer Zugriffs Steuerungs Richtlinie zu einer neuen Anwendung ist recht unkompliziert und wurde nun in den Assistenten integriert, um eine RP hinzuzufügen.  Im Assistenten für Vertrauens Stellungen der vertrauenden Seite können Sie die Zugriffs Steuerungs Richtlinie auswählen, die Sie zuweisen möchten.  Dies ist eine Voraussetzung für das Erstellen einer neuen Vertrauensstellung der vertrauenden Seite.  
   
-![Access Control-Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP13.PNG)  
+![Zugriffs Steuerungs Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP13.PNG)  
   
-## <a name="how-to-assign-an-access-control-policy-to-an-existing-application"></a>Zuweisen eine Access-Control-Richtlinie zu einer vorhandenen Anwendung  
-Zuweisen einer Access-Control-Richtlinie zu einer vorhandenen Anwendung wählen Sie einfach die Anwendung von Vertrauensstellungen für vertrauende Seiten und mit der rechten Maustaste auf **Access-Control-Richtlinie bearbeiten**.  
+## <a name="how-to-assign-an-access-control-policy-to-an-existing-application"></a>Zuweisen einer Zugriffs Steuerungs Richtlinie zu einer vorhandenen Anwendung  
+Wenn Sie einer vorhandenen Anwendung eine Zugriffs Steuerungs Richtlinie zuweisen, wählen Sie einfach die Anwendung aus den Vertrauens Stellungen der vertrauenden Seite aus, und klicken Sie auf der rechten Seite auf **Access Control**  
   
-![Access Control-Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP14.PNG)  
+![Zugriffs Steuerungs Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP14.PNG)  
   
-Von hier aus können Sie wählen Sie die Access-Control-Richtlinie und wenden es an die Anwendung.  
+Von hier aus können Sie die Zugriffs Steuerungs Richtlinie auswählen und Sie auf die Anwendung anwenden.  
   
-![Access Control-Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP15.PNG)  
+![Zugriffs Steuerungs Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP15.PNG)  
   
 ## <a name="see-also"></a>Siehe auch  
 [AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md) 

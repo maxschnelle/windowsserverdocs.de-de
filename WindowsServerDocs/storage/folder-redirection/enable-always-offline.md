@@ -1,56 +1,56 @@
 ---
-title: Aktivieren Sie für einen schnelleren Zugriff auf Dateien immer Offline-Modus
-description: So verwenden Sie den Modus "immer Offline" von Offlinedateien, schnelleren Zugriff auf zwischengespeicherte Dateien und umgeleiteten Ordner gewähren.
-ms.prod: windows-server-threshold
+title: Aktivieren des Modus "immer offline" für schnelleren Zugriff auf Dateien
+description: Verwenden des Always Offline-Modus von Offlinedateien, um schnelleren Zugriff auf zwischengespeicherte Dateien und umgeleitete Ordner bereitzustellen.
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
 ms.date: 09/10/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: ddf6a816e417c2eddff090df8dba841a894a3255
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 389fdd26a7e1d9824f1eaf0136a544547f08eb05
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447671"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71401958"
 ---
-# <a name="enable-always-offline-mode-for-faster-access-to-files"></a>Aktivieren Sie für einen schnelleren Zugriff auf Dateien immer Offline-Modus
+# <a name="enable-always-offline-mode-for-faster-access-to-files"></a>Aktivieren des Modus "immer offline" für schnelleren Zugriff auf Dateien
 
->Gilt für: Windows 10, Windows 8, Windows 8.1, WindowsServer 2019, WindowsServer 2016, WindowsServer 2012, Windows Server 2012 R2 und Windows (halbjährlicher Kanal)
+>Gilt für: Windows 10, Windows 8, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2012 R2 und Windows (halbjährlicher Kanal)
 
-Dieses Dokument beschreibt, wie Sie mit, dass der Modus "immer Offline" von Offlinedateien schnelleren Zugriff auf zwischengespeicherte Dateien und umgeleiteten Ordner gewähren. Immer Offline auch bietet geringere bandbreitenverwendung, da der Benutzer immer offline arbeiten, selbst wenn sie über eine schnelle Netzwerkverbindung besteht.
+In diesem Dokument wird beschrieben, wie der Modus "immer offline" Offlinedateien verwendet wird, um einen schnelleren Zugriff auf zwischengespeicherte Dateien und umgeleitete Ordner bereitzustellen. "Immer offline" bietet auch eine geringere Bandbreitenauslastung, da Benutzer immer offline arbeiten, auch wenn Sie über eine Hochgeschwindigkeitsnetzwerk Verbindung verbunden sind.
 
-## <a name="prerequisites"></a>Vorraussetzungen
+## <a name="prerequisites"></a>Erforderliche Komponenten
 
-Um immer Offline-Modus zu aktivieren, muss Ihre Umgebung die folgenden Voraussetzungen erfüllen.
+Um den Modus "immer offline" zu aktivieren, muss Ihre Umgebung die folgenden Voraussetzungen erfüllen.
 
-- Eine Active Directory Domain Services (AD DS)-Domäne mit Clientcomputern, die in die Domäne eingebunden werden soll. Es gibt keine Anforderungen von Gesamtstruktur oder Domäne auf Funktionsebene oder schemaanforderungen.
-- Client-Computer unter Windows 10, Windows 8.1, Windows 8, Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012. (Client-Computern, die mit früheren Versionen von Windows können für den Übergang in den Onlinemodus Hochgeschwindigkeitsnetzwerk Verbindungen weiterhin.)
-- Ein Computer mit die Gruppenrichtlinien-Verwaltungskonsole installiert.
+- Eine Active Directory Domain Services Domäne (AD DS) mit Client Computern, die der Domäne beigetreten sind. Es gibt keine Anforderungen an die Gesamtstruktur-oder Domänen Funktionsebene oder Schema Anforderungen.
+- Client Computer unter Windows 10, Windows 8.1, Windows 8, Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012. (Client Computer, auf denen frühere Versionen von Windows ausgeführt werden, können bei sehr schnellen Netzwerkverbindungen möglicherweise weiterhin in den Online Modus übergehen.)
+- Ein Computer, auf dem Gruppenrichtlinie-Verwaltung installiert ist.
 
-## <a name="enable-always-offline-mode"></a>Immer Offline-Modus aktivieren
+## <a name="enable-always-offline-mode"></a>Aktivieren des Modus "immer offline"
 
-Um immer Offline-Modus zu aktivieren, mithilfe von Gruppenrichtlinien zum Aktivieren der **Modus für langsame Verbindungen konfigurieren** Richtlinie festlegen, und legen die Latenz auf **1** (in Millisekunden). Dadurch wird die Client-Computern mit Windows 8 oder Windows Server 2012 automatisch immer Offline-Modus verwenden.
+Wenn Sie den Modus "immer offline" aktivieren möchten, verwenden Sie Gruppenrichtlinie, um die Richtlinien Einstellung **langsamen Verbindungs Modus konfigurieren** zu aktivieren und die Wartezeit auf **1** (Millisekunde) festzulegen. Dies bewirkt, dass Client Computer, auf denen Windows 8 oder Windows Server 2012 ausgeführt wird, automatisch den Modus "immer offline" verwenden.
 
 >[!NOTE]
->Computer, die mit Windows 7, möglicherweise Windows Vista, Windows Server 2008 R2 oder Windows Server 2008 für den Übergang zum Online-Modus fortgesetzt, wenn die Latenz der Netzwerkverbindung unter einer Millisekunde sinkt.
+>Computer mit Windows 7, Windows Vista, Windows Server 2008 R2 oder Windows Server 2008 können weiterhin in den Online Modus wechseln, wenn die Latenz der Netzwerkverbindung unter eine Millisekunde sinkt.
 
-1. Open **Gruppenrichtlinienverwaltung**.
-2. Um eine neue Gruppe Gruppenrichtlinienobjekt (GPO) für die Einstellungen für Offlinedateien optional zu erstellen, mit der rechten Maustaste der entsprechenden Domäne oder Organisationseinheit (OU), und wählen Sie dann **erstellen Sie ein Gruppenrichtlinienobjekt in dieser Domäne, und hier**.
-3. In der Konsolenstruktur mit der Maustaste des GPOs für die Sie zum Konfigurieren von Einstellungen für Offlinedateien, und wählen Sie dann **bearbeiten**. Die **Gruppenrichtlinienverwaltungs-Editor** angezeigt wird.
-4. In der Konsolenstruktur unter **Computerkonfiguration**, erweitern Sie **Richtlinien**, erweitern Sie **Administrative Vorlagen**, erweitern Sie **Netzwerk**, und erweitern Sie **Offlinedateien**.
-5. Mit der rechten Maustaste **Modus für langsame Verbindungen konfigurieren**, und wählen Sie dann **bearbeiten**. Die **Modus für langsame Verbindungen konfigurieren** Fenster wird angezeigt.
+1. Öffnen Sie **Gruppenrichtlinie-Verwaltung**.
+2. Klicken Sie mit der rechten Maustaste auf die entsprechende Domäne oder Organisationseinheit, und klicken Sie dann auf Gruppenrichtlinien Objekt **in dieser Domäne erstellen,** um optional ein neues Gruppenrichtlinie Objekt (GPO) für Offlinedateien Einstellungen zu erstellen.
+3. Klicken Sie in der Konsolen Struktur mit der rechten Maustaste auf das GPO, für das Sie die Offlinedateien Einstellungen konfigurieren möchten, und wählen Sie dann **Bearbeiten**aus. Der **Gruppenrichtlinienverwaltungs-Editor** wird angezeigt.
+4. Erweitern Sie in der Konsolen **Struktur unter Computer Konfiguration**den Knoten **Richtlinien**, erweitern Sie **Administrative Vorlagen**, erweitern Sie **Netzwerk**, und erweitern Sie **Offlinedateien**.
+5. Klicken Sie mit der rechten Maustaste auf **Modus für langsame Verbindungen konfigurieren**, und wählen Sie dann **Bearbeiten**aus. Das Fenster Fenster für **langsamen Verbindungs Modus konfigurieren** wird angezeigt.
 6. Wählen Sie **Aktiviert** aus.
-7. In der **Optionen** Kontrollkästchen **anzeigen**. Die **Inhalt anzeigen Fenster** wird angezeigt.
-8. In der **Wertnamen** geben die Dateifreigabe, die für die Sie aktivieren, immer Offline-Modus möchten.
-9. Um auf alle freigegebenen Ordner immer Offline-Modus zu aktivieren, geben Sie **\\** *.
-10. In der **Wert** geben **Latenz = 1** Schwellenwert für die Latenzzeit auf 1 Millisekunde festgelegt, und wählen Sie dann **OK**.
+7. Wählen Sie im Feld **Optionen die Option** **anzeigen**aus. Das **Fensterinhalt anzeigen** wird angezeigt.
+8. Geben Sie im Feld **Wertname** die Dateifreigabe an, für die Sie den Modus "immer offline" aktivieren möchten.
+9. Um den Modus "immer offline" für alle Dateifreigaben zu aktivieren, geben Sie **\* ein**.
+10. Geben Sie im Feld **Wert den Wert** **Latenz = 1** ein, um den Latenz Schwellenwert auf eine Millisekunde festzulegen, und klicken Sie dann auf **OK**.
 
 >[!NOTE]
->Standardmäßig synchronisiert immer Offline-Modus in Windows-Dateien im Zwischenspeicher für Offlinedateien im Hintergrund alle zwei Stunden. Um diesen Wert zu ändern, verwenden die **Configure Background Sync** richtlinieneinstellung.
+>Standardmäßig synchronisiert Windows im Modus "immer offline" alle zwei Stunden Dateien im Offlinedateien Cache im Hintergrund. Um diesen Wert zu ändern, verwenden Sie die Richtlinien Einstellung **Synchronisierung im Hintergrund konfigurieren** .
 
 ## <a name="more-information"></a>Weitere Informationen
 
-* [Übersicht über die Ordnerumleitung, Offlinedateien und Roamingbenutzerprofile](folder-redirection-rup-overview.md)
-* [Bereitstellen von Ordnerumleitung, Offlinedateien](deploy-folder-redirection.md)
+* [Übersicht über Ordner Umleitung, Offlinedateien und Roamingbenutzerprofile](folder-redirection-rup-overview.md)
+* [Bereitstellen der Ordner Umleitung mit Offlinedateien](deploy-folder-redirection.md)

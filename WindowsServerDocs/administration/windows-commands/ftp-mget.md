@@ -1,8 +1,8 @@
 ---
 title: FTP-mget
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e43bf8b6e7067a31b3ec51336b0b43845ab88f63
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 666025c92b6fb1a612cbe7b83833557a8a7d5017
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438600"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376297"
 ---
-# <a name="ftp-mget"></a>ftp: mget
+# <a name="ftp-mget"></a>FTP: mget
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Kopiert die Remotedateien auf dem lokalen Computer mithilfe der aktuellen Datei Übertragungstyp auswählen.   
+Kopiert Remote Dateien mit dem aktuellen Datei Übertragungstyp auf den lokalen Computer.   
 ## <a name="syntax"></a>Syntax  
 ```  
 mget <remoteFile>[ ]  
@@ -33,14 +33,14 @@ mget <remoteFile>[ ]
 
 |  Parameter   |                        Beschreibung                        |
 |--------------|-----------------------------------------------------------|
-| <remoteFile> | Gibt an, die Remotedateien auf dem lokalen Computer kopiert. |
+| <remoteFile> | Gibt die Remote Dateien an, die auf den lokalen Computer kopiert werden sollen. |
 
-## <a name="BKMK_Examples"></a>Beispiele für  
-Kopieren Sie Remotedateien **a.exe** und **b.exe** auf dem lokalen Computer, die den aktuellen Dateityp für die Übertragung verwenden.  
+## <a name="BKMK_Examples"></a>Beispiele  
+Kopieren Sie die Remote Dateien " **exe** " und " **b. exe** " auf den lokalen Computer, indem Sie den aktuellen Datei Übertragungstyp verwenden.  
 ```  
 mget a.exe b.exe  
 ```  
-## <a name="additional-references"></a>Zusätzliche Referenzen  
--   [ftp: ascii](ftp-ascii.md)  
+## <a name="additional-references"></a>Weitere Verweise  
+-   [FTP: ASCII](ftp-ascii.md)  
 -   [FTP: binär](ftp-binary.md)  
 -   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

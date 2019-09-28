@@ -1,7 +1,7 @@
 ---
 ms.assetid: 7787a72e-a26b-415f-b700-a32806803478
-title: Fsutil fsinfo
-ms.prod: windows-server-threshold
+title: F-Datei (f)
+ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
@@ -9,17 +9,17 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 434dfde2286538367fb96d168b06983cb4357067
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 472c3b91285810ac1ff528da24de50533bae526d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873041"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376943"
 ---
-# <a name="fsutil-fsinfo"></a>Fsutil fsinfo
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, WindowsServer 2012, Windows 8, Windows Server 2008 R2, Windows 7
+# <a name="fsutil-fsinfo"></a>F-Datei (f)
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
 
-Listet alle Laufwerke, fragt Laufwerktyp, Datenträgerinformationen, NTFS-Volumeinformationen Abfragen oder Abfragen Dateistatistiken-System.
+Listet alle Laufwerke auf, fragt den Laufwerkstyp ab, fragt Volumeinformationen ab, fragt NTFS-spezifische Volumeinformationen ab oder fragt Dateisystem Statistiken ab.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -37,35 +37,35 @@ fsutil fsinfo [volumeinfo] <RootPath>
 
 |Parameter|Beschreibung|
 |-------------|---------------|
-|Laufwerke|Listet alle Laufwerke auf dem Computer an.|
-|DriveType|Fragt ein Laufwerk aus, und deren Typ, z. B. CD-ROM-Laufwerk wird aufgelistet.|
-|ntfsinfo|Listet die NTFS-spezifische Volumeinformationen für das angegebene Volume, wie z. B. die Anzahl der Sektoren, Gesamtzahl der Cluster, freie Cluster, und die Start- und Ende der MFT-Zone.|
-|sectorinfo|Listet Informationen zu des Hardware Sektorgröße und Ausrichtung.|
-|Statistiken|Dateilisten Systemstatistiken für das angegebene Volume, wie Metadaten, die Protokolldatei und MFT-Lesevorgänge und Schreibvorgänge.|
-|volumeinfo|Listet Informationen für das angegebene Volume, z. B. das Dateisystem und, ob das Volume die Groß-/Kleinschreibung Dateinamen, Unicode in Dateinamen, unterstützt Datenträgerkontingente oder ist ein DirectAccess-bzw. DAX-Volume.|
-|<"VolumePath">|Gibt an, der Buchstabe des Laufwerks (gefolgt von einem Doppelpunkt).|
-|<"RootPathname">|Gibt den Laufwerkbuchstaben des Stammlaufwerks (gefolgt von einem Doppelpunkt) an.|
+|Master|Listet alle Laufwerke des Computers auf.|
+|DriveType|Fragt ein Laufwerk ab und listet seinen Typ auf, z. b. CD-ROM-Laufwerk.|
+|NTFSInfo|Listet die NTFS-spezifischen Volumeinformationen für das angegebene Volume auf, z. b. die Anzahl der Sektoren, Cluster Gesamt, freie Cluster und den Anfang und das Ende der MFT-Zone.|
+|sectoriinfo|Listet Informationen über die Sektorgröße und die Ausrichtung der Hardware auf.|
+|Kam|Listet die Dateisystem Statistiken für das angegebene Volume, z. b. Metadaten, Protokolldateien und MFT-Lese-und Schreibvorgänge.|
+|volumeingefo|Listet Informationen für das angegebene Volume, wie z. b. das Dateisystem, und gibt an, ob das Volume die Groß-/Kleinschreibung beachtet, Unicode in Dateinamen oder Datenträger Kontingente oder ein DirectAccess (DAX)-Volume unterstützt.|
+|< "volumepath" >|Gibt den Laufwerk Buchstaben (gefolgt von einem Doppelpunkt) an.|
+|< "rootpathname" >|Gibt den Laufwerk Buchstaben (gefolgt von einem Doppelpunkt) des Stamm Laufwerks an.|
 
-## <a name="BKMK_examples"></a>Beispiele für
-Um alle Laufwerke auf dem Computer aufzulisten, geben Sie Folgendes ein:
+## <a name="BKMK_examples"></a>Beispiele
+Um alle Laufwerke des Computers aufzulisten, geben Sie Folgendes ein:
 
 ```
 fsutil fsinfo drives
 ```
 
-Eine Ausgabe ähnlich der folgenden angezeigt:
+Ausgabe ähnlich der folgenden anzeigen:
 
 ```
 Drives: A:\ C:\ D:\ E:\       
 ```
 
-Um den Laufwerkstyp des Laufwerks C abzufragen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um den Laufwerkstyp von Laufwerk C abzufragen:
 
 ```
 fsutil fsinfo drivetype c:
 ```
 
-Ergebnisse der Abfrage enthalten:
+Mögliche Ergebnisse der Abfrage sind:
 
 ```
 Unknown Drive
@@ -77,13 +77,13 @@ CD-ROM Drive
 Ram Disk
 ```
 
-Die Volumeinformationen für Volume E abgefragt werden soll, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um die Volumeinformationen für Volume E abzufragen:
 
 ```
 fsinfo volumeinfo e:\
 ```
 
-Eine Ausgabe ähnlich der folgenden angezeigt:
+Ausgabe ähnlich der folgenden anzeigen:
 
 ```
 Volume Name :Volume
@@ -97,13 +97,13 @@ Supports Named Streams
 Is DAX Volume
 ```
 
-Geben Sie auf Abfrage Laufwerk F für NTFS-Volumeinformationen:
+Zum Abfragen von Laufwerk F für NTFS-spezifische Volumeinformationen geben Sie Folgendes ein:
 
 ```
 fsutil fsinfo ntfsinfo f:
 ```
 
-Eine Ausgabe ähnlich der folgenden angezeigt:
+Ausgabe ähnlich der folgenden anzeigen:
 
 ```
 NTFS Volume Serial Number : 0xe660d46a60d442cb
@@ -115,13 +115,13 @@ Total Clusters :            0x000000000021d409
 Mft Zone End   :            0x0000000000004700       
 ```
 
-Um das Dateisystem des zugrunde liegenden Hardware Sektor Informationen abzufragen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um die zugrunde liegende Hardware des Dateisystems nach Sektorinformationen abzufragen:
 
 ```
 fsinfo sectorinfo d:
 ```
 
-Eine Ausgabe ähnlich der folgenden angezeigt:
+Ausgabe ähnlich der folgenden anzeigen:
 
 ```
 D:\>fsutil fsinfo sectorinfo d:
@@ -134,13 +134,13 @@ Trim Not Supported
 DAX capable
 ```
 
-Um die Datei-System-Statistiken für Laufwerk E abzufragen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um die Dateisystem Statistik für Laufwerk E abzufragen:
 
 ```
 fsinfo statistics e:
 ```
 
-Eine Ausgabe ähnlich der folgenden angezeigt:
+Ausgabe ähnlich der folgenden anzeigen:
 
 ```
 File System Type :     NTFS
@@ -154,7 +154,6 @@ LogFileWriteBytes :    180936704
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
-[Befehlszeilen-Syntaxschlüssel](Command-Line-Syntax-Key.md)
-[Fsutil](Fsutil.md)
+[Befehlszeilen-Syntax Schlüssel](Command-Line-Syntax-Key.md)@no__t[-1-](Fsutil.md) Datei
 
 

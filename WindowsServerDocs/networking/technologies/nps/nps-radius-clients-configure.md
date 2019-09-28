@@ -1,97 +1,97 @@
 ---
 title: Konfigurieren von RADIUS-Clients
-description: Dieses Thema enthält Informationen zum Konfigurieren von RADIUS-Clients für Netzwerkrichtlinienserver unter Windows Server 2016.
+description: Dieses Thema enthält Informationen zum Konfigurieren von RADIUS-Clients für den Netzwerk Richtlinien Server unter Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: cde37849-ce79-4c26-aa14-cd0ef31cae18
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 851bdb0677a17567f81a2c331baad595fe40436a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6870029e02ae91b1ef5bf4d4302ac2bed2e27d84
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839491"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405300"
 ---
 # <a name="configure-radius-clients"></a>Konfigurieren von RADIUS-Clients
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können in diesem Thema verwenden, um Netzwerkzugriffsserver als RADIUS-Clients in NPS konfigurieren.
+Sie können dieses Thema verwenden, um Netzwerk Zugriffs Server als RADIUS-Clients in NPS zu konfigurieren.
 
-Beim Hinzufügen einer neuen Netzwerkzugriffsservers \(VPN-Server, drahtlosen Zugriffspunkt, Authentifizierung, Switch oder DFÜ-Server\) zum Netzwerk müssen Sie fügen Sie den Server als RADIUS-Client auf dem Netzwerkrichtlinienserver, und konfigurieren Sie dann auf den RADIUS-Client für die Kommunikation mit dem NPS.
+Wenn Sie einen neuen Netzwerk Zugriffs Server \(vpn-Server, drahtlosen Zugriffspunkt, authentifizier enden Switch oder DFÜ-Server @ no__t-1 in Ihrem Netzwerk hinzufügen, müssen Sie den Server in NPS als RADIUS-Client hinzufügen und dann den RADIUS-Client für die Kommunikation mit dem NPS konfigurieren.
 
 >[!IMPORTANT]
->Client-Computern und Geräten, z. B. Laptops, Tablets, Smartphones und andere Computer mit Clientbetriebssystemen, sind keine RADIUS-Clients. RADIUS-Clients sind Netzwerkzugriffsserver – z. B. Drahtloszugriffspunkte, 802.1X-fähige X-fähigen switches, virtuelle Private Netzwerk (VPN)-Server und DFÜ-Server –, da sie das RADIUS-Protokoll verwenden, für die Kommunikation mit RADIUS-Server, z. B. Network Policy Server \(NPS\) Server.
+>Client Computer und-Geräte, z. b. Laptops, Tablets, Smartphones und andere Computer, auf denen Client Betriebssysteme ausgeführt werden, sind keine RADIUS-Clients. RADIUS-Clients sind Netzwerk Zugriffs Server, z. b. drahtlos Zugriffspunkte, 802.1 x-fähige Switches, VPN-Server (Virtual Private Network) und DFÜ-Server, da Sie das RADIUS-Protokoll für die Kommunikation mit RADIUS-Servern verwenden, wie z. b. Netzwerk Richtlinien. Server \(nps @ no__t-1 Server.
 
-Dieser Schritt ist auch erforderlich, wenn Sie den NPS RADIUS-Remoteservergruppe angehört, die auf einem NPS-Proxy konfiguriert ist. In diesem Fall, zusätzlich zu den Schritten in dieser Aufgabe auf dem NPS-Proxy gehen Sie folgendermaßen vor:
+Dieser Schritt ist auch erforderlich, wenn Ihr NPS Mitglied einer RADIUS-Remote Server Gruppe ist, die auf einem NPS-Proxy konfiguriert ist. In dieser Situation müssen Sie nicht nur die Schritte in dieser Aufgabe auf dem NPS-Proxy ausführen, sondern auch die folgenden Schritte ausführen:
 
-- Konfigurieren Sie eine remote-RADIUS-Servergruppe, die den NPS enthält, auf dem NPS-Proxy.
-- Konfigurieren Sie die NPS-Proxy für den remote-NPS als RADIUS-Client.
+- Konfigurieren Sie auf dem NPS-Proxy eine Remote-RADIUS-Server Gruppe, die den NPS enthält.
+- Konfigurieren Sie den NPS-Proxy auf dem Remote-NPS als RADIUS-Client.
 
-Um die Verfahren in diesem Thema ausführen zu können, benötigen Sie mindestens eine Netzwerkzugriffsservers \(VPN-Server, drahtlosen Zugriffspunkt, Authentifizierung, Switch oder DFÜ-Server\) oder NPS-Proxy, die physisch in Ihrem Netzwerk installiert.
+Um die in diesem Thema beschriebenen Verfahren auszuführen, müssen Sie über mindestens einen Netzwerk Zugriffs Server \(vpn-Server, drahtlosen Zugriffspunkt, authentifizier enden Switch oder DFÜ-Server @ no__t-1 oder NPS-Proxy verfügen, der physisch im Netzwerk installiert ist.
 
-## <a name="configure-the-network-access-server"></a>Network Access Server konfigurieren
+## <a name="configure-the-network-access-server"></a>Konfigurieren des Netzwerk Zugriffs Servers
 
-Verwenden Sie dieses Verfahren, um Netzwerkzugriffsserver, die für die Verwendung mit NPS konfigurieren. Wenn Sie Netzwerkzugriffsserver (NAS) als RADIUS-Clients bereitstellen, müssen Sie konfigurieren die Clients die Kommunikation mit dem NPSs, in die NAS-Servern als Clients konfiguriert sind.
+Verwenden Sie dieses Verfahren, um Netzwerk Zugriffs Server für die Verwendung mit NPS zu konfigurieren. Wenn Sie Netzwerk Zugriffs Server (Network Access Server, nass) als RADIUS-Clients bereitstellen, müssen Sie die Clients für die Kommunikation mit dem NPSS konfigurieren, bei dem der nass als Clients konfiguriert ist.
 
-Dieses Verfahren umfasst allgemeine Richtlinien über die Einstellungen, die Sie verwenden sollten, um Ihre Netzwerkzugriffsserver konfigurieren; spezifische Anweisungen zum Konfigurieren des Geräts, auf denen Sie in Ihrem Netzwerk bereitstellen, finden Sie unter der NAS-Produktdokumentation.
+Diese Vorgehensweise bietet allgemeine Richtlinien für die Einstellungen, die Sie zum Konfigurieren von "nass" verwenden sollten. spezifische Anweisungen zum Konfigurieren des Geräts, das Sie in Ihrem Netzwerk bereitstellen, finden Sie in der NAS-Produktdokumentation.
 
-### <a name="to-configure-the-network-access-server"></a>Network Access Server konfigurieren
+### <a name="to-configure-the-network-access-server"></a>So konfigurieren Sie den Netzwerk Zugriffs Server
 
-1. Auf dem NAS in **RADIUS-Clienteinstellungen**Option **RADIUS-Authentifizierung** User Datagram Protocol (UDP) Port **1812** und **RADIUS-Kontoführung**an UDP-Port **1813**.
-2. In **Authentifizierungsserver** oder **RADIUS-Server**, geben Sie Ihre IP-Adresse oder den vollqualifizierten Domänennamen (FQDN), je nach den Anforderungen des NAS von NPS. 
-3. In **Geheimnis** oder **gemeinsamer geheimer Schlüssel**, geben Sie ein sicheres Kennwort ein. Wenn Sie das NAS als RADIUS-Client in NPS konfigurieren, verwenden Sie das gleiche Kennwort, damit sie nicht vergessen.
-4. Wenn Sie PEAP oder EAP als Authentifizierungsmethode verwenden, konfigurieren Sie das NAS um EAP-Authentifizierung verwenden.
-5. Wenn Sie in einem drahtlosen Zugriffspunkt, konfigurieren **SSID**, geben Sie einen Service Set Identifier \(SSID\), dies ist eine alphanumerische Zeichenfolge, die als Name des Netzwerks dient. Dieser Name wird übertragen, indem Sie Zugriffspunkten, drahtlosen Clients und ist sichtbar für Benutzer in Ihrer drahtlosen Qualität \(Wi-Fi\) Hotspots.
-6. Wenn Sie in einem drahtlosen Zugriffspunkt, konfigurieren **802.1 X und WPA**, aktivieren Sie **IEEE 802.1X-Authentifizierung** , wenn Sie PEAP-MS-CHAP v2, PEAP-TLS oder EAP-TLS bereitstellen möchten.
+1. Wählen Sie auf dem NAS **in RADIUS**-Einstellungen **RADIUS-Authentifizierung** auf UDP-Port **1812** (User Datagram Protocol) und RADIUS-Konto **Führung** über UDP-Port **1813**aus.
+2. Geben Sie unter **Authentifizierungsserver** oder **RADIUS-Server**je nach den Anforderungen des NAS ihren NPS nach IP-Adresse oder vollständig qualifizierter Domänen Name (Fully Qualified Domain Name, FQDN) an. 
+3. Geben Sie unter **geheimer** Schlüssel oder **gemeinsamer geheimer**Schlüssel ein sicheres Kennwort ein. Wenn Sie NAS als RADIUS-Client in NPS konfigurieren, verwenden Sie das gleiche Kennwort, und vergessen Sie es nicht.
+4. Wenn Sie PEAP oder EAP als Authentifizierungsmethode verwenden, konfigurieren Sie das NAS für die Verwendung der EAP-Authentifizierung.
+5. Wenn Sie einen drahtlosen Zugriffspunkt konfigurieren, geben Sie in **SSID**einen Service Set-Bezeichner \(ssid @ no__t-2 an. dabei handelt es sich um eine alphanumerische Zeichenfolge, die als Netzwerkname fungiert. Dieser Name wird von Zugriffs Punkten an drahtlose Clients übertragen und ist für Benutzer mit der drahtlos Treue \(wi-fi @ no__t-1-Hotspots sichtbar.
+6. Wenn Sie einen drahtlosen Zugriffspunkt konfigurieren, aktivieren Sie in **802.1 x und WPA**die **IEEE 802.1 x-Authentifizierung** , wenn Sie PEAP-MS-CHAP v2, PEAP-TLS oder EAP-TLS bereitstellen möchten.
 
-## <a name="add-the-network-access-server-as-a-radius-client-in-nps"></a>Network Access Server als RADIUS-Client auf dem Netzwerkrichtlinienserver hinzufügen
+## <a name="add-the-network-access-server-as-a-radius-client-in-nps"></a>Hinzufügen des Netzwerk Zugriffs Servers als RADIUS-Client in NPS
 
-Verwenden Sie dieses Verfahren zum Hinzufügen eines Netzwerk-Servers als RADIUS-Client auf dem Netzwerkrichtlinienserver. Sie können dieses Verfahren verwenden, NAS als RADIUS-Client zu konfigurieren, mit der NPS-Konsole.
-
-Sie müssen Mitglied der Gruppe **Administratoren** sein, um diesen Vorgang auszuführen.
-
-### <a name="to-add-a-network-access-server-as-a-radius-client-in-nps"></a>Hinzufügen ein Netzwerk-Servers als RADIUS-Client auf dem Netzwerkrichtlinienserver
-
-1. Klicken Sie auf den NPS, im Server-Manager auf **Tools**, und klicken Sie dann auf **Netzwerkrichtlinienserver**. Die NPS-Konsole wird geöffnet.
-2. Doppelklicken Sie in der NPS-Konsole auf **RADIUS-Clients und Servern**. Mit der rechten Maustaste **RADIUS-Clients**, und klicken Sie dann auf **Neuer RADIUS-Client**. 
-3. In **Neuer RADIUS-Client**, überprüfen Sie, ob die **aktivieren Sie dieses RADIUS-Clients** das Kontrollkästchen aktiviert ist.
-4. In **Neuer RADIUS-Client**im **Anzeigenamen**, geben Sie einen Anzeigenamen für das NAS. In **Adresse (IP oder DNS)**, geben Sie den NAS IP-Adresse oder den vollständig qualifizierten Domänennamen (FQDN). Wenn Sie den FQDN eingegeben haben, klicken Sie auf **überprüfen** sollten Sie überprüfen, ob der Name richtig ist und eine gültige IP-Adresse zugeordnet. 
-5. In **Neuer RADIUS-Client**im **Hersteller**, geben Sie den Namen der NAS-Hersteller. Wenn Sie nicht über den Herstellernamen NAS sicher sind, wählen Sie **RADIUS-Standards**.
-6. In **Neuer RADIUS-Client**im **gemeinsamer geheimer Schlüssel**, führen Sie einen der folgenden:
-    - Sicherstellen, dass **manuelle** ausgewählt ist, und klicken Sie dann im **gemeinsamer geheimer Schlüssel**, geben Sie das starke Kennwort, die auch auf dem NAS eingegeben werden. Geben Sie den gemeinsamen geheimen Schlüssel im **gemeinsamen geheimen Schlüssel bestätigen**.
-    - Wählen Sie **generieren**, und klicken Sie dann auf **generieren** einen gemeinsamen geheimen Schlüssel automatisch generieren. Speichern Sie den generierten gemeinsamen geheimen Schlüssel für die Konfiguration auf dem NAS, sodass er mit der NPS kommunizieren kann.
-7. In **Neuer RADIUS-Client**im **zusätzliche Optionen**, sofern Sie andere Authentifizierungsmethoden als EAP und PEAP verwenden, und wenn Ihre NAS Verwendung des Attributs Authenticator Nachricht unterstützt, wählen **Access-Request-Nachrichten darf das Attribut für die Nachrichtenauthentifizierung**.
-8. Klicken Sie auf **OK**. Ihre NAS wird angezeigt, in der Liste der RADIUS-Clients, die für den NPS konfiguriert.
-
-## <a name="configure-radius-clients-by-ip-address-range-in-windows-server-2016-datacenter"></a>Konfigurieren Sie RADIUS-Clients von IP-Adressbereich in Windows Server 2016 Datacenter
-
-Wenn Sie Windows Server 2016 Datacenter ausgeführt werden, können Sie durch die IP-Adressbereich RADIUS-Clients in NPS konfigurieren. Dadurch können Sie die NPS-Konsole gleichzeitig ausführen möchten, eine große Anzahl von RADIUS-Clients (z. B. drahtlose Zugriffspunkte) hinzufügen, anstatt jeden RADIUS-Client einzeln hinzuzufügen.
-
-Sie können nicht von IP-Adressbereich RADIUS-Clients konfigurieren, wenn Sie NPS unter Windows Server 2016 Standard ausführen.
-
-Verwenden Sie dieses Verfahren, um eine Gruppe von Netzwerkzugriffsservern (NAS) als RADIUS-Clients hinzuzufügen, die alle mit der IP-Adressen aus der gleichen IP-Adressbereich konfiguriert sind.
-
-Alle im Bereich RADIUS-Clients müssen die gleiche Konfiguration und den gemeinsamen geheimen Schlüssel verwenden.
+Verwenden Sie dieses Verfahren, um einen Netzwerk Zugriffs Server als RADIUS-Client in NPS hinzuzufügen. Mit diesem Verfahren können Sie ein NAS-Element als RADIUS-Client mithilfe der NPS-Konsole konfigurieren.
 
 Sie müssen Mitglied der Gruppe **Administratoren** sein, um diesen Vorgang auszuführen.
 
-### <a name="to-set-up-radius-clients-by-ip-address-range"></a>Einrichten von RADIUS-Clients von IP-Adressbereich
+### <a name="to-add-a-network-access-server-as-a-radius-client-in-nps"></a>So fügen Sie einen Netzwerk Zugriffs Server als RADIUS-Client in NPS hinzu
 
-1. Klicken Sie auf den NPS, im Server-Manager auf **Tools**, und klicken Sie dann auf **Netzwerkrichtlinienserver**. Die NPS-Konsole wird geöffnet.
-2. Doppelklicken Sie in der NPS-Konsole auf **RADIUS-Clients und Servern**. Mit der rechten Maustaste **RADIUS-Clients**, und klicken Sie dann auf **Neuer RADIUS-Client**.
-3. In **Neuer RADIUS-Client**im **Anzeigenamen**, geben Sie einen Anzeigenamen für die Auflistung von NAS-Servern.
-4. In **Adresse \(IP-Adresse oder DNS-\)**, geben Sie den IP-Adressbereich für den RADIUS-Clients mithilfe von klassenloses domänenübergreifendes Routing \(CIDR\) Notation. Geben Sie beispielsweise, wenn die IP-Adressbereich für den NAS-Servern 10.10.0.0 ist, **10.10.0.0/16**.
-5. In **Neuer RADIUS-Client**im **Hersteller**, geben Sie den Namen der NAS-Hersteller. Wenn Sie nicht über den Herstellernamen NAS sicher sind, wählen Sie **RADIUS-Standards**.
-6. In **Neuer RADIUS-Client**im **gemeinsamer geheimer Schlüssel**, führen Sie einen der folgenden:
-    - Sicherstellen, dass **manuelle** ausgewählt ist, und klicken Sie dann im **gemeinsamer geheimer Schlüssel**, geben Sie das starke Kennwort, die auch auf dem NAS eingegeben werden. Geben Sie den gemeinsamen geheimen Schlüssel im **gemeinsamen geheimen Schlüssel bestätigen**.
-    - Wählen Sie **generieren**, und klicken Sie dann auf **generieren** einen gemeinsamen geheimen Schlüssel automatisch generieren. Speichern Sie den generierten gemeinsamen geheimen Schlüssel für die Konfiguration auf dem NAS, sodass er mit der NPS kommunizieren kann.
-7. In **Neuer RADIUS-Client**im **zusätzliche Optionen**, sofern andere Authentifizierungsmethoden als EAP und PEAP verwenden, und wenn die Unterstützung aller Ihrer NAS-Servern mithilfe des Attributs Authenticator Nachricht, wählen Sie  **Access-Request-Meldungen darf das Attribut für die Nachrichtenauthentifizierung**.
-8. Klicken Sie auf **OK**. Ihre Netzwerkzugriffsserver angezeigt, in der Liste der RADIUS-Clients, die für den NPS konfiguriert.
+1. Klicken Sie auf dem NPS in Server-Manager auf **Extras, und klicken Sie dann**auf **Netzwerk Richtlinien Server**. Die NPS-Konsole wird geöffnet.
+2. Doppelklicken Sie in der NPS-Konsole auf **RADIUS-Clients und-Server**. Klicken Sie mit der rechten Maustaste auf **RADIUS-Clients**und dann auf **Neuer RADIUS-Client**. 
+3. Vergewissern Sie sich, dass im **neuen RADIUS-Client**das Kontrollkästchen **diesen RADIUS-Client aktivieren aktiviert** ist.
+4. Geben Sie im **neuen RADIUS-Client**unter Anzeige **Name**einen anzeigen Amen für das NAS ein. Geben Sie unter **Adresse (IP oder DNS)** die NAS-IP-Adresse oder den voll qualifizierten Domänen Namen (FQDN) ein. Wenn Sie den FQDN eingeben, klicken Sie auf **überprüfen** , wenn Sie überprüfen möchten, ob der Name richtig ist und einer gültigen IP-Adresse zugeordnet ist. 
+5. Geben Sie im **neuen RADIUS-Client**unter **Hersteller**den Namen des NAS-Herstellers an. Wenn Sie sich nicht sicher sind, ob der NAS-Hersteller den Namen hat, wählen Sie **RADIUS Standard**aus.
+6. Führen Sie unter " **gemeinsamer geheimer**Schlüssel" unter " **Neuer RADIUS-Client**" einen der folgenden Schritte aus:
+    - Stellen Sie sicher, dass **manuell** ausgewählt ist, und geben Sie dann unter **gemeinsames Geheimnis**das sichere Kennwort ein, das auch im NAS eingegeben wird. Geben Sie den gemeinsamen geheimen Schlüssel in **Confirm Shared Secret**erneut ein.
+    - Wählen Sie **generieren**aus, und klicken Sie dann auf **generieren** , um automatisch ein gemeinsames Geheimnis zu generieren. Speichern Sie den generierten gemeinsamen geheimen Schlüssel für die Konfiguration auf dem NAS, damit er mit dem NPS kommunizieren kann.
+7. Wenn Sie in **neuem RADIUS-Client**unter **zusätzliche Optionen**andere Authentifizierungsmethoden als EAP und PEAP verwenden und Ihr NAS die Verwendung des Message Authenticator-Attributs unterstützt, wählen Sie **Zugriffs Anforderungs Nachrichten müssen die Nachricht enthalten aus. Authenticator-Attribut**.
+8. Klicken Sie auf **OK**. Ihr NAS wird in der Liste der auf dem NPS konfigurierten RADIUS-Clients angezeigt.
+
+## <a name="configure-radius-clients-by-ip-address-range-in-windows-server-2016-datacenter"></a>Konfigurieren von RADIUS-Clients nach IP-Adressbereich in Windows Server 2016 Datacenter
+
+Wenn Sie Windows Server 2016 Datacenter ausführen, können Sie RADIUS-Clients in NPS nach IP-Adressbereich konfigurieren. Dadurch können Sie der NPS-Konsole eine große Anzahl von RADIUS-Clients (z. b. drahtlos Zugriffspunkte) gleichzeitig hinzufügen, anstatt jeden RADIUS-Client einzeln hinzuzufügen.
+
+Sie können RADIUS-Clients nicht durch den IP-Adressbereich konfigurieren, wenn Sie NPS unter Windows Server 2016 Standard ausführen.
+
+Verwenden Sie dieses Verfahren, um eine Gruppe von Netzwerk Zugriffs Servern (nass) als RADIUS-Clients hinzuzufügen, die alle mit IP-Adressen desselben IP-Adress Bereichs konfiguriert sind.
+
+Alle RADIUS-Clients im Bereich müssen dieselbe Konfiguration und denselben gemeinsamen geheimen Schlüssel verwenden.
+
+Sie müssen Mitglied der Gruppe **Administratoren** sein, um diesen Vorgang auszuführen.
+
+### <a name="to-set-up-radius-clients-by-ip-address-range"></a>So richten Sie RADIUS-Clients anhand des IP-Adress Bereichs ein
+
+1. Klicken Sie auf dem NPS in Server-Manager auf **Extras, und klicken Sie dann**auf **Netzwerk Richtlinien Server**. Die NPS-Konsole wird geöffnet.
+2. Doppelklicken Sie in der NPS-Konsole auf **RADIUS-Clients und-Server**. Klicken Sie mit der rechten Maustaste auf **RADIUS-Clients**und dann auf **Neuer RADIUS-Client**.
+3. Geben Sie im **neuen RADIUS-Client**unter Anzeige **Name**einen anzeigen Amen für die Auflistung von nass ein.
+4. Geben Sie unter **Adresse \(ip oder DNS @ no__t-2**den IP-Adressbereich für die RADIUS-Clients ein, indem Sie die klassenlose Domänen übergreifende Routing \(cidr @ no__t-4-Notation verwenden. Wenn beispielsweise der IP-Adressbereich für "nass" 10.10.0.0 lautet, geben Sie **10.10.0.0/16**ein.
+5. Geben Sie im **neuen RADIUS-Client**unter **Hersteller**den Namen des NAS-Herstellers an. Wenn Sie sich nicht sicher sind, ob der NAS-Hersteller den Namen hat, wählen Sie **RADIUS Standard**aus.
+6. Führen Sie unter " **gemeinsamer geheimer**Schlüssel" unter " **Neuer RADIUS-Client**" einen der folgenden Schritte aus:
+    - Stellen Sie sicher, dass **manuell** ausgewählt ist, und geben Sie dann unter **gemeinsames Geheimnis**das sichere Kennwort ein, das auch im NAS eingegeben wird. Geben Sie den gemeinsamen geheimen Schlüssel in **Confirm Shared Secret**erneut ein.
+    - Wählen Sie **generieren**aus, und klicken Sie dann auf **generieren** , um automatisch ein gemeinsames Geheimnis zu generieren. Speichern Sie den generierten gemeinsamen geheimen Schlüssel für die Konfiguration auf dem NAS, damit er mit dem NPS kommunizieren kann.
+7. Wenn Sie in **neuem RADIUS-Client**unter " **zusätzliche Optionen**" andere andere Authentifizierungsmethoden als EAP und PEAP verwenden und all Ihre Unterstützung für das Message Authenticator-Attribut verwenden, **müssen Sie die Option Zugriffs Anforderungs Nachrichten müssen das Message Authenticator-Attribut**.
+8. Klicken Sie auf **OK**. Ihr nass wird in der Liste der auf dem NPS konfigurierten RADIUS-Clients angezeigt.
 
 Weitere Informationen finden Sie unter [RADIUS-Clients](nps-radius-clients.md).
 
-Weitere Informationen zu NPS finden Sie unter [(Network Policy Server, NPS)](nps-top.md).
+Weitere Informationen zu NPS finden Sie unter [Netzwerk Richtlinien Server (Network Policy Server, NPS)](nps-top.md).

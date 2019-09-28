@@ -1,19 +1,19 @@
 ---
 title: Bereitstellen von Server gespeicherten Benutzerprofilen
 TOCTitle: Deploying Roaming User Profiles
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.date: 06/07/2019
 ms.author: jgerend
-ms.openlocfilehash: 3442ad46590add695fb3fed607c6f728e2bc5ee1
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: b7a89ce8d72cf4f060e83b3653b3b2d93eed5cfd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867290"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402038"
 ---
 # <a name="deploying-roaming-user-profiles"></a>Bereitstellen von Server gespeicherten Benutzerprofilen
 
@@ -67,7 +67,7 @@ Wenn Sie Roamingbenutzerprofile mit mehreren Windows-Versionen verwenden möchte
 - Informieren Sie Ihre Benutzer darüber, dass an einer Betriebssystemversion vorgenommene Änderungen nicht zu einer anderen Betriebssystemversion wechseln.
 - Wenn Sie Ihre Umgebung in eine Version von Windows verschieben, die eine andere Profil Version verwendet (z. b. von Windows 10 auf Windows 10, [Version 1607 – siehe Anhang B: Profil Versions Referenzinformationen](#appendix-b-profile-version-reference-information) für eine Liste), erhalten Benutzer ein neues, leeres Roamingbenutzerprofil. Sie können die Auswirkung eines neuen Profils minimieren, indem Sie die Ordner Umleitung zum Umleiten allgemeiner Ordner verwenden. Es gibt keine unterstützte Methode, Roamingbenutzerprofile von einer Profil Version zu einer anderen zu migrieren.
 
-## <a name="step-1-enable-the-use-of-separate-profile-versions"></a>Schritt 1: Aktivieren Sie die Verwendung separater Profilversionen
+## <a name="step-1-enable-the-use-of-separate-profile-versions"></a>Schritt 1: Aktivieren Sie die Verwendung separater Profilversionen
 
 Wenn Sie Roamingbenutzerprofile auf Computern bereitstellen, auf denen Windows 8.1, Windows 8, Windows Server 2012 R2 oder Windows Server 2012 ausgeführt wird, wird empfohlen, vor der Bereitstellung einige Änderungen an Ihrer Windows-Umgebung vorzunehmen. Durch diese Änderungen wird dafür gesorgt, dass zukünftige Betriebssystemupgrades problemlos verlaufen und mehrere Windows-Versionen mit Roamingbenutzerprofilen gleichzeitig ausgeführt werden können.
 
@@ -170,7 +170,7 @@ So erstellen Sie ein Gruppenrichtlinien Objekt für Roamingbenutzerprofile:
 >[!IMPORTANT]
 >Aufgrund der in [MS16-072a](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14%2c-2016)vorgenommenen Sicherheitsänderungen müssen Sie der Gruppe "authentifizierte Benutzer" nun Delegierte Leseberechtigungen für das Gruppenrichtlinien Objekt bereitstellen. andernfalls wird das Gruppenrichtlinien Objekt nicht auf Benutzer angewendet, oder wenn es bereits angewendet wurde, wird das Gruppenrichtlinien Objekt entfernt, und die Benutzerprofile werden zurückgeleitet. auf den lokalen PC. Weitere Informationen finden Sie unter Bereitstellen [Gruppenrichtlinie Sicherheitsupdates MS16-072](https://blogs.technet.microsoft.com/askds/2016/06/22/deploying-group-policy-security-update-ms16-072-kb3163622/).
 
-## <a name="step-5-optionally-set-up-roaming-user-profiles-on-user-accounts"></a>Schritt 5: Richten Sie optional Roamingbenutzerprofile in den Benutzerkonten ein
+## <a name="step-5-optionally-set-up-roaming-user-profiles-on-user-accounts"></a>Schritt 5: Richten Sie optional Roamingbenutzerprofile in den Benutzerkonten ein
 
 Wenn Sie Roamingbenutzerprofile für Benutzerkonten bereitstellen, verwenden Sie folgendes Verfahren, um Roamingbenutzerprofile für Benutzerkonten in Active Directory-Domänendiensten anzugeben. Wenn Sie Roamingbenutzerprofile auf Computern bereitstellen, wie es in der Regel für Remotedesktopdienste oder virtualisierte Desktop Bereitstellungen erfolgt, verwenden Sie [stattdessen das Verfahren, das in Schritt 6: Richten Sie optional Roamingbenutzerprofile auf Computern](#step-6-optionally-set-up-roaming-user-profiles-on-computers)ein.
 
@@ -193,7 +193,7 @@ So richten Sie Roamingbenutzerprofile für Benutzerkonten ein:
 > <br><br>Um bei der App-Bereitstellung für spezielle Profile Einschränkungen zu entfernen, müssen Sie die Richtlinieneinstellung **Allow deployment operations in special profiles** aktivieren (befindet sich unter Computerkonfiguration\Richtlinien\Administrative Vorlagen\Windows-Komponenten\App-Paketbereitstellung). In diesem Szenario bereitgestellte Apps speichern jedoch einige Daten auf dem Computer, die sich ansammeln könnten, z. B. wenn sich Hunderte Benutzer auf einem einzelnen Computer befinden. Suchen oder entwickeln Sie zum Bereinigen von apps ein Tool, das die [cleanuppackageforuserasync](https://msdn.microsoft.com/library/windows/apps/windows.management.deployment.packagemanager.cleanuppackageforuserasync.aspx) -API verwendet, um App-Pakete für Benutzer zu bereinigen, die kein Profil mehr auf dem Computer haben.
 > <br><br>Zusätzliche Hintergrundinformationen zu Windows Store-Apps finden Sie unter [Verwalten des Clientzugriffs auf den Windows Store](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh832040(v=ws.11)>).
 
-## <a name="step-6-optionally-set-up-roaming-user-profiles-on-computers"></a>Schritt 6: Richten Sie optional Roamingbenutzerprofile auf den Computern ein
+## <a name="step-6-optionally-set-up-roaming-user-profiles-on-computers"></a>Schritt 6: Richten Sie optional Roamingbenutzerprofile auf den Computern ein
 
 Wenn Sie Roamingbenutzerprofile für Computer bereitstellen, wie es in der Regel für Remotedesktopdienste oder virtualisierte Desktopbereitstellungen erfolgt, verwenden Sie das folgende Verfahren. Wenn Sie Roamingbenutzerprofile für Benutzerkonten bereitstellen, verwenden Sie stattdessen [das in Schritt 5: Richten Sie optional Roamingbenutzerprofile](#step-5-optionally-set-up-roaming-user-profiles-on-user-accounts)für Benutzerkonten ein.
 
@@ -219,7 +219,7 @@ So richten Sie Roamingbenutzerprofile auf Computern ein:
     Zum Angeben eines obligatorischen roamingbenutzerprofils, bei dem es sich um ein vorkonfiguriertes Profil handelt, für das Benutzer keine permanenten Änderungen vornehmen können (Änderungen werden zurückgesetzt, wenn sich der Benutzer abmeldet), geben Sie den Pfad zur Ntuser. man-Datei an, die Sie zuvor erstellt haben, z.b. `\\fs1.corp.contoso.com\User Profiles$\default` Weitere Informationen finden Sie unter [Erstellen eines verbindlichen Benutzerprofils](https://docs.microsoft.com/windows/client-management/mandatory-user-profile).
 8. Wählen Sie **OK**.
 
-## <a name="step-7-optionally-specify-a-start-layout-for-windows-10-pcs"></a>Schritt 7: Optional ein Start Layout für Windows 10-PCs angeben
+## <a name="step-7-optionally-specify-a-start-layout-for-windows-10-pcs"></a>Schritt 7: Optional ein Start Layout für Windows 10-PCs angeben
 
 Mit Gruppenrichtlinie können Sie ein bestimmtes Start Menü Layout anwenden, sodass Benutzer das gleiche Start Layout auf allen PCs sehen. Wenn sich Benutzer bei mehreren PCs anmelden und Sie ein konsistentes Start Layout auf PCs benötigen, stellen Sie sicher, dass das Gruppenrichtlinien Objekt auf alle PCs angewendet wird.
 
@@ -271,7 +271,7 @@ So aktivieren Sie das Gruppenrichtlinien Objekt für Roamingbenutzerprofile:
 1. Öffnen Sie die Gruppenrichtlinienverwaltung.
 2. Klicken Sie mit der rechten Maustaste auf das von Ihnen erstellte Gruppenrichtlinien Objekt, und wählen Sie **Link aktiviert**aus. Neben dem Menüelement wird ein Kontrollkästchen angezeigt.
 
-## <a name="step-9-test-roaming-user-profiles"></a>Schritt 9: Testen von Roamingbenutzerprofilen
+## <a name="step-9-test-roaming-user-profiles"></a>Schritt 9: Testen von Roamingbenutzerprofilen
 
 Melden Sie sich mit einem für Roamingbenutzerprofile konfigurierten Benutzerkonto an einem Computer an oder melden Sie sich an einem für Roamingbenutzerprofile konfigurierten Computer an, um die Roamingbenutzerprofile zu testen. Bestätigen Sie anschließend, dass das Profil umgeleitet wird.
 

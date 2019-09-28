@@ -1,8 +1,8 @@
 ---
-title: alias hinzufügen
-description: Windows-Befehle Thema **alias hinzufügen** -Aliase auf die Alias-Umgebung hinzugefügt.
+title: Alias hinzufügen
+description: 'Windows-Befehls Artikel zum **Hinzufügen von Alias** : fügt Aliase zur Alias Umgebung hinzu.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 50de932ea0153546816face61f0852a08707ea85
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f2834376e497f54eadf1d9077e74f9c398202c5a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862221"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382818"
 ---
-# <a name="add-alias"></a>alias hinzufügen
+# <a name="add-alias"></a>Alias hinzufügen
 
 
 
-Fügt die Aliase der Alias-Umgebung hinzu. Wenn Sie ohne Angabe von Parametern **alias hinzufügen** zeigt die Hilfe an der Eingabeaufforderung.
+Fügt Aliase zur Alias Umgebung hinzu. Bei Verwendung ohne Parameter zeigt **Add Alias** die Hilfe an der Eingabeaufforderung an.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -38,34 +38,34 @@ add alias <AliasName> <AliasValue>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<AliasName>|Gibt den Namen des Alias.|
-|\<AliasValue>|Gibt den Wert des Alias.|
+|\<aliasname >|Gibt den Namen des Alias an.|
+|\<aliasvalue >|Gibt den Wert des Alias an.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
--   Aliase werden in der Metadatendatei gespeichert und werden geladen, mit der **Laden von Metadaten** Befehl.
+-   Aliase werden in der Metadatendatei gespeichert und mit dem Befehl " **Metadaten laden** " geladen.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Geben Sie Folgendes ein, um ihre Aliase, einschließlich aller Schatten aufzulisten:
+Um alle Schatten, einschließlich der Aliase, aufzulisten, geben Sie Folgendes ein:
 ```
 list shadows all
 ```
-Der folgende Ausschnitt zeigt eine Schattenkopie, die Standardalias, VSS_SHADOW_x, zugewiesen wurde:
+Der folgende Auszug zeigt eine Schatten Kopie, der der Standardalias VSS_SHADOW_x zugewiesen wurde:
 ```
 * Shadow Copy ID = {ff47165a-1946-4a0c-b7f4-80f46a309278}
 %VSS_SHADOW_1%
 ```
-Um einen neuen Alias mit dem Namen 1 diese Schattenkopie zuzuweisen, geben Sie Folgendes ein:
+Wenn Sie dieser Schatten Kopie einen neuen Alias mit dem Namen system1 zuweisen möchten, geben Sie Folgendes ein:
 ```
 add alias System1 %VSS_SHADOW_1%
 ```
-Alternativ können Sie den Alias zuweisen, mit der Schattenkopie-ID:
+Alternativ können Sie den Alias mithilfe der Schattenkopiekennung zuweisen:
 ```
 add alias System1 {ff47165a-1946-4a0c-b7f4-80f46a309278}
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

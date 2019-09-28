@@ -1,95 +1,95 @@
 ---
-title: Abgeschirmte virtuelle Computer für Mandanten – erstellen einen vorlagendatenträger – optional
+title: 'Abgeschirmte VMs für Mandanten: Erstellen eines Vorlagen Datenträgers (optional)'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: c1992f8b-6f88-4dbc-b4a5-08368bba2787
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 2709c84a16dadc2211af4a6f5b43c13266ede155
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8e5080dd74506e86687dddb7be0fd35af92f5b56
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874631"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403439"
 ---
-# <a name="shielded-vms-for-tenants---creating-a-template-disk-optional"></a>Abgeschirmte virtuelle Computer für Mandanten – erstellen einen vorlagendatenträger (optional)
+# <a name="shielded-vms-for-tenants---creating-a-template-disk-optional"></a>Abgeschirmte VMs für Mandanten: Erstellen eines Vorlagen Datenträgers (optional)
 
->Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Um eine neue geschützte VM zu erstellen, müssen Sie einen speziell vorbereitete, signierte vorlagendatenträger zu verwenden. Metadaten über signierte vorlagendatenträgern wird sichergestellt, dass die Datenträger nicht geändert werden, nachdem sie erstellt wurden, und es Ihnen, wie ein Mandant zum Einschränken von welchen Datenträgern verwendet werden kann, um die abgeschirmten VMs zu erstellen. Eine Möglichkeit zum Bereitstellen dieser Datenträger ist für Sie, den Mandanten, er erstellt, wie in diesem Thema beschrieben. 
+Zum Erstellen einer neuen abgeschirmten VM müssen Sie einen speziell vorbereiteten, signierten Vorlagen Datenträger verwenden. Mithilfe von Metadaten von signierten Vorlagen Datenträgern können Sie sicherstellen, dass die Datenträger nicht geändert werden, nachdem Sie erstellt wurden, und Sie können als Mandant festlegen, welche Datenträger zum Erstellen Ihrer abgeschirmten VMS verwendet werden können. Eine Möglichkeit, diesen Datenträger bereitzustellen, besteht darin, den Mandanten zu erstellen, wie in diesem Thema beschrieben. 
 
 > [!IMPORTANT]
-> Falls gewünscht, können Sie stattdessen einen vorlagendatenträger, die von Ihrem hosting-Anbieter bereitgestellt. Wenn Sie dies tun, ist es wichtig, einen Test bereitzustellen, die virtuellen Computer mithilfe dieser vorlagedatenträgers, und führen Ihren eigenen Tools (Antivirus, Überprüfung auf Sicherheitsrisiken und So weiter) auf den Datenträger zu überprüfen, in der Tat in einem Zustand befindet, denen Sie vertrauen.
+> Wenn Sie möchten, können Sie stattdessen einen vom hostingdienstanbieter bereitgestellten Vorlagen Datenträger verwenden. Wenn Sie dies tun, ist es wichtig, einen virtuellen Testcomputer mit diesem Vorlagen Datenträger bereitzustellen und ihre eigenen Tools (Antivirus, Sicherheitsrisiko Scanner usw.) auszuführen, um zu überprüfen, ob der Datenträger tatsächlich in einem vertrauenswürdigen Zustand ist.
 
-## <a name="prepare-an-operating-system-vhdx"></a>Bereiten Sie ein VHDX-Betriebssystem vor.
+## <a name="prepare-an-operating-system-vhdx"></a>Vorbereiten einer vhdx-Betriebssystem Datei
 
-Um eine abgeschirmte vorlagedatenträger zu erstellen, müssen Sie zuerst einen Betriebssystem-Datenträger vorbereiten, der über den vorlagendatenträger-Assistenten ausgeführt werden. Dieser Datenträger wird als Betriebssystem-Datenträger in abgeschirmte VMs verwendet werden. Sie können alle vorhandenen Tools verwenden, erstellen diesen Datenträger, z. B. Microsoft Desktop Image Service Manager (DISM) oder manuell Einrichten eines virtuellen Computers mit einem leeren VHDX und installieren Sie das Betriebssystem auf diesem Datenträger. Bei der Einrichtung des Datenträgers müssen sie die folgenden Anforderungen erfüllen, die auf Generation 2 gelten bzw. abgeschirmte VMs: 
+Um einen geschützten Vorlagen Datenträger zu erstellen, müssen Sie zunächst einen Betriebssystem Datenträger vorbereiten, der über den Vorlagen-Assistenten für Datenträger ausgeführt wird. Dieser Datenträger wird als Betriebssystem Datenträger auf abgeschirmten VMS verwendet. Zum Erstellen dieses Datenträgers können Sie beliebige vorhandene Tools verwenden, z. b. Microsoft Desktop Image Service Manager (Mage), oder Sie können manuell einen virtuellen Computer mit einer leeren vhdx einrichten und das Betriebssystem auf diesem Datenträger installieren. Beim Einrichten des Datenträgers müssen die folgenden Anforderungen erfüllt werden, die für die Generation 2 und/oder abgeschirmte VMS spezifisch sind: 
 
-| Anforderung für VHDX | Grund |
+| Anforderung für vhdx | Grund |
 |-----------|----|
-|Ein GUID-Partitionstabelle (GPT) Datenträger muss sein werden. | Erforderlich für virtuelle Maschinen der Generation 2 um UEFI zu unterstützen|
-|Datenträgertyp muss **grundlegende** im Gegensatz zu **dynamische**. <br>Hinweis: Dies bezieht sich auf den Typ der logischer Datenträger, nicht die "dynamisch erweiterbar" VHDX-Feature von Hyper-V unterstützt. | BitLocker bietet keine Unterstützung für dynamische Datenträger.|
-|Der Datenträger verfügt über mindestens zwei Partitionen. Eine Partition muss das Laufwerk enthalten, auf dem Windows installiert ist. Dies ist das Laufwerk, das BitLocker verschlüsselt wird. Die andere Partition ist die aktive Partition, die enthält den Bootloader und bleibt unverschlüsselt, sodass der Computer gestartet werden kann.|Erforderlich für BitLocker|
-|Dateisystem ist NTFS | Erforderlich für BitLocker|
-|Das Betriebssystem installiert wird, auf die VHDX ist eine der folgenden:<br>– Windows Server 2019, WindowsServer 2016, Windows Server 2012 R2 oder WindowsServer 2012 <br>- Windows 10, Windows 8.1, Windows 8| Erforderlich, um virtuelle Maschinen der Generation 2 und der sichere Start von Microsoft-Vorlage zu unterstützen|
-|Betriebssystem muss generalisierten (Ausführung sysprep.exe) sein. | Für die Bereitstellung von Vorlage umfasst spezialisiert sich auf virtuelle Computer für einen bestimmten Mandanten arbeitsauslastung| 
+|Muss ein GPT-Datenträger (GUID-Partitionstabelle) sein. | Erforderlich für virtuelle Computer der Generation 2 zur Unterstützung von UEFI|
+|Der Datenträgertyp muss Standard und nicht **dynamisch** **sein.** <br>Hinweis: Dies bezieht sich auf den Typ des logischen Datenträgers, nicht auf das von Hyper-V unterstützte "dynamisch erweiterbare" vhdx-Feature. | BitLocker unterstützt keine dynamischen Datenträger.|
+|Der Datenträger verfügt über mindestens zwei Partitionen. Eine Partition muss das Laufwerk enthalten, auf dem Windows installiert ist. Dies ist das Laufwerk, das von BitLocker verschlüsselt wird. Die andere Partition ist die aktive Partition, die den Bootloader enthält und unverschlüsselt bleibt, damit der Computer gestartet werden kann.|Für BitLocker erforderlich|
+|Dateisystem ist NTFS | Für BitLocker erforderlich|
+|Das auf der vhdx installierte Betriebssystem ist einer der folgenden:<br>-Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 <br>-Windows 10, Windows 8.1, Windows 8| Erforderlich zur Unterstützung virtueller Maschinen der Generation 2 und der Microsoft-Vorlage für den sicheren Start|
+|Das Betriebssystem muss generalisiert sein (führen Sie "syspree. exe" aus). | Die Vorlagen Bereitstellung umfasst spezialisierte VMs für die Arbeitsauslastung eines bestimmten Mandanten.| 
 
 > [!NOTE]
-> Kopieren Sie den vorlagendatenträger nicht in der VMM-Bibliothek in dieser Phase. 
+> Kopieren Sie den Vorlagen Datenträger in dieser Phase nicht in die VMM-Bibliothek. 
 
-### <a name="required-packages-to-create-a-nano-server-template-disk"></a>Erforderlichen Pakete zum Erstellen eines vorlagedatenträgers Nano Server
+### <a name="required-packages-to-create-a-nano-server-template-disk"></a>Erforderliche Pakete zum Erstellen eines Nano Server-Vorlagen Datenträgers
 
-Wenn Sie Nano Server als Ihr Gastbetriebssystem in abgeschirmte VMs ausführen möchten, müssen Sie sicherstellen, dass Ihre Nano Server-Image die folgenden Pakete enthält:
+Wenn Sie beabsichtigen, Nano Server als Gast Betriebssystem auf abgeschirmten VMS auszuführen, müssen Sie sicherstellen, dass Ihr Nano Server-Image die folgenden Pakete enthält:
 
 - Microsoft-NanoServer-Guest-Package
 - Microsoft-NanoServer-SecureStartup-Package
 
-## <a name="run-windows-update-on-the-template-operating-system"></a>Führen Sie Windows Update auf dem Betriebssystem der Vorlage
+## <a name="run-windows-update-on-the-template-operating-system"></a>Ausführen von Windows Update auf dem Vorlagen Betriebssystem
 
-Auf dem vorlagendatenträger stellen Sie sicher, dass das Betriebssystem alle die aktuellsten Windows Updates installiert ist. Vor kurzem veröffentlichten Updates verbessern die Zuverlässigkeit des geschützten Prozesses End-to-End - ein Prozess, der auf abgeschlossen, wenn das Betriebssystem der Vorlage möglicherweise nicht auf dem neuesten Stand.
+Vergewissern Sie sich auf dem Vorlagen Datenträger, dass alle aktuellen Windows-Updates auf dem Betriebssystem installiert sind. Kürzlich veröffentlichte Updates verbessern die Zuverlässigkeit des End-to-End-Schutz Vorgangs. Dies ist ein Prozess, der möglicherweise nicht abgeschlossen wird, wenn das Vorlagen Betriebssystem nicht auf dem neuesten Stand ist.
 
-## <a name="sign-and-protect-the-vhdx-with-the-template-disk-wizard"></a>Signieren Sie und schützen Sie die VHDX mit den vorlagendatenträger-Assistenten
+## <a name="sign-and-protect-the-vhdx-with-the-template-disk-wizard"></a>Signieren und schützen der vhdx mit dem Vorlagen Datenträger-Assistenten
 
-Um einen vorlagendatenträger mit abgeschirmten virtuellen Computern zu verwenden, muss der Datenträger registriert und mit BitLocker verschlüsselt werden. Zu diesem Zweck verwenden Sie den geschützten Vorlagendatenträger erstellen-Assistenten. Dieser Assistent generiert einen Hashwert für den Datenträger und ein Volume-signaturkatalogs (VSC) hinzugefügt. Dem VSC bzw. ist mit einem Zertifikat signiert Sie angeben, und werden während der Bereitstellung verwendet, um sicherzustellen, dass der Datenträger für einen Mandanten bereitgestellt wird nicht geändert oder ersetzt, die mit einem Datenträger, die, den der Mandanten nicht vertraut. Schließlich wird BitLocker auf dem Datenträger-Betriebssystem installiert (sofern sie nicht bereits vorhanden ist) zum Vorbereiten des Datenträgers für die Verschlüsselung während der Bereitstellung des virtuellen Computers.
+Um einen Vorlagen Datenträger mit abgeschirmten VMS zu verwenden, muss der Datenträger signiert und mit BitLocker verschlüsselt werden. Zu diesem Zweck verwenden Sie den Assistenten zum Erstellen einer abgeschirmten Vorlage. Dieser Assistent generiert einen Hash für den Datenträger und fügt ihn einem volumesignaturkatalog (VSC) hinzu. Der VSC wird mit einem von Ihnen angegebenen Zertifikat signiert und während des Bereitstellungs Prozesses verwendet, um sicherzustellen, dass der Datenträger, der für einen Mandanten bereitgestellt wird, nicht geändert oder durch einen Datenträger ersetzt wurde, dem der Mandant nicht vertraut. Schließlich wird BitLocker auf dem Betriebssystem des Datenträgers installiert (sofern es noch nicht vorhanden ist), um den Datenträger für die Verschlüsselung während der VM-Bereitstellung vorzubereiten.
 
 > [!NOTE]
-> Der vorlagendatenträger-Assistenten ändern Sie den vorlagendatenträger, die Sie für ein direktes angeben. Möglicherweise möchten eine Kopie des ungeschützten VHDX vor dem Ausführen des Assistenten zum vornehmen von Aktualisierungen auf den Datenträger zu einem späteren Zeitpunkt zu erstellen. Es werden nicht möglich, einen Datenträger zu ändern, der mit den vorlagendatenträger-Assistenten geschützt wurde.
+> Der Vorlagen Datenträger-Assistent ändert den Vorlagen Datenträger, den Sie direkt angeben. Sie sollten eine Kopie der ungeschützten vhdx-Datei erstellen, bevor Sie den Assistenten ausführen, um die Datenträger zu einem späteren Zeitpunkt zu aktualisieren. Sie können einen Datenträger, der mit dem Vorlagen Datenträger-Assistenten geschützt wurde, nicht ändern.
 
-Führen Sie die folgenden Schritte aus, auf einem Computer unter Windows Server 2016 (muss nicht auf einem bewachten Host oder dem VMM-Server sein):
+Führen Sie die folgenden Schritte auf einem Computer aus, auf dem Windows Server 2016 ausgeführt wird (es muss sich nicht um einen überwachten Host oder VMM-Server handeln):
 
-1. Kopieren Sie im erstellten generalisierte VHDX [vorbereiten ein Betriebssystems VHDX](#prepare-an-operating-system-vhdx) auf dem Server, wenn sie nicht bereits vorhanden ist.
+1. Kopieren Sie die in [Vorbereiten einer Betriebssystem-vhdx](#prepare-an-operating-system-vhdx) erstellte generalisierte vhdx auf den Server, sofern diese nicht bereits vorhanden ist.
 
-2. Installieren Sie die **Tools für geschützte VMs** Funktion **Remoteserver-Verwaltungstools** auf dem Computer.
+2. Installieren Sie das Feature der **abgeschirmten VM-Tools** aus **Remoteserver-Verwaltungstools** auf dem Computer.
 
         Install-WindowsFeature RSAT-Shielded-VM-Tools -Restart
 
-3. Abrufen Sie oder erstellen Sie ein Zertifikat zum Signieren der VHDX, der den vorlagendatenträger für neue abgeschirmte VMs werden soll. Details zu diesem Zertifikat werden in eine geschützte Datendatei integriert werden, die die Datenträger als Datenträger an vertrauenswürdigen autorisiert. Aus diesem Grund ist es wichtig, um dieses Zertifikat von einer Zertifizierungsstelle zu erhalten, die Sie und Ihr hosting--Vertrauensstellung Dienst. In Enterprise-Szenarien, in denen Sie sowohl Hoster als auch Mandant sind, sollten Sie dieses Zertifikat von Ihrer PKI ausgegeben.
+3. Abrufen oder Erstellen eines Zertifikats zum Signieren der vhdx-Datei, die als Vorlagen Datenträger für neue abgeschirmte VMS verwendet wird. Details zu diesem Zertifikat werden in eine geschützte Datendatei eingebunden, die den Datenträger als vertrauenswürdigen Datenträger autorisiert. Daher ist es wichtig, dass Sie dieses Zertifikat von einer Zertifizierungsstelle abrufen, der Sie und Ihrem hostingdienstanbieter Vertrauen. In Unternehmens Szenarios, in denen Sie sowohl der Host als auch der Mandant sind, sollten Sie das Zertifikat aus Ihrer PKI ausgeben.
 
-    Wenn Sie zum Einrichten einer testumgebung und nur ein selbst signiertes Zertifikat zum Signieren Ihrer vorlagendatenträger verwenden möchten, führen Sie einen Befehl ähnlich dem folgenden auf Ihrem Computer:
+    Wenn Sie eine Testumgebung einrichten und nur ein selbst signiertes Zertifikat verwenden möchten, um den Vorlagen Datenträger zu signieren, führen Sie einen Befehl aus, der dem folgenden auf dem Computer ähnelt:
 
         New-SelfSignedCertificate -DnsName publisher.fabrikam.com
 
-4. Starten Sie den **Vorlagendatenträger-Assistenten** aus der **Verwaltung** Ordner im Startmenü oder durch Eingabe **TemplateDiskWizard.exe** an einer Eingabeaufforderung.
+4. Starten Sie den Vorlagen Datenträger- **Assistenten** im Ordner " **Verwaltung** " im Startmenü, oder geben Sie " **templatediskwizard. exe** " an einer Eingabeaufforderung ein.
 
-5. Auf der **Zertifikat** auf **Durchsuchen** um eine Liste der Zertifikate anzuzeigen. Wählen Sie das Zertifikat mit dem die datenträgervorlage signieren. Klicken Sie auf **OK** und dann auf **Weiter**.
+5. Klicken Sie auf der Seite **Zertifikat** auf **Durchsuchen** , um eine Liste mit Zertifikaten anzuzeigen. Wählen Sie das Zertifikat aus, mit dem die Datenträger Vorlage signiert werden soll. Klicken Sie auf **OK** und dann auf **Weiter**.
 
-6. Klicken Sie auf der Seite virtuelle Datenträger auf **Durchsuchen** um VHDX auszuwählen, den Sie vorbereitet haben, klicken Sie dann auf **Weiter**.
+6. Klicken Sie auf der Seite virtueller Datenträger auf **Durchsuchen** , um das vhdx auszuwählen, das Sie vorbereitet haben, und klicken Sie dann auf **weiter**.
 
-7. Geben Sie auf der Seite Signaturkatalog einen aussagekräftigen **Datenträgernamen** und **Version.** Diese Felder sind vorhanden, können Sie den Datenträger zu identifizieren, sobald sie signiert wurde.
+7. Geben Sie auf der Seite Signatur Katalog einen anzeigen **Amen** und eine **Version** des Datenträgers an. Diese Felder sind vorhanden, damit Sie den Datenträger nach der Signierung identifizieren können.
 
-    Beispielsweise **Datenträgernamen** Geben Sie _WS2016_ und **Version**, _1.0.0.0_
+    Beispielsweise können Sie für den Datenträger Namen _WS2016_ und für **Version**, _1.0.0.0_ eingeben.
 
-8. Überprüfen Sie Ihre Auswahl auf der Seite überprüfen Sie die Einstellungen des Assistenten aus. Beim Klicken auf **generieren**, der Assistent Aktivieren von BitLocker auf dem vorlagendatenträger, berechnen Sie den Hashwert des Datenträgers, und erstellen Sie die Volume-Signaturkatalogs, die in den VHDX-Metadaten gespeichert ist.
+8. Überprüfen Sie Ihre Auswahl auf der Seite Einstellungen überprüfen des Assistenten. Wenn Sie auf **generieren**klicken, aktiviert der Assistent BitLocker auf dem Vorlagen Datenträger, berechnet den Hash des Datenträgers und erstellt den volumensignaturkatalog, der in den vhdx-Metadaten gespeichert ist.
 
-    Warten Sie, bis der Prozess der signaturvergabe abgeschlossen ist, bevor Sie versuchen, bereitstellen, oder verschieben den vorlagendatenträger. Dieser Vorgang kann etwas Zeit in Anspruch, je nach Größe des Datenträgers dauern. 
+    Warten Sie, bis der Signatur Vorgang abgeschlossen ist, bevor Sie versuchen, den Vorlagen Datenträger zu starten Der Vorgang kann je nach Größe des Datenträgers einige Zeit in Anspruch nehmen. 
 
-9. Auf der **Zusammenfassung** Seite Informationen über datenträgervorlage, das Zertifikat zum Signieren der Vorlage verwendet, und den Aussteller des Zertifikats angezeigt wird. Klicken Sie auf **Schließen**, um den Assistenten zu beenden.
+9. Auf der Seite **Zusammenfassung** werden Informationen zur Datenträger Vorlage, zum Zertifikat, das zum Signieren der Vorlage verwendet wird, und zum Aussteller des Zertifikats angezeigt. Klicken Sie auf **Schließen**, um den Assistenten zu beenden.
 
 
-Die datenträgervorlage geschützten auf der hosting-Anbieter sowie eine geschützte Datendatei, die Sie erstellen, bereitstellen, wie in beschrieben [erstellen, die geschützten Daten, die zum Definieren einer abgeschirmten VM](guarded-fabric-tenant-creates-shielding-data.md).
+Geben Sie dem hostingdienstanbieter die Vorlage für abgeschirmte Datenträger sowie eine geschützte Datendatei an, die Sie erstellen, wie unter [Erstellen von Schutz Daten zum Definieren einer abgeschirmten VM](guarded-fabric-tenant-creates-shielding-data.md)beschrieben.
 
 ## <a name="see-also"></a>Siehe auch
 

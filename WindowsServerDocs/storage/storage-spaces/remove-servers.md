@@ -1,7 +1,7 @@
 ---
 title: Entfernen von Servern in Direkte Speicherplätze
 ms.assetid: 9d8499a7-1307-473d-9f00-8a051164fad2
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: cosdar
 ms.manager: eldenc
 ms.technology: storage-spaces
@@ -10,12 +10,12 @@ author: cosmosdarwin
 description: Wie entferne ich Server aus einem Direkte Speicherplätze-Cluster in Windows Server.
 ms.date: 2/5/2017
 ms.localizationpriority: medium
-ms.openlocfilehash: 9fcb67b3c5fbcff0ca2a48ee9a1d2e109af3e9a8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ce8caef2b51279c97cc012045750b7a73d97a4ba
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890781"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402809"
 ---
 # <a name="removing-servers-in-storage-spaces-direct"></a>Entfernen von Servern in Direkte Speicherplätze
 
@@ -58,7 +58,7 @@ Zum dauerhaften horizontalen Herunterskalieren (Entfernen eines Servers *und* de
 
 #### <a name="enough-capacity"></a>Ausreichend Kapazität
 
-Zunächst benötigen Sie ausreichend Speicherkapazität, in den verbleibenden Servern aus, um alle Ihre Volumes zu berücksichtigen.
+Zunächst müssen Sie über ausreichend Speicherkapazität für die verbleibenden Server verfügen, um alle Volumes aufnehmen zu können.
 
 Wenn Sie beispielsweise vier Server mit jeweils zehn 1-TB-Laufwerken besitzen, haben Sie insgesamt 40 TB physische Speicherkapazität. Nach dem Entfernen eines Servers und aller seiner Laufwerke sind 30 TB Kapazität übrig. Wenn der Speicherbedarf Ihrer Volumes zusammen mehr als 30 TB beträgt, passen sie nicht auf die verbleibenden Server, daher gibt das Cmdlet einen Fehler zurück, und es werden keine Daten verschoben.
 
@@ -81,4 +81,4 @@ In der folgenden Tabelle wird die Mindestanzahl der Fehlerdomänen gezeigt, die 
 
 ## <a name="see-also"></a>Siehe auch
 
-- [Übersicht über Storage "direkte Speicherplätze"](storage-spaces-direct-overview.md)
+- [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)

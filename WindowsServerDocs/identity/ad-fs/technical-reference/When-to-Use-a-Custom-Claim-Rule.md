@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 1a3f3e711d8e8443eb80109245eef42c668353d9
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 61c129ab8472d7e85602fa0a0244c4a925050d93
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869291"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407304"
 ---
 # <a name="when-to-use-a-custom-claim-rule"></a>Wann sollte eine benutzerdefinierte Anspruchsregel verwendet werden?
 Sie schreiben eine benutzerdefinierte Anspruchs Regel in \(Active Directory-Verbunddienste (AD FS)\) AD FS mithilfe der Anspruchs Regel Sprache. dabei handelt es sich um das Framework, das von der Anspruchs Ausstellungs-Engine zum programmgesteuerten generieren, transformieren, weiterleiten und Filtern verwendet wird. Claims. Mithilfe einer benutzerdefinierten Regel können Sie Regeln mit komplexerer Logik als bei einer Standardvorlage erstellen. Erwägen Sie eine benutzerdefinierte Regel, wenn Sie Folgendes vorhaben:  

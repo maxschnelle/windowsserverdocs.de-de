@@ -1,8 +1,8 @@
 ---
 title: FTP-verbose_1
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 062a6399aa3fc8de5bc759b821c1b66de9c70ae9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 93088b29d174cfbe13f243b6fe4422d37419da39
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882071"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375827"
 ---
-# <a name="ftp-verbose1"></a>FTP: verbose_1
+# <a name="ftp-verbose_1"></a>FTP: verbose_1
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Schaltet **ausführliche** Modus.   
+**Schaltet den ausführlichen Modus um** .   
 ## <a name="syntax"></a>Syntax  
 ```  
 verbose  
@@ -32,11 +32,11 @@ verbose
 ### <a name="parameters"></a>Parameter  
 none  
 ## <a name="remarks"></a>Hinweise  
-In der Standardeinstellung **ausführliche** ist.  Wenn **ausführliche** aktiviert ist, alle **ftp** Antworten angezeigt werden.  Wenn die Dateiübertragung abgeschlossen ist, werden die Statistiken in Bezug auf die Effizienz der Übertragung ebenfalls angezeigt.  
-## <a name="BKMK_Examples"></a>Beispiele für  
-Umschalten **ausführliche** Modus ein- und ausschalten.  
+Standardmäßig ist " **ausführliche** " on.  Wenn **ausführlich** auf on (ausführlich) angezeigt wird, werden alle **FTP** -Antworten angezeigt.  Wenn eine Dateiübertragung abgeschlossen ist, werden auch Statistiken zur Effizienz der Übertragung angezeigt.  
+## <a name="BKMK_Examples"></a>Beispiele  
+**Schalten Sie den ausführlichen Modus ein** und aus.  
 ```  
 verbose  
 ```  
-## <a name="additional-references"></a>Zusätzliche Referenzen  
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
+## <a name="additional-references"></a>Weitere Verweise  
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

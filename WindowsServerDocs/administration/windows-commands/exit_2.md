@@ -1,8 +1,8 @@
 ---
 title: exit
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4e599f84389b23e527e3718a620d5fdfefe24edb
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 105bf572c1ebeb37ea59ff8bc5c04121d2442341
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439461"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377350"
 ---
 # <a name="exit"></a>exit
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Beenden das Cmd.exe-Programm (den Befehlsinterpreter) oder das aktuelle Batchskript.  
-Beispiele für diesen Befehl verwenden, finden Sie unter [Beispiele](#BKMK_examples).  
+beendet das Programm "cmd. exe" (der Befehls Interpreter) oder das aktuelle Batch Skript.  
+Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).  
 ## <a name="syntax"></a>Syntax  
 ```  
 exit [/b] [<exitCode>]  
@@ -34,15 +34,15 @@ exit [/b] [<exitCode>]
 
 | Parameter  |                                                                                         Beschreibung                                                                                          |
 |------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     /b     |                                      beendet das aktuelle Batchskript anstelle von Cmd.exe beendet wird. Wenn Sie von außerhalb einer Batchdatei ausgeführt wird, wird die Cmd.exe beendet.                                      |
-| <exitCode> | Gibt einen numerischen Wert an. Wenn **/b** angegeben wird, um die Anzahl der Umgebungsvariablen ERRORLEVEL festgelegt ist. Wenn Sie beenden werden **Cmd.exe**, Exitcode des Prozesses mit dieser Zahl festgelegt ist. |
+|     /b     |                                      beendet das aktuelle Batch Skript, anstatt "cmd. exe" zu beenden. Wenn die Ausführung von außerhalb eines Batch Skripts erfolgt, wird "cmd. exe" beendet.                                      |
+| <exitCode> | Gibt eine numerische Zahl an. Wenn **/b** angegeben wird, wird die ERRORLEVEL-Umgebungsvariable auf diese Zahl festgelegt. Wenn Sie " **cmd. exe**" beenden, wird der Prozessexitcode auf diese Zahl festgelegt. |
 |     /?     |                                                                             Zeigt die Hilfe an der Eingabeaufforderung an.                                                                             |
 
-## <a name="BKMK_examples"></a>Beispiele für  
-Geben Sie Folgendes ein, um den Befehlsinterpreter, Cmd.exe zu schließen:  
+## <a name="BKMK_examples"></a>Beispiele  
+Zum Schließen des Befehls Interpreters, cmd. exe, geben Sie Folgendes ein:  
 ```  
 exit  
 ```  
-## <a name="additional-references"></a>Zusätzliche Referenzen  
+## <a name="additional-references"></a>Weitere Verweise  
 -   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
 

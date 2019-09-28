@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin getcustomheaders
-description: Windows-Befehle Thema **Bitsadmin Getcustomheaders** -Ruft die benutzerdefinierte HTTP-Header aus dem Auftrag ab.
+title: biout admin getcustomheaders
+description: 'Thema für Windows-Befehle für **bigsadmin getcustomheaders** : Ruft die benutzerdefinierten HTTP-Header aus dem Auftrag ab.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2f5959541f0e3190e26bbb298a9cd7c63ab32cae
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 039669fca42803ff22eb4e3d13dfdef5f0a06f93
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812091"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381660"
 ---
-# <a name="bitsadmin-getcustomheaders"></a>Bitsadmin getcustomheaders
+# <a name="bitsadmin-getcustomheaders"></a>biout admin getcustomheaders
 
 
 
-Ruft die benutzerdefinierte HTTP-Header aus dem Auftrag ab.
+Ruft die benutzerdefinierten HTTP-Header aus dem Auftrag ab.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,15 +36,15 @@ bitsadmin /GetCustomHeaders <Job>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Im folgenden Beispiel wird die benutzerdefinierten Header für den Auftrag mit dem Namen *MyDownloadJob*.
+Im folgenden Beispiel werden die benutzerdefinierten Header für den Auftrag mit dem Namen " *mydownloadjob*" abgerufen.
 ```
 C:\>bitsadmin /GetCustomHeaders myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
