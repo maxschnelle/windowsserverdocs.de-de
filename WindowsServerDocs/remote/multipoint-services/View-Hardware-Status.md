@@ -1,8 +1,8 @@
 ---
 title: Anzeigen des Hardwarestatus
-description: Informationen Sie zum Anzeigen von Informationen zur Hardware in MultiPoint Services
+description: Erfahren Sie, wie Sie Hardwareinformationen in Multipoint Services anzeigen.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,24 +13,24 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 5ec1e32cf39738f3dbf008763031060f19500a38
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bfaa9166012dd349124c70a54546c288895d7897
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871791"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389175"
 ---
 # <a name="view-hardware-status"></a>Anzeigen des Hardwarestatus
-Im MultiPoint-Manager verwenden die **Stationen** Registerkarte anzuzeigende *Station* Informationen wie z. B.:  
+Verwenden Sie im Multipoint-Manager die Registerkarte **Stationen** , um *Stations* Informationen anzuzeigen, wie z. b.:  
   
 -   Stationsname  
--   Erforderliche Hardware, um die Funktionsfähigkeit einer Station (in der Regel sind Hardware einen Videomonitor, *stationshub*, eine Tastatur und Maus) 
+-   Erforderliche Hardware, damit jede Station verwendbar ist (in der Regel enthält die Hardware einen Videomonitor, einen *Stations-Hub*, eine Tastatur und eine Maus) 
 -   Zusätzliche, einer Station zugeordnete Hardwareperipheriegeräte  
 -   Benachrichtigungen über fehlende oder nicht funktionierende erforderliche Hardware an einer Station werden in der entsprechenden Spalte angezeigt  
 -   Namen von aktuell mit dem MultiPoint Services-System verbundenen Benutzern  
   
 > [!TIP]  
-> Wenn die Stationen in Ihrem MultiPoint Services-System physisch in einer Weise angeordnet sind, die beibehalten werden (z. B. einem runden Tisch soll), es hilfreich sein, die Stationsname oder Zahl Bezeichnungen, z. B. Stationsnamen oder der stationsnummer, um zu identifizieren, dass das Video entsprechen möglicherweise Monitortyp oder Hubs jeder Station. Auf diese Weise können Sie und andere Benutzer der Stationen anhand der eindeutigen Identifizierungsnamen oder -nummern einfacher auf Stationen verweisen und diese unterscheiden.  
+> Wenn die Stationen in Ihrem Multipoint Services-System physisch auf eine Art und Weise angeordnet sind, die Sie beibehalten möchten (z. b. um eine zirkuläre Tabelle), ist es möglicherweise hilfreich, Stationsnamen oder Zahlen Bezeichnungen wie Aufkleber oder Karten zu befolgen, um das Video leichter zu identifizieren. überwachen oder Überwachen der einzelnen Stationen. Auf diese Weise können Sie und andere Benutzer der Stationen anhand der eindeutigen Identifizierungsnamen oder -nummern einfacher auf Stationen verweisen und diese unterscheiden.  
   
 > [!NOTE]  
 > Wenn sich das System im Konsolenmodus befindet, ist die Registerkarte **Stationen** nicht verfügbar.  

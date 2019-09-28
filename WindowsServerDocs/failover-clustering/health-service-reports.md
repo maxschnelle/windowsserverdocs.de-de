@@ -1,6 +1,6 @@
 ---
-title: Integritätsdienst-Berichte
-ms.prod: windows-server-threshold
+title: Integritätsdienst Berichte
+ms.prod: windows-server
 manager: eldenc
 ms.author: cosdar
 ms.technology: storage-health-service
@@ -8,35 +8,35 @@ ms.topic: article
 ms.assetid: ''
 author: cosmosdarwin
 ms.date: 10/05/2017
-ms.openlocfilehash: e018c0270a0bf410dada9c05d2c25e51fdfac1d8
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: e65db8834bd0b059dc7bbebbcaf9288fb46da225
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280153"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369678"
 ---
-# <a name="health-service-reports"></a>Integritätsdienst-Berichte
+# <a name="health-service-reports"></a>Integritätsdienst Berichte
 > Gilt für: Windows Server 2019, Windows Server 2016
 
-## <a name="what-are-reports"></a>Was sind Berichte  
+## <a name="what-are-reports"></a>Was sind Berichte?  
 
-Der Integritätsdienst verringert den Arbeitsaufwand beim aktueller Leistungs- und Kapazitätsinformationen aus Ihrem "direkte Speicherplätze"-Cluster zu erhalten. Ein neues Cmdlet bietet es sich um eine geordnete Liste wichtiger Metriken, die effizient gesammelt und aggregiert dynamisch für einen Knoten, die mithilfe integrierter Logik zum Erkennen der Clustermitgliedschaft. Alle Werte sind in Echtzeit und ausschließlich zeitpunktbezogen.  
+Der-Integritätsdienst reduziert den Aufwand, der erforderlich ist, um Informationen über die Leistung und die Kapazität Ihres direkte Speicherplätze Clusters zu erhalten. Ein neues Cmdlet bietet eine Liste mit wichtigen Metriken, die effizient gesammelt und dynamisch über Knoten aggregiert werden, mit integrierter Logik zum Erkennen der Cluster Mitgliedschaft. Alle Werte sind in Echtzeit und ausschließlich zeitpunktbezogen.  
 
 ## <a name="usage-in-powershell"></a>Verwendung in PowerShell
 
-Verwenden Sie dieses Cmdlet aus, um Metriken für den gesamten "direkte Speicherplätze"-Cluster zu erhalten:
+Verwenden Sie dieses Cmdlet, um Metriken für den gesamten direkte Speicherplätze Cluster zu erhalten:
 
 ```PowerShell
 Get-StorageSubSystem Cluster* | Get-StorageHealthReport
 ```
 
-Der optionale **Anzahl** Parameter gibt an, wie viele Gruppen mit Werten in einem-Sekunden-Intervallen zurückgegeben.  
+Der optionale **count** -Parameter gibt an, wie viele Sätze von Werten in Intervallen von einer Sekunde zurückgegeben werden.  
 
 ```PowerShell
 Get-StorageSubSystem Cluster* | Get-StorageHealthReport -Count <Count>  
 ```
 
-Sie können auch Metriken für ein bestimmtes Volume oder Server abrufen:  
+Sie können auch Metriken für ein bestimmtes Volume oder einen bestimmten Server erhalten:  
 
 ```PowerShell
 Get-Volume -FileSystemLabel <Label> | Get-StorageHealthReport -Count <Count>  
@@ -44,11 +44,11 @@ Get-Volume -FileSystemLabel <Label> | Get-StorageHealthReport -Count <Count>
 Get-StorageNode -Name <Name> | Get-StorageHealthReport -Count <Count>
 ```
 
-## <a name="usage-in-net-and-c"></a>Nutzung in .NET undC#
+## <a name="usage-in-net-and-c"></a>Verwendung in .net undC#
 
 ### <a name="connect"></a>Verbinden
 
-Um den Health-Dienst abzufragen, müssen Sie zum Herstellen einer **CimSession** mit dem Cluster. Zu diesem Zweck Sie einige Aufgaben benötigen, die nur im vollständigen .NET verfügbar sind, das heißt, Sie sofort diese direkt aus einer Web- oder mobilen app nicht möglich. Diese Codebeispiele verwenden C\#am einfachsten Wahl für diese Data Access-Ebene.
+Um den Integritätsdienst abzufragen, müssen Sie eine **cimsession** mit dem Cluster einrichten. Zu diesem Zweck benötigen Sie einige Dinge, die nur in der Vollversion von .net verfügbar sind, was bedeutet, dass Sie dies nicht direkt über ein Web oder Mobile App durchführen können. Diese Codebeispiele verwenden C @ no__t-0, die einfachste Wahl für diese Datenzugriffs Schicht.
 
 ``` 
 ...
@@ -72,15 +72,15 @@ public CimSession Connect(string Domain = "...", string Computer = "...", string
 }
 ```
 
-Der angegebene Benutzername sollte ein lokaler Administrator des Ziels Computer.
+Der angegebene Benutzername muss ein lokaler Administrator des Bereitstellungs Ziel Computers sein.
 
-Es wird empfohlen, dass Sie das Kennwort erstellen, **SecureString** direkt aus der Benutzereingabe in Echtzeit, also ihr Kennwort nie im Arbeitsspeicher gespeichert in Klartext. Dadurch wird eine Vielzahl von Sicherheitsrisiken zu verringern. Aber in der Praxis ist es wie oben beschrieben zu erstellen ist üblich für Zwecke der Erstellung von Prototypen.
+Es wird empfohlen, dass Sie das Kennwort **SecureString** direkt aus Benutzereingaben in Echtzeit erstellen, damit Ihr Kennwort niemals im Klartext in Klartext gespeichert wird. Dies trägt dazu bei, eine Vielzahl von Sicherheitsrisiken zu verringern. In der Praxis ist es jedoch üblich, diese wie oben beschrieben zu erstellen.
 
-### <a name="discover-objects"></a>Ermitteln von Objekten
+### <a name="discover-objects"></a>Objekte ermitteln
 
-Mit der **CimSession** eingerichtet, können Sie Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI) auf dem Cluster Abfragen.
+Nachdem die **cimsession** eingerichtet wurde, können Sie Windows-Verwaltungsinstrumentation (WMI) im Cluster Abfragen.
 
-Bevor Sie einen Fehler oder Metriken abrufen können, müssen Sie Instanzen von mehreren relevanten Objekte abzurufen. Zunächst wird die **MSFT\_StorageSubSystem** auf dem Cluster "direkte Speicherplätze" darstellt. Verwenden, die, erhalten Sie alle **MSFT\_StorageNode** im Cluster und jede **MSFT\_Volume**, Datenvolumes. Abschließend müssen Sie die **MSFT\_StorageHealth**, den Health-Dienst, zu.
+Bevor Sie Fehler oder Metriken erhalten können, müssen Sie Instanzen von mehreren relevanten Objekten erhalten. Zuerst das **MSFT @ no__t-1storagesubsystem** , das direkte Speicherplätze im Cluster darstellt. Dabei können Sie alle **MSFT @ no__t-1storagenode** im Cluster und alle **MSFT @ no__t-3volume**-Datenmengen erhalten. Schließlich benötigen Sie auch **MSFT @ no__t-1storagehealth**, den Integritätsdienst selbst.
 
 ```
 CimInstance Cluster;
@@ -108,9 +108,9 @@ public void DiscoverObjects(CimSession Session)
 }
 ```
 
-Hierbei handelt es sich um die gleichen Objekte Sie im PowerShell erhalten-Cmdlets wie über **Get-StorageSubSystem**, **Get-StorageNode**, und **Get-Volume**.
+Dabei handelt es sich um dieselben Objekte, die Sie in PowerShell mithilfe von Cmdlets wie " **Get-storagesubsystem**", " **Get-storagenode**" und " **Get-Volume**" erhalten.
 
-Es stehen die gleichen Eigenschaften, die am dokumentiert [Storage Management API Classes](https://msdn.microsoft.com/library/windows/desktop/hh830612(v=vs.85).aspx).
+Sie können auf die gleichen Eigenschaften zugreifen, die unter [Klassen der Speicher Verwaltungs-API](https://msdn.microsoft.com/library/windows/desktop/hh830612(v=vs.85).aspx)dokumentiert sind.
 
 ```
 ...
@@ -123,15 +123,15 @@ foreach (CimInstance Node in Nodes)
 }
 ```
 
-Rufen Sie **GetReport** um Beispiele für eine Experten kuratierten Liste wichtiger Metriken, die effizient gesammelt und aggregiert dynamisch für einen Knoten, die mithilfe integrierter Logik zum Erkennen der Clustermitgliedschaft streaming zu starten. Beispiele werden danach pro Sekunde eingehen. Alle Werte sind in Echtzeit und ausschließlich zeitpunktbezogen.
+Rufen Sie **GetReport** auf, um mit dem Streamen von Beispielen für eine vom Experten zusammengestellte Liste mit wichtigen Metriken zu beginnen, die effizient gesammelt und dynamisch über Knoten aggregiert werden, mit integrierter Logik zum Erkennen der Cluster Mitgliedschaft. Die Beispiele werden anschließend jede Sekunde empfangen. Alle Werte sind in Echtzeit und ausschließlich zeitpunktbezogen.
 
-Metriken können gestreamt werden, für die drei Bereiche: den Cluster, einen beliebigen Knoten oder ein Volume.
+Metriken können für drei Bereiche gestreamt werden: Cluster, Knoten oder beliebiges Volume.
 
-Die vollständige Liste der Metriken, die in jeder Bereich in Windows Server 2016 verfügbar sind, wird im folgenden dokumentiert.
+Die komplette Liste der Metriken, die in jedem Bereich in Windows Server 2016 verfügbar sind, ist unten dokumentiert.
 
-### <a name="iobserveronnext"></a>IObserver.OnNext()
+### <a name="iobserveronnext"></a>IObserver. OnNext ()
 
-Dieser Beispielcode verwendet die [Entwurfsmuster "Beobachter"](https://msdn.microsoft.com/library/ee850490(v=vs.110).aspx) zum Implementieren eines observers, deren **OnNext()** Methode wird aufgerufen werden, wenn jedes neues Beispiel von Metriken empfangen. Die **OnCompleted()** Methode wird aufgerufen, wenn/wenn streaming endet. Beispielsweise könnte es können Sie erneut initiieren, streaming, damit es auf unbestimmte Zeit fortgesetzt.
+In diesem Beispielcode wird das [Observer-Entwurfsmuster](https://msdn.microsoft.com/library/ee850490(v=vs.110).aspx) zum Implementieren eines Beobachters verwendet, dessen **OnNext ()** -Methode aufgerufen wird, wenn jedes neue metrikbeispiel erreicht wird. Die zugehörige **onabgeschlossene ()** -Methode wird beim Beenden des Streamings aufgerufen. Beispielsweise können Sie es verwenden, um das Streaming erneut zu initiieren, sodass es unbegrenzt fortgesetzt wird.
 
 ```
 class MetricsObserver<T> : IObserver<T>
@@ -172,13 +172,13 @@ class MetricsObserver<T> : IObserver<T>
 }
 ```
 
-### <a name="begin-streaming"></a>Streaming von
+### <a name="begin-streaming"></a>Streaming starten
 
-Mit den Beobachter, der definiert wird können Sie das streaming beginnen.
+Wenn der Observer definiert ist, können Sie mit dem Streaming beginnen.
 
-Geben Sie das Ziel **CimInstance** , für die Metriken beschränkt werden soll. Sie können den Cluster, einen beliebigen Knoten oder ein Volume sein.
+Geben Sie die Ziel- **ciminstance** an, für die Sie die Metriken festlegen möchten. Dabei kann es sich um den Cluster, einen beliebigen Knoten oder ein beliebiges Volume handeln.
 
-Der Count-Parameter ist die Anzahl der abtastungen vor dem streaming endet.
+Der count-Parameter entspricht der Anzahl von Samplings, bevor das Streaming beendet wird.
 
 ```
 CimInstance Target = Cluster; // From among the objects discovered in DiscoverObjects()
@@ -203,85 +203,85 @@ public void BeginStreamingMetrics(CimSession Session, CimInstance HealthService,
 }
 ```
 
-Diese Metriken können natürlich in einer Datenbank gespeichert oder ganz nach Bedarf verwendeten visualisiert werden.
+Natürlich können diese Metriken visualisiert, in einer Datenbank gespeichert oder in der gewünschten Weise verwendet werden.
 
 ### <a name="properties-of-reports"></a>Eigenschaften von Berichten
 
-Jedes Beispiels Metriken ist eine "Bericht" viele "Datensätze" für einzelne Metriken enthält.
+Jede Stichprobe von Metriken ist ein "Bericht", der viele "Datensätze" enthält, die einzelnen Metriken entsprechen.
 
-Überprüfen Sie für das vollständige Schema, das **MSFT\_StorageHealthReport** und **MSFT\_HealthRecord** Klassen im *storagewmi.mof*.
+Überprüfen Sie für das vollständige Schema die Klassen **MSFT @ no__t-1storagehealthreport** und **MSFT @ no__t-3healthrecord** in " *storagewmi. MOF*".
 
-Jede Metrik verfügt über nur drei Eigenschaften, die gemäß der folgenden Tabelle.
+Jede Metrik hat pro dieser Tabelle nur drei Eigenschaften.
 
 | **Eigenschaft** | **Beispiel**       |
 | -------------|-------------------|
-| Name         | IOLatencyAverage  |
-| Wert        | 0.00021           |
+| Name         | Iolatencyaverage  |
+| Wert        | 0,00021           |
 | Einheiten        | 3                 |
 
-Einheiten = {0, 1, 2, 3, 4}, wobei 0 = "Bytes", 1 = "BytesPerSecond", 2 = "CountPerSecond", 3 = "Seconds", oder 4 = "Prozent".
+Einheiten = {0, 1, 2, 3, 4}, wobei 0 = "Bytes", 1 = "bytespersecond", 2 = "count-persecond", 3 = "seconds" oder 4 = "Prozentsatz".
 
 ## <a name="coverage"></a>Abdeckung
 
-Im folgenden sind die Metriken für jeden Bereich in Windows Server 2016 verfügbar.
+Im folgenden finden Sie die verfügbaren Metriken für jeden Bereich in Windows Server 2016.
 
-### <a name="msftstoragesubsystem"></a>MSFT_StorageSubSystem
+### <a name="msft_storagesubsystem"></a>MSFT_StorageSubSystem
 
-| **Name**                        | **Einheiten** |
+| **Name**                        | **Einrichtungen** |
 |---------------------------------|-----------|
 | CPUUsage                        | 4         |
-| CapacityPhysicalPooledAvailable | 0         |
-| CapacityPhysicalPooledTotal     | 0         |
-| CapacityPhysicalTotal           | 0         |
-| CapacityPhysicalUnpooled        | 0         |
-| CapacityVolumesAvailable        | 0         |
-| CapacityVolumesTotal            | 0         |
-| IOLatencyAverage                | 3         |
-| IOLatencyRead                   | 3         |
-| IOLatencyWrite                  | 3         |
-| IOPSRead                        | 2         |
-| IOPSTotal                       | 2         |
-| IOPSWrite                       | 2         |
-| IOThroughputRead                | 1         |
-| IOThroughputTotal               | 1         |
-| IOThroughputWrite               | 1         |
-| MemoryAvailable                 | 0         |
+| Capacityphysicalpooledavailable | 0         |
+| Capacityphysicalpooledtotal     | 0         |
+| Capacityphysicaltotal           | 0         |
+| Capacityphysicalunpooled        | 0         |
+| Capacityvolumesavailable        | 0         |
+| Capacityvolumestotal            | 0         |
+| Iolatencyaverage                | 3         |
+| Iolatencyread                   | 3         |
+| Iolatencywrite                  | 3         |
+| Iopsread                        | 2         |
+| Iopstotal                       | 2         |
+| Iopswrite                       | 2         |
+| Iodurchputread                | 1         |
+| Iodurchlauf puttotal               | 1         |
+| Iothrough putwrite               | 1         |
+| Memoryavailable                 | 0         |
 | MemoryTotal                     | 0         |
 
 
-### <a name="msftstoragenode"></a>MSFT_StorageNode
+### <a name="msft_storagenode"></a>MSFT_StorageNode
 
-| **Name**            | **Einheiten** |
+| **Name**            | **Einrichtungen** |
 |---------------------|-----------|
 | CPUUsage            | 4         |
-| IOLatencyAverage    | 3         |
-| IOLatencyRead       | 3         |
-| IOLatencyWrite      | 3         |
-| IOPSRead            | 2         |
-| IOPSTotal           | 2         |
-| IOPSWrite           | 2         |
-| IOThroughputRead    | 1         |
-| IOThroughputTotal   | 1         |
-| IOThroughputWrite   | 1         |
-| MemoryAvailable     | 0         |
+| Iolatencyaverage    | 3         |
+| Iolatencyread       | 3         |
+| Iolatencywrite      | 3         |
+| Iopsread            | 2         |
+| Iopstotal           | 2         |
+| Iopswrite           | 2         |
+| Iodurchputread    | 1         |
+| Iodurchlauf puttotal   | 1         |
+| Iothrough putwrite   | 1         |
+| Memoryavailable     | 0         |
 | MemoryTotal         | 0         |
 
-### <a name="msftvolume"></a>MSFT_Volume
+### <a name="msft_volume"></a>MSFT_Volume
 
-| **Name**            | **Einheiten** |
+| **Name**            | **Einrichtungen** |
 |---------------------|-----------|
-| CapacityAvailable   | 0         |
-| CapacityTotal       | 0         |
-| IOLatencyAverage    | 3         |
-| IOLatencyRead       | 3         |
-| IOLatencyWrite      | 3         |
-| IOPSRead            | 2         |
-| IOPSTotal           | 2         |
-| IOPSWrite           | 2         |
-| IOThroughputRead    | 1         |
-| IOThroughputTotal   | 1         |
-| IOThroughputWrite   | 1         |
+| Verfügbare Kapazität   | 0         |
+| Capacitytotal       | 0         |
+| Iolatencyaverage    | 3         |
+| Iolatencyread       | 3         |
+| Iolatencywrite      | 3         |
+| Iopsread            | 2         |
+| Iopstotal           | 2         |
+| Iopswrite           | 2         |
+| Iodurchputread    | 1         |
+| Iodurchlauf puttotal   | 1         |
+| Iothrough putwrite   | 1         |
 
 ## <a name="see-also"></a>Siehe auch
 
-- [Integritätsdienst in WindowsServer 2016](health-service-overview.md)
+- [Integritätsdienst in Windows Server 2016](health-service-overview.md)

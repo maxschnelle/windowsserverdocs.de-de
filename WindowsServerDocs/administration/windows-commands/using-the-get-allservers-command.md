@@ -1,8 +1,8 @@
 ---
-title: Mithilfe des Befehls Get-AllServers
-description: 'Windows-Befehle Thema ***- '
+title: Verwenden des Befehls Get-allservers
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dbccb834f9058f2c3cca097cdf998455f2a6892e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 8dd7f9917a54a80b3c570b07fe1a87bd3bcbe4d6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440495"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363256"
 ---
-# <a name="using-the-get-allservers-command"></a>Mithilfe des Befehls Get-AllServers
+# <a name="using-the-get-allservers-command"></a>Verwenden des Befehls Get-allservers
 
 
 
-Ruft Informationen über alle Windows-Bereitstellungsdienste-Server ab.
+Ruft Informationen zu allen Windows-Bereitstellungsdiensteserver ab.
 
 > [!NOTE]
-> Mit diesem Befehl dauert einen erweiterten Zeitraum abgeschlossen wird, wenn viele Windows-Bereitstellungsdienste-Server in Ihrer Umgebung vorhanden sind oder wenn der Verbindungsserver die Netzwerkverbindung langsam ist.
+> Dieser Befehl kann eine längere Zeit in Anspruch nehmen, wenn in Ihrer Umgebung viele Windows-Bereitstellungsdiensteserver vorhanden sind oder wenn die Netzwerkverbindung, die die Server verknüpft, langsam ist.
 
 ## <a name="syntax"></a>Syntax
 
@@ -39,17 +39,17 @@ WDSUTIL [Options] /Get-AllServers /Show:{Config | Images | All} [/Detailed] [/Fo
 
 |   Parameter   |                                                                                                                 Beschreibung                                                                                                                  |
 |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| /Show:{Config |                                                                                                                    Abbilder                                                                                                                    |
-|  [/Detailed]  | Bei Verwendung in Verbindung mit der **/Show:Images** oder **/Show:All**, gibt alle Metadaten aus jedem Bild image. Wenn die **/detaillierte** Option nicht angegeben wird, ist das Standardverhalten der Image-Name, Beschreibung und Dateinamen zurück. |
-| [/ Gesamtstruktur: {Yes |                                                                                                                     No}]                                                                                                                     |
+| /Show: {config |                                                                                                                    Abbilder                                                                                                                    |
+|  /Detailed  | Wenn Sie in Verbindung mit **/Show: Images** oder **/Show: all**verwendet wird, gibt alle Bild Metadaten aus jedem Bild zurück. Wenn die **/detailed** -Option nicht angegeben ist, besteht das Standardverhalten darin, den Image Namen, die Beschreibung und den Dateinamen zurückzugeben. |
+| [/Forest: {Ja |                                                                                                                     Nein}]                                                                                                                     |
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um Informationen zu allen Servern anzuzeigen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um Informationen zu allen Servern anzuzeigen:
 ```
 WDSUTIL /Get-AllServers /Show:Config
 ```
-Um ausführliche Informationen zu allen Servern anzuzeigen, geben Sie Folgendes ein:
+Wenn Sie ausführliche Informationen zu allen Servern anzeigen möchten, geben Sie Folgendes ein:
 ```
 WDSUTIL /Verbose /Get-AllServers /Show:All /Detailed /Forest:Yes
 ```

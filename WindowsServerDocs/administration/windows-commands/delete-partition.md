@@ -1,8 +1,8 @@
 ---
-title: Löschen einer partition
-description: 'Windows-Befehle Thema ***- '
+title: Partition löschen
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3b47338b74cf71a4754b7320d6b3842f342d324d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 46a214f26e7c21f6ae08eb16d95fd898bd949b0f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436139"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378663"
 ---
-# <a name="delete-partition"></a>Löschen einer partition
+# <a name="delete-partition"></a>Partition löschen
 
 
 
@@ -36,19 +36,19 @@ delete partition [noerr] [override]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|override|Können DiskPart, um jede Partition unabhängig von der Art zu löschen. DiskPart lässt in der Regel nur bekannte Datenpartitionen zu löschen.|
-|Diskpart|nur für Skripts. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden.|
+|Dire|Ermöglicht DiskPart das Löschen beliebiger Partitionen unabhängig vom Typ. In der Regel gestattet DiskPart nur das Löschen bekannter Daten Partitionen.|
+|Noerr|Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.|
 
 ## <a name="remarks"></a>Hinweise
 
 > [!CAUTION]
-> Durch das Löschen einer Partitions auf einem dynamischen Datenträger können alle dynamischen Volumes auf dem Datenträger somit dadurch alle Daten beschädigt werden und des Datenträgers beschädigt. Um ein dynamisches Volume löschen, verwenden Sie immer die **Volume löschen** stattdessen den Befehl. Partitionen können dynamische Datenträger gelöscht werden, aber sie sollten nicht erstellt werden. Beispielsweise ist es möglich, eine unbekanntes GUID-Partitionstabelle (GPT) Partition auf einem dynamischen GPT-Datenträger zu löschen. Löschen einer solchen Partition bewirkt nicht, den sich ergebenden freien Speicherplatz verfügbar wird. Mit diesem Befehl Reclame Speicherplatz auf einem beschädigten offline dynamischen Datenträger in einer Notsituation ermöglichen soll, in denen die **Bereinigen** Befehl in DiskPart kann nicht verwendet werden.
-> -   Die Systempartition, Startpartition oder eine Partition, die die aktive Paging-Datei oder ein Absturz Dumpinformationen enthält, kann nicht gelöscht werden.
-> -   Eine Partition muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden. Verwenden der **wählen Partition** Befehl aus, um eine Partition auswählen, und verschiebt den Fokus auf sie.
+> Durch das Löschen einer Partition auf einem dynamischen Datenträger können alle dynamischen Volumes auf dem Datenträger gelöscht werden. Dadurch werden alle Daten zerstört und der Datenträger in einem beschädigten Zustand belassen. Wenn Sie ein dynamisches Volume löschen möchten, verwenden Sie stattdessen immer den Befehl **Volume löschen** . Partitionen können aus dynamischen Datenträgern gelöscht, aber nicht erstellt werden. Beispielsweise ist es möglich, eine nicht erkannte GPT-Partition (GUID-Partitionstabelle) auf einem dynamischen GPT-Datenträger zu löschen. Das Löschen einer solchen Partition führt nicht dazu, dass der resultierende freie Speicherplatz verfügbar wird. Mit diesem Befehl können Sie in einer Notfallsituation, in der der **Clean** -Befehl in DiskPart nicht verwendet werden kann, den Speicherplatz auf einem beschädigten Offline-Datenträger wiederholen.
+> -   Sie können die Systempartition, die Start Partition oder eine beliebige Partition, die die aktive Auslagerungs Datei oder die Absturz Abbild Informationen enthält, nicht löschen.
+> -   Eine Partition muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt wird. Wählen Sie mit dem Befehl **Partition auswählen** eine Partition aus, und verschieben Sie den Fokus auf die Partition.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um die Partition mit den Fokus zu löschen, geben Sie Folgendes ein:
+Um die Partition mit dem Fokus zu löschen, geben Sie Folgendes ein:
 ```
 delete partition
 ```

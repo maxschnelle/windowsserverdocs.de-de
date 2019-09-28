@@ -1,9 +1,9 @@
 ---
 title: Konfigurieren einer Bereitstellung mit mehreren Standorten
-description: Dieses Thema ist Teil des Handbuchs bereitstellen mehrere RAS-Server in einer Bereitstellung für mehrere Standorte in Windows Server 2016.
+description: Dieses Thema ist Teil des Handbuchs Bereitstellen mehrerer Remote Zugriffs Server in einer Bereitstellung mit mehreren Standorten in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,26 +12,26 @@ ms.topic: article
 ms.assetid: cb84920e-7cf5-4266-b071-d09e3d5e1f10
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 28fcb2506e59ff2afb501a2c8bc74da2d6f0cd15
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 25c0ce5d62268f64113ebc39345b2d50867bebf7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280985"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71367122"
 ---
 # <a name="configure-a-multisite-deployment"></a>Konfigurieren einer Bereitstellung mit mehreren Standorten
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
- Windows Server 2016 werden DirectAccess "und" Remote Access Service (RAS) VPN in einer einzigen remotezugriffsrolle zusammengefasst. Diese Übersicht bietet eine Einführung in die Konfigurationsschritte zum Bereitstellen von einer einzelnen Windows Server 2016 oder Windows Server 2012-Remotezugriff für mehrere Standorte Bereitstellung erforderlich sind.  
+ Windows Server 2016 kombiniert DirectAccess-und RAS-VPN (RAS-Dienst) zu einer einzigen Remote Zugriffs Rolle. Diese Übersicht bietet eine Einführung in die Konfigurationsschritte, die erforderlich sind, um eine einzelne Bereitstellung von Windows Server 2016 oder Windows Server 2012 Remote Access für mehrere Standorte bereitzustellen.  
   
--   Schritt 1: [Bereitstellen eines einzelnen DirectAccess-Servers mit erweiterten Einstellungen](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/single-server-advanced/deploy-a-single-directaccess-server-with-advanced-settings). Installieren Sie und konfigurieren Sie einer RAS-Servers. Die Bereitstellung für mehrere Standorte müssen Sie einen einzelnen Server zu installieren, bevor Sie eine Bereitstellung für mehrere Standorte zu konfigurieren.  
+-   Schritt 1: Stellen Sie [einen einzelnen DirectAccess-Server mit erweiterten Einstellungen](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/single-server-advanced/deploy-a-single-directaccess-server-with-advanced-settings)bereit. Installieren und konfigurieren Sie einen einzelnen Remote Zugriffs Server. Die Bereitstellung für mehrere Standorte erfordert, dass Sie einen einzelnen Server installieren, bevor Sie eine Bereitstellung für mehrere Standorte konfigurieren.  
   
--   [Schritt 2: Konfigurieren der Infrastruktur für mehrere Standorte](Step-2-Configure-the-Multisite-Infrastructure.md). Für eine Bereitstellung für mehrere Standorte müssen Sie zusätzliche Active Directory-Standorte und Domänencontroller konfigurieren. Zusätzliche von Sicherheitsgruppen und Gruppenrichtlinienobjekte (GPOs) sind auch erforderlich, wenn Sie nicht automatisch konfigurierte Gruppenrichtlinienobjekte verwenden.  
+-   [Schritt 2: Konfigurieren Sie die Infrastruktur für mehrere Standorte @ no__t-0. Für eine Bereitstellung mit mehreren Standorten müssen Sie zusätzliche Active Directory Standorte und Domänen Controller konfigurieren. Weitere Sicherheitsgruppen und Gruppenrichtlinie Objekte (GPOs) sind ebenfalls erforderlich, wenn Sie nicht automatisch konfigurierte Gruppenrichtlinien Objekte verwenden.  
   
--   [Schritt 3: Konfigurieren Sie die Bereitstellung für mehrere Standorte](Step-3-Configure-the-Multisite-Deployment.md)– installieren Sie die remotezugriffsrolle auf zusätzliche RAS-Server, die Bereitstellung für mehrere Standorte zu aktivieren und konfigurieren Sie die zusätzlichen Server als Einstiegspunkte für die Bereitstellung.  
+-   [Schritt 3: Konfigurieren der Bereitstellung für mehrere Standorte @ no__t-0-installieren Sie die Remote Zugriffs Rolle auf zusätzlichen Remote Zugriffs Servern, aktivieren Sie die Bereitstellung für mehrere Standorte, und konfigurieren Sie die zusätzlichen Server als Einstiegspunkte für die Bereitstellung.  
   
--   [Schritt 4: Überprüfen Sie die Bereitstellung für mehrere Standorte](Step-4-Verify-the-Multisite-Deployment.md) 
+-   [Schritt 4: Überprüfen der Bereitstellung für mehrere Standorte @ no__t-0 
   
 
 

@@ -1,8 +1,8 @@
 ---
-title: Verwenden den Befehl Remove-ImageGroup
-description: 'Windows-Befehle Thema ***- '
+title: Verwenden des Remove-ImageGroup-Befehls
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: df6af7fbd19cc95dfbffa0a5c0e2a4b3e33fb82c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 51d9636013fef182c4abb74ae196e08c51ff11d8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877891"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362753"
 ---
-# <a name="using-the-remove-imagegroup-command"></a>Verwenden den Befehl Remove-ImageGroup
+# <a name="using-the-remove-imagegroup-command"></a>Verwenden des Remove-ImageGroup-Befehls
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Entfernt eine Abbildgruppe von einem Server an.
+entfernt eine Abbild Gruppe von einem Server.
 ## <a name="syntax"></a>Syntax
 ```
 wdsutil [Options] /remove-ImageGroumediaGroup:<Image group name> [/Server:<Server name>]
@@ -32,17 +32,17 @@ wdsutil [Options] /remove-ImageGroumediaGroup:<Image group name> [/Server:<Serve
 ## <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
-mediaGroup:<Image group name>|Gibt den Namen der Abbildgruppe entfernt werden soll|
-|[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben wird, wird der lokale Server verwendet werden.|
-## <a name="BKMK_examples"></a>Beispiele für
-Geben Sie eine der folgenden Schritte aus, um die Abbildgruppe zu entfernen:
+mediagroup: <Image group name>|Gibt den Namen der zu entfernenden Abbild Gruppe an.|
+|[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
+## <a name="BKMK_examples"></a>Beispiele
+Um die Abbild Gruppe zu entfernen, geben Sie eine der folgenden Informationen ein:
 ```
 wdsutil /remove-ImageGroumediaGroup:ImageGroup1
 wdsutil /verbose /remove-ImageGroumediaGroup:"My Image Group" /Server:MyWDSServer 
 ```
-#### <a name="additional-references"></a>Zusätzliche Referenzen
-[Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-[mithilfe des Befehls Add-ImageGroup](using-the-add-imagegroup-command.md)
-[mit dem Befehl Get-AllImageGroups](using-the-get-allimagegroups-command.md) 
- [ Mit dem Befehl Get-ImageGroup](using-the-get-imagegroup-command.md)
+#### <a name="additional-references"></a>Weitere Verweise
+[Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+[mit dem Befehl Add-ImageGroup](using-the-add-imagegroup-command.md)
+ mithilfe[des Befehls Get-allimagegroups](using-the-get-allimagegroups-command.md)
+ mithilfe des Befehls[Get-ImageGroup](using-the-get-imagegroup-command.md)
 [Unterbefehl: Set-ImageGroup](subcommand-set-imagegroup.md)

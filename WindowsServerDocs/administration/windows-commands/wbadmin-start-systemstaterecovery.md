@@ -1,8 +1,8 @@
 ---
-title: Wbadmin Start systemstaterecovery
-description: 'Windows-Befehle Thema ***- '
+title: Wbadmin start Systemstatus
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,29 +13,29 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4282da2011c39daec0315a7f3836d5517f29debb
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6ae534eed26629be264b698869edc57232e2b571
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440204"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362223"
 ---
-# <a name="wbadmin-start-systemstaterecovery"></a>Wbadmin Start systemstaterecovery
+# <a name="wbadmin-start-systemstaterecovery"></a>Wbadmin start Systemstatus
 
 
 
-Führt eine Wiederherstellung des Systemstatus an einen Speicherort und aus einer Sicherung, die Sie angeben.
+Führt eine Wiederherstellung des Systemstatus an einem Speicherort und von einer von Ihnen angegebenen Sicherung aus.
 
 > [!NOTE]
-> Windows Server-Sicherung nicht sichern oder Benutzer Registrierungsstrukturen (HKEY_CURRENT_USER) als Teil des Systemstatus-Sicherung oder Wiederherstellung des Systemstatus wiederherstellen.
+> Windows Server-Sicherung dient nicht zum Sichern oder Wiederherstellen von registrierungsbenutzer Strukturen (HKEY_CURRENT_USER) im Rahmen der Sicherung oder Wiederherstellung des Systemstatus.
 
-Um eine Wiederherstellung des Systemstatus, mit diesem Unterbefehl auszuführen, muss Sie Mitglied der **Sicherungs-Operatoren** Gruppe oder der **Administratoren** Gruppe, oder Sie wurde die entsprechenden Berechtigungen delegiert. Darüber hinaus müssen Sie ausführen **Wbadmin** eine Eingabeaufforderung mit erhöhten Rechten. (Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten mit der rechten Maustaste **Eingabeaufforderung**, und klicken Sie dann auf **als Administrator ausführen**.)
+Wenn Sie mit diesem Unterbefehl eine Systemstatus Wiederherstellung durchführen möchten, müssen Sie Mitglied der Gruppe " **Sicherungs-Operatoren** " oder der Gruppe " **Administratoren** " sein, oder die entsprechenden Berechtigungen müssen an Sie delegiert worden sein. Außerdem müssen Sie **Wbadmin** über eine Eingabeaufforderung mit erhöhten Rechten ausführen. (Klicken Sie zum Öffnen einer Eingabeaufforderung mit erhöhten Rechten mit der rechten Maustaste auf **Eingabeaufforderung**, und klicken Sie dann auf **als Administrator ausführen**.)
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
 ## <a name="syntax"></a>Syntax
 
-Die Syntax für WindowsServer 2008:
+Syntax für Windows Server 2008:
 ```
 wbadmin start systemstaterecovery
 -version:<VersionIdentifier>
@@ -63,22 +63,22 @@ wbadmin start systemstaterecovery
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|-Version|Gibt an, die Versions-ID für die Sicherung zum Wiederherstellen in MM/TT/JJJJ-hh: mm-Format. Wenn Sie die Versions-ID nicht kennen, geben Sie **Wbadmin get Versionen**.|
-|-showsummary|Meldet der Zusammenfassung der letzten systemstatuswiederherstellung (nach dem Neustart zum Abschließen des Vorgangs erforderlich). Dieser Parameter kann nicht durch alle anderen Parameter ergänzt werden.|
-|-backupTarget|Gibt den Speicherort, der enthält die Sicherung oder Sicherungen, die Sie wiederherstellen möchten. Dieser Parameter ist hilfreich, wenn der Speicherort unterscheidet sich von, wo die Sicherungen dieses Computers in der Regel gespeichert werden.|
-|-Computer|Gibt den Namen des Computers ein, die Sie wiederherstellen möchten. Dieser Parameter ist hilfreich, wenn mehrere Computer am gleichen Speicherort gesichert wurden. Sollte verwendet werden, wenn die **- BackupTarget** Parameter angegeben ist.|
-|-recoveryTarget|Gibt das Verzeichnis wiederherstellen. Dieser Parameter ist hilfreich, wenn die Sicherung an einem alternativen Speicherort wiederhergestellt wird.|
-|-authsysvol|Wenn verwendet, führt eine autorisierende Wiederherstellung von SYSVOL (das Systemvolume freigegebenen Verzeichnis).|
-|-autoReboot|Gibt an, um das System am Ende des Wiederherstellungsvorgangs System Zustand neu zu starten. Dieser Parameter gilt nur für eine Wiederherstellung am ursprünglichen Speicherort. Wir empfehlen nicht, dass Sie diesen Parameter verwenden, wenn Sie Schritte nach dem Recovery-Vorgang ausführen möchten.|
-|-quiet|Wird keine aufforderungen den Unterbefehl für dem Benutzer ausgeführt.|
+|-Version|Gibt den Versions Bezeichner für die wieder herzustellende Sicherung im Format mm/dd/yyyy-HH: mm an. Wenn Sie den Versions Bezeichner nicht kennen, geben Sie **Wbadmin Get Versions**ein.|
+|-ShowSummary|Gibt die Zusammenfassung der letzten Wiederherstellung des Systemstatus an (nach dem Neustart, der zum Abschluss des Vorgangs erforderlich ist). Dieser Parameter darf nicht von anderen Parametern begleitet werden.|
+|-backupTarget|Gibt den Speicherort an, der die Sicherung oder Sicherungen enthält, die Sie wiederherstellen möchten. Dieser Parameter ist hilfreich, wenn sich der Speicherort von dem Speicherort unterscheidet, in dem die Sicherungen dieses Computers normalerweise gespeichert werden.|
+|-Computer|Gibt den Namen des Computers an, den Sie wiederherstellen möchten. Dieser Parameter ist hilfreich, wenn mehrere Computer am gleichen Speicherort gesichert wurden. Sollte verwendet werden, wenn der **-backupTarget-** Parameter angegeben wird.|
+|-wiederherstellungziel|Gibt das Verzeichnis an, in dem wieder hergestellt werden soll. Dieser Parameter ist hilfreich, wenn die Sicherung an einem alternativen Speicherort wieder hergestellt wird.|
+|-authsysvol|Bei Verwendung von wird eine autoritative Wiederherstellung von SYSVOL (das freigegebene Verzeichnis des System Volume) durchführt.|
+|-AutoReboot|Gibt an, dass das System am Ende des Wiederherstellungs Vorgangs für den Systemstatus neu gestartet werden soll. Dieser Parameter ist nur für eine Wiederherstellung am ursprünglichen Speicherort gültig. Es wird nicht empfohlen, diesen Parameter zu verwenden, wenn Sie nach dem Wiederherstellungs Vorgang Schritte ausführen müssen.|
+|-quiet|Führt den Unterbefehl ohne Aufforderungen an den Benutzer aus.|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-- Geben Sie Folgendes ein, um eine Wiederherstellung des Systemstatus, der die Sicherung vom 03/31/2013 um 9:00 Uhr auszuführen:  
+- Geben Sie Folgendes ein, um eine Wiederherstellung des Systemstatus der Sicherung von 03/31/2013 um 9:00 Uhr durchzuführen:  
   ```
   wbadmin start systemstaterecovery -version:03/31/2013-09:00
   ```  
-- Eine Wiederherstellung des Systemstatus, der die Sicherung von 30/04/2013 ausführen, um 9:00 Uhr für die freigegebene Ressource gespeichert wird \\ \\Servername\share für "SERVER01", Typ:  
+- So führen Sie eine Wiederherstellung des Systemstatus der Sicherung von 04/30/2013 um 9:00 Uhr aus der für die freigegebene Ressource \\ @ no__t-1servername\share für Server01 gespeichert wird, geben Sie Folgendes ein:  
   ```
   wbadmin start systemstaterecovery -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
   ```
@@ -87,4 +87,4 @@ wbadmin start systemstaterecovery
 
 -   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
--   [Start-WBSystemStateRecovery](https://technet.microsoft.com/library/jj902449.aspx) cmdlet
+-   [Start-wbsystemstatus](https://technet.microsoft.com/library/jj902449.aspx) -Cmdlet

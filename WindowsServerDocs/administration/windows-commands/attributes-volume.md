@@ -1,8 +1,8 @@
 ---
-title: Attribute-volume
-description: Windows-Befehle Thema **Attribute Volume** -zeigt, Mengen oder löscht die Attribute eines Volumes.
+title: Attribut Volume
+description: 'Windows-Befehle Thema für **Attribute Volume** : zeigt die Attribute eines Volumes an, legt Sie fest oder löscht sie.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 37af55ee2a041fbcf8068e0def72147732d3a687
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 225a10307123763d1a024fcc08fbae536fd0b5df
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846581"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382585"
 ---
-# <a name="attributes-volume"></a>Attribute-volume
+# <a name="attributes-volume"></a>Attribut Volume
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zeigt an, legt fest oder löscht die Attribute eines Volumes.  
+Hiermit werden die Attribute eines Volumes angezeigt, festgelegt oder gelöscht.  
   
   
   
@@ -40,41 +40,41 @@ attributes volume [{set | clear}] [{hidden | readonly | nodefaultdriveletter | s
 |-------|--------|  
 |set|Legt das angegebene Attribut des Volumes mit dem Fokus fest.|  
 |clear|Löscht das angegebene Attribut des Volumes mit dem Fokus.|  
-|ReadOnly|Gibt an, dass das Volume zu lesen ist\-nur.|  
-|Ausgeblendet|Gibt an, dass das Volume ausgeblendet ist.|  
-|nodefaultdriveletter|Gibt an, dass das Volume einen Laufwerkbuchstaben nicht in der Standardeinstellung erhält.|  
-|Schattenkopie|Gibt an, dass das Volume eine Schattenkopievolume.|  
-|Diskpart|nur für Skripts. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden.|  
+|ReadOnly|Gibt an, dass das Volume schreibgeschützt ist @ no__t-0.|  
+|verbirgt|Gibt an, dass das Volume ausgeblendet ist.|  
+|nodefaultdriveletter|Gibt an, dass das Volume standardmäßig keinen Laufwerk Buchstaben erhält.|  
+|"Shadowcopy|Gibt an, dass das Volume ein Schattenkopievolume ist.|  
+|Noerr|Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.|  
   
 ## <a name="remarks"></a>Hinweise  
   
--   In einfachen master Boot Records \(MBR\) Datenträger, die **ausgeblendeten**, **Readonly**, und **Nodefaultdriveletter** Parameter gelten für alle Volumes, auf der Datenträger.  
+-   Auf den Datenträgern Basic Master Boot Record \(mbr @ no__t-1 gelten die Parameter **Hidden**, Read **only**und **nodefaultdriveletter** für alle Volumes auf dem Datenträger.  
   
--   Für grundlegende GUID-Partitionstabelle \(Gpt\) Datenträger und dynamischen MBR- und Gpt-Datenträgern die **ausgeblendeten**, **Readonly**, und **Nodefaultdriveletter** Parameter gelten nur für das ausgewählte Volume.  
+-   Bei der grundlegenden GUID-Partitionstabelle \(gpt @ no__t-1-Datenträgern und auf dynamischen MBR-und GPT-Datenträgern gelten die Parameter **Hidden**, Read **only**und **nodefaultdriveletter** nur für das ausgewählte Volume.  
   
--   Ein Volume muss ausgewählt werden, für die **Attribute Volume** Befehl erfolgreich ausgeführt werden kann. Verwenden der **wählen Volume** Befehl aus, wählen Sie ein Volume und verschiebt den Fokus auf sie.  
+-   Es muss ein Volume ausgewählt werden, damit der **Attribut Volume** -Befehl erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl **Volume auswählen** ein Volume aus, und verschieben Sie den Fokus auf das Volume.  
   
-## <a name="BKMK_examples"></a>Beispiele für  
-Um die aktuellen Attribute auf dem ausgewählten Volume anzuzeigen, geben Sie Folgendes ein:  
+## <a name="BKMK_examples"></a>Beispiele  
+Wenn Sie die aktuellen Attribute auf dem ausgewählten Volume anzeigen möchten, geben Sie Folgendes ein:  
   
 ```  
 attributes volume  
 ```  
   
-Um das ausgewählte Volume als schreibgeschützten und ausgeblendeten festzulegen\-nur geben:  
+Um das ausgewählte Volume als ausgeblendet festzulegen und @ no__t-0nur zu lesen, geben Sie Folgendes ein:  
   
 ```  
 attributes volume set hidden readonly  
 ```  
   
-So entfernen Sie verborgene und read\-Geben Sie nur die Attribute auf ausgewählten Volumes:  
+Wenn Sie die Attribute Hidden und Read @ no__t-0only auf dem ausgewählten Volume entfernen möchten, geben Sie Folgendes ein:  
   
 ```  
 attributes volume clear hidden readonly  
 ```  
   
-#### <a name="additional-references"></a>Zusätzliche Referenzen  
-[Befehlszeilensyntax](command-line-syntax-key.md)  
+#### <a name="additional-references"></a>Weitere Verweise  
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
 
   

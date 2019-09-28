@@ -1,8 +1,8 @@
 ---
 title: Neuzuordnung ausgewählter MultiPoint-Systeme
-description: Erfahren Sie, wie einige, aber nicht alle Systeme in MultiPoint Services neu zuordnen
+description: Erfahren Sie, wie Sie einige, jedoch nicht alle Systeme in Multipoint Services neu zuordnen.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,18 +13,18 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: f564ea241307ba5d5375ef431ac034c4eaf7e935
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 13ccafd5100ce19145cc0a15867308cc237b92ba
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844241"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389397"
 ---
 # <a name="remap-selected-multipoint-systems"></a>Neuzuordnung ausgewählter MultiPoint-Systeme
 Das erneute Zuordnen von Stationen im MultiPoint-Dashboard ermöglicht das Zuweisen von Tastaturen und Mäusen zu Monitoren. Lokale Benutzerstationen werden angehalten, während ein MultiPoint Services-System neu zugeordnet wird.  
   
 > [!CAUTION]  
-> Die Neuzuordnung wird häufig zu Problembehandlungszwecken verwendet. Stationseinstellungen, z.B. Name "und" Automatische\-Informationen melden, werden während der neuzuordnung gelöscht.  
+> Die Neuzuordnung wird häufig zu Problembehandlungszwecken verwendet. Stations Einstellungen, wie z. b. Name und Auto @ no__t-0logon, werden während der Neuzuordnung gelöscht.  
   
 #### <a name="to-remap-a-multipoint-services-system"></a>So ordnen Sie ein MultiPoint Services-System neu zu  
   

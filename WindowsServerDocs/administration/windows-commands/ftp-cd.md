@@ -1,8 +1,8 @@
 ---
-title: FTP-cd
-description: Windows-Befehle-Thema für FTP-cd
+title: FTP-CD
+description: Windows-Befehls Thema für FTP-CD
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9ef14c647534c92a97abdcc9ee8df50c64a72e5f
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 891b144b20ebbef6c7e8058771d8249f4bace1cc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438792"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376495"
 ---
-# <a name="ftp-cd"></a>ftp: cd
+# <a name="ftp-cd"></a>FTP: CD
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Ändert das Arbeitsverzeichnis auf dem Remotecomputer an.   
+ändert das Arbeitsverzeichnis auf dem Remote Computer.   
 ## <a name="syntax"></a>Syntax  
 ```  
 cd <remotedirectory>  
@@ -33,16 +33,16 @@ cd <remotedirectory>
 
 |     Parameter     |                                 Beschreibung                                 |
 |-------------------|-----------------------------------------------------------------------------|
-| <remotedirectory> | Gibt das Verzeichnis auf dem Remotecomputer, auf dem Sie ändern möchten. |
+| <remotedirectory> | Gibt das Verzeichnis auf dem Remote Computer an, das Sie ändern möchten. |
 
-## <a name="BKMK_Examples"></a>Beispiele für  
-Ändern Sie das Verzeichnis auf dem Remotecomputer zu **Docs**.  
+## <a name="BKMK_Examples"></a>Beispiele  
+Ändern Sie das Verzeichnis auf dem Remote Computer in **docs**.  
 ```  
 cd Docs  
 ```  
-Ändern Sie das Verzeichnis auf dem Remotecomputer zu **kann Videos**.  
+Ändern Sie das Verzeichnis auf dem Remote Computer in **Videos**.  
 ```  
 cd  May Videos  
 ```  
-## <a name="additional-references"></a>Zusätzliche Referenzen  
+## <a name="additional-references"></a>Weitere Verweise  
 -   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

@@ -1,8 +1,8 @@
 ---
-title: Verwenden des Add-AllDriverPackages Unterbefehls
-description: 'Windows-Befehle Thema ***- '
+title: Verwenden des Add-AllDriverPackages-Unterbefehls
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3f934d8c65da939fb60c564b375699f411b7c9ac
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d8290a95dd53718b200d10b6804d312abe95e257
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440835"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363889"
 ---
-# <a name="using-the-add-alldriverpackages-subcommand"></a>Verwenden des Add-AllDriverPackages Unterbefehls
+# <a name="using-the-add-alldriverpackages-subcommand"></a>Verwenden des Add-AllDriverPackages-Unterbefehls
 
 
 
-Fügt alle Treiberpakete, die in einem Ordner auf einem Server gespeichert sind.
+Fügt einem Server alle Treiber Pakete hinzu, die in einem Ordner gespeichert sind.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,14 +36,14 @@ WDSUTIL /Add-AllDriverPackages /FolderPath:<Folder Path> [/Server:<Server name>]
 
 |          Parameter           |                                                              Beschreibung                                                              |
 |------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-|  / "FolderPath":\<Ordnerpfad >  |                      Gibt den vollständigen Pfad zu dem Ordner, der die INF-Dateien für die Treiberpakete enthält.                      |
-|   [/ Server:\<Servername >]   | Gibt den Namen des Servers an. Dies kann den NetBIOS-Namen oder den vollqualifizierten Domänennamen sein. Wenn kein Servername angegeben wird, wird der lokale Server verwendet. |
-|     [/ Architecture: {X86      |                                                                 ia64                                                                  |
-| [/ DriverGroup:\<Gruppenname >] |                             Gibt den Namen der Gruppe "Treiber", der die Pakete hinzugefügt werden soll.                             |
+|  /FolderPath: \<ordnerpfad >  |                      Gibt den vollständigen Pfad zum Ordner an, der die INF-Dateien für die Treiber Pakete enthält.                      |
+|   [/Server: \<Server Name >]   | Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Namen handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet. |
+|     [/Architecture: {x86      |                                                                 ia64                                                                  |
+| [/DriverGroup: \<gruppenname >] |                             Gibt den Namen der Treiber Gruppe an, der die Pakete hinzugefügt werden sollen.                             |
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Geben Sie einen der folgenden Schritte aus, um Treiberpakete hinzuzufügen:
+Zum Hinzufügen von Treiber Paketen geben Sie eine der folgenden Informationen ein:
 ```
 WDSUTIL /verbose /Add-AllDriverPackages /FolderPath:"C:\Temp\Drivers" /Architecture:x86
 ```
@@ -55,4 +55,4 @@ WDSUTIL /Add-AllDriverPackages /FolderPath:"C:\Temp\Drivers\Printers" /DriverGro
 
 [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-[Add-WdsDriverPackage](https://technet.microsoft.com/library/dn283440.aspx)
+[Add-wdsdriverpackage](https://technet.microsoft.com/library/dn283440.aspx)
