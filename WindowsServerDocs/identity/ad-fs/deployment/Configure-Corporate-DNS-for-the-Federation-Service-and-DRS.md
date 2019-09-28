@@ -7,53 +7,53 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: cd8febf9eff300b1a83d22828874b4a577b8af36
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 9f0b04f9dc050117fdefc630759c86d2b1bb1ecc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192316"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408442"
 ---
 # <a name="configure-corporate-dns-for-the-federation-service-and-drs"></a>Konfigurieren des Unternehmens-DNS für den Verbunddienst und DRS
   
-## <a name="step-6-add-a-host-a-and-alias-cname-resource-record-to-corporate-dns-for-the-federation-service-and-drs"></a>Schritt 6: Hinzufügen eines Hosts \(ein\) und Alias \(CNAME\) -Ressourceneintrag auf Unternehmens-DNS für den Verbunddienst und DRS  
-Sie müssen die folgenden Ressourceneinträge Unternehmens Domain Name System hinzufügen \(DNS\) für Ihre Verbunddienst und Device Registration Service, die Sie in den vorherigen Schritten konfiguriert.  
+## <a name="step-6-add-a-host-a-and-alias-cname-resource-record-to-corporate-dns-for-the-federation-service-and-drs"></a>Schritt 6: Fügen Sie dem Unternehmens-DNS für die Verbunddienst und DRS den Ressourcen Daten Satz "Host \(A @ no__t-1" und "Alias \(cname @ no__t-3" hinzu.  
+Sie müssen die folgenden Ressourcen Einträge für den Unternehmens Domain Name System \(dns @ no__t-1 für den Verbund Dienst und den Geräte Registrierungsdienst hinzufügen, den Sie in den vorherigen Schritten konfiguriert haben.  
   
 |Eingabe|Typ|Adresse|  
 |---------|--------|-----------|  
-|federation\_service\_name|Host \(A\)|IP-Adresse des AD FS-Server oder die IP-Adresse des Load Balancers, die vor Ihrer AD FS-Serverfarm konfiguriert ist|  
-|enterpriseregistration|Alias \(CNAME\)|federation\_server\_name.contoso.com|  
+|Verbund @ no__t-0dienst @ no__t-1name|Host \(A @ no__t-1|IP-Adresse des AD FS Servers oder die IP-Adresse des Load Balancers, der vor der AD FS Serverfarm konfiguriert ist|  
+|enterpriseregistration|Alias \(cname @ no__t-1|Verbund @ no__t-0Server\_name.contoso.com|  
   
-Sie können das folgende Verfahren zum Hinzufügen eines Hosts \(ein\) und Alias \(CNAME\) Ressourceneinträge auf Unternehmens-DNS für den Verbundserver und den Geräteregistrierungsdienst.  
+Mit dem folgenden Verfahren können Sie dem Unternehmens-DNS für den Verbund Server und den Geräte Registrierungsdienst einen Host \(A @ no__t-1-und Alias \(cname @ no__t-3-Ressourcen Einträge hinzufügen.  
   
-Mitgliedschaft in **Administratoren**, oder entspricht, ist die Mindestanforderung zum Ausführen dieses Verfahrens.  Weitere Informationen zur Verwendung der geeigneten Konten und Gruppenmitgliedschaften unter [lokale und Domänenstandardgruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Sie müssen mindestens Mitglied der Gruppe **Administratoren**oder einer entsprechenden Gruppe sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
-#### <a name="to-add-a-host-a-and-alias-cname-resource-records-to-dns-for-your-federation-server"></a>Beim Hinzufügen eines Hosts \(ein\) und Alias \(CNAME\) -Ressourceneinträge in DNS für Ihren Verbundserver  
+#### <a name="to-add-a-host-a-and-alias-cname-resource-records-to-dns-for-your-federation-server"></a>So fügen Sie einen Host \(A @ no__t-1 und Alias \(cname @ no__t-3-Ressourcen Einträge zu DNS für Ihren Verbund Server hinzu  
   
-1.  Auf Sie Domänencontroller im Server-Manager auf die **Tools** Menü klicken Sie auf **DNS** , öffnen Sie die DNS-Snap\-in.  
+1.  Klicken Sie auf Ihrem Domänen Controller in Server-Manager im **Menü Extras** auf **DNS** , um das DNS-Snap-in @ no__t-2in zu öffnen.  
   
-2.  Erweitern Sie in der Konsolenstruktur der **Domäne\_Controller\_Namen** Knoten erweitern **Forward-Lookupzonen**mit der rechten Maustaste\-klicken Sie auf **Domäne\_Namen**, und klicken Sie dann auf **neuen Host \(A oder AAAA\)** .  
+2.  Erweitern Sie in der Konsolen Struktur den Knoten **Domäne @ no__t-1controller @ no__t-2name** , erweitern Sie Forward-Lookupzonen, klicken Sie mit der rechten @ no__t-4click **Domäne @ no__t-6name**, und klicken Sie dann auf **neuer Host \(A oder AAAA @ no__t-9**.  
   
-3.  In der **Namen** geben den Namen, die für AD FS-Farm verwendet.  
+3.  Geben Sie im Feld **Name** den Namen ein, der für Ihre AD FS Farm verwendet werden soll.  
   
 4.  Geben Sie in das Feld **IP-Adresse** die IP-Adresse des Verbundservers ein. Klicken Sie auf **Host hinzufügen**.  
   
-5.  Rechts\-klicken Sie auf die **Domäne\_Namen** Knoten, und klicken Sie dann auf **neuer Alias \(CNAME\)** .  
+5.  Rechts @ no__t-0klicken Sie auf den Knoten **Domäne @ no__t-2name** , und klicken Sie dann auf **Neuer Alias \(cname @ no__t-5**.  
   
 6.  Geben Sie im Dialogfeld **Neuer Ressourcendatensatz** **enterpriseregistration** in das Feld **Aliasname** ein.  
   
-7.  In den vollständig qualifizierten Domänennamen \(FQDN\) Typ von Feld Target Host **Verbund\_Service\_Farm\_Benutzername.Domänenname.com\_steht**, und klicken Sie dann Klicken Sie auf **OK**.  
+7.  Geben Sie im Feld voll qualifizierter Domänen Name \(fqdn @ no__t-1 des Felds Zielhost den Namen **Federation @ no__t-3service @ no__t-4farm @ no__t-5name. Domain @ no__t-6name. com**ein, und klicken Sie dann auf **OK**.  
   
     > [!IMPORTANT]  
-    > In einer realen Bereitstellung, verfügt Ihr Unternehmen mehrere Benutzerprinzipalnamen \(UPN\) Suffixe, müssen Sie mehrere CNAME-Einträge für jede die UPN-Suffixe in DNS erstellen.  
+    > Wenn Ihr Unternehmen in einer realen Bereitstellung über mehrere Benutzer Prinzipal Namen \(upn @ no__t-1-Suffixe verfügt, müssen Sie mehrere CNAME-Einträge für jedes dieser UPN-Suffixe in DNS erstellen.  
   
 ## <a name="see-also"></a>Siehe auch 
 
 [AD FS-Bereitstellung](../../ad-fs/AD-FS-Deployment.md)  
 
-[Windows Server 2012 R2 AD FS-Bereitstellung geführt.](../../ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)  
+[Windows Server 2012 R2 AD FS Bereitstellungs Handbuch](../../ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)  
  
 [Bereitstellen einer Verbundserverfarm](../../ad-fs/deployment/Deploying-a-Federation-Server-Farm.md)  
   

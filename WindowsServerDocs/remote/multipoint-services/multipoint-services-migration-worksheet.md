@@ -1,9 +1,9 @@
 ---
-title: Planung Arbeitsblatt für die Migration von MultiPoint Services
-description: Enthält die Planung Arbeitsblätter, die mit MultiPoint Services in Windows Server 2016 zu migrieren
+title: Planen des Arbeitsblatts für die Multipoint Services-Migration
+description: Stellt Planungs Arbeitsblätter bereit, um Sie bei der Migration zu Multipoint Services in Windows Server 2016 zu unterstützen.
 ms.custom: na
 ms.date: 07/29/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,36 +13,36 @@ ms.assetid: 864405bb-47ed-4c83-97a2-8df4c6e6f96b
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: a9d9b62bced9be90c658b79338c6f4ef07710fc3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d3d2ecca4062d28d210196d9191e08710eb731c2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880581"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394626"
 ---
-# <a name="planning-worksheet-for-multipoint-services-migration"></a>Planung Arbeitsblatt für die Migration von MultiPoint Services
+# <a name="planning-worksheet-for-multipoint-services-migration"></a>Planen des Arbeitsblatts für die Multipoint Services-Migration
 
 >Gilt für: Windows Server 2016
 
-Verwenden Sie den folgenden Listen und Tabellen, um die Einstellungen zu erfassen, die Sie während der Migration MultiPoint Services benötigen.
+Verwenden Sie die folgenden Listen und Tabellen, um die Einstellungen zu erfassen, die Sie bei der Multipoint Services-Migration benötigen.
 
 ## <a name="source-server-settings"></a>Quellservereinstellungen
 
-Die Server-Einstellungen finden Sie auf die **Startseite** Registerkarte im MultiPoint-Manager. Platzieren Sie ein Häkchen neben jeder Einstellung auf dem Quellserver verwendet.
+Sie finden die Servereinstellungen auf der Registerkarte **Start** im Multipoint-Manager. Platzieren Sie ein Häkchen neben jeder Einstellung, die auf dem Quell Server verwendet wird.
 
-- Können Sie ein Konto, um mehrere Sitzungen an.
-- Zulassen, dass dieser Computer remote verwaltet werden.
-- Ermöglichen Sie die Überwachung der Desktops dieses Computers.
-- Immer im Konsolenmodus starten.
-- Datenschutzerklärung nicht bei der ersten Benutzeranmeldung anzeigen.
-- Jede Station wird eine eindeutige IP-Adresse zuweisen.
-- Instant-Messaging zwischen dem MultiPoint-Dashboard und die Sitzung des Benutzers auf diesem Computer zulassen.
-- Orchestrierung von Administrator- und MultiPoint-Dashboard-benutzersitzungen zulassen
-- Ermöglichen Sie die Stationen mit Hardware-GPU-Rendering.
+- Gestatten Sie, dass ein Konto über mehrere Sitzungen verfügt.
+- Ermöglicht die Remote Verwaltung dieses Computers.
+- Hiermit wird die Überwachung der Desktops dieses Computers ermöglicht.
+- Starten Sie immer im Konsolenmodus.
+- Datenschutz Benachrichtigung bei der ersten Benutzeranmeldung nicht anzeigen.
+- Weisen Sie jeder Station eine eindeutige IP-Adresse zu.
+- Lässt zwischen dem Multipoint-Dashboard und den Benutzersitzungen auf diesem Computer zu.
+- Ermöglicht die Orchestrierung von Administrator-und Multipoint-dashboardbenutzersitzungen.
+- Ermöglicht Stationen die Verwendung des GPU-Hardware Rendering.
 
 ## <a name="managed-servers-and-computers"></a>Verwaltete Server und Computer
 
-Notieren Sie die Namen von verwalteten Servern und Computern. Sie finden diese Informationen auf der **Startseite** Registerkarte im MultiPoint-Manager.
+Notieren Sie die Namen der verwalteten Server und Computer. Diese Informationen finden Sie auf der Registerkarte **Startseite** im Multipoint-Manager.
 
 | Computer | Computername |
 |----------|---------------|
@@ -58,9 +58,9 @@ Notieren Sie die Namen von verwalteten Servern und Computern. Sie finden diese I
 | 10       |               |
 
 
-## <a name="stations"></a>Stationen
+## <a name="stations"></a>Station
 
-Notieren Sie die lokalen Stationen und deren Einstellungen. Sie finden diese Informationen auf der **Stationen** Registerkarte im MultiPoint-Manager.
+Notieren Sie die lokalen Stationen und deren Einstellungen. Diese Informationen finden Sie auf der Registerkarte **Stationen** im Multipoint-Manager.
 
 | #  | Stationsname | Benutzerkonto für die automatische Anmeldung | Bildschirmausrichtung |
 |----|--------------|-------------------------|---------------------|
@@ -75,9 +75,9 @@ Notieren Sie die lokalen Stationen und deren Einstellungen. Sie finden diese Inf
 | 9  |              |                         |                     |
 | 10 |              |                         |                     |
 
-## <a name="administrators-and-multipoint-dashboard-users"></a>Administratoren und MultiPoint-Dashboardbenutzer
+## <a name="administrators-and-multipoint-dashboard-users"></a>Administratoren und Multipoint-Dashboardbenutzer
 
-Kopieren Sie den Benutzernamen für die Administratoren und MultiPoint-Dashboardbenutzer. Sie finden diese Informationen auf der **Benutzer** Registerkarte im MultiPoint-Manager.
+Kopieren Sie die Benutzernamen für die Benutzer von Administratoren und Multipoint-Dashboards. Diese Informationen finden Sie auf der Registerkarte **Benutzer** im Multipoint-Manager.
 
 Administratoren:
 
@@ -88,7 +88,7 @@ Administratoren:
 - Benutzername:
 - Benutzername:
 
-Dashboard-Benutzer:
+Dashboardbenutzer:
 
 - Benutzername:
 - Benutzername:
@@ -96,11 +96,11 @@ Dashboard-Benutzer:
 - Benutzername:
 - Benutzername:
 
-## <a name="vdi-template-and-virtual-desktops"></a>VDI-Vorlage und virtuelle desktops
+## <a name="vdi-template-and-virtual-desktops"></a>VDI-Vorlage und virtuelle Desktops
 
-Notieren Sie die Informationen für die VDI-Vorlage und die Namen der virtuellen Desktops in Ihrem MultiPoint Services-Bereitstellung an. Sie finden diese Informationen auf der **virtuelle Desktops** Registerkarte im MultiPoint-Manager.
+Notieren Sie die VDI-Vorlagen Informationen und die Namen virtueller Desktops in der Multipoint Services-Bereitstellung. Diese Informationen finden Sie auf der Registerkarte **virtuelle Desktops** im Multipoint-Manager.
 
-**VDI-Vorlagenspeicherort**: 
+**Speicherort der VDI-Vorlage**: 
 
 | # | Name des virtuellen Desktops      |
 |---|---------------------------|

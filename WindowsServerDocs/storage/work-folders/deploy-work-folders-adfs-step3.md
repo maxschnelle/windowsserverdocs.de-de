@@ -1,6 +1,6 @@
 ---
 title: Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy - Schritt 3, Einrichten von Arbeitsordnern
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-work-folders
 ms.topic: article
 manager: klaasl
@@ -8,31 +8,31 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 4/5/2017
 ms.assetid: 5a43b104-4d02-4d73-a385-da1cfb67e341
-ms.openlocfilehash: d6b21579fb1dedc777733317e7222debd8d944a1
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: ef76b87928e696586356c499367051ff0d0e9ab4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812666"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365767"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-3-set-up-work-folders"></a>Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 3: Einrichten von Arbeitsordnern
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-3-set-up-work-folders"></a>Arbeitsordner mit AD FS und webanwendungsproxy bereitstellen: Schritt 3: Einrichten von Arbeits Ordnern
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 In diesem Thema wird der dritte Schritt bei der Bereitstellung von Arbeitsordnern mit Active Directory-Verbunddiensten (AD FS) und Webproxyanwendung beschrieben. Weitere Schritte des Prozesses finden Sie in folgenden Themen:  
   
--   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Übersicht über die](deploy-work-folders-adfs-overview.md)  
+-   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Übersicht @ no__t-0  
   
--   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 1: Einrichten der AD FS](deploy-work-folders-adfs-step1.md)  
+-   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 1: Einrichten AD FS @ no__t-0  
   
--   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 2, und AD FS-Konfiguration nach der Arbeit](deploy-work-folders-adfs-step2.md)  
+-   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 2, AD FS Arbeit nach der Konfiguration @ no__t-0  
   
--   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 4: Einrichten des Webanwendungsproxys](deploy-work-folders-adfs-step4.md)  
+-   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 4: Einrichten des webanwendungsproxys @ no__t-0  
   
--   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 5, richten Sie Clients](deploy-work-folders-adfs-step5.md)  
+-   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 5: Einrichten von Clients @ no__t-0  
   
 > [!NOTE]
->   Die Anweisungen in diesem Abschnitt behandelten sind für eine Windows Server-2019 oder Windows Server 2016-Umgebung. Wenn Sie Windows Server 2012 R2 verwenden, folgen Sie den [Anweisungen für Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
+>   Die in diesem Abschnitt behandelten Anweisungen gelten für eine Windows Server 2019-oder Windows Server 2016-Umgebung. Wenn Sie Windows Server 2012 R2 verwenden, folgen Sie den [Anweisungen für Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
 
 Wenn Sie Arbeitsordner einrichten möchten, gehen Sie folgendermaßen vor.  
   
@@ -42,7 +42,7 @@ Um Arbeitsordner zu installieren, müssen Sie über einen Server verfügen, der 
 Verknüpfen Sie für das Testbeispiel den Computer, auf dem der Arbeitsordner ist mit der Contoso-Domäne und richten Sie die Netzwerkschnittstelle wie in den folgenden Abschnitten beschrieben ein. 
 
 ### <a name="set-the-server-ip-address"></a>Legen Sie die IP-Adresse des -Servers fest  
-Ändern Sie die IP-Adresse des Servers in eine statische IP-Adresse. Verwenden Sie für das Testbeispiel-IP-Klasse ein, die 192.168.0.170 / Subnetzmaske: 255.255.0.0 / Standard-Gateway: 192.168.0.1 / bevorzugte DNS: 192.168.0.150 (die IP-Adresse des Domänencontrollers). 
+Ändern Sie die IP-Adresse des Servers in eine statische IP-Adresse. Verwenden Sie für das Testbeispiel die IP-Klasse A, d. h. 192.168.0.170/Subnetzmaske: 255.255.0.0/Standard Gateway: 192.168.0.1/bevorzugtes DNS: 192.168.0.150 (die IP-Adresse Ihres Domänen Controllers). 
   
 ### <a name="create-the-cname-record-for-work-folders"></a>Erstellen Sie den CNAME-Eintrag für Arbeitsordner  
 Um den CNAME-Eintrag für Arbeitsordner zu erstellen, gehen Sie folgendermaßen vor:  
@@ -189,7 +189,7 @@ Führen Sie diese zusätzlichen Schritte aus, um das Einrichten der Arbeitsordne
 ### <a name="bind-the-certificate"></a>Das Zertifikat binden  
 Arbeitsordner kommunizieren nur über SSLs und müssen das an den Port gebundene selbstsignierte Zertifikat besitzen, das Sie zuvor erstellt haben (oder das von der Zertifizierungsstelle ausgestellt wurde).  
   
-Es gibt zwei Methoden, die Sie zum Binden des Zertifikats an den Port, über Windows PowerShell verwenden können: IIS-Cmdlets "und" Netsh ".  
+Es gibt zwei Methoden, die Sie verwenden können, um das Zertifikat über Windows PowerShell an den Port zu binden: IIS-Cmdlets und Netsh.  
   
 #### <a name="bind-the-certificate-by-using-netsh"></a>Das Zertifikat mithilfe von Netsh binden  
 Um das Befehlszeilen-Skripthilfsprogramm Netsh in Windows PowerShell zu verwenden, müssen Sie den Befehl auf Netsh umleiten. Das folgende Beispielskript findet das Zertifikat mit dem Betreff **workfolders.contoso.com** und bindet es an den Port 443 mit Netsh:  
@@ -250,7 +250,7 @@ Gehen Sie folgendermaßen vor, um Arbeitsordner zum Verwenden von AD FS zur Auth
   
 4.  Wählen Sie im Dialogfenster **Arbeitsordnereinstellungen** **Active Directory-Verbunddienste** und geben Sie eine Verbunddienst-URL ein. Klicken Sie auf **Übernehmen**.  
   
-    Im Testbeispiel die URL ist **https://blueadfs.contoso.com** .  
+    Im Testbeispiel ist die URL **https://blueadfs.contoso.com** .  
   
 So führen Sie dieselbe Aufgabe mit Windows PowerShell-Cmdlet aus:  
   
@@ -271,11 +271,11 @@ Das selbstsigniertes Arbeitsordner-Zertifikat muss exportiert werden, damit Sie 
   
 -   Der nicht mit einer Domäne verknüpfte Windows-Client  
   
-Um das Zertifikat zu exportieren, führen Sie die gleichen Schritte, die Sie zum zuvor exportieren Sie das AD FS-Zertifikat verwendet, wie in beschrieben [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 2, und AD FS-Konfiguration nach der Arbeit](deploy-work-folders-adfs-step2.md), exportieren Sie das AD FS-Zertifikat.  
+Um das Zertifikat zu exportieren, führen Sie dieselben Schritte aus, die Sie zuvor zum Exportieren des AD FS Zertifikats verwendet haben, wie in [bereit stellen von Arbeits Ordnern mit AD FS und webanwendungsproxy beschrieben: Schritt 2: AD FS Arbeitsaufgaben nach der Konfiguration @ no__t-0, exportieren Sie das AD FS Zertifikat.  
   
-Nächster Schritt: [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 4: Einrichten des Webanwendungsproxys](deploy-work-folders-adfs-step4.md)  
+Nächster Schritt: [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 4: Einrichten des webanwendungsproxys @ no__t-0  
   
 ## <a name="see-also"></a>Siehe auch  
-[Übersicht: Arbeitsordner](Work-Folders-Overview.md)  
+[Übersicht über Arbeitsordner](Work-Folders-Overview.md)  
   
 

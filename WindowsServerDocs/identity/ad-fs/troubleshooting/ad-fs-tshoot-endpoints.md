@@ -1,39 +1,39 @@
 ---
-title: AD FS-Problembehandlung – AD FS-Endpunkte
-description: Dieses Dokument beschreibt die Problembehandlung für AD FS-Endpunkte
+title: AD FS Problembehandlung-AD FS Endpunkte
+description: In diesem Dokument wird beschrieben, wie AD FS Endpunkte behoben werden.
 author: billmath
 ms.author: billmath
 manager: mtillman
 ms.date: 01/03/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 13b830c0317341280bd87499e3abd8dcd1a33fc2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 807b5c5de14bf6a43419d0b9d2d3a4e6953d0075
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857561"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366224"
 ---
-# <a name="ad-fs-troubleshooting---ad-fs-metadata-endpoints"></a>AD FS-Problembehandlung – AD FS-Endpunkte
-Endpunkte bieten Zugriff auf die Verbund-Funktionen von AD FS, z. B. veröffentlichen Metadaten des Verbunds.  Um sicherzustellen, dass AD FS-Servers auf webanforderungen geantwortet wird, können wir die verschiedenen Endpunkte überprüfen.
+# <a name="ad-fs-troubleshooting---ad-fs-metadata-endpoints"></a>AD FS Problembehandlung-AD FS Metadatenendpunkte
+Endpunkte ermöglichen den Zugriff auf die Verbund Serverfunktionen von AD FS, z. b. das Veröffentlichen von Verbund Metadaten.  Um zu überprüfen, ob der AD FS Server auf Webanforderungen antwortet, können wir die verschiedenen Endpunkte überprüfen.
 
 
-## <a name="federation-metadata-test"></a>Verbund-Metadaten-test
-Passiven Verbund bezieht sich auf Szenarien, in dem Browser erneut an die AD FS-Anmeldeseite geleitet wird.  Testen des Metadaten-Endpunkts können wir feststellen, ob AD FS-Servers auf webanforderungen in diesen Szenarien passiven reagiert.  Verwenden Sie das folgende Verfahren, um den Endpunkt zu testen.
+## <a name="federation-metadata-test"></a>Verbund Metadaten-Test
+Passiver Verbund bezieht sich auf Szenarien, in denen Ihr Browser auf die AD FS Anmeldeseite umgeleitet wird.  Durch Testen des Metadatenendpunkts können Sie feststellen, ob der AD FS Server in diesen passiven Szenarien auf Webanforderungen antwortet.  Verwenden Sie das folgende Verfahren, um den Endpunkt zu testen.
 
-1.  Mithilfe eines Webbrowsers, navigieren Sie zu der AD FS-Verbund-Metadatenendpunkt.  Zum Beispiel:  https://sts.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
-2. Die XML-Datei muss lokal auf Ihren Computer herunterzuladen.
-3. Öffnen Sie sie aus, und stellen Sie sicher, dass sie die Informationen ähnlich wie die folgenden Informationen enthält: ![Passive](media/ad-fs-tshoot-endpoints/meta2.png)
+1.  Navigieren Sie in einem Webbrowser zu Ihrem AD FS Verbund-Metadatenendpunkt.  Beispiel: https://sts.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
+2. Die XML-Datei sollte lokal auf Ihren Computer heruntergeladen werden.
+3. Öffnen Sie die Datei, und überprüfen Sie, ob Sie ähnliche Informationen wie die folgende Info enthält: ![passiv @ no__t-1
 
-## <a name="ws-mex-test-active-test"></a>WS-MEX-Test (Active-Test)
-WS-MetaDataExchange ist ein Webprotokoll-Dienste und ist Teil der Roadmap für die WS-Verbund.  Eine SOAP-Nachricht verwendet zum Anfordern von Metadaten.  Testen Sie den Endpunkt können wir feststellen, ob der AD FS-Server für die WS-MetaDataExchange auf webanforderungen geantwortet wird.  Verwenden Sie das folgende Verfahren, um den Endpunkt zu testen.
-1.  Mithilfe eines Webbrowsers, navigieren Sie zu der AD FS-Verbund-Metadatenendpunkt.  Zum Beispiel:  https://sts.contoso.com/adfs/services/trust/mex
-2. Die XML-Datei sollte im Browser automatisch angezeigt werden.  Es sollte wie folgt aussehen:
+## <a name="ws-mex-test-active-test"></a>WS-MEX-Test (aktiver Test)
+Bei WS-MetaDataExchange handelt es sich um ein Webdienst Protokoll, das Teil der WS-Verbund-Roadmap ist.  Es wird eine SOAP-Nachricht verwendet, um Metadaten anzufordern.  Durch Testen des Endpunkts können Sie feststellen, ob der AD FS Server auf Webanforderungen für WS-MetaDataExchange antwortet.  Verwenden Sie das folgende Verfahren, um den Endpunkt zu testen.
+1.  Navigieren Sie in einem Webbrowser zu Ihrem AD FS Verbund-Metadatenendpunkt.  Beispiel: https://sts.contoso.com/adfs/services/trust/mex
+2. Die XML-Datei sollte automatisch im Browser angezeigt werden.  Dies sollte wie in der folgenden Abbildung aussehen:
 
-![Aktiv](media/ad-fs-tshoot-endpoints/meta3.png)
+![Active](media/ad-fs-tshoot-endpoints/meta3.png)
 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [AD FS-Problembehandlung](ad-fs-tshoot-overview.md)
+- [Behandeln von AD FS-Problemen](ad-fs-tshoot-overview.md)
