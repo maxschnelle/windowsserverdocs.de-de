@@ -1,8 +1,8 @@
 ---
 title: tskill
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,22 +13,22 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b582334d7b79b2badbb86818be1093b6a5f55080
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 697363c91837ff675a14099fd212f4f0753b739b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440814"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392332"
 ---
 # <a name="tskill"></a>tskill
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Beendet einen Prozess auf einem Remotedesktop-Sitzungshost (rd Session Host)-Server in einer Sitzung ausgeführt.
-Beispiele für diesen Befehl verwenden, finden Sie unter [Beispiele](#BKMK_examples).
+Beendet einen Prozess, der in einer Sitzung auf einem Remotedesktop-Sitzungshost Server (RD-Sitzungs Host) ausgeführt wird.
+Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
 > [!NOTE]
-> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Neuerungen in der neuesten Version finden Sie unter [welche s New in Remote Desktop Services in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der technischen Bibliothek für Windows Server.
+> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der TechNet-Bibliothek für Windows Server.
 
 ## <a name="syntax"></a>Syntax
 ```
@@ -39,28 +39,28 @@ tskill {<ProcessID> | <ProcessName>} [/server:<ServerName>] [/id:<SessionID> | /
 
 |Parameter|Beschreibung|
 |-------|--------|
-|\<Prozess-ID >|Gibt die ID des Prozesses, die Sie beenden möchten.|
-|\<ProcessName >|Gibt den Namen des Prozesses, die Sie beenden möchten. Dieser Parameter kann Platzhalterzeichen enthalten.|
-|/server:\<ServerName>|Gibt an, der Terminalserver, der die den Prozess enthält, den Sie beenden möchten. Wenn **/Server** nicht angegeben ist, wird der aktuelle RD Session Host-Server verwendet wird.|
-|/id:\<SessionID>|Beendet den Prozess, der in der angegebenen Sitzung ausgeführt wird.|
+|\<processid >|Gibt die ID des Prozesses an, den Sie beenden möchten.|
+|\<processname >|Gibt den Namen des Prozesses an, den Sie beenden möchten. Dieser Parameter kann Platzhalter Zeichen enthalten.|
+|/Server: \<servername >|Gibt den Terminal Server an, der den Prozess enthält, den Sie beenden möchten. Wenn **/Server** nicht angegeben ist, wird der aktuelle RD-Sitzungshost Server verwendet.|
+|/ID: \<sessionid >|Beendet den Prozess, der in der angegebenen Sitzung ausgeführt wird.|
 |/a|Beendet den Prozess, der in allen Sitzungen ausgeführt wird.|
-|/v|Zeigt Informationen zu den Aktionen, die ausgeführt wird.|
+|/v|Zeigt Informationen zu den Aktionen an, die ausgeführt werden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
-- Sie können **Tskill** beendet nur die Prozesse, die zu Ihnen gehören, es sei denn, Sie Administrator sind. Administratoren haben vollen Zugriff auf alle **Tskill** Funktionen und können end-Prozesse, die in anderen benutzersitzungen ausgeführt werden.
-- Wenn alle Prozesse, die in einer Sitzung ausgeführt werden zu beenden, wird auch die Sitzung beendet.
-- Bei Verwendung der *ProcessName* und **/Server:** <em>ServerName</em> Parameter auch Geben Sie die **/ID:**  <em>SessionID</em> oder **/a** Parameter.
+- Sie können **tskills** verwenden, um nur die Prozesse zu beenden, die Ihnen angehören, es sei denn, Sie sind ein Administrator. Administratoren haben Vollzugriff auf alle **tskills** -Funktionen und können Prozesse beenden, die in anderen Benutzersitzungen ausgeführt werden.
+- Wenn alle Prozesse, die in einer Sitzung ausgeführt werden, beendet werden, wird die Sitzung ebenfalls beendet.
+- Wenn Sie die Parameter " *ProcessName* " und " **/Server:** <em>Servername</em> " verwenden, müssen Sie auch den Parameter " **/ID:** <em>SessionID</em> " oder " **/a** " angeben.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 - Um den Prozess 6543 zu beenden, geben Sie Folgendes ein:
   ```
   tskill 6543
   ```
-- Um den Prozess "Explorer" auf 5-Sitzung zu beenden, geben Sie Folgendes ein:
+- Zum Beenden des Prozesses "Explorer", der in Sitzung 5 ausgeführt wird, geben Sie Folgendes ein:
   ```
   tskill explorer /id:5
   ```
   #### <a name="additional-references"></a>Weitere Verweise
-  [Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-  [Remotedesktopdienste &#40;Terminaldienste&#41; -Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)
+  [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+  [Remotedesktopdienste &#40;Befehlsreferenz&#41; für Terminal Dienste](remote-desktop-services-terminal-services-command-reference.md)

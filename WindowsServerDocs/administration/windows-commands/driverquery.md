@@ -1,8 +1,8 @@
 ---
 title: driverquery
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 88a59f9da9927bb923418695bc760303c0fb00b0
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 5d44a1be300b7178bc2271187344c2fc4ab8815e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439487"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377654"
 ---
 # <a name="driverquery"></a>driverquery
 
 
 
-Ermöglicht einem Administrator, um eine Liste der installierten Treiber und deren Eigenschaften anzuzeigen. Wenn Sie ohne Angabe von Parametern **Driverquery** auf dem lokalen Computer ausgeführt wird.
+Ermöglicht es einem Administrator, eine Liste der installierten Gerätetreiber und deren Eigenschaften anzuzeigen. Bei Verwendung ohne Parameter wird die Ausführung von **driverquery** auf dem lokalen Computer ausgeführt.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -38,22 +38,22 @@ driverquery [/s <System> [/u [<Domain>\]<Username> [/p <Password>]]] [/fo {table
 
 |         Parameter         |                                                                                                                                         Beschreibung                                                                                                                                          |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|       /s \<System>        |                                                                                      Gibt den Namen oder die IP-Adresse eines Remotecomputers. Verwenden Sie keine umgekehrte Schrägstriche. Der Standardwert ist der lokale Computer.                                                                                       |
-| /u [\<Domain>\]<Username> | Führt den Befehl mit den Anmeldeinformationen des Benutzerkontos laut *Benutzer* oder *Domäne*\*Benutzer<em>. In der Standardeinstellung \* \*/s</em> \* verwendet die Anmeldeinformationen des Benutzers, der derzeit auf dem Computer angemeldet ist, die den Befehl ausgegeben wird. **/ u** kann nicht verwendet werden, es sei denn, **/s** angegeben ist. |
-|      / p \<Kennwort >       |                                                                           Gibt das Kennwort des Benutzerkontos ein, die im angegebenen die **/u** Parameter. **/ p** kann nicht verwendet werden, es sei denn, **/u** angegeben ist.                                                                            |
-|        / FO {table         |                                                                                                                                             list                                                                                                                                             |
-|            /nh            |                                                                                      Lässt die Headerzeile aus der angezeigten Treiberinformationen. Nicht gültig, wenn die **/Fo** Parametersatz zu **Liste**.                                                                                      |
-|            /v             |                                                                                                               Zeigt eine ausführliche Ausgabe. **/ v** gilt nicht für signierte Treiber.                                                                                                               |
-|            /si            |                                                                                                                          Enthält Informationen zu den signierten Treiber.                                                                                                                          |
+|       /s \<system >        |                                                                                      Gibt den Namen oder die IP-Adresse eines Remote Computers an. Verwenden Sie keine umgekehrten Schrägstriche. Der Standardwert ist der lokale Computer.                                                                                       |
+| /u [\<domäne > \] @ no__t-2 | Führt den Befehl mit den Anmelde Informationen des Benutzerkontos aus, wie von *Benutzer* oder *Domäne*\*user @ no__t-3 angegeben. Standardmäßig verwendet \* @ no__t-1/s @ no__t-2 @ no__t-3 die Anmelde Informationen des Benutzers, der zurzeit auf dem Computer angemeldet ist, von dem der Befehl ausgegeben wird. **/u** kann nur verwendet werden, wenn **/s** angegeben wird. |
+|      /p \<Password >       |                                                                           Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist. **/p** kann nur verwendet werden, wenn **/u** angegeben wird.                                                                            |
+|        /FO {Table         |                                                                                                                                             list                                                                                                                                             |
+|            /nh            |                                                                                      Lässt die Kopfzeile der angezeigten Treiber Informationen aus. Ungültig, wenn der **/FO** -Parameter auf **List**festgelegt ist.                                                                                      |
+|            /v             |                                                                                                               Zeigt die ausführliche Ausgabe an. **/v** ist für signierte Treiber nicht gültig.                                                                                                               |
+|            /Si            |                                                                                                                          Enthält Informationen zu signierten Treibern.                                                                                                                          |
 |            /?             |                                                                                                                             Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                             |
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um eine Liste der installierten Gerätetreiber auf dem lokalen Computer anzuzeigen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um eine Liste der installierten Gerätetreiber auf dem lokalen Computer anzuzeigen:
 ```
 driverquery 
 ```
-Um die Ausgabe in einem Format mit kommagetrennten Werten (CSV) anzuzeigen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um die Ausgabe in einem CSV-Format (Comma-Separated Values) anzuzeigen:
 ```
 driverquery /fo csv 
 ```
@@ -61,11 +61,11 @@ Um die Kopfzeile in der Ausgabe auszublenden, geben Sie Folgendes ein:
 ```
 driverquery /nh 
 ```
-Verwenden der **Driverquery** Befehl auf einem Remoteserver mit dem Namen **server1** verwenden Ihre aktuellen Anmeldeinformationen auf dem lokalen Computer aus, geben Sie:
+Geben Sie Folgendes ein, um den Befehl " **driverquery** " auf einem Remote Server mit dem Namen **Server1** mit ihren aktuellen Anmelde Informationen auf dem lokalen Computer zu verwenden:
 ```
 driverquery /s server1
 ```
-Verwenden der **Driverquery** Befehl auf einem Remoteserver mit dem Namen **server1** mit den Anmeldeinformationen für **"user1"** in der Domäne **Maindom**, Typ:
+Wenn Sie den Befehl " **driverquery** " auf einem Remote Server mit dem Namen **Server1** mithilfe der Anmelde Informationen für **User1** im Domänen- **Maindom**verwenden möchten, geben Sie
 ```
 driverquery /s server1 /u maindom\user1 /p p@ssw3d
 ```

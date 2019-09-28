@@ -1,8 +1,8 @@
 ---
 title: Befehl nslookup finger
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 13eb4e45b3fdc17fd48fa9793abaaf05925b56a2
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 4067c16a7d338c5853a6179af17cf4e3e996e6a6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436961"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373129"
 ---
 # <a name="nslookup-finger-command"></a>Befehl nslookup finger
 
 
 
-Eine Verbindung mit dem Fingerserver, auf dem aktuellen Computer.
+Stellt eine Verbindung mit dem Finger Server auf dem aktuellen Computer her.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,8 +36,8 @@ finger [<UserName>] [{[>] <FileName>|[>>] <FileName>}]
 
 |  Parameter  |                                                                               Beschreibung                                                                               |
 |-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \<Benutzername > |                                                               Gibt den Namen des zu suchenden Benutzers.                                                                |
-| \<FileName> | Gibt einen Dateinamen in dem die Ausgabe zu speichern. Sie können es verwenden, der größer als (>) und doppeltes größer als (>>) Zeichen, die die Ausgabe umgeleitet, auf die übliche Weise. |
+| \<username > |                                                               Gibt den Namen des Benutzers an, der gesucht werden soll.                                                                |
+| \<Dateiname > | Gibt einen Dateinamen an, in dem die Ausgabe gespeichert werden soll. Sie können die Zeichen "größer als" (>) und "Double größer als" (> >) verwenden, um die Ausgabe auf die übliche Weise umzuleiten. |
 |    {Hilfe    |                                                                                   ?}                                                                                    |
 
 #### <a name="additional-references"></a>Weitere Verweise

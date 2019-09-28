@@ -7,29 +7,29 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/08/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: a3eecec9d47f91bb6a9ba549abc3bf62482b2f49
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a24c88f5469890f12f821b9f729c7d283b687f43
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863281"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389902"
 ---
 # <a name="executive-summary"></a>Kurzfassung
 
 >Gilt für: Windows Server 2012
 
 >[!IMPORTANT] 
->Die folgende Dokumentation wurde in 2013 geschrieben, und es wird nur zu historischen Zwecken bereitgestellt.  Derzeit überprüfen wir in dieser Dokumentation und unterliegt Änderungen.  Es kann nicht die aktuelle bewährte Methoden wider.
+>Die folgende Dokumentation wurde in 2013 geschrieben und wird nur zu historischen Zwecken bereitgestellt.  Zurzeit überprüfen wir diese Dokumentation und unterliegen Änderungen.  Die aktuellen bewährten Methoden werden möglicherweise nicht angezeigt.
 
-Keine Organisation mit einer Infrastruktur der Informationstechnologie (IT) gegen Angriffe immun ist, aber wenn geeigneten Richtlinien, Prozesse und Steuerelemente implementiert werden, um die wichtigsten Segmente der Computerinfrastruktur eines Unternehmens zu schützen, ist es eventuell möglich verhindern Sie, dass ein Ereignis einer sicherheitsverletzung achsenbezeichnungsschriftgrad durch Vergrößern an eine umfassende Gefährdung der IT-Umgebung.  
+Keine Organisation mit einer IT-Infrastruktur (IT-Infrastruktur) ist gegen Angriffe geschützt, aber wenn geeignete Richtlinien, Prozesse und Kontrollen implementiert werden, um die Schlüsselsegmente der Computerinfrastruktur eines Unternehmens zu schützen, kann es möglich sein, verhindern, dass ein Verletzungs Ereignis zu einem umfassenden Kompromiss der Computerumgebung wächst.  
   
-Dieser zusammenfassende Darstellung dient als eigenständiges Dokument zusammenfassen der Inhalte des Dokuments an, die Empfehlungen enthält, die Organisationen bei der Verbesserung der Sicherheits ihrer Active Directory-Installationen zu unterstützen, werden nützlich sein. Durch die Implementierung dieser Empfehlungen können kann Organisationen zu identifizieren und priorisieren Sicherheitsaktivitäten, wichtigsten Segmente für die Computerinfrastruktur ihres Unternehmens zu schützen und Steuerelemente erstellen, die die Wahrscheinlichkeit erheblich zu verringern erfolgreicher Angriffe auf wichtige Komponenten der IT-Umgebung.  
+Diese Zusammenfassung ist als eigenständiges Dokument gedacht, das den Inhalt des Dokuments zusammenfasst, das Empfehlungen enthält, die Organisationen bei der Verbesserung der Sicherheit Ihrer Active Directory-Installationen unterstützen. Durch die Implementierung dieser Empfehlungen können Organisationen Sicherheitsaktivitäten identifizieren und priorisieren, Schlüsselsegmente der Computerinfrastruktur Ihres Unternehmens schützen und Steuerelemente erstellen, die die Wahrscheinlichkeit von erfolgreiche Angriffe gegen wichtige Komponenten der IT-Umgebung.  
   
-Obwohl in diesem Dokument wird, die am häufigsten verwendeten Angriffe gegen die Active Directory und Gegenmaßnahmen erläutert, um die Angriffsfläche zu verringern, enthält es auch Empfehlungen für die Wiederherstellung bei Verlust. Die einzige sichere Möglichkeit, im Falle einer umfassenden Gefährdung der Active Directory wiederherzustellen, ist für die Beeinträchtigung vorbereitet werden, bevor sie vorgenommen.  
+Obwohl in diesem Dokument die häufigsten Angriffe gegen Active Directory und Gegenmaßnahmen erläutert werden, um die Angriffsfläche zu reduzieren, enthält es auch Empfehlungen für die Wiederherstellung im Fall eines umfassenden kompromittierten Problems. Die einzige Möglichkeit zur Wiederherstellung im Falle einer umfassenden Gefährdung von Active Directory besteht darin, dass Sie vor dem Auftreten der Kompromittierung vorbereitet werden.  
   
-Sind die wichtigsten Abschnitte dieses Dokuments:  
+Die Hauptabschnitte dieses Dokuments lauten:  
   
 -   Wege der Gefährdung  
   
@@ -40,162 +40,162 @@ Sind die wichtigsten Abschnitte dieses Dokuments:
 -   Planen der Gefährdung  
   
 ## <a name="avenues-to-compromise"></a>Wege der Gefährdung  
-Dieser Abschnitt enthält Informationen zu einigen der am häufigsten wirksame Sicherheitsrisiken, die von Angreifern verwendet werden, um die Kunden-Infrastrukturen zu gefährden. Sie enthält allgemeine Kategorien von Sicherheitsrisiken und deren Verwendung sind anfänglich durchdringen Kunden Infrastrukturen, Gefährdung über zusätzliche Systeme hinweg verteilt und schließlich Active Directory und Domänencontroller, um abgeschlossen zu erhalten. die Kontrolle über die Organisationen Gesamtstrukturen. Es bietet keine detaillierte Empfehlungen zur Adressierung von jeder Art von Sicherheitsrisiko, insbesondere in den Bereichen, die in denen die Sicherheitslücken nicht verwendet werden, um direkt auf die Active Directory als Ziel. Jedoch für jeden Typ des Sicherheitsrisikos aufgeführten Links zu weiteren Informationen, Gegenmaßnahmen entwickeln und Reduzieren der Angriffsfläche des Unternehmens mit.  
+Dieser Abschnitt enthält Informationen zu einigen der am häufigsten genutzten Sicherheitsrisiken, die von Angreifern zum kompromittieren der Infrastruktur von Kunden verwendet werden. Sie enthält allgemeine Kategorien von Sicherheitsrisiken und deren Verwendung, um die Infrastruktur der Kunden zu anfänglich zu durchdringen, Kompromittierung über zusätzliche Systeme hinweg weiterzuleiten und schließlich Active Directory und Domänen Controllern für den Abschluss Kontrolle über die Gesamtstrukturen der Organisation. Es bietet keine detaillierten Empfehlungen zur Behandlung der einzelnen Sicherheitsrisiken, insbesondere in den Bereichen, in denen die Sicherheitsrisiken nicht zum direkten Ziel Active Directory verwendet werden. Allerdings haben wir für jede Art von Sicherheits Anfälligkeit Links zu zusätzlichen Informationen bereitgestellt, die zum Entwickeln von Gegenmaßnahmen und zur Verringerung der Angriffsfläche der Organisation verwendet werden.  
   
-Umfasst die folgenden Themen:  
+Die folgenden Themen sind enthalten:  
   
--   **Ursprüngliche Ziele der sicherheitsverletzung** – die meisten Verletzungen der datensicherheit beginnen Sie mit der Kompromittierung von kleine Teile der Infrastruktur – häufig ein oder zwei-Systeme eines Unternehmens zu einem Zeitpunkt. Die ersten Ereignisse bzw. Einstiegspunkte mit dem Netzwerk nutzen häufig Sicherheitsrisiken, die konnte wurden behoben, aber nicht waren. Häufig auftretender Schwachstellen sind:  
+-   **Anfängliche Verletzungs Ziele** : die meisten Informations Sicherheitsverletzungen beginnen mit der Gefährdung kleiner Teile der Infrastruktur eines Unternehmens, häufig ein oder zwei Systeme gleichzeitig. Diese anfänglichen Ereignisse oder Einstiegspunkte in das Netzwerk ausnutzen häufig Schwachstellen, die möglicherweise behoben wurden, aber nicht. Zu den häufigsten Sicherheitsrisiken gehören:  
   
-    -   Lücken in der Antiviren- und Antischadsoftware-Bereitstellungen  
+    -   Lücken bei Antiviren-und antischadsoftwarebereitstellungen  
   
-    -   Unvollständige Patchen  
+    -   Unvollständiges Patchen  
   
     -   Veraltete Anwendungen und Betriebssysteme  
   
-    -   Misconfiguration  
+    -   Fehlkonfiguration  
   
-    -   Mangel an Methoden für die sichere Anwendungsentwicklung  
+    -   Fehlende sichere Anwendungs Entwicklungsverfahren  
   
--   **Attraktive Konten für den Diebstahl von Anmeldeinformationen** -Angriffen mit gestohlenen Anmeldeinformationen sind in dem ein Angreifer zuerst erhält privilegierten Zugriff auf einen Computer in einem Netzwerk, und verwendet dann die kostenlos verfügbare Tools, um die Anmeldeinformationen aus der Sitzungen, die von anderen extrahieren angemeldeten Konten.   
-    In diesem Abschnitt enthalten, lauten wie folgt:  
+-   **Attraktive Konten für den Diebstahl** von Anmelde Informationen: Angriffe durch Diebstahl von Anmelde Informationen sind solche, bei denen ein Angreifer anfänglich privilegierten Zugriff auf einen Computer in einem Netzwerk erhält und dann frei verfügbare Tools verwendet, um Anmelde Informationen aus den Sitzungen anderer Benutzer zu extrahieren. angemeldete Konten   
+    Dieser Abschnitt enthält die folgenden Punkte:  
   
-    -   **Aktivitäten, die die Wahrscheinlichkeit, dass der Gefährdung erhöhen** : Da das Ziel der Diebstahl von Anmeldeinformationen in der Regel hoch privilegierter Domänenkonten und "sehr wichtig Person" ist (VIP)-Konten, es ist wichtig, dass Administratoren sich der sein Aktivitäten, die die Wahrscheinlichkeit eines Erfolgs eines Angriffs Diebstahl von Anmeldeinformationen zu erhöhen. Diese Aktivitäten sind:  
+    -   **Aktivitäten, die die Wahrscheinlichkeit einer Gefährdung erhöhen** : da das Ziel des Diebstahls von Anmelde Informationen in der Regel sehr privilegierte Domänen Konten und "sehr wichtige Personen"-Konten (VIP) ist, ist es für Administratoren wichtig, sich mit Aktivitäten vertraut zu machen. Dadurch wird die Wahrscheinlichkeit erhöht, dass ein Angriff durch einen Anmelde Informationsdiebstahl erfolgreich war. Diese Aktivitäten sind:  
   
-        -   Anmelden an der ungeschützten Computer mit privilegierten Konten  
+        -   Anmelden bei ungesicherten Computern mit privilegierten Konten  
   
-        -   Browsen im Internet mit einem Konto mit weit reichenden Berechtigungen  
+        -   Durchsuchen des Internets mit einem Konto mit hohen Berechtigungen  
   
-        -   Konfigurieren von lokalen privilegierten Konten mit den gleichen Anmeldeinformationen über Systeme hinweg  
+        -   Konfigurieren von lokalen privilegierten Konten mit denselben Anmelde Informationen über Systeme hinweg  
   
-        -   Overpopulation oder übermäßiger Verwendung privilegierter Gruppen  
+        -   Übermäßige Auffüllung und übermäßige Verwendung privilegierter Domänen Gruppen  
   
-        -   Unzureichende Verwaltung der Sicherheit der Domänencontroller.  
+        -   Unzureichende Verwaltung der Sicherheit von Domänen Controllern.  
   
-    -   **Berechtigungen der Erhöhung der Rechte und Weitergabe** -bestimmte Konten, Server und Komponenten der Infrastruktur sind in der Regel das primäre Ziel von Angriffen mit Active Directory. Diese Konten sind:  
+    -   Rechte Erweiterungen **und** weitergabespezifische Konten, Server und Infrastrukturkomponenten sind in der Regel die Hauptziele von Angriffen gegen Active Directory. Diese Konten lauten:  
   
-        -   Dauerhaft privilegierte Konten  
+        -   Konten mit dauerhafter Berechtigung  
   
         -   VIP-Konten  
   
-        -   Active Directory-Konten "Berechtigung Attached"  
+        -   Active Directory Konten mit Berechtigungs Anfügung  
   
         -   Domänencontroller  
   
-        -   Anderer Infrastrukturdienste, die Identität und Zugriff Configuration Management, z. B. public Key-Infrastruktur (PKI)-Server und Systems Management Server betreffen.  
+        -   Andere Infrastrukturdienste, die sich auf die Identitäts-, Zugriffs-und Konfigurations Verwaltung auswirken, z. b. PKI-Server (Public Key-Infrastruktur) und Systems Management Server  
   
 ## <a name="reducing-the-active-directory-attack-surface"></a>Reduzieren der Angriffsfläche für Active Directory  
-Dieser Abschnitt konzentriert sich auf technischen Kontrollmechanismen, um die Angriffsfläche einer Active Directory-Installation zu verringern. In diesem Abschnitt enthalten, sind die folgenden Themen:  
+Dieser Abschnitt konzentriert sich auf technische Kontrollen, um die Angriffsfläche einer Active Directory-Installation zu verringern. Dieser Abschnitt enthält die folgenden Themen:  
   
--   Die **privilegierte Konten und Gruppen in Active Directory** Abschnitt beschreibt die höchste privilegierte Konten und Gruppen in Active Directory und die Mechanismen, mit dem privilegierte Konten werden geschützt. Innerhalb von Active Directory sind drei integrierte Gruppen den höchsten Berechtigungen Gruppen im Verzeichnis (Organisations-Admins, Domänen-Admins und Administratoren), obwohl eine Reihe von zusätzlichen Gruppen und Konten auch geschützt werden sollen.  
+-   Im Abschnitt **privilegierte Konten und Gruppen in Active Directory** werden die Konten und Gruppen mit den höchsten Berechtigungen in Active Directory sowie die Mechanismen erläutert, mit denen privilegierte Konten geschützt werden. In Active Directory sind drei integrierte Gruppen die höchsten Berechtigungs Gruppen im Verzeichnis (Organisations-Admins, Domänen-Admins und Administratoren), obwohl eine Reihe zusätzlicher Gruppen und Konten ebenfalls geschützt werden sollten.  
   
--   Die **implementieren mit Minimalprivilegien Verwaltungsmodellen** Abschnitt geht es um das Risiko, der die Verwendung der höher privilegierten Konten für alltägliche Verwaltungsaufgaben zusätzlich zur Bereitstellung von Empfehlungen enthält, identifizieren Reduzieren dieser Risiken.  
+-   Der Abschnitt zur **Implementierung von Verwaltungs Modellen mit geringsten Rechten** konzentriert sich auf die Ermittlung des Risikos, dass die Verwendung von Konten mit hohen Berechtigungen für die tägliche Verwaltung und die Bereitstellung von Empfehlungen zur Minderung dieses Risikos.  
   
-Übermäßige Rechte ist nicht nur in Active Directory in gefährdeten Umgebungen gefunden. Wenn eine Organisation sich mehr Berechtigungen als nötig erteilt entwickelt hat, wird es in der Regel in der gesamten Infrastruktur gefunden:  
+Übermäßige Berechtigungen werden nicht nur in Active Directory in kompromittierten Umgebungen gefunden. Wenn eine Organisation die Gewohnheit hat, mehr Berechtigungen zu erteilen, als erforderlich ist, wird Sie in der Regel in der gesamten Infrastruktur gefunden:  
   
 -   In Active Directory  
   
--   Auf Mitgliedsservern  
+-   Auf Mitglieds Servern  
   
 -   Auf Arbeitsstationen  
   
 -   In Anwendungen  
   
--   In den Datenrepositorys  
+-   In Datenrepository  
   
--   Die **sichere Administrative Hosts implementieren** Abschnitt wird beschrieben, sichere administrative Hosts, die Computer sind, die zur Unterstützung der Verwaltung von Active Directory und verbundenen Systemen konfiguriert sind. Diese Hosts zugewiesen werden, die Verwaltungsfunktionen und Software wie z. B. e-Mail-Anwendungen, Webbrowser oder Produktivitätssoftware (z. B. Microsoft Office) werden nicht ausgeführt.  
+-   Im Abschnitt **Implementieren von sicheren administrativen Hosts** werden sichere administrative Hosts beschrieben, bei denen es sich um Computer handelt, die zur Unterstützung der Verwaltung von Active Directory und verbundenen Systemen konfiguriert sind. Diese Hosts sind für administrative Funktionen reserviert und führen keine Software aus, wie z. b. e-Mail-Anwendungen, Webbrowser oder Produktivitätssoftware (z. b. Microsoft Office).  
   
-In diesem Abschnitt enthalten, lauten wie folgt:  
+Dieser Abschnitt enthält die folgenden Punkte:  
   
--   **Grundsätze für das Erstellen von sicheren Administrative Hosts** -sind die allgemeinen Prinzipien zu beachten:  
+-   **Grundsätze für die Erstellung sicherer administrativer Hosts** : die folgenden allgemeinen Prinzipien sollten berücksichtigt werden:  
   
-    -   Nie zu verwalten Sie ein vertrauenswürdiges System eines weniger vertrauenswürdigen Hosts.  
+    -   Verwalten Sie niemals ein vertrauenswürdiges System von einem nicht vertrauenswürdigen Host.  
   
-    -   Verlassen Sie sich nicht auf einem einzelnen authentifizierungsfaktors, beim Ausführen von Aktivitäten mit Berechtigungen.  
+    -   Verlassen Sie sich beim Ausführen privilegierter Aktivitäten nicht auf einen einzelnen Authentifizierungs Faktor.  
   
-    -   Vergessen Sie nicht die physischen Sicherheit beim Entwerfen und implementieren sichere administrative Hosts.  
+    -   Vergessen Sie nicht, die physische Sicherheit beim Entwerfen und Implementieren sicherer administrativer Hosts zu vergessen.  
   
--   **Domain Controller gegen Angriffe schützen** -Wenn ein böswilliger Benutzer privilegierten Zugriff auf einen Domänencontroller erhält, dieser Benutzer kann ändern, beschädigen und zerstören die Active Directory-Datenbank und aller Systeme und Konten von Active Directory verwaltet werden.  
+-   **Sichern von Domänen Controllern gegen Angriffe** : Wenn ein böswilliger Benutzer privilegierten Zugriff auf einen Domänen Controller erhält, kann dieser Benutzer die Active Directory Datenbank und durch Erweiterung alle verwalteten Systeme und Konten ändern, beschädigen und zerstören. nach Active Directory.  
   
-In diesem Abschnitt enthalten, sind die folgenden Themen:  
+Dieser Abschnitt enthält die folgenden Themen:  
   
--   **Physische Sicherheit für Domänencontroller** -enthält Empfehlungen für die physischen Sicherheit für Domänencontroller in Rechenzentren, Remotestandorten und Zweigstellen bereitstellen.  
+-   **Physische Sicherheit für Domänen Controller** : enthält Empfehlungen für die Bereitstellung physischer Sicherheit für Domänen Controller in Rechenzentren, Zweigstellen und Remote Standorten.  
   
--   **Domänencontroller-Betriebssysteme** -enthält Empfehlungen zum Sichern von der Domäne Domänencontroller-Betriebssysteme.  
+-   **Domänen Controller-Betriebssysteme** : enthält Empfehlungen zum Sichern der Domänen Controller-Betriebssysteme.  
   
--   **Sichern Sie die Konfiguration von Domänencontrollern** -Native und die kostenlos verfügbare Tools und Einstellungen dienen zum Erstellen von Konfigurationsbasislinien für die Domänencontroller, die anschließend durch Gruppenrichtlinienobjekte (erzwungen werden können GPOs).  
+-   **Sichere Konfiguration von Domänen Controllern** : Native und frei verfügbare Konfigurationstools und-Einstellungen können verwendet werden, um sicherheitskonfigurationsbaselines für Domänen Controller zu erstellen, die anschließend von Gruppenrichtlinie Objekten (GPOs) erzwungen werden können.  
   
 ## <a name="monitoring-active-directory-for-signs-of-compromise"></a>Überwachen von Active Directory auf Anzeichen für einen Kompromiss  
-Dieser Abschnitt enthält Informationen zu älteren Überwachungskategorien und Überwachungsrichtlinien-Unterkategorien (die in Windows Vista und Windows Server 2008 eingeführt wurden) und erweiterten Überwachungsrichtlinie (die in Windows Server 2008 R2 eingeführt wurde). Auch bereitgestellt sind Informationen über Ereignisse und Objekte für die Überwachung können Versuche, beeinträchtigen die Umgebung und einige zusätzliche Verweise, die verwendet werden können, zum Erstellen einer umfassenden Überwachungsrichtlinie für Active Directory angeben.  
+Dieser Abschnitt enthält Informationen zu älteren Überwachungs Kategorien und Unterkategorien von Überwachungs Richtlinien (die in Windows Vista und Windows Server 2008 eingeführt wurden) sowie erweiterte Überwachungs Richtlinien (die in Windows Server 2008 R2 eingeführt wurden). Außerdem werden Informationen zu den zu überwachenden Ereignissen und Objekten bereitgestellt, die versuchen, die Umgebung zu kompromittieren, sowie einige zusätzliche Verweise, die zum Erstellen einer umfassenden Überwachungsrichtlinie für Active Directory verwendet werden können.  
   
-In diesem Abschnitt enthalten, sind die folgenden Themen:  
+Dieser Abschnitt enthält die folgenden Themen:  
   
--   **Windows-Überwachungsrichtlinie** – Windows-Sicherheitsereignisprotokollen verfügen über die Kategorien und Unterkategorien, die bestimmen, welche Sicherheitsereignisse überwacht und aufgezeichnet werden.  
+-   **Windows** -Überwachungsrichtlinie: Windows-Sicherheits Ereignisprotokolle enthalten Kategorien und Unterkategorien, die bestimmen, welche Sicherheitsereignisse nachverfolgt und aufgezeichnet werden.  
   
--   **Empfehlungen zu Überwachungsrichtlinien** – in diesem Abschnitt wird beschrieben, die Windows-Standard-überwachungsrichtlinieneinstellungen, sicherheitsüberwachungs-Richtlinieneinstellungen, die von Microsoft und strengere wiederherstellungsanforderungen Empfehlungen für das Unternehmen zu verwenden, um wichtige Server überwachen sollten und Arbeitsstationen.  
+-   **Empfehlungen** zu Überwachungs Richtlinien: in diesem Abschnitt werden die Standardeinstellungen für die Überwachungsrichtlinie von Windows, die Überwachungs Richtlinien Einstellungen, die von Microsoft empfohlen werden, sowie aggressivere Empfehlungen für Organisationen zum Überwachen kritischer Server und Arbeitsstationen.  
   
 ## <a name="planning-for-compromise"></a>Planen der Gefährdung  
-Dieser Abschnitt enthält Empfehlungen, die Organisationen, die Vorbereitung einer Gefährdung, bevor sie vorgenommen, implementieren-Steuerelemente, die Erkennen eines Ereignisses Gefährdung, bevor eine vollständige sicherheitsverletzung aufgetreten ist, und stellen für Fälle, in denen Reaktions- und Richtlinien eine vollständige Gefährdung des Verzeichnisses wird von Angreifern erreicht. In diesem Abschnitt enthalten, sind die folgenden Themen:  
+Dieser Abschnitt enthält Empfehlungen, die Organisationen dabei unterstützen, sich vor dem Eintreten auf eine Kompromittierung vorzubereiten, Steuerelemente zu implementieren, die ein Kompromittierung-Ereignis erkennen können, bevor eine vollständige Sicherheitsverletzung aufgetreten ist, und Richtlinien zur Reaktion und Wiederherstellung für Fälle eine komplette Gefährdung des Verzeichnisses wird von Angreifern erreicht. Dieser Abschnitt enthält die folgenden Themen:  
   
--   **Neuer Ansatz für den Ansatz** -enthält Prinzipien und Richtlinien, die sichere Umgebungen zu erstellen, in dem eine Organisation kann ihre wichtigsten Ressourcen platzieren. Diese Richtlinien sind wie folgt aus:  
+-   **Vorgehensweise** : enthält Grundsätze und Richtlinien zum Erstellen sicherer Umgebungen, in denen eine Organisation Ihre kritischsten Ressourcen platzieren kann. Diese Richtlinien lauten wie folgt:  
   
-    -   Identifizieren Prinzipien für die Trennung und schützen kritische Ressourcen  
+    -   Erkennen von Prinzipien zum Trennen und sichern kritischer Ressourcen  
   
-    -   Definieren eines Plans für die Migration begrenzt, risikobasierten  
+    -   Definieren eines beschränkten, risikobasierten Migrationsplans  
   
-    -   Nutzen "nonmigratory" Migrationen, bei Bedarf  
+    -   Nutzen von Migrationen ohne Migration bei Bedarf  
   
-    -   Implementieren von "creative Zerstörung"  
+    -   Implementieren von "Creative Zerstörung"  
   
-    -   Isolieren ältere Systeme und Anwendungen  
+    -   Isolieren von Legacy Systemen und Anwendungen  
   
-    -   Vereinfachung der Sicherheit für Endbenutzer  
+    -   Vereinfachen der Sicherheit für Endbenutzer  
   
--   **Verwalten einer mehr sichere Umgebung** -enthält allgemeine Empfehlungen als Richtlinien zur Entwicklung nicht nur effektive Sicherheit, sondern auch effektive Anwendungslebenszyklus-Verwaltung verwendet werden sollen. In diesem Abschnitt enthalten, sind die folgenden Themen:  
+-   Verwalten **einer sichereren Umgebung** : enthält allgemeine Empfehlungen, die als Richtlinien für die Entwicklung nicht nur effektiver Sicherheit, sondern für eine effektive Lebenszyklus Verwaltung verwendet werden sollen. Dieser Abschnitt enthält die folgenden Themen:  
   
-    -   **Erstellen geschäftskritische Sicherheitsmaßnahmen für Active Directory** : Informationen zum effektiven Verwaltung des Lebenszyklus von Benutzern, Daten, Anwendungen und Systeme, die von Active Directory verwaltet werden, befolgen diese Prinzipien.  
+    -   **Erstellen von geschäftsorientierten Sicherheitsmethoden für Active Directory** : um den Lebenszyklus der Benutzer, Daten, Anwendungen und Systeme, die von Active Directory verwaltet werden, effektiv zu verwalten, befolgen Sie diese Prinzipien.  
   
-        -   **Weisen Sie eine Business Active Directory-Daten** -weisen den Besitz der Infrastrukturkomponenten IT; für Daten, die Active Directory Domain Services (AD DS) zur Unterstützung des Unternehmens, z. B. neue Mitarbeiter, neue Anwendungen hinzugefügt werden, und neue Informationen Repositories, eine angegebene Geschäftseinheit oder einen Benutzer sollten die Daten zugeordnet werden.  
+        -   **Weisen Sie Active Directory Daten einen Geschäfts Besitz** zu, und weisen Sie ihm den Besitz von Infrastrukturkomponenten zu. für Daten, die Active Directory Domain Services (AD DS) hinzugefügt werden, um das Unternehmen zu unterstützen, z. b. neue Mitarbeiter, neue Anwendungen und neue Informations Depots, sollte eine bestimmte Geschäftseinheit oder ein bestimmtes Benutzer mit den Daten verknüpft werden.  
   
-        -   **Implementieren der Verwaltung des Identitätslebenszyklus Business-Driven** -Verwaltung des Identitätslebenszyklus sollten für Daten in Active Directory implementiert werden.  
+        -   **Implementieren der geschäftsorientierten Lebenszyklus Verwaltung** : die Lebenszyklus Verwaltung sollte für Daten in Active Directory implementiert werden.  
   
-        -   **Alle Active Directory-Daten klassifizieren** -Geschäftsinhaber sollten Klassifizierung für Daten in Active Directory bereitstellen. In das Datenmodell für die Klassifizierung sollte die Klassifizierung für die folgenden Active Directory-Daten enthalten sein:  
+        -   **Klassifizieren Sie alle Active Directory Daten** : Geschäftsinhaber sollten die Klassifizierung für Daten in Active Directory bereitstellen. Innerhalb des Daten Klassifizierungs Modells sollte die Klassifizierung für die folgenden Active Directory Daten eingeschlossen werden:  
   
-            -   **Systeme** -klassifizieren Server Auffüllungen, ihr Betriebssystem ihrer Rolle, und der IT-ausgeführten Anwendungen und Geschäftsinhaber des Datensatzes.  
+            -   **Systeme** : klassifizieren der Server Population, Ihres Betriebssystems, der Anwendungen, die auf Ihnen ausgeführt werden, und der IT-und Geschäftsinhaber von Datensätzen.  
   
-            -   **Anwendungen** -Anwendungen durch Funktionen, Benutzer und ihr Betriebssystem zu klassifizieren.  
+            -   **Anwendungen** : klassifizieren Sie Anwendungen nach Funktionalität, Benutzerbasis und Betriebssystem.  
   
-            -   **Benutzer** -Konten in Active Directory-Installationen, die am wahrscheinlichsten vor Angriffen zu schützen sind gekennzeichnet und überwacht werden soll.  
+            -   **Benutzer** : die Konten in den Active Directory Installationen, bei denen es sich am ehesten um Angreifer handelt, sollten gekennzeichnet und überwacht werden.  
   
-## <a name="summary-of-best-practices-for-securing-active-directory-domain-services"></a>Zusammenfassung der Best Practices for Securing Active Directory-Domänendienste  
-Die folgende Tabelle enthält eine Zusammenfassung der Empfehlungen in diesem Dokument zum Sichern von AD DS-Installation. Einige bewährten Methoden sind strategischer Natur und erfordern eine umfassende Planung und Implementierung Projekte. andere sind taktischen und konzentriert sich auf bestimmte Komponenten von Active Directory und der zugehörigen Infrastruktur.  
+## <a name="summary-of-best-practices-for-securing-active-directory-domain-services"></a>Zusammenfassung der bewährten Methoden zum Sichern von Active Directory Domain Services  
+In der folgenden Tabelle finden Sie eine Zusammenfassung der Empfehlungen in diesem Dokument zum Sichern einer AD DS-Installation. Einige bewährte Methoden sind strategisch und erfordern umfassende Planungs-und Implementierungsprojekte. andere sind taktisch und konzentriert sich auf bestimmte Komponenten von Active Directory und zugehöriger Infrastruktur.  
   
-Methoden sind ungefähre Reihenfolge ihrer Priorität, d. h. aufgeführt, die niedrigere Zahlen geben eine höhere Priorität. Zutreffend, best Practices, in dem als Preventative oder Detective Natur identifiziert sind. Alle diese Empfehlungen sollten gründlich getestet und nach Bedarf für die Merkmale und Anforderungen Ihrer Organisation geändert.  
+Die Vorgehensweise wird in der ungefähren Reihenfolge der Priorität aufgeführt, d. h., niedrigere Zahlen weisen eine höhere Priorität auf. Gegebenenfalls werden bewährte Methoden als präventiv oder als Detektiv bezeichnet. Alle diese Empfehlungen sollten bei Bedarf gründlich getestet und geändert werden, um die Merkmale und Anforderungen Ihrer Organisation zu erfüllen.  
   
   
-||**Es wird empfohlen**|**Taktisch oder strategisch**|**Preventative oder Detective**|  
+||**Bewährte Methoden**|**Taktisch oder strategisch**|**Vorbeugend oder Detektive**|  
 |-|-|-|-|  
-|1|Patch-Anwendungen.|Taktisch|Preventative|  
-|2|Patchen von Betriebssystemen.|Taktisch|Preventative|  
-|3|Bereitstellen Sie und aktualisieren Sie die Antiviren-und Antischadsoftware sofort für alle Systeme und Überwachung von Versuche zu entfernen oder zu deaktivieren.|Taktisch|Beide|  
-|4|Überwachen Sie vertrauliche Active Directory-Objekte für die Änderung Versuche und Windows für Ereignisse, die versuchten Kompromittierung hinweisen.|Taktisch|Detective|  
-|5|Schützen und Überwachen von Konten für Benutzer mit Zugriff auf sensible Daten|Taktisch|Beide|  
-|6|Verhindern Sie, dass leistungsstarke Konten, die auf nicht autorisierte Systeme verwendet wird.|Taktisch|Preventative|  
-|7|Vermeiden Sie permanente Mitgliedschaft in sehr privilegierten Gruppen.|Taktisch|Preventative|  
-|8|Implementieren Sie Kontrollen zum Erteilen temporären Mitgliedschaften in privilegierten Gruppen bei Bedarf.|Taktisch|Preventative|  
-|9|Implementieren Sie sichere administrative Hosts.|Taktisch|Preventative|  
-|10|Verwenden Sie Anwendungswhitelisting auf Domänencontrollern, administrativen Hosts und andere vertrauliche Systeme.|Taktisch|Preventative|  
-|11|Identifizieren Kritischer Ressourcen und Priorisieren Sie die Sicherheit und Überwachung.|Taktisch|Beide|  
-|12|Für die Verwaltung des Verzeichnisses, die unterstützende Infrastruktur und der Domäne Angehörige Systeme mit minimalprivilegien, rollenbasierte Zugriffssteuerung zu implementieren.|Strategisch|Preventative|  
-|13|Isolieren Sie ältere Systeme und Anwendungen.|Taktisch|Preventative|  
-|14|Außerbetriebnahme von älteren Systemen und Anwendungen.|Strategisch|Preventative|  
-|15|Implementieren Sie sichere Softwareentwicklungs-Lebenszyklus-Programme für benutzerdefinierte Anwendungen.|Strategisch|Preventative|  
-|16|Implementieren Sie der konfigurationsverwaltung, regelmäßig überprüfen Sie der Konformität und Werten Sie Einstellungen mit jeder neuen Version von Hardware oder Software aus.|Strategisch|Preventative|  
-|17|Migrieren Sie kritische Ressourcen mit strengen Sicherheits- und überwachungsanforderungen für makellose Gesamtstrukturen.|Strategisch|Beide|  
-|18|Vereinfachen Sie die Sicherheit für Endbenutzer.|Strategisch|Preventative|  
-|19|Verwenden Sie hostbasierte Firewalls zum Steuerelement und sichere Kommunikation.|Taktisch|Preventative|  
-|20|Patch-Geräte.|Taktisch|Preventative|  
-|21|Implementieren Sie geschäftskritische Anwendungslebenszyklus-Verwaltung für IT-Ressourcen.|Strategisch|Nicht zutreffend|  
-|22|Erstellen oder Aktualisieren von Incidents Wiederherstellungspläne.|Strategisch|Nicht zutreffend|  
+|1|Patchen von Anwendungen.|Taktisch|Vorbeugende|  
+|2|Patchen von Betriebssystemen.|Taktisch|Vorbeugende|  
+|3|Bereitstellen und Aktualisieren von Antiviren-und Antischadsoftware auf allen Systemen und Überwachen von versuchen, Sie zu entfernen oder zu deaktivieren.|Taktisch|Beide|  
+|4|Überwachen von sensiblen Active Directory Objekten bei Änderungs versuchen und Fenstern für Ereignisse, die auf einen versuchten Kompromiss hinweisen können.|Taktisch|Vin|  
+|5|Schützen und Überwachen von Konten für Benutzer, die Zugriff auf sensible Daten haben|Taktisch|Beide|  
+|6|Verhindern, dass leistungsstarke Konten auf nicht autorisierten Systemen verwendet werden.|Taktisch|Vorbeugende|  
+|7|Entfernen Sie permanente Mitgliedschaft in Gruppen mit hohen Berechtigungen.|Taktisch|Vorbeugende|  
+|8|Implementieren Sie Steuerelemente, um bei Bedarf temporäre Mitgliedschaften in privilegierten Gruppen zu erteilen.|Taktisch|Vorbeugende|  
+|9|Implementieren Sie sichere administrative Hosts.|Taktisch|Vorbeugende|  
+|10|Verwenden Sie anwendungswhitelists auf Domänen Controllern, administrativen Hosts und anderen sensiblen Systemen.|Taktisch|Vorbeugende|  
+|11|Identifizieren Sie wichtige Assets, und priorisieren Sie Ihre Sicherheit und Überwachung.|Taktisch|Beide|  
+|12|Implementieren Sie für die Verwaltung des Verzeichnisses, der unterstützenden Infrastruktur und der in die Domäne eingebundenen Systeme die geringsten Berechtigungen, rollenbasierte Zugriffs Steuerungen.|Strategisch|Vorbeugende|  
+|13|Isolieren Sie ältere Systeme und Anwendungen.|Taktisch|Vorbeugende|  
+|14|Außerbetriebnahme veralteter Systeme und Anwendungen.|Strategisch|Vorbeugende|  
+|15|Implementieren Sie sichere Entwicklungs Lebenszyklus-Programme für benutzerdefinierte Anwendungen.|Strategisch|Vorbeugende|  
+|16|Implementieren Sie die Konfigurations Verwaltung, überprüfen Sie die Konformität regelmäßig, und evaluieren Sie Einstellungen mit jeder neuen Hardware-oder Softwareversion|Strategisch|Vorbeugende|  
+|17|Migrieren Sie kritische Assets mit strengen Sicherheits-und Überwachungsanforderungen in unberührte Gesamtstrukturen.|Strategisch|Beide|  
+|18|Vereinfachen Sie die Sicherheit für Endbenutzer.|Strategisch|Vorbeugende|  
+|19|Verwenden Sie Host basierte Firewalls zum Steuern und Sichern der Kommunikation.|Taktisch|Vorbeugende|  
+|20|Patchen von Geräten.|Taktisch|Vorbeugende|  
+|21|Implementieren Sie die geschäftsorientierte Lebenszyklus Verwaltung für IT-Ressourcen.|Strategisch|Nicht zutreffend|  
+|22|Erstellen oder aktualisieren Sie Wiederherstellungs Pläne für Vorfälle.|Strategisch|Nicht zutreffend|  
   
 
 

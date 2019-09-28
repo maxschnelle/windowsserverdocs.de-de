@@ -2,7 +2,7 @@
 title: Neuigkeiten im Windows-Desktopclient
 description: Hier erfährst du mehr über aktuelle Änderungen am Remotedesktopclient für Windows-Desktop
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 09/17/2019
+ms.date: 09/24/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 587ad44509451497b253689238c3aef233a37153
-ms.sourcegitcommit: e210fce039452a9855353520c7f8698acd76ffce
+ms.openlocfilehash: 4325bd7b33c16d972cac980e17c10bacbfeffd8c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71071285"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71387590"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Neuigkeiten im Windows-Desktopclient
 
@@ -30,7 +30,7 @@ Der Client kann für verschiedene [Benutzergruppen](windowsdesktop-admin.md#conf
 
 |Benutzergruppe |Version  |
 |-----------|---------|
-|Public     |1.2.246  |
+|Public     |1.2.247  |
 |Insider    |1.2.247  |
 
 ## <a name="updates-for-version-12247"></a>Updates für Version 1.2.247

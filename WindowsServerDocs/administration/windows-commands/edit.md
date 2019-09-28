@@ -1,8 +1,8 @@
 ---
 title: bearbeiten
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 096632005b3e42dd941ccc7c72c08ead1d291b53
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5a51a81a0ed2d28a30e8ec221d5719968dce48ac
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873151"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377616"
 ---
 # <a name="edit"></a>bearbeiten
 
 
 
-Startet MS-DOS-Editor, der erstellt, und Ändern von ASCII-Textdateien.
+Startet den MS-DOS-Editor, mit dem ASCII-Textdateien erstellt und geändert werden.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -38,26 +38,26 @@ edit [/b] [/h] [/r] [/s] [/<NNN>] [[<Drive>:][<Path>]<FileName> [<FileName2> [..
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|[\<Laufwerk >:] [<Path>]<FileName> [<FileName2> [...]]|Gibt den Speicherort und Namen von mindestens eine ASCII-Textdateien. Wenn die Datei nicht vorhanden ist, MS-DOS-Editor wird erstellt. Wenn die Datei vorhanden ist, MS-DOS-Editor wird geöffnet, und sein Inhalt auf dem Bildschirm angezeigt. *FileName* können keine Platzhalterzeichen enthalten (**&#42;** und **?**). Trennen Sie mehrere Dateinamen mit Leerzeichen ein.|
-|/b|Erzwingt, dass monochrome-Modus, sodass MS-DOS-Editor in Schwarz und Weiß angezeigt.|
-|/h|Zeigt die maximale Anzahl von Zeilen möglich für den aktuellen Bildschirm an.|
-|/r|Lädt die Dateien in den schreibgeschützten Modus.|
+|[\<laufwerk >:] [<Path>] <FileName> [<FileName2> [...]]|Gibt den Speicherort und den Namen einer oder mehrerer ASCII-Textdateien an. Wenn die Datei nicht vorhanden ist, wird Sie vom MS-DOS-Editor erstellt. Wenn die Datei vorhanden ist, wird Sie vom MS-DOS-Editor geöffnet, und der Inhalt wird auf dem Bildschirm angezeigt. *Filename* kann Platzhalter Zeichen ( **&#42;** und **?** ) enthalten. Trennen Sie mehrere Dateinamen mit Leerzeichen.|
+|/b|Erzwingt den Monochrom-Modus, sodass der MS-DOS-Editor in schwarz und weiß angezeigt wird.|
+|/h|Zeigt die maximale Anzahl von Zeilen an, die für den aktuellen Monitor möglich sind.|
+|/r|Lädt Dateien im schreibgeschützten Modus.|
 |/s|Erzwingt die Verwendung von kurzen Dateinamen.|
-|\<NNN>|Lädt die Binärdateien und umbricht Zeilen *NNN* Zeichen breit.|
+|\<NNN >|Lädt Binärdateien und umwickelt Zeilen in *nnn* -Zeichen breit.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
--   Klicken Sie für weitere Hilfe benötigen MS-DOS-Editor öffnen, und klicken Sie dann die Taste F1 drücken.
--   Einige Monitore unterstützen nicht die Anzeige von Tastenkombinationen in der Standardeinstellung. Wenn Sie der Bildschirm die Tastenkombination nicht angezeigt wird, verwenden Sie **/b**.
+-   Wenn Sie weitere Hilfe benötigen, öffnen Sie den MS-DOS-Editor, und drücken Sie dann die F1-Taste.
+-   Einige Monitore unterstützen standardmäßig nicht die Anzeige von Tastenkombinationen. Wenn der Monitor keine Tastenkombinationen anzeigt, verwenden Sie **/b**.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um die MS-DOS-Editor zu öffnen, geben Sie Folgendes ein:
+Geben Sie zum Öffnen des MS-DOS-Editors Folgendes ein:
 ```
 edit
 ```
-Zum Erstellen und bearbeiten eine Datei namens newtextfile.txt im aktuellen Verzeichnis, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um eine Datei mit dem Namen newtextfile. txt im aktuellen Verzeichnis zu erstellen und zu bearbeiten:
 ```
 edit newtextfile.txt
 ```

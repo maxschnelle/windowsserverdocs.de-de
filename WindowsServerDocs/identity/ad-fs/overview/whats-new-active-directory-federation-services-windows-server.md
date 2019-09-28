@@ -7,14 +7,14 @@ ms.author: billmath
 manager: daveba
 ms.date: 04/23/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 2a5de194f5870652920ec6a3d451d18840ba7b2a
-ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
+ms.openlocfilehash: 6294c7b6ead0a9fa338f8b2cc8134b750f7e3e8f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980349"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385549"
 ---
 # <a name="whats-new-in-active-directory-federation-services"></a>Neues in Active Directory-Verbunddienste (AD FS)
 
@@ -52,7 +52,7 @@ Die folgenden Authentifizierungs-/Richtlinienfunktionen sind in AD FS 2019:
 Die folgenden Verbesserungen bei der SSO-Anmeldung wurden in AD FS 2019 vorgenommen:
 
 - [Paginierte UX mit zentriertem](../operations/AD-FS-paginated-sign-in.md) Design: ADFS wurde nun in einen paginierten UX-Flow verlagert, der es AD FS ermöglicht, eine optimierte Anmelde Erfahrung zu gewährleisten. ADFS verwendet jetzt eine zentrierte Benutzeroberfläche (anstelle der rechten Seite des Bildschirms). Möglicherweise benötigen Sie neuere Logo-und Hintergrundbilder, um sich an dieser Erfahrung anzupassen. Dadurch wird auch die in Azure AD angebotene Funktionalität widerspiegeln.
-- **Programmfehler Behebung: Persistenter SSO-Status für Win10-Geräte bei der** PRT-Authentifizierung wird dadurch ein Problem behoben, bei dem der MFA-Status bei Verwendung der PRT-Authentifizierung für Windows 10-Geräte nicht beibehalten wurde Das Ergebnis dieses Problems war, dass Endbenutzer häufig zur Eingabe von 2. Factor Anmelde Informationen (MFA) aufgefordert werden. Durch die Behebung ist die Leistung auch dann konsistent, wenn die Geräte Authentifizierung über Client TLS und über den PRT-Mechanismus erfolgreich durchgeführt wurde. 
+- **bug Fix: Persistenter SSO-Status für Win10-Geräte bei der PRT-Authentifizierung @ no__t-0: Dies ist ein Problem, bei dem der MFA-Status bei Verwendung der PRT-Authentifizierung für Windows 10-Geräte nicht beibehalten wurde. Das Ergebnis dieses Problems war, dass Endbenutzer häufig zur Eingabe von 2. Factor Anmelde Informationen (MFA) aufgefordert werden. Durch die Behebung ist die Leistung auch dann konsistent, wenn die Geräte Authentifizierung über Client TLS und über den PRT-Mechanismus erfolgreich durchgeführt wurde. 
 
 
 ### <a name="suppport-for-building-modern-line-of-business-apps"></a>Suppport zum Entwickeln moderner Branchen-apps
@@ -62,7 +62,7 @@ Die folgende Unterstützung für das Entwickeln von modernen Lob-Apps wurde AD F
  - Beim **Entfernen des "Resource"-Parameters** -AD FS wurde nun die Anforderung zum Angeben eines Ressourcen Parameters, der mit den aktuellen OAuth-Spezifikationen übereinstimmt, entfernt. Clients können nun den Bezeichner für die Vertrauensstellung der vertrauenden Seite zusätzlich zu den angeforderten Berechtigungen als Bereichs Parameter bereitstellen. 
  - **Cors-Header in AD FS Antworten** : Kunden können nun einseitige Anwendungen erstellen, mit denen Client seitige js-Bibliotheken die Signatur der ID validieren können, indem Sie die Signatur Schlüssel aus dem oidc Discovery-Dokument auf AD FS Abfragen. 
  - **Pkce-Unterstützung** : AD FS fügt pkce-Unterstützung hinzu, um einen sicheren Authentifizierungscode Fluss innerhalb von OAuth bereitzustellen. Dadurch wird diesem Flow eine zusätzliche Sicherheitsebene hinzugefügt, um zu verhindern, dass der Code von einem anderen Client wiedergegeben wird. 
- - **Programmfehler Behebung: Send x5t und Kid-** Anspruch: Dies ist eine kleine Fehlerbehebung. AD FS jetzt zusätzlich den "Kid"-Anspruch an, um den Schlüssel-ID-Hinweis zum Überprüfen der Signatur anzugeben. Zuvor AD FS als Anspruch "x5t" gesendet.
+ - **bug Fix: Send x5t und Kid Claim @ no__t-0: Dies ist eine kleine Fehlerbehebung. AD FS jetzt zusätzlich den "Kid"-Anspruch an, um den Schlüssel-ID-Hinweis zum Überprüfen der Signatur anzugeben. Zuvor AD FS als Anspruch "x5t" gesendet.
 
 ### <a name="supportability-improvements"></a>Unterstützungs Verbesserungen
 Die folgenden Verbesserungen der unter Stütz barkeit sind nicht Teil AD FS 2019:
@@ -76,18 +76,18 @@ Die folgenden Bereitstellungs Updates sind jetzt in AD FS 2019 enthalten:
 
 ### <a name="saml-updates"></a>SAML-Updates
 Das folgende SAML-Update befindet sich in AD FS 2019:
-- **Programmfehler Behebung: Beheben von Fehlern im aggregierten** Verbund: Es gibt zahlreiche Fehlerbehebungen für die aggregierte Verbund Unterstützung (z. b. "InCommon"). Die Fehlerbehebungen liegen in etwa wie folgt: 
+- **bug Fix: Beheben von Fehlern im aggregierten Verbund @ no__t-0: Es gibt zahlreiche Fehlerbehebungen für die aggregierte Verbund Unterstützung (z. b. "InCommon"). Die Fehlerbehebungen liegen in etwa wie folgt: 
   - Verbesserte Skalierung für große Anzahl von Entitäten im aggregierten Verbund Metadaten-Dokument. Zuvor hat dies den Fehler "ADMIN0017" verursacht. 
   - Abfragen mithilfe des Parameters "scopegroupid" über das Get-adfsrelyingpartytrustsgroup PSH-Cmdlet. 
   - Behandeln von Fehlerbedingungen im Zusammenhang mit doppelter EntityID
 
 
 ### <a name="azure-ad-style-resource-specification-in-scope-parameter"></a>Azure AD-Stil Ressourcen Spezifikation im scope-Parameter 
-Zuvor mussten AD FS, dass die gewünschte Ressource und der gewünschte Bereich in einer beliebigen Authentifizierungsanforderung in einem separaten Parameter vorhanden waren. Beispielsweise sieht eine typische OAuth-Anforderung wie folgt aus: 7 **https:&#47;&#47;FS.contoso.com/ADFS/oauth2/Authorize?</br> response_type = Code & client_id = claimsxrayclient & Resource = urn: Microsoft:</br>ADFS: claimsxray & Scope = OAuth & redirect_uri = https:&#47;&#47;adfshelp.Microsoft.com/</br> claimsxray/ Tokenresponse & prompt = Login**
+Zuvor mussten AD FS, dass die gewünschte Ressource und der gewünschte Bereich in einer beliebigen Authentifizierungsanforderung in einem separaten Parameter vorhanden waren. Beispielsweise sieht eine typische OAuth-Anforderung wie folgt aus: 7 **https:&#47;&#47;FS.contoso.com/ADFS/oauth2/Authorize? </br>response_type = Code & client_id = claimsxrayclient & Resource = urn: Microsoft: </br>adfs: claimsxray & Scope = OAuth & redirect_uri = https:&#47; &#47; adfshelp.Microsoft.com/</br> claimsxray/tokenresponse & prompt = Login**
  
 Mit AD FS auf Server 2019 können Sie nun den Ressourcen Wert übergeben, der in den Scope-Parameter eingebettet ist. Dies entspricht der Art und Weise, wie eine Authentifizierung gegen Azure AD durchführen kann. 
 
-Der Bereichs Parameter kann nun als durch Leerzeichen getrennte Liste organisiert werden, wobei jeder Eintrag als Ressource/Bereich strukturiert ist. Beispiel:  
+Der Bereichs Parameter kann nun als durch Leerzeichen getrennte Liste organisiert werden, wobei jeder Eintrag als Ressource/Bereich strukturiert ist. Zum Beispiel  
 
 **< eine gültige Beispiel Anforderung erstellen >**
 > [!NOTE]
@@ -110,7 +110,7 @@ D. Der AD FS transformiert "code_verifier" und vergleicht ihn mit "t (code_verif
 
 #### <a name="faq"></a>FAQ 
 **Q1.** Kann ich den Ressourcen Wert als Teil des Bereichs Werts übergeben, wie z. b. wie Anforderungen gegen Azure AD durchgeführt werden? 
-</br>**EIN.** Mit AD FS auf Server 2019 können Sie nun den Ressourcen Wert übergeben, der in den Scope-Parameter eingebettet ist. Der Bereichs Parameter kann nun als durch Leerzeichen getrennte Liste organisiert werden, wobei jeder Eintrag als Ressource/Bereich strukturiert ist. Beispiel:  
+</br>**EIN.** Mit AD FS auf Server 2019 können Sie nun den Ressourcen Wert übergeben, der in den Scope-Parameter eingebettet ist. Der Bereichs Parameter kann nun als durch Leerzeichen getrennte Liste organisiert werden, wobei jeder Eintrag als Ressource/Bereich strukturiert ist. Zum Beispiel  
 **< eine gültige Beispiel Anforderung erstellen >**
 
 **Q1.** Unterstützt AD FS die pkce-Erweiterung?

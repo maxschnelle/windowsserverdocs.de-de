@@ -6,14 +6,14 @@ ms.author: nedpyle
 manager: siroy
 ms.date: 07/09/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: d8437e0e33a370ab698d25f25b43fbbcbae97792
-ms.sourcegitcommit: 45415ba58907d650cfda45f4c57f6ddf1255dcbf
+ms.openlocfilehash: 391430b75670f207520a7d972b54ba293616d0e1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71206912"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393906"
 ---
 # <a name="storage-migration-service-known-issues"></a>Bekannte Probleme bei Storage Migration Service
 
@@ -133,7 +133,7 @@ Bei der Inventarisierung oder Übertragung von Dateien von einer Quell-auf einen
   Protokoll Name:      Microsoft-Windows-storagemigrationservice-Proxy/debugquelle:        Microsoft-Windows-storagemigrationservice-Proxy Datum:          2/26/2019 9:00:04 Uhr Ereignis-ID:      10000 Aufgaben Kategorie: Keine Ebene:         Fehler Schlüsselwörter:      
   Benutzer:          Netzwerkdienst Computer: SRV1.contoso.com Beschreibung:
 
-  02/26/2019-09:00:04.860 [Fehler] Übertragungsfehler für \\SRV1.... (5) der Zugriff wurde verweigert.
+  02/26/2019-09:00:04.860 [Fehler] Übertragungsfehler für \\srv1. c. ". com\public\indy.png": (5) der Zugriff wurde verweigert.
 Stapel Überwachung: bei Microsoft. storagemigration. Proxy. Service. Transfer. filedirutils. OpenFile (Zeichenfolge Dateiname, desiredAccess desiredAccess, share Mode Share Mode, kreationdisposition erationdisposition, flagsandattribute flagsandattribute) unter Microsoft. storagemigration. Proxy. Service. Transfer. filedirutils. gettargetfile (Zeichen folgen Pfad) bei Microsoft. storagemigration. Proxy. Service. Transfer. filedirutils. gettargetfile (FileInfo-Datei) unter Microsoft. storagemigration. Proxy. Service. Transfer. Filetransfer. initializesourcefileingefo () bei Microsoft. storagemigration. Proxy. Service. Transfer. Filetransfer. Transfer () at Microsoft. storagemigration. Proxy. Service. Transfer. Filetransfer. trytransfer () [d:\os\src\base\dms\proxy\transfer\transferproxy\filetransfer.cs:: trytransfer:: 55]
 
 

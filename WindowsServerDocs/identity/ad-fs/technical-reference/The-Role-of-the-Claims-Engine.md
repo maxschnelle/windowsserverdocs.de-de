@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 055f9baff9c20019493a54fbb92e5c53c199a5e3
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 4d227be18cd69d79f24edca96bd873afda3f2d2a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865516"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385448"
 ---
 # <a name="the-role-of-the-claims-engine"></a>Rolle des Anspruchsmoduls
 Auf der höchsten Ebene ist das Anspruchs Modul in Active Directory-Verbunddienste (AD FS) \(AD FS\) ein Regel\-basiertes Modul, das für die Verarbeitung und Verarbeitung von Anspruchs Anforderungen für die Verbunddienst reserviert ist. Das Anspruchsmodul ist die einzige Komponente im Verbunddienst, die für die Ausführung der einzelnen Regelsätze für alle verbundenen Vertrauensstellungen, die Sie konfiguriert haben, und die Weitergabe des Ausgabeergebnisses an die Anspruchspipeline verantwortlich ist.  

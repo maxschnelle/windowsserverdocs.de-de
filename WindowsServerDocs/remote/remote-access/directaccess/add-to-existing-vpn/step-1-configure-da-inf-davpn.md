@@ -1,9 +1,9 @@
 ---
 title: Schritt 1 Konfigurieren der DirectAccess-Infrastruktur
-description: Dieses Thema ist Teil des Handbuchs Add DirectAccess zu einer vorhandenen Remotezugriffsbereitstellung (VPN)-Bereitstellung für WindowsServer 2016
+description: Dieses Thema ist Teil des Handbuchs Hinzufügen von DirectAccess zu einer vorhandenen Remote Zugriffs Bereitstellung (VPN) für Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,18 +12,18 @@ ms.topic: article
 ms.assetid: 5dc529f7-7bc3-48dd-b83d-92a09e4055c4
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: ad0ac1ad1187d0f99f84528a658bc66794ba67b2
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 4437101c6cde25ebb370fe54a2f8ef821997f15d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281863"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388770"
 ---
 # <a name="step-1-configure-the-directaccess-infrastructure"></a>Schritt 1 Konfigurieren der DirectAccess-Infrastruktur
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-In diesem Thema wird beschrieben, wie Sie die erforderliche Infrastruktur zur Aktivierung von DirectAccess für eine vorhandene VPN-Bereitstellung konfigurieren. Stellen Sie sicher, dass Sie die in beschriebenen Planungsschritte abgeschlossen haben, bevor Sie mit den Schritten zur Bereitstellung, [Schritt 1: Planen der DirectAccess-Infrastruktur](Step-1-Plan-DirectAccess-Infrastructure.md).  
+In diesem Thema wird beschrieben, wie Sie die erforderliche Infrastruktur zur Aktivierung von DirectAccess für eine vorhandene VPN-Bereitstellung konfigurieren. Vergewissern Sie sich vor Beginn der Bereitstellungs Schritte, dass Sie die Planungsschritte ausgeführt haben, die in [step 1: Planen der DirectAccess-Infrastruktur @ no__t-0.  
   
 |Aufgabe|Beschreibung|  
 |----|--------|  
@@ -37,7 +37,7 @@ In diesem Thema wird beschrieben, wie Sie die erforderliche Infrastruktur zur Ak
 |Konfigurieren von Sicherheitsgruppen|Konfigurieren Sie Sicherheitsgruppen, die DirectAccess-Clientcomputer und weitere Sicherheitsgruppen enthalten, die für die Bereitstellung erforderlich sind.|  
 |Konfigurieren des Netzwerkadressenservers|Der Assistent zum Aktivieren von DirectAccess konfiguriert den Netzwerkadressenserver auf dem DirectAccess-Server.|  
   
-## <a name="ConfigNetworkSettings"></a>Konfigurieren von servernetzwerkeinstellungen  
+## <a name="ConfigNetworkSettings"></a>Konfigurieren von Servernetzwerk Einstellungen  
 Für eine einzelne Serverbereitstellung in einer Umgebung mit IPv4 und IPv6 sind folgende Netzwerkschnittstelleneinstellungen erforderlich. Sämtliche IP-Adressen können im **Netzwerk- und Freigabecenter** von Windows mit der Option **Adaptereinstellungen ändern** konfiguriert werden.  
   
 -   Edgetopologie  
@@ -73,12 +73,12 @@ Konfigurieren Sie das Routing im Unternehmensnetzwerk wie folgt:
   
 -   Konfigurieren Sie die IPv4- und IPv6-Routen der Organisation manuell auf den Remotezugriffsservern. Fügen Sie eine öffentliche Route hinzu, sodass der gesamte Datenverkehr mit Organisations-IPv6-Präfix (/48) an das interne Netzwerk weitergeleitet wird. Fügen Sie außerdem für IPv4-Datenverkehr explizite Routen hinzu, damit IPv4-Datenverkehr an das interne Netzwerk weitergeleitet wird.  
   
-## <a name="ConfigFirewalls"></a>Konfigurieren von firewalls  
+## <a name="ConfigFirewalls"></a>Konfigurieren von Firewalls  
 Wenden Sie bei zusätzlichen Firewalls in der Bereitstellung die folgenden Firewallausnahmen mit Internetzugriff für RAS-Datenverkehr an, wenn der RAS-Server sich im IPv4-Internet befindet:  
   
--   6to4-Datenverkehr – IP-Protokoll 41 ein- und ausgehend.  
+-   IPv6-zu-IPv4-Datenverkehr-IP-Protokoll 41 eingehend und ausgehend.  
   
--   IP-HTTPS-Protokoll TCP (Transmission Control)-Zielport 443 und TCP-Quellport 443 ausgehend. Hat der RAS-Server nur einen Netzwerkadapter und der Netzwerkadressenserver ist auf dem RAS-Server, wird auch TCP-Port 62000 benötigt.  
+-   IP-HTTPS-TCP (Transmission Control Protocol)-Zielport 443 und TCP-Quellport 443 ausgehend. Hat der RAS-Server nur einen Netzwerkadapter und der Netzwerkadressenserver ist auf dem RAS-Server, wird auch TCP-Port 62000 benötigt.  
   
 Wenden Sie bei zusätzlichen Firewalls die folgenden Firewallausnahmen mit Internetzugriff für RAS-Datenverkehr an, wenn der RAS-Server sich im IPv6-Internet befindet:  
   
@@ -88,14 +88,14 @@ Wenden Sie bei zusätzlichen Firewalls die folgenden Firewallausnahmen mit Inter
   
 Wenden Sie bei zusätzlichen Firewalls die folgenden internen Netzwerkfirewallausnahmen für RAS-Datenverkehr an:  
   
--   ISATAP – Protokoll 41 ein- und ausgehend  
+-   ISATAP-Protokoll 41 eingehend und ausgehend  
   
 -   TCP/UDP für den gesamten IPv4/IPv6-Datenverkehr  
   
 ## <a name="ConfigCAs"></a>Konfigurieren von Zertifizierungsstellen und Zertifikaten  
 Der Assistent zum Aktivieren von DirectAccess konfiguriert einen integrierten Kerberos-Proxy, der die Authentifizierung anhand der Benutzernamen und Kennwörter vornimmt. Außerdem konfiguriert er ein IP-HTTPS-Zertifikat auf dem Remotezugriffsserver.  
   
-### <a name="ConfigCertTemp"></a>Konfigurieren von Zertifikatvorlagen  
+### <a name="ConfigCertTemp"></a>Konfigurieren von Zertifikat Vorlagen  
 Wenn Sie zur Ausstellung von Zertifikaten eine interne Zertifizierungsstelle verwenden, müssen Sie für das IP-HTTPS-Zertifikat und das Netzwerkadressenserver-Websitezertifikat eine Zertifikatvorlage konfigurieren.  
   
 ##### <a name="to-configure-a-certificate-template"></a>So konfigurieren Sie eine Zertifikatvorlage  
@@ -107,17 +107,17 @@ Wenn Sie zur Ausstellung von Zertifikaten eine interne Zertifizierungsstelle ver
 ### <a name="configure-the-ip-https-certificate"></a>Konfigurieren des IP-HTTPS-Zertifikats  
 Für den Remotezugriff ist zum Authentifizieren von IP-HTTPS-Verbindungen mit dem Remotezugriffsserver ein IP-HTTPS-Zertifikat erforderlich. Für das IP-HTTPS-Zertifikat sind drei Zertifikatoptionen verfügbar:  
   
--   **Öffentliche**– von einer 3rd Party bereitgestellt.  
+-   **Öffentlich**: wird von einem Drittanbieter bereitgestellt.  
   
     Dies ist ein Zertifikat, das für die IP-HTTPS-Authentifizierung verwendet wird. Wenn der Antragstellername des Zertifikats kein Platzhalter ist, muss er mit der extern auflösbaren FQDN-URL übereinstimmen, die nur für Remotezugriffsserver-IP HTTPS-Verbindungen verwendet wird.  
   
--   **Private**-Folgendes sind erforderlich, wenn sie nicht bereits vorhanden sind:  
+-   **Privat**: die folgenden sind erforderlich, wenn Sie nicht bereits vorhanden sind:  
   
     -   Ein Websitezertifikat, das für die IP-HTTPS-Authentifizierung verwendet wird. Beim Zertifikatantragsteller sollte es sich um einen extern auflösbaren, vollqualifizierten Domänennamen (FQDN) handeln, der über das Internet erreichbar ist.  
   
     -   Ein Zertifikatsperrlisten-Verteilungspunkt, der über einen öffentlich auflösbaren FQDN erreichbar ist.  
   
--   **Selbstsigniert**-Folgendes sind erforderlich, wenn sie nicht bereits vorhanden sind:  
+-   **Selbst signiert**: Folgendes ist erforderlich, wenn Sie nicht bereits vorhanden sind:  
   
     > [!NOTE]  
     > Selbstsignierte Zertifikate können nicht in Bereitstellungen für mehrere Standorte verwendet werden.  
@@ -144,7 +144,7 @@ Stellen Sie sicher, dass das für die IP-HTTPS-Authentifizierung verwendete Webs
   
 ##### <a name="to-install-the-ip-https-certificate-from-an-internal-ca"></a>So installieren Sie das IP-HTTPS-Zertifikat von einer internen Zertifizierungsstelle  
   
-1.  Gehen Sie auf dem Remotezugriffsserver wie folgt vor: Auf der **starten** geben**mmc.exe**, und drücken Sie dann die EINGABETASTE.  
+1.  Gehen Sie auf dem Remotezugriffsserver wie folgt vor: Geben Sie auf dem **Start** Bildschirm**MMC. exe**ein, und drücken Sie dann die EINGABETASTE.  
   
 2.  Klicken Sie in der MMC-Konsole im Menü **Datei** auf **Snap-In hinzufügen/entfernen**.  
   
@@ -156,7 +156,7 @@ Stellen Sie sicher, dass das für die IP-HTTPS-Authentifizierung verwendete Webs
   
 6.  Klicken Sie zweimal auf **Weiter** .  
   
-7.  Auf der **Zertifikate anfordern** Seite das Kontrollkästchen für die Zertifikatvorlage, und bei Bedarf auf **zusätzliche Informationen für diese zertifikatsregistrierung benötigt**.  
+7.  Aktivieren Sie auf der Seite **Zertifikate anfordern** das Kontrollkästchen für die Zertifikat Vorlage, und klicken Sie bei Bedarf auf Weitere Informationen, die für die Registrierung **dieses Zertifikats erforderlich sind**.  
   
 8.  Klicken Sie im Dialogfeld **Zertifikateigenschaften** auf der Registerkarte **Antragsteller** im Bereich **Antragstellername** unter **Typ** auf **Allgemeiner Name**.  
   
@@ -174,12 +174,12 @@ Stellen Sie sicher, dass das für die IP-HTTPS-Authentifizierung verwendete Webs
   
 15. Überprüfen Sie im Detailbereich des Zertifikat-Snap-in, dass das neue Zertifikat unter Serverauthentifizierung mit der Option Beabsichtigte Zwecke registriert wurde.  
   
-## <a name="ConfigDNS"></a>Konfigurieren Sie den DNS-server  
+## <a name="ConfigDNS"></a>Konfigurieren des DNS-Servers  
 Sie müssen einen DNS-Eintrag für die Netzwerkadressenserver-Website für das interne Netzwerk in Ihrer Bereitstellung manuell konfigurieren.  
   
-### <a name="NLS_DNS"></a>Den Network Location Server und -Test-DNS-Einträge erstellen  
+### <a name="NLS_DNS"></a>So erstellen Sie die DNS-Einträge für den Netzwerkadressen Server und den Webtest  
   
-1.  Vorgehensweise auf dem internen Netzwerk-DNS-Server: Auf der **starten** Seite Art ** dnsmgmt.msc**, und drücken Sie dann die EINGABETASTE.  
+1.  Vorgehensweise auf dem internen Netzwerk-DNS-Server: Geben Sie auf dem **Start** Bildschirm * * dnsmgmt. msc * * ein, und drücken Sie dann die EINGABETASTE.  
   
 2.  Erweitern Sie im linken Bereich der **DNS-Manager**-Konsole die Forward-Lookupzone für Ihre Domäne. Klicken Sie mit der rechten Maustaste auf die Domäne, und anschließend auf **Neuer Host (A oder AAAA)** .  
   
@@ -189,7 +189,7 @@ Sie müssen einen DNS-Eintrag für die Netzwerkadressenserver-Website für das i
   
 5.  Klicken Sie auf **Fertig**.  
 
-![Windows PowerShell](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure_3/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
+](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure_3/PowerShellLogoSmall.gif)***<em>äquivalente Windows PowerShell-Befehle</em> mit @no__t 0shell***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -200,9 +200,9 @@ Add-DnsServerResourceRecordAAAA -Name <network_location_server_name> -ZoneName <
   
 Außerdem müssen Sie die DNS-Einträge für folgende Elemente konfigurieren:  
   
--   **IP-HTTPS-Servers**- DirectAccess-Clients müssen in der Lage, den DNS-Namen des RAS-Servers aus dem Internet aufzulösen.  
+-   **Der IP-HTTPS-Server**: DirectAccess-Clients müssen in der Lage sein, den DNS-Namen des Remote Zugriffs Servers aus dem Internet aufzulösen.  
   
--   **Sperrüberprüfungen der Zertifikatsperrliste**– DirectAccess verwendet Zertifikatsperrüberprüfung für die IP-HTTPS-Verbindung zwischen DirectAccess-Clients und RAS-Servers und für die HTTPS-basierte Verbindung zwischen dem DirectAccess-Client und dem Netzwerkadressenserver. In beiden Fällen müssen DirectAccess-Clients in der Lage sein, auf den Zertifikatsperrlisten-Verteilungspunkt zuzugreifen und ihn aufzulösen.  
+-   **CRL**-Sperr Überprüfung: DirectAccess verwendet Zertifikat Sperr Überprüfungen für die IP-HTTPS-Verbindung zwischen DirectAccess-Clients und dem RAS-Server sowie für die HTTPS-basierte Verbindung zwischen dem DirectAccess-Client und dem Netzwerk. Standort Server. In beiden Fällen müssen DirectAccess-Clients in der Lage sein, auf den Zertifikatsperrlisten-Verteilungspunkt zuzugreifen und ihn aufzulösen.  
   
 ## <a name="ConfigAD"></a>Konfigurieren von Active Directory  
 Der Remotezugriffsserver und alle DirectAccess-Clientcomputer müssen zu einer Active Directory-Domäne zusammengeführt werden. DirectAccess-Clientcomputer müssen Mitglied folgender Domänentypen sein:  
@@ -215,7 +215,7 @@ Der Remotezugriffsserver und alle DirectAccess-Clientcomputer müssen zu einer A
   
 #### <a name="to-join-client-computers-to-the-domain"></a>So fügen Sie Clientcomputer zur Domäne hinzu  
   
-1.  Auf der **starten** geben **explorer.exe**, und drücken Sie dann die EINGABETASTE.  
+1.  Geben Sie auf dem **Start** Bildschirm **Explorer. exe**ein, und drücken Sie dann die EINGABETASTE.  
   
 2.  Klicken Sie mit der rechten Maustaste auf das Computersymbol und klicken Sie dann auf **Eigenschaften**.  
   
@@ -233,7 +233,7 @@ Der Remotezugriffsserver und alle DirectAccess-Clientcomputer müssen zu einer A
   
 9. Klicken Sie im Dialogfeld **Systemeigenschaften** auf „Schließen“. Klicken Sie bei Aufforderung auf **Jetzt neu starten**.  
   
-![Windows PowerShell](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure_3/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
+](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure_3/PowerShellLogoSmall.gif)***<em>äquivalente Windows PowerShell-Befehle</em> mit @no__t 0shell***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -244,28 +244,28 @@ Add-Computer -DomainName <domain_name>
 Restart-Computer  
 ```  
   
-## <a name="ConfigGPOs"></a>Konfigurieren der Gruppenrichtlinienobjekte  
-Um den Remotezugriff bereitzustellen, benötigen Sie mindestens zwei Gruppenrichtlinienobjekte: ein Gruppenrichtlinienobjekt enthält Einstellungen für den RAS-Server und eine der Einstellungen für DirectAccess-Clientcomputer enthält. Wenn Sie Remotezugriff konfigurieren, erstellt der Assistent automatisch die erforderlichen Gruppenrichtlinienobjekte. Allerdings müssen, wenn Ihre Organisation eine Benennungskonvention erzwingt oder Sie haben nicht die erforderlichen Berechtigungen zum Erstellen oder Bearbeiten von Gruppenrichtlinienobjekten, sie erstellt werden vor dem Konfigurieren des Remotezugriffs.  
+## <a name="ConfigGPOs"></a>Konfigurieren von GPOs  
+Zum Bereitstellen des Remote Zugriffs benötigen Sie mindestens zwei Gruppenrichtlinie Objekte: ein Gruppenrichtlinie Objekt enthält Einstellungen für den RAS-Server und eine enthält Einstellungen für DirectAccess-Client Computer. Wenn Sie den Remote Zugriff konfigurieren, erstellt der Assistent automatisch die erforderlichen Gruppenrichtlinie Objekte. Wenn Ihre Organisation jedoch eine Benennungs Konvention erzwingt oder Sie nicht über die erforderlichen Berechtigungen zum Erstellen oder Bearbeiten von Gruppenrichtlinie Objekten verfügen, müssen Sie vor dem Konfigurieren des Remote Zugriffs erstellt werden.  
   
-Group Policy Objects erstellen zu können, finden Sie unter [erstellen und Bearbeiten eines Gruppenrichtlinienobjekts](https://technet.microsoft.com/library/cc754740.aspx).  
+Informationen zum Erstellen von Gruppenrichtlinie Objekten finden Sie unter [Erstellen und Bearbeiten eines Gruppenrichtlinie Objekts](https://technet.microsoft.com/library/cc754740.aspx).  
   
 > [!IMPORTANT]  
-> Der Administrator kann die DirectAccess-Gruppenrichtlinienobjekte manuell in eine Organisationseinheit mithilfe der folgenden Schritte verknüpfen:  
+> Der Administrator kann die DirectAccess-Gruppenrichtlinie Objekte mithilfe der folgenden Schritte manuell mit einer Organisationseinheit verknüpfen:  
 >   
 > 1.  Verknüpfen Sie die erstellten Gruppenrichtlinienobjekte mit den entsprechenden Organisationseinheiten, bevor Sie DirectAccess konfigurieren.  
 > 2.  Wenn Sie DirectAccess konfigurieren, sollten Sie eine Sicherheitsgruppe für die Clientcomputer angeben.  
-> 3.  Der remotezugriffsadministrator kann oder möglicherweise nicht berechtigt, die die Gruppenrichtlinienobjekte der Domäne zu verknüpfen. In beiden Fällen werden die Gruppenrichtlinienobjekte automatisch konfiguriert. Wenn die Gruppenrichtlinienobjekte bereits mit einer Organisationseinheit verknüpft sind, werden die Verknüpfungen nicht entfernt und die die Gruppenrichtlinienobjekte werden nicht mit der Domäne verknüpft. Für ein Server-Gruppenrichtlinienobjekt muss die Organisationseinheit das Servercomputerobjekt enthalten, andernfalls wird das Gruppenrichtlinienobjekt mit  dem Domänenstamm verknüpft.  
-> 4.  Wenn die Verknüpfung zur Organisationseinheit nicht durchgeführt wurde vor dem Ausführen des DirectAccess-Assistenten, kann Klicken Sie dann nach Abschluss die Konfiguration der Domänenadministrator die DirectAccess-Gruppenrichtlinienobjekte mit den erforderlichen Organisationseinheiten verknüpfen. Die Verknüpfung zur Domäne kann entfernt werden. Für die Verknüpfung eines Gruppenrichtlinienobjekts mit einer Organisationseinheit finden Sie die Schritte [hier](https://technet.microsoft.com/library/cc732979.aspx).  
+> 3.  Der Remote Zugriffs Administrator verfügt möglicherweise über Berechtigungen zum Verknüpfen der Gruppenrichtlinie Objekte mit der Domäne. In beiden Fällen werden die Gruppenrichtlinienobjekte automatisch konfiguriert. Wenn die Gruppenrichtlinienobjekte bereits mit einer Organisationseinheit verknüpft sind, werden die Verknüpfungen nicht entfernt und die die Gruppenrichtlinienobjekte werden nicht mit der Domäne verknüpft. Für ein Server-Gruppenrichtlinienobjekt muss die Organisationseinheit das Servercomputerobjekt enthalten, andernfalls wird das Gruppenrichtlinienobjekt mit  dem Domänenstamm verknüpft.  
+> 4.  Wenn die Verknüpfung mit der Organisationseinheit nicht vor dem Ausführen des DirectAccess-Assistenten erfolgt ist, kann der Domänen Administrator nach Abschluss der Konfiguration die DirectAccess-Gruppenrichtlinie Objekte mit den erforderlichen Organisationseinheiten verknüpfen. Die Verknüpfung zur Domäne kann entfernt werden. Die Schritte zum Verknüpfen eines Gruppenrichtlinie Objekts mit einer Organisationseinheit finden Sie [hier](https://technet.microsoft.com/library/cc732979.aspx).  
   
 > [!NOTE]  
-> Wenn ein Gruppenrichtlinienobjekt manuell erstellt wurde, kann während der DirectAccess-Konfiguration, dass das Gruppenrichtlinienobjekt nicht zur Verfügung stehen. Das Gruppenrichtlinienobjekt kann nicht auf dem nächstgelegenen Domänencontroller vom Verwaltungscomputer repliziert wurden. In diesem Fall kann der Administrator warten, bis die Replikation abgeschlossen ist oder er kann die Replikation erzwingen.  
+> Wenn ein Gruppenrichtlinie Objekt manuell erstellt wurde, kann es während der DirectAccess-Konfiguration vorkommen, dass das Gruppenrichtlinie Objekt nicht verfügbar ist. Das Gruppenrichtlinie Objekt wurde möglicherweise nicht auf den nächstgelegenen Domänen Controller des Verwaltungs Computers repliziert. In diesem Fall kann der Administrator warten, bis die Replikation abgeschlossen ist oder er kann die Replikation erzwingen.  
   
 ## <a name="ConfigSGs"></a>Konfigurieren von Sicherheitsgruppen  
-Der DirectAccess-Einstellungen auf dem Clientcomputer Gruppenrichtlinienobjekt gelten nur für Computer, die Mitglieder der Sicherheitsgruppe, die Sie beim Konfigurieren des Remotezugriffs angeben. Außerdem müssen Sie eine Sicherheitsgruppe für diese Server erstellen, wenn Sie zum Verwalten Ihrer Anwendungsserver Sicherheitsgruppen verwenden.  
+Die DirectAccess-Einstellungen, die auf dem Client Computer Gruppenrichtlinie Objekt enthalten sind, werden nur auf Computer angewendet, die Mitglieder der Sicherheitsgruppe sind, die Sie beim Konfigurieren des Remote Zugriffs angeben. Außerdem müssen Sie eine Sicherheitsgruppe für diese Server erstellen, wenn Sie zum Verwalten Ihrer Anwendungsserver Sicherheitsgruppen verwenden.  
   
-### <a name="Sec_Group"></a>So erstellen eine Sicherheitsgruppe für DirectAccess-clients  
+### <a name="Sec_Group"></a>So erstellen Sie eine Sicherheitsgruppe für DirectAccess-Clients  
   
-1.  Auf der **starten** geben**dsa.msc**, und drücken Sie dann die EINGABETASTE. Erweitern Sie in der Konsole **Active Directory-Benutzer und -Computers** im linken Bereich die Domäne, die die Sicherheitsgruppe enthält, klicken Sie mit der rechten Maustaste auf **Benutzer**, zeigen Sie auf **Neu** und klicken Sie dann auf **Gruppe**.  
+1.  Geben Sie auf dem **Start** Bildschirm**DSA. msc**ein, und drücken Sie dann die EINGABETASTE. Erweitern Sie in der Konsole **Active Directory-Benutzer und -Computers** im linken Bereich die Domäne, die die Sicherheitsgruppe enthält, klicken Sie mit der rechten Maustaste auf **Benutzer**, zeigen Sie auf **Neu** und klicken Sie dann auf **Gruppe**.  
   
 2.  Geben Sie im Dialogfeld **Neues Objekt - Gruppe** unter **Gruppenname** den Namen für die Sicherheitsgruppe ein.  
   
@@ -277,7 +277,7 @@ Der DirectAccess-Einstellungen auf dem Clientcomputer Gruppenrichtlinienobjekt g
   
 6.  Wählen Sie im Dialogfeld zum **Auswählen von Benutzern, Kontakten Computern oder Dienstkonten** die Clientcomputer aus, für die DirectAccess aktiviert werden soll, und klicken Sie anschließend auf **OK**.  
   
-![Windows PowerShell](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure_3/PowerShellLogoSmall.gif)**gleichwertige Windows PowerShell-Befehle**  
+](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure_3/PowerShellLogoSmall.gif)**äquivalente Windows PowerShell-Befehle** mit @no__t 0shell  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -286,16 +286,16 @@ New-ADGroup -GroupScope global -Name <DirectAccess_clients_group_name>
 Add-ADGroupMember -Identity DirectAccess_clients_group_name -Members <computer_name>  
 ```  
   
-## <a name="ConfigNLS"></a>Konfigurieren des Netzwerkadressenservers  
+## <a name="ConfigNLS"></a>Konfigurieren des Netzwerkadressen Servers  
 Der Netzwerkadressenserver sollte sich auf einem Server mit hoher Verfügbarkeit befinden und über ein gültiges SSL-Zertifikat verfügen, dem die DirectAccess-Clients vertrauen. Für das Netzwerkadressenserver-Zertifikat sind zwei Zertifikatoptionen verfügbar:  
   
--   **Private**-Folgendes sind erforderlich, wenn sie nicht bereits vorhanden sind:  
+-   **Privat**: die folgenden sind erforderlich, wenn Sie nicht bereits vorhanden sind:  
   
     -   Ein Websitezertifikat, das für den Netzwerkadressenserver verwendet wird. Der Zertifikatantragsteller sollte die URL des Netzwerkadressenservers sein.   
   
     -   Ein Sperrlisten-Verteilungspunkt mit hoher Verfügbarkeit aus dem internen Netzwerk.  
   
--   **Selbstsigniert**-Folgendes sind erforderlich, wenn sie nicht bereits vorhanden sind:  
+-   **Selbst signiert**: Folgendes ist erforderlich, wenn Sie nicht bereits vorhanden sind:  
   
     > [!NOTE]  
     > Selbstsignierte Zertifikate können nicht in Bereitstellungen für mehrere Standorte verwendet werden.  
@@ -307,7 +307,7 @@ Der Netzwerkadressenserver sollte sich auf einem Server mit hoher Verfügbarkeit
   
 #### <a name="to-install-the-network-location-server-certificate-from-an-internal-ca"></a>So installieren Sie das Netzwerkadressenserver-Zertifikat von einer internen Zertifizierungsstelle  
   
-1.  Vorgehensweise auf dem Server, der die Netzwerkadressenserver-Website hostet: Auf der **starten** geben**mmc.exe**, und drücken Sie dann die EINGABETASTE.  
+1.  Vorgehensweise auf dem Server, der die Netzwerkadressenserver-Website hostet: Geben Sie auf dem **Start** Bildschirm**MMC. exe**ein, und drücken Sie dann die EINGABETASTE.  
   
 2.  Klicken Sie in der MMC-Konsole im Menü **Datei** auf **Snap-In hinzufügen/entfernen**.  
   
@@ -319,7 +319,7 @@ Der Netzwerkadressenserver sollte sich auf einem Server mit hoher Verfügbarkeit
   
 6.  Klicken Sie zweimal auf **Weiter** .  
   
-7.  Auf der **Zertifikate anfordern** Seite das Kontrollkästchen für die Zertifikatvorlage, und bei Bedarf auf **zusätzliche Informationen für diese zertifikatsregistrierung benötigt**.  
+7.  Aktivieren Sie auf der Seite **Zertifikate anfordern** das Kontrollkästchen für die Zertifikat Vorlage, und klicken Sie bei Bedarf auf Weitere Informationen, die für die Registrierung **dieses Zertifikats erforderlich sind**.  
   
 8.  Klicken Sie im Dialogfeld **Zertifikateigenschaften** auf der Registerkarte **Antragsteller** im Bereich **Antragstellername** unter **Typ** auf **Allgemeiner Name**.  
   

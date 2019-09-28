@@ -1,39 +1,39 @@
 ---
 title: Hyper-V-Netzwerk-e/a-Leistung
-description: Netzwerk-e/a-Überlegungen zur Leistung in Hyper-V zur leistungsoptimierung
-ms.prod: windows-server-threshold
+description: Überlegungen zur Netzwerk-e/a-Leistung bei der Hyper-V-Leistungsoptimierung
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 9f576963a93c8c0b9d6c05f406cc3331c407ceb9
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: e8f4261c11a63786c2d170105fb0fa65dc6966a3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811516"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385118"
 ---
 # <a name="hyper-v-network-io-performance"></a>Hyper-V-Netzwerk-e/a-Leistung
 
-Server 2016 enthält verschiedene Verbesserungen und neue Funktionen zum Optimieren der Leistung des Netzwerks unter Hyper-V.  Dokumentation zum Optimieren der Leistung des Netzwerks wird in einer zukünftigen Version dieses Artikels enthalten sein.
+Server 2016 enthält mehrere Verbesserungen und neue Funktionen zur Optimierung der Netzwerkleistung unter Hyper-V.  Eine Dokumentation zur Optimierung der Netzwerkleistung wird in einer zukünftigen Version dieses Artikels enthalten sein.
 
 ## <a name="live-migration"></a>Livemigration
 
-Live-Migration können Sie transparent verschieben aktiver virtueller Computer von einem Knoten eines Failoverclusters auf einen anderen Knoten im selben Cluster ohne eine Unterbrechung der Netzwerkverbindung oder wahrgenommene Ausfallzeit.
+Mit Livemigration können Sie die Ausführung virtueller Computer transparent von einem Knoten eines Failoverclusters auf einen anderen Knoten im gleichen Cluster verschieben, ohne dass eine Netzwerkverbindung oder eine nicht erkannte Ausfallzeiten auftreten.
 
 > [!NOTE]
-> Failover-Clusterunterstützung erfordert freigegebenen Speicher für die Clusterknoten.
+> Failoverclustering erfordert freigegebenen Speicher für die Cluster Knoten.
 
-Der Prozess der Verschiebung eines ausgeführten virtuellen Computers kann in zwei Hauptphasen unterteilt werden. Die erste Phase kopiert Arbeitsspeicher des virtuellen Computers aus dem aktuellen Host auf den neuen Host. In der zweite Phase werden die Status des virtuellen Computers aus dem aktuellen Host auf den neuen Host übertragen. Die Dauer von beiden Phasen richtet sich erheblich durch die Geschwindigkeit, mit der Daten aus dem aktuellen Host auf den neuen Host übertragen werden können.
+Der Prozess zum Verschieben eines laufenden virtuellen Computers kann in zwei Hauptphasen unterteilt werden. In der ersten Phase wird der Speicher der virtuellen Maschine vom aktuellen Host auf den neuen Host kopiert. In der zweiten Phase wird der Zustand der virtuellen Maschine vom aktuellen Host auf den neuen Host übertragen. Die Dauer beider Phasen hängt stark von der Geschwindigkeit ab, mit der Daten vom aktuellen Host auf den neuen Host übertragen werden können.
 
-Für die Livemigration Datenverkehr minimiert die Zeit, die erforderlich sind, um eine live-Migration abzuschließen, und stellt eine konsistente Migrationszeiten ein dediziertes Netzwerk bereitstellen.
+Das Bereitstellen eines dedizierten Netzwerks für den Live Migrations Datenverkehr verringert die Zeit, die zum Durchführen einer Live Migration erforderlich ist, und stellt eine konsistente Migrationszeit sicher.
 
-![Beispielkonfiguration für hyper-V-Livemigration](../../media/perftune-guide-live-migration.png)
+![Beispiel für die Konfiguration der Hyper-v-Live Migration](../../media/perftune-guide-live-migration.png)
 
-Darüber hinaus Erhöhen der Anzahl von senden und Empfangen von Puffern in jedem Netzwerk kann Adapter, die bei der Migration ist die migrationsleistung verbessern.
+Außerdem kann das Erhöhen der Anzahl der Sende-und Empfangs Puffer auf jedem Netzwerkadapter, der an der Migration beteiligt ist, die Migrations Leistung verbessern.
 
-Windows Server 2012 R2 eingeführt eine Option zum Beschleunigen der Livemigration durch Komprimieren von Arbeitsspeicher, bevor über das Netzwerk übertragen, oder verwenden Sie Remote Direct Memory Access (RDMA), wenn Ihre Hardware unterstützt.
+Windows Server 2012 R2 hat eine Option eingeführt, um Livemigration zu beschleunigen, indem Sie Speicher vor der Übertragung über das Netzwerk komprimieren oder den Remote Zugriff auf den direkten Speicher (RDMA) verwenden, wenn Ihre Hardware dies unterstützt.
 
 ## <a name="see-also"></a>Siehe auch
 

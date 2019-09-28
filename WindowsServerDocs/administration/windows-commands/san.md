@@ -1,8 +1,8 @@
 ---
-title: SAN
-description: 'Windows-Befehle Thema ***- '
+title: chen
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 90b6cec9e44ae91b21932c1e4c46a33e0b5da5e4
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 970a5d6403804db7585bf3895dbb61eead286c37
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441672"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384380"
 ---
-# <a name="san"></a>SAN
+# <a name="san"></a>chen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zeigt an, oder legt die Richtlinie zur Storage Area Network (San) für das Betriebssystem.
+Zeigt die Storage Area Network-Richtlinie (San) für das Betriebssystem an oder legt diese fest.
 > [!NOTE]
-> Dieser Befehl gilt nur für Windows 7 und Windows Server 2008 R2 zur Verfügung.
+> Dieser Befehl gilt nur für Windows 7 und Windows Server 2008 R2.
 
 ## <a name="syntax"></a>Syntax
 ```
@@ -36,19 +36,19 @@ san [policy={onlineAll | offlineAll | offlineShared}] [noerr]
 
 |                          Parameter                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |--------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| policy={ onlineAll &#124; offlineAll &#124; offlineShared }] | Legt fest, die San-Richtlinie für das Betriebssystem zurzeit gestartet. Die San-Richtlinie bestimmt, ob ein neu ermittelte Datenträger online geschaltet wird, oder bleibt offline, und gibt an, ob wird Lese-/Schreibzugriff oder schreibgeschützt bleibt. Wenn ein Datenträger offline ist, das Datenträgerlayout gelesen werden kann, aber keine Volumegeräte werden über Plug & Play aufgeführt. Dies bedeutet, dass kein Dateisystem auf dem Datenträger bereitgestellt werden kann. Wenn ein Datenträger online ist, werden ein oder mehrere Volumegeräte für den Datenträger installiert. Im folgenden finden eine Erläuterung der einzelnen Parameter:<br /><br />-   **onlineAll**. Gibt an, dass alle neu ermittelt, dass die Datenträger online und wurden Lese-/Schreibzugriff eingerichtet werden sollen. **WICHTIG:**     Angeben von **OnlineAll** auf einem Server, die gemeinsam von Datenträgern kann zur Beschädigung von Daten führen. Aus diesem Grund sollten Sie diese Richtlinie nicht festgelegt, wenn der Datenträger von Servern gemeinsam genutzt werden, es sei denn, der Server Teil eines Clusters ist.<br />-   **offlineAll**. Gibt an, dass alle Datenträger mit der Ausnahme beim Startdatenträger offline kann neu ermittelte Andread nur in der Standardeinstellung.<br />-   **offlineShared**. Gibt an, dass alle neu ermittelt, dass die Datenträger, die nicht auf einem freigegebenen Bus (z. B. SCSI und iSCSI) befinden, online geschaltet werden, und Lese-und Schreibzugriff versehen. Datenträger, die offline bleiben werden standardmäßig schreibgeschützt.<br /><br />Weitere Informationen finden Sie unter [VDS_san_POLICY Enumeration](https://go.microsoft.com/fwlink/?LinkId=203815) (<https://go.microsoft.com/fwlink/?LinkId=203815>). |
-|                            Diskpart                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Nur für Skripting verwendet. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Policy = {onlineall &#124; &#124; offlineshared}] | Legt die San-Richtlinie für das aktuell gestartete Betriebssystem fest. Die San-Richtlinie legt fest, ob ein neu ermittelter Datenträger online geschaltet wird oder offline bleibt und ob er Lese-/Schreibzugriff oder schreibgeschützt ist. Wenn ein Datenträger offline ist, kann das Datenträger Layout gelesen werden, es werden jedoch keine Volumegeräte über Plug & Play angezeigt. Dies bedeutet, dass auf dem Datenträger kein Dateisystem bereitgestellt werden kann. Wenn ein Datenträger online ist, werden ein oder mehrere Volumegeräte für den Datenträger installiert. Im folgenden finden Sie eine Erläuterung zu den einzelnen Parametern:<br /><br />-   **onlineall**. Gibt an, dass alle neu ermittelten Datenträger online geschaltet werden und Lese-/Schreibzugriff erfolgen. **WICHTIG:**     Das Angeben von **onlineall** auf einem Server, der Datenträger freigibt, kann zu Daten Beschädigungen führen. Daher sollten Sie diese Richtlinie nicht festlegen, wenn Datenträger von Servern gemeinsam genutzt werden, es sei denn, der Server ist Teil eines Clusters.<br />-   **offlineall**. Gibt an, dass alle neu ermittelten Datenträger mit Ausnahme des Start Datenträgers standardmäßig nur in der Standardeinstellung offline geschaltet werden.<br />-   **offlinesed**. Gibt an, dass alle neu ermittelten Datenträger, die sich nicht in einem freigegebenen Bus (z. b. SCSI und iSCSI) befinden, online geschaltet werden und Lese-/Schreibzugriff erhalten Datenträger, die offline bleiben, werden standardmäßig schreibgeschützt.<br /><br />Weitere Informationen finden Sie unter [VDS_san_POLICY-Enumeration](https://go.microsoft.com/fwlink/?LinkId=203815) (<https://go.microsoft.com/fwlink/?LinkId=203815>). |
+|                            Noerr                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Wird nur für die Skripterstellung verwendet. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 
 ## <a name="remarks"></a>Hinweise
-- Wenn der Befehl ohne Parameter angegeben ist, wird die aktuelle San-Richtlinie angezeigt.
-  ## <a name="BKMK_Examples"></a>Beispiele für
-  Wenn die aktuelle Richtlinie anzeigen möchten, geben Sie Folgendes ein:
+- Wenn der Befehl keine Parameter erhält, wird die aktuelle SAN-Richtlinie angezeigt.
+  ## <a name="BKMK_Examples"></a>Beispiele
+  Geben Sie Folgendes ein, um die aktuelle Richtlinie anzuzeigen:
   ```
   san
   ```
-  Damit alle neu ermittelte Datenträger mit Ausnahme der startddatenträger, offline und standardmäßig schreibgeschützt, geben Sie Folgendes ein:
+  Geben Sie Folgendes ein, um alle neu ermittelten Datenträger außer dem Start Datenträger standardmäßig offline und schreibgeschützt zu machen:
   ```
   san policy=offlineAll
   ```
-  ## <a name="additional-references"></a>Zusätzliche Referenzen
+  ## <a name="additional-references"></a>Weitere Verweise
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

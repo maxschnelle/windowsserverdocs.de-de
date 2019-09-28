@@ -1,7 +1,7 @@
 ---
-title: Konfigurieren des VPN-Gerät-Tunnels unter Windows 10
-description: Erfahren Sie, wie Sie einen VPN-Gerät-Tunnel in Windows 10 zu erstellen.
-ms.prod: windows-server-threshold
+title: Konfigurieren des VPN-Geräte Tunnels in Windows 10
+description: Erfahren Sie, wie Sie in Windows 10 einen VPN-Geräte Tunnel erstellen.
+ms.prod: windows-server
 ms.date: 11/05/2018
 ms.technology: networking-ras
 ms.topic: article
@@ -9,32 +9,32 @@ ms.assetid: 158b7a62-2c52-448b-9467-c00d5018f65b
 ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
-ms.openlocfilehash: 989216f90e78689b464240cff957bab1d9c1229b
-ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
+ms.openlocfilehash: a216c490c92461e07fd5093783ec2c3049e8accb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749572"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388029"
 ---
-# <a name="configure-vpn-device-tunnels-in-windows-10"></a>Konfigurieren von VPN-Gerät-Tunnel unter Windows 10
+# <a name="configure-vpn-device-tunnels-in-windows-10"></a>Konfigurieren von VPN-Geräte Tunneln in Windows 10
 
 >Gilt für: Windows 10, Version 1709
 
-Always On-VPN-bietet Ihnen die Möglichkeit, ein dediziertes VPN-Profil für das Gerät oder Computer zu erstellen. Always On-VPN-Verbindungen sind zwei Typen der Tunnel an: 
+Always on-VPN bietet Ihnen die Möglichkeit, ein dediziertes VPN-Profil für das Gerät oder den Computer zu erstellen. Always on-VPN-Verbindungen umfassen zwei Arten von Tunneln: 
 
-- _Gerät Tunnel_ eine Verbindung mit der angegebenen VPN-Server vor dem Benutzer, melden Sie sich bei dem Gerät her. Verwenden Gerät-Tunnel, vor der Anmeldung konnektivitätsszenarien und geräteverwaltung.
+- Der _Geräte Tunnel_ stellt eine Verbindung mit angegebenen VPN-Servern her, bevor sich Benutzer am Gerät anmelden. Konnektivitätsszenarios und Geräte Verwaltungsaufgaben vor der Anmeldung verwenden den Geräte Tunnel.
 
-- _Benutzer-Tunnel_ erst nach der Anmeldung eines Benutzers an das Gerät verbindet. Benutzer-Tunnel ermöglicht Zugriff auf Organisationsressourcen über VPN-Server.
+- Der _Benutzer Tunnel_ stellt nur dann eine Verbindung her, nachdem sich ein Benutzer am Gerät angemeldet hat. Der Benutzer Tunnel ermöglicht Benutzern den Zugriff auf Organisations Ressourcen über VPN-Server.
 
-Im Gegensatz zu _Benutzer Tunnel_, die nur eine Verbindung herstellt, nach der Anmeldung eines Benutzers an das Gerät oder Computer _Gerät Tunnel_ können Sie das VPN, eine Verbindung herzustellen, bevor der Benutzer anmeldet. Beide _Gerät Tunnel_ und _Benutzer Tunnel_ aber unabhängig voneinander mit ihrer VPN-Profilen, können gleichzeitig verbunden sein und können verschiedene Authentifizierungsmethoden und andere VPN-Konfigurationseinstellungen Je nach Bedarf. Benutzer-Tunnel unterstützt SSTP und IKEv2 und Gerät Tunnel unterstützt IKEv2, nur mit keine Unterstützung für SSTP-Fallback.
+Anders als bei einem _Benutzer Tunnel_, der nur eine Verbindung herstellt, nachdem sich ein Benutzer am Gerät oder Computer anmeldet, ermöglicht der _Geräte Tunnel_ dem VPN das Herstellen von Verbindungen, bevor sich der Benutzer anmeldet. Sowohl _Geräte Tunnel_ als auch _Benutzer Tunnel_ arbeiten unabhängig von Ihren VPN-Profilen, können gleichzeitig verbunden werden und können gegebenenfalls verschiedene Authentifizierungsmethoden und andere VPN-Konfigurationseinstellungen verwenden. Der Benutzer Tunnel unterstützt SSTP und IKEv2, und der Geräte Tunnel unterstützt IKEv2 nur ohne Unterstützung für das SSTP-Fallback.
 
-Benutzer Tunnel wird unterstützt, in Domäne eingebunden, (nicht-Domänenkonto eingebunden, Arbeitsgruppe) oder Azure AD – eingebundenen Geräten sowohl für Unternehmen als auch für BYOD-Szenarien ermöglichen. Es ist in allen Editionen von Windows verfügbar, und die Plattformfunktionen sind an Drittanbieter über UWP VPN-Plug-in Support verfügbar.
+Der Benutzer Tunnel wird auf in die Domäne eingebundenen, nicht in die Domäne eingebundenen (Arbeitsgruppen) oder Azure AD Geräte unterstützt, die für Unternehmens-und BYOD-Szenarien geeignet sind. Es ist in allen Windows-Editionen verfügbar, und die Plattformfunktionen stehen Drittanbietern mithilfe von UWP-VPN-Plug-in-Unterstützung zur Verfügung.
 
-Gerät-Tunnel kann nur auf die Domäne eingebundene Geräte, die Ausführung von Windows 10 Enterprise oder Bildungseinrichtungen Version 1709 oder höher konfiguriert werden. Es gibt keine Unterstützung für Drittanbieter-Steuerelement des Tunnels, der Geräte.
+Der Geräte Tunnel kann nur auf in die Domäne eingebundenen Geräten konfiguriert werden, auf denen Windows 10 Enterprise oder Education Version 1709 oder höher ausgeführt wird. Die Kontrolle des Geräte Tunnels durch Drittanbieter wird nicht unterstützt.
 
 
-## <a name="device-tunnel-requirements-and-features"></a>Anforderungen an die Geräte-Tunnel und Features
-Sie müssen Aktivieren der Computerzertifikatauthentifizierung für VPN-Verbindungen und Definieren von einer Stammzertifizierungsstelle für die Authentifizierung eingehender VPN-Verbindungen. 
+## <a name="device-tunnel-requirements-and-features"></a>Anforderungen und Features für den Geräte Tunnel
+Sie müssen die Computer Zertifikat Authentifizierung für VPN-Verbindungen aktivieren und eine Stamm Zertifizierungsstelle für die Authentifizierung eingehender VPN-Verbindungen definieren. 
 
 ```PowerShell
 $VPNRootCertAuthority = “Common Name of trusted root certification authority”
@@ -42,18 +42,18 @@ $RootCACert = (Get-ChildItem -Path cert:LocalMachine\root | Where-Object {$_.Sub
 Set-VpnAuthProtocol -UserAuthProtocolAccepted Certificate, EAP -RootCertificateNameToAccept $RootCACert -PassThru
 ```
 
-![Gerät-Tunnel-Funktionen und Anforderungen](../../media/device-tunnel-feature-and-requirements.png)
+![Geräte Tunnel Features und-Anforderungen](../../media/device-tunnel-feature-and-requirements.png)
 
-## <a name="vpn-device-tunnel-configuration"></a>VPN-Tunnel Gerätekonfiguration
+## <a name="vpn-device-tunnel-configuration"></a>Konfiguration des VPN-Geräte Tunnels
 
-Das Beispiel-Profil, die unten stehenden Anleitungen gut für Szenarien, in dem nur Client Pullvorgänge initiiert, durch den Tunnel Gerät erforderlich sind.  Die Datenverkehrsfilter werden genutzt, um den Geräte-Tunnel auf nur Verwaltungsdatenverkehr zu beschränken.  Diese Konfiguration eignet sich gut für Windows zu aktualisieren, typische Group Policy (GP) und Aktualisierungsszenarien für System Center Configuration Manager (SCCM), sowie VPN-Konnektivität für die erste Anmeldung ohne zwischengespeicherte Anmeldeinformationen und Szenarien für die kennwortzurücksetzung. 
+Die Beispiel-XML-Datei unten bietet eine gute Anleitung für Szenarien, in denen nur vom Client initiierte Pull-Vorgänge über den Geräte Tunnel erforderlich sind.  Datenverkehrs Filter werden genutzt, um den Geräte Tunnel nur auf den Verwaltungs Datenverkehr zu beschränken.  Diese Konfiguration eignet sich gut für Windows Update, typische Gruppenrichtlinie (GP) und System Center Configuration Manager (SCCM)-Update Szenarios sowie VPN-Konnektivität für die erste Anmeldung ohne zwischengespeicherte Anmelde Informationen oder Szenarios zum Zurücksetzen von Kenn Wörtern. 
 
-Für serverseitig initiierte Push-Fällen, z. B. Windows-Remoteverwaltung (WinRM), Remote-Gruppenrichtlinienaktualisierung und remote Szenarien für die SCCM-Update – müssen Sie eingehenden Datenverkehr auf der Gerät-Tunnel, zulassen, sodass die Datenverkehrsfilter, die verwendet werden können.  Wenn im Tunnel Geräteprofil, die, das Sie die Datenverkehrsfilter aktivieren, klicken Sie dann den Geräte-Tunnel eingehenden Datenverkehr verweigert wird.  Diese Einschränkung soll in zukünftigen Versionen entfernt werden soll.
+Für Server initiierte pushfälle, wie Windows-Remoteverwaltung (WinRM), Remote-gpupdate und Remote-SCCM-Aktualisierungs Szenarios – Sie müssen eingehenden Datenverkehr im Geräte Tunnel zulassen, sodass keine Datenverkehrs Filter verwendet werden können.  Wenn Sie im Geräte Tunnel Profildaten Verkehrs Filter aktivieren, wird der eingehende Datenverkehr vom Geräte Tunnel verweigert.  Diese Einschränkung wird in zukünftigen Versionen entfernt.
 
 
-### <a name="sample-vpn-profilexml"></a>Beispiel-VPN-"profileXML"
+### <a name="sample-vpn-profilexml"></a>Beispiel-VPN-profileXML
 
-Es folgt die Beispiel-VPN-"profileXML".
+Im folgenden finden Sie ein Beispiel für die VPN-Profilerstellung.
 
 ``` xml
 <VPNProfile>  
@@ -89,30 +89,30 @@ Es folgt die Beispiel-VPN-"profileXML".
 </VPNProfile>
 ```
 
-Je nach den Anforderungen der einzelnen bestimmten Bereitstellungsszenarien, eine weitere VPN-Funktion, die mit dem Gerät Tunnel konfiguriert werden kann ist [Erkennung für vertrauenswürdige Netzwerke](https://social.technet.microsoft.com/wiki/contents/articles/38546.new-features-for-vpn-in-windows-10-and-windows-server-2016.aspx#Trusted_Network_Detection).
+Abhängig von den Anforderungen der einzelnen Bereitstellungs Szenarios ist ein weiteres VPN-Feature, das mit dem Geräte Tunnel konfiguriert werden kann, die [Erkennung vertrauenswürdiger Netzwerke](https://social.technet.microsoft.com/wiki/contents/articles/38546.new-features-for-vpn-in-windows-10-and-windows-server-2016.aspx#Trusted_Network_Detection).
 
 ```
  <!-- inside/outside detection -->
   <TrustedNetworkDetection>corp.contoso.com</TrustedNetworkDetection>
 ```
 
-## <a name="deployment-and-testing"></a>Bereitstellen und testen
+## <a name="deployment-and-testing"></a>Bereitstellung und Tests
 
-Sie können die Gerät-Tunnel konfigurieren, mit einem Windows PowerShell-Skript und die Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI)-Bridge. Der Always On-VPN-Gerät-Tunnel muss konfiguriert werden, im Rahmen der **lokales SYSTEM** Konto. Um dies zu erreichen, es wird erforderlich sein, verwenden Sie [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec)möglich von der [PsTools](https://docs.microsoft.com/sysinternals/downloads/pstools) in enthalten die [Sysinternals](https://docs.microsoft.com/sysinternals/) Sammlung von Hilfsprogrammen.
+Sie können Geräte Tunnel mithilfe eines Windows PowerShell-Skripts und mithilfe der Windows-Verwaltungsinstrumentation (WMI)-Bridge konfigurieren. Der Always on VPN-Geräte Tunnel muss im Kontext des **lokalen System** Kontos konfiguriert werden. Um dies zu erreichen, muss [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec)verwendet werden, eines der in der [Sysinternals](https://docs.microsoft.com/sysinternals/) -Dienstprogramme enthaltenen [phocker](https://docs.microsoft.com/sysinternals/downloads/pstools) .
 
-Richtlinien zum Bereitstellen einer pro Gerät `(.\Device)` im Vergleich zu einer pro Benutzer `(.\User)` möchten, finden Sie unter [mithilfe von PowerShell-Skripts mit dem WMI-Anbieter Bridge](https://docs.microsoft.com/windows/client-management/mdm/using-powershell-scripting-with-the-wmi-bridge-provider).
+Richtlinien für die Bereitstellung eines pro-Gerät `(.\Device)` im Vergleich zu einem pro-Benutzer-`(.\User)`-Profil finden [Sie unter Verwenden von PowerShell-Skripts mit dem WMI-Bridge Anbieter](https://docs.microsoft.com/windows/client-management/mdm/using-powershell-scripting-with-the-wmi-bridge-provider).
 
-Führen Sie den folgenden Windows PowerShell-Befehl, um sicherzustellen, dass Sie ein Geräteprofil erfolgreich bereitgestellt haben:
+Führen Sie den folgenden Windows PowerShell-Befehl aus, um zu überprüfen, ob ein Geräte Profil erfolgreich bereitgestellt wurde:
 
   ```powershell
   Get-VpnConnection -AllUserConnection
   ```
 
-Die Ausgabe zeigt eine Liste des Geräts\-wide VPN-Profile, die auf dem Gerät bereitgestellt werden.
+In der Ausgabe wird eine Liste der auf dem Gerät bereitgestellten no__t-0wide-VPN-Profile angezeigt.
 
 ### <a name="example-windows-powershell-script"></a>Windows PowerShell-Beispielskript
 
-Sie können das folgende Windows PowerShell-Skript, beim Erstellen Ihres eigenen Skripts für die profilerstellung verwenden.
+Sie können das folgende Windows PowerShell-Skript verwenden, um ein eigenes Skript für die Profilerstellung zu erstellen.
 
 ```PowerShell
 Param(
@@ -167,24 +167,24 @@ Write-Host "$Message"
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-Im folgenden werden weitere Ressourcen zur Unterstützung bei der VPN-Bereitstellung.
+Im folgenden finden Sie weitere Ressourcen zur Unterstützung Ihrer VPN-Bereitstellung.
 
-### <a name="vpn-client-configuration-resources"></a>VPN-Client-Ressourcen
+### <a name="vpn-client-configuration-resources"></a>VPN-Client Konfigurations Ressourcen
 
-Im folgenden werden die VPN-Client-Ressourcen.
+Im folgenden finden Sie VPN-Client Konfigurations Ressourcen.
 
 - [Erstellen von VPN-Profilen in System Center Configuration Manager](https://docs.microsoft.com/sccm/protect/deploy-use/create-vpn-profiles)
-- [Konfigurieren Sie Windows 10-Clientsysteme Always On-VPN-Verbindungen](always-on-vpn/deploy/vpn-deploy-client-vpn-connections.md)
-- [VPN-Profil-Optionen](https://docs.microsoft.com/windows/access-protection/vpn/vpn-profile-options)
+- [Konfigurieren von Windows 10-Client Always on-VPN-Verbindungen](always-on-vpn/deploy/vpn-deploy-client-vpn-connections.md)
+- [VPN-Profil Optionen](https://docs.microsoft.com/windows/access-protection/vpn/vpn-profile-options)
 
-### <a name="remote-access-server-gateway-resources"></a>Remote Access-Server-Gateway-Ressourcen
+### <a name="remote-access-server-gateway-resources"></a>Remote Zugriffs-Server Gateway-Ressourcen
 
-Im folgenden finden Ressourcen für Gateways für Remote Access Server (RAS).
+Im folgenden finden Sie RAS-gatewayressourcen (Remote Access Server).
 
-- [Konfigurieren von RRAS mit einem Computerauthentifizierungszertifikat](https://technet.microsoft.com/library/dd458982.aspx)
-- [Problembehandlung für IKEv2-VPN-Verbindungen](https://technet.microsoft.com/library/dd941612.aspx)
-- [Konfigurieren des Remotezugriffs IKEv2-basierten](https://technet.microsoft.com/library/ff687731.aspx)
+- [Konfigurieren von RRAS mit einem Computer Authentifizierungszertifikat](https://technet.microsoft.com/library/dd458982.aspx)
+- [Problembehandlung IKEv2 VPN-Verbindungen](https://technet.microsoft.com/library/dd941612.aspx)
+- [Konfigurieren des IKEv2-basierten Remote Zugriffs](https://technet.microsoft.com/library/ff687731.aspx)
 
 >[!IMPORTANT]
->Wenn Gerät-Tunnel mit einem Microsoft RAS-Gateway verwenden, müssen Sie so konfigurieren Sie den RRAS-Server zur Unterstützung von IKEv2-Computerzertifikatauthentifizierung durch Aktivieren der **zulassen-Computerzertifikatauthentifizierung für IKEv2** Authentifizierungsmethode beschriebenen [hier](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee922682%28v=ws.10%29). Wenn diese Einstellung aktiviert ist, es wird dringend empfohlen, die die **Set-VpnAuthProtocol** PowerShell-Cmdlet zusammen mit den **RootCertificateNameToAccept** Optionaler Parameter wird verwendet, um sicherzustellen, dass RRAS-IKEv2-Verbindungen sind nur für VPN-Clientzertifikate dieser Kette zu einem explizit definierten internen/privaten Stammzertifikate von Zertifizierungsstellen zulässig. Sie können auch die **Trusted Root Certification Authorities** Speicher auf dem RRAS-Server sollte geändert werden, um sicherzustellen, dass es keine öffentlichen Zertifizierungsstellen enthält wie bereits erwähnt [hier](https://blogs.technet.microsoft.com/rrasblog/2009/06/10/what-type-of-certificate-to-install-on-the-vpn-server/). Ähnliche Methoden müssen möglicherweise auch für andere VPN-Gateways berücksichtigt werden.
+>Wenn Sie den Geräte Tunnel mit einem Microsoft RAS-Gateway verwenden, müssen Sie den RRAS-Server für die Unterstützung der IKEv2-Computer Zertifikat Authentifizierung konfigurieren, indem Sie die Authentifizierungsmethode " **Computer Zertifikat Authentifizierung für IKEv2 zulassen** " wie beschrieben aktivieren. [hier](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee922682%28v=ws.10%29). Wenn diese Einstellung aktiviert ist, wird dringend empfohlen, dass das PowerShell-Cmdlet **Set-vpnauthprotocol** zusammen mit dem optionalen Parameter **rootcertifigatenametoaccept** verwendet wird, um sicherzustellen, dass RRAS-IKEv2-Verbindungen nur für zulässig sind. VPN-Client Zertifikate, die zu einer explizit definierten internen/privaten Stamm Zertifizierungsstelle verkettet sind. Alternativ dazu sollte der Speicher für **Vertrauenswürdige Stamm Zertifizierungs** stellen auf dem RRAS-Server geändert werden, um sicherzustellen, dass er keine öffentlichen Zertifizierungsstellen enthält, wie [hier](https://blogs.technet.microsoft.com/rrasblog/2009/06/10/what-type-of-certificate-to-install-on-the-vpn-server/)erläutert. Ähnliche Methoden müssen möglicherweise auch für andere VPN-Gateways in Erwägung gezogen werden.
 

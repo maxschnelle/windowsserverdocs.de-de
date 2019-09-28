@@ -7,25 +7,25 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/07/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 88513a889bc361f5733fc6b18f3d261dbcb2f1b1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 995ba44a64ae022b52213b9c912f94144d4c2543
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876471"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369329"
 ---
 # <a name="ad-ds-troubleshooting"></a>Problembehandlung für AD DS
 
 >Gilt für: Windows Server 2016, Windows Server 2012 R2
 
-Dieser Abschnitt enthält die Problembehandlung von Empfehlungen und Verfahren für die Diagnose, und Beheben von Problemen, die mit Active Directory-Replikation auftreten.
+Dieser Abschnitt enthält Empfehlungen zur Problembehandlung und Verfahren für die Diagnose und Behebung von Problemen, die bei der Active Directory Replikation auftreten können.
 
-Dieser Inhalt konzentriert sich hauptsächlich auf Antworten auf den Verzeichnisdienst-Ereignisprotokoll und Toolbasierte Fehlermeldungen, die von den Tools Repadmin.exe und Dcdiag.exe gemeldet werden können. Diese Tools sind auf allen Domänencontrollern, auf denen Windows Server 2016 ausgeführt werden oder 2012 R2 verfügbar. Sie können auch Remote Server Administration Tools (RSAT) auf einem Mitgliedsserver installieren, auf denen Windows 10 ausgeführt wird.
+Dieser Inhalt konzentriert sich hauptsächlich auf Antworten auf Verzeichnisdienst-Ereignisprotokoll Meldungen und Tool basierte Fehlermeldungen, die von den Tools "Repadmin. exe" und "Dcdiag. exe" gemeldet werden können. Diese Tools sind auf allen Domänen Controllern verfügbar, auf denen Windows Server 2016 oder 2012 R2 ausgeführt wird. Sie können auch Remoteserver-Verwaltungstools (RSAT) auf einem Mitglieds Server installieren, auf dem Windows 10 ausgeführt wird.
 
-Informationen zum Installieren der Remoteserver-Verwaltungstools, finden Sie im Artikel [Remoteserver-Verwaltungstools](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools).
+Weitere Informationen zum Installieren von RSAT finden Sie im Artikel [Remoteserver-Verwaltungstools](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools).
 
-[Konfigurieren eines Computers für die Problembehandlung bei Active Directory](../manage/troubleshoot/Configuring-a-Computer-for-Troubleshooting.md)
+[Konfigurieren eines Computers für die Problembehandlung Active Directory](../manage/troubleshoot/Configuring-a-Computer-for-Troubleshooting.md)
 
-[Problembehandlung bei der Active Directory-Replikation](../manage/troubleshoot/Troubleshooting-Active-Directory-Replication-Problems.md)
+[Behandeln von Active Directory-Replikationsproblemen](../manage/troubleshoot/Troubleshooting-Active-Directory-Replication-Problems.md)

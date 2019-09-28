@@ -1,8 +1,8 @@
 ---
 title: Erweitern
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6fdf070a733392d89bafe5bed5a1bf23d8e24d57
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: bb54a661bf60b55fd95bf3a686d758d13831a6ba
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439354"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377310"
 ---
 # <a name="extend"></a>Erweitern
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Erweitert das Volume oder eine Partition mit einer Fokussierung und das Dateisystem in kostenlosen \(nicht zugeordneten\) Speicherplatz auf einem Datenträger.  
+erweitert das Volume oder die Partition mit dem Fokus und dem zugehörigen Dateisystem in den freien \(nicht zugeordneten @ no__t-1-Speicherplatz auf einem Datenträger.  
   
   
   
@@ -39,39 +39,39 @@ extend filesystem [noerr]
   
 | Parameter  |                                                                                             Beschreibung                                                                                              |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Größe\=<n>  |      Gibt die Menge des Speicherplatzes in Megabyte \(MB\) so die aktuellen Volume oder eine Partition hinzu. Wenn keine Größe angegeben wird, werden alle dem freien Speicherplatz, der auf dem Datenträger verfügbar ist verwendet.       |
-| disk\=<n>  |                          Gibt den Datenträger, auf dem das Volume oder die Partition erweitert wird. Wenn kein Laufwerk angegeben wird, wird das Volume oder eine Partition auf dem aktuellen Datenträger erweitert.                          |
-| Dateisystem |                                   Erweitert das Dateisystem des Volumes mit dem Fokus. Für die Verwendung nur auf Datenträgern, in dem das Dateisystem mit dem Volume nicht erweitert wurde.                                    |
-|   Diskpart    | nur für Skripts. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden. |
+| Size @ no__t-0 @ no__t-1  |      Gibt die Größe des Speicherplatzes in Megabyte \(MB @ no__t-1 an, die dem aktuellen Volume oder der aktuellen Partition hinzugefügt werden sollen. Wenn keine Größe angegeben wird, wird der gesamte zusammenhängende freie Speicherplatz verwendet, der auf dem Datenträger verfügbar ist.       |
+| Disk @ no__t-0 @ no__t-1  |                          Gibt den Datenträger an, auf dem das Volume oder die Partition erweitert wird. Wenn kein Datenträger angegeben ist, wird das Volume oder die Partition auf dem aktuellen Datenträger erweitert.                          |
+| verwendet |                                   erweitert das Dateisystem des Volumes mit dem Fokus. Zur Verwendung nur auf Datenträgern, auf denen das Dateisystem nicht mit dem Volume erweitert wurde.                                    |
+|   Noerr    | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
   
 ## <a name="remarks"></a>Hinweise  
   
--   Auf Basisdatenträgern muss der freie Speicherplatz auf dem gleichen Datenträger wie das Volume oder eine Partition mit dem Fokus. Es muss auch unmittelbar folgen, das Volume oder eine Partition mit dem Fokus \(, also müssen Sie sich an den nächsten Versatz von Sektor starten\).  
+-   Auf Basis Datenträgern muss sich der freie Speicherplatz auf demselben Datenträger wie das Volume oder die Partition mit dem Fokus befinden. Sie muss auch direkt auf das Volume oder die Partition mit dem Fokus \(folgen, d. h., Sie muss beim nächsten sektoroffset @ no__t-1 beginnen.  
   
--   Auf dynamischen Datenträgern mit einfachen oder übergreifenden Volumes kann ein Volume in freie Bereiche auf jedem dynamischen Datenträger erweitert werden. Mit diesem Befehl können Sie ein einfaches dynamisches Volume in ein dynamisches übergreifendes Volume konvertieren. Gespiegelt, RAID\-5 und Stripesetvolumes können nicht erweitert werden.  
+-   Auf dynamischen Datenträgern mit einfachen oder übergreifenden Volumes kann ein Volume auf einen beliebigen freien Speicherplatz auf jedem dynamischen Datenträger erweitert werden. Mit diesem Befehl können Sie ein einfaches dynamisches Volume in ein übergreifendes dynamisches Volume konvertieren. Gespiegelte, RAID @ no__t-05-und Stripesetvolumes können nicht erweitert werden.  
   
--   Wenn die Partition zuvor mit dem NTFS-Dateisystem formatiert wurde, im Dateisystem wird automatisch erweitert, um die größere Partition zu füllen, und es erfolgt keine Daten verloren gehen.  
+-   Wenn die Partition zuvor mit dem NTFS-Dateisystem formatiert wurde, wird das Dateisystem automatisch erweitert, um die größere Partition auszufüllen, und es tritt kein Datenverlust auf.  
   
--   Wenn die Partition bereits mit einem Dateisystem als NTFS formatiert wurde, schlägt der Befehl keine Änderung an der Partition.  
+-   Wenn die Partition zuvor mit einem anderen Dateisystem als NTFS formatiert wurde, tritt bei dem Befehl ein Fehler auf, und die Partition wird nicht geändert.  
   
--   Wenn die Partition nicht zuvor mit einem Dateisystem formatiert wurde, wird die Partition noch erweitert werden.  
+-   Wenn die Partition zuvor nicht mit einem Dateisystem formatiert wurde, wird die Partition weiterhin erweitert.  
   
--   Die Partition benötigen eine zugehörige Volume aus, bevor es erweitert werden kann.  
+-   Die Partition muss über ein zugeordnetes Volume verfügen, bevor Sie erweitert werden kann.  
   
-## <a name="BKMK_examples"></a>Beispiele für  
-Geben Sie Folgendes ein, um das Volume oder eine Partition mit dem Fokus von 500 MB an, auf dem Datenträger 3, zu erweitern:  
+## <a name="BKMK_examples"></a>Beispiele  
+Geben Sie Folgendes ein, um das Volume oder die Partition mit dem Fokus um 500 Megabyte zu erweitern:  
   
 ```  
 extend size=500 disk=3  
 ```  
   
-Um das Dateisystem eines Volumes zu erweitern, nachdem er erweitert wurde, geben Sie Folgendes ein:  
+Um das Dateisystem eines Volumes nach der Erweiterung zu erweitern, geben Sie Folgendes ein:  
   
 ```  
 extend filesystem  
 ```  
   
-#### <a name="additional-references"></a>Zusätzliche Referenzen  
+#### <a name="additional-references"></a>Weitere Verweise  
 [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
 

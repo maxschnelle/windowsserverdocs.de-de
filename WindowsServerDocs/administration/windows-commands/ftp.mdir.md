@@ -1,8 +1,8 @@
 ---
 title: FTP-mdir
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c4ec445c3e367a46dc40d10a37c0b3b8e53a10e3
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 08aa5bb216a3d0155c100c761e476bb963e59311
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438332"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375849"
 ---
-# <a name="ftp-mdir"></a>ftp: mdir
+# <a name="ftp-mdir"></a>FTP: mdir
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zeigt eine Verzeichnisliste von Dateien und Unterverzeichnisse in einem Remoteverzeichnis.   
+Zeigt eine Verzeichnisliste von Dateien und Unterverzeichnissen in einem Remote Verzeichnis an.   
 ## <a name="syntax"></a>Syntax  
 ```  
 mdir <remoteFile>[ ] <LocalFile>  
@@ -33,23 +33,23 @@ mdir <remoteFile>[ ] <LocalFile>
 
 |  Parameter   |                               Beschreibung                                |
 |--------------|--------------------------------------------------------------------------|
-| <remoteFile> |   Gibt an, das Verzeichnis oder die Datei aus, für das eine Liste angezeigt werden sollen.   |
-| <LocalFile>  | Gibt eine lokale Datei zum Speichern der Liste an. Dieser Parameter ist erforderlich. |
+| <remoteFile> |   Gibt das Verzeichnis oder die Datei an, für das eine Auflistung angezeigt werden soll.   |
+| <LocalFile>  | Gibt eine lokale Datei zum Speichern der Auflistung an. Dieser Parameter ist erforderlich. |
 
 ## <a name="remarks"></a>Hinweise  
-- Sie können **Mdir** um mehrere Dateien anzugeben.  
-- Angeben von *Remotedatei*  
-  Geben Sie einen Bindestrich ( **-** ) auf das aktuelle Arbeitsverzeichnis auf dem Remotecomputer zu verwenden.  
+- Sie können **mdir** verwenden, um mehrere Dateien anzugeben.  
+- Angeben von *remotefile*  
+  Geben Sie einen Bindestrich ( **-** ) ein, um das aktuelle Arbeitsverzeichnis auf dem Remote Computer zu verwenden.  
 - Angeben einer *LocalFile*  
-  Geben Sie einen Bindestrich ( **-** ) um die Auflistung auf dem Bildschirm anzuzeigen.  
-  ## <a name="BKMK_Examples"></a>Beispiele für  
-  Zeigt eine Liste des **dir1** und **dir2** auf dem Bildschirm  
+  Geben Sie einen Bindestrich ( **-** ) ein, um die Auflistung auf dem Bildschirm anzuzeigen.  
+  ## <a name="BKMK_Examples"></a>Beispiele  
+  Anzeigen einer Verzeichnisliste von **dir1** und **dir2** auf dem Bildschirm  
   ```  
   mdir dir1 dir2 -  
   ```  
-  Speichern Sie kombinierte verzeichnisauflistung des **dir1** und **dir2** in einer lokalen Datei namens **Verliste.txt**  
+  Speichern Sie die kombinierte Verzeichnis Auflistung von **dir1** und **dir2** in einer lokalen Datei namens **dirlist. txt.**  
   ```  
   mdir dir1 dir2 dirlist.txt  
   ```  
-  ## <a name="additional-references"></a>Zusätzliche Referenzen  
+  ## <a name="additional-references"></a>Weitere Verweise  
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

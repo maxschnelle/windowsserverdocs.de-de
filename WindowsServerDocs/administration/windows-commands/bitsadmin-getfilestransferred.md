@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getfilestransferred
-description: Windows-Befehle Thema **Bitsadmin Getfilestransferred** -Ruft die Anzahl der Dateien für den angegebenen Auftrag übertragen.
+description: 'Thema Windows-Befehle für **bizadmin getfilestransferred** : Ruft die Anzahl der für den angegebenen Auftrag übertragenen Dateien ab.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5df7f2abfdad6780878b1f00da44c772eecf9fba
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d02d9d7bc216a5ad7ca922e716c368f64c4b9a44
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822261"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381601"
 ---
 # <a name="bitsadmin-getfilestransferred"></a>bitsadmin getfilestransferred
 
 
 
-Ruft die Anzahl der Dateien, die für den angegebenen Auftrag ab.
+Ruft die Anzahl der Dateien ab, die für den angegebenen Auftrag übertragen wurden.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,15 +36,15 @@ bitsadmin /GetFilesTransferred <Job>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Im folgende Beispiel ruft die Anzahl der Dateien, die im Auftrag *MyDownloadJob*.
+Im folgenden Beispiel wird die Anzahl der Dateien abgerufen, die im Auftrag mit dem Namen *mydownloadjob*übertragen wurden.
 ```
 C:\>bitsadmin /GetFilesTransferred myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

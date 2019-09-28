@@ -1,9 +1,9 @@
 ---
 title: DirectAccess-Offline-Domänenbeitritt
-description: Dieser Leitfaden erläutert die Schritte, um eine offline-Domänenbeitritt mit DirectAccess in Windows Server 2016 ausführen.
+description: In diesem Handbuch werden die Schritte zum Ausführen eines Offline-Domänen Beitritts mit DirectAccess in Windows Server 2016 erläutert.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,155 +12,155 @@ ms.topic: article
 ms.assetid: 55528736-6c19-40bd-99e8-5668169ef3c7
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 59b5933a81c7021e58ea14e6ea4c4da374ce35cb
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 229e2955c7f382ff630829990a9dd6485d62652e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283660"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388878"
 ---
 # <a name="directaccess-offline-domain-join"></a>DirectAccess-Offline-Domänenbeitritt
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Dieser Leitfaden erläutert die Schritte zum Ausführen einer offline-Domänenbeitritt mit DirectAccess. Während ein offline-Domänenbeitritt ist ein Computer Beitritt zu einer Domäne ohne physische oder VPN-Verbindung konfiguriert.  
+In diesem Handbuch werden die Schritte zum Ausführen eines Offline-Domänen Beitritts mit DirectAccess erläutert. Während eines Offline-Domänen Beitritts ist ein Computer so konfiguriert, dass er einer Domäne ohne physische oder VPN-Verbindung Beitritt.  
   
 Das Handbuch umfasst folgende Abschnitte:  
   
-- Offline-Domain-Join – Übersicht  
+- Übersicht über den Offline Domänen Beitritt  
   
-- Anforderungen für die offline-Domänenbeitritt
+- Anforderungen an den Offline-Domänen Beitritt
   
-- Offline-Domänenbeitritt
+- Offline-Domänen Beitrittsprozess
   
-- Schritte zum Ausführen einer offline-Domänenbeitritt  
+- Schritte zum Durchführen eines Offline-Domänen Beitritts  
   
-## <a name="offline-domain-join-overview"></a>Offline-Domain-Join – Übersicht  
-In Windows Server 2008 R2 eingeführt wurden, zählen Domänencontroller, ein Feature namens Offline-Domänenbeitritt auf. Ein Befehlszeilenprogramm, mit dem Namen Djoin.exe können Sie einen Computer in eine Domäne einbinden, ohne physisch wenden Sie sich beim Abschließen des Domänenbeitritts an einem Domänencontroller. Die allgemeinen Schritte für die Verwendung von Djoin.exe sind:  
+## <a name="offline-domain-join-overview"></a>Übersicht über den Offline Domänen Beitritt  
+Die in Windows Server 2008 R2 eingeführten Domänen Controller enthalten ein Feature namens Offline-Domänen Beitritt. Mit dem Befehlszeilen-Hilfsprogramm Djoin. exe können Sie einen Computer einer Domäne hinzufügen, ohne physisch einen Domänen Controller zu kontaktieren, während der Domänen Beitritts Vorgang abgeschlossen ist. Die allgemeinen Schritte zur Verwendung von "Djoin. exe" lauten wie folgt:  
   
-1.  Führen Sie **Djoin /provision** um Metadaten für den Computer zu erstellen. Die Ausgabe dieses Befehls ist eine TXT-Datei, die einen Base64-codierten Blob enthält.  
+1.  Führen Sie **Djoin/Provision** aus, um die Metadaten des Computer Kontos zu erstellen. Bei der Ausgabe dieses Befehls handelt es sich um eine txt-Datei, die ein Base-64-codiertes BLOB enthält.  
   
-2.  Führen Sie **Djoin /requestODJ** zum Einfügen von Metadaten für den Computer aus der TXT-Datei in das Windows-Verzeichnis des Zielcomputers.  
+2.  Führen Sie **Djoin/requestODJ** aus, um die Computer Konto Metadaten aus der txt-Datei in das Windows-Verzeichnis des Ziel Computers einzufügen.  
   
-3.  Starten Sie den Zielcomputer neu, und der Computer wird mit der Domäne angehören.  
+3.  Starten Sie den Zielcomputer neu, und der Computer wird der Domäne hinzugefügt.  
   
-### <a name="BKMK_ODJOverview"></a>Offline-Domänenbeitritt mit DirectAccess-Richtlinien-Szenario (Übersicht)  
-DirectAccess-offline-Domänenbeitritt ist ein Prozess, den Computer mit Windows Server 2016, Windows Server 2012, Windows 10 und Windows 8 können Sie einer Domäne beitreten, ohne physisch mit dem Unternehmensnetzwerk verknüpft wird, oder VPN-Verbindung. Dadurch kann zum Hinzufügen von Computern zu einer Domäne von Standorten, wenn keine Verbindung mit einem Unternehmensnetzwerk vorhanden ist. Offline-Domänenbeitritt für DirectAccess bietet DirectAccess-Richtlinien auf Clients, um remote-Bereitstellung zu ermöglichen.  
+### <a name="BKMK_ODJOverview"></a>Szenario "Offline-Domänen Beitritt mit DirectAccess-Richtlinien"  
+Der DirectAccess-Offline-Domänen Beitritt ist ein Prozess, mit dem Computer, auf denen Windows Server 2016, Windows Server 2012, Windows 10 oder Windows 8 ausgeführt wird, einer Domäne beitreten können, ohne dass Sie physisch mit dem Unternehmensnetzwerk verbunden oder über VPN verbunden ist. Dadurch ist es möglich, Computer einer Domäne von Orten aus hinzuzufügen, an denen keine Verbindung mit einem Unternehmensnetzwerk besteht. Der Offline-Domänen Beitritt für DirectAccess bietet Clients DirectAccess-Richtlinien, um die Remote Bereitstellung zuzulassen.  
   
-Ein Domänenbeitritt ein Computerkonto erstellt und richtet eine Vertrauensstellung zwischen einem Computer unter einem Windows-Betriebssystem und Active Directory-Domäne.  
+Bei einem Domänen Beitritt wird ein Computer Konto erstellt und eine Vertrauensstellung zwischen einem Computer mit einem Windows-Betriebssystem und einer Active Directory Domäne hergestellt.  
   
-## <a name="BKMK_ODJRequirements"></a>Vorbereitung des offline-Domänenbeitritt  
+## <a name="BKMK_ODJRequirements"></a>Vorbereiten des Offline-Domänen Beitritts  
   
-1.  Erstellen Sie das Computerkonto.  
+1.  Erstellen Sie das Computer Konto.  
   
-2.  Erstellen Sie die Mitgliedschaft in der alle, die Sicherheitsgruppen, der das Computerkonto gehört.  
+2.  Inventarisieren Sie die Mitgliedschaft aller Sicherheitsgruppen, zu denen das Computer Konto gehört.  
   
-3.  Sammeln Sie die erforderliche Zertifikate, Gruppenrichtlinien und Gruppenrichtlinienobjekte, die auf den neuen Clients angewendet werden.  
+3.  Erfassen Sie die erforderlichen Computer Zertifikate, Gruppenrichtlinien und Gruppenrichtlinien Objekte, die auf die neuen Clients angewendet werden sollen.  
   
-. In den folgenden Abschnitten wird erläutert, den Anforderungen des Betriebssystems und Anforderungen an die Anmeldeinformationen für die Durchführung eines DirectAccess offline-Domänenbeitritts Verwendung von Djoin.exe.  
+. In den folgenden Abschnitten werden die Anforderungen an das Betriebssystem und die Anmelde Informationen für die Ausführung eines DirectAccess-Offline-Domänen Beitritts mithilfe von Djoin. exe erläutert  
   
 ### <a name="operating-system-requirements"></a>Betriebssystemanforderungen  
-Sie können den Djoin.exe für DirectAccess nur auf Computern ausführen, auf denen Windows Server 2016, Windows Server 2012 oder Windows 8 ausgeführt. Der Computer, auf dem Djoin.exe auf Daten der Bereitstellung des Computers-Konto in AD DS ausgeführt, wird, muss Windows Server 2016, Windows 10, Windows Server 2012 oder Windows 8 ausgeführt werden. Der Computer, den Sie mit der Domäne beitreten möchten muss auch Windows Server 2016, Windows 10, Windows Server 2012 oder Windows 8 ausgeführt werden.  
+Sie können Djoin. exe nur für DirectAccess auf Computern ausführen, auf denen Windows Server 2016, Windows Server 2012 oder Windows 8 ausgeführt wird. Auf dem Computer, auf dem Sie Djoin. exe ausführen, um Computer Kontodaten in AD DS bereitzustellen, muss Windows Server 2016, Windows 10, Windows Server 2012 oder Windows 8 ausgeführt werden. Auf dem Computer, den Sie der Domäne hinzufügen möchten, muss auch Windows Server 2016, Windows 10, Windows Server 2012 oder Windows 8 ausgeführt werden.  
   
 ### <a name="credential-requirements"></a>Anforderungen bezüglich der Anmeldeinformationen  
-Um eine offline-Domänenbeitritt auszuführen, müssen Sie die Rechte verfügen, die zum Hinzufügen von Arbeitsstationen zur Domäne erforderlich sind. Mitglieder der Gruppe "Domänen-Admins" verfügen über diese Rechte standardmäßig. Wenn Sie nicht Mitglied der Gruppe der Domänenadministratoren sind, muss Mitglied der Gruppe "Domänen-Admins" einen der folgenden Aktionen aus, die Ihnen ermöglichen, Hinzufügen von Arbeitsstationen zur Domäne ausführen:  
+Zum Ausführen eines Offline-Domänen Beitritts müssen Sie über die erforderlichen Rechte zum Verknüpfen von Arbeitsstationen zur Domäne verfügen. Mitglieder der Gruppe "Domänen-Admins" verfügen standardmäßig über diese Rechte. Wenn Sie kein Mitglied der Gruppe "Domänen-Admins" sind, muss ein Mitglied der Gruppe "Domänen-Admins" eine der folgenden Aktionen ausführen, damit Sie Arbeitsstationen zur Domäne hinzufügen können:  
   
--   Verwenden Sie die Gruppenrichtlinie, um die erforderlichen Benutzerrechte gewähren. Diese Methode ermöglicht Ihnen die Erstellung von Computern in den standardcomputercontainern und in jede Organisationseinheit (OU), die später erstellt wird (sofern keine verweigern Zugriffssteuerungseinträge (ACEs) hinzugefügt werden).  
+-   Verwenden Sie Gruppenrichtlinie, um die erforderlichen Benutzerrechte zu erteilen. Mit dieser Methode können Sie Computer im Container Standard Computer und in jeder Organisationseinheit erstellen, die später erstellt wird (wenn keine Zugriffs Steuerungs Einträge (ACEs) hinzugefügt werden).  
   
--   Bearbeiten Sie die Zugriffssteuerungsliste (ACL) der Standardcontainer für die Domäne, die richtigen Berechtigungen für Sie zu delegieren.  
+-   Bearbeiten Sie die Zugriffs Steuerungs Liste (ACL) des Containers "Standard Computer" für die Domäne, um Ihnen die richtigen Berechtigungen zu delegieren.  
   
--   Erstellen Sie eine Organisationseinheit, und bearbeiten die ACL für diese Organisationseinheit gewähren Sie der **Erstellen untergeordneter - ermöglichen** Berechtigung. Übergeben Sie die **/machineOU** Parameter, um die **Djoin /provision** Befehl.  
+-   Erstellen Sie eine Organisationseinheit, und bearbeiten Sie die ACL für diese Organisationseinheit, um Ihnen die Berechtigung zum **Erstellen** von untergeordneten Elementen zu erteilen Übergeben Sie den **/machineOU** -Parameter an den **Djoin/Provision** -Befehl.  
   
-Die folgenden Verfahren zeigen, wie Sie die Benutzerrechte, mit der Gruppenrichtlinie zu gewähren und wie Sie die richtigen Berechtigungen zu delegieren.  
+In den folgenden Verfahren wird gezeigt, wie Sie den Benutzerberechtigungen für Gruppenrichtlinie erteilen und wie Sie die richtigen Berechtigungen delegieren.  
   
 #### <a name="granting-user-rights-to-join-workstations-to-the-domain"></a>Erteilen von Benutzerrechten zum Hinzufügen von Arbeitsstationen zur Domäne  
-Sie können die Gruppe Gruppenrichtlinien-Verwaltungskonsole (GPMC) verwenden, ändern Sie die Domänenrichtlinie, oder erstellen eine neue Richtlinie mit Einstellungen, die die Benutzerrechte zum Hinzufügen von Arbeitsstationen zu einer Domäne zu erteilen.  
+Mit dem Gruppenrichtlinien-Verwaltungskonsole (GPMC) können Sie die Domänen Richtlinie ändern oder eine neue Richtlinie mit Einstellungen erstellen, mit denen dem Benutzerrechte zum Hinzufügen von Arbeitsstationen zu einer Domäne erteilt werden.  
   
-Mitgliedschaft in **Domänen-Admins**, oder einer entsprechenden Gruppe sein, um Benutzerrechte erteilen.  Weitere Informationen zur Verwendung der geeigneten Konten und Gruppenmitgliedschaften unter [lokale und Domänenstandardgruppen](https://go.microsoft.com/fwlink/?LinkId=83477) (https://go.microsoft.com/fwlink/?LinkId=83477).   
+Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins**oder einer entsprechenden Gruppe sein, um Benutzerrechte gewähren zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477) (https://go.microsoft.com/fwlink/?LinkId=83477).   
   
-###### <a name="to-grant-rights-to-join-workstations-to-a-domain"></a>Zum Gewähren der Berechtigung für Arbeitsstationen mit einer Domäne verknüpfen.  
+###### <a name="to-grant-rights-to-join-workstations-to-a-domain"></a>So erteilen Sie Rechte zum Verknüpfen von Arbeitsstationen mit einer Domäne  
   
 1.  Klicken Sie auf **Start**, dann auf **Verwaltung** und anschließend auf **Gruppenrichtlinienverwaltung**.  
   
-2.  Doppelklicken Sie auf den Namen der Gesamtstruktur, doppelklicken Sie auf **Domänen**, doppelklicken Sie auf den Namen der Domäne, in dem Sie möchten Hinzufügen eines Computers, mit der rechten Maustaste **Default Domain Policy**, und klicken Sie dann auf  **Bearbeiten Sie**.  
+2.  Doppelklicken Sie auf den Namen der Gesamtstruktur, doppelklicken Sie auf **Domänen**, doppelklicken Sie auf den Namen der Domäne, der Sie einen Computer hinzufügen möchten, klicken Sie mit der rechten Maustaste auf **Standard Domänen Richtlinie**, und klicken Sie dann auf **Bearbeiten**.  
   
-3.  Doppelklicken Sie in der Konsolenstruktur auf **Computerkonfiguration**, doppelklicken Sie auf **Richtlinien**, doppelklicken Sie auf **Windows-Einstellungen**, doppelklicken Sie auf **Sicherheit Einstellungen**, doppelklicken Sie auf **lokale Richtlinien**, und doppelklicken Sie dann auf **Zuweisen von Benutzerrechten**.  
+3.  Doppelklicken Sie in der Konsolen Struktur auf **Computer Konfiguration**, doppelklicken Sie **auf Richtlinien**, doppelklicken Sie auf **Windows-Einstellungen**, doppelklicken Sie auf **Sicherheitseinstellungen**, doppelklicken Sie auf **lokale Richtlinien**, und doppelklicken Sie dann auf  **Zuweisung von Benutzerrechten**.  
   
-4.  Doppelklicken Sie im Detailbereich auf **Hinzufügen von Arbeitsstationen zur Domäne**.  
+4.  Doppelklicken Sie im Detail **Bereich auf Arbeitsstationen zur Domäne hinzufügen**.  
   
-5.  Wählen Sie die **diese Richtlinieneinstellungen definieren** , und klicken Sie dann auf **Benutzer oder Gruppe hinzufügen**.  
+5.  Aktivieren Sie das Kontrollkästchen **Diese Richtlinien Einstellungen definieren** , und klicken Sie dann auf **Benutzer oder Gruppe hinzufügen**.  
   
-6.  Geben Sie den Namen des Kontos, das Sie verwenden möchten, erteilen der Benutzerrechte in, und klicken Sie dann auf **OK** zweimal.  
+6.  Geben Sie den Namen des Kontos ein, für das Sie dem Benutzerrechte erteilen möchten, und klicken Sie dann zweimal auf **OK** .  
   
-## <a name="BKMK_ODKSxS"></a>Offline-Domänenbeitritt  
-Führen Sie Djoin.exe an einer Eingabeaufforderung mit erhöhten Rechten, die Metadaten für Computer bereitstellen. Wenn Sie den Bereitstellungsbefehl ausführen, wird die Metadaten für Computer in einer Binärdatei erstellt, die Sie als Teil des Befehls angeben.  
+## <a name="BKMK_ODKSxS"></a>Offline-Domänen Beitrittsprozess  
+Führen Sie Djoin. exe an einer Eingabeaufforderung mit erhöhten Rechten aus, um die Computer Konto Metadaten bereitzustellen. Wenn Sie den Bereitstellungs Befehl ausführen, werden die Metadaten des Computer Kontos in einer Binärdatei erstellt, die Sie als Teil des Befehls angeben.  
   
-Weitere Informationen zu den NetProvisionComputerAccount-Funktion, die verwendet wird, um das Computerkonto während einer offline-Domänenbeitritt bereitzustellen, finden Sie unter [NetProvisionComputerAccount Funktion](https://go.microsoft.com/fwlink/?LinkId=162426) (https://go.microsoft.com/fwlink/?LinkId=162426). Weitere Informationen zu den NetRequestOfflineDomainJoin-Funktion, die lokal auf dem Zielcomputer ausgeführt wird, finden Sie unter [NetRequestOfflineDomainJoin Funktion](https://go.microsoft.com/fwlink/?LinkId=162427) (https://go.microsoft.com/fwlink/?LinkId=162427).  
+Weitere Informationen zum Bereitstellen des Computer Kontos während eines Offline-Domänen Beitritts finden Sie unter [NetProvisionComputerAccount-Funktion](https://go.microsoft.com/fwlink/?LinkId=162426) (https://go.microsoft.com/fwlink/?LinkId=162426). Weitere Informationen zur Funktion "nettrequestofflinedomainjoin", die lokal auf dem Zielcomputer ausgeführt wird, finden Sie unter " [nettrequestofflinedomainjoin](https://go.microsoft.com/fwlink/?LinkId=162427) "-Funktion (https://go.microsoft.com/fwlink/?LinkId=162427).  
   
-## <a name="BKMK_ODJSteps"></a>Schritte zum Ausführen eines DirectAccess-offline-Domänenbeitritts  
-Die offline-Domänenbeitritt umfasst die folgenden Schritte aus:  
+## <a name="BKMK_ODJSteps"></a>Schritte zum Durchführen eines DirectAccess-Offline-Domänen Beitritts  
+Der Offline-Domänen Beitrittsprozess umfasst die folgenden Schritte:  
   
-1.  Erstellen Sie ein neues Computerkonto für jeden der RAS-Clients und generieren Sie ein Bereitstellungspaket mithilfe des Befehls "Djoin.exe" von einer bereits-Domäne eingebundener Computer im Unternehmensnetzwerk.  
+1.  Erstellen Sie ein neues Computer Konto für jeden der Remote Clients, und generieren Sie mithilfe des Befehls Djoin. exe von einem bereits in eine Domäne eingebundener Computer im Unternehmensnetzwerk ein Bereitstellungs Paket.  
   
-2.  Den Client-Computer zur Sicherheitsgruppe DirectAccessClients hinzufügen  
+2.  Hinzufügen des Client Computers zur Sicherheitsgruppe "directaccessclients"  
   
-3.  Übertragen Sie das Paket sicher auf den Remotecomputern (s), die die Domäne beitritt.  
+3.  Übertragen Sie das Bereitstellungs Paket sicher auf die Remote Computer, die der Domäne beitreten werden.  
   
-4.  Wenden Sie das Paket, und verknüpfen Sie den Client mit der Domäne.  
+4.  Wenden Sie das Bereitstellungs Paket an, und fügen Sie den Client der Domäne hinzu.  
   
-5.  Neustart des Clients für den Domänenbeitritt abzuschließen und die Verbindung herstellen.  
+5.  Starten Sie den Client neu, um den Domänen Beitritt abzuschließen und eine Verbindung herzustellen.  
   
-Es gibt zwei Optionen zur Erstellung der Bereitstellung Paket für den Client. Wenn Sie den Assistenten für erste Schritte zum Installieren von DirectAccess ohne PKI verwendet, sollten Sie Option 1 unten verwenden. Wenn Sie die erweiterten Setup-Assistenten zum Installieren von DirectAccess mit PKI verwendet, sollten Sie Option 2 unten verwenden.  
+Beim Erstellen des Bereitstellungs Pakets für den Client sind zwei Optionen zu beachten. Wenn Sie den Assistenten für die ersten Schritte zum Installieren von DirectAccess ohne PKI verwendet haben, sollten Sie unten Option 1 verwenden. Wenn Sie den erweiterten Setup-Assistenten zum Installieren von DirectAccess mit PKI verwendet haben, sollten Sie unten Option 2 verwenden.  
   
-Führen Sie die folgenden Schritte aus, um die offline-Domänenbeitritt durchzuführen:  
+Führen Sie die folgenden Schritte aus, um den Offline-Domänen Beitritt auszuführen:  
   
-##### <a name="option1-create-a-provisioning-package-for-the-client-without-pki"></a>Option 1: Erstellen eines Bereitstellungspakets für den Client ohne PKI  
+##### <a name="option1-create-a-provisioning-package-for-the-client-without-pki"></a>Option 1: Erstellen eines Bereitstellungs Pakets für den Client ohne PKI  
   
-1.  Geben Sie an einer Eingabeaufforderung Ihres RAS-Servers den folgenden Befehl aus, um das Computerkonto bereitzustellen:  
+1.  Geben Sie an einer Eingabeaufforderung des Remote Zugriffs Servers den folgenden Befehl ein, um das Computer Konto bereitzustellen:  
   
     ```  
     Djoin /provision /domain <your domain name> /machine <remote machine name> /policynames DA Client GPO name /rootcacerts /savefile c:\files\provision.txt /reuse  
     ```  
   
-##### <a name="option2-create-a-provisioning-package-for-the-client-with-pki"></a>Option2: Erstellen eines Bereitstellungspakets für den Client mit der PKI  
+##### <a name="option2-create-a-provisioning-package-for-the-client-with-pki"></a>Option2 Erstellen eines Bereitstellungs Pakets für den Client mit PKI  
   
-1.  Geben Sie an einer Eingabeaufforderung Ihres RAS-Servers den folgenden Befehl aus, um das Computerkonto bereitzustellen:  
+1.  Geben Sie an einer Eingabeaufforderung des Remote Zugriffs Servers den folgenden Befehl ein, um das Computer Konto bereitzustellen:  
   
     ```  
     Djoin /provision /machine <remote machine name> /domain <Your Domain name> /policynames <DA Client GPO name> /certtemplate <Name of client computer cert template> /savefile c:\files\provision.txt /reuse  
     ```  
   
-##### <a name="add-the-client-computer-to-the-directaccessclients-security-group"></a>Den Client-Computer zur Sicherheitsgruppe DirectAccessClients hinzufügen  
+##### <a name="add-the-client-computer-to-the-directaccessclients-security-group"></a>Hinzufügen des Client Computers zur Sicherheitsgruppe "directaccessclients"  
   
-1.  Auf Ihrem Domänencontroller aus **starten** geben **Active** , und wählen Sie **Active Directory-Benutzer und-Computer** aus **Apps** Bildschirm .  
+1.  Geben Sie auf dem Domänen Controller auf dem Bildschirm **Start** den Wert **aktiv** ein, und wählen Sie **Active Directory Benutzer und Computer** von **apps** aus.  
   
-2.  Erweitern Sie die Struktur unter der Domäne, und wählen die **Benutzer** Container.  
+2.  Erweitern Sie die Struktur unter Ihrer Domäne, und wählen Sie den Container **Benutzer** aus.  
   
-3.  Klicken Sie im Detailbereich mit der Maustaste **DirectAccessClients**, und klicken Sie auf **Eigenschaften**.  
+3.  Klicken Sie im Detailfenster mit der rechten Maustaste auf **directaccessclients**, und klicken Sie dann auf **Eigenschaften**.  
   
 4.  Auf der Registerkarte **Mitglieder** klicken Sie auf **Hinzufügen**.  
   
 5.  Klicken Sie auf **Objekttypen**, wählen Sie **Computer** aus, und klicken Sie dann auf **OK**.  
   
-6.  Geben Sie den Clientnamen hinzufügen, und klicken Sie dann auf **OK**.  
+6.  Geben Sie den hinzu zufügenden Client Namen ein, und klicken Sie dann auf **OK**.  
   
-7.  Klicken Sie auf **OK** schließen die **DirectAccessClients** Dialogfeld "Eigenschaften", und schließen Sie **Active Directory-Benutzer und-Computer**.  
+7.  Klicken Sie auf **OK** , um das Eigenschaften Dialogfeld von **directaccessclients** zu schließen, und schließen Sie dann **Active Directory Benutzer und Computer**.  
   
-##### <a name="copy-and-then-apply-the-provisioning-package-to-the-client-computer"></a>Kopieren Sie aus, und klicken Sie dann wenden das Bereitstellungspaket auf den Clientcomputer an  
+##### <a name="copy-and-then-apply-the-provisioning-package-to-the-client-computer"></a>Kopieren Sie das Bereitstellungs Paket, und wenden Sie es auf den Client Computer an.  
   
-1.  Kopieren Sie das Paket, aus c:\files\provision.txt auf RAS-Servers an, an dem sie, um c:\provision\provision.txt auf dem Clientcomputer gespeichert wurde.  
+1.  Kopieren Sie das Bereitstellungs Paket aus c:\files\provision.txt auf dem Remote Zugriffs Server, auf dem es gespeichert wurde, auf dem Client Computer unter "c:\provision\provision.txt".  
   
-2.  Klicken Sie auf dem Clientcomputer öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, und geben Sie dann den folgenden Befehl zum Hinzufügen zur Domäne anfordern:  
+2.  Öffnen Sie auf dem Client Computer eine Eingabeaufforderung mit erhöhten Rechten, und geben Sie dann den folgenden Befehl ein, um den Domänen Beitritt anzufordern:  
   
     ```  
     Djoin /requestodj /loadfile C:\provision\provision.txt /windowspath %windir% /localos  
     ```  
   
-3.  Starten Sie den Clientcomputer neu. Der Computer wird mit der Domäne hinzugefügt werden. Nach dem Neustart wird der Client wird in die Domäne eingebunden sein und über eine Verbindung mit dem Unternehmensnetzwerk mit DirectAccess verfügen.  
+3.  Starten Sie den Client Computer neu. Der Computer wird der Domäne hinzugefügt. Nach dem Neustart wird der Client der Domäne hinzugefügt und verfügt über eine Verbindung mit dem Unternehmensnetzwerk mit DirectAccess.  
   
 ## <a name="see-also"></a>Siehe auch  
 [NetProvisionComputerAccount-Funktion](https://go.microsoft.com/fwlink/?LinkId=162426)  
-[NetRequestOfflineDomainJoin-Funktion](https://go.microsoft.com/fwlink/?LinkId=162427)  
+[Nettrequestofflinedomainjoin-Funktion](https://go.microsoft.com/fwlink/?LinkId=162427)  
   
 
 

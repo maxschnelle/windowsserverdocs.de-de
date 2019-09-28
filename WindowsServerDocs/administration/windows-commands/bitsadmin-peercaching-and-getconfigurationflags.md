@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin Peercaching und getconfigurationflags
-description: Windows-Befehle Thema **Bitsadmin Peercaching und Getconfigurationflags** – Ruft die konfigurationsflags ab, die bestimmen, wenn der Computer-Inhalte an Peers bereitstellt und Herunterladen von Inhalten von Peers können.
+title: bitadmin-Peer Caching und getconfigurationflags
+description: 'Windows-Befehls Thema für **BITSAdmin-Peer Caching und getconfigurationflags** : Ruft die Konfigurationsflags ab, die bestimmen, ob der Computer Inhalt für Peers bereitstellt und Inhalt von Peers herunterladen kann.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6afa39993cf90b2d71b6b681680c3b4e1fd9b56b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 94c7eb1a115fe9152b149b8cf65765b179080cc3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826351"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381090"
 ---
-# <a name="bitsadmin-peercaching-and-getconfigurationflags"></a>Bitsadmin Peercaching und getconfigurationflags
+# <a name="bitsadmin-peercaching-and-getconfigurationflags"></a>bitadmin-Peer Caching und getconfigurationflags
 
 
 
-Ruft die konfigurationsflags, die bestimmen, wenn der Computer Inhalt an Peers stellt und Herunterladen von Inhalten von Peers kann.
+Ruft die Konfigurationsflags ab, die bestimmen, ob der Computer Inhalt für Peers bereitstellt und Inhalt von Peers herunterladen kann.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,15 +36,15 @@ bitsadmin /PeerCaching /GetConfigurationFlags <Job>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Im folgenden Beispiel wird die konfigurationsflags für den Auftrag mit dem Namen *MyJob*.
+Im folgenden Beispiel werden die Konfigurationsflags für den Auftrag mit dem Namen " *MyJob*" abgerufen.
 ```
 C:\> Bitsadmin /PeerCaching /GetConfigurationFlags myJob
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -7,26 +7,26 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 5bc304277b872bd9b99b79b84694dd0cb1eb73ba
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: ead8868f38faa570a0e524630e23d99e276a7c79
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190884"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407921"
 ---
 # <a name="review-the-role-of-the-federation-server-in-the-account-partner"></a>Überprüfen der Rolle des Verbundservers beim Kontopartner
 
-Einen Verbundserver in Active Directory Federation Services \(AD FS\) fungiert als sicherheitstokenaussteller. Ein Verbundserver generiert basierend auf kontenwerten speichern Werte, die in ein lokales Element befinden, Ansprüche und verpackt sie in Sicherheitstoken, sodass Benutzer nahtlos Web zugreifen können\-Browser\--basierte Anwendungen \(verwenden Einmaliges Anmelden\-auf \(SSO\) \) , die in einer Ressourcenpartnerorganisation gehostet werden.  
+Ein Verbund Server in Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1 fungiert als sicherheitstokenaussteller. Ein Verbund Server generiert Ansprüche basierend auf Konto Werten, die sich in einem lokalen Attribut Speicher befinden, und verpackt Sie in Sicherheits Token, sodass Benutzer nahtlos auf Web @ no__t-0browser @ no__t-1based Applications zugreifen können \(using Single Sign @ no__t-3on. \(sso @ no__t-5 @ no__t-6, die in einer Ressourcen Partnerorganisation gehostet werden.  
   
 > [!NOTE]  
-> Wenn Ihre Benutzer über einen Webbrowser auf verbundanwendungen zugreifen, ein Verbundserver automatisch Cookies für die Benutzer können den Anmeldestatus für dieses Web verwalten\-Browser\--basierten Anwendung. Diese Cookies enthalten die Ansprüche für den Benutzer. Die Cookies ermöglichen SSO-Funktionen, damit die Benutzer keine Anmeldeinformationen über jedes Mal eingeben, dass sie anderen besuchen\-Browser\--basierte Anwendungen in der Ressourcenpartnerorganisation.  
+> Wenn Ihre Benutzer mithilfe eines Webbrowsers auf Verbund Anwendungen zugreifen, gibt ein Verbund Server automatisch Cookies für die Benutzer aus, um Ihren Anmeldestatus für diese Web @ no__t-0browser @ no__t-1based-Anwendung zu erhalten. Diese Cookies enthalten die Ansprüche für den Benutzer. Die Cookies ermöglichen SSO-Funktionen, damit die Benutzer die Anmelde Informationen nicht jedes Mal eingeben müssen, wenn Sie unterschiedliche Web @ no__t-0browser @ no__t-1based-Anwendungen im Ressourcen Partner besuchen.  
   
-In den Web-SSO-Entwurf müssen Organisationen mit einem Umkreisnetzwerk, die Internet-Benutzer auf Anwendungen zugreifen möchten, einen Verbundserverproxy im Umkreisnetzwerk installieren. Im Federated-Web-SSO-Entwurf muss mindestens ein Verbundserver im Unternehmensnetzwerk der Kontopartnerorganisation installiert und mindestens ein Verbundserver im Unternehmensnetzwerk der Ressourcenpartnerorganisation installiert vorhanden sein.  
+Im Web-SSO-Entwurf müssen Organisationen mit einem Umkreis Netzwerk, die Internet Benutzern den Zugriff auf Anwendungen erlauben möchten, einen Verbund Server Proxy im Umkreis Netzwerk installieren. Im Federated-Web-SSO-Entwurf muss mindestens ein Verbund Server im Unternehmensnetzwerk der Konto Partnerorganisation und mindestens ein Verbund Server im Unternehmensnetzwerk der Ressourcen Partnerorganisation installiert sein.  
   
 > [!NOTE]  
-> Bevor Sie einen Verbund-Server-Computer in der Kontopartnerorganisation einrichten können, müssen Sie den Computer einer beliebigen Domäne in Active Directory-Gesamtstruktur hinzufügen, in dem die Verbundserver zum Authentifizieren von Benutzern in dieser Gesamtstruktur verwendet wird. Weitere Informationen finden Sie unter [Prüfliste: Das Einrichten eines Verbundservers](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server.md).  
+> Bevor Sie in der Konto Partnerorganisation einen Verbund Server Computer einrichten können, müssen Sie den Computer zunächst einer beliebigen Domäne in der Active Directory-Gesamtstruktur hinzufügen, in der der Verbund Server verwendet wird, um Benutzer aus dieser Gesamtstruktur zu authentifizieren. Weitere Informationen finden Sie unter [checkliste: Einrichten eines Verbund Servers @ no__t-0.  
   
 ## <a name="see-also"></a>Siehe auch
 [AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

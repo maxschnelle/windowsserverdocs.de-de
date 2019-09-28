@@ -1,8 +1,8 @@
 ---
 title: set
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 21661b30c5779907e8cac417439a0935a2126ad8
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 12dce38bf8ad050c65a7a8c0fca4a71267cca93f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441270"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384103"
 ---
 # <a name="set"></a>set
 
 
 
-Zeigt an, legt fest oder entfernt cmd ein. EXE-Umgebungsvariablen. Wenn Sie ohne Angabe von Parametern **festgelegt** zeigt die aktuellen variableneinstellungen der Umgebung.
+Hiermit wird cmd angezeigt, festgelegt oder entfernt. EXE-Umgebungsvariablen. Bei Verwendung ohne Parameter zeigt **Set** die aktuellen Umgebungsvariablen Einstellungen an.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -40,102 +40,102 @@ set /a <Variable>=<Expression>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<Variable>|Gibt an, die Umgebungsvariable festlegen oder ändern.|
-|\<String>|Gibt die Zeichenfolge, die angegebene Umgebungsvariable zugeordnet werden soll.|
-|/p|Legt den Wert der *Variable* zu einer Zeile der Eingabe, die vom Benutzer eingegeben werden.|
-|\<PromptString>|Dies ist optional. Gibt an, eine Nachricht an den Benutzer zur Eingabe aufzufordern. Dieser Parameter wird verwendet, mit der **/p** Befehlszeilenoption.|
-|/a|Legt *Zeichenfolge* auf einen numerischen Ausdruck, der ausgewertet wird.|
-|\<Ausdruck >|Gibt einen numerischen Ausdruck. Siehe Hinweise für gültige Operatoren, die verwendet werden können *Ausdruck*.|
+|\<variable >|Gibt die Umgebungsvariable an, die festgelegt oder geändert werden soll.|
+|\<string >|Gibt die Zeichenfolge an, die der angegebenen Umgebungsvariablen zugeordnet werden soll.|
+|/p|Legt den Wert der *Variablen* auf eine Zeile der Eingabe fest, die vom Benutzer eingegeben wurde.|
+|\<promptstring >|Optional. Gibt eine Meldung an, mit der der Benutzer zur Eingabe aufgefordert wird. Dieser Parameter wird mit der Befehlszeilenoption **/p** verwendet.|
+|/a|Legt die *Zeichenfolge* auf einen numerischen Ausdruck fest, der ausgewertet wird.|
+|\<-Ausdruck >|Gibt einen numerischen Ausdruck an. Informationen zu gültigen Operatoren, die in *Ausdrücken*verwendet werden können, finden Sie unter Hinweise.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
-- Mithilfe von **festgelegt** mit befehlserweiterungen aktiviert
+- Verwenden von **Set** mit aktivierten Befehls Erweiterungen
 
-  Wenn befehlserweiterungen sind aktiviert (Standard), und führen Sie **festgelegt** mit einem Wert, es zeigt alle Variablen, die mit diesem Wert beginnen.
+  Wenn Befehls Erweiterungen aktiviert sind (Standardeinstellung) und Sie **Set** mit einem Wert ausführen, werden alle Variablen angezeigt, die mit diesem Wert beginnen.
 - Verwenden von Sonderzeichen
 
-  Die Zeichen **<** , **>** , **|** , **&** , **^** sind spezielle Befehl-Shell-Zeichen, und sie müssen das Escape-Zeichen stehen ( **^** ) oder eingeschlossen in Anführungszeichen, bei der Verwendung in *Zeichenfolge* (z. B. **"Befehlszeilenzeichen & Symbol"** ). Wenn Sie Anführungszeichen verwenden, um eine Zeichenfolge einzuschließen, die einen der Sonderzeichen enthält, werden die Anführungszeichen als Teil des Werts der Umgebungsvariable festgelegt.
+  Die Zeichen **<** , **>** , **|** , **&** , **^** sind spezielle befehlsshellzeichen, und Ihnen muss das Escapezeichen (**1**) vorangestellt sein oder in Anführungszeichen eingeschlossen werden. bei Verwendung in der *Zeichenfolge* (z. b. **"stringenthaltende & Symbol"** ). Wenn Sie in Anführungszeichen eine Zeichenfolge mit einem der Sonderzeichen einschließen, werden die Anführungszeichen als Teil des Umgebungsvariablen Werts festgelegt.
 - Verwenden von Umgebungsvariablen
 
-  Verwenden von Umgebungsvariablen zum Steuern des Verhaltens einiger Batchdateien und-Programme und Steuerung von der Möglichkeit Windows und MS-DOS-Subsystem wird angezeigt und funktioniert. Die **festgelegt** Befehl wird oft in die Datei verwendet, um Umgebungsvariablen festzulegen.
-- Zeigt die aktuelle umgebungseinstellungen
+  Verwenden Sie Umgebungsvariablen, um das Verhalten einiger Batch Dateien und-Programme zu steuern und die Art und Weise zu steuern, wie Windows und das MS-DOS-Subsystem angezeigt werden und funktionieren. Der **Set** -Befehl wird häufig in der Datei Autoexec. NT verwendet, um Umgebungsvariablen festzulegen.
+- Anzeigen der aktuellen Umgebungseinstellungen
 
-  Bei der Eingabe der **festgelegt** Befehl, die aktuellen umgebungseinstellungen werden angezeigt. Diese Einstellungen umfassen in der Regel die Umgebungsvariablen COMSPEC und den Pfad, die verwendet werden, um Programme auf dem Datenträger zu finden. Zwei andere Umgebungsvariablen, die von Windows verwendet werden, PROMPT und DIRCMD.
+  Wenn Sie den **Set** -Befehl allein eingeben, werden die aktuellen Umgebungseinstellungen angezeigt. Diese Einstellungen umfassen in der Regel die Umgebungsvariablen COMSPEC und Path, die zur Suche nach Programmen auf dem Datenträger verwendet werden. Zwei andere Umgebungsvariablen, die von Windows verwendet werden, sind prompt und DIRCMD.
 - Verwenden von Parametern
 
-  Wenn Sie geben Werte für *Variable* und *Zeichenfolge*, den angegebenen *Variable* Wert wird in der Umgebung hinzugefügt und *Zeichenfolge* ist die Variable zugeordnet ist. Wenn die Variable in der Umgebung bereits vorhanden ist, ersetzt der neue Zeichenfolgenwert den alte Zeichenfolgenwert.
+  Wenn Sie Werte für *Variable* und *Zeichenfolge*angeben, wird der angegebene *Variablen* Wert der Umgebung hinzugefügt, und die *Zeichenfolge* ist dieser Variablen zugeordnet. Wenn die Variable bereits in der Umgebung vorhanden ist, ersetzt der neue Zeichen folgen Wert den alten Zeichen folgen Wert.
 
-  Bei Angabe von nur einer Variablen, einem Gleichheitszeichen (ohne *Zeichenfolge*) für die **festgelegt** Befehl aus, die *Zeichenfolge* Wert der Variablen zugeordnet ist (als ob die Variable ist deaktiviert. nicht vorhanden).
-- Mithilfe von   **/a**
+  Wenn Sie nur eine Variable und ein Gleichheitszeichen (ohne *Zeichenfolge*) für den **set** -Befehl angeben, wird der *Zeichen* folgen Wert, der der Variablen zugeordnet ist, gelöscht (als ob die Variable nicht vorhanden ist).
+- Verwenden von **/a**
 
-  Die folgende Tabelle enthält die Operatoren für unterstützt **/a** in absteigender Reihenfolge.  
+  In der folgenden Tabelle sind die Operatoren aufgeführt, die für **/a** in absteigender Rangfolge unterstützt werden.  
 
-  |        Operator         | Vorgang  |
+  |        Operator         | Ausgeführte Operation  |
   |-------------------------|----------------------|
   |           ( )           |       Gruppieren       |
   |          ! ~ -          |        Unär         |
-  |         \* / %          |      arithmetische Operationen      |
-  |           + -           |      arithmetische Operationen      |
-  |          << >>          |    Logische Verschiebung     |
-  |            &            |     Bitweises AND      |
+  |         \*/%          |      Rechen      |
+  |           + -           |      Rechen      |
+  |          < < > >          |    Logische Verschiebung     |
+  |            &            |     Bitweises and      |
   |            ^            | Bitweises exklusives OR |
   |                         |                      |
-  | = \*= /= %= += -= &= ^= |      = <<= >>=       |
-  |            ,            | Expression-Trennzeichen |
+  | =  @ no__t-1 =/=% = + =-= & = ^ = |      = < < = > > =       |
+  |            ,            | Ausdrucks Trennzeichen |
 
-  Bei Verwendung von logischen ( **&&** oder **||** ) Modulo ( **%** ) Operatoren müssen die Ausdruckszeichenfolge in Anführungszeichen einschließen. Numerische Zeichenfolgen im Ausdruck werden als Umgebungsvariablen betrachtet, und ihre Werte werden in Zahlen konvertiert, bevor sie verarbeitet werden. Wenn Sie ein Name der Umgebungsvariablen, die nicht in der aktuellen Umgebung definiert ist angeben, wird der Wert 0 (null) zugewiesen, können Sie Arithmetik mit Umgebungsvariablenwerte ausführen, ohne die % zum Abrufen eines Werts.
+  Wenn Sie logische ( **&&-** oder **||)-** oder Modulo-Operatoren ( **%** ) verwenden, schließen Sie die Ausdrucks Zeichenfolge in Anführungszeichen ein. Alle nicht numerischen Zeichen folgen im Ausdruck werden als Umgebungsvariablen Namen betrachtet, und ihre Werte werden in Zahlen konvertiert, bevor Sie verarbeitet werden. Wenn Sie einen Umgebungsvariablen Namen angeben, der nicht in der aktuellen Umgebung definiert ist, wird der Wert NULL zugewiesen, sodass Sie arithmetische Werte mit Umgebungsvariablen Werten ausführen können, ohne das% zum Abrufen eines Werts zu verwenden.
 
-  Wenn das Ausführen **set/a** über die Befehlszeile außerhalb ein Befehlsskript, wird den endgültigen Wert des Ausdrucks.
+  Wenn Sie **Set/a** über die Befehlszeile außerhalb eines Befehls Skripts ausführen, wird der endgültige Wert des Ausdrucks angezeigt.
 
-  Numerische Werte sind Dezimalzahlen, es sei denn, 0 × für Hexadezimalzahlen oder 0 für oktale Zahlen vorangestellt. Aus diesem Grund entspricht 0 x 12-18, d.h. 022 identisch.
-- Unterstützung des verzögerten Erweiterung von Umgebungsvariablen
+  Numerische Werte sind Dezimalzahlen, es sei denn, Sie werden für hexadezimal Zahlen mit 0 × vorangestellt. Daher ist 0 × 12 identisch mit 18, was mit 022 identisch ist.
+- Unterstützen der Erweiterung für verzögerte Umgebungsvariablen
 
-  Verzögerte Umgebung variablenerweiterung Unterstützung ist standardmäßig deaktiviert, jedoch können Sie aktivieren oder deaktivieren Sie es mit **Cmd/v**.
-- Arbeiten mit befehlserweiterungen
+  Die Unterstützung für die verzögerte Erweiterung von Umgebungsvariablen ist standardmäßig deaktiviert. Sie können Sie jedoch mithilfe von **cmd/v**aktivieren oder deaktivieren.
+- Arbeiten mit Befehls Erweiterungen
 
-  Befehlserweiterungen sind aktiviert, wenn (Standard), und führen Sie Sie **festgelegt** , alle aktuellen Umgebungsvariablen angezeigt. Wenn das Ausführen **festgelegt** mit einem Wert für die Variablen, die diesem Wert entsprechen wird.
-- Mithilfe von **festgelegt** in Batchdateien
+  Wenn Befehls Erweiterungen aktiviert sind (Standardeinstellung) und Sie **Set** allein ausführen, werden alle aktuellen Umgebungsvariablen angezeigt. Wenn Sie **Set** mit einem Wert ausführen, werden die Variablen angezeigt, die mit diesem Wert zu vergleichen sind.
+- Verwenden von **Set** in Batch Dateien
 
-  Wenn Sie Batch-Dateien zu erstellen, können Sie **festgelegt** Variablen erstellen und verwenden Sie diese dann auf die gleiche Weise, dass Sie die nummerierten Variablen verwenden würden **%0** über **%9**. Sie können auch die Variablen **%0** über **%9** als Eingabe für **festgelegt**.
-- Aufrufen einer **festgelegt** Variablen aus einer Batchdatei
+  Beim Erstellen von Batch Dateien können Sie **Set** verwenden, um Variablen zu erstellen, und Sie dann auf die gleiche Weise wie die nummerierten Variablen **% 0** bis **% 9**verwenden. Sie können auch die Variablen **% 0** bis **% 9** als Eingabe für **set**verwenden.
+- Aufrufen einer **Set** -Variablen aus einer Batchdatei
 
-  Wenn Sie einen Wert der Variablen von einer Batchdatei aus aufrufen, müssen Sie den Wert in Prozentzeichen ( **%** ). Z. B. Wenn Ihr Batchprogramm eine Umgebungsvariable namens BAUD erstellt, können die zugeordnete Zeichenfolge BAUD als ein ersetzbarer Parameter durch Eingabe **Baud %** an der Eingabeaufforderung.
-- Mithilfe von **festgelegt** in der Wiederherstellungskonsole
+  Wenn Sie einen variablen Wert aus einer Batchdatei aufzurufen, müssen Sie den Wert mit Prozentzeichen ( **%** ) einschließen. Wenn Ihr Batch-Programm z. b. eine Umgebungsvariable mit dem Namen Baud erstellt, können Sie die Zeichenfolge, die der Baudrate zugeordnet ist, als ersetzbaren Parameter verwenden, indem Sie **% Baud%** an der Eingabeaufforderung eingeben
+- Verwenden von **Set** in der Wiederherstellungskonsole
 
-  Die **festgelegt** -Befehl, mit verschiedenen Parametern finden Sie in der Wiederherstellungskonsole.
+  Der **Set** -Befehl mit unterschiedlichen Parametern ist über die Wiederherstellungskonsole verfügbar.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Eine Umgebungsvariable namens TEST festgelegt ^ 1, Typ:
+Geben Sie Folgendes ein, um eine Umgebungsvariable mit dem Namen Test ^ 1 festzulegen:
 ```
 set testVar=test^^1
 ```
 
 > [!NOTE]
-> Die **festgelegt** Befehl weist alles, was das Gleichheitszeichen (=) auf den Wert der Variablen folgt. Wenn Sie eingeben:
+> Mit dem **Set** -Befehl werden alle Elemente, die dem Gleichheitszeichen (=) folgen, dem Wert der Variablen zugewiesen. Wenn Sie Folgendes eingeben:
 > ```
 > set testVar="test^1"
 > ```
-> Sie erhalten Folgendes Ergebnis:
+> Sie erhalten folgendes Ergebnis:
 > ```
 > testVar="test^1"
 > ```
-> Zum Festlegen einer Umgebungsvariablen mit dem Namen "TEST & 1, Typ":
+> Geben Sie Folgendes ein, um eine Umgebungsvariable mit dem Namen Test & 1 festzulegen:
 > ```
 > set testVar=test^&1
 > ```
-> Zum Festlegen einer Umgebungsvariable EINSCHLIEßEN, damit die Zeichenfolge C:\Inc (\Inc Verzeichnis auf Laufwerk C) zugeordnet ist, geben Sie Folgendes ein:
+> Geben Sie Folgendes ein, um eine Umgebungsvariable mit dem Namen include so festzulegen, dass die Zeichenfolge c:\inc (das Verzeichnis \inc auf Laufwerk C) damit verknüpft ist:
 > ```
 > set include=c:\inc
 > ```
-> Sie können dann die Zeichenfolge C:\Inc in Batchdateien verwenden, durch den Namen "INCLUDE" in Prozentzeichen einschließen ( **%** ). Sie können z. B. den folgenden Befehl in einer Batchdatei einschließen, damit Sie den Inhalt des Verzeichnisses anzeigen können, die die INCLUDE-Umgebungsvariable zugeordnet ist:
+> Anschließend können Sie die Zeichenfolge c:\inc in Batch Dateien verwenden, indem Sie den Namen include in Prozentzeichen ( **%** ) einschließen. Beispielsweise können Sie den folgenden Befehl in eine Batchdatei einschließen, damit Sie den Inhalt des Verzeichnisses anzeigen können, das der INCLUDE-Umgebungsvariablen zugeordnet ist:
 > ```
 > dir %include%
 > ```
-> Wenn dieser Befehl verarbeitet wird, ersetzt die Zeichenfolge C:\Inc **% enthalten %** .
+> Wenn dieser Befehl verarbeitet wird, ersetzt die Zeichenfolge c:\inc **% include%** .
 
-Sie können auch **festgelegt** in einem Batchprogramm, das der Umgebungsvariablen PATH enthalten ein neues Verzeichnis hinzufügt. Zum Beispiel:
+Sie können auch **Set** in einem Batch-Programm verwenden, das der PATH-Umgebungsvariablen ein neues Verzeichnis hinzufügt. Zum Beispiel:
 ```
 @echo off
 rem ADDPATH.BAT adds a new directory
@@ -143,13 +143,13 @@ rem to the path environment variable.
 set path=%1;%path%
 set
 ```
-Um eine Liste aller von der Umgebungsvariablen anzuzeigen, die mit dem Buchstaben P beginnen, geben Sie Folgendes ein:
+Zum Anzeigen einer Liste aller Umgebungsvariablen, die mit dem Buchstaben "P" beginnen, geben Sie Folgendes ein:
 ```
 set p 
 ```
 
 > [!NOTE]
-> Dieser Befehl erfordert befehlserweiterungen, die standardmäßig aktiviert sind.
+> Dieser Befehl erfordert Befehls Erweiterungen, die standardmäßig aktiviert sind.
 
 #### <a name="additional-references"></a>Weitere Verweise
 

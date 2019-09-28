@@ -2,7 +2,7 @@
 title: Verwalten von Transport Layer Security (TLS)
 description: Windows Server-Sicherheit
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: security-tls-ssl
@@ -12,12 +12,12 @@ author: justinha
 ms.author: justinha
 manager: brianlic-msft
 ms.date: 05/16/2018
-ms.openlocfilehash: f691775d5ab24de8b23df048c13ec3d7c572833f
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: a4ac1ea5b0648dbb80f103c146ad3df23fc04ab7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870293"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402343"
 ---
 # <a name="manage-transport-layer-security-tls"></a>Verwalten von Transport Layer Security (TLS)
 
@@ -124,7 +124,7 @@ Der Prozess zum Verteilen einer Kurve ist:
 1.  Verwenden Sie unter Windows 10 und Windows Server 2016 " **certutil. exe** ", um Windows eine neue registrierte benannte Kurve hinzuzufügen.
 2.  Öffnen Sie auf demselben Computer die Gruppenrichtlinien-Verwaltungskonsole (GPMC), erstellen Sie ein neues Gruppenrichtlinie Objekt, und bearbeiten Sie es.
 3.  Navigieren Sie zu **Computer Konfiguration | Einstellungen | Windows-Einstellungen | Registrierung**.  Klicken mit der rechten Maustaste auf **Registrierung**. Zeigen Sie auf **neu** , und wählen Sie **Sammel Element**aus. Benennen Sie das Sammel Element so um, dass es dem Namen der Kurve entspricht. Sie erstellen ein Registrierungs Sammel Element für jeden Registrierungsschlüssel unter *HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ECCParameters*.
-4.  Konfigurieren Sie die neu erstellte Gruppenrichtlinie Einstellungs Registrierungs Sammlung, indem Sie ein neues **Registrierungs Element** für jeden Registrierungs Wert hinzufügen, der unter *\[HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ECCParameters Cursor Name aufgelistet ist. ]* .
+4.  Konfigurieren Sie die neu erstellte Gruppenrichtlinie Einstellungs Registrierungs Sammlung, indem Sie ein neues **Registrierungs Element** für jeden Registrierungs Wert hinzufügen, der unter *HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ECCParameters @ no__t-2currvename]* aufgeführt ist. .
 5.  Stellen Sie das Gruppenrichtlinie Objekt, das Gruppenrichtlinie Registrierungs Sammel Element enthält, für Windows 10-und Windows Server 2016-Computer bereit, die die neuen benannten Kurven erhalten sollen.
 
     ![Kurven der GPP-Verteilung](../media/Transport-Layer-Security-protocol/gpp-distribute-curves.png)

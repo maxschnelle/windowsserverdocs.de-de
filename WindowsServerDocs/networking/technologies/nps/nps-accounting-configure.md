@@ -2,19 +2,19 @@
 title: Konfigurieren der Kontoführung für den Netzwerkrichtlinienserver
 description: Dieses Thema enthält Informationen zur Textdatei und SQL Server Protokollierung für den Netzwerk Richtlinien Server unter Windows Server 2016.
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: dfde2e21-f3d5-41e8-8492-cb3f0d028afb
 ms.author: pashort
 author: shortpatti
 ms.date: 05/25/2018
-ms.openlocfilehash: f16e4093ed58f2a2fadc4b9faa1fa42c0c157ca3
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 0c154d4d4534f4c343107eecd158974b92903e39
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871902"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405571"
 ---
 # <a name="configure-network-policy-server-accounting"></a>Konfigurieren der Kontoführung für den Netzwerkrichtlinienserver
 
@@ -55,7 +55,7 @@ Um zu verhindern, dass die Protokolldateien die Festplatte auffüllen, wird drin
 
 - Um die Protokolldatei Daten für die Sammlung von einem anderen Prozess zu senden, können Sie NPS so konfigurieren, dass er in eine Named Pipe schreibt. Um Named Pipes zu verwenden, legen Sie den Protokolldatei \\Ordner auf .\pipe oder \\computername\pipefest. Das Named Pipe Server-Programm erstellt eine Named Pipe \\mit dem Namen .\pipe\iaslog.log, um die Daten zu akzeptieren. Wählen Sie im Dialogfeld Eigenschaften der lokalen Datei in neue Protokolldatei erstellen die Option nie (unbegrenzte Dateigröße) aus, wenn Sie Named Pipes verwenden.
 
-- Das Protokoll Dateiverzeichnis kann mithilfe von System Umgebungsvariablen (anstelle von Benutzervariablen) erstellt werden, z. b. "% System Drive%", "% SystemRoot%" und "% windir%". Beispielsweise sucht der folgende Pfad unter Verwendung der Umgebungsvariablen "% windir%" die Protokolldatei im Verzeichnis "System" im Unterordner "\System32\Logs" (d. h. "%windir%\System32\Logs\)").
+- Das Protokoll Dateiverzeichnis kann mithilfe von System Umgebungsvariablen (anstelle von Benutzervariablen) erstellt werden, z. b. "% System Drive%", "% SystemRoot%" und "% windir%". Beispielsweise sucht der folgende Pfad unter Verwendung der Umgebungsvariablen "% windir%" die Protokolldatei im Verzeichnis "System" im Unterordner "\System32\Logs" (d. h. "%windir%\System32\Logs @ no__t-0".
 
 - Das Wechseln von Protokolldatei Formaten führt nicht dazu, dass ein neues Protokoll erstellt wird. Wenn Sie die Protokolldatei Formate ändern, enthält die Datei, die zum Zeitpunkt der Änderung aktiv ist, eine Mischung der beiden Formate (Datensätze am Anfang des Protokolls haben das vorherige Format, und Datensätze am Ende des Protokolls haben das neue Format).
 

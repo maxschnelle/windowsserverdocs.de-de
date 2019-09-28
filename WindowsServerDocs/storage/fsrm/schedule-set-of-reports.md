@@ -2,22 +2,22 @@
 title: Planen eines Satzes von Berichten
 description: Dieser Artikel beschreibt, wie ein Satz von Berichten in regelmäßigen Abständen generiert wird
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 681939409b9b8b952179992a2a86415e737ee675
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: b718ceed7a378649c51e1ca64bffaaddf051c292
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447698"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394061"
 ---
 # <a name="schedule-a-set-of-reports"></a>Planen eines Satzes von Berichten
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Um einen Satz von Berichten in regelmäßigen Abständen zu generieren, planen Sie eine *Berichtsaufgabe.* Die Berichtsaufgabe gibt an, welche Berichte generiert und welche Parameter verwendet werden sollen; in welche Volumes und Ordner diese Berichte erstellt werden sollen; wie oft die Berichte generiert werden sollen und in welchem Dateiformaten sie gespeichert werden sollen.
 

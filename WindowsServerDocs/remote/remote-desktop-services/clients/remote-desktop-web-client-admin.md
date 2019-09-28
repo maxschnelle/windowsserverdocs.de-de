@@ -1,19 +1,19 @@
 ---
 title: Einrichten des Remotedesktop-Webclients für Ihre Benutzer
 description: In diesem Artikel wird beschrieben, wie ein Administrator den Remotedesktop-Webclient einrichten kann.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: remote-desktop-services
 ms.author: helohr
 ms.date: 09/19/2019
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 86667c744acfd340c2608609323b95c159e1279d
-ms.sourcegitcommit: ccec91c1d32a978159f9b8bb5e39ead5805c26c4
+ms.openlocfilehash: 38f54548e8e68a0ee693c5d8ec80e67057b3d5b7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71143749"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71387659"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>Einrichten des Remotedesktop-Webclients für Ihre Benutzer
 
@@ -85,7 +85,7 @@ Um den Webclient zum ersten Mal zu installieren, führen Sie die folgenden Schri
 
     >[!NOTE]
     >Beim Ausführen des Cmdlets **Publish-RDWebClientPackage** wird möglicherweise eine Warnmeldung angezeigt, die besagt, dass CALs vom Typ „Pro Gerät“ nicht unterstützt werden, obwohl Ihre Bereitstellung für CALs vom Typ „Pro Benutzer“ konfiguriert ist. Wenn Ihre Bereitstellung CALs vom Typ „Pro Benutzer“ verwendet, können Sie diese Warnung ignorieren. Die Warnung wird angezeigt, um sicherzustellen, dass Sie sich der Konfigurationseinschränkung bewusst sind.
-8. Wenn Sie bereit sind, dass die Benutzer auf den Webclient zugreifen können, senden Sie Ihnen einfach die von Ihnen erstellte Webclient-URL.
+8. Wenn Sie so weit sind, dass die Benutzer auf den Webclient zugreifen können, senden Sie Ihnen einfach die von Ihnen erstellte Webclient-URL.
 
 >[!NOTE]
 >Wenn Sie eine Liste aller unterstützten Cmdlets für das Modul „RDWebClientManagement“ anzeigen möchten, führen Sie in PowerShell das folgende Cmdlet aus:

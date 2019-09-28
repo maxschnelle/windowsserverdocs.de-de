@@ -1,7 +1,7 @@
 ---
 title: Network Shell (Netsh)
-description: Dieses Thema enthält eine Übersicht über die Network Shell (Netsh)-Befehlszeilen-Hilfsprogramm in Windows Server 2016.
-ms.prod: windows-server-threshold
+description: Dieses Thema enthält eine Übersicht über das Network Shell (Netsh)-Befehlszeilen Dienstprogramm in Windows Server 2016.
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: aedef092-8445-4e53-b9d4-525ecd98b02d
@@ -9,34 +9,34 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/13/2018
-ms.openlocfilehash: 038b21783ef1d27619657ec3f9a472cf3caba68e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ac440c8187424733c0636cf2013342458f08d2f4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849361"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405546"
 ---
-# <a name="network-shell-netsh"></a>Netzwerk-Shell \(Netsh\)
+# <a name="network-shell-netsh"></a>Netzwerkshell \(netsh @ no__t-1
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Netzwerkshell (Netsh) ist ein Befehlszeilen-Hilfsprogramm, mit dem Sie zum Konfigurieren und den Status der verschiedenen Network Communications Server-Rollen und Komponenten angezeigt, nachdem sie auf Computern unter Windows Server 2016 installiert sind.
+Network Shell (Netsh) ist ein Befehlszeilenprogramm, mit dem Sie den Status verschiedener Server Rollen und Komponenten für die Netzwerkkommunikation konfigurieren und anzeigen können, nachdem Sie auf Computern mit Windows Server 2016 installiert wurden.
 
-Einige Client-Technologien, wie Dynamic Host Configuration Protocol \(DHCP\) Client- und BranchCache, bieten Sie auch Netsh-Befehle, mit denen Sie zum Konfigurieren von Clientcomputern, auf denen Windows 10 ausgeführt werden.
+Einige Client Technologien, wie z. b. das Dynamic Host Configuration-Protokoll \(dhcp @ no__t-1 Client und BranchCache, stellen auch Netsh-Befehle bereit, mit denen Sie Client Computer konfigurieren können, auf denen Windows 10 ausgeführt wird.
 
-In den meisten Fällen bieten Netsh-Befehle die gleichen Funktionen, die verfügbar ist, wenn Sie die Microsoft Management Console verwenden \(MMC\) ausrichten\-in für alle Netzwerke Server-Rolle oder Netzwerk-Funktionen. Sie können z. B. Konfigurieren des Netzwerkrichtlinienservers \(NPS\) mithilfe der NPS-MMC-Snap-in oder die Netsh-Befehle in der **Netsh Nps** Kontext.
+In den meisten Fällen bieten Netsh-Befehle die gleiche Funktionalität, die verfügbar ist, wenn Sie die Microsoft Management Console \(mmc @ no__t-1 Snap @ no__t-2in für jede Netzwerkserver Rolle oder Netzwerkfunktion verwenden. Beispielsweise können Sie den Netzwerk Richtlinien Server \(nps @ no__t-1 konfigurieren, indem Sie entweder das NPS-MMC-Snap-in oder die Netsh-Befehle im **netsh NPS** -Kontext verwenden.
 
-Darüber hinaus stehen Netsh-Befehle für die Netzwerk-Technologien, wie z. B. für die IPv6-Netzwerkbrücke und Remote Procedure Call \(RPC\), nicht im Windows-Server als ein MMC-Snap-in verfügbar sind.
+Außerdem gibt es Netsh-Befehle für Netzwerktechnologien wie z. b. für IPv6, eine Netzwerk Brücke und einen Remote Prozedur Aufruf \(rpc @ no__t-1, die in Windows Server nicht als MMC-Snap-in verfügbar sind.
 
 >[!IMPORTANT]
->Es wird empfohlen, dass Sie Windows PowerShell, zum Verwalten von netzwerktechnologien in verwenden [Windows Server 2016 und Windows 10](https://technet.microsoft.com/library/mt156917.aspx) statt Network Shell. Netzwerkshell wird aus Gründen der Kompatibilität mit Ihren Skripts jedoch und ihre Verwendung wird unterstützt.
+>Es wird empfohlen, dass Sie Windows PowerShell zum Verwalten von Netzwerktechnologien in [Windows Server 2016 und Windows 10](https://technet.microsoft.com/library/mt156917.aspx) anstelle der Netzwerkshell verwenden. Die Netzwerkshell ist jedoch für die Kompatibilität mit Ihren Skripts enthalten, und die Verwendung wird unterstützt.
 
 ## <a name="network-shell-netsh-technical-reference"></a>Technische Referenz für Network Shell (Netsh)
 
-Die technische Referenz zu Netsh bietet eine umfassende Netsh-Befehlsreferenz, einschließlich Syntax, Parameter und Beispielen für die Netsh-Befehle. Sie können die technische Referenz zu Netsh verwenden, Skripts und Batchdateien zu erstellen, indem Sie mithilfe von Netsh-Befehle für die lokal oder remote-Verwaltung von Netzwerk-Technologien auf Computern unter Windows Server 2016 und Windows 10.  
+Die technische Referenz zu Netsh bietet eine umfassende netsh-Befehlsreferenz, einschließlich Syntax, Parametern und Beispielen für Netsh-Befehle. Sie können die technische Referenz zu Netsh verwenden, um Skripts und Batch Dateien mithilfe von Netsh-Befehlen für die lokale oder Remote Verwaltung von Netzwerktechnologien auf Computern mit Windows Server 2016 und Windows 10 zu erstellen.  
   
 ### <a name="content-availability"></a>Verfügbarkeit  
   
-Technische Referenz für die Network Shell steht zum Download in der Windows-Hilfe \(.chm\) TechNet Gallery-Format: [Netsh – technische Referenz](https://gallery.technet.microsoft.com/Netsh-Technical-Reference-c46523dc)  
+Die technische Referenz für die Netzwerk Shell kann in der Windows-Hilfe \( *. chm @ no__t-1-Format aus der TechNet Gallery heruntergeladen werden: [Technische Referenz zu Netsh](https://gallery.technet.microsoft.com/Netsh-Technical-Reference-c46523dc)  
   
 ---

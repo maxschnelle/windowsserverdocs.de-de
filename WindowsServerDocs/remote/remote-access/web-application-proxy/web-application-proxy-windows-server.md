@@ -6,54 +6,54 @@ author: kgremban
 manager: femila
 ms.date: 07/13/2016
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: web-app-proxy
-ms.openlocfilehash: c4e4eb73b7d50c7618ad2c998ee484e660bcfef1
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 4f2827f02ec13d187cdf360637882c6c9d4b2441
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446763"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71387971"
 ---
 # <a name="web-application-proxy-in-windows-server-2016"></a>Webanwendungsproxy in Windows Server 2016
 
 >Gilt für: Windows Server 2016
 
-**Dieser Inhalt ist für die lokale Version des Webanwendungsproxys relevant. Zum Aktivieren des sicheren Zugriffs auf lokale Anwendungen über die Cloud finden Sie unter den [Azure AD-Anwendungsproxy-Inhalt](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/).**  
+**dieser Inhalt ist für die lokale Version des webanwendungsproxys relevant. Informationen zum Aktivieren des sicheren Zugriffs auf lokale Anwendungen über die Cloud finden Sie in den [Azure AD Anwendungs Proxy-Inhalt](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/).**  
   
-In diesem Abschnitt Informationen zu Neuheiten und Änderungen in der Web Application Proxy für Windows Server 2016. Die neuen Features und die hier aufgeführten Änderungen sind wahrscheinlich am stärksten auswirken, wie Sie die Preview-Version arbeiten.  
+In diesem Abschnitt werden die Neuerungen und Änderungen im webanwendungsproxy für Windows Server 2016 beschrieben. Die hier aufgeführten neuen Features und Änderungen haben bei der Arbeit mit der Vorschau wahrscheinlich die größten Auswirkungen.  
   
-## <a name="web-application-proxy-new-features-in-windows-server-2016"></a>Web Application Proxy, neuen Features in Windows Server 2016
+## <a name="web-application-proxy-new-features-in-windows-server-2016"></a>Neue Features des webanwendungsproxys in Windows Server 2016
   
-- Vorauthentifizierung für die Veröffentlichung von HTTP-Standardauthentifizierung  
+- Vorauthentifizierung für http-Basis Anwendungs Veröffentlichung  
   
-  HTTP-Standardauthentifizierung ist die Authorization-Protokoll von viele Protokolle, einschließlich von ActiveSync zum Verbinden von rich-Clients, einschließlich Smartphones mit Ihrem Exchange-Postfach verwendet. Webanwendungsproxy interagiert traditionell mit AD FS mithilfe von umleitungen von ActiveSync-Clients nicht unterstützt wird. Diese neue Version des Webanwendungsproxys bietet Unterstützung zum Veröffentlichen einer app mithilfe von HTTP basic durch Aktivieren der HTTP-app zum Empfangen von einer nicht anspruchsbasierten Vertrauensstellung der vertrauenden für die Anwendung für den Verbunddienst.  
+  HTTP Basic ist das Autorisierungs Protokoll, das von vielen Protokollen verwendet wird, einschließlich ActiveSync, um Rich-Clients, einschließlich Smartphones, mit Ihrem Exchange-Postfach zu verbinden. Der webanwendungsproxy interagiert traditionell mit AD FS mithilfe von Umleitungen, die auf ActiveSync-Clients nicht unterstützt werden. Diese neue Version des webanwendungsproxys unterstützt das Veröffentlichen einer App mithilfe von HTTP Basic, indem es der http-App ermöglicht, eine nicht anspruchsvolle Vertrauensstellung der vertrauenden Seite für die Anwendung für die Verbunddienst zu empfangen.  
   
-  Weitere Informationen zu grundlegenden HTTP-Veröffentlichung, finden Sie unter [Veröffentlichen von Anwendungen mit AD FS-Vorauthentifizierung](Publishing-Applications-using-AD-FS-Preauthentication.md#publish-an-application-that-uses-http-basic)  
+  Weitere Informationen zur HTTP-Basis Veröffentlichung finden [Sie unter Veröffentlichen von Anwendungen mit AD FS Vorauthentifizierung](Publishing-Applications-using-AD-FS-Preauthentication.md#publish-an-application-that-uses-http-basic) .  
   
-- Veröffentlichen von Domänen mit Platzhalter von Anwendungen  
+- Platzhalter Domänen Veröffentlichung von Anwendungen  
   
-  Um Szenarien wie z. B. SharePoint 2013 zu unterstützen, zählen die externe URL für die Anwendung nun einen Platzhalter, damit Sie mehrere Anwendungen in einer bestimmten Domäne, z. B. https://*.sp-apps.contoso.com veröffentlichen können. Dadurch wird die Veröffentlichung von SharePoint-Anwendungen vereinfacht.  
+  Zur Unterstützung von Szenarien wie SharePoint 2013 kann die externe URL für die Anwendung nun einen Platzhalter enthalten, mit dem Sie mehrere Anwendungen in einer bestimmten Domäne veröffentlichen können, z. b. https://*. SP-apps. Configuration. com. Dadurch wird die Veröffentlichung von SharePoint-apps vereinfacht.  
   
-- HTTP, HTTPS-Umleitung  
+- Umleitung von http zu https  
   
-  Um sicherzustellen, dass Sie, dass Ihre Benutzer Ihre app zugreifen können, selbst wenn sie nicht in der URL HTTPS eingeben, unterstützt Web Application Proxy nun HTTP, HTTPS-Umleitung.  
+  Um sicherzustellen, dass Ihre Benutzer auf Ihre App zugreifen können, unterstützt der webanwendungsproxy nun die Umleitung von http zu HTTPS, auch wenn Sie den Typ "https" in der URL vernachlässigen.  
   
 - HTTP-Veröffentlichung  
   
-  Es ist jetzt möglich, die HTTP-Anwendungen mit Passthrough-Vorauthentifizierung veröffentlichen.  
+  Es ist jetzt möglich, HTTP-Anwendungen mit Passthrough-Vorauthentifizierung zu veröffentlichen.  
   
-- Veröffentlichen von Remotedesktopgateway-apps  
+- Veröffentlichen von Remotedesktop Gateway-apps  
   
-  Weitere Informationen zu RDG in Web Application Proxy, finden Sie unter [Veröffentlichen von Anwendungen mit SharePoint, Exchange und RDG](../web-application-proxy/Publishing-Applications-with-SharePoint,-Exchange-and-RDG.md)  
+  Weitere Informationen zu RDG im webanwendungsproxy finden Sie unter [Veröffentlichen von Anwendungen mit SharePoint, Exchange und RDG](../web-application-proxy/Publishing-Applications-with-SharePoint,-Exchange-and-RDG.md) .  
   
-- Neue Debugprotokoll für die Problembehandlung und das höhere Servicelevel-Protokoll für vollständige Audit-Trail und verbesserter Fehlerbehandlung  
+- Neues Debugprotokoll zur besseren Problembehandlung und zum verbesserten Dienst Protokoll für einen kompletten Überwachungs Pfad und eine verbesserte Fehlerbehandlung  
   
-  Weitere Informationen zur Problembehandlung finden Sie unter [zur Problembehandlung von Web Application Proxy](https://technet.microsoft.com/library/dn770156.aspx)  
+  Weitere Informationen zur Problembehandlung finden Sie unter Problembehandlung für [Webanwendungs Proxy](https://technet.microsoft.com/library/dn770156.aspx)  
   
-- Verbesserungen der Administrator-Konsole-Benutzeroberfläche  
+- Verbesserungen der Administratorkonsole  
   
-- Weitergabe von IP-Adresse des Clients auf Back-End-Anwendungen  
+- Weitergabe von Client-IP-Adressen an Back-End  
   
 ## <a name="see-also"></a>Siehe auch  
   

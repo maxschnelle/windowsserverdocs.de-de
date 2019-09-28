@@ -1,52 +1,52 @@
 ---
 title: Erstellen einer Antwortdatei für die BS-Spezialisierung
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: 299aa38e-28d2-4cbe-af16-5b8c533eba1f
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 5717fcc9e1732b6273620e633c140c6df58ec8b7
-ms.sourcegitcommit: 29ad32b9dea298a7fe81dcc33d2a42d383018e82
+ms.openlocfilehash: 4920f9a90bd0190d390a9d35b3d265023d69efac
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65624657"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386504"
 ---
 # <a name="create-os-specialization-answer-file"></a>Erstellen einer Antwortdatei für die BS-Spezialisierung
 
->Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Als Vorbereitung für die geschützte virtuelle Computer bereitstellen müssen Sie eine Betriebssystem-Spezialisierung-Antwortdatei erstellen. Auf Windows ist dies häufig als die Datei "unattend.xml" bezeichnet. Die **New-ShieldingDataAnswerFile** Windows PowerShell-Funktion können Sie dies tun. Sie können dann mithilfe der Antwortdatei, die Sie beim Erstellen aus einer Vorlage von VMs abgeschirmten mithilfe von System Center Virtual Machine Manager (oder jeder anderen fabriccontroller).
+Zur Vorbereitung der Bereitstellung von abgeschirmten VMS müssen Sie möglicherweise eine Antwortdatei für die Betriebssystem Spezialisierung erstellen. Unter Windows wird dies häufig als die Datei "Unattend. xml" bezeichnet. Die Windows PowerShell-Funktion **New-shieldingdatabeantworsdatei** unterstützt Sie dabei. Anschließend können Sie die Antwortdatei verwenden, wenn Sie abgeschirmte VMS mithilfe System Center Virtual Machine Manager (oder einer anderen Fabric Controller) aus einer Vorlage erstellen.
 
-Allgemeine Richtlinien für die unbeaufsichtigte Installation von Dateien für abgeschirmte VMs, finden Sie unter [Erstellen einer Antwortdatei](guarded-fabric-tenant-creates-shielding-data.md#create-an-answer-file).
+Allgemeine Richtlinien für Dateien für die unbeaufsichtigte Installation für abgeschirmte VMS finden Sie unter [Erstellen einer Antwortdatei](guarded-fabric-tenant-creates-shielding-data.md#create-an-answer-file).
  
-## <a name="downloading-the-new-shieldingdataanswerfile-function"></a>Die Funktion New-ShieldingDataAnswerFile herunterladen
+## <a name="downloading-the-new-shieldingdataanswerfile-function"></a>Herunterladen der New-shieldingdatabeantworfile-Funktion
 
-Sie erhalten die **New-ShieldingDataAnswerFile** -Funktion aus der [PowerShell-Katalog](https://aka.ms/gftools). Wenn Ihr Computer über Internetkonnektivität verfügt, können Sie es in PowerShell mit dem folgenden Befehl installieren:
+Sie können die Funktion **New-shieldingdatabeantworsdatei** aus dem [PowerShell-Katalog](https://aka.ms/gftools)abrufen. Wenn Ihr Computer über eine Internet Verbindung verfügt, können Sie ihn mit dem folgenden Befehl aus PowerShell installieren:
 
 ```powershell
 Install-Module GuardedFabricTools -Repository PSGallery -MinimumVersion 1.0.0
 ```
 
-Die `unattend.xml` Ausgabe kann in der geschützten Daten, zusammen mit zusätzlichen Elemente gepackt werden, damit, dass sie zum Erstellen abgeschirmter VMs aus Vorlagen verwendet werden kann.
+Die `unattend.xml`-Ausgabe kann zusammen mit zusätzlichen Artefakten in die Schutz Daten gepackt werden, damit Sie zum Erstellen von abgeschirmten VMS aus Vorlagen verwendet werden kann.
 
-Die folgenden Abschnitte zeigen die Funktionsparameter für die Verwendung einer `unattend.xml` Datei, die verschiedene Optionen enthält:
+In den folgenden Abschnitten wird gezeigt, wie Sie die Funktionsparameter für eine `unattend.xml`-Datei mit verschiedenen Optionen verwenden können:
 
 - [Grundlegende Windows-Antwortdatei](#basic-windows-answer-file)
-- [Windows-Antwortdatei mit Domänenbeitritt](#windows-answer-file-with-domain-join)
+- [Windows-Antwortdatei mit Domänen Beitritt](#windows-answer-file-with-domain-join)
 - [Windows-Antwortdatei mit statischen IPv4-Adressen](#windows-answer-file-with-static-ipv4-addresses)
-- [Windows-Antwortdatei mit dem benutzerdefinierten Gebietsschema](#windows-answer-file-with-a-custom-locale)
-- [Einfache Linux-Antwortdatei](#basic-linux-answer-file)
+- [Windows-Antwortdatei mit einem benutzerdefinierten Gebiets Schema](#windows-answer-file-with-a-custom-locale)
+- [Grundlegende Linux-Antwortdatei](#basic-linux-answer-file)
 
 ## <a name="basic-windows-answer-file"></a>Grundlegende Windows-Antwortdatei
 
-Die folgenden Befehle erstellen eine Windows-Antwortdatei, die einfach das Kennwort für das Administratorkonto und die Hostnamen festlegt.
-Die Netzwerkadapter der virtuellen Computer DHCP zum Abrufen der IP-Adressen verwendet werden, und der virtuelle Computer wird nicht auf Active Directory-Domäne verknüpft werden.
-Geben Sie bei Aufforderung zur Eingabe der Anmeldeinformationen eines Administrators den gewünschten Benutzernamen und das Kennwort ein.
-Verwenden Sie "Administrator" für den Benutzernamen ein, wenn Sie das integrierte Administratorkonto konfigurieren möchten.
+Mit den folgenden Befehlen wird eine Windows-Antwortdatei erstellt, die einfach das Kennwort des Administrator Kontos und den Hostnamen festlegt.
+Die VM-Netzwerkadapter verwenden DHCP zum Abrufen von IP-Adressen, und der virtuelle Computer wird nicht zu einer Active Directory Domäne hinzugefügt.
+Wenn Sie zur Eingabe von Administrator Anmelde Informationen aufgefordert werden, geben Sie den gewünschten Benutzernamen und das Kennwort an.
+Verwenden Sie "Administrator" als Benutzername, wenn Sie das integrierte Administrator Konto konfigurieren möchten.
 
 ```powershell
 $adminCred = Get-Credential -Message "Local administrator account"
@@ -54,17 +54,17 @@ $adminCred = Get-Credential -Message "Local administrator account"
 New-ShieldingDataAnswerFile -Path '.\ShieldedVMAnswerFile.xml' -AdminCredentials $adminCred
 ```
 
-## <a name="windows-answer-file-with-domain-join"></a>Windows-Antwortdatei mit Domänenbeitritt
+## <a name="windows-answer-file-with-domain-join"></a>Windows-Antwortdatei mit Domänen Beitritt
 
-Die folgenden Befehle erstellen eine Windows-Antwortdatei, die die abgeschirmte VM mit einer Active Directory-Domäne verknüpft.
-Die VM-Netzwerkadapter werden DHCP verwendet, um IP-Adressen zu erhalten.
+Mit den folgenden Befehlen wird eine Windows-Antwortdatei erstellt, die den abgeschirmten virtuellen Computer mit einer Active Directory Domäne verbindet.
+Die VM-Netzwerkadapter verwenden DHCP zum Abrufen von IP-Adressen.
 
-Die erste Eingabeaufforderung fragt die Kontoinformationen für den lokalen Administrator.
-Verwenden Sie "Administrator" für den Benutzernamen ein, wenn Sie das integrierte Administratorkonto konfigurieren möchten.
+Bei der ersten Eingabeaufforderung werden die Informationen zum lokalen Administrator Konto angefordert.
+Verwenden Sie "Administrator" als Benutzername, wenn Sie das integrierte Administrator Konto konfigurieren möchten.
 
-Die zweite administratoranmeldeaufforderung fordert zur Eingabe von Anmeldeinformationen, die berechtigt sind, den Computer in Active Directory-Domäne einbinden.
+Die zweite Eingabeaufforderung fordert Anmelde Informationen an, die über das Recht verfügen, den Computer mit der Active Directory Domäne zu verknüpfen.
 
-Achten Sie darauf, dass Sie zum Ändern des Werts von der "-Domänenname" Parameter, um den vollqualifizierten Domänennamen des Active Directory-Domäne.
+Stellen Sie sicher, dass Sie den Wert des Parameters "-Domain Name" in den voll qualifizierten Domänen Namen (FQDN) Ihrer Active Directory Domäne ändern.
 
 ```powershell
 $adminCred = Get-Credential -Message "Local administrator account"
@@ -74,25 +74,25 @@ New-ShieldingDataAnswerFile -Path '.\ShieldedVMAnswerFile.xml' -AdminCredentials
 ```
 ## <a name="windows-answer-file-with-static-ipv4-addresses"></a>Windows-Antwortdatei mit statischen IPv4-Adressen
 
-Die folgenden Befehle erstellen eine Windows-Antwortdatei, die statische IP-Adressen, die zum Zeitpunkt der Bereitstellung von der Fabric-Manager, z. B. System Center Virtual Machine Manager bereitgestellten verwendet.
+Die folgenden Befehle erstellen eine Windows-Antwortdatei, die statische IP-Adressen verwendet, die während der Bereitstellung vom Fabric-Manager bereitgestellt werden, z. b. System Center Virtual Machine Manager
 
-Virtual Machine Manager bietet drei Komponenten an die statische IP-Adresse mit einer IP-Adresspool: IPv4-Adresse, IPv6-Adresse, Gateway-Adresse und DNS-Adresse. Wenn Sie möchten alle zusätzlichen Felder einbezogen werden oder eine benutzerdefinierte Netzwerkkonfiguration erforderlich, müssen Sie manuell bearbeiten, die Antwortdatei, die vom Skript erstellt.
+Virtual Machine Manager stellt mithilfe eines IP-Pools drei Komponenten für die statische IP-Adresse bereit: IPv4-Adresse, IPv6-Adresse, Gatewayadresse und DNS-Adresse. Wenn Sie möchten, dass zusätzliche Felder eingeschlossen werden oder eine benutzerdefinierte Netzwerkkonfiguration erforderlich ist, müssen Sie die vom Skript erstellte Antwortdatei manuell bearbeiten.
 
-Die folgenden Screenshots zeigen die IP-Adresspools, Sie in Virtual Machine Manager konfigurieren können. Diese Pools sind erforderlich, wenn Sie statische IP-Adresse verwenden möchten.
+Die folgenden Screenshots zeigen die IP-Adress Pools, die Sie in Virtual Machine Manager konfigurieren können. Diese Pools sind erforderlich, wenn Sie statische IP-Adressen verwenden möchten.
 
-Die Funktion unterstützt derzeit nur einen DNS-Server. So sieht die DNS-Einstellungen würde folgendermaßen aussehen:
+Derzeit unterstützt die Funktion nur einen DNS-Server. Ihre DNS-Einstellungen würden wie folgt aussehen:
 
-![Konfigurieren von DNS-Server mit statischen IP-pool](../media/Guarded-Fabric-Shielded-VM/guarded-host-unattend-static-ip-address-pool-dns-settings.png)
+![Konfigurieren des DNS-Servers mit statischem IP-Pool](../media/Guarded-Fabric-Shielded-VM/guarded-host-unattend-static-ip-address-pool-dns-settings.png)
 
-Hier ist Ihre Zusammenfassung für die statische IP-Adresspool erstellen würde folgendermaßen aussehen. Kurz gesagt, benötigen Sie nur eine Netzwerkroute, ein Gateway und ein DNS-Server -, und Sie müssen die IP-Adresse angeben.
+Im folgenden finden Sie eine Zusammenfassung zum Erstellen des statischen IP-Adress Pools. Kurz gesagt, Sie benötigen nur eine Netzwerk Route, ein Gateway und einen DNS-Server, und Sie müssen Ihre IP-Adresse angeben.
 
-![Zusammenfassung der Erstellung der statischen IP-Pools](../media/Guarded-Fabric-Shielded-VM/guarded-host-unattend-static-ip-address-pool-summary.png)
+![Zusammenfassung der Erstellung statischer IP-Pools](../media/Guarded-Fabric-Shielded-VM/guarded-host-unattend-static-ip-address-pool-summary.png)
 
-Sie müssen die Netzwerkadapter für den virtuellen Computer zu konfigurieren. Der folgende Screenshot zeigt, wo Sie festgelegt, dass die Konfiguration und wie Sie es und statische IP-Adresse zu wechseln.
+Sie müssen Ihren Netzwerkadapter für den virtuellen Computer konfigurieren. Der folgende Screenshot zeigt, wo Sie diese Konfiguration festlegen können und wie Sie Sie in statische IP-Adressen wechseln.
 
-![Konfigurieren der Hardware, um statische IP-Adresse zu verwenden.](../media/Guarded-Fabric-Shielded-VM/guarded-host-unattend-static-ip-address-pool-network-adapter-settings.png)
+![Konfigurieren der Hardware zur Verwendung statischer IP-Adressen](../media/Guarded-Fabric-Shielded-VM/guarded-host-unattend-static-ip-address-pool-network-adapter-settings.png)
 
-Anschließend können Sie die `-StaticIPPool` Parameter, um die statische IP-Elemente in der Antwortdatei einzuschließen. Die Parameter `@IPAddr-1@`, `@NextHop-1-1@`, und `@DNSAddr-1-1@` Antwort auf die Datei dann ersetzt werden durch die tatsächlichen Werte, die Sie in Virtual Machine Manager zum Zeitpunkt der Bereitstellung angegeben.
+Anschließend können Sie den `-StaticIPPool`-Parameter verwenden, um die statischen IP-Elemente in die Antwortdatei einzuschließen. Die Parameter `@IPAddr-1@`, `@NextHop-1-1@` und `@DNSAddr-1-1@` in der Antwortdatei werden dann durch die tatsächlichen Werte ersetzt, die Sie zum Zeitpunkt der Bereitstellung in Virtual Machine Manager angegeben haben.
 
 ```powershell
 $adminCred = Get-Credential -Message "Local administrator account"
@@ -100,12 +100,12 @@ $adminCred = Get-Credential -Message "Local administrator account"
 New-ShieldingDataAnswerFile -Path '.\ShieldedVMAnswerFile.xml' -AdminCredentials $adminCred -StaticIPPool IPv4Address
 ```
 
-## <a name="windows-answer-file-with-a-custom-locale"></a>Windows-Antwortdatei mit dem benutzerdefinierten Gebietsschema
+## <a name="windows-answer-file-with-a-custom-locale"></a>Windows-Antwortdatei mit einem benutzerdefinierten Gebiets Schema
 
-Die folgenden Befehle erstellen eine Windows-Antwortdatei mit dem benutzerdefinierten Gebietsschema.
+Mit den folgenden Befehlen wird eine Windows-Antwortdatei mit einem benutzerdefinierten Gebiets Schema erstellt.
 
-Geben Sie bei Aufforderung zur Eingabe der Anmeldeinformationen eines Administrators den gewünschten Benutzernamen und das Kennwort ein.
-Verwenden Sie "Administrator" für den Benutzernamen ein, wenn Sie das integrierte Administratorkonto konfigurieren möchten.
+Wenn Sie zur Eingabe von Administrator Anmelde Informationen aufgefordert werden, geben Sie den gewünschten Benutzernamen und das Kennwort an.
+Verwenden Sie "Administrator" als Benutzername, wenn Sie das integrierte Administrator Konto konfigurieren möchten.
 
 ```powershell
 $adminCred = Get-Credential -Message "Local administrator account"
@@ -114,13 +114,13 @@ $domainCred = Get-Credential -Message "Domain join credentials"
 New-ShieldingDataAnswerFile -Path '.\ShieldedVMAnswerFile.xml' -AdminCredentials $adminCred -Locale es-ES
 ```
 
-## <a name="basic-linux-answer-file"></a>Einfache Linux-Antwortdatei
+## <a name="basic-linux-answer-file"></a>Grundlegende Linux-Antwortdatei
 
-Ab Windows Server-Version 1709, können Sie bestimmte Linux-Gastbetriebssysteme in abgeschirmte VMs ausführen.
-Wenn Sie den System Center Virtual Machine Manager-Linux-Agent spezialisiert werden diese virtuellen Computer verwenden, kann das Cmdlet "New-ShieldingDataAnswerFile" kompatible Antwortdateien dafür erstellen.
+Ab Windows Server, Version 1709, können Sie bestimmte Linux-Gast Betriebssysteme auf abgeschirmten VMS ausführen.
+Wenn Sie den System Center Virtual Machine Manager Linux-Agent verwenden, um diese VMS zu spezialisieren, kann das Cmdlet New-shieldingdatabeantworsdatei kompatible Antwort Dateien für das Cmdlet erstellen.
 
-In einem Linux-Antwortdatei enthalten Sie in der Regel die Root-Kennwort, Root-SSH-Schlüssel und optional auch statische IP-Pool-Informationen.
-Ersetzen Sie den Pfad zu der öffentliche Hälfte Ihres SSH-Schlüssels, bevor Sie das folgende Skript ausführen.
+In einer Linux-Antwortdatei enthalten Sie in der Regel das Stamm Kennwort, den Stamm-SSH-Schlüssel und optional Informationen zum statischen IP-Pool.
+Ersetzen Sie den Pfad zur öffentlichen Hälfte Ihres SSH-Schlüssels, bevor Sie das folgende Skript ausführen.
 
 ```powershell
 $rootPassword = Read-Host -Prompt "Root password" -AsSecureString

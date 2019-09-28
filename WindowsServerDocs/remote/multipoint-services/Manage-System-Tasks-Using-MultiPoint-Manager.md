@@ -1,8 +1,8 @@
 ---
 title: Verwalten von Systemaufgaben mithilfe des MultiPoint-Managers
-description: Übersicht über die Aufgaben im MultiPoint-Manager
+description: Übersicht über Verwaltungsaufgaben in Multipoint Manager
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,15 +13,15 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 52400b5ed74e4dcc9350e74ac8bc31182fdbbccc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 185f4c88286138af61f92f3f349efd8f584ed73c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845111"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405060"
 ---
 # <a name="manage-system-tasks-using-multipoint-manager"></a>Verwalten von Systemaufgaben mithilfe des MultiPoint-Managers
-Im MultiPoint-Manager können Sie die **Startseite** Registerkarte, um MultiPoint Services-Aufgaben ausführen und überprüfen Sie den Zustand des Systems. Zu den Aufgaben, die Sie auf der Registerkarte **Start** ausführen können, gehören unter anderem:  
+Im Multipoint-Manager können Sie die Registerkarte **Start** verwenden, um Multipoint Services-Tasks auszuführen und den Status des Systems zu überprüfen. Zu den Aufgaben, die Sie auf der Registerkarte **Start** ausführen können, gehören unter anderem:  
   
 -   Bearbeiten der bei der MultiPoint Services-Installation ausgewählten Einstellungen, wie im Thema [Bearbeiten von Servereinstellungen](Edit-Server-Settings.md) beschrieben.  
   
@@ -36,9 +36,9 @@ Im MultiPoint-Manager können Sie die **Startseite** Registerkarte, um MultiPoin
 -   Hinzufügen oder Entfernen von Computern, wie im Thema [Hinzufügen oder Entfernen von Computern](Add-or-Remove-Computers.md) beschrieben.  
 
 ## <a name="see-also"></a>Siehe auch  
-[Bearbeiten von servereinstellungen](Edit-Server-Settings.md)  
+[Bearbeiten von Servereinstellungen](Edit-Server-Settings.md)  
 [Neustarten oder Herunterfahren](Restart-or-Shut-Down.md)  
 [Wechseln zwischen Modi](Switch-Between-Modes.md)  
 [Aktivieren oder Deaktivieren des Datenträgerschutzes](Enable-or-Disable-Disk-Protection.md)  
-[Neuzuordnen Sie aller Stationen](Remap-All-Stations.md)  
-[Hinzufügen oder Entfernen von Computern](Add-or-Remove-Computers.md)
+[Neuzuordnen aller Stationen](Remap-All-Stations.md)  
+[Computer hinzufügen oder entfernen](Add-or-Remove-Computers.md)

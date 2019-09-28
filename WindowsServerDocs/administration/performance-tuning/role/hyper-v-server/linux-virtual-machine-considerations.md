@@ -1,40 +1,40 @@
 ---
-title: Überlegungen zur Linux-VM
-description: Linux und BSD-VM
-ms.prod: windows-server-threshold
+title: Überlegungen zu virtuellen Linux-Computern
+description: Virtueller Linux-und BSD-Computer
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: cc6aab7825754579269eb05e591ca2a3cf5a561b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5668629e7eded214525561d30fec496a4e91b8dc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869681"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385068"
 ---
-# <a name="linux-virtual-machine-considerations"></a>Überlegungen zur Linux-VM
+# <a name="linux-virtual-machine-considerations"></a>Überlegungen zu virtuellen Linux-Computern
 
-Linux- und BSD-Computer sind noch weitere Aspekte im Vergleich zu Windows-VMs in Hyper-V.
+Bei virtuellen Linux-und BSD-Computern müssen im Vergleich zu virtuellen Windows-Computern in Hyper-V zusätzliche Aspekte berücksichtigt werden.
 
-Der erste Aspekt ist, ob Integration Services vorhanden sind oder wenn der virtuelle Computer mit keine Erleuchtung lediglich auf emulierte Hardware ausgeführt wird. Eine Tabelle mit Linux und BSD-Versionen, die integrierte oder durch Herunterladen-Integrationsdiensten finden Sie in [unterstützt Linux und FreeBSD-VMs für Hyper-V unter Windows](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows). Diese Seiten enthalten Raster verfügbare Hyper-V-Features, die für Linux verteilungsversionen und Hinweise zu dieser Funktionen verfügbar, falls zutreffend.
+Der erste Aspekt ist, ob Integration Services vorhanden sind oder ob der virtuelle Computer nur auf emulierten Hardware ohne Aufklärung ausgeführt wird. Eine Tabelle mit Linux-und BSD-Releases, die über integrierte oder herunterladbare Integration Services verfügen, ist [unter Unterstützte virtuelle Linux-und FreeBSD-Computer für Hyper-V unter Windows](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows)verfügbar. Diese Seiten enthalten Raster verfügbarer Hyper-V-Features, die für Linux-Verteilungs Releases verfügbar sind, sowie Hinweise zu diesen Features, sofern zutreffend.
 
-Selbst wenn der Gast Integration Services ausgeführt wird, kann es bei älterer Hardware konfiguriert werden, die nicht die optimale Leistung aufweist. Beispielsweise konfigurieren Sie und verwenden Sie einen virtuellen Ethernetadapter für das Gastbetriebssystem, anstatt eine ältere Netzwerkkarte. Mit Windows Server 2016 können Sie erweiterte Netzwerk wie SR-IOV sind ebenfalls verfügbar.
+Auch wenn der Gast Integration Services ausgeführt wird, kann er mit Legacy Hardware konfiguriert werden, die nicht die beste Leistung aufweist. Konfigurieren und verwenden Sie z. b. einen virtuellen Ethernet-Adapter für den Gast, anstatt einen Legacy-Netzwerkadapter zu verwenden. Mit Windows Server 2016 sind auch erweiterte Netzwerke wie SR-IOV verfügbar.
 
 ## <a name="linux-network-performance"></a>Linux-Netzwerkleistung
 
-Linux in der Standardeinstellung wird die Hardwarebeschleunigung aktiviert und standardmäßig verlagert. Wenn vRSS in den Eigenschaften einer NIC auf dem Host aktiviert ist, und Linux-Gast die Möglichkeit zum Verwenden von vRSS bietet wird die Funktion aktiviert werden. In Powershell diese denselben Parameter geändert werden kann, mit der `EnableNetAdapterRSS` Befehl.
+Linux aktiviert standardmäßig Hardwarebeschleunigung und-Abladungen. Wenn vrss in den Eigenschaften einer NIC auf dem Host aktiviert ist und der Linux-Gast die Funktion zur Verwendung von vrss hat, wird die Funktion aktiviert. In PowerShell kann derselbe Parameter mit dem Befehl "`EnableNetAdapterRSS`" geändert werden.
 
-Auf ähnliche Weise kann die VMMQ (virtuellen Switch, RSS)-Funktion aktiviert werden, auf die physische Netzwerkkarte vom Gastbetriebssystem **Eigenschaften** > **konfigurieren...**   >  **Erweitert** Registerkarte > festgelegt **RSS für virtuelle Switches** zu **aktiviert** oder VMMQ in Powershell mithilfe des folgenden aktivieren:
+Ebenso kann die vmmq-Funktion (Virtual Switch RSS) auf der physischen NIC aktiviert werden, die von den Gast **Eigenschaften**verwendet wird  > **konfigurieren...**  > -Registerkarte**erweitert** > den **virtuellen Switch RSS** auf **aktiviert** oder vmmq in PowerShell aktivieren, indem Sie Folgendes verwenden:
 
 ```PowerShell
  Set-VMNetworkAdapter -VMName **$VMName** -VmmqEnabled $True
  ```
 
-Auf dem Gast kann zusätzliche TCP-Optimierungen erfolgen durch Erhöhen der Grenzwerte. Die beste Leistung Verteilen von Arbeitslast über mehrere CPUs und Tiefe von Workloads generiert den besten Durchsatz, wie für virtualisierte arbeitsauslastungen sind höhere Latenz als "bare-Metal" hat die.
+Im Gast kann zusätzliche TCP-Optimierung durch Erhöhung der Limits durchgeführt werden. Um die beste Leistung für die Leistungsverteilung für mehrere CPUs zu erzielen und umfassende Workloads zu erzielen, wird der beste Durchsatz erzielt, da virtualisierte Arbeits Auslastungen eine höhere Latenz als "Bare-Metal" aufweisen.
 
-Einige Beispiel-Optimierung-Parameter, die insbesondere für die Netzwerk-Benchmarks wurden gehören:
+Beispiele für Optimierungsparameter, die in den Netzwerk Benchmarks nützlich waren:
 
 ```PowerShell
 net.core.netdev_max_backlog = 30000
@@ -49,13 +49,13 @@ net.ipv4.ip_local_port_range = 10240 65535
 net.ipv4.tcp_abort_on_overflow = 1
 ```
 
-Ein nützliches Tool für die Netzwerk-Microbenchmarks ist Ntttcp, die auf Linux- und Windows verfügbar ist. Die Linux-Version ist open Source und verfügbar [Ntttcp-for-Linux auf github.com](https://github.com/Microsoft/ntttcp-for-linux). Die Windows-Version finden Sie in der [Downloadcenter](https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769). Beim Optimieren von Workloads ist es am besten, so viele Streams nach Bedarf zu verwenden, um den besten Durchsatz zu erhalten. Mithilfe der Ntttcp für den Modell-Verkehr, der `-P` Parameter legt fest, die Anzahl von parallelen Verbindungen verwendet.
+Ein nützliches Tool für Netzwerk-Mikrobenchmarks ist ntttcp, das unter Linux und Windows verfügbar ist. Die Linux-Version ist Open Source und ist [über ntttcp-for-Linux auf GitHub.com](https://github.com/Microsoft/ntttcp-for-linux)verfügbar. Die Windows-Version finden [Sie im Download Center](https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769). Beim Optimieren von Arbeits Auslastungen empfiehlt es sich, möglichst viele Streams zu verwenden, um den besten Durchsatz zu erzielen. Durch die Verwendung von ntttcp zum Modellieren von Datenverkehr legt der Parameter "`-P`" die Anzahl der verwendeten parallelen Verbindungen fest.
 
 ## <a name="linux-storage-performance"></a>Linux-Speicherleistung
 
-Finden Sie einige bewährten Methoden, wie folgt aus, auf [bewährte Methoden für die Ausführung von Linux auf Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/best-practices-for-running-linux-on-hyper-v). Der Linux-Kernel verfügt über verschiedene e/a-Planer, Anforderungen mit unterschiedlichen Algorithmen neu anzuordnen. NOOP ist einer First in First Out-Warteschlange, die die Entscheidung Zeitplan vom Hypervisor getroffen werden übergeben. Es wird empfohlen, NOOP als Planer zu verwenden, bei der Ausführung von virtuellen Linux-Computer auf Hyper-V. So ändern Sie den Planer für ein bestimmtes Gerät, in der Konfiguration für das Startladeprogramm (/ etc/grub.conf, z. B.), fügen `elevator=noop` die Kernel-Parameter, und klicken Sie dann erneut starten.
+Einige bewährte Methoden, wie z. b. die folgenden, werden unter Empfohlene [Vorgehensweisen für die Ausführung von Linux unter Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/best-practices-for-running-linux-on-hyper-v)aufgeführt. Der Linux-Kernel verfügt über unterschiedliche e/a-Planer, um Anforderungen mit unterschiedlichen Algorithmen neu anzuordnen. NOOP ist eine First-in-First-Out-Warteschlange, die die vom Hypervisor vorgenommene Zeit Plan Entscheidung übergibt. Es wird empfohlen, NOOP als Scheduler zu verwenden, wenn Sie virtuelle Linux-Computer unter Hyper-V ausführen. Um den Scheduler für ein bestimmtes Gerät zu ändern, fügen Sie in der Konfiguration des Start Laders (z. b./etc/grub.conf) `elevator=noop` zu den Kernel Parametern hinzu, und starten Sie dann neu.
 
-Ähnlich wie Netzwerke, profitiert auch Linux-Gast-Anwendungsleistung mit Storage Nutzung von mehreren Warteschlangen mit ausreichende Tiefe um den Host ausgelastet. Speicherleistung Microbenchmarking ist wahrscheinlich am besten mit dem Fio Benchmark-Tool, mit der Libaio-Engine.
+Ähnlich wie bei Netzwerken profitiert die Leistung der Linux-gastleistung mit dem Speicher am meisten von mehreren Warteschlangen mit ausreichender Tiefe, um den Host ausgelastet zu halten. Die Speicherleistung von Mikro Benchmarks ist wahrscheinlich am besten mit dem fio-Benchmark-Tool mit der libaio-Engine.
 
 ## <a name="see-also"></a>Siehe auch
 
@@ -63,14 +63,14 @@ Finden Sie einige bewährten Methoden, wie folgt aus, auf [bewährte Methoden f�
 
 -   [Hyper-V-Architektur](architecture.md)
 
--   [Hyper-V-Server-Konfiguration](configuration.md)
+-   [Hyper-V-Serverkonfiguration](configuration.md)
 
--   [Hyper-V, prozessorbezogene Leistungsdaten](processor-performance.md)
+-   [Hyper-V-Prozessorleistung](processor-performance.md)
 
--   [Hyper-V-Memory-Leistung](memory-performance.md)
+-   [Hyper-V-Arbeitsspeicherleistung](memory-performance.md)
 
--   [Hyper-V-Speicher-e/a-Leistung](storage-io-performance.md)
+-   [E/A-Leistung für Hyper-V-Speicher](storage-io-performance.md)
 
--   [Hyper-V-Netzwerk-e/a-Leistung](network-io-performance.md)
+-   [E/A-Leistung für Hyper-V-Netzwerk](network-io-performance.md)
 
 -   [Erkennen von Engpässen in einer virtualisierten Umgebung](detecting-virtualized-environment-bottlenecks.md)

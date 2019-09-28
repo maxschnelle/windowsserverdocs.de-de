@@ -1,8 +1,8 @@
 ---
 title: Telnet-Satz
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b68ce0ee87d80b25cf13db5bebc6c407a9fe091f
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: e39e2812edc9cd5f169a046def26beebda1d007e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441019"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383620"
 ---
-# <a name="telnet-set"></a>Telnet: festgelegt
+# <a name="telnet-set"></a>Telnet: Set
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Legt Optionen fest.   
 ## <a name="syntax"></a>Syntax  
@@ -33,25 +33,25 @@ set [bsasdel] [crlf] [delasbs] [escape <Char>] [localecho] [logfile <FileName>] 
 
 |                    Parameter                     |                                                                                                                                              Beschreibung                                                                                                                                              |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|                     bsasdel                      |                                                                                                                                 Sendet **RÜCKTASTE** als eine **löschen**.                                                                                                                                  |
-|                       crlf                       |                                                                                                        Sendet CR & LF (0x0D, 0 x 0A) Wenn die **EINGABETASTE** gedrückt wird. Als neue Zeilenmodus bezeichnet.                                                                                                        |
-|                     delasbs                      |                                                                                                                                 Sendet **löschen** als eine **RÜCKTASTE**.                                                                                                                                  |
-|                Escapezeichen <Character>                | Legt fest, das Escapezeichen verwendet, um die Telnet-Client-Eingabeaufforderung einzugeben. Das Escape-Zeichen kann ein einzelnes Zeichen, oder es kann sein, eine Kombination aus den **STRG** Schlüssel sowie ein Zeichen. Um eine Kombination von Steuerelement-Schlüssel festzulegen, halten Sie die **STRG** gedrückt, während Sie das Zeichen eingeben, die Sie zuweisen möchten. |
-|                    localecho                     |                                                                                                                                         Aktiviert die lokale Echo.                                                                                                                                          |
-|                Protokolldatei <FileName>                |                                                                                               Die Telnet-Sitzung in der lokalen Datei protokolliert. Protokollierung wird automatisch gestartet, wenn Sie diese Option festgelegt.                                                                                               |
-|                     logging                      |                                                                                                                  Aktiviert die Protokollierung. Wenn keine Protokolldatei festgelegt ist, wird eine Fehlermeldung angezeigt.                                                                                                                   |
-|           Modus {Konsole &#124; Bildschirm}           |                                                                                                                                       Legt den Betriebsmodus fest.                                                                                                                                        |
-|                       ntlm                       |                                                                                                                                     Aktiviert die NTLM-Authentifizierung.                                                                                                                                     |
-| term {ansi &#124; vt100 &#124; vt52 &#124; vtnt} |                                                                                                                                        Legt den Terminalserver fest.                                                                                                                                        |
-|                        ?                         |                                                                                                                                    Zeigt die Hilfe für diesen Befehl.                                                                                                                                    |
+|                     bsasdel                      |                                                                                                                                 Sendet **Rückraum** als **Lösch**Vorgang.                                                                                                                                  |
+|                       CRLF                       |                                                                                                        Sendet CR & LF (0x0D, 0x 0A), wenn die **Eingabe** Taste gedrückt wird. Wird als neuer Zeilen Modus bezeichnet.                                                                                                        |
+|                     Delta-                      |                                                                                                                                 Sendet **Delete** als **RÜCKTASTE**.                                                                                                                                  |
+|                Escape-<Character>                | Legt das Escapezeichen fest, mit dem die Telnet-Client Eingabeaufforderung eingegeben wird. Das Escapezeichen kann ein einzelnes Zeichen oder eine Kombination aus der **STRG** -Taste und einem Zeichen sein. Halten Sie zum Festlegen einer Tastenkombination die **STRG** -Taste gedrückt, während Sie das Zeichen eingeben, das Sie zuweisen möchten. |
+|                    LOCALECHO                     |                                                                                                                                         Schaltet das lokale Echo ein.                                                                                                                                          |
+|                Protokolldatei-<FileName>                |                                                                                               Protokolliert die aktuelle Telnet-Sitzung in der lokalen Datei. Die Protokollierung beginnt automatisch, wenn Sie diese Option festlegen.                                                                                               |
+|                     logging                      |                                                                                                                  Schaltet die Protokollierung ein. Wenn keine Protokolldatei festgelegt ist, wird eine Fehlermeldung angezeigt.                                                                                                                   |
+|           Modus {Konsolen &#124; Bildschirm}           |                                                                                                                                       Legt den Betriebsmodus fest.                                                                                                                                        |
+|                       NTLM                       |                                                                                                                                     Schaltet die NTLM-Authentifizierung ein.                                                                                                                                     |
+| Begriff {ANSI &#124; VT100 &#124; VT52 &#124; VTNT} |                                                                                                                                        Legt den Terminaltyp fest.                                                                                                                                        |
+|                        ?                         |                                                                                                                                    Zeigt die Hilfe für diesen Befehl an.                                                                                                                                    |
 
 ## <a name="remarks"></a>Hinweise  
-1. Können Sie die **Festlegung** Befehl aus, um eine Option zu deaktivieren, die zuvor festgelegt wurde.  
-2. In nicht englischsprachigen Versionen von Telnet die **Codesatz** <option> verfügbar ist. **Codesatz** <option> legt den aktuellen Code eine Option, die möglicherweise eine der folgenden festgelegt: **shift-JIS**, **japanische EUC**, **JIS Kanji**, **JIS Kanji (78)** , **DEC Kanji**, **NEC Kanji**. Sie sollten den gleichen Code, der festgelegt wird, auf dem Remotecomputer festlegen.  
-   ## <a name="BKMK_Examples"></a>Beispiele für  
-   Legen Sie die Protokolldatei, und beginnen Sie die Protokollierung in der lokalen Datei tnlog.txt  
+1. Sie können den **Festlegung** -Befehl verwenden, um eine Option zu deaktivieren, die zuvor festgelegt wurde.  
+2. In nicht englischsprachigen Versionen von Telnet ist das **Codeset** <option> verfügbar. **Codeset** <option> legt den aktuellen Code fest, der auf eine Option festgelegt ist. dabei kann es sich um einen der folgenden handeln: **Shift JIS**, **Japanese EUC**, **JIS Kanji**, **JIS Kanji (78)** , **Dec Kanji**, **NEC Kanji**. Sie sollten den gleichen Code festlegen, der auf dem Remote Computer festgelegt ist.  
+   ## <a name="BKMK_Examples"></a>Beispiele  
+   Festlegen der Protokolldatei und Starten der Protokollierung in der lokalen Datei "tnlog. txt"  
    ```  
    set logfile tnlog.txt  
    ```  
-   ## <a name="additional-references"></a>Zusätzliche Referenzen  
+   ## <a name="additional-references"></a>Weitere Verweise  
 3. [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

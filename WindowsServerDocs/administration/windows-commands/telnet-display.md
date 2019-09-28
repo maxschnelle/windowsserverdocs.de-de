@@ -1,8 +1,8 @@
 ---
 title: Telnet-Anzeige
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,28 +13,28 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c3257ea8ac9f914999ef2776795f5ec8439e5caa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4276b3cefcee6ac2b4b93e3859e31d791269f91f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822911"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370609"
 ---
-# <a name="telnet-display"></a>Telnet: anzuzeigen
+# <a name="telnet-display"></a>Telnet: Anzeige
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zeigt die Betriebsparameter.   
+Zeigt Betriebsparameter an.   
 ## <a name="syntax"></a>Syntax  
 ```  
 d[isplay]  
 ```  
 ### <a name="parameters"></a>Parameter  
 none  
-## <a name="BKMK_Examples"></a>Beispiele für  
-Betriebsparameter anzuzeigen.  
+## <a name="BKMK_Examples"></a>Beispiele  
+Anzeigen von Betriebsparametern.  
 ```  
 d  
 ```  
-## <a name="additional-references"></a>Zusätzliche Referenzen  
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
+## <a name="additional-references"></a>Weitere Verweise  
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

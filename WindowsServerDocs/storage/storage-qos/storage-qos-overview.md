@@ -1,6 +1,6 @@
 ---
 title: Quality of Service für Speicher
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: dongill
 ms.author: JGerend
 ms.technology: storage-qos
@@ -8,33 +8,33 @@ ms.topic: get-started-article
 ms.assetid: 8dcb8cf9-0e08-4fdd-9d7e-ec577ce8d8a0
 author: kumudd
 ms.date: 10/10/2016
-ms.openlocfilehash: 159ed05717cbd0743e5b96215515293025352569
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0e848260dd4ba3b37d1351fba7c24dd3cd283e69
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849631"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393943"
 ---
 # <a name="storage-quality-of-service"></a>Quality of Service für Speicher
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 Quality of Service (QoS) für Speicher in Windows Server 2016 ermöglicht eine zentrale Überwachung und Verwaltung der Speicherleistung für virtuelle Computer unter Verwendung der Hyper-V-Rolle und der Rolle des Dateiservers mit horizontaler Skalierung. Mit diesem Feature werden Speicherressourcen automatisch fairer auf mehrere virtuelle Computer verteilt, die denselben Dateiservercluster verwenden. Außerdem können richtlinienbasierte Mindest- und Maximalwerte als Leistungsziele konfiguriert werden. Die dabei verwendete Einheit sind normalisierte IOPS.  
 
 Sie können QoS für Speicher in Windows Server 2016 nutzen, um folgende Ziele zu erreichen:  
 
--   **Minimierung von Problemen mit konkurrierenden.** Mit Speicher-QoS wird standardmäßig sichergestellt, dass ein einzelner virtueller Computer nicht die gesamten Speicherressourcen belegen kann, sodass keine Speicherbandbreite für die übrigen virtuellen Computer verfügbar ist.  
+-   **Vermeiden Sie Probleme mit dem Noisy-Nachbar** Mit Speicher-QoS wird standardmäßig sichergestellt, dass ein einzelner virtueller Computer nicht die gesamten Speicherressourcen belegen kann, sodass keine Speicherbandbreite für die übrigen virtuellen Computer verfügbar ist.  
 
--   **Überwachen der End-to-End-speicherleistung.** Sobald die virtuellen Computer auf einem Dateiserver mit horizontaler Skalierung gestartet werden, wird ihre Leistung überwacht. Die Leistungsdetails aller ausgeführten virtuellen Computer sowie die Konfiguration des Dateiserverclusters mit horizontaler Skalierung können zentralisiert angezeigt werden.  
+-   **Überwachen der End-to-End-Speicherleistung.** Sobald die virtuellen Computer auf einem Dateiserver mit horizontaler Skalierung gestartet werden, wird ihre Leistung überwacht. Die Leistungsdetails aller ausgeführten virtuellen Computer sowie die Konfiguration des Dateiserverclusters mit horizontaler Skalierung können zentralisiert angezeigt werden.  
 
 -   **Verwalten der Speicher-E/A in Übereinstimmung mit den Workloadanforderungen des Unternehmens** Speicher-QoS-Richtlinien definieren Mindest- und Höchstwerte für virtuelle Computer und stellen die Einhaltung dieser Vorgaben sicher. Dadurch wird selbst in Umgebungen mit hoher Dichte oder zu umfangreicher Bereitstellung eine einheitliche Leistung für virtuelle Computer erreicht. Wenn die Richtlinien nicht eingehalten werden können, kann anhand von Warnungen nachverfolgt werden, wann eine Richtlinie nicht von einer VM eingehalten wurde oder ob einer VM eine ungültige Richtlinie zugewiesen ist.  
 
 In diesem Dokument wird beschrieben, wie Ihr Unternehmen von der neuen Speicher-QoS-Funktionalität profitieren kann. Es wird davon ausgegangen, dass Sie bereits mit Windows Server, mit Windows Server-Failoverclustering, mit Dateiservern mit horizontaler Skalierung, mit Hyper-V sowie mit Windows PowerShell vertraut sind.
 
-## <a name="BKMK_Overview"></a>Übersicht über die  
+## <a name="BKMK_Overview"></a>Übersicht über  
 In diesem Abschnitt werden die Anforderungen für die Verwendung von Speicher-QoS beschrieben. Außerdem finden Sie eine Übersicht über eine softwaredefinierte Lösung unter Verwendung von Speicher-QoS sowie eine Terminologieliste zu Speicher-QoS.  
 
-### <a name="BKMK_Requirements"></a>Speicher-QoS-Anforderungen  
+### <a name="BKMK_Requirements"></a>QoS-Speicheranforderungen  
 Speicher-QoS unterstützt zwei Bereitstellungsszenarien:  
 
 -   **Hyper-V unter Verwendung eines Dateiservers mit horizontaler Skalierung** Für dieses Szenario werden die beiden folgenden Komponenten benötigt:  
@@ -45,9 +45,9 @@ Speicher-QoS unterstützt zwei Bereitstellungsszenarien:
 
     Für Speicher-QoS wird der Failovercluster auf Speicherservern benötigt, die Computeserver müssen sich jedoch nicht in einem Failovercluster befinden. Auf allen Servern (sowohl für Speicher als auch für Compute) muss Windows Server 2016 ausgeführt werden.  
 
-    Wenn Sie keinen Scale-Out File Server-Cluster, die für Evaluierungszwecke bereitgestellt haben, Schritt-für-Schritt-Anleitung zum Erstellen mit dem vorhandenen Servern oder virtuellen Computern, finden Sie unter [Windows Server 2012 R2-Speicher: Schritt für Schritt mit Storage Spaces, SMB horizontale Hochskalierung und freigegebene VHDX (physisch)](http://blogs.technet.com/b/josebda/archive/2013/07/31/windows-server-2012-r2-storage-step-by-step-with-storage-spaces-smb-scale-out-and-shared-vhdx-physical.aspx).  
+    Wenn Sie keinen Dateiserver mit horizontaler Skalierung Cluster zu Evaluierungs Zwecken bereitgestellt haben, finden Sie unter [windows Server 2012 R2-Speicher eine Schritt-für-Schritt-Anleitung zum Erstellen eines Clusters mit vorhandenen Servern oder virtuellen Computern: Schritt für Schritt mit Speicherplätzen, SMB-Skalierung und frei gegebenem vhdx (Physical) ](http://blogs.technet.com/b/josebda/archive/2013/07/31/windows-server-2012-r2-storage-step-by-step-with-storage-spaces-smb-scale-out-and-shared-vhdx-physical.aspx).  
 
--   **Hyper-V mithilfe von freigegebenen Clustervolumes.** Für dieses Szenario sind die beiden folgenden Komponenten erforderlich:  
+-   **Hyper-V mit freigegebenen Clustervolumes.** Für dieses Szenario sind die beiden folgenden Komponenten erforderlich:  
 
     -   Computecluster mit aktivierter Hyper-V-Rolle  
 
@@ -55,18 +55,18 @@ Speicher-QoS unterstützt zwei Bereitstellungsszenarien:
 
 Ein Failovercluster ist erforderlich. Auf allen Servern muss die gleiche Version von Windows Server 2016 ausgeführt werden.  
 
-### <a name="BKMK_SolutionOverview"></a>Verwenden von Speicher-QoS in einer softwaredefinierten speicherlösung  
+### <a name="BKMK_SolutionOverview"></a>Verwenden von Speicher-QoS in einer Software definierten Speicherlösung  
 Speicher-QoS ist in die softwaredefinierte Speicherlösung von Microsoft integriert, die mit dem Dateiserver mit horizontaler Skalierung und Hyper-V bereitgestellt wird. Der Dateiserver mit horizontaler Skalierung legt Dateifreigaben für die Hyper-V-Server über das SMB3-Protokoll offen. Der Dateiservercluster wurde um einen neuen Richtlinien-Manager erweitert, der eine zentrale Überwachung der Speicherleistung ermöglicht.  
 
 ![Dateiserver mit horizontaler Skalierung und QoS für Speicher](media/overview-Clustering_SOFSStorageQoS.png)  
 
-**Abbildung 1: Verwenden von Speicher-QoS in einer softwaredefinierten speicherlösung in Scale-Out File Server**  
+**Abbildung 1: Verwenden von Speicher-QoS in einer Software definierten Speicherlösung in Dateiserver mit horizontaler Skalierung @ no__t-0  
 
 Sobald Hyper-V-Server virtuelle Computer starten, werden diese vom Richtlinien-Manager überwacht. Der Richtlinien-Manager übermittelt die Speicher-QoS-Richtlinie sowie die zugehörigen Grenzwerte und Reservierungen an den Hyper-V-Server, der die Leistung der virtuellen Computer entsprechend steuert.  
 
 Bei Änderungen der Speicher-QoS-Richtlinien oder der Leistungsanforderungen virtueller Computer benachrichtigt der Richtlinien-Manager die Hyper-V-Server, damit diese ihr Verhalten anpassen. Durch diese Kommunikation zwischen den beiden Komponenten wird sichergestellt, dass alle VM-VHDs eine einheitliche Leistung bieten, die den Speicher-QoS-Richtlinien entspricht.  
 
-### <a name="BKMK_Glossary"></a>Glossar  
+### <a name="BKMK_Glossary"></a>Aren  
 
 |Begriff|Beschreibung|  
 |--------|---------------|  
@@ -74,17 +74,17 @@ Bei Änderungen der Speicher-QoS-Richtlinien oder der Leistungsanforderungen vir
 |Fluss|Jedes Dateihandle, das von einem Hyper-V-Server für eine VHD- oder VHDX-Datei geöffnet wird, wird als „Fluss“ betrachtet. Wenn ein virtueller Computer mit zwei virtuellen Festplatten verknüpft ist, verfügt er für jede Datei über einen Fluss zum Dateiservercluster. Wenn ein VHDX-Datenträger für mehrere virtuelle Computer freigegeben ist, verfügt er über einen Fluss pro VM.|  
 |InitiatorName|Der Name des virtuellen Computers, der dem Dateiserver mit horizontaler Skalierung für jeden Fluss gemeldet wird.|  
 |InitiatorID|Ein Bezeichner, der der VM-ID entspricht.  Dieser Bezeichner kann immer zur eindeutigen Identifizierung einzelner VM-Flüsse verwendet werden (selbst dann, wenn die VMs denselben InitiatorName-Wert aufweisen).|  
-|Richtlinie|Speicher-QoS-Richtlinien werden in der Clusterdatenbank gespeichert und verfügen über die folgenden Eigenschaften: PolicyId, MinimumIOPS, MaximumIOPS, ParentPolicy und PolicyType.|  
+|Richtlinie|Speicher-QoS-Richtlinien werden in der Cluster Datenbank gespeichert und weisen die folgenden Eigenschaften auf: PolicyId, minimumiops, maximumiops, para Policy und policyType.|  
 |PolicyId|Eindeutiger Bezeichner für eine Richtlinie.  Dieser Wert wird standardmäßig generiert, kann bei Bedarf jedoch auch festgelegt werden.|  
 |MinimumIOPs|Mindestwert für normalisierte IOPS, die von einer Richtlinie bereitgestellt werden.  Auch als „Reservierung“ bezeichnet.|  
 |MaximumIOPs|Höchstwert für normalisierte IOPS, die von einer Richtlinie eingeschränkt werden.  Auch als „Grenzwert“ bezeichnet.|  
 |Aggregated |Ein Richtlinientyp, bei dem die angegebenen MinimumIOPs und MaximumIOPs sowie die Bandbreite auf alle Flüsse verteilt werden, die der Richtlinie zugewiesen sind. Alle VHDs, die der Richtlinie innerhalb des Speichersystems zugewiesen sind, weisen eine einzige Zuordnung von E/A-Bandbreite auf, die auf die VHDs verteilt wird.|  
 |Dedicated|Ein Richtlinientyp, bei dem die angegebenen MinimumIOPs und MaximumIOPs sowie die Bandbreite für einzelne VHD/VHDx-Datenträger verwaltet werden.|  
 
-## <a name="BKMK_SetUpQoS"></a>Gewusst wie: Einrichten von Speicher-QoS und Überwachen der grundlegenden Leistung  
+## <a name="BKMK_SetUpQoS"></a>Einrichten von Speicher-QoS und Überwachen der grundlegenden Leistung  
 In diesem Abschnitt wird beschrieben, wie Sie das neue Speicher-QoS-Feature aktivieren und die Speicherleistung überwachen, ohne benutzerdefinierte Richtlinien anzuwenden.  
 
-### <a name="BKMK_SetupStorageQoSonStorageCluster"></a>Einrichten von Speicher-QoS auf einem Cluster  
+### <a name="BKMK_SetupStorageQoSonStorageCluster"></a>Einrichten von Speicher-QoS auf einem Speicher Cluster  
 In diesem Abschnitt wird erläutert, wie Sie QoS für Speicher auf einem neuen oder vorhandenen Failovercluster und Dateiserver mit horizontaler Skalierung aktivieren, auf dem Windows Server 2016 ausgeführt wird.  
 
 #### <a name="set-up-storage-qos-on-a-new-installation"></a>Einrichten von Speicher-QoS auf einer Neuinstallation  
@@ -95,7 +95,7 @@ Nachdem Sie einen Failovercluster erstellt und einen CSV-Datenträger konfigurie
 
 ![QoS für Speicher-Ressource wird in Hauptressourcen des Clusters angezeigt](media/overview-Clustering_StorageQoSFCM.png)  
 
-**Abbildung 2: Speicher-QoS-Ressource als Clustercoreressource im Failovercluster-Manager angezeigt**  
+**Abbildung 2: Speicher-QoS-Ressource wird als Cluster Kernressource in Failovercluster-Manager @ no__t-0  
 
 Verwenden Sie das folgende PowerShell-Cmdlet, um den Status der Speicher-QoS-Ressource anzuzeigen.  
 
@@ -115,14 +115,14 @@ Sie können die Remoteserver-Verwaltungstools verwenden, um Speicher-QoS-Richtli
 
 Das optionale Feature **RSAT-Clustering** umfasst das Windows PowerShell-Modul für die Remoteverwaltung des Failoverclusterings (einschließlich Speicher-QoS).  
 
--   Windows PowerShell: Add-WindowsFeature RSAT-Clustering  
+-   Windows PowerShell: Add-Windows Feature RSAT-Clustering  
 
 Das optionale Feature **RSAT-Hyper-V-Tools** umfasst das Windows PowerShell-Modul für die Remoteverwaltung von Hyper-V.  
 
--   Windows PowerShell: Add-WindowsFeature RSAT-Hyper-V-Tools  
+-   Windows PowerShell: Add-Windows Feature RSAT-Hyper-V-Tools  
 
 #### <a name="deploy-virtual-machines-to-run-workloads-for-testing"></a>Bereitstellen von virtuellen Computern, um Workloads zu Testzwecken auszuführen  
-Sie benötigen virtuelle Computer auf dem Dateiserver mit horizontaler Skalierung, auf denen relevante Workloads ausgeführt werden.  Einige Tipps zum Simulieren von Last, und führen Sie Belastungstests finden Sie unter der folgenden Seite für ein empfohlenes Tool (DiskSpd) und Verwendungsbeispiele: [DiskSpd, PowerShell und speicherleistung: Messen der IOPs, Durchsatz und Latenz für lokale Datenträger und SMB-Dateifreigaben.](http://blogs.technet.com/b/josebda/archive/2014/10/13/diskspd-powershell-and-storage-performance-measuring-iops-throughput-and-latency-for-both-local-disks-and-smb-file-shares.aspx)  
+Sie benötigen virtuelle Computer auf dem Dateiserver mit horizontaler Skalierung, auf denen relevante Workloads ausgeführt werden.  Einige Tipps zum Simulieren der Auslastung und zum Durchführen von Belastungstests finden Sie auf der folgenden Seite für ein empfohlenes Tool (diskspd) und einige Beispiele für die Verwendung: [Diskspd, PowerShell und Speicherleistung: Messen von IOPS, Durchsatz und Latenz für lokale Datenträger und SMB-Dateifreigaben.](http://blogs.technet.com/b/josebda/archive/2014/10/13/diskspd-powershell-and-storage-performance-measuring-iops-throughput-and-latency-for-both-local-disks-and-smb-file-shares.aspx)  
 
 Die Beispielszenarien in diesem Leitfaden umfassen fünf virtuelle Computer. BuildVM1, BuildVM2, BuildVM3 und BuildVM4 führen eine Desktopworkload mit geringen bis mittleren Speicheranforderungen aus. TestVm1 führt einen Onlinetransaktionsverarbeitungs-Benchmark mit hohen Speicheranforderungen aus.  
 
@@ -289,7 +289,7 @@ MaximumIops    : 0
 MinimumIops    : 781  
 ```  
 
-## <a name="BKMK_CreateQoSPolicies"></a>Das Erstellen und Überwachen von Speicher-QoS-Richtlinien  
+## <a name="BKMK_CreateQoSPolicies"></a>Erstellen und Überwachen von Speicher-QoS-Richtlinien  
 In diesem Abschnitt wird beschrieben, wie Sie Speicher-QoS-Richtlinien erstellen, diese Richtlinien auf virtuelle Computer anwenden und einen Speichercluster überwachen, nachdem Richtlinien angewendet wurden.  
 
 ### <a name="create-storage-qos-policies"></a>Erstellen von Speicher-QoS-Richtlinien  
@@ -300,7 +300,7 @@ Für jede VHD/VHDX-Datei, die einem virtuellen Computer zugewiesen ist, kann ein
 Wenn Sie mehrere ähnliche Richtlinien für unterschiedliche virtuelle Computer erstellen und für die virtuellen Computer identische Speicheranforderungen gelten, erhalten sie einen ähnlichen Anteil von IOPS.  Wenn die Speicheranforderungen einer VM höher oder geringer sind, werden die entsprechenden IOPS bereitgestellt.  
 
 ### <a name="types-of-storage-qos-policies"></a>Typen von Speicher-QoS-Richtlinien  
-Es gibt zwei Arten von Richtlinien: (Zuvor bekannt als SingleInstance) aggregiert und dedicated-Umgebungen (früher MultiInstance). Aggregierte Richtlinien wenden die Höchst- und Mindestwerte für den kombinierten Satz an VHD/VHDX-Dateien und virtuellen Computern an. Eine festgelegte Bandbreite und Menge von IOPS wird also gemeinsam verwendet. Dedizierte Richtlinien wenden die Mindest- und Höchstwerte für jede VHD/VHDX separat an. Dadurch lässt sich problemlos eine einzelne Richtlinie erstellen, die ähnliche Grenzwerte auf mehrere VHD/VHDX-Dateien anwendet.  
+Es gibt zwei Arten von Richtlinien: Aggregiert (früher als "SingleInstance" bezeichnet) und "Dedicated" (früher als "MultiInstance" bezeichnet). Aggregierte Richtlinien wenden die Höchst- und Mindestwerte für den kombinierten Satz an VHD/VHDX-Dateien und virtuellen Computern an. Eine festgelegte Bandbreite und Menge von IOPS wird also gemeinsam verwendet. Dedizierte Richtlinien wenden die Mindest- und Höchstwerte für jede VHD/VHDX separat an. Dadurch lässt sich problemlos eine einzelne Richtlinie erstellen, die ähnliche Grenzwerte auf mehrere VHD/VHDX-Dateien anwendet.  
 
 Beispiel: Sie erstellen eine aggregierte Richtlinie mit einem Mindestwert von 300 IOPS und einem Höchstwert von 500 IOPS. Wenn Sie diese Richtlinie auf 5 unterschiedliche VHD/VHDX-Dateien anwenden, stellen Sie sicher, dass für diese 5 VHD/VHDX-Dateien insgesamt mindestens 300 IOPS und maximal 500 IOPS bereitgestellt werden (sofern diese Leistung erforderlich ist und das Speichersystem diese Leistung bieten kann). Wenn die VHD/VHDX-Dateien ähnliche IOPS-Anforderungen haben und das Speichersystem diese Leistung bieten kann, erhält jede VHD/VHDX-Datei ca. 100 IOPS.  
 
@@ -308,7 +308,7 @@ Wenn Sie jedoch stattdessen eine dedizierte Richtlinie mit ähnlichen Grenzwerte
 
 Wenn Sie über eine Gruppe von VHD/VHDX-Dateien verfügen, denen dieselben Leistungsmerkmale zugewiesen werden sollen, und Sie nicht mehrere ähnliche Richtlinien erstellen möchten, können Sie eine einzige dedizierte Richtlinie erstellen und diese auf die Dateien der einzelnen virtuellen Computer anwenden.
 
-Halten Sie die Anzahl der VHD/VHDx-Dateien, die eine einzige aggregierte Richtlinie zugewiesen, 20 oder niedriger.  Dieser Richtlinientyp vorgesehen war, Aggregation mit einigen virtuellen Computern in einem Cluster zu tun.
+Halten Sie die Anzahl von VHD-/vhdx-Dateien, die einer einzelnen aggregierten Richtlinie zugewiesen sind, auf maximal 20.  Dieser Richtlinientyp soll Aggregationen mit einigen virtuellen Computern in einem Cluster durchführen.
 
 ### <a name="create-and-apply-a-dedicated-policy"></a>Erstellen und Anwenden einer dedizierten Richtlinie  
 Verwenden Sie zunächst das Cmdlet `New-StorageQosPolicy`, um eine Richtlinie auf dem Dateiserver mit horizontaler Skalierung zu erstellen, wie im folgenden Beispiel gezeigt:  
@@ -386,7 +386,7 @@ IsDeleted                     : False
 ```  
 
 ### <a name="query-for-storage-qos-policies"></a>Abfragen von Speicher-QoS-Richtlinien  
-`Get-StorageQosPolicy` Listet alle konfigurierten Richtlinien mitsamt ihrem Status auf einem Dateiserver für horizontales Skalieren.  
+`Get-StorageQosPolicy` listet alle konfigurierten Richtlinien und deren Status auf einem Dateiserver mit horizontaler Skalierung auf.  
 
 ```PowerShell
 PS C:\> Get-StorageQosPolicy  
@@ -531,10 +531,10 @@ WinOltp1      7e2f3e73-1ae4-4710-8219-0769a4aba072        1500         250      
 WinOltp1      7e2f3e73-1ae4-4710-8219-0769a4aba072        6000        1000            4507  
 ```  
 
-## <a name="BKMK_KnownIssues"></a>Gewusst wie: identifizieren und behandeln gängiger Probleme  
+## <a name="BKMK_KnownIssues"></a>Identifizieren und behandeln gängiger Probleme  
 In diesem Abschnitt wird beschrieben, wie Sie virtuelle Computer mit ungültigen Speicher-QoS-Richtlinien ermitteln, wie eine übereinstimmende Richtlinie neu erstellt wird, wie eine Richtlinie von einem virtuellen Computer entfernt und wie virtuelle Computer ermittelt werden, die die Anforderungen der Speicher-QoS-Richtlinie nicht erfüllen.  
 
-### <a name="BKMK_FindingVMsWithInvalidPolicies"></a>Virtuelle Computer mit ungültigen Richtlinien zu identifizieren.  
+### <a name="BKMK_FindingVMsWithInvalidPolicies"></a>Erkennen von virtuellen Computern mit ungültigen Richtlinien  
 
 Wenn eine Richtlinie vom Dateiserver gelöscht wird, bevor sie von einem virtuellen Computer entfernt wird, wird der virtuelle Computer so weiter ausgeführt, als wäre keine Richtlinie angewendet worden.  
 
@@ -578,7 +578,7 @@ WinOltp1      UnknownPolicyId           0           0            4926 UnknownPol
 WinOltp1      UnknownPolicyId           0           0               0 UnknownPolicyId BOO...  
 ```  
 
-#### <a name="BKMK_RecreateMatchingPolicy"></a>Erstellen Sie eine passende-QoS-Speicherrichtlinie neu.  
+#### <a name="BKMK_RecreateMatchingPolicy"></a>Erneutes Erstellen einer entsprechenden Speicher-QoS-Richtlinie  
 Wenn eine Richtlinie unbeabsichtigterweise entfernt wurde, können Sie eine neue Richtlinie unter Verwendung der alten PolicyId erstellen.  Rufen Sie zunächst die benötigte PolicyId ab.  
 
 ```PowerShell
@@ -629,7 +629,7 @@ TR20-VMM          Ok          33         666              10     Ok BOOT.VHDX
 WinOltp1          Ok          25         500               0     Ok 9914.0.AMD64FRE.WINMA...  
 ```  
 
-#### <a name="BKMK_RemovePolicyFromVM"></a>Entfernen von Speicher-QoS-Richtlinien  
+#### <a name="BKMK_RemovePolicyFromVM"></a>Speicher-QoS-Richtlinien entfernen  
 
 Wenn die Richtlinie absichtlich entfernt oder eine VM mit einer Richtlinie importiert wurde, die Sie nicht benötigen, kann sie entfernt werden.  
 
@@ -667,7 +667,7 @@ WinOltp1                0           0            1811     Ok IOMETER.VHDX
 WinOltp1                0           0               0     Ok BOOT.VHDX  
 ```  
 
-### <a name="BKMK_VMsThatDoNotMeetStorageQoSPoilicies"></a>Ermitteln von virtuellen Computern, die keine Speicher-QoS-Richtlinien erfüllt sind  
+### <a name="BKMK_VMsThatDoNotMeetStorageQoSPoilicies"></a>Suchen von virtuellen Computern, die keine Speicher-QoS-Richtlinien erfüllen  
 Der Status **InsufficientThroughput** wird Flüssen zugewiesen, die folgende Merkmale aufweisen:  
 
 -   Für den Fluss ist in einer Richtlinie ein Mindestwert für IOPS definiert  
@@ -823,7 +823,7 @@ Zum Anwenden von Richtlinien über mehrere Speichercluster hinweg kann System Ce
 
 Wenn ein Fluss den Höchstwert einer Richtlinie erreicht, Sie die Richtlinie ändern, und Sie dann umgehend ein PowerShell-Cmdlet ausführen, um die Latenz/IOPS/Bandbreite der Flüsse zu ermitteln, dauert es bis zu 5 Minuten, bis die Richtlinienänderungen sichtbar sind.  Die neuen Grenzwerte sind nach einigen wenigen Sekunden wirksam, das PowerShell-Cmdlet **Get-StorgeQoSFlow** arbeitet jedoch mit einem Durchschnittswert der einzelnen Zähler sowie mit einem 5-minütigen gleitenden Fenster.  Wenn ein aktueller Wert angezeigt würde und Sie das PowerShell-Cmdlet mehrmals hintereinander ausführen würden, würde andernfalls eine große Anzahl unterschiedlicher Werte angezeigt, da die Werte für IOPS und Latenzen erheblich schwanken können.
 
-### <a name="BKMK_Updates"></a>Welche neuen Funktionen in Windows Server 2016 hinzugefügt wurde
+### <a name="BKMK_Updates"></a>Welche neuen Funktionen wurden in Windows Server 2016 hinzugefügt?
 
 In Windows 2016 wurden einige Namen der Richtlinientypen für Speicher-QoS geändert.  Der Name des Richtlinientyps **MultiInstance** wurde in **Dedicated** und der Name **SingleInstance** in **Aggregated** geändert. Das Verwaltungsverhalten dedizierter Richtlinien hat sich ebenfalls geändert. Bei VHD/VHDX-Dateien innerhalb desselben virtuellen Computers, auf die dieselbe Richtlinie vom Typ **Dedicated** angewendet wird, wird die zugewiesene E/A-Leistung nicht gemeinsam verwendet.  
 
@@ -840,7 +840,7 @@ Es gibt zwei neue QoS für Speicher-Features in Windows Server 2016:
 
     Beachten Sie Folgendes: Wenn Sie die IOPS-Normalisierung ändern, wird dasselbe E/A-Muster bzw. derselbe E/A-Durchsatz aufgrund der geänderten Normalisierungsberechnung mit unterschiedlichen IOPS-Werten in der Speicher-QoS-Ausgabe angezeigt.  Beim Vergleich von IOPS auf verschiedenen Speicherclustern sollten Sie auch den jeweils verwendeten Normalisierungswert überprüfen, da dieser sich auf die angezeigten normalisierten IOPS auswirkt.    
 
-#### <a name="example-1-creating-a-new-policy-and-viewing-the-maximum-bandwidth-on-the-storage-cluster"></a>Beispiel 1: Erstellen einer neuen Richtlinie und Anzeigen der maximalen Bandbreite auf dem speichercluster  
+#### <a name="example-1-creating-a-new-policy-and-viewing-the-maximum-bandwidth-on-the-storage-cluster"></a>Beispiel 1: Erstellen einer neuen Richtlinie und Anzeigen der maximalen Bandbreite im Speicher Cluster  
 Sie können in PowerShell die Einheiten angeben, in denen eine Zahl ausgedrückt wird.  Im folgenden Beispiel wird eine Größe von 10 MB als maximale Bandbreite verwendet.  Speicher-QoS wandelt diesen Wert um und speichert ihn in Bytes pro Sekunde. Die Größe von 10 MB wird also in 10485760 Bytes pro Sekunde umgewandelt.  
 
 ```PowerShell
@@ -866,7 +866,7 @@ InitiatorLatency   : 1.5455
 InitiatorBandwidth : 37888  
 ```  
 
-#### <a name="example-2-get-iops-normalization-settings-and-specify--a-new-value"></a>Beispiel 2: Abrufen Sie der IOPS-normalisierungseinstellungen und geben Sie einen neuen Wert  
+#### <a name="example-2-get-iops-normalization-settings-and-specify--a-new-value"></a>Beispiel 2: IOPS-normalisierungs Einstellungen erhalten und einen neuen Wert angeben  
 
 Das folgende Beispiel zeigt, wie Sie die IOPS-Normalisierungseinstellungen für einen Speichercluster abrufen (standardmäßig 8 KB), diesen Wert in 32 KB ändern und ihn anschließend erneut anzeigen.  Beachten Sie, dass Sie den Wert in diesem Beispiel als „32KB“ angeben, da in PowerShell keine Umwandlung in Bytes erforderlich ist.   Bei der Ausgabe wird der Wert jedoch in Bytes pro Sekunde angezeigt.  
 
@@ -887,5 +887,5 @@ IOPSNormalizationSize
 
 ## <a name="see-also"></a>Siehe auch  
 - [Windows Server 2016](../../get-started/windows-server-2016.md)  
-- [Funktion "Speicherreplikat" in WindowsServer 2016](../storage-replica/storage-replica-overview.md)  
-- ["Direkte Speicherplätze" unter WindowsServer 2016](../storage-spaces/storage-spaces-direct-overview.md)  
+- [Speicher Replikat in Windows Server 2016](../storage-replica/storage-replica-overview.md)  
+- [Direkte Speicherplätze in Windows Server 2016](../storage-spaces/storage-spaces-direct-overview.md)  

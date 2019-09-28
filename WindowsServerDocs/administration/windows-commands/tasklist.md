@@ -1,8 +1,8 @@
 ---
 title: tasklist
-description: Erfahren Sie, wie Sie eine Liste der auf dem lokalen Computer oder Remotecomputer ausgeführten Prozesse anzuzeigen.
+description: Erfahren Sie, wie Sie eine Liste der Prozesse anzeigen, die auf dem lokalen Computer oder Remote Computer ausgeführt werden.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f2c933bb68c488d83311856958a56809f2f5b859
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f7ad61dfe8beb86c8299dd71bec1d862805e50e0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440996"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383681"
 ---
 # <a name="tasklist"></a>tasklist
 
-Zeigt eine Liste der aktuell auf dem lokalen Computer oder auf einem Remotecomputer ausgeführten Prozesse an. **TaskList** ersetzt die **Tlist** Tool.
+Zeigt eine Liste der aktuell auf dem lokalen Computer oder auf einem Remotecomputer ausgeführten Prozesse an. **Tasklist** ersetzt das **tlist** -Tool.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -36,60 +36,60 @@ tasklist [/s <Computer> [/u [<Domain>\]<UserName> [/p <Password>]]] [{/m <Module
 
 |          Parameter           |                                                                                                                                            Beschreibung                                                                                                                                             |
 |------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|        / s \<Computer >        |                                                                                         Gibt den Namen oder die IP-Adresse eines Remotecomputers (umgekehrte Schrägstriche nicht verwenden). Der Standardwert ist der lokale Computer.                                                                                         |
-| / u [\<Domäne >\\\]\<Benutzername > | Führt den Befehl mit den Berechtigungen des Benutzers, der angegebenen *Benutzername* oder *Domäne*\*Benutzername<em>. \* \*/u</em> \* können angegeben werden, wenn **/s** angegeben ist. Der Standardwert ist die Berechtigungen des Benutzers, der derzeit auf dem Computer angemeldet ist, die den Befehl ausgegeben wird. |
-|        / p \<Kennwort >        |                                                                                                       Gibt das Kennwort des Benutzerkontos ein, die im angegebenen die **/u** Parameter.                                                                                                        |
-|         / m \<Modul >         |                                                               Führt alle Aufgaben mit geladenen DLL-Module, die mit dem angegebenen Muster übereinstimmen. Wenn Sie der Namen des Moduls nicht angegeben ist, zeigt diese Option alle Module, die von jeder Aufgabe geladen werden.                                                                |
-|             /svc             |                                                                                    Listet alle Dienstinformationen für jeden Prozess ohne abschneiden. Gültig, wenn die **/Fo** Parametersatz zu **Tabelle**.                                                                                    |
-|              /v              |                                                                                 Zeigt Informationen zum verbose-Vorgang in der Ausgabe. Verwenden Sie für die vollständige ausführliche Ausgabe ungekürzt **/v** und **/svc** zusammen.                                                                                 |
-|  / Fo {Tabelle \| Liste \| Csv}  |                                                                             Gibt das Format für die Ausgabe verwendet. Gültige Werte sind **Tabelle**, **Liste**, und **Csv**. Das Standardformat für die Ausgabe ist **Tabelle**.                                                                             |
-|             /nh              |                                                                                             Unterdrückt die Spaltenüberschriften in der Ausgabe. Gültig, wenn die **/Fo** Parametersatz zu **Tabelle** oder **Csv**.                                                                                              |
-|        /fi \<Filter>         |                                                                          Gibt die Typen von Prozessen ein- oder Ausschließen aus der Abfrage. Finden Sie unter der folgenden Tabelle gültiger Filter, Operatoren und Werte.                                                                          |
+|        /s \<computer >        |                                                                                         Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Der Standardwert ist der lokale Computer.                                                                                         |
+| /u [\<domäne > \\ @ no__t-2 @ no__t-3username > | Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der durch *username* oder *Domain*\*username angegeben wird<em>. \* @ no__t-5/u</em>\* kann nur angegeben werden, wenn **/s** angegeben wird. Der Standardwert sind die Berechtigungen des Benutzers, der zurzeit an dem Computer angemeldet ist, der den Befehl ausgibt. |
+|        /p \<Password >        |                                                                                                       Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist.                                                                                                        |
+|         /m \<module >         |                                                               Listet alle Tasks mit geladenen DLL-Modulen auf, die mit dem angegebenen Muster Namen identisch sind. Wenn der Modulname nicht angegeben ist, zeigt diese Option Alle Module an, die von den einzelnen Tasks geladen werden.                                                                |
+|             /SVC ein             |                                                                                    Listet alle Dienst Informationen für jeden Prozess ohne Abschneiden auf. Gültig, wenn der **/FO** -Parameter auf **Table**festgelegt ist.                                                                                    |
+|              /v              |                                                                                 Zeigt ausführliche Aufgabeninformationen in der Ausgabe an. Verwenden Sie **/v** und **/svc ein** , um die ausführliche Ausgabe ohne Abschneiden zu vervollständigen.                                                                                 |
+|  /FO {Table \| List \| CSV}  |                                                                             Gibt das Format an, das für die Ausgabe verwendet werden soll. Gültige Werte sind " **Table**", " **List**" und " **CSV**". Das Standardformat für die Ausgabe ist **Table**.                                                                             |
+|             /nh              |                                                                                             Unterdrückt die Spaltenüberschriften in der Ausgabe. Gültig, wenn der **/FO** -Parameter auf **Table** oder **CSV**festgelegt ist.                                                                                              |
+|        /fi \<filtern >         |                                                                          Gibt die Typen von Prozessen an, die in die Abfrage eingeschlossen bzw. von dieser ausgeschlossen werden sollen. Gültige Filternamen, Operatoren und Werte finden Sie in der folgenden Tabelle.                                                                          |
 |              /?              |                                                                                                                                Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                |
 
-### <a name="filter-names-operators-and-values"></a>Filternamen, Operatoren und Werte
+### <a name="filter-names-operators-and-values"></a>Filter Namen, Operatoren und Werte
 
-| Filtername |    Gültige Operatoren     |                                                                 Gültige Werte                                                                 |
+| Filter Name |    Gültige Operatoren     |                                                                 Gültige Werte                                                                 |
 |-------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-|   STATUS    |         eq, ne         |                                                                   AUSFÜHREN VON                                                                    |
-|  IMAGENAME  |         eq, ne         |                                                                  Name des Images                                                                  |
+|   STANDS    |         eq, ne         |                                                                   DRÄNGT                                                                    |
+|  IMAGENAME  |         eq, ne         |                                                                  Bildname                                                                  |
 |     PID     | eq, ne, gt, lt, ge, le |                                                                  PID-Wert                                                                   |
 |   SITZUNG   | eq, ne, gt, lt, ge, le |                                                                Sitzungsnummer                                                                |
 | SESSIONNAME |         eq, ne         |                                                                 Sitzungsname                                                                 |
-|   CPUTIME   | eq, ne, gt, lt, ge, le | CPU-Zeit im Format <em>HH</em> **:** <em>MM</em> **:** <em>SS</em>, wobei *MM* und *SS* liegen zwischen 0 und 59 und *HH* ist ein vorzeichenloser Anzahl |
-|  MEMUSAGE   | eq, ne, gt, lt, ge, le |                                                              Speicherverwendung in KB                                                              |
-|  BENUTZERNAME   |         eq, ne         |                                                             Beliebiger gültiger Benutzername                                                              |
-|  DIENSTE   |         eq, ne         |                                                                 Dienstname                                                                 |
+|   CPUTIME   | eq, ne, gt, lt, ge, le | CPU-Zeit im Format <em>HH</em> **:** <em>mm</em> **:** <em>SS</em>, wobei *mm* und *SS* zwischen 0 und 59 liegen und *HH* eine beliebige Zahl ohne Vorzeichen ist. |
+|  MEMUSAGE   | eq, ne, gt, lt, ge, le |                                                              Speicherauslastung in KB                                                              |
+|  USER   |         eq, ne         |                                                             Gültiger Benutzername                                                              |
+|  BETREUUNG   |         eq, ne         |                                                                 Dienstname                                                                 |
 | WINDOWTITLE |         eq, ne         |                                                                 Fenstertitel                                                                 |
-|   MODULE   |         eq, ne         |                                                                   DLL-Name                                                                   |
+|   MODULEN   |         eq, ne         |                                                                   DLL-Name                                                                   |
 
 ## <a name="remarks"></a>Hinweise
 
-Die Filter WINDOWTITLE und STATUS werden nicht unterstützt, wenn einem Remotesystem angegeben wird.
+Die Filter WindowTitle und Status werden nicht unterstützt, wenn ein Remote System angegeben wird.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Zum Auflisten aller Aufgaben mit einer Prozess-ID, die größer als 1000 und in der CSV-Format anzuzeigen, geben Sie Folgendes ein:
+Wenn Sie alle Aufgaben mit einer Prozess-ID größer als 1000 auflisten und im CSV-Format anzeigen möchten, geben Sie Folgendes ein:
 ```
 tasklist /v /fi "PID gt 1000" /fo csv
 ```
-Um Systemprozesse aufzulisten, die derzeit ausgeführt werden, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um die System Prozesse aufzulisten, die zurzeit ausgeführt werden:
 ```
 tasklist /fi "USERNAME ne NT AUTHORITY\SYSTEM" /fi "STATUS eq running"
 ```
-Um detaillierte Informationen für alle Prozesse aufzulisten, die derzeit ausgeführt werden, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um ausführliche Informationen zu allen derzeit laufenden Prozessen aufzulisten:
 ```
 tasklist /v /fi "STATUS eq running"
 ```
-Zum Auflisten alle Dienstinformationen für Prozesse, die auf dem Remotecomputer "Srvmain", die eine DLL-Namen mit "Ntdll" beginnt, geben Sie Folgendes ein:
+Um alle Dienst Informationen für Prozesse auf dem Remote Computer "srvmain" aufzulisten, die einen DLL-Namen aufweisen, der mit "Ntdll" beginnt, geben Sie Folgendes ein:
 ```
 tasklist /s srvmain /svc /fi "MODULES eq ntdll*"
 ```
-Geben Sie Folgendes ein, um die Prozesse auf dem Remotecomputer "Srvmain," mit den Anmeldeinformationen Ihres Kontos derzeit angemeldeten Benutzers aufzulisten:
+Um die Prozesse auf dem Remote Computer "srvmain" mit den Anmelde Informationen Ihres aktuell angemeldeten Benutzerkontos aufzulisten, geben Sie Folgendes ein:
 ```
 tasklist /s srvmain 
 ```
-Geben Sie Folgendes ein, um die Prozesse auf dem Remotecomputer "Srvmain," mit den Anmeldeinformationen des Benutzerkontos Hiropln, aufzulisten:
+Um die Prozesse auf dem Remote Computer "srvmain" mit den Anmelde Informationen des Benutzerkontos "hiropln" aufzulisten, geben Sie Folgendes ein:
 ```
 tasklist /s srvmain /u maindom\hiropln /p p@ssW23
 ```

@@ -7,14 +7,14 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 9c8efee98cc8128443d9c835ccc5cb6b7695a094
-ms.sourcegitcommit: a9625758fbfb066494fe62e0da5f9570ccb738a3
+ms.openlocfilehash: 64b479663dfc930ec9a6d2055b4c9ad5755b30fc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952471"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389969"
 ---
 # <a name="replication-error-1753-there-are-no-more-endpoints-available-from-the-endpoint-mapper"></a>Replikationsfehler 1753: Die Endpunktzuordnung hat keine weiteren Endpunkte verfügbar
 
@@ -96,7 +96,7 @@ Der Befehl " **Jetzt replizieren** " in Active Directory Sites und Dienste gibt 
 Wenn Sie von einem Quell Domänen Controller mit der rechten Maustaste auf das Verbindungs Objekt klicken und **Jetzt replizieren** auswählen, tritt ein Fehler mit der Option "Es sind keine weiteren Endpunkte von der Endpunkt Zuordnung verfügbar".
 Die Bildschirm Fehlermeldung wird unten angezeigt:
 
-Text des Dialog Titels: Dialog Meldungs Text "Jetzt replizieren": Fehler beim Versuch, den namens Kontext \<% Directory Partitions Name% > vom Domänen Controller-Quell Domänen Controller \<> mit dem Domänen Controller \<-Zieldomänen Controller zu synchronisieren >:
+Text des Dialog Titels: Dialog Meldungs Text "Jetzt replizieren": Fehler beim Versuch, den namens Kontext \<% Verzeichnis Partitions Name% > vom Domänen Controller \<source-Domänen Controller > zum Domänen Controller \<destination DC > zu synchronisieren:
 
 Von der Endpunkt Zuordnung sind keine weiteren Endpunkte verfügbar.
 Der Vorgang wird nicht fortgesetzt.
@@ -150,7 +150,7 @@ Der Fehler 1753 wird nicht durch Folgendes verursacht:
 
 Überprüfen, ob der RPC-Client (Ziel-DC) mit dem gewünschten RPC-Server (Quell Domänen Controller)
 
-Alle DCS in einer allgemeinen Active Directory Gesamtstruktur registrieren einen Domänen Controller-CNAME-Datensatz in der _msdcs. \<Gesamtstruktur-Stamm Domäne > DNS-Zone unabhängig davon, in welcher Domäne Sie sich innerhalb der Gesamtstruktur befinden. Der DC CNAME-Datensatz wird vom objectGUID-Attribut des NTDS-Einstellungs Objekts für jeden Domänen Controller abgeleitet.
+Alle DCS in einer allgemeinen Active Directory Gesamtstruktur registrieren einen Domänen Controller-CNAME-Datensatz in der _msdcs. \<gesamt Struktur-Stamm Domäne > DNS-Zone, unabhängig davon, in welcher Domäne Sie sich innerhalb der Gesamtstruktur befinden. Der DC CNAME-Datensatz wird vom objectGUID-Attribut des NTDS-Einstellungs Objekts für jeden Domänen Controller abgeleitet.
 
 Beim Ausführen von Replikations basierten Vorgängen fragt ein Ziel-DC DNS nach dem CNAME-Datensatz des Quell-DCS ab. Der CNAME-Datensatz enthält den voll qualifizierten Domänen Namen des Quell Domänen Controllers, der verwendet wird, um die IP-Adresse des Quell Domänen Controllers über DNS-Client Cache Suche, Host/Lmhost-Dateisuche, Host A/AAAA-Datensatz in DNS oder WINS zu ableiten.
 
@@ -240,7 +240,7 @@ Weitere Möglichkeiten, diesen Fehler zu beheben:
 * Überprüfen Sie, ob der Starttyp und der Dienststatus für den RPC-Dienst und den RPC-Locator für die Betriebssystemversion des RPC-Clients (Ziel-DC) und des RPC-Servers (Quell Domänen Wenn der Dienst derzeit beendet oder nicht mit Standard Startwerten konfiguriert wurde, setzen Sie die Standard Startwerte zurück, starten Sie den geänderten Domänen Controller neu, und wiederholen Sie dann den Vorgang.
    * Stellen Sie außerdem sicher, dass der Dienst Kontext mit den in der folgenden Tabelle aufgeführten Standardeinstellungen übereinstimmt.
 
-      | Dienst | Standardstatus (Starttyp) in Windows Server 2003 und höher | Standardstatus (Starttyp) in Windows Server 2000 |
+      | Service | Standardstatus (Starttyp) in Windows Server 2003 und höher | Standardstatus (Starttyp) in Windows Server 2000 |
       | --- | --- | --- |
       | Remoteprozeduraufruf | Gestartet (automatisch) | Gestartet (automatisch) |
       | Locator für Remote Prozedur Aufrufe | NULL oder beendet (manuell) | Gestartet (automatisch) |
@@ -299,7 +299,7 @@ Zusammenfassung Bei diesem Beispiel ist ein Fehler aufgetreten, weil eine ungül
 
 ## <a name="related-topics"></a>Verwandte Themen
 
-* [Problembehandlung bei Active Directory Vorgängen mit Fehler 1753: Von der Endpunkt Zuordnung sind keine weiteren Endpunkte verfügbar.](https://support.microsoft.com/kb/2089874)
+* [troubleshooting Active Directory Vorgänge, die mit Fehler 1753 fehlschlagen: Von der Endpunkt Zuordnung sind keine weiteren Endpunkte verfügbar. ](https://support.microsoft.com/kb/2089874)
 * [KB-Artikel 839880 Beheben von Fehlern bei der RPC-Endpunkt Zuordnung mithilfe der Windows Server 2003-Support Tools von der Produkt-CD](https://support.microsoft.com/kb/839880)
 * [KB-Artikel 832017 Dienst Übersicht und Netzwerk Port Anforderungen für das Windows Server-System](https://support.microsoft.com/kb/832017/)
 * [KB-Artikel 224196 einschränken Active Directory Replikations Datenverkehrs und RPC-Client Datenverkehr zu einem bestimmten Port](https://support.microsoft.com/kb/224196/)

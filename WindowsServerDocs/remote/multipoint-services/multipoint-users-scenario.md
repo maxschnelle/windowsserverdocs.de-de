@@ -2,7 +2,7 @@
 title: Multipoint Services-Benutzerkonten
 description: Erfahren Sie mehr über Benutzerkonten in Multipoint Services, insbesondere die für verschiedene Szenarien zu verwendende Art.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 67aa84244aa9ebfcd8375bd82f9d6ae431fc5eac
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: ff81af2a0aa8da7f801ec14c27dc00c9bae6e8aa
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871423"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388959"
 ---
 # <a name="example-scenarios-multipoint-services-user-accounts"></a>Beispielszenarien: Multipoint Services-Benutzerkonten
 Was müssen Sie tun, um das Benutzerkonto Szenario zu implementieren, das Sie für Ihre Multipoint Services-Umgebung ausgewählt haben? In den folgenden Tabellen werden die einzelnen Aufgaben beschrieben, die zum Konfigurieren von Benutzerkonten und zum Vorbereiten von Stationen für freigegebene oder einzelne Benutzerkonten auf einem eigenständigen Multipoint-Computer oder auf Netzwerkservern in einer Arbeitsgruppe oder einer Active Directory Domäne durchgeführt werden. Wählen Sie das Szenario aus, das für Ihre Umgebung gilt. Folgen Sie dann den Links in der Tabelle, um die einzelnen erforderlichen Konfigurationsaufgaben abzuschließen.  

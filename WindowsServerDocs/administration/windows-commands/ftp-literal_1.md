@@ -1,8 +1,8 @@
 ---
 title: FTP-literal_1
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 693916507488a9a480315a8e9299baa93a223b8a
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 393dea27e8567a72a5bd25c927282ade93e317c9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438660"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376273"
 ---
-# <a name="ftp-literal1"></a>FTP: literal_1
+# <a name="ftp-literal_1"></a>FTP: literal_1
 
->Gilt für: Windows Server (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012-sendet wörtliche Argumente an den remote-ftp-Server. Es wird ein einzelnes FTP-Antwortcode zurückgegeben.   
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 sendet wörtliche Argumente an den Remote-FTP-Server. Ein einzelner FTP-Antwort Code wird zurückgegeben.   
 
 ## <a name="syntax"></a>Syntax  
 ```  
@@ -32,15 +32,15 @@ literal <Argument> [ ]
 
 | Parameter  |                    Beschreibung                    |
 |------------|---------------------------------------------------|
-| <Argument> | Gibt das Argument an den ftp-Server senden. |
+| <Argument> | Gibt das Argument an, das an den FTP-Server gesendet werden soll. |
 
 ## <a name="remarks"></a>Hinweise  
-Die **literal** Befehl ist identisch mit der **Anführungszeichen** Befehl.  
-## <a name="BKMK_Examples"></a>Beispiele für  
-Senden einer **beenden** Befehl zum remote-ftp-Server.  
+Der **literalbefehl** ist identisch mit dem **Anführungs** Zeichen Befehl.  
+## <a name="BKMK_Examples"></a>Beispiele  
+Senden Sie einen Befehl zum **Beenden** an den FTP-Remote Server.  
 ```  
 literal quit  
 ```  
-## <a name="additional-references"></a>Zusätzliche Referenzen  
--   [ftp: quote](ftp-quote.md)  
+## <a name="additional-references"></a>Weitere Verweise  
+-   [FTP: Anführungszeichen](ftp-quote.md)  
 -   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

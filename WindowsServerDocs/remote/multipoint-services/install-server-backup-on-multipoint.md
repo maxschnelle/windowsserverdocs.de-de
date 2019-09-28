@@ -1,9 +1,9 @@
 ---
-title: Installieren von Server-Sicherung auf dem MultiPoint-server
-description: Führt Sie durch die Schritte zum Installieren der Tools für Sicherung und Wiederherstellung
+title: Installieren der Server Sicherung auf dem Multipoint-Server
+description: Führt Sie durch die Schritte zum Installieren der Sicherungs-und Wiederherstellungs Tools
 ms.custom: na
 ms.date: 07/22/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,51 +13,51 @@ ms.assetid: e4331370-ba07-4529-92ab-db14a41bfc3b
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 51932c5f0796cfd757d3322e10c17de2a3081f4c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 933a24ee91fa1f5ccbe31ff4cb722a7c3eb54e4b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832491"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395120"
 ---
-# <a name="install-server-backup-on-your-multipoint-server"></a>Installieren von Server-Sicherung auf dem MultiPoint-server
-Es wird empfohlen, dass Sie einen Plan für Sicherung und Wiederherstellung für Ihre MultiPoint-Server in Betracht ziehen.
+# <a name="install-server-backup-on-your-multipoint-server"></a>Installieren der Server Sicherung auf dem Multipoint-Server
+Es wird empfohlen, dass Sie einen Sicherungs-und Wiederherstellungs Plan für Ihre Multipoint-Server in Erwägung gezogen.
   
-Ein geeigneter Plan für Sicherung und Wiederherstellung ist wichtig für eine beliebige Größe-Umgebung. Windows Server-Sicherung ist ein Feature in Windows Server 2016, die bietet eine Reihe von Assistenten und anderen Tools für grundlegende Aufgaben für Sicherung und Wiederherstellung für den Server ausführen, auf dem er installiert ist. Sie können Windows Server-Sicherung verwenden, um einen vollständigen Server (alle Volumes), ausgewählte Volumes, die den Systemstatus oder bestimmte Dateien oder Ordner zu sichern, und klicken Sie zum Erstellen einer Sicherung, die Sie verwenden können, um Ihr System neu zu erstellen.  
+Ein guter Sicherungs-und Wiederherstellungs Plan ist für jede Größen Umgebung wichtig. Windows Server-Sicherung ist ein Feature in Windows Server 2016, das eine Reihe von Assistenten und anderen Tools bereitstellt, mit denen Sie grundlegende Sicherungs-und Wiederherstellungs Aufgaben für den Server ausführen können, auf dem es installiert ist. Sie können Windows Server-Sicherung verwenden, um einen vollständigen Server (alle Volumes), ausgewählte Volumes, den Systemstatus oder bestimmte Dateien oder Ordner zu sichern und eine Sicherung zu erstellen, die Sie zum Neuerstellen des Systems verwenden können.  
   
-Sie können Volumes, Ordner, Dateien, bestimmte Apps und den Systemstatus wiederherstellen. Und für Notfälle wie Festplattenausfall, können Sie ein System von Grund auf neu oder mithilfe der alternativen Hardware neu erstellen. Zu diesem Zweck benötigen Sie eine Sicherung des vollständigen Servers oder nur der Volumes, die Dateien des Betriebssystems und der Windows-Wiederherstellungsumgebung enthalten. Dadurch wird das gesamte System wird auf dem alten System oder auf einer neuen Festplatte wiederhergestellt.  
+Sie können Volumes, Ordner, Dateien, bestimmte Apps und den Systemstatus wiederherstellen. Und bei Notfällen wie Festplattenfehlern können Sie ein System entweder von Grund auf neu oder mithilfe alternativer Hardware neu erstellen. Zu diesem Zweck müssen Sie über eine Sicherung des vollständigen Servers oder nur der Volumes verfügen, die Betriebssystemdateien und die Windows-Wiederherstellungs Umgebung enthalten. Dadurch wird das gesamte System auf dem alten System oder auf einer neuen Festplatte wieder hergestellt.  
   
-Ein wichtiges Feature von Windows Server-Sicherung ist die Möglichkeit zum Planen von Sicherungen, die automatisch ausgeführt.  
+Ein wichtiges Feature von Windows Server-Sicherung ist die Möglichkeit, Sicherungen für die automatische Ausführung zu planen.  
   
-Verwenden Sie die folgenden Verfahren, um den Typ der Sicherung einrichten, die Sie benötigen.  
+Verwenden Sie die folgenden Verfahren, um den erforderlichen Sicherungstyp einzurichten.  
   
-## <a name="install-backup-and-recovery-tools"></a>Installieren Sie die sicherungs-und Wiederherstellungstools  
+## <a name="install-backup-and-recovery-tools"></a>Installieren von Sicherungs-und Wiederherstellungs Tools  
   
-1.  Von der **starten** öffnen **Server-Manager**.  
+1.  Öffnen Sie auf dem **Start** Bildschirm **Server-Manager**.  
   
-2.  Klicken Sie auf **Hinzufügen von Rollen und Features** um den Assistenten zum Hinzufügen von Rollen zu starten. Klicken Sie dann auf **Weiter** nach der Überprüfung der **vor dem Beginn** Anmerkungen zu dieser Version.  
+2.  Klicken Sie zum Starten des Assistenten zum Hinzufügen von Rollen auf **Rollen und Features hinzufügen** . Klicken Sie dann auf **weiter** , nachdem Sie die Anmerkungen zu **Beginn** überprüft haben.  
   
-3.  Wählen Sie die **rollenbasierten oder ein Feature-basierte Installation** aus, und klicken Sie dann auf **Weiter**.  
+3.  Wählen Sie die Option **rollenbasierte oder featurebasierte Installation** aus, und klicken Sie dann auf **weiter**.  
   
-4.  Wählen Sie den lokalen Computer, die Sie verwalten möchten, und klicken Sie auf **Weiter**.  
+4.  Wählen Sie den lokalen Computer aus, den Sie verwalten möchten, und klicken Sie auf **weiter**.  
   
     Daraufhin wird der Assistent zum Hinzufügen von Funktionen geöffnet.  
   
-5.  Auf der **Features auswählen** Seite, erweitern Sie die Windows Server-Sicherungsfeatures, wählen Sie die Kontrollkästchen für **Windows Server-Sicherung** und **Befehlszeilentools**, und klicken Sie dann auf  **Nächste**.  
+5.  Erweitern Sie auf der Seite **Features auswählen** die Option Windows Server-Sicherung Features, aktivieren Sie die Kontrollkästchen für **Windows Server-Sicherung** und **Befehlszeilen Tools**, und klicken Sie dann auf **weiter**.  
   
     > [!NOTE]  
-    > Oder, wenn Sie das Snap-in und das Befehlszeilentool "Wbadmin" installieren möchten, erweitern Sie **Windows Server-Sicherungsfeatures**, und wählen Sie dann die **Windows Server-Sicherung** nur das Kontrollkästchen, stellen Sie sicher, dass die **Befehlszeilentools** ist das Kontrollkästchen deaktivieren.  
+    > Wenn Sie nur das Snap-in und das Befehlszeilen Tool Wbadmin installieren möchten, erweitern Sie **Windows Server-Sicherung Features**, und aktivieren Sie dann nur das Kontrollkästchen **Windows Server-Sicherung** – Vergewissern Sie sich, dass das Kontrollkästchen **Befehlszeilen Tools** deaktiviert ist.  
   
-6.  Auf der **Installationsauswahl bestätigen** Seite überprüfen Sie Ihre Auswahl, und klicken Sie dann auf **installieren**.  
+6.  Überprüfen Sie Ihre Auswahl auf der Seite **Installations Auswahl bestätigen** , und klicken Sie dann auf **Installieren**.  
   
-    Auftreten von Fehlern bei der Installation der **Installationsergebnisse** Seite werden die Fehler feststellen.  
+    Wenn während der Installation Fehler auftreten, werden die Fehler auf der Seite **Installations Ergebnisse** angezeigt.  
   
-7.  Nach erfolgreichem die Installation Abschluss sollten Sie auf diese Sicherung und Wiederherstellung-Tools zugreifen können:  
+7.  Nachdem die Installation erfolgreich abgeschlossen wurde, sollten Sie in der Lage sein, auf diese Sicherungs-und Wiederherstellungs Tools zuzugreifen:  
   
-    -   Die Windows Server-Sicherung-Snap-in zum Öffnen der **starten** geben **backup**, und klicken Sie dann auf **Windows Server-Sicherung** in den Ergebnissen.  
+    -   Um das Windows Server-Sicherung Snap-in zu öffnen, geben Sie auf dem **Start** Bildschirm **Backup**ein, und klicken Sie dann in den Ergebnissen auf **Windows Server-Sicherung** .  
   
-    -   So starten Sie das Wbadmin-Tool, und zeigen die Syntax für die Befehle aus: Auf der **starten** geben **Befehl**. In den Ergebnissen mit der Maustaste **Eingabeaufforderung**, klicken Sie auf **als Administrator ausführen** am unteren Rand der Seite, und klicken Sie dann auf **Ja** zur Bestätigung aufgefordert. Geben Sie an der Eingabeaufforderung den Befehl **Wbadmin /?** ein, und drücken Sie die EINGABETASTE. Befehlssyntax und eine Beschreibung für das Tool sollte angezeigt werden.  
+    -   So starten Sie das Wbadmin-Tool und zeigen die Syntax für seine Befehle an: Geben Sie auf dem **Start** Bildschirm **Command**ein. Klicken Sie in den Ergebnissen mit der rechten Maustaste auf **Eingabeaufforderung**, klicken Sie unten auf der Seite auf **als Administrator ausführen** , und klicken Sie dann an der Bestätigungsaufforderung auf **Ja** . Geben Sie an der Eingabeaufforderung **Wbadmin/?** ein. und drücken Sie die EINGABETASTE. Es sollten Befehlssyntax und Beschreibungen für das Tool angezeigt werden.  
   
-## <a name="configure-backups-using-windows-server-backup"></a>Konfigurieren von Sicherungen mit Windows Server-Sicherung  
+## <a name="configure-backups-using-windows-server-backup"></a>Konfigurieren von Sicherungen mithilfe von Windows Server-Sicherung  
   
--   Führen Sie die Anleitung im [Sichern des Servers](https://technet.microsoft.com/library/cc753528.aspx). 
+-   Befolgen Sie die Anweisungen unter [Sichern des Servers](https://technet.microsoft.com/library/cc753528.aspx). 

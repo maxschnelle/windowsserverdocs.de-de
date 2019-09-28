@@ -7,21 +7,21 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 3be14b824038e9424b86c40bfd657dd988fa99e9
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 29760dcc0dffe9fe29289f20f1abca4cfd8325b1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189870"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407697"
 ---
 # <a name="configure-ad-fs-to-send-password-expiry-claims"></a>Konfigurieren von AD FS zum Senden von Ansprüchen beim Kennwortablauf
 
 
-Sie können konfigurieren, dass Active Directory Federation Services (AD FS) zum Senden von Kennwort Ablauf Ansprüche an die Partei Vertrauensstellungen der vertrauenden Seite (Anwendungen), die durch AD FS geschützt sind. Wie diese Ansprüche verwendet werden, hängt von der Anwendung ab. Beispielsweise wurden mit Office 365 als vertrauende Seite Ihrer Updates auf Exchange Online und Outlook verbundene Benutzer über ihre Kennwörter bald-zu--abgelaufen informiert implementiert.
+Sie können Active Directory-Verbunddienste (AD FS) (AD FS) konfigurieren, um Kenn Wort Ablauf Ansprüche an die Vertrauens Stellungen der vertrauenden Seite (Anwendungen) zu senden, die durch AD FS geschützt werden. Wie diese Ansprüche verwendet werden, hängt von der Anwendung ab. Beispielsweise wurden mit Office 365 als vertrauende Seite Updates in Exchange und Outlook implementiert, damit Verbund Benutzer über Ihre bald abgelaufenen Kenn Wörter benachrichtigt werden.
 
-Zum Konfigurieren von AD FS zum Senden von Kennwort Ablauf Ansprüche, um eine Vertrauensstellung der vertrauenden Seite müssen Sie die folgenden Anspruchsregeln auf diese Vertrauensstellung der vertrauenden Seite hinzufügen:
+Um AD FS zum Senden von Kenn Wort Ablauf Ansprüchen an eine Vertrauensstellung der vertrauenden Seite zu konfigurieren, müssen Sie der Vertrauensstellung der vertrauenden Seite die folgenden Anspruchs Regeln hinzufügen:
 
 ```
 @RuleName = "Issue Password Expiry Claims"
@@ -30,10 +30,10 @@ c1:[Type == "http://schemas.microsoft.com/ws/2012/01/passwordexpirationtime"]
 ```
 
 > [!NOTE]
-> Kennwort Ablauf Ansprüche sind nur verfügbar für Benutzernamen und das Kennwort und Microsoft Passport für die Arbeit Authentifizierungstypen.  Wenn der Benutzer authentifiziert sich mithilfe der integrierten Windows-Authentifizierung und Passport ist nicht konfiguriert, die Ansprüche nicht zur Verfügung, und die Benutzer sehen keine Benachrichtigungen zum Kennwortablauf.
+> Ansprüche zum Ablauf von Kenn Wörtern sind nur für Benutzername-und Kennwort-und Microsoft Passport for Work Authentifizierungs Typen verfügbar.  Wenn sich der Benutzer mit der integrierten Windows-Authentifizierung authentifiziert und Passport nicht konfiguriert ist, sind die Ansprüche nicht verfügbar, und den Benutzern werden keine Benachrichtigungen zum Ablauf des Kennworts angezeigt.
 
 > [!NOTE]
-> Es ist ein 14 Tage d. h. die gesendeten Ansprüche nur aufgefüllt, werden, wenn das Kennwort innerhalb von 14 Tagen abläuft.
+> Es gibt ein Fenster von 14 Tagen, sodass die gesendeten Ansprüche nur aufgefüllt werden, wenn das Kennwort innerhalb von 14 Tagen abläuft.
 
 ## <a name="see-also"></a>Siehe auch
 [AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md)

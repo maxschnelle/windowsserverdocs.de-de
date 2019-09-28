@@ -1,8 +1,8 @@
 ---
 title: gpresult
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c5d96e7e1fcaeadbbc6b67e1c816a8810fd0e3b6
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: bb61911450ea8c0c68af0cf1a35c2f571810504b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811183"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375657"
 ---
 # <a name="gpresult"></a>gpresult
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zeigt die Informationen des Richtlinienergebnissatzes (RSoP) für einen remote-Benutzer und Computer.
-Um RSoP-berichterstellung für Remote-Zielcomputer über die Firewall zu verwenden, müssen Sie Firewallregeln verfügen, die eingehenden Netzwerkdatenverkehr an den Ports zu ermöglichen.
+Zeigt die Richtlinien Ergebnissatz-Informationen (RSoP) für einen Remote Benutzer und-Computer an.
+Um die RSoP-Berichterstellung für Remote Zielcomputer über die Firewall verwenden zu können, müssen Sie über Firewallregeln verfügen, die eingehenden Netzwerk Datenverkehr für die Ports zulassen.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,47 +36,47 @@ gpresult [/s <system> [/u <USERNAME> [/p [<PASSWOrd>]]]] [/user [<TARGETDOMAIN>\
 ## <a name="parameters"></a>Parameter
 
 > [!NOTE]
-> Außer bei Verwendung von **/?** , müssen Sie entweder eine Output-Option einschließen **/r**, **/v**, **Neustartmodus anzugeben**, **/x**, oder **/h**.
+> Mit Ausnahme der Verwendung von **/?** müssen Sie eine Ausgabe Option ( **/r**, **/v**, **"/z**, **/x**oder **/h**) einschließen.
 
 |                Parameter                 |                                                                                                     Beschreibung                                                                                                      |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|              / s \<System\>               |                                                  Gibt den Namen oder die IP-Adresse eines Remotecomputers. Verwenden Sie keine umgekehrte Schrägstriche. Der Standardwert ist der lokale Computer.                                                   |
-|             / u \<Benutzername\>              |                                Verwendet die Anmeldeinformationen des angegebenen Benutzers zum Ausführen des Befehls. Der Standardbenutzer ist der Benutzer, die auf dem Computer angemeldet ist, der den Befehl ausgibt.                                 |
-|            /p [\<PASSWOrd\>]             |            Gibt das Kennwort des Benutzerkontos ein, das bereitgestellt wird die **/u** Parameter. Wenn **/p** weggelassen wird, **Gpresult** fordert das Kennwort. **/ p** kann nicht verwendet werden, mit **/x** oder **/h**.            |
-| / User [\<TARGETDOMAIN\>\\]\<TARGETUSER\> |                                                                            Gibt den remote-Benutzer ist, dessen RSoP-Daten angezeigt werden.                                                                             |
-|      Bereich / {Benutzer &#124; Computer}       |                                Zeigt die RSoP-Daten für den Benutzer oder der Computer an. Wenn **Bereich/** weggelassen wird, **Gpresult** RSoP-Daten für den Benutzer und dem Computer angezeigt.                                 |
-|        [/x &#124; /h] <FILENAME>         | Speichert den Bericht im XML ( **/x**) oder HTML ( **/h**) Format an der Position und mit dem Namen der Datei, die angegeben wird die *FILENAME* Parameter. Kann nicht verwendet werden, mit **/u**, **/p**, **/r**, **/v**, oder **Neustartmodus anzugeben**. |
-|                    /f                    |                                                           Erzwingt, dass **Gpresult** um den Dateinamen zu überschreiben, die im angegebenen die **/x** oder **/h** Option.                                                           |
-|                    /r                    |                                                                                             Zeigt zusammenfassende RSoP-Daten.                                                                                              |
-|                    /v                    |                                                    Zeigt ausführliche Informationen. Dies umfasst detaillierte Einstellungen, die mit einer Priorität von 1 angewendet wurden.                                                    |
-|                    /z                    |                                     Zeigt alle verfügbaren Informationen zu Gruppenrichtlinien. Dies umfasst detaillierte Einstellungen, die mit einer Priorität von 1 und höher angewendet wurden.                                      |
+|              /s \<system @ no__t-1               |                                                  Gibt den Namen oder die IP-Adresse eines Remote Computers an. Verwenden Sie keine umgekehrten Schrägstriche. Der Standardwert ist der lokale Computer.                                                   |
+|             /u \<username @ no__t-1              |                                Verwendet die Anmelde Informationen des angegebenen Benutzers, um den Befehl auszuführen. Der Standardbenutzer ist der Benutzer, der auf dem Computer angemeldet ist, der den Befehl ausgibt.                                 |
+|            /p [\<password @ no__t-1]             |            Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben wird. Wenn **/p** ausgelassen wird, fordert **gpresult** das Kennwort an. **/p** kann nicht mit **/x** oder **/h**verwendet werden.            |
+| /User [\<targetdomain @ no__t-1 @ no__t-2] \<targetuser @ no__t-4 |                                                                            Gibt den Remote Benutzer an, dessen RSOP-Daten angezeigt werden sollen.                                                                             |
+|      /Scope {Benutzer &#124; Computer}       |                                Zeigt die RSoP-Daten für den Benutzer oder den Computer an. Wenn **/Scope** ausgelassen wird, zeigt **gpresult** RSOP-Daten sowohl für den Benutzer als auch für den Computer an.                                 |
+|        [/x &#124; /h] <FILENAME>         | Speichert den Bericht im XML-Format ( **/x**) oder im HTML-Format ( **/h**) am Speicherort und mit dem Dateinamen, der durch den *filename* -Parameter angegeben wird. Kann nicht mit **/u**, **/p**, **/r**, **/v**oder **"/z**verwendet werden. |
+|                    /f                    |                                                           erzwingt **gpresult** , den Dateinamen zu überschreiben, der in der **/x** -Option oder der **/h** -Option angegeben ist.                                                           |
+|                    /r                    |                                                                                             Zeigt RSoP-Zusammenfassungs Daten an.                                                                                              |
+|                    /v                    |                                                    Zeigt ausführliche Richtlinien Informationen an. Dies schließt detaillierte Einstellungen ein, die mit einer Rangfolge von 1 angewendet wurden.                                                    |
+|                    "/z                    |                                     Zeigt alle verfügbaren Informationen zu Gruppenrichtlinie an. Dies schließt detaillierte Einstellungen ein, die mit einer Rangfolge von 1 und höher angewendet wurden.                                      |
 |                    /?                    |                                                                                         Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                         |
 
 ## <a name="remarks"></a>Hinweise
-- Die Gruppenrichtlinie ist das primäre Verwaltungstool für definieren und zu steuern, wie Programme, Netzwerkressourcen und das Betriebssystem für Benutzer und Computer in einer Organisation ausgeführt werden. In einer active Directory-Umgebung wird die Gruppenrichtlinie für Benutzer oder Computer, die basierend auf seiner Mitgliedschaft in der Standorte, Domänen oder Organisationseinheiten angewendet.
-- Da überlappende Richtlinieneinstellungen für alle Computer oder Benutzer angewendet werden kann, generiert das Gruppenrichtlinienfeature einen resultierenden Satz von Richtlinieneinstellungen an, wenn der Benutzer anmeldet. **Gpresult** die resultierende Menge der Richtlinieneinstellungen, die erzwungen wurden auf dem Computer für den angegebenen Benutzer angezeigt wird, wenn der Benutzer sind angemeldet.
-- Da **/v** und **Neustartmodus anzugeben** erzeugen viele Informationen, ist es sinnvoll, die die Ausgabe in eine Textdatei umleiten (z. B. **Gpresult/Z > von policy.txt**).
-- Die **Gpresult** Befehl ist in Windows Server 2012, Windows Server 2008 R2, Windows Server 2008, Windows 8, Windows 7 und Windows Vista verfügbar.
+- Gruppenrichtlinie ist das primäre Verwaltungs Tool zum Definieren und Steuern, wie Programme, Netzwerkressourcen und das Betriebssystem für Benutzer und Computer in einer Organisation ausgeführt werden. In einer Active Directory-Umgebung wird Gruppenrichtlinie auf Benutzer oder Computer basierend auf der Mitgliedschaft in Standorten, Domänen oder Organisationseinheiten angewendet.
+- Da Sie überlappende Richtlinien Einstellungen auf alle Computer oder Benutzer anwenden können, generiert das Gruppenrichtlinie Feature eine Reihe von Richtlinien Einstellungen, wenn sich der Benutzer anmeldet. **gpresult** zeigt den sich ergebenden Satz von Richtlinien Einstellungen an, die für den angegebenen Benutzer bei der Anmeldung des Benutzers auf dem Computer erzwungen wurden.
+- Da **/v** und **"/z** viele Informationen liefern, ist es hilfreich, die Ausgabe in eine Textdatei umzuleiten (z. b. **gpresult/z > Policy. txt**).
+- Der **gpresult** -Befehl ist in Windows Server 2012, Windows Server 2008 R2, Windows Server 2008, Windows 8, Windows 7 und Windows Vista verfügbar.
   ## <a name="examples"></a>Beispiele
-  Das folgende Beispiel ruft die RSoP-Daten für den Remotebenutzer **Zielbenutzername** des Computers **Srvmain**, und zeigt Sie RSoP-Daten über den Benutzer nur. Der Befehl ausgeführt wird, mit den Anmeldeinformationen des Benutzers **Maindom\hiropln**, und <strong>p@ssW23</strong> wird für diesen Benutzer als Kennwort eingegeben.
+  Im folgenden Beispiel werden RSOP-Daten für den Remote Benutzer **targetusername** des **srvmain**-Computers abgerufen, und es werden nur RSOP-Daten über den Benutzer angezeigt. Der Befehl wird mit den Anmelde Informationen des Benutzers **maindom\hiropln**ausgeführt, und <strong>p@ssW23</strong> wird als Kennwort für diesen Benutzer eingegeben.
 
   ```
   gpresult /s srvmain /u maindom\hiropln /p p@ssW23 /user targetusername /scope user /r
   ```
   
-Im folgenden Beispiel werden alle verfügbaren Informationen zur Gruppenrichtlinie für den Remotebenutzer **Zielbenutzername** des Computers **Srvmain** in eine Datei mit dem Namen **von policy.txt**. Keine Daten, die über den Computer enthalten ist. Der Befehl ausgeführt wird, mit den Anmeldeinformationen des Benutzers **Maindom\hiropln**, und <strong>p@ssW23</strong> wird für diesen Benutzer als Kennwort eingegeben.
+Im folgenden Beispiel werden alle verfügbaren Informationen über Gruppenrichtlinie für den Remote Benutzer **targetusername** des **srvmain** -Computers in eine Datei mit dem Namen " **Policy. txt**" gespeichert. Der Computer enthält keine Daten. Der Befehl wird mit den Anmelde Informationen des Benutzers **maindom\hiropln**ausgeführt, und <strong>p@ssW23</strong> wird als Kennwort für diesen Benutzer eingegeben.
 
   ```
   gpresult /s srvmain /u maindom\hiropln /p p@ssW23 /user targetusername /z > policy.txt
   ```
   
-Das folgende Beispiel zeigt die RSoP-Daten für den Computer **Srvmain** und dem angemeldeten Benutzer. Daten, die über den Benutzer und dem Computer enthalten ist. Der Befehl ausgeführt wird, mit den Anmeldeinformationen des Benutzers **Maindom\hiropln**, und <strong>p@ssW23</strong> wird für diesen Benutzer als Kennwort eingegeben.
+Im folgenden Beispiel werden RSOP-Daten für den Computer **srvmain** und den angemeldeten Benutzer angezeigt. Daten werden sowohl für den Benutzer als auch für den Computer eingeschlossen. Der Befehl wird mit den Anmelde Informationen des Benutzers **maindom\hiropln**ausgeführt, und <strong>p@ssW23</strong> wird als Kennwort für diesen Benutzer eingegeben.
 
   ```
   gpresult /s srvmain /u maindom\hiropln /p p@ssW23 /r
   ```
   
-## <a name="additional-references"></a>Zusätzliche Referenzen
-- [Gruppenrichtlinien-TechCenter](https://go.microsoft.com/fwlink/?LinkID=145531)
+## <a name="additional-references"></a>Weitere Verweise
+- [Gruppenrichtlinie-TechCenter](https://go.microsoft.com/fwlink/?LinkID=145531)
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

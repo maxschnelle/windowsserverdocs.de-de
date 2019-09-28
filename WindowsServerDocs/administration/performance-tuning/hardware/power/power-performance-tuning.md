@@ -1,18 +1,18 @@
 ---
 title: Leistungs-und Leistungsoptimierung
 description: Optimieren der Prozessor Energie Verwaltung (ppm) für den Energie Sparplan von Windows Server ausgeglichen
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Qizha;TristanB
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 4ffa39d50d7b4c8429485e7db35bb2c863b7a995
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 1fcb1601169fa8f8b45a8a89b6495179092a0adc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866767"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370540"
 ---
 # <a name="power-and-performance-tuning"></a>Leistungs-und Leistungsoptimierung
 

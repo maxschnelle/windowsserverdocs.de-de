@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin gethelpertokensid
-description: Windows-Befehle Thema **Bitsadmin Gethelpertokensid** -gibt die SID von einem BITS-Übertragungsauftrag Helper-Token zurück, wenn diese festgelegt ist.
+title: BI-admin-gethelperthkensid
+description: 'Thema Windows-Befehle für **BITSAdmin gethelpertokensid** : gibt die SID des Hilfsobjekts eines Bits-Übertragungs Auftrags zurück, sofern ein solches festgelegt ist.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -12,18 +12,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/01/2019
-ms.openlocfilehash: 1a956357b786c1d151f1363dacf78dbced137a2e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a8c2a9f319defd8ac9acd36063ee079c24ad8ae0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874661"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381594"
 ---
-# <a name="bitsadmin-gethelpertokensid"></a>Bitsadmin gethelpertokensid
+# <a name="bitsadmin-gethelpertokensid"></a>BI-admin-gethelperthkensid
 
-Gibt die SID eines BITS-übertragungsauftrags [Helper-Token](/windows/desktop/bits/helper-tokens-for-bits-transfer-jobs), wenn diese festgelegt ist.
+Gibt die sid für das [Hilfsobjekt](/windows/desktop/bits/helper-tokens-for-bits-transfer-jobs)eines Bits-Übertragungs Auftrags zurück, sofern ein solches festgelegt ist.
 
-**BITS 3.0 und früheren**: Nicht unterstützt.
+**Bits 3,0 und früher**: Nicht unterstützt.
 
 ## <a name="syntax"></a>Syntax
 
@@ -35,8 +35,8 @@ bitsadmin /GetHelperTokensID <Job>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

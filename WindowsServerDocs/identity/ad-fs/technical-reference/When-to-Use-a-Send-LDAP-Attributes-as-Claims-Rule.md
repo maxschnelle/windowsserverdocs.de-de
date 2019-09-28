@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: a1210918067bbb71ea26dff4db11561bbeb09dbd
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 08382a8eccaafac257165587fe7b6c18a8ecfbbc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869252"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407272"
 ---
 # <a name="when-to-use-a-send-ldap-attributes-as-claims-rule"></a>Verwenden einer Regel zum Senden von LDAP-Attributen als Ansprüche
 Sie können diese Regel in \(Active Directory-Verbunddienste (AD FS) AD FS\) verwenden, wenn Sie ausgehende Ansprüche ausgeben möchten, die tatsächliche LDAP\) -Attribut \(Werte des Lightweight Directory Access-Protokolls enthalten, die in vorhanden sind. einen Attribut Speicher, und verknüpfen Sie dann die einzelnen LDAP-Attribute mit einem Anspruchstyp. Weitere Informationen zu Attribut speichern finden Sie [unter der Rolle von Attribut speichern](The-Role-of-Attribute-Stores.md).  

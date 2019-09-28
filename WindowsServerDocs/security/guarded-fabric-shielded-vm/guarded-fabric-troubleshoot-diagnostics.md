@@ -1,136 +1,136 @@
 ---
-title: Problembehandlung mithilfe der geschützten Fabric-Diagnosetool
+title: Problembehandlung mithilfe des geschützten Fabric-Diagnosetools
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: 07691d5b-046c-45ea-8570-a0a85c3f2d22
 manager: dongill
 author: huu
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: 0fb257f693cc27c0bc6dd18fc89e8dc6328ee638
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: deeaa7eab01dd5da6d997dd6ec039a3319e5c2b7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447340"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386465"
 ---
-# <a name="troubleshooting-using-the-guarded-fabric-diagnostic-tool"></a>Problembehandlung mithilfe der geschützten Fabric-Diagnosetool
+# <a name="troubleshooting-using-the-guarded-fabric-diagnostic-tool"></a>Problembehandlung mithilfe des geschützten Fabric-Diagnosetools
 
->Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Dieses Thema beschreibt die Verwendung des überwachten Fabric Diagnostic Tools zum Bestimmen und Beheben von häufig auftretenden Fehler in der Bereitstellung, Konfiguration und laufenden Betrieb der geschützten Fabric-Infrastruktur. Dies schließt die (Host Guardian Service, HGS), alle überwachten Hosts und unterstützende Dienste wie DNS und Active Directory. Das Diagnosetool kann verwendet werden, ein erster-Schritt bei der Selektierung einer fehlerhaften überwachten Fabric, die Administratoren einen Ausgangspunkt zum Auflösen von Ausfällen, und identifizieren falsch konfigurierte Ressourcen ausführen. Das Tool ist kein Ersatz für einen sound verstehen des Betriebs eines geschützten Fabrics, und nur dazu dient, die am häufigsten auftretenden Probleme, die während der täglichen Vorgänge schnell zu überprüfen.
+In diesem Thema wird beschrieben, wie Sie häufige Fehler bei der Bereitstellung, Konfiguration und beim laufenden Betrieb der geschützten Fabric-Infrastruktur mithilfe des geschützten Fabric-Diagnosetools identifizieren und beheben. Dies schließt den Host-Überwachungsdienst (Host Guardian Service, HGS), alle überwachten Hosts und unterstützende Dienste wie DNS und Active Directory ein. Das Diagnosetool kann verwendet werden, um einen ersten Durchlauf bei der Selektierung eines fehlerhaften geschützten Fabrics durchzuführen, sodass Administratoren einen Ausgangspunkt für die Behebung von Ausfällen und die Identifizierung falsch konfigurierter Assets erhalten. Das Tool ist kein Ersatz für einen fundierten Einblick in das Betreiben eines geschützten Fabrics und dient nur der schnellen Überprüfung der häufigsten Probleme, die bei alltäglichen Vorgängen auftreten.
 
-Dokumentation zu den in diesem Thema verwendeten Cmdlets finden Sie unter [TechNet](https://technet.microsoft.com/library/mt718834.aspx).
+Die Dokumentation der in diesem Thema verwendeten Cmdlets finden Sie auf [TechNet](https://technet.microsoft.com/library/mt718834.aspx).
 
 [!INCLUDE [Guarded fabric diagnostics tool](../../../includes/guarded-fabric-diagnostics-tool.md)] 
 
 # <a name="quick-start"></a>Schnellstart
 
-Sie können entweder ein überwachter Host oder einen Host-Überwachungsdienst-Knoten durch Aufrufen von Folgendes von einer Windows PowerShell-Sitzung mit lokalen Administratorrechten diagnostizieren:
+Sie können entweder einen überwachten Host oder einen HGS-Knoten diagnostizieren, indem Sie den folgenden Befehl in einer Windows PowerShell-Sitzung mit lokalen Administratorrechten aufrufen:
 ```PowerShell
 Get-HgsTrace -RunDiagnostics -Detailed
 ```
-Automatisch wird die Rolle des aktuellen Hosts zu erkennen und diagnostizieren alle relevanten Probleme, die nicht automatisch erkannt werden können.  Alle bei diesem Vorgang generierten Ergebnisse werden angezeigt, durch das Vorhandensein der `-Detailed` wechseln.
+Dadurch wird automatisch die Rolle des aktuellen Hosts erkannt und relevante Probleme, die automatisch erkannt werden können, diagnostiziert.  Alle Ergebnisse, die während dieses Vorgangs generiert werden, werden aufgrund des Vorhandenseins des Schalters `-Detailed` angezeigt.
 
-Im weiteren Verlauf dieses Themas bietet eine ausführliche exemplarische Vorgehensweise für die fortgeschrittene Verwendung der `Get-HgsTrace` für folgende Aufgaben: Diagnostizieren von mehreren Hosts gleichzeitig und komplexe knotenübergreifender Fehlkonfiguration erkannt.
+Im restlichen Teil dieses Themas wird eine ausführliche Exemplarische Vorgehensweise für die Erweiterte Verwendung von `Get-HgsTrace` für das Ausführen von Aufgaben wie das gleichzeitige diagnostizieren mehrerer Hosts und das Erkennen einer komplexen Knoten übergreifenden Fehlkonfiguration bereitgestellt.
 
-## <a name="diagnostics-overview"></a>Übersicht über die Diagnose
-Geschütztes Fabric-Diagnose stehen auf einem Host mit abgeschirmten virtuellen Computer verknüpft, Tools und Features installiert haben, einschließlich Server Core-Hosts.  Derzeit sind die Diagnose mit den folgenden Features/Paketen enthalten:
+## <a name="diagnostics-overview"></a>Diagnose Übersicht
+Die geschützte Fabric-Diagnose ist auf jedem Host verfügbar, auf dem geschützte virtuelle computerbezogene Tools und Features installiert sind, einschließlich Hosts, auf denen Server Core ausgeführt wird.  Derzeit sind die Diagnosen in den folgenden Features/Paketen enthalten:
 
-1. Host-Überwachungsdienst-Dienstrolle
+1. Rolle "Host-Überwachungsdienst"
 2. Host-Überwachungsunterstützung für Hyper-V
 3. VM-Abschirmungstools für Fabric-Verwaltung
 4. Remoteserver-Verwaltungstools (RSAT)
 
-Dies bedeutet, dass die Tools für die Diagnose für alle überwachten Hosts, Host-Überwachungsdienst-Knoten, bestimmte Fabric-Management-Server und alle Windows 10-Arbeitsstationen in zur Verfügung stehen [RSAT](https://www.microsoft.com/download/details.aspx?id=45520) installiert.  Diagnosen können von jedem der oben genannten Computer mit der Absicht der Diagnose von Problemen, die überwachten Host bzw. die Host-Überwachungsdienst-Knoten in einem geschützten Fabric aufgerufen werden. verwenden die remote-Trace-Ziele, Diagnose suchen und eine Verbindung herstellen, auf andere Hosts als dem Computer, die Ausführung von Diagnosen.
+Dies bedeutet, dass Diagnosetools auf allen überwachten Hosts, HGS-Knoten, bestimmten Fabric-Verwaltungs Servern und allen Windows 10-Arbeitsstationen verfügbar sind, auf denen [rsat](https://www.microsoft.com/download/details.aspx?id=45520) installiert ist.  Die Diagnose kann von einem der oben genannten Computer aus aufgerufen werden, um alle überwachten Hosts oder HGS-Knoten in einem geschützten Fabric zu diagnostizieren. mithilfe von remotelaufverfolgungs-Zielen kann die Diagnose andere Hosts als den Computer mit Diagnose suchen und verbinden.
 
-Jeder Host für die Diagnose wird als ein "Trace-Ziel" bezeichnet  Trace-Ziele werden durch ihre Hostnamen und Rollen identifiziert.  Datenbankrollen beschrieben werden, die Funktion, die ein Ziel für die angegebene Ablaufverfolgung in einem geschützten Fabric ausgeführt wird.  Ablaufverfolgung ist derzeit Support `HostGuardianService` und `GuardedHost` Rollen.  Beachten Sie, dass es für einen Host belegt Sie mehrere Rollen gleichzeitig möglich ist, und dies wird auch von der Diagnose, unterstützt, aber dies sollte nicht in produktionsumgebungen ausgeführt werden.  Die Host-Überwachungsdienst und Hyper-V-Hosts sollten getrennt bleiben und unterschiedliche zu jeder Zeit.
+Jeder Host, der als Ziel der Diagnose dient, wird als "Ablauf Verfolgungs Ziel" bezeichnet.  Ablauf Verfolgungs Ziele werden anhand ihrer Hostnamen und Rollen identifiziert.  Rollen beschreiben die Funktion, die ein bestimmtes Ablauf Verfolgungs Ziel in einem geschützten Fabric ausführt.  Derzeit unterstützen Ablauf Verfolgungs Ziele `HostGuardianService`-und `GuardedHost`-Rollen.  Beachten Sie, dass es möglich ist, dass ein Host mehrere Rollen gleichzeitig einnimmt und auch von der Diagnose unterstützt wird. Dies sollte jedoch nicht in Produktionsumgebungen erfolgen.  Die HGS-und Hyper-V-Hosts sollten stets getrennt und voneinander getrennt werden.
 
-Administratoren können alle Diagnosetasks starten, indem Sie Ausführung `Get-HgsTrace`.  Durch diesen Befehl werden zwei verschiedene Funktionen, die basierend auf den Switches zur Laufzeit bereitgestellt wird: Sammlung und Diagnose zu verfolgen.  Während des gesamten Entwicklungsprozesses des überwachten Fabric Diagnostic Tools machen diese beiden kombiniert.  Obwohl nicht explizit erforderlich ist, erfordern nützlichsten Diagnose ablaufverfolgungen, die nur mit Administratoranmeldeinformationen auf dem Ziel der Ablaufverfolgung erfasst werden können.  Wenn Sie nicht über ausreichende Berechtigungen der Benutzer ausführt, Sammlung von startablaufdaten reserviert sind, schlagen ablaufverfolgungen, die erhöhte Rechte erfordern, während alle anderen übergeben werden.  Dadurch können teilweise Diagnose den Fall, dass ein Operator unterdimensionierte Privileged "Selektierung" ausführt. 
+Administratoren können alle Diagnose Tasks starten, indem Sie `Get-HgsTrace` ausführen.  Dieser Befehl führt zwei unterschiedliche Funktionen basierend auf den Schaltern aus, die zur Laufzeit bereitgestellt werden: Ablauf Verfolgungs Sammlung und-Diagnose.  Diese beiden kombinierten bilden das gesamte geschützte Fabric-Diagnose Tool.  Obwohl Sie nicht explizit erforderlich sind, erfordern die meisten nützlichen Diagnosen Ablauf Verfolgungen, die nur mit Administrator Anmelde Informationen für das Ziel der Ablauf Verfolgung erfasst werden können.  Wenn der Benutzer, der die Ablauf Verfolgungs Sammlung ausführt, unzureichende Berechtigungen erhält, schlagen Ablauf Verfolgungen fehl, die eine Rechte Erweiterung erfordern, während alle anderen bestanden werden.  Dies ermöglicht eine partielle Diagnose in dem Fall, dass ein unterprivilegierter Operator eine selektiert durchführt. 
 
-### <a name="trace-collection"></a>Ablaufverfolgungssammlung
-In der Standardeinstellung `Get-HgsTrace` wird nur die Ablaufverfolgung erfassen und speichern Sie sie in einen temporären Ordner.  Ablaufverfolgungen werden in der Form von einen Ordner namens nach dem entsprechenden Host gefüllt mit speziell formatierte Dateien, die beschreiben, wie der Host konfiguriert wurde.  Die ablaufverfolgungen enthalten außerdem Metadaten, die beschreiben, wie die Diagnose aufgerufen wurden, um die ablaufverfolgungen zu erfassen.  Diese Daten werden von der Diagnose verwendet, um Informationen über den Host zu aktivieren, wenn manuelle Diagnose ausführen.
+### <a name="trace-collection"></a>Ablauf Verfolgungs Sammlung
+Standardmäßig werden von `Get-HgsTrace` nur Ablauf Verfolgungen erfasst und in einem temporären Ordner gespeichert.  Ablauf Verfolgungen haben das Format eines Ordners, der nach dem Zielhost benannt ist und mit speziell formatierten Dateien gefüllt ist, die beschreiben, wie der Host konfiguriert ist.  Die Ablauf Verfolgungen enthalten außerdem Metadaten, die beschreiben, wie die Diagnose zum Erfassen der Ablauf Verfolgungen aufgerufen wurde.  Diese Daten werden von der Diagnose verwendet, um beim Ausführen der manuellen Diagnoseinformationen über den Host zu reaktivieren.
 
-Bei Bedarf können ablaufverfolgungen manuell überprüft werden.  Alle Formate sind entweder lesbar (XML) oder kann leicht überprüft werden mithilfe von Standardtools (z. B. X509 Zertifikate und die Windows-Kryptografie-Shell-Erweiterungen).  Beachten Sie jedoch, dass ablaufverfolgungen sind nicht für die manuelle Diagnose ausgelegt, und es immer mehr ist zum Verarbeiten von ablaufverfolgungen mit den Diagnose-Funktionen der effektiven `Get-HgsTrace`.
+Bei Bedarf können Ablauf Verfolgungen manuell überprüft werden.  Alle Formate sind entweder von Menschen lesbar (XML) oder können mithilfe von Standard Tools (z. b. x. 509-Zertifikaten und den Windows-Crypto Shell-Erweiterungen) problemlos überprüft werden.  Beachten Sie jedoch, dass Ablauf Verfolgungen nicht für die manuelle Diagnose konzipiert sind und es immer effektiver ist, die Ablauf Verfolgungen mit den Diagnosefunktionen von `Get-HgsTrace` zu verarbeiten.
 
-Die Ergebnisse der Ausführung der Sammlung von startablaufdaten machen sich nicht auf einen Hinweis auf, die Integrität eines bestimmten Hosts aus.  Sie geben einfach an, dass ablaufverfolgungen erfolgreich gesammelt wurden.  Es ist erforderlich, die Funktionen für die Diagnose von verwenden `Get-HgsTrace` zu bestimmen, ob die ablaufverfolgungen fehlerhaften Umgebung anzugeben.
+Die Ergebnisse der Ausführung der Ablauf Verfolgungs Sammlung geben keine Anzeichen für die Integrität eines bestimmten Hosts an.  Sie geben einfach an, dass Ablauf Verfolgungen erfolgreich erfasst wurden.  Es ist erforderlich, die Diagnosefunktionen von `Get-HgsTrace` zu verwenden, um zu bestimmen, ob die Ablauf Verfolgungen auf eine fehlerhafte Umgebung hindeuten.
 
-Mithilfe der `-Diagnostic` Parameter, Sie können einschränken, Trace-Auflistung, um nur diese ablaufverfolgungen erforderlich, um die angegebenen Diagnose ausgeführt werden.  Dies reduziert die Menge der Daten sowie die erforderlichen Berechtigungen zum Aufrufen der Diagnose erfasst.
+Mithilfe des Parameters "`-Diagnostic`" können Sie die Ablauf Verfolgungs Sammlung auf die Ablauf Verfolgungen beschränken, die für den Betrieb der angegebenen Diagnose erforderlich sind.  Dadurch wird die Menge der erfassten Daten sowie die zum Aufrufen der Diagnose erforderlichen Berechtigungen reduziert.
 
 ### <a name="diagnosis"></a>Diagnose
-Gesammelte ablaufverfolgungen können durch die bereitgestellten diagnostiziert werden `Get-HgsTrace` den Speicherort der ablaufverfolgungen über die `-Path` Parameter und Angeben der `-RunDiagnostics` wechseln.  Darüber hinaus `Get-HgsTrace` Aktualisierungsoption Auflistung und Diagnose in einem einzelnen Durchlauf durch die Bereitstellung der `-RunDiagnostics` wechseln und eine Liste der Ziele der Ablaufverfolgung.  Wenn keine Ziele für die Ablaufverfolgung bereitgestellt werden, der aktuelle Computer als implizite-Ziel, und seine Rolle durch Überprüfen der installierten Windows PowerShell-Module abgeleitet wird.
+Erfasste Ablauf Verfolgungen können mithilfe der bereitgestellten `Get-HgsTrace` den Speicherort der Ablauf Verfolgungen über den `-Path`-Parameter und durch Angabe des `-RunDiagnostics`-Schalters diagnostiziert werden.  Darüber hinaus können `Get-HgsTrace` die Sammlung und Diagnose in einem einzigen Durchlauf ausführen, indem Sie den Schalter "`-RunDiagnostics`" und eine Liste der Ablauf Verfolgungs Ziele bereitstellen.  Wenn keine Ablauf Verfolgungs Ziele bereitgestellt werden, wird der aktuelle Computer als implizites Ziel verwendet, dessen Rolle durch die Überprüfung der installierten Windows PowerShell-Module abgeleitet ist.
 
-Diagnose wird Ergebnisse in einem hierarchischen Format angezeigt, der die Ablaufverfolgung-Ziele, die Diagnose legt, und einzelne Diagnose für einen bestimmten Fehler verantwortlich ist.  Fehler bei der enthalten Wiederherstellungsprozess sowie lösungsempfehlungen, wenn eine Identifizierung vorgenommen werden kann, welche Aktion weiter ausgeführt werden soll.  Standardmäßig werden erfolgreiche und irrelevante Ergebnisse ausgeblendet.  Um alles, was getestet werden, von der Diagnose anzuzeigen, geben Sie die `-Detailed` wechseln.  Dadurch werden alle Ergebnisse unabhängig von deren Status angezeigt werden.
+Die Diagnose führt zu einem hierarchischen Format, das anzeigt, welche Ablauf Verfolgungs Ziele, Diagnose Sätze und die einzelnen Diagnosen für einen bestimmten Fehler verantwortlich sind.  Zu den Fehlern zählen Empfehlungen zur Wiederherstellung und Behebung, wenn eine Entscheidung getroffen werden kann, welche Aktion als nächstes ausgeführt werden soll.  Standardmäßig werden das übergeben und das irrelevante Ergebnis ausgeblendet.  Wenn Sie alle von der Diagnose getesteten Elemente anzeigen möchten, geben Sie den Schalter `-Detailed` an.  Dies bewirkt, dass alle Ergebnisse unabhängig von Ihrem Status angezeigt werden.
 
-Es ist möglich, den Satz von Diagnosedaten zu beschränken, die ausgeführt werden, mithilfe der `-Diagnostic` Parameter.  Dadurch können Sie angeben, welche Klassen der Diagnose für die Ablaufverfolgung ausgerichtet ist, ausgeführt werden soll, und alle anderen unterdrücken.  Beispiele für verfügbare diagnostische Klassen sind, Netzwerk-, best Practices und Client Hardware.  Wenden Sie sich an den [Dokumentation zum Cmdlet](https://technet.microsoft.com/library/mt718831.aspx) finden Sie eine aktuelle Liste der verfügbaren Diagnosen.
+Es ist möglich, den Satz der Diagnose, die mithilfe des Parameters "`-Diagnostic`" ausgeführt werden, einzuschränken.  Dadurch können Sie angeben, welche Klassen der Diagnose für die Ablauf Verfolgungs Ziele ausgeführt werden sollen, und alle anderen unterdrücken.  Beispiele für verfügbare Diagnoseklassen sind Netzwerk, bewährte Methoden und Client Hardware.  In der [Cmdlet-Dokumentation](https://technet.microsoft.com/library/mt718831.aspx) finden Sie eine aktuelle Liste der verfügbaren Diagnosen.
 
 > [!WARNING]
-> Diagnose ist kein Ersatz für eine starke Überwachung und Reaktion auf Vorfälle-Pipeline.  Ein System Center Operations Manager-Paket steht zur Verfügung, für die Überwachung von geschützten Fabrics sowie verschiedene ereignisprotokollkanäle, die überwacht werden können, um Probleme früh zu erkennen.  Diagnose kann dann verwendet werden, schnell selektieren diese Fehler und Aktion herzustellen.
+> Die Diagnose ist kein Ersatz für eine sichere Pipeline zur Überwachung und Reaktion auf Vorfälle.  Es gibt ein System Center Operations Manager Paket für die Überwachung überwachter Fabrics sowie verschiedene Ereignisprotokoll Kanäle, die überwacht werden können, um Probleme frühzeitig zu erkennen.  Die Diagnose kann dann verwendet werden, um diese Fehler schnell zu selektiert und eine Vorgehensweise festzulegen.
 
-## <a name="targeting-diagnostics"></a>Für die Zielgruppenadressierung Diagnose
+## <a name="targeting-diagnostics"></a>Ziel Diagnose
 
-`Get-HgsTrace` funktioniert für Trace-Ziele.  Ein Ziel für die Ablaufverfolgung handelt es sich um ein Objekt, das eine Host-Überwachungsdienst-Knoten oder einem bewachten Host innerhalb eines geschützten Fabrics entspricht.  Es kann als Erweiterung betrachtet werden eine `PSSession` darunter Angaben, die nur von z. B. die Rolle des Hosts im Fabric-Diagnose erforderlich sind.  Ziele können werden generiert implizit (z. B. lokale oder manuelle Diagnose) oder explizit mit der `New-HgsTraceTarget` Befehl.
+`Get-HgsTrace` funktioniert mit Ablauf Verfolgungs Zielen.  Ein Ablauf Verfolgungs Ziel ist ein Objekt, das einem HGS-Knoten oder einem überwachten Host in einem geschützten Fabric entspricht.  Dies kann als Erweiterung eines `PSSession` betrachtet werden, das nur die Informationen enthält, die nur von der Diagnose (z. b. der Rolle des Hosts im Fabric) benötigt werden.  Ziele können implizit (z. b. lokale oder manuelle Diagnose) oder explizit mit dem Befehl "`New-HgsTraceTarget`" generiert werden.
 
 ### <a name="local-diagnosis"></a>Lokale Diagnose
 
-In der Standardeinstellung `Get-HgsTrace` zielt die "localhost" (d. h., in dem das-Cmdlet aufgerufen wird).  Dies wird als implizite lokale Ziel bezeichnet.  Die implizite lokale Ziel wird nur verwendet, wenn keine Ziele, in bereitgestellt werden der `-Target` Parameter und keine bereits vorhandenen ablaufverfolgungen befinden sich die `-Path`.
+Standardmäßig verwendet `Get-HgsTrace` den localhost (d. h., wo das Cmdlet aufgerufen wird).  Dies wird als implizites lokales Ziel bezeichnet.  Das implizite lokale Ziel wird nur verwendet, wenn im `-Target`-Parameter keine Ziele bereitgestellt werden und keine bereits vorhandenen Ablauf Verfolgungen in der `-Path` enthalten sind.
 
-Die implizite lokale Ziel verwendet Rolle Typrückschluss, um zu bestimmen, welche Rolle der aktuelle Host in der geschützten Fabric spielt.  Dies basiert auf der installierten Windows PowerShell-Module die entsprechen etwa welche Funktionen auf dem System installiert wurden.  Das Vorhandensein der `HgsServer` Modul führt dazu, dass das Ziel der Ablaufverfolgung, die Rolle `HostGuardianService` und das Vorhandensein der `HgsClient` Modul führt dazu, dass das Ziel der Ablaufverfolgung, die Rolle `GuardedHost`.  Es ist möglich, für einen bestimmten Host, damit beide Module in diesem Fall vorhanden, wird es als behandelt, eine `HostGuardianService` und `GuardedHost`.
+Das implizite lokale Ziel verwendet einen Rollen Rückschluss, um zu bestimmen, welche Rolle der aktuelle Host im geschützten Fabric spielt.  Dies basiert auf den installierten Windows PowerShell-Modulen, die ungefähr den Funktionen entsprechen, die auf dem System installiert wurden.  Das vorhanden sein des Moduls "`HgsServer`" bewirkt, dass das Ablauf Verfolgungs Ziel die Rolle `HostGuardianService` übernimmt. das vorhanden sein des Moduls "`HgsClient`" bewirkt, dass das Ablauf Verfolgungs Ziel die Rolle "`GuardedHost`" übernimmt.  Es ist möglich, dass für einen bestimmten Host beide Module vorhanden sind. in diesem Fall wird er sowohl als `HostGuardianService` als auch als `GuardedHost` behandelt.
 
-Aus diesem Grund führt eine Ablaufverfolgung für der Standard-Aufruf der Diagnose zum Sammeln von lokal:
+Daher ist der Standard Aufruf der Diagnose für die lokale Erfassung von Ablauf Verfolgungen:
 ```PowerShell
 Get-HgsTrace
 ```
-... ist äquivalent zu folgendem:
+... entspricht Folgendem:
 ```PowerShell
 New-HgsTraceTarget -Local | Get-HgsTrace
 ```
 > [!TIP]
-> `Get-HgsTrace` lässt die Ziele, die über die Pipeline oder direkt über die `-Target` Parameter.  Es gibt keinen Unterschied zwischen den beiden während des Betriebs.
+> `Get-HgsTrace` kann Ziele über die Pipeline oder direkt über den `-Target`-Parameter akzeptieren.  Es gibt keinen Unterschied zwischen den beiden operationalen.
 
-### <a name="remote-diagnosis-using-trace-targets"></a>Remote-Diagnose mithilfe von Trace-Ziele
+### <a name="remote-diagnosis-using-trace-targets"></a>Remote Diagnose mithilfe von Ablauf Verfolgungs Zielen
 
-Es ist möglich, einen Host eine Remotediagnose für Trace-Ziele mit remoteverbindungsinformationen generieren.  Erforderlich ist lediglich den Hostnamen und einen Satz von Anmeldeinformationen eine Verbindung herstellen über Windows PowerShell-Remoting kann.
+Es ist möglich, einen Host Remote zu diagnostizieren, indem er Ablauf Verfolgungs Ziele mit Remote Verbindungsinformationen erzeugt.  Alles, was erforderlich ist, ist der Hostname und ein Satz von Anmelde Informationen, die mithilfe von Windows PowerShell-Remoting eine Verbindung herstellen können.
 ```PowerShell
 $server = New-HgsTraceTarget -HostName "hgs-01.secure.contoso.com" -Role HostGuardianService -Credential (Enter-Credential)
 Get-HgsTrace -RunDiagnostics -Target $server
 ```
-In diesem Beispiel wird eine Aufforderung zum Sammeln der Anmeldeinformationen des Remotebenutzers generiert, und klicken Sie dann Diagnose führt mit dem Remotehost an `hgs-01.secure.contoso.com` Ablaufverfolgungssammlung abgeschlossen.  Die resultierenden ablaufverfolgungen sind in den "localhost" heruntergeladen und dann untersucht.  Die Ergebnisse der Diagnose identisch angezeigt werden, bei [lokale Diagnose](#local-diagnosis).  Auf ähnliche Weise ist es nicht erforderlich, eine Rolle an, wie sie basierend auf der Windows PowerShell-Module, die auf dem Remotesystem installiert abgeleitet werden kann.
+In diesem Beispiel wird eine Aufforderung zum Erfassen der Anmelde Informationen des Remote Benutzers generiert. Anschließend wird die Diagnose mithilfe des Remote Hosts auf `hgs-01.secure.contoso.com` ausgeführt, um die Ablauf Verfolgungs Sammlung abzuschließen.  Die resultierenden Ablauf Verfolgungen werden auf den localhost heruntergeladen und anschließend diagnostiziert.  Die Diagnoseergebnisse werden genauso wie bei der [lokalen Diagnose](#local-diagnosis)angezeigt.  Ebenso ist es nicht notwendig, eine Rolle anzugeben, da Sie auf Grundlage der auf dem Remote System installierten Windows PowerShell-Module abgeleitet werden kann.
 
-Remote-Diagnose verwendet Windows PowerShell-Remoting für alle Zugriffe auf den Remotehost.  Daher ist es eine Voraussetzung, dass das Ziel für die Ablaufverfolgung mit Windows PowerShell-Remoting aktiviert haben (finden Sie unter [aktivieren PSRemoting](https://technet.microsoft.com/library/hh849694.aspx)) und dass die "localhost" ordnungsgemäß konfiguriert werden, für den Start von Verbindungen mit dem Ziel.
+Bei der Remote Diagnose werden Windows PowerShell-Remoting für alle Zugriffe auf den Remote Host verwendet.  Daher ist es eine Voraussetzung dafür, dass für das Ablauf Verfolgungs Ziel Windows PowerShell-Remoting aktiviert ist (siehe [Aktivieren von psremoting](https://technet.microsoft.com/library/hh849694.aspx)) und dass der localhost ordnungsgemäß für das Starten von Verbindungen mit dem Ziel konfiguriert ist.
 
 > [!NOTE]
-> In den meisten Fällen ist es nur erforderlich, dass die "localhost" Teil derselben Active Directory-Gesamtstruktur sein und ein gültiger DNS-Hostnamen verwendet wird.  Wenn Ihre Umgebung einen etwas komplizierteren Verbundmodell nutzt oder direkte IP-Adressen für Verbindungen verwenden möchten, müssen Sie möglicherweise zusätzliche Konfigurationsschritte wie das Festlegen der WinRM ausführen [vertrauenswürdige Hosts](https://technet.microsoft.com/library/ff700227.aspx).
+> In den meisten Fällen ist es lediglich erforderlich, dass "localhost" ein Teil derselben Active Directory Gesamtstruktur ist und dass ein gültiger DNS-Hostname verwendet wird.  Wenn Ihre Umgebung ein komplizierteres Verbund Modell verwendet oder Sie direkte IP-Adressen für die Konnektivität verwenden möchten, müssen Sie möglicherweise eine zusätzliche Konfiguration durchführen, z. b. das Festlegen von WinRM- [vertrauenswürdigen Hosts](https://technet.microsoft.com/library/ff700227.aspx).
 
-Sie können überprüfen, ob ein Ziel für die Ablaufverfolgung ordnungsgemäße Instanziierung und Konfiguration für das Akzeptieren von Verbindungen mit dem `Test-HgsTraceTarget` Cmdlet:
+Sie können überprüfen, ob ein Ablauf Verfolgungs Ziel ordnungsgemäß instanziiert und für das akzeptieren von Verbindungen konfiguriert ist, indem Sie das `Test-HgsTraceTarget`-Cmdlet verwenden:
 ```PowerShell
 $server = New-HgsTraceTarget -HostName "hgs-01.secure.contoso.com" -Role HostGuardianService -Credential (Enter-Credential)
 $server | Test-HgsTraceTarget
 ```
-Dieser Befehl gibt `$True` nur, wenn `Get-HgsTrace` wäre eine Diagnose Remotesitzung mit dem Trace-Ziel herstellen.  Bei einem Fehler gibt dieses Cmdlet aus, relevante Informationen für die weitere Problembehandlung für die Windows PowerShell-Remoting-Verbindung zurück.
+Mit diesem Befehl wird `$True` zurückgegeben, wenn `Get-HgsTrace` eine Remote Diagnose Sitzung mit dem Ablauf Verfolgungs Ziel einrichten könnte.  Bei einem Fehler gibt dieses Cmdlet relevante Statusinformationen zur weiteren Problembehandlung der Windows PowerShell-Remoting-Verbindung zurück.
 
-#### <a name="implicit-credentials"></a>Implizite Anmeldeinformationen
+#### <a name="implicit-credentials"></a>Implizite Anmelde Informationen
 
-Wenn remote-Diagnose von einem Benutzer mit ausreichenden Berechtigungen Herstellen einer Remoteverbindung mit dem Ziel für die Ablaufverfolgung durchführen zu können, ist es nicht erforderlich, geben Sie Anmeldeinformationen für `New-HgsTraceTarget`.  Die `Get-HgsTrace` Cmdlet verwendet die Anmeldeinformationen des Benutzers, der das-Cmdlet beim Öffnen einer Verbindung aufgerufen automatisch erneut.
+Wenn eine Remote Diagnose von einem Benutzer mit ausreichenden Berechtigungen zum Herstellen einer Remote Verbindung mit dem Ablauf Verfolgungs Ziel durchgeführt wird, ist es nicht erforderlich, Anmelde Informationen für die `New-HgsTraceTarget` anzugeben.  Das Cmdlet "`Get-HgsTrace`" verwendet automatisch die Anmelde Informationen des Benutzers, der das Cmdlet aufgerufen hat, wenn er eine Verbindung öffnet.
 
 > [!WARNING]
-> Es gelten einige Einschränkungen, die Anmeldeinformationen wiederverwenden, besonders beim Ausführen von sogenannten "zweiten Hop".  Dies tritt auf, bei dem Versuch der Wiederverwendung von Anmeldeinformationen innerhalb einer Remotesitzung mit einem anderen Computer.  Es ist notwendig, [einrichten CredSSP](https://technet.microsoft.com/library/hh849872.aspx) unterstützen dieses Szenario, aber dies ist nicht im Rahmen eines geschützten Fabrics, Verwaltung und Problembehandlung.
+> Einige Einschränkungen gelten für die Wiederverwendung von Anmelde Informationen, insbesondere bei der Durchführung eines "zweiten Hops".  Dies tritt auf, wenn versucht wird, Anmelde Informationen aus einer Remote Sitzung auf einem anderen Computer wiederzuverwenden.  [CredSSP](https://technet.microsoft.com/library/hh849872.aspx) muss zur Unterstützung dieses Szenarios eingerichtet werden, aber dies liegt außerhalb des Umfangs der Verwaltung und Problembehandlung für geschützte Fabrics.
 
-#### <a name="using-windows-powershell-just-enough-administration-jea-and-diagnostics"></a>Mithilfe von Windows PowerShell, Just Enough Administration (JEA) und Diagnose
+#### <a name="using-windows-powershell-just-enough-administration-jea-and-diagnostics"></a>Verwenden von Windows PowerShell Just Enough Administration (Jea) und Diagnostics
 
-Remote-Diagnose unterstützt die Verwendung von Windows PowerShell eingeschränkten JEA-Endpunkten. Remote-Ablaufverfolgung Ziele werden verbinden sich standardmäßig unter Verwendung der `microsoft.powershell` Endpunkt.  Wenn das Trace-Ziel verfügt die `HostGuardianService` -Rolle wird auch versucht, verwenden Sie die `microsoft.windows.hgs` -Endpunkt konfiguriert ist, bei der Installation von Host-Überwachungsdienst.
+Die Remote Diagnose unterstützt die Verwendung von mit Jea eingeschränkten Windows PowerShell-Endpunkten. Standardmäßig werden Remote Ablauf Verfolgungs Ziele mithilfe des standardmäßigen `microsoft.powershell`-Endpunkts verbunden.  Wenn das Ziel der Ablauf Verfolgung über die Rolle `HostGuardianService` verfügt, wird auch versucht, den `microsoft.windows.hgs`-Endpunkt zu verwenden, der bei der Installation von HGS konfiguriert wird.
 
-Wenn Sie einen benutzerdefinierten Endpunkt verwenden möchten, müssen Sie den Namen der Sitzung angeben, beim Erstellen der Ablaufverfolgung Ziel mithilfe der `-PSSessionConfigurationName` Parameter, wie unten:
+Wenn Sie einen benutzerdefinierten Endpunkt verwenden möchten, müssen Sie den Namen der Sitzungs Konfiguration beim Erstellen des Ablauf Verfolgungs Ziels mithilfe des Parameters "`-PSSessionConfigurationName`" angeben, z. b. unten:
 
 ```PowerShell
 New-HgsTraceTarget -HostName "hgs-01.secure.contoso.com" -Role HostGuardianService -Credential (Enter-Credential) -PSSessionConfigurationName "microsoft.windows.hgs"
 ```
 
-#### <a name="diagnosing-multiple-hosts"></a>Diagnostizieren von mehreren Hosts
+#### <a name="diagnosing-multiple-hosts"></a>Diagnostizieren mehrerer Hosts
 
-Sie können mehrere Ablaufverfolgungs-Ziele zu übergeben, `Get-HgsTrace` auf einmal.  Dies schließt eine Mischung aus lokalen und remote-Ziele.  Jedes Ziel in der Ablaufverfolgung erfasst wiederum und klicken Sie dann ablaufverfolgungen aus jedem Ziel werden untersucht werden gleichzeitig.  Das Diagnosetool können die erhöhte Kenntnis Ihrer Bereitstellung komplexere knotenübergreifender Fehlkonfigurationen identifizieren, die ansonsten nicht erkennbare wäre.  Verwenden Sie diese Funktion erfordert für mehrere, beim Aufrufen von Hosts ablaufverfolgungen über mehrere Hosts gleichzeitig (bei manueller Diagnose) oder durch Bereitstellung nur `Get-HgsTrace` (im Fall von remote-Diagnose).
+Sie können mehrere Ablauf Verfolgungs Ziele gleichzeitig an `Get-HgsTrace` übergeben.  Dies schließt eine Mischung aus lokalen und Remote Zielen ein.  Jedes Ziel wird ihrerseits verfolgt, und dann werden die Ablauf Verfolgungen von jedem Ziel gleichzeitig diagnostiziert.  Das Diagnosetool kann die erweiterten Kenntnisse der Bereitstellung nutzen, um komplexe Knoten übergreifende Fehlkonfigurationen zu identifizieren, die sonst nicht erkennbar sind.  Die Verwendung dieser Funktion erfordert nur die gleichzeitige Bereitstellung von Ablauf Verfolgungen mehrerer Hosts (bei manueller Diagnose) oder das Festlegen mehrerer Hosts beim Aufrufen von `Get-HgsTrace` (im Fall einer Remote Diagnose).
 
-Es folgt ein Beispiel der Verwendung von remote-Diagnose "Selektierung" eine Fabric besteht aus zwei Host-Überwachungsdienst-Knoten und zwei überwachten Hosts, in denen wird einer der überwachten Hosts verwendet, um starten `Get-HgsTrace`.
+Im folgenden finden Sie ein Beispiel für die Verwendung der Remote Diagnose zum selektiert eines Fabrics aus zwei HGS-Knoten und zwei überwachten Hosts, bei denen einer der überwachten Hosts zum Starten von `Get-HgsTrace` verwendet wird.
 
 ```PowerShell
 $hgs01 = New-HgsTraceTarget -HostName "hgs-01.secure.contoso.com" -Credential (Enter-Credential)
@@ -141,29 +141,29 @@ Get-HgsTrace -Target $hgs01,$hgs02,$gh01,$gh02 -RunDiagnostics
 ```
 
 > [!NOTE]
-> Sie müssen sich nicht um Ihre gesamte geschütztes Fabric zu diagnostizieren, wenn mehrere Knoten zu diagnostizieren.  In vielen Fällen ist es ausreichend, um alle Knoten beteiligt sein können, die in eine bestimmte fehlerbedingung einschließen.  Dies ist in der Regel eine Teilmenge von überwachten Hosts und eine Anzahl von Knoten aus dem Host-Überwachungsdienst-Cluster.
+> Bei der Diagnose mehrerer Knoten ist es nicht erforderlich, das gesamte geschützte Fabric zu diagnostizieren.  In vielen Fällen genügt es, alle Knoten einzuschließen, die möglicherweise an einer bestimmten Fehlerbedingung beteiligt sind.  Dabei handelt es sich normalerweise um eine Teilmenge der überwachten Hosts und eine bestimmte Anzahl von Knoten aus dem HGS-Cluster.
 
-## <a name="manual-diagnosis-using-saved-traces"></a>Manuelle Diagnose unter Verwendung des gespeicherten Ablaufverfolgungen
+## <a name="manual-diagnosis-using-saved-traces"></a>Manuelle Diagnose mit gespeicherten Ablauf Verfolgungen
 
-Manchmal sollten Sie Diagnose erneut ausführen, ohne das Sammeln von ablaufverfolgungen erneut, oder Sie haben nicht die erforderlichen Anmeldeinformationen auf allen Hosts im Fabric gleichzeitig eine Remotediagnose für.  Manuelle Diagnose ist ein Mechanismus, mit dem Sie immer noch mit ausführen können eine ganze-Fabric "Selektierung" `Get-HgsTrace`, aber ohne Verwendung der remote-Ablaufverfolgungssammlung.
+Manchmal möchten Sie die Diagnose erneut ausführen, ohne die Ablauf Verfolgungen erneut zu erfassen, oder Sie verfügen möglicherweise nicht über die erforderlichen Anmelde Informationen, um alle Hosts in Ihrem Fabric gleichzeitig Remote zu diagnostizieren.  Bei der manuellen Diagnose handelt es sich um einen Mechanismus, mit dem Sie mithilfe von `Get-HgsTrace`, aber ohne die Verwendung der Remote-Ablauf Verfolgungs Sammlung weiterhin eine gesamte fabricroterlung ausführen können
 
-Bevor Sie die manuelle Diagnose durchführen, müssen Sie sicherstellen, dass die Administratoren der einzelnen Hosts im Fabric, das selektiert werden wird und zum Ausführen von Befehlen in Ihrem Namen sind.  Diagnoseablaufverfolgung Ausgabe macht keine Informationen, die als vertraulich, in der Regel angezeigt wird verfügbar, aber es dem Benutzer obliegt zu bestimmen, ob diese Informationen an andere Personen verfügbar gemacht werden kann.
+Vor der manuellen Diagnose müssen Sie sicherstellen, dass die Administratoren jedes Hosts im Fabric, das als veraltet gilt, bereit sind und bereit sind, Befehle in Ihrem Namen auszuführen.  Bei der Ausgabe der Diagnose Ablauf Verfolgung werden keine Informationen verfügbar gemacht, die im Allgemeinen als vertraulich angesehen werden. Allerdings ist es für den Benutzer von nutzen, um festzustellen, ob diese Informationen sicher für andere Personen verfügbar gemacht werden können
 
 > [!NOTE]
-> Ablaufverfolgungen werden nicht anonymisiert und Anzeigen der Konfiguration des Netzwerks, PKI-Einstellungen und anderen Konfigurationen, die manchmal auch als privaten Informationen gelten.  Ablaufverfolgungen muss daher nur an vertrauenswürdige Entitäten innerhalb einer Organisation übertragen, und niemals öffentlich gepostet.
+> Ablauf Verfolgungen werden nicht anonymisiert und zeigen Netzwerkkonfiguration, PKI-Einstellungen und andere Konfigurationen, die manchmal als private Informationen angesehen werden.  Daher sollten Ablauf Verfolgungen nur an vertrauenswürdige Entitäten innerhalb einer Organisation übertragen und nie öffentlich veröffentlicht werden.
 
-Schritte zum Ausführen einer manuellen Diagnose sind wie folgt aus:
+Die Schritte zum Ausführen einer manuellen Diagnose lauten wie folgt:
 
-1. Anforderung, die jeder hostadministrator ausgeführt `Get-HgsTrace` Angabe einen bekannten `-Path` und die Liste der Diagnose für die resultierenden ablaufverfolgungen ausgeführt werden sollen.  Zum Beispiel:
+1. Fordern Sie an, dass jeder Host Administrator `Get-HgsTrace` ausführen muss, um eine bekannte `-Path` und die Liste der Diagnoseinformationen anzugeben, die Sie für die resultierenden Ablauf Verfolgungen ausführen möchten.  Zum Beispiel:
 
    ```PowerShell
    Get-HgsTrace -Path C:\Traces -Diagnostic Networking,BestPractices
    ```
-2. Fordern Sie an, dass jeder hostadministrator Paket resultierende Traces des Ordners und an Sie senden.  Dieser Prozess kann per E-mail, über Dateifreigaben, oder eine andere Methode, die basierend auf den Betrieb personalsicherheitsrichtlinien und-Verfahren von Ihrer Organisation gesteuert werden.
+2. Fordern Sie an, dass die einzelnen Host Administratoren den resultierenden Ablauf Verfolgungs Ordner Verpacken und an Sie senden.  Dieser Prozess kann über e-Mail, über Dateifreigaben oder einen anderen Mechanismus gesteuert werden, basierend auf den Betriebsrichtlinien und Verfahren, die von Ihrer Organisation festgelegt wurden.
 
-3. Alle empfangene ablaufverfolgungen in einem einzigen Ordner, ohne andere Inhalte oder Ordner zusammenführen.
+3. Alle empfangenen Ablauf Verfolgungen ohne anderen Inhalt oder Ordner in einem einzelnen Ordner zusammenführen.
 
-    * Nehmen wir beispielsweise an Sie Ihre Administratoren senden, die Sie ablaufverfolgungen von vier Computer, die mit dem Namen erfasst hatten HGS-01, Host-Überwachungsdienst-02, RR1N2608-12 und RR1N2608-13.  Jeder Administrator würden Sie einen Ordner mit demselben Namen gesendet haben.  Sie würden eine Verzeichnisstruktur zusammen, die wie folgt aussieht:
+    * Nehmen Sie beispielsweise an, dass Ihre Administratoren Ihnen die von den vier Computern erfassten Ablauf Verfolgungen mit den Namen HGS-01, HGS-02, RR1N2608-12 und RR1N2608-13 senden.  Jeder Administrator hätte Ihnen einen Ordner mit demselben Namen gesendet.  Sie würden eine Verzeichnisstruktur zusammenstellen, die wie folgt aussieht:
 
       ```
       FabricTraces
@@ -179,21 +179,21 @@ Schritte zum Ausführen einer manuellen Diagnose sind wie folgt aus:
          |- [..]
       ```
 
-4. Führen Sie die Diagnose, die den Pfad zu dem ablaufverfolgungsordner assemblierten zur Bereitstellung der `-Path` Parameter und Angeben der `-RunDiagnostics` sowie die Diagnose, der Sie, Ihre Administratoren zum Sammeln von ablaufverfolgungen aufgefordert, zu wechseln.  Diagnose geht davon aus, es kann nicht zugegriffen werden die Hosts innerhalb des Pfads gefunden und aus diesem Grund versucht, die nur die bereits gesammelten ablaufverfolgungen zu verwenden.  Wenn keine ablaufverfolgungen vorhanden oder beschädigt sind, wird die Diagnose nur die betroffenen Tests fehlschlagen und normal fortgesetzt.  Zum Beispiel:
+4. Führen Sie die Diagnose aus, und geben Sie den Pfad zum assemblierten Ablauf Verfolgungs Ordner für den Parameter `-Path` an. Außerdem können Sie den Schalter `-RunDiagnostics` sowie die Diagnose angeben, für die Sie Ihre Administratoren zum Erfassen von Ablauf Verfolgungen aufgefordert haben  Die Diagnose geht davon aus, dass Sie nicht auf die im Pfad gefundenen Hosts zugreifen kann und versucht daher, nur die vorab erfassten Ablauf Verfolgungen zu verwenden.  Wenn Ablauf Verfolgungen fehlen oder beschädigt sind, tritt bei der Diagnose nur ein Fehler auf, und der Vorgang wird normal fortgesetzt.  Zum Beispiel:
 
    ```PowerShell
    Get-HgsTrace -RunDiagnostics -Diagnostic Networking,BestPractices -Path ".\FabricTraces"
    ```
 
-### <a name="mixing-saved-traces-with-additional-targets"></a>Das Kombinieren von Ablaufverfolgungen durch zusätzliche Ziele gespeichert
+### <a name="mixing-saved-traces-with-additional-targets"></a>Mischung gespeicherter Ablauf Verfolgungen mit zusätzlichen Zielen
 
-In einigen Fällen müssen Sie eine Reihe von vorab gesammelte ablaufverfolgungen möglicherweise, die Sie zusammen mit zusätzlichen Host ablaufverfolgungen erweitern möchten.  Es ist möglich, die bereits gesammelte ablaufverfolgungen mit zusätzliche Ziele zu kombinieren, die eine Ablaufverfolgung ausgeführt und in einem einzigen Aufruf der Diagnose diagnostiziert werden.
+In einigen Fällen verfügen Sie möglicherweise über eine Reihe von vorab gesammelten Ablauf Verfolgungen, die Sie mit zusätzlichen Host Überwachungen erweitern möchten.  Es ist möglich, vorab erfasste Ablauf Verfolgungen mit zusätzlichen Zielen zu kombinieren, die in einem einzigen Diagnose-und Diagnose Vorgang verfolgt werden.
 
-Rufen Sie den Anweisungen zum Erfassen und Zusammenstellen von einem Trace-Ordner, der oben angegebenen, `Get-HgsTrace` zusätzliche Trace-Ziele, die im Ordner "vorab erfassten Ablaufverfolgung" nicht gefunden:
+Befolgen Sie die Anweisungen zum Erfassen und Zusammenstellen eines oben angegebenen Ablauf Verfolgungs Ordners, `Get-HgsTrace` mit zusätzlichen Ablauf Verfolgungs Zielen, die im vorab erfassten Ablauf Verfolgungs Ordner nicht gefunden werden:
 
 ```PowerShell
 $hgs03 = New-HgsTraceTarget -HostName "hgs-03.secure.contoso.com" -Credential (Enter-Credential)
 Get-HgsTrace -RunDiagnostics -Target $hgs03 -Path .\FabricTraces
 ``` 
 
-Die Diagnose-Cmdlet erkennt alle vorab erfassten-Hosts, und die eine zusätzliche, die noch um eine Ablaufverfolgung ausgeführt werden muss und führt die Ablaufverfolgung erforderliche.  Die Summe von alle bereits gesammelten und neu erfasst ablaufverfolgungen wird dann diagnostiziert werden.  Der endgültige Ordnername für die Ablaufverfolgung wird die alten und neuen ablaufverfolgungen enthalten.
+Das Diagnose-Cmdlet identifiziert alle vorab gesammelten Hosts und den einen zusätzlichen Host, der weiterhin verfolgt werden muss und die erforderliche Ablauf Verfolgung ausführt.  Die Summe aller vorab gesammelten und frisch gesammelten Ablauf Verfolgungen wird dann diagnostiziert.  Der resultierende Ablauf Verfolgungs Ordner enthält sowohl die alte als auch die neue Ablauf Verfolgung.

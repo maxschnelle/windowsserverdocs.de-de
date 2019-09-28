@@ -1,29 +1,29 @@
 ---
-title: Konfigurieren Sie den Fabric-DNS für überwachte Hosts (AD)
+title: Konfigurieren des Fabric-DNS für überwachte Hosts (AD)
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: 074b6d09-f16e-49bf-b88a-377139d35067
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 9d302dcd06b7a3a40afbb6f613c39caaabbeba91
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 411b845d57c36916dcbc73d51675f5d9f92bfa0e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66443727"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386764"
 ---
-# <a name="configure-the-fabric-dns-for-guarded-hosts"></a>Konfigurieren Sie den Fabric-DNS für überwachte hosts
+# <a name="configure-the-fabric-dns-for-guarded-hosts"></a>Konfigurieren des Fabric-DNS für geschützte Hosts
 
 >Gilt für: Windows Server 2016
 
 
 >[!IMPORTANT]
->AD-Modus ist veraltet, beginnend mit Windows Server-2019. Konfigurieren Sie für Umgebungen, in denen ist TPM-Nachweis nicht möglich, [hosten den schlüsselnachweis](guarded-fabric-initialize-hgs-key-mode.md). Host den schlüsselnachweis bietet eine ähnliche Garantie in den Active Directory-Modus, und es ist leichter einzurichten. 
+>Der AD-Modus ist ab Windows Server 2019 veraltet. Für Umgebungen, in denen ein TPM-Nachweis nicht möglich ist, konfigurieren Sie den [Host Schlüssel](guarded-fabric-initialize-hgs-key-mode.md)Nachweis. Der Host Schlüssel Nachweis bietet eine ähnliche Garantie für den AD-Modus und ist einfacher einzurichten. 
 
-Ein Fabric-Administrator muss das Fabric konfigurieren, die DNS verwendet, um überwachte Hosts zum Auflösen des Host-Überwachungsdienst-Clusters zu ermöglichen. Der Host-Überwachungsdienst-Cluster muss bereits [eingerichtet, indem der HGS-Administrator](/WindowsServerDocs/virtualization/guarded-fabric-shielded-vm/guarded-fabric-setting-up-the-host-guardian-service-hgs.md).
+Ein fabricadministrator muss das Fabric-DNS benötigt, damit überwachte Hosts den HGS-Cluster auflösen können. Der HGS-Cluster muss bereits [vom HGS-Administrator eingerichtet](/WindowsServerDocs/virtualization/guarded-fabric-shielded-vm/guarded-fabric-setting-up-the-host-guardian-service-hgs.md)sein.
 
 
 

@@ -1,9 +1,9 @@
 ---
-title: Schritt 2 Konfigurieren der erweiterten DirectAccess-Server
-description: Dieses Thema ist Teil des Handbuchs Bereitstellen eines einzelnen DirectAccess-Servers mit erweiterten Einstellungen für Windows Server 2016
+title: Schritt 2 Konfigurieren von erweiterten DirectAccess-Servern
+description: Dieses Thema ist Teil des Handbuchs Bereitstellen eines einzelnen DirectAccess-Servers mit erweiterten Einstellungen für Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,18 +12,18 @@ ms.topic: article
 ms.assetid: 35afec8e-39a4-463b-839a-3c300ab01174
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b55e0f9a4d059da89a5d71678a6a0bb385895fd6
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 0ba2154338871827aae03936e5e39a356a43d675
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281803"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388630"
 ---
-# <a name="step-2-configure-advanced-directaccess-servers"></a>Schritt 2 Konfigurieren der erweiterten DirectAccess-Server
+# <a name="step-2-configure-advanced-directaccess-servers"></a>Schritt 2 Konfigurieren von erweiterten DirectAccess-Servern
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-In diesem Thema wird die Konfiguration der Client- und Servereinstellungen erläutert, die für eine erweiterte Remotezugriffsbereitstellung erforderlich sind, die einen einzelnen Remotezugriffsserver in einer gemischten IPv4- und IPv6-Umgebung verwendet. Bevor Sie die Schritte zur Bereitstellung beginnen, stellen Sie sicher, dass Sie die Planungsschritte, die im Abschnitt abgeschlossen haben [Planen einer erweiterten DirectAccess-Bereitstellung](Plan-an-Advanced-DirectAccess-Deployment.md).  
+In diesem Thema wird die Konfiguration der Client- und Servereinstellungen erläutert, die für eine erweiterte Remotezugriffsbereitstellung erforderlich sind, die einen einzelnen Remotezugriffsserver in einer gemischten IPv4- und IPv6-Umgebung verwendet. Bevor Sie mit den Bereitstellungs Schritten beginnen, stellen Sie sicher, dass Sie die in [Planen einer erweiterten DirectAccess-Bereitstellung](Plan-an-Advanced-DirectAccess-Deployment.md)beschriebenen Planungsschritte abgeschlossen haben.  
   
 |Aufgabe|Beschreibung|  
 |----|--------|  
@@ -34,17 +34,17 @@ In diesem Thema wird die Konfiguration der Client- und Servereinstellungen erlä
 |2.5. Konfigurieren des Infrastrukturservers|Konfigurieren Sie die Infrastrukturserver, die in der Organisation eingesetzt werden.|  
 |2.6. Konfigurieren von Anwendungsservern|Konfigurieren Sie die Anwendungsserver so, dass für die Anmeldung eine Authentifizierung und Verschlüsselung vorausgesetzt wird.|  
 |2.7. Zusammenfassung der Konfiguration und alternative Gruppenrichtlinienobjekte|Zeigen Sie die Zusammenfassung der Remotezugriffskonfiguration an und ändern Sie bei Bedarf die Gruppenrichtlinienobjekte.|  
-|2.8. Konfiguration des Remotezugriffsservers mithilfe von Windows PowerShell|Konfigurieren Sie den Remotezugriff mithilfe von Windows PowerShell.|  
+|2.8. Konfiguration des Remotezugriffsservers mithilfe von Windows PowerShell|Konfigurieren Sie den Remote Zugriff mithilfe von Windows PowerShell.|  
   
 > [!NOTE]  
 > Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit denen Sie einige der beschriebenen Vorgehensweisen automatisieren können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="BKMK_Role"></a>2.1. Installieren der Remotezugriffsrolle  
+## <a name="BKMK_Role"></a>2,1. Installieren der Remotezugriffsrolle  
 Um den Remotezugriff bereitzustellen, müssen Sie die Remotezugriffsrolle auf einem Server in Ihrer Organisation installieren, der als Remotezugriffsserver fungiert.  
   
 #### <a name="to-install-the-remote-access-role"></a>So installieren Sie die Remotezugriffsrolle  
   
-1.  Klicken Sie auf dem RAS-Server in der Server-Manager-Konsole in der **Dashboard**, klicken Sie auf **Rollen und Features hinzufügen**.  
+1.  Klicken Sie auf dem Remote Zugriffs Server in der Server-Manager-Konsole im **Dashboard**auf **Rollen und Features hinzufügen**.  
   
 2.  Klicken Sie dreimal auf **Weiter**, um zum Bildschirm **Serverrollen auswählen** zu gelangen.  
   
@@ -56,7 +56,7 @@ Um den Remotezugriff bereitzustellen, müssen Sie die Remotezugriffsrolle auf ei
   
 6.  Überprüfen Sie im Dialogfeld **Installationsstatus**, ob die Installation erfolgreich war, und klicken Sie dann auf **Schließen**.  
   
-![Fortschritt Installationserfolg](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
+![-Installationsfortschritt erfolgreich](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -64,7 +64,7 @@ Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vor
 Install-WindowsFeature RemoteAccess -IncludeManagementTools  
 ```  
   
-## <a name="BKMK_Deploy"></a>2.2. Konfigurieren des Bereitstellungstypen  
+## <a name="BKMK_Deploy"></a>2,2. Konfigurieren des Bereitstellungstypen  
 Der Remotezugriff kann mithilfe der Remotezugriffs-Verwaltungskonsole auf drei verschiedene Arten bereitgestellt werden:  
   
 -   DirectAccess und VPN  
@@ -77,13 +77,13 @@ In dieser Anleitung wird in den Beispielverfahren eine Nur-DirectAccess-Bereitst
   
 #### <a name="to-configure-the-deployment-type"></a>So konfigurieren Sie den Bereitstellungstypen  
   
-1.  Öffnen Sie auf einem Remotezugriffsserver die Remotezugriffs-Verwaltungskonsole: Auf der **starten** geben**RAMgmtUI.exe**, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+1.  Öffnen Sie auf einem Remotezugriffsserver die Remotezugriffs-Verwaltungskonsole: Geben Sie auf dem **Start** Bildschirm**ramgmtui. exe**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
   
 2.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole im mittleren Bereich auf **Remotezugriffs-Setup-Assistenten ausführen**.  
   
 3.  Klicken Sie im Dialogfeld **Remotezugriff konfigurieren** die entsprechende Bereitstellungsoption an (DirectAccess und VPN, nur DirectAccess oder nur VPN.  
   
-## <a name="BKMK_Clients"></a>2.3. Konfigurieren von DirectAccess-Clients  
+## <a name="BKMK_Clients"></a>2,3. Konfigurieren von DirectAccess-Clients  
 Damit ein Clientcomputer zur Verwendung von DirectAccess bereitgestellt werden kann, muss er zur ausgewählten Sicherheitsgruppe gehören. Nachdem DirectAccess konfiguriert wurde, werden Clientcomputer in der Sicherheitsgruppe bereitgestellt, damit sie das DirectAccess-Gruppenrichtlinienobjekt empfangen. Sie können auch das Bereitstellungsszenario konfigurieren, darüber können Sie DirectAccess für den Clientzugriff und die Remoteverwaltung oder nur für die Remoteverwaltung konfigurieren.  
   
 #### <a name="to-configure-directaccess-clients"></a>So konfigurieren Sie DirectAccess-Clients  
@@ -123,7 +123,7 @@ Damit ein Clientcomputer zur Verwendung von DirectAccess bereitgestellt werden k
   
 9. Klicken Sie auf **Fertig stellen**.  
   
-## <a name="BKMK_Server"></a>2.4. Konfigurieren des Remotezugriffsservers  
+## <a name="BKMK_Server"></a>2,4. Konfigurieren des Remotezugriffsservers  
 Um den Remotezugriff bereitzustellen, müssen Sie den Remotezugriffsserver mit korrekten Netzwerkadaptern, einer öffentlichen URL für den Remotezugriffsserver, zu dem Clientcomputer eine Verbindung aufbauen können (die ConnectTo-Adresse), einem IP-HTTPS-Zertifikat mit einem Antragsteller, der mit der ConnectTo-Adresse übereinstimmt, IPv6-Einstellungen und Clientcomputer-Authentifizierung konfigurieren.  
   
 #### <a name="to-configure-the-remote-access-server"></a>So konfigurieren Sie den Remotezugriffsserver  
@@ -145,14 +145,14 @@ Um den Remotezugriff bereitzustellen, müssen Sie den Remotezugriffsserver mit k
   
     -   In Bereitstellungen für mehrere Standorte oder die zweistufige Authentifizierung müssen Sie die Computerzertifikatauthentifizierung verwenden. Aktivieren Sie das Kontrollkästchen **Computerzertifikate verwenden**, um die Computerzertifikatauthentifizierung zu verwenden und das IPsec-Stammzertifikat auszuwählen.  
   
-    -   Um Windows 7-Clientcomputer über DirectAccess eine Verbindung zu aktivieren, wählen die **Aktivieren von Windows 7-Clientcomputer Verbindungen über DirectAccess zulassen** Kontrollkästchen.  
+    -   Aktivieren Sie das Kontrollkästchen **Windows 7-Client Computer Verbindungen über DirectAccess aktivieren** , damit Windows 7-Client Computer über DirectAccess eine Verbindung herstellen können.  
   
         > [!NOTE]  
         > Für diesen Bereitstellungstypen müssen Sie ebenfalls die Computerzertifikatauthentifizierung verwenden.  
   
 6.  Klicken Sie auf **Fertig stellen**.  
   
-## <a name="BKMK_Infra"></a>2.5. Konfigurieren des Infrastrukturservers  
+## <a name="BKMK_Infra"></a>2,5. Konfigurieren des Infrastrukturservers  
 Um die Infrastrukturserver in einer Remotezugriffsbereitstellung zu konfigurieren, müssen Sie den Netzwerkadressenserver, die DNS-Einstellungen (einschließlich DNS-Suffixsuchliste) und die Verwaltungsserver konfigurieren, die nicht automatisch vom Remotezugriff erkannt werden.  
   
 #### <a name="to-configure-the-infrastructure-servers"></a>So konfigurieren Sie die Infrastrukturserver  
@@ -168,15 +168,15 @@ Um die Infrastrukturserver in einer Remotezugriffsbereitstellung zu konfiguriere
 5.  Fügen Sie auf der Seite **Verwaltung** die Verwaltungsserver hinzu, die nicht automatisch erkannt wurden und klicken Sie dann auf **Weiter**. Der Remotezugriff fügt die Domänencontroller und System Center Configuration Manager-Server automatisch hinzu.  
   
     > [!NOTE]  
-    > Obwohl der Server automatisch hinzugefügt werden, nicht in der Liste angezeigt. Nachdem Sie die Konfiguration erstmalig anwenden, werden die System Center Configuration Manager-Server in der Liste angezeigt.  
+    > Obwohl die Server automatisch hinzugefügt werden, werden Sie nicht in der Liste angezeigt. Nachdem Sie die Konfiguration erstmalig anwenden, werden die System Center Configuration Manager-Server in der Liste angezeigt.  
   
 6.  Klicken Sie auf **Fertig stellen**.  
   
-## <a name="BKMK_App"></a>2.6. Konfigurieren von Anwendungsservern  
+## <a name="BKMK_App"></a>2,6. Konfigurieren von Anwendungsservern  
 Bei einer Remotezugriffsbereitstellung ist das Konfigurieren von Anwendungsservern eine optionale Aufgabe. Mit dem Remotezugriff können Sie für ausgewählte Anwendungsserver eine Authentifizierung voraussetzen, die durch die Aufnahme in eine Sicherheitsgruppe der Anwendungsserver bestimmt wird. Standardmäßig wird der Datenverkehr an die Anwendungsserver, die eine Authentifizierung voraussetzen, ebenfalls verschlüsselt; sie können jedoch auswählen, den Datenverkehr an Anwendungsserver nicht zu verschlüsseln und nur die Authentifizierung verwenden.  
   
 > [!NOTE]  
-> Authentifizierung ohne Verschlüsselung wird nur auf Anwendungsservern, die unter Windows Server 2012 R2, Windows Server 2012 oder Windows Server 2008 R2 unterstützt.  
+> Die Authentifizierung ohne Verschlüsselung wird nur auf Anwendungsservern unterstützt, auf denen Windows Server 2012 R2, Windows Server 2012 oder Windows Server 2008 R2 ausgeführt wird.  
   
 #### <a name="to-configure-application-servers"></a>So konfigurieren Sie die Anwendungsserver  
   
@@ -186,11 +186,11 @@ Bei einer Remotezugriffsbereitstellung ist das Konfigurieren von Anwendungsserve
   
 3.  Um den Zugriff nur auf Server in der Sicherheitsgruppe des Anwendungsservers zu beschränken, müssen Sie das Kontrollkästchen **Zugriff nur für Server in den Sicherheitsgruppen zulassen** aktivieren.  
   
-4.  Wählen Sie zum Verwenden der Authentifizierung ohne Verschlüsselung der **Datenverkehr nicht verschlüsseln. Nur Authentifizierung verwenden** Kontrollkästchen.  
+4.  Wenn Sie die Authentifizierung ohne Verschlüsselung verwenden möchten, wählen Sie die **daten Verkehr nicht verschlüsseln aus. Kontrollkästchen nur Authentifizierung verwenden @ no__t-0.  
   
 5.  Klicken Sie auf **Fertig stellen**.  
   
-## <a name="BKMK_GPO"></a>2.7. Zusammenfassung der Konfiguration und alternative Gruppenrichtlinienobjekte  
+## <a name="BKMK_GPO"></a>2,7. Zusammenfassung der Konfiguration und alternative Gruppenrichtlinienobjekte  
 Wenn die Konfiguration des Remotezugriffs abgeschlossen ist, wird das Dialogfeld **Überprüfung des Remotezugriffs** angezeigt. Sie können alle zuvor ausgewählten Einstellungen überprüfen, dazu gehören:  
   
 1.  **GPO-Einstellungen**: Hier werden der Gruppenrichtlinienname des DirectAccess-Servers und der Client-Gruppenrichtlinienobjektname aufgelistet. Außerdem können Sie auf die Verknüpfung **Ändern** neben der Überschrift **GPO-Einstellungen** klicken, um die GPO-Einstellungen zu ändern.  
@@ -203,12 +203,12 @@ Wenn die Konfiguration des Remotezugriffs abgeschlossen ist, wird das Dialogfeld
   
 5.  **Anwendungsserver**: Hier wird zusätzlich zum Status der End-to-End-Authentifizierung bestimmter Anwendungsserver der DirectAccess-Remoteverwaltungsstatus angezeigt.  
   
-## <a name="BKMK_PS"></a>2.8. Konfiguration des Remotezugriffsservers mithilfe von Windows PowerShell  
-![Windows PowerShell](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)**gleichwertige Windows PowerShell-Befehle**  
+## <a name="BKMK_PS"></a>2,8. Konfiguration des Remotezugriffsservers mithilfe von Windows PowerShell  
+](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)**äquivalente Windows PowerShell-Befehle** mit @no__t 0shell  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
-So führen Sie eine vollständige Installation des Remotezugriffs nur für DirectAccess mit dem Stamm **corp.contoso.com** und folgenden Parametern durch: Server-Gruppenrichtlinienobjekt: **DirectAccess Server Settings**, Client-Gruppenrichtlinienobjekt: DirectAccess-Clienteinstellungen, interner Netzwerkadapter: **Corpnet**, externer Netzwerkadapter: **Internet**, ConnectTo-Adresse: **edge1.contoso.com**, und der Netzwerkadressenserver: **nls.corp.contoso.com**:  
+So führen Sie eine vollständige Installation des Remotezugriffs nur für DirectAccess mit dem Stamm **corp.contoso.com** und folgenden Parametern durch: Server-Gruppenrichtlinienobjekt: **DirectAccess Server Settings**, Client-Gruppenrichtlinienobjekt: DirectAccess-Clienteinstellungen, interner Netzwerkadapter: **Corpnet**, externer Netzwerkadapter: **Internet**, connecttto Address: **Edge1.contoso.com**und Network Location Server: **nls.Corp.contoso.com**:  
   
 ```  
 Install-RemoteAccess -Force -PassThru -ServerGpoName 'corp.contoso.com\DirectAccess Server Settings' -ClientGpoName 'corp.contoso.com\DirectAccess Client Settings' -DAInstallType 'FullInstall' -InternetInterface 'Internet' -InternalInterface 'Corpnet' -ConnectToAddress 'edge1.contoso.com' -NlsUrl 'https://nls.corp.contoso.com/'  
@@ -229,7 +229,7 @@ Add-DAClient -SecurityGroupNameList @('corp.contoso.com\DirectAccessClients')
 Remove-DAClient -SecurityGroupNameList @('corp.contoso.com\Domain Computers')  
 ```  
   
-Zum Aktivieren des Remotezugriffs für alle Computer (nicht nur Notebooks und Laptops) und Remote-Zugriff für Windows 7-Clients zu aktivieren:  
+So aktivieren Sie den Remote Zugriff für alle Computer (nicht nur für Notebooks und Laptops) und zum Aktivieren des Remote Zugriffs für Windows 7-Clients:  
   
 ```  
 Set-DAClient -OnlyRemoteComputers 'Disabled' -Downlevel 'Enabled'  
@@ -241,7 +241,7 @@ So konfigurieren Sie die DirectAccess-Clienterfahrung, einschließlich des Anzei
 Set-DAClientExperienceConfiguration -FriendlyName 'Contoso DirectAccess Connection' -PreferLocalNamesAllowed $False -PolicyStore 'corp.contoso.com\DirectAccess Client Settings' -CorporateResources @('HTTP:https://directaccess-WebProbeHost.corp.contoso.com')  
 ```  
   
-## <a name="BKMK_Links"></a>Vorherigen Schritt  
+## <a name="BKMK_Links"></a>Vorheriger Schritt  
   
 -   [Schritt 1: Konfigurieren der erweiterten DirectAccess-Infrastruktur](da-adv-configure-s1-infrastructure.md)  
   

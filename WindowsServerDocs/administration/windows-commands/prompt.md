@@ -2,7 +2,7 @@
 title: prompt
 description: Erfahren Sie, wie Sie die Eingabeaufforderung anpassen.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 8371a67ba1b8dc7d5f02272c809f916aae3df584
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 2df80d3af6344644a68b1b2d01ba48fbf41f1581
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544559"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372021"
 ---
 # <a name="prompt"></a>prompt
 
 
 
-Ändert die Eingabeaufforderung "cmd. exe". Bei Verwendung ohne Parameter setzt **prompt die Eingabe** Aufforderung auf die Standardeinstellung zurück. Hierbei handelt es sich um den aktuellen Laufwerk Buchstaben und das Verzeichnis, gefolgt vom größer **>** -als-Symbol ().
+Ändert die Eingabeaufforderung "cmd. exe". Bei Verwendung ohne Parameter setzt **prompt die Eingabe** Aufforderung auf die Standardeinstellung zurück. Hierbei handelt es sich um den aktuellen Laufwerk Buchstaben und das Verzeichnis, gefolgt vom größer **-als-Symbol (>** ).
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -38,7 +38,7 @@ prompt [<Text>]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<Text >|Gibt den Text und die Informationen an, die Sie in die Eingabeaufforderung einschließen möchten.|
+|\<text >|Gibt den Text und die Informationen an, die Sie in die Eingabeaufforderung einschließen möchten.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
@@ -47,7 +47,7 @@ Sie können die Eingabeaufforderung anpassen, um den gewünschten Text anzuzeige
 
 In der folgenden Tabelle sind die Zeichenkombinationen aufgelistet, die anstelle von oder zusätzlich zu einer oder mehreren Zeichen folgen im *Text* -Parameter enthalten sein können. Die Liste enthält eine kurze Beschreibung des Texts oder der Informationen, die von jeder Zeichenkombination der Eingabeaufforderung hinzugefügt werden.  
 
-| Zeichen |                                 Beschreibung                                 |
+| Art |                                 Beschreibung                                 |
 |-----------|-----------------------------------------------------------------------------|
 |    $q     |                               = (Gleichheitszeichen)                                |
 |    $$     |                               $ (Dollarzeichen)                               |
@@ -58,7 +58,7 @@ In der folgenden Tabelle sind die Zeichenkombinationen aufgelistet, die anstelle
 |    $n     |                                Aktuelles Laufwerk                                |
 |    $g     |                            > (größer als-Zeichen)                            |
 |    $l     |                             < (kleiner als Vorzeichen)                              |
-|    $b     |                              \|(Pipe-Symbol)                               |
+|    $b     |                              \| (Pipe-Symbol)                               |
 |    $_     |                               EINGABE-ZEILENVORSCHUB                                |
 |    $e     |                         ANSI-Escapecode (Code 27)                          |
 |    $h     | Rücktaste (zum Löschen eines Zeichens, das in die Befehlszeile geschrieben wurde) |
@@ -69,9 +69,9 @@ In der folgenden Tabelle sind die Zeichenkombinationen aufgelistet, die anstelle
 
 Wenn Befehls Erweiterungen aktiviert sind (d. h. der Standardwert), unterstützt der **prompt** -Befehl die folgenden Formatierungszeichen:  
 
-|Zeichen|Beschreibung|
+|Art|Beschreibung|
 |---------|-----------|
-|$+|0 (null) oder mehr **+** Pluszeichen (), abhängig von der Tiefe des **pushd-** Verzeichnis Stapels (ein Zeichen für jede Ebene wird per Push abgelegt).|
+|$+|0 (null) oder mehr Pluszeichen ( **+** ), abhängig von der Tiefe des **pushd-** Verzeichnis Stapels (ein Zeichen für jede Ebene, die per Push übertragen wird).|
 |$m|Der Remote Name, der dem aktuellen Laufwerk Buchstaben oder der leeren Zeichenfolge zugeordnet ist, wenn das aktuelle Laufwerk kein Netzwerklaufwerk ist.|
 
 Wenn Sie das **$p** Zeichen in den Text Parameter einschließen, wird der Datenträger gelesen, nachdem Sie jeden Befehl eingegeben haben (um das aktuelle Laufwerk und den Pfad zu bestimmen). Dies kann zusätzliche Zeit in Anspruch nehmen, insbesondere bei Diskettenlaufwerken.
@@ -87,7 +87,7 @@ Die Eingabeaufforderung wird wie folgt geändert, wobei Datum und Uhrzeit aktuel
 Fri 06/01/2007  13:53:28.91
 >
 ```
-Geben Sie Folgendes ein, um die Eingabeaufforderung als Pfeil`-->`() anzuzeigen:
+Geben Sie Folgendes ein, um die Eingabeaufforderung für die Anzeige als Pfeil (`-->`) festzulegen:
 ```
 prompt --$g
 ```

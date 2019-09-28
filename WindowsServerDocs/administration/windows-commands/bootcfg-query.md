@@ -1,8 +1,8 @@
 ---
 title: bootcfg query
-description: Windows-Befehle Thema **Bootcfg Abfrage** -Abfragen und zeigt [Bootloader] und [Betriebssysteme] Abschnitt Einträge aus der Datei "Boot.ini".
+description: Windows-Befehle Thema für **bootcfg query** -Queries und zeigt die Abschnitts Einträge [Boot Loader] und [Betriebssysteme] von Boot. ini an.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e79acc100a9ec9955f2692a3c6ee812d0310b687
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: ae82357cfe178343872448c2ebd46c49a797b5a9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434729"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379910"
 ---
 # <a name="bootcfg-query"></a>bootcfg query
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Fragt ab und zeigt das [Startladeprogramm] und [Betriebssysteme] Abschnitt Einträge aus der Datei "Boot.ini".
+Abfragen und Anzeigen der Abschnitts Einträge [Boot Loader] und [Betriebssysteme] aus der Datei "Boot. ini".
 
 ## <a name="syntax"></a>Syntax
 ```
@@ -34,13 +34,13 @@ bootcfg /query [/s <computer> [/u <Domain>\<User> /p <Password>]]
 
 |        Begriff         |                                                                                             Definition                                                                                              |
 |---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    /s <computer>    |                                         Gibt den Namen oder die IP-Adresse eines Remotecomputers (umgekehrte Schrägstriche nicht verwenden). Der Standardwert ist der lokale Computer.                                          |
-| /u <Domain>\\<User> | Führt den Befehl mit den Berechtigungen des Benutzers gemäß <User>oder <Domain> \\ <User>. Der Standardwert ist die Berechtigungen von der aktuell angemeldete Benutzer auf dem Computer, die der Befehl ausgegeben wird. |
-|    /p <Password>    |                                                        Gibt das Kennwort des Benutzerkontos ein, die im angegebenen die **/u** Parameter.                                                        |
+|    /s <computer>    |                                         Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Der Standardwert ist der lokale Computer.                                          |
+| /u <Domain> @ no__t-1 @ no__t-2 | Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der durch <User>oder <Domain> @ no__t-2 @ no__t-3 angegeben wird. Der Standardwert sind die Berechtigungen des aktuell angemeldeten Benutzers auf dem Computer, von dem der Befehl ausgegeben wird. |
+|    /p <Password>    |                                                        Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist.                                                        |
 |         /?          |                                                                                Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                 |
 
 ##### <a name="remarks"></a>Hinweise
-- Folgendes ist ein Beispiel für **Bootcfg/query** Ausgabe:
+- Im folgenden finden Sie ein Beispiel für die Ausgabe von **bootcfg/query "aus** :
   ```
   Boot Loader Settings
   ----------
@@ -53,14 +53,14 @@ bootcfg /query [/s <computer> [/u <Domain>\<User> /p <Password>]]
   path:            multi(0)disk(0)rdisk(0)partition(1)\WINDOWS
   OS Load Options: /fastdetect /debug /debugport=com1:
   ```
-- Die Boot-Loader-Einstellungen-Teil der **Bootcfg Abfrage** Ausgabe zeigt jeden Eintrag im Abschnitt "[Bootloader]" der Datei "Boot.ini".
-- Die Starteinträge Teil der **Bootcfg Abfrage** Ausgabe zeigt die folgende Details für die einzelnen Betriebssystem-Einträge im Abschnitt [Betriebssysteme] der Datei "Boot.ini": Starteintrags-ID, Anzeigename, Pfad und Optionen für Betriebssystem laden.
-  ## <a name="BKMK_examples"></a>Beispiele für
-  Die folgenden Beispiele zeigen Informationen zur Verwendung der **Bootcfg/query** Befehl:
+- Der Teil des Start Lade Programms in der **bootcfg-Abfrage** Ausgabe zeigt jeden Eintrag im Abschnitt [Boot Loader] von Boot. ini an.
+- Der Teil "Start Einträge" der **bootcfg-Abfrage** Ausgabe zeigt die folgenden Details für jeden Betriebssystem Eintrag im Abschnitt [Betriebssysteme] in der Datei "Boot. ini" an: Optionen für Start Eintrags-ID, Anzeige Name, Pfad und Betriebssystem Ladevorgang.
+  ## <a name="BKMK_examples"></a>Beispiele
+  In den folgenden Beispielen wird gezeigt, wie Sie den Befehl **bootcfg/query "aus** verwenden können:
   ```
   bootcfg /query
   bootcfg /query /s srvmain /u maindom\hiropln /p p@ssW23
   bootcfg /query /u hiropln /p p@ssW23
   ```
-  #### <a name="additional-references"></a>Zusätzliche Referenzen
+  #### <a name="additional-references"></a>Weitere Verweise
   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

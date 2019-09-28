@@ -1,9 +1,9 @@
 ---
 title: Problembehandlung bei Authentifizierungsfehlern
-description: Dieses Thema ist Teil des Leitfadens Bereitstellen von Remotezugriff mit OTP-Authentifizierung in Windows Server 2016.
+description: Dieses Thema ist Teil des Handbuchs Bereitstellen des Remote Zugriffs mit OTP-Authentifizierung in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,118 +12,118 @@ ms.topic: article
 ms.assetid: 71307757-f8f4-4f82-b8b3-ffd4fd8c5d6d
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 08dd6822cc30135506d82041cfbeab0bc1a058ab
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 73fe8458910cbe7dfaf000a6546bcba9263a9683
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282359"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404306"
 ---
 # <a name="troubleshooting-authentication-issues"></a>Problembehandlung bei Authentifizierungsfehlern
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Dieses Thema enthält Problembehandlungsinformationen für Probleme im Zusammenhang mit Problemen, dass der Benutzer möglicherweise beim Versuch, eine Verbindung mit DirectAccess mit OTP-Authentifizierung. DirectAccerss OTP bezogene Ereignisse werden protokolliert, auf dem Clientcomputer in der Ereignisanzeige unter **Applications and Services Logs/Microsoft/Windows/OtpCredentialProvider**. Stellen Sie sicher, dass dieses Protokoll bei der Behandlung von Problemen mit DirectAccess-OTP aktiviert ist.  
+Dieses Thema enthält Informationen zur Problembehandlung bei Problemen im Zusammenhang mit Problemen, die Benutzer möglicherweise bei der Verbindungs Herstellung mit DirectAccess mithilfe der OTP-Authentifizierung haben. Directaccerss OTP-bezogene Ereignisse werden auf dem Client Computer in Ereignisanzeige unter **Anwendungs-und Dienst Protokolle/Microsoft/Windows/otpkredentialprovider**protokolliert. Stellen Sie sicher, dass dieses Protokoll bei der Behandlung von Problemen mit DirectAccess OTP aktiviert ist.  
   
-## <a name="failed-to-access-the-ca-that-issues-otp-certificates"></a>Fehler bei die Zertifizierungsstelle, die OTP-Zertifikate ausstellt, den Zugriff auf  
-**Szenario**. Benutzer nicht authentifizieren, Fehler OTP mit: "Fehler bei der Authentifizierung aufgrund eines internen Fehlers"  
+## <a name="failed-to-access-the-ca-that-issues-otp-certificates"></a>Fehler beim Zugriff auf die Zertifizierungsstelle, die OTP-Zertifikate ausgibt.  
+**Szenario**. Der Benutzer kann sich mit dem folgenden Fehler nicht mit OTP authentifizieren: "Die Authentifizierung konnte aufgrund eines internen Fehlers nicht ausgeführt werden."  
   
-**Fehler** (Client-Ereignisprotokolls). OTP-zertifikatregistrierung für Benutzer <username> auf Zertifizierungsstellenserver < CA_name >, Anforderungsfehlern fehlgeschlagene, mögliche Fehlerursachen: CA-Servername kann nicht aufgelöst werden kann, CA-Server kann nicht über die ersten DirectAccess-Tunnel zugegriffen werden, oder die Verbindung mit dem CA-Server kann nicht hergestellt werden.  
-  
-**Ursache**  
-  
-Vom Benutzer bereitgestellten ein gültiger Einmalkennwort und der DirectAccess-Server signiert die zertifikatanforderung; Allerdings kann nicht der Clientcomputer die Zertifizierungsstelle wenden Sie sich an, die OTP-Zertifikate, um den Registrierungsprozess abzuschließen ausstellt.  
-  
-**Lösung**  
-  
-Führen Sie auf dem DirectAccess-Server die folgenden Windows PowerShell-Befehle ein:  
-  
-1.  Ruft die Liste der konfigurierten OTP ausstellende Zertifizierungsstellen, und überprüfen Sie den Wert von "ZS"-Server: `Get-DAOtpAuthentication`  
-  
-2.  Stellen Sie sicher, dass die Zertifizierungsstellen als einen Verwaltungsserver konfiguriert sind: `Get-DAMgmtServer -Type All`  
-  
-3.  Stellen Sie sicher, dass der Clientcomputer den infrastrukturtunnel eingerichtet hat: Erweitern Sie in der Windows-Firewall mit erweiterter Sicherheit-Konsole, **Überwachung/Sicherheitszuordnungen**, klicken Sie auf **Hauptmodus**, und stellen Sie sicher, dass die IPsec-sicherheitszuordnungen mit dem richtigen Remoterepository angezeigt werden. Adressen für die DirectAccess-Konfiguration.  
-  
-## <a name="directaccess-server-connectivity-issues"></a>DirectAccess-Server-Verbindungsprobleme  
-**Szenario**. Benutzer nicht authentifizieren, Fehler OTP mit: "Fehler bei der Authentifizierung aufgrund eines internen Fehlers"  
-  
-**Fehler** (Client-Ereignisprotokolls)  
-  
-Eine der folgenden Fehler:  
-  
--   Eine Verbindung kann nicht mit RAS-Server < DirectAccess_server_hostname > mit Basispfad < OTP_authentication_path > und < OTP_authentication_port >-Port hergestellt werden. Fehlercode: < Internal_error_code >.  
-  
--   Anmeldeinformationen des Benutzers können nicht auf dem RAS-Server < DirectAccess_server_hostname > mit Basispfad < OTP_authentication_path > und < OTP_authentication_port >-Port gesendet werden. Fehlercode: < Internal_error_code >.  
-  
--   Eine Antwort wurde nicht vom RAS-Server < DirectAccess_server_hostname > mit Basispfad < OTP_authentication_path > und < OTP_authentication_port >-Port empfangen. Fehlercode: < Internal_error_code >.  
+**Fehler** (Client Ereignisprotokoll). Fehler bei der OTP-Zertifikat Registrierung für den Benutzer <username> auf dem Zertifizierungsstellen Server < CA_name->, Anforderungs Fehler, mögliche Fehlerursachen: Der Zertifizierungsstellen Servername kann nicht aufgelöst werden. der Zugriff auf den Zertifizierungsstellen Server ist über den ersten DirectAccess-Tunnel nicht möglich, oder die Verbindung zum Zertifizierungsstellen Server kann nicht hergestellt werden  
   
 **Ursache**  
   
-Der Clientcomputer kann nicht den DirectAccess-Server über das Internet durch entweder Netzwerkprobleme oder durch einen falsch konfigurierten IIS-Server, auf dem DirectAccess-Server zugreifen.  
+Der Benutzer hat ein gültiges einmal Kennwort angegeben, und der DirectAccess-Server hat die Zertifikat Anforderung signiert. der Client Computer kann jedoch keine Verbindung mit der Zertifizierungsstelle hergestellt werden, die OTP-Zertifikate ausgibt, um den Registrierungsvorgang abzuschließen.  
   
 **Lösung**  
   
-Stellen Sie sicher, dass die Internetverbindung auf dem Clientcomputer ausgeführt wird, und stellen Sie sicher, dass der DirectAccess-Dienst über das Internet ausgeführt werden und zugänglich ist.  
+Führen Sie auf dem DirectAccess-Server die folgenden Windows PowerShell-Befehle aus:  
   
-## <a name="failed-to-enroll-for-the-directaccess-otp-logon-certificate"></a>Fehler bei der Registrierung für das Zertifikat für die DirectAccess-OTP-Anmeldung  
-**Szenario**. Benutzer nicht authentifizieren, Fehler OTP mit: "Fehler bei der Authentifizierung aufgrund eines internen Fehlers"  
+1.  Liste der konfigurierten OTP-ausstellenden Zertifizierungsstellen und Überprüfen des Werts von "caserver": `Get-DAOtpAuthentication`  
   
-**Fehler** (Client-Ereignisprotokolls). Fehler bei der Registrierung von Zertifikaten von Zertifizierungsstellen < CA_name >. Die Anforderung nicht wie erwartet vom OTP-Signaturzertifikat signiert wurde, oder der Benutzer verfügt nicht über die Berechtigung zum Registrieren von.  
+2.  Stellen Sie sicher, dass die Zertifizierungsstellen als Verwaltungs Server konfiguriert sind: `Get-DAMgmtServer -Type All`  
+  
+3.  Stellen Sie sicher, dass der Client Computer den Infrastruktur Tunnel eingerichtet hat: Erweitern Sie in der Konsole Windows-Firewall mit erweiterter Sicherheit den Knoten **Überwachung/Sicherheits Zuordnungen**, klicken Sie auf **Hauptmodus**, und stellen Sie sicher, dass die IPSec-Sicherheits Zuordnungen mit den korrekten Remote Adressen für DirectAccess angezeigt werden. konfiguri.  
+  
+## <a name="directaccess-server-connectivity-issues"></a>Konnektivitätsprobleme beim DirectAccess-Server  
+**Szenario**. Der Benutzer kann sich mit dem folgenden Fehler nicht mit OTP authentifizieren: "Die Authentifizierung konnte aufgrund eines internen Fehlers nicht ausgeführt werden."  
+  
+**Fehler empfangen** (Client Ereignisprotokoll)  
+  
+Einer der folgenden Fehler:  
+  
+-   Es kann keine Verbindung mit dem RAS-Server hergestellt werden < DirectAccess_server_hostname > mithilfe von Basispfad < OTP_authentication_path > und Port < OTP_authentication_port >. Fehlercode: < internal_error_code >.  
+  
+-   Benutzer Anmelde Informationen können nicht an den RAS-Server gesendet werden < DirectAccess_server_hostname > mithilfe von Basispfad < OTP_authentication_path > und Port < OTP_authentication_port >. Fehlercode: < internal_error_code >.  
+  
+-   Es wurde keine Antwort vom RAS-Server < DirectAccess_server_hostname > mithilfe von Basispfad < OTP_authentication_path > und Port < OTP_authentication_port > empfangen. Fehlercode: < internal_error_code >.  
   
 **Ursache**  
   
-Die vom Benutzer bereitgestellte Einmalkennwort war richtig, aber die ausstellende Zertifizierungsstelle (CA) zum Ausstellen des Zertifikats für die OTP-Anmeldung abgelehnt. Die zertifikatanforderung ist möglicherweise nicht ordnungsgemäß signiert mit den richtigen EKU (Anwendung-OTP Registrierungsrichtlinie Authority) oder der Benutzer verfügt nicht über die Berechtigung "Registrieren" auf der DA OTP-Vorlage.  
+Der Client Computer kann aufgrund von Netzwerkproblemen oder eines falsch konfigurierten IIS-Servers auf dem DirectAccess-Server nicht über das Internet auf den DirectAccess-Server zugreifen.  
   
 **Lösung**  
   
-Stellen Sie sicher, dass DirectAccess-OTP-Benutzern die Berechtigung zum Registrieren für das Zertifikat für die DirectAccess-OTP-Anmeldung und die richtige "Anwendungsrichtlinie" in die DA OTP-Registrierungsstelle, die Anmeldung der Vorlage enthalten ist. Außerdem stellen Sie sicher, dass der DirectAccess-registrierungsstellenzertifikats auf dem RAS-Server gültig ist. 3\.2 Planung der OTP-Zertifikatvorlage und 3.3 Planen der registrierungsstellenzertifikats angezeigt.  
+Stellen Sie sicher, dass die Internet Verbindung auf dem Client Computer funktioniert, und stellen Sie sicher, dass der DirectAccess-Dienst ausgeführt wird und über das Internet erreichbar ist.  
   
-## <a name="missing-or-invalid-computer-account-certificate"></a>Computer-Kontozertifikat fehlt oder ist ungültig  
-**Szenario**. Benutzer nicht authentifizieren, Fehler OTP mit: "Fehler bei der Authentifizierung aufgrund eines internen Fehlers"  
+## <a name="failed-to-enroll-for-the-directaccess-otp-logon-certificate"></a>Fehler beim Registrieren für das Anmeldezertifikat für das DirectAccess-OTP.  
+**Szenario**. Der Benutzer kann sich mit dem folgenden Fehler nicht mit OTP authentifizieren: "Die Authentifizierung konnte aufgrund eines internen Fehlers nicht ausgeführt werden."  
   
-**Fehler** (Client-Ereignisprotokolls).  OTP-Authentifizierung kann nicht abgeschlossen werden, da für OTP erforderliche Computerzertifikat im Zertifikatspeicher des lokalen Computers nicht gefunden werden kann.  
+**Fehler** (Client Ereignisprotokoll). Fehler bei der Zertifikat Registrierung von ca-< CA_name >. Die Anforderung wurde vom OTP-Signaturzertifikat nicht erwartungsgemäß signiert, oder der Benutzer verfügt nicht über die Berechtigung, sich zu registrieren.  
   
 **Ursache**  
   
-DirectAccess-OTP-Authentifizierung muss ein Clientzertifikat für die Computer zum Herstellen einer SSL-Verbindung mit dem DirectAccess-Server; Allerdings wird das Clientcomputerzertifikat wurde nicht gefunden oder ist ungültig, z. B. wenn das Zertifikat abgelaufen.  
+Das vom Benutzer bereitgestellte einmalige Kennwort war richtig, aber die ausstellende Zertifizierungsstelle hat das Ausstellen des OTP-Anmelde Zertifikats verweigert. Die Zertifikat Anforderung ist möglicherweise nicht ordnungsgemäß mit der richtigen EKU-Anwendungs Richtlinie (OTP-Registrierungsstelle) signiert, oder der Benutzer verfügt nicht über die Berechtigung "registrieren" für die Vorlage "da OTP".  
   
 **Lösung**  
   
-Stellen Sie sicher, dass das Computerzertifikat vorhanden und gültig ist:  
+Stellen Sie sicher, dass DirectAccess-OTP-Benutzer über die Berechtigung zum Registrieren für das Registrierungszertifikat für das DirectAccess-OTP verfügen, und dass die richtige "Anwendungs Richtlinie" in der Signatur Vorlage der Registrierungsstelle für die Registrierungsstelle enthalten ist. Stellen Sie außerdem sicher, dass das DirectAccess-Registrierungsstellen Zertifikat auf dem RAS-Server gültig ist. Weitere Informationen finden Sie unter 3,2 Planen der OTP-Zertifikat Vorlage und 3,3 Planen des Registrierungsstellen Zertifikats.  
   
-1.  Öffnen Sie auf dem Clientcomputer in der Konsole des MMC-Zertifikate, für das lokale Computerkonto **persönlich/Zertifikate**.  
+## <a name="missing-or-invalid-computer-account-certificate"></a>Fehlendes oder ungültiges Computer Konto Zertifikat  
+**Szenario**. Der Benutzer kann sich mit dem folgenden Fehler nicht mit OTP authentifizieren: "Die Authentifizierung konnte aufgrund eines internen Fehlers nicht ausgeführt werden."  
   
-2.  Stellen Sie sicher, dass ein Zertifikat, der mit übereinstimmt den Computernamen ausgestellt vorhanden ist, und doppelklicken Sie auf das Zertifikat.  
-  
-3.  Auf der **Zertifikat** Dialogfeld auf die **Zertifikatpfad** Registerkarte **Zertifikatstatus**, stellen Sie sicher, dass dieser sagt "dieses Zertifikat ist gültig."  
-  
-Wenn Sie ein gültiges Zertifikat nicht gefunden wird, löschen Sie die ungültigen Zertifikats (falls vorhanden) und erneut registrieren, für das Zertifikat des Computers durch entweder die Ausführung `gpupdate /Force` über eine Eingabeaufforderung mit erhöhten Rechten oder Neustart des Clientcomputers.  
-  
-## <a name="missing-ca-that-issues-otp-certificates"></a>Fehlende Zertifizierungsstelle, die OTP-Zertifikate ausstellt  
-**Szenario**. Benutzer nicht authentifizieren, Fehler OTP mit: "Fehler bei der Authentifizierung aufgrund eines internen Fehlers"  
-  
-**Fehler** (Client-Ereignisprotokolls). OTP-Authentifizierung kann nicht abgeschlossen werden, weil der Directaccess-Server keine Adresse einer ausstellenden Zertifizierungsstelle zurückgegeben hat.  
+**Fehler** (Client Ereignisprotokoll).  Die OTP-Authentifizierung kann nicht abgeschlossen werden, da das für OTP erforderliche Computer Zertifikat im Zertifikat Speicher des lokalen Computers nicht gefunden werden kann.  
   
 **Ursache**  
   
-Es sind keine Zertifizierungsstellen, die konfigurierte OTP-Zertifikate ausstellen oder alle konfigurierten CAs, die OTP-Zertifikate ausstellen sind nicht mehr reagiert.  
+Für die DirectAccess-OTP-Authentifizierung ist ein Client Computer Zertifikat erforderlich, um eine SSL-Verbindung mit dem DirectAccess-Server herzustellen. das Zertifikat des Client Computers wurde jedoch nicht gefunden oder ist ungültig, z. b. wenn das Zertifikat abgelaufen ist.  
   
 **Lösung**  
   
-1.  Verwenden Sie den folgenden Befehl zum Abrufen der Liste der Zertifizierungsstellen, die OTP-Zertifikate ausstellen (die ZS-Name wird im ZS-Server dargestellt): `Get-DAOtpAuthentication`.  
+Stellen Sie sicher, dass das Computer Zertifikat vorhanden und gültig ist:  
+  
+1.  Öffnen Sie auf dem Client Computer in der MMC-Zertifikat Konsole für das lokale Computer Konto " **persönlich/Zertifikate**".  
+  
+2.  Stellen Sie sicher, dass ein Zertifikat ausgestellt wurde, das mit dem Computernamen übereinstimmt, und doppelklicken Sie auf das Zertifikat.  
+  
+3.  Vergewissern Sie sich, dass im Dialogfeld **Zertifikat** auf der Registerkarte **Zertifikat Pfad** unter **Zertifikat Status**die Meldung "dieses Zertifikat ist OK" angezeigt wird.  
+  
+Wenn kein gültiges Zertifikat gefunden wird, löschen Sie das ungültige Zertifikat (sofern vorhanden), und melden Sie sich erneut für das Computer Zertifikat an, indem Sie entweder `gpupdate /Force` an einer Eingabeaufforderung mit erhöhten Rechten ausführen oder den Client Computer neu starten.  
+  
+## <a name="missing-ca-that-issues-otp-certificates"></a>Fehlende Zertifizierungsstelle, die OTP-Zertifikate ausgibt  
+**Szenario**. Der Benutzer kann sich mit dem folgenden Fehler nicht mit OTP authentifizieren: "Die Authentifizierung konnte aufgrund eines internen Fehlers nicht ausgeführt werden."  
+  
+**Fehler** (Client Ereignisprotokoll). Die OTP-Authentifizierung kann nicht abgeschlossen werden, da der da-Server keine Adresse einer ausstellenden Zertifizierungsstelle zurückgegeben hat.  
+  
+**Ursache**  
+  
+Entweder gibt es keine Zertifizierungsstellen, die OTP-Zertifikate ausstellen, oder alle konfigurierten Zertifizierungsstellen, die OTP-Zertifikate ausstellen, werden nicht reagiert.  
+  
+**Lösung**  
+  
+1.  Verwenden Sie den folgenden Befehl, um die Liste der Zertifizierungsstellen zu erhalten, die OTP-Zertifikate ausstellen (der Name der Zertifizierungsstelle wird unter caserver angezeigt): `Get-DAOtpAuthentication`.  
   
 2.  Wenn keine Zertifizierungsstellen konfiguriert sind:  
   
-    1.  Verwenden Sie entweder den Befehl `Set-DAOtpAuthentication` oder die Remotezugriffs-Verwaltungskonsole zum Konfigurieren der Zertifizierungsstellen, die die DirectAccess-OTP Anmeldung Zertifikat ausstellen.  
+    1.  Verwenden Sie entweder den Befehl `Set-DAOtpAuthentication` oder die Remote Zugriffs-Verwaltungskonsole, um die Zertifizierungsstellen zu konfigurieren, die das Registrierungszertifikat für das DirectAccess-OTP ausstellen.  
   
-    2.  Die neue Konfiguration anzuwenden und zu erzwingen, dass die Clients aktualisieren Sie die Einstellungen des DirectAccess-Gruppenrichtlinienobjekte mit `gpupdate /Force` über eine Eingabeaufforderung mit erhöhten Rechten oder der Clientcomputer neu gestartet.  
+    2.  Wenden Sie die neue Konfiguration an, und erzwingen Sie, dass die Clients die DirectAccess-GPO-Einstellungen aktualisieren, indem Sie `gpupdate /Force` an einer Eingabeaufforderung mit erhöhten Rechten ausführen oder den Client Computer neu starten.  
   
-3.  Stellen Sie CAs konfiguriert sind, sicher, dass sie online und reagiert auf registrierungsanforderungen sind.  
+3.  Wenn CAS konfiguriert sind, stellen Sie sicher, dass Sie online sind und auf Registrierungsanforderungen reagieren.  
   
-## <a name="misconfigured-directaccess-server-address"></a>Falsch konfigurierte Adresse des DirectAccess-Servers  
-**Szenario**. Benutzer nicht authentifizieren, Fehler OTP mit: "Fehler bei der Authentifizierung aufgrund eines internen Fehlers"  
+## <a name="misconfigured-directaccess-server-address"></a>Falsch konfigurierte DirectAccess-Server Adresse  
+**Szenario**. Der Benutzer kann sich mit dem folgenden Fehler nicht mit OTP authentifizieren: "Die Authentifizierung konnte aufgrund eines internen Fehlers nicht ausgeführt werden."  
   
-**Fehler** (Client-Ereignisprotokolls). OTP-Authentifizierung nicht wie erwartet abgeschlossen werden. Der Name oder die Adresse des RAS-Server kann nicht bestimmt werden.  Fehlercode: < Error_code >. DirectAccess-Einstellungen sollten vom Serveradministrator überprüft werden.  
+**Fehler** (Client Ereignisprotokoll). Die OTP-Authentifizierung kann nicht wie erwartet ausgeführt werden. Der Name oder die Adresse des Remote Zugriffs Servers kann nicht bestimmt werden.  Fehlercode: < error_code >. Die DirectAccess-Einstellungen sollten vom Server Administrator überprüft werden.  
   
 **Ursache**  
   
@@ -131,153 +131,153 @@ Die Adresse des DirectAccess-Servers ist nicht ordnungsgemäß konfiguriert.
   
 **Lösung**  
   
-Überprüfen Sie die konfigurierte DirectAccess Server Adresse mit `Get-DirectAccess` und korrigieren Sie die Adresse ein, wenn sie falsch ist.  
+Überprüfen Sie die konfigurierte DirectAccess-Server Adresse mit `Get-DirectAccess`, und korrigieren Sie die Adresse, wenn Sie falsch konfiguriert ist.  
   
-Stellen Sie sicher, dass die aktuellen Einstellungen auf dem Clientcomputer bereitgestellt werden, indem Sie ausführen `gpupdate /force` aus einer Eingabeaufforderung mit erhöhten Rechten oder starten Sie den Clientcomputer.  
+Stellen Sie sicher, dass die neuesten Einstellungen auf dem Client Computer bereitgestellt werden, indem Sie `gpupdate /force` an einer Eingabeaufforderung mit erhöhten Rechten ausführen oder den Client Computer neu starten.  
   
-## <a name="failed-to-generate-the-otp-logon-certificate-request"></a>Fehler beim Generieren der zertifikatanforderung von OTP-Anmeldung  
-**Szenario**. Benutzer nicht authentifizieren, Fehler OTP mit: "Fehler bei der Authentifizierung aufgrund eines internen Fehlers"  
+## <a name="failed-to-generate-the-otp-logon-certificate-request"></a>Die OTP-Anmeldezertifikat Anforderung konnte nicht generiert werden.  
+**Szenario**. Der Benutzer kann sich mit dem folgenden Fehler nicht mit OTP authentifizieren: "Die Authentifizierung konnte aufgrund eines internen Fehlers nicht ausgeführt werden."  
   
-**Fehler** (Client-Ereignisprotokolls). Die zertifikatanforderung für OTP-Authentifizierung kann nicht initialisiert werden. Entweder ein privater Schlüssel kann nicht generiert werden, oder Benutzer <username> Zertifikatvorlage < OTP_template_name > auf dem Domänencontroller kann nicht zugegriffen werden kann.  
-  
-**Ursache**  
-  
-Es gibt zwei mögliche Ursachen für diesen Fehler aus:  
-  
--   Der Benutzer verfügt nicht über die Berechtigung zum Lesen der Vorlage der OTP-Anmeldung.  
-  
--   Den Domänencontroller kann nicht von dem Computer des Benutzers aufgrund von Netzwerkproblemen zugreifen.  
-  
-**Lösung**  
-  
--   Überprüfen Sie die Berechtigungen, die in der Vorlage der OTP-Anmeldung festlegen, und stellen Sie sicher, dass alle Benutzer, die für DirectAccess-OTP bereitgestellt "Leseberechtigung".  
-  
--   Stellen Sie sicher, dass der Domänencontroller wie ein Verwaltungsserver konfiguriert ist, dass Client-Computer den Domänencontroller über den infrastrukturtunnel erreichbar sind. Planen Sie die OTP-Zertifikatvorlage finden Sie unter 3.2.  
-  
-## <a name="no-connection-to-the-domain-controller"></a>Keine Verbindung mit dem Domänencontroller  
-**Szenario**. Benutzer nicht authentifizieren, Fehler OTP mit: "Fehler bei der Authentifizierung aufgrund eines internen Fehlers"  
-  
-**Fehler** (Client-Ereignisprotokolls). Eine Verbindung mit dem Domänencontroller für die OTP-Authentifizierung kann nicht hergestellt werden. Fehlercode: < Error_code >.  
+**Fehler** (Client Ereignisprotokoll). Die Zertifikat Anforderung für die OTP-Authentifizierung kann nicht initialisiert werden. Entweder kann kein privater Schlüssel generiert werden, oder der Benutzer <username> kann nicht auf die Zertifikat Vorlage < OTP_template_name-> auf dem Domänen Controller zugreifen.  
   
 **Ursache**  
   
-Es gibt zwei mögliche Ursachen für diesen Fehler aus:  
+Für diesen Fehler gibt es zwei mögliche Ursachen:  
   
--   Dem Computer des Benutzers über keine Netzwerkverbindung verfügt.  
+-   Der Benutzer verfügt nicht über die Berechtigung zum Lesen der OTP-Anmeldevorlage.  
   
--   Der Domänencontroller nicht zugegriffen werden kann, über den infrastrukturtunnel.  
+-   Der Computer des Benutzers kann aufgrund von Netzwerkproblemen nicht auf den Domänen Controller zugreifen.  
   
 **Lösung**  
   
--   Stellen Sie sicher, dass der Domänencontroller wie ein Verwaltungsserver konfiguriert ist, durch den folgenden Befehl an einer PowerShell-Eingabeaufforderung ausführen: `Get-DAMgmtServer -Type All`.  
+-   Überprüfen Sie die Berechtigungseinstellung für die OTP-Anmeldevorlage, und stellen Sie sicher, dass alle Benutzer, die für DirectAccess OTP bereitgestellt wurden, über die Berechtigung Lesen verfügen.  
   
--   Stellen Sie sicher, dass der Client-Computer den Domänencontroller über den infrastrukturtunnel erreichbar sind.  
+-   Stellen Sie sicher, dass der Domänen Controller als Management Server konfiguriert ist und dass der Client Computer den Domänen Controller über den Infrastruktur Tunnel erreichen kann. Weitere Informationen finden Sie unter 3,2 Planen der OTP-Zertifikat Vorlage.  
   
-## <a name="otp-provider-requires-challengeresponse"></a>OTP-Anbieter erfordert die Abfrage/Rückmeldung  
-**Szenario**. Benutzer nicht authentifizieren, Fehler OTP mit: "Fehler bei der Authentifizierung aufgrund eines internen Fehlers"  
+## <a name="no-connection-to-the-domain-controller"></a>Keine Verbindung mit dem Domänen Controller  
+**Szenario**. Der Benutzer kann sich mit dem folgenden Fehler nicht mit OTP authentifizieren: "Die Authentifizierung konnte aufgrund eines internen Fehlers nicht ausgeführt werden."  
   
-**Fehler** (Client-Ereignisprotokolls). OTP-Authentifizierung mit RAS-Server (< DirectAccess_server_name >) für den Benutzer (<username>) eine Aufforderung des Benutzers erforderlich.  
+**Fehler** (Client Ereignisprotokoll). Eine Verbindung mit dem Domänen Controller zum Zweck der OTP-Authentifizierung kann nicht hergestellt werden. Fehlercode: < error_code >.  
   
 **Ursache**  
   
-Der OTP-Anbieter verwendet, muss der Benutzer zusätzliche Berechtigungen in Form einer RADIUS-Abfrage/Rückmeldung-Exchange zu erstellen, die von Windows Server 2012 DirectAccess-OTP nicht unterstützt wird.  
+Für diesen Fehler gibt es zwei mögliche Ursachen:  
+  
+-   Der Computer des Benutzers verfügt über keine Netzwerk Konnektivität.  
+  
+-   Der Domänen Controller ist über den Infrastruktur Tunnel nicht erreichbar.  
   
 **Lösung**  
   
-Konfigurieren des OTP-Anbieters, um die Abfrage/Rückmeldung in jedem Szenario nicht erforderlich.  
+-   Stellen Sie sicher, dass der Domänen Controller als Management Server konfiguriert ist, indem Sie den folgenden Befehl an einer PowerShell-Eingabeaufforderung ausführen: `Get-DAMgmtServer -Type All`.  
   
-## <a name="incorrect-otp-logon-template-used"></a>Falsch verwendete OTP-anmelden-Vorlage  
-**Szenario**. Benutzer nicht authentifizieren, Fehler OTP mit: "Fehler bei der Authentifizierung aufgrund eines internen Fehlers"  
+-   Stellen Sie sicher, dass der Client Computer den Domänen Controller über den Infrastruktur Tunnel erreichen kann.  
   
-**Fehler** (Client-Ereignisprotokolls). Die zertifizierungsstellenvorlage, aus denen die Benutzer <username> angefordert wird, ein Zertifikat ist nicht für das Ausstellen von Zertifikaten für OTP konfiguriert.  
+## <a name="otp-provider-requires-challengeresponse"></a>Der OTP-Anbieter erfordert Challenge/Response.  
+**Szenario**. Der Benutzer kann sich mit dem folgenden Fehler nicht mit OTP authentifizieren: "Die Authentifizierung konnte aufgrund eines internen Fehlers nicht ausgeführt werden."  
+  
+**Fehler** (Client Ereignisprotokoll). Bei der OTP-Authentifizierung mit dem RAS-Server (< DirectAccess_server_name >) für den Benutzer (<username>) ist eine Herausforderung des Benutzers erforderlich.  
   
 **Ursache**  
   
-Die DirectAccess-OTP-anmelden-Vorlage ersetzt wurde, und der Clientcomputer für die Authentifizierung mit einer älteren Vorlage versucht.  
+Der verwendete OTP-Anbieter erfordert, dass der Benutzer zusätzliche Anmelde Informationen in Form eines RADIUS-Challenge/Antwort-Austauschs bereitstellt, der von Windows Server 2012 DirectAccess OTP nicht unterstützt wird.  
   
 **Lösung**  
   
-Stellen Sie sicher, dass der Clientcomputer die neueste OTP-Konfiguration verwendet wird, indem Sie eine der folgenden ausführen:  
+Konfigurieren Sie den OTP-Anbieter so, dass in keinem Szenario Challenge/Response erforderlich ist.  
   
--   Aktualisierung der Gruppenrichtlinie zu erzwingen, indem Sie den folgenden Befehl an einer Eingabeaufforderung mit erhöhten Rechten ausführen: `gpupdate /Force`.  
+## <a name="incorrect-otp-logon-template-used"></a>Falsche OTP-Anmeldevorlage verwendet  
+**Szenario**. Der Benutzer kann sich mit dem folgenden Fehler nicht mit OTP authentifizieren: "Die Authentifizierung konnte aufgrund eines internen Fehlers nicht ausgeführt werden."  
+  
+**Fehler** (Client Ereignisprotokoll). Die Zertifizierungsstellen Vorlage, von der Benutzer <username> ein Zertifikat angefordert hat, ist nicht für das Ausstellen von OTP-Zertifikaten konfiguriert.  
+  
+**Ursache**  
+  
+Die "DirectAccess OTP"-Anmeldevorlage wurde ersetzt, und der Client Computer versucht, sich mit einer älteren Vorlage zu authentifizieren.  
+  
+**Lösung**  
+  
+Stellen Sie sicher, dass der Client Computer die neueste OTP-Konfiguration verwendet, indem Sie eine der folgenden Aktionen ausführen:  
+  
+-   Erzwingen Sie eine Gruppenrichtlinie Aktualisierung, indem Sie den folgenden Befehl an einer Eingabeaufforderung mit erhöhten Rechten ausführen: `gpupdate /Force`.  
   
 -   Starten Sie den Clientcomputer neu.  
   
-## <a name="missing-otp-signing-certificate"></a>OTP-Signaturzertifikat fehlt  
-**Szenario**. Benutzer nicht authentifizieren, Fehler OTP mit: "Fehler bei der Authentifizierung aufgrund eines internen Fehlers"  
+## <a name="missing-otp-signing-certificate"></a>Fehlendes OTP-Signaturzertifikat  
+**Szenario**. Der Benutzer kann sich mit dem folgenden Fehler nicht mit OTP authentifizieren: "Die Authentifizierung konnte aufgrund eines internen Fehlers nicht ausgeführt werden."  
   
-**Fehler** (Client-Ereignisprotokolls). Ein OTP-Signaturzertifikat wurde nicht gefunden. Der OTP-zertifikatregistrierungsanforderung werden nicht signiert.  
-  
-**Ursache**  
-  
-Der DirectAccess-OTP-Signaturzertifikat auf dem RAS-Server wurde nicht gefunden; aus diesem Grund kann nicht die zertifikatanforderung für Benutzer von RAS-Server signiert werden. Es gibt kein Signaturzertifikat oder das Signaturzertifikat ist abgelaufen und wurde nicht verlängert.  
-  
-**Lösung**  
-  
-Führen Sie diese Schritte aus, auf dem RAS-Server.  
-  
-1.  Überprüfen Sie die konfigurierten OTP Signieren den Namen der Zertifikatvorlage durch Ausführen des PowerShell-Cmdlets `Get-DAOtpAuthentication` und überprüfen Sie den Wert der `SigningCertificateTemplateName`.  
-  
-2.  Verwenden Sie das Zertifikate-MMC-Snap-in, um sicherzustellen, dass ein gültiges Zertifikat, das aus dieser Vorlage registriert auf dem Computer vorhanden ist.  
-  
-3.  Wenn kein Zertifikat vorhanden ist, Löschen von abgelaufenen Zertifikats (falls vorhanden), und registrieren Sie ein neues Zertifikat auf Basis dieser Vorlage.  
-  
-Die OTP-Signatur erstellen Zertifikatvorlage finden Sie unter 3.3 Plan Zertifikat der Registrierung.  
-  
-## <a name="missing-or-incorrect-upndn-for-the-user"></a>Fehlende oder falsche UPN/DN für den Benutzer  
-**Szenario**. Benutzer nicht authentifizieren, Fehler OTP mit: "Fehler bei der Authentifizierung aufgrund eines internen Fehlers"  
-  
-**Fehler** (Client-Ereignisprotokolls)  
-  
-Eine der folgenden Fehler:  
-  
--   Benutzer <username> mit OTP nicht authentifiziert werden können. Stellen Sie sicher, dass ein UPN für den Benutzernamen in Active Directory definiert ist. Fehlercode: < Error_code >.  
-  
--   Benutzer <username> mit OTP nicht authentifiziert werden können. Stellen Sie sicher, dass ein DN für den Benutzernamen in Active Directory definiert ist. Fehlercode: < Error_code >.  
-  
-**Fehler** (Server-Ereignisprotokoll)  
-  
-Der Benutzername <username> angegeben, für die OTP-Authentifizierung nicht vorhanden ist.  
+**Fehler** (Client Ereignisprotokoll). Ein OTP-Signaturzertifikat wurde nicht gefunden. Die OTP-Zertifikat Registrierungs Anforderung kann nicht signiert werden.  
   
 **Ursache**  
   
-Der Benutzer verfügt nicht über die Benutzer Benutzerprinzipalname (UPN) oder Distinguished Name (DN) Attribute ordnungsgemäß festgelegt, das Benutzerkonto, diese Eigenschaften sind für das ordnungsgemäße Funktionieren von DirectAccess-OTP erforderlich.  
+Das Registrierungszertifikat für den DirectAccess-OTP wurde auf dem Remote Zugriffs Server nicht gefunden. Daher kann die Benutzerzertifikat Anforderung nicht vom RAS-Server signiert werden. Entweder ist kein Signaturzertifikat vorhanden, oder das Signaturzertifikat ist abgelaufen und wurde nicht erneuert.  
   
 **Lösung**  
   
-Verwenden Sie die Konsole Active Directory-Benutzer und-Computer auf dem Domänencontroller, um sicherzustellen, dass beide Attribute für den authentifizierenden Benutzer ordnungsgemäß festgelegt sind.  
+Führen Sie diese Schritte auf dem Remote Zugriffs Server aus.  
   
-## <a name="otp-certificate-is-not-trusted-for-login"></a>OTP-Zertifikat ist nicht vertrauenswürdig für die Anmeldung  
-**Szenario**. Benutzer nicht authentifizieren, Fehler OTP mit: "Fehler bei der Authentifizierung aufgrund eines internen Fehlers"  
+1.  Überprüfen Sie den Namen der konfigurierten OTP-Signaturzertifikat Vorlage, indem Sie das PowerShell-Cmdlet `Get-DAOtpAuthentication` ausführen und den Wert `SigningCertificateTemplateName` überprüfen.  
+  
+2.  Verwenden Sie das MMC-Snap-in Zertifikate, um sicherzustellen, dass auf dem Computer ein gültiges Zertifikat vorhanden ist, das bei dieser Vorlage registriert ist.  
+  
+3.  Wenn ein solches Zertifikat nicht vorhanden ist, löschen Sie das abgelaufene Zertifikat (sofern vorhanden), und registrieren Sie sich für ein neues Zertifikat auf der Grundlage dieser Vorlage.  
+  
+Informationen zum Erstellen der OTP-Signaturzertifikat Vorlage finden Sie unter 3,3 Planen des Registrierungsstellen Zertifikats.  
+  
+## <a name="missing-or-incorrect-upndn-for-the-user"></a>Fehlender oder falscher UPN/DN für den Benutzer.  
+**Szenario**. Der Benutzer kann sich mit dem folgenden Fehler nicht mit OTP authentifizieren: "Die Authentifizierung konnte aufgrund eines internen Fehlers nicht ausgeführt werden."  
+  
+**Fehler empfangen** (Client Ereignisprotokoll)  
+  
+Einer der folgenden Fehler:  
+  
+-   Der Benutzer <username> kann nicht mit OTP authentifiziert werden. Stellen Sie sicher, dass ein UPN für den Benutzernamen in Active Directory definiert ist. Fehlercode: < error_code >.  
+  
+-   Der Benutzer <username> kann nicht mit OTP authentifiziert werden. Stellen Sie sicher, dass für den Benutzernamen in Active Directory ein DN definiert ist. Fehlercode: < error_code >.  
+  
+**Fehler empfangen** (Server Ereignisprotokoll)  
+  
+Der für die OTP-Authentifizierung angegebene Benutzername <username> ist nicht vorhanden.  
   
 **Ursache**  
   
-Die Zertifizierungsstelle, die OTP-Zertifikate ausstellt, ist nicht in der Enterprise NTAuth-Speicher; aus diesem Grund können die Registrierung von Zertifikaten für die Anmeldung verwendet werden. Dies kann in Umgebungen mit mehreren Domäne und mit mehreren Gesamtstrukturen auftreten, in denen domänenübergreifende Vertrauensstellungen zwischen Zertifizierungsstellen nicht hergestellt wird.  
+Der Benutzer verfügt nicht über die ordnungsgemäße Festlegung der Benutzer Prinzipal Namen (UPN) oder DN-Attribute (DN) im Benutzerkonto. diese Eigenschaften sind für eine ordnungsgemäße Funktionsweise von DirectAccess OTP erforderlich.  
   
 **Lösung**  
   
-Stellen Sie sicher, dass das Zertifikat des Stamms der Hierarchie, die OTP-Zertifikate ausstellt, in der Enterprise NTAuth-Zertifikat zu speichern, von der Domäne installiert ist, zu dem der Benutzer versucht, zu authentifizieren.  
+Überprüfen Sie mithilfe der Konsole Active Directory Benutzer und Computer auf dem Domänen Controller, ob beide Attribute ordnungsgemäß für den authentifizier enden Benutzer festgelegt sind.  
   
-## <a name="windows-could-not-verify-user-credentials"></a>Windows konnte Anmeldeinformationen des Benutzers nicht überprüft werden.  
-**Szenario**. Benutzer nicht authentifizieren, Fehler OTP mit: "Fehler bei der Authentifizierung aufgrund eines internen Fehlers"  
-  
-**Fehler** (Client-Computer). Es ist leider während Windows Ihre Anmeldeinformationen überprüft wurde. Versuchen Sie es erneut, oder bitten Sie Ihren Administrator um Hilfe zu erhalten.  
+## <a name="otp-certificate-is-not-trusted-for-login"></a>OTP-Zertifikat ist für die Anmeldung nicht vertrauenswürdig.  
+**Szenario**. Der Benutzer kann sich mit dem folgenden Fehler nicht mit OTP authentifizieren: "Die Authentifizierung konnte aufgrund eines internen Fehlers nicht ausgeführt werden."  
   
 **Ursache**  
   
-Das Kerberos-Authentifizierungsprotokoll funktioniert nicht, wenn das Zertifikat für die DirectAccess-OTP-Anmeldung keine Zertifikatsperrliste enthalten ist. Das Zertifikat für die DirectAccess-OTP-Anmeldung ist eine CRL nicht enthalten, da entweder:  
-  
--   Die Vorlage der DirectAccess-OTP-Anmeldung konfiguriert wurde, mit der Option **beinhalten keine Informationen zum Widerrufen in ausgestellten Zertifikaten**.  
-  
--   Die Zertifizierungsstelle ist nicht zum Veröffentlichen von Zertifikatsperrlisten konfiguriert.  
+Die Zertifizierungsstelle, die OTP-Zertifikate ausgibt, befindet sich nicht im Enterprise NTAuth-Speicher. Daher können registrierte Zertifikate nicht für die Anmeldung verwendet werden. Dies kann in Umgebungen mit mehreren Domänen und mehreren Gesamtstrukturen vorkommen, in denen keine Domänen übergreifende Zertifizierungsstellen-Vertrauensstellung eingerichtet ist  
   
 **Lösung**  
   
-1.  Um die Ursache für diesen Fehler, in der Remotezugriffs-Verwaltungskonsole, zu bestätigen **Schritt 2 RAS-Server**, klicken Sie auf **bearbeiten**, und klicken Sie dann in der **RAS-Server-Setup** Assistenten, klicken Sie auf **OTP-Zertifikatvorlagen**. Notieren Sie sich von der Zertifikatvorlage, die verwendet werden, für die Registrierung von Zertifikaten, die für die OTP-Authentifizierung ausgegeben werden. Öffnen der Zertifizierungsstellen-Verwaltungskonsole im linken Bereich, klicken Sie auf **Zertifikatvorlagen**, doppelklicken Sie auf die OTP-Zertifikats für die Anmeldung zum Anzeigen der Eigenschaften der Zertifikatvorlage.  
+Stellen Sie sicher, dass das Zertifikat des Stamms der Zertifizierungsstellen Hierarchie, von der OTP-Zertifikate ausgestellt werden, im NTAuth-Zertifikat Speicher des Unternehmens der Domäne installiert ist, zu der der Benutzer eine Authentifizierung durchführen soll.  
   
-    Um dieses Problem zu beheben, konfigurieren Sie ein Zertifikat für das Zertifikat für die OTP-Anmeldung, und aktivieren Sie nicht die **beinhalten keine Informationen zum Widerrufen in ausgestellten Zertifikaten** auf das Kontrollkästchen der **Server** Registerkarte der Vorlage Dialogfeld "Eigenschaften".  
+## <a name="windows-could-not-verify-user-credentials"></a>Die Benutzer Anmelde Informationen konnten nicht überprüft werden.  
+**Szenario**. Der Benutzer kann sich mit dem folgenden Fehler nicht mit OTP authentifizieren: "Die Authentifizierung konnte aufgrund eines internen Fehlers nicht ausgeführt werden."  
   
-2.  Auf dem Zertifizierungsstellenserver an, öffnen Sie die Zertifizierungsstellen-MMC, klicken Sie mit der rechten Maustaste auf die ausstellende Zertifizierungsstelle aus, und klicken Sie auf **Eigenschaften**. Auf der **Erweiterungen** Registerkarte stellen Sie sicher, dass die Veröffentlichung der Zertifikatsperrliste ordnungsgemäß konfiguriert ist.  
+**Fehler** (Client Computer). Es ist ein Fehler aufgetreten, während Windows Ihre Anmelde Informationen überprüfte. Versuchen Sie es erneut, oder bitten Sie Ihren Administrator um Hilfe.  
+  
+**Ursache**  
+  
+Das Kerberos-Authentifizierungsprotokoll funktioniert nicht, wenn das Registrierungszertifikat für den DirectAccess-OTP keine CRL enthält. Das Registrierungszertifikat für das DirectAccess-OTP enthält keine CRL:  
+  
+-   Die "DirectAccess OTP"-Anmeldevorlage wurde mit der Option " **keine Sperrinformationen in ausgestellten Zertifikaten einschließen**" konfiguriert.  
+  
+-   Die Zertifizierungsstelle ist so konfiguriert, dass keine CRLs veröffentlicht werden.  
+  
+**Lösung**  
+  
+1.  Um die Ursache für diesen Fehler zu überprüfen, klicken Sie in der Remote Zugriffs-Verwaltungskonsole in **Schritt 2**RAS-Server auf **Bearbeiten**, und klicken Sie dann im Setup-Assistenten für den **Remote Zugriffs Server** auf **OTP-Zertifikat Vorlagen**. Notieren Sie sich die Zertifikat Vorlage, die für die Registrierung von Zertifikaten verwendet wird, die für die OTP-Authentifizierung ausgestellt werden. Öffnen Sie die Zertifizierungsstellen Konsole, klicken Sie im linken Bereich auf **Zertifikat Vorlagen**, doppelklicken Sie auf das OTP-Anmeldezertifikat, um die Eigenschaften der Zertifikat Vorlage anzuzeigen.  
+  
+    Um dieses Problem zu beheben, konfigurieren Sie ein Zertifikat für das OTP-Anmeldezertifikat, und aktivieren Sie im Dialogfeld Vorlagen Eigenschaften auf der Registerkarte **Server** das Kontrollkästchen keine Sperr **Informationen in ausgestellten Zertifikaten einschließen** .  
+  
+2.  Öffnen Sie auf dem Zertifizierungsstellen Server die MMC der Zertifizierungsstelle, klicken Sie mit der rechten Maustaste auf die ausstellende Zertifizierungsstelle **und klicken** Vergewissern Sie sich auf der Registerkarte **Erweiterungen** , dass die CRL-Veröffentlichung ordnungsgemäß konfiguriert ist.  
   
 
 

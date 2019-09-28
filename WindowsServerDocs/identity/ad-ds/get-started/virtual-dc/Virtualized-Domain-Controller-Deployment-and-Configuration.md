@@ -7,18 +7,18 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 059bb3c1b15afdc579ba048b8bbb02ed185f3d42
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: be2c919e4379cf615fe25d68446855229ace87dd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280954"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390698"
 ---
 # <a name="virtualized-domain-controller-deployment-and-configuration"></a>Bereitstellung und Konfiguration virtualisierter Domänencontroller
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Thema werden folgende Inhalte behandelt:  
   
@@ -26,11 +26,11 @@ In diesem Thema werden folgende Inhalte behandelt:
   
     Dazu zählen Plattformanforderungen und andere wichtige Einschränkungen.  
   
--   [Virtualisierten beim Klonen des Domänencontrollers](../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Deployment-and-Configuration.md#BKMK_VDCCloning)  
+-   [Klonen von virtualisierten Domänen Controllern](../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Deployment-and-Configuration.md#BKMK_VDCCloning)  
   
     Hier wird der gesamte Prozess für das Klonen von virtualisierten Domänencontrollern ausführlich erläutert.  
   
--   [Sichere Wiederherstellung des virtualisierten Domänencontrollers](../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Deployment-and-Configuration.md#BKMK_VDCSafeRestore)  
+-   [Sichere Wiederherstellung des virtualisierten Domänen Controllers](../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Deployment-and-Configuration.md#BKMK_VDCSafeRestore)  
   
     Hier werden die Überprüfungen bei der sicheren Wiederherstellung des virtualisierten Domänencontrollers ausführlich erläutert.  
   
@@ -44,7 +44,7 @@ Sowohl beschreibbare als auch schreibgeschützte Domänencontroller unterstütze
 > [!IMPORTANT]  
 > Der Halter der FSMO-Rolle für den Emulator des primären Domänencontrollers (PDC) muss online sein, wenn das Klonen beginnt.  
   
-### <a name="BKMK_PlatformReqs"></a>Plattformanforderungen  
+### <a name="BKMK_PlatformReqs"></a>Platt Form Anforderungen  
 Für das Klonen von virtualisierten Domänencontrollern ist Folgendes erforderlich:  
   
 -   FSMO-Rolle für den PDC-Emulator, gehostet auf einem Windows Server 2012-Domänencontroller  
@@ -61,11 +61,11 @@ Sehen Sie sich die Tabelle unten an, in der Sie Virtualisierungsprodukte finden 
   
 |||  
 |-|-|  
-|**Virtualisierungsprodukt**|**Unterstützung für virtualisierte Domänencontroller und VMGID**|  
-|**Microsoft Windows Server 2012-Server mit Hyper-V-Funktion**|Ja|  
+|**Virtualisierungsprodukt**|**Unterstützung für virtualisierte Domänen Controller und vmgid**|  
+|**Microsoft Windows Server 2012-Server mit Hyper-V-Feature**|Ja|  
 |**Microsoft Windows Server 2012 Hyper-V-Server**|Ja|  
-|**Microsoft Windows 8 mit Hyper-V-Client-Funktionen**|Ja|  
-|**Windows Server 2008 R2 und WindowsServer 2008**|Nein|  
+|**Microsoft Windows 8 mit Hyper-V-Client Feature**|Ja|  
+|**Windows Server 2008 R2 und Windows Server 2008**|Nein|  
 |**Nicht-Microsoft-Virtualisierungslösungen**|Hersteller kontaktieren|  
   
 Zwar unterstützt Microsoft Windows 7 Virtual PC, Virtual PC 2007, Virtual PC 2004 und Virtual Server 2005, aber diese bieten keine Unterstützung für die Ausführung von 64-Bit-Gästen und die VM-Generations-ID.  
@@ -91,18 +91,18 @@ Keiner dieser Vorgänge ist unter der Semantik der VM-Generations-ID abgedeckt, 
 >   
 > Nach der Wiederherstellung einer Momentaufnahme gehen die Deltas von zuvor nicht replizierten Änderungen, die nach der Momentaufnahme von diesem Domänencontroller stammen, gehen dauerhaft verloren. Die sichere Wiederherstellung implementiert eine automatisierte nicht autoritative Wiederherstellung, *nur* um eine versehentliche Domänencontrollerquarantäne zu vermeiden.  
   
-Weitere Informationen zu USN-Blasen und veralteten Objekten finden Sie unter [Problembehandlung für Active Directory-Vorgänge, die mit Fehler 8606: "Zum Erstellen eines Objekts wurden nicht genügend Attribute übergeben"](https://support.microsoft.com/kb/2028495).  
+Weitere Informationen zu-Daten Blasen und veralteten Objekten finden Sie unter [troubleshooting Active Directory Vorgänge, die mit Fehler 8606 fehlschlagen: "Für die Erstellung eines Objekts wurden unzureichende Attribute angegeben" ](https://support.microsoft.com/kb/2028495).  
   
-## <a name="BKMK_VDCCloning"></a>Virtualisierten beim Klonen des Domänencontrollers  
+## <a name="BKMK_VDCCloning"></a>Klonen von virtualisierten Domänen Controllern  
 Es gibt eine Reihe von Phasen und Schritten für das Klonen eines virtualisierten Domänencontrollers, unabhängig von der Verwendung grafischer Tools oder der Windows PowerShell. Allgemein gesagt, gibt es die drei folgenden Phasen:  
   
 **Vorbereiten der Umgebung**  
   
 -   Schritt 1: Vergewissern Sie sich, dass der Hypervisor die VM-Generations-ID und damit das Klonen unterstützt.  
   
--   Schritt 2: Stellen Sie sicher, dass die PDC-Emulatorrolle von einem Domänencontroller, die Windows Server 2012 ausgeführt wird und dass online und erreichbar, vom geklonten Domänencontroller gehostet wird, während des Klonens.  
+-   Schritt 2: Überprüfen Sie, ob die PDC-Emulatorrolle von einem Domänen Controller gehostet wird, auf dem Windows Server 2012 ausgeführt wird und der während des Klonens Online und erreichbar ist.  
   
-**Den Quelldomänencontroller vorbereiten**  
+**Vorbereiten des Quell Domänen Controllers**  
   
 -   Schritt 3: Autorisieren Sie den Quelldomänencontroller für das Klonen.  
   
@@ -112,7 +112,7 @@ Es gibt eine Reihe von Phasen und Schritten für das Klonen eines virtualisierte
   
 -   Schritt 6: Bringen Sie den Quelldomänencontroller offline.  
   
-**Erstellen Sie den geklonten Domänencontroller**  
+**Erstellen des geklonten Domänen Controllers**  
   
 -   Schritt 7: Kopieren oder exportieren Sie den virtuellen Quellcomputer, und fügen Sie die XML hinzu, wenn sie nicht bereits kopiert wurde.  
   
@@ -126,16 +126,16 @@ Es gibt verschiedene Punkte im Verfahren, an denen Sie Optionen haben, wie Sie d
   
 Im folgenden Diagramm ist der Prozess für das Klonen des virtualisierten Domänencontrollers dargestellt, bei dem die Domäne bereits vorhanden ist.  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_CloningProcessFlow.png)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_CloningProcessFlow.png)  
   
 ### <a name="step-1---validate-the-hypervisor"></a>Schritt 1: Überprüfen des Hypervisors  
 Stellen Sie sicher, dass der Quelldomänencontroller auf einem unterstützten Hypervisor ausgeführt wird, indem Sie die Dokumentation des Anbieters durchsehen. Virtualisierte Domänencontroller sind hypervisorunabhängig, was bedeutet, dass Hyper-V nicht erforderlich ist.  
   
-Wenn der Hypervisor Microsoft Hyper-V ist, stellen Sie sicher, dass es unter Windows Server 2012 ausgeführt wird. Sie können dies über die Geräteverwaltung überprüfen.  
+Wenn der Hypervisor Microsoft Hyper-V ist, stellen Sie sicher, dass er unter Windows Server 2012 ausgeführt wird. Sie können dies über die Geräteverwaltung überprüfen.  
   
 Öffnen Sie **Devmgmt.msc** , und sehen Sie sich die **Systemgeräte** für installierte Microsoft Hyper-V-Geräte und -Treiber. Für einen virtualisierten Domänencontroller ist spezifisch der **Microsoft Hyper-V Generation Counter** (Treiber: vmgencounter.sys) erforderlich.  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVVMGenIDCounter.png)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVVMGenIDCounter.png)  
   
 ### <a name="step-2---verify-the-pdce-fsmo-role"></a>Schritt 2: Überprüfen der PDCE FSMO-Rolle  
 Bevor Sie versuchen, einen Domänencontroller zu klonen, müssen Sie überprüfen, ob auf dem Domänencontroller, der die FSMO-Rolle für den Emulator des primären Domänencontrollers hostet, Windows Server 2012 ausgeführt wird. Der PDC-Emulator (PDCE) ist aus verschiedenen Gründen erforderlich:  
@@ -155,7 +155,7 @@ Bevor Sie versuchen, einen Domänencontroller zu klonen, müssen Sie überprüfe
     >   
     > Weitere Informationen finden Sie unter [4.1.29 IDL_DRSAddCloneDC (Opnum 28)](https://msdn.microsoft.com/library/hh554213(v=prot.13).aspx).  
   
-***Dies bedeutet auch bei Verwendung nicht vollständig gerouteter Netzwerke Klonen virtualisierter Domänencontroller benötigt Netzwerksegmente mit Zugriff auf den PDCE***. Es ist akzeptabel, einen geklonten Domänencontroller nach dem Klonen – wie einen physischen Domänencontroller – in ein anderes Netzwerk zu verschieben, solange Sie darauf achten, die Informationen zum logischen AD DS-Standort zu aktualisieren.  
+***Dies bedeutet auch, dass bei Verwendung nicht vollständig gerouteter Netzwerke das Klonen virtualisierter Domänen Controller Netzwerksegmente mit Zugriff auf den PDCE erfordert***. Es ist akzeptabel, einen geklonten Domänencontroller nach dem Klonen – wie einen physischen Domänencontroller – in ein anderes Netzwerk zu verschieben, solange Sie darauf achten, die Informationen zum logischen AD DS-Standort zu aktualisieren.  
   
 > [!IMPORTANT]  
 > Beim Klonen einer Domäne, die nur einen einzigen Domänencontroller enthält, müssen Sie sicherstellen, dass der Quelldomänencontroller wieder online ist, bevor Sie die Klonkopien starten. Eine Produktionsdomäne sollte immer mindestens zwei Domänencontroller enthalten.  
@@ -184,7 +184,7 @@ get-adcomputer(Get-ADDomainController -Discover -Service "PrimaryDC").name -prop
   
 Im unten stehenden Beispiel wird das Angeben des Domänennamens und Filtern der zurückgegebenen Eigenschaften vor der Windows PowerShell-Pipeline dargestellt:  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PDCOSInfo.png)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PDCOSInfo.png)  
   
 ### <a name="step-3---authorize-a-source-dc"></a>Schritt 3: Autorisieren eines Quelldomänencontrollers  
 Der Quelldomänencontroller muss über das Zugriffsrecht **Domänencontroller die Erstellung eines Klons von sich selbst erlauben** auf dem Namenskontextkopf der Domäne verfügen. Standardmäßig verfügt die bekannte Gruppe **Klonbare Domänencontroller** über diese Berechtigung und enthält keine Mitglieder. Der PDCE erstellt diese Gruppe, wenn diese FSMO-Rolle an einen Windows Server 2012-Domänencontroller übertragen wird.  
@@ -204,7 +204,7 @@ Get-adcomputer <dc name> | %{add-adgroupmember "cloneable domain controllers" $_
   
 Damit wird beispielsweise der Server DC1 zur Gruppe hinzugefügt, ohne dass Sie den Distinguished Name des Gruppenmitglieds angeben müssen:  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_AddDcToGroup.png)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_AddDcToGroup.png)  
   
 #### <a name="rebuilding-default-permissions"></a>Neuerstellung der Standardberechtigungen  
 Wenn Sie diese Berechtigung vom Domänenkopf entfernen, schlägt das Klonen fehl. Sie die Berechtigung über das Active Directory-Verwaltungscenter oder Windows PowerShell erneut erstellen.  
@@ -268,8 +268,8 @@ Sie führen das Cmdlet auf dem vorgeschlagenen Quelldomänencontroller aus, den 
   
 ||||  
 |-|-|-|  
-|**ActiveDirectory**<br /><br />**Cmdlet**|**Argumente**|**Erläuterung**|  
-|**New-ADDCCloneConfigFile**|*<no argument specified>*|Erstellt eine leere „DcCloneConfig.xml“-Datei im DSA-Arbeitsverzeichnis (Standard: %systemroot%\ntds)|  
+|**ActiveDirectory**<br /><br />**Cmdlet**|**Argumente**|**Ausführlich**|  
+|**New-addccloneconfigfile**|*<no argument specified>*|Erstellt eine leere „DcCloneConfig.xml“-Datei im DSA-Arbeitsverzeichnis (Standard: %systemroot%\ntds)|  
 ||-CloneComputerName|Gibt den Computernamen des geklonten Domänencontrollers an. Zeichenfolgendatentyp.|  
 ||-Path|Gibt den Ordner für die Erstellung der DcCloneConfig.xml-Datei an. Falls nicht angegeben, wird die Datei in das DSA-Arbeitsverzeichnis (Standard: %systemroot%\ntds) geschrieben. Zeichenfolgendatentyp.|  
 ||-SiteName|Gibt den logischen AD-Standortnamen an, dem während der Erstellung des geklonten Computerkontos beigetreten wird. Zeichenfolgendatentyp.|  
@@ -281,7 +281,7 @@ Sie führen das Cmdlet auf dem vorgeschlagenen Quelldomänencontroller aus, den 
 ||-AlternateWINSServer|Gibt die statische IPv4-Adresse des sekundären WINS-Computers an. Zeichenfolgendatentyp.|  
 ||-IPv6DNSResolver|Gibt die statischen IPv6-DNS-Einträge des geklonten Computers in einer durch Trennzeichen getrennten Liste an. Es gibt keine Möglichkeit, um statische IPv6-Informationen beim Klonen von virtualisierten Domänencontrollern festzulegen. Arraydatentyp.|  
 ||-Offline|Führt keine Validierungstests durch und überschreibt jede vorhandene dccloneconfig.xml-Datei. Hat keine Parameter.|  
-||*-Static*|Erforderlich, wenn die statischen IP-Argumente IPv4SubnetMask, IPv4SubnetMask oder IPv4DefaultGateway angegeben werden. Hat keine Parameter.|  
+||*-Statisch*|Erforderlich, wenn die statischen IP-Argumente IPv4SubnetMask, IPv4SubnetMask oder IPv4DefaultGateway angegeben werden. Hat keine Parameter.|  
   
 Bei Ausführung im Onlinemodus durchgeführte Tests:  
   
@@ -293,7 +293,7 @@ Bei Ausführung im Onlinemodus durchgeführte Tests:
   
 -   Quelldomänencontroller enthält noch keine DcCloneConfig.xml-Datei am angegebenen Pfad  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSNewDCCloneConfig.png)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSNewDCCloneConfig.png)  
   
 ### <a name="step-6---take-the-source-domain-controller-offline"></a>Schritt 6: Quelldomänencontroller offline nehmen  
 Sie können keinen laufenden Quelldomänencontroller kopieren, sondern er muss ordnungsgemäß heruntergefahren werden. Sie sollten niemals einen Domänencontroller klonen, der durch einen nicht ordnungsgemäßen Stromverlust angehalten wurde.  
@@ -301,9 +301,9 @@ Sie können keinen laufenden Quelldomänencontroller kopieren, sondern er muss o
 #### <a name="graphical-method"></a>Grafische Methode  
 Verwenden Sie die Schaltfläche zum Herunterfahren im ausgeführten Domänencontroller oder die Schaltfläche zum Herunterfahren im Hyper-V-Manager.  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_Shutdown.png)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_Shutdown.png)  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVShutdown.png)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVShutdown.png)  
   
 #### <a name="windows-powershell-method"></a>Windows PowerShell-Methode  
 Sie können einen virtuellen Computer über eins der folgenden Cmdlets herunterfahren:  
@@ -315,9 +315,9 @@ Stop-vm
   
 Stop-computer ist ein Cmdlet, das das Herunterfahren von Computern unabhängig von der Virtualisierung unterstützt, und entspricht dem Vorversionsdienstprogramm Shutdown.exe. Stop-vm ist ein neues Cmdlet im Windows Server 2012 Hyper-V Windows PowerShell-Modul, das den Energieoptionen im Hyper-V-Manager entspricht. Letztere Option ist nützlich in Laborumgebungen, in denen Domänencontroller oft in einem privaten virtualisierten Netzwerk betrieben werden.  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_StopComputer2.png)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_StopComputer2.png)  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_StopVM.png)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_StopVM.png)  
   
 ### <a name="step-7---copy-disks"></a>Schritt 7: Kopieren von Datenträgern  
 In der Kopierphase ist eine administrative Entscheidung erforderlich:  
@@ -342,11 +342,11 @@ Wenn Sie Dateien manuell kopieren, löschen Sie vor dem Kopieren alle Momentaufn
 ##### <a name="hyper-v-manager-method"></a>Methode mit dem Hyper-V-Manager  
 Verwenden Sie das Hyper-V-Manager-Snap-In, um zu ermitteln, welche Datenträger mit dem Quelldomänencontroller verbunden sind. Verwenden Sie Überprüfungsoption, um zu prüfen, ob der Domänencontroller unterschiedliche Datenträger verwendet (dann müssten Sie auch den übergeordneten Datenträger kopieren).  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVInspect.png)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVInspect.png)  
   
 Zum Lösungen von Momentaufnahmen wählen Sie einen virtuellen Computer aus und löschen die Momentaufnahmeunterstruktur.  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVDeleteSnapshot.gif)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVDeleteSnapshot.gif)  
   
 Sie können dann die VHD- oder VHDX-Dateien über Windows Explorer, Xcopy.exe oder Robocopy.exe manuell kopieren. Es sind keine speziellen Schritte erforderlich. Als bewährte Methode sollten Sie die Dateinamen ändern, selbst wenn Sie die Dateien in einen anderen Ordner verschieben.  
   
@@ -365,7 +365,7 @@ Get-vmharddiskdrive
   
 Sie können beispielsweise mit dem folgenden Beispiel alle IDE-Festplattenlaufwerke von einem virtuellen Computer mit dem Namen **DC2** zurückgeben:  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_ReturnIDE.png)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_ReturnIDE.png)  
   
 Wenn der Datenträgerpfad auf eine AVHD- oder AVHDX-Datei verweist, handelt es sich um eine Momentaufnahme. Zum Löschen der mit einem Datenträger verbundenen Momentaufnahmen und Zusammenführen der realen VHD- oder VHDX-Dateien verwenden Sie die Cmdlets:  
   
@@ -376,7 +376,7 @@ Remove-VMSnapshot
   
 So löschen Sie beispielsweise alle Momentaufnahmen von einem virtuellen Computer namens DC2-SOURCECLONE:  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_DelSnapshots.png)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_DelSnapshots.png)  
   
 Verwenden Sie zum Kopieren der Dateien mithilfe von Windows PowerShell das folgende Cmdlet:  
   
@@ -390,7 +390,7 @@ Kombinieren Sie dies mit Cmdlets des virtuellen Computers in Pipelines, um die A
 Get-VMIdeController dc2-sourceclone | Get-VMHardDiskDrive | select-Object {copy-item -path $_.path -destination c:\temp\copy.vhd}  
 ```  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSCopyDrive.png)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSCopyDrive.png)  
   
 > [!IMPORTANT]  
 > Sie können beim Klonen Passthru-Datenträger verwenden, da diese keine virtuelle Datenträgerdatei, sondern eine tatsächliche Festplatte benutzen.  
@@ -401,7 +401,7 @@ Get-VMIdeController dc2-sourceclone | Get-VMHardDiskDrive | select-Object {copy-
 #### <a name="exporting-the-vm"></a>Exportieren des virtuellen Computers  
 Alternativ zum Kopieren der Datenträger können Sie den gesamten virtuellen Hyper-V-Computer als Kopie exportieren. Beim Exportieren wird automatisch ein für den virtuellen Computer benannter Ordner erstellt, der alle Datenträger und Konfigurationsinformationen enthält.  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVExport.png)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVExport.png)  
   
 ##### <a name="hyper-v-manager-method"></a>Methode mit dem Hyper-V-Manager  
 So exportieren Sie einen virtuellen Computer mit Hyper-V-Manager:  
@@ -421,18 +421,18 @@ Export-vm
   
 So exportieren Sie beispielsweise einen virtuellen Computer namens DC2-SOURCECLONE an einen Ordner namens C:\VM:  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSExport.png)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSExport.png)  
   
 > [!NOTE]  
 > Windows Server 2012 Hyper-V unterstützt neue Export- und Importfunktionen, die über den Rahmen dieses Trainings hinausgehen. Weitere Informationen finden Sie auf der TechNet-Website.  
   
 #### <a name="exporting-merged-disks-using-hyper-v"></a>Exportieren der zusammengeführten Datenträger mithilfe von Hyper-V  
-Die letzte Option besteht darin, die Datenträgerzusammenführungs- und Konvertierungsoptionen in Hyper-V zu verwenden. Damit können Sie eine Kopie einer vorhanden Datenträgerstruktur auf einem einzigen neue Datenträger erstellen, selbst wenn AVHD-/AVHDX-Momentaufnahmendateien enthalten sind. Wie das Szenario der manuellen Datenträgerkopie, dies ist hauptsächlich für einfachere virtuelle Computer, die nur ein einziges Laufwerk, z. B. "c:"\\. Der einzige Vorteil ist, dass Sie hier im Gegensatz zum manuellen Kopieren nicht erst Momentaufnahmen löschen müssen. Dieser Vorgang ist natürlich langsamer als das einfache Löschen der Momentaufnahmen und das Kopieren von Datenträgern.  
+Die letzte Option besteht darin, die Datenträgerzusammenführungs- und Konvertierungsoptionen in Hyper-V zu verwenden. Damit können Sie eine Kopie einer vorhanden Datenträgerstruktur auf einem einzigen neue Datenträger erstellen, selbst wenn AVHD-/AVHDX-Momentaufnahmendateien enthalten sind. Wie beim manuellen Datenträger Kopier Szenario ist dies hauptsächlich für einfachere virtuelle Computer vorgesehen, die nur ein einziges Laufwerk verwenden, wie z. b. C: \\. Der einzige Vorteil ist, dass Sie hier im Gegensatz zum manuellen Kopieren nicht erst Momentaufnahmen löschen müssen. Dieser Vorgang ist natürlich langsamer als das einfache Löschen der Momentaufnahmen und das Kopieren von Datenträgern.  
   
 ##### <a name="hyper-v-manager-method"></a>Methode mit dem Hyper-V-Manager  
 So erstellen Sie einen zusammengeführten Datenträger mit Hyper-V-Manager:  
   
-1.  Klicken Sie auf **Datenträger bearbeiten**.  
+1.  Klicken Sie auf Datenträger **Bearbeiten**.  
   
 2.  Suchen Sie nach dem niedrigsten untergeordneten Datenträger. Wenn Sie beispielsweise einen differenzierenden Datenträger verwenden, die der untergeordnete Datenträger der niedrigste untergeordnete Datenträger. Wenn der virtuelle Computer über eine Momentaufnahme (oder mehrere) verfügt, ist die aktuell ausgewählte Momentaufnahme der niedrigste untergeordnete Datenträger.  
   
@@ -449,9 +449,9 @@ Convert-vm
   
 So exportieren Sie beispielsweise die gesamte Kette der Festplattenmomentaufnahmen eines virtuellen Computers (dieses Mal ohne differenzierende Datenträger) und den übergeordneten Datenträger an einen neuen einzelnen Datenträger namens DC4-CLONED.VHDX:  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSConvertVhd.png)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSConvertVhd.png)  
   
-#### <a name="BKMK_Offline"></a>Hinzufügen der XML zum Offlinesystemdatenträger  
+#### <a name="BKMK_Offline"></a>Hinzufügen von XML zum Offline System Datenträger  
 Wenn Sie die Datei Dccloneconfig.xml auf den ausgeführten Quelldomänencontroller kopiert haben, müssen Sie jetzt die aktualisierte dccloneconfig.xml-Datei an den kopierten/exportierten Offlinesystemdatenträger kopieren. Je nachdem, welche installierten Anwendungen zuvor mit Get-ADDCCloningExcludedApplicationList erkannt wurden, müssen Sie möglicherweise auch die Datei CustomDCCloneAllowList.xml auf den Datenträger kopieren.  
   
 Die Datei DcCloneConfig.xml kann sich an den folgenden Speicherorten befinden:  
@@ -478,7 +478,7 @@ Die Datei CustomDCCloneAllowList.xml kann sich an den folgenden Speicherorten be
   
 Sie können New-ADDCCloneConfigFile mit dem Argument **-offline** ausführen (das auch als Offlinemodus bezeichnet wird), um die Datei DcCloneConfig.xml zu erstellen und an einem korrekten Speicherort zu platzieren. Im folgenden Beispiel ist gezeigt, wie Sie New-ADDCCloneConfigFile im Offlinemodus ausführen.  
   
-Geben Sie Folgendes ein, um einen geklonten Domänencontroller, die mit dem Namen CloneDC1 im Offlinemodus am Standort "REDMOND" mit statischer IPv4-Adresse zu erstellen:  
+Um einen geklonten Domänen Controller mit dem Namen CloneDC1 im Offline Modus zu erstellen, geben Sie an einer Website mit dem Namen "Redmond" mit statischer IPv4-Adresse  
   
 ```  
 New-ADDCCloneConfigFile -Offline -CloneComputerName CloneDC1 -SiteName REDMOND -IPv4Address "10.0.0.2" -IPv4DNSResolver "10.0.0.1" -IPv4SubnetMask "255.255.0.0" -IPv4DefaultGateway "10.0.0.1" -Static -Path F:\Windows\NTDS  
@@ -518,11 +518,11 @@ Windows Server 2012 bietet jetzt eine grafische Option für das Bereitstellen vo
   
 3.  Klicken Sie auf das bereitgestellte Laufwerk, und klicken Sie im Menü **Datenträgertools** auf **Auswerfen**.  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVClickMountedDrive.png)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVClickMountedDrive.png)  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVDetailsMountedDrive.gif)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVDetailsMountedDrive.gif)  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVEjectMountedDrive.gif)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVEjectMountedDrive.gif)  
   
 ##### <a name="windows-powershell-method"></a>Windows PowerShell-Methode  
 Alternativ können Sie das Offlinelaufwerk bereitstellen und die XML-Datei über die folgenden Windows PowerShell-Cmdlets kopieren:  
@@ -548,7 +548,7 @@ dismount-vhd <disk path>
   
 Zum Beispiel:  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSMountVHD.png)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSMountVHD.png)  
   
 Alternativ können Sie mit dem neuen Cmdlet **Mount-DiskImage** eine VHD-Datei (oder ISO-Datei) bereitstellen.  
   
@@ -562,7 +562,7 @@ Der letzte Konfigurationsschritt vor Beginn des Klonprozesses ist das Erstellen 
 #### <a name="associating-a-new-vm-with-copied-disks"></a>Zuordnen eines neuen virtuellen Computers zu kopierten Datenträgern  
 Wenn Sie die Systemdatenträger manuell kopiert haben, müssen Sie einen neuen virtuellen Computer unter Verwendung des kopierten Datenträgers erstellen. Der Hypervisor legt die VM-Generations-ID bei der Erstellung eines neuen virtuellen Computers automatisch fest, sodass keine Konfigurationsänderungen im virtuellen Computer oder dem Hyper-V-Host erforderlich sind.  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVConnectVHD.gif)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVConnectVHD.gif)  
   
 ##### <a name="hyper-v-manager-method"></a>Methode mit dem Hyper-V-Manager  
   
@@ -585,7 +585,7 @@ New-VM
   
 Hier wird beispielsweise der virtuelle Computer DC4-CLONEDFROMDC2 VM mit 1 GB RAM erstellt, der von der Datei c:\vm\dc4-systemdrive-clonedfromdc2.vhd gestartet wird und das virtuelle Netzwerk 10.0 verwendet:  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSNewVM.png)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSNewVM.png)  
   
 #### <a name="import-vm"></a>VM importieren  
 Wenn Sie Ihren virtuellen Computer zuvor exportiert haben, müssen Sie ihn jetzt als Kopie zurück importieren. Dabei wird die exportierte XML-Datei verwendet, um den Computer mit allen vorherigen Einstellungen, Laufwerken, Netzwerken und Arbeitsspeichereinstellungen erneut zu erstellen.  
@@ -608,15 +608,15 @@ So importieren Sie mit dem Hyper-V-Manager-Snap-In:
   
 5.  Benennen Sie den importierten virtuellen Computer um, wenn Sie auf demselben Hyper-V-Host importieren, da er denselben Namen hat wie der exportierte Quelldomänencontroller.  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVImportLocateFolder.png)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVImportLocateFolder.png)  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVImportSelectVM.png)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVImportSelectVM.png)  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVImportChooseType.gif)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVImportChooseType.gif)  
   
 Denken Sie daran, alle importierten Momentaufnahme über das Hyper-V-Verwaltungs-Snap-In zu entfernen:  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVImportDelSnap.gif)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVImportDelSnap.gif)  
   
 > [!WARNING]  
 > Das Löschen aller importierten Momentaufnahmen ist äußerst wichtig, da sie bei Anwendung den geklonten Domänencontroller in den Status eines früheren, möglicherweise Livedomänencontrollers zurücksetzen würden, was zu Replikationsfehlern, doppelten IP-Informationen und anderen Unterbrechungen führen würde.  
@@ -631,7 +631,7 @@ Rename-VM
   
 Hier wird beispielsweise der exportierte virtuelle Computer VM DC2-CLONED mit seiner automatisch ermittelten XML-Datei importiert und dann unmittelbar in seinen neuen virtuellen Computernamen DC5-CLONEDFROMDC2 umbenannt:  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSImportVM.png)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSImportVM.png)  
   
 Denken Sie daran, alle importierten Momentaufnahme über die folgenden Cmdlets zu entfernen:  
   
@@ -642,13 +642,13 @@ Remove-VMSnapshot
   
 Zum Beispiel:  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSGetVMSnap.png)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSGetVMSnap.png)  
   
 > [!WARNING]
 > Stellen Sie sicher, dass dem Quelldomänencontroller beim Importieren des Computers keine statischen MAC-Adressen zugewiesen wurden. Wenn ein Quellcomputer mit einer statischen MAC-Adresse geklont wird, können diese kopierten Computer Netzwerkdatenverkehr nicht ordnungsgemäß senden oder empfangen. Legen Sie in diesem Fall eine neue eindeutige statische oder dynamische MAC-Adresse fest. Sie können mit dem folgenden Befehl anzeigen, ob ein virtueller Computer eine statische MAC-Adresse verwendet:  
 > 
-> **Get-VM - VMName**   
->  ***Test-Vm* | Get-VMNetworkAdapter | fl \\** *  
+> **Get-VM-VMName**   
+>  ***Test-VM* | Get-vmnetworkadapter | FL \\** *  
   
 ### <a name="step-9---clone-the-new-virtual-machine"></a>Schritt 9: Klonen des neuen virtuellen Computers  
 Starten Sie optional vor Beginn des Klonprozesses den geklonten Offline-Quelldomänencontroller neu. Stellen Sie sicher, dass der PDC-Emulator unabhängig davon online ist.  
@@ -666,11 +666,11 @@ Start-VM
   
 Zum Beispiel:  
   
-![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSStartVM.png)  
+![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSStartVM.png)  
   
 Wenn der Computer nach dem Klonen neu gestartet wird, ist er ein Domänencontroller, und Sie können sich normal anmelden, um den ordnungsgemäßen Betrieb zu bestätigen. Falls Fehler auftreten, ist der Server dafür eingerichtet, im Verzeichnisdienst-Wiederherstellungsmodus zu starten, um die Fehler zu untersuchen.  
   
-## <a name="BKMK_VDCSafeRestore"></a>Virtualisierungs-Sicherheitsmaßnahmen  
+## <a name="BKMK_VDCSafeRestore"></a>Virtualisierungsschutzvorrichtungen  
 Im Gegensatz zum Klonen virtualisierter Domänencontroller haben die Windows Server 2012-Virtualisierungssicherheitsmaßnahmen keine Konfigurationsschritte. Das Feature funktioniert ohne Eingriffe, solange Sie einige einfache Bedingungen einhalten:  
   
 -   Der Hypervisor unterstützt die VM-Generations-ID.  
@@ -712,9 +712,9 @@ Stellen Sie niemals alle Domänencontroller in einer einzigen Domäne gleichzeit
 > [!IMPORTANT]  
 > Wenn alle Domänencontroller auf einmal wiederhergestellt werden, verwenden Sie die Informationen in den folgenden Artikeln, um einen Domänencontroller, normalerweise den PDC-Emulator als autoritativ festzulegen, damit die anderen Domänencontroller zu einem normalen Betrieb zurückkehren können:  
 >   
-> [Verwenden die BurFlags-Registrierungsschlüssels zum erneuten Initialisieren der Dateireplikationsdienst des Dateireplikationsdienstes](https://support.microsoft.com/kb/290762)  
+> [Verwenden des BurFlags-Registrierungsschlüssels zum erneuten Initialisieren von Datei Replikations Dienst-Replikat Gruppen](https://support.microsoft.com/kb/290762)  
 >   
-> [Gewusst wie: Erzwingen einer autorativen und nicht autorativen Synchronisierung für DFSR-repliziertes SYSVOL (wie "D4/D2" für FRS)](https://support.microsoft.com/kb/2218556)  
+> [Erzwingen einer autoritativen und nicht autoritativen Synchronisierung für DFSR-repliziertes SYSVOL (wie "D4/D2" für FRS)](https://support.microsoft.com/kb/2218556)  
   
 > [!WARNING]  
 > Führen Sie nicht alle Domänencontroller in einer Gesamtstruktur oder einer Domäne auf demselben Hypervisorhost aus. Damit wird eine einzelne Fehlerquelle eingeführt, die jedes mal, wenn der Hypervisor offline genommen wird, AD DS-, Exchange-, SQL- und andere Unternehmensvorgänge lahmlegt. Das ist nicht anders als die Verwendung von nur einem Domänencontroller für eine gesamte Domäne oder Gesamtstruktur. Mehrere Domänencontroller auf mehreren Plattformen tragen zu Redundanz und Fehlertoleranz bei.  

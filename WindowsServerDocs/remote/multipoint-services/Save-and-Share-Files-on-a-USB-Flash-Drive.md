@@ -1,8 +1,8 @@
 ---
 title: Speichern und Freigeben von Dateien auf einem USB-Flashlaufwerk
-description: Informationen Sie zum Speichern von Filese auf einem USB-Flashlaufwerk in MultiPoint Services
+description: Erfahren Sie, wie Sie in Multipoint Services auf einem USB-Speicherstick speichern.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,15 +13,15 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: bb9db8936f8098024f76fc09490de7ffef594760
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ddbee49ae80e65f29dcdb3c3c4ad43c17a451ccf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885471"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389413"
 ---
 # <a name="save-and-share-files-on-a-usb-flash-drive"></a>Speichern und Freigeben von Dateien auf einem USB-Flashlaufwerk
-Neben den Arbeitsschritten zur freigeben können Inhalten mithilfe öffentlicher Ordner im Windows-Explorer Sie auch Inhalte mithilfe von einem USB-Speichergerät, z. B. ein USB-Flashlaufwerk oder-Massenspeichergerät freigeben. Wenn ein USB-Speichergerät direkt an den Hostcomputer oder einen USB-Hub, der nicht als Stationshub fungiert, angeschlossen wird, wird dieses Speichergerät für alle Benutzer – sowohl *Standardbenutzer* als auch *Administratoren* – im gesamten MultiPoint Services-System als Wechseldatenträger angezeigt.  
+Zusätzlich zur Freigabe von Inhalten mithilfe von öffentlichen Ordnern in Windows-Explorer können Sie Inhalte auch über ein USB-Speichergerät, z. b. einen USB-Speicherstick oder ein Massen Speichergerät, freigeben. Wenn ein USB-Speichergerät direkt an den Hostcomputer oder einen USB-Hub, der nicht als Stationshub fungiert, angeschlossen wird, wird dieses Speichergerät für alle Benutzer – sowohl *Standardbenutzer* als auch *Administratoren* – im gesamten MultiPoint Services-System als Wechseldatenträger angezeigt.  
   
 Sie können einen Wechseldatenträger auch verwenden, um private Dokumente im Windows-Explorer in einem privaten Ordner zu speichern, z.B. im Ordner **Eigene Dokumente** in der Bibliothek **Dokumente**.  
   

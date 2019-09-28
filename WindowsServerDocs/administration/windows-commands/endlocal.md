@@ -1,8 +1,8 @@
 ---
 title: endlocal
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3e516b2bf9e8a45ada910dfbd93e3ed5e7d86c14
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 16d2b7b445a2220a10f88f21029948ed10ee96e4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862141"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377572"
 ---
 # <a name="endlocal"></a>endlocal
 
 
 
-Lokalisierung von umgebungsänderungen in einer Batchdatei beendet und wird von Umgebungsvariablen auf die Werte vor der entsprechenden **Setlocal** -Befehl ausgeführt wurde.
+Beendet die Lokalisierung von Umgebungs Änderungen in einer Batchdatei und stellt Umgebungsvariablen in ihren Werten vor dem Ausführen des entsprechenden **setlocal** -Befehls wieder her.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -42,16 +42,16 @@ endlocal
 
 ## <a name="remarks"></a>Hinweise
 
--   Die **Endlocal** Befehl wirkt sich nicht außerhalb einer Skript- oder Batchausführung-Datei.
--   Es ist ein impliziter **Endlocal** Befehl am Ende einer Batchdatei.
--   Wenn der befehlserweiterungen aktiviert sind (befehlserweiterungen sind standardmäßig aktiviert), die **Endlocal** Befehl wird der Status der befehlserweiterungen (d. h. aktiviert oder deaktiviert), sie vor der entsprechenden was  **Setlocal** -Befehl ausgeführt wurde.
+-   Der Befehl " **endlocal** " hat keine Auswirkung außerhalb eines Skripts oder einer Batchdatei.
+-   Am Ende einer Batchdatei ist ein impliziter **endlocal** -Befehl vorhanden.
+-   Wenn Befehls Erweiterungen aktiviert sind (Befehls Erweiterungen werden standardmäßig aktiviert), stellt der **endlocal** -Befehl den Zustand der Befehls Erweiterungen (d. h. aktiviert oder deaktiviert) wieder her, bevor der entsprechende **setlocal** -Befehl ausgeführt wurde.
 
 > [!NOTE]
-> Weitere Informationen zum Aktivieren und Deaktivieren von befehlserweiterungen finden Sie unter [Cmd](cmd.md).
+> Weitere Informationen zum Aktivieren und Deaktivieren von Befehls Erweiterungen finden Sie unter [cmd](cmd.md).
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Sie können Umgebungsvariablen in einer Batchdatei lokalisieren. Das folgende Programm z. B. die Batchdatei superapp im Netzwerk startet, leitet die Ausgabe in eine Datei und zeigt die Datei in Editor:
+Sie können Umgebungsvariablen in einer Batchdatei lokalisieren. Das folgende Programm startet z. b. das superapp-Batch Programm im Netzwerk, leitet die Ausgabe an eine Datei weiter und zeigt die Datei im Editor an:
 ```
 @echo off
 setlocal
@@ -63,4 +63,4 @@ start notepad c:\superapp.out
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

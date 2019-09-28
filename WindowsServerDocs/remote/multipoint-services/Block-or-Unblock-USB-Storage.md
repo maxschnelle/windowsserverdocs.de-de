@@ -1,8 +1,8 @@
 ---
 title: Blockieren oder Aufheben der Blockierung von USB-Speicher
 ms.custom: na
-description: Erfahren Sie, wie Sie verhindern, dass Benutzer mithilfe von USB-Speicher auf dem MultiPoint-Stationen
-ms.prod: windows-server-threshold
+description: Erfahren Sie, wie Sie Benutzer daran hindern, USB-Speicher auf Multipoint-Stationen zu verwenden
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 4f2d5a20ee3245834ff11294514f9c5c08385429
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2740d68841f1250d9ba50ad6b4728098c72678a5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888161"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405117"
 ---
 # <a name="block-or-unblock-usb-storage"></a>Blockieren oder Aufheben der Blockierung von USB-Speicher
 Sie können Benutzer daran hindern, USB-Speicher auf ihren Benutzerstationen zu verwenden.  

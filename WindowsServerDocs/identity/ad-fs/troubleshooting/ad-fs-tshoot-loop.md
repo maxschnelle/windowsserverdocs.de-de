@@ -1,56 +1,56 @@
 ---
-title: AD FS-Problembehandlung – Erkennung einer Schleife
-description: In diesem Dokument wird beschrieben, wie Schleife Erkennung behandeln
+title: 'AD FS Problembehandlung: Schleifen Erkennung'
+description: In diesem Dokument wird beschrieben, wie Sie die Schleifen Erkennung beheben.
 author: billmath
 ms.author: billmath
 manager: mtillman
 ms.date: 02/21/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: cc8eeb11e44da3b8f26b1ab94143c189bca9ed38
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2f8842dc53756cc4f65b6d6794a8c4952e111c00
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830911"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385345"
 ---
-# <a name="ad-fs-troubleshooting---loop-detection"></a>AD FS-Problembehandlung – Erkennung einer Schleife 
+# <a name="ad-fs-troubleshooting---loop-detection"></a>AD FS Problembehandlung: Schleifen Erkennung 
  
-Schleifen in AD FS ausgegeben, wenn eine vertrauende Seite kontinuierlich lehnt einen gültigen Sicherheitstoken an AD FS umgeleitet.
+Schleifen in AD FS treten auf, wenn eine vertrauende Seite ein gültiges Sicherheits Token fortlaufend ablehnt und zurück an AD FS umgeleitet wird.
 
-## <a name="loop-detection-cookie"></a>Schleife Erkennung cookie
-Um dies zu verhindern, hat AD FS implementiert, die Schleife Erkennung Cookie bezeichnet wird. Standardmäßig schreibt die AD FS ein Cookie für passive Webclients mit dem Namen **MSISLoopDetectionCookie**. Dieses Cookie enthält einen Timestamp-Wert und eine Anzahl von Token ausgegebenen Wert.  Dadurch wird die AD FS, zu verfolgen, wie oft und wie oft ein Client den Verbunddienst in einer bestimmten Zeitspanne besucht hat.
+## <a name="loop-detection-cookie"></a>Schleifen Erkennungs Cookie
+Um dies zu verhindern, hat AD FS das als Schleifen Erkennungs Cookie bezeichnete Cookie implementiert. Standardmäßig wird von AD FS ein Cookie in die passiven Webclients mit dem Namen **msisloopdetectioncookie**geschrieben. Dieses Cookie enthält einen Zeitstempel-Wert und eine Anzahl von Token, die ausgegeben werden.  Dadurch können AD FS nachverfolgen, wie oft und wie oft ein Client die Verbunddienst innerhalb einer bestimmten Zeitspanne besucht hat.
 
-Wenn eine passive Client besucht löst den Verbunddienst für ein Token fünf (5) Mal innerhalb von 20 Sekunden, AD FS den folgenden Fehler:
+Wenn ein passiver Client die Verbunddienst für ein Token innerhalb von 20 Sekunden fünf Mal besucht, löst AD FS den folgenden Fehler aus:
 
-**MSIS7042: Wurde von der gleichen Clientbrowsersitzung "{0}: Anforderungen in den letzten"{1}"Sekunden. Weitere Informationen erhalten Sie von Ihrem Administrator.**
+**MSIS7042: Dieselbe Client Browsersitzung hat "{0}" Anforderungen in den letzten "{1}" Sekunden gestellt. Weitere Informationen erhalten Sie vom Administrator.**
 
-Eingabe in Endlosschleifen wird oft durch ein fehlerhaftes Verhalten aufweist, die Sie der vertrauenden Seite, die nicht erfolgreich das von AD FS ausgestellten Token verwendet verursacht, und der Anwendung gesendeten passiven Client wieder zu AD FS wiederholt für ein neues Token.  AD FS ist, wird dem passive Client ein neues Token jedes Mal, solange sie nicht 5 Anforderungen innerhalb von 20 Sekunden überschritten werden. 
+Das Eintreten in unendliche Schleifen wird häufig durch eine nicht verhaltende Anwendung der vertrauenden Seite verursacht, die das von AD FS ausgegebene Token nicht erfolgreich nutzt, und die Anwendung sendet den passiven Client wiederholt an AD FS, wiederholt für ein neues Token.  AD FS gibt den passiven Client jedes Mal ein neues Token aus, solange nicht fünf Anforderungen innerhalb von 20 Sekunden überschritten werden. 
 
-## <a name="adjusting-the-loop-detection-cookie"></a>Anpassen der Schleife Erkennung von Cookies
-Sie können PowerShell verwenden, um die Anzahl der Token ausgestellt werden, Wert und den Timespan-Wert zu ändern.
+## <a name="adjusting-the-loop-detection-cookie"></a>Anpassen des Cookies für die Schleifen Erkennung
+Sie können PowerShell verwenden, um die Anzahl der ausgegebenen Token und den TimeSpan-Wert zu ändern.
 
 ```powershell
 Set-AdfsProperties -LoopDetectionMaximumTokensIssuedInterval 5  -LoopDetectionTimeIntervalInSeconds 20
 ```
-Der Mindestwert für **LoopDetectionMaximumTokensIssuedInterval** ist 1.
+Der minimale Wert für **loopdetectionmaximumtekensissuedinterval** ist 1.
 
-Der Mindestwert für **LoopDetectionTimeIntervalInSeconds** ist 5.
+Der minimale Wert für **loopdetectiontimeintervalinseconds** ist 5.
 
-Sie können auch die Erkennung der Schleife deaktivieren, wenn Sie Leistungstests durchführen.
+Sie können die Schleifen Erkennung auch deaktivieren, wenn Sie Leistungstests durchgeführt haben.
 
 ```powershell
 Set-AdfsProperties -EnableLoopDetection $false
 ```
 
 >[!IMPORTANT]
->Es ist jedoch davon abgeraten, um Erkennung von Schleife dauerhaft zu deaktivieren, wie dies dadurch verhindert, dass Benutzer in die Endlosschleife Zustände eingeben.
+>Es wird nicht empfohlen, die Schleifen Erkennung dauerhaft zu deaktivieren, da dadurch verhindert wird, dass Benutzer in Endlosschleifen Zustände eintreten.
 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [AD FS-Problembehandlung](ad-fs-tshoot-overview.md)
+- [Behandeln von AD FS-Problemen](ad-fs-tshoot-overview.md)
 
 
 

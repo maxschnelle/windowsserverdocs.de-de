@@ -1,8 +1,8 @@
 ---
 title: Verwalten von virtuellen Desktops
-description: Erfahren Sie, wie Sie virtuelle Desktops (VDI) in MultiPoint Services verwalten
+description: Erfahren Sie, wie Sie virtuelle Desktops (VDI) in Multipoint Services verwalten.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,17 +13,17 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 7afc6d2a65cd5cd3b116db5d65fd97e4cc770690
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 45bb3e98779bc27913c7e675a9c9db7e575d9d72
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861441"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389592"
 ---
 # <a name="manage-virtual-desktops"></a>Verwalten von virtuellen Desktops
-VDI mit einem Computer können Sie zum Konfigurieren der einzelnen *lokalen* MultiPoint Services-station zur Verbindung mit Windows 10 Enterprise-Gast-Betriebssystem ausgeführt wird, auf einem Hyper-V-virtuellen Computer (VM) auf dem gleichen MultiPoint Services-Computer als dem Station. Diese Stationen für virtuelle Desktops können mit einer Anwendung angepasst werden, die nicht auf einer Windows Server-Version installiert werden kann.  
+Mit einem VDI-Computer können Sie jede *lokale* Multipoint Services-Station so konfigurieren, dass eine Verbindung mit einem Windows 10 Enterprise-Gast Betriebssystem hergestellt wird, das auf einem virtuellen Hyper-V-Computer auf demselben Multipoint Services-Computer wie die Station ausgeführt wird. Diese Stationen für virtuelle Desktops können mit einer Anwendung angepasst werden, die nicht auf einer Windows Server-Version installiert werden kann.  
   
-## <a name="enable-the-virtual-desktop-feature"></a>Aktivieren Sie das Feature für virtuelle Desktops  
+## <a name="enable-the-virtual-desktop-feature"></a>Aktivieren des virtuellen Desktop Features  
   
 1.  Öffnen Sie MultiPoint-Manager, und klicken Sie anschließend auf die Registerkarte **Virtuelle Desktops**.  
   
@@ -31,7 +31,7 @@ VDI mit einem Computer können Sie zum Konfigurieren der einzelnen *lokalen* Mul
   
 Das System wird neu gestartet, dies kann einige Minuten dauern.  
   
-## <a name="create-a-virtual-desktop-template"></a>Erstellen Sie eine Vorlage für virtuelle Desktops  
+## <a name="create-a-virtual-desktop-template"></a>Erstellen einer Vorlage für virtuelle Desktops  
   
 1.  Öffnen Sie MultiPoint-Manager, und klicken Sie anschließend auf die Registerkarte **Virtuelle Desktops**.  
   
@@ -69,7 +69,7 @@ Nachdem Sie die Vorlage für virtuelle Desktops erstellt haben, können Sie sie 
 2. Wählen Sie die Vorlage für virtuelle Desktops aus, und klicken Sie anschließend auf **Customize virtual desktop template** (Vorlage für virtuelle Desktops anpassen).  
 Die Vorlage wird in einem separaten Fenster geöffnet, und es werden zusätzliche Anweisungen dargestellt, die die wichtigsten Schritte zum Anpassen der Vorlage für virtuelle Desktops hervorheben. Lesen Sie diese Anweisungen sorgfältig.  
   
-## <a name="create-virtual-desktop-stations"></a>Virtuelle desktopstationen erstellen  
+## <a name="create-virtual-desktop-stations"></a>Erstellen virtueller Desktop Stationen  
   
 1.  Öffnen Sie den MultiPoint-Manager im Stationsmodus, und klicken Sie anschließend auf die Registerkarte **Virtuelle Desktops**.  
   
@@ -83,7 +83,7 @@ Die Vorlage wird in einem separaten Fenster geöffnet, und es werden zusätzlich
     Die Erstellung der virtuellen Desktopstation kann einige Minuten dauern.  
   
     > [!NOTE]  
-    > Wenn lokale Stationen gegenwärtig mit einer Sitzung verbunden sind\-virtuellen desktop, Sie müssen diese Stationen Abmelden in der Reihenfolge für diese Verbindung mit einer der neu erstellten virtuellen desktopstationen herstellen.  
+    > Wenn eine der lokalen Stationen derzeit mit einem no__t-basierten virtuellen Desktop der Sitzung verbunden ist, müssen Sie sich von diesen Stationen abmelden, damit Sie eine Verbindung mit einer der neu erstellten virtuellen Desktop Stationen herstellen können.  
   
 ### <a name="validate-the-newly-created-customized-virtual-station-desktops"></a>Überprüfen der neu erstellten angepassten virtuellen Desktopstationen  
   

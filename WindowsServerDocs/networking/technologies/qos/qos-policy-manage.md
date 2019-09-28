@@ -1,19 +1,19 @@
 ---
 title: Verwalten der QoS-Richtlinie
 description: Dieses Thema enthält Anweisungen zum Erstellen und Verwalten von Quality of Service-Richtlinien (QoS) in Windows Server 2016.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 04fdfa54-6600-43d4-8945-35f75e15275a
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 3cff51b3cf76d3224832bf99ff966bf473d6ff6c
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: ac717555d1ab751600527e294d32f10d1f05bfa5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871848"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395878"
 ---
 # <a name="manage-qos-policy"></a>Verwalten der QoS-Richtlinie
 
@@ -280,7 +280,7 @@ Standardmäßig ermöglichen Computer mit Windows Server 2016, Windows 10, Windo
 
 ##### <a name="wireless-multimedia-and-dscp-values"></a>Drahtlose Multimedia-und DSCP-Werte
 
-Die [Wi-Fi-Allianz](https://go.microsoft.com/fwlink/?LinkId=160769) hat eine Zertifizierung für Wireless Multimedia \(WMM\) eingerichtet, die vier Zugriffs \(Kategorien\) definiert WMM_AC für die Priorisierung von Netzwerk Datenverkehr, der über eine WLAN\--Fi Drahtlos Netzwerk. Die Zugriffs Kategorien \(lauten in der Reihenfolge der höchsten Priorität\): sprach-, Video-, Best-und Background-Werte, die als VO, VI, be und BK abgekürzt werden. Die WMM-Spezifikation definiert, welche DSCP-Werte mit den vier Zugriffs Kategorien übereinstimmen:
+Die [Wi-Fi-Allianz](https://go.microsoft.com/fwlink/?LinkId=160769) hat eine Zertifizierung für Wireless Multimedia \(wmm @ no__t-2 eingerichtet, die vier Zugriffs Kategorien definiert \(WMM_AC @ no__t-4 für die Priorisierung von Netzwerk Datenverkehr, der in einem WLAN @ no__t-5fi-Drahtlos Netzwerk übertragen wird. Die Zugriffs Kategorien \(lauten in der Reihenfolge der höchsten Priorität\): sprach-, Video-, Best-und Background-Werte, die als VO, VI, be und BK abgekürzt werden. Die WMM-Spezifikation definiert, welche DSCP-Werte mit den vier Zugriffs Kategorien übereinstimmen:
   
 |DSCP-Wert|WMM-Zugriffs Kategorie|
 |----------|-------------------|
@@ -312,7 +312,7 @@ Wenn mehrere QoS-Richtlinien mit dem spezifischen Datenverkehr identisch sind, w
 
 Sie können auch mehrere QoS-Richtlinien auf denselben Datenverkehr anwenden, indem Sie nicht überlappende Bedingungen angeben. Zwischen den Bedingungen von Anwendungen und dem Netzwerk-quintupel wird die Richtlinie, die die Anwendung angibt, als spezifischere angesehen und angewendet. 
 
-Beispielsweise gibt policy_A nur einen Anwendungsnamen (app. exe) an, und policy_B gibt die Ziel-IP-Adresse 192.168.1.0/24 an. Wenn diese QoS-Richt \(Linien einen Konflikt zwischen app. exe und einer IP-Adresse im Bereich von 192.168.4.0\)/24 haben, wird policy_A angewendet.
+Beispielsweise gibt policy_A nur einen Anwendungsnamen (app. exe) an, und policy_B gibt die Ziel-IP-Adresse 192.168.1.0/24 an. Wenn diese QoS-Richtlinien in Konflikt @no__t -0app. exe Datenverkehr an eine IP-Adresse im Bereich von 192.168.4.0/24 @ no__t-1 sendet, wird policy_A angewendet.
 
  **Weitere Besonderheiten haben Vorrang vor dem Netzwerk-quintupel.**
 

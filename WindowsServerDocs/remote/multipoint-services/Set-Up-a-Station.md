@@ -2,7 +2,7 @@
 title: Einrichten einer Station
 description: Erfahren Sie, wie Sie eine Station in Multipoint Services einrichten.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 043b0d8dba844f40569a854a4f4f2a2efb38a870
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 95a332a3d15e82047b46cc19f168f945cdb334d2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871609"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389454"
 ---
 # <a name="set-up-a-station"></a>Einrichten einer Station
 Eine MultiPoint Server-*Station* besteht normalerweise aus einem *Stationshub*, einer Maus, einer Tastatur und einem Videomonitor. In diesem Thema wird beschrieben, wie die Hardwaregeräte mit dem Stationshub verbunden werden, um eine MultiPoint Services-Station zu erstellen.  

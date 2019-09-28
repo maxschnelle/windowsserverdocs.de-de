@@ -1,45 +1,45 @@
 ---
 title: Verwalten von NPS-Vorlagen
-description: Dieses Thema enthält Anweisungen zum Erstellen, anzuwenden, exportieren und importieren Sie die NPS-Vorlagen für Netzwerkrichtlinienserver unter Windows Server 2016.
+description: Dieses Thema enthält Anweisungen zum Erstellen, anwenden, exportieren und Importieren von NPS-Vorlagen für den Netzwerk Richtlinien Server in Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 989b00c5-4767-4081-ace5-6321f8b2c55e
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 170a0e86f7dcca77c6efe841318b522554f8e78e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5ac733c11b277f09e64779c33d3392303fc34d98
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845131"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71396153"
 ---
 # <a name="manage-nps-templates"></a>Verwalten von NPS-Vorlagen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Können Sie Netzwerkrichtlinienserver \(NPS\) Vorlagen zum Erstellen der Konfigurationselemente, z. B. Remote Authentication Dial-in User Service \(RADIUS\) Clients oder freigegebene geheime Daten, die auf dem lokalen wiederverwendet werden können NPS und Export für die Verwendung auf anderen NPSs. 
+Sie können Netzwerk Richtlinien Server-\(nps @ no__t-1-Vorlagen verwenden, um Konfigurationselemente zu erstellen, z. b. Remote Authentication Dial-in User Service \(radius @ no__t-3-Clients oder gemeinsame geheime Schlüssel, die Sie auf dem lokalen NPS wieder verwenden und für die Verwendung auf anderen NPSS. 
 
-Vorlagenverwaltung stellt einen Knoten in der NPS-Konsole, in denen Sie können erstellen, ändern, löschen, duplizieren, und zeigen Sie die Verwendung von NPS-Vorlagen, bereit. NPS-Vorlagen dienen zum Verringern der Anzahl der Zeit- und Kostenaufwand, die zum Konfigurieren von NPS auf einem oder mehreren Servern benötigt.
+Die Vorlagen Verwaltung bietet einen Knoten in der NPS-Konsole, in dem Sie die Verwendung von NPS-Vorlagen erstellen, ändern, löschen, duplizieren und anzeigen können. NPS-Vorlagen sind so konzipiert, dass der Zeit-und Kostenaufwand für die Konfiguration von NPS auf einem oder mehreren Servern reduziert wird.
 
-Die folgenden Typen der NPS-Vorlagen sind für die Konfiguration in der Verwaltung von Vorlagen verfügbar.
+Die folgenden NPS-Vorlagen Typen sind für die Konfiguration in der Vorlagen Verwaltung verfügbar.
 
-- **Gemeinsamer geheimer**. Diese Vorlagentyp macht es möglich, dass Sie einen gemeinsamen geheimen Schlüssel angeben, die Sie wiederverwenden können (durch Auswählen der Vorlage in die entsprechende Position in der NPS-Konsole) Wenn Sie die RADIUS-Clients und Servern konfigurieren. 
+- **Gemeinsame**geheime Schlüssel. Dieser Vorlagentyp ermöglicht es Ihnen, einen gemeinsamen geheimen Schlüssel anzugeben, den Sie wieder verwenden können (indem Sie die Vorlage an der entsprechenden Stelle in der NPS-Konsole auswählen), wenn Sie RADIUS-Clients und-Server konfigurieren. 
 
-- **RADIUS-Clients**. Solche Vorlage ermöglicht es, für die Sie zum Konfigurieren von RADIUS-Clienteinstellungen, die Sie wiederverwenden können, durch Auswählen der Vorlage in die entsprechende Position in der NPS-Konsole.
+- **RADIUS-Clients**. Dieser Vorlagentyp ermöglicht Ihnen das Konfigurieren von RADIUS-Client Einstellungen, die Sie wieder verwenden können, indem Sie die Vorlage an der entsprechenden Stelle in der NPS-Konsole auswählen.
 
-- **Remote-RADIUS-Servern**. Diese Vorlage ermöglicht es, für das remote-RADIUS-Server-Einstellungen konfigurieren, die Sie durch Auswählen der Vorlage in die entsprechende Position in der NPS-Konsole wiederverwenden können. 
+- **Remote-RADIUS-Server**. Diese Vorlage ermöglicht es Ihnen, Remote-RADIUS-Servereinstellungen zu konfigurieren, die Sie wieder verwenden können, indem Sie die Vorlage an der entsprechenden Stelle in der NPS-Konsole auswählen. 
 
-- **IP-Filter**. Diese Vorlage ermöglicht es Ihnen die Erstellung von Internet Protocol, Version 4 (IPv4) und Internetprotokoll Version 6 \(IPv6\) Filter, die Sie wiederverwenden können \(durch Auswählen der Vorlage in die entsprechende Position in der NPS Konsole\) beim Netzwerkrichtlinien konfigurieren.
+- **IP-Filter**. Diese Vorlage ermöglicht es Ihnen, IPv4 (Internet Protocol Version 4) und Internetprotokoll Version 6 \(ipv6 @ no__t-1-Filter zu erstellen, die Sie \( wieder verwenden können, indem Sie die Vorlage am entsprechenden Speicherort in der NPS-Konsole @ no__t-3 auswählen, wenn Sie Konfigurieren von Netzwerk Richtlinien.
 
-## <a name="create-an-nps-template"></a>Erstellen Sie eine NPS-Vorlage
+## <a name="create-an-nps-template"></a>Erstellen einer NPS-Vorlage
 
-Konfigurieren einer Vorlage unterscheidet sich von den NPS direkt konfigurieren. Erstellen einer Vorlage wirkt sich nicht auf den NPS Funktionen aus. Es ist nur, wenn Sie die Vorlage in die entsprechende Position in der NPS-Konsole auswählen und wenden Sie die Vorlage an, dass die Vorlage die NPS-Funktionalität auswirkt. 
+Das Konfigurieren einer Vorlage unterscheidet sich von der direkten Konfiguration des NPS. Das Erstellen einer Vorlage wirkt sich nicht auf die Funktionalität von NPS aus. Dies ist nur der Fall, wenn Sie die Vorlage an der entsprechenden Stelle in der NPS-Konsole auswählen und die Vorlage anwenden, dass sich die Vorlage auf die NPS-Funktionalität auswirkt. 
 
-Angenommen, konfigurieren Sie einen RADIUS-Client in der Konsole "NPS" unter **RADIUS-Clients und Servern**, Sie ändern die NPS-Konfiguration, und wird bei der Konfiguration von NPS für die Kommunikation mit einem der Server für den Netzwerkzugriff. \(Der nächste Schritt ist so konfigurieren Sie Netzwerkzugriffsserver \(NAS\) mit NPS kommunizieren.\) 
+Wenn Sie z. b. einen RADIUS-Client in der NPS-Konsole unter **RADIUS-Clients und-Server**konfigurieren, ändern Sie die NPS-Konfiguration, und führen Sie einen Schritt aus, um die NPS für die Kommunikation mit einem Ihrer Netzwerk Zugriffs Server zu konfigurieren. \(der nächste Schritt ist das Konfigurieren des Netzwerk Zugriffs Servers \(nas @ no__t-2 für die Kommunikation mit NPS. \) 
 
-Jedoch wenn Sie ein neues konfigurieren **RADIUS-Clients** Vorlage in der Konsole "NPS" unter **Vorlagenverwaltung** anstatt zu einer neuen RADIUS-Clients unter Erstellen **RADIUS-Clients und Servern**, Sie haben eine Vorlage erstellt, aber Sie haben nicht die NPS-Funktionalität noch geändert. Um die NPS-Funktionalität ändern, müssen Sie die Vorlage von der richtigen Position in der NPS-Konsole anwenden.
+Wenn Sie jedoch eine neue **RADIUS** -Client Vorlage in der NPS-Konsole unter **Vorlagen Verwaltung** konfigurieren, anstatt einen neuen RADIUS-Client unter **RADIUS-Clients und-Server zu**erstellen, haben Sie eine Vorlage erstellt, aber Sie haben die NPS-Funktionalität. Um die NPS-Funktionalität zu ändern, müssen Sie die Vorlage an der richtigen Stelle in der NPS-Konsole anwenden.
 
 Das folgende Verfahren enthält Anweisungen zum Erstellen einer neuen Vorlage.
 
@@ -48,38 +48,38 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 ### <a name="to-create-an-nps-template"></a>So erstellen Sie eine NPS-Vorlage
 
 
-1. Klicken Sie auf den NPS, im Server-Manager auf **Tools**, und klicken Sie dann auf **Netzwerkrichtlinienserver**. Die NPS-Konsole wird geöffnet. 
+1. Klicken Sie auf dem NPS in Server-Manager auf **Extras, und klicken Sie dann**auf **Netzwerk Richtlinien Server**. Die NPS-Konsole wird geöffnet. 
 
-2. Erweitern Sie in der Konsole "NPS" **Vorlagenverwaltung**, mit der rechten Maustaste wie z. B. auf eines Vorlagentyp **RADIUS-Clients**, und klicken Sie dann auf **neu**.
+2. Erweitern Sie in der NPS-Konsole den Eintrag **Vorlagen Verwaltung**, klicken Sie mit der rechten Maustaste auf einen Vorlagentyp, **z. b**. **RADIUS-Clients**, und klicken Sie
 
-3. Ein neues Vorlage Eigenschaften-Dialogfeld wird geöffnet, die Sie verwenden können, um Ihre Vorlage zu konfigurieren.
+3. Das Dialogfeld neue Vorlagen Eigenschaften wird geöffnet, mit dem Sie Ihre Vorlage konfigurieren können.
 
-## <a name="apply-an-nps-template"></a>Wenden Sie eine NPS-Vorlage
+## <a name="apply-an-nps-template"></a>Anwenden einer NPS-Vorlage
 
-Sie können eine Vorlage, die Sie erstellt haben **Vorlagenverwaltung** durch Navigieren zu einem Speicherort in der NPS-Konsole, in dem Sie die Vorlage anwenden können. Wenn Sie eine Vorlage für freigegebene geheime Schlüssel in eine RADIUS-Client-Konfiguration anwenden möchten, können Sie z. B. das folgende Verfahren verwenden.
-
-Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe sein, damit Sie dieses Verfahren durchführen können.
-
-### <a name="to-apply-an-nps-template"></a>So wenden Sie eine NPS-Vorlage
-
-1. Klicken Sie auf den NPS, im Server-Manager auf **Tools**, und klicken Sie dann auf **Netzwerkrichtlinienserver**. Die NPS-Konsole wird geöffnet.
-
-2. Erweitern Sie in der Konsole "NPS" **RADIUS-Clients und Servern**, und erweitern Sie dann **RADIUS-Clients**.
-
-3. Wählen Sie in **RADIUS-Clients**, im Detailbereich mit der Maustaste des RADIUS-Clients, der Sie die NPS-Vorlage anwenden, und klicken Sie dann auf möchten **Eigenschaften**.
-
-4. Im Dialogfeld "Eigenschaften" das Feld für den RADIUS-Client in **auswählen eine vorhandene Vorlage für freigegebene geheime Schlüssel**, wählen Sie die Vorlage, die Sie aus der Liste der Vorlagen anwenden möchten.
-
-## <a name="export-or-import-nps-templates"></a>Exportieren oder importieren NPS-Vorlagen
-
-Sie können Vorlagen für die Verwendung auf anderen NPSs exportieren werden soll, oder Sie können Vorlagen in importieren **Vorlagenverwaltung** für die Verwendung auf dem lokalen Computer. 
+Sie können eine Vorlage verwenden, die Sie in der **Vorlagen Verwaltung** erstellt haben, indem Sie zu einem Speicherort in der NPS-Konsole navigieren, auf dem Sie die Vorlage anwenden können. Wenn Sie z. b. eine Vorlage für freigegebene Geheimnisse auf eine RADIUS-Client Konfiguration anwenden möchten, können Sie das folgende Verfahren verwenden.
 
 Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe sein, damit Sie dieses Verfahren durchführen können.
 
-### <a name="to-export-or-import-nps-templates"></a>Zum Exportieren oder importieren die NPS-Vorlagen
+### <a name="to-apply-an-nps-template"></a>So wenden Sie eine NPS-Vorlage an
 
-1. So exportieren Sie die NPS-Vorlagen, in der Konsole "NPS" Maustaste **Vorlagenverwaltung**, und klicken Sie dann auf **Vorlagen in eine Datei exportieren**.
+1. Klicken Sie auf dem NPS in Server-Manager auf **Extras, und klicken Sie dann**auf **Netzwerk Richtlinien Server**. Die NPS-Konsole wird geöffnet.
 
-2. So importieren Sie die NPS-Vorlagen, in der Konsole "NPS" Maustaste **Vorlagenverwaltung**, und klicken Sie dann auf **Vorlagen importieren, von einem Computer** oder **Vorlagen aus Datei importieren**.
+2. Erweitern Sie in der NPS-Konsole **RADIUS-Clients und-Server**, und erweitern Sie dann RADIUS- **Clients**.
+
+3.in **RADIUS-Clients**, klicken Sie im Detailbereich mit der rechten Maustaste auf den RADIUS-Client, auf den Sie die NPS-Vorlage anwenden möchten, und klicken Sie dann auf **Eigenschaften**.
+
+4. Wählen Sie im Dialogfeld Eigenschaften für den RADIUS-Client unter **vorhandene freigegebene**geheime Schlüssel auswählen die Vorlage aus, die Sie aus der Liste der Vorlagen anwenden möchten.
+
+## <a name="export-or-import-nps-templates"></a>Exportieren oder Importieren von NPS-Vorlagen
+
+Sie können Vorlagen für die Verwendung auf anderen NPSS exportieren, oder Sie können Vorlagen für die Verwendung auf dem lokalen Computer in die **Vorlagen Verwaltung** importieren. 
+
+Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe sein, damit Sie dieses Verfahren durchführen können.
+
+### <a name="to-export-or-import-nps-templates"></a>So exportieren oder importieren Sie NPS-Vorlagen
+
+1. Um NPS-Vorlagen zu exportieren, klicken Sie in der NPS-Konsole mit der rechten Maustaste auf **Vorlagen Verwaltung**, und klicken Sie dann auf **Vorlagen in eine Datei exportieren**.
+
+2. Um NPS-Vorlagen zu importieren, klicken Sie in der NPS-Konsole mit der rechten Maustaste auf **Vorlagen Verwaltung**, und klicken Sie dann auf **Vorlagen von einem Computer importieren** oder **Vorlagen aus einer Datei importieren**.
 
 

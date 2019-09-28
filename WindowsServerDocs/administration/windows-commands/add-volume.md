@@ -1,8 +1,8 @@
 ---
 title: Volume hinzufügen
-description: Windows-Befehle Thema **Volume hinzufügen** -Hinzufügen von Volumes auf der Schattenkopie festgelegt ist, wird die Gruppe von Volumes Schattenkopien werden kopiert.
+description: 'Windows-Befehls Artikel zum **Hinzufügen** von Volumes: Fügt dem Schattenkopiesatz Volumes hinzu'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8960ffafdf49d4512e1df2dfcc046bdfbe56e224
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c534bcc5a264fbb51d12cfd2a6fc93b4e6fbd857
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819471"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382795"
 ---
 # <a name="add-volume"></a>Volume hinzufügen
 
 
 
-Hinzufügen von Volumes der Schatten kopieren festgelegt wird, wird die Gruppe von Volumes Schattenkopien erstellt werden. Dieser Befehl ist erforderlich, um Schattenkopien zu erstellen. Wenn Sie ohne Angabe von Parametern **Volume hinzufügen** zeigt die Hilfe an der Eingabeaufforderung.
+Fügt dem Schattenkopiesatz Volumes hinzu, bei denen es sich um den Satz von Volumes handelt, die gespiegelt werden sollen. Dieser Befehl ist erforderlich, um Schatten Kopien zu erstellen. Wenn **Sie** ohne Parameter verwendet wird, wird in der Eingabeaufforderung Hilfe angezeigt.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -38,22 +38,22 @@ add volume <Volume> [provider <ProviderID>]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<Volume >|Gibt ein Volume zum Hinzufügen der Schatten kopieren festgelegt. Mindestens ein Volume ist erforderlich, für die Erstellung von Schattenkopien.|
-|[Anbieter \<ProviderID >]|Gibt an, die Anbieter-ID eines registrierten Anbieters verwenden, um die Schattenkopie zu erstellen. Wenn **Anbieter** nicht angegeben ist, wird der Standardanbieter verwendet wird.|
+|\<volume >|Gibt ein Volume an, das dem Schattenkopiesatz hinzugefügt wird. Für die Erstellung von Schatten Kopien ist mindestens ein Volume erforderlich.|
+|[Anbieter \<providerid >]|Gibt die Anbieter-ID eines registrierten Anbieters an, der zum Erstellen der Schatten Kopie verwendet werden soll. Wenn der **Anbieter** nicht angegeben wird, wird der Standardanbieter verwendet.|
 
 ## <a name="remarks"></a>Hinweise
 
 -   Volumes werden nacheinander hinzugefügt.
--   Jedes Mal, wenn ein Volume hinzugefügt wird, wird er überprüft, um sicherzustellen, dass die VSS unterstützt die Erstellung von Schattenkopien des Volumes. Diese primären Überprüfung möglicherweise ungültig gemacht werden, jedoch später mithilfe der der **Kontext festlegen** Befehl.
--   Wenn eine Schattenkopie erstellt wird, verknüpft eine Umgebungsvariable den Alias der Schattenkopie-ID an, damit der Alias, klicken Sie dann für die Skripterstellung verwendet werden kann.
+-   Jedes Mal, wenn ein Volume hinzugefügt wird, wird es geprüft, um sicherzustellen, dass VSS die Erstellung von Schatten Kopien dieses Volumes unterstützt. Diese primäre Prüfung kann jedoch durch spätere Verwendung des **Set Context** -Befehls ungültig gemacht werden.
+-   Wenn eine Schatten Kopie erstellt wird, wird der Alias von einer Umgebungsvariablen mit der Schatten-ID verknüpft, sodass der Alias für die Skripterstellung verwendet werden kann.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Können Sie die aktuelle Liste der registrierten Anbieter auf anzeigen. dem `DISKSHADOW>` dazu aufgefordert werden, geben Sie:
+Um die aktuelle Liste der registrierten Anbieter anzuzeigen, geben Sie an der `DISKSHADOW>`-Eingabeaufforderung Folgendes ein:
 ```
 list providers
 ```
-Die folgende Ausgabe zeigt an einen einzigen Anbieter, der standardmäßig verwendet wird:
+Die folgende Ausgabe zeigt einen einzelnen Anbieter, der standardmäßig verwendet wird:
 ```
 * ProviderID: {b5946137-7b9f-4925-af80-51abd60b20d5}
         Type: [1] VSS_PROV_SYSTEM
@@ -62,11 +62,11 @@ Die folgende Ausgabe zeigt an einen einzigen Anbieter, der standardmäßig verwe
         CLSID: {65ee1dba-8ff4-4a58-ac1c-3470ee2f376a}
 1 provider registered.
 ```
-Zum Hinzufügen von Laufwerk C die Schattenkopie kopieren festgelegt, und weisen einen alias mit dem Namen 1, geben Sie Folgendes ein:
+Um das Laufwerk C dem Schattenkopiesatz hinzuzufügen und einen Alias namens system1 zuzuweisen, geben Sie Folgendes ein:
 ```
 add volume c: alias System1
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

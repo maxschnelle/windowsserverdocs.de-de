@@ -1,9 +1,9 @@
 ---
-title: 'Schritt 4: Plan von OTP auf dem RAS-Server'
-description: Dieses Thema ist Teil des Leitfadens Bereitstellen von Remotezugriff mit OTP-Authentifizierung in Windows Server 2016.
+title: Schritt 4 Planen von OTP auf dem Remote Zugriffs Server
+description: Dieses Thema ist Teil des Handbuchs Bereitstellen des Remote Zugriffs mit OTP-Authentifizierung in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,36 +12,36 @@ ms.topic: article
 ms.assetid: 4b97b2fd-767a-45c1-a64e-5b3edd0c8a47
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a22d58e8e775ae341691cab1f5b40f8121ea533f
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: cc833ea2ae5d24754a445d6c1252f21a59cc6f13
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282381"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404384"
 ---
-# <a name="step-4-plan-for-otp-on-the-remote-access-server"></a>Schritt 4: Plan von OTP auf dem RAS-Server
+# <a name="step-4-plan-for-otp-on-the-remote-access-server"></a>Schritt 4 Planen von OTP auf dem Remote Zugriffs Server
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Der letzte Schritt bei der Planung einer Remote-Access-OTP-Bereitstellung werden nach der Planung für das Einmalkennwort (OTP) RADIUS-Server und zertifikateinstellungen, Planen von OTP-Clienteinstellungen auf dem RAS-Server.  
+Nach der Planung der Server-und Zertifikat Einstellungen für das einmalige Kennwort (One-time password, OTP) müssen Sie den letzten Schritt bei der Planung einer Bereitstellung für den Remote Zugriff auf den RAS-Server planen.  
   
 |Aufgabe|Beschreibung|  
 |----|--------|  
-|[4.1 Planen von OTP-Client-Ausnahmen](#bkmk_4_1_Exemptions)|Planen Sie Ausnahmen für Benutzer, die nicht mit OTP-Authentifizierung erforderlich ist.|  
-|[4.2 Planen Sie für Windows 7-clients](#bkmk_4_2_Win7)|Planen der DirectAccess Connectivity Assistant (DCA) 2.0 für Windows 7-Clientcomputer bereitstellen.|  
-|[4.3-Plan für Smartcards](#BKMK_smartcard)|Planen Sie die Verwendung von Smartcards für zusätzliche Autorisierung.|  
+|[4,1 Planen von OTP-Client Ausnahmen](#bkmk_4_1_Exemptions)|Planen Sie Ausnahmen für Benutzer ein, die für die Authentifizierung mit OTP nicht erforderlich sind.|  
+|[4,2 Planen für Windows 7-Clients](#bkmk_4_2_Win7)|Planen Sie die Bereitstellung des DirectAccess-konnektivitätsassistenten (DCA) 2,0 für Windows 7-Client Computer.|  
+|[4,3 Planen von Smartcards](#BKMK_smartcard)|Planen Sie die Verwendung von Smartcards für zusätzliche Autorisierung.|  
   
-## <a name="bkmk_4_1_Exemptions"></a>4.1 Planen von OTP-Client-Ausnahmen  
-Bei der OTP-Authentifizierung aktiviert ist, wird standardmäßig alle Benutzer müssen mithilfe einer Kombination aus Benutzername und Kennwort sowie seine OTP-Anmeldeinformationen zu authentifizieren. Allerdings können Sie die ausgewählten Benutzer für die Authentifizierung mit einen Benutzernamen und das Kennwort nur ohne OTP erlauben. Zu diesem Zweck erstellen Sie eine Sicherheitsgruppe aus, und fügen Sie alle gewünschten Benutzer von OTP-Authentifizierung ausgenommen werden sollen.  
+## <a name="bkmk_4_1_Exemptions"></a>4,1 Planen von OTP-Client Ausnahmen  
+Wenn die OTP-Authentifizierung aktiviert ist, müssen sich alle Benutzer standardmäßig mit einer Kombination aus Benutzername und Kennwort und OTP-Anmelde Informationen authentifizieren. Allerdings können Sie es Benutzern ermöglichen, sich nur mit einem Benutzernamen und einem Kennwort zu authentifizieren, ohne OTP zu verwenden. Erstellen Sie dazu eine Sicherheitsgruppe, und fügen Sie alle Benutzer hinzu, die von der OTP-Authentifizierung ausgenommen werden sollen.  
   
 > [!NOTE]  
-> Nur die Clientcomputer aus einer einzelnen Gesamtstruktur können aufgrund der Tatsache ausgenommen werden, nur eine Sicherheitsgruppe für Ausnahmen für Client ausgewählt werden kann.  
+> Nur Client Computer aus einer einzelnen Gesamtstruktur können aufgrund der Tatsache, dass nur eine Sicherheitsgruppe für Client Ausnahmen ausgewählt werden kann, ausgenommen werden.  
   
-## <a name="bkmk_4_2_Win7"></a>4.2 Planen Sie für Windows 7-clients  
-Standardmäßig können nicht die Windows 7-Clientcomputer mithilfe von OTP authentifizieren.  Windows 7-Clientcomputer müssen DCA 2.0 für die Authentifizierung mithilfe von OTP in einer Remote Access in Windows Server 2012-Bereitstellung. Weitere Informationen zu DCA 2.0 finden Sie unter [DirectAccess Connectivity Assistant 2.0](https://go.microsoft.com/fwlink/?LinkId=253699) im Microsoft Download Center.  
+## <a name="bkmk_4_2_Win7"></a>4,2 Planen für Windows 7-Clients  
+Windows 7-Client Computer können sich standardmäßig nicht mithilfe von OTP authentifizieren.  Windows 7-Client Computer erfordern eine DCA 2,0 für die Authentifizierung mithilfe von OTP in einer Windows Server 2012-Remote Zugriffs Bereitstellung. Weitere Informationen zu DCA 2,0 finden Sie unter [DirectAccess Connectivity Assistant 2,0](https://go.microsoft.com/fwlink/?LinkId=253699) im Microsoft Download Center.  
   
-## <a name="BKMK_smartcard"></a>4.3-Plan für Smartcards  
-Bei der OTP-Authentifizierung aktiviert ist, ist die Option zum Aktivieren der Verwendung von Smartcards für zusätzliche Autorisierung verfügbar. Erstellen Sie eine Sicherheitsgruppe aus, um temporären Zugriff zu ermöglichen, wenn die Smartcard eines Benutzers nicht funktionsfähig ist.  
+## <a name="BKMK_smartcard"></a>4,3 Planen von Smartcards  
+Wenn die OTP-Authentifizierung aktiviert ist, ist die Option zum Aktivieren der Verwendung von Smartcards für zusätzliche Autorisierung verfügbar. Erstellen Sie eine Sicherheitsgruppe, um vorübergehenden Zugriff zuzulassen, falls die Smartcard eines Benutzers nicht funktionsfähig ist.  
   
 ## <a name="BKMK_Links"></a>Siehe auch  
   

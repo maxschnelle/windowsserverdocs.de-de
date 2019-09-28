@@ -2,7 +2,7 @@
 title: Hinzufügen von Servern zu Server-Manager
 description: Server-Manager
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-server-manager
@@ -14,16 +14,16 @@ ms.author: coreyp
 manager: dongill
 ms.localizationpriority: medium
 ms.date: 02/01/2018
-ms.openlocfilehash: a47ecbc0c7359438ed60ed34c94adf0096b14967
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: ad30a8f1c4c1e0aa317512eb68fffbd76413175b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435449"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383259"
 ---
 # <a name="add-servers-to-server-manager"></a>Hinzufügen von Servern zu Server-Manager
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In Windows Server können Sie mehrere Remoteserver mit einer einzigen Server-Manager-Konsole verwalten. Server, die Sie mithilfe von Server-Manager verwalten möchten, können Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008 ausführen. Beachten Sie, dass eine neuere Version von Windows Server nicht mit einer älteren Version des Server-Manager verwaltet werden kann.
 
@@ -38,11 +38,11 @@ In diesem Thema wird beschrieben, wie Sie dem Server-Manager-Serverpool Server h
 
 Dieses Thema enthält die folgenden Abschnitte:
 
--   [Fügen Sie zu verwaltende Server hinzu](#BKMK_add)
+-   [Hinzufügen von zu verwaltenden Servern](#BKMK_add)
 
--   [Geben Sie Anmeldeinformationen mit dem Befehl verwalten als](#BKMK_creds)
+-   [Angeben von Anmelde Informationen mit dem Befehl "verwalten als"](#BKMK_creds)
 
-## <a name="BKMK_creds"></a>Geben Sie Anmeldeinformationen mit dem Befehl verwalten als
+## <a name="BKMK_creds"></a>Angeben von Anmelde Informationen mit dem Befehl "verwalten als"
 Wenn Sie dem Server-Manger Remoteserver hinzufügen, sind für den Zugriff auf einige dieser Server sowie für deren Verwaltung unterschiedliche Benutzerkonten-Anmeldeinformationen erforderlich. Um Anmeldeinformationen für einen verwalteten Server anzugeben, die sich von denen unterscheiden, die Sie verwenden, um sich bei dem Computer anzumelden, auf dem Sie den Server-Managern ausführen, verwenden Sie den Befehl **Verwalten als**, nachdem Sie dem Server-Manager einen Server hinzugefügt haben. Hierzu klicken Sie mit der rechten Maustaste auf der Kachel **Server** einer Rollen- oder Gruppen-Homepage auf den Eintrag für einen verwalteten Server. Beim Klicken auf **Verwalten als** wird das Dialogfeld **Windows-Sicherheit** geöffnet, in dem Sie einen Benutzernamen, der auf dem verwalteten Server über Zugriffsrechte verfügt, in einem der folgenden Formate eingeben können.
 
 -   *Benutzername*
@@ -64,7 +64,7 @@ Nachdem Sie anhand der in diesem Thema beschriebenen Verfahren zu verwaltende Se
 > [!NOTE]
 > Zu den Rollen und Features, die den Befehl **Verwalten als** nicht unterstützen, zählen Remotedesktopdienste (Remotedesktopdienste, RDS) und IP-Adressverwaltung-Server (IP Address Management, IPAM). Wenn Sie den RDS oder IPAM-Server nicht mit den gleichen Anmeldeinformationen verwalten können, die Sie auf dem Computer verwenden, auf dem Sie den Server-Manager ausführen, versuchen Sie, das Konto, das Sie in der Regel verwenden, um diese Remoteserver zu verwalten, der Gruppe "Administratoren" auf dem Computer hinzuzufügen, der den Server-Manager ausführt. Melden Sie sich dann bei dem Computer, auf dem der Server-Manager ausgeführt wird, mit dem Konto an, das Sie verwenden, um den Remoteserver zu verwalten, auf dem RDS oder IPAM ausgeführt wird.
 
-## <a name="BKMK_add"></a>Fügen Sie zu verwaltende Server hinzu
+## <a name="BKMK_add"></a>Hinzufügen von zu verwaltenden Servern
 Sie können Server-Manager zu verwaltende Server hinzufügen, indem Sie eine der drei Methoden verwenden, die im Dialogfeld **Server hinzufügen** verfügbaren sind.
 
 -   **Active Directory Domain Servicese (AD DS)** Fügen Sie zu verwaltende Server hinzu, die von Active Directory in derselben Domäne gefunden werden, in der sich der lokale Computer befindet.

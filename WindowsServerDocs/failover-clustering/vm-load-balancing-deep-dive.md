@@ -1,72 +1,72 @@
 ---
 ms.assetid: 5b5bab7a-727b-47ce-8efa-1d37a9639cba
-title: VM-Lastenausgleich – ausführliche Informationen
-ms.prod: windows-server-threshold
+title: Eingehender Einblick in den Lastenausgleich virtueller Computer
+ms.prod: windows-server
 ms.technology: storage-failover-clustering
 ms.topic: article
 author: bhattacharyaz
 manager: eldenc
 ms.author: subhatt
 ms.date: 09/19/2016
-ms.openlocfilehash: 50213cf47c2c59f1775ae704e82ed51794715ac0
-ms.sourcegitcommit: 276a480b470482cba4682caa3df4cd07ba5b7801
+ms.openlocfilehash: 972e86d5f49f92d090eed1d4130544d0269c1309
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66198549"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392223"
 ---
-# <a name="virtual-machine-load-balancing-deep-dive"></a>VM-Lastenausgleich – ausführliche Informationen
+# <a name="virtual-machine-load-balancing-deep-dive"></a>Eingehender Einblick in den Lastenausgleich virtueller Computer
 
 > Gilt für: Windows Server 2019, Windows Server 2016
 
-Die [Lastenausgleichsfunktion von Virtual Machine](vm-load-balancing-overview.md) optimiert die Auslastung von Knoten in einem Failovercluster. Dieses Dokument beschreibt, wie Sie zum Konfigurieren und steuern die VM-Lastenausgleich. 
+Der [Lastenausgleich des virtuellen](vm-load-balancing-overview.md) Computers optimiert die Auslastung von Knoten in einem Failovercluster. In diesem Dokument wird beschrieben, wie Sie den VM-Lastenausgleich konfigurieren und steuern. 
 
-## <a id="heuristics-for-balancing"></a>Die Heuristik für Lastenausgleich
-VM Load Balancing wertet eines Knotens laden, die auf der folgenden Heuristik basiert:
-1. Aktuelle **arbeitsspeicherauslastung**: Speicher ist der am häufigsten verwendeten ressourceneinschränkung auf einem Hyper-V-host
-2. CPU **Auslastung** des Knotens, gemittelt über ein 5-Minuten-Fenster: Reduziert einen Knoten im Cluster als überbelegt
+## <a id="heuristics-for-balancing"></a>Heuristik für den Ausgleich
+Der Lastenausgleich des virtuellen Computers wertet die Auslastung eines Knotens basierend auf der folgenden Heuristik aus:
+1. Aktueller **Speicher**Mangel: Der Arbeitsspeicher ist die häufigste Ressourcen Einschränkung auf einem Hyper-V-Host.
+2. Die CPU- **Auslastung** des Knotens über ein 5-minütiges Fenster: Verhindert, dass ein Knoten im Cluster überlastet wird
 
-## <a id="controlling-aggressiveness-of-balancing"></a>Steuern die Aggressivität für Lastenausgleich
-Die Aggressivität der Lastenausgleich basierend auf den Arbeitsspeicher und CPU-Heuristiken kann konfiguriert werden, mit der durch die allgemeine Clustereigenschaft "AutoBalancerLevel". So steuern Sie die Aggressivität, führen Sie Folgendes in PowerShell
+## <a id="controlling-aggressiveness-of-balancing"></a>Steuern der Aggressivität des Ausgleichs
+Die Aggressivität des Ausgleichs basierend auf der Arbeitsspeicher-und CPU-Heuristik kann mithilfe von über die allgemeine Cluster Eigenschaft "autobalancerlevel" konfiguriert werden. Führen Sie Folgendes in PowerShell aus, um die Aggressivität zu steuern:
 
 ```PowerShell
 (Get-Cluster).AutoBalancerLevel = <value>
 ```
 
-| AutoBalancerLevel | Aggressivität | Verhalten |
+| Autobalancerlevel | Aggressi | Verhalten |
 |-------------------|----------------|----------|
-| 1 (Standard) | Niedrig | Verschoben Sie werden, wenn der Host mehr als 80 % geladen ist. |
-| 2 | Mittel | Verschoben Sie werden, wenn der Host mehr als 70 % geladen ist. |
-| 3 | Hoch | Durchschnittliche Anzahl der Knoten und verschieben, wenn der Host über mehr als 5 % überdurchschnittlich ist | 
+| 1 (Standard) | Niedrig | Verschieben, wenn Host mehr als 80% geladen ist |
+| 2 | Mittel | Verschieben, wenn Host mehr als 70% geladen ist |
+| 3 | Hoch | Durchschnittliche Knoten und verschieben, wenn der Host mehr als 5% oberhalb des Durchschnitts ist | 
 
-![Grafik zu von einem PowerShell die Aggressivität der Lastenausgleich konfigurieren](media/vm-load-balancing/detailed-VM-load-balancing-1.jpg)
+![Grafik von PowerShell zum Konfigurieren der Aggressivität des Ausgleichs](media/vm-load-balancing/detailed-VM-load-balancing-1.jpg)
 
-## <a name="controlling-vm-load-balancing"></a>Steuern des VM-Lastenausgleich
-Lastenausgleich der VM ist standardmäßig aktiviert, und Zeitpunkt des Auftretens des Lastenausgleichs kann konfiguriert werden, indem die allgemeine Clustereigenschaft "AutoBalancerMode". So steuern, wenn Knotenfairness den Cluster ausgeglichen:
+## <a name="controlling-vm-load-balancing"></a>Steuern des VM-Lasten Ausgleichs
+Der VM-Lastenausgleich ist standardmäßig aktiviert, und wenn ein Lastenausgleich durchgeführt wird, kann die allgemeine Eigenschaft "autobalancermode" des Clusters konfiguriert werden. So steuern Sie, wann die Knoten Fairness den Cluster ausgleicht
 
-### <a name="using-failover-cluster-manager"></a>Verwenden Failovercluster-Manager:
-1. Mit der rechten Maustaste auf den Namen Ihres Clusters, und wählen Sie die Option "Eigenschaften"  
-    ![Grafik zu der Eigenschaft für Cluster mit Failovercluster-Manager auswählen](media/vm-load-balancing/detailed-VM-load-balancing-2.jpg)
+### <a name="using-failover-cluster-manager"></a>Verwenden von Failovercluster-Manager:
+1. Klicken Sie mit der rechten Maustaste auf den Cluster Namen, und wählen Sie die Option "Eigenschaften".  
+    ![Grafik zum Auswählen der Eigenschaft für Cluster über Failovercluster-Manager](media/vm-load-balancing/detailed-VM-load-balancing-2.jpg)
 
-2.  Wählen Sie im Bereich "Lastenausgleich"  
-    ![Grafik zu der Auswahl der Option zum Lastenausgleich über Failovercluster-Manager](media/vm-load-balancing/detailed-VM-load-balancing-3.jpg)
+2.  Wählen Sie den Bereich "Balancer" aus.  
+    ![Grafik zum Auswählen der Option "Balancer" durch Failovercluster-Manager](media/vm-load-balancing/detailed-VM-load-balancing-3.jpg)
 
 ### <a name="using-powershell"></a>Mithilfe von PowerShell:
-Führen Sie Folgendes:
+Führen Sie Folgendes aus:
 ```powershell
 (Get-Cluster).AutoBalancerMode = <value>
 ```
 
-|AutoBalancerMode |Verhalten| 
+|Autobalancermode |Verhalten| 
 |:----------------:|:----------:|
 |0| Disabled| 
-|1| Lastenausgleich auf Knoten zur Teilnahme am| 
-|2 (Standard)| Lastenausgleich auf Knoten Join und alle 30 Minuten |
+|1| Lastenausgleich bei Knoten Beitritt| 
+|2 (Standard)| Lastenausgleich für den Knoten Beitritt und alle 30 Minuten |
 
-## <a name="vm-load-balancing-vs-system-center-virtual-machine-manager-dynamic-optimization"></a>VM-Lastenausgleich im Vergleich zu System Center Virtual Machine Manager-dynamische Optimierung
-Die Funktion Knoten Ausgewogenheit bietet integrierte, die für Bereitstellungen ohne System Center Virtual Machine Manager (SCVMM) ausgerichtet ist. Dynamische Optimierung von SCVMM ist die empfohlene Methode zur Lastenausgleichs für virtuelle Computer in Ihrem Cluster für SCVMM-Bereitstellungen. SCVMM deaktiviert automatisch die Windows Server-VM den Lastenausgleich bei der dynamischen Optimierung aktiviert ist.
+## <a name="vm-load-balancing-vs-system-center-virtual-machine-manager-dynamic-optimization"></a>VM-Lastenausgleich im Vergleich zu Dynamische Optimierung System Center Virtual Machine Manager
+Mit dem Feature "Knoten Fairness" werden in-Box-Funktionen bereitgestellt, die auf bereit Stellungen ohne System Center Virtual Machine Manager (SCVMM) ausgerichtet sind. Die dynamische SCVMM-Optimierung ist der empfohlene Mechanismus zum Ausgleichen der Auslastung virtueller Maschinen in Ihrem Cluster für SCVMM-bereit Stellungen. SCVMM deaktiviert den Lastenausgleich der Windows Server-VM automatisch, wenn die dynamische Optimierung aktiviert ist.
 
 ## <a name="see-also"></a>Siehe auch
-* [VM Netzwerklastenausgleich – Übersicht](vm-load-balancing-overview.md)
+* [Übersicht über den Lastenausgleich virtueller Computer](vm-load-balancing-overview.md)
 * [Failoverclustering](failover-clustering-overview.md)
-* [Hyper-V: Übersicht](../virtualization/hyper-v/Hyper-V-on-Windows-Server.md)
+* [Übersicht über Hyper-V](../virtualization/hyper-v/Hyper-V-on-Windows-Server.md)

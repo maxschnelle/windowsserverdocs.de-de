@@ -2,7 +2,7 @@
 title: Neues in der Windows-Konsole in Windows Server 2016
 description: Listet wichtige neue Features in der Konsole von Windows Server 2016 auf.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: server-general
 ms.reviewer: na
 ms.suite: na
@@ -14,12 +14,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 2f05bcffa7c8c4f9e74f3699b9838b8a627af1b1
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 305363646aa1714504b0cfb4838170b994ce5da9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63688676"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391440"
 ---
 # <a name="whats-new-in-the-windows-console-in-windows-server-2016"></a>Neues in der Windows-Konsole in Windows Server 2016
 >Gilt für: Windows Server 2016

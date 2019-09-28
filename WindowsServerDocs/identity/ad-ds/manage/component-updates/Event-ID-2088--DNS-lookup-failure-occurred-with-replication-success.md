@@ -1,24 +1,24 @@
 ---
 ms.assetid: 0fd7b6aa-3e50-45a3-a3a6-56982844363e
-title: 'Ereignis-ID 2088: DNS-Lookup-Fehler bei erfolgreicher Replikation aufgetreten'
+title: 'Ereignis-ID 2088: DNS-Suche-Fehler bei erfolgreicher Replikation'
 description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: e0c5e838290a8ebf33f0f7891dc10f8b00e5bcba
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d51cbcc93a8decbcb72a1e91854a09345507511d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442648"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71368909"
 ---
-# <a name="event-id-2088-dns-lookup-failure-occurred-with-replication-success"></a>Ereignis-ID 2088: Fehler bei der DNS-Lookups bei erfolgreicher Replikation aufgetreten
+# <a name="event-id-2088-dns-lookup-failure-occurred-with-replication-success"></a>Ereignis-ID 2088: DNS-Suche-Fehler beim Erfolg der Replikation.
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
     
     <developerConceptualDocument xmlns="https://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="https://www.w3.org/1999/xlink" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://ddue.schemas.microsoft.com/authoring/2003/5 http://clixdevr3.blob.core.windows.net/ddueschema/developer.xsd">
@@ -42,43 +42,39 @@ ms.locfileid: "66442648"
     Active Directory Domain Services successfully replicated using the NetBIOS 
     or fully qualified computer name of the source domain controller. 
 
-Ungültiger DNS-Konfiguration kann andere wichtige Vorgänge auf Computern, die Mitglieder, Domänencontroller oder Anwendungsserver in dieser Active Directory-Domänendienste-Gesamtstruktur, z. B. Authentifizierung bei der Anmeldung oder den Zugriff auf Netzwerkressourcen beeinträchtigen. 
+Eine ungültige DNS-Konfiguration wirkt sich möglicherweise auf andere wichtige Vorgänge auf Mitglieds Computern, Domänen Controllern oder Anwendungsservern in dieser Active Directory Domain Services Gesamtstruktur aus, einschließlich der Anmelde Authentifizierung oder des Zugriffs auf Netzwerkressourcen. 
 
-Sie sollten diese DNS-Konfiguration-Fehler sofort beheben, damit dieser Domänencontroller die IP-Adresse die Quell-Domänencontroller mit DNS auflösen kann. 
+Sie sollten diesen DNS-Konfigurationsfehler sofort beheben, damit dieser Domänen Controller die IP-Adresse des Quell Domänen Controllers mithilfe von DNS auflösen kann. 
 
-Name des alternativen Servers: DC1-Fehler bei DNS-Hostname: 4a8717eb-8e58-456c-995a-c92e4add7e8e._msdcs.contoso.com 
+Alternativer Servername: DC1 fehlerhafter DNS-Hostname: 4a8717eb-8e58-456c-995a-c92e4add7e8e. _msdcs. 
 
-HINWEIS: Standardmäßig werden nur bis zu 10 DNS-Fehler für alle angegebenen 12-Stunden-Zeitraum angezeigt, auch wenn mehr als 10 Fehler auftreten.  Um alle Fehlerereignisse der einzelnen zu protokollieren, legen Sie die folgenden Diagnose Registrierungswert auf 1: 
+HINWEIS: Standardmäßig werden nur bis zu 10 DNS-Fehler für einen Zeitraum von 12 Stunden angezeigt, auch wenn mehr als 10 Fehler auftreten.  Legen Sie den folgenden Wert für die Diagnose Registrierung auf 1 fest, um alle einzelnen Fehlerereignisse zu protokollieren: 
 
-Registrierungspfad: HKLM\System\CurrentControlSet\Services\NTDS\Diagnostics\22 DS RPC Client 
+Registrierungs Pfad: Hklm\system\currentcontrolset\services\ntds\diagnostics\22 DS RPC Client 
 
 Benutzeraktion: 
 
-1) Ist der Quelldomänencontroller nicht mehr ausgeführt werden oder das Betriebssystem neu installiert wurde mit einem anderen Computernamen oder NTDSDSA Objekt-GUID des Quelldomänencontrollers Metadaten mit ntdsutil.exe entfernen mithilfe der im Microsoft Knowledge Base-Artikel beschriebenen Schritte 216498. 
+1) Wenn der Quell Domänen Controller nicht mehr funktionsfähig ist oder das Betriebssystem mit einem anderen Computernamen oder einer NTDSDSA-Objekt-GUID neu installiert wurde, entfernen Sie die Metadaten des Quell Domänen Controllers mit "Ntdsutil. exe", indem Sie die im MSKB-Artikel beschriebenen Schritte ausführen. 216498. 
 
-2) Vergewissern Sie sich, dass der Quelldomänencontroller Active Directory ausgeführt wird und im Netzwerk verfügbar, indem Sie eingeben ist "net View \\ &lt;Quell-DC-Namen&gt;" oder "Ping &lt;Quell-DC-Namen&gt;". 
+2) Vergewissern Sie sich, dass auf dem Quell Domänen Controller Active Directory ausgeführt wird und dass im Netzwerk darauf zugegriffen werden kann, indem Sie "net View \\ @ no__t-1source DC Name @ no__t-2" oder "Ping &lt;source DC Name @ no__t-4" eingeben. 
 
-3) Stellen Sie sicher, dass der Quelldomänencontroller auf einen gültigen DNS-Server verwendet wird, für die DNS-Dienste und Aufzeichnen der Quelldomänencontroller Hosteintrag und CNAME sind ordnungsgemäß registriert ist, die verbesserte DNS-Version von DCDIAG. EXE-Datei verfügbar <https://www.microsoft.com/dns> 
-
-Dcdiag/Test: DNS 
-
-4) Stellen Sie sicher, dass diese Zieldomänencontroller einen gültigen DNS-Server für DNS-Dienste verwendet, durch die verbesserte DNS-Version von DCDIAG ausführen. EXE-Befehl auf der Konsole des dem Zieldomänencontroller, wie folgt: 
+3) Stellen Sie sicher, dass der Quell Domänen Controller einen gültigen DNS-Server für DNS-Dienste verwendet und dass der Host Daten Satz und der CNAME-Datensatz des Quell Domänen Controllers ordnungsgemäß registriert sind. verwenden Sie dazu die erweiterte DNS-Version von Dcdiag. EXE verfügbar auf <https://www.microsoft.com/dns> 
 
 Dcdiag/Test: DNS 
 
-5) Zur weiteren Analyse von DNS-Fehler Fehlern finden Sie in der KB 824449: <https://support.microsoft.com/?kbid=824449> 
+4) Vergewissern Sie sich, dass dieser Zieldomänen Controller einen gültigen DNS-Server für DNS-Dienste verwendet, indem Sie die erweiterte DNS-Version von Dcdiag ausführen. Befehl "exe" in der Konsole des Zieldomänen Controllers wie folgt: 
 
-Zusätzliche Daten Fehlerwert: 11004 der angeforderte Name ist gültig, aber keine Daten vom angeforderten Typ gefunden</code> </introduction>
+Dcdiag/Test: DNS 
+
+5) Informationen zur weiteren Analyse von DNS-Fehler Fehlern finden Sie unter KB 824449: <https://support.microsoft.com/?kbid=824449> 
+
+Zusätzliche Daten Fehlerwert: 11004 der angeforderte Name ist gültig, aber es wurden keine Daten vom angeforderten Typ gefunden @ no__t-0 </introduction>.
   <section>
-    <title>Diagnose</title>
-    <content>
-      <para>Fehler bei der Name des Quelldomänencontrollers mithilfe der Aliasressourceneintrags (CNAME) im DNS auflösen kann aufgrund von DNS-Fehlkonfigurationen oder Verzögerungen bei der Weitergabe von DNS-Daten sein.</para>
+    <title>diagnose @ no__t-1 @ no__t-2 @ no__t-3<para>Wenn Sie den Namen des Quell Domänen Controllers nicht mithilfe des Alias Ressourceneinsatzes (CNAME) in DNS auflösen, kann dies auf DNS-Fehlkonfigurationen oder Verzögerungen bei der DNS-Datenweitergabe zurückzuführen sein.</para>
     </content>
   </section>
   <section>
-    <title>Auflösung</title>
-    <content>
-      <para>Mit dem DNS-testen, wie in beschrieben fortfahren &quot; <link xlink:href="85b1d179-f53e-4f95-b0b8-5b1c096a8076">Ereignis-ID 2087: DNS-Lookup-Problem verursacht Replikationsfehler</link>.&quot;</para>
+    <title>resolution @ no__t-1 @ no__t-2 @ no__t-3<para>Fahren Sie mit den DNS-Tests fort, wie in &quot; @ no__t-1event ID 2087: Fehler beim DNS-Suche-Fehler beim Replikations Fehler @ no__t-0. &quot;</para>
     </content>
   </section>
   <relatedTopics />

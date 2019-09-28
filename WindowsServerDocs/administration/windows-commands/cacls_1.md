@@ -2,7 +2,7 @@
 title: cacls
 description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d3c2ba6dca1797cda3851b3c270938d47828ed7a
-ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
+ms.openlocfilehash: 04b60bd852abdb55059efb96aec4c290361d6a74
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2019
-ms.locfileid: "68590403"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379953"
 ---
 # <a name="cacls"></a>cacls
 
@@ -33,16 +33,16 @@ cacls <filename> [/t] [/m] [/l] [/s[:sddl]] [/e] [/c] [/g user:<perm>] [/r user 
 
 |        Parameter        |                                                                                            Beschreibung                                                                                             |
 |-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|      \<Einfügen\>       |                                                                            Erforderlich. Zeigt ACLs der angegebenen Dateien an.                                                                             |
+|      \<filename\>       |                                                                            Erforderlich. Zeigt ACLs der angegebenen Dateien an.                                                                             |
 |           /t            |                                                          ändert ACLs der angegebenen Dateien im aktuellen Verzeichnis und allen Unterverzeichnissen.                                                          |
 |           /m            |                                                                          ändert ACLs von Volumes, die in ein Verzeichnis eingebunden sind.                                                                           |
 |           /l            |                                                                        Arbeiten Sie mit dem symbolischen Link selbst im Vergleich zum Ziel.                                                                         |
 |         /s: SDDL         |                                       ersetzt die ACLs durch die in der SDDL-Zeichenfolge angegebenen (ungültig durch **/e**, **/g**, **/r**, **/p**oder **/d**).                                        |
 |           /e            |                                                                                 Bearbeiten Sie die ACL, anstatt Sie zu ersetzen.                                                                                  |
 |           /c            |                                                                                 Fortfahren bei Fehlern beim Zugriff verweigert.                                                                                  |
-|    /g-Benutzer\<: Perm\>     |   Erteilen Sie angegebene Benutzer Zugriffsrechte.<br /><br />Gültige Werte für die Berechtigung:<br /><br />-n-None<br />-r-lesen<br />-w-schreiben<br />-c-ändern (schreiben)<br />-f-Vollzugriff   |
+|    /g Benutzer: \<perm @ no__t-1     |   Erteilen Sie angegebene Benutzer Zugriffsrechte.<br /><br />Gültige Werte für die Berechtigung:<br /><br />-n-None<br />-r-lesen<br />-w-schreiben<br />-c-ändern (schreiben)<br />-f-Vollzugriff   |
 |      /r Benutzer [...]      |                                                                  Widerrufen Sie die Zugriffsrechte des angegebenen Benutzers (nur gültig mit **/e**).                                                                   |
-| [/p User:\<Perm\> [...] | ersetzt die Zugriffsrechte für den angegebenen Benutzer.<br /><br />Gültige Werte für die Berechtigung:<br /><br />-n-None<br />-r-lesen<br />-w-schreiben<br />-c-ändern (schreiben)<br />-f-Vollzugriff |
+| [/p User: \<perm @ no__t-1 [...] | ersetzt die Zugriffsrechte für den angegebenen Benutzer.<br /><br />Gültige Werte für die Berechtigung:<br /><br />-n-None<br />-r-lesen<br />-w-schreiben<br />-c-ändern (schreiben)<br />-f-Vollzugriff |
 |     [/d User [...]      |                                                                                    Der angegebene Benutzer Zugriff wird verweigert.                                                                                     |
 |           /?            |                                                                                Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                |
 
@@ -63,7 +63,7 @@ cacls <filename> [/t] [/m] [/l] [/s[:sddl]] [/e] [/c] [/g user:<perm>] [/r user 
   |     ZÄHLEN BRASILIANER      |                             Nur Dateien.                             |
 
 
-- Sie können Platzhalter verwenden ( **?** **und\\) zumAngebenmehrererDateien.\***  
+- Sie können Platzhalter verwenden ( **?** und **\\ @ no__t-2**), um mehrere Dateien anzugeben.  
 - Sie können mehr als einen Benutzer angeben.  
 
 #### <a name="additional-references"></a>Weitere Verweise  

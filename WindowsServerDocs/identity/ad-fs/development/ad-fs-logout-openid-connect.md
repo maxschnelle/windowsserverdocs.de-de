@@ -6,23 +6,23 @@ ms.author: billmath
 manager: femila
 ms.date: 11/17/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 3af10ec139edbc72e75bf80f544ac5b4f1cf9222
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5f0127e60243ca81f7e25282adc79e01c54b4b32
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825771"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407852"
 ---
 #  <a name="single-log-out-for-openid-connect-with-ad-fs"></a>Einzelne Abmeldung für OpenID Connect mit AD FS
 
 ## <a name="overview"></a>Übersicht
-Erstellen auf die erste Oauth-Unterstützung in AD FS unter Windows Server 2012 R2, AD FS 2016, die Unterstützung für die OpenId Connect-Anmeldung eingeführt. Mit [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801), AD FS 2016 unterstützt jetzt einmaligen Abmeldens für OpenId Connect-Szenarien. Dieser Artikel bietet eine Übersicht über die einmaligen Abmeldens für OpenId Connect-Szenario und enthält Anleitungen für die OpenId Connect-Anwendungen in AD FS zu verwenden.
+Bei der anfänglichen OAuth-Unterstützung in AD FS in Windows Server 2012 R2 hat AD FS 2016 die Unterstützung für die OpenID Connect-Anmeldung eingeführt. Mit [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801)unterstützt AD FS 2016 jetzt das einmalige abmelden für OpenID Connect-Szenarios. Dieser Artikel bietet eine Übersicht über das Szenario für die einmalige Abmeldung für OpenID Connect und bietet Anleitungen zur Verwendung für Ihre OpenID Connect-Anwendungen in AD FS.
 
 
 ## <a name="discovery-doc"></a>Discovery-Dokument
-Ein JSON-Dokument namens "Discovery-Dokument" OpenID Connect verwendet, um Details zur Konfiguration anzugeben.  Dies schließt die URIs der die Authentifizierung, Token, Benutzerinformationen und Public-Endpunkte.  Folgendes ist ein Beispiel für das Discovery-Dokument.
+OpenID Connect verwendet ein JSON-Dokument mit dem Namen "Discovery Document", um Details zur Konfiguration bereitzustellen.  Dies schließt URIs der Authentifizierung, des Tokens, der userinfo und der öffentlichen Endpunkte ein.  Im folgenden finden Sie ein Beispiel für das Discovery-Dokument.
 
 ```
 {
@@ -57,28 +57,28 @@ Ein JSON-Dokument namens "Discovery-Dokument" OpenID Connect verwendet, um Detai
 
 
 
-Die folgenden zusätzlichen Werte werden im Discovery-Dokument um die Unterstützung für die Front-Kanal Logout verfügbar:
+Die folgenden zusätzlichen Werte sind im Discovery doc verfügbar, um die Unterstützung für die Front-Channel-Abmeldung anzuzeigen:
 
-- Frontchannel_logout_supported: Wert ist 'true',
-- Frontchannel_logout_session_supported: Wert ist 'true' sein.
-- End_session_endpoint: Hierbei handelt es sich um den OAuth-Abmelde-URI, mit denen der Client Abmeldung auf dem Server initiieren.
+- frontchannel_logout_supported: der Wert ist "true".
+- frontchannel_logout_session_supported: der Wert ist "true".
+- end_session_endpoint: Dies ist der OAuth-Abmelde-URI, den der Client verwenden kann, um die Abmeldung auf dem Server zu initiieren.
 
 
-## <a name="ad-fs-server-configuration"></a>AD FS-Server-Konfiguration
-Die AD FS-Eigenschaft EnableOAuthLogout wird standardmäßig aktiviert.  Diese Eigenschaft gibt die AD FS-Server, um die URL (LogoutURI) zu suchen, mit der SID einleiten Abmeldung auf dem Client. Wenn Sie keine [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801) installiert ist, können Sie den folgenden PowerShell-Befehl:
+## <a name="ad-fs-server-configuration"></a>AD FS Server-Konfiguration
+Die AD FS-Eigenschaft "enableoauthlogout" wird standardmäßig aktiviert.  Diese Eigenschaft weist den AD FS Server an, die URL (logouturi) mit der SID zu durchsuchen, um die Abmeldung auf dem Client zu initiieren. Wenn [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801) nicht installiert ist, können Sie den folgenden PowerShell-Befehl verwenden:
 
 ```PowerShell
 Set-ADFSProperties -EnableOAuthLogout $true
 ```
 
 >[!NOTE]
-> `EnableOAuthLogout` Parameter werden als veraltet markiert werden nach der Installation von [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801). `EnableOAUthLogout` ist immer "true", und hat keine Auswirkung auf die Abmeldefunktionalität.
+> der Parameter "`EnableOAuthLogout`" wird nach der Installation von [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801)als veraltet markiert. `EnableOAUthLogout` ist immer true und wirkt sich nicht auf die Abmelde Funktionalität aus.
 
 >[!NOTE]
->Frontchannel_logout wird unterstützt **nur** nach dem Installieren von der [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801)
+>frontchannel_logout wird **erst** nach der Installation von [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801) unterstützt.
 
-## <a name="client-configuration"></a>Client-Konfiguration
-Client muss eine Url zu implementieren, die "des angemeldeten Benutzers abmeldet". Administrator kann die LogoutUri in der Clientkonfiguration, die mit den folgenden PowerShell-Cmdlets konfigurieren. 
+## <a name="client-configuration"></a>Client Konfiguration
+Der Client muss eine URL implementieren, mit der der angemeldete Benutzer protokolliert wird. Der Administrator kann logouturi in der Client Konfiguration mithilfe der folgenden PowerShell-Cmdlets konfigurieren. 
 
 
 - `(Add | Set)-AdfsNativeApplication`
@@ -89,26 +89,26 @@ Client muss eine Url zu implementieren, die "des angemeldeten Benutzers abmeldet
 Set-AdfsClient -LogoutUri <url>
 ```
 
-Die `LogoutUri` ist die Url, die von AF-FS verwendet, um "den Benutzer abmelden". Für die Implementierung der `LogoutUri`, der Client benötigt, um sicherzustellen, dass löscht den Authentifizierungszustand des Benutzers in der Anwendung, z. B. Token löschen die Authentifizierung, aufweist. AD FS wird navigieren Sie zu dieser URL, mit der SID des Abfrageparameters, signalisiert die relying Party / Anwendung, um den Benutzer abzumelden. 
+Der `LogoutUri` ist die URL, die von AF FS zum Abmelden des Benutzers verwendet wird. Zum Implementieren des `LogoutUri` muss der Client sicherstellen, dass er den Authentifizierungs Zustand des Benutzers in der Anwendung löscht, z. b. das Löschen der Authentifizierungs Token, die er besitzt. AD FS navigieren zu dieser URL, wobei die SID als Abfrage Parameter verwendet wird, und signalisiert der vertrauenden Seite/Anwendung, den Benutzer abzumelden. 
 
 ![](media/ad-fs-logout-openid-connect/adfs_single_logout2.png)
 
 
-1.  **OAuth-Token mit der Sitzungs-ID**: Zum Zeitpunkt der Ausstellung von token "id_token" umfasst AD FS die Sitzungs-Id in das OAuth-Token. Dies wird später von AD FS verwendet werden, zum Identifizieren der entsprechenden SSO-Cookies für den Benutzer bereinigt werden.
-2.  **Benutzer initiiert die Abmeldung auf dem Computer App1**: Der Benutzer kann das Einleiten einer Abmeldung von einem angemeldeten Anwendungen. In diesem Beispielszenario wird ein Benutzer eine Abmeldung von App1 initiiert.
-3.  **Anwendung sendet eine abmeldeanforderung an AD FS**: Nachdem der Benutzer abmelden initiiert, sendet die Anwendung eine GET-Anforderung an End_session_endpoint von AD FS. Die Anwendung kann optional "id_token_hint" als Parameter für diese Anforderung enthalten. Wenn "id_token_hint" vorhanden ist, wird AD FS in Verbindung mit der Sitzungs-ID verwendet um zu ermitteln, welche, die URI nach der Abmeldung (Post_logout_redirect_uri) des Clients an umgeleitet werden soll.  Die Post_logout_redirect_uri muss ein gültiger Uri, der mit AD FS mithilfe des Parameters RedirectUris registriert.
-4.  **AD FS sendet Abmeldung angemeldet Clients**: AD FS verwendet den Sitzungs-ID-Wert, um die entsprechenden Clients zu finden, bei denen der Benutzer angemeldet ist. Die angegebenen Clients werden Anforderung auf die mit AD FS einleiten eine Abmeldung auf der Clientseite registriert LogoutUri gesendet werden.
+1.  **OAuth-Token mit Sitzungs-ID**: AD FS enthält die Sitzungs-ID im OAuth-Token zum Zeitpunkt der ID Tokenausstellung. Diese wird später AD FS verwendet, um die relevanten SSO-Cookies zu identifizieren, die für den Benutzer bereinigt werden sollen.
+2.  **Der Benutzer initiiert die Abmeldung auf App1**: Der Benutzer kann eine Abmeldung von allen angemeldeten Anwendungen initiieren. In diesem Beispielszenario initiiert ein Benutzer eine Abmeldung von App1.
+3.  **Die Anwendung sendet eine Abmelde Anforderung an AD FS**: Nachdem der Benutzer die Abmeldung initiiert hat, sendet die Anwendung eine GET-Anforderung an end_session_endpoint von AD FS. Die Anwendung kann optional id_token_hint als Parameter für diese Anforderung einschließen. Wenn id_token_hint vorhanden ist, wird die AD FS in Verbindung mit der Sitzungs-ID verwendet, um herauszufinden, an welchen URI der Client nach der Abmeldung umgeleitet werden soll (post_logout_redirect_uri).  Post_logout_redirect_uri muss ein gültiger URI sein, der bei AD FS mithilfe des Parameters redirecturis registriert ist.
+4.  **AD FS sendet die Abmeldung an angemeldete Clients**: In AD FS wird der Sitzungs-ID-Wert verwendet, um die relevanten Clients zu suchen, bei denen der Benutzer angemeldet ist. Die identifizierten Clients werden an den logouturi gesendet, der bei AD FS registriert ist, um eine Abmeldung auf der Clientseite zu initiieren.
 
 ## <a name="faqs"></a>Häufig gestellte Fragen
-**Q:** Ich sehe keine der Frontchannel_logout_supported und Frontchannel_logout_session_supported Parameter in der Discovery-Dokument.</br>
-**A:** Stellen Sie sicher, dass man [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801) auf allen AD FS-Servern installiert. Finden Sie in der einmaligen Abmeldung in Server 2016 mit [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801).
+**F:** Die Parameter "frontchannel_logout_supported" und "frontchannel_logout_session_supported" werden im Discovery-Dokument nicht angezeigt.</br>
+**A:** Stellen Sie sicher, dass [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801) auf allen AD FS Servern installiert ist. Weitere Informationen finden Sie unter Single Log-out in Server 2016 with [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801).
 
-**Q:** Ich habe die einmalige Abmeldung konfiguriert, wie angegeben, aber Benutzer bleibt angemeldet zu anderen Clients.</br>
-**A:** Sicherstellen, dass `LogoutUri` festgelegt, wird er für alle Clients, in denen der Benutzer angemeldet. Außerdem erfolgt bei AD FS einen Best-Case beim Senden der Anforderung zur Abmeldung und auf dem registrierten `LogoutUri`. Client muss die Logik zum Verarbeiten der Anforderungs und Maßnahmen zur Abmeldung des Benutzers von Anwendung implementieren.</br>
+**F:** Ich habe die einmalige Abmeldung wie angegeben konfiguriert, aber der Benutzer bleibt bei anderen Clients angemeldet.</br>
+**A:** Stellen Sie sicher, dass für alle Clients, auf denen der Benutzer angemeldet ist, `LogoutUri` festgelegt ist. Außerdem führt AD FS einen optimalen Versuch aus, die Abmelde Anforderung an die registrierte `LogoutUri` zu senden. Der Client muss Logik implementieren, um die Anforderung zu verarbeiten und Maßnahmen zum Abmelden des Benutzers aus der Anwendung zu ergreifen.</br>
 
-**Q:** Ausstellen AD FS werden ein Zugriffstoken, wenn nach der Abmeldung einen der Clients zurück an AD FS mit einem gültigen Aktualisierungstoken wechselt?</br>
-**A:** Ja. Es liegt in der Verantwortung der Clientanwendung, um allen authentifizierten Artefakte löschen, nachdem eine Anforderung zur Abmelde empfangen wurde an die registrierten `LogoutUri`.
+**F:** Wenn ein Client nach der Abmeldung an AD FS mit einem gültigen Aktualisierungs Token zurückgeht, AD FS ein Zugriffs Token ausgeben?</br>
+**A:** Ja. Die Client Anwendung muss alle authentifizierten Artefakte löschen, nachdem eine Abmelde Anforderung an der registrierten `LogoutUri` empfangen wurde.
 
 
 ## <a name="next-steps"></a>Nächste Schritte
-[AD FS-Entwicklung](../../ad-fs/AD-FS-Development.md)  
+[AD FS-Entwicklung](../../ad-fs/AD-FS-Development.md)  

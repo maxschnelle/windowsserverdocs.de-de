@@ -1,37 +1,37 @@
 ---
 ms.assetid: 82918181-525d-4e93-af96-957dac6aedb6
-title: 'Anhang B: Einrichten der Testumgebung'
+title: Anhang B Einrichten der Test Umgebung
 description: ''
 author: billmath
 ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 3ebe125ce7850797d786e7b564c98889cfb19927
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: af045545826269630af9327480cda59093d219df
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445860"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407141"
 ---
 # <a name="appendix-b-setting-up-the-test-environment"></a>Anhang B: Einrichten der Testumgebung
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Thema werden die Schritte zum Erstellen eines praktischen Labors zum Testen der dynamischen Zugriffssteuerung beschrieben. Die Anweisungen müssen schrittweise befolgt werden, da viele Komponenten über Abhängigkeiten verfügen.  
 
-## <a name="prerequisites"></a>Vorraussetzungen  
-**Hardware- und softwareanforderungen**  
+## <a name="prerequisites"></a>Erforderliche Komponenten  
+**Hardware-und Softwareanforderungen**  
 
 Anforderungen für die Einrichtung des Testlabors:  
 
 -   Ein Hostserver unter Windows Server 2008 R2 mit SP1 und Hyper-V  
 
--   Eine Kopie der Windows Server 2012-ISO-Datei  
+-   Eine Kopie von Windows Server 2012 ISO  
 
--   Eine Kopie der ISO-Datei für Windows 8  
+-   Eine Kopie von Windows 8 ISO  
 
 -   Microsoft Office 2010  
 
@@ -53,7 +53,7 @@ Die Kennwörter für die virtuellen Computer sollten wie folgt lauten:
 
 -   BUILTIN\Administrator: pass@word1  
 
--   Contoso\Administrator: pass@word1  
+-   Conto so\administrator: pass@word1  
 
 -   Alle anderen Konten: pass@word1  
 
@@ -95,12 +95,12 @@ Im Folgenden erstellen wir ein internes virtuelles Netzwerk mit dem Namen „ID_
 
 6.  Klicken Sie auf **OK** , um das virtuelle Netzwerk zu erstellen, und schließen Sie den Manager für virtuelle Netzwerke, oder klicken Sie auf **Übernehmen** zum Erstellen des virtuellen Netzwerks, und fahren Sie mithilfe des Managers für virtuelle Netzwerke fort.  
 
-### <a name="BKMK_Build"></a>Erstellen des Domänencontrollers  
-Erstellen Sie einen virtuellen Computer, der als der Domänencontroller (DC1) verwendet wird. Installieren Sie den virtuellen Computer mithilfe von Windows Server 2012-ISO, und nennen Sie sie in DC1.  
+### <a name="BKMK_Build"></a>Erstellen des Domänen Controllers  
+Erstellen Sie einen virtuellen Computer, der als der Domänencontroller (DC1) verwendet wird. Installieren Sie den virtuellen Computer mit Windows Server 2012 ISO, und nennen Sie ihn DC1.  
 
 ##### <a name="to-install-active-directory-domain-services"></a>So installieren Sie Active Directory-Domänendienste  
 
-1. Verbinden Sie den virtuellen Computer mit „ID_AD_Network“. Melden Sie sich auf DC1 als Administrator mit dem Kennwort <strong>pass@word1</strong>.  
+1. Verbinden Sie den virtuellen Computer mit „ID_AD_Network“. Melden Sie sich bei DC1 als Administrator mit dem Kennwort <strong>pass@word1</strong>an.  
 
 2. Klicken Sie im Server-Manager auf **Verwalten**und dann auf **Rollen und Features hinzufügen**.  
 
@@ -122,7 +122,7 @@ Erstellen Sie einen virtuellen Computer, der als der Domänencontroller (DC1) ve
 
 11. Klicken Sie auf der Seite **Bereitstellungskonfiguration** auf **Neue Gesamtstruktur hinzufügen**, geben Sie den Namen der Stammdomäne **contoso.com** ein, und klicken Sie dann auf **Weiter**.  
 
-12. Auf der **Domänencontrolleroptionen** Seite, wählen Sie die Domänen- und Gesamtstruktur-Funktionsebenen wie Windows Server 2012, geben Sie das DSRM-Kennwort <strong>pass@word1</strong>, und klicken Sie dann auf **Weiter**.  
+12. Wählen Sie auf der Seite **Domänen Controller Optionen** die Domänen-und Gesamtstruktur Funktionsebenen als Windows Server 2012 aus, geben Sie das DSRM-Kennwort <strong>pass@word1</strong>an, und klicken Sie dann auf **weiter**.  
 
 13. Klicken Sie auf der Seite **DNS-Optionen** auf **Weiter**.  
 
@@ -179,7 +179,7 @@ Erstellen Sie die folgenden Benutzer mithilfe des Active Directory-Verwaltungsce
 
 1.  Platzieren Sie den Cursor in der oberen rechten Ecke des Bildschirms, und klicken Sie auf das Suchsymbol. Geben Sie im Suchfeld **Gruppenrichtlinienverwaltung** ein, und klicken Sie auf **Gruppenrichtlinienverwaltung**.  
 
-2.  Erweitern Sie **Gesamtstruktur: contoso.com**, und erweitern Sie anschließend **Domänen**. Wechseln Sie zu **contoso.com**, erweitern Sie **(contoso.com)** , und wählen Sie dann **FileServerOU**aus. Mit der rechten Maustaste **erstellen Sie ein Gruppenrichtlinienobjekt in dieser Domäne, und hier**
+2.  Erweitern Sie **Gesamtstruktur: contoso.com**, und erweitern Sie anschließend **Domänen**. Wechseln Sie zu **contoso.com**, erweitern Sie **(contoso.com)** , und wählen Sie dann **FileServerOU**aus. Klicken Sie mit der rechten Maustaste auf **Create a GPO in dieser Domäne, und verknüpfen Sie Sie hier**
 
 3.  Geben Sie einen beschreibenden Namen für das Gruppenrichtlinienobjekt wie **FlexibleAccessGPO**ein, und klicken Sie dann auf **OK**.  
 
@@ -199,13 +199,13 @@ Erstellen Sie die folgenden Benutzer mithilfe des Active Directory-Verwaltungsce
     gpupdate /force  
     ```  
 
-### <a name="BKMK_FS1"></a>Erstellen des Dateiservers und AD RMS-Servers (FILE1)  
+### <a name="BKMK_FS1"></a>Erstellen des Dateiservers und AD RMS Servers (file1)  
 
-1. Erstellen Sie einen virtuellen Computer mit dem Namen "file1" aus dem Windows Server 2012-ISO-Datei.  
+1. Erstellen Sie einen virtuellen Computer mit dem Namen file1 aus der ISO-Datei von Windows Server 2012.  
 
 2. Verbinden Sie den virtuellen Computer mit „ID_AD_Network“.  
 
-3. Fügen Sie den virtuellen Computer der Domäne "contoso.com", und melden Sie sich bei "file1" als "Contoso\Administrator" mit dem Kennwort <strong>pass@word1</strong>.  
+3. Fügen Sie den virtuellen Computer der contoso.com-Domäne hinzu, und melden Sie sich dann mit dem Kennwort <strong>pass@word1</strong>bei file1 als condeso\administrator an.  
 
 #### <a name="install-file-services-resource-manager"></a>Installieren des Ressourcen-Managers für Dateiserver  
 
@@ -230,7 +230,7 @@ Erstellen Sie die folgenden Benutzer mithilfe des Active Directory-Verwaltungsce
 8.  Klicken Sie auf der Seite **Installationsfortschritt** auf **Schließen**.  
 
 #### <a name="install-the-microsoft-office-filter-packs-on-the-file-server"></a>Installieren der Microsoft Office Filter Packs auf dem Dateiserver  
-Sie sollten die Microsoft Office Filter Packs auf Windows Server 2012, um IFilters für ein größeres Array an Office-Dateien als das standardmäßig bereitgestellte ermöglichen installieren.  Windows Server 2012 keine IFilter für Microsoft Office-Dateien, die standardmäßig installiert, und die dateiklassifizierungsinfrastruktur verwendet IFilter zum Ausführen der Inhaltsanalyse.  
+Sie sollten die Microsoft Office Filter Packs auf Windows Server 2012 installieren, um IFilters für eine größere Anzahl von Office-Dateien zu aktivieren, als standardmäßig bereitgestellt werden.  Windows Server 2012 verfügt über keine IFilter für Microsoft Office Dateien, die standardmäßig installiert sind, und die Datei Klassifizierungs Infrastruktur verwendet IFilters zum Durchführen der Inhaltsanalyse.  
 
 Informationen zum Herunterladen und Installieren der IFilter finden Sie unter [Microsoft Office 2010 Filter Packs](https://go.microsoft.com/fwlink/?LinkID=234122).  
 
@@ -245,13 +245,13 @@ Beim Erstellen von Kontingenten und Dateibildschirmen haben Sie die Option, E-Ma
 
 3. Geben Sie auf der Registerkarte **E-Mail-Benachrichtigungen** unter „SMTP-Servername“ oder „IP-Adresse“ den Hostnamen oder die IP-Adresse für den SMTP-Server ein, der E-Mail-Benachrichtigungen weiterleiten soll.  
 
-4. Wenn Sie bestimmte Administratoren routinemäßig Kontingent- oder benachrichtigen Dateiprüfungsereignisse unter möchten **Standardadministratorempfänger**, geben Sie jede e-Mail-Adresse z. B. fileadmin@contoso.com. Verwenden Sie das Format account@domain, und verwenden Sie Semikolons zum Trennen mehrerer Konten.  
+4. Wenn Sie bestimmte Administratoren regelmäßig über Kontingent-oder Datei Prüfungs Ereignisse benachrichtigen möchten, geben Sie unter **Standard Administrator Empfänger**jede e-Mail-Adresse ein, z. b. fileadmin@contoso.com. Verwenden Sie das Format account@domain, und verwenden Sie Semikolons zum Trennen mehrerer Konten.  
 
 #### <a name="create-groups-on-file1"></a>Erstellen von Gruppen auf FILE1  
 
 ###### <a name="to-create-security-groups-on-file1"></a>So erstellen Sie Sicherheitsgruppen auf FILE1  
 
-1. Melden Sie sich bei "file1" als "Contoso\Administrator" mit dem Kennwort: <strong>pass@word1</strong>.  
+1. Melden Sie sich bei file1 als "Conto so\administrator" mit dem folgenden Kennwort an: <strong>pass@word1</strong>.  
 
 2. Fügen Sie „NT AUTHORITY\Authenticated“-Benutzer zur Gruppe **WinRMRemoteWMIUsers__** hinzu.  
 
@@ -261,7 +261,7 @@ Beim Erstellen von Kontingenten und Dateibildschirmen haben Sie die Option, E-Ma
 
 2.  Erstellen Sie die folgenden Dateien mit den angegebenen Details:  
 
-    -   **Finance Memo.docx**: Fügen Sie etwas finanztechnischen Text in das Dokument ein. Z. B. "die Geschäftsregeln aufstellen, wer auf Finanzdokumente zugreifen können, wurden geändert. Ausschließlich die Mitglieder der Gruppe 'FinanceExpert' können nun auf die Finanzdokumente zugreifen. Keine anderen Abteilungen oder Gruppen Zugriff haben. " Sie müssen die Auswirkung dieser Änderung bewerten, bevor Sie sie in Ihrer Umgebung implementieren. Stellen Sie sicher, dass in diesem Dokument in der Fußzeile jeder Seite „CONTOSO CONFIDENTIAL“ steht.  
+    -   **Finance Memo.docx**: Fügen Sie etwas finanztechnischen Text in das Dokument ein. "Die Geschäftsregeln für den Zugriff auf Finanzdokumente haben sich z. b. geändert. Ausschließlich die Mitglieder der Gruppe 'FinanceExpert' können nun auf die Finanzdokumente zugreifen. Keine anderen Abteilungen oder Gruppen haben Zugriff. " Sie müssen die Auswirkung dieser Änderung bewerten, bevor Sie sie in Ihrer Umgebung implementieren. Stellen Sie sicher, dass in diesem Dokument in der Fußzeile jeder Seite „CONTOSO CONFIDENTIAL“ steht.  
 
     -   **Request for Approval to Hire.docx**: Erstellen Sie ein Formular in diesem Dokument, das Bewerberinformationen erfasst. Im Dokument müssen folgende Felder vorhanden sein: **Name des Bewerbers, Sozialversicherungsnummer, Position, vorgeschlagenes Gehalt, Startdatum, Name des Vorgesetzten, Abteilung**. Fügen Sie einen zusätzlichen Abschnitt in das Dokument ein, das über ein Formular für **Unterschrift des Vorgesetzten, genehmigtes Gehalt, Bestätigung des Angebots** und **Status des Angebots** verfügt.   
         Aktivieren Sie das Dokument für die Rechteverwaltung.  
@@ -270,9 +270,9 @@ Beim Erstellen von Kontingenten und Dateibildschirmen haben Sie die Option, E-Ma
 
     -   **Word Document2.docx**: Fügen Sie dem Dokument Testinhalte hinzu.  
 
-    -   **Workbook1.xlsx**  
+    -   **Workbook1. xlsx**  
 
-    -   **Workbook2.xlsx**  
+    -   **Workbook2. xlsx**  
 
     -   Erstellen Sie auf dem Desktop einen Ordner mit dem Namen „Reguläre Ausdrücke“. Erstellen Sie ein Textdokument unter dem Ordner mit dem Namen **RegEx-SSN**. Geben Sie den folgenden Inhalt in die Datei ein, und speichern und schließen Sie anschließend die Datei:   
         ^(?!000)([0-7]\d{2}|7([0-7]\d|7[012]))([ -]?)(?!00)\d\d\3(?!0000)\d{4}$  
@@ -329,13 +329,13 @@ Fügen Sie die Active Directory-Rechteverwaltungsdienste (AD RMS) und alle erfor
     > [!NOTE]  
     > Die Verwendung der internen Windows-Datenbank empfiehlt sich nur für Testumgebungen, da sie maximal einen Server im AD RMS-Cluster unterstützt. Produktionsbereitstellungen sollten einen separaten Datenbankserver verwenden.  
 
-19. Auf der **Dienstkonto** Bildschirm in **Domänenbenutzerkonto**, klicken Sie auf **geben** und geben Sie dann den Benutzernamen ( **"contoso\rms"** ), und Kennwort (<strong>pass@word1</strong>), und klicken Sie auf **OK**, und klicken Sie dann auf **Weiter**.  
+19. Klicken Sie auf dem Bildschirm **Dienst Konto** unter **Domänen Benutzerkonto**auf **angeben** , geben Sie den Benutzernamen ( **"contoso\rms"** ) und das Kennwort (<strong>pass@word1</strong>) an, und klicken Sie dann auf **OK**und dann auf **weiter**.  
 
 20. Klicken Sie auf dem Bildschirm **Kryptografiemodus** auf **Kryptografiemodus 2**.  
 
 21. Klicken Sie auf dem Bildschirm **Clusterschlüsselspeicher** auf **Weiter**.  
 
-22. Auf der **Clusterschlüsselkennwort** Bildschirm in der **Kennwort** und **Bestätigungskennwort** Felder, geben <strong>pass@word1</strong>, und klicken Sie dann auf **Weiter**.  
+22. Geben Sie auf dem Bildschirm **Cluster Schlüssel Kennwort** in den Feldern **Kennwort** und **Kennwort bestätigen** <strong>pass@word1</strong>ein, und klicken Sie dann auf **weiter**.  
 
 23. Stellen Sie auf dem Bildschirm **Clusterwebsite** sicher, dass **Standardwebsite** ausgewählt ist, und klicken Sie dann auf **Weiter**.  
 
@@ -347,7 +347,7 @@ Fügen Sie die Active Directory-Rechteverwaltungsdienste (AD RMS) und alle erfor
 
 27. Klicken Sie auf dem Bildschirm **Bestätigung** auf **Installieren**.  
 
-28. Klicken Sie auf dem Bildschirm **Ergebnisse** auf **Schließen**, und klicken Sie dann auf **Schließen** im Bildschirm **Installationsstatus**. Nach Abschluss des Vorgangs, melden Sie sich ab und melden Sie sich als "contoso\rms" mit dem angegebenen Kennwort (<strong>pass@word1</strong>).  
+28. Klicken Sie auf dem Bildschirm **Ergebnisse** auf **Schließen**, und klicken Sie dann auf **Schließen** im Bildschirm **Installationsstatus**. Melden Sie sich ab, und melden Sie sich als "" contoso\rms "" mithilfe des angegebenen Kennworts (<strong>pass@word1</strong>) an.  
 
 29. Starten Sie die AD RMS-Konsole, und wechseln Sie zu **Vorlagen für Benutzerrechterichtlinien**.  
 
@@ -363,13 +363,13 @@ Fügen Sie die Active Directory-Rechteverwaltungsdienste (AD RMS) und alle erfor
 
     Klicken Sie auf **Hinzufügen** und dann auf **Weiter**.  
 
-31. Klicken Sie im Abschnitt Benutzer und Rechte auf **Benutzer und Rechte**, klicken Sie auf **hinzufügen**, Typ <strong>financeadmin@contoso.com</strong>, und klicken Sie auf **OK**.  
+31. Klicken Sie im Abschnitt Benutzer und Rechte auf **Benutzer und Rechte**, klicken Sie auf **Hinzufügen**, geben Sie <strong>financeadmin@contoso.com</strong>ein, und klicken Sie dann auf **OK**.  
 
 32. Wählen Sie **Vollzugriff**aus, und lassen Sie **Besitzer (Autor) permanenten Vollzugriff gewähren** ausgewählt.  
 
 33. Klicken Sie sich durch die verbleibenden Registerkarten ohne Änderungen, und klicken Sie dann auf **Beenden**. Melden Sie sich als %%amp;quot;CONTOSO\Administrator%%amp;quot; an.  
 
-34. Navigieren Sie zu dem Ordner C:\inetpub\wwwroot\\_wmcs\certification, wählen Sie die Datei "servercertification.asmx", und fügen Sie authentifizierte Benutzer verfügen über Lese-und Schreibberechtigungen für die Datei hinzu.  
+34. Navigieren Sie zum Ordner c:\Inetpub\wwwroot @ no__t-0_wmcs\certification, wählen Sie die Datei ServerCertification. asmx aus, und fügen Sie authentifizierte Benutzer hinzu, um Lese-und Schreibberechtigungen für die Datei zu erhalten.  
 
 35. Öffnen Sie Windows PowerShell, und führen Sie `Get-FsrmRmsTemplate`aus. Stellen Sie sicher, dass Sie die von Ihnen in den vorherigen Schritten erstellte RMS-Vorlage in dieser Prozedur mit diesem Befehl anzeigen können.  
 
@@ -388,7 +388,7 @@ Anstelle den Assistenten zum Hinzufügen von Rollen und Features im Server-Manag
 
 ###### <a name="to-install-and-configure-an-ad-rms-cluster-in-windows-server-2012-using-windows-powershell"></a>So installieren und konfigurieren Sie einen AD RMS-Cluster in Windows Server 2012 mithilfe der Windows PowerShell  
 
-1. Melden Sie sich als "Contoso\Administrator" an, mit dem Kennwort: <strong>pass@word1</strong>.  
+1. Melden Sie sich als "condeso\administrator" mit dem folgenden Kennwort an: <strong>pass@word1</strong>.  
 
    > [!IMPORTANT]  
    > Damit die AD RMS-Serverrolle installiert werden kann, muss dem Installationskonto (in diesem Fall „CONTOSO\Administrator“) sowohl eine Mitgliedschaft auf die logische Administratorengruppe auf dem Servercomputer, auf dem AD RMS installiert wird, als auch eine Mitgliedschaft in der Gruppe „Organisations-Admins“ in Active Directory gewährt werden.  
@@ -475,7 +475,7 @@ Anstelle den Assistenten zum Hinzufügen von Rollen und Features im Server-Manag
 
    Geben Sie „Y“ ein, wenn Sie vom Cmdlet aufgefordert werden, den Start der Installation zu bestätigen.  
 
-7. Melden Sie sich als "Contoso\Administrator" an, und melden Sie sich auf als "contoso\rms" mit dem angegebenen Kennwort ("pass@word1").  
+7. Melden Sie sich als "CONTOSO\Administrator" ab, und melden Sie sich als "contoso\rms" mithilfe des angegebenen Kennworts ("pass@word1") an.  
 
    > [!IMPORTANT]  
    > Damit der AD RMS-Server das Konto verwalten kann, auf dem Sie angemeldet sind und zum Verwalten des Servers (in diesem Fall „CONTOSO\RMS“) verwenden, muss ihm die Mitgliedschaft in der lokalen Administratorgruppe auf dem AD RMS-Servercomputer sowie die Mitgliedschaft in der Gruppe „Organisations-Admins“ in Active Directory gewährt werden.  
@@ -536,11 +536,11 @@ Konfigurieren Sie Microsoft Exchange Server auf diesem Computer. Weitere Informa
 
 4. Erstellen Sie eine Verknüpfung zu Outlook auf dem Desktop „contoso\administrator“.  
 
-5. Öffnen Sie Outlook, und beheben Sie alle "erstmals gestarteten" Nachrichten.  
+5. Öffnen Sie Outlook, und behandeln Sie alle "erst malig gestarteten" Nachrichten.  
 
 6. Löschen Sie jede generierte Testnachricht.  
 
-7. Erstellen Sie eine neue Verknüpfung auf dem Desktop für alle Benutzer auf dem virtuellen Clientcomputer, die auf zeigt \\\FILE1\Finance Dokumente.  
+7. Erstellen Sie für alle Benutzer auf dem virtuellen Client Computer, der auf \\ \ FILE1\Finance-Dokumente verweist, einen neuen Kurzschluss auf dem Desktop.  
 
 8. Nehmen Sie ggf. einen Neustart vor.  
 
@@ -552,11 +552,11 @@ Konfigurieren Sie Microsoft Exchange Server auf diesem Computer. Weitere Informa
 
     -   Wert: DWORD  
 
-## <a name="BKMK_CF"></a>Setup einer testumgebung für die Bereitstellung von Ansprüchen über Gesamtstrukturen-Szenario  
+## <a name="BKMK_CF"></a>Lab-Einrichtung für das Gesamtstruktur übergreifende Bereitstellen von Ansprüchen  
 
-### <a name="BKMK_2.1"></a>Erstellen Sie einen virtuellen Computer für DC2  
+### <a name="BKMK_2.1"></a>Erstellen eines virtuellen Computers für DC2  
 
--   Erstellen Sie einen virtuellen Computer, von der Windows Server 2012-ISO-Datei.  
+-   Erstellen Sie einen virtuellen Computer aus der Windows Server 2012-ISO-Datei.  
 
 -   Erstellen Sie den virtuellen Computer mit dem Namen „DC2“.  
 
@@ -567,11 +567,11 @@ Konfigurieren Sie Microsoft Exchange Server auf diesem Computer. Weitere Informa
 >   
 > Sämtliche virtuelle Computerimages (Server und Clients) müssen erneut konfiguriert werden, um eine statische IP-Version 4-Adresse (IPv4) und DNS-Clienteinstellungen (Domain Name System) zu verwenden. Weitere Informationen finden Sie unter [Configure a DNS Client for Static IP Address](https://go.microsoft.com/fwlink/?LinkId=150952).  
 
-### <a name="BKMK_2.2"></a>Richten Sie eine neue Gesamtstruktur mit dem Namen "adatum.com"  
+### <a name="BKMK_2.2"></a>Einrichten einer neuen Gesamtstruktur namens adatum.com  
 
 ##### <a name="to-install-active-directory-domain-services"></a>So installieren Sie Active Directory-Domänendienste  
 
-1. Verbinden Sie den virtuellen Computer mit „ID_AD_Network“. Melden Sie sich an den DC2 als Administrator mit dem Kennwort <strong>Pass@word1</strong>.  
+1. Verbinden Sie den virtuellen Computer mit „ID_AD_Network“. Melden Sie sich mit dem Kennwort <strong>Pass@word1</strong>beim DC2 als Administrator an.  
 
 2. Klicken Sie im Server-Manager auf **Verwalten**und dann auf **Rollen und Features hinzufügen**.  
 
@@ -596,7 +596,7 @@ Konfigurieren Sie Microsoft Exchange Server auf diesem Computer. Weitere Informa
 
 11. Klicken Sie auf der Seite **Bereitstellungskonfiguration** auf **Neue Gesamtstruktur hinzufügen**, geben Sie den Namen der Stammdomäne **adatum.com** ein, und klicken Sie dann auf **Weiter**.  
 
-12. Auf der **Domänencontrolleroptionen** Seite, wählen Sie die Domänen- und Gesamtstruktur-Funktionsebenen wie Windows Server 2012, geben Sie das DSRM-Kennwort <strong>pass@word1</strong>, und klicken Sie dann auf **Weiter**.  
+12. Wählen Sie auf der Seite **Domänen Controller Optionen** die Domänen-und Gesamtstruktur Funktionsebenen als Windows Server 2012 aus, geben Sie das DSRM-Kennwort <strong>pass@word1</strong>an, und klicken Sie dann auf **weiter**.  
 
 13. Klicken Sie auf der Seite **DNS-Optionen** auf **Weiter**.  
 
@@ -620,7 +620,7 @@ Konfigurieren Sie Microsoft Exchange Server auf diesem Computer. Weitere Informa
 >   
 > Wenn diese Befehle fehlerfrei ausgeführt werden, können die Gesamtstrukturen miteinander kommunizieren. Weitere Informationen über nslookup-Fehler finden Sie im Problembehandlungsabschnitt im Thema [Using NSlookup.exe](https://support.microsoft.com/kb/200525).  
 
-### <a name="BKMK_2.22"></a>Legen Sie "contoso.com" als eine vertrauenswürdige Gesamtstruktur "adatum.com"  
+### <a name="BKMK_2.22"></a>Legen Sie contoso.com als vertrauende Gesamtstruktur auf adatum.com fest.  
 In diesem Schritt erstellen Sie eine Vertrauensstellung zwischen der Adatum Corporation- und der Contoso, Ltd.-Website.  
 
 ##### <a name="to-set-contoso-as-a-trusting-forest-to-adatum"></a>So legen Sie Contoso als eine vertrauenswürdige Gesamtstruktur auf Adatum fest  
@@ -641,8 +641,8 @@ In diesem Schritt erstellen Sie eine Vertrauensstellung zwischen der Adatum Corp
 
 8.  Folgen Sie den weiteren Anweisungen des Assistenten.  
 
-### <a name="BKMK_2.4"></a>Erstellen Sie zusätzliche Benutzer in der Adatum-Gesamtstruktur  
-Erstellen Sie den Benutzer Jeff Low mit dem Kennwort <strong>pass@word1</strong>, und weisen Sie das "Company"-Attribut mit dem Wert **Adatum**.  
+### <a name="BKMK_2.4"></a>Erstellen zusätzlicher Benutzer in der Adatum-Gesamtstruktur  
+Erstellen Sie den Benutzer Jeff Low mit dem Kennwort <strong>pass@word1</strong>, und weisen Sie das Company-Attribut dem Wert **adatum**zu.  
 
 ##### <a name="to-create-a-user-with-the-company-attribute"></a>So erstellen Sie einen Benutzer mit dem „Company“-Attribut  
 
@@ -662,7 +662,7 @@ Erstellen Sie den Benutzer Jeff Low mit dem Kennwort <strong>pass@word1</strong>
 
     ```  
 
-### <a name="BKMK_2.5"></a>Erstellen Sie den Anspruchstyp "Unternehmen" auf "adataum.com"  
+### <a name="BKMK_2.5"></a>Erstellen des Anspruchs Typs Company auf adataum.com  
 
 ##### <a name="to-create-a-claim-type-by-using-windows-powershell"></a>So erstellen Sie einen Anspruchstyp mithilfe der Windows PowerShell  
 
@@ -683,7 +683,7 @@ Erstellen Sie den Benutzer Jeff Low mit dem Kennwort <strong>pass@word1</strong>
 
     ```  
 
-### <a name="BKMK_2.55"></a>Aktivieren der Ressourceneigenschaft "Company" auf "contoso.com"  
+### <a name="BKMK_2.55"></a>Aktivieren der Eigenschaft "Unternehmensressourcen" auf contoso.com  
 
 ##### <a name="to-enable-the-company-resource-property-on-contosocom"></a>So aktivieren Sie die Ressourceneigenschaft „Company“ auf „contoso.com“  
 
@@ -697,7 +697,7 @@ Erstellen Sie den Benutzer Jeff Low mit dem Kennwort <strong>pass@word1</strong>
 
 5.  Wählen Sie **Unternehmen** aus der Liste **Ressourceneigenschaften** aus, und klicken Sie mit der rechten Maustaste auf **Aktivieren**, und wählen Sie die Option aus.  
 
-### <a name="BKMK_2.6"></a>Aktivieren der dynamischen Zugriffssteuerung auf "adatum.com"  
+### <a name="BKMK_2.6"></a>Dynamische Access Control auf adatum.com aktivieren  
 
 ##### <a name="to-enable-dynamic-access-control-for-adatumcom"></a>So aktivieren Sie die dynamische Zugriffssteuerung für „adatum.com“  
 
@@ -717,7 +717,7 @@ Erstellen Sie den Benutzer Jeff Low mit dem Kennwort <strong>pass@word1</strong>
     gpupdate /force  
     ```  
 
-### <a name="BKMK_2.8"></a>Erstellen Sie den Anspruchstyp "Unternehmen" auf "contoso.com"  
+### <a name="BKMK_2.8"></a>Erstellen des Anspruchs Typs Company auf contoso.com  
 
 ##### <a name="to-create-a-claim-type-by-using-windows-powershell"></a>So erstellen Sie einen Anspruchstyp mithilfe der Windows PowerShell  
 
@@ -734,7 +734,7 @@ Erstellen Sie den Benutzer Jeff Low mit dem Kennwort <strong>pass@word1</strong>
 
     ```  
 
-### <a name="BKMK_2.9"></a>Erstellen Sie die zentrale Zugriffsregel  
+### <a name="BKMK_2.9"></a>Erstellen der zentralen Zugriffs Regel  
 
 ##### <a name="to-create-a-central-access-rule"></a>So erstellen Sie eine zentrale Zugriffsregel  
 
@@ -752,7 +752,7 @@ Erstellen Sie den Benutzer Jeff Low mit dem Kennwort <strong>pass@word1</strong>
 
 7. Klicken Sie dreimal auf **OK** zum Abschließen des Vorgangs, und kehren Sie zum Active Directory-Verwaltungscenter zurück.  
 
-   ![Lösungshandbücher](media/Appendix-B--Setting-Up-the-Test-Environment/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
+   ![solution Guides](media/Appendix-B--Setting-Up-the-Test-Environment/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
 
    Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
 
@@ -765,7 +765,7 @@ Erstellen Sie den Benutzer Jeff Low mit dem Kennwort <strong>pass@word1</strong>
    -Server:"contoso.com" `  
    ```  
 
-### <a name="BKMK_2.10"></a>Erstellen Sie die zentrale Zugriffsrichtlinie  
+### <a name="BKMK_2.10"></a>Erstellen der zentralen Zugriffs Richtlinie  
 
 ##### <a name="to-create-a-central-access-policy"></a>So erstellen Sie eine zentrale Zugriffsrichtlinie  
 
@@ -779,22 +779,22 @@ Erstellen Sie den Benutzer Jeff Low mit dem Kennwort <strong>pass@word1</strong>
     -Member "AdatumEmployeeAccessRule" `  
     ```  
 
-### <a name="BKMK_2.11"></a>Veröffentlichen der neuen Richtlinie über Gruppenrichtlinien  
+### <a name="BKMK_2.11"></a>Veröffentlichen der neuen Richtlinie über Gruppenrichtlinie  
 
 ##### <a name="to-apply-the-central-access-policy-across-file-servers-through-group-policy"></a>So wenden Sie die zentrale Zugriffsrichtlinie dateiserverübergreifend durch die Gruppenrichtlinie an  
 
-1.  Geben Sie auf dem Startbildschirm **** **Verwaltung**ein, und klicken Sie auf der Suchleiste **** auf **Einstellungen**. Klicken Sie in den Ergebnissen für **Einstellungen** auf **Verwaltung**. Öffnen Sie die Gruppenrichtlinien-Verwaltungskonsole im Ordner **Verwaltung** .  
+1.  Geben Sie auf dem Startbildschirm**Verwaltung**ein, und klicken Sie auf der Suchleiste auf **Einstellungen**. Klicken Sie in den Ergebnissen für **Einstellungen** auf **Verwaltung**. Öffnen Sie die Gruppenrichtlinien-Verwaltungskonsole im Ordner **Verwaltung** .  
 
     > [!TIP]  
     > Wenn die Einstellung **Verwaltungstools anzeigen** deaktiviert ist, werden der Ordner „Verwaltung“ und sein Inhalt nicht in den Ergebnissen für **Einstellungen** angezeigt.  
 
-2.  Mit der rechten Maustaste in die Domäne "contoso.com", klicken Sie auf **erstellen Sie ein Gruppenrichtlinienobjekt in dieser Domäne, und hier**  
+2.  Klicken Sie mit der rechten Maustaste auf die Domäne contoso.com, klicken Sie auf Gruppenrichtlinien Objekt **in dieser Domäne erstellen, und verknüpfen Sie es** .  
 
 3.  Geben Sie einen beschreibenden Namen für das Gruppenrichtlinienobjekt wie **AdatumAccessGPO** ein, und klicken Sie dann auf **OK**.  
 
 ##### <a name="to-apply-the-central-access-policy-to-the-file-server-through-group-policy"></a>So wenden Sie die zentrale Zugriffsrichtlinie auf den Dateiserver durch die Gruppenrichtlinie an  
 
-1.  Geben Sie **Gruppenrichtlinienverwaltung** auf dem Startbildschirm **** im Feld **Suche** ein. Öffnen Sie **Gruppenrichtlinienverwaltung** im Ordner „Verwaltung“.  
+1.  Geben Sie **Gruppenrichtlinienverwaltung** auf dem Startbildschirm im Feld **Suche** ein. Öffnen Sie **Gruppenrichtlinienverwaltung** im Ordner „Verwaltung“.  
 
     > [!TIP]  
     > Wenn die Einstellung **Verwaltungstools anzeigen** deaktiviert ist, werden der Ordner „Verwaltung“ und sein Inhalt nicht in den Ergebnissen für „Einstellungen“ angezeigt.  
@@ -811,17 +811,17 @@ Erstellen Sie den Benutzer Jeff Low mit dem Kennwort <strong>pass@word1</strong>
 
 7.  Schließen Sie den Gruppenrichtlinienverwaltungs-Editor. Sie haben nun der Gruppenrichtlinie die zentrale Zugriffsrichtlinie hinzugefügt.  
 
-### <a name="BKMK_2.12"></a>Erstellen Sie den Ordner "Ergebnis" auf dem Dateiserver  
+### <a name="BKMK_2.12"></a>Erstellen des Ordners "Ergebnis" auf dem Dateiserver  
 Erstellen Sie ein neues NTFS-Volume auf „FILE1“, und erstellen Sie den folgenden Ordner: D:\Ergebnis.  
 
 > [!NOTE]  
 > Zentrale Zugriffsrichtlinien sind auf dem System oder Startvolume C: standardmäßig nicht aktiviert.  
 
-### <a name="BKMK_2.13"></a>Festlegen von Klassifizierung, und wenden Sie die zentrale Zugriffsrichtlinie auf den Ordner "Ergebnis"  
+### <a name="BKMK_2.13"></a>Festlegen der Klassifizierung und Anwenden der zentralen Zugriffs Richtlinie auf den Ordner "Ergebnis"  
 
 ##### <a name="to-assign-the-central-access-policy-on-the-file-server"></a>So weisen Sie die zentrale Zugriffsrichtlinie auf dem Dateiserver zu  
 
-1. Stellen Sie im Hyper-V-Manager eine Verbindung mit dem Server „FILE1“ her. Melden Sie sich an den Server mit "Contoso\Administrator" mit dem Kennwort <strong>pass@word1</strong>.  
+1. Stellen Sie im Hyper-V-Manager eine Verbindung mit dem Server „FILE1“ her. Melden Sie sich mit dem Kennwort <strong>pass@word1</strong>beim Server an.  
 
 2. Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, und geben Sie Folgendes ein: **gpupdate /force**. Dadurch wird sichergestellt, dass Ihre Gruppenrichtlinienänderungen auf Ihrem Server wirksam werden.  
 

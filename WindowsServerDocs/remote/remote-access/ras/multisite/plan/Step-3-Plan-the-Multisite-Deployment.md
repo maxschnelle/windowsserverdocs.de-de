@@ -1,9 +1,9 @@
 ---
-title: Schritt 3-Plan der Bereitstellung für mehrere Standorte
-description: Dieses Thema ist Teil des Handbuchs bereitstellen mehrere RAS-Server in einer Bereitstellung für mehrere Standorte in Windows Server 2016.
+title: Schritt 3 Planen der Bereitstellung für mehrere Standorte
+description: Dieses Thema ist Teil des Handbuchs Bereitstellen mehrerer Remote Zugriffs Server in einer Bereitstellung mit mehreren Standorten in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,161 +12,161 @@ ms.topic: article
 ms.assetid: e5ea9d22-a503-4ed4-96b3-0ee2ccf4fd17
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 973ef70614f056adac1463918cc425d82b21ac62
-ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
+ms.openlocfilehash: 1320a5c8b8c267f270dae43e764533d9289006a4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67792313"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404461"
 ---
-# <a name="step-3-plan-the-multisite-deployment"></a>Schritt 3-Plan der Bereitstellung für mehrere Standorte
+# <a name="step-3-plan-the-multisite-deployment"></a>Schritt 3 Planen der Bereitstellung für mehrere Standorte
 
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Planen Sie nach der Planung der Infrastruktur für mehrere Standorte ist zusätzlichen Zertifikate benötigt, wie Clientcomputer Einstiegspunkten und IPv6-Adressen zugewiesen werden, in der Bereitstellung auswählen.  
+Planen Sie nach dem Planen der Infrastruktur für mehrere Standorte alle zusätzlichen Zertifikat Anforderungen, die Auswahl von Einstiegspunkten durch Client Computer und die in der Bereitstellung zugewiesenen IPv6-Adressen.  
 
-Die folgenden Abschnitte enthalten ausführliche Informationen zur Planung.
+In den folgenden Abschnitten finden Sie ausführliche Informationen zur Planung.
   
-## <a name="bkmk_3_1_IPHTTPS"></a>3.1 Planen der IP-HTTPS-Zertifikate  
-Wenn Sie die Einstiegspunkte konfigurieren, konfigurieren Sie jeden Einstiegspunkt mit einer bestimmten ConnectTo-Adresse. Die IP-HTTPS-Zertifikat für jeden Einstiegspunkt muss die ConnectTo-Adresse übereinstimmen. Beachten Sie Folgendes ein, wenn Sie das Zertifikat zu erhalten:  
+## <a name="bkmk_3_1_IPHTTPS"></a>3,1 Planen von IP-HTTPS-Zertifikaten  
+Wenn Sie die Einstiegspunkte konfigurieren, konfigurieren Sie jeden Einstiegspunkt mit einer bestimmten ConnectTo-Adresse. Das IP-HTTPS-Zertifikat für jeden Einstiegspunkt muss der ConnectTo-Adresse entsprechen. Beachten Sie beim Erhalt des Zertifikats Folgendes:  
   
 -   Sie können keine selbstsignierten Zertifikate in einer Bereitstellung für mehrere Standorte verwenden.  
   
 -   Die Verwendung einer öffentlichen Zertifizierungsstelle wird empfohlen, damit Zertifikatsperrlisten schneller verfügbar sind.  
   
--   Geben Sie im Feld Antragsteller die IPv4-Adresse des externen Adapters des Remotezugriffsservers (wenn die ConnectTo-Adresse als eine IP-Adresse und DNS-Name nicht angegeben wurde), oder die FQDN der IP-HTTPS-URL.  
+-   Geben Sie im Feld Betreff entweder die IPv4-Adresse des externen Adapters des Remote Zugriffs Servers an (wenn die ConnectTo-Adresse als IP-Adresse und nicht als DNS-Name angegeben wurde), oder geben Sie den voll qualifizierten Namen der IP-HTTPS-URL an.  
   
--   Der allgemeine Name des Zertifikats sollte der Name der IP-HTTPS-Website übereinstimmen. Verwenden Sie eine Platzhalter-URL mit dem ConnectTo DNS-Namen übereinstimmt, wird ebenfalls unterstützt.  
+-   Der allgemeine Name des Zertifikats sollte dem Namen der IP-HTTPS-Website entsprechen. Die Verwendung einer Platzhalter-URL, die dem Namen des ConnectTo-DNS entspricht, wird ebenfalls unterstützt.  
   
--   IP-HTTPS-Zertifikaten können Platzhalter in den Antragstellernamen verwenden. Das gleiche Zertifikat mit Platzhalterzeichen kann verwendet werden, für alle Einstiegspunkte.  
+-   Bei IP-HTTPS-Zertifikaten können Platzhalter im Antragsteller Namen verwendet werden. Das gleiche Platzhalter Zertifikat kann für alle Einstiegspunkte verwendet werden.  
   
 -   Geben Sie im Feld %%amp;quot;Erweiterte Schlüsselverwendung%%amp;quot; die Serverauthentifizierungs-Objektkennung (OID) an.  
   
--   Wenn Sie Clientcomputern mit Windows 7 in der Bereitstellung mit mehreren Standorten unterstützen, geben Sie im Feld Sperrlisten-Verteilungspunkte einen Zertifikatsperrlisten-Verteilungspunkt, der von DirectAccess-Clients zugänglich ist, die mit dem Internet verbunden sind. Dies ist nicht erforderlich, damit Clients mit Windows 8 (standardmäßig die Überprüfung der Zertifikatsperrlisten-Sperrung für IP-HTTPS auf diesen Clients deaktiviert ist).  
+-   Wenn Sie Client Computer unter Windows 7 in der Bereitstellung für mehrere Standorte unterstützen, geben Sie im Feld CRL-Verteilungs Punkte einen Zertifikat Sperr Listen-Verteilungs Punkt an, auf den DirectAccess-Clients, die mit dem Internet verbunden sind, zugreifen können. Dies ist für Clients, auf denen Windows 8 ausgeführt wird, nicht erforderlich (Standardmäßig ist die CRL-Sperr Überprüfung für IP-HTTPS auf diesen Clients deaktiviert).  
   
 -   Das IP-HTTPS-Zertifikat muss einen privaten Schlüssel enthalten.  
   
--   Die IP-HTTPS-Zertifikat muss direkt in den persönlichen Speicher des Computers und des Benutzers nicht importiert werden.  
+-   Das IP-HTTPS-Zertifikat muss direkt in den persönlichen Speicher des Computers und nicht in den Benutzer importiert werden.  
   
-## <a name="bkmk_3_2_NLS"></a>3.2 Planen des Netzwerkadressenservers  
-Der Netzwerkadressenserver kann auf dem RAS-Server oder auf einem anderen Server in Ihrer Organisation gehostet werden. Wenn Sie den Netzwerkadressenserver auf dem RAS-Server hosten, wird die Website automatisch erstellt, beim Bereitstellen von Remotezugriff. Wenn Sie den Netzwerkadressenserver auf einem anderen Server mit einem Windows-Betriebssystem in Ihrer Organisation hosten, müssen Sie sicherstellen, dass Internet Information Services (IIS) installiert ist, um die Website zu erstellen.  
+## <a name="bkmk_3_2_NLS"></a>3,2 Planen des Netzwerkadressen Servers  
+Die Netzwerkadressen Server-Website kann auf dem Remote Zugriffs Server oder einem anderen Server in Ihrer Organisation gehostet werden. Wenn Sie den Netzwerkadressen Server auf dem Remote Zugriffs Server hosten, wird die Website automatisch erstellt, wenn Sie den Remote Zugriff bereitstellen. Wenn Sie den Netzwerkadressen Server auf einem anderen Server hosten, auf dem ein Windows-Betriebssystem in Ihrer Organisation ausgeführt wird, müssen Sie sicherstellen, dass Internetinformationsdienste (IIS) installiert ist, um die Website zu erstellen.  
   
-### <a name="321-certificate-requirements-for-the-network-location-server"></a>3.2.1-zertifikatanforderungen für den Netzwerkadressenserver  
-Stellen Sie sicher, dass die Netzwerkadressenserver-Website die folgenden Anforderungen für die zertifikatbereitstellung erfüllt:  
+### <a name="321-certificate-requirements-for-the-network-location-server"></a>3.2.1 Zertifikat Anforderungen für den Netzwerkadressen Server  
+Stellen Sie sicher, dass die Netzwerkadressen Server-Website die folgenden Anforderungen für die Zertifikat Bereitstellung erfüllt:  
   
--   Es muss ein HTTPS-Serverzertifikat.  
+-   Hierfür ist ein HTTPS-Serverzertifikat erforderlich.  
   
--   Wenn der Netzwerkadressenserver auf dem RAS-Server befindet, und Sie ein selbstsigniertes Zertifikat verwenden, bei der Bereitstellung der RAS-Servers ausgewählt haben, müssen Sie die Einzelserver-Bereitstellung, um ein von einer internen Zertifizierungsstelle ausgestelltes Zertifikat verwenden konfigurieren.  
+-   Wenn sich der Netzwerkadressen Server auf dem RAS-Server befindet und Sie die Verwendung eines selbst signierten Zertifikats bei der Bereitstellung des einzelnen RAS-Servers ausgewählt haben, müssen Sie die Bereitstellung auf einem einzelnen Server so konfigurieren, dass ein von einer internen Zertifizierungsstelle ausgestelltes Zertifikat verwendet wird.  
   
 -   DirectAccess-Clientcomputer müssen der Zertifizierungsstelle vertrauen, die das Serverzertifikat zur Netzwerkadressenserver-Website ausgegeben hat.  
   
--   DirectAccess-Clientcomputer, auf dem internen Netzwerk müssen den Namen der Netzwerkadressenserver-Website auflösen können.  
+-   DirectAccess-Client Computer im internen Netzwerk müssen in der Lage sein, den Namen der Netzwerkadressen Server-Website aufzulösen.  
   
--   Der Netzwerkadressenserver-Website muss auf Computern, auf dem internen Netzwerk hoch verfügbar sein.  
+-   Die Netzwerkadressen Server-Website muss für Computer im internen Netzwerk hoch verfügbar sein.  
   
 -   Der Netzwerkadressenserver darf nicht für DirectAccess-Clientcomputer auf dem internen Netzwerk erreichbar sein.  
   
--   Das Serverzertifikat muss anhand einer (Certificate Revocation List, CRL) überprüft werden.  
+-   Das Serverzertifikat muss anhand einer Zertifikat Sperr Liste (CRL) überprüft werden.  
   
--   Platzhalterzertifikate werden nicht unterstützt, wenn der Netzwerkadressenserver auf dem RAS-Server gehostet wird.  
+-   Platzhalter Zertifikate werden nicht unterstützt, wenn der Netzwerkadressen Server auf dem Remote Zugriffs Server gehostet wird.  
   
-Wenn Sie das Websitezertifikat für den Netzwerkadressenserver verwenden zu erhalten, beachten Sie Folgendes:  
+Beachten Sie Folgendes, wenn Sie das für den Netzwerkadressen Server zu verwendende Website Zertifikat abrufen:  
   
-1.  Im Feld Antragsteller muss eine IP-Adresse der Intranetschnittstelle des Netzwerkadressenservers oder der FQDN der Netzwerkadressen-URL angegeben sein. Beachten Sie, dass Sie keine IP-Adresse angeben sollten, wenn der Netzwerkadressenserver auf dem RAS-Server gehostet wird. Dies ist daran, dass der Netzwerkadressenserver den gleichen Antragstellernamen für alle Einstiegspunkte verwenden muss und nicht alle Einstiegspunkte die gleiche IP-Adresse.  
+1.  Im Feld Antragsteller muss eine IP-Adresse der Intranetschnittstelle des Netzwerkadressenservers oder der FQDN der Netzwerkadressen-URL angegeben sein. Beachten Sie, dass Sie keine IP-Adresse angeben sollten, wenn der Netzwerkadressen Server auf dem Remote Zugriffs Server gehostet wird. Dies liegt daran, dass der Netzwerkadressen Server den gleichen Antragsteller Namen für alle Einstiegspunkte verwenden muss und nicht alle Einstiegspunkte dieselbe IP-Adresse aufweisen.  
   
 2.  Im Feld Erweiterte Schlüsselverwendung muss die Serverauthentifizierungs-OID angegeben sein.  
   
-3.  Verwenden Sie für das Feld Sperrlisten-Verteilungspunkte die einen Zertifikatsperrlisten-Verteilungspunkt, der von DirectAccess-Clients zugänglich ist, die mit dem Intranet verbunden sind.  
+3.  Verwenden Sie für das Feld CRL-Verteilungs Punkte einen Zertifikat Sperr Listen-Verteilungs Punkt, auf den DirectAccess-Clients, die mit dem Intranet verbunden sind, zugreifen können.  
   
-### <a name="322dns-for-the-network-location-server"></a>3.2.2DNS für den Netzwerkadressenserver  
-Wenn Sie den Netzwerkadressenserver auf dem RAS-Server hosten, müssen Sie einen DNS-Eintrag für die Netzwerkadressenserver-Website für jeden Einstiegspunkt in Ihrer Bereitstellung hinzufügen. Beachten Sie Folgendes:  
+### <a name="322dns-for-the-network-location-server"></a>3.2.2 DNS für den Netzwerkadressen Server  
+Wenn Sie den Netzwerkadressen Server auf dem Remote Zugriffs Server hosten, müssen Sie für jeden Einstiegspunkt in der Bereitstellung einen DNS-Eintrag für die Netzwerkadressen Server-Website hinzufügen. Beachten Sie Folgendes:  
   
--   Der Antragstellername des der ersten Netzwerkadressenserver-Zertifikat in der Bereitstellung für mehrere Standorte wird als die Netzwerkadressenserver-URL für alle Einstiegspunkte verwendet, daher der Name des Antragstellers und die Netzwerkadressenserver-URL nicht identisch mit den Namen des der erste RAS-Server in der Bereitstellung. Es muss ein FQDN für den Netzwerkadressenserver dediziert sein.  
+-   Der Antragsteller Name des ersten Netzwerkadressen Server-Zertifikats in der Bereitstellung für mehrere Standorte wird als Netzwerkadressen Server-URL für alle Einstiegspunkte verwendet. Daher dürfen der Antragsteller Name und die Netzwerkadressen Server-URL nicht mit dem Computernamen des der erste RAS-Server in der Bereitstellung. Dabei muss es sich um einen für den Netzwerkadressen Server dedizierten voll qualifizierten Namen handeln.  
   
--   Der Dienst, der durch den Netzwerkdatenverkehr für Location Server ist auf die Einstiegspunkte, die mithilfe von DNS mit Lastenausgleich, und daher gibt es ein DNS-Eintrag mit der gleichen URL für jeden Einstiegspunkt, der mit der internen IP-Adresse des Einstiegspunkts konfiguriert.  
+-   Der vom Netzwerkadressen Server-Datenverkehr bereitgestellte Dienst wird mithilfe von DNS auf Einstiegspunkte ausgeglichen. Daher sollte ein DNS-Eintrag mit der gleichen URL für jeden Einstiegspunkt vorhanden sein, der mit der internen IP-Adresse des Einstiegs Punkts konfiguriert ist.  
   
--   Alle Einstiegspunkte müssen mit einem Netzwerkadressenserver-Zertifikat mit dem gleichen Antragstellernamen konfiguriert werden (die die Netzwerkadressenserver-URL entspricht).  
+-   Alle Einstiegspunkte müssen mit einem Netzwerkadressen Server-Zertifikat identisch sein, das den gleichen Antragsteller Namen hat (der der Netzwerkadressen Server-URL entspricht).  
   
--   Die Speicherort-Server Netzwerkinfrastruktur (DNS- und Zertifikat-Einstellungen) für einen Einstiegspunkt muss erstellt werden, bevor Sie den Einstiegspunkt hinzufügen.  
+-   Die Netzwerkadressen Server-Infrastruktur (DNS-und Zertifikat Einstellungen) für einen Einstiegspunkt muss erstellt werden, bevor der Einstiegspunkt hinzugefügt wird.  
   
-## <a name="bkmk_3_3_IPsec"></a>3.3 Planen Sie, die IPsec-Stammzertifikat für alle RAS-Server  
-Beachten Sie Folgendes ein, wenn Sie für die IPSec-Client-Authentifizierung in einer Bereitstellung für mehrere Standorte planen:  
+## <a name="bkmk_3_3_IPsec"></a>3,3 planen Sie das IPSec-Stamm Zertifikat für alle Remote Zugriffs Server.  
+Beachten Sie beim Planen der IPSec-Client Authentifizierung in einer Bereitstellung für mehrere Standorte Folgendes:  
   
-1.  Wenn Sie entschieden haben, um der integrierten Kerberos-Proxy für die Computerauthentifizierung verwenden, wenn Sie die RAS-Servers einrichten, müssen Sie ändern die Einstellung aus, um Computerzertifikate von einer internen Zertifizierungsstelle, ausgegeben werden, da Kerberos-Proxy für ein für mehrere Standorte nicht unterstützt wird Einsatz.  
+1.  Wenn Sie sich für die Verwendung des integrierten Kerberos-Proxys für die Computer Authentifizierung entschieden haben, wenn Sie den einzelnen RAS-Server einrichten, müssen Sie die Einstellung so ändern, dass die von einer internen Zertifizierungsstelle ausgestellten Computer Zertifikate verwendet werden, da der Kerberos-Proxy für einen multistandort nicht unterstützt wird. Nutzung.  
   
-2.  Wenn Sie ein selbstsigniertes Zertifikat verwendet haben, müssen Sie die Einzelserver-Bereitstellung, um ein von einer internen Zertifizierungsstelle ausgestelltes Zertifikat verwenden konfigurieren.  
+2.  Wenn Sie ein selbst signiertes Zertifikat verwendet haben, müssen Sie die Bereitstellung auf einem einzelnen Server so konfigurieren, dass ein von einer internen Zertifizierungsstelle ausgestelltes Zertifikat verwendet wird.  
   
-3.  Für IPsec-Authentifizierung während der Clientauthentifizierung erfolgreich ist müssen alle RAS-Server ein Zertifikat von der IPSec-Stamm oder zwischen-ZS, und klicken Sie mit die Clientauthentifizierungs-OID für die erweiterte Schlüsselverwendung.  
+3.  Damit die IPSec-Authentifizierung während der Client Authentifizierung erfolgreich ist, müssen alle RAS-Server über ein Zertifikat verfügen, das von der IPSec-Stamm-oder zwischen Zertifizierungsstelle ausgestellt wurde, und mit der Clientauthentifizierungs-OID für die erweiterte Schlüssel Verwendung.  
   
-4.  Derselben IPsec Stamm- oder Zwischenzertifikat muss auf alle RAS-Server in der Bereitstellung für mehrere Standorte installiert werden.  
+4.  Auf allen RAS-Servern in der Bereitstellung für mehrere Standorte muss dasselbe IPSec-Stamm Zertifikat oder zwischen Zertifikat installiert sein.  
   
-## <a name="bkmk_3_4_GSLB"></a>3.4 planen Sie, globale Server des Lastenausgleichs  
-Bei einer Bereitstellung für mehrere Standorte können Sie außerdem einen global Server Load Balancer konfigurieren. Ein global Server Load Balancer kann für Ihr Unternehmen nützlich sein, wenn die Bereitstellung einen großen geografischen Verteilung abdeckt, da Datenverkehrslast zwischen die Einstiegspunkte verteilt werden kann.  Der global Server Load Balancer kann konfiguriert werden, um die Informationen des Einstiegspunkts am nächsten Eintrag DirectAccess-Clients bereitzustellen. Der Prozess funktioniert wie folgt aus:  
+## <a name="bkmk_3_4_GSLB"></a>3,4 Planen des Lasten Ausgleichs für globale Server  
+In einer Bereitstellung mit mehreren Standorten können Sie zusätzlich einen globalen Lastenausgleich für den Server konfigurieren. Ein Global Server Load Balancer kann für Ihre Organisation nützlich sein, wenn die Bereitstellung eine große geografische Verteilung abdeckt, da er die Auslastung des Datenverkehrs zwischen den Einstiegspunkten verteilen kann.  Der Lastenausgleich des globalen Servers kann so konfiguriert werden, dass DirectAccess-Clients die Einstiegspunkt Informationen des nächstgelegenen Einstiegs Punkts bereitgestellt werden. Der Prozess funktioniert wie folgt:  
   
-1.  Clientcomputer unter Windows 10 oder Windows 8 verfügen, auf eine Liste der global Server Load Balancer IP-Adressen, die jeweils einen Einstiegspunkt zugeordnet.  
+1.  Client Computer, auf denen Windows 10 oder Windows 8 ausgeführt wird, verfügen über eine Liste der IP-Adressen des globalen Server Load Balancers, die jeweils einem Einstiegspunkt zugeordnet sind.  
   
-2.  Die Windows 10 oder Windows 8-Clientcomputer versucht, die den FQDN des global Server Load Balancers im öffentlichen DNS in eine IP-Adresse auflösen. Wenn die aufgelöste IP-Adresse als die global Server Load Balancer IP-Adresse eines Einstiegspunkts aufgeführt ist, wird der Clientcomputer automatisch auswählt, Einstiegspunkt und stellt eine Verbindung her, um die IP-HTTPS-URL (ConnectTo-Adresse) oder IP-Adresse der Teredo-Servers. Beachten Sie, dass die IP-Adresse des global Server Load Balancers, nicht identisch, mit der ConnectTo-Adresse oder die Teredo-Server-Adresse des Einstiegspunkts, sein unbedingt, da die Client-Computer nie versuchen, eine Verbindung herstellen, die global Server Load Balancer-IP-Adresse.  
+2.  Der Windows 10-oder Windows 8-Client Computer versucht, den FQDN des Load Balancers des globalen Servers im öffentlichen DNS in eine IP-Adresse aufzulösen. Wenn die aufgelöste IP-Adresse als IP-Adresse für den Lastenausgleich des globalen Servers eines Einstiegs Punkts aufgeführt ist, wählt der Client Computer automatisch diesen Einstiegspunkt aus und stellt eine Verbindung mit der IP-HTTPS-URL (ConnectTo-Adresse) oder der zugehörigen Teredo-Server-IP-Adresse her. Beachten Sie, dass die IP-Adresse des Load Balancers des globalen Servers nicht mit der ConnectTo-Adresse oder der Teredo-Server Adresse des Einstiegs Punkts identisch sein muss, da die Client Computer nie versuchen, eine Verbindung mit der IP-Adresse des globalen Server-Lasten Ausgleichs Moduls herzustellen.  
   
-3.  Wenn der Client-Computer ist hinter einem Webproxy (und kann keine DNS-Auflösung) oder FQDN des global Server Load Balancers nicht aufgelöst wird konfigurierte IP-Adresse von global Server Load Balancer, und dann ein Einstiegspunkt wird automatisch mit einer HTTPS-Überprüfung, ausgewählt die IP-HTTPS-URLs alle Einstiegspunkte. Der Client wird mit Server verbinden, das zuerst antwortet.  
+3.  Wenn sich der Client Computer hinter einem WebProxy befindet (und keine DNS-Auflösung verwenden kann), oder wenn der FQDN des globalen Server Lastenausgleichs-FQDN nicht in eine konfigurierte IP-Adresse für den Lastenausgleich des globalen Servers aufgelöst wird, wird automatisch ein Einstiegspunkt mit einem HTTPS-Test ausgewählt. die IP-HTTPS-URLs aller Einstiegspunkte. Der Client stellt eine Verbindung mit dem Server her, der zuerst antwortet.  
   
-Eine Liste der globaler Serverlastenausgleich Geräte, die Remotezugriff unterstützen, finden Sie unter Suchen einer Partnerseite am [Microsoft Server und Cloudplattform](https://www.microsoft.com/server-cloud/).  
+Eine Liste der Global Server Load Balancing-Geräte, die den Remote Zugriff unterstützen, finden Sie auf der Seite Partner suchen unter [Microsoft Server und cloudplattform](https://www.microsoft.com/server-cloud/).  
   
-## <a name="bkmk_3_5_EP_Selection"></a>3.5 Planen der Auswahl des DirectAccess-Client-Eintrag  
-Wenn Sie eine Bereitstellung für mehrere Standorte konfigurieren, in der Standardeinstellung Windows 10 und Windows 8-Clientcomputer sind so konfiguriert, mit den Informationen für alle Einstiegspunkte in der Bereitstellung die Verbindung und zur automatischen Verbindung mit einem einzelnen Einstiegspunkt auf Grundlage einer Benutzerauswahl erforderlich Algorithmus. Sie können auch konfigurieren, der Bereitstellung für die Windows 10 und Windows 8-Clientcomputern auf den Eintrag manuell auswählen, zeigen Sie auf dem sie eine Verbindung herstellen werden. Wenn ein Windows 10 oder Windows 8-Clientcomputer derzeit, auf den Einstiegspunkt der Vereinigten Staaten verbunden ist und Eintrag der automatischen Auswahl, aktiviert ist wenn der Einstiegspunkt für die USA nicht erreichbar ist, wird nach wenigen Minuten der Clientcomputer versuchen eine Verbindung herstellen über den Einstiegspunkt "Europa". Mithilfe der Eintrag der automatischen Auswahl wird empfohlen. Allerdings können manuelle Eingabe zeigen, dass die Auswahl Endbenutzer mit einem anderen Einstiegspunkt, der basierend auf aktuellen netzwerkbedingungen herstellen kann. Wird z. B. wenn ein Computer mit den Einstiegspunkt für die USA und der Verbindung mit dem internen Netzwerk verbunden ist sehr viel langsamer als erwartet. In diesem Fall können Benutzer manuell auswählen, für die Verbindung für den Einstiegspunkt "Europa", um die Verbindung mit dem internen Netzwerk zu verbessern.  
+## <a name="bkmk_3_5_EP_Selection"></a>3,5 Planen der DirectAccess-Client Einstiegspunkt Auswahl  
+Wenn Sie eine Bereitstellung für mehrere Standorte konfigurieren, werden Windows 10-und Windows 8-Client Computer standardmäßig mit den Informationen konfiguriert, die zum Herstellen einer Verbindung mit allen Einstiegspunkten in der Bereitstellung und zum automatischen Herstellen einer Verbindung mit einem einzelnen Einstiegspunkt basierend auf einer Auswahl erforderlich sind. projiziert. Sie können die Bereitstellung auch so konfigurieren, dass Windows 10-und Windows 8-Client Computer den Einstiegspunkt, mit dem eine Verbindung hergestellt werden soll, manuell auswählen können. Wenn ein Windows 10-oder Windows 8-Client Computer zurzeit mit dem USA Einstiegspunkt verbunden ist und die automatische Auswahl von Einstiegspunkten aktiviert ist, versucht der Client Computer nach einigen Minuten, eine Verbindung herzustellen, wenn der USA Einstiegspunkt nicht erreichbar ist. über den Einstiegspunkt in Europa. Es wird empfohlen, die automatische Auswahl von Einstiegspunkten zu verwenden Wenn Sie jedoch eine manuelle Auswahl von Einstiegspunkten zulassen, können Endbenutzer die Verbindung zu einem anderen Einstiegspunkt basierend auf den aktuellen Netzwerkbedingungen herstellen. Wenn z. b. ein Computer mit dem USA Einstiegspunkt verbunden ist und die Verbindung mit dem internen Netzwerk erheblich langsamer wird als erwartet. In dieser Situation kann der Endbenutzer manuell auswählen, eine Verbindung mit dem Einstiegspunkt in Europa herzustellen, um die Verbindung mit dem internen Netzwerk zu verbessern.  
   
 > [!NOTE]  
-> Wenn ein Endbenutzer einen Einstiegspunkt manuell ausgewählt werden, wird der Clientcomputer nicht auf automatische Eintrag Punktauswahl zurückgesetzt. Also wenn manuell ausgewählten Einstiegspunkt nicht erreichbar ist, muss der Endbenutzer entweder Eintrag der automatischen Auswahl wiederherstellen oder einem anderen Einstiegspunkt manuell auswählen.  
+> Nachdem ein Endbenutzer einen Einstiegspunkt manuell ausgewählt hat, wird der Client Computer nicht auf die automatische Auswahl des Einstiegs Punkts zurückgesetzt. Das heißt, wenn der manuell ausgewählte Einstiegspunkt nicht mehr erreichbar ist, muss der Endbenutzer entweder die automatische Auswahl der Einstiegspunkte wiederherstellen oder einen anderen Einstiegspunkt manuell auswählen.  
   
- Windows 7-Clientcomputer werden mit den Informationen, die für die Verbindung mit einem einzelnen Einstiegspunkt in die Bereitstellung für mehrere Standorte konfiguriert. Sie können nicht gleichzeitig die Informationen für mehrere Einstiegspunkte speichern. Beispielsweise kann ein Windows 7-Clientcomputer konfiguriert werden, zur Verbindung mit den Einstiegspunkt der Vereinigten Staaten, aber nicht der Einstiegspunkt "Europa". Ist der Einstiegspunkt für die USA nicht erreichbar, wird der Windows 7-Clientcomputer Verbindungen mit dem internen Netzwerk verlieren, bis der Einstiegspunkt erreichbar ist. Der Endbenutzer kann keine Änderungen an der Einstiegspunkt "Europa" Herstellen einer Verbindung mit stellen.  
+ Windows 7-Client Computer werden mit den Informationen konfiguriert, die zum Herstellen einer Verbindung mit einem einzelnen Einstiegspunkt in der Bereitstellung für mehrere Standorte erforderlich sind. Sie können die Informationen für mehrere Einstiegspunkte nicht gleichzeitig speichern. Beispielsweise kann ein Windows 7-Client Computer so konfiguriert werden, dass er eine Verbindung mit dem USA Einstiegspunkt herstellt, nicht jedoch mit dem Einstiegspunkt in Europa. Wenn der USA Einstiegspunkt nicht erreichbar ist, verliert der Windows 7-Client Computer die Konnektivität zum internen Netzwerk, bis der Einstiegspunkt erreichbar ist. Der Endbenutzer kann keine Änderungen vornehmen, um zu versuchen, eine Verbindung mit dem Einstiegspunkt in Europa herzustellen.  
   
-## <a name="bkmk_3_6_IPv6"></a>3.6 planen Sie, Präfixe und routing  
+## <a name="bkmk_3_6_IPv6"></a>3,6 Planen von Präfixen und Routing  
   
-### <a name="internal-ipv6-prefix"></a>Interne IPv6-Präfix  
-Beachten Sie Folgendes in einer Bereitstellung für mehrere Standorte, während der Bereitstellung des einzelnen RAS-Server, die Sie die IPv6-Präfixe des internen Netzwerks geplant:  
+### <a name="internal-ipv6-prefix"></a>Internes IPv6-Präfix  
+Beim Bereitstellen des einzelnen RAS-Servers haben Sie die internen IPv6-Präfixe für das Netzwerk in einer Bereitstellung mit mehreren Standorten festgestellt:  
   
-1.  Wenn Sie alle Active Directory-Standorte, enthalten Wenn Sie Ihre Einzelserver-Bereitstellung des Remotezugriffs konfiguriert, werden die IPv6-Präfixe des internen Netzwerks bereits in der Remotezugriffs-Verwaltungskonsole definiert werden.  
+1.  Wenn Sie alle Ihre Active Directory Websites bei der Konfiguration der Bereitstellung für den Remote Zugriff mit einem Server eingefügt haben, werden in der Remote Zugriffs-Verwaltungskonsole bereits die IPv6-Präfixe für das interne Netzwerk definiert.  
   
-2.  Wenn Sie zusätzliche Active Directory-Standorte für die Bereitstellung für mehrere Standorte erstellen, müssen Sie neue IPv6-Präfixe für die zusätzliche Standorte planen und definieren sie in den Remotezugriff. Beachten Sie, dass IPv6-Präfixe nur konfiguriert werden können, verwenden die Remotezugriffs-Verwaltungskonsole oder der PowerShell-Cmdlets ein, wenn IPv6 im internen Unternehmensnetzwerk bereitgestellt wird.  
+2.  Wenn Sie zusätzliche Active Directory Standorte für die Bereitstellung mit mehreren Standorten erstellen, müssen Sie neue IPv6-Präfixe für die zusätzlichen Standorte planen und diese im Remote Zugriff definieren. Beachten Sie, dass IPv6-Präfixe nur mithilfe der Remote Zugriffs-Verwaltungskonsole oder mithilfe von PowerShell-Cmdlets konfiguriert werden können, wenn IPv6 im internen Unternehmensnetzwerk bereitgestellt wird.  
   
-### <a name="ipv6-prefix-for-directaccess-client-computers-ip-https-prefix"></a>IPv6-Präfix für DirectAccess-Clientcomputer (IP-HTTPS-Präfix)  
+### <a name="ipv6-prefix-for-directaccess-client-computers-ip-https-prefix"></a>IPv6-Präfix für DirectAccess-Client Computer (IP-HTTPS-Präfix)  
   
-1.  Wenn IPv6 im internen Unternehmensnetzwerk bereitgestellt wird, müssen Sie einen IPv6-Präfix zum Zuweisen von DirectAccess-Clientcomputer in zusätzlichen Einstiegspunkte in Ihrer Bereitstellung planen.  
+1.  Wenn IPv6 im internen Unternehmensnetzwerk bereitgestellt wird, müssen Sie ein IPv6-Präfix planen, das DirectAccess-Client Computern an zusätzlichen Einstiegspunkten in der Bereitstellung zugewiesen werden soll.  
   
-2.  Stellen Sie sicher, dass die IPv6-Präfixe zuweisen für DirectAccess-Clientcomputer in jeden Einstiegspunkt unterschiedlich sind und es keine Überlappung in die IPv6-Präfixe gibt.  
+2.  Stellen Sie sicher, dass die IPv6-Präfixe, die den DirectAccess-Client Computern in den einzelnen Einstiegspunkten zugewiesen werden, unterschiedlich sind und dass sich die IPv6-Präfixe nicht überlappen.  
   
-3.  Wenn Sie IPv6 nicht im Unternehmensnetzwerk bereitgestellt wird, wird eine IP-HTTPS-Präfix für jeden Einstiegspunkt beim Hinzufügen des Einstiegspunkts automatisch ausgewählt.  
+3.  Wenn IPv6 nicht im Unternehmensnetzwerk bereitgestellt wird, wird beim Hinzufügen des Einstiegs Punkts automatisch ein IP-HTTPS-Präfix für jeden Einstiegspunkt ausgewählt.  
   
-### <a name="ipv6-prefix-for-vpn-clients"></a>IPv6-Präfix für VPN-clients  
+### <a name="ipv6-prefix-for-vpn-clients"></a>IPv6-Präfix für VPN-Clients  
 Wenn Sie VPN auf dem einzelnen RAS-Server bereitgestellt haben, beachten Sie Folgendes:  
   
-1.  Hinzufügen eines VPN für die IPv6-Präfix für einen Einstiegspunkt ist nur erforderlich, wenn Sie VPN-Client den IPv6-Konnektivität mit dem Unternehmensnetzwerk zulassen möchten.  
+1.  Das Hinzufügen eines IPv6-VPN-Präfixes zu einem Einstiegspunkt ist nur erforderlich, wenn Sie eine IPv6-Verbindung zwischen VPN-Client und dem Unternehmensnetzwerk zulassen möchten.  
   
-2.  Das VPN-Präfix kann nur konfiguriert werden, auf dem Einstiegspunkt mithilfe der Remotezugriffs-Verwaltungskonsole oder der PowerShell-Cmdlet, wenn IPv6 im internen Unternehmensnetzwerk bereitgestellt wird und auf den Einstiegspunkt VPN aktiviert ist.  
+2.  Das VPN-Präfix kann nur mithilfe der Remote Zugriffs-Verwaltungskonsole oder des PowerShell-Cmdlets für einen Einstiegspunkt konfiguriert werden, wenn IPv6 im internen Unternehmensnetzwerk bereitgestellt wird und VPN auf dem Einstiegspunkt aktiviert ist.  
   
-3.  Das VPN-Präfix sollte in jeden Einstiegspunkt eindeutig sein und sollte nicht mit anderen VPN- oder die IP-HTTPS-Präfixen überschneiden.  
+3.  Das VPN-Präfix sollte in jedem Einstiegspunkt eindeutig sein und darf sich nicht mit anderen VPN-oder IP-HTTPS-Präfixen überschneiden.  
   
-4.  Wenn IPv6 nicht im Unternehmensnetzwerk bereitgestellt wird, werden VPN-Clients eine Verbindung herstellen, auf den Einstiegspunkt nicht IPv6-Adresse zugewiesen werden.  
+4.  Wenn IPv6 nicht im Unternehmensnetzwerk bereitgestellt wird, wird den VPN-Clients, die eine Verbindung mit dem Einstiegspunkt herstellen, keine IPv6-Adresse zugewiesen.  
   
 ### <a name="routing"></a>Routing  
-In einer Bereitstellung für mehrere Standorte ist die Option symmetrisches routing erzwungen mit Teredo und IP-HTTPS. Beachten Sie Folgendes, wenn IPv6 im Unternehmensnetzwerk bereitgestellt wird:  
+Bei einer Bereitstellung mit mehreren Standorten wird das symmetrische Routing mithilfe von Teredo und IP-HTTPS erzwungen. Beachten Sie Folgendes, wenn IPv6 im Unternehmensnetzwerk bereitgestellt wird:  
   
-1. Die Teredo und IP-HTTPS-Präfixe von jeden Einstiegspunkt muss für ihre zugehörigen RAS-Server im Unternehmensnetzwerk geroutet.  
+1. Die Teredo-und IP-HTTPS-Präfixe der einzelnen Einstiegspunkte müssen über das Unternehmensnetzwerk an den zugehörigen RAS-Server Routing fähig sein.  
   
-2. Die Routen müssen in der Routinginfrastruktur Unternehmensnetzwerk konfiguriert werden.  
+2. Die Routen müssen in der Routing Infrastruktur des Unternehmensnetzwerks konfiguriert werden.  
   
-3. Für jeden Einstiegspunkt sollte bis zu drei Routen im internen Netzwerk vorhanden sein:  
+3. Für jeden Einstiegspunkt sollten eine bis drei Routen im internen Netzwerk vorhanden sein:  
   
-   1. IP-HTTPS-Präfix-dieses Präfix wird vom Administrator hinzufügen einen Einstiegspunkt-Assistenten ausgewählt.  
+   1. IP-HTTPS-Präfix: dieses Präfix wird vom Administrator im Assistenten zum Hinzufügen von Einstiegspunkten ausgewählt.  
   
-   2. VPN-IPv6-Präfix (optional). Dieses Präfix kann ausgewählt werden, nach dem Aktivieren von VPN als Einstiegspunkt  
+   2. VPN-IPv6-Präfix (optional). Dieses Präfix kann nach dem Aktivieren von VPN für einen Einstiegspunkt ausgewählt werden.  
   
-   3. Teredo-Präfix (optional). Dieses Präfix ist nur relevant, wenn der RAS-Server mit zwei aufeinander folgende öffentliche IPv4-Adressen für den externen Adapter konfiguriert ist. Das Präfix basiert auf der ersten öffentlichen IPv4-Adresse des Paares Adresse. Wenn die externen Adressen sind z. B.:  
+   3. Teredo-Präfix (optional). Dieses Präfix ist nur relevant, wenn der RAS-Server mit zwei aufeinander folgenden öffentlichen IPv4-Adressen auf dem externen Adapter konfiguriert ist. Das Präfix basiert auf der ersten öffentlichen IPv4-Adresse des Adress Paars. Angenommen, die externen Adressen lauten wie folgt:  
   
       1. www\.xxx.yyy.zzz  
   
-      2. www\.xxx.yyy.zzz+1  
+      2. www\.xxx.yyy.zzz + 1  
   
-      Dann ist das Teredo-Präfix konfigurieren 2001:0:WWXX:YYZZ:: / 64, wobei WWXX: YYZZ die hexadezimale Darstellung der IPv4-Adresse Www\.xxx.yyy.zzz.  
+      Dann ist das zu konfigurierenden Teredo-Präfix 2001:0: WWXX: YYZZ::/64, wobei WWXX: YYZZ die hexadezimale Darstellung der IPv4-Adresse www\.xxx.yyy.zzz ist.  
   
       Beachten Sie, dass Sie das folgende Skript verwenden können, um das Teredo-Präfix zu berechnen:  
   
@@ -182,19 +182,19 @@ In einer Bereitstellung für mehrere Standorte ist die Option symmetrisches rout
       Write-Host "The server's Teredo prefix is $([System.Net.IPAddress]$TeredoServerAddressBytes)/64"  
       ```  
   
-   4. Alle oben genannten Routen weitergeleitet werden muss, um die IPv6-Adresse für den internen Adapter des RAS-Servers (oder auf die interne virtuelle IP-Adresse (VIP) Adresse für einen Load balanced Einstiegspunkt).  
+   4. Alle oben genannten Routen müssen an die IPv6-Adresse des internen Adapters des Remote Zugriffs Servers (oder an die interne virtuelle IP-Adresse (VIP) für einen Einstiegspunkt mit Lastenausgleich weitergeleitet werden.  
   
 > [!NOTE]  
-> Remote über DirectAccess, Routen für die Teredo erfolgt bei IPv6 im Unternehmensnetzwerk und RAS-Server-Verwaltung bereitgestellt wird und IP-HTTPS-Präfixe von allen anderen Einstiegspunkten müssen auf jedem RAS-Server hinzugefügt werden, so, dass der Datenverkehr mit dem internen Netzwerk weitergeleitet.  
+> Wenn IPv6 im Unternehmensnetzwerk bereitgestellt wird und die RAS-Server-Verwaltung Remote über DirectAccess ausgeführt wird, müssen jedem RAS-Server Routen für die Teredo-und IP-HTTPS-Präfixe aller anderen Einstiegspunkte hinzugefügt werden, damit der Datenverkehr wird an das interne Netzwerk weitergeleitet.  
   
-### <a name="active-directory-site-specific-ipv6-prefixes"></a>Active Directory standortspezifischen IPv6-Präfixe  
-Wenn ein Clientcomputer mit Windows 10 oder Windows 8 an einen Einstiegspunkt verbunden ist, wird der Clientcomputer sofort ist die Active Directory-Standort, der den Einstiegspunkt zugeordnet und mit IPv6-Präfixe, die den Einstiegspunkt des zugeordneten konfiguriert ist. Die Einstellung ist für Clientcomputer für die Verbindung mit Ressourcen, die diese IPv6-Präfixe verwenden, da sie dynamisch in die Richtlinientabelle für die IPv6-Präfix mit höherer Priorität beim Verbinden mit einem Einstiegspunkt konfiguriert sind.  
+### <a name="active-directory-site-specific-ipv6-prefixes"></a>Active Directory standortspezifische IPv6-Präfixe  
+Wenn ein Client Computer, auf dem Windows 10 oder Windows 8 ausgeführt wird, mit einem Einstiegspunkt verbunden ist, wird der Client Computer sofort dem Active Directory-Standort des Einstiegs Punkts zugeordnet und mit IPv6-Präfixen konfiguriert, die dem Einstiegspunkt zugeordnet sind. Für Client Computer wird die Verbindung mit Ressourcen mithilfe dieser IPv6-Präfixe bevorzugt, da Sie dynamisch in der IPv6-Präfix Richtlinien Tabelle mit höherer Priorität konfiguriert werden, wenn eine Verbindung mit einem Einstiegspunkt hergestellt wird.  
   
-Wenn Ihre Organisation eine Active Directory-Topologie mit standortspezifischen IPv6-Präfixe verwendet (z. B. ist eine interne Ressource FQDN app.corp.com in Nordamerika und Europa mit einem standortspezifischen IP-Adresse an jedem Standort gehostet) ist dies nicht durch konfiguriert. Standardmäßig mit dem RAS-Konsole und standortspezifischen IPv6-Präfixe sind nicht für jeden Einstiegspunkt konfiguriert. Wenn Sie dieses Szenario optional aktivieren möchten, müssen Sie jeden Einstiegspunkt mit dem bestimmten IPv6-Präfixe zu konfigurieren, die von Clientcomputern, die Verbindung mit einem bestimmten Einstiegspunkt bevorzugt werden sollten. Führen Sie dies wie folgt:  
+Wenn in Ihrer Organisation eine Active Directory Topologie mit standortspezifischen IPv6-Präfixen verwendet wird (z. b. wird ein interner Ressourcen-voll qualifizierten Namen app.Corp.com sowohl in Nordamerika als auch in Europa mit einer standortspezifischen IP-Adresse an jedem Standort gehostet), wird dies nicht konfiguriert. der Standardwert ist die Remote Zugriffs Konsole, und die standortspezifischen IPv6-Präfixe sind für jeden Einstiegspunkt nicht konfiguriert. Wenn Sie dieses optionale Szenario aktivieren möchten, müssen Sie jeden Einstiegspunkt mit den spezifischen IPv6-Präfixen konfigurieren, die von Client Computern bevorzugt werden, die eine Verbindung mit einem bestimmten Einstiegspunkt herstellen. Gehen Sie hierzu wie folgt vor:  
   
-1.  Führen Sie für jedes Gruppenrichtlinienobjekt für Windows 10 oder Windows 8-Clientcomputern verwendet wird die Set-DAEntryPointTableItem-PowerShell-cmdlet  
+1.  Führen Sie für jedes GPO, das für Windows 10-oder Windows 8-Client Computer verwendet wird, das PowerShell-Cmdlet Set-daentrypointtableitem aus.  
   
-2.  Legen Sie den EntryPointRange-Parameter für das Cmdlet mit dem standortspezifischen IPv6-Präfixe. Z. B. die standortspezifischen hinzuzufügenden Präfixe 2001:db8:1:1:: / 64 und 2001:db:1:2:: / 64 an einen Einstiegspunkt, der Namen "Europa", führen Sie den folgenden  
+2.  Legen Sie den entrypointrange-Parameter für das Cmdlet mit den standortspezifischen IPv6-Präfixen fest. Führen Sie z. b. Folgendes aus, um die standortspezifischen Präfixe 2001: db8:1: 1::/64 und 2001: DB: 1:2::/64 zu einem Einstiegspunkt mit dem Namen "Europa" hinzuzufügen.  
   
     ```  
     $entryPointName = "Europe"  
@@ -203,70 +203,70 @@ Wenn Ihre Organisation eine Active Directory-Topologie mit standortspezifischen 
     $clientGpos | % { Get-DAEntryPointTableItem -EntryPointName $entryPointName -PolicyStore $_ | %{ Set-DAEntryPointTableItem -PolicyStore $_.PolicyStore -EntryPointName $_.EntryPointName -EntryPointRange ($_.EntryPointRange) + $prefixesToAdd}}  
     ```  
   
-3.  Wenn Sie den EntryPointRange-Parameter zu ändern, stellen Sie sicher, dass Sie nicht die vorhandenen 128-Bit-Präfixe entfernen die IPSec-Endpunkte und die DNS64-Adresse gehören.  
+3.  Wenn Sie den entrypointrange-Parameter ändern, stellen Sie sicher, dass Sie die vorhandenen 128-Bit-Präfixe, die zu den IPSec-Tunnel Endpunkten und der DNS64-Adresse gehören, nicht entfernen.  
   
-## <a name="bkmk_3_7_TransitionIPv6"></a>3.7 Planen des Übergangs zu IPv6 bei der Bereitstellung des Remotezugriffs  
-Viele Organisationen verwenden die IPv4-Protokoll mit dem Unternehmensnetzwerk verbunden. Die Erschöpfung der verfügbare IPv4-Präfixe sind viele Organisationen den Übergang von IPv4-mit reinen IPv6-Netzwerken erfolgt.  
+## <a name="bkmk_3_7_TransitionIPv6"></a>3,7 Planen des Übergangs zu IPv6 bei Bereitstellung des Remote Zugriffs für mehrere Standorte  
+Viele Organisationen verwenden das IPv4-Protokoll im Unternehmensnetzwerk. Mit der Erschöpfung verfügbarer IPv4-Präfixe nehmen viele Organisationen den Übergang von IPv4 ausschließlich zu reinen IPv6-Netzwerken vor.  
   
-Dieser Übergang ist wahrscheinlich in zwei Phasen erfolgen:  
+Diese Umstellung wird am ehesten in zwei Phasen durchgeführt:  
   
-1.  Aus einer nur-IPv4-mit einem IPv6 / IPv4-Unternehmensnetzwerk.  
+1.  Von einer reinen IPv4-zu einem IPv6-und IPv4-Unternehmensnetzwerk.  
   
-2.  Von einem IPv6 / IPv4 mit einem reinen IPv6-Unternehmensnetzwerk.  
+2.  Von IPv6 + IPv4 zu einem reinen IPv6-Unternehmensnetzwerk.  
   
-In jedem Teil kann der Übergang in Phasen ausgeführt werden. In jeder Phase kann nur ein Subnetz des Netzwerks auf die neue Netzwerkkonfiguration geändert werden. Daher ist eine DirectAccess-Bereitstellung mit mehreren Standorten erforderlich, um eine hybridbereitstellung unterstützen, where, z. B. einige der Einstiegspunkte gehören zu einem nur-IPv4-Subnetz und andere gehören zu einem IPv6 / IPv4-Subnetz. Darüber hinaus müssen Clientkonnektivität über DirectAccess von konfigurationsänderungen bei der Umstellung nicht unterbrochen.  
+In jedem Teil kann der Übergang in Phasen ausgeführt werden. In jeder Phase kann nur ein Subnetz des Netzwerks in die neue Netzwerkkonfiguration geändert werden. Daher ist eine DirectAccess-Bereitstellung mit mehreren Standorten erforderlich, um eine Hybrid Bereitstellung zu unterstützen, bei der beispielsweise einige Einstiegspunkte zu einem reinen IPv4-Subnetz gehören und andere zu einem IPv6-und IPv4-Subnetz gehören. Außerdem dürfen Konfigurationsänderungen während der Übergangsprozesse die Client Konnektivität über DirectAccess nicht unterbrechen.  
   
-### <a name="TransitionIPv4toMixed"></a>Übergang von einem nur-IPv4-mit einem IPv6 / IPv4-Unternehmensnetzwerk  
-Wenn Sie mit einem nur-IPv4-Unternehmensnetzwerk IPv6-Adressen hinzufügen möchten, empfiehlt es sich um eine IPv6-Adresse mit einem bereits bereitgestellten DirectAccess-Server hinzuzufügen. Darüber hinaus empfiehlt es sich Load Clusters mit Lastenausgleich mit IPv4 und IPv6-Adressen der DirectAccess-Bereitstellung einen Einstiegspunktnamen oder einen Knoten hinzu.  
+### <a name="TransitionIPv4toMixed"></a>Übergang von einer reinen IPv4-zu einem IPv6-und IPv4-Unternehmensnetzwerk  
+Beim Hinzufügen von IPv6-Adressen zu einem reinen IPv4-Unternehmensnetzwerk können Sie einem bereits bereitgestellten DirectAccess-Server eine IPv6-Adresse hinzufügen. Außerdem empfiehlt es sich, einen Einstiegspunkt oder Knoten einem Cluster mit Lastenausgleich mit IPv4-und IPv6-Adressen für die DirectAccess-Bereitstellung hinzuzufügen.  
   
-Remote-Zugriff können Sie zum Hinzufügen von Servern mit IPv4 und IPv6-Adressen zu einer Bereitstellung, die ursprünglich mit nur-IPv4-Adressen konfiguriert wurde. Diese Server werden als nur-IPv4-Server hinzugefügt, und die IPv6-Adressen von DirectAccess ignoriert werden; Folglich nutzen nicht Ihrer Organisation die Vorteile der systemeigene IPv6-Konnektivität auf dieser neuen Server.  
+Der Remote Zugriff ermöglicht Ihnen das Hinzufügen von Servern mit IPv4-und IPv6-Adressen zu einer Bereitstellung, die ursprünglich ausschließlich mit IPv4-Adressen konfiguriert wurde. Diese Server werden als reine IPv4-Server hinzugefügt, und ihre IPv6-Adressen werden von DirectAccess ignoriert. Folglich kann Ihre Organisation die Vorteile der systemeigenen IPv6-Konnektivität auf diesen neuen Servern nicht nutzen.  
   
-Transformieren die Bereitstellung einer IPv6 / IPv4-Bereitstellung, und die systemeigenen IPv6-Funktionen nutzen, müssen Sie DirectAccess erneut installieren. Um zu gewährleisten Clientkonnektivität während der erneuten Installation finden Sie unter Übergang aus einer nur-IPv4-mit einer reinen IPv6-Bereitstellung, die mit dual-DirectAccess-Bereitstellungen.  
+Um die Bereitstellung in eine IPv6-und IPv4-Bereitstellung umzuwandeln und die systemeigenen IPv6-Funktionen zu nutzen, müssen Sie DirectAccess neu installieren. Informationen zur Aufrechterhaltung der Client Konnektivität während der erneuten Installation finden Sie unter Übergang von einer reinen IPv4-Bereitstellung zu einer reinen IPv6-Bereitstellung mithilfe von Dual DirectAccess-bereit Stellungen.  
   
 > [!NOTE]  
-> Wie bei einem nur-IPv4-Netzwerk in einem gemischten IPv4 und IPv6-Netzwerk, muss die Adresse des DNS-Servers, der Clientanforderungen für die DNS-Auflösung verwendet wird, mit das dns64-Gerät, das auf RAS-Server selbst bereitgestellt wird, und nicht mit einer Unternehmens-DNS konfiguriert werden.  
+> Wie bei einem reinen IPv4-Netzwerk muss die Adresse des DNS-Servers, der zum Auflösen von Client-DNS-Anforderungen verwendet wird, mit der DNS64 konfiguriert werden, die auf RAS-Servern selbst und nicht mit einem Unternehmens-DNS bereitgestellt wird.  
   
-### <a name="TransitionMixedtoIPv6"></a>Übergang vom ein IPv6 / IPv4 in einer reinen IPv6-Unternehmensnetzwerk  
-DirectAccess können Sie reine IPv6-Einstiegspunkte nur, wenn der erste RAS-Server in der Bereitstellung ursprünglich entweder IPv4 hatte und IPv6-Adressen oder eine IPv6-Adresse hinzufügen. D. h. kann nicht aus einem nur-IPv4-Netzwerk ein reiner IPv6-Netzwerk in einem einzigen Schritt Umstellung ohne Neuinstallation von DirectAccess. Um direkt aus einem nur-IPv4-Netzwerk mit einem reinen IPv6-Netzwerk zu wechseln, finden Sie unter Übergang aus einer nur-IPv4-mit einer reinen IPv6-Bereitstellung, die mit dual-DirectAccess-Bereitstellungen.  
+### <a name="TransitionMixedtoIPv6"></a>Übergang von IPv6 und IPv4 zu einem reinen IPv6-Unternehmensnetzwerk  
+DirectAccess ermöglicht das Hinzufügen von nur-IPv6-Einstiegspunkten, wenn der erste RAS-Server in der Bereitstellung ursprünglich entweder IPv4-und IPv6-Adressen oder nur eine IPv6-Adresse enthielt. Das heißt, Sie können in einem einzigen Schritt nicht von einem reinen IPv4-Netzwerk zu einem reinen IPv6-Netzwerk wechseln, ohne DirectAccess erneut zu installieren. Informationen zum direkten Übergang von einem reinen IPv4-Netzwerk zu einem reinen IPv6-Netzwerk finden Sie unter Übergang von einer reinen IPv4-Bereitstellung zu einer reinen IPv6-Bereitstellung mithilfe von Dual DirectAccess-bereit Stellungen.  
   
-Nachdem Sie den Übergang von einer nur-IPv4-Bereitstellung mit einer IPv6 / IPv4-Bereitstellung abgeschlossen haben, können Sie mit einem reinen IPv6-Netzwerk wechseln. Beachten Sie, während und nach dem Übergang Folgendes:  
+Nachdem Sie den Übergang von einer reinen IPv4-Bereitstellung zu einer IPv6-und IPv4-Bereitstellung abgeschlossen haben, können Sie zu einem reinen IPv6-Netzwerk wechseln. Beachten Sie während und nach der Umstellung Folgendes:  
   
--   Wenn keine nur-IPv4-Back-End-Server im Unternehmensnetzwerk verbleiben, werden nicht für Clients erreichbar, die über die reinen IPv6-Einstiegspunkte eine Verbindung herstellen.  
+-   Wenn alle IPv4-Back-End-Server im Unternehmensnetzwerk verbleiben, sind Sie für Clients, die über die reinen IPv6-Einstiegspunkte verbunden sind, nicht erreichbar.  
   
--   Beim Hinzufügen von Einstiegspunkten, die nur-IPv6-zu einer IPv4-und IPv6-Bereitstellung werden DNS64 und NAT64 nicht auf den neuen Servern aktiviert werden. Clients, die Verbindung mit dieser Einstiegspunkte werden automatisch für die verwenden, die Unternehmens-DNS-Server konfiguriert werden.  
+-   Beim Hinzufügen von reinen IPv6-Einstiegspunkten zu einer IPv4-und IPv6-Bereitstellung werden DNS64 und NAT64 auf den neuen Servern nicht aktiviert. Clients, die eine Verbindung mit diesen Einstiegspunkten herstellen, werden automatisch für die Verwendung der DNS-Server des Unternehmens konfiguriert.  
   
--   Wenn Sie die IPv4-Adressen aus einem bereitgestellten Server löschen möchten, müssen Sie Sie Entfernen des Servers aus der DirectAccess-Bereitstellung, entfernen die IPv4-Unternehmensnetzwerk-Adresse und erneut hinzugefügt, um die Bereitstellung.  
+-   Wenn Sie IPv4-Adressen von einem bereitgestellten Server löschen müssen, müssen Sie den Server aus der DirectAccess-Bereitstellung entfernen, die zugehörige IPv4-Unternehmensnetzwerk Adresse entfernen und Sie der Bereitstellung wieder hinzufügen.  
   
-Zur Unterstützung von Clientverbindungen mit dem Unternehmensnetzwerk verbunden, müssen Sie sicherstellen, dass für der Netzwerkadressenserver, die von einem Unternehmens-DNS, um die IPv6-Adresse aufgelöst werden kann. Eine zusätzliche IPv4-Adresse kann auch festgelegt werden, aber es ist nicht erforderlich.  
+Zur Unterstützung der Client Konnektivität mit dem Unternehmensnetzwerk müssen Sie sicherstellen, dass der Netzwerkadressen Server durch das Unternehmens-DNS in seine IPv6-Adresse aufgelöst werden kann. Eine zusätzliche IPv4-Adresse kann ebenfalls festgelegt werden, ist jedoch nicht erforderlich.  
   
-### <a name="DualDeployment"></a>Übergang von einer nur-IPv4-mit einer reinen IPv6-Bereitstellung, die mithilfe von dualer-DirectAccess-Bereitstellungen  
-Der Übergang von einem nur-IPv4-mit einem reinen IPv6-Unternehmensnetzwerk kann nicht erfolgen, ohne neu zu installieren der DirectAccess-Bereitstellung. Um Clientkonnektivität während des Übergangs zu gewährleisten, können Sie einen anderen DirectAccess-Bereitstellung verwenden. Dual-Bereitstellung ist erforderlich, wenn die erste Phase der Übergang abgeschlossen ist (nur-IPv4-Netzwerk ein Upgrade auf IPv4 und IPv6), und Sie für den zukünftigen Übergang zu einer reinen IPv6-Unternehmensnetzwerks oder zum Nutzen Sie die Vorteile der systemeigenen IPv6-Konnektivität vorbereiten möchten. Die duale-Bereitstellung wird in die folgenden allgemeinen Schritte beschrieben:  
+### <a name="DualDeployment"></a>Übergang von einer reinen IPv4-zu einer reinen IPv6-Bereitstellung mithilfe von Dual DirectAccess-bereit Stellungen  
+Der Übergang von einem reinen IPv4-zu einem reinen IPv6-Unternehmensnetzwerk kann nicht durchgeführt werden, ohne dass die DirectAccess-Bereitstellung neu installiert wird. Um die Client Konnektivität während des Übergangs aufrechtzuerhalten, können Sie eine andere DirectAccess-Bereitstellung verwenden. Die duale Bereitstellung ist erforderlich, wenn die erste Übergangsphase abgeschlossen ist (nur-IPv4-Netzwerk, das auf IPv4 + IPv6 aktualisiert wurde), und Sie beabsichtigen, sich für einen zukünftigen Übergang zu einem reinen IPv6-Unternehmensnetzwerk zu entscheiden, um die Vorteile der systemeigenen IPv6-Konnektivität zu nutzen. Die duale Bereitstellung wird in den folgenden allgemeinen Schritten beschrieben:  
   
-1.  Installieren Sie eine zweite DirectAccess-Bereitstellung. Sie können DirectAccess auf neuen Servern, installieren oder Entfernen von Servern aus der ersten Bereitstellung und für die zweite Bereitstellung verwenden.  
+1.  Installieren Sie eine zweite DirectAccess-Bereitstellung. Sie können DirectAccess auf neuen Servern installieren oder Server aus der ersten Bereitstellung entfernen und für die zweite Bereitstellung verwenden.  
   
     > [!NOTE]  
-    > Wenn Sie eine zusätzliche DirectAccess-Bereitstellung parallel zu einer aktuellen installieren zu können, stellen Sie sicher, dass keine zwei Einstiegspunkte die gleiche Client-Präfix aufweisen.  
+    > Stellen Sie beim Installieren einer zusätzlichen DirectAccess-Bereitstellung neben einer aktuellen Bereitstellung sicher, dass keine zwei Einstiegspunkte dasselbe Client Präfix verwenden.  
     >   
-    > Bei der Installation von DirectAccess mithilfe der Assistent für erste Schritte oder mit dem Cmdlet `Install-RemoteAccess`, RAS automatisch das Client-Präfix, der den ersten Einstiegspunkt festgelegt, in der Bereitstellung auf einen Standardwert von < IPv6-Subnetz\_Präfix >: 1000:: / 64. Ggf. müssen Sie das Präfix ändern.  
+    > Wenn Sie DirectAccess mithilfe des Assistenten für erste Schritte oder mit dem Cmdlet `Install-RemoteAccess` installieren, legt der Remote Zugriff das Client Präfix des ersten Einstiegs Punkts in der Bereitstellung automatisch auf den Standardwert < IPv6-Subnetz @ no__t-1prefix >: 1000::/64 fest. Bei Bedarf müssen Sie das Präfix ändern.  
   
-2.  Entfernen Sie die ausgewählten Client-Sicherheitsgruppen aus der ersten Bereitstellung an.  
+2.  Entfernen Sie die ausgewählten Client Sicherheitsgruppen aus der ersten Bereitstellung.  
   
-3.  Die Client-Sicherheitsgruppen, die zweite Bereitstellung hinzufügen.  
+3.  Fügen Sie die Client Sicherheitsgruppen der zweiten Bereitstellung hinzu.  
   
     > [!IMPORTANT]  
-    > Um Clientkonnektivität während des gesamten Vorgangs zu gewährleisten, müssen Sie die zweite Bereitstellung unmittelbar nach dem Entfernen sie aus dem ersten die Sicherheitsgruppen hinzufügen. Dadurch wird sichergestellt, dass Clients nicht mit zwei oder 0 (null) DirectAccess-Gruppenrichtlinienobjekte aktualisiert werden. Clients werden die zweite Bereitstellung verwenden, sobald sie abrufen und aktualisieren ihre Client-Gruppenrichtlinienobjekt gestartet.  
+    > Um die Client Konnektivität während des gesamten Vorgangs aufrechtzuerhalten, müssen Sie die Sicherheitsgruppen der zweiten Bereitstellung sofort nach dem Entfernen aus der ersten Bereitstellung hinzufügen. Dadurch wird sichergestellt, dass Clients nicht mit zwei oder NULL DirectAccess-GPOs aktualisiert werden. Nachdem Sie das Client-Gruppenrichtlinien Objekt abgerufen und aktualisiert haben, wird die zweite Bereitstellung von den Clients verwendet.  
   
-4.  Optional: Entfernen Sie die DirectAccess-Einstiegspunkte, aus der ersten Bereitstellung aus, und fügen Sie diesen Server als neue Einstiegspunkte in der Sekunde.  
+4.  Optional: Entfernen Sie die DirectAccess-Einstiegspunkte aus der ersten Bereitstellung, und fügen Sie diese Server als neue Einstiegspunkte in der zweiten Bereitstellung hinzu.  
   
-Wenn Sie die Umstellung abgeschlossen haben, können Sie den erste DirectAccess-Bereitstellung deinstallieren. Bei der Deinstallation von können die folgenden Probleme auftreten:  
+Wenn Sie den Übergang abgeschlossen haben, können Sie die erste DirectAccess-Bereitstellung deinstallieren. Beim Deinstallieren von können die folgenden Probleme auftreten:  
   
--   Wenn die Bereitstellung konfiguriert wurde, um nur Clients auf mobilen Computern zu unterstützen, wird der WMI-Filter gelöscht werden. Wenn die Client-Sicherheitsgruppen, der die zweite Bereitstellung auf desktop-PCs enthalten, wird dem Gruppenrichtlinienobjekt des DirectAccess-Clients werden nicht gefiltert, desktop-PCs und möglicherweise Probleme für sie. Wenn ein Filter für die mobile Computer erforderlich ist, neu erstellen, indem Sie die folgenden Anweisungen in [WMI-Filter zu erstellen, für das Gruppenrichtlinienobjekt](https://technet.microsoft.com/library/cc947846.aspx).  
+-   Wenn die Bereitstellung so konfiguriert wurde, dass nur Clients auf mobilen Computern unterstützt werden, wird der WMI-Filter gelöscht. Wenn die Client Sicherheitsgruppen der zweiten Bereitstellung Desktop Computer enthalten, werden Desktop Computer vom DirectAccess-Client-Gruppenrichtlinien Objekt nicht gefiltert und möglicherweise Probleme verursacht. Wenn ein Filter für mobile Computer erforderlich ist, erstellen Sie ihn neu, indem Sie die Anweisungen unter [Erstellen von WMI-Filtern für das GPO](https://technet.microsoft.com/library/cc947846.aspx)befolgen.  
   
--   Wenn beide Bereitstellungen ursprünglich in der gleichen Active Directory-Domäne erstellt wurden, Prüfpunkt DNS Eintrag verweist auf "localhost" werden gelöscht, und möglicherweise Client könnte Verbindungsprobleme verursachen. Beispielsweise können Clients Herstellen einer Verbindung mit der IP-HTTPS anstelle von Teredo, oder Wechseln zwischen DirectAccess-Einstiegspunkte mit mehreren Standorten an. In diesem Fall müssen Sie die folgenden DNS-Eintrag dem Unternehmens-DNS hinzufügen:  
+-   Wenn beide bereit Stellungen ursprünglich in derselben Active Directory Domäne erstellt wurden, wird der DNS-Test Eintrag, der auf "localhost" verweist, gelöscht und kann zu Problemen mit der Client Konnektivität führen. Beispielsweise können Clients eine Verbindung über IP-HTTPS anstelle von Teredo herstellen oder zwischen DirectAccess-Einstiegspunkten für mehrere Standorte wechseln. In diesem Fall müssen Sie dem Unternehmens-DNS den folgenden DNS-Eintrag hinzufügen:  
   
-    -   Zone: Domänennamen für  
+    -   Zone: Domänen Name  
   
-    -   Name: directaccess-corpConnectivityHost  
+    -   Name: DirectAccess-corpconnectivityhost  
   
     -   IP-Adresse::: 1  
   

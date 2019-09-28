@@ -2,7 +2,7 @@
 title: doskey
 description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6179160b7195be6ddf32f9b77d5da0eed5df34d3
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: d45a2ddfeba7ec136add07eac11c3a8522ef872b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544471"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377691"
 ---
 # <a name="doskey"></a>doskey
 
@@ -39,16 +39,16 @@ doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/i
 |       Parameter        |                                                                                                                          Beschreibung                                                                                                                           |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |       /REINSTALL       |                                                                                            Installiert eine neue Kopie von "Doskey. exe" und löscht den Puffer für den Befehlsverlauf.                                                                                            |
-|   /ListSize =\<Größe >    |                                                                                                Gibt die maximale Anzahl der Befehle im Verlaufs Puffer an.                                                                                                 |
+|   /ListSize = \<size >    |                                                                                                Gibt die maximale Anzahl der Befehle im Verlaufs Puffer an.                                                                                                 |
 |        /macros         |                                        Zeigt eine Liste aller **doskey** -Makros an. Sie können das Umleitungs Symbol ( **>** ) mit **/Macros** verwenden, um die Liste in eine Datei umzuleiten. Sie können **/Macros** auf **/m**abkürzen.                                         |
 |      /Macros: alle       |                                                                                                        Zeigt **doskey** -Makros für alle ausführbaren Dateien an.                                                                                                         |
-|   /Macros:\<EXEName >   |                                                                                             Zeigt **doskey** -Makros für die durch *EXEName*angegebene ausführbare Datei an.                                                                                              |
+|   /Macros: \<exename >   |                                                                                             Zeigt **doskey** -Makros für die durch *EXEName*angegebene ausführbare Datei an.                                                                                              |
 |        /history        |                                    Zeigt alle Befehle an, die im Arbeitsspeicher gespeichert sind. Sie können das Umleitungs Symbol ( **>** ) mit **/History** verwenden, um die Liste in eine Datei umzuleiten. Sie können **/History** als **/h**abkürzen.                                    |
 | /insert | Gibt an, dass neuer Text, den Sie eingeben, in den alten Text eingefügt wird. |
 | /overstrike | Gibt an, dass neuer Text alten Text überschreibt. |
-|  /EXEName =\<EXEName >   |                                                                                        Gibt das Programm an (d. h. ausführbare Datei), in dem das **doskey** -Makro ausgeführt wird.                                                                                         |
-| /MACROFILE =\<Dateiname > |                                                                                              Gibt eine Datei an, die die zu installierenden Makros enthält.                                                                                               |
-| \<Macroname > = [\<Text >]  | Erstellt ein Makro, das die durch *Text*angegebenen Befehle ausführt. *Macroname* gibt den Namen an, den Sie dem Makro zuweisen möchten. *Text* gibt die Befehle an, die Sie aufzeichnen möchten. Wenn der *Text* leer bleibt, wird *macroname* von allen zugewiesenen Befehlen gelöscht. |
+|  /EXEName = \<exename >   |                                                                                        Gibt das Programm an (d. h. ausführbare Datei), in dem das **doskey** -Makro ausgeführt wird.                                                                                         |
+| /MACROFILE = \<filename > |                                                                                              Gibt eine Datei an, die die zu installierenden Makros enthält.                                                                                               |
+| \<macroname > = [\<Text >]  | Erstellt ein Makro, das die durch *Text*angegebenen Befehle ausführt. *Macroname* gibt den Namen an, den Sie dem Makro zuweisen möchten. *Text* gibt die Befehle an, die Sie aufzeichnen möchten. Wenn der *Text* leer bleibt, wird *macroname* von allen zugewiesenen Befehlen gelöscht. |
 |           /?           |                                                                                                              Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                              |
 
 ## <a name="remarks"></a>Hinweise
@@ -116,21 +116,21 @@ doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/i
 
   Sie können "Doskey. exe" verwenden, um Makros zu erstellen, die einen oder mehrere Befehle ausführen. In der folgenden Tabelle sind Sonderzeichen aufgeführt, mit denen Sie Befehls Vorgänge steuern können, wenn Sie ein-Makro definieren.  
 
-  |   Zeichen   |                                                                                                                                                                               Beschreibung                                                                                                                                                                               |
+  |   Art   |                                                                                                                                                                               Beschreibung                                                                                                                                                                               |
   |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-  |   $G oder $g    |                                                                                   Leitet die Ausgabe um. Verwenden Sie eines dieser Sonderzeichen, um die Ausgabe an ein Gerät oder eine Datei statt an den Bildschirm zu senden. Dieses Zeichen entspricht dem Umleitungs Symbol für Output ( **>** ).                                                                                    |
-  | $G $ g oder $g $ g  |                                                         Fügt die Ausgabe an das Ende einer Datei an. Verwenden Sie eines dieser doppelten Zeichen, um die Ausgabe an eine vorhandene Datei anzufügen, anstatt die Daten in der Datei zu ersetzen. Diese doppelten Zeichen sind äquivalent zum Anfügen-Umleitungs Symbol für Output **>>** ().                                                         |
-  |   $L oder $l    |                                                                                  Leitet Eingaben um. Verwenden Sie eines dieser Sonderzeichen, um Eingaben von einem Gerät oder einer Datei anstelle der Tastatur zu lesen. Dieses Zeichen entspricht dem Umleitungs Symbol für Input ( **<** ).                                                                                  |
-  |   $B oder $b    |                                                                                                                                    Sendet die Makro Ausgabe an einen Befehl. Diese Sonderzeichen entsprechen der Verwendung der Pipe (\*\*                                                                                                                                     |
+  |   $G oder $g    |                                                                                   Leitet die Ausgabe um. Verwenden Sie eines dieser Sonderzeichen, um die Ausgabe an ein Gerät oder eine Datei statt an den Bildschirm zu senden. Dieses Zeichen entspricht dem Umleitungs Symbol für die Ausgabe ( **>** ).                                                                                    |
+  | $G $ g oder $g $ g  |                                                         Fügt die Ausgabe an das Ende einer Datei an. Verwenden Sie eines dieser doppelten Zeichen, um die Ausgabe an eine vorhandene Datei anzufügen, anstatt die Daten in der Datei zu ersetzen. Diese doppelten Zeichen entsprechen dem anfügebweiterleitungs-Symbol für die Ausgabe ( **>>** ).                                                         |
+  |   $L oder $l    |                                                                                  Leitet Eingaben um. Verwenden Sie eines dieser Sonderzeichen, um Eingaben von einem Gerät oder einer Datei anstelle der Tastatur zu lesen. Dieses Zeichen entspricht dem Umleitungs Symbol für die Eingabe ( **<** ).                                                                                  |
+  |   $B oder $b    |                                                                                                                                    Sendet die Makro Ausgabe an einen Befehl. Diese Sonderzeichen entsprechen der Verwendung der Pipe (\* @ no__t-1                                                                                                                                     |
   |   $T oder $t    |                                                            Trennt Befehle. Verwenden Sie eines dieser Sonderzeichen zum Trennen von Befehlen, wenn Sie Makros erstellen oder Befehle in der **doskey** -Befehlszeile eingeben. Diese Sonderzeichen entsprechen der Verwendung des kaufmännischen und-Zeichens ( **&** ) in einer Befehlszeile.                                                            |
   |      $$       |                                                                                                                                                              Gibt das Dollarzeichen ( **$** ) an.                                                                                                                                                               |
   | $1 bis $9 |             Stellen Sie alle Befehlszeilen Informationen dar, die Sie angeben möchten, wenn Sie das Makro ausführen. Die Sonderzeichen **$1** bis **$9** sind Batch Parameter, die es Ihnen ermöglichen, bei jeder Ausführung des Makros andere Daten in der Befehlszeile zu verwenden. Das **$1** -Zeichen in einem **doskey** -Befehl ähnelt dem **% 1** -Zeichen in einem Batch-Programm.             |
-  |      $\*      | Stellt alle Befehlszeilen Informationen dar, die Sie angeben möchten, wenn Sie den Makronamen eingeben. Das **$ Sonderzeichen\\**  ist ein ersetzbarer Parameter, der den Batch Parametern $1 bis $9 ähnelt, mit einem wichtigen Unterschied: alles, was Sie in der Befehlszeile nach dem \* **der$ Makronamewirdim-Makrodurchersetzt.\\** \* |
+  |      $\*      | Stellt alle Befehlszeilen Informationen dar, die Sie angeben möchten, wenn Sie den Makronamen eingeben. Das Sonderzeichen **$ @ no__t-2**\* ist ein ersetzbarer Parameter, der den Batch Parametern **$1** bis **$9**ähnelt, mit einem wichtigen Unterschied: alles, was Sie in der Befehlszeile eingeben, nachdem der Makro Name ersetzt die **$ @ no__t-8**\* im-Makro. |
 
 
 - Ausführen eines **doskey** -Makros
 
-  Um ein Makro auszuführen, geben Sie den Namen des Makros an der Eingabeaufforderung ein, beginnend an der ersten Position. Wenn das Makro mit **$ \\** * oder einem der Batch Parameter **$1** bis **$9**definiert wurde, verwenden Sie ein Leerzeichen, um die Parameter zu trennen. Ein **doskey** -Makro kann nicht aus einem Batch Programm ausgeführt werden.
+  Um ein Makro auszuführen, geben Sie den Namen des Makros an der Eingabeaufforderung ein, beginnend an der ersten Position. Wenn das Makro mit **$ @ no__t-2*** oder einem der Batch Parameter **$1** bis **$9**definiert wurde, verwenden Sie ein Leerzeichen, um die Parameter zu trennen. Ein **doskey** -Makro kann nicht aus einem Batch Programm ausgeführt werden.
 - Erstellen eines Makros mit dem gleichen Namen wie ein Windows Server 2003-Family-Befehl
 
   Wenn Sie immer einen bestimmten Befehl mit bestimmten Befehlszeilenoptionen verwenden, können Sie ein Makro erstellen, das denselben Namen wie der Befehl hat. Beachten Sie die folgenden Richtlinien, um anzugeben, ob Sie das Makro oder den Befehl ausführen möchten:  
@@ -161,7 +161,7 @@ Zum Definieren eines Makros mit mehreren Befehlen verwenden Sie **$t** , um Befe
 ```
 doskey tx=cd temp$tdir/w $*
 ```
-Im vorherigen Beispiel ändert das TX-Makro das aktuelle Verzeichnis in Temp und zeigt dann eine Verzeichnis Auflistung im breiten Anzeige Format an. Sie können * am Ende des Makros verwenden **$ \\** , um andere Befehlszeilenoptionen an **dir** anzufügen, wenn Sie TX ausführen.
+Im vorherigen Beispiel ändert das TX-Makro das aktuelle Verzeichnis in Temp und zeigt dann eine Verzeichnis Auflistung im breiten Anzeige Format an. Sie können **$ @ no__t-2*** am Ende des Makros verwenden, um beim Ausführen von TX andere Befehlszeilenoptionen an **dir** anzufügen.
 
 Das folgende Makro verwendet einen Batch-Parameter für einen neuen Verzeichnisnamen:
 ```

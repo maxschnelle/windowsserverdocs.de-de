@@ -1,30 +1,30 @@
 ---
-title: Initialisieren Sie den Host-Überwachungsdienst-Cluster mithilfe von Schlüssel-Modus in einer neuen dedizierten Gesamtstruktur (Standard)
+title: Initialisieren des HGS-Clusters mithilfe des Schlüssel Modus in einer neuen dedizierten Gesamtstruktur (Standard)
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 891e94338544e1ced5833a5272502beb239dfd86
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: b8c5c090f97ee02a8c9e5bc6041eacb01c1fa4cf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447454"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402405"
 ---
-# <a name="initialize-the-hgs-cluster-using-key-mode-in-a-new-dedicated-forest-default"></a>Initialisieren Sie den Host-Überwachungsdienst-Cluster mithilfe von Schlüssel-Modus in einer neuen dedizierten Gesamtstruktur (Standard)
+# <a name="initialize-the-hgs-cluster-using-key-mode-in-a-new-dedicated-forest-default"></a>Initialisieren des HGS-Clusters mithilfe des Schlüssel Modus in einer neuen dedizierten Gesamtstruktur (Standard)
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2019, WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
 
 1.  [!INCLUDE [Initialize HGS](../../../includes/guarded-fabric-initialize-hgs-default-step-one.md)] 
 2.  [!INCLUDE [Obtain certificates for HGS](../../../includes/guarded-fabric-initialize-hgs-default-step-two.md)]
 
-3.  Führen Sie [Initialize-HgsServer](https://technet.microsoft.com/library/mt652185.aspx) in einer mit erhöhten Rechten PowerShell-Fenster auf dem ersten Knoten für den Host-Überwachungsdienst. Die Syntax des Cmdlets unterstützt viele verschiedene Eingaben, aber die 2 am häufigsten verwendeten Aufrufe sind unten aufgeführt:
+3.  Führen Sie [Initialize-hgsserver](https://technet.microsoft.com/library/mt652185.aspx) in einem PowerShell-Fenster mit erhöhten Rechten auf dem ersten HGS-Knoten aus. Die Syntax dieses Cmdlets unterstützt viele verschiedene Eingaben, aber die zwei häufigsten Aufrufe sind unten aufgeführt:
 
-    -   Wenn Sie PFX-Dateien für Ihre Zertifikate für Signierung und Verschlüsselung verwenden, führen Sie die folgenden Befehle aus:
+    -   Wenn Sie PFX-Dateien für Ihre Signatur-und Verschlüsselungs Zertifikate verwenden, führen Sie die folgenden Befehle aus:
 
         ```powershell
         $signingCertPass = Read-Host -AsSecureString -Prompt "Signing certificate password"
@@ -33,7 +33,7 @@ ms.locfileid: "66447454"
         Initialize-HgsServer -HgsServiceName 'MyHgsDNN' -SigningCertificatePath '.\signCert.pfx' -SigningCertificatePassword $signingCertPass -EncryptionCertificatePath '.\encCert.pfx' -EncryptionCertificatePassword $encryptionCertPass -TrustHostkey
         ```
 
-    -   Wenn Sie nicht exportierbare Zertifikate verwenden, die im lokalen Zertifikatspeicher installiert sind, führen Sie den folgenden Befehl aus. Wenn Sie nicht, dass die Fingerabdrücke der Zertifikate wissen, können Sie Verfügbare Zertifikate auflisten, mit `Get-ChildItem Cert:\LocalMachine\My`.
+    -   Wenn Sie nicht exportierbare Zertifikate verwenden, die im lokalen Zertifikat Speicher installiert sind, führen Sie den folgenden Befehl aus. Wenn Sie die Fingerabdrücke ihrer Zertifikate nicht kennen, können Sie die verfügbaren Zertifikate auflisten, indem Sie `Get-ChildItem Cert:\LocalMachine\My` ausführen.
 
         ```powershell
         Initialize-HgsServer -HgsServiceName 'MyHgsDNN' -SigningCertificateThumbprint '1A2B3C4D5E6F...' -EncryptionCertificateThumbprint '0F9E8D7C6B5A...' --TrustHostKey
@@ -47,4 +47,4 @@ ms.locfileid: "66447454"
 ## <a name="next-step"></a>Nächster Schritt
 
 > [!div class="nextstepaction"]
-> [Hostschlüssel erstellen](guarded-fabric-create-host-key.md)
+> [Host Schlüssel erstellen](guarded-fabric-create-host-key.md)

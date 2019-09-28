@@ -2,22 +2,22 @@
 title: Erstellen eines DFS-Namespaces
 description: Dieser Artikel beschreibt, wie Sie einen DFS-Namespace erstellen.
 ms.date: 6/5/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 4256e124e75be72f94cbd35c182edfe38e92bc90
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f4d4b86dd1a105576ac4d1749213696b319ba528
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847501"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402207"
 ---
 # <a name="create-a-dfs-namespace"></a>Erstellen eines DFS-Namespaces
 
-> Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2, WindowsServer 2008
+> Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
 Um einen neuen Namespace zu erstellen, können Sie Server-Manager verwenden, um den Namespace zu erstellen, wenn Sie den DFS-Namespaces-Rollendienst installieren. Können Sie auch das [New-DfsnRoot cmdlet](https://docs.microsoft.com/powershell/module/dfsn/new-dfsnroot) von einer Windows PowerShell-Sitzung verwenden. 
 
@@ -36,13 +36,13 @@ Alernativ können Sie einen Namespace nach der Installation des Rollendiensts fo
     Um einen eigenständigen Namespace in einem Failovercluster zu erstellen, geben Sie den Namen der Clusterdateiserverinstanz auf der **Namespace Server** Seite des **Assistenten für den neuen Namespace** an.
 
 > [!IMPORTANT]
-> Versuchen Sie nicht zum Erstellen eines domänenbasierten Namespace verwenden den Windows Server 2008-Modus, wenn die Gesamtstrukturfunktionsebene auf WindowsServer 2003 oder höher ist. Auf diese Weise kann in einem Namespace führen für die Sie DFS-Ordnern nicht löschen können dies ergibt die folgende Fehlermeldung angezeigt: "Der Ordner kann nicht gelöscht werden. Der Vorgang kann nicht beendet werden."
+> Versuchen Sie nicht, einen domänenbasierten Namespace im Windows Server 2008-Modus zu erstellen, es sei denn, die Gesamtstruktur Funktionsebene ist Windows Server 2003 oder höher. Dies kann zu einem Namespace führen, für den DFS-Ordner nicht gelöscht werden können, und die folgende Fehlermeldung wird ausgegeben: "Der Ordner kann nicht gelöscht werden. Der Vorgang kann nicht beendet werden."
 
 ## <a name="see-also"></a>Siehe auch
 
 -   [Bereitstellen von DFS-Namespaces](deploying-dfs-namespaces.md)
--   [Wählen Sie einen Namespace-Typ](choose-a-namespace-type.md)
--   [Hinzufügen von Namespace-Servern zu einem domänenbasierten DFS-Namespace](add-namespace-servers-to-a-domain-based-dfs-namespace.md)
+-   [Auswählen eines Namespacetyps](choose-a-namespace-type.md)
+-   [Hinzufügen von Namespaceservern zu einem domänenbasierten DFS-Namespace](add-namespace-servers-to-a-domain-based-dfs-namespace.md)
 -   [Delegieren von Verwaltungsberechtigungen für DFS-Namespaces](delegate-management-permissions-for-dfs-namespaces.md).
 
 

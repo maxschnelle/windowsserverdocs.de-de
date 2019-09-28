@@ -1,158 +1,158 @@
 ---
-title: Neues in DNS-Server unter WindowsServer
-description: Dieses Thema bietet einen Überblick über neue Funktionen in DNS-Server in Windows Server 2016 und höher
+title: Neues in DNS-Server unter Windows Server
+description: Dieses Thema bietet einen Überblick über die neuen Features in DNS-Server unter Windows Server 2016 und höheren Versionen.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: c9cecb94-3cd5-4da7-9a3e-084148b8226b
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 665e411eda834a59c6dbe3581611b9b58bd006f2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: de502d7be023d12e3350063e467a60356b2472c4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833571"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406235"
 ---
-# <a name="whats-new-in-dns-server-in-windows-server"></a>Neues in DNS-Server unter WindowsServer
+# <a name="whats-new-in-dns-server-in-windows-server"></a>Neues in DNS-Server unter Windows Server
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Dieses Thema beschreibt die Serverfunktionalität der Domain Name System (DNS)-, die neue oder geänderte in Windows Server 2016.  
+In diesem Thema werden die Domain Name System (DNS)-Serverfunktionen beschrieben, die in Windows Server 2016 neu oder geändert wurden.  
   
-In Windows Server 2016 bietet DNS-Server verbesserte Unterstützung in den folgenden Bereichen.  
+In Windows Server 2016 bietet der DNS-Server eine verbesserte Unterstützung in den folgenden Bereichen.  
   
 |Funktionalität|Neu oder verbessert|Beschreibung|  
 |-----------------|-------------------|---------------|  
-|DNS-Richtlinien|Neu|Sie können konfigurieren, dass DNS-Richtlinien, um anzugeben, wie ein DNS-Server auf DNS-Abfragen reagiert. DNS-Antworten können basierend auf IP-Adresse für die Clients (Standort), der den Tag und einige andere Parameter. DNS-Richtlinien ermöglichen die Speicherort-fähigen DNS-Verwaltung des Datenverkehrs, Lastenausgleich, Split-Brain-DNS- und andere Szenarien.|  
-|Antwort-Ratenlimit (RRL)|Neu|Sie können die Antwort die Begrenzung der Übertragungsrate für Ihre DNS-Server aktivieren. Auf diese Weise vermeiden Sie die Möglichkeit, böswillige Systeme, die mit Ihrer DNS-Server um einen DoS-Angriff auf einen DNS-Client zu initiieren.|  
-|DNS-basierte Authentifizierung von benannten Entitäten (DANE)|Neu|Sie können TLSA (Transport Layer Security-Authentifizierung)-Datensätze verwenden, um Informationen für DNS-Clients bereitzustellen, die welche Zertifizierungsstelle Zustand sie ein Zertifikat für Ihren Domänennamen zu erwarten. Dies verhindert, dass Man-in-the-Middle-Angriffe, in denen ein Benutzer möglicherweise beschädigen den DNS-Cache auf ihrer eigenen Website verweisen, und geben Sie ein Zertifikat, das sie von einer anderen Zertifizierungsstelle ausgestellt.|  
-|Unterstützung für unbekannte Datensatz|Neu|Sie können Datensätze hinzufügen, die nicht explizit vom Windows-DNS-Server mithilfe der Funktion unbekannt Datensatz unterstützt werden.|  
-|Stammhinweise für IPv6|Neu|Sie können die systemeigene IPv6-Adresse verwenden, Stammhinweise zu unterstützen, um die Auflösung von Internetnamen verwenden die IPV6-Server ausführen.|  
-|Windows PowerShell-Unterstützung|Verbessert|Neue Windows PowerShell-Cmdlets sind für DNS-Server verfügbar.|  
+|DNS-Richtlinien|Neu|Sie können DNS-Richtlinien konfigurieren, um anzugeben, wie ein DNS-Server auf DNS-Abfragen antwortet. DNS-Antworten können auf der Client-IP-Adresse (Speicherort), der Tageszeit und mehreren anderen Parametern basieren. DNS-Richtlinien ermöglichen standortabhängige DNS, Datenverkehrs Verwaltung, Lastenausgleich, Split-Brain-DNS und andere Szenarien.|  
+|Antwortraten Begrenzung (RRL)|Neu|Sie können die Reaktionsraten Begrenzung für Ihre DNS-Server aktivieren. Auf diese Weise können Sie verhindern, dass böswillige Systeme, die Ihre DNS-Server verwenden, einen Denial-of-Service-Angriff auf einen DNS-Client initiieren.|  
+|DNS-basierte Authentifizierung benannter Entitäten (Dane)|Neu|Sie können die Datensätze von TLSA (Transport Layer Security Authentication) verwenden, um Informationen für DNS-Clients bereitzustellen, die angeben, von welcher Zertifizierungsstelle ein Zertifikat für Ihren Domänen Namen erwartet werden soll. Dadurch werden man-in-the-Middle-Angriffe verhindert, bei denen jemand den DNS-Cache beschädigen könnte, um auf seine eigene Website zu verweisen, und ein Zertifikat bereitstellen, das von einer anderen Zertifizierungsstelle ausgestellt wurde.|  
+|Unbekannte Daten Satz Unterstützung|Neu|Sie können Datensätze hinzufügen, die vom Windows-DNS-Server nicht explizit unterstützt werden. verwenden Sie dazu die Funktion für unbekannte Einträge|  
+|IPv6-Stamm Hinweise|Neu|Mithilfe der systemeigenen IPv6-Stamm Hinweis Unterstützung können Sie die Internet Namensauflösung mithilfe der IPv6-Stamm Server durchführen.|  
+|Windows PowerShell-Unterstützung|Verbessert|Für den DNS-Server sind neue Windows PowerShell-Cmdlets verfügbar.|  
   
 ## <a name="dns-policies"></a>DNS-Richtlinien
 
-DNS-Richtlinien können für GeoLocation-Verwaltung des Datenverkehrs, intelligente DNS-Antworten basierend auf der Tageszeit basierte, zu verwalten eines einzelnen DNS-Servers für die Teilung konfiguriert\-Brain-Bereitstellung, Anwenden von Filtern auf DNS-Abfragen und vieles mehr. Die folgenden Elemente enthalten, weitere Details zu diesen Funktionen wird.
+Sie können die DNS-Richtlinie für die georeduntbasierte Datenverkehrs Verwaltung, intelligente DNS-Antworten basierend auf der Tageszeit, die Verwaltung eines einzelnen DNS-Servers, der für die Split @ no__t-0brain-Bereitstellung konfiguriert ist, das Anwenden von Filtern auf DNS-Abfragen usw. verwenden. Die folgenden Elemente bieten weitere Details zu diesen Funktionen.
 
--   **Anwendungslastenausgleich.** Wenn Sie mehrere Instanzen einer Anwendung an verschiedenen Standorten bereitgestellt haben, können Sie die DNS-Richtlinien verwenden, um den Datenverkehr einen Lastenausgleich zwischen den verschiedenen Anwendungsinstanzen, dynamischen Zuweisung von der Auslastung für die Anwendung.
+-   **Anwendungs Lastenausgleich.** Wenn Sie mehrere Instanzen einer Anwendung an verschiedenen Speicherorten bereitgestellt haben, können Sie die DNS-Richtlinie verwenden, um die Auslastung des Datenverkehrs zwischen den verschiedenen Anwendungs Instanzen auszugleichen und die Datenverkehrs Last für die Anwendung dynamisch zuzuweisen.
 
--   **Geografische\-standortbasierte Verwaltung des Datenverkehrs.** DNS-Richtlinien können Sie primäre und sekundäre DNS-Server auf DNS-Clientabfragen basierend auf den geografischen Standort des dem Client und die Ressource, zu der der Client versucht, eine Verbindung herstellen, können den Client bereitstellen, mit der IP-Adresse am nächsten die Ressource. 
+-   **Geor@ no__t-1 Location based Traffic Management.** Mithilfe der DNS-Richtlinie können primäre und sekundäre DNS-Server auf DNS-Client Abfragen basierend auf dem geografischen Standort des Clients und der Ressource, mit der der Client eine Verbindung herzustellen versucht, Antworten, und dem Client wird die IP-Adresse des nächstgelegenen Ressource. 
 
--   **Split-Brain-DNS.** Mit Teilung\--Brain-DNS, DNS-Einträge werden in verschiedenen Bereichen von Zone auf dem gleichen DNS-Server geteilt werden soll, und DNS-Clients erhalten eine Antwort basierend auf der gibt an, ob die Clients interne oder externe Kunden sind. Sie können konfigurieren, Split\--Brain-DNS für Active Directory-integrierte Zonen oder Zonen auf eigenständigen DNS-Servern.
+-   **Teilen Sie das Hirn-DNS.** Mit Split @ no__t-0brain-DNS werden DNS-Einträge in verschiedene Zonen Bereiche auf demselben DNS-Server aufgeteilt, und DNS-Clients erhalten eine Antwort, je nachdem, ob es sich bei den Clients um interne oder externe Clients handelt. Sie können Split @ no__t-0brain-DNS für Active Directory integrierte Zonen oder Zonen auf eigenständigen DNS-Servern konfigurieren.
 
--   **Filtern.** Sie können konfigurieren, dass DNS-Richtlinien zum Abfragefilter erstellen, die auf Kriterien basieren, die Sie angeben. Abfragefilter in DNS-Richtlinien können Sie konfigurieren die DNS-Server zum Antworten auf benutzerdefinierte Weise basierend auf dem DNS-Abfrage und die DNS-Client, der die DNS-Abfrage sendet. 
--   **Ermöglicht forensische Analysen.** Sie können DNS-Richtlinien verwenden, zum Umleiten von böswilligen DNS-Clients auf einem Nichtstandard\-vorhandene IP-Adresse anstelle der Weiterleitung an den Computer, die sie erreichen möchten.
+-   **Filterung.** Sie können die DNS-Richtlinie konfigurieren, um Abfrage Filter basierend auf den von Ihnen angegebenen Kriterien zu erstellen. Mithilfe von Abfrage Filtern in der DNS-Richtlinie können Sie den DNS-Server so konfigurieren, dass er basierend auf der DNS-Abfrage und dem DNS-Client, der die DNS-Abfrage sendet, Benutzer definiert reagiert 
+-   **Forensik.** Sie können DNS-Richtlinien verwenden, um böswillige DNS-Clients an eine nicht-@ no__t-0vorhandene IP-Adresse umzuleiten, anstatt Sie an den Computer weiterzuleiten, den Sie zu erreichen versuchen.
 
--   **Zeit des Tages basierend Umleitung.** Sie können DNS-Richtlinien verwenden, Verteilen von Datenverkehr in verschiedenen geografisch verteilten Instanzen einer Anwendung mithilfe von DNS-Richtlinien, die auf die Uhrzeit basieren. 
+-   **Uhrzeit der täglichen Umleitung.** Mithilfe der DNS-Richtlinie können Sie den Anwendungs Datenverkehr mithilfe von DNS-Richtlinien, die auf der Tageszeit basieren, über verschiedene geografisch verteilte Instanzen einer Anwendung verteilen. 
   
-Sie können den DNS-Richtlinien auch verwenden, für die Active Directory-integrierten DNS-Zonen.
+DNS-Richtlinien können auch für Active Directory integrierte DNS-Zonen verwendet werden.
 
-Weitere Informationen finden Sie unter den [DNS-Gruppenrichtlinienszenarien](deploy/DNS-Policies-Overview.md).
+Weitere Informationen finden Sie im [Leitfaden zum DNS-Richtlinien Szenario](deploy/DNS-Policies-Overview.md).
 
-## <a name="response-rate-limiting"></a>Antwort Übertragungsbegrenzung zuverlässig verwaltet.
+## <a name="response-rate-limiting"></a>Beschränkung der Antwort Rate
 
-Sie können konfigurieren, dass RRL-Einstellungen, um zu steuern, wie Sie reagieren auf Anforderungen an einen DNS-Client, wenn der Server mehrere Anforderungen, die auf dem gleichen Client empfängt. Auf diese Weise können Sie eine Person verhindern einen Denial-of-Service (Dos)-Angriff über Ihre DNS-Server zu senden. Beispielsweise kann eine Bot-net Anforderungen an Ihre DNS-Server verwenden die IP-Adresse von einem dritten Computer als dem anforderer senden. Ohne RRL möglicherweise die DNS-Server auf alle Anforderungen, den dritten Computer Überflutung reagieren. Wenn Sie RRL verwenden, können Sie die folgenden Einstellungen konfigurieren:  
+Sie können die RRL-Einstellungen konfigurieren, um zu steuern, wie auf Anforderungen an einen DNS-Client reagiert werden soll, wenn der Server mehrere Anforderungen an denselben Client empfängt. Auf diese Weise können Sie verhindern, dass jemand einen Denial-of-Service-Angriff (DOS) mithilfe Ihrer DNS-Server sendet. Beispielsweise kann ein bot-Netzanforderungen mithilfe der IP-Adresse eines dritten Computers als Anforderer an den DNS-Server senden. Ohne RRL können Ihre DNS-Server auf alle Anforderungen reagieren und den dritten Computer überfluten. Wenn Sie RRL verwenden, können Sie die folgenden Einstellungen konfigurieren:  
   
--   **Antworten pro Sekunde**. Dies ist die maximale Anzahl der Häufigkeit, mit die gleiche Antwort innerhalb einer Sekunde auf einem Client übergeben wird.  
+-   **Antworten pro Sekunde**. Dies ist die maximale Häufigkeit, mit der die gleiche Antwort einem Client innerhalb einer Sekunde zugewiesen wird.  
   
--   **Fehler pro Sekunde**. Dies ist die maximale Anzahl der Häufigkeit, mit die eine Fehlerantwort mit dem gleichen Client innerhalb einer Sekunde gesendet wird.  
+-   **Fehler pro Sekunde**. Dies ist die maximale Häufigkeit, mit der eine Fehler Antwort innerhalb einer Sekunde an denselben Client gesendet wird.  
   
--   **Window**. Dies ist die Anzahl der Sekunden, die für die Antworten an einen Client angehalten werden, wenn zu viele Anforderungen gestellt werden.  
+-   **Fenster**. Dies ist die Anzahl von Sekunden, für die Antworten auf einen Client angehalten werden, wenn zu viele Anforderungen gestellt werden.  
   
--   **Rate des Arbeitsspeicherverlusts**. Dies ist die Häufigkeit der DNS-Server auf eine Abfrage während des Zeitraums reagiert, die Antworten angehalten werden. Z. B. wenn der Server hält die Antworten an einen Client für 10 Sekunden und die Rate von Speicherverlusten 5 ist, reagiert der Server immer noch eine Abfrage für jede 5 Abfragen gesendet auf. Dies ermöglicht den legitimen Clients Antworten auch, wenn der DNS-Server Antwortquote beschränken, auf dem Subnetz oder den FQDN angewendet wird.  
+-   Die **Rate der Lecks**. Dies ist die Häufigkeit, mit der der DNS-Server während der Zeit, in der Antworten angehalten werden, auf eine Abfrage antwortet. Wenn beispielsweise der Server 10 Sekunden lang Antworten an einen Client hält und der Wert für die Dichte 5 beträgt, antwortet der Server immer noch auf eine Abfrage für alle fünf gesendeten Abfragen. Dies ermöglicht es den legitimen Clients, auch dann Antworten zu erhalten, wenn der DNS-Server die Antwortraten Begrenzung für das Subnetz oder den FQDN anwendet.  
   
--   **TC Rate**. Dies wird verwendet, weisen Sie den Client, eine Verbindung mit TCP, wenn Antworten an den Client angehalten werden. Z. B. wenn die TC-Rate 3 beträgt und der Server hält die Antworten auf einem Client, gibt der Server eine Anforderung für TCP-Verbindung für alle empfangenen 3 Abfragen. Stellen Sie sicher, dass der Wert für die TC-Rate niedriger als der Verlust, auf dem Client die Möglichkeit, die über TCP eine Verbindung herstellen, vor dem Verlust von Antworten zu geben.  
+-   **TC-Rate**. Hiermit wird der Client angewiesen, eine Verbindung mit TCP herzustellen, wenn Antworten auf den Client angehalten werden. Wenn die TC-Rate beispielsweise 3 beträgt und der Server Antworten an einen bestimmten Client hält, gibt der Server eine Anforderung für eine TCP-Verbindung für jede 3 empfangene Abfrage aus. Stellen Sie sicher, dass der Wert für die TC-Rate niedriger ist als die Verlustrate, um dem Client die Möglichkeit zu geben, über TCP eine Verbindung herzustellen, bevor Antworten wieder hergestellt werden.  
   
--   **Maximale Antworten**. Dies ist die maximale Anzahl von Antworten, die der Server an einen Client ausstellt, während Antworten angehalten werden.  
+-   **Maximale Antworten**. Dies ist die maximale Anzahl von Antworten, die der Server für einen Client ausgibt, während Antworten angehalten werden.  
   
--   **Domänen der Positivliste**. Dies ist eine Liste der Domänen aus RRL Einstellungen ausgeschlossen werden sollen.  
+-   **Weiß Listen Domänen**. Dies ist eine Liste der Domänen, die von den RRL-Einstellungen ausgeschlossen werden sollen.  
   
--   **Whitelist Subnetze**. Dies ist eine Liste mit Subnetzen von RRL Einstellungen ausgenommen werden sollen.  
+-   Die **Subnetze der weißen Liste**. Dies ist eine Liste von Subnetzen, die von den RRL-Einstellungen ausgeschlossen werden sollen.  
   
--   **Whitelist-Server-Netzwerkschnittstellen**. Dies ist eine Liste der DNS-Server-Netzwerkschnittstellen aus RRL Einstellungen ausgeschlossen werden sollen.  
+-   **White List-Server Schnittstellen**. Dies ist eine Liste von DNS-Server Schnittstellen, die von den RRL-Einstellungen ausgeschlossen werden sollen.  
   
-## <a name="dane-support"></a>DANE-Unterstützung
+## <a name="dane-support"></a>Unterstützung von Dane
 
-Können Sie DANE Unterstützung \(RFC 6394 und 6698\) an für Ihre DNS-Clients welche Zertifizierungsstelle sie erwarten, dass Zertifikate für den Domänennamen aus ausgestellt werden gehostet in Ihrem DNS-Server. Dies verhindert, dass ein Man-in-the-Middle-Angriff, in denen ein Benutzer kann einen DNS-Cache beschädigt, und zeigen einen DNS-Namen in ihre eigenen IP-Adresse.  
+Sie können die DCS-Unterstützung \(rfc 6394 und 6698 @ no__t-1 verwenden, um für Ihre DNS-Clients anzugeben, von welcher Zertifizierungsstelle die Zertifikate für Domänen Namen, die auf Ihrem DNS-Server gehostet werden, ausgestellt werden sollen. Dies verhindert eine Art von man-in-the-Middle-Angriff, bei dem jemand einen DNS-Cache beschädigen und einen DNS-Namen auf seine eigene IP-Adresse verweisen kann.  
   
-Angenommen Sie, z. B. Host eine sichere Website, die mithilfe eines Zertifikats von einer bekannten Zertifizierungsstelle, die mit dem Namen CA1 SSL unter www.contoso.com zu verwendet. Ein Benutzer weiterhin möglicherweise um ein Zertifikat für www.contoso.com aus einer unterschiedlich, nicht damit-bekanntes, Autorität CA2 genannte Zertifikat zu erhalten. Klicken Sie dann möglicherweise die Entität, die die gefälschte www.contoso.com Website hosten können beschädigt werden DNS-Cache von einem Client oder Server, um www.contoto.com an den falschen Standort zu verweisen. Der Endbenutzer kann wird ein Zertifikat von CA2 angezeigt und einfach bestätigen es und eine Verbindung die gefälschte Website. Mit DANE wäre der Client kann eine Anforderung an dem DNS-Server für "contoso.com" in der der Datensatz TLSA und erfahren Sie, dass das Zertifikat für www.contoso.com Probleme nach CA1 war. Wenn Sie mit einem Zertifikat von einer anderen Zertifizierungsstelle angezeigt wird, wird die Verbindung abgebrochen.  
+Stellen Sie sich beispielsweise vor, dass Sie eine sichere Website hosten, die SSL unter www.contoso.com verwendet, indem Sie ein Zertifikat von einer bekannten Autorität namens CA1 verwenden. Möglicherweise kann ein Benutzer ein Zertifikat für www.contoso.com von einer anderen, nicht so bekannten Zertifizierungsstelle mit dem Namen "Ca2" erhalten. Anschließend kann die Entität, die die Fake www.contoso.com-Website gehostet, den DNS-Cache eines Clients oder Servers beschädigen, um www.contoto.com auf die gefälschte Website zu verweisen. Dem Endbenutzer wird ein Zertifikat von "Ca2" angezeigt, und er kann es einfach bestätigen und eine Verbindung mit dem gefälschten Standort herstellen. Bei der Verwendung von "Dane" würde der Client eine Anforderung an den DNS-Server für contoso.com stellen, die den TLSA-Datensatz fragt und erfährt, dass das Zertifikat für www.contoso.com von CA1 ausgegeben wurde. Wenn ein Zertifikat von einer anderen Zertifizierungsstelle angezeigt wird, wird die Verbindung abgebrochen.  
   
-## <a name="unknown-record-support"></a>Unterstützung für unbekannte Datensatz
+## <a name="unknown-record-support"></a>Unbekannte Daten Satz Unterstützung
 
-Ein Eintrag"Unbekannt" ist ein RR, deren RDATA-Format an den DNS-Server nicht bekannt ist. Die neu hinzugefügte Unterstützung für unbekannte Datensatztypen (RFC 3597) bedeutet, dass Sie den nicht unterstützten Record-Typen in der Windows DNS-Server-Zonen im Binärformat über das Netzwerk hinzufügen können. Die Windows cachekonfliktlöser hat bereits die Möglichkeit, unbekannte Record-Typen zu verarbeiten. Windows DNS-Server werden keine Datensätze spezifische Verarbeitung für die unbekannte Datensätze, aber senden in Antworten zurück, wenn Sie Abfragen empfangen werden.  
+Ein "Unbekannter Datensatz" ist ein RR, dessen rdata-Format dem DNS-Server nicht bekannt ist. Die neu hinzugefügte Unterstützung für die Typen "Unbekannter Datensatz" (RFC 3597) bedeutet, dass Sie die nicht unterstützten Daten Satz Typen in den Windows DNS-Server Zonen im Binärformat "Binärformat" hinzufügen können. Der Windows Caching-Konflikt Löser ist bereits in der Lage, unbekannte Daten Satz Typen zu verarbeiten. Der Windows-DNS-Server führt keine Daten Satz spezifische Verarbeitung für unbekannte Datensätze aus, sendet Sie jedoch zurück in Antworten, wenn Abfragen für Sie empfangen werden.  
   
-## <a name="ipv6-root-hints"></a>Stammhinweise für IPv6
+## <a name="ipv6-root-hints"></a>IPv6-Stamm Hinweise
 
-Die IPV6-Stammhinweise, wurden veröffentlicht von IANA, für die Windows-DNS-Server hinzugefügt. Die Internet-Namensabfragen können jetzt die IPv6-Stammserver verwenden, für die Durchführung der namensauflösung.
+Die IPv6-Stamm Hinweise, wie Sie von IANA veröffentlicht wurden, wurden dem Windows-DNS-Server hinzugefügt. Die Internet Namen Abfragen können jetzt IPv6-Stamm Server zum Durchführen von namens Auflösungen verwenden.
 
 ## <a name="windows-powershell-support"></a>Windows PowerShell-Unterstützung
 
-Die folgenden neuen Windows PowerShell-Cmdlets und Parameter werden in Windows Server 2016 eingeführt.
+Die folgenden neuen Windows PowerShell-Cmdlets und-Parameter werden in Windows Server 2016 eingeführt.
   
--   **Add-DnsServerRecursionScope**. Dieses Cmdlet erstellt einen neuen Bereich der Rekursion, auf dem DNS-Server. Rekursion Bereiche werden von DNS-Richtlinien zum Angeben einer Liste der Weiterleitungen, die in einer DNS-Abfrage verwendet werden.  
+-   **Add-dnsserverrecursionscope**. Mit diesem Cmdlet wird ein neuer Rekursions Bereich auf dem DNS-Server erstellt. Rekursions Bereiche werden von DNS-Richtlinien verwendet, um eine Liste der Weiterleitungen anzugeben, die in einer DNS-Abfrage verwendet werden sollen.  
   
--   **Remove-DnsServerRecursionScope**. Dieses Cmdlet entfernt die vorhandenen Rekursion Bereiche.  
+-   **Remove-dnsserverrecursionscope**. Mit diesem Cmdlet werden vorhandene Rekursions Bereiche entfernt.  
   
--   **Set-DnsServerRecursionScope**. Dieses Cmdlet ändert die Einstellungen eines vorhandenen Bereichs von Rekursion.  
+-   **Set-dnsserverrecursionscope**. Mit diesem Cmdlet werden die Einstellungen eines vorhandenen Rekursions Bereichs geändert.  
   
--   **Get-DnsServerRecursionScope**. Dieses Cmdlet Ruft Informationen zu vorhandenen Rekursion Bereiche ab.  
+-   **Get-dnsserverrecursionscope**. Mit diesem Cmdlet werden Informationen zu vorhandenen Rekursions Bereichen abgerufen.  
   
--   **Add-DnsServerClientSubnet**. Dieses Cmdlet erstellt ein neues Subnetz der DNS-Client. Subnetze werden von DNS-Richtlinien verwendet, um zu identifizieren, in dem ein DNS-Client befindet.  
+-   **Add-dnsserverclientsubnet**. Dieses Cmdlet erstellt ein neues DNS-clientsubnetz. Subnetze werden von DNS-Richtlinien verwendet, um zu ermitteln, wo sich ein DNS-Client befindet.  
   
--   **Remove-DnsServerClientSubnet**. Dieses Cmdlet entfernt die vorhandene DNS-Client-Subnetze.  
+-   **Remove-dnsserverclientsubnet**. Mit diesem Cmdlet werden vorhandene DNS-Clientsubnetze entfernt.  
   
--   **Set-DnsServerClientSubnet**. Dieses Cmdlet ändert die Einstellungen eines vorhandenen DNS-Client-Subnetzes.  
+-   **Set-dnsserverclientsubnet**. Mit diesem Cmdlet werden die Einstellungen eines vorhandenen DNS-Clientsubnetzes geändert.  
   
--   **Get-DnsServerClientSubnet**. Dieses Cmdlet Ruft Informationen zu vorhandenen Subnetzen von DNS-Clients ab.  
+-   **Get-dnsserverclientsubnet**. Mit diesem Cmdlet werden Informationen über vorhandene DNS-Clientsubnetze abgerufen.  
   
--   **Add-DnsServerQueryResolutionPolicy**. Dieses Cmdlet erstellt eine neue Richtlinie zur DNS-Abfrage. Richtlinien für DNS-Abfrage werden verwendet, um anzugeben, oder wenn Sie eine Abfrage zu geantwortet wird, anhand verschiedener Kriterien.  
+-   **Add-dnsserverqueryresolutionpolicy**. Dieses Cmdlet erstellt eine neue Richtlinie für die DNS-Abfrage Auflösung. DNS-Abfrage Auflösungs Richtlinien werden verwendet, um anzugeben, wie oder ob eine Abfrage auf Grundlage unterschiedlicher Kriterien antwortet.  
   
--   **Remove-DnsServerQueryResolutionPolicy**. Dieses Cmdlet entfernt die vorhandene DNS-Richtlinien.  
+-   **Remove-dnsserverqueryresolutionpolicy**. Mit diesem Cmdlet werden vorhandene DNS-Richtlinien entfernt.  
   
--   **Set-DnsServerQueryResolutionPolicy**. Dieses Cmdlet ändert die Einstellungen einer vorhandenen DNS-Richtlinie.  
+-   **Set-dnsserverqueryresolutionpolicy**. Mit diesem Cmdlet werden die Einstellungen einer vorhandenen DNS-Richtlinie geändert.  
   
--   **Get-DnsServerQueryResolutionPolicy**. Dieses Cmdlet Ruft Informationen zu vorhandenen DNS-Richtlinien ab.  
+-   **Get-dnsserverqueryresolutionpolicy**. Dieses Cmdlet ruft Informationen über vorhandene DNS-Richtlinien ab.  
   
--   **Enable-DnsServerPolicy**. Mit diesem Cmdlet können vorhandene DNS-Richtlinien.  
+-   **Enable-dnsserverpolicy**. Mit diesem Cmdlet werden vorhandene DNS-Richtlinien aktiviert.  
   
--   **Disable-DnsServerPolicy**. Dieses Cmdlet deaktiviert die vorhandene DNS-Richtlinien.  
+-   **Deaktivieren Sie-dnsserverpolicy**. Mit diesem Cmdlet werden vorhandene DNS-Richtlinien deaktiviert.  
   
--   **Add-DnsServerZoneTransferPolicy**. Dieses Cmdlet erstellt eine neue DNS-Zone Übertragungsrichtlinie. DNS-Zone Übertragung Richtlinien angeben, ob eine zonenübertragung, basierend auf anderen Kriterien zu ignorieren oder verweigern.  
+-   **Add-dnsserverzonetransferpolicy**. Mit diesem Cmdlet wird eine neue Richtlinie für die DNS-Server Zonen Übertragung erstellt. DNS-Zonen Übertragungs Richtlinien geben an, ob eine Zonen Übertragung basierend auf unterschiedlichen Kriterien verweigert oder ignoriert werden soll.  
   
--   **Remove-DnsServerZoneTransferPolicy**. Dieses Cmdlet entfernt die vorhandene DNS-Server Zone Übertragung Richtlinien.  
+-   **Remove-dnsserverzonetransferpolicy**. Mit diesem Cmdlet werden vorhandene Richtlinien für die DNS-Server Zonen Übertragung entfernt.  
   
--   **Set-DnsServerZoneTransferPolicy**. Dieses Cmdlet ändert die Einstellungen einer vorhandenen DNS-Zone datenübertragungsrichtlinie.  
+-   **Set-dnsserverzonetransferpolicy**. Mit diesem Cmdlet werden die Einstellungen einer vorhandenen Richtlinie für die Zonen Übertragung von DNS-Servern geändert.  
   
--   **Get-DnsServerResponseRateLimiting**. Dieses Cmdlet ruft RRL Einstellungen ab.  
+-   **Get-dnsserverresponse Server**. Mit diesem Cmdlet werden RRL-Einstellungen abgerufen.  
   
--   **Set-DnsServerResponseRateLimiting**. Dieses Cmdlet ändert die RRL vertrauen.  
+-   **Set-dnsserverresponse Server**. Dieses Cmdlet ändert RRL-Aufstellungen.  
   
--   **Add-DnsServerResponseRateLimitingExceptionlist**. Dieses Cmdlet erstellt eine Ausnahmeliste RRL auf dem DNS-Server.  
+-   **Add-dnsserverresponse seratelimitingexceptionlist**. Dieses Cmdlet erstellt eine RRL-Ausnahmeliste auf dem DNS-Server.  
   
--   **Get-DnsServerResponseRateLimitingExceptionlist**. Dieses Cmdlet ruft RRL Excception Listen ab.  
+-   **Get-dnsserverresponseratelimitingexceptionlist**. Dieses Cmdlet ruft die RRL-excception-Listen ab.  
   
--   **Remove-DnsServerResponseRateLimitingExceptionlist**. Dieses Cmdlet entfernt eine vorhandene Liste der RRL-Ausnahme.  
+-   **Remove-dnsserverresponseratelimitingexceptionlist**. Mit diesem Cmdlet wird eine vorhandene RRL-Ausnahmeliste entfernt.  
   
--   **Set-DnsServerResponseRateLimitingExceptionlist**. Dieses Cmdlet ändert die RRL Ausnahme enthält.  
+-   **Set-dnsserverresponse seratelimitingexceptionlist**. Dieses Cmdlet ändert die RRL-Ausnahme Listen.  
   
--   **Add-DnsServerResourceRecord**. Dieses Cmdlet wurde aktualisiert, um Unbekannter Datensatztyp zu unterstützen.  
+-   **Add-dnsserverresourcerecord**. Dieses Cmdlet wurde aktualisiert, um einen unbekannten Daten Satz Typen zu unterstützen.  
   
--   **Get-DnsServerResourceRecord**. Dieses Cmdlet wurde aktualisiert, um Unbekannter Datensatztyp zu unterstützen.  
+-   **Get-dnsserverresourcerecord**. Dieses Cmdlet wurde aktualisiert, um einen unbekannten Daten Satz Typen zu unterstützen.  
   
--   **Remove-DnsServerResourceRecord**. Dieses Cmdlet wurde aktualisiert, um Unbekannter Datensatztyp zu unterstützen.  
+-   **Remove-dnsserverresourcerecord**. Dieses Cmdlet wurde aktualisiert, um einen unbekannten Daten Satz Typen zu unterstützen.  
   
--   **Set-DnsServerResourceRecord**. Dieses Cmdlet wurde aktualisiert, um die Unterstützung Unbekannter Datensatztyp
+-   **Set-dnsserverresourcerecord**. Dieses Cmdlet wurde aktualisiert und unterstützt einen unbekannten Daten Satz.
 
-Weitere Informationen finden Sie unter den folgenden Referenzthemen für Windows Server 2016, Windows PowerShell-Befehl.
+Weitere Informationen finden Sie in den folgenden Windows Server 2016 Windows PowerShell-Befehlsreferenz Themen.
 
-- [DNS-Server-Modul](https://docs.microsoft.com/powershell/module/dnsserver/?view=win10-ps)
-- [DnsClient-Modul](https://docs.microsoft.com/powershell/module/dnsclient/?view=win10-ps)
+- [DNSServer-Modul](https://docs.microsoft.com/powershell/module/dnsserver/?view=win10-ps)
+- [Dnsclient-Modul](https://docs.microsoft.com/powershell/module/dnsclient/?view=win10-ps)
 
 ## <a name="see-also"></a>Siehe auch  
   
--   [Neues in DNS-Client](What-s-New-in-DNS-Client.md)  
+-   [Neues im DNS-Client](What-s-New-in-DNS-Client.md)  
   
 
   

@@ -1,8 +1,8 @@
 ---
 title: qprocess
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,26 +13,26 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a50cb5eae3a0fa329fff1f39870722c323507000
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b3111d4e980395c1a7c971af715017d455e1a29c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872321"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384918"
 ---
 # <a name="qprocess"></a>qprocess
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zeigt Informationen zu Prozessen, die auf einem Server Remote Desktop Session Host (RD-Sitzungshost) ausgeführt werden.
+Zeigt Informationen zu Prozessen an, die auf einem Remotedesktop-Sitzungshost Server (RD-Sitzungshost) ausgeführt werden.
 
 > [!NOTE]
-> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Neuerungen in der neuesten Version finden Sie unter [welche s New in Remote Desktop Services in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der technischen Bibliothek für Windows Server.
+> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der TechNet-Bibliothek für Windows Server.
 
 ## <a name="remarks"></a>Hinweise
-Dieser Befehl ist identisch mit der **Abfragen Prozess** Befehl.
+Dieser Befehl ist mit dem **Abfrageprozess** Befehl identisch.
 
-#### <a name="additional-references"></a>Zusätzliche Referenzen
-[Abfragen von Prozess](query-process.md)
-[Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-[Remote Desktop Services &#40;"Terminal Services"&#41; -Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)
+#### <a name="additional-references"></a>Weitere Verweise
+[Abfrageprozess](query-process.md)
+[Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+[Remotedesktopdienste &#40;Befehlsreferenz&#41; für Terminal Dienste](remote-desktop-services-terminal-services-command-reference.md)

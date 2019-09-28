@@ -1,8 +1,8 @@
 ---
 title: Festplatte auswählen
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2da74afda7c15145327b4d64f5c0e97e4f9b10cc
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6d9078242264b01ee4bc24dc590df24b1e53e548
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441442"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371079"
 ---
 # <a name="select-disk"></a>Festplatte auswählen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Wählt den angegebenen Datenträger und verlagert den Fokus auf sie.  
+wählt den angegebenen Datenträger aus und verschiebt den Fokus auf ihn.  
   
   
   
@@ -35,43 +35,43 @@ select disk={ <n> | <disk path> | system | next }
 ```  
   
 > [!NOTE]  
-> Die **<disk path>** , **System**, und **Weiter** Parameter sind nur in Windows 7 und Windows Server 2008 R2 verfügbar.  
+> Die Parameter " **<disk path>** ", " **System**" und " **Next** " sind nur in Windows 7 und Windows Server 2008 R2 verfügbar.  
   
 ## <a name="parameters"></a>Parameter  
   
 |  Parameter  |                                                                                                                                                                                                            Beschreibung                                                                                                                                                                                                            |
 |-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     <n>     | Gibt die Anzahl des Datenträgers an, den Fokus erhalten. Sie können die Zahlen für alle Datenträger auf dem Computer anzeigen, indem Sie mit der **Liste Datenträger** in DiskPart den Befehl. **Hinweis**: Wenn Sie Systeme mit mehreren Datenträgern zu konfigurieren, verwenden Sie keine **select Disk\=0** den Systemdatenträger an. Wenn Sie neu starten, und andere Computer mit der gleichen Datenträgerkonfiguration können verschiedene Datenträgernummern hat, kann der Computer die Datenträgernummern neu zuweisen. |
-| <disk path> |                                                                                                                 Gibt den Speicherort des Datenträgers an, z. B. den Fokus erhalten **PCIROOT\(0\)\#PCI\(0F02\)\#AtA\(C00T00L00\)** . Wenn den Pfad zum Speicherort eines Datenträgers anzeigen möchten, wählen Sie ihn, und geben Sie dann **Detail Datenträger**.                                                                                                                  |
-|   System    |                                 BIOS-Computer gibt an, dass es sich bei diesen Datenträger 0 den Fokus erhält. Auf EFI-Computern ist der Datenträger, auf der EFI-Systempartition \(ESP\) , der verwendet wird, für der aktuelle Startvorgang den Fokus erhält. Auf EFI-Computern wird der Befehl fehl, wenn es keine ASW, ist bei mehr als ein ESP oder den Computer, über Windows Preinstallation Environment gestartet wird \(Windows PE\).                                  |
-|    Weiter     |                                                                                                                                     Nachdem Sie ein Datenträger aktiviert ist, durchläuft dieser Befehl alle Datenträger in der Liste der Datenträger ab. Wenn Sie diesen Befehl ausführen, wird dem nächsten Datenträger gespeichert, in der Liste den Fokus erhalten.                                                                                                                                      |
+|     <n>     | Gibt die Nummer des Datenträgers an, der den Fokus erhalten soll. Sie können die Zahlen für alle Datenträger auf dem Computer anzeigen, indem Sie den Befehl Datenträger **auflisten** in DiskPart verwenden. **Hinweis**: Wenn Sie Systeme mit mehreren Datenträgern konfigurieren, verwenden **Sie "Select Disk @ no__t-10** " nicht, um den System Datenträger anzugeben. Der Computer kann die Datenträger Nummern beim Neustart neu zuweisen, und verschiedene Computer mit der gleichen Datenträger Konfiguration können über unterschiedliche Datenträger Nummern verfügen. |
+| <disk path> |                                                                                                                 Gibt den Speicherort des Datenträgers an, der den Fokus erhält, z. b. **pciroot @ no__t-10 @ no__t-2 @ no__t-3PCI @ no__t-40f02 @ no__t-5 @ no__t-6ata @ no__t-7c00t00l00 @ no__t-8**. Zum Anzeigen des Speicher Orts eines Datenträgers wählen Sie diesen aus, und geben Sie dann **Detail**Datenträger ein.                                                                                                                  |
+|   System    |                                 Gibt auf BIOS-Computern an, dass Datenträger 0 den Fokus erhält. Auf EFI-Computern erhält der Datenträger mit der EFI-Systempartition \(esp @ no__t-1, die für den aktuellen Start verwendet wird, den Fokus. Auf EFI-Computern schlägt der Befehl fehl, wenn kein ESP vorhanden ist, wenn mehr als ein ESP vorhanden ist oder der Computer von Windows Preinstallation Environment \(windows PE @ no__t-1 gestartet wird.                                  |
+|    Weiter     |                                                                                                                                     Sobald ein Datenträger ausgewählt ist, durchläuft dieser Befehl alle Datenträger in der Liste der Datenträger. Wenn Sie diesen Befehl ausführen, erhält der nächste Datenträger in der Liste den Fokus.                                                                                                                                      |
   
-## <a name="BKMK_examples"></a>Beispiele für  
-Um den Fokus auf den Datenträger 1 verschieben möchten, geben Sie Folgendes ein:  
+## <a name="BKMK_examples"></a>Beispiele  
+Um den Fokus auf Datenträger 1 zu verschieben, geben Sie Folgendes ein:  
   
 ```  
 select disk=1  
 ```  
   
-Um einen Datenträger mit der Location-Path auszuwählen, geben Sie Folgendes ein:  
+Geben Sie Folgendes ein, um einen Datenträger unter Verwendung des Speicher Orts Pfads auszuwählen:  
   
 ```  
 select disk=PCIROOT(0)#PCI(0100)#atA(C00T00L01)  
 ```  
   
-Geben Sie Folgendes ein, um den Systemdatenträger den Fokus zu verschieben:  
+Zum Verschieben des Fokus auf den System Datenträger geben Sie Folgendes ein:  
   
 ```  
 select disk=system  
 ```  
   
-Um den Fokus auf dem nächsten Datenträger auf dem Computer zu verschieben, geben Sie Folgendes ein:  
+Wenn Sie den Fokus auf den nächsten Datenträger des Computers verschieben möchten, geben Sie Folgendes ein:  
   
 ```  
 select disk=next  
 ```  
   
-#### <a name="additional-references"></a>Zusätzliche Referenzen  
+#### <a name="additional-references"></a>Weitere Verweise  
 [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
 

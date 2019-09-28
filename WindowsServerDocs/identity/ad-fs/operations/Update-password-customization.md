@@ -1,22 +1,22 @@
 ---
 ms.assetid: 7e804590-6d6c-4cca-ac14-02d4dff06cec
-title: Aktualisieren Sie das Kennwort anpassen
+title: Aktualisieren der Kenn Wort Anpassung
 description: ''
 author: billmath
 ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: e67c04c98a53f4f1db36e6586fa77bcf181a8d5a
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: e007d4449cb62e7888c30f5b5929e393d7b571ef
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188976"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407459"
 ---
-# <a name="update-password-customization"></a>Aktualisieren Sie das Kennwort anpassen 
+# <a name="update-password-customization"></a>Aktualisieren der Kenn Wort Anpassung 
 
 
 In einigen Fällen können Benutzer möglicherweise keine Verbindung mit dem Unternehmensnetzwerk herstellen, um ihr Kontokennwort zu ändern. Dieser Faktor kann besonders für Remotemitarbeiter, die weit vom nächsten Unternehmensbüro entfernt leben, problematisch sein. Für diese speziellen Fälle kann die Seite zum Aktualisieren des Kennworts verwendet werden, indem nur eine Verbindung mit dem Internet hergestellt wird.  
@@ -28,10 +28,10 @@ Sie können die Seite zum Aktualisieren des Kennworts anpassen, indem Sie eine e
 ![Update](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom5.png)  
   
 ## <a name="customize-the-update-password-page-description"></a>Anpassen der Beschreibung für die Seite zum Aktualisieren des Kennworts  
-Um die Beschreibung der Update-Kennwort-Seite anzupassen, verwenden Sie die folgenden Windows PowerShell-Cmdlets und Syntax.  
+Verwenden Sie zum Anpassen der Beschreibung der Seite zum Aktualisieren des Kennworts das folgende Windows PowerShell-Cmdlet und die folgende Syntax.  
   
 
     Set-AdfsGlobalWebContent -UpdatePasswordPageDescriptionText "This is the Contoso Update Password page."  
 
 ## <a name="additional-references"></a>Weitere Verweise 
-[AD FS-Anmeldung Benutzeranpassung](AD-FS-user-sign-in-customization.md)  
+[AD FS Anpassung der Benutzeranmeldung](AD-FS-user-sign-in-customization.md)  

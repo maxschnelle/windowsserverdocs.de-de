@@ -1,9 +1,9 @@
 ---
-title: Schritt 12 Test DirectAccess-Konnektivität
-description: 'Dieses Thema ist Teil der Testumgebungsanleitung: veranschaulichen von DirectAccess Multisite-Bereitstellung für Windows Server 2016'
+title: Schritt 12. Testen der DirectAccess-Konnektivität
+description: 'Dieses Thema ist Teil der Test Umgebungs Anleitung: veranschaulichen einer DirectAccess-Bereitstellung für mehrere Standorte für Windows Server 2016'
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,188 +12,188 @@ ms.topic: article
 ms.assetid: 65ac1c23-3a47-4e58-888d-9dde7fba1586
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 9c87f1823140fd6c92cf7df1f9d807545b50504e
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: bd0f8ba10536a28479269abafadaaacaffd3d0a8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281538"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388384"
 ---
-# <a name="step-12-test-directaccess-connectivity"></a>Schritt 12 Test DirectAccess-Konnektivität
+# <a name="step-12-test-directaccess-connectivity"></a>Schritt 12. Testen der DirectAccess-Konnektivität
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Bevor Sie sie befinden sich die Internet- oder Homenet Netzwerke Verbindungen von den Clientcomputern testen können, müssen Sie sicherstellen, dass sie die richtigen gruppenrichtlinieneinstellungen verfügen.  
+Bevor Sie die Konnektivität von Client Computern testen können, wenn Sie sich im Internet oder in homenet-Netzwerken befinden, müssen Sie sicherstellen, dass Sie über die richtigen Gruppenrichtlinien Einstellungen verfügen.  
   
-- Um zu überprüfen, ist die Richtlinie für die richtige Gruppe über Clients verfügen.  
+- So überprüfen Sie, ob Clients die richtige Gruppenrichtlinie haben  
   
-- Testen der DirectAccess-Konnektivität aus dem Internet über EDGE1  
+- Testen der DirectAccess-Konnektivität über das Internet über Edge1  
   
-- Verschieben von CLIENT2 die Win7_Clients_Site2-Sicherheitsgruppe  
+- Verschieben von CLIENT2 in die Win7_Clients_Site2-Sicherheitsgruppe  
   
-- Testen der DirectAccess-Konnektivität über das Internet über 2-EDGE1  
+- Testen der DirectAccess-Konnektivität über das Internet bis 2 Edge1  
   
-## <a name="prerequisites"></a>Vorraussetzungen  
-Verbinden Sie beide Clientcomputer mit dem Corpnet-Netzwerk, und wiederholen Sie die beiden Clientcomputern ausgeführt werden.  
+## <a name="prerequisites"></a>Erforderliche Komponenten  
+Verbinden Sie beide Client Computer mit dem Netzwerk "Corpnet", und starten Sie beide Client Computer neu.  
   
-## <a name="policy"></a>Stellen Sie sicher, dass Clients die Richtlinie für die richtige Gruppe können  
+## <a name="policy"></a>Überprüfen, ob Clients über die richtige Gruppenrichtlinie verfügen  
   
-1.  Klicken Sie auf CLIENT1 auf **starten**, Typ **powershell.exe**, mit der rechten Maustaste **Powershell**, klicken Sie auf **erweitert**, und klicken Sie dann auf **Als Administrator ausführen**. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+1.  Klicken Sie auf CLIENT1 auf **Start**, geben Sie **PowerShell. exe**ein, klicken Sie mit der rechten Maustaste auf **PowerShell**, klicken Sie auf **erweitert**und dann auf **als Administrator ausführen**. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
   
-2.  Geben Sie in Windows PowerShell-Fenster **Ipconfig** und drücken Sie EINGABETASTE.  
+2.  Geben Sie im Windows PowerShell-Fenster **ipconfig** ein, und drücken Sie die EINGABETASTE.  
   
-    Stellen Sie sicher, dass die "Corpnet" Adapter IPv4-Adresse mit 10.0.0 beginnt.  
+    Stellen Sie sicher, dass die IPv4-Adresse des Corpnet-Adapters mit 10.0.0 beginnt.  
   
-3.  In den Typ der Windows PowerShell-Fenster **Get-DnsClientNrptPolicy** und drücken Sie EINGABETASTE. Die Einträge in der Richtlinientabelle für die Namensauflösung (Name Resolution Policy Table, NRPT) für Direct Access werden angezeigt.  
+3.  Geben Sie im Windows PowerShell-Fenster **Get-dnsclientnrptpolicy** ein, und drücken Sie die EINGABETASTE. Die Einträge in der Richtlinientabelle für die Namensauflösung (Name Resolution Policy Table, NRPT) für Direct Access werden angezeigt.  
   
-    -   . "corp.contoso.com": Diese Einstellungen weisen darauf hin, dass alle Verbindungen auf "corp.contoso.com" von einem der DirectAccess DNS-Server, mit der IPv6-Adresse 2001:db8:1::2 oder 2001:db8:2::20 gelöst werden sollen.  
+    -   . Corp.contoso.com: Diese Einstellungen geben an, dass alle Verbindungen mit Corp.contoso.com von einem der DirectAccess-DNS-Server mit der IPv6-Adresse 2001: db8:1:: 2 oder 2001: db8:2:: 20 aufgelöst werden sollten.  
   
-    -   Diese NLS.corp.contoso.com Einstellungen anzugeben, dass eine Ausnahme für der Name nls.corp.contoso.com.  
+    -   NLS.Corp.contoso.com: Diese Einstellungen geben an, dass eine Ausnahme für den Namen nls.Corp.contoso.com vorliegt.  
   
-4.  Lassen Sie das Windows PowerShell-Fenster für den nächsten Vorgang geöffnet.  
+4.  Lassen Sie das Windows PowerShell-Fenster für das nächste Verfahren geöffnet.  
   
-5.  Klicken Sie auf CLIENT2 **starten**, klicken Sie auf **Programme**, klicken Sie auf **Zubehör**, klicken Sie auf **Windows PowerShell**, mit der rechten Maustaste **Windows PowerShell**, und klicken Sie dann auf **als Administrator ausführen**. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+5.  Klicken Sie auf CLIENT2 auf **Start**, **Alle Programme**, **Zubehör**, **Windows PowerShell**, klicken Sie mit der rechten Maustaste auf **Windows PowerShell**, und klicken Sie dann auf **als Administrator ausführen**. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
   
-6.  Geben Sie in Windows PowerShell-Fenster **Ipconfig** und drücken Sie EINGABETASTE.  
+6.  Geben Sie im Windows PowerShell-Fenster **ipconfig** ein, und drücken Sie die EINGABETASTE.  
   
-    Stellen Sie sicher, dass die "Corpnet" Adapter IPv4-Adresse mit 10.0.0 beginnt.  
+    Stellen Sie sicher, dass die IPv4-Adresse des Corpnet-Adapters mit 10.0.0 beginnt.  
   
-7.  Geben Sie in Windows PowerShell-Fenster **Netsh Namespace anzeigen Richtlinie** und drücken Sie EINGABETASTE.  
+7.  Geben Sie im Windows PowerShell-Fenster **netsh Namespace Show Policy** ein, und drücken Sie die EINGABETASTE.  
   
-    In der Ausgabe muss zwei Abschnitte:  
+    In der Ausgabe sollten zwei Abschnitte vorhanden sein:  
   
-    -   . "corp.contoso.com": Diese Einstellungen weisen darauf hin, dass alle Verbindungen auf "corp.contoso.com" von dem DirectAccess-DNS-Server mit der IPv6-Adresse 2001:db8:1::2 aufgelöst werden sollten.  
+    -   . Corp.contoso.com: Diese Einstellungen geben an, dass alle Verbindungen mit Corp.contoso.com vom DirectAccess-DNS-Server mit der IPv6-Adresse "2001: db8:1:: 2" aufgelöst werden sollen.  
   
-    -   Diese NLS.corp.contoso.com Einstellungen anzugeben, dass eine Ausnahme für der Name nls.corp.contoso.com.  
+    -   NLS.Corp.contoso.com: Diese Einstellungen geben an, dass eine Ausnahme für den Namen nls.Corp.contoso.com vorliegt.  
   
-8.  Lassen Sie das Windows PowerShell-Fenster für den nächsten Vorgang geöffnet.  
+8.  Lassen Sie das Windows PowerShell-Fenster für das nächste Verfahren geöffnet.  
   
-## <a name="EDGE1"></a>Testen der DirectAccess-Konnektivität aus dem Internet über EDGE1  
+## <a name="EDGE1"></a>Testen der DirectAccess-Konnektivität über das Internet über Edge1  
   
-1. Trennen Sie 2-EDGE1 über das Internet-Netzwerk aus.  
+1. UnPlug 2: Edge1 aus dem Internet Netzwerk.  
   
-2. Trennen Sie CLIENT1 und CLIENT2 aus dem Corpnet-Switch, und verbinden Sie sie mit dem Internet-Switch. Warten Sie 30 Sekunden.  
+2. Entfernen Sie CLIENT1 und CLIENT2 vom Corpnet-Switch, und verbinden Sie Sie mit dem Internet-Switch. Warten Sie 30 Sekunden.  
   
-3. Geben Sie auf CLIENT1 in Windows PowerShell-Fenster **Ipconfig/all** und drücken Sie EINGABETASTE.  
+3. Geben Sie auf CLIENT1 im Windows PowerShell-Fenster **ipconfig/all** ein, und drücken Sie die EINGABETASTE.  
   
-4. Überprüfen Sie die Ausgabe des Befehls Ipconfig.  
+4. Überprüfen Sie die Ausgabe des Befehls "ipconfig".  
   
-   Der Clientcomputer ist jetzt mit dem Internet verbunden und besitzt eine öffentliche IPv4-Adresse. Wenn der DirectAccess-Client eine öffentliche IPv4-Adresse verfügt, wird die Teredo oder IP-HTTPS-IPv6-übergangstechnologien zum Tunneln von IPv6-Nachrichten über ein IPv4-Internet zwischen dem DirectAccess-Clients und RAS-Server. Beachten Sie, dass die Teredo-übergangstechnologie die bevorzugte ist.  
+   Der Client Computer ist jetzt mit dem Internet verbunden und verfügt über eine öffentliche IPv4-Adresse. Wenn der DirectAccess-Client über eine öffentliche IPv4-Adresse verfügt, verwendet er die IPv6-Übergangs Technologien Teredo oder IP-HTTPS, um die IPv6-Nachrichten über ein IPv4-Internet zwischen dem DirectAccess-Client und dem Remote Zugriffs Server zu Tunneln. Beachten Sie, dass Teredo die bevorzugte Übergangstechnologie ist.  
   
-5. Geben Sie in Windows PowerShell-Fenster **Ipconfig/flushdns** und drücken Sie EINGABETASTE. Dies leert Name Resolution-Einträge, die noch im Cache DNS-Client auftreten können, wenn der Clientcomputer mit dem Unternehmensnetzwerk verbunden war.  
+5. Geben Sie im Windows PowerShell-Fenster **ipconfig/flushdns** ein, und drücken Sie die EINGABETASTE. Dadurch werden namens Auflösungs Einträge geleert, die möglicherweise noch im Client-DNS-Cache vorhanden sind, wenn der Client Computer mit dem Unternehmensnetzwerk verbunden war.  
   
-6. Deaktivieren Sie die Teredo-Schnittstelle, um sicherzustellen, dass der Clientcomputer IP-HTTPS verwendet, für die Verbindung zum Unternehmensnetzwerk mit dem folgenden Befehl ein:  
+6. Deaktivieren Sie die Teredo-Schnittstelle, um sicherzustellen, dass der Client Computer mit dem folgenden Befehl IP-HTTPS verwendet, um eine Verbindung mit Corpnet herzustellen:  
   
    ```  
    netsh interface teredo set state disable  
    ```  
   
-7. Stellen Sie sicher, dass Sie über EDGE1 verbunden sind. Typ **Netsh Interface Httpstunnel Schnittstellen anzeigen** und drücken Sie EINGABETASTE.  
+7. Stellen Sie sicher, dass Sie über Edge1 verbunden sind. Geben Sie **netsh interface httpstunnel Show Interfaces Show Interfaces** ein, und drücken Sie die EINGABETASTE.  
   
-   Die Ausgabe sollte die URL enthält: https://edge1.contoso.com:443/IPHTTPS.  
-  
-   > [!TIP]  
-   > Klicken Sie auf "client1" können Sie auch den folgenden Windows PowerShell-Befehl ausführen: **Get-NetIPHTTPSConfiguration**. Die Ausgabe zeigt die verfügbaren Server-URL-Verbindungen und das aktive Profil.  
-  
-8. Geben Sie in Windows PowerShell-Fenster **ping app1** und drücken Sie EINGABETASTE. Antworten von der IPv6-Adresse, die auf dem App1-Computer zu zugewiesen, wobei es sich in diesem Fall um den 2001:db8:1::3 sollte angezeigt werden.  
-  
-9. Geben Sie in Windows PowerShell-Fenster **Pingen 2-app1** und drücken Sie EINGABETASTE. Antworten von der IPv6-Adresse zugewiesen, 2-APP1, d.h. in diesem Fall 2001:db8:2::3 sollte angezeigt werden.  
-  
-10. Geben Sie in Windows PowerShell-Fenster **ping app2** und drücken Sie EINGABETASTE. Daraufhin sollte die Antworten von der NAT64-Adresse, die von EDGE1 zu APP2 handelt es sich in diesem Fall fd zugewiesen**C9:9f4e:eb1b**: 7777::a00:4. Beachten Sie, dass die fett formatierten Werte variieren aufgrund wie die Adresse generiert wird.  
-  
-    Die Möglichkeit, ping APP2 ist wichtig, da der Vorgang erfolgreich war, dass Sie eine Verbindung mithilfe von NAT64/DNS64 verwendet werden, herstellen, da APP2 eine einzige IPv4-Ressourcen ist konnten.  
-  
-11. Öffnen Sie Internet Explorer, in der Adressleiste von Internet Explorer, geben Sie **https://app1/** und drücken Sie EINGABETASTE. Die Standard-IIS-Website auf APP1 wird angezeigt.  
-  
-12. Geben Sie in der Internet Explorer-Adressleiste **https://2-app1/** und drücken Sie EINGABETASTE. Es wird die Standardwebsite auf 2-APP1 angezeigt.  
-  
-13. Geben Sie in der Internet Explorer-Adressleiste **https://app2/** und drücken Sie EINGABETASTE. Die Standardwebsite auf APP2 wird angezeigt.  
-  
-14. Auf der **starten** geben<strong>\\\2-App1\Files</strong>, und drücken Sie dann die EINGABETASTE. Doppelklicken Sie auf die Beispiel-Textdatei.  
-  
-    Dies zeigt, dass Sie bei der Herstellung einer Verbindung mit dem Dateiserver in der Domäne corp2.corp.contoso.com, wenn Sie über EDGE1 verbunden waren.  
-  
-15. Auf der **starten** geben<strong>\\\App2\Files</strong>, und drücken Sie dann die EINGABETASTE. Doppelklicken Sie auf die neue Textdokumentdatei.  
-  
-    Dies zeigt, dass Sie die Verbindung mit einem reinen IPv4-Server mit SMB zum Abrufen einer Ressource in der Ressourcendomäne konnten.  
-  
-16. Auf der **starten** geben**wf.msc**, und drücken Sie dann die EINGABETASTE.  
-  
-17. In der **Windows-Firewall mit erweiterter Sicherheit** -Konsole, beachten Sie, dass nur die **öffentliches Profil** aktiv ist. Die Windows-Firewall muss aktiviert sein, für DirectAccess ordnungsgemäß funktioniert. Wenn die Windows-Firewall deaktiviert ist, funktioniert die DirectAccess-Konnektivität nicht.  
-  
-18. Erweitern Sie im linken Bereich der Konsole die **Überwachung** Knoten, und klicken Sie auf die **Verbindungssicherheitsregeln** Knoten. Die aktiven Verbindungssicherheitsregeln sollte angezeigt werden: **DirectAccess Policy-ClientToCorp**, **DirectAccess Policy-ClientToDNS64NAT64PrefixExemption**, **DirectAccess Policy-ClientToInfra**, und **DirectAccess Policy-ClientToNlaExempt-** . Scrollen Sie im mittleren Bereich nach rechts, um das Anzeigen der **1. Authentifizierungsmethoden** und **2. Authentifizierungsmethoden** Spalten. Beachten Sie, dass die erste Regel (ClientToCorp) Kerberos V5 verwendet, um den intranettunnel einzurichten und die dritte Regel (ClientToInfra) verwendet NTLMv2, um den infrastrukturtunnel herzustellen.  
-  
-19. Erweitern Sie im linken Bereich der Konsole die **Sicherheitszuordnungen** Knoten, und klicken Sie auf die **Hauptmodus** Knoten. Beachten Sie die Infrastruktur-Tunnel-sicherheitszuordnungen NTLMv2 verwenden und die sicherheitszuordnung der Intranet-Tunnel mit Kerberos V5. Mit der rechten Maustaste in des Eintrags, der zeigt, **Benutzer (Kerberos V5)** als die **2. Authentifizierungsmethode** , und klicken Sie auf **Eigenschaften**. Auf der **allgemeine** Registerkarte, beachten Sie, dass die **zweite Authentifizierung lokale ID** ist **"corp\user1"** , gibt an, dass "user1" für die CORP-Domäne mit authentifiziert werden konnte Kerberos.  
-  
-20. Wiederholen Sie diesen Vorgang aus Schritt 3 auf CLIENT2 ein.  
-  
-## <a name="secgroup"></a>Verschieben von CLIENT2 die Win7_Clients_Site2-Sicherheitsgruppe  
-  
-1.  Klicken Sie auf DC1 auf **starten**, Typ **dsa.msc**, und drücken Sie dann die EINGABETASTE.  
-  
-2.  Öffnen Sie in der Konsole Active Directory-Benutzer und-Computer **corp.contoso.com/Users** und doppelklicken Sie auf **Win7_Clients_Site1**.  
-  
-3.  Auf der **Win7_Clients_Site1 Eigenschaften** Dialogfeld klicken Sie auf der **Mitglieder** auf **CLIENT2**, klicken Sie auf **entfernen**, klicken Sie auf **Ja**, und klicken Sie dann auf **OK**.  
-  
-4.  Doppelklicken Sie auf **Win7_Clients_Site2**, und klicken Sie dann auf die **Win7_Clients_Site2 Eigenschaften** Dialogfeld klicken Sie auf der **Mitglieder** Registerkarte.  
-  
-5.  Klicken Sie auf **hinzufügen**, und klicken Sie auf die **Auswahl von Benutzern, Kontakten, Computern oder Dienstkonten** Dialogfeld klicken Sie auf **Objekttypen**Option **Computer**, und klicken Sie dann auf **OK**.  
-  
-6.  In **Geben Sie die zu verwendenden Objektnamen**, Typ **CLIENT2**, und klicken Sie dann auf **OK**.  
-  
-7.  Starten von CLIENT2 aus, und melden Sie sich mit dem Konto corp / "user1".  
-  
-8.  Öffnen Sie auf CLIENT2 ein Windows PowerShell-Fenster mit erhöhten Rechten, geben **Netsh Namespace anzeigen Richtlinie** und drücken Sie EINGABETASTE.  
-  
-    In der Ausgabe muss zwei Abschnitte:  
-  
-    -   . "corp.contoso.com": Diese Einstellungen weisen darauf hin, dass alle Verbindungen auf "corp.contoso.com" von dem DirectAccess-DNS-Server mit der IPv6-Adresse 2001:db8:2::20 aufgelöst werden sollten.  
-  
-    -   Diese NLS.corp.contoso.com Einstellungen anzugeben, dass eine Ausnahme für der Name nls.corp.contoso.com.  
-  
-## <a name="DAConnect"></a>Testen der DirectAccess-Konnektivität über das Internet über 2-EDGE1  
-  
-1. Verbinden Sie 2-EDGE1 mit dem Internet-Netzwerk.  
-  
-2. Trennen Sie EDGE1 über das Internet-Netzwerk ein.  
-  
-3. Öffnen Sie auf CLIENT1 ein Windows PowerShell-Fenster mit erhöhten Rechten aus.  
-  
-4. Geben Sie in Windows PowerShell-Fenster **Ipconfig/flushdns** und drücken Sie EINGABETASTE. Dies leert Name Resolution-Einträge, die noch im Cache DNS-Client auftreten können, wenn der Clientcomputer mit dem Unternehmensnetzwerk verbunden war.  
-  
-5. Stellen Sie sicher, dass Sie über 2-EDGE1 verbunden sind. Typ **Netsh Interface Httpstunnel Schnittstellen anzeigen** und drücken Sie EINGABETASTE.  
-  
-   Die Ausgabe sollte die URL enthält: https://2-edge1.contoso.com:443/IPHTTPS.  
+   Die Ausgabe sollte URL: https://edge1.contoso.com:443/IPHTTPS enthalten.  
   
    > [!TIP]  
-   > Klicken Sie auf "client1" können Sie auch den folgenden Befehl ausführen: **Get-NetIPHTTPSConfiguration**. Die Ausgabe zeigt die verfügbaren Server-URL-Verbindungen und das aktive Profil.  
+   > Auf CLIENT1 können Sie auch den folgenden Windows PowerShell-Befehl ausführen: **Get-matiphttpsconfiguration**. In der Ausgabe werden die verfügbaren Server-URL-Verbindungen und das derzeit aktive Profil angezeigt.  
+  
+8. Geben Sie im Windows PowerShell-Fenster **Ping App1** ein, und drücken Sie die EINGABETASTE. Es sollten Antworten von der IPv6-Adresse angezeigt werden, die App1 zugewiesen ist, in diesem Fall "2001: db8:1:: 3".  
+  
+9. Geben Sie im Windows PowerShell-Fenster **Ping 2-App1** ein, und drücken Sie die EINGABETASTE. Es sollten Antworten von der IPv6-Adresse, die 2-App1 zugewiesen ist, angezeigt werden, in diesem Fall "2001: db8:2:: 3".  
+  
+10. Geben Sie im Windows PowerShell-Fenster **Ping App2** ein, und drücken Sie die EINGABETASTE. Es sollten Antworten von der NAT64-Adresse angezeigt werden, die von Edge1 zu APP2 zugewiesen wird. in diesem Fall lautet der Wert FD**C9:9f4e: eb1b**: 7777:: A00:4. Beachten Sie, dass die fett formatierten Werte variieren, weil die Adresse generiert wird.  
+  
+    Die Möglichkeit zum Ping-APP2 ist wichtig, da der Erfolg anzeigt, dass Sie eine Verbindung mithilfe von NAT64/DNS64 herstellen konnten, da APP2 eine reine IPv4-Ressource ist.  
+  
+11. Öffnen Sie Internet Explorer, geben Sie in der Internet Explorer-Adressleiste **https://app1/ ein** , und drücken Sie die EINGABETASTE. Die Standard-IIS-Website auf APP1 wird angezeigt.  
+  
+12. Geben Sie in der Internet Explorer-Adressleiste **https://2-app1/ ein** , und drücken Sie die EINGABETASTE. Die Standard Website wird unter 2-App1 angezeigt.  
+  
+13. Geben Sie in der Internet Explorer-Adressleiste **https://app2/ ein** , und drücken Sie die EINGABETASTE. Die Standardwebsite auf APP2 wird angezeigt.  
+  
+14. Geben Sie auf dem **Start** Bildschirm<strong>\\ \ 2-App1\Files</strong>ein, und drücken Sie dann die EINGABETASTE. Doppelklicken Sie auf die Beispiel Textdatei.  
+  
+    Dadurch wird veranschaulicht, dass Sie eine Verbindung mit dem Dateiserver in der corp2.Corp.contoso.com-Domäne herstellen konnten, wenn eine Verbindung über Edge1 besteht.  
+  
+15. Geben Sie auf dem **Start** Bildschirm<strong>\\ \ App2\Files</strong>ein, und drücken Sie dann die EINGABETASTE. Doppelklicken Sie auf die neue Textdokumentdatei.  
+  
+    Dies zeigt, dass Sie eine Verbindung mit einem reinen IPv4-Server herstellen konnten, indem Sie SMB zum Abrufen einer Ressource in der Ressourcen Domäne verwenden.  
+  
+16. Geben Sie auf dem **Start** Bildschirm**WF. msc**ein, und drücken Sie dann die EINGABETASTE.  
+  
+17. Beachten Sie in der Konsole **Windows-Firewall mit** erweiterter Sicherheit, dass nur das **öffentliche Profil** aktiv ist. Die Windows-Firewall muss aktiviert sein, damit DirectAccess ordnungsgemäß funktioniert. Wenn die Windows-Firewall deaktiviert ist, funktioniert die DirectAccess-Konnektivität nicht.  
+  
+18. Erweitern Sie im linken Bereich der Konsole den Knoten **Überwachung** , und klicken Sie auf den Knoten **Verbindungs Sicherheitsregeln** . Die aktiven Verbindungs Sicherheitsregeln sollten angezeigt werden: **DirectAccess Policy-clientabcorp**, **DirectAccess Policy-ClientToDNS64NAT64PrefixExemption**, **DirectAccess Policy-Clientdie Infrastruktur**und **DirectAccess Policy-clienttonlaausgenommen**. Führen Sie im mittleren Bereich einen Bildlauf nach rechts durch, um die **ersten Authentifizierungsmethoden** und **2. Authentifizierungsmethoden** Spalten anzuzeigen. Beachten Sie, dass die erste Regel (clientescorp) Kerberos V5 verwendet, um den intranettunnel einzurichten, und die dritte Regel (clientesinfrastructure) verwendet NTLMv2, um den Infrastruktur Tunnel einzurichten.  
+  
+19. Erweitern Sie im linken Bereich der Konsole den Knoten **Sicherheits Zuordnungen** , und klicken Sie auf den Knoten **Hauptmodus** . Beachten Sie die Infrastruktur Tunnel-Sicherheits Zuordnungen mit NTLMv2 und der intranettunnel-Sicherheits Zuordnung mithilfe von Kerberos V5. Klicken Sie mit der rechten Maustaste auf den Eintrag, der **Benutzer (Kerberos V5)** als **2. Authentifizierungsmethode** anzeigt, und klicken Sie auf **Eigenschaften**. Beachten Sie, dass auf der Registerkarte **Allgemein** die **zweite lokale Authentifizierungs-ID** **corp\user1**lautet, die angibt, dass sich user1 erfolgreich bei der Corp-Domäne mithilfe von Kerberos authentifizieren konnte.  
+  
+20. Wiederholen Sie diesen Vorgang aus Schritt 3 auf client2.  
+  
+## <a name="secgroup"></a>Verschieben von CLIENT2 in die Win7_Clients_Site2-Sicherheitsgruppe  
+  
+1.  Klicken Sie auf DC1 auf **Start**, geben Sie **DSA. msc**ein, und drücken Sie dann die EINGABETASTE.  
+  
+2.  Öffnen Sie **Corp.contoso.com/users** in der Konsole Active Directory Benutzer und Computer, und doppelklicken Sie auf **Win7_Clients_Site1**.  
+  
+3.  Klicken Sie im Dialogfeld **Win7_Clients_Site1-Eigenschaften** auf die Registerkarte **Mitglieder** , klicken Sie auf **client2**, klicken Sie auf **Entfernen**, klicken Sie auf **Ja**und dann auf **OK**.  
+  
+4.  Doppelklicken Sie auf **Win7_Clients_Site2**, und klicken Sie dann im Dialogfeld **Win7_Clients_Site2-Eigenschaften** auf die Registerkarte **Mitglieder** .  
+  
+5.  Klicken Sie auf **Hinzufügen**, klicken Sie im Dialogfeld **Benutzer, Kontakte, Computer oder Dienst Konten auswählen** auf **Objekttypen**, wählen Sie **Computer**aus, und klicken Sie dann auf **OK**.  
+  
+6.  Geben Sie unter **Geben Sie die zu ausgewäfnenden Objektnamen ein den Namen** **client2**ein, und klicken Sie auf **OK**  
+  
+7.  Starten Sie CLIENT2 neu, und melden Sie sich mit dem Konto Corp/user1 an.  
+  
+8.  Öffnen Sie auf CLIENT2 ein Windows PowerShell-Fenster mit erhöhten Rechten, geben Sie **netsh Namespace Show Policy** ein, und drücken Sie EINGABETASTE.  
+  
+    In der Ausgabe sollten zwei Abschnitte vorhanden sein:  
+  
+    -   . Corp.contoso.com: Diese Einstellungen geben an, dass alle Verbindungen mit Corp.contoso.com vom DirectAccess-DNS-Server mit der IPv6-Adresse 2001: db8:2:: 20 aufgelöst werden sollen.  
+  
+    -   NLS.Corp.contoso.com: Diese Einstellungen geben an, dass eine Ausnahme für den Namen nls.Corp.contoso.com vorliegt.  
+  
+## <a name="DAConnect"></a>Testen der DirectAccess-Konnektivität über das Internet bis 2 Edge1  
+  
+1. Verbinden Sie 2 Edge1 mit dem Internet Netzwerk.  
+  
+2. Entfernen Sie Edge1 aus dem Internet Netzwerk.  
+  
+3. Öffnen Sie auf CLIENT1 ein Windows PowerShell-Fenster mit erhöhten Rechten.  
+  
+4. Geben Sie im Windows PowerShell-Fenster **ipconfig/flushdns** ein, und drücken Sie die EINGABETASTE. Dadurch werden namens Auflösungs Einträge geleert, die möglicherweise noch im Client-DNS-Cache vorhanden sind, wenn der Client Computer mit dem Unternehmensnetzwerk verbunden war.  
+  
+5. Stellen Sie sicher, dass Sie über 2-Edge1 verbunden sind. Geben Sie **netsh interface httpstunnel Show Interfaces Show Interfaces** ein, und drücken Sie die EINGABETASTE.  
+  
+   Die Ausgabe sollte URL: https://2-edge1.contoso.com:443/IPHTTPS enthalten.  
+  
+   > [!TIP]  
+   > Auf CLIENT1 können Sie auch den folgenden Befehl ausführen: **Get-matiphttpsconfiguration**. In der Ausgabe werden die verfügbaren Server-URL-Verbindungen und das derzeit aktive Profil angezeigt.  
   
    > [!NOTE]  
-   > "Client1" ändert sich automatisch auf den Server, die über dem Unternehmensressourcen Verbindung aus. Wenn die Ausgabe des Befehls eine Verbindung zum EDGE1 angezeigt wird, warten Sie etwa fünf Minuten und versuchen Sie es dann erneut.  
+   > CLIENT1 ändert automatisch den Server, über den die Verbindung mit Unternehmensressourcen hergestellt wird. Wenn in der Ausgabe des Befehls eine Verbindung mit Edge1 angezeigt wird, warten Sie ca. fünf Minuten, und versuchen Sie es dann erneut.  
   
-6. Geben Sie in Windows PowerShell-Fenster **ping app1** und drücken Sie EINGABETASTE. Antworten von der IPv6-Adresse, die auf dem App1-Computer zu zugewiesen, wobei es sich in diesem Fall um den 2001:db8:1::3 sollte angezeigt werden.  
+6. Geben Sie im Windows PowerShell-Fenster **Ping App1** ein, und drücken Sie die EINGABETASTE. Es sollten Antworten von der IPv6-Adresse angezeigt werden, die App1 zugewiesen ist, in diesem Fall "2001: db8:1:: 3".  
   
-7. Geben Sie in Windows PowerShell-Fenster **Pingen 2-app1** und drücken Sie EINGABETASTE. Antworten von der IPv6-Adresse zugewiesen, 2-APP1, d.h. in diesem Fall 2001:db8:2::3 sollte angezeigt werden.  
+7. Geben Sie im Windows PowerShell-Fenster **Ping 2-App1** ein, und drücken Sie die EINGABETASTE. Es sollten Antworten von der IPv6-Adresse, die 2-App1 zugewiesen ist, angezeigt werden, in diesem Fall "2001: db8:2:: 3".  
   
-8. Geben Sie in Windows PowerShell-Fenster **ping app2** und drücken Sie EINGABETASTE. Daraufhin sollte die Antworten von der NAT64-Adresse, die von EDGE1 zu APP2 handelt es sich in diesem Fall fd zugewiesen**C9:9f4e:eb1b**: 7777::a00:4. Beachten Sie, dass die fett formatierten Werte variieren aufgrund wie die Adresse generiert wird.  
+8. Geben Sie im Windows PowerShell-Fenster **Ping App2** ein, und drücken Sie die EINGABETASTE. Es sollten Antworten von der NAT64-Adresse angezeigt werden, die von Edge1 zu APP2 zugewiesen wird. in diesem Fall lautet der Wert FD**C9:9f4e: eb1b**: 7777:: A00:4. Beachten Sie, dass die fett formatierten Werte variieren, weil die Adresse generiert wird.  
   
-   Die Möglichkeit, ping APP2 ist wichtig, da der Vorgang erfolgreich war, dass Sie eine Verbindung mithilfe von NAT64/DNS64 verwendet werden, herstellen, da APP2 eine einzige IPv4-Ressourcen ist konnten.  
+   Die Möglichkeit zum Ping-APP2 ist wichtig, da der Erfolg anzeigt, dass Sie eine Verbindung mithilfe von NAT64/DNS64 herstellen konnten, da APP2 eine reine IPv4-Ressource ist.  
   
-9. Öffnen Sie Internet Explorer, in der Adressleiste von Internet Explorer, geben Sie **https://app1/** und drücken Sie EINGABETASTE. Die Standard-IIS-Website auf APP1 wird angezeigt.  
+9. Öffnen Sie Internet Explorer, geben Sie in der Internet Explorer-Adressleiste **https://app1/ ein** , und drücken Sie die EINGABETASTE. Die Standard-IIS-Website auf APP1 wird angezeigt.  
   
-10. Geben Sie in der Internet Explorer-Adressleiste **https://2-app1/** und drücken Sie EINGABETASTE. Die Standardwebsite auf APP2 wird angezeigt.  
+10. Geben Sie in der Internet Explorer-Adressleiste **https://2-app1/ ein** , und drücken Sie die EINGABETASTE. Die Standardwebsite auf APP2 wird angezeigt.  
   
-11. Geben Sie in der Internet Explorer-Adressleiste **https://app2/** und drücken Sie EINGABETASTE. Es wird die Standardwebsite auf APP3 angezeigt.  
+11. Geben Sie in der Internet Explorer-Adressleiste **https://app2/ ein** , und drücken Sie die EINGABETASTE. Die Standard Website wird auf APP3 angezeigt.  
   
-12. Auf der **starten** geben<strong>\\\App1\Files</strong>, und drücken Sie dann die EINGABETASTE. Doppelklicken Sie auf die Beispiel-Textdatei.  
+12. Geben Sie auf dem **Start** Bildschirm<strong>\\ \ App1\Files</strong>ein, und drücken Sie dann die EINGABETASTE. Doppelklicken Sie auf die Beispiel Textdatei.  
   
-    Dies zeigt, dass Sie bei der Herstellung einer Verbindung mit dem Dateiserver in der Domäne "corp.contoso.com", wenn Sie über ein 2-EDGE1 verbunden waren.  
+    Dadurch wird veranschaulicht, dass Sie eine Verbindung mit dem Dateiserver in der Corp.contoso.com-Domäne herstellen konnten, wenn eine Verbindung über 2-Edge1 besteht.  
   
-13. Auf der **starten** geben<strong>\\\App2\Files</strong>, und drücken Sie dann die EINGABETASTE. Doppelklicken Sie auf die neue Textdokumentdatei.  
+13. Geben Sie auf dem **Start** Bildschirm<strong>\\ \ App2\Files</strong>ein, und drücken Sie dann die EINGABETASTE. Doppelklicken Sie auf die neue Textdokumentdatei.  
   
-    Dies zeigt, dass Sie die Verbindung mit einem reinen IPv4-Server mit SMB zum Abrufen einer Ressource in der Ressourcendomäne konnten.  
+    Dies zeigt, dass Sie eine Verbindung mit einem reinen IPv4-Server herstellen konnten, indem Sie SMB zum Abrufen einer Ressource in der Ressourcen Domäne verwenden.  
   
-14. Wiederholen Sie dieses Verfahren auf CLIENT2 aus Schritt 3 ein.  
+14. Wiederholen Sie diesen Vorgang auf CLIENT2 aus Schritt 3.  
   
 
 

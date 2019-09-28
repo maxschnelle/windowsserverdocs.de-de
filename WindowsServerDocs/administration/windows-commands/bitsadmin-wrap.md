@@ -1,8 +1,8 @@
 ---
 title: bitsadmin Umbruch
-description: Windows-Befehle Thema **Bitsadmin Wrap** -dient als Wrapper für jede Zeile der Ausgabe Text erweitern, über die rechte Rand des Befehlsfensters in die nächste Zeile.
+description: Das Thema Windows-Befehle für **bizadmin** umschließt eine beliebige Zeile von Ausgabetext, die über den rechten Rand des Befehls Fensters zur nächsten Zeile hinaus erweitert wird.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4834a8a17c72394b6ee8f051ec76919af9880124
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5609fb6f38716795a545e0c7fe3939f893a8c8d5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881671"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380680"
 ---
 # <a name="bitsadmin-wrap"></a>bitsadmin Umbruch
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Umschließt die Ausgabe in einem Befehlsfenster passen.
+Umschließt die Ausgabe so, dass Sie in ein Befehlsfenster passt.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,20 +36,20 @@ bitsadmin /Wrap Job
 
 |Parameter|Beschreibung|
 |-------|--------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
 
 ## <a name="remarks"></a>Hinweise
 
-Geben Sie vor anderen Schaltern. Standardmäßig wird für alle Switches, mit Ausnahme der [Bitsadmin Monitor](bitsadmin-monitor.md) wechseln, und Packen Sie die Ausgabe.
+Geben Sie vor anderen Switches an. Standardmäßig wrappen alle Switches, außer dem Schalter [bizadmin Monitor](bitsadmin-monitor.md) , die Ausgabe.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Das folgende Beispiel ruft Informationen für den Auftrag mit dem Namen *MyDownloadJob* und dient als Wrapper für die Ausgabe.
+Im folgenden Beispiel werden Informationen für den Auftrag mit dem Namen *mydownloadjob* abgerufen und die Ausgabe umschlossen.
 
 ```
 C:\>bitsadmin /Wrap /Info myDownloadJob /verbose
 ```
 
-#### <a name="additional-references"></a>Zusätzliche Referenzen
+#### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

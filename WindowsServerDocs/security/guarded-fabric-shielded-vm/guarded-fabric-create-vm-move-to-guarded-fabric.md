@@ -1,32 +1,32 @@
 ---
 redirect_url: guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md
-title: Abgeschirmte virtuelle Computer für Mandanten – Erstellen einer neuen abgeschirmten VM lokal und verschiebt es in ein geschütztes fabric
+title: 'Abgeschirmte VMs für Mandanten: lokales Erstellen einer neuen abgeschirmten VM und verschieben in ein geschütztes Fabric'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: 0ca1efa0-01f9-4b6f-87d4-c66db00d7d70
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 9601145048b8798cfb102757384da49bed16a538
-ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
+ms.openlocfilehash: a4b5ff2942c8485a4c10770a4374d56734f7f3c9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67469625"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402389"
 ---
-# <a name="shielded-vms-for-tenants---creating-a-new-shielded-vm-on-premises-and-moving-it-to-a-guarded-fabric"></a>Abgeschirmte virtuelle Computer für Mandanten – Erstellen einer neuen abgeschirmten VM lokal und verschiebt es in ein geschütztes fabric
+# <a name="shielded-vms-for-tenants---creating-a-new-shielded-vm-on-premises-and-moving-it-to-a-guarded-fabric"></a>Abgeschirmte VMs für Mandanten: lokales Erstellen einer neuen abgeschirmten VM und verschieben in ein geschütztes Fabric
 
->Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-In diesem Thema wird beschrieben, die Schritte zum Erstellen einer abgeschirmten VM mit nur Hyper-V; d. h. ohne Virtual Machine Manager, vorlagendatenträger oder eine geschützte Datendatei. Dies ist ein ungewöhnliches Szenario für die meisten öffentlichen Cloud-Hostingumgebungen, jedoch kann nützlich sein, wenn Sie ein geschütztes Fabric zu testen, oder klicken Sie in Unternehmen Szenarien, in denen ein virtuellen Computer aus eine Textur auf Abteilungsebene zu verschoben wird, IT-Infrastruktur freigegeben, und vor der Migration verschlüsselt werden müssen.
+In diesem Thema werden die Schritte zum Erstellen einer abgeschirmten VM unter Verwendung von Hyper-V beschrieben. Das heißt, ohne Virtual Machine Manager, Vorlagen Datenträger oder eine geschützte Datendatei. Dies ist ein ungewöhnliches Szenario für die meisten Public Cloud Hostingumgebungen, kann jedoch beim Testen eines geschützten Fabrics oder in Unternehmens Szenarios nützlich sein, in denen ein virtueller Computer von einem Abteilungs-Fabric in eine freigegebene IT-Infrastruktur verschoben wird und vor der Migration verschlüsselt werden muss.
 
-Um zu verstehen, wie in diesem Thema in den gesamten Vorgang der Bereitstellung von abgeschirmten VMs passt, finden Sie unter [Service Provider-Konfigurationsschritte für das Hosten von überwachten Hosts und abgeschirmte VMs](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md).
+Informationen dazu, wie sich dieses Thema in den Gesamtprozess der Bereitstellung von abgeschirmten VMS einfügt, finden Sie unter [Hosten von Dienstanbietern Konfigurationsschritte für geschützte Hosts und abgeschirmte VMS](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md).
 
-## <a name="import-the-guardian-configuration-on-the-tenant-hyper-v-server"></a>Importieren Sie die Konfiguration der Überwachungsdienst auf dem Hyper-V-mandantenserver
+## <a name="import-the-guardian-configuration-on-the-tenant-hyper-v-server"></a>Importieren der Überwachungskonfiguration auf dem Hyper-V-Mandanten Server
 
-1.  Bevor Sie mit die Prozedur beginnen, sicher, dass Sie auf einem Hyper-V-Host unter Windows Server 2016 mit den folgenden Rollen und Features installiert sind:
+1.  Stellen Sie vor Beginn des Verfahrens sicher, dass Sie sich auf einem Hyper-V-Host mit Windows Server 2016 mit den folgenden installierten Rollen und Features befinden:
 
     - Role-Eigenschaft
 
@@ -34,62 +34,62 @@ Um zu verstehen, wie in diesem Thema in den gesamten Vorgang der Bereitstellung 
 
     - Features
 
-        - Remoteserver-Verwaltungstools\\Feature-Verwaltungstools\\abgeschirmte VM-Tools
+        - Remoteserver-Verwaltungstools @ no__t-0Feature-Verwaltungs Tools @ no__t-1abgeschirmte VM-Tools
 
     > [!NOTE]
-    > Sollten Sie der Host, der hier verwendete *nicht* werden von ein Host in der geschützten Fabrics. Dies ist es sich um einen separaten Host, in dem virtuellen Computer vorbereitet werden, vor dem Verschieben auf des geschützten Fabrics.
+    > Der hier verwendete Host sollte *kein* Host im geschützten Fabric sein. Dabei handelt es sich um einen separaten Host, auf dem VMS vorbereitet werden, bevor Sie in das geschützte Fabric verschoben werden.
 
-2.  Bevor Sie eine abgeschirmte VM auf diesem Computer ausführen können, müssen Sie sicherstellen, dass die virtualisierungsbasierte Sicherheit aktiviert ist und ausgeführt wird. Führen Sie den folgenden Befehl in einem erhöhten Windows PowerShell-Fenster zur Installation der Hyper-V-Unterstützung für Host-Überwachungsdiensts-Funktion. Dadurch wird alle erforderlichen Einstellungen konfiguriert, auf dem Computer, um abgeschirmte VMs ausführen zu können.
+2.  Bevor Sie auf diesem Computer eine abgeschirmte VM ausführen können, müssen Sie sicherstellen, dass die virtualisierungsbasierte Sicherheit aktiviert ist und ausgeführt wird. Führen Sie den folgenden Befehl in einem Windows PowerShell-Fenster mit erhöhten Rechten aus, um die Hyper-V-Unterstützung des Host-Überwachungstools Dadurch werden alle erforderlichen Einstellungen auf Ihrem Computer konfiguriert, um abgeschirmte VMS ausführen zu können.
 
         Install-WindowsFeature HostGuardian
 
-3.  Sie benötigen, der überwachungsmetadaten für die geschützte Fabric abzurufen, in dem Ihr virtueller Computer ausgeführt wird. Diese Metadaten werden verwendet, zum Autorisieren von diesem Fabric an, die abgeschirmte VM ausgeführt werden. Wie Sie diese Informationen erhalten werden für jede hosting-Anbieter oder das Unternehmen unterscheiden. Der Hoster (oder Sie, wenn Sie auf dem geschützten Fabric-Netzwerk zugreifen) können diese Informationen abzurufen, durch den folgenden Windows PowerShell-Befehl ausführen:
+3.  Sie müssen die Überwachungs Metadaten für das geschützte Fabric abrufen, in dem Ihr virtueller Computer ausgeführt wird. Diese Metadaten werden verwendet, um dieses Fabric zum Ausführen ihrer abgeschirmten VM zu autorisieren. Die Art und Weise, wie Sie diese Informationen erhalten, unterscheidet sich für jeden hostingdienstanbieter oder jedes Der Host (oder Sie, wenn Sie Zugriff auf das geschützte Fabric-Netzwerk haben) kann diese Informationen abrufen, indem Sie den folgenden Windows PowerShell-Befehl ausführen:
 
         Invoke-WebRequest 'http://hgs.bastion.local/KeyProtection/service/metadata/2014-07/metadata.xml' -OutFile .\RelecloudGuardian.xml
 
-    Im obigen Beispiel "Host-Überwachungsdienst" ist der Name der verteilten Netzwerk des Host-Überwachungsdienst-Clusters, und "bastion.local" ist der Name der HGS-Domäne.
+    Im obigen Beispiel ist "HGS" der verteilte Netzwerkname des HGS-Clusters und "Bastion. local" der Name der HGS-Domäne.
 
-4.  Zum Importieren von des Überwachungsdienst-Schlüssels, die Sie in einer späteren Prozedur benötigen, führen Sie den folgenden Befehl aus.
+4.  Führen Sie den folgenden Befehl aus, um den Überwachungs Schlüssel zu importieren, den Sie in einem späteren Verfahren benötigen.
 
-    Für &lt;Pfad&gt;&lt;Filename&gt;, ersetzen Sie den Pfad und Dateiname der XML-Datei, die Sie im vorherigen Schritt gespeichert sind, z.B.: **"C:"\\Temp\\GuardianKey.xml**
+    Ersetzen Sie für &lt;path @ no__t-1 @ no__t-2filename @ no__t-3 den Pfad und den Dateinamen der XML-Datei, die Sie im vorherigen Schritt gespeichert haben, z. b.: **C: @no__t -1temp\\GuardianKey.XML**
 
-    Für &lt;GuardianName&gt;, geben Sie einen Namen für Ihre hosting-Anbieter oder das Datencenter eines Unternehmens, z. B. **HostingProvider1**. Notieren Sie den Namen für den nächsten Vorgang.
+    Geben Sie für &lt;guardianname @ no__t-1 einen Namen für den Hostinganbieter oder das Unternehmens Rechenzentrum ein, z. b. **HostingProvider1**. Notieren Sie sich den Namen für das nächste Verfahren.
 
-    Umfassen **- AllowUntrustedRoot** nur dann, wenn der HGS-Server mit selbstsignierten Zertifikaten eingerichtet wurde. (Diese Zertifikate sind Teil der Schlüsselschutzdienst in Host-Überwachungsdienst.)
+    Include **-zuordnertreuhändroot** nur, wenn der HGS-Server mit selbst signierten Zertifikaten eingerichtet wurde. (Diese Zertifikate sind Teil des Schlüsselschutz Dienstanbieter in HGS.)
 
         Import-HgsGuardian -Path '<Path><Filename>' -Name '<GuardianName>' -AllowUntrustedRoot
 
-## <a name="create-a-new-shielded-virtual-machine-on-the-host"></a>Erstellen Sie eine neue abgeschirmte virtuelle Maschine auf dem host
+## <a name="create-a-new-shielded-virtual-machine-on-the-host"></a>Erstellen einer neuen abgeschirmten virtuellen Maschine auf dem Host
 
-Sie werden in diesem Verfahren erstellen einen virtuellen Computer, auf dem Hyper-V-Host und Vorbereiten für den Export in Ihrem Hostinganbieter oder Datencenter-Administrator, die auf einem bewachten Host ausgeführt werden kann.
+In diesem Verfahren erstellen Sie eine virtuelle Maschine auf dem Hyper-V-Host und bereiten Sie für den Export in ihren Hostinganbieter oder Datacenter-Administrator vor, der Sie auf einem überwachten Host ausführen kann.
 
-Im Rahmen des Verfahrens erstellen Sie eine Schlüsselschutzvorrichtung, die zwei wichtige Elemente enthält:
+Im Rahmen des Verfahrens erstellen Sie eine Schlüssel Schutzvorrichtung, die zwei wichtige Elemente enthält:
 
--   **Besitzer**: In der Schlüsselschutzvorrichtung, werden Sie – oder wahrscheinlicher ist es möglich, die Gruppe die, Arbeit, die gemeinsam Sicherheitselemente wie z. B. Zertifikate – als "Besitzer" des virtuellen Computers identifiziert. Ihre Identität als Besitzer wird durch ein Zertifikat dargestellt, die, wenn Sie die Befehle ausführen, wie gezeigt, wie ein selbst signiertes Zertifikat generiert wird. Optional können Sie stattdessen verwenden Sie ein Zertifikat von PKI-Infrastruktur unterstützt und lassen Sie die **- AllowUntrustedRoot** Parameter in den Befehlen.
+-   **Besitzer**: In der Schlüssel Schutzvorrichtung sind Sie oder wahrscheinlicher, dass die Gruppe, in der Sie arbeiten, die Sicherheitselemente wie Zertifikate verwendet, als "Besitzer" des virtuellen Computers bezeichnet wird. Ihre Identität als Besitzer wird durch ein Zertifikat dargestellt, das, wenn Sie die Befehle wie dargestellt ausführen, als selbst signiertes Zertifikat generiert wird. Optional können Sie stattdessen ein Zertifikat verwenden, das von der PKI-Infrastruktur unterstützt wird, und den Parameter " **-Zuweisung wuntreudroot** " in den Befehlen weglassen.
 
--   **Überwachungen**: Außerdem wird in die Schlüsselschutzvorrichtung, Ihr Hostinganbieter oder Enterprise-Datacenter (der Host-Überwachungsdiensts und überwachter Hosts ausgeführt wird) als ein "Wächter". identifiziert Der Überwachungsdienst wird dargestellt, mit dem Überwachungsdienst-Schlüssel, die Sie in der vorherigen Prozedur importiert [importieren Sie die Konfiguration der Überwachungsdienst auf dem Hyper-V-mandantenserver](#import-the-guardian-configuration-on-the-tenant-hyper-v-server).
+-   **Wächter**: Außerdem wird in der Schlüssel Schutzvorrichtung Ihr Hostinganbieter oder Unternehmens Rechenzentrum (das HGS und geschützte Hosts ausführt) als "Wächter" bezeichnet. Der Wächter wird durch den in der vorherigen Prozedur importierten Überwachungs Schlüssel dargestellt. importieren Sie [die Überwachungskonfiguration auf dem Hyper-V-Mandanten Server](#import-the-guardian-configuration-on-the-tenant-hyper-v-server).
 
-Eine Abbildung, zeigt die Schlüsselschutzvorrichtung, die ein Element in eine geschützte Datendatei ist, finden Sie unter [welche Daten Schutz ist und warum dies erforderlich ist?](guarded-fabric-and-shielded-vms.md#what-is-shielding-data-and-why-is-it-necessary).
+Eine Abbildung der Schlüssel Schutzvorrichtung, bei der es sich um ein Element in einer Schutz Datendatei handelt, finden [Sie unter Was sind geschützte Daten und warum ist es erforderlich?](guarded-fabric-and-shielded-vms.md#what-is-shielding-data-and-why-is-it-necessary).
 
-1. Führen Sie auf einem Hyper-V-Host-Mandanten zum Erstellen einer neuen Generation 2 VM den folgenden Befehl ein.
+1. Führen Sie auf einem Mandanten-Hyper-V-Host den folgenden Befehl aus, um einen neuen virtuellen Computer der Generation 2 zu erstellen.
 
-   Für &lt;ShieldedVMname&gt;, geben Sie einen Namen für den virtuellen Computer, z.B.: **ShieldVM1**
+   Geben Sie für &lt;shieldebug-Name @ no__t-1 einen Namen für den virtuellen Computer an, z. b.: **ShieldVM1**
     
-   Für &lt;%vhdpath&gt;, geben Sie einen Speicherort zum Speichern von VHDX des virtuellen Computers, z.B.: **C:\\VMs\\ShieldVM1\\ShieldVM1.vhdx**
+   Geben Sie für &lt;vhdpath @ no__t-1 einen Speicherort zum Speichern der vhdx-Datei des virtuellen Computers an, z. b.: **C: \\vms @ no__t-2ShieldVM1\\ShieldVM1.vhdx**
     
-   Für &lt;NnGB&gt;, geben Sie z. B. eine Größe für die VHDX: **60GB**
+   Geben Sie für &lt;nngb @ no__t-1 eine Größe für die vhdx-Datei an, z. b.: **60 GB**
 
        New-VM -Generation 2 -Name "<ShieldedVMname>" -NewVHDPath <VHDPath>.vhdx -NewVHDSizeBytes <nnGB>
 
-2. Installieren Sie ein unterstütztes Betriebssystem (WindowsServer 2012 oder höher, Windows 8-Client oder höher) auf dem virtuellen Computer, und aktivieren Sie die Remotedesktopverbindung und den entsprechenden Firewall-Regel. Notieren Sie IP-Adresse bzw. in der DNS-Namen des virtuellen Computers an; Sie benötigen diese Remote eine Verbindung damit herstellen.
+2. Installieren Sie ein unterstütztes Betriebssystem (Windows Server 2012 oder höher, Windows 8-Client oder höher) auf dem virtuellen Computer, und aktivieren Sie die Remote Desktop Verbindung und die entsprechende Firewallregel. Notieren Sie die IP-Adresse und/oder den DNS-Namen des virtuellen Computers. Sie benötigen Sie, um eine Remote Verbindung mit dem Dienst herzustellen.
 
-3. Verwenden Sie RDP, Remote eine Verbindung mit dem virtuellen Computer und stellen Sie sicher, dass RDP und die Firewall ordnungsgemäß konfiguriert sind. Als Teil des geschützten Prozesses ist Konsolenzugriff auf den virtuellen Computer über Hyper-V deaktiviert werden, daher es wichtig ist, um sicherzustellen, dass Sie das System Remote über das Netzwerk verwalten können.
+3. Stellen Sie mithilfe von RDP eine Remote Verbindung mit der VM her, und überprüfen Sie, ob RDP und die Firewall ordnungsgemäß konfiguriert sind Im Rahmen des Schutz Prozesses wird der Konsolenzugriff auf den virtuellen Computer über Hyper-V deaktiviert. Daher ist es wichtig, sicherzustellen, dass Sie das System über das Netzwerk remote verwalten können.
 
-4. Führen Sie den folgenden Befehl, um eine neue Schlüsselschutzvorrichtung (am Anfang des in diesem Abschnitt beschrieben) zu erstellen.
+4. Führen Sie den folgenden Befehl aus, um eine neue Schlüssel Schutzvorrichtung zu erstellen (die am Anfang dieses Abschnitts beschrieben wird).
 
-   Für &lt;GuardianName&gt;, den angegebenen Namen in der vorherigen Prozedur, z. B. verwenden: **HostingProvider1**
+   Verwenden Sie für &lt;guardianname @ no__t-1 den Namen, den Sie im vorherigen Verfahren angegeben haben, z. b.: **HostingProvider1**
 
-   Umfassen **- AllowUntrustedRoot** um selbstsignierte Zertifikate zu ermöglichen.
+   Include **-zusorwuntreuhändroot** , um selbst signierte Zertifikate zuzulassen.
 
        $Guardian = Get-HgsGuardian -Name '<GuardianName>'
 
@@ -97,9 +97,9 @@ Eine Abbildung, zeigt die Schlüsselschutzvorrichtung, die ein Element in eine g
 
        $KP = New-HgsKeyProtector -Owner $Owner -Guardian $Guardian -AllowUntrustedRoot
 
-   Wenn Sie sich für mehr als einem Rechenzentrum, um Ihre abgeschirmte VM (z. B. Standort für die notfallwiederherstellung und einem öffentlichen Cloudanbieter) ausgeführt werden zu können möchten, können Sie eine Liste von Überwachungen auf Bereitstellen der **-Überwachungsdienst** Parameter. Weitere Informationen finden Sie unter [New-HgsKeyProtector] (https://docs.microsoft.com/powershell/module/hgsclient/new-hgskeyprotector?view=win10-ps.
+   Wenn Sie möchten, dass mehr als ein Rechenzentrum Ihre abgeschirmte VM ausführen kann (z. b. ein Standort für die Notfall Wiederherstellung und ein Public Cloud Anbieter), können Sie dem **-Wächter-** Parameter eine Liste von Erziehungsberechtigten bereitstellen. Weitere Informationen finden Sie unter [New-hgskeyprotector] (https://docs.microsoft.com/powershell/module/hgsclient/new-hgskeyprotector?view=win10-ps.
 
-5. Führen Sie den folgenden Befehl, um die vTPM mithilfe der Schlüsselschutzvorrichtung zu aktivieren. Für &lt;ShieldedVMname&gt;, verwenden Sie den gleichen VM-Namen in den vorherigen Schritten verwendet.
+5. Um das vtpm mithilfe der Schlüssel Schutzvorrichtung zu aktivieren, führen Sie den folgenden Befehl aus. Verwenden Sie für &lt;shieldedvmname @ no__t-1 denselben VM-Namen, der in den vorherigen Schritten verwendet wurde.
 
        $VMName="<ShieldedVMname>"
 
@@ -111,26 +111,26 @@ Eine Abbildung, zeigt die Schlüsselschutzvorrichtung, die ein Element in eine g
 
        Enable-VMTPM -VMName $VMName
 
-6. Führen Sie den folgenden Befehl zum Starten des virtuellen Computers, um sicherzustellen, dass die Schlüsselschutzvorrichtung mit lokalen besitzerzertifikate arbeitet.
+6. Führen Sie den folgenden Befehl aus, um den virtuellen Computer zu starten, um zu überprüfen, ob die Schlüssel Schutzvorrichtung mit lokalen Besitzer Zertifikaten arbeitet.
 
        Start-VM -Name $VMName
 
-7. Stellen Sie sicher, dass der virtuelle Computer in der Hyper-V-Konsole gestartet wurde.
+7. Vergewissern Sie sich, dass der virtuelle Computer in der Hyper-V-Konsole gestartet wurde.
 
-8. Verwenden Sie RDP, Remote eine Verbindung mit dem virtuellen Computer und Aktivieren von BitLocker auf alle Partitionen auf alle vhdx-Dateien, die die abgeschirmte VM angefügt sind.
+8. Stellen Sie mithilfe von RDP eine Remote Verbindung mit dem virtuellen Computer her, und aktivieren Sie BitLocker für alle Partitionen auf allen vhdx-Computern, die mit der abgeschirmten VM verbunden sind
 
    > [!IMPORTANT]
-   > Warten Sie vor dem Fortfahren mit dem nächsten Schritt die BitLocker-Verschlüsselung für alle Partitionen abgeschlossen, in denen es aktiviert.
+   > Bevor Sie mit dem nächsten Schritt fortfahren, warten Sie, bis die BitLocker-Verschlüsselung auf allen Partitionen abgeschlossen ist, auf denen Sie aktiviert wurde.
 
-9. Herunterfahren des virtuellen Computers ein, wenn Sie bereit sind, verschieben Sie es zum überwachten Fabric.
+9. Fahren Sie die VM herunter, wenn Sie bereit sind, Sie in das geschützte Fabric zu verschieben.
 
-10. Exportieren Sie den virtuellen Computer mit dem Tool Ihrer Wahl (Windows PowerShell oder Hyper-V-Manager), auf dem Hyper-V-mandantenserver. Ordnen Sie für die Dateien auf einem bewachten Host verwaltet, die von Ihrem Hostinganbieter oder Unternehmensrechenzentren kopiert werden sollen.
+10. Exportieren Sie den virtuellen Computer auf dem Hyper-v-Mandanten Server mit dem Tool Ihrer Wahl (Windows PowerShell oder Hyper-v-Manager). Ordnen Sie dann die Dateien an, die auf einen überwachten Host kopiert werden sollen, der von Ihrem Hostinganbieter oder Unternehmens Rechenzentrum verwaltet wird.
 
-11. **Für das hosting-Anbieter bzw. unternehmensrechenzentrums**:
+11. **Für den Hostinganbieter oder das Unternehmens**Rechenzentrum:
 
-    Importieren Sie die abgeschirmte VM, die mit dem Hyper-V-Manager oder Windows PowerShell. Sie müssen die Konfigurationsdatei des virtuellen Computers aus der VM-Besitzer importieren, um den virtuellen Computer zu starten. Dies ist, da die Schlüsselschutzvorrichtung "und" virtual TPM des virtuellen Computers in der Konfigurationsdatei gespeichert werden. Wenn der virtuelle Computer für die Ausführung auf dem geschützten Fabric konfiguriert ist, sollte er erfolgreich starten können.
+    Importieren Sie den abgeschirmten virtuellen Computer mit dem Hyper-V-Manager oder mit Windows PowerShell. Sie müssen die VM-Konfigurationsdatei vom Besitzer der VM importieren, um den virtuellen Computer zu starten. Dies liegt daran, dass die Schlüssel Schutzvorrichtung und das virtuelle TPM des virtuellen Computers in der Konfigurationsdatei gespeichert werden. Wenn der virtuelle Computer für die Durchführung auf dem geschützten Fabric konfiguriert ist, sollte er erfolgreich gestartet werden können.
 
 ## <a name="see-also"></a>Siehe auch
 
-- [Hosten von Service Provider-Konfigurationsschritte für die überwachten Hosts und abgeschirmten VMs](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
+- [Konfigurationsschritte des hostingdienstanbieters für geschützte Hosts und abgeschirmte VMS](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Geschütztes Fabric und abgeschirmte VMs](guarded-fabric-and-shielded-vms-top-node.md)

@@ -7,110 +7,110 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 66ae6992775319cf614b0cb4c21f864150746687
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5d5ab971327ab7ec16bf2748571882458cc38f72
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859551"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71368987"
 ---
 # <a name="command-line-process-auditing"></a>Überwachen von Befehlszeilenprozessen
 
 >Gilt für: Windows Server 2016, Windows Server 2012 R2
 
-**Autor**: Justin Turner, Senior Support Escalation Engineer für die Windows-Gruppe  
+**Autor**: Justin Turner, Senior Support Eskalations Ingenieur bei der Windows-Gruppe  
   
 > [!NOTE]  
 > Dieser Inhalt wurde von einem Mitarbeiter des Microsoft-Kundendiensts geschrieben und richtet sich an erfahrene Administratoren und Systemarchitekten, die einen tieferen technischen Einblick in die Funktionen und Lösungen von Windows Server 2012 R2 suchen, als Ihnen die Themen im TechNet bieten können. Allerdings wurde er nicht mit der gleichen linguistischen Sorgfalt überprüft wie für die Artikel des TechNet üblich, so dass die Sprache gelegentlich holprig klingen mag.  
   
 ## <a name="overview"></a>Übersicht  
   
--   Das bereits vorhandene Audit Prozesserstellungsereignis ID 4688 enthält jetzt die Überwachungsinformationen für Prozesse, die über die Befehlszeile.  
+-   Die bereits vorhandene Überwachungs Ereignis-ID 4688 für die Prozesserstellung enthält jetzt Überwachungsinformationen für Befehlszeilen Prozesse.  
   
--   Es wird auch SHA1/2-Hash der ausführbaren Datei in das Applocker-Ereignisprotokoll protokolliert.  
+-   Außerdem wird der SHA1/2-Hash der ausführbaren Datei im AppLocker-Ereignisprotokoll protokolliert.  
   
-    -   Anwendungs- und dienstprotokolle\microsoft\windows\applocker  
+    -   Anwendungs-und dienstprotokolle\microsoft\windows\applocker  
   
--   Sie ermöglichen, über ein Gruppenrichtlinienobjekt, aber es ist standardmäßig deaktiviert.  
+-   Sie aktivieren per GPO, sind aber standardmäßig deaktiviert.  
   
-    -   "Include über die Befehlszeile in prozesserstellungsereignisse"  
+    -   "Befehlszeile in Prozess Erstellungs Ereignisse einschließen"  
   
-![Befehlszeilen-Überwachung](media/Command-line-process-auditing/GTR_ADDS_Event4688.gif)  
+![Überprüfung der Befehlszeile](media/Command-line-process-auditing/GTR_ADDS_Event4688.gif)  
   
-**Figure SEQ Abbildung \\ \* Arabische 16 Ereignis 4688**  
+**Abbildung * Abbildung \\ @ no__t-2 Arabisch, 16-Ereignis 4688**  
   
-Überprüfen Sie das aktualisierte Ereignis-ID 4688 in REF _Ref366427278 \h Abbildung 16 aus.  Aktualisieren Sie zuvor keine Informationen für **Prozessbefehlszeile** ruft protokolliert.  Aufgrund dieser zusätzliche Protokollierung sehen wir jetzt, dass nicht nur der wscript.exe-Prozess gestartet wurde, aber, dass es auch war verwendet, um ein VB-Skript auszuführen.  
+Überprüfen Sie die aktualisierte Ereignis-ID 4688 in Ref _Ref366427278 \h Abbildung 16.  Vor diesem Update wird keine der Informationen für die **Prozess Befehlszeile** protokolliert.  Aufgrund dieser zusätzlichen Protokollierung können wir nun sehen, dass nicht nur der Prozess "Wscript. exe" gestartet wurde, sondern auch ein VB-Skript ausgeführt wurde.  
   
 ## <a name="configuration"></a>Konfiguration  
-Um die Auswirkungen dieses Updates sehen zu können, müssen Sie zwei Richtlinieneinstellungen aktivieren.  
+Um die Auswirkungen dieses Updates anzuzeigen, müssen Sie zwei Richtlinien Einstellungen aktivieren.  
   
-### <a name="you-must-have-audit-process-creation-auditing-enabled-to-see-event-id-4688"></a>Sie benötigen die Prozesserstellung überwachen Überwachung aktiviert, um die Ereignis-ID 4688 finden Sie unter.  
-Bearbeiten Sie die folgenden Gruppenrichtlinien zum Aktivieren der Richtlinie Prozesserstellung überwachen:  
+### <a name="you-must-have-audit-process-creation-auditing-enabled-to-see-event-id-4688"></a>Die Überwachung der Überwachungsprozess Erstellung muss aktiviert sein, damit die Ereignis-ID 4688 angezeigt wird.  
+Bearbeiten Sie die folgende Gruppenrichtlinie, um die Richtlinie für die Überwachungsprozess Erstellung zu aktivieren:  
   
-**Richtlinienspeicherort:** Computerkonfiguration > Richtlinien > Windows-Einstellungen > Sicherheitseinstellungen > erweiterte Überwachungskonfiguration > detaillierte nachverfolgung  
+**Richtlinien Speicherort:** Computer Konfiguration > Richtlinien > Windows-Einstellungen > Sicherheitseinstellungen > Erweiterte Überwachungskonfiguration > Ausführliche Nachverfolgung  
   
-**Richtlinienname:** Prozesserstellung überwachen  
+**Richtlinien Name:** Prozesserstellung überwachen  
   
-**Unterstützt auf:** Windows 7 und höher  
+**Unterstützt für:** Windows 7 und höher  
   
 **Beschreibung/Hilfe:**  
   
-Diese sicherheitseinstellung für die Richtlinie bestimmt, ob das Betriebssystem generiert Überwachungsereignissen, wenn ein Prozess (er beginnt) erstellt wird und den Namen des Programms oder der Benutzer, die sie erstellt haben.  
+Diese Sicherheitsrichtlinien Einstellung bestimmt, ob das Betriebssystem Überwachungs Ereignisse generiert, wenn ein Prozess erstellt wird (startet), und der Name des Programms oder Benutzers, von dem das Betriebssystem erstellt wurde.  
   
-Diese Ereignisse überwachen können dabei helfen herauszufinden, wie ein Computer verwendet wird und die Benutzeraktivität nachverfolgen.  
+Mithilfe dieser Überwachungs Ereignisse können Sie nachvollziehen, wie ein Computer verwendet wird, und die Benutzeraktivität nachverfolgen.  
   
-Ereignisvolumen: Niedrig bis Mittel, je nach Verwendung des Systems  
+Ereignisvolumen: Niedrig bis Mittel, abhängig von der Systemnutzung  
   
-**Standardwert:** Nicht konfiguriert  
+**Vorgegebene** Nicht konfiguriert  
   
-### <a name="in-order-to-see-the-additions-to-event-id-4688-you-must-enable-the-new-policy-setting-include-command-line-in-process-creation-events"></a>Um den Ereignis-ID 4688-Erweiterungen anzuzeigen, müssen Sie die neue richtlinieneinstellung aktivieren: Über die Befehlszeile in prozesserstellungsereignisse einschließen  
-**Tabelle SEQ Tabelle \\ \* Arabische 19 Befehl Zeile Prozess richtlinieneinstellung**  
+### <a name="in-order-to-see-the-additions-to-event-id-4688-you-must-enable-the-new-policy-setting-include-command-line-in-process-creation-events"></a>Um die Ergänzungen der Ereignis-ID 4688 anzuzeigen, müssen Sie die neue Richtlinien Einstellung aktivieren: Befehlszeile in Prozess Erstellungs Ereignisse einschließen  
+**Tabelle: Tabelle \\ @ no__t-2 Arabisch 19 Befehlszeilen-Prozess Richtlinien Einstellung**  
   
 |Richtlinienkonfiguration|Details|  
 |------------------------|-----------|  
-|**Pfad**|Administrative Templates\System\Audit Prozesserstellung|  
-|**Einstellung**|**Über die Befehlszeile in prozesserstellungsereignisse einschließen**|  
+|**Path**|Administrative vorlagen\system\überwachungs Prozesserstellung|  
+|**Man**|**Befehlszeile in Prozess Erstellungs Ereignisse einschließen**|  
 |**Standardeinstellung**|Nicht konfiguriert (nicht aktiviert)|  
-|**Unterstützt auf:**|?|  
-|**Beschreibung**|Mit dieser richtlinieneinstellung wird bestimmt, welche Informationen protokolliert werden, in Sicherheitsüberwachungsereignisse, wenn ein neuer Prozess erstellt wurde.<br /><br />Diese Einstellung gilt nur, wenn die Prozesserstellung überwachen-Richtlinie aktiviert ist. Wenn Sie dieser richtlinieneinstellung kann die Informationen über die Befehlszeile festgelegt aktivieren, für jeden Prozess im nur-Text in das Sicherheitsereignisprotokoll als Teil der Prozesserstellung überwachen Ereignis 4688 protokolliert werden, "ein neuer Prozess wurde," auf den Arbeitsstationen und Servern, auf dem diese Richtlinie die Einstellung angewendet wird.<br /><br />Wenn Sie diese richtlinieneinstellung nicht konfigurieren oder deaktivieren, werden die Informationen des Prozesses über die Befehlszeile in Prozesserstellung überwachen-Ereignisse nicht berücksichtigt.<br /><br />Standardwert: Nicht konfiguriert<br /><br />Hinweis: Wenn diese richtlinieneinstellung aktiviert ist, erstellt jeder Benutzer mit Zugriff zum Lesen, dass die Sicherheitsereignisse, lesen Sie die Befehlszeilenargumente für jeden erfolgreich sein werden Prozess. Befehlszeilenargumente können sensible oder private Informationen wie Kennwörter oder Benutzerdaten enthalten.|  
+|**Unterstützt für:**|?|  
+|**Beschreibung**|Mit dieser Richtlinien Einstellung wird festgelegt, welche Informationen in Sicherheits Überwachungs Ereignissen protokolliert werden, wenn ein neuer Prozess erstellt wurde.<br /><br />Diese Einstellung gilt nur, wenn die Richtlinie für die Überwachungsprozess Erstellung aktiviert ist. Wenn Sie diese Richtlinien Einstellung aktivieren, werden die Befehlszeilen Informationen für jeden Prozess im Rahmen des Überwachungsprozess Erstellungs Ereignisses 4688, "ein neuer Prozess wurde erstellt" auf den Arbeitsstationen und Servern, auf denen diese Richtlinie erstellt wurde, als nur-Text im Sicherheits Ereignisprotokoll protokolliert. die Einstellung wird angewendet.<br /><br />Wenn Sie diese Richtlinien Einstellung deaktivieren oder nicht konfigurieren, werden die Befehlszeilen Informationen des Prozesses nicht in Überwachungsprozess-Erstellungs Ereignisse eingeschlossen.<br /><br />Standardwert: Nicht konfiguriert<br /><br />Hinweis: Wenn diese Richtlinien Einstellung aktiviert ist, kann jeder Benutzer mit Zugriff zum Lesen der Sicherheitsereignisse die Befehlszeilenargumente für jeden erfolgreich erstellten Prozess lesen. Befehlszeilenargumente können vertrauliche oder private Informationen (z. b. Kenn Wörter oder Benutzerdaten) enthalten.|  
   
-![Befehlszeilen-Überwachung](media/Command-line-process-auditing/GTR_ADDS_IncludeCLISetting.gif)  
+![Überprüfung der Befehlszeile](media/Command-line-process-auditing/GTR_ADDS_IncludeCLISetting.gif)  
   
-Wenn Sie die Einstellungen für die erweiterte Überwachungsrichtlinienkonfiguration verwenden, müssen Sie sicherstellen, dass diese Einstellungen nicht von den grundlegenden Überwachungsrichtlinieneinstellungen überschrieben werden.  Ereignis 4719 wird protokolliert, wenn die Einstellungen überschrieben werden.  
+Wenn Sie die Einstellungen für die erweiterte Überwachungsrichtlinienkonfiguration verwenden, müssen Sie sicherstellen, dass diese Einstellungen nicht von den grundlegenden Überwachungsrichtlinieneinstellungen überschrieben werden.  Das Ereignis 4719 wird protokolliert, wenn die Einstellungen überschrieben werden.  
   
-![Befehlszeilen-Überwachung](media/Command-line-process-auditing/GTR_ADDS_Event4719.gif)  
+![Überprüfung der Befehlszeile](media/Command-line-process-auditing/GTR_ADDS_Event4719.gif)  
   
 Das folgende Verfahren veranschaulicht, wie Sie Konflikte verhindern, indem Sie die Anwendung grundlegender Überwachungsrichtlinieneinstellungen blockieren.  
   
 ### <a name="to-ensure-that-advanced-audit-policy-configuration-settings-are-not-overwritten"></a>So stellen Sie sicher, dass die Einstellungen unter „Erweiterte Überwachungsrichtlinienkonfiguration“ nicht überschrieben werden:  
-![Befehlszeilen-Überwachung](media/Command-line-process-auditing/GTR_ADDS_AdvAuditPolicy.gif)  
+![Überprüfung der Befehlszeile](media/Command-line-process-auditing/GTR_ADDS_AdvAuditPolicy.gif)  
   
-1.  Öffnen Sie die Gruppenrichtlinien-Verwaltungskonsole  
+1.  Öffnen Sie die Gruppenrichtlinie-Verwaltungskonsole.  
   
-2.  Mit der rechten Maustaste Standardrichtlinie der Domäne, und klicken Sie dann auf Bearbeiten.  
+2.  Klicken Sie mit der rechten Maustaste auf Standard Domänen Richtlinie, und klicken Sie auf Bearbeiten.  
   
-3.  Doppelklicken Sie auf die Computerkonfiguration, doppelklicken Sie auf Richtlinien, und doppelklicken Sie dann auf Windows-Einstellungen.  
+3.  Doppelklicken Sie auf Computer Konfiguration, doppelklicken Sie auf Richtlinien, und doppelklicken Sie dann auf Windows-Einstellungen.  
   
-4.  Doppelklicken Sie auf die Sicherheitseinstellungen, doppelklicken Sie auf die lokale Richtlinien und klicken Sie dann auf Sicherheitsoptionen.  
+4.  Doppelklicken Sie auf Sicherheitseinstellungen, doppelklicken Sie auf lokale Richtlinien, und klicken Sie dann auf Sicherheitsoptionen.  
   
-5.  Doppelklicken Sie auf die Überwachung: Unterkategorie sicherheitsüberwachungs-Richtlinieneinstellungen zu erzwingen (Windows Vista oder höher) außer Kraft setzen kategorieeinstellungen der Überwachungsrichtlinie, und klicken Sie auf diese richtlinieneinstellung definieren.  
+5.  Doppelklicken Sie auf überwachen: Erzwingen Sie die Einstellungen für die Unterkategorie der Überwachungsrichtlinie (Windows Vista oder höher), um Einstellungen der Überwachungs Richtlinien Kategorie zu überschreiben, und klicken Sie dann auf diese Richtlinien Einstellung  
   
 6.  Klicken Sie auf aktiviert, und klicken Sie dann auf OK.  
   
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen  
 [Prozesserstellung überwachen](https://technet.microsoft.com/library/dd941613(v=WS.10).aspx)  
   
-[Advanced Security Audit-Richtlinie schrittweise Anleitung](https://technet.microsoft.com/library/dd408940(v=WS.10).aspx)  
+[Schritt-für-Schritt-Anleitung für die erweiterte Sicherheits Überwachungsrichtlinie](https://technet.microsoft.com/library/dd408940(v=WS.10).aspx)  
   
-[AppLocker: Häufig gestellte Fragen](https://technet.microsoft.com/library/ee619725(v=ws.10).aspx)  
+[applocker: Häufig gestellte Fragen](https://technet.microsoft.com/library/ee619725(v=ws.10).aspx)  
   
-## <a name="try-this-explore-command-line-process-auditing"></a>Versuchen Sie Folgendes aus: Untersuchen von befehlszeilenprozessen  
+## <a name="try-this-explore-command-line-process-auditing"></a>Versuchen Sie Folgendes: Überprüfen der Befehlszeilen Verarbeitung  
   
-1.  Aktivieren Sie **Prozesserstellung Überwachen** Ereignisse und stellen Sie sicher, die erweiterte Überwachungsrichtlinie-Konfiguration wird nicht überschrieben.  
+1.  **Erstellungs** Ereignisse für Überwachungsprozesse aktivieren und sicherstellen, dass die erweiterte Überwachungs Richtlinien Konfiguration nicht überschrieben wird  
   
-2.  Erstellen Sie ein Skript, das einige interessante Ereignisse generiert und führen Sie das Skript ein.  Beachten Sie die Ereignisse an.  Das Skript verwendet, um das Ereignis in der Lektion generieren sah folgendermaßen aus:  
+2.  Erstellen Sie ein Skript, mit dem einige relevante Ereignisse generiert werden, und führen Sie das Skript aus.  Beobachten Sie die Ereignisse.  Das Skript, das zum Generieren des Ereignisses in der Lektion verwendet wurde, sieht wie folgt aus:  
   
     ```  
     mkdir c:\systemfiles\temp\commandandcontrol\zone\fifthward  
@@ -119,9 +119,9 @@ Das folgende Verfahren veranschaulicht, wie Sie Konflikte verhindern, indem Sie 
     del c:\systemfiles\temp\*.* /Q  
     ```  
   
-3.  Aktivieren der befehlszeilenprozessen  
+3.  Aktivieren der Überprüfung des Befehlszeilen Prozesses  
   
-4.  Führen Sie das gleiche Skript wie vor und beobachten, ob Ereignisse  
+4.  Führen Sie das gleiche Skript wie zuvor aus, und beobachten Sie die Ereignisse.  
   
 
 

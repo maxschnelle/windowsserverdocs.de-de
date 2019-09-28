@@ -6,41 +6,41 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 7253502390db004747d3732cf3d288a51afdaaf1
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: d0464853c73f88ed76545921ffc8a4bf8551c800
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280688"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408323"
 ---
 # <a name="set-a-service-communications-certificate"></a>Festlegen eines Dienstkommunikationszertifikats
 
 
-Verbundserver in Active Directory Federation Services \(AD FS\) dienstkommunikationszertifikat zum Sichern von Web Services – Verkehr für Secure Sockets Layer verwenden \(SSL\) Kommunikation mit dem Web Clients oder Verbundserverproxys bestimmen.
+Verbund Server in Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1 verwenden Sie das Dienst Kommunikations Zertifikat, um den Webdienst Datenverkehr für Secure Sockets Layer \(ssl @ no__t-3-Kommunikation mit Webclients oder Verbund Server zu schützen. Stimm.
 
 > [!NOTE]  
-> Dienstkommunikationszertifikat ist nicht identisch mit einem SSL-Zertifikat. Um das AD FS-SSL-Zertifikat zu ändern, müssen Sie Powershell verwenden. Befolgen Sie die Anweisungen in diesem [Artikel](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
+> Das Dienst Kommunikations Zertifikat ist nicht das gleiche wie ein SSL-Zertifikat. Um das AD FS SSL-Zertifikat zu ändern, müssen Sie PowerShell verwenden. Befolgen Sie die Anleitungen in diesem [Artikel](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
 
 
-Sie können das folgende Verfahren verwenden, so ändern Sie das Dienstzertifikat für die Kommunikation mit dem AD FS-Verwaltungs-Snap\-in.  
+Mithilfe des folgenden Verfahrens können Sie das Dienst Kommunikations Zertifikat mit dem AD FS Management-Snap @ no__t-0in ändern.  
 
 > [!NOTE]  
-> Die AD FS-Verwaltungs-Snap\-in bezeichnet Serverauthentifizierungszertifikate für Verbundserver als dienstkommunikationszertifikate.  
+> Das AD FS-Verwaltungs-Snap @ no__t-0in bezieht sich auf Server Authentifizierungs Zertifikate für Verbund Server als Dienst Kommunikations Zertifikate.  
 
-Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Weitere Informationen zur Verwendung der geeigneten Konten und Gruppenmitgliedschaften unter [lokale und Domänenstandardgruppen](https://go.microsoft.com/fwlink/?LinkId=83477) \(http:\/\/"go.Microsoft.com"\/Fwlink\/? LinkId\=83477\).   
+Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477) \(http:\/\/go.Microsoft.com\/\/swlink? LinkId\=83477\).   
 
-### <a name="to-set-a-service-communications-certificate"></a>Festlegen ein dienstkommunikationszertifikats  
+### <a name="to-set-a-service-communications-certificate"></a>So legen Sie ein Dienst Kommunikations Zertifikat fest  
 
-1.  Auf der **starten** geben**AD FS-Verwaltung**, und drücken Sie dann die EINGABETASTE.  
+1.  Geben Sie auf dem **Start** Bildschirm**AD FS Management**ein, und drücken Sie dann die EINGABETASTE.  
 
-2.  Doppelklicken Sie in der Konsolenstruktur\-klicken Sie auf **Service**, und klicken Sie dann auf **Zertifikate**.  
+2.  Klicken Sie in der Konsolen Struktur auf "Double @ no__t-0click **Service**", und klicken Sie dann auf **Zertifikate**.  
 
-3.  In der **Aktionen** Bereich, klicken Sie auf die **Festlegen eines Dienstkommunikationszertifikats** Link.  
+3.  Klicken Sie im Bereich **Aktionen** auf den Link **Service Communications-Zertifikat festlegen** .  
 
-4.  In der **wählen ein dienstkommunikationszertifikats** Dialogfeld navigieren Sie zu der Zertifikatdatei, die Sie verwenden möchten, legen Sie als dienstkommunikationszertifikat, wählen Sie die Zertifikatdatei, und klicken Sie dann auf **Öffnen**.  
+4.  Navigieren Sie im Dialogfeld **Dienst Kommunikations Zertifikat auswählen** zu der Zertifikat Datei, die Sie als Dienst Kommunikations Zertifikat festlegen möchten, wählen Sie die Zertifikat Datei aus, und klicken Sie dann auf **Öffnen**.  
 
 ## <a name="additional-references"></a>Weitere Verweise  
 [Prüfliste: Einrichten eines Verbundservers](Checklist--Setting-Up-a-Federation-Server.md)  

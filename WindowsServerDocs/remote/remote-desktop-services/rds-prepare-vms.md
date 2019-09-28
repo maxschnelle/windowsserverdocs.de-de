@@ -2,7 +2,7 @@
 title: Vorbereiten von virtuellen Computern für Remotedesktop
 description: Vorbereiten deiner virtuellen Computer für Remotedesktopkomponenten
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 2fc39dff-61ca-4eba-81ab-52289081bead
 author: lizap
 manager: dongill
-ms.openlocfilehash: f51fb057070ba84f93e00266018535b74ab45ae1
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 6a1f0bfef21351894d3b9c2cfd8d044491834f6c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63753207"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71387249"
 ---
 # <a name="create-virtual-machines-for-remote-desktop"></a>Erstellen virtueller Computer für Remotedesktop
 
@@ -40,12 +40,12 @@ Führe nach der Erstellung deiner virtuellen Computer die folgenden Schritte aus
     1.  Klicke im Server-Manager auf **Lokaler Server > Remote management current setting (disabled)** (Aktuelle Remoteverwaltungseinstellung (deaktiviert)).  
     2.  Wähle **Enable remote management for this server** (Remoteverwaltung für diesen Server aktivieren) aus.  
     3.  Klicken Sie auf **OK**.  
-3.  Optional: Du kannst vorübergehend festlegen, dass Updates von Windows Update nicht automatisch heruntergeladen und installiert werden. Dadurch werden während der Bereitstellung des RDSH-Servers Änderungen und Systemneustarts vermieden.  
+3.  Optional: Sie können vorübergehend festlegen, dass Updates von Windows Update nicht automatisch heruntergeladen und installiert werden. Dadurch werden während der Bereitstellung des RDSH-Servers Änderungen und Systemneustarts vermieden.  
     1.  Klicke im Server-Manager auf **Lokaler Server > Windows Update current setting** (Aktuelle Windows Update-Einstellung).  
     2.  Wähle **Erweiterte Optionen > Upgrades zurückstellen** aus.   
 4.  Füge den Server zur Domäne hinzu:  
     1.  Klicke im Server-Manager auf **Lokaler Server > Workgroup current setting** (Aktuelle Arbeitsgruppeneinstellung).  
-    2.  Klicke auf **Ändern > Domäne**, und gib dann den Domänennamen ein (z. B. „Contoso.com“).  
+    2.  Klicken Sie auf **Ändern > Domäne**, und geben Sie dann den Domänennamen ein (z. B. „Contoso.com“).  
     3.  Gib die Anmeldeinformationen des Domänenadministrators ein.  
     4.  Starten Sie den virtuellen Computer neu.  
 5.  Wiederhole die Schritte 1 bis 4 für den virtuellen Web- und GW-Computer für RD.  

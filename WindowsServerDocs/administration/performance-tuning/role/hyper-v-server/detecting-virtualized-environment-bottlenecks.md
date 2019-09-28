@@ -1,18 +1,18 @@
 ---
 title: Erkennen von Engpässen in einer virtualisierten Umgebung
 description: Erkennen und beheben potenzieller Leistungsengpässe bei Hyper-v
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: a0d6d263b344cde412ee4dd3caa80305742d56e7
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 53ec6159d177284773f17a05a37dd89184ef3c12
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866599"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370122"
 ---
 # <a name="detecting-bottlenecks-in-a-virtualized-environment"></a>Erkennen von Engpässen in einer virtualisierten Umgebung
 
@@ -28,15 +28,15 @@ Im folgenden finden Sie einige häufige Szenarien, die Prozessor Engpässe verur
 
 Sie können die folgenden Leistungsindikatoren auf dem Host verwenden:
 
--   Auslastung des logischen Prozessors: logischer Hyper-V-Hypervisor\\- \\Prozessor (\*)% Gesamtlaufzeit
+-   Auslastung des logischen Prozessors-\\hyper-V-Hypervisor-logischer Prozessor (\*) \\% Gesamtlaufzeit
 
--   Auslastung des virtuellen Prozessors-virtueller Hyper-V-Hypervisor\\- \\Prozessor (\*)% Gesamtlaufzeit
+-   Auslastung des virtuellen Prozessors-@no__t virtuellen Hyper-V-Hypervisor-Prozessor (\*) \\% Gesamtlaufzeit
 
--   Auslastung des virtuellen Prozessor Stamms-virtueller Hyper-V-Hypervisor\*-\\ \\Stamm Prozessor ()% Gesamtlaufzeit
+-   Auslastung des virtuellen Stamm Prozessors-\\hyper-V-Hypervisor-Stamm Prozessor (\*) \\% Gesamtlaufzeit
 
-Wenn der **logische Prozessor des Hyper-V-Hypervisor-\\Prozessors (\_gesamt)% der Lauf** Zeit Zahl über 90% beträgt, wird der Host überladen. Sie sollten eine höhere Verarbeitungsleistung hinzufügen oder einige virtuelle Maschinen auf einen anderen Host verschieben.
+Wenn der **logische Prozessor des Hyper-V-Hypervisors (\_Total) \\% gesamter Lauf** Zeit Wert über 90% beträgt, wird der Host überladen. Sie sollten eine höhere Verarbeitungsleistung hinzufügen oder einige virtuelle Maschinen auf einen anderen Host verschieben.
 
-Wenn der **virtuelle Hyper-V-Hypervisor-Prozessor (VM-Name:\\VP x)% Total Runtime** Counter für alle virtuellen Prozessoren mehr als 90% beträgt, sollten Sie die folgenden Schritte ausführen:
+Wenn der **virtuelle Hyper-V-Hypervisor-Prozessor (VM-Name: VP x) \\% gesamter Lauf** Zeit Wert für alle virtuellen Prozessoren mehr als 90% beträgt, sollten Sie die folgenden Schritte ausführen:
 
 -   Überprüfen, ob der Host nicht überladen ist
 
@@ -44,7 +44,7 @@ Wenn der **virtuelle Hyper-V-Hypervisor-Prozessor (VM-Name:\\VP x)% Total Runtim
 
 -   Zuweisen von mehr virtuellen Prozessoren zum virtuellen Computer
 
-Wenn der **virtuelle Hyper-V-Hypervisor-Prozessor (VM-Name\\: VP x)% Total Runtime** Counter bei einigen, jedoch nicht allen virtuellen Prozessoren mehr als 90% beträgt, sollten Sie die folgenden Schritte ausführen:
+Wenn der virtuelle Computer für den **virtuellen Hyper-V-Hypervisor-Prozessor (VM-Name: VP x) \\% der Lauf** Zeit Zählers bei einigen, jedoch nicht allen virtuellen Prozessoren mehr als 90% beträgt, sollten Sie die folgenden Schritte ausführen:
 
 -   Wenn Ihre Arbeitsauslastung Netzwerk intensiv ist, sollten Sie die Verwendung von vrss in Erwägung gezogen.
 
@@ -52,7 +52,7 @@ Wenn der **virtuelle Hyper-V-Hypervisor-Prozessor (VM-Name\\: VP x)% Total Runti
 
 -   Wenn Ihre Arbeitsauslastung Speicher intensiv ist, sollten Sie virtuelle NUMA aktivieren und weitere virtuelle Datenträger hinzufügen.
 
-Wenn der **virtuelle Hyper-V-Hypervisor-Stamm Prozessor (Stamm-\\VP x)% Total Runtime** Counter für einige, aber nicht für alle virtuellen Prozessoren und Prozessor **(x)\\% Interruptzeit und Prozessor (x)\\% DPC-Zeit mehr als 90% beträgt** der Leistungs-Leistungs-Leistungs-Wert addiert den Wert für den Stamm- **virtuellen Prozessor\\(Stamm-VP x) "% Total Runtime** Counter". Sie sollten die Aktivierung von VMQ auf den Netzwerkadaptern sicherstellen
+Wenn der **virtuelle Hyper-V-Hypervisor-Stamm Prozessor (Stamm-VP x) \\% gesamter 90 Lauf** Zeit Wert bei einigen, jedoch nicht allen virtuellen Prozessoren und Prozessor **(x) \\% Interruptzeit und Prozessor (x) \\% DPC-Zeit** (%) in ungefähr wird der Wert für den Leistungswert des Stamm- **virtuellen Prozessors (Stamm-VP x) \\% gesamter Laufzeit** addiert. Sie sollten die Aktivierung von VMQ auf den Netzwerkadaptern sicherstellen.
 
 ## <a name="memory-bottlenecks"></a>Arbeitsspeicher Engpässe
 

@@ -1,9 +1,9 @@
 ---
 title: Vorbereiten der Migration zu MultiPoint Services
-description: Enthält Informationen zum Sammeln von vor der Migration zu MultiPoint Services in Windows Server 2016
+description: Beschreibt Informationen, die vor der Migration zu Multipoint Services in Windows Server 2016 erfasst werden müssen.
 ms.custom: na
 ms.date: 07/29/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,57 +13,57 @@ ms.assetid: 3060c531-98a2-4957-a02c-be273f25f493
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: 9650ebcae7e6207a226617d401d892049405901f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d0f1fd22b00bdb2e5e3684a541dd14532fd885e6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824381"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394648"
 ---
-# <a name="prepare-to-migrate-to-multipoint-services-in-windows-server-2016"></a>Vorbereiten der Migration mit MultiPoint Services in Windows Server 2016
+# <a name="prepare-to-migrate-to-multipoint-services-in-windows-server-2016"></a>Vorbereiten der Migration zu Multipoint Services in Windows Server 2016
 
 >Gilt für: Windows Server 2016
 
-Verwenden Sie die folgende Informationen, die Informationen, die Sie benötigen zum Migrieren von der MultiPoint Services-Rolle von einem Quellserver unter einer früheren Version von Windows Server 2016 auf einem Zielserver unter Windows Server 2016 RTM zu sammeln.
+Verwenden Sie die folgenden Informationen, um die Informationen zu sammeln, die Sie benötigen, um den Multipoint Services-Rollen Dienst von einem Quell Server mit einer früheren Version von Windows Server 2016 zu einem Zielserver mit Windows Server 2016 RTM zu migrieren.
 
-Zumindest müssen Sie Mitglied der Gruppe "Administratoren" auf dem Quellserver und dem Zielserver zu installieren, entfernen oder Einrichten von MultiPoint Services sein.
+Sie müssen mindestens Mitglied der Gruppe "Administratoren" auf dem Quell Server und dem Zielserver sein, um Multipoint Services zu installieren, zu entfernen oder einzurichten.
 
 >[!NOTE]
-> Die hier beschriebenen Schritte bieten keine Anleitungen für die Migration von Daten in Benutzerordner gespeichert oder freigegebene Ordner. Stellen Sie sicher, dass Benutzer ihre Daten sichern, bevor Sie mit die Migration beginnen.
+> Die hier beschriebenen Schritte bieten keine Anleitungen zum Migrieren von Daten, die in Benutzer Ordnern oder freigegebenen Ordnern gespeichert sind. Stellen Sie sicher, dass die Benutzer Ihre Daten sichern, bevor Sie mit der Migration beginnen.
 
-Verwenden Sie zum Abrufen der Informationen, die für die Migration Erforderlicher MultiPoint-Manager. Sie benötigen die Server Administrator eine Zugriffsberechtigung für MultiPoint-Manager verwenden.
+Verwenden Sie Multipoint Manager, um die für die Migration erforderlichen Informationen abzurufen. Sie benötigen die Server Administrator Berechtigung, um den Multipoint-Manager zu verwenden.
 
-Notieren Sie die MultiPoint Server, Benutzer und -Umgebung Einstellungen in der [Arbeitsblatts zur Erfassung von Migration](multipoint-services-migration-worksheet.md). Verwenden Sie die folgenden Schritte aus, um diese Informationen sammeln.
+Notieren Sie den Multipoint-Server, den Benutzer und die Umgebungseinstellungen im [Arbeitsblatt für die Sammlung von Migrationsdaten](multipoint-services-migration-worksheet.md). Verwenden Sie die folgenden Schritte, um diese Informationen zu erfassen.
 
-## <a name="multipoint-server-settings-for-the-local-server"></a>MultiPoint Server-Einstellungen für den lokalen server
-1. Start MultiPoint Manager.
-2. Auf der **Startseite** , wählen Sie den lokalen Server, und klicken Sie dann auf **Bearbeiten von servereinstellungen.**
-3. Notieren Sie die Einstellungen im Datenarbeitsblatt.
-4. Schließen Sie das Einstellungsfenster.
+## <a name="multipoint-server-settings-for-the-local-server"></a>Multipoint-Servereinstellungen für den lokalen Server
+1. Starten Sie den Multipoint-Manager.
+2. Wählen Sie auf der Registerkarte **Startseite** den lokalen Server aus, und klicken Sie dann auf **Servereinstellungen bearbeiten.**
+3. Notieren Sie die Einstellungen im Daten Arbeitsblatt.
+4. Schließen Sie das Fenster Einstellungen.
 
 ## <a name="managed-servers-and-computers"></a>Verwaltete Server und Computer
 
-Die Namen von verwalteten Servern und Computern finden Sie auf die **Startseite** Registerkarte im MultiPoint-Manager.
+Die Namen der verwalteten Server und Computer finden Sie auf der Registerkarte **Start** im Multipoint-Manager.
 
-## <a name="station-settings"></a>Stationseinstellungen
-Wenn die automatische Anmeldung oder Anzeige Ausrichtung für die Station konfiguriert sind, verwenden Sie die folgenden Schritte aus, um diese Informationen abzurufen. Andernfalls können Sie diesen Schritt überspringen.
+## <a name="station-settings"></a>Stations Einstellungen
+Wenn die automatische Anmeldung oder Anzeige Ausrichtung für die Station konfiguriert ist, verwenden Sie die folgenden Schritte, um diese Informationen abzurufen. Andernfalls können Sie diesen Schritt überspringen.
 
-So rufen Sie die stationseinstellungen ab
+So rufen Sie die Stations Einstellungen ab:
 
-1. Wechseln Sie zu der **Stationen** Registerkarte im MultiPoint-Manager.
-2. Suchen Sie eine Station, die "yes" in der **automatische Anmeldung** Spalte.
-3. Wählen Sie diese Station, und klicken Sie dann auf **konfigurieren Station**.
+1. Wechseln Sie im Multipoint-Manager zur Registerkarte **Stationen** .
+2. Suchen Sie in der Spalte für die **automatische Anmeldung** eine Station, die "yes" aufweist.
+3. Wählen Sie diese Station aus, und klicken Sie dann auf **Station konfigurieren**.
 4. Notieren Sie den Benutzer, der für die automatische Anmeldung verwendet wird.
 
-Zeigen Sie zum Abrufen der Anzeigeeinstellungen für die Ausrichtung der **stationseinstellungen** für jede Station.
+Zum Abrufen der Einstellungen für die Anzeige Ausrichtung zeigen Sie die **Stations Einstellungen** für jede Station an.
 
 ## <a name="list-of-users"></a>Liste der Benutzer
-1. Klicken Sie auf die **Benutzer** Registerkarte im MultiPoint-Manager.
-2. Datensatz der **Administrator** und **MultiPoint-Dashboardbenutzer** Accoutns.
-3. Notieren Sie die standard-Benutzer.
+1. Klicken Sie im Multipoint-Manager auf die Registerkarte **Benutzer** .
+2. Notieren Sie sich die Benutzer Zugriffsrechte für **Administrator** und **Multipoint-Dashboard** .
+3. Notieren Sie die Standardbenutzer.
 
-## <a name="vdi-template-location"></a>Speicherort der VDI-Vorlage
- Wenn Sie die VDI-Vorlagenfeature zuvor aktiviert haben, notieren Sie den Speicherort der Vorlage für VDI. Solange die Quelle und Ziel-Server im selben Netzwerk befinden, können Sie die Vorlage importieren, mit dem MultiPoint-Manager.
+## <a name="vdi-template-location"></a>Standort der VDI-Vorlage
+ Wenn Sie zuvor die VDI-Vorlagen Funktion aktiviert haben, notieren Sie den Speicherort der VDI-Vorlage. Solange sich die Quell-und Zielserver im gleichen Netzwerk befinden, können Sie die Vorlage mithilfe von Multipoint Manager importieren.
  
 ## <a name="next-step"></a>Nächster Schritt
-Sie können nun [Migrieren zu MultiPoint Services](multipoint-services-migration-steps.md) in der RTM-Version von Windows Server 2016.
+Sie sind jetzt bereit für die [Migration zu Multipoint Services](multipoint-services-migration-steps.md) in der RTM-Version von Windows Server 2016.

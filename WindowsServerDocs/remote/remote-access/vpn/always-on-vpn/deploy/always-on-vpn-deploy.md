@@ -1,7 +1,7 @@
 ---
 title: Always On VPN-Bereitstellung für Windows Server und Windows 10
-description: Sie können diese Bereitstellung verwenden, immer auf Virtuelles privates Netzwerk (VPN) Verbindungen für Remotemitarbeiter mit Remote Access in Windows Server 2016 oder höher und Always On-VPN-Profile für Windows 10-Clientcomputern bereitstellen.
-ms.prod: windows-server-threshold
+description: Mithilfe dieser Bereitstellung können Sie Always on VPN-Verbindungen (virtuelles privates Netzwerk) für Remote Mitarbeiter mithilfe des Remote Zugriffs in Windows Server 2016 oder höher und Always on VPN-Profilen für Windows 10-Client Computer bereitstellen.
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: 5ae1a40b-4f10-4ace-8aaf-13f7ab581f4f
@@ -9,72 +9,72 @@ ms.localizationpriority: medium
 ms.date: 12/20/2018
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 533f0273f6802be209ae5ad79b57f46dd6775149
-ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
+ms.openlocfilehash: 5eba89cf61354627b63bcdf2420c25e7a44e3d9a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749470"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388144"
 ---
-# <a name="always-on-vpn-deployment-for-windows-server-and-windows-10"></a>Always On-VPN-Bereitstellung für Windows Server und Windows 10
+# <a name="always-on-vpn-deployment-for-windows-server-and-windows-10"></a>Always on der VPN-Bereitstellung für Windows Server und Windows 10
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Vorherige:** Remotezugriff](../../../Remote-Access.md)<br>
-- [**nächster:** Erfahren Sie mehr über die Always On-VPN-Features und Funktionen](../../vpn-map-da.md)
+- [**Vorher** Remote Zugriff @ no__t-0<br>
+- [**Weiter** Erfahren Sie mehr über die Always on VPN-Features und-Funktionen @ no__t-0
 
-Always On-VPN-Lösung einen einzigen einheitlichen Lösung für RAS- und unterstützt, die Domäne eingebundenen, (nicht-Domänenkonto eingebunden, Arbeitsgruppe) oder Azure AD – eingebundene Geräte, auch Geräte in Privatbesitz. Mit Always On-VPN muss der Verbindungstyp nicht ausschließlich Benutzer oder Gerät, sondern kann eine Kombination aus beidem sein. Sie könnten z.B. die Geräteauthentifizierung für die Remotegeräteverwaltung aktivieren und dann die Benutzerauthentifizierung für Konnektivität mit internen Unternehmenssites und -diensten.
+Always on-VPN bietet eine einheitliche Lösung für den Remote Zugriff und unterstützt in die Domäne eingebundenen, nicht in die Domäne eingebundenen (Arbeitsgruppen) oder Azure AD –-Geräte, auch private Geräte. Mit Always On-VPN muss der Verbindungstyp nicht ausschließlich Benutzer oder Gerät, sondern kann eine Kombination aus beidem sein. Sie könnten z.B. die Geräteauthentifizierung für die Remotegeräteverwaltung aktivieren und dann die Benutzerauthentifizierung für Konnektivität mit internen Unternehmenssites und -diensten.
 
-## <a name="prerequisites"></a>Vorraussetzungen
+## <a name="prerequisites"></a>Erforderliche Komponenten
 
-Wahrscheinlich stehen Ihnen die Technologien bereitgestellt, dass Sie zur Always On-VPN-Bereitstellung verwenden können. Als Ihre Domänencontroller/DNS-Server erfordert die Always On-VPN-Bereitstellung einer NPS (RADIUS)-Server, einen Server der Zertifizierungsstelle (Certification Authority, CA) und eines Remotezugriffsservers (Routing/VPN). Nachdem Sie die Infrastruktur eingerichtet haben, müssen Sie Clients registrieren und klicken Sie dann die Clients mit Ihrer lokalen sicher über mehrere Änderungen am Netzwerk verbinden.
+Wahrscheinlich verfügen Sie über die bereitgestellten Technologien, die Sie zum Bereitstellen Always on VPN verwenden können. Abgesehen von Ihren DC/DNS-Servern erfordert die Always on-VPN-Bereitstellung einen NPS-Server (RADIUS), einen Zertifizierungsstellen Server (ca) und einen RAS-Server (Routing/VPN). Nachdem Sie die Infrastruktur eingerichtet haben, müssen Sie Clients registrieren und die Clients dann mithilfe mehrerer Netzwerk Änderungen sicher mit Ihrem lokalen Standort verbinden.
 
-- Active Directory-Domäneninfrastruktur, einschließlich der Server für eine oder mehrere Domain Name System (DNS). Interne und externe Domain Name System (DNS)-Zonen sind erforderlich, die davon aus, dass die interne Zone eine delegierte untergeordnete Domäne von der externen Zone (z. B. "corp.contoso.com" und "contoso.com").
-- Active Directory-basierten public Key-Infrastruktur (PKI) und Active Directory-Zertifikatdienste (AD CS).
-- Server, entweder in virtuellen oder physischen, vorhandene oder neue, (Network Policy Server, NPS) installieren. Wenn Sie NPS-Server in Ihrem Netzwerk vorhanden sind, können Sie die Konfiguration eines vorhandenes NPS-Servers ändern, anstatt einen neuen Server hinzufügen.
-- Remotezugriff als RAS-VPN-Gateway-Server mit der eine kleine Teilmenge der Funktionen zur Unterstützung von IKEv2-VPN-Verbindungen und LAN-routing.
-- Ein Umkreisnetzwerk, die zwei Firewalls enthält.  Stellen Sie sicher, dass Ihre Firewalls den Datenverkehr zu, der für sowohl VPN- und RADIUS-Kommunikation ermöglichen einwandfrei erforderlich ist. Weitere Informationen finden Sie unter [immer auf VPN-Technologieübersicht](../always-on-vpn-technology-overview.md).
-- Physischer Server oder virtuellen Computer (VM) in Ihrem Umkreisnetzwerk mit zwei physische Ethernet-Netzwerkadapter, um den Remotezugriff als RAS-VPN-Gateway-Server zu installieren. Virtuelle Computer, virtuelles LAN (VLAN) für den Host erfordern. 
-- Mitgliedschaft in der Administratoren oder einer entsprechenden Gruppe ist die mindestvoraussetzung.
-- Lesen Sie im Planungsabschnitt dieses Handbuchs, um sicherzustellen, dass Sie für diese Bereitstellung vorbereitet sind, bevor Sie die Bereitstellung ausführen.
-- Überprüfen Sie die Entwurfs- und Bereitstellungshandbücher für jede der Technologien, die verwendet werden soll. Diese Handbücher hilft Ihnen festzustellen, ob die Bereitstellungsszenarien bereitstellen, die Dienste und Konfigurationen, die Sie für das Netzwerk der Organisation benötigen. Weitere Informationen finden Sie unter [immer auf VPN-Technologieübersicht](../always-on-vpn-technology-overview.md).
-- Management-Plattform Ihrer Wahl für die Bereitstellung der Always On-VPN-Konfigurations, da der CSP nicht herstellerspezifisches ist.
+- Active Directory Domänen Infrastruktur, einschließlich eines oder mehrerer Domain Name System (DNS)-Server. Sowohl interne als auch externe Domain Name System (DNS-Zonen) sind erforderlich. dabei wird davon ausgegangen, dass die interne Zone eine delegierte Unterdomäne der externen Zone ist (z. b. Corp.contoso.com und contoso.com).
+- Active Directory basierte Public Key-Infrastruktur (PKI) und Active Directory Zertifikat Dienste (AD CS).
+- Server (virtuell oder physisch, vorhandener oder neuer) zum Installieren von Netzwerk Richtlinien Server (NPS). Wenn Sie bereits über NPS-Server in Ihrem Netzwerk verfügen, können Sie eine vorhandene NPS-Serverkonfiguration ändern, anstatt einen neuen Server hinzuzufügen.
+- Remote Zugriff als RAS-Gateway-VPN-Server mit einer kleinen Teilmenge von Features, die IKEv2-VPN-Verbindungen und LAN-Routing unterstützen.
+- Umkreis Netzwerk, das zwei Firewalls umfasst.  Stellen Sie sicher, dass ihre Firewalls den Datenverkehr, der für die VPN-und RADIUS-Kommunikation erforderlich ist, ordnungsgemäß funktionieren. Weitere Informationen finden Sie unter [Übersicht über Always on VPN-Technologie](../always-on-vpn-technology-overview.md).
+- Physischer Server oder virtueller Computer (VM) in Ihrem Umkreis Netzwerk mit zwei physischen Ethernet-Netzwerkadaptern, um den Remote Zugriff als RAS-Gateway-VPN-Server zu installieren. Virtuelle Computer erfordern ein virtuelles LAN (VLAN) für den Host. 
+- Sie müssen mindestens Mitglied der Gruppe Administratoren oder einer entsprechenden Gruppe sein.
+- Lesen Sie den Abschnitt Planning dieses Handbuchs, um sicherzustellen, dass Sie für diese Bereitstellung vorbereitet sind, bevor Sie die Bereitstellung ausführen.
+- Überprüfen Sie die Entwurfs-und Bereitstellungs Handbücher für die einzelnen verwendeten Technologien. Mithilfe dieser Leitfäden können Sie feststellen, ob die Bereitstellungs Szenarien die Dienste und die Konfiguration bereitstellen, die Sie für das Netzwerk Ihrer Organisation benötigen. Weitere Informationen finden Sie unter [Übersicht über Always on VPN-Technologie](../always-on-vpn-technology-overview.md).
+- Die Verwaltungsplattform Ihrer Wahl für die Bereitstellung der Always on-VPN-Konfiguration, da der CSP nicht Hersteller spezifisch ist.
 
 >[!IMPORTANT]
->Für diese Bereitstellung ist es nicht erforderlich, dass Ihre Infrastrukturserver, z. B. Computer mit Active Directory Domain Services, Active Directory Certificate Services und Network Policy Server, Windows Server 2016 ausgeführt werden. Sie können die frühere Versionen von Windows-Server, z. B. Windows Server 2012 R2 verwenden, für die Infrastrukturserver und für den Server, der den Remotezugriff ausgeführt wird.
+>Für diese Bereitstellung ist es nicht erforderlich, dass auf Ihren Infrastruktur Servern, z. b. Computern, auf denen Active Directory Domain Services, Active Directory Zertifikat Dienste und Netzwerk Richtlinien Server ausgeführt wird, Windows Server 2016 ausgeführt wird. Sie können frühere Versionen von Windows Server, wie z. b. Windows Server 2012 R2, für die Infrastruktur Server und für den Server verwenden, auf dem Remote Zugriff ausgeführt wird.
 >
->Versuchen Sie nicht, Remotezugriff auf einen virtuellen Computer (VM) in Microsoft Azure bereitzustellen. Verwenden Remote Access in Microsoft Azure wird nicht unterstützt einschließlich Remote Access VPN und DirectAccess. Weitere Informationen finden Sie unter [Unterstützung der Microsoft-Serversoftware für Microsoft Azure-Computern](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
+>Versuchen Sie nicht, den Remote Zugriff auf einem virtuellen Computer (VM) in Microsoft Azure bereitzustellen. Die Verwendung des Remote Zugriffs in Microsoft Azure wird nicht unterstützt, einschließlich RAS-VPN und DirectAccess. Weitere Informationen finden Sie [unter Microsoft Server Software Support for Microsoft Azure Virtual Machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
-## <a name="about-this-deployment"></a>Zu dieser Bereitstellung
+## <a name="about-this-deployment"></a>Informationen zu dieser Bereitstellung
 
-Die bereitgestellten Anweisungen, führen Sie durch Bereitstellen des Remotezugriffs als ein einziger Mandant VPN-RAS-Gateway für Punkt-zu-Standort-VPN-Verbindungen mit einer der folgenden, für den Remoteclient-Computern mit Windows 10 erwähnten Szenarios. Außerdem finden Sie Anweisungen zum Ändern einiger Ihrer vorhandenen Infrastruktur für die Bereitstellung. In dieser Bereitstellung finden Sie auch Links können Sie weitere Informationen zu den Prozess der VPN-Verbindung, zu konfigurierende Server, "profileXML" VPNv2 CSP-Knoten und anderen Technologien zum Bereitstellen von Always On-VPN.
+Die bereitgestellten Anweisungen führen Sie durch die Bereitstellung des Remote Zugriffs als ein einzelnes Mandanten-VPN-RAS-Gateway für Punkt-zu-Standort-VPN-Verbindungen mithilfe eines der unten erwähnten Szenarien für Remote Client Computer, auf denen Windows 10 ausgeführt wird. Außerdem finden Sie Anweisungen zum Ändern einiger Ihrer vorhandenen Infrastruktur für die Bereitstellung. Außerdem finden Sie in dieser Bereitstellung Links, die Ihnen helfen, mehr über den VPN-Verbindungsprozess, die zu konfigurier fähigen Server, den profileXML VPNv2 CSP-Knoten und andere Technologien zum Bereitstellen Always on VPN zu erfahren.
 
-**Always On-VPN-Bereitstellungsszenarien:**
+**Always on von VPN-Bereitstellungs Szenarien:**
 
-1. Immer über das VPN nur bereitstellen.
-2. Stellen Sie Always On-VPN-bereit, mit dem bedingten Zugriff für VPN-Verbindungen mithilfe von Azure AD.
+1. Stellen Sie nur Always on-VPN bereit.
+2. Stellen Sie Always on-VPN mit bedingtem Zugriff für VPN-Konnektivität mithilfe Azure AD bereit.
 
-Weitere Informationen und Workflows der beschriebenen Szenarios, finden Sie unter [Bereitstellen von Always On-VPN-](always-on-vpn-deploy-deployment.md).
+Weitere Informationen und einen Workflow der dargestellten Szenarien finden Sie unter Bereitstellen [Always on VPN](always-on-vpn-deploy-deployment.md).
 
-## <a name="what-isnt-provided-in-this-deployment"></a>Was ist nicht in dieser Bereitstellung bereitgestellt.
+## <a name="what-isnt-provided-in-this-deployment"></a>Bereitstellung in dieser Bereitstellung nicht
 
-Diese Bereitstellung stellt keine Anweisungen für bereit:
+Diese Bereitstellung stellt keine Anweisungen für Folgendes bereit:
 
-- Active Directory-Domänendienste (AD DS).
-- Active Directory-Zertifikatdienste (AD CS) und einer Public Key-Infrastruktur (PKI).
+- Active Directory Domain Services (AD DS).
+- Active Directory Zertifikat Dienste (AD CS) und eine Public Key-Infrastruktur (PKI).
 - Dynamic Host Configuration-Protokoll (DHCP).
-- Netzwerk-Hardware, wie z. B. Ethernet-Kabel, Firewalls, Switches und Hubs.
-- Zusätzliche Netzwerkressourcen wie z. B. Anwendungs- und Dateiservern, die remote-Benutzer über eine Always On-VPN-Verbindung zugreifen können.
-- Internetkonnektivität oder bedingten Zugriffs für Internet-Verbindungen mithilfe von Azure AD. Weitere Informationen finden Sie unter [Bedingter Zugriff in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
+- Netzwerkhardware, z. b. Ethernet-Verkabelung, Firewalls, Switches und Hubs.
+- Zusätzliche Netzwerkressourcen, z. b. Anwendungs-und Dateiserver, auf die Remote Benutzer über eine Always on VPN-Verbindung zugreifen können.
+- Internet Konnektivität oder bedingter Zugriff für die Internet Konnektivität mit Azure AD. Weitere Informationen finden Sie unter [bedingter Zugriff in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Erfahren Sie mehr über die Always On-VPN-Features und Funktionen](../../vpn-map-da.md)
+- [Weitere Informationen zu den Always on VPN-Features und-Funktionen](../../vpn-map-da.md)
 
-- [Erfahren Sie mehr über die Always On-VPN-Verbesserungen](../always-on-vpn-enhancements.md)
+- [Weitere Informationen zu den Always on-VPN-Erweiterungen](../always-on-vpn-enhancements.md)
 
-- [Erfahren Sie mehr über die erweiterte Always On-VPN-Funktionen](always-on-vpn-adv-options.md)
+- [Erfahren Sie mehr über die erweiterten Always on-VPN-Features](always-on-vpn-adv-options.md)
 
-- [Erfahren Sie mehr über die Always On-VPN-Technologie](../always-on-vpn-technology-overview.md)
+- [Weitere Informationen zum Always on VPN-Technologie](../always-on-vpn-technology-overview.md)
 
-- [Planen der Always On-VPN-Bereitstellung](always-on-vpn-deploy-deployment.md)
+- [Beginnen der Planung Ihrer Always on-VPN-Bereitstellung](always-on-vpn-deploy-deployment.md)

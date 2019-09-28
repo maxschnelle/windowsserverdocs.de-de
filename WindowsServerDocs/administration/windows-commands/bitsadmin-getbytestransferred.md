@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getbytestransferred
-description: Windows-Befehle Thema **Bitsadmin Getbytestransferred** -Ruft die Anzahl der übertragenen Bytes für den angegebenen Auftrag.
+description: 'Thema Windows-Befehle für **bizadmin getbytestransferred** : Ruft die Anzahl der für den angegebenen Auftrag übertragenen Bytes ab.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cce2c051af169385c43fdff4efdeff46d8422926
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f690fa55a4ac5ae31223794c5e7eabc0c982c2ce
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814611"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381734"
 ---
 # <a name="bitsadmin-getbytestransferred"></a>bitsadmin getbytestransferred
 
 
 
-Ruft die Anzahl der Bytes, die für den angegebenen Auftrag übertragen.
+Ruft die Anzahl der Bytes ab, die für den angegebenen Auftrag übertragen wurden.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,15 +36,15 @@ bitsadmin /GetBytesTransferred <Job>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Das folgende Beispiel ruft die Anzahl der Bytes, die für den Auftrag übertragene *MyDownloadJob*.
+Im folgenden Beispiel wird die Anzahl der Bytes abgerufen, die für den Auftrag mit dem Namen *mydownloadjob*übertragen werden.
 ```
 C:\>bitsadmin /GetBytesTransferred myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

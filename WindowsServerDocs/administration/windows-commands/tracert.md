@@ -1,8 +1,8 @@
 ---
 title: tracert
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6a97c7656e646a22892eee5caa13d0163d05293d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f08fd3276f3377fed06d7b9a2cc3399fa1071f39
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837181"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385648"
 ---
 # <a name="tracert"></a>tracert
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Bestimmt den Pfad zu einem Ziel von Internet Control Message Protocol (ICMP)-Echo Request oder ICMPv6-Nachrichten an das Ziel mit schrittweise erhöhen um Feldwerte für die Gültigkeitsdauer (TTL) gesendet. Der angezeigte Pfad ist die Liste der in der Nähe/Routerschnittstellen der Router im Pfad zwischen Quellhost und einem Ziel. Die Schnittstelle in der Nähe/Seite ist die Schnittstelle des Routers, der an den sendenden Host im Pfad am nächsten ist. Tracert zeigt ohne Parameter verwendet wird, die Hilfe.   
+Bestimmt den Pfad zu einem Ziel, indem ICMP-Echo Anforderungen (Internet Control Message Protocol) oder ICMPv6-Nachrichten an das Ziel gesendet werden, wobei die Werte für die Gültigkeitsdauer (TTL) inkrementell erhöht werden. Der angezeigte Pfad ist die Liste der Schnittstellen, die sich im Pfad zwischen einem Quellhost und einem Ziel befinden. Die Near/Side-Schnittstelle ist die Schnittstelle des Routers, die dem sendenden Host im Pfad am nächsten liegt. Wird ohne Parameter verwendet, zeigt tracert die Hilfe an.   
 
 ## <a name="syntax"></a>Syntax  
 ```  
@@ -33,34 +33,34 @@ tracert [/d] [/h <MaximumHops>] [/j <Hostlist>] [/w <timeout>] [/R] [/S <Srcaddr
 ### <a name="parameters"></a>Parameter  
 |Parameter|Beschreibung|  
 |-------|--------|  
-|/d|Verhindert, dass **Tracert** versucht, die Zwischenrouter die IP-Adressen in Namen aufgelöst. Dies kann die Anzeige von beschleunigen **Tracert** Ergebnisse.|  
-|/ h \<Max. Abschnitte >|Gibt die maximale Anzahl der Hops, die in den Suchpfad für das Ziel (Ziel). Der Standardwert ist 30.|  
-|/j \<Hostlist>|Gibt an, die echo Request-Meldungen verwenden Sie die Option Loose Source Route in der IP-Header mit dem Satz von Zwischenziele, die im angegebenen *Hostlist*. Mit losen Quell-routing, können nachfolgende Zwischenziele durch einen oder mehrere Router getrennt werden. Die maximale Anzahl von Adressen oder Namen in der Hostliste ist 9. Die *Hostlist* ist eine Reihe von IP-Adressen (in punktierter Dezimalschreibweise), die durch Leerzeichen getrennt. Verwenden Sie diesen Parameter nur beim Verfolgen von IPv4-Adressen.|  
-|/w \<timeout>|Gibt die Zeitspanne in Millisekunden zu warten, bis die ICMP-Zeit überschritten oder echo Reply-Nachricht, die für einen bestimmten Echo Request-Nachricht empfangen werden kann. Wenn nicht innerhalb des Timeouts eingegangen wird, wird ein Sternchen (*) angezeigt. Das Standardtimeout beträgt 4.000 (4 Sekunden).|  
-|/R|Gibt an, dass der Header für die IPv6-Routing-Erweiterung verwendet werden, um ein Echo Request-Nachricht an den lokalen Host das Ziel als eines Zwischenziels verwenden und testen die reverse-Route zu senden.|  
-|/S \<Srcaddr>|Gibt die Quelladresse um in das Echo Request-Nachrichten verwenden. Verwenden Sie diesen Parameter nur beim Verfolgen von IPv6-Adressen.|  
-|/4|Gibt an, dass diese tracert.exe nur IPv4 für diese Ablaufverfolgung verwenden können.|  
-|/6|Gibt an, dass diese tracert.exe nur IPv6 für diese Ablaufverfolgung verwenden können.|  
-|\<TargetName>|Gibt an, das Ziel, und identifiziert entweder durch eine IP-Adresse oder den Hostnamen.|  
+|/d|Verhindert, dass **tracert** versucht, die IP-Adressen der zwischen Router in ihre Namen aufzulösen. Dadurch kann die Anzeige von **tracert** -Ergebnissen beschleunigt werden.|  
+|/h \<maximumhops >|Gibt die maximale Anzahl von Hops in dem Pfad an, der nach dem Ziel (Ziel) gesucht werden soll. Der Standardwert ist 30 Hops.|  
+|/j \<hostlist >|Gibt an, dass Echo Request-Nachrichten die lose Quell Route-Option im IP-Header mit dem Satz von zwischen Zielen verwenden, die in der *Hostliste*angegeben sind. Beim losen Quell Routing können aufeinander folgende Zwischenziele durch einen oder mehrere Router getrennt werden. Die maximale Anzahl von Adressen oder Namen in der Hostliste beträgt 9. Die *Hostliste* ist eine Reihe von IP-Adressen (in punktierter Dezimal Schreibweise), getrennt durch Leerzeichen. Verwenden Sie diesen Parameter nur bei der Ablauf Verfolgung von IPv4-Adressen.|  
+|/w \<timeout >|Gibt die Zeit in Millisekunden an, die auf die überschreiten der ICMP-Zeit gewartet wird, oder eine Echo Antwortnachricht, die einer gegebenen Echo Anforderungs Nachricht entspricht, die empfangen werden soll. Wenn Sie nicht innerhalb des Timeouts empfangen werden, wird ein Sternchen (*) angezeigt. Das Standard Timeout beträgt 4000 (4 Sekunden).|  
+|/R|Gibt an, dass der IPv6-Routing Erweiterungs Header verwendet wird, um eine Echo Anforderungs Nachricht an den lokalen Host zu senden, wobei das Ziel als Zwischenziel verwendet und die umgekehrte Route getestet wird.|  
+|/S \<srcaddr >|Gibt die Quelladresse an, die in den Echo Anforderungs Nachrichten verwendet werden soll. Verwenden Sie diesen Parameter nur bei der Ablauf Verfolgung von IPv6-Adressen.|  
+|/4|Gibt an, dass tracert. exe für diese Ablauf Verfolgung nur IPv4 verwenden kann.|  
+|/6|Gibt an, dass tracert. exe für diese Ablauf Verfolgung nur IPv6 verwenden kann.|  
+|\<targetname >|Gibt das Ziel an, das entweder durch die IP-Adresse oder den Hostnamen identifiziert wird.|  
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|  
 
 ## <a name="remarks"></a>Hinweise  
--   Dieses Diagnosetool bestimmt den Pfad zu einem Ziel durch Senden von ICMP-Echo Request-Nachrichten mit unterschiedlichen Werte der Gültigkeitsdauer (TTL) an das Ziel. Jeder Router entlang des Pfads ist von mindestens 1 dekrementiert die Gültigkeitsdauer (TTL) in eine IP-Paket erforderlich, bevor die Weiterleitung. Die Gültigkeitsdauer (TTL) ist effektiv, einen Indikator für die maximale Link. Wenn die Gültigkeitsdauer für ein Paket auf 0 erreicht, wird der Router erwartet eine ICMP-Time Exceeded-Meldung an den Quellcomputer zurückgibt. Tracert bestimmt den Pfad durch Senden der ersten Echo Request-Nachricht mit einer Gültigkeitsdauer von 1 und erhöht, dass die Gültigkeitsdauer (TTL) von 1 auf jeder nachfolgenden Übertragung, bis das Ziel antwortet oder die maximale Anzahl von Hops erreicht ist. Die maximale Anzahl von Hops ist standardmäßig auf 30 und kann angegeben werden, mithilfe der **/h** Parameter. Der Pfad wird bestimmt durch Untersuchen der ICMP-Time Exceeded-Meldungen vom Zwischenrouter und den Echo-Antwortnachricht vom Ziel zurückgegeben. Allerdings einige Router keine Time Exceeded-Meldungen für Pakete mit einer abgelaufenen TTL-Werten zurück und werden Invisile dem Tracert-Befehl. In diesem Fall wird eine Reihe von Sternchen (*) für den betreffenden Hop angezeigt.  
--   Verwenden Sie zum Verfolgen eines Pfades, und geben Sie die Netzwerklatenz und Paketverlusten für die einzelnen Router und Verbindungen im Pfad, der **Pathping** Befehl.  
--   Dieser Befehl ist nur verfügbar, wenn das Internetprotokoll (TCP/IP)-Protokoll als Komponente in den Eigenschaften eines Netzwerkadapters in den Netzwerkverbindungen installiert ist.  
+-   Dieses Diagnosetool bestimmt den Pfad zu einem Ziel, indem ICMP-Echo Anforderungs Nachrichten mit unterschiedlichen Gültigkeitsdauer (Time to Live, TTL) an das Ziel gesendet werden. Jeder Router entlang des Pfads ist erforderlich, um die Gültigkeitsdauer in einem IP-Paket mindestens 1 zu verringern, bevor es weitergeleitet wird. Tatsächlich handelt es sich bei der Gültigkeitsdauer um einen maximalen Verbindungs Counter. Wenn die Gültigkeitsdauer für ein Paket den Wert 0 erreicht, wird erwartet, dass der Router eine Meldung über die Nachricht "ICMP-Zeitüberschreitung" an den Quellcomputer tracert legt den Pfad fest, indem die erste Echo Anforderungs Nachricht mit einer Gültigkeitsdauer von 1 gesendet und die Gültigkeitsdauer für jede nachfolgende Übertragung um 1 erhöht wird, bis das Ziel antwortet oder die maximale Anzahl von Hops erreicht wird. Die maximale Anzahl von Hops beträgt standardmäßig 30 und kann mithilfe des **/h** -Parameters angegeben werden. Der Pfad wird durch die Untersuchung der von zwischen Routern zurückgegebenen ICMP-Zeitüberschreitung und der vom Ziel zurückgegebenen Echo Antwortnachricht bestimmt. Einige Router geben jedoch keine Zeitüberschreitung für die Nachrichten von Paketen mit abgelaufenen TTL-Werten zurück und sind für den Tracert-Befehl invisile. In diesem Fall wird für diesen Hop eine Zeile mit Sternchen (*) angezeigt.  
+-   Verwenden Sie den Befehl **pathping** , um einen Pfad zu verfolgen und Netzwerk Latenz und Paketverlust für jeden Router und Link im Pfad bereitzustellen.  
+-   Dieser Befehl ist nur verfügbar, wenn das TCP/IP-Protokoll (Internet Protocol) als Komponente in den Eigenschaften eines Netzwerkadapters in Netzwerkverbindungen installiert ist.  
 
-## <a name="BKMK_Examples"></a>Beispiele für  
-Um den Pfad zu dem Host namens corp7.microsoft.com verfolgen möchten, geben Sie Folgendes ein:  
+## <a name="BKMK_Examples"></a>Beispiele  
+Geben Sie Folgendes ein, um den Pfad zum Host mit dem Namen corp7.Microsoft.com zu verfolgen:  
 ```  
 tracert corp7.microsoft.com  
 ```  
-Um den Pfad zu dem Host namens corp7.microsoft.com verfolgen und zu verhindern, dass die Auflösung der einzelnen IP-Adresse an den Namen, geben Sie Folgendes ein:  
+Um den Pfad zum Host mit dem Namen corp7.Microsoft.com zu verfolgen und die Auflösung der einzelnen IP-Adressen zu verhindern, geben Sie Folgendes ein:  
 ```  
 tracert /d corp7.microsoft.com  
 ```  
-Um den Pfad zu dem Host namens corp7.microsoft.com verfolgen und den losen Quellen Route 10.12.0.1/10.29.3.1/10.1.44.1, geben Sie Folgendes ein:  
+Geben Sie Folgendes ein, um den Pfad zum Host mit dem Namen corp7.Microsoft.com zu verfolgen und die lose Quell Route 10.12.0.1/10.29.3.1/10.1.44.1 zu verwenden:  
 ```  
 tracert /j 10.12.0.1 10.29.3.1 10.1.44.1 corp7.microsoft.com  
 ```  
 ## <a name="additional-references"></a>Weitere Verweise  
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

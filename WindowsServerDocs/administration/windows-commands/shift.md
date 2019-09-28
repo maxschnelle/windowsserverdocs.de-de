@@ -1,8 +1,8 @@
 ---
 title: shift
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e72b4be1b265d682d489cf372cdfe5ef54bb444d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f74e0f1f9041a4a7b95d83772ea79376c82876de
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441243"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371247"
 ---
 # <a name="shift"></a>shift
 
 
 
-Ändert die Position der Batchparameter in einer Batchdatei.
+Ändert die Position von Batch Parametern in einer Batchdatei.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -38,20 +38,20 @@ shift [/n <N>]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|/n \<N>|Gibt an, dass das Starten der Verschiebung auf der *N*th-Argument, in denen *N* ein Wert zwischen 0 und 8 ist. Erfordert befehlserweiterungen, die standardmäßig aktiviert sind.|
+|/n \<n >|Gibt an, dass die Verschiebung beim *n*-ten Argument gestartet werden soll, wobei *N* ein beliebiger Wert zwischen 0 und 8 ist. Erfordert Befehls Erweiterungen, die standardmäßig aktiviert sind.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
-- Die **UMSCHALT** Befehl ändert die Werte der Parameter **%0** über **%9** jeden Parameter in dem vorherigen Beispiel kopieren, den Wert der **%1** in kopiert **%0**, den Wert der **%2** in kopiert **%1**und so weiter. Dies ist nützlich für das Schreiben von einer Batchdatei, die den gleichen Vorgang auf einer beliebigen Anzahl von Parametern ausführt.
-- Wenn der befehlserweiterungen aktiviert sind, die **UMSCHALT** Befehl unterstützt die **/n** Befehlszeilenoption. Die **/n** Option zum Starten der Verschiebung auf der n-te Argument gibt an, in denen **N** ein Wert zwischen 0 und 8 ist. Z. B. **UMSCHALT /2** verschoben würde **%3** zu **%2**, **%4** zu **%3**, und so weiter, und lassen Sie **%0** und **%1** nicht betroffen. Befehlserweiterungen sind standardmäßig aktiviert.
-- Können Sie die **UMSCHALT** Befehl aus, um eine Batchdatei erstellen, die mehr als 10 Batchparameter akzeptieren kann. Wenn Sie mehr als 10 Parameter in der Befehlszeile angeben, die, die angezeigt werden nach der zehnten ( **%9**) werden die verschobenen einzeln nacheinander in **%9**.
-- Die **UMSCHALT** Befehl hat keine Auswirkungen auf die **% \\** * batch-Parameter.
-- Es ist nicht abwärtskompatibel **UMSCHALT** Befehl. Nach dem Implementieren der **UMSCHALT** Befehl, den Batchparameter kann nicht wiederhergestellt werden ( **%0**), die vorhanden waren, bevor Sie die UMSCHALTTASTE.
+- Der **Shift** -Befehl ändert die Werte der Batch Parameter **% 0** bis **% 9** durch Kopieren jedes Parameters in den vorherigen – der Wert von **% 1** wird in **% 0**kopiert, der Wert von **% 2** wird in **% 1**kopiert usw. Dies ist hilfreich beim Schreiben einer Batchdatei, die denselben Vorgang für eine beliebige Anzahl von Parametern ausführt.
+- Wenn Befehls Erweiterungen aktiviert sind, unterstützt der Befehl **Shift** die Befehlszeilenoption **/n** . Die **/n** -Option gibt an, dass die Verschiebung beim n-ten Argument gestartet werden soll, wobei **n** ein beliebiger Wert zwischen 0 und 8 ist. Beispielsweise würde **Shift/2** " **% 3** " in **"% 2**", " **% 4** " in " **% 3**" usw. verschieben und " **% 0** " und " **% 1** " nicht beeinträchtigt. Befehls Erweiterungen werden standardmäßig aktiviert.
+- Mit dem Befehl **Shift** können Sie eine Batchdatei erstellen, die mehr als 10 Batch Parameter annehmen kann. Wenn Sie mehr als 10 Parameter in der Befehlszeile angeben, werden diejenigen, die nach dem zehnten ( **% 9**) angezeigt werden, nacheinander in **% 9**verschoben.
+- Der **Shift** -Befehl hat keine Auswirkung auf den Parameter **% @ no__t-3*** Batch.
+- Es ist kein rückwärts **Verschiebungs** Befehl vorhanden. Nachdem Sie den Befehl **Shift** implementiert haben, können Sie den Batch Parameter ( **% 0**), der vor der Verschiebung vorhanden war, nicht wiederherstellen.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Die folgenden Zeilen aus einer Beispiel-Batchdatei namens kopieren.bat veranschaulichen, wie **UMSCHALT** mit einer beliebigen Anzahl von Batchparameter. In diesem Beispiel kopiert kopieren.bat eine Liste der Dateien in ein bestimmtes Verzeichnis. Die Batchparameter werden durch die Namensargumente Verzeichnis- und Dateinamen dargestellt.
+Die folgenden Zeilen aus einer Beispiel Batchdatei namens mycopy. bat veranschaulichen, wie Sie **Shift** mit einer beliebigen Anzahl von Batch-Parametern verwenden. In diesem Beispiel kopiert mycopy. bat eine Liste von Dateien in ein bestimmtes Verzeichnis. Die Batch Parameter werden durch das Verzeichnis und die Dateinamen Argumente dargestellt.
 ```
 @echo off 
 rem MYCOPY.BAT copies any number of files

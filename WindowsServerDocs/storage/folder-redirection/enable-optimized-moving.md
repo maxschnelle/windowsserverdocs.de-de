@@ -1,19 +1,19 @@
 ---
 title: Optimierte Verschiebungen von umgeleiteten Ordnern aktivieren
 description: So führen Sie eine optimierte Verschiebung umgeleiteter Ordner zu einer neuen Dateifreigabe aus
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
 ms.date: 09/10/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: edf6596f7daaa2f496b8b4da36e98ee72b05dfcd
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 6c54fee98247b1ce0aa3ef3a2502cf18f314e763
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867257"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394367"
 ---
 # <a name="enable-optimized-moves-of-redirected-folders"></a>Optimierte Verschiebungen von umgeleiteten Ordnern aktivieren
 
@@ -30,7 +30,7 @@ Für das optimierte verschieben gelten die folgenden Anforderungen:
 - Die Ordner Umleitung muss eingerichtet werden. Weitere Informationen finden Sie unter Bereitstellen der [Ordner Umleitung mit Offlinedateien](deploy-folder-redirection.md).
 - Auf Client Computern muss Windows 10, Windows 8.1, Windows 8, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 oder Windows Server (halbjährlicher Kanal) ausgeführt werden.
 
-## <a name="step-1-enable-optimized-move-in-group-policy"></a>Schritt 1: Optimierte Verschiebung in Gruppenrichtlinie aktivieren
+## <a name="step-1-enable-optimized-move-in-group-policy"></a>Schritt 1: Optimierte Verschiebung in Gruppenrichtlinie aktivieren
 
 Um die Verschiebung von Ordner Umleitungs Daten zu optimieren, verwenden Sie Gruppenrichtlinie, um die Richtlinien Einstellung **optimiertes Verschieben von Inhalten in Offlinedateien Cache auf Ordner Umleitung Serverpfad ändern** für das entsprechende Gruppenrichtlinie Objekt (GPO) zu aktivieren. Wenn Sie diese Richtlinien Einstellung auf **deaktiviert** oder **nicht konfiguriert** konfigurieren, kopiert der Client den gesamten Ordner Umleitungs Inhalt an den neuen Speicherort und löscht dann den Inhalt aus dem alten Speicherort, wenn sich der Serverpfad ändert.
 

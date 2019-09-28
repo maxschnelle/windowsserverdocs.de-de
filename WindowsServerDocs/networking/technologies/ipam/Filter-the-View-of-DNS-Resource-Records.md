@@ -1,9 +1,9 @@
 ---
 title: Filtern der Ansicht von DNS-Ressourceneinträgen
-description: Dieses Thema ist Teil des Leitfadens Verwaltung von IP-Adressverwaltung (IPAM) in Windows Server 2016.
+description: Dieses Thema ist Teil des Verwaltungs Handbuchs für die IP-Adressverwaltung (IPAM) in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ipam
@@ -12,55 +12,55 @@ ms.topic: article
 ms.assetid: 5b80294a-7325-476b-84eb-69f0d051e8b2
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: cc3f2b8ec6e7c5149ef6351639fbbf8f0def8be8
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 541645a274481bb8b044c37df572d7746c5da30e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283935"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405665"
 ---
 # <a name="filter-the-view-of-dns-resource-records"></a>Filtern der Ansicht von DNS-Ressourceneinträgen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können in diesem Thema verwenden, um DNS-Ressourceneinträge in der IPAM-Clientkonsole die Ansicht zu filtern.  
+Sie können dieses Thema verwenden, um die Ansicht der DNS-Ressourcen Einträge in der IPAM-Client Konsole zu filtern.  
   
 Die Mitgliedschaft in **Administratoren** oder einer entsprechenden Gruppe ist die Mindestanforderung für die Durchführung dieses Verfahrens.  
   
-### <a name="to-filter-the-view-of-dns-resource-records"></a>Filtern die Ansicht von DNS-Ressourceneinträgen  
+### <a name="to-filter-the-view-of-dns-resource-records"></a>So filtern Sie die Ansicht der DNS-Ressourcen Einträge  
   
-1.  Klicken Sie im Server-Manager **IPAM**. Die IPAM-Clientkonsole angezeigt wird.  
+1.  Klicken Sie in Server-Manager auf **IPAM**. Die IPAM-Client Konsole wird angezeigt.  
   
-2.  Klicken Sie im Navigationsbereich in **ÜBERWACHEN und verwalten**, klicken Sie auf **DNS-Zonen**.  Im Navigationsbereich, die in einer oberen Navigationsbereich und einer unteren Navigationsbereich unterteilt werden.  
+2.  Klicken Sie im Navigationsbereich unter **überwachen und verwalten**auf **DNS-Zonen**.  Der Navigationsbereich gliedert sich in einen oberen Navigationsbereich und einen niedrigeren Navigationsbereich.  
   
-3.  Klicken Sie im unteren Navigationsbereich auf **Forward-Lookup**. Alle IPAM verwalteten DNS-Forward-Lookup-Zonen werden in den Suchergebnissen der Anzeige im Bereich angezeigt.  
+3.  Klicken Sie im unteren Navigationsbereich auf **Forward-Lookup**. Alle von IPAM verwalteten DNS-Forward-Lookupzonen werden in den Suchergebnissen des Anzeige Bereichs angezeigt.  
   
-4.  Klicken Sie auf die Zone, deren Datensätze, die Sie anzeigen und filtern möchten.  
+4.  Klicken Sie auf die Zone, deren Datensätze Sie anzeigen und filtern möchten.  
   
-5.  Klicken Sie im Anzeigebereich auf **aktuelle Ansicht**, und klicken Sie dann auf **Ressourceneinträge**. Der Ressourceneinträge für die Zone werden im Anzeigebereich angezeigt.  
+5.  Klicken Sie im Anzeigebereich auf **Aktuelle Ansicht**, und klicken Sie dann auf **Ressourcen Einträge**. Die Ressourcen Einträge für die Zone werden im Anzeigebereich angezeigt.  
   
 6.  Klicken Sie im Anzeigebereich auf **Kriterien hinzufügen**.  
   
     ![Kriterien hinzufügen](../../media/Filter-the-View-of-DNS-Resource-Records/ipam_FilterRR_01.jpg)  
   
-7.  Wählen Sie ein Kriterium aus der Dropdown-Liste ein. Z. B. Wenn Sie einen bestimmten Datensatztyp anzeigen möchten, klicken Sie auf **Datensatztyp**.  
+7.  Wählen Sie ein Kriterium aus der Dropdown Liste aus. Wenn Sie z. b. einen bestimmten Daten Satz Typen anzeigen möchten, klicken Sie auf **Typ aufzeichnen**.  
   
-    ![Wählen Sie ein Kriterium](../../media/Filter-the-View-of-DNS-Resource-Records/ipam_FilterRR_02.jpg)  
+    ![Kriterien auswählen](../../media/Filter-the-View-of-DNS-Resource-Records/ipam_FilterRR_02.jpg)  
   
 8.  Klicken Sie auf **Hinzufügen**.  
   
-    ![Die Kriterien hinzufügen](../../media/Filter-the-View-of-DNS-Resource-Records/ipam_FilterRR_03.jpg)  
+    ![Kriterien hinzufügen](../../media/Filter-the-View-of-DNS-Resource-Records/ipam_FilterRR_03.jpg)  
   
-9. **Datensatztyp** als Suchparameter hinzugefügt wird. Geben Sie Text für den Typ des Datensatzes, der gesucht werden soll. Geben Sie beispielsweise, wenn Sie nur die SRV-Einträge anzeigen möchten, **SRV**.  
+9. Der **Datensatz-Typ** wird als Suchparameter hinzugefügt. Geben Sie Text für den Typ des Datensatzes ein, den Sie suchen möchten. Wenn Sie z. b. nur SRV-Einträge anzeigen möchten, geben Sie **SRV**ein.  
   
-    ![Geben Sie den Typ des Datensatzes, der gesucht werden soll](../../media/Filter-the-View-of-DNS-Resource-Records/ipam_FilterRR_04.jpg)  
+    ![Geben Sie den Typ des Datensatzes an, den Sie suchen möchten.](../../media/Filter-the-View-of-DNS-Resource-Records/ipam_FilterRR_04.jpg)  
   
-10. Drücken Sie die EINGABETASTE. Die DNS-Ressourceneinträge gemäß den Kriterien gefiltert werden, und suchen Ausdruck, den Sie angegeben haben.  
+10. Drücken Sie die EINGABETASTE. Die DNS-Ressourcen Einträge werden nach den von Ihnen angegebenen Kriterien und der angegebenen Such Phrase gefiltert.  
   
-    ![Führen Sie den filter](../../media/Filter-the-View-of-DNS-Resource-Records/ipam_FilterRR_05.jpg)  
+    ![Ausführen des Filters](../../media/Filter-the-View-of-DNS-Resource-Records/ipam_FilterRR_05.jpg)  
   
 ## <a name="see-also"></a>Siehe auch  
-[DNS-Datensatz Ressourcenverwaltung](DNS-Resource-Record-Management.md)  
+[Verwaltung von DNS-Ressourcen Einträgen](DNS-Resource-Record-Management.md)  
 [Verwalten von IPAM](Manage-IPAM.md)  
   
 

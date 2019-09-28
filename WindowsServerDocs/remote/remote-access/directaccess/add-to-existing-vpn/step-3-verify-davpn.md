@@ -1,9 +1,9 @@
 ---
 title: Schritt 3 Überprüfen der Bereitstellung
-description: Dieses Thema ist Teil des Handbuchs Add DirectAccess zu einer vorhandenen Remotezugriffsbereitstellung (VPN)-Bereitstellung für WindowsServer 2016
+description: Dieses Thema ist Teil des Handbuchs Hinzufügen von DirectAccess zu einer vorhandenen Remote Zugriffs Bereitstellung (VPN) für Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,18 +12,18 @@ ms.topic: article
 ms.assetid: 43ac612e-2e77-418c-8171-ebb2086b7cb6
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 639431405635b7b0792b7a73bd9bb524e0827832
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 82acca0309835149ca35676784120b3130e72a54
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281815"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388703"
 ---
 # <a name="step-3-verify-the-deployment"></a>Schritt 3 Überprüfen der Bereitstellung
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Dieses Thema beschreibt, wie Sie sicher, dass Sie die DirectAccess-Bereitstellung ordnungsgemäß konfiguriert haben.  
+In diesem Thema wird beschrieben, wie Sie überprüfen, ob Sie die DirectAccess-Bereitstellung ordnungsgemäß konfiguriert haben  
   
 ### <a name="to-verify-access-to-internal-resources-through-directaccess"></a>So überprüfen Sie den Zugriff auf interne Ressourcen über DirectAccess  
   

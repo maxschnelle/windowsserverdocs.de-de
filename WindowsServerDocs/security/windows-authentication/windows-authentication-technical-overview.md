@@ -2,7 +2,7 @@
 title: 'Windows-Authentifizierung: Technische Übersicht'
 description: Windows Server-Sicherheit
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: security-windows-auth
@@ -13,72 +13,72 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 1be96846596900c7b2eb2d9d5da93e75572aac98
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f2916bc9c3654f0e5e3d4dc27ce79874fdb863f7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879251"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403263"
 ---
 # <a name="windows-authentication-technical-overview"></a>Windows-Authentifizierung: Technische Übersicht
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-In diesem Thema für IT-Experten enthält Links zu Themen, die technische Übersicht über Windows-Authentifizierung. Windows-Authentifizierung ist der Prozess, um die Authentizität eines Benutzers oder Diensts, den Zugriff von Windows auf zu bestätigen.
+Dieses Thema für IT-Experten enthält Links zu Themen für die technische Übersicht über die Windows-Authentifizierung. Die Windows-Authentifizierung ist der Prozess, mit dem die Authentizität eines Benutzers oder dienstanzversuchs nachgewiesen werden kann, der auf Windows
 
-Diese Sammlung von Themen wird beschrieben, die Architektur der Windows-Authentifizierung und die zugehörigen Komponenten.
+In dieser Sammlung von Themen werden die Architektur der Windows-Authentifizierung und deren Komponenten beschrieben.
 
 Klicken Sie zum digitalen Speichern oder Drucken von Seiten aus dieser Bibliothek auf **Exportieren** (oben rechts auf der Seite), und folgen Sie dann den Anweisungen.
 
 -   [Unterschiede bei der Windows-Authentifizierung zwischen Windows-Betriebssystemen](https://technet.microsoft.com/library/dn169017.aspx)
 
-    Beschreibt die wesentlichen Unterschiede bei der authentifizierungsarchitektur und Prozesse.
+    Beschreibt die wesentlichen Unterschiede in der Authentifizierungs Architektur und den Prozessen.
 
 -   [Windows-Authentifizierungskonzepte](https://technet.microsoft.com/library/dn169018.aspx)
 
-    Beschreibt die Konzepte, die auf der, die Windows-Authentifizierung basiert.
+    Beschreibt die Konzepte, auf denen die Windows-Authentifizierung basiert.
 
--   [Authentifizierungsszenarien für Windows-Anmeldung](https://technet.microsoft.com/library/dn169020.aspx)
+-   [Szenarien für die Windows-Anmelde Authentifizierung](https://technet.microsoft.com/library/dn169020.aspx)
 
-    Fasst die verschiedenen Szenarien für die Anmeldung an.
+    Fasst die verschiedenen Anmelde Szenarien zusammen.
 
 -   [Architektur der Windows-Authentifizierung](https://technet.microsoft.com/library/dn169024.aspx)
 
-    Beschreibt die wichtigsten Unterschiede in die authentifizierungsarchitektur und Prozesse für Windows-Betriebssysteme.
+    Beschreibt die wesentlichen Unterschiede in der Authentifizierungs Architektur und den Prozessen für Windows-Betriebssysteme.
 
-    -   [Sicherheitsarchitektur für die Schnittstelle von Support-Anbieter](https://technet.microsoft.com/library/dn169026.aspx)
+    -   [Architektur der Security Support Provider-Schnittstelle](https://technet.microsoft.com/library/dn169026.aspx)
 
         Beschreibt die SSPI-Architektur.
 
-    -   [Anmeldeinformationen-Prozesse bei der Windows-Authentifizierung](https://technet.microsoft.com/library/dn169014.aspx)
+    -   [Anmeldeinformationen-Prozesse in der Windows-Authentifizierung](https://technet.microsoft.com/library/dn169014.aspx)
 
-        Beschreibt die verschiedenen Anmeldeinformationen-Management-Prozesse.
+        Beschreibt die verschiedenen Prozesse zur Verwaltung von Anmelde Informationen.
 
 -   [Bei der Windows-Authentifizierung verwendete Gruppenrichtlinien](https://technet.microsoft.com/library/dn169021.aspx)
 
-    Beschreibt die Verwendung und die Auswirkungen von Gruppenrichtlinien bei der Authentifizierung.
+    Beschreibt die Verwendung und Auswirkung von Gruppenrichtlinien in den Authentifizierungsprozess.
 
-## <a name="what-is-not-covered"></a>Was nicht behandelt wird
-Diese Sammlung von Themen werden Verfahren zum Entwerfen, implementieren und Überwachen Ihrer authentifizierungstechnologien in einer Windows-Umgebung nicht behandelt.
+## <a name="what-is-not-covered"></a>Nicht abgedeckte Elemente
+Diese Themensammlung behandelt keine Prozeduren für das Entwerfen, implementieren oder Überwachen von Authentifizierungs Technologien innerhalb einer Windows-Umgebung.
 
--   Informationen zum Entwurf zu Windows-autorisierungsstrategien, finden Sie unter [Entwurf einer Ressourcenautorisierungsstrategie](https://technet.microsoft.com/library/cc783368.aspx).
+-   Entwurfs Informationen zu Windows-Autorisierungs Strategien finden Sie unter [Entwerfen einer Ressourcen Autorisierungs Strategie](https://technet.microsoft.com/library/cc783368.aspx).
 
--   Informationen zum Entwurf für Windows-Authentifizierung-Strategien, finden Sie unter [Entwerfen einer Authentifizierungsstrategie](https://technet.microsoft.com/library/cc758124.aspx).
+-   Entwurfs Informationen zu Windows-Authentifizierungs Strategien finden Sie unter [Entwerfen einer Authentifizierungs Strategie](https://technet.microsoft.com/library/cc758124.aspx).
 
--   Informationen zum Entwurf für Implementierungsstrategien für Windows-public Key-Infrastruktur, finden Sie unter [Entwerfen einer Public Key-Infrastruktur](https://technet.microsoft.com/library/cc773138.aspx).
+-   Entwurfs Informationen zu den Implementierungs Strategien für die Public Key-Infrastruktur von Windows finden Sie unter [Entwerfen einer Public Key-Infrastruktur](https://technet.microsoft.com/library/cc773138.aspx).
 
--   Konfiguration und Überwachung der Sicherheit, einschließlich der Authentifizierung in Ihrer Windows-Umgebung finden Sie unter:
+-   Informationen zum Konfigurieren und Überwachen der Sicherheit, einschließlich der Authentifizierung, in Ihrer Windows-Umgebung finden Sie unter:
 
     -   [Windows XP-Sicherheitshandbuch](https://www.microsoft.com/download/details.aspx?id=962)
 
-    -   [Windows Vista Security Baseline](https://technet.microsoft.com/library/dd450978.aspx)
+    -   [Windows Vista-Sicherheitsbaseline](https://technet.microsoft.com/library/dd450978.aspx)
 
-    -   [Windows Server 2003-Sicherheitsbaseline](https://technet.microsoft.com/library/cc163140.aspx) und [Handbuch zu Bedrohungen und Gegenmaßnahmen](https://technet.microsoft.com/library/dd162275.aspx)
+    -   [Windows Server 2003-Sicherheitsbaseline](https://technet.microsoft.com/library/cc163140.aspx) und das [Handbuch zu Bedrohungen und Gegenmaßnahmen](https://technet.microsoft.com/library/dd162275.aspx)
 
     -   [Windows Server 2008-Sicherheitshandbuch](https://www.microsoft.com/download/details.aspx?id=17606)
 
-    -   [Windows Server 2008 R2 Security Baseline](https://technet.microsoft.com/library/gg236605.aspx)
+    -   [Windows Server 2008 R2-Sicherheitsbaseline](https://technet.microsoft.com/library/gg236605.aspx)
 
--   Weitere Informationen zur Überwachung der Anmeldung und Authentifizierung Ereignisse in Windows finden Sie unter [Überwachen von Sicherheitsereignissen](https://technet.microsoft.com/library/cc776394.aspx).
+-   Informationen zum Überwachen von Anmelde-und Authentifizierungs Ereignissen in Windows finden Sie unter Überwachen von [Sicherheits Ereignissen](https://technet.microsoft.com/library/cc776394.aspx).
 
 

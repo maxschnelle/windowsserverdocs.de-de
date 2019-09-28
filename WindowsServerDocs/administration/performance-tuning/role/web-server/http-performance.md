@@ -1,25 +1,25 @@
 ---
 title: Leistungsoptimierung für HTTP 1.1/2
-description: Für HTTP 1.1/2-Empfehlungen zur leistungsoptimierung
-ms.prod: windows-server-threshold
+description: Empfehlungen zur Leistungsoptimierung für HTTP 1.1/2
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: IvanPash; GMonte
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: bf85efa88e377966135c23a548119f19c39cceba
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f7d7bd5145a0804b9ec86438602dfed7c75a2b02
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59866371"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384970"
 ---
-# <a name="performance-tuning-http-112"></a>Leistungsoptimierung für HTTP 1.1/2
+# <a name="performance-tuning-http-112"></a>Leistungsoptimierung HTTP 1.1/2
 
-HTTP/2 dient zum Verbessern der Leistung auf dem Client (z. B. Seitenladezeit in einem Browser). Auf dem Server kann er einen leichten Anstieg in der CPU-Kosten darstellen. Während der Server nicht mehr eine einzelne TCP-Verbindung für jede Anforderung erfordert, werden einige dieses Zustands jetzt in der HTTP-Ebene gespeichert werden. Darüber hinaus hat HTTP/2-Header-Komprimierung, die zusätzliche CPU-Auslastung darstellt.
+HTTP/2 soll die Leistung auf Clientseite verbessern (z. b. Seitenladezeit in einem Browser). Auf dem-Server kann dies einen geringfügigen Anstieg der CPU-Kosten darstellen. Während der Server für jede Anforderung keine einzige TCP-Verbindung benötigt, wird ein Teil dieses Zustands nun in der HTTP-Ebene beibehalten. Außerdem verfügt http/2 über eine Header Komprimierung, die eine zusätzliche CPU-Auslastung darstellt.
 
-Einige Situationen erfordern eine HTTP/1.1-fallback (HTTP/2-Verbindung zurücksetzen und stattdessen Herstellen einer neuen Verbindung, um die Verwendung von HTTP/1.1). Insbesondere benötigt Neuverhandlung von TLS und HTTP-Authentifizierung (mit Ausnahme von Basis- und Digestauthentifizierung) über HTTP/1.1-fallback. Obwohl dies overhead erzeugt wird, werden diese Vorgänge bereits impliziert eine Verzögerung und sind daher nicht besonders leistungsabhängigen.
+Für einige Situationen ist ein HTTP/1.1-Fall Back erforderlich (Zurücksetzen der http/2-Verbindung und stattdessen das Einrichten einer neuen Verbindung für die Verwendung von HTTP/1.1). Insbesondere für die TLS-Aushandlung und die HTTP-Authentifizierung (außer Basic und Digest) ist ein HTTP/1.1-Fallback erforderlich. Obwohl dadurch mehr Aufwand entsteht, implizieren diese Vorgänge bereits einige Verzögerungen und sind daher nicht besonders Leistungs sensibel.
 
 ## <a name="see-also"></a>Siehe auch
-- [Web-Server zur leistungsoptimierung](index.md) 
-- [IIS 10.0 zur leistungsoptimierung](tuning-iis-10.md)
+- [Leistungsoptimierung für Webserver](index.md) 
+- [IIS 10.0-Leistungsfeineinstellung](tuning-iis-10.md)

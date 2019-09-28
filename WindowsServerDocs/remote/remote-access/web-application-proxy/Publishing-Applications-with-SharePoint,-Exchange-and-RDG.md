@@ -7,165 +7,165 @@ manager: mtillman
 ms.author: billmath
 ms.date: 04/30/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: web-app-proxy
-ms.openlocfilehash: fd706f61216ab8760d94faf98d651d17b24efc91
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 0e5c9779fae66e7edec3c1bba471d5cadbe48a72
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447142"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404233"
 ---
 # <a name="publishing-applications-with-sharepoint-exchange-and-rdg"></a>Veröffentlichen von Anwendungen mit SharePoint, Exchange und RDG
 
 >Gilt für: Windows Server 2016
 
-**Dieser Inhalt ist für die lokale Version des Webanwendungsproxys relevant. Zum Aktivieren des sicheren Zugriffs auf lokale Anwendungen über die Cloud finden Sie unter den [Azure AD-Anwendungsproxy-Inhalt](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/).**  
+**dieser Inhalt ist für die lokale Version des webanwendungsproxys relevant. Informationen zum Aktivieren des sicheren Zugriffs auf lokale Anwendungen über die Cloud finden Sie in den [Azure AD Anwendungs Proxy-Inhalt](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/).**  
 
-Dieses Thema beschreibt die erforderlichen Aufgaben zum Veröffentlichen von SharePoint-Server, Exchange Server oder Remote Desktop Gateway (RDP) über den Webanwendungsproxy.  
+In diesem Thema werden die erforderlichen Aufgaben zum Veröffentlichen von SharePoint Server, Exchange Server oder Remotedesktop Gateway (RDP) über den webanwendungsproxy beschrieben.  
 
 >[!NOTE]
->Diese Informationen dienen als-ist.  Remote Desktop Services unterstützt und empfiehlt die Verwendung von [Azure-App-Proxy Bereitstellen von sicherem Remotezugriff auf lokale Anwendungen](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
+>Diese Informationen werden unverändert bereitgestellt.  Remotedesktopdienste unterstützt und empfiehlt [die Verwendung Azure-App Proxys, um sicheren Remote Zugriff auf lokale Anwendungen bereitzustellen](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
 
 ## <a name="BKMK_6.1"></a>Veröffentlichen von SharePoint Server  
-Sie können eine SharePoint-Website per Webanwendungsproxy veröffentlichen, wenn die SharePoint-Website für die anspruchsbasierte Authentifizierung oder integrierte Windows-Authentifizierung konfiguriert ist. Wenn Sie Active Directory Federation Services (AD FS) für die Vorauthentifizierung verwenden möchten, müssen Sie mithilfe eines Assistenten eine vertrauende konfigurieren.  
+Sie können eine SharePoint-Website mithilfe des webanwendungsproxys veröffentlichen, wenn die SharePoint-Website für die Anspruchs basierte Authentifizierung oder die integrierte Windows-Authentifizierung konfiguriert ist. Wenn Sie Active Directory-Verbunddienste (AD FS) (AD FS) für die Vorauthentifizierung verwenden möchten, müssen Sie eine vertrauende Seite mithilfe eines der Assistenten konfigurieren.  
 
 -   Wenn die SharePoint-Website die anspruchsbasierte Authentifizierung verwendet, müssen Sie den Assistenten zum Hinzufügen der Vertrauensstellung der vertrauenden Seite für die Anwendung verwenden.  
 
 -   Wenn die SharePoint-Website die integrierte Windows-Authentifizierung verwendet, müssen Sie den nicht anspruchsbasierten Assistenten zum Hinzufügen der Vertrauensstellung der vertrauenden Seite für die Anwendung verwenden. IWA kann mit einer anspruchsbasierten Webanwendung genutzt werden, sofern KDC entsprechend konfiguriert ist.  
 
-    Um Benutzern die Authentifizierung mithilfe der integrierten Windows-Authentifizierung zu ermöglichen, muss der Webanwendungsproxy-Server zu einer Domäne angehören.  
+    Um Benutzern die Authentifizierung mithilfe der integrierten Windows-Authentifizierung zu ermöglichen, muss der webanwendungsproxy-Server einer Domäne hinzugefügt werden.  
 
-    Sie müssen die Anwendung zur Unterstützung der eingeschränkten Kerberos-Delegierung konfigurieren. Diese Konfiguration kann auf dem Domänencontroller für jede Anwendung vorgenommen werden. Sie können auch die Anwendung direkt auf dem Back-End-Server konfigurieren, wenn es auf Windows Server 2012 R2 oder Windows Server 2012 ausgeführt wird. Weitere Informationen finden Sie unter [What's New in Kerberos Authentication](https://technet.microsoft.com/library/hh831747.aspx). Sie müssen auch sicherstellen, dass die Webanwendungsproxy-Server für die Delegierung auf die Dienstprinzipalnamen der Back-End-Server konfiguriert sind. Eine exemplarische Vorgehensweise zum Konfigurieren von Web Application Proxy zum Veröffentlichen einer Anwendung mithilfe der integrierten Windows-Authentifizierung finden Sie in [Konfigurieren einer Site-Verwendung der integrierten Windows-Authentifizierung](assetId:///b0788958-627f-450f-877c-209b1bd0db52).  
+    Sie müssen die Anwendung zur Unterstützung der eingeschränkten Kerberos-Delegierung konfigurieren. Diese Konfiguration kann auf dem Domänencontroller für jede Anwendung vorgenommen werden. Sie können die Anwendung auch direkt auf dem Back-End-Server konfigurieren, wenn Sie unter Windows Server 2012 R2 oder Windows Server 2012 ausgeführt wird. Weitere Informationen finden Sie unter [What's New in Kerberos Authentication](https://technet.microsoft.com/library/hh831747.aspx). Außerdem müssen Sie sicherstellen, dass die webanwendungsproxy-Server für die Delegierung der Dienst Prinzipal Namen der Back-End-Server konfiguriert sind. Eine exemplarische Vorgehensweise zum Konfigurieren des webanwendungsproxys zum Veröffentlichen einer Anwendung mithilfe der integrierten Windows-Authentifizierung finden Sie unter [Konfigurieren eines Standorts für die Verwendung der integrierten Windows](assetId:///b0788958-627f-450f-877c-209b1bd0db52)-Authentifizierung.  
 
 Wenn die SharePoint-Website mithilfe alternativer Zugriffszuordnungen (AAM) oder hostbenannter Websitesammlungen konfiguriert ist, können Sie jeweils verschiedene URLs der externen und Back-End-Server zur Veröffentlichung Ihrer Anwendung verwenden. Wenn die SharePoint-Website jedoch nicht mithilfe von AAM oder hostbenannten Websitesammlungen konfiguriert ist, müssen Sie jeweils die gleichen externen und Back-End-Server-URLs verwenden.  
 
 ## <a name="BKMK_6.2"></a>Veröffentlichen von Exchange Server  
-Die folgende Tabelle beschreibt die Exchange-Dienste, die Sie mithilfe des Webanwendungsproxys und die unterstützte Vorauthentifizierung für diese Dienste veröffentlichen können:  
+In der folgenden Tabelle werden die Exchange-Dienste beschrieben, die Sie über den webanwendungsproxy veröffentlichen können, sowie die unterstützte Vorauthentifizierung für diese Dienste:  
 
 
 |    Exchange-Dienst    |                                                                            Vorauthentifizierung                                                                            |                                                                                                                                       Hinweise                                                                                                                                        |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    Outlook Web App     | -AD FS mit nicht anspruchsbasierter Authentifizierung<br />-Pass-Through<br />-AD FS mit anspruchsbasierter Authentifizierung für lokales Exchange 2013 Service Pack 1 (SP1) |                                                                  Weitere Informationen finden Sie unter: [Verwenden Claims-basierte Authentifizierung von AD FS mit Outlook Web App und EAC](https://go.microsoft.com/fwlink/?LinkId=393723)                                                                  |
+|    Outlook Web App     | -AD FS mit nicht Anspruchs basierter Authentifizierung<br />-Pass-Through<br />-AD FS verwenden der Anspruchs basierten Authentifizierung für lokales Exchange 2013 Service Pak 1 (SP1) |                                                                  Weitere Informationen finden Sie unter: [Verwenden AD FS Anspruchs basierten Authentifizierung mit Outlook Web App und EAC](https://go.microsoft.com/fwlink/?LinkId=393723)                                                                  |
 | Exchange-Systemsteuerung |                                                                               Pass-Through                                                                               |                                                                                                                                                                                                                                                                                    |
-|    Outlook Anywhere    |                                                                               Pass-Through                                                                               | Zur ordnungsgemäßen Funktion müssen drei URLs für Outlook Anywhere veröffentlicht werden:<br /><br />-Die URL für _autodiscover<br />– Der externe Hostname des Exchange-Servers; d. h. die URL, die für Clients für die Verbindung konfiguriert ist.<br />– Der interne FQDN des Exchange-Servers. |
-|  Exchange ActiveSync   |                                                     Pass-Through<br/> AD FS mithilfe von HTTP-Standardauthentifizierung Authorization-Protokoll                                                      |                                                                                                                                                                                                                                                                                    |
+|    Outlook Anywhere    |                                                                               Pass-Through                                                                               | Zur ordnungsgemäßen Funktion müssen drei URLs für Outlook Anywhere veröffentlicht werden:<br /><br />: Die automatische Erkennung-URL.<br />-Der externe Hostname des Exchange-Servers. Das heißt, die URL, die für Clients zum Herstellen einer Verbindung konfiguriert ist.<br />: Der interne voll qualifizierte Namen des Exchange-Servers. |
+|  Exchange ActiveSync   |                                                     Pass-Through<br/> AD FS mithilfe des HTTP-Standard Autorisierungs Protokolls                                                      |                                                                                                                                                                                                                                                                                    |
 
 Um Outlook Web App mithilfe der integrierten Windows-Authentifizierung zu veröffentlichen, müssen Sie den nicht anspruchsbasierten Assistenten zum Hinzufügen der Vertrauensstellung der vertrauenden Seite für die Anwendung verwenden.  
 
-Damit Benutzer für die Authentifizierung mit Kerberos die eingeschränkte Delegierung, die die Webanwendungsproxy-Server zu einer Domäne verknüpft werden, muss aus.  
+Um Benutzern die Authentifizierung mithilfe der eingeschränkten Kerberos-Delegierung zu ermöglichen, muss der webanwendungsproxy-Server einer Domäne hinzugefügt werden.  
 
-Sie müssen die Anwendung zur Unterstützung der Kerberos-Authentifizierung konfigurieren. Außerdem müssen Sie eine dem Dienstprinzipalnamen (SPN) registrieren für das Konto, unter der Webdienst ausgeführt wird. Dies ist auf dem Domänencontroller oder auf dem Back-End-Servern möglich. Bei einem Auslastungstest mit Lastenausgleich in diesem Fall erforderlich, mit dem alternativen Konto der Dienst, Exchange-Umgebung finden Sie unter [Konfigurieren der Kerberos-Authentifizierung für den Lastenausgleich der Clientzugriffsserver](https://technet.microsoft.com/library/ff808312(v=exchg.150).aspx)  
+Sie müssen die Anwendung so konfigurieren, dass die Kerberos-Authentifizierung unterstützt wird. Außerdem müssen Sie einen Dienst Prinzipal Namen (Service Principal Name, SPN) für das Konto registrieren, unter dem der Webdienst ausgeführt wird. Dies ist auf dem Domänen Controller oder auf den Back-End-Servern möglich. In einer Exchange-Umgebung mit Lastenausgleich erfordert dies die Verwendung des alternativen Dienst Kontos. Weitere Informationen finden Sie unter [Konfigurieren der Kerberos-Authentifizierung für Client Zugriffs Server mit Lasten](https://technet.microsoft.com/library/ff808312(v=exchg.150).aspx) Ausgleich.  
 
-Sie können auch die Anwendung direkt auf dem Back-End-Server konfigurieren, wenn es auf Windows Server 2012 R2 oder Windows Server 2012 ausgeführt wird. Weitere Informationen finden Sie unter [What's New in Kerberos Authentication](https://technet.microsoft.com/library/hh831747.aspx). Sie müssen auch sicherstellen, dass die Webanwendungsproxy-Server für die Delegierung auf die Dienstprinzipalnamen der Back-End-Server konfiguriert sind.  
+Sie können die Anwendung auch direkt auf dem Back-End-Server konfigurieren, wenn Sie unter Windows Server 2012 R2 oder Windows Server 2012 ausgeführt wird. Weitere Informationen finden Sie unter [What's New in Kerberos Authentication](https://technet.microsoft.com/library/hh831747.aspx). Außerdem müssen Sie sicherstellen, dass die webanwendungsproxy-Server für die Delegierung der Dienst Prinzipal Namen der Back-End-Server konfiguriert sind.  
 
-## <a name="publishing-remote-desktop-gateway-through-web-application-proxy"></a>Veröffentlichen von Remotedesktopgateway per Webanwendungsproxy  
-Wenn Sie beschränken des Zugriffs auf Ihre Remote-Access-Gateway und Vorauthentifizierung für den Remotezugriff hinzufügen möchten, können sie per Webanwendungsproxy Rollout. Dies ist eine wirklich gute Möglichkeit, stellen Sie sicher, dass Sie umfassende Vorauthentifizierung für RDG einschließlich MFA verfügen. Veröffentlichen, ohne eine Vorauthentifizierung ist ebenfalls eine Option, und bietet eine zentrale des Eintrags in Ihren Systemen.  
+## <a name="publishing-remote-desktop-gateway-through-web-application-proxy"></a>Veröffentlichen Remotedesktop Gateways über den webanwendungsproxy  
+Wenn Sie den Zugriff auf das Remote Zugriffs Gateway einschränken und die Vorauthentifizierung für den Remote Zugriff hinzufügen möchten, können Sie es über den webanwendungsproxy ausführen. Dies ist eine sehr gute Möglichkeit, um sicherzustellen, dass Sie über eine umfassende Vorauthentifizierung für RDG einschließlich MFA verfügen. Die Veröffentlichung ohne Vorauthentifizierung ist ebenfalls eine Option und bietet einen einzigen Einstiegspunkt in Ihre Systeme.  
 
-#### <a name="how-to-publish-an-application-in-rdg-using-web-application-proxy-pass-through-authentication"></a>Gewusst wie: Veröffentlichen einer Anwendung in RDG mithilfe des Webanwendungsproxys Pass-Through-Authentifizierung  
+#### <a name="how-to-publish-an-application-in-rdg-using-web-application-proxy-pass-through-authentication"></a>Veröffentlichen einer Anwendung in RDG mithilfe der Proxy-Passthrough-Authentifizierung für den webanwendungsproxy  
 
-1. Installation unterscheiden sich je nachdem, ob Ihre Web Access für Remotedesktop (/ Rdweb) und RD-Gateway (Rpc)-Rollen sind, auf dem gleichen Server oder auf verschiedenen Servern.  
+1. Die Installation unterscheidet sich abhängig davon, ob sich die Rollen für RD-Webzugriff (/RDWeb) und RD-Gateway (RPC) auf demselben Server oder auf unterschiedlichen Servern befinden.  
 
-2. Wenn die Web Access für Remotedesktop und RD-Gateway-Rollen auf dem gleichen RDG-Server gehostet werden, können Sie einfach veröffentlichen den Stamm-FQDN im Webanwendungsproxy z. B. https://rdg.contoso.com/.  
+2. Wenn die RD-Webzugriff und RD-Gateway Rollen auf demselben RDG-Server gehostet werden, können Sie einfach den Stamm-FQDN im webanwendungsproxy wie https://rdg.contoso.com/ veröffentlichen.  
 
-   Sie können auch veröffentlichen die beiden virtuellen Verzeichnisse einzeln z. B.<https://rdg.contoso.com/rdweb/> und https://rdg.contoso.com/rpc/.  
+   Sie können die beiden virtuellen Verzeichnisse auch einzeln veröffentlichen, z. b. <https://rdg.contoso.com/rdweb/> und https://rdg.contoso.com/rpc/.  
 
-3. Wenn die Web Access für Remotedesktop und dem RD-Gateway auf separaten RDG-Servern gehostet werden, müssen Sie die beiden virtuellen Verzeichnisse einzeln veröffentlichen. Sie können des gleichen oder einem anderen externen FQDNs des z. B. https://rdweb.contoso.com/rdweb/ und https://gateway.contoso.com/rpc/.  
+3. Wenn die RD-Webzugriff und die RD-Gateway auf separaten RDG-Servern gehostet werden, müssen Sie die beiden virtuellen Verzeichnisse einzeln veröffentlichen. Sie können den gleichen oder einen anderen externen voll qualifizierten Namen wie z. b. https://rdweb.contoso.com/rdweb/ und https://gateway.contoso.com/rpc/ verwenden.  
 
-4. Wenn die externen und internen FQDN unterschiedlich sind, sollten Sie nicht Anforderung headerübersetzung auf den RDWeb-Veröffentlichungsregel deaktivieren. Dies ist möglich durch das folgende PowerShell-Skript auf dem Webanwendungsproxy-Server ausgeführt, aber standardmäßig aktiviert sein.
+4. Wenn sich der externe und interne voll qualifizierte Dateityp unterscheiden, sollten Sie die Übersetzung der Anforderungs Kopfzeile für die RDWeb-Veröffentlichungs Regel nicht deaktivieren. Dies kann durch Ausführen des folgenden PowerShell-Skripts auf dem webanwendungsproxy-Server erreicht werden, sollte jedoch standardmäßig aktiviert werden.
 
    ```  
    Get-WebApplicationProxyApplication applicationname | Set-WebApplicationProxyApplication -DisableTranslateUrlInRequestHeaders:$false  
    ```  
 
    > [!NOTE]  
-   > Bei Bedarf zur Unterstützung von rich Clients wie RemoteApp und Desktop-Verbindungen oder iOS herstellen von Remotedesktopverbindungen, unterstützen diese keine Vorauthentifizierung, daher Sie RDG mit Pass-Through-Authentifizierung zu veröffentlichen müssen.  
+   > Wenn Sie umfangreiche Clients wie RemoteApp-und Desktop Verbindungen oder IOS-Remotedesktop Verbindungen unterstützen müssen, unterstützen diese keine Vorauthentifizierung, sodass Sie RDG mithilfe der Passthrough-Authentifizierung veröffentlichen müssen.  
 
-#### <a name="how-to-publish-an-application-in-rdg-using-web-application-proxy-with-pre-authentication"></a>Gewusst wie: Veröffentlichen einer Anwendung in mithilfe des Webanwendungsproxys, mit der Vorauthentifizierung RDG  
+#### <a name="how-to-publish-an-application-in-rdg-using-web-application-proxy-with-pre-authentication"></a>Veröffentlichen einer Anwendung in RDG mithilfe des webanwendungsproxys mit Vorauthentifizierung  
 
-1.  Web Application Proxy-Vorauthentifizierung mit RDG funktioniert durch Übergeben der Vorauthentifizierung Cookies abgerufen, die von Internet Explorer, die an den Client Remotedesktopverbindung (mstsc.exe) übergeben wird. Dies wird durch den Client Remotedesktopverbindung (mstsc.exe) verwendet. Dies wird dann als Nachweis der Authentifizierung von Client Remotedesktopverbindung verwendet.  
+1.  Die Vorauthentifizierung des webanwendungsproxys bei RDG funktioniert, indem das von Internet Explorer erhaltene vorauthentifizierungs Cookie an den Remotedesktopverbindung-Client (mstsc. exe) übergeben wird. Diese wird dann vom Remotedesktopverbindung Client (mstsc. exe) verwendet. Diese wird dann von Remotedesktopverbindung Client als Authentifizierungs Nachweis verwendet.  
 
-    Im folgenden Abschnitt wird die Verwaltungsgruppe die erforderlichen benutzerdefinierten RDP-Eigenschaften in den Remote-App-RDP-Dateien einschließen, die an Clients gesendet werden. Diese Teilen der Client das Vorauthentifizierung erforderlich ist, und übergeben Sie die Cookies für die Vorauthentifizierung Serveradresse zum Client Remotedesktopverbindung (mstsc.exe). In Verbindung mit "HttpOnly" für die Web Application Proxy-Anwendung deaktivieren ermöglicht dies den Client Remotedesktopverbindung (mstsc.exe), das Web Application Proxy-Cookie erhalten über den Browser zu verwenden.  
+    Im folgenden Verfahren wird der Sammlungs Server aufgefordert, die erforderlichen benutzerdefinierten RDP-Eigenschaften in den RDP-Dateien der Remote-app einzuschließen, die an Clients gesendet werden. Diese weisen den Client an, dass eine Vorauthentifizierung erforderlich ist, und dass die Cookies für die Server Adresse für die Vorauthentifizierung an Remotedesktopverbindung Client (mstsc. exe) übergeben werden. In Verbindung mit der Deaktivierung der Funktion HttpOnly in der webanwendungsproxy-Anwendung ermöglicht der Remotedesktopverbindung Client (mstsc. exe) das Verwenden des webanwendungsproxy-Cookies, das über den Browser abgerufen wird.  
 
-    Authentifizierung beim Server Web Access für Remotedesktop wird weiterhin die Web Access für Remotedesktop-Formular-Anmeldung verwendet. Dies bietet die geringste Anzahl der Benutzer aufgefordert werden, da das Anmeldeformular von Web Access für Remotedesktop einen Client-Side-Anmeldeinformationsspeicher erstellt, die vom Client Remotedesktopverbindung (mstsc.exe) für alle nachfolgenden Remote-App-Start verwendet werden kann.  
+    Die Authentifizierung beim RD-Webzugriff Server verwendet weiterhin die RD-Webzugriff Formular Anmeldung. Dies bietet die geringste Anzahl von Eingabe Aufforderungen für die Benutzerauthentifizierung, da das RD-Webzugriff Anmeldeformular einen Client seitigen Anmelde Informationsspeicher erstellt, der dann von Remotedesktopverbindung Client (mstsc. exe) für alle nachfolgenden Remote-App-Starts verwendet werden kann.  
 
-2.  Erstellen Sie zunächst eine manuelle der vertrauenden Seite Vertrauensstellung bei AD FS auf, als ob Sie eine Ansprüche unterstützende app veröffentlicht wurden. Dies bedeutet, dass Sie ein Dummy, die die Vorauthentifizierung zu erzwingen, damit Sie die Vorauthentifizierung ohne eingeschränkte Kerberos-Delegierung zum veröffentlichten Server erhalten Vertrauensstellung einer vertrauenden Seite zu erstellen. Sobald ein Benutzer authentifiziert wurde, wird alles übergeben.  
+2.  Erstellen Sie zunächst eine manuelle Vertrauensstellung der vertrauenden Seite in AD FS so, als ob Sie eine Ansprüche unterstützende App veröffentlichen. Dies bedeutet, dass Sie eine Dummy-Vertrauensstellung der vertrauenden Seite erstellen müssen, um die Vorauthentifizierung zu erzwingen, damit Sie die Vorauthentifizierung ohne eingeschränkte Kerberos-Delegierung für den veröffentlichten Server erhalten. Nachdem sich ein Benutzer authentifiziert hat, wird alles andere weitergeleitet.  
 
     > [!WARNING]  
-    > Es scheint, dass mithilfe der Delegierung empfiehlt sich aber Mstsc SSO-Anforderungen nicht vollständig gelöst und Probleme vorliegen, wenn in das Verzeichnis/RPC zu delegieren, da der Client erwartet, dass die RD-Gateway-Authentifizierung zu verarbeiten.  
+    > Möglicherweise ist die Verwendung der Delegierung vorzuziehen, aber Sie löst die mstsc-SSO-Anforderungen nicht vollständig aus, und es gibt Probleme bei der Delegierung an das/RPC-Verzeichnis, da der Client erwartet, dass die RD-Gateway Authentifizierung selbst verarbeitet wird.  
 
-3.  Führen Sie die Schritte in der AD FS-Verwaltungskonsole, um eine manuelle der vertrauenden Seite Vertrauensstellung zu erstellen:  
+3.  Führen Sie die Schritte in der AD FS Management Console aus, um eine manuelle Vertrauensstellung der vertrauenden Seite zu erstellen:  
 
-    1.  Verwenden der **Partei Vertrauensstellung der vertrauenden Seite hinzufügen** Assistenten  
+    1.  Verwenden des Assistenten zur Vertrauensstellung der **vertrauenden Seite hinzufügen**  
 
-    2.  Wählen Sie **Daten über die vertrauende Seite manuell eingeben**.  
+    2.  Wählen Sie **die Option Daten über die vertrauende Seite manuell eingeben**aus.  
 
-    3.  Übernehmen Sie alle Standardeinstellungen.  
+    3.  Akzeptieren Sie alle Standardeinstellungen.  
 
-    4.  Für den Bezeichner der vertrauenden Seite Geben Sie in der externe FQDN, Sie für den RDG-Zugriff, z. B. verwenden https://rdg.contoso.com/.  
+    4.  Geben Sie für die Vertrauensstellung der vertrauenden Seite den externen voll qualifizierten Namen ein, den Sie für den RDG-Zugriff verwenden möchten, z. b. https://rdg.contoso.com/.  
 
-        Dies ist die Vertrauensstellung der vertrauenden, die Sie verwenden, wenn die app in Web Application Proxy zu veröffentlichen.  
+        Dies ist die Vertrauensstellung der vertrauenden Seite, die Sie beim Veröffentlichen der APP im webanwendungsproxy verwenden.  
 
-4.  Veröffentlichen Sie den Stamm des Standorts (z. B. https://rdg.contoso.com/ ) im Webanwendungsproxy. Legen Sie die Vorauthentifizierung für AD FS und verwenden Sie die Vertrauensstellung der vertrauenden, die, der Sie soeben erstellt haben. Dadurch werden /rdweb "und" / RPC, um das gleiche Cookie der Web Application Proxy-Authentifizierung verwenden.  
+4.  Veröffentlichen Sie den Stamm der Site (z. b. https://rdg.contoso.com/ ) im webanwendungsproxy. Legen Sie die Vorauthentifizierung auf AD FS fest, und verwenden Sie die zuvor erstellte Vertrauensstellung der vertrauenden Seite. Dies ermöglicht/RDWeb und/RPC, das gleiche webanwendungsproxy-Authentifizierungs Cookie zu verwenden.  
 
-    Es ist möglich, /rdweb "und" / RPC als separate Anwendungen veröffentlichen und sogar anderen veröffentlichten Server verwenden. Sie müssen nur sicherstellen, dass Sie veröffentlichen, sowohl mithilfe der gleichen der vertrauenden Seite Vertrauensstellung, wie das Web Application Proxy-Token, für die vertrauenden Seite Vertrauensstellung ausgegeben wird und daher für Anwendungen, die mit der gleichen der vertrauenden Seite Vertrauensstellung veröffentlicht gilt.  
+    Es ist möglich,/RDWeb und/RPC als separate Anwendungen zu veröffentlichen und sogar andere veröffentlichte Server zu verwenden. Sie müssen lediglich sicherstellen, dass Sie beide mit derselben Vertrauensstellung der vertrauenden Seite veröffentlichen, da das webanwendungsproxy-Token für die Vertrauensstellung der vertrauenden Seite ausgegeben wird  
 
-5.  Wenn die externen und internen FQDN unterschiedlich sind, sollten Sie nicht Anforderung headerübersetzung auf den RDWeb-Veröffentlichungsregel deaktivieren. Dies ist möglich durch das folgende PowerShell-Skript auf dem Webanwendungsproxy-Server ausgeführt, aber standardmäßig aktiviert sein:
+5.  Wenn sich der externe und interne voll qualifizierte Dateityp unterscheiden, sollten Sie die Übersetzung der Anforderungs Kopfzeile für die RDWeb-Veröffentlichungs Regel nicht deaktivieren. Dies kann durch Ausführen des folgenden PowerShell-Skripts auf dem webanwendungsproxy-Server erreicht werden, sollte jedoch standardmäßig aktiviert sein:
 
     ```  
     Get-WebApplicationProxyApplication applicationname | Set-WebApplicationProxyApplication -DisableTranslateUrlInRequestHeaders:$false 
     ```  
 
-6.  Deaktivieren Sie die "HttpOnly"-Cookie-Eigenschaft in der Web Application Proxy auf dem RDG einer veröffentlichten Anwendung. Um den RDG-ActiveX-Steuern des Zugriffs auf das Authentifizierungscookie Web Application Proxy zu ermöglichen, müssen Sie die Eigenschaft "HttpOnly" für das Web Application Proxy-Cookie zu deaktivieren.  
+6.  Deaktivieren Sie die HttpOnly-Cookie-Eigenschaft im webanwendungsproxy für die veröffentlichte RDG-Anwendung. Um dem RDG-ActiveX-Steuerelement Zugriff auf das webanwendungsproxy-Authentifizierungs Cookie zu ermöglichen, müssen Sie die HttpOnly-Eigenschaft im webanwendungsproxy-Cookie deaktivieren.  
 
-    Dies erfordert, dass Folgendes installiert sein [Web Application Proxy Hotfix](https://support.microsoft.com/en-gb/kb/3000850) oder [ https://support.microsoft.com/en-gb/kb/3000850 ](https://support.microsoft.com/en-gb/kb/3000850).  
+    Hierfür ist Folgendes erforderlich, um den [webanwendungsproxy-Hotfix](https://support.microsoft.com/en-gb/kb/3000850) oder den [https://support.microsoft.com/en-gb/kb/3000850](https://support.microsoft.com/en-gb/kb/3000850)zu installieren.  
 
-    Führen Sie das folgende PowerShell-Skript nach der Installation des Hotfixes auf dem Webanwendungsproxy-Server, die Namen der entsprechenden Anwendung angeben:  
+    Führen Sie nach der Installation des Hotfixes das folgende PowerShell-Skript auf dem webanwendungsproxy-Server aus  
 
     ```  
     Get-WebApplicationProxyApplication applicationname | Set-WebApplicationProxyApplication -DisableHttpOnlyCookieProtection:$true  
     ```  
 
-    Deaktivieren "HttpOnly" ermöglicht dem RDG-ActiveX-Steuern des Zugriffs auf das Authentifizierungscookie Web Application Proxy.  
+    Das Deaktivieren von HttpOnly ermöglicht dem RDG-ActiveX-Steuerelement den Zugriff auf das webanwendungsproxy-Authentifizierungs Cookie  
 
-7.  Konfigurieren Sie die relevanten RDG-Auflistung, auf dem Server "Auflistung" können Sie die Remotedesktopverbindung (mstsc.exe)-Client wissen, dass die erforderliche Authentifizierung in der Rdp-Datei erforderlich ist.  
+7.  Konfigurieren Sie die relevante RDG-Sammlung auf dem Sammlungs Server so, dass der Remotedesktopverbindung Client (mstsc. exe) weiß, dass die Vorauthentifizierung in der RDP-Datei erforderlich ist.  
 
-    -   In Windows Server 2012 und Windows Server 2012 R2 kann dies mit dem folgenden PowerShell-Cmdlet auf dem RDG-Collection-Server erreicht werden:  
+    -   In Windows Server 2012 und Windows Server 2012 R2 kann dies erreicht werden, indem Sie auf dem RDG-Sammlungs Server das folgende PowerShell-Cmdlet ausführen:  
 
         ```
         Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s: <https://externalfqdn/rdweb/>`nrequire pre-authentication:i:1"
         ```
 
-        Stellen Sie sicher, dass Sie entfernen die < und > Klammern ein, wenn Sie z. B. durch Ihre eigenen Werte ersetzen:
+        Stellen Sie sicher, dass Sie die < und > Klammern entfernen, wenn Sie durch ihre eigenen Werte ersetzen, z. b.:
 
         ```
         Set-RDSessionCollectionConfiguration -CollectionName "MyAppCollection" -CustomRdpProperty "pre-authentication server address:s: https://rdg.contoso.com/rdweb/`nrequire pre-authentication:i:1"
         ```
 
-    -   Unter Windows Server 2008 R2:  
+    -   In Windows Server 2008 R2:  
 
-        1.  Melden Sie sich die Terminal-Server mit einem Konto, das über Administratorrechte verfügt.  
+        1.  Melden Sie sich auf dem Terminal Server mit einem Konto an, das über Administrator Rechte verfügt.  
 
-        2.  Wechseln Sie zu **starten** >**Verwaltung** > **Terminaldienste** > **TS RemoteApp-Manager.**  
+        2.  Wechseln Sie zu **Start** >**Verwaltungs Tools** > **Terminaldienste@no__t**-5**TS RemoteApp-Manager.**  
 
-        3.  In der **Übersicht** Bereich des Terminaldienste-RemoteApp-Managers, neben den RDP-Einstellungen, klicken Sie auf **Änderung**.  
+        3.  Klicken Sie im Bereich **Übersicht** von TS RemoteApp-Manager neben RDP-Einstellungen auf **ändern**.  
 
-        4.  Auf der **benutzerdefinierte RDP-Einstellungen** Registerkarte, und geben Sie die folgenden RDP-Einstellungen in das Feld der benutzerdefinierten RDP-Einstellungen:  
+        4.  Geben Sie auf der Registerkarte **Benutzerdefinierte RDP-Einstellungen** die folgenden RDP-Einstellungen in das Feld Benutzerdefinierte RDP-Einstellungen ein:  
 
             `pre-authentication server address: s: https://externalfqdn/rdweb/`  
 
             `require pre-authentication:i:1`  
 
-        5.  Wenn Sie fertig sind, klicken Sie auf **übernehmen**.  
+        5.  Wenn Sie dies abgeschlossen haben, **Klicken Sie**auf übernehmen.  
 
-            Dies weist die Auflistung-Server mit benutzerdefinierten RDP-Eigenschaften in den RDP-Dateien, die an Clients gesendet werden. Diese Teilen der Client das Vorauthentifizierung erforderlich ist, und übergeben Sie die Cookies für die Vorauthentifizierung Serveradresse für den Client Remotedesktopverbindung (mstsc.exe). Dies ermöglicht in Verbindung mit der Deaktivierung von "HttpOnly" für die Web Application Proxy-Anwendung, den Client Remotedesktopverbindung (mstsc.exe), das Web Application Proxy-Authentifizierungscookie abgerufen, die über den Browser zu verwenden.  
+            Dadurch wird der Sammlungs Server aufgefordert, die benutzerdefinierten RDP-Eigenschaften in die RDP-Dateien einzuschließen, die an Clients gesendet werden. Diese weisen den Client an, dass eine Vorauthentifizierung erforderlich ist, und dass die Cookies für die Server Adresse der Vorauthentifizierung an den Remotedesktopverbindung-Client (mstsc. exe) übergeben werden. In Verbindung mit der Deaktivierung von HttpOnly in der webanwendungsproxy-Anwendung ermöglicht es dem Remotedesktopverbindung Client (mstsc. exe), das über den Browser erhaltene webanwendungsproxy-Authentifizierungs Cookie zu verwenden.  
 
-            Weitere Informationen zu RDP finden Sie unter [zum Konfigurieren des TS-Gateway-OTP-Szenarios](https://technet.microsoft.com/library/cc731249(v=ws.10).aspx).  
+            Weitere Informationen zu RDP finden Sie unter [Konfigurieren des TS-Gateway-OTP-Szenarios](https://technet.microsoft.com/library/cc731249(v=ws.10).aspx).  
 
 ## <a name="BKMK_Links"></a>Siehe auch  
 
--   [Planen der Anwendungsveröffentlichung per Webanwendungsproxy](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383650(v=ws.11))  
+-   [Planen der Veröffentlichung von Anwendungen mit webanwendungsproxy](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383650(v=ws.11))  
 
 -   [Problembehandlung: Webanwendungsproxy](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn770156(v=ws.11))  
 
--   [Web Application Proxy-Handbuch mit exemplarischer Vorgehensweise](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280944(v=ws.11))  
+-   [Leitfaden für webanwendungsproxy](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280944(v=ws.11))  

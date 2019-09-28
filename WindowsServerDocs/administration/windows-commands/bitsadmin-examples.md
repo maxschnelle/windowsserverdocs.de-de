@@ -1,8 +1,8 @@
 ---
-title: Beispiele für die Bitsadmin
-description: Die folgenden Beispiele zeigen, wie Sie die Bitsadmin-Tool verwenden, um die am häufigsten verwendeten Aufgaben ausführen.
+title: biout admin-Beispiele
+description: In den folgenden Beispielen wird gezeigt, wie Sie das bizadmin-Tool verwenden, um die gängigsten Aufgaben auszuführen.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,60 +13,60 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/31/2018
-ms.openlocfilehash: a98e1a876c972b0f146ff37aff0a77399b684e99
-ms.sourcegitcommit: 8eea7aadbe94f5d4635c4ffedc6a831558733cc0
+ms.openlocfilehash: c675f08752b3464f7ab1eddd4e9fddf3b16db5f4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66308561"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381769"
 ---
-# <a name="bitsadmin-examples"></a>Beispiele für die Bitsadmin
+# <a name="bitsadmin-examples"></a>biout admin-Beispiele
 
-Die folgenden Beispiele zeigen, wie Sie mit der `bitsadmin` Tool, um die am häufigsten verwendeten Aufgaben ausführen.
+In den folgenden Beispielen wird gezeigt, wie Sie das `bitsadmin`-Tool verwenden, um die gängigsten Aufgaben auszuführen.
 
 ## <a name="transfer-a-file"></a>Übertragen einer Datei
 
-Die **/Übertragung** Switch ist eine Abkürzung für die unten aufgeführten Aufgaben ausführen. Dieser Schalter wird der Auftrag erstellt, fügt die Dateien für den Auftrag, den Auftrag in der Übertragungswarteschlange aktiviert und wird der Auftrag abgeschlossen. BITSAdmin weiterhin Statusinformationen im MS-DOS-Fenster angezeigt, bis die Übertragung abgeschlossen ist, oder ein Fehler auftritt.
+Der **/Transfer** -Schalter ist eine Verknüpfung zum Ausführen der unten aufgeführten Aufgaben. Mit diesem Switch wird der Auftrag erstellt, die Dateien werden dem Auftrag hinzugefügt, der Auftrag wird in der Übertragungs Warteschlange aktiviert und der Auftrag abgeschlossen. Der bizadmin zeigt weiterhin Statusinformationen im MS-DOS-Fenster an, bis die Übertragung abgeschlossen ist oder ein Fehler auftritt.
 
-**Bitsadmin /transfer MyDownloadJob/Download Priority normal `https://downloadsrv/10mb.zip c:\\10mb.zip`**
+**bigsadmin/Transfer mydownloadjob/Download/Priority normal `https://downloadsrv/10mb.zip c:\\10mb.zip`**
 
-## <a name="create-a-download-job"></a>Erstellen eines Auftrags herunterladen
+## <a name="create-a-download-job"></a>Erstellen eines Download Auftrags
 
-Verwenden der **/ create** Schalter, um einen Downloadauftrag mit dem Namen MyDownloadJob zu erstellen.
+Verwenden Sie den Schalter **/Create** , um einen Download Auftrag mit dem Namen mydownloadjob zu erstellen.
 
-**bitsadmin /create myDownloadJob**
+**bigsadmin/Create mydownloadjob**
 
-BITSAdmin gibt eine GUID, die den Auftrag eindeutig identifiziert. Verwenden Sie den Namen GUID oder den Auftrag, bei nachfolgenden Aufrufen. Der folgende Text ist die Ausgabe des Beispiels.
+Bigsadmin gibt eine GUID zurück, die den Auftrag eindeutig identifiziert. Verwenden Sie die GUID oder den Auftrags Namen in nachfolgenden Aufrufen. Der folgende Text ist eine Beispielausgabe.
 
 ``` syntax
 Created job {C775D194-090F-431F-B5FB-8334D00D1CB6}.
 ```
 
-Verwenden Sie als Nächstes die **an** Switch so den Downloadauftrag eine oder mehrere Dateien hinzu.
+Verwenden Sie als nächstes den **/AddFile** -Schalter, um dem Download Auftrag eine oder mehrere Dateien hinzuzufügen.
 
-## <a name="add-files-to-the-download-job"></a>Hinzufügen von Dateien zum Downloadauftrag
+## <a name="add-files-to-the-download-job"></a>Hinzufügen von Dateien zum Download Auftrag
 
-Verwenden der **an** Switch zum Hinzufügen einer Datei für den Auftrag. Wiederholen Sie diesen Aufruf für jede Datei, die Sie hinzufügen möchten. Wenn mehrere Aufträge MyDownloadJob als ihren Namen verwenden, müssen Sie MyDownloadJob durch die Auftrags GUID zur eindeutigen Identifizierung des Auftrags ersetzen.
+Verwenden Sie den Schalter **/AddFile** , um dem Auftrag eine Datei hinzuzufügen. Wiederholen Sie diesen Befehl für jede Datei, die Sie hinzufügen möchten. Wenn für mehrere Aufträge mydownloadjob als Name verwendet wird, müssen Sie mydownloadjob durch die GUID des Auftrags ersetzen, um den Auftrag eindeutig zu identifizieren.
 
-**Bitsadmin an MyDownloadJob https://downloadsrv/10mb.zip c:\\10mb.zip**
+**bigsadmin/AddFile mydownloadjob https://downloadsrv/10mb.zip c: @no__t -210mb. zip**
 
-Um den Auftrag in der Übertragungswarteschlange zu aktivieren, verwenden die **/fortsetzen von** wechseln.
+Verwenden Sie den Schalter **/Resume** , um den Auftrag in der Übertragungs Warteschlange zu aktivieren.
 
-## <a name="activate-the-download-job"></a>Aktivieren des Download-Auftrags
+## <a name="activate-the-download-job"></a>Aktivieren des Download Auftrags
 
-Wenn Sie einen neuen Auftrag erstellen, hält BITS den Auftrag an. Um den Auftrag in der Übertragungswarteschlange zu aktivieren, verwenden die **/fortsetzen von** wechseln. Wenn mehrere Aufträge MyDownloadJob als ihren Namen verwenden, müssen Sie MyDownloadJob durch die Auftrags GUID zur eindeutigen Identifizierung des Auftrags ersetzen.
+Wenn Sie einen neuen Auftrag erstellen, hält Bits den Auftrag an. Verwenden Sie den Schalter **/Resume** , um den Auftrag in der Übertragungs Warteschlange zu aktivieren. Wenn für mehrere Aufträge mydownloadjob als Name verwendet wird, müssen Sie mydownloadjob durch die GUID des Auftrags ersetzen, um den Auftrag eindeutig zu identifizieren.
 
-**Bitsadmin /resume myDownloadJob**
+**bigsadmin/Resume mydownloadjob**
 
-Um den Fortschritt des Auftrags zu ermitteln, verwenden die **/list**, **/Info**, oder **/Überwachen** wechseln.
+Um den Fortschritt des Auftrags zu ermitteln, verwenden Sie den Schalter **/List**, **/Info**oder **/Monitor** .
 
-## <a name="determine-the-progress-of-the-download-job"></a>Bestimmen Sie den Fortschritt des Auftrags herunterladen
+## <a name="determine-the-progress-of-the-download-job"></a>Bestimmen des Fortschritts des Download Auftrags
 
-Verwenden der **/Info** wechseln, um den Status eines Auftrags zu ermitteln. Wenn mehrere Aufträge MyDownloadJob als ihren Namen verwenden, müssen Sie MyDownloadJob durch die Auftrags GUID zur eindeutigen Identifizierung des Auftrags ersetzen.
+Verwenden Sie den Schalter **/Info** , um den Fortschritt eines Auftrags zu ermitteln. Wenn für mehrere Aufträge mydownloadjob als Name verwendet wird, müssen Sie mydownloadjob durch die GUID des Auftrags ersetzen, um den Auftrag eindeutig zu identifizieren.
 
-**Bitsadmin/Info MyDownloadJob / verbose**
+**bigsadmin/Info mydownloadjob/Verbose**
 
-Die **/Info** Schalter gibt, den Status des Auftrags und die Anzahl der Dateien und übertragenen Bytes. Wenn der Status übertragen werden, BITS wurde erfolgreich übertragen alle Dateien im Auftrag. Die **/ verbose** -Argument erhalten Sie umfassende Details des Auftrags. Der folgende Text ist die Ausgabe des Beispiels.
+Der Schalter **/Info** gibt den Status des Auftrags und die Anzahl der übertragenen Dateien und Bytes zurück. Wenn der Status übertragen wird, hat Bits erfolgreich alle Dateien im Auftrag übertragen. Das **/verbose** -Argument stellt die gesamten Details des Auftrags bereit. Der folgende Text ist eine Beispielausgabe.
 
 ``` syntax
 GUID: {482FCAF0-74BF-469B-8929-5CCD028C9499} DISPLAY: myDownloadJob
@@ -87,21 +87,21 @@ JOB FILES:
 NOTIFICATION COMMAND LINE: none
 ```
 
-Verwenden Sie zum Empfangen von Informationen für alle Aufträge in der Übertragungswarteschlange der **/list** oder **/Überwachen** wechseln.
+Um Informationen für alle Aufträge in der Übertragungs Warteschlange zu erhalten, verwenden Sie den Schalter **/List** bzw. **/Monitor** .
 
-## <a name="completing-the-download-job"></a>Den Auftrag abgeschlossen
+## <a name="completing-the-download-job"></a>Abschließen des Download Auftrags
 
-Wenn der Status des Auftrags übertragen wird, BITS wurde erfolgreich übertragen alle Dateien im Auftrag. Die Dateien sind jedoch nicht verfügbar, bis Sie verwenden die **/ vollständige** wechseln. Wenn mehrere Aufträge MyDownloadJob als ihren Namen verwenden, müssen Sie MyDownloadJob durch die Auftrags GUID zur eindeutigen Identifizierung des Auftrags ersetzen.
+Wenn der Status des Auftrags übertragen wird, hat Bits erfolgreich alle Dateien im Auftrag übertragen. Die Dateien sind jedoch erst verfügbar, wenn Sie den Schalter **/Complete** verwenden. Wenn für mehrere Aufträge mydownloadjob als Name verwendet wird, müssen Sie mydownloadjob durch die GUID des Auftrags ersetzen, um den Auftrag eindeutig zu identifizieren.
 
-**Bitsadmin / complete MyDownloadJob**
+**bigsadmin/Complete mydownloadjob**
 
-## <a name="monitoring-jobs-in-the-transfer-queue"></a>Überwachen von Aufträgen in der Übertragungswarteschlange
+## <a name="monitoring-jobs-in-the-transfer-queue"></a>Überwachen von Aufträgen in der Übertragungs Warteschlange
 
-Verwenden der **/list**, **/Überwachen**, oder **/Info** zum Überwachen von Aufträgen in der Übertragungswarteschlange wechseln. Die **/list** -Switch bietet Informationen für alle Aufträge in der Warteschlange.
+Verwenden Sie den Schalter **/List**, **/Monitor**oder **/Info** , um Aufträge in der Übertragungs Warteschlange zu überwachen. Der **/List** -Schalter enthält Informationen zu allen Aufträgen in der Warteschlange.
 
-**bitsadmin /list**
+**biout admin/List**
 
-Die **/list** Schalter gibt, den Status des Auftrags und die Anzahl der Dateien und für alle Aufträge in der Übertragungswarteschlange übertragenen Bytes. Der folgende Text ist die Ausgabe des Beispiels.
+Der Schalter **/List** gibt den Status des Auftrags und die Anzahl der Dateien und Bytes zurück, die für alle Aufträge in der Übertragungs Warteschlange übertragen wurden. Der folgende Text ist eine Beispielausgabe.
 
 ``` syntax
 {6AF46E48-41D3-453F-B7AF-A694BBC823F7} job1 SUSPENDED 0 / 0 0 / 0
@@ -110,11 +110,11 @@ Die **/list** Schalter gibt, den Status des Auftrags und die Anzahl der Dateien 
 Listed 2 job(s).
 ```
 
-Verwenden der **/Überwachen** Switch um alle Aufträge in der Warteschlange zu überwachen. Die **/Überwachen** Switch aktualisiert die Daten alle 5 Sekunden. Geben Sie STRG + C, um die Aktualisierung zu beenden.
+Verwenden Sie den Schalter **/Monitor** , um alle Aufträge in der Warteschlange zu überwachen. Der **/Monitor** -Schalter aktualisiert die Daten alle 5 Sekunden. Drücken Sie STRG + C, um die Aktualisierung zu verhindern.
 
-**bitsadmin /monitor**
+**biout admin/Monitor**
 
-Die **/Überwachen** Schalter gibt, den Status des Auftrags und die Anzahl der Dateien und für alle Aufträge in der Übertragungswarteschlange übertragenen Bytes. Der folgende Text ist die Ausgabe des Beispiels.
+Der Schalter **/Monitor** gibt den Status des Auftrags und die Anzahl der Dateien und Bytes zurück, die für alle Aufträge in der Übertragungs Warteschlange übertragen wurden. Der folgende Text ist eine Beispielausgabe.
 
 ``` syntax
 MONITORING BACKGROUND COPY MANAGER(5 second refresh)
@@ -123,13 +123,13 @@ MONITORING BACKGROUND COPY MANAGER(5 second refresh)
 {0B138008-304B-4264-B021-FD04455588FF} job3 TRANSFERRED 1 / 1 100379370 / 100379370
 ```
 
-## <a name="deleting-jobs-from-the-transfer-queue"></a>Löschen von Aufträgen aus der Übertragungswarteschlange
+## <a name="deleting-jobs-from-the-transfer-queue"></a>Löschen von Aufträgen aus der Übertragungs Warteschlange
 
-Verwenden der **/reset** Switch um alle Aufträge aus der Übertragungswarteschlange zu entfernen.
+Verwenden Sie den Schalter **/Reset** , um alle Aufträge aus der Übertragungs Warteschlange zu entfernen.
 
-**bitsadmin /reset**
+**biout Admin/Reset**
 
-Der folgende Text ist die Ausgabe des Beispiels.
+Der folgende Text ist eine Beispielausgabe.
 
 ``` syntax
 {DC61A20C-44AB-4768-B175-8000D02545B9} canceled.

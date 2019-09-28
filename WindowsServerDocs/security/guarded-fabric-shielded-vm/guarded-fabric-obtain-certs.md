@@ -1,64 +1,64 @@
 ---
-title: Abrufen von Zertifikaten für die Host-Überwachungsdienst
+title: Zertifikate für HGS abrufen
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: f4b4d1a8-bf6d-4881-9150-ddeca8b48038
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 2dc232eb7aeb8b0807a8e9989ae3dc893f925f66
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: b3e6aadbcbf2f2b826ca97d4ebb58c3736528b59
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447363"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386521"
 ---
-# <a name="obtain-certificates-for-hgs"></a>Abrufen von Zertifikaten für die Host-Überwachungsdienst
+# <a name="obtain-certificates-for-hgs"></a>Zertifikate für HGS abrufen
 
->Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Wenn Sie Host-Überwachungsdienst bereitstellen, werden Sie aufgefordert, Signatur-und Verschlüsselungszertifikate bereitzustellen, die verwendet werden, um die vertraulichen Informationen, die zum Starten einer abgeschirmten VMs benötigt zu schützen.
-Diese Zertifikate nicht behalten Sie die Host-Überwachungsdienst und dienen nur zum Entschlüsseln, die abgeschirmte VM-Schlüssel, wenn der Host, auf dem sie ausgeführt werden, dass sie fehlerfrei ist bewährt hat.
-Mandanten (VM-Besitzer) verwenden, der öffentliche Hälfte der Zertifikate zum Autorisieren von Ihres Rechenzentrums auf die abgeschirmte VMs ausführen.
-Dieser Abschnitt enthält die erforderlichen Schritte zum kompatibel Zertifikate für Signierung und Verschlüsselung für Host-Überwachungsdiensts zu erhalten.
+Beim Bereitstellen von HGS werden Sie aufgefordert, Signatur-und Verschlüsselungs Zertifikate bereitzustellen, die zum Schutz der vertraulichen Informationen verwendet werden, die zum Starten einer abgeschirmten VM benötigt werden.
+Diese Zertifikate verlassen niemals HGS und werden nur zum Entschlüsseln geschützter VM-Schlüssel verwendet, wenn der Host, auf dem Sie ausgeführt werden, bewiesen hat, dass Sie fehlerfrei ist.
+Mandanten (VM-Besitzer) verwenden die öffentliche Hälfte der Zertifikate, um Ihr Rechenzentrum zum Ausführen ihrer abgeschirmten VMS zu autorisieren.
+In diesem Abschnitt werden die erforderlichen Schritte zum Abrufen kompatibler Signatur-und Verschlüsselungs Zertifikate für HGS behandelt.
 
 ## <a name="request-certificates-from-your-certificate-authority"></a>Anfordern von Zertifikaten von Ihrer Zertifizierungsstelle
 
-Zwar nicht erforderlich, wird dringend empfohlen, dass Sie Ihre Zertifikate von einer vertrauenswürdigen Zertifizierungsstelle abrufen.
-Auf diese Weise können VM-Besitzer, stellen Sie sicher, dass sie den richtigen Host-Überwachungsdienst-Server (d. h. Dienstanbieter oder Rechenzentrum) zum Ausführen ihrer geschützter VMs autorisiert sind.
-In einem Unternehmensszenario können Sie Ihre eigenen Unternehmens-ZS zu verwenden, um diese Zertifikate ausstellen.
-Verwenden Sie stattdessen eine bekannte, öffentliche Zertifizierungsstelle sollten gewährt Hostern und Dienstanbieter.
+Es ist zwar nicht erforderlich, aber es wird dringend empfohlen, dass Sie Ihre Zertifikate von einer vertrauenswürdigen Zertifizierungsstelle abrufen.
+Auf diese Weise können die VM-Besitzer überprüfen, ob Sie den richtigen HGS-Server (d. h. Dienstanbieter oder Datacenter) zum Ausführen ihrer abgeschirmten VMS autorisiert haben.
+In einem Unternehmens Szenario können Sie Ihre eigene Unternehmens Zertifizierungsstelle verwenden, um diese Zertifikate auszugeben.
+Hoster und Dienstanbieter sollten stattdessen eine bekannte öffentliche Zertifizierungsstelle verwenden.
 
-Signatur-und Verschlüsselungszertifikate müssen mit den folgenden Certificiate Eigenschaften ausgegeben werden (es sei denn, die "empfohlenen" gekennzeichnet):
+Die Signatur-und Verschlüsselungs Zertifikate müssen mit den folgenden certificiate-Eigenschaften ausgestellt werden (es sei denn, Sie sind als "empfohlen" gekennzeichnet):
 
-Zertifikat-Template-Eigenschaft | Erforderlicher Wert 
+Zertifikat Vorlagen Eigenschaft | Erforderlicher Wert 
 ------------------------------|----------------
-Kryptografieanbieter               | Alle Schlüsselspeicheranbieter (KSP). Ältere Kryptografiedienstanbieter (CSPs) sind **nicht** unterstützt.
-Schlüsselalgorithmus                 | RSA
-Minimale Schlüsselgröße              | 2048 Bit
-Signaturalgorithmus           | Empfohlen: SHA256
-Schlüsselverwendung                     | Digitale Signatur *und* datenverschlüsselung
-Erweiterte Schlüsselverwendung            | Serverauthentifizierung
-Erneuerung des Schlüssels-Richtlinie            | Mit dem gleichen Schlüssel erneuern. Erneuern von Host-Überwachungsdienst-Zertifikaten mit unterschiedlichen Schlüsseln wird verhindert, dass geschützte VMs gestartet.
-Antragstellername                  | Empfohlen: die Adresse des Unternehmens oder eine Webadressen. Diese Informationen werden VM-Besitzer in den Assistenten zum geschützten Daten angezeigt.
+Kryptografieanbieter               | Alle Schlüsselspeicher Anbieter (Key Storage Provider, KSP). Ältere Kryptografiedienstanbieter (CSPs) werden **nicht** unterstützt.
+Schlüssel Algorithmus                 | RSA
+Minimale Schlüsselgröße              | 2048 Bits
+Signatur Algorithmus           | Empfohlen: SHA256
+Schlüsselverwendung                     | Digitale Signatur *und* Datenverschlüsselung
+Erweiterte Schlüssel Verwendung            | Serverauthentifizierung
+Richtlinie zur Schlüssel Erneuerung            | Erneuern Sie mit demselben Schlüssel. Durch das Erneuern von HGS-Zertifikaten mit unterschiedlichen Schlüsseln wird verhindert, dass abgeschirmte VMS gestartet werden.
+Antragstellername                  | Empfohlen: Name oder Webadresse Ihres Unternehmens. Diese Informationen werden den VM-Besitzern im Assistenten für die Schutz Datendatei angezeigt.
 
-Diese Anforderungen gelten, ob Sie Zertifikate, gesichert durch Hardware oder Software verwenden.
-Aus Sicherheitsgründen empfiehlt es sich, dass Sie Ihr HGS-Schlüssel in einem Hardwaresicherheitsmodul (HSM) zu verhindern, dass der private Schlüssel aus dem System kopiert erstellen.
-Befolgen Sie die Anweisungen aus den HSM-Anbieter zum Anfordern von Zertifikaten mit der oben genannten Attribute aus, und achten Sie darauf, dass Sie zum Installieren und autorisieren das HSM KSP auf jedem Host-Überwachungsdienst-Knoten.
+Diese Anforderungen gelten unabhängig davon, ob Sie Zertifikate verwenden, die von Hardware oder Software unterstützt werden.
+Aus Sicherheitsgründen wird empfohlen, die HGS-Schlüssel in einem Hardware Sicherheitsmodul (HSM) zu erstellen, um zu verhindern, dass private Schlüssel vom System kopiert werden.
+Befolgen Sie die Anweisungen des HSM-Anbieters, um Zertifikate mit den obigen Attributen anzufordern, und installieren und autorisieren Sie den HSM-KSP auf jedem HGS-Knoten.
 
-Jeder Host-Überwachungsdienst-Knoten benötigen Zugriff auf die gleiche Signierung und Verschlüsselungszertifikate.
-Wenn Sie Software-Zertifikate verwenden, können exportieren Ihre Zertifikate in eine PFX-Datei mit einem Kennwort und Host-Überwachungsdienst, der Zertifikate für die Sie verwalten können.
-Sie können auch auswählen, zum Installieren der Zertifikate in den Zertifikatspeicher des lokalen Computers, auf jedem Host-Überwachungsdienst-Knoten, und geben Sie den Fingerabdruck, Host-Überwachungsdienst.
-Beide Optionen werden in erläutert die [initialisiert den Host-Überwachungsdienst Cluster](guarded-fabric-initialize-hgs.md) Thema.
+Jeder HGS-Knoten benötigt Zugriff auf dieselben Signatur-und Verschlüsselungs Zertifikate.
+Wenn Sie softwaregestützte Zertifikate verwenden, können Sie Ihre Zertifikate in eine PFX-Datei mit einem Kennwort exportieren und zulassen, dass HGS die Zertifikate für Sie verwaltet.
+Sie haben auch die Möglichkeit, die Zertifikate im Zertifikat Speicher des lokalen Computers auf jedem HGS-Knoten zu installieren und den Fingerabdruck für HGS bereitzustellen.
+Beide Optionen werden im Thema [Initialisieren des HGS-Clusters](guarded-fabric-initialize-hgs.md) erläutert.
 
-## <a name="create-self-signed-certificates-for-test-scenarios"></a>Erstellen Sie selbstsignierte Zertifikate für Testszenarien
+## <a name="create-self-signed-certificates-for-test-scenarios"></a>Erstellen selbst signierter Zertifikate für Testszenarien
 
-Wenn Sie eine Host-Überwachungsdienst-Lab-Umgebung erstellen und führen Sie nicht haben oder eine Zertifizierungsstelle verwenden möchten, können Sie selbstsignierte Zertifikate erstellen.
-Sie erhalten eine Warnung auf, wenn die Zertifikatinformationen in den Assistenten zum geschützten Daten zu importieren, aber die gesamte Funktionalität bleibt gleich.
+Wenn Sie eine HGS-Lab-Umgebung erstellen und nicht über eine Zertifizierungsstelle verfügen oder diese verwenden möchten, können Sie selbst signierte Zertifikate erstellen.
+Beim Importieren der Zertifikat Informationen im Assistenten für Schutz Datendateien wird eine Warnung angezeigt, aber alle Funktionen bleiben unverändert.
 
-Zum Erstellen selbstsignierter Zertifikate, und in eine PFX-Datei exportieren, führen Sie die folgenden Befehle in PowerShell aus:
+Führen Sie die folgenden Befehle in PowerShell aus, um selbst signierte Zertifikate zu erstellen und in eine PFX-Datei zu exportieren:
 
 ```powershell
 $certificatePassword = Read-Host -AsSecureString -Prompt "Enter a password for the PFX file"
@@ -72,20 +72,20 @@ Export-PfxCertificate -FilePath .\encCert.pfx -Password $certificatePassword -Ce
 Remove-Item $encCert.PSPath
 ```
 
-## <a name="request-an-ssl-certificate"></a>Fordern Sie ein SSL-Zertifikat
+## <a name="request-an-ssl-certificate"></a>Anfordern eines SSL-Zertifikats
 
-Alle Schlüssel und vertrauliche Informationen übertragen werden, zwischen Hyper-V-Hosts und -Host-Überwachungsdiensts werden verschlüsselt, auf der Nachrichtenebene –, also die Informationen werden mit den Schlüsseln, die bekannte zur Host-Überwachungsdienst oder Hyper-V verwendet wird, die verhindern, dass andere sniffing Ihres Netzwerkdatenverkehrs und Diebstahl von Schlüsseln verschlüsselt für Ihre virtuellen Computer.
-Jedoch wenn Sie Kompatibilität Reqiurements haben oder einfach die gesamte Kommunikation zwischen Hyper-V und Host-Überwachungsdienst verschlüsseln möchten, können Sie Host-Überwachungsdienst mit einem SSL-Zertifikat konfigurieren, die alle Daten auf der Transportebene verschlüsselt wird.
+Alle Schlüssel und vertraulichen Informationen, die zwischen Hyper-V-Hosts und HGS übertragen werden, werden auf der Nachrichten Ebene verschlüsselt, d. h., die Informationen werden mit Schlüsseln verschlüsselt, die HGS oder Hyper-v genannt werden, sodass jemand daran gehindert wird, den Netzwerk Datenverkehr zu übermitteln und Schlüssel zu stehlen für ihre VMs.
+Wenn Sie jedoch Kompatibilitätsanforderungen haben oder einfach die gesamte Kommunikation zwischen Hyper-V und HGS verschlüsseln möchten, können Sie HGS mit einem SSL-Zertifikat konfigurieren, mit dem alle Daten auf der Transport Ebene verschlüsselt werden.
 
-Sowohl die Host-Überwachungsdienst-Knoten die Hyper-V-Hosts müssen die SSL-Zertifikat, die, das Sie bereitstellen, das vertrauen, daher wird empfohlen, dass Sie das SSL-Zertifikat von Ihrer Unternehmenszertifizierungsstelle anfordern. Wenn Sie das Zertifikat anfordern möchten, achten Sie darauf, dass Sie Folgendes angeben:
+Die Hyper-V-Hosts und HGS-Knoten müssen das von Ihnen bereitgestellte SSL-Zertifikat als vertrauenswürdig einstufen. Daher wird empfohlen, dass Sie das SSL-Zertifikat von Ihrer Unternehmens Zertifizierungsstelle anfordern. Wenn Sie das Zertifikat anfordern, müssen Sie Folgendes angeben:
 
-SSL-Zertifikat-Eigenschaft | Erforderlicher Wert
+SSL-Zertifikat Eigenschaft | Erforderlicher Wert
 -------------------------|---------------
-Antragstellername             | Der Name Ihres Clusters Host-Überwachungsdienst (distributed Network Name). Hier werden die Verkettung der Namen des Host-Überwachungsdienst-Diensts bereitgestellt, um `Initialize-HgsServer` sowie Ihren HGS-Domänennamen ein.
-Alternativer Antragstellername | Wenn Sie einen anderen DNS-Namen verwenden, erreichen Ihr HGS-Cluster (z. B. wenn er sich hinter einem Load Balancer befindet), achten Sie darauf, dass Sie diese DNS-Namen in das SAN-Feld, der die zertifikatanforderung eingeschlossen.
+Antragstellername             | Name des HGS-Clusters (Name des verteilten Netzwerks). Dabei handelt es sich um die Verkettung Ihres HGS-Dienst namens, der für `Initialize-HgsServer` und ihren HGS-Domänen Namen angegeben wird.
+Alternativer Antragsteller Name | Wenn Sie einen anderen DNS-Namen verwenden, um Ihren HGS-Cluster zu erreichen (z. b. wenn er sich hinter einem Load Balancer befindet), müssen Sie diese DNS-Namen in das Feld San ihrer Zertifikat Anforderung einschließen.
 
-Die Optionen zum Festlegen dieses Zertifikats, bei der Initialisierung des HGS-Servers finden Sie im [konfigurieren Sie den ersten Knoten für den Host-Überwachungsdienst](guarded-fabric-initialize-hgs.md).
-Sie können auch hinzufügen oder ändern Sie das SSL-Zertifikat zu einem späteren Zeitpunkt mithilfe der [Set-HgsServer](https://docs.microsoft.com/powershell/module/hgsserver/set-hgsserver?view=win10-ps) Cmdlet.
+Die Optionen zum Angeben dieses Zertifikats beim Initialisieren des HGS-Servers finden Sie unter [Konfigurieren des ersten HGS-Knotens](guarded-fabric-initialize-hgs.md).
+Sie können das SSL-Zertifikat auch zu einem späteren Zeitpunkt mit dem Cmdlet [Set-hgsserver](https://docs.microsoft.com/powershell/module/hgsserver/set-hgsserver?view=win10-ps) hinzufügen oder ändern.
 
 ## <a name="next-step"></a>Nächster Schritt
 

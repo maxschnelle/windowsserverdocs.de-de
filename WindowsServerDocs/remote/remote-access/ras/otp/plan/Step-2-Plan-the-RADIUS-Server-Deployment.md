@@ -1,9 +1,9 @@
 ---
-title: Schritt 2 Planen der Bereitstellung des RADIUS-Servers
-description: Dieses Thema ist Teil des Leitfadens Bereitstellen von Remotezugriff mit OTP-Authentifizierung in Windows Server 2016.
+title: Schritt 2 Planen der RADIUS-Server Bereitstellung
+description: Dieses Thema ist Teil des Handbuchs Bereitstellen des Remote Zugriffs mit OTP-Authentifizierung in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,35 +12,35 @@ ms.topic: article
 ms.assetid: 2d6ad863-02a5-49b0-9aff-d189e78b2b80
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: f74a83c3962c7accd76fbf07307216742ada863d
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: a991b312a0938a3809acd2b94c00aa678f5b41da
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280830"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404401"
 ---
-# <a name="step-2-plan-the-radius-server-deployment"></a>Schritt 2 Planen der Bereitstellung des RADIUS-Servers
+# <a name="step-2-plan-the-radius-server-deployment"></a>Schritt 2 Planen der RADIUS-Server Bereitstellung
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Planen Sie nach dem Bereitstellen eines einzelnen Remotezugriffsservers an, für das Einmalkennwort (OTP) Authentication-Server.  
+Planen Sie nach der Bereitstellung eines einzelnen RAS-Servers den einmal Kennwort (One-time password, OTP)-Authentifizierungsserver ein.  
   
 |Aufgabe|Beschreibung|  
 |----|--------|  
-|2.1 Planen des RADIUS-Servers|Für den Server OTP-Authentifizierung unterstützt den Remotezugriff in Windows Server 2016 und Windows Server 2012 einen RADIUS-aktivierte OTP-Server, der Password Authentication Protokoll (PAP) unterstützt.|  
+|2,1 Planen des RADIUS-Servers|Für den OTP-Authentifizierungsserver unterstützt der Remote Zugriff in Windows Server 2016 und Windows Server 2012 alle RADIUS-fähigen OTP-Server, die das Kennwort Authentication Protocol (PAP) unterstützen.|  
   
-## <a name="BKMK_1.1"></a>2.1 Planen des RADIUS-Servers  
-Beachten Sie Folgendes ein, wenn Sie einen RADIUS-Server für die OTP-Authentifizierung zu planen:  
+## <a name="BKMK_1.1"></a>2,1 Planen des RADIUS-Servers  
+Beachten Sie Folgendes, wenn Sie einen RADIUS-Server für die OTP-Authentifizierung planen:  
   
--   Für die meisten Arten von OTP-Bereitstellungen können, müssen Sie die RAS-Server als RADIUS-Agent konfigurieren. Weitere Informationen finden Sie in der Dokumentation des Herstellers OTP.  
+-   Für die meisten Arten von OTP-bereit Stellungen müssen Sie den RAS-Server als RADIUS-Agent konfigurieren. Weitere Informationen finden Sie in der Dokumentation des OTP-Herstellers.  
   
--   Für alle Bereitstellungen für OTP müssen Sie Active Directory-Benutzer mit dem RADIUS-Server synchronisieren.  
+-   Für alle OTP-bereit Stellungen müssen Sie Ihre Active Directory Benutzer mit dem RADIUS-Server synchronisieren.  
   
--   Der RADIUS-Server muss nicht Mitglied einer Domäne sein.  
+-   Der RADIUS-Server muss kein Domänen Mitglied sein.  
   
--   Wenn Sie den RADIUS-Server bereitstellen, konfigurieren Sie einen gemeinsamen geheimen Schlüssel und die Portnummer für RADIUS-Datenverkehr. Notieren Sie sich diese Details; Sie sind erforderlich, wenn Sie die RAS-Server konfigurieren.  
+-   Wenn Sie den RADIUS-Server bereitstellen, konfigurieren Sie einen gemeinsamen geheimen Schlüssel und die Portnummer für RADIUS-Datenverkehr. Notieren Sie sich diese Details. Sie sind erforderlich, wenn Sie den Remote Zugriffs Server konfigurieren.  
   
-Sehen Sie ein Beispiel für Test Lab-Handbuch, mit dem OTP-Authentifizierung mit einem RSA SecurID-Server in eingerichtet [Test Lab Guide: Vorführen von DirectAccess mit OTP-Authentifizierung und RSA SecurID](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/tlg-otp-securid/test-lab-guide-demonstrate-directaccess-with-otp-authentication-and-rsa-securid).  
+Ein Beispiel für eine Test Umgebungs Anleitung, die die OTP-Authentifizierung mit einem RSA SecurID-Server festlegt, finden Sie im [test Lab Guide: Veranschaulichen von DirectAccess mit OTP-Authentifizierung und RSA SecurID @ no__t-0.  
   
   
   

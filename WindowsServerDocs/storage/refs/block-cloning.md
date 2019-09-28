@@ -7,18 +7,18 @@ ms.author: gawatu
 manager: gawatu
 ms.date: 10/17/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-file-systems
-ms.openlocfilehash: 54165700209320eee50fc63d98d78cbf4a92d053
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 81186624e19f9235cbdf8c7f0d44bd2927a68099
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838111"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394022"
 ---
 # <a name="block-cloning-on-refs"></a>Block-Clone-Vorgänge auf ReFS
 
->Gilt für: WindowsServer 2019, WindowsServer 2016, WindowsServer (Halbjährlicher Kanal)
+>Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal)
 
 Block-Clone-Vorgänge weisen das Dateisystem an, den Bytewert von Dateien im Namen einer Anwendung zu kopieren, bei der die Zieldatei entweder der Ausgangsdatei gleicht oder nicht. Kopiervorgänge sind leider sehr kostspielig, da sie teure Lese- und Schreibvorgänge für die zugrunde liegenden, physischen Daten auslösen. 
 
@@ -64,8 +64,8 @@ Nach dem Ändern des Schreibvorgangs wird Region B weiterhin von beide Dateien v
 
 ## <a name="see-also"></a>Siehe auch
 
--   [ReFS-Übersicht](refs-overview.md)
--   [ReFS integritätsdatenströme](integrity-streams.md)
--   [Übersicht über Storage "direkte Speicherplätze"](../storage-spaces/storage-spaces-direct-overview.md)
+-   [Übersicht über Refs](refs-overview.md)
+-   [Refs-Integritäts Datenströme](integrity-streams.md)
+-   [Übersicht über direkte Speicherplätze](../storage-spaces/storage-spaces-direct-overview.md)
 -   [DUPLICATE_EXTENTS_DATA](https://msdn.microsoft.com/library/windows/desktop/mt590821(v=vs.85).aspx)
 -   [FSCTL_DUPLICATE_EXTENTS_TO_FILE](https://msdn.microsoft.com/library/windows/desktop/mt590823(v=vs.85).aspx)

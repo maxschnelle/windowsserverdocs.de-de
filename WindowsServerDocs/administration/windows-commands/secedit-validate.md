@@ -1,8 +1,8 @@
 ---
-title: secedit:validate
-description: 'Windows-Befehle Thema ***- '
+title: 'secedit: Validate'
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cca64f6b2904ed11f6b45e316c8e4da0093c373e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ece0a0324b77eb4226b679bc29f7bd599f15a120
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877911"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371101"
 ---
-# <a name="seceditvalidate"></a>secedit:validate
+# <a name="seceditvalidate"></a>secedit: Validate
 
 
 
-Überprüft die Sicherheitseinstellungen, die in eine Sicherheitsvorlage (INF-Datei) gespeichert. Beispiele wie dieser Befehl verwendet werden kann, finden Sie unter [Beispiele](#BKMK_Examples).
+Überprüft die Sicherheitseinstellungen, die in einer Sicherheits Vorlage (INF-Datei) gespeichert sind. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -37,21 +37,21 @@ Secedit /validate <configuration file name>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Konfigurationsdateiname|Erforderlich.</br>Gibt an, der Pfad und Dateiname für die Sicherheitsvorlage, die überprüft werden.|
+|Name der Konfigurationsdatei|Erforderlich.</br>Gibt den Pfad und den Dateinamen für die Sicherheits Vorlage an, die überprüft wird.|
 
 ## <a name="remarks"></a>Hinweise
 
-Überprüfen von Sicherheitsvorlagen kann Ihnen helfen, beschädigt oder nicht ordnungsgemäß festgelegt ist.
+Das Überprüfen von Sicherheits Vorlagen kann Ihnen helfen, wenn eine beschädigte oder nicht ordnungsgemäß festgelegt ist.
 
-Eine Ungültiger Sicherheitsvorlage wird nicht angewendet werden.
+Eine ungültige Sicherheits Vorlage wird nicht angewendet.
 
-Die Protokolldatei wird nicht aktualisiert werden.
+Die Protokolldatei wird nicht aktualisiert.
 
-In Windows Server 2008 `Secedit /refreshpolicy` wurde durch ersetzt `gpupdate`. Informationen zum Aktualisieren von Sicherheitseinstellungen, finden Sie unter [Gpupdate](gpupdate.md).
+In Windows Server 2008 `Secedit /refreshpolicy` wurde durch `gpupdate`ersetzt. Weitere Informationen zum Aktualisieren von Sicherheitseinstellungen finden Sie unter [gpupdate](gpupdate.md).
 
-## <a name="BKMK_Examples"></a>Beispiele für
+## <a name="BKMK_Examples"></a>Beispiele
 
-Nachdem ein Rollback für eine Sicherheitsvorlage ausgeführt wird, möchten Sie überprüfen, ob die Rollback-inf-Datei, die secRBKcontoso.inf, gültig ist.
+Nachdem ein Rollback für eine Sicherheits Vorlage ausgeführt wurde, sollten Sie überprüfen, ob die Rollback-INF-Datei "secrbkconfiguration. inf" gültig ist.
 ```
 Secedit /validate secRBKcontoso.inf
 ```
@@ -60,4 +60,4 @@ Secedit /validate secRBKcontoso.inf
 
 -   [Secedit:generaterollback](secedit-generaterollback.md)
 -   [Secedit](secedit.md)
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

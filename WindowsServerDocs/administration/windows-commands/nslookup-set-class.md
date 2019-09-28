@@ -1,8 +1,8 @@
 ---
 title: nslookup set class
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7953f450c17afdee849515f8d8945631a30f4b98
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 312b409490603fcb0ded63a78f3a2936f5216de1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436841"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372977"
 ---
 # <a name="nslookup-set-class"></a>nslookup set class
 
 
 
-Ändert die Abfrageklasse. Die Klasse gibt die Protokollgruppe, der die Informationen an.
+Ändert die Query-Klasse. Die-Klasse gibt die Protokoll Gruppe der Informationen an.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,7 +36,7 @@ set class=<Class>
 
 | Parameter |                                                                                                                                    Beschreibung                                                                                                                                    |
 |-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \<Class>  | Die Standardklasse ist in. Die folgende Liste enthält die gültigen Werte für diesen Befehl aus.</br>-IN: Gibt die Internet-Klasse.</br>-CHAOS: Gibt die Chaos-Klasse.</br>-HESIOD: Gibt an, die Athena Hesiod-Klasse.</br>-DER JEDEN: Gibt eines der zuvor aufgeführten Platzhalterzeichen an. |
+| \<Klassen >  | Die Standardklasse ist in. Im folgenden werden die gültigen Werte für diesen Befehl aufgeführt.</br>IN Gibt die Internet Klasse an.</br>CHAOS Gibt die Chaos-Klasse an.</br>-HESIOD: Gibt die mit-Athena-Hesiod-Klasse an.</br>IRGENDEINER Gibt eine der zuvor aufgeführten Platzhalter an. |
 |   {Hilfe   |                                                                                                                                        ?}                                                                                                                                         |
 
 #### <a name="additional-references"></a>Weitere Verweise

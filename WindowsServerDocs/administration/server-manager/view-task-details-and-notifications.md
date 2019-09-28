@@ -2,7 +2,7 @@
 title: Anzeigen von Aufgabendetails und Benachrichtigungen
 description: Server-Manager
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-server-manager
@@ -13,45 +13,45 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 44fd23b917d08aad663c0d3fb8da4bebef47783e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: a3dcbac95e60fce75316f8a4427aef54bdfad15b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831511"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383021"
 ---
 # <a name="view-task-details-and-notifications"></a>Anzeigen von Aufgabendetails und Benachrichtigungen
 
 >Gilt für: Windows Server 2016
 
-In Windows Server 2012 R2 oder Windows Server 2012 im Server-Manager beim Ausführen von Verwaltungsaufgaben, z. B. das Hinzufügen von Rollen und Features, Dienste starten, Aktualisieren von Daten, die in der Server-Manager-Konsole angezeigt wird, oder erstellen eine benutzerdefinierte Gruppe von Servern, ein Benachrichtigung wird angezeigt, der **Benachrichtigungen** Bereich des Server-Manager-Konsole Headers. Benachrichtigungen und die **Aufgabe Details** Dialogfeld, das Sie öffnen können die **Benachrichtigungen** Menü, indem Sie auf das Flaggensymbol klicken, zeigt den Status von Benutzeraufgaben oder-Anforderungen, zeigen Ihnen, wenn eine Aufgabe fehlgeschlagen, und hilft Ihnen Beheben Sie Probleme, indem Sie auf detaillierte Fehlermeldungen zu Aufgabenfehlern verwiesen.
+Wenn Sie in Server-Manager unter Windows Server 2012 R2 oder Windows Server 2012 Verwaltungsaufgaben durchführen, z. b. Rollen und Features hinzufügen, Dienste starten, Daten aktualisieren, die in der Server-Manager-Konsole angezeigt werden, oder eine benutzerdefinierte Gruppe von Servern erstellen, a die Benachrichtigung wird im **Benachrichtigungs** Bereich der Server-Manager-Konsolen Kopfzeile angezeigt. Benachrichtigungen und das Dialogfeld **Aufgaben Details** , das Sie über das Menü **Benachrichtigungen** öffnen können, indem Sie auf das Flag-Symbol klicken, den Status von Benutzer Aufgaben oder-Anforderungen anzeigen, anzeigen, wenn eine Aufgabe fehlgeschlagen ist, und Hilfe beim Beheben von Problemen durch Verweisen auf ausführliche Fehlermeldungen zu Aufgaben Fehlern.
 
 ## <a name="the-notifications-area"></a>Infobereich
-Die **Benachrichtigungen** Bereich in der Menüleiste des Server-Manager durch ein Flaggensymbol gekennzeichnete Zeigt die Ergebnisse von Aufgaben, die Sie im Server-Manager starten. Benachrichtigungen informieren Sie, ob Aufgaben, die Sie im Server-Manager gestartet erfolgreich waren oder fehlgeschlagen sind. Wenn Benachrichtigungen zur Ansicht verfügbar sind, wird die Anzahl verfügbarer Benachrichtigungen neben dem Flaggensymbol angezeigt. Falls eine Aufgabe fehlgeschlagen ist, nur teilweise abgeschlossen werden konnte (wenn sie beispielsweise nicht auf allen gewünschten Remoteservern durchgeführt werden konnte) oder mit Warnungen abgeschlossen wurde, wird die Benachrichtigungsflagge**** rot. Für folgende Aufgaben werden Benachrichtigungen angezeigt.
+Der **Benachrichtigungs** Bereich in der Menüleiste Server-Manager, der durch ein flagsymbol gekennzeichnet ist, zeigt die Ergebnisse der Aufgaben an, die Sie in Server-Manager starten. Benachrichtigungen informieren Sie darüber, ob Aufgaben, die Sie in Server-Manager gestartet haben, erfolgreich waren oder fehlgeschlagen sind. Wenn Benachrichtigungen zur Ansicht verfügbar sind, wird die Anzahl verfügbarer Benachrichtigungen neben dem Flaggensymbol angezeigt. Falls eine Aufgabe fehlgeschlagen ist, nur teilweise abgeschlossen werden konnte (wenn sie beispielsweise nicht auf allen gewünschten Remoteservern durchgeführt werden konnte) oder mit Warnungen abgeschlossen wurde, wird die Benachrichtigungsflagge rot. Für folgende Aufgaben werden Benachrichtigungen angezeigt.
 
--   Manuelles Aktualisieren der Daten, die im Server-Manager angezeigt (Benachrichtigungen für automatische Aktualisierungen angezeigt sind nur dann, wenn diese fehlgeschlagen)
+-   Manuelles Aktualisieren der in Server-Manager angezeigten Daten (Benachrichtigungen werden nur für automatische Aktualisierungen angezeigt, wenn die Aktualisierungen fehlschlagen)
 
 -   Starten oder Beenden von Diensten
 
--   Installieren oder Deinstallieren von Rollen, Rollendienste und features
+-   Installieren oder Deinstallieren von Rollen, Rollen Diensten und Features
 
--   Starten Sie eine Best Practices Analyzer (BPA)-Überprüfung
+-   Starten eines Best Practices Analyzer-Scans (BPA)
 
--   Hinzufügen von Remoteservern für die Verwaltung (Benachrichtigungen werden bei Ausfällen, wenden Sie sich an, oder aktualisieren die Daten, die für Remoteserver angezeigten angezeigt)
+-   Hinzufügen von zu verwaltenden Remote Servern (Benachrichtigungen werden angezeigt, um die für Remote Server angezeigten Daten zu kontaktieren oder zu aktualisieren)
 
 Zu den Elementen im Menü **Benachrichtigungen** gehören eine Statusleiste, eine kurze Beschreibung der Aufgabe, der Name des Zielservers für die Aufgabe (oder eines der Zielserver, falls mehrere Zielserver ausgewählt wurden), ggf. ein Link zu einem dazugehörigen Steuerelement oder Dialogfeld und das Menü **Aufgaben** . Das Menü **Aufgaben** zeigt Befehle für die aktive Benachrichtigung an (die Benachrichtigung, über die der Mauszeiger bewegt wird). Wenn Sie beispielsweise einen Dienst beenden, können Sie im Menü **Aufgaben** der Benachrichtigung auf **Neu starten** klicken, um den Dienst neu zu starten.
 
-Benachrichtigungen sind besonders nützlich für das Installieren oder Deinstallieren von Rollen, Rollendienste und Features. Z. B. Wenn Sie eine Featureinstallation auf einem Remoteserver starten, Sie können schließen das Hinzufügen von Rollen und Features-Assistenten während die Installation ist noch nicht die aktive Aufgabe bleibt jedoch in der **Benachrichtigungen** Liste. Die **Benachrichtigungen** zeigt eine Statusanzeige für die Installation, und Sie können Sie die Hinzufügen von Rollen und Features-Assistenten erneut öffnen, falls erforderlich, indem Sie auf **hinzufügen Rollen und Features – Assistent**. Die Elemente in der Liste informieren Sie darüber, ob eine Installation fehlgeschlagen ist oder zusätzliche Konfigurationsschritte erforderlich sind, um die Bereitstellung des Features abzuschließen.
+Benachrichtigungen sind besonders nützlich für das Installieren oder Deinstallieren von Rollen, Rollen Diensten und Features. Wenn Sie z. b. eine Featureinstallation auf einem Remote Server starten, können Sie den Assistenten zum Hinzufügen von Rollen und Features schließen, während die Installation noch läuft, die aktive Aufgabe bleibt jedoch in der **Benachrichtigungs** Liste. Das **Benachrichtigungs** Element zeigt eine Statusanzeige für die Installation an, und Sie können den Assistenten zum Hinzufügen von Rollen und Features bei Bedarf erneut öffnen, indem Sie auf **Assistent zum Hinzufügen von Rollen und Features**klicken. Die Elemente in der Liste informieren Sie darüber, ob eine Installation fehlgeschlagen ist oder zusätzliche Konfigurationsschritte erforderlich sind, um die Bereitstellung des Features abzuschließen.
 
-Benachrichtigungen spielen auch einen wichtigen Teil bei der Behandlung von Problemen mit Aufgaben oder Prozesse im Server-Manager. Weitere Informationen zur Verwendung von Nachrichten in der **Benachrichtigungen** Bereich und **Aufgabe Details** Dialogfeld zur Problembehandlung bei fehlgeschlagenen Tasks oder Prozessen finden Sie unter den [Server-Manager Handbuch zur Problembehandlung](https://social.technet.microsoft.com/wiki/contents/articles/13443.windows-server-2012-server-manager-troubleshooting-guide-part-i-overview.aspx).
+Benachrichtigungen spielen auch einen wichtigen Teil bei der Behebung von Problemen mit Aufgaben oder Prozessen in Server-Manager. Weitere Informationen zur Problembehandlung bei fehlgeschlagenen Tasks oder Prozessen mithilfe von Meldungen im **Benachrichtigungs** Bereich und im Dialogfeld **Aufgaben Details** finden Sie im [Handbuch zur Problem](https://social.technet.microsoft.com/wiki/contents/articles/13443.windows-server-2012-server-manager-troubleshooting-guide-part-i-overview.aspx)Behandlung für Server-Manager.
 
-So löschen Sie eine Benachrichtigung, die Sie nicht mehr sehen möchten die **Benachrichtigungen** auflisten, bewegen Sie den Mauszeiger auf die Benachrichtigung, und klicken Sie dann auf **Aufgabe entfernen** (**X**).
+Um eine Benachrichtigung zu löschen, die Sie nicht mehr in der **Benachrichtigungs** Liste anzeigen möchten, zeigen Sie mit dem Mauszeiger auf die Benachrichtigung, und klicken Sie dann auf **Aufgabe entfernen** (**X**).
 
-## <a name="viewing-and-troubleshooting-tasks-by-using-task-details"></a>Anzeigen und Problembehandlung von Aufgaben mithilfe von Aufgabendetails
-Die **Details zum Vorgang** Befehl am Ende der **Benachrichtigungen** Menü geöffnet wird der **Aufgabe Details** Dialogfeld bietet ausführliche Beschreibungen von Aufgabenereignissen (Starten Beenden, Warnungen, Erfolge oder Fehler). Wie bei anderen Listensteuerelementen in Server-Manager, z. B. **Ereignisse**, **Services**, und **Best Practices Analyzer** Kacheln, Sie können filtern und Erstellen von Abfragen für die Aufgaben, die werden angezeigt, der **Aufgabe Details** Dialogfeld. (Weitere Informationen zum Filtern und Erstellen von Abfragen für Listensteuerelemente finden Sie unter [filtern, Sortieren und Abfragen von Daten in Server-Manager-Kacheln](filter-sort-and-query-data-in-server-manager-tiles.md).) Im oberen Bereich können Sie Benachrichtigungen lesen, die im Menü **Benachrichtigungen** angezeigt werden, und sehen, wie viele Benachrichtigungen zu einer Aufgaben generiert wurden. eine Benachrichtigung im oberen Bereich auswählen, werden Einzelheiten zur Benachrichtigung im unteren Bereich zeigt.
+## <a name="viewing-and-troubleshooting-tasks-by-using-task-details"></a>Anzeigen und Problembehandlung von Aufgaben mithilfe von Aufgaben Details
+Der **Task Details** -Befehl unten im **Benachrichtigungs** Menü öffnet das Dialogfeld **Aufgaben Details** , das vollständige Beschreibungen von Aufgaben Ereignissen (starten, beenden, Warnungen, Erfolg oder Fehlern) bereitstellt. Wie bei anderen Listen Steuerelementen in Server-Manager, z. b. **Ereignisse**, **Dienste**und **Best Practices Analyzer** Kacheln, können Sie Abfragen filtern und erstellen, die für die Aufgaben ausgeführt werden, die im Dialogfeld Aufgaben **Details** angezeigt werden. (Weitere Informationen zum Filtern und Erstellen von Abfragen für Listen Steuerelemente finden Sie unter [Filtern, Sortieren und Abfragen von Daten in Server-Manager Kacheln](filter-sort-and-query-data-in-server-manager-tiles.md).) Im oberen Bereich können Sie Benachrichtigungen lesen, die im Menü **Benachrichtigungen** angezeigt werden, und sehen, wie viele Benachrichtigungen zu einer Aufgaben generiert wurden. Wenn Sie im oberen Bereich eine Benachrichtigung auswählen, werden im unteren Bereich vollständige Details zu der Benachrichtigung angezeigt.
 
-Der untere Bereich ist vor allem bei der Problembehandlung fehlgeschlagener Aufgaben hilfreich. Wenn der Server-Manager kann nicht Herstellen einer Verbindung mit oder Abrufen von Daten für einen Server, der ein Member, der zum Serverpool ist, enthalten Einträge in diesem Bereich häufig detaillierte Meldungen, darunter den vollständigen Text der zugrunde liegenden Windows-Remoteverwaltung (WinRM), Netzwerk- oder Sicherheitsprobleme, die Hiermit können verhindern Sie, dass Server-Manager kommuniziert mit einem Zielserver.
+Der untere Bereich ist vor allem bei der Problembehandlung fehlgeschlagener Aufgaben hilfreich. Wenn Server-Manager keine Verbindung mit einem Server herstellen oder Daten für einen Server mit dem Server Pool erhalten kann, enthalten Einträge in diesem Bereich häufig detaillierte Meldungen, darunter den vollständigen Text der zugrunde liegenden Windows-Remote Verwaltung (WinRM), Netzwerk-oder Sicherheitsprobleme, die verhindern Sie, dass Server-Manager mit einem Ziel Server kommunizieren.
 
 ## <a name="see-also"></a>Siehe auch
-[Filtern, Sortieren und Abfragen von Daten in Server-Manager-Kacheln](filter-sort-and-query-data-in-server-manager-tiles.md)
-[Server Manager Troubleshooting Guide](https://social.technet.microsoft.com/wiki/contents/articles/13443.windows-server-2012-server-manager-troubleshooting-guide-part-i-overview.aspx)
+[Filtern, Sortieren und Abfragen von Daten in Server-Manager Kacheln](filter-sort-and-query-data-in-server-manager-tiles.md)
+[Server-Manager Handbuch zur Problem](https://social.technet.microsoft.com/wiki/contents/articles/13443.windows-server-2012-server-manager-troubleshooting-guide-part-i-overview.aspx) Behandlung

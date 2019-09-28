@@ -1,88 +1,88 @@
 ---
 title: Voraussetzungen für geschützte Hosts
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 40c0f6df31061268b1e1ef8c15b0a02b0f50b0de
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 8a9273eef906130b11b98148cf1e84f7e18812b0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447476"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402379"
 ---
-# <a name="prerequisites-for-guarded-hosts"></a>Voraussetzungen für überwachte hosts
+# <a name="prerequisites-for-guarded-hosts"></a>Voraussetzungen für geschützte Hosts
 
->Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Überprüfen Sie die Host-Voraussetzungen für den Modus von nachweisen, dass Sie ausgewählt haben, und klicken Sie dann den nächsten Schritt zum Hinzufügen von überwachten Hosts.
+Überprüfen Sie die Host Voraussetzungen für den Nachweis Modus, den Sie ausgewählt haben, und klicken Sie dann auf den nächsten Schritt, um geschützte Hosts hinzuzufügen.
 
 ## <a name="tpm-trusted-attestation"></a>TPM-vertrauenswürdiger Nachweis
 
-Geschützte Hosts, die mithilfe von TPM-Modus müssen die folgenden Voraussetzungen erfüllen:
+Geschützte Hosts, die den TPM-Modus verwenden, müssen die folgenden Voraussetzungen erfüllen:
 
--   **Hardware**: Ein Host ist für die erstmalige Bereitstellung erforderlich. Um Hyper-V-Livemigration für abgeschirmte VMs zu testen, müssen Sie mindestens zwei Hosts verfügen.
+-   **Hardware**: Ein Host ist für die erste Bereitstellung erforderlich. Zum Testen der Hyper-V-Live Migration für abgeschirmte VMS müssen Sie über mindestens zwei Hosts verfügen.
 
-    Hosts müssen:
+    Hosts müssen über Folgendes verfügen:
     
-    - UNTERSTÜTZT und Second Level Address Translation (SLAT)
+    - IOMMU und Second Level Address Translation (slat)
     - TPM 2.0
     - UEFI 2.3.1 oder höher
-    - Für den Start mit UEFI (nicht BIOS oder "Legacymodus") konfiguriert
+    - Konfiguriert für den Start mit UEFI (nicht im BIOS-oder Legacy Modus)
     - Sicherer Start aktiviert
         
--   **Betriebssystem**: Windows Server 2016 Datacenter-Edition oder höher
+-   **Betriebssystem**: Windows Server 2016 Datacenter Edition oder höher
 
     > [!IMPORTANT]
-    > Installieren Sie unbedingt die [– neuestes Kumulatives Update](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history).  
+    > Stellen Sie sicher, dass Sie das [neueste kumulative Update](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history)installieren.  
 
--   **Rollen und Features**: Hyper-V-Rolle und das Feature Hyper-V-Unterstützung für Host-Überwachungsdiensts. Die Hyper-V-Unterstützung für Host-Überwachungsdiensts-Funktion ist nur verfügbar, auf die Datacenter-Editionen von Windows Server. 
+-   **Rolle und Features**: Hyper-v-Rolle und die Hyper-v-Unterstützung des Host-Überwachungs Diensts. Die Hyper-V-Unterstützung des Host-Überwachungs Diensts ist nur in den Datacenter-Editionen von Windows Server verfügbar. 
 
 > [!WARNING]
-> Das Feature Hyper-V-Unterstützung für Host-Überwachungsdiensts ermöglicht die Virtualisierung basierende Schutz der Integrität des Codes, die möglicherweise bei einigen Geräten nicht kompatibel sind. Es wird dringend empfohlen, diese Konfiguration in Ihrem Lab testen, bevor Sie dieses Feature aktivieren. Andernfalls kann es zu unerwarteten Fehlern und sogar zu Datenverlusten oder zu einem Bluescreen (STOP-Fehler) kommen. Weitere Informationen finden Sie unter [kompatible Hardware mit Windows Server-Virtualisierung mit dem Schutz der Codeintegrität](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md).
+> Die Hyper-V-Unterstützung des Host-Überwachungs Diensts ermöglicht den virtualisierungsbasierten Schutz der Code Integrität, der möglicherweise mit einigen Geräten nicht kompatibel ist. Wir empfehlen dringend, diese Konfiguration in Ihrem Lab zu testen, bevor Sie diese Funktion aktivieren. Andernfalls kann es zu unerwarteten Fehlern und sogar zu Datenverlusten oder zu einem Bluescreen (STOP-Fehler) kommen. Weitere Informationen finden Sie unter [kompatible Hardware mit Windows Server-virtualisierungsbasierter Schutz der Code Integrität](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md).
 
 **Nächster Schritt:** 
 > [!div class="nextstepaction"]
-> [Erfassen von TPM-Informationen](guarded-fabric-tpm-trusted-attestation-capturing-hardware.md)
+> [TPM-Informationen erfassen](guarded-fabric-tpm-trusted-attestation-capturing-hardware.md)
 
-## <a name="host-key-attestation"></a>Host-schlüsselnachweis
+## <a name="host-key-attestation"></a>Host Schlüssel Nachweis
 
-Geschützte Hosts, die mit den schlüsselnachweis Host müssen die folgenden Voraussetzungen erfüllen:
+Geschützte Hosts, die den Host Schlüssel Nachweis verwenden, müssen die folgenden Voraussetzungen erfüllen:
 
-- **Hardware**: Alle Server, die auf Hyper-V beginnt mit Windows Server-2019 ausgeführt werden kann
+- **Hardware**: Alle Server, die Hyper-V ab Windows Server 2019 ausführen können
 - **Betriebssystem**: Windows Server 2019 Datacenter Edition
-- **Rollen und Features**: Hyper-V-Rolle und die Hyper-V-Unterstützung für Host-Überwachungsdiensts-Funktion 
+- **Rolle und Features**: Hyper-v-Rolle und die Hyper-v-Unterstützung des Host-Überwachungs Diensts 
 
-Der Host kann entweder eine Domäne oder einer Arbeitsgruppe hinzugefügt werden. 
+Der Host kann entweder einer Domäne oder einer Arbeitsgruppe hinzugefügt werden. 
 
-Für den schlüsselnachweis hosten muss die Host-Überwachungsdienst sein 2019 für Windows Server ausgeführt und Arbeiten mit v2-Nachweis werden. Weitere Informationen finden Sie unter [HGS-Voraussetzungen](guarded-fabric-prepare-for-hgs.md#prerequisites). 
+Bei einem Host Schlüssel Nachweis muss auf HGS Windows Server 2019 ausgeführt werden, und es muss ein v2-Nachweis ausgeführt werden. Weitere Informationen finden Sie unter [Voraussetzungen für HGS](guarded-fabric-prepare-for-hgs.md#prerequisites). 
 
 **Nächster Schritt:** 
 > [!div class="nextstepaction"]
-> [Erstellen eines Schlüsselpaars](guarded-fabric-create-host-key.md)
+> [Erstellen eines Schlüssel Paars](guarded-fabric-create-host-key.md)
 
 ## <a name="admin-trusted-attestation"></a>Admin-vertrauenswürdiger Nachweis
 
 >[!IMPORTANT]
->Admin-vertrauenswürdiger Nachweis (Active Directory-Modus) ist veraltet, beginnend mit Windows Server-2019. Konfigurieren Sie für Umgebungen, in denen ist TPM-Nachweis nicht möglich, [hosten den schlüsselnachweis](#host-key-attestation). Host den schlüsselnachweis bietet eine ähnliche Garantie in den Active Directory-Modus, und es ist leichter einzurichten. 
+>Der admin-Trusted Nachweis (AD-Modus) ist ab Windows Server 2019 veraltet. Für Umgebungen, in denen ein TPM-Nachweis nicht möglich ist, konfigurieren Sie den [Host Schlüssel](#host-key-attestation)Nachweis. Der Host Schlüssel Nachweis bietet eine ähnliche Garantie für den AD-Modus und ist einfacher einzurichten. 
 
-Hyper-V-Hosts müssen das AD-Modus die folgenden Voraussetzungen erfüllen:
+Hyper-V-Hosts müssen die folgenden Voraussetzungen für den AD-Modus erfüllen:
 
--   **Hardware**: Auf jedem Server, die auf Hyper-V ab Windows Server 2016 ausgeführt werden kann. Ein Host ist für die erstmalige Bereitstellung erforderlich. Um Hyper-V-Livemigration für abgeschirmte VMs zu testen, benötigen Sie mindestens zwei Hosts.
+-   **Hardware**: Alle Server, die Hyper-V ausführen können, beginnend mit Windows Server 2016. Ein Host ist für die erste Bereitstellung erforderlich. Um die Hyper-V-Live Migration für abgeschirmte VMS zu testen, benötigen Sie mindestens zwei Hosts.
 
--   **Betriebssystem**: Windows Server 2016 Datacenter edition
+-   **Betriebssystem**: Windows Server 2016 Datacenter Edition
 
     > [!IMPORTANT]
-    > Installieren Sie die [– neuestes Kumulatives Update](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history).
+    > Installieren Sie das [neueste kumulative Update](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history).
 
--   **Rollen und Features**: Hyper-V-Rolle und die Hyper-V-Unterstützung für Host-Überwachungsdiensts-Funktion, die nur in Windows Server 2016 Datacenter-Edition verfügbar ist. 
+-   **Rolle und Features**: Die Hyper-v-Rolle und die Hyper-v-Unterstützung für das Host-Überwachungs Feature, das nur in Windows Server 2016 Datacenter Edition verfügbar ist. 
 
 > [!WARNING]
-> Das Feature Hyper-V-Unterstützung für Host-Überwachungsdiensts ermöglicht die Virtualisierung basierende Schutz der Integrität des Codes, die möglicherweise bei einigen Geräten nicht kompatibel sind. Es wird dringend empfohlen, diese Konfiguration in Ihrem Lab testen, bevor Sie dieses Feature aktivieren. Andernfalls kann es zu unerwarteten Fehlern und sogar zu Datenverlusten oder zu einem Bluescreen (STOP-Fehler) kommen. Weitere Informationen finden Sie unter [kompatible Hardware mit Windows Server 2016-Virtualisierung mit dem Schutz der Codeintegrität](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md).
+> Die Hyper-V-Unterstützung des Host-Überwachungs Diensts ermöglicht den virtualisierungsbasierten Schutz der Code Integrität, der möglicherweise mit einigen Geräten nicht kompatibel ist. Wir empfehlen dringend, diese Konfiguration in Ihrem Lab zu testen, bevor Sie diese Funktion aktivieren. Andernfalls kann es zu unerwarteten Fehlern und sogar zu Datenverlusten oder zu einem Bluescreen (STOP-Fehler) kommen. Weitere Informationen finden Sie unter [kompatible Hardware mit Windows Server 2016 Virtualization-basierter Schutz der Code Integrität](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md).
 
 **Nächster Schritt:** 
 > [!div class="nextstepaction"]
-> [Speichern Sie überwachte Hosts in einer Sicherheitsgruppe](guarded-fabric-admin-trusted-attestation-creating-a-security-group.md)
+> [Geschützte Hosts in einer Sicherheitsgruppe platzieren](guarded-fabric-admin-trusted-attestation-creating-a-security-group.md)
