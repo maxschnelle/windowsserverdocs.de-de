@@ -1,8 +1,8 @@
 ---
 title: pwlauncher
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8ec9748056b296bb0c74250b36c762fb86fa90ad
-ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.openlocfilehash: 4cf65643e0c5a4b28e06619a8156792b6e5456ea
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65564656"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371968"
 ---
 # <a name="pwlauncher"></a>pwlauncher
 
 
 
-Aktiviert oder deaktiviert die Windows zu Go-Startoptionen (Pwlauncher). Die **Pwlauncher** -Befehlszeilentool können Sie den Computer in einen Windows To Go-Arbeitsbereich automatisch gestartet wird (sofern eine vorhanden ist), ohne dass Sie die Firmware eingeben oder ändern die Startoptionen.
+Aktiviert oder deaktiviert die Windows to go-Startoptionen (pwlauncher). Mit dem Befehlszeilen Tool " **pwlauncher** " können Sie den Computer so konfigurieren, dass er automatisch in einen Windows to go-Arbeitsbereich gestartet wird (sofern vorhanden), ohne dass Sie die Firmware eingeben oder die Startoptionen ändern müssen.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -38,17 +38,17 @@ Pwlauncher {/enable | /disable}
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|/ Enable /|Ermöglicht Windows To Go-Startoptionen, sodass der Computer von einem USB-Gerät aus, wenn er automatisch gestartet wird|
-|/ Disable|Deaktiviert die Windows To Go-Startoptionen, damit der Computer kann nicht von einem USB-Gerät gestartet werden, es sei denn, Sie manuell in der Firmware konfiguriert.|
+|/enable|Ermöglicht Windows to go-Startoptionen, damit der Computer automatisch von einem USB-Gerät gestartet wird, wenn es vorhanden ist.|
+|/Disable|Deaktiviert die Windows to go-Startoptionen, sodass der Computer nicht von einem USB-Gerät gestartet werden kann, es sei denn, er ist manuell in der Firmware konfiguriert.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
-Die größte Hürde für einen Benutzer mit Windows To Go arbeiten möchte, erhält ihre Computer über USB gestartet. Dies erfolgt normalerweise durch Eingabe von der Firmware, und versuchen verschiedene Konfigurationsoptionen aus, bis der Computer ordnungsgemäß konfiguriert ist. Dies ist nicht für die meisten Benutzer eine einfache Angelegenheit, und ist sehr gefährlich, da die Firmware Optionen enthält, die ein System unbrauchbar, wenn Sie nicht ordnungsgemäß verwendet werden können. Auf dieses Problem, das Windows-8and andauernde enthalten höher eine Funktion, die mit dem Namen "Windows zu Go-Startoptionen", in dem einen Benutzer so konfigurieren Sie ihre Computer Starten von USB-Geräten aus, in der Windows-ohne je Eingabe der Firmware, solange ihre Firmware unterstützt über USB. Aktivieren ein System immer über USB gestartet wirkt sich zunächst, die Sie berücksichtigen sollten. Z. B. ein USB-Gerät mit Schadsoftware kann versehentlich gestartet werden, um das System gefährden oder mehrere USB-Laufwerke können dynamisch geladen werden, um einen Start-Konflikt verursachen. Aus diesem Grund ist die Standardkonfiguration der Windows zu Go-Startoptionen in der Standardeinstellung deaktiviert. Darüber hinaus sind Administratorrechte erforderlich, um Windows zu Go-Startoptionen zu konfigurieren. Wenn Sie die Windows To Go-Startoptionen, die mit dem Befehlszeilentool Pwlauncher aktivieren oder die **ändern Windows zu Go-Startoptionen** app, die der Computer, von einem beliebigen USB-Gerät zu starten, die an den Computer angeschlossen ist, bevor es wird versucht gestartet.
+Die größte Hürde für Benutzer, die Windows to go verwenden möchten, ist der Computer, der über USB gestartet werden soll. Dies erfolgt in der Regel, indem die Firmware eingegeben und verschiedene Konfigurationsoptionen ausprobiert werden, bis der Computer ordnungsgemäß konfiguriert ist. Dies ist für die meisten Benutzer kein einfaches Unterfangen und ist äußerst riskant, da die Firmware Optionen enthält, die ein System unbrauchbar machen können, wenn es falsch verwendet wird. Um dieses Problem zu beheben, beinhalten Windows 8 und spätere Betriebssysteme eine Funktion mit dem Namen "Windows to go-Startoptionen", die es einem Benutzer ermöglicht, den Computer so zu konfigurieren, dass er von Windows aus in Windows gestartet werden kann. Firmware unterstützt das Starten von USB. Das Aktivieren eines Systems für den immer ersten Start über USB hat Auswirkungen auf Sie. Beispielsweise könnte ein USB-Gerät, das Schadsoftware enthält, versehentlich gestartet werden, um das System zu kompromittieren, oder es können mehrere USB-Laufwerke angeschlossen werden, um einen Start Konflikt auszulösen. Aus diesem Grund werden die Windows to go-Startoptionen in der Standardkonfiguration standardmäßig deaktiviert. Außerdem sind Administratorrechte erforderlich, um die Windows to go-Startoptionen zu konfigurieren. Wenn Sie die Windows to go-Startoptionen mithilfe des Befehlszeilen Tools pwlauncher oder der APP **Windows to go Startup Options** aktivieren, versucht der Computer, von einem beliebigen USB-Gerät zu starten, das vor dem Start in den Computer eingefügt wurde.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Das folgende Beispiel zeigt Informationen zur Verwendung der **Pwlauncher** Befehl aus, um den Start über USB zu aktivieren:
+Im folgenden Beispiel wird gezeigt, wie Sie den Befehl **pwlauncher** verwenden können, um den Start über USB zu aktivieren:
 ```
 Pwlauncher /enable
 ```

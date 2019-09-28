@@ -1,8 +1,8 @@
 ---
-title: Mithilfe des Befehls Get-DriverPackageFile
-description: 'Windows-Befehle Thema ***- '
+title: Verwenden des Befehls Get-DriverPackageFile
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 264bdb6d51622e6323be00b44014b86cd9662e61
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 21bbe17e56177da5cd2c1bf83c712d256cc794c8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440499"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363147"
 ---
-# <a name="using-the-get-driverpackagefile-command"></a>Mithilfe des Befehls Get-DriverPackageFile
+# <a name="using-the-get-driverpackagefile-command"></a>Verwenden des Befehls Get-DriverPackageFile
 
 
 
-Zeigt Informationen zu einem Treiberpaket, einschließlich der Treiber und die darin enthaltenen Dateien.
+Zeigt Informationen zu einem Treiber Paket an, einschließlich der darin enthaltenen Treiber und Dateien.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,13 +36,13 @@ WDSUTIL /Get-DriverPackageFile /InfFile:<Inf File path> [/Architecture:{x86 | ia
 
 |         Parameter         |                              Beschreibung                               |
 |---------------------------|------------------------------------------------------------------------|
-| / INF:\<Pfad der Inf-Datei > | Gibt den vollständigen Pfad und Dateiname den Namen des Pakets INF-Treiberdatei an. |
-|    [/ Architecture: {X86    |                                  ia64                                  |
+| /InfFile: \<inf-Dateipfad > | Gibt den vollständigen Pfad und den Dateinamen der INF-Datei des Treiber Pakets an. |
+|    [/Architecture: {x86    |                                  ia64                                  |
 |     [/Show: {Drivers      |                                 Dateien                                  |
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um Informationen über eine Treiberdatei anzuzeigen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um Informationen zu einer Treiberdatei anzuzeigen:
 ```
 WDSUTIL /Get-DriverPackageFile /InfFile:"C:\temp\1394.inf" /Architecture:x86
 ```

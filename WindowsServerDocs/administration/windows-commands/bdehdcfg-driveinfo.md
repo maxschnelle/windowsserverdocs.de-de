@@ -1,8 +1,8 @@
 ---
-title: Bdehdcfg driveinfo
-description: 'Windows-Befehle Thema ** Bdehdcfg: Driveinfo **: der Buchstabe des Laufwerks, beträgt die Gesamtgröße, der maximale freie Speicherplatz und die Partitionseigenschaften angezeigt.'
+title: bdehdcfg DriveInfo
+description: 'Thema Windows-Befehle für * * bdehdcfg: DriveInfo * *-zeigt den Laufwerk Buchstaben, die Gesamtgröße, den maximalen freien Speicherplatz und die Partitions Merkmale an.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b2dd62e34f8205e0b5d395ba759fff4b4937b0ad
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: b0f4541bfd71fb7639d18e6e548559ed02918815
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435042"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382267"
 ---
-# <a name="bdehdcfg-driveinfo"></a>Bdehdcfg: Driveinfo
+# <a name="bdehdcfg-driveinfo"></a>bdehdcfg: DriveInfo
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zeigt an, der Buchstabe des Laufwerks, beträgt die Gesamtgröße, der maximale freie Speicherplatz und die Partitionseigenschaften. Nur gültige Partitionen sind aufgeführt. Verfügbarer Speicher ist nicht aufgeführt, wenn bereits vier primäre oder erweiterte Partitionen vorhanden sind. Beispiele wie dieser Befehl verwendet werden kann, finden Sie unter [Beispiele](#BKMK_Examples).
+Zeigt den Laufwerk Buchstaben, die Gesamtgröße, den maximalen freien Speicherplatz und die Partitions Merkmale an. Nur gültige Partitionen sind aufgeführt. Verfügbarer Speicher ist nicht aufgeführt, wenn bereits vier primäre oder erweiterte Partitionen vorhanden sind. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
 ## <a name="syntax"></a>Syntax
 ```
 bdehdcfg -driveinfo <DriveLetter>
@@ -33,15 +33,15 @@ bdehdcfg -driveinfo <DriveLetter>
 
 |   Parameter   |                  Beschreibung                  |
 |---------------|-----------------------------------------------|
-| <DriveLetter> | Gibt einen Laufwerkbuchstaben an, gefolgt von einem Doppelpunkt an. |
+| <DriveLetter> | Gibt einen Laufwerk Buchstaben gefolgt von einem Doppelpunkt an. |
 
 ## <a name="remarks"></a>Hinweise
-Der Befehl dient nur zu Informationszwecken und ist keine Änderungen auf das Laufwerk.
+Der Befehl dient nur zu Informationszwecken und führt keine Änderungen am Laufwerk aus.
 ## <a name="BKMK_Examples"></a>Beispiel
-Das folgende Beispiel zeigt die Laufwerkinformationen für Laufwerk c:.
+Im folgenden Beispiel werden die Laufwerks Informationen für Laufwerk C angezeigt.
 ```
 bdehdcfg  driveinfo C:
 ```
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 -   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [bdehdcfg](bdehdcfg.md)

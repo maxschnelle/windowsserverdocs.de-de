@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin setmaxdownloadtime
-description: Windows-Befehle Thema **Bitsadmin Setmaxdownloadtime** -Downloadtimeout in Sekunden festgelegt.
+title: BI-admin setmaxdownloadtime
+description: 'Windows-Befehls Thema für **bitadmin setmaxdownloadtime** : legt das Download Timeout in Sekunden fest.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f13b44429bec2718af1a648f273fead18d4e9e08
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 985453de5bd2f4a06b5635ae5b0a9794d30175b0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830991"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380556"
 ---
-# <a name="bitsadmin-setmaxdownloadtime"></a>Bitsadmin setmaxdownloadtime
+# <a name="bitsadmin-setmaxdownloadtime"></a>BI-admin setmaxdownloadtime
 
 
 
-Die Downloadtimeout festgelegt in Sekunden.
+Legt das Download Timeout in Sekunden fest.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,20 +36,20 @@ bitsadmin /SetMaxDownloadTime <Job> <Timeout>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
-|Zeitüberschreitung|Das Timeout in Sekunden|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
+|Timeout|Das Timeout in Sekunden|
 
 ## <a name="remarks"></a>Hinweise
 
 -   Nicht zutreffend
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Im folgenden Beispiel wird das Timeout für den Auftrag mit dem Namen *MyDownloadJob* auf 10 Sekunden.
+Im folgenden Beispiel wird das Timeout für den Auftrag mit dem Namen *mydownloadjob* auf 10 Sekunden festgelegt.
 ```
 C:\>bitsadmin /SetMaxDownloadTime myDownloadJob 10
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

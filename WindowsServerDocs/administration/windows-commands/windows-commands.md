@@ -8,50 +8,32 @@ author: jasongerend
 ms.author: jgerend
 manager: dongill
 ms.date: 06/26/2019
-ms.prod: windows-server-threshold
-ms.openlocfilehash: d0cf58ea8d37efccf80ce262b64e604218bd8d0b
-ms.sourcegitcommit: 545dcfc23a81943e129565d0ad188263092d85f6
+ms.prod: windows-server
+ms.openlocfilehash: 5cb26bcff99d9cf3a1ee8b3a937ad6098a913c3d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67407657"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362061"
 ---
 # <a name="windows-commands"></a>Windows-Befehle
 
-Alle unterstützte Versionen von Windows (Server- und Client) haben eine Reihe von Win32-Konsolenbefehle integriert.
+Für alle unterstützten Versionen von Windows (Server und Client) ist eine Reihe von Win32-Konsolen Befehlen integriert.
 
-Dieser Satz von Dokumentation beschreibt die Windows-Befehle, die Sie verwenden können, um Aufgaben zu automatisieren, indem Sie mithilfe von Skripts oder scripting Tools.
+In diesem Dokumentations Satz werden die Windows-Befehle beschrieben, die Sie zum Automatisieren von Aufgaben mithilfe von Skripts oder Skript Erstellungs Tools verwenden können.
 
-Um Informationen über einen bestimmten Befehl in der folgende A-Z-Menü zu finden, klicken Sie auf der Buchstabe, das mit dem Befehl wird gestartet, und klicken Sie dann auf den Namen des Befehls.
+Wenn Sie Informationen zu einem bestimmten Befehl suchen möchten, klicken Sie im folgenden a-Z-Menü auf den Buchstaben, mit dem der Befehl beginnt, und klicken Sie dann auf den Befehlsnamen.
 
-[EIN](#a) |
+[A](#a) |
 [B](#b) | 
 [C](#c) | 
 [D](#d) | 
-[E](#e)  | 
- [F](#f) | 
-[G](#g) | 
-[H](#h) | 
-[ICH](#i)  |
- [J](#j) | 
-[K](#k) | 
-[L](#l) | 
-[M](#m) | 
-[N](#n)  | 
- [O](#o) | 
-[P](#p) | 
-[Q](#q) | 
-[R](#r)  | 
- [S](#s) | 
-[T](#t) | 
-[U](#u) | 
-[V](#v)  | 
- [W](#w) | 
-[X](#x) | Y | Z
+[E](#e) | 
+[F](#f)1[G](#g)3[H](#h)5[I](#i)7[J](#j)9[K](#k)1[L ](#l)3[MIO](#m). @NO__T-[25 N](#n)7[O](#o)9[P](#p)@NO__T-[31 Q](#q)3[R](#r)5[S](#s)7[T](#t)9[U](#u)1[V](#v)3 [W](#w)5[X](#x) | J | Z
 
-## <a name="prerequisites"></a>Vorraussetzungen
+## <a name="prerequisites"></a>Erforderliche Komponenten
 
-Die Informationen, die in diesem Thema enthalten ist, gilt für:
+Die in diesem Thema enthaltenen Informationen gelten für:
 
 -   Windows Server 2019
 -   Windows Server (Semi-Annual Channel)
@@ -63,56 +45,38 @@ Die Informationen, die in diesem Thema enthalten ist, gilt für:
 -   Windows 10
 -   Windows 8.1
 
-### <a name="command-shell-overview"></a>Übersicht über die Befehlsshell
+### <a name="command-shell-overview"></a>Übersicht über Befehlsshell
 
-Die Befehl-Shell war die erste Shell integriert Windows Automatisieren von Routineaufgaben, wie z. B. Verwaltung von Benutzerkonten oder nächtliche Backups mit Batchdateien (bat). Mit Windows Script Host können Sie komplexere Skripts in der Befehlsshell ausführen. Weitere Informationen finden Sie unter [Cscript](cscript.md) oder [Wscript](wscript.md). Sie können Vorgänge effizienter ausführen, mithilfe von Skripts als Sie mit der Benutzeroberfläche können. Skripts akzeptieren alle Befehle, die in der Befehlszeile zur Verfügung stehen.
+Die Befehlsshell war die erste Shell, die in Windows integriert wurde, um Routineaufgaben wie die Verwaltung von Benutzerkonten oder nächtliche Sicherungen mit Batch Dateien (BAT-Dateien) zu automatisieren. Mit Windows Script Host können Sie komplexere Skripts in der Befehlsshell ausführen. Weitere Informationen finden Sie unter [cscript](cscript.md) oder [WScript](wscript.md). Sie können Vorgänge effizienter mithilfe von Skripts ausführen, als dies mithilfe der Benutzeroberfläche möglich ist. Skripts akzeptieren alle Befehle, die in der Befehlszeile verfügbar sind.
 
-Windows verfügt über zwei Befehlsshells: Der Befehl-Shell und [PowerShell](https://docs.microsoft.com/powershell/scripting/powershell-scripting?view=powershell-6). Jede-Shell ist ein Softwareprogramm, das die direkte Kommunikation zwischen Sie und das Betriebssystem oder der Anwendung und stellt eine Umgebung zum Automatisieren von IT-Vorgänge bereitstellt.
+Windows verfügt über zwei Befehls Shells: Die Befehlsshell und [PowerShell](https://docs.microsoft.com/powershell/scripting/powershell-scripting?view=powershell-6). Bei jeder Shell handelt es sich um ein Softwareprogramm, das eine direkte Kommunikation zwischen Ihnen und dem Betriebssystem oder der Anwendung ermöglicht und eine Umgebung zum Automatisieren des IT-betriebsbereit stellt
 
-PowerShell wurde entwickelt, um die Erweiterung der Funktionen der Befehlsshell zum Ausführen von PowerShell-Befehlen, die als Cmdlets bezeichnet. -Cmdlets sind ähnlich Windows-Befehlen, aber eine besser erweiterbare Skriptsprache bieten. Sie können Windows-Befehlen und PowerShell-Cmdlets in Powershell ausführen, aber die Befehlsshell kann nur ausgeführt, Windows-Befehle und nicht die PowerShell-Cmdlets.
+PowerShell wurde entwickelt, um die Funktionen der Befehlsshell zum Ausführen von PowerShell-Befehlen zu erweitern, die als Cmdlets bezeichnet werden. Cmdlets ähneln Windows-Befehlen, bieten jedoch eine erweiterbare Skriptsprache. Sie können Windows-Befehle und PowerShell-Cmdlets in PowerShell ausführen, aber in der Befehlsshell können nur Windows-Befehle und keine PowerShell-Cmdlets ausgeführt werden.
 
-Es wird empfohlen, für die meisten robuster, auf dem neuesten Stand Windows Automation mithilfe von PowerShell anstelle der Windows-Befehle oder Windows Script Host für die Windows-Automatisierung. 
+Bei der stabilsten aktuellen Windows-Automatisierung empfiehlt es sich, PowerShell anstelle von Windows-Befehlen oder Windows Script Host für Windows Automation zu verwenden. 
 > [!NOTE]
->Sie können auch herunterladen und installieren Sie [PowerShell Core](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6), die open-Source-Version von PowerShell. 
+>Sie können auch [PowerShell Core](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6)herunterladen und installieren, die Open Source-Version von PowerShell. 
 
 > [!CAUTION]
 > Durch eine fehlerhafte Bearbeitung der Registrierung können schwerwiegende Schäden am System verursacht werden. Bevor Sie die folgenden Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Daten auf dem Computer sichern.
 
 > [!NOTE]
-> Führen Sie zum Aktivieren oder Deaktivieren der Abschluss von Datei- und Verzeichnisspeicher in der Befehlsshell für eine anmeldesitzung für Computer oder Benutzer, **regedit.exe** und legen Sie den folgenden **Reg_DWOrd-Registrierungswert**:
+> Führen Sie **Regedit. exe** aus, und legen Sie den folgenden **reg_DWOrd-Wert**fest, um die Vervollständigung von Datei-und Verzeichnisnamen in der Befehlsshell für eine Computer-oder Benutzer Anmelde Sitzung zu aktivieren bzw
 > 
 > HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\completionChar\reg_DWOrd
 > 
-> Festlegen der **Reg_DWOrd** Wert, den hexadezimalen Wert eines Steuerzeichens für eine bestimmte Funktion verwenden (z. B. **0-9** Registerkarte und **0 08** RÜCKTASTE ist). Benutzerdefinierte Einstellungen haben Vorrang vor Einstellungen des Computers, und Befehlszeilenoptionen haben Vorrang vor registrierungseinstellungen.
+> Um den **reg_DWOrd** -Wert festzulegen, verwenden Sie den Hexadezimalwert eines Steuer Zeichens für eine bestimmte Funktion (z. b. **0 9** ist Tab und **0 08** ist RÜCKTASTE). Benutzerdefinierte Einstellungen haben Vorrang vor Computereinstellungen, und Befehlszeilenoptionen haben Vorrang vor den Registrierungs Einstellungen.
 
-## <a name="command-line-reference-a-z"></a>A-Z-Befehlszeilenreferenz
+## <a name="command-line-reference-a-z"></a>Befehlszeilen Referenz A-Z
 
-Um Informationen zu einem bestimmten Windows-Befehl in der folgende A-Z-Menü zu finden, klicken Sie auf der Buchstabe, das mit dem Befehl wird gestartet, und klicken Sie dann auf den Namen des Befehls.
+Wenn Sie Informationen zu einem bestimmten Windows-Befehl suchen möchten, klicken Sie im folgenden a-Z-Menü auf den Buchstaben, mit dem der Befehl beginnt, und klicken Sie dann auf den Befehlsnamen.
 
-[EIN](#a) |
+[A](#a) |
 [B](#b) | 
 [C](#c) | 
 [D](#d) | 
-[E](#e)  | 
- [F](#f) | 
-[G](#g) | 
-[H](#h) | 
-[ICH](#i)  |
- [J](#j) | 
-[K](#k) | 
-[L](#l) | 
-[M](#m) | 
-[N](#n)  | 
- [O](#o) | 
-[P](#p) | 
-[Q](#q) | 
-[R](#r)  | 
- [S](#s) | 
-[T](#t) | 
-[U](#u) | 
-[V](#v)  | 
- [W](#w) | 
-[X](#x) | Y | Z)
+[E](#e) | 
+[F](#f)1[G](#g)3[H](#h)5[I](#i)7[J](#j)9[K](#k)1[L ](#l)3[MIO](#m). @NO__T-[25 N](#n)7[O](#o)9[P](#p)@NO__T-[31 Q](#q)3[R](#r)5[S](#s)7[T](#t)9[U](#u)1[V](#v)3 [W](#w)5[X](#x) | J | Z
 
 ### <a name="a"></a>A
 -   [append](append.md)
@@ -155,7 +119,7 @@ Um Informationen zu einem bestimmten Windows-Befehl in der folgende A-Z-Menü zu
   -   [bitsadmin getnotifyflags](bitsadmin-getnotifyflags.md)
   -   [bitsadmin getnotifyinterface](bitsadmin-getnotifyinterface.md)
   -   [bitsadmin getowner](bitsadmin-getowner.md)
-  -   [Bitsadmin Get-Priorität](bitsadmin-getpriority.md)
+  -   [biout admin-Priorität erhalten](bitsadmin-getpriority.md)
   -   [bitsadmin getproxybypasslist](bitsadmin-getproxybypasslist.md)
   -   [bitsadmin getproxylist](bitsadmin-getproxylist.md)
   -   [bitsadmin getproxyusage](bitsadmin-getproxyusage.md)
@@ -188,7 +152,7 @@ Um Informationen zu einem bestimmten Windows-Befehl in der folgende A-Z-Menü zu
   -   [bitsadmin setreplyfilename](bitsadmin-setreplyfilename.md)
   -   [bitsadmin suspend](bitsadmin-suspend.md)
   -   [bitsadmin takeownership](bitsadmin-takeownership.md)
-  -   [Bitsadmin Übertragung](bitsadmin-transfer.md)
+  -   [bitadmin-Übertragung](bitsadmin-transfer.md)
   -   [bitsadmin util](bitsadmin-util.md)
   -   [bitsadmin wrap](bitsadmin-wrap.md)
 - [bootcfg](bootcfg.md)
@@ -298,7 +262,7 @@ Um Informationen zu einem bestimmten Windows-Befehl in der folgende A-Z-Menü zu
   -   [fsutil usn](fsutil-usn.md)
   -   [fsutil volume](fsutil-volume.md)
   -   [fsutil wim](fsutil-wim.md)
-- [ftp](ftp.md)
+- [FTP](ftp.md)
 - [ftype](ftype.md)
 - [fveupdate](fveupdate.md)
 
@@ -324,34 +288,34 @@ Um Informationen zu einem bestimmten Windows-Befehl in der folgende A-Z-Menü zu
 -   [ipxroute](ipxroute.md)
 -   [irftp](irftp.md)
 
-### <a name="j"></a>J
+### <a name="j"></a>ISTGH
 -   [jetpack](jetpack.md)
 
 ### <a name="k"></a>K
 - [klist](klist.md)
 - [ksetup](ksetup.md)
-  -   [ksetup:setrealm](ksetup-setrealm.md)
-  -   [ksetup:mapuser](ksetup-mapuser.md)
-  -   [ksetup:addkdc](ksetup-addkdc.md)
-  -   [ksetup:delkdc](ksetup-delkdc.md)
-  -   [ksetup:addkpasswd](ksetup-addkpasswd.md)
-  -   [ksetup:delkpasswd](ksetup-delkpasswd.md)
-  -   [ksetup:server](ksetup-server.md)
-  -   [ksetup:setcomputerpassword](ksetup-setcomputerpassword.md)
-  -   [ksetup:removerealm](ksetup-removerealm.md)
-  -   [ksetup:domain](ksetup-domain.md)
-  -   [ksetup:changepassword](ksetup-changepassword.md)
-  -   [ksetup:listrealmflags](ksetup-listrealmflags.md)
-  -   [ksetup:setrealmflags](ksetup-setrealmflags.md)
-  -   [ksetup:addrealmflags](ksetup-addrealmflags.md)
-  -   [ksetup:delrealmflags](ksetup-delrealmflags.md)
-  -   [ksetup:dumpstate](ksetup-dumpstate.md)
-  -   [ksetup:addhosttorealmmap](ksetup-addhosttorealmmap.md)
-  -   [ksetup:delhosttorealmmap](ksetup-delhosttorealmmap.md)
-  -   [ksetup:setenctypeattr](ksetup-setenctypeattr.md)
-  -   [ksetup:getenctypeattr](ksetup-getenctypeattr.md)
-  -   [ksetup:addenctypeattr](ksetup-addenctypeattr.md)
-  -   [ksetup:delenctypeattr](ksetup-delenctypeattr.md) 
+  -   [Ksetup: setrealm](ksetup-setrealm.md)
+  -   [Ksetup: mapuser](ksetup-mapuser.md)
+  -   [Ksetup: addkdc](ksetup-addkdc.md)
+  -   [Ksetup: Delta Controller](ksetup-delkdc.md)
+  -   [Ksetup: addkpasswd](ksetup-addkpasswd.md)
+  -   [Ksetup: Delta Pass WD](ksetup-delkpasswd.md)
+  -   [Ksetup: Server](ksetup-server.md)
+  -   [Ksetup: setcomputerpassword](ksetup-setcomputerpassword.md)
+  -   [Ksetup: removerealm](ksetup-removerealm.md)
+  -   [Ksetup: Domäne](ksetup-domain.md)
+  -   [Ksetup: ChangePassword](ksetup-changepassword.md)
+  -   [Ksetup: listrealmflags](ksetup-listrealmflags.md)
+  -   [Ksetup: setrealmflags](ksetup-setrealmflags.md)
+  -   [Ksetup: adressalm Flags](ksetup-addrealmflags.md)
+  -   [Ksetup: Delta Flags](ksetup-delrealmflags.md)
+  -   [Ksetup: dumpstate](ksetup-dumpstate.md)
+  -   [Ksetup: addhosttorealmmap](ksetup-addhosttorealmmap.md)
+  -   [Ksetup: Delta Host Report Map](ksetup-delhosttorealmmap.md)
+  -   [Ksetup: setenctypeattr](ksetup-setenctypeattr.md)
+  -   [Ksetup: getenctypeattr](ksetup-getenctypeattr.md)
+  -   [Ksetup: addenctypeattr](ksetup-addenctypeattr.md)
+  -   [Ksetup: Delta Type](ksetup-delenctypeattr.md) 
 - [ktmutil](ktmutil.md)
 - [ktpass](ktpass.md)
 
@@ -361,10 +325,10 @@ Um Informationen zu einem bestimmten Windows-Befehl in der folgende A-Z-Menü zu
 - [logman](logman.md)
   -   [logman create](logman-create.md)
   -   [logman query](logman-query.md)
-  -   [Logman Start & 124; Beenden](logman-start-stop.md)
+  -   [logman Start & 124; anzuhalten](logman-start-stop.md)
   -   [logman delete](logman-delete.md)
   -   [logman update](logman-update.md)
-  -   [Logman Import & 124; Exportieren](logman-import-export.md)
+  -   [logman Import & 124; Exports](logman-import-export.md)
 - [logoff](logoff.md)
 - [lpq](lpq.md)
 - [lpr](lpr.md)
@@ -373,24 +337,24 @@ Um Informationen zu einem bestimmten Windows-Befehl in der folgende A-Z-Menü zu
 - [macfile](macfile.md)
 - [makecab](makecab.md)
 - [manage-bde](manage-bde.md)
-  -   [manage-bde: status](manage-bde-status.md)
-  -   [Verwalten von-Bde: auf](manage-bde-on.md)
-  -   [Verwalten von-Bde: deaktiviert](manage-bde-off.md)
-  -   [Verwalten von-Bde: anhalten](manage-bde-pause.md)
-  -   [Verwalten von-Bde: fortsetzen](manage-bde-resume.md)
-  -   [Verwalten von-Bde: Sperren](manage-bde-lock.md)
-  -   [Verwalten von-Bde: nicht entsperren](manage-bde-unlock.md)
-  -   [Verwalten von-Bde: automatisches Entsperren](manage-bde-autounlock.md)
-  -   [Verwalten von-Bde: IRM-Schutz](manage-bde-protectors.md)
-  -   [Verwalten von-Bde: Tpm](manage-bde-tpm.md)
-  -   [manage-bde: setidentifier](manage-bde-setidentifier.md)
-  -   [Verwalten von-Bde: ForceRecovery](manage-bde-forcerecovery.md)
-  -   [manage-bde: changepassword](manage-bde-changepassword.md)
+  -   [manage-bde: Status](manage-bde-status.md)
+  -   [manage-bde: on](manage-bde-on.md)
+  -   [manage-bde: Off](manage-bde-off.md)
+  -   [manage-bde: Anhalten](manage-bde-pause.md)
+  -   [manage-bde: Resume](manage-bde-resume.md)
+  -   [manage-bde: Lock](manage-bde-lock.md)
+  -   [manage-bde: entsperren](manage-bde-unlock.md)
+  -   [manage-bde: automatische Entsperrung](manage-bde-autounlock.md)
+  -   [manage-bde: Schutzvorrichtungen](manage-bde-protectors.md)
+  -   [manage-bde: TPM](manage-bde-tpm.md)
+  -   [manage-bde:-Objekt-tifier](manage-bde-setidentifier.md)
+  -   [manage-BDE: ForceRecovery](manage-bde-forcerecovery.md)
+  -   [manage-bde: ChangePassword](manage-bde-changepassword.md)
   -   [manage-bde: changepin](manage-bde-changepin.md)
-  -   [manage-bde: changekey](manage-bde-changekey.md)
-  -   [Verwalten von-Bde: KeyPackage](manage-bde-keypackage.md)
-  -   [Verwalten von-Bde: Aktualisieren](manage-bde-upgrade.md)
-  -   [Verwalten von-Bde: WipeFreeSpace](manage-bde-wipefreespace.md)
+  -   [manage-bde: ChangeKey](manage-bde-changekey.md)
+  -   [manage-BDE: KeyPackage](manage-bde-keypackage.md)
+  -   [manage-bde: Upgrade](manage-bde-upgrade.md)
+  -   [manage-BDE: WipeFreeSpace](manage-bde-wipefreespace.md)
 - [mapadmin](mapadmin.md)
 - [Md](Md.md)
 - [mkdir](mkdir.md)
@@ -421,8 +385,8 @@ Um Informationen zu einem bestimmten Windows-Befehl in der folgende A-Z-Menü zu
 - [nfsstat](nfsstat.md)
 - [nlbmgr](nlbmgr.md)
 - [nslookup](nslookup.md)
-  -   [Nslookup-Befehl "Beenden"](nslookup-exit-command.md)
-  -   [Finger-Befehls "Nslookup"](nslookup-finger-command.md)
+  -   [Nslookup-Exit-Befehl](nslookup-exit-command.md)
+  -   [Nslookup-fingerbefehl](nslookup-finger-command.md)
   -   [nslookup help](nslookup-help.md)
   -   [nslookup ls](nslookup-ls.md)
   -   [nslookup lserver](nslookup-lserver.md)
@@ -491,17 +455,17 @@ Um Informationen zu einem bestimmten Windows-Befehl in der folgende A-Z-Menü zu
 - [rdpsign](rdpsign.md)
 - [recover](recover.md)
 - [reg](reg.md)
-  -   [REG hinzufügen](reg-add.md)
-  -   [REG vergleichen](reg-compare.md)
-  -   [REG kopieren](reg-copy.md)
-  -   [reg delete](reg-delete.md)
-  -   [Reg export](reg-export.md)
-  -   [REG import](reg-import.md)
-  -   [REG laden](reg-load.md)
-  -   [REG-Abfrage](reg-query.md)
-  -   [REG-Wiederherstellung](reg-restore.md)
+  -   [reg hinzufügen](reg-add.md)
+  -   [reg-Vergleich](reg-compare.md)
+  -   [reg-Kopie](reg-copy.md)
+  -   [reg löschen](reg-delete.md)
+  -   [reg-Export](reg-export.md)
+  -   [reg-Import](reg-import.md)
+  -   [reg laden](reg-load.md)
+  -   [reg-Abfrage](reg-query.md)
+  -   [reg-Wiederherstellung](reg-restore.md)
   -   [REG speichern](reg-save.md)
-  -   [REG entladen](reg-unload.md)
+  -   [reg entladen](reg-unload.md)
 - [regini](regini.md)
 - [regsvr32](regsvr32.md)
 - [relog](relog.md)
@@ -525,19 +489,19 @@ Um Informationen zu einem bestimmten Windows-Befehl in der folgende A-Z-Menü zu
 ### <a name="s"></a>S
 - [schtasks](schtasks.md)
 - [scwcmd](Scwcmd.md)
-  -   [scwcmd: analyze](scwcmd-analyze.md)
-  -   [scwcmd: configure](scwcmd-configure.md)
-  -   [scwcmd: register](scwcmd-register.md) 
-  -   [scwcmd: rollback](scwcmd-rollback.md) 
-  -   [scwcmd: transform](scwcmd-transform.md) 
-  -   [scwcmd: view](scwcmd-view.md) 
+  -   [scwcmd: analysieren](scwcmd-analyze.md)
+  -   [scwcmd: Konfigurieren](scwcmd-configure.md)
+  -   [scwcmd: registrieren](scwcmd-register.md) 
+  -   [scwcmd: Rollback](scwcmd-rollback.md) 
+  -   [scwcmd: Transformation](scwcmd-transform.md) 
+  -   [scwcmd: Ansicht](scwcmd-view.md) 
 - [secedit](secedit.md)
-  -   [secedit:analyze](secedit-analyze.md)
-  -   [secedit:configure](secedit-configure.md)
-  -   [secedit:export](secedit-export.md)
-  -   [secedit:generaterollback](secedit-generaterollback.md)
-  -   [secedit:import](secedit-import.md)
-  -   [secedit:validate](secedit-validate.md)
+  -   [secedit: analysieren](secedit-analyze.md)
+  -   [secedit: Konfigurieren](secedit-configure.md)
+  -   [secedit: Export](secedit-export.md)
+  -   [secedit: generaterollback](secedit-generaterollback.md)
+  -   [secedit: Importieren](secedit-import.md)
+  -   [secedit: Validate](secedit-validate.md)
 - [serverceipoptin](serverceipoptin.md)
 - [Servermanagercmd](Servermanagercmd.md)
 - [serverweroptin](serverweroptin.md)
@@ -589,26 +553,26 @@ Um Informationen zu einem bestimmten Windows-Befehl in der folgende A-Z-Menü zu
 -   [verifier](verifier.md)
 -   [verify](verify_1.md)
 -   [vol](vol.md)
--   [vssadmin](vssadmin.md)- 
+-   [vssadmin](vssadmin.md)-- 
 
 ### <a name="w"></a>W
 - [waitfor](waitfor.md)
 - [wbadmin](wbadmin.md)
-  -   [Sicherung des Wbadmin-aktivieren](wbadmin-enable-backup.md)
-  -   [Wbadmin deaktiviert die Sicherung](wbadmin-disable-backup.md)
-  -   [Sicherung des Wbadmin-starten](wbadmin-start-backup.md)
-  -   [Auftrag zum Beenden des Wbadmin](wbadmin-stop-job.md)
-  -   [wbadmin get versions](wbadmin-get-versions.md)
-  -   [wbadmin get items](wbadmin-get-items.md)
-  -   [Wbadmin Start-Wiederherstellung](wbadmin-start-recovery.md)
-  -   [wbadmin get status](wbadmin-get-status.md)
-  -   [wbadmin get disks](wbadmin-get-disks.md)
-  -   [wbadmin start systemstaterecovery](wbadmin-start-systemstaterecovery.md)
-  -   [Wbadmin Start systemstatebackup](wbadmin-start-systemstatebackup.md)
-  -   [Wbadmin Delete systemstatebackup](wbadmin-delete-systemstatebackup.md)
-  -   [wbadmin start sysrecovery](wbadmin-start-sysrecovery.md)
-  -   [Wbadmin-Restore-Katalog](wbadmin-restore-catalog.md)
-  -   [Befehl Wbadmin Delete catalog](wbadmin-delete-catalog.md)
+  -   [Wbadmin-Sicherung aktivieren](wbadmin-enable-backup.md)
+  -   [Wbadmin-Sicherung deaktivieren](wbadmin-disable-backup.md)
+  -   [Wbadmin-Sicherung starten](wbadmin-start-backup.md)
+  -   [Auftrag zum Abbrechen von Wbadmin](wbadmin-stop-job.md)
+  -   [Wbadmin-Get-Versionen](wbadmin-get-versions.md)
+  -   [Wbadmin-Get-Elemente](wbadmin-get-items.md)
+  -   [Wbadmin-Wiederherstellung starten](wbadmin-start-recovery.md)
+  -   [Wbadmin-Status "Get"](wbadmin-get-status.md)
+  -   [Wbadmin Get Disks](wbadmin-get-disks.md)
+  -   [Wbadmin start Systemstatus](wbadmin-start-systemstaterecovery.md)
+  -   [Wbadmin start systemstatebackup](wbadmin-start-systemstatebackup.md)
+  -   [Wbadmin delete systemstatebackup](wbadmin-delete-systemstatebackup.md)
+  -   [WBADMIN-START SYSRECOVERY](wbadmin-start-sysrecovery.md)
+  -   [Wbadmin-Wiederherstellungs Katalog](wbadmin-restore-catalog.md)
+  -   [Wbadmin delete-Katalog](wbadmin-delete-catalog.md)
 - [wdsutil](wdsutil.md)
 - [wecutil](wecutil.md)
 - [wevtutil](wevtutil.md)
@@ -618,7 +582,7 @@ Um Informationen zu einem bestimmten Windows-Befehl in der folgende A-Z-Menü zu
 - [winnt32](winnt32.md)
 - [winpop](winpop.md)
 - [winrs](winrs.md)
-- [wlbs](wlbs_1.md)
+- [WLBS](wlbs_1.md)
 - [wmic](wmic.md)
 - [wscript](wscript.md)
 

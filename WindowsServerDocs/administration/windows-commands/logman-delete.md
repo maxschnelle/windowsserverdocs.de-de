@@ -1,8 +1,8 @@
 ---
 title: logman delete
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e396d79dc936f56a69fac9469c020348640f1094
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 8360a4955a5ebed3eb25fda77acf587c56fbf5d6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437780"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374428"
 ---
 # <a name="logman-delete"></a>logman delete
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Löschen Sie die vorhandenen Sammlungen.  
+Löschen eines vorhandenen Daten Sammlers.  
 
 ## <a name="syntax"></a>Syntax  
 ```  
@@ -34,17 +34,17 @@ logman delete <[-n] <name>> [options]
 
 |        Parameter        |                                                                               Beschreibung                                                                               |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|           /?            |                                                                    Zeigt, die kontextbezogene Hilfe an.                                                                     |
-|   -s <computer name>    |                                                          Führen Sie den Befehl auf dem angegebenen Remotecomputer.                                                          |
-|     -config <value>     |                                                         Gibt an, die Befehlsoptionen enthält Datei mit den Einstellungen.                                                         |
-|       [-n] <name>       |                                                                   Der Name des Datensammlers Ziel.                                                                    |
-|          -ets           |                                              Senden von Befehlen an Ereignisablaufverfolgungssitzungen direkt ohne Speichern oder zu planen.                                               |
-| -[-] u < Benutzer [Kennwort] > | Gibt die Ausführung als Benutzer an. Eingeben einer \* für das Kennwort eine Aufforderung zur Kennworteingabe erzeugt. Das Kennwort wird nicht angezeigt, wenn Sie es an der kennworteingabeaufforderung eingeben. |
+|           /?            |                                                                    Zeigt die kontextbezogene Hilfe an.                                                                     |
+|   -s <computer name>    |                                                          Führen Sie den Befehl auf dem angegebenen Remote Computer aus.                                                          |
+|     -config <value>     |                                                         Gibt die Einstellungsdatei an, die Befehlsoptionen enthält.                                                         |
+|       [-n] <name>       |                                                                   Der Name des Ziel Daten Sammlers.                                                                    |
+|          -ETS           |                                              Direktes Senden von Befehlen an Ereignis Ablauf Verfolgungs Sitzungen, ohne zu speichern oder zu planen.                                               |
+| -[-] u < Benutzer [Kennwort] > | Gibt den Benutzer an, der als ausgeführt werden soll. Wenn Sie einen \* für das Kennwort eingeben, wird eine Eingabeaufforderung für das Kennwort ausgegeben. Das Kennwort wird nicht angezeigt, wenn Sie es an der Eingabeaufforderung eingeben. |
 
-## <a name="BKMK_examples"></a>Beispiele für  
-Der folgende Befehl löscht die Data Collector Perf_log.  
+## <a name="BKMK_examples"></a>Beispiele  
+Der folgende Befehl löscht den perf_log des Daten Sammlers.  
 ```  
 logman delete perf_log  
 ```  
-#### <a name="additional-references"></a>Zusätzliche Referenzen  
+#### <a name="additional-references"></a>Weitere Verweise  
 [logman](logman.md)  

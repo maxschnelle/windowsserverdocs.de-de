@@ -1,9 +1,9 @@
 ---
-title: Schritt 2 Planen von Clusterservern
-description: Dieses Thema ist Teil des Leitfadens Bereitstellen des Remotezugriffs in einem Cluster unter Windows Server 2016.
+title: Schritt 2 Planen von Cluster Servern
+description: Dieses Thema ist Teil des Handbuchs Bereitstellen des Remote Zugriffs in einem Cluster unter Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,45 +12,45 @@ ms.topic: article
 ms.assetid: 673c5bfb-b590-4932-8e54-ca0a466d90cc
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 0dcb14a03f02f931d59743f1b1b8b24b84ba8351
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 17aadbb789052be7f33822ce49f3b797f2211d55
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282858"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71367379"
 ---
-# <a name="step-2-plan-cluster-servers"></a>Schritt 2 Planen von Clusterservern
+# <a name="step-2-plan-cluster-servers"></a>Schritt 2 Planen von Cluster Servern
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Nach dem Bereitstellen eines einzelnen Remotezugriffsservers können zusätzliche Server mit dem Cluster hinzufügen möchten.  
+Planen Sie nach der Bereitstellung eines einzelnen RAS-Servers zusätzliche Server zum Cluster hinzu.  
   
 |Aufgabe|Beschreibung|  
 |----|--------|  
-|[2.1 Installieren von Rollen und Features](#BKMK_Install).|Planen Sie der Installation der Rolle "Remotezugriff" und die Windows-NLB-Funktion (falls erforderlich), Planen Sie die Topologie, IP-Adressierung, routing und Weiterleitung, für jeden Server, die mit dem Cluster hinzugefügt werden.|  
-|[2.2 Konfigurieren der servereinstellungen](#BKMK_Config)|Konfigurieren Sie Einstellungen für jeden Server, die mit dem Cluster hinzugefügt werden. Beachten Sie, dass Sie eine Load-Clusters mit Lastenausgleich von Servern, die mithilfe von virtuellen Computern konfigurieren können. In der Reihenfolge für routingfähigkeit und Konnektivität ordnungsgemäß funktioniert müssen Sie die virtuellen Computer als verwenden Sie das Spoofing von MAC-Adressen konfigurieren.|  
+|[2,1 Installieren von Rollen und Features](#BKMK_Install).|Planen Sie für jeden Server, der dem Cluster hinzugefügt werden soll, die Installation der Remote Zugriffs Rolle und des Windows-NLB-Features (falls erforderlich), planen Sie die Topologie, die IP-Adressierung, das Routing und die Weiterleitung.|  
+|[2,2 Konfigurieren von Servereinstellungen](#BKMK_Config)|Konfigurieren Sie die Einstellungen für jeden Server, der dem Cluster hinzugefügt wird. Beachten Sie, dass Sie einen Server Cluster mit Lastenausgleich mithilfe von virtuellen Computern konfigurieren können. Damit Routing und Konnektivität ordnungsgemäß funktionieren, müssen Sie die virtuellen Computer so konfigurieren, dass Sie das Spoofing von Mac-Adressen verwenden.|  
   
-## <a name="BKMK_Install"></a>2.1 Installieren von Rollen und features  
-Planen Sie für jeden Server, die Sie mit dem Cluster beitreten möchten, installieren Sie die Rolle "Remotezugriff". Planen Sie außerdem das Feature Netzwerklastenausgleich (Network Load Balancing, NLB) installieren, sollten Sie den Lastenausgleich des Datenverkehrs an den Cluster mithilfe des Windows-Netzwerklastenausgleichs. Weitere Informationen finden Sie unter [Netzwerklastenausgleich](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  
+## <a name="BKMK_Install"></a>2,1 Installieren von Rollen und Features  
+Planen Sie die Installation der Remote Zugriffs Rolle für jeden Server, den Sie dem Cluster hinzufügen möchten. Planen Sie zusätzlich die Installation des Netzwerk Lastenausgleichs (Network Load Balancing, NLB), wenn Sie einen Lastenausgleich für den Datenverkehr mithilfe von Windows NLB zum Cluster ausführen möchten. Weitere Informationen finden Sie unter [Netzwerk Lastenausgleich](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  
   
-## <a name="BKMK_Config"></a>2.2 Konfigurieren der servereinstellungen  
-Planen Sie IP-Adressen und Domänen-Einstellungen für jeden Server, die mit dem Cluster hinzugefügt werden. Beachten Sie Folgendes:  
+## <a name="BKMK_Config"></a>2,2 Konfigurieren von Servereinstellungen  
+Planen Sie die IP-Adresse und die Domänen Einstellungen für jeden Server, der dem Cluster hinzugefügt wird. Beachten Sie Folgendes:  
   
-1.  Server im Cluster müssen alle derselben Domäne gehören.  
+1.  Die Server im Cluster müssen alle derselben Domäne angehören.  
   
-2.  Server im Cluster müssen sich im gleichen Subnetz befinden.  
+2.  Die Server im Cluster müssen sich im selben Subnetz befinden.  
   
-3.  Jeder Server im Cluster sollte die gleiche Anzahl von Netzwerkadaptern für den DirectAccess-Bereitstellung verwendet haben.  
+3.  Jeder Server im Cluster muss die gleiche Anzahl von Netzwerkadaptern aufweisen, die für die DirectAccess-Bereitstellung verwendet werden.  
   
-Wenn Sie für den Cluster mit Windows NLB laden gelten die folgenden Windows-NLB-Einstellungen:  
+Wenn Sie einen Lastenausgleich für den Cluster mithilfe von Windows NLB durchgeführt haben, werden die folgenden Windows NLB-Einstellungen angewendet:  
   
-1.  Unicast--Vorgang-Modus. Dies kann zu Multicastadressen, die mit dem NLB-Manager geändert werden. Diese Einstellung kann nicht in der Remotezugriffs-Verwaltungskonsole geändert werden.  
+1.  Vorgangs Modus-Unicast. Dies kann mit dem NLB-Manager in Multicast geändert werden. Diese Einstellung kann in der Remote Zugriffs-Verwaltungskonsole nicht geändert werden.  
   
-2.  Lastgewicht Faktor als gleich ist, definiert, in denen alle Clusterserver Last verfügen.  
+2.  Lastfaktor ist als gleichwertig definiert, wobei alle Cluster Server über eine gleichmäßige Auslastung verfügen.  
   
-3.  Filtern von Datenverkehr im wird auf mehreren Hosts mit Lastenausgleich werden.  
+3.  Filter Modus: für den Datenverkehr wird ein Lastenausgleich über mehrere Hosts ausgeführt.  
   
-4.  Affinität – einzelne Affinität definiert ist.  
+4.  Affinität: einzelne Affinität ist definiert.  
   
-5.  Protocols-Both  
+5.  Protokolle: beides  
 

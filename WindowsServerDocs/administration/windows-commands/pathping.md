@@ -1,8 +1,8 @@
 ---
 title: pathping
-description: Erfahren Sie, wie Sie die Netzwerklatenz und Verlust-Informationen, die mit dem Befehl Pathping abrufen.
+description: Erfahren Sie, wie Sie mithilfe des Befehls pathping Informationen zur Netzwerk Latenz und zum Verlust von Daten erhalten.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: db3a0f5cd3c711f7df0a13627969dc7b74b3d605
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3232aaac979aa4e410d31db810abdd940d1c24bf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837241"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372399"
 ---
 # <a name="pathping"></a>pathping
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Enthält Informationen über die Netzwerklatenz und Netzwerkverlust an zwischenzeitlichen Hops zwischen Quelle und Ziel. **Pathping** sendet mehrere Echo Request-Meldungen an alle Router zwischen einer Quelle und Ziel über einen Zeitraum und berechnet dann die Ergebnisse basierend auf die von den Routern zurückgegebenen Pakete. Da **Pathping** zeigt den Grad an Paketverlust bei jedem Router oder jeder Verbindung, können Sie bestimmen, welche Router oder ein Subnets Netzwerkprobleme auftreten können. 
+Bietet Informationen zu Netzwerk Latenz und Netzwerk Verlust bei zwischen Hops zwischen einer Quelle und einem Ziel. der **pathping** sendet über einen bestimmten Zeitraum mehrere Echo Anforderungs Nachrichten an jeden Router zwischen einer Quelle und einem Ziel und berechnet dann die Ergebnisse basierend auf den von jedem Router zurückgegebenen Paketen. Da **pathping** den Grad des Paket Verlusts bei einem beliebigen Router oder Link anzeigt, können Sie feststellen, welche Router oder Subnetze Netzwerkprobleme aufweisen können. 
 
-**Pathping** führt das äquivalente die **Tracert** Befehl, indem Sie identifizieren, die Router im Pfad sind. Anschließend sendet Ping-Nachrichten in regelmäßigen Abständen an alle Router über einen angegebenen Zeitraum und berechnet die Statistiken, die basierend auf der Anzahl von jedem zurückgegeben. Ohne Parameter verwendet **Pathping** zeigt die Hilfe. 
+**pathping** führt die Entsprechung des Befehls **tracert** aus, indem identifiziert wird, welche Router sich im Pfad befinden. Anschließend werden Pings innerhalb eines angegebenen Zeitraums in regelmäßigen Abständen an alle Router gesendet und Statistiken auf Grundlage der von den einzelnen zurückgegebenen Zahlen berechnet. Wird ohne Parameter verwendet, zeigt **pathping** die Hilfe an. 
 
 ## <a name="syntax"></a>Syntax
 ```
@@ -35,29 +35,29 @@ pathping [/n] [/h] [/g <Hostlist>] [/p <Period>] [/q <NumQueries> [/w <timeout>]
 ### <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
-|/n|Verhindert, dass **Pathping** versucht, die Zwischenrouter die IP-Adressen in Namen aufgelöst. Dies kann zu beschleunigen, die Anzeige von **Pathping** Ergebnisse.|
-|/ h \<Max. Abschnitte >|Gibt die maximale Anzahl der Hops, die in den Suchpfad für das Ziel (Ziel). Der Standardwert ist 30.|
-|/g \<Hostlist>|Gibt an, dass die Echo-Nachrichten verwenden für die Anforderung der Loose Source-Route in der IP-Header mit dem Satz von Zwischenziele, die im angegebenen option *Hostlist*. Mit losen Quell-routing, können nachfolgende Zwischenziele durch einen oder mehrere Router getrennt werden. Die maximale Anzahl von Adressen oder Namen in der Hostliste ist 9. Die *Hostlist* ist eine Reihe von IP-Adressen (in punktierter Dezimalschreibweise), die durch Leerzeichen getrennt.|
-|/ p \<Zeitraum >|Gibt die Anzahl der Millisekunden, die Wartezeit zwischen aufeinander folgenden Ping-Nachrichten. Der Standardwert ist 250 Millisekunden (1/4 Sekunden).|
-|/q \<NumQueries>|Gibt die Anzahl der Echo Request-Nachrichten an alle Router im Pfad. Der Standardwert ist 100 Abfragen.|
-|/w \<timeout>|Gibt die Anzahl der Millisekunden, die für jede Antwort zu warten. Der Standardwert ist 3000 Millisekunden (3 Sekunden).|
-|/i \<IPaddress>|Gibt die Quelladresse an.|
-|/4 \<IPv4>|Gibt an, dass diese Pathping nur IPv4 verwendet.|
-|/6 \<IPv6>|Gibt an, dass diese Pathping nur IPv6 verwendet.|
-|\<TargetName>|Gibt an, das Ziel, die entweder über die IP-Adresse oder den Hostnamen identifiziert.|
+|/n|Verhindert, dass der **pfadping** versucht, die IP-Adressen der zwischen Router in ihre Namen aufzulösen. Dadurch wird möglicherweise die Anzeige von **pathping** -Ergebnissen beschleunigt.|
+|/h \<maximumhops >|Gibt die maximale Anzahl von Hops in dem Pfad an, der nach dem Ziel (Ziel) gesucht werden soll. Der Standardwert ist 30 Hops.|
+|/g \<hostlist >|Gibt an, dass die Echo Anforderungs Nachrichten die Option lose Quell Route im IP-Header mit dem Satz von zwischen Zielen verwenden, die in der *Hostliste*angegeben sind. Beim losen Quell Routing können aufeinander folgende Zwischenziele durch einen oder mehrere Router getrennt werden. Die maximale Anzahl von Adressen oder Namen in der Hostliste beträgt 9. Die *Hostliste* ist eine Reihe von IP-Adressen (in punktierter Dezimal Schreibweise), getrennt durch Leerzeichen.|
+|/p \<period >|Gibt die Anzahl von Millisekunden an, die zwischen aufeinander folgenden Pings gewartet werden soll. Der Standardwert ist 250 Millisekunden (1/4 Sekunde).|
+|/q \<numqueries >|Gibt die Anzahl der Echo Request-Meldungen an, die an jeden Router im Pfad gesendet werden. Der Standardwert ist 100-Abfragen.|
+|/w \<timeout >|Gibt die Anzahl der Millisekunden an, die auf jede Antwort gewartet werden soll. Der Standardwert ist 3000 Millisekunden (3 Sekunden).|
+|/i \<ipaddress >|Gibt die Quelladresse an.|
+|/4 \<ipv4 >|Gibt an, dass pathping ausschließlich IPv4 verwendet.|
+|/6 \<ipv6 >|Gibt an, dass für pathping nur IPv6 verwendet wird.|
+|\<targetname >|Gibt das Ziel an, das entweder durch die IP-Adresse oder den Hostnamen identifiziert wird.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
--   **Pathping** Parameter Groß-/Kleinschreibung beachtet werden.
--   Um eine Überlastung des Netzwerks zu vermeiden, soll Ping-Nachrichten mit einer ausreichend langsamen Geschwindigkeit gesendet werden.
--   Um die Auswirkungen der Burst-Verluste zu minimieren, werden nicht gesendet-Ping-Nachrichten zu häufig.
--   Bei Verwendung der **/p** Parameter-Ping-Nachrichten werden gesendet einzeln an jeden zwischenzeitlichen Hop. Aus diesem Grund ist das Intervall zwischen zwei Pings gesendet, um den gleichen Hop *Zeitraum* multipliziert die Anzahl der Hops.
--   Bei Verwendung der **/w** -Parameter mehrere Ping-Nachrichten gesendet werden können parallel. Aus diesem Grund der Zeitraum angegeben, der *Timeout* Parameter ist nicht begrenzt, um die Zeitspanne, die im angegebenen die *Zeitraum* Parameter für das Warten zwischen Pings.
--   Dieser Befehl ist nur verfügbar, wenn das Internetprotokoll (TCP/IP)-Protokoll als Komponente in den Eigenschaften eines Netzwerkadapters in den Netzwerkverbindungen installiert ist.
+-   für **pathping** -Parameter wird die Groß-/Kleinschreibung
+-   Um Netzwerk Überlastung zu vermeiden, sollten Pings mit ausreichend langsamer Geschwindigkeit gesendet werden.
+-   Um die Auswirkungen von Burst Verlusten zu minimieren, sollten Sie keine Pings zu häufig senden.
+-   Wenn Sie den **/p** -Parameter verwenden, werden Pings einzeln an jeden zwischen-Hop gesendet. Aus diesem Grund wird das Intervall zwischen zwei an denselben Hop gesendeten Pings mit der Anzahl der *Hops multipliziert.*
+-   Wenn Sie den **/w** -Parameter verwenden, können mehrere Pings parallel gesendet werden. Aus diesem Grund wird die im *Timeout* -Parameter angegebene Zeitspanne nicht durch den Zeitraum begrenzt, der im *Period* -Parameter für das warten zwischen Pings angegeben ist.
+-   Dieser Befehl ist nur verfügbar, wenn das TCP/IP-Protokoll (Internet Protocol) als Komponente in den Eigenschaften eines Netzwerkadapters in Netzwerkverbindungen installiert ist.
 
-## <a name="BKMK_Examples"></a>Beispiele für
+## <a name="BKMK_Examples"></a>Beispiele
 
-Das folgende Beispiel zeigt **Pathping** Befehlsausgabe:
+Das folgende Beispiel zeigt die Ausgabe des **pathping** -Befehls:
 
 ```
 D:\>pathping /n corp1
@@ -85,11 +85,11 @@ Hop  RTT    Lost/Sent = Pct  Lost/Sent = Pct  address
   5   24ms    13/ 100 = 13%     0/ 100 =  0%  10.54.1.196
 Trace complete.
 ```
-Wenn **Pathping** wird ausgeführt, die ersten Ergebnisse auflisten des Pfads. Dies ist derselbe Pfad, der angezeigt wird, mit der **Tracert** Befehl. Als Nächstes wird eine Meldung für ungefähr 90 Sekunden angezeigt (die Zeit je nach Anzahl der Hops). Während dieser Zeit werden Informationen über alle oben aufgeführten Router und über die Links zwischen diesen gesammelt. am Ende dieses Zeitraums werden die Testergebnissen angezeigt.
+Beim Ausführen von **pathping** wird der Pfad in den ersten Ergebnissen aufgelistet. Dies ist derselbe Pfad, der mit dem Befehl **tracert** angezeigt wird. Als nächstes wird eine ausgelastete Nachricht für ungefähr 90 Sekunden angezeigt (die Zeit variiert je nach Hopanzahl). Während dieser Zeit werden Informationen von allen zuvor aufgelisteten Routern und von den Verknüpfungen zwischen Ihnen gesammelt. am Ende dieses Zeitraums werden die Testergebnisse angezeigt.
 
-Im obigen Beispielbericht die **Knoten/Verbindung**, **Lost "und" Sent = Pct** und **Adresse** Spalten zeigen, dass die Verbindung zwischen 172.16.87.218 und 192.168.52.1 13 löscht der Prozentsatz der Pakete. Die Router an Hops 2 und 4 sind auch an sie gerichtete Pakete löschen, aber dieser Ausfall wirkt sich nicht auf ihre Fähigkeit zum Weiterleiten des Datenverkehrs, die nicht an sie adressiert ist.
+Im obigen Beispiel Bericht zeigt die Spalten **This Node/Link**, **Lost/Sent = PCT** und **Address** an, dass der Link zwischen 172.16.87.218 und 192.168.52.1 13 Prozent der Pakete entfernt. Die Router bei Hops 2 und 4 verwerfen auch an Sie adressierte Pakete, aber dieser Verlust wirkt sich nicht auf ihre Fähigkeit aus, Datenverkehr weiterzuleiten, der nicht an Sie adressiert ist.
 
-Paketverlust für Verknüpfungen an, als ein senkrechter Strich angezeigt (**|**) in der **Adresse** Spalte angeben des Link-Überlastung, die den Verlust von Paketen verursacht, die auf weitergeleitet wird, werden die der Pfad. Für Router (identifiziert durch ihre IP-Adressen) angezeigte Paketverlust anzugeben, dass diese Router überlastet sein könnte.
+Die für die Verknüpfungen angezeigten Verlustraten, die als senkrechter Strich ( **|** ) in der **Adress** Spalte identifiziert werden, geben eine Link Überlastung an, die den Verlust von Paketen verursacht, die an den Pfad weitergeleitet werden. Die für Router angezeigten Verlustraten (identifiziert durch Ihre IP-Adressen) geben an, dass diese Router überladen werden können.
 
 ## <a name="additional-references"></a>Weitere Verweise
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

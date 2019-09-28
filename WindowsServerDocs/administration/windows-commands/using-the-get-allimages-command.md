@@ -1,8 +1,8 @@
 ---
-title: Mithilfe des Befehls Get-AllImages
-description: 'Windows-Befehle Thema ***- '
+title: Verwenden des Befehls Get-allimages
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 57b81dd3dd3a24876c4401e80d08130ed5243888
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5122a5660031d503795715c0005b404f910d6626
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872561"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363498"
 ---
-# <a name="using-the-get-allimages-command"></a>Mithilfe des Befehls Get-AllImages
+# <a name="using-the-get-allimages-command"></a>Verwenden des Befehls Get-allimages
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Ruft Informationen über alle Bilder auf einem Server ab.
+Ruft Informationen zu allen Images auf einem Server ab.
 ## <a name="syntax"></a>Syntax
 ```
 wdsutil /Get-AllImages [/Server:<Server name>] /Show:{Boot | Install | LegacyRis | All} [/detailed]
@@ -32,20 +32,18 @@ wdsutil /Get-AllImages [/Server:<Server name>] /Show:{Boot | Install | LegacyRis
 ## <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
-|[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben wird, wird der lokale Server verwendet werden.|
-|/Show: {Boot &#124; Install &#124; LegacyRis &#124; All}|-   **Start** nur Startabbilder gibt.<br />-   **Installieren Sie** gibt installieren, Bilder sowie Informationen zu den imagegruppen, die sie enthalten.<br />-   **LegacyRis** nur remote Installation Services (RIS) Images zurückgegeben.<br />-   **Alle** gibt Image-Informationen, Informationen zur Installation Image (einschließlich Informationen zu den imagegruppen) und RIS-Image-Informationen zu starten.|
-|[/detailed]|Gibt an, dass alle Metadaten zu Bildern von jedes Bild zurückgegeben werden sollen. Wenn diese Option nicht verwendet wird, ist das Standardverhalten, um nur die Image-Name, Beschreibung und Dateinamen zurückzugeben.|
-## <a name="BKMK_examples"></a>Beispiele für
-Geben Sie einen der folgenden Schritte aus, zum Anzeigen von Informationen zu den Images:
+|[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
+|/Show: {Boot &#124; install &#124; legacyris &#124; all}|beim**Start** von -    werden nur Start Abbilder zurückgegeben.<br />bei der**Installation** von -    werden Installations Images sowie Informationen zu den Abbild Gruppen zurückgegeben, in denen Sie enthalten sind.<br />-   **legacyris** gibt nur Remoteinstallations Dienste (RIS) zurück.<br />"@no__t-**0"** gibt Informationen zum Start Abbild zurück, zum Installieren von Image Informationen (einschließlich Informationen zu den Abbild Gruppen) und zum RIS-Image.|
+|/Detailed|Gibt an, dass alle Bild Metadaten aus jedem Bild zurückgegeben werden sollen. Wenn diese Option nicht verwendet wird, besteht das Standardverhalten darin, nur den Bildnamen, die Beschreibung und den Dateinamen zurückzugeben.|
+## <a name="BKMK_examples"></a>Beispiele
+Wenn Sie Informationen zu den Bildern anzeigen möchten, geben Sie eine der folgenden Informationen ein:
 ```
 wdsutil /Get-AllImages /Show:Install
 wdsutil /verbose /Get-AllImages /Server:MyWDSServer /Show:All /detailed
 ```
-#### <a name="additional-references"></a>Zusätzliche Referenzen
-[Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-[mit dem Befehl-Add-Image](using-the-add-image-command.md)
-[mit dem Befehl-Kopieren-Image](using-the-copy-image-command.md)
-[mithilfe der Export-Image-Befehl](using-the-export-image-command.md)
-[mit dem Remove-Image-Befehl](using-the-remove-image-command.md)
-[mit dem Replace-Image-Befehl](using-the-replace-image-command.md) 
- [Unterbefehl: Set-Image](subcommand-set-image.md)
+#### <a name="additional-references"></a>Weitere Verweise
+[Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+ mithilfe des Befehls "[Add-Image](using-the-add-image-command.md)" 
+ mithilfe des Befehls "[Copy-Image](using-the-copy-image-command.md)" 
+ mithilfe des Befehls "[Export-](using-the-export-image-command.md)Image" 
+ mit dem Befehl "[Remove-](using-the-remove-image-command.md)Image" @no__t[-9 Replace-Image-Befehl](using-the-replace-image-command.md)1-[Unterbefehl: Set-Image](subcommand-set-image.md)

@@ -1,8 +1,8 @@
 ---
 title: ntbackup
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,23 +13,23 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 783f73eba2aeaf9f30c5c1e12a623f1f87f24ede
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ebbe71fd5547311beb36747d32d695823e0f0059
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846341"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372677"
 ---
 # <a name="ntbackup"></a>ntbackup
 
 
 
-Die **Ntbackup** Befehl ist nicht verfügbar in Windows Vista oder Windows Server 2008. Sie sollten stattdessen die **Wbadmin** Befehl und Unterbefehle zum Sichern und Wiederherstellen von Ihrem Computer und die Dateien über eine Eingabeaufforderung.
+Der Befehl " **Ntbackup** " ist in Windows Vista oder Windows Server 2008 nicht verfügbar. Stattdessen sollten Sie den Befehl " **Wbadmin** " und die Unterbefehle verwenden, um Ihren Computer und Dateien über eine Eingabeaufforderung zu sichern und wiederherzustellen.
 
-Es ist nicht möglich, mit **ntbackup** erstellte Sicherungen mit **wbadmin** wiederherzustellen. Jedoch eine Version von **Ntbackup** steht als Download für Windows Server 2008 und Windows Vista-Benutzer, die Sicherungen wiederherstellen, die sie erstellt haben, verwenden möchten **Ntbackup**. Diese herunterladbaren Version von **Ntbackup** ermöglicht es Ihnen, nur von ältere Sicherungen und Wiederherstellungen können nicht auf Computern unter Windows Server 2008 oder Windows Vista zum Erstellen neuer Sicherungen verwendet werden. Zum Herunterladen dieser Version der **Ntbackup**, finden Sie unter [ https://go.microsoft.com/fwlink/?LinkId=82917 ](https://go.microsoft.com/fwlink/?LinkId=82917).
+Es ist nicht möglich, mit **ntbackup** erstellte Sicherungen mit **wbadmin** wiederherzustellen. Allerdings ist eine Version von **Ntbackup** als Download für Windows Server 2008-und Windows Vista-Benutzer verfügbar, die mit **Ntbackup**erstellte Sicherungen wiederherstellen möchten. Diese herunterladbare Version von **Ntbackup** ermöglicht die Wiederherstellung nur von Legacy Sicherungen und kann nicht auf Computern verwendet werden, auf denen Windows Server 2008 oder Windows Vista ausgeführt wird, um neue Sicherungen zu erstellen. Informationen zum Herunterladen dieser Version von **Ntbackup**finden Sie unter [https://go.microsoft.com/fwlink/?LinkId=82917](https://go.microsoft.com/fwlink/?LinkId=82917).
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 [Wbadmin](wbadmin.md)

@@ -1,8 +1,8 @@
 ---
 title: Attribute-Datenträger
-description: Windows-Befehle Thema **Attribute Datenträger** -zeigt, Mengen oder löscht die Attribute eines Datenträgers.
+description: 'Themen zu Windows-Befehlen für **Attribut** Datenträger: zeigt die Attribute eines Datenträgers an, legt Sie fest oder löscht sie.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7cacc2fb6b47d095f5e452ca470c89f228949594
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 415125208b13d82adeed736107f59fda9489a953
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890351"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382566"
 ---
 # <a name="attributes-disk"></a>Attribute-Datenträger
 
 
 
-Zeigt an, legt fest oder löscht die Attribute eines Datenträgers.
+Hiermit werden die Attribute eines Datenträgers angezeigt, festgelegt oder gelöscht.
 
 > [!IMPORTANT]
-> Dieser Parameter ist nicht in jeder Edition von Windows Vista verfügbar.
+> Dieser Parameter ist in keiner Edition von Windows Vista verfügbar.
 
 ## <a name="syntax"></a>Syntax
 
@@ -41,26 +41,26 @@ attributes disk [{set | clear}] [readonly] [noerr]
 |---------|-----------|
 |set|Legt das angegebene Attribut des Datenträgers mit dem Fokus fest.|
 |clear|Löscht das angegebene Attribut des Datenträgers mit dem Fokus.|
-|ReadOnly|Gibt an, dass es sich bei der Datenträger schreibgeschützt ist.|
-|Diskpart|nur für Skripts. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden.|
+|ReadOnly|Gibt an, dass der Datenträger schreibgeschützt ist.|
+|Noerr|Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.|
 
 ## <a name="remarks"></a>Hinweise
 
--   Wenn **Attribute Datenträger** ist zum Anzeigen der aktuellen Attribute eines Datenträgers verwendet, das Startup Disk-Attribut gibt den Datenträger, die zum Starten des Computers verwendet wird. Für eine dynamische Spiegelung wird er für den Datenträger angezeigt, die der Start-plexer des Startvolumes enthält.
--   Ein Datenträger muss ausgewählt werden, für die **Attribute Datenträger** Befehl erfolgreich ausgeführt werden kann. Verwenden der **select Disk** Befehl aus, wählen Sie einen Datenträger und verschiebt den Fokus auf sie.
+-   Wenn **Attribute Disk** verwendet wird, um die aktuellen Attribute eines Datenträgers anzuzeigen, gibt das Attribut des Start Datenträgers den Datenträger an, der zum Starten des Computers verwendet wird. Bei einer dynamischen Spiegelung wird diese für den Datenträger angezeigt, der den Start-Plex des Start Volume enthält.
+-   Ein Datenträger muss ausgewählt werden, damit der Befehl Datenträger für **Attribute** erfolgreich ist. Wählen Sie mit dem Befehl Datenträger **auswählen** einen Datenträger aus, und verschieben Sie den Fokus auf den Datenträger.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Geben Sie zum Anzeigen der Attribute des ausgewählten Datenträgers:
+Geben Sie Folgendes ein, um die Attribute des ausgewählten Datenträgers anzuzeigen:
 ```
 attributes disk
 ```
-Um den ausgewählten Datenträger als schreibgeschützt festzulegen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um den ausgewählten Datenträger als schreibgeschützt festzulegen:
 ```
 attributes disk set readonly
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

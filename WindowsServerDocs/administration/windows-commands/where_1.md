@@ -1,8 +1,8 @@
 ---
 title: enthalten, wobei
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ff50405dd53ee383abc8e13f67befecf73e37c1d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: abebe5799075653d2ace1af4eadbdd5d477d97a6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832451"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362156"
 ---
 # <a name="where"></a>enthalten, wobei
 
 
 
-Zeigt den Speicherort der Dateien, die das angegebenen Suchmuster entsprechen.
+Zeigt den Speicherort der Dateien an, die dem angegebenen Suchmuster entsprechen.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -38,33 +38,33 @@ where [/r <Dir>] [/q] [/f] [/t] [$<ENV>:|<Path>:]<Pattern>[ ...]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|/r \<Dir>|Gibt an, eine rekursive Suche, die im angegebenen Verzeichnis ab.|
-|/q|Gibt einen Exitcode zurück (**0** für Erfolg, **1** für Fehler) ohne die Liste der übereinstimmenden Dateien anzuzeigen.|
-|/f|Zeigt die Ergebnisse der **, in denen** Befehl in Anführungszeichen ein.|
-|/t|Zeigt die Größe und das Datum der letzten Änderung und die Uhrzeit der einzelnen übereinstimmenden Dateien.|
-|[$\<ENV >:\|\<Pfad >:]\<Muster > [...]|Gibt das Suchmuster für die Dateien entsprechend an. Mindestens ein Muster ist erforderlich, und das Muster kann Platzhalterzeichen enthalten (**&#42;** und **?**). In der Standardeinstellung **, in denen** sucht das aktuelle Verzeichnis und den Pfaden, die in der PATH-Umgebungsvariablen angegeben werden. Sie können angeben, einen anderen Pfad suchen, indem Sie unter Verwendung der $ Format*ENV*:*Muster* (, in denen *ENV* ist eine vorhandene Umgebungsvariable, die eine oder mehrere Pfade enthalten) oder mithilfe von das Format *Pfad*:*Muster* (wobei *Pfad* ist der Verzeichnispfad, der Sie suchen möchten). Diese optionale Formate sollten nicht verwendet werden, mit der **/r** Befehlszeilenoption.|
+|/r \<dir >|Gibt eine rekursive Suche an, beginnend mit dem angegebenen Verzeichnis.|
+|/q|Gibt einen Exitcode zurück (**0** für Erfolg, **1** für Fehler), ohne die Liste der übereinstimmenden Dateien anzuzeigen.|
+|/f|Zeigt die Ergebnisse des Befehls **Where** in Anführungszeichen an.|
+|/t|Zeigt die Dateigröße und das Datum und die Uhrzeit der letzten Änderung für jede übereinstimmende Datei an.|
+|[$ \<erv >: \| @ no__t-2path >:] \<pattern > [...]|Gibt das Suchmuster für die Dateien an, die abgeglichen werden sollen. Mindestens ein Muster ist erforderlich, und das Muster kann Platzhalter Zeichen ( **&#42;** und **?** ) enthalten. Standardmäßig durchsucht, **wobei** das aktuelle Verzeichnis und die Pfade durchsucht, die in der PATH-Umgebungsvariablen angegeben sind. Sie können einen anderen Suchpfad angeben, indem Sie das Format $*env*:*Pattern* (wobei *env* eine vorhandene Umgebungsvariable mit einem oder mehreren Pfaden ist) oder den Format *Pfad*:*Pattern* ( *Pfad* ist) verwenden. der Verzeichnispfad, den Sie durchsuchen möchten.) Diese optionalen Formate sollten nicht mit der Befehlszeilenoption **/r** verwendet werden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
--   Wenn Sie keine Dateinamenerweiterung angeben, werden die Erweiterungen, die in der Umgebungsvariablen PATHEXT aufgelisteten Muster standardmäßig angefügt.
--   **Wo** können rekursive Suchvorgänge ausführen, Anzeigen von Informationen wie z. B. Datum oder die Größe und akzeptieren Sie die Umgebungsvariablen anstelle von Pfaden auf dem lokalen Computer.
+-   Wenn Sie keine Dateinamenerweiterung angeben, werden die in der PATHEXT-Umgebungsvariablen aufgelisteten Erweiterungen standardmäßig an das Muster angehängt.
+-   Dabei können rekursive Suchvorgänge ausführen, Dateiinformationen wie Datum oder Größe anzeigen und Umgebungsvariablen anstelle von Pfaden auf lokalen Computern akzeptieren.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um alle Dateien, die mit dem Namen "Test", in dem Laufwerk C des dem aktuellen Computer und seinen Unterverzeichnissen zu suchen, geben Sie Folgendes ein:
+Wenn Sie alle Dateien mit dem Namen Test in Laufwerk C des aktuellen Computers und dessen Unterverzeichnisse suchen möchten, geben Sie Folgendes ein:
 ```
 where /r c:\ test 
 ```
-Um alle Dateien in das Verzeichnis öffentlich aufzuführen, geben Sie Folgendes ein:
+Um alle Dateien im öffentlichen Verzeichnis aufzulisten, geben Sie Folgendes ein:
 ```
 where $public:*.*
 ```
-Um alle Dateien, die mit dem Namen "Editor", in dem Laufwerk C des Remotecomputers, Computer1 und seinen Unterverzeichnissen zu suchen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um alle Dateien mit dem Namen Notepad in Laufwerk C des Remote Computers, Computer1 und dessen Unterverzeichnissen zu finden:
 ```
 where /r \\computer1\c notepad.*
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

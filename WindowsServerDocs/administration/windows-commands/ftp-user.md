@@ -1,8 +1,8 @@
 ---
 title: FTP-Benutzer
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1c9406af0868421fa54fe757742cf2a120561b9c
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 63281a0ffdd646d3652eb3a442a8edd9acec9cce
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438347"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375869"
 ---
 # <a name="ftp-user"></a>FTP: Benutzer
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Gibt ein Benutzer mit dem Remotecomputer an.   
+Gibt einen Benutzer für den Remote Computer an.   
 ## <a name="syntax"></a>Syntax  
 ```  
 user <UserName> [<Password>] [<Account>]  
@@ -33,14 +33,14 @@ user <UserName> [<Password>] [<Account>]
 
 |  Parameter   |                                                                      Beschreibung                                                                      |
 |--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  <UserName>  |                                          Gibt einen Benutzernamen mit dem Melden Sie sich an den Remotecomputer.                                           |
-| [<Password>] |               Gibt das Kennwort für *Benutzername*. Wenn ein Kennwort nicht angegeben ist, jedoch erforderlich ist, **ftp** fordert das Kennwort.               |
-| [<Account>]  | Gibt ein Konto mit dem Melden Sie sich an den Remotecomputer. Wenn ein *Konto* wird nicht angegeben, aber es ist erforderlich, **ftp** für das Konto aufgefordert. |
+|  <UserName>  |                                          Gibt einen Benutzernamen an, mit dem sich beim Remote Computer anmelden soll.                                           |
+| [<Password>] |               Gibt das Kennwort für den *Benutzernamen*an. Wenn kein Kennwort angegeben ist, aber erforderlich ist, werden Sie von **FTP** zur Eingabe des Kennworts aufgefordert.               |
+| [<Account>]  | Gibt ein Konto an, mit dem Sie sich beim Remote Computer anmelden können. Wenn kein *Konto* angegeben ist, aber erforderlich ist, werden Sie von **FTP** zur Eingabe des Kontos aufgefordert. |
 
-## <a name="BKMK_Examples"></a>Beispiele für  
-Geben Sie mit dem Kennwort Password1 "user1" ein.  
+## <a name="BKMK_Examples"></a>Beispiele  
+Geben Sie user1 mit dem Kennwort Password1 an.  
 ```  
 user User1 Password1  
 ```  
-## <a name="additional-references"></a>Zusätzliche Referenzen  
+## <a name="additional-references"></a>Weitere Verweise  
 -   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

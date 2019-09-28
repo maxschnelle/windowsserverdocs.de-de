@@ -1,88 +1,88 @@
 ---
 title: BranchCache-Bereitstellungshandbuch
-description: Dieses Thema ist Teil von BranchCache Deployment Guide für Windows Server 2016, die veranschaulicht, wie Sie BranchCache in verteilter und gehosteter Cachemodus zur Optimierung der WAN-bandbreitennutzung in Zweigstellen bereitstellen
+description: Dieses Thema ist Teil des BranchCache-Bereitstellungs Handbuchs für Windows Server 2016, das zeigt, wie BranchCache im Modus für verteilte und gehostete Caches bereitgestellt wird, um die WAN-Bandbreitenauslastung in Zweigniederlassungen zu optimieren.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: 3830b356-36d3-44f9-a1d7-990ff3e57403
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 9bccf69f0a913159a395fabc670a63e2c159bd91
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 14eb9e5b4d5a28a64d3cfa0d27b5294ba7168da9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888181"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356731"
 ---
 # <a name="branchcache-deployment-guide"></a>BranchCache-Bereitstellungshandbuch
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können dieses Handbuch verwenden, erfahren, wie zum Bereitstellen von BranchCache in Windows Server 2016.  
+In dieser Anleitung erfahren Sie, wie Sie BranchCache in Windows Server 2016 bereitstellen.  
   
-Über dieses Thema hinaus enthält dieses Handbuch in den folgenden Abschnitten.  
+Zusätzlich zu diesem Thema enthält dieses Handbuch die folgenden Abschnitte.  
   
 -   [Auswählen eines BranchCache-Entwurfs](../../branchcache/plan/Choosing-a-BranchCache-Design.md)  
   
 -   [Bereitstellen von BranchCache](../../branchcache/deploy/Deploy-BranchCache.md)  
   
-## <a name="branchcache-deployment-overview"></a>Übersicht über die BranchCache-Bereitstellung
+## <a name="branchcache-deployment-overview"></a>BranchCache-Bereitstellungs Übersicht
 
-BranchCache ist eine Technologie wide Area Network (WAN) Bandbreite Optimierung, die in einigen Editionen von Windows Server 2016, Windows Server enthalten ist&reg; 2012 R2, Windows Server&reg; 2012, Windows Server&reg; 2008 R2, und die zugehörigen Windows-Clientbetriebssysteme.  
+BranchCache ist eine Technologie zur Optimierung der Bandbreite in einem WAN (Wide Area Network), die in einigen Editionen von Windows Server 2016, Windows Server @ no__t-0 2012 R2, Windows Server @ no__t-1 2012, Windows Server @ no__t-2 2008 R2 und zugehöriger Windows-Client enthalten ist. Betriebssysteme:  
   
 Zur Verbesserung der WAN-Bandbreite kopiert BranchCache Inhalte von den Hauptinhaltsservern von Zweigstellen einer Organisation und erlaubt es Clientcomputern in diesen Zweigstellen, lokal und nicht über das WAN auf diese Inhalte zuzugreifen.  
   
-In den Zweigstellen Inhalt zwischengespeichert wird, entweder auf Servern mit den BranchCache-Feature von WindowsServer 2016, Windows Server 2012 R2, Windows Server 2012 oder Windows Server 2008 R2 - oder, treten keine Server, die in der Filiale Inhalt verfügbar ist cac Hed auf Clientcomputern, auf denen Windows 10&reg;, Windows&reg; 8.1, Windows 8 oder Windows 7&reg; .  
+In Zweigstellen werden die Inhalte entweder auf Servern zwischengespeichert, auf denen das BranchCache-Feature von Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 oder Windows Server 2008 R2 ausgeführt wird. Wenn in der Zweigstelle keine Server verfügbar sind, ist der Inhalt "CAC". auf Client Computern, auf denen Windows 10 @ no__t-0, Windows @ no__t-1 8,1, Windows 8 oder Windows 7 @ no__t-2 ausgeführt wird.  
   
-Nachdem ein Clientcomputer anfordert und empfängt Sie Inhalte aus dem main Office "oder" Cloud-Rechenzentrum und der Inhalt wird in der Zweigstelle zwischengespeichert, können andere Computer in derselben Zweigstelle abrufen, die Inhalte lokal, sondern wenden Sie sich an den Inhaltsserver, über die WAN-Verbindung.  
+Nachdem ein Client Computer Inhalte von der Hauptniederlassung oder dem cloudrechenzentrum angefordert und empfangen hat und die Inhalte in der Zweigstelle zwischengespeichert wurden, können andere Computer in derselben Zweigstelle den Inhalt lokal abrufen, anstatt eine Verbindung mit dem Inhalts Server über die WAN-Link.  
   
 **Vorteile der Bereitstellung von BranchCache**  
   
-BranchCache-Caches-Datei, Web- und Anwendungsinhalte an filialstandorten, sodass Clientcomputer Zugriff auf Daten mit dem Local Area Network (LAN) statt den Zugriff auf die Inhalte über langsame WAN-Verbindungen.  
+Mit BranchCache werden Datei-, Web-und Anwendungs Inhalte in Zweigstellen Caches zwischengespeichert, sodass Client Computer über das lokale Netzwerk (Local Area Network, LAN) auf Daten zugreifen können, anstatt über langsame WAN-Verbindungen auf den Inhalt zuzugreifen.  
   
-BranchCache reduziert sowohl die WAN-Datenverkehr als auch die Zeit, die für Benutzer in Filialen zum Öffnen von Dateien im Netzwerk erforderlich ist.  BranchCache bietet immer Benutzer mit den neuesten Daten aus, und sie die Sicherheit Ihrer Inhalte schützt, indem Sie die Caches auf dem gehosteten Cacheserver sowie auf den Clientcomputern zu verschlüsseln.  
+BranchCache reduziert sowohl den WAN-Datenverkehr als auch die Zeit, die für Benutzer in Filialen zum Öffnen von Dateien im Netzwerk benötigt wird.  BranchCache stellt den Benutzern immer die aktuellsten Daten bereit und schützt die Sicherheit Ihrer Inhalte durch Verschlüsseln der Caches auf dem gehosteten Cache Server und auf Client Computern.  
   
 ### <a name="what-this-guide-provides"></a>Inhalt dieses Handbuchs  
 Dieses Bereitstellungshandbuch zeigt Ihnen, wie BranchCache in den folgenden Modi bereitgestellt wird:  
   
--   Modus "verteilter Cache". In diesem Modus Branch Office-Client-Computer herunterladen von Inhalten von den Inhaltsserver in der hauptniederlassung oder die Cloud, und klicken Sie dann für andere Computer in derselben Zweigstelle zwischengespeichert. Für den Modus für verteilte Caches ist in der Zweigstelle kein Servercomputer erforderlich.  
+-   Modus "verteilter Cache". In diesem Modus laden Zweigstellen Client Computer Inhalte von den Inhalts Servern in der Hauptniederlassung oder der Cloud herunter und speichern den Inhalt für andere Computer in derselben Zweigstelle zwischen. Für den Modus für verteilte Caches ist in der Zweigstelle kein Servercomputer erforderlich.  
   
--   Modus für gehostete Caches. In diesem Modus ruft Branch Office Computer herunterladen des Clients Inhalt von den Inhaltsserver in der hauptniederlassung oder Cloud und einen gehosteten Cacheserver den Inhalt von den Clients ab. Der Inhalt für andere Clientcomputer werden von der gehosteten Cacheserver dann zwischengespeichert.  
+-   Modus für gehostete Caches. In diesem Modus werden von Zweigstellen Client Computern Inhalt von den Inhalts Servern in der Hauptniederlassung oder der Cloud heruntergeladen, und von einem gehosteten Cache Server wird der Inhalt von den Clients abgerufen. Der gehostete Cache Server speichert dann den Inhalt für andere Client Computer zwischen.  
   
-Dieses Handbuch enthält auch Anweisungen zum Bereitstellen von drei Arten von inhaltsservern. Inhaltsserver dieses Typs enthalten, des Quellinhalts, der von Clientcomputern für Branch Office heruntergeladen wurde, und eine oder mehrere Inhaltsserver ist erforderlich, um BranchCache in beiden Modi bereitstellen. Es gibt die folgenden Typen von Inhaltsservern:  
+Dieses Handbuch enthält auch Anweisungen zum Bereitstellen von drei Arten von Inhalts Servern. Inhalts Server enthalten den Quell Inhalt, der von Zweigstellen Client Computern heruntergeladen wird, und mindestens einen Inhalts Server ist erforderlich, um BranchCache in beiden Modi bereitzustellen. Es gibt die folgenden Typen von Inhaltsservern:  
   
--   **Web-Server-basierte Inhaltsserver**. Inhaltsserver dieses Typs senden Inhalte über HTTP und HTTPS an BranchCache-Clientcomputer. Inhaltsserver dieses Typs müssen ausgeführt werden, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 oder Windows Server 2008 R2-Versionen, die BranchCache unterstützen und bei denen die BranchCache-Funktion installiert ist.  
+-   **Webserver basierte Inhalts Server**. Inhaltsserver dieses Typs senden Inhalte über HTTP und HTTPS an BranchCache-Clientcomputer. Auf diesen Inhalts Servern müssen die Versionen Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 oder Windows Server 2008 R2 ausgeführt werden, die BranchCache unterstützen und auf denen das BranchCache-Feature installiert ist.  
   
--   **BITS-basierte Anwendungsserver**. Inhaltsserver dieses Typs senden Inhalte an BranchCache-Clientcomputer, die die Intelligent Service (BITS) verwenden. Inhaltsserver dieses Typs müssen ausgeführt werden, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 oder Windows Server 2008 R2-Versionen, die BranchCache unterstützen und bei denen die BranchCache-Funktion installiert ist.  
+-   **Bits-basierte Anwendungsserver**. Diese Inhalts Server senden mithilfe der Bits (Bits) Inhalte an BranchCache-Client Computer. Auf diesen Inhalts Servern müssen die Versionen Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 oder Windows Server 2008 R2 ausgeführt werden, die BranchCache unterstützen und auf denen das BranchCache-Feature installiert ist.  
   
--   **Server-basierte Inhaltsserver Datei**. Inhaltsserver dieses Typs müssen ausgeführt werden, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 oder Windows Server 2008 R2-Versionen, die BranchCache unterstützen und bei dem die Dateidienste-Serverrolle installiert ist. Darüber hinaus die **BranchCache für Netzwerkdateien** Rollendienst der Dateidienste-Serverrolle installiert und konfiguriert werden muss. Inhaltsserver dieses Typs senden Inhalte über SMB (Server Message Block) an BranchCache-Clientcomputer.  
+-   **Dateiserver basierte Inhalts Server**. Auf diesen Inhalts Servern müssen die Versionen Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 oder Windows Server 2008 R2 ausgeführt werden, die BranchCache unterstützen und auf denen die Server Rolle "Dateidienste" installiert ist. Außerdem muss der Rollen Dienst " **BranchCache für Netzwerkdateien** " der Server Rolle "Dateidienste" installiert und konfiguriert werden. Inhaltsserver dieses Typs senden Inhalte über SMB (Server Message Block) an BranchCache-Clientcomputer.  
   
 Weitere Informationen finden Sie unter [Betriebssystemversionen für BranchCache](https://technet.microsoft.com/windows-server-docs/networking/branchcache/branchcache#a-namebkmkosaoperating-system-versions-for-branchcache).  
   
-### <a name="branchcache-deployment-requirements"></a>Anforderungen für die Bereitstellung von BranchCache
+### <a name="branchcache-deployment-requirements"></a>BranchCache-Bereitstellungs Anforderungen
 
-Es folgen die Anforderungen für die Bereitstellung von BranchCache mithilfe dieses Handbuchs.  
+Im folgenden finden Sie die Anforderungen für die Bereitstellung von BranchCache mithilfe dieses Handbuchs.  
   
--   **Datei- und Web content Server** muss eines der folgenden Betriebssysteme eine BranchCache-Funktionalität ausgeführt werden: WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012 oder Windows Server 2008 R2. Windows 8 und neuere Clients finden die Vorteile von BranchCache, beim Zugriff auf die Inhaltsserver, die Windows Server 2008 R2 ausgeführt werden, aber sie nicht machen können weiterhin neue Segmentierung und die Technologien in Windows Server 2016, Windows Server 2012-hashing R2 und WindowsServer 2012.  
+-   Auf **Datei-und Webinhalts Servern** muss eines der folgenden Betriebssysteme ausgeführt werden, um die BranchCache-Funktionalität bereitstellen zu können: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 oder Windows Server 2008 R2. Windows 8-Clients und spätere Clients sehen weiterhin Vorteile von BranchCache beim Zugriff auf Inhalts Server, auf denen Windows Server 2008 R2 ausgeführt wird. Sie können jedoch nicht die neuen Segmentierungs-und hashingtechnologien in Windows Server 2016, Windows Server 2012 verwenden. R2 und Windows Server 2012.  
   
--   **Clientcomputer** muss ausgeführt werden, Windows 10, Windows 8.1 oder Windows 8 zu verwenden, der das neueste Bereitstellungsmodell und Segmentierung und hashing Verbesserungen, die mit Windows Server 2012 eingeführt wurden.  
+-   Auf **Client Computern** muss Windows 10, Windows 8.1 oder Windows 8 ausgeführt werden, um das aktuellste Bereitstellungs Modell und die in Windows Server 2012 eingeführten Verbesserungen für das segmentieren und hashten nutzen zu können.  
   
--   **Gehostete Cacheserver** muss Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012, um die Verwendung von den Verbesserungen für die Bereitstellung und skalieren in diesem Dokument beschriebenen Features ausgeführt werden.  Ein Computer mit einem dieser Betriebssysteme, die als gehosteten Cacheserver konfiguriert ist kann weiterhin auf Clientcomputern bereitstellen, auf denen Windows 7 ausgeführt werden, sondern auf die in diesem Fall wird es mit einem Zertifikat ausgestattet sein muss, die für Transport Layer Security (TLS geeignet ist ), wie in den Windows Server 2008 R2 und Windows 7 beschrieben [BranchCache-Bereitstellungshandbuch](https://technet.microsoft.com/library/ee649232.aspx).  
+-   Auf **gehosteten Cache Servern** muss Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 ausgeführt werden, um die in diesem Dokument beschriebenen Verbesserungen für die Bereitstellung und Skalierungs Funktionen nutzen zu können.  Ein Computer, auf dem eines der Betriebssysteme ausgeführt wird, das als gehosteter Cache Server konfiguriert ist, kann weiterhin Client Computern unter Windows 7 bereitstellen, muss jedoch mit einem Zertifikat ausgestattet sein, das für die Transport Layer Security geeignet ist (TLS ), wie im Windows Server 2008 R2-und Windows 7 [BranchCache-Bereitstellungs Handbuch](https://technet.microsoft.com/library/ee649232.aspx)beschrieben.  
   
--   **Active Directory-Domäne** ist erforderlich, um die Gruppenrichtlinie und die automatische Suche nach gehosteten Cacheservern, nutzen jedoch eine Domäne ist nicht erforderlich, um die BranchCache verwenden.  Sie können einzelne Computer mithilfe von Windows PowerShell konfigurieren. Darüber hinaus ist es nicht erforderlich, dass Ihre Domänencontroller WindowsServer 2012 oder höher, um die neue Gruppenrichtlinie BranchCache-Einstellungen; nutzen ausgeführt werden Sie können die administrativen Vorlagen für BranchCache auf Domänencontroller, auf denen frühere Betriebssysteme ausgeführt werden, oder importieren Sie Remote auf anderen Computern unter Windows 10, Windows Server 2016, Windows 8.1 Group Policy Objects erstellen können, Windows Server 2012 R2, Windows 8 oder WindowsServer 2012.
+-   **Eine Active Directory Domäne** ist erforderlich, um die automatische Ermittlung von Gruppenrichtlinie und gehosteten Caches zu nutzen, aber für die Verwendung von BranchCache ist keine Domäne erforderlich.  Sie können einzelne Computer mithilfe von Windows PowerShell konfigurieren. Außerdem ist es nicht erforderlich, dass auf Ihren Domänen Controllern Windows Server 2012 oder höher ausgeführt wird, um neue BranchCache-Gruppenrichtlinie Einstellungen zu nutzen. Sie können die BranchCache-Verwaltungsvorlagen auf Domänen Controllern importieren, auf denen frühere Betriebssysteme ausgeführt werden, oder Sie können die Gruppenrichtlinien Objekte Remote auf anderen Computern erstellen, auf denen Windows 10, Windows Server 2016 und Windows 8.1 ausgeführt werden. Windows Server 2012 R2, Windows 8 oder Windows Server 2012.
 
--   **Active Directory-Standorte** werden verwendet, um den Umfang der gehostete Cacheserver zu beschränken, die automatisch ermittelt werden.  Um einen gehosteten Cacheserver automatisch ermitteln zu können, müssen sowohl die Client- und Servercomputer am selben Standort angehören. BranchCache ist eine minimale Auswirkung auf Clients und Servern vorgesehen, und es entstehen keine zusätzlichen hardwareanforderungen hinausgehen erforderlich, um ihre jeweiligen Betriebssystemen.  
+-   **Active Directory Standorte** werden verwendet, um den Umfang von gehosteten Cache Servern einzuschränken, die automatisch ermittelt werden.  Um einen gehosteten Cache Server automatisch zu ermitteln, müssen sowohl der Client als auch der Server Computer demselben Standort angehören. BranchCache ist auf eine minimale Auswirkung auf Clients und Server ausgelegt und erzwingt keine zusätzlichen Hardwareanforderungen, die über diejenigen hinausgehen, die zum Ausführen der jeweiligen Betriebssysteme erforderlich sind.  
 
-**BranchCache-Verlauf und Dokumentation**
+**BranchCache-Verlauf und-Dokumentation**
 
-BranchCache wurde erstmals in Windows 7&reg; und Windows Server&reg; 2008 R2 und in Windows Server 2012, Windows 8 und späteren Betriebssystemen verbessert wurde.
+BranchCache wurde erstmals in Windows 7 @ no__t-0 und Windows Server @ no__t-1 2008 R2 eingeführt und wurde in den Betriebssystemen Windows Server 2012, Windows 8 und höher verbessert.
 
 > [!NOTE]
-> Wenn Sie BranchCache in anderen Betriebssystemen als Windows Server 2016 bereitstellen, sind die folgenden Dokumentationsressourcen verfügbar.
+> Wenn Sie BranchCache in anderen Betriebssystemen als Windows Server 2016 bereitstellen, sind die folgenden Dokumentations Ressourcen verfügbar.
 > 
-> - Weitere Informationen zu BranchCache in Windows 8, Windows 8.1, Windows Server 2012 und Windows Server 2012 R2, finden Sie unter [Übersicht über die BranchCache](https://technet.microsoft.com/library/hh831696.aspx).  
-> - Weitere Informationen zu BranchCache in Windows 7 und Windows Server 2008 R2, finden Sie unter [BranchCache für Windows Server 2008 R2](https://technet.microsoft.com/library/dd996634.aspx).  
+> - Informationen zu BranchCache in Windows 8, Windows 8.1, Windows Server 2012 und Windows Server 2012 R2 finden Sie unter [Übersicht über BranchCache](https://technet.microsoft.com/library/hh831696.aspx).  
+> - Informationen zu BranchCache in Windows 7 und Windows Server 2008 R2 finden Sie unter [BranchCache für Windows Server 2008 R2](https://technet.microsoft.com/library/dd996634.aspx).  
   
 
 

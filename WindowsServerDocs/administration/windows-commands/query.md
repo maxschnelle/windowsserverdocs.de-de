@@ -1,8 +1,8 @@
 ---
 title: query
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ebe10bb78a6a901871a75e8533b3389c38060666
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d0aee400a3fae38cce73a34b55aa92f266082b19
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863151"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371837"
 ---
 # <a name="query"></a>query
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zeigt Informationen über Prozesse, Sitzungen und Remotedesktop-Sitzungshost (RD Session Host)-Server.
+Zeigt Informationen zu Prozessen, Sitzungen und Remotedesktop-Sitzungshost (RD-Sitzungshost)-Servern an.
 
 > [!NOTE]
-> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Neuerungen in der neuesten Version finden Sie unter [welche s New in Remote Desktop Services in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der technischen Bibliothek für Windows Server.
+> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der TechNet-Bibliothek für Windows Server.
 
 ## <a name="syntax"></a>Syntax
 ```
@@ -40,11 +40,11 @@ query user
 ## <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
-|[Abfrageprozess](query-process.md)|Zeigt Informationen zu Prozessen, die auf einen Remotedesktop-Sitzungshostserver ausgeführt werden.|
-|[abfragesitzung](query-session.md)|Zeigt Informationen zu Sitzungen auf einem Remotedesktop-Sitzungshostserver.|
-|[Abfrage termserver](query-termserver.md)|Zeigt eine Liste aller RD-Sitzungshost-Server im Netzwerk.|
-|[Benutzer, der Abfragen](query-user.md)|Informationen über die Sitzung des Benutzers auf einen Remotedesktop-Sitzungshostserver angezeigt.|
+|[Abfrageprozess](query-process.md)|Zeigt Informationen zu Prozessen an, die auf einem Remote Desktop-Sitzungs Host Server ausgeführt werden.|
+|[Abfrage Sitzung](query-session.md)|Zeigt Informationen zu Sitzungen auf einem Remote Desktop-Sitzungs Host Server an.|
+|[termserver Abfragen](query-termserver.md)|Zeigt eine Liste aller RD-Sitzungs Host Server im Netzwerk an.|
+|[Benutzer Abfragen](query-user.md)|Zeigt Informationen zu Benutzersitzungen auf einem Remote Desktop-Sitzungs Host Server an.|
 
-#### <a name="additional-references"></a>Zusätzliche Referenzen
-[Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-[Remotedesktopdienste &#40;Terminaldienste&#41; -Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)
+#### <a name="additional-references"></a>Weitere Verweise
+[Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+[Remotedesktopdienste &#40;Befehlsreferenz&#41; für Terminal Dienste](remote-desktop-services-terminal-services-command-reference.md)

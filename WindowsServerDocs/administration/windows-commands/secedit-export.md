@@ -1,8 +1,8 @@
 ---
-title: secedit:export
-description: 'Windows-Befehle Thema ***- '
+title: 'secedit: Export'
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 398d2fa47f2418aec910569c2eb85aec408ad482
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 2aed2774bcba1ac3d5ba828901586acbbe24d255
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441590"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384248"
 ---
-# <a name="seceditexport"></a>secedit:export
+# <a name="seceditexport"></a>secedit: Export
 
 
 
-Exportiert die Sicherheitseinstellungen, die in einer Datenbank mit Sicherheitsvorlagen konfiguriert gespeichert. Beispiele wie dieser Befehl verwendet werden kann, finden Sie unter [Beispiele](#BKMK_Examples).
+Exportiert Sicherheitseinstellungen, die in einer Datenbank gespeichert sind, die mit Sicherheits Vorlagen konfiguriert wurde. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,24 +36,24 @@ Secedit /export /db <database file name> [/mergedpolicy] /cfg <configuration fil
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|db|Erforderlich.</br>Gibt den Pfad und Dateinamen Namen einer Datenbank, die die gespeicherte Konfiguration enthält, für die Analyse ausgeführt wird.</br>Wenn Dateiname, eine Datenbank, die nicht über eine Sicherheitsvorlage angibt (dargestellt durch die Konfigurationsdatei) zugeordnet, wurde die `/cfg \<configuration file name>` Befehlszeilenoption muss auch angegeben werden.|
-|mergedpolicy|Optional.</br>Zusammengeführt, und exportiert, Domäne und zu den lokalen Gruppenrichtlinien-Sicherheitseinstellungen.|
-|cfg|Erforderlich.</br>Gibt an, der Pfad und Dateiname für die Sicherheitsvorlage, die in der Datenbank für die Analyse importiert werden.</br>Diese/cfg-Option ist nur gültig, wenn Sie mit der `/db \<database file name>` Parameter. Wenn dies nicht angegeben wird, erfolgt die Analyse für eine Konfiguration, die bereits in der Datenbank gespeichert.|
-|Bereiche|Optional.</br>Gibt an, die Sicherheitsbereiche, die auf das System angewendet werden. Wenn dieser Parameter nicht angegeben ist, werden alle in der Datenbank definierten Sicherheitseinstellungen auf das System angewendet. Um mehrere Bereiche konfigurieren möchten, trennen Sie diese durch ein Leerzeichen. Die folgenden Sicherheitsbereiche werden unterstützt:</br>-SecurityPolicy</br>    Überwachen lokale Richtlinien und Domänenrichtlinien für das System, einschließlich der Kontorichtlinien, Richtlinien, Sicherheitsoptionen und So weiter.</br>-Group_Mgmt</br>    Eingeschränkte Gruppe von Einstellungen für alle Gruppen, die in der Sicherheitsvorlage angegeben.</br>-User_Rights</br>    Benutzerrechte für die Anmeldung und gewähren von Berechtigungen.</br>-   RegKeys</br>    Sicherheit für lokale Registrierungsschlüssel.</br>-Dateispeicher</br>    Sicherheit auf lokalen Speicherplatz.</br>-Dienste</br>    Sicherheit für alle definierten Dienste.|
-|log|Dies ist optional.</br>Gibt den Pfad und Dateiname den Namen der Protokolldatei für den Prozess.|
-|Quiet|Optional.</br>Unterdrückt die Ausgabe von Bildschirm und Protokolldateien. Sie können dennoch Analyseergebnisse Ansicht mit der Sicherheitskonfiguration und-Analyse-Snap-in auf der Microsoft Management Console (MMC).|
+|Utility|Erforderlich.</br>Gibt den Pfad und den Dateinamen einer Datenbank an, die die gespeicherte Konfiguration enthält, für die die Analyse ausgeführt wird.</br>Wenn der Dateiname eine Datenbank angibt, der keine Sicherheits Vorlage (wie durch die Konfigurationsdatei dargestellt) zugeordnet ist, muss auch `/cfg \<configuration file name>` die Befehlszeilenoption angegeben werden.|
+|mergedpolicy|Optional.</br>Führt die Sicherheitseinstellungen für die Domäne und die lokale Richtlinie zusammen.|
+|cfg|Erforderlich.</br>Gibt den Pfad und den Dateinamen für die Sicherheits Vorlage an, die zur Analyse in die Datenbank importiert werden.</br>Diese/cfg-Option ist nur gültig, wenn Sie `/db \<database file name>` mit dem-Parameter verwendet wird. Wenn dies nicht angegeben ist, wird die Analyse für jede Konfiguration ausgeführt, die bereits in der Datenbank gespeichert ist.|
+|Felder|Optional.</br>Gibt die Sicherheitsbereiche an, die auf das System angewendet werden sollen. Wenn dieser Parameter nicht angegeben wird, werden alle in der Datenbank definierten Sicherheitseinstellungen auf das System angewendet. Zum Konfigurieren mehrerer Bereiche trennen Sie jeden Bereich durch ein Leerzeichen. Die folgenden Sicherheitsbereiche werden unterstützt:</br>-SecurityPolicy</br>    Lokale Richtlinie und Domänen Richtlinie für das System, einschließlich Konto Richtlinien, Überwachungs Richtlinien, Sicherheitsoptionen usw.</br>- Group_Mgmt</br>    Eingeschränkte Gruppeneinstellungen für alle Gruppen, die in der Sicherheits Vorlage angegeben sind.</br>- User_Rights</br>    Benutzer Anmelde Rechte und erteilen von Berechtigungen.</br>-REGKEYS</br>    Sicherheit für lokale Registrierungsschlüssel.</br>-File Store</br>    Sicherheit im lokalen Dateispeicher.</br>-Dienste</br>    Sicherheit für alle definierten Dienste.|
+|angezeigt|Optional.</br>Gibt den Pfad und den Dateinamen der Protokolldatei für den Prozess an.|
+|Geschwiegen|Optional.</br>Unterdrückt die Bildschirm-und Protokoll Ausgabe. Sie können weiterhin Analyseergebnisse anzeigen, indem Sie das Snap-in "Sicherheitskonfiguration und-Analyse" in der Microsoft Management Console (MMC) verwenden.|
 
 ## <a name="remarks"></a>Hinweise
 
-Sie können diesen Befehl verwenden, um Ihre Sicherheitsrichtlinien auf einem lokalen Computer zusätzlich zum Importieren der Einstellungen auf einem anderen Computer zu sichern.
+Sie können diesen Befehl verwenden, um Ihre Sicherheitsrichtlinien auf einem lokalen Computer zu sichern, zusätzlich zum Importieren der Einstellungen auf einen anderen Computer.
 
-Wenn der Pfad für die Protokolldatei nicht, die Standardprotokolldatei, bereitgestellt wird (*Systemroot*\Documents and Settings\*UserAccount<em>\My Documents\Security\Logs\*DatabaseName</em>. Protokoll) wird verwendet.
+Wenn der Pfad für die Protokolldatei nicht bereitgestellt wird, wird die Standardprotokoll Datei (*systemroot*\Documents and\*Settings Useraccount<em>\My documents\security\logs\*DatabaseName</em>. log) verwendet.
 
-In Windows Server 2008 `Secedit /refreshpolicy` wurde durch ersetzt `gpupdate`. Informationen zum Aktualisieren von Sicherheitseinstellungen, finden Sie unter [Gpupdate](gpupdate.md).
+In Windows Server 2008 `Secedit /refreshpolicy` wurde durch `gpupdate`ersetzt. Weitere Informationen zum Aktualisieren von Sicherheitseinstellungen finden Sie unter [gpupdate](gpupdate.md).
 
-## <a name="BKMK_Examples"></a>Beispiele für
+## <a name="BKMK_Examples"></a>Beispiele
 
-Exportieren Sie die Sicherheitskonten-Datenbank und die Sicherheitsrichtlinien für die Domäne in eine inf-Datei und importieren Sie diese Datei in eine andere Datenbank, um die Sicherheitseinstellungen für die Richtlinie auf einem anderen Computer zu replizieren.
+Exportieren Sie die Sicherheitsdatenbank und die Domänen Sicherheitsrichtlinien in eine INF-Datei, und importieren Sie diese Datei in eine andere Datenbank, um die Sicherheitsrichtlinien Einstellungen auf einem anderen Computer zu replizieren.
 ```
 Secedit /export /db C:\Security\FY11\SecDbContoso.sdb /mergedpolicy /cfg SecContoso.inf /log C:\Security\FY11\SecAnalysisContosoFY11.log /quiet
 ```

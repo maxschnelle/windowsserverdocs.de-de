@@ -6,33 +6,33 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 5767fa45f8b25680aa1b1d97ddab630923d10fae
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 132e71cec134d17dd73be998683c09f752fdc414
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192489"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71360331"
 ---
 # <a name="add-a-host-a-resource-record-to-corporate-dns-for-a-federation-server"></a>Hinzufügen eines Hostressourceneintrags (A) zum Unternehmens-DNS für einen Verbundserver
 
 
 
-Für Clients im Unternehmensnetzwerk zugreifen einen Verbundserver unter Verwendung der integrierten Windows-Authentifizierung einen Host im Netzwerk \(ein\) -Ressourceneintrag muss zuerst erstellt werden, in das Unternehmen Domain Name System \(DNS\) , der den Hostnamen des Verbundservers Konto auflöst \(z. B. "FS.Fabrikam.com"\) der IP-Adresse des Verbundservers oder Verbund-Server-Cluster. Sie können das folgende Verfahren zum Hinzufügen eines Hosts \(ein\) -Ressourceneintrag auf Unternehmens-DNS für einen Verbundserver.  
+Damit Clients im Unternehmensnetzwerk mithilfe der integrierten Windows-Authentifizierung erfolgreich auf einen Verbund Server zugreifen können, muss zunächst ein Host \(A @ no__t-1-Ressourcen Daten Satz in der Unternehmens Domain Name System \(dns @ no__t-3 erstellt werden, der die Hostname des Konto Verbund Servers \(z. b. fs. fabrikam. com @ no__t-5 mit der IP-Adresse des Verbund Servers oder des Verbund Server Clusters. Mit dem folgenden Verfahren können Sie dem Unternehmens-DNS für einen Verbund Server einen Host \(A @ no__t-1-Ressourcen Daten Satz hinzufügen.  
   
-Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe sein, damit Sie dieses Verfahren durchführen können.  Weitere Informationen zur Verwendung der geeigneten Konten und Gruppenmitgliedschaften unter [lokale und Domänenstandardgruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe sein, damit Sie dieses Verfahren durchführen können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
-### <a name="to-add-a-host-a-resource-record-to-corporate-dns-for-a-federation-server"></a>Beim Hinzufügen eines Hosts \(ein\) -Ressourceneintrag auf Unternehmens-DNS für einen Verbundserver  
+### <a name="to-add-a-host-a-resource-record-to-corporate-dns-for-a-federation-server"></a>So fügen Sie dem Unternehmens-DNS für einen Verbund Server einen Host \(A @ no__t-1-Ressourcen Daten Satz hinzu  
   
-1.  Öffnen Sie auf einen DNS-Server im Unternehmensnetzwerk, die DNS-Snap\-in.  
+1.  Öffnen Sie auf einem DNS-Server für das Unternehmensnetzwerk das DNS-Snap-in @ no__t-0in.  
   
-2.  Direkt in der Konsolenstruktur\-klicken Sie auf die betreffende forward-Lookupzone, und klicken Sie dann auf **neuen Host \(A oder AAAA\)** .  
+2.  Klicken Sie in der Konsolen Struktur mit der rechten Maustaste auf die entsprechende Forward-Lookupzone, und klicken Sie dann auf **neuer Host \(a oder AAAA @ no__t-3**.  
   
-3.  In **Namen**, geben Sie nur den Computernamen des Verbundservers oder Verbund-Servercluster, z. B. für den vollständig qualifizierten Domänennamen \(FQDN\) "FS.Fabrikam.com", Typ **fs**.  
+3.  Geben Sie unter **Name**nur den Computernamen des Verbund Servers oder des Verbund Server Clusters ein. Geben Sie z. b. für den voll qualifizierten Domänen Namen \(fqdn @ no__t-2 FS.fabrikam.com **FS**ein.  
   
-4.  In **IP-Adresse**, geben Sie die IP-Adresse für die Verbundserver- oder Verbund-Servercluster, z. B. 192.168.1.4.  
+4.  Geben Sie unter **IP-Adresse**die IP-Adresse für den Verbund Server oder Verbund Server Cluster ein, z. b. 192.168.1.4.  
   
 5.  Klicken Sie auf **Host hinzufügen**.  
   

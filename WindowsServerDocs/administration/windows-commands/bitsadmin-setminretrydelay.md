@@ -1,8 +1,8 @@
 ---
 title: bitsadmin setminretrydelay
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 640492cf690a934e3e3b8d0ecf8ca7a0d6a7dc2f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 379dfa8bfdc48969f268fd1c9544d3bee8bbe646
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813081"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380513"
 ---
 # <a name="bitsadmin-setminretrydelay"></a>bitsadmin setminretrydelay
 
-Legt der minimalen Länge der Zeit in Sekunden fest, dass BITS wartet, nachdem ein vorübergehender Fehler auftritt, bevor Sie versuchen, die Datei zu übertragen.
+Legt die minimale Zeitspanne (in Sekunden) fest, die Bits nach dem Auftreten eines vorübergehenden Fehlers wartet, bevor versucht wird, die Datei zu übertragen.
 
 ## <a name="syntax"></a>Syntax
 
@@ -34,16 +34,16 @@ bitsadmin /SetMinRetryDelay <Job> <RetryDelay>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
-|RetryDelay|Eine Zahl, ausgedrückt in Sekunden.|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
+|RetryDelay|Eine Zahl, die in Sekunden dargestellt wird.|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Im folgenden Beispiel wird die minimale wiederholungsverzögerung für den Auftrag mit dem Namen *MyDownloadJob* , 35 Sekunden.
+Im folgenden Beispiel wird die minimale Wiederholungs Verzögerung für den Auftrag *mydownloadjob* auf 35 Sekunden festgelegt.
 ```
 C:\>bitsadmin /SetMinRetryDelay myDownloadJob 35
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

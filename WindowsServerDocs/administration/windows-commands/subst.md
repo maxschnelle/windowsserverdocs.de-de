@@ -1,8 +1,8 @@
 ---
 title: subst
-description: Erfahren Sie, wie Sie einen Pfad mit einem Laufwerkbuchstaben zuweisen.
+description: Erfahren Sie, wie Sie einen Pfad mit einem Laufwerk Buchstaben verknüpfen.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 858195de89ca8661cf47c25b6cf9b519cc4efbf8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f3010d1e58fbd360b8311512e6664873b020c12b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858071"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383753"
 ---
 # <a name="subst"></a>subst
 
 
 
-Ordnet einen Pfad einen Laufwerkbuchstaben zu. Wenn Sie ohne Angabe von Parametern **Subst** zeigt die Namen der virtuellen Laufwerke in Kraft.
+Ordnet einen Pfad einem Laufwerk Buchstaben zu. Bei Verwendung ohne Parameter zeigt **subst** die Namen der virtuellen Laufwerke an.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -39,14 +39,14 @@ subst <Drive1>: /d
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<Laufwerk1 >:|Gibt das virtuelle Laufwerk an, das Sie dem angegebenen Pfad zuweisen möchten.|
-|[\<Laufwerk2 >:]\<Pfad >|Gibt den physischen Laufwerk und Pfad, der Sie ein virtuelles Laufwerk zuweisen möchten.|
-|/d|Löscht ein ersetzte (virtuelles) Laufwerk.|
+|\<drive1 >:|Gibt das virtuelle Laufwerk an, dem Sie einen Pfad zuweisen möchten.|
+|[\<drive2 >:] \< Pfad >|Gibt das physische Laufwerk und den Pfad an, die einem virtuellen Laufwerk zugewiesen werden sollen.|
+|/d|Löscht ein ersetzes (virtuelles) Laufwerk.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
--   Die folgenden Befehle funktionieren nicht, und sollte nicht verwendet werden, auf Laufwerken, die im angegebenen die **Subst** Befehl:
+-   Die folgenden Befehle funktionieren nicht und dürfen nicht auf Laufwerken verwendet werden, die im **subst** -Befehl angegeben sind:
 
     **chkdsk**
 
@@ -59,21 +59,21 @@ subst <Drive1>: /d
     **label**
 
     **recover**
--   Die *Laufwerk1* Parameter muss innerhalb des Bereichs, der angegeben wird die **Lastdrive** Befehl. Wenn dies nicht der Fall ist, **Subst** wird die folgende Fehlermeldung angezeigt:
+-   Der *Drive1* -Parameter muss innerhalb des Bereichs liegen, der durch den **LastDrive** -Befehl angegeben wird. Andernfalls zeigt **subst** die folgende Fehlermeldung an:
 
     `Invalid parameter - drive1:`
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um ein virtuelles Laufwerk Z für den Pfad B:\User\Betty\Forms zu erstellen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um ein virtuelles Laufwerk Z für den Pfad b:\user\tool\forms zu erstellen:
 ```
 subst z: b:\user\betty\forms 
 ```
-Anstatt den vollständigen Pfad zu verwenden, können Sie dieses Verzeichnis erreichen, geben Sie die Buchstaben des virtuellen Laufwerks, gefolgt von einem Doppelpunkt wie folgt:
+Anstatt den vollständigen Pfad einzugeben, können Sie dieses Verzeichnis erreichen, indem Sie den Buchstaben des virtuellen Laufwerks gefolgt von einem Doppelpunkt wie folgt eingeben:
 ```
 z: 
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

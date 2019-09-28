@@ -1,8 +1,8 @@
 ---
 title: bootcfg copy
-description: Windows-Befehle Thema **Bootcfg Kopie** -erstellt eine Kopie eines vorhandenen Starteintrags, die Sie hinzufügen können, das Befehlszeilenoptionen.
+description: Windows-Befehls Thema für **bootcfg Copy** -erstellt eine Kopie eines vorhandenen Start Eintrags, dem Sie Befehlszeilenoptionen hinzufügen können.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b76ecfe953d1a462e311fdaaeba35e8f962165c4
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 42a408443cbe6722c25780f7c27d70b05da7eb8e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434863"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380119"
 ---
 # <a name="bootcfg-copy"></a>bootcfg copy
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Erstellt eine Kopie eines vorhandenen Starteintrags, zu dem Sie Befehlszeilenoptionen hinzufügen können.
+Erstellt eine Kopie eines vorhandenen Start Eintrags, dem Sie Befehlszeilenoptionen hinzufügen können.
 
 ## <a name="syntax"></a>Syntax
 ```
@@ -34,17 +34,17 @@ bootcfg /copy [/s <computer> [/u <Domain>\<User> /p <Password>]] [/d <Descriptio
 
 |      Parameter       |                                                                                             Beschreibung                                                                                             |
 |----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    /s <computer>     |                                         Gibt den Namen oder die IP-Adresse eines Remotecomputers (umgekehrte Schrägstriche nicht verwenden). Der Standardwert ist der lokale Computer.                                          |
-| /u <Domain>\\<User>  | Führt den Befehl mit den Berechtigungen des Benutzers gemäß <User>oder <Domain> \\ <User>. Der Standardwert ist die Berechtigungen von der aktuell angemeldete Benutzer auf dem Computer, die der Befehl ausgegeben wird. |
-|    /p <Password>     |                                                        Gibt das Kennwort des Benutzerkontos ein, die im angegebenen die **/u** Parameter.                                                        |
-|   /d <Description>   |                                                                    Gibt die Beschreibung für den neuen Betriebssystem-Eintrag.                                                                    |
-| / ID <OSEntryLineNum> |         Gibt die Zeilennummer der Betriebssystem-Eintrag im Abschnitt [Betriebssysteme] die zu kopierende Datei "Boot.ini" an. Die erste Zeile nach der [Betriebssysteme] Header im Abschnitt ist 1.         |
+|    /s <computer>     |                                         Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Der Standardwert ist der lokale Computer.                                          |
+| /u <Domain> @ no__t-1 @ no__t-2  | Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der durch <User>oder <Domain> @ no__t-2 @ no__t-3 angegeben wird. Der Standardwert sind die Berechtigungen des aktuell angemeldeten Benutzers auf dem Computer, von dem der Befehl ausgegeben wird. |
+|    /p <Password>     |                                                        Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist.                                                        |
+|   /d <Description>   |                                                                    Gibt die Beschreibung für den neuen Betriebssystem Eintrag an.                                                                    |
+| /ID <OSEntryLineNum> |         Gibt die Betriebssystem-Eintrags Zeilennummer im Abschnitt [Betriebssysteme] der zu kopierenden Datei Boot. ini an. Die erste Zeile nach der Abschnitts Kopfzeile [Betriebssystem] ist 1.         |
 |          /?          |                                                                                Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                 |
 
-## <a name="BKMK_examples"></a>Beispiele für
-Die folgenden Beispiele zeigen Informationen zur Verwendung der **Bootcfg startmenübeschreibung** Befehl aus, um Starteintrag 1 kopieren, und geben "\ABC Server\\" als Beschreibung:
+## <a name="BKMK_examples"></a>Beispiele
+In den folgenden Beispielen wird veranschaulicht, wie Sie den Befehl **bootcfg/Copy** verwenden können, um Boot Entry 1 zu kopieren, und geben Sie "\abc Server @ no__t-1" als Beschreibung ein:
 ```
 bootcfg /copy /d "\ABC Server\" /id 1
 ```
-#### <a name="additional-references"></a>Zusätzliche Referenzen
+#### <a name="additional-references"></a>Weitere Verweise
 [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

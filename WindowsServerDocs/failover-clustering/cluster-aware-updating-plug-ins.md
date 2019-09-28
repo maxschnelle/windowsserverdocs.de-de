@@ -2,164 +2,164 @@
 ms.assetid: d44d4430-41e2-483a-9685-92610cdef32a
 title: Funktionsweise von Plug-Ins für Cluster fähiges aktualisieren
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: dongill
 ms.author: jgerend
 author: JasonGerend
 ms.date: 04/28/2017
 ms.technology: storage-failover-clustering
 description: Verwenden von Plug-ins zum Koordinieren von Updates bei Verwendung des Cluster fähigen Aktualisierens in Windows Server zum Installieren von Updates auf einem Cluster.
-ms.openlocfilehash: bd31a6056376b04fcb5a4a941b81a363548a2209
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: f6c572a397530704dd91d9c67c5c1758ccc085c4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544510"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361288"
 ---
 # <a name="how-cluster-aware-updating-plug-ins-work"></a>Funktionsweise von Plug-Ins für Cluster fähiges aktualisieren
 
 >Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-[Cluster fähiges aktualisieren](cluster-aware-updating.md) (Cau) verwendet Plug-ins, um die Installation von Updates auf Knoten in einem Failovercluster zu koordinieren. Dieses Thema enthält Informationen zur Verwendung der integrierten\-Plug\--ins für Cluster fähiges aktualisieren oder\-anderer Plug-ins, die Sie für Cau installieren.
+Beim [Cluster fähigen aktualisieren (Cluster-Aware Update](cluster-aware-updating.md) , Cau) werden Plug-ins verwendet, um die Installation von Updates auf Knoten in einem Failovercluster zu koordinieren. Dieses Thema enthält Informationen zur Verwendung der erstellten @ no__t-0in Cau-Plug @ no__t-1ins oder anderen Plug @ no__t-2ins, die Sie für Cau installieren.
 
-## <a name="BKMK_INSTALL"></a>Installieren eines Plug\--ins  
-Ein anderes\-Plug-in als die Standard\--Plug-ins, die mit \(Cau **Microsoft. windowsupdateplugin** und **Microsoft. hotfixplugin** \) installiert werden, müssen separat installiert werden. Wenn Cau im selbst\-Aktualisierungs Modus verwendet wird, muss das Plug\--in auf allen Cluster Knoten installiert werden. Wenn das Cluster fähige aktualisieren im Remote\-Aktualisierungs Modus verwendet wird\-, muss das Plug-in auf dem Remote Computer für den Update Koordinator installiert sein. Bei einem\-Plug-in, das Sie installieren, sind möglicherweise zusätzliche Installationsanforderungen auf den einzelnen Knoten erforderlich.  
+## <a name="BKMK_INSTALL"></a>Installieren eines Plug-ins @ no__t-1In  
+Ein Plug @ no__t-0in einem anderen als die standardmäßigen Plug @ no__t-1ins, die mit Cau installiert werden \(**Microsoft. windowsupdateplugin** und **Microsoft. hotfixplugin**\) müssen separat installiert werden. Wenn Cau im Self @ no__t-0update-Modus verwendet wird, muss das Plug @ no__t-1In auf allen Cluster Knoten installiert werden. Wenn Cau im Remote Modus @ no__t-0update verwendet wird, muss das Plug @ no__t-1In auf dem Remote Computer mit dem Update Koordinator installiert sein. Bei einem Plug @ no__t-0in, das Sie installieren, sind möglicherweise zusätzliche Installationsanforderungen auf den einzelnen Knoten erforderlich.  
   
-Befolgen Sie zum Installieren\-eines Plug-ins die Anweisungen des Plug\--in-Herausgebers. Wenn Sie ein Plug\--in mit Cau manuell registrieren möchten, führen Sie das [Register-cauplugin-](https://technet.microsoft.com/itpro/powershell/windows/cluster-aware-updating/register-cauplugin) Cmdlet auf\-jedem Computer aus, auf dem das Plug-in installiert ist.  
+Um ein Plug @ no__t-0in zu installieren, befolgen Sie die Anweisungen des Plug @ no__t-1Auf dem Verleger. Wenn Sie ein Plug @ no__t-0in mit Cau manuell registrieren möchten, führen Sie das [Register-cauplugin](https://technet.microsoft.com/itpro/powershell/windows/cluster-aware-updating/register-cauplugin) -Cmdlet auf jedem Computer aus, auf dem Plug @ no__t-2in installiert ist.  
   
-## <a name="specify-a-plug-in-and-plug-in-arguments"></a>Plug\--in-und Plug\--in-Argumente angeben  
+## <a name="specify-a-plug-in-and-plug-in-arguments"></a>Geben Sie einen Plug @ no__t-0in-und einen Plug @ no__t-1In-Argument an.  
   
-### <a name="specify-a-cau-plug-in"></a>Angeben eines Plug\--ins für Cluster fähiges aktualisieren
+### <a name="specify-a-cau-plug-in"></a>Geben Sie ein CAU-Plug @ no__t-0in an.
 
-In der Benutzeroberfläche für Cluster fähiges aktualisieren wählen Sie\-ein Plug-in\-aus einer Dropdown Liste\-der verfügbaren Plug-ins aus, wenn Sie mit Cau die folgenden Aktionen ausführen:  
+Wählen Sie auf der Benutzeroberfläche für Cluster fähiges aktualisieren aus einer Drop @ no__t-1down-Liste der verfügbaren Plug @ no__t-2ins ein Plug @ no__t-0in aus, wenn Sie mit Cau die folgenden Aktionen ausführen:  
   
 -   Anwenden von Updates auf Cluster  
   
 -   Updatevorschau für Cluster  
   
--   Konfigurieren von selbst\-Aktualisierungs Optionen für Cluster  
+-   Konfigurieren von Self @ no__t-Update Optionen für Cluster  
   
-Standardmäßig wählt Cau den Plug\--in **Microsoft. windowsupdateplugin**aus. Sie können jedoch ein beliebiges Plug\--in angeben, das in Cau installiert und registriert ist.
+Standardmäßig wählt Cau den Plug @ no__t-0in **Microsoft. windowsupdateplugin**aus. Allerdings können Sie ein beliebiges Plug @ no__t-0in angeben, das in Cau installiert und registriert ist.
 
 > [!TIP]  
-> Auf der Benutzeroberfläche für Cluster fähiges aktualisieren können Sie nur ein einzelnes\-Plug-in für Cluster fähiges aktualisieren angeben, das für die Vorschauversion oder die Anwendung von Updates während einer Update Laufzeit verwendet werden soll. Mithilfe der PowerShell-Cmdlets für Cluster fähiges aktualisieren können Sie ein oder mehrere Plug\--ins angeben. Wenn Sie mehrere Arten von Updates auf dem Cluster installieren müssen, ist es in der Regel effizienter, mehrere Plug\--ins in einer Update Laufzeit anzugeben, anstatt für jedes Plug\--in eine separate Update-Laufzeit zu verwenden. Dadurch sind z. B. meist weniger Knotenneustarts erforderlich.
+> In der Benutzeroberfläche für Cluster fähiges aktualisieren können Sie nur ein einzelnes Plug @ no__t-0in für das Cluster fähige aktualisieren angeben, das für die Vorschauversion oder für die Anwendung von Updates während einer Update Laufzeit verwendet werden soll. Mithilfe der PowerShell-Cmdlets für Cluster fähiges aktualisieren können Sie mindestens ein Plug @ no__t-0ins angeben. Wenn Sie mehrere Arten von Updates auf dem Cluster installieren müssen, ist es in der Regel effizienter, mehrere Plug @ no__t-0ins in einer Update Laufzeit anzugeben, anstatt für jeden Plug @ no__t-1In eine separate Update-Laufzeit zu verwenden. Dadurch sind z. B. meist weniger Knotenneustarts erforderlich.
 
-Mithilfe der in der folgenden Tabelle aufgeführten PowerShell-Cmdlets für Cluster fähiges aktualisieren können Sie ein oder mehrere Plug\--ins für eine Update-oder Scanvorgang angeben, indem Sie den **– caupluginname** -Parameter übergeben. Sie können mehrere Plug\--in-Namen angeben, indem Sie Sie durch Kommas trennen. Wenn Sie mehrere\-Plug-ins angeben, können Sie auch steuern, wie sich die Plug\--ins während einer  **\-**  **\-** Update Ausführung gegenseitig beeinflussen, indem Sie runpluginsseridal, stoponpluginfailure, angeben. und **– separaterestarts** -Parameter. Weitere Informationen zur Verwendung mehrerer Plug\--ins finden Sie unter den Links, die für die Cmdlet-Dokumentation in der folgenden Tabelle bereitgestellt werden.  
+Mithilfe der in der folgenden Tabelle aufgeführten PowerShell-Cmdlets für Cluster fähiges aktualisieren können Sie mindestens ein Plug @ no__t-0ins für eine Update-oder Scanvorgang angeben, indem Sie den **– caupluginname** -Parameter übergeben. Sie können mehrere Plug @ no__t-0in-Namen angeben, indem Sie Sie durch Kommas trennen. Wenn Sie mehrere Plug @ no__t-0ins angeben, können Sie auch steuern, wie sich die Plug @ no__t-1ins während einer Update Ausführung gegenseitig beeinflussen, indem Sie die **\-runpluginsseridal**, **\-stoponpluginfailure**und **– separaterestarts angeben.** Parameter. Weitere Informationen zur Verwendung mehrerer Plug-in-no__t-0ins finden Sie unter den Links, die für die Cmdlet-Dokumentation in der folgenden Tabelle bereitgestellt werden.  
   
 |Cmdlet|Beschreibung|  
 |----------|---------------|  
-|[Add-cauclusterrole](https://docs.microsoft.com/en-us/powershell/module/clusterawareupdating/add-cauclusterrole)|Fügt die Cluster Rolle für Cluster fähiges aktualisieren hinzu, die\-dem angegebenen Cluster die selbst Aktualisierungs Funktion bereitstellt.|  
+|[Add-cauclusterrole](https://docs.microsoft.com/en-us/powershell/module/clusterawareupdating/add-cauclusterrole)|Fügt die Cluster Rolle für Cluster fähiges aktualisieren hinzu, die die Self @ no__t-0update-Funktionalität für den angegebenen Cluster bereitstellt.|  
 |[Aufrufen: caurun](https://docs.microsoft.com/en-us/powershell/module/clusterawareupdating/invoke-caurun)|Prüft Clusterknoten auf geeignete Updates und installiert diese Updates über eine Updateausführung auf dem angegebenen Cluster.|  
 |[Aufrufen: kauscan](https://docs.microsoft.com/en-us/powershell/module/clusterawareupdating/invoke-causcan)|Prüft Clusterknoten auf geeignete Updates und gibt eine Liste des ersten Updatesatzes zurück, der auf jeden Knoten des angegebenen Clusters angewendet werden würde.|  
 |[Set-cauclusterrole](https://docs.microsoft.com/en-us/powershell/module/clusterawareupdating/set-cauclusterrole)|Legt Konfigurationseigenschaften für die Clusterrolle für clusterfähiges Aktualisieren auf dem angegebenen Cluster fest.|  
   
-Wenn Sie mithilfe dieser Cmdlets keinen Plug\--in-Parameter für Cluster fähiges aktualisieren angeben, ist der Standardwert\-der Plug-in **Microsoft. windowsupdateplugin**.  
+Wenn Sie mit diesen Cmdlets keinen Cau-Plug @ no__t-0in-Parameter angeben, ist der Standardwert Plug @ no__t-1In **Microsoft. windowsupdateplugin**.  
   
-### <a name="specify-cau-plug-in-arguments"></a>Cau-Plug\--in-Argumente angeben  
-Wenn Sie die Optionen\) für die Aktualisierungs Laufzeit konfigurieren, können Sie ein oder mehrere *Name\=-Wert* -Paare \(angeben\-, die für das ausgewählte Plug-in verwendet werden sollen. Auf der Benutzeroberfläche für clusterfähiges Aktualisieren können Sie z. B. wie folgt mehrere Argumente angeben:  
+### <a name="specify-cau-plug-in-arguments"></a>Cau-Plug @ no__t-0in-Argumente angeben  
+Wenn Sie die Optionen für die Aktualisierungs Laufzeit konfigurieren, können Sie einen oder mehrere *Namen @ no__t-1value* -Paare \(arguments @ no__t-3 angeben, die für das ausgewählte Plug @ no__t-4in verwendet werden sollen. Auf der Benutzeroberfläche für clusterfähiges Aktualisieren können Sie z. B. wie folgt mehrere Argumente angeben:  
   
-**Name1\=value1; Name2\=Value2; Name3\=Wert3**  
+**Name1 @ no__t-1value1; Name2 @ no__t-2value2; Name3 @ no__t-3value3**  
   
-Diese *Name\=-Wert* -Paare müssen für das von\-Ihnen angegebene Plug-in sinnvoll sein. Für einige Plug\--ins sind die Argumente optional.  
+Diese *Namen @ no__t-1value-* Paare müssen für das von Ihnen angegebene Plug @ no__t-2in sinnvoll sein. Bei manchen Plug @ no__t-0ins sind die Argumente optional.  
   
-Die Syntax der Plug\--in-Argumente für Cau befolgt diese allgemeinen Regeln:  
+Die Syntax der Cau-Plug @ no__t-0in-Argumente befolgt diese allgemeinen Regeln:  
   
--   Mehrere *Name\=-Wert* -Paare werden durch Semikolons getrennt.  
+-   Multiple *Name @ no__t-1value-* Paare werden durch Semikolons getrennt.  
   
--   Ein Leerzeichen enthaltender Wert wird in Anführungszeichen gestellt. Beispiel: **Name1\="Wert mit Leerzeichen"** .  
+-   Ein Leerzeichen enthaltender Wert wird in Anführungszeichen gestellt. Beispiel: **Name1 @ no__t-1 "Wert mit Leerzeichen"** .  
   
--   Die genaue Syntax des *Werts* hängt vom Plug\--in ab.  
+-   Die genaue Syntax des *Werts* hängt von dem Plug @ no__t-1In ab.  
   
-Zum Angeben von\-Plug-in-Argumenten mithilfe der Cau-PowerShell-Cmdlets, die den Parameter **– caupluginparameters** unterstützen, übergeben Sie einen Parameter in der Form:  
+Zum Angeben von Plug @ no__t-0in-Argumenten mithilfe der Cau-PowerShell-Cmdlets, die den Parameter **– caupluginparameters** unterstützen, übergeben Sie einen Parameter in der Form:  
   
-**\-Caupluginarguments @ {Name1\=value1; Name2\=Value2; Name3\=Wert3}**  
+**\-caupluginarguments @ {Name1 @ no__t-2value1; Name2 @ no__t-3value2; Name3 @ no__t-4value3}**  
   
-Sie können auch eine vordefinierte PowerShell-Hash Tabelle verwenden. Um Plug\--in-Argumente für mehr als ein\-Plug-in anzugeben, übergeben Sie mehrere Hash Tabellen mit Argumenten, die durch Kommas getrennt sind. Übergeben Sie die\-Plug-in-Argumente\-in der Plug-in-Reihenfolge, die in **caupluginname**angegeben ist.  
+Sie können auch eine vordefinierte PowerShell-Hash Tabelle verwenden. Um Plug @ no__t-0in-Argumente für mehr als ein Plug @ no__t-1In anzugeben, übergeben Sie mehrere Hash Tabellen mit Argumenten, die durch Kommas getrennt sind. Übergeben Sie die Plug @ no__t-0in-Argumente im Plug @ no__t-1In der Reihenfolge, die in **caupluginname**angegeben ist.  
   
-### <a name="specify-optional-plug-in-arguments"></a>Angeben Optionaler\-Plug-in-Argumente  
-Die Plug\--ins, die von \(Cau **Microsoft. windowsupdateplugin** und **Microsoft. hotfixplugin** \) installiert werden, bieten zusätzliche Optionen, die Sie auswählen können. Diese werden auf der Benutzeroberfläche für Cluster fähiges aktualisieren auf der Seite **zusätzliche Optionen** angezeigt, nachdem Sie die Optionen für\-die Update Ausführung für das Plug-in konfiguriert haben. Wenn Sie die PowerShell-Cmdlets für Cluster fähiges aktualisieren verwenden, werden diese Optionen als optionale\-Plug-in-Argumente konfiguriert. Weitere Informationen finden Sie unter [Verwenden von "Microsoft.WindowsUpdatePlugin"](#BKMK_WUP) und [Verwenden von "Microsoft.HotfixPlugin"](#BKMK_HFP) weiter unten in diesem Thema.  
+### <a name="specify-optional-plug-in-arguments"></a>Optionale Plug @ no__t-0in-Argumente angeben  
+Die Plug-in-no__t-0ins, die von Cau installiert werden \(**Microsoft. windowsupdateplugin** und **Microsoft. hotfixplugin**\) bieten zusätzliche Optionen, die Sie auswählen können. Diese werden auf der Benutzeroberfläche für Cluster fähiges aktualisieren auf der Seite **zusätzliche Optionen** angezeigt, nachdem Sie die Optionen für die Update Ausführung für das Plug @ no__t-1In konfiguriert haben. Wenn Sie die PowerShell-Cmdlets für Cluster fähiges aktualisieren verwenden, werden diese Optionen als optionale Plug @ no__t-0in-Argumente konfiguriert. Weitere Informationen finden Sie unter [Verwenden von "Microsoft.WindowsUpdatePlugin"](#BKMK_WUP) und [Verwenden von "Microsoft.HotfixPlugin"](#BKMK_HFP) weiter unten in diesem Thema.  
   
-## <a name="manage-plug-ins-using-windows-powershell-cmdlets"></a>Verwalten von\-Plug-Ins mithilfe von Windows PowerShell-Cmdlets  
+## <a name="manage-plug-ins-using-windows-powershell-cmdlets"></a>Verwalten von Plug-in-no__t-0ins mithilfe von Windows PowerShell-Cmdlets  
   
 |Cmdlet|Beschreibung|  
 |----------|---------------|  
-|[Get-cauplugin](https://docs.microsoft.com/en-us/powershell/module/clusterawareupdating/get-cauplugin)|Ruft Informationen zu einem oder mehreren Software Update-Plug\--ins ab, die auf dem lokalen Computer registriert sind.|  
-|[Register-cauplugin]((https://docs.microsoft.com/en-us/powershell/module/clusterawareupdating/register-cauplugin))|Registriert ein Plug\--in für Cau-Software Updates auf dem lokalen Computer.|  
-|[Unregister-cauplugin](https://docs.microsoft.com/en-us/powershell/module/clusterawareupdating/unregister-cauplugin)|Entfernt ein Software Update-\-Plug-in aus der Liste\-der Plug-ins, die von Cau verwendet werden können. **Hinweis**: Die Registrierung\-der Plug-ins, die mit \(Cau **Microsoft. windowsupdateplugin** und **Microsoft. hotfixplugin** \) installiert werden, kann nicht aufgehoben werden.|  
+|[Get-cauplugin](https://docs.microsoft.com/en-us/powershell/module/clusterawareupdating/get-cauplugin)|Ruft Informationen zu mindestens einem softwareupdateaktualisierungs-Plug-in no__t-0ins ab, die auf dem lokalen Computer registriert sind.|  
+|[Register-cauplugin]((https://docs.microsoft.com/en-us/powershell/module/clusterawareupdating/register-cauplugin))|Registriert ein CAU-Softwareupdateverteilungs-Plug @ no__t-0in auf dem lokalen Computer.|  
+|[Unregister-cauplugin](https://docs.microsoft.com/en-us/powershell/module/clusterawareupdating/unregister-cauplugin)|Entfernt ein Software Update-Plug @ no__t-0in aus der Liste der Plug @ no__t-1ins, die von Cau verwendet werden können. **Hinweis**: Bei den mit Cau \(**Microsoft. windowsupdateplugin** und **Microsoft. hotfixplugin**\) installierten Plug @ no__t-0ins kann die Registrierung nicht aufgehoben werden.|  
   
 ## <a name="BKMK_WUP"></a>Verwenden von "Microsoft. windowsupdateplugin"  
 
-Das Standard-\-Plug-in für Cau, **Microsoft. windowsupdateplugin**, führt die folgenden Aktionen aus:
+Das Standard-Plug @ no__t-0in für Cau, **Microsoft. windowsupdateplugin**, führt die folgenden Aktionen aus:
 - Das Plug-In steht in Kontakt mit dem Windows Update-Agent auf den einzelnen Knoten des Failoverclusters, um Updates für die Microsoft-Produkte anzuwenden, die auf den einzelnen Knoten ausgeführt werden.
-- Installiert Cluster Updates direkt von Windows Update oder Microsoft Update oder von einem\-lokalen Windows Server Update Services \(WSUS\) -Server.
-- Installiert nur die ausgewählten, allgemeinen \(\) Updates der releasereleaseversion. Standardmäßig wendet das Plug\--in nur wichtige Software Updates an. Es ist keine Konfiguration erforderlich. Die Standardkonfiguration lädt wichtige Updates von allgemeinen Vertriebsversionen auf die einzelnen Knoten herunter und installiert sie. 
+- Installiert Cluster Updates direkt von Windows Update oder Microsoft Update bzw. von einem auf @ no__t-0lokal Windows Server Update Services \(wsus @ no__t-2 Server.
+- Installiert nur die ausgewählte allgemeine Verteilungs Version \(ddr @ no__t-1 Updates. Standardmäßig wendet das Plug @ no__t-0in nur wichtige Software Updates an. Es ist keine Konfiguration erforderlich. Die Standardkonfiguration lädt wichtige Updates von allgemeinen Vertriebsversionen auf die einzelnen Knoten herunter und installiert sie. 
 
 > [!NOTE]
-> Wenn Sie andere Updates als die wichtigen Software Updates anwenden möchten, die Standard \(mäßig ausgewählt werden, z\). b. Treiber Updates, können\-Sie einen optionalen Plug-in-Parameter konfigurieren. Weitere Informationen finden Sie unter [Konfigurieren der Abfragezeichenfolge für den Windows Update-Agent](#BKMK_QUERY).
+> Wenn Sie andere Updates als die wichtigen Software Updates anwenden möchten, die standardmäßig ausgewählt sind @no__t z. b. Treiber Updates @ no__t-1, können Sie einen optionalen Parameter "Plug @ no__t-2in" konfigurieren. Weitere Informationen finden Sie unter [Konfigurieren der Abfragezeichenfolge für den Windows Update-Agent](#BKMK_QUERY).
 
 ### <a name="requirements"></a>Anforderungen
 
-- Der Failovercluster und der Remote Update \(Coordinator-\) Computer müssen die Anforderungen für Cau und die Konfiguration erfüllen, die für die Remote Verwaltung in den [Anforderungen und bewährten Methoden für Cau](cluster-aware-updating-requirements.md)erforderlich ist.
+- Der Failovercluster und der Remote Update Koordinator-Computer \(if used @ no__t-1 müssen die Anforderungen für Cau und die Konfiguration erfüllen, die für die Remote Verwaltung in [Anforderungen und bewährten Methoden für Cau](cluster-aware-updating-requirements.md)erforderlich ist.
 - Lesen Sie die [Empfehlungen für die Anwendung von Microsoft-Updates](cluster-aware-updating-requirements.md#BKMK_BP_WUA), und nehmen Sie dann alle erforderlichen Änderungen an der Microsoft-Updatekonfiguration für die Failoverclusterknoten vor.
-- Um optimale Ergebnisse zu erzielen, wird empfohlen, dass Sie das Cluster \(fähige aktualisieren\) (Cau Best Practices Analyzer BPA) ausführen, um sicherzustellen, dass die Cluster-und Update Umgebung ordnungsgemäß für die Anwendung von Updates über Cau Weitere Informationen finden Sie unter [Testen der Updatebereitschaft für clusterfähiges Aktualisieren](cluster-aware-updating-requirements.md#BKMK_BPA).
+- Um optimale Ergebnisse zu erzielen, empfiehlt es sich, das Cau-Best Practices Analyzer \(bpa @ no__t-1 auszuführen, um sicherzustellen, dass die Cluster-und Update Umgebung ordnungsgemäß für die Anwendung von Updates mithilfe von Cau konfiguriert sind. Weitere Informationen finden Sie unter [Testen der Updatebereitschaft für clusterfähiges Aktualisieren](cluster-aware-updating-requirements.md#BKMK_BPA).
 
 > [!NOTE]
 > Updates, die das Akzeptieren von Microsoft-Lizenzbedingungen oder andere Benutzerinteraktionen erfordern, werden ausgeschlossen und müssen manuell installiert werden.
 
 ### <a name="additional-options"></a>Zusätzliche Optionen
 
-Optional können Sie die folgenden Plug\--in-Argumente angeben, um die vom Plug\--in angewendeten Updates zu vergrößern oder einzuschränken:
-- Um das Plug\--in so zu konfigurieren, dass zusätzlich zu wichtigen Updates auf den einzelnen Knoten Empfohlene Updates angewendet werden, wählen Sie auf der Benutzeroberfläche für Cluster fähiges aktualisieren auf der Seite **zusätzliche Optionen** die **empfohlenen Updates auf die gleiche Weise aus wie wichtige Updates** . Kontrollkästchen.
-<br>Alternativ können Sie das Plug\--in-Argument **' includerecommendedupdates '\=(true** ) konfigurieren.
-- Um das Plug\--in so zu konfigurieren, dass die Typen von DDR-Updates gefiltert werden, die auf die einzelnen Cluster Knoten angewendet werden, geben Sie eine Abfrage\-Zeichenfolge für den Windows Update-Agent mit einem **QueryString** - Weitere Informationen finden Sie unter [Konfigurieren der Abfragezeichenfolge für den Windows Update-Agent](#BKMK_QUERY).
+Optional können Sie die folgenden Plug-in-no__t-0in-Argumente angeben, um den Satz der Updates zu vergrößern oder einzuschränken, die von Plug @ no__t-1In angewendet werden:
+- Wählen Sie auf der Benutzeroberfläche für Cluster fähiges aktualisieren auf der Seite zusätzliche Optionen auf der Seite **zusätzliche Optionen die Option** **Empfohlene Updates auf die gleiche Weise wie wichtige Updates** überprüfen aus, um das Plug @ no__t-0in zum Anwenden empfohlener Updates zu konfigurieren. Chens.
+<br>Alternativ dazu können Sie das Argument **"includerecommendedupdates" \= ' true '** Plug @ no__t-2in-Argument konfigurieren.
+- Um das Plug @ no__t-0in so zu konfigurieren, dass es die Typen von DDR-Updates filtert, die auf die einzelnen Cluster Knoten angewendet werden, geben Sie eine Abfrage Zeichenfolge für den Windows Update-Agent mithilfe eines **QueryString** -Plug @ no__t-2in Weitere Informationen finden Sie unter [Konfigurieren der Abfragezeichenfolge für den Windows Update-Agent](#BKMK_QUERY).
 
 ### <a name="BKMK_QUERY"></a>Konfigurieren der Abfrage Zeichenfolge für Windows Update-Agent  
-Sie können ein Plug\--in-Argument für das Standard-Plug\--in, **Microsoft. windowsupdateplugin**, konfigurieren, das \(aus einer\) Abfrage Zeichenfolge für den Windows Update-Agent WUA besteht. Diese Anweisung verwendet die WUA-API, um eine oder mehrere Gruppen von Microsoft-Updates zu ermitteln, die auf Basis bestimmter Auswahlkriterien auf die einzelnen Knoten angewendet werden. Sie können mehrere Kriterien mithilfe einer logischen UND- oder ODER-Operation kombinieren. Die WUA-Abfrage Zeichenfolge wird wie\-folgt in einem Plug-in-Argument angegeben:  
+Sie können ein Plug @ no__t-0in-Argument für das Standard-Plug @ no__t-1In, **Microsoft. windowsupdateplugin**, konfigurieren, das aus einem Windows Update-Agent \(wua @ no__t-4-Abfrage Zeichenfolge besteht. Diese Anweisung verwendet die WUA-API, um eine oder mehrere Gruppen von Microsoft-Updates zu ermitteln, die auf Basis bestimmter Auswahlkriterien auf die einzelnen Knoten angewendet werden. Sie können mehrere Kriterien mithilfe einer logischen UND- oder ODER-Operation kombinieren. Die WUA-Abfrage Zeichenfolge wird wie folgt in einem Plug @ no__t-0in-Argument angegeben:  
   
-**QueryString\="Kriterium1\=value1 and\/or Criterion2\=Value2 and\/or..."**  
+**QueryString @ no__t-1 "Kriterium1 @ no__t-2value1 und @ no__t-3or Criterion2 @ no__t-4value2 und @ no__t-5or..."**  
   
 **Microsoft.WindowsUpdatePlugin** wählt z. B. wichtige Updates automatisch mithilfe des Standardarguments **QueryString** aus, das mit den Kriterien **IsInstalled**, **Type**, **IsHidden** und **IsAssigned** erzeugt wird:  
   
-**QueryString\="isinstemmt\=0 und\=Type ' Software ' and IsHidden\=0 and isassigned\=1"**  
+**QueryString @ no__t-1 "isingestrandet @ no__t-20 und Type @ no__t-3' Software ' and IsHidden @ no__t-40 and isassigned @ no__t-51"**  
   
-Wenn Sie ein **QueryString** -Argument angeben, wird es anstelle des standardmäßigen **QueryString** -Arguments verwendet, das für das\-Plug-in konfiguriert ist.  
+Wenn Sie ein **QueryString** -Argument angeben, wird es anstelle des standardmäßigen **QueryString** -Arguments verwendet, das für das Plug @ no__t-2in konfiguriert ist.  
   
 #### <a name="example-1"></a>Beispiel 1
   
-So konfigurieren Sie **ein QueryString** -Argument, das ein bestimmtes Update installiert, gemäß ID *\-f6ce46c1\-\-971c 43f9 a2aa\-783df125f003*:  
+So konfigurieren Sie ein **QueryString** -Argument, das ein bestimmtes Update installiert, wie durch ID *f6ce46c1 @ no__t-2971c @ no__t-343f9 @ no__t-4a2aa @ no__t-5783df125f003*:  
   
-**QueryString\="UpdateId\=' f6ce46c1\-971c\-43F 9\-a2aa\-783df125f 003 ' und isinstemstem0\="**  
+**QueryString @ no__t-1 "UpdateId @ no__t-2' f & 6ce46c1 @ no__t-3971c @ no__t-443f @ no__t-5a2aa @ no__t-6783df125-ID" und isingestrandet @ no__t-70 "**  
   
 > [!NOTE]  
-> Das vorherige Beispiel gilt für die Anwendung von Updates mithilfe des Assistenten\-zum Aktualisieren von Cluster fähigen Updates. Wenn Sie ein bestimmtes Update durch Konfigurieren von selbst\-Aktualisierungs Optionen über die Benutzeroberfläche für Cluster fähiges aktualisieren oder über das PowerShell-Cmdlet " **Add\-cauclusterrole** " oder " **Set\-cauclusterrole**" installieren möchten, müssen Sie das Cmdlet UpdateId-Wert mit zwei\-einfachen Anführungszeichen:  
+> Das vorherige Beispiel gilt für die Anwendung von Updates mithilfe des Cluster-Assistenten zum Aktualisieren von @ no__t 0aware. Wenn Sie ein bestimmtes Update durch Konfigurieren von Self @ no__t-0update-Optionen über die Benutzeroberfläche für Cluster fähiges aktualisieren oder mithilfe des PowerShell-Cmdlets **Add @ no__t-2cauclusterrole** oder **Set @ no__t-4cauclusterrole**installieren möchten, müssen Sie den UpdateId-Wert mit zwei Werten formatieren. Single @ no__t-5anführungs Zeichen:  
 >   
-> **QueryString\="UpdateId\=" "f6ce46c1\-971c\-43F 9\-a2aa\-783df125-ID" "und isinstemstemter\=0"**  
+> **QueryString @ no__t-1 "UpdateId @ no__t-2or ' f 6ce46c1 @ no__t-3971c @ no__t-443f @ no__t-5a2aa @ no__t-6783df125" "und isinstemstemter @ no__t-70"**  
   
 #### <a name="example-2"></a>Beispiel 2
   
 So konfigurieren Sie ein **QueryString**-Argument, das ausschließlich Treiber installiert  
   
-**QueryString\="isinstemmt\=0 und\=Typ" Driver "und IsHidden\=0"**  
+**QueryString @ no__t-1 "isingestrandet @ no__t-20 und Type @ no__t-3' Driver ' and IsHidden @ no__t-40"**  
   
-Weitere Informationen zu Abfrage Zeichenfolgen für das Standard\--Plug-in, **Microsoft. windowsupdateplugin**, \(zu den Suchkriterien, wie z. b. **isindefault**\), und zur Syntax, die Sie in die Abfrage einschließen können. zu Zeichen folgen finden Sie im Abschnitt zu den Suchkriterien in der API-Referenz für den [Windows Update-Agent (WUA)](https://go.microsoft.com/fwlink/p/?LinkId=223304).  
+Weitere Informationen zu Abfrage Zeichenfolgen für das Standard-Plug @ no__t-0in, **Microsoft. windowsupdateplugin**, die Suchkriterien \(WIE z. b. **isingestrandet**\) und die Syntax, die Sie in die Abfrage Zeichenfolgen einschließen können, finden Sie im Abschnitt. Informationen zu Suchkriterien in der API-Referenz für den [Windows Update-Agent (WUA)](https://go.microsoft.com/fwlink/p/?LinkId=223304).  
   
 ## <a name="BKMK_HFP"></a>Verwenden von Microsoft. hotfixplugin  
-Mit dem\-Plug-in " **Microsoft. hotfixplugin** " können Microsoft Limited Distribution Release \(-LDR \(\) -Updates angewendet werden, die auch als Hotfixes\) bezeichnet werden und früher als QFEs bezeichnet wurden. Download unabhängig, um bestimmte Probleme mit Microsoft-Software zu beheben. Das Plug-in installiert Updates aus einem Stamm Ordner auf einer SMB-Dateifreigabe und kann auch so angepasst werden,\-dass Sie nicht von Microsoft stammenden Treiber, Firmware und BIOS-Updates anwenden.
+Der Plug @ no__t-0in **Microsoft. hotfixplugin** kann verwendet werden, um die Microsoft Limited Distribution Release \(ldr @ no__t-3 Updates \(Auch als Hotfixes bezeichnet und ehemals QFEs @ no__t-5 zu verwenden, die Sie unabhängig von der Adresse herunterladen. bestimmte Microsoft-Software Probleme. Das Plug-in installiert Updates aus einem Stamm Ordner auf einer SMB-Dateifreigabe und kann auch so angepasst werden, dass Sie nicht-@ no__t-0Microsoft-Treiber, Firmware und BIOS-Updates anwendet.
 
 > [!NOTE]
-> In Knowledge Base-Artikeln können Hotfixes manchmal von Microsoft heruntergeladen werden, Sie werden jedoch auch nach\-Bedarf für Kunden bereitgestellt.
+> In Knowledge Base-Artikeln können Hotfixes gelegentlich von Microsoft heruntergeladen werden. Sie werden jedoch auch für Kunden auf der Basis von "@ no__t-0benötigter" bereitgestellt.
 
 ### <a name="requirements"></a>Anforderungen
 
-- Der Failovercluster und der Remote Update \(Coordinator-\) Computer müssen die Anforderungen für Cau und die Konfiguration erfüllen, die für die Remote Verwaltung in den [Anforderungen und bewährten Methoden für Cau](cluster-aware-updating-requirements.md)erforderlich ist.
+- Der Failovercluster und der Remote Update Koordinator-Computer \(if used @ no__t-1 müssen die Anforderungen für Cau und die Konfiguration erfüllen, die für die Remote Verwaltung in [Anforderungen und bewährten Methoden für Cau](cluster-aware-updating-requirements.md)erforderlich ist.
 - Lesen Sie hierzu [Empfehlungen zur Verwendung von Microsoft.HotfixPlugin](cluster-aware-updating-requirements.md#BKMK_BP_HF).
-- Um optimale Ergebnisse zu erzielen, empfiehlt es sich, das BPA \(\) -Modell von Cau Best Practices Analyzer auszuführen, um sicherzustellen, dass die Cluster-und Update Umgebung ordnungsgemäß für die Anwendung von Updates mithilfe von Cau konfiguriert sind. Weitere Informationen finden Sie unter [Testen der Updatebereitschaft für clusterfähiges Aktualisieren](cluster-aware-updating-requirements.md#BKMK_BPA).
-- Rufen Sie die Updates vom Verleger ab, kopieren Sie Sie, oder extrahieren Sie Sie auf einen \(SMB\) -Datei \(Freigabe-hotfixstamm Ordner\) , der mindestens SMB 2,0 unterstützt und auf den alle Cluster zugreifen können. Knoten und der Remote Update Koordinator- \(Computer, wenn das Cluster fähige aktualisieren\-im Remote\)Aktualisierungs Modus verwendet wird. Weitere Informationen finden Sie weiter unten in diesem Thema unter [Konfigurieren einer Hotfixstammordnerstruktur](#BKMK_HF_ROOT). 
+- Um optimale Ergebnisse zu erzielen, empfiehlt es sich, das Modell Cau Best Practices Analyzer \(bpa @ no__t-1 auszuführen, um sicherzustellen, dass die Cluster-und Update Umgebung ordnungsgemäß für die Anwendung von Updates mithilfe von Cau konfiguriert sind. Weitere Informationen finden Sie unter [Testen der Updatebereitschaft für clusterfähiges Aktualisieren](cluster-aware-updating-requirements.md#BKMK_BPA).
+- Rufen Sie die Updates vom Verleger ab, kopieren Sie Sie, oder extrahieren Sie Sie auf einen Server Message Block \(smb @ no__t-1 Dateifreigabe \(hotfix Stamm Ordner @ no__t-3, der mindestens SMB 2,0 unterstützt und auf die alle Cluster Knoten und das Remote Update zugreifen können. Der koordinatorcomputer \(if Cau wird im Remote @ no__t-5update Mode @ no__t-6 verwendet. Weitere Informationen finden Sie weiter unten in diesem Thema unter [Konfigurieren einer Hotfixstammordnerstruktur](#BKMK_HF_ROOT). 
 
     > [!NOTE]
-    > Standardmäßig werden von diesem\-Plug-in nur Hotfixes mit den folgenden Dateinamen Erweiterungen installiert: MSU, MSI und MSP.
+    > Standardmäßig werden von diesem Plug @ no__t-0in nur Hotfixes mit den folgenden Dateinamen Erweiterungen installiert: MSU, MSI und MSP.
 
-- Kopieren Sie die \(Datei "defaulthotfixconfig. xml", die im Ordner " **%\\SystemRoot% System32\\\\WindowsPowerShell\\\\v 1.0 modules clusterawareupdating** " bereitgestellt wird. auf einem Computer, auf dem die Cau-\) Tools in dem hotfixstamm Ordner installiert werden, den Sie erstellt haben und in dem Sie die Hotfixes extrahiert haben. Kopieren Sie die Konfigurationsdatei z. b. in  *\\ \\den\\Ordner myfileserver\\Hotfixes root\\* . 
+- Kopieren Sie die Datei "defaulthotfixconfig. xml" \(, die im Ordner " **% systemroot% \\system32 @ no__t-3windowspowershell @ no__t-4V 1.0 @ no__t-5modules @ no__t-6clusterawareupdating** " auf einem Computer bereitgestellt wird, auf dem die Cau-Tools installiert @ no__t-7 in den hotfixstamm Ordner, den Sie erstellt haben und in dem Sie die Hotfixes extrahiert haben. Kopieren Sie z. b. die Konfigurationsdatei in *\\ @ no__t-2myfileserver @ no__t-3hotfixes @ no__t-4root @ no__t-5*. 
 
     > [!NOTE]
     > Für die Installation der meisten von Microsoft bereitgestellten Hotfixes und anderer Updates kann die standardmäßige Hotfixkonfigurationsdatei ohne Änderungen verwendet werden. Sie können die Konfigurationsdatei als erweiterte Aufgabe anpassen, wenn dies in Ihrem Szenario erforderlich ist. Die Konfigurationsdatei kann benutzerdefinierte Regeln enthalten, z. B. zum Behandeln von Hotfixdateien mit spezieller Erweiterung oder zum Definieren eines Verhaltens für bestimmte Beendigungsbedingungen. Weitere Informationen finden Sie weiter unten in diesem Thema unter [Anpassen der Hotfixkonfigurationsdatei](#BKMK_CONFIG_FILE).
@@ -167,28 +167,28 @@ Mit dem\-Plug-in " **Microsoft. hotfixplugin** " können Microsoft Limited Distr
 ### <a name="configuration"></a>Konfiguration
 
 Konfigurieren Sie die folgenden Einstellungen. Weitere Informationen finden Sie über die Links zu weiter unten in diesem Thema folgenden Abschnitten.
-- Der Pfad zum freigegebenen Hotfixstammordner, der die anzuwendenden Updates und die Hotfixkonfigurationsdatei enthält. Sie können diesen Pfad über die Benutzeroberfläche für Cluster fähiges aktualisieren eingeben oder den **Pfad "\=hotfixrootfolderpath\<" >** PowerShell-Plug\--in-Argument konfigurieren. 
+- Der Pfad zum freigegebenen Hotfixstammordner, der die anzuwendenden Updates und die Hotfixkonfigurationsdatei enthält. Sie können diesen Pfad auf der Cau-Benutzeroberfläche eingeben oder den **hotfixrootfolderpath @ no__t-1 @ no__t-2path >** PowerShell-Plug @ no__t-3in-Argument konfigurieren. 
 
    > [!NOTE]
-   > Sie können den hotfixstamm Ordner als lokalen Ordner Pfad oder als UNC-Pfad der Form  *\\ \\Server\\Name Freigabe\\rootfoldername*angeben. Es kann\-ein Domänen basierter oder eigenständiger DFS-Namespace Pfad verwendet werden. Die Plug\--in-Features, mit denen die Zugriffsberechtigungen in der hotfixkonfigurationsdatei überprüft werden, sind jedoch nicht mit einem DFS-Namespace Pfad kompatibel. Wenn Sie also eine konfigurieren, müssen Sie die Überprüfung der Zugriffsberechtigungen über die Benutzeroberfläche für Cluster fähiges aktualisieren oder durch Konfigurieren des **Disableaclchecks\=' true '** -\-Plug-in-Argument.
-- Einstellungen auf dem Server, der den hotfixstamm Ordner hostet, um die entsprechenden Berechtigungen für den Zugriff auf den Ordner zu überprüfen und die Integrität der Daten sicher \(zustellen, auf die über\)SMB-Signaturen oder SMB-Verschlüsselung im SMB-Ordner zugegriffen wird Weitere Informationen finden Sie unter [Einschränken des Zugriffs auf den Hotfixstammordner](#BKMK_ACL).
+   > Sie können den hotfixstamm Ordner als lokalen Ordner Pfad oder als UNC-Pfad in der Form *\\ @ no__t-2servername @ no__t-3share @ no__t-4rootfoldername*angeben. Ein Domänen basierter oder eigenständiger DFS-Namespace Pfad kann verwendet werden. Die Plug @ no__t-0in-Funktionen, die die Zugriffsberechtigungen in der hotfixkonfigurationsdatei überprüfen, sind jedoch nicht mit einem DFS-Namespace Pfad kompatibel. Wenn Sie also eine konfigurieren, müssen Sie die Überprüfung der Zugriffsberechtigungen über die Benutzeroberfläche für Cluster fähiges aktualisieren oder durch Konfigurieren des  **Disableaclchecks @ no__t-2' true '** Plug @ no__t-3in-Argument.
+- Einstellungen auf dem Server, der den hotfixstamm Ordner hostet, um entsprechende Berechtigungen für den Zugriff auf den Ordner zu überprüfen und die Integrität der Daten sicherzustellen, auf die über den freigegebenen SMB-Ordner zugegriffen wird \(smb-Signatur oder SMB-Verschlüsselung @ no__t-1 Weitere Informationen finden Sie unter [Einschränken des Zugriffs auf den Hotfixstammordner](#BKMK_ACL).
 
 ### <a name="additional-options"></a>Zusätzliche Optionen
 
-- Konfigurieren Sie optional das Plug\--in, damit die SMB-Verschlüsselung beim Zugriff auf Daten von der hotfixdateifreigabe erzwungen wird. Wählen Sie auf der Benutzeroberfläche für Cluster fähiges aktualisieren auf der Seite **zusätzliche Optionen** die Option **SMB-Verschlüsselung beim Zugriff auf hotfixstamm Ordner** anfordern aus, oder konfigurieren Sie das\- **\=** PowerShell-Plug-in-Argument "true". 
+- Optional können Sie den Plug @ no__t-0in so konfigurieren, dass die SMB-Verschlüsselung beim Zugriff auf Daten von der hotfixdateifreigabe erzwungen wird. Wählen Sie auf der Benutzeroberfläche für Cluster fähiges aktualisieren auf der Seite **zusätzliche Optionen** die Option **SMB-Verschlüsselung beim Zugriff auf hotfixstamm Ordner** anfordern aus, oder konfigurieren Sie das PowerShell-Plug @ no__t-4in-Argument **"Requirements smbencryption @ no__t-3' true"** . 
   > [!IMPORTANT]
   > Sie müssen auf dem SMB-Server zusätzliche Konfigurationsschritte ausführen, um die SMB-Datenintegrität mithilfe der SMB-Signatur oder SMB-Verschlüsselung zu ermöglichen. Weitere Informationen finden Sie unter Schritt 4 in [Einschränken des Zugriffs auf den Hotfixstammordner](#BKMK_ACL). Wenn Sie die Option zum Erzwingen der Verwendung der SMB-Verschlüsselung auswählen und der Hotfixstammordner nicht für den Zugriff mit SMB-Verschlüsselung konfiguriert ist, tritt bei der Updateausführung ein Fehler auf.
-- Deaktivieren Sie optional die Standardprüfungen auf ausreichende Berechtigungen für den Hotfixstammordner und die Hotfixkonfigurationsdatei. Wählen Sie auf der Benutzeroberfläche für Cluster fähiges aktualisieren die Option **Prüfung auf Administrator Zugriff auf hotfixstamm Ordner und Konfigurationsdatei deaktivieren aus**, oder konfigurieren Sie das Plug\--in-Argument **disableaclchecks\=' true '** .
-- Konfigurieren Sie optional das **hotfixinstallertimeoutminutes\= <Integer>**  -Argument, um anzugeben, wie lange das\-Hotfix-Plug-in auf die Rückgabe des hotfixinstallations Prozesses wartet. \(Der Standardwert ist 30 Minuten.\) Wenn Sie z. b. einen Timeout Zeitraum von zwei Stunden angeben möchten, legen Sie **\=hotfixinstallertimeoutminutes 120**fest.
-- Konfigurieren Sie optional dasPlug\--in-Argument **hotfixconfigfilename \= <name>**  , um einen Namen für die hotfixkonfigurationsdatei anzugeben, die sich im hotfixstamm Ordner befindet. Wenn der Name nicht angegeben wird, lautet der Standardname "DefaultHotfixConfig.xml".
+- Deaktivieren Sie optional die Standardprüfungen auf ausreichende Berechtigungen für den Hotfixstammordner und die Hotfixkonfigurationsdatei. Wählen Sie auf der Benutzeroberfläche für Cluster fähiges aktualisieren die Option **Prüfung auf Administrator Zugriff auf hotfixstamm Ordner und Konfigurationsdatei deaktivieren aus**, oder konfigurieren Sie das Argument **disableaclchecks @ no__t-2' true '** Plug @ no__t-3in.
+- Konfigurieren Sie optional das Argument **hotfixinstallertimeoutminutes @ no__t-1 @ no__t-2** , um anzugeben, wie lange das Hotfix-Plug-in von no__t-3in wartet, bis der hotfixinstallationsprozess zurückgegeben wird. \(der Standardwert ist 30 Minuten. \) Wenn Sie z. b. einen Timeout Zeitraum von zwei Stunden angeben möchten, legen Sie **hotfixinstallertimeoutminutes @ no__t-1120**fest.
+- Konfigurieren Sie optional das Argument **hotfixconfigfilename \= <name>** Plug @ no__t-3in, um einen Namen für die hotfixkonfigurationsdatei anzugeben, die sich im hotfixstamm Ordner befindet. Wenn der Name nicht angegeben wird, lautet der Standardname "DefaultHotfixConfig.xml".
   
 ### <a name="BKMK_HF_ROOT"></a>Konfigurieren einer hotfixstamm Ordnerstruktur
 
-Damit das Hotfix-\-Plug-in funktioniert, müssen Hotfixes in einer klar\-definierten Struktur in einem SMB-Dateifreigabe \(-hotfixstamm\)Ordner gespeichert werden, und Sie müssen das Hotfix-Plug\--in mit dem Pfad zum hotfixstamm Ordner über die Benutzeroberfläche für Cluster fähiges aktualisieren oder über die PowerShell-Cmdlets für Cluster fähiges aktualisieren. Dieser Pfad wird als\- **hotfixrootfolderpath** -Argument an das Plug-in übermittelt. Gemäß Ihrer Aktualisierungsanforderungen können Sie für den Hotfixstammordner eine von vielen Strukturen auswählen, wie in den folgenden Beispielen gezeigt. Dateien oder Ordner, die der Struktur nicht entsprechen, werden ignoriert.  
+Damit das Hotfix-Plug-in "no__t-0in" funktioniert, müssen die Hotfixes in einer "Well @ no__t-1"-Struktur in einer SMB-Dateifreigabe \(hotfix-Stamm Ordner @ no__t-3 gespeichert werden, und Sie müssen das Hotfix-Plug-in mit dem Pfad zum hotfixstamm Ordner über die Benutzeroberfläche von Cau oder die Cau-PowerShell-Cmdlets. Dieser Pfad wird als **hotfixrootfolderpath** -Argument an das Plug @ no__t-0in-Argument übermittelt. Gemäß Ihrer Aktualisierungsanforderungen können Sie für den Hotfixstammordner eine von vielen Strukturen auswählen, wie in den folgenden Beispielen gezeigt. Dateien oder Ordner, die der Struktur nicht entsprechen, werden ignoriert.  
   
 #### <a name="example-1---folder-structure-used-to-apply-hotfixes-to-all-cluster-nodes"></a>Beispiel 1: Ordnerstruktur, die zum Anwenden von Hotfixes auf alle Cluster Knoten verwendet wird
   
-Um anzugeben, dass Hotfixes für alle Cluster Knoten gelten, kopieren Sie Sie in einen Ordner mit dem Namen **cauhotfix\_all** unter dem hotfixstamm Ordner. In diesem Beispiel wird\-das Plug-in-Argument **hotfixrootfolderpath** auf  *\\ \\myfileserver\\Hotfixes\\root\\* festgelegt. Der Ordner **cauhotfix\_all** enthält drei Updates mit den Erweiterungen MSU, MSI und MSP, die auf alle Cluster Knoten angewendet werden. Die Namen der Updatedateien dienen nur zur Veranschaulichung.  
+Um anzugeben, dass Hotfixes für alle Cluster Knoten gelten, kopieren Sie Sie in einen Ordner mit dem Namen **cauhotfix @ no__t-1All** unter dem hotfixstamm Ordner. In diesem Beispiel ist das **hotfixrootfolderpath** -Plug @ no__t-1In-Argument auf *\\ @ no__t-4myfileserver @ no__t-5hotfixes @ no__t-6root @ no__t-7*festgelegt. Der Ordner **cauhotfix @ no__t-1All** enthält drei Updates mit den Erweiterungen MSU, MSI und MSP, die auf alle Cluster Knoten angewendet werden. Die Namen der Updatedateien dienen nur zur Veranschaulichung.  
   
 > [!NOTE]  
 > In diesem und den folgenden Beispielen wird die Hotfixkonfigurationsdatei mit dem Standardnamen "DefaultHotfixConfig.xml" am erforderlichen Speicherort im Hotfixstammordner angezeigt.  
@@ -205,7 +205,7 @@ Um anzugeben, dass Hotfixes für alle Cluster Knoten gelten, kopieren Sie Sie in
   
 #### <a name="example-2---folder-structure-used-to-apply-certain-updates-only-to-a-specific-node"></a>Beispiel 2: Ordnerstruktur, die verwendet wird, um bestimmte Updates nur auf einen bestimmten Knoten anzuwenden
   
-Um Hotfixes anzugeben, die nur auf einen bestimmten Knoten angewendet werden, verwenden Sie unter dem Hotfixstammordner einen Unterordner mit dem Namen dieses Knotens. Verwenden Sie den NetBIOS-Namen des Clusterknotens, z. B. *ContosoNode1*. Verschieben Sie dann die Updates, die nur für diesen Knoten gelten, in diesen Unterordner. Im folgenden Beispiel wird\-das Plug-in-Argument **hotfixrootfolderpath** auf  *\\ \\\\myfileserver\\Hotfixes root\\* festgelegt. Updates im **cauhotfix\_all** -Ordner werden auf alle Cluster Knoten angewendet, und *\_Node1 Specific\_Update. msu* wird nur auf *ContosoNode1*angewendet.  
+Um Hotfixes anzugeben, die nur auf einen bestimmten Knoten angewendet werden, verwenden Sie unter dem Hotfixstammordner einen Unterordner mit dem Namen dieses Knotens. Verwenden Sie den NetBIOS-Namen des Clusterknotens, z. B. *ContosoNode1*. Verschieben Sie dann die Updates, die nur für diesen Knoten gelten, in diesen Unterordner. Im folgenden Beispiel wird das **hotfixrootfolderpath** -Plug @ no__t-1In-Argument auf *\\ @ no__t-4myfileserver @ no__t-5hotfixes @ no__t-6root @ no__t-7*festgelegt. Updates im Ordner **cauhotfix @ no__t-1All** werden auf alle Cluster Knoten angewendet, und *Node1 @ no__t-3Specific\_Update.msu* wird nur auf *ContosoNode1*angewendet.  
   
 ```
 \\MyFileServer\Hotfixes\Root\   
@@ -222,9 +222,9 @@ Um Hotfixes anzugeben, die nur auf einen bestimmten Knoten angewendet werden, ve
   
 #### <a name="example-3---folder-structure-used-to-apply-updates-other-than-msu-msi-and-msp-files"></a>Beispiel für eine drei-Ordner-Struktur, die zum Anwenden von anderen Updates als MSU-, MSI-und MSP-Dateien verwendet wird
   
-Das Plug-In **Microsoft.HotfixPlugin** wendet standardmäßig nur Updates mit den Erweiterungen MSU, MSI oder MSP an. Bestimmte Updates können jedoch andere Erweiterungen aufweisen und somit andere Installationsbefehle erfordern. Möglicherweise müssen Sie ein Firmwareupdate mit der Erweiterung EXE auf einen Knoten in einem Cluster anwenden. Sie können den hotfixstamm Ordner mit einem Unterordner konfigurieren, der angibt, dass ein\-bestimmter, nicht standardmäßiger Updatetyp installiert werden muss. Sie müssen auch eine entsprechende Ordnerinstallationsregel konfigurieren, die den Installationsbefehl im `<FolderRules>` -Element in der XML-Datei der Hotfixkonfiguration angibt.  
+Das Plug-In **Microsoft.HotfixPlugin** wendet standardmäßig nur Updates mit den Erweiterungen MSU, MSI oder MSP an. Bestimmte Updates können jedoch andere Erweiterungen aufweisen und somit andere Installationsbefehle erfordern. Möglicherweise müssen Sie ein Firmwareupdate mit der Erweiterung EXE auf einen Knoten in einem Cluster anwenden. Sie können den hotfixstamm Ordner mit einem Unterordner konfigurieren, der angibt, dass ein bestimmter, nicht @ no__t-0default-Updatetyp installiert werden muss. Sie müssen auch eine entsprechende Ordnerinstallationsregel konfigurieren, die den Installationsbefehl im `<FolderRules>` -Element in der XML-Datei der Hotfixkonfiguration angibt.  
   
-Im folgenden Beispiel wird\-das Plug-in-Argument **hotfixrootfolderpath** auf  *\\ \\\\myfileserver\\Hotfixes root\\* festgelegt. Es werden verschiedene Updates auf alle Clusterknoten angewendet. Zusätzlich wird das Firmwareupdate *SpecialHotfix1.exe* mithilfe von *FolderRule1* auf *ContosoNode1* angewendet. Weitere Informationen zum Konfigurieren von *ContosoNode1* in der Hotfixkonfigurationsdatei finden Sie weiter unten in diesem Abschnitt unter [Anpassen der Hotfixkonfigurationsdatei](#BKMK_CONFIG_FILE) .  
+Im folgenden Beispiel wird das **hotfixrootfolderpath** -Plug @ no__t-1In-Argument auf *\\ @ no__t-4myfileserver @ no__t-5hotfixes @ no__t-6root @ no__t-7*festgelegt. Es werden verschiedene Updates auf alle Clusterknoten angewendet. Zusätzlich wird das Firmwareupdate *SpecialHotfix1.exe* mithilfe von *FolderRule1* auf *ContosoNode1* angewendet. Weitere Informationen zum Konfigurieren von *ContosoNode1* in der Hotfixkonfigurationsdatei finden Sie weiter unten in diesem Abschnitt unter [Anpassen der Hotfixkonfigurationsdatei](#BKMK_CONFIG_FILE) .  
   
 ```
 \\MyFileServer\Hotfixes\Root\   
@@ -244,7 +244,7 @@ Im folgenden Beispiel wird\-das Plug-in-Argument **hotfixrootfolderpath** auf  *
 ### <a name="BKMK_CONFIG_FILE"></a>Anpassen der hotfixkonfigurationsdatei  
 Die Hotfixkonfigurationsdatei steuert, wie bestimmte Hotfixtypen von **Microsoft.HotfixPlugin** in einem Failovercluster installiert werden. Das XML-Schema für die Konfigurationsdatei wird in der Datei "HotfixConfigSchema.xsd" definiert, die sich im folgenden Ordner auf einem Computer befindet, auf dem die Tools für clusterfähiges Aktualisieren installiert sind:  
   
-**Ordner "% SystemRoot\\%\\System32 WindowsPowerShell\\\\v\\1.0 modules clusterawareupdating"**  
+**% systemroot% \\system32 @ no__t-2windowspowershell @ no__t-3V 1.0 @ no__t-4modules @ no__t-5clusterawareupdating-Ordner**  
   
 Kopieren Sie die Beispielkonfigurationsdatei "DefaultHotfixConfig.xml" aus diesem Speicherort in den Hotfixstammordner, und nehmen Sie die entsprechenden Änderungen für Ihr Szenario vor, um die Hotfixkonfigurationsdatei anzupassen:  
   
@@ -253,7 +253,7 @@ Kopieren Sie die Beispielkonfigurationsdatei "DefaultHotfixConfig.xml" aus diese
   
 Standardmäßig definiert die XML-Datei der Hotfixkonfiguration die Installationsregeln und Beendigungsbedingungen für die folgenden beiden Kategorien von Hotfixes:  
   
--   Hotfixdateien mit Erweiterungen, die vom\-Plug-in standardmäßig \(installiert werden können. msu-, MSI-und MSP-Dateien\).  
+-   Hotfixdateien mit Erweiterungen, die vom Plug-in-no__t-0in standardmäßig installiert werden können @no__t -1. msu,. msi und. msp-Dateien @ no__t-2.  
   
     Diese sind als `<ExtensionRules>`-Elemente im `<DefaultRules>`-Element definiert. Für jeden standardmäßig unterstützten Dateityp gibt es ein `<Extension>` -Element. Die allgemeine XML-Struktur sieht wie folgt aus:  
   
@@ -279,9 +279,9 @@ Standardmäßig definiert die XML-Datei der Hotfixkonfiguration die Installation
   
     Wenn Sie bestimmte Updatetypen auf alle Clusterknoten in der Umgebung anwenden müssen, können Sie weitere `<Extension>` -Elemente definieren.  
   
--   Hotfix oder andere Update Dateien, bei denen es sich nicht um MSI-, MSU-oder MSP-Dateien handelt,\-z. b. nicht von Microsoft stammende Treiber, Firmware und BIOS-Updates.  
+-   Hotfix oder andere Update Dateien, bei denen es sich nicht um MSI-, MSU-oder MSP-Dateien handelt, z. b. nicht @ no__t-0Microsoft-Treiber, Firmware und BIOS-Updates.  
   
-    Jeder nicht\-standardmäßige Dateityp wird `<Folder>` als-Element im `<FolderRules>` -Element konfiguriert. Das Namensattribut des `<Folder>` -Elements muss mit dem Namen eines Ordners im Hotfixstammordner übereinstimmen, der Updates vom entsprechenden Typ enthalten wird. Der Ordner kann sich im Ordner " **cauhotfix\_all** " oder in einem\-Knoten spezifischen Ordner befinden. Wenn *FolderRule1* z. B. im Hotfixstammordner konfiguriert ist, konfigurieren Sie das folgende Element in der XML-Datei, damit es eine Installationsvorlage und Beendigungsbedingungen für die Updates in diesem Ordner definiert:  
+    Jeder nicht-@ no__t-0default-Dateityp wird als `<Folder>`-Element im `<FolderRules>`-Element konfiguriert. Das Namensattribut des `<Folder>` -Elements muss mit dem Namen eines Ordners im Hotfixstammordner übereinstimmen, der Updates vom entsprechenden Typ enthalten wird. Der Ordner kann sich im Ordner **cauhotfix @ no__t-1All** oder im Ordner @ no__t-2specific befinden. Wenn *FolderRule1* z. B. im Hotfixstammordner konfiguriert ist, konfigurieren Sie das folgende Element in der XML-Datei, damit es eine Installationsvorlage und Beendigungsbedingungen für die Updates in diesem Ordner definiert:  
   
     ```xml  
     <FolderRules>  
@@ -316,7 +316,7 @@ Sie müssen verschiedene Schritte ausführen, um den SMB-Dateiserver und die -Da
   
 Die allgemeinen Schritte sehen wie folgt aus:  
   
-1.  Identifizieren Sie das Benutzerkonto, das für Update Ausführungen mithilfe des Plug\--ins verwendet wird.  
+1.  Identifizieren Sie das Benutzerkonto, das für Update Ausführungen verwendet wird, indem Sie Plug @ no__t-0in verwenden.  
   
 2.  Konfigurieren dieses Benutzerkontos in den erforderlichen Gruppen auf einem SMB-Dateiserver  
   
@@ -326,13 +326,13 @@ Die allgemeinen Schritte sehen wie folgt aus:
   
 5.  Aktivieren der Windows-Firewall-Regel auf dem SMB-Server  
   
-#### <a name="step-1-identify-the-user-account-that-is-used-for-updating-runs-by-using-the-hotfix-plug-in"></a>Schritt 1 Identifizieren Sie das Benutzerkonto, das für Update Ausführungen verwendet wird, indem Sie das\-Hotfix-Plug-in verwenden.
+#### <a name="step-1-identify-the-user-account-that-is-used-for-updating-runs-by-using-the-hotfix-plug-in"></a>Schritt 1 Identifizieren Sie das Benutzerkonto, das für Update Ausführungen verwendet wird, mithilfe des Hotfix-Plug-ins @ no__t-0in
   
-Das Konto, das in Cau zum Überprüfen der Sicherheitseinstellungen beim Ausführen einer Update Ausführung mithilfe von **Microsoft. hotfixplugin** verwendet wird, hängt davon ab,\-ob das Cluster fähige\-aktualisieren im Remote Aktualisierungs Modus oder im selbst Aktualisierungs Modus verwendet wird:  
+Das Konto, das zum Überprüfen der Sicherheitseinstellungen beim Ausführen einer Update Ausführung mithilfe von **Microsoft. hotfixplugin** verwendet wird, hängt davon ab, ob das Cluster fähige aktualisieren im Remote @ no__t-1Update-Modus oder im Self @ no__t-2Update-Modus verwendet wird:  
   
--   **Remote\-Aktualisierungs Modus** das Konto, das über Administratorrechte für den Cluster verfügt, um die Vorschau anzuzeigen und Updates anzuwenden.  
+-   **Remote @ no__t-1Update-Modus** Das Konto, das über Administratorrechte für den Cluster verfügt, um die Vorschau anzuzeigen und Updates anzuwenden.  
   
--   **Selbst\-Aktualisierungs Modus** der Name des virtuellen Computer Objekts, das in Active Directory für die Cluster Rolle für Cluster fähiges aktualisieren konfiguriert ist. Dies ist entweder der Name eines vorab bereitgestellten virtuellen Computerobjekts in Active Directory für die Clusterrolle für clusterfähiges Aktualisieren oder der Name, der von der Clusterrolle für clusterfähiges Aktualisieren generiert wird. Wenn Sie den Namen abrufen möchten, wenn er von Cau generiert wurde, führen Sie das PowerShell-Cmdlet **get\-cauclusterrole** Cau aus. In der Ausgabe ist **ResourceGroupName** der Name des generierten virtuellen Computerobjektkontos.  
+-   **Self @ no__t-1aktualisierungs Modus** Der Name des virtuellen Computer Objekts, das in Active Directory für die Cluster Rolle für Cluster fähiges aktualisieren konfiguriert ist. Dies ist entweder der Name eines vorab bereitgestellten virtuellen Computerobjekts in Active Directory für die Clusterrolle für clusterfähiges Aktualisieren oder der Name, der von der Clusterrolle für clusterfähiges Aktualisieren generiert wird. Wenn Sie den Namen abrufen möchten, wenn er von Cau generiert wird, führen Sie das PowerShell-Cmdlet **Get @ no__t-1cauclusterrole** Cau aus. In der Ausgabe ist **ResourceGroupName** der Name des generierten virtuellen Computerobjektkontos.  
   
 #### <a name="step-2-configure-this-user-account-in-the-necessary-groups-on-an-smb-file-server"></a>Schritt 2 Konfigurieren dieses Benutzerkontos in den erforderlichen Gruppen auf einem SMB-Dateiserver
   
@@ -349,7 +349,7 @@ Das Konto, das in Cau zum Überprüfen der Sicherheitseinstellungen beim Ausfüh
     wmimgmt.msc  
     ```  
   
-3.  Klicken Sie in der Konsolen Struktur\-mit der rechten Maustaste auf **WMI- \(Steuerung lokal\)** , und klicken Sie dann auf **Eigenschaften**.  
+3.  Klicken Sie in der Konsolen Struktur mit der rechten Maustaste auf no__t- **WMI-Steuerung \(local @ no__t-3**, und klicken Sie dann auf **Eigenschaften**.  
   
 4.  Klicken Sie auf **Sicherheit**, und erweitern Sie dann **Stamm**.  
   
@@ -361,19 +361,19 @@ Das Konto, das in Cau zum Überprüfen der Sicherheitseinstellungen beim Ausfüh
   
 #### <a name="step-3-configure-permissions-to-access-the-hotfix-root-folder"></a>Schritt 3 Konfigurieren der Berechtigungen für den Zugriff auf den Hotfixstammordner
   
-Wenn Sie versuchen, Updates anzuwenden, prüft das Hotfix-Plug\--in standardmäßig die Konfiguration der NTFS-Dateisystem Berechtigungen für den Zugriff auf den hotfixstamm Ordner. Wenn die Ordner Zugriffsberechtigungen nicht ordnungsgemäß konfiguriert sind, kann eine Update Ausführung mit dem Hotfix-Plug\--in fehlschlagen.  
+Wenn Sie versuchen, Updates anzuwenden, prüft das Hotfix-Plug-in @ no__t-0in standardmäßig die Konfiguration der NTFS-Dateisystem Berechtigungen für den Zugriff auf den hotfixstamm Ordner. Wenn die Ordner Zugriffsberechtigungen nicht ordnungsgemäß konfiguriert sind, kann eine Update Ausführung mit dem Hotfix-Plug-in no__t-0in fehlschlagen.  
   
-Wenn Sie die Standardkonfiguration des Hotfix-Plug\--ins verwenden, stellen Sie sicher, dass die Berechtigungen für den Ordner Zugriff den folgenden Anforderungen entsprechen.  
+Wenn Sie die Standardkonfiguration des Hotfix-Plug-ins @ no__t-0in verwenden, stellen Sie sicher, dass die Berechtigungen für den Ordner Zugriff den folgenden Anforderungen entsprechen.  
   
 -   Die Gruppe "Benutzer" verfügt über die Berechtigung "Lesen".  
   
--   Wenn das Plug\--in Updates mit der Erweiterung ". exe" anwendet, verfügt die Gruppe "Benutzer" über die Berechtigung "ausführen".  
+-   Wenn das Plug @ no__t-0in Updates mit der Erweiterung exe anwendet, verfügt die Gruppe "Benutzer" über die Berechtigung "ausführen".  
   
--   Nur bestimmte Sicherheits Prinzipale sind zulässig \(\) , aber Sie müssen nicht über die Berechtigung Schreiben oder ändern verfügen. Die zulässigen Prinzipale sind die Gruppe der lokalen Administratoren, SYSTEM, ERSTELLER-BESITZER und TrustedInstaller. Anderen Konten oder Gruppen ist es nicht gestattet, die Berechtigung "Schreiben" oder "Ändern" für den Hotfixstammordner zu verwenden.  
+-   Nur bestimmte Sicherheits Prinzipale sind \(zulässig, sind jedoch nicht erforderlich @ no__t-1, damit Sie über die Berechtigung Schreiben oder ändern verfügen. Die zulässigen Prinzipale sind die Gruppe der lokalen Administratoren, SYSTEM, ERSTELLER-BESITZER und TrustedInstaller. Anderen Konten oder Gruppen ist es nicht gestattet, die Berechtigung "Schreiben" oder "Ändern" für den Hotfixstammordner zu verwenden.  
   
-Optional können Sie die obigen Prüfungen deaktivieren, die vom Plug\--in standardmäßig durchgeführt werden. Hierzu stehen Ihnen zwei Möglichkeiten zur Verfügung.  
+Optional können Sie die obigen Prüfungen deaktivieren, die von Plug @ no__t-0in standardmäßig durchgeführt werden. Hierzu stehen Ihnen zwei Möglichkeiten zur Verfügung.  
   
--   Wenn Sie die PowerShell-Cmdlets für Cluster fähiges aktualisieren verwenden, konfigurieren Sie das **disableaclchecks\=' true '** -Argument im **caupluginarguments** -Parameter für\-das Hotfix-Plug-in.  
+-   Wenn Sie die PowerShell-Cmdlets für Cluster fähiges aktualisieren verwenden, konfigurieren Sie das Argument **disableaclchecks @ no__t-1' true '** im **caupluginarguments** -Parameter für das Hotfix-Plug @ no__t-3in.  
   
 -   Wenn Sie die Benutzeroberfläche für clusterfähiges Aktualisieren verwenden, wählen Sie die Option **Prüfung auf Administratorzugriff auf Hotfixstammordner und Konfigurationsdatei deaktivieren** auf der Seite **Weitere Updateoptionen** aus, die zum Konfigurieren der Optionen von Updateausführungen verwendet wird.  
   
@@ -381,7 +381,7 @@ Es wird jedoch in vielen Umgebungen als bewährte Methode empfohlen, dass Sie di
   
 #### <a name="step-4-configure-settings-for-smb-data-integrity"></a>Schritt 4 Konfigurieren der Einstellungen für die SMB-Datenintegrität
   
-Zum Überprüfen der Datenintegrität in den Verbindungen zwischen den Cluster Knoten und der SMB-Dateifreigabe erfordert das Hotfix-Plug\--in, dass Sie die Einstellungen auf der SMB-Dateifreigabe für die SMB-Signatur oder SMB-Verschlüsselung aktivieren. Die SMB-Verschlüsselung, die in vielen Umgebungen eine höhere Sicherheit und bessere Leistung bietet, wird ab Windows Server 2012 unterstützt. Sie können eine oder beide Einstellungen wie folgt aktivieren:  
+Zum Überprüfen der Datenintegrität in den Verbindungen zwischen den Cluster Knoten und der SMB-Dateifreigabe erfordert das Hotfix-Plug-in @ no__t-0in, dass Sie die Einstellungen auf der SMB-Dateifreigabe für die SMB-Signatur oder SMB-Verschlüsselung aktivieren. Die SMB-Verschlüsselung, die in vielen Umgebungen eine höhere Sicherheit und bessere Leistung bietet, wird ab Windows Server 2012 unterstützt. Sie können eine oder beide Einstellungen wie folgt aktivieren:  
   
 -   Informationen zum Aktivieren der SMB-Signatur finden Sie unter dem Verfahren in der Microsoft Knowledge Base in [Artikel 887429](https://support.microsoft.com/kb/887429) .  
   
@@ -393,14 +393,14 @@ Zum Überprüfen der Datenintegrität in den Verbindungen zwischen den Cluster K
   
     Dabei gibt <*ShareName*> den Namen des freigegebenen SMB-Ordners an.  
   
-Um optional die Verwendung der SMB-Verschlüsselung in den Verbindungen mit dem SMB-Server zu erzwingen, wählen Sie auf der Benutzeroberfläche für Cluster fähiges aktualisieren die Option **SMB-Verschlüsselung beim Zugriff auf hotfixstamm Ordner** anfordern aus, oder konfigurieren Sie den **\="true"** -Plug-in. \-in Argument mithilfe der Cau-PowerShell-Cmdlets.  
+Um optional die Verwendung der SMB-Verschlüsselung in den Verbindungen mit dem SMB-Server zu erzwingen, wählen Sie auf der Benutzeroberfläche für Cluster fähiges aktualisieren die Option **SMB-Verschlüsselung beim Zugriff auf hotfixstamm Ordner** anfordern aus, oder konfigurieren Sie die Option Requirements **smbencryption @ no__t-2' true '** Plug @ no__. t-3in-Argument mithilfe der Cau-PowerShell-Cmdlets.  
   
 > [!IMPORTANT]  
 > Wenn Sie die Option zum Erzwingen der Verwendung der SMB-Verschlüsselung auswählen und der Hotfixstammordner nicht für Verbindungen konfiguriert ist, die die SMB-Verschlüsselung verwenden, tritt bei der Updateausführung ein Fehler auf.  
   
 #### <a name="step-5-enable-a-windows-firewall-rule-on-the-smb-server"></a>Schritt 5 Aktivieren der Windows-Firewall-Regel auf dem SMB-Server
   
-Sie müssen die **Datei \(Server-Remoteverwaltungs-\) SMB\-in** der Regel in der Windows-Firewall auf dem SMB-Dateiserver aktivieren. Dies ist in Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012 standardmäßig aktiviert.  
+Sie müssen die Regel **Datei Server-Remote Verwaltung \(SMB @ no__t-2in @ no__t-3** in der Windows-Firewall auf dem SMB-Dateiserver aktivieren. Dies ist in Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012 standardmäßig aktiviert.  
   
 ## <a name="see-also"></a>Siehe auch  
   

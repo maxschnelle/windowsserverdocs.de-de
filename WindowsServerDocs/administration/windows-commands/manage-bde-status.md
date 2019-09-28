@@ -1,8 +1,8 @@
 ---
-title: Verwalten von-Bde-status
-description: 'Windows-Befehle Thema ***- '
+title: manage-bde-Status
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,29 +13,29 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d81808b57b1833ca30b95dc9d4b6aa0b0a4bdbaa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 235db54ef2361c0e95c66b15a15be7f188fb74d9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836561"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373858"
 ---
-# <a name="manage-bde-status"></a>Verwalten von-Bde: Status
+# <a name="manage-bde-status"></a>manage-bde: Status
 
 
 
-Bietet die folgende Informationen über alle Laufwerke auf dem Computer an. Gibt an, ob sie BitLocker geschützt sind:
+Enthält die folgenden Informationen zu allen Laufwerken auf dem Computer. unabhängig davon, ob Sie durch BitLocker geschützt sind:
 -   Größe
--   BitLocker-version
--   Konvertierungsstatus
--   Prozentsatz verschlüsselt
+-   BitLocker-Version
+-   Konvertierungs Status
+-   Verschlüsselter Prozentsatz
 -   Verschlüsselungsmethode
 -   Schutzstatus
--   Sperrstatus
--   ID-Feld
--   Schlüsselschutzvorrichtungen
+-   Sperr Status
+-   Identifikations Feld
+-   Schlüssel Schutzvorrichtungen
 
-Beispiele wie dieser Befehl verwendet werden kann, finden Sie unter [Beispiele](#BKMK_Examples).
+Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -47,21 +47,21 @@ manage-bde -status [<Drive>] [-protectionaserrorlevel] [-computername <Name>] [{
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<Drive>|Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar.|
-|-protectionaserrorlevel|Bewirkt, dass das Befehlszeilentool "Manage-Bde" Senden Sie den Rückgabecode von 0, wenn das Volume geschützt wird und 1 ein, wenn das Volume nicht geschützt ist; am häufigsten verwendet für Batchskripts, um festzustellen, ob ein Laufwerk durch BitLocker geschützt ist. Sie können auch **-p** als eine verkürzte Version des mit diesem Befehl.|
-|-computername|Gibt an, dass bde.exe verwendet wird, um die BitLocker-Schutz auf einem anderen Computer zu ändern. Sie können auch **- Cn** als eine verkürzte Version des mit diesem Befehl.|
-|\<Name>|Stellt den Namen des Computers, auf dem BitLocker-Schutz zu ändern. Akzeptierte Werte sind die NetBIOS-Namen des Computers und die IP-Adresse des Computers.|
-|-? oder /?|Zeigt eine kurze Hilfe an der Eingabeaufforderung.|
-|---Help oder-h|Führen Sie zeigt Hilfe an der Eingabeaufforderung ein.|
+|\<laufwerk >|Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar.|
+|-schutzaserrorlevel|Bewirkt, dass das Befehlszeilen Tool "Manage-BDE" den Rückgabecode von 0 (null) sendet, wenn das Volume geschützt ist, und 1, wenn das Volume nicht geschützt ist. wird am häufigsten für Batch Skripts verwendet, um zu bestimmen, ob ein Laufwerk durch BitLocker geschützt ist. Sie können auch **-p** als abgekürzte Version dieses Befehls verwenden.|
+|-Computername|Gibt an, dass "manage-bde. exe verwendet wird, um den BitLocker-Schutz auf einem anderen Computer zu ändern. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden.|
+|\<Name >|Stellt den Namen des Computers dar, auf dem der BitLocker-Schutz geändert werden soll. Akzeptierte Werte sind der NetBIOS-Name des Computers und die IP-Adresse des Computers.|
+|-? oder /?|Zeigt eine kurze Hilfe an der Eingabeaufforderung an.|
+|-Help oder-h|Zeigt die gesamte Hilfe an der Eingabeaufforderung an.|
 
-## <a name="BKMK_Examples"></a>Beispiele für
+## <a name="BKMK_Examples"></a>Beispiele
 
-Das folgende Beispiel veranschaulicht die Verwendung der **-Status** Befehl, um den Status des Laufwerks C. anzuzeigen.
+Im folgenden Beispiel wird veranschaulicht, wie der **-Status-** Befehl verwendet wird, um den Status von Laufwerk C anzuzeigen.
 ```
 manage-bde –status C:
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
--   [Befehlszeilensyntax](command-line-syntax-key.md)
--   [Verwalten von-bde](manage-bde.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Manage-bde](manage-bde.md)

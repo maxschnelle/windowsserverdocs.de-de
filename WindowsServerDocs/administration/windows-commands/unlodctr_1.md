@@ -1,8 +1,8 @@
 ---
 title: unlodctr
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e1a662da10acc65b4ad2fd0d055cf9d46de603be
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 85a66b521f404358705962078f33af4bec1ebae5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886651"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363901"
 ---
 # <a name="unlodctr"></a>unlodctr
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Entfernt den Namen Leistungsindikatoren und erläuternden Text eines Diensts oder Gerätetreibers aus der Registrierung des Systems an.   
+Entfernt die Namen von Leistungs Zählern und erläutert den Text für einen Dienst oder einen Gerätetreiber aus der Systemregistrierung.   
 
 ## <a name="syntax"></a>Syntax  
 ```  
@@ -33,20 +33,20 @@ Unlodctr <DriverName>
 ### <a name="parameters"></a>Parameter  
 |Parameter|Beschreibung|  
 |-------|--------|  
-|\<DriverName>|Entfernt die Leistung Leistungsindikator Einstellungen und Erklärungstext für die Treiber oder Dienst <DriverName> aus der Registrierung von Windows Server 2003.|  
+|\<drivername >|entfernt die Namen Einstellungen des Leistungs Zählers und den erläuternden Text für Treiber oder Dienst <DriverName> aus der Windows Server 2003-Registrierung.|  
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|  
 
 ## <a name="remarks"></a>Hinweise  
 > [!WARNING]  
 > Durch eine fehlerhafte Bearbeitung der Registrierung können schwerwiegende Schäden am System verursacht werden. Bevor Sie Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Computerdaten sichern.  
 
-Wenn die Informationen, die Sie angeben, die Leerzeichen enthält, verwenden Sie den Text in Anführungszeichen (z. B. "<DriverName>").  
+Wenn die Informationen, die Sie angeben, Leerzeichen enthalten, verwenden Sie den Text in Anführungszeichen (z. b. "<DriverName>").  
 
-## <a name="BKMK_Examples"></a>Beispiele für  
-So entfernen die aktuellen registrierungseinstellungen für die Leistung und Leistungsindikator erläuternden Texts für den Dienst Simple Mail Transfer Protocol (SMTP):  
+## <a name="BKMK_Examples"></a>Beispiele  
+So entfernen Sie die aktuellen Registrierungs Einstellungen für die Leistung und den leistungsstarken Text für den Simple Mail Transfer Protocol (SMTP)-Dienst:  
 ```  
 unlodctr SMTPSVC  
 ```  
 ## <a name="additional-references"></a>Weitere Verweise  
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   

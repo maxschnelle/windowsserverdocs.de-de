@@ -1,8 +1,8 @@
 ---
-title: Wbadmin Start systemstatebackup
-description: 'Windows-Befehle Thema ***- '
+title: Wbadmin start systemstatebackup
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,25 +13,25 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d98ba295b2a76baf98e85a01a02677d57922877d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 0244f984d29c8a802475d2dc08f1cdfe4495f0b9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440264"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362228"
 ---
-# <a name="wbadmin-start-systemstatebackup"></a>Wbadmin Start systemstatebackup
+# <a name="wbadmin-start-systemstatebackup"></a>Wbadmin start systemstatebackup
 
 
 
-Erstellt eine Sicherung des Systemstatus des lokalen Computers ein, und speichert sie in der angegebenen Position.
+Erstellt eine Systemstatus Sicherung des lokalen Computers und speichert Sie am angegebenen Speicherort.
 
 > [!NOTE]
-> Windows Server-Sicherung nicht sichern oder Benutzer Registrierungsstrukturen (HKEY_CURRENT_USER) als Teil des Systemstatus-Sicherung oder Wiederherstellung des Systemstatus wiederherstellen.
+> Windows Server-Sicherung dient nicht zum Sichern oder Wiederherstellen von registrierungsbenutzer Strukturen (HKEY_CURRENT_USER) im Rahmen der Sicherung oder Wiederherstellung des Systemstatus.
 
-Um eine Sicherung des Systemstatus mit diesem Unterbefehl auszuführen, müssen Sie Mitglied werden die **Sicherungs-Operatoren** Gruppe oder der **Administratoren** Gruppe, oder Sie wurde die entsprechenden Berechtigungen delegiert. Darüber hinaus müssen Sie ausführen **Wbadmin** eine Eingabeaufforderung mit erhöhten Rechten. (Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten mit der rechten Maustaste **Eingabeaufforderung**, und klicken Sie dann auf **als Administrator ausführen**.)
+Wenn Sie mit diesem Unterbefehl eine Systemstatus Sicherung ausführen möchten, müssen Sie Mitglied der Gruppe " **Sicherungs-Operatoren** " oder " **Administratoren** " sein, oder die entsprechenden Berechtigungen müssen an Sie delegiert worden sein. Außerdem müssen Sie **Wbadmin** über eine Eingabeaufforderung mit erhöhten Rechten ausführen. (Klicken Sie zum Öffnen einer Eingabeaufforderung mit erhöhten Rechten mit der rechten Maustaste auf **Eingabeaufforderung**, und klicken Sie dann auf **als Administrator ausführen**.)
 
-Beispiele zur Verwendung dieses Unterbefehl finden Sie in [Beispiele](#BKMK_examples).
+Beispiele für die Verwendung dieses Unterbefehls finden Sie unter [Beispiele](#BKMK_examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -45,16 +45,16 @@ wbadmin start systemstatebackup
 
 |   Parameter   |                                                                                                                                                                                                                      Beschreibung                                                                                                                                                                                                                      |
 |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| -backupTarget | Gibt den Speicherort zum Speichern der Sicherung werden sollen. Der Speicherort ist erforderlich, einen Laufwerkbuchstaben oder einen GUID-basierte Volume das Format: \\ \\? \Volume {*GUID*}.</br>Eine Sicherung des Systemstatus auf einem freigegebenen Netzwerkordner wird auf einem Computer unter Windows Server 2008 nicht unterstützt. Wenn es sich bei Ihrem Server Windows Server 2008 R2 ausgeführt wird, oder höher können Sie den Befehl **- Backuptarget:\\\\Servername\sharedFolder\\**  zum Speichern von Sicherungen des Systemstatus. |
-|    -quiet     |                                                                                                                                                                                                   Wird keine aufforderungen den Unterbefehl für dem Benutzer ausgeführt.                                                                                                                                                                                                    |
+| -backupTarget | Gibt den Speicherort an, an dem die Sicherung gespeichert werden soll. Der Speicherort erfordert einen Laufwerk Buchstaben oder ein GUID-basiertes Volume im Format: \\ @ no__t-1? \Volume{*GUID*}.</br>Eine Systemstatus Sicherung in einem freigegebenen Netzwerkordner wird auf Computern, auf denen Windows Server 2008 ausgeführt wird, nicht unterstützt. Wenn auf Ihrem Server Windows Server 2008 R2 oder höher ausgeführt wird, können Sie den Befehl **-backupTarget: \\ @ no__t-2servername\sharedFolder @ no__t-3** verwenden, um Systemstatus Sicherungen zu speichern. |
+|    -quiet     |                                                                                                                                                                                                   Führt den Unterbefehl ohne Aufforderungen an den Benutzer aus.                                                                                                                                                                                                    |
 
 ## <a name="remarks"></a>Hinweise
 
-Enthält Informationen zum Speichern einer Sicherung des Systemstatus auf einem Volume, das wiederum Systemstatusdateien, finden Sie in der Microsoft Knowledge Base-Artikel 944530 ([https://go.microsoft.com/fwlink/?LinkId=110439](https://go.microsoft.com/fwlink/?LinkId=110439)).
+Informationen zum Speichern einer Systemstatus Sicherung auf einem Volume, das wiederum Systemstatus Dateien enthält, finden Sie im Artikel 944530 in der Microsoft Knowledge Base ([https://go.microsoft.com/fwlink/?LinkId=110439](https://go.microsoft.com/fwlink/?LinkId=110439)).
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Erstellen eine Sicherung des Systemstatus aus, und speichern es auf Volume f, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um eine Systemstatus Sicherung zu erstellen und auf Volume f zu speichern:
 ```
 wbadmin start systemstatebackup -backupTarget:f:
 ```
@@ -63,4 +63,4 @@ wbadmin start systemstatebackup -backupTarget:f:
 
 -   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
--   [Start-WBBackup](https://technet.microsoft.com/library/jj902459.aspx) cmdlet
+-   [Start-wbbackup-](https://technet.microsoft.com/library/jj902459.aspx) Cmdlet

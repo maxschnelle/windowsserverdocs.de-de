@@ -1,8 +1,8 @@
 ---
-title: Verwenden den Befehl Remove-DriverGroupPackage
-description: 'Windows-Befehle Thema ***- '
+title: Verwenden des Remove-drivergrouppackage-Befehls
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 82a8fb8fbe9e713c3e22c08839bc4bc22fe900db
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 122f82b22fd72dc09d4703552cb7b6ac5662aa07
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883991"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362900"
 ---
-# <a name="using-the-remove-drivergrouppackage-command"></a>Verwenden den Befehl Remove-DriverGroupPackage
+# <a name="using-the-remove-drivergrouppackage-command"></a>Verwenden des Remove-drivergrouppackage-Befehls
 
 
 
-Entfernt ein Treiberpaket aus einer Treibergruppe auf einem Server an.
+entfernt ein Treiber Paket aus einer Treiber Gruppe auf einem Server.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,11 +36,11 @@ WDSUTIL /Remove-DriverGroupPackage /DriverGroup:<Group Name> [/Server:<Server Na
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|[/ Server:\<Servername >]|Gibt den Namen des Servers an. Dies kann den NetBIOS-Namen oder den vollqualifizierten Domänennamen sein. Wenn ein Servername nicht angegeben ist, wird der lokale Server verwendet.|
-|[/ DriverPackage /:\<Name >]|Gibt den Namen des Treiberpakets zu entfernen.|
-|[/PackageId:\<ID>]|Gibt an, die Windows Deployment Services-ID des Treiberpakets zu entfernen. Sie müssen diese Option angeben, wenn das Treiberpaket eindeutig anhand des Namens identifiziert werden kann.|
+|[/Server: \<Server Name >]|Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Namen handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
+|[/DriverPackage: \<name >]|Gibt den Namen des zu entfernenden Treiber Pakets an.|
+|[/PackageId: \<ID >]|Gibt die ID der Windows-Bereitstellungs Dienste des Treiber Pakets an, das entfernt werden soll. Sie müssen diese Option angeben, wenn das Treiber Paket nicht anhand des Namens eindeutig identifiziert werden kann.|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
 ```
 WDSUTIL /Remove-DriverGroupPackage /DriverGroup:PrinterDrivers /PackageId:{4D36E972-E325-11CE-BFC1-08002BE10318}
@@ -51,4 +51,4 @@ WDSUTIL /Remove-DriverGroupPackage /DriverGroup:PrinterDrivers /DriverPackage:XY
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,8 +1,8 @@
 ---
 title: whoami
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6844ba001c2ebd7407b77f97204069a48a1b595b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9731ba3be3983eb53ade88fceaee863800229084
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840151"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362142"
 ---
 # <a name="whoami"></a>whoami
 
 
 
-Zeigt Informationen von Benutzern, Gruppen und Berechtigungen für den Benutzer, die auf das lokale System angemeldet ist. Wenn Sie ohne Angabe von Parametern **Whoami** zeigt den aktuellen Domänen- und Benutzernamen an.
+Zeigt Benutzer-, Gruppen-und Berechtigungsinformationen für den Benutzer an, der derzeit am lokalen System angemeldet ist. Bei Verwendung ohne Parameter zeigt **whoami** die aktuelle Domäne und den Benutzernamen an.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -40,32 +40,32 @@ whoami /all [/fo <Format>] [/nh]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|/upn|Zeigt den Benutzernamen im Format User principal Name (UPN).|
-|/fqdn|Zeigt den Benutzernamen im Format des vollständig qualifizierten Domänennamen (FQDN).|
-|/logonid|Zeigt die Anmelde-ID des aktuellen Benutzers.|
-|/ User|Zeigt den Namen des aktuellen Domänen- und Benutzernamen und die Sicherheits-ID (SID).|
-|/groups|Zeigt die Benutzergruppen aus, zu denen der aktuelle Benutzer gehört.|
-|/priv|Zeigt die Sicherheitsprivilegien des aktuellen Benutzers.|
-|/ Fo \<Format >|Gibt das Ausgabeformat. Gültige Werte sind:</br>**Tabelle** wird die Ausgabe in Tabellenform angezeigt. Dies ist der Standardwert.</br>**Liste** wird die Ausgabe in einer Liste angezeigt.</br>**CSV** wird die Ausgabe im Format mit kommagetrennten Werten (CSV) angezeigt.|
-|/ all|Zeigt alle Informationen in der aktuellen Zugriffstoken, einschließlich der aktuellen Benutzernamen, Sicherheits-IDs (SID), Berechtigungen und Gruppen, denen der aktuelle Benutzer angehört.|
-|/nh|Gibt an, dass die Kopfzeile der Spalte nicht in der Ausgabe angezeigt werden soll. Dies gilt nur für Tabelle und im CSV-Format.|
+|/upn|Zeigt den Benutzernamen im UPN-Format (User Principal Name) an.|
+|/fqdn|Zeigt den Benutzernamen im voll qualifizierten Domänen Namen (FQDN)-Format an.|
+|/logonid|Zeigt die Anmelde-ID des aktuellen Benutzers an.|
+|/User|Zeigt den aktuellen Domänen-und Benutzernamen sowie die Sicherheits-ID (SID) an.|
+|/groups|Zeigt die Benutzergruppen an, zu denen der aktuelle Benutzer gehört.|
+|/priv|Zeigt die Sicherheits Privilegien des aktuellen Benutzers an.|
+|/FO \<format >|Gibt das Ausgabeformat an. Gültige Werte sind:</br>**Tabelle** Zeigt die Ausgabe in einer Tabelle an. Dies ist der Standardwert.</br>**Liste** Zeigt die Ausgabe in einer Liste an.</br>**CSV** Zeigt die Ausgabe im CSV-Format (Comma-Separated Value) an.|
+|/All|Zeigt alle Informationen im aktuellen Zugriffs Token an, einschließlich des aktuellen Benutzernamens, der Sicherheits-IDs (SID), der Berechtigungen und der Gruppen, denen der aktuelle Benutzer angehört.|
+|/nh|Gibt an, dass der Spaltenheader nicht in der Ausgabe angezeigt werden soll. Dies gilt nur für Tabellen-und CSV-Formate.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um die Domäne und den Namen der Person anzuzeigen, der zurzeit auf diesem Computer angemeldet ist, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um die Domäne und den Benutzernamen der Person anzuzeigen, die zurzeit an diesem Computer angemeldet ist:
 ```
 whoami
 ```
-Es wird eine Ausgabe ähnlich der folgenden angezeigt:
+Eine Ausgabe ähnlich der folgenden wird angezeigt:
 ```
 DOMAIN1\administrator
 ```
-Um alle Informationen, die in der aktuellen Zugriffstoken anzuzeigen, geben Sie Folgendes ein:
+Wenn Sie alle Informationen im aktuellen Zugriffs Token anzeigen möchten, geben Sie Folgendes ein:
 ```
 whoami /all
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

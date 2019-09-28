@@ -2,7 +2,7 @@
 title: nslookup
 description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 84e3e9ee920f458ca775dd7b76d892f10ba2f992
-ms.sourcegitcommit: ee8e0b217be6f6b2532ee7265fb4be00c106e124
+ms.openlocfilehash: 6b47592be57d5999ac26465097490da266bd0aea
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70878115"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372703"
 ---
 # <a name="nslookup"></a>nslookup
 
@@ -106,7 +106,7 @@ nslookup /view <FileName>
   |`No response from server`|Auf dem Server Computer wird kein DNS-Namen Server ausgeführt.|
   |`No records`|Der DNS-Namen Server weist keine Ressourcen Einträge des aktuellen Abfrage Typs für den Computer auf, obwohl der Computername gültig ist. Der Abfragetyp wird mit dem **Set QueryType** -Befehl angegeben.|
   |`Nonexistent domain`|Der Computer-oder DNS-Domänen Name ist nicht vorhanden.|
-  |`Connection refused`<br /><br />-oder-<br /><br />`Network is unreachable`|Die Verbindung mit dem DNS-Namen Server oder dem Finger Server konnte nicht hergestellt werden. Dieser Fehler tritt häufig bei **ls** -und **Finger** Anforderungen auf.|
+  |`Connection refused`<br /><br />– oder –<br /><br />`Network is unreachable`|Die Verbindung mit dem DNS-Namen Server oder dem Finger Server konnte nicht hergestellt werden. Dieser Fehler tritt häufig bei **ls** -und **Finger** Anforderungen auf.|
   |`Server failure`|Der DNS-Namen Server hat eine interne Inkonsistenzen in der Datenbank festgestellt und konnte keine gültige Antwort zurückgeben.|
   |`Refused`|Der DNS-Namen Server hat die Anforderung der Anforderung verweigert.|
   |`format error`|Der DNS-Namen Server hat festgestellt, dass das Anforderungspaket nicht im richtigen Format vorliegt. Dies kann auf einen Fehler in **nslookup**hindeuten.|

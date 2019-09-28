@@ -1,22 +1,22 @@
 ---
 ms.assetid: e5945bae-4a33-487c-a019-92a69db8cf6c
-title: Aktualisieren der Laufwerkfirmware für in Windows Server 2016
-ms.prod: windows-server-threshold
+title: Aktualisieren der Laufwerkfirmware
+ms.prod: windows-server
 ms.author: toklima
 ms.manager: dmoss
 ms.technology: storage-spaces
 ms.topic: article
 author: toklima
 ms.date: 10/04/2016
-ms.openlocfilehash: 50291bd4da05d9c2736c84443b444b9a43f46344
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2f0530101bb7d597d2d95c26648aad65d62b69ca
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884781"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365871"
 ---
-# <a name="updating-drive-firmware-in-windows-server-2016"></a>Aktualisieren der Laufwerkfirmware für in Windows Server 2016
->Gilt für: Windows 10, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+# <a name="updating-drive-firmware"></a>Aktualisieren der Laufwerkfirmware
+>Gilt für: Windows Server 2019, Windows Server 2016, Windows 10
 
 Das Aktualisieren der Firmware für Laufwerke war lange eine umständliche Aufgabe mit potenzieller Downtime. Darum sorgen wir für Verbesserungen in der Funktion „Speicherplätze“, Windows Server und Windows 10, Version 1703, und neuer. Wenn Sie über Laufwerke verfügen, die neue Firmwareupdatemechanismen in Windows unterstützen, können Sie die Firmware von Laufwerken aktualisieren, die sich im Produktivbetrieb befinden. Wenn Sie jedoch die Firmware eines Laufwerks, das sich im Produktivbetrieb befindet, aktualisieren werden, lesen Sie vorher unsere Tipps, wie das Risiko einer Downtime während der Verwendung dieser leistungsfähigen neuen Funktion vermieden werden kann.
 
@@ -30,11 +30,11 @@ Sie müssen über unterstützte Laufwerke verfügen, um Windows Server zum Aktua
 Wenden Sie sich an Ihren Lösungsanbieter, um Informationen darüber zu erhalten, ob Ihre Hardware unterstützt, dass Windows die Laufwerkfirmware aktualisiert.
 Im Folgenden sind Links zu den verschiedenen Anforderungen aufgelistet:
 
--   SATA: [Device.Storage.Hd.Sata](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragehdsata) – in der **[Falls implementiert\] Firmware Download & Activate** Abschnitt
+-   SATA [Device. Storage. HD. SATA](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragehdsata) -im Abschnitt **[if implementierter @ no__t-2 Firmware Download & Aktivierungs** Abschnitt
     
--   SAS: [Device.Storage.Hd.Sas](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragehdsas) – in der **[Falls implementiert\] Firmware Download & Activate** Abschnitt
+-   SAS [Device. Storage. HD. SAS](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragehdsas) : im Abschnitt **[if implementierter @ no__t-2 Firmware Download & Aktivierungs** Abschnitt
 
--   NVMe: [Device.Storage.ControllerDrive.NVMe](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragecontrollerdrivenvme) – in den Abschnitten **5.7** und **5.8**.
+-   NVMe [Device. Storage. controllerdrive. nvme](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragecontrollerdrivenvme) -in den Abschnitten **5,7** und **5,8**.
 
 ## <a name="powershell-cmdlets"></a>PowerShell-Cmdlets
 
@@ -164,7 +164,7 @@ $NewDoc = Get-Content <Path> | Out-String
 $SpacesDirect | Set-StorageHealthSetting -Name "System.Storage.SupportedComponents.Document" -Value $NewDoc
 ```
 
-Wenn Sie möchten, finden Sie unter den Health-Dienst in Aktion, und erfahren mehr über die Rollout-Mechanismus, haben Sie einen Blick auf dieses Video an: https://channel9.msdn.com/Blogs/windowsserver/Update-Drive-Firmware-Without-Downtime-in-Storage-Spaces-Direct
+Wenn Sie die Integritätsdienst in Aktion sehen möchten, und weitere Informationen zum Rollout Mechanismus erhalten, sehen Sie sich dieses Video an: https://channel9.msdn.com/Blogs/windowsserver/Update-Drive-Firmware-Without-Downtime-in-Storage-Spaces-Direct
 
 ## <a name="frequently-asked-questions"></a>Häufig gestellte Fragen
 
@@ -195,7 +195,7 @@ Sie können diesen Vorgang auf Windows Server 2016 mit auf „Direkte Speicherpl
 
 ### <a name="what-happens-if-the-update-fails"></a>Was geschieht, wenn das Update fehlschlägt?
 
-Das Update kann aus verschiedenen Gründen fehlschlagen, einige davon sind: (1) das Laufwerk unterstützt nicht die richtigen Befehle für Windows zur Aktualisierung der Firmware. In diesem Fall wird das neue Firmwareimage nie aktiviert, und das Laufwerk arbeitet weiterhin mit dem alten Image. 2) Das Image kann nicht heruntergeladen werden oder auf diesem Laufwerk angewendet werden (Versionskonflikt, beschädigtes Image,...). In diesem Fall kann das Laufwerk den Befehl zum Aktivieren nicht ausführen. In diesem Fall wird weiterhin mit dem alten Firmwareimage gearbeitet.
+Das Update kann aus verschiedenen Gründen fehlschlagen, einige davon sind: 1) das Laufwerk unterstützt die korrekten Befehle für Windows zum Aktualisieren der Firmware nicht. In diesem Fall wird das neue Firmwareimage nie aktiviert, und das Laufwerk arbeitet weiterhin mit dem alten Image. 2) Das Image kann nicht heruntergeladen werden oder auf diesem Laufwerk angewendet werden (Versionskonflikt, beschädigtes Image,...). In diesem Fall kann das Laufwerk den Befehl zum Aktivieren nicht ausführen. In diesem Fall wird weiterhin mit dem alten Firmwareimage gearbeitet.
 
 Wenn das Laufwerk nach einem Firmwareupdate gar nicht reagiert, weist möglicherweise die Laufwerkfirmware selbst einen Bug auf. Testen Sie alle Firmwareupdates in einer Testumgebung vor dem Einfügen in die Produktionsumgebung. Die einzige Lösung kann sein, das Laufwerk auszutauschen.
 

@@ -1,8 +1,8 @@
 ---
-title: Logman Import | Exportieren
-description: 'Windows-Befehle Thema ***- '
+title: logman importieren | Exports
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2d68f5f340476bbb783c47f9c3fe9c060105b4e4
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 309274b5288bd1c17259e01cf563ae8685a2094e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437710"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374461"
 ---
-# <a name="logman-import--export"></a>Logman Import | Exportieren
+# <a name="logman-import--export"></a>logman importieren | Exports
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Importieren Sie einer Datensammlergruppe aus einer XML-Datei oder in eine XML-Datei exportieren Sie Data Collector Set.  
+Importieren Sie einen Datensammler Satz aus einer XML-Datei, oder exportieren Sie einen Datensammler Satz in eine XML-Datei.  
 
 ## <a name="syntax"></a>Syntax  
 ```  
@@ -35,19 +35,19 @@ logman export <[-n] <name>> <-xml <name>> [options]
 
 |        Parameter        |                                                                        Beschreibung                                                                        |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-|           -?            |                                                             Zeigt, die kontextbezogene Hilfe an.                                                              |
-|   -s <computer name>    |                                                   Führen Sie den Befehl auf dem angegebenen Remotecomputer.                                                   |
-|     -config <value>     |                                                  Gibt an, die Befehlsoptionen enthält Datei mit den Einstellungen.                                                  |
+|           -?            |                                                             Zeigt die kontextbezogene Hilfe an.                                                              |
+|   -s <computer name>    |                                                   Führen Sie den Befehl auf dem angegebenen Remote Computer aus.                                                   |
+|     -config <value>     |                                                  Gibt die Einstellungsdatei an, die Befehlsoptionen enthält.                                                  |
 |       [-n] <name>       |                                                                Der Name des Zielobjekts.                                                                 |
-|       -xml <name>       |                                                         Der Name der XML-Datei zum Importieren oder exportieren.                                                         |
-|          -ets           |                                       Senden von Befehlen an Ereignisablaufverfolgungssitzungen direkt ohne Speichern oder zu planen.                                        |
-| -[-] u < Benutzer [Kennwort] > | Benutzer, der als ausführen. Eingeben einer \* für das Kennwort eine Aufforderung zur Kennworteingabe erzeugt. Das Kennwort wird nicht angezeigt, wenn Sie es an der kennworteingabeaufforderung eingeben. |
-|           -y            |                                                      Beantworten Sie Ja, alle Fragen ohne Eingabeaufforderung.                                                       |
+|       -XML-<name>       |                                                         Der Name der XML-Datei, die importiert oder exportiert werden soll.                                                         |
+|          -ETS           |                                       Direktes Senden von Befehlen an Ereignis Ablauf Verfolgungs Sitzungen, ohne zu speichern oder zu planen.                                        |
+| -[-] u < Benutzer [Kennwort] > | Benutzer, der als ausgeführt werden soll. Wenn Sie einen \* für das Kennwort eingeben, wird eine Eingabeaufforderung für das Kennwort ausgegeben. Das Kennwort wird nicht angezeigt, wenn Sie es an der Eingabeaufforderung eingeben. |
+|           -y            |                                                      Antworten Sie auf Ja, um alle Fragen zu beantworten.                                                       |
 
-## <a name="BKMK_examples"></a>Beispiele für  
-Der folgende Befehl importiert die XML-Datei c:\windows\perf_log.xml aus der Computer server_1, wie ein Datensammler aufgerufene Perf_log festgelegt.  
+## <a name="BKMK_examples"></a>Beispiele  
+Der folgende Befehl importiert die XML-Datei c:\windows\perf_log.XML aus dem Computer server_1 als Datensammler Satz mit dem Namen perf_log.  
 ```  
 logman import perf_log -s server_1 -xml "c:\windows\perf_log.xml"  
 ```  
-#### <a name="additional-references"></a>Zusätzliche Referenzen  
+#### <a name="additional-references"></a>Weitere Verweise  
 [logman](logman.md)  

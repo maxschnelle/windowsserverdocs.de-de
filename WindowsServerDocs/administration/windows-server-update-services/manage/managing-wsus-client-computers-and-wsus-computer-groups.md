@@ -1,8 +1,8 @@
 ---
 title: Verwalten von WSUS-Clientcomputern und WSUS-Computergruppen
-description: Thema mit Windows Server Update Service (WSUS) - Clientcomputer und Gruppen verwalten
+description: 'Thema zu Windows Server Update Service (WSUS): Verwalten von Client Computern und-Gruppen'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-wsus
@@ -13,48 +13,48 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: lizapo
 ms.date: 10/16/2017
-ms.openlocfilehash: 4ede63ab08d204c29555b28ae3a73795291c321c
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 454fa385dc9fb91218ad836d4ad34e92e9644dac
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222488"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361631"
 ---
 # <a name="managing-wsus-client-computers-and-wsus-computer-groups"></a>Verwalten von WSUS-Clientcomputern und WSUS-Computergruppen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Der Knoten "Computer" ist in der WSUS-Verwaltungskonsole zum Verwalten von WSUS-Clientcomputer und Geräte zentraler Zugriffspunkt. Unter diesem Knoten finden Sie die verschiedenen Gruppen, die Sie eingerichtet haben (und die Standardgruppe, nicht zugewiesene Computer).
+Der Knoten Computer ist der zentrale Zugriffspunkt in der WSUS-Verwaltungskonsole zum Verwalten von WSUS-Client Computern und-Geräten. Unter diesem Knoten finden Sie die verschiedenen Gruppen, die Sie eingerichtet haben (zuzüglich der Standardgruppe "nicht zugewiesene Computer").
 
-## <a name="managing-client-computers"></a>Verwalten von Clientcomputern
-Auswählen einer der Computergruppen in der **Computer** Knoten unter **Optionen** bewirkt, dass die Computer in der Gruppe, die im Detailbereich angezeigt werden. Wenn ein Computer mehreren Gruppen zugewiesen ist, wird es in den Codebeispielen beider Gruppen angezeigt. Wenn Sie einen Computer in der Liste auswählen, sehen Sie seine Eigenschaften, die allgemeine Informationen zu dem Computer und der Status von Updates für sie, wie z. B. die Installation oder die Erkennung Status eines Updates für einen bestimmten Computer enthalten. Sie können die Liste der Computer unter einer bestimmten Computergruppe nach Status filtern. Der Standardwert zeigt nur Computer, für welche Updates erforderlich sind, oder der Fehler bei der Installation haben; Allerdings können Sie die Anzeige von einem beliebigen Status filtern. Klicken Sie auf **aktualisieren** nach dem Ändern des Status-Filters.
+## <a name="managing-client-computers"></a>Verwalten von Client Computern
+Wenn Sie eine der Computer Gruppen im Knoten **Computer** unter **Optionen** auswählen, werden die Computer in dieser Gruppe im Detailbereich angezeigt. Wenn ein Computer mehreren Gruppen zugewiesen ist, wird er in den Listen beider Gruppen angezeigt. Wenn Sie einen Computer in der Liste auswählen, werden die zugehörigen Eigenschaften angezeigt. Hierzu gehören allgemeine Details zum Computer und der Status der Updates, wie z. b. die Installation oder der Erkennungs Status eines Updates für einen bestimmten Computer. Sie können die Liste der Computer unter einer bestimmten Computergruppe nach dem Status filtern. In der Standardeinstellung werden nur Computer angezeigt, für die Updates erforderlich sind oder bei denen Installationsfehler aufgetreten sind. Allerdings können Sie die Anzeige nach beliebigen Status filtern. Klicken Sie nach dem Ändern des Status Filters auf **Aktualisieren** .
 
-Sie können auch Computergruppen auf der Seite Computer verwalten, einschließlich der Gruppen erstellen und Zuweisen von Computern zu werden. Weitere Informationen zum Verwalten von Computergruppen finden Sie unter Verwalten von Computergruppen, die im nächsten Abschnitt dieses Handbuchs und im Abschnitt [1.5. Planen der WSUS-Computergruppen](../plan/plan-your-wsus-deployment.md#15-plan-wsus-computer-groups) in Schritt 1: Vorbereiten der WSUS-Bereitstellung im WSUS-Bereitstellungshandbuch.
+Sie können Computer Gruppen auch auf der Seite Computer verwalten. dazu gehören das Erstellen der Gruppen und das Zuweisen von Computern. Weitere Informationen zum Verwalten von Computer Gruppen finden Sie im Abschnitt Verwalten von Computer Gruppen im nächsten Abschnitt dieses Handbuchs und im Abschnitt [1,5. Planen der WSUS-Computer Gruppen @ no__t-0 in Schritt 1: Vorbereiten der WSUS-Bereitstellung des WSUS-Bereitstellungs Handbuchs.
 
 > [!NOTE]
-> Sie müssen zuerst konfigurieren, dass Clientcomputer für die WSUS-Server zu kontaktieren, bevor Sie sie von diesem Server verwalten können. Erst nach dem Ausführen dieser Aufgabe dem WSUS-Server erkennt Ihre Clientcomputer nicht, und sie nicht in der Liste auf der Seite "Computer" angezeigt. Weitere Informationen zum Einrichten von Client-Computern finden Sie unter [1.5. Planen der WSUS-Computergruppen](../plan/plan-your-wsus-deployment.md#15-plan-wsus-computer-groups) von Schritt 1: Vorbereiten der WSUS-Bereitstellung und Schritt 3: Konfigurieren Sie WSUS, in der WSUS-Bereitstellungshandbuch.
+> Sie müssen die Client Computer zunächst so konfigurieren, dass Sie den WSUS-Server kontaktieren, bevor Sie Sie von diesem Server aus verwalten können. Bis Sie diese Aufgabe ausführen, erkennt der WSUS-Server Ihre Client Computer nicht und wird nicht in der Liste auf der Seite Computer angezeigt. Weitere Informationen zum Einrichten von Client Computern finden Sie unter [1,5. Planen der WSUS-Computer Gruppen @ no__t-0 von Schritt 1: Vorbereiten der WSUS-Bereitstellung und Schritt 3: Konfigurieren von WSUS im WSUS-Bereitstellungs Handbuch.
 
-## <a name="controlling-when-wsus-client-computers-install-updates"></a>Steuern, wenn der WSUS-Clientcomputer Updates installieren
-Es gibt zwei Methoden, um zu steuern, bei der Installation von Updates in WSUS-Clientcomputer:
+## <a name="controlling-when-wsus-client-computers-install-updates"></a>Steuern, wann Updates von WSUS-Client Computern installiert werden
+Es gibt zwei Methoden, um zu steuern, wann Updates von WSUS-Client Computern installiert werden:
 
--   Die Genehmigung mit der Fristen: Stichtage zum Erzwingen genau, wenn ein Update installiert wurde
+-   Genehmigung mit Terminen: Fristen, die bei der Installation eines Updates strikt erzwingen
 
--   Richtlinien für die WSUS-Gruppe: Gruppenrichtlinien steuern, wann der Windows Update-Agent überprüft und Updates installiert
+-   WSUS-Gruppenrichtlinien: Gruppenrichtlinien steuern, wann Updates durch den Windows Update-Agent überprüft und installiert werden
 
-    Weitere Informationen finden Sie unter: [Schritt 5: Konfigurieren der Gruppenrichtlinieneinstellungen für automatische Updates](../deploy/4-configure-group-policy-settings-for-automatic-updates.md), in der WSUS-Bereitstellungshandbuch.
+    Weitere Informationen finden Sie unter: [Schritt 5: Konfigurieren Sie Gruppenrichtlinie Einstellungen für automatische Updates @ no__t-0 im WSUS-Bereitstellungs Handbuch.
 
-## <a name="managing-computer-groups"></a>Verwalten von Computergruppen
+## <a name="managing-computer-groups"></a>Verwalten von Computer Gruppen
 WSUS bietet Ihnen die Möglichkeit, Updates gezielt auf Gruppen von Clientcomputern anzuwenden, sodass Sie sicherstellen können, dass bestimmte Computer immer zum geeigneten Zeitpunkt die richtigen Updates erhalten. Wenn z. B. für alle Computer in einer Abteilung (z. B. im Buchhaltungsteam) eine bestimmte Konfiguration verwendet wird, können Sie eine Gruppe für das Team erstellen, entscheiden, welche Updates für die Computer erforderlich sind und wann sie installiert werden sollen, und anschließend mithilfe von WSUS-Berichten die Updates für das Team auswerten.
 
-Computer werden immer zugewiesen der **alle Computer** gruppieren und bleiben in der **– nicht zugewiesene Computer** gruppieren, bis Sie sie zu einer anderen Gruppe zuweisen. Computer können mehreren Gruppen angehören.
+Computer werden immer der Gruppe **alle Computer** zugewiesen und bleiben der Gruppe **nicht zugewiesene Computer** zugewiesen, bis Sie Sie einer anderen Gruppe zuweisen. Computer können mehreren Gruppen angehören.
 
-Computergruppen können in Hierarchien eingerichtet werden (z. B. %%amp;quot;Gehaltsabrechnung%%amp;quot; und %%amp;quot;Kreditoren%%amp;quot; als untergeordnete Gruppen von %%amp;quot;Buchhaltung%%amp;quot;). Für eine übergeordnete Gruppe genehmigte Updates werden automatisch für untergeordnete Gruppen sowie für die höhere Gruppe selbst bereitgestellt. Wenn Sie Update 1 für "Buchhaltung" genehmigen, wird das Update also auf alle Computer in der Gruppe "Buchhaltung", alle Computer in der Gruppe Gehaltsabrechnung und alle Computer in der Gruppe "Accounts Payable" bereitgestellt werden.
+Computergruppen können in Hierarchien eingerichtet werden (z. B. %%amp;quot;Gehaltsabrechnung%%amp;quot; und %%amp;quot;Kreditoren%%amp;quot; als untergeordnete Gruppen von %%amp;quot;Buchhaltung%%amp;quot;). Updates, die für eine höhere Gruppe genehmigt werden, werden automatisch für niedrigere Gruppen und für die höhere Gruppe bereitgestellt. Wenn Sie Update1 für die Gruppe "Buchhaltung" genehmigen, wird das Update auf allen Computern in der Gruppe "Buchhaltung", auf allen Computern in der Gehaltsgruppe und auf allen Computern in der Gruppe "Konten ist" bereitgestellt.
 
-Da Computer mehreren Gruppen zugewiesen werden können, kann es passieren, dass ein Update mehrmals für einen Computer genehmigt wird. Das Update wird jedoch nur einmal bereitgestellt, und alle Konflikte werden vom WSUS-Server aufgelöst. Fortsetzen möchten im obigen Beispiel ComputerA der Gehaltsabrechnung und Accounts Payable Gruppen zugewiesen ist und Update1 für beide Gruppen genehmigt wird, wird sie nur einmal bereitgestellt werden.
+Da Computer mehreren Gruppen zugewiesen werden können, kann es passieren, dass ein Update mehrmals für einen Computer genehmigt wird. Das Update wird jedoch nur einmal bereitgestellt, und alle Konflikte werden vom WSUS-Server aufgelöst. Wenn Sie das obige Beispiel fortsetzen möchten, wenn ComputerA sowohl dem Abrechnungs-als auch dem Konto für die kontozuweisung zugewiesen ist und Update1 für beide Gruppen genehmigt wird, wird es nur einmal bereitgestellt.
 
-Für die Zuweisung von Computern zu Computergruppen stehen zwei Methoden zur Verfügung: serverseitige Zielgruppenadressierung und clientseitige Zielgruppenadressierung. Mit der serverseitige Zielgruppenadressierung, verschieben Sie manuell einen oder mehrere Clientcomputer in einer Computergruppe zu einem Zeitpunkt. Bei der clientseitigen Zielzuordnung richten Sie Clientcomputer mithilfe von Gruppenrichtlinien oder durch entsprechende Bearbeitung der Registrierungseinstellungen so ein, dass sie sich zuvor erstellten Computergruppen selbst hinzufügen können. Dieser Prozess kann ein Skript erstellt und gleichzeitig auf mehreren Computern bereitgestellt werden. Sie müssen angeben, die für die Zielgruppenadressierung-Methode Sie auf dem WSUS-Server verwenden dazu eine der beiden Optionen auf der **Computer** im Abschnitt der **Optionen** Seite.
+Für die Zuweisung von Computern zu Computergruppen stehen zwei Methoden zur Verfügung: serverseitige Zielgruppenadressierung und clientseitige Zielgruppenadressierung. Bei der serverseitigen Ausrichtung müssen Sie mindestens einen Client Computer manuell in eine Computergruppe verschieben. Bei der clientseitigen Zielzuordnung richten Sie Clientcomputer mithilfe von Gruppenrichtlinien oder durch entsprechende Bearbeitung der Registrierungseinstellungen so ein, dass sie sich zuvor erstellten Computergruppen selbst hinzufügen können. Bei diesem Prozess kann ein Skript erstellt und auf mehreren Computern gleichzeitig bereitgestellt werden. Sie müssen die Ziel Ziel Methode angeben, die auf dem WSUS-Server verwendet werden soll, indem Sie eine der beiden Optionen im Abschnitt **Computer** der Seite **Optionen** auswählen.
 
 > [!NOTE]
-> Auf einem im Replikatmodus ausgeführten WSUS-Server können keine Computergruppen erstellt werden. Alle Computergruppen, die für die Clients des Replikatservers erforderlich sind, müssen auf dem WSUS-Server erstellt werden, das der Stamm der Hierarchie der WSUS-Server. Weitere Informationen zum Replikatmodus finden Sie unter [ausgeführten WSUS Replikatmodus](running-wsus-replica-mode.md) und Weitere Informationen über die serverseitige und clientseitige Zielgruppenadressierung finden Sie im Abschnitt [1.5. Planen der WSUS-Computergruppen](../plan/plan-your-wsus-deployment.md#15-plan-wsus-computer-groups) von Schritt 1: Vorbereiten der WSUS-Bereitstellung im Bereitstellungshandbuch für WSUS.
+> Auf einem im Replikatmodus ausgeführten WSUS-Server können keine Computergruppen erstellt werden. Alle Computer Gruppen, die für Clients des Replikat Servers erforderlich sind, müssen auf dem WSUS-Server erstellt werden, der das Stammverzeichnis der WSUS-Server Hierarchie ist. Weitere Informationen zum Replikat Modus finden Sie unter [Ausführen des WSUS-Replikat Modus](running-wsus-replica-mode.md) . Weitere Informationen zur serverseitigen und Client seitigen Ziel Einstellungen finden Sie im Abschnitt [1,5. Planen der WSUS-Computer Gruppen @ no__t-0 von Schritt 1: Vorbereiten der WSUS-Bereitstellung im WSUS-Bereitstellungs Handbuch.
 
 

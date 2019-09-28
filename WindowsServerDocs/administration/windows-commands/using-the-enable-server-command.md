@@ -1,8 +1,8 @@
 ---
-title: Verwenden den Enable-Server-Befehl
-description: 'Windows-Befehle Thema ***- '
+title: Verwenden des Befehls "Enable-Server"
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fdf03a778a6c646aa79c2f844212b1728c5c73eb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0b90621ec14c6cf451d7a05eace79f2e0679b2f4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852721"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363451"
 ---
-# <a name="using-the-enable-server-command"></a>Verwenden den Enable-Server-Befehl
+# <a name="using-the-enable-server-command"></a>Verwenden des Befehls "Enable-Server"
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Alle Dienste für die Windows-Bereitstellungsdienste aktiviert.
+Aktiviert alle Dienste für die Windows-Bereitstellungs Dienste.
 ## <a name="syntax"></a>Syntax
 ```
 wdsutil [Options] /Enable-Server [/Server:<Server name>]
@@ -32,19 +32,17 @@ wdsutil [Options] /Enable-Server [/Server:<Server name>]
 ## <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
-|[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben wird, wird der lokale Server verwendet werden.|
-## <a name="BKMK_examples"></a>Beispiele für
-Führen Sie eine der folgenden Schritte aus, um die Dienste auf dem Server zu aktivieren:
+|[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
+## <a name="BKMK_examples"></a>Beispiele
+Führen Sie einen der folgenden Schritte aus, um die Dienste auf dem Server zu aktivieren:
 ```
 wdsutil /Enable-Server
 wdsutil /verbose /Enable-Server /Server:MyWDSServer
 ```
-#### <a name="additional-references"></a>Zusätzliche Referenzen
-[Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-[mit dem Disable-Server-Befehl](using-the-disable-server-command.md)
-[mit dem Get-Server-Befehl](using-the-get-server-command.md)
-[mithilfe der Initialize-Server-Befehl](using-the-initialize-server-command.md)
-[Unterbefehl: Set-Server](subcommand-set-server.md)
-[Unterbefehl: Start-Server](subcommand-start-server.md) 
- [ Unterbefehl: Stop-Server](subcommand-stop-server.md)
-[die Uninitialize-Server-Option](the-uninitialize-server-option.md)
+#### <a name="additional-references"></a>Weitere Verweise
+[Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+ mithilfe des Befehls "[Deaktivieren-Server](using-the-disable-server-command.md)" 
+ mithilfe des Befehls "[Get-Server](using-the-get-server-command.md)" 
+ mithilfe des Befehls "[Initialize-Server](using-the-initialize-server-command.md)" 
+[Unterbefehl "Set-Server](subcommand-set-server.md)
+[ " Unterbefehl: Start-Server](subcommand-start-server.md)1[Unterbefehl: beenden-Server](subcommand-stop-server.md)3[die Option "nicht initialisieren-Server](the-uninitialize-server-option.md) "

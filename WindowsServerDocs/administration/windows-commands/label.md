@@ -1,8 +1,8 @@
 ---
 title: label
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d0c68fbbf3ea776bbf6cd49fc4fa446d5dd46542
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: e66a2d9a7d28462b287084e3f8b129ffc03800bd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437913"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374790"
 ---
 # <a name="label"></a>label
 
 
 
-Erstellt, ändert oder löscht die Bezeichnung (d. h. der Name) eines Datenträgers. Wenn Sie ohne Angabe von Parametern die **Bezeichnung** Befehl ändert die aktuelle Bezeichnung oder die vorhandene Bezeichnung gelöscht.
+Hiermit wird die Volumebezeichnung (d. h. der Name) eines Datenträgers erstellt, geändert oder gelöscht. Bei Verwendung ohne Parameter ändert der Befehl " **Bezeichnung** " die aktuelle Volumebezeichnung oder löscht die vorhandene Bezeichnung.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -38,34 +38,34 @@ label [/mp] [<Volume>] [<Label>]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|/mp|Gibt an, dass das Volume als ein Punkt oder ein Volume Bereitstellungsname behandelt werden soll.|
-|\<Volume >|Gibt einen Laufwerkbuchstaben (gefolgt von einem Doppelpunkt), Bereitstellungspunkt oder Name des Volumes. Wenn Sie ein Volumenamen angegeben wird, die **/MP** Parameter ist nicht erforderlich.|
-|\<Label>|Gibt die Bezeichnung für das Volume.|
+|/mp|Gibt an, dass das Volume als Einstellungspunkt oder Volumename behandelt werden soll.|
+|\<volume >|Gibt einen Laufwerk Buchstaben (gefolgt von einem Doppelpunkt), einen Einfügepunkt oder einen Volumenamen an. Wenn ein Volumename angegeben wird, ist der **/MP** -Parameter nicht erforderlich.|
+|die Bezeichnung "\<" >|Gibt die Bezeichnung für das Volume an.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
-- Windows zeigt die Bezeichnung und Seriennummer (sofern vorhanden) als Teil der verzeichnisauflistung.
-- Eine NTFS-Volume-Bezeichnung kann bis zu 32 Zeichen lang sein, einschließlich Leerzeichen sein. NTFS-Volumebezeichnungen beibehalten werden sollen, und zeigen den Fall, der verwendet wurde, als Sie Bezeichnung erstellt wurde.
-- Wenn Sie einen Wert für nicht angeben der **Bezeichnung** -Parameter der **Bezeichnung** Befehl zeigt eine Ausgabe im folgenden Format:  
+- In Windows werden die Volumebezeichnung und die Seriennummer (sofern eine) als Teil der Verzeichnis Auflistung angezeigt.
+- Eine NTFS-Volumebezeichnung kann bis zu 32 Zeichen lang sein, einschließlich Leerzeichen. NTFS-Volumebezeichnungen behalten den Fall bei, der beim Erstellen der Bezeichnung verwendet wurde, und zeigen ihn an.
+- Wenn Sie keinen Wert für den **Label** -Parameter angeben, zeigt der **Label** -Befehl die Ausgabe im folgenden Format an:  
   ```
   Volume in drive C: xxxxxxxxxxx 
   Volume Serial Number is xxxx-xxxx 
   Volume label (32 characters, ENTER for none)?
   ```  
-  Sie können eine neue Bezeichnung eingeben oder EINGABETASTE drücken, um die aktuelle Bezeichnung beibehalten. Wenn Sie die EINGABETASTE drücken und das Volume verfügt derzeit über eine Bezeichnung, die **Bezeichnung** Befehl werden Sie aufgefordert, mit der folgenden Meldung:  
+  Sie können eine neue Volumebezeichnung eingeben oder die EINGABETASTE drücken, um die aktuelle Bezeichnung beizubehalten. Wenn Sie die EINGABETASTE drücken und das Volume derzeit über eine Bezeichnung verfügt, werden Sie mit dem Befehl **Bezeichnung** zur Eingabe der folgenden Meldung aufgefordert:  
   ```
   Delete current volume label (Y/N)?
   ```  
-  Drücken Sie Y zum Löschen der Bezeichnung, oder drücken Sie N, um die Bezeichnung beibehalten.
+  Drücken Sie Y, um die Bezeichnung zu löschen, oder drücken Sie N, um die Bezeichnung beizubehalten.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um eine Diskette in Laufwerk A zu bezeichnen, die Verkaufsinformationen für Juli enthält, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um einen Datenträger in Laufwerk a mit Umsatz Informationen für Juli zu bezeichnen:
 ```
 label a:sales-july
 ```
-Um die aktuelle Bezeichnung für Laufwerk C: zu löschen, gehen Sie folgendermaßen vor:
+Um die aktuelle Bezeichnung für Laufwerk C zu löschen, führen Sie die folgenden Schritte aus:
 1. Geben Sie an einer Eingabeaufforderung Folgendes ein:  
    ```
    Label
@@ -76,7 +76,7 @@ Um die aktuelle Bezeichnung für Laufwerk C: zu löschen, gehen Sie folgenderma�
    Volume Serial Number is 6789-ABCD
    Volume label (32 characters, ENTER for none)?
    ```  
-2. Drücken Sie die EINGABETASTE. Die folgende Meldung sollte angezeigt werden:  
+2. Drücken Sie die EINGABETASTE. Die folgende Eingabeaufforderung sollte angezeigt werden:  
    ```
    Delete current volume label (Y/N)?
    ```  
