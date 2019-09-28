@@ -1,7 +1,7 @@
 ---
-title: Eine oder mehrere Netzwerkadapter sollte als Ziel für die Portspiegelung konfiguriert werden
-description: Die Onlineversion des Texts für diese Best Practices Analyzer-Regel.
-ms.prod: windows-server-threshold
+title: Mindestens ein Netzwerkadapter muss als Ziel für die Port Spiegelung konfiguriert sein.
+description: Online Version des Texts für diese Best Practices Analyzer Regel.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,38 +10,38 @@ ms.topic: article
 ms.assetid: b83c166d-f010-47c4-a4bb-02167f2e3361
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: e3fa986ca66e6da03797db4fe7183b9bae1fbdda
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: af51b854659adae1bf3132eed4d68e95467bdf85
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875731"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364814"
 ---
-# <a name="one-or-more-network-adapters-should-be-configured-as-the-destination-for-port-mirroring"></a>Eine oder mehrere Netzwerkadapter sollte als Ziel für die Portspiegelung konfiguriert werden
+# <a name="one-or-more-network-adapters-should-be-configured-as-the-destination-for-port-mirroring"></a>Mindestens ein Netzwerkadapter muss als Ziel für die Port Spiegelung konfiguriert sein.
 
 >Gilt für: Windows Server 2016
 
-Weitere Informationen zu best Practices und Überprüfungen finden Sie unter [Run Best Practices Analyzer Scans und Manage Scan Results](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
+Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausführen von Best Practices Analyzer Scans und Verwalten der Scan Ergebnisse](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
 |Eigenschaft|Details|  
 |-|-|  
 |**Betriebssystem**|Windows Server 2016|  
-|**Produkt /-Funktion**|Hyper-V|  
-|**Schweregrad**|Warnung|  
+|**Produkt/Feature**|Hyper-V|  
+|**Zunehmen**|Warnung|  
 |**Kategorie**|Konfiguration|  
   
-In den folgenden Abschnitten Kursivschrift gibt an Benutzeroberflächentext, die im Best Practices Analyzer-Tool für dieses Problem angezeigt wird.  
+In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.  
   
 ## <a name="issue"></a>**Problem:**  
-*Eine oder mehrere virtuelle Computer haben einen Netzwerkadapter, die als Quelle für die Portspiegelung konfiguriert, aber keine entsprechende Ziel auf dem virtuellen Switch vorhanden ist.*  
+*Für mindestens einen virtuellen Computer ist ein Netzwerkadapter als Quelle für die Port Spiegelung konfiguriert, aber es ist kein entsprechendes Ziel auf dem virtuellen Switch vorhanden.*  
   
-## <a name="impact"></a>**Auswirkungen**  
-*Port-Datenbankspiegelung wird für die folgenden virtuellen Switches und virtuelle Computer nicht ordnungsgemäß funktioniert:*  
+## <a name="impact"></a>**Auswirkt**  
+*Die Port Spiegelung wird für die folgenden virtuellen Switches und virtuellen Maschinen nicht ordnungsgemäß ausgeführt:*  
   
-\<Liste der virtuellen Computer >  
+\<list of Virtual Machines >  
   
-## <a name="resolution"></a>**Lösung**  
-*Verwenden Sie Windows PowerShell oder dem Hyper-V-Manager, um abzuschließen, oder korrigieren Sie die Konfiguration mit Portspiegelung.*  
+## <a name="resolution"></a>**Auflösung**  
+*Verwenden Sie Windows PowerShell oder Hyper-V-Manager, um die Port Spiegelungs Konfiguration abzuschließen oder zu korrigieren.*  
   
 
 

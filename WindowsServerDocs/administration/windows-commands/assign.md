@@ -1,8 +1,8 @@
 ---
 title: assign
-description: Windows-Befehle Thema **weisen** -weist einen Laufwerkbuchstaben oder Bereitstellungspunkt auf dem Volume mit dem Fokus.
+description: Thema Windows-Befehle für **assign** -weist dem Volume mit dem Fokus einen Laufwerk Buchstaben oder einen Einfügepunkt zu.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8e7f680fe93e846f5b916cf3210a7ca61f190674
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 3e07edcd4ac4ddf5eca1e57da17df441043d15f6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435303"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382679"
 ---
 # <a name="assign"></a>assign
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-weist einen Laufwerkbuchstaben oder Bereitstellungspunkt auf dem Volume mit dem Fokus.
+weist dem Volume mit dem Fokus einen Laufwerk Buchstaben oder einen Einfügepunkt zu.
 
 ## <a name="syntax"></a>Syntax
 ```
@@ -34,17 +34,17 @@ assign [{letter=<d> | mount=<path>}] [noerr]
 
 |  Parameter   |                                                                                                                                 Beschreibung                                                                                                                                 |
 |--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  letter=<d>  |                                                                                                             Der Laufwerkbuchstabe, die Sie dem Volume zuweisen möchten.                                                                                                              |
-| mount=<path> | Der Pfad des Volumebereitstellungspunkts, die, den Sie dem Volume zuweisen möchten.<br /><br />Anweisungen dazu, wie Sie diesen Befehl verwenden, finden Sie unter [weisen Sie einen Pfad des Volumebereitstellungspunkts Ordner auf einem Laufwerk](https://go.microsoft.com/fwlink/?LinkId=207059) (<https://go.microsoft.com/fwlink/?LinkId=207059>). |
-|    Diskpart     |                                    nur für Skripts. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden.                                     |
+|  Buchstabe = <d>  |                                                                                                             Der Laufwerk Buchstabe, der dem Volume zugewiesen werden soll.                                                                                                              |
+| Mount = <path> | Der Pfad des einstellungspunkts, der dem Volume zugewiesen werden soll.<br /><br />Anweisungen zur Verwendung dieses Befehls finden [Sie unter Zuweisen eines Ordners für einen einstellungspunktpfad zu einem Laufwerk](https://go.microsoft.com/fwlink/?LinkId=207059) (<https://go.microsoft.com/fwlink/?LinkId=207059>). |
+|    Noerr     |                                    Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.                                     |
 
 ## <a name="remarks"></a>Hinweise
-- Wenn kein Laufwerkbuchstabe oder Bereitstellungspunkt angegeben ist, wird die nächste verfügbare Laufwerkbuchstabe zugewiesen. Wenn der Laufwerkbuchstabe oder Bereitstellungspunkt bereits verwendet wird, wird ein Fehler generiert.
-- Mit der Assign-Befehl können Sie den Laufwerkbuchstaben, einen Wechseldatenträger zugeordneten ändern.
-- Sie können keine Laufwerkbuchstaben auf Systemvolumes, Startvolumes oder Volumes, die die Auslagerungsdatei enthalten. Darüber hinaus können nicht Sie einen Laufwerkbuchstaben einer Partition (Original Equipment Manufacturers) oder eine GUID-Partitionstabelle (Gpt) andere Partition als eine grundlegende Daten zur Partition zuweisen.
-- Ein Volume muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden. Verwenden der **wählen Volume** Befehl aus, wählen Sie ein Volume und verschiebt den Fokus auf sie.
-  ## <a name="BKMK_examples"></a>Beispiele für
-  Um den Buchstaben E auf dem Volume in den Fokus zuzuweisen, geben Sie Folgendes ein:
+- Wenn kein Laufwerk Buchstabe oder Einfügepunkt angegeben ist, wird der nächste verfügbare Laufwerk Buchstabe zugewiesen. Wenn der Laufwerk Buchstabe oder der Einfügepunkt bereits verwendet wird, wird ein Fehler generiert.
+- Mit dem Befehl zuweisen können Sie den Laufwerk Buchstaben ändern, der einem Wechsel Datenträger zugeordnet ist.
+- Sie können den Systemvolumes, Start Volumes oder Volumes, die die Auslagerungs Datei enthalten, keine Laufwerk Buchstaben zuweisen. Außerdem ist es nicht möglich, einem Original Gerätehersteller (OEM) oder einer anderen GPT-Partition (GUID-Partitionstabelle) einen Laufwerk Buchstaben zuzuweisen, der keine grundlegende Daten Partition ist.
+- Ein Volume muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl **Volume auswählen** ein Volume aus, und verschieben Sie den Fokus auf das Volume.
+  ## <a name="BKMK_examples"></a>Beispiele
+  Geben Sie Folgendes ein, um den Buchstaben E dem Volume im Fokus zuzuweisen:
   ```
   assign letter=e
   ```

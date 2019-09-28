@@ -1,7 +1,7 @@
 ---
 title: Unterstützte virtuelle Computer der CentOS-und Red Hat Enterprise Linux auf Hyper-V
 description: Listet die Versionen der Linux-Integrationsdienste für unterstützte CentOS-und Red Hat Enterprise-Distributionen auf.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 ms.technology: compute-hyper-v
 ms.tgt_pltfrm: na
@@ -10,12 +10,12 @@ ms.assetid: 4bf8783d-dee5-4b3e-8cce-2b11b117c189
 author: danihalfin
 ms.author: jopoulso
 ms.date: 06/13/2019
-ms.openlocfilehash: 80273bc0e99a3e70c8c783deae4a3ee42b5a11f0
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 19e22df7ed5e49cdf4047204f1b13b9c4f3450ef
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544722"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365551"
 ---
 # <a name="supported-centos-and-red-hat-enterprise-linux-virtual-machines-on-hyper-v"></a>Unterstützte virtuelle Computer der CentOS-und Red Hat Enterprise Linux auf Hyper-V
 
@@ -119,7 +119,7 @@ Diese Reihe hat nur 64-Bit-Kernel.
 |                                                                 Trim-Unterstützung                                                                 |        2019, 2016, 2012 R2         |                              &#10004;                               |                              &#10004;                               |                              &#10004;                               |      &#10004;       |      &#10004;       |      &#10004;       |      &#10004;       |                     |                        |
 |                                                                   SCSI-WWN                                                                   |        2019, 2016, 2012 R2         |                              &#10004;                               |                              &#10004;                               |                              &#10004;                               |      &#10004;       |                     |                     |                     |                     |                        |
 |                        **[Gedenkens](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**                        |                                    |                                                                     |                                                                     |                                                                     |                     |                     |                     |                     |                     |                        |
-|                                                              Unterstützung für den unterstützten Kernel                                                              | 2019, 2016, 2012 R2, 2012, 2008 R2 |                                 Nicht zutreffend                                 |                                 N/V                                 |                                 N/V                                 |         N/V         |         N/V         |         N/V         |         N/V         |         N/V         |          Nicht zutreffend           |
+|                                                              Unterstützung für den unterstützten Kernel                                                              | 2019, 2016, 2012 R2, 2012, 2008 R2 |                                 Nicht zutreffend                                 |                                 Nicht zutreffend                                 |                                 Nicht zutreffend                                 |         Nicht zutreffend         |         Nicht zutreffend         |         Nicht zutreffend         |         Nicht zutreffend         |         Nicht zutreffend         |          Nicht zutreffend           |
 |                                                          MMIO-Lücke konfigurieren                                                           |        2019, 2016, 2012 R2         |                              &#10004;                               |                              &#10004;                               |                              &#10004;                               |      &#10004;       |      &#10004;       |      &#10004;       |      &#10004;       |      &#10004;       |        &#10004;        |
 |                                                           Dynamischer Arbeitsspeicher-Hot-Add                                                           |     2019, 2016, 2012 R2, 2012      |                       &#10004;Notiz 8, 9, 10                        |                       &#10004;Notiz 8, 9, 10                        |                       &#10004;Notiz 8, 9, 10                        | &#10004;Hinweis 9, 10 | &#10004;Hinweis 9, 10 | &#10004;Hinweis 9, 10 | &#10004;Hinweis 9, 10 | &#10004;Hinweis 9, 10 | &#10004;Notiz 8, 9, 10 |
 |                                                         Dynamischer Arbeitsspeicher-Ballooning                                                          |     2019, 2016, 2012 R2, 2012      |                       &#10004;Notiz 8, 9, 10                        |                       &#10004;Notiz 8, 9, 10                        |                       &#10004;Notiz 8, 9, 10                        | &#10004;Hinweis 9, 10 | &#10004;Hinweis 9, 10 | &#10004;Hinweis 9, 10 | &#10004;Hinweis 9, 10 | &#10004;Hinweis 9, 10 | &#10004;Notiz 8, 9, 10 |
@@ -244,7 +244,7 @@ Für diese Reihe ist ein 32-Bit-PE-Kernel verfügbar. Vor 5,9 gibt es keine inte
 
    1. Erstellen Sie eine Datei **/etc/udev/rules.d/100-Balloon.Rules**. Sie können einen beliebigen anderen gewünschten Namen für die Datei verwenden.
 
-   2. Fügen Sie der Datei den folgenden Inhalt hinzu:`SUBSYSTEM=="memory", ACTION=="add", ATTR{state}="online"`
+   2. Fügen Sie der Datei den folgenden Inhalt hinzu: `SUBSYSTEM=="memory", ACTION=="add", ATTR{state}="online"`
 
    3. Starten Sie das System neu.
 

@@ -1,76 +1,76 @@
 ---
-title: Funktionsweise von QoS-Richtlinie
-description: Dieses Thema enthält eine Übersicht über Quality of Service (QoS)-Richtlinie, die Gruppenrichtlinie zu verwenden, um die Netzwerkbandbreite für Datenverkehr von bestimmten Anwendungen und Diensten in Windows Server 2016 zu priorisieren kann.
-ms.prod: windows-server-threshold
+title: Funktionsweise der QoS-Richtlinie
+description: Dieses Thema bietet einen Überblick über die Richtlinie für Quality of Service (QoS), mit der Sie Gruppenrichtlinie die Bandbreite von Netzwerk Datenverkehr für bestimmte Anwendungen und Dienste in Windows Server 2016 priorisieren können.
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 25097cb8-b9b1-41c9-b3c7-3610a032e0d8
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 272272c833bb38924f1daa5561037901f6ff4e25
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4de9674e2d1700d342af380c79a611c3d5961cda
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864281"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405176"
 ---
-# <a name="how-qos-policy-works"></a>Funktionsweise von QoS-Richtlinie
+# <a name="how-qos-policy-works"></a>Funktionsweise der QoS-Richtlinie
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Beim Starten oder Abrufen von aktualisierten Benutzer oder Computer Configuration-gruppenrichtlinieneinstellungen für QoS, geschieht Folgendes.
+Beim Starten oder Abrufen aktualisierter Benutzer-oder Computer Konfigurations Gruppenrichtlinie Einstellungen für QoS erfolgt der folgende Vorgang.
 
-1. Die Gruppenrichtlinien-Engine Ruft die Benutzer oder Computer Configuration gruppenrichtlinieneinstellungen aus Active Directory ab.
+1. Die Gruppenrichtlinie-Engine ruft die Konfigurations Gruppenrichtlinie Einstellungen des Benutzers oder Computers aus Active Directory ab.
 
-2. Die Gruppenrichtlinien-Engine informiert die QoS-Client-Side Extension, dass Änderungen in den QoS-Richtlinien wurden.
+2. Die Gruppenrichtlinie-Engine informiert die Client seitige QoS-Erweiterung darüber, dass Änderungen an den QoS-Richtlinien vorgenommen wurden.
 
-3. Die QoS-Client-Side Extension sendet eine ereignisbenachrichtigung für QoS-Richtlinie für das Modul der QoS-Überprüfung.
+3. Die Client seitige QoS-Erweiterung sendet eine QoS-Richtlinien Ereignis Benachrichtigung an das QoS-Inspektions Modul.
 
-4. Die QoS-Prüfung Modul ruft ab, die QoS-Richtlinien für Benutzer oder Computer und speichert sie.
+4. Das QoS-Inspektions Modul ruft die QoS-Richtlinien für Benutzer oder Computer ab und speichert Sie.
 
-Wenn ein neuer Endpunkt für die Transportschicht \(TCP-Verbindung oder UDP-Datenverkehr\) erstellt wird, wird der folgende Prozess durchgeführt.
+Wenn ein neuer Transport Schicht Endpunkt \(tcp-Verbindung oder UDP-Datenverkehr @ no__t-1 erstellt wird, tritt der folgende Vorgang auf.
 
-1. Die Transport Layer-Komponente des TCP/IP-Stapels informiert das Modul der QoS-Überprüfung.
+1. Die Transport Schicht Komponente des TCP/IP-Stapels informiert das QoS-Inspektions Modul.
 
-2. Das Modul der QoS-Überprüfung vergleicht die Parameter von der Transportschicht Endpunkt die gespeicherten QoS-Richtlinien.
+2. Das QoS-Inspektions Modul vergleicht die Parameter des Transport Schicht-Endpunkts mit den gespeicherten QoS-Richtlinien.
 
-3. Wenn eine Übereinstimmung gefunden wird, kontaktiert der QoS-Prüfung Modul Pacer.sys zum Erstellen eines Flows eine Datenstruktur, die den DSCP-Wert und den Datenverkehr, drosselungseinstellungen für die entsprechende QoS-Richtlinie enthält. Wenn es mehrere QoS-Richtlinien, die mit den Parametern von der Transportschicht Endpunkt übereinstimmen sind, wird die spezifischste QoS-Richtlinie verwendet.
+3. Wenn eine Übereinstimmung gefunden wird, kontaktiert das QoS-Inspektions Modul Pacer. sys, um einen Flow zu erstellen, eine Datenstruktur, die den DSCP-Wert enthält, und die Einstellungen für die Datenverkehrs Drosselung der entsprechenden QoS-Richtlinie. Wenn mehrere QoS-Richtlinien vorhanden sind, die mit den Parametern des Transport Schicht-Endpunkts identisch sind, wird die spezifischere QoS-Richtlinie verwendet.
 
-4. Pacer.sys speichert den Flow und eine Flow-Zahl, die auf den Flow an das Modul der QoS-Prüfung entsprechenden zurückgibt.
+4. Pacer. sys speichert den Flow und gibt eine Fluss Nummer zurück, die dem Fluss zum QoS-Inspektions Modul entspricht.
 
-5. Das Modul der QoS-Überprüfung werden die Flow-Anzahl an die Transportschicht zurückgegeben.
+5. Das QoS-Inspektions Modul gibt die Fluss Nummer an die Transport Schicht zurück.
 
-6. Die Transportschicht speichert die Flow mit dem Transport Layer-Endpunkt.
+6. Die Transportschicht speichert die Fluss Nummer mit dem Transport Schicht Endpunkt.
 
-Wenn ein Paket für einen Endpunkt für die Transportschicht mit einer Reihe von Flow gekennzeichnet wird gesendet der folgende Prozess durchgeführt.
+Wenn ein Paket gesendet wird, das einem mit einer Fluss Nummer markierten Transport Schicht Endpunkt entspricht, wird der folgende Vorgang durchgeführt.
 
-1. Die Transportschicht wird intern das Paket mit der Anzahl der Flow markiert.
+1. Die Transport Schicht markiert das Paket intern mit der Fluss Nummer.
 
-2. Die Netzwerkschicht fragt Pacer.sys für den DSCP-Wert, der die Anzahl der Datenfluss des Pakets entspricht.
+2. Die Netzwerkschicht fragt Pacer. sys nach dem DSCP-Wert ab, der der Fluss Nummer des Pakets entspricht.
 
-3. Pacer.sys gibt den DSCP-Wert zurück, auf der Netzwerkebene.
+3. Pacer. sys gibt den DSCP-Wert an die Netzwerkebene zurück.
 
-4. Ebene des Netzwerks den DSCP-Wert, der anhand des Pacer.sys nun im IPv4-TOS-Feld oder IPv6-Datenverkehr-Klasse und für IPv4-Pakete, die endgültige IPv4-Header-Prüfsumme berechnet.
+4. Die Netzwerkschicht ändert das Feld IPv4-oder IPv6-Datenverkehrs Klasse in den von Pacer. sys angegebenen DSCP-Wert und berechnet bei IPv4-Paketen die abschließende Prüfsumme für den IPv4-Header.
 
-5. Ebene des Netzwerks übergibt das Paket an die Framing-Ebene.
+5. Die Netzwerkschicht übergibt das Paket an die Rahmen Ebene.
 
-6. Da das Paket mit einer Reihe von Flow markiert wurde, übergibt die Framing-Ebene des Pakets an Pacer.sys über NDIS 6.x.
+6. Da das Paket mit einer Fluss Nummer gekennzeichnet wurde, übergibt die Rahmen Ebene das Paket über NDIS 6. x an Pacer. sys.
 
-7. Pacer.sys die Flow-Anzahl des Pakets, um zu ermitteln, ob das Paket muss eingeschränkt werden, und wenn dies der Fall, plant das Paket für das Senden.
+7. Pacer. sys verwendet die Fluss Nummer des Pakets, um zu bestimmen, ob das Paket gedrosselt werden muss, und plant, wenn dies der Fall ist, das Paket zum Senden.
 
-8. Pacer.sys übergibt das Paket entweder, sofort \(, wenn kein Datenverkehr Drosselung\) oder gemäß dem Zeitplan \(Wenn Datenverkehr Drosselung\) auf NDIS 6.x für die Übertragung über das entsprechende Netzwerk.
+8. Pacer. sys übergibt das Paket entweder sofort \(, wenn keine Datenverkehrs Drosselung @ no__t-1 oder wie geplant \(, wenn die Datenverkehrs Drosselung @ no__t-3 auf NDIS 6. x zur Übertragung über die entsprechende Netzwerkkarte vorhanden ist.
 
-Diese Prozesse des richtlinienbasierten QoS bieten folgende Vorteile.
+Diese Prozesse von Richtlinien basiertem QoS bieten die folgenden Vorteile.
 
-- Die Überprüfung des Datenverkehrs, um zu bestimmen, ob eine QoS-Richtlinie gilt erfolgt pro-Transport-Layer-Endpunkt, anstatt pro Paket.
+- Die Überprüfung des Datenverkehrs, um zu bestimmen, ob eine QoS-Richtlinie angewendet wird, erfolgt pro Transport Schicht Endpunkt und nicht pro Paket.
 
-- Es gibt keine Auswirkungen auf die Leistung für den Datenverkehr, die eine QoS-Richtlinie nicht übereinstimmen.
+- Der Datenverkehr, der nicht mit einer QoS-Richtlinie identisch ist, hat keine Auswirkungen auf die Leistung.
 
-- Anwendungen müssen nicht geändert werden, um DSCP-basierten differenzierte Dienst zu nutzen, oder Datenverkehr Drosselung.
+- Anwendungen müssen nicht geändert werden, um den DSCP-basierten differenzierten Dienst oder die Drosselung des Datenverkehrs zu nutzen.
 
-- QoS-Richtlinien können für den Datenverkehr mit IPsec geschützt anwenden.
+- QoS-Richtlinien können auf durch IPSec geschützte Datenverkehr angewendet werden.
 
-Im nächsten Thema in diesem Handbuch finden Sie unter [QoS-Richtlinie Architektur](qos-policy-architecture.md).
+Das nächste Thema in dieser Anleitung finden Sie unter [Architektur der QoS-Richtlinie](qos-policy-architecture.md).
 
-Das erste Thema in diesem Handbuch finden Sie unter [Quality of Service (QoS)-Richtlinie](qos-policy-top.md).
+Das erste Thema in dieser Anleitung finden Sie unter [Quality of Service (QoS)-Richtlinie](qos-policy-top.md).

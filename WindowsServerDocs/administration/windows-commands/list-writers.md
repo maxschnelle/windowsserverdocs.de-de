@@ -1,8 +1,8 @@
 ---
-title: Liste Writer
-description: 'Windows-Befehle Thema ***- '
+title: Writer auflisten
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6fbab6644d46dbb352a5d5a51abefb293f3ffe6f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d00eebe4e562764e97794b3eb1b76ea96c2dc47c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59866741"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374721"
 ---
-# <a name="list-writers"></a>Liste Writer
+# <a name="list-writers"></a>Writer auflisten
 
 
 
-Listen-Writer, die im System befinden. Wenn Sie ohne Angabe von Parametern **Liste** zeigt die Ausgabe für **Liste Metadaten** standardmäßig.
+Listet Writer auf, die sich auf dem System befinden. Bei Verwendung ohne Parameter zeigt **List** standardmäßig die Ausgabe für **Listen Metadaten** an.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -38,17 +38,17 @@ list writers [metadata | detailed | status]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|metadata|Listet die Identität und den Status des Schreibers und Metadaten, wie z. B. Details zu den Komponenten und ausgeschlossene Dateien zeigt. Dies ist der Standardparameter.|
-|Ausführliche|Listet die gleiche Informationen wie **Metadaten**, aber **ausführliche** enthält die vollständige Liste der für alle Komponenten.|
-|status|Listet nur die Identität und den Status der registrierten Writer auf.|
+|Benötigten|Listet die Identität und den Status von Writern auf und zeigt Metadaten wie z. b. Komponenten Details und ausgeschlossene Dateien an. Dies ist der Standardparameter.|
+|Reich|Listet die gleichen Informationen wie **Metadaten**auf, aber **detailliert** enthält die vollständige Datei Liste für alle Komponenten.|
+|status|Listet nur die Identität und den Status registrierter Writer auf.|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um nur die Identität und den Status des Schreibers aufzulisten, geben Sie Folgendes ein:
+Um nur die Identität und den Status von Writern aufzulisten, geben Sie Folgendes ein:
 ```
 list writers status
 ```
-Die Ausgabe, die an der folgenden ähnlich ist:
+Ausgabe, die den folgenden anzeigen ähnelt:
 ```
 Listing writer status ...
 * WRITER "System Writer"
@@ -74,4 +74,4 @@ Listing writer status ...
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

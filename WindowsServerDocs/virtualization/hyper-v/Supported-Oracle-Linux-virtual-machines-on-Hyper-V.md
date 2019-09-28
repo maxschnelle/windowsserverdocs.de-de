@@ -1,7 +1,7 @@
 ---
 title: Unterstützte Oracle Linux virtuellen Maschinen auf Hyper-V
 description: Listet die in jeder Version enthaltenen Linux-Integrationsdienste und-Funktionen auf.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,12 +11,12 @@ ms.assetid: c02fdb5b-62f3-43cb-a190-ab74b3ebcf77
 author: shirgall
 ms.author: kathydav
 ms.date: 06/01/2017
-ms.openlocfilehash: 3005907a085d1769716105f570f47f0114eae68d
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 4b09b8e760ce716da7f5aa6abecbead52293e77b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544704"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365494"
 ---
 # <a name="supported-oracle-linux-virtual-machines-on-hyper-v"></a>Unterstützte Oracle Linux virtuellen Maschinen auf Hyper-V
 
@@ -40,7 +40,7 @@ In diesem Abschnitt:
 
 * (*leer*): Feature nicht verfügbar
 
-* **UEK R\*x qu\*y** -Unbreakable Enterprise Kernel (UEK), wobei *x* die Releasenummer und *y* das vierteljährliche Update ist.
+* **UEK R @ no__t-1X qu @ no__t-2Y** -Unbreakable Enterprise Kernel (UEK), wobei *x* die Releasenummer und *y* das vierteljährliche Update ist.
 
 ## <a name="BKMK_rhc"></a>Red hat-kompatible Kernel Serie
 
@@ -109,7 +109,7 @@ Der Oracle Linux Unbreakable Enterprise Kernel (UEK) ist nur 64 Bit und verfügt
 | Trim-Unterstützung                                                                                                                                 | 2019, 2016, 2012 R2                | &#10004;                  | &#10004;                  |                           |                           |                      |
 | SCSI-WWN                                                                                                                                     | 2019, 2016, 2012 R2                |                           |                           |                           |                           |                      |
 | **[Gedenkens](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**                                               |                                    |                           |                           |                           |                           |                      |
-| Unterstützung für den unterstützten Kernel                                                                                                                           | 2019, 2016, 2012 R2, 2012, 2008 R2 | Nicht zutreffend                       | N/V                       | N/V                       | N/V                       | Nicht zutreffend                  |
+| Unterstützung für den unterstützten Kernel                                                                                                                           | 2019, 2016, 2012 R2, 2012, 2008 R2 | Nicht zutreffend                       | Nicht zutreffend                       | Nicht zutreffend                       | Nicht zutreffend                       | Nicht zutreffend                  |
 | MMIO-Lücke konfigurieren                                                                                                                    | 2019, 2016, 2012 R2                | &#10004;                  | &#10004;                  | &#10004;                  | &#10004;                  | &#10004;             |
 | Dynamischer Arbeitsspeicher-Hot-Add                                                                                                                     | 2019, 2016, 2012 R2, 2012          | &#10004;                  | &#10004;                  |                           |                           |                      |
 | Dynamischer Arbeitsspeicher-Ballooning                                                                                                                  | 2019, 2016, 2012 R2, 2012          | &#10004;                  | &#10004;                  |                           |                           |                      |
@@ -145,7 +145,7 @@ Der Oracle Linux Unbreakable Enterprise Kernel (UEK) ist nur 64 Bit und verfügt
 
    1. Erstellen Sie eine Datei **/etc/udev/rules.d/100-Balloon.Rules**. Sie können einen beliebigen anderen gewünschten Namen für die Datei verwenden.
 
-   2. Fügen Sie der Datei den folgenden Inhalt hinzu:`SUBSYSTEM=="memory", ACTION=="add", ATTR{state}="online"`
+   2. Fügen Sie der Datei den folgenden Inhalt hinzu: `SUBSYSTEM=="memory", ACTION=="add", ATTR{state}="online"`
 
    3. Starten Sie das System neu.
 

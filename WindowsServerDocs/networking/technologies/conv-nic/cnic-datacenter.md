@@ -1,7 +1,7 @@
 ---
 title: Konvergierte NIC in einer kombinierten NIC-Konfiguration (Datacenter)
 description: In diesem Thema erhalten Sie Anweisungen zum Bereitstellen einer konvergenten NIC in einer kombinierten NIC-Konfiguration mit Switch Embedded Teaming (Set).
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: f01546f8-c495-4055-8492-8806eee99862
@@ -9,12 +9,12 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/17/2018
-ms.openlocfilehash: 8229b72d69968d3690ece87d5116b215bdf78a08
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: e4c305a7c8c4c4618b0df1e1b2a646356d8f821f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869873"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356120"
 ---
 # <a name="converged-nic-in-a-teamed-nic-configuration-datacenter"></a>Konvergierte NIC in einer kombinierten NIC-Konfiguration (Datacenter)
 
@@ -405,7 +405,7 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
    _**Folgen**_
 
 
-   | Priorität | Enabled | Policyset | IfIndex | Ifalias |
+   | Priority | Enabled | Policyset | ifIndex | Ifalias |
    |----------|---------|-----------|---------|---------|
    |    0     |  False  |  Global   | &nbsp;  | &nbsp;  |
    |    1     |  False  |  Global   | &nbsp;  | &nbsp;  |
@@ -442,7 +442,7 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
    |      Parameter      |   Hardware   |   Strömung    |
    |---------------------|--------------|--------------|
    |    Macsecbypass     | NotSupported | NotSupported |
-   |     Dcbxsupport     |     None     |     None     |
+   |     Dcbxsupport     |     Keine     |     Keine     |
    | Numtcs (max/ETS/PFC) |    8/8/8     |    8/8/8     |
 
    ---
@@ -463,7 +463,7 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
    _**Operationalclassikationen**:_  
 
 
-   | Protokoll  | Port/Typ | Priorität |
+   | Protokoll  | Port/Typ | Priority |
    |-----------|-----------|----------|
    |  Default  |  &nbsp;   |    0     |
    | NetDirect |    445    |    3     |
@@ -486,7 +486,7 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
    |      Parameter      |   Hardware   |   Strömung    |
    |---------------------|--------------|--------------|
    |    Macsecbypass     | NotSupported | NotSupported |
-   |     Dcbxsupport     |     Keine     |     None     |
+   |     Dcbxsupport     |     Keine     |     Keine     |
    | Numtcs (max/ETS/PFC) |    8/8/8     |    8/8/8     |
 
    ---
@@ -507,7 +507,7 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
    _**Operationalclassikationen**:_  
 
 
-   | Protokoll  | Port/Typ | Priorität |
+   | Protokoll  | Port/Typ | Priority |
    |-----------|-----------|----------|
    |  Default  |  &nbsp;   |    0     |
    | NetDirect |    445    |    3     |
@@ -524,7 +524,7 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
    _**Folgen**_  
 
 
-   | Name | Algorithmus | Bandbreite (%) | Priorität | Policyset | IfIndex | Ifalias |
+   | Name | Algorithmus | Bandbreite (%) | Priority | Policyset | ifIndex | Ifalias |
    |------|-----------|--------------|----------|-----------|---------|---------|
    | SMB  |    BLÄTTERN    |      50      |    3     |  Global   | &nbsp;  | &nbsp;  |
 
@@ -539,7 +539,7 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
    _**Folgen**_  
 
 
-   |   Name    | Algorithmus | Bandbreite (%) | Priorität | Policyset | IfIndex | Ifalias |
+   |   Name    | Algorithmus | Bandbreite (%) | Priority | Policyset | ifIndex | Ifalias |
    |-----------|-----------|--------------|----------|-----------|---------|---------|
    | Vorgegebene |    BLÄTTERN    |      50      | 0-2, 4-7  |  Global   | &nbsp;  | &nbsp;  |
    |    SMB    |    BLÄTTERN    |      50      |    3     |  Global   | &nbsp;  | &nbsp;  |
@@ -558,7 +558,7 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
    _**Folgen**_
 
 
-   | Name | Algorithmus | Bandbreite (%) | Priorität | Policyset | IfIndex | Ifalias |
+   | Name | Algorithmus | Bandbreite (%) | Priority | Policyset | ifIndex | Ifalias |
    |------|-----------|--------------|----------|-----------|---------|---------|
    | IP1  |    BLÄTTERN    |      10      |    1     |  Global   | &nbsp;  | &nbsp;  |
 
@@ -571,7 +571,7 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
    _**Folgen**_
 
 
-   | Name | Algorithmus | Bandbreite (%) | Priorität | Policyset | IfIndex | Ifalias |
+   | Name | Algorithmus | Bandbreite (%) | Priority | Policyset | ifIndex | Ifalias |
    |------|-----------|--------------|----------|-----------|---------|---------|
    | IP2  |    BLÄTTERN    |      10      |    2     |  Global   | &nbsp;  | &nbsp;  |
 
@@ -586,7 +586,7 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
     _**Folgen**_
 
 
-    |   Name    | Algorithmus | Bandbreite (%) | Priorität | Policyset | IfIndex | Ifalias |
+    |   Name    | Algorithmus | Bandbreite (%) | Priority | Policyset | ifIndex | Ifalias |
     |-----------|-----------|--------------|----------|-----------|---------|---------|
     | Vorgegebene |    BLÄTTERN    |      30      |  0, 4-7   |  Global   | &nbsp;  | &nbsp;  |
     |    SMB    |    BLÄTTERN    |      50      |    3     |  Global   | &nbsp;  | &nbsp;  |

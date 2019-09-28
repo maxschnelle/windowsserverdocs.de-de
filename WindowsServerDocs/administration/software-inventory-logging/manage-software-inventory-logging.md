@@ -2,7 +2,7 @@
 title: Verwaltung der Protokollierung des Softwarebestands
 description: Beschreibt, wie die Protokollierung des Software Bestands verwaltet wird
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: manage-software-inventory-logging
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 686bb61426e49f00597c423bcf4f52d949a358ab
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: bd8a26d158f53121074881ac8ff204287f9a19ad
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866378"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382974"
 ---
 # <a name="manage-software-inventory-logging"></a>Verwaltung der Protokollierung des Softwarebestands
 
@@ -221,7 +221,7 @@ Die Protokollierung des Softwarebestands speichert vorübergehend eine stündlic
 > Wenn aus irgendeinem Grund eine Reparaturinstallation oder ein Upgrade des Betriebssystems erforderlich ist, gehen alle lokal gespeicherten Protokolldateien verloren.  Wenn diese Daten wichtig für betriebliche Vorgänge sind, wird empfohlen, sie vor der Installation eines neuen Betriebssystems zu sichern. Führen Sie nach der Reparatur oder Aktualisierung einfach die Wiederherstellung am gleichen Speicherort durch.  
   
 > [!NOTE]  
-> Wenn Sie aus irgendeinem Grund die Verwaltung der Beibehaltungs Dauer von Daten, die lokal von SIL protokolliert werden, wichtig ist, kann dies durch Ändern des\\Registrierungs Werts hier konfiguriert werden: \HKEY_LOCAL_MACHINE software\microsoft\windows\softwareinventorylogging. Der Standardwert ist "30" für 30 Tage.  
+> Wenn aus irgendeinem Grund die Verwaltung der Beibehaltungs Dauer von Daten, die lokal von SIL protokolliert werden, wichtig ist, kann dies durch Ändern des Registrierungs Werts hier konfiguriert werden: \HKEY_LOCAL_MACHINE @ no__t-0SOFTWARE\Microsoft\Windows\SoftwareInventoryLogging. Der Standardwert ist "30" für 30 Tage.  
   
 ## <a name="BKMK_Step6"></a>Lesen und Veröffentlichen von Daten, die von der Protokollierung des Software Bestands  
 Daten, die von SIL protokolliert, aber lokal gespeichert werden (wenn der Forward zum Ziel-URI fehlschlägt), oder Daten, die erfolgreich an den Ziel Aggregations Server weitergeleitet werden, werden in einer Binärdatei gespeichert (für die Daten der einzelnen Tage). Um diese Daten in PowerShell anzuzeigen, verwenden Sie das Cmdlet [Import-BinaryMiLog](https://technet.microsoft.com/library/dn262592.aspx) .  
@@ -244,7 +244,7 @@ Auf alle Daten, die lokal auf einem Windows-Server gespeichert sind (tritt nur a
 ## <a name="BKMK_Step10"></a>Aktivieren und Konfigurieren der Protokollierung des Software Bestands auf einer bereitgestellten virtuellen Festplatte  
 Die Protokollierung des Softwarebestands unterstützt auch das Konfigurieren und Aktivieren auf offline geschalteten virtuellen Computern. Die praktische Verwendung hierfür ist das Einrichten der "Gold Image"-Einrichtung für die weite Bereitstellung in Rechenzentren sowie das Konfigurieren von Endbenutzer Images, die von einem lokalen Standort zu einer cloudbereitstellung ausgehen.  
   
-Um diese Einsatzbereiche zu unterstützen, sind der Protokollierung des Softwarebestands Registrierungseinträge für jede konfigurierbare Option zugeordnet.  Diese Registrierungs Werte finden Sie unter \HKEY_LOCAL_MACHINE\\software\microsoft\windows\softwareinventorylogging.  
+Um diese Einsatzbereiche zu unterstützen, sind der Protokollierung des Softwarebestands Registrierungseinträge für jede konfigurierbare Option zugeordnet.  Diese Registrierungs Werte finden Sie unter \HKEY_LOCAL_MACHINE @ no__t-0SOFTWARE\Microsoft\Windows\SoftwareInventoryLogging.  
   
 |||||  
 |-|-|-|-|  
@@ -252,7 +252,7 @@ Um diese Einsatzbereiche zu unterstützen, sind der Protokollierung des Software
 |Start/Stopp-Feature|CollectionState|1 oder 0|[Start-SilLogging](https://technet.microsoft.com/library/dn283391.aspx), [Stop-SilLogging](https://technet.microsoft.com/library/dn283394.aspx)|  
 |Legt den Aggregationszielpunkt im Netzwerk fest|TargetUri|String|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TargetURI|  
 |Legt den Zertifikatfingerabdruck oder Hash des Zertifikats für die SSL-Authentifizierung für den Ziel-Webserver fest|CertificateThumbprint|String|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -CertificateThumbprint|  
-|Legt das Datum und die Uhrzeit für den Startzeitpunkt der Funktion fest (sofern der angegebene Wert in der lokalen Systemzeit in der Zukunft liegt)|CollectionTime|Standard:  2000-01-01T03:00:00|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TimeOfDay|  
+|Legt das Datum und die Uhrzeit für den Startzeitpunkt der Funktion fest (sofern der angegebene Wert in der lokalen Systemzeit in der Zukunft liegt)|CollectionTime|Standardwert:  2000-01-01T03:00:00|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TimeOfDay|  
   
 Um diese Werte auf einer offline geschalteten virtuellen Festplatte (VM-Betriebssystem wird nicht ausgeführt) zu ändern, muss die VHD zunächst bereitgestellt werden, und dann können die folgenden Befehle verwendet werden, um Änderungen vorzunehmen.  
   

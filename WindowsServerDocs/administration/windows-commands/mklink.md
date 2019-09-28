@@ -2,7 +2,7 @@
 title: mklink
 description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,15 +13,15 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1ea80b81b268b31f637c72a828fee8b6f0229a47
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 9d930cbf7acbfceab16f2fa619aaaac6e789c131
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280025"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373641"
 ---
 # <a name="mklink"></a>mklink
-Erstellt eine symbolische Verknüpfung an.
+Erstellt eine symbolische Verknüpfung.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -35,16 +35,16 @@ mklink [[/d] | [/h] | [/j]] <Link> <Target>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|/d|Erstellt einen symbolischen Link "Directory". In der Standardeinstellung **Mklink** erstellt einen symbollink für die Datei.|
-|/h|Erstellt einen festen Link anstelle einer symbolischen Verknüpfung an.|
-|/j|Erstellt eine Verbindung Verzeichnis an.|
-|\<Link>|Gibt den Namen der symbolischen Verknüpfung, die erstellt wird.|
-|\<Target>|Gibt den Pfad (relativ oder absolut), dem auf die neue symbolische Verknüpfung verweist.|
+|/d|Erstellt einen symbolischen Verzeichnis Link. Standardmäßig erstellt **mklink** einen symbolischen Datei Link.|
+|/h|Erstellt einen festen Link anstelle eines symbolischen Links.|
+|/j|Erstellt eine Verzeichnis Verknüpfung.|
+|\<link >|Gibt den Namen der symbolischen Verknüpfung an, die erstellt wird.|
+|\<target >|Gibt den Pfad (relative oder absolute) an, auf den die neue symbolische Verknüpfung verweist.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Im folgenden Beispiel veranschaulicht die Erstellung und Entfernung von eine symbolische Verknüpfung mit dem Namen MyFolder und MyFile.file aus dem Stammverzeichnis zu dem Verzeichnis \Users\User1\Documents und eine example.file befindet sich im Verzeichnis:
+Das nachfolgende Beispiel veranschaulicht das Erstellen und Entfernen einer symbolischen Verknüpfung mit dem Namen "MyFolder" und "MyFile. File" aus dem Stammverzeichnis zum Verzeichnis "\Users\User1\Documents" und einer Beispieldatei im Verzeichnis:
 ```
 mklink /d \MyFolder \Users\User1\Documents
 mklink /h \MyFile.file \User1\Documents\example.file

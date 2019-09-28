@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin Peers und Hilfe
-description: Windows-Befehle Thema **Bitsadmin peers und helfen** -zeigt die Verwendung der Befehlszeile für die **Peers** Switches.
+title: Biers admin Peers und Hilfe
+description: 'Windows-Befehlszeilen Thema für **bitionadmin Peers und Help** : zeigt die Befehlszeilen Verwendung für die **Peers** -Switches an.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 90231e6bbc467b0798548e098491aae2de9616ca
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0a61c16c9fb390409697b11586ac05384b56f07e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856311"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380944"
 ---
-# <a name="bitsadmin-peers-and-help"></a>Bitsadmin Peers und Hilfe
+# <a name="bitsadmin-peers-and-help"></a>Biers admin Peers und Hilfe
 
 
 
-Zeigt die Verwendung der Befehlszeile für die **Peers** Switches.
+Zeigt die Befehlszeilen Verwendung für die **Peers** -Switches an.
 
 ## <a name="syntax"></a>Syntax
 
@@ -32,13 +32,13 @@ Zeigt die Verwendung der Befehlszeile für die **Peers** Switches.
 Bitsadmin /Peers /Help 
 ```
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Der folgende Befehl zeigt die Befehlszeilenhilfe für die **Peers** Switches.
+Der folgende Befehl zeigt die Befehlszeilen Hilfe für die **Peers** -Switches an.
 ```
 Bitsadmin /Peers /Help
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

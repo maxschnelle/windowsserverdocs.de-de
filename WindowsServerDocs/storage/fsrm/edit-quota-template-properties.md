@@ -2,22 +2,22 @@
 title: Bearbeiten von Kontingentvorlageneigenschaften
 description: Dieser Artikel beschreibt, wie Kontingentvorlageneigenschaften bearbeitet werden, um die Änderungen an Kontingenten zu erweitern, die mit der ursprünglichen Kontingentvorlage erstellt wurden
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 0362b30e16dacb354220c770899195240f3e19ee
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 37719656e107869b97045af98c1a63744e4f6b38
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885781"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403029"
 ---
 # <a name="edit-quota-template-properties"></a>Bearbeiten von Kontingentvorlageneigenschaften
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Wenn Sie eine Kontingentvorlage ändern, haben Sie die Möglichkeit, diese Änderungen auf Kontingente anzuwenden, die mit der ursprünglichen Kontingentvorlage erstellt wurden. Sie haben die Möglichkeit, nur die Kontingente zu ändern, die der ursprünglichen Vorlage entsprechen oder alle Kontingente zu ändern, die von der ursprünglichen Vorlage abgeleitet sind, unabhängig von den Änderungen, die Sie an den Kontingenten vorgenommen haben, seit sie erstellt wurden. Dieses Feature vereinfacht die Aktualisierung der Eigenschaften der Kontingente, da alle Änderungen an einem zentralen Ort ausgeführt werden können.
 
@@ -44,7 +44,7 @@ Wenn Sie eine Kontingentvorlage ändern, haben Sie die Möglichkeit, diese Ände
 
 ## <a name="see-also"></a>Siehe auch
 
--   [Management von sollvorgaben](quota-management.md)
--   [Erstellen Sie eine Kontingentvorlage](create-quota-template.md)
+-   [Kontingentverwaltung](quota-management.md)
+-   [Erstellen einer Kontingent Vorlage](create-quota-template.md)
 
 

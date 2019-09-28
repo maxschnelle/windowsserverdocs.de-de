@@ -1,8 +1,8 @@
 ---
-title: verfügbar machen
-description: 'Windows-Befehle Thema ***- '
+title: sichtbar
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 51cc744bc2b61862ed05ca2e7d0aaa8f70d38692
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 819484364e8375c4d58e4d022681eedeaa7084ab
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886661"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377276"
 ---
-# <a name="expose"></a>verfügbar machen
+# <a name="expose"></a>sichtbar
 
 
 
-Stellt eine permanente Schattenkopie als Laufwerkbuchstaben, Freigabe oder Bereitstellungspunkt an.
+macht eine persistente Schatten Kopie als Laufwerk Buchstaben, Freigabe oder Einfügepunkt verfügbar.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -38,22 +38,22 @@ expose <ShadowID> {<Drive:> | <Share> | <MountPoint>}
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|ShadowID|Gibt die Schattenkopie-ID der Schattenkopie, die Sie verfügbar machen möchten.|
-|\<Drive:>|Stellt die angegebenen Schattenkopie als einen bestimmten Laufwerkbuchstaben (z. B. P:) bereit.|
-|\<Share>|Macht die angegebene Schattenkopie auf einer Freigabe (z. B. \\ \\ *"MachineName"*\).|
-|\<MountPoint>|Macht die angegebene Schattenkopie in einen Bereitstellungspunkt (z. B. C:\shadowcopy\).|
+|Shadowid|Gibt die Schatten-ID der Schatten Kopie an, die Sie verfügbar machen möchten.|
+|\<laufwerk: >|Macht die angegebene Schatten Kopie als Laufwerk Buchstaben (z. b. P:) verfügbar.|
+|\<freigabe >|Macht die angegebene Schatten Kopie in einer Freigabe verfügbar (z. b. \\ @ no__t-1*MachineName*\).|
+|\<mountpoint >|Macht die angegebene Schatten Kopie für einen Einstellungspunkt verfügbar (z. b. c:\shadowcopy @ no__t-0.|
 
 ## <a name="remarks"></a>Hinweise
 
--   Sie können einen vorhandenen Alias oder eine Umgebungsvariable anstelle von *ShadowID*. Verwendung **hinzufügen** ohne Parameter, um die vorhandenen Aliase finden Sie unter.
+-   Anstelle von *shadowid*können Sie einen vorhandenen Alias oder eine Umgebungsvariable verwenden. Verwenden **Sie hinzufügen** ohne Parameter, um vorhandene Aliase anzuzeigen.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um die permanente Schattenkopie der VSS_SHADOW_1-Umgebungsvariablen als Laufwerk X zugeordnet verfügbar zu machen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um die der VSS_SHADOW_1-Umgebungsvariablen zugeordnete persistente Schatten Kopie als Laufwerk X verfügbar zu machen:
 ```
 expose %vss_shadow_1% x:
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

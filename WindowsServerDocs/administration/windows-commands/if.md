@@ -1,8 +1,8 @@
 ---
 title: wenn
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9751dfe3e0cb0965cc2c5169ea19e0f08110b0ff
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: fd7857251b0b6a943f2eea33f56732ec57e7e8d1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438102"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375479"
 ---
 # <a name="if"></a>wenn
 
 
 
-Führt die bedingte Verarbeitung in Batchprogrammen.
+Führt die bedingte Verarbeitung in Batch Programmen aus.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -35,7 +35,7 @@ if [not] ERRORLEVEL <Number> <Command> [else <Expression>]
 if [not] <String1>==<String2> <Command> [else <Expression>]
 if [not] exist <FileName> <Command> [else <Expression>]
 ```
-Wenn der befehlserweiterungen aktiviert sind, verwenden Sie die folgende Syntax:
+Wenn Befehls Erweiterungen aktiviert sind, verwenden Sie die folgende Syntax:
 ```
 if [/i] <String1> <CompareOp> <String2> <Command> [else <Expression>]
 if cmdextversion <Number> <Command> [else <Expression>]
@@ -46,35 +46,35 @@ if defined <Variable> <Command> [else <Expression>]
 
 |        Parameter        |                                                                                                                                                                                                                Beschreibung                                                                                                                                                                                                                 |
 |-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|           not           |                                                                                                                                                                              Gibt an, dass der Befehl durchgeführt werden sollte, nur dann, wenn die Bedingung false ergibt.                                                                                                                                                                              |
-|  ERRORLEVEL \<Anzahl >   |                                                                                                                                                      Gibt eine Bedingung "true" nur, wenn das vorherige Programm ausführen, indem Cmd.exe einen Exitcode, gleich oder größer als zurückgegeben *Anzahl*.                                                                                                                                                       |
-|       \<Befehl >        |                                                                                                                                                                            Gibt den Befehl aus, der ausgeführt werden soll, wenn die vorherige Bedingung erfüllt ist.                                                                                                                                                                             |
-|  \<String1>==<String2>  |                                                                                                             Gibt an, nur ein true-Bedingung, wenn *String1* und *Zeichenfolge2* sind identisch. Diese Werte können Literalzeichenfolgen oder Batchvariablen (z. B. "%1") sein. Sie müssen kein literale-Zeichenfolgen in Anführungszeichen einschließen.                                                                                                              |
-|    vorhanden \<Dateiname >    |                                                                                                                                                                                       Gibt eine Bedingung "true" an, wenn der angegebene Dateiname vorhanden ist.                                                                                                                                                                                        |
-|      \<CompareOp>       |                                                                               Gibt einen drei Buchstaben bestehenden Vergleichsoperator. Die folgende Liste stellt die gültigen Werte für *Vergleichsop*:</br>**EQU** gleich</br>**NEQ** nicht gleich</br>**LSS** kleiner als</br>**LEQ** kleiner als oder gleich</br>**GTR** größer als</br>**GEQ** größer als oder gleich                                                                                |
-|           /i            |                                                            Erzwingt, dass bei Zeichenfolgenvergleichen um Groß-und Kleinschreibung ignoriert.  Können Sie **/i** auf die <em>String1</em> **==** <em>Zeichenfolge2</em> Form **Wenn**. Diese Vergleiche sind generisch, wenn beide *String1* und *Zeichenfolge2* bestehen aus numerischen Zeichen nur die Zeichenfolgen in Zahlen konvertiert werden und ein numerischer Vergleich wird ausgeführt.                                                            |
-| Cmdextversion \<Anzahl > | Gibt nur einer true-Bedingung, wenn die interne Versionsnummer zugeordnet, mit den befehlserweiterungen, die Funktion von Cmd.exe entspricht oder größer als die angegebene Anzahl an. Die erste Version ist 1. Sie erhöht die Schritten von je 1 mit, wenn bedeutende Verbesserungen an den Befehl Erweiterungen hinzugefügt werden. Die **Cmdextversion** bedingte wird niemals "true" Wenn Befehl Extensions sind deaktiviert (standardmäßig aktiviert sind). |
-|   definiert \<Variable >   |                                                                                                                                                                                            Eine Bedingung "true" gibt an, ob *Variable* definiert ist.                                                                                                                                                                                            |
-|      \<Ausdruck >      |                                                                                                                                                                   Gibt die Befehlszeile und alle Parameter, in dem Befehl übergeben werden an ein **else** Klausel.                                                                                                                                                                   |
+|           not           |                                                                                                                                                                              Gibt an, dass der Befehl nur ausgeführt werden soll, wenn die Bedingung false ist.                                                                                                                                                                              |
+|  ERRORLEVEL-\<number >   |                                                                                                                                                      Gibt eine echte Bedingung nur an, wenn das vorherige Programm, das von "cmd. exe" ausgeführt wird, einenExitcode zurückgegeben hat, der größer oder gleich                                                                                                                                                       |
+|       \<-Befehl >        |                                                                                                                                                                            Gibt den Befehl an, der ausgeführt werden soll, wenn die vorangehende Bedingung erfüllt ist.                                                                                                                                                                             |
+|  \<string1 > = = <String2>  |                                                                                                             Gibt eine echte Bedingung nur an, wenn *Zeichenfolge1* und *Zeichenfolge2* identisch sind. Diese Werte können Literalzeichenfolgen oder Batch Variablen (z. b.% 1) sein. Sie müssen keine Literalzeichenfolgen in Anführungszeichen einschließen.                                                                                                              |
+|    \<filename vorhanden >    |                                                                                                                                                                                       Gibt eine echte Bedingung an, wenn der angegebene Dateiname vorhanden ist.                                                                                                                                                                                        |
+|      \<compareop >       |                                                                               Gibt einen Vergleichs Operator mit drei Buchstaben an. Die folgende Liste stellt gültige Werte für *compareop*dar:</br>**EQU** Gleich</br>" **NQ** " Ungleich</br>**LSS** Kleiner als</br>**Leq** Kleiner als oder gleich</br>**GTR** Größer als</br>**GEQ** Größer als oder gleich                                                                                |
+|           /i            |                                                            Erzwingt die Groß-/Kleinschreibung von Zeichen folgen vergleichen  Sie können **/i** auf dem <em>Zeichenfolge1</em> **-==** <em>Zeichenfolge2</em> -Formular von **if**verwenden. Diese Vergleiche sind generisch, d. h., wenn sowohl *Zeichenfolge1* als auch *Zeichenfolge2* nur aus numerischen Ziffern bestehen, werden die Zeichen folgen in Zahlen konvertiert, und es wird ein numerischer Vergleich ausgeführt.                                                            |
+| cmdextversion \<number > | Gibt eine echte Bedingung nur an, wenn die der Befehls Erweiterungs Funktion von "cmd. exe" zugeordnete interne Versionsnummer größer oder gleich der angegebenen Zahl ist. Die erste Version ist 1. Sie vergrößert sich um einen Schritt von 1, wenn den Befehls Erweiterungen bedeutende Erweiterungen hinzugefügt werden. Die bedingte **cmdextversion** ist nie true, wenn Befehls Erweiterungen deaktiviert sind (Standardmäßig sind die Befehls Erweiterungen aktiviert). |
+|   definiert \<variable >   |                                                                                                                                                                                            Gibt eine echte Bedingung an, wenn *Variable* definiert ist.                                                                                                                                                                                            |
+|      \<-Ausdruck >      |                                                                                                                                                                   Gibt einen Befehlszeilen Befehl und alle Parameter an, die an den Befehl in einer **else** -Klausel weitergegeben werden sollen.                                                                                                                                                                   |
 |           /?            |                                                                                                                                                                                                    Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                                                                    |
 
 ## <a name="remarks"></a>Hinweise
 
--   Wenn die Bedingung in angegeben ein **Wenn** -Klausel ist "true", die die Bedingung der nachfolgende Befehl durchgeführt wird. Wenn die Bedingung "false" ist der Befehl in der **Wenn** -Klausel wird ignoriert, und der Befehl führt den Befehl aus, die im angegebenen die **else** Klausel.
--   Wenn ein Programm beendet wird, gibt es einen Exitcode zurück. Für die Verwendung der Exitcodes als Bedingungen verwenden **Errorlevel**.
--   Bei Verwendung von **definiert**, werden die folgenden drei Variablen in der Umgebung hinzugefügt: **%ERRORLEVEL%** , **so %** , und **Cmdextversion %** .  
-    -   **%ERRORLEVEL%** in eine Zeichenfolgendarstellung des aktuellen Werts der Umgebungsvariablen ERRORLEVEL erweitert. Dabei wird davon ausgegangen, dass keine vorhandene Umgebungsvariable mit dem Namen ERRORLEVEL – liegt vor, Sie erhalten diesen Wert von ERRORLEVEL stattdessen.
-    -   **So %** wird in der ursprünglichen Befehlszeile, die vor der Verarbeitung von Cmd.exe zu Cmd.exe übergeben wurde. Dabei wird davon ausgegangen, dass keine vorhandene Umgebungsvariable mit dem Namen so – liegt, werden Sie stattdessen den so-Wert abrufen.
-    -   **Cmdextversion %** wird in eine Zeichenfolgendarstellung des aktuellen Werts der **Cmdextversion**. Dabei wird davon ausgegangen, dass keine vorhandene Umgebungsvariable mit dem Namen CMDEXTVERSION – liegt, werden Sie stattdessen den CMDEXTVERSION-Wert abrufen.
--   Verwenden Sie die **else** Klausel in der gleichen Zeile wie der Befehl nach der **Wenn**.
+-   Wenn die in einer **if** -Klausel angegebene Bedingung true ist, wird der Befehl ausgeführt, der der Bedingung folgt. Wenn die Bedingung false ist, wird der Befehl in der **if** -Klausel ignoriert, und der Befehl führt jeden Befehl aus, der in der **else** -Klausel angegeben ist.
+-   Wenn ein Programm beendet wird, wird ein Exitcode zurückgegeben. Verwenden Sie **ERRORLEVEL**, um Exitcodes als Bedingungen zu verwenden.
+-   Wenn Sie **defined**verwenden, werden die folgenden drei Variablen der Umgebung hinzugefügt: **% ERRORLEVEL%** , **% cmdcmdline%** und **% cmdextversion%** .  
+    -   **% ERRORLEVEL%** wird in eine Zeichen folgen Darstellung des aktuellen Werts der Umgebungsvariablen ERRORLEVEL erweitert. Dabei wird davon ausgegangen, dass es keine vorhandene Umgebungsvariable mit dem Namen ERRORLEVEL gibt – wenn dies der Fall ist, erhalten Sie stattdessen den ERRORLEVEL-Wert.
+    -   **% cmdcmdline%** wird in die ursprüngliche Befehlszeile erweitert, die vor der Verarbeitung durch "cmd. exe" an "cmd. exe" übergeben wurde. Dabei wird davon ausgegangen, dass es keine vorhandene Umgebungsvariable mit dem Namen "cmdcmdline" gibt – wenn dies der Fall ist, wird stattdessen der cmdcmdline-Wert angezeigt.
+    -   **% cmdextversion%** wird in die Zeichen folgen Darstellung des aktuellen Werts von **cmdextversion**erweitert. Dabei wird davon ausgegangen, dass es keine vorhandene Umgebungsvariable mit dem Namen "cmdextversion –" gibt. wenn dies der Fall ist, wird stattdessen der cmdextversion-Wert angezeigt.
+-   Sie müssen die **else** -Klausel in derselben Zeile wie der Befehl nach dem **if**-Befehl verwenden.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Zum Anzeigen der Nachricht "Datendatei wurde nicht gefunden" Wenn die Datei Product.dat nicht gefunden werden kann, geben:
+Wenn die Datei "Product. dat" nicht gefunden werden kann, geben Sie Folgendes ein, um die Meldung "keine Datendatei gefunden" anzuzeigen.
 ```
 if not exist product.dat echo Cannot find data file 
 ```
-Um eine Diskette in Laufwerk A zu formatieren und eine Fehlermeldung angezeigt, wenn ein Fehler während des Formatierungsvorgangs auftritt, geben Sie die folgenden Zeilen in einer Batchdatei aus:
+Um einen Datenträger in Laufwerk a zu formatieren und eine Fehlermeldung anzuzeigen, wenn während des Formatierungs Vorgangs ein Fehler auftritt, geben Sie in einer Batchdatei die folgenden Zeilen ein:
 ```
 :begin
 @echo off
@@ -84,7 +84,7 @@ echo An error occurred during formatting.
 :end
 echo End of batch program.
 ```
-Löschen Sie die Datei Product.dat aus dem aktuellen Verzeichnis oder eine Meldung angezeigt, wenn Product.dat nicht gefunden wird, geben Sie die folgenden Zeilen in einer Batchdatei aus:
+Wenn Sie die Datei Product. dat aus dem aktuellen Verzeichnis löschen oder eine Meldung anzeigen möchten, wenn Product. dat nicht gefunden wird, geben Sie die folgenden Zeilen in eine Batchdatei ein:
 ```
 IF EXIST Product.dat (
 del Product.dat
@@ -98,7 +98,7 @@ echo The Product.dat file is missing.
 > ```
 > IF EXIST Product.dat (del Product.dat) ELSE (echo The Product.dat file is missing.)
 > ```
-> Um den Wert der Umgebungsvariablen ERRORLEVEL echo nach einer Batchdatei ausführen, geben Sie die folgenden Zeilen in der Batchdatei:
+> Geben Sie die folgenden Zeilen in der Batchdatei ein, um den Wert der Umgebungsvariablen ERRORLEVEL nach dem Ausführen einer Batchdatei widerzuspiegeln:
 > ```
 > goto answer%errorlevel%
 > :answer1
@@ -109,7 +109,7 @@ echo The Product.dat file is missing.
 > :end
 > echo Done! 
 > ```
-> So gehen auf die Bezeichnung "OK", wenn der Wert der Umgebungsvariablen ERRORLEVEL kleiner als oder gleich 1, Typ ist ein:
+> Wenn der Wert der Umgebungsvariablen ERRORLEVEL kleiner oder gleich 1 sein soll, geben Sie Folgendes ein, um zur "okay"-Bezeichnung zu wechseln:
 > ```
 > if %errorlevel% LEQ 1 goto okay
 > ```
@@ -118,6 +118,6 @@ echo The Product.dat file is missing.
 
 [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-[If](if.md)
+[Sei](if.md)
 
-[Goto](goto.md)
+[GOTO](goto.md)

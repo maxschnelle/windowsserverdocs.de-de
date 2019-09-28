@@ -1,7 +1,7 @@
 ---
-title: Vermeiden Sie die Verwendung von VHD-Format differenzierende virtuelle Festplatten auf virtuellen Computern, die Server-Workloads in einer produktionsumgebung ausgeführt werden.
-description: Die Onlineversion des Texts für diese Best Practices Analyzer-Regel.
-ms.prod: windows-server-threshold
+title: Vermeiden Sie die Verwendung differenzierender virtueller Festplatten im VHD-Format auf virtuellen Computern, die Server Arbeits Auslastungen in einer Produktionsumgebung ausführen.
+description: Online Version des Texts für diese Best Practices Analyzer Regel.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,38 +10,38 @@ ms.topic: article
 ms.assetid: 272de33d-2708-4679-8564-ee28848a2839
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: da908d00a6b5c48a61dad89e8c7b08cf80b4314c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7b6bee685a72f8f9af2e16ffe7ac5cc1e1f22a4f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819181"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366435"
 ---
-# <a name="avoid-using-vhd-format-differencing-virtual-hard-disks-on-virtual-machines-that-run-server-workloads-in-a-production-environment"></a>Vermeiden Sie die Verwendung von VHD-Format differenzierende virtuelle Festplatten auf virtuellen Computern, die Server-Workloads in einer produktionsumgebung ausgeführt werden.
+# <a name="avoid-using-vhd-format-differencing-virtual-hard-disks-on-virtual-machines-that-run-server-workloads-in-a-production-environment"></a>Vermeiden Sie die Verwendung differenzierender virtueller Festplatten im VHD-Format auf virtuellen Computern, die Server Arbeits Auslastungen in einer Produktionsumgebung ausführen.
 
 >Gilt für: Windows Server 2016
 
-Weitere Informationen zu best Practices und Überprüfungen finden Sie unter [Run Best Practices Analyzer Scans und Manage Scan Results](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
+Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausführen von Best Practices Analyzer Scans und Verwalten der Scan Ergebnisse](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
 |Eigenschaft|Details|  
 |-|-|  
 |**Betriebssystem**|Windows Server 2016|  
-|**Produkt /-Funktion**|Hyper-V|  
-|**Schweregrad**|Warnung|  
+|**Produkt/Feature**|Hyper-V|  
+|**Zunehmen**|Warnung|  
 |**Kategorie**|Konfiguration|  
   
-In den folgenden Abschnitten Kursivschrift gibt an Benutzeroberflächentext, die im Best Practices Analyzer-Tool für dieses Problem angezeigt wird.  
+In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.  
   
 ## <a name="issue"></a>**Problem:**  
-*Eine oder mehrere virtuelle verwenden Computer VHD-Format differenzierender virtueller Festplatten.*  
+*Mindestens eine virtuelle Maschine verwendet differenzierende virtuelle Festplatten im VHD-Format.*  
   
-## <a name="impact"></a>**Auswirkungen**  
-*Differenzierende virtuelle Festplatten von VHD-Format kann Konsistenzprobleme auftreten, wenn der Strom ausfällt. Konsistenzprobleme möglich, wenn der physische Datenträger ein unvollständigen oder falsches Updates auf einen Sektor in eine VHD-Datei ausführt, die bei einem Stromausfall geändert wird. Dies wirkt sich auf die folgenden virtuellen Computer aus:*  
+## <a name="impact"></a>**Auswirkt**  
+bei differenzierenden virtuellen Festplatten mit @no__t 0vhd-Format können Konsistenzprobleme auftreten, wenn ein Stromausfall auftritt. Konsistenzprobleme können auftreten, wenn die physische Festplatte ein unvollständiges oder falsches Update eines Sektors in einer VHD-Datei ausführt, die bei einem Stromausfall geändert wird. Dies wirkt sich auf die folgenden virtuellen Computer aus: *  
   
-\<Liste der virtuellen Computer >  
+\<list of Virtual Machines >  
   
-## <a name="resolution"></a>**Lösung**  
-*Der virtuelle Computer heruntergefahren und die Kette der VHD-Format differenzierender virtueller Festplatten im VHDX-Format konvertieren oder Zusammenführen der Kette bis zu einer festen virtuellen Festplatte. (Das VHDX-Format hat zuverlässigkeitsmechanismen, mit deren Hilfe den Datenträger vor Beschädigungen Stromausfälle zurückzuführen sind zu schützen.) Konvertieren Sie jedoch nicht die virtuelle Festplatte ist dies wahrscheinlich an einer früheren Version von Windows an einem bestimmten Punkt angefügt werden. Windows Versionen vor Windows Server 2012 unterstützen nicht das VHDX-Format.*  
+## <a name="resolution"></a>**Auflösung**  
+*fahren Sie den virtuellen Computer herunter, und konvertieren Sie die Kette der differenzierenden virtuellen Festplatten im VHD-Format in das vhdx-Format, oder führen Sie die Kette mit einer festen virtuellen Festplatte zusammen. (Das vhdx-Format verfügt über Zuverlässigkeits Mechanismen, mit denen der Datenträger vor Beschädigungen aufgrund von Stromausfällen geschützt wird.) Konvertieren Sie die virtuelle Festplatte jedoch nicht, wenn Sie zu einem bestimmten Zeitpunkt wahrscheinlich an eine frühere Version von Windows angefügt wird. Ältere Windows-Versionen als Windows Server 2012 unterstützen das vhdx-Format nicht.*  
   
 
 

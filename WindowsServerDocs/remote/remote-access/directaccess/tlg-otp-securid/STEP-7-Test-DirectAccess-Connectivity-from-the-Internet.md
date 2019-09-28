@@ -1,9 +1,9 @@
 ---
-title: Schritt 7 Test DirectAccess-Konnektivität über das Internet
-description: 'Dieses Thema ist Teil der Testumgebungsanleitung: veranschaulichen von DirectAccess mit OTP-Authentifizierung und RSA SecurID für Windows Server 2016'
+title: Schritt 7 Testen der DirectAccess-Konnektivität über das Internet
+description: 'Dieses Thema ist Teil der Test Umgebungs Anleitung: veranschaulichen von DirectAccess mit OTP-Authentifizierung und RSA SecurID für Windows Server 2016'
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,56 +12,56 @@ ms.topic: article
 ms.assetid: ed2a1616-30c6-482a-9a02-4a5023621f58
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a7f67cfc33c2511bf4edbc5030235c97ceb9acf6
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 738e0f10762c0d292e344ba25fa34cdb0d17b766
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281270"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71367538"
 ---
-# <a name="step-7-test-directaccess-connectivity-from-the-internet"></a>Schritt 7 Test DirectAccess-Konnektivität über das Internet
+# <a name="step-7-test-directaccess-connectivity-from-the-internet"></a>Schritt 7 Testen der DirectAccess-Konnektivität über das Internet
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Die DirectAccess-Bereitstellung Einmalkennwort (OTP) aus dem Subnetz "Homenet" getestet wurde und jetzt über das Internet getestet werden kann.  
+Die Bereitstellung des einmaligen Kennworts für DirectAccess wurde aus dem homenet-Subnetz getestet und kann nun über das Internet getestet werden.  
   
-### <a name="to-test-otp-functionality-from-the-internet-on-client1"></a>So testen Sie OTP-Funktionalität aus dem Internet auf CLIENT1  
+### <a name="to-test-otp-functionality-from-the-internet-on-client1"></a>So testen Sie die OTP-Funktionalität über das Internet auf CLIENT1  
   
-1. Stellen Sie sicher, dass Sie als angemeldet sind auf "client1" **"user1"** . Verbinden Sie CLIENT1 mit dem Subnetz "Corpnet".  
+1. Auf CLIENT1 stellen Sie sicher, dass Sie als **User1**angemeldet sind. Verbinden Sie CLIENT1 mit dem Corpnet-Subnetz.  
   
-2. Auf der **starten** geben**powershell.exe**, mit der rechten Maustaste **Powershell**, klicken Sie auf **erweitert**, und klicken Sie dann auf **ausführen als Administrator**. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+2. Geben Sie auf dem **Start** Bildschirm**PowerShell. exe**ein, klicken Sie mit der rechten Maustaste auf **PowerShell**, klicken Sie auf **erweitert**, und klicken Sie dann auf **als Administrator ausführen**. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
   
-3. Geben Sie in Windows PowerShell-Fenster **Gpupdate/force** und drücken Sie EINGABETASTE.  
+3. Geben Sie im Windows PowerShell-Fenster **gpupdate/force** ein, und drücken Sie die EINGABETASTE.  
   
-4. Trennen Sie CLIENT1 aus dem Subnetz "Homenet", mit dem Internet verbinden Sie und starten Sie den Computer neu.  
+4. Entfernen Sie die CLIENT1 aus dem homenet-Subnetz, verbinden Sie Sie mit dem Internet, und starten Sie den Computer neu.  
   
-5. Klicken Sie auf "client1", öffnen Sie Internet Explorer, und geben Sie in der Adressleiste **https://app1.corp.contoso.com/** und drücken Sie EINGABETASTE. Drücken Sie F5.  
+5. Öffnen Sie auf CLIENT1 Internet Explorer, geben Sie in der Adressleiste **https://app1.corp.contoso.com/ ein** , und drücken Sie die EINGABETASTE. Drücken Sie F5.  
   
-   Die Website sollte nicht geöffnet werden.  
+   Die Site sollte nicht geöffnet werden.  
   
-6. Auf der **starten** geben**RSA**, und klicken Sie auf **RSA SecurID-Token**.  
+6. Geben Sie auf dem **Start** Bildschirm**RSA**ein, und klicken Sie auf **RSA SecurID Token**.  
   
-7. Warten Sie, bis das RSA SecurID-Token Einmalkennwort geändert, und klicken Sie dann auf **Kopie**.  
+7. Warten Sie, bis der RSA SecurID-Token das einmalige Kennwort ändert, und klicken Sie dann auf **Kopieren**.  
   
 8. Klicken Sie im Infobereich auf das Symbol **Netzwerkverbindungen** , um auf die DirectAccess-Medienverwaltung zuzugreifen.  
   
-9. Klicken Sie auf **Arbeitsbereichverbindung**, und klicken Sie auf **Weiter**.  
+9. Klicken Sie auf **Arbeitsplatz Verbindung**und dann auf **weiter**.  
   
-10. Drücken Sie Strg + Alt + Entf, und klicken Sie auf die **Einmalkennwort (OTP)** Kachel.  
+10. Drücken Sie STRG + ALT + ENTF, und klicken Sie auf die Kachel **einmal Kennwort (OTP)** .  
   
-11. Fügen Sie den zuvor kopierten acht Ziffern Tokencode, und klicken Sie auf **OK**. Warten Sie, für die Authentifizierung abzuschließen. Der DirectAccess-Arbeitsplatz-Verbindungsstatus werden **verbunden**.  
+11. Fügen Sie die zuvor kopierte achtstellige Ziffer in den Code ein, und klicken Sie auf **OK**. Warten Sie, bis die Authentifizierung fertiggestellt ist. Der Status der DirectAccess-Arbeitsplatz Verbindung wird nun **verbunden**.  
   
-12. Geben Sie in der Adressleiste in Internet Explorer **https://app1.corp.contoso.com/** und drücken Sie EINGABETASTE. Drücken Sie F5. Die Standard-IIS-Website auf APP1 wird angezeigt.  
+12. Geben Sie in Internet Explorer in der Adressleiste **https://app1.corp.contoso.com/ ein** , und drücken Sie die EINGABETASTE. Drücken Sie F5. Die Standard-IIS-Website auf APP1 wird angezeigt.  
   
-13. Geben Sie in der Internet Explorer-Adressleiste **https://app2.corp.contoso.com/** und drücken Sie EINGABETASTE. Drücken Sie F5. Die IIS-Standardwebsite wird auf APP2 angezeigt.  
+13. Geben Sie in der Internet Explorer-Adressleiste **https://app2.corp.contoso.com/ ein** , und drücken Sie die EINGABETASTE. Drücken Sie F5. Die IIS-Standard Website wird auf APP2 angezeigt.  
   
-14. Auf der **starten** geben<strong>\\\app1\files</strong>, und drücken Sie EINGABETASTE.  
+14. Geben Sie auf dem **Start** Bildschirm<strong>\\ \ app1\files</strong>ein, und drücken Sie die EINGABETASTE.  
   
-15. In der **Dateien** Fenster mit dem freigegebenen Ordner, doppelklicken Sie auf die **Example.txt** Datei. Sehen Sie den Inhalt der Datei "Example.txt" ein.  
+15. Doppelklicken Sie im Fenster freigegebene Ordner **Dateien** auf die Datei " **example. txt** ". Der Inhalt der Datei "example. txt" wird angezeigt.  
   
-16. Auf der **starten** geben<strong>\\\app2\files</strong>, und drücken Sie EINGABETASTE.  
+16. Geben Sie auf dem **Start** Bildschirm<strong>\\ \ app2\files</strong>ein, und drücken Sie die EINGABETASTE.  
   
-17. In der **Dateien** Fenster mit dem freigegebenen Ordner, doppelklicken Sie auf die **neue Textdatei.txt** Datei. Sie sehen, dass der Inhalt der Datei neue Textdatei.txt.  
+17. Doppelklicken Sie im Fenster "freigegebene Ordner **Dateien** " auf die **neue Textdatei "Document. txt** ". Der Inhalt der neuen Datei "Text Document. txt" wird angezeigt.  
   
 
 

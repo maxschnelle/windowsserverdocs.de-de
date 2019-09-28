@@ -1,61 +1,61 @@
 ---
-title: 'AD-Gesamtstruktur-Wiederherstellung: Wiederherstellen einer einzelnen Domäne in einer Gesamtstruktur mit mehreren Domänen'
+title: 'Wiederherstellung der AD-Gesamtstruktur: Wiederherstellen einer einzelnen Domäne in einer Gesamtstruktur mit mehreren'
 description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/09/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.assetid: 267541be-2ea7-4af6-ab34-8b5a3fedee2d
 ms.technology: identity-adds
-ms.openlocfilehash: fae2cc40af0b43dd38d72c2622720a6bb17b0a66
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2582ffacb169b59692c0510469131b58be09d5f3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863471"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71368935"
 ---
-# <a name="ad-forest-recovery---recovering-a-single-domain-in-a-multidomain-forest"></a>AD-Gesamtstruktur-Wiederherstellung: Wiederherstellen einer einzelnen Domäne in einer Gesamtstruktur mit mehreren Domänen
+# <a name="ad-forest-recovery---recovering-a-single-domain-in-a-multidomain-forest"></a>Wiederherstellung der AD-Gesamtstruktur: Wiederherstellen einer einzelnen Domäne in einer Gesamtstruktur mit mehreren
 
 >Gilt für: Windows Server 2016, Windows Server 2012 und 2012 R2, Windows Server 2008 und 2008 R2
 
-Es kann Zeiten, in denen es erforderlich, die nur eine einzelne Domäne innerhalb einer Gesamtstruktur mit wiederherstellen, statt eine Wiederherstellung der vollständigen Gesamtstruktur mehrere Domänen vorhanden sein. In diesem Thema werden Überlegungen zum Wiederherstellen einer einzelnen Domäne und mögliche Strategien für die Wiederherstellung behandelt.  
+Es kann vorkommen, dass es erforderlich ist, nur eine einzelne Domäne innerhalb einer Gesamtstruktur mit mehreren Domänen anstatt einer vollständigen Gesamtstruktur Wiederherstellung wiederherzustellen. In diesem Thema werden Überlegungen zum Wiederherstellen einer einzelnen Domäne und mögliche Strategien für die Wiederherstellung behandelt.  
   
-Eine einzelne Domäne Recovery stellt eine besondere Herausforderung für die Neuerstellung der globalen Katalogserver (GC). Wenn der erste Domänencontroller (DC) für die Domäne aus einer Sicherung, die eine Woche früher erstellt wurde, und klicken Sie dann auf alle anderen GCs, die in der Gesamtstruktur wiederhergestellt wird z. B. müssen weitere aktuellen Daten für diese Domäne als dem wiederhergestellten DC. Um die Konsistenz der GC-Daten erneut hergestellt haben, stehen einige Optionen zur Verfügung:  
+Eine einzelne Domänen Wiederherstellung stellt eine besondere Herausforderung für die Neuerstellung von globalen Katalog Servern (GC) dar. Wenn beispielsweise der erste Domänen Controller (DC) für die Domäne aus einer Sicherung wieder hergestellt wird, die eine Woche früher erstellt wurde, verfügen alle anderen GCS in der Gesamtstruktur über aktuellere Daten für diese Domäne als der wiederhergestellte DC. Um die Konsistenz der GC-Daten wiederherzustellen, gibt es einige Optionen:  
   
-- Unhost, und klicken Sie dann die wiederhergestellte Domänen Partition über alle globalen Kataloge in der Gesamtstruktur, mit Ausnahme derjenigen in der wiederhergestellten gleichzeitig hosten.  
-- Führen Sie zum Wiederherstellen der Domänenadministrators den Gesamtstruktur-Wiederherstellungsprozess, und klicken Sie dann entfernen Sie veralteter Objekte aus GCs in anderen Domänen.  
+- Die Partition der wiederhergestellten Domänen wird von allen GCS in der Gesamtstruktur, außer den in der wiederhergestellten Domäne, gleichzeitig aus-und neu gehostet.  
+- Führen Sie den Wiederherstellungsprozess für die Gesamtstruktur aus, um die Domäne wiederherzustellen, und entfernen Sie dann veraltete Objekte aus GCS in anderen Domänen.  
   
-Die folgenden Abschnitte enthalten allgemeine Informationen für jede Option. Der vollständige Satz der Schritte, die für die Wiederherstellung ausgeführt werden müssen, variieren für Active Directory-Umgebungen.  
+In den folgenden Abschnitten finden Sie allgemeine Überlegungen zu den einzelnen Optionen. Der gesamte Satz von Schritten, die für die Wiederherstellung ausgeführt werden müssen, unterscheidet sich für verschiedene Active Directory Umgebungen.  
   
-## <a name="rehost-all-gcs"></a>Alle globalen Kataloge rehosten  
+## <a name="rehost-all-gcs"></a>Alle GCS neu hosten  
 
 > [!WARNING]
-> Das Kennwort für das Domänenadministratorkonto für alle Domänen muss zur Verwendung bereit sein, für den Fall, dass Sie den Zugriff mit einem globalen Katalogserver für die Anmeldung aufgrund eines Problems.  
+> Das Kennwort des Domänen Administrator Kontos für alle Domänen muss zur Verwendung bereit sein, falls ein Problem den Zugriff auf einen GC für die Anmeldung verhindert.  
 
-Erneutes hosten aller globalen Kataloge erfolgen mithilfe von Repadmin / unhost und Repadmin /rehost Befehle (Teil von Repadmin/experthelp). Sie würden das Repadmin-Befehle auf alle globalen Katalogserver in jeder Domäne ausführen, die nicht wiederhergestellt wird. Es muss sichergestellt werden kann; die eine Kopie der wiederhergestellten Domäne auf alle globalen Kataloge nicht mehr geeignet sind. Um dies zu erreichen, unhost der Domänenpartition zunächst von allen Domänencontrollern in allen keine wiederhergestellten Domänen der Gesamtstruktur zuerst. Nachdem alle globalen Kataloge nicht die Partition nicht mehr enthalten, können Sie es zum erneuten hosten. Beim erneuten hosten, sollten Sie die Website und Replikation-Struktur der Gesamtstruktur, z. B., Fertig stellen Sie, die zum erneuten Hosten von einem Domänencontroller für den Standort vor dem rehosting von den anderen DCs dieses Standorts.  
+Das erneute Hosting aller GCS kann mithilfe der Befehle repadmin/Unhost und repadmin/Rehost (Teil von Repadmin/experthelp) ausgeführt werden. Sie führen die repadmin-Befehle für jede GC in jeder Domäne aus, die nicht wieder hergestellt wird. Es muss sichergestellt werden, dass alle GCS eine Kopie der wiederhergestellten Domäne nicht mehr enthalten. Um dies zu erreichen, müssen Sie die Domänen Partition zuerst von allen Domänen Controllern für alle wiederhergestellten Domänen der Gesamtstruktur von allen Domänen Controllern aus Wenn die Partition nicht mehr in allen GCS enthalten ist, können Sie Sie neu hosten. Wenn Sie das erneute hosten durchführen, sollten Sie die Standort-und Replikations Struktur Ihrer Gesamtstruktur in Erwägung gezogen, indem Sie z. b. das erneute Hosten eines Domänen Controllers pro Standort abschließen, bevor Sie die anderen DCS dieses Standorts  
   
-Diese Option kann für eine kleine Organisation vorteilhaft sein, die nur wenige Domänencontroller für jede Domäne verfügt. Alle der kann auf einen Freitag Abend neu erstellt werden, und bei Bedarf vollständige Replikation für alle schreibgeschützten Partitionen, bevor Sie am Montag wieder hoch. Wenn Sie möchten eine große Domäne wiederherstellen, die Websites auf der ganzen Welt abdeckt, Erneutes hosten die schreibgeschützten Partitionen auf alle globalen Kataloge für andere Domänen können jedoch erheblich Auswirkungen auf Vorgänge und muss möglicherweise außer Betrieb genommen.  
+Diese Option kann für eine kleine Organisation vorteilhaft sein, die nur über einige Domänen Controller für jede Domäne verfügt. Alle GCS konnten an einer Freitagnacht neu erstellt werden und ggf. die Replikation für alle schreibgeschützten Domänen Partitionen vor Montagmorgen abzuschließen. Wenn Sie jedoch eine große Domäne wiederherstellen müssen, die Standorte auf der ganzen Welt abdeckt, kann das erneute Hosting der schreibgeschützten Domänen Partition auf allen GCS für andere Domänen den Betrieb erheblich beeinträchtigen und möglicherweise zu einer Verlangsamung der Zeit erforderlich sein.  
   
-## <a name="remove-lingering-objects"></a>Entfernen von veralteten Objekten
+## <a name="remove-lingering-objects"></a>Veraltete Objekte entfernen
 
-Ähnlich wie der Wiederherstellungsprozess Gesamtstruktur, stellen Sie einen DC aus einer Sicherung in der Domäne, die Sie wiederherstellen, Metadatenbereinigung der restlichen Domänencontroller ausführen und anschließend AD DS erstellen, der Domäne erneut installieren müssen. Klicken Sie auf die globalen Kataloge aller anderen Domänen in der Gesamtstruktur entfernen Sie die veralteten Objekte für die Partition "schreibgeschützt" der wiederhergestellten Domäne.  
+Ähnlich wie bei der Wiederherstellung in der Gesamtstruktur stellen Sie einen Domänen Controller aus einer Sicherung in der Domäne wieder her, die Sie wiederherstellen müssen, führen eine Metadatenbereinigung der verbleibenden DCS durch und installieren AD DS dann erneut, um die Domäne zu erstellen. In den GCS aller anderen Domänen in der Gesamtstruktur werden die veralteten Objekte für die schreibgeschützte Partition der wiederhergestellten Domäne entfernt.  
 
-Die Quelle für die Bereinigung der veralteten Objekte muss es sich um einen Domänencontroller in der wiederhergestellten Domäne sein. Um sicherzustellen, dass der Quell-DC keine veralteten Objekte für alle Domänenpartitionen verfügt, können Sie den globalen Katalog entfernen, wenn es sich um einen globalen Katalog war.  
+Die Quelle für das Bereinigung von veralteten Objekten muss in der wiederhergestellten Domäne ein Domänen Controller sein. Um sicherzustellen, dass der Quell Domänen Controller über keine veralteten Objekte für Domänen Partitionen verfügt, können Sie den globalen Katalog entfernen, wenn es sich um einen GC handelt.  
 
-Entfernen veralteter Objekte ist für größere Organisationen, die den nach-unten-Zeit im Zusammenhang mit den anderen Optionen besteht das Risiko, können nicht vorteilhaft.  
+Das Entfernen veralteter Objekte ist für größere Unternehmen vorteilhaft, die die mit den anderen Optionen verbundene Zeitüberschreitung nicht riskieren können.  
 
-Weitere Informationen finden Sie unter [zum Entfernen veralteter Objekte mithilfe von Repadmin](https://technet.microsoft.com/library/cc785298.aspx).
+Weitere Informationen finden Sie unter [Verwenden von Repadmin zum Entfernen](https://technet.microsoft.com/library/cc785298.aspx)veralteter Objekte.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Wiederherstellung der Gesamtstruktur der Active Directory - Voraussetzungen](AD-Forest-Recovery-Prerequisties.md)  
-- [Wiederherstellung der Active Directory-Gesamtstruktur - Ausarbeiten eines Wiederherstellungsplans für die benutzerdefinierte Gesamtstruktur](AD-Forest-Recovery-Devising-a-Plan.md)  
-- [Wiederherstellung der Gesamtstruktur des Active Directory - Ermittlung des Problems](AD-Forest-Recovery-Identify-the-Problem.md)
-- [AD-Gesamtstruktur-Wiederherstellung: Bestimmen der Vorgehensweise beim Wiederherstellen](AD-Forest-Recovery-Determine-how-to-Recover.md)
-- [Wiederherstellung der Active Directory-Gesamtstruktur - erste Wiederherstellung ausführen](AD-Forest-Recovery-Perform-initial-recovery.md)  
-- [Wiederherstellung der Gesamtstruktur der Active Directory - Prozeduren](AD-Forest-Recovery-Procedures.md)  
-- [Wiederherstellung der Active Directory-Gesamtstruktur – häufig gestellte Fragen](AD-Forest-Recovery-FAQ.md)  
-- [AD-Gesamtstruktur-Wiederherstellung: Wiederherstellen einer einzelnen Domäne innerhalb einer Gesamtstruktur Multidomain](AD-Forest-Recovery-Single-Domain-in-Multidomain-Recovery.md)  
-- [Wiederherstellung der Active Directory-Gesamtstruktur - Wiederherstellung der Gesamtstruktur mit Windows Server 2003-Domänencontrollern](AD-Forest-Recovery-Windows-Server-2003.md)  
+- [Wiederherstellung der AD-Gesamtstruktur: Voraussetzungen](AD-Forest-Recovery-Prerequisties.md)  
+- [AD-Gesamtstruktur Wiederherstellung: Entwerfen eines benutzerdefinierten Wiederherstellungs Plans](AD-Forest-Recovery-Devising-a-Plan.md)  
+- [AD-Gesamtstruktur Wiederherstellung: Identifizieren des Problems](AD-Forest-Recovery-Identify-the-Problem.md)
+- [AD-Gesamtstruktur Wiederherstellung: Bestimmen der Wiederherstellung](AD-Forest-Recovery-Determine-how-to-Recover.md)
+- [AD-Gesamtstruktur Wiederherstellung: Ausführen der ersten Wiederherstellung](AD-Forest-Recovery-Perform-initial-recovery.md)  
+- [Wiederherstellung der AD-Gesamtstruktur: Verfahren](AD-Forest-Recovery-Procedures.md)  
+- [AD-Gesamtstruktur Wiederherstellung: häufig gestellte Fragen](AD-Forest-Recovery-FAQ.md)  
+- [Wiederherstellung der AD-Gesamtstruktur: Wiederherstellen einer einzelnen Domäne innerhalb einer Gesamtstruktur mit mehreren](AD-Forest-Recovery-Single-Domain-in-Multidomain-Recovery.md)  
+- [Active Directory-Gesamtstruktur Wiederherstellung mit Windows Server 2003-Domänen Controllern](AD-Forest-Recovery-Windows-Server-2003.md)  

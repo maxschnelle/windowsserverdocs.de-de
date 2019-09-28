@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin Util und repairservice
-description: Windows-Befehle Thema **Bitsadmin Util und Repairservice** -Befehl verwendet, um die bekannten Probleme mit verschiedenen Versionen des BITS-Dienst zu beheben.
+title: bizadmin util und repaunservice
+description: Windows-Befehls Thema für **BITSAdmin util und repaunservice** -Command, das verwendet wird, um bekannte Probleme mit verschiedenen Versionen des Bits-dienstanweises zu beheben.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bc5101378a389c865f5753146b711be0d15c6785
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0ab06ac9c784cfa438eb285c28f0e661cf4b8302
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852091"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380281"
 ---
-# <a name="bitsadmin-util-and-repairservice"></a>Bitsadmin Util und repairservice
+# <a name="bitsadmin-util-and-repairservice"></a>bizadmin util und repaunservice
 
-Wenn BITS nicht gestartet werden, verwenden Sie diese Option, um bekannte Probleme mit verschiedenen Versionen von BITS zu beheben.
+Wenn Bits nicht gestartet werden kann, verwenden Sie diesen Schalter, um bekannte Probleme mit verschiedenen Versionen von Bits zu beheben.
 
-**BITSAdmin 1.5 und früher:** nicht unterstützt.
+**Biout admin 1,5 und früher:**  Nicht unterstützt.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,25 +36,25 @@ bitsadmin /Util /RepairService [/Force]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Force|Optional – löscht und den Dienst erstellt.|
+|Force|Optional – löscht den Dienst und erstellt ihn neu.|
 
 ## <a name="remarks"></a>Hinweise
 
-Dieser Schalter wird Fehler im Zusammenhang mit falschen Dienstkonfiguration und Abhängigkeiten von Windows-Dienste (z. B. "LanmanWorkstation") und das Netzwerkverzeichnis aufgelöst. Diese Option generiert eine Ausgabe, der angibt, wenn die Probleme behoben wurden.
+Dieser Switch löst Fehler im Zusammenhang mit falscher Dienst Konfiguration und Abhängigkeiten von Windows-Diensten (z. b. LanmanWorkstation) und dem Netzwerk Verzeichnis auf. Dieser Schalter generiert eine Ausgabe, die angibt, ob die Probleme behoben wurden.
 
 > [!NOTE]
-> Wenn BITS erstellt den Dienst neu, kann die Beschreibungszeichenfolge für den Dienst in einem lokalisierten System auf Englisch festgelegt werden.
+> Wenn BITS den Dienst neu erstellt, kann die Zeichenfolge für die Dienst Beschreibung in einem lokalisierten System auf Englisch festgelegt werden.
 
 > [!IMPORTANT]
-> Mit diesem Befehl wird unter Windows Vista nicht unterstützt.
+> Dieser Befehl wird in Windows Vista nicht unterstützt.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Im folgende Beispiel wird die BITS-Dienst-Konfiguration repariert.
+Im folgenden Beispiel wird die BITS-Dienst Konfiguration repariert.
 ```
 C:\>bitsadmin /Util /RepairService
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

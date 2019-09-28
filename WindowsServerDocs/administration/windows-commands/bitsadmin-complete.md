@@ -1,8 +1,8 @@
 ---
 title: bitsadmin complete
-description: Windows-Befehle Thema **Bitsadmin vollständige** -wird der Auftrag abgeschlossen. Die heruntergeladenen Dateien sind nicht verfügbar, bis Sie diesen Schalter verwenden.
+description: 'Windows-Befehls Thema für **bigsadmin Complete** : schließt den Auftrag ab. Die heruntergeladenen Dateien stehen Ihnen erst zur Verfügung, wenn Sie diesen Schalter verwenden.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 561585da370f7e69aa3b83b3ddd7579bfc658a21
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d5a1dc5dbbf2d5b3207b5423f338e0caf4412599
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817321"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381819"
 ---
 # <a name="bitsadmin-complete"></a>bitsadmin complete
 
-Wird der Auftrag abgeschlossen. Die heruntergeladenen Dateien sind nicht verfügbar, bis Sie diesen Schalter verwenden. Verwenden Sie diese Option aus, nachdem der Auftrag in den übertragenen Zustand verschoben. Andernfalls stehen nur die Dateien, die erfolgreich übertragen wurden.
+Schließt den Auftrag ab. Die heruntergeladenen Dateien stehen Ihnen erst zur Verfügung, wenn Sie diesen Schalter verwenden. Verwenden Sie diesen Schalter, nachdem der Auftrag in den übertragenen Zustand wechselt. Andernfalls sind nur die Dateien verfügbar, die erfolgreich übertragen wurden.
 
 ## <a name="syntax"></a>Syntax
 
@@ -34,15 +34,15 @@ bitsadmin /complete <Job>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Wenn der Status des Auftrags übertragen wird, BITS wurde erfolgreich übertragen alle Dateien im Auftrag. Die Dateien sind jedoch nicht verfügbar, bis Sie verwenden die **/ vollständige** wechseln. Wenn mehrere Aufträge verwenden *MyDownloadJob* als Name, ersetzen Sie *MyDownloadJob* durch die Auftrags GUID zur eindeutigen Identifizierung des Auftrags.
+Wenn der Status des Auftrags übertragen wird, hat Bits erfolgreich alle Dateien im Auftrag übertragen. Die Dateien sind jedoch erst verfügbar, wenn Sie den Schalter **/Complete** verwenden. Wenn für mehrere Aufträge *mydownloadjob* als Name verwendet wird, müssen Sie *mydownloadjob* durch die GUID des Auftrags ersetzen, um den Auftrag eindeutig zu identifizieren.
 ```
 C:\>bitsadmin /complete myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

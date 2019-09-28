@@ -6,14 +6,14 @@ ms.author: billmath
 manager: mtillman
 ms.date: 02/21/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: da3214b715b415eed2cbce351cae93eff14a88c7
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 5985fc022a084e0e36e12ea60f18d1650c8c6b51
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865533"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366199"
 ---
 # <a name="ad-fs-troubleshooting---events-and-logging"></a>AD FS Problembehandlung: Ereignisse und Protokollierung
 In AD FS werden zwei primäre Protokolle bereitgestellt, die bei der Problembehandlung verwendet werden können.  Die Überladungen sind:
@@ -57,7 +57,7 @@ In der folgenden Tabelle werden die verfügbaren Überwachungs Stufen erläutert
 
 |Überwachungsebene|PowerShell-Syntax|Beschreibung|  
 |----- | ----- | ----- |
-|None|Set-ADF sproperties-AuditLevel None|Die Überwachung ist deaktiviert, und es werden keine Ereignisse protokolliert.|  
+|Keine|Set-ADF sproperties-AuditLevel None|Die Überwachung ist deaktiviert, und es werden keine Ereignisse protokolliert.|  
 |Basic (Standard)|Set-ADF sproperties-AuditLevel Basic|Für eine einzelne Anforderung werden höchstens 5 Ereignisse protokolliert.|  
 |Ausführlich|Set-ADF sproperties-AuditLevel Verbose|Alle Ereignisse werden protokolliert.  Dadurch wird eine beträchtliche Menge an Informationen pro Anforderung protokolliert.|  
   

@@ -5,13 +5,13 @@ author: MicrosoftGuyJFlo
 ms.author: joflore
 ms.date: 04/19/2018
 ms.topic: article
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 287d7ef0b8645d8e808b8b8d9f195d05ffed1cc0
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.prod: windows-server
+ms.openlocfilehash: 19e8eef008d3818c413808ab1f085a7cc247ec36
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868325"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369497"
 ---
 # <a name="virtualizing-domain-controllers-using-hyper-v"></a>Virtualisieren von Domänen Controllern mithilfe von Hyper-V
 
@@ -352,7 +352,7 @@ Falls keine Sicherung der Systemstatusdaten vorhanden ist, die vor dem Auftreten
 ## <a name="to-restore-a-previous-version-of-a-virtual-domain-controller-vhd-without-system-state-data-backup"></a>So stellen Sie eine vorherige Version der VHD eines virtuellen Domänencontrollers ohne Sicherung der Systemstatusdaten wieder her
 
 1. Verwenden Sie die vorherige VHD, und starten Sie den virtuellen Domänencontroller wie im vorherigen Abschnitt beschrieben im Verzeichnisdienst-Wiederherstellungsmodus. Der Domänencontroller darf nicht im normalen Modus gestartet werden. Wenn der Bildschirm des Windows-Boot-Managers nicht angezeigt wird und der Domänencontroller im normalen Modus gestartet wird, schalten Sie den virtuellen Computer aus, um zu verhindern, dass der Startvorgang abgeschlossen wird. Ausführliche Anweisungen zum Aktivieren des Verzeichnisdienst-Wiederherstellungsmodus finden Sie im vorherigen Abschnitt.
-2. Öffnen Sie einen Registrierungseditor. Klicken Sie zum Öffnen des Registrierungs-Editors auf **Start**und auf **Ausführen**, geben Sie **Regedit**ein, und klicken Sie dann auf OK. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**. Erweitern Sie im Registrierungs-Editor den folgenden Pfad: **HKEY\_\\local\_MachineSystem\\\\CurrentControlSetServices\\NTDS-Parameter.\\** Suchen Sie nach dem Wert **DSA Previous Restore Count**. Wenn dieser Wert vorhanden ist, notieren Sie sich die Einstellung. Wenn dieser Wert nicht vorhanden ist, entspricht die Einstellung dem Standardwert, also null. Fügen Sie keinen Wert hinzu, falls kein Wert angezeigt wird.
+2. Öffnen Sie den Registrierungs-Editor. Klicken Sie zum Öffnen des Registrierungs-Editors auf **Start**und auf **Ausführen**, geben Sie **Regedit**ein, und klicken Sie dann auf OK. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**. Erweitern Sie im Registrierungs-Editor den folgenden Pfad: **HKEY\_\\local\_MachineSystem\\\\CurrentControlSetServices\\NTDS-Parameter.\\** Suchen Sie nach dem Wert **DSA Previous Restore Count**. Wenn dieser Wert vorhanden ist, notieren Sie sich die Einstellung. Wenn dieser Wert nicht vorhanden ist, entspricht die Einstellung dem Standardwert, also null. Fügen Sie keinen Wert hinzu, falls kein Wert angezeigt wird.
 3. Klicken Sie mit der rechten Maustaste auf den Registrierungsschlüssel **Parameters**, klicken Sie auf **Neu**, und klicken Sie dann auf **DWORD-Wert (32-Bit)** .
 4. Geben Sie den neuen Namen **Von Sicherung wiederhergestellte Datenbank** ein, und drücken Sie die EINGABETASTE.
 5. Doppelklicken Sie auf den soeben erstellten Wert, um das Dialogfeld **DWORD-Wert (32-Bit) bearbeiten** zu öffnen, und geben Sie dann **1** im Feld **Wert** ein. Die Option **aus Sicherungs Eintrag wiederhergestellte Datenbank** ist auf Domänen Controllern verfügbar, auf denen Windows 2000 Server mit Service Pack 4 (SP4) ausgeführt wird, Windows Server 2003 mit den Updates, die im Abschnitt [zum erkennen und Wiederherstellen nach einem Wiederherstellungs Steuerungspunkt in enthalten sind. Windows Server 2003, Windows Server 2008 und Windows Server 2008 R2](https://go.microsoft.com/fwlink/?linkid=137182) in der installierten Microsoft Knowledge Base und Windows Server 2008.

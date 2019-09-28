@@ -1,8 +1,8 @@
 ---
 title: ftype
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c29ca0aa027d11fa8f981134e5367021227d3096
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ce3f4c360269eb9cabd2cbef8abb89935923a595
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881681"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375822"
 ---
 # <a name="ftype"></a>ftype
 
 
 
-Zeigt oder ändert die Dateitypen aufgeführt, die in Dateinamenerweiterungen verwendet werden. Ohne Angabe von Zuweisungsoperator (**=**), **Ftype** zeigt die aktuellen Befehl Öffnen-Zeichenfolge für den angegebenen Dateityp. Wenn Sie ohne Angabe von Parametern **Ftype** zeigt die Dateitypen, die open definiert sind.
+Zeigt Dateitypen an, die in Zuordnungen für Dateinamen Erweiterungen verwendet werden, oder ändert Sie. Wenn Sie ohne einen Zuweisungs Operator ( **=** ) verwendet wird, zeigt **ftype** die aktuelle geöffnete Befehls Zeichenfolge für den angegebenen Dateityp an. Bei Verwendung ohne Parameter zeigt **ftype** die Dateitypen an, für die geöffnete Befehls Zeichenfolgen definiert sind.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -38,28 +38,28 @@ ftype [<FileType>[=[<OpenCommandString>]]]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<FileType>|Gibt den Dateityp zum Anzeigen oder ändern.|
-|\<OpenCommandString>|Gibt an, die Befehlszeichenfolge, die beim Öffnen von Dateien mit den angegebenen Dateityp zu verwendende öffnen.|
+|\<filetype >|Gibt den Dateityp an, der angezeigt oder geändert werden soll.|
+|\<opencommandstring >|Gibt die geöffnete Befehls Zeichenfolge an, die beim Öffnen von Dateien vom angegebenen Dateityp verwendet werden soll.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
-In der folgende Tabelle wird beschrieben, wie **Ftype** ersetzt Variablen in einer Befehlszeichenfolge öffnen:
+In der folgenden Tabelle wird beschrieben, wie **ftype** Variablen in einer geöffneten Befehls Zeichenfolge ersetzt:
 
 |Variable|Ersatzwert|
 |--------|-----------------|
-|%0 oder %1|Ruft ab, mit dem Namen der Datei gestartet wird, über die Zuordnung ersetzt.|
-|%*|Ruft alle Parameter an.|
-|%2, %3, ...|Ruft ab, der erste Parameter (%2), zweiten Parameter (%3) und So weiter.|
-|%~\<N>|Ruft die restlichen Parameter, beginnend mit der *N*-ten Parameter, in denen *N* kann eine beliebige Anzahl von 2 bis 9 sein.|
+|% 0 oder% 1|Wird durch den Dateinamen ersetzt, der durch die Zuordnung gestartet wird.|
+|%*|Ruft alle Parameter ab.|
+|% 2,% 3,...|Ruft den ersten Parameter (% 2), den zweiten Parameter (% 3) usw. ab.|
+|%~ @ NO__T-1N >|Ruft alle verbleibenden Parameter ab, beginnend mit dem *n*-ten Parameter, wobei *N* eine beliebige Zahl zwischen 2 und 9 sein kann.|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um die aktuellen Dateitypen anzuzeigen, die Befehl zum Öffnen von Zeichenfolgen definiert haben, geben Sie Folgendes ein:
+Zum Anzeigen der aktuellen Dateitypen, für die geöffnete Befehls Zeichenfolgen definiert sind, geben Sie Folgendes ein:
 ```
 ftype
 ```
-Zum Anzeigen der aktuellen Befehl Öffnen-Zeichenfolge für die *Txtfile* Dateityp, Typ:
+Zum Anzeigen der aktuellen geöffneten Befehls Zeichenfolge für den *txtfile* -Dateityp geben Sie Folgendes ein:
 ```
 ftype txtfile
 ```
@@ -67,20 +67,20 @@ Dieser Befehl erzeugt eine Ausgabe ähnlich der folgenden:
 ```
 txtfile=%SystemRoot%\system32\NOTEPAD.EXE %1
 ```
-So löschen Sie die Befehlszeichenfolge, die für einen Dateityp mit dem Namen öffnen *Beispiel*, Typ:
+Zum Löschen der geöffneten Befehls Zeichenfolge für einen Dateityp mit dem Namen *example*geben Sie Folgendes ein:
 ```
 ftype example=
 ```
-Ordnen Sie die PL-Dateinamenerweiterung mit dem Dateityp PerlScript, und aktivieren den Dateityp von PerlScript PERL ausgeführt. EXE-Datei, geben Sie die folgenden Befehle:
+Um die Dateinamenerweiterung. pl dem Dateityp PerlScript zuzuordnen, und aktivieren Sie den Dateityp Perl Script, um perl auszuführen. EXE, geben Sie die folgenden Befehle ein:
 ```
 assoc .pl=PerlScript 
 ftype PerlScript=perl.exe %1 %*
 ```
-Um die Notwendigkeit, geben Sie die PL-Dateinamenerweiterung beim Aufrufen eines Perl-Skripts zu vermeiden, geben Sie Folgendes ein:
+Wenn Sie die Dateinamenerweiterung. pl beim Aufrufen eines Perl-Skripts nicht eingeben müssen, geben Sie Folgendes ein:
 ```
 set PATHEXT=.pl;%PATHEXT%
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

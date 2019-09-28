@@ -1,9 +1,9 @@
 ---
 title: Planen einer Bereitstellung mit mehreren Gesamtstrukturen
-description: Dieses Thema ist Teil des Leitfadens Bereitstellen des Remotezugriffs in einer Umgebung mit mehreren Gesamtstrukturen in Windows Server 2016.
+description: Dieses Thema ist Teil des Handbuchs Bereitstellen des Remote Zugriffs in einer Umgebung mit mehreren Gesamtstrukturen in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,20 +12,20 @@ ms.topic: article
 ms.assetid: 8acc260f-d6d1-4d32-9e3a-1fd0b2a71586
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a2f14fdb2fd3ab6f0a89c8d8c1a8853041dcba94
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 2a0f04a3ff7797d18f7647416dc99319860c7030
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281010"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404515"
 ---
 # <a name="plan-a-multi-forest-deployment"></a>Planen einer Bereitstellung mit mehreren Gesamtstrukturen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 In diesem Thema werden die zum Konfigurieren des Remotezugriffs für eine Bereitstellung mit mehreren Gesamtstrukturen erforderlichen Planungsschritte beschrieben.  
   
-## <a name="prerequisites"></a>Vorraussetzungen  
+## <a name="prerequisites"></a>Erforderliche Komponenten  
 Bevor Sie mit der Bereitstellung dieses Szenarios beginnen, sollten Sie die Liste der wichtigen Anforderungen lesen:  
   
 -   Eine bidirektionale Vertrauensstellung ist erforderlich.  
@@ -38,19 +38,19 @@ Beim Konfigurieren des Remotezugriffs werden Gruppenrichtlinienobjekte aktualisi
   
 Darüber hinaus muss es sich beim Remotezugriffsadministrator um einen lokalen Administrator für alle RAS-Server handeln, einschließlich der RAS-Server in der neuen Gesamtstruktur, die als Einstiegspunkte zur ursprünglichen Remotezugriffsbereitstellung hinzugefügt werden.  
   
-## <a name="ClientSG"></a>Planen von clientsicherheitsgruppen  
+## <a name="ClientSG"></a>Planen von Client Sicherheitsgruppen  
 Sie müssen mindestens eine Sicherheitsgruppe in der neuen Gesamtstruktur für DirectAccess-Clientcomputer in der neuen Gesamtstruktur konfigurieren. Eine einzelne Sicherheitsgruppe kann keine Konten aus verschiedenen Gesamtstrukturen enthalten.  
   
 > [!NOTE]  
-> -   DirectAccess erfordert mindestens ein Windows 10&reg; oder Windows&reg; 8-clientsicherheitsgruppe für jede Gesamtstruktur. Allerdings empfiehlt es sich um ein Windows 10 oder Windows 8-clientsicherheitsgruppe für jede Domäne, die Windows 10 oder Windows 8-Clients enthält.  
-> -   Wenn mehrere Standorte aktiviert ist, wird DirectAccess erfordert mindestens Windows 7&reg; -clientsicherheitsgruppe pro Gesamtstruktur für jeden DirectAccess-Einstiegspunkt in die Windows 7-Clientcomputern unterstützt werden. Allerdings empfiehlt es sich um einen separaten Windows 7-clientsicherheitsgruppe für jeden Einstiegspunkt für jede Domäne zu erhalten, die Windows 7-Clients enthält.  
+> -   Für DirectAccess ist mindestens eine Windows 10 @ no__t-0-oder Windows @ no__t-1 8-Client Sicherheitsgruppe für jede Gesamtstruktur erforderlich. Es wird jedoch empfohlen, eine Windows 10-oder Windows 8-Client Sicherheitsgruppe für jede Domäne zu haben, die Windows 10-oder Windows 8-Clients enthält.  
+> -   Wenn mehrere Standorte aktiviert sind, ist für DirectAccess mindestens eine Windows 7 @ no__t-0-Client Sicherheitsgruppe pro Gesamtstruktur für jeden DirectAccess-Einstiegspunkt erforderlich, auf dem Windows 7-Client Computer unterstützt werden. Es wird jedoch empfohlen, eine separate Windows 7-Client Sicherheitsgruppe für jeden Einstiegspunkt für jede Domäne zu haben, die Windows 7-Clients enthält.  
 >   
 > Damit DirectAccess auf Clientcomputer in zusätzlichen Domänen angewendet wird, müssen Client-Gruppenrichtlinienobjekte in diesen Domänen erstellt werden. Durch das Hinzufügen von Sicherheitsgruppen wird das Schreiben neuer Client-Gruppenrichtlinienobjekte für die neuen Domänen ausgelöst. Wenn Sie der Liste der Sicherheitsgruppen für DirectAccess-Clients eine neue Sicherheitsgruppe aus einer neuen Domäne hinzufügen, wird daher automatisch ein Client-Gruppenrichtlinienobjekt in der neuen Domäne erstellt. Clientcomputer in der neuen Domäne erhalten die DirectAccess-Einstellungen über das Client-Gruppenrichtlinienobjekt.  
 >   
 > Wenn Sie einer vorhandenen Sicherheitsgruppe, die bereits als Sicherheitsgruppe für DirectAccess-Clients konfiguriert ist, einen Client aus einer neuen Domäne hinzufügen, wird das Client-Gruppenrichtlinienobjekt nicht automatisch von DirectAccess in der neuen Domäne erstellt. Der Client in der neuen Domäne erhält nicht die DirectAccess-Einstellungen und kann daher keine Verbindung mithilfe von DirectAcecss herstellen.  
   
 ## <a name="plan-certification-authorities"></a>Planen von Zertifizierungsstellen  
-Ist die DirectAccess-Bereitstellung für die Verwendung der Authentifizierung mit Einmalkennwörtern (One-Time Password, OTP) konfiguriert, enthält jede Gesamtstruktur die gleichen Signaturzertifikatvorlagen. Diese Vorlagen enthalten jedoch unterschiedliche OID-Werte. Dies führt dazu, dass die Gesamtstrukturen nicht als eine Konfigurationseinheit konfiguriert werden können. Um dieses Problem zu beheben, und Konfigurieren von Einmalkennwörtern in einer Umgebung mit mehreren Gesamtstrukturen, finden Sie im Abschnitt "Configure OTP in einer Bereitstellung mit mehreren Gesamtstrukturen" im Thema [Konfigurieren einer Bereitstellung mit mehreren Gesamtstrukturen](Configure-a-Multi-Forest-Deployment.md).  
+Ist die DirectAccess-Bereitstellung für die Verwendung der Authentifizierung mit Einmalkennwörtern (One-Time Password, OTP) konfiguriert, enthält jede Gesamtstruktur die gleichen Signaturzertifikatvorlagen. Diese Vorlagen enthalten jedoch unterschiedliche OID-Werte. Dies führt dazu, dass die Gesamtstrukturen nicht als eine Konfigurationseinheit konfiguriert werden können. Informationen zum Beheben dieses Problems und zum Konfigurieren von OTP in einer Umgebung mit mehreren Gesamtstrukturen finden Sie im Abschnitt "Konfigurieren von OTP in einer Bereitstellung mit mehreren Gesamtstrukturen" im Thema [Konfigurieren einer Bereitstellung mit mehreren](Configure-a-Multi-Forest-Deployment.md)Gesamtstrukturen.  
   
 Bei der Verwendung der IPsec-Computerzertifikatauthentifizierung muss auf allen Client- und Servercomputern (unabhängig von der Gesamtstruktur, zu der sie gehören) ein von derselben Stamm- oder Zwischenzertifizierungsstelle ausgestelltes Computerzertifikat vorhanden sein.  
   

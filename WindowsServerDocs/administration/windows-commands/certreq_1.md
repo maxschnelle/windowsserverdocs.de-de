@@ -2,7 +2,7 @@
 title: certreq
 description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 19b4750b627a86a724b2a0f58ed7f9bde5ea1613
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 3098cb12379493a82c77412b2328f5312afb2c0c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867106"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379677"
 ---
 # <a name="certreq"></a>certreq
 
@@ -68,7 +68,7 @@ Zurück zum [Inhalt](#BKMK_Contents)
 
 In der folgenden Tabelle wird die Notation beschrieben, mit der die Befehlszeilen Syntax angegeben wird.
 
-|Notation|Beschreibung|
+|Angabe|Beschreibung|
 |--------|-----------|
 |Text ohne eckige Klammern oder geschweifte Klammern|Elemente, die Sie eingeben müssen, wie gezeigt|
 |\<Text in spitzen Klammern >|Platzhalter, für den Sie einen Wert angeben müssen|
@@ -166,7 +166,7 @@ Dieser Abschnitt ist für eine INF-Datei obligatorisch, die als Vorlage für ein
 |Keyprotection|Gibt einen Wert an, der angibt, wie ein privater Schlüssel vor der Verwendung geschützt wird.|XCN_NCRYPT_UI_NO_PROTCTION_FLAG-0</br>XCN_NCRYPT_UI_PROTECT_KEY_FLAG--1</br>XCN_NCRYPT_UI_FORCE_HIGH_PROTECTION_FLAG-2|Keyprotection = NCRYPT_UI_FORCE_HIGH_PROTECTION_FLAG|
 |Suppressdefaults|Gibt einen booleschen Wert an, der angibt, ob die Standard Erweiterungen und Attribute in der Anforderung enthalten sind. Die Standardwerte werden durch ihre Objekt-IDs (OIDs) dargestellt.|true, false|Suppressdefaults = true|
 |FriendlyName|Ein Anzeige Name für das neue Zertifikat.|Text|FriendlyName = "Server1"|
-|ValidityPeriodUnits</br>Hinweis: Dies wird nur verwendet, wenn der Request Type = CERT lautet.|Gibt eine Anzahl von Einheiten an, die mit ValidityPeriod verwendet werden sollen.|Numeric|ValidityPeriodUnits = 3|
+|ValidityPeriodUnits</br>Hinweis: Dies wird nur verwendet, wenn der Request Type = CERT lautet.|Gibt eine Anzahl von Einheiten an, die mit ValidityPeriod verwendet werden sollen.|Numerisch|ValidityPeriodUnits = 3|
 |ValidityPeriod</br>Hinweis: Dies wird nur verwendet, wenn der Request Type = CERT lautet.|Vvalidityperiod muss ein US-englischer Plural Zeitraum sein.|Jahre, Monate, Wochen, Tage, Stunden, Minuten, Sekunden|ValidityPeriod = Jahre|
 
 Zurück zum [Inhalt](#BKMK_Contents)

@@ -7,28 +7,28 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: e3a746ec003cf312ffe0b9804f84a55c98aa8089
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 5725f4a7761d08a25ee8c67c0568977e3646397e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190990"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407946"
 ---
 # <a name="prepare-client-computers-in-the-account-partner"></a>Vorbereiten von Clientcomputern des Kontopartners
 
-Die einfachste Möglichkeit für eine Administratoren bei kontopartnerunternehmen zur Vorbereitung der Clientcomputer für den Zugriff auf Active Directory Federation Services \(AD FS\) -verbundanwendungen ist die Verwendung von Gruppenrichtlinien. Gruppenrichtlinien bieten eine bequeme Möglichkeit, bestimmte Zertifikate und Einstellungen auf alle für den Verbund erforderlichen Clientcomputer auszubringen, die für den Zugriff auf Verbundanwendungen verwendet werden.  
+Die einfachste Möglichkeit für einen Administrator in einer Konto Partnerorganisation, Client Computer für den Zugriff auf Active Directory-Verbunddienste (AD FS) @no__t-no__t-1-Verbund Anwendungen vorzubereiten, besteht in der Verwendung von Gruppenrichtlinie. Gruppenrichtlinien bieten eine bequeme Möglichkeit, bestimmte Zertifikate und Einstellungen auf alle für den Verbund erforderlichen Clientcomputer auszubringen, die für den Zugriff auf Verbundanwendungen verwendet werden.  
   
-Damit die Clientcomputer nahtlos verbundanwendungen ohne zertifikataufforderungen oder Anweisungen für den vertrauenswürdigen Sites zugreifen können, empfehlen wir, dass Sie zuerst einzelnen Clientcomputer vorzubereiten, bevor Sie AD FS umfassend in Ihrer Organisation bereitstellen. Gruppenrichtlinien können zur Automatisierung folgender Aufgaben verwendet werden:  
+Damit Ihre Client Computer nahtlos auf Verbund Anwendungen zugreifen können, ohne dass Zertifikat Aufforderungen oder vertrauenswürdige Website – entsprechende Eingabe Aufforderungen angezeigt werden, empfiehlt es sich, zuerst jeden Client Computer vorzubereiten, bevor Sie AD FS in Ihrer Organisation umfassend bereitstellen. Gruppenrichtlinien können zur Automatisierung folgender Aufgaben verwendet werden:  
   
--   Konfigurieren Sie Internet Explorer auf jedem Clientcomputer, der Kontoverbundserver zu vertrauen.  
+-   Konfigurieren Sie Internet Explorer auf jedem Client Computer, um dem Konto Verbund Server zu vertrauen.  
   
     Weitere Informationen finden Sie unter [Konfigurieren von Clientcomputern zum Vertrauen der Kontoverbundserver](../../ad-fs/deployment/Configure-Client-Computers-to-Trust-the-Account-Federation-Server.md).  
   
--   Installieren Sie die entsprechenden Kontoverbundserver, Ressourcenverbundserver und Webserver Secure Sockets Layer \(SSL\) Zertifikate \(oder die entsprechenden Zertifikate einer vertrauenswürdigen Stammzertifizierungsstelle\) auf jedem Client-Computer.  
+-   Installieren Sie den entsprechenden Konto Verbund Server, den Ressourcen Verbund Server und den Webserver Secure Sockets Layer \(ssl @ no__t-1-Zertifikaten \(oder äquivalente Zertifikate, die auf jedem Client Computer mit einem vertrauenswürdigen Stamm @ no__t-3 verkettet sind.  
   
-    Weitere Informationen finden Sie unter [Verteilen von Zertifikaten auf Clientcomputern mithilfe einer Gruppenrichtlinie](../../ad-fs/deployment/Distribute-Certificates-to-Client-Computers-by-Using-Group-Policy.md).  
+    Weitere Informationen finden Sie unter [Verteilen von Zertifikaten an Client Computer mithilfe Gruppenrichtlinie](../../ad-fs/deployment/Distribute-Certificates-to-Client-Computers-by-Using-Group-Policy.md).  
   
 
 ## <a name="see-also"></a>Siehe auch

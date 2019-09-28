@@ -1,50 +1,50 @@
 ---
 title: Konfigurieren von RADIUS-Remoteservergruppen
-description: Dieses Thema enthält Informationen zum Konfigurieren von RADIUS-Remoteservergruppen im Netzwerkrichtlinienserver unter Windows Server 2016.
+description: Dieses Thema enthält Informationen zum Konfigurieren von RADIUS-Remote Server Gruppen auf dem Netzwerk Richtlinien Server unter Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: ca125e57-249c-4d97-85d1-2929cbf871f1
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 02088a35196c0bfadeb65e8971a47fdcc741258d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fe34d25d2b54b02bb56fcad99c433054a309f60b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818761"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405459"
 ---
 # <a name="configure-remote-radius-server-groups"></a>Konfigurieren von RADIUS-Remoteservergruppen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können in diesem Thema verwenden, um RADIUS-Remoteservergruppen konfigurieren, wenn Sie NPS, fungiert als Proxy-Server und Weiterleiten von verbindungsanforderungen an andere NPSs für die Verarbeitung konfigurieren möchten.
+Sie können dieses Thema verwenden, um RADIUS-Remote Server Gruppen zu konfigurieren, wenn Sie NPS so konfigurieren möchten, dass Sie als Proxy Server fungieren und Verbindungsanforderungen zur Verarbeitung an andere NPSS weiterleiten.
 
-## <a name="add-a-remote-radius-server-group"></a>Fügen Sie eine Remote-RADIUS-Servergruppe hinzu.
+## <a name="add-a-remote-radius-server-group"></a>Hinzufügen einer Remote-RADIUS-Server Gruppe
 
-Sie können dieses Verfahren verwenden, in das Windows-Verwaltungsinstrumentation (Network Policy Server, NPS)-Snap-in einer neuen RADIUS-Remoteservergruppe hinzu.
+Mit diesem Verfahren können Sie eine neue Remote-RADIUS-Server Gruppe im Netzwerk Richtlinien Server-Snap-in hinzufügen.
 
-Wenn Sie NPS als RADIUS-Proxy konfigurieren, erstellen Sie eine neue Verbindungsanforderungsrichtlinie, die NPS verwendet, um zu bestimmen, welche verbindungsanforderungen an andere RADIUS-Server weitergeleitet. Darüber hinaus wird die Verbindungsanforderungsrichtlinie konfiguriert, durch Angeben einer RADIUS-Remoteservergruppe, die eine oder mehrere RADIUS-Server enthält die NPS anweist, wohin die Weiterleitung von verbindungsanforderungen gesendet, die die Verbindungsanforderungsrichtlinie entsprechen.
+Wenn Sie NPS als RADIUS-Proxy konfigurieren, erstellen Sie eine neue Verbindungs Anforderungs Richtlinie, die von NPS verwendet wird, um zu bestimmen, welche Verbindungsanforderungen an andere RADIUS-Server weiterzuleiten sind. Außerdem wird die Verbindungs Anforderungs Richtlinie konfiguriert, indem eine Remote-RADIUS-Server Gruppe angegeben wird, die einen oder mehrere RADIUS-Server enthält, die NPS anweist, wohin die Verbindungsanforderungen gesendet werden sollen, die der Verbindungs Anforderungs Richtlinie entsprechen.
 
 >[!NOTE]
->Sie können auch eine neue RADIUS-Remoteservergruppe während des Prozesses zum Erstellen einer neuen Verbindungsanforderungsrichtlinie konfigurieren.
+>Sie können auch eine neue Remote-RADIUS-Server Gruppe beim Erstellen einer neuen Verbindungs Anforderungs Richtlinie konfigurieren.
 
 Grundvoraussetzung für die Ausführung dieses Vorgangs ist die Mitgliedschaft in **Domänen-Admins** oder einer gleichwertigen Gruppe.
 
-### <a name="to-add-a-remote-radius-server-group"></a>Eine remote-RADIUS-Servergruppe hinzufügen 
+### <a name="to-add-a-remote-radius-server-group"></a>So fügen Sie eine Remote-RADIUS-Server Gruppe hinzu 
 
-1. Klicken Sie im Server-Manager **Tools**, und klicken Sie dann auf **Network Policy Server** die NPS-Konsole zu öffnen.
-2. Doppelklicken Sie in der Konsolenstruktur auf **RADIUS-Clients und Servern**, mit der rechten Maustaste **RADIUS-Remoteservergruppen**, und klicken Sie dann auf **neu**.
-3. Die **Neuer RADIUS-Remoteservergruppe** Dialogfeld wird geöffnet. In **Gruppenname**, geben Sie einen Namen für die remote-RADIUS-Servergruppe.
-4. **In der RADIUS-Servern**, klicken Sie auf **hinzufügen**. Die **RADIUS-Server hinzufügen** Dialogfeld wird geöffnet. Geben Sie die IP-Adresse des RADIUS-Servers, die Sie der Gruppe hinzufügen möchten, oder geben Sie den vollständig qualifizierten Domänennamen \(FQDN\) der RADIUS-Server, und klicken Sie dann auf **überprüfen**.
-5. Klicken Sie im Dialogfeld **RADIUS-Server hinzufügen** auf die Registerkarte **Authentifizierung/Kontoführung**. In **gemeinsamer geheimer Schlüssel** und **gemeinsamen geheimen Schlüssel bestätigen**, geben Sie den gemeinsamen geheimen Schlüssel. Sie müssen den gleichen gemeinsamen geheimen Schlüssel verwenden, wenn Sie den lokalen Computer als RADIUS-Client auf dem RADIUS-Remoteserver konfigurieren.
-6. Wenn Sie Extensible Authentication Protocol (EAP) für die Authentifizierung nicht verwenden, klicken Sie auf **Anforderung darf die Authenticator-Nachrichtenattribut**. EAP Nachrichtenauthentifizierung Attributs wird standardmäßig verwendet.
-7. Stellen Sie sicher, dass die Authentifizierung und-Kontoführung Portnummern für die Bereitstellung richtig sind.
-8. Bei Verwendung von einer anderen gemeinsamen geheimen Schlüssel für die Kontoführung, im **Buchhaltung**Deaktivieren der **verwenden den gleichen gemeinsamen geheimen Schlüssel für die Authentifizierung und Kontoführung** Kontrollkästchen, und geben Sie das gemeinsame Geheimnis der Buchhaltung in  **Gemeinsamer geheimer Schlüssel** und **gemeinsamen geheimen Schlüssel bestätigen**.
-9. Wenn Sie nicht möchten, zum Weiterleiten von Network Access Server starten und beenden-Meldungen an den RADIUS-Remoteserver, deaktivieren die **weiterleiten Network Access Server starten und Beenden von Benachrichtigungen an diesen Server** Kontrollkästchen.
+1. Klicken Sie in Server-Manager auf **Extras, und**klicken Sie dann auf **Netzwerk Richtlinien Server** , um die NPS-Konsole zu öffnen.
+2. Doppelklicken Sie in der Konsolen Struktur auf **RADIUS-Clients und-Server**, klicken Sie mit der rechten Maustaste auf RADIUS- **Remote Server Gruppen**, und klicken Sie dann auf **neu**.
+3. Das Dialogfeld **neue Remote-RADIUS-Server Gruppe** wird geöffnet. Geben Sie unter **Gruppenname**einen Namen für die Remote-RADIUS-Server Gruppe ein.
+4. Klicken Sie **in RADIUS-Server**auf **Hinzufügen**. Das Dialogfeld **RADIUS-Server hinzufügen** wird geöffnet. Geben Sie die IP-Adresse des RADIUS-Servers ein, den Sie der Gruppe hinzufügen möchten, oder geben Sie den voll qualifizierten Domänen Namen \(fqdn @ no__t-1 des RADIUS-Servers ein, und klicken Sie dann auf **überprüfen**.
+5. Klicken Sie im Dialogfeld **RADIUS-Server hinzufügen** auf die Registerkarte **Authentifizierung/Kontoführung**. Geben Sie unter **gemeinsames Geheimnis** und **gemeinsames Geheimnis bestätigen**den gemeinsamen geheimen Schlüssel ein. Sie müssen den gleichen gemeinsamen geheimen Schlüssel verwenden, wenn Sie den lokalen Computer als RADIUS-Client auf dem RADIUS-Remote Server konfigurieren.
+6. Wenn Sie das Extensible Authentication Protocol (EAP) nicht für die Authentifizierung verwenden, **muss die Click-Anforderung das Message Authenticator-Attribut enthalten**. EAP verwendet standardmäßig das Message-Authenticator-Attribut.
+7. Vergewissern Sie sich, dass die Portnummern für Authentifizierung und Buchhaltung für Ihre Bereitstellung korrekt sind.
+8. Wenn Sie für die Kontoführung einen anderen gemeinsamen geheimen Schlüssel verwenden, deaktivieren Sie das Kontrollkästchen **dasselbe gemeinsame Geheimnis für Authentifizierung und Kontoführung verwenden** , und geben Sie dann den gemeinsamen geheimen Schlüssel der **Buchhaltung in** **gemeinsames Geheimnis** ein, und **bestätigen Sie Shared. geheimer**Schlüssel.
+9. Wenn Sie keine Nachrichten zum Starten und Beenden des Netzwerk Zugriffs Servers an den Remote-RADIUS-Server weiterleiten möchten, deaktivieren Sie das Kontrollkästchen **Netzwerk Zugriffs Server-Benachrichtigungen an diesen Server starten und beenden** .
 
-Weitere Informationen zum Verwalten von NPS finden Sie unter [Verwalten des Netzwerkrichtlinienservers](nps-manage-top.md).
+Weitere Informationen zum Verwalten von NPS finden Sie unter [Verwalten des Netzwerk Richtlinien Servers](nps-manage-top.md).
 
-Weitere Informationen zu NPS finden Sie unter [(Network Policy Server, NPS)](nps-top.md).
+Weitere Informationen zu NPS finden Sie unter [Netzwerk Richtlinien Server (Network Policy Server, NPS)](nps-top.md).
 

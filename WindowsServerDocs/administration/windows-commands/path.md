@@ -1,8 +1,8 @@
 ---
 title: path
-description: Erfahren Sie, wie Sie der PATH-Umgebungsvariable festlegen.
+description: Erfahren Sie, wie Sie die PATH-Umgebungsvariable festlegen.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a637abc91dd3342afb3a2723d1b3a835be149122
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 81e8441e7c67e42bdf929e703c8fe780a6f8aff8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436320"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372423"
 ---
 # <a name="path"></a>path
 
 
 
-Legt den Befehlspfad in der PATH-Umgebungsvariablen (die Gruppe von Verzeichnissen zum Suchen nach ausführbaren Dateien verwendet wird) fest. Wenn Sie ohne Angabe von Parametern **Pfad** zeigt den aktuellen Befehlspfad.
+Legt den Befehlspfad in der PATH-Umgebungsvariablen fest (der Satz von Verzeichnissen, der zum Suchen nach ausführbaren Dateien verwendet wird). Bei Verwendung ohne Parameter zeigt **path** den aktuellen Befehlspfad an.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -39,24 +39,24 @@ path ;
 
 |     Parameter     |                                                                                                     Beschreibung                                                                                                      |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [\<Drive>:]<Path> |                                                                            Gibt an, das Laufwerk und Verzeichnis, in der Befehlspfad festgelegt.                                                                             |
-|         ;         | Trennt die Verzeichnisse im Befehlspfad. Ohne Angabe von anderen Parametern **;** löscht die vorhandenen Befehl Pfade von der PATH-Umgebungsvariable und leitet Cmd.exe nur im aktuellen Verzeichnis zu suchen. |
-|      % PATH%       |                                                         Fügt den Befehlspfad der vorhandenen Satz von Verzeichnissen, die in der PATH-Umgebungsvariablen aufgelistet.                                                         |
+| [\<laufwerk >:] <Path> |                                                                            Gibt das Laufwerk und das Verzeichnis an, die im Befehlspfad festgelegt werden sollen.                                                                             |
+|         ;         | Trennt Verzeichnisse im Befehlspfad. Wenn es ohne andere Parameter verwendet wird, löscht die vorhandenen Befehls Pfade aus der PATH-Umgebungsvariablen und leitet "cmd. exe" so **um, dass** Sie nur im aktuellen Verzeichnis suchen. |
+|      ADS       |                                                         Fügt den Befehlspfad an den vorhandenen Satz von Verzeichnissen an, der in der PATH-Umgebungsvariablen aufgelistet ist.                                                         |
 |        /?         |                                                                                         Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                         |
 
 ## <a name="remarks"></a>Hinweise
 
--   Wenn Sie einschließen **%Path%** in der Syntax Cmd.exe ersetzt sie durch die Befehls-Pfadwerte finden Sie in der PATH-Umgebungsvariablen angegeben wird, und Sie müssen diese Werte an der Eingabeaufforderung manuell eingeben.
--   Das aktuelle Verzeichnis wird immer vor in der Befehlspfad angegebenen Verzeichnisse durchsucht.
--   Sie können Dateien in einem Verzeichnis, die den gleichen Namen gemeinsam haben jedoch andere Erweiterungen aufweisen. Beispielsweise müssen Sie möglicherweise eine Datei namens Konto.com, die einem Buchhaltungsprogramm beginnt und eine andere Datei, die mit dem Namen Konto.bat Ihren Server mit der Buchhaltungsnetzwerk verbindet.
+-   Wenn Sie " **% path%** " in die Syntax einschließen, ersetzt "cmd. exe" diese durch die in der PATH-Umgebungsvariablen gefundenen Befehlspfad Werte, sodass diese Werte in der Eingabeaufforderung nicht manuell eingegeben werden müssen.
+-   Das aktuelle Verzeichnis wird immer vor den im Befehlspfad angegebenen Verzeichnissen durchsucht.
+-   Möglicherweise verfügen Sie über Dateien in einem Verzeichnis, das denselben Dateinamen hat, aber über unterschiedliche Erweiterungen verfügt. Angenommen, Sie verfügen über eine Datei mit dem Namen accnt.com, die ein Buchhaltungsprogramm und eine weitere Datei mit dem Namen accnt. bat startet, die Ihren Server mit dem Kontoführungs System-Netzwerk verbindet.
 
-    Das Windows-Betriebssystem sucht nach einer Datei mithilfe von standardmäßigen Dateinamenerweiterungen in der folgenden Reihenfolge der Rangfolge: .exe ",".com "," bat, und. cmd ein. Um Accnt.bat auszuführen, wenn Konto.com im gleichen Verzeichnis vorhanden ist, müssen Sie die bat-Erweiterung an der Eingabeaufforderung angeben.
--   Wenn zwei oder mehr Dateien in der Befehlspfad den gleichen Namen und die Erweiterung, **Pfad** sucht zuerst nach der angegebenen Datei im aktuellen Verzeichnis zu nennen. Klicken Sie dann durchsucht er die Verzeichnisse im Befehlspfad in der Reihenfolge, die sie in der PATH-Umgebungsvariablen aufgelistet sind.
--   Setzen Sie die **Pfad** -Befehl in Ihrer Datei, die Windows-Betriebssystem fügt automatisch den angegebene MS-DOS-Subsystems Suchpfad jedes Mal, wenn Sie auf Ihrem Computer anmelden. Cmd.exe wird die Datei nicht verwendet. Wenn über eine Verknüpfung gestartet wird, erbt Cmd.exe die Umgebungsvariablen in meine Computer/Eigenschaften/erweitert/Umgebung festlegen.
+    Das Windows-Betriebssystem sucht nach einer Datei mithilfe von standardmäßigen Dateinamen Erweiterungen in der folgenden Rangfolge:. exe,. com,. bat und. cmd. Um "accnt. bat" auszuführen, wenn accnt.com im gleichen Verzeichnis vorhanden ist, müssen Sie die Erweiterung ". bat" an der Eingabeaufforderung einschließen.
+-   Wenn zwei oder mehr Dateien im Befehlspfad den gleichen Dateinamen und die gleiche Erweiterung aufweisen, sucht der **Pfad** zuerst nach dem angegebenen Dateinamen im aktuellen Verzeichnis. Anschließend werden die Verzeichnisse im Befehlspfad in der Reihenfolge durchsucht, in der Sie in der PATH-Umgebungsvariablen aufgelistet sind.
+-   Wenn Sie den **Pfad** Befehl in der Datei Autoexec. NT platzieren, fügt das Windows-Betriebssystem jedes Mal, wenn Sie sich an Ihrem Computer angemeldet haben, automatisch den angegebenen Pfad des MS-DOS-subsystemsuchpfades an. "Cmd. exe" verwendet nicht die Datei "Autoexec. NT". Beim Starten über eine Verknüpfung erbt cmd. exe die Umgebungsvariablen, die in Arbeitsplatz/Properties/Advanced/Environment festgelegt sind.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um die Pfade C:\User\Taxes B:\User\Invest und B:\Bin für externe Befehle zu suchen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um die Pfade c:\user\steuern, b:\user\invest und b:\bin für externe Befehle zu durchsuchen:
 
 `path c:\user\taxes;b:\user\invest;b:\bin`
 

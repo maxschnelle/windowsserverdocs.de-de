@@ -1,8 +1,8 @@
 ---
-title: binäre FTP
-description: Windows-Befehle-Thema für FTP-Binärdatei
+title: FTP-Binärdatei
+description: Windows-Befehls Thema für FTP-Binärdatei
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,31 +13,31 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cadd59bff3bd2acf5c6d700caef66ca5c871b523
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 48579523f44232dec3357a20e8082050cc5175e6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821921"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376580"
 ---
 # <a name="ftp-binary"></a>FTP: binär
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Legt den Dateiübertragungstyp in einen Binärwert.   
+Legt den Datei Übertragungstyp auf Binary fest.   
 ## <a name="syntax"></a>Syntax  
 ```  
 binary  
 ```  
 ### <a name="parameters"></a>Parameter  
 none  
-## <a name="remarks-optional-section"></a>"Hinweise" <optional section>  
-**FTP** unterstützt sowohl ASCII-als auch binäre Übertragung für Bilddateitypen. Verwenden Sie Binary, bei der Übertragung von ausführbarer Dateien. In diesem Modus werden die Dateien in ein-Byte-Einheiten übertragen. Weitere Informationen zur Übertragung von ASCII-Dateien finden Sie unter **ftp: Ascii** in zusätzliche Verweise.  
-## <a name="BKMK_Examples"></a>Beispiele für  
-Legen Sie den Dateityp für die Übertragung in das Binärformat.  
+## <a name="remarks-optional-section"></a>Hinweise <optional section>  
+**FTP** unterstützt sowohl ASCII-als auch binäre Bilddatei-Übertragungs Typen. Verwenden Sie Binärdateien beim Übertragen von ausführbaren Dateien. Im Binärmodus werden Dateien in 1-Byte-Einheiten übertragen. Weitere Informationen zum Übertragen von ASCII-Dateien finden Sie unter **FTP: ASCII** in additional References.  
+## <a name="BKMK_Examples"></a>Beispiele  
+Legen Sie den Datei Übertragungstyp auf Binär fest.  
 ```  
 binary  
 ```  
-## <a name="additional-references"></a>Zusätzliche Referenzen  
--   [ftp: ascii](ftp-ascii.md)  
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
+## <a name="additional-references"></a>Weitere Verweise  
+-   [FTP: ASCII](ftp-ascii.md)  
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

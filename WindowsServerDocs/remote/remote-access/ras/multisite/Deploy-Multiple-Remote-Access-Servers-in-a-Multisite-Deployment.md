@@ -1,9 +1,9 @@
 ---
 title: Bereitstellen Sie mehrere RAS-Server in einer Bereitstellung mit mehreren Standorten
-description: Dieses Thema ist Teil des Handbuchs bereitstellen mehrere RAS-Server in einer Bereitstellung für mehrere Standorte in Windows Server 2016.
+description: Dieses Thema ist Teil des Handbuchs Bereitstellen mehrerer Remote Zugriffs Server in einer Bereitstellung mit mehreren Standorten in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,136 +12,136 @@ ms.topic: article
 ms.assetid: ac2f6015-50a5-4909-8f67-8565f9d332a2
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 607e3f5b2aa7e4c81e507a3d551d3d56e1f0b347
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: da23f3082e1d97f1bcfbee7365b863d29ba2d020
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282585"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404500"
 ---
 # <a name="deploy-multiple-remote-access-servers-in-a-multisite-deployment"></a>Bereitstellen Sie mehrere RAS-Server in einer Bereitstellung mit mehreren Standorten
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
- Windows Server 2016 und Windows Server 2012 kombiniert DirectAccess- und Remote Access Service (RAS) VPN in einer einzigen remotezugriffsrolle. Der Remotezugriff kann in einer Reihe von Unternehmensszenarios bereitgestellt werden. Diese Übersicht bietet eine Einführung in das Unternehmensszenario für die Bereitstellung von RAS-Server in einer Konfiguration mit mehreren Standorten.  
+ Windows Server 2016 und Windows Server 2012 kombinieren DirectAccess-und RAS-VPN (RAS-Dienst) zu einer einzigen Remote Zugriffs Rolle. Der Remotezugriff kann in einer Reihe von Unternehmensszenarios bereitgestellt werden. Diese Übersicht bietet eine Einführung in das Unternehmens Szenario für die Bereitstellung von Remote Zugriffs Servern in einer Konfiguration mit mehreren Standorten.  
   
-## <a name="BKMK_OVER"></a>Beschreibung des Szenarios  
-In einer Bereitstellung für mehrere Standorte sind zwei oder mehr RAS-Server oder Servercluster bereitgestellt und konfiguriert werden, als unterschiedliche Einstiegspunkte in einem zentralen Ort oder in unterschiedlichen geografischen Standorten befinden. Die Bereitstellung mehrere Einstiegspunkte in einem einzigen Ort ermöglicht, Serverredundanz oder für die Ausrichtung des RAS-Server mit vorhandenen Netzwerkarchitektur. Bereitstellung nach geografischem Standort effiziente Nutzung von Ressourcen wird sichergestellt, wie der Remoteclientcomputer auf interne Netzwerkressourcen, die ihnen am nächsten Einstiegspunkt über eine Verbindung herstellen können. Datenverkehr über eine Bereitstellung für mehrere Standorte verteilt und mit einem externen globalen Lastenausgleich verteilt.  
+## <a name="BKMK_OVER"></a>Szenariobeschreibung  
+In einer Bereitstellung mit mehreren Standorten werden zwei oder mehr RAS-Server oder Server Cluster als verschiedene Einstiegspunkte an einem einzigen Standort oder an verteilten geografischen Orten bereitgestellt und konfiguriert. Durch die Bereitstellung mehrerer Einstiegspunkte an einem einzigen Standort können Server Redundanz oder RAS-Server mit vorhandener Netzwerkarchitektur bereitgestellt werden. Durch die Bereitstellung nach geografischem Standort wird die effiziente Nutzung von Ressourcen sichergestellt, da Remote Client Computer mithilfe eines am nächsten liegenden Einstiegs Punkts eine Verbindung mit internen Netzwerkressourcen herstellen können. Der Datenverkehr in einer Bereitstellung mit mehreren Standorten kann mit einem externen globalen Load Balancer verteilt und ausgeglichen werden.  
   
-Eine Bereitstellung für mehrere Standorte unterstützt Clientcomputer unter Windows 10, Windows 8 oder Windows 7. Clientcomputer unter Windows 10 oder Windows 8 automatisch identifizieren ein Einstiegspunkts an, oder der Benutzer kann einen Einstiegspunkt manuell auswählen. Automatische Zuweisung erfolgt in der folgenden Reihenfolge ihrer Priorität:  
+Bei einer Bereitstellung mit mehreren Standorten werden Client Computer unter Windows 10, Windows 8 oder Windows 7 unterstützt. Auf Client Computern, auf denen Windows 10 oder Windows 8 ausgeführt wird, wird automatisch ein Einstiegspunkt identifiziert, oder der Benutzer kann einen Einstiegspunkt manuell auswählen. Die automatische Zuweisung erfolgt in der folgenden Prioritäts Reihenfolge:  
   
-1.  Verwenden Sie einen Einstiegspunkt manuell vom Benutzer ausgewählt.  
+1.  Verwenden Sie einen vom Benutzer manuell ausgewählten Einstiegspunkt.  
   
-2.  Verwenden Sie einen Einstiegspunkt, der von einem externen globalen Lastenausgleich identifiziert wird, wenn eine bereitgestellt wird.  
+2.  Verwenden Sie einen Einstiegspunkt, der von einem externen globalen Load Balancer identifiziert wird, wenn ein solcher bereitgestellt wird.  
   
-3.  Verwenden Sie den nächsten Einstiegspunkt identifiziert durch den Clientcomputer, die über einen Mechanismus für die automatische Überprüfung.  
+3.  Verwenden Sie den nächstgelegenen Einstiegspunkt, der vom Client Computer mithilfe eines automatischen Test Mechanismus identifiziert wird.  
   
-Unterstützung für Clients unter Windows 7 muss manuell aktiviert werden, für jeden Einstiegspunkt und Auswahl eines Einstiegspunkts, die von diesen Clients wird nicht unterstützt.  
+Die Unterstützung für Clients, auf denen Windows 7 ausgeführt wird, muss für jeden Einstiegspunkt manuell aktiviert werden, und die Auswahl eines Einstiegs Punkts durch diese Clients wird nicht unterstützt.  
   
-## <a name="prerequisites"></a>Vorraussetzungen  
+## <a name="prerequisites"></a>Erforderliche Komponenten  
 Bevor Sie mit der Bereitstellung dieses Szenarios beginnen, sollten Sie die Liste der wichtigen Anforderungen lesen:  
   
--   [Bereitstellen eines einzelnen DirectAccess-Servers mit erweiterten Einstellungen](../../directaccess/single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md) muss vor einer Bereitstellung für mehrere Standorte bereitgestellt werden.  
+-   Die Bereitstellung [eines einzelnen DirectAccess-Servers mit erweiterten Einstellungen](../../directaccess/single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md) muss vor einer Bereitstellung mit mehreren Standorten bereitgestellt werden.  
   
--   Windows 7-Clients werden immer mit einem bestimmten Standort verbunden. Sie werden kann nicht für die Verbindung mit dem nächsten Standort basierend auf dem Standort des Clients (im Gegensatz zu Windows 10, 8 oder 8.1-Clients).  
+-   Windows 7-Clients stellen immer eine Verbindung mit einem bestimmten Standort her. Sie sind nicht in der Lage, eine Verbindung mit dem nächstgelegenen Standort basierend auf dem Standort des Clients herzustellen (im Gegensatz zu Windows 10-, 8-oder 8,1-Clients).  
   
 -   Das Ändern von Richtlinien außerhalb der DirectAccess-Verwaltungskonsole oder von PowerShell-Cmdlets wird nicht unterstützt.  
   
 -   Eine Public Key-Infrastruktur muss bereitgestellt werden.  
   
-    Weitere Informationen finden Sie unter: [Testen Sie Testumgebungsanleitung – Minimodul: Einfache PKI für WindowsServer 2012.](https://social.technet.microsoft.com/wiki/contents/articles/7862.test-lab-guide-mini-module-basic-pki-for-windows-server-2012.aspx)  
+    Weitere Informationen finden Sie unter: [test Lab Guide Mini Module: Grundlegende PKI für Windows Server 2012. ](https://social.technet.microsoft.com/wiki/contents/articles/7862.test-lab-guide-mini-module-basic-pki-for-windows-server-2012.aspx)  
   
--   Im Unternehmensnetzwerk muss IPv6-fähig sein. Wenn Sie ISATAP verwenden, sollten Sie es entfernen und das systemeigene IPv6 verwenden.  
+-   Das Unternehmensnetzwerk muss IPv6-fähig sein. Wenn Sie ISATAP verwenden, sollten Sie es entfernen und das systemeigene IPv6 verwenden.  
   
 ## <a name="in-this-scenario"></a>Inhalt dieses Szenarios  
 Das Szenario für die Bereitstellung für mehrere Standorte umfasst eine Reihe von Schritten:  
   
-1. [Bereitstellen eines einzelnen DirectAccess-Servers mit erweiterten Einstellungen](../../directaccess/single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md). Ein einzelnes Remotezugriffsservers mit erweiterten Einstellungen muss vor dem Einrichten einer Bereitstellung für mehrere Standorte bereitgestellt werden.  
+1. Stellen Sie [einen einzelnen DirectAccess-Server mit erweiterten Einstellungen](../../directaccess/single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md)bereit. Vor dem Einrichten einer Bereitstellung für mehrere Standorte muss ein einzelner Remote Zugriffs Server mit erweiterten Einstellungen bereitgestellt werden.  
   
-2. [Planen eine Bereitstellung für mehrere Standorte](plan/Plan-a-Multisite-Deployment.md). Um etliche zusätzliche Planung einer Bereitstellung für mehrere Standorte, von einem einzelnen Server zu erstellen sind erforderlich, einschließlich Kompatibilität multisite Voraussetzungen erfüllt sind, und Planen von Active Directory-Sicherheitsgruppen, die Gruppenrichtlinienobjekte (GPOs), DNS und Clienteinstellungen.  
+2. [Planen Sie eine Bereitstellung für mehrere Standorte](plan/Plan-a-Multisite-Deployment.md). Zum Erstellen einer Bereitstellung für mehrere Standorte auf einem einzelnen Server sind eine Reihe zusätzlicher Planungsschritte erforderlich, einschließlich der Konformität mit den Voraussetzungen für mehrere Standorte und der Planung für Active Directory Sicherheitsgruppen, Gruppenrichtlinie Objekte (GPOs), DNS und Client Einstellungen.  
   
-3. [Konfigurieren eine Bereitstellung für mehrere Standorte](configure/Configure-a-Multisite-Deployment.md). Dies umfasst eine Reihe von Konfigurationsschritten, einschließlich der Vorbereitung des Active Directory-Infrastruktur, Konfiguration der vorhandenen RAS-Server sowie mehrere RAS-Server als Einstiegspunkte für die Bereitstellung für mehrere Standorte hinzufügen.  
+3. [Konfigurieren Sie eine Bereitstellung für mehrere Standorte](configure/Configure-a-Multisite-Deployment.md). Dies umfasst eine Reihe von Konfigurationsschritten, einschließlich der Vorbereitung der Active Directory-Infrastruktur, der Konfiguration des vorhandenen Remote Zugriffs Servers und der Addition mehrerer RAS-Server als Einstiegspunkte für die Bereitstellung für mehrere Standorte.  
   
-4. [Problembehandlung bei einer Bereitstellung für mehrere Standorte](troubleshoot/Troubleshoot-a-Multisite-Deployment.md). In diesem Abschnitt zur Problembehandlung werden verschiedene die häufigsten Fehler, die auftreten können, bei der Bereitstellung von Remotezugriff in einer Bereitstellung für mehrere Standorte beschrieben.
+4. Problembehandlung bei [einer Bereitstellung mit mehreren Stand](troubleshoot/Troubleshoot-a-Multisite-Deployment.md)Orten. In diesem Abschnitt zur Problembehandlung werden einige der häufigsten Fehler beschrieben, die beim Bereitstellen des Remote Zugriffs in einer Bereitstellung mit mehreren Standorten auftreten können.
   
 ## <a name="BKMK_APP"></a>Praktische Anwendungen  
-Eine Bereitstellung für mehrere Standorte bietet Folgendes:  
+Eine Bereitstellung mit mehreren Standorten bietet Folgendes:  
   
--   Verbesserte Leistung – eine Bereitstellung für mehrere Standorte ermöglicht Clientcomputern, die Zugriff auf interne Ressourcen, die mithilfe von Remote-Zugriff zum Herstellen einer Verbindung mit der nächsten und am besten geeigneten Einstiegspunkt. Client Zugriff auf interne Ressourcen effizient, und die Geschwindigkeit des Clients, die Internet-Anforderungen über DirectAccess zulassen weitergeleitet wurde verbessert. Datenverkehr auf die Einstiegspunkte kann mit einem externen globalen Lastenausgleich abgewogen werden.  
+-   Verbesserte Leistung: bei einer Bereitstellung mit mehreren Standorten können Client Computer mithilfe des Remote Zugriffs auf interne Ressourcen zugreifen, indem Sie den nächstgelegenen und am besten geeigneten Einstiegspunkt verwenden. Der Client greift effizient auf interne Ressourcen zu, und die Geschwindigkeit von Client Internet Anforderungen, die über DirectAccess weitergeleitet werden, wurde verbessert. Der Datenverkehr über Einstiegspunkte kann mithilfe eines externen globalen Load Balancers ausgeglichen werden.  
   
--   Einfache-von-Management-Funktionen für mehrere Standorte kann Administratoren die Bereitstellung des Remotezugriffs auf Active Directory-Websites-Bereitstellung, wodurch eine einfachere Architektur ausrichten. Gemeinsam genutzte Einstellungen können problemlos über den Eintrag-Geräteverwaltungspunkt-Server oder Cluster festgelegt werden. Remotezugriffseinstellungen können von jedem Server in der Bereitstellung und – mithilfe der Remote Server Administration Tools (RSAT) verwaltet werden. Darüber hinaus kann die gesamte Bereitstellung über eine einzelne Remotezugriffs-Konsole überwacht werden.  
+-   Erleichterte Verwaltung: mit mehreren Standorten können Administratoren die Bereitstellung des Remote Zugriffs an eine Active Directory Standorte-Bereitstellung ausrichten und so eine vereinfachte Architektur bereitstellen. Freigegebene Einstellungen können problemlos auf Einstiegspunkt Server oder Cluster festgelegt werden. Remote Zugriffs Einstellungen können von einem beliebigen Server in der Bereitstellung oder Remote mithilfe von Remoteserver-Verwaltungstools (RSAT) verwaltet werden. Außerdem kann die gesamte Bereitstellung für mehrere Standorte über eine einzelne Remote Zugriffs-Verwaltungskonsole überwacht werden.  
   
-## <a name="BKMK_NEW"></a>In diesem Szenario enthaltene Rollen und features  
-Die folgende Tabelle enthält die Rollen und Features, die in diesem Szenario verwendet.  
+## <a name="BKMK_NEW"></a>In diesem Szenario enthaltene Rollen und Features  
+In der folgenden Tabelle sind die in diesem Szenario verwendeten Rollen und Features aufgeführt.  
   
 |Rolle/Feature|Auf welche Weise dieses Szenario unterstützt wird|  
 |---------|-----------------|  
-|Remotezugriffs-Rolle|Diese Rolle wird mithilfe der Server-Manager-Konsole installiert und deinstalliert. Sie umfasst DirectAccess (zuvor ein Feature unter Windows Server 2008 R2) sowie die Routing- und RAS-Dienste (RRAS, zuvor ein Rollendienst unter der Serverrolle für Netzwerkrichtlinien- und Zugriffsdienste). Die Remotezugriffs-Rolle besteht aus zwei Komponenten:<br /><br />– DirectAccess und Routing- und RAS-Dienste (RRAS) VPN – DirectAccess und VPN werden gemeinsam in der Remotezugriffs-Verwaltungskonsole verwaltet.<br />-RRAS Routing – RRAS-Routingfeatures werden in der älteren Routing- und RAS-Konsole verwaltet.<br /><br />Es bestehen folgende Abhängigkeiten:<br /><br />-IIS (Internetinformationsdienste) Webserver - ist dieses Feature erforderlich, um den Netzwerkadressenserver und den standardwebtest zu konfigurieren.<br />-Windows interne Database-Used zur lokalen Kontoführung auf dem RAS-Server.|  
-|Feature %%amp;quot;Tools für die Remotezugriffsverwaltung%%amp;quot;|So installieren Sie dieses Feature:<br /><br />– Es wird standardmäßig auf einem RAS-Server installiert, wenn die Rolle "Remotezugriff" installiert ist, und unterstützt die Benutzeroberfläche der RAS-Konsole.<br />– sie können optional auf einem Server nicht mit der RAS-Serverrolle installiert werden. In diesem Fall wird es für die Remoteverwaltung eines RAS-Computers verwendet, der DirectAccess und VPN ausführt.<br /><br />Das Feature "Tools für die Remotezugriffsverwaltung" besteht aus den folgenden Komponenten:<br /><br />-Remotezugriffs-GUI und Befehlszeilentools<br />-RAS-Modul für Windows PowerShell<br /><br />Abhängigkeiten umfassen:<br /><br />-Gruppenrichtlinien-Verwaltungskonsole<br />-RAS-Verbindungs-Manager-Verwaltungskit (CMAK)<br />-Windows PowerShell 3.0<br />-Grafische Verwaltungstools und Infrastruktur|  
+|Remotezugriffs-Rolle|Diese Rolle wird mithilfe der Server-Manager-Konsole installiert und deinstalliert. Sie umfasst DirectAccess (zuvor ein Feature unter Windows Server 2008 R2) sowie die Routing- und RAS-Dienste (RRAS, zuvor ein Rollendienst unter der Serverrolle für Netzwerkrichtlinien- und Zugriffsdienste). Die Remotezugriffs-Rolle besteht aus zwei Komponenten:<br /><br />-DirectAccess und RRAS (Routing and Remote Access Services) VPN-DirectAccess und VPN werden in der Remote Zugriffs-Verwaltungskonsole verwaltet.<br />-RRAS-Routing: RRAS-Routing Features werden in der Legacy-Routing-und Remote Zugriffs Konsole verwaltet.<br /><br />Es bestehen folgende Abhängigkeiten:<br /><br />-Internetinformationsdienste (IIS)-Webserver: dieses Feature ist erforderlich, um den Netzwerkadressen Server und den Standard Webtest zu konfigurieren.<br />-Interne Windows-Datenbank: wird für die lokale Kontoführung auf dem Remote Zugriffs Server verwendet.|  
+|Feature %%amp;quot;Tools für die Remotezugriffsverwaltung%%amp;quot;|So installieren Sie dieses Feature:<br /><br />-Sie wird standardmäßig auf einem RAS-Server installiert, wenn die Remote Zugriffs Rolle installiert ist, und unterstützt die Benutzeroberfläche der Remote Verwaltungskonsole.<br />-Es kann optional auf einem Server installiert werden, auf dem die Remote Zugriffs-Server Rolle nicht ausgeführt wird. In diesem Fall wird es für die Remoteverwaltung eines RAS-Computers verwendet, der DirectAccess und VPN ausführt.<br /><br />Das Feature "Tools für die Remotezugriffsverwaltung" besteht aus den folgenden Komponenten:<br /><br />-Remote Zugriffs-GUI und Befehlszeilen Tools<br />-Remote Zugriffs Modul für Windows PowerShell<br /><br />Abhängigkeiten umfassen:<br /><br />-Gruppenrichtlinien-Verwaltungskonsole<br />-RAS-Verbindungs-Manager-Verwaltungskit (CMAK)<br />-Windows PowerShell 3,0<br />-Tools und Infrastruktur für die grafische Verwaltung|  
   
-## <a name="BKMK_HARD"></a>Hardwareanforderungen  
+## <a name="BKMK_HARD"></a>Hardware Anforderungen  
 Für dieses Szenario müssen die folgenden Hardwareanforderungen erfüllt werden:  
   
--   Mindestens zwei Computer Remote Access in einer Bereitstellung für mehrere Standorte gesammelt werden.   
+-   Mindestens zwei RAS-Computer, die in einer Bereitstellung mit mehreren Standorten gesammelt werden sollen.   
   
--   Um das Szenario testen zu können, muss auf mindestens einem Computer Windows 8 ausgeführt wird und als ein DirectAccess-Client konfiguriert werden. Zum Testen des Szenarios für Windows 7-Clients muss auf mindestens einem Computer, auf denen Windows 7 ausgeführt wird.  
+-   Um das Szenario zu testen, ist mindestens ein Computer erforderlich, auf dem Windows 8 ausgeführt wird und der als DirectAccess-Client konfiguriert ist. Um das Szenario für Clients mit Windows 7 zu testen, ist mindestens ein Computer erforderlich, auf dem Windows 7 ausgeführt wird.  
   
--   Um einen Lastenausgleich für Datenverkehr über den Eintrag-Geräteverwaltungspunkt-Server zu laden, ist ein Drittanbieter-externen globalen Lastenausgleich erforderlich.  
+-   Für den Lastenausgleich des Datenverkehrs auf Einstiegspunkt Server ist ein externer globaler Load Balancer eines Drittanbieters erforderlich.  
   
-## <a name="BKMK_SOFT"></a>Softwareanforderungen  
+## <a name="BKMK_SOFT"></a>Software Anforderungen  
 Für dieses Szenario müssen die folgenden Softwareanforderungen erfüllt werden:  
   
 -   Softwareanforderungen für die Bereitstellung auf einem Einzelserver.  
   
--   Es gibt eine Reihe von multisite-bestimmte Anforderungen, zusätzlich zu den softwareanforderungen für einen einzelnen Server:  
+-   Zusätzlich zu den Softwareanforderungen für einen einzelnen Server gibt es eine Reihe von Anforderungen für mehrere Standorte:  
   
-    -   IPSec-Authentifizierung-Anforderungen In eine Bereitstellung für mehrere Standorte DirectAccess IPsec-Computerzertifikatauthentifizierung bereitgestellt werden muss. Die Option zum Ausführen von IPsec-Authentifizierung mithilfe von RAS-Servers als Kerberos-Proxy wird nicht unterstützt. Eine interne Zertifizierungsstelle ist erforderlich, um die IPsec-Zertifikate bereitzustellen.  
+    -   IPSec-Authentifizierungsanforderungen: bei einer Bereitstellung für mehrere Standorte muss DirectAccess mithilfe der IPSec-Computer Zertifikat Authentifizierung bereitgestellt werden. Die Option zum Ausführen der IPSec-Authentifizierung mithilfe des RAS-Servers als Kerberos-Proxy wird nicht unterstützt. Zum Bereitstellen der IPSec-Zertifikate ist eine interne Zertifizierungsstelle erforderlich.  
   
-    -   IP-HTTPS und Netzwerk Anforderungen-Zertifikate für IP-HTTPS und den Netzwerkadressenserver erforderlich sind, müssen von einer Zertifizierungsstelle ausgestellt werden. Die Option zum Verwenden von Zertifikaten, die automatisch ausgestellt und selbstsigniert von RAS-Servers wird nicht unterstützt. Zertifikate können von einer internen Zertifizierungsstelle oder von einer Drittanbieter-externe Zertifizierungsstelle ausgestellt werden.  
+    -   Anforderungen an die IP-HTTPS-und Netzwerkadressen Server: die für IP-HTTPS und den Netzwerkadressen Server erforderlichen Zertifikate müssen von einer Zertifizierungsstelle ausgestellt werden. Die Option zum Verwenden von Zertifikaten, die vom Remote Zugriffs Server automatisch ausgestellt und selbst signiert werden, wird nicht unterstützt. Zertifikate können von einer internen Zertifizierungsstelle oder von einer externen Zertifizierungsstelle eines Drittanbieters ausgestellt werden.  
   
-    -   Active Directory-Anforderungen: mindestens eine Active Directory-Standort ist erforderlich. RAS-Server sollte auf der Website befinden. Für schnellere aktualisieren wird empfohlen, dass jeder Standort mit einen beschreibbaren Domänencontroller hat, obwohl dies nicht erforderlich ist.  
+    -   Active Directory Anforderungen: mindestens ein Active Directory Standort ist erforderlich. Der Remote Zugriffs Server sollte sich am-Standort befinden. Für schnellere Update Zeiten wird empfohlen, dass jeder Standort über einen beschreibbaren Domänen Controller verfügt, obwohl dies nicht zwingend erforderlich ist.  
   
-    -   Anforderungen-Anforderungen für die Sicherheitsgruppen lauten wie folgt aus:  
+    -   Sicherheitsgruppen Anforderungen: Anforderungen lauten wie folgt:  
   
-        -   Eine einzelne Sicherheitsgruppe ist für alle Windows 8-Clientcomputern aus allen Domänen erforderlich. Es wird empfohlen, um eine eindeutige Sicherheits-Gruppe von diesen Clients für jede Domäne zu erstellen.  
+        -   Für alle Windows 8-Client Computer von allen Domänen ist eine einzelne Sicherheitsgruppe erforderlich. Es wird empfohlen, für jede Domäne eine eindeutige Sicherheitsgruppe dieser Clients zu erstellen.  
   
-        -   Eine eindeutige Sicherheits-Gruppe, die mit Windows 7-Computer muss für jeden Einstiegspunkt für die Unterstützung von Windows 7-Clients konfiguriert. Es wird empfohlen, um eine eindeutige Sicherheits-Gruppe für jeden Einstiegspunkt in den einzelnen Domänen zu erhalten.  
+        -   Für jeden Einstiegspunkt, der zur Unterstützung von Windows 7-Clients konfiguriert ist, ist eine eindeutige Sicherheitsgruppe mit Windows 7-Computern erforderlich. Es wird empfohlen, für jeden Einstiegspunkt in jeder Domäne eine eindeutige Sicherheitsgruppe zu haben.  
   
         -   Computer dürfen immer nur einer Sicherheitsgruppe zugeordnet werden, die DirectAccess-Clients enthält. Wenn Clients in mehreren Gruppen enthalten sind, funktioniert die Namensauflösung für Clientanforderungen nicht wie erwartet.  
   
-    -   GPO-Anforderungen-Gruppenrichtlinienobjekte können vor dem Konfigurieren des Remotezugriffs manuell erstellt oder während der Bereitstellung des Remotezugriffs automatisch erstellt werden. Es gelten folgende Anforderungen:  
+    -   GPO-Anforderungen: GPOs können manuell erstellt werden, bevor der Remote Zugriff konfiguriert wird, oder Sie werden automatisch während der Remote Zugriffs Bereitstellung erstellt. Die Anforderungen lauten wie folgt:  
   
-        -   Eine eindeutige Client-Gruppenrichtlinienobjekt muss für jede Domäne.  
+        -   Ein eindeutiges Client-GPO ist für jede Domäne erforderlich.  
   
-        -   Ein Server-Gruppenrichtlinienobjekt muss für jeden Einstiegspunkt, in der Domäne, in der sich der Einstiegspunkt befindet. Also wenn mehrere Einstiegspunkte in derselben Domäne befinden, stehen mehrere Server Gruppenrichtlinienobjekte (eine für jeden Einstiegspunkt) in der Domäne.  
+        -   Ein Server-GPO ist für jeden Einstiegspunkt in der Domäne erforderlich, in der sich der Einstiegspunkt befindet. Wenn sich also mehrere Einstiegspunkte in derselben Domäne befinden, werden mehrere Server-Gruppenrichtlinien Objekte (eines für jeden Einstiegspunkt) in der Domäne angezeigt.  
   
-        -   Eine eindeutige Client-Gruppenrichtlinienobjekt von Windows 7 ist erforderlich, für jeden Einstiegspunkt für Windows 7-Client-Unterstützung für jede Domäne aktiviert.  
+        -   Für jede Domäne ist ein eindeutiges Windows 7-Client-Gruppenrichtlinien Objekt für jeden Einstiegspunkt erforderlich, der für die Windows 7-Client Unterstützung aktiviert ist.  
   
 ## <a name="KnownIssues"></a>Bekannte Probleme  
-Im folgenden werden bekannte Probleme beim einen Szenario mit mehreren Standorten konfigurieren:  
+Im folgenden finden Sie bekannte Probleme beim Konfigurieren eines Szenarios mit mehreren Standorten:  
   
--   **Mehrere Einstiegspunkte im gleichen IPv4-Subnetz**. Das Hinzufügen mehrere Einstiegspunkte im gleichen IPv4-Subnetz führt zu einer IP-Adresse-konfliktmeldung, und die DNS64-Adresse für den Einstiegspunkt wird nicht wie erwartet konfiguriert werden. Dieses Problem tritt auf, wenn IPv6 nicht auf die internen Schnittstellen der Server im Unternehmensnetzwerk bereitgestellt wurde. Um dieses Problem, führen den folgenden Windows PowerShell-Befehl auf allen aktuellen und zukünftigen RAS-Servern zu vermeiden:  
+-   **Mehrere Einstiegspunkte im gleichen IPv4-Subnetz**. Wenn Sie mehrere Einstiegspunkte im gleichen IPv4-Subnetz hinzufügen, wird eine IP-Adress Konflikt Meldung angezeigt, und die DNS64-Adresse für den Einstiegspunkt wird nicht erwartungsgemäß konfiguriert. Dieses Problem tritt auf, wenn IPv6 nicht auf den internen Schnittstellen der Server im Unternehmensnetzwerk bereitgestellt wurde. Um dieses Problem zu vermeiden, führen Sie den folgenden Windows PowerShell-Befehl auf allen aktuellen und zukünftigen RAS-Servern aus:  
   
     ```  
     Set-NetIPInterface -InterfaceAlias <InternalInterfaceName> -AddressFamily IPv6 -DadTransmits 0  
     ```  
   
--   Wenn die öffentliche Adresse, die für DirectAccess-Clients für die Verbindung zum RAS-Servers angegebenen ein Suffix enthalten, die in der NRPT verfügt, kann DirectAccess nicht erwartungsgemäß. Stellen Sie sicher, dass die NRPT eine Ausnahme für den öffentlichen Namen verfügt. Bei einer Bereitstellung mit mehreren Standorten sollten Ausnahmen für den öffentlichen Namen, der alle Einstiegspunkte hinzugefügt werden. Beachten Sie, dass bei des Erzwingens von Tunneln ist aktiviert. diese Ausnahmen werden automatisch hinzugefügt. Sie werden entfernt, wenn das Erzwingen von Tunneln deaktiviert ist.  
+-   Wenn die für DirectAccess-Clients für die Verbindung mit dem RAS-Server angegebene öffentliche Adresse ein Suffix enthält, das in NRPT enthalten ist, funktioniert DirectAccess möglicherweise nicht wie erwartet. Stellen Sie sicher, dass die NRPT eine Ausnahme für den öffentlichen Namen aufweist. Bei einer Bereitstellung mit mehreren Standorten sollten Ausnahmen für die öffentlichen Namen aller Einstiegspunkte hinzugefügt werden. Beachten Sie, dass diese Ausnahmen automatisch hinzugefügt werden, wenn die Tunnel Erzwingung aktiviert ist. Sie werden entfernt, wenn die Tunnel Erzwingung deaktiviert ist.  
   
--   Wenn Sie das Windows PowerShell-Cmdlet verwenden **Disable-DAMultiSite**, WhatIf und Confirm-Parameter wirken sich nicht, und für mehrere Standorte wird deaktiviert, und Windows 7-Gruppenrichtlinienobjekte entfernt werden.  
+-   Wenn Sie das Windows PowerShell-Cmdlet **Deaktivieren-damultisite**verwenden, haben die Parameter "WhatIf" und "Confirm" keine Auswirkung, und die Funktion "Multisite" wird deaktiviert, und die Gruppenrichtlinien Objekte von Windows 7 werden entfernt.  
   
--   Wenn DCA in einer Bereitstellung für mehrere Standorte mit Windows 7-Clients auf Windows 8 aktualisiert werden, funktioniert den Netzwerkkonnektivitäts-Assistent nicht. Dieses Problem kann vor der Clientaktualisierung behoben werden, indem Sie die Windows 7-GPOs mit den folgenden Windows PowerShell-Cmdlets ändern:  
+-   Wenn Windows 7-Clients, die DCA in einer Bereitstellung mit mehreren Standorten verwenden, auf Windows 8 aktualisiert werden, funktioniert der netzwerkkonnektivitätsassistent nicht. Dieses Problem kann im Vorfeld des Client Upgrades behoben werden, indem die Windows 7-Gruppenrichtlinien Objekte mithilfe der folgenden Windows PowerShell-Cmdlets geändert werden:  
   
     ```  
     Set-GPRegistryValue -Name <Windows7GpoName> -Domain <DomainName> -Key "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\NetworkConnectivityAssistant" -ValueName "TemporaryValue" -Type Dword -Value 1  
     Remove-GPRegistryValue -Name <Windows7GpoName> -Domain <DomainName> -Key "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\NetworkConnectivityAssistant"  
     ```  
   
-    Wenn der Client bereits aktualisiert wurde, verschieben Sie den Clientcomputer, der Windows 8-Sicherheitsgruppe.  
+    Wenn der Client bereits aktualisiert wurde, verschieben Sie den Client Computer in die Sicherheitsgruppe Windows 8.  
   
--   Beim Ändern der Einstellungen des Domänencontrollers mit dem Windows PowerShell-Cmdlet **Set-DAEntryPointDC**, wenn der ComputerName-Parameter angegebenen RAS-Server im Einstiegspunkt als dem zuletzt hinzugefügt, die für mehrere Standorte Bereitstellung, eine Warnung wird angezeigt, dass der angegebene Server nicht erst nach der nächsten richtlinienaktualisierung aktualisiert wird. Die tatsächlichen Server, die nicht aktualisiert wurde können angezeigt werden, mithilfe der **Konfigurationsstatus** in die **DASHBOARD** von der **Remotezugriffs-Verwaltungskonsole**. Nicht dadurch, dass keine Funktionsprobleme, allerdings können Sie ausführen **Gpupdate/force** auf den Servern, die nicht aktualisiert wurde, damit der Konfigurationsstatus sofort aktualisiert wird.  
+-   Wenn Sie Domänen Controller Einstellungen mithilfe des Windows PowerShell-Cmdlets **Set-daentrypointdc**ändern, wenn der angegebene Computername-Parameter ein RAS-Server an einem anderen Einstiegspunkt als der der Bereitstellung mit mehreren Standorten hinzugefügt ist, wird eine Warnung angezeigt. wird angezeigt und zeigt an, dass der angegebene Server erst nach der nächsten Richtlinien Aktualisierung aktualisiert wird. Die tatsächlichen Server, die nicht aktualisiert wurden, können mit dem **Konfigurations Status** im **Dashboard** der **Remote Zugriffs-Verwaltungskonsole**angezeigt werden. Dadurch entstehen keine funktionalen Probleme. Sie können jedoch **gpupdate/force** auf den Servern ausführen, die nicht aktualisiert wurden, damit der Konfigurations Status sofort aktualisiert wird.  
   
--   Wenn mehrere Standorte bereitgestellt wird, in einem nur-IPv4-Unternehmensnetzwerk, ändern die interne Netzwerk IPv6-Präfix auch Änderungen der DNS64-Adresse, aber die Firewallregeln, mit denen DNS-Abfragen an den Dienst DNS64-Adresse wird nicht aktualisiert. Um dieses Problem zu beheben, führen Sie die folgenden Windows PowerShell-Befehlen nach dem Ändern der internen Netzwerk IPv6-Präfix:  
+-   Wenn Multisite in einem reinen IPv4-Unternehmensnetzwerk bereitgestellt wird, wird durch Ändern des IPv6-Präfixes für das interne Netzwerk auch die DNS64-Adresse geändert, aber nicht die Adresse der Firewallregeln, die DNS-Abfragen an den DNS64-Dienst erlauben. Um dieses Problem zu beheben, führen Sie die folgenden Windows PowerShell-Befehle aus, nachdem Sie das interne IPv6-Präfix geändert haben:  
   
     ```  
     $dns64Address = (Get-DAClientDnsConfiguration).NrptEntry | ?{ $_.DirectAccessDnsServers -match ':3333::1' } | Select-Object -First 1 -ExpandProperty DirectAccessDnsServers  
@@ -157,9 +157,9 @@ Im folgenden werden bekannte Probleme beim einen Szenario mit mehreren Standorte
     Save-NetGPO -GPOSession $gpoSession  
     ```  
   
--   Wenn DirectAccess bereitgestellt wurde, wenn eine ISATAP-Infrastruktur vorhanden ist, wenn einen Einstiegspunkt zu entfernen, der ein ISATAP-Host wurde werden die IPv6-Adresse des DNS64-Diensts aus der DNS-Serveradressen alle DNS-Suffixe in der NRPT entfernt.  
+-   Wenn DirectAccess bereitgestellt wurde, als eine vorhandene ISATAP-Infrastruktur vorhanden war, wird beim Entfernen eines Einstiegs Punkts, bei dem es sich um einen ISATAP-Host handelt, die IPv6-Adresse des DNS64-Diensts aus den DNS-Serveradressen aller DNS-Suffixe in der NRPT entfernt.  
   
-    Um dieses Problem zu beheben, in der **Einrichten des Infrastrukturservers** Assistenten, auf die **DNS** Seite, entfernen Sie die DNS-Suffixe, die geändert wurden und erneut hinzufügen mit den richtigen Adressen für DNS-Server, indem Sie auf die  **Erkennen** auf die **DNS-Serveradressen** Dialogfeld.  
+    Um dieses Problem zu beheben, entfernen Sie im Assistenten zum **Einrichten des Infrastruktur Servers** auf der Seite **DNS** die geänderten DNS-Suffixe, und fügen Sie Sie erneut mit den richtigen DNS-Serveradressen hinzu, indem Sie auf der DNS-Server Adresse auf **erkennen** klicken.(Dialogfeld).  
   
 
 

@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin getvalidationstate
-description: 'Windows-Befehle Thema **Bitsadmin Getvalidationstate** -meldet den Status der Überprüfung des Inhalts der angegebenen Datei innerhalb des Auftrags. '
+title: bizadmin getvalidationstate
+description: 'Windows-Befehls Thema für **BITSAdmin getvalidationstate** -meldet den Status der Inhalts Überprüfung der angegebenen Datei innerhalb des Auftrags. '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8abff3fc9fddb9cff1758739fdc540a9c945efe2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ca4269a596010258edd0479f5a7e9844bc9c98df
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879161"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381259"
 ---
-# <a name="bitsadmin-getvalidationstate"></a>Bitsadmin getvalidationstate
+# <a name="bitsadmin-getvalidationstate"></a>bizadmin getvalidationstate
 
 
 
-Meldet den Status der Überprüfung des Inhalts der angegebenen Datei innerhalb des Auftrags an.
+Meldet den Status der Inhalts Überprüfung der angegebenen Datei innerhalb des Auftrags.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,16 +36,16 @@ bitsadmin /GetValidationState <Job> <file index>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
-|Datei-index|Beginnt bei 0|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
+|Datei index|Beginnt bei 0|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Im folgende Beispiel ruft den Status der Überprüfung des Inhalts der Datei "2" innerhalb des Auftrags, der mit dem Namen *MyJob*.
+Im folgenden Beispiel wird der Status der Inhalts Überprüfung der Datei 2 innerhalb des Auftrags mit dem Namen " *MyJob*" abgerufen.
 ```
 C:\>bitsadmin /GetValidationState myJob 1
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

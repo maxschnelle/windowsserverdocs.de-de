@@ -7,31 +7,31 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: e2776cc29b8c9ede884a6b304cd541f700f516ca
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 88ec418bd72a6389856deb1abd85641d8782bc30
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191260"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408048"
 ---
 # <a name="name-resolution-requirements-for-federation-servers"></a>Namensauflösungsanforderungen für Verbundserver
 
-Wenn Clientcomputer im Unternehmensnetzwerk versuchen, Zugriff auf eine Anwendung oder einen Webdienst, der durch Active Directory Federation Services geschützt ist \(AD FS\), sie müssen sich zunächst bei einem Verbundserver authentifizieren. Eine Möglichkeit zur Authentifizierung ist der Unternehmensnetzwerk-Clients, die einen lokalen Verbundserver über die integrierte Windows-Authentifizierung Zugriff haben.  
+Wenn Client Computer im Unternehmensnetzwerk versuchen, auf eine Anwendung oder einen Webdienst zuzugreifen, der durch Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1 geschützt ist, müssen Sie sich zunächst bei einem Verbund Server authentifizieren. Eine Möglichkeit, sich zu authentifizieren, besteht darin, dass die Unternehmensnetzwerk Clients über die integrierte Windows-Authentifizierung auf einen lokalen Verbund Server zugreifen.  
   
 ## <a name="configure-corporate-dns"></a>Konfigurieren des Unternehmens-DNS  
-Damit eine erfolgreiche namensauflösung über die integrierte Windows-Authentifizierung auf den lokalen Verbundserver auftreten können, Domain Name System \(DNS\) im Unternehmensnetzwerk des Kontos Partner konfiguriert werden muss, für einen neuen Host \(Ein\) -Ressourceneintrag, die den vollqualifizierten Domänennamen aufgelöst werden \(FQDN\) Hostnamen des Verbundservers der IP-Adresse des Verbund-Server-Clusters.  
+Damit eine erfolgreiche Namensauflösung durch die integrierte Windows-Authentifizierung auf lokalen Verbund Servern auftreten kann, muss Domain Name System \(dns @ no__t-1 im Unternehmensnetzwerk des Konto Partners für einen neuen Host \(a @ no__t-3 konfiguriert werden. Ressourcen Daten Satz, der den voll qualifizierten Domänen Namen \(fqdn @ no__t-5 Hostname des Verbund Servers in die IP-Adresse des Verbund Server Clusters auflöst.  
   
-In der folgenden Abbildung sehen Sie, wie diese Aufgabe für ein bestimmtes Szenario durchgeführt wird. In diesem Szenario wird die Microsoft-Netzwerklastenausgleich \(NLB\) enthält einen einzelnen FQDN-Clusternamen und einen einzelnen Cluster-IP-Adresse für einer vorhandenen Verbundserverfarm.  
+In der folgenden Abbildung sehen Sie, wie diese Aufgabe für ein bestimmtes Szenario durchgeführt wird. In diesem Szenario stellt der Microsoft-Netzwerk Lastenausgleich \(nlb @ no__t-1 einen einzelnen Cluster-voll qualifizierten Namen und eine einzelne Cluster-IP-Adresse für eine vorhandene Verbund Serverfarm bereit.  
   
-![Anforderungen an den](media/adfs2_deploy_single_fs.gif)  
+![namens Anforderungen](media/adfs2_deploy_single_fs.gif)  
   
-Informationen zum Konfigurieren einer Cluster-IP-Adresse oder FQDN mit NLB-cluster finden Sie unter [angeben der Clusterparameter](https://go.microsoft.com/fwlink/?LinkId=75282).  
+Informationen zum Konfigurieren einer Cluster-IP-Adresse oder eines Cluster-FQDN mithilfe von NLB finden Sie unter [angeben der Cluster Parameter](https://go.microsoft.com/fwlink/?LinkId=75282).  
   
-Informationen über das Unternehmens-DNS für einen Verbundserver zu konfigurieren, finden Sie unter [Hinzufügen eines Hosts &#40;ein&#41; -Ressourceneintrag auf Unternehmens-DNS für einen Verbundserver](../../ad-fs/deployment/Add-a-Host--A--Resource-Record-to-Corporate-DNS-for-a-Federation-Server.md).  
+Weitere Informationen zum Konfigurieren des Unternehmens-DNS für einen Verbund Server finden [Sie unter hinzu &#40;fügen&#41; eines Host-a-Ressourceneinsatzes zu einem Unternehmens-DNS für einen Verbund Server](../../ad-fs/deployment/Add-a-Host--A--Resource-Record-to-Corporate-DNS-for-a-Federation-Server.md).  
   
-Informationen zum Konfigurieren von Verbundserverproxys im Umkreisnetzwerk finden Sie unter [Namensauflösungsanforderungen für Verbundserverproxys](Name-Resolution-Requirements-for-Federation-Server-Proxies.md).  
+Informationen zum Konfigurieren von Verbund Server Proxys im Umkreis Netzwerk finden Sie unter [Anforderungen für die Namensauflösung für Verbund Server](Name-Resolution-Requirements-for-Federation-Server-Proxies.md)Proxys.  
   
 
 ## <a name="see-also"></a>Siehe auch

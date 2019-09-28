@@ -1,8 +1,8 @@
 ---
 title: bitsadmin anhalten
-description: Windows-Befehle Thema **Bitsadmin anhalten** -hält an den angegebenen Auftrag.
+description: 'Das Thema Windows-Befehle für **bigsadmin Suspend** : hält den angegebenen Auftrag an.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 87e1bbd1b068d68fb60655043735c6c1aeb07707
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7a3a484df2b50cdc8893512020b835f913793d2c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825921"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380371"
 ---
 # <a name="bitsadmin-suspend"></a>bitsadmin anhalten
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Hält den angegebenen Auftrag.
+Hält den angegebenen Auftrag an.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,20 +36,20 @@ bitsadmin /Suspend <Job>
 
 |Parameter|Beschreibung|
 |-------|--------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
 
 ## <a name="remarks"></a>Hinweise
 
-Verwenden Sie zum Neustarten des Auftrags die [Bitsadmin fortsetzen](bitsadmin-resume.md) wechseln.
+Verwenden Sie den Schalter [bigsadmin Resume](bitsadmin-resume.md) , um den Auftrag neu zu starten.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Im folgende Beispiel hält den Auftrag mit dem Namen *MyDownloadJob*.
+Im folgenden Beispiel wird der Auftrag mit dem Namen *mydownloadjob*angehalten.
 
 ```
 C:\>bitsadmin /Suspend myDownloadJob
 ```
 
-#### <a name="additional-references"></a>Zusätzliche Referenzen
+#### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

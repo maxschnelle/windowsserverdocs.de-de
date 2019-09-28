@@ -1,7 +1,7 @@
 ---
 title: Problembehandlung bei Always On VPN
 description: Dieses Thema enthält Anweisungen für die Überprüfung und Problembehandlung Always on VPN-Bereitstellung in Windows Server 2016.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: 4d08164e-3cc8-44e5-a319-9671e1ac294a
@@ -9,12 +9,12 @@ ms.localizationpriority: medium
 ms.date: 06/11/2018
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 60873c8bbf71ad5afa58bd9e19b1a3fd650bc65f
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 649fbc16e3dfef2ed1061d0ba6a5c22a8712b186
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871351"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404379"
 ---
 # <a name="troubleshoot-always-on-vpn"></a>Problembehandlung bei Always On VPN 
 
@@ -118,7 +118,7 @@ Suchen Sie nach Ereignissen aus der Quelle RasClient. Alle Fehlermeldungen geben
 
 ## <a name="nps-logs"></a>NPS-Protokolle
 
-NPS erstellt und speichert die NPS-Buchhaltungs Protokolle. \\Standardmäßig werden diese in "% SystemRoot% System32\\Logfiles\\ " in einer Datei namens in "*xxxx*. txt" gespeichert, wobei *xxxx* das Datum ist, an dem die Datei erstellt wurde.
+NPS erstellt und speichert die NPS-Buchhaltungs Protokolle. Standardmäßig werden diese in "% SystemRoot% \\system32 @ no__t-1logfiles @ no__t-2" in einer Datei namens "*xxxx*. txt" gespeichert, wobei *xxxx* das Datum ist, an dem die Datei erstellt wurde.
 
 Standardmäßig sind diese Protokolle im Format für durch Trennzeichen getrennte Werte enthalten, Sie enthalten jedoch keine Überschriften Zeile. Die Überschriften Zeile lautet:
 

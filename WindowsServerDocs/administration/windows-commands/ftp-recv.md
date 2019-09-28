@@ -1,8 +1,8 @@
 ---
-title: FTP-recv
-description: 'Windows-Befehle Thema ***- '
+title: FTP-empfangener
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5bfd68dcb745ebf7ef239883aa1c5322241b32df
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6ec35a2044945e3d39a2a78d39923de3a56eb18d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438434"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376130"
 ---
-# <a name="ftp-recv"></a>FTP: Durchschn.
+# <a name="ftp-recv"></a>FTP: empfangener
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Kopiert eine Remotedatei auf dem lokalen Computer, die mit den aktuellen Dateiübertragungstyp an.   
+Kopiert eine Remote Datei mithilfe des aktuellen Datei Übertragungs Typs auf den lokalen Computer.   
 ## <a name="syntax"></a>Syntax  
 ```  
 recv <remoteFile> [<LocalFile>]  
@@ -33,23 +33,23 @@ recv <remoteFile> [<LocalFile>]
 
 |   Parameter   |                   Beschreibung                    |
 |---------------|--------------------------------------------------|
-| <remoteFile>  |        Gibt an, der remote-Datei zu kopieren.        |
-| [<LocalFile>] | Gibt den Namen für die Verwendung auf dem lokalen Computer. |
+| <remoteFile>  |        Gibt die zu Kopier-Remote Datei an.        |
+| [<LocalFile>] | Gibt den Namen an, der auf dem lokalen Computer verwendet werden soll. |
 
 ## <a name="remarks"></a>Hinweise  
-- Die **empfangener** Befehl ist identisch mit der **erhalten** Befehl.  
-- Wenn *LocalFile* nicht angegeben ist, wird die Datei erhält den *Remotedatei* Name.  
-  ## <a name="BKMK_Examples"></a>Beispiele für  
-  Kopie **"Test.txt"** auf dem lokalen Computer, die den aktuellen Dateityp für die Übertragung verwenden.  
+- Der **empfangener** -Befehl ist mit dem **Get** -Befehl identisch.  
+- Wenn " *LocalFile* " nicht angegeben wird, erhält die Datei den Namen " *remotefile* ".  
+  ## <a name="BKMK_Examples"></a>Beispiele  
+  Kopieren Sie die Datei " **Test. txt** " mit dem aktuellen Datei Übertragungstyp auf den lokalen Computer.  
   ```  
   recv test.txt  
   ```  
-  Kopie **"Test.txt"** auf dem lokalen Computer als **test1.txt** mithilfe der aktuellen Datei Übertragungstyp auswählen.  
+  Kopieren Sie die Datei " **Test. txt** " mit dem aktuellen Datei Übertragungstyp als **test1. txt** auf den lokalen Computer.  
   ```  
   recv test.txt test1.txt  
   ```  
-  ## <a name="additional-references"></a>Zusätzliche Referenzen  
-- [ftp: ascii](ftp-ascii.md)  
+  ## <a name="additional-references"></a>Weitere Verweise  
+- [FTP: ASCII](ftp-ascii.md)  
 - [FTP: binär](ftp-binary.md)  
-- [ftp: get](ftp-get.md)  
+- [FTP: Get](ftp-get.md)  
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

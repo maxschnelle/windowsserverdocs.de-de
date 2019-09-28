@@ -1,8 +1,8 @@
 ---
-title: Mithilfe des Befehls aktivieren
-description: 'Windows-Befehle Thema ***- '
+title: Verwenden des Befehls "enable"
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1634ce163a232726bee06bbba63b713fe7920c0d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cd886fa6f84e4d52ef90e998871d84ded8fdaf53
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848641"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392241"
 ---
-# <a name="using-the-enable-command"></a>Mithilfe des Befehls aktivieren
+# <a name="using-the-enable-command"></a>Verwenden des Befehls "enable"
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Alle Dienste für die Windows-Bereitstellungsdienste aktiviert.
+Aktiviert alle Dienste für die Windows-Bereitstellungs Dienste.
 ## <a name="subcommands"></a>Unterbefehle
 |Subommand|Beschreibung|
 |-------|--------|
-|[Verwenden den Enable-Server-Befehl](using-the-enable-server-command.md)|Können alle Dienste auf einem angegebenen Windows-Bereitstellungsdienste-Server (Server-Bereitstellung).|
-|[Mithilfe des Befehls Enable-TransportServer](using-the-enable-transportserver-command.md)|Können alle Dienste auf einem angegebenen Transport-Server.|
+|[Verwenden des Befehls "Enable-Server"](using-the-enable-server-command.md)|Aktiviert alle Dienste auf einem angegebenen Windows-Bereitstellungsdiensteserver (Bereitstellungs Server).|
+|[Verwenden des Befehls Enable-Transportserver](using-the-enable-transportserver-command.md)|Aktiviert alle Dienste auf einem angegebenen Transport Server.|

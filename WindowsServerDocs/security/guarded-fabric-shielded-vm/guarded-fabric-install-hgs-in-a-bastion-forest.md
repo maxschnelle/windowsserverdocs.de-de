@@ -1,55 +1,55 @@
 ---
-title: Host-Überwachungsdienst in einer vorhandenen geschützten Gesamtstruktur installieren
+title: Installieren von HGS in einer vorhandenen geschützten Gesamtstruktur
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 147610d9dcb36dfedab3aca11ee1a64731715519
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5c503331893dbea65c99d79eb7444893d5f3b657
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842221"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403594"
 ---
-# <a name="install-hgs-in-an-existing-bastion-forest"></a>Host-Überwachungsdienst in einer vorhandenen geschützten Gesamtstruktur installieren 
+# <a name="install-hgs-in-an-existing-bastion-forest"></a>Installieren von HGS in einer vorhandenen geschützten Gesamtstruktur 
 
->Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 
-## <a name="join-the-hgs-server-to-the-existing-domain"></a>Fügen Sie den Host-Überwachungsdienst-Server mit der vorhandenen Domäne
+## <a name="join-the-hgs-server-to-the-existing-domain"></a>Fügen Sie den HGS-Server der vorhandenen Domäne hinzu.
 
-In einer vorhandenen geschützten Gesamtstruktur muss der Root-Domäne-Host-Überwachungsdienst hinzugefügt werden. Verwenden Sie Server-Manager oder [Add-Computer](https://go.microsoft.com/fwlink/?LinkId=821564) verknüpfen Sie Ihr HGS-Server der Stammdomäne.
+In einer vorhandenen geschützten Gesamtstruktur müssen HGS der Stamm Domäne hinzugefügt werden. Verwenden Sie Server-Manager oder [Add-Computer](https://go.microsoft.com/fwlink/?LinkId=821564) , um den HGS-Server mit der Stamm Domäne zu verknüpfen.
 
-## <a name="add-the-hgs-server-role"></a>Fügen Sie die Host-Überwachungsdienst-Serverrolle hinzu.
+## <a name="add-the-hgs-server-role"></a>Hinzufügen der HGS-Server Rolle
 
-Führen Sie alle Befehle in diesem Thema, in einer PowerShell-Sitzung mit erhöhten Rechten.
+Führen Sie alle Befehle in diesem Thema in einer PowerShell-Sitzung mit erhöhten Rechten aus.
 
 [!INCLUDE [Install the HGS server role](../../../includes/guarded-fabric-install-hgs-server-role.md)] 
 
-Wenn Ihr Rechenzentrum eine sicheren geschützten Gesamtstruktur verfügt, in dem Sie Host-Überwachungsdienst Knoten beitreten möchten, gehen Sie wie folgt vor.
-Sie können diese Schritte auch verwenden, 2 oder mehr unabhängigen HGS-Cluster zu konfigurieren, die der gleichen Domäne angehören.
+Wenn Ihr Rechenzentrum über eine sichere geschützte Gesamtstruktur verfügt, der Sie HGS-Knoten beitreten möchten, führen Sie die folgenden Schritte aus.
+Sie können diese Schritte auch verwenden, um zwei oder mehr unabhängige HGS-Cluster zu konfigurieren, die mit derselben Domäne verknüpft sind.
 
-## <a name="join-the-hgs-server-to-the-existing-domain"></a>Fügen Sie den Host-Überwachungsdienst-Server mit der vorhandenen Domäne
+## <a name="join-the-hgs-server-to-the-existing-domain"></a>Fügen Sie den HGS-Server der vorhandenen Domäne hinzu.
 
-Verwenden Sie Server-Manager oder [Add-Computer](https://go.microsoft.com/fwlink/?LinkId=821564) die Host-Überwachungsdienst-Server auf die gewünschte Domäne zu verknüpfen.
+Verwenden Sie Server-Manager oder [Add-Computer](https://go.microsoft.com/fwlink/?LinkId=821564) , um die HGS-Server mit der gewünschten Domäne zu verknüpfen.
 
-## <a name="prepare-active-directory-objects"></a>Vorbereiten von Active Directory-Objekte
+## <a name="prepare-active-directory-objects"></a>Vorbereiten von Active Directory Objekten
 
-Erstellen Sie ein gruppenverwalteten Dienstkonto und 2-Sicherheitsgruppen.
-Sie können die Clusterobjekte auch vorab bereitstellen, wenn das Konto, dem Sie Host-Überwachungsdienst mit Initialisieren nicht über die Berechtigung zum Erstellen von Computerobjekten in der Domäne verfügt.
+Erstellen Sie ein Gruppen verwaltetes Dienst Konto und zwei Sicherheitsgruppen.
+Sie können die Cluster Objekte auch vorab bereitstellen, wenn das Konto, mit dem Sie HGS initialisieren, nicht über die Berechtigung zum Erstellen von Computer Objekten in der Domäne verfügt.
 
-## <a name="group-managed-service-account"></a>Gruppenverwalteten Dienstkontos
+## <a name="group-managed-service-account"></a>Gruppen verwaltetes Dienst Konto
 
-Die gruppenverwalteten Dienstkontos (gMSA) ist die Identität, die vom Host-Überwachungsdienst verwendet werden, abrufen und die Zertifikate verwenden. Verwendung [New-ADServiceAccount](https://technet.microsoft.com/itpro/powershell/windows/addsadministration/new-adserviceaccount) um ein gMSA zu erstellen.
-Wenn dies die erste gruppenverwalteten Dienstkonten in der Domäne ist, müssen Sie einen Schlüsselverteilungsdienst-Stammschlüssel hinzufügen.
+Das Gruppen verwaltete Dienst Konto (Group Managed Service Account, GMSA) ist die Identität, die von HGS zum Abrufen und Verwenden der Zertifikate verwendet wird. Verwenden Sie [New-ADServiceAccount](https://technet.microsoft.com/itpro/powershell/windows/addsadministration/new-adserviceaccount) , um ein GMSA zu erstellen.
+Wenn dies das erste GMSA in der Domäne ist, müssen Sie einen Schlüssel Verteilungsdienst-Stamm Schlüssel hinzufügen.
 
-Jeder Host-Überwachungsdienst-Knoten müssen Zugriff auf das gMSA-Kennwort gewährt werden.
-Die einfachste Möglichkeit hierzu besteht darin, eine Sicherheitsgruppe zu erstellen, die alle von Ihrem Host-Überwachungsdienst-Knoten enthält und gewähren Sie dieser Sicherheitsgruppe Zugriff zum Abrufen des gMSA-Kennworts.
+Jedem HGS-Knoten muss der Zugriff auf das GMSA-Kennwort gestattet werden.
+Die einfachste Möglichkeit, dies zu konfigurieren, besteht darin, eine Sicherheitsgruppe zu erstellen, die alle Ihre HGS-Knoten enthält, und dieser Sicherheitsgruppe Zugriff zu gewähren, um das GMSA-Kennwort abzurufen.
 
-Sie müssen Ihren HGS-Server neu starten, nach dem Hinzufügen einer Sicherheitsgruppe hinzu, um sicherzustellen, dass sie die neue Gruppenmitgliedschaft abruft.
+Sie müssen den HGS-Server neu starten, nachdem Sie ihn einer Sicherheitsgruppe hinzugefügt haben, um sicherzustellen, dass er die neue Gruppenmitgliedschaft erhält.
 
 ```powershell
 # Check if the KDS root key has been set up
@@ -69,40 +69,40 @@ Add-ADGroupMember -Identity $hgsNodes -Members "HGS01"
 New-ADServiceAccount -Name 'HGSgMSA' -DnsHostName 'HGSgMSA.yourdomain.com' -PrincipalsAllowedToRetrieveManagedPassword $hgsNodes
 ```
 
-Das gruppenverwaltete Dienstkonto muss das Recht vor, Ereignisse im Sicherheitsprotokoll auf jedem Host-Überwachungsdienst-Server zu generieren.
-Wenn Sie Gruppenrichtlinien, zum Zuweisen von Benutzerrechten zu konfigurieren verwenden, stellen Sie sicher, dass das gMSA-Konto die Berechtigungen der [generieren Ereignisse Entwickler eine Überwachungsberechtigung](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn221956%28v=ws.11%29) auf Ihren HGS-Servern.
+Das GMSA benötigt das Recht, Ereignisse im Sicherheitsprotokoll auf jedem HGS-Server zu generieren.
+Wenn Sie Gruppenrichtlinie verwenden, um die Zuweisung von Benutzerrechten zu konfigurieren, stellen Sie sicher, dass dem GMSA-Konto die [Berechtigung Audit-Ereignisse generieren](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn221956%28v=ws.11%29) auf Ihren HGS-Servern erteilt wird.
 
 > [!NOTE]
-> Gruppenverwaltete Dienstkonten sind verfügbar ab der mit dem Windows Server 2012 Active Directory-Schema.
-> Weitere Informationen finden Sie unter [gruppenverwalteten dienstkontoanforderungen](https://technet.microsoft.com/library/jj128431.aspx).
+> Gruppen verwaltete Dienst Konten sind ab dem Windows Server 2012-Active Directory Schema verfügbar.
+> Weitere Informationen finden Sie unter [Gruppen verwaltete Dienst Kontoanforderungen](https://technet.microsoft.com/library/jj128431.aspx).
 
-## <a name="jea-security-groups"></a>JEA-Sicherheitsgruppen
+## <a name="jea-security-groups"></a>Jea-Sicherheitsgruppen
 
-Beim Einrichten von Host-Überwachungsdienst bietet eine [Just Enough Administration (JEA)](https://aka.ms/JEAdocs) PowerShell-Endpunkt ist so konfiguriert, dass um Administratoren zum Verwalten von Host-Überwachungsdienst ohne vollständigen lokalen Administratorrechte zu ermöglichen.
-Sie müssen keine JEA verwenden, um Host-Überwachungsdiensts zu verwalten, aber dennoch muss konfiguriert werden beim Ausführen der Initialize-HgsServer.
-Die Konfiguration des JEA-Endpunkts besteht aus 2 Sicherheitsgruppen, die Ihren HGS-Administratoren und die Host-Überwachungsdienst Reviewer enthalten festlegen.
-Benutzer, die Gruppe "Administratoren" angehören können hinzufügen, ändern oder Entfernen von Richtlinien auf dem Host-Überwachungsdienst; Prüfer können nur die aktuelle Konfiguration anzeigen.
+Wenn Sie HGS einrichten, wird ein Jea-PowerShell-Endpunkt [(Just Enough Administration)](https://aka.ms/JEAdocs) konfiguriert, um Administratoren das Verwalten von HGS ohne volle lokale Administratorrechte zu ermöglichen.
+Sie müssen Jea nicht zum Verwalten von HGS verwenden, aber es muss beim Ausführen von Initialize-hgsserver weiterhin konfiguriert werden.
+Die Konfiguration des Jea-Endpunkts besteht aus dem Festlegen von zwei Sicherheitsgruppen, die ihre HGS-Administratoren und HGS-Reviewer enthalten.
+Benutzer, die der Administrator Gruppe angehören, können Richtlinien auf HGS hinzufügen, ändern oder entfernen. Reviewer können die aktuelle Konfiguration nur anzeigen.
 
-Erstellen Sie 2 Sicherheitsgruppen für diese JEA-Gruppen, die mithilfe von Active Directory-Verwaltungstools oder [New-ADGroup](https://technet.microsoft.com/itpro/powershell/windows/addsadministration/new-adgroup).
+Erstellen Sie zwei Sicherheitsgruppen für diese Jea-Gruppen, indem Sie Active Directory Admin Tools oder [New-adgroup](https://technet.microsoft.com/itpro/powershell/windows/addsadministration/new-adgroup)verwenden.
 
 ```powershell
 New-ADGroup -Name 'HgsJeaReviewers' -GroupScope DomainLocal
 New-ADGroup -Name 'HgsJeaAdmins' -GroupScope DomainLocal
 ```
 
-## <a name="cluster-objects"></a>Clusterobjekte
+## <a name="cluster-objects"></a>Cluster Objekte
 
-Wenn das Konto, das Sie verwenden, um das Einrichten des Host-Überwachungsdienst nicht über die Berechtigung zum Erstellen von neuen Computerobjekte in der Domäne verfügt, müssen Sie die Clusterobjekte vorab bereitstellen.
-Diese Schritte werden erläutert [Vorabbereitstellen von Clustercomputerobjekten in Active Directory Domain Services](https://technet.microsoft.com/library/dn466519(v=ws.11).aspx).
+Wenn das Konto, das Sie zum Einrichten von HGS verwenden, nicht über die Berechtigung zum Erstellen neuer Computer Objekte in der Domäne verfügt, müssen Sie die Cluster Objekte vorab bereitstellen.
+Diese Schritte werden unter vorab Bereitstellen von [Cluster Computer Objekten in Active Directory Domain Services](https://technet.microsoft.com/library/dn466519(v=ws.11).aspx)erläutert.
 
-Um Ihre erste HGS-Knoten einzurichten, müssen Sie einen Cluster Name-Objekt (CNO) und einem virtuellen Computer-Objekt (VCO) zu erstellen.
-Das Clusternamenobjekt stellt den Namen des Clusters dar und wird hauptsächlich intern vom Failover-Clusterunterstützung verwendet.
-Die VCO stellt den Host-Überwachungsdienst-Dienst, der auf den Cluster befindet und der Name der DNS-Server registriert werden.
+Zum Einrichten des ersten HGS-Knotens müssen Sie ein Cluster Namen Objekt (CNO) und ein virtuelles Computer Objekt (VCO) erstellen.
+Das CNO stellt den Namen des Clusters dar und wird hauptsächlich intern vom Failoverclustering verwendet.
+VCO stellt den HGS-Dienst dar, der sich auf dem Cluster befindet, und ist der Name, der beim DNS-Server registriert ist.
 
 > [!IMPORTANT]
-> Der Benutzer, der ausgeführt wird `Initialize-HgsServer` erfordert **Vollzugriff** über das CNO und VCO-Objekte in Active Directory.
+> Der Benutzer, der `Initialize-HgsServer` ausführen wird, benötigt die **vollständige Kontrolle** über die CNO-und VCO-Objekte in Active Directory.
 
-Um schnell Ihre CNO und VCO vorab bereitgestellt haben, müssen Sie Active Directory-Administrator die folgenden PowerShell-Befehle ausführen:
+Wenn Sie CNO und VCO schnell vorab bereitstellen möchten, müssen Sie über einen Active Directory Administrator die folgenden PowerShell-Befehle ausführen:
 
 ```powershell
 # Create the CNO
@@ -121,34 +121,34 @@ Set-Acl -Path $vcoPath -AclObject $acl
 # Allow time for your new CNO and VCO to replicate to your other Domain Controllers before continuing
 ```
 
-## <a name="security-baseline-exceptions"></a>Ausnahmen zur Codezugriffssicherheit baseline
+## <a name="security-baseline-exceptions"></a>Sicherheitsbaseline-Ausnahmen
 
-Wenn Sie Host-Überwachungsdienst in einer Umgebung mit hoher gesperrt bereitstellen, können bestimmte gruppenrichtlinieneinstellungen verhindern, dass Host-Überwachungsdienst normaler Betrieb.
-Überprüfen Sie Ihre Gruppenrichtlinienobjekte für die folgenden Einstellungen, und befolgen Sie die Anweisungen aus, wenn Sie betroffen sind:
+Wenn Sie HGS in einer stark gesperrten Umgebung bereitstellen, können bestimmte Gruppenrichtlinie Einstellungen verhindern, dass HGS ordnungsgemäß funktionieren.
+Überprüfen Sie die Gruppenrichtlinie Objekte auf die folgenden Einstellungen, und befolgen Sie die Anweisungen, wenn Sie betroffen sind:
 
-### <a name="network-logon"></a>Netzwerkanmeldung
+### <a name="network-logon"></a>Netzwerk Anmeldung
 
-**Richtlinienpfad ist:** Zuweisen von Computer Computerkonfiguration\Windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien\Zuweisen von Benutzerrechten
+**Richtlinien Pfad:** Computerkonfiguration\Windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien\Zuweisen von Benutzerrechten
 
-**Richtlinienname:** Zugriff vom Netzwerk auf diesen Computer verweigern
+**Richtlinien Name:** Zugriff vom Netzwerk auf diesen Computer verweigern
 
-**Erforderlicher Wert:** Stellen Sie sicher, dass der Wert keine netzwerkanmeldungen für alle lokalen Konten blockiert. Sie können jedoch problemlos lokale Administratorkonten, blockieren.
+**Erforderlicher Wert:** Stellen Sie sicher, dass der Wert keine Netzwerk Anmeldungen für alle lokalen Konten blockiert. Lokale Administrator Konten können jedoch problemlos blockiert werden.
 
-**Reason:** Failover-Clusterunterstützung, abhängig von einer nicht-Administrator lokalen Konto mit dem Namen CLIUSR zum Verwalten von Knoten im Cluster ab. Blockierende netzwerkanmeldung für diesen Benutzer wird verhindert, dass den Cluster ordnungsgemäß arbeiten.
+**Weshalb** Failoverclustering basiert auf einem lokalen Konto mit dem Namen cliusr, das nicht Administrator ist, um Cluster Knoten zu verwalten. Durch das Blockieren der Netzwerk Anmeldung für diesen Benutzer wird verhindert, dass der Cluster ordnungsgemäß funktioniert.
 
-### <a name="kerberos-encryption"></a>Kerberos Encryption
+### <a name="kerberos-encryption"></a>Kerberos-Verschlüsselung
 
-**Richtlinienpfad ist:** Computerkonfiguration\Windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien\Sicherheitsoptionen
+**Richtlinien Pfad:** Computerkonfiguration\Windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien\Sicherheitsoptionen
 
-**Richtlinienname:** Netzwerksicherheit: Konfigurieren Sie für Kerberos zulässige Verschlüsselungstypen
+**Richtlinien Name:** Netzwerksicherheit: Konfigurieren von für Kerberos zulässigen Verschlüsselungstypen
 
-**Aktion**: Wenn diese Richtlinie konfiguriert ist, müssen Sie das gMSA-Konto mit aktualisieren [Set-ADServiceAccount](https://docs.microsoft.com/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps) nur die unterstützten Verschlüsselungsarten in dieser Richtlinie verwenden. Beispielsweise wenn Ihre Richtlinie nur AES128 lässt\_HMAC\_SHA1 und AES256\_HMAC\_SHA1, führen Sie `Set-ADServiceAccount -Identity HGSgMSA -KerberosEncryptionType AES128,AES256`.
+**Aktion**: Wenn diese Richtlinie konfiguriert ist, müssen Sie das GMSA-Konto mit [Set-ADServiceAccount](https://docs.microsoft.com/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps) aktualisieren, sodass nur die unterstützten Verschlüsselungstypen in dieser Richtlinie verwendet werden. Wenn Ihre Richtlinie beispielsweise nur AES128 @ no__t-0hmac @ no__t-1sha1 und AES256 @ no__t-2hmac @ no__t-3sha1 zulässt, sollten Sie `Set-ADServiceAccount -Identity HGSgMSA -KerberosEncryptionType AES128,AES256` ausführen.
 
 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Die nächsten Schritte zum Einrichten von TPM-basierten Nachweis, finden Sie unter [initialisiert den Host-Überwachungsdienst-Cluster mithilfe von TPM-Modus in einer vorhandenen Gesamtstruktur der geschützten](guarded-fabric-initialize-hgs-tpm-mode-bastion.md).
-- Die nächsten Schritte, um den schlüsselnachweis Host einzurichten, finden Sie unter [initialisieren den HGS-Cluster mithilfe von Schlüssel-Modus in einer vorhandenen Gesamtstruktur der geschützten](guarded-fabric-initialize-hgs-key-mode-bastion.md).
-- Für die nächsten Schritte zum Einrichten der Admin-basierten nachweisen (in Windows Server-2019 veraltet) finden Sie unter [initialisiert den Host-Überwachungsdienst-Cluster mithilfe von AD-Modus in einer vorhandenen geschützten Gesamtstruktur](guarded-fabric-initialize-hgs-ad-mode-bastion.md).
+- Die nächsten Schritte zum Einrichten eines TPM-basierten Nachweis finden Sie unter [Initialisieren des HGS-Clusters mit dem TPM-Modus in einer vorhandenen](guarded-fabric-initialize-hgs-tpm-mode-bastion.md)geschützten Gesamtstruktur.
+- Die nächsten Schritte zum Einrichten des Host Schlüssel-Attestation finden Sie unter [Initialisieren des HGS-Clusters mithilfe des Schlüssel Modus in einer vorhandenen](guarded-fabric-initialize-hgs-key-mode-bastion.md)geschützten Gesamtstruktur.
+- Die nächsten Schritte zum Einrichten des Administrator basierten Nachweis (in Windows Server 2019 veraltet) finden Sie unter [Initialisieren des HGS-Clusters mit dem AD-Modus in einer vorhandenen](guarded-fabric-initialize-hgs-ad-mode-bastion.md)geschützten Gesamtstruktur.
 

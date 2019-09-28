@@ -1,8 +1,8 @@
 ---
 title: bitsadmin create
-description: Windows-Befehle Thema **Bitsadmin erstellen** -Übertragungsauftrag erstellt, mit dem angegebenen Anzeigenamen.
+description: 'Windows-Befehls Thema für **bizadmin Create** : erstellt einen Übertragungs Auftrag mit dem angegebenen anzeigen Amen.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d6ce5a4fdc21d879bf0a265e3c4185d83311464a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9f6d641d44c56ea4ff11f48a725367de7dcf472a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817191"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381809"
 ---
 # <a name="bitsadmin-create"></a>bitsadmin create
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Erstellen einen Übertragungsauftrag, mit dem angegebenen Anzeigenamen. Laden Sie Aufträge übertragen von Daten von einem Server in eine lokale Datei herunter. Laden Sie die Aufträge übertragen von Daten aus einer lokalen Datei auf einem Server hoch. Upload-Antwort-Aufträge übertragen von Daten aus einer lokalen Datei auf einem Server und eine Antwortdatei vom Server empfangen.
+Erstellt einen Übertragungs Auftrag mit dem angegebenen anzeigen Amen. Download Aufträge übertragen von Daten von einem Server in eine lokale Datei. Hochladen von Aufträgen übertragen von Daten aus einer lokalen Datei auf einen-Server. Mit Upload-Antwort-Aufträgen werden Daten aus einer lokalen Datei auf einen Server übertragen, und es wird eine Antwortdatei vom Server empfangen.
 
-Verwenden der [Bitsadmin fortsetzen](bitsadmin-resume.md) wechseln, um den Auftrag in der Übertragungswarteschlange zu aktivieren.
+Verwenden Sie den Schalter [bitadmin Resume](bitsadmin-resume.md) , um den Auftrag in der Übertragungs Warteschlange zu aktivieren.
 
 ## <a name="syntax"></a>Syntax
 
@@ -38,19 +38,19 @@ bitsadmin /create [type] DisplayName
 
 |Parameter|Beschreibung|
 |-------|--------|
-|Typ|-   **/ Herunterladen von** überträgt Daten von einem Server in einer lokalen Datei.<br />-   **/ Hochladen von** überträgt Daten aus einer lokalen Datei auf einem Server.<br />-   **/ Upload-Antwort** überträgt Daten aus einer lokalen Datei auf einem Server und eine Antwortdatei vom Server empfangen.<br />-Dieser Parameter ist standardmäßig **/herunterladen** Wenn in der Befehlszeile nicht angegeben.|
-|DisplayName|Der Anzeigename, der neu erstellten Auftrag zugewiesen wird.|
+|Typ|-    **/Download** überträgt Daten von einem Server in eine lokale Datei.<br />-    **"/Upload"** überträgt Daten aus einer lokalen Datei auf einen-Server.<br />-    **/Upload-Reply** überträgt Daten aus einer lokalen Datei auf einen Server und empfängt eine Antwortdatei vom Server.<br />Dieser Parameter ist standardmäßig **/Download** , wenn er nicht in der Befehlszeile angegeben wird.|
+|DisplayName|Der dem neu erstellten Auftrag zugewiesene Anzeige Name.|
 
-**BITS-Version 1.2 und früher**: Die "/ Upload" und die /Upload-Reply-Typen sind nicht verfügbar.
+**Bits 1,2 und früher**: Die Typen "/Upload" und/Upload-Reply sind nicht verfügbar.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Erstellt einen Downloadauftrag mit dem Namen *MyDownloadJob*.
+Erstellt einen Download Auftrag mit dem Namen *mydownloadjob*.
 
 ```
 C:\>bitsadmin /create myDownloadJob
 ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

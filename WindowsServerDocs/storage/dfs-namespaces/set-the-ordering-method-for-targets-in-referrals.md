@@ -2,22 +2,22 @@
 title: Festlegen der Sortiermethode für Ziele in Verweisen
 description: Dieser Artikel beschreibt die Vorgehensweise beim Festlegen der Sortiermethode für Ziele in Verweisen.
 ms.date: 6/5/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 52568944a98bed7960b37335b2e3cbbde61479ca
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: bb42a98666941c5dfa50a8dfbf45635ad25dc767
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447200"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386143"
 ---
 # <a name="set-the-ordering-method-for-targets-in-referrals"></a>Festlegen der Sortiermethode für Ziele in Verweisen
 
-> Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2, WindowsServer 2008
+> Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
 Ein Verweis ist eine sortierte Zielliste, die ein Client-PC von einem Domänencontroller oder Namespaceserver empfängt, wenn der Benutzer auf einen Namespacestamm oder -ordner mit Zielen zugreift. Nach Eingang des Verweises auf dem Client wird versucht, auf das erste Ziel in der Liste zuzugreifen. Ist das Ziel nicht verfügbar, wird vom Clientcomputer versucht, auf das nächste Ziel zuzugreifen.
 Ziele am Standort des Clients werden in einem Verweis immer zuerst aufgeführt. Ziele außerhalb des Standorts des Clients werden gemäß der Sortiermethode aufgelistet.
@@ -40,7 +40,7 @@ Verwenden Sie das folgende Verfahren, um die Sortiermethode für den Namespacest
 >    -   **EnableInsiteReferrals** gibt die Sortiermethode für **Ziele außerhalb des Standorts des Clients ausschließen**
 >    -   Das Auslassen beider Parameter legt die **zufällige Reihenfolge** der Sortiermethode fest. 
 
-Das DFSN Windows PowerShell-Modul wurde in Windows Server 2012 eingeführt.
+Das DFSN-Windows PowerShell-Modul wurde in Windows Server 2012 eingeführt.
    
 ## <a name="to-set-the-ordering-method-for-targets-in-folder-referrals"></a>So legen Sie die Sortiermethode für Ziele in Ordnerverweisen fest
 
@@ -67,7 +67,7 @@ Diese drei Sortiermethoden sind:
 
 Bei dieser Methode werden Ziele wie folgt sortiert:
 
-1.  Ziele am selben Active Directory Directory Services (AD DS) Standort des Clients werden in zufälliger Reihenfolge am oberen Rand der referenzdienstdateien aufgelistet.
+1.  Ziele, die sich auf derselben Active Directory Verzeichnisdienste-Website (AD DS) wie der Client befinden, werden in zufälliger Reihenfolge am Anfang des Verweises aufgeführt.
 2.  Ziele außerhalb des Standorts des Clients werden in zufälliger Reihenfolge aufgelistet.
 
 Wenn keine Zielserver mit demselben Standort verfügbar sind, wird der Clientcomputer einem zufälligen Zielserver zugeordnet, unabhängig davon, wie teuer die Verbindung ist oder wie weit davon entfernt das Ziel ist.

@@ -1,8 +1,8 @@
 ---
 title: nslookup set timeout
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1f6c8863d0a9330fd3a8499b0e6dbc802bd95022
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 32fcfcaeccb6599e9aaca21f9c085bb00857479c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436508"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372765"
 ---
 # <a name="nslookup-set-timeout"></a>nslookup set timeout
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Ändert die anfängliche Anzahl von Sekunden zu warten, bis eine Antwort an eine suchanforderung an.
+ändert die anfängliche Anzahl von Sekunden, die auf eine Antwort auf eine Such Anforderung gewartet werden soll.
 ## <a name="syntax"></a>Syntax
 ```
 set timeout=<Number>
@@ -33,16 +33,16 @@ set timeout=<Number>
 
 |    Parameter    |                                           Beschreibung                                            |
 |-----------------|--------------------------------------------------------------------------------------------------|
-|    <Number>     | Gibt die Anzahl von Sekunden auf eine Antwort warten. Die Standardanzahl von Sekunden ist 5. |
-| {help &#124; ?} |                      Zeigt eine kurze Zusammenfassung der **Nslookup** Unterbefehle.                       |
+|    <Number>     | Gibt die Anzahl der Sekunden an, die auf eine Antwort gewartet werden soll. Die Standard Anzahl von Sekunden, die gewartet werden soll, ist 5. |
+| {Help &#124; ?} |                      Zeigt eine kurze Zusammenfassung der **nslookup** -Unterbefehle an.                       |
 
 ## <a name="remarks"></a>Hinweise
-- Wenn eine Antwort auf eine Anforderung nicht innerhalb des angegebenen Zeitraums empfangen wird, wird das Timeout verdoppelt, und die Anforderung erneut gesendet wird. Können Sie die **Satz Wiederholung** Befehl aus, um die Anzahl von Wiederholungen zu steuern.
-  ## <a name="BKMK_examples"></a>Beispiele für
-  Im folgenden Beispiel wird das Timeout für das Empfangen einer Antwort auf 2 Sekunden:
+- Wenn eine Antwort auf eine Anforderung nicht innerhalb des angegebenen Zeitraums empfangen wird, wird das Timeout verdoppelt, und die Anforderung wird erneut gesendet. Sie können den Befehl **Set Wiederholen Sie** verwenden, um die Anzahl der Wiederholungen zu steuern.
+  ## <a name="BKMK_examples"></a>Beispiele
+  Im folgenden Beispiel wird das Timeout für das erhalten einer Antwort auf 2 Sekunden festgelegt:
   ```
   set timeout=2
   ```
-  ## <a name="additional-references"></a>Zusätzliche Referenzen
-  [Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-  [Nslookup legen Sie "Wiederholen"](nslookup-set-retry.md)
+  ## <a name="additional-references"></a>Weitere Verweise
+  [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+  [nslookup Set Wiederholen Sie](nslookup-set-retry.md)

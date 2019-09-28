@@ -1,8 +1,8 @@
 ---
 title: manage-bde
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8923177b03f378f8252c532ec386f1808e516e1e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7ca23e5f4499672f1e4bfcca6b9ad27f4e84039b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874501"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373773"
 ---
 # <a name="manage-bde"></a>manage-bde
 
 
 
-Geben Sie zum Aktivieren oder Deaktivieren von BitLocker verwendet, Mechanismen zum Entsperren, Wiederherstellungsmethoden zu aktualisieren und BitLocker-geschützte Laufwerke zu entsperren. Dieses Befehlszeilentool kann verwendet werden, anstelle von der **BitLocker Drive Encryption** Control Panel-Element. Beispiele wie dieser Befehl verwendet werden kann, finden Sie unter [Beispiele](#BKMK_Examples).
+Dient zum Aktivieren oder Deaktivieren von BitLocker, zum Angeben von entsperrungs Mechanismen, zum Aktualisieren von Wiederherstellungsmethoden und zum Entsperren von mit BitLocker geschützten Daten Laufwerken. Dieses Befehlszeilen Tool kann anstelle des **BitLocker-Laufwerkverschlüsselung** System Steuerungs Elements verwendet werden. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -37,43 +37,43 @@ manage-bde [-status] [–on] [–off] [–pause] [–resume] [–lock] [–unloc
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|[Verwalten von-Bde: Status](manage-bde-status.md)|Erläutert alle Laufwerke auf dem Computer, und zwar unabhängig davon, ob sie BitLocker geschützt sind.|
-|[Verwalten von-Bde: auf](manage-bde-on.md)|Das Laufwerk verschlüsselt, und BitLocker aktiviert.|
-|[Verwalten von-Bde: deaktiviert](manage-bde-off.md)|Das Laufwerk entschlüsselt und BitLocker deaktiviert. Alle Schlüsselschutzvorrichtungen werden entfernt, wenn die Entschlüsselung abgeschlossen ist.|
-|[Verwalten von-Bde: anhalten](manage-bde-pause.md)|Hält die Verschlüsselung oder Entschlüsselung.|
-|[Verwalten von-Bde: fortsetzen](manage-bde-resume.md)|Setzt die Verschlüsselung oder Entschlüsselung.|
-|[Verwalten von-Bde: Sperren](manage-bde-lock.md)|Verhindert den Zugriff auf BitLocker-geschützte Daten.|
-|[Verwalten von-Bde: nicht entsperren](manage-bde-unlock.md)|Ermöglicht den Zugriff auf BitLocker-geschützte Daten mit einer Wiederherstellungskennwort oder einen Wiederherstellungsschlüssel.|
-|[Verwalten von-Bde: automatisches Entsperren](manage-bde-autounlock.md)|Verwaltet das automatische Entsperren von Datenträgern.|
-|[Verwalten von-Bde: IRM-Schutz](manage-bde-protectors.md)|Verwaltet Schutzmethoden für den Verschlüsselungsschlüssel an.|
-|[Verwalten von-Bde: Tpm](manage-bde-tpm.md)|Konfiguriert den Computer Trusted Platform Module (TPM). Mit diesem Befehl wird auf Computern mit Windows 8 nicht unterstützt oder **win8_server_2**. Um das TPM auf diesen Computern zu verwalten, verwenden Sie das TPM Management MMC-Snap-in oder den TPM-Verwaltungs-Cmdlets für Windows PowerShell.|
-|[Verwalten von-Bde: Setidentifier](manage-bde-setidentifier.md)|Legt das Bezeichnerfeld Laufwerk auf dem Laufwerk, auf die im angegebenen Wert der **Geben Sie die eindeutigen Bezeichner für Ihre Organisation** gruppenrichtlinieneinstellung.|
-|[Verwalten von-Bde: ForceRecovery](manage-bde-forcerecovery.md)|Erzwingt, dass ein mit BitLocker geschütztes Laufwerk in den Wiederherstellungsmodus beim Neustart. Dieser Befehl löscht alle TPM-bezogenen Schlüsselschutzvorrichtungen aus dem Laufwerk. Wenn der Computer neu gestartet wird, kann nur ein Wiederherstellungskennwort oder Wiederherstellungsschlüssel zum Entsperren des Laufwerks verwendet werden.|
-|[Verwalten von-Bde: Changepassword](manage-bde-changepassword.md)|Ändert das Kennwort für ein Laufwerk an.|
-|[Verwalten von-Bde: "changepin" werden](manage-bde-changepin.md)|Ändert die PIN für ein Betriebssystemlaufwerk.|
-|[Verwalten von-Bde: Changekey](manage-bde-changekey.md)|Ändert den Systemstartschlüssel für ein Betriebssystemlaufwerk.|
-|[Verwalten von-Bde: KeyPackage](manage-bde-keypackage.md)|Generiert ein Schlüsselpaket für ein Laufwerk an.|
-|[Verwalten von-Bde: Aktualisieren](manage-bde-upgrade.md)|Die BitLocker-Version aktualisiert.|
-|[Verwalten von-Bde: WipeFreeSpace](manage-bde-wipefreespace.md)|Setzt den freien Speicherplatz auf einem Laufwerk zurück.|
-|-? oder /?|Zeigt eine kurze Hilfe an der Eingabeaufforderung.|
-|---Help oder-h|Führen Sie zeigt Hilfe an der Eingabeaufforderung ein.|
+|[Manage-bde: status](manage-bde-status.md)|Enthält Informationen zu allen Laufwerken auf dem Computer, unabhängig davon, ob Sie durch BitLocker geschützt sind.|
+|[Manage-bde: on](manage-bde-on.md)|Verschlüsselt das Laufwerk und schaltet BitLocker ein.|
+|[Manage-bde: off](manage-bde-off.md)|Entschlüsselt das Laufwerk und deaktiviert BitLocker. Alle Schlüssel Schutzvorrichtungen werden entfernt, wenn die Entschlüsselung vollständig ist.|
+|[Manage-bde: pause](manage-bde-pause.md)|Hält die Verschlüsselung oder Entschlüsselung an.|
+|[Manage-bde: resume](manage-bde-resume.md)|Nimmt die Verschlüsselung oder Entschlüsselung wieder auf.|
+|[Manage-bde: lock](manage-bde-lock.md)|Verhindert den Zugriff auf durch BitLocker geschützte Daten.|
+|[Manage-bde: unlock](manage-bde-unlock.md)|Ermöglicht den Zugriff auf durch BitLocker geschützte Daten mit einem Wiederherstellungs Kennwort oder einem Wiederherstellungs Schlüssel.|
+|[Manage-bde: autounlock](manage-bde-autounlock.md)|Verwaltet das automatische Entsperren von Daten Laufwerken.|
+|[Manage-bde: protectors](manage-bde-protectors.md)|Verwaltet Schutzmethoden für den Verschlüsselungsschlüssel.|
+|[Manage-bde: tpm](manage-bde-tpm.md)|Konfiguriert den Trusted Platform Module des Computers (TPM). Dieser Befehl wird auf Computern, auf denen Windows 8 oder **win8_server_2**ausgeführt wird, nicht unterstützt. Um das TPM auf diesen Computern zu verwalten, verwenden Sie entweder das TPM-Verwaltungs-MMC-Snap-in oder die TPM-Verwaltungs-Cmdlets für Windows PowerShell.|
+|[Manage-bde: setidentifier](manage-bde-setidentifier.md)|Legt das Feld Laufwerks-ID auf dem Laufwerk auf den Wert fest, der in der Einstellung **Geben Sie die eindeutigen Bezeichner für Ihre Organisation** Gruppenrichtlinie festgelegt ist.|
+|[Manage-bde: ForceRecovery](manage-bde-forcerecovery.md)|Erzwingt ein durch BitLocker geschütztes Laufwerk beim Neustart in den Wiederherstellungs Modus. Dieser Befehl löscht alle TPM-bezogenen Schlüsselschutz Vorrichtungen vom Laufwerk. Wenn der Computer neu gestartet wird, kann nur ein Wiederherstellungs Kennwort oder ein Wiederherstellungs Schlüssel verwendet werden, um das Laufwerk zu entsperren.|
+|[Manage-bde: changepassword](manage-bde-changepassword.md)|Ändert das Kennwort für ein Daten Laufwerk.|
+|[Manage-bde: changepin](manage-bde-changepin.md)|Ändert die PIN für ein Betriebssystem Laufwerk.|
+|[Manage-bde: changekey](manage-bde-changekey.md)|Ändert den Systemstart Schlüssel für ein Betriebssystem Laufwerk.|
+|[Manage-bde: KeyPackage](manage-bde-keypackage.md)|Generiert ein Schlüssel Paket für ein Laufwerk.|
+|[Manage-bde: upgrade](manage-bde-upgrade.md)|Aktualisiert die BitLocker-Version.|
+|[Manage-bde: WipeFreeSpace](manage-bde-wipefreespace.md)|Löscht den freien Speicherplatz auf einem Laufwerk.|
+|-? oder /?|Zeigt eine kurze Hilfe an der Eingabeaufforderung an.|
+|-Help oder-h|Zeigt die gesamte Hilfe an der Eingabeaufforderung an.|
 
-## <a name="BKMK_Examples"></a>Beispiele für
+## <a name="BKMK_Examples"></a>Beispiele
 
-Das folgende Beispiel zeigt die Laufwerke auf dem Computer, und identifiziert, ob sie BitLocker geschützt sind und den aktuellen Verschlüsselungsstatus.
+Im folgenden Beispiel werden die Laufwerke auf dem Computer angezeigt, und es wird ermittelt, ob Sie durch BitLocker geschützt sind, und der aktuelle Verschlüsselungs Status.
 ```
 manage-bde -status
 ```
-Das folgende Beispiel veranschaulicht das Aktivieren von BitLocker auf Laufwerk C mit der Option ein Wiederherstellungskennwort. Die Eingabe eines Wiederherstellungskennworts durch BitLocker generiert und auf dem Bildschirm angezeigt werden, sodass Sie diese erfassen können.
+Das folgende Beispiel veranschaulicht das Aktivieren von BitLocker auf Laufwerk C mit der Option eines Wiederherstellungs Kennworts. Das Wiederherstellungs Kennwort wird von BitLocker generiert und auf dem Bildschirm angezeigt, sodass Sie es aufzeichnen können.
 ```
 manage-bde –on C: -recoverypassword
 ```
-Das folgende Beispiel veranschaulicht ein mit BitLocker geschütztes Laufwerk mit einer Wiederherstellungskennwort entsperren.
+Im folgenden Beispiel wird veranschaulicht, wie ein durch BitLocker geschütztes Laufwerk mithilfe eines Wiederherstellungs Kennworts entsperrt wird.
 ```
 manage-bde –unlock E: -recoverypassword 111111-222222-333333-444444-555555-666666-777777-888888
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Aktivieren von BitLocker über die Befehlszeile](https://technet.microsoft.com/library/dd894351(v=ws.10).aspx)

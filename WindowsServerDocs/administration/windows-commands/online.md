@@ -1,8 +1,8 @@
 ---
 title: Online
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a8063ac09b1d8d9bf4dd4e6665c1725fcb77ae89
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 489cef1ad4dc5fec5f477f95a6f2fad391b3bf02
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828111"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372491"
 ---
 # <a name="online"></a>Online
 
 
 
-Wird von einer offline-Laufwerk oder Volume in den Onlinemodus versetzt.
+Nimmt einen Offline Datenträger oder ein Offline Volume in den Online Zustand.
 
 ## <a name="syntax"></a>Syntax
 
@@ -37,8 +37,8 @@ Offline volume
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|[Offline-Datenträger](offline-disk.md)|Nimmt den Offlinedatenträger mit Fokus in den Onlinemodus versetzt.|
-|[Offline-volume](offline-volume.md)|Nimmt die offline-Volume mit dem Fokus in den Onlinemodus versetzt.|
+|[Offline-Datenträger](offline-disk.md)|Der Offline Datenträger wird mit dem Fokus auf den Online Zustand versetzt.|
+|[Offline-Volume](offline-volume.md)|Nimmt das Offline-Volume mit dem Fokus auf den Online Status.|
 
 #### <a name="additional-references"></a>Weitere Verweise
 

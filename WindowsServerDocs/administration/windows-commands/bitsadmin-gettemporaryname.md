@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin gettemporaryname
-description: Windows-Befehle Thema **Bitsadmin Gettemporaryname** -gibt den temporären Dateinamen, der die angegebene Datei innerhalb des Auftrags.
+title: bizadmin gettemporaryname
+description: Windows-Befehls Thema für **bizadmin gettemporaryname** -meldet den temporären Dateinamen der angegebenen Datei innerhalb des Auftrags.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 762a2a5943202b38e94a245b74745e6631e0792d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7b665fae4c0bfdd5ea04b929be49f9590430b358
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876711"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381299"
 ---
-# <a name="bitsadmin-gettemporaryname"></a>Bitsadmin gettemporaryname
+# <a name="bitsadmin-gettemporaryname"></a>bizadmin gettemporaryname
 
 
 
-Gibt den temporären Dateinamen, der die angegebene Datei innerhalb des Auftrags an.
+Meldet den temporären Dateinamen der angegebenen Datei innerhalb des Auftrags.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,16 +36,16 @@ bitsadmin /GetTemporaryName <Job> <file index>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
-|Datei-index|Beginnt bei 0|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
+|Datei index|Beginnt bei 0|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Das folgende Beispiel gibt den temporären Dateinamen der Datei "2" für den Auftrag mit dem Namen *MyJob*.
+Im folgenden Beispiel wird der temporäre Dateiname der Datei 2 für den Auftrag mit dem Namen *MyJob*gemeldet.
 ```
 C:\>bitsadmin /GetTemporaryName myJob 1 
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

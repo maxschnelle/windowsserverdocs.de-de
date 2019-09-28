@@ -2,22 +2,22 @@
 title: Erstellen eines Kontingents
 description: Dieser Artikel enthält Informationen zum Erstellen von Kontingenten basierend auf einer Vorlage
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: f3c677f5ebf7dda44f4b99a64d0fbf8d2c72b92e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6b199d8cc520021fcbbe32397997cc483f9c68cb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883191"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403140"
 ---
 # <a name="create-a-quota"></a>Erstellen eines Kontingents
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Kontingente können aus einer Vorlage oder mit benutzerdefinierten Eigenschaften erstellt werden. Die folgenden Anweisungen beschreiben, wie ein Kontingent basierend auf einer Vorlage (empfohlen) erstellt wird. Wenn Sie ein Kontingent mit benutzerdefinierten Eigenschaften erstellen müssen, können Sie diese Eigenschaften als Vorlage zur Wiederverwendung zu einem späteren Zeitpunkt speichern.
 
@@ -51,8 +51,8 @@ Wenn Sie ein Kontingent erstellen, wählen Sie einen Kontingentpfad aus, der ein
 
 ## <a name="see-also"></a>Siehe auch
 
--   [Management von sollvorgaben](quota-management.md)
+-   [Kontingentverwaltung](quota-management.md)
 -   [Erstellen eines automatisch zugewiesenen Kontingents](create-auto-apply-quota.md)
--   [Erstellen Sie eine Kontingentvorlage](create-quota-template.md)
+-   [Erstellen einer Kontingent Vorlage](create-quota-template.md)
 
 

@@ -1,8 +1,8 @@
 ---
 title: serverweroptin
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 29545be99b14042d16a6f3a4118e0746f18b14ab
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a7d5791e059d31e416f848f6e8df648c8f9bd27d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869641"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371021"
 ---
 # <a name="serverweroptin"></a>serverweroptin
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Können Sie die Fehlerberichterstattung zu aktivieren.
+Ermöglicht es Ihnen, die Fehlerberichterstattung zu aktivieren.
 ## <a name="syntax"></a>Syntax
 ```
 serverweroptin [/query] [/detailed] [/summary]
@@ -32,23 +32,23 @@ serverweroptin [/query] [/detailed] [/summary]
 ### <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
-|/query|überprüft die aktuelle Einstellung an.|
-|/detailed|Sendet ausführliche Berichte automatisch aus.|
-|/summary|Zusammenfassende Berichte werden automatisch gesendet.|
+|/Query "aus|überprüft die aktuelle Einstellung.|
+|/Detailed|Sendet detaillierte Berichte automatisch.|
+|/Summary|Sendet Zusammenfassungs Berichte automatisch.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
-## <a name="BKMK_Examples"></a>Beispiele für
-Um die aktuelle Einstellung zu überprüfen, geben Sie Folgendes ein:
+## <a name="BKMK_Examples"></a>Beispiele
+Zum Überprüfen der aktuellen Einstellung geben Sie Folgendes ein:
 ```
 serverweroptin /query
 ```
-Um automatisch ausführliche Berichte senden möchten, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um automatisch ausführliche Berichte zu senden:
 ```
 serverweroptin /detailed
 ```
-Geben Sie zum automatischen Senden von Zusammenfassungsberichten
+Geben Sie zum automatischen Senden von Zusammenfassungs Berichten
 ```
 serverweroptin /summary
 ```
-## <a name="additional-references"></a>Zusätzliche Referenzen
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+## <a name="additional-references"></a>Weitere Verweise
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

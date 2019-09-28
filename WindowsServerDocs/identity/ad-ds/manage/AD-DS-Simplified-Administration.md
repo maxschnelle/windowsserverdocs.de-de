@@ -7,22 +7,22 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/09/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 863e5352253d53941e64b52d1ca58d565a3aa8b1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4f12b1e88414a17c8fb82a707bd4399505df4c6c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890591"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369451"
 ---
 # <a name="ad-ds-simplified-administration"></a>Vereinfachte Verwaltung für AD DS
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-In diesem Thema wird erläutert, die Funktionen und Vorteile der Bereitstellung der Windows Server 2012-Domänencontroller und Verwaltung sowie die Unterschiede zwischen dem vorherigen Betriebssystem DC-Bereitstellung und die neue Windows Server 2012-Implementierung.  
+In diesem Thema werden die Funktionen und Vorteile der Bereitstellung und Verwaltung von Windows Server 2012-Domänen Controllern sowie die Unterschiede zwischen der Bereitstellung des Betriebssystem-DC und der neuen Windows Server 2012-Implementierung erläutert.  
   
-Windows Server 2012 eingeführt, die nächste Generation von Active Directory Domain Services-vereinfachte Verwaltung, und war der am häufigsten radikale Domäne erneut Entwurfs-seit Windows 2000 Server. Die vereinfachte AD DS-Administration ist eine Umsetzung der Erfahrungen zwölf Jahren Active Directory und bietet Architekten und Administratoren ein flexibleres, intuitiveres und leichter zu unterstützendes Administrationserlebnis. Hierzu mussten wir neue Versionen existierender Technologien erstellen und die Funktionen einiger Komponenten aus Windows Server 2008 R2 erweitern.  
+In Windows Server 2012 wurde die nächste Generation von Active Directory Domain Services vereinfachte Verwaltung eingeführt, und die Neuerstellung der Domäne war seit Windows 2000 Server der größte. Die vereinfachte AD DS-Administration ist eine Umsetzung der Erfahrungen zwölf Jahren Active Directory und bietet Architekten und Administratoren ein flexibleres, intuitiveres und leichter zu unterstützendes Administrationserlebnis. Hierzu mussten wir neue Versionen existierender Technologien erstellen und die Funktionen einiger Komponenten aus Windows Server 2008 R2 erweitern.  
   
 Die vereinfachte AD DS-Administration ist ein neuartiger Weg der Domänen-Bereitstellung.  
   
@@ -33,7 +33,7 @@ Die vereinfachte AD DS-Administration ist ein neuartiger Weg der Domänen-Bereit
 - Das Active Directory-Modul für Windows PowerShell enthält nun Cmdlets für die Verwaltung von Replikationstopologien, dynamische Zugriffssteuerung und andere Operationen  
 - Die Windows Server 2012-Gesamtstrukturfunktionsebene enthält keine neuen Features, und die Domänenfunktionsebene wird nur für einen Teil der neuen Kerberos-Features benötigt. Administratoren sind daher weniger häufig auf homogene Domänencontroller-Umgebungen angewiesen  
 - Virtualisierte Domänencontroller werden nun vollständig unterstützt, um automatische Bereitstellung zu unterstützen und Rollbackschutz zu bieten  
-   - Weitere Informationen zu virtuellen Domänencontrollern finden Sie unter [Einführung in die Active Directory Domain Services &#40;AD DS&#41; Virtualisierung &#40;ebene100&#41;](../../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md).
+   - Weitere Informationen zu virtualisierten Domänen Controllern finden [Sie unter Einführung &#40;in&#41; Active Directory Domain Services AD DS &#40;Virtualisierungsebene 100&#41;](../../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md).
 
 Außerdem wurden zahlreiche Verbesserungen in den Bereichen Verwaltung und Wartung vorgenommen:  
 
@@ -42,7 +42,7 @@ Außerdem wurden zahlreiche Verbesserungen in den Bereichen Verwaltung und Wartu
 - Gruppenverwaltete Dienstkonten unterstützen mehrere Computer mit denselben Sicherheitsprinzipalen  
 - Verbesserungen bei der Ausstellung von relativen Bezeichnern (RIDs) zur Erleichterung der Verwaltung älterer Active Directory-Domänen  
 
-AD DS profitiert von weiteren neuen Features in Windows Server 2012 enthalten sind, z. B.:  
+AD DS von anderen neuen Features, die in Windows Server 2012 enthalten sind, wie z. b.:  
 
 - NIC-Teaming und Data Center Bridging  
 - DNS-Sicherheit und schnellere, in AD integrierte Zonenverfügbarkeit nach dem Hochfahren  
@@ -60,11 +60,11 @@ Weitere Informationen zu Adprep und zur Gesamtstrukturvorbereitung in älteren B
 
 ## <a name="server-manager-ad-ds-integration"></a>AD DS-Integration mit Server-Manager
 
-![Vereinfachte Verwaltung](media/AD-DS-Simplified-Administration/ADDS_SMI_TR_Dashboard.png)  
+![vereinfachte Verwaltung](media/AD-DS-Simplified-Administration/ADDS_SMI_TR_Dashboard.png)  
   
 Server-Manager dient als Hub für Serververwaltungsaufgaben. Das Dashboardähnliche Aussehen aktualisiert die Ansichten installierter Rollen und Remote-Servergruppen automatisch in regelmäßigen Abständen. Server-Manager ermöglicht die zentralisierte Verwaltung lokaler und remote-Server ohne jeglichen Konsolenzugriff.  
   
-Active Directory-Domänendienste ist einer dieser Rollen Hub. von Server-Manager auf einem Domänencontroller oder die Remoteserver-Verwaltungstools auf einem Windows 8 ausgeführt wird, werden wichtige aktuelle Probleme auf Domänencontrollern in Ihrer Gesamtstruktur angezeigt.  
+Active Directory Domain Services ist eine dieser Hub-Rollen. Wenn Sie Server-Manager auf einem Domänen Controller oder auf einem Windows 8-Remoteserver-Verwaltungstools ausführen, werden wichtige aktuelle Probleme in den Domänen Controllern in Ihrer Gesamtstruktur angezeigt.  
   
 Zu diesen Ansichten zählen:  
   
@@ -76,7 +76,7 @@ Zu diesen Ansichten zählen:
 
 ## <a name="active-directory-administrative-center-recycle-bin"></a>Active Directory-Verwaltungscenter - Papierkorb
 
-![Vereinfachte Verwaltung](media/AD-DS-Simplified-Administration/ADDS_SMI_TR_ADAC.png)  
+![vereinfachte Verwaltung](media/AD-DS-Simplified-Administration/ADDS_SMI_TR_ADAC.png)  
   
 Mit Windows Server 2008 R2 wurde der Active Directory-Papierkorb eingeführt, mit dem gelöschte Active Directory-Objekte auch ohne Datensicherung, Neustart des AD DS-Dienstes oder Neustart von Domänencontrollern wiederhergestellt werden können.  
   
@@ -86,7 +86,7 @@ Weitere Informationen zum Active Directory-Papierkorb finden Sie unter [Active D
   
 ## <a name="active-directory-administrative-center-fine-grained-password-policy"></a>Active Directory-Verwaltungscenter - differenzierte Kennwortrichtlinien (FGPP)
 
-![Vereinfachte Verwaltung](media/AD-DS-Simplified-Administration/ADDS_SMI_TR_FGPP.png)  
+![vereinfachte Verwaltung](media/AD-DS-Simplified-Administration/ADDS_SMI_TR_FGPP.png)  
   
 Mit Windows Server 2008 wurden die differenzierten Kennwortrichtlinien eingeführt, mit denen Administratoren unterschiedliche Kennwort- und Kontosperrungsrichtlinien pro Domäne konfigurieren können. Auf diese Weise können Domänen flexiblere Kennwortregeln auf Basis von Benutzern und Gruppen enthalten. Diese Funktion enthielt jedoch keine grafische Oberfläche und musste von Administratoren mithilfe von Ldp.exe oder Adsiedit.msc konfiguriert werden. Mit Windows Server 2008 R2 wurde das Active Directory-Modul für Windows PowerShell eingeführt, mit dem Administratoren eine Befehlszeilenschnittstelle für FGPP zur Verfügung haben.  
   
@@ -96,7 +96,7 @@ Weitere Informationen zu fein abgestimmten Kennwortrichtlinien finden Sie unter 
   
 ## <a name="active-directory-administrative-center-windows-powershell-history-viewer"></a>Active Directory-Verwaltungscenter - PowerShell-Verlaufsanzeige
 
-![Vereinfachte Verwaltung](media/AD-DS-Simplified-Administration/ADDS_SMI_TR_HistoryViewer.png)  
+![vereinfachte Verwaltung](media/AD-DS-Simplified-Administration/ADDS_SMI_TR_HistoryViewer.png)  
   
 Mit Windows Server 2008 R2 wurde das Active Directory-Verwaltungscenter eingeführt, welches das ältere, seit Windows 2000 enthaltene, Active Directory-Benutzer und -Computer-Snap-In ersetzt. Das Active Directory-Verwaltungscenter bietet eine grafische Verwaltungsoberfläche für das damals noch neue Active Directory-Modul für Windows PowerShell.  
   
@@ -104,7 +104,7 @@ Das Active Directory-Modul enthält jedoch über einhundert Cmdlets, was zu eine
 
 ## <a name="ad-replication-windows-powershell"></a>AD-Replikation mit Windows PowerShell
 
-![Vereinfachte Verwaltung](media/AD-DS-Simplified-Administration/ADDS_PSNewADReplSite.png)  
+![vereinfachte Verwaltung](media/AD-DS-Simplified-Administration/ADDS_PSNewADReplSite.png)  
   
 Mit Windows Server 2012 wurde das Active Directory Windows PowerShell-Modul um zusätzliche Active Directory-Replikations-Cmdlets erweitert. Mit diesen Cmdlets können neue oder existierende Standorte, Subnetze, Verbindungen, Standortverknüpfungen und Brücken konfiguriert werden. Außerdem geben die Cmdlets Informationen zu Active Directory-Replikations-Metadaten, Replikationsstatus, Warteschlangen und Versionsvektoren zurück. Die Einführung dieser Replikations-Cmdlets - gemeinsam mit den Bereitstellungs- und anderen AD DS-Cmdlets - ermöglichen die Verwaltung von Gesamtstrukturen allein mithilfe von Windows PowerShell. Auf diese Weise erhalten Administratoren neue Möglichkeiten zur Bereitstellung und Verwaltung von Windows Server 2012 ohne grafische Benutzeroberfläche, wodurch wiederum Angriffsoberfläche und Wartungsanforderungen gesenkt werden. Dies ist besonders wichtig bei der Bereitstellung von Servern in Hochsicherheitsnetzwerken wie z. B. Secret Internet Protocol Router (SIPR) und Unternehmens-DMZs.  
   
@@ -139,7 +139,7 @@ Server-Manager und ADDSDeployment Windows PowerShell verwenden die folgenden Ker
 
 Beide Komponenten verwenden Windows PowerShell und dessen Remote-Aufrufbefehl für die Remote-Rolleninstallation und -Konfiguration.  
 
-![Vereinfachte Verwaltung](media/AD-DS-Simplified-Administration/ADDS_SMI_TR_DepDLLs.png)  
+![vereinfachte Verwaltung](media/AD-DS-Simplified-Administration/ADDS_SMI_TR_DepDLLs.png)  
 
 In Windows Server 2012 wurden außerdem zahlreiche frühere Heraufstufungsoperationen aus LSASS.EXE umgestaltet, als Teil von:  
 
@@ -168,12 +168,12 @@ Die Voraussetzungsprüfung stellt sicher, dass bestimmte Bedingungen erfüllt si
 
 Der zuvor in ADprep.exe untergebrachte AD-Vorbereitungscode ist nun in adprep.dll enthalten. Auf diese Weise können sowohl ADPrep.exe als auch das ADDSDeployment Windows PowerShell-Modul die Bibliothek für dieselben Aufgaben verwenden und haben denselben Funktionsumfang. Adprep.exe ist auf dem Installationsmedium enthalten, wird jedoch von den automatischen Prozessen nicht direkt aufgerufen. Nur Administratoren führen Adprep.exe manuell aus. Adprep.exe kann nur unter Windows Server 2008 x64 und neueren Betriebssystemen ausgeführt werden. Ldifde.exe und csvde.exe wurden ebenfalls als DLLs umgestaltet, die vom Vorbereitungsprozess geladen werden. Die Schemaerweiterung verwendet weiterhin die LDF-Dateien mit geprüften Signaturen, wie in früheren Betriebssystemversionen.  
   
-![Vereinfachte Verwaltung](media/AD-DS-Simplified-Administration/ADDS_SMI_TR_AdprepDLLs.png)  
+![vereinfachte Verwaltung](media/AD-DS-Simplified-Administration/ADDS_SMI_TR_AdprepDLLs.png)  
   
 > [!IMPORTANT]  
 > Es existiert kein 32-Bit Adprep32.exe-Tool für Windows Server 2012. Sie benötigen mindestens einen Computer unter Windows Server 2008 x64, Windows Server 2008 R2 oder Windows Server 2012, der als Domänencontroller, Mitgliedsserver oder in einer Arbeitsgruppe läuft, um Gesamtstruktur und Domäne vorbereiten zu können. Adprep.exe läuft nicht unter Windows Server 2003 x64.  
   
-## <a name="BKMK_PrereuisiteChecking"></a>Voraussetzungsprüfung
+## <a name="BKMK_PrereuisiteChecking"></a>Voraussetzungs Prüfung
 
 Das in den verwalteten Code von ADDSDeployment Windows PowerShell integrierte System zur Voraussetzungsprüfung funktioniert je nach Operation auf unterschiedliche Arten. Die folgenden Tabellen beschreiben die einzelnen Tests, deren jeweilige Anwendungsfälle und erläutern, was und wie genau geprüft wird. Diese Tabellen sind hilfreich, wenn Probleme auftreten, bei denen die Prüfung fehlschlägt und die Fehlermeldung nicht zur Problembehandlung ausreicht.  
   
@@ -191,7 +191,7 @@ Für jedes Domänencontroller-Bereitstellungs-Cmdlet existiert ein ADDSDeploymen
 
 Diese Cmdlets müssen normalerweise nicht ausgeführt werden, da sie standardmäßig automatisch von den Bereitstellungs-Cmdlets aufgerufen werden.  
 
-#### <a name="BKMK_ADDSInstallPrerequisiteTests"></a>Voraussetzungsprüfungen
+#### <a name="BKMK_ADDSInstallPrerequisiteTests"></a>Voraussetzungs Tests
 
 ||||  
 |-|-|-|  
@@ -205,7 +205,7 @@ Diese Cmdlets müssen normalerweise nicht ausgeführt werden, da sie standardmä
 |CheckRODCPrep<br /><br />GroupMembership|LDAP,<br /><br />RPC über SMB (LSARPC)|Prüft, ob der Benutzer Mitglied der Gruppe Unternehmens-Admins ist und ob er die Berechtigung zur Verwaltung der Überwachungs- und Sicherheitsereignisprotokolle (SesScurityPrivilege) auf den existierenden Domänencontrollern hat|  
 |VerifyInitSync<br /><br />AfterReboot|LDAP|Prüft, ob der Schemamaster seit dem Neustart mindestens einmal repliziert wurde, indem ein Dummywert für das rootDSE-Attribut becomeSchemaMaster gesetzt wird|  
 |VerifySFUHotFix<br /><br />Angewendet|LDAP|Prüft, ob das existierende Gesamtstruktur-Schema bekannte problematische SFU2-Erweiterungen für das UID-Attribut mit OID 1.2.840.113556.1.4.7000.187.102 enthält<br /><br />([https://support.microsoft.com/kb/821732](https://support.microsoft.com/kb/821732))|  
-|VerifyExchange<br /><br />SchemaFixed|LDAP, WMI, DCOM, RPC|Ob das existierende Gesamtstruktur Schema keine problematischen Exchange 2000-Erweiterungen ms-Exch-Assistant-Name, ms-Exch-LabeledURI, und ms-Exch-House-Identifier ([https://support.microsoft.com/kb/314649](https://support.microsoft.com/kb/314649))|  
+|VerifyExchange<br /><br />SchemaFixed|LDAP, WMI, DCOM, RPC|Überprüfen Sie, ob das vorhandene Gesamtstruktur Schema noch keine Problem Austausch 2000-Erweiterungen ms-Exch-Assistant-Name, ms-Exch-LabeledURI und MS-Exch-House-Identifier ([https://support.microsoft.com/kb/314649](https://support.microsoft.com/kb/314649)) enthält.|  
 |VerifyWin2KSchema<br /><br />Konsistenz|LDAP|Prüft, ob das existierende Gesamtstruktur-Schema konsistente (nicht auf falsche Weise extern modifizierte) Core-Attribute und Klassen enthält.|  
 |DCPromo|DRSR über RPC,<br /><br />LDAP,<br /><br />DNS<br /><br />RPC über SMB (SAMR)|Prüft die an den Heraufstufungscode übergebene Befehlszeilensyntax und testet die Heraufstufung. Prüft, ob die Gesamtstruktur bzw. Domäne bereits existiert, falls diese neu erstellt werden.|  
 |VerifyOutbound<br /><br />ReplicationEnabled|LDAP, DRSR über SMB, RPC über SMB (LSARPC)|Prüft, ob die Replikation in ausgehender Richtund in dem als Replikationspartner angegebenen Domänencontroller aktiviert ist. Dazu wird das Optionsattribut des NTDS-Einstellungsobjekts für NTDSDSA_OPT_DISABLE_OUTBOUND_REPL (0x00000004) ausgelesen|  

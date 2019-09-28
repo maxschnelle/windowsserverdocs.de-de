@@ -1,50 +1,50 @@
 ---
 ms.assetid: ''
-title: Insider Preview für HPN-Features in Windows Server-2019
-description: Erfahren Sie, bis die neuen Hochleistungs-Netzwerkfunktionen in Windows Server-2019.
+title: Insider Preview für HPN-Features in Windows Server 2019
+description: Erfahren Sie mehr über die neuen hochleistungsfähigen Netzwerk Features in Windows Server 2019.
 manager: dougkim
 author: shortpatti
 ms.author: pashort
 ms.date: 09/12/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 3d3e974472f28c30d093fbd1094ef3693d984d19
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7098e81f486a5b0b4974c19b47e2d48c6f98832b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886271"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355365"
 ---
 # <a name="insider-preview"></a>Insider-Vorschau
 
 
-## <a name="dynamic-vrss-and-vmmq"></a>Dynamische vRSS und VMMQ
+## <a name="dynamic-vrss-and-vmmq"></a>Dynamisches vrss und vmmq
 
 >Gilt für: Windows Server 2019
 
-In der Vergangenheit aktiviert Virtual Machine und VM mit mehreren Warteschlangen auf einzelnen virtuellen Computern viel höheren Durchsatz als Netzwerk-Durchsatz, die zuerst erreicht die 10-GbE-Markierung und darüber hinaus. Die Planung, basislinienüberwachung mit zwei erforderlich leider Anpassung und Überwachung für Erfolg eine große Unternehmen geworden ist. häufig sollen mehr als der IT-Administrator verbringen. 
+In der Vergangenheit konnten virtuelle Computer Warteschlangen und multiwarteschlangen für virtuelle Computer einen deutlich höheren Durchsatz für einzelne VMS erzielen, da die Netzwerk Durchgängen zunächst die 10-GbE-Markierung und darüber hinaus erreicht haben. Leider wurde die Planung, das Baselining, die Optimierung und die Überwachung für den Erfolg zu einem großen Unternehmen. häufig sind mehr als der IT-Administrator für die Ausgaben vorgesehen. 
 
-Windows Server-2019 verbessert diese Optimierungen durch dynamisch verteilen und Optimierung der Verarbeitung von Netzwerk-Workloads nach Bedarf. Windows Server-2019 ständig höchste Effizienz sicherstellt und den Aufwand für die Konfiguration für IT-Administratoren entfernt.
+Windows Server 2019 verbessert diese Optimierungen durch dynamisches verteilen und Optimieren der Verarbeitung von Netzwerk Arbeits Auslastungen nach Bedarf. Windows Server 2019 sorgt für eine optimale Effizienz und entfernt die Konfigurations Belastung für IT-Administratoren.
 
 Weitere Informationen finden Sie in den folgenden Themen:
 
--   [Ankündigungs-blog](https://blogs.technet.microsoft.com/networking/2018/08/22/netperf4vw/)
+-   [Ankündigungs Blog](https://blogs.technet.microsoft.com/networking/2018/08/22/netperf4vw/)
 
--   [Überprüfungshandbuchs für IT-Experten](https://aka.ms/DVMMQ-Validation)
+-   [Validierungs Handbuch für IT-Experten](https://aka.ms/DVMMQ-Validation)
 
 ## <a name="receive-segment-coalescing-rsc-in-the-vswitch"></a>Empfangen von Segmentkoaleszenz (RSC) im vSwitch
 
->Gilt für: 2019 für Windows Server und Windows 10, Version 1809
+>Gilt für: Windows Server 2019 und Windows 10, Version 1809
 
-Empfangen von Segment Coalescing (RSC) in der vSwitch ist eine Erweiterung, die mehrere TCP-Segmente in einem größeren Segment vor Daten durchlaufen die vSwitch Koaliert. Das große Segment verbessert die netzwerkleistung für virtuelle auslastungen.
+Die Empfangs Segment Zusammenfügung (RSC) im Vswitch ist eine Erweiterung, bei der mehrere TCP-Segmente vor dem Durchlaufen des vSwitches in ein größeres Segment zusammengebracht werden. Das große Segment verbessert die Netzwerkleistung für virtuelle Arbeits Auslastungen.
 
-Früher war dies eine Auslagerung durch die NIC implementiert Leider wurde dies dem Moment deaktiviert, bis, den Sie den Adapter mit einem virtuellen Switch angefügt. RSC in vSwitches unter Windows Server-2019 und Windows 10 Oktober 2018 Update entfernt diese Einschränkung.
+Zuvor war dies eine von der NIC implementierte Auslagerung. Leider ist dies der Zeitpunkt, an dem Sie den Adapter an einen virtuellen Switch angefügt haben, deaktiviert. RSC im Vswitch unter Windows Server 2019 und Windows 10 Oktober 2018 Update entfernt diese Einschränkung.
 
-Standardmäßig ist die RSC in die vSwitch auf externen virtuellen Switches aktiviert.
+Standardmäßig ist RSC im Vswitch auf externen virtuellen Switches aktiviert.
 
 Weitere Informationen finden Sie in den folgenden Themen:
 
--  [Ankündigungs-blog](https://blogs.technet.microsoft.com/networking/2018/08/22/netperf4vw/)
+-  [Ankündigungs Blog](https://blogs.technet.microsoft.com/networking/2018/08/22/netperf4vw/)
 
--  [Überprüfungshandbuchs für IT-Experten](https://aka.ms/RSC-Validation)
+-  [Validierungs Handbuch für IT-Experten](https://aka.ms/RSC-Validation)

@@ -2,7 +2,7 @@
 title: more
 description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/26/2019
-ms.openlocfilehash: 291d98492f3f2b200ff0567c28a97927ca8c75be
-ms.sourcegitcommit: e55e27143dad1d3fb956cfdac4c23ef4186af321
+ms.openlocfilehash: d505f99511d8702f11ac0c70edba3d62c8cf7996
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68603231"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373906"
 ---
 # <a name="more"></a>more
 
@@ -40,19 +40,19 @@ more [/c] [/p] [/s] [/t<N>] [+<N>] [<Files>]
 
 |           Parameter            |                               Beschreibung                               |
 |--------------------------------|-------------------------------------------------------------------------|
-|           \<Befehls >           |      Gibt einen Befehl an, für den die Ausgabe angezeigt werden soll.      |
+|           \<-Befehl >           |      Gibt einen Befehl an, für den die Ausgabe angezeigt werden soll.      |
 |               /c               |               Löscht den Bildschirm, bevor eine Seite angezeigt wird.               |
 |               /p               |                      Erweitert Formular-Feed-Zeichen.                      |
 |               /s               |          Zeigt mehrere leere Zeilen als einzelne Leerzeile an.          |
-|             /t\<N >             |         Zeigt Registerkarten als Anzahl von Leerzeichen an, die durch *N*angegeben werden.         |
-|             +\<N >              |     Zeigt die erste Datei an, die in der durch *N*angegebenen Zeile beginnt.     |
-| [\<Laufwerk >:] [\<Pfad >]\<Dateiname > |          Gibt den Speicherort und den Namen einer Datei an, die angezeigt werden soll.          |
-|            \<Dateien >            | Gibt eine Liste der anzuzeigenden Dateien an. Trennen Sie die Dateinamen durch ein Leerzeichen. |
+|             /t @ no__t-0n >             |         Zeigt Registerkarten als Anzahl von Leerzeichen an, die durch *N*angegeben werden.         |
+|             + @ NO__T-1N >              |     Zeigt die erste Datei an, die in der durch *N*angegebenen Zeile beginnt.     |
+| [\<laufwerk >:] [\< Pfad >] \<filename > |          Gibt den Speicherort und den Namen einer Datei an, die angezeigt werden soll.          |
+|            \<files >            | Gibt eine Liste der anzuzeigenden Dateien an. Trennen Sie die Dateinamen durch ein Leerzeichen. |
 |               /?               |                  Zeigt die Hilfe an der Eingabeaufforderung an.                   |
 
 ## <a name="remarks"></a>Hinweise
 
--   Die folgenden Unterbefehle werden an der **ausführlicheren** Eingabeaufforderung`-- More --`() akzeptiert. 
+-   Die folgenden Unterbefehle werden an **der Eingabeaufforderung** (`-- More --`) akzeptiert. 
 
     | Key | Aktion |
     | --- | ------ |
@@ -61,11 +61,11 @@ more [/c] [/p] [/s] [/t<N>] [+<N>] [<Files>]
     | f | Zeigt die nächste Datei an. |
     | q | Beendet den **weiteren** Befehl. |
     | = | Zeigt die Zeilennummer an. |
-    | p \<N > | Zeigt die nächsten *N* Zeilen an. |
-    | s \<N > |S kippt die nächsten *N* Zeilen. |
+    | p \<n > | Zeigt die nächsten *N* Zeilen an. |
+    | s \<n > |S kippt die nächsten *N* Zeilen. |
     | ? | Zeigt die Befehle an, die an der **ausführlicheren** Eingabeaufforderung verfügbar sind.| 
     
--   Wenn Sie das-Umleitungs **<** Zeichen () verwenden, müssen Sie einen Dateinamen als Quelle angeben. Wenn Sie die Pipe ( **\|** ) verwenden, können Sie diese Befehle wie **dir**, **Sort**und **Type**verwenden.
+-   Bei Verwendung des-Umleitungs Zeichens ( **<** ) müssen Sie einen Dateinamen als Quelle angeben. Bei Verwendung der Pipe ( **\|** ) können Sie solche Befehle wie **dir**, **Sort**und **Type**verwenden.
 -   Der **Weitere** Befehl mit unterschiedlichen Parametern ist über die Wiederherstellungskonsole verfügbar.
 
 ## <a name="BKMK_examples"></a>Beispiele
@@ -93,13 +93,13 @@ Der Befehl **Weitere** zeigt den ersten Bildschirm der Informationen von Clients
 
 ### <a name="using-more-subcommands"></a>Verwenden von weiteren unter Befehlen
 
-Die folgenden Beispiele können an der **ausführlicheren** Eingabeaufforderung (`-- More --`) verwendet werden.
-- Drücken **Sie die Eingabe** Taste, um die Datei nacheinander anzuzeigen.
+Die folgenden Beispiele können an **der Eingabeaufforderung** (`-- More --`) verwendet werden.
+- Drücken **Sie die EINGABETASTE,** um die Datei nacheinander anzuzeigen.
 - Um den nächsten Bildschirm anzuzeigen, drücken Sie die Leertaste an **der Eingabeaufforderung** .
 - Wenn Sie die nächste Datei anzeigen möchten, die in der Befehlszeile aufgelistet ist, geben Sie **f** **an der Eingabe** Aufforderung ein.
 - **Geben Sie** ein, um die verfügbaren Befehle anzuzeigen. an der **ausführlicheren** Aufforderung.
 - Um **Weitere Informationen**zu erhalten, geben Sie **q** **an der Eingabe** Aufforderung ein.
-- Wenn Sie die aktuelle Zeilennummer anzeigen möchten **=** , geben Sie **an der Eingabe** Aufforderung ein. Die aktuelle Zeilennummer wird wie folgt der **weiteren** Eingabeaufforderung hinzugefügt:  
+- Geben Sie **=** an der Eingabeaufforderung ein, **um die aktuelle** Zeilennummer anzuzeigen. Die aktuelle Zeilennummer wird wie folgt der **weiteren** Eingabeaufforderung hinzugefügt:  
   ```
   -- More [Line: 24] --
   ```  

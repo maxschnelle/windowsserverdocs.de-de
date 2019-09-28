@@ -1,7 +1,7 @@
 ---
 title: Bereitstellen von Windows Server Hybrid Cloud Print
 description: Einrichten von Microsoft Hybrid Cloud Print
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: Windows Server 2016
@@ -12,12 +12,12 @@ author: msjimwu
 ms.author: coreyp
 manager: dongill
 ms.date: 3/15/2018
-ms.openlocfilehash: 552695626c98ee0fc01148536b50d4466d1b96e4
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: af5cd5f83633df7e704f4b768baf8dc6d78546aa
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866811"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370441"
 ---
 # <a name="deploy-windows-server-hybrid-cloud-print-with-pre-authentication"></a>Bereitstellen von Windows Server Hybrid Cloud Print mit Vorauthentifizierung
 
@@ -61,11 +61,11 @@ Es gibt eine Reihe von Abonnements, Diensten und Computern, die Sie vor dem Star
 
 In diesem Leitfaden werden fünf (5) Installationsschritte erläutert:
 
-- Schritt 1: Installieren von Azure AD Connect für die Synchronisierung zwischen Azure AD und lokalem AD
+- Schritt 1: Installieren von Azure AD Connect für die Synchronisierung zwischen Azure AD und lokalem AD
 - Schritt 2: Installieren von Hybrid Cloud Print Package auf dem Druck Server
 - Schritt 3: Installieren von Azure-Anwendung Proxy (AAP) mit eingeschränkter Kerberos-Delegierung (KCD)
 - Schritt 4: Konfigurieren der erforderlichen MDM-Richtlinien
-- Schritt 5: Freigegebene Drucker veröffentlichen
+- Schritt 5: Freigegebene Drucker veröffentlichen
 
 ### <a name="step-1---install-azure-ad-connect-to-sync-between-azure-ad-and-on-premises-ad"></a>Schritt 1: Installieren von Azure AD Connect für die Synchronisierung zwischen Azure AD und lokalem AD
 1. Laden Sie auf dem Computer mit Windows Server Active Directory die Azure AD Connect Software herunter.
@@ -83,7 +83,7 @@ In diesem Leitfaden werden fünf (5) Installationsschritte erläutert:
 
 2. Installieren der Hybrid Cloud-Drucklösung
     - Wechseln Sie in der gleichen PowerShell-Eingabeaufforderung mit erhöhten Rechten in das Verzeichnis.`C:\Program Files\WindowsPowerShell\Modules\PublishCloudPrinter\1.0.0.0`
-    - Run <br>
+    - Führen Sie Folgendes aus: <br>
         `CloudPrintDeploy.ps1 -AzureTenant <Domain name used by Azure AD Connect> -AzureTenantGuid <Azure AD Directory ID>`
 3. Konfigurieren der 2 IIS-Endpunkte zur Unterstützung von SSL
    -   Das SSL-Zertifikat kann ein selbst signiertes Zertifikat oder ein von einer vertrauenswürdigen Zertifizierungsstelle (ca) ausgestelltes Zertifikat sein.
@@ -285,7 +285,7 @@ In diesem Leitfaden werden fünf (5) Installationsschritte erläutert:
 
         > HINWEIS: Sie können auch alle erforderlichen Parameterwerte in der Befehlszeile eingeben.<br>
         **Publish-cloudprinter** PowerShell-Befehlssyntax: <br>
-        Publish-cloudprinter-Drucker \<\> Zeichenfolge \<-\> Hersteller Zeichenfolge-Modell \<Zeichenfolge\> -orglozierung \<Zeichenfolge\> -SDDL \<\> String \< \<\> \<\> -DiscoveryEndpoint String-printserverendpoint String-azureclientid String-azuretenantguid\> \<String \<\>[-discoveryresourceid String]\> <br>
+        Publish-cloudprinter-Printer \<string @ no__t-1-Manufacturer \<string @ no__t-3-Model \<string @ no__t-5-orglokation \<string @ no__t-7-SDDL \<string @ no__t-9-DiscoveryEndpoint \>0string @ no__t-11- Printserverendpoint 2string @ no__t-13-azureclientid 4string @ no__t-15-azuretenantguid 6string @ no__t-17 [-discoveryresourceid 8string @ no__t-19] <br>
         Beispiel Befehl:`publish-cloudprinter -Printer EcpPrintTest -Manufacturer Microsoft -Model FilePrinterEcp -OrgLocation '{"attrs": [{"category":"country", "vs":"USA", "depth":0}, {"category":"organization", "vs":"MyCompany", "depth":1}, {"category":"site", "vs":"MyCity, State", "depth":2}, {"category":"building", "vs":"Building 1", "depth":3}, {"category":"floor\_number", "vn":1, "depth":4}, {"category":"room\_name", "vs":"1111", "depth":5}]}' -Sddl "O:BAG:DUD:(A;OICI;FA;;;WD)" -DiscoveryEndpoint https://<services-machine-endpoint>/mcs -PrintServerEndpoint https://<services-machine-endpoint>/ecp -AzureClientId <Native Web App ID> -AzureTenantGuid <Azure AD Directory ID> -DiscoveryResourceId <Proxied Mopria Discovery Cloud Service App ID>`
 
 

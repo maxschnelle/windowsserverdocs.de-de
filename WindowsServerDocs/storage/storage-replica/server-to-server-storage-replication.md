@@ -1,7 +1,7 @@
 ---
 title: Server-zu-Server-Speicher Replikation
 description: Einrichten und Verwenden von Speicher Replikaten für die Server-zu-Server-Replikation in Windows Server, einschließlich Windows Admin Center und PowerShell.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: siroy
 ms.author: nedpyle
 ms.technology: storage-replica
@@ -9,12 +9,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 04/26/2019
 ms.assetid: 61881b52-ee6a-4c8e-85d3-702ab8a2bd8c
-ms.openlocfilehash: fccdb8547ff27083ce943892842c2e2d05e5ace8
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: a21000e857d702846703deb4f55380e1a998f6d2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865287"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402952"
 ---
 # <a name="server-to-server-storage-replication-with-storage-replica"></a>Server-zu-Server-Speicher Replikation mit Speicher Replikat
 
@@ -69,7 +69,7 @@ Für diese exemplarische Vorgehensweise wird die folgende Beispielumgebung verwe
 
 **Abbildung 1: Replikation von Server zu Server**  
 
-## <a name="step-1-install-and-configure-windows-admin-center-on-your-pc"></a>Schritt 1: Installieren und Konfigurieren des Windows Admin Centers auf dem PC
+## <a name="step-1-install-and-configure-windows-admin-center-on-your-pc"></a>Schritt 1: Installieren und Konfigurieren des Windows Admin Centers auf dem PC
 
 Wenn Sie das Speicher Replikat mithilfe des Windows Admin Centers verwalten, führen Sie die folgenden Schritte aus, um Ihren PC für die Verwaltung des Speicher Replikats vorzubereiten.
 1. Laden Sie [Windows Admin Center](../../manage/windows-admin-center/overview.md)herunter, und installieren Sie es.

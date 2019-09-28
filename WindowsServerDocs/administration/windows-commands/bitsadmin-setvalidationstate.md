@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin setvalidationstate
-description: Windows-Befehle Thema **Bitsadmin Setvalidationstate** -legt den Status der Überprüfung des Inhalts der angegebenen Datei innerhalb des Auftrags fest.
+title: bizadmin setvalidationstate
+description: 'Windows-Befehls Thema für **BITSAdmin setvalidationstate** : legt den Inhalts Überprüfungs Zustand der angegebenen Datei innerhalb des Auftrags fest.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a832e8f3d21681f67a4486df33c387e5a8456718
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 37d7fa3a8a91abf1e7b6ac5a51b6cebd78984a91
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434874"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380399"
 ---
-# <a name="bitsadmin-setvalidationstate"></a>Bitsadmin setvalidationstate
+# <a name="bitsadmin-setvalidationstate"></a>bizadmin setvalidationstate
 
 
 
-Legt den Status der Überprüfung des Inhalts der angegebenen Datei innerhalb des Auftrags fest.
+Legt den Inhalts Überprüfungs Zustand der angegebenen Datei innerhalb des Auftrags fest.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,13 +36,13 @@ bitsadmin /SetValidationState <Job> <file index> <true|false>
 
 | Parameter  |          Beschreibung           |
 |------------|--------------------------------|
-|    Auftrag     | Anzeigenamen oder die GUID des Auftrags |
-| Datei-index |         Beginnt bei 0          |
+|    Auftrag     | Der Anzeige Name oder GUID des Auftrags. |
+| Datei index |         Beginnt bei 0          |
 |    True    |             False              |
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Im folgenden Beispiel wird den Status der Überprüfung des Inhalts der Datei 2 auf "true" für den Auftrag mit dem Namen *MyJob*.
+Im folgenden Beispiel wird der Inhalts Überprüfungs Zustand von Datei 2 für den Auftrag *MyJob*auf true festgelegt.
 ```
 C:\>bitsadmin /SetValidationState myJob 2 TRUE 
 ```

@@ -1,8 +1,8 @@
 ---
 title: Hilfe
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 793034c32897d8f4a7d7810016eecbad6a982064
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1d759c85c07d76811053ba0a4a938e07220c2648
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883381"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375594"
 ---
 # <a name="help"></a>Hilfe
 
 
 
-Online Informationen zum Systembefehle (d. h. außerhalb des Netzwerks-Befehle). Wenn Sie ohne Angabe von Parametern **Hilfe** aufgelistet und alle Systembefehle.
+Bietet Online Informationen über Systembefehle (d. h. nicht-Netzwerk Befehle). Wenn Sie ohne Parameter verwendet wird, werden die einzelnen Systembefehle in der **Hilfe** aufgeführt und kurz beschrieben.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -39,11 +39,11 @@ help [<Command>]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<Befehl >|Gibt den Namen des Befehls, der Sie Informationen wünschen.|
+|\<-Befehl >|Gibt den Namen des Befehls an, zu dem Sie Informationen wünschen.|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Zum Anzeigen von Informationen über die **Robocopy** Befehl, geben Sie eine der folgenden:
+Zum Anzeigen von Informationen zum **Robocopy** -Befehl geben Sie eine der folgenden Optionen ein:
 ```
 help robocopy
 robocopy /? 
@@ -51,4 +51,4 @@ robocopy /?
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

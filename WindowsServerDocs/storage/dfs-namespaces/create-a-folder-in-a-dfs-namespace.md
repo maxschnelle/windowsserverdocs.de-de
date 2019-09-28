@@ -2,22 +2,22 @@
 title: Erstellen eines Ordners in einem DFS-Namespace
 description: Dieser Artikel beschreibt, wie Sie einen Ordner in einem DFS-Namespace erstellen
 ms.date: 6/5/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 47bb13aa404cdf4fef86b7250425a92cc208ba9d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7389b825afe5ccae3059f50ffdedac72ecd5ac9a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856851"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402249"
 ---
 # <a name="create-a-folder-in-a-dfs-namespace"></a>Erstellen Sie einen Ordner in einem DFS-Namespace
 
-> Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2, WindowsServer 2008
+> Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
 Sie können Ordner verwenden, um zusätzliche Ebenen der Hierarchie in einem Namespace zu erstellen. Sie können auch einen Ordner mit Ordnerzielen zum Hinzufügen von freigegebenen Ordnern auf den Namespace erstellen. DFS-Ordner mit Ordnerzielen dürfen keine anderen DFS-Ordner enthalten, wenn Sie daher eine Ebene der Hierarchie auf den Namespace hinzufügen möchten, sollten Sie keine Ordnerziele zum Ordner hinzufügen.
 

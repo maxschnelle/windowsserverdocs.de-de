@@ -1,8 +1,8 @@
 ---
-title: Die Uninitialize-Server-Option
-description: 'Windows-Befehle Thema ***- '
+title: Die Option "nicht initialisieren-Server"
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 73f1ff67331ae41fa0d88cb3a16df5095e0b6d66
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5c63e09738871c5b74c1b564a83c35ad28f4fa80
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873981"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385593"
 ---
-# <a name="the-uninitialize-server-option"></a>Die Uninitialize-Server-Option
+# <a name="the-uninitialize-server-option"></a>Die Option "nicht initialisieren-Server"
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-setzt Änderungen an den Server während der ersten Server-Konfiguration zurück. Dies schließt Änderungen vorgenommen werden, indem Sie entweder die **/initialize-server** Option oder der Windows-Bereitstellungsdienste-Mmc-Snap-in. Beachten Sie, dass mit diesem Befehl den Server auf einem nicht konfigurierten Zustand zurückgesetzt. Dieser Befehl ändert nicht den Inhalt der freigegebenen Ordner "RemoteInstall". Stattdessen setzt es, damit Sie den Server neu initialisieren, können der Zustand des Servers zurück.
+kehrt die Änderungen zurück, die während der anfänglichen Serverkonfiguration auf dem Server vorgenommen wurden. Dies schließt Änderungen ein, die entweder von der **/Initialize-Server** -Option oder dem MMC-Snap-in Windows-Bereitstellungs Dienste vorgenommen werden. Beachten Sie, dass mit diesem Befehl der Server in einen nicht konfigurierten Zustand zurückgesetzt wird. Mit diesem Befehl wird der Inhalt des freigegebenen Ordners RemoteInstall nicht geändert. Stattdessen wird der Zustand des Servers zurückgesetzt, sodass Sie den Server erneut initialisieren können.
 ## <a name="syntax"></a>Syntax
 ```
 wdsutil [Options] /Uninitialize-Server [/Server:<Server name>]
@@ -32,19 +32,17 @@ wdsutil [Options] /Uninitialize-Server [/Server:<Server name>]
 ## <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
-|[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben wird, wird der lokale Server verwendet werden.|
-## <a name="BKMK_examples"></a>Beispiele für
-Geben Sie einen der folgenden Schritte aus, um den Server erneut zu initialisieren:
+|[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
+## <a name="BKMK_examples"></a>Beispiele
+Geben Sie eine der folgenden Informationen ein, um den Server erneut zu initialisieren:
 ```
 wdsutil /Uninitialize-Server
 wdsutil /verbose /Uninitialize-Server /Server:MyWDSServer
 ```
-#### <a name="additional-references"></a>Zusätzliche Referenzen
-[Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-[mit dem Disable-Server-Befehl](using-the-disable-server-command.md)
-[mit dem Enable-Server-Befehl](using-the-enable-server-command.md)
-[mithilfe der Get-Server-Befehl](using-the-get-server-command.md)
-[mithilfe des Befehls Initialize-Server](using-the-initialize-server-command.md)
-[Unterbefehl: Set-Server](subcommand-set-server.md) 
- [ Unterbefehl: Start-Server](subcommand-start-server.md)
-[Unterbefehl: Stop-Server](subcommand-stop-server.md)
+#### <a name="additional-references"></a>Weitere Verweise
+[Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+[mithilfe des](using-the-disable-server-command.md)Befehls "Enable-Server" 
+ mit dem Befehl "[enable-](using-the-enable-server-command.md)Server" 
+ mithilfe des Befehls "[Get-](using-the-get-server-command.md)Server" 
+ mit[dem Befehl "Initialize-Server](using-the-initialize-server-command.md)" 
+[ Unterbefehl: Set-Server](subcommand-set-server.md)1[Unterbefehl: Start-Server](subcommand-start-server.md)3[Unterbefehl:-Server](subcommand-stop-server.md)

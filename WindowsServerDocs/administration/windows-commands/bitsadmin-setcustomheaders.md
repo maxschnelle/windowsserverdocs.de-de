@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin setcustomheaders
-description: Windows-Befehle Thema **Bitsadmin Setcustomheaders** – eine GET-Anforderung einen benutzerdefinierten HTTP-Header hinzugefügt.
+title: bitadmin setcustomheaders
+description: Windows-Befehls Thema für **bitionadmin setcustomheaders** -Hinzufügen eines benutzerdefinierten HTTP-Headers zu einer GET-Anforderung.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6d90ac2d23b852ae0c2114e7cd5a9c9e6382ce8c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 45e3a5178df69b84618966ca0fcd9cc1e6d0e449
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853851"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380639"
 ---
-# <a name="bitsadmin-setcustomheaders"></a>Bitsadmin setcustomheaders
+# <a name="bitsadmin-setcustomheaders"></a>bitadmin setcustomheaders
 
 
 
-Fügen Sie einen benutzerdefinierten HTTP-Header für eine GET-Anforderung hinzu.
+Fügen Sie einen benutzerdefinierten HTTP-Header zu einer GET-Anforderung hinzu.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,20 +36,20 @@ bitsadmin /SetCustomHeaders <Job> <Header1> <Header2> <. . .>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
-|Header1 Header2 . . .|Die benutzerdefinierten Header für den Auftrag|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
+|Header1 Header2. . .|Die benutzerdefinierten Header für den Auftrag.|
 
 ## <a name="remarks"></a>Hinweise
 
--   Dieser Schalter wird verwendet, um einen benutzerdefinierten HTTP-Header eine GET-Anforderung gesendet, um einen HTTP-Server hinzufügen.
+-   Mithilfe dieses Schalters wird einer GET-Anforderung, die an einen HTTP-Server gesendet wird, ein benutzerdefinierter HTTP-Header hinzugefügt.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Das folgende Beispiel fügt einen benutzerdefinierten HTTP-Header für den Auftrag mit dem Namen *MyDownloadJob*.
+Im folgenden Beispiel wird ein benutzerdefinierter HTTP-Header für den Auftrag mit dem Namen *mydownloadjob*hinzugefügt.
 ```
 C:\>bitsadmin / SetCustomHeaders myDownloadJob "Accept-encoding:deflate/gzip"
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

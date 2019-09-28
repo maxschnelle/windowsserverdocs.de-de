@@ -1,7 +1,7 @@
 ---
 title: Übersicht über die Hyper-V-Technologie
-description: Beschreibt, was Hyper-V ist, abrufen, wichtige Features und einsatzmöglichkeiten.
-ms.prod: windows-server-threshold
+description: In diesem Thema wird beschrieben, was Hyper-V ist, wie Sie es erhalten, welche Features Sie nutzen können
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,96 +11,96 @@ ms.assetid: ac069fed-7bf5-4cc3-aff5-25a2766040b8
 author: KBDAzure
 ms.author: kathydav
 ms.date: 11/29/2016
-ms.openlocfilehash: 9ae3c9dce36ad7d67a19ce167c9cb875b3c91810
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 053f92f1ef07a2e574c93412626ee792d4d982e3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864311"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366785"
 ---
 # <a name="hyper-v-technology-overview"></a>Übersicht über die Hyper-V-Technologie
 
->Gilt für: WindowsServer 2016 wird Microsoft Hyper-V Server 2016, WindowsServer 2019, Microsoft Hyper-V-Server 2019
+>Gilt für: Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
-Hyper-V ist das Produkt von Microsoft Hardware-Virtualisierung. Hiermit können Sie das Erstellen und führen Sie eine Softwareversion eines Computers, dem Namen einer *VM*. Jeder virtuelle Computer verhält sich wie eine vollständige Computer ein Betriebssystem und Software ausgeführt. Wenn Sie das computing-Ressourcen benötigen, virtuelle Computer bieten Ihnen mehr Flexibilität, Zeit und Geld sparen können, und eine effizientere Möglichkeit zur Verwendung von Hardware als nur ein Betriebssystem auf physischer Hardware ausgeführt werden.
+Hyper-V ist das Hardware-Virtualisierungsprodukt von Microsoft. Es ermöglicht Ihnen das Erstellen und Ausführen einer Softwareversion eines Computers, der als *virtueller*Computer bezeichnet wird. Jeder virtuelle Computer verhält sich wie ein kompletter Computer, auf dem ein Betriebssystem und Programme ausgeführt werden. Wenn Sie computeressourcen benötigen, bieten Ihnen virtuelle Computer mehr Flexibilität, Zeit und Geld zu sparen und eine effizientere Möglichkeit zur Verwendung von Hardware, als nur ein Betriebssystem auf physischer Hardware ausgeführt wird.
 
-Hyper-V führt jeder virtuelle Computer in einen eigenen isolierten Speicher, was bedeutet, dass Sie mehrere virtuelle Computer auf der gleichen Hardware zur gleichen Zeit ausführen können. Möglicherweise möchten diese zur Vermeidung von Problemen wie einem Absturz, die Auswirkungen auf die andere arbeitsauslastungen oder anderen Personen, Gruppen oder Dienste Zugriff auf verschiedenen Systemen gewähren.
+Hyper-V führt jeden virtuellen Computer in einem eigenen isolierten Speicherplatz aus. das bedeutet, dass Sie mehrere virtuelle Computer gleichzeitig auf derselben Hardware ausführen können. Dies ist möglicherweise sinnvoll, um Probleme zu vermeiden, wie z. b. einen Absturz, der sich auf die anderen Workloads auswirkt, oder um anderen Personen, Gruppen oder Diensten Zugriff auf verschiedene Systeme zu bieten.
 
-## <a name="some-ways-hyper-v-can-help-you"></a>Einige Möglichkeiten, Hyper-V hilft Ihnen
+## <a name="some-ways-hyper-v-can-help-you"></a>Einige Möglichkeiten, wie Hyper-V Ihnen helfen kann
 
-Hyper-V können Sie:
+Hyper-V kann Ihnen Folgendes helfen:
 
-- **Herstellen oder Erweitern Sie eine private Cloud-Umgebung zu.** Geben Sie eine flexiblere, bedarfsorientierte IT-Dienste zu verschieben, oder erweitern die Nutzung von freigegebenen Ressourcen und passen Sie Nutzung bei verändertem Bedarf an.
+- **Richten Sie eine Private Cloud Umgebung ein oder erweitern Sie Sie.** Bieten Sie flexiblere, Bedarfs gesteuerte IT-Dienste an, indem Sie die Verwendung von freigegebenen Ressourcen verschieben oder erweitern und die Auslastung bei Bedarf anpassen.
 
-- **Verwenden Sie die Hardware effektiver.** Konsolidierung von Servern und arbeitsauslastungen auf weniger, leistungsstärkere physische Computer weniger Strom oder Stellfläche verwenden.
+- **Verwenden Sie Ihre Hardware effektiver.** Konsolidieren Sie Server und Arbeits Auslastungen auf weniger, leistungsfähigere physische Computer, um weniger Strom und physischen Speicherplatz zu nutzen.
 
-- **Verbessern der Geschäftskontinuität** Zur Minimierung der Auswirkungen geplanter und ungeplanter Ausfallzeiten Ihrer Workloads.
+- **Verbessern Sie die Geschäftskontinuität.** Minimieren Sie die Auswirkungen sowohl geplanter als auch nicht geplanter Ausfallzeiten Ihrer Workloads.
 
-- **Einrichten oder Erweitern einer virtuellen Desktopinfrastruktur (VDI) unterstützen.** Verwenden Sie eine zentralisierte desktopstrategie mit VDI können Sie die erhöhen, Agilität und datensicherheit, und vereinfachen die Einhaltung gesetzlicher Bestimmungen sowie Verwaltung von desktop-Betriebssystemen und Anwendungen. Bereitstellen von Hyper-V und Remote Desktop Virtualization Host (RD-Virtualisierungshost) auf demselben Server für persönliche virtuelle Desktops oder virtuelle Desktoppools für Ihre Benutzer verfügbar machen.
+- **Einrichten oder Erweitern einer virtuellen Desktop Infrastruktur (VDI).** Mithilfe einer zentralisierten Desktop Strategie mit VDI können Sie die geschäftliche Flexibilität und Datensicherheit steigern und die Einhaltung gesetzlicher Vorschriften und die Verwaltung von Desktop Betriebssystemen und-Anwendungen vereinfachen. Stellen Sie Hyper-V und Remotedesktop-Virtualisierungshost (RD-Virtualisierungshost) auf demselben Server bereit, um Ihren Benutzern persönliche virtuelle Desktops oder virtuelle Desktop Pools zur Verfügung zu stellen.
 
-- **Wird die Entwicklung, und Testen Sie effizienter.** Reproduzieren Sie verschiedene arbeitsumgebungen, ohne zu kaufen oder Verwaltung der Hardware, die Sie benötigen, wenn Sie nur physische Systeme verwendet.
+- **Entwickeln und testen Sie die Entwicklung und das Testen effizienter.** Reproduzieren Sie unterschiedliche Computerumgebungen, ohne dass Sie die erforderliche Hardware erwerben oder verwalten müssen, wenn Sie nur physische Systeme verwendet haben.
 
 ## <a name="hyper-v-and-other-virtualization-products"></a>Hyper-V und andere Virtualisierungsprodukte
 
-Hyper-V unter Windows und Windows Server ersetzt ältere Hardware-Virtualisierung-Produkten, wie z. B. Microsoft Virtual PC, Microsoft Virtual Server und Windows Virtual PC. Hyper-V bietet Networking, Leistungs-, Speicher- und Security-Features, die in diese ältere Produkte nicht verfügbar.
+Hyper-V in Windows und Windows Server ersetzt ältere Hardwarevirtualisierungsprodukte, wie z. b. Microsoft Virtual PC, Microsoft Virtual Server und Windows Virtual PC. Hyper-V bietet Netzwerk-, Leistungs-, Speicher-und Sicherheitsfeatures, die in diesen älteren Produkten nicht verfügbar sind.
 
-Hyper-V und die meisten Anwendungen von Drittanbietern, die die gleichen Prozessorfunktionen erfordern sind nicht kompatibel. Das ist da die Prozessorfunktionen, bekannt als Erweiterungen für die Virtualisierung von Hardware, nicht gemeinsam verwendet werden sollen. Weitere Informationen finden Sie unter [Virtualization-Anwendungen funktionieren nicht zusammen mit Hyper-V, Device Guard und Credential Guard](https://support.microsoft.com/kb/3204980).
+Hyper-V und die meisten Virtualisierungsanwendungen von Drittanbietern, die die gleichen Prozessor Features erfordern, sind nicht kompatibel. Dies liegt daran, dass die Prozessor Funktionen, die als hardwarevirtualisierungserweiterungen bezeichnet werden, nicht freigegeben werden sollen. Weitere Informationen finden [Sie unter Virtualisierungsanwendungen funktionieren nicht zusammen mit Hyper-V, Device Guard und Credential Guard](https://support.microsoft.com/kb/3204980).
 
-## <a name="what-features-does-hyper-v-have"></a>Welche Funktionen sind für Hyper-V vorhanden?
+## <a name="what-features-does-hyper-v-have"></a>Welche Features haben Hyper-V?
 
-Hyper-V bietet viele Funktionen. Dies ist eine Übersicht, gruppiert nach was die Funktionen bereitstellen, oder Ihnen bei der führen.
+Hyper-V bietet zahlreiche Features. Dies ist eine Übersicht, gruppiert nach den Funktionen, die von den Funktionen bereitgestellt oder unterstützt werden.
 
-**Compute-Umgebung** – ein Hyper-V-Computer enthält die gleichen grundlegenden Teile als physischen Computer, z. B. Arbeitsspeicher, Prozessor, Speicher und Netzwerk. Alle diese Elemente verfügen, Features und Optionen, die Sie auf unterschiedliche Weise für andere Anforderungen konfigurieren können. Speicher- und Netzwerkressourcen können jede betrachtet werden Kategorien von ihren eigenen, aufgrund der vielen Methoden können Sie sie konfigurieren.
+**Computerumgebung** : ein virtueller Hyper-V-Computer umfasst die gleichen grundlegenden Komponenten wie ein physischer Computer, wie z. b. Arbeitsspeicher, Prozessor, Speicher und Netzwerk. Alle diese Teile verfügen über Features und Optionen, mit denen Sie verschiedene Möglichkeiten zum erfüllen verschiedener Anforderungen konfigurieren können. Speicher und Netzwerke können als eigene Kategorien angesehen werden, da Sie auf viele verschiedene Arten konfiguriert werden können.
 
-**Notfallwiederherstellung und Sicherung** -zur Wiederherstellung im Notfall-Hyper-V-Replikat erstellt Kopien von virtuellen Computern, für die direkte Verwendung in einen anderen physischen Speicherort gespeichert werden, damit Sie den virtuellen Computer aus der Kopie wiederherstellen können. Für die Sicherung bietet Hyper-V zwei Arten. Eine gespeicherte Zustände verwendet und der anderen Volumeschattenkopie-Dienst (Volume Shadow Copy Service, VSS) verwendet, damit Sie anwendungskonsistente Sicherungen für Programme erstellen können, die VSS unterstützt
+Notfall **Wiederherstellung und Sicherung** : bei der Notfall Wiederherstellung erstellt das Hyper-V-Replikat Kopien von virtuellen Computern, die an einem anderen physischen Speicherort gespeichert werden sollen, sodass Sie den virtuellen Computer aus der Kopie wiederherstellen können. Für die Sicherung bietet Hyper-V zwei Arten von. Eine verwendet gespeicherte Zustände und die andere verwendet Volumeschattenkopie-Dienst (VSS), sodass Sie Anwendungs konsistente Sicherungen für Programme durchführen können, die VSS unterstützen.
 
-**Optimierung** -unterstützten Gastbetriebssysteme besitzt einen benutzerdefinierten Satz von Diensten und Treibern, die Namen *Integrationsdienste*, die erleichtern das Betriebssystem auf einem virtuellen Hyper-V-Computer verwenden.
+**Optimierung** : jedes unterstützte Gast Betriebssystem verfügt über eine angepasste Reihe von Diensten und Treibern namens *Integration Services*, die die Verwendung des Betriebssystems auf einem virtuellen Hyper-V-Computer vereinfachen.
 
-**Portabilität** - Features wie live-Migration, Migration von und Import/Export-erleichtern das Verschieben oder Verteilen eines virtuellen Computers.
+**Portabilität** : Features wie Live Migration, Speicher Migration und Import/Export vereinfachen die Verschiebung oder Verteilung eines virtuellen Computers.
 
-**Remotekonnektivität** -Hyper-V umfasst die Verbindung mit virtuellen Computern eine Remoteverbindung-Tool für die Verwendung mit Windows und Linux. Im Gegensatz zum Remotedesktop, dieses Tool bietet Zugriff auf Konsole daher sehen Sie in der Gast-Abläufe sogar, wenn das Betriebssystem noch gestartet ist nicht.
+**Remote Konnektivität** : Hyper-V umfasst die Verbindung mit virtuellen Computern, ein Remote Verbindungs Tool für die Verwendung mit Windows und Linux. Im Gegensatz zu Remotedesktop bietet dieses Tool den Konsolenzugriff, damit Sie sehen können, was im Gast passiert, auch wenn das Betriebssystem noch nicht gestartet wurde.
 
-**Sicherheit** – sicherer Start und geschützten virtuellen Maschinen Schutz vor Malware und andere nicht autorisierten Zugriff auf einen virtuellen Computer und seine Daten.
+Der **Sicherheits** sichere Start und geschützte virtuelle Computer helfen beim Schutz vor Schadsoftware und anderen nicht autorisierten Zugriffen auf einen virtuellen Computer und dessen Daten.
 
-Eine Zusammenfassung der Funktionen in dieser Version eingeführt wurden, finden Sie unter [Neues in Hyper-V unter Windows Server](What-s-new-in-Hyper-V-on-Windows.md). Einige Funktionen oder Komponenten haben einen Grenzwert, wie viele kann so konfiguriert werden. Weitere Informationen finden Sie unter [Planen der Hyper-V-Skalierbarkeit unter Windows Server 2016](plan/Plan-for-Hyper-V-scalability-in-Windows-Server-2016.md).
+Eine Zusammenfassung der in dieser Version eingeführten Features finden Sie unter [Neues in Hyper-V unter Windows Server](What-s-new-in-Hyper-V-on-Windows.md). Einige Features oder Teile haben eine Beschränkung, wie viele konfiguriert werden können. Weitere Informationen finden Sie unter [Planen der Hyper-V-Skalierbarkeit in Windows Server 2016](plan/Plan-for-Hyper-V-scalability-in-Windows-Server-2016.md).
 
-## <a name="how-to-get-hyper-v"></a>Gewusst wie: Abrufen von Hyper-V
+## <a name="how-to-get-hyper-v"></a>So erhalten Sie Hyper-V
 
-Hyper-V ist als X64 zur Serverrolle in Windows Server und Windows, Windows Server-Versionen. Server-Anweisungen finden Sie unter [Installieren der Hyper-V-Serverrolle unter Windows Server](get-started/Install-the-Hyper-V-role-on-Windows-Server.md). Auf Windows, steht als [Feature](https://docs.microsoft.com/virtualization/hyper-v-on-windows/index) in einigen 64-Bit-Versionen von Windows. Es ist auch verfügbar als herunterladbare, eigenständigen Serverprodukt [Microsoft Hyper-V Server](https://www.microsoft.com/evalcenter/evaluate-hyper-v-server-2019).
+Hyper-V ist in Windows Server und Windows als Server Rolle verfügbar, die für x64-Versionen von Windows Server verfügbar ist. Server Anweisungen finden Sie unter [Installieren der Hyper-V-Rolle unter Windows Server](get-started/Install-the-Hyper-V-role-on-Windows-Server.md). Unter Windows ist es als [Feature](https://docs.microsoft.com/virtualization/hyper-v-on-windows/index) in einigen 64-Bit-Versionen von Windows verfügbar. Es steht auch als herunterladbares, eigenständiges Server Produkt [Microsoft Hyper-V Server](https://www.microsoft.com/evalcenter/evaluate-hyper-v-server-2019)zur Verfügung.
 
 ## <a name="supported-operating-systems"></a>Unterstützte Betriebssysteme
 
-Viele Betriebssysteme werden auf virtuellen Computern ausgeführt. Ein Betriebssystem verwendet, die im Allgemeinen x X86, die Architektur, die auf einem virtuellen Hyper-V-Computer ausgeführt wird. Nicht alle Betriebssysteme, die ausgeführt werden können, wurden getestet und unterstützen von Microsoft jedoch. Was unterstützt wird finden Sie unter:
+Viele Betriebssysteme werden auf virtuellen Computern ausgeführt. Im Allgemeinen wird ein Betriebssystem, das eine x86-Architektur verwendet, auf einem virtuellen Hyper-V-Computer ausgeführt. Nicht alle Betriebssysteme, die ausgeführt werden können, werden von Microsoft getestet und unterstützt. Listen der unterstützten Funktionen finden Sie unter:
 
-- [Unterstützte Linux- und FreeBSD-Computer für Hyper-V unter Windows](Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)
+- [Unterstützte virtuelle Linux-und FreeBSD-Computer für Hyper-V unter Windows](Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)
 
-- [Unterstützte Windows-Gastbetriebssysteme für Hyper-V unter Windows Server](Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows.md)
+- [Unterstützte Windows-Gast Betriebssysteme für Hyper-V unter Windows Server](Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows.md)
 
-## <a name="how-hyper-v-works"></a>Funktionsweise der Hyper-V
+## <a name="how-hyper-v-works"></a>Funktionsweise von Hyper-V
 
-Hyper-V ist eine hypervisorbasierte Virtualisierungstechnologie. Hyper-V verwendet die Windows-Hypervisor, bei der einen physischen Prozessor mit bestimmten Features benötigt. Hardwaredetails, finden Sie unter [Systemanforderungen für Hyper-V unter Windows Server](System-requirements-for-Hyper-V-on-Windows.md).
+Hyper-V ist eine Hypervisor-basierte Virtualisierungstechnologie. Hyper-V verwendet den Windows-Hypervisor, der einen physischen Prozessor mit spezifischen Funktionen erfordert. Hardware Details finden Sie unter [System Anforderungen für Hyper-V unter Windows Server](System-requirements-for-Hyper-V-on-Windows.md).
 
-In den meisten Fällen verwaltet der Hypervisor die Interaktionen zwischen der Hardware und die virtuellen Computer. Dieser Hypervisor gesteuerten Zugriff auf die Hardware bietet virtuelle Computer die isolierte Umgebung, in der sie ausgeführt werden. In einigen Konfigurationen hat eine virtuelle Maschine oder das Betriebssystem auf dem virtuellen Computer direkten Zugriff auf Grafiken, Netzwerk- oder Speicher-Hardware.
+In den meisten Fällen verwaltet der Hypervisor die Interaktionen zwischen der Hardware und den virtuellen Computern. Dieser über den Hypervisor gesteuerte Zugriff auf die Hardware bietet virtuellen Maschinen die isolierte Umgebung, in der Sie ausgeführt werden. In einigen Konfigurationen hat ein virtueller Computer oder das Betriebssystem, das auf dem virtuellen Computer ausgeführt wird, direkten Zugriff auf Grafiken, Netzwerke oder Speicherhardware.
 
-## <a name="what-does-hyper-v-consist-of"></a>Was besitzen Hyper-V?
+## <a name="what-does-hyper-v-consist-of"></a>Worin besteht Hyper-V?
 
-Hyper-V ist Teile erforderlich, die zusammenarbeiten, damit Sie erstellen und virtuelle Computer ausführen können. Zusammen werden diese Teile die Virtualization-Plattform aufgerufen. Sie sind als Gruppe installiert, bei der Installation von Hyper-V-Rolle. Die erforderlichen Teile enthalten, Windows-Hypervisor, Hyper-V, Virtual Machine Management-Dienst, der Virtualisierungs-WMI-Anbieter, der Bus des virtuellen Computers (VMbus), Virtualisierungs-Service-Anbieter (VSP) und virtual Infrastructure Driver (VID).
+Hyper-V verfügt über erforderliche Komponenten, die zusammenarbeiten, damit Sie virtuelle Computer erstellen und ausführen können. Diese Teile werden als Virtualisierungsplattform bezeichnet. Sie werden bei der Installation der Hyper-V-Rolle als Gruppe installiert. Zu den erforderlichen Komponenten gehören der Windows-Hypervisor, der Hyper-V-Verwaltungsdienst für virtuelle Computer, der virtualisierungswmi-Anbieter, der Virtual Machine Bus (VMBus), der virtualisierungsdienstanbieter (VSP) und der virtuelle Infrastruktur Treiber (vid).
 
-Hyper-V hat auch Tools für Verwaltung und Konnektivität. Sie können diese auf demselben Computer installieren, dass Hyper-V-Rolle auf, und klicken Sie auf Computern ohne installierten Hyper-V-Rolle installiert ist. Diese Tools sind:
+Hyper-V verfügt auch über Tools für Verwaltung und Konnektivität. Sie können diese auf demselben Computer installieren, auf dem die Hyper-v-Rolle installiert ist, und auf Computern, auf denen die Hyper-v-Rolle nicht installiert ist. Diese Tools sind:
 
 - Hyper-V-Manager
 - [Hyper-V-Modul für Windows PowerShell](https://docs.microsoft.com/powershell/module/hyper-v/index)
-- [Verbindung mit virtuellen Computern](https://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/hyper-v-virtual-machine-connect) \(bezeichnet VMConnect\)
+- [Verbindung mit virtuellen](https://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/hyper-v-virtual-machine-connect) Computern \(manchmal als VMConnect @ no__t-2 bezeichnet
 - [Windows PowerShell Direct](manage/Manage-Windows-virtual-machines-with-PowerShell-Direct.md)
 
 ## <a name="related-technologies"></a>Verwandte Technologien
 
-Hierbei handelt es sich um einige Technologien von Microsoft, die häufig Hyper-v verwendet werden
+Dabei handelt es sich um einige Technologien von Microsoft, die häufig mit Hyper-V verwendet werden:
 
-- [Failover-Clusterunterstützung](../../failover-clustering/whats-new-in-failover-clustering.md)
+- [Failoverclustering](../../failover-clustering/whats-new-in-failover-clustering.md)
 - [Remotedesktopdienste](../../remote/remote-desktop-services/Host-desktops-and-apps-in-Remote-Desktop-Services.md)
 - [System Center Virtual Machine Manager](https://docs.microsoft.com/system-center/vmm/overview)
 
-Verschiedenen speichertechnologien: freigegebene Clustervolumes, SMB 3.0 "direkte Speicherplätze"
+Verschiedene Speichertechnologien: freigegebene Clustervolumes, SMB 3,0, direkte Speicherplätze
 
-Windows-Container bieten einen anderen Ansatz zur Virtualisierung. Finden Sie unter den [Windows-Containern](https://docs.microsoft.com/virtualization/windowscontainers/index) -Bibliothek auf MSDN.
+Windows-Container bieten einen anderen Ansatz für die Virtualisierung. Weitere Informationen finden Sie in der [Windows-Container](https://docs.microsoft.com/virtualization/windowscontainers/index) Bibliothek auf MSDN.

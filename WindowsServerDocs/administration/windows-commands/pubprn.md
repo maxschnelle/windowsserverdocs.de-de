@@ -1,8 +1,8 @@
 ---
 title: pubprn
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 499ff2ade7ffc6c608791ba3da0ede0c3282c13d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 844a13c1a650ebedcc0d5b4fbf65b9de671b2180
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831701"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372009"
 ---
 # <a name="pubprn"></a>pubprn
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Einen Drucker veröffentlicht in der active Directory-Domänendiensten.
+Veröffentlicht einen Drucker in den Active Directory-Domänen Diensten.
 
 ## <a name="syntax"></a>Syntax
 ```
@@ -35,28 +35,28 @@ cscript pubprn {<ServerName> | <UNCprinterpath>}
 ## <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
-|\<ServerName>|Gibt den Namen des Windows-Servers, der den Drucker hostet, den Sie veröffentlichen möchten. Wenn Sie einen Computer nicht angeben, wird der lokale Computer verwendet.|
-|\<UNCprinterpath>|Der Pfad der Universal Naming Convention (UNC) an den freigegebenen Drucker, den Sie veröffentlichen möchten.|
-|"LDAP://CN=<Container>,DC=<Container>"|Gibt den Pfad zum Container in active Directory-Domänendienste, in dem Sie den Drucker veröffentlichen möchten.|
+|\<servername >|Gibt den Namen des Windows-Servers an, der den zu veröffentlichenden Drucker hostet. Wenn Sie keinen Computer angeben, wird der lokale Computer verwendet.|
+|\<uncprinterpath >|Der UNC-Pfad (Universal Naming Convention) zu dem freigegebenen Drucker, den Sie veröffentlichen möchten.|
+|"LDAP://CN = <Container>, DC = <Container>"|Gibt den Pfad zum Container in den Active Directory-Domänen Diensten an, in dem Sie den Drucker veröffentlichen möchten.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
--   Die **"Pubprn"** Befehl ist eine Visual Basic-Skript befindet sich in der %WINdir%\System32\printing_Admin_Scripts\\ <language> Verzeichnis. Um diesen Befehl an einer Eingabeaufforderung verwenden möchten, geben **Cscript** gefolgt von den vollständigen Pfad und die "Pubprn"-Datei, oder wechseln in den entsprechenden Ordner. Zum Beispiel:
+-   Der **Pubprn** -Befehl ist ein Visual Basic Skript, das sich im Verzeichnis%WINdir%\System32\printing_Admin_Scripts @ no__t-1 @ no__t-2 befindet. Wenn Sie diesen Befehl verwenden möchten, geben Sie an einer Eingabeaufforderung **cscript** ein, gefolgt vom vollständigen Pfad der Pubprn-Datei, oder ändern Sie die Verzeichnisse in den entsprechenden Ordner. Zum Beispiel:
     ```
     cscript %WINdir%\System32\printing_Admin_Scripts\en-US\pubprn
     ```
--   Wenn die Informationen, die Sie angeben, die Leerzeichen enthält, verwenden Sie den Text in Anführungszeichen (z. B. `"computer Name"`).
+-   Wenn die Informationen, die Sie angeben, Leerzeichen enthalten, verwenden Sie den Text in Anführungszeichen (z. b. `"computer Name"`).
 
-## <a name="BKMK_examples"></a>Beispiele für
-Veröffentlichen Sie alle Drucker auf dem \\\Server1-Computer, auf den Container "MyContainer" in der Domäne MyDomain.company.Com geben:
+## <a name="BKMK_examples"></a>Beispiele
+Wenn Sie alle Drucker auf dem Computer \\ \ Server1 im Container MyContainer in der Domäne mydomain.Company.com veröffentlichen möchten, geben Sie Folgendes ein:
 ```
 cscript Ppubprn Server1 "LDAP://CN=MyContainer,DC=MyDomain,DC=company,DC=Com"
 ```
-Veröffentlichen Sie den Drucker Laserprinter1 auf die \\\Server1-Server, auf den Container "MyContainer" in der Domäne MyDomain.company.Com, Typ:
+Geben Sie Folgendes ein, um den Laserprinter1-Drucker auf dem \\ \ Server1-Server im Container MyContainer in der mydomain.Company.com-Domäne zu veröffentlichen:
 ```
 cscript Ppubprn \\Server1\Laserprinter1 "LDAP://CN=MyContainer,DC=MyDomain,DC=company,DC=Com"
 ```
 
-#### <a name="additional-references"></a>Zusätzliche Referenzen
-[Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-[druckbefehlsreferenz](print-command-reference.md)
+#### <a name="additional-references"></a>Weitere Verweise
+[Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+[Druck Befehlsreferenz](print-command-reference.md)

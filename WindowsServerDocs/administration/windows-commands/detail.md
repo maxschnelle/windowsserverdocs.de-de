@@ -1,8 +1,8 @@
 ---
-title: Details
-description: 'Windows-Befehle Thema ***- '
+title: Einzelnen
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9970d6ca5e9ceb74384439049ebd981231d5144f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b3d63993e3a5aabe44580553a15514808b28e2ea
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865771"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378462"
 ---
-# <a name="detail"></a>Details
+# <a name="detail"></a>Einzelnen
 
 
 
-Zeigt Informationen zu den ausgewählten Datenträger, Partition, Volume oder virtuelle Festplatte (VHD).
+Zeigt Informationen zum ausgewählten Datenträger, der Partition, dem Volume oder der virtuellen Festplatte (VHD) an.
 
 ## <a name="syntax"></a>Syntax
 
@@ -39,12 +39,12 @@ detail vdisk
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|[Detail-Datenträger](detail-disk.md)|Zeigt die Eigenschaften des ausgewählten Datenträgers und das Volume auf der Festplatte an.|
-|[Detail-partition](detail-partition.md)|Zeigt die Eigenschaften der ausgewählten Partition an.|
-|[Detail-volume](detail-volume.md)|Zeigt die Datenträger auf denen das aktuelle Volume befindet.|
-|[Detail vdisk](detail-vdisk.md)|Zeigt die Eigenschaften der ausgewählten virtuellen Festplatte.|
+|[Detail Festplatte](detail-disk.md)|Zeigt die Eigenschaften des ausgewählten Datenträgers und das Volume auf der Festplatte an.|
+|[Detail Partition](detail-partition.md)|Zeigt die Eigenschaften der ausgewählten Partition an.|
+|[Detail Volume](detail-volume.md)|Zeigt die Datenträger an, auf denen sich das aktuelle Volume befindet.|
+|[Detail-Vdisk](detail-vdisk.md)|Zeigt die Eigenschaften der ausgewählten VHD an.|
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

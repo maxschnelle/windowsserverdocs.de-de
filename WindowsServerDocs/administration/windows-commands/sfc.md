@@ -1,8 +1,8 @@
 ---
 title: sfc
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1db0ab81c9469c88ddb64a367a9dc98a1fd9b70c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ca470d519e9f3425c0c58fd0070a76c7038ec9b5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832391"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384024"
 ---
 # <a name="sfc"></a>sfc
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Überprüft, und überprüft die Integrität des Systems für alle geschützten Dateien und falsche Versionen mit entsprechenden Versionen ersetzt.
-Beispiele für diesen Befehl verwenden, finden Sie unter [Beispiele](#BKMK_examples).
+Überprüft und überprüft die Integrität aller geschützten Systemdateien und ersetzt falsche Versionen durch korrekte Versionen.
+Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
 ## <a name="syntax"></a>Syntax
 ```
@@ -35,32 +35,32 @@ sfc [/scannow] [/verifyonly] [/scanfile=<file>] [/verifyfile=<file>] [/offwindir
 ### <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
-|/scannow|Überprüft die Integrität aller geschützten Systemdateien und Reparatur von Dateien mit Problemen, wenn möglich.|
-|/verifyonly|Überprüft die Integrität aller geschützten Systemdateien. Ohne Reparaturvorgang wird ausgeführt.|
-|/scanfile|Überprüft die Integrität der angegebenen Datei und die Datei repariert, wenn Probleme erkannt werden, wenn möglich.|
+|/scannow|Überprüft die Integrität aller geschützten Systemdateien und repariert Dateien mit Problemen, wenn möglich.|
+|/verifyonly|Überprüft die Integrität aller geschützten Systemdateien. Es wird kein Reparaturvorgang durchgeführt.|
+|/scanfile|Überprüft die Integrität der angegebenen Datei und repariert die Datei nach Möglichkeit, wenn Probleme erkannt werden.|
 |\<file>|Angegebene vollständiger Pfad und Dateiname|
-|/verifyfile|überprüft die Integrität der angegebenen Datei. Ohne Reparaturvorgang wird ausgeführt.|
-|/offwindir|Gibt den Speicherort des offline Windows-Verzeichnisses, für die offline-Reparatur.|
-|/offbootdir|Gibt an, den Speicherort der offline Startverzeichnis nach offline|
+|/verifyfile|überprüft die Integrität der angegebenen Datei. Es wird kein Reparaturvorgang durchgeführt.|
+|/offwindir|Gibt den Speicherort des Windows-offline Verzeichnisses für die Offline Reparatur an.|
+|/offbootdir|Gibt den Speicherort des Offline-Start Verzeichnisses für Offline an.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
--   Sie müssen als Mitglied der Gruppe "Administratoren" Ausführen angemeldet sein **sfc.exe**.
--   Wenn **sfc** ermittelt, dass eine geschützte Datei überschrieben, ruft es ab, die richtige Version der Datei, aus der **systemroot\system32\dllcache** Ordner, und klicken Sie dann die falsche Datei ersetzt.
--   Es sind die Funktionsunterschiede zwischen **sfc** unter Windows Server 2003, Windows Server 2008 und Windows Server 2008 R2:
--   Weitere Informationen zu **sfc** unter Windows Server 2003 finden Sie unter [Artikel 310747](https://go.microsoft.com/fwlink/?LinkId=227069) in der Microsoft Knowledge Base.
--   Weitere Informationen zu **sfc** unter Windows Server 2008 und Windows Server 2008 R2, finden Sie unter [Systemdatei-Überprüfungsprogramm](https://go.microsoft.com/fwlink/?LinkId=227071).
+-   Sie müssen als Mitglied der Gruppe "Administratoren" angemeldet sein, um " **sfc. exe**" ausführen zu können.
+-   Wenn **sfc** ermittelt, dass eine geschützte Datei überschrieben wurde, ruft Sie die korrekte Version der Datei aus dem Ordner **systemroot\system32\dllcache** ab und ersetzt dann die falsche Datei.
+-   Es gibt funktionale Unterschiede zwischen **sfc** unter Windows Server 2003, Windows Server 2008 und Windows Server 2008 R2:
+-   Weitere Informationen zu **sfc** unter Windows Server 2003 finden Sie im [Artikel 310747](https://go.microsoft.com/fwlink/?LinkId=227069) der Microsoft Knowledge Base.
+-   Weitere Informationen zu **sfc** unter Windows Server 2008 und Windows Server 2008 R2 finden Sie unter [System File Checker](https://go.microsoft.com/fwlink/?LinkId=227071).
 
-## <a name="BKMK_examples"></a>Beispiele für
-So überprüfen die **Datei "Kernel32.dll"**, Typ:
+## <a name="BKMK_examples"></a>Beispiele
+Geben Sie Folgendes ein, um die **Datei kernel32. dll**zu überprüfen:
 ```
 sfc /verifyfile=c:\windows\system32\kernel32.dll
 ```
-Zum Setup Offlinereparatur von der **"Kernel32.dll"** -Datei mit einer offline-Startverzeichnis festgelegt **"d:"** und offline Windowsverzeichnis festgelegt **d:\windows**, Typ:
+Geben Sie Folgendes ein, um die Offline Reparatur der Datei **Kernel32. dll** mit einem Offline-Start Verzeichnis festzulegen, das auf **d:** und dem Offline-Windows-Verzeichnis **d:\Windows aus**festgelegt ist:
 ```
 sfc /scanfile=d:\windows\system32\kernel32.dll /offbootdir=d:\ /offwindir=d:\windows
 ```
 
 ## <a name="additional-references"></a>Weitere Verweise
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

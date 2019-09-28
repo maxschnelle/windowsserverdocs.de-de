@@ -1,8 +1,8 @@
 ---
 title: chdir
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: db30ab6cbfd4d88aabf736e24535443be23c9b53
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5f7d4753c42ec9f992895b92bea7b901982c6d8f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877101"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379521"
 ---
 # <a name="chdir"></a>chdir
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Dieser Befehl ist identisch mit der **cd** Befehl.  
-Finden Sie unter [cd](cd.md) für die Syntax und Parameter.  
-## <a name="additional-references"></a>Zusätzliche Referenzen  
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
+Dieser Befehl ist mit dem Befehl **CD** identisch.  
+Informationen zur Syntax und zu Parametern finden Sie unter [CD](cd.md) .  
+## <a name="additional-references"></a>Weitere Verweise  
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   

@@ -1,39 +1,39 @@
 ---
-title: Überlegungen zum Erstellen des PowerShell-Modul
-description: Überlegungen zum Erstellen des PowerShell-Modul
-ms.prod: windows-server-threshold
+title: Überlegungen zur PowerShell-Modulerstellung
+description: Überlegungen zur PowerShell-Modulerstellung
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: JasonSh
 author: lzybkr
 ms.date: 10/16/2017
-ms.openlocfilehash: 37dd860019b91daf70947dba93d20274048487a0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8945339e7a7950d3cd722ab2af629b45e7f6dd5d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818721"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370361"
 ---
-# <a name="powershell-module-authoring-considerations"></a>Überlegungen zum Erstellen des PowerShell-Modul
+# <a name="powershell-module-authoring-considerations"></a>Überlegungen zur PowerShell-Modulerstellung
 
-Dieses Dokument enthält einige Richtlinien, die im Zusammenhang mit der wie ein Modul für eine optimale Leistung erstellt wird.
+Dieses Dokument enthält einige Richtlinien, die sich auf die Erstellung eines Moduls für eine optimale Leistung beziehen.
 
-## <a name="module-manifest-authoring"></a>Modul Manifest erstellen
+## <a name="module-manifest-authoring"></a>Modul Manifest-Erstellung
 
-Ein modulmanifest, die die folgenden Richtlinien nicht verwendet haben dies merkliche Auswirkungen auf die allgemeine Leistung von PowerShell, selbst wenn das Modul nicht in einer Sitzung verwendet wird.
+Ein Modul Manifest, das nicht die folgenden Richtlinien verwendet, kann eine spürbare Auswirkung auf die allgemeine PowerShell-Leistung haben, auch wenn das Modul nicht in einer Sitzung verwendet wird.
 
-Automatische Ermittlung von Befehlen analysiert jedes Modul, um zu bestimmen, welche Befehle das Modul exportiert, und diese Analyse kann teuer sein.
-Die Ergebnisse der Analyse des Moduls werden pro Benutzer zwischengespeichert, aber der Cache nicht verfügbar, bei der ersten Ausführung wird ein typisches Szenario mit Containern.
-Während der Analyse des Moduls Wenn die exportierten Befehle vollständig können, können Sie aus dem Manifest bestimmt werden kann teurer Analyse des Moduls vermieden werden.
+Die automatische Ermittlung von Befehlen analysiert jedes Modul, um zu bestimmen, welche Befehle das Modul exportiert und ob diese Analyse aufwendig sein kann.
+Die Ergebnisse der Modul Analyse werden pro Benutzer zwischengespeichert, aber der Cache ist bei der ersten Durchführung nicht verfügbar. Dies ist ein typisches Szenario mit Containern.
+Wenn die exportierten Befehle während der Modul Analyse vollständig aus dem Manifest bestimmt werden können, kann die aufwändige Analyse des Moduls vermieden werden.
 
 ### <a name="guidelines"></a>Richtlinien
 
-* Im modulmanifest, verwenden Sie keine Platzhalter in der `AliasesToExport`, `CmdletsToExport`, und `FunctionsToExport` Einträge.
+* Verwenden Sie im Modul Manifest keine Platzhalter in den Einträgen `AliasesToExport`, `CmdletsToExport` und `FunctionsToExport`.
 
-* Wenn das Modul Befehle eines bestimmten Typs nicht exportiert, dies explizit angeben im Manifest durch Angabe `@()`.
-Ein fehlendes oder `$null` Eintrag ist gleichbedeutend mit der Angabe des Platzhalters `*`.
+* Wenn das Modul keine Befehle eines bestimmten Typs exportiert, geben Sie dies explizit im Manifest an, indem Sie `@()` angeben.
+Ein fehlender oder `$null`-Eintrag entspricht dem Angeben des Platzhalters `*`.
 
-Folgendes sollte möglichst vermieden werden:
+Nach Möglichkeit sollte Folgendes vermieden werden:
 
 ```PowerShell
 @{
@@ -45,7 +45,7 @@ Folgendes sollte möglichst vermieden werden:
 }
 ```
 
-Verwenden Sie stattdessen:
+Verwenden Sie stattdessen Folgendes:
 
 ```PowerShell
 @{
@@ -55,19 +55,19 @@ Verwenden Sie stattdessen:
 }
 ```
 
-## <a name="avoid-cdxml"></a>Vermeiden Sie CDXML
+## <a name="avoid-cdxml"></a>Cdxml vermeiden
 
-Bei der Entscheidung, wie Sie Ihr Modul zu implementieren, gibt es drei primäre Optionen:
+Bei der Entscheidung, wie das Modul implementiert werden soll, gibt es drei primäre Optionen:
 
-* Binäre (in der Regel C#)
+* Binary (in C#der Regel)
 * Skript (PowerShell)
-* CDXML (eine XML-Datei umschließen CIM)
+* Cdxml (eine XML-Datei Wrapping CIM)
 
-Wenn die Geschwindigkeit beim Laden von Ihrem Modul wichtig ist, ist die CDXML ungefähr bedeutend langsamer als einem binären Modul.
+Wenn die Geschwindigkeit beim Laden des Moduls wichtig ist, ist cdxml ungefähr eine Größenordnung langsamer als ein binäres Modul.
 
-Ein binäres Modul lädt schnell wie möglich, da sie vorab kompiliert wird und NGen werden, um JIT-Kompilierung, einmal pro Computer verwenden kann.
+Ein binäres Modul lädt den schnellsten, da es im Voraus kompiliert wird und ngen zur JIT-Kompilierung einmal pro Computer verwenden kann.
 
-Ein Skriptmodul lädt in der Regel etwas langsamer als bei einem binären Modul, da es sich bei PowerShell das Skript vor der Kompilierung und Ausführung analysieren muss.
+Ein Skript Modul lädt in der Regel etwas langsamer als ein binäres Modul, da PowerShell das Skript vor dem Kompilieren und ausführen analysieren muss.
 
-Ein CDXML-Modul ist in der Regel sehr viel langsamer ist als ein Skriptmodul, da er zuerst eine XML-Datei analysieren muss, die anschließend einiges an PowerShell-Skript generiert, der dann analysiert und kompiliert wird.
+Ein cdxml-Modul ist in der Regel viel langsamer als ein Skript Modul, da es zuerst eine XML-Datei analysieren muss, die dann ein sehr wenig PowerShell-Skript generiert, das dann analysiert und kompiliert wird.
 

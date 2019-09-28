@@ -1,59 +1,59 @@
 ---
-title: Verwalten von Host-Überwachungsdienst
+title: Verwalten des Host-Überwachungs Diensts
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: eecb002e-6ae5-4075-9a83-2bbcee2a891c
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: dab27e71e42970507f321271edda90f6d161c691
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 41912c90beacbb0c0c285ea4da8305c1afdf2a51
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447393"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386544"
 ---
-# <a name="managing-the-host-guardian-service"></a>Verwalten von Host-Überwachungsdienst
+# <a name="managing-the-host-guardian-service"></a>Verwalten des Host-Überwachungs Diensts
 
-> Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+> Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Die Host Guardian Service (HGS) ist das Kernstück der überwachten Fabric-Lösung.
-Er ist verantwortlich für sicherstellen, dass die Hoster oder Enterprise Hyper-V-Hosts im Fabric bekannt sind und vertrauenswürdige Software ausführen und für die Verwaltung der Schlüssel für abgeschirmte virtuelle Computer zu starten.
-Wenn ein Mandant entscheidet, die Sie zum Hosten ihrer abgeschirmte VMs als vertrauenswürdig einstufen, werden sie das Vertrauen in Ihre Konfiguration und Verwaltung von Host-Überwachungsdienst platzieren.
-Aus diesem Grund ist es sehr wichtig, die empfohlenen Vorgehensweisen beim Host-Überwachungsdienst, um sicherzustellen, dass die Sicherheit, Verfügbarkeit und Zuverlässigkeit des geschützten Fabrics zu verwalten.
-Die Anleitungen in den folgenden Abschnitten behandelt die am häufigsten auftretenden operative Probleme mit der Administratoren des Host-Überwachungsdienst.
+Der Host-Überwachungsdienst (Host Guardian Service, HGS) ist das Kernstück der geschützten Fabric-Lösung.
+Er ist dafür verantwortlich, sicherzustellen, dass Hyper-V-Hosts im Fabric dem hostet oder Unternehmen bekannt sind und vertrauenswürdige Software ausführen und die Schlüssel verwalten, die zum Starten von abgeschirmten VMS verwendet werden.
+Wenn ein Mandant beschließt, Sie zu hosten, um die geschützten VMS zu hosten, platziert er seine Vertrauensstellung in Ihrer Konfiguration und Verwaltung des Host-Überwachungs Diensts.
+Daher ist es sehr wichtig, die bewährten Methoden bei der Verwaltung des Host-Überwachungs Diensts zu befolgen, um die Sicherheit, Verfügbarkeit und Zuverlässigkeit Ihres geschützten Fabrics sicherzustellen.
+In den Anweisungen in den folgenden Abschnitten werden die häufigsten Betriebsprobleme behandelt, die Administratoren von HGS begegnen.
 
-## <a name="limiting-admin-access-to-hgs"></a>Beschränken Administratorzugriff auf den Host-Überwachungsdienst
-Aufgrund der Sicherheit vertraulicher Art des Host-Überwachungsdienst ist es wichtig sicherzustellen, dass die Administratoren sehr vertrauenswürdige Mitglieder Ihrer Organisation sind und im Idealfall von den Administratoren der Ihr Fabric-Ressourcen getrennt.
-Darüber hinaus empfiehlt es sich, dass Sie Host-Überwachungsdienst nur von sicheren Arbeitsstationen, die mithilfe von sicheren Kommunikationsprotokollen, z. B. WinRM über HTTPS verwalten.
+## <a name="limiting-admin-access-to-hgs"></a>Einschränken des Administrator Zugriffs auf HGS
+Aufgrund der sicherheitssensiblen Natur von HGS ist es wichtig sicherzustellen, dass seine Administratoren sehr vertrauenswürdige Mitglieder Ihrer Organisation sind und im Idealfall von den Administratoren Ihrer Fabric-Ressourcen getrennt werden.
+Außerdem wird empfohlen, dass Sie nur HGS von sicheren Arbeitsstationen mithilfe von sicheren Kommunikationsprotokollen verwalten, wie z. b. WinRM über HTTPS.
 
 ### <a name="separation-of-duties"></a>Trennung von Aufgaben
-Beim Einrichten von Host-Überwachungsdienst erhalten Sie die Option zum Erstellen isolierte Active Directory-Gesamtstruktur, nur für die Host-Überwachungsdienst oder Host-Überwachungsdienst mit einer vorhandenen, vertrauenswürdigen Domäne zu verknüpfen.
-Diese Entscheidung sowie die Rollen, die Sie die Administratoren in Ihrer Organisation zuweisen, Bestimmen der Vertrauensgrenze für Host-Überwachungsdienst.
-Personen Zugriff auf Host-Überwachungsdienst bietet hat, als ein Administrator direkt oder indirekt als Administrator eines anderen (z. B. Active Directory), die Host-Überwachungsdienst bietet beeinflussen können hat die Kontrolle über Ihre geschützten Fabrics.
-Host-Überwachungsdienst-Administratoren auswählen, welche Hyper-V-Hosts abgeschirmte VMs ausführen und Verwalten der Zertifikate erforderlich, starten Sie abgeschirmte VMs autorisiert sind.
-Ein Angreifer oder böswillige Admin, wer Zugriff auf den Host-Überwachungsdienst hat können dieser Leistung Sie autorisieren gefährdeten Hosts abgeschirmte VMs ausführen, einen Denial-of-Service-Angriff durch das Entfernen des Schlüsselmaterials und vieles mehr zu initiieren.
+Beim Einrichten von HGS haben Sie die Möglichkeit, eine isolierte Active Directory Gesamtstruktur nur für HGS zu erstellen oder HGS mit einer vorhandenen vertrauenswürdigen Domäne zu verknüpfen.
+Diese Entscheidung und die Rollen, die Sie den Administratoren in Ihrer Organisation zuweisen, bestimmen die Vertrauensstellungs Grenze für HGS.
+Wer Zugriff auf HGS hat, egal ob direkt als Administrator oder indirekt als Administrator von etwas anderem (z. b. Active Directory), das die HGS beeinflussen kann, hat Kontrolle über das geschützte Fabric.
+HGS-Administratoren wählen, welche Hyper-V-Hosts autorisiert sind, abgeschirmte VMS auszuführen und die Zertifikate zu verwalten, die zum Starten von abgeschirmten VMS erforderlich sind.
+Angreifer oder böswillige Administratoren, die Zugriff auf HGS haben, können mit dieser Leistungsfähigkeit kompromittierte Hosts autorisieren, geschützte VMS auszuführen, einen Denial-of-Service-Angriff durch Entfernen wichtiger Materialien und vieles mehr zu initiieren.
 
-Um dieses Risiko zu vermeiden, ist es *stark* empfohlen, die Überlappung zwischen Ihrem Host-Überwachungsdienst (einschließlich der Domäne, die Host-Überwachungsdienst hinzugefügt wird) die Administratoren zu beschränken und Hyper-V-Umgebungen.
-Indem Sie sicherstellen, dass keine ein Administrator den Zugriff auf beide Systeme verfügt, müsste ein Angreifer 2 verschiedene Konten von 2 Einzelpersonen seine Aufgabe zum Ändern der Richtlinien für die Host-Überwachungsdiensts ausführen zu kompromittieren.
-Dies bedeutet auch, dass die Domäne und zu den Enterprise-Administratoren für die zwei Active Directory-Umgebungen sollten nicht dieselbe Person sein, noch sollte Host-Überwachungsdienst derselben Active Directory-Gesamtstruktur als Hyper-V-Hosts verwendet.
-Jeder, der sich Zugriff auf Weitere Ressourcen gewähren kann, stellt ein Sicherheitsrisiko dar.
+Um dieses Risiko zu vermeiden, wird *dringend* empfohlen, die Überschneidung zwischen den Administratoren Ihrer HGS (einschließlich der Domäne, mit der HGS verknüpft ist) und Hyper-V-Umgebungen einzuschränken.
+Wenn Sie sicherstellen, dass kein Administrator auf beide Systeme zugreifen kann, müsste ein Angreifer zwei verschiedene Konten von 2 Personen kompromittieren, um seine Aufgabe zum Ändern der HGS-Richtlinien abzuschließen.
+Dies bedeutet auch, dass die Domänen-und Organisations-Administratoren für die beiden Active Directory Umgebungen nicht dieselbe Person sein sollten und dass HGS dieselbe Active Directory Gesamtstruktur wie Ihre Hyper-V-Hosts verwenden.
+Jeder Benutzer, der sich selbst Zugriff auf Weitere Ressourcen gewähren kann, stellt ein Sicherheitsrisiko dar.
 
-### <a name="using-just-enough-administration"></a>Verwenden von Just Enough Administration
-Im Lieferumfang von Host-Überwachungsdienst [Just Enough Administration](https://aka.ms/JEAdocs) (JEA) Rollen, die erstellt werden, können Sie ihn noch sicherer zu verwalten.
-JEA kann Sie bei, sodass Sie zum Delegieren von Verwaltungsaufgaben auf nicht-Administratorbenutzern, was bedeutet, dass Personen, die Host-Überwachungsdienst-Richtlinien verwalten Administratoren den ganzen Computer oder die Domäne nicht tatsächlich sein müssen.
-JEA basiert, beschränken welche Befehle ein Benutzer in einer PowerShell-Sitzung ausführen kann und ein temporäres lokales Konto im Hintergrund (eindeutig für jede benutzersitzung) zum Ausführen der Befehle, die normalerweise die erhöhte Rechte erforderlich sind.
+### <a name="using-just-enough-administration"></a>Verwendung von Just Enough Administration
+HGS verfügt über [Just](https://aka.ms/JEAdocs) -in-Management-Rollen (Jea), die Sie bei der sicheren Verwaltung unterstützen.
+Jea unterstützt Sie bei der Delegierung von Administrator Aufgaben an Benutzer ohne Administratorrechte, was bedeutet, dass die Personen, die HGS-Richtlinien verwalten, eigentlich nicht Administratoren des gesamten Computers oder der Domäne sein müssen.
+Jea schränkt die Befehle ein, die ein Benutzer in einer PowerShell-Sitzung ausführen kann, und verwendet ein temporäres lokales Konto im Hintergrund (eindeutig für jede Benutzersitzung), um die Befehle auszuführen, die normalerweise eine Erhöhung erfordern.
 
-Im Lieferumfang von Host-Überwachungsdienst ist 2 JEA-Rollen, die vorkonfiguriert:
-- **Host-Überwachungsdienst Administratoren** wodurch der Benutzer zum Verwalten von Richtlinien für alle Host-Überwachungsdienst, einschließlich Autorisieren des neuen Hosts zum Ausführen von abgeschirmten VMs.
-- **Host-Überwachungsdienst Reviewer** der erlaubt nur Benutzern des rechts vor, die vorhandene Richtlinien zu überwachen. Sie können keine Änderungen an der Konfiguration des Host-Überwachungsdienst vornehmen.
+In HGS werden zwei vorkonfigurierte Jea-Rollen bereitgestellt:
+- **HGS-Administratoren** , die es Benutzern ermöglichen, alle HGS-Richtlinien zu verwalten, einschließlich der Autorisierungs Autorisierungs neuer Hosts zum Ausführen geschützter VMS.
+- **HGS-Prüfer** , die nur Benutzern das Recht zum Überwachen vorhandener Richtlinien erlauben. Sie können keine Änderungen an der HGS-Konfiguration vornehmen.
 
-Um JEA verwenden zu können, müssen Sie zunächst einen neuen Standardbenutzer erstellen, und ein Mitglied der HGS-Administratoren oder Host-Überwachungsdienst reviewergruppe machen.
-Bei Verwendung `Install-HgsServer` zum Einrichten einer neuen Gesamtstruktur für Host-Überwachungsdienst, diese Gruppen erhält "*Servicename*Administratoren" und "*Servicename*Reviewer", in denen *Servicename*  ist der Netzwerkname des Host-Überwachungsdienst-Clusters.
-Wenn Sie Host-Überwachungsdiensts zu einer vorhandenen Domäne beigetreten, lesen Sie den Gruppennamen, die Sie in angegeben `Initialize-HgsServer`.
+Um Jea verwenden zu können, müssen Sie zunächst einen neuen Standardbenutzer erstellen und Sie zu einem Mitglied der Gruppe "HGS-Administratoren" oder "HGS-Prüfer" machen.
+Wenn Sie `Install-HgsServer` verwendet haben, um eine neue Gesamtstruktur für HGS einzurichten, werden diese Gruppen "*Service Name*Administrators" und "*Service Name*Reviewer" genannt, wobei " *Service* Name" der Netzwerkname des HGS-Clusters ist.
+Wenn Sie HGS zu einer vorhandenen Domäne hinzugefügt haben, sollten Sie auf die Gruppennamen verweisen, die Sie in `Initialize-HgsServer` angegeben haben.
 
-**Erstellen von Standardbenutzern für die HGS-Administrator und Prüfer**
+**Erstellen von Standard Benutzern für die Rollen "HGS-Administrator" und "Reviewer"**
 
 ```powershell
 $hgsServiceName = (Get-ClusterResource HgsClusterResource | Get-ClusterParameter DnsName).Value
@@ -67,17 +67,17 @@ New-ADUser -Name 'hgsreviewer01' -AccountPassword (Read-Host -AsSecureString -Pr
 Add-ADGroupMember -Identity $reviewerGroup -Members 'hgsreviewer01'
 ```
 
-**Überwachen von Richtlinien mit der Prüferrolle**
+**Überwachen von Richtlinien mit der Reviewer-Rolle**
 
-Führen Sie auf einem Remotecomputer, der über eine Netzwerkverbindung zum Host-Überwachungsdienst verfügt die folgenden Befehle in PowerShell, um die JEA-Sitzung mit den Anmeldeinformationen des Reviewers eingeben.
-Es ist wichtig zu beachten, dass seit der Reviewer-Konto nur ein Standardbenutzer ist, es für reguläre Windows PowerShell-Remoting remotedesktopzugriff auf den Host-Überwachungsdienst usw. verwendet werden kann.
+Führen Sie auf einem Remote Computer mit Netzwerk Konnektivität mit HGS die folgenden Befehle in PowerShell aus, um die Jea-Sitzung mit den Reviewer-Anmelde Informationen einzugeben.
+Beachten Sie Folgendes: da das Reviewer-Konto nur ein Standardbenutzer ist, kann es nicht für reguläre Windows PowerShell-Remoting, Remotedesktop Zugriff auf HGS usw. verwendet werden.
 
 ```powershell
 Enter-PSSession -ComputerName <hgsnode> -Credential '<hgsdomain>\hgsreviewer01' -ConfigurationName 'microsoft.windows.hgs'
 ```
 
-Sie können dann prüfen, welche Befehle erlaubt sind, in der Sitzung mit `Get-Command` , und führen Sie alle zulässigen Befehle aus, um die Konfiguration überwachen.
-In der folgenden Beispiel werden wir überprüfen, welche Richtlinien auf Host-Überwachungsdienst aktiviert sind.
+Sie können dann überprüfen, welche Befehle in der Sitzung mit `Get-Command` zulässig sind, und alle zulässigen Befehle zum Überwachen der Konfiguration ausführen.
+Im folgenden Beispiel überprüfen wir, welche Richtlinien auf HGS aktiviert sind.
 
 ```powershell
 Get-Command
@@ -85,14 +85,14 @@ Get-Command
 Get-HgsAttestationPolicy
 ```
 
-Geben Sie den Befehl `Exit-PSSession` oder dessen Alias `exit`, wenn Sie fertig sind arbeiten mit der JEA-Sitzung. 
+Geben Sie den Befehl `Exit-PSSession` oder seinen Alias `exit` ein, wenn Sie mit der Jea-Sitzung gearbeitet haben. 
 
-**Hinzufügen einer neuen Richtlinie zu-Host-Überwachungsdienst, der mit der Rolle "Administrator"**
+**Hinzufügen einer neuen Richtlinie zu HGS mithilfe der Administrator Rolle**
 
-Um eine Richtlinie tatsächlich ändern zu können, müssen Sie den JEA-Endpunkt mit einer Identität herstellen, für die der Gruppe "HgsAdministrators" angehört.
-In der folgenden Beispiel können wir angezeigt werden, wie Sie eine neue codeintegritätsrichtlinie auf Host-Überwachungsdienst kopieren und registrieren Sie ihn mithilfe von JEA.
-Die Syntax möglicherweise unterscheiden, was Ihnen bereits vertraut ist.
-Dadurch werden einige der Einschränkungen in JEA zu berücksichtigen, z. B., wenn kein Zugriff auf das gesamte Dateisystem.
+Um eine Richtlinie tatsächlich zu ändern, müssen Sie eine Verbindung mit dem Jea-Endpunkt mit einer Identität herstellen, die zur Gruppe "hgsadministrators" gehört.
+Im folgenden Beispiel wird gezeigt, wie Sie eine neue Code Integritätsrichtlinie in HGS kopieren und mit Jea registrieren können.
+Die Syntax unterscheidet sich möglicherweise von ihrer Verwendung.
+Dies dient dazu, einige der Einschränkungen in Jea zu erfüllen, wie z. b. keinen Zugriff auf das vollständige Dateisystem.
 
 ```powershell
 $cipolicy = Get-Item "C:\temp\cipolicy.p7b"
@@ -111,204 +111,204 @@ Exit-PSSession
 Remove-PSSession -Session $session
 ```
 
-## <a name="monitoring-hgs"></a>Überwachen von Host-Überwachungsdienst
-### <a name="event-sources-and-forwarding"></a>Ereignisquellen und Weiterleitung
-Ereignisse von Host-Überwachungsdienst werden im Windows-Ereignisprotokoll unter 2 Quellen angezeigt:
-- **HostGuardianService-Attestation**
-- **HostGuardianService-KeyProtection**
+## <a name="monitoring-hgs"></a>Überwachen von HGS
+### <a name="event-sources-and-forwarding"></a>Ereignis Quellen und Weiterleitung
+Ereignisse von HGS werden im Windows-Ereignisprotokoll unter 2 Quellen angezeigt:
+- **Hostguardianservice-Nachweis**
+- **Hostguardianservice-keyprotection**
 
-Sie können diese Ereignisse anzeigen, Öffnen der Ereignisanzeige und navigieren Sie zum Microsoft-Windows-HostGuardianService-Nachweis und Microsoft-Windows-HostGuardianService-KeyProtection.
+Sie können diese Ereignisse anzeigen, indem Sie Ereignisanzeige öffnen und zu "Microsoft-Windows-hostguardianservice-Attestation" und "Microsoft-Windows-hostguardianservice-keyprotection" navigieren.
 
-In einer großen Umgebung ist es oft besser, Weiterleiten von Ereignissen an einen zentralen Windows-Ereignissammlung um die Analyse von Ereignissen zu vereinfachen.
-Weitere Informationen finden Sie in der [Dokumentation zu Windows-Ereignisweiterleitung](https://msdn.microsoft.com/library/windows/desktop/bb427443.aspx).
+In einer großen Umgebung ist es häufig vorzuziehen, Ereignisse an einen zentralen Windows-Ereignis Sammler weiterzuleiten, um die Analyse der Ereignisse zu vereinfachen.
+Weitere Informationen finden Sie in der [Dokumentation zur Windows-Ereignis Weiterleitung](https://msdn.microsoft.com/library/windows/desktop/bb427443.aspx).
 
-### <a name="using-system-center-operations-manager"></a>Verwenden von System Center Operationsmanager
-Sie können auch System Center 2016 – Operations Manager zum Überwachen von Host-Überwachungsdienst und Ihrer überwachten Hosts verwenden.
-Das geschütztes Fabric-Management Pack verfügt über ereignisüberwachung für häufige Konfigurationsfehler zu überprüfen, die zu Ausfallzeiten des Datencenters, einschließlich Hosts, die nicht bestanden, Nachweis und Erstellen von Fehlerberichten HGS-Servern führen können.
+### <a name="using-system-center-operations-manager"></a>Verwenden von System Center Operations Manager
+Sie können auch System Center 2016-Operations Manager verwenden, um HGS und die überwachten Hosts zu überwachen.
+Der geschützte Fabric-Management Pack verfügt über Ereignis Monitore, die auf häufige Fehlkonfigurationen überprüfen können, die zu Ausfallzeiten von Rechenzentren führen können, einschließlich Hosts, die keine Nachrichten übergeben, und HGS-Server, die Fehler melden
 
-Zu den ersten Schritten [installieren und Konfigurieren von SCOM-2016](https://technet.microsoft.com/system-center-docs/om/welcome-to-operations-manager) und [das geschütztes Fabric-Management Pack herunterladen](https://www.microsoft.com/download/details.aspx?id=52764).
-Enthaltenen Management Pack-Handbuch erläutert das Konfigurieren des Management Packs und den Arbeitsumfang der Monitore zu verstehen.
+[Installieren und konfigurieren Sie zunächst SCOM 2016](https://technet.microsoft.com/system-center-docs/om/welcome-to-operations-manager) , und [Laden Sie die geschützte Fabric-Management Pack herunter](https://www.microsoft.com/download/details.aspx?id=52764).
+Das enthaltene Management Pack Handbuch erläutert, wie Sie die Management Pack konfigurieren und den Bereich Ihrer Monitore verstehen.
 
-## <a name="backing-up-and-restoring-hgs"></a>Sichern und Wiederherstellen von Host-Überwachungsdienst
-### <a name="disaster-recovery-planning"></a>Planung der notfallwiederherstellung
-Wenn Ihre Pläne zur notfallwiederherstellung entwerfen können, ist es wichtig, die individuellen Anforderungen der Host-Überwachungsdienst in Ihr geschütztes Fabric zu berücksichtigen.
-Einige oder alle Ihrer Host-Überwachungsdienst-Knoten sollten Sie verlieren, möglicherweise Probleme bei der sofortigen Verfügbarkeit treten, die Benutzer geschützten virtuelle Maschinen starten verhindern.
-In einem Szenario, in dem Sie Ihre gesamten Host-Überwachungsdienst Cluster verlieren, müssen Sie vollständige Sicherungen der HGS-Konfiguration auf Seite zum Wiederherstellen Ihres Clusters Host-Überwachungsdienst und normal fortgesetzt.
-Dieser Abschnitt enthält die erforderlichen Schritte zum Vorbereiten für ein solches Szenario.
+## <a name="backing-up-and-restoring-hgs"></a>Sichern und Wiederherstellen von HGS
+### <a name="disaster-recovery-planning"></a>Planen der Notfall Wiederherstellung
+Beim Entwerfen Ihrer Notfall Wiederherstellungs Pläne ist es wichtig, die besonderen Anforderungen des Host-Überwachungs Diensts in Ihrem geschützten Fabric zu beachten.
+Wenn Sie einige oder alle ihrer HGS-Knoten verlieren, treten möglicherweise unmittelbare Verfügbarkeits Probleme auf, die verhindern, dass Benutzer ihre abgeschirmten VMs starten.
+In einem Szenario, in dem Sie den gesamten HGS-Cluster verlieren, benötigen Sie vollständige Sicherungen der HGS-Konfiguration, um den HGS-Cluster wiederherstellen und den normalen Betrieb fortsetzen zu können.
+In diesem Abschnitt werden die erforderlichen Schritte für die Vorbereitung eines solchen Szenarios beschrieben.
 
-Zunächst ist es wichtig zu verstehen, was für die Host-Überwachungsdienst zu sichernden wichtig ist.
-Host-Überwachungsdienst behält mehrere Arten von Informationen, die helfen zu bestimmen, welche Hosts zum Ausführen geschützter VMs autorisiert sind.
+Zuerst ist es wichtig zu verstehen, welche Informationen zu HGS für die Sicherungskopie wichtig sind.
+HGS behält verschiedene Informationen bei, mit denen ermittelt werden kann, welche Hosts zum Ausführen geschützter VMS autorisiert sind.
 Dazu zählen:
-1. Active Directory-Sicherheits-IDs für die Gruppen, die mit vertrauenswürdigen Hosts (bei Verwendung von Active Directory-Nachweis);
-2. Eindeutige TPM Bezeichner für jeden Host in Ihrer Umgebung
-3. TPM-Richtlinien für jede eindeutige Konfiguration des Hosts; und
-4. Anwendungssteuerungscode-Integritätsrichtlinien, die bestimmen, welche Software auf den Hosts ausgeführt werden darf.
+1. Active Directory Sicherheits-IDs für die Gruppen mit vertrauenswürdigen Hosts (bei Verwendung Active Directory Attestation);
+2. Eindeutige TPM-IDs für jeden Host in Ihrer Umgebung
+3. TPM-Richtlinien für jede eindeutige Konfiguration des Hosts immer
+4. Code Integritäts Richtlinien, die bestimmen, welche Software auf den Hosts ausgeführt werden darf.
 
-Diese Artefakte Nachweis koordiniert werden müssen mit dem Administratoren Ihre hosting Fabric abgerufen werden, möglicherweise darum nur schwer zum Abrufen dieser Informationen nach einem Notfall erneut.
+Diese Nachweis Artefakte müssen mit den Administratoren Ihres hostingfabrics koordiniert werden, um diese Informationen nach einem Notfall wiederholen zu können.
 
-Host-Überwachungsdienst erfordert darüber hinaus den Zugriff auf mindestens 2-Zertifikate, die zum Verschlüsseln und Signieren die erforderlichen Informationen zum Starten einer abgeschirmten VMs (die Schlüsselschutzvorrichtung).
-Diese Zertifikate sind bekannte (verwendet von den Besitzern der abgeschirmten VMs zum Autorisieren von Fabrics für die Ausführung ihrer VMs) und nach einem Notfall für eine Umgebung für eine nahtlose Wiederherstellung wiederhergestellt werden müssen.
-Host-Überwachungsdienst nicht die gleichen Zertifikate nach einem Notfall wiederhergestellt werden sollen, müssen jeden virtuellen Computer aktualisiert werden, um Ihre neue Schlüssel zum Entschlüsseln der ihre Informationen zu autorisieren.
-Aus Gründen der Sicherheit kann nur der Besitzer des virtuellen Computers aktualisieren die VM-Konfiguration zum Autorisieren von diesen neuen Schlüssel, die Bedeutung-Fehler Ihre Schlüssel wiederherstellen nach ein Notfall jede VM-Besitzer müssen Maßnahmen ergreifen führt, um ihre virtuellen Computer wieder zu erhalten.
+Außerdem erfordert HGS Zugriff auf zwei oder mehr Zertifikate, die zum Verschlüsseln und Signieren der zum Starten einer abgeschirmten VM erforderlichen Informationen (die Schlüssel Schutzvorrichtung) benötigt werden.
+Diese Zertifikate sind bekannt (von den Besitzern von abgeschirmten VMS verwendet, um Ihr Fabric zum Ausführen Ihrer virtuellen Computer zu autorisieren) und müssen nach einem Notfall wieder hergestellt werden, um eine nahtlose Wiederherstellung zu ermöglichen.
+Wenn Sie HGS nicht mit denselben Zertifikaten nach einem Notfall wiederherstellen, muss jeder virtuelle Computer aktualisiert werden, um die neuen Schlüssel zum Entschlüsseln Ihrer Informationen zu autorisieren.
+Aus Sicherheitsgründen kann nur der Besitzer des virtuellen Computers die VM-Konfiguration aktualisieren, um diese neuen Schlüssel zu autorisieren. Dies bedeutet, dass die Wiederherstellung Ihrer Schlüssel nach einem Notfall dazu führt, dass jeder VM-Besitzer Maßnahmen ergreifen muss, damit die virtuellen Computer erneut ausgeführt werden.
 
-#### <a name="preparing-for-the-worst"></a>Vorbereiten für den schlimmsten Fall
-Zur Vorbereitung der vollständigen Verlust der Host-Überwachungsdienst sind 2 Schritte, die Sie ausführen müssen:
-1. Sichern Sie die Host-Überwachungsdienst-Nachweis-Richtlinien
-2. Sichern Sie die Host-Überwachungsdienst-Schlüssel
+#### <a name="preparing-for-the-worst"></a>Vorbereitung auf die schlechteste
+Um einen kompletten Verlust von HGS vorzubereiten, müssen Sie zwei Schritte ausführen:
+1. Sichern der HGS-Nachweis Richtlinien
+2. Sichern der HGS-Schlüssel
 
-Anleitungen dazu, wie beide Schritte ausführen finden Sie unter den [Sichern von Host-Überwachungsdienst](#backing-up-hgs) Abschnitt.
+Anweisungen zum Ausführen dieser beiden Schritte finden Sie im Abschnitt [Sichern von HGS](#backing-up-hgs) .
 
-Es wird außerdem empfohlen, jedoch nicht erforderlich, dass Sie die Liste der Benutzer autorisiert zum Verwalten von Host-Überwachungsdienst in der Active Directory-Domäne oder Active Directory sichern.
+Außerdem wird empfohlen, aber nicht erforderlich, dass Sie die Liste der Benutzer sichern, die zum Verwalten von HGS in der Active Directory Domäne oder Active Directory selbst autorisiert sind.
 
-Sicherungen sollten regelmäßig erstellt werden, um sicherzustellen, dass die Informationen auf dem neuesten Stand und sicher an der Manipulation und Diebstahl vermeiden gespeichert sind.
+Sicherungen sollten regelmäßig ausgeführt werden, um sicherzustellen, dass die Informationen auf dem neuesten Stand sind und sicher gespeichert werden, um Manipulationen oder Diebstähle zu vermeiden.
 
-Es ist **nicht empfohlen,** zu sichern, oder versuchen, ein Image Gesamtsystem eine Host-Überwachungsdienst-Knoten wiederherzustellen.
-Falls Sie Ihren gesamten Cluster verloren haben, werden die bewährte Methode richten Sie eine neue Host-Überwachungsdienst-Knoten und nur-Host-Überwachungsdienst Zustand wiederherstellen, nicht den gesamten Server Betriebssystem.
+Es wird **nicht empfohlen** , ein gesamtes System Abbild eines HGS-Knotens zu sichern oder wiederherzustellen.
+Wenn Sie den gesamten Cluster verloren haben, besteht die bewährte Methode darin, einen neuen HGS-Knoten einzurichten und nur den HGS-Status und nicht das gesamte Server Betriebssystem wiederherzustellen.
 
 #### <a name="recovering-from-the-loss-of-one-node"></a>Wiederherstellung nach dem Verlust eines Knotens
-Wenn Sie einen oder mehrere Knoten (aber nicht jeder Knoten) in Ihrem Cluster für die Host-Überwachungsdienst verlieren, können Sie einfach [Hinzufügen von Knoten zum Cluster](guarded-fabric-configure-additional-hgs-nodes.md) anhand der Anweisungen im Bereitstellungshandbuch.
-Die Nachweis-Richtlinien werden automatisch synchronisiert werden, wie sämtliche Zertifikate die Host-Überwachungsdienst als PFX-Dateien zur Verfügung gestellt wurden werden mit zugehörigen Kennwörter.
-Für Zertifikate, die über einen Fingerabdruck des Host-Überwachungsdienst hinzugefügt (nicht exportierbare und hardwaregestützten Zertifikate häufig), Sie müssen sicherstellen, jeden neuer Knoten hat Zugriff auf den privaten Schlüssel für jedes Zertifikat.
+Wenn Sie einen oder mehrere Knoten (aber nicht jeden Knoten) in Ihrem HGS-Cluster verlieren, können Sie dem [Cluster einfach Knoten hinzufügen](guarded-fabric-configure-additional-hgs-nodes.md) , indem Sie die Anleitungen im Bereitstellungs Handbuch befolgen.
+Die Nachweis Richtlinien werden automatisch synchronisiert, ebenso wie alle Zertifikate, die HGS als PFX-Dateien mit begleitenden Kenn Wörtern bereitgestellt wurden.
+Für Zertifikate, die zu HGS mithilfe eines Fingerabdrucks (nicht exportierbar und Hardware gestützte Zertifikate, häufig) hinzugefügt werden, müssen Sie sicherstellen, dass jeder neue Knoten Zugriff auf den privaten Schlüssel jedes Zertifikats hat.
 
 #### <a name="recovering-from-the-loss-of-the-entire-cluster"></a>Wiederherstellung nach dem Verlust des gesamten Clusters
-Wenn der gesamte Cluster für die Host-Überwachungsdienst ausfällt und Sie nicht wieder online zu schalten, müssen Sie den Host-Überwachungsdienst aus einer Sicherung wiederherstellen.
-Umfasst die ersten Einrichten eines neuen Clusters von Host-Überwachungsdienst pro Host-Überwachungsdienst aus einer Sicherung wiederherstellen der [Anweisungen im Bereitstellungshandbuch](guarded-fabric-setting-up-the-host-guardian-service-hgs.md).
-Es wird dringend empfohlen, aber nicht erforderlich, um dem gleichen Clusternamen verwenden, wenn die Host-Überwachungsdienst-wiederherstellungsumgebung einrichten zur Unterstützung bei der namensauflösung von Hosts.
-Mit dem gleichen Namen vermeidet Hosts mit neuen Nachweis- und Schlüsselschutz-URLs zu konfigurieren.
-Wenn Sie mit der Active Directory-Domäne Sichern von Host-Überwachungsdienst Objekte wiederhergestellt haben, empfiehlt es sich, zu, die Objekte entfernen, die Host-Überwachungsdienst-Cluster, Computer, Dienstkonto und JEA-Gruppen vor der Initialisierung des HGS-Servers darstellen.
+Wenn der gesamte HGS-Cluster ausfällt und Sie nicht wieder online geschaltet werden können, müssen Sie HGS aus einer Sicherung wiederherstellen.
+Das Wiederherstellen von HGS aus einer Sicherung umfasst zunächst das Einrichten eines neuen HGS-Clusters gemäß der [Anleitung im Bereitstellungs Handbuch](guarded-fabric-setting-up-the-host-guardian-service-hgs.md).
+Es wird dringend empfohlen, den gleichen Cluster Namen zu verwenden, wenn die Recovery-HGS-Umgebung eingerichtet wird, um die Namensauflösung von Hosts zu unterstützen.
+Wenn Sie denselben Namen verwenden, müssen Sie die Hosts mit neuen Nachweis-und Schlüsselschutz-URLs nicht neu konfigurieren.
+Wenn Sie Objekte in den Active Directory Domänen Sicherungs-HGS wieder hergestellt haben, wird empfohlen, vor dem Initialisieren des HGS-Servers die Objekte zu entfernen, die den HGS-Cluster, die Computer, das Dienst Konto und die Jea-Gruppen darstellen.
 
-Nachdem Sie Ihre erste HGS-Knoten eingerichtet haben (z. B. es installiert und initialisiert wurde), gehen Sie die Schritte unter [Wiederherstellen von Host-Überwachungsdienst aus einer Sicherung](#restoring-hgs-from-a-backup) Nachweis Richtlinien und öffentliche Hälften der Schutz für den Schlüssel wiederherstellen Zertifikate.
-Sie benötigen zum Wiederherstellen der private Schlüssel für Ihre Zertifikate manuell gemäß den Anweisungen Ihres Anbieters Zertifikat (z. B. importieren Sie das Zertifikat in Windows, oder Konfigurieren des Zugriffs auf das HSM-gesicherten Zertifikate).
-Nach der erste Knoten haben eingerichtet, können Sie weiterhin [zusätzliche Knoten im Cluster installieren](guarded-fabric-configure-additional-hgs-nodes.md) , bis Sie die Kapazität und die gewünschte resilienz erreicht haben.
+Nachdem Sie den ersten HGS-Knoten eingerichtet haben (z. b. installiert und initialisiert), befolgen Sie die Verfahren unter Wiederherstellen [von HGS aus einer Sicherung](#restoring-hgs-from-a-backup) , um die Nachweis Richtlinien und die öffentliche Hälfte der Schlüsselschutz Zertifikate wiederherzustellen.
+Die privaten Schlüssel für Ihre Zertifikate müssen manuell gemäß der Anleitung Ihres Zertifikat Anbieters wieder hergestellt werden (z. b. Importieren des Zertifikats in Windows oder Konfigurieren des Zugriffs auf HSM-gestützte Zertifikate).
+Nachdem Sie den ersten Knoten eingerichtet haben, können Sie weiterhin [zusätzliche Knoten auf dem Cluster installieren](guarded-fabric-configure-additional-hgs-nodes.md) , bis Sie die gewünschte Kapazität und Resilienz erreicht haben.
 
-### <a name="backing-up-hgs"></a>Sichern von Host-Überwachungsdienst
-Der HGS-Administrator soll für das Sichern von Host-Überwachungsdienst in regelmäßigen Abständen zuständig sein.
-Eine vollständige Sicherung enthält vertrauliche Daten, die entsprechend gesichert werden müssen.
-Eine nicht vertrauenswürdige Entität den Zugriff auf diese Schlüssel erlangen sollte, können sie, dass Material, das Einrichten einer böswilligen Host-Überwachungsdienst-Umgebung für die Beeinträchtigung von VMs abgeschirmten verwenden.
+### <a name="backing-up-hgs"></a>Sichern von HGS
+Der HGS-Administrator sollte in regelmäßigen Abständen für die Sicherung von HGS verantwortlich sein.
+Eine komplette Sicherung enthält vertrauliche Schlüsselmaterial, die entsprechend gesichert werden müssen.
+Sollte eine nicht vertrauenswürdige Entität Zugriff auf diese Schlüssel erhalten, können Sie diese Informationen verwenden, um eine bösartige HGS-Umgebung zum Zweck der Gefährdung von abgeschirmten VMS einzurichten.
 
-**Sichern die Richtlinien Nachweis** wieder um die Richtlinien für den Host-Überwachungsdienst-Nachweis, den folgenden Befehl auf einem beliebigen arbeiten HGS-Server-Knoten ausgeführt.
+**Sichern der Nachweis Richtlinien** Um die Richtlinien für den HGS-Nachweis zu sichern, führen Sie den folgenden Befehl auf einem beliebigen funktionierenden HGS-Server Knoten aus.
 Sie werden aufgefordert, ein Kennwort anzugeben.
-Dieses Kennwort wird verwendet, um alle Zertifikate, die mit einer PFX-Datei (anstatt den Fingerabdruck eines Zertifikats) Host-Überwachungsdienst hinzugefügt zu verschlüsseln.
+Dieses Kennwort wird zum Verschlüsseln aller Zertifikate verwendet, die zu HGS hinzugefügt werden, indem eine PFX-Datei (anstelle eines Zertifikat Fingerabdrucks) verwendet wird.
 
 ```powershell
 Export-HgsServerState -Path C:\temp\HGSBackup.xml
 ```
 
 > [!NOTE]
-> Wenn Sie Admin-vertrauenswürdiger Nachweis verwenden, müssen Sie die Mitgliedschaft in den Sicherheitsgruppen, die Host-Überwachungsdiensts für überwachte Hosts zu autorisieren separat sichern.
-> Host-Überwachungsdienst wird die SID der Sicherheitsgruppen, nicht die Mitgliedschaft in ihnen nur sichern.
-> Den Fall, dass diese Gruppen während eines Notfalls verloren gegangen sind, müssen Sie die Gruppen neu zu erstellen, und fügen Sie jeden überwachten Host auf diese erneut hinzu.
+> Wenn Sie einen vom Administrator vertrauenswürdigen Nachweis verwenden, müssen Sie die Mitgliedschaft in den Sicherheitsgruppen, die von HGS zum Autorisieren von überwachten Hosts verwendet werden, separat sichern.
+> HGS sichert nur die SID der Sicherheitsgruppen, nicht die darin enthaltenen Mitgliedschaften.
+> Wenn diese Gruppen während eines Notfalls verloren gehen, müssen Sie die Gruppe (n) neu erstellen und jeden überwachten Host erneut hinzufügen.
 
 **Sichern von Zertifikaten**
 
-Die `Export-HgsServerState` Befehl sichert alle PFX-Zertifikate Host-Überwachungsdienst hinzugefügt, die zum Zeitpunkt der Befehl ausgeführt wird.
-Wenn Sie Host-Überwachungsdienst Zertifikate hinzugefügt müssen mit einem Fingerabdruck (typisch für nicht exportierbare und hardwaregestützten Zertifikate), Sie die privaten Schlüssel für die Zertifikate manuell zu sichern.
-Um zu ermitteln, welche Zertifikate bei HGS registriert werden und müssen manuell gesichert werden, führen Sie den folgenden PowerShell-Befehl auf einem beliebigen arbeiten HGS-Server-Knoten.
+Der Befehl "`Export-HgsServerState`" sichert alle PFX-basierten Zertifikate, die zu dem Zeitpunkt, zu dem der Befehl ausgeführt wird, den HGS hinzugefügt werden.
+Wenn Sie HGS Zertifikate mithilfe eines Fingerabdrucks (typisch für nicht exportierbare und Hardware gestützte Zertifikate) hinzugefügt haben, müssen Sie die privaten Schlüssel für Ihre Zertifikate manuell sichern.
+Um zu ermitteln, welche Zertifikate bei HGS registriert sind und manuell gesichert werden müssen, führen Sie den folgenden PowerShell-Befehl auf einem beliebigen funktionierenden HGS-Server Knoten aus.
 
 ```powershell
 Get-HgsKeyProtectionCertificate | Where-Object { $_.CertificateData.GetType().Name -eq 'CertificateReference' } | Format-Table Thumbprint, @{ Label = 'Subject'; Expression = { $_.CertificateData.Certificate.Subject } }
 ```
 
-Für jede der aufgeführten Zertifikate müssen Sie den privaten Schlüssel manuell sichern.
-Wenn Sie Software-basiertes Zertifikat, die nicht exportiert wird verwenden, sollten Sie Ihrer Zertifizierungsstelle, um sicherzustellen, dass sie über eine Sicherung des Zertifikats verfügen, bzw. können sie bei Bedarf neu ausstellen wenden.
-Für Zertifikate, die Erstellung und Speicherung in Hardwaresicherheitsmodulen sollten Sie die Dokumentation für Ihr Gerät Anleitungen zur Planung der notfallwiederherstellung sprechen.
+Für jedes der aufgeführten Zertifikate müssen Sie den privaten Schlüssel manuell sichern.
+Wenn Sie ein softwarebasiertes Zertifikat verwenden, das nicht exportierbar ist, wenden Sie sich an die Zertifizierungsstelle, um sicherzustellen, dass Sie über eine Sicherung Ihres Zertifikats verfügen, und/oder können Sie bei Bedarf neu ausstellen.
+Bei Zertifikaten, die in Hardware Sicherheits Modulen erstellt und gespeichert werden, sollten Sie sich in der Dokumentation zu Ihrem Gerät über die Planung der Notfall Wiederherstellung informieren.
 
-Sie sollten die Zertifikat-Sicherungen zusammen mit Ihrer Nachweis Richtlinie Sicherungen an einem sicheren Ort speichern, sodass beide zusammen wiederhergestellt werden können.
+Sie sollten die Zertifikat Sicherungen zusammen mit den Nachweis Richtlinien Sicherungen an einem sicheren Ort speichern, damit beide Teile zusammen wieder hergestellt werden können.
 
-**Zusätzliche Konfiguration zum Sichern**
+**Zusätzliche Konfiguration für die Sicherungskopie**
 
-Die gesicherte HGS-Serverstatus umfasst nicht den Namen Ihres Clusters HGS-Informationen aus Active Directory oder SSL-Zertifikate zum Sichern der Kommunikation mit HGS-APIs verwendet.
-Diese Einstellungen sind wichtig für Konsistenz jedoch nicht kritisch ist, um nach einem Notfall Ihren HGS-Cluster wieder online zu erhalten.
+Der gesicherte HGS-Serverstatus enthält nicht den Namen Ihres HGS-Clusters, Informationen aus Active Directory oder SSL-Zertifikate, die zum Sichern der Kommunikation mit den HGS-APIs verwendet werden.
+Diese Einstellungen sind wichtig, um Konsistenz zu gewährleisten, aber nicht wichtig, um Ihren HGS-Cluster nach einem Notfall wieder online zu schalten.
 
-Führen Sie zum Erfassen der Namen des Host-Überwachungsdienst-Diensts `Get-HgsServer` und notieren Sie den flachen Namen in den Nachweis- und Schlüsselschutz-URLs für Schlüssel.
-Wenn die Nachweis-URL ist beispielsweise "<http://hgs.contoso.com/Attestation>", "Host-Überwachungsdienst" ist der Host-Überwachungsdienst-Dienstname.
+Um den Namen des HGS-dienstanweises zu erfassen, führen Sie `Get-HgsServer` aus, und notieren Sie sich den flachen Namen in den URLs für Nachweis und Schlüsselschutz.
+Wenn die Nachweis-URL z. b. "<http://hgs.contoso.com/Attestation>" ist, ist "HGS" der Name des HGS-dienstanweises.
 
-Active Directory-Domäne ein, die Host-Überwachungsdienst muss wie alle anderen Active Directory-Domäne verwaltet werden.
-Wenn Sie Host-Überwachungsdienst nach einem Notfall wiederherstellen zu können, müssen nicht unbedingt Sie der exakt die Objekte neu erstellen, die in der aktuellen Domäne vorhanden sind.
-Allerdings wird es leichter Wiederherstellung, wenn Sie Active Directory sichern, und halten eine Liste mit den JEA-Benutzern, berechtigt, das System als auch die Mitgliedschaft der keiner Sicherheitsgruppe an, die Admin-vertrauenswürdiger Nachweis für das Autorisieren von überwachten Hosts zu verwalten.
+Die von HGS verwendete Active Directory Domäne sollte wie jede andere Active Directory Domäne verwaltet werden.
+Wenn Sie HGS nach einem Notfall wiederherstellen, müssen Sie nicht unbedingt die exakten Objekte neu erstellen, die in der aktuellen Domäne vorhanden sind.
+Allerdings wird die Wiederherstellung vereinfacht, wenn Sie Active Directory sichern und eine Liste der Jea-Benutzer, die zur Verwaltung des Systems autorisiert sind, sowie die Mitgliedschaft von Sicherheitsgruppen, die vom Administrator vertrauenswürdigen Nachweis verwendet werden, zum Autorisieren von überwachten Hosts erhalten.
 
-Um den Fingerabdruck des SSL-Zertifikats konfiguriert, die für die Host-Überwachungsdiensts zu ermitteln, führen Sie den folgenden Befehl in PowerShell aus.
-Sie können die SSL-Zertifikate entsprechend den Anweisungen des Anbieters für Ihr Zertifikat sichern.
+Führen Sie den folgenden Befehl in PowerShell aus, um den Fingerabdruck der SSL-Zertifikate zu identifizieren, die für HGS konfiguriert sind.
+Anschließend können Sie die SSL-Zertifikate gemäß den Anweisungen Ihres Zertifikat Anbieters sichern.
 
 ```powershell
 Get-WebBinding -Protocol https | Select-Object certificateHash
 ```
 
-### <a name="restoring-hgs-from-a-backup"></a>Host-Überwachungsdienst aus einer Sicherung wiederherstellen
-Die folgenden Schritte beschreiben, wie Sie HGS-Einstellungen aus einer Sicherung wiederherstellen.
-Die Schritte sind für beide Situationen, in dem Sie versuchen, Änderungen, die für Ihre bereits ausgeführten Host-Überwachungsdienst-Instanzen, und wenn Sie einen neuen Host-Überwachungsdienst-Cluster nach einem vollständigen Verlust von der vorherigen App ständigen sind rückgängig zu machen.
+### <a name="restoring-hgs-from-a-backup"></a>Wiederherstellen von HGS aus einer Sicherung
+In den folgenden Schritten wird beschrieben, wie Sie die HGS-Einstellungen aus einer Sicherung wiederherstellen.
+Die Schritte sind für beide Situationen relevant, in denen Sie versuchen, Änderungen an Ihren bereits vorhandenen HGS-Instanzen rückgängig zu machen, und wenn Sie nach einem vollständigen Verlust der vorherigen Instanz einen neuen HGS-Cluster einrichten.
 
-#### <a name="set-up-a-replacement-hgs-cluster"></a>Einrichten eines Ersatz-Host-Überwachungsdienst-Clusters
-Bevor Sie die Host-Überwachungsdienst wiederherstellen können, benötigen Sie einen initialisierten HGS-Cluster, den Sie die Konfiguration wiederherstellen können.
-Wenn Sie einfach Einstellungen, die versehentlich gelöscht wurden zu einem vorhandenen (wird ausgeführt)-Cluster importieren, können Sie diesen Schritt überspringen.
-Wenn Sie von einem vollständigen Verlust der Host-Überwachungsdienst wiederherstellen, müssen Sie Sie installieren und Initialisieren mindestens einen Host-Überwachungsdienst Knoten hinter dem [Anweisungen im Bereitstellungshandbuch](guarded-fabric-setting-up-the-host-guardian-service-hgs.md).
+#### <a name="set-up-a-replacement-hgs-cluster"></a>Einrichten eines Ersetzungs-HGS-Clusters
+Bevor Sie HGS wiederherstellen können, benötigen Sie einen initialisierten HGS-Cluster, auf dem Sie die Konfiguration wiederherstellen können.
+Wenn Sie einfach Einstellungen importieren, die versehentlich in einen vorhandenen (laufenden) Cluster gelöscht wurden, können Sie diesen Schritt überspringen.
+Wenn Sie nach einem kompletten Verlust von HGS wiederherstellen, müssen Sie mindestens einen HGS-Knoten installieren und initialisieren, indem Sie die [Anweisungen im Bereitstellungs Handbuch](guarded-fabric-setting-up-the-host-guardian-service-hgs.md)befolgen.
 
-Insbesondere müssen Sie:
-1. [Richten Sie die Domäne für die Host-Überwachungsdienst](guarded-fabric-choose-where-to-install-hgs.md) oder Host-Überwachungsdienst mit einer vorhandenen Domäne verknüpfen
-2. [Initialisieren Sie den Server-Host-Überwachungsdienst](guarded-fabric-initialize-hgs.md) mithilfe Ihrer vorhandenen Schlüssel *oder* einen Satz von temporären Schlüsseln. Sie können [entfernen Sie die temporäre Schlüssel](#renewing-or-replacing-keys) Sicherungsdateien nach dem Importieren von Ihrer tatsächlichen Schlüssel aus der Host-Überwachungsdienst.
-3. [HGS-Einstellungen importieren](#import-settings-from-a-backup) aus der Sicherung zum Wiederherstellen der vertrauenswürdigen Hostgruppen, anwendungssteuerungscode-Integritätsrichtlinien, TPM-Baselines und TPM-Bezeichner
+Insbesondere müssen Sie die folgenden Schritte ausführen:
+1. [Einrichten der HGS-Domäne](guarded-fabric-choose-where-to-install-hgs.md) oder einbinden von HGS in eine vorhandene Domäne
+2. [Initialisieren Sie den HGS-Server](guarded-fabric-initialize-hgs.md) mit Ihren vorhandenen Schlüsseln *oder* einem Satz von temporären Schlüsseln. Sie können [die temporären Schlüssel](#renewing-or-replacing-keys) nach dem Importieren Ihrer eigentlichen Schlüssel aus den HGS-Sicherungsdateien entfernen.
+3. [Importieren Sie die HGS-Einstellungen](#import-settings-from-a-backup) aus der Sicherung, um die vertrauenswürdigen Host Gruppen, Code Integritäts Richtlinien, TPM-Baselines und TPM-IDs wiederherzustellen.
 
 > [!TIP]
-> Der neue Host-Überwachungsdienst-Cluster muss nicht die gleichen Zertifikate, Dienstname oder Domäne wie die Host-Überwachungsdienst-Instanz verwenden, aus denen Ihre Sicherungsdatei exportiert wurde.
+> Der neue HGS-Cluster muss nicht die gleichen Zertifikate, den gleichen Dienstnamen oder die gleiche Domäne wie die HGS-Instanz verwenden, von der aus die Sicherungsdatei exportiert wurde.
 
 #### <a name="import-settings-from-a-backup"></a>Importieren von Einstellungen aus einer Sicherung
 
-Richtlinien, PFX-Zertifikate und die öffentlichen Schlüssel der nicht-PFX-Zertifikate auf Ihrem Host-Überwachungsdienst-Knoten aus einer Sicherungsdatei, und führen den folgenden Befehl zum Nachweis wiederherstellen auf einem Knoten der initialisierten HGS-Server.
-Sie werden aufgefordert, das Kennwort einzugeben, die, das Sie beim Erstellen der sicherungs angegeben.
+Führen Sie den folgenden Befehl auf einem initialisierten HGS-Server Knoten aus, um Nachweis Richtlinien, PFX-basierte Zertifikate und die öffentlichen Schlüssel von nicht-PFX-Zertifikaten auf Ihrem HGS-Knoten aus einer Sicherungsdatei wiederherzustellen.
+Sie werden aufgefordert, das Kennwort einzugeben, das Sie beim Erstellen der Sicherung angegeben haben.
 
 ```powershell
 Import-HgsServerState -Path C:\Temp\HGSBackup.xml
 ```
 
-Wenn Sie nur die Admin-vertrauenswürdiger Nachweis oder TPM-vertrauenswürdiger Nachweis Richtlinien importieren möchten, erreichen Sie dies durch Angabe der `-ImportActiveDirectoryModeState` oder `-ImportTpmModeState` flags [Import-HgsServerState](https://technet.microsoft.com/library/mt652168.aspx).
+Wenn Sie nur von Administratoren vertrauenswürdige Nachweis Richtlinien oder TPM-vertrauenswürdige Nachweis Richtlinien importieren möchten, können Sie dies tun, indem Sie die Flags "`-ImportActiveDirectoryModeState`" oder "`-ImportTpmModeState`" für " [Import-hgsserverstate](https://technet.microsoft.com/library/mt652168.aspx)" angeben.
 
-Stellen Sie das neueste kumulative Update für Windows Server 2016, vor der Ausführung installiert ist sicher `Import-HgsServerState`.
-Bei unterlassen kann ein Importfehler führen.
+Stellen Sie sicher, dass das neueste kumulative Update für Windows Server 2016 installiert ist, bevor Sie `Import-HgsServerState` ausführen.
+Wenn dies nicht der Fall ist, kann ein Import Fehler auftreten.
 
 > [!NOTE]
-> Wenn Sie Richtlinien auf einem vorhandenen Host-Überwachungsdienst-Knoten wiederherstellen, die bereits eine oder mehrere der diese Richtlinien, die installiert wird, wird der Importbefehl ein Fehler für jede duplizierungsrichtlinie angezeigt.
-> Dies ist ein erwartetes Verhalten und kann ignoriert werden in den meisten Fällen.
+> Wenn Sie Richtlinien auf einem vorhandenen HGS-Knoten wiederherstellen, auf dem bereits eine oder mehrere dieser Richtlinien installiert sind, wird im Import Befehl ein Fehler für jede doppelte Richtlinie angezeigt.
+> Dies ist ein erwartetes Verhalten und kann in den meisten Fällen problemlos ignoriert werden.
 
-#### <a name="reinstall-private-keys-for-certificates"></a>Installieren von privaten Schlüsseln für Zertifikate
-Wenn eines der Zertifikate, die auf der Host-Überwachungsdienst, der aus dem die Sicherung erstellt wurde, verwendet die Fingerabdrücke mit hinzugefügt wurden, wird nur der öffentliche Schlüssel dieser Zertifikate in der Sicherungsdatei enthalten sein.
-Dies bedeutet, dass Sie benötigen, manuell zu installieren bzw. zu gewähren Zugriff auf die privaten Schlüssel für jede dieser Zertifikate, bevor Anforderungen von Hyper-V-Hosts von Host-Überwachungsdienst verarbeitet werden können.
-Die erforderlichen Aktionen zum Abschluss dieses Schritts wird, hängt davon ab, wie das Zertifikat ursprünglich ausgestellt wurde.
-Für Software-Zertifikate von einer Zertifizierungsstelle ausgestellt, Sie benötigen, wenden Sie sich an die Zertifizierungsstelle aus, um den privaten Schlüssel zu ermitteln und installieren Sie es auf **jedes** HGS-Knoten gemäß ihren Anweisungen.
-Falls Ihre Zertifikate hardwaregestützten sind, müssen Sie analog dazu finden Sie in der Hardware Security Module Dokumentation des Herstellers zum Installieren der erforderlichen Treiber auf jedem Host-Überwachungsdienst-Knoten das HSM herstellen, und jeder Computerzugriff auf den privaten Schlüssel zu gewähren.
+#### <a name="reinstall-private-keys-for-certificates"></a>Neuinstallation privater Schlüssel für Zertifikate
+Wenn eines der Zertifikate, die auf dem HGS verwendet werden, von dem die Sicherung erstellt wurde, mithilfe von Fingerabdrücken hinzugefügt wurde, wird nur der öffentliche Schlüssel dieser Zertifikate in die Sicherungsdatei eingeschlossen.
+Dies bedeutet, dass Sie für jedes dieser Zertifikate manuell installieren und/oder Zugriff auf die privaten Schlüssel gewähren müssen, bevor HGS Anforderungen von Hyper-V-Hosts bedienen kann.
+Welche Aktionen zum Durchführen dieses Schritts erforderlich sind, hängt davon ab, wie das Zertifikat ursprünglich ausgestellt wurde.
+Bei softwaregestützten Zertifikaten, die von einer Zertifizierungsstelle ausgestellt werden, müssen Sie sich an Ihre Zertifizierungsstelle wenden, um den privaten Schlüssel zu erhalten und auf **jedem** HGS-Knoten gemäß Ihren Anweisungen zu installieren.
+Wenn Ihre Zertifikate auf Hardware basieren, müssen Sie auch die Dokumentation Ihres Hardware Sicherheitsmodul-Herstellers aufrufen, um die erforderlichen Treiber auf den einzelnen HGS-Knoten zu installieren, um eine Verbindung mit dem HSM herzustellen und jedem Computer Zugriff auf den privaten Schlüssel zu gewähren.
 
-Zur Erinnerung: müssen die Zertifikate, die Host-Überwachungsdienst mit Fingerabdrücke hinzugefügt manuelle Replikation der private Schlüssel für jeden Knoten.
-Sie müssen diesen Schritt für jeden zusätzlichen Knoten zu wiederholen, die Sie den wiederhergestellten HGS-Cluster hinzufügen.
+Zur Erinnerung: Zertifikate, die HGS mithilfe von Fingerabdrücken hinzugefügt werden, erfordern eine manuelle Replikation der privaten Schlüssel für jeden Knoten.
+Sie müssen diesen Schritt auf jedem zusätzlichen Knoten wiederholen, den Sie dem wiederhergestellten HGS-Cluster hinzufügen.
 
-#### <a name="review-imported-attestation-policies"></a>Überprüfen Sie importierte Attestation-Richtlinien
-Nachdem Sie Ihre Einstellungen aus einer Sicherung importiert haben, es wird empfohlen, genau die importierten Richtlinien mithilfe von überprüfen alle `Get-HgsAttestationPolicy` um sicherzustellen, dass nur die Hosts, die Ihnen als vertrauenswürdig eingestufter abgeschirmte VMs ausführen kann erfolgreich bestätigen.
-Wenn Sie alle Richtlinien gefunden haben, die mit Ihren Sicherheitsstatus nicht mehr übereinstimmen, können Sie [deaktivieren oder entfernen sie](#review-attestation-policies).
+#### <a name="review-imported-attestation-policies"></a>Überprüfen der importierten Nachweis Richtlinien
+Nachdem Sie die Einstellungen aus einer Sicherung importiert haben, empfiehlt es sich, alle importierten Richtlinien mithilfe von `Get-HgsAttestationPolicy` genau zu überprüfen, um sicherzustellen, dass nur die Hosts, denen Sie Vertrauen, dass Sie abgeschirmte VMS ausführen, erfolgreich bestätigt werden können.
+Wenn Sie Richtlinien finden, die nicht mehr dem Sicherheitsstatus entsprechen, können Sie [diese deaktivieren oder entfernen](#review-attestation-policies).
 
-#### <a name="run-diagnostics-to-check-system-state"></a>Führen Sie Diagnosen zum Überprüfen des Systemstatus
-Wenn Sie das Einrichten und das Wiederherstellen des Zustands Ihrer Host-Überwachungsdienst-Knotens abgeschlossen haben, sollten Sie die Host-Überwachungsdienst-Diagnosetool zum Überprüfen des Zustands des Systems ausführen.
-Zu diesem Zweck führen Sie den folgenden Befehl auf dem Host-Überwachungsdienst-Knoten, in dem Sie die Konfiguration wiederhergestellt:
+#### <a name="run-diagnostics-to-check-system-state"></a>Ausführen der Diagnose zum Überprüfen des Systemstatus
+Nachdem Sie die Einrichtung und Wiederherstellung des Status des HGS-Knotens abgeschlossen haben, sollten Sie das HGS-Diagnosetool ausführen, um den Status des Systems zu überprüfen.
+Führen Sie hierzu den folgenden Befehl auf dem HGS-Knoten aus, auf dem Sie die Konfiguration wieder hergestellt haben:
 
 ```powershell
 Get-HgsTrace -RunDiagnostics
 ```
 
-Wenn das Ergebnis"insgesamt" ist nicht "erfolgreich", sind zusätzliche Schritte erforderlich, um die Konfiguration des Systems abzuschließen.
-Überprüfen Sie die Meldungen in die Subtest(s), die nicht für Weitere Informationen.
+Wenn das "Gesamtergebnis" nicht "Pass" ist, sind zusätzliche Schritte erforderlich, um die Konfiguration des Systems abzuschließen.
+Überprüfen Sie die in den untertests gemeldeten Meldungen, bei denen weitere Informationen aufgetreten sind.
 
-## <a name="patching-hgs"></a>Patchen von Host-Überwachungsdienst
-Es ist wichtig, die Host-Überwachungsdienst-Knoten, auf dem neuesten Stand halten, indem Sie das neueste kumulative Update zu installieren, wenn es darum geht. Wenn Sie einen neuen Host-Überwachungsdienst-Knoten festlegen, wird dringend empfohlen, bevor Sie die Host-Überwachungsdienst-Rolle installieren oder Konfigurieren von allen verfügbaren Updates zu installieren.
-Dies sorgt eine neue oder geänderte Funktionalität wird sofort wirksam.
+## <a name="patching-hgs"></a>Patching von HGS
+Es ist wichtig, die Knoten des Host-Überwachungs Diensts auf dem neuesten Stand zu halten, indem Sie das aktuellste kumulative Update installieren. Wenn Sie einen neuen HGS-Knoten einrichten, wird dringend empfohlen, dass Sie alle verfügbaren Updates installieren, bevor Sie die HGS-Rolle installieren oder konfigurieren.
+Dadurch wird sichergestellt, dass neue oder geänderte Funktionen sofort wirksam werden.
 
-Wenn Ihr geschützte Fabric zu patchen, es wird dringend empfohlen, dass Sie zunächst ein upgrade *alle* Hyper-V-Hosts **vor dem Upgrade von Host-Überwachungsdienst**.
-Dadurch wird sichergestellt, dass alle an den Nachweis-Richtlinien auf Host-Überwachungsdienst Änderungen *nach* Hyper-V-Hosts wurden aktualisiert, um die für sie erforderlichen Informationen bereitstellen.
-Wenn ein Update zum Ändern des Verhaltens von Richtlinien geht, werden sie nicht automatisch aktiviert werden, zu vermeiden, dass Ihr Fabric.
-Solche Updates erfordern, dass Sie die Anweisungen in den folgenden Abschnitt aktivieren Sie die neue oder geänderte Nachweis Richtlinien befolgen.
-Wir empfehlen Ihnen, lesen die Anmerkungen zu dieser Version für Windows Server und sämtliche kumulativen Updates, die Sie installieren, um festzustellen, ob die Richtlinie für Updates erforderlich sind.
+Beim Patchen ihres geschützten Fabrics wird dringend empfohlen, zuerst *alle* Hyper-V-Hosts **vor dem Upgrade von HGS**zu aktualisieren.
+Dadurch wird sichergestellt, dass alle Änderungen an den Nachweis Richtlinien auf den HGS vorgenommen werden, *nachdem* die Hyper-V-Hosts aktualisiert wurden, um die für Sie erforderlichen Informationen bereitzustellen.
+Wenn das Verhalten von Richtlinien durch ein Update geändert wird, werden Sie nicht automatisch aktiviert, um die Unterbrechung Ihres Fabrics zu vermeiden.
+Diese Updates erfordern, dass Sie die Anweisungen im folgenden Abschnitt befolgen, um die neuen oder geänderten Nachweis Richtlinien zu aktivieren.
+Wir empfehlen Ihnen, die Anmerkungen zu dieser Version für Windows Server und alle kumulativen Updates zu lesen, die Sie installieren, um zu prüfen, ob die Richtlinien Updates erforderlich sind.
 
-### <a name="updates-requiring-policy-activation"></a>Updates, die eine Richtlinie Aktivierung erfordern
-Wenn ein Update für die Host-Überwachungsdienst führt oder merklich das Verhalten einer Richtlinie Nachweis ändert, ist ein zusätzlicher Schritt erforderlich, um die geänderte Richtlinie zu aktivieren.
-Richtlinienänderungen werden nur durchgeführt, nach dem Exportieren und importieren den Host-Überwachungsdienst-Zustand.
-Sie sollten nur die neuen oder geänderten Richtlinien aktivieren, nachdem Sie das kumulative Update für alle Hosts und alle HGS-Knoten in Ihrer Umgebung angewendet haben.
-Nachdem alle Computer aktualisiert wurde, führen Sie die folgenden Befehle auf einem Host-Überwachungsdienst-Knoten zum Auslösen des Upgradevorgangs ein:
+### <a name="updates-requiring-policy-activation"></a>Updates, die die Richtlinien Aktivierung erfordern
+Wenn ein Update für HGS das Verhalten einer Nachweis Richtlinie einführt oder erheblich ändert, ist ein zusätzlicher Schritt erforderlich, um die geänderte Richtlinie zu aktivieren.
+Richtlinien Änderungen werden nur nach dem Exportieren und Importieren des HGS-Zustands festgesetzt.
+Sie sollten nur die neuen oder geänderten Richtlinien aktivieren, nachdem Sie das kumulative Update auf alle Hosts und alle HGS-Knoten in Ihrer Umgebung angewendet haben.
+Nachdem jeder Computer aktualisiert wurde, führen Sie die folgenden Befehle auf einem beliebigen HGS-Knoten aus, um den Upgradevorgang zu initiieren:
 
 ```powershell
 $password = Read-Host -AsSecureString -Prompt "Enter a temporary password"
@@ -316,8 +316,8 @@ Export-HgsServerState -Path .\temporaryExport.xml -Password $password
 Import-HgsServerState -Path .\temporaryExport.xml -Password $password
 ```
 
-Wenn eine neue Richtlinie eingeführt wurde, wird es standardmäßig deaktiviert.
-Um die neue Richtlinie zu aktivieren, finden Sie ihn zuerst in der Liste der Microsoft-Richtlinien (mit dem Präfix "HGS_"), und aktivieren Sie sie mit den folgenden Befehlen:
+Wenn eine neue Richtlinie eingeführt wurde, wird Sie standardmäßig deaktiviert.
+Um die neue Richtlinie zu aktivieren, suchen Sie Sie zuerst in der Liste der Microsoft-Richtlinien (mit dem Präfix "HGS_"), und aktivieren Sie Sie dann mit den folgenden Befehlen:
 
 ```powershell
 Get-HgsAttestationPolicy
@@ -325,119 +325,119 @@ Get-HgsAttestationPolicy
 Enable-HgsAttestationPolicy -Name <Hgs_NewPolicyName>
 ```
 
-## <a name="managing-attestation-policies"></a>Verwalten von Attestation-Richtlinien
-Host-Überwachungsdienst verwaltet mehrere Attestation-Richtlinien, die den minimalen Satz von Anforderungen zu definieren, die ein Host erfüllen muss, um als "fehlerfrei" erachtet und abgeschirmte VMs ausgeführt werden.
-Einige dieser Richtlinien von Microsoft definiert sind, werden andere von Ihnen definieren Sie die zulässige anwendungssteuerungscode-Integritätsrichtlinien, TPM-Baselines und Hosts in Ihrer Umgebung hinzugefügt.
-Regelmäßige Wartung dieser Richtlinien ist erforderlich, um sicherzustellen, dass die Hosts bestätigen ordnungsgemäß fortfahren können, zu aktualisieren und zu ersetzen, und um sicherzustellen, dass alle nicht vertrauenswürdigen Hosts oder -Konfigurationen werden blockiert erfolgreich bestätigen.
+## <a name="managing-attestation-policies"></a>Verwalten von Nachweis Richtlinien
+HGS verwaltet mehrere Nachweis Richtlinien, die die Mindestanzahl von Anforderungen definieren, die ein Host erfüllen muss, um als "fehlerfrei" eingestuft zu werden, und für die das Ausführen von abgeschirmten VMS zugelassen ist.
+Einige dieser Richtlinien werden von Microsoft definiert, andere werden von Ihnen hinzugefügt, um die zulässigen Code Integritäts Richtlinien, TPM-Baselines und Hosts in Ihrer Umgebung zu definieren.
+Eine regelmäßige Wartung dieser Richtlinien ist erforderlich, um sicherzustellen, dass Hosts beim Aktualisieren und ersetzen weiterhin ordnungsgemäß getestet werden können, und um sicherzustellen, dass nicht vertrauenswürdige Hosts oder Konfigurationen nicht erfolgreich getestet werden können.
 
-Für Admin-vertrauenswürdigem Nachweis ist nur eine Richtlinie, das bestimmt, ob ein Host fehlerfrei ist: Mitgliedschaft in einer bekannten, vertrauenswürdigen Sicherheitsgruppe.
-TPM-Nachweis ist komplizierter, und umfasst verschiedene Richtlinien zum Messen der den Code und Konfiguration eines Systems, bevor Sie bestimmen, ob sie fehlerfrei ist.
+Für den Administrator vertrauenswürdigen Nachweis gibt es nur eine Richtlinie, die bestimmt, ob ein Host fehlerfrei ist: Mitgliedschaft in einer bekannten, vertrauenswürdigen Sicherheitsgruppe.
+Der TPM-Nachweis ist komplizierter und umfasst verschiedene Richtlinien, mit denen der Code und die Konfiguration eines Systems gemessen werden können, bevor festgestellt wird, ob es fehlerfrei ist.
 
-Eine einzelne Host-Überwachungsdienst kann gleichzeitig mit Active Directory und TPM-Richtlinien konfiguriert werden, aber der Dienst überprüft nur die Richtlinien für den aktuellen Modus, die sie für konfiguriert ist, wenn ein Host bestätigen versucht.
-Führen Sie zum Überprüfen Ihrer Host-Überwachungsdienst-Servermodus `Get-HgsServer`.
+Ein einzelner HGS kann gleichzeitig mit Active Directory-und TPM-Richtlinien konfiguriert werden, aber der Dienst überprüft nur die Richtlinien für den aktuellen Modus, für den er konfiguriert ist, wenn ein Host versucht, die Tests zu testen.
+Führen Sie `Get-HgsServer` aus, um den Modus des HGS-Servers zu überprüfen.
 
 ### <a name="default-policies"></a>Standardrichtlinien
-Für TPM-vertrauenswürdiger Nachweis es gibt mehrere integrierte Richtlinien, die auf dem Host-Überwachungsdienst konfiguriert.
-Einige dieser Richtlinien sind "gesperrt" bedeutet, dass sie aus Sicherheitsgründen nicht deaktiviert werden können –.
-In der folgenden Tabelle erläutert den Zweck der einzelnen Standardrichtlinie.
+Für den TPM-vertrauenswürdigen Nachweis gibt es mehrere integrierte Richtlinien, die auf HGS konfiguriert sind.
+Einige dieser Richtlinien sind "gesperrt", was bedeutet, dass Sie aus Sicherheitsgründen nicht deaktiviert werden können.
+In der folgenden Tabelle wird der Zweck jeder Standard Richtlinie erläutert.
 
 Richtlinienname                    | Zweck
 -------------------------------|-----------------------------------------------------
-Hgs_SecureBootEnabled          | Erfordert die Hosts in der sichere Start aktiviert. Dies ist erforderlich, die Start-Binärdateien und andere UEFI-locked-Einstellungen zu messen.
-Hgs_UefiDebugDisabled          | Stellt sicher, dass die Hosts keinen Kerneldebugger aktiviert haben. Benutzermodus-Debugger werden mit anwendungssteuerungscode-Integritätsrichtlinien blockiert.
-Hgs_SecureBootSettings         | Negative Richtlinie, um sicherzustellen, dass die Hosts über mindestens eine TPM-Baseline (vom Administrator definiert) übereinstimmen.
-Hgs_CiPolicy                   | Negative Richtlinie, um sicherzustellen, dass die Hosts, die eine der vom Administrator definierte CI-Richtlinien verwendet werden.
-Hgs_HypervisorEnforcedCiPolicy | Erfordert die codeintegritätsrichtlinie vom Hypervisor erzwungen werden. Bei Deaktivierung dieser Richtlinie Verringerung Ihrer Schutzmaßnahmen gegen Angriffe von Kernelmodus-Code Integrity Richtlinie.
-Hgs_FullBoot                   | Stellt sicher, dass der Host nicht aus dem Energiesparmodus oder Ruhezustand fortgesetzt. Hosts müssen ordnungsgemäß neu gestartet oder heruntergefahren, die diese Richtlinie übergeben werden.
-Hgs_VsmIdkPresent              | Erfordert die virtualisierungssicherheit, die basierend auf dem Host ausgeführt werden. Die IDK stellt dar, den Schlüssel zum Verschlüsseln der Informationen, die an sicheren Speicherbereich des Hosts gesendet werden.
-Hgs_PageFileEncryptionEnabled  | Erfordert die Auslagerungsdateien auf dem Host verschlüsselt werden. Bei Deaktivierung dieser Richtlinie konnte in Offenlegung von Informationen führen, wenn eine unverschlüsselte Auslagerungsdatei für Mandanten geheime Schlüssel überprüft wird.
-Hgs_BitLockerEnabled           | Erfordert BitLocker auf dem Hyper-V-Host aktiviert sein. Diese Richtlinie ist standardmäßig deaktiviert, zur Verbesserung der Leistung und wird nicht empfohlen, die aktiviert werden. Diese Richtlinie hat keinen Einfluss auf die Verschlüsselung von die abgeschirmten VMs selbst.
-Hgs_IommuEnabled               | Erfordert, dass der Host ein IOMMU-Gerät verwendet, um direct Memory Access Angriffe zu verhindern. Bei Deaktivierung dieser Richtlinie, und Verwenden von Hosts ohne eine IOMMU aktiviert, können Mandanten vertrauliche Informationen zur Weiterleitung einer Speicher-Angriffe verfügbar machen.
-Hgs_NoHibernation              | Erfordert den Ruhezustand auf dem Hyper-V-Host deaktiviert werden soll. Bei Deaktivierung dieser Richtlinie können Hosts abgeschirmte VM-Speicher in einer unverschlüsselten Ruhezustanddatei zu speichern.
-Hgs_NoDumps                    | Erfordert, dass Arbeitsspeicher Abbilder auf dem Hyper-V-Host deaktiviert werden soll. Wenn Sie diese Richtlinie deaktivieren, empfiehlt es sich, dass Sie die speicherabbildverschlüsselung, um zu verhindern, dass die abgeschirmte VM-Speicher gespeichert wird, um unverschlüsselte Absturzabbilddateien konfigurieren.
-Hgs_DumpEncryption             | Speicherabbilder, erfordert, wenn auf dem Hyper-V-Host aktiviert werden soll, eine Verschlüsselung mit einem Verschlüsselungsschlüssel, die vom Host-Überwachungsdienst als vertrauenswürdig eingestuft. Diese Richtlinie gilt nicht, wenn Absturzabbilder auf dem Host nicht aktiviert sind. Wenn diese Richtlinie und *Host-Überwachungsdienst\_NoDumps* beide deaktiviert ist, werden geschützte VM-Speicher konnte in einer unverschlüsselten Dumpdatei gespeichert werden.
-Hgs_DumpEncryptionKey          | Negative Richtlinie um sicherzustellen, dass Hosts, die so konfiguriert, dass der Speicher, dass Speicherabbilder einen Dump vom Administrator definierte Datei bekannten, dass der Host-Überwachungsdienst Verschlüsselungsschlüssel verwenden. Diese Richtlinie gilt nicht beim *Host-Überwachungsdienst\_DumpEncryption* ist deaktiviert.
+Hgs_SecureBootEnabled          | Erfordert, dass für Hosts der sichere Start aktiviert ist. Dies ist erforderlich, um die Start Binärdateien und andere UEFI-Locked-Einstellungen zu messen.
+Hgs_UefiDebugDisabled          | Stellt sicher, dass für Hosts kein Kernel Debugger aktiviert ist. Benutzermodus-debuggger werden mit Code Integritäts Richtlinien blockiert.
+Hgs_SecureBootSettings         | Negative Richtlinie, um sicherzustellen, dass die Hosts mindestens einer (vom Administrator definierten) TPM-Baseline entsprechen.
+Hgs_CiPolicy                   | Negative Richtlinie, um sicherzustellen, dass die Hosts eine der Administrator definierten CI-Richtlinien verwenden.
+Hgs_HypervisorEnforcedCiPolicy | Erfordert, dass die Code Integritätsrichtlinie vom Hypervisor erzwungen wird. Wenn Sie diese Richtlinie deaktivieren, wird der Schutz vor kernelmodusintegritäts-Richtlinien Angriffen geschwächt.
+Hgs_FullBoot                   | Sicherstellen, dass der Host nicht aus dem Standbymodus oder Ruhezustand fortgesetzt wurde Hosts müssen ordnungsgemäß neu gestartet oder heruntergefahren werden, um diese Richtlinie zu übergeben.
+Hgs_VsmIdkPresent              | Erfordert, dass virtualisierungsbasierte Sicherheit auf dem Host ausgeführt wird. Das idk stellt den Schlüssel dar, der zum Verschlüsseln von Informationen erforderlich ist, die zurück an den sicheren Speicherbereich des Hosts gesendet werden.
+Hgs_PageFileEncryptionEnabled  | Erfordert, dass Auslagerungs Dateien auf dem Host verschlüsselt wird. Wenn Sie diese Richtlinie deaktivieren, kann es zu Informations Informationen kommen, wenn eine unverschlüsselte ausseitendatei auf Mandanten Geheimnisse überprüft wird.
+Hgs_BitLockerEnabled           | Erfordert, dass BitLocker auf dem Hyper-V-Host aktiviert ist. Diese Richtlinie ist aus Leistungsgründen standardmäßig deaktiviert und wird nicht empfohlen, Sie zu aktivieren. Diese Richtlinie hat keine Auswirkungen auf die Verschlüsselung der abgeschirmten VMs selbst.
+Hgs_IommuEnabled               | Erfordert, dass der Host über ein IOMMU-Gerät verfügt, das verwendet wird, um Angriffe durch direkten Speicherzugriff zu verhindern. Wenn Sie diese Richtlinie deaktivieren und Hosts ohne IOMMU-Aktivierung verwenden, können Sie Mandanten-VM-Schlüssel für direkte Speicher Angriffe verfügbar machen.
+Hgs_NoHibernation              | Erfordert, dass der Ruhezustand auf dem Hyper-V-Host deaktiviert wird. Durch die Deaktivierung dieser Richtlinie können Hosts den geschützten VM-Speicher in einer unverschlüsselten Ruhe Zustands Datei speichern.
+Hgs_NoDumps                    | Erfordert, dass Speicher Abbilder auf dem Hyper-V-Host deaktiviert werden. Wenn Sie diese Richtlinie deaktivieren, empfiehlt es sich, die dumpverschlüsselung zu konfigurieren, um zu verhindern, dass geschützter VM-Speicher in unverschlüsselten Absturz Abbild Dateien gespeichert wird.
+Hgs_DumpEncryption             | Erfordert, dass Speicher Abbilder, die auf dem Hyper-V-Host aktiviert sind, mit einem Verschlüsselungsschlüssel verschlüsselt werden, der von HGS als vertrauenswürdig eingestuft wird. Diese Richtlinie gilt nicht, wenn Abbilder auf dem Host nicht aktiviert sind. Wenn diese Richtlinie und *HGS @ no__t-1nodumps* deaktiviert sind, kann der geschützte VM-Speicher in einer unverschlüsselten Dumpdatei gespeichert werden.
+Hgs_DumpEncryptionKey          | Eine negative Richtlinie zum sicherstellen, dass Hosts, die für das Zulassen von Speicher Abbildern konfiguriert sind, einen vom Administrator definierten Verschlüsselungsschlüssel für die Dumpdatei verwendet Diese Richtlinie gilt nicht, wenn *HGS @ no__t-1dumpencryption* deaktiviert ist.
 
-### <a name="authorizing-new-guarded-hosts"></a>Autorisieren von neuen überwachten hosts
-Autorisieren Sie einen neuen Host zu einem bewachten Host (z. B. bestätigen erfolgreich), Host-Überwachungsdienst muss den Host als vertrauenswürdig einstufen und (Wenn für die Verwendung von TPM-vertrauenswürdiger Nachweis konfiguriert) die Software ausgeführt wird.
-Die Schritte zum Autorisieren eines neuen Hosts davon ab, den nachweismodus, die für den Host-Überwachungsdienst derzeit konfiguriert ist.
-Führen Sie zum Überprüfen der nachweismodus für Ihr geschütztes Fabric `Get-HgsServer` auf einem Host-Überwachungsdienst-Knoten.
+### <a name="authorizing-new-guarded-hosts"></a>Autorialisieren von neuen überwachten Hosts
+Um einen neuen Host zu einem überwachten Host zu autorisieren (z. b. erfolgreich), müssen die HGS dem Host Vertrauen und (bei Konfiguration für die Verwendung des TPM-vertrauenswürdigen Attestation) die darauf laufende Software als vertrauenswürdig einstufen.
+Die Schritte zum Autorisieren eines neuen Hosts unterscheiden sich je nach Nachweis Modus, für den HGS derzeit konfiguriert ist.
+Um den Nachweis Modus für Ihr überwachtes Fabric zu überprüfen, führen Sie `Get-HgsServer` auf einem beliebigen HGS-Knoten aus.
 
-#### <a name="software-configuration"></a>Software-Konfiguration
-Stellen Sie sicher, dass dieser Windows Server 2016 Datacenter-Edition installiert ist, auf dem neuen Hyper-V-Host.
-Windows Server 2016 Standard kann nicht abgeschirmte virtuelle Computer in einem geschützten Fabric ausgeführt.
-Der Host kann es sich um Desktopdarstellung oder Server Core installiert sein.
+#### <a name="software-configuration"></a>Software Konfiguration
+Stellen Sie auf dem neuen Hyper-V-Host sicher, dass Windows Server 2016 Datacenter Edition installiert ist.
+Windows Server 2016 Standard kann keine abgeschirmten VMs in einem geschützten Fabric ausführen.
+Auf dem Host ist möglicherweise Desktop Darstellung oder Server Core installiert.
 
-Auf dem Server mit desktopdarstellung und Server Core müssen Sie die Hyper-V und Hyper-V-Unterstützung für Host-Überwachungsdiensts Serverrollen zu installieren:
+Auf dem Server mit Desktop Darstellung und Server Core müssen Sie die Hyper-v-und Host-Überwachungs Server-Hyper-v-Unterstützungs Server Rollen installieren:
 
 ```powershell
 Install-WindowsFeature Hyper-V, HostGuardian -IncludeManagementTools -Restart
 ```
 
 #### <a name="admin-trusted-attestation"></a>Admin-vertrauenswürdiger Nachweis
-Um einen neuen Host im Host-Überwachungsdienst zu registrieren, wenn Admin-vertrauenswürdiger Nachweis verwenden, müssen Sie zunächst den Host zu einer Sicherheitsgruppe in der Domäne hinzufügen, mit denen sie verknüpft ist.
-In der Regel haben jede Domäne eine Sicherheitsgruppe für geschützte Hosts.
-Wenn Sie die Gruppe bereits bei HGS registriert haben, ist die einzige Aktion, die Sie ergreifen müssen, zum Neustart des Servers aus, um die Gruppenmitgliedschaft zu aktualisieren.
+Wenn Sie einen neuen Host bei der Verwendung von Administrator vertrauenswürdigem Nachweis in HGS registrieren möchten, müssen Sie ihn zunächst zu einer Sicherheitsgruppe in der Domäne hinzufügen, mit der er verknüpft ist.
+In der Regel verfügt jede Domäne über eine Sicherheitsgruppe für geschützte Hosts.
+Wenn Sie diese Gruppe bereits bei HGS registriert haben, müssen Sie nur den Host neu starten, um die Gruppenmitgliedschaft zu aktualisieren.
 
-Sie können überprüfen, welche Sicherheitsgruppen von Host-Überwachungsdienst als vertrauenswürdig eingestuft werden mithilfe des folgenden Befehls:
+Sie können überprüfen, welche Sicherheitsgruppen von HGS als vertrauenswürdig eingestuft werden, indem Sie den folgenden Befehl ausführen:
 
 ```powershell
 Get-HgsAttestationHostGroup
 ```
 
-Um eine neue Sicherheitsgruppe für Host-Überwachungsdiensts zu registrieren, erfassen Sie die Sicherheits-ID (SID) der Gruppe in der Domäne und registrieren Sie zunächst die SID mit Host-Überwachungsdienst.
+Zum Registrieren einer neuen Sicherheitsgruppe bei HGS erfassen Sie zuerst die Sicherheits-ID (SID) der Gruppe in der Host Domäne und registrieren die SID bei HGS.
 
 ```powershell
 Add-HgsAttestationHostGroup -Name "Contoso Guarded Hosts" -Identifier "S-1-5-21-3623811015-3361044348-30300820-1013"
 ```
 
-Anweisungen zum Einrichten der Vertrauensstellung zwischen der Hostdomäne und der Host-Überwachungsdienst stehen im Bereitstellungshandbuch.
+Anweisungen zum Einrichten der Vertrauensstellung zwischen der Host Domäne und den HGS finden Sie im Bereitstellungs Handbuch.
 
 #### <a name="tpm-trusted-attestation"></a>TPM-vertrauenswürdiger Nachweis
-Wenn Host-Überwachungsdienst in der TPM-Modus konfiguriert ist, müssen die Hosts alle gesperrt und "enabled" Richtlinien, die mit dem Präfix "Hgs_", als auch mindestens eine TPM-Basislinie, TPM-Bezeichner und codeintegritätsrichtlinie übergeben.
-Bei jedem eines neues Hosts hinzufügen, müssen Sie den neuen TPM-Bezeichner bei HGS registriert.
-Solange der Host die gleiche Software ausgeführt wird (und die gleichen codeintegritätsrichtlinie angewendet werden wurde) und TPM-Baseline als einen anderen Host in Ihrer Umgebung, Sie müssen keine neue CI-Richtlinien oder Baselines hinzufügen.
+Wenn HGS im TPM-Modus konfiguriert ist, müssen Hosts alle gesperrten Richtlinien und aktivierten Richtlinien, die mit dem Präfix "Hgs_" versehen sind, sowie mindestens eine TPM-Baseline, TPM-ID und Code Integritätsrichtlinie bestehen.
+Jedes Mal, wenn Sie einen neuen Host hinzufügen, müssen Sie die neue TPM-ID bei HGS registrieren.
+Solange der Host dieselbe Software (und die gleiche Code Integritätsrichtlinie angewendet) und die TPM-Baseline als einen anderen Host in Ihrer Umgebung ausführen, müssen Sie keine neuen CI-Richtlinien oder Basis Linien hinzufügen.
 
-**Hinzufügen der TPM-ID für einen neuen Host** auf dem neuen Host, führen Sie den folgenden Befehl aus, um die TPM-ID zu erfassen.
-Achten Sie darauf, dass Sie einen eindeutigen Namen für den Host angeben, die Sie auf den Host-Überwachungsdienst nachschlagen können.
-Sie benötigen diese Informationen, wenn Sie außer Betrieb den Host setzen oder ausgeführten abgeschirmte VMs im Host-Überwachungsdienst verhindern möchten.
+**Hinzufügen des TPM-Bezeichners für einen neuen Host** Führen Sie auf dem neuen Host den folgenden Befehl aus, um den TPM-Bezeichner zu erfassen.
+Stellen Sie sicher, dass Sie einen eindeutigen Namen für den Host angeben, der Sie bei der Suche nach HGS unterstützt.
+Sie benötigen diese Informationen, wenn Sie den Host außer Betrieb nehmen oder verhindern möchten, dass abgeschirmte VMs in HGS ausgeführt werden.
 
 ```powershell
 (Get-PlatformIdentifier -Name "Host01").InnerXml | Out-File C:\temp\host01.xml -Encoding UTF8
 ```
 
-Kopieren Sie diese Datei auf Ihrem Host-Überwachungsdienst-Server, führen Sie dann den folgenden Befehl auf den Host bei HGS registriert.
+Kopieren Sie diese Datei auf Ihren HGS-Server, und führen Sie dann den folgenden Befehl aus, um den Host bei HGS zu registrieren.
 
 ```powershell
 Add-HgsAttestationTpmHost -Name 'Host01' -Path C:\temp\host01.xml
 ```
 
-**Hinzufügen einer neuen TPM-Baselines** , wenn der neue Host eine neue Hardware oder die Firmwarekonfiguration für Ihre Umgebung ausgeführt wird, müssen Sie möglicherweise eine neue TPM-Baseline zu nutzen.
-Zu diesem Zweck führen Sie den folgenden Befehl auf dem Host.
+**Hinzufügen einer neuen TPM-Baseline** Wenn auf dem neuen Host eine neue Hardware-oder Firmwarekonfiguration für Ihre Umgebung ausgeführt wird, müssen Sie möglicherweise eine neue TPM-Baseline erstellen.
+Führen Sie hierzu den folgenden Befehl auf dem Host aus.
 
 ```powershell
 Get-HgsAttestationBaselinePolicy -Path 'C:\temp\hardwareConfig01.tcglog'
 ```
 
 > [!NOTE]
-> Wenn Sie eine Fehlermeldung mit dem Host Fehler bei der Überprüfung und wird nicht erfolgreich bestätigen erhalten, aber keine Sorge.
-> Dies ist, dass eine voraussetzungsprüfung, um sicherzustellen, dass es sich bei dem Host ausgeführt werden kann abgeschirmte VMs und bedeutet, dass Sie eine codeintegritätsrichtlinie oder andere erforderliche Einstellung noch nicht installiert haben.
-> Lesen Sie die Fehlermeldung, Änderungen vorgeschlagen werden, und versuchen Sie es erneut.
-> Alternativ können Sie die Überprüfung zu diesem Zeitpunkt überspringen, durch das Hinzufügen der `-SkipValidation` Flag an den Befehl.
+> Wenn Sie eine Fehlermeldung erhalten, die besagt, dass der Host die Überprüfung nicht erfolgreich war
+> Dies ist eine Voraussetzungs Prüfung, um sicherzustellen, dass der Host abgeschirmte VMS ausführen kann. Dies bedeutet wahrscheinlich, dass Sie noch keine Code Integritätsrichtlinie oder andere erforderliche Einstellungen angewendet haben.
+> Lesen Sie die Fehlermeldung, nehmen Sie die von ihr vorgeschlagenen Änderungen vor, und wiederholen Sie dann den Vorgang.
+> Alternativ können Sie die Überprüfung zu diesem Zeitpunkt überspringen, indem Sie dem Befehl das Flag "`-SkipValidation`" hinzufügen.
 
-Kopieren Sie die TPM-Baseline auf Ihren Host-Überwachungsdienst-Server, und registrieren Sie sie mit dem folgenden Befehl aus.
-Wir empfehlen Ihnen, eine Benennungskonvention zu verwenden, die Sie die Hardware und Firmware Konfiguration von dieser Klasse des Hyper-V-Hosts unterstützt.
+Kopieren Sie die TPM-Baseline auf Ihren HGS-Server, und registrieren Sie Sie mit dem folgenden Befehl.
+Wir empfehlen Ihnen, eine Benennungs Konvention zu verwenden, die Ihnen hilft, die Hardware-und Firmwarekonfiguration dieser Klasse von Hyper-V-Hosts zu verstehen.
 
 ```powershell
 Add-HgsAttestationTpmPolicy -Name 'HardwareConfig01' -Path 'C:\temp\hardwareConfig01.tcglog'
 ```
 
-**Hinzufügen einer neuen codeintegritätsrichtlinie** , wenn Sie die codeintegritätsrichtlinie auf Hyper-V-Hosts geändert haben, müssen Sie die neue Richtlinie mit Host-Überwachungsdienst registrieren, bevor diese Hosts, erfolgreich nachweisen können.
-Auf einem Host Verweis, der als master-Image für die vertrauenswürdige Hyper-V-Computer in Ihrer Umgebung dient, erfassen eine neue CI-Richtlinie, mit der `New-CIPolicy` Befehl.
-Wir empfehlen Ihnen die Verwendung der **FilePublisher** Ebene und **Hash** für Richtlinien für Hyper-V-Host CI fallback.
-Sie sollten zuerst eine CI-Richtlinie erstellen, im Überwachungsmodus, um sicherzustellen, dass alles wie erwartet funktioniert.
-Nach der Überprüfung einer beispielworkload eine auf dem System, können Sie erzwingt die Richtlinie, und kopieren Sie die erzwungene Version auf Host-Überwachungsdienst.
-Eine vollständige Liste der Konfigurationsoptionen für Code Integrity-Richtlinie, wenden Sie sich an den [Dokumentation zu Device Guard](https://technet.microsoft.com/itpro/windows/keep-secure/deploy-device-guard-deploy-code-integrity-policies).
+**Hinzufügen einer neuen Code Integritätsrichtlinie** Wenn Sie die Code Integritätsrichtlinie geändert haben, die auf Ihren Hyper-V-Hosts ausgeführt wird, müssen Sie die neue Richtlinie mit HGS registrieren, damit diese Hosts erfolgreich bestätigen können.
+Erfassen Sie auf einem Referenz Host, der als Master Abbild für die vertrauenswürdigen Hyper-V-Computer in Ihrer Umgebung fungiert, mithilfe des Befehls `New-CIPolicy` eine neue CI-Richtlinie.
+Wir empfehlen Ihnen, die **filepublisher** -Ebene und den **hashback** für Hyper-V-Host-CI-Richtlinien zu verwenden.
+Erstellen Sie zunächst eine CI-Richtlinie im Überwachungsmodus, um sicherzustellen, dass alles wie erwartet funktioniert.
+Nachdem Sie eine Beispiel Arbeitsauslastung im System überprüft haben, können Sie die Richtlinie erzwingen und die erzwungene Version in HGS kopieren.
+Eine umfassende Liste der Konfigurationsoptionen für die Code Integritätsrichtlinie finden Sie in der [Device Guard-Dokumentation](https://technet.microsoft.com/itpro/windows/keep-secure/deploy-device-guard-deploy-code-integrity-policies).
 
 ```powershell
 # Capture a new CI policy with the FilePublisher primary level and Hash fallback and enable user mode code integrity protections
@@ -460,56 +460,56 @@ Copy-Item 'C:\temp\ws2016-hardware01-ci.p7b' 'C:\Windows\System32\CodeIntegrity\
 Restart-Computer
 ```
 
-Nachdem Sie die Richtlinie erstellt haben, getestet und erzwungen, kopieren Sie die Binärdatei (. p7b) auf Ihren Host-Überwachungsdienst-Server und registrieren Sie die Richtlinie.
+Nachdem Sie die Richtlinie erstellt, getestet und erzwungen haben, kopieren Sie die Binärdatei (. p7b) auf Ihren HGS-Server, und registrieren Sie die Richtlinie.
 
 ```powershell
 Add-HgsAttestationCiPolicy -Name 'WS2016-Hardware01' -Path 'C:\temp\ws2016-hardware01-ci.p7b'
 ```
 
-**Hinzufügen von einen Verschlüsselungsschlüssel für die Arbeitsspeicher-Dumps**
+**Hinzufügen eines Verschlüsselungsschlüssels für den Speicher Abbild**
 
-Wenn die *Host-Überwachungsdienst\_NoDumps* Richtlinie ist deaktiviert und *Host-Überwachungsdienst\_DumpEncryption* Richtlinie aktiviert ist, geschützte Hosts zulässig sind (einschließlich von Absturzabbildern) Speicherabbilder sein aktiviert, solange diese Speicherabbilder verschlüsselt werden. Überwachte Hosts werden nur einen Nachweis erbringen, wenn sie deaktiviert Speicherabbilder oder haben sie mit einem Schlüssel bekannt, dass der Host-Überwachungsdienst verschlüsselt werden. Standardmäßig werden keine Verschlüsselungsschlüssel sichern auf Host-Überwachungsdienst konfiguriert.
+Wenn die *HGS @ no__t-1nodumps-* Richtlinie deaktiviert ist und die *HGS @ no__t-3dumpencryption-* Richtlinie aktiviert ist, dürfen geschützte Hosts Speicher Abbilder (einschließlich Absturz Abbilder) aktivieren, damit Sie aktiviert werden, solange diese Abbilder verschlüsselt sind. Geschützte Hosts bestehen nur dann, wenn Sie entweder Speicher Abbilder deaktiviert haben oder Sie mit einem Schlüssel verschlüsseln, der HGS bekannt ist. Standardmäßig werden keine dumpverschlüsselungs Schlüssel auf HGS konfiguriert.
 
-Um einen Verschlüsselungsschlüssel für die Abbild-Host-Überwachungsdienst hinzuzufügen, verwenden Sie die `Add-HgsAttestationDumpPolicy` -Cmdlet zum Bereitstellen von Host-Überwachungsdienst mit dem Hashwert der Ihr Verschlüsselungsschlüssel sichern.
-Wenn Sie eine TPM-Baseline auf einem Hyper-V-Host mit speicherabbildverschlüsselung konfiguriert erfassen, wird der Hash ist in der Tcglog enthalten und bereitgestellt werden können die `Add-HgsAttestationDumpPolicy` Cmdlet.
+Verwenden Sie zum Hinzufügen eines dumpverschlüsselungs Schlüssels zu HGS das `Add-HgsAttestationDumpPolicy`-Cmdlet, um HGS mit dem Hashwert Ihres dumpverschlüsselungs Schlüssels anzugeben.
+Wenn Sie eine TPM-Baseline auf einem Hyper-V-Host erfassen, der mit der dumpverschlüsselung konfiguriert ist, wird der Hash in tcglog eingeschlossen und kann für das Cmdlet "`Add-HgsAttestationDumpPolicy`" bereitgestellt werden.
 
 ```powershell
 Add-HgsAttestationDumpPolicy -Name 'DumpEncryptionKey01' -Path 'C:\temp\TpmBaselineWithDumpEncryptionKey.tcglog'
 ```
 
-Alternativ können Sie direkt eine Zeichenfolgendarstellung des Hashs an das Cmdlet bereitstellen.
+Alternativ können Sie die Zeichen folgen Darstellung des Hashs direkt für das Cmdlet bereitstellen.
 
 ```powershell
 Add-HgsAttestationDumpPolicy -Name 'DumpEncryptionKey02' -PublicKeyHash '<paste your hash here>'
 ```
 
-Achten Sie darauf, dass Sie Host-Überwachungsdienst jedes eindeutige Abbild-Verschlüsselungsschlüssel hinzugefügt wird, wenn Sie unterschiedliche Schlüssel für Ihre geschützten Fabrics verwenden möchten.
-Hosts, die mit einem Schlüssel, der Host-Überwachungsdienst nicht bekannt Speicherabbilder verschlüsselt werden, werden nicht einen Nachweis erbringen.
+Stellen Sie sicher, dass Sie jeden eindeutigen Verschlüsselungsschlüssel für die Verschlüsselung zu HGS hinzufügen, wenn Sie sich für die Verwendung verschiedener Schlüssel in Ihrem geschützten Fabric entscheiden.
+Hosts, die Speicher Abbilder mit einem Schlüssel verschlüsseln, der HGS nicht bekannt ist, erhalten keinen Nachweis.
 
-In der Hyper-V-Dokumentation für Weitere Informationen zu [Konfigurieren der Verschlüsselung auf Hosts Sichern](https://technet.microsoft.com/windows-server-docs/virtualization/hyper-v/manage/about-dump-encryption).
+Weitere Informationen zum [Konfigurieren der dumpverschlüsselung auf Hosts finden Sie in](https://technet.microsoft.com/windows-server-docs/virtualization/hyper-v/manage/about-dump-encryption)der Hyper-V-Dokumentation.
 
-#### <a name="check-if-the-system-passed-attestation"></a>Überprüfen Sie, ob das System der Nachweis bestanden
-Nachdem die erforderlichen Informationen bei HGS registriert haben, sollten Sie überprüfen, ob der Host den Nachweis besteht.
-Führen Sie auf dem neu hinzugefügten Hyper-V-Host `Set-HgsClientConfiguration` , und geben Sie die richtigen URLs für den Host-Überwachungsdienst-Cluster.
-Diese URLs erhalten Sie, indem Sie Ausführung `Get-HgsServer` auf einem Host-Überwachungsdienst-Knoten.
+#### <a name="check-if-the-system-passed-attestation"></a>Überprüfen, ob das System den Nachweis überschritten hat
+Nachdem Sie die erforderlichen Informationen bei HGS registriert haben, sollten Sie überprüfen, ob der Host den Nachweis übergibt.
+Führen Sie auf dem neu hinzugefügten Hyper-V-Host `Set-HgsClientConfiguration` aus, und geben Sie die richtigen URLs für Ihren HGS-Cluster an.
+Diese URLs können abgerufen werden, indem `Get-HgsServer` auf einem beliebigen HGS-Knoten ausgeführt wird.
 
 ```powershell
 Set-HgsClientConfiguration -KeyProtectionServerUrl 'http://hgs.bastion.local/KeyProtection' -AttestationServerUrl 'http://hgs.bastion.local/Attestation'
 ```
 
-Wenn Sie der resultierende Status nicht angeben, dass "IsHostGuarded: "True""müssen Sie zur Problembehandlung der Konfiguration.
-Führen Sie den folgenden Befehl aus, um einen detaillierten Bericht zu Problemen zu erhalten, mit denen Sie den Nachweis der Fehler beheben kann, auf dem Host, der Fehler beim Nachweis.
+Wenn der resultierende Status nicht "ishostbewacht" angibt: True "Sie müssen die Problembehandlung für die Konfiguration durchführt.
+Führen Sie auf dem Host, bei dem ein Fehler aufgetreten ist, den folgenden Befehl aus, um einen ausführlichen Bericht zu Problemen zu erhalten, die Ihnen helfen können, den fehlgeschlagenen Nachweis zu beheben.
 
 ```powershell
 Get-HgsTrace -RunDiagnostics -Detailed
 ```
 
 > [!IMPORTANT]
-> Wenn Sie Windows Server-2019 oder Windows 10, Version 1809 verwenden und die anwendungssteuerungscode-Integritätsrichtlinien, verwenden `Get-HgsTrace` möglicherweise einen Fehler für zurück der **Code Integrity Richtlinie aktiv** Diagnose.
-> Sie können dieses Ergebnis gefahrlos ignorieren, bei dem nur fehlgeschlagene Diagnose.
+> Wenn Sie Windows Server 2019 oder Windows 10, Version 1809, verwenden und Code Integritäts Richtlinien verwenden, gibt `Get-HgsTrace` möglicherweise einen Fehler für die aktive Diagnose der **Code Integritätsrichtlinie** zurück.
+> Sie können dieses Ergebnis gefahrlos ignorieren, wenn es die einzige Fehlerdiagnose ist.
 
-### <a name="review-attestation-policies"></a>Überprüfen Sie Richtlinien zum Nachweis
-Um den aktuellen Zustand der auf Host-Überwachungsdienst konfigurierten Richtlinien zu überprüfen, führen Sie die folgenden Befehle auf einem Host-Überwachungsdienst-Knoten:
+### <a name="review-attestation-policies"></a>Nachweis Richtlinien prüfen
+Um den aktuellen Status der auf HGS konfigurierten Richtlinien zu überprüfen, führen Sie die folgenden Befehle auf einem beliebigen HGS-Knoten aus:
 
 ```powershell
 # List all trusted security groups for admin-trusted attestation
@@ -519,26 +519,26 @@ Get-HgsAttestationHostGroup
 Get-HgsAttestationPolicy
 ```
 
-Wenn Sie eine Richtlinie aktiviert finden, die nicht mehr erfüllt die sicherheitsanforderung Ihrer (z. B. eine alte codeintegritätsrichtlinie der jetzt als unsicher angesehen wird), können Sie es deaktivieren, durch, und Ersetzen Sie dabei den Namen der Richtlinie in den folgenden Befehl aus:
+Wenn Sie feststellen, dass eine aktivierte Richtlinie nicht mehr Ihren Sicherheitsanforderungen entspricht (z. b. eine alte Code Integritätsrichtlinie, die jetzt als unsicher eingestuft wird), können Sie diese deaktivieren, indem Sie den Namen der Richtlinie im folgenden Befehl ersetzen:
 
 ```powershell
 Disable-HgsAttestationPolicy -Name 'PolicyName'
 ```
 
-Auf ähnliche Weise können Sie `Enable-HgsAttestationPolicy` um eine Richtlinie erneut zu aktivieren.
+Auf ähnliche Weise können Sie `Enable-HgsAttestationPolicy` verwenden, um eine Richtlinie erneut zu aktivieren.
 
-Wenn Sie eine Richtlinie und möchten es von allen Knoten der Host-Überwachungsdienst entfernen nicht mehr benötigen, führen Sie `Remove-HgsAttestationPolicy -Name 'PolicyName'` um die Richtlinie dauerhaft zu löschen.
+Wenn Sie eine Richtlinie nicht mehr benötigen und Sie von allen HGS-Knoten entfernen möchten, führen Sie `Remove-HgsAttestationPolicy -Name 'PolicyName'` aus, um die Richtlinie dauerhaft zu löschen.
 
-## <a name="changing-attestation-modes"></a>Nachweismodi ändern
-Wenn Sie Ihr geschützte Fabric mit Admin-vertrauenswürdiger Nachweis begonnen haben, möchten Sie wahrscheinlich, die wesentlich stärker TPM-nachweismodus zu aktualisieren, sobald Sie genügend TPM 2.0-kompatiblen Hosts in Ihrer Umgebung haben.
-Bei der Sie wechseln möchten, können Sie alle Elemente der Nachweis (CI-Richtlinien, TPM-Baselines und TPM-Bezeichner) in Host-Überwachungsdienst vorab laden, und weiterhin die Host-Überwachungsdienst mit Admin-vertrauenswürdiger Nachweis auszuführen.
-Zu diesem Zweck führen Sie einfach die Anweisungen in der [Autorisieren eines neuen überwachten Hosts](#authorizing-new-guarded-hosts) Abschnitt.
+## <a name="changing-attestation-modes"></a>Ändern der Nachweis Modi
+Wenn Sie Ihr überwachtes Fabric mit einem vom Administrator vertrauenswürdigen Nachweis gestartet haben, möchten Sie wahrscheinlich ein Upgrade auf den weitaus stärkeren TPM-Nachweis Modus durchführen, sobald Sie über genügend TPM 2,0-kompatible Hosts in Ihrer Umgebung verfügen.
+Wenn Sie bereit sind, zu wechseln, können Sie alle Nachweis Artefakte (CI-Richtlinien, TPM-Basis Linien und TPM-IDs) in HGS vorab laden, während Sie weiterhin HGS mit dem Administrator vertrauenswürdigen Nachweis ausführen.
+Befolgen Sie hierzu einfach die Anweisungen im Abschnitt [autorisierender neuer](#authorizing-new-guarded-hosts) überwachter Hosts.
 
-Nachdem Sie alle Ihre Richtlinien zum Host-Überwachungsdienst hinzugefügt haben, besteht der nächste Schritt, der Versuch einer synthetischen Nachweis auf den Hosts, um festzustellen, ob sie einen Nachweis, im TPM-Modus erbringen sollen ausgeführt.
-Dies wirkt sich nicht auf den aktuellen Betriebszustand des Host-Überwachungsdienst.
-Die folgenden Befehle, müssen auf einem Computer ausgeführt werden, die Zugriff auf alle Hosts in der Umgebung mindestens einen Host-Überwachungsdienst-Knoten hat.
-Wenn Ihre Firewall oder andere Sicherheitsrichtlinien dies verhindern, können Sie diesen Schritt überspringen.
-Wenn möglich, wird empfohlen, den Nachweis der synthetischen können nützliche Informationen, ob "ein" in den TPM-Modus für Ihre virtuellen Computer Ausfallzeiten kommt ausgeführt. 
+Nachdem Sie alle Ihre Richtlinien zu HGS hinzugefügt haben, besteht der nächste Schritt darin, einen synthetischen Nachweis Versuch auf Ihren Hosts auszuführen, um zu überprüfen, ob Sie den Nachweis im TPM-Modus bestanden haben.
+Dies wirkt sich nicht auf den aktuellen Betriebsstatus von HGS aus.
+Die folgenden Befehle müssen auf einem Computer ausgeführt werden, der Zugriff auf alle Hosts in der Umgebung und mindestens einen HGS-Knoten hat.
+Wenn die Firewall oder andere Sicherheitsrichtlinien dies verhindern, können Sie diesen Schritt überspringen.
+Nach Möglichkeit empfiehlt es sich, den synthetischen Nachweis durchführen, um einen guten Hinweis darauf zu erhalten, ob das "Kippen" in den TPM-Modus Ausfallzeiten für Ihre virtuellen Computer verursacht. 
 
 ```powershell
 # Get information for each host in your environment
@@ -554,94 +554,94 @@ $targets += New-HgsTraceTarget -Credential $hgsCredential -Role HostGuardianServ
 Get-HgsTrace -RunDiagnostics -Target $targets -Diagnostic GuardedFabricTpmMode 
 ```
 
-Überprüfen Sie nachdem die Diagnose abgeschlossen ist die ausgegebene Informationen, um festzustellen, ob alle Hosts Nachweis im TPM-Modus fehlgeschlagen wären.
-Führen Sie die Diagnose erneut aus, bis Sie von jedem Host zu einen "Pass" erhalten, fahren Sie mit Host-Überwachungsdienst in den TPM-Modus zu wechseln.
+Überprüfen Sie nach Abschluss der Diagnose die ausgegebenen Informationen, um zu ermitteln, ob bei einem der Hosts im TPM-Modus ein Fehler aufgetreten ist.
+Führen Sie die Diagnose erneut aus, bis Sie von jedem Host einen "Pass" erhalten, und wechseln Sie dann zum Ändern von HGS in den TPM-Modus.
 
-**Ändern in den TPM-Modus** dauert nur ein paar Sekunden abgeschlossen.
-Führen Sie den folgenden Befehl auf einem Host-Überwachungsdienst-Knoten den nachweismodus zu aktualisieren.
+Das **Ändern in den TPM-Modus** dauert nur eine Sekunde.
+Führen Sie den folgenden Befehl auf einem beliebigen HGS-Knoten aus, um den Nachweis Modus zu aktualisieren.
 
 ```powershell
 Set-HgsServer -TrustTpm
 ```
 
-Wenn Sie Probleme auftreten und wieder in den Active Directory-Modus wechseln zu müssen ausführen, erreichen Sie dies mit `Set-HgsServer -TrustActiveDirectory`.
+Wenn Probleme auftreten und Sie zurück in den Active Directory-Modus wechseln müssen, können Sie dazu `Set-HgsServer -TrustActiveDirectory` ausführen.
 
-Nachdem Sie, dass alles bestätigt haben wie erwartet funktioniert, sollten alle vertrauenswürdigen Active Directory-Hostgruppen vom Host-Überwachungsdienst entfernen und die Vertrauensstellung zwischen den Domänen-Host-Überwachungsdienst und der Fabric entfernen.
-Wenn Sie die Active Directory-Vertrauensstellung vorhanden lassen, riskieren Sie jemand die Vertrauensstellung erneut aktiviert, und wechseln Host-Überwachungsdienst in den Active Directory-Modus, der nicht vertrauenswürdigen Code deaktiviert ausführen, auf die überwachten Hosts verwendet werden können.
+Nachdem Sie bestätigt haben, dass alles wie erwartet funktioniert, sollten Sie alle vertrauenswürdigen Active Directory Host Gruppen aus HGS entfernen und die Vertrauensstellung zwischen den HGS-und Fabric-Domänen entfernen.
+Wenn Sie die Active Directory Vertrauensstellung aktiviert haben, riskieren Sie, dass jemand die Vertrauensstellung erneut aktiviert und die HGS in Active Directory Modus wechselt. Dadurch kann nicht vertrauenswürdiger Code auf den überwachten Hosts deaktiviert werden.
 
 ## <a name="key-management"></a>Schlüsselverwaltung
-Die geschützte Fabric-Lösung verwendet mehrere öffentlichen/privaten Schlüsselpaaren überprüfen die Integrität der verschiedenen Komponenten in der Projektmappe, und Verschlüsseln von Geheimnissen für Mandanten.
-Host-Überwachungsdienst ist mit mindestens zwei Zertifikate (mit öffentlichen und privaten Schlüssel) konfiguriert, die verwendet werden, zum Signieren und verschlüsseln den Schlüssel für abgeschirmte virtuelle Computer zu starten.
-Dieser Schlüssel müssen sorgfältig verwaltet werden.
-Wenn der private Schlüssel von einem Angreifer abgerufen wird, werden sie Lage unshield alle virtuellen Computer, auf Ihr Fabric ausgeführt wird, oder richten Sie einen stünden HGS-Cluster, der weniger strikten Richtlinien der Nachweis verwendet, um die Schutzmechanismen zu umgehen, die Sie platziert.
-Sie verlieren die privaten Schlüssel während eines Notfalls und diese in eine Sicherung nicht gefunden, müssen Sie ein neues Schlüsselpaar einrichten und jeden virtuellen Computer erneut verschlüsselt, um die neuen Zertifikate zu autorisieren.
+Die geschützte Fabric-Lösung verwendet mehrere öffentliche/private Schlüsselpaare zum Überprüfen der Integrität der verschiedenen Komponenten in der Lösung und zum Verschlüsseln von Mandanten Geheimnissen.
+Der Host-Überwachungsdienst ist mit mindestens zwei Zertifikaten (mit öffentlichen und privaten Schlüsseln) konfiguriert, die zum Signieren und Verschlüsseln der Schlüssel verwendet werden, die zum Starten von abgeschirmten VMS verwendet werden.
+Diese Schlüssel müssen sorgfältig verwaltet werden.
+Wenn der private Schlüssel von einem Angreifer abgerufen wird, kann er alle virtuellen Computer, die in Ihrem Fabric ausgeführt werden, aufheben oder einen dort stünden-HGS-Cluster einrichten, der schwächere Nachweis Richtlinien verwendet, um die von Ihnen eingerichteten Schutzmaßnahmen zu umgehen.
+Wenn Sie die privaten Schlüssel während eines Notfalls verlieren und nicht in einer Sicherung finden, müssen Sie ein neues Schlüsselpaar einrichten und jeden virtuellen Computer neu anordnen, um die neuen Zertifikate zu autorisieren.
 
-Dieser Abschnitt enthält allgemeine schlüsselverwaltung Themen, mit denen Sie Ihre Schlüssel zu konfigurieren, damit sie funktionsfähig und sicher sind.
+In diesem Abschnitt werden die allgemeinen Schlüssel Verwaltungs Themen behandelt, mit denen Sie Ihre Schlüssel so konfigurieren können, dass Sie funktionsfähig und sicher sind.
 
-### <a name="adding-new-keys"></a>Hinzufügen neuer Schlüssel
-Während der Host-Überwachungsdienst mit einem einzelnen Satz von Schlüsseln initialisiert werden muss, können Sie mehr als eine einzelne Verschlüsselung und den Signaturschlüssel zum Host-Überwachungsdienst hinzufügen.
-Die zwei häufigsten Gründe, warum Sie Host-Überwachungsdienst neue Schlüssel hinzufügen würden, sind:
-1. "Bring your own Key"-Szenarien unterstützt, in denen Mandanten kopieren Sie ihre privaten Schlüssel in Ihr Hardwaresicherheitsmodul und autorisieren nur ihre Schlüssel, um geschützten virtuelle Maschinen zu starten.
-2. Um die vorhandenen Schlüssel für die Host-Überwachungsdienst durch zuerst Hinzufügen der neuen Schlüssel, und beide Sätze von Schlüsseln beibehalten, bis die einzelnen virtuellen Computer zu ersetzen wurde Konfiguration aktualisiert, um die Verwendung der neuen Schlüssel.
+### <a name="adding-new-keys"></a>Neue Schlüssel werden hinzugefügt
+Obwohl HGS mit einem Satz von Schlüsseln initialisiert werden müssen, können Sie den HGS mehrere Verschlüsselungs-und Signatur Schlüssel hinzufügen.
+Die zwei häufigsten Gründe dafür, dass Sie HGS neue Schlüssel hinzufügen würden:
+1. Zur Unterstützung von "Bring-your-own-Key"-Szenarien, in denen Mandanten Ihre privaten Schlüssel in das Hardware Sicherheitsmodul kopieren und nur Ihre Schlüssel zum Starten Ihrer abgeschirmten VMS autorisieren.
+2. Um die vorhandenen Schlüssel für HGS zu ersetzen, indem Sie zuerst die neuen Schlüssel hinzufügen und beide Sätze von Schlüsseln aufbewahren, bis jede VM-Konfiguration aktualisiert wurde, um die neuen Schlüssel zu verwenden.
 
-Der Prozess zum Hinzufügen der neuen Schlüssel, unterscheidet sich basierend auf dem Typ von Zertifikat, das Sie verwenden.
+Der Vorgang zum Hinzufügen der neuen Schlüssel unterscheidet sich je nach Art des verwendeten Zertifikats.
 
-**Option 1: Hinzufügen eines Zertifikats in einem HSM gespeicherten**
+**option 1: Hinzufügen eines in einem HSM gespeicherten Zertifikats @ no__t-0
 
-Unsere empfohlene Vorgehensweise zum Sichern von Host-Überwachungsdienst-Schlüssel ist zum Verwenden von Zertifikaten, die in einem Hardwaresicherheitsmodul (HSM) erstellt.
-HSMs stellen Sie sicher, dass die Verwendung der Schlüssel mit physischen Zugriff auf eine sicherheitsrelevante Gerät in Ihrem Datencenter verknüpft ist.
-Jeder HSM ist anders, und verfügt über eine eindeutige Prozess zum Erstellen von Zertifikaten und registrieren Sie ihn beim Host-Überwachungsdienst.
-Die folgenden Schritte dienen zur Verfügung zu stellen Ungefährer für die Verwendung von HSM mit Zertifikaten gesichert.
-Funktionen und die genauen Schritte finden Sie in den HSM-Anbieter-Dokumentation.
+Die empfohlene Vorgehensweise zum Sichern von HGS-Schlüsseln ist die Verwendung von Zertifikaten, die in einem Hardware Sicherheitsmodul (HSM) erstellt werden.
+Mithilfe von HSMs wird sichergestellt, dass die Verwendung Ihrer Schlüssel an den physischen Zugriff auf ein Sicherheits sensibles Gerät in Ihrem Daten Center gebunden ist.
+Jedes HSM ist unterschiedlich und verfügt über einen eindeutigen Prozess zum Erstellen von Zertifikaten und Registrieren der Zertifikate bei HGS.
+Die folgenden Schritte sind für eine grobe Anleitung zur Verwendung von HSM-gestützten Zertifikaten vorgesehen.
+Die genauen Schritte und Funktionen finden Sie in der Dokumentation des HSM-Herstellers.
 
-1. Installieren Sie die HSM-Software auf jedem Host-Überwachungsdienst-Knoten im Cluster. Je nachdem, ob Sie ein Netzwerk oder lokalen HSM-Gerät haben müssen Sie möglicherweise so konfigurieren Sie das HSM, um Ihren Computerzugriff auf die Schlüsselspeicher zu gewähren.
-2. Erstellen Sie 2 Zertifikate in das HSM mit **2048-Bit-RSA-Schlüssel** für Verschlüsselung und Signatur
-    1. Erstellen Sie ein Verschlüsselungszertifikat mit dem **Data Encipherment** key Usage-Eigenschaft in Ihrem HSM
-    2. Erstellen Sie ein Signaturzertifikat mit dem **digitale Signatur** key Usage-Eigenschaft in Ihrem HSM
-3. Installieren Sie die Zertifikate in jedem Knoten des Host-Überwachungsdienst lokalen Zertifikatspeicher gemäß Anleitung für den HSM-Anbieter.
-4. Wenn Ihr HSM differenzierte Berechtigungen gewähren bestimmten Anwendungen oder Benutzern die Berechtigung zur Verwendung des privaten Schlüssels verwendet wird, müssen Sie Ihr HGS gruppenverwalteten Dienstkontenzugriff auf das Zertifikat zu gewähren. Sie finden den Namen des Host-Überwachungsdienst gMSA-Kontos mit `(Get-IISAppPool -Name KeyProtection).ProcessModel.UserName`
-5. Hinzufügen der Zertifikate für Signierung und Verschlüsselung auf dem Host-Überwachungsdienst und Ersetzen Sie dabei die Fingerabdrücke mit denen Ihre Zertifikate in den folgenden Befehlen:
+1. Installieren Sie die HSM-Software auf jedem HGS-Knoten in Ihrem Cluster. Abhängig davon, ob Sie über ein Netzwerk oder ein lokales HSM-Gerät verfügen, müssen Sie möglicherweise das HSM so konfigurieren, dass Ihr Computer Zugriff auf den Schlüsselspeicher erhält.
+2. Erstellen von 2 Zertifikaten im HSM mit **2048-Bit-RSA-Schlüsseln** für die Verschlüsselung und Signierung
+    1. Erstellen Sie ein Verschlüsselungs Zertifikat mit der Schlüssel Verwendungs Eigenschaft " **Data Encipherment** " in Ihrem HSM.
+    2. Erstellen eines Signatur Zertifikats mit der Eigenschaft "Nutzung **digitaler Signatur** Schlüssel" in Ihrem HSM
+3. Installieren Sie die Zertifikate im lokalen Zertifikat Speicher der einzelnen HGS-Knoten gemäß der Anleitung Ihres HSM-Herstellers.
+4. Wenn Ihr HSM differenzierte Berechtigungen verwendet, um bestimmten Anwendungen oder Benutzern die Berechtigung zum Verwenden des privaten Schlüssels zu erteilen, müssen Sie Ihrem HGS-Gruppen verwalteten Dienst Konto Zugriff auf das Zertifikat gewähren. Sie können den Namen des HGS-GMSA-Kontos ermitteln, indem Sie `(Get-IISAppPool -Name KeyProtection).ProcessModel.UserName` ausführen.
+5. Fügen Sie die Signatur-und Verschlüsselungs Zertifikate zu HGS hinzu, indem Sie die Fingerabdrücke durch die der Zertifikate "in den folgenden Befehlen ersetzen:
 
     ```powershell
     Add-HgsKeyProtectionCertificate -CertificateType Encryption -Thumbprint "AABBCCDDEEFF00112233445566778899"
     Add-HgsKeyProtectionCertificate -CertificateType Signing -Thumbprint "99887766554433221100FFEEDDCCBBAA"
     ```
 
-**Option 2: Hinzufügen von softwarezertifikaten für nicht exportierbare**
+**option 2: Hinzufügen nicht exportier barer Software Zertifikate @ no__t-0
 
-Wenn Sie über ein Software-gesicherten Zertifikat von Ihrem Unternehmen oder einer öffentlichen Zertifizierungsstelle, die einen nicht exportierbaren privaten Schlüssel aufweist, Sie das Zertifikat auf dem Host-Überwachungsdienst mit seinen Fingerabdruck hinzufügen müssen.
-1. Installieren Sie das Zertifikat auf Ihrem Computer entsprechend der Zertifizierungsstelle Anweisungen ein.
-2. Erteilen Sie die Host-Überwachungsdienst gruppenverwalteten Dienstkonto Lese--Zugriff auf den privaten Schlüssel des Zertifikats. Sie finden den Namen des Host-Überwachungsdienst gMSA-Kontos mit `(Get-IISAppPool -Name KeyProtection).ProcessModel.UserName`
-3. Registrieren des Zertifikats mit Host-Überwachungsdiensts mithilfe des folgenden Befehls, und Ersetzen in den Fingerabdruck des Zertifikats (ändern Sie *Verschlüsselung* zu *Signierung* für das Signieren von Zertifikaten):
+Wenn Sie über ein Software gestütztes Zertifikat verfügen, das von Ihrem Unternehmen oder von einer öffentlichen Zertifizierungsstelle ausgestellt wurde, die über einen nicht exportierbaren privaten Schlüssel verfügt, müssen Sie das Zertifikat mithilfe des Fingerabdrucks zu HGS hinzufügen.
+1. Installieren Sie das Zertifikat auf Ihrem Computer gemäß den Anweisungen Ihrer Zertifizierungsstelle.
+2. Erteilen Sie dem verwalteten Dienst Konto der HGS-Gruppe Lesezugriff auf den privaten Schlüssel des Zertifikats. Sie können den Namen des HGS-GMSA-Kontos ermitteln, indem Sie `(Get-IISAppPool -Name KeyProtection).ProcessModel.UserName` ausführen.
+3. Registrieren Sie das Zertifikat mit dem folgenden Befehl bei HGS, und ersetzen Sie dabei den Fingerabdruck Ihres Zertifikats (Ändern der *Verschlüsselung* in *Signieren* für Signatur Zertifikate):
 
     ```powershell
     Add-HgsKeyProtectionCertificate -CertificateType Encryption -Thumbprint "AABBCCDDEEFF00112233445566778899"
     ```
 
 > [!IMPORTANT]
-> Sie müssen manuell installieren Sie den privaten Schlüssel, und gewähren von Lesezugriff auf das gMSA-Konto auf jedem Host-Überwachungsdienst-Knoten.
-> Host-Überwachungsdienst können nicht automatisch repliziert werden private Schlüssel für *alle* durch seinen Fingerabdruck registrierte Zertifikat.
+> Sie müssen den privaten Schlüssel manuell installieren und auf jedem HGS-Knoten Lesezugriff auf das GMSA-Konto gewähren.
+> HGS können private Schlüssel für *ein* Zertifikat, das durch seinen Fingerabdruck registriert wird, nicht automatisch replizieren.
 
-**Option 3: Hinzufügen von Zertifikaten im PFX-Dateien gespeichert**
+**option 3: Hinzufügen von in PFX-Dateien gespeicherten Zertifikaten @ no__t-0
 
-Wenn Sie über ein Software-Backup-Zertifikat mit einem exportierbaren privaten Schlüssel, die in das PFX-Dateiformat gespeichert und mit einem Kennwort geschützt werden können verfügen, kann Host-Überwachungsdienst Ihre Zertifikate automatisch für Sie verwalten.
-Zertifikate, die mit der PFX-Dateien hinzugefügt werden automatisch auf jedem Knoten des Clusters Host-Überwachungsdienst repliziert und Host-Überwachungsdienst sichert den Zugriff auf die privaten Schlüssel.
-Um ein neues Zertifikat mit einer PFX-Datei hinzuzufügen, führen Sie die folgenden Befehle auf einem Host-Überwachungsdienst-Knoten (ändern Sie *Verschlüsselung* zu *Signierung* für das Signieren von Zertifikaten):
+Wenn Sie über ein Software gestütztes Zertifikat mit einem exportierbaren privaten Schlüssel verfügen, der im PFX-Dateiformat gespeichert und mit einem Kennwort gesichert werden kann, können die Zertifikate von HGS automatisch für Sie verwaltet werden.
+Zertifikate, die mit PFX-Dateien hinzugefügt werden, werden automatisch an jeden Knoten Ihres HGS-Clusters repliziert, und HGS sichert den Zugriff auf die privaten Schlüssel.
+Wenn Sie ein neues Zertifikat mit einer PFX-Datei hinzufügen möchten, führen Sie die folgenden Befehle auf einem beliebigen HGS-Knoten aus (ändern Sie die *Verschlüsselung* in *Signatur* für Signatur Zertifikate):
 
 ```powershell
 $certPassword = Read-Host -AsSecureString -Prompt "Provide the PFX file password"
 Add-HgsKeyProtectionCertificate -CertificateType Encryption -CertificatePath "C:\temp\encryptionCert.pfx" -CertificatePassword $certPassword
 ```
 
-**Identifizieren und ändern die primäre Zertifikate** während der Host-Überwachungsdienst mehrere Zertifikate für Signierung und Verschlüsselung unterstützen kann, wird ein Paar als ihre "primary" Zertifikate verwendet.
-Hierbei handelt es sich um die Zertifikate, die verwendet werden, wenn ein Benutzer der überwachungsmetadaten für diesen Host-Überwachungsdienst-Cluster heruntergeladen.
-Um zu überprüfen, welche Zertifikate als Ihre primäre Zertifikate derzeit markiert sind, führen Sie den folgenden Befehl aus:
+**Identifizieren und Ändern der primären Zertifikate** Obwohl HGS mehrere Signatur-und Verschlüsselungs Zertifikate unterstützen kann, wird ein paar als "primäre" Zertifikate verwendet.
+Dabei handelt es sich um die Zertifikate, die verwendet werden, wenn jemand die Wächter Metadaten für diesen HGS-Cluster herunterlädt.
+Führen Sie den folgenden Befehl aus, um zu überprüfen, welche Zertifikate derzeit als primäre Zertifikate gekennzeichnet sind:
 
 ```powershell
 Get-HgsKeyProtectionCertificate -IsPrimary $true
 ```
 
-Um einen neuen primären Verschlüsselung oder Signaturzertifikat festlegen, den Fingerabdruck des das gewünschte Zertifikat aus, und markieren Sie ihn als primäre mit den folgenden Befehlen:
+Um ein neues primäres Verschlüsselungs-oder Signaturzertifikat festzulegen, suchen Sie den Fingerabdruck des gewünschten Zertifikats, und markieren Sie ihn mit den folgenden Befehlen als Primärschlüssel:
 
 ```powershell
 Get-HgsKeyProtectionCertificate
@@ -650,47 +650,47 @@ Set-HgsKeyProtectionCertificate -CertificateType Signing -Thumbprint "9988776655
 ```
 
 ### <a name="renewing-or-replacing-keys"></a>Erneuern oder Ersetzen von Schlüsseln
-Beim Erstellen der Zertifikate, die von Host-Überwachungsdienst verwendet werden die Zertifikate ein Ablaufdatum gemäß der Richtlinie für das Zertifikat der Zertifizierungsstelle und Ihre Anforderung zugewiesen werden.
-In Szenarien, in denen die Gültigkeit des Zertifikats wie z. B. das Sichern von HTTP-Kommunikation wichtig ist, müssen normalerweise Zertifikate erneuert werden, bevor sie ablaufen, um eine dienstunterbrechung oder schlecht Fehlermeldung zu vermeiden.
-Host-Überwachungsdienst verwendet Zertifikate nicht in dieser Hinsicht.
-Host-Überwachungsdienst ist einfach mithilfe von Zertifikaten auf einfache Weise erstellen und speichern ein asymmetrisches Schlüsselpaar.
-Ein abgelaufener Verschlüsselung oder Signaturzertifikat auf dem Host-Überwachungsdienst gibt eine Schwachstelle oder Verlust des Schutzes für abgeschirmte VMs nicht an.
-Darüber hinaus werden die zertifikatsperrüberprüfungen nicht vom Host-Überwachungsdienst ausgeführt.
-Wenn ein Host-Überwachungsdienst-Zertifikat oder der ausstellenden Zertifizierungsstelle widerrufen wurde, hat es keine Auswirkung auf HGS Verwendung des Zertifikats.
+Wenn Sie die von HGS verwendeten Zertifikate erstellen, wird den Zertifikaten gemäß der Richtlinie Ihrer Zertifizierungsstelle und Ihren Anforderungs Informationen ein Ablaufdatum zugewiesen.
+Normalerweise müssen Zertifikate in Szenarien, in denen die Gültigkeit des Zertifikats wichtig ist, z. b. das Sichern von http-Kommunikationen, erneuert werden, bevor Sie ablaufen, um eine Dienst Unterbrechung oder eine Fehlermeldung zu vermeiden.
+HGS verwendet in diesem Sinne keine Zertifikate.
+HGS verwendet Zertifikate einfach als bequeme Möglichkeit zum Erstellen und Speichern eines asymmetrischen Schlüssel Paars.
+Ein abgelaufenes Verschlüsselungs-oder Signaturzertifikat auf HGS weist nicht auf eine Schwachstelle oder den Schutz von geschützten VMS hin.
+Außerdem werden Zertifikat Sperr Überprüfungen nicht von HGS ausgeführt.
+Wenn ein HGS-Zertifikat oder das Zertifikat der ausstellenden Zertifizierungsstelle widerrufen wird, hat dies keine Auswirkung auf die Verwendung des Zertifikats durch die HGS.
 
-Nur dann müssen Sie ein Zertifikat für die Host-Überwachungsdienst kümmern wird gestohlen wurde, wenn Sie Grund zu glauben, dass seinen privaten Schlüssel hat verfügen.
-In diesem Fall ist die Integrität Ihrer geschützten virtuellen Computer gefährdet, da besitzt die private Hälfte des der HGS-Verschlüsselung und Unterzeichnung von Schlüsselpaar ausreichend ist, um die geschützten Schutzmaßnahmen auf einem virtuellen Computer zu entfernen oder einen gefälschten HGS-Server, der schwächere Nachweis Richtlinien ist, einsatzbereit.
+Sie müssen sich nur über ein HGS-Zertifikat Gedanken machen, wenn Sie der Meinung sind, dass der private Schlüssel gestohlen wurde.
+In diesem Fall besteht die Gefahr, dass die Integrität ihrer abgeschirmten VMS gefährdet ist, weil der Besitz der privaten Hälfte des HGS-Verschlüsselungs-und Signatur Schlüssel Paars ausreicht, um den Schutz Schutz auf einem virtuellen Computer zu entfernen oder einen gefälschten HGS-Server zu erhalten, der schwächere Nachweis Richtlinien aufweist.
 
-Wenn Sie in dieser Situation geraten oder Compliance-Standards Zertifikatsschlüssel regelmäßig aktualisieren erforderlich sind, beschreiben die folgenden Schritte den Prozess, um die Schlüssel auf einem Host-Überwachungsdienst-Server zu ändern.
-Beachten Sie, dass die folgende Anleitung kein leichtes Unterfangen darstellt, das für jeden virtuellen Computer vom Host-Überwachungsdienst-Cluster verarbeitet zu einer Unterbrechung des Diensts führen.
-Richtiger Planung für das Ändern von Host-Überwachungsdienst-Schlüssels ist erforderlich, um dienstunterbrechungen zu minimieren und Gewährleistung der Sicherheit der Mandanten-VMs.
+Wenn Sie sich in dieser Situation befinden oder von Kompatibilitäts Standards zum regelmäßigen Aktualisieren von Zertifikat Schlüsseln benötigt werden, wird in den folgenden Schritten der Prozess zum Ändern der Schlüssel auf einem HGS-Server beschrieben.
+Beachten Sie, dass die folgende Anleitung ein bedeutendes Unternehmen darstellt, das zu einer Dienst Unterbrechung für jede VM führt, die vom HGS-Cluster bedient wird.
+Die richtige Planung für das Ändern von HGS-Schlüsseln ist erforderlich, um die Dienst Unterbrechung zu minimieren und die Sicherheit von Mandanten-VMS
 
-Führen Sie auf einem Host-Überwachungsdienst-Knoten die folgenden Schritte aus, um ein neues Paar von Verschlüsselung und Signaturzertifikate zu registrieren.
-Finden Sie im Abschnitt [Hinzufügen neuer Schlüssel](#adding-new-keys) für detaillierte Informationen für die verschiedenen Möglichkeiten zum Host-Überwachungsdienst neuer Schlüssel hinzugefügt.
-1. Erstellen Sie ein neues Paar der Verschlüsselung und Signaturzertifikate für den Host-Überwachungsdienst-Server. Im Idealfall werden diese in einem Hardwaresicherheitsmodul erstellt werden.
-2. Registrieren die neue Verschlüsselung und Signaturzertifikate mit **hinzufügen-HgsKeyProtectionCertificate**
+Führen Sie auf einem HGS-Knoten die folgenden Schritte aus, um ein neues Paar von Verschlüsselungs-und Signatur Zertifikaten zu registrieren.
+Ausführliche Informationen zu den verschiedenen Möglichkeiten zum Hinzufügen neuer Schlüssel zu HGS finden Sie im Abschnitt zum Hinzufügen [neuer Schlüssel](#adding-new-keys) .
+1. Erstellen Sie ein neues Paar von Verschlüsselungs-und Signatur Zertifikaten für Ihren HGS-Server. Im Idealfall werden diese in einem Hardware Sicherheitsmodul erstellt.
+2. Registrieren der neuen Verschlüsselungs-und Signatur Zertifikate mit **Add-hgskeyschutzcertificate**
 
     ```powershell
     Add-HgsKeyProtectionCertificate -CertificateType Signing -Thumbprint <Thumbprint>
     Add-HgsKeyProtectionCertificate -CertificateType Encryption -Thumbprint <Thumbprint>
     ```
-3. Wenn Sie die Fingerabdrücke verwendet, müssen Sie zu jedem Knoten im Cluster installieren Sie den privaten Schlüssel und die Host-Überwachungsdienst gMSA Zugriff auf den Schlüssel zu gewähren.
-4. Stellen Sie die neuen Zertifikate der Standardzertifikate im Host-Überwachungsdienst
+3. Wenn Sie Fingerabdrücke verwendet haben, müssen Sie zu jedem Knoten im Cluster wechseln, um den privaten Schlüssel zu installieren und dem HGS-GMSA Zugriff auf den Schlüssel zu gewähren.
+4. Erstellen der neuen Zertifikate als Standardzertifikate in HGS
 
     ```powershell
     Set-HgsKeyProtectionCertificate -CertificateType Signing -Thumbprint <Thumbprint> -IsPrimary
     Set-HgsKeyProtectionCertificate -CertificateType Encryption -Thumbprint <Thumbprint> -IsPrimary
     ```
 
-An diesem Punkt geschützten Daten, die mit Metadaten abgerufen, die über den Host-Überwachungsdienst-Knoten erstellt die neuen Zertifikate verwenden, aber die vorhandene virtuelle Computer weiterhin funktionsfähig, da ältere Zertifikate immer noch vorhanden sind.
-Um sicherzustellen, dass alle vorhandenen virtuellen Computer mit der neuen Schlüssel verwendet werden kann, müssen Sie die Schlüsselschutzvorrichtung auf jedem virtuellen Computer zu aktualisieren.
-Dies ist eine Aktion, die den VM-Besitzer (Person oder Entität im Besitz der Überwachungsdienst "Besitzer") muss der beteiligt sein.
-Führen Sie für jeden geschützten virtuellen Computer die folgenden Schritte aus:
-5. Fahren Sie den virtuellen Computer herunter. Der virtuelle Computer kann nicht wieder aktiviert werden, bis die übrigen Schritte abgeschlossen sind, ansonsten müssen Sie zum Starten des Prozesses wieder ganz von vorn.
-6. Speichern Sie die aktuelle Schlüsselschutzvorrichtung in einer Datei: `Get-VMKeyProtector -VMName 'VM001' | Out-File '.\VM001.kp'`
-7. Übertragen Sie die KP auf der VM-Besitzer
-8. Haben Sie den Download der Besitzer die aktualisierte Überwachungsdienst Informationen von Host-Überwachungsdienst und importieren Sie es auf ihrem lokalen system
-9. Gelesen Sie die aktuelle KP in den Arbeitsspeicher, die KP gewähren Sie den neuen Überwachungsdienst Zugriff und speichern Sie sie in eine neue Datei, indem Sie die folgenden Befehle ausführen:
+An diesem Punkt werden geschützte Daten, die mit Metadaten aus dem HGS-Knoten erstellt werden, die neuen Zertifikate verwenden, vorhandene virtuelle Computer funktionieren jedoch weiterhin, da die älteren Zertifikate weiterhin vorhanden sind.
+Um sicherzustellen, dass alle vorhandenen VMS mit den neuen Schlüsseln funktionieren, müssen Sie die Schlüssel Schutzvorrichtung auf den einzelnen virtuellen Computern aktualisieren.
+Dabei handelt es sich um eine Aktion, die erfordert, dass der Besitzer des virtuellen Computers (Person oder Entität, die den "Owner"-Wächter besitzt) beteiligt ist.
+Führen Sie für jede abgeschirmte VM die folgenden Schritte aus:
+5. Fahren Sie den virtuellen Computer herunter. Der virtuelle Computer kann erst wieder eingeschaltet werden, wenn die restlichen Schritte ausgeführt wurden. andernfalls müssen Sie den Prozess erneut starten.
+6. Aktuelle Schlüssel Schutzvorrichtung in einer Datei speichern: `Get-VMKeyProtector -VMName 'VM001' | Out-File '.\VM001.kp'`
+7. Übertragen der KP in den VM-Besitzer
+8. Lassen Sie den Besitzer die aktualisierten Überwachungsinformationen von HGS herunterladen und auf Ihrem lokalen System importieren
+9. Lesen Sie die aktuelle KP in den Arbeitsspeicher, gewähren Sie dem neuen Erziehungsberechtigten Zugriff auf die KP, und speichern Sie Sie in einer neuen Datei, indem Sie die folgenden Befehle ausführen:
 
     ```powershell
     $kpraw = Get-Content -Path .\VM001.kp
@@ -699,31 +699,31 @@ Führen Sie für jeden geschützten virtuellen Computer die folgenden Schritte a
     $updatedKP = Grant-HgsKeyProtectorAccess -KeyProtector $kp -Guardian $newGuardian
     $updatedKP.RawData | Out-File .\updatedVM001.kp
     ```
-10. Kopieren Sie die aktualisierte KP zurück zum Host-fabric
-11. Der ursprüngliche virtuelle Computer gelten Sie der-KP:
+10. Kopieren Sie die aktualisierte KP zurück in das hostingfabric.
+11. Wenden Sie die KP auf den ursprünglichen virtuellen Computer an:
 
    ```powershell
    $updatedKP = Get-Content -Path .\updatedVM001.kp
    Set-VMKeyProtector -VMName VM001 -KeyProtector $updatedKP
    ```
-12. Abschließend starten Sie den virtuellen Computer aus, und stellen Sie sicher, dass es erfolgreich ausgeführt wird.
+12. Starten Sie die VM, und stellen Sie sicher, dass Sie erfolgreich ausgeführt wird.
 
 > [!NOTE]
-> Wenn der Besitzer der virtuellen Computer eine falschen Schlüsselschutzvorrichtung auf dem virtuellen Computer und Ihr Fabric für die VM ist nicht autorisiert, werden Sie nicht die abgeschirmte VM starten.
-> Um auf die letzten bekannten guten Schlüsselschutzvorrichtung zurückzugeben, führen `Set-VMKeyProtector -RestoreLastKnownGoodKeyProtector`
+> Wenn der VM-Besitzer eine falsche Schlüssel Schutzvorrichtung auf dem virtuellen Computer festlegt und Ihr Fabric nicht zum Ausführen des virtuellen Computers autorisiert, können Sie den abgeschirmten virtuellen Computer nicht starten.
+> Führen Sie `Set-VMKeyProtector -RestoreLastKnownGoodKeyProtector` aus, um zur letzten als funktionierend bekannten Schlüssel Schutzvorrichtung zurückzukehren.
 
-Nachdem alle virtuellen Computer zum Autorisieren der neuen Schlüssel für den Überwachungsdienst aktualisiert wurden, können Sie deaktivieren und die alten Schlüssel entfernen.
+Nachdem alle VMs aktualisiert wurden, um die neuen Wächter Schlüssel zu autorisieren, können Sie die alten Schlüssel deaktivieren und entfernen.
 
-13. Die Fingerabdrücke für die alte Zertifikate aus abrufen `Get-HgsKeyProtectionCertificate -IsPrimary $false`
+13. Die Fingerabdrücke der alten Zertifikate werden von `Get-HgsKeyProtectionCertificate -IsPrimary $false`
 
-14. Deaktivieren Sie jedes Zertifikat, indem Sie die folgenden Befehle ausführen:  
+14. Deaktivieren Sie die einzelnen Zertifikate, indem Sie die folgenden Befehle ausführen:  
 
    ```powershell
    Set-HgsKeyProtectionCertificate -CertificateType Signing -Thumbprint <Thumbprint> -IsEnabled $false
    Set-HgsKeyProtectionCertificate -CertificateType Encryption -Thumbprint <Thumbprint> -IsEnabled $false
    ```
 
-15. Nachdem Sie sichergestellt haben, dass die virtuellen Computer weiterhin für den Einstieg können entfernen die Zertifikate, die deaktiviert ist, Sie die Zertifikate von Host-Überwachungsdienst durch die folgenden Befehle ausführen:
+15. Nachdem Sie sichergestellt haben, dass die VMs weiterhin mit deaktivierten Zertifikaten gestartet werden können, entfernen Sie die Zertifikate aus HGS, indem Sie die folgenden Befehle ausführen:
 
    ```powershell
    Remove-HgsKeyProtectionCertificate -CertificateType Signing -Thumbprint <Thumbprint>`
@@ -731,61 +731,61 @@ Nachdem alle virtuellen Computer zum Autorisieren der neuen Schlüssel für den 
    ```
 
 > [!IMPORTANT]
-> VM-Sicherungen enthalten alte Kennwortschlüssel-Schutzvorrichtung, mit denen die alte Zertifikate verwendet werden, um den virtuellen Computer zu starten.
-> Wenn Sie wissen, dass Ihr private Schlüssel gefährdet ist, sollten Sie davon ausgehen, dass die VM-Sicherungen ebenfalls gefährdet werden können und entsprechende Maßnahmen ergreifen.
-> Zerstören die VM-Konfiguration aus den Sicherungen (vmcx) entfernt die Schlüsselschutzvorrichtungen auf Kosten der BitLocker-Wiederherstellungskennwort zu verwenden, den virtuellen Computer das nächste Mal starten.
+> VM-Sicherungen enthalten alte schlüsselschutzinformationen, mit denen die alten Zertifikate zum Starten der VM verwendet werden können.
+> Wenn Sie wissen, dass Ihr privater Schlüssel kompromittiert wurde, sollten Sie davon ausgehen, dass die VM-Sicherungen ebenfalls kompromittiert werden können, und die entsprechenden Maßnahmen ergreifen.
+> Durch das zerstören der VM-Konfiguration aus den Sicherungen (vmcx-Dateien) werden die Schlüssel Schutzvorrichtungen entfernt. Dies führt dazu, dass das BitLocker-Wiederherstellungs Kennwort zum nächsten Mal zum Starten der VM verwendet werden muss.
 
-### <a name="key-replication-between-nodes"></a>Replikation zwischen Knoten
-Jeder Knoten im Cluster-Host-Überwachungsdienst muss konfiguriert werden, mit der gleichen Verschlüsselung, "Signierung", und (Wenn konfiguriert) SSL-Zertifikate.
-Dies ist erforderlich, um sicherzustellen, dass Hyper-V-Hosts, die auf einen beliebigen Knoten im Cluster mit unseren Lesern ihrer Anforderungen, die erfolgreich verarbeitet werden können.
+### <a name="key-replication-between-nodes"></a>Schlüssel Replikation zwischen Knoten
+Jeder Knoten im HGS-Cluster muss mit denselben Verschlüsselungs-, Signatur-und (wenn konfigurierten) SSL-Zertifikaten konfiguriert werden.
+Dies ist erforderlich, um sicherzustellen, dass die Anforderungen von Hyper-V-Hosts, die zu einem beliebigen Knoten im Cluster gelangen, erfolgreich bedient werden können.
 
-**Wenn Sie HGS-Server mit der PFX-Zertifikate initialisiert** und Host-Überwachungsdienst die öffentlichen und privaten Schlüssel dieser Zertifikate automatisch auf jedem Knoten im Cluster repliziert werden.
+**Wenn Sie den HGS-Server mit PFX-basierten Zertifikaten initialisiert** haben, repliziert HGS automatisch sowohl den öffentlichen als auch den privaten Schlüssel dieser Zertifikate auf allen Knoten im Cluster.
 Sie müssen nur die Schlüssel auf einem Knoten hinzufügen.
 
-**Wenn Sie HGS-Server mit Zertifikat verweisen initialisiert** oder Fingerabdrücke, und klicken Sie dann auf Host-Überwachungsdienst nur repliziert wird die *öffentliche* Schlüssel im Zertifikat für jeden Knoten.
-Darüber hinaus Host-Überwachungsdienst können nicht gewährt selbst den Zugriff auf den privaten Schlüssel auf einem beliebigen Knoten in diesem Szenario.
-Aus diesem Grund ist es Ihre Aufgabe, aus:
-1. Installieren Sie den privaten Schlüssel auf jedem Host-Überwachungsdienst-Knoten
-2. Erteilen Sie die Host-Überwachungsdienst gruppenverwalteten Dienstkonto (gMSA) Zugriff auf den privaten Schlüssel auf jedem Knoten, dass dazu zusätzliche operative Last hinzufügen, jedoch sie für den HSM-gesicherten Schlüssel und Zertifikate mit nicht exportierbaren privaten Schlüssel erforderlich sind.
+**Wenn Sie den HGS-Server mit Zertifikat verweisen** oder Fingerabdrücken initialisiert haben, repliziert HGS den *öffentlichen* Schlüssel im Zertifikat nur auf jeden Knoten.
+Darüber hinaus kann HGS selbst keinen Zugriff auf den privaten Schlüssel auf einem Knoten in diesem Szenario gewähren.
+Daher sind Sie für folgende Aufgaben verantwortlich:
+1. Installieren Sie den privaten Schlüssel auf jedem HGS-Knoten.
+2. Gewähren Sie dem Gruppen verwalteten Dienst Konto (Managed Service Account, GMSA) der HGS-Gruppe Zugriff auf den privaten Schlüssel auf jedem Knoten, da diese Aufgaben zusätzliche Betriebsbelastung erfordern, sind Sie jedoch für HSM-gestützte Schlüssel und Zertifikate mit nicht exportierbaren privaten Schlüsseln erforderlich.
 
 **SSL-Zertifikate** werden nie in irgendeiner Form repliziert.
-Es ist Ihre Aufgabe, initialisieren jeden Host-Überwachungsdienst-Server mit dasselbe SSL-Zertifikat, und aktualisieren jeden Server aus, wenn Sie angeben, erneuern oder Ersetzen Sie das SSL-Zertifikat.
-Wenn das SSL-Zertifikat ersetzt wird, wird empfohlen, die Sie dazu die [Set-HgsServer](https://technet.microsoft.com/library/mt652180.aspx) Cmdlet.
+Es liegt in ihrer Verantwortung, jeden HGS-Server mit demselben SSL-Zertifikat zu initialisieren und jeden Server zu aktualisieren, wenn Sie das SSL-Zertifikat erneuern oder ersetzen.
+Wenn Sie das SSL-Zertifikat ersetzen, empfiehlt es sich, das Cmdlet [Set-hgsserver](https://technet.microsoft.com/library/mt652180.aspx) zu verwenden.
 
-## <a name="unconfiguring-hgs"></a>Aufheben der Konfiguration des Host-Überwachungsdienst
+## <a name="unconfiguring-hgs"></a>Aufheben der Konfiguration von HGS
 
-Wenn Sie außer Betrieb nehmen oder neu erheblich einen HGS-Server konfigurieren möchten, erreichen Sie dies über die [Clear-HgsServer](https://technet.microsoft.com/library/mt652176.aspx) oder [deinstallieren-HgsServer](https://technet.microsoft.com/library/mt652182.aspx) Cmdlets.
+Wenn Sie einen HGS-Server außer Betrieb setzen oder erheblich neu konfigurieren müssen, können Sie dazu die Cmdlets [Clear-hgsserver](https://technet.microsoft.com/library/mt652176.aspx) oder [Uninstall-hgsserver](https://technet.microsoft.com/library/mt652182.aspx) verwenden.
 
-### <a name="clearing-the-hgs-configuration"></a>Löschen die Konfiguration des Host-Überwachungsdienst
+### <a name="clearing-the-hgs-configuration"></a>Löschen der HGS-Konfiguration
 
-Verwenden Sie zum Entfernen eines Knotens aus dem Cluster-Host-Überwachungsdienst die [Clear-HgsServer](https://technet.microsoft.com/library/mt652176.aspx) Cmdlet.
-Mit diesem Cmdlet wird auf dem Server die folgenden Änderungen vornehmen, in dem er ausgeführt wird:
+Verwenden Sie zum Entfernen eines Knotens aus dem HGS-Cluster das Cmdlet [Clear-hgsserver](https://technet.microsoft.com/library/mt652176.aspx) .
+Mit diesem Cmdlet werden auf dem Server, auf dem es ausgeführt wird, die folgenden Änderungen vorgenommen:
 
-- Hebt die Registrierung für die Nachweis- und Datenschutzdienste
-- Entfernt den "microsoft.windows.hgs" JEA-verwaltungsendpunkt
-- Entfernt den lokalen Computer aus dem Failovercluster-Host-Überwachungsdienst
+- Hebt die Registrierung der Nachweis-und Schlüsselschutz Dienste auf.
+- Entfernt den Jea-Verwaltungs Endpunkt "Microsoft. Windows. HGS".
+- Entfernt den lokalen Computer aus dem HGS-Failovercluster.
 
-Wenn der Server den letzten HGS-Knoten im Cluster ist, werden der Cluster und die entsprechende Distributed Network Name Ressource auch zerstört werden.
+Wenn der Server der letzte HGS-Knoten im Cluster ist, werden auch der Cluster und die zugehörige verteilte Netzwerknamen Ressource zerstört.
 
 ```powershell
 # Removes the local computer from the HGS cluster
 Clear-HgsServer
 ```
 
-Nachdem der Löschvorgang abgeschlossen ist, kann der HGS-Server mit erneut initialisiert werden [Initialize-HgsServer](https://technet.microsoft.com/library/mt652185.aspx).
-Wenn Sie verwendet [Install-HgsServer](https://technet.microsoft.com/library/mt652169.aspx) zum Einrichten einer Active Directory Domain Services-Domäne dieser Domäne bleibt konfiguriert ist und funktioniert nach dem Löschvorgang.
+Nachdem der Löschvorgang abgeschlossen ist, kann der HGS-Server mit [Initialize-hgsserver](https://technet.microsoft.com/library/mt652185.aspx)erneut initialisiert werden.
+Wenn Sie [install-hgsserver](https://technet.microsoft.com/library/mt652169.aspx) zum Einrichten einer Active Directory Domain Services Domäne verwendet haben, bleibt diese Domäne nach dem Löschvorgang konfiguriert und betriebsbereit.
 
-### <a name="uninstalling-hgs"></a>Deinstallieren von Host-Überwachungsdienst
+### <a name="uninstalling-hgs"></a>Deinstallieren von HGS
 
-Wenn Sie zum Entfernen eines Knotens aus dem Cluster-Host-Überwachungsdienst möchten **und** tiefer stufen der Active Directory-Domänencontroller ausgeführt wird, verwenden Sie die [deinstallieren-HgsServer](https://technet.microsoft.com/library/mt652182.aspx) Cmdlet.
-Mit diesem Cmdlet wird auf dem Server die folgenden Änderungen vornehmen, in dem er ausgeführt wird:
+Wenn Sie einen Knoten aus dem HGS-Cluster entfernen **und** den Active Directory-Domäne Controller herabstufen möchten, auf dem er ausgeführt wird, verwenden Sie das Cmdlet [Uninstall-hgsserver](https://technet.microsoft.com/library/mt652182.aspx) .
+Mit diesem Cmdlet werden auf dem Server, auf dem es ausgeführt wird, die folgenden Änderungen vorgenommen:
 
-- Hebt die Registrierung für die Nachweis- und Datenschutzdienste
-- Entfernt den "microsoft.windows.hgs" JEA-verwaltungsendpunkt
-- Entfernt den lokalen Computer aus dem Failovercluster-Host-Überwachungsdienst
-- Die Active Directory-Domänencontroller tiefer gestuft, wenn konfiguriert
+- Hebt die Registrierung der Nachweis-und Schlüsselschutz Dienste auf.
+- Entfernt den Jea-Verwaltungs Endpunkt "Microsoft. Windows. HGS".
+- Entfernt den lokalen Computer aus dem HGS-Failovercluster.
+- Herabstufen des Active Directory-Domäne Controllers, sofern konfiguriert
 
-Wenn der Server den letzten HGS-Knoten im Cluster ist, werden die Domäne, Failovercluster und des Clusters verteilt Vnn-Ressource auch zerstört werden.
+Wenn es sich bei dem Server um den letzten HGS-Knoten im Cluster handelt, werden die Domäne, der Failovercluster und die verteilte Netzwerknamen Ressource des Clusters ebenfalls zerstört.
 
 ```powershell
 # Removes the local computer from the HGS cluster and demotes the ADDC (restart required)
@@ -793,9 +793,9 @@ $newLocalAdminPassword = Read-Host -AsSecureString -Prompt "Enter a new password
 Uninstall-HgsServer -LocalAdministratorPassword $newLocalAdminPassword -Restart
 ```
 
-Nachdem der Deinstallationsvorgang abgeschlossen ist, und der Computer neu gestartet wurde, können Sie neu installieren ADDC und Host-Überwachungsdienst mit [Install-HgsServer](https://technet.microsoft.com/library/mt652169.aspx) oder fügen Sie den Computer einer Domäne, und initialisieren Sie den Server-Host-Überwachungsdiensts in der Domäne mit [ Initialize-HgsServer](https://technet.microsoft.com/library/mt652185.aspx).
+Nachdem der Deinstallations Vorgang abgeschlossen und der Computer neu gestartet wurde, können Sie addc und HGS mithilfe von [install-hgsserver](https://technet.microsoft.com/library/mt652169.aspx) neu installieren oder den Computer einer Domäne hinzufügen und den HGS-Server in dieser Domäne mit [initialisieren-hgsserver](https://technet.microsoft.com/library/mt652185.aspx)initialisieren.
 
-Wenn Sie nicht mehr den Computer als ein Knoten für die Host-Überwachungsdienst verwenden möchten, können Sie die Rolle aus Windows entfernen.
+Wenn Sie den Computer nicht mehr als HGS-Knoten verwenden möchten, können Sie die Rolle aus Windows entfernen.
 
 ```powershell
 Uninstall-WindowsFeature HostGuardianServiceRole

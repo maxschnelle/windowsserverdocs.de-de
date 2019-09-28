@@ -2,22 +2,22 @@
 title: Dateiprüfungsverwaltung
 description: Dieser Artikel beschreibt, wie Dateiprüfungen erstellt, Benachrichtigungen generiert, Dateiprüfungsvorlagen festgelegt und Dateiprüfungsausnahmen erstellt werden
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 05fcaf402347d16bf8c28528d402664ae5f99165
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: ac5032630f960329675f896a303ef197d6a4dbb3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476045"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403107"
 ---
 # <a name="file-screening-management"></a>Dateiprüfungsverwaltung
 
-> Gilt für: WindowsServer 2019, WindowsServer 2016, WindowsServer (Halbjährlicher Kanal), Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
+> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Sie können auf dem Knoten **Dateiprüfungsverwaltung** des Ressourcen-Manager für Dateiserver-MMC-Snap-Ins folgende Aufgaben ausführen:
 
@@ -33,7 +33,7 @@ Sie haben u. a. folgende Möglichkeiten:
 In diesem Abschnitt werden folgende Themen behandelt:
 
 -   [Definieren von Dateigruppen für die Prüfung](define-file-groups-for-screening.md)
--   [Erstellen Sie einen Datei-Bildschirm](create-file-screen.md)
+-   [Erstellen einer Dateiprüfung](create-file-screen.md)
 -   [Erstellen einer Dateiprüfungsausnahme](create-file-screen-exception.md)
 -   [Erstellen einer Dateiprüfungsvorlage](create-file-screen-template.md)
 -   [Bearbeiten der Eigenschaften der Dateiprüfungsvorlage](edit-file-screen-template-properties.md)

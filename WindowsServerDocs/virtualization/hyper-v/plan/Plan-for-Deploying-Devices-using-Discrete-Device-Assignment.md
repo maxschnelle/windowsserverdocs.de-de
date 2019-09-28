@@ -1,7 +1,7 @@
 ---
 title: Planen der Bereitstellung von Geräten mit diskreter Geräte Zuweisung
 description: Weitere Informationen zur Funktionsweise von DDA in Windows Server
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 ms.technology: hyper-v
 ms.tgt_pltfrm: na
@@ -9,15 +9,15 @@ ms.topic: article
 author: chrishuybregts
 ms.author: chrihu
 ms.date: 02/06/2018
-ms.openlocfilehash: 7df7dbd1e7252f5bab451ed9272f9cbede63d223
-ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
+ms.openlocfilehash: 7084f4951ebe1d1203f4c9e45bc5f73cc6487a84
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476496"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364191"
 ---
 # <a name="plan-for-deploying-devices-using-discrete-device-assignment"></a>Planen der Bereitstellung von Geräten mit diskreter Geräte Zuweisung
->Gilt für: Microsoft Hyper-v Server 2016, Windows Server 2016, Microsoft Hyper-v Server 2019, Windows Server 2019
+>Gilt für: Microsoft Hyper-V Server 2016, Windows Server 2016, Microsoft Hyper-V Server 2019, Windows Server 2019
 
 Durch die diskrete Geräte Zuweisung kann auf physische PCIe-Hardware direkt von einem virtuellen Computer aus zugegriffen werden.  In diesem Leitfaden werden die Arten von Geräten erläutert, die diskrete Geräte Zuweisungen, Host Systemanforderungen, Einschränkungen der virtuellen Computer sowie Sicherheitsauswirkungen der diskreten Geräte Zuweisung verwenden können.
 
@@ -57,7 +57,7 @@ Die diskrete Geräte Zuweisung übergibt das gesamte Gerät an den virtuellen Co
 
 Wenn der Administrator ein Gerät mit einem nicht vertrauenswürdigen Mandanten verwenden möchte, haben wir Geräteherstellern die Möglichkeit gegeben, einen geräteentschärfungs-Treiber zu erstellen, der auf dem Host installiert werden kann.  Wenden Sie sich an den Gerätehersteller, um zu erfahren, ob er einen Geräte Entschärfungs Treiber bereitstellt.
 
-Wenn Sie die Sicherheitsüberprüfungen für ein Gerät umgehen möchten, das keinen Treiber für die Geräte Entschärfung hat, müssen Sie den `-Force` Parameter an das `Dismount-VMHostAssignableDevice` Cmdlet übergeben.  Dabei haben Sie sich bewusst, dass Sie das Sicherheitsprofil des Systems geändert haben und dies nur während der Erstellung von Prototypen oder vertrauenswürdigen Umgebungen empfohlen wird.
+Wenn Sie die Sicherheitsüberprüfungen für ein Gerät umgehen möchten, das keinen Treiber für die Geräte Entschärfung hat, müssen Sie den Parameter "`-Force`" an das `Dismount-VMHostAssignableDevice`-Cmdlet übergeben.  Dabei haben Sie sich bewusst, dass Sie das Sicherheitsprofil des Systems geändert haben und dies nur während der Erstellung von Prototypen oder vertrauenswürdigen Umgebungen empfohlen wird.
 
 ## <a name="pcie-location-path"></a>PCIe-Speicherort Pfad
 Der Pfad für den PCIe-Speicherort ist erforderlich, um das Gerät vom Host zu entfernen und zu binden.  Ein Beispiel für einen Speicherort Pfad sieht wie `"PCIROOT(20)#PCI(0300)#PCI(0000)#PCI(0800)#PCI(0000)"`folgt aus:.   Das [Computer Profil Skript](#machine-profile-script) gibt auch den Speicherort Pfad des PCIe-Geräts zurück.

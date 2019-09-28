@@ -7,18 +7,18 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c8d34d7b35f3cd5209fd6096f69b16162229bc3a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 82b0035075c981d123ab3b90d56768940f65558e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863081"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391109"
 ---
 # <a name="install-a-windows-server-2012-active-directory-read-only-domain-controller-rodc-level-200"></a>Installieren eines schreibgeschützten Active Directory-Domänencontrollers (RODC) in Windows Server 2012 (Stufe 200)
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Thema erfahren Sie, wie Sie ein gestaffeltes RODC-Konto erstellen und anschließend bei der RODC-Installation einen Server an dieses Konto anfügen können. Außerdem wird die Installation eines RODC ohne gestaffelte Installation beschrieben.  
   
@@ -33,12 +33,12 @@ Das folgende Diagramm zeigt den Stagingprozess für den schreibgeschützten Dom�
   
 ![RODC installieren](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/adds_stagedcreation.png)  
   
-## <a name="BKMK_StagePS"></a>Stage RODC Windows PowerShell  
+## <a name="BKMK_StagePS"></a>Staging RODC Windows PowerShell  
   
 |||  
 |-|-|  
-|**Cmdlet "ADDSDeployment"**|Argumente (erforderliche Argumente sind **fett** markiert. Argumente in *Kursivschrift* können mithilfe von Windows PowerShell oder dem AD DS-Konfigurations-Assistenten angegeben werden.)|  
-|Add-addsreadonlydomaincontrolleraccount|-SkipPreChecks<br /><br />***-DomainControllerAccountName***<br /><br />***-DomainName***<br /><br />***-SiteName***<br /><br />*-AllowPasswordReplicationAccountName*<br /><br />***-Credential***<br /><br />*-DelegatedAdministratorAccountName*<br /><br />*-DenyPasswordReplicationAccountName*<br /><br />*-NoGlobalCatalog*<br /><br />*-InstallDNS*<br /><br />-ReplicationSourceDC|  
+|**Addsdeployment-Cmdlet**|Argumente (erforderliche Argumente sind **fett** markiert. Argumente in *Kursivschrift* können mithilfe von Windows PowerShell oder dem AD DS-Konfigurations-Assistenten angegeben werden.)|  
+|Add-addsreadonlydomaincontrolleraccount|-SkipPreChecks<br /><br />***-Domaincontrolleraccountname***<br /><br />***-Domain Name***<br /><br />***-Sitename***<br /><br />*-Allowpasswordreplicationaccountname*<br /><br />***-Credential***<br /><br />*-DelegatedAdministratorAccountName*<br /><br />*-Denypasswordreplicationaccountname*<br /><br />*-Noglobalcatalog*<br /><br />*-InstallDNS*<br /><br />-ReplicationSourceDC|  
   
 > [!NOTE]  
 > Das Argument **-credential** ist nur erforderlich, wenn Sie nicht bereits als Mitglied der Gruppe Domänen-Admins angemeldet sind.  
@@ -48,12 +48,12 @@ Das folgende Diagramm zeigt den Konfigurationsprozess für die Active Directory-
   
 ![RODC installieren](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/adds_stageddeploy_beta1.png)  
   
-## <a name="BKMK_AttachPS"></a>Fügen RODC Windows PowerShell an  
+## <a name="BKMK_AttachPS"></a>Anfügen von RODC Windows PowerShell  
   
 |||  
 |-|-|  
-|**Cmdlet "ADDSDeployment"**|Argumente (erforderliche Argumente sind **fett** markiert. Argumente in *Kursivschrift* können mithilfe von Windows PowerShell oder dem AD DS-Konfigurations-Assistenten angegeben werden.)|  
-|Install-AddsDomaincontroller|-SkipPreChecks<br /><br />***-DomainName***<br /><br />*-SafeModeAdministratorPassword*<br /><br />*-ApplicationPartitionsToReplicate*<br /><br />*-CreateDNSDelegation*<br /><br />***-Credential***<br /><br />-CriticalReplicationOnly<br /><br />*-DatabasePath*<br /><br />*-DNSDelegationCredential*<br /><br />*-InstallationMediaPath*<br /><br />*-LogPath*<br /><br />-Norebootoncompletion<br /><br />*-ReplicationSourceDC*<br /><br />*-SystemKey*<br /><br />*-SYSVOLPath*<br /><br />***-UseExistingAccount***|  
+|**Addsdeployment-Cmdlet**|Argumente (erforderliche Argumente sind **fett** markiert. Argumente in *Kursivschrift* können mithilfe von Windows PowerShell oder dem AD DS-Konfigurations-Assistenten angegeben werden.)|  
+|Install-AddsDomaincontroller|-SkipPreChecks<br /><br />***-Domain Name***<br /><br />*-SafeModeAdministratorPassword*<br /><br />*-ApplicationPartitionsToReplicate*<br /><br />*-"-Kreatednsdelegation"*<br /><br />***-Credential***<br /><br />-CriticalReplicationOnly<br /><br />*-DatabasePath*<br /><br />*-Dnsdelegationcredential*<br /><br />*-Installationmediapath*<br /><br />*-LogPath*<br /><br />-Norebootoncompletion<br /><br />*-ReplicationSourceDC*<br /><br />*-System Key*<br /><br />*-Sysvolpath*<br /><br />***-UseExistingAccount***|  
   
 > [!NOTE]  
 > Das Argument **-credential** ist nur erforderlich, wenn Sie nicht bereits als Mitglied der Gruppe Domänen-Admins angemeldet sind.  
@@ -63,13 +63,13 @@ Das folgende Diagramm zeigt den Konfigurationsprozess für die Active Directory-
   
 Sie führen die Staffelung eines schreibgeschützten Domänencontrollers aus, indem Sie das Active Directory-Verwaltungscenter (**Dsac.exe**) öffnen. Klicken Sie im Navigationsbereich auf den Namen der Domäne. Doppelklicken Sie in der Liste Verwaltung auf **Domänencontroller**. Klicken Sie im Taskbereich auf **Konto für schreibgeschützten Domänencontroller vorab erstellen**.  
   
-Weitere Informationen zu den Active Directory Administrative Center, finden Sie unter [erweiterte AD DS-Management mithilfe von Active Directory-Verwaltungscenter &#40;Stufe 200&#41; ](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md) , und überprüfen Sie [Active Directory -Verwaltungscenter: Erste Schritte](https://technet.microsoft.com/library/dd560651(WS.10).aspx).  
+Weitere Informationen zum Active Directory-Verwaltungscenter finden [Sie unter Advanced AD DS Management Using Active Directory-Verwaltungscenter &#40;Level 200&#41; ](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md) und Review [active Directory Administrative Center: Getting Started @ no__t-0.  
   
 Falls Sie keine Erfahrung mit der Erstellung schreibgeschützter Domänencontroller haben, werden Sie feststellen, dass der Installations-Assistent dieselbe grafische Oberfläche wie das ältere Snap-In "Active Directory-Benutzer und -Computer" unter Windows Server 2008 hat und denselben Code verwendet, inklusive Export und Konfiguration der Datei für unbeaufsichtigte Installation über das veraltete dcpromo.  
   
 Windows Server 2012 enthält ein neues ADDSDeployment-Cmdlet zur Staffelung von RODC-Computerkonten, aber der Assistent verwendet dieses Cmdlet nicht. Hier sehen Sie das entsprechende Cmdlet inklusive Argumente zum besseren Verständnis der jeweiligen Informationen.  
   
-Die **Konto einen schreibgeschützten Domänencontroller vorab erstellen** -Link in der Active Directory Administrative Center Aufgabenbereich entspricht das ADDSDeployment Windows PowerShell-Cmdlet:  
+Der Link Konto für schreibgeschützten **Domänen Controller vorab erstellen** im Aufgabenbereich Active Directory-Verwaltungscenter entspricht dem Windows PowerShell-Cmdlet addsdeployment:  
   
 ```  
 Add-addsreadonlydomaincontrolleraccount  
@@ -134,7 +134,7 @@ Die Option **Schreibgeschützter Domänencontroller (RODC)** ist vorausgewählt 
 ```  
   
 > [!NOTE]  
-> In der Standardeinstellung die **– NoGlobalCatalog** Wert "$false", d. h. der Domänencontroller wird ein globaler Katalogserver sein, wenn das Argument nicht angegeben ist.  
+> Standardmäßig ist der **-noglobalcatalog-** Wert $false. Dies bedeutet, dass der Domänen Controller ein globaler Katalogserver ist, wenn das Argument nicht angegeben wird.  
   
 ### <a name="specify-the-password-replication-policy"></a>Kennwortreplikationsrichtlinie angeben  
 ![RODC installieren](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_SMI_TR_Stage1PRP.png)  
@@ -163,7 +163,7 @@ Die entsprechenden ADDSDeployment Windows PowerShell-Argumente sind:
 ### <a name="delegation-of-rodc-installation-and-administration"></a>Delegierung der Installation und Verwaltung des RODC  
 ![RODC installieren](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_SMI_TR_Stage1DelegateAdmin.png)  
   
-Im Dialog **Delegierung der Installation und Verwaltung des RODC** können Sie Benutzer oder Gruppen von Benutzern konfigurieren, die den Server an das RODC-Computerkonto anfügen dürfen. Klicken Sie auf **Einstellen**, um die Domäne nach Benutzern oder Gruppen zu durchsuchen. Die in diesem Dialog ausgewählten Benutzer oder Gruppen erhalten lokale Administratorberechtigungen für den RODC. Der angegebene Benutzer oder Mitglieder der angegebenen Gruppe können Vorgänge auf dem RODC Berechtigungen äquivalent zur Gruppe "Administratoren" des Computers ausführen. Sie sind *keine* Mitglieder der Gruppe Domänen-Admins oder der in die Domäne integrierten Gruppe Administratoren.  
+Im Dialog **Delegierung der Installation und Verwaltung des RODC** können Sie Benutzer oder Gruppen von Benutzern konfigurieren, die den Server an das RODC-Computerkonto anfügen dürfen. Klicken Sie auf **Einstellen**, um die Domäne nach Benutzern oder Gruppen zu durchsuchen. Die in diesem Dialog ausgewählten Benutzer oder Gruppen erhalten lokale Administratorberechtigungen für den RODC. Der angegebene Benutzer bzw. die Mitglieder der angegebenen Gruppe können Vorgänge auf dem RODC mit Berechtigungen ausführen, die der Administratoren Gruppe des Computers entsprechen. Sie sind *keine* Mitglieder der Gruppe Domänen-Admins oder der in die Domäne integrierten Gruppe Administratoren.  
   
 Verwenden Sie diese Option, um die Administration von Filialen zu delegieren, ohne den Filialen-Administrator in die Gruppe Domänen-Admins aufzunehmen. Das Delegieren der RODC-Administration ist nicht erforderlich.  
   
@@ -229,10 +229,10 @@ Install-AddsDomainController
 ### <a name="domain-controller-options"></a>Domänencontrolleroptionen  
 ![RODC installieren](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_SMI_TR_Stage2DCOptions.png)  
   
-Die Seite **Domänencontrolleroptionen** enthält die Domänencontrolleroptionen für den neuen Domänencontroller. Beim Laden dieser Seite schickt der Konfigurations-Assistent für Active Directory-Domänendienste eine LDAP-Anfrage an einen existierenden Domänencontroller, um nach nicht verwendeten Konten zu suchen. Wenn die Abfrage sucht einen nicht belegten Domänencontroller-Computerkonto, das den gleichen Namen wie der aktuelle Computer gemeinsam verwendet, wird der Assistent zeigt eine informative Meldung am oberen Rand der Seite, die liest "**ein zuvor erstelltes RODC-Konto, das mit dem Namen übereinstimmt Das Ziel Server, die in das Verzeichnis vorhanden ist. Wählen Sie, ob vorhandene RODC-Konto verwenden oder diesen Domänencontroller neu installieren**. " Der Assistent verwendet **Vorhandenes RODC-Konto verwenden** als Standardkonfiguration.  
+Die Seite **Domänencontrolleroptionen** enthält die Domänencontrolleroptionen für den neuen Domänencontroller. Beim Laden dieser Seite schickt der Konfigurations-Assistent für Active Directory-Domänendienste eine LDAP-Anfrage an einen existierenden Domänencontroller, um nach nicht verwendeten Konten zu suchen. Wenn bei der Abfrage ein nicht belegtes Domänen Controller-Computer Konto gefunden wird, das denselben Namen wie der aktuelle Computer aufweist, zeigt der Assistent am oberen Rand der Seite eine Informations Meldung mit dem Namen "**A vorab erstellte RODC-Konto an, das mit dem Namen der übereinstimmt. der Zielserver ist im Verzeichnis vorhanden. Wählen Sie aus, ob Sie dieses vorhandene RODC-Konto verwenden oder diesen Domänen Controller erneut installieren möchten @ no__t-0. " Der Assistent verwendet **Vorhandenes RODC-Konto verwenden** als Standardkonfiguration.  
   
 > [!IMPORTANT]  
-> Verwenden Sie die Option **Diesen Domänencontroller neu installieren** , wenn ein physisches Problem in einem Domänencontroller aufgetreten ist und dieser nicht mehr betriebsbereit ist. Dies spart Zeit bei der Konfiguration des Ersatz-Domänencontrollers, da das Domänencontroller-Computerkonto und die Objekt-Metadaten in Active Directory verbleiben. Installieren Sie den Computer mit dem *gleichen Namen*und stufen Sie ihn als Domänencontroller für die Domäne herauf. Die **diesen Domänencontroller neu installieren** Option ist nicht verfügbar, wenn Sie das Objekt die Metadaten des Domänencontrollers aus Active Directory (Metadatenbereinigung) entfernt.  
+> Verwenden Sie die Option **Diesen Domänencontroller neu installieren** , wenn ein physisches Problem in einem Domänencontroller aufgetreten ist und dieser nicht mehr betriebsbereit ist. Dies spart Zeit bei der Konfiguration des Ersatz-Domänencontrollers, da das Domänencontroller-Computerkonto und die Objekt-Metadaten in Active Directory verbleiben. Installieren Sie den Computer mit dem *gleichen Namen*und stufen Sie ihn als Domänencontroller für die Domäne herauf. Die Option **diesen Domänen Controller neu installieren** ist nicht verfügbar, wenn Sie die Metadaten des Domänen Controller Objekts aus Active Directory entfernt haben (Metadatenbereinigung).  
   
 Beim Anfügen eines Servers an ein RODC-Computerkonto können Sie keine Domänencontrolleroptionen konfigurieren. Die Domänencontrolleroptionen werden bei der Erstellung des RODC-Computerkontos konfiguriert.  
   
@@ -297,7 +297,12 @@ $pw | ConvertFrom-SecureString | Set-Content $file
   
 Auf der Seite **Zusätzliche Optionen** können entweder einen Domänencontroller als Replikationsquelle angeben oder einen beliebigen Domänencontroller als Replikationsquelle verwenden.  
   
-Sie können auch festlegen, dass der Domänencontroller mithilfe gesicherter Medien und der Option %%amp;quot;Installieren von Medium%%amp;quot; (Install from Media, IFM) installiert wird. Wenn Sie das Kontrollkästchen **Installieren von Medium** markieren, wird eine Option zum Durchsuchen angezeigt, und Sie müssen auf **Überprüfen** klicken, um sicherzustellen, dass sich am angegebenen Pfad ein gültiges Medium befindet. Von der IFM-Option verwendete Medien dürfen nur mit der Windows Server-Sicherung oder mit Ntdsutil.exe auf einem anderen vorhandenen Windows Server 2012-Computer erstellt werden. Die Verwendung von Windows Server 2008 R2 oder eines vorherigen Betriebssystems zum Erstellen von Medien für einen Windows Server 2012-Domänencontroller ist nicht möglich. Weitere Informationen zu Änderungen in IFM finden Sie unter [Ntdsutil.exe Install from Media Changes](../../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_IFM). Wenn die Medien mit einem Systemschlüssel (SYSKEY) geschützt sind, werden Sie während der Überprüfung von Server-Manager zur Eingabe des Kennworts für das Abbild aufgefordert.  
+Sie können auch festlegen, dass der Domänencontroller mithilfe gesicherter Medien und der Option %%amp;quot;Installieren von Medium%%amp;quot; (Install from Media, IFM) installiert wird. Wenn Sie das Kontrollkästchen **Installieren von Medium** markieren, wird eine Option zum Durchsuchen angezeigt, und Sie müssen auf **Überprüfen** klicken, um sicherzustellen, dass sich am angegebenen Pfad ein gültiges Medium befindet.
+
+Richtlinien für die IFM-Quelle: • von der IFM-Option verwendete Medien werden mit Windows Server-Sicherung oder "Ntdsutil. exe" von einem anderen vorhandenen Windows Server-Domänen Controller mit der gleichen Betriebssystemversion erstellt. Beispielsweise können Sie ein Windows Server 2008 R2-oder ein früheres Betriebssystem nicht verwenden, um Medien für einen Windows Server 2012-Domänen Controller zu erstellen.
+• Die IFM-Quelldaten sollten von einem beschreibbaren Domänen Controller sein. Eine Quelle von RODC funktioniert zwar technisch gesehen, um einen neuen RODC zu erstellen, aber es gibt falsch positive Replikations Warnungen, die der IFM-quellrodc nicht repliziert.
+
+Weitere Informationen zu Änderungen in IFM finden Sie unter [Ntdsutil.exe Install from Media Changes](../../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_IFM). Wenn die Medien mit einem Systemschlüssel (SYSKEY) geschützt sind, werden Sie während der Überprüfung von Server-Manager zur Eingabe des Kennworts für das Abbild aufgefordert. 
   
 ![RODC installieren](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_SMI_TR_StagedIFM.png)  
   
@@ -415,8 +420,8 @@ Das folgende Diagramm zeigt den Konfigurationsprozess für Active Directory-Dom�
   
 |||  
 |-|-|  
-|**Cmdlet "ADDSDeployment"**|Argumente (erforderliche Argumente sind **fett** markiert. Argumente in *Kursivschrift* können mithilfe von Windows PowerShell oder dem AD DS-Konfigurations-Assistenten angegeben werden.)|  
-|Install-AddsDomainController|-SkipPreChecks<br /><br />***-DomainName***<br /><br />*-SafeModeAdministratorPassword*<br /><br />***-SiteName***<br /><br />*-ApplicationPartitionsToReplicate*<br /><br />*-CreateDNSDelegation*<br /><br />***-Credential***<br /><br />*-CriticalReplicationOnly*<br /><br />*-DatabasePath*<br /><br />*-DNSDelegationCredential*<br /><br />-DNSOnNetwork<br /><br />*-InstallationMediaPath*<br /><br />*-InstallDNS*<br /><br />*-LogPath*<br /><br />-MoveInfrastructureOperationMasterRoleIfNecessary<br /><br />*-NoGlobalCatalog*<br /><br />-Norebootoncompletion<br /><br />*-ReplicationSourceDC*<br /><br />-SkipAutoConfigureDNS<br /><br />*-SystemKey*<br /><br />*-SYSVOLPath*<br /><br />*-AllowPasswordReplicationAccountName*<br /><br />*-DelegatedAdministratorAccountName*<br /><br />*-DenyPasswordReplicationAccountName*<br /><br />***-ReadOnlyReplica***|  
+|**Addsdeployment-Cmdlet**|Argumente (erforderliche Argumente sind **fett** markiert. Argumente in *Kursivschrift* können mithilfe von Windows PowerShell oder dem AD DS-Konfigurations-Assistenten angegeben werden.)|  
+|Install-AddsDomainController|-SkipPreChecks<br /><br />***-Domain Name***<br /><br />*-SafeModeAdministratorPassword*<br /><br />***-Sitename***<br /><br />*-ApplicationPartitionsToReplicate*<br /><br />*-"-Kreatednsdelegation"*<br /><br />***-Credential***<br /><br />*-Criticalreplicationonly*<br /><br />*-DatabasePath*<br /><br />*-Dnsdelegationcredential*<br /><br />-DNSOnNetwork<br /><br />*-Installationmediapath*<br /><br />*-InstallDNS*<br /><br />*-LogPath*<br /><br />-MoveInfrastructureOperationMasterRoleIfNecessary<br /><br />*-Noglobalcatalog*<br /><br />-Norebootoncompletion<br /><br />*-ReplicationSourceDC*<br /><br />-SkipAutoConfigureDNS<br /><br />*-System Key*<br /><br />*-Sysvolpath*<br /><br />*-Allowpasswordreplicationaccountname*<br /><br />*-DelegatedAdministratorAccountName*<br /><br />*-Denypasswordreplicationaccountname*<br /><br />***-"-Leseronlyreplica"***|  
   
 > [!NOTE]  
 > Das Argument **-credential** ist nur erforderlich, wenn Sie nicht bereits als Mitglied der Gruppe Domänen-Admins angemeldet sind.  
@@ -515,7 +520,7 @@ Im Dialog **RODC-Optionen** können Sie Ihre Einstellungen ändern:
   
 -   Für die Kennwortreplikation an den RODC nicht berechtigte Konten  
   
-Delegierte Administratorkonten erhalten für den RODC lokale Administratorberechtigungen. Diese Benutzer können mit den Berechtigungen äquivalent zur Gruppe "Administratoren" des lokalen Computers verwendet werden.  Sie sind keine Mitglieder der Gruppe %%amp;quot;Domänen-Admins%%amp;quot; oder der in die Domäne integrierten Gruppe %%amp;quot;Administratoren%%amp;quot;. Diese Option ist für die Delegierung der Zweigstellenverwaltung ohne Vergabe von Administratorberechtigungen für die Domäne hilfreich. Das Konfigurieren der Delegierung von Administratoren ist nicht erforderlich.  
+Delegierte Administratorkonten erhalten für den RODC lokale Administratorberechtigungen. Diese Benutzer können mit rechten arbeiten, die der Administrator Gruppe des lokalen Computers entsprechen.  Sie sind keine Mitglieder der Gruppe %%amp;quot;Domänen-Admins%%amp;quot; oder der in die Domäne integrierten Gruppe %%amp;quot;Administratoren%%amp;quot;. Diese Option ist für die Delegierung der Zweigstellenverwaltung ohne Vergabe von Administratorberechtigungen für die Domäne hilfreich. Das Konfigurieren der Delegierung von Administratoren ist nicht erforderlich.  
   
 Das entsprechende ADDSDeployment Windows PowerShell-Argument ist:  
   
@@ -549,7 +554,12 @@ Die entsprechenden ADDSDeployment Windows PowerShell-Argumente sind:
   
 Auf der Seite **Zusätzliche Optionen** können entweder einen Domänencontroller als Replikationsquelle angeben oder einen beliebigen Domänencontroller als Replikationsquelle verwenden.  
   
-Sie können auch festlegen, dass der Domänencontroller mithilfe gesicherter Medien und der Option %%amp;quot;Installieren von Medium%%amp;quot; (Install from Media, IFM) installiert wird. Wenn Sie das Kontrollkästchen **Installieren von Medium** markieren, wird eine Option zum Durchsuchen angezeigt, und Sie müssen auf **Überprüfen** klicken, um sicherzustellen, dass sich am angegebenen Pfad ein gültiges Medium befindet. Von der IFM-Option verwendete Medien dürfen nur mit der Windows Server-Sicherung oder mit Ntdsutil.exe auf einem anderen vorhandenen Windows Server 2012-Computer erstellt werden. Die Verwendung von Windows Server 2008 R2 oder eines vorherigen Betriebssystems zum Erstellen von Medien für einen Windows Server 2012-Domänencontroller ist nicht möglich.  In den Anhängen finden Sie weitere Informationen zu Änderungen in IFM. Wenn die Medien mit einem Systemschlüssel (SYSKEY) geschützt sind, werden Sie während der Überprüfung von Server-Manager zur Eingabe des Kennworts für das Abbild aufgefordert.  
+Sie können auch festlegen, dass der Domänencontroller mithilfe gesicherter Medien und der Option %%amp;quot;Installieren von Medium%%amp;quot; (Install from Media, IFM) installiert wird. Wenn Sie das Kontrollkästchen **Installieren von Medium** markieren, wird eine Option zum Durchsuchen angezeigt, und Sie müssen auf **Überprüfen** klicken, um sicherzustellen, dass sich am angegebenen Pfad ein gültiges Medium befindet.
+
+Richtlinien für die IFM-Quelle: • von der IFM-Option verwendete Medien werden mit Windows Server-Sicherung oder "Ntdsutil. exe" von einem anderen vorhandenen Windows Server-Domänen Controller mit der gleichen Betriebssystemversion erstellt. Beispielsweise können Sie ein Windows Server 2008 R2-oder ein früheres Betriebssystem nicht verwenden, um Medien für einen Windows Server 2012-Domänen Controller zu erstellen.
+• Die IFM-Quelldaten sollten von einem beschreibbaren Domänen Controller sein. Eine Quelle von RODC funktioniert zwar technisch gesehen, um einen neuen RODC zu erstellen, aber es gibt falsch positive Replikations Warnungen, die der IFM-quellrodc nicht repliziert.
+
+Weitere Informationen zu Änderungen in IFM finden Sie unter [Ntdsutil.exe Install from Media Changes](../../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_IFM). Wenn die Medien mit einem Systemschlüssel (SYSKEY) geschützt sind, werden Sie während der Überprüfung von Server-Manager zur Eingabe des Kennworts für das Abbild aufgefordert.
   
 ![RODC installieren](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_PSIFM.png)  
   

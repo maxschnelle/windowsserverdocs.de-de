@@ -1,7 +1,7 @@
 ---
-title: Bewährte Methoden für die Ausführung von Linux in Hyper-V
-description: Enthält Empfehlungen für die Ausführung von Linux auf einem virtuellen Computer
-ms.prod: windows-server-threshold
+title: Bewährte Methoden für die Ausführung von Linux unter Hyper-V
+description: Bietet Empfehlungen zum Ausführen von Linux auf einem virtuellen Computer
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,97 +11,97 @@ ms.assetid: a08648eb-eea0-4e2b-87fb-52bfe8953491
 author: shirgall
 ms.author: kathydav
 ms.date: 3/1/2019
-ms.openlocfilehash: a24e2b1a1d79d52c1cc16f9e7c1b253d9b477aae
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 3488bbc1e295a68befc7044b83379bd65a5f28df
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284440"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365567"
 ---
-# <a name="best-practices-for-running-linux-on-hyper-v"></a>Bewährte Methoden für die Ausführung von Linux in Hyper-V
+# <a name="best-practices-for-running-linux-on-hyper-v"></a>Bewährte Methoden für die Ausführung von Linux unter Hyper-V
 
->Gilt für: WindowsServer 2019, Windows Server 2016 Hyper-V Server 2016, Windows Server 2012 R2, Hyper-V Server 2012 R2, Windows Server 2012 Hyper-V Server 2012, Windows Server 2008 R2, Windows 10, Windows 8.1, Windows 8, Windows 7.1, Windows 7
+>Gilt für: Windows Server 2019, Windows Server 2016, Hyper-v Server 2016, Windows Server 2012 R2, Hyper-v Server 2012 R2, Windows Server 2012, Hyper-v Server 2012, Windows Server 2008 R2, Windows 10, Windows 8.1, Windows 8, Windows 7,1, Windows 7
 
-Dieses Thema enthält eine Liste der Empfehlungen für die Ausführung von virtuellen Linux-Computer auf Hyper-V.
+Dieses Thema enthält eine Liste der Empfehlungen für die Ausführung virtueller Linux-Computer unter Hyper-V.
 
-## <a name="tuning-linux-file-systems-on-dynamic-vhdx-files"></a>Optimieren von Linux-Dateisysteme auf dynamische VHDX-Dateien
+## <a name="tuning-linux-file-systems-on-dynamic-vhdx-files"></a>Optimieren von Linux-Dateisystemen auf dynamische vhdx-Dateien
 
-Einige Linux-Dateisysteme möglicherweise viel Speicherplatz auf dem echten Datenträger nutzen, selbst, wenn das Dateisystem datenträgerdatenstrom nahezu leer ist. Um die Menge an realen speicherplatznutzung des dynamischen VHDX-Dateien zu reduzieren, unter Berücksichtigung folgender Empfehlungen:
+Einige Linux-Dateisysteme belegen möglicherweise beträchtliche Mengen an tatsächlicher Speicherplatz, auch wenn das Dateisystem größtenteils leer ist. Beachten Sie die folgenden Empfehlungen, um die tatsächliche Speicherplatz Nutzung dynamischer vhdx-Dateien zu verringern:
 
-* Beim Erstellen der VHDX verwenden Sie, z. B. 1 MB BlockSizeBytes (von der Standardeinstellung 32MB) in PowerShell:
+* Wenn Sie die vhdx-Datei erstellen, verwenden Sie 1 MB blockSizeBytes (standardmäßig 32 MB) in PowerShell, z. b.:
 
 ```Powershell
 PS > New-VHD -Path C:\MyVHDs\test.vhdx -SizeBytes 127GB -Dynamic -BlockSizeBytes 1MB
 ```
 
-* Das ext4-Format ist ext3 vorzuziehen, da ext4 mehr Speicherplatz als ext3, bei der Verwendung mit dynamischen VHDX-Dateien effizient ist.
+* Das Ext4-Format wird als ext3 bevorzugt, da ext4 bei der Verwendung mit dynamischen vhdx-Dateien mehr Speicherplatz als ext3 ist.
 
-* Beim Erstellen des Dateisystems angeben, dass der Anzahl der Gruppen auf 4096, z. B. sein ist:
+* Geben Sie beim Erstellen des Dateisystems die Anzahl der Gruppen an, die 4096 sein sollen, z. b.:
 
 ```bash
 # mkfs.ext4 -G 4096 /dev/sdX1
 
 ```
 
-## <a name="grub-menu-timeout-on-generation-2-virtual-machines"></a>GRUB-Menü-Timeout für virtuelle Maschinen der Generation 2
+## <a name="grub-menu-timeout-on-generation-2-virtual-machines"></a>Menü Timeout für grub bei Generation 2 Virtual Machines
 
-Aufgrund veralteter Hardware, die von der Emulation in virtuelle Maschinen der Generation 2 entfernt wird zählt die GRUB-Menü Countdown-Timer nach unten zu schnell für die GRUB-Menü angezeigt werden, sofort beim Laden des Standardeintrag. Bis GRUB-Konfiguration behoben wird, mithilfe des Zeitgebers EFI-Unterstützung, ändern **/boot/grub/grub.conf**, /**usw./Standard/Grub**, oder haben ähnliche "Timeout = 100000" anstelle des Standardwerts "Timeout = 5".
+Da die Legacy-Hardware auf virtuellen Computern der Generation 2 aus der Emulation entfernt wird, wird der Timer-Menü Countdowntimer zu schnell angerechnet, damit das Menü "grub" angezeigt wird. der Standardeintrag wird sofort geladen. Wenn die grub-Funktion nicht für die Verwendung des EFI-unterstützten Timers korrigiert wurde, ändern Sie **/Boot/grub/grub.conf**,/**usw/default/grub**oder die entsprechende "Timeout = 100000" anstelle der Standardeinstellung "Timeout = 5".
 
-## <a name="pxe-boot-on-generation-2-virtual-machines"></a>PxE-Start auf virtuelle Maschinen der Generation 2
+## <a name="pxe-boot-on-generation-2-virtual-machines"></a>PXE-Start bei Virtual Machines der Generation 2
 
-Da der PIT-Zeitgeber nicht in Generation 2 Virtual Machines vorhanden ist, wird Netzwerkverbindungen mit PxE-TFTP-Server können vorzeitig beendet werden, und zu verhindern, dass den Bootloader von Grub-Konfiguration lesen und Laden einen Kernel vom Server.
+Da der boxtimer nicht in der Generation 2 Virtual Machines vorhanden ist, können Netzwerkverbindungen mit dem PXE-TFTP-Server vorzeitig beendet werden und verhindern, dass der Bootloader die GRUB-Konfiguration liest und einen Kernel vom Server lädt.
 
-Unter RHEL 6.x, das ältere Grub v0.97 EFI-Startladeprogramm kann anstelle von "grub2" verwendet werden, wie hier beschrieben: [https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/s1-netboot-pxe-config-efi.html](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/s1-netboot-pxe-config-efi.html)
+In RHEL 6. x kann der Legacy-, grub v 0,97 EFI-Bootloader anstelle von grub2 verwendet werden, wie hier beschrieben: [https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/s1-netboot-pxe-config-efi.html](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/s1-netboot-pxe-config-efi.html)
 
-Bei Linux-Distributionen als RHEL 6.x, ähnliche Schritte können befolgt werden, um die GRUB-v0.97 zum Laden von Linux-Kernel aus einen PxE-Server zu konfigurieren.
+In anderen Linux-Distributionen als RHEL 6. x können ähnliche Schritte ausgeführt werden, um GRUB v 0,97 zum Laden von Linux-Kernels von einem PXE-Server zu konfigurieren.
 
-Darüber hinaus für RHEL/CentOS 6.6-Tastatur und Maus Eingabe funktioniert nicht mit der verhindert, dass vor der Installation Kernel angeben von Optionen im Menü. Damit können die Auswahl der Installationsoptionen angezeigt, muss eine serielle Konsole konfiguriert werden.
+Außerdem funktionieren die Tastatur-und Maus Eingaben von RHEL/CentOS 6,6 nicht mit dem Vorinstallations-Kernel, mit dem die Angabe von Installationsoptionen im Menü verhindert wird. Eine serielle Konsole muss konfiguriert werden, um die Auswahl von Installationsoptionen zuzulassen.
 
-* In der **Efidefault** Datei auf dem PxE-Server, fügen Sie den folgenden kernelparameter **"Konsole ttyS1 ="**
+* Fügen Sie in der Datei " **efidefault** " auf dem PXE-Server den folgenden Kernel Parameter **"console = ttyS1"** hinzu.
 
-* Richten Sie auf dem virtuellen Computer in Hyper-V einen COM-Anschluss, der mit diesem PowerShell-Cmdlet:
+* Richten Sie auf dem virtuellen Computer in Hyper-V einen COM-Port mithilfe dieses PowerShell-Cmdlets ein:
 
 ```Powershell
 Set-VMComPort -VMName <Name> -Number 2 -Path \\.\pipe\dbg1
 
 ```
 
-Angabe einer Kickstart-Datei an den Kernel vor der Installation wird auch die Notwendigkeit Tastatur- und Mauseingaben während der Installation vermeiden.
+Wenn Sie eine Kickstart-Datei für den Vorinstallations-Kernel angeben, ist es auch nicht erforderlich, dass während der Installation Tastatur-und Maus Eingaben benötigt werden.
 
-## <a name="use-static-mac-addresses-with-failover-clustering"></a>Verwenden Sie statische MAC-Adressen mit Failover-Clusterunterstützung
+## <a name="use-static-mac-addresses-with-failover-clustering"></a>Verwenden statischer MAC-Adressen mit Failoverclustering
 
-Virtuelle Linux-Computer, die Failover-Clusterunterstützung bereitgestellt werden, sollten mit einer statischen Media Access Control (MAC)-Adresse für jeden virtuellen Netzwerkadapter konfiguriert werden. In einigen Versionen von Linux die Netzwerkkonfiguration verloren gehen nach dem Failover möglicherweise den virtuellen Netzwerkadapter eine neue MAC-Adresse zugewiesen ist. Um zu vermeiden, verlieren die Netzwerkkonfiguration, stellen Sie sicher, dass jedem virtuellen Netzwerkadapter eine statische MAC-Adresse verfügt. Sie können die MAC-Adresse konfigurieren, indem Sie die Einstellungen des virtuellen Computers in Hyper-V-Manager oder Failovercluster-Manager bearbeiten.
+Virtuelle Linux-Computer, die mithilfe des Failoverclustering bereitgestellt werden, sollten für jeden virtuellen Netzwerkadapter mit einer statischen Media Access Control (Mac-Adresse) konfiguriert werden. In einigen Versionen von Linux geht die Netzwerkkonfiguration möglicherweise nach einem Failover verloren, da dem virtuellen Netzwerkadapter eine neue Mac-Adresse zugewiesen wird. Stellen Sie sicher, dass jeder virtuelle Netzwerkadapter über eine statische MAC-Adresse verfügt, um den Verlust der Netzwerkkonfiguration zu vermeiden. Sie können die Mac-Adresse konfigurieren, indem Sie die Einstellungen der virtuellen Maschine im Hyper-V-Manager oder Failovercluster-Manager bearbeiten.
 
-## <a name="use-hyper-v-specific-network-adapters-not-the-legacy-network-adapter"></a>Verwenden Sie Hyper-V-spezifischer Netzwerkadapter, nicht die ältere Netzwerkkarte
+## <a name="use-hyper-v-specific-network-adapters-not-the-legacy-network-adapter"></a>Verwenden Sie Hyper-V-spezifische Netzwerkadapter, nicht den Legacy-Netzwerkadapter.
 
-Konfigurieren Sie und verwenden Sie den virtuellen Ethernet-Adapter, der eine Hyper-V-spezifischer Netzwerkkarte mit verbesserter Leistung ist. Wenn es sich bei älteren als auch Hyper-V-spezifischer Netzwerkadapter an einen virtuellen Computer angefügt sind, im Netzwerk den Namen in der Ausgabe des **Ifconfig - a** zeigt möglicherweise zufällige Werte wie z. B. **_tmp12000801310**. Um dieses Problem zu vermeiden, entfernen Sie alle älteren Netzwerkkarten, bei Verwendung von Hyper-V-spezifischer Netzwerkadapter auf einem virtuellen Linux-Computer.
+Konfigurieren und verwenden Sie den virtuellen Ethernet-Adapter, bei dem es sich um eine Hyper-V-spezifische Netzwerkkarte mit verbesserter Leistung handelt. Wenn sowohl Legacy-als auch Hyper-V-spezifische Netzwerkadapter an einen virtuellen Computer angefügt sind, werden in den Netzwerknamen in der Ausgabe von **ifconfig-a** möglicherweise Zufallswerte wie z. b. **_tmp12000801310**angezeigt. Entfernen Sie alle älteren Netzwerkadapter, wenn Sie Hyper-V-spezifische Netzwerkadapter auf einem virtuellen Linux-Computer verwenden, um dieses Problem zu vermeiden.
 
-## <a name="use-io-scheduler-noop-for-better-disk-io-performance"></a>Verwenden Sie die e/a-Scheduler NOOP für eine bessere-Datenträger-e/a-Leistung
+## <a name="use-io-scheduler-noop-for-better-disk-io-performance"></a>Verwenden des e/a-Scheduler-NOOP zur Verbesserung der Datenträger-e/a-Leistung
 
-Der Linux-Kernel verfügt über vier verschiedene e/a-Planer, Anforderungen mit unterschiedlichen Algorithmen neu anzuordnen. NOOP ist einer First in First Out-Warteschlange, die die Entscheidung Zeitplan vom Hypervisor getroffen werden übergeben. Es wird empfohlen, NOOP als Planer zu verwenden, bei der Ausführung von virtuellen Linux-Computer auf Hyper-V. So ändern Sie den Planer für ein bestimmtes Gerät, in der Konfiguration für das Startladeprogramm (/ etc/grub.conf, z. B.), hinzufügen **Aufzug = Noop** die Kernel-Parameter, und klicken Sie dann erneut starten.
+Der Linux-Kernel verfügt über vier verschiedene e/a-Planer zum erneuten Anordnen von Anforderungen mit unterschiedlichen Algorithmen. NOOP ist eine First-in-First-Out-Warteschlange, die die vom Hypervisor vorgenommene Zeit Plan Entscheidung übergibt. Es wird empfohlen, NOOP als Scheduler zu verwenden, wenn Sie virtuelle Linux-Computer unter Hyper-V ausführen. Wenn Sie den Scheduler für ein bestimmtes Gerät ändern möchten, fügen Sie in der Konfiguration des Start Laders (z. b./etc/grub.conf) den Kernel Parametern " **Lift = NOOP** " hinzu, und starten Sie dann neu.
 
 ## <a name="numa"></a>NUMA
 
-Linux-Kernel-Versionen unterstützen nicht zuvor als 2.6.37 sind NUMA auf Hyper-V mit größeren VM-Größen. Dieses Problem betrifft in erster Linie ältere Verteilungen, die mit den vorgeschalteten Red Hat 2.6.32 Kernel und wurde in Red Hat Enterprise Linux (RHEL) 6.6 (Kernel 2.6.32-504) behoben. Benutzerdefinierte Kernels, die älter als 2.6.37 sind, denen oder ausgeführt wird RHEL-basierte Kernel, die älter als 2.6.32-504 festlegen müssen Systeme `numa=off` in der Kernel-Befehlszeile auf "GRUB.conf". Weitere Informationen finden Sie unter [Red Hat KB 436883](https://access.redhat.com/solutions/436883).
+Linux-Kernel Versionen vor 2.6.37 unterstützen keine NUMA-Unterstützung für Hyper-V mit größeren VM-Größen. Dieses Problem betrifft in erster Linie ältere Verteilungen, die den 2.6.32-upstreamtyp verwenden, und wurde in Red Hat Enterprise Linux (RHEL) 6,6 (Kernel-2.6.32-504) behoben. Systeme, auf denen benutzerdefinierte Kernel älter als 2.6.37 oder RHEL-basierte Kernel älter als 2.6.32-504 ausgeführt werden, müssen den Startparameter `numa=off` in der Kernel Befehlszeile in grub. conf festlegen. Weitere Informationen finden Sie unter [red hat KB 436883](https://access.redhat.com/solutions/436883).
 
-## <a name="reserve-more-memory-for-kdump"></a>Reservieren von mehr Arbeitsspeicher für kdump
+## <a name="reserve-more-memory-for-kdump"></a>Reservieren von mehr Speicher für kdump
 
-Behalten Sie für den Fall, dass der Dump-Capture-Kernel mit einem Vorgang wird beim Systemstart letztendlich, mehr Arbeitsspeicher für den Kernel. Beispielsweise ändern Sie den Parameter **Crashkernel = 384M-:128M** zu **Crashkernel = 384M-:256M** in der Konfigurationsdatei für Ubuntu GRUB-Konfiguration.
+Für den Fall, dass der dumperfassungs-Kernel beim Start eine Panik hat, reservieren Sie mehr Speicherplatz für den Kernel. Ändern Sie beispielsweise den Parameter **crashkernel = 384m-: 128 m** in **crashkernel = 384m-: 256M** in der Ubuntu grub-Konfigurationsdatei.
 
-## <a name="shrinking-vhdx-or-expanding-vhd-and-vhdx-files-can-result-in-erroneous-gpt-partition-tables"></a>VHDX verkleinern oder erweitern die VHD und VHDX-Dateien kann zu fehlerhaften GPT-Partitionstabellen führen.
+## <a name="shrinking-vhdx-or-expanding-vhd-and-vhdx-files-can-result-in-erroneous-gpt-partition-tables"></a>Das Verkleinern von vhdx oder das Erweitern von VHD-und vhdx-Dateien kann zu fehlerhaften GPT-Partitionstabellen führen
 
-Hyper-V ermöglicht das Verkleinern von virtuellen Festplattendateien (VHDX) ohne für jede Partition, Volume oder Datei System-Datenstrukturen, die möglicherweise auf dem Datenträger vorhanden sind. Wenn die VHDX auf, in dem das Ende der VHDX vor dem Ende einer Partition wird verkleinert wird, können Daten verloren, Partition beschädigte oder ungültige Daten machen kann zurückgegeben werden können, wenn die Partition gelesen wird.
+Hyper-V ermöglicht das Verkleinern von virtuellen Festplatten Dateien (vhdx) ohne Berücksichtigung von Partitionen, Volumes oder Dateisystem-Datenstrukturen, die möglicherweise auf dem Datenträger vorhanden sind. Wenn die vhdx-Datei auf das Ende der vhdx-Datei vor dem Ende einer Partition verkleinert wird, können Daten verloren gehen, und die Partition kann beschädigt werden, oder es können ungültige Daten zurückgegeben werden, wenn die Partition gelesen wird.
 
-Nach dem Ändern der Größe einer VHD oder VHDX, Administratoren sollten mit einem Hilfsprogramm wie "Fdisk" oder parted, um die Partition, Volumes und Dateisystemstrukturen entsprechend die Änderung der Größe des Datenträgers zu aktualisieren. Verkleinern oder vergrößern die Größe einer VHD oder VHDX, die eine GUID-Partitionstabelle (GPT) wird eine Warnung verursachen, wenn ein Verwaltungstool für die Partition verwendet wird, um das Partitionslayout zu überprüfen, und der Administrator gewarnt werden, werden um die vor- und sekundären GPT-Header zu beheben. Dieser manuelle Schritt kann ohne Datenverlust ausführen.
+Nachdem die Größe einer VHD-oder vhdx-Datei geändert wurde, sollten Administratoren ein Hilfsprogramm wie fdisk oder parted verwenden, um die Größe der Partition, des Volumes und des Dateisystems zu aktualisieren und die Größe des Datenträgers widerzuspiegeln. Das Verkleinern oder Erweitern der Größe einer VHD oder vhdx mit einer GUID-Partitionstabelle (GPT) führt zu einer Warnung, wenn ein Partitions Verwaltungs Tool zum Überprüfen des Partitionslayouts verwendet wird, und der Administrator wird gewarnt, den ersten und sekundären GPT-Header zu korrigieren. Dieser manuelle Schritt kann ohne Datenverlust sicher durchgeführt werden.
 
 ## <a name="see-also"></a>Siehe auch
 
-* [Unterstützte Linux- und FreeBSD-Computer für Hyper-V unter Windows](Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)
+* [Unterstützte virtuelle Linux-und FreeBSD-Computer für Hyper-V unter Windows](Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)
 
-* [Bewährte Methoden für die Ausführung von FreeBSD in Hyper-V](Best-practices-for-running-FreeBSD-on-Hyper-V.md)
+* [Bewährte Methoden für die Ausführung von FreeBSD unter Hyper-V](Best-practices-for-running-FreeBSD-on-Hyper-V.md)
 
 * [Bereitstellen eines Hyper-V-Clusters](https://technet.microsoft.com/library/jj863389.aspx)
 
 * [Erstellen von Linux-Images für Azure](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic)
 
-* [Optimieren Sie Ihrer Linux-VM in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/optimization)
+* [Optimieren Ihrer Linux-VM in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/optimization)

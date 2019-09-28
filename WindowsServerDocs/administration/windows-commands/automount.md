@@ -1,8 +1,8 @@
 ---
-title: Automatische Bereitstellung
-description: 'Windows-Befehle Thema **Automount** : aktiviert oder deaktiviert das Feature der automatischen Bereitstellung.'
+title: Automatischen Bereitstellung
+description: 'Windows-Befehle Thema für die **Automatische** Problem Umgehung: aktiviert oder deaktiviert die Funktion "automatischen Bereitstellung".'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 957f75173390ff628c8b52c645742d83216ebf56
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bcddad3713bc61101f03e4e60ea0497aac751761
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886351"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382277"
 ---
-# <a name="automount"></a>Automatische Bereitstellung
+# <a name="automount"></a>Automatischen Bereitstellung
 
 
 
-Aktiviert oder deaktiviert das Feature der automatischen Bereitstellung. Wenn aktiviert (Standard), stellt Windows automatisch das Dateisystem für eine neue grundlegende oder dynamische Volumes bereit, wenn dem System hinzugefügt wird, und dann auf das Volume einen Laufwerkbuchstaben weist.
+Aktiviert oder deaktiviert das Feature "automatischen Bereitstellung". Wenn diese Option aktiviert ist (Standardeinstellung), wird das Dateisystem von Windows automatisch für ein neues einfaches oder dynamisches Volume bereitgestellt, wenn es dem System hinzugefügt wird. Anschließend wird dem Volume ein Laufwerk Buchstabe zugewiesen.
 

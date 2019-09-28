@@ -1,8 +1,8 @@
 ---
 title: Cmd
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 581e9a3bad8323c79839a4487b7da045e9cfec21
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 032fbea2039faa09753ac0c2b51e4b62004d36ac
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811234"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379333"
 ---
 # <a name="cmd"></a>Cmd
 
-Startet eine neue Instanz der den Befehlsinterpreter, Cmd.exe. Wenn Sie ohne Angabe von Parametern **Cmd** zeigt die Version und urheberrechtliche Informationen des Betriebssystems.
+Startet eine neue Instanz des Befehls interpreterers, cmd. exe. Bei Verwendung ohne Parameter zeigt **cmd** die Version und die Copyright Informationen des Betriebssystems an.
 
 ## <a name="syntax"></a>Syntax
 
@@ -34,49 +34,49 @@ cmd [/c|/k] [/s] [/q] [/d] [/a|/u] [/t:{<B><F>|<F>}] [/e:{on|off}] [/f:{on|off}]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|/c|Führt den Befehl anhand des *Zeichenfolge* und dann beendet wird.|
-|/k|Führt den Befehl anhand des *Zeichenfolge* und wird fortgesetzt.|
-|/s|Ändert die Behandlung von *Zeichenfolge* nach **/c** oder **/k**.|
-|/q|Deaktiviert das Echo.|
-|/d|Deaktiviert die Ausführung des AutoRun-Befehle.|
-|/a|Formatiert die Ausgabe einer Pipe oder einer Datei interner Befehl als American National Standards Institute (ANSI).|
-|/u|Formatiert die Ausgabe der internen Befehle in einer Pipe oder eine Datei im Unicode-Format.|
-|/ t: {\<B\>\<F\>\|\<F\>}|Wird für den Hintergrund (*B*) und die Vordergrundfarbe (*F*) Farben.|
-|/e:on|Befehlserweiterungen wird aktiviert.|
-|/e:off|Deaktiviert Befehle Erweiterungen.|
-|/f:on|Ermöglicht Datei- und Vervollständigung von Objektnamen an.|
-|/f:off|Deaktiviert die Vervollständigung von Dateien und Verzeichnisse.|
-|/v:on|Ermöglicht das verzögerte Erweiterung von Umgebungsvariablen.|
-|/v:off|Deaktiviert die verzögerte Erweiterung von Umgebungsvariablen.|
-|\<String>|Gibt den Befehl aus, die, den Sie ausführen möchten.|
+|/c|Führt den durch die *Zeichenfolge* angegebenen Befehl aus und wird dann beendet.|
+|/k|Führt den durch die *Zeichenfolge* angegebenen Befehl aus und wird fortgesetzt.|
+|/s|Ändert die Behandlung der *Zeichenfolge* nach **/c** oder **/k**.|
+|/q|Schaltet das Echo ein.|
+|/d|Deaktiviert die Ausführung von Autorun-Befehlen.|
+|/a|Formatiert die Ausgabe eines internen Befehls in eine Pipe oder eine Datei als American National Standards Institute (ANSI).|
+|/u|Formatiert die interne Befehlsausgabe in eine Pipe oder eine Datei als Unicode.|
+|/t: {\<B @ no__t-1 @ no__t-2F @ no__t-3 @ no__t-4 @ no__t-5F @ no__t-6}|Legt die Hintergrundfarben (*B*) und Vordergrund Farben (*F*) fest.|
+|/e: ein|Aktiviert Befehls Erweiterungen.|
+|/e: Off|Deaktiviert Befehls Erweiterungen.|
+|/f: ein|Ermöglicht das Abschließen von Datei-und Verzeichnisnamen.|
+|/f: Off|Deaktiviert den Abschluss von Datei-und Verzeichnisnamen.|
+|/v: ein|Ermöglicht die verzögerte Erweiterung der Umgebungsvariablen.|
+|/v: Off|Deaktiviert die Erweiterung der verzögerten Umgebungsvariablen.|
+|\<string >|Gibt den Befehl an, den Sie ausführen möchten.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-Die folgende Tabelle enthält gültige hexadezimale Ziffern, mit denen Sie als Werte für \<B\> und \<F\>
+In der folgenden Tabelle werden gültige hexadezimale Ziffern aufgelistet, die Sie als Werte für \<B @ no__t-1 und \<F @ no__t-3 verwenden können.
 
 |Wert|Farbe|
 |-----|-----|
 |0|Schwarz|
 |1|Blau|
 |2|Grün|
-|3|Aqua|
+|3|CE|
 |4|Rot|
-|5|Lila|
+|5|Viol|
 |6|Gelb|
 |7|Weiß|
 |8|Grau|
 |9|Hellblau|
 |a|Hellgrün|
-|b)|Hell aqua|
+|b)|Hell Aqua|
 |c|Hellrot|
-|d|Helles Lila|
-|e|Hosttags in Gelb|
-|f|Helle weiß|
+|d|Hell lila|
+|Fresser|Hellgelb|
+|f|Helles Weiß|
 
 ## <a name="remarks"></a>Hinweise
 
 -   Verwenden mehrerer Befehle
 
-    Verwenden Sie für mehrere Befehle \<Zeichenfolge >, trennen sie die durch das Befehlstrennzeichen **&&** und schließen Sie diese in Anführungszeichen ein. Zum Beispiel:
+    Wenn Sie mehrere Befehle für \<string-> verwenden möchten, trennen Sie diese durch das Befehls Trennzeichen **&&** , und schließen Sie Sie in Anführungszeichen ein. Zum Beispiel:
 
     ```
     "<Command>&&<Command>&&<Command>"
@@ -84,36 +84,36 @@ Die folgende Tabelle enthält gültige hexadezimale Ziffern, mit denen Sie als W
  
 -   Verarbeiten von Anführungszeichen
 
-    Bei Angabe von **/c** oder **/k**, **Cmd** verarbeitet die restliche *Zeichenfolge* und Anführungszeichen werden nur beibehalten, wenn alle der folgenden Bedingungen erfüllt sind:  
-    -   Verwenden Sie nicht **/s**.
-    -   Sie verwenden, exakt eine Gruppe von Anführungszeichen.
-    -   Sie verwenden keine Sonderzeichen innerhalb der Anführungszeichen (z. B.: & < > (), @ ^ |).
-    -   Sie verwenden eine oder mehrere Leerzeichen innerhalb der Anführungszeichen.
+    Wenn Sie **/c** oder **/k**angeben, verarbeitet **cmd** den Rest der *Zeichenfolge,* und Anführungszeichen werden nur beibehalten, wenn alle der folgenden Bedingungen erfüllt sind:  
+    -   **/S**wird nicht verwendet.
+    -   Sie verwenden genau einen Satz von Anführungszeichen.
+    -   Sie verwenden keine Sonderzeichen innerhalb der Anführungszeichen (z. b. & < > () @ ^ |).
+    -   Sie verwenden ein oder mehrere Leerzeichen innerhalb der Anführungszeichen.
     -   Die *Zeichenfolge* in Anführungszeichen ist der Name einer ausführbaren Datei.
 
-    Wenn die vorherige Bedingung nicht erfüllt sind, *Zeichenfolge* durch Untersuchen der zum Überprüfen, ob ein öffnendes Anführungszeichen ist das erste Zeichen verarbeitet wird. Wenn das erste Zeichen ein öffnendes Anführungszeichen ist, wird er zusammen mit dem schließenden Anführungszeichen entfernt. Befolgen die schließenden Anführungszeichen Text wird beibehalten.
--   Ausführen von Registrierungsunterschlüsseln
+    Wenn die vorherigen Bedingungen nicht erfüllt sind, wird die *Zeichenfolge* verarbeitet, indem das erste Zeichen überprüft wird, um zu prüfen, ob es sich um ein öffnendes Anführungszeichen handelt Wenn das erste Zeichen ein öffnendes Anführungszeichen ist, wird es zusammen mit dem schließenden Anführungszeichen entfernt. Jeder Text, der auf die schließenden Anführungszeichen folgt, wird beibehalten.
+-   Ausführen von Registrierungs unter Schlüsseln
 
-    Wenn Sie keinen angeben **/d** in *Zeichenfolge*, Cmd.exe, sucht die folgenden Registrierungsunterschlüssel:
+    Wenn Sie **/d** nicht in der *Zeichenfolge*angeben, sucht cmd. exe nach den folgenden Registrierungs unter Schlüsseln:
 
     **HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\AutoRun\REG_SZ**
 
     **HKEY_CURRENT_USER\Software\Microsoft\Command Processor\AutoRun\REG_EXPAND_SZ**
 
-    Wenn eine oder beide Registrierungsunterschlüssel vorhanden sind, werden sie vor allen anderen Variablen ausgeführt.
+    Wenn ein oder beide Registrierungs Unterschlüssel vorhanden sind, werden diese vor allen anderen Variablen ausgeführt.
 
 > [!CAUTION]
 > Durch eine fehlerhafte Bearbeitung der Registrierung können schwerwiegende Schäden am System verursacht werden. Bevor Sie Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Computerdaten sichern.
 
--   Aktivieren und Deaktivieren von befehlserweiterungen
+-   Aktivieren und Deaktivieren von Befehls Erweiterungen
 
-    Befehlserweiterungen sind in Windows XP standardmäßig aktiviert. Sie können diese für einen bestimmten Prozess deaktivieren, indem Sie mithilfe von **/e: off**. Sie können aktivieren oder Deaktivieren von Erweiterungen für alle **Cmd** Befehlszeilenoptionen, indem Sie folgende Einstellungen auf einem Computer oder Benutzer **REG_DWORD** Werte:
+    Befehls Erweiterungen sind in Windows XP standardmäßig aktiviert. Sie können Sie für einen bestimmten Prozess mithilfe von **/e: Off**deaktivieren. Sie können Erweiterungen für alle **cmd** -Befehlszeilenoptionen auf einem Computer oder in einer Benutzersitzung aktivieren oder deaktivieren, indem Sie die folgenden **REG_DWORD** -Werte festlegen:
 
     **HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\EnableExtensions\REG_DWORD**
 
     **HKEY_CURRENT_USER\Software\Microsoft\Command Processor\EnableExtensions\REG_DWORD**
 
-    Legen Sie die **REG_DWORD** Wert entweder **0 x 1** (aktiviert) oder **0 x 0** (deaktiviert) in der Registrierung mithilfe von Regedit.exe. Benutzerdefinierte Einstellungen haben Vorrang vor Einstellungen des Computers, und Befehlszeilenoptionen haben Vorrang vor registrierungseinstellungen.
+    Legen Sie den **REG_DWORD** -Wert in der Registrierung mithilfe von regedit. exe entweder auf **0 × 1** (aktiviert) oder auf **0 × 0** (deaktiviert) fest. Benutzerdefinierte Einstellungen haben Vorrang vor Computereinstellungen, und Befehlszeilenoptionen haben Vorrang vor den Registrierungs Einstellungen.
 
 > [!CAUTION]
 > Durch eine fehlerhafte Bearbeitung der Registrierung können schwerwiegende Schäden am System verursacht werden. Bevor Sie Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Computerdaten sichern.
@@ -138,12 +138,12 @@ Die folgende Tabelle enthält gültige hexadezimale Ziffern, mit denen Sie als W
     -  **shift**
     -  **start** (also includes changes to external command processes)
 
--   Aktivieren des verzögerten Erweiterung von Umgebungsvariablen
+-   Aktivieren der Erweiterung für verzögerte Umgebungsvariablen
 
-    Wenn Sie verzögerte umgebungsvariablenerweiterung zu aktivieren, können Sie Ausrufezeichens, ersetzen Sie den Wert einer Umgebungsvariablen zur Laufzeit.
--   Aktivieren der Datei- und Vervollständigung von Objektnamen
+    Wenn Sie die verzögerte Erweiterung der Umgebungsvariablen aktivieren, können Sie das Ausrufezeichen verwenden, um den Wert einer Umgebungsvariablen zur Laufzeit zu ersetzen.
+-   Aktivieren der Datei-und Verzeichnisnamen Vervollständigung
 
-    Vervollständigung von Datei- und Verzeichnis ist nicht standardmäßig aktiviert. Sie können aktivieren oder deaktivieren Sie die Datei Vervollständigung von Objektnamen für einen bestimmten Prozess die **Cmd** Befehl **/f:** {**auf**|**aus**}. Sie können aktivieren oder deaktivieren Sie die Vervollständigung von Datei- und Verzeichnis für alle Prozesse, die von der **Cmd** Befehl auf einem Computer oder für eine benutzersitzung Anmeldung, indem Sie folgende Einstellungen **REG_DWORD** Werte:
+    Die Vervollständigung von Datei-und Verzeichnisnamen ist standardmäßig nicht aktiviert. Sie können den Abschluss des Datei namens für einen bestimmten Prozess des **cmd** -Befehls mit **/f:** {**on**|**Off**} aktivieren oder deaktivieren. Sie können den Abschluss von Datei-und Verzeichnisnamen für alle Prozesse des Befehls " **cmd** " auf einem Computer oder für eine Benutzer Anmelde Sitzung aktivieren bzw. deaktivieren, indem Sie die folgenden **REG_DWORD** -Werte festlegen:
 
     **HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\CompletionChar\REG_DWORD**
 
@@ -153,22 +153,22 @@ Die folgende Tabelle enthält gültige hexadezimale Ziffern, mit denen Sie als W
 
     **HKEY_CURRENT_USER\Software\Microsoft\Command Processor\PathCompletionChar\REG_DWORD**
 
-    Festlegen der **REG_DWORD** Wert und Ausführen von Regedit.exe den hexadezimalen Wert eines Steuerzeichens für eine bestimmte Funktion verwenden (z. B. **0 x 9** Registerkarte und **0 x 08** ist RÜCKTASTE). Benutzerdefinierte Einstellungen haben Vorrang vor Einstellungen des Computers, und Befehlszeilenoptionen haben Vorrang vor registrierungseinstellungen.
+    Um den **REG_DWORD** -Wert festzulegen, führen Sie regedit. exe aus, und verwenden Sie den Hexadezimalwert eines Steuer Zeichens für eine bestimmte Funktion (z. b. **0 × 9** ist Tab, und **0 × 08** ist RÜCKTASTE). Benutzerdefinierte Einstellungen haben Vorrang vor Computereinstellungen, und Befehlszeilenoptionen haben Vorrang vor den Registrierungs Einstellungen.
 
 > [!CAUTION]
 > Durch eine fehlerhafte Bearbeitung der Registrierung können schwerwiegende Schäden am System verursacht werden. Bevor Sie Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Computerdaten sichern.
 
-Wenn Sie Dateien und Verzeichnisse Vervollständigung von Objektnamen mit aktivieren **/f: auf**, verwenden Sie STRG + D, für die Vervollständigung von Objektnamen und STRG + F Dateinamen. Um ein bestimmtes Vervollständigungszeichen in der Registrierung zu deaktivieren, verwenden Sie den Wert für Leerzeichen [**0 x 20**] da es sich nicht um ein gültiges Steuerelement Zeichen ist.
+Wenn Sie die Vervollständigung von Datei-und Verzeichnisnamen mithilfe von **/f: on**aktivieren, verwenden Sie STRG + D für den Abschluss des Verzeichnis namens und Strg + f für den Abschluss des Datei namens. Um ein bestimmtes Abschluss Zeichen in der Registrierung zu deaktivieren, verwenden Sie den Wert für Leerraum [**0 × 20**], da es sich nicht um ein gültiges Steuerzeichen handelt.
 
-Wenn Sie STRG + D oder STRG + F drücken **Cmd** Vervollständigung von Datei- und Verzeichnis verarbeitet. Diese Kombination aus Funktionen fügen Sie einem Platzhalterzeichen *Zeichenfolge* (falls nicht vorhanden ist), erstellen Sie eine Liste der Pfade, die übereinstimmen, und zeigen Sie den ersten übereinstimmenden Pfad. Wenn keiner der Pfade übereinstimmen, wird die Datei- und Verzeichnisspeicher Name-Abschluss-Funktion gibt ein akustisches Signal und ändert sich nicht auf die Anzeige. Um durch die Liste der übereinstimmenden Pfaden zu verschieben, drücken Sie STRG + D oder STRG + F wiederholt. Um rückwärts durch die Liste zu verschieben, drücken Sie gleichzeitig die UMSCHALTTASTE und STRG + D oder STRG + F. Bearbeiten Sie zum verwerfen die Liste der übereinstimmenden Pfaden, und generieren eine neue Liste, *Zeichenfolge* , und drücken Sie STRG + D oder STRG + F. Wenn Sie STRG + D bis STRG + F wechseln, wird die Liste der übereinstimmenden Pfaden verworfen, und eine neue Liste generiert. Der einzige Unterschied zwischen den Tastenkombinationen von STRG + D und STRG + F ist, dass STRG + D nur Verzeichnisnamen und STRG + F sowohl Datei- und Verzeichnisnamen entspricht. Bei Verwendung von Dateien und Verzeichnisse Vervollständigung von Objektnamen auf einen der integrierten verzeichnisrolle Befehle (d. h. **CD**, **MD**, oder **RD**), Directory Abschluss wird davon ausgegangen.
+Wenn Sie STRG + D oder STRG + F drücken, verarbeitet **cmd** den Datei-und Verzeichnisnamen. Diese Tastenkombination fügen ein Platzhalter Zeichen an eine *Zeichenfolge* an (sofern nicht vorhanden), erstellen eine Liste von Pfaden, die mit übereinstimmen, und zeigen dann den ersten übereinstimmenden Pfad an. Wenn keiner der Pfade entspricht, wird die Datei-und Verzeichnisnamen Vervollständigungsfunktion nicht geändert, und die Anzeige wird nicht geändert. Drücken Sie zum Durchlaufen der Liste der übereinstimmenden Pfade wiederholt STRG + D oder STRG + F. Drücken Sie die UMSCHALTTASTE, und drücken Sie STRG + D oder STRG + F gleichzeitig, um durch die Liste rückwärts zu navigieren. Wenn Sie die gespeicherte Liste der übereinstimmenden Pfade verwerfen und eine neue Liste generieren möchten, bearbeiten Sie die *Zeichenfolge* , und drücken Sie STRG + D oder STRG + F. Wenn Sie zwischen STRG + D und STRG + F wechseln, wird die gespeicherte Liste der übereinstimmenden Pfade verworfen und eine neue Liste generiert. Der einzige Unterschied zwischen den Tastenkombinationen STRG + D und Strg + f besteht darin, dass Strg + d nur mit Verzeichnisnamen übereinstimmt und Strg + f sowohl Datei-als auch Verzeichnisnamen entspricht. Wenn Sie die Vervollständigung von Datei-und Verzeichnisnamen in einem der integrierten Verzeichnis Befehle (d. h. **CD**, **MD**oder **RD**) verwenden, wird die Verzeichnis Vervollständigung angenommen.
 
-Vervollständigung von Datei- und Verzeichnis verarbeitet ordnungsgemäß Dateinamen, die Leerzeichen oder Sonderzeichen enthalten, wenn Sie den entsprechenden Pfad in Anführungszeichen setzen.
+Datei-und Verzeichnisnamen Vervollständigung verarbeitet ordnungsgemäß Dateinamen, die Leerzeichen oder Sonderzeichen enthalten, wenn Sie den übereinstimmenden Pfad in Anführungszeichen setzen.
 
-Die folgenden Sonderzeichen sind Anführungszeichen erforderlich: & < > [] {} ^ =;! "+" ~ [Leerzeichen].
+Die folgenden Sonderzeichen erfordern Anführungszeichen: & < > [] {} ^ =;! ' +, ' ~ [Leerraum].
 
-Wenn die Informationen, die Sie angeben, die Leerzeichen enthält, verwenden Sie Anführungszeichen um den Text (z. B. "Computername").
+Wenn die Informationen, die Sie angeben, Leerzeichen enthalten, verwenden Sie den Text in Anführungszeichen (z. b. "Computer Name").
 
-Wenn Sie Dateien und Verzeichnisse Vervollständigung von Objektnamen aus verarbeiten *Zeichenfolge*, Teil der *Pfad* rechts neben der Cursor wird verworfen (an der Stelle im *Zeichenfolge* , in dem die Vervollständigung verarbeitet wurde).
+Wenn Sie die Vervollständigung von Datei-und Verzeichnisnamen innerhalb der *Zeichenfolge*verarbeiten, wird jeder Teil des *Pfads* rechts vom Cursor verworfen (an der Stelle in der *Zeichenfolge* , an der der Abschluss verarbeitet wurde).
 
 #### <a name="additional-references"></a>Weitere Verweise
 

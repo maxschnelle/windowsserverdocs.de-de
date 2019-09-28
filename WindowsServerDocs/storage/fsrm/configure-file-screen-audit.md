@@ -2,22 +2,22 @@
 title: Dateiprüfungsberichte konfigurieren
 description: In diesem Artikel wird beschrieben, wie Dateiprüfungsberichte konfiguriert werden, um einen einen Dateiprüfungsüberwachungs-Bericht zu erstellen
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 89592a9e1f61374d2d909678a91dc4a06e0b1972
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a9444e158a935f4e931aa7a5d634d970c5acc88e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824471"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394566"
 ---
 # <a name="configure-file-screen-audit"></a>Dateiprüfungsberichte konfigurieren
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Mithilfe des Ressourcen-Managers für Dateiserver können Sie die Dateiprüfungsaktivität in einer Überwachungsdatenbank aufzeichnen. Die in dieser Datenbank gespeicherten Informationen dienen zum Generieren des Dateiprüfungsüberwachungs-Berichts.
 
@@ -34,5 +34,5 @@ Mithilfe des Ressourcen-Managers für Dateiserver können Sie die Dateiprüfungs
 
 ## <a name="see-also"></a>Siehe auch
 
--   [Einstellung File Server Resource Manager-Optionen](setting-file-server-resource-manager-options.md)
--   [Speicherverwaltung für Berichte](storage-reports-management.md)
+-   [Festlegen der Optionen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)
+-   [Speicherberichtmanagement](storage-reports-management.md)

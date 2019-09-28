@@ -1,9 +1,9 @@
 ---
-title: Schritt 3 Plan OTP-Zertifikatbereitstellung
-description: Dieses Thema ist Teil des Leitfadens Bereitstellen von Remotezugriff mit OTP-Authentifizierung in Windows Server 2016.
+title: Schritt 3 Planen der OTP-Zertifikat Bereitstellung
+description: Dieses Thema ist Teil des Handbuchs Bereitstellen des Remote Zugriffs mit OTP-Authentifizierung in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,70 +12,70 @@ ms.topic: article
 ms.assetid: eca02eeb-d92d-463e-aae0-1f7038ba26fe
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4102fc4f7eacf0b407446717caa83e4e5f70ae57
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: e8406286599e5b03173ce1b5d6c34c35245a9094
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282371"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366946"
 ---
-# <a name="step-3-plan-otp-certificate-deployment"></a>Schritt 3 Plan OTP-Zertifikatbereitstellung
+# <a name="step-3-plan-otp-certificate-deployment"></a>Schritt 3 Planen der OTP-Zertifikat Bereitstellung
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Nach der Planung des RADIUS-Servers, müssen Sie planen, für die Anforderungen der Zertifizierungsstelle (CA), einschließlich der Zertifizierungsstelle, die Einmalkennwort (OTP) Zertifikate, die OTP-Zertifikatvorlage und der vom Remotehost verwendet registrierungsstellenzertifikats ausstellen Access-Server und alle DirectAccess-Client OTP zertifikatsanforderungen anmelden. Diese Zertifikate werden wie folgt verwendet:  
+Nach der Planung des RADIUS-Servers müssen Sie die Anforderungen der Zertifizierungsstelle (Certification Authority, ca) planen, einschließlich der Zertifizierungsstelle, von der die Zertifikate für einmal Kennwort (OTP), die OTP-Zertifikat Vorlage und das vom Remote Server verwendete Registrierungsstellen Zertifikat ausgestellt werden. Zugriffs Server zum Signieren aller OTP-Zertifikat Anforderungen für den DirectAccess-Client. Diese Zertifikate werden wie folgt verwendet:  
   
-1.  Der DirectAccess-Client fordert ein OTP-Zertifikat aus, und der RAS-Server empfängt die Anforderung.  
+1.  Der DirectAccess-Client fordert ein OTP-Zertifikat an, und der Remote Zugriffs Server empfängt die Anforderung.  
   
-2.  RAS-Servers wird überprüft, ob der OTP-Anmeldeinformationen, und wenn sie gültig sind, der Server fungiert als eine Autorisierungsstelle für die Registrierung, und der OTP-zertifikatregistrierungsanforderung mithilfe eines kurzlebigen Signaturzertifikats signiert.  
+2.  Der RAS-Server überprüft die OTP-Anmelde Informationen. wenn diese gültig sind, fungiert der Server als Registrierungsstelle und signiert die OTP-Zertifikat Registrierungs Anforderung mithilfe eines kurzlebigen Signatur Zertifikats.  
   
-3.  RAS-Server sendet die signierte zertifikatanforderung für die Registrierung mit dem DirectAccess-client  
+3.  Der Remote Zugriffs Server sendet die signierte Zertifikat Registrierungs Anforderung an den DirectAccess-Client zurück.  
   
-4.  Der Client wird dann das OTP-Zertifikat von der Zertifizierungsstelle, die mit der vom Server signierten zertifikatregistrierungsanforderungen registriert.  
+4.  Der Client registriert dann das OTP-Zertifikat von der Zertifizierungsstelle mithilfe der Zertifikat Registrierungsanforderungen, die vom Server signiert wurden.  
   
-5.  Die CA überprüft die Anmeldeinformationen und die Anforderung.  
+5.  Die Zertifizierungsstelle überprüft die Anmelde Informationen und die Anforderung.  
   
 |Aufgabe|Beschreibung|  
 |----|--------|  
-|[3.1 Planen der OTP-Zertifizierungsstellen](#bkmk_3_1_CA)|Planen Sie die Zertifizierungsstelle (CA) zum Ausstellen von Zertifikaten für DirectAccess-Clients für die OTP-Authentifizierung verwenden.|  
-|[3.2 Planung der OTP-Zertifikatvorlage](#bkmk_3_2_OTP_Cert)|Planen Sie die OTP-Zertifikatvorlage.|
-|[3.3 Planen der registrierungsstellenzertifikats](#bkmk_33RACert)|Planen Sie die Registrierung-Zertifikat zum Signieren alle zertifikatsanforderungen der OTP-Authentifizierung.|
+|[3,1 Planen der OTP-Zertifizierungsstelle](#bkmk_3_1_CA)|Planen Sie die Zertifizierungsstelle, die zum Ausstellen von Zertifikaten für DirectAccess-Clients für die OTP-Authentifizierung verwendet werden soll.|  
+|[3,2 Planen der OTP-Zertifikat Vorlage](#bkmk_3_2_OTP_Cert)|Planen Sie die OTP-Zertifikat Vorlage.|
+|[3,3 Planen des Registrierungsstellen Zertifikats](#bkmk_33RACert)|Planen Sie das Registrierungsstellen Zertifikat, um alle OTP-Authentifizierungszertifikat Anforderungen zu signieren.|
 
-## <a name="bkmk_3_1_CA"></a>3.1 Planen der OTP-Zertifizierungsstellen  
-Um DirectAccess mithilfe der Einmalkennwort-Authentifizierung (OTP) bereitstellen, müssen Sie eine interne Zertifizierungsstelle zum Ausstellen von der OTP-Authentifizierung-Zertifikate für DirectAccess-Clientcomputer. Zu diesem Zweck können Sie die gleiche interne Zertifizierungsstelle, die Sie verwenden, um die Ausstellung der Zertifikate, die für die reguläre IPsec-Computerauthentifizierung verwendet werden.  
+## <a name="bkmk_3_1_CA"></a>3,1 Planen der OTP-Zertifizierungsstelle  
+Zum Bereitstellen von DirectAccess mithilfe von einmal Kennwort-Authentifizierung (einmal Kennwort-Authentifizierung) benötigen Sie eine interne Zertifizierungsstelle, um die OTP-Authentifizierungs Zertifikate für DirectAccess-Client Computer auszustellen. Zu diesem Zweck können Sie dieselbe interne Zertifizierungsstelle verwenden, mit der Sie die Zertifikate ausstellen, die für die reguläre IPSec-Computer Authentifizierung verwendet werden.  
   
-## <a name="bkmk_3_2_OTP_Cert"></a>3.2 Planung der OTP-Zertifikatvorlage  
-Jedes DirectAccess-Client erforderlich, dass ein OTP-Authentifizierungszertifikat auf dem internen Netzwerk zugreifen. Sie müssen eine Vorlage für Ihre interne Zertifizierungsstelle für das OTP-Zertifikat konfigurieren. Beachten Sie Folgendes ein, wenn Sie die OTP-Zertifikatvorlage zu konfigurieren:  
+## <a name="bkmk_3_2_OTP_Cert"></a>3,2 Planen der OTP-Zertifikat Vorlage  
+Jeder DirectAccess-Client benötigt ein OTP-Authentifizierungszertifikat, um Zugriff auf das interne Netzwerk zu erhalten. Sie müssen eine Vorlage für die interne Zertifizierungsstelle für das OTP-Zertifikat konfigurieren. Beachten Sie beim Konfigurieren der OTP-Zertifikat Vorlage Folgendes:  
   
--   Es müssen alle Benutzer, die OTP-Authentifizierung ausführen, um müssen Lese- und Registrierungsberechtigungen für diese Vorlage.  
+-   Alle Benutzer, die die OTP-Authentifizierung durchführen müssen, müssen über die Berechtigungen Lesen und anmelden für diese Vorlage verfügen.  
   
--   Der Name des Antragstellers sollten erstellt werden, aus Active Directory-Informationen, um sicherzustellen, dass der Name des Antragstellers findet die Einmalkennwort-Benutzernamen und nicht den Namen des RAS-Servers, der die Anforderung ausführt. Der Name des Antragstellers muss im Format Vollständiger definierter Name sein, und der alternative Antragstellername muss im UPN-Format sein. Dadurch wird sichergestellt, dass das angemeldete OTP-Zertifikat für die Smartcard-Kerberos-Authentifizierung gültig ist.  
+-   Der Name des Antragstellers sollte aus Active Directory Informationen erstellt werden, um sicherzustellen, dass der Antragsteller Name mit dem OTP-Benutzernamen übereinstimmt, und nicht mit dem Namen des RAS-Servers, von dem die Zertifikat Anforderung durchführt. Der Antragsteller Name muss das vollständig gekennzeichnete Namensformat aufweisen, und der alternative Antragsteller Name muss das UPN-Format aufweisen. Dadurch wird sichergestellt, dass das registrierte OTP-Zertifikat für die Smartcard-Kerberos-Authentifizierung gültig ist.  
   
--   Der Zweck des Zertifikats muss die Smartcard-Anmeldung sein.  
+-   Der beabsichtigte Zweck des Zertifikats muss die Smartcard-Anmeldung sein.  
   
--   Ausstellung ist eine autorisierte Signatur erforderlich. Die Signatur muss mit der vordefinierten DirectAccess OTP Anwendung richtlinieneinstellung in der Registrierung Zertifizierungsstelle Signieren Zertifikatvorlage konfiguriert werden.  
+-   Die Ausstellung muss eine autorisierte Signatur erfordern. Die Signatur muss mit der vordefinierten DirectAccess OTP-Anwendungs Richtlinie konfiguriert werden, die in der Registrierungsstelle-Signaturzertifikat Vorlage festgelegt ist.  
   
--   Die Gültigkeitsdauer sollte auf eine Stunde festgelegt werden.  
+-   Der Gültigkeits Zeitraum muss auf eine Stunde festgelegt werden.  
   
     > [!NOTE]  
-    > In Situationen, in dem der CA-Server ist ein Windows Server 2003-Computer, und klicken Sie dann die Vorlage muss auf einem anderen Computer konfiguriert werden. Dies ist darauf zurückzuführen, dass Festlegen der **Gültigkeitsdauer** in Stunden ist nicht möglich, wenn Windows-Versionen vor 2008/Vista ausgeführt wird. Wenn der Computer, mit denen Sie die Vorlage zu konfigurieren, verfügt nicht über die Zertifizierungsdienst-Rolle installiert sein, oder es ein Clientcomputer ist, dann müssen Sie möglicherweise das Zertifikatvorlagen-Snap-in zu installieren. Weitere Informationen zu diesem Thema finden Sie [hier](https://technet.microsoft.com/library/cc732445.aspx).  
+    > In Fällen, in denen der Zertifizierungsstellen Server ein Windows Server 2003-Computer ist, muss die Vorlage auf einem anderen Computer konfiguriert werden. Dies liegt daran, dass das Festlegen der **Gültigkeitsdauer** in Stunden nicht möglich ist, wenn Windows-Versionen vor 2008/Vista ausgeführt werden. Wenn auf dem Computer, den Sie zum Konfigurieren der Vorlage verwenden, die Zertifizierungsdienst Rolle nicht installiert ist, oder es sich um einen Client Computer handelt, müssen Sie möglicherweise das Zertifikat Vorlagen-Snap-in installieren. Weitere Informationen zu diesem Betreff finden Sie [hier](https://technet.microsoft.com/library/cc732445.aspx).  
   
--   Der Erneuerungszeitraum muss auf 0 festgelegt werden.  
+-   Der Erneuerungs Zeitraum muss auf 0 festgelegt werden.  
   
--   (Optional) Zertifikate und Anforderungen sollten nicht in der Datenbank der Zertifizierungsstelle gespeichert werden.  
+-   Optionale Zertifikate und Anforderungen dürfen nicht in der Zertifizierungsstellen-Datenbank gespeichert werden.  
   
--   Das Certificate-Parameter, erweiterte Schlüsselverwendung muss festgelegt werden, korrekt, wie folgt:  
+-   Der erweiterte Schlüssel Verwendungs Parameter des Zertifikats muss wie folgt ordnungsgemäß festgelegt werden:  
   
-    -   Verwenden Sie den Schlüssel 1.3.6.1.4.1.311.81.1.1, für die Zertifikatvorlage der DirectAccess-Registrierung für das Signieren.  
+    -   Verwenden Sie für die DirectAccess-Registrierungs Signaturzertifikat-Vorlage den Schlüssel 1.3.6.1.4.1.311.81.1.1.  
   
-    -   Verwenden Sie für die OTP-Zertifikatvorlage für Serverauthentifizierung den 1.3.6.1.4.1.311.20.2.2 Schlüssel.  
+    -   Verwenden Sie für die OTP-Authentifizierungszertifikat Vorlage den Schlüssel 1.3.6.1.4.1.311.20.2.2 Key.  
   
-## <a name="bkmk_33RACert"></a>3.3 Planen der registrierungsstellenzertifikats  
-Wenn DirectAccess-Clients ein OTP-Zertifikat anfordern, empfängt der RAS-Server die Anforderung vom Client an. RAS-Server signiert alle OTP zertifikatsanforderungen von Clients, die registrierungsstellenzertifikats verwenden. Die Zertifizierungsstelle stellt Zertifikate nur dann, wenn die Anforderung von der Registrierung auf dem RAS-Server das Zertifikat signiert ist. Das Zertifikat muss von einer internen Zertifizierungsstelle ausgestellt werden, das Zertifikat kann nicht selbst signiert werden. Es muss nicht von der Zertifizierungsstelle ausgestellt werden, die die OTP-Zertifikate ausgestellt, aber die Zertifizierungsstelle, die die OTP-Zertifikate ausstellt, muss die Zertifizierungsstelle, die das Signaturzertifikat für die Registrierung Autorität ausgestellt vertrauen.  
+## <a name="bkmk_33RACert"></a>3,3 Planen des Registrierungsstellen Zertifikats  
+Wenn DirectAccess-Clients ein OTP-Zertifikat anfordern, empfängt der RAS-Server die Anforderung vom Client. Der RAS-Server signiert alle OTP-Zertifikat Anforderungen von Clients mithilfe des Registrierungsstellen Zertifikats. Die Zertifizierungsstelle gibt Zertifikate nur dann aus, wenn die Anforderung vom Registrierungsstellen Zertifikat auf dem RAS-Server signiert wurde. Das Zertifikat muss von einer internen Zertifizierungsstelle ausgestellt werden, das Zertifikat kann nicht selbst signiert werden. Er muss nicht von der Zertifizierungsstelle ausgestellt werden, die die OTP-Zertifikate ausgestellt hat, aber die Zertifizierungsstelle, die die OTP-Zertifikate ausgibt, muss der Zertifizierungsstelle vertrauen, die das Signaturzertifikat der Registrierungsstelle ausgibt.  
   
 ## <a name="BKMK_Links"></a>Siehe auch  
   
--   [Schritt 4: Planen von OTP für den RAS-server](Step-4-Plan-for-OTP-on-the-Remote-Access-Server.md)  
+-   [Schritt 4: Planen von OTP für den RAS-Server @ no__t-0  
   
 
 

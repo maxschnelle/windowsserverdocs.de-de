@@ -1,9 +1,9 @@
 ---
 title: 'RAS-Gateway: Hohe Verfügbarkeit'
-description: Sie können in diesem Thema verwenden, um hohe Verfügbarkeitskonfigurationen für das RAS-Multitenant Gateway für Software-Defined Networking (SDN) in Windows Server 2016 zu ermitteln.
+description: In diesem Thema erfahren Sie mehr über Konfigurationen für hohe Verfügbarkeit für das mehr Instanzen fähige RAS-Gateway für Software-Defined Networking (SDN) in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -12,176 +12,176 @@ ms.topic: get-started-article
 ms.assetid: 34d826c9-65bc-401f-889d-cf84e12f0144
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 8ce515ceeb7ab6989ef18055f312983a6518a1a1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7d9c37629c0e0d9964554ba90887aa45f74a330a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847761"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355605"
 ---
 # <a name="ras-gateway-high-availability"></a>RAS-Gateway: Hohe Verfügbarkeit
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können in diesem Thema verwenden, um mehr über Konfigurationen mit hochverfügbarkeit für das RAS-Multitenant Gateway für Software-Defined Networking (SDN) erfahren.  
+In diesem Thema erfahren Sie mehr über Konfigurationen mit hoher Verfügbarkeit für das mehr Instanzen fähige RAS-Gateway für Software-Defined Networking (SDN).  
   
 Dieses Thema enthält die folgenden Abschnitte:  
   
--   [Übersicht über die RAS-Gateway](#bkmk_overview)  
+-   [Übersicht über RAS-Gateways](#bkmk_overview)  
   
--   [Übersicht über die Gateway-Pools](#bkmk_pools)  
+-   [Übersicht über gatewaypools](#bkmk_pools)  
   
--   [Übersicht über die Bereitstellung von RAS-Gateway](#bkmk_deployment)  
+-   [RAS-Gatewaybereitstellung](#bkmk_deployment)  
   
--   [RAS-Gateway-Integration mit dem Netzwerkcontroller](#bkmk_integration)  
+-   [Integration des RAS-Gateways in den Netzwerk Controller](#bkmk_integration)  
   
-## <a name="bkmk_overview"></a>Übersicht über die RAS-Gateway  
-Wenn Ihre Organisation eine Cloud-Dienstanbieter (CSP) oder in einem Unternehmen mit mehreren Mandanten ist, können Sie die RAS-Gateway im mehrinstanzenfähigen Modus verwenden, geben Sie die Weiterleitung von Netzwerkdatenverkehr zu und von virtuellen und physischen Netzwerken, die auch über das Internet bereitstellen.  
+## <a name="bkmk_overview"></a>Übersicht über RAS-Gateways  
+Wenn Ihre Organisation ein clouddienstanbieter (Cloud Service Provider, CSP) oder ein Unternehmen mit mehreren Mandanten ist, können Sie das RAS-Gateway im mehr Instanzen Modus bereitstellen, um Netzwerk Datenverkehr zu und von virtuellen und physischen Netzwerken, einschließlich des Internets, bereitzustellen.  
   
-Sie können die RAS-Gateway im mehrinstanzenmodus als ein Edge-Gateway zum Weiterleiten von Kunden mandantennetzwerk-Datenverkehr zu virtuellen Netzwerken und Ressourcen von Mandanten bereitstellen.  
+Sie können das RAS-Gateway im mehr Instanzen Modus als edgegateway bereitstellen, um den Netzwerk Datenverkehr von Mandanten Kunden an virtuelle Mandanten Netzwerke und Ressourcen weiterzuleiten.  
   
-Wenn Sie mehrere Instanzen von RAS-Gateway-VMs, die hohe Verfügbarkeit und Failover bereitstellen bereitstellen, stellen Sie einen gatewaypool. In Windows Server 2012 R2 gebildet alle das Gateway VMs einen einzelnen Pool, der eine logische Trennung zwischen der gatewaybereitstellung ein wenig schwierig gestellt.  Windows Server 2012 R2-Gateway bot es sich um eine 1:1-Redundanz Bereitstellung für das Gateway-VMs, die mangelhaft die verfügbare Kapazität für Standort-zu-Standort (S2S) VPN-Verbindungen geführt haben.  
+Wenn Sie mehrere Instanzen von RAS-Gateway-VMS bereitstellen, die Hochverfügbarkeit und Failover bereitstellen, stellen Sie einen gatewaypool bereit. In Windows Server 2012 R2 haben alle Gateway-VMS einen einzelnen Pool gebildet, wodurch eine logische Trennung der Gatewaybereitstellung ein wenig schwierig wurde.  Das Windows Server 2012 R2-Gateway bot eine 1:1-Redundanz Bereitstellung für die Gateway-VMS. Dies führte zu einer Auslastung der verfügbaren Kapazität für Site-to-Site-VPN-Verbindungen (S2S).  
   
-Dieses Problem ist in Windows Server 2016 behoben, das unterschiedliche Typen für die logische Trennung aufweisen können mehrere Gatewaypools - bereitstellt. Der neue Modus des M + N-Redundanz ermöglicht eine effizientere Failoverkonfiguration.  
+Dieses Problem ist in Windows Server 2016 behoben, das mehrere gatewaypools bereitstellt, die unterschiedliche Typen für die logische Trennung aufweisen können. Der neue Modus der Redundanz von M + N ermöglicht eine effizientere Failoverkonfiguration.  
   
-Übersicht die Übersichtsinformationen zum RAS-Gateway finden Sie unter [RAS-Gateway](../../../../remote/remote-access/ras-gateway/RAS-Gateway.md).  
+Weitere Informationen zum RAS-Gateway finden Sie unter [RAS-Gateway](../../../../remote/remote-access/ras-gateway/RAS-Gateway.md).  
   
-## <a name="bkmk_pools"></a>Übersicht über die Gateway-Pools  
-In Windows Server 2016 können Sie die Gateways in einen oder mehrere Pools bereitstellen.  
+## <a name="bkmk_pools"></a>Übersicht über gatewaypools  
+In Windows Server 2016 können Sie Gateways in einem oder mehreren Pools bereitstellen.  
   
-Die folgende Abbildung zeigt verschiedene Arten von gatewaypools, die ermöglichen, routing von Datenverkehr zwischen virtuellen Netzwerken.  
+Die folgende Abbildung zeigt verschiedene Typen von gatewaypools, die das Datenverkehrs Routing zwischen virtuellen Netzwerken bereitstellen.  
   
-![RAS-Gateway-pools](../../../media/RAS-Gateway-High-Availability/ras_pools.png)  
+![RAS-gatewaypools](../../../media/RAS-Gateway-High-Availability/ras_pools.png)  
   
-Jeder Pool weist die folgenden Eigenschaften an.  
+Jeder Pool verfügt über die folgenden Eigenschaften:  
   
--   Jeder Pool ist M + N ist redundant. Dies bedeutet, dass ein bin "Anzahl der aktiven Gateway-VMs werden" n "die Anzahl der standby-Gateway-VMs gesichert. Der Wert von N (standby-Gateways) ist immer kleiner als oder gleich M (aktive Gateways).  
+-   Jeder Pool ist M + N redundant. Dies bedeutet, dass die Anzahl der aktiven Gateway-VMS durch eine N-Anzahl von standbygatewayvms gesichert wird. Der Wert von N (Standby-Gateways) ist immer kleiner oder gleich M (aktive Gateways).  
   
--   Die einzelne Gateway-Funktionen führen Sie ein Pool kann – Internet Key Exchange Version 2 (IKEv2) S2S, Layer-3 (L3), und Generic Routing Encapsulation (GRE)- oder des Pools kann all diese Funktionen ausführen.  
+-   Ein Pool kann jede der einzelnen Gatewayfunktionen ausführen: Internetschlüsselaustausch Version 2 (IKEv2) S2S, Layer 3 (L3) und generische Routing Kapselung (GRE), oder der Pool kann alle diese Funktionen ausführen.  
   
--   Sie können eine einzelne öffentliche IP-Adresse zuweisen, auf alle Speicherpools oder auf eine Teilmenge von Pools. Die Anzahl der öffentlichen IP-Adressen, die Sie verwenden müssen, dies so deutlich reduziert werden, da es möglich, dass alle Mandanten, die mit der Cloud auf eine einzelne IP-Adresse verbunden ist. Im Abschnitt unten für hohe Verfügbarkeit und Lastenausgleich wird beschrieben, wie dies funktioniert.  
+-   Sie können allen Pools oder einer Teilmenge von Pools eine einzelne öffentliche IP-Adresse zuweisen. Dadurch wird die Anzahl der öffentlichen IP-Adressen, die Sie verwenden müssen, erheblich reduziert, da alle Mandanten über eine einzige IP-Adresse eine Verbindung mit der Cloud herstellen können. Im folgenden Abschnitt zu Hochverfügbarkeit und Lastenausgleich wird beschrieben, wie dies funktioniert.  
   
--   Sie können ganz einfach einen gatewaypool nach oben oder unten skalieren durch Hinzufügen oder Entfernen der Gateway-VMs im Pool. Entfernen oder Hinzufügen des Gateways ist nicht die Dienste unterbrochen werden, die von einem Pool bereitgestellt werden. Sie können auch hinzufügen und entfernen die gesamte Pools von Gateways.  
+-   Sie können einen gatewaypool problemlos zentral hoch-oder herunterskalieren, indem Sie Gateway-VMS im Pool hinzufügen oder entfernen. Das Entfernen oder Hinzufügen von Gateways beeinträchtigt nicht die Dienste, die von einem Pool bereitgestellt werden. Sie können auch die gesamten Pools von Gateways hinzufügen und entfernen.  
   
--   Verbindungen von einem einzelnen Mandanten können auf mehreren Pools und mehrere Gateways in einem Pool beenden. Jedoch verfügt ein Mandant Verbindungen beendet wird, ein **alle** geben gatewaypool, es kann nicht abonniert werden in anderen **alle** Typ oder vom Typ gatewaypools.  
+-   Verbindungen eines einzelnen Mandanten können auf mehreren Pools und mehreren Gateways in einem Pool beendet werden. Wenn für einen Mandanten jedoch Verbindungen in einem gatewaypool mit **allen** Typen beendet werden, kann er keine anderen gatewaypools für **alle** Typen oder einzelne Typen abonnieren.  
   
-Gatewaypools bieten auch die Flexibilität, um zusätzliche Szenarien zu ermöglichen:  
+Gatewaypools bieten außerdem die Flexibilität, zusätzliche Szenarios zu aktivieren:  
   
--   Pools mit nur einem Mandanten – können Sie einen Pool für die Verwendung durch einen Mandanten erstellen.  
+-   Pools mit einem Mandanten: Sie können einen Pool für die Verwendung durch einen Mandanten erstellen.  
   
--   Wenn Sie Cloud-Diensten über (Reseller) Partnerkanäle verkauft werden sollen, können Sie separate Sätze von Pools für jede Wiederverkäufer erstellen.  
+-   Wenn Sie Clouddienste über Partner Kanäle (Reseller) verkaufen, können Sie für jeden Reseller separate Pools erstellen.  
   
--   Mehrere Pools können auf die gleiche Gatewayfunktion, aber verschiedene Kapazitäten bereitstellen. Beispielsweise können Sie einen gatewaypool erstellen, der einen hohen Durchsatz und niedriger Durchsatz IKEv2-S2S-Verbindungen unterstützt.  
+-   Mehrere Pools können die gleiche Gatewayfunktion, aber unterschiedliche Kapazitäten bereitstellen. Beispielsweise können Sie einen gatewaypool erstellen, der sowohl einen hohen Durchsatz als auch einen niedrigen Durchsatz IKEv2 S2S-Verbindungen unterstützt.  
   
-## <a name="bkmk_deployment"></a>Übersicht über die Bereitstellung von RAS-Gateway  
-Die folgende Abbildung zeigt eine typische Bereitstellung von Cloud-Dienstanbieter (CSP) des RAS-Gateways.  
+## <a name="bkmk_deployment"></a>RAS-Gatewaybereitstellung  
+In der folgenden Abbildung wird eine typische Bereitstellung des clouddienstanbieters (CSP) des RAS-Gateways veranschaulicht.  
   
-![Übersicht über die Bereitstellung von RAS-Gateway](../../../media/RAS-Gateway-High-Availability/ras_csp_deploy.png)  
+![RAS-Gatewaybereitstellung](../../../media/RAS-Gateway-High-Availability/ras_csp_deploy.png)  
   
-Mit dieser Art der Bereitstellung sind die gatewaypools hinter einer Software Load Balancer (SLB) bereitgestellt, die der CSP eine einzelne öffentliche IP-Adresse für die gesamte Bereitstellung zuweisen können. Mehrere gatewayverbindungen eines Mandanten können auf mehrere gatewaypools - sowie auf mehrere Gateways innerhalb eines Pools beendet werden. Dies ist über IKEv2-S2S-Verbindungen in der obigen Abbildung dargestellt, aber dasselbe gilt für andere Gatewayfunktionen, z. B. L3 und GRE-Gateways.  
+Bei dieser Art der Bereitstellung werden die gatewaypools hinter einer Software Load Balancer (SLB) bereitgestellt, die es dem CSP ermöglicht, eine einzelne öffentliche IP-Adresse für die gesamte Bereitstellung zuzuweisen. Mehrere Gatewayverbindungen eines Mandanten können auf mehreren gatewaypools und auch auf mehreren Gateways innerhalb eines Pools beendet werden. Dies wird über IKEv2 S2S-Verbindungen im obigen Diagramm veranschaulicht, das gleiche gilt jedoch auch für andere Gatewayfunktionen, wie z. b. L3-und GRE-Gateways.  
   
-In der Abbildung ist das MT-BGP-Gerät-RAS-Mehrinstanzenfähiges Gateway mit BGP an. Mehrinstanzenfähige BGP wird für dynamisches routing verwendet. Das routing für einen Mandanten erfolgt zentral: einen einzelnen Punkt, dem Namen der Route-Reflector (RR), verarbeitet das BGP-peering für alle mandantenwebsites. Die RR selbst wird auf alle Gateways in einem Pool verteilt. Dies führt zu einer Konfiguration, in denen die Verbindungen eines Mandanten (Data-Pfad) auf mehrere Gateways zu beenden, aber der Ressourceneintrag für den Mandanten (BGP peering-Punkt - Pfad des Steuerelements) ist auf nur einem der Gateways.  
+In der Abbildung ist das MT BGP-Gerät ein mehr Instanzen fähiges RAS-Gateway mit BGP. Mehrinstanzfähiges BGP wird für dynamisches Routing verwendet. Das Routing für einen Mandanten ist zentral. ein einzelner Punkt, der als Routen Reflektor (RR) bezeichnet wird, verarbeitet das BGP-Peering für alle Mandanten Websites. Das RR selbst wird über alle Gateways in einem Pool verteilt. Dies führt zu einer Konfiguration, bei der die Verbindungen eines Mandanten (Datenpfad) auf mehreren Gateways enden, aber der RR für den Mandanten (BGP-peeringpunkt-Steuerungs Pfad) befindet sich nur auf einem der Gateways.  
   
-Der BGP-Router ist im Diagramm, um dieses zentrale routing-Konzept dargestellt aufgeteilt. Die Gateway-BGP-Implementierung hinaus-transitrouting, wodurch die Cloud, fungiert als transitpunkt für das routing zwischen den beiden mandantenschlüssel-Standorten. Diese BGP-Funktionen gelten für alle Gatewayfunktionen zur Verfügung.  
+Der BGP-Router ist im Diagramm voneinander getrennt, um dieses zentralisierte Routing Konzept darzustellen. Die BGP-Implementierung des Gateways bietet auch Transit Routing, das es der Cloud ermöglicht, als Transitpunkt für das Routing zwischen zwei Mandanten Standorten zu fungieren. Diese BGP-Funktionen gelten für alle Gatewayfunktionen.  
   
-## <a name="bkmk_integration"></a>RAS-Gateway-Integration mit dem Netzwerkcontroller  
-RAS-Gateway ist vollständig mit dem Netzwerkcontroller in Windows Server 2016 integriert. Wenn RAS-Gateway und dem Netzwerkcontroller bereitgestellt werden, führt den Netzwerkcontroller die folgenden Funktionen aus.  
+## <a name="bkmk_integration"></a>Integration des RAS-Gateways in den Netzwerk Controller  
+RAS-Gateway ist vollständig in den Netzwerk Controller in Windows Server 2016 integriert. Wenn das RAS-Gateway und der Netzwerk Controller bereitgestellt werden, führt der Netzwerk Controller die folgenden Funktionen aus.  
   
--   Bereitstellung der Gateway-Pools  
+-   Bereitstellung der gatewaypools  
   
--   Konfiguration der Mandanten-Verbindungen für jedes gateway  
+-   Konfiguration von Mandanten Verbindungen auf jedem Gateway  
   
--   Wechseln von Netzwerkdatenverkehr mit einem standby-Gateway im Fall eines Fehlers Gateway fließt  
+-   Wechseln von Netzwerk Datenverkehr zu einem Standby-Gateway im Falle eines gatewayfehlers  
   
-Die folgenden Abschnitte enthalten ausführliche Informationen zu RAS-Gateway und dem Netzwerkcontroller.  
+Die folgenden Abschnitte enthalten ausführliche Informationen zum RAS-Gateway und Netzwerk Controller.  
   
--   [Bereitstellung und den Lastenausgleich von Gateway-Verbindungen (IKEv2 L3 und GRE)](#bkmk_provisioning)  
+-   [Bereitstellung und Lastenausgleich von Gatewayverbindungen (IKEv2, L3 und GRE)](#bkmk_provisioning)  
   
 -   [Hohe Verfügbarkeit für IKEv2 S2S](#bkmk_ike)  
   
 -   [Hohe Verfügbarkeit für GRE](#bkmk_gre)  
   
--   [Hohe Verfügbarkeit für L3 Weiterleitung von Gateways](#bkmk_l3)  
+-   [Hohe Verfügbarkeit für L3-Weiterleitungs Gateways](#bkmk_l3)  
   
-### <a name="bkmk_provisioning"></a>Bereitstellung und den Lastenausgleich von Gateway-Verbindungen (IKEv2 L3 und GRE)  
-Wenn ein Mandant eine Gateway-Verbindung anfordert, wird die Anforderung für den Netzwerkcontroller gesendet. Netzwerkcontroller ist mit Informationen über alle gatewaypools, einschließlich der Kapazität von jedem Pool und alle Gateways in jedem Pool konfiguriert. Netzwerkcontroller wählt das korrekte Pool und das Gateway für die Verbindung. Diese Auswahl wird basierend auf den Bedarf an Netzwerkbandbreite für die Verbindung. Netzwerkcontroller verwendet einen Algorithmus "best fit", Verbindungen effizient in einem Pool auswählen. Der BGP-peering-Punkt für die Verbindung wird auch zu diesem Zeitpunkt festgelegt, ist dies die erste Verbindung des Mandanten.  
+### <a name="bkmk_provisioning"></a>Bereitstellung und Lastenausgleich von Gatewayverbindungen (IKEv2, L3 und GRE)  
+Wenn ein Mandant eine Gatewayverbindung anfordert, wird die Anforderung an den Netzwerk Controller gesendet. Der Netzwerk Controller ist mit Informationen zu allen gatewaypools konfiguriert, einschließlich der Kapazität der einzelnen Pools und jedes Gateways in jedem Pool. Der Netzwerk Controller wählt den richtigen Pool und das richtige Gateway für die Verbindung aus. Diese Auswahl basiert auf der Bandbreiten Anforderung für die Verbindung. Der Netzwerk Controller verwendet einen "am besten geeigneten" Algorithmus, um Verbindungen effizient in einem Pool auszuwählen. Der BGP-peeringpunkt für die Verbindung wird auch zu diesem Zeitpunkt festgelegt, wenn es sich um die erste Verbindung des Mandanten handelt.  
   
-Nach dem Netzwerkcontroller über eine RAS-Gateway für die Verbindung auswählt, wird dem Netzwerkcontroller die erforderliche Konfiguration für die Verbindung auf dem Gateway bereitgestellt. Wenn die Verbindung ein IKEv2-S2S-Verbindung ist, stellt Netzwerkcontroller auch eine Regel (Network Address Translation, NAT) für den SLB-Pool; Diese NAT-Regel für den Pool der SLB leitet verbindungsanforderungen aus dem Mandanten mit dem angegebenen Gateway. Mandanten unterscheiden sich von der Quell-IP, die erwartet wird, eindeutig sein.  
+Nachdem der Netzwerk Controller ein RAS-Gateway für die Verbindung ausgewählt hat, stellt der Netzwerk Controller die erforderliche Konfiguration für die Verbindung auf dem Gateway bereit. Wenn es sich bei der Verbindung um eine IKEv2 S2S-Verbindung handelt, stellt der Netzwerk Controller auch eine NAT-Regel (Network Address Translation) für den SLB-Pool bereit. Diese NAT-Regel für den SLB-Pool leitet Verbindungsanforderungen vom Mandanten zum vorgesehenen Gateway. Mandanten unterscheiden sich anhand der Quell-IP-Adresse, die als eindeutig angesehen wird.  
   
 > [!NOTE]  
-> L3 und GRE-Verbindungen SLB umgehen und direkt mit dem angegebenen RAS-Gateway herstellen.  Diese Verbindungen erfordern, die dem Remoteendpunkt Router (oder anderen Geräten von Drittanbietern) ordnungsgemäß konfiguriert sein, um eine Verbindung mit dem RAS-Gateway herzustellen.  
+> L3-und GRE-Verbindungen umgehen den SLB und stellen eine direkte Verbindung mit dem angegebenen RAS-Gateway her.  Diese Verbindungen erfordern, dass der remoteend Punkt Router (oder ein anderes Gerät von Drittanbietern) ordnungsgemäß für die Verbindung mit dem RAS-Gateway konfiguriert sein muss.  
   
-Wenn BGP-routing für die Verbindung aktiviert ist, und klicken Sie dann RAS-Gateway - BGP-peering wird initiiert, und Routen zwischen lokalen und Cloud ausgetauscht werden Gateways. Die Routen, die vom BGP erlernt werden (oder, die statisch konfigurierte Routen sind, wenn BGP nicht verwendet wird) werden in den Netzwerkcontroller gesendet. Netzwerkcontroller Verbindungsaufbau klicken Sie dann die Routen auf den Hyper-V-Hosts, auf dem die Mandanten-VMs installiert werden. An diesem Punkt kann mandantendatenverkehr an den richtigen lokalen Standort weitergeleitet werden. Netzwerkcontroller auch erstellt zugeordnete Hyper-V-Netzwerkvirtualisierung-Richtlinien, die Gateway-Standorte angeben und diese auf Hyper-V-Hosts Verbindungsaufbau.  
+Wenn BGP-Routing für die Verbindung aktiviert ist, wird das BGP-Peering vom RAS-Gateway initiiert, und die Routen werden zwischen lokalen und cloudgateways ausgetauscht. Die Routen, die von BGP (oder statisch konfigurierte Routen, wenn BGP nicht verwendet wird) erlernt werden, werden an den Netzwerk Controller gesendet. Der Netzwerk Controller gibt dann die Routen auf die Hyper-V-Hosts aus, auf denen die Mandanten-VMS installiert sind. An diesem Punkt kann der Mandanten Datenverkehr an den richtigen lokalen Standort weitergeleitet werden. Der Netzwerk Controller erstellt außerdem zugeordnete Hyper-v-netzwerkvirtualisierungsrichtlinien, die gatewaystandorte angeben, und führt Sie auf die Hyper-v-Hosts aus.  
   
 ### <a name="bkmk_ike"></a>Hohe Verfügbarkeit für IKEv2 S2S  
-Ein RAS-Gateway in einem Pool besteht aus Verbindungen und BGP-peerings mit anderen Mandanten. Jeder Pool weist bin ' aktiv-Gateways und "n" standby-Gateways.  
+Ein RAS-Gateway in einem Pool besteht aus sowohl Verbindungen als auch BGP-Peering verschiedener Mandanten. Jeder Pool verfügt über die aktiven Gateways und N-Standby-Gateways.  
   
-Netzwerkcontroller werden den Ausfall eines Gateways auf folgende Weise verarbeitet.  
+Der Netzwerk Controller verarbeitet den Ausfall von Gateways auf folgende Weise.  
   
--   Netzwerkcontroller ständig Pings die Gateways in allen Pools und kann einen Gateway zu erkennen, der ausgeführt wird bzw. ein Fehler auftritt. Netzwerkcontroller kann die folgenden Typen von RAS-Gateway-Fehler erkennen.  
+-   Der Netzwerk Controller sendet ständig die Gateways in allen Pools und kann ein Gateway erkennen, bei dem ein Fehler aufgetreten ist oder ein Fehler aufgetreten ist. Der Netzwerk Controller kann die folgenden Typen von RAS-gatewayfehlern erkennen.  
   
-    -   RAS-Gateway-VM-Fehler  
+    -   VM-Fehler beim RAS-Gateway  
   
-    -   Fehler bei der Hyper-V-Hosts, die auf dem das RAS-Gateway ausgeführt wird  
+    -   Fehler des Hyper-V-Hosts, auf dem das RAS-Gateway ausgeführt wird  
   
-    -   Fehler bei einem RAS-Gateway-Dienst  
+    -   RAS-Gateway-Dienst Fehler  
   
-    Netzwerkcontroller speichert die Konfiguration der alle bereitgestellten aktiv-Gateways. Konfiguration besteht der Verbindungseinstellungen und Einstellungen für das routing aus.  
+    Der Netzwerk Controller speichert die Konfiguration aller bereitgestellten aktiven Gateways. Die Konfiguration besteht aus Verbindungseinstellungen und Routing Einstellungen.  
   
--   Wenn ein Gateway ein Fehler auftritt, wirkt sich auf sie Mandanten-Verbindungen auf dem Gateway als auch Verbindungen von Mandanten, deren RR, die auf das fehlerhafte Gateway befindet sich jedoch, die sich auf anderen Gateways. Die Zeit der letzten Verbindungen ist kleiner als die erste. Wenn Netzwerkcontroller ein Gateway des fehlgeschlagenen erkannt wird, führt er die folgenden Aufgaben aus.  
+-   Wenn ein Gateway ausfällt, wirkt es sich auf Mandanten Verbindungen auf dem Gateway sowie auf Mandanten Verbindungen aus, die sich auf anderen Gateways befinden, deren RR sich aber auf dem fehlerhaften Gateway befindet. Die Zeitdauer der letzten Verbindungen ist kleiner als die erste. Wenn der Netzwerk Controller ein fehlerhafter Gateway erkennt, werden die folgenden Aufgaben ausgeführt:  
   
-    -   Entfernt die Routen der betroffenen Verbindungen von den Compute-Hosts an.  
+    -   Entfernt die Routen der betroffenen Verbindungen von den computehosts.  
   
-    -   Die Hyper-V-Netzwerkvirtualisierungs-Richtlinien auf diesen Hosts wird entfernt.  
+    -   Entfernt die Richtlinien für die Hyper-V-Netzwerkvirtualisierung auf diesen Hosts.  
   
-    -   Wählt einen standby-Gateway, konvertiert es in einer aktiv-Gateway und das Gateway konfiguriert.  
+    -   Wählt ein Standby-Gateway aus, konvertiert es in ein aktives Gateway und konfiguriert das Gateway.  
   
-    -   Ändert die NAT-Zuordnungen für den SLB-Pool, um Verbindungen mit dem neuen Gateway zu verweisen.  
+    -   Ändert die NAT-Zuordnungen im SLB-Pool so, dass Verbindungen mit dem neuen Gateway hergestellt werden.  
   
--   Gleichzeitig, wie die Konfiguration auf das neue aktive Gateway angezeigt wird, sind die IKEv2-S2S-Verbindungen und BGP-peering wieder hergestellt. Die Verbindungen und BGP-peering können entweder durch das cloudgateway oder das lokale Gateway initiiert werden. Die Gateways aktualisieren ihre Routen ein und senden sie in den Netzwerkcontroller. Nachdem der Netzwerkcontroller die neuen Routen, die von den Gateways ermittelt lernt, sendet Netzwerkcontroller die Routen und der zugeordneten Richtlinien für die Hyper-V-Netzwerkvirtualisierung an Hyper-V-Hosts befinden, in dem die VMs des Mandanten Fehler betroffen. Diese Aktivität Netzwerkcontroller ist ähnlich für Ihr Betriebssystem von einer neuen verbindungseinrichtung, es tritt nur im größeren Maßstab.  
+-   Gleichzeitig werden die IKEv2 S2S-Verbindungen und das BGP-Peering wieder hergestellt, wenn die Konfiguration auf dem neuen aktiven Gateway verfügbar ist. Die Verbindungen und das BGP-Peering können entweder durch das cloudgateway oder das lokale Gateway initiiert werden. Die Gateways aktualisieren ihre Routen und senden Sie an den Netzwerk Controller. Nachdem der Netzwerk Controller die von den Gateways ermittelten neuen Routen erlernt hat, sendet der Netzwerk Controller die Routen und die zugeordneten Hyper-v-netzwerkvirtualisierungsrichtlinien an die Hyper-v-Hosts, auf denen sich die VMs der Fehler betroffenen Mandanten befinden. Diese Netzwerk Controller Aktivität ähnelt der Situation einer neuen Verbindungs Einrichtung, nur dass Sie in größerem Umfang auftritt.  
   
 ### <a name="bkmk_gre"></a>Hohe Verfügbarkeit für GRE  
-Der Prozess der RAS-Gateway-Failover-Antwort vom Netzwerkcontroller – einschließlich der fehlererkennung und kopieren die Verbindung sowie die Weiterleitung von Konfiguration zum standby-Gateway Failover BGP/statische routing der betroffenen Verbindungen (einschließlich der Abbuchung und erneut plumbing von Routen für compute-Hosts und BGP-peering neu), und Neukonfiguration von Hyper-V-Netzwerkvirtualisierungs-Richtlinien auf Compute-Hosts – gilt für GRE-Gateways und Verbindungen. Die erneute Herstellung der GRE-Verbindungen erfolgt unterschiedlich, aber aus, und die Lösung für hohe Verfügbarkeit für GRE hat einige zusätzlichen Anforderungen.  
+Der Prozess der RAS-gatewayfailoverantwort durch den Netzwerk Controller, einschließlich der Fehlererkennung, dem Kopieren der Verbindung und der Routing Konfiguration auf das standbygateway, dem Failover von BGP/statischem Routing der betroffenen Verbindungen (einschließlich des Abschlusses und Neuanordnung von Routen auf computehosts und BGP-neupeering) und Neukonfiguration von Hyper-V-netzwerkvirtualisierungstechnologien auf computehosts: ist für GRE-Gateways und-Verbindungen identisch. Die erneute Einrichtung von GRE-Verbindungen erfolgt jedoch anders, und die hoch Verfügbarkeits Lösung für GRE hat einige zusätzliche Anforderungen.  
   
 ![Hohe Verfügbarkeit für GRE](../../../media/RAS-Gateway-High-Availability/ras_ha.png)  
   
-Zum Zeitpunkt der Bereitstellung eines Gateways erhält jeder RAS-Gateway-VM eine dynamische IP-Adresse (DIP). Darüber hinaus wird jede Gateway-VM auch für hohe Verfügbarkeit von GRE eine virtuelle IP-Adresse (VIP) zugewiesen. VIPs werden nur für Gateways in Pools, die GRE-Verbindungen akzeptieren kann und nicht an nicht-GRE-Pools zugewiesen. Die virtuellen IP-Adressen zugewiesen werden, die Top-of Rack (TOR)-Switches, die Verwendung von BGP, die dann weitere VIPs in das physische Netzwerk der Cloud kündigt angekündigt. Dadurch wird die Gateways erreichbar aus dem remote-Routern oder Geräten von Drittanbietern, auf dem anderen Ende der GRE-Verbindung gespeichert. Diese BGP-peering ist anders als die auf Mandantenebene BGP-peering für den Austausch von Routen für Mandanten.  
+Zum Zeitpunkt der Gatewaybereitstellung wird jedem virtuellen RAS-Gatewaycomputer eine dynamische IP-Adresse (DIP) zugewiesen. Außerdem wird jeder Gateway-VM eine virtuelle IP-Adresse (VIP) für die GRE-Hochverfügbarkeit zugewiesen. VIPs werden nur Gateways in Pools zugewiesen, die GRE-Verbindungen akzeptieren dürfen, nicht zu nicht-GRE-Pools. Die zugewiesenen VIPs werden mithilfe von BGP an die Tor-Switches (Top of Rack) angekündigt, wodurch die VIPs im physischen Netzwerk der Cloud weiter angekündigt werden. Dadurch sind die Gateways über die Remote Router oder Geräte von Drittanbietern erreichbar, wo sich das andere Ende der GRE-Verbindung befindet. Dieses BGP-Peering unterscheidet sich vom BGP-Peering auf Mandanten Ebene für den Austausch von Mandanten Routen.  
   
-Netzwerkcontroller zum Zeitpunkt der Bereitstellung von GRE-Verbindung wählt einen Gateway, einen GRE-Endpunkt auf dem ausgewählten Gateway konfiguriert und die VIP-Adresse des Gateways zugewiesenen zurückgegeben. Diese VIP-Adresse wird dann als Zieladresse GRE-Tunnel auf dem remote-Router konfiguriert werden.  
+Zum Zeitpunkt der GRE-Verbindungs Bereitstellung wählt der Netzwerk Controller ein Gateway aus, konfiguriert einen GRE-Endpunkt auf dem ausgewählten Gateway und gibt die VIP-Adresse des zugewiesenen Gateways zurück. Diese VIP-Adresse wird dann als Ziel-GRE-Tunnel Adresse auf dem Remote Router konfiguriert.  
   
-Wenn ein Gateway ein Fehler auftritt, kopiert Netzwerkcontroller die VIP-Adresse, der das fehlerhafte Gateway und andere Konfigurationsdaten zum standby-Gateway. Wenn das standby-Gateway aktiv wird, kündigt die VIP TOR-Switch und näher mit dem physischen Netzwerk. Remote-Routern weiterhin die gleiche VIP GRE-Tunnel herstellen und die Routinginfrastruktur wird sichergestellt, dass Pakete an das neue aktive Gateway weitergeleitet werden.  
+Wenn ein Gateway ausfällt, kopiert der Netzwerk Controller die VIP-Adresse des fehlerhaften Gateways und andere Konfigurationsdaten in das Standby-Gateway. Wenn das Standby-Gateway aktiv wird, wird die VIP-Adresse für den Tor-Switch und das physische Netzwerk angekündigt. Remote Router verbinden GRE-Tunnel weiterhin mit derselben VIP, und die Routing Infrastruktur stellt sicher, dass Pakete an das neue aktive Gateway weitergeleitet werden.  
   
-### <a name="bkmk_l3"></a>Hohe Verfügbarkeit für L3 Weiterleitung von Gateways  
-Hyper-V Network Virtualization L3-weiterleitungs-Gateway ist eine Brücke zwischen der physischen Infrastruktur im Rechenzentrum und der virtualisierten Infrastruktur in der Hyper-V-Netzwerkvirtualisierungs-Cloud. Auf eines mehrinstanzenfähigen L3-weiterleitungsgateways können Sie verwendet jeder Mandant ein eigenen markierte logische VLAN-Netzwerk für die Konnektivität mit physischen Netzwerk des Mandanten.  
+### <a name="bkmk_l3"></a>Hohe Verfügbarkeit für L3-Weiterleitungs Gateways  
+Ein Hyper-v-netzwerkvirtualisierungs-L3-Weiterleitungs Gateway ist eine Brücke zwischen der physischen Infrastruktur im Rechenzentrum und der virtualisierten Infrastruktur in der Hyper-v-netzwerkvirtualisierungs-Cloud. Bei einem mehrinstanzfähigen L3-Weiterleitungs Gateway verwendet jeder Mandant sein eigenes logisches Netzwerk mit VLAN-Kennung für die Konnektivität mit dem physischen Netzwerk des Mandanten.  
   
-Beim Erstellen ein neues Mandanten ein neues L3-Gateway, Network Controller Remotedesktopgateway-Dienst-Manager wählt ein Gateway-VM verfügbares und konfiguriert eine neue Schnittstelle für den Mandanten mit einer hoch verfügbaren Kundenadressraum (CA) Speicherplatz IP-Adresse (des Mandanten markierten logisches VLAN-Netzwerk ). Die IP-Adresse wird verwendet, die Peer-IP-Adresse auf dem Remotecomputer (physische Netzwerk)-Gateway und den nächsten Hop des Mandanten Hyper-V-Netzwerkvirtualisierung Netzwerk erreicht ist.  
+Wenn ein neuer Mandant ein neues L3-Gateway erstellt, wählt das Netzwerk Controller Gateway Service Manager einen verfügbaren Gatewaycomputer aus und konfiguriert eine neue Mandanten Schnittstelle mit einer hoch verfügbaren IP-Adresse (ca) für die IP-Adresse des Kunden Adressraums (aus dem VLAN-markierten logischen Netzwerk). ). Die IP-Adresse wird als Peer-IP-Adresse auf dem Remote Gateway (physischer Netzwerk) verwendet und ist der nächste Hop, um das Hyper-V-netzwerkvirtualisierungsnetzwerk des Mandanten zu erreichen.  
   
-Im Gegensatz zu IPsec oder GRE-Verbindungen Lernen der TOR-Switch nicht mit Tags des Mandanten VLAN-Netzwerk dynamisch. Das routing für markierte des Mandanten VLAN-Netzwerk muss auf dem TOR-Switch und allen intermediate-Switches und Router zwischen der physischen Infrastruktur als auch das Gateway, um sicherzustellen, dass End-to-End-Konnektivität konfiguriert werden.  Es folgt eine Beispielkonfiguration für den virtuellen CSP-Netzwerk wie in der Abbildung unten dargestellt.  
+Im Gegensatz zu IPSec-oder GRE-Netzwerkverbindungen lernt der Tor-Switch das VLAN-markierte Netzwerk des Mandanten nicht dynamisch. Das Routing für das mit dem VLAN markierte Netzwerk des Mandanten muss auf dem Tor-Switch und allen zwischen Schaltern und Routern zwischen physischer Infrastruktur und dem Gateway konfiguriert werden, um eine End-to-End-Konnektivität sicherzustellen.  Im folgenden finden Sie ein Beispiel für eine CSP-Virtual Network Konfiguration, wie in der folgenden Abbildung dargestellt.  
   
 |Network|Subnetz|VLAN-ID|Standardgateway|  
 |-----------|----------|-----------|-------------------|  
-|Logisches Contoso L3-Netzwerk|10.127.134.0/24|1001|10.127.134.1|  
-|Woodgrove L3 Logical Network|10.127.134.0/24|1002|10.127.134.1|  
+|Logisches Netzwerk von "Network to so L3"|10.127.134.0/24|1001|10.127.134.1|  
+|Logisches Netzwerk für Woodgrove L3|10.127.134.0/24|1002|10.127.134.1|  
   
-Folgendes sind Beispielkonfigurationen für Mandanten-Gateway aus, wie in der Abbildung unten dargestellt.  
+Im folgenden finden Sie Beispielkonfigurationen für Mandanten Gateways, wie in der folgenden Abbildung dargestellt.  
   
-|Mandantenname|L3-Gateway-IP-Adresse|VLAN-ID|Peer-IP-Adresse|  
+|Mandanten Name|IP-Adresse des L3-Gateways|VLAN-ID|Peer-IP-Adresse|  
 |---------------|-------------------------|-----------|-------------------|  
 |Contoso|10.127.134.50|1001|10.127.134.55|  
 |Woodgrove|10.127.134.60|1002|10.127.134.65|  
   
-Im folgenden finden in der Abbildung dieser Konfigurationen in einem CSP-Datencenter.  
+Im folgenden finden Sie eine Abbildung dieser Konfigurationen in einem CSP-Rechenzentrum.  
   
-![Hohe Verfügbarkeit für L3 Weiterleitung von Gateways](../../../media/RAS-Gateway-High-Availability/ras_fwdgw.png)  
+![Hohe Verfügbarkeit für L3-Weiterleitungs Gateways](../../../media/RAS-Gateway-High-Availability/ras_fwdgw.png)  
   
-Die Prozesse für IKEv2 und GRE-RAS-Gateways ähnelt die Gateway-Fehler, bei der fehlererkennung und der Failover-Gatewayprozess im Kontext einer L3 weiterleitungs-Gateway. Die Unterschiede werden in der Art, die externe IP-Adressen behandelt werden.  
+Die Gatewayfehler, Fehlererkennung und der gatewayfailoverprozess im Kontext eines L3-Weiterleitungs Gateways ähneln den Prozessen für IKEv2-und GRE-RAS-Gateways. Die Unterschiede bestehen in der Art und Weise, wie die externen IP-Adressen behandelt werden.  
   
-Wenn das Gateway-VM-Status "Fehler" aufweist, Netzwerkcontroller wählt eine die standby-Gateways aus dem Pool, und Sie werden erneut bereitgestellt werden, die Netzwerkverbindungen und routing auf der standby-Gateway. Während hoch bewegt, der Verbindungen, das Gateway L3-Weiterleitung des werden verfügbare Zertifizierungsstelle Speicherplatz IP-Adresse zu den neuen Gateway-VM zusammen mit den kundenadressraum BGP IP-Adresse des Mandanten ebenfalls verschoben.  
+Wenn der Status des Gatewaycomputers fehlerhaft wird, wählt der Netzwerk Controller eines der Standby-Gateways aus dem Pool aus und stellt die Netzwerkverbindungen und das Routing auf dem Standby-Gateway wieder her. Beim Verschieben der Verbindungen wird die IP-Adresse der hoch verfügbaren Zertifizierungsstellen-IP-Adresse des L3-Weiterleitungs Gateways ebenfalls auf den neuen Gateway-virtuellen Computer verschoben, zusammen mit der BGP-IP-Adresse des Mandanten.  
   
-Da die L3-Peering-IP-Adresse in das neue Gateway-VM während des Failovers verschoben wird, kann die physische Infrastruktur der remote erneut eine Verbindung mit dieser IP-Adresse herstellen und anschließend die Hyper-V-Netzwerkvirtualisierung-Workload zu erreichen. Für das dynamische BGP-routing, wie die Zertifizierungsstelle, die BGP IP-Adresse zum neuen Gateway-VM verschoben wird der remote-BGP-Router erneut hergestellt peering, und erfahren Sie, alle Hyper-V-Netzwerkvirtualisierung Routen erneut ausführen.  
+Da die IP-Adresse des L3-Peerings während des Failovers auf den neuen Gateway-VM verschoben wird, kann die physische Remote Infrastruktur erneut eine Verbindung mit dieser IP-Adresse herstellen und dann die Hyper-V-netzwerkvirtualisierungsumgebung erreichen. Beim dynamischen BGP-Routing, da die BGP-IP-Adresse des ZS-Speicherplatzes auf den neuen Gateway-virtuellen Computer verschoben wird, kann der BGP-Remote Router das Peering erneut einrichten und alle Hyper-V-netzwerkvirtualisierungsrouten erneut erlernen.  
   
 > [!NOTE]  
-> Sie müssen die TOR-Switches und aller die Zwischenrouter separat konfigurieren, um die markierte logisches VLAN-Netzwerk für die Mandanten-Kommunikation verwenden. Darüber hinaus ist ein L3-Failover beschränkt, nur den Racks, die auf diese Weise konfiguriert werden. Aus diesem Grund der L3-Gateway-Pool muss sorgfältig konfiguriert werden, und die manuelle Konfiguration muss abgeschlossen werden.  
+> Sie müssen die Tor-Switches und alle zwischen Router separat konfigurieren, damit das VLAN-markierte logische Netzwerk für die Mandanten Kommunikation verwendet wird. Außerdem ist das L3-Failover auf die Racks beschränkt, die auf diese Weise konfiguriert werden. Aus diesem Grund muss der L3-gatewaypool sorgfältig konfiguriert werden, und die manuelle Konfiguration muss separat abgeschlossen werden.  
   
 
 

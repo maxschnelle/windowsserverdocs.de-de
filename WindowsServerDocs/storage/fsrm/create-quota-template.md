@@ -2,22 +2,22 @@
 title: Erstellen einer Kontingentvorlage
 description: In diesem Artikel wird beschrieben, wie Sie eine Kontingentvorlage zum Definieren einer Speicherplatzbeschränkung erstellen
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 236b5cb198a13441a087ad6dbfeef9a416e07e61
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 28a64c77d09bffeccbbc94ba7648d1bc0227e945
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445981"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394155"
 ---
 # <a name="create-a-quota-template"></a>Erstellen einer Kontingentvorlage
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Eine *Kontingentvorlage* dient zum Definieren einer Speicherplatzbeschränkung, des Kontingenttyps (weich oder hart) und einer Gruppe von Benachrichtigungen, die automatisch generiert werden, wenn der Kontingentbedarf die definierten Schwellenwerte erreicht.
 
@@ -53,7 +53,7 @@ Beispielsweise können Sie Schwellenwerte konfigurieren, um eine E-Mail-Nachrich
 > [!Important]
 > Zum Senden von E-Mail-Benachrichtigungen und um Speicherberichte mit Parametern zu konfigurieren, die für die Serverumgebung geeignet sind, müssen Sie zuerst die allgemeinen Optionen des Ressourcen-Managers für Dateiserver festlegen. Weitere Informationen finden Sie unter [Festlegen der Einstellungen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)
 
-**So konfigurieren Sie Benachrichtigungen, die Ressourcen-Manager generiert, mit einem Kontingentschwellenwert**
+**So konfigurieren Sie Benachrichtigungen, die vom Datei Server Ressourcen-Manager mit einem Kontingent Schwellenwert generiert werden**
 
 1. Klicken Sie im Dialogfeld **Kontingentvorlage erstellen** unter **Benachrichtigungsschwellenwerte** auf **Hinzufügen**. Das Dialogfeld **Schwellenwert hinzufügen** wird geöffnet.
 
@@ -67,7 +67,7 @@ Beispielsweise können Sie Schwellenwerte konfigurieren, um eine E-Mail-Nachrich
 
    - Um Administratoren zu benachrichtigen, wenn ein Schwellenwert erreicht wird, aktivieren Sie das Kontrollkästchen **E-Mail an die folgenden Administratoren senden** und geben Sie die Namen der administrativen Konten ein, die die Benachrichtigungen erhalten sollen. Verwenden Sie das Format <em>account@domain</em>, und verwenden Sie Semikolons zum Trennen mehrerer Konten.
    - Aktivieren Sie zum Senden der E-Mail an die Person, deren gespeicherte Datei den Kontingentschwelle erreicht hat, das Kontrollkästchen **E-Mail an den Benutzer senden, der den Schwellenwert überschritten hat**.
-   - Um die Nachricht zu konfigurieren, ändern Sie den vorgegebenen standardmäßigen Betreff und Textkörper. Der Text in Klammern fügt die Variableninformationen über das Kontingent-Ereignis ein, das die Benachrichtigung verursacht hat. Z. B. die **\[e/a-Quellbesitzer\]** Variable fügt den Namen des Benutzers, der die Datei gespeichert, die die Kontingentschwelle erreicht. Um zusätzliche Variablen in den Text einzufügen, klicken Sie auf **Variable einfügen**.
+   - Um die Nachricht zu konfigurieren, ändern Sie den vorgegebenen standardmäßigen Betreff und Textkörper. Der Text in Klammern fügt die Variableninformationen über das Kontingent-Ereignis ein, das die Benachrichtigung verursacht hat. Beispielsweise fügt die Variable **\[source IO Owner @ no__t-2** den Namen des Benutzers ein, der die Datei gespeichert hat, die den Kontingent Schwellenwert erreicht hat. Um zusätzliche Variablen in den Text einzufügen, klicken Sie auf **Variable einfügen**.
    - Wenn Sie weitere Header konfigurieren möchten (einschließlich Von, Cc, Bcc und Antwort an), klicken Sie auf **Weitere E-Mail-Kopfzeilen**.
 
 4. So protokollieren Sie ein Ereignis:

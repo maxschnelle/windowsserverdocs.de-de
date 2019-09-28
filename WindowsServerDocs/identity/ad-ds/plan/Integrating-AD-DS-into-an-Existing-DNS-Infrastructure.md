@@ -7,60 +7,60 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 62405ea9ee38bb3fa457b7731e26fbffb2594797
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f4bb480be4696f15f0a63c20ab47042264584d2c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59891041"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402557"
 ---
 # <a name="integrating-ad-ds-into-an-existing-dns-infrastructure"></a>Integrieren von AD DS in eine vorhandene DNS-Infrastruktur
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Verfügt Ihre Organisation bereits über einen vorhandenen Domain Name System (DNS) Serverdienst, muss das DNS für den Besitzer der Active Directory Domain Services (AD DS) mit dem Besitzer des DNS für Ihre Organisation AD DS in die vorhandene Infrastruktur integrieren arbeiten. Dies umfasst das Erstellen einer DNS-Server und DNS-Clientkonfiguration.  
+Wenn Ihre Organisation bereits über einen vorhandenen Domain Name System (DNS)-Server Dienst verfügt, muss der DNS für Active Directory Domain Services Besitzer (AD DS) mit dem DNS-Besitzer für Ihre Organisation zusammenarbeiten, um AD DS in die vorhandene Infrastruktur zu integrieren. Dies umfasst das Erstellen eines DNS-Servers und einer DNS-Client Konfiguration.  
   
-## <a name="creating-a-dns-server-configuration"></a>Erstellen einer DNS-Server-Konfiguration  
-Wenn Sie AD DS mit einer vorhandenen DNS-Namespace zu integrieren, empfehlen wir, dass Sie die folgenden Schritte ausführen:  
+## <a name="creating-a-dns-server-configuration"></a>Erstellen einer DNS-Serverkonfiguration  
+Wenn Sie AD DS in einen vorhandenen DNS-Namespace integrieren, empfiehlt es sich, folgende Schritte durchzuführen:  
   
--   Installieren Sie den DNS-Serverdienst auf jedem Domänencontroller in der Gesamtstruktur. Dies bietet Fehlertoleranz, wenn eine DNS-Server nicht verfügbar ist. Auf diese Weise müssen Domänencontroller keine andere DNS-Server für die namensauflösung verwendet. Dies vereinfacht die Management-Umgebung auch auf, da alle Domänencontroller mit eine einheitliche Konfiguration verfügen.  
+-   Installieren Sie den DNS-Server Dienst auf allen Domänen Controllern in der Gesamtstruktur. Dies bietet Fehlertoleranz, wenn einer der DNS-Server nicht verfügbar ist. Auf diese Weise müssen sich Domänen Controller nicht auf andere DNS-Server für die Namensauflösung verlassen. Dadurch wird auch die Verwaltungs Umgebung vereinfacht, da alle Domänen Controller über eine einheitliche Konfiguration verfügen.  
   
--   Konfigurieren Sie den Stammdomänencontroller der Active Directory-Gesamtstruktur zum Hosten der DNS-Zone für die Active Directory-Gesamtstruktur.  
+-   Konfigurieren Sie den Active Directory-Gesamtstruktur-Stamm Domänen Controller zum Hosten der DNS-Zone für die Active Directory Gesamtstruktur  
   
--   Konfigurieren Sie die Domänencontroller für jede Regionaldomäne zum DNS-Zonen hosten, die ihren Active Directory-Domänen entsprechen.  
+-   Konfigurieren Sie die Domänen Controller für jede regionale Domäne, um die DNS-Zonen zu hosten, die Ihren Active Directory Domänen entsprechen.  
   
--   Konfigurieren Sie die Zone, die die Active Directory-Gesamtstruktur-Locatoreinträge enthält (d. h. die "_msdcs". *Gesamtstrukturname* Zone) an alle DNS-Server in der Gesamtstruktur repliziert werden, mit der Gesamtstruktur-DNS-Anwendungsverzeichnispartition.  
-  
-    > [!NOTE]  
-    > Wenn der DNS-Serverdienst (Wir empfehlen diese Option aus), mit dem Assistenten zum Installieren von Active Directory-Domäne installiert ist, werden alle vorherigen Aufgaben automatisch ausgeführt. Weitere Informationen finden Sie unter [Bereitstellen einer Windows Server 2008-Gesamtstruktur-Stammdomäne](https://technet.microsoft.com/library/cc731174.aspx).  
+-   Konfigurieren Sie die Zone mit den Active Directory Gesamtstruktur weiten Serverlocatorpunkt-Datensätzen (d. h. _msdcs. *Name* Zone) für die Replikation auf jeden DNS-Server in der Gesamtstruktur mithilfe der Gesamtstruktur weiten DNS-Anwendungsverzeichnis Partition.  
   
     > [!NOTE]  
-    > AD DS verwendet eine gesamtstrukturweite Lokatordatensätze um Replikationspartner einander finden und ermöglichen Sie Clients von globalen Katalogserver finden zu aktivieren. AD DS speichert die Gesamtstruktur-Locator-Datensätze in die "_msdcs". *Gesamtstrukturname* Zone. Da die Informationen in der Zone allgemein verfügbar sein muss, wird dieser Zone über die Gesamtstruktur-DNS-Anwendungsverzeichnispartition an alle DNS-Server in der Gesamtstruktur repliziert.  
+    > Wenn der DNS-Server Dienst mit dem Assistent zum Installieren von Active Directory Domain Services installiert wird (Wir empfehlen diese Option), werden alle vorherigen Tasks automatisch ausgeführt. Weitere Informationen finden Sie unter Bereitstellen [einer Windows Server 2008](https://technet.microsoft.com/library/cc731174.aspx)-Gesamtstruktur-Stamm Domäne.  
   
-Die vorhandene DNS-Struktur bleibt unverändert. Sie müssen keine Server oder Zonen zu verschieben. Sie müssen lediglich eine Delegierung zu Ihren Active Directory-integrierte DNS-Zonen aus Ihrer vorhandenen DNS-Hierarchie zu erstellen.  
+    > [!NOTE]  
+    > AD DS verwendet Gesamtstruktur übergreifende Serverlocatorpunkt-Einträge, um Replikations Partnern das Auffinden der anderen und das Auffinden von globalen Katalog Servern zu ermöglichen. In AD DS werden die Gesamtstruktur weiten Serverlocatorpunkt-Einträge in _msdcs gespeichert. *Name* -Zone. Da die Informationen in der Zone allgemein verfügbar sein müssen, wird diese Zone über die Gesamtstruktur übergreifende DNS-Anwendungsverzeichnis Partition auf allen DNS-Servern in der Gesamtstruktur repliziert.  
   
-## <a name="creating-the-dns-client-configuration"></a>Erstellen die DNS-Client-Konfiguration  
-Zum Konfigurieren von DNS auf den Clientcomputern muss das DNS für AD DS-Besitzer Geben Sie den Computer, die Benennung von Schema und wie die Clients die DNS-Server findet. Die folgende Tabelle enthält unsere empfohlenen Konfigurationen für diese Entwurfselemente werden.  
+Die vorhandene DNS-Struktur bleibt intakt. Sie müssen keine Server oder Zonen verschieben. Sie müssen lediglich eine Delegierung für Ihre Active Directory integrierten DNS-Zonen aus Ihrer vorhandenen DNS-Hierarchie erstellen.  
   
-|Entwurfselement|Konfiguration|  
+## <a name="creating-the-dns-client-configuration"></a>Erstellen der DNS-Client Konfiguration  
+Zum Konfigurieren von DNS auf Client Computern muss das DNS für AD DS Besitzer das Benennungs Schema des Computers angeben und angeben, wie die Clients DNS-Server finden. In der folgenden Tabelle werden die empfohlenen Konfigurationen für diese Entwurfs Elemente aufgelistet.  
+  
+|Design-Element|Konfiguration|  
 |------------------|-----------------|  
-|Benennen Computer|Verwenden Sie die Standardnamen. Wenn ein Windows 2000, Windows XP, Windows Server 2003, Windows Server 2008 oder Windows Vista-basierten Computer einer Domäne hinzugefügt, der Computer weist selbst einen vollständig qualifizierten Domänennamen (FQDN), der den Hostnamen des Computers enthält und den Namen des aktiven Directory-Domäne.|  
-|Client-Resolver-Konfiguration|Konfigurieren von Clientcomputern, um auf einen DNS-Server im Netzwerk zu verweisen.|  
+|Computer Benennung|Standard Benennung verwenden. Wenn ein Computer mit Windows 2000, Windows XP, Windows Server 2003, Windows Server 2008 oder Windows Vista einer Domäne Beitritt, weist er sich selbst einen vollständig qualifizierten Domänen Namen (Fully Qualified Domain Name, FQDN) zu, der den Hostnamen des Computers und den Namen des aktiven Verzeichnis Domäne.|  
+|Konfiguration des Client Resolvers|Konfigurieren Sie Client Computer so, dass Sie auf einen beliebigen DNS-Server im Netzwerk verweisen.|  
   
 > [!NOTE]  
-> Active Directory-Clients und Domänencontrollern können dynamisch ihre DNS-Namen registrieren, selbst wenn diese nicht den DNS-Server verweisen, die für ihre Namen autoritativ ist.  
+> Active Directory Clients und Domänen Controllern können Ihre DNS-Namen auch dann dynamisch registrieren, wenn Sie nicht auf den DNS-Server verweisen, der für ihre Namen autorisierend ist.  
   
-Ein Computer möglicherweise einen anderen vorhandenen DNS-Namen aus, wenn die Organisation bisher statisch den Computer in DNS oder registriert Wenn die Organisation zuvor eine integrierte Lösung zur Dynamic Host Configuration Protocol (DHCP) bereitgestellt. Wenn die Clientcomputer bei der Aktualisierung der Domäne, die mit der sie verknüpft sind auf Windows Server 2008 AD DS bereits einen DNS-Name registriert haben, müssen sie zwei verschiedene Namen:  
+Ein Computer verfügt möglicherweise über einen anderen DNS-Namen, wenn die Organisation zuvor den Computer statisch in DNS registriert hat oder wenn die Organisation zuvor eine integrierte DHCP-Lösung (Dynamic Host Configuration Protocol) bereitgestellt hat. Wenn Ihre Client Computer bereits über einen registrierten DNS-Namen verfügen und die Domäne, der Sie beitreten, auf Windows Server 2008 AD DS aktualisiert wird, haben Sie zwei verschiedene Namen:  
   
--   Der vorhandene DNS-name  
+-   Der vorhandene DNS-Name  
   
--   Die neuen vollständig qualifizierten Domänennamen (FQDN)  
+-   Der neue vollständig qualifizierte Domänen Name (FQDN)  
   
-Clients können immer noch von entweder mit dem Namen gesucht werden. Alle vorhandenen DNS, DHCP oder integrierte DNS/DHCP-Lösung bleibt intakt. Die neuen primären Namen werden automatisch erstellt und mithilfe von dynamischen Updates aktualisiert. Sie werden automatisch mithilfe der durch eine Bereinigung bereinigt.  
+Clients können weiterhin über einen der Namen gefunden werden. Alle vorhandenen DNS-, DHCP-oder integrierten DNS/DHCP-Lösungen bleiben intakt. Die neuen Primärnamen werden automatisch erstellt und mithilfe von dynamischem Update aktualisiert. Sie werden automatisch mithilfe der Bereinigung bereinigt.  
   
-Wenn Sie beim Herstellen einer Verbindung von einem Server unter Windows 2000, Windows Server 2003 oder Windows Server 2008 mit der Kerberos-Authentifizierung nutzen möchten, müssen Sie sicherstellen, dass der Client mit dem Server verbindet, mit dem primären Namen.  
+Wenn Sie die Kerberos-Authentifizierung beim Herstellen einer Verbindung mit einem Server unter Windows 2000, Windows Server 2003 oder Windows Server 2008 nutzen möchten, müssen Sie sicherstellen, dass der Client eine Verbindung mit dem Server unter Verwendung des primär namens herstellt.  
   
 
 

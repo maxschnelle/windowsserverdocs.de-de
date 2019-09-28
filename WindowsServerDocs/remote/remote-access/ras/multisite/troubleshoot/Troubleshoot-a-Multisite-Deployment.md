@@ -1,9 +1,9 @@
 ---
 title: Problembehandlung bei einer Bereitstellung für mehrere Standorte
-description: Dieses Thema ist Teil des Handbuchs bereitstellen mehrere RAS-Server in einer Bereitstellung für mehrere Standorte in Windows Server 2016.
+description: Dieses Thema ist Teil des Handbuchs Bereitstellen mehrerer Remote Zugriffs Server in einer Bereitstellung mit mehreren Standorten in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,28 +12,28 @@ ms.topic: article
 ms.assetid: f92b1335-ac4a-4501-a5ec-d1851e6f0fc7
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 09fa7145580b60f66d0406e69ca79342bae1534d
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: a886740afeabf19f1a8f3035d15a5e5803bc1596
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281024"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71367087"
 ---
 # <a name="troubleshoot-a-multisite-deployment"></a>Problembehandlung bei einer Bereitstellung für mehrere Standorte
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 In diesem Thema wird beschrieben, wie Sie die häufigsten Fehler beim Konfigurieren der Bereitstellung des Remotezugriffs für mehrere Standorte beheben.   
   
--   [Problembehandlung bei der Aktivierung für mehrere Standorte](Troubleshooting-Enabling-Multisite.md)  
+-   [Problembehandlung beim Aktivieren von Multisite](Troubleshooting-Enabling-Multisite.md)  
   
--   [Problembehandlung bei Hinzufügen von Einstiegspunkten](Troubleshooting-Adding-Entry-Points.md)  
+-   [Fehler beim Hinzufügen von Einstiegspunkten](Troubleshooting-Adding-Entry-Points.md)  
   
--   [Problembehandlung für Einstellungen für die Domänencontrollers für Einstiegspunkte](Troubleshooting-Setting-the-Entry-Point-Domain-Controller.md)  
+-   [Problembehandlung beim Festlegen des Einstiegspunkt-Domänen Controllers](Troubleshooting-Setting-the-Entry-Point-Domain-Controller.md)  
   
--   [Problembehandlung für Web Webtest-URLs](Troubleshooting-Web-Probe-URLs.md)  
+-   [Problembehandlung bei Webtest-URLs](Troubleshooting-Web-Probe-URLs.md)  
   
--   [Behandeln allgemeiner Probleme](Troubleshooting-General-Issues.md)  
+-   [Problembehandlung bei allgemeinen Problemen](Troubleshooting-General-Issues.md)  
   
 
 

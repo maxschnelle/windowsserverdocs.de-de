@@ -1,8 +1,8 @@
 ---
-title: Stop-TransportServer Unterbefehl
-description: Windows-Befehle Beenden-TransportServer-Thema
+title: Unterbefehl "Ende-Transportserver"
+description: Windows-Befehls Thema für "Ende-Transportserver"
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8f7410a8720337e509325b99863446bd8d19eb26
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2a2444328a426429c2dce5ceee3272cf1dc814cc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853451"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370718"
 ---
-# <a name="subcommand-stop-transportserver"></a>Subcommand: stop-TransportServer
+# <a name="subcommand-stop-transportserver"></a>Unterbefehl: "beendet-Transportserver"
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Beendet alle Dienste auf einem Transport-Server.
+Beendet alle Dienste auf einem Transport Server.
 ## <a name="syntax"></a>Syntax
 ```
 wdsutil [Options] /Stop-TransportServer [/Server:<Server name>]
@@ -32,17 +32,17 @@ wdsutil [Options] /Stop-TransportServer [/Server:<Server name>]
 ## <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
-|[/Server:<Server name>]|Gibt den Namen des Transport-Servers. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Transport-Server angegeben wird, wird der lokale Server verwendet werden.|
-## <a name="BKMK_examples"></a>Beispiele für
-Geben Sie eine der folgenden Schritte aus, um die Dienste zu beenden:
+|[/Server:<Server name>]|Gibt den Namen des Transport Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Transport Server angegeben ist, wird der lokale Server verwendet.|
+## <a name="BKMK_examples"></a>Beispiele
+Geben Sie eine der folgenden Informationen ein, um die Dienste zu unterbinden:
 ```
 wdsutil /Stop-TransportServer
 wdsutil /verbose /Stop-TransportServer /Server:MyWDSServer
 ```
-#### <a name="additional-references"></a>Zusätzliche Referenzen
-[Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-[mit dem Disable-TransportServer-Befehl](using-the-disable-transportserver-command.md)
-[mithilfe des Befehls Enable-TransportServer](using-the-enable-transportserver-command.md) 
- [ Mit dem Befehl Get-TransportServer](using-the-get-transportserver-command.md)
+#### <a name="additional-references"></a>Weitere Verweise
+[Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+[mit dem Befehl "deaktivierte Transportserver](using-the-disable-transportserver-command.md)" 
+ mit dem Befehl "[enable-Transportserver](using-the-enable-transportserver-command.md)" 
+ mit dem Befehl "[Get-](using-the-get-transportserver-command.md)Transportserver" 
 [Unterbefehl: Set-TransportServer](subcommand-set-transportserver.md)
-[Unterbefehl: Start-TransportServer](subcommand-start-transportserver.md)
+-[Unterbefehl: Start-TransportServer](subcommand-start-transportserver.md)

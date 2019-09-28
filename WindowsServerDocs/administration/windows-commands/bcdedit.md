@@ -1,8 +1,8 @@
 ---
 title: bcdedit
-description: Windows-Befehle Thema **Bcdedit** – neue Niederlassungen erstellen, vorhandene Speicher ändern und fügen Sie im Menü-Startparameter.
+description: 'Windows-Befehls Thema für **Bcdedit** : Erstellen neuer Speicher, Ändern vorhandener Speicher und Hinzufügen von Start Menü Parametern.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,29 +13,29 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/27/2018
-ms.openlocfilehash: c1ac016b299cbd72a406121c54762f4457b24286
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9448f4461a089a93382ef8cd9e804b382fca27e4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872441"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382246"
 ---
 # <a name="bcdedit"></a>bcdedit
 
 
 
-Dateien für den Start (Configuration Data, BCD) Geben Sie einen Speicher, der zum Beschreiben von Boot-Anwendungen, und starten die Einstellungen für Anwendungen verwendet wird. Die Objekte und Elemente im Speicher ersetzen effektiv "Boot.ini".
+Startkonfigurationsdaten (BCD)-Dateien stellen einen Speicher bereit, der zum Beschreiben von Start Anwendungen und Start Anwendungseinstellungen verwendet wird. Die Objekte und Elemente im Speicher ersetzen "Boot. ini".
 
-BCDEdit ist ein Befehlszeilentool zum Verwalten von BCD-Speicher. Kann für eine Vielzahl von Zwecken, z. B. zum Erstellen neuer Speicher verwendet werden, vorhandene Speicher ändern, Hinzufügen von Menü-Startparameter und so weiter. BCDEdit dient im Wesentlichen den gleichen Zweck wie Bootcfg.exe in früheren Versionen von Windows, jedoch mit zwei wichtige Verbesserungen vorgenommen:
--   Stellt eine größere Anzahl von Startparameter als Bootcfg.exe an.
--   Unterstützung für Skripting wurde verbessert werden.
+BCDEdit ist ein Befehlszeilen Tool zum Verwalten von BCD-Speichern. Sie kann für eine Vielzahl von Zwecken verwendet werden, einschließlich der Erstellung neuer Speicher, der Änderung vorhandener Speicher, dem Hinzufügen von Start Menü Parametern usw. Bcdedit bietet im Wesentlichen denselben Zweck wie "Bootcfg. exe" in früheren Versionen von Windows, jedoch mit zwei wesentlichen Verbesserungen:
+-   Macht einen breiteren Bereich von Start Parametern verfügbar als "Bootcfg. exe".
+-   Bietet verbesserte Skriptunterstützung.
 
 > [!NOTE]
-> BCDEdit verwenden, um Startkonfigurationsdaten ändern, sind Administratorrechte erforderlich.
+> Administratorrechte sind erforderlich, um BCD mit bcdedit zu ändern.
 
-BCDEdit ist das wichtigste Tool für die Bearbeitung der Startkonfiguration von Windows Vista und höheren Versionen von Windows. Es ist in der Windows Vista-Verteilung im Ordner %WINDIR%\System32 enthalten.
+BCDEdit ist das primäre Tool zum Bearbeiten der Startkonfiguration von Windows Vista und höheren Versionen von Windows. Es ist in der Windows Vista-Distribution im Ordner%windir%\system32 enthalten.
 
-BCDEdit ist die standard-Datentypen auf, und es dient in erster Linie zum Ausführen der einzelner allgemeine Änderungen, die in BCD. Für komplexere Vorgänge oder nicht dem Standard entsprechende Datentypen sollten Sie in Betracht ziehen, die Startkonfigurationsdaten (Windows Management Instrumentation, WMI)-Anwendungsprogrammierschnittstelle (API) zum Erstellen von leistungsstarken und flexiblen benutzerdefinierte Tools zu verwenden.
+BCDEdit ist auf die Standard Datentypen beschränkt und wurde hauptsächlich für die Durchführung einzelner allgemeiner Änderungen an BCD entworfen. Bei komplexeren Vorgängen oder nicht standardmäßigen Datentypen können Sie die BCD-Windows-Verwaltungsinstrumentation (WMI)-API (Application Programming Interface) verwenden, um leistungsfähigere und flexiblere benutzerdefinierte Tools zu erstellen.
 
 ## <a name="syntax"></a>Syntax
 
@@ -45,69 +45,69 @@ BCDEdit /Command [<Argument1>] [<Argument2>] ...
 
 ## <a name="parameters"></a>Parameter
 
-### <a name="general-bcdedit-command-line-option"></a>Allgemeine BCDEdit-Befehlszeilenoption
+### <a name="general-bcdedit-command-line-option"></a>Allgemeine bcdedit-Befehlszeilen Option
 
 |Option|Beschreibung|
 |------|-----------|
-|/?|Zeigt eine Liste von BCDEdit-Befehlen. Das Ausführen dieses Befehls ohne Argument zeigt eine Zusammenfassung der verfügbaren Befehle. Führen Sie zum Anzeigen der detaillierten Hilfe für einen bestimmten Befehl **Bcdedit /?** \<Befehl >, wobei <command> ist der Name des Befehls, die Sie suchen Weitere Informationen zu. Z. B. **Bcdedit /? Createstore** zeigt detaillierte Hilfe für den Createstore-Befehl.|
+|/?|Zeigt eine Liste der bcdedit-Befehle an. Wenn Sie diesen Befehl ohne ein Argument ausführen, wird eine Zusammenfassung der verfügbaren Befehle angezeigt. Führen Sie **Bcdedit/?** aus, um die ausführliche Hilfe zu einem bestimmten Befehl anzuzeigen. \<command >, wobei <command> der Name des Befehls ist, zu dem Sie nach weiteren Informationen suchen. Beispielsweise zeigt **Bcdedit/?-erstellungsore** eine ausführliche Hilfe zum Befehl "featestore" an.|
 
-### <a name="parameters-that-operate-on-a-store"></a>Parameter, die für eine Store ausgeführt werden
+### <a name="parameters-that-operate-on-a-store"></a>Parameter, die in einem Speicher betrieben werden
 
 |Option|Beschreibung|
 |------|-----------|
-|/createstore|Erstellt einen neuen leeren Boot Configuration-Datenspeicher. Die erstellte Speicher ist kein Systemspeicher.|
-|/ Export|Exportiert den Inhalt des Systems in eine Datei zu speichern. Diese Datei kann später verwendet werden, um den Zustand des Systemspeichers wiederherzustellen. Dieser Befehl gilt nur für den Systemspeicher.|
-|/import|Hiermit wird der Status des Systemspeichers mithilfe einer Sicherung von Daten-Datei, die zuvor generiert, indem die **/export** Option. Dieser Befehl löscht die Einträge in den Systemspeicher, vor der Import der Durchführung. Dieser Befehl gilt nur für den Systemspeicher.|
-|/ Store|Diese Option kann mit den meisten BCDedit-Befehlen verwendet werden, an den Store verwendet werden. Wenn diese Option nicht angegeben wird, klicken Sie dann verarbeitet BCDEdit den Systemspeicher. Ausführen der **Bcdedit/store** Befehl selbst ist äquivalent zur Ausführung der **Bcdedit/Enum active** Befehl.|
+|/createstore|Erstellt einen neuen leeren Start Konfigurationsdaten Speicher. Der erstellte Speicher ist kein Systemspeicher.|
+|/Export|Exportiert den Inhalt des System Stores in eine Datei. Diese Datei kann später verwendet werden, um den Status des System Stores wiederherzustellen. Dieser Befehl ist nur für den Systemspeicher gültig.|
+|/Import|Stellt den Status des System Stores mithilfe einer Sicherungs Datendatei wieder her, die zuvor mit der **/Export** -Option generiert wurde. Mit diesem Befehl werden alle vorhandenen Einträge im Systemspeicher gelöscht, bevor der Import Vorgang durchgeführt wird. Dieser Befehl ist nur für den Systemspeicher gültig.|
+|/Store|Diese Option kann mit den meisten Bcdedit-Befehlen verwendet werden, um den zu verwendenden Speicher anzugeben. Wenn diese Option nicht angegeben ist, arbeitet bcdedit im Systemspeicher. Das Ausführen des Befehls **bcdedit/store** mit sich selbst entspricht dem Ausführen des Befehls **bcdedit/enum Active** .|
 
-### <a name="parameters-that-operate-on-entries-in-a-store"></a>Parameter, die für die Einträge in einem Store verwendet werden
+### <a name="parameters-that-operate-on-entries-in-a-store"></a>Parameter, die für Einträge in einem Speicher ausgeführt werden
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Copy|Eine Kopie einer angegebenen Starteintrag im gleichen Systemspeicher.|
-|oder erstellen.|Erstellt einen neuen Eintrag im Boot Configuration Data-Speicher. Wenn ein allgemein bekannte Bezeichner angegeben wird, und klicken Sie dann die **Anwendung/**, **/ erben**, und **/Device** können keine Parameter angegeben werden. Wenn ein Bezeichner nicht angegeben oder nicht bekannt, ist ein **Anwendung/**, **/ erben**, oder **/Device** Option muss angegeben werden.|
+|/Copy|Erstellt eine Kopie eines angegebenen Start Eintrags in demselben Systemspeicher.|
+|/Create|Erstellt einen neuen Eintrag im Datenspeicher für die Startkonfiguration. Wenn ein bekannter Bezeichner angegeben wird, können die Parameter **/Anwendungs-** , **/inherit**und **/Device** nicht angegeben werden. Wenn ein Bezeichner nicht angegeben oder nicht bekannt ist, muss eine **/Anwendungs-** -, **/inherit**-oder **/Device** -Option angegeben werden.|
 |/delete|Löscht ein Element aus einem angegebenen Eintrag.|
 
-### <a name="parameters-that-operate-on-entry-options"></a>Parameter, die für die Optionen für die Einträge verwendet werden
+### <a name="parameters-that-operate-on-entry-options"></a>Parameter, die mit Eingabeoptionen arbeiten
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|/deletevalue|Löscht ein angegebenes Element aus dem einen Starteintrag.|
-|/set|Legt einen Eintrag-Wert fest.|
+|/deletevalue|Löscht ein angegebenes Element aus einem Start Eintrag.|
+|/Set|Legt einen Einstiegs Optionswert fest.|
 
-### <a name="parameters-that-control-output"></a>Parameter, die Ausgabe zu steuern
-
-|Parameter|Beschreibung|
-|---------|-----------|
-|/ Enum|Listet Einträge in einem Speicher. Die **/enum** Option ist der Standardwert für BCEdit, also die **Bcdedit** Befehl ohne Parameter ist äquivalent zur Ausführung der **Bcdedit/Enum active** Befehl.|
-|/v|Ausführlichen Modus fest. In der Regel werden alle bekannten Eintragsbezeichner durch ihren Anzeigenamen Kurzschriftform dargestellt. Angeben von **/v** wie eine Befehlszeilenoption alle Bezeichner vollständig angezeigt. Ausführen der **Bcdedit/v** Befehl selbst ist äquivalent zur Ausführung der **Bcdedit/Enum active/v** Befehl.|
-
-### <a name="parameters-that-control-the-boot-manager"></a>Parameter, die der Start-Manager steuern
+### <a name="parameters-that-control-output"></a>Parameter, die die Ausgabe steuern
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|/bootsequence|Gibt eine einmalige Anzeigereihenfolge, die für den nächsten Systemstart verwendet werden. Dieser Befehl ähnelt der **/displayorder** Option, mit dem Unterschied, dass die It verwendet wird, nur der nächsten Ausführung des Computers wird gestartet. Anschließend wird der Computer mit der ursprünglichen Anzeigereihenfolge zurückgesetzt.|
-|/ Standard|Gibt den Standardeintrag, der der Start-Manager wählt aus, wenn das Timeout abläuft.|
-|/displayorder|Gibt an, die Anzeigereihenfolge, die der Start-Manager verwendet werden, wenn Parameter für den Systemstart zu einem Benutzer angezeigt.|
-|/timeout|Gibt die Zeit in Sekunden, bevor der Start-Manager den Standardeintrag wählt warten.|
-|/toolsdisplayorder|Gibt an, die Anzeigereihenfolge für den Start-Manager verwenden, bei der Anzeige der **Tools** Menü.|
+|/Enum|Listet Einträge in einem Speicher auf. Die **/enum** -Option ist der Standardwert für bcedit, sodass das Ausführen des **Bcdedit** -Befehls ohne Parameter dem Ausführen des Befehls **bcdedit/enum Active** entspricht.|
+|/v|Ausführliche-Modus. Üblicherweise werden alle bekannten Eintrags Bezeichner durch ihre benutzerfreundliche Kurzform dargestellt. Wenn Sie **/v** als Befehlszeilenoption angeben, werden alle Bezeichner vollständig angezeigt. Das Ausführen des Befehls **Bcdedit/v** mit sich selbst entspricht dem Ausführen des Befehls **bcdedit/enum Active/v** .|
 
-### <a name="parameters-that-control-emergency-management-services"></a>Parameter, die Notverwaltungsdienste steuern.
+### <a name="parameters-that-control-the-boot-manager"></a>Parameter zum Steuern des Start-Managers
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|/bootems|Aktiviert oder deaktiviert (Emergency Management Services, EMS) für den angegebenen Eintrag.|
-|/ems|Aktiviert oder deaktiviert EMS für den Starteintrag des angegebenen Betriebssystem.|
-|/emssettings|Legt die globalen EMS-Einstellungen für den Computer fest. **/Emssettings** nicht aktivieren oder Deaktivieren von EMS für einen bestimmten Starteintrag.|
+|/bootsequence|Gibt eine einmalige Anzeigereihenfolge an, die für den nächsten Start verwendet werden soll. Dieser Befehl ähnelt der **/displayorder** -Option, mit dem Unterschied, dass er nur beim nächsten Start des Computers verwendet wird. Anschließend wird der Computer auf die ursprüngliche Anzeigereihenfolge zurückgesetzt.|
+|/Standard:|Gibt den Standardeintrag an, den der Start-Manager auswählt, wenn das Timeout abläuft.|
+|/displayorder|Gibt die Anzeigereihenfolge an, die der Start-Manager beim Anzeigen von Start Parametern für einen Benutzer verwendet.|
+|/Timeout|Gibt die Wartezeit in Sekunden an, bevor der Start-Manager den Standardeintrag auswählt.|
+|/toolsdisplayorder|Gibt die Anzeigereihenfolge für den Start-Manager an, **die beim Anzeigen des Menüs Extras** verwendet werden soll.|
 
-### <a name="parameters-that-control-debugging"></a>Parameter, die steuern, Debuggen
+### <a name="parameters-that-control-emergency-management-services"></a>Parameter zur Steuerung der Notfall Verwaltungsdienste
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|/bootdebug|Aktiviert oder deaktiviert den Startdebugger für einen angegebenen Starteintrag. Dieser Befehl für alle Starteintrag funktioniert, es ist zwar nur für die Boot-Anwendungen.|
-|/dbgsettings|Gibt an, oder die globalen Debuggereinstellungen den Einstellungen für das System angezeigt. Mit diesem Befehl nicht aktiviert oder deaktiviert den Kerneldebugger; Verwenden Sie die **/debug** Option für diesen Zweck. Um einen einzelnen globalen Debuggereinstellung festzulegen, verwenden die **Bcdedit/Set** \<Dbgsettings > <type> <value> -Befehl abgerufen wird.|
-|/debug|Aktiviert oder deaktiviert den Kerneldebugger für einen angegebenen Starteintrag.|
+|/bootems|Aktiviert oder deaktiviert die Notfall Verwaltungsdienste (EMS) für den angegebenen Eintrag.|
+|/ems|Aktiviert oder deaktiviert EMS für den angegebenen Betriebssystem-Start Eintrag.|
+|/emssettings|Legt die globalen EMS-Einstellungen für den Computer fest. **/Emssettings** aktiviert oder deaktiviert EMS nicht für einen bestimmten Start Eintrag.|
+
+### <a name="parameters-that-control-debugging"></a>Parameter zum Steuern des Debuggens
+
+|Parameter|Beschreibung|
+|---------|-----------|
+|/bootdebug|Aktiviert oder deaktiviert den Start Debugger für einen angegebenen Start Eintrag. Obwohl dieser Befehl für jeden Start Eintrag funktioniert, ist er nur für Start Anwendungen wirksam.|
+|/dbgsettings|Gibt die globalen Debuggereinstellungen für das System an oder zeigt diese an. Mit diesem Befehl wird der Kernel Debugger weder aktiviert noch deaktiviert. Verwenden Sie hierfür die Option **/Debug** . Verwenden Sie zum Festlegen einer einzelnen globalen Debuggereinstellung das **bcdedit/set** \<dbgsettings-> <type>. <value> -Befehl abgerufen wird.|
+|/debug|Aktiviert oder deaktiviert den Kernel Debugger für einen angegebenen Start Eintrag.|
 
 ## <a name="examples"></a>Beispiele
 
-Beispiele von BCDEdit finden Sie in der [Verweis von BCDEdit Optionen](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcd-boot-options-reference).
+Beispiele für BCDEdit finden Sie in der [Referenz zu Bcdedit-Optionen](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcd-boot-options-reference).

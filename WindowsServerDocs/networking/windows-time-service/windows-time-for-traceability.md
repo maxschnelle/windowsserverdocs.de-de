@@ -7,14 +7,14 @@ ms.author: dacuo
 manager: dougkim
 ms.date: 10/17/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 161188eccdd848cf50be1a4485beeb58935f643a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 307739042426088fa92c50e6ea4dc5d2a744f15a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871777"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405218"
 ---
 # <a name="windows-time-for-traceability"></a>Windows-Zeit für die Rückverfolgbarkeit
 >Gilt für: Windows Server 2016 Version 1709 oder höher und Windows 10, Version 1703 oder höher
@@ -51,7 +51,7 @@ Dieses Ereignis wird protokolliert, wenn der Windows-Zeit Dienst (W32Time) gesta
 |Protokollierte Daten |<ul><li>Aktuelle Uhrzeit in UTC</li><li>Aktuelle Tick-Anzahl</li><li>W32Time-Konfiguration</li><li>Zeit Anbieter Konfiguration</li><li>Taktfrequenz</li></ul> |
 |Drosselungs Mechanismus  |Keine Dieses Ereignis wird jedes Mal ausgelöst, wenn der Dienst gestartet wird. |
 
-**Beispiel:**
+**Beispiel**
 ```
 W32time service has started at 2018-02-27T04:25:17.156Z (UTC), System Tick Count 3132937.
 ```

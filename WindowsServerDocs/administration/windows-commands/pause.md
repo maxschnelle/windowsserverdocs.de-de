@@ -1,8 +1,8 @@
 ---
 title: pause
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e5805fcc14d6874d95ba90537d72b560229ba99b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6501859eacf30dd6c1e64f34eee29ff81bd78ec9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436311"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372371"
 ---
 # <a name="pause"></a>pause
 
 
 
-Hält die Verarbeitung einer Batchdatei aus, und die folgende Eingabeaufforderung angezeigt:
+Hält die Verarbeitung eines Batch Programms an und zeigt die folgende Eingabeaufforderung an:
 ```
 Press any key to continue . . .
 ```
@@ -44,20 +44,20 @@ pause
 
 ## <a name="remarks"></a>Hinweise
 
-- Beim Ausführen der **anhalten** Befehl die folgende Meldung angezeigt:  
+- Wenn Sie den Befehl **Pause** ausführen, wird die folgende Meldung angezeigt:  
   ```
   Press any key to continue . . .
   ```  
-- Wenn Sie zum Beenden eines Batchprogramms STRG + C drücken, wird die folgende Meldung angezeigt:  
+- Wenn Sie STRG + C drücken, um ein Batch Programm anzuhalten, wird die folgende Meldung angezeigt:  
   ```
   Terminate batch job (Y/N)?
   ```  
-  Wenn Sie Y (für Ja) als Reaktion auf diese Meldung klicken, gibt der Batch beendet und die Steuerung an das Betriebssystem.
-- Sie können zum Einfügen der **anhalten** Befehl, bevor Sie einen Abschnitt der Batch-Datei, die Sie möglicherweise nicht verarbeiten möchten. Wenn **anhalten** hält die Verarbeitung des Batchprogramms, können Sie STRG + C drücken und drücken Sie Y, um die Batchprogramm zu beenden.
+  Wenn Sie als Antwort auf diese Meldung Y (für ja) drücken, wird das Batch Programm beendet, und die Steuerung wird an das Betriebssystem zurückgegeben.
+- Sie können den Befehl **Pause** vor einem Abschnitt der Batchdatei einfügen, den Sie möglicherweise nicht verarbeiten möchten. Wenn **Anhalten** die Verarbeitung des Batch Programms anhält, können Sie STRG + C drücken und dann Y drücken, um das Batch Programm zu beenden.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um ein Batchprogramm erstellen, die den Benutzer auffordert, die Datenträger in einem dieser Laufwerke zu ändern, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um ein Batch-Programm zu erstellen, das den Benutzer auffordert, Datenträger auf einem der Laufwerke zu ändern:
 ```
 @echo off 
 :Begin 
@@ -66,7 +66,7 @@ echo Put a new disk into drive A
 pause 
 goto begin
 ```
-In diesem Beispiel werden alle Dateien auf dem Datenträger im Laufwerk einer im aktuellen Verzeichnis kopiert. Nachdem die Nachricht einfügen ein neues Datenträgers in Laufwerk A, aufgefordert werden, die **anhalten** Befehl hält die Verarbeitung, damit Sie Datenträger ändern können, und drücken Sie dann die eine beliebige Taste, um die Verarbeitung fortzusetzen. Das Batchprogramm, die in einer Endlosschleife ausgeführt wird – die **Goto beginnen** Befehl sendet den Befehlsinterpreter an die Begin-Bezeichnung der Batch-Datei. Um dieses Batchprogramm zu beenden, drücken Sie STRG + C drücken Sie anschließend Y.
+In diesem Beispiel werden alle Dateien auf dem Datenträger in Laufwerk A in das aktuelle Verzeichnis kopiert. Nachdem Sie in der Meldung aufgefordert werden, einen neuen Datenträger in Laufwerk a einzufügen, hält der **Pause** -Befehl die Verarbeitung an, sodass Sie die Datenträger ändern und dann eine beliebige Taste drücken können, um die Verarbeitung fortzusetzen. Dieses Batch-Programm wird in einer Endlosschleife ausgeführt – der Befehl Gehe **zu Begin** sendet den Befehls Interpreter an die BEGIN-Bezeichnung der Batchdatei. Um dieses Batch Programm anzuhalten, drücken Sie STRG + C, und drücken Sie dann Y.
 
 #### <a name="additional-references"></a>Weitere Verweise
 

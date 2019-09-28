@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin Util und version
-description: Windows-Befehle Thema **Bitsadmin Util und Version** -zeigt die Version der BITS-Dienst.
+title: BIFS admin util und Version
+description: Windows-Befehls Thema für **BITSAdmin util und Version** -zeigt die Version des Bits-diensdienstanbieter an.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2e768ec5ae43fc17c480b9deede698cca01c6291
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 495ef17bbf6f39f20f6729b64de4b4bec0f9a3c2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882871"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380200"
 ---
-# <a name="bitsadmin-util-and-version"></a>Bitsadmin Util und version
+# <a name="bitsadmin-util-and-version"></a>BIFS admin util und Version
 
-Zeigt die Version der BITS-Dienst (z. B. "2.0").
+Zeigt die Version des Bits-Dienstanbieter an (z. b. 2,0).
 
-**BITSAdmin 1.5 und früher**: Nicht unterstützt.
+**Bikadmin 1,5 und früher**: Nicht unterstützt.
 
 ## <a name="syntax"></a>Syntax
 
@@ -34,18 +34,18 @@ bitsadmin /Util /Version [/Verbose]
 
 ## <a name="remarks"></a>Hinweise
 
-Die **ausführlich** Schalter führt die folgenden:
--   Zeigt die Dateiversion für die einzelnen BITS verknüpfte DLLs
--   Überprüft, ob der BITS-Dienst gestartet werden kann
--   Zeigt die BITS-Gruppenrichtlinien-Werte (nur Windows Vista)
+Der Schalter " **verbose** " führt Folgendes aus:
+-   Zeigt die Dateiversion für jede Bits-bezogene dll an
+-   Überprüft, ob der BITS-Dienst gestartet werden kann.
+-   Zeigt Bits Gruppenrichtlinie Werte an (nur Windows Vista).
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Im folgenden Beispiel die Version der BITS-Dienst.
+Im folgenden Beispiel wird die Version des Bits-Dienstanbieter veranschaulicht.
 ```
 C:\>bitsadmin /Util /Version
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

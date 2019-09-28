@@ -1,8 +1,8 @@
 ---
 title: Net print
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4018ec3779a9735916136fa54f532ad5767c960e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 241f9d74cb537924cf69c1e0bb5fd73a422c4b23
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437100"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373300"
 ---
 # <a name="net-print"></a>Net print
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zeigt Informationen über eine Warteschlange angegebenen Drucker oder einem angegebenen Druckauftrag, oder einen angegebenen Druckauftrag steuert.
-Beispiele zur Verwendung mit diesem Befehl finden Sie in der [Beispiele](#BKMK_examples) Abschnitt dieses Dokuments.
+Zeigt Informationen zu einer angegebenen Drucker Warteschlange oder einem angegebenen Druckauftrag an oder steuert einen angegebenen Druckauftrag.
+Beispiele für die Verwendung dieses Befehls finden Sie im Abschnitt " [Beispiele](#BKMK_examples) " in diesem Dokument.
 > [!NOTE]
-> Dieser Befehl wurde in Windows 7 und Windows Server 2008 R2 als veraltet markiert. Allerdings können Sie viele der Aufgaben mithilfe von Prnjobs, Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI) oder Windows PowerShell-Cmdlets ausführen. Weitere Informationen finden Sie unter [Prnjobs](prnjobs.md), [Windows-Verwaltungsinstrumentation](https://go.microsoft.com/fwlink/?LinkID=29991) (https://go.microsoft.com/fwlink/?LinkID=29991), [Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=128426) (https://go.microsoft.com/fwlink/?LinkID=128426), und die [TechNet Script Center-Katalog](https://go.microsoft.com/fwlink/?LinkId=164635) (https://go.microsoft.com/fwlink/?LinkId=164635).
+> Dieser Befehl wurde in Windows 7 und Windows Server 2008 R2 als veraltet markiert. Sie können jedoch viele der gleichen Aufgaben mit prnjobs, Windows-Verwaltungsinstrumentation (WMI) oder Windows PowerShell-Cmdlets ausführen. Weitere Informationen finden Sie unter [prnjobs](prnjobs.md), [Windows-Verwaltungsinstrumentation](https://go.microsoft.com/fwlink/?LinkID=29991) (https://go.microsoft.com/fwlink/?LinkID=29991) , [Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=128426) (https://go.microsoft.com/fwlink/?LinkID=128426) und im [TechNet Script Center Gallery](https://go.microsoft.com/fwlink/?LinkId=164635) (https://go.microsoft.com/fwlink/?LinkId=164635) ).
 > ## <a name="syntax"></a>Syntax
 > ```
 > Net print {\\<computerName>\<Sharename> | 
@@ -37,14 +37,14 @@ Beispiele zur Verwendung mit diesem Befehl finden Sie in der [Beispiele](#BKMK_e
 > 
 > |               Parameter               |                                                                                                                                                                                                                     Beschreibung                                                                                                                                                                                                                      |
 > |----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> |    \\\\<computerName>\\<Sharename>     |                                                                                                                                                                            Gibt an (nach Namen) der Computer "und" Print-Warteschlange, die über die Sie Informationen anzeigen möchten.                                                                                                                                                                             |
-> |           \\\\<computerName>           |                                                                                                                                 Gibt an (nach Namen) der Computer, der den Druckauftrag verwaltet wird, den Sie steuern möchten. Wenn Sie einen Computer nicht angeben, wird davon ausgegangen, dass der lokale Computer. Erfordert die <JobNumber> Parameter.                                                                                                                                  |
-> |              <JobNumber>               |                                             Gibt die Nummer des Druckauftrags, die Sie steuern möchten. Diese Zahl wird von dem Computer zugewiesen, die von die Druckwarteschlange verwaltet, in dem der Druckauftrag gesendet wird. Nachdem ein Computer einer Zahl einen Druckauftrag, zugewiesen wurde, dass die Anzahl nicht zu anderen Druckaufträgen in einer beliebigen Warteschlange, die von diesem Computer gehosteten zugewiesen ist. Erforderlich, wenn Sie mit der \\ \\ <computerName> Parameter.                                             |
-> | [/hold &#124; /release &#124; /delete] | Gibt die Aktion an, mit dem Druckauftrag an.<br /><br />– Die **/halten** Parameter verzögert den Auftrag an, dass andere Druckaufträge umgangen werden, bis Sie wieder freigegeben wird.<br />– Die **/release** Parameter Versionen ein Druckauftrags, der verzögert wurde.<br />– Die **/delete** Parameter entfernt einen Druckauftrag aus einer Druckwarteschlange.<br /><br />Wenn Sie eine Auftragsnummer, aber keine Aktionen angeben, werden Informationen über den Druckauftrag angezeigt. |
-> |                  Hilfe                  |                                                                                                                                                                                                     Zeigt die Hilfe für die **Net Drucken** Befehl.                                                                                                                                                                                                     |
+> |    \\\\<computerName>\\<Sharename>     |                                                                                                                                                                            Gibt (nach Name) den Computer und die Druck Warteschlange an, über die Sie Informationen anzeigen möchten.                                                                                                                                                                             |
+> |           \\\\<computerName>           |                                                                                                                                 Gibt (nach Name) den Computer an, der den Druckauftrag hostet, den Sie steuern möchten. Wenn Sie keinen Computer angeben, wird der lokale Computer angenommen. Erfordert den <JobNumber>-Parameter.                                                                                                                                  |
+> |              <JobNumber>               |                                             Gibt die Nummer des Druckauftrags an, den Sie steuern möchten. Diese Nummer wird von dem Computer zugewiesen, der die Druck Warteschlange hostet, in der der Druckauftrag gesendet wird. Wenn ein Computer einem Druckauftrag eine Zahl zuweist, wird diese Nummer keinem anderen Druckauftrag in einer Warteschlange zugewiesen, die von diesem Computer gehostet wird. Erforderlich, wenn der Parameter "\\ @ no__t-1 @ no__t-2" verwendet wird.                                             |
+> | [/Hold &#124; /Release &#124; /DELETE] | Gibt die Aktion an, die mit dem Druckauftrag ausgeführt werden soll.<br /><br />-Der **/Hold** -Parameter verzögert den Auftrag, sodass andere Druckaufträge ihn umgehen können, bis er freigegeben wird.<br />-Der **/Release** -Parameter gibt einen verzögerten Druckauftrag frei.<br />-Der **/Delete** -Parameter entfernt einen Druckauftrag aus einer Druck Warteschlange.<br /><br />Wenn Sie eine Auftragsnummer angeben, aber keine Aktion angeben, werden Informationen zum Druckauftrag angezeigt. |
+> |                  Hilfe                  |                                                                                                                                                                                                     Zeigt die Hilfe für den Befehl " **net Print** " an.                                                                                                                                                                                                     |
 > 
 > ## <a name="remarks"></a>Hinweise
-> - **NET-Drucken** \\ \\ <computerName> zeigt Informationen über Druckaufträge in einer freigegebenen Drucker-Warteschlange. Im folgenden finden ein Beispiel für einen Bericht für alle Druckaufträge in einer Warteschlange für einen freigegebenen Drucker mit dem Namen LASER:
+> - **Net Print** \\ @ no__t-2 @ no__t-3 zeigt Informationen über Druckaufträge in einer freigegebenen Drucker Warteschlange an. Im folgenden finden Sie ein Beispiel für einen Bericht für alle Druckaufträge in einer Warteschlange für einen freigegebenen Drucker mit dem Namen "Laser":
 >   ```
 >   printers at \\PRODUCTION
 >   Name              Job #      Size      Status
@@ -54,7 +54,7 @@ Beispiele zur Verwendung mit diesem Befehl finden Sie in der [Beispiele](#BKMK_e
 >      USER2          85        12555      Waiting
 >      USER3          86        10222      Waiting
 >   ```
-> - Im folgenden finden ein Beispiel für einen Bericht für einen Druckauftrag:
+> - Im folgenden finden Sie ein Beispiel für einen Bericht für einen Druckauftrag:
 >   ```
 >   Job #            35
 >   Status           Waiting
@@ -66,23 +66,23 @@ Beispiele zur Verwendung mit diesem Befehl finden Sie in der [Beispiele](#BKMK_e
 >   Job parameters
 >   additional info
 >   ```
->   ## <a name="BKMK_examples"></a>Beispiele für
->   Dieses Beispiel zeigt den Inhalt der Druckwarteschlange Dotmatrix auf Auflisten der \\\Production Computer:
+>   ## <a name="BKMK_examples"></a>Beispiele
+>   Dieses Beispiel zeigt, wie Sie den Inhalt der Dotmatrix-Druck Warteschlange auf dem \\ \ Produktions Computer auflisten:
 >   ```
 >   Net print \\Production\Dotmatrix 
 >   ```
->   Dieses Beispiel zeigt die Vorgehensweise beim Anzeigen von Informationen über 35 des Auftrags auf die \\\Production Computer:
+>   Dieses Beispiel zeigt, wie Sie Informationen zur Auftragsnummer 35 auf dem Computer \\ \ Produktion anzeigen:
 >   ```
 >   Net print \\Production 35 
 >   ```
->   In diesem Beispiel wird gezeigt, wie zu verzögern, 263 des Auftrags auf die \\\Production Computer:
+>   In diesem Beispiel wird gezeigt, wie die Auftragsnummer 263 auf dem Computer \\ \ Produktion verzögert wird:
 >   ```
 >   Net print \\Production 263 /hold 
 >   ```
->   Dieses Beispiel zeigt, wie 263 des Auftrags auf die \\\Production Computer:
+>   Dieses Beispiel zeigt, wie Sie die Auftragsnummer 263 auf dem Computer \\ \ Produktion freigeben:
 >   ```
 >   Net print \\Production 263 /release 
 >   ```
->   #### <a name="additional-references"></a>Zusätzliche Referenzen
->   [Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
->   [druckbefehlsreferenz](print-command-reference.md)
+>   #### <a name="additional-references"></a>Weitere Verweise
+>   [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+>   [Druck Befehlsreferenz](print-command-reference.md)

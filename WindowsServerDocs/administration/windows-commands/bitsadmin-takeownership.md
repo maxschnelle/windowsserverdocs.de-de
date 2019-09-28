@@ -1,8 +1,8 @@
 ---
 title: bitsadmin takeownership
-description: Windows-Befehle Thema **Bitsadmin Takeownership** -ermöglicht es einem Benutzer mit Administratorrechten den Besitz des angegebenen Auftrags zu übernehmen.
+description: 'Windows-Befehls Thema für **bigsadmin TakeOwnership** : ermöglicht einem Benutzer mit Administratorrechten, den Besitz des angegebenen Auftrags zu übernehmen.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: aedca49e43588ab51f84477cf8690cf58486c3cf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1f0d0610b2ba6437f6fdd41bf1b875993cf11f2a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827841"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380357"
 ---
 # <a name="bitsadmin-takeownership"></a>bitsadmin takeownership
 
 
 
-Ermöglicht Benutzern mit Administratorrechten den Besitz des angegebenen Auftrags zu übernehmen.
+Ermöglicht einem Benutzer mit Administratorrechten, den Besitz des angegebenen Auftrags zu übernehmen.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,15 +36,15 @@ bitsadmin /TakeOwnership <Job>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Im folgende Beispiel übernimmt den Besitz des Auftrags mit dem Namen *MyDownloadJob*.
+Im folgenden Beispiel wird der Besitz des Auftrags mit dem Namen *mydownloadjob*angenommen.
 ```
 C:\>bitsadmin /TakeOwnership myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

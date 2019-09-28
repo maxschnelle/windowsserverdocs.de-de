@@ -1,7 +1,7 @@
 ---
-title: Die Anzahl der ausgeführten oder konfigurierte virtuelle Computer muss innerhalb der unterstützten Limits
-description: Enthält Anweisungen zur Behebung des Problems gemeldet wird, die von dieser Best Practices Analyzer-Regel.
-ms.prod: windows-server-threshold
+title: Die Anzahl der laufenden oder konfigurierten virtuellen Computer muss innerhalb unterstützter Grenzwerte liegen.
+description: Enthält Anweisungen zum Beheben des Problems, das von dieser Best Practices Analyzer Regel gemeldet wird.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,91 +10,91 @@ ms.topic: article
 ms.assetid: 9d3c4aa3-8416-46ec-a253-26dc98088d7b
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 8a971a48b2d8199a6c279f1bd3f1715039fa6e0d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 56d7fd528d7fda20dbdbb16a6262bb072f053ef0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855351"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364629"
 ---
-# <a name="the-number-of-running-or-configured-virtual-machines-must-be-within-supported-limits"></a>Die Anzahl der ausgeführten oder konfigurierte virtuelle Computer muss innerhalb der unterstützten Limits
+# <a name="the-number-of-running-or-configured-virtual-machines-must-be-within-supported-limits"></a>Die Anzahl der laufenden oder konfigurierten virtuellen Computer muss innerhalb unterstützter Grenzwerte liegen.
 
 >Gilt für: Windows Server 2016
 
-Weitere Informationen zu best Practices und Überprüfungen finden Sie unter [Run Best Practices Analyzer Scans und Manage Scan Results](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
+Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausführen von Best Practices Analyzer Scans und Verwalten der Scan Ergebnisse](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
 |Eigenschaft|Details|  
 |-|-|  
 |**Betriebssystem**|Windows Server 2016|  
-|**Produkt /-Funktion**|Hyper-V|  
-|**Schweregrad**|Fehler  
+|**Produkt/Feature**|Hyper-V|  
+|**Zunehmen**|Fehler  
 |**Kategorie**|Konfiguration|  
   
-In den folgenden Abschnitten gibt Text erscheint in der Best Practices Analyzer-Tool zur Lösung dieses Problems Kursivdruck an.  
+In den folgenden Abschnitten gibt Kursiv Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.  
   
 ## <a name="issue"></a>Problem  
-*Weitere virtuelle Computer werden ausgeführt oder als unterstützt konfiguriert.*  
+*Es werden mehr virtuelle Computer ausgeführt oder konfiguriert, als unterstützt werden.*  
   
 ## <a name="impact"></a>Auswirkungen  
-*Microsoft unterstützt nicht die aktuelle Anzahl von virtuellen Computern ausgeführt wird oder auf diesem Server konfiguriert.*  
+*Microsoft unterstützt nicht die aktuelle Anzahl der virtuellen Computer, die auf diesem Server ausgeführt oder konfiguriert werden.*  
   
 ## <a name="resolution"></a>Auflösung  
-*Verschieben Sie eine oder mehrere virtuelle Computer, auf einen anderen Server.*  
+*Verschieben Sie mindestens einen virtuellen Computer auf einen anderen Server.*  
   
-Informationen zur maximal unterstützten Konfigurationen für Hyper-V, z. B. die Anzahl der ausgeführten virtuellen Computern finden Sie unter [Planen der Hyper-V-Skalierbarkeit unter Windows Server 2016](../plan/Plan-for-Hyper-V-scalability-in-Windows-Server-2016.md).  
+Ausführliche Informationen zu den maximal unterstützten Konfigurationen für Hyper-v, wie z. b. die Anzahl der aktiven virtuellen Maschinen, finden Sie unter [Planen der Hyper-v-Skalierbarkeit in Windows Server 2016](../plan/Plan-for-Hyper-V-scalability-in-Windows-Server-2016.md).  
   
-Um einen virtuellen Computer auf einen anderen Server verschieben, können Sie folgende Aktionen ausführen:  
+Wenn Sie einen virtuellen Computer auf einen anderen Server verschieben möchten, können Sie folgende Aktionen ausführen:  
   
-- Exportieren Sie die virtuelle Maschine vom aktuellen Server, und klicken Sie dann auf einen neuen Server importieren Sie, wie unten beschrieben.   
-- Führen Sie eine Livemigration:   
-    - Wenn dieser Server zu einem Failovercluster gehört, verwenden Sie die Tools, mit dem Feature "Failoverclustering" bereitgestellt. Anweisungen hierzu finden Sie unter [Livemigration, Schnellmigration oder Verschieben eines virtuellen Computers von Knoten zu Knoten](https://go.microsoft.com/fwlink/?LinkID=181519).  
-    - Wenn dies auf einem eigenständigen Server ist, finden Sie Anweisungen in [Livemigration konfigurieren und Migrieren von virtuellen Maschinen ohne Failoverclustering](https://technet.microsoft.com//library/jj134199(v=ws.11).aspx)  
+- Exportieren Sie die virtuelle Maschine vom aktuellen Server, und importieren Sie Sie dann wie unten beschrieben auf einen neuen Server.   
+- Führen Sie eine Live Migration durch:   
+    - Wenn dieser Server zu einem Failovercluster gehört, verwenden Sie die Tools, die mit dem Failoverclustering-Feature bereitgestellt werden. Anweisungen hierzu finden [Sie unter Live Migration, schnell Migration oder Verschieben einer virtuellen Maschine von Knoten zu Knoten](https://go.microsoft.com/fwlink/?LinkID=181519).  
+    - Wenn es sich um einen eigenständigen Server handelt, finden Sie weitere Informationen unter [Konfigurieren Livemigration und Migrieren von Virtual Machines ohne Failoverclustering](https://technet.microsoft.com//library/jj134199(v=ws.11).aspx)  
   
-### <a name="to-export-a-virtual-machine"></a>Zum Exportieren eines virtuellen Computers  
+### <a name="to-export-a-virtual-machine"></a>So exportieren Sie einen virtuellen Computer  
   
    > [!IMPORTANT]  
-   > Wenn der Hyper-V-Host, die, dem Sie beim Exportieren aus, einer Domäne angehört, und die exportierten Dateien an einem Remotestandort gespeichert werden soll, muss der Hyper-V-Host für die eingeschränkte Delegierung konfiguriert werden. Ein Remotespeicherort kann sein, einen freigegebenen Netzwerkordner oder einen Ordner auf dem Host, dem Sie in importieren können. Eingeschränkter Delegierung können das Computerkonto des Hyper-V-Hosts, für den delegierten Anmeldeinformationen für den Dienst Common Internet File System (CIFS) auf den Remotecomputer anzugeben. Anweisungen zum Konfigurieren der eingeschränkten Delegierung finden Sie im Abschnitt nach dem Export, und importieren Sie die Anweisungen unten.  
+   > Wenn der Hyper-v-Host, von dem aus Sie exportieren, zu einer Domäne gehört und Sie die exportierten Dateien an einem Remote Speicherort speichern möchten, muss der Hyper-v-Host für die eingeschränkte Delegierung konfiguriert werden. Bei einem Remote Speicherort kann es sich um einen freigegebenen Netzwerkordner oder einen Ordner auf dem Host handeln, in den Sie importieren. Die eingeschränkte Delegierung ermöglicht dem Computer Konto des Hyper-V-Hosts das Bereitstellen Delegierter Anmelde Informationen für den CIFS-Dienst (Common Internet File System) an den Remote Computer. Anweisungen zum Konfigurieren der eingeschränkten Delegierung finden Sie im Abschnitt befolgen der Anweisungen zum Exportieren und importieren unten.  
   
 1.  Öffnen Sie den Hyper-V-Manager. Klicken Sie auf **Start**, zeigen Sie auf **Verwaltung**, und klicken Sie dann auf **Hyper-V-Manager**.  
   
-2.  Klicken Sie im Ergebnisbereich unter **VMs**mit der rechten Maustaste auf einen virtuellen Computer, und klicken Sie dann auf **exportieren**.  
+2.  Klicken Sie im Ergebnisbereich unter **Virtual Machines**mit der rechten Maustaste auf einen virtuellen Computer, und klicken Sie dann auf **exportieren**.  
   
-3.  In der **Exportieren eines virtuellen Computers** (Dialogfeld), Typ oder suchen Sie einen Speicherort mit ausreichend freiem Speicherplatz für alle Ressourcen des virtuellen Computers zu speichern. Wenn Sie einen virtuellen Computer exportieren, werden alle virtuellen Festplatten (VHD-Dateien oder vhdx-Dateien), Prüfpunkte (AVHD-Dateien) und der virtuellen Maschine zugeordneten Dateien mit gespeichertem Zustand in den angegebenen Ordner kopiert.  
+3.  Geben Sie im Dialogfeld **virtuellen Computer exportieren** einen Speicherort mit genügend freiem Speicherplatz zum Speichern aller Ressourcen des virtuellen Computers ein, oder navigieren Sie zu diesem. Wenn Sie einen virtuellen Computer exportieren, werden alle virtuellen Festplatten (VHD-Dateien oder vhdx-Dateien), Prüfpunkte (AVHD-Dateien) und gespeicherte Zustands Dateien, die der virtuellen Maschine zugeordnet sind, in den angegebenen Ordner kopiert.  
   
 4.  Klicken Sie auf **Exportieren**.  
   
-Importieren Sie die virtuellen Computer nach dem Exportieren der virtuellen Computer, auf dem anderen Server.  
+Importieren Sie die virtuellen Computer nach dem Exportieren der virtuellen Computer auf den anderen Server.  
   
-### <a name="to-import-a-virtual-machine-to-another-server"></a>So importieren Sie einen virtuellen Computer auf einen anderen server  
+### <a name="to-import-a-virtual-machine-to-another-server"></a>So importieren Sie einen virtuellen Computer auf einen anderen Server  
   
-1.  Verbinden mit dem Server mit Hyper-V und Hyper-V-Manager zu öffnen.  
+1.  Stellen Sie eine Verbindung mit dem Hyper-v-Server her, und öffnen Sie Hyper-v-Manager.  
   
-2.  In der **Aktion** Bereich, klicken Sie auf **importieren virtueller Computer**.  
+2.  Klicken Sie im Bereich **Aktion** auf **virtuellen Computer importieren**.  
   
-3.  In der **importieren virtueller Computer** Dialogfeld geben den Speicherort, in dem Sie den virtuellen Computer exportiert haben. Wenn Sie diesen virtuellen Computer importieren möchten, lassen Sie die Importieren von Einstellungen unverändert.  
+3.  Geben Sie im Dialogfeld **virtuellen Computer importieren** den Speicherort an, an den Sie die virtuelle Maschine exportiert haben. Wenn Sie diesen virtuellen Computer nicht erneut importieren möchten, belassen Sie die Import Einstellungen unverändert.  
   
 4.  Klicken Sie auf **Importieren**.  
   
 ### <a name="to-configure-constrained-delegation"></a>So konfigurieren Sie eingeschränkte Delegierung  
   
-Mitgliedschaft in der **Domänenadministratoren** Gruppe ist erforderlich, um dieses Verfahren abzuschließen.  
+Um dieses Verfahren ausführen zu können, ist die Mitgliedschaft in der Gruppe **Domänen Administratoren** erforderlich.  
   
-1.  Auf einem Computer mit der Active Directory Domain Services-Tools-Feature installiert haben, im **Verwaltung**öffnen **Active Directory-Benutzer und-Computer**, und navigieren Sie dann auf das Computerkonto für der Computer mit Hyper-V.  
+1.  Öffnen Sie auf einem Computer, auf dem das Feature "Active Directory Domain Services Tools" installiert ist, in " **Verwaltung**" **Active Directory Benutzer und Computer**, und navigieren Sie zum Computer Konto des Computers, auf dem Hyper-V ausgeführt wird.  
   
     > [!NOTE]  
     > Wenn **Active Directory-Benutzer und -Computer** nicht angezeigt wird, installieren Sie die Tools für die Active Directory-Domänendienste. Anweisungen hierzu finden Sie unter [Installieren von Remoteserver-Verwaltungstools für AD DS](https://go.microsoft.com/fwlink/?LinkId=140463) (https://go.microsoft.com/fwlink/?LinkId=140463).  
   
-2.  Mit der rechten Maustaste in des Computerkontos für den Computer mit Hyper-V, und klicken Sie dann auf **Eigenschaften**.  
+2.  Klicken Sie mit der rechten Maustaste auf das Computer Konto des Computers, auf dem Hyper-V ausgeführt wird, und klicken Sie auf **Eigenschaften**.  
   
 3.  Klicken Sie auf die Option **Computer bei Delegierungen angegebener Dienste auswählen** auf der Registerkarte **Delegierung**, und wählen Sie dann **Beliebiges Authentifizierungsprotokoll verwenden** aus.  
   
-4.  So ermöglichen Sie das Hyper-V-Computerkonto in delegierten Anmeldeinformationen für den Remotecomputer anwendbar:  
+4.  So gestatten Sie dem Hyper-V-Computer Konto das präsentieren von Delegierten Anmelde Informationen für den Remote Computer:  
   
     1.  Klicken Sie auf **Hinzufügen**.  
   
-    2.  In der **Dienste hinzufügen** Dialogfeld klicken Sie auf **Benutzer oder Computer**, wählen Sie den Remotecomputer, und klicken Sie dann auf **OK**.  
+    2.  Klicken Sie im Dialogfeld **Dienste hinzufügen** auf **Benutzer oder Computer**, wählen Sie den Remote Computer aus, und klicken Sie dann auf **OK**.  
   
-    3.  In der **verfügbare Dienste** Liste der **Cifs** -Protokolls (auch bezeichnet als das Server Message Block (SMB)-Protokoll), und klicken Sie dann auf **hinzufügen**.  
+    3.  Wählen Sie in der Liste **verfügbare Dienste** das **CIFS** -Protokoll (auch als SMB-Protokoll (Server Message Block) bezeichnet) aus, und klicken Sie dann auf **Hinzufügen**.  
   
   
   

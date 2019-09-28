@@ -2,27 +2,27 @@
 ms.assetid: 60fca6b2-f1c0-451f-858f-2f6ab350d220
 title: Interoperabilität der Datendeduplizierung
 ms.technology: storage-deduplication
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 09/16/2016
-ms.openlocfilehash: b82e02b7896c3795ae7470ca03bb8d19a8d5e403
-ms.sourcegitcommit: fe621b72d45d0259bac1d5b9031deed3dcbed29d
+ms.openlocfilehash: fb3c9842f1d698151bffebbe5f77618c8b19b366
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455421"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403196"
 ---
 # <a name="data-deduplication-interoperability"></a>Interoperabilität der Datendeduplizierung
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, WindowsServer 2019
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2019
 
 ## <a name="supported"></a>Unterstützt
 
 ### <a name="refs"></a>ReFS
-Die Datendeduplizierung ist ab Windows Server-2019 unterstützt. 
+Die Datendeduplizierung wird ab Windows Server 2019 unterstützt. 
 
 ### <a name="failover-clustering"></a>Failoverclustering
 
@@ -64,14 +64,14 @@ Die Windows Server-Sicherung kann ein optimiertes Volume in der vorliegenden For
     wbadmin get versions
     ```
 
-    Diese ausgabeversions-ID werden ein Datum und Uhrzeit-Zeichenfolge, z.B.: 08/18/2016-06:22.
+    Diese Ausgabe Versions-ID ist eine Datums-und Uhrzeit Zeichenfolge, z. b.: 08/18/2016-06:22.
 
 4. Stellen Sie das gesamte Volume wieder her.
     ```PowerShell
     wbadmin start recovery –version:02/16/2012-06:22 -itemtype:Volume  -items:E: -recoveryTarget:E:
     ```
 
-    **--OR--**  
+    **--ODER--**  
 
     Wiederherstellen eines bestimmten Ordners (in diesem Fall den Ordner E:\Docs):
     ```PowerShell
@@ -80,7 +80,7 @@ Die Windows Server-Sicherung kann ein optimiertes Volume in der vorliegenden For
 
 ## <a name="unsupported"></a>Nicht unterstützt
 
-### <a name="windows-10-client-os"></a>Windows 10 (Clientbetriebssystem)
+### <a name="windows-10-client-os"></a>Windows 10 (Client Betriebssystem)
 Die Datendeduplizierung wird unter Windows 10 nicht unterstützt. Es gibt verschiedene beliebte Blogbeiträge in der Windows-Community, die beschreiben, wie Sie die Binärdateien aus Windows Server 2016 entfernen und unter Windows 10 installieren. Dieses Szenario wurde aber nicht im Rahmen der Entwicklung der Datendeduplizierung bestätigt. [Stimmen Sie für Windows 10 vNext unter Windows Server Storage UserVoice für dieses Element](https://windowsserver.uservoice.com/forums/295056-storage/suggestions/9011008-add-deduplication-support-to-client-os).
 
 ### <a name="windows-search"></a>Windows Search

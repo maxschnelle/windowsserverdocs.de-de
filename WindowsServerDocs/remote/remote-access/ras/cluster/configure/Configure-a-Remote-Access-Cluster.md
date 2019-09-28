@@ -1,9 +1,9 @@
 ---
 title: Konfigurieren eines Clusters mit Remotezugriff
-description: Dieses Thema ist Teil des Leitfadens Bereitstellen des Remotezugriffs in einem Cluster unter Windows Server 2016.
+description: Dieses Thema ist Teil des Handbuchs Bereitstellen des Remote Zugriffs in einem Cluster unter Windows Server 2016.
 manager: dougkim
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -13,26 +13,26 @@ ms.assetid: e8df3619-f365-4070-8117-888c88db13eb
 ms.author: pashort
 author: shortpatti
 ms.date: 05/25/2018
-ms.openlocfilehash: 19a0c50415a1dddd83333483c5f6c3b96b85aa4d
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 4c80aa5cc42c9c340e2699eed29bedeb9027f6bf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282932"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404625"
 ---
 # <a name="configure-a-remote-access-cluster"></a>Konfigurieren eines Clusters mit Remotezugriff
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
- Kombinieren Windows Server 2016 und Windows Server 2012 Always On-VPN- und Routing und RAS-Dienst (RRAS) VPN in einer einzigen remotezugriffsrolle. Diese Übersicht bietet eine Einführung in die Konfigurationsschritte erforderlich, um die Bereitstellung eines einzelnen Windows Server 2016 oder Windows Server 2012-RAS-Servers in einem Cluster mit Lastenausgleich.
+ Windows Server 2016 und Windows Server 2012 kombinieren Always on VPN-und RRAS-VPN (Routing and Remote Access Service) in einer einzigen Remote Zugriffs Rolle. Diese Übersicht bietet eine Einführung in die Konfigurationsschritte, die erforderlich sind, um einen einzelnen Remote Zugriffs Server unter Windows Server 2016 oder Windows Server 2012 in einem Cluster mit Lastenausgleich bereitzustellen.
   
--  Schritt 1: [Bereitstellen einer Always on-VPN-Server mit erweiterten Optionen](../../../vpn/always-on-vpn/deploy/always-on-vpn-adv-options.md).
+-  Schritt 1: Stellen Sie [einen Always on-VPN-Server mit erweiterten Optionen](../../../vpn/always-on-vpn/deploy/always-on-vpn-adv-options.md)bereit.
   
--   [Schritt 2: Vorbereiten von Clusterservern](Step-2-Prepare-Cluster-Servers.md).  
+-   [Schritt 2: Vorbereiten der Cluster Server @ no__t-0.  
   
--   [Schritt 3: Konfigurieren Sie einen Cluster mit Lastenausgleich](Step-3-Configure-a-Load-Balanced-Cluster.md).  
+-   [Schritt 3: Konfigurieren Sie einen Cluster mit Lastenausgleich @ no__t-0.  
   
--   [Schritt 4: Überprüfen des Clusters](Step-4-Verify-the-Cluster.md).  
+-   [Schritt 4: Überprüfen Sie den Cluster @ no__t-0.  
   
 
 

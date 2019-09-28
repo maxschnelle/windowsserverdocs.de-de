@@ -1,6 +1,6 @@
 ---
 title: Hardwareanforderungen für Direkte Speicherplätze
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 description: Mindesthardwareanforderungen zum Testen von „Direkte Speicherplätze“.
 ms.author: eldenc
 ms.manager: eldenc
@@ -9,12 +9,12 @@ ms.topic: article
 author: eldenchristensen
 ms.date: 08/05/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 2f3f8bff39550108b0417b9513bee4a248dca432
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.openlocfilehash: 63a7152ec6abb318a096ac321ae7ccfaaef4d199
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546371"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402939"
 ---
 # <a name="storage-spaces-direct-hardware-requirements"></a>Hardwareanforderungen für „Direkte Speicherplätze“
 
@@ -33,7 +33,7 @@ Systeme, Komponenten, Geräte und Treiber müssen gemäß dem [Windows Server-Ka
 
 ![Screenshot des Windows Server-Katalogs mit dem SDDC-AQS](media/hardware-requirements/sddc-aqs.png)
 
-Der vollständig konfigurierte Cluster (Server, Netzwerk und Speicher) muss alle [Cluster Validierungstests](https://technet.microsoft.com/library/cc732035(v=ws.10).aspx) gemäß dem Assistenten in Failovercluster-Manager oder mit dem `Test-Cluster` [Cmdlet](https://docs.microsoft.com/powershell/module/failoverclusters/test-cluster?view=win10-ps) in PowerShell bestehen.
+Der vollständig konfigurierte Cluster (Server, Netzwerk und Speicher) muss alle [Cluster Validierungstests](https://technet.microsoft.com/library/cc732035(v=ws.10).aspx) gemäß dem Assistenten in Failovercluster-Manager oder mit dem [Cmdlet](https://docs.microsoft.com/powershell/module/failoverclusters/test-cluster?view=win10-ps) "`Test-Cluster`" in PowerShell bestehen.
 
 Außerdem gelten die folgenden Anforderungen:
 

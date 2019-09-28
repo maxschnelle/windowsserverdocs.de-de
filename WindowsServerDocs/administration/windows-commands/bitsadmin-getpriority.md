@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin getpriority
-description: Windows-Befehle Thema **Bitsadmin Getpriority** -Ruft die Priorität des angegebenen Auftrags.
+title: biout admin GetPriority
+description: 'Windows-Befehls Thema für **bitionadmin GetPriority** : Ruft die Priorität des angegebenen Auftrags ab.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -12,14 +12,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/01/2019
-ms.openlocfilehash: 6be2461ed87b75144367b1bd74376381e4674b66
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0b8914f27c690aa9bb9cbf30430b3edf55f2eb92
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841441"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381433"
 ---
-# <a name="bitsadmin-getpriority"></a>Bitsadmin getpriority
+# <a name="bitsadmin-getpriority"></a>biout admin GetPriority
 
 Ruft die Priorität des angegebenen Auftrags ab.
 
@@ -33,19 +33,19 @@ bitsadmin /GetPriority <Job>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
 
 ## <a name="remarks"></a>Hinweise
 
-Die Priorität ist entweder **VORDERGRUND**, **hohe**, **NORMAL**, **niedrig**, oder **unbekannte**.
+Die Priorität ist entweder **Vordergrund**, **hoch**, **Normal**, **niedrig**oder **unbekannt**.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Das folgende Beispiel ruft die Priorität für den Auftrag mit dem Namen *MyDownloadJob*.
+Im folgenden Beispiel wird die Priorität für den Auftrag mit dem Namen " *mydownloadjob*" abgerufen.
 ```
 C:\>bitsadmin /GetPriority myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

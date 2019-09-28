@@ -7,90 +7,90 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 569bea74fe7750eaf2b410a552876e0862b1e24b
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 418bc5d53a2bd11afa8563b07bbff76c89495715
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191093"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407977"
 ---
 # <a name="planning-for-federation-server-capacity"></a>Planen der Verbundserverkapazität
 
-Planen der Kapazität für Verbundserver können Sie besser einschätzen:  
+Die Kapazitätsplanung für Verbund Server unterstützt Sie beim schätzen:  
   
--   Welche Faktoren wachsen die Größe der AD FS-Konfigurationsdatenbank.  
+-   Welche Faktoren die Größe der AD FS Konfigurations Datenbank vergrößern.  
   
--   Die entsprechenden hardwareanforderungen für jeden Verbundserver.  
+-   Die erforderlichen Hardwareanforderungen für die einzelnen Verbund Server.  
   
--   Die Anzahl der Verbundserver in jeder Organisation platziert werden soll.  
+-   Die Anzahl der Verbund Server, die in jeder Organisation platziert werden sollen.  
   
-Verbundserver Ausgeben von Sicherheitstoken für Benutzer. Diese Token werden an einen Identitätsempfänger für die Nutzung angezeigt. Verbundserver ausstellen Sicherheitstoken, nach der Authentifizierung eines Benutzers oder nach dem Empfang von einem Sicherheitstoken, das zuvor von einem Partner Verbunddienst ausgegeben wurde. Ein Sicherheitstoken wird von einem Verbunddienst angefordert, wenn Benutzer zunächst auf verbundanwendungen anmelden oder ihre Sicherheitstoken abläuft, während sie auf verbundanwendungen zugreifen.  
+Verbund Server geben Sicherheits Token für Benutzer aus. Diese Token werden einer vertrauenden Seite für die Nutzung angezeigt. Verbund Server geben Sicherheits Token nach der Authentifizierung eines Benutzers oder nach dem Empfang eines Sicherheits Tokens aus, das zuvor von einem Partner Verbunddienst ausgestellt wurde. Ein-Sicherheits Token wird von einem Verbunddienst angefordert, wenn sich die Benutzer anfänglich bei Verbund Anwendungen anmelden oder wenn Ihre Sicherheits Token ablaufen, während Sie auf Verbund Anwendungen zugreifen.  
   
-Verbundserver hohe aufnehmen sollen\-farmkonfigurationen Verfügbarkeit-Server an, die Microsoft-Netzwerklastenausgleich verwenden \(NLB\) Technologie. Verbundserver in einer Farmkonfiguration können Anforderungen unabhängig voneinander und bedienen, ohne den Zugriff auf alle allgemeinen Farmkomponenten für jede Anforderung. Aus diesem Grund ist nur wenig Aufwand beteiligt Horizontales Skalieren eine Verbund-serverbereitstellung.  
+Verbund Server sind so konzipiert, dass Sie High @ no__t-Serverfarm Konfigurationen unterstützen, die den Microsoft-Netzwerk Lastenausgleich \(nlb @ no__t-2-Technologie verwenden. Verbund Server in einer Farm Konfiguration können Anforderungen unabhängig voneinander bedienen, ohne für jede Anforderung auf allgemeine Farm Komponenten zugreifen zu müssen. Daher ist der Aufwand für das horizontale hochskalieren einer Verbund Server Bereitstellung geringfügig.  
   
-**Empfehlungen:**  
+**Empfehlungen**  
   
--   Für unternehmenskritische\-kritisch oder hohe\-Verfügbarkeit Bereitstellungen, es wird empfohlen, eine kleine Verbundserverfarm zu, in jeder Partnerorganisation, mit mindestens zwei Verbundserver pro Farm vorhanden sind erstellen, um Fehlertoleranz bereitzustellen.  
+-   Für die Bereitstellung von Unternehmens @ no__t-0critical oder High @ no__t-1 Availability empfiehlt es sich, in jeder Partnerorganisation eine kleine Verbund Serverfarm mit mindestens zwei Verbund Servern pro Farm zu erstellen, um Fehlertoleranz bereitzustellen.  
   
--   Für hohe Verfügbarkeit und die Einfachheit der Verbundserver Horizontales Skalieren müssen ist horizontales hochskalieren die empfohlene Methode zum Umgang mit hohen Anzahl von Anforderungen pro Sekunde für einen bestimmten Verbunddienst aus. Skalieren über die grundlegende Konfiguration in dieser Anleitung ist es unwahrscheinlich, dass erhebliche Kapazität, die Behandlung der Gewinne erzeugen.  
+-   Mit dem Bedarf an Hochverfügbarkeit und der Erleichterung der horizontalen Skalierung von Verbund Servern ist das horizontale hochskalieren die empfohlene Methode für die Verarbeitung einer hohen Anzahl von Anforderungen pro Sekunde für eine bestimmte Verbunddienst. Das horizontale hochskalieren über die Basiskonfiguration in diesem Handbuch hinaus führt wahrscheinlich nicht zu erheblichen Leistungssteigerungen.  
   
-## <a name="ad-fs-configuration-database-size-and-growth"></a>AD FS-Konfiguration-Datenbankgröße und-Wachstum  
-Die Größe der AD FS-Konfigurationsdatenbank gilt im Allgemeinen klein sein, und Größe der Datenbank ist nicht tendenziell eine wichtige Überlegung für AD FS-Bereitstellungen.  Die genaue Größe der AD FS-Konfigurationsdatenbank kann hängen größtenteils davon die Anzahl von Vertrauensstellungen und die zugehörigen Vertrauensstellung\-bezogenen Metadaten – z. B. Ansprüche, die Anspruchsregeln und Überwachen von Einstellungen, die für jede Vertrauensstellung konfiguriert. Wenn die Anzahl der Trust-Einträge in der Konfigurationsdatenbank zunimmt, steigt auch die Notwendigkeit von mehr Speicherplatz.  
+## <a name="ad-fs-configuration-database-size-and-growth"></a>Größe und Wachstum der AD FS-Konfigurations Datenbank  
+Die Größe der AD FS Konfigurations Datenbank wird in der Regel als klein betrachtet, und die Datenbankgröße ist in AD FS Bereitstellungen tendenziell kein wichtiger Faktor.  Die genaue Größe der AD FS Konfigurations Datenbank kann größtenteils von der Anzahl der Vertrauens Stellungen und den zugeordneten –-bezogenen no__t-Metadaten wie z. b. Ansprüchen, Anspruchs Regeln und Überwachungs Einstellungen abhängen, die für jede Vertrauensstellung konfiguriert sind. Wenn die Anzahl von Vertrauens Einträgen in der Konfigurations Datenbank zunimmt, ist es daher erforderlich, mehr Speicherplatz zu benötigen.  
   
-Weitere Informationen zur Bereitstellung über die AD FS-Konfigurationsdatenbank finden Sie unter [Überlegungen zur Topologie der AD FS-Bereitstellung](AD-FS-Deployment-Topology-Considerations.md).  
+Weitere Informationen zur Bereitstellung der AD FS Konfigurations Datenbank finden Sie unter [Überlegungen zur AD FS Bereitstellungs Topologie](AD-FS-Deployment-Topology-Considerations.md).  
   
-## <a name="memory-cpu-and-disk-space-requirements"></a>Anforderungen an den Arbeitsspeicher, CPU und Datenträger  
-Zum Glück, Arbeitsspeicher, CPU und Speicherplatz für Verbundserver sind geringfügige, und sie sind nicht wahrscheinlich eine treibende Faktor Hardware Entscheidungen. Weitere Informationen zu den hardwareanforderungen finden Sie unter [Anhang A: Überprüfen der AD FS-Anforderungen](Appendix-A--Reviewing-AD-FS-Requirements.md).  
-  
-> [!NOTE]  
-> Neigten Tests, die vom AD FS-Produktteam mit einer Verbundserverfarm konfiguriert mit einem dedizierten SQL Server zum Speichern der AD FS-Konfigurationsdatenbank ausgeführt wurden, die Gesamtlast auf dem SQL Server niedrig ist. In einem test mit einer vier\-Verbund\--Serverfarm, die Verwendung einer einzelnen SQL Server, CPU-Auslastung konfiguriert wurde nicht überstiegen 10 % trotz Tests, die von den Verbundservern zu zielauslastung wiederhergestellt.  
-  
-## <a name="bk_estimatefs"></a>Schätzen Sie die Anzahl der Verbundserver für Ihre Organisation  
-Das AD FS-Produktteam entwickelt gerne den Planungsprozess für Verbundserver Hardware zu optimieren der AD FS-Kapazität dem Arbeitsblatt zur Dimensionierung. Diese Excel-Tabelle enthält die Rechner\-wie Funktionen, mit denen erwartete Nutzung von Daten, die gelangen Sie über die Benutzer in Ihrer Organisation bereitstellen und eine empfohlene optimale Anzahl der Verbundserver für Ihre AD FS-produktionsumgebung zurückgeben .  
+## <a name="memory-cpu-and-disk-space-requirements"></a>Speicher-, CPU-und Speicherplatzanforderungen  
+Glücklicherweise sind Arbeitsspeicher-, CPU-und Speicherplatzanforderungen für Verbund Server gering, und Sie sind wahrscheinlich kein Fahr Faktor bei den Hardware Entscheidungen. Weitere Informationen zu Hardwareanforderungen finden Sie unter [anhang A: Überprüfen der AD FS Anforderungen @ no__t-0.  
   
 > [!NOTE]  
-> Die Anzahl der Verbundserver, die in dieser Tabelle wird empfohlen, wird basiert auf den Hardware- und Netzwerk-Spezifikationen, die das AD FS-Produktteam während der Tests verwendet. Aus diesem Grund muss die Anzahl der Verbundserver, die die Tabelle wird empfohlen, wird in diesem Kontext verstanden werden.  Weitere Informationen zu den Spezifikationen, die während der Tests verwendet, finden Sie unter dem Thema [Planen der AD FS-Serverkapazität](Planning-for-AD-FS-Server-Capacity.md).  
+> In Tests, die vom AD FS-Produktteam mithilfe einer Verbund Serverfarm ausgeführt wurden, die mit einem dedizierten SQL Server zum Speichern der AD FS Konfigurations Datenbank konfiguriert wurde, war die Gesamtlast auf dem SQL Server tendenziell gering. In einem Test, der eine vier @ no__t-0federation @ no__t-1 Server-Farm verwendet, die für die Verwendung eines einzelnen SQL Server konfiguriert war, hat die CPU-Auslastung trotz der Tests, bei denen die Verbund Server zur Ziel Auslastung geführt haben, 10% nicht überschritten.  
   
-### <a name="using-the-ad-fs-capacity-planning-sizing-spreadsheet"></a>Verwenden die AD FS-Kapazitätsplanung  
-Wenn Sie diese Tabelle verwenden, müssen Sie einen Wert aus \(entweder **40 %** , **60 %** , oder **80 %** \) am besten den Prozentsatz der dar Gesamtanzahl der Benutzer, die Sie erwarten, dass authentifizierungsanforderungen auf Ihren Verbundserver während Spitzenzeiten gesendet wird.  
-  
-Anschließend müssen Sie einen Wert aus \(entweder **1 Minute**, **15 Minuten**, oder **1 Stunde** \) , dass am besten die Zeitspanne darstellt, erwarten Sie, dass, Der maximale Nutzung Zeitraum bis zum letzten. Sie können z. B. 40 % als Wert für die Gesamtzahl der Benutzer schätzen, werden, die die Anmeldung innerhalb eines Zeitraums von 15 Minuten oder 60 % der Benutzer wird innerhalb eines Zeitraums von einer Stunde anmelden. Zusammen definieren diese Werte die maximale Lastprofil, die mit dem Ihre Empfehlung Größe berechnet werden sollen.  
-  
-Als Nächstes müssen Sie die Gesamtzahl der Benutzer angeben, die einmalige Anmelden müssen\-für den Zugriff auf die Ziel-Ansprüche\-Anwendung unterstützt, basierend auf der gibt an, ob die Benutzer sind:  
-  
--   Protokollierung in Active Directory von einem lokalen Computer, die physisch mit dem Unternehmensnetzwerk verbunden ist \(über die integrierte Windows-Authentifizierung\)  
-  
--   Protokollierung in Active Directory Remote auf einem Computer, die nicht physisch mit dem Unternehmensnetzwerk verbunden ist \(über Windows integrierte Authentifizierung oder Benutzername und Kennwort\)  
-  
--   Versuchen Sie von einer anderen Organisation und sind auf die Ziel-Ansprüche\-unterstützende Anwendung, die von einem vertrauenswürdigen Partner  
-  
--   Aus einer SAML 2.0-Identitätsanbieter und sind es wird versucht, auf die Ziel-Ansprüche\-fähigen Anwendung  
-  
-#### <a name="how-to-use-this-spreadsheet"></a>Gewusst wie: Verwenden Sie diese Tabelle  
-Sie können die folgenden Schritte für jede Verbund-Server-farmverwaltungsdatenbank-Instanz verwenden, die Sie zum Ermitteln der empfohlenen Anzahl der Verbundserver bereitstellen möchten.  
-  
-1.  Herunterladen und öffnen Sie dann die [AD FS Capacity Planning dem Arbeitsblatt zur Dimensionierung für WindowsServer 2012 R2](https://adfsdocs.blob.core.windows.net/adfs/ADFSCapacityPlanning.xlsx) oder [AD FS Capacity Planning dem Arbeitsblatt zur Dimensionierung für WindowsServer 2016](https://adfsdocs.blob.core.windows.net/adfs/ADFSCapacity2016.xlsx).
-  
-2.  In der Zelle rechts neben der **während der spitzenauslastungszeit System Nutzung, erwartet dieser Prozentsatz des für meine Benutzer authentifizieren** Zelle, auf die Zelle, und klicken Sie dann mithilfe der Dropdownliste\-nach-unten-Pfeile, um Ihre geschätzte Systemverwendung auswählen Ebene, entweder **40 %** , **60 %** oder **80 %** für die Bereitstellung.  
-  
-3.  In der Zelle rechts neben der **in den folgenden Zeitraum** Zelle, auf die Zelle, und klicken Sie dann mithilfe der Dropdownliste\-unten weisenden Pfeil, wählen Sie entweder **1 Minute**, **15 Minuten**, oder **1 Stunde** , wählen Sie die Dauer der Spitzenlast.  
-  
-4.  In der Zelle rechts neben der **Geben Sie die geschätzte Anzahl von internen Anwendungen \(z. B. SharePoint \(2007 oder 2010\) oder Ansprüche unterstützende Anwendungen\)**  Zelle, geben Sie die Anzahl Interner Anwendungen verwenden Sie in Ihrer Organisation.  
-  
-5.  In der Zelle rechts neben der **Geben Sie die geschätzte Anzahl von onlineanwendungen \(z. B. Office 365 Exchange Online, SharePoint Online oder Lync Online\)**  Zelle, und geben Sie die Anzahl der online-Anwendungen oder Dienste, die Sie in Ihrer Organisation verwendet.  
-  
-6.  Unter der Zelle, die mit dem Titel **Anzahl Benutzer**, geben Sie eine Zahl für jede Zeile, die für ein Beispielszenario für die Anwendung Ihre Benutzer gilt wird einmaliges Anmelden müssen\-für den Zugriff auf. Diese Spalte muss die Anzahl der definierten Benutzer, nicht den Spitzenzeiten von Benutzern pro Sekunde enthalten. Wenn der Zugriff bei Zugriffsversuchen auf die Anwendung zunächst über die Seite zur startbereichsermittlung zurückkehren müssen, geben Sie **Y**. Wenn Sie diese Auswahl nicht sicher sind, geben Sie **Y**.  
-  
-7.  Überprüfen Sie die folgenden empfohlenen Werte, die bereitgestellt werden:  
-  
-    1.  Die Gesamtanzahl der empfohlenen Verbundserver finden Sie in der unteren rechten Zelle, die in grau markiert ist.  
-  
-    2.  Die Anzahl von Servern, die für jede Anwendung Beispielszenario empfohlen finden Sie in der Zelle in der Zeile, die in grau markiert ist.  
+## <a name="bk_estimatefs"></a>Schätzen Sie die Anzahl der Verbund Server für Ihre Organisation.  
+Um den Hardware Planungsprozess für Verbund Server zu optimieren, hat das AD FS-Produktteam das Arbeitsblatt für die Größenanpassung AD FS Kapazitätsplanung entwickelt. Dieses Excel-Arbeitsblatt enthält die Funktion "Calculator @ no__t-0like", die erwartete Verwendungs Daten verwendet, die Sie für Benutzer in Ihrer Organisation bereitstellen, und eine empfohlene optimale Anzahl von Verbund Servern für Ihre AD FS Produktionsumgebung zurückgeben.  
   
 > [!NOTE]  
-> Der Wert, der in der Zelle rechts neben der Zelle, die mit der Bezeichnung automatisch berechnet wird **Gesamtanzahl von Verbundservern, die empfohlen** am unteren Rand der Tabelle enthält eine Formel, die einen zusätzlicher Puffer von 20 % auf Hinzufügen, wird die die Gesamtsumme aller Werte in den einzelnen von den einzelnen Zeilen vorangeht. Der Formel hinzugefügt, die **Gesamtanzahl von Verbundservern empfohlen** Zelle erstellt, in diesen Puffer für Ihre gesamten empfohlene Anzahl von bereitgestellten Verbundserver soll sehr unwahrscheinlich, dass die Gesamtlast auf der Farm jemals erreicht wird die Sättigung-Punkt.  
+> Die Anzahl der Verbund Server, die von diesem Arbeitsblatt empfohlen werden, basiert auf den Hardware-und Netzwerk Spezifikationen, die das AD FS Produktteam während des Tests verwendet hat. Daher muss die Anzahl der Verbund Server, die für die Kalkulations Tabelle empfohlen werden, innerhalb dieses Kontexts verstanden werden.  Weitere Informationen zu den während des Tests verwendeten Spezifikationen finden Sie im Thema [Planning for AD FS Server Capacity](Planning-for-AD-FS-Server-Capacity.md).  
+  
+### <a name="using-the-ad-fs-capacity-planning-sizing-spreadsheet"></a>Verwenden des Arbeitsblatts zur Größenanpassung von AD FS Capacity Planning  
+Wenn Sie dieses Arbeitsblatt verwenden, müssen Sie einen Wert \(entweder **40%** , **60%** oder **80%** \) auswählen, der den Prozentsatz der Gesamtzahl der Benutzer angibt, die von Ihnen erwartet werden, dass Authentifizierungsanforderungen an Ihre Verbund Server gesendet werden. Spitzen Nutzungs Zeiträume.  
+  
+Anschließend müssen Sie einen Wert \(entweder **1 Minute**, **15 Minuten**oder **1 Stunde**\) auswählen, der die Zeitspanne angibt, für die Sie den Zeitraum der Spitzen Auslastung erwarten. Beispielsweise können Sie 40% als Wert für die Gesamtzahl der Benutzer schätzen, die sich innerhalb eines Zeitraums von 15 Minuten anmelden werden, oder dass sich 60% der Benutzer innerhalb eines Zeitraums von 1 Stunde anmelden. Mit diesen Werten wird das Spitzenlast Profil definiert, mit dem ihre Größen Änderungs Empfehlung berechnet wird.  
+  
+Als nächstes müssen Sie die Gesamtzahl der Benutzer angeben, die für den Zugriff auf die Zielanwendung @ no__t-1aware-Anwendung das einmalige Zeichen @ no__t-0benötigen, je nachdem, ob die Benutzer folgende Aktionen ausführen:  
+  
+-   Anmelden bei Active Directory von einem lokalen Computer, der physisch mit dem Unternehmensnetzwerk verbunden ist \(über die integrierte Windows-Authentifizierung @ no__t-1  
+  
+-   Remote Anmeldung bei Active Directory von einem Computer, der nicht physisch mit dem Unternehmensnetzwerk verbunden ist \(über die integrierte Windows-Authentifizierung oder Benutzername und Kennwort @ no__t-1  
+  
+-   Aus einer anderen Organisation und versuchen, von einem vertrauenswürdigen Partner auf die Ziel Ansprüche @ no__t 0aware-Anwendung zuzugreifen.  
+  
+-   Von einem SAML 2,0-Identitäts Anbieter und versuchen, auf die Ziel Ansprüche @ no__t-abhängige Anwendung zuzugreifen  
+  
+#### <a name="how-to-use-this-spreadsheet"></a>Verwenden dieses Arbeitsblatts  
+Sie können die folgenden Schritte für jede Instanz der Verbund Serverfarm verwenden, die Sie bereitstellen möchten, um die empfohlene Anzahl von Verbund Servern zu ermitteln.  
+  
+1.  Laden Sie das Arbeitsblatt zur [Größenanpassung von AD FS Kapazitätsplanung für Windows Server 2012 R2](https://adfsdocs.blob.core.windows.net/adfs/ADFSCapacityPlanning.xlsx) oder das Arbeitsblatt [für die Größenanpassung AD FS Kapazitätsplanung für Windows Server 2016](https://adfsdocs.blob.core.windows.net/adfs/ADFSCapacity2016.xlsx)herunter.
+  
+2.  In der Zelle auf der rechten Seite des **Zeitraums während des Spitzen Zeitraums für die System Auslastung erwarte ich, dass der Prozentsatz der Benutzer die Zelle authentifiziert** , auf die Zelle und dann auf die Pfeile mit dem Drop @ no__t-1-Down-Wert, um die geschätzte System Auslastung auszuwählen, entweder **40%** , **60%** oder **80%** für die Bereitstellung.  
+  
+3.  Klicken Sie in der Zelle rechts neben der Zelle in **der folgenden** Zelle auf die Zelle, und verwenden Sie dann die Pfeile Drop @ no__t-1down, um entweder **eine Minute**, **15 Minuten**oder **eine Stunde** auszuwählen, um die Dauer der Spitzenlast auszuwählen.  
+  
+4.  Geben Sie in der Zelle rechts neben der Zelle " **geschätzte Anzahl interner Anwendungen \(, z. b. SharePoint \(2007 oder 2010 @ no__t-3 oder Ansprüche unterstützende Webanwendungen @ no__t-4** " die Anzahl der internen Anwendungen ein, die Sie in Ihrem Ordnung.  
+  
+5.  Geben Sie in der Zelle rechts neben der Zelle **geschätzte Anzahl von Online-Anwendungen \(, z. b. Office 365 Exchange Online, SharePoint Online oder lync Online @ no__t-2** die Anzahl von Online Anwendungen oder-Diensten ein, die Sie in Ihrer Organisation verwenden.  
+  
+6.  Geben Sie in der Zelle mit der Bezeichnung **Anzahl von Benutzern**eine Zahl für jede Zeile ein, die für ein Beispiel Anwendungsszenario gilt, das für Ihre Benutzer das einmalige Anmelden (Single Sign, no__t-1On Access) benötigt wird. Diese Spalte sollte die Anzahl der definierten Benutzer, nicht die Spitzen Benutzer pro Sekunde enthalten. Wenn die Anwendung auf die Anwendung zugreifen muss, müssen Sie zunächst die Seite "Startbereichs Ermittlung **" eingeben.** Wenn Sie sich nicht sicher sind, geben Sie **Y**ein.  
+  
+7.  Überprüfen Sie die folgenden empfohlenen Werte:  
+  
+    1.  Die Gesamtanzahl der empfohlenen Verbund Server finden Sie in der unteren rechten Zelle, die grau hervorgehoben ist.  
+  
+    2.  Die Anzahl der für die einzelnen Beispiel Anwendungsszenarien empfohlenen Server finden Sie in der Zelle in der Zeile, die in grau hervorgehoben ist.  
+  
+> [!NOTE]  
+> Der Wert, der automatisch in der Zelle rechts von der Zelle mit dem Titel **Gesamtzahl der Verbund Server** , die unten in der Kalkulations Tabelle empfohlen wird, berechnet wird, enthält eine Formel, mit der der Gesamtsumme aller Werte in den einzelnen vorangehenden Zeilen. Die Formel, die der **Gesamtzahl der empfohlenen Verbund Server** hinzugefügt wird, wird in diesem Puffer auf die insgesamt empfohlene Anzahl bereitgestellter Verbund Server hochskaliert, um es sehr unwahrscheinlich zu machen, dass die Gesamtlast für die Farm jemals den Sättigungspunkt erreichen wird.  
   
 ## <a name="see-also"></a>Siehe auch
 [AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

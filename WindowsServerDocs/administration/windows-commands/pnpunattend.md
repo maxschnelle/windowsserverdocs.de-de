@@ -1,8 +1,8 @@
 ---
 title: pnpunattend
-description: Erfahren Sie, wie die Gerätetreiber auf einem Computer zu überwachen, als auch automatische Treiber Installationen.
+description: Erfahren Sie, wie Sie die Gerätetreiber auf einem Computer überwachen und automatische Treiber Installationen durchführen.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 53b72459d497ac5d079336c2a00ba65634b2e3a6
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 77a6ab1ea45322e3c53e8b095c412cf8838be60d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436336"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372269"
 ---
 # <a name="pnpunattend"></a>pnpunattend
 
-Überwacht, einen Computer für die Gerätetreiber, und führen Sie für die unbeaufsichtigte Installation, oder für Treiber suchen, ohne zu installieren und, optional die Ergebnisse an die Befehlszeile zu melden. Verwenden Sie diesen Befehl, um die Installation von bestimmten Treiber für bestimmte Hardwaregeräte anzugeben. Siehe Anmerkungen.
+Überwacht einen Computer auf Gerätetreiber und führt unbeaufsichtigte Treiber Installationen durch oder sucht nach Treibern, ohne zu installieren und optional die Ergebnisse an die Befehlszeile zu melden. Verwenden Sie diesen Befehl, um die Installation bestimmter Treiber für bestimmte Hardware Geräte anzugeben. Siehe Anmerkungen.
 
 ## <a name="syntax"></a>Syntax
 
@@ -34,25 +34,25 @@ PnPUnattend.exe auditSystem [/help] [/?] [/h] [/s] [/L]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|auditSystem|Gibt an, online-Treiber installieren.</br>Erforderlich, außer wenn **Pnpunattend** ausgeführt wird und entweder die **/Help** oder **/?** Parameter.|
-|/s|Optional. Gibt an, nach Treibern suchen, ohne zu installieren.|
-|/L|Optional. Gibt an, die die Protokollinformationen für diesen Befehl an der Eingabeaufforderung angezeigt.|
-|/?|Optional. Zeigt die Hilfe für diesen Befehl an der Eingabeaufforderung.|
+|Durchgänge|Gibt die Online Treiberinstallation an.</br>Erforderlich, außer wenn **pnpunattend** entweder mit **/Help** oder **/?** ausgeführt wird Metern.|
+|/s|Optional. Gibt an, dass Treiber ohne Installation von gesucht werden sollen.|
+|/L|Optional. Gibt an, dass die Protokollinformationen für diesen Befehl an der Eingabeaufforderung angezeigt werden.|
+|/?|Optional. Zeigt die Hilfe für diesen Befehl an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
-Vorbereitung ist erforderlich. Bevor Sie mit diesem Befehl müssen Sie die folgenden Aufgaben ausführen:
+Vorläufige Vorbereitung ist erforderlich. Vor der Verwendung dieses Befehls müssen Sie die folgenden Aufgaben ausführen:
 
-1. Erstellen Sie ein Verzeichnis für die Treiber, die Sie installieren möchten. Erstellen Sie z. B. einen Ordner auf **C:\Drivers\Video** für den Grafikkartentreiber.
-2. Laden Sie und extrahieren Sie das Treiberpaket für Ihr Gerät. Kopieren Sie den Inhalt des Unterordners, der die INF-Datei für Ihre Version des Betriebssystems enthält sowie auf alle Unterordner, in den video-Ordner, den Sie erstellt haben. Kopieren Sie z. B. die Videotreiber-Dateien, um C:\Drivers\Video.
-3. Systemumgebungsvariable Path hinzufügen, zu dem Ordner, die Sie in Schritt 1 z. B. erstellten **C:\Drivers\Video**.
-4. Erstellen Sie den folgenden Registrierungsschlüssel, und klicken Sie dann für die **DriverPaths** Schlüssel, die Sie erstellt haben, legen die **Wertdaten** zu **1**.
-5. Für Windows® 7 navigieren Sie im Registrierungspfad befinden: **HKEY_LOCAL_Machine\Software\Microsoft\Windows NT\CurrentVersion\\** , und klicken Sie dann die Schlüssel zu erstellen: **UnattendSettings\PnPUnattend\DriverPaths\\**
-6. Navigieren Sie für Windows Vista zum Registrierungspfad: **HK_LM\Software\Microsoft\Windows NT\CurrentVersion\\** , und erstellen Sie dann auf die Schlüssel = **\UnattendSettings\PnPUnattend\DriverPaths**.
+1. Erstellen Sie ein Verzeichnis für die Treiber, die Sie installieren möchten. Erstellen Sie z. b. einen Ordner unter **c:\drivers\video** für Grafikkartentreiber.
+2. Laden Sie das Treiber Paket für Ihr Gerät herunter, und extrahieren Sie es. Kopieren Sie den Inhalt des unter Ordners, der die INF-Datei für Ihre Version des Betriebssystems enthält, und alle Unterordner in den von Ihnen erstellten Videoordner. Kopieren Sie z. b. die Videotreiber Dateien nach c:\drivers\video.
+3. Fügen Sie dem Ordner, den Sie in Schritt 1 erstellt haben, eine System Umgebungs Pfad-Variable hinzu. Beispiel: **c:\drivers\video**.
+4. Erstellen Sie den folgenden Registrierungsschlüssel, und legen Sie dann für den von Ihnen erstellten **DriverPath** -Schlüssel die **Wertdaten** auf **1**fest.
+5. Navigieren Sie für Windows® 7 zum Registrierungs Pfad: **HKEY_LOCAL_Machine\Software\Microsoft\Windows NT\CurrentVersion @ no__t-1**, und erstellen Sie dann die Schlüssel: **Unattendsettings\pnpunattend\driverpath @ no__t-1**
+6. Navigieren Sie für Windows Vista zum Registrierungs Pfad: **HK_LM\Software\Microsoft\Windows NT\CurrentVersion @ no__t-1**, und erstellen Sie dann die Schlüssel = **\unattendsettings\pnpunattend\driverpath**.
 
 ## <a name="examples"></a>Beispiele
 
-Der Befehl im folgenden Beispiel veranschaulicht, wie die **PNPUnattend.exe** ein Computers für mögliche Treiberupdates überwachen und melden sich die Ergebnisse der Eingabeaufforderung.
+Der folgende Beispiel Befehl zeigt, wie Sie die Datei " **pnpunattend. exe** " verwenden, um einen Computer auf mögliche Treiber Updates zu überwachen, und dann die Ergebnisse an die Eingabeaufforderung melden.
 
 ```
 pnpunattend auditsystem /s /l 

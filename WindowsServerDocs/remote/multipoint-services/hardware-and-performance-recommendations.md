@@ -3,7 +3,7 @@ title: Hardwareanforderungen und Empfehlungen zur Leistung
 description: Bietet Hardware-und Leistungsanforderungen sowie Empfehlungen für Multipoint Services
 ms.custom: na
 ms.date: 07/22/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ ms.assetid: 99a5c9c2-270f-4753-a28c-434882c03125
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: afabab738527e7a0994c917b0065baa4f8c53fda
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 284131028b308ee86389f25102d934390ba2f16d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871438"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389110"
 ---
 # <a name="hardware-requirements-and-performance-recommendations"></a>Hardwareanforderungen und Empfehlungen zur Leistung
 In diesem Thema wird die Hardware beschrieben, die zum Ausführen eines Multipoint Services-Systems und zum unterstützen von Anwendungsszenarien für Benutzer erforderlich ist. Das Benutzer Szenario wirkt sich direkt auf die CPU-, RAM-und Netzwerk Bandbreitenanforderungen aus.  

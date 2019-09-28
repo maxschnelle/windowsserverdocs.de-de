@@ -1,8 +1,8 @@
 ---
 title: icacls
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 08/21/2018
-ms.openlocfilehash: b1aaa329c8925d7fa4245555ed51b08f7366299d
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 494c87073cfd78c7f5e17c72d4c65bec33a49b98
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811108"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375490"
 ---
 # <a name="icacls"></a>icacls
 
@@ -37,117 +37,117 @@ icacls <Directory> [/substitute <SidOld> <SidNew> [...]] [/restore <ACLfile> [/c
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<FileName>|Gibt die Datei für die DACLs angezeigt werden sollen.|
-|\<Directory>|Gibt das Verzeichnis für die DACLs angezeigt werden sollen.|
-|/t|Führt den Vorgang für alle angegebenen Dateien im aktuellen Verzeichnis und seinen Unterverzeichnissen.|
-|/c|Setzt den Vorgang trotz der Dateifehler fort. Fehlermeldungen werden weiterhin angezeigt werden.|
-|/l|Führt den Vorgang auf eine symbolische Verknüpfung im Vergleich zu das Ziel.|
-|/q|Werden Erfolgsmeldungen unterdrückt.|
-|[/ speichern \<ACLfile > [t] [c] [/ l] [/ q]]|Speichert DACLs für alle übereinstimmenden Dateien *ACLfile* für die spätere Verwendung mit **/Wiederherstellung**.|
-|[/ Setowner \<Benutzername > [t] [c] [/ l] [/ q]]|Ändert den Besitzer aller entsprechenden Dateien für den angegebenen Benutzer.|
-|[/ FindSID \<Sid > [t] [c] [/ l] [/ q]]|Sucht alle übereinstimmende Dateien, die eine DACL, die explizit erwähnt werden die angegebene Sicherheits-ID (SID) enthalten.|
-|[/ Überprüfen von [t] [c] [/ l] [/ q]]|Sucht nach allen Dateien mit ACLs, die nicht kanonische oder inkonsistente ACE (Access Control-Eintrag) anzahlbasiertes Länge haben.|
-|[/ zurücksetzen [t] [c] [/ l] [/ q]]|Standard-ACLs, ersetzt werden ACLs für alle übereinstimmenden Dateien geerbt.|
-|[/ erteilen [: R] \<Sid >:<Perm>[...]]|Gewährt angegeben Benutzerzugriffsrechte an. Berechtigungen ersetzen zuvor gewährt explizite Berechtigungen.</br>Ohne **: R**, Berechtigungen werden auf eine zuvor explizite Berechtigungen hinzugefügt.|
-|[/ deny \<Sid >:<Perm>[...]]|Explizit verweigert den angegebenen Benutzerzugriffsrechte. Ein explizites verbotssystem ACE wird hinzugefügt, für die angegebenen Berechtigungen und die gleichen Berechtigungen in jede ausdrückliche Erteilung von Berechtigungen entfernt werden.|
-|[/ remove [: g\|: d]] \<Sid > [...]] [t] [c] [/ l] [/ q]|Entfernt alle Vorkommen der angegebenen SID aus der DACL.</br>**: g** entfernt alle Vorkommen der gewährten Rechte für die angegebene SID.</br>**: d** entfernt alle Vorkommen der verweigerten Rechte für die angegebene SID.|
-|[/ Setintegritylevel [(CI)(OI)]\<Ebene >:<Policy>[...]]|Alle übereinstimmenden Dateien hinzugefügt explizit ein Integrität ACE. *Ebene* als angegeben wird:</br>-   **L**[ow]</br>-   **M**[Edium]</br>-   **H**[beres]</br>Vererbungsoptionen für die Integrität ACE können der Ebene vor, und es gelten nur für Verzeichnisse.|
-|[/ Ersetzen \<SidOld > <SidNew> [...]]|Ersetzt eine vorhandene SID (*SidOld*) mit einer neuen SID (*SidNew*). Erfordert die *Directory* Parameter.|
-|/ Wiederherstellung \<ACLfile > [c] [/ l] [/ q]|Wendet gespeicherte DACLs aus *ACLfile* auf Dateien im angegebenen Verzeichnis. Erfordert die *Directory* Parameter.|
-|/inheritancelevel:[e\|d\|r]|Legt fest, das die Vererbungsebene: <br>  **e** -Enheritance aktiviert <br>**d** : deaktiviert die Vererbung und kopiert die ACEs <br>**R** – entfernt alle geerbten Zugriffssteuerungseinträge
+|\<Dateiname >|Gibt die Datei an, für die DACLs angezeigt werden sollen.|
+|\<directory >|Gibt das Verzeichnis an, für das DACLs angezeigt werden sollen.|
+|/t|Führt den Vorgang für alle angegebenen Dateien im aktuellen Verzeichnis und seinen Unterverzeichnissen aus.|
+|/c|Der Vorgang wird trotz aller Datei Fehler fortgesetzt. Fehlermeldungen werden weiterhin angezeigt.|
+|/l|Führt den Vorgang für eine symbolische Verknüpfung im Vergleich zum Ziel aus.|
+|/q|Unterdrückt Erfolgsmeldungen.|
+|[/Save \<aclfile > [/t] [/c] [/l] [/q]]|Speichert DACLs für alle übereinstimmenden Dateien in *aclfile* für die spätere Verwendung mit **/Restore**.|
+|[/SetOwner \<username > [/t] [/c] [/l] [/q]]|Ändert den Besitzer aller übereinstimmenden Dateien für den angegebenen Benutzer.|
+|[/findSID \<sid > [/t] [/c] [/l] [/q]]|Sucht alle übereinstimmenden Dateien, die eine DACL enthalten, die explizit die angegebene Sicherheits-ID (SID) erwähnt.|
+|[/verify [/t] [/c] [/l] [/q]]|Findet alle Dateien mit ACLs, die nicht kanonisch sind oder Längen inkonsistent mit ACE (Access Control Entry)-Anzahlen aufweisen.|
+|[/Reset [/t] [/c] [/l] [/q]]|Ersetzt ACLs durch geerbte Standard-ACLs für alle übereinstimmenden Dateien.|
+|[/Grant [: r] \<sid >: <Perm> [...]]|Erteilt angegebene Benutzer Zugriffsrechte. Berechtigungen ersetzen zuvor erteilte explizite Berechtigungen.</br>Ohne **: r**werden Berechtigungen zu allen zuvor erteilten expliziten Berechtigungen hinzugefügt.|
+|[/Deny \<sid >: <Perm> [...]]|Verweigert explizit angegebene Benutzer Zugriffsrechte. Für die angegebenen Berechtigungen wird ein expliziter Verweigerungs-ACE hinzugefügt, und die gleichen Berechtigungen in expliziten Berechtigungen werden entfernt.|
+|[/remove [: g @ no__t-0: d]] \<sid > [...]] /t /c /l /q|Entfernt alle Vorkommen der angegebenen SID aus der DACL.</br>**: g** entfernt alle Vorkommen der gewährten Rechte für die angegebene SID.</br>**:d** entfernt alle Vorkommen abgelehnter Rechte für die angegebene SID.|
+|[/setintegritylevel [(CI) (OI)] \<level >: <Policy> [...]]|Fügt allen übereinstimmenden Dateien explizit einen Integritäts-ACE hinzu. Die *Ebene* wird wie folgt angegeben:</br>-   **L**[OW]</br>-   **M**[edium]</br>-   **H**[IGH]</br>Vererbungs Optionen für den Integritäts-ACE können der Ebene vorangestellt werden und werden nur auf Verzeichnisse angewendet.|
+|[/Substitute \<sidold > <SidNew> [...]]|Ersetzt eine vorhandene sid (*sidold*) durch eine neue sid (*sidnew*). Erfordert den *Directory* -Parameter.|
+|/Restore \<aclfile > [/c] [/l] [/q]|Wendet gespeicherte DACLs aus *aclfile* auf Dateien im angegebenen Verzeichnis an. Erfordert den *Directory* -Parameter.|
+|/InheritanceLevel: [e @ no__t-0d @ no__t-1R]|Legt die Vererbungs Ebene fest: <br>  **e** -Aktivierung der Einschreibung <br>**d** : Deaktivieren der Vererbung und Kopieren der ACEs <br>**r** -entfernt alle geerbten ACEs
 
 ## <a name="remarks"></a>Hinweise
 
--   SIDs kann entweder numerische oder angezeigter Name-Format haben. Wenn Sie ein numerisches Format verwenden, bringt Sie das Platzhalterzeichen an **&#42;** auf den Anfang der SID.
--   **Icacls** behält die kanonische Reihenfolge des ACE-Einträge, wie:  
-    -   Explizite ablehnungen
-    -   Explizite gewährt
-    -   Geerbte ablehnungen
-    -   Geerbte gewährt
--   *Perm* ist eine Berechtigungsmaske, die in einem der folgenden Formate angegeben werden kann:  
+-   SIDs können entweder in Form eines numerischen oder eines anzeigen Amens vorliegen. Wenn Sie ein numerisches Format verwenden, können Sie das Platz **&#42;** Halter Zeichen an den Anfang der SID anbinden.
+-   **icacls** behält die kanonische Reihenfolge der ACE-Einträge wie folgt bei:  
+    -   Explizite Verweigerungen
+    -   Explizite Zuweisungen
+    -   Geerbte Verweigerungen
+    -   Geerbte Zuweisungen
+-   *Perm* ist eine Berechtigungs Maske, die in einer der folgenden Formen angegeben werden kann:  
     -   Eine Sequenz von einfachen rechten:
 
         **F** (Vollzugriff)
 
-        **M** (ändern Sie den Zugriff)
+        **M** (Zugriff ändern)
 
-        **RX** (Lese- und Ausführungsberechtigungen)
+        **RX** (Lese-und Ausführungs Zugriff)
 
-        **R** (nur-Lese Zugriff)
+        **R** (Schreib geschützter Zugriff)
 
-        **W** (nur-schreiben-Datenzugriff)
-    -   Eine durch Trennzeichen getrennte Liste in Klammern, der bestimmte Rechte:
+        **W** (Schreib geschützter Zugriff)
+    -   Eine durch Trennzeichen getrennte Liste in Klammern spezifischer Rechte:
 
-        **D** (löschen)
+        **D** (Löschen)
 
-        **RC** (Lesezugriff)
+        **RC** (Read-Steuerelement)
 
-        **WDAC** (DAC schreiben)
+        **WDac** (Schreiben von DAC)
 
-        **WEI** (Besitzer schreiben)
+        **Wo** (Besitzer schreiben)
 
-        **S** (synchronisieren)
+        **S** (Synchronisieren)
 
-        **AS** (Systemsicherheit Zugriff)
+        **As** (Zugriffs Systemsicherheit)
 
         **MA** (maximal zulässig)
 
-        **GR** (generische lesen)
+        **Gr** (generischer Lesevorgang)
 
-        **GW** (generic Write)
+        **GW** (generischer Schreibvorgang)
 
-        **GE** (generische execute)
+        **Ge** (generisches ausführen)
 
-        **Bei allgemeiner Verfügbarkeit** (generische alle)
+        **GA** (generisch)
 
-        **Remotedesktop** (Lesen von Daten/Verzeichnis)
+        **RD** (Daten lesen/auflisten)
 
-        **WD** (Datei/hinzufügen von Daten schreiben)
+        **WD** (Daten schreiben/Datei hinzufügen)
 
-        **AD** (Anfügen Unterverzeichnis/Hinzufügen von Daten)
+        **AD** (Daten anfügen/Unterverzeichnis hinzufügen)
 
         **REA** (Erweiterte Attribute lesen)
 
-        **WEA** (Schreiben von erweiterten Attributen)
+        **WEA** (Erweiterte Attribute schreiben)
 
-        **X** (Ausführen/durchsuchenden)
+        **X** (ausführen/durchlaufen)
 
         **DC** (untergeordnetes Element löschen)
 
         **RA** (Attribute lesen)
 
-        **WA** (Schreiben von Attributen)
--   Vererbung von Berechtigungen können entweder vorausgehen *Perm* Formular, und sie gelten nur für Verzeichnisse:
+        **WA** (Attribute schreiben)
+-   Vererbungs Rechte können entweder der *Perm* -Form vorangestellt werden, und Sie werden nur auf Verzeichnisse angewendet:
 
-    **(OI)** : für Datenobjekte erbt
+    **(OI)** : Objekt erben
 
-    **(CI)** : Container erben.
+    **(CI)** : Container erben
 
-    **(E/A)** : nur erben
+    **(IO)** : nur Erben
 
-    **(NP)** : do not propagate inherit
+    **(NP)** : nicht erben
 
 ## <a name="examples"></a>Beispiele
 
-Um die DACLs für alle Dateien in das Verzeichnis von C:\Windows und seinen Unterverzeichnissen der ACLFile-Datei zu speichern, geben Sie Folgendes ein:
+Wenn Sie die DACLs für alle Dateien im Verzeichnis "c:\Windows" und deren Unterverzeichnisse in der aclfile-Datei speichern möchten, geben Sie Folgendes ein:
 
 ```
 icacls c:\windows\* /save aclfile /t
 ```
 
-Um die DACLs für jede Datei innerhalb der ACLFile wiederherzustellen, die in das Verzeichnis von C:\Windows und seinen Unterverzeichnissen vorhanden ist, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um die DACLs für jede Datei in aclfile wiederherzustellen, die im Verzeichnis "c:\Windows" und in den zugehörigen Unterverzeichnissen vorhanden ist:
 
 ```
 icacls c:\windows\ /restore aclfile
 ```
 
-Geben Sie den Benutzer "user1" zu löschen und Schreiben von DAC in eine Datei namens "Test1" zu gewähren:
+Geben Sie Folgendes ein, um dem Benutzer user1 Berechtigungen zum Löschen und Schreiben von DAC für eine Datei mit dem Namen "test1" zu erteilen:
 
 ```
 icacls test1 /grant User1:(d,wdac)
 ```
 
-Geben Sie Folgendes ein, um die benutzerdefinierte SID S-1-1-0 löschen und Schreiben von DAC-Berechtigungen in eine Datei, die mit dem Namen "Test2", zu gewähren:
+Geben Sie Folgendes ein, um dem Benutzer, der durch sid S-1-1-0 definiert ist, DAC-Berechtigungen für eine Datei mit dem Namen "test2" zu erteilen:
 
 ```
 icacls test2 /grant *S-1-1-0:(d,wdac)

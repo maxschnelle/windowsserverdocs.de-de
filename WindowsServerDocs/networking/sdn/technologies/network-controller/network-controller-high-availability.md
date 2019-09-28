@@ -1,89 +1,89 @@
 ---
 title: Netzwerkcontroller – Hohe Verfügbarkeit
-description: Sie können in diesem Thema verwenden, um mehr über hohe Verfügbarkeit für den Netzwerkcontroller für Software-Defined Networking (SDN) in Windows Server 2016 erfahren.
+description: In diesem Thema erfahren Sie mehr über die Netzwerk Controller-Hochverfügbarkeit für Software-Defined Networking (SDN) in Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: get-started-article
 ms.assetid: 334b090d-bec4-4e67-8307-13831dbdd1d8
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: dbd3ae9f4c1f1fc3035fae9ace880046312df2f0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 11f392e99803f0e0ddd0f8b62c9dbca5827a831c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813351"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405936"
 ---
 # <a name="network-controller-high-availability"></a>Netzwerkcontroller – Hohe Verfügbarkeit
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können in diesem Thema verwenden, Informationen zu den Netzwerkcontroller hohe Verfügbarkeit und Skalierbarkeit Konfiguration für die Software Defined Networking \(SDN\).
+In diesem Thema erfahren Sie mehr über die Netzwerk Controller-Hochverfügbarkeit und Skalierbarkeits Konfiguration für Software-Defined Networking \(sdn @ no__t-1.
 
-Wenn Sie SDN in Ihrem Datencenter bereitstellen, können Sie den Netzwerkcontroller zentral bereitstellen, überwachen und Verwalten von vielen Netzwerkelemente, einschließlich der RAS-Gateways, Software-Lastenausgleichsmodule, virtuelle Netzwerkrichtlinien für die Kommunikation des Mandanten, Datacenter Firewall Quality of Service-Richtlinien \(QoS\) für SDN-Richtlinien, Hybrid-Netzwerkrichtlinien und mehr.
+Wenn Sie einen Sdn in Ihrem Rechenzentrum bereitstellen, können Sie mithilfe des Netzwerk Controllers viele Netzwerkelemente zentral bereitstellen, überwachen und verwalten, darunter RAS-Gateways, Software-Lasten Ausgleichs Module, Richtlinien für virtuelle Netzwerke für die Mandanten Kommunikation und Rechenzentrums Firewall. Richtlinien, Quality of Service \(qos @ no__t-1 für Sdn-Richtlinien, Hybrid Netzwerk Richtlinien und mehr.
 
-Da Netzwerkcontroller das Fundament der Verwaltung eines SDN ist, ist es wichtig, für den Netzwerkcontroller-Bereitstellungen für hohe Verfügbarkeit und die Möglichkeit für Sie auf einfache Weise die zentral hoch- oder Herunterskalieren des Netzwerkcontrollers Knoten Ihre Datacenter-Anforderungen bereit.
+Da der Netzwerk Controller der Eckpfeiler der Sdn-Verwaltung ist, ist es wichtig, dass Netzwerk Controller Bereitstellungen Hochverfügbarkeit bereitstellen und die Netzwerk Controller Knoten problemlos zentral hoch-oder herunterskaliert werden können.
 
-Obwohl Sie Netzwerkcontroller als Cluster für die einzelnen Computer bereitstellen können, müssen Sie aus für hohe Verfügbarkeit und Failover-Netzwerkcontroller in einem Cluster mit mindestens drei Computer mit mehreren Computern bereitstellen.
-
->[!NOTE]
->Sie können den Netzwerkcontroller bereitstellen, auf Servercomputern oder auf virtuellen Computern \(VMs\) , Windows Server 2016 Datacenter Edition ausgeführt werden. Wenn Sie den Netzwerkcontroller auf virtuellen Computern bereitstellen, müssen die virtuellen Computer auf Hyper-V-Hosts ausgeführt werden, die auch Datacenter Edition ausgeführt werden. Netzwerkcontroller ist nicht auf Windows Server 2016 Standard Edition verfügbar.
-
-## <a name="network-controller-as-a-service-fabric-application"></a>Der Netzwerkcontroller als Service Fabric-Anwendung
-
-Um hohe Verfügbarkeit und Skalierbarkeit zu erreichen, verwendet Service Fabric des Netzwerkcontrollers. Service Fabric bietet eine Plattform für verteilte Systeme zum Erstellen skalierbarer, zuverlässiger und Anwendungen problemlos verwalten.
-
-Als Plattform bietet Service Fabric-Funktionen, die zum Erstellen von skalierbaren verteilten Systems erforderlich ist. Es bietet-Dienst hostet, auf mehrere Instanzen des Betriebssystems, Synchronisieren von Zustandsinformationen zwischen Instanzen Wahl führend, bei der fehlererkennung, Lastenausgleich und mehr.
+Obwohl Sie den Netzwerk Controller als Cluster mit einem einzelnen Computer bereitstellen können, müssen Sie für Hochverfügbarkeit und Failover den Netzwerk Controller in einem Cluster mit mehreren Computern mit mindestens drei Computern bereitstellen.
 
 >[!NOTE]
->Weitere Informationen zu Service Fabric in Azure finden Sie unter [Übersicht über Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview).
+>Sie können den Netzwerk Controller entweder auf Server Computern oder auf virtuellen Maschinen \(vms @ no__t-1 bereitstellen, auf denen Windows Server 2016 Datacenter Edition ausgeführt wird. Wenn Sie einen Netzwerk Controller auf virtuellen Computern bereitstellen, müssen die VMs auf Hyper-V-Hosts ausgeführt werden, auf denen auch die Datacenter Edition ausgeführt wird. Der Netzwerk Controller ist unter Windows Server 2016 Standard Edition nicht verfügbar.
 
-Bei der Bereitstellung des Netzwerkcontrollers auf mehreren Computern wird des Netzwerkcontrollers als eine einzelne Service Fabric-Anwendung in einem Service Fabric-Cluster ausgeführt. Sie können Service Fabric-Cluster bilden, durch einen Satz von Instanzen des Betriebssystems zu verbinden.
+## <a name="network-controller-as-a-service-fabric-application"></a>Netzwerk Controller als Service Fabric Anwendung
 
-Die Netzwerkcontroller-Anwendung besteht aus mehreren zustandsbehafteten Service Fabric-Diensten. Jeder Dienst ist für eine Netzwerkfunktion, z.B. physische netzwerkverwaltung, Verwalten des virtuellen Netzwerks, firewallverwaltung oder Verwalten des Gateways verantwortlich. 
+Zum Erreichen von Hochverfügbarkeit und Skalierbarkeit basiert der Netzwerk Controller auf Service Fabric. Service Fabric bietet eine Plattform für verteilte Systeme zum Erstellen skalierbarer, zuverlässiger und einfach verwalteter Anwendungen.
 
-Jeder Service Fabric-Dienst hat ein primäres Replikat und zwei sekundäre Replikate. Das primäre dienstreplikat verarbeitet Anforderungen, während die beiden Replikate für den sekundären Dienst hohen Verfügbarkeit unter Umständen zur Verfügung stellen, in dem das primäre Replikat aus irgendeinem Grund deaktiviert oder nicht verfügbar ist.
+Als Plattform bietet Service Fabric Funktionen, die zum Aufbau eines skalierbaren verteilten Systems erforderlich sind. Sie ermöglicht das Hosting von Diensten auf mehreren Betriebssystem Instanzen, das Synchronisieren von Zustandsinformationen zwischen Instanzen, das Überprüfen von Spitzen, Fehlererkennung, Lastenausgleich und mehr.
 
-Die folgende Abbildung zeigt einen Network Controller Service Fabric-Cluster mit fünf Computern. Vier Diensten, die über die fünf Computer verteilt werden: Firewall-Service, Dienst, den Softwarelastenausgleich \(SLB\) Service und virtual Network \(Vnet\) Service.  Jede der vier Dienste umfasst eine primäre dienstreplikat und zwei sekundärer dienstreplikate.
+>[!NOTE]
+>Informationen zu Service Fabric in Azure finden Sie unter [Übersicht über Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview).
 
-![Netzwerk-Controller Service Fabric-cluster](../../../media/Network-Controller-HA/Network-Controller-HA.jpg)
+Wenn Sie den Netzwerk Controller auf mehreren Computern bereitstellen, wird der Netzwerk Controller als einzelne Service Fabric Anwendung auf einem Service Fabric Cluster ausgeführt. Sie können einen Service Fabric Cluster erstellen, indem Sie eine Gruppe von Betriebssystem Instanzen verbinden.
+
+Die Netzwerk Controller Anwendung besteht aus mehreren Zustands behafteten Service Fabric-Diensten. Jeder Dienst ist für eine Netzwerkfunktion zuständig, wie z. b. die physische Netzwerkverwaltung, die Verwaltung virtueller Netzwerke, die Firewallverwaltung oder die Gatewayverwaltung. 
+
+Jeder Service Fabric Dienst verfügt über ein primäres Replikat und zwei sekundäre Replikate. Das primäre Dienst Replikat verarbeitet Anforderungen, während die beiden sekundären Dienst Replikate Hochverfügbarkeit bieten, wenn das primäre Replikat aus irgendeinem Grund deaktiviert oder nicht verfügbar ist.
+
+In der folgenden Abbildung wird ein Netzwerk Controller Service Fabric Cluster mit fünf Computern dargestellt. Vier Dienste werden auf die fünf Computer verteilt: Firewalldienst, Gatewaydienst, Software Lastenausgleich \(slb @ no__t-1-Dienst und virtuelles Netzwerk \(vnet @ no__t-3-Dienst.  Jeder der vier Dienste umfasst ein primäres Dienst Replikat und zwei sekundäre Dienst Replikate.
+
+![Netzwerk Controller Service Fabric-Cluster](../../../media/Network-Controller-HA/Network-Controller-HA.jpg)
 
 ## <a name="advantages-of-using-service-fabric"></a>Vorteile der Verwendung von Service Fabric
 
-Es folgen die wichtigsten Vorteile für die Verwendung von Service Fabric für den Netzwerkcontroller-Cluster.
+Im folgenden sind die Hauptvorteile der Verwendung von Service Fabric für Netzwerk Controller Cluster zu finden.
 
 ### <a name="high-availability-and-scalability"></a>Hohe Verfügbarkeit und Skalierbarkeit
 
-Da Netzwerkcontroller den Kern der ein Netzwerk aus Datencentern aufgebaut ist, muss es sowohl robust gegenüber Fehlern und skalierbar genug, um agile Änderungen im Datencenter, Netzwerke im Laufe der Zeit zu ermöglichen. Die folgenden Features bieten diese Fähigkeiten: 
+Da der Netzwerk Controller das Kernstück eines Rechenzentrums Netzwerks ist, muss es beide anfällig für Ausfallzeiten und skalierbar sein, um Agile Änderungen in Rechenzentrums Netzwerken über einen Zeitraum zuzulassen. Die folgenden Funktionen bieten folgende Möglichkeiten: 
 
-- **Schnelles Failover**. Service Fabric bietet extrem schnelles Failover. Mehrerer sekundärer dienstreplikate "Hot" sind immer verfügbar. Wenn bei einem Hardwareausfall eine Betriebssysteminstanz verfügbar sind, ist eines der sekundären Replikate sofort zum primären Replikat höher gestuft. 
-- **Flexibilität der Skalierung**. Sie können schnell und einfach diese zuverlässige Dienste aus wenigen Instanzen auf Tausende von Instanzen skalieren, und anschließend wieder in ein paar-Instanzen je nach ressourcenanforderungen. 
+- **Schnelles Failover**. Service Fabric bietet ein sehr schnelles Failover. Es sind immer mehrere heiße sekundäre Dienst Replikate verfügbar. Wenn eine Betriebssystem Instanz aufgrund eines Hardwarefehlers nicht mehr verfügbar ist, wird eines der sekundären Replikate sofort zum primären Replikat herauf gestuft. 
+- **Agilität der Skalierung**. Sie können diese zuverlässigen Dienste problemlos und schnell von einigen wenigen Instanzen bis zu Tausenden von Instanzen skalieren und dann je nach Ihren Ressourcenanforderungen auf einige Instanzen zurücksetzen. 
 
-### <a name="persistent-storage"></a>Dauerhafte Speicherung
+### <a name="persistent-storage"></a>Persistenter Speicher
 
-Die Netzwerkcontroller-Anwendung muss es sich um große speicheranforderungen für die Konfiguration und Status. Die Anwendung muss auch über geplante und ungeplante Ausfälle verwendbar. Zu diesem Zweck bietet Service Fabric ein Schlüssel-Wert-Store \(KVS\) das ist eine replizierte, transaktionale und permanenten Speicher.
+Die Netzwerk Controller Anwendung hat große Speicheranforderungen für die Konfiguration und den Status. Die Anwendung muss auch für geplante und ungeplante Ausfälle verwendbar sein. Zu diesem Zweck stellt Service Fabric einen Schlüssel-Wert-Speicher \(kvs @ no__t-1 bereit, bei dem es sich um einen replizierten, transaktionalen und beibehaltenen Speicher handelt.
 
 ### <a name="modularity"></a>Modularität
 
-Netzwerkcontroller ist mit einer modularen Architektur, mit den einzelnen Dienste des Netzwerks konzipiert, z. B. die Service für virtuelle Netzwerke und die Firewall-Dienstes, erstellt\-in als einzelne Dienste. 
+Der Netzwerk Controller wurde mit einer modularen Architektur entworfen, wobei jeder der Netzwerkdienste, wie z. b. der Dienst für virtuelle Netzwerke und der Firewalldienst, mit dem @ no__t-0in als einzelne Dienste erstellt wurden. 
 
-Diese Architektur bietet die folgenden Vorteile.
+Diese Anwendungsarchitektur bietet die folgenden Vorteile:
 
-1. Netzwerkcontroller, die Modularität unabhängige Entwicklung aller unterstützten Dienste ermöglicht eine höhere benötigen. Beispielsweise kann der Softwarelastenausgleich-Dienst aktualisiert werden, ohne Auswirkungen auf die anderen Dienste oder den normalen Betrieb des Netzwerkcontrollers.
-2. Network Controller Modularität ermöglicht das Hinzufügen neuer Dienste an, der Weiterentwicklung des Netzwerks. Neue Dienste können in den Netzwerkcontroller hinzugefügt werden, ohne Auswirkungen auf vorhandene Dienste.
+1. Die Netzwerk Controller-Modularität ermöglicht die unabhängige Entwicklung der einzelnen unterstützten Dienste, wenn sich die Anforderungen weiterentwickeln. Beispielsweise kann der Software Lastenausgleich-Dienst aktualisiert werden, ohne dass dies Auswirkungen auf andere Dienste oder den normalen Betrieb des Netzwerk Controllers hat.
+2. Durch die Netzwerk Controller-Modularität können neue Dienste hinzugefügt werden, wenn sich das Netzwerk weiterentwickelt. Neue Dienste können dem Netzwerk Controller ohne Beeinträchtigung vorhandener Dienste hinzugefügt werden.
 
 >[!NOTE]
->In Windows Server 2016 wird das Hinzufügen von Diensten von Drittanbietern für den Netzwerkcontroller nicht unterstützt.
+>In Windows Server 2016 wird das Hinzufügen von Drittanbieter Diensten zum Netzwerk Controller nicht unterstützt.
 
-Service Fabric-Modularität verwendet dienstschemas-Modell, um die Einfachheit der Entwicklung, Bereitstellung und Wartung einer Anwendungs zu maximieren.
+Service Fabric modulität verwendet Dienstmodell Schemas, um die einfache Entwicklung, Bereitstellung und Wartung einer Anwendung zu maximieren.
 
-## <a name="network-controller-deployment-options"></a>Optionen zur netzwerkbereitstellung Controller
+## <a name="network-controller-deployment-options"></a>Optionen für die Netzwerk Controller Bereitstellung
 
-Um die Bereitstellung des Netzwerkcontrollers mithilfe von System Center Virtual Machine Manager- \(VMM\), finden Sie unter [richten Sie eine SDN-Netzwerkcontroller im VMM-Fabric](https://technet.microsoft.com/system-center-docs/vmm/scenario/sdn-network-controller).
+Informationen zum Bereitstellen des Netzwerk Controllers mithilfe System Center Virtual Machine Manager \(vmm @ no__t-1 finden Sie unter [Einrichten eines Sdn-Netzwerk Controllers im VMM-Fabric](https://technet.microsoft.com/system-center-docs/vmm/scenario/sdn-network-controller).
 
-Zum Bereitstellen des Netzwerkcontrollers mithilfe von Skripts finden Sie unter [Bereitstellen von Software definierte Netzwerk-Infrastruktur mithilfe von Skripts](../../deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md).
+Informationen zum Bereitstellen eines Netzwerk Controllers mithilfe von Skripts finden Sie unter Bereitstellen [einer Software definierten Netzwerkinfrastruktur mit Skripts](../../deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md)
 
-Zum Bereitstellen des Netzwerkcontrollers mithilfe von Windows PowerShell finden Sie unter [Bereitstellen des Netzwerkcontrollers mithilfe von Windows PowerShell](../../deploy/Deploy-Network-Controller-using-Windows-PowerShell.md)
+Informationen zum Bereitstellen eines Netzwerk Controllers mit Windows PowerShell finden Sie unter Bereitstellen eines [Netzwerk Controllers mit Windows PowerShell](../../deploy/Deploy-Network-Controller-using-Windows-PowerShell.md) .
 
-Weitere Informationen zu den Netzwerkcontroller, finden Sie unter [Netzwerkcontroller](Network-Controller.md).
+Weitere Informationen zum Netzwerk Controller finden Sie unter [Netzwerk Controller](Network-Controller.md).

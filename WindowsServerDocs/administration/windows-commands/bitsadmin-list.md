@@ -1,8 +1,8 @@
 ---
 title: bitsadmin Liste
-description: Windows-Befehle Thema **Bitsadmin Liste** -Listet die Übertragungsaufträge, die im Besitz des aktuellen Benutzers.
+description: 'Thema Windows-Befehle für die **bitadmin-Liste** : Listet die Übertragungs Aufträge auf, die sich im Besitz des aktuellen Benutzers befinden.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f0b88001b9c4ae01b57006ffeef66dec0348ca77
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bd4787f51dc2a7843ff6cf5c4f786658e530ad8f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873861"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381088"
 ---
 # <a name="bitsadmin-list"></a>bitsadmin Liste
 
 
 
-Listet die Übertragungsaufträge, die im Besitz des aktuellen Benutzers.
+Listet die Übertragungs Aufträge auf, die sich im Besitz des aktuellen Benutzers befinden.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,20 +36,20 @@ bitsadmin /List [/allusers][/verbose]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|/Allusers|Optional – Listet die Aufträge für alle Benutzer|
-|/ Verbose|Optional: enthält ausführliche Informationen für jeden Auftrag.|
+|/ALLUSERS|Optional – listet Aufträge für alle Benutzer auf.|
+|/Verbose|Optional – stellt ausführliche Informationen zu jedem Auftrag bereit.|
 
 ## <a name="remarks"></a>Hinweise
 
-Sie benötigen Administratorrechte, um den /allusers-Parameter verwenden
+Sie müssen über Administratorrechte verfügen, um den/ALLUSERS-Parameter zu verwenden.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Im folgende Beispiel ruft Informationen zu den Aufträgen, die im Besitz des aktuellen Benutzers ab.
+Im folgenden Beispiel werden Informationen zu Aufträgen abgerufen, die sich im Besitz des aktuellen Benutzers befinden.
 ```
 C:\>bitsadmin /List 
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

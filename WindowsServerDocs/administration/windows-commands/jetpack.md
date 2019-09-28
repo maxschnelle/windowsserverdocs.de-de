@@ -1,8 +1,8 @@
 ---
 title: jetpack
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a3bffc29519df139921bdb1de53e67acd558b306
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b011658c6a745d62707cf88404379b17b0e05eef
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858011"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375320"
 ---
 # <a name="jetpack"></a>jetpack
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-komprimiert eine Datenbank für Windows Internet Name Service (WINS) "oder" Dynamic Host Configuration-Protokoll (DHCP). Microsoft empfiehlt, dass die WINS-Datenbank komprimieren, wenn es sich um 30 MB nähert. 
+komprimiert eine Windows Internet Name Service (WINS)-oder DHCP-Datenbank (Dynamic Host Configuration-Protokoll). Microsoft empfiehlt, dass Sie die WINS-Datenbank immer dann komprimieren, wenn Sie 30 MB erreicht. 
 
 ## <a name="syntax"></a>Syntax
 ```
@@ -35,32 +35,32 @@ jetpack.EXE <database name> <temp database name>
 |Parameter|Beschreibung|
 |-------|--------|
 |<database name>|Gibt die ursprüngliche Datenbankdatei an.|
-|<temp database name>|Gibt die temporäre Datenbank an.|
+|<temp database name>|Gibt die temporäre Datenbankdatei an.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="BKMK_Examples"></a>Beispiele für
-Die WINS-Datenbank komprimiert:
+## <a name="BKMK_Examples"></a>Beispiele
+So komprimieren Sie die WINS-Datenbank:
 ```
 cd %SYSTEMROOT%\SYSTEM32\WINS
 NET STOP WINS
 jetpack WINS.MDB TMP.MDB
 NET start WINS
 ```
-Die DHCP-Datenbank komprimiert:
+So komprimieren Sie die DHCP-Datenbank:
 ```
 cd %SYSTEMROOT%\SYSTEM32\DHCP
 NET STOP DHCPSERver
 jetpack DHCP.MDB TMP.MDB
 NET start DHCPSERver
 ```
-In den obigen Beispielen **Tmp.mdb** ist eine temporäre Datenbank, die mit jetpack.exe verwendet wird. **WINS.mdb** ist die WINS-Datenbank. **DHCP.mdb** ist die DHCP-Datenbank.
-Jetpack.exe komprimiert das WINS oder DHCP-Datenbank wie folgt:
-1.  Datenbank kopiert Daten in eine temporäre Datenbank-Datei namens **Tmp.mdb**.
-2.  Löscht die ursprüngliche Datenbankdatei **Wins.mdb** oder **Dhcp.mdb**.
-3.  Benennt die temporäre Datenbankdateien auf den ursprünglichen Dateinamen an.
+In den obigen Beispielen ist **tmp. mdb** eine temporäre Datenbank, die von Jetpack. exe verwendet wird. **WINS. mdb** ist die WINS-Datenbank. **DHCP. mdb** ist die DHCP-Datenbank.
+Jetpack. exe komprimiert die WINS-oder DHCP-Datenbank wie folgt:
+1.  Kopiert Datenbankinformationen in eine temporäre Datenbankdatei mit dem Namen " **tmp. mdb**".
+2.  Löscht die ursprüngliche Datenbankdatei **WINS. mdb** oder **DHCP. mdb**.
+3.  benennt die temporären Datenbankdateien in den ursprünglichen Dateinamen um.
 
 > [!NOTE]
-> Während der Komprimierung, jetpack.exe erstellt eine temporäre Datei mit dem angegebenen Namen, durch die *Name der temporären Datenbank* Parameter. Die temporäre Datei wird entfernt, wenn der compact-Vorgang abgeschlossen ist. Stellen Sie sicher, Sie verfügen nicht über eine Datei, die bereits in WINS oder DHCP-Ordner mit dem gleichen Namen wie die der *Name der temporären Datenbank* Parameter.
+> Während des Compact-Prozesses erstellt Jetpack. exe eine temporäre Datei mit dem Namen, der durch den Parameter " *Temp Database Name* " angegeben wird. Die temporäre Datei wird entfernt, wenn der Compact-Prozess beendet ist. Stellen Sie sicher, dass keine Datei bereits im WINS-oder DHCP-Ordner mit dem Namen vorhanden ist, der im Parameter " *Temp Database Name* " angegeben ist.
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+## <a name="additional-references"></a>Weitere Verweise
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

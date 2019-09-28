@@ -1,81 +1,81 @@
 ---
 title: Konfigurieren von NPS auf einem mehrfach vernetzten Computer
-description: Dieses Thema enthält Anweisungen zum Konfigurieren eines Servers mit mehreren Netzwerkadaptern, auf dem Network Policy Server unter Windows Server 2016 ausgeführt wird.
+description: Dieses Thema enthält Anweisungen zum Konfigurieren eines Servers mit mehreren Netzwerkadaptern, auf denen der Netzwerk Richtlinien Server unter Windows Server 2016 ausgeführt wird.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: d9d9e9ac-4859-4522-89ed-a23092c9e12a
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 55eccf3afc649e84c5b6f5ce7932ed97617ddca9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: df3c157ea4f453d965cd8754ef4ef9f7a71532a8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856801"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71396073"
 ---
 # <a name="configure-nps-on-a-multihomed-computer"></a>Konfigurieren von NPS auf einem mehrfach vernetzten Computer
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können in diesem Thema verwenden, um ein NPS mit mehreren Netzwerkkarten zu konfigurieren.
+Sie können dieses Thema verwenden, um ein NPS mit mehreren Netzwerkadaptern zu konfigurieren.
 
-Wenn Sie mehrere Netzwerkadapter auf einem Server mit Windows-Verwaltungsinstrumentation (Network Policy Server, NPS) verwenden, können Sie Folgendes konfigurieren:
+Wenn Sie mehrere Netzwerkadapter auf einem Server verwenden, auf dem der Netzwerk Richtlinien Server (Network Policy Server, NPS) ausgeführt wird, können Sie Folgendes konfigurieren:
 
-- Die Netzwerkadapter, die und nicht zu senden und Remote Authentication Dial-in User Service empfangen \(RADIUS\) Datenverkehr.
-- Einzelne Adapter pro Netzwerk überwacht NPS, ob RADIUS-Datenverkehr auf Internetprotokoll Version 4 \(IPv4\), IPv6 oder IPv4 und IPv6.
-- Die UDP-Portnummern, über welche RADIUS Datenverkehr gesendet und empfangen auf einer pro-Protokoll \(IPv4 oder IPv6\), pro-Network Adapter-Basis.
+- Die Netzwerkadapter, die senden und nicht Remote Authentication Dial-in User Service \(radius @ no__t-1-Datenverkehr senden und empfangen.
+- Auf Netzwerkadapter Basis, ob NPS RADIUS-Datenverkehr auf Internet Protokollversion 4 \(ipv4 @ no__t-1, IPv6 oder sowohl IPv4 als auch IPv6 überwacht.
+- Die UDP-Portnummern, über die der RADIUS-Datenverkehr über ein Protokoll pro Protokoll \(ipv4 oder IPv6 @ no__t-1, pro Netzwerkadapter gesendet und empfangen wird.
 
-Standardmäßig überwacht NPS RADIUS-Datenverkehr an Ports 1812, 1813, 1645 und 1646 für IPv6 und IPv4 für alle installierten Netzwerkadapter. Da NPS RADIUS-Datenverkehr automatisch alle Netzwerkadapter verwendet, müssen Sie nur angeben, dass Datenverkehr die Netzwerkadaptern, die Sie NPS für RADIUS verwenden möchten, wenn Sie, um zu verhindern, dass NPS mit einem bestimmten Netzwerkadapter möchten.
+Standardmäßig überwacht NPS RADIUS-Datenverkehr über die Ports 1812, 1813, 1645 und 1646 sowohl für IPv6 als auch für IPv4 für alle installierten Netzwerkadapter. Da NPS automatisch alle Netzwerkadapter für RADIUS-Datenverkehr verwendet, müssen Sie nur die Netzwerkadapter angeben, die NPS für den RADIUS-Verkehr verwenden soll, wenn Sie verhindern möchten, dass NPS einen bestimmten Netzwerkadapter verwenden.
 
 >[!NOTE]
->Wenn Sie auf einem Netzwerkadapter entweder IPv4 oder IPv6 deinstallieren, überwacht NPS RADIUS-Datenverkehr für das-Protokoll nicht.
+>Wenn Sie IPv4 oder IPv6 auf einem Netzwerkadapter deinstallieren, überwacht NPS nicht den RADIUS-Datenverkehr für das nicht installierte Protokoll.
 
-Für einen NPS, die mehrere Netzwerkadapter installiert ist, empfiehlt es sich zum Konfigurieren von NPS zum Senden und Empfangen von RADIUS-Verkehr nur auf den Adaptern, die Sie angeben.
+Auf einem NPS, auf dem mehrere Netzwerkadapter installiert sind, empfiehlt es sich, NPS so zu konfigurieren, dass RADIUS-Datenverkehr nur an die von Ihnen angegebenen Adapter gesendet und empfangen wird.
 
-Beispielsweise kann ein Netzwerkadapter installiert, die in der NPS auf einem Netzwerksegment führen, die zwar ein zweiter Netzwerkadapter mit einem Netzwerkpfad NPS konfigurierten RADIUS-Clients bietet keine RADIUS-Clients enthält. In diesem Szenario ist es wichtig, um NPS zu verwenden, die zweite Netzwerkkarte für den gesamten RADIUS-Datenverkehr weiterzuleiten.
+Beispielsweise kann ein Netzwerkadapter, der im NPS installiert ist, zu einem Netzwerksegment führen, das keine RADIUS-Clients enthält, während ein zweiter Netzwerkadapter NPS mit einem Netzwerkpfad zu den konfigurierten RADIUS-Clients bereitstellt. In diesem Szenario ist es wichtig, dass NPS den zweiten Netzwerkadapter für den gesamten RADIUS-Datenverkehr verwendet.
 
-Ein weiteres Beispiel können den NPS verfügt über drei Netzwerkadapter installiert, aber nur auf zwei Adapter für RADIUS-Datenverkehr verwenden soll Sie Portinformationen für nur die beiden Adapter konfigurieren. Durch Ausschließen Portkonfiguration für die dritte Karte, verhindern Sie NPS Verwenden des Adapters für RADIUS-Verkehr.
+Wenn für Ihr NPS beispielsweise drei Netzwerkadapter installiert sind, Sie aber nur zwei der Adapter für RADIUS-Datenverkehr verwenden möchten, können Sie nur Port Informationen für die beiden Adapter konfigurieren. Wenn Sie die Port Konfiguration für den dritten Adapter ausschließen, verhindern Sie, dass NPS den Adapter für RADIUS-Datenverkehr verwenden.
 
-## <a name="using-a-network-adapter"></a>Mithilfe eines Netzwerkadapters
+## <a name="using-a-network-adapter"></a>Verwenden eines Netzwerkadapters
 
-Verwenden Sie die folgende Syntax auf das Dialogfeld "Eigenschaften" des Network Policy Server in der NPS-Konsole, um NPS zum Lauschen auf und Senden von RADIUS-Datenverkehr auf einem Netzwerkadapter zu konfigurieren:
+Verwenden Sie die folgende Syntax im Dialogfeld Eigenschaften von Netzwerk Richtlinien Server in der NPS-Konsole, um NPS zum lauschen auf und Senden von RADIUS-Datenverkehr auf einem Netzwerkadapter zu konfigurieren:
 
-- Syntax von IPv4-Datenverkehr: IPAddress:UDPport, in dem IP-Adresse ist die IPv4-Adresse, die auf dem Netzwerkadapter konfiguriert ist, über die Sie die RADIUS-Verkehr senden möchten, und UDPport ist die RADIUS-Portnummer, die Sie für die RADIUS-Authentifizierung oder die Buchhaltung-Datenverkehr verwenden möchten.
-- Syntax von IPv6-Datenverkehr: [IPv6Address]: UDPport, in denen die Klammern um IPv6Address sind erforderlich, IPv6Address ist die IPv6-Adresse, die auf dem Netzwerkadapter konfiguriert ist, über die Sie die RADIUS-Verkehr senden möchten, und UDPport ist die RADIUS-Portnummer, die Sie für die RADIUS-Authentifizierung verwenden möchten oder Accounting-Datenverkehr.
+- Syntax des IPv4-Datenverkehrs: IPAddress: UDPPort, wobei IPAddress die IPv4-Adresse ist, die auf dem Netzwerkadapter konfiguriert ist, über den RADIUS-Datenverkehr gesendet werden soll, und UDPPort ist die Nummer des RADIUS-Ports, den Sie für RADIUS-Authentifizierung oder Datenerfassung verwenden möchten.
+- IPv6-Datenverkehrs Syntax: [IPv6Address]: UDPPort, bei dem die Klammern um IPv6Address erforderlich sind, IPv6Address ist die IPv6-Adresse, die auf dem Netzwerkadapter konfiguriert ist, über den RADIUS-Datenverkehr gesendet werden soll, und UDPPort ist die Nummer des RADIUS-Ports, den Sie für die RADIUS-Authentifizierung verwenden möchten. Buchhaltungs Datenverkehr.
 
-Die folgenden Zeichen als Trennzeichen dienen zum Konfigurieren von IP-Adresse und Portinformationen für UDP:
+Die folgenden Zeichen können als Trennzeichen für die Konfiguration von IP-Adresse und UDP-Port Informationen verwendet werden:
 
-- Adresse und Anschluss, Trennzeichen: Doppelpunkt (:)
-- Port-Trennzeichen: Komma (,)
-- Schnittstelle Trennzeichen: Semikolon (;)
+- Adress-/portdelimiter: Doppelpunkt (:)
+- Port Trennzeichen: Komma (,)
+- Schnittstellen Trennzeichen: Semikolon (;)
 
-## <a name="configuring-network-access-servers"></a>Konfigurieren Netzwerkzugriffsserver
+## <a name="configuring-network-access-servers"></a>Konfigurieren von Netzwerk Zugriffs Servern
 
-Stellen Sie sicher, dass Ihre Netzwerkzugriffsserver mit den gleichen RADIUS-UDP-Portnummern konfiguriert sind, die Sie für Ihre NPSs konfigurieren. Die RADIUS-standard UDP-Ports in den RFCs 2865 und 2866 definiert sind, 1812 für die Authentifizierung und 1813 für die Kontoführung. Allerdings werden manche Zugriffsserver UDP-Port 1645 für authentifizierungsanforderungen und UDP-Port 1646 für kontoführungsanforderungen verwenden standardmäßig konfiguriert.
+Stellen Sie sicher, dass Ihre Netzwerk Zugriffs Server mit den gleichen RADIUS-UDP-Portnummern konfiguriert sind, die Sie für den NPSS konfigurieren. Die in den RFCs 2865 und 2866 definierten RADIUS-Standard-UDP-Ports lauten 1812 für die Authentifizierung und 1813 für die Kontoführung. Allerdings sind einige Zugriffs Server standardmäßig so konfiguriert, dass Sie den UDP-Port 1645 für Authentifizierungsanforderungen und den UDP-Port 1646 für Buchhaltungs Anforderungen verwenden.
 
 >[!IMPORTANT]
->Wenn Sie nicht die Standardportnummern für die RADIUS-verwenden, müssen Sie Ausnahmen in der Firewall für den lokalen Computer zum Zulassen von RADIUS-Datenverkehr auf die neuen Ports konfigurieren. Weitere Informationen finden Sie unter [Konfigurieren von Firewalls für RADIUS-Verkehr](nps-firewalls-configure.md).
+>Wenn Sie die RADIUS-Standard Portnummern nicht verwenden, müssen Sie Ausnahmen in der Firewall für den lokalen Computer konfigurieren, um RADIUS-Datenverkehr für die neuen Ports zuzulassen. Weitere Informationen finden Sie unter [Konfigurieren von Firewalls für RADIUS-Datenverkehr](nps-firewalls-configure.md).
 
-## <a name="configure-the-multihomed-nps"></a>Konfigurieren der mehrfach vernetzte NPS
+## <a name="configure-the-multihomed-nps"></a>Konfigurieren der mehrfach vernetzten NPS
 
-Sie können das folgende Verfahren verwenden, Ihre mehrfach vernetzten NPS konfigurieren.
+Sie können das folgende Verfahren verwenden, um die mehrfach vernetzten NPS zu konfigurieren.
 
 Grundvoraussetzung für die Ausführung dieses Vorgangs ist die Mitgliedschaft in **Domänen-Admins** oder einer gleichwertigen Gruppe.
 
-### <a name="to-specify-the-network-adapter-and-udp-ports-that-nps-uses-for-radius-traffic"></a>Zum Angeben der Netzwerkadapter und der UDP-Ports, mit denen NPS RADIUS-Datenverkehr
+### <a name="to-specify-the-network-adapter-and-udp-ports-that-nps-uses-for-radius-traffic"></a>So geben Sie den Netzwerkadapter und die UDP-Ports an, die NPS für RADIUS-Datenverkehr verwendet
 
-1. Klicken Sie im Server-Manager auf **Tools**, und klicken Sie dann auf **Netzwerkrichtlinienserver** die NPS-Konsole zu öffnen.
+1. Klicken Sie im Server-Manager auf **Extras, und**klicken Sie dann auf **Netzwerk Richtlinien Server** , um die NPS-Konsole zu öffnen.
 
 2. Klicken Sie mit der rechten Maustaste auf **Netzwerkrichtlinienserver**, und klicken Sie dann auf **Eigenschaften**.
 
-3. Klicken Sie auf die **Ports** Registerkarte, und stellen Sie die IP-Adresse für den Netzwerkadapter, die Sie für den RADIUS-Datenverkehr auf die vorhandenen Portnummern verwenden möchten. Beispielsweise sollten Sie die IP-Adresse 192.168.1.2 und RADIUS-Ports 1812 und 1645 für authentifizierungsanforderungen zu verwenden, ändern Sie die Einstellung für den Port aus **1812,1645** zu **192.168.1.2:1812,1645**. Wenn Ihre RADIUS-Authentifizierung und die RADIUS-Kontoführung UDP-Ports von den Standardwerten unterscheiden, ändern Sie die Porteinstellungen entsprechend.
+3. Klicken Sie auf die Registerkarte **Ports** , und fügen Sie die IP-Adresse für den Netzwerkadapter, den Sie für den RADIUS-Datenverkehr verwenden möchten, den vorhandenen Portnummern hinzu. Wenn Sie z. b. die IP-Adresse 192.168.1.2 und die RADIUS-Ports 1812 und 1645 für Authentifizierungsanforderungen verwenden möchten, ändern Sie die Port Einstellung von **1812, 1645** in **192.168.1.2:1812, 1645**. Wenn sich die UDP-Ports der RADIUS-Authentifizierung und der RADIUS-Buchhaltung von den Standardwerten unterscheiden, ändern Sie die Port Einstellungen entsprechend.
 
-4. Um mehrere Porteinstellungen für die Authentifizierung oder kontoführungsanforderungen verwenden möchten, trennen Sie die Portnummern durch Kommas.
+4. Wenn Sie mehrere Port Einstellungen für Authentifizierungs-oder Buchhaltungs Anforderungen verwenden möchten, trennen Sie die Portnummern durch Kommas.
 
-Weitere Informationen zu NPS-UDP-Ports, finden Sie unter [NPS UDP-Port-Informationen konfigurieren](nps-udp-ports-configure.md)
+Weitere Informationen zu NPS-UDP-Ports finden Sie unter [Konfigurieren von NPS-UDP-Port Informationen](nps-udp-ports-configure.md) .
 
 
-Weitere Informationen zu NPS finden Sie unter [des Netzwerkrichtlinienservers](nps-top.md)
+Weitere Informationen zu NPS finden Sie unter [Netzwerk Richtlinien Server](nps-top.md) .
 

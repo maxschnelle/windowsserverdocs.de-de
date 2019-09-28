@@ -1,7 +1,7 @@
 ---
-title: Die teamschnittstelle, die mit einem virtuellen Switch gebunden sollte im standardmäßigen Modus sein.
-description: Die Onlineversion des Texts für diese Best Practices Analyzer-Regel.
-ms.prod: windows-server-threshold
+title: Die an einen virtuellen Switch gebundene Team Schnittstelle sollte sich im Standardmodus befinden.
+description: Online Version des Texts für diese Best Practices Analyzer Regel.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,36 +10,36 @@ ms.topic: article
 ms.assetid: 8c118e1e-865f-4cff-acdc-7c35e45d5da9
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 22e5ad0eed6e6ea07a83150762b76163442f2c5c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9bfd0c98e865a0faae8dd70e97696e2c2682531b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872161"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393431"
 ---
-# <a name="the-team-interface-bound-to-a-virtual-switch-should-be-in-default-mode"></a>Die teamschnittstelle, die mit einem virtuellen Switch gebunden sollte im standardmäßigen Modus sein.
+# <a name="the-team-interface-bound-to-a-virtual-switch-should-be-in-default-mode"></a>Die an einen virtuellen Switch gebundene Team Schnittstelle sollte sich im Standardmodus befinden.
 
 >Gilt für: Windows Server 2016
 
-Weitere Informationen zu best Practices und Überprüfungen finden Sie unter [Run Best Practices Analyzer Scans und Manage Scan Results](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
+Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausführen von Best Practices Analyzer Scans und Verwalten der Scan Ergebnisse](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
 |Eigenschaft|Details|  
 |-|-|  
 |**Betriebssystem**|Windows Server 2016|  
-|**Produkt /-Funktion**|Hyper-V|  
-|**Schweregrad**|Warnung|  
+|**Produkt/Feature**|Hyper-V|  
+|**Zunehmen**|Warnung|  
 |**Kategorie**|Konfiguration|  
   
-In den folgenden Abschnitten Kursivschrift gibt an Benutzeroberflächentext, die im Best Practices Analyzer-Tool für dieses Problem angezeigt wird.  
+In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.  
   
 ## <a name="issue"></a>**Problem:**  
-*Einige virtuelle Switches auf einem teamschnittstelle gebunden sind, aber die teamschnittstelle nicht auf allen VLANs Datenverkehr übergeben, um die virtuellen Switches.*  
+*Einige virtuelle Switches sind an eine Team Schnittstelle gebunden, aber die Team Schnittstelle übergibt nicht den Datenverkehr für alle VLANs an die virtuellen Switches.*  
   
-## <a name="impact"></a>**Auswirkungen**  
-*Die folgenden virtuellen Switches auf allen VLANs sind keine: \n{0}*  
+## <a name="impact"></a>**Auswirkt**  
+*Die folgenden virtuellen Switches können nicht auf alle VLANs zugreifen: \n @ no__t-1*  
   
-## <a name="resolution"></a>**Lösung**  
-*Verwenden Sie Server-Manager oder das Windows PowerShell-Cmdlet Set-NetLbfoTeamNic, die teamschnittstelle auf den Standardmodus zurückzusetzen.*  
+## <a name="resolution"></a>**Auflösung**  
+*Verwenden Sie Server-Manager oder das Windows PowerShell-Cmdlet Set-netlbfoteamnic, um die Team Schnittstelle auf den Standardmodus zurückzusetzen.*  
   
 
 

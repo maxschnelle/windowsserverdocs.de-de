@@ -1,8 +1,8 @@
 ---
-title: Bdehdcfg-Ziel
-description: Windows-Befehle Thema Bdehdcfg Ziel - bereitet eine Partition für die Verwendung als Systemlaufwerk von BitLocker und Windows Recovery vor.
+title: bdehdcfg-Ziel
+description: 'Windows-Befehls Thema für bdehdcfg-Ziel: bereitet eine Partition für die Verwendung als Systemlaufwerk durch BitLocker und Windows-Wiederherstellung vor.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f8d180974f480b4c40532dab529ad49dcc33540d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2fb0a1daa257ef2c9f1cd77b88e5ef14f84a0dfa
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881531"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382180"
 ---
-# <a name="bdehdcfg-target"></a>Bdehdcfg: Ziel
+# <a name="bdehdcfg-target"></a>bdehdcfg: Ziel
 
 
 
-Bereitet eine Partition für die Verwendung als Systemlaufwerk von BitLocker und Windows-Wiederherstellung. Standardmäßig wird diese Partition ohne einen Laufwerkbuchstaben erstellt. Beispiele wie dieser Befehl verwendet werden kann, finden Sie unter [Beispiele](#BKMK_Examples).
+Bereitet eine Partition für die Verwendung als Systemlaufwerk durch BitLocker und Windows-Wiederherstellung vor. Standardmäßig wird diese Partition ohne einen Laufwerkbuchstaben erstellt. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -38,17 +38,17 @@ bdehdcfg -target {default|unallocated|<DriveLetter> shrink|<DriveLetter> merge}
 |---------|-----------|
 |default|Gibt an, dass das Befehlszeilentool dem gleichen Prozess wie der BitLocker-Setup-Assistent folgt.|
 |unallocated|Erstellt die Systempartition aus dem verfügbaren Speicher auf dem Datenträger.|
-|\<DriveLetter > Verkleinern|Reduziert das angegebene Laufwerk um die Speicherplatzmenge, die notwendig ist, um eine aktive Systempartition zu erstellen. Um diesen Befehl zu verwenden, muss das angegebene Laufwerk über mindestens 5 Prozent freien Speicherplatz verfügen.|
-|\<DriveLetter > Merge|Verwendet das angegebene Laufwerk als aktive Systempartition. Das Betriebssystemlaufwerk kann kein Ziel für eine Zusammenführung sein.|
+|\<driveletter > verkleinern|Reduziert das angegebene Laufwerk um die Speicherplatzmenge, die notwendig ist, um eine aktive Systempartition zu erstellen. Um diesen Befehl zu verwenden, muss das angegebene Laufwerk über mindestens 5 Prozent freien Speicherplatz verfügen.|
+|\<driveletter > Merge|Verwendet das angegebene Laufwerk als aktive Systempartition. Das Betriebssystemlaufwerk kann kein Ziel für eine Zusammenführung sein.|
 
-## <a name="BKMK_Examples"></a>Beispiele für
+## <a name="BKMK_Examples"></a>Beispiele
 
-Das folgende Beispiel zeigt, mit der **Ziel** Befehl aus, um ein vorhandenes Laufwerk (P) als dem Systemlaufwerk festzulegen.
+Im folgenden Beispiel wird die Verwendung des **Ziel** Befehls zum Festlegen eines vorhandenen Laufwerks (P) als Systemlaufwerk dargestellt.
 ```
 bdehdcfg -target P: merge
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Bdehdcfg](bdehdcfg.md)

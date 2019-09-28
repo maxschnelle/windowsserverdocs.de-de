@@ -1,85 +1,85 @@
 ---
 ms.assetid: eb600904-24b8-4488-a278-c1c971dc2f2d
-title: Planen der Platzierung der regionalen Domänencontroller
+title: Planen der Platzierung regionaler Domänen Controller
 description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/08/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: bec8595ab6eae8eb6cedaf9307ab97ac9c8316b8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2508476f35462516f32877365cb15be919b5b6df
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880441"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408736"
 ---
-# <a name="planning-regional-domain-controller-placement"></a>Planen der Platzierung der regionalen Domänencontroller
+# <a name="planning-regional-domain-controller-placement"></a>Planen der Platzierung regionaler Domänen Controller
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Um sicherzustellen, dass Kosteneffizienz, möglichst wenige regionalen Domänencontroller möglichst platzieren möchten. Prüfen Sie zunächst in verwendet "Geografische Standorte und Kommunikationsverbindungen" (DSSTOPO_1.doc) Arbeitsblatt [Sammeln von Netzwerkinformationen](../../ad-ds/plan/Collecting-Network-Information.md) zu bestimmen, ob ein Speicherort, einen Hub ist.  
+Um die Kosteneffizienz zu gewährleisten, sollten Sie so viele regionale Domänen Controller wie möglich platzieren. Überprüfen Sie zunächst das Arbeitsblatt "geografische Standorte und Kommunikations Links" (DSSTOPO_1. doc), das zum [Erfassen von Netzwerkinformationen](../../ad-ds/plan/Collecting-Network-Information.md) verwendet wird, um zu bestimmen, ob ein Standort ein Hub ist.  
   
-Planen der regionalen Domänencontroller für jede Domäne platziert, die an jedem Hubstandort dargestellt wird. Nachdem Sie die regionalen Domänencontroller in allen Standorten platziert, die Notwendigkeit für die Platzierung der regionalen Domänencontroller an Satellitenstandorten-ausgewertet werden. Beseitigen unnötigen regionalen Domänencontroller von Satellitenstandorten reduziert die Supportkosten erforderlich, um eine remote-Server-Infrastruktur beizubehalten.  
+Planen Sie, regionale Domänen Controller für jede Domäne zu platzieren, die an jedem Hub-Standort repräsentiert wird. Wenn Sie regionale Domänen Controller an allen Hub-Standorten platzieren, sollten Sie die Notwendigkeit zum Platzieren regionaler Domänen Controller an Satellitenstandorten beurteilen. Wenn Sie unnötige regionale Domänen Controller von Satellitenstandorten entfernen, werden die für die Verwaltung einer Remote Serverinfrastruktur erforderlichen Supportkosten reduziert.  
   
-Darüber hinaus stellen Sie die physische Sicherheit der Domänencontroller im Hub und Satelliten-Speicherorte, damit nicht autorisierte Personen darauf zugreifen können nicht sicher. Platzieren Sie nicht beschreibbaren Domänencontroller im Hub- and -Satelliten-Speicherorte, in denen Sie die physische Sicherheit des Domänencontrollers nicht garantieren können. Eine Person mit physischem Zugriff auf einen beschreibbaren Domänencontroller kann das System durch Angriffe:  
+Stellen Sie außerdem sicher, dass die physische Sicherheit von Domänen Controllern an Hub-und Satellitenstandorten gewährleistet ist, sodass nicht autorisierte Mitarbeiter darauf zugreifen können. Platzieren Sie keine beschreibbaren Domänen Controller an einem Hub und Satellitenstandorten, an denen Sie die physische Sicherheit des Domänen Controllers nicht garantieren können. Eine Person, die überphysischen Zugriff auf einen beschreibbaren Domänen Controller verfügt, kann das System durch folgende Angriffe angreifen:  
   
-- Zugriff auf physische Datenträger durch Starten von einem anderen Betriebssystem auf einem Domänencontroller aus.  
-- Physische Datenträger auf einem Domänencontroller entfernen (und möglicherweise ersetzt).  
-- Abrufen und bearbeiten eine Kopie einer systemstatussicherung des Domain Controllers.  
+- Zugriff auf physische Datenträger durchstarten eines alternativen Betriebssystems auf einem Domänen Controller.  
+- Entfernen (und möglicherweise ersetzen) physischer Datenträger auf einem Domänen Controller.  
+- Abrufen und Bearbeiten einer Kopie der Systemstatus Sicherung eines Domänen Controllers.  
   
-Fügen Sie nur den Speicherorten, die in denen Sie ihre physische Sicherheit gewährleisten können beschreibbare regionalen Domänencontroller hinzu.  
+Fügen Sie schreibgeschützte regionale Domänen Controller nur zu Standorten hinzu, an denen Sie Ihre physische Sicherheit gewährleisten können.  
   
-An Standorten mit nicht ausreichend physischer Sicherheit Bereitstellung von einem schreibgeschützten Domänencontroller (RODC) ist die empfohlene Lösung. Mit Ausnahme von Kontokennwörtern sind ein RODC enthalten alle Active Directory-Objekte und Attribute, die ein beschreibbarer Domänencontroller verfügt. Änderungen können nicht jedoch in der Datenbank vorgenommen werden, die auf dem RODC gespeichert ist. Änderungen müssen auf einen beschreibbaren Domänencontroller vorgenommen und dann zurück auf den RODC repliziert werden.  
+An Standorten mit unzureichender physischer Sicherheit ist die Bereitstellung eines schreibgeschützten Domänen Controllers (Read-Only Domain Controller, RODC) die empfohlene Lösung. Mit Ausnahme von Konto Kennwörtern enthält ein RODC alle Active Directory Objekte und Attribute, die ein Beschreib barer Domänen Controller enthält. Es können jedoch keine Änderungen an der Datenbank vorgenommen werden, die auf dem RODC gespeichert ist. Änderungen müssen an einem beschreibbaren Domänen Controller vorgenommen und dann zurück auf den RODC repliziert werden.  
   
-Um Clients und den Zugriff auf lokale Dateiserver zu authentifizieren, platzieren Sie die meisten Organisationen regionalen Domänencontroller für alle regionalen Domänen, die einem bestimmten Standort dargestellt werden. Allerdings müssen Sie viele Variablen berücksichtigen, bei der Auswertung, ob ein Business-Speicherort erfordert, dass die Clients lokale Authentifizierung oder die Clients können über ein wide Area Network (WAN)-Link zur Authentifizierung und die Abfrage basieren. Die folgende Abbildung zeigt, wie zu bestimmen, ob Domänencontroller an Satellitenstandorten platziert wird.  
+Zum Authentifizieren von Client Anmeldungen und des Zugriffs auf lokale Dateiserver platzieren die meisten Organisationen regionale Domänen Controller für alle regionalen Domänen, die an einem bestimmten Standort dargestellt werden. Sie müssen jedoch viele Variablen in Erwägung gezogen, wenn Sie bewerten, ob für einen geschäftlichen Standort die lokale Authentifizierung durch die Clients erforderlich ist oder die Clients die Authentifizierung und Abfrage über eine WAN-Verbindung (Wide Area Network) benötigen. Die folgende Abbildung zeigt, wie Sie bestimmen können, ob Domänen Controller an Satellitenstandorten platziert werden sollen.  
   
-![Plan regionalen dc-Platzierung](media/Planning-Regional-Domain-Controller-Placement/49892c8c-2c99-4aab-92ba-808dbc8048e2.gif)  
+![Planen der regionalen Domänen Controller Platzierung](media/Planning-Regional-Domain-Controller-Placement/49892c8c-2c99-4aab-92ba-808dbc8048e2.gif)  
   
-## <a name="onsite-technical-expertise-availability"></a>Vor-Ort-Fachkenntnisse Verfügbarkeit
+## <a name="onsite-technical-expertise-availability"></a>Verfügbarkeit technischer Fachkenntnissen vor Ort
 
-Domänencontroller müssen kontinuierlich aus unterschiedlichen Gründen verwaltet werden. Platzieren Sie einen regionalen Domänencontroller nur an Standorten, die Mitarbeiter enthalten, die Verwaltung des Domänencontrollers oder Achten Sie darauf, dass der Domänencontroller kann remote verwaltet werden können.  
+Domänen Controller müssen aus verschiedenen Gründen kontinuierlich verwaltet werden. Platzieren Sie einen regionalen Domänen Controller nur an Standorten, die Personen enthalten, die den Domänen Controller verwalten können, oder stellen Sie sicher, dass der Domänen Controller Remote verwaltet werden kann.  
   
-In Umgebungen von Zweigstellen mit in der Regel eine schlechte physische Sicherheit und der Mitarbeiter mit wenig Informationen Technologie Wissen ist das Bereitstellen eines RODC oft die empfohlene Lösung. Ohne dass diesem Benutzer Benutzerrechte für die Domäne oder andere Domänencontroller gewährt wird, können an jeden Domänenbenutzer lokale Administratorrechte für einen RODC delegiert werden. Dies ermöglicht einen lokale Verzweigung Benutzer melden Sie sich bei einem RODC, und führen Wartungsarbeiten auf dem Server, z. B. Aktualisieren eines Treibers. Allerdings kann nicht der Branch-Benutzer melden Sie sich auf alle anderen Domänencontroller oder andere administrative Aufgaben in der Domäne ausführen. Auf diese Weise kann der Benutzer für die Verzweigung sein delegiert die Möglichkeit, den RODC in der Zweigstelle effektiv zu verwalten, ohne Beeinträchtigung der Sicherheits des restlichen der Domäne oder Gesamtstruktur.  
+In Zweigstellen Umgebungen, in denen normalerweise schlechte physische Sicherheit und Personal mit geringem Informationstechnologie-Know-how vorkommen, ist die Bereitstellung eines RODC häufig die empfohlene Lösung. Lokale Administrator Berechtigungen für einen RODC können an beliebige Domänen Benutzer delegiert werden, ohne dass diesem Benutzer Benutzerrechte für die Domäne oder andere Domänen Controller gewährt werden. Dadurch kann sich ein lokaler branchbenutzer bei einem RODC anmelden und Wartungsarbeiten auf dem Server durchführen, z. b. durch ein Upgrade eines Treibers. Der Verzweigungs Benutzer kann sich jedoch nicht bei einem anderen Domänen Controller anmelden oder andere administrative Aufgaben in der Domäne ausführen. Auf diese Weise kann dem Zweig Benutzer die Fähigkeit zur effektiven Verwaltung des RODC in der Zweigstelle delegiert werden, ohne die Sicherheit der übrigen Domäne oder der Gesamtstruktur zu beeinträchtigen.  
   
-## <a name="wan-link-availability"></a>Verfügbarkeit der WAN-Verbindung
+## <a name="wan-link-availability"></a>WAN-Link Verfügbarkeit
 
-WAN-Verbindungen, die häufigen Ausfälle auftreten können zum Verlust kann die Produktivität erheblich an Benutzer, wenn der Speicherort keinen Domänencontroller enthalten ist, der die Benutzer authentifizieren können. Wenn Ihre Verfügbarkeit für die WAN-Verbindung nicht 100 Prozent und Remotestandorten können nicht zu einen Dienstausfall tolerieren, platzieren Sie einen regionalen Domänencontroller an Standorten, in denen die Benutzer die Berechtigung zum Anmelden oder exchange Server-Zugriff benötigen, wenn die WAN-Verbindung ausgefallen ist.  
+WAN-Verknüpfungen, bei denen häufige Ausfälle auftreten, können den Benutzern einen erheblichen Produktivitätsverlust verursachen, wenn der Speicherort keinen Domänen Controller enthält, der die Benutzer authentifizieren kann. Wenn die Verfügbarkeit Ihres WAN-Links nicht 100 Prozent beträgt und Ihre Remote Standorte einen Dienstausfall nicht tolerieren können, platzieren Sie einen regionalen Domänen Controller an Standorten, an denen die Benutzer die Möglichkeit haben, sich anzumelden oder den Zugriff auf Exchange Server zu ermöglichen, wenn die WAN-Verbindung ausfällt.  
   
-## <a name="authentication-availability"></a>Authentifizierung-Verfügbarkeit
+## <a name="authentication-availability"></a>Verfügbarkeit der Authentifizierung
 
-Bestimmten Organisationen wie Banken, erfordern, dass Benutzer jederzeit authentifiziert werden. Platzieren Sie einen regionalen Domänencontroller an einem Speicherort, in denen die Verfügbarkeit der WAN-Verbindung ist nicht 100 Prozent, aber Benutzer erfordert Authentifizierung immer, ein.  
+Bestimmte Organisationen (z. b. Banken) erfordern, dass Benutzer jederzeit authentifiziert werden. Platzieren Sie einen regionalen Domänen Controller an einem Speicherort, an dem die WAN-Link Verfügbarkeit nicht 100 Prozent beträgt, Benutzer jedoch jederzeit authentifiziert werden müssen.  
   
-## <a name="logon-performance-over-wan-links"></a>Leistung der Anmeldung über WAN-Verbindungen
+## <a name="logon-performance-over-wan-links"></a>Anmelde Leistung über WAN-Verbindungen
 
-Wenn Ihre Verfügbarkeit für die WAN-Verbindung äußerst zuverlässig ist, hängt von Platzierung eines Domänencontrollers am Standort der leistungsanforderungen für die Anmeldung über die WAN-Verbindung. Logon-Leistung über das WAN Faktoren beeinflussen verbindungsgeschwindigkeit und die verfügbare Bandbreite, Anzahl von Benutzern und von Nutzungsprofilen und die Menge des Netzwerkdatenverkehrs für Anmeldung und der Replikationsdatenverkehr.  
+Wenn die Verfügbarkeit von WAN-Verbindungen äußerst zuverlässig ist, hängt das Platzieren eines Domänen Controllers am Standort von den Anmelde Leistungsanforderungen über die WAN-Verbindung ab. Zu den Faktoren, die die Anmelde Leistung über das WAN beeinflussen, zählen die Verbindungsgeschwindigkeit und die verfügbare Bandbreite, die Anzahl von Benutzern und Verwendungs Profilen sowie der Umfang des Anmeldungs-und Replikations Datenverkehrs  
   
-### <a name="wan-link-speed-and-bandwidth-utilization"></a>Auslastung von WAN-Geschwindigkeit und Bandbreite
+### <a name="wan-link-speed-and-bandwidth-utilization"></a>WAN-Verbindungsgeschwindigkeit und Bandbreitenauslastung
 
-Die Aktivitäten von einem einzelnen Benutzer können eine langsame WAN-Verbindung zu belasten. Setzen Sie einen Domänencontroller an einem Speicherort ein, wenn Leistung der Anmeldung über die WAN-Verbindung nicht akzeptabel ist.  
+Die Aktivitäten eines einzelnen Benutzers können eine langsame WAN-Verbindung erfassen. Platzieren Sie einen Domänen Controller an einem Speicherort, wenn die Anmelde Leistung über die WAN-Verbindung nicht zulässig ist.  
   
-Die durchschnittliche prozentuale Nutzung der Netzwerkbandbreite gibt an, wie überlastet wird von eine Netzwerkverbindung verbinden. Wenn eine Netzwerkverbindung durchschnittliche bandbreitenauslastung, die größer als ein zulässiger Wert ist verfügt, platzieren Sie einen Domänencontroller an diesem Speicherort aus.  
+Der durchschnittliche Prozentsatz der Bandbreitenauslastung gibt an, wie eine Netzwerkverbindung überlastet ist. Wenn eine Netzwerkverbindung eine durchschnittliche Bandbreitenauslastung hat, die größer als ein akzeptabler Wert ist, platzieren Sie einen Domänen Controller an diesem Speicherort.  
   
-### <a name="number-of-users-and-usage-profiles"></a>Anzahl von Benutzern und Nutzungsprofilen
+### <a name="number-of-users-and-usage-profiles"></a>Anzahl von Benutzern und Verwendungs Profilen
 
-Die Anzahl von Benutzern und deren Nutzung Profile an einer bestimmten Position helfen zu bestimmen, ob der regionalen Domänencontroller an diesem Speicherort platziert werden müssen. Um Produktivitätsverluste zu vermeiden, wenn eine WAN-Verbindung ein Fehler auftritt, platzieren Sie einen regionalen Domänencontroller an einem Speicherort an, die mindestens 100 Benutzer.  
+Mithilfe der Anzahl der Benutzer und ihrer Verwendungs Profile an einem bestimmten Speicherort können Sie ermitteln, ob Sie regionale Domänen Controller an diesem Standort platzieren müssen. Um Produktivitätsverluste zu vermeiden, wenn ein WAN-Link ausfällt, platzieren Sie einen regionalen Domänen Controller an einem Standort, der über 100 oder mehr Benutzer verfügt.  
   
-Die Usage-Profile geben an, wie sich die Benutzer auf die Netzwerkressourcen verwenden. Sie müssen sich nicht um einen Domänencontroller an einem Speicherort zu platzieren, die nur wenige Benutzer enthält, die nicht häufig auf Netzwerkressourcen zugreifen.  
+Die Verwendungs Profile geben an, wie die Benutzer die Netzwerkressourcen verwenden. Sie müssen einen Domänen Controller nicht an einem Speicherort platzieren, der nur wenige Benutzer enthält, die nicht häufig auf Netzwerkressourcen zugreifen.  
   
-### <a name="logon-network-traffic-vs-replication-traffic"></a>Anmeldung des Netzwerkdatenverkehrs im Vergleich zu den Replikations-Datenverkehr
+### <a name="logon-network-traffic-vs-replication-traffic"></a>Anmelden von Netzwerk Datenverkehr und Replikations Datenverkehr
 
-Wenn ein Domänencontroller nicht am gleichen Speicherort wie der Client Active Directory verfügbar ist, erstellt der Client Anmeldung Datenverkehr im Netzwerk. Die Menge des Netzwerkdatenverkehrs von Anmeldung, die auf dem physischen Netzwerk erstellt wird, wird von mehreren Faktoren ab, einschließlich der Gruppenmitgliedschaften beeinflusst; Anzahl und Größe der Gruppenrichtlinienobjekte (GPOs); Anmeldeskripts; und Funktionen wie Offlineordner, ordnerumleitung und servergespeicherte Profile.  
+Wenn ein Domänen Controller nicht innerhalb des gleichen Standorts wie der Active Directory Client verfügbar ist, erstellt der Client Anmelde Datenverkehr im Netzwerk. Der Umfang des Anmelde Netzwerk Datenverkehrs, der im physischen Netzwerk erstellt wird, wird durch verschiedene Faktoren beeinflusst, einschließlich Gruppenmitgliedschaften. Anzahl und Größe von Gruppenrichtlinie Objekten (GPOs); Anmelde Skripts; und Features wie Offline Ordner, Ordner Umleitung und Roamingprofile.  
   
-Andererseits, generiert ein Domänencontroller, der an einer bestimmten Position befindet, Replikations-Datenverkehr im Netzwerk. Die Häufigkeit und Umfang des Updates, die auf die Partitionen, die auf den Domänencontrollern gehostet beeinflussen den Umfang des Replikationsdatenverkehrs, die im Netzwerk erstellt wird. Die verschiedenen Typen von Updates, die an die Partitionen, die auf den Domänencontrollern gehostet vorgenommen werden können, enthalten hinzufügen "oder" Benutzer und Benutzerattribute ändern "," Ändern von Kennwörtern, "und" hinzufügen "oder" ändern, globale Gruppen, Drucker oder Volumes.  
+Auf der anderen Seite generiert ein Domänen Controller, der an einem bestimmten Speicherort platziert wird, Replikations Datenverkehr im Netzwerk. Die Häufigkeit und die Anzahl der Updates, die auf den auf den Domänen Controllern gehosteten Partitionen vorgenommen werden, beeinflussen die Menge an Replikations Datenverkehr, der im Netzwerk erstellt wird Zu den unterschiedlichen Aktualisierungs Typen, die auf den auf den Domänen Controllern gehosteten Partitionen vorgenommen werden können, zählen das Hinzufügen oder Ändern von Benutzern und Benutzer Attributen, das Ändern von Kenn Wörtern und das Hinzufügen oder Ändern globaler Gruppen, Drucker oder Volumes.  
   
-Um zu bestimmen, wenn Sie einen regionalen Domänencontroller an einem Ort platzieren möchten, vergleichen Sie die Kosten für die Anmeldung Datenverkehr erstellt, die nach einem Standort ohne einen Domänencontroller im Vergleich zu den Kosten von Replikationsdatenverkehr durch die Platzierung eines Domänencontrollers am Standort erstellt.  
+Um zu ermitteln, ob Sie einen regionalen Domänen Controller an einem Standort platzieren müssen, vergleichen Sie die Kosten für den von einem Standort ohne Domänen Controller erstellten Anmelde Datenverkehr im Vergleich zu den Kosten für den Replikations Datenverkehr, der durch Platzieren eines Domänen Controllers am Standort erstellt wurde  
   
-Betrachten Sie beispielsweise ein Netzwerk mit Zweigstellen, die über langsame Verbindungen mit der zentrale verbunden sind und in der Domäne Domänencontroller können ganz einfach hinzugefügt werden. Wenn der täglichen Anmeldung und Lookup-Datenverkehr, der einige Benutzer von remote-standortsystemserver bewirkt, mehr Netzwerkdatenverkehr dass als die Replikation aller Daten des Unternehmens in die Verzweigung, erwägen Sie, die einen Domänencontroller-Branch.  
+Nehmen wir beispielsweise an, ein Netzwerk mit Zweigstellen, die über langsame Verbindungen mit dem Hauptsitz verbunden sind und die Domänen Controller problemlos hinzugefügt werden können. Wenn der tägliche Anmelde-und Verzeichnis Such Datenverkehr einiger Remote Standort Benutzer mehr Netzwerk Datenverkehr als die Replikation aller Unternehmensdaten in den Branch verursacht, sollten Sie ggf. einen Domänen Controller zum Branch hinzufügen.  
   
-Bei Senkung der Kosten der Verwaltung von Domänencontrollern wichtiger als die des Netzwerkdatenverkehrs wird entweder Zentralisieren Sie die Domänencontroller für diese Domäne und keine platzieren Sie regionalen Domänencontroller, an dem Ort, oder sollten Sie RODCs an der Position platzieren.  
+Wenn das Verringern der Kosten für die Verwaltung von Domänen Controllern wichtiger als der Netzwerkverkehr ist, zentralisieren Sie entweder die Domänen Controller für diese Domäne, und platzieren Sie keine regionalen Domänen Controller am Standort, oder platzieren Sie die RODCs am Standort.  
   
-Ein Arbeitsblatt, hilft Ihnen bei der Dokumentieren der Platzierung der regionalen Domänencontroller und die Anzahl der Benutzer für jede Domäne, die an jedem Standort dargestellt wird, finden Sie unter [Auftrag Hilfsmittel für Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), Job_ herunterladen Aids_Designing_and_Deploying_Directory_and_Security_Services.ZIP, und öffnen "Domänencontrollerkapazität" (DSSTOPO_4.doc).  
+Ein Arbeitsblatt, in dem Sie die Platzierung der regionalen Domänen Controller und die Anzahl der Benutzer für jede Domäne unterstützen können, die an den einzelnen Standorten repräsentiert wird, finden Sie unter [Job Aids for Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), Download Job_Aids_Designing_and_ Deploying_Directory_and_Security_Services. zip, und öffnen Sie "Domänen Controller Platzierung" (DSSTOPO_4. doc).  
   
-Sie müssen auf die Informationen zu Speicherorten finden in der regionalen Domänencontroller platziert werden, beim Bereitstellen von Regionaldomänen werden müssen. Weitere Informationen zum Bereitstellen von Regionaldomänen finden Sie unter [Bereitstellen von Windows Server 2008 Regionaldomänen](https://technet.microsoft.com/library/cc755118.aspx).  
+Sie müssen die Informationen zu Standorten, an denen Sie regionale Domänen Controller platzieren müssen, in Bezug auf die Bereitstellung regionaler Domänen untersuchen. Weitere Informationen zum Bereitstellen von regionalen Domänen finden Sie unter Bereitstellen von [regionalen Windows Server 2008-Domänen](https://technet.microsoft.com/library/cc755118.aspx).  

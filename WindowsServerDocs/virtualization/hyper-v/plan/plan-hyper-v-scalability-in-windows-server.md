@@ -1,7 +1,7 @@
 ---
 title: Planen der Hyper-V-Skalierbarkeit in Windows Server 2016
 description: Listet die maximal unterstützte Anzahl von Komponenten auf, die Sie zu Hyper-V und virtuellen Computern hinzufügen bzw. daraus entfernen können, wie viel Arbeitsspeicher und wie viele virtuelle Prozessoren.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,12 +10,12 @@ ms.topic: article
 author: KBDAzure
 ms.author: kathydav
 ms.date: 09/28/2016
-ms.openlocfilehash: b54d3e655d10d2dbb015d57f2b1be86a803d9911
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.openlocfilehash: 3d94d8475f5de8d6b3d1d3f0bc549a8791e1d0c8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546633"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364059"
 ---
 # <a name="plan-for-hyper-v-scalability-in-windows-server-2016"></a>Planen der Hyper-V-Skalierbarkeit in Windows Server 2016
 
@@ -23,7 +23,7 @@ ms.locfileid: "69546633"
   
 Dieser Artikel enthält Details zur maximalen Konfiguration für Komponenten, die Sie auf einem Hyper-V-Host oder seinen virtuellen Maschinen hinzufügen und entfernen können, z. b. virtuelle Prozessoren oder Prüfpunkte. Berücksichtigen Sie beim Planen der Bereitstellung die Höchstwerte, die für die einzelnen virtuellen Computer gelten, sowie die für den Hyper-V-Host geltenden Höchstwerte. 
 
-Maximums für Arbeitsspeicher und logische Prozessoren sind die größten Steigerungen von Windows Server 2012 als Reaktion auf Anforderungen zur Unterstützung von neueren Szenarien wie Machine Learning und Datenanalyse. Der Windows Server-Blog veröffentlichte vor kurzem die Leistungsergebnisse eines virtuellen Computers mit 5,5 Terabyte Arbeitsspeicher und 128 virtuellen Prozessoren, die 4 TB in-Memory-Datenbank ausführen. Die Leistung war größer als 95% der Leistung eines physischen Servers. Weitere Informationen finden Sie unter [Windows Server 2016 Hyper-V-VM-Leistung in großem Maßstab für die Verarbeitung im Arbeitsspeicher](https://blogs.technet.microsoft.com/windowsserver/2016/09/28/windows-server-2016-hyper-v-large-scale-vm-performance-for-in-memory-transaction-processing/). Andere Zahlen ähneln denen für Windows Server 2012. \(Maximums für Windows Server 2012 R2 waren identisch mit Windows Server 2012.\) 
+Maximums für Arbeitsspeicher und logische Prozessoren sind die größten Steigerungen von Windows Server 2012 als Reaktion auf Anforderungen zur Unterstützung von neueren Szenarien wie Machine Learning und Datenanalyse. Der Windows Server-Blog veröffentlichte vor kurzem die Leistungsergebnisse eines virtuellen Computers mit 5,5 Terabyte Arbeitsspeicher und 128 virtuellen Prozessoren mit einer in-Memory Database von 4 TB. Die Leistung war größer als 95% der Leistung eines physischen Servers. Weitere Informationen finden Sie unter [Windows Server 2016 Hyper-V-VM-Leistung in großem Maßstab für die Verarbeitung im Arbeitsspeicher](https://blogs.technet.microsoft.com/windowsserver/2016/09/28/windows-server-2016-hyper-v-large-scale-vm-performance-for-in-memory-transaction-processing/). Andere Zahlen ähneln denen für Windows Server 2012. die \(maximums für Windows Server 2012 R2 waren identisch mit Windows Server 2012. \) 
   
 > [!NOTE]  
 > Weitere Informationen zu System Center Virtual Machine Manager (VMM) finden Sie unter [Virtual Machine Manager](https://technet.microsoft.com/system-center-docs/vmm/vmm). VMM ist ein Microsoft-Produkt zur Verwaltung virtualisierter Datencenter, das separat verkauft wird.  

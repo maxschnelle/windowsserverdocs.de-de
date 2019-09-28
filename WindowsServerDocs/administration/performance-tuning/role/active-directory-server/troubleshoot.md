@@ -1,26 +1,26 @@
 ---
-title: Problembehandlung bei Active Directory Domain Services-Leistung
-description: Anleitungen zur Problembehandlung in Active Directory-leistungsoptimierung.
-ms.prod: windows-server-threshold
+title: Behandeln von Active Directory Domain Services Leistung
+description: Leitfaden zur Problembehandlung in Active Directory Leistungsoptimierung.
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: b7d024b9c43d46b3025213635ebc097594e6484d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9ab5b78917c51e3669dcaf27689e99ab064b992a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854541"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370243"
 ---
-# <a name="troubleshooting-active-directory-domain-services-performance"></a>Problembehandlung bei Active Directory Domain Services-Leistung
+# <a name="troubleshooting-active-directory-domain-services-performance"></a>Problembehandlung bei Active Directory Domain Services Leistung
 
-Weitere Informationen zur Problembehandlung für AD DS Leistung finden Sie unter [Ihrer Umgebung mit Unternehmensniederlassungen Überwachung](https://technet.microsoft.com/library/dd736504.aspx).
+Weitere Informationen zu Leistungsproblemen beim Hinzufügen von Leistungsproblemen finden Sie unter über [Wachen der Zweigstellen Umgebung](https://technet.microsoft.com/library/dd736504.aspx).
 
 ## <a name="see-also"></a>Siehe auch
-- [Active Directory-Server die Optimierung der Leistung](index.md)
-- [Überlegungen zur Hardware](hardware-considerations.md)
-- [LDAP-Überlegungen](ldap-considerations.md)
-- [Ordnungsgemäße Platzierung von Domänencontrollern und Website-Überlegungen](site-definition-considerations.md)
-- [Kapazitätsplanung für Active Directory-Domänendienste](https://go.microsoft.com/fwlink/?LinkId=324566)
+- [Leistungsoptimierung Active Directory Server](index.md)
+- [Hardwareaspekte](hardware-considerations.md)
+- [Überlegungen zu LDAP](ldap-considerations.md)
+- [Ordnungsgemäße Platzierung von Domänencontrollern und Überlegungen zum Standort](site-definition-considerations.md)
+- [Kapazitätsplanung für Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566)

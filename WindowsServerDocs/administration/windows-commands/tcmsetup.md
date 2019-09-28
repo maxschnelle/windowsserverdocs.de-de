@@ -1,8 +1,8 @@
 ---
 title: tcmsetup
-description: Informationen Sie zum Einrichten und deaktivieren die TAPI-Client.
+description: Erfahren Sie, wie Sie den TAPI-Client einrichten und deaktivieren.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ac92c7b793274227bd20e6fa90a4106a32ea0446
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0c646acef51f06c57f16ec7e5310e3319a11383f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862001"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370679"
 ---
 # <a name="tcmsetup"></a>tcmsetup
 
 
 
-Legt fest, oder der TAPI-Client deaktiviert.
+Richtet den TAPI-Client ein oder deaktiviert ihn.
 
 ## <a name="syntax"></a>Syntax
 
@@ -37,28 +37,28 @@ tcmsetup  [/q] /c /d
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|/q|Verhindert die Anzeige der Meldungsfelder an.|
-|/x|Gibt an, dass es sich bei einem verbindungsorientierten Rückrufe für stark ausgelastete Netzwerke verwendet werden, in dem Paketverlust zu hoch ist. Wenn dieser Parameter ausgelassen wird, werden die verbindungslose Rückrufe verwendet werden.|
-|/c|Erforderlich. Gibt die Clientsetup an.|
-|\<Server1>|Erforderlich. Gibt den Namen des Remoteservers, der die TAPI-Anbieter verfügt, die vom Client verwendet wird. Der Client wird die Dienstanbieter Anschlüsse und Telefone verwenden. Der Client muss in der gleichen Domäne wie der Server oder in einer Domäne, die über eine bidirektionale Vertrauensstellung mit der Domäne verfügt, die der Server enthält.|
-|\<Server2>…|Gibt an, alle weiteren Server oder Server, die den Client zur Verfügung stehen. Wenn Sie, dass eine Liste der Server ist angeben, verwenden Sie ein Leerzeichen trennen Sie die Servernamen.|
-|/d|Löscht die Liste von Remoteservern. Deaktiviert. den TAPI-Client wird verhindert, dass Sie die TAPI-Dienstanbieter, die auf dem Remoteserver vorhanden sind.|
+|/q|Verhindert die Anzeige von Meldungs Feldern.|
+|/x|Gibt an, dass Verbindungs orientierte Rückrufe für große Verkehrs Netzwerke verwendet werden, bei denen der Paketverlust hoch ist. Wenn dieser Parameter ausgelassen wird, werden verbindungslose Rückrufe verwendet.|
+|/c|Erforderlich. Gibt die Client Einrichtung an.|
+|\<server1 >|Erforderlich. Gibt den Namen des Remote Servers an, der über die TAPI-Dienstanbieter verfügt, die vom Client verwendet werden. Der Client verwendet die Zeilen und Telefone des Dienstanbietern. Der Client muss sich in derselben Domäne wie der-Server oder in einer Domäne befinden, die über eine bidirektionale Vertrauensstellung mit der Domäne verfügt, in der der Server enthalten ist.|
+|\<server2 >...|Gibt alle zusätzlichen Server an, die für diesen Client verfügbar sein werden. Wenn Sie eine Liste der Server angeben, verwenden Sie ein Leerzeichen, um die Servernamen zu trennen.|
+|/d|Löscht die Liste der Remote Server. Deaktiviert den TAPI-Client, indem verhindert wird, dass er die TAPI-Dienstanbieter verwendet, die sich auf den Remote Servern befinden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
 -   Um diese Schritte ausführen zu können, müssen Sie auf dem lokalen Computer ein Mitglied der Gruppe %%amp;quot;Administratoren%%amp;quot; sein oder Ihnen muss die entsprechende Berechtigung übertragen worden sein. Wenn der Computer zu einer Domäne gehört, können möglicherweise Mitglieder der Gruppe "Domänen-Admins" dieses Verfahren ausführen. Als Best Practice für die Sicherheit sollten Sie dieses Verfahren über **Ausführen als** ausführen.
--   In der Reihenfolge für TAPI ordnungsgemäß funktioniert, müssen Sie ausführen **Tcmsetup** Remoteserver angeben, die von TAPI-Clients verwendet werden.
--   Bevor ein Client-Benutzer einem Smartphone oder der Zeile auf ein TAPI-Server verwenden kann, muss die Telefonie-Server-Administrator den Benutzer auf das Telefon oder Zeile zuweisen.
--   Die Liste der Telefonieserver, die mit diesem Befehl erstellt wird, ersetzt jede vorhandene Liste der Telefonieserver für den Client verfügbar. Mit diesem Befehl können Sie der vorhandenen Liste hinzugefügt.
+-   Damit TAPI ordnungsgemäß funktioniert, müssen Sie **tcmsetup** ausführen, um die Remote Server anzugeben, die von TAPI-Clients verwendet werden.
+-   Bevor ein Client Benutzer ein Telefon oder eine Zeile auf einem TAPI-Server verwenden kann, muss der Benutzer des Telefonieservers den Benutzer dem Telefon oder der Zeile zuweisen.
+-   Die Liste der von diesem Befehl erstellten Telefonieserver ersetzt jede vorhandene Liste von Telefonieservern, die für den Client verfügbar sind. Sie können diesen Befehl nicht verwenden, um der vorhandenen Liste hinzuzufügen.
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-[Übersicht über die Befehlsshell](https://technet.microsoft.com/library/cc737438(v=ws.10).aspx)
+[Übersicht über Befehlsshell](https://technet.microsoft.com/library/cc737438(v=ws.10).aspx)
 
-[Geben Sie die Telefonieserver auf einem Clientcomputer](https://technet.microsoft.com/library/cc759226(v=ws.10).aspx)
+[Angeben von Telefonieservern auf einem Client Computer](https://technet.microsoft.com/library/cc759226(v=ws.10).aspx)
 
 [Zuweisen eines Telefoniebenutzers zu einer Zeile oder einem Telefon](https://technet.microsoft.com/library/cc736875(v=ws.10).aspx)
 

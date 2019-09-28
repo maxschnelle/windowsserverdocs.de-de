@@ -1,49 +1,49 @@
 ---
 title: Software-Defined Networking (SDN)
-description: Software-Defined Networking (Softwaredefinierte Netzwerke, SDN) bietet eine Methode, mit der Sie physische und virtuelle Netzwerkgeräte wie Router, Switches und Gateways in Ihrem Datencenter zentral konfigurieren und verwalten können. Verwenden Sie dieses Thema, um Informationen zu den Software-Defined Networking (SDN)-Technologien zu erfahren, die in Windows Server, System Center und Microsoft Azure bereitgestellt werden.
+description: Software-Defined Networking (Softwaredefinierte Netzwerke, SDN) bietet eine Methode, mit der Sie physische und virtuelle Netzwerkgeräte wie Router, Switches und Gateways in Ihrem Datencenter zentral konfigurieren und verwalten können. In diesem Thema erfahren Sie mehr über die Software-Defined Networking (SDN)-Technologien, die in Windows Server, System Center und Microsoft Azure bereitgestellt werden.
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: 9a1ea73c-20cd-42c5-95ad-b003b9cc6d64
 ms.author: pashort
 author: shortpatti
 ms.date: 08/09/2018
-ms.openlocfilehash: a6c4db97b1c55d5114eba09251685ef0f2b840bc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dd2b39f3563a47db18564de282f2646ec269e584
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855231"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405924"
 ---
 # <a name="sdn-in-windows-server-overview"></a>SDN in Windows Server-Übersicht
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 
-Software-Defined Networking (Softwaredefinierte Netzwerke, SDN) bietet eine Methode, mit der Sie physische und virtuelle Netzwerkgeräte wie Router, Switches und Gateways in Ihrem Datencenter zentral konfigurieren und verwalten können. Sie können Ihrer vorhandenen SDN-kompatible Geräte verwenden, um umfassendere Integration zwischen dem virtuellen Netzwerk und dem physischen Netzwerk zu erreichen. Virtuelle Netzwerkelemente, z. B. virtuelle Hyper-V-Switch, Hyper-V-Netzwerkvirtualisierung und RAS-Gateway dienen als integrale Bestandteile Ihrer SDN-Infrastruktur. 
+Software-Defined Networking (Softwaredefinierte Netzwerke, SDN) bietet eine Methode, mit der Sie physische und virtuelle Netzwerkgeräte wie Router, Switches und Gateways in Ihrem Datencenter zentral konfigurieren und verwalten können. Sie können Ihre vorhandenen Sdn-kompatiblen Geräte verwenden, um eine tiefere Integration zwischen dem virtuellen Netzwerk und dem physischen Netzwerk zu erzielen. Virtuelle Netzwerkelemente, z. b. virtueller Hyper-v-Switch, Hyper-v-Netzwerkvirtualisierung und RAS-Gateway, sind als integrale Elemente Ihrer Sdn-Infrastruktur konzipiert. 
 
 >[!Note]
->Hyper-V-Hosts und virtuelle Computer (VMs) mit SDN-Infrastrukturserver, z. B. dem Netzwerkcontroller und den Softwarelastenausgleich-Knoten müssen Windows Server 2016 Datacenter-Edition installiert haben. 
+>Auf Hyper-V-Hosts und virtuellen Computern (VMS), auf denen Sdn-Infrastruktur Server ausgeführt werden, wie z. b. Netzwerk Controller und Software Lastenausgleich-Knoten, muss Windows Server 2016 Datacenter Edition installiert sein. 
 >
->Hyper-V-Hosts, die mit nur Mandanten Workload-VMs mit SDN gesteuerte Netzwerken verbunden, können Windows Server 2016 Standard Edition verwenden.
+>Hyper-V-Hosts, die nur Mandanten-workloadvms enthalten, die mit Sdn-gesteuerten Netzwerken verbunden sind, können Windows Server 2016 Standard Edition
 
-SDN ist möglich, da Netzwerkebenen nicht mehr an die Netzwerkgeräte selbst gebunden sind. Allerdings verwenden andere Entitäten, z. B. Verwaltungssoftware für Datencenter wie System Center 2016 Netzwerkebenen. SDN können Sie Ihr datencenternetzwerk dynamisch verwalten, eine automatisierte, zentrale Möglichkeit, auf die Anforderungen Ihrer Anwendungen und arbeitsauslastungen bereitstellen. 
+SDN ist möglich, da Netzwerk Ebenen nicht mehr an die Netzwerkgeräte selbst gebunden sind. Andere Entitäten, z. b. Daten Center-Verwaltungssoftware wie System Center 2016, verwenden jedoch Netzwerk Ebenen. Mit Sdn können Sie Ihr Daten Center Netzwerk dynamisch verwalten und so eine automatisierte, zentrale Möglichkeit bereitstellen, um die Anforderungen Ihrer Anwendungen und Arbeits Auslastungen zu erfüllen. 
 
-Sie können SDN zu verwenden:
+SDN kann für folgende Zwecke verwendet werden:
 
-- Dynamisch erstellen Sie, schützen Sie und verbinden Sie Ihr Netzwerk die wachsenden Anforderungen Ihrer Apps
-- Beschleunigen der Bereitstellung Ihrer Workloads in einem unterbrechungsfrei
-- Enthalten Sie Sicherheitsrisiken in Ihrem Netzwerk ausbreitet
-- Definieren und Steuern von Richtlinien, die zum Steuern der physischer und virtueller Netzwerken 
-- Implementieren von Netzwerkrichtlinien konsistent nach Maß
+- Dynamisches Erstellen, sichern und Verbinden Ihres Netzwerks, um die sich entwickelnden Anforderungen Ihrer apps zu erfüllen
+- Beschleunigen Sie die Bereitstellung Ihrer Workloads auf eine nicht unterbrechende Weise.
+- Sicherheitsrisiken von der Netzwerk Verteilung in Ihrem Netzwerk
+- Definieren und Steuern von Richtlinien, die sowohl physische als auch virtuelle Netzwerke steuern 
+- Konsistentes Skalieren von Netzwerk Richtlinien
 
-SDN können Sie all dies zu erreichen, senken Sie auch die Kosten der gesamten Infrastruktur.
+Mit Sdn können Sie all dies erreichen und gleichzeitig die Gesamtinfrastruktur Kosten senken.
 
 
 
-## <a name="contact-the-datacenter-and-cloud-networking-product-team"></a>Wenden Sie sich an das Produktteam Rechenzentrum und Cloud-Netzwerke
+## <a name="contact-the-datacenter-and-cloud-networking-product-team"></a>Wenden Sie sich an das Daten Center-und cloudnetzwerkproduktteam.
 
-Wenn Sie bei der Diskussion der SDN-Technologien, mit dem Microsoft oder anderen SDN-Kunden interessiert sind, stehen Ihnen eine Vielzahl von Methoden zur Verfügung, wie wenden Sie sich an.
+Wenn Sie an der Erörterung von Sdn-Technologien mit Microsoft oder anderen Sdn-Kunden interessiert sind, gibt es eine Vielzahl von Methoden zum Herstellen von Kontakten.
 
-Weitere Informationen finden Sie unter [wenden Sie sich an das Rechenzentrum und Cloud-Networking-Team](contact-sdn-team.md).
+Weitere Informationen finden [Sie unter Kontaktieren des Rechenzentrums und cloudnetzwerkteams](contact-sdn-team.md).

@@ -7,120 +7,120 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: manage
-ms.openlocfilehash: 97fab1a36db2e903b3a909bee9e2f1748f7841fd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6a6ccedeeb007b9d3ab32c308fae991deb526442
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834141"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383092"
 ---
 # <a name="server-performance-advisor-users-guide"></a>Server Performance Advisor-Benutzerhandbuch
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows 10, Windows 8
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10, Windows 8
 
-In diesem Benutzerhandbuch für Microsoft Server Performance Advisor (SPA) bietet Richtlinien zum SPA verwenden, um Leistungsengpässe zu erkennen, in Systemen, die in verschiedenen Serverrollen bereitgestellt.
+Dieses Benutzerhandbuch für Microsoft Server Performance Advisor (Spa) enthält Richtlinien für die Verwendung von Spa, um Leistungsengpässe in Systemen zu identifizieren, die in verschiedenen Server Rollen bereitgestellt werden.
 
-SPA helfen Ihnen bei der folgenden Schritte:
+Spa kann Ihnen Folgendes helfen:
 
-* Verwalten Sie die serverleistung aus, und Beheben von Problemen mit der serverleistung.
+* Verwalten Sie die Serverleistung, und beheben Sie Probleme mit der Serverleistung.
 
-* Geben Sie Berichte für Daten und Empfehlungen zur allgemeinen Konfiguration und Leistungsprobleme.
+* Stellen Sie Daten Berichte und Empfehlungen zu häufigen Konfigurations-und Leistungsproblemen bereit.
 
-* Geben Sie die Empfehlungen für bewährte Erwägung basierend auf den gesammelten Daten.
+* Stellen Sie basierend auf den gesammelten Daten optimale Empfehlungen für die Bereitstellung bereit.
 
 > [!NOTE]
-> Der SPA-Konsole macht keine Änderungen an den Server.
+> Die Spa-Konsole nimmt keine Änderungen an den Servern vor.
 
-Weitere Informationen zum Entwickeln von SPA-Advisor-Packs finden Sie unter [Server Performance Advisor Pack Development Guide](server-performance-advisor-pack-development-guide.md).
+Weitere Informationen zum Entwickeln von Spa Advisor-Paketen finden Sie im [Entwicklungs Handbuch zum Server Performance Advisor Pack](server-performance-advisor-pack-development-guide.md).
 
-## <a name="server-performance-advisor-overview"></a>Server Performance Advisor – Übersicht
+## <a name="server-performance-advisor-overview"></a>Übersicht über den Server Performance Advisor
 
 
-In diesem Abschnitt wird erläutert, den Verlauf der SPA, beschreibt die Zielgruppe und die Szenarien und bietet eine architektonische Übersicht über das Tool.
+In diesem Abschnitt wird der Verlauf der Spa erläutert, die Zielgruppe und die Zielgruppe beschrieben und eine architektonische Übersicht über das Tool vorgestellt.
 
-### <a name="history-of-spa"></a>Verlauf der SPA
+### <a name="history-of-spa"></a>Verlauf der Spa
 
-Die ursprüngliche Version von Microsoft Server Performance Advisor (SPA) wurde im Jahr 2005-2006 veröffentlicht. Es in erster Linie für Windows Server 2003, einschließlich der Core-Betriebssystem und Serverrollen wie z. B. Internet Information Services (IIS) und active Directory verwendet. Das Ziel des Tools ist auf die serverleistung zu bewerten und Beheben von Problemen mit der serverleistung.
+Die ursprüngliche Version von Microsoft Server Performance Advisor (Spa) wurde in 2005-2006 veröffentlicht. Dabei handelt es sich hauptsächlich um Windows Server 2003, einschließlich der wichtigsten Betriebssystem-und Server Rollen wie Internetinformationsdienste (IIS) und Active Directory. Das Tool soll Ihnen helfen, die Serverleistung zu bewerten und Probleme mit der Serverleistung zu beheben.
 
-SPA enthält Berichte für Daten und Empfehlungen für Systemadministratoren, die zur allgemeinen Konfiguration und Leistungsprobleme. SPA sammelt leistungsbezogener Daten aus verschiedenen Quellen auf Servern, z. B. Leistungsindikatoren, Registrierungsschlüssel, WMI-Abfragen, Konfigurationsdateien und Ereignisablaufverfolgung für Windows (ETW). Basierend auf dem Server-Leistungsdaten, die er Daten sammelt, bieten SPA einen detaillierten Einblick in die Ausgangssituation für Server-Leistung und die Problem Empfehlungen dazu, was verbessert werden kann.
+Spa bietet Daten Berichte und Empfehlungen für Systemadministratoren zu häufigen Konfigurations-und Leistungsproblemen. Spa sammelt leistungsbezogene Daten aus verschiedenen Quellen auf Servern, z. b. Leistungsindikatoren, Registrierungs Schlüsseln, WMI-Abfragen, Konfigurationsdateien und Ereignis Ablauf Verfolgung für Windows (ETW). Basierend auf den erfassten Server Leistungsdaten bietet Spa eine ausführliche Betrachtung der aktuellen Serverleistung und gibt Empfehlungen dazu, was verbessert werden kann.
 
-Es wurden mehr als eine Million Downloads des ursprünglichen SPA-Tools, und konnten dadurch viele Systemadministratoren, die die Leistung von ihren Servern zu verwalten. Es wurde ein sehr erfolgreicher Performance-Tool zur Problembehandlung.
+Das Original-Spa-Tool hat mehr als 1 Million Downloads und unterstützt viele Systemadministratoren dabei, die Leistung Ihrer Server zu verwalten. Es handelt sich um ein sehr erfolgreiches Tool zur Problembehandlung bei der Leistung.
 
-Seit der Veröffentlichung der ursprünglichen SPA gibt es mehrere wichtige Änderungen in der Welt der Server-Leistung. Am wichtigsten ist die Version von Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 und Windows Server 2008 mit neuen Versionen der entsprechenden Serverrollen wie z. B. IIS 8.5 (Internetinformationsdienste). Neuere Versionen von Server Performance Advisor erweitern die Funktionen der ursprünglichen SPA auf den aktuellen Server-Betriebssysteme und Serverrollen.
+Seit der Veröffentlichung der ursprünglichen Spa gibt es einige wesentliche Änderungen in der Server Leistungs Welt. Insbesondere das Release von Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 und Windows Server 2008 mit neuen Versionen der entsprechenden Server Rollen wie Internetinformationsdienste (IIS) 8,5. Neuere Versionen von Server Performance Advisor erweitern die Funktionalität der ursprünglichen Spa auf die neuesten Server Betriebssysteme und Server Rollen.
 
-Obwohl die gleichen Ziele beim Entwurf und die Performance Analysis-Paradigma als das ursprüngliche Tool SPA 3.1 freigegeben hat, wurde sie mit der neuesten Technologie umgeschrieben. Es verfügt auch über die folgenden wichtigen Verbesserungen:
+Obwohl Spa 3,1 die gleichen Entwurfs Ziele und Leistungsanalyse Paradigma wie das ursprüngliche Tool nutzt, wurde es mit der neuesten Technologie umgeschrieben. Außerdem bietet es die folgenden wichtigen Verbesserungen:
 
-* Kann für Server mit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 und Windows Server 2008 analysiert.
+* Kann Analysen für Server ausführen, auf denen Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 und Windows Server 2008 ausgeführt wird.
 
-* Unterstützt die remoteanalyse-Funktion, die SPA 3.1 zum Erfassen und Analysieren von Daten in einer zentralen Konsole, ohne dass Code zu installieren, auf den Servern analysiert werden kann.
+* Unterstützt die Remote Analysefunktion, die es Spa 3,1 ermöglicht, Daten aus einer zentralen Konsole zu erfassen und zu analysieren, ohne dass Code auf den zu analysierenden Servern installiert werden muss.
 
-* Verwendet eine Microsoft SQL Server für die Analyse und Speicherung, ermöglicht es, verarbeiten und speichern große Datenmengen.
+* Verwendet einen Microsoft SQL Server für die Datenanalyse und den Speicher, der die Verarbeitung und Speicherung großer Datenmengen ermöglicht.
 
-* Trennt das Tool aus dem Advisor-Packs. Performance Analysis-Logik für jede Serverrolle wird in Form von einem Advisor-Pack, veröffentlicht, die veröffentlicht oder separat aus dem Tool aktualisiert werden können.
+* Trennt das Tool von den Advisor-Paketen. Die Leistungsanalyse Logik für jede Server Rolle wird in Form eines Advisor-Pakets freigegeben, das getrennt vom Tool veröffentlicht oder aktualisiert werden kann.
 
-* Stellt die Advisor-Packs, die in SQL-Skripts mit einer offenen Architektur entwickelt wurden. Nicht-Microsoft-Parteien Advisor-Packs entwickeln oder erweitern die vorhandenen Advisor Packs von Microsoft, um spezielle Anforderungen zu behandeln.
+* Stellt Advisor-Pakete bereit, die in SQL-Skripts mit einer offenen Architektur entwickelt wurden. Parteien, die nicht von Microsoft sind, können Advisor Packs entwickeln oder die vorhandenen Advisor Packs von Microsoft erweitern, um besondere Anforderungen zu erfüllen.
 
-* Unterstützt neue Funktionen wie Seite-an-Seite-Vergleichs-Berichte und Trend und historische Diagramme können Sie Anomalien gefunden.
+* Unterstützt neue Features wie parallele Vergleichsberichte und Trend-und Vergangenheits Diagramme, die Ihnen bei der Suche nach Anomalien helfen.
 
-* Bietet Funktionen wie z. B. ändern, Import und Export von Schwellenwerten können Sie problemlos die Berichte und Benachrichtigungen zu optimieren und diese Feinabstimmungen für andere SPA-Benutzer freigeben.
+* Bietet Features wie z. b. die Schwellenwerte zum ändern, importieren und exportieren, mit denen Sie die Berichte und Benachrichtigungen optimieren und diese für andere Spa-Benutzer freigeben können.
 
-* Unterstützt mehrere Projekte, die zum Gruppieren von Zielservern verwendet werden kann.
+* Unterstützt mehrere-Projekte, die zum Gruppieren von Ziel Servern verwendet werden können.
 
-* Enthält die wiederholte Sammeln von Daten in der SPA-Konsole.
+* Ermöglicht die wiederholte Erfassung von Daten in der Spa-Konsole.
 
-* Können benutzerdefinierte Abfragen und berichterstellung mithilfe von Microsoft SQL Server (für fortgeschrittene Benutzer).
+* Aktiviert benutzerdefinierte Abfragen und die Generierung von Berichten mithilfe von Microsoft SQL Server (für fortgeschrittene Benutzer).
 
-* Angepasste Windows PowerShell-Cmdlets stehen für die Verwendung mit der SPA
+* Angepasste Windows PowerShell-Cmdlets sind für die Verwendung mit Spa verfügbar.
 
-* Abwärtskompatibel für das Importieren und Anzeigen von Berichten aus einer SPA 3.0-Datenbank
+* Abwärts kompatibel zum Importieren und Anzeigen von Berichten aus einer Spa 3,0-Datenbank
 
 ### <a name="target-audience"></a>Zielgruppe
 
-Das SPA-Tool dient in erster Linie für Systemadministratoren, die weniger als 100 Servern in verschiedenen Serverrollen zu verwalten. Sie können auch von Supporttechnikern zum Sammeln von Leistungsdaten und zum Beheben von Leistungsproblemen für Kunden, die verwendet werden.
+Das Spa-Tool ist hauptsächlich für Systemadministratoren konzipiert, die weniger als 100 Server in verschiedenen Server Rollen verwalten. Es kann auch von Support Technikern verwendet werden, um Leistungsdaten zu erfassen und Leistungsprobleme für Kunden zu beheben.
 
-SPA bietet Empfehlungen zum Lösen von Leistungsproblemen. Allerdings Annahmen basiert auf, die möglicherweise nicht für Ihre Umgebung spezifischen Server gelten. Die Empfehlungen, die in der SPA angebotenen sollte Vorschläge angesehen werden. Wir erwarten, dass SPA-Benutzer haben ein gutes Verständnis ihrer Systemkonfiguration, Anwendungsfälle und die Auswirkungen von System zu optimieren, auf das Verhalten des gesamten Systems. Systemadministratoren müssen entscheiden, wenn die SPA-Empfehlungen zu ihrer Umgebung angewendet werden soll.
+Spa bietet Empfehlungen, mit denen Sie Leistungsprobleme beheben können. Es basiert jedoch auf Annahmen, die möglicherweise nicht auf Ihre bestimmte Serverumgebung anwendbar sind. Die Empfehlungen, die über Spa angeboten werden, sollten als Vorschläge angesehen werden. Wir gehen davon aus, dass Spa-Benutzer ein gutes Verständnis der Systemkonfiguration, der Anwendungsfälle und der Auswirkungen der Systemoptimierung auf das gesamte Systemverhalten haben. System Administratoren sollten entscheiden, ob die Spa-Empfehlungen auf Ihre Umgebung angewendet werden sollen.
 
-### <a href="" id="what-s-new-in-spa-3-1-"></a>Neuerungen, die neuen SPA-3.1?
+### <a href="" id="what-s-new-in-spa-3-1-"></a>Welche Neuerungen gibt es in Spa 3,1?
 
-Die folgenden Features und Verbesserungen wurden im SPA 3.1 hinzugefügt:
+Die folgenden Features und Verbesserungen wurden in Spa 3,1 hinzugefügt:
 
-* Active Directory Advisor Pack können Sie die allgemeine Leistung der Server s active Directory-Domänendienste-Serverrolle zu analysieren.
+* Das Active Directory Advisor Pack hilft bei der Analyse der allgemeinen Leistung der Server Rolle "Active Directory-Domänen Dienste" des Servers.
 
-* Unterstützung für Entwickler verloren ETW-ereigniswarnungen Benachrichtigungen des Advisor-Packs hinzu und Sichtbarmachen von die Warnung beim Generieren eines Berichts und Ereignisse sind aufgrund hoher Frequenz zu protokollieren, auf einer langsamen oder stark verloren gegangen Konflikten Datenträger
+* Unterstützung für Entwickler zum Hinzufügen verlorener ETW-Ereignis Benachrichtigungs Warnungen in den Advisor Packs und zum Anzeigen der Warnung, wenn ein Bericht generiert wurde und Ereignisse aufgrund der Häufigkeit der Protokollierung auf einem langsamen oder stark in Konflikt befindlichen Datenträger verloren gegangen sind
 
-### <a name="target-scenarios"></a>Zielszenarien
+### <a name="target-scenarios"></a>Ziel Szenarien
 
-Es folgen die Zielszenarien für die SPA:
+Im folgenden sind die Ziel Szenarien für Spa aufgeführt:
 
-* **Server-Umgebung**
+* **Server Umgebung**
 
-    SPA soll einfach einrichten und verwalten. Dies gilt für serverumgebungen, die 1 bis 100-Servern verwenden. SPA skaliert nicht gut, wenn Sie die Leistung für mehr als 100 Server verwalten möchten. Bei größeren oder komplexere Umgebungen sollten Sie mit System Center Operations Manager.
+    Spa ist so konzipiert, dass es problemlos eingerichtet und gewartet werden kann. Dies gilt für Serverumgebungen, die 1 bis 100 Server verwenden. Spa ist nicht gut skalierbar, wenn Sie versuchen, die Leistung für mehr als 100 Server zu verwalten. Für größere oder anspruchsvollere Umgebungen sollten Sie die Verwendung von System Center Operations Manager in Erwägung gezogen.
 
-* **Behandeln von Leistungsproblemen**
+* **Behandlung von Leistungsproblemen**
 
-    Sie können die SPA als eine Leistung Problembehandlungstool verwenden. Es bietet die Möglichkeit zum Sammeln von Leistungsdaten, sie führt eine umfassende Post Verarbeitung für die Daten erhalten Sie einen besseren Überblick des gesamten Systems Verhaltens und alle Anomalien kennzeichnet. Wenn von einem Kunden ein Leistungsproblem vermuten, können Sie SPA zum Erfassen und Analysieren von Leistungsdaten vom Server.
+    Sie können Spa als Tool zur Leistungsproblem Behandlung verwenden. Er bietet die Möglichkeit, Leistungsdaten auf hoher Ebene zu erfassen. er führt eine gründliche Verarbeitung der Daten durch, um Ihnen ein besseres Verständnis für das gesamte Systemverhalten zu bieten, und Kenn gibt jegliche Anomalien. Wenn ein Kunde von einem Leistungsproblem vermutet wird, können Sie die Spa verwenden, um Leistungsdaten vom Server zu erfassen und zu analysieren.
 
-    SPA generiert einen Bericht, den Sie anzeigen können. SPA-Berichte bieten eine Benachrichtigungsliste die wichtigsten potenziellen Probleme, und ein Data-Abschnitt, der verschiedene Leistungsindex, Konfigurationen und Einstellungen für den Server enthält. In diesem Bericht können Sie die spezifischen Leistungsproblem identifizieren und verwenden Sie die Empfehlungen, um Lösungen zum Beheben des Problems zu finden. Berichte können für andere Berichte verglichen werden, die zu einem anderen Zeitpunkt oder von einem anderen Server generiert wurden. Anhand dieses Vergleichs Seite-an-Seite können Sie Unterschiede zwischen Baseline normales und ungewöhnliches Verhalten bestimmen.
+    Spa generiert einen Bericht, den Sie anzeigen können. Spa-Berichte bieten eine Benachrichtigungsliste, die mögliche Probleme hervorhebt, und einen Daten Abschnitt, der verschiedene Leistungsindizes, Konfigurationen und Einstellungen für den Server enthält. Mithilfe dieses Berichts können Sie das spezifische Leistungsproblem identifizieren und die Empfehlungen verwenden, um Lösungen für das Problem zu finden. Berichte können mit anderen Berichten verglichen werden, die zu einem anderen Zeitpunkt oder von einem anderen Server generiert wurden. Mit diesem parallelen Vergleich können Sie Unterschiede zwischen der normalen Baseline und dem normalen Verhalten ermitteln.
 
-    **Beachten Sie** SPA fungiert nicht als ein Debuggen oder Tool Messung. Darüber hinaus aus der Perspektive der Server wird ein nur-Lese Tool berücksichtigt werden, und die Serverkonfigurationen nicht geändert.
+    **Hinweis** Spa ist nicht als Debuggen oder Messungs Tool konzipiert. Außerdem kann Sie aus der Perspektive der Server als Schreib geschütztes Tool angesehen werden, und die Serverkonfigurationen werden nicht geändert.
 
      
 
-* **Leistungsüberwachung für index**
+* **Leistungsindex Überwachung**
 
-    Sie können SPA verwenden, um den Leistungsindex von Servern zu überwachen. Sie können auswählen, zum Ausführen der SPA routinemäßig auf Servern zum Sammeln von Leistungsdaten aus, und führen Sie ein Trenddiagramm oder ein Verlaufsdiagramm die Anomalien zu erkennen. Sie können den Bericht für eine bestimmte Analyse anzeigen, finden Sie weitere Informationen zu das Leistungsproblem und verwenden Sie dann die Empfehlungen oder andere Berichtsdaten zur Behebung des Problems.
+    Sie können Spa verwenden, um den Leistungsindex von-Servern zu überwachen. Sie können festlegen, dass Spa regelmäßig auf Servern ausgeführt werden soll, um Leistungsdaten zu erfassen, und dann ein Trend Diagramm oder ein Verlaufs Diagramm ausführen, um die Anomalien zu erkennen. Sie können den Bericht für eine bestimmte Analyse anzeigen, weitere Informationen zum Leistungsproblem anzeigen und dann die Empfehlungen oder andere Berichtsdaten verwenden, um das Problem zu beheben.
 
-### <a name="spa-architecture"></a>SPA-Architektur
+### <a name="spa-architecture"></a>Spa-Architektur
 
-Die SPA-Datenlogik Auflistung basiert auf ein Protokoll in Windows-Leistungsprotokolle und Warnungen (PLA) aufgerufen. PLA kann Programme zum Erfassen von Leistungsdaten von lokalen Servern oder Remoteservern, z. B. Leistungsindikatoren, WMI-Abfragen, ETW-ablaufverfolgungen, Registrierungsschlüssel und Konfigurationsdateien. Wenn SPA Leistungsanalyse auf einen Zielserver ausgeführt wird, wird eine PLA-Datensammler-Menge, die basierend auf den bestimmten SPA-Advisor-Pack, das Sie ausgewählt. Das Advisor-Pack enthält die Datenquelle gesammelt werden und die Dateifreigabe, in dem die Protokolle gespeichert sind. SPA-Datensammlung speichert nur einem einzigen Benutzerkonto anmelden. dasselbe Benutzerkonto ein, die PLA wird auch verwendet, um die Protokolle schreiben.
+Die Spa-Daten Sammlungs Logik basiert auf einem Protokoll in Windows namens Leistungsprotokolle und-Warnungen (PLA). Mithilfe von Pla können Programme Leistungsdaten von lokalen Servern oder Remote Servern erfassen, wie z. b. Leistungsindikatoren, WMI-Abfragen, etw-Ablauf Verfolgungen, Registrierungs Schlüsseln und Konfigurationsdateien. Wenn das Spa eine Leistungsanalyse auf einem Zielserver ausführt, erstellt es einen Pla-Datensammler Satz, der auf dem von Ihnen ausgewählten Spa Advisor-Paket basiert. Das Advisor-Paket enthält die zu sammelnde Datenquelle und die Dateifreigabe, in der die Protokolle gespeichert werden sollen. Bei der Spa-Datensammlung wird nur ein einzelnes Benutzerkonto gespeichert. das gleiche Benutzerkonto, das von Pla verwendet wird, wird auch verwendet, um die Protokolle zu schreiben.
 
-SPA verwendet eine SQL Server-Datenbank zum Speichern der Performance-Protokolle, die von Zielservern gesammelt werden. SPA importiert alle Leistungsprotokolle von der Dateifreigabe in die Datenbank, und klicken Sie dann die Analyselogik für Daten innerhalb jedes Advisor Pack verwendet, um die Daten verarbeiten und die Berichte zu generieren. Ein Advisor-Pack analysiert die Leistungsdaten, die von Zielservern erfasst wurde und die SPA-Berichte generiert. Weitere Informationen zum Erstellen eines Advisor-Packs finden Sie unter [Server Performance Advisor Pack Development Guide](server-performance-advisor-pack-development-guide.md).
+Spa verwendet eine SQL Server Datenbank, um die Leistungs Protokolle zu speichern, die von den Ziel Servern gesammelt werden. Spa importiert alle Leistungs Protokolle aus der Dateifreigabe in die Datenbank und verwendet dann die Datenanalyse Logik innerhalb jedes Advisor-Pakets, um die Daten zu verarbeiten und die Berichte zu generieren. Ein Advisor-Paket analysiert die Leistungsdaten, die von den Ziel Servern gesammelt wurden, und generiert die Spa-Berichte. Weitere Informationen zum Aufbau eines Advisor-Pakets finden Sie im [Entwicklungs Handbuch zum Server Performance Advisor Pack](server-performance-advisor-pack-development-guide.md).
 
-Die SPA-Konsole von Benutzeroberflächen und Interaktionen werden im Rahmen der SPAConsole.exe erstellt. Die Konsole können Sie mit einer Datenbank zu erstellen, hinzufügen oder entfernen Packs für Advisor, Zielserver verwalten, Durchführen einer Leistungsanalyse, und zeigen Leistungsberichten.
+Die Benutzeroberflächen und Interaktionen der Spa-Konsole werden als Teil der "spaconsole. exe" erstellt. Sie können die-Konsole verwenden, um eine Datenbank zu erstellen, Advisor-Pakete hinzuzufügen oder zu entfernen, Zielserver zu verwalten, Leistungsanalysen auszuführen und Leistungsberichte anzuzeigen.
 
-Die SPA-Konsole kann unter den folgenden Betriebssystemen ausgeführt:
+Die Spa-Konsole kann unter den folgenden Betriebssystemen ausgeführt werden:
 
 * Windows 8.1
 
@@ -136,470 +136,470 @@ Die SPA-Konsole kann unter den folgenden Betriebssystemen ausgeführt:
 
 * WindowsServer 2008
 
-In eine typische Geschäftsanwendung, es gibt drei Ebenen: die Darstellungsschicht der Geschäftslogikebene und der Speicherschicht. SPA dient als ein Produkt Ebene, die Konsole und der Datenbank. Die Konsole dient als Darstellungsschicht mit bestimmten prozessbezogene Logik enthalten, und die Datenbank fungiert als die Speicherebene und der Geschäftslogikebene. Die Konsole erfasst Benutzereingaben, und es steuert, die Schritte für die Datensammlung, Datenverarbeitung und berichterstellung. SPA ist nicht auf Windows-System-Diensten abhängig.
+In einer typischen Geschäftsanwendung gibt es drei Ebenen: die Präsentationsschicht, die Geschäftslogik Schicht und die Speicher Ebene. Spa ist als ein zweistufiges Produkt der-Konsole und der-Datenbank konzipiert. Die-Konsole fungiert als Präsentationsschicht mit bestimmter prozessbezogener Logik, und die-Datenbank fungiert als Speicherschicht und Geschäftslogik Schicht. Die-Konsole erfasst Benutzereingaben und steuert die Schritte für die Datensammlung, die Datenverarbeitung und die Bericht Generierung. Spa ist nicht von den Windows-System Diensten abhängig.
 
-Das folgende Diagramm zeigt die allgemeine Architektur des Systems SPA. Der Prozess ist:
+Das folgende Diagramm zeigt die allgemeine Architektur des Spa-Systems. Der Prozess lautet wie folgt:
 
-1.  In der SPA-Konsole führen Sie zur Leistungsanalyse, auf die angegebenen Server.
+1.  In der Spa-Konsole führen Sie die Leistungsanalyse auf den angegebenen Servern aus.
 
-2.  Wenn die Leistungsdaten erfasst werden, schreibt PLA auf den Zielservern die Protokolle zurück in die Dateifreigabe, die vom datensammlersatz angegeben ist.
+2.  Wenn die Leistungsdaten gesammelt werden, werden die Protokolle von Pla auf den Ziel Servern zurück in die Dateifreigabe geschrieben, die durch den Datensammler Satz angegeben wird.
 
-3.  Nachdem die Datensammlung auf einem Zielcomputer abgeschlossen ist, importiert die SPA-Konsole die Protokolle in SQL Server-Datenbank.
+3.  Nachdem die Datensammlung auf einem Bereitstellungs Zielcomputer fertiggestellt wurde, importiert die Spa-Konsole die Protokolle in die SQL Server Datenbank.
 
-4.  Die Konsole wird die Datenverarbeitungslogik von bestimmten Advisor Pack aufgerufen.
+4.  Die-Konsole Ruft die Datenverarbeitungs Logik eines bestimmten Advisor-Pakets auf.
 
-5.  Das Advisor-Pack verarbeitet die Daten und ruft SPA-APIs zum Einfügen von Datensätzen in die Systemtabellen für den Bericht, die durch das SPA-Framework definiert sind.
+5.  Das Advisor Pack verarbeitet die Daten und ruft Spa-APIs auf, um Datensätze in die vom Spa-Framework definierten System Berichts Tabellen einzufügen.
 
-6.  Sie können im Berichts-Viewer in der Konsole verwenden, um die Berichte anzuzeigen, generiert. Damit Sie die Leistungsprobleme zu beheben, SPA bietet drei Arten von Berichten: einzelne Berichte, Seite-an-Seite Berichte und Trends oder Verlaufsdaten Diagramme. Weitere Informationen zu Berichten finden Sie unter [Anzeigen von Berichten](#bkmk-viewingreports).
+6.  Sie können den Bericht-Viewer in der-Konsole verwenden, um die generierten Berichte anzuzeigen. Um Ihnen bei der Behebung von Leistungsproblemen zu helfen, bietet Spa drei Arten von Berichten: einzelne Berichte, parallele Berichte und Trend-oder Vergangenheits Diagramme. Weitere Informationen zu Berichten finden Sie unter [Anzeigen von Berichten](#bkmk-viewingreports).
 
-![SPA-Architektur](../media/server-performance-advisor/spa-user-manual-architecture.png)
+![Spa-Architektur](../media/server-performance-advisor/spa-user-manual-architecture.png)
 
-## <a name="getting-started-with-spa"></a>Erste Schritte mit der SPA
+## <a name="getting-started-with-spa"></a>Einstieg in die Spa
 
 
 ### <a name="requirements"></a>Anforderungen
 
-Die SPA-Konsole kann auf Windows 8.1, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 und Windows Server 2008 installiert werden. Ausführen von SPA in früheren Versionen des Betriebssystems Windows Server wird nicht unterstützt. SPA X86 oder X64 ausgeführt, aber die IA64- oder ARM-Architekturen werden nicht unterstützt.
+Die Spa-Konsole kann auf Windows 8.1, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 und Windows Server 2008 installiert werden. Das Ausführen von Spa unter früheren Versionen des Windows Server-Betriebssystems wird nicht unterstützt. Spa wird auf x86 oder x64 ausgeführt, unterstützt jedoch keine ia64-oder ARM-Architekturen.
 
-SPA ist in Windows Presentation Foundation (WPF) 2.0 integriert. Dies Teil von Microsoft .NET Framework 4, ist also .NET Framework 4 erforderlich.
+Spa basiert auf Windows Presentation Foundation (WPF) 2,0, das Teil von Microsoft .NET Framework 4 ist, sodass .NET Framework 4 erforderlich ist.
 
-Sie müssen auch SQL Server 2008 R2 Express auf dem gleichen Computer installieren, auf die SPA installiert ist. SQL Server 2008 R2 Express ist eine kostenlose Datenbank-Engine, die von Microsoft veröffentlicht wird. Sie können die Microsoft SQL Server 2008 R2 Express aus dem Microsoft Download Center herunterladen. SQL Server 2008 R2 Express es wird empfohlen, ggf. neuere Versionen von SQL Server auch mit SPA kompatibel.
+Außerdem müssen Sie SQL Server 2008 R2 Express auf demselben Computer installieren, auf dem Spa installiert ist. SQL Server 2008 R2 Express ist eine kostenlose Datenbank-Engine, die von Microsoft veröffentlicht wird. Sie können Microsoft SQL Server 2008 R2 Express aus dem Microsoft Download Center herunterladen. Obwohl wir SQL Server 2008 R2 Express vorschlagen, können neuere Versionen von SQL Server auch mit Spa kompatibel sein.
 
-**Beachten Sie** SPA enthält keine SQL Server und .NET Framework als Teil der SPA-Installationspaket. Nach der Installation von Microsoft SQL Server 2008 R2 und .NET Framework 4.0, empfehlen wir, dass Sie Windows Update vor der Installation von SPA ausführen.
+**Hinweis** Das Spa umfasst weder SQL Server noch die .NET Framework als Teil des Installationspakets. Nach der Installation von Microsoft SQL Server 2008 R2 und .NET Framework 4,0 empfiehlt es sich, vor der Installation von Spa Windows Update auszuführen.
 
  
 
-Da können Benutzer erstellen und Verwalten von Datenbanken mit SPA, sollte das Benutzerkonto, das zum Ausführen der SPA verwendet wird als SQL Server die gleichen Administratorrechte haben.
+Da Benutzerdaten Banken mit Spa erstellen und verwalten können, muss das Benutzerkonto, das zum Ausführen von Spa verwendet wird, über dieselben Administratorrechte wie SQL Server verfügen.
 
-### <a href="" id="bkmk-setupspa"></a>Einrichten der SPA
+### <a href="" id="bkmk-setupspa"></a>Einrichten von Spa
 
-SPA wird verpackt, als eine CAB-Datei, die alle Binärdateien für die SPA-Framework, die Windows PowerShell-Cmdlets enthält, die in erweiterten Szenarien verwendet werden, und die folgende Advisor packt: Kernbetriebssystem, Hyper-V, active Directory und IIS. Nachdem Sie die CAB-Datei in einen Ordner extrahiert haben, ist keine zusätzliche Installation erforderlich. Um SPA auszuführen, müssen Sie jedoch die Datensammlung von den Zielservern wie folgt aktivieren:
+Spa ist als CAB-Datei verpackt, die alle Binärdateien für das Spa-Framework, die Windows PowerShell-Cmdlets, die in erweiterten Szenarien verwendet werden, und die folgenden Advisor-Pakete umfasst: Core-Betriebssystem, Hyper-V, Active Directory und IIS. Nachdem Sie die CAB-Datei in einen Ordner extrahiert haben, ist keine weitere Installation erforderlich. Zum Ausführen von Spa müssen Sie die Datensammlung auf den Ziel Servern jedoch wie folgt aktivieren:
 
-* Um Datensammlung PLA auszuführen, muss das Benutzerkonto, mit denen Sie die SPA-Konsole ausführen Teil der Sicherheitsgruppe "Administratoren" auf dem Zielserver sein. Wenn der Zielserver und die Konsole in der gleichen Domäne sind, muss das Domänenbenutzerkonto, das Teil der Sicherheitsgruppe "Administratoren" auf dem Zielserver sein. Wenn der Zielserver und die Konsole nicht in derselben Domäne sind, erstellen Sie eines Administratorkontos auf dem Zielserver mit dem gleichen Benutzernamen und Kennwort wie das Benutzerkonto, mit denen Sie die SPA-Konsole ausführen.
+* Zum Ausführen der Pla-Datensammlung muss das Benutzerkonto, das Sie zum Ausführen der Spa-Konsole verwenden, der Sicherheitsgruppe "Administratoren" auf dem Zielserver angehören. Wenn sich der Zielserver und die-Konsole in derselben Domäne befinden, muss das Domänen Benutzerkonto Teil der Sicherheitsgruppe Administratoren auf dem Zielserver sein. Wenn sich der Zielserver und die-Konsole nicht in derselben Domäne befinden, erstellen Sie ein Administrator Konto auf dem Zielserver mit demselben Benutzernamen und Kennwort wie das Benutzerkonto, das Sie zum Ausführen der Spa-Konsole verwenden.
 
-* Erstellen Sie einen freigegebenen Ordner aus, um Ergebnisse zu erzielen, auf dem Server.
+* Erstellen Sie einen freigegebenen Ordner für die Ergebnisse auf dem Server.
 
-* Stellen Sie sicher, dass das Benutzerkonto an, die Sie verwenden zum Ausführen der SPA-Konsole über Lese- und Schreibberechtigungen für den freigegebenen Ordner. PLA verwendet dieses Konto zum Schreiben von Protokollen in den Ordner an.
-Die SPA-Konsole verwendet das gleiche Konto, um Protokolle zu lesen, und importieren Sie sie in der Datenbank.
+* Stellen Sie sicher, dass das Benutzerkonto, das Sie zum Ausführen der Spa-Konsole verwenden, über Lese-und Schreibberechtigungen für den freigegebenen Ordner verfügt. Mit diesem Konto werden von Pla Protokolle in den Ordner geschrieben.
+Die Spa-Konsole verwendet dasselbe Konto, um Protokolle zu lesen und in die-Datenbank zu importieren.
 
-    **Beachten Sie** ETW implementiert einen zirkulären Puffer zum Speichern der Ablaufverfolgungs, und verschiebt sie in den freigegebenen Ordner, wenn möglich. Wenn der Server ausgelastet ist, oder der Schreibvorgang langsam ist, löscht-ETW-ablaufverfolgungen, wenn der Puffer voll ist. Es ist wichtig, die der freigegebene Ordner befindet sich auf einem Server mit schnellen e/a-Zugriff. Es wird empfohlen, dass alle Zielserver aus einen freigegebenen Ordner Datenverlust aufgrund von langsamen-Datei-e/a minimiert ist.
+    **Hinweis** Etw implementiert einen Zirkel Puffer zum Speichern der Ablauf Verfolgung und verschiebt Sie nach Möglichkeit in den freigegebenen Ordner. Wenn der Server ausgelastet ist oder der Schreibvorgang langsam ist, löscht etw die Ablauf Verfolgungen, wenn der Puffer voll ist. Es ist wichtig, dass sich der freigegebene Ordner auf einem Server befindet, der überschnellen e/a-Zugriff verfügt. Es wird empfohlen, dass jeder Zielserver über einen freigegebenen Ordner verfügt, um Datenverluste zu minimieren, die durch langsame Datei-e/a
 
      
 
-* Für PLA auf Zielservern Festlegen der Windows-Firewall für den remote Leistungsprotokolle und Warnungen den Zugriff auf Zielservern zu ermöglichen. PLA verwendet TCP-Port 139.
+* Legen Sie für die Windows-Firewall für den Zugriff auf Zielserver mit der Windows-Firewall den Zugriff auf Remote Leistungsprotokolle und-Warnungen auf Ziel Servern fest. Die Pla verwendet den TCP-Port 139.
 
-* Stellen Sie sicher, dass die **Leistungsprotokolle und Warnungen** -Dienst wird ausgeführt.
+* Stellen Sie sicher, dass die **Leistungs Protokolle &** Warnungs Dienst ausgeführt werden.
 
-* Wenn der Server-Konsole und Ziel in unterschiedlichen Subnetzen befinden, müssen Sie auch zum Festlegen von Feld remote-IP-Adresse in den eingehenden Firewallregeln in der **Bereich** Einstellungen auf der **Leistungsprotokolle und-Warnungen** Seite, wie hier gezeigt.
+* Wenn sich die Konsole und der Zielserver in unterschiedlichen Subnetzen befinden, müssen Sie auch das Feld Remote-IP-Adresse in den Regeln für die eingehende Firewall in den **Bereichs** Einstellungen auf der Seite **Leistungsprotokolle und-Warnungen** festlegen, wie hier gezeigt.
 
-    ![PLA-Eigenschaften](../media/server-performance-advisor/spa-user-manual-pla-firewall.png)
+    ![Pla-Eigenschaften](../media/server-performance-advisor/spa-user-manual-pla-firewall.png)
 
-* Aktivieren Sie die Netzwerkermittlung in der Konsole und auf jedem der Zielserver.
+* Aktivieren Sie die Netzwerk Ermittlung in der-Konsole und auf jedem der Zielserver.
 
-* Wenn der Zielserver nicht zu einer Domäne angehört, aktivieren Sie die folgende registrierungseinstellung: **HKLM\\SOFTWARE\\Microsoft\\Windows\\Currentversion\\Policies\\system\\LocalAccountTokenFilterPolicy**.
+* Wenn der Zielserver keiner Domäne hinzugefügt wurde, aktivieren Sie die folgende Registrierungs Einstellung: **HKLM @ no__t-1Software @ no__t-2microsoft @ no__t-3Windows @ no__t-4currentversion @ no__t-5policies @ no__t-6system @ no__t-7localaccountdekenfilterpolicy**.
 
-**Beachten Sie** Standardmäßig schreibt die SPA-Diagnoseprotokolle zu dem Ordner, in denen SpaConsole.exe befindet. Wenn SPA unter dem Ordner "Programme" installiert ist, SPA ist nur in der Lage, zu schreiben, dass das Protokoll, wenn SpaConsole.exe ist als Administrator ausgeführt würden.
+**Hinweis** Standardmäßig schreibt Spa Diagnoseprotokolle in den Ordner, in dem sich "spaconsole. exe" befindet. Wenn die Spa im Ordner "Programme" installiert ist, kann die Spa nur das Protokoll schreiben, wenn "spaconsole. exe" als Administrator ausgeführt wird.
 
-Wenn Sie Data-Analysen für die Computer-Konsole ausführen möchten, müssen Sie SPA als Administrator ausführen. PLA durchläuft einen anderen Codepfad, bei der Ausführung für einen lokalen Computer, die Administratorrechte erforderlich.
+Wenn Sie die Datenanalyse auf dem Computer mit der-Konsole ausführen möchten, müssen Sie Spa als Administrator ausführen. Die Pla durchläuft einen anderen Codepfad, wenn Sie auf einem lokalen Computer ausgeführt wird, für den Administratorrechte erforderlich sind.
 
-Wenn Sie das IIS-SPA-Advisor-Pack für Ihre Server ausführen möchten, müssen Sie WMI-Abfrage und ETW-Ablaufverfolgung für den IIS-Server zu ermöglichen. Aktivieren Sie hierzu **Ablaufverfolgung** unter der **Systemzustand und Diagnose** -Rollendienst und **IIS-Verwaltungsskripts und-Tools** unter **-Verwaltungstools**  von der **Webserver (IIS)** -Serverrolle.
+Wenn Sie das IIS Spa Advisor Pack für Ihre Server ausführen möchten, müssen Sie die WMI-Abfrage und die ETW-Ablauf Verfolgung für den IIS-Server aktivieren. Hierzu können Sie die Ablauf **Verfolgung** unter dem Integritäts **-und Diagnose** Rollen Dienst und die **IIS-Verwaltungs Skripts und-Tools** unter **Verwaltungs Tools** der Server Rolle " **Webserver (IIS)** " aktivieren.
 
  
 
 ### <a name="creating-your-first-project"></a>Erstellen Ihres ersten Projekts
 
-Nachdem alles eingerichtet ist, können Sie Ihr erste SPA-Projekt erstellen. Wie im vorherigen Abschnitt beschrieben wird, speichert die SPA alle Elemente, die Leistung der Datenanalyse innerhalb einer Datenbank zugeordnet ist. Jedes Projekt SPA entspricht einer einzelnen Datenbank. Die **erstmalige Verwendung Assistenten** führt Sie durch die folgenden Schritte aus.
+Nachdem alles eingerichtet wurde, können Sie Ihr erstes Spa-Projekt erstellen. Wie im vorherigen Abschnitt beschrieben, speichert Spa alle Elemente, die sich auf die Analyse von Leistungsdaten in einer Datenbank beziehen. Jedes Spa-Projekt entspricht einer einzelnen Datenbank. Der **Assistent zum ersten Mal** führt Sie durch die folgenden Schritte:
 
-**So erstellen Sie eine SPA-Projekt**
+**So erstellen Sie ein Spa-Projekt**
 
-1.  Starten Sie SpaConsole.exe. Die Konsole gibt einen nicht verbundenen Modus, in denen SPA nicht mit einer beliebigen Datenbank verbunden ist, und es wird das Hauptfenster ist leer.
+1.  Starten Sie "spaconsole. exe". Die Konsole wechselt in einen getrennten Modus, in dem die Spa nicht mit einer Datenbank verbunden ist und das Hauptfenster leer ist.
 
-2.  Klicken Sie zum Erstellen eines neuen Projekts **Datei**, und klicken Sie dann auf **neues Projekt**. Dadurch wird der erstmaligen Verwendung-Assistent gestartet. Die erste Seite enthält die Schritte, die beim Verwenden des Assistenten:
+2.  Um ein neues Projekt zu erstellen, klicken Sie auf **Datei**und dann auf **Neues Projekt**. Hiermit wird der Assistent zum ersten Mal verwendet. Auf der ersten Seite werden die Schritte angezeigt, die Sie bei der Verwendung des Assistenten befolgen:
 
     * Erstellen einer Datenbank
 
-    * Bereitstellen von Advisor-packs
+    * Advisor-Pakete bereitstellen
 
-    * Hinzufügen von Servern zum Liste mit Zielservern
+    * Hinzufügen von Servern zur Zielserver Liste
 
-3.  Klicken Sie auf **Weiter**. Die **erstellen Projektdatenbank** Seite werden Sie aufgefordert, den Namen des Microsoft SQL Server-Instanz bereitstellen, in dem Ihre Datenbank zu erstellen möchten. Z. B. wenn es auf dem gleichen Computer wie die Konsole ist, können **"localhost"\\&lt;Ihren SQL Servernamen&gt;**.
+3.  Klicken Sie auf **Weiter**. Auf der Seite **Projektdatenbank erstellen** werden Sie aufgefordert, den Namen der Microsoft SQL Server Instanz anzugeben, in der Sie die Datenbank erstellen möchten. Wenn Sie sich z. b. auf demselben Computer wie die-Konsole befindet, können Sie **localhost @ no__t-1 @ no__t-2your SQL Servername @ no__t-3**verwenden.
 
-    **Beachten Sie** der Standardinstanzname für eine SQL Server 2008 R2 Express-Installation ist SQLExpress. Für eine Instanz von SQL Server 2008 R2 Express, die auf dem lokalen Computer installiert ist, die Datenbank wird in der Regel standardmäßig **"localhost"\\SQLExpress**. Allerdings es möglicherweise während der Installation von SQL Server geändert wurden daher müssen Sie sicherstellen, dass Sie die Namen der richtigen SQL Server-Instanz verwenden.
-
-     
-
-4.  Geben Sie den Datenbanknamen an. Nur Buchstaben, Ziffern und Unterstriche (\_) für einen Datenbanknamen an als gültige Zeichen sind zulässig. Eine angemessene Empfehlung der SPA-Datenbankname wäre **SPA**. Wenn Sie einen ungültigen Namen eingeben, wird ein rotes Fehlersymbol angezeigt. Die zugeordnete QuickInfo gibt den Grund für Fehler bei der Überprüfung.
-
-    **Beachten Sie** es ist wichtig, um den Datenbanknamen und den Server-Instanznamen, denken Sie daran, da dies die einzige Bezeichner für das Projekt sind. Sie müssen diese Informationen bereitstellen, wenn Sie mit dieser Datenbank wechseln möchten.
+    **Hinweis** Der Standardinstanzname für eine SQL Server 2008 R2 Express-Installation lautet SQLExpress. Bei einer Instanz von SQL Server 2008 R2 Express, die auf dem lokalen Computer installiert ist, wird in der Regel standardmäßig **localhost @ no__t-1sqlexpress**angezeigt. Es wurde jedoch möglicherweise während SQL Server Installation geändert, daher müssen Sie sicherstellen, dass Sie den richtigen SQL Server Instanznamen verwenden.
 
      
 
-5.  Nachdem Sie den Server-Instanznamen und den Namen angeben, wird beim ersten Verwenden des Assistenten für den Speicherort für die Datenbankdatei generiert.
+4.  Geben Sie den Datenbanknamen an. Nur Buchstaben, Ziffern und Unterstriche (\_) sind als gültige Zeichen für einen Datenbanknamen zulässig. Ein angemessener Vorschlag für den Namen der Spa-Datenbank wäre " **Spa**". Wenn Sie einen ungültigen Namen eingeben, wird ein rotes Fehler Symbol angezeigt. Die zugehörige QuickInfo gibt den Grund für den Überprüfungs Fehler aus.
 
-6.  Auf der **erstellen Projektdatenbank** auf **Weiter**. Beim ersten Verwenden des Assistenten für eine Datenbank erstellt und alle SPA-bezogene Datenbankschema, Funktionen und gespeicherten Prozeduren in der Datenbank generiert. Dieser Schritt kann einige Sekunden, hängt von der Geschwindigkeit Hardware- und Netzwerkkonfiguration dauern.
-
-    **Beachten Sie** , wenn dieser Schritt fehlschlägt, wird eine Fehlermeldung angezeigt. Einige allgemeine Probleme sind: Konsolenverbindung kann nicht mit der SQL Server-Instanz, nicht über ausreichende Berechtigungen zum Erstellen der Datenbank, oder der Name der Datenbank bereits vorhanden ist.
+    **Hinweis** Es ist wichtig, den Datenbanknamen und den Serverinstanznamen zu merken, da dies die einzigen Bezeichner für Ihr Projekt sind. Sie müssen diese Informationen angeben, wenn Sie zu dieser Datenbank wechseln möchten.
 
      
 
-7.  Wenn im vorherige Schritt erfolgreich ausgeführt wurde, Sie sehen die **Bereitstellen von Advisor-Pack** Seite. Es listet die Advisor-Packs, die auf Ihrem Computer verfügbar sind. SPA automatisch überprüft den Ordner mit dem Namen **APs** im SPA-Stammverzeichnis. Der vollständige Name, Version und Autor für jedes Advisor Pack aufgeführt.
+5.  Nachdem Sie den Serverinstanznamen und den Datenbanknamen bereitgestellt haben, generiert der Assistent zum ersten Mal den Speicherort für die Datenbankdatei.
 
-    **Beachten Sie** finden Sie weitere Informationen zur Verwendung der vollständige Name und Version in der SPA [Verwalten von Advisor-Packs](#bkmk-manageadvisorpacks)
+6.  Klicken Sie auf der Seite " **Projektdatenbank erstellen** " auf " **weiter**". Beim ersten Mal erstellt der Assistent eine Datenbank und generiert alle Spa-bezogenen Datenbankschemas, Funktionen und gespeicherten Prozeduren in der Datenbank. Dieser Schritt kann je nach Hardware-und Netzwerkgeschwindigkeit einige Sekunden in Anspruch nehmen.
 
-     
-
-8.  Wählen Sie Sie verwenden möchten, stellen Sie in der Datenbank bereit, und klicken Sie dann auf die Advisor-Packs **Weiter**. Sie können auch auf **überspringen** mit dem nächsten Schritt verschieben, ohne die Bereitstellung von Advisor-Packs.
-
-    **Beachten Sie** können Sie Advisor-Packs Sie das Tool verwenden jederzeit bereitstellen. Weitere Informationen finden Sie unter [Verwalten von Advisor-Packs](#bkmk-manageadvisorpacks).
+    **Hinweis** wenn dieser Schritt fehlschlägt, wird eine Fehlermeldung angezeigt. Einige häufige Probleme sind: Die-Konsole kann keine Verbindung mit der SQL Server Instanz, unzureichende Berechtigungen zum Erstellen einer Datenbank herstellen, oder der Datenbankname ist bereits vorhanden.
 
      
 
-9.  Auf der **Hinzufügen von Servern** Seite bei jedem Server werden hinzugefügt, um Liste mit den Zielservern, es gibt zwei Pflichtfelder ausfüllen: **Name des Servers** und **Speicherorts der Dateifreigabe**.
+7.  Wenn der vorherige Schritt erfolgreich ausgeführt wurde, wird die Seite " **Advisor-Paket bereit** stellen" angezeigt. Sie listet alle Advisor-Pakete auf, die auf Ihrem Computer verfügbar sind. Spa scannt den Ordner mit dem Namen **APS** automatisch unter dem Spa-Stammverzeichnis. Sie listet den vollständigen Namen, die Version und den Autor für jedes Advisor Pack auf.
 
-    **Beachten Sie** steht auch eine **Anmerkung** -Feld, das in erster Linie zum Klassifizieren oder suchen Sie nach dem Server verwendet wird. In Fällen, in denen Sie viele Server verfügen, können Sie eine Datei mit kommagetrennten Werten (CSV) importieren, die den Servernamen, Ergebnisordner und optional Anmerkung-Feld enthält. Die **Anmerkung** Feld dient zum Beschreiben des Servers und der Begriff kann verwendet werden, um Server für die Datensammlung zu filtern. Wenn Sie die Server über die CSV-Datei initialisieren, wird ein Analysefehler in der Datei nicht auf die Servern geladen.
-
-     
-
-10. Mehrere Konfigurationen müssen festgelegt werden, um PLA-Datensammlung zu aktivieren, siehe [Einrichten der SPA](#bkmk-setupspa). Die **-Server hinzufügen** Seite enthält eine Testfunktion für die Konfiguration können Sie Konfigurationsprobleme zu beheben. Wählen Sie das Kontrollkästchen, die dem Computer zugeordnet, und klicken Sie dann auf **Testen der Konnektivität**. SPA versucht wird, zum Generieren eines Sammlungssatzes, der auf einem Zielserver, und versucht importieren, die die Ergebnisse in der Datenbank zurück. Wenn alles richtig ist, ist die **Status** zeigt **übergeben**. Wenn ein Fehler auftritt, wird eine QuickInfo angezeigt, die die Ursache des Fehlers beschreibt.
-
-11. Jedem der Server wird automatisch in der Datenbank hinzugefügt werden, selbst wenn den Konfigurationstest nicht erfolgreich ist. Um den Server aus der Liste entfernen möchten, wählen Sie den Namen des Servers ein, und klicken Sie auf **entfernen**.
-
-12. Wenn alles abgeschlossen ist, klicken Sie auf **Fertig stellen** zum ersten Mal verwenden-Assistenten zu schließen. Wenn Sie beim ersten Verwenden des Assistenten für vor dem Beenden es schließen, alle vorherigen Schritte beibehalten und keine von ihnen Rollback automatisch. Sie müssen später Änderungen manuell vornehmen.
-
-## <a name="running-analysis"></a>Ausführen der Analyse
-
-
-Nach dem Festlegen der Datenbank, können Sie Informationen zur Leistungsanalyse auf den Servern ausführen.
-
-Jedes Mal, wenn die SPA-Konsole gestartet wird, wird das letzte Projekt an, das vom aktuellen Benutzer verwendet wurde automatisch geöffnet. Das Hauptfenster enthält eine Liste von Servern. Jeder Server verfügt über vier Eigenschaften: Servername, Analyseergebnisse, aktuellen Status und Anmerkung.
-
-* **Servername** den Namen des Servers, der Bezeichner für den Server handelt. Es sind keine doppelten Namen zulässig.
-
-* **Analyseergebnisse** standardmäßig es zeigt das Ergebnis der neuesten Leistungsanalyse für den Server ausführen. Wenn keine Leistungsanalyse, die auf dem Server ausführen wurden, wird **kein Bericht**. Es liegt eine Warnung wird ausgelöst, von dem Bericht, zeigt **Warnung** und den Zeitstempel, wenn der aktuelle Bericht generiert wurde. Wenn keine Probleme während der aktuellen Analyse auf dem Server gefunden wurde, wird **OK** und Zeitstempel.
-
-    **Beachten Sie** , wenn Sie kürzlich eine Einstellung geändert, es wird empfohlen, dass Sie die Analyse erneut aus, um die allgemeinen Auswirkungen der Änderung bewerten und erhalten einen aktualisierten Bericht des Systemstatus ausführen. SPA verfolgt keine Änderungen an der Konfiguration auf das getestete System.
+    **Hinweis** Weitere Informationen zur Verwendung des vollständigen Namens und der Version in der Spa finden Sie unter [Verwalten von Advisor Packs](#bkmk-manageadvisorpacks) .
 
      
 
-* **Aktueller Status** zeigt den Status des Performance Analysis-Tasks, die derzeit auf dem Server ausgeführt. Sie können eine ausgeführte Aufgabe abbrechen, indem Sie auf die **Abbrechen** Symbol, das durch ein rotes X gekennzeichnet ist.
+8.  Wählen Sie aus, welche Ratgeber Pakete Sie in der Projektdatenbank bereitstellen möchten, und klicken Sie dann auf **weiter**. Sie können auch auf über **springen** klicken, um zum nächsten Schritt zu wechseln, ohne Advisor-Pakete bereitzustellen.
 
-* **Anmerkung** beschreibt den aktuellen Zielserver. Beispielsweise können Sie Ihren Server beschreiben, mit der Serverrolle (z. B. SQL Server) oder einen Speicherort (z. B. Kent). SPA verwendet die **Servernamen** und **Anmerkung** zur suchen und den richtigen Server finden kann. Sie können in das Textfeld eingeben. Wenn die **Servernamen** oder **Anmerkung** Spalten enthält, die genaue Zeichenfolge, die Sie in das Suchfeld eingegeben wird der Server in der Serverliste angezeigt.
+    **Hinweis** Sie können Ratgeber Pakete jederzeit bereitstellen, wenn Sie das Tool verwenden. Weitere Informationen finden Sie unter [Verwalten von Advisor Packs](#bkmk-manageadvisorpacks).
 
-Außerdem stehen die folgenden Steuerelemente auf der Konsole zur Verfügung:
+     
 
-* **Wiederholen Sie die** , die beschreibt, die Möglichkeit, eine Sammlung regelmäßig wiederholen das Kontrollkästchen auf Grundlage eines bestimmten Zeitintervalls. Bei den meisten Serverinstallationen möchten Sie, wie Sie eine SPA-Sammlung pro Stunde wiederholt werden, um ausreichend-Verlauf für die Analyse verfügen. Wenn Sie die Auflistung nur einmal ausführen möchten, sollten Sie nicht auswählen der **wiederholen** Kontrollkästchen.
+9.  Auf der Seite **Server hinzufügen** müssen Sie für jeden Server, der der Liste Zielserver hinzugefügt werden soll, zwei Pflichtfelder ausfüllen: Der **Name des Servers und der** **Dateifreigabe**.
 
-* **Entfernen Sie die Wiederholung** eine Schaltfläche, die Ihnen ermöglicht, eine laufende Abbrechen, wiederholen sammlungsauftrag. Die Auflistung mit wiederholen Sie diesen Schritt abgebrochen, aber nicht die aktuelle Auflistung (sofern vorhanden) wird ausgeführt. Diese Option können Sie eine neue, wiederholen Sie diesen Schritt Sammlungsintervall zurücksetzen oder die Sammlung manuell ausführen.
+    **Hinweis** Es gibt auch ein Feld für die **Anmerkung** , das hauptsächlich zum Klassifizieren oder Suchen des Servers verwendet wird. In Fällen, in denen Sie viele Server haben, können Sie eine Datei mit Komma getrennten Werten (CSV-Datei) importieren, die den Servernamen, den Ergebnis Ordner und das optionale Feld für die Anmerkung enthält. Das Feld " **Anmerkung** " wird verwendet, um den Server zu beschreiben, und der Begriff kann zum Filtern von Servern für die Datensammlung verwendet werden. Wenn Sie die Server über die CSV-Datei initialisieren, werden die Server durch einen Fehler beim fehl geschachtelungs Fehler in der Datei nicht geladen.
 
-Bevor Sie die Leistungsanalyse starten, wählen Sie die Dauer der Daten-Auflistung. Zwar mehr Daten erfasst ein genaueres Image der Situation Leistung Server bereitstellen hilft, generiert außerdem eine größere Anzahl von Protokollen, und es kann weitere mögliche Auswirkungen haben, auf dem Server. Wählen Sie die richtigen Daten sammlungsdauer basierend auf Ihren Anforderungen. Jedes Advisor Pack definiert die minimale gültige Dauer. Die Dauer der Daten-Auflistung, die Sie auswählen muss länger als die minimale Dauer der ausgewählten Advisor Packs sein.
+     
 
-Um Informationen zur Leistungsanalyse auf Zielservern ausgeführt werden soll, wählen Sie die Servern, die Sie verwenden möchten, führen Sie die Informationen zur Leistungsanalyse für, und klicken Sie auf ** zum Ausführen der Analyse ** ein Dialogfeld angezeigt wird, und fordert Sie auf die Advisor-Packs auf den Servern ausgeführt werden. Die ausgewählten Ratgeber Packs, die gleichzeitig ausgeführt werden. Die Berichte, die generiert werden, basieren auf der Leistungsdaten, die im gleichen Zeitraum gesammelt werden.
+10. Es müssen mehrere Konfigurationen festgelegt werden, um die Pla-Datensammlung zu aktivieren, wie unter [Einrichten von Spa](#bkmk-setupspa)beschrieben. Die Seite **Server hinzufügen** bietet eine Test Konfigurationsfunktion, mit der Sie Konfigurationsprobleme beheben können. Aktivieren Sie das Kontrollkästchen, das dem Computer zugeordnet ist, und klicken Sie dann auf **Verbindung testen**. Spa versucht, einen Datensammler Satz auf Ziel Servern zu generieren, und versucht, die Ergebnisse zurück in die Datenbank zu importieren. Wenn alles richtig ist, zeigt der **Status** " **Pass**" an. Wenn ein Fehler auftritt, wird eine QuickInfo angezeigt, die den Grund für den Fehler beschreibt.
 
-**Beachten Sie** , wenn Sie einen Server, die eine sich wiederholenden Leistungsanalyse ausgeführt wird auswählen, verfügt die **Serie entfernen** Schaltfläche können Sie zum Abbrechen der Erfassung von sich wiederholenden. SPA lässt nicht mehrere Data Collection-Sitzungen gleichzeitig auf demselben Computer.
+11. Jeder Server wird der Datenbank automatisch hinzugefügt, auch wenn er den Konfigurations Test nicht bestanden hat. Wenn Sie Server aus der Liste entfernen möchten, wählen Sie den Servernamen aus, und klicken Sie auf **Entfernen**.
+
+12. Wenn alles abgeschlossen ist, klicken Sie auf **Fertig** stellen, um den Assistenten zum ersten Mal zu schließen. Wenn Sie den Assistenten zum ersten Mal verwenden, bevor Sie ihn abschließen, werden alle vorherigen Schritte beibehalten, und für keinen wird automatisch ein Rollback ausgeführt. Sie müssen zukünftige Änderungen manuell vornehmen.
+
+## <a name="running-analysis"></a>Analyse wird ausgeführt
+
+
+Nachdem Sie die Datenbank eingerichtet haben, können Sie die Leistungsanalyse auf den Servern ausführen.
+
+Jedes Mal, wenn die Spa-Konsole gestartet wird, wird das letzte Projekt, das vom aktuellen Benutzer verwendet wurde, automatisch geöffnet. Das Hauptfenster enthält eine Liste von Servern. Jeder Server verfügt über vier Eigenschaften: Server Name, Analyseergebnis, aktueller Status und Hinweis.
+
+* **Server Name** Der Name des Servers, der der Bezeichner für den Server ist. Doppelte Namen sind nicht zulässig.
+
+* **Analyseergebnis** Standardmäßig wird das Ergebnis der aktuellen Leistungsanalyse angezeigt, die auf dem Server ausgeführt wird. Wenn keine Leistungsanalyse auf dem Server ausgeführt wurde, wird **kein Bericht**angezeigt. Wenn vom Bericht eine Warnung ausgelöst wird, wird eine **Warnung** und der Zeitstempel angezeigt, wenn der aktuelle Bericht generiert wurde. Wenn während der letzten Analyse auf dem Server kein Problem gefunden wurde, wird die Meldung " **OK** " und der Zeitstempel angezeigt.
+
+    **Hinweis** Wenn Sie vor kurzem eine Systemeinstellung geändert haben, empfiehlt es sich, die Analyse erneut auszuführen, um die allgemeinen Auswirkungen der Änderung zu evaluieren und einen aktualisierten Bericht zum Systemstatus zu erhalten. Spa verfolgt keine Konfigurationsänderungen am getesteten System nach.
+
+     
+
+* **Aktueller Status** Zeigt den Status von Leistungsanalyse Tasks an, die zurzeit auf dem Server ausgeführt werden. Sie können eine laufende Aufgabe abbrechen, indem Sie auf das Symbol " **Abbrechen** " klicken, das durch ein rotes X gekennzeichnet ist.
+
+* **Anmerkung** Beschreibt den aktuellen Zielserver. Beispielsweise können Sie den Server mithilfe der Server Rolle (z. b. SQL Server) oder eines Speicher Orts (z. b. Kent) beschreiben. Spa verwendet den **Servernamen** und die- **Anmerkung** , um die Suche nach dem richtigen Server zu unterstützen. Sie können in das Textfeld Suchen eingeben. Wenn die Spalten **Servername** oder **Anmerkung** die genaue Zeichenfolge enthält, die Sie im Suchfeld eingegeben haben, wird der Server in der Liste Server angezeigt.
+
+Die folgenden Steuerelemente sind auch in der-Konsole verfügbar:
+
+* **Wiederholen** Ein Kontrollkästchen, das die Möglichkeit beschreibt, eine Auflistung basierend auf einem Zeitintervall regelmäßig zu wiederholen. Bei den meisten Serverinstallationen sollten Sie eine Spa-Sammlung stündlich wiederholen, um für die Analyse ausreichend Verlauf zu haben. Wenn Sie die Sammlung nur einmal ausführen möchten, sollten Sie das Kontrollkästchen **wiederholen** nicht aktivieren.
+
+* **Wiederholung entfernen** Eine Schaltfläche, die es Ihnen ermöglicht, einen laufenden Wiederholungs Sammlungs Auftrag abzubrechen. Die Wiederholungs Auflistung wird abgebrochen, aber nicht die aktuelle Auflistung (sofern vorhanden). Mit dieser Option können Sie ein neues Wiederholungs Sammlungs Intervall zurücksetzen oder die Auflistung manuell ausführen.
+
+Bevor Sie mit der Leistungsanalyse beginnen, wählen Sie die Dauer der Datensammlung aus. Obwohl durch das Erfassen von mehr Daten eine genauere Darstellung der Server leistungssituation erzielt werden kann, wird auch eine größere Anzahl von Protokollen generiert, und es kann eine größere Auswirkung auf den Server haben. Wählen Sie die richtige Daten Sammlungs Dauer basierend auf Ihrem speziellen Bedarf aus. Jedes Advisor-Paket definiert eine minimale gültige Dauer. Die von Ihnen gewählte Dauer für die Datensammlung muss länger sein als die minimale Dauer der ausgewählten Advisor Packs.
+
+Wenn Sie die Leistungsanalyse auf Ziel Servern ausführen möchten, wählen Sie die Server aus, für die Sie die Leistungsanalyse ausführen möchten, und klicken Sie auf **Analyse ausführen** A. Daraufhin werden Sie aufgefordert, die Advisor Packs auszuwählen, die auf den Servern ausgeführt werden sollen. Die ausgewählten Advisor Packs werden gleichzeitig ausgeführt. Die generierten Berichte basieren auf den Leistungsdaten, die während des gleichen Zeitraums gesammelt werden.
+
+**Hinweis** Wenn Sie einen Server auswählen, auf dem eine wiederkehrende Leistungsanalyse ausgeführt wird, können Sie mit der Schaltfläche **Wiederholung entfernen** die wiederkehrende Datensammlung abbrechen. Die Spa lässt nicht mehrere Daten Sammlungs Sitzungen gleichzeitig auf demselben Computer zu.
 
  
 
 ## <a href="" id="bkmk-viewingreports"></a>Anzeigen von Berichten
 
 
-In der SPA gibt es drei Arten von Bericht zur Leistungsanalyse: Berichtsdefinitionssprache "," Seite-an-Seite im Bericht "und" Trend "und" Verlaufsdiagramme ".
+In Spa gibt es drei Arten von Leistungsanalyse Berichten: Einzelner Bericht, paralleler Bericht und Trend-und Verlaufs Diagramme.
 
-Nach ausgeführten Leistungsanalyse wird ein Bericht für jedes der Advisor-Pack führen Sie auf dem Zielcomputer erstellt. Sie können aus der Liste der im Hauptfenster von Server, erweitern **Analyseergebnisse** des Advisor-Packs angezeigt, die auf dem angegebenen Server ausgeführt wurden. Sie können einen Berichtsnamen, um einen einzelnen Bericht anzeigen klicken.
+Nach dem Ausführen der Leistungsanalyse wird für jedes Advisor-Paket, das auf dem Bereitstellungs Zielcomputer ausgeführt wird, ein Bericht generiert. Aus der Serverliste im Hauptfenster können Sie das **Analyseergebnis** erweitern, um alle Advisor-Pakete anzuzeigen, die auf dem jeweiligen Server ausgeführt wurden. Sie können auf einen Berichts Namen klicken, um einen einzelnen Bericht anzuzeigen.
 
-Es gibt drei Symbole neben den Advisor-Pack-Namen, die zeigen, den Status der aktuellen Analyse, die auf dem Server ausführen:
+Neben dem Namen des Advisor-Pakets sind drei Symbole vorhanden, die den Status der letzten Analyse anzeigen, die auf dem Server ausgeführt wird:
 
-* Die **neueste** Symbol zeigt den Bericht aus, die von der aktuellen Leistungsanalyse auf diesem Server für die Advisor-Pack generiert wurde.
+* Das **neueste** Symbol zeigt den Bericht, der von der aktuellen Leistungsanalyse auf diesem Server für das Advisor Pack generiert wurde.
 
-* Die **finden** Symbol zeigt die Liste der Analyseberichte, dadurch können Sie den richtigen Bericht auswählen. Die **Advisor Pack** und **Zielserver** Felder sind mit der aktuellen Serverinformationen der Advisor Pack und das Ziel bereits ausgefüllt. Der Standardbereich für die Zeit auf eine Woche festgelegt ist, und das Enddatum auf heute festgelegt ist. Wenn Sie auf die **Suche** Schaltfläche in der oberen rechten Ecke können Sie eine Liste aller Performance Analysis Berichte abrufen, für das ausgewählte Server und Advisor Pack innerhalb des Zeitbereichs.
+* Das Symbol **Suchen** zeigt die Liste der Leistungsanalyse Berichte an, mit deren Hilfe Sie den richtigen Bericht auswählen können. Die Felder **Advisor Pack** und **Zielserver** sind mit dem aktuellen Advisor Pack und den Zielserver Informationen vorab gefüllt. Der Standardzeit Bereich ist auf eine Woche festgelegt, und das Enddatum wird auf heute festgelegt. Wenn Sie in der oberen rechten Ecke auf die Schaltfläche **Suchen** klicken, können Sie eine Liste aller Leistungsanalyse Berichte für den ausgewählten Server und das Advisor-Paket im Zeitbereich erhalten.
 
-* Die **Ansicht Diagramme** Symbol öffnet den Trend und die Verlaufsdiagramm anzeigen.
+* Das Symbol **Diagramme anzeigen** öffnet die Diagramm Ansicht Trend und Vergangenheits Diagramm.
 
-Die folgende Abbildung zeigt die **neueste**, **finden**, und **Ansicht Diagramme** Symbole nach jedem Advisor Pack:
+In der folgenden Abbildung werden die Symbole für das **neueste**, das **Suchen**und **Anzeigen von Diagrammen** nach den einzelnen Advisor-Paketen angezeigt:
 
-![Bericht-Symbole](../media/server-performance-advisor/spa-user-manual-report-icons.png)
+![Berichts Symbole](../media/server-performance-advisor/spa-user-manual-report-icons.png)
 
-### <a name="searching-for-and-within-reports"></a>Suche nach und in Berichten
+### <a name="searching-for-and-within-reports"></a>Suchen nach und innerhalb von Berichten
 
-Suchen nach Berichten erfolgt über **Berichts-Explorer**. Dadurch können Sie Berichte nach Datumsbereich, Servername und Advisor Pack suchen. Dies ist die empfohlene Methode zum Suchen eines Berichts von Interesse sind, außer dem letzten Ausführen von Berichten. Die letzten Ausführen von Berichten steht über **View-Bericht** für diesen Server.
+Die Suche nach Berichten erfolgt über den **Berichts-Explorer**. Dies ermöglicht es Ihnen, nach dem Datumsbereich, dem Servernamen und dem Advisor-Paket nach Berichten zu suchen. Dies ist die empfohlene Vorgehensweise, um einen anderen Bericht als den letzten Bericht zu finden. Der letzte Testlauf ist über **Bericht anzeigen** für diesen Server verfügbar.
 
-Wenn Sie einen bestimmten Bericht anzeigen, können Sie ganz einfach auf den Bericht weiter und zurück navigieren, nach Zeit oder sehen Sie sich einen verknüpften Bericht, wie eine andere AP zur gleichen Zeit ausgeführt. Diese Optionen sind verfügbar unter **Aktionen**.
+Wenn Sie einen bestimmten Bericht anzeigen, können Sie ganz einfach zum nächsten und vorherigen Bericht navigieren, oder Sie können sich einen verknüpften Bericht ansehen, z. b. eine andere, gleichzeitig laufende Zugriffspunkt-app. Diese Optionen sind unter **Aktionen**verfügbar.
 
-Es ist auch möglich, in einem Bericht suchen. Eine Anzahl der Berichte ein **finden** Zeichenfolge-Suchfeld für schnelle textzeichenfolgensuche innerhalb des Berichts verfügbar. Um das Textfeld zu entfernen, können Sie es schließen. Um ein Suchfeld (unter Windows, deren Text suchen) zu aktivieren, können Sie die STRG + F Verknüpfung. Die **finden** Feld ermöglicht dem Benutzer, geben Sie die Groß-/ Kleinschreibung nach Bedarf mit der **Groß-/Kleinschreibung beachten** Option.
+Es ist auch möglich, in einem Bericht zu suchen. Für eine Reihe von Berichten ist das Suchfeld **Such Zeichenfolge für** die schnelle Text Zeichenfolgen-Suche im Bericht verfügbar. Um das Textfeld zu entfernen, können Sie es verwerfen. Wenn Sie ein Suchfeld (in Fenstern mit Text Suche) aktivieren möchten, können Sie die Verknüpfung Steuerelement + F verwenden. Das **Feld Suchen** ermöglicht dem Benutzer die Angabe der Groß-/Kleinschreibung bei der Suche nach Bedarf mit der Option Groß-/Kleinschreibung **.**
 
-Die folgende Abbildung zeigt die **finden** Suchfeld, mit der Zeichenfolge **Power** auf die **Bericht** Registerkarte.
+In der folgenden Abbildung wird **das Suchfeld suchen mit** der Zeichenfolge **Power** auf der Registerkarte **Bericht** angezeigt.
 
-![das Suchfeld suchen](../media/server-performance-advisor/spa-user-manual-find-search-box.png)
+![Suchfeld suchen](../media/server-performance-advisor/spa-user-manual-find-search-box.png)
 
-### <a name="single-report"></a>Berichtsdefinitionssprache
+### <a name="single-report"></a>Einzelner Bericht
 
-Ein einzelner Bericht zeigt die Leistungsergebnisse für die Analyse von einer einzigen Ausführung des Advisor-Pack auf einem einzelnen Computer. Der Bericht zeigt den Namen des dem Advisor-Pack, die den Namen des Zielservers, die Zeit, die der Bericht generiert und die Dauer für die Sammlung von.
+Ein einzelner Bericht zeigt die Ergebnisse der Leistungsanalyse aus einer einzelnen Ausführung eines Advisor-Pakets auf einem einzelnen Computer an. Der Bericht zeigt den Namen des Advisor-Pakets, den Namen des Zielservers, den Zeitpunkt, zu dem der Bericht generiert wurde, und die Dauer für die Datensammlung an.
 
-Ein einzelner Bericht enthält einen Abschnitt für die Benachrichtigung und die Datenabschnitte.
+Ein einzelner Bericht enthält einen Benachrichtigungs Abschnitt und die Datenabschnitte.
 
-### <a name="notification-section"></a>Abschnitt Benachrichtigung
+### <a name="notification-section"></a>Benachrichtigungs Abschnitt
 
-Bereich "Benachrichtigungen" besteht aus einem Satz von Leistungsregeln für die Analyse. Jede Benachrichtigung enthält die einer Datenquelle, einige Schwellenwerte und etwas Geschäftslogik. Beim Ausführen von Leistungsanalyse wertet die Geschäftslogik die Datenquellen mit den Schwellenwerten, um zu bestimmen, ob die Regel oder nicht erfolgreich war. Wenn dies nicht der Fall ist, wird eine Warnung angezeigt wird, informieren Sie über ein mögliches Leistungsproblem. Darüber hinaus Empfehlungen können Sie das Problem zu beheben. Bereich "Benachrichtigungen" ist immer die erste Registerkarte in der Ansicht der einzelnen Bericht.
+Der Benachrichtigungs Abschnitt besteht aus einer Reihe von Leistungsanalyse Regeln. Jede Benachrichtigung enthält einige Datenquellen, einige Schwellenwerte und einige Geschäftslogik. Wenn Sie die Leistungsanalyse ausführen, wertet die Geschäftslogik die Datenquellen anhand der Schwellenwerte aus, um zu bestimmen, ob die Regel weitergeleitet wird. Wenn dies nicht der Fall ist, wird eine Warnung angezeigt, um Sie über ein mögliches Leistungsproblem zu informieren. Außerdem finden Sie hier Empfehlungen, die Ihnen helfen, das Problem zu beheben. Der Benachrichtigungs Abschnitt ist immer die erste Registerkarte in der einzelnen Berichtsansicht.
 
-Bereich "Benachrichtigungen" ist in zwei Teile unterteilt: **Warnung** und **andere Benachrichtigungen**.
+Der Benachrichtigungs Abschnitt ist in zwei Teile unterteilt: **Warnung** und **andere Benachrichtigungen**.
 
-Wenn die Datenquelle für eine Regel bestimmte Bedingungen, die auf Grundlage der Einstellungen Logik und Schwellenwerte erfüllt, eine Warnung angezeigt wird, der **Warnung** Bereich. Eine Warnung besteht aus den folgenden Teilen:
+Wenn die Datenquelle für eine Regel bestimmte Bedingungen basierend auf den Logik-und Schwellenwert Einstellungen erfüllt, wird im **Warnungs** Bereich eine Warnung angezeigt. Eine Warnung umfasst die folgenden Teile:
 
-* Ein Warnsymbol gibt an, ob ein potenzielles Problem vorhanden ist.
+* Ein Warnsymbol gibt das vorhanden sein eines potenziellen Problems an.
 
-* Der Name der Regel. Z. B. **Netzwerk empfangen Paket löscht** ist ein Link, der auf der Seite Regel Details zeigt, wie in beschrieben [Verwalten von Advisor-Packs](#bkmk-manageadvisorpacks).
+* Der Name der Regel. Beispielsweise ist das **Netzwerk Empfangs Paket Drop** ein Link, der auf die Regel Detailseite zeigt, wie unter [Verwalten von Advisor Packs](#bkmk-manageadvisorpacks)beschrieben.
 
-* Eine einfache Beschreibung zu dem potenziellen Problem.
+* Eine einfache Beschreibung des potenziellen Problems.
 
-* Eine Empfehlung für eine mögliche Lösung für die mögliches Leistungsproblem.
+* Eine Empfehlung für eine mögliche Lösung für das potenzielle Leistungsproblem.
 
-Verschiedene Servern können andere Konfigurations- und Verwendungsmustern, und es ist unmöglich, legen Sie die Schwellenwerte und Regeln, die für alle Server unter allen Umständen gültig sind. SPA bietet die Möglichkeit, um die Schwellenwerte zu ändern. Sie können auch auswählen, um eine Regel zu deaktivieren, wenn die Regel für Ihr Szenario nicht anwendbar ist. Standardmäßig werden alle Regeln aktiviert. Eine deaktivierte Regel ist nicht im Infobereich der Taskleiste angezeigt. Weitere Informationen finden Sie unter [Verwalten von Advisor-Packs](#bkmk-manageadvisorpacks).
+Unterschiedliche Server können die Konfiguration und die Verwendungs Muster erheblich unterscheiden, und es ist nicht möglich, die Schwellenwerte und Regeln festzulegen, die für alle Server unter allen Bedingungen gelten. Spa bietet die Möglichkeit, die Schwellenwerte zu ändern. Sie können eine Regel auch deaktivieren, wenn die Regel nicht für Ihr Szenario gilt. Standardmäßig sind alle Regeln aktiviert. Eine deaktivierte Regel wird nicht im Benachrichtigungsbereich angezeigt. Weitere Informationen finden Sie unter [Managing Advisor Packs](#bkmk-manageadvisorpacks).
 
-Die **andere Benachrichtigungen** Bereich enthält alle anderen Regeln, in denen keine Warnung wird ausgelöst, oder die Regel ist nicht anwendbar. Sie enthält ähnliche Komponenten, wie in der **Warnung** Bereich. Der größte Unterschied ist, dass keine Warnung ausgelöst wird, oder die Regel gilt nicht, in der Regel keine Empfehlung bereitgestellt wird.
+Der **andere Benachrichtigungs** Bereich enthält alle anderen Regeln, bei denen keine Warnung ausgelöst oder die Regel nicht anwendbar ist. Sie enthält ähnliche Teile wie im **Warnungs** Bereich. Der größte Unterschied besteht darin, dass, wenn keine Warnung ausgelöst wird oder die Regel nicht anwendbar ist, normalerweise keine Empfehlung bereitgestellt wird.
 
 ### <a name="data-sections"></a>Datenabschnitte
 
-Datenabschnitte enthalten, die Leistungsdaten, die das Advisor-Pack generiert basierend auf den von den Zielservern gesammelten Rohdaten. Datenabschnitte enthalten eine Reihe von Abschnitten auf oberster Ebene und mehrere Ebenen von Unterabschnitte. In den Abschnitten auf oberster Ebene werden als Registerkarten dargestellt. Alle in den Bereichen der obersten Ebene in den Unterabschnitten werden in der erweiterbaren Bereiche angezeigt. Sie können reduzieren oder Erweitern Sie den Abschnitten für eine Fokussierung auf Interessengebiet, wie in der folgenden Abbildung dargestellt.
+Datenabschnitte enthalten die Leistungsdaten, die vom Advisor-Paket basierend auf den von den Ziel Servern gesammelten Rohdaten generiert werden. Datenabschnitte enthalten eine Reihe von Abschnitten der obersten Ebene und mehrere Ebenen von Unterabschnitten. Die Abschnitte der obersten Ebene werden als Registerkarten dargestellt. Alle Unterabschnitte in den Abschnitten der obersten Ebene werden in erweiterbaren Bereichen angezeigt. Sie können die einzelnen Abschnitte reduzieren oder erweitern, um den Fokus auf den Interessenbereich zu setzen, wie in der folgenden Abbildung dargestellt.
 
 ![Datenabschnitte](../media/server-performance-advisor/spa-user-manual-data-sections.png)
 
-Das Core OS SPA Advisor Pack und die IIS-SPA Advisor Pack enthalten eine **Systemübersicht** Abschnitt. Dieser Abschnitt enthält die Informationen auf oberster Ebene, über die ressourcennutzung und die Konfiguration. Andere Abschnitten auf oberster Ebene stehen für die Bereiche von Leistungsdaten. SPA zeigt Berichtsdaten, es gibt folgende Möglichkeiten:
+Das Core OS Spa Advisor Pack und das IIS Spa Advisor Pack enthalten einen Abschnitt **System Übersicht** . Dieser Abschnitt enthält die Informationen der obersten Ebene zur Ressourcenverwendung und-Konfiguration. Andere Abschnitte der obersten Ebene stellen Bereiche von Leistungsdaten dar. Spa zeigt Berichtsdaten auf folgende Weise an:
 
-* **Einzelner Wert** Schlüssel/Wert-Paar. Der Schlüssel ist eine Zeichenfolge, die die Bedeutung des Werts darstellt. Der Wert kann es sich um eine Zeichenfolge, die einen numerischen Wert oder ein boolescher Wert sein. Dies wird häufig verwendet, werden statische Informationen angezeigt, z. B., z. B. die CPU-Konfigurationsarchitektur, die Größe des gesamten Speichers und die BIOS-Version, die nicht im Laufe der Zeit ändern.
+* **Einzelner Wert** Ein Schlüssel-Wert-Paar. Der Schlüssel ist eine Zeichenfolge, die die Bedeutung des Werts darstellt. Der Wert kann eine Zeichenfolge, ein numerischer Wert oder ein boolescher Wert sein. Dies wird häufig verwendet, um statische Informationen wie z. b. die CPU-Architektur, die Gesamtgröße des Arbeitsspeichers und die BIOS-Version anzuzeigen, die sich im Laufe der Zeit nicht ändern.
 
-* **Auflisten Wert** Dies ist manchmal ein Schlüssel/Wert-Paar, aber der Listenwert kann mehrere Felder enthalten. Das Attribut der CPU kann z. B. in einer Tabelle mit mehreren Spalten und Zeilen angezeigt werden. Jede Zeile stellt eine CPU, und jede Spalte steht für ein Attribut der CPU.
+* **Listen Wert** Manchmal handelt es sich um ein Schlüssel-Wert-Paar, aber der Listen Wert kann mehrere Felder enthalten. Beispielsweise kann das-Attribut der CPU in einer Tabelle mit mehreren Spalten und mehreren Zeilen angezeigt werden. Jede Zeile stellt eine CPU dar, und jede Spalte stellt ein Attribut der CPU dar.
 
-* **Statistiken** kann einen speziellen Typ von den einmaligen Wert betrachtet werden. Es darf nur numerische Daten enthalten. Während des Zeitraums der Datensammlung schwanken, viele der numerischen Datenpunkte bleiben-Konstante. Die CPU-Auslastung ändert sich beispielsweise jedes Mal den PLA der Leistungsindikatoren gesammelt werden. Zeigt nur einen einzelnen Wert kann nicht die Situation Leistung genau wiedergeben. Anstatt nur ein Wert, Mittelwert, Maximum, Minimum und 90 % Wert verwendet werden für solche dynamische numerischen Datenpunkte. Der Wert 90 % stellt Aktivität bei oder über das 90. Perzentil für alle Ereignisse für diesen Indikator in dem Intervall für die angegebene Auflistung dar.
+* **Statistik** Kann als spezieller Typ eines einzelnen Werts angesehen werden. Er darf nur numerische Daten enthalten. Während der Datensammlung schwanken viele der numerischen Datenpunkte und bleiben nicht konstant. Beispielsweise ändert sich die CPU-Auslastung bei jeder Erfassung des Leistungs Zählers durch das Pla. Die Anzeige nur eines einzelnen Werts kann die leistungssituation nicht exakt widerspiegeln. Anstatt nur einen Wert, den Mittelwert, den Höchstwert, den Minimalwert und den Wert von 90% für solche dynamischen numerischen Datenpunkte anzuzeigen. Der Wert 90% stellt eine Aktivität bei oder oberhalb des 90. Perzentils für alle Ereignisse dieses Zählers in diesem angegebenen Sammlungs Intervall dar.
 
-* **In der oberen Liste** enthält in der Regel den größten ressourcenverbrauchern eine bestimmte Ressource oder die obersten Entitäten, die bestimmte Ereignisse auftreten. Z. B. **Top 10 verarbeitet, in Bezug auf die durchschnittliche CPU-Auslastung** die Top 10-Prozesse mit der höchsten durchschnittlichen CPU-Auslastung im Zeitraum der Datensammlung enthält. Da die CPU-Nutzung wird sind auch einen dynamischen numerischen Datenpunkt, anderer Statistiken wie die maximale, minimale und 90 % Wert auch in der Liste aus, um dem Benutzer ein umfassenderes Bild von der CPU-Nutzung enthalten ist.
+* **Obere Liste** Enthält normalerweise die häufigsten Consumer einer bestimmten Ressource oder die obersten Entitäten, für die bestimmte Ereignisse auftreten. Die **10 wichtigsten Prozesse in Bezug auf die durchschnittliche CPU-Auslastung** umfassen beispielsweise die zehn wichtigsten Prozesse mit der höchsten durchschnittlichen CPU-Auslastung während der Datensammlung. Da die CPU-Auslastung auch ein dynamischer numerischer Datenpunkt ist, sind andere Statistiken wie Maximum, minimal und 90% ebenfalls in der Liste enthalten, um dem Benutzer ein ausführlichere Bild der CPU-Auslastung zu verschaffen.
 
-Wie in den vorherigen Abschnitten erwähnt, hängt der SPA PLA zum Sammeln von ETW-Ablaufverfolgung, WMI-Abfragen, Leistungsindikatoren, Registrierungsschlüssel und Konfigurationsdateien, um den Bericht zu generieren. Es ist wichtig, um die Datenquelle für jeden Datenpunkt im Bericht zu verstehen. SPA bietet solche Informationen über QuickInfos. Sie können auf die wichtige Spalten oder Zeilen an die Datenquelle QuickInfo zeigen. Z. B. **WMI:Win32\_DisDrive: Beschriftung** bedeutet, dass die Datenquelle aus einer WMI-Abfrage, die WMI-Klassennamen Win32\_Laufwerk, und die Eigenschaft ist **Beschriftung**.
+Wie in den vorherigen Abschnitten erwähnt, baut Spa auf der Erstellung der etw-Ablauf Verfolgung, WMI-Abfragen, Leistungsindikatoren, Registrierungsschlüssel und Konfigurationsdateien auf, um den Bericht zu generieren. Es ist wichtig, dass Sie die Datenquelle hinter den einzelnen Datenpunkten im Bericht verstehen. Spa stellt Informationen über Quick Infos bereit. Sie können mit dem Mauszeiger auf die Schlüssel Spalten oder Zeilen zeigen, um die QuickInfo für die Datenquelle anzuzeigen. **WMI: Win32 @ no__t-1disdrive: Caption** bedeutet beispielsweise, dass die Datenquelle aus einer WMI-Abfrage, der WMI-Klassenname Win32 @ no__t-2diskdrive und die-Eigenschaft **Beschriftung**ist.
 
-### <a href="" id="side-by-side-report-"></a>Seite-an-Seite-Bericht
+### <a href="" id="side-by-side-report-"></a>Paralleler Bericht
 
-Einzelne Berichte liefern, Benachrichtigungen und Data-Abschnitt, um die Benutzer suchen mögliche Leistungsprobleme zu helfen, aber häufig ist es schwierig, ein mögliches Leistungsproblem zu identifizieren, indem Sie direkt auf einem einzelnen Bericht ansehen. Ein einzelner Bericht möglicherweise zu viele Datenpunkte enthalten, das macht es schwierig, die potenziellen Probleme zu finden.
+Einzelne Berichte stellen Benachrichtigungen und einen Daten Abschnitt bereit, um den Benutzer bei der Suche nach potenziellen Leistungsproblemen zu unterstützen. es ist jedoch oft schwierig, ein mögliches Leistungsproblem zu erkennen, indem Sie einen einzelnen Bericht direkt betrachten. Ein einzelner Bericht kann zu viele Datenpunkte enthalten, wodurch es schwierig wird, potenzielle Probleme zu finden.
 
-Um dieses Problem zu beheben, stellt die SPA die Möglichkeit zum Vergleichen von zwei Berichte bereit. Sie können einen Bericht mit einem potenziellen Problem zu einem geplanten Bericht, um die Unterschiede zu finden, vergleichen.
+Um dieses Problem zu beheben, bietet Spa die Möglichkeit, zwei Berichte zu vergleichen. Sie können einen Bericht mit einem potenziellen Problem mit einem Basisbericht vergleichen, um die Unterschiede zu ermitteln.
 
-Seite-an-Seite-Berichte können Start von einem einzelnen-Berichts-Viewer darstellen. Benutzer klicken können **Aktionen**, und klicken Sie dann auf **Berichte vergleichen** die Berichte auswählen. Es ist nur sinnvoll, die Berichte aus dem gleichen Advisor Pack verglichen werden soll. Sie können auswählen, vergleichen Sie den Bericht mit einem vorherigen Bericht, den Bericht für nächste Zeitpunkt, oder einen beliebigen Bericht, der über Suchfunktionen ausgewählt ist. Z. B. um anormales Verhalten zu isolieren, können Sie einen Basisbericht Server zu einem Bericht, der zu einem anderen Zeitpunkt auf dem gleichen Computer generiert wurde, oder zu einem Bericht, der generiert wurde, wird auf einem anderen Computer, die eine ähnliche Serverrolle und zu laden.
+Parallele Berichte können von einem Einzel Bericht-Viewer aus gestartet werden. Benutzer können auf **Aktionen**klicken und dann auf **Berichte vergleichen** klicken, um die Berichte auszuwählen. Es ist nur sinnvoll, Berichte desselben Advisor-Pakets zu vergleichen. Sie können den Bericht mit einem vorherigen Bericht in der Zeit, dem nächsten Bericht in der Zeit oder einem beliebigen Bericht vergleichen, der über Suchfunktionen ausgewählt wird. Um z. b. nicht normales Verhalten zu isolieren, können Sie einen Baseline-Server Bericht mit einem Bericht vergleichen, der auf demselben Computer zu einem anderen Zeitpunkt generiert wurde, oder auf einem Bericht, der auf einem anderen Computer mit einer ähnlichen Server Rolle und Last generiert wurde.
 
-Ein Seite-an-Seite-Bericht entspricht weitgehend den einzelnen Bericht. Sie enthält einen Abschnitt für die Benachrichtigung und Datenabschnitte. Sie enthält die gleiche Anzahl von Benachrichtigungen und Datenabschnitte als einzelnen Berichts-Viewer. Der einzige besteht Unterschied darin, dass die Berichte in eine Seite-an-Seite Art und Weise angezeigt werden. Jeder Abschnitt enthält die Daten aus dem Quellbericht (1-Bericht) und des zielberichts (2-Bericht). Die Seite-an-Seite-Bericht zeigt den Namen das Advisor-Pack, den Namen des Zielservers (1 auf der linken Seite) und Bericht 2 auf der rechten Seite aus, die Zeit, die der Bericht generiert wurde, und die Dauer der Datensammlung für jeden Bericht.
+Ein paralleler Bericht sieht in etwa wie der einzige Bericht aus. Sie enthält einen Benachrichtigungs Abschnitt und Datenabschnitte. Sie enthält die gleiche Anzahl von Benachrichtigungen und Daten Abschnitten wie die einzelne Bericht Anzeige. Der einzige Unterschied besteht darin, dass die Berichte nebeneinander angezeigt werden. Jeder Abschnitt enthält die Daten aus dem Quell Bericht (Bericht 1) und dem Ziel Bericht (Bericht 2). Der parallele Bericht zeigt den Namen des Advisor-Pakets, den Namen des Zielservers (auf der linken Seite und den Bericht 2 auf der rechten Seite), den Zeitpunkt, zu dem der Bericht generiert wurde, und die Dauer der Datensammlung für die einzelnen Berichte an.
 
-Wenn Sie schließen die **finden** im Dialogfeld können Sie es reaktivieren durch Eingabe von STRG + F. Dieses Dialogfeld sucht und hebt Textzeichenfolgen innerhalb des aktuellen Bereichs.
+Wenn Sie das Dialogfeld **Suchen** schließen, können Sie es reaktivieren, indem Sie Steuerelement + F eingeben. In diesem Dialogfeld werden Text Zeichenfolgen im aktuellen Abschnitt gefunden und hervorgehoben.
 
-Im Bereich "Benachrichtigungen", wenn keines der beiden Berichte, die verglichen werden die Ergebnisse ist eine Warnung, es finden Sie der **Warnung** Bereich. Andernfalls finden Sie die Ergebnisse in die **andere Benachrichtigungen** Bereich. Da der Schlüssel für eine Seite-an-Seite-Bericht zum Identifizieren von Unterschieden zwischen Berichten, wird keine ausführliche Informationen zu einer Regel angezeigt. Benutzer können den Regelnamen, um die Regel-Detail-Formulars für Weitere Informationen über die Regel anzuzeigen klicken.
+Wenn im Abschnitt Benachrichtigung eine der Ergebnisse aus den zwei verglichenen Berichten eine Warnung ist, wird Sie im **Warnungs** Bereich aufgelistet. Andernfalls werden die Ergebnisse im Bereich **andere Benachrichtigungen** aufgeführt. Da der Schlüssel für einen parallelen Bericht darin besteht, Unterschiede Zwischenberichten zu identifizieren, werden keine detaillierten Informationen zu einer Regel angezeigt. Benutzer können auf den Regel Namen klicken, um das Regel Detail Formular für weitere Informationen zur Regel anzuzeigen.
 
-In den Abschnitten Daten werden die Daten in einer Weise Seite-an-Seite mit Daten aus dem Bericht 1 auf der linken Seite und die Daten aus 2-Bericht auf der rechten Seite dargestellt. SPA zeigt einzelne Werte aus, in der gleichen Tabelle, jedoch anstelle von Spalten bezeichnen **Wert**, sie sind mit dem Namen **Bericht 1** und **Report 2** bzw. Der Seite-an-Seite-Bericht zeigt alle anderen Formen von Daten in Tabellen mit Seite-an-Seite.
+In den Daten Abschnitten werden die Daten nebeneinander und Daten aus Bericht 1 auf der linken Seite und Daten aus Bericht 2 auf der rechten Seite angezeigt. Spa zeigt einzelne Werte in derselben Tabelle an. statt jedoch den Spalten **Wert**zu bezeichnen, werden Sie als " **Report 1** " bzw. " **Report 2** " bezeichnet. Der parallele Bericht zeigt alle anderen Formen von Daten in parallelen Tabellen an.
 
-Seite-an-Seite, Berichts-Viewer bietet auch QuickInfos zur Datenquelle.
+Die Seite-an-Seite-Bericht Anzeige bietet auch Quick Infos zur Datenquelle.
 
-### <a name="historical-and-trend-charts"></a>Verlauf und Trenddiagramme
+### <a name="historical-and-trend-charts"></a>Vergangenheits-und Trenddiagramme
 
-Es ist nur sinnvoll, Trend und historische Diagramme für einen bestimmten Server und den bestimmten Advisor Pack angezeigt. Sie müssen den Zeitraum (der Standardwert für die letzte Woche verwendet wird), und klicken Sie auf **OK** , um den Trend und die Verlaufsdiagramm Viewer zu öffnen.
+Es ist nur sinnvoll, Trend-und Vergangenheits Diagramme für einen bestimmten Server und ein bestimmtes Advisor-Pack anzuzeigen. Sie müssen den Zeitbereich auswählen (der Standardwert für die letzte Woche ist), und dann auf **OK** klicken, um den Trend und den Verlaufs Diagramm-Viewer anzuzeigen.
 
-Der Trend und Verlaufsdiagramm Viewer enthält drei Registerkarten: Verlaufsdiagramm, 24-Stunden-Trenddiagramm und Trenddiagramm für 7 Tage.
+Der Trend-und Verlaufs Diagramm-Viewer enthält drei Registerkarten: das Verlaufs Diagramm, das 24-Stunden-Trend Diagramm und das 7-tägige Trend Diagramm.
 
-### <a name="historical-chart"></a>Verlaufsdiagramm
+### <a name="historical-chart"></a>Verlaufs Diagramm
 
-Das Verlaufsdiagramm zeigt eine Reihe von Werten für einen bestimmten numerischen Daten mithilfe des angegebenen Zeitrahmens. Z. B. die **durchschnittliche anforderungswartezeit** für IIS auf einem einzelnen Server für die letzten 15 Tage. Jeder Datenpunkt in einem Verlaufsdiagramm stellt den Wert einer bestimmten Datenquelle, die in einer leistungssitzung Analyse benötigte dar.
+Das Verlaufs Diagramm zeigt eine Reihe von Werten für einen numerischen Datenpunkt über den angegebenen Zeitrahmen an. Beispielsweise die **durchschnittliche Anforderungs** Wartezeit für IIS auf einem einzelnen Server während der letzten 15 Tage. Jeder Datenpunkt in einem Verlaufs Diagramm stellt den Wert einer bestimmten Datenquelle dar, die in einer Leistungsanalyse Sitzung erstellt wurde.
 
-Es gibt mehrere Möglichkeiten, ein Verlaufsdiagramm verwenden:
+Es gibt mehrere Möglichkeiten, ein Verlaufs Diagramm zu verwenden:
 
-1.  Um Anomalien zu einem bestimmten Zeitpunkt für einen Datenpunkt beispielsweise jeden Tag um 2:00 Uhr zu finden. die **durchschnittliche anforderungswartezeit** von IIS springt von ca. 200 ms bis 500 ms.
+1.  Die **durchschnittliche Anforderungs Latenz** von IIS springt von ungefähr 200 ms auf 500 ms, um zu einem bestimmten Zeitpunkt bei einem Daten 2:00 Punkt nach Anomalien zu suchen.
 
-2.  Können mehrere Datenpunkte zu korrelieren. Beispielsweise zeigt **durchschnittliche anforderungswartezeit** und **durchschnittliche Anforderungsanzahl** während der letzten 15 Tage zusammen. Der Bericht möglicherweise, die anzeigen, die Wartezeit für Anforderungen und die Anforderung Erhöhung der Anzahl der gleichzeitig erkennen, was darauf hindeuten kann, dass die Latenz Erhöhung der Anforderung durch einen Anstieg der Anforderungsanzahl verursacht wird.
+2.  Zum Korrelieren mehrerer Datenpunkte. Beispielsweise werden die **durchschnittliche Anforderungs Latenz** und die **durchschnittliche Anforderungs Anzahl** in den letzten 15 Tagen angezeigt. Der Bericht zeigt möglicherweise an, dass die Anforderungs Latenz und die Anzahl der Anforderungen zum gleichen Zeitpunkt zunehmen, was darauf hindeuten kann, dass die Erhöhung der Anforderungs Latenz durch eine Erhöhung der Anforderungs Anzahl verursacht wird.
 
-In einem Verlaufsdiagramm können Benutzer Folgendes tun:
+In einem Verlaufs Diagramm können Benutzer folgende Aktionen ausführen:
 
-* Zeigen Sie mehrere Datenreihen im Diagrammbereich dargestellt. Jede Datenreihe wird als ein Liniendiagramm, in der Berichtanzeige angezeigt. Jedes Liniendiagramm wird automatisch im Berichts-Viewer entsprechend skaliert.
+* Zeigen Sie mehrere Datenreihen in der Diagrammbereich an. Jede Datenreihe wird als Liniendiagramm im Berichts-Viewer angezeigt. Jedes Liniendiagramm wird automatisch so skaliert, dass es in den Berichts-Viewer passt.
 
-* Fügen Sie hinzu oder entfernen Sie eine Datenreihe aus der Liste am unteren Rand des Viewers Verlaufsdiagramm Reihe.
+* Fügen Sie der Datenreihen Liste unten im Verlaufs Diagramm-Viewer eine Datenreihe hinzu, oder entfernen Sie Sie.
 
-* Ein- oder Ausblenden einer Datenreihe in der Liste der Reihe. Benutzer können eine spezifische Datenreihe in der Liste, markieren Sie das entsprechende Diagramm der Zeile in den Diagrammbereich klicken.
+* Ein-oder Ausblenden von Datenreihen in der Datenreihen Liste. Benutzer können auf eine bestimmte Datenreihe in der Liste klicken, um das entsprechende Liniendiagramm im Diagrammbereich hervorzuheben.
 
-* Vergrößern Sie sich auf einen bestimmten Zeitraum an, indem Sie die Auswahl des Zeitraums, in der Diagrammfläche. Klicken Sie zum Verkleinern, auf die Schaltfläche, die in der unteren linken Ecke des Diagramms befindet.
+* Vergrößern Sie einen bestimmten Zeitraum, indem Sie den Zeitraum in der Diagramm Fläche auswählen. Zum Verkleinern klicken Sie auf die Schaltfläche, die sich in der unteren linken Ecke des Diagramms befindet.
 
-* Untersuchen Sie einen einzelnen Bericht durch Doppelklicken auf einen bestimmten Datenpunkt an.
+* Untersuchen Sie einen einzelnen Bericht, indem Sie auf einen bestimmten Datenpunkt doppelklicken.
 
-* Kopieren Sie die Daten und für die anderen Programmen wie Microsoft Excel verfügbar gemacht. Dadurch können Sie Microsoft Excel Diagrammfunktionen, bei Bedarf nutzen können.
+* Kopieren Sie die Daten, und stellen Sie Sie für andere Programme (z. b. Microsoft Excel) zur Verfügung. Dies ermöglicht es Ihnen, bei Bedarf Microsoft Excel-Diagramm Funktionen zu nutzen.
 
-### <a name="trend-charts"></a>Trenddiagramme
+### <a name="trend-charts"></a>Trend Diagramme
 
-Viele sich wiederholende Leistungsprobleme treten auf, durch periodische Aufgaben, die auf oder mit dem Zielserver ausgeführt wird. Z. B. eine Unterhaltung-oriented-Website erhalten möglicherweise weitere Treffer am Wochenende, oder ein Zeitplan Datenträger-Sicherungstask kann die Leistung eines Servers täglich um 02:00 Uhr heruntergefahren.
+Viele wiederkehrende Leistungsprobleme werden dadurch verursacht, dass regelmäßige Tasks auf oder auf Ziel Servern ausgeführt werden. Beispielsweise kann eine Unterhaltungs orientierte Website während des Wochenendes mehr Treffer erhalten, oder ein Task "Datenträger Sicherung planen" kann die Leistung eines Servers täglich um 2:00 Uhr senken.
 
-Ein Trenddiagramm soll solche Leistungsprobleme zu finden. Leistungsprobleme können in verschiedenen Mustern wiederholt auftreten. Die am häufigsten verwendeten Muster sind tägliche Muster und wöchentlichen Mustern, in denen Leistungsprobleme auftreten, während derselben Stunde eines Tages oder der gleichen Tag einer Woche. Aus diesem Grund bietet die SPA ein 24-Stunden-Trenddiagramm und ein 7-Tage-Trenddiagramm.
+Ein Trend Diagramm ist so konzipiert, dass Sie derartige Leistungsprobleme finden. Leistungsprobleme können wiederholt in verschiedenen Mustern auftreten. Bei den gängigsten Mustern handelt es sich um tägliche Muster und wöchentliche Muster, bei denen Leistungsprobleme während der gleichen Stunde eines Tages oder desselben Tags auftreten. Daher bietet Spa ein 24-Stunden-Trend Diagramm und ein 7-Tage-Trend Diagramm.
 
-Die Trenddiagramm für die Analyse erhalten Sie ausführliche Untersuchung auf einem Satz von Daten und Trends basierend auf der Tageszeit sieht. Festlegen die X-Achse auf einen Zeitraum von 24 Stunden, beginnend mit 0:00 (Mitternacht) und endet um 23:59 Uhr. SPA wird Trends für mehrere Datenreihen zur gleichen Zeit nicht angezeigt werden. Klicken Sie auf **Datenreihe auswählen** , wählen Sie eine Datenreihe anzeigen.
+Das Trendanalyse Diagramm bietet einen tieferen Grad an Untersuchung zu einem Satz von Daten und sucht nach Trends basierend auf der Tageszeit. Die X-Achse wird auf einen 24-Stunden-Zeitraum festgelegt, beginnend um 0:00 Uhr (Mitternacht) und endet bei 23:59. Spa zeigt nicht gleichzeitig Trends für mehrere Datenreihen an. Sie können auf **Datenreihe auswählen** klicken, um eine Datenreihe zum anzeigen auszuwählen.
 
-Zum Verarbeiten der Daten, SPA sieht aus, für alle Momentaufnahmen, die zwischen 0:00 und 0:59, die für jede Stunde. SPA bestimmt das Minimum, Maximum, Mittelwert, und Sigma-Werte für die Gruppe von Momentaufnahmen während dieser Stunde, und stellt sie als Kerzendiagramme. SPA wiederholt den Prozess für Momentaufnahmen, die zwischen 1:00 bis 1:59, dann 2:00 bis 2:59 und So weiter. Wenn für die angegebene Stunde keine Momentaufnahmen vorhanden sind, werden SPA wird dieser Stunde im Diagramm leer gelassen und der nächsten Stunde erreicht.
+Um die Daten zu verarbeiten, sucht Spa nach allen Momentaufnahmen, die für jede Stunde zwischen 0:00 und 0:59 erstellt wurden. Spa bestimmt die minimalen, maximalen, durchschnittlichen und Sigma-Werte für den Satz von Momentaufnahmen, die während dieser Stunde erstellt wurden, und zeigt Diagramme als Kerzen Diagramme an. Spa wiederholt den Prozess für Momentaufnahmen, die zwischen 1:00 und 1:59, dann 2:00 bis 2:59 usw. erstellt wurden. Wenn für die angegebene Stunde keine Momentaufnahmen vorhanden sind, bleibt diese Stunde im Diagramm leer und fährt mit der nächsten Stunde fort.
 
-Ein 7-Tage-Trenddiagramm ähnelt sehr der 24-Stunden-Trenddiagramm. Der einzige Unterschied ist, dass sie eine Datenreihe basierend auf dem Tag einer Woche anstelle der Tageszeit gruppiert.
+Ein 7-Tage-Trend Diagramm ähnelt dem 24-Stunden-Trend Diagramm. Der einzige Unterschied besteht darin, dass eine Datenreihe auf der Grundlage des Wochentags und nicht der Stunde des Tages gruppiert wird.
 
-Die Datenreihe, die Sie im Trend und historische Diagramme auswählen, werden als eine benutzereinstellung gespeichert. Das nächste Mal, den Trend und die Verlaufsdiagramm Viewer für das gleiche Advisor Pack geöffnet ist, der gleiche Satz von Datenreihen werden als Standard aufgeführt.
+Die Datenreihen, die Sie in Trend-und Vergangenheits Diagrammen auswählen, werden als Benutzereinstellung gespeichert. Wenn der Trend-und Verlaufs Diagramm-Viewer das nächste Mal für das gleiche Advisor-Pack geöffnet wird, wird derselbe Satz von Datenreihen als Standard aufgeführt.
 
 ## <a name="managing-reports"></a>Verwalten von Berichten
 
 
 ### <a name="deleting-reports"></a>Löschen der Berichte
 
-Berichte können entfernt werden, um die Anzahl der Berichte zu minimieren, die von SPA verwaltet werden müssen. Es wird empfohlen, abhängig von der Häufigkeit von Berichten und die Anzahl der Server die nicht benötigten Berichte gelöscht. Während der SPA keinen Grenzwert für Berichte verfügt, die sie verwalten können, müssen möglicherweise die zugrunde liegenden Datenbank eine größenbeschränkung.
+Berichte können entfernt werden, um die Anzahl von Berichten zu minimieren, die von Spa verwaltet werden müssen. Abhängig von der Häufigkeit der Berichte und der Anzahl der Server wird empfohlen, unnötige Berichte zu löschen. Obwohl die Spa nicht über eine Beschränkung für Berichte verfügt, die Sie verwalten kann, kann die zugrunde liegende Datenbank eine Größenbeschränkung aufweisen.
 
-**Beachten Sie** gelöschten Berichte können nicht wiederhergestellt werden.
+**Hinweis** gelöschte Berichte können nicht wieder hergestellt werden.
 
  
 
 ### <a name="exporting-and-importing-reports"></a>Exportieren und Importieren von Berichten
 
-Berichte können in eine XML-Datei an den Transport an einem anderen SPA-Konsole oder an e-Mail-Adresse, an einen anderen Benutzer exportiert werden. Exportieren des Berichts wird den Bericht nicht gelöscht werden. So exportieren Sie die aktuell angezeigten Berichts aus **Berichts-Viewer**, klicken Sie auf **Aktionen**, und klicken Sie dann auf **exportieren**. So exportieren Sie mehrere Berichte aus **Berichts-Explorer**, klicken Sie auf **aktivieren Mehrfachauswahl**, wählen Sie mehrere Berichte aus dem Auswahlfeld aus, und klicken Sie dann auf **exportieren**. Dadurch wird die Berichte im XML-Format in das ausgewählte Ziel-Verzeichnis exportiert.
+Berichte können in eine XML-Datei exportiert werden, um Sie in eine andere Spa-Konsole zu transportieren oder an einen anderen Benutzer zu senden. Wenn Sie den Bericht exportieren, wird der Bericht nicht gelöscht. Klicken Sie zum Exportieren des aktuell angezeigten Berichts in der **Berichts**Anzeige auf **Aktionen**, und klicken Sie dann auf **exportieren**. Wenn Sie mehrere Berichte exportieren möchten, klicken Sie im **Berichts-Explorer**auf **Mehrfachauswahl aktivieren**, wählen Sie im Auswahlfeld mehrere Berichte aus, und klicken Sie dann auf **exportieren**. Dadurch werden die Berichte im XML-Format in das ausgewählte Zielverzeichnis exportiert.
 
-Ein exportierter Bericht kann in einseitigen Anwendung angezeigt werden. importierten Berichte werden nicht in die SPA-Datenbank hinzugefügt. Sie sind in erster Linie als eine XML-Viewer-Anwendung für den exportierten Bericht verwendet werden sollen. Der Server für den importierten Bericht muss nicht die gleichen Advisor Packs als der ursprüngliche exportierten Bericht SPA-Konsole installiert haben.
+Ein exportierter Bericht kann in Spa angezeigt werden. importierte Berichte werden der Spa-Datenbank nicht hinzugefügt. Sie sind in erster Linie als XML-Viewer-Anwendung für den exportierten Bericht zu fungieren. Auf dem Server für den importierten Bericht müssen nicht dieselben Advisor-Pakete installiert sein wie die Original-Konsole des exportierten Berichts.
 
-## <a href="" id="bkmk-manageadvisorpacks"></a>Verwalten von Advisor-packs
+## <a href="" id="bkmk-manageadvisorpacks"></a>Verwalten von Advisor-Paketen
 
 
-SPA schließt die Advisor-Packs für die Core-Betriebssystem, Hyper-V, active Directory und IIS. SPA bietet eine offene Architektur für die Entwicklung von Advisor-Packs mithilfe von SQL, daher ist es auch möglich, dass nicht-Microsoft-Entwicklern zum Erstellen von Advisor-Pack-Versionen. Es gibt vier Optionen zum Verwalten von Advisor-Pack: bereitzustellen, anzupassen, zurückzusetzen oder zu entfernen.
+Spa umfasst Advisor-Pakete für das Haupt Betriebssystem, Hyper-V, Active Directory und IIS. Spa bietet eine offene Architektur zum Entwickeln von Advisor-Paketen mithilfe von SQL. Daher ist es auch für Entwickler von Drittanbietern möglich, Versionen von Advisor Packs zu erstellen. Es gibt vier Optionen zum Verwalten eines Advisor-Pakets: bereitstellen, anpassen, zurücksetzen oder entfernen.
 
-### <a name="provision-new-advisor-packs"></a>Bereitstellen des neuen Advisor-packs
+### <a name="provision-new-advisor-packs"></a>Neue Ratgeber Pakete bereitstellen
 
-Neues Advisor-Packs können von Microsoft oder von nicht-Microsoft-Entwicklern freigegeben werden. Ein Advisor-Pack umfasst eine provisionMetaData.xml und einen Satz von SQL-Skripts, die die Logik zu beschreiben.
+Neue Ratgeber Pakete können von Microsoft oder von Entwicklern, die nicht von Microsoft sind, veröffentlicht werden. Ein Advisor-Pack enthält eine Datei "provisionmetadata. xml" und einen Satz von SQL-Skripts, die die Logik beschreiben.
 
-**Ein neues Advisor-Pack bereitstellen.**
+**So stellen Sie ein neues Advisor Pack bereit**
 
-1.  Kopieren Sie den Inhalt der Advisor-Pack unter der *SpaRoot %*\\APs-Verzeichnis.
+1.  Kopieren Sie den gesamten Inhalt des Advisor-Pakets unter dem Verzeichnis *% sparoot%* \\aps.
 
-2.  Klicken Sie im Hauptfenster auf **Konfiguration**, und klicken Sie dann auf **konfigurieren Advisor Packs**. Die **konfigurieren Advisor Packs** Dialogfeld wird geöffnet.
+2.  Klicken Sie im Hauptfenster auf **Konfiguration**, und klicken Sie dann auf **Advisor Packs konfigurieren**. Das Dialogfeld **Advisor-Pakete konfigurieren** wird geöffnet.
 
-    **Hinweis** dieses Dialogfeld ist ähnlich wie die **Bereitstellen von Advisor-Pack** Seite zum ersten Mal verwenden-Assistenten. Es zeigt eine Liste von Advisor-Packs, die zur Verwaltung verfügbar sind. Jede in der Liste Advisor-Pack verfügt über Eigenschaften wie Name, installierte Version, Version und Autor. Name ist der vollständige Name des Advisor-Pack, und die installierte Version ist die Version dieses Advisor-Pack, das bereits im Projekt bereitgestellt wurde. Wenn das Advisor-Pack in der aktuellen Datenbank nicht bereitgestellt wurde, zeigt das Textfeld für die installierte Version **unterlassen**. Das Feld "Version" gibt an, die Version dieses Advisor-Pack, die unter dem Advisor-Packs-Ordner abgelegt wird.
-
-     
-
-3.  Wählen Sie das Advisor-Pack aus der Liste aus. Wenn das Advisor-Pack nicht bereitgestellt wurde oder eine neuere Version vorhanden, in den Advisor-Packs-Ordner als dem in der Datenbank ist, die **bereitstellen** Schaltfläche ist aktiviert. Klicken Sie auf die **bereitstellen** Schaltfläche.
-
-4.  Wenn die Bereitstellung abgeschlossen ist, ist die **installierte Version** Feld für das ausgewählte Advisor-Pack die Informationen zur neuen Version enthält.
-
-### <a name="customize-advisor-packs"></a>Anpassen von Advisor-packs
-
-SPA definiert, eine offene Architektur, die Benutzern das Ändern des Advisor-Packs ermöglicht. Benutzer können die Advisor-Pack-Dateien ändern, durch Ändern der Schwellenwerte, Schwellenwerte für die Freigabe und aktivieren oder Deaktivieren von Regeln.
-
-Weitere Informationen zum Ändern und Erstellen von Advisor-Packs finden Sie unter [Server Performance Advisor Pack Development Guide](server-performance-advisor-pack-development-guide.md).
-
-### <a name="changing-thresholds"></a>Ändern der Schwellenwerte
-
-Schwellenwerte werden in einseitigen Anwendung verwendet, um festzustellen, ob der Trigger eine Regel erfüllt wird. Die tatsächliche Schwellenwerte für real Kundenszenarien können unterscheiden sich erheblich aufgrund der arbeitsauslastung, hardwareumgebung, und Ihr Unternehmen benötigt. Die Standardschwellenwerte möglicherweise nicht ordnungsgemäße für den aktuellen Benutzerfall, werden, damit die SPA so ändern Sie den vorhandenen Schwellenwert bietet.
-
-Sie können Schwellenwerte ändern, indem Sie auf den Regelnamen in einem einzelnen oder Seite-an-Seite. Oder um alle Regeln einer bestimmten Advisor Pack zu verwalten, können sie ändern, Schwellenwerte aus den **Konfiguration** Menü.
-
-**Um einen Schwellenwert zu ändern.**
-
-1.  In der **Konfiguration** Menü klicken Sie auf **Advisor-Packs konfigurieren**, klicken Sie auf den Namen der geändert werden, und klicken Sie dann auf die Advisor-Pack **konfigurieren**.
-
-    **Beachten Sie** werden Ihnen eine Liste aller Regeln, die im Advisor Pack enthalten sind. Das Kontrollkästchen links neben der Advisor-Pack-Name Gibt an, ob die Regel aktiviert ist. Wenn eine Regel deaktiviert ist, wird es aus allen Berichten ausgeblendet.
+    **Hinweis** Dieses Dialogfeld ähnelt der Seite des Assistenten zum Bereitstellen von **Advisor-Paketen** . Es wird eine Liste von Advisor-Paketen angezeigt, die zur Verwaltung verfügbar sind. Jedes Advisor-Paket in der Liste verfügt über Eigenschaften wie Name, installierte Version, Version und Autor. Name ist der vollständige Name des Advisor-Pakets, und die installierte Version ist die Version dieses Advisor-Pakets, das bereits im Projekt bereitgestellt wurde. Wenn das Advisor-Pack nicht in der aktuellen Datenbank bereitgestellt wird, wird im Textfeld installierte Version **nicht installiert**angezeigt. Das Feld Version gibt die Version dieses Advisor-Pakets an, das unter dem Advisor Packs-Ordner abgelegt wird.
 
      
 
-2.  Klicken Sie auf die spezielle Regel, die Sie ändern möchten. Die **Regeldetails** bilden, für die ausgewählte Regel wird geöffnet.
+3.  Wählen Sie das Advisor-Pack aus der Liste aus. Wenn das Advisor-Paket nicht bereitgestellt wurde oder eine neuere Version im Advisor Packs-Ordner als der in der Datenbank vorhanden ist, wird die Schaltfläche **bereit** stellen aktiviert. Klicken Sie auf " **bereit** stellen".
 
-Die Regel Detailformular enthält ausführliche Informationen über eine bestimmte Regel. Sie enthält den Namen, Beschreibung, Status, Ergebnisse und Schwellenwerte. SPA unterstützt zwei Arten von Regelergebnissen, **Warnung** und **OK**. Für jeden Typ besteht Empfehlungen Text und die Empfehlung vor.
+4.  Wenn die Bereitstellung vollständig ist, enthält das Feld **installierte Version** des ausgewählten Advisor-Pakets die neuen Versionsinformationen.
 
-Einige der Regeln verfügen nicht über die angegebenen Schwellenwerte. Z. B. die **HTTP-Keep-Alive** Regel überprüft eine boolesche Einstellung für IIS. Daher kann die Schwellenwerte-Liste leer sein. Andernfalls alle Schwellenwerte, die von der aktuellen Regel verwendet werden wird aufgeführt. Eine ausführliche Beschreibung zur Verwendung ein Schwellenwerts in der Regel ist als Teil der Beschreibung enthalten.
+### <a name="customize-advisor-packs"></a>Anpassen von Advisor-Paketen
 
-Wenn die **Regeldetails** Formular gestartet wird die **Konfiguration** im Menü die Schwellenwert-Liste enthält drei Spalten: Name, die ursprüngliche Einstellung und die Einstellung ändern. Wenn sie von einem einzelnen oder Seite-an-Seite gestartet wird, sind die Schwellenwerte, die vom Bericht verwendet werden ebenfalls enthalten sein. Benutzer können die aktuellen Schwellenwerte ändern, durch Ändern des Werts in **ändern Sie Einstellung** Spalte, und klicken Sie dann auf **speichern** zum Speichern der Änderungen in die Datenbank.
+Spa definiert eine offene Architektur, mit der Benutzer die Advisor-Pakete ändern können. Benutzer können die Advisor Pack-Dateien ändern, indem Sie Schwellenwerte ändern, Schwellenwerte freigeben und Regeln aktivieren bzw. deaktivieren.
 
-Alle Änderungen, die an die Schwellenwerte wird nur angewendet, Berichte, die nach der Änderung der generiert werden. Vorhandene Berichte werden nicht von diesen Änderungen betroffen.
+Weitere Informationen zum Ändern und Erstellen von Advisor-Paketen finden Sie im [Entwicklungs Handbuch zum Server Performance Advisor Pack](server-performance-advisor-pack-development-guide.md).
 
-### <a name="sharing-thresholds"></a>Freigeben von Schwellenwerten
+### <a name="changing-thresholds"></a>Ändern von Schwellenwerten
 
-Wenn Sie Ihre Server in ähnlichen Situationen verwalten, können Sie mit den gleichen Satz von Schwellenwerte auswählen. Exportieren und importieren Sie die Schwellenwerte für ein bestimmtes Advisor Pack mithilfe der **Konfiguration** Menü. Sie können wählen Sie das spezifische Advisor-Pack, und klicken Sie dann auf **konfigurieren**. Die exportierte Schwellenwert-Datei ist in einem XML-Format.
+In Spa werden Schwellenwerte verwendet, um zu bestimmen, ob die Auslöserbedingung einer Regel erfüllt ist. Die tatsächlichen Schwellenwerte für echte Kunden Szenarien können aufgrund der Arbeitsauslastung, der Hardware Umgebung und der geschäftlichen Anforderungen erheblich variieren. Die Standard Schwellenwerte sind für den aktuellen Benutzer Fall möglicherweise nicht richtig, sodass Spa die Möglichkeit bietet, den vorhandenen Schwellenwert zu ändern.
 
-Wenn Sie einen Schwellenwert zu importieren, SPA überprüft das Format der XML-Datei, und überprüft, ob die Datei auf das ausgewählten Advisor-Pack entspricht. Wenn dies erfolgreich ist, importiert SPA alle Werte aus der Schwellenwert-Datei in die aktuelle Projektdatenbank an. Ähnlich wie beim vorherigen Szenario für veränderliche Schwellenwerte, werden alle Änderungen der Schwellenwert nur Auswirkungen auf Berichte, die in der Zukunft generiert werden. Vorhandene Berichte sind nicht betroffen.
+Sie können Schwellenwerte ändern, indem Sie auf den Regel Namen in einem einzelnen oder einem parallelen Bericht klicken. Oder um alle Regeln eines bestimmten Advisor-Pakets zu verwalten, können Sie die Schwellenwerte im **Konfigurations** Menü ändern.
+
+**So ändern Sie einen Schwellenwert**
+
+1.  Klicken Sie im Menü **Konfiguration** auf **Advisor Packs konfigurieren**, klicken Sie auf den Namen des Advisor-Pakets, das geändert werden soll, und klicken Sie dann auf **Konfigurieren**.
+
+    **Hinweis** Ihnen wird eine Liste aller Regeln angezeigt, die im Advisor-Paket enthalten sind. Das Kontrollkästchen links neben dem Advisor-Paketnamen gibt an, ob die Regel aktiviert ist. Wenn eine Regel deaktiviert ist, wird Sie in allen Berichten ausgeblendet.
+
+     
+
+2.  Klicken Sie auf die jeweilige Regel, die Sie ändern möchten. Das Formular " **Regel Details** " für die ausgewählte Regel wird geöffnet.
+
+Das Formular "Regel Details" enthält ausführliche Informationen zu einer bestimmten Regel. Sie enthält den Namen, die Beschreibung, den Status, mögliche Ergebnisse und Schwellenwerte. Spa unterstützt zwei Arten von Regel Ergebnissen: **Warnung** und **OK**. Für jeden Typ gibt es Empfehlungs Text und eine Empfehlung.
+
+Für einige Regeln sind keine Schwellenwerte definiert. Beispielsweise prüft die **HTTP Keep-Alive** -Regel, ob eine boolesche Einstellung für IIS festgelegt ist. Daher ist die Liste der Schwellenwerte möglicherweise leer. Andernfalls werden alle Schwellenwerte aufgelistet, die von der aktuellen Regel verwendet werden. Eine ausführliche Beschreibung, wie ein Schwellenwert in der Regel verwendet wird, ist als Teil der Beschreibung enthalten.
+
+Wenn das Formular " **Regel Details** " im **Konfigurations** Menü gestartet wird, enthält die Schwellenwert Liste drei Spalten: Name, ursprüngliche Einstellung und Änderungs Einstellung. Wenn Sie über einen einzelnen oder einen parallelen Bericht gestartet wird, werden die Schwellenwerte, die vom Bericht verwendet werden, ebenfalls eingeschlossen. Benutzer können die aktuellen Schwellenwerte ändern, indem Sie den Wert in der Spalte **Änderungs Einstellung** ändern und dann auf **Speichern** klicken, um die Änderungen in der Datenbank zu speichern.
+
+Alle Änderungen, die an Schwellenwerten vorgenommen werden, werden nur auf Berichte angewendet, die nach den Änderungen generiert werden. Vorhandene Berichte sind von diesen Änderungen nicht betroffen.
+
+### <a name="sharing-thresholds"></a>Freigabe Schwellenwerte
+
+Wenn Sie Ihre Server in ähnlichen Situationen verwalten, können Sie auch denselben Satz von Schwellenwerten verwenden. Mithilfe des **Konfigurations** Menüs können Sie Schwellenwerte für ein bestimmtes Advisor Pack exportieren und importieren. Sie können das jeweilige Advisor-Paket auswählen und dann auf **Konfigurieren**klicken. Die exportierte Schwellenwert Datei hat ein XML-Format.
+
+Beim Importieren eines Schwellenwerts überprüft Spa das XML-Dateiformat und überprüft, ob die Datei mit dem ausgewählten Advisor Pack übereinstimmt. Wenn dies erfolgreich ist, importiert Spa alle Werte aus der Schwellenwert Datei in die aktuelle Projektdatenbank. Ähnlich wie beim vorherigen Szenario mit veränderlichen Schwellenwerten werden alle Schwellenwert Änderungen nur für Berichte wirksam, die in Zukunft generiert werden. Vorhandene Berichte sind nicht betroffen.
 
 ### <a name="enable-or-disable-rules"></a>Aktivieren oder Deaktivieren von Regeln
 
-Eine Regel kann aktiviert oder deaktiviert die **Regeldetails** Formular. Sie müssen auf **speichern** vorgenommenen Änderungen beibehalten werden. Wenn eine Regel deaktiviert ist, ist es nicht auf einen der Berichte angezeigt werden. Aber die zugrunde liegende Geschäftslogik wird ausgelöst, beim Erstellen des Berichts, damit bei der Auswahl, um die Regel erneut zu aktivieren, diese in Berichte erneut wird angezeigt.
+Eine Regel kann im Formular " **Regel Details** " aktiviert oder deaktiviert werden. Sie müssen auf **Speichern** klicken, um die vorgenommenen Änderungen beizubehalten. Wenn eine Regel deaktiviert ist, kann Sie nicht in einem der Berichte angezeigt werden. Die zugrunde liegende Geschäftslogik wird jedoch beim Erstellen des Berichts ausgelöst. Wenn Sie also die Regel erneut aktivieren, wird Sie erneut in Berichten angezeigt.
 
-### <a name="reset-advisor-packs-to-original-state"></a>Advisor-Packs zum ursprünglichen Zustand zurücksetzen
+### <a name="reset-advisor-packs-to-original-state"></a>Zurücksetzen von Advisor Packs in den ursprünglichen Zustand
 
-Sie können eine bereitgestellte Advisor-Pack in der Datenbank zu ändern. Als ändern die Schwellenwerte, können Sie auch die SQL-Skripts ändern. SPA unterstützt ändern Berichtsmetadaten hinzufügen oder Entfernen von Regeln für eine bereitgestellte Advisor-Pack nicht. Manuelles Ändern von Bereichen kann zu unerwartetem Verhalten führen.
+Sie können ein bereitgestelltes Advisor-Paket in der-Datenbank ändern. Mit Ausnahme der Änderung der Schwellenwerte können Sie auch die SQL-Skripts ändern. Spa unterstützt das Ändern von Berichts Metadaten oder das Hinzufügen oder Entfernen von Regeln für ein bereitgestelltes Advisor Pack nicht. Das manuelle Ändern dieser Bereiche kann zu unerwartetem Verhalten führen.
 
-Weitere Informationen zum Ändern eines bereitgestellten Advisor Packs finden Sie unter den [Server Performance Advisor Pack Development Guide](server-performance-advisor-pack-development-guide.md).
+Weitere Informationen zum Ändern eines bereitgestellten Advisor-Pakets finden Sie im [Entwicklungs Handbuch zum Server Performance Advisor Pack](server-performance-advisor-pack-development-guide.md).
 
-Wenn Sie ein Rollback vorgenommenen Änderungen auf einem bereitgestellten Advisor Pack möchten, können Sie auswählen, das Advisor-Pack zurücksetzen. Dies überschreibt die SQL-Skripts, die beziehen sich auf dem Advisor-Pack und alle Schwellenwerte Standardwerte zurückgesetzt. Auf diese Weise alle vorhandenen Berichte.
+Wenn Sie Änderungen zurücksetzen möchten, die an einem bereitgestellten Advisor-Paket vorgenommen wurden, können Sie das Advisor-Paket zurücksetzen. Dies überschreibt alle SQL-Skripts, die mit dem Advisor-Paket verknüpft sind, und setzt alle Standard Schwellenwerte zurück. Dadurch werden alle vorhandenen Berichte beibehalten.
 
-Zurücksetzen der Advisor-Pack können Sie dazu die **konfigurieren Advisor Packs** Formular. Sie müssen auf dem Advisor-Pack zurückgesetzt werden, und klicken Sie dann auf **zurücksetzen**.
+zum Zurücksetzen des Advisor-Pakets können Sie das Formular **Advisor Packs konfigurieren** verwenden. Sie müssen das Advisor-Paket auswählen, das zurückgesetzt werden soll, und dann auf **Zurücksetzen**klicken.
 
-### <a name="remove-advisor-packs"></a>Entfernen von Advisor-packs
+### <a name="remove-advisor-packs"></a>Advisor-Pakete entfernen
 
-Wenn ein Advisor-Pack nicht mehr benötigt wird, können Benutzer aus der Datenbank entfernen. Das Advisor-Pack entfernen, wird alles über das Advisor-Pack aus der Datenbank, einschließlich der Regeln und Schwellenwerten, alle SQL-Skripts und alle Berichte entfernt. Keine der Aktionen können ein Rollback ausgeführt werden.
+Wenn ein Advisor-Pack nicht mehr benötigt wird, können Benutzer es aus der Datenbank entfernen. Wenn Sie das Advisor-Paket entfernen, werden alle Informationen über das Advisor-Pack aus der Datenbank entfernt, einschließlich der Regeln und Schwellenwerte, aller SQL-Skripts und sämtlicher Berichte. Für keine der Aktionen kann ein Rollback ausgeführt werden.
 
-Entfernen das Advisor-Pack können Sie dazu **konfigurieren Advisor Packs** Formular. Sie müssen entfernt werden soll, und klicken Sie dann auf die Advisor-Pack auswählen **Deprovision**.
+zum Entfernen des Advisor-Pakets können Sie das Formular **Advisor Packs konfigurieren** verwenden. Wählen Sie das zu entfernende Advisor-Paket aus, und klicken Sie dann auf Aufhebung der **Bereitstellung**.
 
-### <a name="update-existing-advisor-packs"></a>Aktualisieren von vorhandenen Advisor-packs
+### <a name="update-existing-advisor-packs"></a>Aktualisieren vorhandener Advisor-Pakete
 
-Aktualisieren von vorhandenen Packs für Advisor ist sehr ähnlich ist, auf das Advisor-Pack in seinen ursprünglichen Zustand zurücksetzen. Um die Advisor-Pack auf eine neuere Version zu aktualisieren, kopieren Sie das neue Advisor-Pack für den Advisor-Pack-Ordner ein. Ein Advisor-Pack ist ein Update für ein vorhandenes Advisor Pack betrachtet, nur, wenn keine Änderung der Bericht. Der Bericht und den Regeln-IDs müssen identisch sein. Andernfalls sollten sie als zwei unterschiedliche Advisor Packs behandelt werden.
+Das Aktualisieren vorhandener Advisor Packs ähnelt dem Zurücksetzen des Advisor-Pakets auf seinen ursprünglichen Zustand. Wenn Sie das Advisor Pack auf eine neuere Version aktualisieren möchten, kopieren Sie das neue Advisor-Paket in den Advisor Pack-Ordner. Ein Advisor-Pack gilt nur dann als Update für ein vorhandenes Advisor Pack, wenn keine Änderung der Berichts Metadaten vorliegt. Der Bericht und die Regel-IDs müssen identisch sein. Andernfalls sollten Sie als zwei verschiedene Advisor-Packs behandelt werden.
 
-Wenn nur Änderungen von Unternehmen, Logik und keine Berichtsserver-Metadaten-Änderungen für eine Advisor-Pack vorhanden sind, sollten sie eine neue Versionsnummer, z. B. von 1.0 auf 2.0 zugewiesen werden. Bei Änderung der Bericht wird das Advisor-Pack einen anderen Namen für die vollständige anzugeben. Beispielsweise könnte die Microsoft.ServerPerformanceAdvisor.IIS.V1 in Microsoft.ServerPerformanceAdvisor.IIS.V2 geändert werden.
+Wenn nur Änderungen an der Geschäftslogik und keine Änderungen an der Berichts Metadaten für ein Advisor-Paket vorgenommen werden, sollte eine neue Versionsnummer angegeben werden, z. b. von 1,0 bis 2,0. Wenn sich die Änderung der Berichts Metadaten ändert, sollte dem Advisor-Paket ein anderer vollständiger Name zugewiesen werden. Beispielsweise könnte Microsoft. serverperformanceadvisor. IIS. v1 in Microsoft. serverperformanceadvisor. IIS. v2 geändert werden.
 
-Wenn eine neuere Version von Advisor-Pack vorhanden ist, die Liste in der **Advisor-Packs konfigurieren** Formular automatisch ausgefüllt wird, die **Version** Spalte mit der neuesten Version von Advisor Pack. Sie können wählen Sie das Advisor-Pack, und klicken Sie dann auf die **zurücksetzen**. Der Advisor-Pack-Updates mit dem neue Geschäftslogik und Schwellenwerte. Alle Berichte für dieses Advisor Pack werden beibehalten.
+Wenn eine neuere Version des Advisor-Pakets vorhanden ist, füllt die Liste im Formular **Advisor-Pakete konfigurieren** automatisch die **Versions** Spalte mit der neuesten Version des Advisor-Pakets aus. Sie können das Advisor-Paket auswählen und dann auf **Zurücksetzen**klicken. Das Advisor Pack wird mit der neuen Geschäftslogik und den Schwellenwerten aktualisiert. Alle Berichte für dieses Advisor Pack werden beibehalten.
 
 ## <a name="managing-servers"></a>Verwalten von Servern
 
 
-SPA bietet grundlegende Funktionen für die Verwaltung von Zielservern. Sie können auch neue Server hinzufügen, um die Liste mit den Zielservern, Server aus der Liste zu entfernen oder ändern die Hinweise für Server.
+Spa stellt grundlegende Funktionen für die Verwaltung von Ziel Servern bereit. Sie können auswählen, ob Sie der Liste der Zielserver neue Server hinzufügen, Server aus der Liste entfernen oder die Hinweise für Server ändern möchten.
 
-**Hinzufügen oder Entfernen von Servern aus, oder Ändern von Serverinformationen**
+**So können Sie Server hinzufügen oder entfernen oder Server Informationen ändern**
 
-1.  Klicken Sie auf die **Konfiguration** Menü klicken Sie auf **-Server konfigurieren**.
+1.  Klicken Sie auf das Menü **Konfiguration** , und klicken Sie auf **Server konfigurieren**.
 
-2.  In der Liste der Server, die derzeit in der Datenbank vorhanden ist, ist die letzte Zeile leer. Klicken Sie auf die Zeile, und die Felder auszufüllen. Die **Servernamen** und **Speicherorts der Dateifreigabe** Ordner Felder sind obligatorisch, und der Servername muss eindeutig sein.
+2.  In der Liste der Server, die zurzeit in der Projektdatenbank vorhanden sind, ist die letzte Zeile leer. Klicken Sie auf die Zeile, und füllen Sie die Felder aus. Die Felder **Servername** und **Dateifreigabe Speicherort** Ordner sind obligatorisch, und der Servername muss eindeutig sein.
 
-3.  Geben Sie andere Serverinformationen in den **Anmerkung** Spalte für jeden Server.
+3.  Geben Sie für jeden Server in der Spalte " **Anmerkung** " weitere Server Informationen ein.
 
-    **Beachten Sie** dieses Feld einem freien Text-Format verwendet, damit Sie sie als ein Feld "Beschreibung" verwenden können. Oder verwenden Sie dieses Feld auf um die Servern zu kennzeichnen, sodass sie problemlos im Hauptfenster oder Gruppe von Servern, z. B. von Speicherort oder die Serverrolle gefunden werden können.
+    **Hinweis** In diesem Feld wird ein kostenloses Textformat verwendet, sodass Sie es als Beschreibungsfeld verwenden können. Oder verwenden Sie dieses Feld, um die Server zu markieren, damit Sie im Hauptfenster problemlos gefunden werden können, oder zum Gruppieren von Servern, z. b. nach Standort oder Server Rolle.
 
      
 
-4.  Wenn Sie die SPA mit einer großen Anzahl von Servern verwenden möchten, unterstützt SPA eine durch Trennzeichen getrennte (.csv)-Format für den Import an. Die Datei muss mindestens zwei Felder enthalten: **Server** und **Speicherort der Dateifreigabe**. Das dritte Feld **Anmerkung** ist optional, aber es wird empfohlen, die Server zu organisieren. Sie können auch die Liste der Server exportieren, um eine CSV-Datei, um zu bestimmen das geeignete Format aus, oder die Serverkonfiguration sichern.
+4.  Wenn Sie Spa mit einer großen Anzahl von Servern verwenden möchten, unterstützt Spa ein durch Kommas getrenntes Format (. CSV) für den Import. Die Datei muss mindestens zwei Felder enthalten: **Server** -und **Dateifreigabe Speicherort**. Das dritte Feld, " **Anmerkung** ", ist optional, aber es wird empfohlen, die Server zu organisieren. Sie können die Serverliste auch in eine CSV-Datei exportieren, um das entsprechende Format zu ermitteln oder die Serverkonfiguration zu sichern.
 
 ### <a name="searching-and-filtering"></a>Suchen und Filtern
 
-Wenn Sie mehr als ein paar Server verwalten, bietet SPA basic-Support, um die Server im Hauptfenster von schnell zu finden. Klicken Sie auf die Spalte zu sortieren, anhand der Servername, Analyseergebnisse, aktuellen Aufgabenstatus oder "Hinweise". Sie können auch auswählen, um die Suchfunktion verwenden. In der oberen rechten Ecke der wichtigsten Windows können Sie eine zu suchende Zeichenfolge eingeben. Die **Zielserver** Liste im Hauptfenster von verwendet die Zeichenfolge aus, um die Server zu filtern und zeigt nur auf Servern mit Namen oder die Anmerkung Felder, die die Suchzeichenfolge enthält.
+Wenn Sie mehr als ein paar Server verwalten, bietet Spa grundlegende Unterstützung für die schnelle Suche der Server im Hauptfenster. Sie können auf die Spaltenüberschrift klicken, um Sie basierend auf dem Servernamen, den Analyseergebnissen, dem aktuellen Task Status oder den Anmerkungen zu sortieren. Sie können auch die Suchfunktion verwenden. In der oberen rechten Ecke des Hauptfenster können Sie eine Zeichenfolge eingeben, nach der gesucht werden soll. Die Liste der **Zielserver** im Hauptfenster verwendet die Zeichenfolge zum Filtern der Server und zum Anzeigen von Servern mit den Feldern "Name" und "Anmerkung", die die Such Zeichenfolge enthalten.
 
-Die folgende Abbildung zeigt, wie die Zeichenfolge **DelL** Server mit der Zeichenfolge entspricht **DelL** oder Server mit **Anmerkung** Feld mit **DelL**.
+In der folgenden Abbildung wird gezeigt, wie die Zeichenfolge **Dell** Server mit der Zeichenfolge **Dell** oder Servern mit dem Feld " **Anmerkung** " vergleicht, das **delL**enthält.
 
-![Suchen und Beispiel für das Filtern](../media/server-performance-advisor/spa-user-manual-find-search-example.png)
+![Beispiel für suchen und Filtern](../media/server-performance-advisor/spa-user-manual-find-search-example.png)
 
-## <a name="advanced-functionality"></a>Erweiterte Funktionen
+## <a name="advanced-functionality"></a>Erweiterte Funktionalität
 
 
-### <a name="working-with-spa-windows-powershell-cmdlets"></a>Verwenden von SPA-Windows-PowerShell-cmdlets
+### <a name="working-with-spa-windows-powershell-cmdlets"></a>Arbeiten mit Windows PowerShell-Cmdlets für Spa
 
-Die SPA-Konsole verfügt über Unterstützung über die Benutzeroberfläche für die Sammlung von sich wiederholenden. Wenn diese Funktion nicht für Ihre Umgebung ausreichend ist, sind Windows PowerShell-Cmdlets, die ein erweiterten Administrator zum Anpassen der Datensammlung verwenden können. Diese Windows PowerShell-Cmdlets ermöglichen Systemadministratoren automatisch durchführen einer Leistungsanalyse für Zielserver, und Verwenden von SPA für den remote-Kundensupport. Systemadministratoren können z. B. Skripts, die zum Aufrufen von SPA-Cmdlets in bestimmten Zeitintervallen in regelmäßigen Abständen Stichproben für den Namen der leistungsbedingung von Zielservern schreiben.
+Die Spa-Konsole unterstützt die Benutzeroberfläche für die wiederholte Datensammlung. Wenn diese Funktionalität für Ihre Umgebung nicht ausreicht, gibt es Windows PowerShell-Cmdlets, mit denen ein erweiterter Administrator die Datensammlung anpassen kann. Diese Windows PowerShell-Cmdlets ermöglichen Systemadministratoren das automatische Ausführen von Leistungsanalysen auf Ziel Servern und die Verwendung von Spa für den Remote Kundensupport. Systemadministratoren können z. b. Skripts zum Aufrufen von Spa-Cmdlets in bestimmten Zeitintervallen schreiben, um die Leistung der Zielserver in regelmäßigen Abständen zu testen.
 
-Es wird empfohlen, schließen Sie die Anwendung SPAConsole.exe vor der Verwendung dieser Cmdlets.
+Es wird empfohlen, die Anwendung spaconsole. exe zu schließen, bevor Sie diese Cmdlets verwenden.
 
-Bevor Sie alle Windows PowerShell-Cmdlets ausführen müssen Sie die Cmdlets auf dem Computer-Konsole registrieren.
+Bevor Sie Windows PowerShell-Cmdlets ausführen, müssen Sie die Cmdlets auf dem Konsolen Computer registrieren.
 
-**Registrieren Sie die Windows PowerShell-cmdlets**
+**So registrieren Sie die Windows PowerShell-Cmdlets**
 
-1.  Geben Sie an einer Windows PowerShell-Eingabeaufforderung **registerSpaCmdlets.cmd**. Die **SPA-Cmdlets wurde erfolgreich registriert** Meldung wird angezeigt.
+1.  Geben Sie an einer Windows PowerShell-Eingabeaufforderung mit erhöhten Rechten den Befehl **registerspacmdlets. cmd**ein. Die Meldung zum **Registrieren von Spa-Cmdlets** wird angezeigt.
 
-2.  Führen Sie **SPA-PowerShell.cmd**. Wenn Sie den Pfad zum Windows PowerShell-Skriptdatei übergeben, sie führen Sie die Skripts automatisch. Andernfalls öffnet sie eine Windows PowerShell-Eingabeaufforderung, die wodurch die SPA Windows PowerShell-Cmdlets ausgeführt werden kann.
+2.  Führen Sie **Spa-PowerShell. cmd**aus. Wenn Sie den Pfad an eine Windows PowerShell-Skriptdatei übergeben, führen Sie die Skripts automatisch aus. Andernfalls wird eine Windows PowerShell-Eingabeaufforderung geöffnet, die zum Ausführen von Windows PowerShell-Cmdlets für das Spa bereit ist.
 
-Die folgende Tabelle beschreibt die SPA Windows PowerShell-Cmdlets:
+In der folgenden Tabelle werden die Windows PowerShell-Cmdlets für Spa beschrieben:
 
 | Cmdlet-Name | Parameter | Beschreibung |
 | ------ | ------- | ------ |
-| Start-SpaAnalysis | **– ServerName** Name des Zielservers.<br>**-AdvisorPackName** vollständigen Namen des dem Advisor-Pack auf Server in die Warteschlange gestellt werden. Wenn mehr als eine Pack die gleichzeitige Ausführung geplant ist, sollte der Wert des Parameters als AP1name, AP2name formatiert werden.<br>**-Dauer** Dauer für die Datensammlung.<br>**-Credential** Benutzeranmeldeinformationen für das Konto, das die Datensammlung auf dem Zielserver ausgeführt wird.<br>**-SqlInstanceName** Name der SQL Server-Instanz.<br>**-SqlDatabaseName** Namen der Datenbank ein SPA-Projekt. | Startet eine sammlungssitzung der SPA-Daten auf dem angegebenen Server. |
-| Stop-SpaAnalysis | **-SqlInstanceName** Name der SQL Server-Instanz.<br>**-SqlDatabaseName** Namen der Datenbank ein SPA-Projekt.<br>**– ServerName** Name des Zielservers. | Versucht, eine ausgeführte SPA-Sitzung zu beenden. Wenn eine Sitzung bereits abgeschlossen wurde, wird ohne Benutzereingriff zurückgegeben. |
-| Get-SpaServer | **-SqlInstanceName** Name der SQL Server-Instanz.<br>**-SqlDatabaseName** Namen der Datenbank ein SPA-Projekt. | Ruft die Liste der Server in der Datenbank ab. Es gibt eine Liste von Objekten, einschließlich der folgenden Eigenschaften: Name, Status, Dateifreigabe und Anmerkung. |
-| Get-SpaAdvisorPacks | **-SqlInstanceName** Name der SQL Server-Instanz<br>**-SqlDatabaseName** Namen der Datenbank ein SPA-Projekt | Ruft die Liste der Advisor-Pack in der Datenbank ab. Es gibt eine Liste von Objekten, einschließlich der folgenden Eigenschaften: Name, "DisplayName", Autor und Version. |
+| Start-spaanalysis | **-Servername** Der Name des Zielservers.<br>**-Advisorpackname** Vollständiger Name des Advisor-Pakets, das auf dem Server in die Warteschlange gestellt werden soll Wenn mehrere Pakete zur gleichen Zeit ausgeführt werden sollen, muss der Wert des-Parameters als AP1name, AP2name formatiert werden.<br>**-Dauer** Dauer für die Datensammlung.<br>**-Credential** Benutzer Anmelde Informationen für das Konto, mit dem die Datensammlung auf dem Zielserver ausgeführt wird.<br>**-SqlInstanceName** Der Name der SQL Server Instanz.<br>**-SQLDatabaseName** Der Name der Spa-Projektdatenbank. | Startet eine Spa-Daten Sammlungs Sitzung auf dem angegebenen Server. |
+| "Ende-spaanalysis" | **-SqlInstanceName** Der Name der SQL Server Instanz.<br>**-SQLDatabaseName** Der Name der Spa-Projektdatenbank.<br>**-Servername** Der Name des Zielservers. | Versucht, eine laufende Spa-Sitzung zu verhindern. Wenn eine Sitzung bereits beendet ist, wird Sie zurückgegeben, ohne etwas zu tun. |
+| Get-spaserver | **-SqlInstanceName** Der Name der SQL Server Instanz.<br>**-SQLDatabaseName** Der Name der Spa-Projektdatenbank. | Ruft die Serverliste in der Datenbank ab. Es wird eine Liste von-Objekten zurückgegeben, einschließlich der folgenden Eigenschaften: Name, Status, Dateifreigabe und Hinweis. |
+| Get-spaadvisorpacks | **-SqlInstanceName** Name der SQL Server Instanz<br>**-SQLDatabaseName** Name der Spa-Projektdatenbank | Ruft die Advisor Pack-Liste in der Datenbank ab. Es wird eine Liste von-Objekten zurückgegeben, einschließlich der folgenden Eigenschaften: Name, Display Name, Author und Version. |
 
-Windows PowerShell bietet die Möglichkeit zum Übergeben von Anmeldeinformationen über verschlüsselte Dateien, um Automatisierungsszenarios zu ermöglichen. Weitere Informationen zur Verwendung von verschlüsselter Dateien Anmeldeinformationen an ein Cmdlet übergeben, finden Sie unter [Erstellen von Windows PowerShell-Skripts, Anmeldeinformationen akzeptieren](https://technet.microsoft.com/magazine/ff714574.aspx).
+Windows PowerShell bietet die Möglichkeit, Anmelde Informationen über verschlüsselte Dateien zu übergeben, um Automatisierungs Szenarios zu ermöglichen. Weitere Informationen zur Verwendung verschlüsselter Dateien zum Übergeben von Anmelde Informationen an ein Cmdlet finden Sie unter [Erstellen von Windows PowerShell-Skripts, die Anmelde Informationen akzeptieren](https://technet.microsoft.com/magazine/ff714574.aspx).
 
-### <a name="automating-spa-report-collection-by-using-windows-powershell"></a>Automatisieren von SPA-berichtsauflistung mithilfe von Windows PowerShell
+### <a name="automating-spa-report-collection-by-using-windows-powershell"></a>Automatisieren der Spa-Bericht Sammlung mithilfe von Windows PowerShell
 
-Die folgenden Verfahren stellen ein Beispiel für eine Auflistung der SPA-Bericht mithilfe der SPA Windows PowerShell-Cmdlets automatisieren.
+Die folgenden Prozeduren stellen ein Beispiel für das Automatisieren einer Spa-Bericht Sammlung mithilfe der Windows PowerShell-Cmdlets für Spa dar.
 
-Anmeldeinformationen des Benutzers können verschlüsselt und über Windows PowerShell zwischengespeichert werden. Diese Anmeldeinformationen werden verwendet, zum Anmelden an Remoteserver. Obwohl nicht spezifisch für die SPA, wird im folgenden Beispiel wird diese Technik veranschaulicht:
+Benutzer Anmelde Informationen können mithilfe von Windows PowerShell verschlüsselt und zwischengespeichert werden. Diese Anmelde Informationen werden verwendet, um sich bei Remote Servern anzumelden. Obwohl es sich nicht um die Spa handelt, wird im folgenden Beispiel dieses Verfahren veranschaulicht:
 
 ``` syntax
 $fileName = 'D:\temp\operator.txt'
@@ -615,9 +615,9 @@ $credential = New-Object System.Management.Automation.PsCredential $userName, $(
 .\start-SpaAnalysis  ServerName: Server1  Credential: $credential  AdvisorPackName:Microsoft.ServerPerformanceAdvisor.CoreOS.V1 10  Duration:10  SqlInstanceName: .\SQLExpress  SqlDatabaseName:SPA8294
 ```
 
-Bevor Sie diese Datei ausführen können, müssen Sie ausführen **Set-Executionpolicy RemoteSigned**
+Bevor Sie diese Datei ausführen können, müssen Sie **Set-ExecutionPolicy RemoteSigned** ausführen.
 
-Sie können es über eine Batchdatei mit dem folgenden Befehl ausführen:
+Sie können Sie mithilfe des folgenden Befehls aus einer Batchdatei ausführen:
 
 ``` syntax
 PowerShell -command "& '.\RunSpa.ps1' "
@@ -625,9 +625,9 @@ PowerShell -command "& '.\RunSpa.ps1' "
 
 ### <a name="use-t-sql-to-generate-reports"></a>Verwenden von T-SQL zum Generieren von Berichten
 
-SPA-Berichtsdaten können extrahiert werden, mithilfe von SQL zum Erstellen von benutzerdefinierter Berichten nicht, die innerhalb der SPAConsole.exe bereitgestellt werden.
+Spa-Berichtsdaten können mithilfe von SQL extrahiert werden, um benutzerdefinierte Berichte zu erstellen, die nicht in der Datei "spaconsole. exe" bereitgestellt werden.
 
-Beispielsweise bietet die folgende T-SQL-Befehl eine Top 10-Liste der Server CPU-Nutzung für den Zeitrahmen für den letzten drei Tagen:
+der folgende T-SQL-Befehl stellt z. b. eine Top 10-Liste der Server nach CPU für den Zeitraum bereit, der die letzten drei Tage umfasst:
 
 ``` syntax
 select TOP 10
@@ -647,155 +647,155 @@ OrdER BY t.AverageCpu DESC
 
 ### <a name="working-with-multiple-projects"></a>Arbeiten mit mehreren Projekten
 
-In einigen Fällen empfiehlt es sich um SQL Server-Datenbanken zu partitionieren, die von SPA verwendet werden. Dies kann helfen, Verringerung der Datengröße der SQL Server-Datenbank oder Ihnen bei die Server logisch partitioniert. In diesen Fällen unterstützt die SPA-Konsole mehrere Projekte. Sie können eine neue Projektdatenbank erstellen, indem Sie auf **Datei**, und klicken Sie dann auf **neues Projekt**. Der ersten Verwendung angezeigt verwenden-Assistenten, um die neue Projektdatenbank zu erstellen.
+In einigen Fällen möchten Sie möglicherweise die von Spa verwendeten SQL Server Datenbanken partitionieren. Dies kann dazu beitragen, die Datengröße der SQL Server Datenbank zu reduzieren oder die Server logisch zu partitionieren. In diesen Fällen werden von der Spa-Konsole mehrere Projekte unterstützt. Sie können eine neue Projektdatenbank erstellen, indem Sie auf **Datei**und dann auf **Neues Projekt**klicken. Der Assistent zum ersten Mal wird zum Erstellen der neuen Projektdatenbank angezeigt.
 
-Nachdem die Projekte erstellt wurden, können Sie klicken **Datei**, und klicken Sie dann auf **geöffneten Projekt** zwischen Projekten zu wechseln. Die SPA-Konsole lässt sich nicht darauf aus, wechseln von Datenbanken, wenn ausstehende Leistungsanalyse in der aktuell geöffneten Projekt ausgeführt wird. Dadurch wird die Integrität der Leistungsdaten zu schützen.
+Nachdem die Projekte erstellt wurden, können Sie auf **Datei**und dann auf **Projekt öffnen** klicken, um zwischen Projekten zu wechseln. Die Spa-Konsole lässt das Wechseln von Datenbanken nicht zu, wenn eine ausstehende Leistungsanalyse innerhalb des aktuell geöffneten Projekts ausgeführt wird. Dies dient zum Schutz der Integrität der Leistungsdaten.
 
-Wenn Sie eine neue Projektdatenbank erstellen oder öffnen Sie eine anderes Projektdatenbank auswählen, wird das aktuelle Projekt geschlossen. Alle Berichte, die geschlossen werden, wenn das aktuelle Projekt geschlossen wird.
+Wenn Sie eine neue Projektdatenbank erstellen oder eine andere Projektdatenbank öffnen, wird das aktuelle Projekt geschlossen. Alle geöffneten Berichte werden geschlossen, wenn das aktuelle Projekt geschlossen wird.
 
-**Beachten Sie** SQL Server 2008 R2 Express ist auf 10 GB-Datenbank beschränkt. Mit mehreren Projekten, können Sie verwenden eine oder mehrere SQL Server-Datenbanken und bleiben unter die Grenze von 10 GB SQLServer 2008 R2 Express.
+**Hinweis** SQL Server 2008 R2 Express hat eine Daten Bank Beschränkung von 10 GB. Wenn Sie mehrere Projekte verwenden, können Sie eine oder mehrere SQL Server Datenbanken verwenden und unter dem Limit von 10 GB SQL Server 2008 R2 Express bleiben.
 
  
 
-### <a name="logging-and-debugging"></a>Protokollierung und Debuggen
+### <a name="logging-and-debugging"></a>Protokollierung und Debugging
 
-SPA stellt grundlegende Protokollierungsfunktionen bereit. Es kann nur Protokolle in eine Protokolldatei geschrieben werden, die sich im gleichen Ordner wie SPAConsole.exe befindet. Das Benutzerkonto, das die SPA-Konsole ausgeführt wird, muss Schreibberechtigungen für den Ordner verfügen, auf dem SPA installiert wurde, um sicherzustellen, dass die Protokolle in die Protokolldatei geschrieben werden können.
+Spa stellt grundlegende Protokollierungsfunktionen bereit. Es können nur Protokolle in eine Protokolldatei geschrieben werden, die sich im selben Ordner wie "spaconsole. exe" befindet. Das Benutzerkonto, in dem die Spa-Konsole ausgeführt wird, muss über die Berechtigung Schreiben für den Ordner verfügen, in dem Spa installiert wurde, um sicherzustellen, dass die Protokolle in die Protokolldatei geschrieben werden können.
 
-SPA enthält die folgenden gültigen Protokollebenen:
+Spa enthält die folgenden gültigen Protokoll Ebenen:
 
-* **Nur zu Informationszwecken** sichert die Protokolle für jede Aktion, nimmt der SPA-Konsole, und es dient in erster Linie für Debugzwecke.
+* **Information** Sichert Protokolle für jede Aktion, die von der Spa-Konsole ausgeführt wird, und ist in erster Linie für Debugzwecke konzipiert.
 
-* **Warnung** protokolliert alle Fehler und Ausnahmen, die in der SPA-Konsole geschehen. Einige Fehler sind einfach Überprüfungsfehler, die von der SPA-Konsole verarbeitet werden können.
+* **Warnung** Protokolliert alle Fehler und Ausnahmen, die innerhalb der Spa-Konsole auftreten. Einige der Fehler sind einfach Validierungs Fehler, die von der Spa-Konsole behandelt werden können.
 
-* **Kritische** protokolliert nur Fehler und Ausnahmen, die von der SPA-Konsole nicht behandelt werden können. In diesen Fällen dazu führen, dass die SPA-Konsole zu einem Absturz. Die Protokolle bieten die Kontextinformationen für solche Fehler.
+* **Kritisch** Protokolliert nur Fehler und Ausnahmen, die von der Spa-Konsole nicht behandelt werden können. Diese Fehler verursachen einen Absturz der Spa-Konsole. Die Protokolle stellen die Kontextinformationen zu solchen Fehlern bereit.
 
-In der Standardeinstellung die Protokollebene "Warnung" das bedeutet, dass SPA nur protokolliert, Fehlern und Ausnahmen, die in der SPA auftreten und. Die Protokollebene kann geändert werden, durch Bearbeiten der **SpaConsole.exe.config** Datei im gleichen Ordner wie SpaConsole.exe befindet. Alle Protokolle werden in die Datei "log.txt" im gleichen Ordner geschrieben.
+Standardmäßig ist die Protokollebene "Warnung", was bedeutet, dass die Spa nur Fehler und Ausnahmen protokolliert, die in Spa auftreten. Die Protokollebene kann geändert werden, indem die Datei " **spaconsole. exe. config** " im selben Ordner wie "spaconsole. exe" bearbeitet wird. Alle Protokolle werden in die Datei log. txt in demselben Ordner geschrieben.
 
-SPA enthält auch einige grundlegende Funktionen für das Debuggen. Um für die SPA-Debuggen zu aktivieren, müssen Benutzer die SPA Project-Datenbank manuell zu ändern. Die Einstellung wird in einer Tabelle gespeichert. Benutzer müssen die folgende SQL-Skript, um das SPA-Projekt, um den Debugmodus zu ändern:
+Spa bietet auch einige grundlegende Funktionen für das Debuggen. Um das Debuggen für Spa zu aktivieren, müssen Benutzer die Spa-Projektdatenbank manuell ändern. Die Einstellung wird in einer Konfigurations Tabelle gespeichert. Der Benutzer muss das folgende SQL-Skript ausführen, um das Spa-Projekt in den Debugmodus zu ändern:
 
 ``` syntax
 UPdate [Configurations] SET Value = N'true' WHERE Name = N'Debugmode'.
 ```
 
-Im Debugmodus befindet behält die SPA-Framework die temporären Daten, die während der Leistungsanalyse generiert wird, damit Sie Probleme in den Advisor-Packs beheben können. Dieses Skript dient in erster Linie von Advisor-Pack-Entwicklern verwendet werden.
+Im Debugmodus behält das Spa-Framework alle temporären Daten bei, die während der Leistungsanalyse generiert werden, damit Sie Probleme in den Advisor-Paketen beheben können. Dieses Skript ist hauptsächlich für die Verwendung durch Advisor Pack-Entwickler konzipiert.
 
-Weitere Informationen zu den Funktionen zum Debuggen in einseitigen Anwendung, finden Sie unter den [Server Performance Advisor Pack Development Guide](server-performance-advisor-pack-development-guide.md).
+Weitere Informationen zu den Debuggingfunktionen in Spa finden Sie im [Entwicklungs Handbuch zum Server Performance Advisor Pack](server-performance-advisor-pack-development-guide.md).
 
 ### <a name="managing-the-database"></a>Verwalten der Datenbank
 
 ### <a name="backup-and-restore-the-database"></a>Sichern und Wiederherstellen der Datenbank
 
-Die SPA-Konsole bietet keine Funktionen zum Sichern und Wiederherstellen der SPA-Datenbank. Sie sollten die standard-Microsoft SQL Server-Tools und Skripts verwenden, Sichern und Wiederherstellen von Datenbanken.
+Die Spa-Konsole stellt keine Funktionen zum Sichern und Wiederherstellen der Spa-Datenbank bereit. Zum Sichern und Wiederherstellen von Datenbanken sollten Sie standardmäßige Microsoft SQL Server Tools und Skripts verwenden.
 
-### <a name="clean-up-the-database"></a>die Datenbank bereinigen
+### <a name="clean-up-the-database"></a>Bereinigen der Datenbank
 
-Die SPA-Projekt-Datenbanken können groß werden, während Weitere Informationen zur Leistungsanalyse ausgeführt wird. Standardmäßig behält SPA alle Berichte. Sie sollten so entfernen Sie alte Berichte, um die Leistung zu verbessern. Sie können Berichte durch Löschen der **Berichts-Explorer** Schnittstelle.
+Die Größe der Spa-Projekt Datenbanken kann zunehmen, wenn eine höhere Leistungsanalyse ausgeführt wird. Standardmäßig speichert Spa alle Berichte. Möglicherweise möchten Sie alte Berichte entfernen, um die Leistung zu verbessern. Berichte können über die Benutzeroberfläche des **Berichts-Explorers** gelöscht werden.
 
 ## <a name="privacy-and-security"></a>Datenschutz und Sicherheit
 
 
-SPA unterstützt nur die Datensammlung vom Zielserver in der SPA-Konsole. Es dient nicht zum Senden von Informationen an Microsoft oder Microsoft-fremden Entwicklern. Weitere Informationen zum SPA-Datenschutz finden Sie in der Microsoft-Software-Lizenzbedingungen für Server Performance Advisor.
+Spa unterstützt nur die Datensammlung von Ziel Servern zur Spa-Konsole. Es ist nicht darauf ausgelegt, Informationen an Microsoft-oder nicht-Microsoft-Entwickler zu senden. Weitere Informationen zum Datenschutz in Spa finden Sie in den Microsoft-Software-Lizenzbedingungen für den Server Performance Advisor.
 
-Alle Daten, die von SPA gesammelt werden, wird in den Projektdatenbanken gespeichert. Aufgrund der Art eines Teils der ETW-ablaufverfolgungen erfasst SPA u. u. vertraulichen Informationen, der hohe geschäftliche Priorität haben könnte. Sie sollten die potenziellen Risiken im Zusammenhang mit der Freigabe des Zugriffs auf die Datenbanken der SPA-Projekt kennen. Temporäre Dateien werden in den freigegebenen Ordnern gespeichert, die auf jedem Zielcomputer angegeben werden. Obwohl SPA versucht So löschen Sie diese temporäre Log-Dateien nach Abschluss des Datenimports, es gibt keine Garantie, dass diese Protokolldateien werden immer gelöscht werden. Sie sollten sicherstellen, werden, dass die freigegebenen Ordner an sicheren Orten befinden.
+Alle Daten, die von Spa gesammelt werden, werden in den Projekt Datenbanken gespeichert. Aufgrund der Art einiger etw-Ablauf Verfolgungen kann Spa vertrauliche Informationen erfassen, die eine hohe geschäftliche Wichtigkeit aufweisen können. Sie sollten sich über das potenzielle Risiko im Zusammenhang mit der Freigabe des Zugriffs auf die Spa-Projekt Datenbanken im klaren sein. Temporäre Protokolldateien werden in den freigegebenen Ordnern gespeichert, die auf den einzelnen Bereitstellungs Ziel Computern angegeben werden. Obwohl Spa versucht, diese temporären Protokolldateien zu löschen, wenn der Datenimport abgeschlossen ist, gibt es keine Garantie dafür, dass diese Protokolldateien immer gelöscht werden. Stellen Sie sicher, dass sich die freigegebenen Ordner an sicheren Orten befinden.
 
-Advisor-Packs SPA enthält SQL-Skripts zu analysieren und von Leistungsprotokollen zum Generieren von Leistungsberichten zu analysieren. SPA versucht, die der Berechtigung, diese Skripts ausgeführt beschränken. Es ist jedoch immer noch eine Möglichkeit, dass die Skripts können vertrauliche Informationen über die SPA von Zielservern, sammeln oder Abrufen oder ändern vertrauliche Informationen, die in der gleichen Datenbank der SPA-Projekt gespeichert ist. Sie müssen sicherstellen, dass die Advisor-Packs, die in der SPA-Projektdatenbank bereitgestellt werden von vertrauenswürdigen Quellen stammen.
+Spa Advisor Packs enthalten SQL-Skripts zum Analysieren und Analysieren von Leistungs Berichten zum Generieren von Leistungs Berichten. Spa versucht, die Berechtigung einzuschränken, unter der diese Skripts ausgeführt werden. Es besteht jedoch weiterhin die Möglichkeit, dass die Skripts vertrauliche Informationen über die Spa von den Ziel Servern sammeln oder vertrauliche Informationen abrufen oder ändern können, die in derselben Spa-Projektdatenbank gespeichert sind. Sie müssen sicherstellen, dass alle Advisor-Pakete, die in der Spa-Projektdatenbank bereitgestellt werden, aus vertrauenswürdigen Quellen stammen.
 
 ## <a name="errors-and-troubleshooting"></a>Fehler und Problembehandlung
 
 
-### <a name="spaconsoleexe-does-not-start-or-write-log-file"></a>SPAConsole.exe nicht starten oder Protokolldatei zu schreiben
+### <a name="spaconsoleexe-does-not-start-or-write-log-file"></a>"Spaconsole. exe" startet oder schreibt die Protokolldatei nicht.
 
-Wenn Sie versuchen, SPAConsole.exe zum ersten Mal ausführen, wenn .NET Framework nicht installiert ist, die Anwendung nicht starten oder eine Protokolldatei schreiben. Stellen Sie sicher, die einen compatible.NET, die Framework installiert ist und die Arbeit ordnungsgemäß vor der Installation von SPA.
+Wenn Sie versuchen, "spaconsole. exe" zum ersten Mal auszuführen, wenn die .NET Framework nicht installiert ist, wird die Protokolldatei von der Anwendung nicht gestartet oder geschrieben. Stellen Sie sicher, dass ein compatible.NET-Framework installiert ist und ordnungsgemäß funktioniert, bevor Sie Spa starten.
 
 ### <a name="locating-log-information"></a>Suchen von Protokollinformationen
 
-SPA speichert Fehlerinformationen, in der Datei "log.txt" in der SPA-Ordner. detaillierte Fehlermeldungen und Aufruflisteninformationen werden in diesen Ordner geschrieben. Wenn Fehler, die Weitere Informationen zum Interpretieren auftreten, können Sie die Datei um die Fehlerdetails finden Sie unter "log.txt" öffnen.
+Spa speichert Fehlerinformationen in der Datei log. txt im Ordner Spa. ausführliche Fehlermeldungen und Informationen zur aufrufsstapel werden in diesen Ordner geschrieben. Wenn Fehler auftreten, die weitere Informationen zur Interpretation benötigen, können Sie die Datei "Log. txt" öffnen, um die Fehlerdetails anzuzeigen.
 
-### <a name="database-size-limitations-for-sql-server-express"></a>Einschränkungen hinsichtlich der Datenbankgröße für SQL Server Express
+### <a name="database-size-limitations-for-sql-server-express"></a>Einschränkungen der Datenbankgröße für SQL Server Express
 
-SQL Server Express hat eine größenbeschränkung von 10 GB für eine Benutzerdatenbank. Diese Größe Datenbank hat die Kapazität zum Speichern von Berichten von 20.000-30.000. Um die Möglichkeit, durch Erreichen dieses Grenzwerts für die Datenbank zu reduzieren, empfehlen wir regelmäßig Löschen von Berichten, bzw. mit einer anderen Version von SQL Server, die nicht über die Beschränkung auf 10 GB Benutzer Datenbank verfügt.
+SQL Server Express hat für eine Benutzerdatenbank eine Größenbeschränkung von 10 GB. Diese Datenbankgröße verfügt über die Kapazität, 20.000 30.000 Berichte zu speichern. Um die Wahrscheinlichkeit zu verringern, dass das Daten Bank Limit erreicht wird, empfiehlt es sich, Berichte regelmäßig zu löschen und/oder eine andere Version von SQL Server zu verwenden, die nicht die 10-GB-Einschränkung der Benutzerdatenbank
 
-### <a name="sql-server-express-log-size-and-disk-capacity"></a>SQL Server Express Größe und die Datenträger Protokollkapazität
+### <a name="sql-server-express-log-size-and-disk-capacity"></a>SQL Server Express Protokoll Größe und Datenträger Kapazität
 
-Wenn Sie SQL Server Express verwenden, wird die Benutzerdatenbank auf 10 GB beschränkt ist, aber die entsprechende Protokolldatei kann 70 GB überschreiten. Aus diesen Gründen empfehlen wir mindestens 100 GB an freiem Festplattenspeicher verfügbar für SQL Server Express ein. Dieser Speicherplatz sollte ausreichen, um ungefähr 20.000 zu 30.000 Berichte gespeichert. Diese Datei heißt SPADB\_log.ldf, und es befindet sich **%Program Files%\\Microsoft SQL Server\\MSSQL10. SQLEXPRESS\\MSSQL\\Daten**.
+Wenn Sie SQL Server Express verwenden, ist die Benutzerdatenbank auf 10 GB beschränkt, aber die zugehörige Protokolldatei kann 70 GB überschreiten. Aus diesen Gründen empfehlen wir 100 GB oder mehr freien Speicherplatz für SQL Server Express. Dieser Speicherplatz muss ausreichen, um ca. 20.000 bis 30.000 Berichte zu speichern. Diese Protokolldatei hat den Namen "SPADB\_log.ldf" und befindet sich unter **% Program Files% \\microsoft SQL Server @ no__t-3mssql10. SQLExpress @ no__t-4mssql @ no__t-5data**.
 
-### <a name="failure-to-connect-to-target-server"></a>Fehler beim Verbinden zum Zielserver
+### <a name="failure-to-connect-to-target-server"></a>Fehler beim Herstellen einer Verbindung mit dem Zielserver.
 
-Beim Ausführen der Leistungsanalyse auf Zielservern muss das Benutzerkonto, das die SPA-Konsole ausgeführt wird, bestimmte Berechtigungen auf den entsprechenden datensammlersatz, PLA auf den Zielservern in die Warteschlange. Windows-Firewall-Einstellungen müssen auch geändert werden, um PLA Kommunikation zu durchlaufen. Ausführliche konfigurationsanweisungen, finden Sie unter [Einrichten der SPA](#bkmk-setupspa).
+Wenn Sie die Leistungsanalyse auf Ziel Servern ausführen, benötigt das Benutzerkonto, unter dem die Spa-Konsole ausgeführt wird, bestimmte Berechtigungen, um den Datensammler auf den Ziel Servern in die Warteschlange des Datensammler Satzes zu setzen. Die Windows-Firewall-Einstellungen müssen auch geändert werden, damit die Pla-Kommunikation durchlaufen werden kann. Ausführliche Konfigurations Anweisungen finden Sie unter [Einrichten von Spa](#bkmk-setupspa).
 
-### <a name="failure-to-create-pla-data-collection-set-on-the-target-server"></a>Fehler beim Erstellen von PLA Datensammlungssatz auf dem Zielserver
+### <a name="failure-to-create-pla-data-collection-set-on-the-target-server"></a>Fehler beim Erstellen des Pla-Daten Sammlungs Satzes auf dem Zielserver.
 
-Wenn Sie erhalten eine kann nicht auf Server Zielnachricht erstellen PLA Datensammlungssatz, stellen Sie sicher, dass die folgenden Schritte ausführen:
+Wenn Sie die Meldung zum Erstellen eines Daten Sammlungs Satzes auf dem Zielserver nicht erstellen können, stellen Sie sicher, dass Sie die folgenden Schritte ausführen:
 
-* Stellen Sie sicher, dass die **Leistungsprotokolle und Warnungen** -Dienst wird ausgeführt
+* Stellen Sie sicher, dass die **Leistungs Protokolle &** Warnungs Dienst ausgeführt werden.
 
-* Die sicherheitseinstellung **Netzwerkzugriff: Speicherung von Kennwörtern und Anmeldeinformationen für die Netzwerkauthentifizierung nicht zulassen** ist deaktiviert. Die sicherheitseinstellung muss deaktiviert sein, da die SPA muss die Anmeldeinformationen des Benutzers zu verwenden, um den Datensammlungssatz auf dem Zielserver erstellen.
+* Die Sicherheitseinstellung **network Access: Speichern von Kenn Wörtern und Anmelde Informationen für die Netzwerk Authentifizierung nicht zulassen @ no__t-0 ist deaktiviert. Die Sicherheitseinstellung muss deaktiviert werden, da Spa die Benutzer Anmelde Informationen verwenden muss, um den Daten Sammlungs Satz auf dem Zielserver zu erstellen.
 
-### <a href="" id="running-spa-against-the-console-"></a>SPA für die Konsole ausführen
+### <a href="" id="running-spa-against-the-console-"></a>Ausführen von Spa mit der Konsole
 
-PLA durchläuft einen anderen Kanal aus, wenn der Zielserver die SPA-Konsole identisch ist. Auch wenn das Benutzerkonto, das die SPA-Konsole mit Administratorrechten ausgeführt wird, schlägt die PLA fehl. Wenn die SPA-Konsole auf einem Zielserver installiert ist, müssen Benutzer zum Starten der SPA als Administrator aus, um sicherzustellen, dass die Performance Analysis-Task in der Konsole ausgeführt werden kann.
+Die Pla durchläuft einen anderen Channel, wenn der Zielserver mit der Spa-Konsole identisch ist. Auch wenn für das Benutzerkonto die Spa-Konsole mit Administratorrechten ausgeführt wird, schlägt die Ausführung von Pla fehl. Wenn die Spa-Konsole auf einem Zielserver installiert ist, müssen die Benutzer die Spa als Administrator starten, um sicherzustellen, dass die Leistungsanalyse Aufgabe in der Konsole ausgeführt werden kann.
 
-### <a name="running-multiple-consoles-at-the-same-time"></a>Mehrere Konsolen ausführen zur gleichen Zeit
+### <a name="running-multiple-consoles-at-the-same-time"></a>Gleich zeidas Ausführen mehrerer Konsolen
 
-SPA unterstützt nicht mehrere Konsolen, die für dieselbe Datenbank SPA-Projekt zur gleichen Zeit ausgeführt. SPA bietet auch keine den Sperren und Synchronisierung Mechanismus, um es zu verhindern. Wenn zwei SPA-Konsolen, die zur gleichen Zeit ausgeführt werden, wird die Konsole inkonsistent je nach der Zeit-Sequenz Verhalten, die diese SPA-Konsolen ausgeführt werden. Um dies zu verhindern, sollten alle in der Warteschlange Performance Analysis-Sitzungen aus der Liste entfernt werden, bevor sie von der Konsole verarbeitet wird, die die Analyse wird gestartet.
+Spa unterstützt nicht mehrere Konsolen, die gleichzeitig für dieselbe Spa-Projektdatenbank ausgeführt werden. Spa bietet auch keine Sperr-und Synchronisierungs Mechanismen, um die Ausführung zu verhindern. Wenn zwei Spa-Konsolen gleichzeitig ausgeführt werden, verhält sich die Konsole in Abhängigkeit von der Zeitsequenz, in der diese Spa-Konsolen ausgeführt werden, inkonsistent. Um dies zu verhindern, sollten alle in der Warteschlange befindlichen Leistungsanalyse Sitzungen aus der Liste entfernt werden, bevor Sie von der-Konsole verarbeitet werden, die die Analyse startet.
 
-SPA schützt die Integrität der einzelnen Berichte, die von SPA erfolgreich generiert wird. zur gleichen Zeit garantiert SPA nicht, dass alle in der Warteschlange Analyseaufgaben abgeschlossen sind. Wenn inkonsistenten statusänderungen werden für die Analyse von leistungssitzungen angezeigt, oder Suchen von Fehlern, die den Anspruch können nicht Leistungsprotokolle, die vom datensammlersatz generiert werden, ist es wahrscheinlich über mehrere Instanzen des SPA-Konsole ausgeführt wird, für dieselbe verursacht werden SPA Project-Datenbank.
+Spa schützt die Integrität der einzelnen Berichte, die von Spa erfolgreich generiert wurden. Gleichzeitig garantiert Spa nicht, dass alle in der Warteschlange befindlichen Analyseaufgaben abgeschlossen sind. Wenn inkonsistente Statusänderungen für Leistungsanalyse Sitzungen oder Fehler angezeigt werden, die behaupten, dass das System keine Leistungs Protokolle finden kann, die vom Datensammler Satz generiert werden, wird es wahrscheinlich durch mehrere Spa-Konsolen Instanzen verursacht, die für denselben Spa-Projektdatenbank.
 
-SPA Windows PowerShell-Cmdlets ausführen kann auch durch eine SPA-Konsole beeinträchtigt werden, die für die gleiche SPA-Datenbank ausgeführt wird. Es wird empfohlen, dass Sie die SPA-Konsole schließen, bevor Sie die SPA Windows PowerShell-Cmdlets ausführen.
+Das Ausführen von Windows PowerShell-Cmdlets für Spa kann auch von einer Spa-Konsole beeinflusst werden, die für dieselbe Spa-Datenbank ausgeführt wird. Es wird empfohlen, dass Sie die Spa-Konsole schließen, bevor Sie die Windows PowerShell-Cmdlets für Spa ausführen.
 
-### <a name="spaconsoleexe-recurring-collection-is-disrupted"></a>Wiederholte SPAConsole.exe-Sammlung ist unterbrochen.
+### <a name="spaconsoleexe-recurring-collection-is-disrupted"></a>Die wiederkehrende Sammlung "spaconsole. exe" wird unterbrochen.
 
-Beim Ausführen der SPAConsole.exe, und einer sich wiederholenden datenauflistung (z. B. eine stündliche Sammlung verwenden), sollte der Server, der die SPAConsole.exe ausgeführt wird, ihn anzuhalten, kann nicht im Energiesparmodus sein. SPA wird für einen Energiesparmodus über die Richtlinie nicht überprüft werden. Der Erfassung von regulären wiederkehrenden kann diese angehaltene Aktivität unterbrochen werden.
+Wenn Sie "spaconsole. exe" ausführen und eine wiederholte Datensammlung (z. b. eine stündliche Sammlung) verwenden, sollte sich der Server, auf dem die Datei "spaconsole. exe" ausgeführt wird, nicht im Energiesparmodus befinden, sodass er angehalten werden kann. Spa prüft nicht, ob eine Energiespar Richtlinie verwendet wird. Diese angehaltene Aktivität kann die reguläre wiederkehrende Datensammlung stören.
 
-### <a name="lost-etw-events"></a>Verloren gegangene ETW-Ereignisse
+### <a name="lost-etw-events"></a>Verlorene ETW-Ereignisse
 
-Um Auswirkungen auf die minimale Leistung auf einem Zielserver zu erstellen, dient die PLA mit niedriger Priorität ausgeführt wird, während Leistungsdaten gesammelt werden. Wenn der Zielserver ausgelastet ist, kann PLA Löschen einiger der datensammlungsaufgaben, um Aufgaben mit hoher Priorität zu erhalten, die auf Zielservern ausgeführt werden. Sie sollten erwägen, das Einrichten der freigegebene Ordner, in dem die Ereignisse auf einem Datenträger verfügt t verursachen einen Konflikt mit der Workload-s-e/a- oder ein schneller Laufwerk, z. B. ein SSD geschrieben. Wenn Ereignisse gelöscht werden, werden sie in der Berichtsansicht gemeldet, da verloren gegangener Ereignisse, die Zuverlässigkeit der generierten Leistungsmetriken auswirken können.
+Um minimale Auswirkungen auf die Leistung auf Ziel Servern zu erzielen, ist die Ausführung von Pla mit niedriger Priorität geplant, während Leistungsinformationen gesammelt werden. Wenn der Zielserver ausgelastet ist, können Sie einige der Daten Sammlungs Tasks löschen, um Sie für Aufgaben mit hoher Priorität, die auf Ziel Servern ausgeführt werden, zu erzielen. Sie sollten das Einrichten des freigegebenen Ordners in Erwägung nehmen, in dem die Ereignisse auf einem Datenträger geschrieben werden, der keinen Konflikt mit der e/a-Auslastung der Arbeitsauslastung oder einem schnelleren Laufwerk (z. b. SSD) hat. Wenn Ereignisse gelöscht werden, werden Sie in der Berichtsansicht angezeigt, da verlorene Ereignisse die Zuverlässigkeit der generierten Leistungsmetriken beeinträchtigen können.
 
-Bestimmte Berechtigungsprobleme verursachen auch Registry oder WMI-Abfragen, die übersprungen werden. Dies ist jedoch sehr viel weniger wahrscheinlich, als der Verlust von ETW-Ereignisse. Daher werden die Ergebnisse von Data Collector Set manchmal alle Werte keine, die angefordert werden. Sie müssen sicherstellen, dass die Situation von den T-SQL-Skripts für alle Packs für Advisor behandelt wird. Wenn die Daten in das Ergebnis der Data-Auflistung nicht vorhanden ist, wird es als keine Daten in den Berichten gekennzeichnet.
+Bestimmte Berechtigungsprobleme können auch bewirken, dass Registrierungs-oder WMI-Abfragen übersprungen werden. Dies ist jedoch weitaus weniger wahrscheinlich als bei einem ETW-Ereignis Verlust. Folglich enthalten die Ergebnisse des Datensammler Satzes manchmal nicht alle angeforderten Werte. Sie müssen sicherstellen, dass die Situation von den T-SQL-Skripts für alle Advisor Packs behandelt wird. Wenn die Daten im Daten Sammlungs Ergebnis nicht vorhanden sind, werden Sie in den Berichten als keine Daten gekennzeichnet.
 
-Da der Verlust von ETW-Ereignisse für PLA häufig vorkommt, ist auf der Grundlage von Datenpunkten, die generiert werden einer ETW-Ablaufverfolgungs nicht konsistent mit Datenpunkten, die generiert werden, z. B. Leistungsindikatoren basiert möglicherweise. Beispielsweise ist es möglich, zu sehen, dass die gesamte CPU-Auslastung von IIS über 80 % beträgt (die von Leistungsindikatoren stammt) und den oberen URLs nur 10 % der gesamten CPU-Zeit verwenden (die einen Datenpunkt, der von der ETW-Ablaufverfolgung enthalten ist). In der Regel kann die Datenquelle für einen Datenpunkt über die QuickInfo des Datenpunkts angezeigt werden. Sie sollten die Auswirkungen solcher Datenverlust kennen.
+Da der ETW-Ereignis Verlust bei Pla häufig auftritt, sind Datenpunkte, die basierend auf einer etw-Ablauf Verfolgung generiert werden, möglicherweise nicht konsistent mit Datenpunkten, die basierend auf, z. b. Leistungsindikatoren, generiert werden. Beispielsweise ist es möglich, zu sehen, dass die CPU-Gesamtauslastung durch IIS 80% beträgt (was aus Leistungsindikatoren stammt) und dass die Top-URLs nur 10% der gesamten CPU-Zeit (ein Datenpunkt, der aus der etw-Ablauf Verfolgung stammt) verwenden. Normalerweise kann die Datenquelle für einen Datenpunkt über die QuickInfo des Daten Punkts angezeigt werden. Sie sollten sich über die Auswirkungen dieses Daten Verlusts im klaren sein.
 
-Um den Verlust solcher Ereignisse zu vermeiden, sollte der Ordner "Ergebnis" auf dem Zielserver geschlossen werden.
+Um derartige Ereignis Verluste zu vermeiden, sollte der Ergebnis Ordner auf dem Zielserver geschlossen werden.
 
-Wenn die Ergebnisse des Data Collector unvollständige Daten als ETW-Ablaufverfolgung verloren gehen enthält, und der Advisor-Pack-Entwickler haben die Unterstützung für ETW-ereignisbenachrichtigung verloren gehen, eine Informationsleiste sehen Sie zusätzlich zu den einzelnen Bericht zur Benachrichtigung des Benutzers über die potenziell Inkonsistente Bericht zurückzuführen, dass Daten verloren gehen. Ausführliche Informationen zu Datenverlust finden Sie in der Datei "log.txt".
+Wenn die Ergebnisse des Daten Sammlers unvollständige Daten als etw-Ablauf Verfolgungs Verlust enthalten und der Advisor Pack-Entwickler Unterstützung für die Benachrichtigung über etw-Ereignis Verlust hinzugefügt hat, wird eine Informationsleiste oberhalb des einzelnen Berichts angezeigt, um den Benutzer über die potenziell Inkonsistenter Bericht aufgrund eines Daten Verlusts. Ausführliche Informationen zum Datenverlust finden Sie in der Datei "Log. txt".
 
 ## <a name="glossary"></a>Glossar
 
 
-Hier sind einige der Begriffe mit SPA verwendet:
+Im folgenden finden Sie einige der in Spa verwendeten Begriffe:
 
-* **Advisor-Pack** eine Auflistung von Metadaten und T-SQL-Skripts, die die Leistungsprotokolle zu verarbeiten, die auf dem Zielserver erfasst werden. Das Advisor-Pack generiert dann Berichte über die leistungsprotokolldaten aus. Die Metadaten in das Advisor-Pack definiert die Daten von der Zielserver für Leistungsindikatoren gesammelt werden sollen. Die Metadaten definieren auch den Satz von Regeln, Schwellenwerten und das Format des Berichts. In den meisten Fällen wird ein Advisor-Pack speziell für eine einzige Serverrolle, z. B. Internet Information Services (IIS) geschrieben.
+* **Advisor-Pack** Eine Auflistung von Metadaten und T-SQL-Skripts, mit denen die vom Zielserver gesammelten Leistungs Protokolle verarbeitet werden. Das Advisor-Pack generiert dann Berichte aus den Leistungs Protokolldaten. Die Metadaten im Advisor-Pack definieren die Daten, die vom Zielserver für Leistungsmessungen gesammelt werden sollen. Die Metadaten definieren auch den Satz von Regeln, die Schwellenwerte und das Berichtsformat. In den meisten Fällen wird ein Advisor-Pack speziell für eine einzelne Server Rolle geschrieben, z. b. Internetinformationsdienste (IIS).
 
-* **SPA-Konsole** SpaConsole.exe, die der zentrale Teil des SPA ist. SPA muss nicht auf dem Zielserver ausgeführt wird, die Sie testen. Die SPA-Konsole enthält die Benutzeroberflächen für SPA vom das Projekt Analyse ausführen und Anzeigen von Berichten einrichten. Standardmäßig ist die SPA eine Anwendung mit zwei Ebenen. Die SPA-Konsole enthält die UI-Ebene und der Teil der Geschäftslogik-Ebene. Die SPA-Konsole plant und Performance Analysis-Anforderungen verarbeitet.
+* **Spa-Konsole** Spaconsole. exe, das zentrale Teil der Spa. Die Spa muss nicht auf dem Zielserver ausgeführt werden, den Sie testen. Die Spa-Konsole enthält alle Benutzeroberflächen für Spa, von der Einrichtung des Projekts bis hin zur Ausführung von Analysen und Anzeigen von Berichten. Das Spa ist eine Anwendung mit zwei Ebenen. Die Spa-Konsole enthält die UI-Schicht und einen Teil der Geschäftslogik Ebene. Die Spa-Konsole plant und verarbeitet Leistungsanalyse Anforderungen.
 
-* **SPA-Framework** bietet alle Benutzeroberflächen, protokollverarbeitung Leistung, Konfiguration, Fehlerbehandlung und Prozeduren für Datenbank-APIs und die Verwaltung.
+* **Spa-Framework** Bietet alle Benutzeroberflächen, die Verarbeitung von Leistungs Protokollen, die Konfiguration, die Fehlerbehandlung und Datenbank-APIs sowie Verwaltungs Prozeduren.
 
-* **SPA-Projekt** eine Datenbank, die alle Informationen zu den Zielservern Advisor-Packs und Leistungsanalyse enthält Berichte, die auf den Zielservern für die Advisor-Packs generiert werden. Sie können vergleichen und Anzeigen von Verlauf und Trend Diagrammen innerhalb des gleichen SPA-Projekts. Sie können mehr als ein Projekt erstellen. Die SPA-Projekte sind voneinander unabhängig, und es sind keine Daten für Projekte freigegeben.
+* **Spa-Projekt** Eine Datenbank, die alle Informationen zu den Ziel Servern, Advisor Packs und Leistungsanalyse Berichten enthält, die auf den Ziel Servern für die Advisor-Pakete generiert werden. Sie können Verlaufs-und Trenddiagramme innerhalb desselben Spa-Projekts vergleichen und anzeigen. Sie können mehr als ein Projekt erstellen. Die Spa-Projekte sind voneinander unabhängig, und es gibt keine Daten, die von allen Projekten gemeinsam genutzt werden.
 
-* **Zielserver** der physischen oder virtuellen Computer, die Windows Server mit bestimmten Serverrollen, wie z. B. IIS ausgeführt wird.
+* **Zielserver** Der physische oder virtuelle Computer, auf dem Windows Server mit bestimmten Server Rollen (z. b. IIS) ausgeführt wird.
 
-* **Data Analysis-Sitzung** dem Systemmonitor Leistungsanalysen an einen bestimmten Zielserver. Eine Data-Analyse-Sitzung kann mehrere Packs für Advisor enthalten. Die Sammlungssätze aus diesen Packs für Advisor werden in einer einzelnen Datensammlergruppe zusammengeführt. Alle Leistungsprotokolle für eine einzelne Analysis-Sitzung werden im gleichen Zeitraum gesammelt werden. Analysieren von Berichten, die von Advisor-Packs ausgeführt wird, in der gleichen Sitzung des Data-Analyse generiert werden, können Benutzer verstehen, die gesamtleistung Situation und Ursachen, um Leistungsprobleme zu identifizieren.
+* **Datenanalyse Sitzung** Eine Leistungsanalyse auf einem bestimmten Zielserver. Eine Datenanalyse Sitzung kann mehrere Advisor-Pakete enthalten. Die Datensammler Sätze aus diesen Advisor-Paketen werden zu einem einzelnen Datensammler Satz zusammengeführt. Alle Leistungs Protokolle für eine einzelne Datenanalyse Sitzung werden innerhalb desselben Zeitraums gesammelt. Das Analysieren von Berichten, die von Advisor-Paketen generiert werden, die in derselben Datenanalyse Sitzung ausgeführt werden, kann Benutzern helfen, die Gesamtleistung zu verstehen und die Ursachen für Leistungsprobleme zu identifizieren.
 
-* **Ereignis-Ablaufverfolgung für Windows** eine hohe Leistung, mit geringem Verwaltungsaufwand, skalierbare Ablaufverfolgungssystem, die in Windows bereitgestellt wird. Es bietet die profilerstellung und Debuggen Funktionen, die verwendet werden kann, um eine Vielzahl von Szenarien zu beheben. SPA verwendet ETW-Ereignisse als Datenquelle für das Generieren von die Leistungsberichte. Allgemeine Informationen zu ETW finden Sie unter [verbessertes Debugging und Leistungsoptimierung mit ETW](https://msdn.microsoft.com/magazine/cc163437.aspx).
+* **Ereignis Ablauf Verfolgung für Windows** Ein leistungsfähiges, skalierbares, skalierbares Ablauf Verfolgungssystem, das in Windows bereitgestellt wird. Es bietet Profil Erstellungs-und Debuggingfunktionen, die zur Problembehandlung für eine Vielzahl von Szenarien verwendet werden können. Spa verwendet ETW-Ereignisse als Datenquelle zum Erstellen von Leistungs Berichten. Allgemeine Informationen zu etw finden Sie unter verbessertes [Debugging und Leistungsoptimierung mit etw](https://msdn.microsoft.com/magazine/cc163437.aspx).
 
-* **Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI)** der Infrastruktur für die Verwaltungs-Data und Vorgängen in Windows. Sie können WMI-Skripts oder Anwendungen zum Automatisieren administrativer Aufgaben auf Remotecomputern schreiben. WMI bietet auch die Verwaltungsdaten für andere Teile des Betriebssystems und Produkte. SPA verwendet WMI-Klasseninformationen und Datenpunkte als Quellen zum Generieren von Leistungsberichten.
+* **Windows-Verwaltungsinstrumentation (WMI)** Die Infrastruktur für Verwaltungsdaten und-Vorgänge in Windows. Sie können WMI-Skripts oder-Anwendungen schreiben, um administrative Aufgaben auf Remote Computern zu automatisieren. WMI stellt auch Verwaltungsdaten für andere Teile des Betriebssystems und für Produkte bereit. Spa verwendet WMI-Klassen Informationen und Datenpunkte als Quellen zum Erstellen von Leistungs Berichten.
 
-* **Leistungsindikatoren** verwendet, um Informationen über das Betriebssystem oder eine Anwendung, Dienst oder Treiber Leistung bereitzustellen. Die Leistungsindikatordaten können helfen, Engpässe im System festzustellen und System- und Anwendungsleistung zu optimieren. Geben Sie das Betriebssystem, Netzwerk, und Geräte Leistungsindikatordaten, die eine Anwendung nutzen kann, um Benutzern eine grafische Ansicht der Leistung des Systems zur Verfügung stellen. SPA werden Informationen für Leistungsindikatoren und Datenpunkte als Datenquellen verwendet, um Leistungsberichte zu generieren.
+* **Leistungsindikatoren** Wird verwendet, um Informationen darüber bereitzustellen, wie gut das Betriebssystem, die Anwendung, der Dienst oder der Treiber ausgeführt wird. Die Leistungsdaten können Ihnen helfen, Engpässe im System zu ermitteln und die System-und Anwendungsleistung zu optimieren. Das Betriebssystem, das Netzwerk und die Geräte bieten Leistungsdaten, die von einer Anwendung genutzt werden können, um Benutzern eine grafische Ansicht der Leistung des Systems zu bieten. Die Spa verwendet Leistungsdaten und Datenpunkte als Quellen zum Generieren von Leistungs Berichten.
 
-* **Leistungsprotokolle und Warnungen (PLA)** sammelt Protokolle und Leistung und führt eine Ablaufverfolgung für leistungswarnungen ausgelöst, wenn es sich bei bestimmten Triggern erfüllt sind. PLA kann zum Sammeln von Leistungsindikatoren, ereignisablaufverfolgung für Windows (ETW), WMI-Abfragen, Registrierungsschlüssel und -Konfiguration Dateien verwendet werden. PLA unterstützt auch die remotedatensammlung über Remoteprozeduraufrufe (RPC). Der Benutzer definiert einen datensammlersatz, der Informationen über die zu sammelnden Daten, die Häufigkeit der Datensammlung, Daten sammlungsdauer, Filter und einen Speicherort zum Speichern der Ergebnisdateien enthält. SPA verwendet PLA, um alle Leistungsdaten von den Zielservern zu sammeln.
+* **Leistungsprotokolle und-Warnungen (PLA)** Sammelt Leistungs Protokolle und Ablauf Verfolgungen und löst Leistungs Warnungen aus, wenn bestimmte Trigger erfüllt sind. Mithilfe von Pla können Leistungsindikatoren, Ereignis Ablauf Verfolgung für Windows (ETW), WMI-Abfragen, Registrierungsschlüssel und Konfigurationsdateien erfasst werden. Außerdem unterstützt die Verwendung von Remote Prozedur aufrufen (RPC) die Remote Datensammlung. Der Benutzer definiert einen Datensammler Satz, der Informationen über die zu sammelnden Daten, die Häufigkeit der Datensammlung, die Dauer der Datenerfassung, Filter und einen Speicherort zum Speichern der Ergebnisdateien enthält. Spa sammelt mithilfe von PLA alle Leistungsdaten von den Ziel Servern.
 
-* **Einzelne Bericht** ein SPA-Berichten, die generiert wird auf Grundlage einer Data Analysis-Sitzung für eine Advisor-Pack auf einem einzelnen Zielserver. Sie können Benachrichtigungen und die verschiedenen Datenabschnitte enthalten.
+* **Einzelner Bericht** Ein Spa-Bericht, der auf der Grundlage einer Datenanalyse Sitzung für ein Advisor Pack auf einem einzelnen Zielserver generiert wird. Es kann Benachrichtigungen und verschiedene Datenabschnitte enthalten.
 
-* **Seite-an-Seite Bericht** ein SPA-Bericht, in dem zwei einzelne Berichte für das gleiche Advisor Pack verglichen. Die beiden Berichte können von anderen Servern oder aus separaten Performance Analysis ausgeführt wird, auf dem gleichen Zielserver generiert werden. Der Bericht für die Seite-an-Seite erstellt die Funktion zum Vergleichen von zwei Berichte, die Benutzer erkennen nicht normalem Verhalten oder die Einstellungen in einen Bericht zu erleichtern. Ein Seite-an-Seite-Bericht enthält, Benachrichtigungen und die verschiedenen Datenabschnitte. In jedem Abschnitt sind die Daten aus sowohl Berichten aufgelisteten Seite-an-Seite.
+* Paralleler **Bericht** Ein Spa-Bericht, in dem zwei einzelne Berichte für dasselbe Advisor Pack verglichen werden. Die beiden Berichte können von verschiedenen Ziel Servern oder von separaten Leistungsanalysen auf demselben Zielserver generiert werden. Der parallele Bericht erstellt die Funktion zum Vergleichen von zwei Berichten, damit Benutzer ungewöhnliche Verhalten oder Einstellungen in einem der Berichte identifizieren können. Ein paralleler Bericht enthält Benachrichtigungen und verschiedene Datenabschnitte. In jedem Abschnitt werden die Daten aus beiden Berichten nebeneinander aufgelistet.
 
-* **Trenddiagramm** ein SPA-Bericht, der verwendet wird, um sich wiederholende Muster von Leistungsproblemen zu untersuchen. Viele sich wiederholende Leistungsprobleme werden durch geplante serveränderungen verursacht, auf dem Server oder -Clientcomputern, die auftreten, können täglich oder wöchentlich. SPA bietet ein 24-Stunden-Trenddiagramm und ein Trenddiagramm für 7 Tage um diese Probleme zu identifizieren.
+* **Trend Diagramm** Ein Spa-Bericht, der verwendet wird, um wiederkehrende Muster von Leistungsproblemen zu untersuchen. Viele sich wiederholende Leistungsprobleme werden durch geplante Server Lade Änderungen vom Server oder von Client Computern verursacht, die täglich oder wöchentlich auftreten können. Spa bietet ein 24-Stunden-Trend Diagramm und ein 7-Tage-Trend Diagramm, um diese Probleme zu identifizieren.
 
-    Wahlweise kann der Benutzer eine oder mehrere Datenreihen zu einem Zeitpunkt, die einen numerischen Wert in den einzelnen Bericht, wie z. B. ist **durchschnittliche CPU-gesamtnutzung**. genauer gesagt ist ein numerischer Wert einen skalaren Wert aus einem einzelnen Server, der durch einen einzelnen Zugriffspunkt an einem bestimmten Zeitpunkt-Instanz generiert wird. SPA gruppiert diese Werte in 24-Gruppen, eine für jede Stunde des Tages (für einen Bericht für 7 Tage, eine für jeden Tag der Woche: sieben). SPA berechnet, Mittelwert, Minimum, Maximum und Standardabweichungen für jede Gruppe.
+    Der Benutzer kann eine oder mehrere Datenreihen gleichzeitig auswählen, wobei es sich um einen numerischen Wert innerhalb des einzelnen Berichts handelt, z. b. die **durchschnittliche CPU-Gesamtauslastung**. genauer gesagt handelt es sich bei einem numerischen Wert um einen skalaren Wert von einem einzelnen Server, der von einem einzelnen AP-Wert zu einer bestimmten Zeit Instanz generiert wird. Spa gruppiert diese Werte in 24 Gruppen, eine für jede Stunde des Tages (sieben für einen 7-tägigen Bericht, eine für jeden Tag der Woche). Spa berechnet durchschnittliche, minimale, maximale und standardmäßige Abweichungen für jede Gruppe.
 
-* **Verlaufsdiagramm** ein SPA-Bericht, der verwendet wird, um Änderungen in bestimmten numerischen anzuzeigen Werte innerhalb der einzelnen Berichte für einen bestimmten Server und Advisor Pack-Paar im Laufe der Zeit. Der Benutzer kann mehrere Datenreihen wählen und gemeinsam im das Verlaufsdiagramm zu die Korrelation zwischen unterschiedliche Datenreihen anzeigen.
+* Verlaufs **Diagramm** Ein Spa-Bericht, der verwendet wird, um Änderungen an bestimmten numerischen Werten in einzelnen Berichten für ein bestimmtes Server-und Advisor Pack-Paar im Zeitverlauf anzuzeigen. Der Benutzer kann mehrere Datenreihen auswählen und diese zusammen im Verlaufs Diagramm anzeigen, um die Korrelation zwischen verschiedenen Datenreihen nachzuvollziehen.
 
-* **Datenreihe** numerische Daten, die von der gleichen Datenquelle über einen Zeitraum gesammelt werden. Die gleiche Quelle bedeutet, dass die Daten aus dem gleichen Zielserver, z. B. die durchschnittliche Länge der Anforderungswarteschlange für IIS auf einem Server stammen.
+* **Datenreihe** Numerische Daten, die über einen bestimmten Zeitraum aus derselben Datenquelle gesammelt werden. Dieselbe Quelle bedeutet, dass die Daten vom gleichen Zielserver stammen müssen, z. b. die durchschnittliche Länge der Anforderungs Warteschlange für IIS auf einem Server.
 
-* **Regeln** Kombinationen von Logik-, Schwellenwerte und Beschreibungen. Sie stellen ein mögliches Leistungsproblem dar. Jedes Advisor Pack enthält mehrere Regeln. Jede Regel wird durch die Verarbeitung eines Berichts Generation ausgelöst. Eine Regel gilt die Logik und die Schwellenwerte auf die Daten in den einzelnen Bericht. Wenn die Kriterien erfüllt sind, wird eine Benachrichtigung für eine Warnung ausgelöst. Wenn nicht, die Benachrichtigung, um festgelegt ist die **OK** Zustand. Wenn nicht die Regel gilt, wird die Benachrichtigung, die nicht anwendbar festgelegt (**NA**) Zustand.
+* **Regeln** Kombinationen aus Logik, Schwellenwerten und Beschreibungen. Sie stellen ein mögliches Leistungsproblem dar. Jedes Advisor-Paket enthält mehrere Regeln. Jede Regel wird durch einen Bericht Generierungsprozess ausgelöst. Eine Regel wendet die Logik und die Schwellenwerte auf die Daten in einem einzelnen Bericht an. Wenn die Kriterien erfüllt sind, wird eine Warnmeldung ausgelöst. Wenn dies nicht der Wert ist, wird die Benachrichtigung auf den Status **OK** festgelegt. Wenn die Regel nicht angewendet wird, wird die Benachrichtigung auf den Status nicht zutreffend (**na**) festgelegt.
 
-* **Benachrichtigungen** Informationen, die eine Regel für Benutzer angezeigt. Es enthält den Status der Regel (**OK**, **NA**, oder ein **Warnung**), wird der Name der Regeln und möglichen Empfehlungen, um die Leistungsprobleme zu beheben.
+* **Benachrichtigungen** Informationen, die von einer Regel für Benutzer angezeigt werden. Sie enthält den Status der Regel (**OK**, **na**oder eine **Warnung**), den Namen der Regel und mögliche Empfehlungen, um die Leistungsprobleme zu beheben.

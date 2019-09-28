@@ -1,45 +1,45 @@
 ---
 ms.assetid: 99a68050-8d19-4c58-ad86-e08a3dcdb4f7
-title: Anhang L - die zu überwachende Ereignisse
+title: Anhang L-zu überwachende Ereignisse
 description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 07/30/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c245c5a6b2165385096f32713a92916236cdddfb
-ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
+ms.openlocfilehash: e069fe004d9256682e5754fc90ae6cba88ee7cb3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66719695"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402725"
 ---
 # <a name="appendix-l-events-to-monitor"></a>Anhang L: Zu überwachende Ereignisse
 
 >Gilt für: Windows Server
 
-Die folgende Tabelle enthält Ereignisse, die Sie in Ihrer Umgebung entsprechend den Empfehlungen in überwachen sollte [Überwachen von Active Directory signiert der Gefährdung](../../ad-ds/plan/security-best-practices/Monitoring-Active-Directory-for-Signs-of-Compromise.md). In der folgenden Tabelle zeigt die Spalte an "Aktuelle Windows-Ereignis-ID" die Ereignis-ID an, wie sie in Versionen von Windows und Windows Server implementiert ist, die derzeit im grundlegenden Support enthalten sind.  
+In der folgenden Tabelle sind die Ereignisse aufgelistet, die Sie in Ihrer Umgebung überwachen sollten, entsprechend der Empfehlungen, die im [Überwachungs Active Directory für Anzeichen einer](../../ad-ds/plan/security-best-practices/Monitoring-Active-Directory-for-Signs-of-Compromise.md)Gefährdung aufgeführt werden. In der folgenden Tabelle wird in der Spalte "aktuelle Windows-Ereignis-ID" die Ereignis-ID aufgelistet, da Sie in Versionen von Windows und Windows Server implementiert ist, die derzeit in der Mainstream-Unterstützung sind.  
   
-Die "Ältere Windows-Ereignis-ID"-Spalte enthält die entsprechenden Ereignis-ID in älteren Versionen von Windows wie z. B. Windows XP-Clientcomputern oder früher und Server mit WindowsServer 2003 oder früher. Die "potenzielle Gefährlichkeit", die Spalte identifiziert, ob das Ereignis über eine geringe berücksichtigt werden soll, Mittel oder hoch wie bei der Erkennung von Angriffen und die Spalte "Event-Summary" enthält eine kurze Beschreibung des Ereignisses.  
+In der Spalte "Legacy-Windows-Ereignis-ID" ist die entsprechende Ereignis-ID in älteren Versionen von Windows (z. b. Client Computern unter Windows XP oder früher) und Server mit Windows Server 2003 oder früher aufgeführt. In der Spalte "potenzielle Gefährlichkeit" wird angegeben, ob das Ereignis bei der Erkennung von Angriffen als niedrig, Mittel oder hoch kritisch angesehen werden soll, und die Spalte "Ereignis Zusammenfassung" enthält eine kurze Beschreibung des Ereignisses.  
   
-Potenzielle Gefährlichkeit hohe bedeutet, dass eine Eintreten des Ereignisses untersucht werden sollten. Potenzielle Gefährlichkeit "Mittel" oder mit geringer bedeutet, dass diese Ereignisse nur untersucht werden sollte, wenn sie auftreten, unerwartet oder Zahlen, die die erwartete messbasis in einem Messzeitraum Zeit erheblich zu überschreiten. Alle Organisationen sollten diese Empfehlungen in ihrer Umgebung testen, bevor Warnungen erstellt werden, die verbindliche Untersuchungen erfordern. Jede Umgebung ist anders, und einige der Ereignisse mit der potenziellen Gefährlichkeit hoher Rangfolge aufgrund anderer harmloser Ereignisse auftreten.  
+Eine mögliche Wichtigkeit von "High" bedeutet, dass ein Vorkommen des Ereignisses untersucht werden sollte. Die potenzielle Gefährlichkeit "Mittel" oder "niedrig" bedeutet, dass diese Ereignisse nur untersucht werden sollten, wenn Sie unerwartet oder in Zahlen auftreten, die die erwartete Baseline in einem gemessenen Zeitraum erheblich überschreiten. Alle Organisationen sollten diese Empfehlungen in ihrer Umgebung testen, bevor Warnungen erstellt werden, die verbindliche Untersuchungen erfordern. Jede Umgebung ist anders, und einige der Ereignisse, die mit einer potenziellen Gefährlichkeit von High eingestuft werden, können aufgrund anderer harmloser Ereignisse auftreten.  
   
 |||||  
 |-|-|-|-|  
-|**Aktuelle Windows-Ereignis-ID**|**Ältere Windows-Ereignis-ID**|**Potenzielle Gefährlichkeit**|**Ereigniszusammenfassung**|  
+|**Aktuelle Windows-Ereignis-ID**|**Ältere Windows-Ereignis-ID**|**Potenzielle Gefährlichkeit**|**Ereignis Zusammenfassung**|  
 |4618|Nicht zutreffend|Hoch|Ein überwachtes Sicherheitsmuster ist aufgetreten.|  
-|4649|Nicht zutreffend|Hoch|Ein Replay-Angriff wurde erkannt. Möglicherweise ein harmloser falsch positives Ergebnis aufgrund einer fehlerhaften Konfiguration-Fehler auf.|  
+|4649|Nicht zutreffend|Hoch|Ein Replay-Angriff wurde erkannt. Kann aufgrund eines fehl Konfigurations Fehlers ein harmloses falsch positives Ergebnis sein.|  
 |4719|612|Hoch|Die Systemüberwachungsrichtlinie wurde geändert.|  
 |4765|Nicht zutreffend|Hoch|Der SID-Verlauf eines Kontos wurde hinzugefügt.|  
 |4766|Nicht zutreffend|Hoch|Fehler beim Versuch, den SID-Verlauf einem Konto hinzuzufügen.|  
 |4794|Nicht zutreffend|Hoch|Es wurde versucht, den Verzeichnisdienst-Wiederherstellungsmodus einzustellen.|  
 |4897|801|Hoch|Rollentrennung ist aktiviert:|  
 |4964|Nicht zutreffend|Hoch|Sondergruppen wurden einer neuen Anmeldung zugewiesen.|  
-|5124|Nicht zutreffend|Hoch|Eine sicherheitseinstellung wurde auf der OCSP-Responder-Dienst aktualisiert.|  
-|Nicht zutreffend|550|Mittel bis hoch|Möglichen Denial-of-Service (DoS) Angriffe|  
-|1102|517|Mittel bis hoch|Das Überwachungsprotokoll wurde gelöscht.|  
+|5124|Nicht zutreffend|Hoch|Eine Sicherheitseinstellung wurde für den OCSP-Responder-Dienst aktualisiert.|  
+|Nicht zutreffend|550|Mittel bis hoch|Möglicher DOS-Angriff (Denial-of-Service)|  
+|1102|517|Mittel bis hoch|Das Überwachungs Protokoll wurde gelöscht.|  
 |4621|Nicht zutreffend|Mittel|Der Administrator hat das System nach einem CrashOnAuditFail wiederhergestellt. Benutzer ohne Administratorrechte können sich jetzt anmelden. Einige überwachbare Aktivitäten wurden möglicherweise nicht aufgezeichnet.|  
 |4675|Nicht zutreffend|Mittel|SIDs wurden gefiltert.|  
 |4692|Nicht zutreffend|Mittel|Es wurde versucht, den Datenschutz-Hauptschlüssel zu sichern.|  
@@ -56,7 +56,7 @@ Potenzielle Gefährlichkeit hohe bedeutet, dass eine Eintreten des Ereignisses u
 |4739|643|Mittel|Die Domänenrichtlinie wurde geändert.|  
 |4754|658|Mittel|Eine sicherheitsaktivierte universelle Gruppe wurde erstellt.|  
 |4755|659|Mittel|Eine sicherheitsaktivierte universelle Gruppe wurde geändert.|  
-|4764|667|Mittel|Eine Gruppe mit deaktivierter Sicherheit wurde gelöscht.|  
+|4764|667|Mittel|Eine Sicherheits deaktivierte Gruppe wurde gelöscht.|  
 |4764|668|Mittel|Der Typ einer Gruppe wurde geändert.|  
 |4780|684|Mittel|Die ACL wurde für Konten festgelegt, die Mitglieder der Gruppe „Administratoren“ sind.|  
 |4816|Nicht zutreffend|Mittel|Der Remoteprozeduraufruf (RPC) hat bei der Entschlüsselung einer eingehenden Nachricht eine Integritätsverletzung festgestellt.|  
@@ -91,10 +91,10 @@ Potenzielle Gefährlichkeit hohe bedeutet, dass eine Eintreten des Ereignisses u
 |5035|Nicht zutreffend|Mittel|Der Windows-Firewalltreiber konnte nicht gestartet werden.|  
 |5037|Nicht zutreffend|Mittel|Der Windows-Firewalltreiber hat einen kritischen Laufzeitfehler erkannt. Der Treiber wird beendet.|  
 |5038|Nicht zutreffend|Mittel|Die Codeintegrität hat festgestellt, dass der Abbildhash einer Datei nicht gültig ist. Die Datei wurde möglicherweise durch eine nicht autorisierte Änderung beschädigt. Dieses Problem kann auch auf einen potenziellen Fehler des Datenträgergeräts hinweisen.|  
-|5120|Nicht zutreffend|Mittel|OCSP-Responder-Dienst wurde gestartet|  
-|5121|Nicht zutreffend|Mittel|OCSP-Responder-Dienst wurde beendet|  
-|5122|Nicht zutreffend|Mittel|Ein Konfigurationseintrag in OCSP-Responder-Dienst geändert|  
-|5123|Nicht zutreffend|Mittel|Ein Konfigurationseintrag in OCSP-Responder-Dienst geändert|  
+|5120|Nicht zutreffend|Mittel|OCSP-Responder-Dienst wurde gestartet.|  
+|5121|Nicht zutreffend|Mittel|OCSP-Responder-Dienst wurde beendet.|  
+|5122|Nicht zutreffend|Mittel|Ein Konfigurationseintrag wurde im OCSP-Responder-Dienst geändert.|  
+|5123|Nicht zutreffend|Mittel|Ein Konfigurationseintrag wurde im OCSP-Responder-Dienst geändert.|  
 |5376|Nicht zutreffend|Mittel|Anmeldeinformationen der Anmeldeinformationsverwaltung wurden gesichert.|  
 |5377|Nicht zutreffend|Mittel|Anmeldeinformationen der Anmeldeinformationsverwaltung wurden von einer Sicherung wiederhergestellt.|  
 |5453|Nicht zutreffend|Mittel|Eine IPsec-Aushandlung mit einem Remotecomputer war nicht erfolgreich, da der IKE- und AuthIP IPsec-Schlüsselerstellungsmodul-Dienst (IKEEXT) nicht gestartet wurde.|  
@@ -102,7 +102,7 @@ Potenzielle Gefährlichkeit hohe bedeutet, dass eine Eintreten des Ereignisses u
 |5483|Nicht zutreffend|Mittel|Die IPsec-Dienste konnten den RPC-Server nicht initialisieren. Die IPsec-Dienste konnten nicht gestartet werden.|  
 |5484|Nicht zutreffend|Mittel|In den IPsec-Diensten ist ein kritischer Fehler aufgetreten, und die Dienste wurden beendet. Das Beenden der IPsec-Dienste kann das Risiko von Netzwerkangriffen auf den Computer und potenzielle Sicherheitsrisiken erhöhen.|  
 |5485|Nicht zutreffend|Mittel|Die IPsec-Dienste konnten einige IPsec-Filter für ein Plug-and-Play-Ereignis für Netzwerkschnittstellen nicht verarbeiten. Dies stellt ein potenzielles Sicherheitsrisiko dar, da einige Netzwerkschnittstellen möglicherweise nicht durch die angewendeten IPsec-Filter geschützt werden. Verwenden Sie das Snap-In „IP-Sicherheitsmonitor“, um das Problem zu diagnostizieren.|  
-|6145|Nicht zutreffend|Mittel|Bei der Verarbeitung von Sicherheitsrichtlinien in Group Policy Objects, ist mindestens ein Fehler aufgetreten.|  
+|6145|Nicht zutreffend|Mittel|Beim Verarbeiten der Sicherheitsrichtlinie in den Gruppenrichtlinie Objekten ist mindestens ein Fehler aufgetreten.|  
 |6273|Nicht zutreffend|Mittel|Der Netzwerkrichtlinienserver verweigerte einem Benutzer den Zugriff.|  
 |6274|Nicht zutreffend|Mittel|Der Netzwerkrichtlinienserver hat die Anforderung für einen Benutzer verworfen.|  
 |6275|Nicht zutreffend|Mittel|Der Netzwerkrichtlinienserver hat die Kontoführungsanforderung für einen Benutzer verworfen.|  
@@ -111,12 +111,12 @@ Potenzielle Gefährlichkeit hohe bedeutet, dass eine Eintreten des Ereignisses u
 |6278|Nicht zutreffend|Mittel|Der Netzwerkrichtlinienserver hat einem Benutzer Vollzugriff erteilt, da der Host die Integritätsrichtlinien erfüllt.|  
 |6279|Nicht zutreffend|Mittel|Der Netzwerkrichtlinienserver hat das Benutzerkonto aufgrund mehrerer erfolgloser Authentifizierungsversuche gesperrt.|  
 |6280|Nicht zutreffend|Mittel|Der Netzwerkrichtlinienserver hat die Sperre des Benutzerkontos aufgehoben.|  
-|-|640|Mittel|Allgemeine Kontodatenbank geändert|  
-|-|619|Mittel|QoS-Speicherrichtlinie geändert|  
-|24586|Nicht zutreffend|Mittel|Konvertieren von Volume ist ein Fehler aufgetreten|  
-|24592|Nicht zutreffend|Mittel|Fehler beim Konvertierung auf dem Volume %2 automatisch neu gestartet.|  
-|24593|Nicht zutreffend|Mittel|Schreiben von Metadaten: Volume %2 Zurückgeben von Fehlern beim Versuch, Metadaten zu ändern. Wenn der Fehler weiterhin auftritt, entschlüsseln Sie volume|  
-|24594|Nicht zutreffend|Mittel|Metadaten neu erstellen: Beim Schreiben einer Kopie der Metadaten auf dem Volume %2 konnte nicht und möglicherweise als datenträgerbeschädigung angezeigt. Wenn der Fehler weiterhin auftritt, entschlüsseln Sie Volumes an.|  
+|-|640|Mittel|Allgemeine Konto Datenbank geändert|  
+|-|619|Mittel|Quality of Service Richtlinie geändert|  
+|24586|Nicht zutreffend|Mittel|Beim Umrechnen des Volumes ist ein Fehler aufgetreten.|  
+|24592|Nicht zutreffend|Mittel|Fehler beim automatischen Neustart der Konvertierung auf Volume "% 2".|  
+|24593|Nicht zutreffend|Mittel|Metadaten schreiben: Volume "% 2" gibt beim Versuch, Metadaten zu ändern, Fehler zurück. Wenn Fehler weiterhin auftreten, entschlüsseln Sie das Volume.|  
+|24594|Nicht zutreffend|Mittel|Metadatenneu Erstellung: Fehler beim Schreiben einer Kopie der Metadaten auf Volume "% 2". möglicherweise wird eine Datenträger Beschädigung angezeigt. Wenn der Fehler weiterhin besteht, entschlüsseln Sie das Volume.|  
 |4608|512|Niedrig|Windows wird gestartet.|  
 |4609|513|Niedrig|Windows wird heruntergefahren.|  
 |4610|514|Niedrig|Ein Authentifizierungspaket wurde durch die lokale Sicherheitsinstanz geladen.|  
@@ -126,17 +126,17 @@ Potenzielle Gefährlichkeit hohe bedeutet, dass eine Eintreten des Ereignisses u
 |4615|519|Niedrig|Unzulässige Verwendung des LPC-Ports.|  
 |4616|520|Niedrig|Die Systemzeit wurde geändert.|  
 |4622|Nicht zutreffend|Niedrig|Die LSA (Local Security Authority) hat ein Sicherheitspaket geladen.|  
-|4624|528,540|Niedrig|Ein Konto wurde erfolgreich angemeldet.|  
-|4625|529-537,539|Niedrig|Fehler beim Anmelden eines Kontos.|  
+|4624|528.540|Niedrig|Ein Konto wurde erfolgreich angemeldet.|  
+|4625|529-537539|Niedrig|Fehler beim Anmelden eines Kontos.|  
 |4634|538|Niedrig|Ein Konto wurde abgemeldet.|  
-|4646|Nicht zutreffend|Niedrig|IKE DoS-Schutzmodus wurde gestartet.|  
+|4646|Nicht zutreffend|Niedrig|Der IKE-DoS-Präventions Modus wurde gestartet.|  
 |4647|551|Niedrig|Benutzerinitiierte Abmeldung.|  
 |4648|552|Niedrig|Anmeldeversuch mit expliziten Anmeldeinformationen.|  
 |4650|Nicht zutreffend|Niedrig|Eine Sicherheitszuordnung des IPsec-Hauptmodus wurde eingerichtet. Der Erweiterungsmodus wurde nicht aktiviert. Zertifikatauthentifizierung wurde nicht verwendet.|  
 |4651|Nicht zutreffend|Niedrig|Eine Sicherheitszuordnung des IPsec-Hauptmodus wurde eingerichtet. Der Erweiterungsmodus wurde nicht aktiviert. Zertifikatauthentifizierung wurde verwendet.|  
 |4652|Nicht zutreffend|Niedrig|Fehler bei einer IPsec-Hauptmodusverhandlung.|  
 |4653|Nicht zutreffend|Niedrig|Fehler bei einer IPsec-Hauptmodusverhandlung.|  
-|4654|Nicht zutreffend|Niedrig|Fehler bei der eine Schnellmodus-IPsec-Aushandlung.|  
+|4654|Nicht zutreffend|Niedrig|Fehler bei der IPSec-Schnellmodus-Aushandlung.|  
 |4655|Nicht zutreffend|Niedrig|Beendigung einer IPsec-Hauptmodusverhandlung.|  
 |4656|560|Niedrig|Ein Handle zu einem Objekt wurde angefordert.|  
 |4657|567|Niedrig|Ein Registrierungswert wurde geändert.|  
@@ -162,8 +162,8 @@ Potenzielle Gefährlichkeit hohe bedeutet, dass eine Eintreten des Ereignisses u
 |4691|595|Niedrig|Der indirekte Zugriff auf ein Objekt wurde angefordert.|  
 |4694|Nicht zutreffend|Niedrig|Es wurde versucht, überwachbare geschützte Daten zu schützen.|  
 |4695|Nicht zutreffend|Niedrig|Es wurde versucht, den Schutz überwachbarer geschützter Daten aufzuheben.|  
-|4696|600|Niedrig|Ein primäres Token wurde zugewiesen, verarbeitet.|  
-|4697|601|Niedrig|Versucht, einen Dienst zu installieren|  
+|4696|600|Niedrig|Ein primäres Token wurde der Verarbeitung zugewiesen.|  
+|4697|601|Niedrig|Es wurde versucht, einen Dienst zu installieren|  
 |4698|602|Niedrig|Eine geplante Aufgabe wurde erstellt.|  
 |4699|602|Niedrig|Eine geplante Aufgabe wurde gelöscht.|  
 |4700|602|Niedrig|Eine geplante Aufgabe wurde aktiviert.|  
@@ -174,7 +174,7 @@ Potenzielle Gefährlichkeit hohe bedeutet, dass eine Eintreten des Ereignisses u
 |4707|611|Niedrig|Eine Vertrauensstellung zu einer Domäne wurde entfernt.|  
 |4709|Nicht zutreffend|Niedrig|Die IPsec-Dienste wurden gestartet.|  
 |4710|Nicht zutreffend|Niedrig|Die IPsec-Dienste wurden deaktiviert.|  
-|4711|Nicht zutreffend|Niedrig|Kann eines der folgenden Elemente enthalten: Das PAStore-Modul hat eine lokal zwischengespeicherte Kopie der Active Directory-Speicher-IPsec-Richtlinie auf dem Computer angewendet. Das PAStore-Modul hat eine Active Directory-Speicher-IPsec-Richtlinie auf dem Computer angewendet. Das PAStore-Modul hat eine Speicher-IPsec-Richtlinie der lokalen Registrierung auf dem Computer angewendet. Das PAStore-Modul konnte die lokal zwischengespeicherte Kopie der Active Directory-Speicher-IPsec-Richtlinie nicht auf dem Computer anwenden. Das PAStore-Modul konnte die Active Directory-Speicher-IPsec-Richtlinie nicht auf dem Computer anwenden. Das PAStore-Modul konnte die Speicher-IPsec-Richtlinie der lokalen Registrierung nicht auf dem Computer anwenden. Das PAStore-Modul konnte einige Regeln der aktiven IPsec-Richtlinie nicht auf dem Computer anwenden. Das PAStore-Modul konnte die Verzeichnisspeicher-IPsec-Richtlinie nicht auf dem Computer laden. Das PAStore-Modul hat die Verzeichnisspeicher-IPsec-Richtlinie auf dem Computer geladen. Das PAStore-Modul konnte die lokale Speicher-IPsec-Richtlinie nicht auf dem Computer laden. PAStore-Modul geladen, lokalen Speicher IPsec-Richtlinie auf dem Computer. PAStore-Modul für Änderungen an die aktive IPsec-Richtlinie abgerufen und keine Änderungen erkannt. |  
+|4711|Nicht zutreffend|Niedrig|Kann eines der folgenden Elemente enthalten: Das PAStore-Modul hat eine lokal zwischengespeicherte Kopie der Active Directory-Speicher-IPsec-Richtlinie auf dem Computer angewendet. Das PAStore-Modul hat eine Active Directory-Speicher-IPsec-Richtlinie auf dem Computer angewendet. Das PAStore-Modul hat eine Speicher-IPsec-Richtlinie der lokalen Registrierung auf dem Computer angewendet. Das PAStore-Modul konnte die lokal zwischengespeicherte Kopie der Active Directory-Speicher-IPsec-Richtlinie nicht auf dem Computer anwenden. Das PAStore-Modul konnte die Active Directory-Speicher-IPsec-Richtlinie nicht auf dem Computer anwenden. Das PAStore-Modul konnte die Speicher-IPsec-Richtlinie der lokalen Registrierung nicht auf dem Computer anwenden. Das PAStore-Modul konnte einige Regeln der aktiven IPsec-Richtlinie nicht auf dem Computer anwenden. Das PAStore-Modul konnte die Verzeichnisspeicher-IPsec-Richtlinie nicht auf dem Computer laden. Das PAStore-Modul hat die Verzeichnisspeicher-IPsec-Richtlinie auf dem Computer geladen. Das PAStore-Modul konnte die lokale Speicher-IPsec-Richtlinie nicht auf dem Computer laden. Die Speicher-Engine hat die IPSec-Richtlinie des lokalen Speichers auf dem Computer geladen. Die Store-Engine hat Änderungen an der aktiven IPSec-Richtlinie abgerufen, und es wurden keine Änderungen erkannt. |  
 |4712|Nicht zutreffend|Niedrig|Schwerwiegender Fehler beim IPsec-Dienst.|  
 |4717|621|Niedrig|Einem Konto wurde der Zugriff auf die Systemsicherheit gewährt.|  
 |4718|622|Niedrig|Der Zugriff auf die Systemsicherheit wurde von einem Konto entfernt.|  
@@ -213,25 +213,25 @@ Potenzielle Gefährlichkeit hohe bedeutet, dass eine Eintreten des Ereignisses u
 |4761|665|Niedrig|Ein Mitglied einer sicherheitsdeaktivierten universellen Gruppe wurde hinzugefügt.|  
 |4762|666|Niedrig|Ein Mitglied einer sicherheitsdeaktivierten universellen Gruppe wurde entfernt.|  
 |4767|671|Niedrig|Die Sperrung eines Benutzerkontos wurde aufgehoben.|  
-|4768|672,676|Niedrig|Ein Kerberos-Authentifizierungsticket (TGT) wurde angefordert.|  
+|4768|672.676|Niedrig|Ein Kerberos-Authentifizierungsticket (TGT) wurde angefordert.|  
 |4769|673|Niedrig|Ein Kerberos-Dienstticket wurde angefordert.|  
 |4770|674|Niedrig|Ein Kerberos-Dienstticket wurde erneuert.|  
-|4771|675|Niedrig|Fehler bei der Kerberos-Vorauthentifizierung.|  
+|4771|675|Niedrig|Die Kerberos-Vorauthentifizierung ist fehlgeschlagen.|  
 |4772|672|Niedrig|Fehler bei einer Kerberos-Authentifizierungsticketanforderung.|  
 |4774|678|Niedrig|Ein Konto wurde für die Anmeldung zugeordnet.|  
 |4775|679|Niedrig|Es konnte kein Konto für die Anmeldung zugeordnet werden.|  
-|4776|680,681|Niedrig|Der Domänencontroller hat versucht, die Anmeldeinformationen für ein Konto zu bestätigen.|  
+|4776|680.681|Niedrig|Der Domänencontroller hat versucht, die Anmeldeinformationen für ein Konto zu bestätigen.|  
 |4777|Nicht zutreffend|Niedrig|Der Domänencontroller konnte die Anmeldeinformationen für ein Konto nicht bestätigen.|  
 |4778|682|Niedrig|Eine Sitzung wurde erneut mit einer Arbeitsstation verbunden.|  
 |4779|683|Niedrig|Eine Sitzung wurde von einer Arbeitsstation getrennt.|  
 |4781|685|Niedrig|Der Name eines Kontos wurde geändert:|  
-|4782|Nicht zutreffend|Niedrig|Der Kennworthash eines Kontos wurde zugegriffen.|  
+|4782|Nicht zutreffend|Niedrig|Der Kenn Wort Hash, auf den ein Konto zugegriffen hat.|  
 |4783|667|Niedrig|Eine Basisanwendungsgruppe wurde erstellt.|  
 |4784|Nicht zutreffend|Niedrig|Eine Basisanwendungsgruppe wurde geändert.|  
 |4785|689|Niedrig|Einer Basisanwendungsgruppe wurde ein Mitglied hinzugefügt.|  
 |4786|690|Niedrig|Ein Mitglied einer Basisanwendungsgruppe wurde entfernt.|  
-|4787|691|Niedrig|Eine nicht-Member wurde eine einfache Anwendung-Gruppe hinzugefügt.|  
-|4788|692|Niedrig|Eine nicht-Member wurde von einer basisanwendung-Gruppe entfernt.|  
+|4787|691|Niedrig|Ein nicht Mitglied wurde einer einfachen Anwendungs Gruppe hinzugefügt.|  
+|4788|692|Niedrig|Ein nicht Mitglied wurde aus einer einfachen Anwendungs Gruppe entfernt.|  
 |4789|693|Niedrig|Eine Basisanwendungsgruppe wurde gelöscht.|  
 |4790|694|Niedrig|Eine LDAP-Abfragegruppe wurde erstellt.|  
 |4793|Nicht zutreffend|Niedrig|Die Kennwortrichtlinienprüfungs-API wurde aufgerufen.|  
@@ -267,7 +267,7 @@ Potenzielle Gefährlichkeit hohe bedeutet, dass eine Eintreten des Ereignisses u
 |4904|Nicht zutreffend|Niedrig|Es wurde versucht, eine Sicherheitsereignisquelle zu registrieren|  
 |4905|Nicht zutreffend|Niedrig|Es wurde versucht, die Registrierung einer Sicherheitsereignisquelle aufzuheben.|  
 |4909|Nicht zutreffend|Niedrig|Die lokalen Richtlinieneinstellungen für den TBS-Dienst wurden geändert.|  
-|4910|Nicht zutreffend|Niedrig|Die gruppenrichtlinieneinstellungen für die TB wurden geändert.|  
+|4910|Nicht zutreffend|Niedrig|Die Gruppenrichtlinie Einstellungen für die TSB wurden geändert.|  
 |4928|Nicht zutreffend|Niedrig|Ein Namenskontext für Active Directory-Replikatquellen wurde eingerichtet.|  
 |4929|Nicht zutreffend|Niedrig|Ein Namenskontext für Active Directory-Replikatquellen wurde entfernt.|  
 |4930|Nicht zutreffend|Niedrig|Ein Namenskontext für Active Directory-Replikatquellen wurde geändert.|  
@@ -313,15 +313,15 @@ Potenzielle Gefährlichkeit hohe bedeutet, dass eine Eintreten des Ereignisses u
 |5046|Nicht zutreffend|Niedrig|Die IPSec-Einstellungen wurden geändert. Ein Kryptografiesatz wurde hinzugefügt.|  
 |5047|Nicht zutreffend|Niedrig|Die IPSec-Einstellungen wurden geändert. Ein Kryptografiesatz wurde geändert.|  
 |5048|Nicht zutreffend|Niedrig|Die IPSec-Einstellungen wurden geändert. Ein Kryptografiesatz wurde gelöscht.|  
-|5050|Nicht zutreffend|Niedrig|Versuch, die Windows-Firewall, die über einen Aufruf an InetFwProfile.FirewallEnabled(False) programmgesteuert deaktivieren|  
+|5050|Nicht zutreffend|Niedrig|Es wurde versucht, die Windows-Firewall mithilfe eines INetFwProfile. firewallaktivierten Aufrufens (false) Programm gesteuert zu deaktivieren.|  
 |5051|Nicht zutreffend|Niedrig|Eine Datei wurde virtualisiert.|  
-|5056|Nicht zutreffend|Niedrig|Es wurde ein kryptografischer Selbsttest ausgeführt.|  
+|5056|Nicht zutreffend|Niedrig|Ein kryptografischer Self-Test wurde ausgeführt.|  
 |5057|Nicht zutreffend|Niedrig|Fehler bei einem einfachen kryptografischen Vorgang.|  
 |5058|Nicht zutreffend|Niedrig|Schlüsseldateivorgang.|  
 |5059|Nicht zutreffend|Niedrig|Schlüsselmigrationsvorgang.|  
 |5060|Nicht zutreffend|Niedrig|Fehler bei der Überprüfung der Kryptografiesignatur.|  
 |5061|Nicht zutreffend|Niedrig|Kryptografievorgang.|  
-|5062|Nicht zutreffend|Niedrig|Es wurde ein Selbsttest kryptografische Kernelmodus ausgeführt.|  
+|5062|Nicht zutreffend|Niedrig|Ein kryptografischer kernelmodustest wurde ausgeführt.|  
 |5063|Nicht zutreffend|Niedrig|Es wurde versucht, einen Kryptografieanbietervorgang auszuführen.|  
 |5064|Nicht zutreffend|Niedrig|Es wurde versucht, einen Kryptografiekontextvorgang auszuführen.|  
 |5065|Nicht zutreffend|Niedrig|Es wurde versucht, einen Kryptografiekontext zu ändern.|  
@@ -330,9 +330,9 @@ Potenzielle Gefährlichkeit hohe bedeutet, dass eine Eintreten des Ereignisses u
 |5068|Nicht zutreffend|Niedrig|Es wurde versucht, einen Vorgang für einen Kryptografiefunktionsanbieter auszuführen.|  
 |5069|Nicht zutreffend|Niedrig|Es wurde versucht, einen Vorgang für eine Kryptografiefunktionseigenschaft auszuführen.|  
 |5070|Nicht zutreffend|Niedrig|Es wurde versucht, eine Kryptografiefunktionseigenschaft zu ändern.|  
-|5125|Nicht zutreffend|Niedrig|Eine Anforderung wurde an der OCSP-Responder-Dienst übermittelt.|  
-|5126|Nicht zutreffend|Niedrig|Signaturzertifikat wurde von der OCSP-Responder-Dienst automatisch aktualisiert.|  
-|5127|Nicht zutreffend|Niedrig|Die Sperrungsinformationen aktualisiert der OCSP-Sperranbieter erfolgreich|  
+|5125|Nicht zutreffend|Niedrig|Eine Anforderung wurde an den OCSP-Responder-Dienst übermittelt.|  
+|5126|Nicht zutreffend|Niedrig|Das Signaturzertifikat wurde vom OCSP-Responder-Dienst automatisch aktualisiert.|  
+|5127|Nicht zutreffend|Niedrig|Der OCSP-Sperr Anbieter hat die Sperrinformationen erfolgreich aktualisiert.|  
 |5136|566|Niedrig|Ein Verzeichnisdienstobjekt wurde geändert|  
 |5137|566|Niedrig|Ein Verzeichnisdienstobjekt wurde erstellt.|  
 |5138|Nicht zutreffend|Niedrig|Ein Verzeichnisdienstobjekt wurde wiederhergestellt.|  
@@ -352,12 +352,12 @@ Potenzielle Gefährlichkeit hohe bedeutet, dass eine Eintreten des Ereignisses u
 |5441|Nicht zutreffend|Niedrig|Beim Start des Basisfiltermoduls der Windows-Filterplattform war der folgende Filter vorhanden.|  
 |5442|Nicht zutreffend|Niedrig|Beim Start des Basisfiltermoduls der Windows-Filterplattform war der folgende Anbieter vorhanden.|  
 |5443|Nicht zutreffend|Niedrig|Beim Start des Basisfiltermoduls der Windows-Filterplattform war der folgende Anbieterkontext vorhanden|  
-|5444|Nicht zutreffend|Niedrig|Die folgende Unterebene war vorhanden, wenn die Windows Filtering Platform Basisfiltermodul gestartet.|  
+|5444|Nicht zutreffend|Niedrig|Die folgende untergeordnete Ebene war vorhanden, als die Basis Filter-Engine der Windows-Filter Plattform gestartet wurde.|  
 |5446|Nicht zutreffend|Niedrig|Ein Callout der Windows-Filterplattform wurde geändert.|  
 |5447|Nicht zutreffend|Niedrig|Ein Filter der Windows-Filterplattform wurde geändert.|  
 |5448|Nicht zutreffend|Niedrig|Ein Anbieter der Windows-Filterplattform wurde geändert.|  
 |5449|Nicht zutreffend|Niedrig|Ein Anbieterkontext der Windows-Filterplattform wurde geändert.|  
-|5450|Nicht zutreffend|Niedrig|Eine Windows-Filterplattform Unterebene wurde geändert.|  
+|5450|Nicht zutreffend|Niedrig|Eine Windows-Filter Platt Form Unterschicht wurde geändert.|  
 |5451|Nicht zutreffend|Niedrig|Eine IPsec-Schnellmodus-Sicherheitszuordnung wurde eingerichtet.|  
 |5452|Nicht zutreffend|Niedrig|Eine IPsec-Schnellmodus-Sicherheitszuordnung wurde beendet.|  
 |5456|Nicht zutreffend|Niedrig|Das PAStore-Modul hat eine Active Directory-Speicher-IPsec-Richtlinie auf dem Computer angewendet.|  
@@ -385,33 +385,33 @@ Potenzielle Gefährlichkeit hohe bedeutet, dass eine Eintreten des Ereignisses u
 |5888|Nicht zutreffend|Niedrig|Ein Objekt im COM+-Katalog wurde geändert.|  
 |5889|Nicht zutreffend|Niedrig|Ein Objekt wurde aus dem COM+-Katalog gelöscht.|  
 |5890|Nicht zutreffend|Niedrig|Dem COM+-Katalog wurde ein Objekt hinzugefügt.|  
-|6008|Nicht zutreffend|Niedrig|Das vorherige System wurde unerwartet heruntergefahren|  
-|6144|Nicht zutreffend|Niedrig|Die Sicherheitsrichtlinien in Group Policy Objects wurde erfolgreich angewendet.|  
+|6008|Nicht zutreffend|Niedrig|Das vorherige System wurde unerwartet heruntergefahren.|  
+|6144|Nicht zutreffend|Niedrig|Die Sicherheitsrichtlinie in den Gruppenrichtlinie Objekten wurde erfolgreich angewendet.|  
 |6272|Nicht zutreffend|Niedrig|Der Netzwerkrichtlinienserver hat einem Benutzer den Zugriff gewährt.|  
 |Nicht zutreffend|561|Niedrig|Ein Handle zu einem Objekt wurde angefordert.|  
-|Nicht zutreffend|563|Niedrig|Objekt kann für das Löschen|  
-|Nicht zutreffend|625|Niedrig|Art des Benutzerkontos geändert|  
+|Nicht zutreffend|563|Niedrig|Objekt zum Löschen geöffnet|  
+|Nicht zutreffend|625|Niedrig|Benutzer Kontotyp geändert|  
 |Nicht zutreffend|613|Niedrig|IPSec-Richtlinien-Agent gestartet|  
 |Nicht zutreffend|614|Niedrig|IPSec-Richtlinien-Agent deaktiviert|  
-|Nicht zutreffend|615|Niedrig|IPSec-Richtlinien-agent|  
-|Nicht zutreffend|616|Niedrig|IPSec-Richtlinien-Agent hat einen möglichen schwerwiegenden Fehler festgestellt.|  
-|24577|Nicht zutreffend|Niedrig|Verschlüsselung von Volume gestartet|  
-|24578|Nicht zutreffend|Niedrig|Verschlüsselung des Datenträgers wurde beendet|  
-|24579|Nicht zutreffend|Niedrig|Verschlüsselung von Volumes abgeschlossen.|  
-|24580|Nicht zutreffend|Niedrig|Entschlüsselung des Volume gestartet|  
-|24581|Nicht zutreffend|Niedrig|Entschlüsselung des Volumes, die beendet|  
-|24582|Nicht zutreffend|Niedrig|Entschlüsselung des Volumes abgeschlossen.|  
-|24583|Nicht zutreffend|Niedrig|Konvertierung der Arbeitsthread für Volume gestartet|  
-|24584|Nicht zutreffend|Niedrig|Konvertierung der Arbeitsthread für Volume wurde vorübergehend angehalten.|  
-|24588|Nicht zutreffend|Niedrig|Der Konvertierungsvorgang auf dem Volume %2 hat einen schlechten Sektoren-Fehler festgestellt. Überprüfen Sie die Daten auf diesem volume|  
-|24595|Nicht zutreffend|Niedrig|Volume %2 enthält ungültige-Cluster. Diese Cluster werden während der Konvertierung übersprungen.|  
-|24621|Nicht zutreffend|Niedrig|Überprüfung der anfängliche Zustand: Parallele Transaktion für Volume-Konvertierung auf %2 '.|  
+|Nicht zutreffend|615|Niedrig|IPSec-Richtlinien-Agent|  
+|Nicht zutreffend|616|Niedrig|Schwerwiegender Fehler bei IPSec-Richtlinien-Agent.|  
+|24577|Nicht zutreffend|Niedrig|Verschlüsselung des Volumes wurde gestartet.|  
+|24578|Nicht zutreffend|Niedrig|Die Verschlüsselung des Volumes wurde beendet.|  
+|24579|Nicht zutreffend|Niedrig|Verschlüsselung des Volumes abgeschlossen|  
+|24580|Nicht zutreffend|Niedrig|Die Entschlüsselung des Volumes wurde gestartet.|  
+|24581|Nicht zutreffend|Niedrig|Die Entschlüsselung des Volumes wurde beendet.|  
+|24582|Nicht zutreffend|Niedrig|Entschlüsselung des Volumes abgeschlossen|  
+|24583|Nicht zutreffend|Niedrig|Konvertierungsarbeitsthread für das Volume wurde gestartet.|  
+|24584|Nicht zutreffend|Niedrig|Der konvertierungsarbeitsthread für das Volume wurde vorübergehend beendet.|  
+|24588|Nicht zutreffend|Niedrig|Fehler beim Konvertierungs Vorgang auf Volume "% 2". Überprüfen Sie die Daten auf diesem Volume.|  
+|24595|Nicht zutreffend|Niedrig|Volume "% 2" enthält fehlerhafte Cluster. Diese Cluster werden während der Konvertierung übersprungen.|  
+|24621|Nicht zutreffend|Niedrig|Anfängliche Status Überprüfung: Parallele volumekonvertierungstransaktion auf% 2.|  
 |5049|Nicht zutreffend|Niedrig|Eine IPSec-Sicherheitszuordnung wurde gelöscht.|  
 |5478|Nicht zutreffend|Niedrig|Die IPSec-Dienste wurden erfolgreich gestartet.|  
   
 > [!NOTE]  
-> Finden Sie unter [Sicherheitsüberwachungsereignisse für Windows](https://www.microsoft.com/download/details.aspx?id=50034) eine Liste der Sicherheitsereignis-IDs für viele und ihre Bedeutung.  
+> Eine Liste mit vielen Sicherheits Ereignis-IDs und deren Bedeutung finden Sie unter [Windows-Sicherheits Überwachungs Ereignisse](https://www.microsoft.com/download/details.aspx?id=50034) .  
 >
-> Führen Sie **Wevtutil Gp, die Microsoft-Windows-Security-Auditing/ge /gm:true** um eine sehr detaillierte Liste aller alle Ereignis-IDs zu erhalten  
+> Führen Sie **wevtutil GP Microsoft-Windows-Security-Auditing/GE/GM: true** aus, um eine sehr ausführliche Liste aller Sicherheits Ereignis-IDs abzurufen.  
   
-Weitere Informationen zu Windows-Sicherheit-Ereignis-IDs und ihre Bedeutungen, finden Sie unter den Microsoft Support-Artikel [Beschreibung von Sicherheitsereignissen in Windows 7 und Windows Server 2008 R2](https://support.microsoft.com/kb/977519). Sie können auch herunterladen [Security Audit-Ereignisse für Windows 7 und Windows Server 2008 R2](https://www.microsoft.com/download/details.aspx?id=21561) und [Windows 8 und Windows Server 2012-Event-Sicherheitsdetails](https://www.microsoft.com/download/details.aspx?id=35753), bieten detaillierte Informationen für die Betriebssysteme im Arbeitsblattformat auf die verwiesen wird.  
+Weitere Informationen zu den Windows-Sicherheits Ereignis-IDs und deren Bedeutung finden Sie im Microsoft-Support Artikel [Beschreibung von Sicherheits Ereignissen in Windows 7 und Windows Server 2008 R2](https://support.microsoft.com/kb/977519). Sie können auch [Sicherheits Überwachungs Ereignisse für Windows 7-und Windows Server 2008 R2](https://www.microsoft.com/download/details.aspx?id=21561) -und Windows [8-und Windows Server 2012-Sicherheits Ereignis Details](https://www.microsoft.com/download/details.aspx?id=35753)herunterladen, die ausführliche Ereignis Informationen für die in der Tabelle referenzierten Betriebssysteme bereitstellen. Ges.  

@@ -1,8 +1,8 @@
 ---
 title: 'Remotedesktopdienste (Terminaldienste): Befehlsreferenz'
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,48 +13,48 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b7524973c50b597b8fd8798c5268746dd1d991d7
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 3d13d6ac2e423c5a07a2a84af5e17fe9081cd70f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441833"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371611"
 ---
 # <a name="remote-desktop-services-terminal-services-command-reference"></a>Remotedesktopdienste (Terminaldienste): Befehlsreferenz
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Folgendes ist eine Liste von Remotedesktopdienste-Befehlszeilentools.
+Im folgenden finden Sie eine Liste der Remotedesktopdienste Befehlszeilen Tools.
 > [!NOTE]
-> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Neuerungen in der neuesten Version finden Sie unter [welche s New in Remote Desktop Services in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der technischen Bibliothek für Windows Server.
+> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der TechNet-Bibliothek für Windows Server.
 > 
 > |                 Befehl                 |                                                      Beschreibung                                                       |
 > |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------|
-> |           [change](change.md)           | Ändert die Remotedesktop-Sitzungshost (rd Session Host)-Server-Einstellungen für Anmeldungen, COM-Anschluss Zuordnungen und den Installationsmodus. |
-> |     [change logon](change-logon.md)     |    Aktiviert oder deaktiviert die Anmeldungen von Clientsitzungen auf einen Remotedesktop-Sitzungshostserver oder zeigt den aktuellen Status der Anmeldung.     |
-> |      [change port](change-port.md)      |                   Listet oder ändert die COM-Port-Zuordnungen mit MS-DOS-Anwendungen kompatibel ist.                    |
-> |      [change user](change-user.md)      |                                Ändert den Installationsmodus für den Remotedesktop-Sitzungshostserver.                                |
-> |         [chglogon](chglogon.md)         |    Aktiviert oder deaktiviert die Anmeldungen von Clientsitzungen auf einen Remotedesktop-Sitzungshostserver oder zeigt den aktuellen Status der Anmeldung.     |
-> |          [chgport](chgport.md)          |                   Listet oder ändert die COM-Port-Zuordnungen mit MS-DOS-Anwendungen kompatibel ist.                    |
-> |           [chgusr](chgusr.md)           |                                Ändert den Installationsmodus für den Remotedesktop-Sitzungshostserver.                                |
-> |         [flattemp](flattemp.md)         |                                      Aktiviert oder deaktiviert die temporären Ordner.                                       |
-> |           [logoff](logoff.md)           |          Meldet einen Benutzer von einer Sitzung auf einem Remotedesktop-Sitzungshostservers ein, und löscht die Sitzung auf dem Server.          |
-> |              [msg](msg.md)              |                                Sendet eine Nachricht an einen Benutzer auf einen Remotedesktop-Sitzungshostserver.                                 |
-> |            [mstsc](mstsc.md)            |                       erstellt Verbindungen mit RD-Sitzungshostserver oder anderen Remotecomputern.                        |
-> |          [qappsrv](qappsrv.md)          |                             Zeigt eine Liste aller RD-Sitzungshost-Server im Netzwerk.                             |
-> |         [qprocess](qprocess.md)         |                  Zeigt Informationen zu Prozessen, die auf einen Remotedesktop-Sitzungshostserver ausgeführt werden.                   |
-> |            [query](query.md)            |                      Zeigt Informationen über Prozesse, Sitzungen und RD-Sitzungshostserver.                      |
-> |    [Abfrageprozess](query-process.md)    |                  Zeigt Informationen zu Prozessen, die auf einen Remotedesktop-Sitzungshostserver ausgeführt werden.                   |
-> |    [abfragesitzung](query-session.md)    |                           Zeigt Informationen zu Sitzungen auf einem Remotedesktop-Sitzungshostserver.                            |
-> | [Abfrage termserver](query-termserver.md) |                             Zeigt eine Liste aller RD-Sitzungshost-Server im Netzwerk.                             |
-> |       [Benutzer, der Abfragen](query-user.md)       |                         Informationen über die Sitzung des Benutzers auf einen Remotedesktop-Sitzungshostserver angezeigt.                         |
-> |            [quser](quser.md)            |                         Informationen über die Sitzung des Benutzers auf einen Remotedesktop-Sitzungshostserver angezeigt.                         |
-> |          [qwinsta](qwinsta.md)          |                           Zeigt Informationen zu Sitzungen auf einem Remotedesktop-Sitzungshostserver.                            |
-> |          [rdpsign](rdpsign.md)          |                          Ermöglicht Ihnen, eine Remotedesktopprotokoll (RDP)-Datei digital signiert werden.                          |
-> |    [reset session](reset-session.md)    |                         Ermöglicht Ihnen, zurücksetzen (löschen) eine Sitzung auf einem Remotedesktop-Sitzungshostserver.                          |
-> |          [rwinsta](rwinsta.md)          |                         Ermöglicht Ihnen, zurücksetzen (löschen) eine Sitzung auf einem Remotedesktop-Sitzungshostserver.                          |
-> |           [shadow](shadow.md)           |            Ermöglicht Ihnen, die eine aktive Sitzung eines anderen Benutzers auf einen Remotedesktop-Sitzungshostserver Remote zu steuern.             |
-> |            [tscon](tscon.md)            |                               Eine Verbindung mit einer anderen Sitzung auf einem Remotedesktop-Sitzungshostserver.                                |
-> |         [tsdiscon](tsdiscon.md)         |                                 Trennt einen Remotedesktop-Sitzungshostserver eine Sitzung zu.                                  |
-> |           [tskill](tskill.md)           |                           Beendet einen Prozess auf einem Remotedesktop-Sitzungshostserver in einer Sitzung ausgeführt.                            |
-> |           [tsprof](tsprof.md)           |              Kopiert die Konfigurationsinformationen für die Remote Desktop Services-Benutzer von einem Benutzer.               |
+> |           [change](change.md)           | ändert Remotedesktop-Sitzungshost Servereinstellungen (RD-Sitzungs Host) für Anmeldungen, com-Port Zuordnungen und Installationsmodus. |
+> |     [change logon](change-logon.md)     |    Aktiviert oder deaktiviert Anmeldungen von Client Sitzungen auf einem Remote Desktop-Sitzungs Host Server oder zeigt den aktuellen Anmeldestatus an.     |
+> |      [change port](change-port.md)      |                   Listet die COM-Port Zuordnungen auf, die mit MS-DOS-Anwendungen kompatibel sind, oder ändert Sie.                    |
+> |      [change user](change-user.md)      |                                ändert den Installationsmodus für den RD-Sitzungs Host Server.                                |
+> |         [chglogon](chglogon.md)         |    Aktiviert oder deaktiviert Anmeldungen von Client Sitzungen auf einem Remote Desktop-Sitzungs Host Server oder zeigt den aktuellen Anmeldestatus an.     |
+> |          [chgport](chgport.md)          |                   Listet die COM-Port Zuordnungen auf, die mit MS-DOS-Anwendungen kompatibel sind, oder ändert Sie.                    |
+> |           [chgusr](chgusr.md)           |                                ändert den Installationsmodus für den RD-Sitzungs Host Server.                                |
+> |         [flattemp](flattemp.md)         |                                      Aktiviert oder deaktiviert flattemporäre Ordner.                                       |
+> |           [logoff](logoff.md)           |          Protokolliert einen Benutzer von einer Sitzung auf einem Remote Desktop-Sitzungs Host Server und löscht die Sitzung auf dem Server.          |
+> |              [msg](msg.md)              |                                Sendet eine Nachricht an einen Benutzer auf einem Remote Desktop-Sitzungs Host Server.                                 |
+> |            [mstsc](mstsc.md)            |                       erstellt Verbindungen mit Remote Desktop-Sitzungs Host Servern oder anderen Remote Computern.                        |
+> |          [qappsrv](qappsrv.md)          |                             Zeigt eine Liste aller RD-Sitzungs Host Server im Netzwerk an.                             |
+> |         [qprocess](qprocess.md)         |                  Zeigt Informationen zu Prozessen an, die auf einem Remote Desktop-Sitzungs Host Server ausgeführt werden.                   |
+> |            [query](query.md)            |                      Zeigt Informationen zu Prozessen, Sitzungen und RD-Sitzungs Host Servern an.                      |
+> |    [Abfrageprozess](query-process.md)    |                  Zeigt Informationen zu Prozessen an, die auf einem Remote Desktop-Sitzungs Host Server ausgeführt werden.                   |
+> |    [Abfrage Sitzung](query-session.md)    |                           Zeigt Informationen zu Sitzungen auf einem Remote Desktop-Sitzungs Host Server an.                            |
+> | [termserver Abfragen](query-termserver.md) |                             Zeigt eine Liste aller RD-Sitzungs Host Server im Netzwerk an.                             |
+> |       [Benutzer Abfragen](query-user.md)       |                         Zeigt Informationen zu Benutzersitzungen auf einem Remote Desktop-Sitzungs Host Server an.                         |
+> |            [quser](quser.md)            |                         Zeigt Informationen zu Benutzersitzungen auf einem Remote Desktop-Sitzungs Host Server an.                         |
+> |          [qwinsta](qwinsta.md)          |                           Zeigt Informationen zu Sitzungen auf einem Remote Desktop-Sitzungs Host Server an.                            |
+> |          [rdpsign](rdpsign.md)          |                          Ermöglicht das digitale Signieren einer Remotedesktopprotokoll Datei (. RDP).                          |
+> |    [reset session](reset-session.md)    |                         Ermöglicht es Ihnen, eine Sitzung auf einem Remote Desktop-Sitzungs Host Server zurückzusetzen (zu löschen).                          |
+> |          [rwinsta](rwinsta.md)          |                         Ermöglicht es Ihnen, eine Sitzung auf einem Remote Desktop-Sitzungs Host Server zurückzusetzen (zu löschen).                          |
+> |           [shadow](shadow.md)           |            Ermöglicht die Remote Steuerung einer aktiven Sitzung eines anderen Benutzers auf einem Remote Desktop-Sitzungs Host Server.             |
+> |            [tscon](tscon.md)            |                               Stellt eine Verbindung mit einer anderen Sitzung auf einem RD-Sitzungs Host Server her.                                |
+> |         [tsdiscon](tsdiscon.md)         |                                 Trennt eine Sitzung von einem Remote Desktop-Sitzungs Host Server.                                  |
+> |           [tskill](tskill.md)           |                           Beendet einen Prozess, der in einer Sitzung auf einem Remote Desktop-Sitzungs Host Server ausgeführt wird.                            |
+> |           [tsprof](tsprof.md)           |              Kopiert die Remotedesktopdienste Benutzer Konfigurationsinformationen von einem Benutzer in einen anderen.               |

@@ -1,8 +1,8 @@
 ---
 title: attach vdisk
-description: Windows-Befehle Thema **anfügen Vdisk** -fügt (manchmal als Mounts oder Flächen) eine virtuelle Festplatte (VHD), damit es auf dem Hostcomputer als ein lokales Festplattenlaufwerk angezeigt wird.
+description: Windows-Befehls Artikel zum **Anfügen von Vdisk-anfügen** (manchmal als "Bereitstellen" oder "Oberflächen" bezeichnet) eine virtuelle Festplatte (VHD), sodass Sie auf dem Host Computer als lokales Festplattenlaufwerk angezeigt wird.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fb33d040ce0b2a7a9d06951a7e80251a0d0da614
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d29eacfc8575ec50859733612a3d58b166d9402d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435221"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382637"
 ---
 # <a name="attach-vdisk"></a>attach vdisk
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Fügt an (manchmal als Mounts oder Flächen) eine virtuelle Festplatte (VHD), damit es auf dem Hostcomputer als ein lokales Festplattenlaufwerk angezeigt wird. Wenn die virtuelle Festplatte beim Anfügen bereits über eine Festplattenpartition und ein Dateisystemvolume verfügt, wird dem Volume auf der virtuellen Festplatte ein Laufwerkbuchstabe zugeordnet.
+wird eine virtuelle Festplatte (auch als Bereitstellung oder Oberfläche bezeichnet) an eine virtuelle Festplatte (VHD) angefügt, sodass Sie auf dem Host Computer als lokales Festplattenlaufwerk angezeigt wird. Wenn die virtuelle Festplatte beim Anfügen bereits über eine Festplattenpartition und ein Dateisystemvolume verfügt, wird dem Volume auf der virtuellen Festplatte ein Laufwerkbuchstabe zugeordnet.
 > [!NOTE]
-> Dieser Befehl gilt nur für Windows 7 und Windows Server 2008 R2 zur Verfügung.
+> Dieser Befehl gilt nur für Windows 7 und Windows Server 2008 R2.
 
 ## <a name="syntax"></a>Syntax
 ```
@@ -36,25 +36,25 @@ attach vdisk [readonly] { [sd=<SDDL>] | [usefilesd] } [noerr]
 
 |    Parameter     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     ReadOnly     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                             Fügt an die virtuelle Festplatte im schreibgeschützten Modus. Alle Schreibvorgänge Vorgang gibt einen Fehler.                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| sd=<SDDL string> | Legt den Benutzerfilter für die virtuelle Festplatte fest. Die Filterzeichenfolge muss im Format Security Descriptor Definition Language (SDDL) sein. Standardmäßig ermöglicht der Benutzerfilter zugreifen wie auf einem physischen Datenträger an.<br /><br />SDDL-Zeichenfolgen können komplex sein, aber in seiner einfachsten Form wird eine Sicherheitsbeschreibung, die Zugriff geschützt als eine besitzerverwaltete Zugriffssteuerungsliste (DACL) bezeichnet. Er hat folgendes Format: D: < Dacl_flags >< string_ace1 >< string_ace2 >... < String_acen ><br /><br />Allgemeine DACL-Flags sind:<br /><br />-   **Ein** Zugriff zulassen<br />-   **D** Verweigern des Zugriffs<br /><br />Allgemeine Rechte sind:<br /><br />-   **Bei allgemeiner Verfügbarkeit** Vollzugriff<br />-   **GR** Lesezugriff<br />-   **GW** Schreibzugriff<br /><br />Gewöhnliche Benutzerkonten sind:<br /><br />-   **BA** integrierte Administratoren<br />-   **AU** authentifizierte Benutzer<br />-   **CO** Ersteller-Besitzer<br />-   **WD** – alle Benutzer<br /><br />Beispiele:<br /><br />**D:P:(A;; GR;; AU** erhalten Sie Lesezugriff auf alle authentifizierten Benutzer<br /><br />**D:P:(A;; ALLGEMEIN VERFÜGBAR;; WD** ermöglicht allen Mitarbeitern volle rufen |
-|    usefilesd     |                                                                                                                                                                                                                                                                                                                                                                                          Gibt an, die die Sicherheitsbeschreibung für die VHD-Datei für die virtuelle Festplatte verwendet werden soll. Wenn die **Usefilesd** Parameter nicht angegeben wird, die virtuelle Festplatte hat keine explizite Sicherheitsbeschreibung, wenn es angegeben wird, mit der **Sd** Parameter.                                                                                                                                                                                                                                                                                                                                                                                          |
-|      Diskpart       |                                                                                                                                                                                                                                                                                                                                                                                                           Nur für Skripting verwendet. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden.                                                                                                                                                                                                                                                                                                                                                                                                           |
+|     ReadOnly     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                             Fügt die VHD als schreibgeschützt an. Bei jedem Schreibvorgang wird ein Fehler zurückgegeben.                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| SD = <SDDL string> | Legt den Benutzer Filter auf der VHD fest. Die Filter Zeichenfolge muss im SDDL-Format (Security Descriptor Definition Language) vorliegen. Standardmäßig ermöglicht der Benutzer Filter den Zugriff wie auf einem physischen Datenträger.<br /><br />SDDL-Zeichen folgen können komplex sein, aber in ihrer einfachsten Form wird eine Sicherheits Beschreibung, die den Zugriff schützt, als freigegebene Zugriffs Steuerungs Liste (DACL) bezeichnet. Dies hat folgendes Format: D: < dacl_flags > < string_ace1 > < string_ace2 >... < string_acen ><br /><br />Allgemeine DACL-Flags sind:<br /><br />-   **A** Zugriff zulassen<br />-   **D** Zugriff verweigern<br /><br />Allgemeine Rechte:<br /><br />@no__t **-0 allgemein** verfügbar<br />-   **gr** Lesezugriff<br />-   -**GW** -Schreibzugriff<br /><br />Allgemeine Benutzerkonten:<br /><br />@no__t **-0-** Administratoren, die in Administratoren integriert sind<br />@no__t **-0 Analytics** -authentifizierte Benutzer<br />Besitzer des -   -**mitstellers**<br />-   **WD** -jeder<br /><br />Beispiele:<br /><br />**d:p: (A;; Gr;;; Au** bietet Lesezugriff auf alle authentifizierten Benutzer.<br /><br />**d:p: (A;; GA;;; WD** bietet alle vollen Zugriffs Steuerungs Listen |
+|    usefilesd     |                                                                                                                                                                                                                                                                                                                                                                                          Gibt an, dass die Sicherheits Beschreibung der VHD-Datei auf der virtuellen Festplatte verwendet werden soll. Wenn der **usefilesd-** Parameter nicht angegeben wird, verfügt die VHD nicht über eine explizite Sicherheits Beschreibung, es sei denn, Sie wird mit dem **SD** -Parameter angegeben.                                                                                                                                                                                                                                                                                                                                                                                          |
+|      Noerr       |                                                                                                                                                                                                                                                                                                                                                                                                           Wird nur für die Skripterstellung verwendet. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.                                                                                                                                                                                                                                                                                                                                                                                                           |
 
 ## <a name="remarks"></a>Hinweise
-- Eine virtuelle Festplatte muss ausgewählt und getrennt werden, damit dieser Vorgang erfolgreich ausgeführt werden. Verwenden der **wählen Vdisk** Befehl aus, um die virtuelle Festplatte auswählen, und verschiebt den Fokus auf sie.
-  ## <a name="BKMK_Examples"></a>Beispiele für
-  Um die ausgewählte virtuelle Festplatte im schreibgeschützten Modus anzufügen, geben Sie Folgendes ein:
+- Es muss eine VHD ausgewählt und getrennt werden, damit dieser Vorgang erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl **Vdisk auswählen** eine VHD aus, und verschieben Sie den Fokus darauf.
+  ## <a name="BKMK_Examples"></a>Beispiele
+  Um die ausgewählte VHD als schreibgeschützt anzufügen, geben Sie Folgendes ein:
   ```
   attach vdisk readonly
   ```
-  ## <a name="additional-references"></a>Zusätzliche Referenzen
+  ## <a name="additional-references"></a>Weitere Verweise
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
-- [compact vdisk](compact-vdisk.md)
+- [Compact Vdisk](compact-vdisk.md)
 
-- [detail vdisk](detail-vdisk.md)
-- [Trennen Sie die virtuellen Datenträger](detach-vdisk.md)
-- [Erweitern Sie die virtuellen Datenträger](expand-vdisk.md)
-- [Zusammenführen von virtuellen Datenträger](merge-vdisk.md)
-- [select vdisk](select-vdisk.md)
+- [Detail-Vdisk](detail-vdisk.md)
+- [Vdisk trennen](detach-vdisk.md)
+- [Erweitern von Vdisk](expand-vdisk.md)
+- [Vdisk zusammenführen](merge-vdisk.md)
+- [Vdisk auswählen](select-vdisk.md)
 - [list_1](list_1.md)

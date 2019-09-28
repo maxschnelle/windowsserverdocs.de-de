@@ -6,53 +6,53 @@ author: kgremban
 manager: femila
 ms.date: 07/13/2016
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: web-app-proxy
-ms.openlocfilehash: ca4d8661f8f0252334bdecbde85603d8af5e2d2a
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: bd5c4c97e01942e7c5ab8ed1aba3fcf92030ac59
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446811"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404263"
 ---
 # <a name="publishing-applications-using-ad-fs-preauthentication"></a>Veröffentlichen von Anwendungen mit ADFS-Vorauthentifizierung
 
 >Gilt für: Windows Server 2016
 
-**Dieser Inhalt ist für die lokale Version des Webanwendungsproxys relevant. Zum Aktivieren des sicheren Zugriffs auf lokale Anwendungen über die Cloud finden Sie unter den [Azure AD-Anwendungsproxy-Inhalt](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/).**  
+**dieser Inhalt ist für die lokale Version des webanwendungsproxys relevant. Informationen zum Aktivieren des sicheren Zugriffs auf lokale Anwendungen über die Cloud finden Sie in den [Azure AD Anwendungs Proxy-Inhalt](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/).**  
   
-In diesem Thema wird beschrieben, wie Sie Anwendungen per Webanwendungsproxy mit Active Directory-Verbunddienste (AD FS)-Vorauthentifizierung veröffentlichen.  
+In diesem Thema wird beschrieben, wie Sie Anwendungen über den webanwendungsproxy mithilfe der Vorauthentifizierung Active Directory-Verbunddienste (AD FS) (AD FS) veröffentlichen.  
   
-Für alle Anwendungstypen, die Sie mit AD FS-Vorauthentifizierung veröffentlichen können, müssen Sie eine AD FS für den Verbunddienst Vertrauensstellung einer vertrauenden Seite hinzufügen.  
+Für alle Anwendungs Typen, die Sie mit AD FS-Vorauthentifizierung veröffentlichen können, müssen Sie der Verbunddienst eine AD FS Vertrauensstellung der vertrauenden Seite hinzufügen.  
   
-Der allgemeine Ablauf der AD FS-Vorauthentifizierung lautet wie folgt aus:  
+Der allgemeine Ablauf der AD FS Vorauthentifizierung lautet wie folgt:  
   
 > [!NOTE]  
-> Dieser Authentifizierungsablauf gilt nicht für Clients, die Microsoft Store-apps verwenden.  
+> Dieser Authentifizierungs Ablauf gilt nicht für Clients, die Microsoft Store-Apps verwenden.  
   
-1.  Das Clientgerät versucht auf eine veröffentlichte Webanwendung auf einer bestimmten Ressourcen-URL zuzugreifen; z. B. https://app1.contoso.com/.  
+1.  Das Client Gerät versucht, auf eine veröffentlichte Webanwendung unter einer bestimmten Ressourcen-URL zuzugreifen. beispielsweise https://app1.contoso.com/.  
   
-    Die Ressourcen-URL ist eine öffentliche Adresse, die auf der Webanwendungsproxy eingehende HTTPS-Anforderungen lauscht.  
+    Die Ressourcen-URL ist eine öffentliche Adresse, an der webanwendungsproxy eingehende HTTPS-Anforderungen überwacht.  
   
-    Wenn Sie HTTP, HTTPS-Umleitung aktiviert ist, wird Web Application Proxy auch für eingehende HTTP-Anforderungen lauschen.  
+    Wenn die Umleitung von http zu HTTPS aktiviert ist, lauscht der webanwendungsproxy auch auf eingehende HTTP-Anforderungen.  
   
-2.  Webanwendungsproxy leitet die HTTPS-Anforderung an den AD FS-Server mit URL-codierte Parameter, einschließlich der Ressourcen-URL und die AppRealm (ein relying Party-Bezeichner).  
+2.  Der webanwendungsproxy leitet die HTTPS-Anforderung mit URL-codierten Parametern an den AD FS Server um, einschließlich der Ressourcen-URL und der apprealm (Bezeichner der vertrauenden Seite).  
   
-    Der Benutzer wird authentifiziert, mit der AD FS-Server erforderliche Authentifizierungsmethode; z. B. Benutzername und Kennwort, zweistufige Authentifizierung mit einem Einmalkennwort und So weiter.  
+    Der Benutzer authentifiziert sich mit der für den AD FS Server erforderlichen Authentifizierungsmethode. beispielsweise Benutzername und Kennwort, zweistufige Authentifizierung mit einem einmaligen Kennwort usw.  
   
-3.  Nachdem der Benutzer authentifiziert wurde, Token die AD FS-Server ein token, das "Edge", mit den folgenden Informationen aus und leitet die HTTPS-an den Webanwendungsproxy-Server Anforderung:  
+3.  Nachdem der Benutzer authentifiziert wurde, gibt der AD FS Server ein Sicherheits Token (das edgetoken) mit den folgenden Informationen aus und leitet die HTTPS-Anforderung zurück an den webanwendungsproxy-Server:  
   
     -   Ressourcenbezeichner, auf den der Benutzer zuzugreifen versuchte  
   
-    -   Die Identität des Benutzers als einen Benutzerprinzipalnamen (UPN).  
+    -   Die Identität des Benutzers als Benutzer Prinzipal Name (User Principal Name, UPN).  
   
     -   Ablaufdatum der Zugriffserteilungsgenehmigung (d. h. dem Benutzer wird für einen beschränkten Zeitraum, nach dem er sich erneut authentifizieren muss, Zugriff gewährt)  
   
     -   Signatur der Informationen im Edgetoken  
   
-4.  Webanwendungsproxy empfängt die umgeleitete HTTPS-Anforderung von AD FS-Server mit dem edgetoken und überprüft und verwendet das Token wie folgt:  
+4.  Der webanwendungsproxy empfängt die umgeleitete HTTPS-Anforderung vom AD FS Server mit dem edgetoken und überprüft und verwendet das Token wie folgt:  
   
-    -   Überprüft, dass die Signatur über den Verbunddienst, der in der Konfiguration der Web Application Proxy konfiguriert ist.  
+    -   Überprüft, ob die edgetokensignatur aus dem Verbund Dienst stammt, der in der Konfiguration des webanwendungsproxys konfiguriert ist.  
   
     -   Er überprüft, ob das Token für die richtige Anwendung ausgestellt wurde.  
   
@@ -60,11 +60,11 @@ Der allgemeine Ablauf der AD FS-Vorauthentifizierung lautet wie folgt aus:
   
     -   Er verwendet bei Bedarf die Benutzeridentität für die Überprüfungen, z. B. zum Abrufen eines Kerberos-Tickets, wenn der Back-End-Server zur Verwendung der integrierten Windows-Authentifizierung konfiguriert ist.  
   
-5.  Wenn das edgetoken gültig ist, leitet der Web Application Proxy die HTTPS-Anforderung an die veröffentlichte Webanwendung, die per HTTP oder HTTPS.  
+5.  Wenn das edgetoken gültig ist, leitet der webanwendungsproxy die HTTPS-Anforderung über HTTP oder HTTPS an die veröffentlichte Webanwendung weiter.  
   
 6.  Der Client kann jetzt auf die veröffentlichte Webanwendung zugreifen, diese kann jedoch so konfiguriert sein, dass der Benutzer eine zusätzliche Authentifizierung durchführen muss. Wenn es sich bei der veröffentlichten Webanwendung z. B. um eine SharePoint-Website handelt und keine weitere Authentifizierung erforderlich ist, sieht der Benutzer die SharePoint-Website im Browser.  
   
-7.  Web Application Proxy speichert ein Cookie auf dem Clientgerät. Das Cookie wird vom Webanwendungsproxy verwendet, um zu identifizieren, dass diese Sitzung bereits eine Vorauthentifizierung stattgefunden hat und keine weitere Präauthentifizierung erforderlich ist.  
+7.  Der webanwendungsproxy speichert ein Cookie auf dem Client Gerät. Das Cookie wird vom webanwendungsproxy verwendet, um zu ermitteln, dass diese Sitzung bereits vorauthentifiziert wurde und keine weitere Vorauthentifizierung erforderlich ist.  
   
 > [!IMPORTANT]  
 > Achten Sie beim Konfigurieren der externen URL und der URL für den Back-End-Server darauf, dass Sie den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) und keine IP-Adresse einfügen.  
@@ -72,38 +72,38 @@ Der allgemeine Ablauf der AD FS-Vorauthentifizierung lautet wie folgt aus:
 > [!NOTE]  
 > Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit denen Sie einige der beschriebenen Vorgehensweisen automatisieren können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="BKMK_1.1"></a>Veröffentlichen einer anspruchsbasierten Anwendung für Webbrowserclients  
+## <a name="BKMK_1.1"></a>Veröffentlichen einer Anspruchs basierten Anwendung für Webbrowser Clients  
 Um eine Anwendung zu veröffentlichen, die Ansprüche für die Authentifizierung verwendet, müssen Sie dem Verbunddienst eine Vertrauensstellung der vertrauenden Seite für die Anwendung hinzufügen.  
   
 Beim Veröffentlichen von anspruchsbasierten Anwendungen, auf die über einen Browser zugegriffen wird, ist der allgemeine Authentifizierungsablauf wie folgt:  
   
-1.  Der Client versucht, die eine anspruchsbasierte Anwendung mit einem Webbrowser zugreifen; z. B. https://appserver.contoso.com/claimapp/.  
+1.  Der Client versucht, mithilfe eines Webbrowsers auf eine Anspruchs basierte Anwendung zuzugreifen. beispielsweise https://appserver.contoso.com/claimapp/.  
   
-2.  Der Webbrowser sendet eine HTTPS-Anforderung an den Webanwendungsproxy-Server, der Anforderung an die AD FS-Server umgeleitet.  
+2.  Der Webbrowser sendet eine HTTPS-Anforderung an den webanwendungsproxy-Server, der die Anforderung an den AD FS-Server umleitet.  
   
-3.  AD FS-Server authentifiziert den Benutzer und dem Gerät und leitet die Anforderung wieder an die Web Application Proxy. Die Anforderung enthält jetzt das Edgetoken. AD FS-Server hinzugefügt die Anforderung ein einmaliges Anmelden (SSO) Cookie, da der Benutzer bereits authentifiziert AD FS-Server durchgeführt hat.  
+3.  Der AD FS Server authentifiziert den Benutzer und das Gerät und leitet die Anforderung zurück an den webanwendungsproxy. Die Anforderung enthält jetzt das Edgetoken. Der AD FS Server fügt der Anforderung ein Single Sign-on-Cookie (SSO) hinzu, da der Benutzer bereits eine Authentifizierung für den AD FS Server durchgeführt hat.  
   
-4.  Webanwendungsproxy überprüft das Token, fügt ein eigenes Cookie hinzu und leitet die Anforderung an den Back-End-Server weiter.  
+4.  Der webanwendungsproxy überprüft das Token, fügt ein eigenes Cookie hinzu und leitet die Anforderung an den Back-End-Server weiter.  
   
-5.  Der Back-End-Server leitet die Anforderung an die AD FS-Server, um das anwendungssicherheitstoken abzurufen.  
+5.  Der Back-End-Server leitet die Anforderung an den AD FS-Server um, um das Anwendungs Sicherheits Token zu erhalten.  
   
-6.  Die Anforderung wird an den Back-End-Server von AD FS-Server umgeleitet. Die Anforderung enthält jetzt das Anwendungstoken und das SSO-Cookie. Dem Benutzer wird Zugriff auf die Anwendung gewährt, ohne einen Benutzernamen oder ein Kennwort eingeben zu müssen.  
+6.  Die Anforderung wird vom AD FS Server an den Back-End-Server umgeleitet. Die Anforderung enthält jetzt das Anwendungstoken und das SSO-Cookie. Dem Benutzer wird Zugriff auf die Anwendung gewährt, ohne einen Benutzernamen oder ein Kennwort eingeben zu müssen.  
   
 In diesem Verfahren wird beschrieben, wie Sie eine anspruchsbasierte Anwendung veröffentlichen, z. B. eine SharePoint-Website, auf die von Webbrowserclients zugegriffen wird. Bevor Sie beginnen, sollten Sie sicherstellen, dass Sie Folgendes ausgeführt haben:  
   
--   Erstellt eine Vertrauensstellung der vertrauenden Seite für die Anwendung in der AD FS-Verwaltungskonsole.  
+-   Es wurde eine Vertrauensstellung der vertrauenden Seite für die Anwendung in der AD FS Management Console erstellt.  
   
--   Überprüft, dass ein Zertifikat auf dem Webanwendungsproxy-Server für die Anwendung geeignet ist, die Sie veröffentlichen möchten.  
+-   Es wurde überprüft, ob ein Zertifikat auf dem webanwendungsproxy-Server für die zu veröffentlichende Anwendung geeignet ist.  
   
 
   
 #### <a name="to-publish-a-claims-based-application"></a>So veröffentlichen Sie eine anspruchsbasierte Anwendung  
   
-1.  Auf dem Webanwendungsproxy-Server, in der Remotezugriffs-Verwaltungskonsole in der **Navigation** Bereich klicken Sie auf **Web Application Proxy**, und klicken Sie dann in der **Aufgaben** Bereich klicken Sie auf **Veröffentlichen**.  
+1.  Klicken Sie auf dem webanwendungsproxy-Server in der Remote Zugriffs-Verwaltungskonsole im **Navigations** Bereich auf **webanwendungsproxy**, und klicken Sie dann im Bereich **Tasks** auf **veröffentlichen**.  
   
 2.  Klicken Sie auf der Seite **Willkommen** des **Assistenten zum Veröffentlichen neuer Anwendungen** auf **Weiter**.  
   
-3.  Auf der **Vorauthentifizierung** auf **Active Directory-Verbunddienste (AD FS)** , und klicken Sie dann auf **Weiter**.  
+3.  Klicken Sie auf der Seite **Vorauthentifizierung** auf **Active Directory-Verbunddienste (AD FS) (AD FS)** , und klicken Sie dann auf **weiter**.  
   
 4.  Wählen Sie auf der Seite **Unterstützte Clients** die Option **Web und MSOFBA**aus, und klicken Sie dann auf **Weiter**.  
   
@@ -119,16 +119,16 @@ In diesem Verfahren wird beschrieben, wie Sie eine anspruchsbasierte Anwendung v
   
     -   Wählen Sie in der Liste **Externes Zertifikat** ein Zertifikat aus, dessen Antragsteller die externe URL enthält.  
   
-    -   Geben Sie im Feld **URL des Back-End-Servers** die URL des Back-End-Servers ein. Beachten Sie, dass dieser Wert automatisch eingegeben wird, wenn Sie die externe URL eingeben und sie ändern sollten nur, wenn die URL des Back-End-Servers unterscheidet. z. B. https://sp/app1/.  
+    -   Geben Sie im Feld **URL des Back-End-Servers** die URL des Back-End-Servers ein. Beachten Sie, dass dieser Wert automatisch eingegeben wird, wenn Sie die externe URL eingeben. Sie sollten Sie nur ändern, wenn sich die URL des Back-End-Servers unterscheidet. beispielsweise https://sp/app1/.  
   
         > [!NOTE]  
-        > Webanwendungsproxy können Hostnamen in URLs übersetzt werden, jedoch keine Pfadnamen. Daher können Sie unterschiedliche Hostnamen eingeben, während der Pfadname gleich sein muss. Sie können z. B. einen externen URL eingeben https://apps.contoso.com/app1/ und Back-End-Server-URL des https://app-server/app1/. Allerdings kann nicht eingegebene externen URL %% https://apps.contoso.com/app1/ und Back-End-Server-URL des https://apps.contoso.com/internal-app1/.  
+        > Der webanwendungsproxy kann Hostnamen in URLs übersetzen, aber keine Pfadnamen übersetzen. Daher können Sie unterschiedliche Hostnamen eingeben, während der Pfadname gleich sein muss. Sie können z. b. eine externe URL https://apps.contoso.com/app1/ und eine Back-End-Server-URL https://app-server/app1/ eingeben. Sie können jedoch nicht die externe URL https://apps.contoso.com/app1/ und die URL des Back-End-Servers https://apps.contoso.com/internal-app1/ eingeben.  
   
 7.  Überprüfen Sie auf der Seite **Bestätigung** die Einstellungen, und klicken Sie dann auf **Veröffentlichen**. Sie können den PowerShell-Befehl kopieren, um weitere veröffentlichte Anwendungen einzurichten.  
   
 8.  Überprüfen Sie auf der Seite **Ergebnisse**, ob die Anwendung veröffentlicht wurde, und klicken Sie dann auf **Schließen**.  
   
-![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)***<em>Gleichwertige Windows PowerShell-Befehle</em>***  
+@no__t 0***<em>äquivalente Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -142,48 +142,48 @@ Add-WebApplicationProxyApplication
     -ADFSRelyingPartyName 'SP_Relying_Party'  
 ```  
   
-## <a name="BKMK_1.2"></a>Veröffentlichen Sie eine integrierte Windows-Authentifizierung basierenden Anwendung für Webbrowserclients  
-Webanwendungsproxy kann verwendet werden, zum Veröffentlichen von Anwendungen, die integrierte Windows-Authentifizierung verwendet wird. d. h. kann Web Application Proxy führt dabei die Präauthentifizierung wie erforderlich, und anschließend SSO bei der veröffentlichten Anwendung, die integrierte Windows-Authentifizierung verwendet. Um eine Anwendung zu veröffentlichen, die die integrierte Windows-Authentifizierung verwendet, müssen Sie dem Verbunddienst eine Ansprüche nicht unterstützende Vertrauensstellung der vertrauenden Seite für die Anwendung hinzufügen.  
+## <a name="BKMK_1.2"></a>Veröffentlichen einer integrierten Windows Authenticated-basierten Anwendung für Webbrowser Clients  
+Webanwendungsproxy kann zum Veröffentlichen von Anwendungen verwendet werden, die die integrierte Windows-Authentifizierung verwenden. Das heißt, der webanwendungsproxy führt die Vorauthentifizierung nach Bedarf durch und kann dann SSO für die veröffentlichte Anwendung durchführen, die die integrierte Windows-Authentifizierung verwendet. Um eine Anwendung zu veröffentlichen, die die integrierte Windows-Authentifizierung verwendet, müssen Sie dem Verbunddienst eine Ansprüche nicht unterstützende Vertrauensstellung der vertrauenden Seite für die Anwendung hinzufügen.  
   
-Um Web Application Proxy, einmaliges Anmelden (SSO) durchzuführen und führen Sie die Delegierung von Anmeldeinformationen mithilfe von Kerberos zu ermöglichen die eingeschränkte Delegierung der Webanwendungsproxy-Server zu einer Domäne angehören muss. Finden Sie unter [Planen von Active Directory](https://technet.microsoft.com/library/dn383648.aspx#BKMK_AD).  
+Damit der webanwendungsproxy Single Sign-on (SSO) ausführen und die Delegierung von Anmelde Informationen mithilfe der eingeschränkten Kerberos-Delegierung durchführen kann, muss der webanwendungsproxy-Server einer Domäne beitreten Siehe [Plan Active Directory](https://technet.microsoft.com/library/dn383648.aspx#BKMK_AD).  
   
-Damit die Benutzer den Zugriff auf Anwendungen, die integrierte Windows-Authentifizierung verwenden, muss der Webanwendungsproxy-Server für die veröffentlichte Anwendung Delegierung für Benutzer bereitstellen können. Diese Konfiguration kann auf dem Domänencontroller für jede Anwendung vorgenommen werden. Sie können hierzu auch auf dem Back-End-Server, wenn es auf Windows Server 2012 R2 oder Windows Server 2012 ausgeführt wird. Weitere Informationen finden Sie unter [What's New in Kerberos Authentication](https://technet.microsoft.com/library/hh831747.aspx).  
+Um Benutzern den Zugriff auf Anwendungen zu ermöglichen, die die integrierte Windows-Authentifizierung verwenden, muss der webanwendungsproxy-Server in der Lage sein, Benutzern die Delegierung für die veröffentlichte Anwendung Diese Konfiguration kann auf dem Domänencontroller für jede Anwendung vorgenommen werden. Dies können Sie auch auf dem Back-End-Server tun, wenn er unter Windows Server 2012 R2 oder Windows Server 2012 ausgeführt wird. Weitere Informationen finden Sie unter [What's New in Kerberos Authentication](https://technet.microsoft.com/library/hh831747.aspx).  
   
-Eine exemplarische Vorgehensweise zum Konfigurieren von Web Application Proxy zum Veröffentlichen einer Anwendung mithilfe der integrierten Windows-Authentifizierung finden Sie in [Konfigurieren einer Site-Verwendung der integrierten Windows-Authentifizierung](https://technet.microsoft.com/library/dn280943.aspx#BKMK_3).  
+Eine exemplarische Vorgehensweise zum Konfigurieren des webanwendungsproxys zum Veröffentlichen einer Anwendung mithilfe der integrierten Windows-Authentifizierung finden Sie unter [Konfigurieren eines Standorts für die Verwendung der integrierten Windows](https://technet.microsoft.com/library/dn280943.aspx#BKMK_3)-Authentifizierung.  
   
-Bei Verwendung der integrierten Windows-Authentifizierung für Back-End-Server die Authentifizierung zwischen Webanwendungsproxy und die veröffentlichte Anwendung nicht Claims-basierte, sondern verwendet stattdessen die eingeschränkte Kerberos-Delegierung zur Authentifizierung von Endbenutzern für die Anwendung. Der allgemeine Ablauf wird im Folgenden beschrieben:  
+Bei der Verwendung der integrierten Windows-Authentifizierung für Back-End-Server ist die Authentifizierung zwischen webanwendungsproxy und der veröffentlichten Anwendung nicht Anspruchs basiert, sondern verwendet die eingeschränkte Kerberos-Delegierung, um Endbenutzer bei der Anwendung zu authentifizieren. Der allgemeine Ablauf wird im Folgenden beschrieben:  
   
-1.  Der Client versucht, die eine nicht anspruchsbasierte Anwendung mit einem Webbrowser zugreifen; z. B. https://appserver.contoso.com/nonclaimapp/.  
+1.  Der Client versucht, mithilfe eines Webbrowsers auf eine nicht Anspruchs basierte Anwendung zuzugreifen. beispielsweise https://appserver.contoso.com/nonclaimapp/.  
   
-2.  Der Webbrowser sendet eine HTTPS-Anforderung an den Webanwendungsproxy-Server, der Anforderung an die AD FS-Server umgeleitet.  
+2.  Der Webbrowser sendet eine HTTPS-Anforderung an den webanwendungsproxy-Server, der die Anforderung an den AD FS-Server umleitet.  
   
-3.  AD FS-Server authentifiziert den Benutzer und leitet die Anforderung wieder an die Web Application Proxy. Die Anforderung enthält jetzt das Edgetoken.  
+3.  Der AD FS Server authentifiziert den Benutzer und leitet die Anforderung zurück an den webanwendungsproxy. Die Anforderung enthält jetzt das Edgetoken.  
   
-4.  Webanwendungsproxy überprüft das Token.  
+4.  Der webanwendungsproxy überprüft das Token.  
   
-5.  Wenn das Token gültig ist, ruft ein Kerberos-Ticket vom Domänencontroller mit Web Application Proxy für den Benutzer ab.  
+5.  Wenn das Token gültig ist, ruft der webanwendungsproxy im Auftrag des Benutzers ein Kerberos-Ticket vom Domänen Controller ab.  
   
-6.  Webanwendungsproxy fügt das Kerberos-Ticket der Anforderung als Teil des Simple and Protected GSS-API Negotiation Mechanismus (SPNEGO)-Tokens hinzu und leitet die Anforderung an den Back-End-Server weiter. Da die Anforderung das Kerberos-Ticket enthält, wird dem Benutzer der Zugriff auf die Anwendung gewährt, ohne sich zusätzlich authentifizieren zu müssen.  
+6.  Der webanwendungsproxy fügt das Kerberos-Ticket der Anforderung als Teil des Simple und Protected spschgo (GSS-API-Aushandlungs Mechanismus)-Tokens hinzu und leitet die Anforderung an den Back-End-Server weiter. Da die Anforderung das Kerberos-Ticket enthält, wird dem Benutzer der Zugriff auf die Anwendung gewährt, ohne sich zusätzlich authentifizieren zu müssen.  
   
 In diesem Verfahren wird beschrieben, wie Sie eine Anwendung mit integrierter Windows-Authentifizierung, z. B. eine Outlook Web App, veröffentlichen, auf die von Webbrowserclients zugegriffen wird. Bevor Sie beginnen, sollten Sie sicherstellen, dass Sie Folgendes ausgeführt haben:  
   
--   Non-Claims-aware Anspruchsanbieter-Vertrauensstellung für die Anwendung erstellt in der AD FS-Verwaltungskonsole.  
+-   Es wurde eine nicht Ansprüche unterstützende Vertrauensstellung der vertrauenden Seite für die Anwendung in der AD FS Management Console erstellt.  
   
--   Konfigurieren des Back-End-Servers zum Unterstützen der eingeschränkten Kerberos-Delegierung auf dem Domänencontroller oder mithilfe des Set-ADUser-Cmdlets mit dem Parameter %%amp;quot;-PrincipalsAllowedToDelegateToAccount%%amp;quot;. Beachten Sie, wenn der Back-End-Server unter Windows Server 2012 R2 oder Windows Server 2012 ausgeführt wird, können Sie diesen PowerShell-Befehl auf dem Back-End-Server auch ausführen.  
+-   Konfigurieren des Back-End-Servers zum Unterstützen der eingeschränkten Kerberos-Delegierung auf dem Domänencontroller oder mithilfe des Set-ADUser-Cmdlets mit dem Parameter %%amp;quot;-PrincipalsAllowedToDelegateToAccount%%amp;quot;. Beachten Sie Folgendes: Wenn der Back-End-Server unter Windows Server 2012 R2 oder Windows Server 2012 ausgeführt wird, können Sie diesen PowerShell-Befehl auch auf dem Back-End-Server ausführen.  
   
--   Wird dafür gesorgt, dass die Webanwendungsproxy-Server für die Delegierung auf die Dienstprinzipalnamen der Back-End-Server konfiguriert sind.  
+-   Stellen Sie sicher, dass die webanwendungsproxy-Server für die Delegierung an die Dienst Prinzipal Namen der Back-End-Server  
   
--   Überprüft, dass ein Zertifikat auf dem Webanwendungsproxy-Server für die Anwendung geeignet ist, die Sie veröffentlichen möchten.  
+-   Es wurde überprüft, ob ein Zertifikat auf dem webanwendungsproxy-Server für die zu veröffentlichende Anwendung geeignet ist.  
   
  
   
 #### <a name="to-publish-a-non-claims-based-application"></a>So veröffentlichen Sie eine nicht anspruchsbasierte Anwendung  
   
-1.  Auf dem Webanwendungsproxy-Server, in der Remotezugriffs-Verwaltungskonsole in der **Navigation** Bereich klicken Sie auf **Web Application Proxy**, und klicken Sie dann in der **Aufgaben** Bereich klicken Sie auf **Veröffentlichen**.  
+1.  Klicken Sie auf dem webanwendungsproxy-Server in der Remote Zugriffs-Verwaltungskonsole im **Navigations** Bereich auf **webanwendungsproxy**, und klicken Sie dann im Bereich **Tasks** auf **veröffentlichen**.  
   
 2.  Klicken Sie auf der Seite **Willkommen** des **Assistenten zum Veröffentlichen neuer Anwendungen** auf **Weiter**.  
   
-3.  Auf der **Vorauthentifizierung** auf **Active Directory-Verbunddienste (AD FS)** , und klicken Sie dann auf **Weiter**.  
+3.  Klicken Sie auf der Seite **Vorauthentifizierung** auf **Active Directory-Verbunddienste (AD FS) (AD FS)** , und klicken Sie dann auf **weiter**.  
   
 4.  Wählen Sie auf der Seite **Unterstützte Clients** die Option **Web und MSOFBA**aus, und klicken Sie dann auf **Weiter**.  
   
@@ -199,10 +199,10 @@ In diesem Verfahren wird beschrieben, wie Sie eine Anwendung mit integrierter Wi
   
     -   Wählen Sie in der Liste **Externes Zertifikat** ein Zertifikat aus, dessen Antragsteller die externe URL enthält.  
   
-    -   Geben Sie im Feld **URL des Back-End-Servers** die URL des Back-End-Servers ein. Beachten Sie, dass dieser Wert automatisch eingegeben wird, wenn Sie die externe URL eingeben und sie ändern sollten nur, wenn die URL des Back-End-Servers unterscheidet. z. B. https://owa/.  
+    -   Geben Sie im Feld **URL des Back-End-Servers** die URL des Back-End-Servers ein. Beachten Sie, dass dieser Wert automatisch eingegeben wird, wenn Sie die externe URL eingeben. Sie sollten Sie nur ändern, wenn sich die URL des Back-End-Servers unterscheidet. beispielsweise https://owa/.  
   
         > [!NOTE]  
-        > Webanwendungsproxy können Hostnamen in URLs übersetzt werden, jedoch keine Pfadnamen. Daher können Sie unterschiedliche Hostnamen eingeben, während der Pfadname gleich sein muss. Sie können z. B. einen externen URL eingeben https://apps.contoso.com/app1/ und Back-End-Server-URL des https://app-server/app1/. Allerdings kann nicht eingegebene externen URL %% https://apps.contoso.com/app1/ und Back-End-Server-URL des https://apps.contoso.com/internal-app1/.  
+        > Der webanwendungsproxy kann Hostnamen in URLs übersetzen, aber keine Pfadnamen übersetzen. Daher können Sie unterschiedliche Hostnamen eingeben, während der Pfadname gleich sein muss. Sie können z. b. eine externe URL https://apps.contoso.com/app1/ und eine Back-End-Server-URL https://app-server/app1/ eingeben. Sie können jedoch nicht die externe URL https://apps.contoso.com/app1/ und die URL des Back-End-Servers https://apps.contoso.com/internal-app1/ eingeben.  
   
     -   Geben Sie im Feld **Dienstprinzipalname des Back-End-Servers** den Dienstprinzipalnamen für den Back-End-Server ein, %%amp;quot;z. B. HTTP/owa.contoso.com%%amp;quot;.  
   
@@ -210,7 +210,7 @@ In diesem Verfahren wird beschrieben, wie Sie eine Anwendung mit integrierter Wi
   
 8.  Überprüfen Sie auf der Seite **Ergebnisse**, ob die Anwendung veröffentlicht wurde, und klicken Sie dann auf **Schließen**.  
   
-![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)***<em>Gleichwertige Windows PowerShell-Befehle</em>***  
+@no__t 0***<em>äquivalente Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -225,15 +225,15 @@ Add-WebApplicationProxyApplication
     -ADFSRelyingPartyName 'Non-Claims_Relying_Party'  
 ```  
   
-## <a name="BKMK_1.3"></a>Veröffentlichen einer Anwendung, die MS-OFBA verwendet.  
-Webanwendungsproxy unterstützt den Zugriff von Microsoft Office-Clients wie Microsoft Word, greifen Sie auf Dokumente und Daten auf Back-End-Servern. Der einzige Unterschied zwischen diesen Anwendungen und einem Standardbrowser besteht darin, dass die Umleitung zum Sicherheitstokendienst nicht durch eine reguläre HTTP-Umleitung erfolgt, sondern mit speziellen MS-OFBA-Headern gemäß: [ https://msdn.microsoft.com/library/dd773463(v=office.12).aspx ](https://msdn.microsoft.com/library/dd773463(v=office.12).aspx). Die Back-End-Anwendung kann die anspruchsbasierte Authentifizierung oder die integrierte Windows-Authentifizierung verwenden.   
-Zum Veröffentlichen einer Anwendung für Clients, die MS-OFBA verwenden, müssen Sie eine Vertrauensstellung der vertrauenden Seite für die Anwendung für den Verbunddienst hinzufügen. Je nach Anwendung können Sie die anspruchsbasierte Authentifizierung oder die integrierte Windows-Authentifizierung verwenden. Daher muss die entsprechende Vertrauensstellung der vertrauenden Seite für die Anwendung hinzugefügt werden.  
+## <a name="BKMK_1.3"></a>Veröffentlichen einer Anwendung, die MS-ofba verwendet  
+Webanwendungsproxy unterstützt den Zugriff von Microsoft Office Clients wie Microsoft Word, die auf Dokumente und Daten auf Back-End-Servern zugreifen Der einzige Unterschied zwischen diesen Anwendungen und einem Standardbrowser besteht darin, dass die Umleitung zum Sicherheitstokendienst nicht über eine reguläre HTTP-Umleitung erfolgt, sondern mit speziellen MS-ofba-Headern, wie in: [https://msdn.microsoft.com/library/dd773463(v=office.12).aspx](https://msdn.microsoft.com/library/dd773463(v=office.12).aspx)angegeben. Die Back-End-Anwendung kann die anspruchsbasierte Authentifizierung oder die integrierte Windows-Authentifizierung verwenden.   
+Zum Veröffentlichen einer Anwendung für Clients, die MS-ofba verwenden, müssen Sie der Verbunddienst eine Vertrauensstellung der vertrauenden Seite für die Anwendung hinzufügen. Je nach Anwendung können Sie die anspruchsbasierte Authentifizierung oder die integrierte Windows-Authentifizierung verwenden. Daher muss die entsprechende Vertrauensstellung der vertrauenden Seite für die Anwendung hinzugefügt werden.  
   
-Um Web Application Proxy, einmaliges Anmelden (SSO) durchzuführen und führen Sie die Delegierung von Anmeldeinformationen mithilfe von Kerberos zu ermöglichen die eingeschränkte Delegierung der Webanwendungsproxy-Server zu einer Domäne angehören muss. Finden Sie unter [Planen von Active Directory](https://technet.microsoft.com/library/dn383648.aspx#BKMK_AD).  
+Damit der webanwendungsproxy Single Sign-on (SSO) ausführen und die Delegierung von Anmelde Informationen mithilfe der eingeschränkten Kerberos-Delegierung durchführen kann, muss der webanwendungsproxy-Server einer Domäne beitreten Siehe [Plan Active Directory](https://technet.microsoft.com/library/dn383648.aspx#BKMK_AD).  
   
-Wenn die Anwendung die anspruchsbasierte Authentifizierung verwendet, sind keine weiteren Planungsschritte erforderlich. Wenn die Anwendung die integrierte Windows-Authentifizierung verwendet, finden Sie unter [veröffentlichen Sie eine integrierte Windows-Authentifizierung basierenden Anwendung für Webbrowserclients](../web-application-proxy/../web-application-proxy/Publishing-Applications-using-AD-FS-Preauthentication.md#BKMK_1.2).  
+Wenn die Anwendung die anspruchsbasierte Authentifizierung verwendet, sind keine weiteren Planungsschritte erforderlich. Wenn die Anwendung die integrierte Windows-Authentifizierung verwendet hat, finden Sie weitere Informationen unter [Veröffentlichen einer integrierten Windows Authenticated-basierten Anwendung für Webbrowser Clients](../web-application-proxy/../web-application-proxy/Publishing-Applications-using-AD-FS-Preauthentication.md#BKMK_1.2).  
   
-Der Authentifizierungsablauf für Clients, die MS-OFBA-Protokoll mit anspruchsbasierter Authentifizierung verwenden, wird unten beschrieben. Bei der Authentifizierung für dieses Szenario kann das Anwendungstoken in der URL oder im Textkörper verwendet werden.  
+Der Authentifizierungs Ablauf für Clients, die das MS-ofba-Protokoll mithilfe der Anspruchs basierten Authentifizierung verwenden, wird im folgenden beschrieben. Bei der Authentifizierung für dieses Szenario kann das Anwendungstoken in der URL oder im Textkörper verwendet werden.  
   
 1.  Der Benutzer arbeitet in einem Office-Programm und öffnet über die Liste **Zuletzt verwendete Dokumente** eine Datei auf einer SharePoint-Website.  
   
@@ -242,57 +242,57 @@ Der Authentifizierungsablauf für Clients, die MS-OFBA-Protokoll mit anspruchsba
     > [!NOTE]  
     > In manchen Fällen wird das Fenster möglicherweise nicht angezeigt, weil der Client bereits authentifiziert ist.  
   
-3.  Web Application Proxy leitet die Anforderung an die AD FS-Server, der die Authentifizierung durchführt.  
+3.  Der webanwendungsproxy leitet die Anforderung an den AD FS-Server um, der die Authentifizierung ausführt.  
   
-4.  AD FS-Server leitet die Anforderung an die Web Application Proxy. Die Anforderung enthält jetzt das Edgetoken.  
+4.  Der AD FS Server leitet die Anforderung zurück an den webanwendungsproxy. Die Anforderung enthält jetzt das Edgetoken.  
   
-5.  AD FS-Server hinzugefügt die Anforderung ein einmaliges Anmelden (SSO) Cookie, da der Benutzer bereits authentifiziert AD FS-Server durchgeführt hat.  
+5.  Der AD FS Server fügt der Anforderung ein Single Sign-on-Cookie (SSO) hinzu, da der Benutzer bereits eine Authentifizierung für den AD FS Server durchgeführt hat.  
   
-6.  Webanwendungsproxy überprüft das Token und leitet die Anforderung an den Back-End-Server weiter.  
+6.  Der webanwendungsproxy überprüft das Token und leitet die Anforderung an den Back-End-Server weiter.  
   
-7.  Der Back-End-Server leitet die Anforderung an die AD FS-Server, um das anwendungssicherheitstoken abzurufen.  
+7.  Der Back-End-Server leitet die Anforderung an den AD FS-Server um, um das Anwendungs Sicherheits Token zu erhalten.  
   
 8.  Die Anforderung wird an den Back-End-Server umgeleitet. Die Anforderung enthält jetzt das Anwendungstoken und das SSO-Cookie. Dem Benutzer wird Zugriff auf die SharePoint-Website gewährt, ohne zum Anzeigen der Datei einen Benutzernamen oder ein Kennwort eingeben zu müssen.  
   
-Die Schritte zum Veröffentlichen einer Anwendung, die MS-OFBA verwendet sind identisch mit den Schritten für eine anspruchsbasierte Anwendung oder eine nicht anspruchsbasierte Anwendung. Anspruchsbasierte Anwendungen finden Sie unter [veröffentlichen eine anspruchsbasierten Anwendung für Webbrowserclients](../web-application-proxy/../web-application-proxy/Publishing-Applications-using-AD-FS-Preauthentication.md#BKMK_1.1), nicht anspruchsbasierte Anwendungen finden Sie unter [veröffentlichen Sie eine integrierte Windows-Authentifizierung basierenden Anwendung für Web Browser-Clients](../web-application-proxy/../web-application-proxy/Publishing-Applications-using-AD-FS-Preauthentication.md#BKMK_1.2). Webanwendungsproxy erkennt den Client automatisch und authentifiziert den Benutzer bei Bedarf.  
+Die Schritte zum Veröffentlichen einer Anwendung, die MS-ofba verwendet, sind identisch mit den Schritten für eine Anspruchs basierte Anwendung oder eine nicht Anspruchs basierte Anwendung. Informationen zu Anspruchs basierten Anwendungen finden Sie unter Veröffentlichen [einer Anspruchs basierten Anwendung für Webbrowser Clients](../web-application-proxy/../web-application-proxy/Publishing-Applications-using-AD-FS-Preauthentication.md#BKMK_1.1)für nicht Anspruchs basierte Anwendungen. Weitere Informationen finden Sie unter [Veröffentlichen einer integrierten Windows Authenticated-basierten Anwendung für Webbrowser Clients](../web-application-proxy/../web-application-proxy/Publishing-Applications-using-AD-FS-Preauthentication.md#BKMK_1.2). Der webanwendungsproxy erkennt den Client automatisch und authentifiziert den Benutzer bei Bedarf.  
   
-## <a name="publish-an-application-that-uses-http-basic"></a>Veröffentlichen einer Anwendung, die HTTP-Standardauthentifizierung verwendet.  
+## <a name="publish-an-application-that-uses-http-basic"></a>Veröffentlichen einer Anwendung, die HTTP Basic verwendet  
 
-HTTP-Standardauthentifizierung ist die Authorization-Protokoll von viele Protokolle zum Verbinden von rich-Clients, einschließlich Smartphones mit Ihrem Exchange-Postfach verwendet. Weitere Informationen zu HTTP-Standardauthentifizierung, finden Sie unter [RFC 2617](https://www.ietf.org/rfc/rfc2617.txt). Webanwendungsproxy an, die normalerweise mit AD FS mithilfe von umleitungen interagiert; Die meisten rich Clients unterstützen keine Cookies oder State Management. Auf diese Weise kann die Web Application Proxy die HTTP-app erhalten eine Ansprüche nicht Vertrauensstellung der vertrauenden für die Anwendung für den Verbunddienst. Finden Sie unter [Planen von Active Directory](https://technet.microsoft.com/library/dn383648.aspx#BKMK_AD).  
+HTTP Basic ist das Autorisierungs Protokoll, das von vielen Protokollen verwendet wird, um Rich-Clients, einschließlich Smartphones, mit Ihrem Exchange-Postfach zu verbinden. Weitere Informationen zu HTTP Basic finden Sie unter [RFC 2617](https://www.ietf.org/rfc/rfc2617.txt). Der webanwendungsproxy interagiert traditionell mit AD FS mithilfe von Umleitungen. die meisten Rich-Clients unterstützen keine Cookies oder Zustands Verwaltung. Auf diese Weise ermöglicht der webanwendungsproxy der http-APP, eine nicht anspruchsvolle Vertrauensstellung der vertrauenden Seite für die Anwendung für die Verbunddienst zu empfangen. Siehe [Plan Active Directory](https://technet.microsoft.com/library/dn383648.aspx#BKMK_AD).  
   
-Der Authentifizierungsablauf für Clients, die HTTP-Standardauthentifizierung zu verwenden, wird die nachfolgend und in diesem Diagramm beschrieben:  
+Der Authentifizierungs Ablauf für Clients, die HTTP Basic verwenden, wird im folgenden und in diesem Diagramm beschrieben:  
   
 ![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/WebApplicationProxy_httpBasicflow.png)  
   
-1.  Der Benutzer versucht, eine veröffentlichte Webanwendung eine Telefon-Client zugreifen.  
+1.  Der Benutzer versucht, auf eine veröffentlichte Webanwendung einen Telefon Client zuzugreifen.  
   
-2.  Die app sendet eine HTTPS-Anforderung an die URL, die von Web Application Proxy veröffentlicht.  
+2.  Die APP sendet eine HTTPS-Anforderung an die vom webanwendungsproxy veröffentlichte URL.  
   
-3.  Wenn die Anforderung keine Anmeldeinformationen enthält, gibt eine HTTP 401-Antwort an die app, die mit der URL des authentifizierenden AD FS-Server von Web Application Proxy zurück.  
+3.  Wenn die Anforderung keine Anmelde Informationen enthält, gibt der webanwendungsproxy eine HTTP 401-Antwort an die APP zurück, die die URL des authentifizier enden AD FS Servers enthält.  
   
-4.  Der Benutzer sendet die HTTPS-Anforderung an die app erneut mit Autorisierung, legen Sie auf Basic und den Benutzernamen und BASE64 verschlüsselte Kennwort des Benutzers in den Www-Authentifizierungsheader der Anforderung.  
+4.  Der Benutzer sendet die HTTPS-Anforderung erneut an die APP, wobei die Autorisierung im HTTPS-Authenticate-Anforderungs Header auf Basic und Benutzername und auf Basis 64 verschlüsseltes Kennwort des Benutzers festgelegt ist.  
   
-5.  Da das Gerät kann nicht mit AD FS umgeleitet werden, sendet der Web Application Proxy einer Authentifizierungsanforderung mit AD FS mit den Anmeldeinformationen, einschließlich Benutzername und Kennwort aufweist. Das Token ist im Auftrag des Geräts abgerufen.  
+5.  Da das Gerät nicht an AD FS umgeleitet werden kann, sendet der webanwendungsproxy eine Authentifizierungsanforderung an AD FS mit den Anmelde Informationen, einschließlich Benutzername und Kennwort. Das Token wird im Namen des Geräts abgerufen.  
   
-6.  Um die Anzahl der Anforderungen an die AD FS gesendet zu minimieren, Überprüfung Web Application Proxy, von nachfolgenden Clientanforderungen zwischengespeicherte Token für verwenden, solange das Token gültig ist. Webanwendungsproxy wird in regelmäßigen Abständen den Cache bereinigt. Sie können die Größe des Caches mit den Leistungsindikator "" anzeigen.  
+6.  Um die Anzahl der an den AD FS gesendeten Anforderungen, den webanwendungsproxy, zu minimieren, überprüft nachfolgende Client Anforderungen mithilfe zwischen gespeicherter Token, solange das Token gültig ist. Der webanwendungsproxy bereinigt den Cache regelmäßig. Sie können die Größe des Caches mithilfe des Leistungs Zählers anzeigen.  
   
-7.  Wenn das Token gültig ist, Web Application Proxy leitet die Anforderung an den Back-End-Server und dem Benutzer wird Zugriff auf die veröffentlichte Webanwendung gewährt.  
+7.  Wenn das Token gültig ist, leitet der webanwendungsproxy die Anforderung an den Back-End-Server weiter, und dem Benutzer wird Zugriff auf die veröffentlichte Webanwendung gewährt.  
   
-Das folgende Verfahren wird erläutert, wie grundlegende HTTP-Anwendungen zu veröffentlichen.  
+Im folgenden Verfahren wird erläutert, wie http-Basisanwendungen veröffentlicht werden.  
   
-#### <a name="to-publish-an-http-basic-application"></a>Veröffentlichen eine Anwendung für die HTTP-Standardauthentifizierung  
+#### <a name="to-publish-an-http-basic-application"></a>So veröffentlichen Sie eine HTTP-Basisanwendung  
   
-1.  Auf dem Webanwendungsproxy-Server, in der Remotezugriffs-Verwaltungskonsole in der **Navigation** Bereich klicken Sie auf **Web Application Proxy**, und klicken Sie dann in der **Aufgaben** Bereich klicken Sie auf **Veröffentlichen**.  
+1.  Klicken Sie auf dem webanwendungsproxy-Server in der Remote Zugriffs-Verwaltungskonsole im **Navigations** Bereich auf **webanwendungsproxy**, und klicken Sie dann im Bereich **Tasks** auf **veröffentlichen**.  
   
 2.  Klicken Sie auf der Seite **Willkommen** des **Assistenten zum Veröffentlichen neuer Anwendungen** auf **Weiter**.  
   
-3.  Auf der **Vorauthentifizierung** auf **Active Directory-Verbunddienste (AD FS)** , und klicken Sie dann auf **Weiter**.  
+3.  Klicken Sie auf der Seite **Vorauthentifizierung** auf **Active Directory-Verbunddienste (AD FS) (AD FS)** , und klicken Sie dann auf **weiter**.  
   
-4.  Auf der **unterstützte Clients** Seite **HTTP-Standardauthentifizierung** , und klicken Sie dann auf **Weiter**.  
+4.  Wählen Sie auf der Seite **Unterstützte Clients** die Option **HTTP Basic** aus, und klicken Sie auf **weiter**.  
   
-    Wenn Sie den Zugriff auf Exchange nur von Workplace Join-Geräten zu aktivieren möchten, wählen Sie die **Aktivieren des Zugriffs nur für den Arbeitsplatz eingebundenen Geräten** Feld. Weitere Informationen finden Sie unter [Verbinden mit einem Arbeitsplatz von einem beliebigen Gerät für SSO und nahtlose Second Factor Authentication Across Company Applications](https://technet.microsoft.com/library/dn280945.aspx).  
+    Wenn Sie den Zugriff auf Exchange nur über mit dem Arbeitsplatz verbundene Geräte aktivieren möchten, aktivieren Sie das **Kontrollkästchen Zugriff nur für mit dem Arbeitsplatz verbundene Geräte aktivieren** . Weitere Informationen finden [Sie unter Verbinden mit einem Arbeitsplatz von einem beliebigen Gerät für SSO und nahtlose zweistufige Authentifizierung bei allen Unternehmensanwendungen](https://technet.microsoft.com/library/dn280945.aspx).  
   
-5.  Wählen Sie auf der Seite **Vertrauende Seite** in der Liste die vertrauende Seite für die zu veröffentlichende Anwendung aus, und klicken Sie dann auf **Weiter**. Beachten Sie, die diese Liste nur enthält auf anspruchsbasierten vertrauende Seiten.  
+5.  Wählen Sie auf der Seite **Vertrauende Seite** in der Liste die vertrauende Seite für die zu veröffentlichende Anwendung aus, und klicken Sie dann auf **Weiter**. Beachten Sie, dass diese Liste nur auf Ansprüche abhängige Seiten enthält.  
   
 6.  Führen Sie auf der Seite **Veröffentlichungseinstellungen** die folgenden Schritte aus, und klicken Sie dann auf **Weiter**:  
   
@@ -300,21 +300,21 @@ Das folgende Verfahren wird erläutert, wie grundlegende HTTP-Anwendungen zu ver
   
         Dieser Name wird nur in der Remotezugriffs-Verwaltungskonsole in der Liste der veröffentlichten Anwendungen verwendet.  
   
-    -   In der **Externalurl** Geben Sie die externe URL für diese Anwendung ein, z. B. "Mail.contoso.com"  
+    -   Geben Sie im Feld **externe URL** die externe URL für diese Anwendung ein. Beispiel: Mail.contoso.com  
   
     -   Wählen Sie in der Liste **Externes Zertifikat** ein Zertifikat aus, dessen Antragsteller die externe URL enthält.  
   
-    -   Geben Sie im Feld **URL des Back-End-Servers** die URL des Back-End-Servers ein. Beachten Sie, dass dieser Wert automatisch eingegeben wird, wenn Sie die externe URL eingeben und sie ändern sollten nur, wenn die URL des Back-End-Servers unterscheidet. z. B. "Mail.contoso.com".  
+    -   Geben Sie im Feld **URL des Back-End-Servers** die URL des Back-End-Servers ein. Beachten Sie, dass dieser Wert automatisch eingegeben wird, wenn Sie die externe URL eingeben. Sie sollten Sie nur ändern, wenn sich die URL des Back-End-Servers unterscheidet. beispielsweise Mail.contoso.com.  
   
 7.  Überprüfen Sie auf der Seite **Bestätigung** die Einstellungen, und klicken Sie dann auf **Veröffentlichen**. Sie können den PowerShell-Befehl kopieren, um weitere veröffentlichte Anwendungen einzurichten.  
   
 8.  Überprüfen Sie auf der Seite **Ergebnisse**, ob die Anwendung veröffentlicht wurde, und klicken Sie dann auf **Schließen**.  
   
-![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)***<em>Gleichwertige Windows PowerShell-Befehle</em>***  
+@no__t 0***<em>äquivalente Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
-Dieses Windows PowerShell-Skript kann Vorauthentifizierung für alle Geräte, nicht nur die Geräte dem Arbeitsplatz beigetreten.  
+Dieses Windows PowerShell-Skript ermöglicht die Vorauthentifizierung für alle Geräte, nicht nur für Arbeitsplatz verbundene Geräte.  
   
 ```  
 Add-WebApplicationProxyApplication  
@@ -326,7 +326,7 @@ Add-WebApplicationProxyApplication
      -ADFSRelyingPartyName 'EAS_Relying_Party'  
 ```  
   
-Die folgenden führt die Vorauthentifizierung nur Arbeitsplatz eingebundenen Hybridgeräten:  
+Im folgenden werden nur mit dem Arbeitsplatz verbundene Geräte vorab authentifiziert:  
   
 ```  
 Add-WebApplicationProxyApplication  
@@ -339,61 +339,61 @@ Add-WebApplicationProxyApplication
      -ADFSRelyingPartyName 'EAS_Relying_Party'  
 ```  
   
-## <a name="BKMK_1.4"></a>Veröffentlichen einer Anwendung, die "oauth2", z. B. eine Microsoft Store-App verwendet.  
-Um eine Anwendung für Microsoft Store-apps zu veröffentlichen, müssen Sie eine Vertrauensstellung der vertrauenden Seite für die Anwendung für den Verbunddienst hinzufügen.  
+## <a name="BKMK_1.4"></a>Veröffentlichen einer Anwendung, die OAuth2 verwendet, z. b. eine Microsoft Store-App  
+Zum Veröffentlichen einer Anwendung für Microsoft Store-Apps müssen Sie der Verbunddienst eine Vertrauensstellung der vertrauenden Seite für die Anwendung hinzufügen.  
   
-Um Web Application Proxy, einmaliges Anmelden (SSO) durchzuführen und führen Sie die Delegierung von Anmeldeinformationen mithilfe von Kerberos zu ermöglichen die eingeschränkte Delegierung der Webanwendungsproxy-Server zu einer Domäne angehören muss. Finden Sie unter [Planen von Active Directory](https://technet.microsoft.com/library/dn383648.aspx#BKMK_AD).  
-  
-> [!NOTE]  
-> Webanwendungsproxy unterstützt die Veröffentlichung nur für Microsoft Store-apps, die das OAuth 2.0-Protokoll verwenden.  
-  
-In der AD FS-Verwaltungskonsole müssen Sie sicherstellen, dass der Proxy die OAuth-Endpunkt aktiviert ist. Öffnen Sie dazu die AD FS-Verwaltungskonsole, erweitern Sie den Knoten **Dienst**, klicken Sie auf **Endpunkte**, suchen Sie in der Liste **Endpunkte** nach dem OAuth-Endpunkt, und vergewissern Sie sich, dass in der Spalte **Proxy aktiviert** der Wert **Ja**angezeigt wird.  
-  
-Der Authentifizierungsablauf für Clients, die Microsoft Store-apps verwenden, lautet wie folgt:  
+Damit der webanwendungsproxy Single Sign-on (SSO) ausführen und die Delegierung von Anmelde Informationen mithilfe der eingeschränkten Kerberos-Delegierung durchführen kann, muss der webanwendungsproxy-Server einer Domäne beitreten Siehe [Plan Active Directory](https://technet.microsoft.com/library/dn383648.aspx#BKMK_AD).  
   
 > [!NOTE]  
-> Die Web Application Proxy leitet an die AD FS-Server für die Authentifizierung. Da es sich bei Microsoft Store-apps umleitungen nicht unterstützen, werden bei Verwendung von Microsoft Store-apps, ist es erforderlich, um die URL des AD FS-Server mit dem Cmdlet Set-WebApplicationProxyConfiguration und dem OAuthAuthenticationURL-Parameter festzulegen.  
+> Webanwendungsproxy unterstützt die Veröffentlichung nur für Microsoft Store-Apps, die das OAuth 2,0-Protokoll verwenden  
+  
+In der AD FS-Verwaltungskonsole müssen Sie sicherstellen, dass der OAuth-Endpunkt Proxy aktiviert ist. Öffnen Sie dazu die AD FS-Verwaltungskonsole, erweitern Sie den Knoten **Dienst**, klicken Sie auf **Endpunkte**, suchen Sie in der Liste **Endpunkte** nach dem OAuth-Endpunkt, und vergewissern Sie sich, dass in der Spalte **Proxy aktiviert** der Wert **Ja**angezeigt wird.  
+  
+Der Authentifizierungs Ablauf für Clients, die Microsoft Store-Apps verwenden, wird im folgenden beschrieben:  
+  
+> [!NOTE]  
+> Der webanwendungsproxy leitet zur Authentifizierung an den AD FS-Server weiter. Da Microsoft Store-Apps Umleitungen nicht unterstützen, ist es erforderlich, die URL des AD FS Servers mithilfe des Cmdlets Set-webapplicationproxyconfiguration und des oauthauthenticationurl-Parameters festzulegen, wenn Sie Microsoft Store-Apps verwenden.  
 >   
-> Microsoft Store-apps können nur mithilfe von Windows PowerShell veröffentlicht werden.  
+> Microsoft Store-Apps können nur mithilfe von Windows PowerShell veröffentlicht werden.  
   
-1.  Der Client versucht, eine veröffentlichte Webanwendung, die mit einer Microsoft Store-app zugreifen.  
+1.  Der Client versucht, mithilfe einer Microsoft Store-App auf eine veröffentlichte Webanwendung zuzugreifen.  
   
-2.  Die app sendet eine HTTPS-Anforderung an die URL, die von Web Application Proxy veröffentlicht.  
+2.  Die APP sendet eine HTTPS-Anforderung an die vom webanwendungsproxy veröffentlichte URL.  
   
-3.  Webanwendungsproxy gibt eine HTTP 401-Antwort an die app, die mit der URL des authentifizierenden AD FS-Server zurück. Dieser Prozess wird als "Ermittlung" bezeichnet.  
+3.  Der webanwendungsproxy gibt eine HTTP 401-Antwort an die APP zurück, die die URL des authentifizier enden AD FS Servers enthält. Dieser Prozess wird als "Ermittlung" bezeichnet.  
   
     > [!NOTE]  
-    > Wenn die app die URL des authentifizierenden AD FS-Server kann und bereits ein kombinationstoken, das OAuth-Token und das edgetoken enthält, werden die Schritte 2 und 3 in diesem Authentifizierungsablauf übersprungen.  
+    > Wenn die APP die URL des authentifizier enden AD FS Servers kennt und bereits über ein Kombinations Token verfügt, das das OAuth-Token und das edgetoken enthält, werden die Schritte 2 und 3 in diesem Authentifizierungs Ablauf übersprungen.  
   
-4.  Die app sendet eine HTTPS-Anforderung an die AD FS-Server.  
+4.  Die APP sendet eine HTTPS-Anforderung an den AD FS-Server.  
   
-5.  Die app verwendet Web Authentication Broker, um ein Dialogfeld zu generieren, in dem der Benutzer die Anmeldeinformationen für die Authentifizierung auf dem AD FS-Server gibt. Informationen zum Webauthentifizierungsbroker finden Sie unter [Webauthentifizierungsbroker](https://msdn.microsoft.com/library/windows/apps/hh750287.aspx).  
+5.  Die APP generiert mithilfe des Webauthentifizierungs Brokers ein Dialogfeld, in dem der Benutzer Anmelde Informationen für die Authentifizierung beim AD FS Server eingibt. Informationen zum Webauthentifizierungsbroker finden Sie unter [Webauthentifizierungsbroker](https://msdn.microsoft.com/library/windows/apps/hh750287.aspx).  
   
-6.  Nach erfolgreicher Authentifizierung erstellt der AD FS-Server ein kombinationstoken, das das OAuth-Token und das edgetoken enthält, und sendet das Token an die app.  
+6.  Nach erfolgreicher Authentifizierung erstellt der AD FS-Server ein Kombinations Token, das das OAuth-Token und das edgetoken enthält, und sendet das Token an die app.  
   
-7.  Die app sendet eine HTTPS-Anforderung mit dem kombinationstoken an die URL, die von Web Application Proxy veröffentlicht wird.  
+7.  Die APP sendet eine HTTPS-Anforderung mit dem Kombinations Token an die vom webanwendungsproxy veröffentlichte URL.  
   
-8.  Webanwendungsproxy teilt das kombinationstoken in zwei Teile auf und überprüft das edgetoken.  
+8.  Der webanwendungsproxy teilt das Kombinations Token in seine zwei Teile auf und überprüft das edgetoken.  
   
-9. Wenn das edgetoken gültig ist, leitet die Anforderung an den Back-End-Server mit dem OAuth-Token von Web Application Proxy weiter. Dem Benutzer wird der Zugriff auf die veröffentlichte Webanwendung gewährt.  
+9. Wenn das edgetoken gültig ist, leitet der webanwendungsproxy die Anforderung nur mit dem OAuth-Token an den Back-End-Server. Dem Benutzer wird der Zugriff auf die veröffentlichte Webanwendung gewährt.  
   
 Hier wird beschrieben, wie Sie eine Anwendung für OAuth2 veröffentlichen. Diese Art von Anwendung kann nur mithilfe von Windows PowerShell veröffentlicht werden. Bevor Sie beginnen, sollten Sie sicherstellen, dass Sie Folgendes ausgeführt haben:  
   
--   Erstellt eine Vertrauensstellung der vertrauenden Seite für die Anwendung in der AD FS-Verwaltungskonsole.  
+-   Es wurde eine Vertrauensstellung der vertrauenden Seite für die Anwendung in der AD FS Management Console erstellt.  
   
--   Wird dafür gesorgt, dass der OAuth-Endpunkt Proxy in der AD FS-Verwaltungskonsole aktiviert ist, und notieren des URL-Pfads.  
+-   Stellen Sie sicher, dass der OAuth-Endpunkt in der AD FS-Verwaltungskonsole Proxy aktiviert ist, und notieren Sie sich den URL-Pfad.  
   
--   Überprüft, dass ein Zertifikat auf dem Webanwendungsproxy-Server für die Anwendung geeignet ist, die Sie veröffentlichen möchten.  
+-   Es wurde überprüft, ob ein Zertifikat auf dem webanwendungsproxy-Server für die zu veröffentlichende Anwendung geeignet ist.  
   
-#### <a name="to-publish-an-oauth2-app"></a>Veröffentlichen eine OAuth2-app  
+#### <a name="to-publish-an-oauth2-app"></a>So veröffentlichen Sie eine OAuth2-App  
   
-1.  Auf dem Webanwendungsproxy-Server, in der Remotezugriffs-Verwaltungskonsole in der **Navigation** Bereich klicken Sie auf **Web Application Proxy**, und klicken Sie dann in der **Aufgaben** Bereich klicken Sie auf **Veröffentlichen**.  
+1.  Klicken Sie auf dem webanwendungsproxy-Server in der Remote Zugriffs-Verwaltungskonsole im **Navigations** Bereich auf **webanwendungsproxy**, und klicken Sie dann im Bereich **Tasks** auf **veröffentlichen**.  
   
 2.  Klicken Sie auf der Seite **Willkommen** des **Assistenten zum Veröffentlichen neuer Anwendungen** auf **Weiter**.  
   
-3.  Auf der **Vorauthentifizierung** auf **Active Directory-Verbunddienste (AD FS)** , und klicken Sie dann auf **Weiter**.  
+3.  Klicken Sie auf der Seite **Vorauthentifizierung** auf **Active Directory-Verbunddienste (AD FS) (AD FS)** , und klicken Sie dann auf **weiter**.  
   
-4.  Auf der **unterstützte Clients** Seite **OAuth2** , und klicken Sie dann auf **Weiter**.  
+4.  Wählen Sie auf der Seite **Unterstützte Clients** **OAuth2** aus, und klicken Sie dann auf **weiter**.  
   
 5.  Wählen Sie auf der Seite **Vertrauende Seite** in der Liste die vertrauende Seite für die zu veröffentlichende Anwendung aus, und klicken Sie dann auf **Weiter**.  
   
@@ -407,12 +407,12 @@ Hier wird beschrieben, wie Sie eine Anwendung für OAuth2 veröffentlichen. Dies
   
     -   Wählen Sie in der Liste **Externes Zertifikat** ein Zertifikat aus, dessen Antragsteller die externe URL enthält.  
   
-        Um sicherzustellen, dass Ihre Benutzer können Ihre app zugreifen, selbst wenn sie nicht in der URL HTTPS eingeben, wählen Sie die **HTTP auf HTTPS-Umleitung aktivieren** Feld.  
+        Um sicherzustellen, dass Ihre Benutzer auf Ihre App zugreifen können, aktivieren Sie das Kontrollkästchen **http-zu-HTTPS-Umleitung aktivieren** , auch wenn Sie in der URL nicht den Typ HTTPS eingeben.  
   
-    -   Geben Sie im Feld **URL des Back-End-Servers** die URL des Back-End-Servers ein. Beachten Sie, dass dieser Wert automatisch eingegeben wird, wenn Sie die externe URL eingeben und sie ändern sollten nur, wenn die URL des Back-End-Servers unterscheidet. z. B. https://sp/app1/.  
+    -   Geben Sie im Feld **URL des Back-End-Servers** die URL des Back-End-Servers ein. Beachten Sie, dass dieser Wert automatisch eingegeben wird, wenn Sie die externe URL eingeben. Sie sollten Sie nur ändern, wenn sich die URL des Back-End-Servers unterscheidet. beispielsweise https://sp/app1/.  
   
         > [!NOTE]  
-        > Webanwendungsproxy können Hostnamen in URLs übersetzt werden, jedoch keine Pfadnamen. Daher können Sie unterschiedliche Hostnamen eingeben, während der Pfadname gleich sein muss. Sie können z. B. einen externen URL eingeben https://apps.contoso.com/app1/ und Back-End-Server-URL des https://app-server/app1/. Allerdings kann nicht eingegebene externen URL %% https://apps.contoso.com/app1/ und Back-End-Server-URL des https://apps.contoso.com/internal-app1/.  
+        > Der webanwendungsproxy kann Hostnamen in URLs übersetzen, aber keine Pfadnamen übersetzen. Daher können Sie unterschiedliche Hostnamen eingeben, während der Pfadname gleich sein muss. Sie können z. b. eine externe URL https://apps.contoso.com/app1/ und eine Back-End-Server-URL https://app-server/app1/ eingeben. Sie können jedoch nicht die externe URL https://apps.contoso.com/app1/ und die URL des Back-End-Servers https://apps.contoso.com/internal-app1/ eingeben.  
   
 7.  Überprüfen Sie auf der Seite **Bestätigung** die Einstellungen, und klicken Sie dann auf **Veröffentlichen**. Sie können den PowerShell-Befehl kopieren, um weitere veröffentlichte Anwendungen einzurichten.  
   
@@ -420,7 +420,7 @@ Hier wird beschrieben, wie Sie eine Anwendung für OAuth2 veröffentlichen. Dies
   
 Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
-So legen Sie die URL der OAuth-Authentifizierung für einen Verbundserver Adresse "FS.contoso.com" und ein URL-Pfad des /adfs/oauth2/fest  
+So legen Sie die URL für die OAuth-Authentifizierung für eine Verbund Server Adresse von FS.contoso.com und den URL-Pfad/ADFS/oauth2/fest:  
   
 ```  
 Set-WebApplicationProxyConfiguration -OAuthAuthenticationURL 'https://fs.contoso.com/adfs/oauth2/'  
@@ -443,17 +443,17 @@ Add-WebApplicationProxyApplication
   
 -   [Problembehandlung: Webanwendungsproxy](https://technet.microsoft.com/library/dn770156.aspx)  
   
--   [Veröffentlichen von Anwendungen per Webanwendungsproxy](https://technet.microsoft.com/library/dn383659.aspx)  
+-   [Anwendungen über den webanwendungsproxy veröffentlichen](https://technet.microsoft.com/library/dn383659.aspx)  
   
--   [Planen der Anwendungsveröffentlichung per Webanwendungsproxy](https://technet.microsoft.com/library/dn383650.aspx)  
+-   [Planen der Veröffentlichung von Anwendungen mit webanwendungsproxy](https://technet.microsoft.com/library/dn383650.aspx)  
   
--   [Web Application Proxy-Handbuch mit exemplarischer Vorgehensweise](https://technet.microsoft.com/library/dn280944.aspx)  
+-   [Leitfaden für webanwendungsproxy](https://technet.microsoft.com/library/dn280944.aspx)  
   
 -   [Webanwendungsproxy-Cmdlets in Windows PowerShell](https://technet.microsoft.com/library/dn283404.aspx)  
   
--   [Add-WebApplicationProxyApplication](https://technet.microsoft.com/library/dn283409.aspx)  
+-   [Add-webapplicationproxyapplication](https://technet.microsoft.com/library/dn283409.aspx)  
   
--   [Set-WebApplicationProxyConfiguration](https://technet.microsoft.com/library/dn283406.aspx)  
+-   [Set-webapplicationproxyconfiguration](https://technet.microsoft.com/library/dn283406.aspx)  
   
 
 

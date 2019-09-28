@@ -7,73 +7,73 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 765a25d3d1ffdb4df473e1fb5bb65e532934aca9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c3430ae9320ed2d39768d91f768adb3f9ab1c716
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867571"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402644"
 ---
 # <a name="autonomy-vs-isolation"></a>Autonomie im Vergleich zu Isolierung
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Sie können die logische Struktur Ihrer Active Directory erreichen Sie eine der folgenden entwerfen:  
+Sie können Ihre Active Directory logische Struktur entwerfen, um eine der folgenden Optionen zu erreichen:  
   
--   **Autonomie**. Umfasst die unabhängige, aber keine exklusive Kontrolle über eine Ressource. Wenn Sie Autonomie erreichen, haben Administratoren die Berechtigung zum Verwalten von Ressourcen unabhängig; Administratoren mit der Autorität für die größer sind jedoch vorhanden, die auch Kontrolle über diese Ressourcen und können übernehmen Sie die Kontrolle sofort bei Bedarf. Sie können Ihre logischen Active Directory-Struktur, um die folgenden Typen von Autonomie zu erreichen entwerfen:  
+-   **Autonomie**. Umfasst unabhängige, aber nicht exklusive Kontrolle über eine Ressource. Wenn Sie Autonomie erreichen, haben Administratoren die Berechtigung, Ressourcen unabhängig zu verwalten. Administratoren mit höherer Autorität verfügen jedoch über die Kontrolle über diese Ressourcen und können bei Bedarf die Kontrolle entziehen. Sie können Ihre Active Directory logische Struktur entwerfen, um die folgenden Arten von Autonomie zu erreichen:  
   
-    -   **Dienst Autonomie**. Diese Art von Autonomie umfasst die Kontrolle über alle oder einen Teil der dienstverwaltung.  
+    -   **Dienst Autonomie**. Diese Art von Autonomie umfasst die Kontrolle über die gesamte oder einen Teil der Dienst Verwaltung.  
   
-    -   **Datenautonomie**. Diese Art von Autonomie umfasst die Kontrolle über alle oder einen Teil der Daten im Verzeichnis oder auf Computern, die eingebunden in das Verzeichnis angehören.  
+    -   **Daten Autonomie**. Diese Art von Autonomie umfasst die Kontrolle über die gesamten oder einen Teil der im Verzeichnis gespeicherten Daten oder auf Mitglieds Computern, die mit dem Verzeichnis verknüpft sind.  
   
--   **Isolation**. Umfasst die unabhängige und exklusive Kontrolle über eine Ressource. Wenn Sie Isolation erreichen, kann Administratoren berechtigt, auf eine Ressource unabhängig zu verwalten, und kein anderer Administrator sofort Steuerung über die Ressource. Sie können Ihre logischen Active Directory-Struktur, um die folgenden Typen von Isolierung zu erzielen entwerfen:  
+-   **Isolation**: Umfasst unabhängige und exklusive Kontrolle über eine Ressource. Wenn Sie Isolation erreichen, haben Administratoren die Berechtigung, eine Ressource unabhängig zu verwalten, und kein anderer Administrator kann die Kontrolle über die Ressource entziehen. Sie können Ihre Active Directory logische Struktur entwerfen, um die folgenden Isolations Typen zu erreichen:  
   
-    -   **Service Isolation**. Verhindert, dass Administratoren (mit Ausnahme von Administratoren, die speziell zum Steuern der dienstverwaltung gekennzeichnet sind) Steuerung oder dienstverwaltung behindert.  
+    -   **Dienst Isolation**. Verhindert, dass Administratoren (außer Administratoren, die speziell zum Steuern der Dienst Verwaltung vorgesehen sind) die Dienst Verwaltung Steuern oder beeinträchtigen.  
   
-    -   **Die Datenisolation**. Verhindert, dass Administratoren (mit Ausnahme von Administratoren, die speziell zum Steuerelement oder Anzeigen von Daten vorgesehen sind) aus steuern oder eine Teilmenge der Daten anzeigen, in das Verzeichnis oder auf Mitgliedscomputer in das Verzeichnis eingebunden.  
+    -   **Daten Isolation**. Verhindert, dass Administratoren (außer Administratoren, die speziell zum Steuern oder Anzeigen von Daten vorgesehen sind) Steuern oder eine Teilmenge der Daten im Verzeichnis oder auf Mitglieds Computern anzeigen können, die mit dem Verzeichnis verknüpft sind.  
   
-Administratoren, die nur die Autonomie benötigen akzeptieren, dass Administratoren, die größer oder gleich Verwaltungsberechtigungen verfügen größer oder gleich Kontrolle über die Verwaltung von Dienst oder Daten haben. Administratoren, die Isolation benötigen haben die exklusive Kontrolle über die Dienst- und Verwaltung. Erstellen eines Entwurfs, Autonomie zu erreichen, ist in der Regel weniger aufwendig als bei der Erstellung eines Entwurfs um Isolierung zu erzielen.  
+Administratoren, die nur Autonomie benötigen, akzeptieren, dass andere Administratoren, die über die gleiche oder eine höhere Verwaltungs Autorität verfügen, eine gleichmäßige Kontrolle über die Dienst-oder Datenverwaltung haben Administratoren, die Isolation benötigen, haben eine exklusive Kontrolle über die Dienst-oder Datenverwaltung. Das Erstellen eines Entwurfs zum Erreichen von Autonomie ist im Allgemeinen kostengünstiger als das Erstellen eines Entwurfs zum Erreichen von Isolation.  
   
-In Active Directory Domain Services (AD DS) können Administratoren delegieren und dienstverwaltung und Verwaltung von Daten an die Autonomie oder Trennung zwischen Organisationen zu erreichen. Die Kombination der dienstverwaltung, beeinträchtigen Data Management, Autonomie und Isolation Anforderungen einer Organisation die Active Directory-Container, die verwendet werden, um die Verwaltung delegieren.  
+In Active Directory Domain Services (AD DS) können Administratoren sowohl die Dienst Verwaltung als auch die Datenverwaltung delegieren, um entweder Autonomie oder Isolation zwischen Unternehmen zu erreichen. Die Kombination aus Dienst Verwaltung, Datenverwaltung, Autonomie und Isolations Anforderungen eines Unternehmens wirkt sich auf die Active Directory Container aus, die zum Delegieren der Verwaltung verwendet werden.  
   
-## <a name="isolation-and-autonomy-requirements"></a>Anforderungen an Isolation und Autonomie  
-Die Anzahl der Gesamtstrukturen, die Sie bereitstellen müssen basiert auf den Anforderungen Autonomie und Trennung der einzelnen Gruppen innerhalb Ihrer Organisation. Um Ihre Gesamtstruktur-entwurfsanforderungen zu identifizieren, müssen Sie die Autonomie und Isolation Anforderungen für alle Gruppen in Ihrer Organisation ermitteln. Insbesondere müssen Sie die Notwendigkeit für die Datenisolation, Datenautonomie, Isolation von Diensten und die Autonomie eines Dienstes identifizieren. Sie müssen auch Bereiche der eingeschränkte Konnektivität in Ihrem Unternehmen ermitteln.  
+## <a name="isolation-and-autonomy-requirements"></a>Isolations-und Autonomie Anforderungen  
+Die Anzahl der Gesamtstrukturen, die Sie bereitstellen müssen, basiert auf den Autonomie-und Isolations Anforderungen der einzelnen Gruppen innerhalb Ihrer Organisation. Zum Ermitteln der Gesamtstruktur-Entwurfs Anforderungen müssen Sie die Autonomie-und Isolations Anforderungen für alle Gruppen in Ihrer Organisation ermitteln. Insbesondere müssen Sie die Notwendigkeit der Daten Isolation, Daten Autonomie, Dienst Isolation und Dienst Autonomie ermitteln. Außerdem müssen Sie in Ihrer Organisation Bereiche mit eingeschränkter Konnektivität identifizieren.  
   
-### <a name="data-isolation"></a>Datenisolation  
-Die Datenisolation umfasst die exklusive Kontrolle über Daten, indem Sie die Gruppe oder Organisation, die die Daten besitzt. Es ist wichtig zu beachten, dass Administratoren die Möglichkeit, die Kontrolle über eine Ressource von Datenadministratoren haben. Und Datenadministratoren haben nicht die Möglichkeit, um zu verhindern, dass Administratoren den Zugriff auf die Ressourcen, die sie steuern. Sie können nicht aus diesem Grund die Datenisolation erzielen, wenn eine andere Gruppe innerhalb der Organisation für die Verwaltung von Diensten zuständig ist. Wenn eine Gruppe die Datenisolation erforderlich ist, muss dieser Gruppe außerdem Verantwortung für die dienstverwaltung wird.  
+### <a name="data-isolation"></a>Daten Isolation  
+Die Daten Isolation umfasst die exklusive Kontrolle über Daten durch die Gruppe oder Organisation, die die Daten besitzt. Es ist wichtig zu beachten, dass Dienst Administratoren die Möglichkeit haben, die Kontrolle über eine Ressource von Daten Administratoren zu entfernen. -Und-Daten Administratoren können nicht verhindern, dass Dienst Administratoren auf die von Ihnen kontrollierten Ressourcen zugreifen können. Daher können Sie keine Daten Isolation erreichen, wenn eine andere Gruppe innerhalb des Unternehmens für die Dienst Verwaltung verantwortlich ist. Wenn eine Gruppe eine Daten Isolation erfordert, muss diese Gruppe auch für die Dienst Verwaltung verantwortlich sein.  
   
-Da Daten in AD DS und auf Computern in AD DS können nicht von Dienstadministratoren isoliert werden, erstellen Sie eine separate Gesamtstruktur für die Daten ist die einzige Möglichkeit für eine Gruppe innerhalb einer Organisation, die vollständigen datenisolierung zu erzielen. Organisationen, die für die die Folgen eines Angriffs durch böswillige Software oder von einem umgewandelt Dienstadministrator umfangreich sind entscheiden sich möglicherweise zum Erstellen einer separaten Gesamtstruktur zur datenisolierung zu erzielen. Rechtliche Anforderungen werden in der Regel müssen für diesen Typ, der die Datenisolation erstellt. Zum Beispiel:  
+Da Daten, die in AD DS und auf mit AD DS verbundenen Computern gespeichert sind, nicht von Dienst Administratoren isoliert werden können, besteht die einzige Möglichkeit für eine Gruppe innerhalb einer Organisation darin, eine separate Gesamtstruktur für diese Daten zu erstellen. Organisationen, für die die Konsequenzen eines Angriffs durch Schadsoftware oder einen erzwungenen Dienst Administrator beträchtlich sind, können eine separate Gesamtstruktur erstellen, um die Daten Isolation zu erreichen. Gesetzliche Anforderungen machen in der Regel einen Bedarf an dieser Art von Daten Isolation. Zum Beispiel:  
   
--   Ein Finanzinstitut ist gesetzlich erforderlich, um den Zugriff auf Daten zu begrenzen, die für Clients in einer bestimmten Rechtsprechung gespeichert, Benutzern, Computern und Administratoren in diesem Land gehört. Auch wenn der Träger Dienstadministratoren vertraut, die außerhalb der geschützten, funktionieren, wenn die Access-Einschränkung verletzt wird, werden die Einrichtung nicht mehr möglich, Unternehmen, die Sie in diesem Land. Aus diesem Grund muss die Bank Daten von Dienstadministratoren außerhalb dieser Zuständigkeit isolieren. Beachten Sie, dass die Verschlüsselung nicht immer eine Alternative zu dieser Lösung ist. Verschlüsselung kann Daten von Dienstadministratoren nicht geschützt werden.  
+-   Ein Finanzinstitut ist gesetzlich vorgeschrieben, um den Zugriff auf Daten zu beschränken, die zu Clients in einem bestimmten Zuständigkeitsbereich gehören, und zwar für Benutzer, Computer und Administratoren, die sich in diesem Bereich befinden. Obwohl die-Einrichtung Dienst Administratoren vertraut, die außerhalb des geschützten Bereichs arbeiten, kann die Einrichtung bei Verstößen gegen die Zugriffsbeschränkung nicht mehr Unternehmen in diesem Zuständigkeitsbereich durchführen. Daher muss die Finanz Einrichtung Daten von Dienst Administratoren außerhalb dieses Gerichts nicht isolieren. Beachten Sie, dass die Verschlüsselung nicht immer eine Alternative zu dieser Lösung ist. Bei der Verschlüsselung werden Daten von Dienst Administratoren möglicherweise nicht geschützt.  
   
--   Ein Auftragnehmer Defense ist gesetzlich erforderlich, den Zugriff auf Projektdaten zu einer angegebenen Menge von Benutzern einschränken. Zwar die Auftragnehmeranforderungsseite Dienstadministratoren, die steuern, Computersysteme, die im Zusammenhang mit anderen Projekten vertraut, verursacht ein Verstoß gegen diese Einschränkung für den Zugriff den Auftragnehmer Unternehmen verloren gehen.  
+-   Ein Verteidigungs Auftragnehmer ist gesetzlich vorgeschrieben, um den Zugriff auf Projektdaten auf eine bestimmte Gruppe von Benutzern einzuschränken. Der Auftragnehmer vertraut zwar Dienst Administratoren, die Computersysteme im Zusammenhang mit anderen Projekten kontrollieren, aber ein Verstoß gegen diese Zugriffsbeschränkung führt dazu, dass der Auftragnehmer das Geschäft verliert.  
   
     > [!NOTE]  
-    > Wenn Sie eine Anforderung der Isolation Daten verfügen, müssen Sie entscheiden, ob Sie Ihre Daten, die von Administratoren oder von Data-Administratoren und normale Benutzer isolieren müssen. Wenn Ihre Anforderung der Isolation zur Isolierung von Datenadministratoren und normale Benutzer basiert, können Sie Zugriffssteuerungslisten (ACLs), um die Daten zu isolieren. Im Rahmen dieser Entwurfsprozess wird in isoliert von Datenadministratoren und normale Benutzer die Anforderung der Isolation einer Daten nicht berücksichtigt.  
+    > Wenn Sie eine Daten Isolations Anforderung haben, müssen Sie entscheiden, ob Sie Ihre Daten von Dienst Administratoren oder Daten Administratoren und normalen Benutzern isolieren müssen. Wenn die Isolations Anforderung auf der Isolation von Daten Administratoren und normalen Benutzern basiert, können Sie die Daten mithilfe von Zugriffs Steuerungs Listen (Access Control Lists, ACLs) isolieren. Im Rahmen dieses Entwurfsprozesses wird die Isolation von Daten Administratoren und normalen Benutzern nicht als Daten Isolations Anforderung betrachtet.  
   
-### <a name="data-autonomy"></a>Datenautonomie  
-Datenautonomie umfasst die Möglichkeit einer Gruppe oder Organisation, eine eigene Daten, einschließlich administrative Entscheidungen zu den Daten, und alle erforderlichen administrativen Aufgaben ohne die Notwendigkeit zur Genehmigung von einer anderen Zertifizierungsstelle ausführen zu verwalten.  
+### <a name="data-autonomy"></a>Daten Autonomie  
+Die Daten Autonomie besteht darin, dass eine Gruppe oder Organisation ihre eigenen Daten verwalten kann, einschließlich administrativer Entscheidungen über die Daten und Durchführung erforderlicher administrativer Aufgaben, ohne dass eine Genehmigung von einer anderen Zertifizierungsstelle erforderlich ist.  
   
-Datenautonomie verhindert nicht, dass Dienstadministratoren in der Gesamtstruktur auf die Daten zugreift. Z. B. eine Research-Gruppe in einer großen Organisation ihre projektspezifische Daten selbst verwalten möchten, jedoch nicht zum Schützen der Daten von anderen Administratoren in der Gesamtstruktur erforderlich.  
+Durch die Daten Autonomie wird nicht verhindert, dass Dienst Administratoren in der Gesamtstruktur auf die Daten zugreifen. So kann es beispielsweise vorkommen, dass eine Forschungsgruppe in einer großen Organisation ihre projektspezifischen Daten selbst verwalten kann, aber nicht die Daten von anderen Administratoren in der Gesamtstruktur sichern muss.  
   
-### <a name="service-isolation"></a>Isolation von Diensten  
-Isolation von Diensten umfasst die exklusive Kontrolle über die Active Directory-Infrastruktur. Gruppen, die Isolation von Diensten müssen erfordern, dass kein Administrator außerhalb der Gruppe durch den Vorgang des Verzeichnisdiensts beeinträchtigt werden kann.  
+### <a name="service-isolation"></a>Dienst Isolation  
+Die Dienst Isolation umfasst die exklusive Kontrolle der Active Directory Infrastruktur. Für Gruppen, die eine Dienst Isolation erfordern, ist es erforderlich, dass kein Administrator außerhalb der Gruppe den Betrieb des Verzeichnis Dienstanbieter beeinträchtigt.  
   
-Betriebs- oder rechtliche Anforderungen werden in der Regel müssen für die Isolation von Diensten erstellt. Zum Beispiel:  
+Betriebliche oder gesetzliche Anforderungen bilden in der Regel einen Bedarf an Dienst Isolation. Zum Beispiel:  
   
--   Ein Unternehmen verfügt über eine wichtige Anwendung, die Geräte am Herstellerstandort steuert. Unterbrechungen des Diensts auf andere Teile des Netzwerks der Organisation können keine Auswirkung auf den der Vorgang der Fabrik zulässig.  
+-   Ein Fertigungsunternehmen verfügt über eine wichtige Anwendung, die die Geräte auf dem Werks Niveau steuert. Unterbrechungen im Dienst in anderen Teilen des Netzwerks der Organisation dürfen den Betrieb des werksbodens nicht beeinträchtigen.  
   
--   Einem Hostingunternehmen stellt Dienst an mehrere Clients bereit. Isolation von Diensten für jeden Client erforderlich, damit die Unterbrechung des Diensts, die ein Client wirkt sich nicht auf den anderen Clients auswirkt.  
+-   Ein Hostingunternehmen stellt den Dienst für mehrere Clients bereit. Jeder Client benötigt eine Dienst Isolation, damit jegliche Dienstunterbrechungen, die sich auf einen Client auswirken, keine Auswirkung auf die anderen Clients hat.  
   
-### <a name="service-autonomy"></a>Die Autonomie eines Dienstes  
-Die Autonomie eines Dienstes umfasst die Möglichkeit zum Verwalten der Infrastruktur, ohne eine Voraussetzung für die exklusive Kontrolle; z. B. wenn eine Gruppe versucht wird, Ändern der Infrastruktur (z. B. hinzufügen oder Entfernen von Domänen, ändern den Domain Name System (DNS)-Namespace ein, oder Ändern des Schemas) ohne die Genehmigung des Besitzers Gesamtstruktur.  
+### <a name="service-autonomy"></a>Dienst Autonomie  
+Die Dienst Autonomie umfasst die Möglichkeit, die Infrastruktur zu verwalten, ohne dass exklusive Kontrolle erforderlich ist. Dies ist beispielsweise der Fall, wenn eine Gruppe Änderungen an der Infrastruktur vornehmen möchte (z. b. das Hinzufügen oder Entfernen von Domänen, das Ändern des Domain Name System (DNS)-Namespace oder das Ändern des Schemas), ohne den Gesamtstruktur Besitzer zu genehmigen.  
   
-Die Autonomie eines Dienstes ist möglicherweise erforderlich, innerhalb einer Organisation für eine Gruppe, die möchte, um den Servicelevel von AD DS (durch Hinzufügen und entfernen Domänencontroller, je nach Bedarf) steuern zu können oder für eine Gruppe, die AD-aktivierte Anwendungen installiert werden muss, ist die schemaerweiterungen erforderlich.  
+Für eine Gruppe, die in der Lage sein soll, die Dienst Ebene AD DS zu steuern (durch Hinzufügen und Entfernen von Domänen Controllern, bei Bedarf), oder für eine Gruppe, die Verzeichnis aktivierte Anwendungen installieren muss, die Schema Erweiterungen erforderlich.  
   
 ## <a name="limited-connectivity"></a>Eingeschränkte Konnektivität  
-Wenn eine Gruppe in Ihrer Organisation Netzwerke, die von den Geräten getrennt sind, die zu beschränken oder Konnektivität zwischen Netzwerken (z. B. Firewalls und -Geräten (Network Address Translation, NAT)) zu beschränken besitzt, kann dies beim Entwurf Ihrer Gesamtstruktur auswirken. Wenn Sie Ihre Gesamtstruktur-entwurfsanforderungen identifiziert haben, achten Sie darauf, dass Sie beachten Sie die Speicherorte, in dem Sie über eine Netzwerkverbindung eingeschränkte haben. Diese Informationen sind erforderlich, um Sie bei Ihren Entscheidungen in Bezug auf die Gesamtstrukturentwurf zu aktivieren.  
+Wenn eine Gruppe in Ihrer Organisation über Netzwerke verfügt, die durch Geräte getrennt sind, die die Konnektivität zwischen Netzwerken einschränken oder beschränken (z. b. Firewalls und NAT-Geräte (Network Address Translation)), kann dies Auswirkungen auf den Gesamtstruktur Entwurf haben. Wenn Sie die Gesamtstruktur-Entwurfs Anforderungen ermitteln, achten Sie darauf, dass Sie die Speicherorte beachten, an denen Sie eine begrenzte Netzwerkverbindung haben Diese Informationen sind erforderlich, damit Sie Entscheidungen bezüglich des Gesamtstruktur Entwurfs treffen können.  
   
 
 

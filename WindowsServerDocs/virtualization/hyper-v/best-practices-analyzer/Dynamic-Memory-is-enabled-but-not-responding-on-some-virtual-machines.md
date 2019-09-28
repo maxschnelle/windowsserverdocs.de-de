@@ -1,7 +1,7 @@
 ---
-title: Dynamischer Arbeitsspeicher ist aktiviert, aber für einige virtuelle Maschinen reagiert nicht
-description: Die Onlineversion des Texts für diese Best Practices Analyzer-Regel.
-ms.prod: windows-server-threshold
+title: Dynamischer Arbeitsspeicher ist aktiviert, reagiert aber nicht auf einigen virtuellen Computern.
+description: Online Version des Texts für diese Best Practices Analyzer Regel.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,42 +10,42 @@ ms.topic: article
 ms.assetid: 91b7f50f-a071-4ab6-beb1-1b29f92f52b6
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 95fd426929f3e2f6f01bc10b207a21a57f1d8370
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9aa482d91c94a7a619bb65046cf152d6a5f8827a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887781"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393676"
 ---
-# <a name="dynamic-memory-is-enabled-but-not-responding-on-some-virtual-machines"></a>Dynamischer Arbeitsspeicher ist aktiviert, aber für einige virtuelle Maschinen reagiert nicht
+# <a name="dynamic-memory-is-enabled-but-not-responding-on-some-virtual-machines"></a>Dynamischer Arbeitsspeicher ist aktiviert, reagiert aber nicht auf einigen virtuellen Computern.
 
 >Gilt für: Windows Server 2016
 
-Weitere Informationen zu best Practices und Überprüfungen finden Sie unter [Run Best Practices Analyzer Scans und Manage Scan Results](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
+Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausführen von Best Practices Analyzer Scans und Verwalten der Scan Ergebnisse](https://go.microsoft.com/fwlink/p/?LinkID=223177).  
   
 |Eigenschaft|Details|  
 |-|-|  
 |**Betriebssystem**|Windows Server 2016|  
-|**Produkt /-Funktion**|Hyper-V|  
-|**Schweregrad**|Warnung|  
+|**Produkt/Feature**|Hyper-V|  
+|**Zunehmen**|Warnung|  
 |**Kategorie**|Konfiguration|  
   
-In den folgenden Abschnitten Kursivschrift gibt an Benutzeroberflächentext, die im Best Practices Analyzer-Tool für dieses Problem angezeigt wird.  
+In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.  
   
 ## <a name="issue"></a>Problem  
-*Eine oder mehrere virtuelle Computer treten Probleme mit dem Treiber für dynamischen Arbeitsspeicher in Gast-Betriebssystems erforderlich.*  
+*Bei mindestens einer virtuellen Maschine treten Probleme mit dem Treiber auf, der für dynamischer Arbeitsspeicher im Gast Betriebssystem erforderlich ist.*  
   
 ## <a name="impact"></a>Auswirkungen  
-*Das Gastbetriebssystem in die folgenden virtuellen Computer möglicherweise nicht ausgeführt oder kann die ausführungsgeschwindigkeit unberechenbar Verhalten da Hyper-V nicht den Arbeitsspeicher dynamisch, um die Reaktion auf Änderungen in den Arbeitsspeicher bei Bedarf anpassen kann. Dies wirkt sich auf die folgenden virtuellen Computer aus:*  
+*Das Gast Betriebssystem auf den folgenden virtuellen Computern kann möglicherweise nicht ausgeführt werden oder nicht zuverlässig ausgeführt werden, da Hyper-V den Speicher nicht dynamisch anpassen kann, um auf Änderungen bei der Speichernachfrage zu reagieren. Dies wirkt sich auf die folgenden virtuellen Computer aus:*  
   
-\<Liste der virtuellen Computer >  
+\<list of Virtual Machines >  
   
 ## <a name="resolution"></a>Auflösung  
-*Dies ist Erwartetes Verhalten, wenn der virtuelle Computer gestartet wird. Wenn die virtuelle Maschine nicht startet, stellen Sie sicher, dass Integrationsservices auf die neueste Version aktualisiert werden und das Gastbetriebssystem dynamischen Arbeitsspeicher unterstützt.*  
+*dies ist das erwartete Verhalten, wenn der virtuelle Computer gestartet wird. Wenn die virtuelle Maschine nicht gestartet wird, stellen Sie sicher, dass die Integrationsdienste auf die neueste Version aktualisiert werden und dass das Gast Betriebssystem dynamischer Arbeitsspeicher unterstützt.*  
   
-Ab Windows Server 2016 werden die Integrationsdienste über Windows Update bereitgestellt. Stellen Sie sicher, dass die virtuellen Computer konfiguriert sind, um Updates, um die neueste Version von Integrationsservices zu erhalten.  
+Ab Windows Server 2016 werden Integrationsdienste über Windows Update bereitgestellt. Stellen Sie sicher, dass die virtuellen Computer für den Empfang von Updates zum Abrufen der neuesten Version von Integration Services konfiguriert sind.  
   
-Dynamischer Arbeitsspeicher funktioniert mit bestimmten Versionen der unterstützten Gäste. Finden Sie unter [Hyper-V dynamischer Arbeitsspeicher – Übersicht](https://technet.microsoft.com/library/hh831766.aspx) für Versionen vor Windows Server 2016 und Windows 10.  
+Dynamischer Arbeitsspeicher funktioniert mit bestimmten Versionen von unterstützten Gästen. Weitere Informationen finden Sie unter [Übersicht über Hyper-V-dynamischer Arbeitsspeicher](https://technet.microsoft.com/library/hh831766.aspx) für ältere Versionen als Windows Server 2016 und Windows 10.  
   
 
 

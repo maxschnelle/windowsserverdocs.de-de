@@ -1,8 +1,8 @@
 ---
 title: diskcopy
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,23 +13,23 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/07/2018
-ms.openlocfilehash: aadb3a77cda7f1403cd2f04ced12c17617f046df
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 553a85ac4fd9b7708d7adc668be4e000b36a9346
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439570"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377817"
 ---
 # <a name="diskcopy"></a>diskcopy
 
 
 
-Kopiert den Inhalt der Diskette im Source-Laufwerk auf einer Diskette formatiert oder unformatiert in das Ziellaufwerk. Wenn Sie ohne Angabe von Parametern **Diskcopy** verwendet das aktuelle Laufwerk für die Quelldatenträger und dem Zieldatenträger.
+Kopiert den Inhalt des Disketten Datenträgers im Quelllaufwerk in eine formatierte oder unformatierte Diskette auf dem Ziellaufwerk. Bei Verwendung ohne Parameter verwendet **diskcopy** das aktuelle Laufwerk für den Quell Datenträger und den Ziel Datenträger.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
 > [!NOTE]
-> Mit diesem Befehl wird nicht in Windows 10 enthalten.
+> Dieser Befehl ist nicht in Windows 10 enthalten.
 
 ## <a name="syntax"></a>Syntax
 
@@ -41,70 +41,70 @@ diskcopy [<Drive1>: [<Drive2>:]] [/v]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<Laufwerk1 >|Gibt an, das Laufwerk, das die Quell-Datenträger enthält.|
-|\<Laufwerk2 >|Gibt an, das Laufwerk, das die Ziel-Datenträger enthält.|
-|/v|Stellt sicher, dass die Informationen richtig kopiert wird. Diese Option ist der Kopiervorgang verlangsamt.|
+|\<drive1 >|Gibt das Laufwerk an, das den Quell Datenträger enthält.|
+|\<drive2 >|Gibt das Laufwerk an, das den Ziel Datenträger enthält.|
+|/v|Überprüft, ob die Informationen ordnungsgemäß kopiert werden. Diese Option verlangsamt den Kopiervorgang.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
--   Mithilfe von Datenträgern
+-   Verwenden von Datenträgern
 
-    **Diskcopy** funktioniert nur mit Wechselmedien wie z. B. Disketten, die den gleichen Typ sein muss. Sie können keine **Diskcopy** mit einer Festplatte. Wenn Sie angeben, dass ein Festplattenlaufwerk für *Laufwerk1* oder *Laufwerk2*, **Diskcopy** wird die folgende Fehlermeldung angezeigt:  
+    **Diskcopy** funktioniert nur mit Wechsel Datenträgern, z. b. Disketten Datenträgern, die denselben Typ aufweisen müssen. **Diskcopy** kann nicht mit einer Festplatte verwendet werden. Wenn Sie ein Festplattenlaufwerk für *Drive1* oder *drive2*angeben, wird von **diskcopy** die folgende Fehlermeldung angezeigt:  
     ```
     Invalid drive specification
     Specified drive does not exist or is nonremovable
     ```  
-    Die **Diskcopy** Befehl fordert Sie zum Einfügen von der Quelle und Ziel-Datenträger und darauf wartet, bis Sie eine beliebige Taste, auf der Tastatur drücken, bevor Sie fortfahren.
+    Der **diskcopy** -Befehl fordert Sie auf, die Quell-und Ziel Datenträger einzufügen, und wartet, bis Sie eine beliebige Taste drücken, bevor Sie fortfahren.
 
-    Nach Abschluss des Kopiervorgangs des Datenträgers **Diskcopy** wird die folgende Meldung angezeigt:  
+    Nachdem der Datenträger kopiert wurde, zeigt **diskcopy** die folgende Meldung an:  
     ```
     Copy another diskette (Y/N)?
     ```  
-    Wenn Sie "Y" drücken **Diskcopy** fordert Sie auf die Quell- und Ziel für den nächsten Kopiervorgang einzulegen. Zum Beenden der **Diskcopy** verarbeiten, drücken Sie die **N**.
+    Wenn Sie Y drücken, werden Sie von **diskcopy** aufgefordert, Quell-und Ziel Datenträger für den nächsten Kopiervorgang einzufügen. Um den **diskcopy** -Prozess anzuhalten, drücken Sie **N**.
 
-    Wenn Sie auf einen unformatierten Datenträger in kopieren *Laufwerk2*, **Diskcopy** formatiert die Datenträger mit der gleichen Anzahl von Seiten und Sektoren pro Spur, auf dem Datenträger im *Laufwerk1*. **Diskcopy** wird die folgende Meldung angezeigt, während die Dateien kopiert und die Datenträger formatiert:  
+    Wenn Sie auf eine unformatierte Diskette in *drive2*kopieren, formatiert **diskcopy** den Datenträger mit der gleichen Anzahl von Seiten und Sektoren pro Spur, die sich auf dem Datenträger in *Drive1*befinden. **Diskcopy** zeigt die folgende Meldung an, während die Festplatte formatiert und die Dateien kopiert werden:  
     ```
     Formatting while copying
     ```  
--   Datenträger-Seriennummern
+-   Seriennummern von Datenträgern
 
-    Wenn der Quelldatenträger eine Seriennummer des Datenträgers, verfügt **Diskcopy** erstellt eine neue Volumeseriennummer für den Zieldatenträger und zeigt die Anzahl an, wenn der Kopiervorgang abgeschlossen ist.
--   Das Auslassen der Laufwerk-Parameter
+    Wenn der Quell Datenträger eine Volumeseriennummer aufweist, erstellt **diskcopy** eine neue Volumeseriennummer für den Ziel Datenträger und zeigt die Nummer an, wenn der Kopiervorgang beendet ist
+-   Weglassen von Laufwerk Parametern
 
-    Wenn Sie weglassen der *Laufwerk2* Parameter **Diskcopy** verwendet das aktuelle Laufwerk als das Ziellaufwerk. Wenn Sie beide Laufwerkparameter weglassen **Diskcopy** verwendet das aktuelle Laufwerk für beide. Wenn das aktuelle Laufwerk entspricht *Laufwerk1*, **Diskcopy** fordert Sie auf den Datenträger nach Bedarf austauschen.
--   Mit nur einem Laufwerk kopieren
+    Wenn Sie den *drive2* -Parameter weglassen, verwendet **diskcopy** das aktuelle Laufwerk als Ziellaufwerk. Wenn Sie beide Laufwerk Parameter weglassen, verwendet **diskcopy** das aktuelle Laufwerk für beide. Wenn das aktuelle Laufwerk mit *Drive1*identisch ist, werden Sie von **diskcopy** aufgefordert, Datenträger nach Bedarf auszutauschen.
+-   Verwenden eines Laufwerks zum Kopieren
 
-    Führen Sie **Diskcopy** Laufwerk von einem anderen Laufwerk als das Diskettenlaufwerk ein, z. B. C. Wenn Diskette *Laufwerk1* und Diskette *Laufwerk2* sind identisch, **Diskcopy** fordert Sie auf den Datenträger zu wechseln. Wenn der Datenträger mehr Informationen enthält als der verfügbare Arbeitsspeicher enthalten kann, **Diskcopy** kann nicht gelesen werden alle Informationen auf einmal. **Diskcopy** vom Quelldatenträger liest, schreibt in die Ziel-Datenträger und fordert Sie auf den Quelldatenträger erneut einfügen. Dieser Prozess wird fortgesetzt, bis Sie das gesamte Laufwerk kopiert haben.
--   Vermeiden der Fragmentierungsgrad eines Datenträgers
+    Führen Sie **diskcopy** von einem anderen Laufwerk als dem Diskettenlaufwerk aus, z. b. von Laufwerk C. Wenn Disketten *Drive1* und Diskette *drive2* identisch sind, werden Sie von **diskcopy** aufgefordert, Datenträger zu wechseln. Wenn die Datenträger mehr Informationen enthalten, als der verfügbare Arbeitsspeicher aufnehmen kann, kann **diskcopy** nicht alle Informationen gleichzeitig lesen. **Diskcopy** liest vom Quell Datenträger, schreibt auf den Ziel Datenträger und fordert Sie auf, den Quell Datenträger erneut einzufügen. Dieser Prozess wird fortgesetzt, bis Sie den gesamten Datenträger kopiert haben.
+-   Vermeiden von Datenträger Fragmentierung
 
-    Fragmentierung ist das Vorhandensein von kleine Bereiche des nicht verwendeten Speicherplatzes zwischen vorhandenen Dateien auf einem Datenträger. Der Prozess suchen, lesen oder Schreiben von Dateien kann fragmentierte Quelldatenträgers verlangsamen.
+    Fragmentierung ist das vorhanden sein kleiner Bereiche von nicht verwendetem Speicherplatz zwischen vorhandenen Dateien auf einem Datenträger. Ein fragmentierter Quell Datenträger kann das Auffinden, lesen oder Schreiben von Dateien verlangsamen.
 
-    Da **Diskcopy** macht eine genaue Kopie der Quelldatenträger auf dem Zieldatenträger, jegliche Fragmentierung auf dem Datenträger für die Datenquelle auf dem Zieldatenträger übertragen wird. Verwenden Sie zum Übertragen der Fragmentierung von einem Datenträger zu einem anderen vermeiden **Kopie** oder **Xcopy** um Ihre Datenträger zu kopieren. Da **Kopie** und **Xcopy** kopieren Dateien sequenziell, den neuen Datenträger wird nicht fragmentiert.
+    Da **diskcopy** eine exakte Kopie des Quell Datenträgers auf dem Ziel Datenträger erstellt, wird jede Fragmentierung auf dem Quell Datenträger auf den Ziel Datenträger über Um zu vermeiden, dass die Fragmentierung von einem Datenträger auf einen anderen übertragen wird, kopieren Sie den Datenträger mit **Kopieren** oder **xcopy** Da **Kopier** -und **xcopy** -Dateien nacheinander kopiert werden, wird der neue Datenträger nicht fragmentiert.
 
 > [!NOTE]
-> Sie können keine **Xcopy** ein Startdatenträger zu kopieren.
-> -   Grundlegendes zu **Diskcopy** Exitcodes
+> Sie können mit **xcopy** keinen Start Datenträger kopieren.
+> -   Grundlegendes zu den **Beendigungs Codes**
 
     The following table explains each exit code.  
     |Exitcode|Beschreibung|
     |---------|-----------|
-    |0|Copy-Vorgang war erfolgreich.|
-    |1|Lese-/Schreibzugriff-Fehler|
-    |3|Schwerwiegender Fehler aufgetreten ist.|
-    |4|Fehler bei der Initialisierung aufgetreten ist.|
+    |0|Der Kopiervorgang war erfolgreich.|
+    |1|Nicht schwerwiegender Lese-/Schreibfehler|
+    |3|Schwerwiegender schwerwiegender Fehler|
+    |4|Initialisierungsfehler|
 
     To process the exit codes that are returned by **diskcomp**, you can use the *ERRORLEVEL* environment variable on the **if** command line in a batch program.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um den Datenträger im Laufwerk B auf die Diskette in Laufwerk A zu kopieren, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um den Datenträger in Laufwerk B auf den Datenträger in Laufwerk a zu kopieren:
 ```
 diskcopy b: a:
 ```
-Um das Diskettenlaufwerk ein verwenden, um eine Diskette in einen anderen zu kopieren, wechseln Sie dazu zunächst auf das Laufwerk C, und geben Sie dann:
+Wenn Sie Diskettenlaufwerk A verwenden möchten, um eine Diskette in eine andere zu kopieren, wechseln Sie zunächst zum Laufwerk C, und geben Sie dann Folgendes ein:
 
-Diskcopy a: a:
+DISKCOPY a: a:
 
 #### <a name="additional-references"></a>Weitere Verweise
 

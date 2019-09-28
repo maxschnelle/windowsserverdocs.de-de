@@ -1,9 +1,9 @@
 ---
 title: RAS-Gateway für SDN
-description: Sie können in diesem Thema erfahren Sie RAS-Gateway, ein softwarebasierter ist, mehrinstanzenfähiger, Border Gateway Protocol (BGP)-fähiger Router in Windows Server 2016 verwenden.
+description: In diesem Thema erfahren Sie mehr über das RAS-Gateway, ein softwarebasierter, mehr Instanzen fähiger Border Gateway Protocol (BGP)-fähiger Router in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -12,56 +12,56 @@ ms.topic: article
 ms.assetid: a32357a5-ab1a-4a4c-848a-7a4ed65b1921
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4f1ad0b3f0b5921a53faa8a45baae9f0b8711873
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 20fc19dc31ee612de0a736bfe989f930a9afa202
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856271"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405868"
 ---
 # <a name="ras-gateway-for-sdn"></a>RAS-Gateway für SDN
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016 ## RAS-Gateway für SDN  
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016 # # RAS-Gateway für Sdn  
 
 
-RAS-Gateway ist eine softwarebasierte, mehrinstanzenfähige, werden Border Gateway Protocol (BGP)-fähiger Router für Clouddienstanbieter (CSPs) und Unternehmen, Hosten mehrerer Mandanten virtueller Netzwerke mithilfe der Hyper-V-Netzwerkvirtualisierung. RAS-Gateways, leitet Netzwerkdatenverkehr zwischen dem physischen Netzwerk und VM-Netzwerkressourcen weiter, unabhängig davon, wo. Sie können den Netzwerkdatenverkehr am am selben physischen Standort oder an vielen unterschiedlichen Standorten weiterleiten.   
+RAS-Gateway ist ein softwarebasierter, mehr Instanzen fähiger, Border Gateway Protocol (BGP)-fähiger Router für clouddienstanbieter (Cloud Service Providers, CSPs) und Unternehmen, die mehrere virtuelle Mandanten Netzwerke mithilfe der Hyper-V-Netzwerkvirtualisierung hosten. RAS-Gateways leiten Netzwerk Datenverkehr zwischen dem physischen Netzwerk und VM-Netzwerkressourcen weiter, unabhängig vom Standort. Sie können den Netzwerk Datenverkehr an demselben physischen Standort oder an vielen verschiedenen Speicherorten weiterleiten.   
 
-Mehrinstanzenfähigkeit ist die Fähigkeit einer Cloud-Infrastruktur zur Unterstützung von arbeitsauslastungen virtueller Computer mehrerer Mandanten isolieren sie noch voneinander, während alle arbeitsauslastungen in der gleichen Infrastruktur ausgeführt. Mehrere Arbeitsauslastungen eines einzelnen Mandanten können miteinander verbunden und remote verwaltet werden. Es gibt jedoch keine Verbindung zwischen diesen Systemen und den Arbeitsauslastungen anderer Mandanten, und auch die Remoteverwaltung durch andere Mandanten ist nicht möglich.
+Mehr Instanzen Fähigkeit ist die Fähigkeit einer cloudinfrastruktur, die Arbeits Auslastungen virtueller Computer mehrerer Mandanten zu unterstützen, Sie aber voneinander zu isolieren, während alle Arbeits Auslastungen in der gleichen Infrastruktur ausgeführt werden. Mehrere Arbeitsauslastungen eines einzelnen Mandanten können miteinander verbunden und remote verwaltet werden. Es gibt jedoch keine Verbindung zwischen diesen Systemen und den Arbeitsauslastungen anderer Mandanten, und auch die Remoteverwaltung durch andere Mandanten ist nicht möglich.
 
   
 > [!NOTE]  
-> Zusätzlich zu diesem Thema sind die folgenden Themen der RAS-Gateway verfügbar.  
+> Zusätzlich zu diesem Thema sind die folgenden Themen zum RAS-Gateway verfügbar.  
 >   
-> -   [Neuerungen beim RAS-Gateway](../../../sdn/technologies/network-function-virtualization/What-s-New-in-RAS-Gateway.md)  
-> -   [RAS-Gateway: Bereitstellungsarchitektur](../../../sdn/technologies/network-function-virtualization/RAS-Gateway-Deployment-Architecture.md)  
+> -   [Neues beim RAS-Gateway](../../../sdn/technologies/network-function-virtualization/What-s-New-in-RAS-Gateway.md)  
+> -   [RAS-Gateway-Bereitstellungs Architektur](../../../sdn/technologies/network-function-virtualization/RAS-Gateway-Deployment-Architecture.md)  
 > -   [RAS-Gateway: Hohe Verfügbarkeit](../../../sdn/technologies/network-function-virtualization/RAS-Gateway-High-Availability.md)  
 > -   [Border Gateway Protocol &#40;BGP&#41;](../../../../remote/remote-access/bgp/Border-Gateway-Protocol-BGP.md)  
-> -   [BGP Windows PowerShell-Befehlsreferenz](../../../../remote/remote-access/bgp/BGP-Windows-PowerShell-Command-Reference.md)  
+> -   [BGP-Befehlsreferenz für Windows PowerShell](../../../../remote/remote-access/bgp/BGP-Windows-PowerShell-Command-Reference.md)  
   
     
-## <a name="prerequisites-for-installing-ras-gateway-for-sdn"></a>Voraussetzungen für die Installation von RAS-Gateway für SDN  
-Sie können nicht die Windows-Schnittstelle verwenden, um Remotezugriff zu installieren, wenn RAS-Gateway im mehrinstanzenmodus für die Verwendung mit SDN bereitgestellt werden soll. Stattdessen müssen Sie Windows PowerShell verwenden.  
+## <a name="prerequisites-for-installing-ras-gateway-for-sdn"></a>Voraussetzungen für die Installation des RAS-Gateways für Sdn  
+Sie können den Remote Zugriff nicht mithilfe der Windows-Benutzeroberfläche installieren, wenn Sie das RAS-Gateway im mehr Instanzen fähigen Modus für die Verwendung mit Sdn bereitstellen möchten. Stattdessen müssen Sie Windows PowerShell verwenden.  
   
-Aber bevor Sie die RAS-Gateway mithilfe von Windows PowerShell installieren können, müssen Sie Windows PowerShell verwenden, Hinzufügen der **RemoteAccess** Windows-Funktion. Zu diesem Zweck führen Sie den folgenden Befehl an der Windows PowerShell-Eingabeaufforderung aus.  
+Aber bevor Sie das RAS-Gateway mithilfe von Windows PowerShell installieren können, müssen Sie Windows PowerShell verwenden, um das Windows-Feature " **remoteaccess** " hinzuzufügen. Führen Sie hierzu den folgenden Befehl an der Windows PowerShell-Eingabeaufforderung aus.  
   
 `Add-WindowsFeature -Name RemoteAccess -IncludeAllSubFeature -IncludeManagementTools`  
   
-Dieser Befehl fügt die **RemoteAccess** Feature und die Windows PowerShell-Befehle für die Funktion.  
+Mit diesem Befehl werden die Funktionen **remoteaccess** und die Windows PowerShell-Befehle für das Feature hinzugefügt.  
   
-Nachdem Sie hinzugefügt haben **RemoteAccess** mit Ihrem Server Remotezugriff als RAS-Gateway mit den mehrinstanzenmodus und Border Gateway Protocol (BGP) installieren.  
+Nachdem Sie dem Server **remoteaccess** hinzugefügt haben, können Sie den Remote Zugriff als RAS-Gateway mit dem mehr Instanzen fähigen Modus und Border Gateway Protocol (BGP) installieren.  
   
-Weitere Informationen finden Sie im Referenzthema für die Windows PowerShell [Install-RemoteAccess--](https://technet.microsoft.com/library/hh918408.aspx).  
+Weitere Informationen finden Sie im Windows PowerShell-Referenz Thema [install-remoteaccess](https://technet.microsoft.com/library/hh918408.aspx).  
   
-## <a name="ras-gateway-features"></a>RAS-Gateway – Features  
-Im folgenden werden RAS-Gateway-Funktionen in Windows Server 2016. Sie können die RAS-Gateway in Pools für hohe Verfügbarkeit bereitstellen, die alle diese Funktionen gleichzeitig verwenden.  
+## <a name="ras-gateway-features"></a>RAS-Gatewayfeatures  
+Im folgenden finden Sie RAS-Gatewayfeatures in Windows Server 2016. Sie können das RAS-Gateway in Pools mit hoher Verfügbarkeit bereitstellen, die alle diese Features gleichzeitig verwenden.  
   
--   **Standort-zu-Standort-VPN-**. Dieses Feature für die RAS-Gateway können Sie zwei Netzwerke an verschiedenen physischen Standorten mit einer Standort-zu-Standort-VPN-Verbindung über das Internet zu verbinden. Für CSPs, die viele Mandanten in ihren Rechenzentren hosten, stellt der RAS-Gateway eine mehrinstanzenfähige gatewaylösung Mandanten zugreifen auf und verwalten ihre Ressourcen über Standort-zu-Standort-VPN-Verbindungen von Remotestandorten aus, und, mit der Fluss von Netzwerkdatenverkehr zwischen virtuellen Ressourcen in Ihrem Datencenter und dem physischen Netzwerk.  
+-   **Site-to-Site-VPN**. Diese RAS-Gatewayfunktion ermöglicht es Ihnen, zwei Netzwerke an verschiedenen physischen Standorten über das Internet mithilfe einer Site-to-Site-VPN-Verbindung zu verbinden. Für CSPs, die viele Mandanten in Ihrem Rechenzentrum hosten, bietet das RAS-Gateway eine mehrinstanzfähige Gatewaylösung, die ihren Mandanten den Zugriff auf und die Verwaltung Ihrer Ressourcen über Standort-zu-Standort-VPN-Verbindungen von Remote Standorten ermöglicht und den Netzwerk Datenverkehr zwischen virtuelle Ressourcen in Ihrem Daten Center und in Ihrem physischen Netzwerk.  
   
--   **Punkt-zu-Standort-VPN-**. Dieses Feature für die RAS-Gateway kann Mitarbeiter des Unternehmens "oder" Administratoren ", von Remotestandorten aus eine Verbindung mit dem Netzwerk Ihrer Organisation.  Bei mehrinstanzenfähigen Bereitstellungen können Netzwerk Mandantenadministratoren Punkt-zu-Standort-VPN-Verbindungen Sie Ressourcen des virtuellen Netzwerks im CSP-Datencenter zugreifen.  
+-   **Punkt-zu-Standort-VPN**. Diese RAS-Gatewayfunktion ermöglicht es Organisations Mitarbeitern oder Administratoren, von Remote Standorten aus eine Verbindung mit dem Netzwerk Ihrer Organisation herzustellen.  Für bereit Stellungen mit mehreren Mandanten können Mandanten Netzwerkadministratoren Punkt-zu-Standort-VPN-Verbindungen verwenden, um auf virtuelle Netzwerkressourcen im CSP-Daten Center zuzugreifen.  
   
--   **GRE-Tunneling**. Generic Routing Encapsulation (GRE) basierte Tunnel ermöglichen Verbindungen zwischen virtuellen mandantennetzwerken und externen Netzwerken. Da es sich beim GRE-Protokoll um ein Lightweight-Protokoll handelt und die meisten Netzwerkgeräte GRE-Unterstützung bieten, ist es perfekt für das Tunneling geeignet, wenn keine Datenverschlüsselung erforderlich ist. GRE-Unterstützung (S2S)-Standort-zu-Standort-Tunnel löst das Problem der Weiterleitung zwischen virtuellen mandantennetzwerken und externen mandantennetzwerken über ein Gateway mit mehreren Mandanten an, wie weiter unten in diesem Thema beschrieben.  
+-   **GRE-Tunnelung**. Durch GRE-basierte Tunnel (Generic Routing Kapselung) können Verbindungen zwischen virtuellen Mandanten Netzwerken und externen Netzwerken ermöglicht werden. Da es sich beim GRE-Protokoll um ein Lightweight-Protokoll handelt und die meisten Netzwerkgeräte GRE-Unterstützung bieten, ist es perfekt für das Tunneling geeignet, wenn keine Datenverschlüsselung erforderlich ist. Die GRE-Unterstützung in Standort-zu-Standort-Tunneln (S2S) löst das Problem der Weiterleitung zwischen virtuellen Mandanten Netzwerken und externen Mandanten Netzwerken mithilfe eines mehr Instanzen fähigen Gateways, wie weiter unten in diesem Thema beschrieben.  
   
--   **Dynamisches routing mit Border Gateway Protocol (BGP)**. BGP verringert den Bedarf an manueller Routingkonfiguration auf Routern, da es ein dynamisches Routingprotokoll ist, das automatisch Routen zwischen Standorten lernt, die über die Standort-zu-Standort-VPN-Verbindungen verbunden sind. Wenn Ihre Organisation über mehrere Standorte, die verfügt mithilfe von BGP-fähigen Routern, z. B. RAS-Gateway verbunden sind, kann BGP die Router automatisch berechnen und verwenden die gültige Routen miteinander im Falle einer Störung des Netzwerks oder Fehler. Weitere Informationen finden Sie unter [RFC 4271](https://tools.ietf.org/html/rfc4271).  
+-   **Dynamisches Routing mit Border Gateway Protocol (BGP)** . BGP verringert den Bedarf an manueller Routingkonfiguration auf Routern, da es ein dynamisches Routingprotokoll ist, das automatisch Routen zwischen Standorten lernt, die über die Standort-zu-Standort-VPN-Verbindungen verbunden sind. Wenn Ihre Organisation über mehrere Standorte verfügt, die mithilfe von BGP-fähigen Routern wie RAS-Gateway verbunden sind, ermöglicht BGP den Routern die automatische Berechnung und Verwendung gültiger Routen untereinander im Falle einer Netzwerk Unterbrechung oder eines Fehlers. Weitere Informationen finden Sie unter [RFC 4271](https://tools.ietf.org/html/rfc4271).  
   
 
   

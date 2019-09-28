@@ -2,7 +2,7 @@
 title: diskraid
 description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f2dfda058a7ca266adedbacf8860137c5d1782c7
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: f72e91f856da3b24e7450381b293f4b365d914f3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867080"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377801"
 ---
 # <a name="diskraid"></a>diskraid
 
@@ -175,7 +175,7 @@ automagic {set | clear | apply} all <flag=value> [<flag=value> [...]]
 
 Legt die angegebenen Flags auf die angegebenen Werte fest.
 
-**Klartext**
+**clear**
 
 Löscht die angegebenen Flags. Mit dem **all** -Schlüsselwort werden alle automagflags gelöscht.
 
@@ -561,7 +561,7 @@ Um die Größe mit anderen Einheiten anzugeben, verwenden Sie eines der folgende
 
 **Laufwerke =**
 
-Gibt den \<drive_number-> für die Laufwerke an, die beim Erstellen einer LUN verwendet werden sollen. Wenn der **size =** -Parameter nicht angegeben wird, ist die LUN, die für alle angegebenen Laufwerke zulässig ist, die größtmögliche Größe. Anbieter verwenden die Laufwerke in der angegebenen Reihenfolge, wenn möglich.
+Gibt die @no__t 0drive_number-> für die Laufwerke an, die beim Erstellen einer LUN verwendet werden sollen. Wenn der **size =** -Parameter nicht angegeben wird, ist die LUN, die für alle angegebenen Laufwerke zulässig ist, die größtmögliche Größe. Anbieter verwenden die Laufwerke in der angegebenen Reihenfolge, wenn möglich.
 
 **Noerr**
 
@@ -944,7 +944,7 @@ replace drive=<drive_number>
 
 **Laufwerk =**
 
-Gibt den \<drive_number-> für das zu ersetzende Laufwerk an.
+Gibt die @no__t 0drive_number-> für das zu ersetzende Laufwerk an.
 
 #### <a name="remarks"></a>Hinweise
 
@@ -982,55 +982,55 @@ Select {hbaport | iadapter | iportal | provider | subsystem | controller | port 
 
 #### <a name="parameters"></a>Parameter
 
-**object**
+**Objekt**
 
 Gibt den Typ des ausgewählten Objekts an. Beim \<Objekt > Typ kann es sich um **Anbieter**, **Subsystem**, **Controller**, **Laufwerk**oder **LUN**handeln.
 
-**HBAPORT** [\<n >]
+**HBAPORT** [\<N >]
 
 Legt den Fokus auf den angegebenen lokalen HBA-Port fest. Wenn kein HBA-Port angegeben wird, zeigt der Befehl den aktuell ausgewählten HBA-Port an (sofern vorhanden). Das Angeben eines ungültigen HBA-Port Indexes führt zu keinem in-Focus-HBA-Port. Wenn Sie einen HBA-Port auswählen, werden alle ausgewählten Initiatoradapter und Initiator-Portale deaktiviert.
 
-**IADAPTER** [\<n >]
+**IADAPTER** [\<N >]
 
 Legt den Fokus auf den angegebenen lokalen iSCSI-Initiator-Adapter fest. Wenn kein Initiator-Adapter angegeben ist, zeigt der Befehl den aktuell ausgewählten Initiatoradapter (sofern vorhanden) an. Das Angeben eines ungültigen initiatoradapteradapters führt zu keinem in-Focus-Initiator-Adapter. Wenn Sie einen Initiatoradapter auswählen, werden alle ausgewählten HBA-Ports und Initiator-Portale deaktiviert.
 
-**IPORTAL** [\<n >]
+**IPORTAL** [\<N >]
 
 Legt den Fokus auf das angegebene lokale iSCSI-Initiatorportal innerhalb des ausgewählten iSCSI-Initiator-Adapters fest. Wenn kein Initiator-Portal angegeben ist, zeigt der Befehl das aktuell ausgewählte Initiatorportal (sofern vorhanden) an. Wenn Sie einen ungültigen Initiator-Portal Index angeben, wird kein Initiatorportal ausgewählt.
 
-**Anbieter** [\<n >]
+**Anbieter** [\<N >]
 
 Legt den Fokus auf den angegebenen Anbieter fest. Wenn kein Anbieter angegeben ist, zeigt der Befehl den aktuell ausgewählten Anbieter (sofern vorhanden) an. Das Angeben eines ungültigen Anbieter Indexes führt zu keinem in-Focus-Anbieter.
 
-**Subsystem** [\<n >]
+**Subsystem** [\<N >]
 
 Legt den Fokus auf das angegebene Subsystem fest. Wenn kein Subsystem angegeben ist, zeigt der Befehl das Subsystem mit dem Fokus an (sofern vorhanden). Das Angeben eines ungültigen subsystemindexes führt zu keinem in-Focus-Subsystem. Bei Auswahl eines Subsystems wird der zugehörige Anbieter implizit ausgewählt.
 
-**Controller** [\<n >]
+**Controller** [\<N >]
 
 Legt den Fokus auf den angegebenen Controller innerhalb des derzeit ausgewählten Subsystems fest. Wenn kein Controller angegeben ist, zeigt der Befehl den aktuell ausgewählten Controller an (sofern vorhanden). Das Angeben eines ungültigen Controller Indexes führt nicht zu einem Fokus Controller. Bei Auswahl eines Controllers werden alle ausgewählten Controller Anschlüsse, Laufwerke, LUNs, Ziel Portale, Ziele und Zielportal Gruppen deaktiviert.
 
-**Port** [\<n >]
+**Port** [\<N >]
 
 Legt den Fokus auf den angegebenen Controller Anschluss innerhalb des aktuell ausgewählten Controllers fest. Wenn kein Port angegeben ist, zeigt der Befehl den aktuell ausgewählten Port (sofern vorhanden) an. Das Angeben eines ungültigen Port Indexes führt zu keinem ausgewählten Port.
 
-**Laufwerk** [\<n >]
+**Laufwerk** [\<N >]
 
 Legt den Fokus auf das angegebene Laufwerk bzw. die physische Spindel innerhalb des derzeit ausgewählten Subsystems fest. Wenn kein Laufwerk angegeben wird, zeigt der Befehl das aktuell ausgewählte Laufwerk an (sofern vorhanden). Das Angeben eines ungültigen Laufwerks Indexes führt zu keinem Fokus Laufwerk. Wenn Sie ein Laufwerk auswählen, werden ausgewählte Controller, Controller Anschlüsse, LUNs, Ziel Portale, Ziele und Zielportal Gruppen deaktiviert.
 
-**LUN** [\<n >]
+**LUN** [\<N >]
 
 Legt den Fokus auf die angegebene LUN innerhalb des derzeit ausgewählten Subsystems fest. Wenn keine LUN angegeben ist, zeigt der Befehl die aktuell ausgewählte LUN (sofern vorhanden) an. Wenn Sie einen ungültigen LUN-Index angeben, wird keine LUN ausgewählt. Wenn Sie eine LUN auswählen, werden ausgewählte Controller, Controller Anschlüsse, Laufwerke, Ziel Portale, Ziele und Zielportal Gruppen deaktiviert.
 
-**Portal – Entitäten** [\<n >]
+**Portal – Entitäten** [\<N >]
 
 Legt den Fokus auf das angegebene iSCSI-Zielportal innerhalb des derzeit ausgewählten Subsystems fest. Wenn kein Zielportal angegeben ist, zeigt der Befehl das aktuell ausgewählte Zielportal (sofern vorhanden) an. Wenn ein ungültiger Zielportal Index angegeben wird, wird kein Zielportal ausgewählt. Wenn Sie ein Zielportal auswählen, werden alle Controller, Controller Anschlüsse, Laufwerke, LUNs, Ziele und Zielportal Gruppen deaktiviert.
 
-**Ziel** [\<n >]
+**Ziel** [\<N >]
 
 Legt den Fokus auf das angegebene iSCSI-Ziel innerhalb des derzeit ausgewählten Subsystems fest. Wenn kein Ziel angegeben ist, zeigt der Befehl das aktuell ausgewählte Ziel an (sofern vorhanden). Wenn ein Ungültiger Zielindex angegeben wird, wird kein Ziel ausgewählt. Wenn Sie ein Ziel auswählen, werden alle Controller, Controller Anschlüsse, Laufwerke, LUNs, Ziel Portale und Zielportal Gruppen deaktiviert.
 
-**TPGROUP** [\<n >]
+**TPGROUP** [\<N >]
 
 Legt den Fokus auf die angegebene iSCSI-Zielportal Gruppe innerhalb des aktuell ausgewählten iSCSI-Ziels fest. Wenn keine Zielportal Gruppe angegeben ist, zeigt der Befehl die aktuell ausgewählte Zielportal Gruppe (sofern vorhanden) an. Das Angeben eines ungültigen Zielportal-Gruppen Indexes führt zu keiner Zielportal Gruppe im Fokus.
 

@@ -1,8 +1,8 @@
 ---
 title: nslookup set debug
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: af0d028e3886e6743f402c2c9aa934d6046abf9b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 63423481e685daac821ae75864f20783f96c56c5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436743"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372953"
 ---
 # <a name="nslookup-set-debug"></a>nslookup set debug
 
 
 
-Aktiviert die Debugmodus aktivieren oder deaktivieren.
+Schaltet den Debugmodus ein oder aus.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,13 +36,13 @@ set [no]debug
 
 |  Parameter  |                         Beschreibung                          |
 |-------------|--------------------------------------------------------------|
-| **nodebug** | Debugmodus wird deaktiviert. Die Standardsyntax ist **Nodebug**. |
-|  **debug**  |                   Aktiviert die Debugging-Modus.                   |
-|  \*\*{help  |                            ?}\*\*                            |
+| **NoDebug** | Deaktiviert den Debugmodus. Die Standard Syntax ist **NoDebug**. |
+|  **debug**  |                   Schaltet den Debugmodus um.                   |
+|  \* @ no__t-1 {Hilfe  |                            ?} \* @ no__t-1                            |
 
 ## <a name="remarks"></a>Hinweise
 
--   Mit dem Debugging-Modus aktiviert werden mehr Informationen über das Paket mit dem Server und die daraus resultierende Antwort gesendet ausgegeben.
+-   Wenn der Debugmodus aktiviert ist, werden weitere Informationen über das an den Server gesendete Paket und die sich ergebende Antwort ausgegeben.
 
 #### <a name="additional-references"></a>Weitere Verweise
 

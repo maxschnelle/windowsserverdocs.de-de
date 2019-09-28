@@ -1,8 +1,8 @@
 ---
-title: Ende der Sicherung
-description: 'Windows-Befehle Thema ***- '
+title: Sicherung beenden
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 78eac68131b423768651842fbfb5e34dbdf21677
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 331b8249a4d30da883da830d6db802c3327cc25b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837391"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377595"
 ---
-# <a name="end-backup"></a>Ende der Sicherung
+# <a name="end-backup"></a>Sicherung beenden
 
 
 
 
-Beendet eine vollständige Sicherung Sitzung und Probleme eine **BackupComplete** -Ereignis mit der entsprechenden Writerzustand, falls erforderlich.
+Beendet eine vollständige Sicherungs Sitzung und gibt ggf. ein **BackupComplete** -Ereignis mit dem entsprechenden Writer-Status aus.
 
 ## <a name="syntax"></a>Syntax
 
@@ -35,8 +35,8 @@ end backup
 
 ## <a name="remarks"></a>Hinweise
 
--   Mit diesem Befehl sollte alle vollständige Sicherungen verwendet werden.
+-   Dieser Befehl sollte für alle vollständigen Sicherungen verwendet werden.
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

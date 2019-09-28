@@ -2,7 +2,7 @@
 title: nslookup set querytype
 description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 496eededd8b0b5eb79cdc1b4a7e35bc017157768
-ms.sourcegitcommit: f3b61dcd8aa0aa744db4ea938aac633c19217b0a
+ms.openlocfilehash: bc0eb19fd66e738b4bfc110a2bbc172153a12d98
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70746299"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372905"
 ---
 # <a name="nslookup-set-querytype"></a>nslookup set querytype
 
@@ -58,5 +58,5 @@ Zeigt eine kurze Zusammenfassung der <strong>nslookup</strong> -Unterbefehle an.
 - Der <strong>Set Type</strong> -Befehl führt dieselbe Funktion aus wie der <strong>Set QueryType</strong> -Befehl.
 - Weitere Informationen zu Ressourcen Daten Satz Typen finden Sie unter Request for Comment (RFC) 1035.
   ## <a name="additional-references"></a>Weitere Verweise
-  <a href="command-line-syntax-key.md" data-raw-source="[Command-Line Syntax Key](command-line-syntax-key.md)">Befehlszeilen-Syntax Schlüsseltyp</a>
-  <a href="nslookup-set-type.md" data-raw-source="[nslookup set type](nslookup-set-type.md)">nslookup festlegen</a>
+  <a href="command-line-syntax-key.md" data-raw-source="[Command-Line Syntax Key](command-line-syntax-key.md)">Befehlszeilen-Syntax Schlüssel</a>
+  <a href="nslookup-set-type.md" data-raw-source="[nslookup set type](nslookup-set-type.md)">nslookup-fest gelegungstyp</a>
