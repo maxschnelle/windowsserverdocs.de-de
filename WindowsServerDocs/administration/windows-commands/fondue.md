@@ -1,8 +1,8 @@
 ---
 title: fondue
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bcbbbf80f25f77d1feb83f358401e4d14da3d354
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d75d2d9fb57f8888cfc5bf50e2f7796aefc66102
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439218"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377087"
 ---
 # <a name="fondue"></a>fondue
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Können optionale Features von Windows durch Herunterladen der erforderlichen Dateien aus Windows Update oder einer anderen Quelle, die von der Gruppenrichtlinie angegeben. Die Manifestdatei für die Funktion muss bereits in Ihrem Windows-Image installiert sein. 
+Aktiviert optionale Windows-Features, indem erforderliche Dateien aus Windows Update oder einer anderen durch Gruppenrichtlinie angegebenen Quelle heruntergeladen werden. Die Manifest-Datei für das Feature muss bereits in Ihrem Windows-Abbild installiert sein. 
 ## <a name="syntax"></a>Syntax
 ```
 fondue.exe /enable-feature:<feature_name> [/caller-name:<program_name>] [/hide-ux:{all | rebootRequest}]
@@ -33,20 +33,20 @@ fondue.exe /enable-feature:<feature_name> [/caller-name:<program_name>] [/hide-u
 
 |              Parameter              |                                                                                                                                                                     Beschreibung                                                                                                                                                                     |
 |-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  / Enable-Feature: <*Featurename*>   |                                                                               Gibt den Namen des optionalen Windows-Features, die Sie aktivieren möchten. Sie können nur eine Funktion pro über die Befehlszeile aktivieren. Verwenden Sie fondue.exe für jede Funktion, um mehrere Funktionen zu aktivieren.                                                                                |
-|    /caller-Name: <*Program_name*>    |                                                                                 Gibt den Namen Programm oder Prozess aus, wenn Sie aus einem Skript oder Batch fondue.exe aufrufen. Sie können diese Option verwenden, um den Namen des Programms für die SQM-Bericht hinzufügen, wenn ein Fehler auftritt.                                                                                 |
-| /hide-ux:{all &#124; rebootRequest} | Verwendung **alle** So blenden Sie alle Nachrichten, die dem Benutzer, einschließlich Status und die Berechtigung zugriffsanforderungen für Windows Update aus. Wenn die Berechtigung erforderlich ist, schlägt der Vorgang fehl.<br /><br />Verwendung **RebootRequest** benutzermeldungen in der die Berechtigung zum Neustart des Computers nur ausblenden. Verwenden Sie diese Option, wenn Sie ein Skript verfügen, Steuerelemente Anforderungen einen Neustart. |
+|  /Enable-Feature: <*feature_name*>   |                                                                               Gibt den Namen des optionalen Windows-Features an, das Sie aktivieren möchten. Sie können nur eine Funktion pro Befehlszeile aktivieren. Verwenden Sie zum Aktivieren mehrerer Features "Fondue. exe" für jede Funktion.                                                                                |
+|    /CALLER-Name: <*program_name*>    |                                                                                 Gibt den Programm-oder Prozessnamen an, wenn "Fondue. exe" von einem Skript oder einer Batchdatei aus aufgerufen wird. Sie können diese Option verwenden, um den Programmnamen dem sqm-Bericht hinzuzufügen, wenn ein Fehler vorliegt.                                                                                 |
+| /Hide-UX: {All &#124; rebootrequest} | Mit **all** können Sie alle Nachrichten für den Benutzer ausblenden, einschließlich Fortschritts-und Berechtigungsanforderungen für den Zugriff auf Windows Update. Wenn die Berechtigung erforderlich ist, schlägt der Vorgang fehl.<br /><br />Verwenden Sie **rebootrequest** , um nur Benutzer Meldungen auszublenden, die die Berechtigung zum Neustarten des Computers anfordern. Verwenden Sie diese Option, wenn Sie über ein Skript zum Steuern von Neustart Anforderungen verfügen. |
 
-## <a name="BKMK_Examples"></a>Beispiele für
-Um Microsoft .NET Framework 3.5 zu aktivieren, geben Sie Folgendes ein:
+## <a name="BKMK_Examples"></a>Beispiele
+Um Microsoft .NET Framework 3,5 zu aktivieren, geben Sie Folgendes ein:
 ```
 fondue.exe /enable-feature:NETFX3
 ```
-Um Microsoft .NET Framework 3.5 zu aktivieren, fügen Sie den Namen des Programms für die SQM-Bericht, und Meldungen an den Benutzer, der Typ nicht angezeigt:
+Wenn Sie Microsoft .NET Framework 3,5 aktivieren möchten, fügen Sie dem sqm-Bericht den Programmnamen hinzu, und zeigen Sie dem Benutzer keine Meldungen an, geben Sie Folgendes ein:
 ```
 fondue.exe /enable-feature:NETFX3 /caller-name:Admin.bat /hide-ux:all
 ```
-## <a name="additional-references"></a>Zusätzliche Referenzen
+## <a name="additional-references"></a>Weitere Verweise
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
   ## <a name="see-also"></a>Siehe auch
-  [Überlegungen zur Bereitstellung von Microsoft .NET Framework 3.5](https://go.microsoft.com/fwlink/?LinkId=248869)
+  [Microsoft .NET Framework 3,5 Bereitstellungs Überlegungen](https://go.microsoft.com/fwlink/?LinkId=248869)

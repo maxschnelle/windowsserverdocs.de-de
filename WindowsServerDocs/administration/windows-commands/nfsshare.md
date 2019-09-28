@@ -1,8 +1,8 @@
 ---
 title: nfsshare
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dc77825d63875861839ecdb22bee5a62375aaa13
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: a952e247ee40f832045d39d0e2164bb2e6613c54
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437038"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373210"
 ---
 # <a name="nfsshare"></a>nfsshare
 
 
 
-Sie können **Nfsshare** Network File System (NFS teilt) steuern.
+Sie können **nfsshare** verwenden, um NFS-Freigaben (Network File System) zu steuern.
 
 ## <a name="syntax"></a>Syntax
 
@@ -35,27 +35,27 @@ nfsshare {<ShareName> | <Drive>:<Path> | * } /delete
 
 ## <a name="description"></a>Beschreibung
 
-Ohne Argumente die **Nfsshare** Befehlszeilenprogramm Listet alle Network File System (NFS)-Freigaben, die vom Server für NFS exportiert. Mit *ShareName* als einziges Argument, **Nfsshare** Listet die Eigenschaften von der NFS-Freigabe identifizierte *ShareName*. Wenn *ShareName* und <em>Laufwerk</em> **:** <em>Pfad</em> zur Verfügung, **Nfsshare** exportiert den Ordner identifizierte <em>Laufwerk</em> **:** <em>Pfad</em> als *ShareName*. Wenn die **/delete** Option wird verwendet, der angegebene Ordner ist NFS-Clients nicht mehr zur Verfügung gestellt.
+Ohne Argumente listet das Befehlszeilen-Hilfsprogramm **nfsshare** alle von Server für NFS exportierten NFS-Freigaben (Network File System) auf. Mit *ShareName* als einziges Argument listet **nfsshare** die Eigenschaften der von *ShareName*identifizierten NFS-Freigabe auf. Wenn *ShareName* und <em>Laufwerk</em> **:** <em>path</em> bereitgestellt werden, exportiert **nfsshare** den von <em>Laufwerk</em> **:** <em>path</em> identifizierten Ordner als *ShareName*. Wenn die **/Delete** -Option verwendet wird, wird der angegebene Ordner nicht mehr für NFS-Clients zur Verfügung gestellt.
 
 ## <a name="options"></a>Optionen
 
-Die **Nfsshare** Befehl akzeptiert die folgenden Optionen und Argumente:
+Der Befehl **nfsshare** akzeptiert die folgenden Optionen und Argumente:
 
 
 |             Begriff              |                                                                                                                                                                                                                      Definition                                                                                                                                                                                                                       |
 |-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         -o anon = {Yes          |                                                                                                                                                                                                                          Keine}                                                                                                                                                                                                                          |
-|  -o rw[=\<Host>[:<Host>]...]  |                       Bietet Lese-/ Schreibzugriff auf das freigegebene Verzeichnis von Hosts oder -Client als angegebenen *Host*. Trennen Sie Host und der Gruppenname durch einen Doppelpunkt ( **:** ). Wenn *Host* nicht angegeben ist, alle Hosts und Clientgruppen (mit Ausnahme angegeben wird, mit der **Ro** Option) Lese-/ Schreibzugriff besitzen. Wenn weder die **Ro** noch die **Rw** -Option festgelegt ist, alle Clients haben Lese-/ Schreibzugriff auf das freigegebene Verzeichnis.                       |
-|  -o ro[=\<Host>[:<Host>]...]  | Bietet schreibgeschützten Zugriff auf das freigegebene Verzeichnis von Hosts oder -Client als angegebenen *Host*. Trennen Sie Host und der Gruppenname durch einen Doppelpunkt ( **:** ). Wenn *Host* nicht angegeben ist, alle Clients (mit Ausnahme angegeben wird, mit der **Rw** Option) haben schreibgeschützten Zugriff. Wenn die **Ro** Option wird festgelegt, für einen oder mehrere Clients, aber die **Rw** Option nicht festgelegt ist, nur die Clients, die mit angegebenen die **Ro** Option haben Zugriff auf das freigegebene Verzeichnis. |
-|       -o-Codierung = {big5       |                                                                                                                                                                                                                        euc-jp                                                                                                                                                                                                                         |
-|       -o anongid=\<gid>       |                                                                                     Gibt an, dass anonyme (nicht zugeordneten) Benutzer der Freigabe dann mit Directory zugreift, *Gid* als Gruppen-ID (GID). Der Standardwert ist-2. Die anonyme GID wird verwendet werden, wenn den Besitzer einer Datei, die im Besitz von einem nicht zugeordneten Benutzer, berichterstellung, selbst wenn der anonyme Zugriff deaktiviert ist.                                                                                      |
-|      -o  anonuid=\<uid>       |                                                                                      Gibt an, dass anonyme (nicht zugeordneten) Benutzer der Freigabe dann mit Directory zugreift, *Uid* als Benutzer-ID (UID). Der Standardwert ist-2. Wenn den Besitzer einer Datei, die im Besitz von einem nicht zugeordneten Benutzer, gemeldet, selbst wenn der anonyme Zugriff deaktiviert ist, wird die anonyme UID verwendet werden.                                                                                      |
-| -o root[=\<Host>[:<Host>]...] |                                                                         Gewährt den Root-Zugriff auf das freigegebene Verzeichnis von Hosts oder -Client angegebenen von *Host*. Trennen Sie Host und der Gruppenname durch einen Doppelpunkt ( **:** ). Wenn *Host* nicht angegeben ist, alle Clients müssen Root-Zugriff. Wenn die **Stamm** Option nicht festgelegt ist, keine Clients haben den Root-Zugriff auf das freigegebene Verzeichnis.                                                                         |
-|            /delete            |                                                                                                                                                       Wenn *ShareName* oder <em>Laufwerk</em> **:** <em>Pfad</em> angegeben ist, löscht die angegebene Freigabe. Wenn \* angegeben ist, löscht alle NFS-Freigaben.                                                                                                                                                       |
+|         -o anon = {ja          |                                                                                                                                                                                                                          gar                                                                                                                                                                                                                          |
+|  -o RW [= \<host > [: <Host>]...]  |                       Bietet Lese-/Schreibzugriff auf das freigegebene Verzeichnis durch die Hosts oder Client Gruppen, die vom *Host*angegeben werden. Trennen Sie Host-und Gruppennamen mit einem Doppelpunkt ( **:** ). Wenn kein *Host* angegeben ist, haben alle Hosts und Client Gruppen (außer den mit der Option **RO** angegebenen) Lese-/Schreibzugriff. Wenn weder die **RO** -noch die **RW** -Option festgelegt ist, haben alle Clients Lese-/Schreibzugriff auf das freigegebene Verzeichnis.                       |
+|  -o RO [= \<host > [: <Host>]...]  | Bietet schreibgeschützten Zugriff auf das freigegebene Verzeichnis durch die Hosts oder Client Gruppen, die vom *Host*angegeben werden. Trennen Sie Host-und Gruppennamen mit einem Doppelpunkt ( **:** ). Wenn kein *Host* angegeben ist, haben alle Clients (außer den mit der Option **RW** angegebenen) schreibgeschützten Zugriff. Wenn die Option " **RO** " für mindestens einen Client festgelegt ist, die Option " **RW** " jedoch nicht festgelegt ist, haben nur die mit der Option " **RO** " angegebenen Clients Zugriff auf das freigegebene Verzeichnis. |
+|       -o Encoding = {Big5       |                                                                                                                                                                                                                        EUC-JP                                                                                                                                                                                                                         |
+|       -o anongid = \<gid >       |                                                                                     Gibt an, dass anonyme (nicht zugeordnete) Benutzer auf das Freigabe Verzeichnis mithilfe von *gid* als Gruppen Bezeichner (GID) zugreifen. Der Standardwert ist-2. Die anonyme gid wird verwendet, wenn der Besitzer einer Datei, die im Besitz eines nicht zugeordneten Benutzers ist, gemeldet wird, auch wenn der anonyme Zugriff deaktiviert ist.                                                                                      |
+|      -o anonuid = \<uid >       |                                                                                      Gibt an, dass anonyme (nicht zugeordnete) Benutzer auf das Freigabe Verzeichnis mithilfe von *UID* als Benutzer-ID (UID) zugreifen. Der Standardwert ist-2. Die anonyme UID wird verwendet, wenn der Besitzer einer Datei, die im Besitz eines nicht zugeordneten Benutzers ist, gemeldet wird, auch wenn der anonyme Zugriff deaktiviert ist.                                                                                      |
+| -o root [= \<host > [: <Host>]...] |                                                                         Ermöglicht den Stamm Zugriff auf das freigegebene Verzeichnis durch die Hosts oder Client Gruppen, die durch den *Host*angegeben werden. Trennen Sie Host-und Gruppennamen mit einem Doppelpunkt ( **:** ). Wenn kein *Host* angegeben ist, haben alle Clients root-Zugriff. Wenn die **root** -Option nicht festgelegt ist, haben keine Clients Stamm Zugriff auf das freigegebene Verzeichnis.                                                                         |
+|            /delete            |                                                                                                                                                       Wenn *ShareName* oder <em>Laufwerk</em> **:** <em>path</em> angegeben ist, wird die angegebene Freigabe von gelöscht. Wenn \* angegeben wird, löscht alle NFS-Freigaben.                                                                                                                                                       |
 
 > [!NOTE]
-> Geben Sie zum Anzeigen der vollständigen Syntax für diesen Befehl an der Eingabeaufforderung Folgendes ein:</br>> **Nfsshare /?**
+> Geben Sie zum Anzeigen der vollständigen Syntax für diesen Befehl an der Eingabeaufforderung Folgendes ein:</br>> **nfsshare/?**
 
 # #
 
-[Dienste für Network File System-Befehlsreferenz](services-for-network-file-system-command-reference.md) Siehe auch
+[Dienste für die Netzwerkdatei System-Befehlsreferenz](services-for-network-file-system-command-reference.md) Siehe auch

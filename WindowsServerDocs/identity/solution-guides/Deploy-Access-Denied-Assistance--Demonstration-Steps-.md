@@ -7,28 +7,28 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 441dad92611e1a4a1135bd15bbcdfd05f38c1be3
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: afc05f395753e5c5614e92d109d71e05980d5d92
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445825"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407174"
 ---
 # <a name="deploy-access-denied-assistance-demonstration-steps"></a>Bereitstellen der Unterstützung nach %%amp;quot;Zugriff verweigert%%amp;quot; (Schritte zur Veranschaulichung)
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Thema wird erläutert, wie Sie die Unterstützung nach "Zugriff verweigert" konfigurieren und überprüfen, ob diese ordnungsgemäß funktioniert.  
   
 **In diesem Dokument**  
   
--   [Schritt 1: Konfigurieren von Zugriff](Deploy-Access-Denied-Assistance--Demonstration-Steps-.md#BKMK_1)  
+-   [Schritt 1: Konfigurieren der Unterstützung nach "Zugriff verweigert" @ no__t-0  
   
--   [Schritt 2: Konfigurieren Sie die e-Mail-Benachrichtigungseinstellungen](Deploy-Access-Denied-Assistance--Demonstration-Steps-.md#BKMK_2)  
+-   [Schritt 2: Konfigurieren der e-Mail-Benachrichtigungseinstellungen @ no__t-0  
   
--   [Schritt 3: Stellen Sie sicher, dass der Zugriff ordnungsgemäß konfiguriert ist](Deploy-Access-Denied-Assistance--Demonstration-Steps-.md#BKMK_3)  
+-   [Schritt 3: Überprüfen, ob die Unterstützung nach "Zugriff verweigert" richtig konfiguriert ist @ no__t-0  
   
 > [!NOTE]  
 > Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit denen Sie einige der beschriebenen Vorgehensweisen automatisieren können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
@@ -38,7 +38,7 @@ Sie können die Unterstützung nach "Zugriff verweigert" in einer Domäne mithil
   
 Sie können die Unterstützung nach "Zugriff verweigert" für die Domäne mithilfe von Gruppenrichtlinien wie folgt konfigurieren:  
   
-[Führen Sie diesen Schritt mithilfe von Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep1)  
+[Führen Sie diesen Schritt mithilfe von Windows PowerShell aus.](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep1)  
   
 #### <a name="to-configure-access-denied-assistance-by-using-group-policy"></a>So konfigurieren Sie die Unterstützung nach "Zugriff verweigert" mithilfe von Gruppenrichtlinien  
   
@@ -70,7 +70,7 @@ Sie können die Unterstützung nach "Zugriff verweigert" für die Domäne mithil
   
     3.  Übernehmen Sie die restlichen Standardeinstellungen.  
   
-![Lösungshandbücher](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
+![solution Guides](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -88,7 +88,7 @@ Set-GPRegistryValue -Name "Name of GPO" -key "HKLM\Software\Policies\Microsoft\W
   
 Alternativ können Sie die Unterstützung nach "Zugriff verweigert" auch über die Konsole des Ressourcen-Managers für Dateiserver einzeln auf jedem Dateiserver konfigurieren.  
   
-[Führen Sie diesen Schritt mithilfe von Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep1a)  
+[Führen Sie diesen Schritt mithilfe von Windows PowerShell aus.](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep1a)  
   
 #### <a name="to-configure-access-denied-assistance-by-using-file-server-resource-manager"></a>So konfigurieren Sie die Unterstützung nach "Zugriff verweigert" mit dem Ressourcen-Manager für Dateiserver  
   
@@ -118,7 +118,7 @@ Alternativ können Sie die Unterstützung nach "Zugriff verweigert" auch über d
   
 8.  Klicken Sie auf **OK**.  
   
-![Lösungshandbücher](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
+![solution Guides](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
   
@@ -128,7 +128,7 @@ Set-FSRMAdrSetting -Event "AccessDenied" -DisplayMessage "Type the text that the
   
 Nachdem Sie die Unterstützung nach "Zugriff verweigert" konfiguriert haben, müssen Sie sie mithilfe von Gruppenrichtlinien für alle Dateitypen aktivieren.  
   
-[Führen Sie diesen Schritt mithilfe von Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep1c)  
+[Führen Sie diesen Schritt mithilfe von Windows PowerShell aus.](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep1c)  
   
 #### <a name="to-configure-access-denied-assistance-for-all-file-types-by-using-group-policy"></a>So konfigurieren Sie die Unterstützung nach "Zugriff verweigert" mithilfe von Gruppenrichtlinien für alle Dateitypen  
   
@@ -142,7 +142,7 @@ Nachdem Sie die Unterstützung nach "Zugriff verweigert" konfiguriert haben, mü
   
 5.  Klicken Sie auf **Aktiviert**und dann auf **OK**.  
   
-![Lösungshandbücher](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
+![solution Guides](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind. 
   
@@ -153,7 +153,7 @@ Set-GPRegistryValue -Name "Name of GPO" -key "HKLM\SOFTWARE\Policies\Microsoft\W
   
 Mithilfe der Konsole des Ressourcen-Managers für Dateiserver können Sie auch eine separate Meldung vom Typ "Zugriff verweigert" für jeden einzelnen freigegebenen Ordner auf einem Dateiserver angeben.  
   
-[Führen Sie diesen Schritt mithilfe von Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep1b)  
+[Führen Sie diesen Schritt mithilfe von Windows PowerShell aus.](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep1b)  
   
 #### <a name="to-specify-a-separate-access-denied-message-for-a-shared-folder-by-using-file-server-resource-manager"></a>So geben Sie mit dem Ressourcen-Manager für Dateiserver eine separate Meldung vom Typ "Zugriff verweigert" für einen freigegebenen Ordner an  
   
@@ -181,7 +181,7 @@ Mithilfe der Konsole des Ressourcen-Managers für Dateiserver können Sie auch e
   
 7.  Klicken Sie auf **OK** und dann auf **Schließen**.  
   
-![Lösungshandbücher](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
+![solution Guides](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind. 
   
@@ -192,7 +192,7 @@ Set-FSRMMgmtProperty -Namespace "folder path" -Name "AccessDeniedMessage_MS" -Va
 ## <a name="BKMK_2"></a>Schritt 2: Konfigurieren der E-Mail-Benachrichtigungseinstellungen  
 Sie müssen die E-Mail-Benachrichtigungseinstellungen auf jedem Dateiserver konfigurieren, von dem die Meldungen für die Unterstützung nach "Zugriff verweigert" gesendet werden.  
   
-[Führen Sie diesen Schritt mithilfe von Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep2)  
+[Führen Sie diesen Schritt mithilfe von Windows PowerShell aus.](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep2)  
   
 1.  Öffnen Sie den Ressourcen-Manager für Dateiserver. Klicken Sie in Server-Manager auf **Extras** und dann auf **Ressourcen-Manager für Dateiserver**.  
   
@@ -204,13 +204,13 @@ Sie müssen die E-Mail-Benachrichtigungseinstellungen auf jedem Dateiserver konf
   
     -   Geben Sie im Feld **SMTP-Servername oder IP-Adresse** den Namen oder die IP-Adresse des SMTP-Servers Ihrer Organisation ein.  
   
-    -   In der **Standardadministratorempfänger** und **standardmäßig 'aus-e Mailadresse** geben die e-Mail-Adresse den dateiserveradministrator.  
+    -   Geben Sie in den Feldern **Standard Administrator Empfänger** und **Standard-e-Mail-Adresse** die e-Mail-Adresse des Dateiserver Administrators ein.  
   
 5.  Klicken Sie auf **Test-E-Mail senden**, um sicherzustellen, dass die E-Mail-Benachrichtigungen richtig konfiguriert wurden.  
   
 6.  Klicken Sie auf **OK**.  
   
-![Lösungshandbücher](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
+![solution Guides](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
   
@@ -219,16 +219,16 @@ set-FSRMSetting -SMTPServer "server1" -AdminEmailAddress "fileadmin@contoso.com"
 ```  
   
 ## <a name="BKMK_3"></a>Schritt 3: Überprüfen der ordnungsgemäßen Konfiguration der Unterstützung nach "Zugriff verweigert"  
-Sie können überprüfen, ob die Zugriff verweigert-Unterstützung durch einen Benutzer mit Windows 8 wiederholen Sie den Zugriff auf eine Freigabe oder eine Datei im, die gemeinsam nutzen, dass sie den Zugriff auf keine läuft ordnungsgemäß konfiguriert ist. Wenn die Meldung "Zugriff verweigert" angezeigt wird, muss die Schaltfläche **Unterstützung anfordern** für den Benutzer verfügbar sein. Nach dem Klicken auf die Schaltfläche "Unterstützung anfordern" kann der Benutzer einen Grund für den Zugriff angeben und dann eine E-Mail an den Besitzer des Ordners oder an den Dateiserveradministrator senden. Der Besitzer des Ordners oder der Dateiserveradministrator kann für Sie überprüfen, ob die E-Mail angekommen ist und die entsprechenden Details enthält.  
+Sie können überprüfen, ob die Unterstützung nach "Zugriff verweigert" ordnungsgemäß konfiguriert ist, indem Sie einen Benutzer mit Windows 8 versuchen, auf eine Freigabe oder eine Datei in dieser Freigabe zuzugreifen, auf die Sie keinen Zugriff haben. Wenn die Meldung "Zugriff verweigert" angezeigt wird, muss die Schaltfläche **Unterstützung anfordern** für den Benutzer verfügbar sein. Nach dem Klicken auf die Schaltfläche "Unterstützung anfordern" kann der Benutzer einen Grund für den Zugriff angeben und dann eine E-Mail an den Besitzer des Ordners oder an den Dateiserveradministrator senden. Der Besitzer des Ordners oder der Dateiserveradministrator kann für Sie überprüfen, ob die E-Mail angekommen ist und die entsprechenden Details enthält.  
   
 > [!IMPORTANT]  
-> Wenn Sie möchten Zugriff zu überprüfen, indem Sie einen Benutzer mit Windows Server 2012 ausgeführt wird, müssen Sie die Desktopdarstellung installieren, vor dem Herstellen einer Verbindung mit der Dateifreigabe.  
+> Wenn Sie die Unterstützung nach "Zugriff verweigert" überprüfen möchten, indem Sie einen Benutzer mit Windows Server 2012 verwenden, müssen Sie die Desktop Darstellung installieren, bevor Sie eine Verbindung mit der Dateifreigabe herstellen.  
   
 ## <a name="BKMK_Links"></a>Siehe auch  
   
 -   [Szenario: Unterstützung nach „Zugriff verweigert“](Scenario--Access-Denied-Assistance.md)  
   
--   [Planen der Unterstützung nach den Zugriff verweigert](assetId:///b169f0a4-8b97-4da8-ae4a-c8f1986d19e1)  
+-   [Planen der Unterstützung nach "Zugriff verweigert"](assetId:///b169f0a4-8b97-4da8-ae4a-c8f1986d19e1)  
   
 -   [Dynamische Zugriffsteuerung: Szenarioübersicht](Dynamic-Access-Control--Scenario-Overview.md)  
   

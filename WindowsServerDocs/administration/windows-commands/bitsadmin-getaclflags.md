@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getaclflags
-description: Windows-Befehle Thema **Bitsadmin Getaclflags** -Ruft die Access Control Liste zur Weitergabe von Würmern-Flags.
+description: Windows-Befehls Thema für **BITSAdmin getaclflags** -Ruft die weitergabeweitergabeflags der Zugriffs Steuerungs Liste ab.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 185445a97168344f910abc0e644718296de2c712
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ad98cd742161ae06be5cba7acde7b810eaf199d6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861451"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381791"
 ---
 # <a name="bitsadmin-getaclflags"></a>bitsadmin getaclflags
 
-Ruft die Access Control Zugriffssteuerungsliste (ACL) zur Weitergabe von Würmern-Flags ab.
+Ruft die weitergabeweitergabeflags der Zugriffs Steuerungs Liste (ACL) ab.
 
 ## <a name="syntax"></a>Syntax
 
@@ -34,23 +34,23 @@ bitsadmin /GetAclFlags <Job>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
 
 ## <a name="remarks"></a>Hinweise
 
-Zeigt eine oder mehrere der folgenden Flags Werte an:
--   O: Kopieren Sie Informationen über den sperrbesitzer-Datei.
--   G: Kopieren Sie Informationen zur Datei.
--   D: Kopieren Sie DACL-Informationen, mit der Datei.
--   S: Kopieren Sie SACL-Informationen, mit der Datei.
+Zeigt einen oder mehrere der folgenden Flagwerte an:
+-   ' Besitzer Informationen in Datei kopieren.
+-   SELBST Kopieren Sie Gruppeninformationen mit der Datei.
+-   D: Kopieren Sie DACL-Informationen mit der Datei.
+-   HYMNEN Kopieren Sie SACL-Informationen in die Datei.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Das folgende Beispiel ruft die Access Control Liste Weitergabeflags für den Auftrag mit dem Namen *MyDownloadJob*.
+Im folgenden Beispiel werden die Weitergabeflags für die Zugriffs Steuerungs Liste für den Auftrag mit dem Namen *mydownloadjob*abgerufen.
 ```
 C:\>bitsadmin /getaclflags myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

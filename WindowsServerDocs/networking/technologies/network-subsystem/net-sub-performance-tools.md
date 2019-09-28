@@ -1,7 +1,7 @@
 ---
 title: Leistungstools für Netzwerkauslastungen
-description: Dieses Thema ist Teil des Leitfadens Netzwerk-Subsystem zur Leistungsoptimierung für Windows Server 2016.
-ms.prod: windows-server-threshold
+description: Dieses Thema ist Teil des Handbuch zur Leistungsoptimierung des Netzwerk Subsystems für Windows Server 2016.
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: c7789781-87e8-464e-981b-af887d01badd
@@ -9,41 +9,41 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 07/16/2018
-ms.openlocfilehash: e71c5f34041145907c30b279dc91a94c03c2abed
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 09e775bfe956d67adbd70cf4ce3f9461e1c37cf5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824931"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405516"
 ---
 # <a name="performance-tools-for-network-workloads"></a>Leistungstools für Netzwerkauslastungen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können in diesem Thema verwenden, um mehr über Leistungstools erfahren.
+In diesem Thema finden Sie Informationen zu Leistungs Tools.
 
-Dieses Thema enthält die Abschnitte zum-Client-Tool, TCP/IP-Fenstergröße und Microsoft Server Performance Advisor-Datenverkehr.
+Dieses Thema enthält Abschnitte zum Tool "Client-zu-Server-Datenverkehr", "TCP/IP-Fenstergröße" und "Microsoft Server Performance Advisor".
 
-##  <a name="bkmk_tuning"></a> Client-Datenverkehr-tool
+##  <a name="bkmk_tuning"></a>Client-zu-Server-Traffic Tool
 
-Der Client-Datenverkehr \(CtsTraffic\) Tool bietet Ihnen die Möglichkeit zum Erstellen und Überprüfen des Netzwerkdatenverkehrs.
+Der Client-zu-Server-Datenverkehr \(ctstraffic @ no__t-1-Tool bietet die Möglichkeit, Netzwerk Datenverkehr zu erstellen und zu überprüfen.
 
-Weitere Informationen und das Tool herunterladen, finden Sie unter [CtsTraffic (Client-zu-Server-Datenverkehr)](https://github.com/Microsoft/ctsTraffic).
+Weitere Informationen und zum Herunterladen des Tools finden Sie unter [ctstraffic (Client-zu-Server-Datenverkehr)](https://github.com/Microsoft/ctsTraffic).
   
-##  <a name="bkmk_size"></a> TCP/IP-Fenstergröße
+##  <a name="bkmk_size"></a>Größe des TCP/IP-Fensters
 
-Für 1 GB-Adapter, sollten die Einstellungen, die in der vorherigen Tabelle gezeigt einen guten Durchsatz bereitstellen, da NTttcp die TCP-Standardfenstergröße 64 k mithilfe eines bestimmten logischen Prozessor setzt \(SO_RCVBUF\) für die Verbindung. Dies bietet eine guten Leistung in einem Netzwerk mit geringer Latenz.  
+Bei 1-GB-Adaptern sollten die in der vorherigen Tabelle gezeigten Einstellungen einen guten Durchsatz bereitstellen, da ntttcp für die Verbindung die standardmäßige TCP-Fenstergröße auf 64 K durch eine bestimmte logische Prozessor Option \(SO_RCVBUF @ no__t-1 festlegt. Dies ermöglicht eine gute Leistung in einem Netzwerk mit geringer Latenz.  
 
-Im Gegensatz dazu führt bei Netzwerken mit hoher Latenz oder 10 GB-Adapter, der standardmäßigen TCP-Fenster Größenwert für NTttcp kleiner als eine optimale Leistung. In beiden Fällen müssen Sie die TCP-Fenstergröße ermöglichen die größeren Bandbreite Bandwidth Delay Product anpassen.  
+Im Gegensatz dazu ergibt bei Netzwerken mit hoher Latenz oder bei 10-GB-Adaptern der Standardwert für die TCP-Fenstergröße für ntttcp eine geringere Leistung als die optimale Leistung. In beiden Fällen müssen Sie die TCP-Fenstergröße anpassen, um das größere Bandbreiten Verzögerungs Produkt zuzulassen.  
 
-Sie können die TCP-Fenstergröße statisch auf einen hohen Wert festlegen, mit der **-Rb** Option. Diese Option deaktiviert die TCP-Automatische Optimierung des Empfangsfensters, und es wird empfohlen, es nur dann, wenn der Benutzer, die sich ergebende Änderung im TCP/IP-Verhalten vollständig verstanden hat. Standardmäßig wird die TCP-Fenstergröße auf einen ausreichend Wert festgelegt ist und angepasst wird nur bei hoher Auslastung oder über Verbindungen mit hoher Latenz.  
+Sie können die TCP-Fenstergröße mit der Option **-RB** statisch auf einen großen Wert festlegen. Mit dieser Option wird die automatische Optimierung von TCP-Fenstern deaktiviert, und es wird empfohlen, Sie nur zu verwenden, wenn der Benutzer die resultierende Änderung im TCP/IP-Verhalten vollständig versteht. Standardmäßig ist die TCP-Fenstergröße auf einen ausreichenden Wert festgelegt und passt sich nur bei hoher Last oder über Verbindungen mit hoher Latenz an.  
 
-##  <a name="bkmk_advisor"></a> Microsoft Server Performance Advisor
+##  <a name="bkmk_advisor"></a>Microsoft Server Performance Advisor
 
-Microsoft Server Performance Advisor \(SPA\) hilft bei der IT-Administratoren Erfassen von Metriken zu identifizieren, vergleichen und Diagnostizieren von potenziellen Leistungsproblemen in Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008-Bereitstellung. 
+Microsoft Server Performance Advisor \(spa @ no__t-1 unterstützt IT-Administratoren bei der Erfassung von Metriken zum identifizieren, vergleichen und diagnostizieren potenzieller Leistungsprobleme in Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008-Bereitstellung. 
 
-SPA generiert, umfassende diagnostische Berichte und Diagramme, und bietet Empfehlungen unterstützen Sie beim schnellen Probleme analysieren und korrekturmaßnahmen zu entwickeln.  
+Spa generiert umfassende Diagnose Berichte und Diagramme und bietet Empfehlungen, mit denen Sie Probleme schnell analysieren und Korrekturmaßnahmen entwickeln können.  
   
- Weitere Informationen und den Advisor herunterladen, finden Sie unter [Microsoft Server Performance Advisor](https://msdn.microsoft.com/library/windows/hardware/dn481522.aspx) im Windows Hardware Developer Center.
+ Weitere Informationen und zum Herunterladen des Ratgebers finden Sie unter [Microsoft Server Performance Advisor](https://msdn.microsoft.com/library/windows/hardware/dn481522.aspx) im Windows Hardware dev Center.
 
-Links zu allen Themen in diesem Handbuch finden Sie [Optimieren der Leistung mit Subsystem](net-sub-performance-top.md).
+Links zu allen Themen in diesem Handbuch finden Sie unter [Network Subsystem Performance Tuning](net-sub-performance-top.md).

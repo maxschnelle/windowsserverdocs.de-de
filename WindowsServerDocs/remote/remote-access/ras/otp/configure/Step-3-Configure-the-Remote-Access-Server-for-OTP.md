@@ -1,9 +1,9 @@
 ---
-title: Schritt 3 Konfigurieren der RAS-Servers für OTP
-description: Dieses Thema ist Teil des Leitfadens Bereitstellen von Remotezugriff mit OTP-Authentifizierung in Windows Server 2016.
+title: Schritt 3 Konfigurieren des Remote Zugriffs Servers für OTP
+description: Dieses Thema ist Teil des Handbuchs Bereitstellen des Remote Zugriffs mit OTP-Authentifizierung in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,154 +12,154 @@ ms.topic: article
 ms.assetid: df1e87f2-6a0f-433b-8e42-816ae75395f9
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 093877657f19006bba2b80c10b92db1fb3b40fde
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 41cc5cc2df5ac9709818536df8fff098d2a0c297
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280865"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404340"
 ---
-# <a name="step-3-configure-the-remote-access-server-for-otp"></a>Schritt 3 Konfigurieren der RAS-Servers für OTP
+# <a name="step-3-configure-the-remote-access-server-for-otp"></a>Schritt 3 Konfigurieren des Remote Zugriffs Servers für OTP
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Nachdem der RADIUS-Server mit Software-Verteilung-Token konfiguriert wurde, Kommunikationsports geöffnet sind, ein gemeinsamen geheimen Schlüssel erstellt wurde, Benutzerkonten, die Active Directory entsprechen, auf dem RADIUS-Server erstellt wurden und wurde der RAS-Servers "als" konfiguriert ein RADIUS-Authentifizierungs-Agent, und klicken Sie dann die RAS-Server werden, um OTP zu unterstützen konfiguriert muss.  
+Nachdem der RADIUS-Server mit Software Verteilungs Token konfiguriert wurde, sind die Kommunikationsports geöffnet, ein gemeinsamer geheimer Schlüssel wurde erstellt, Benutzerkonten, die Active Directory entsprechen, wurden auf dem RADIUS-Server erstellt, und der RAS-Server hat der RAS-Server muss für die Unterstützung von OTP konfiguriert werden, wenn er als RADIUS-Authentifizierungs-Agent konfiguriert wurde.  
   
 |Aufgabe|Beschreibung|  
 |----|--------|  
-|[3.1 benutzerausnahmen von OTP-Authentifizierung (optional)](#BKMK_Exempt)|Wenn bestimmte Benutzer von DirectAccess mit OTP-Authentifizierung ausgenommen werden werden, klicken Sie dann vorläufigen gehen Sie folgendermaßen vor.|  
-|[3.2 Konfigurieren Sie 3.2 den RAS-Server zur Unterstützung von OTP](#BKMK_Config)|Aktualisieren Sie die RAS-Konfiguration zur Unterstützung einer zweistufigen OTP-Authentifizierung, auf dem RAS-Server.|  
-|[3.3 Smartcards für zusätzliche Autorisierung](#BKMK_Smartcard)|Weitere Informationen zur Verwendung von Smartcards genutzt.|  
+|[3,1 Benutzer von OTP-Authentifizierung ausgenommen (optional)](#BKMK_Exempt)|Wenn bestimmte Benutzer von DirectAccess mit OTP-Authentifizierung ausgenommen werden, führen Sie die folgenden Schritte aus.|  
+|[3,2 Konfigurieren des Remote Zugriffs Servers für die Unterstützung von OTP](#BKMK_Config)|Aktualisieren Sie auf dem Remote Zugriffs Server die Konfiguration des Remote Zugriffs, um die zweistufige Authentifizierung von OTP zu unterstützen.|  
+|[3,3 Smartcards für zusätzliche Autorisierung](#BKMK_Smartcard)|Weitere Informationen zur Verwendung von Smartcards.|  
   
 > [!NOTE]  
 > Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit denen Sie einige der beschriebenen Vorgehensweisen automatisieren können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="BKMK_Exempt"></a>3.1 benutzerausnahmen von OTP-Authentifizierung (optional)  
-Wenn bestimmte Benutzer sind, die von OTP-Authentifizierung ausgenommen werden, müssen diese Schritte vor der Konfiguration des Remotezugriffs durchgeführt werden:  
+## <a name="BKMK_Exempt"></a>3,1 Benutzer von OTP-Authentifizierung ausgenommen (optional)  
+Wenn bestimmte Benutzer von der OTP-Authentifizierung ausgenommen werden sollen, müssen diese Schritte vor der Konfiguration des Remote Zugriffs ausgeführt werden:  
   
 > [!NOTE]  
-> Sie müssen für die Replikation zwischen Domänen abgeschlossen, beim Konfigurieren der Gruppe der OTP-Ausnahme warten.  
+> Beim Konfigurieren der OTP-Ausnahme Gruppe müssen Sie auf den Abschluss der Replikation zwischen Domänen warten.  
   
-#### <a name="create-user-exemption-security-group"></a>Erstellen Sie zur Sicherheitsgruppe für Benutzer  
+#### <a name="create-user-exemption-security-group"></a>Benutzer Ausnahme-Sicherheitsgruppe erstellen  
   
-1.  Erstellen Sie eine Sicherheitsgruppe in Active Directory für den Zweck OTP-Ausnahmen.  
+1.  Erstellen Sie eine Sicherheitsgruppe in Active Directory für die OTP-Ausnahme.  
   
-2.  Fügen Sie alle Benutzer, die von OTP-Authentifizierung ausgenommen werden, der Sicherheitsgruppe hinzu.  
-  
-    > [!NOTE]  
-    > Stellen Sie sicher, dass nur Benutzer, und keine Computerkonten, in der Sicherheitsgruppe für OTP-Ausnahmen.  
-  
-## <a name="BKMK_Config"></a>3.2 Konfigurieren Sie 3.2 den RAS-Server zur Unterstützung von OTP  
-Verwenden Sie die folgenden Schritte aus, um Remotezugriff auf zwei-Faktor-Authentifizierung verwenden und OTP mit dem RADIUS-Server und die Bereitstellung von Serverzertifikaten aus den vorherigen Abschnitten zu konfigurieren:  
-  
-#### <a name="configure-remote-access-for-otp"></a>Konfigurieren des Remotezugriffs für OTP  
-  
-1.  Open **Remotezugriffsverwaltung** , und klicken Sie auf **Konfiguration**.  
-  
-2.  In der **DirectAccess-Setup** Fenster unter **Schritt2: RAS-Server**, klicken Sie auf **bearbeiten**.  
-  
-3.  Klicken Sie auf **Weiter** dreimal aus, und klicken Sie in der **Authentifizierung** Abschnitt wählen Sie beide **zweistufige Authentifizierung** und **OTP verwenden**, und stellen Sie sicher **Computerzertifikate** aktiviert ist.  
+2.  Fügen Sie alle Benutzer, die von der OTP-Authentifizierung ausgenommen werden sollen, der Sicherheitsgruppe hinzu.  
   
     > [!NOTE]  
-    > Nachdem die OTP auf dem RAS-Server aktiviert wurde, wenn Sie OTP, wählen Sie hierzu von deaktivieren **OTP verwenden**, die ISAPI- und CGI-Erweiterungen auf dem Server deinstalliert werden.  
+    > Stellen Sie sicher, dass nur Benutzerkonten und keine Computer Konten in der Sicherheitsgruppe "OTP" ausgenommen sind.  
   
-4.  Wenn Sie Windows 7-Unterstützung erforderlich ist, wählen Sie die **Aktivieren von Windows 7-Clientcomputer Verbindungen über DirectAccess zulassen** Kontrollkästchen. Hinweis: Wie im Planungsabschnitt erläutert wird, müssen Windows 7-Clients DCA 2.0 installiert, um DirectAccess mit OTP zu unterstützen.  
+## <a name="BKMK_Config"></a>3,2 Konfigurieren des Remote Zugriffs Servers für die Unterstützung von OTP  
+Führen Sie die folgenden Schritte aus, um den Remote Zugriff für die Verwendung von zweistufiger Authentifizierung und OTP mit dem RADIUS-Server und der Zertifikat Bereitstellung aus den vorherigen Abschnitten zu konfigurieren:  
+  
+#### <a name="configure-remote-access-for-otp"></a>Konfigurieren des Remote Zugriffs für OTP  
+  
+1.  Öffnen Sie **Remote Zugriffs Verwaltung** , und klicken Sie auf **Konfiguration**.  
+  
+2.  Klicken Sie im Fenster **DirectAccess-Setup** unter **Schritt 2-RAS-Server**auf **Bearbeiten**.  
+  
+3.  Klicken Sie dreimal auf **weiter** , und wählen Sie im Abschnitt **Authentifizierung** beide **zwei** stufige Authentifizierung **aus, und vergewissern Sie sich,** dass die Option **Computer Zertifikate verwenden** aktiviert ist.  
+  
+    > [!NOTE]  
+    > Wenn Sie OTP auf dem RAS-Server aktiviert haben, werden die ISAPI-und CGI-Erweiterungen auf dem Server deinstalliert, wenn Sie OTP durch Deaktivieren der **Verwendung von OTP**deaktivieren.  
+  
+4.  Wenn Windows 7-Unterstützung erforderlich ist, aktivieren Sie das Kontrollkästchen **Windows 7-Client Computer zum Herstellen einer Verbindung über DirectAccess aktivieren** . Hinweis: Wie im Abschnitt zur Planung erläutert, muss auf den Windows 7-Clients DCA 2,0 installiert sein, damit DirectAccess mit OTP unterstützt werden kann.  
   
 5.  Klicken Sie auf **Weiter**.  
   
-6.  In der **OTP RADIUS-Server** Abschnitt, doppelklicken Sie auf die leere **Servernamen** Feld.  
+6.  Doppelklicken Sie im Abschnitt " **OTP RADIUS-Server** " auf das Feld "leerer **Server Name** ".  
   
-7.  In der **ein RADIUS-Server hinzufügen** Dialogfeld Geben Sie den Namen des RADIUS-Servers in der **Servernamen** Feld. Klicken Sie auf **Änderung** neben der **gemeinsamer geheimer Schlüssel** ein, und geben Sie das gleiche Kennwort, die Sie beim Konfigurieren des RADIUS-Servers in verwendet die **neuer geheimer** und  **Neuen geheimen Schlüssel bestätigen** Felder. Klicken Sie auf **OK** zweimal aus, und klicken Sie auf **Weiter**.  
-  
-    > [!NOTE]  
-    > Wenn der RADIUS-Server in einer Domäne ist, anders als der RAS-Server ist, die **Servernamen** Feld muss den FQDN des RADIUS-Servers angeben.  
-  
-8.  In der **OTP-Zertifizierungsstellenserver** Abschnitt wählen Sie die CA-Server für die Registrierung von OTP-Clientauthentifizierungszertifikate verwendet werden, und klicken Sie auf **hinzufügen**. Klicken Sie auf **Weiter**.  
-  
-9. In der **OTP-Zertifikatvorlagen** Abschnitt auf **Durchsuchen** , wählen Sie die Zertifikatvorlage, die verwendet werden, für die Registrierung von Zertifikaten, die für die OTP-Authentifizierung ausgegeben werden.  
+7.  Geben Sie im Dialogfeld **RADIUS-Server hinzufügen** den Namen des RADIUS-Servers in das Feld **Server Name** ein. Klicken Sie neben dem Feld **gemeinsamer geheimer** Schlüssel auf **ändern** , und geben Sie das Kennwort ein, das Sie beim Konfigurieren des RADIUS-Servers in den **neuen geheimen** Schlüsseln und **bestätigen neuer geheimer** Schlüssel verwendet haben. Klicken Sie zweimal auf **OK** , und klicken Sie auf **weiter**.  
   
     > [!NOTE]  
-    > Die Zertifikatvorlage für OTP Zertifikate von der Zertifizierungsstelle des Unternehmens muss konfiguriert werden, ohne die Option "Sperrinformationen in ausgestellten Zertifikaten enthalten nicht". Wenn diese Option während der Erstellung des Zertifikat-Vorlage ausgewählt ist, schlägt OTP-Clientcomputern bei der Anmeldung ordnungsgemäß fehl.  
+    > Wenn sich der RADIUS-Server in einer anderen Domäne als der RAS-Server befindet, muss im Feld **Server Name** der voll qualifizierte Domänen Name des RADIUS-Servers angegeben werden.  
   
-    Klicken Sie auf **Durchsuchen** , wählen Sie eine Zertifikatvorlage verwendet, um das Zertifikat wird von RAS-Servers zum Signieren von OTP-zertifikatregistrierungsanforderungen zu registrieren. Klicken Sie auf **OK**. Klicken Sie auf **Weiter**.  
+8.  Wählen Sie im Abschnitt **OTP** -Zertifizierungsstellen Server die Zertifizierungsstellen Server aus, die für die Registrierung von OTP-Client Authentifizierungs Zertifikaten verwendet werden sollen, und klicken Sie auf **Hinzufügen**. Klicken Sie auf **Weiter**.  
   
-10. Wenn gezielt bestimmte Benutzer von DirectAccess mit OTP erforderlich sind, wird dann in der **OTP-Ausnahmen** Abschnitt **erfordern keine Benutzer in der angegebenen Sicherheitsgruppe für die Authentifizierung mit einer zweistufigen Authentifizierung** . Klicken Sie auf **Sicherheitsgruppe** , und wählen Sie die Sicherheitsgruppe, die für die OTP-Ausnahmen erstellt wurde.  
+9. Klicken Sie im Abschnitt **OTP-Zertifikat Vorlagen** auf **Durchsuchen** , um die Zertifikat Vorlage auszuwählen, die für die Registrierung von Zertifikaten verwendet wird, die für die OTP-Authentifizierung ausgestellt werden.  
   
-11. Auf der **RAS-Server-Setup** auf **Fertig stellen**.  
+    > [!NOTE]  
+    > Die Zertifikat Vorlage für OTP-Zertifikate, die von der Unternehmens Zertifizierungsstelle ausgestellt wurde, muss ohne die Option "keine Sperrinformationen in ausgestellten Zertifikaten einschließen" konfiguriert werden. Wenn diese Option während der Erstellung der Zertifikat Vorlage ausgewählt wird, können sich die OTP-Client Computer nicht ordnungsgemäß anmelden.  
   
-12. In der **DirectAccess-Setup** Fenster unter **Schritt 3 – Infrastrukturserver**, klicken Sie auf **bearbeiten**.  
+    Klicken Sie auf **Durchsuchen** , um eine Zertifikat Vorlage auszuwählen, die zum Registrieren des Zertifikats verwendet wird, das vom RAS-Server zum Signieren von OTP-Zertifikat Registrierungsanforderungen verwendet wird. Klicken Sie auf **OK**. Klicken Sie auf **Weiter**.  
   
-13. Klicken Sie auf **Weiter** doppelt so groß wie, und klicken Sie in der **Management** Abschnitt doppelklicken Sie auf die **Verwaltungsserver** Feld.  
+10. Wenn die Angabe bestimmter Benutzer von DirectAccess mit OTP erforderlich ist, wählen Sie im Abschnitt " **OTP-Ausnahmen** " die Option **Benutzer in der angegebenen Sicherheitsgruppe darf nicht mithilfe der zweistufigen Authentifizierung authentifizieren**aus. Klicken Sie auf **Sicherheitsgruppe** , und wählen Sie die Sicherheitsgruppe aus, die für OTP-Ausnahmen erstellt wurde.  
   
-14. Geben Sie die **Computername** oder **Adresse** des ZS-Servers, die konfiguriert wird, um die OTP-Zertifikate ausgestellt, und klicken Sie auf **OK**.  
+11. Klicken Sie auf der Seite **Setup des Remote Zugriffs Servers** auf **Fertig**stellen.  
   
-15. In der **Remotezugriff einrichten** Windows klicken Sie auf **Fertig stellen**.  
+12. Klicken Sie im Fenster **DirectAccess-Setup** unter **Schritt 3-Infrastruktur Server**auf **Bearbeiten**.  
   
-16. Klicken Sie auf **Fertig stellen** auf die **Experten für DirectAccess-Assistenten**.  
+13. Klicken Sie zweimal auf **weiter** , und doppelklicken Sie im Abschnitt **Verwaltung** auf das Feld **Verwaltungs Server** .  
   
-17. Auf der **Überprüfung des Remotezugriffs** Dialogfeld auf **übernehmen**, warten Sie, bis die DirectAccess-Richtlinie aktualisiert werden, und klicken Sie auf **schließen**.  
+14. Geben Sie den **Computer Namen** oder die **Adresse** des Zertifizierungsstellen Servers ein, der für das Ausstellen von OTP-Zertifikaten konfiguriert ist, und klicken Sie auf **OK**.  
   
-18. Auf der **starten** geben**powershell.exe**, mit der rechten Maustaste **Powershell**, klicken Sie auf **erweitert**, und klicken Sie auf **Ausführen als Administrator**. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+15. Klicken Sie im Fenster **Remote Zugriffs Einrichtung** auf **Fertig**stellen.  
   
-19. Geben Sie in Windows PowerShell-Fenster **Gpupdate/force** und drücken Sie EINGABETASTE.  
+16. Klicken Sie im **DirectAccess-Experten-Assistenten**auf **Fertig** stellen.  
   
-So konfigurieren Sie den Remotezugriff für OTP mithilfe von PowerShell-Befehle  
+17. Klicken Sie im Dialogfeld **Remote Zugriffs Überprüfung** auf über **nehmen, warten Sie,** bis die DirectAccess-Richtlinie aktualisiert wurde, und klicken Sie dann auf **Schließen**.  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-the-Remote-Access-Server-for-OTP/PowerShellLogoSmall.gif)**gleichwertige Windows PowerShell-Befehle**  
+18. Geben Sie im **Start** Bildschirm**PowerShell. exe**ein, klicken Sie mit der rechten Maustaste auf **PowerShell**, klicken Sie auf **erweitert**, und klicken Sie dann auf **als Administrator ausführen**. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+  
+19. Geben Sie im Windows PowerShell-Fenster **gpupdate/force** ein, und drücken Sie die EINGABETASTE.  
+  
+So konfigurieren Sie den Remote Zugriff für OTP mithilfe von PowerShell-Befehlen:  
+  
+](../../../../media/Step-3-Configure-the-Remote-Access-Server-for-OTP/PowerShellLogoSmall.gif)**äquivalente Windows PowerShell-Befehle** mit @no__t 0shell  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
-So konfigurieren Sie die RAS, um die zweistufige Authentifizierung für eine Bereitstellung zu verwenden, die derzeit die Computerzertifikatauthentifizierung verwendet:  
+So konfigurieren Sie den Remote Zugriff für die Verwendung der zweistufigen Authentifizierung für eine Bereitstellung, die derzeit die Computer Zertifikat Authentifizierung verwendet:  
   
 ```  
 Set-DAServer -UserAuthentication TwoFactor  
 ```  
   
-Zum Konfigurieren des Remotezugriffs um OTP-Authentifizierung mit den folgenden Einstellungen verwenden:  
+So konfigurieren Sie den Remote Zugriff, um die OTP-Authentifizierung mit den folgenden Einstellungen zu verwenden:  
   
--   Ein OTP-Server mit dem Namen OTP.corp.contoso.com aus.  
+-   Ein OTP-Server mit dem Namen OTP.Corp.contoso.com.  
   
--   Ein CA-Server mit dem Namen APP1.corp.contoso.com\corp-APP1-CA1.  
+-   Ein Zertifizierungsstellen Server mit dem Namen App1. Corp. ca. com\corp-App1-CA1.  
   
--   Eine Zertifikatvorlage, die mit dem Namen DAOTPLogon verwendet für die Registrierung von Zertifikaten, die für die OTP-Authentifizierung ausgegeben werden.  
+-   Eine Zertifikat Vorlage mit dem Namen daotplogon, die für die Registrierung von Zertifikaten verwendet wird, die für die OTP-Authentifizierung ausgestellt werden.  
   
--   Eine Zertifikatvorlage, die mit dem Namen DAOTPRA verwendet, um die Registrierung Zertifizierungsstelle, die RAS-Servers für OTP zertifikatregistrierungsanforderungen anmelden zu registrieren.  
+-   Eine Zertifikat Vorlage namens daotpra, mit der das Registrierungsstellen Zertifikat registriert wird, das vom RAS-Server zum Signieren von OTP-Zertifikat Registrierungsanforderungen verwendet wird.  
   
 ```  
 Enable-DAOtpAuthentication -CertificateTemplateName 'DAOTPLogon' -SigningCertificateTemplateName 'DAOTPRA' -CAServer @('APP1.corp.contoso.com\corp-APP1-CA1') -RadiusServer OTP.corp.contoso.com -SharedSecret Abcd123$  
 ```  
   
-Führen Sie nach dem Ausführen der PowerShell-Befehle die Schritte 12-19 aus dem vorherigen Verfahren zum Konfigurieren der RAS-Server, um OTP zu unterstützen.  
+Nachdem Sie die PowerShell-Befehle ausgeführt haben, führen Sie die Schritte 12-19 aus dem vorherigen Verfahren zum Konfigurieren des RAS-Servers für die Unterstützung von OTP aus  
   
 > [!NOTE]  
 > Stellen Sie sicher, dass Sie die OTP-Einstellungen auf dem RAS-Server angewendet haben, bevor Sie einen Einstiegspunkt hinzufügen.  
   
-## <a name="BKMK_Smartcard"></a>3.3 Smartcards für zusätzliche Autorisierung  
-Auf der Seite Authentifizierung von Schritt2 in den Remotezugriffs-Setup-Assistenten können Sie die Verwendung von Smartcards für den Zugriff auf das interne Netzwerk festlegen. Wenn diese Option ausgewählt ist, konfiguriert den Remotezugriffs-Setup-Assistenten die IPsec-Verbindungssicherheitsregel für den intranettunnel auf dem DirectAccess-Server für die tunnelmodusautorisierung mit Smartcards erforderlich. Tunnelmodusautorisierung können Sie angeben, dass nur berechtigte Computer oder Benutzer einen eingehenden Tunnel aufbauen können.  
+## <a name="BKMK_Smartcard"></a>3,3 Smartcards für zusätzliche Autorisierung  
+Auf der Seite Authentifizierung von Schritt 2 im Setup-Assistenten für Remote Zugriff können Sie die Verwendung von Smartcards für den Zugriff auf das interne Netzwerk vorschreiben. Wenn diese Option ausgewählt ist, konfiguriert der Remote Zugriffs-Setup-Assistent die IPSec-Verbindungs Sicherheitsregel für den intranettunnel auf dem DirectAccess-Server so, dass eine Tunnel Modus-Autorisierung mit Smartcards erforderlich ist. Mithilfe der Tunnelmodusautorisierung können Sie angeben, dass nur autorisierte Computer oder Benutzer einen eingehenden Tunnel einrichten können.  
   
 Um bei der IPsec-Tunnelmodusberechtigung für den Intranettunnel Smartcards zu verwenden, müssen Sie eine Public Key-Infrastruktur (PKI) für die Verwendung mit Smartcards bereitstellen.  
   
-Da die DirectAccess-Clients für den Zugriff auf das Intranet Smartcards verwenden, können Sie auch authentifizierungsmechanismussicherung, ein Feature von Windows Server 2008 R2 verwenden, zum Steuern des Zugriffs auf Ressourcen wie Dateien, Ordner und Drucker, abhängig davon, ob die Benutzer mit einem smartcardbasierten Zertifikat angemeldet. Authentifizierungsmechanismuszusicherung ist eine Domänenfunktionsebene von Windows Server 2008 R2 erforderlich.  
+Da Ihre DirectAccess-Clients Smartcards für den Zugriff auf das Intranet verwenden, können Sie auch die Authentifizierungsmechanismus-Sicherung, ein Feature von Windows Server 2008 R2, verwenden, um den Zugriff auf Ressourcen wie Dateien, Ordner und Drucker zu steuern, je nachdem, ob Benutzer, der mit einem smartcardbasierten Zertifikat angemeldet ist. Die Authentifizierung des Authentifizierungsmechanismus erfordert eine Domänen Funktionsebene von Windows Server 2008 R2.  
   
 ### <a name="allowing-access-for-users-with-unusable-smart-cards"></a>Zugriffssteuerung für Benutzer mit unbrauchbaren Smartcards  
 Gehen Sie wie folgt vor, um Benutzern mit unbrauchbaren Smartcards temporären Zugriff zu gestatten:  
   
 1.  Erstellen Sie eine Active Directory-Sicherheitsgruppe mit den Benutzerkonten von Benutzern, die ihre Smartcards vorübergehend nicht verwenden können.  
   
-2.  Konfigurieren Sie für den DirectAccess-Server Group Policy Object die globale IPsec-Einstellungen für die IPsec-tunnelautorisierung, und die Liste der autorisierten Benutzer, die Active Directory-Sicherheitsgruppe hinzugefügt.  
+2.  Konfigurieren Sie für das Gruppenrichtlinie Objekt des DirectAccess-Servers globale IPsec-Einstellungen für die IPSec-Tunnel Autorisierung, und fügen Sie der Liste der autorisierten Benutzer die Active Directory Sicherheitsgruppe hinzu.  
   
 Um einem Benutzer, der seine Smartcard nicht verwenden kann, Zugriff zu gewähren, fügen Sie der Active Directory-Sicherheitsgruppe vorübergehend sein Benutzerkonto hinzu. Entfernen Sie das Benutzerkonto aus der Gruppe, sobald die Smartcard wieder verwendbar ist.  
   
 ### <a name="under-the-covers-smart-card-authorization"></a>Hintergrundinformationen: Smartcard-Autorisierung  
-Die Smartcard-Autorisierung funktioniert, indem die Tunnelmodusautorisierung der Verbindungssicherheitsregel für den Intranettunnel zum DirectAccess-Server für eine bestimmte Kerberos-basierte Sicherheits-ID (SID) aktiviert wird. Bei der Smartcardautorisierung ist dies die bekannte SID (S-1-5-65-1), die smartcardbasierten Anmeldungen zuordnet ist. Diese SID ist in einem DirectAccess-Client-Kerberos-Token vorhanden und wird als "Dieses Organisationszertifikat" in den globalen IPsec konfiguriert Einstellungen Tunneln bezeichnet.  
+Die Smartcard-Autorisierung funktioniert, indem die Tunnelmodusautorisierung der Verbindungssicherheitsregel für den Intranettunnel zum DirectAccess-Server für eine bestimmte Kerberos-basierte Sicherheits-ID (SID) aktiviert wird. Bei der Smartcardautorisierung ist dies die bekannte SID (S-1-5-65-1), die smartcardbasierten Anmeldungen zuordnet ist. Diese SID ist im Kerberos-Token eines DirectAccess-Clients vorhanden und wird als "dieses Organisations Zertifikat" bezeichnet, wenn Sie in den globalen IPsec-tunnelmodusautorisierungs-Einstellungen konfiguriert ist.  
   
-Wenn Sie die smartcardautorisierung in Schritt2 des DirectAccess-Setup-Assistenten aktivieren, konfiguriert der DirectAccess-Setup-Assistent Autorisierung die globalen IPSec-Tunnel moduseinstellung mit dieser SID für das Gruppenrichtlinienobjekt des DirectAccess-Server an. Um diese Konfiguration in der Windows-Firewall mit erweiterter Sicherheit-Snap-in für das Gruppenrichtlinienobjekt des DirectAccess-Server anzuzeigen, führen Sie folgende Schritte aus:  
+Wenn Sie die Smartcard-Autorisierung in Schritt 2 des DirectAccess-Setup-Assistenten aktivieren, konfiguriert der DirectAccess-Setup-Assistent die globale IPsec-tunnelmodusautorisierungseinstellung mit dieser sid für das Gruppenrichtlinie Objekt des DirectAccess-Servers. Führen Sie die folgenden Schritte aus, um diese Konfiguration im Snap-in "Windows-Firewall mit erweiterter Sicherheit" für das Objekt "DirectAccess-Server Gruppenrichtlinie" anzuzeigen:  
   
-1.  Klicken Sie mit der rechten Maustaste auf die Windows-Firewall mit erweiterter Sicherheit, und klicken Sie dann auf Eigenschaften.  
+1.  Klicken Sie mit der rechten Maustaste auf Windows-Firewall mit erweiterter Sicherheit und dann auf Eigenschaften.  
   
-2.  Klicken Sie auf der Registerkarte IPsec-Einstellungen in der IPsec-tunnelautorisierung klicken Sie auf "anpassen".  
+2.  Klicken Sie auf der Registerkarte IPsec-Einstellungen unter IPsec-Tunnel Autorisierung auf anpassen.  
   
-3.  Klicken Sie auf der Registerkarte "Benutzer". Als autorisierter Benutzer sollte die "NT-autorität\dieses Organisationszertifikat" angezeigt werden.  
+3.  Klicken Sie auf die Registerkarte Benutzer. Als autorisierter Benutzer sollte "NT-Autorität \ dieses Organisations Zertifikat" angezeigt werden.  
   
 
 

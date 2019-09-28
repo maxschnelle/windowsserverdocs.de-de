@@ -1,9 +1,9 @@
 ---
 title: Hinzufügen eines DNS-Ressourceneintrags
-description: Dieses Thema ist Teil des Leitfadens Verwaltung von IP-Adressverwaltung (IPAM) in Windows Server 2016.
+description: Dieses Thema ist Teil des Verwaltungs Handbuchs für die IP-Adressverwaltung (IPAM) in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ipam
@@ -12,69 +12,69 @@ ms.topic: article
 ms.assetid: 5379373f-a3d9-4f51-b6fc-bf0f6df1d244
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 36773525187229e498b9addf4b1e6532fd413701
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: f8fd9974ad1670ae4106c5c38470fa51b53cf4f5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282314"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405727"
 ---
 # <a name="add-a-dns-resource-record"></a>Hinzufügen eines DNS-Ressourceneintrags
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können in diesem Thema verwenden, um eine oder mehrere neue DNS-Ressourceneinträge mithilfe der IPAM-Clientkonsole hinzufügen.  
+In diesem Thema können Sie mithilfe der IPAM-Client Konsole einen oder mehrere neue DNS-Ressourcen Einträge hinzufügen.  
   
 Die Mitgliedschaft in **Administratoren** oder einer entsprechenden Gruppe ist die Mindestanforderung für die Durchführung dieses Verfahrens.  
   
-### <a name="to-add-a-dns-resource-record"></a>Hinzufügen ein DNS-Ressourceneintrags  
+### <a name="to-add-a-dns-resource-record"></a>So fügen Sie einen DNS-Ressourcen Daten Satz hinzu  
   
-1.  Klicken Sie im Server-Manager **IPAM**. Die IPAM-Clientkonsole angezeigt wird.  
+1.  Klicken Sie in Server-Manager auf **IPAM**. Die IPAM-Client Konsole wird angezeigt.  
   
-2.  Klicken Sie im Navigationsbereich in **ÜBERWACHEN und verwalten**, klicken Sie auf **DNS-Zonen**.  Im Navigationsbereich, die in einer oberen Navigationsbereich und einer unteren Navigationsbereich unterteilt werden.  
+2.  Klicken Sie im Navigationsbereich unter **überwachen und verwalten**auf **DNS-Zonen**.  Der Navigationsbereich gliedert sich in einen oberen Navigationsbereich und einen niedrigeren Navigationsbereich.  
   
-3.  Klicken Sie im unteren Navigationsbereich auf **Forward-Lookup**. Alle IPAM verwalteten DNS-Forward-Lookup-Zonen werden in den Suchergebnissen der Anzeige im Bereich angezeigt. Mit der rechten Maustaste in der Zone, in denen Sie möchten zum Hinzufügen eines Ressourceneintrags, und klicken Sie dann auf **Hinzufügen von DNS-Ressourceneintrag**.  
+3.  Klicken Sie im unteren Navigationsbereich auf **Forward-Lookup**. Alle von IPAM verwalteten DNS-Forward-Lookupzonen werden in den Suchergebnissen des Anzeige Bereichs angezeigt. Klicken Sie mit der rechten Maustaste auf die Zone, der Sie einen Ressourcen Daten Satz hinzufügen möchten, und klicken Sie dann auf **DNS-Ressourcen Daten Satz**  
   
-    ![Hinzufügen von DNS-Ressourceneintrag](../../media/Add-a-DNS-Resource-Record/ipam_DNSrr_01.jpg)
+    ![DNS-Ressourcen Daten Satz hinzufügen](../../media/Add-a-DNS-Resource-Record/ipam_DNSrr_01.jpg)
   
-4.  Die **Hinzufügen von DNS-Ressourceneinträge** Dialogfeld wird geöffnet. In **Datensatz Ressourceneigenschaften**, klicken Sie auf **DNS-Server** , und wählen Sie den DNS-Server, in dem Sie eine oder mehrere neue Ressourceneinträge hinzufügen möchten. In **Konfigurieren von DNS-Ressourceneinträge**, klicken Sie auf **neu**.  
+4.  Das Dialogfeld **DNS-Ressourcen Einträge hinzufügen** wird geöffnet. Klicken Sie unter **Ressourcen Daten Satz Eigenschaften**auf **DNS-Server** , und wählen Sie den DNS-Server aus, auf dem Sie einen oder mehrere neue Ressourcen Einträge hinzufügen möchten. Klicken Sie unter **DNS-Ressourcen Einträge konfigurieren**auf **neu**.  
   
-    ![Konfigurieren von DNS-Ressourceneinträgen](../../media/Add-a-DNS-Resource-Record/ipam_DNSrr_02.jpg)  
+    ![Konfigurieren von DNS-Ressourcen Einträgen](../../media/Add-a-DNS-Resource-Record/ipam_DNSrr_02.jpg)  
   
-5.  Das Dialogfeld wird erweitert, um Sie anzuzeigen **neuer Ressourcendatensatz**. Klicken Sie auf **Ressourceneintragstyp**.  
+5.  Das Dialogfeld wird erweitert, um einen **neuen Ressourcen Daten Satz**anzuzeigen. Klicken Sie auf **Ressourcen Daten Satz**.  
   
     ![Typ des Ressourcendatensatzes](../../media/Add-a-DNS-Resource-Record/ipam_DNSrr_03.jpg)  
   
-6.  Die Liste der Ressourcendatensatztypen wird angezeigt. Klicken Sie auf den Ressourcentyp für den Datensatz, den Sie hinzufügen möchten.  
+6.  Die Liste der Ressourcen Daten Satz Typen wird angezeigt. Klicken Sie auf den Ressourcen Daten Satz, den Sie hinzufügen möchten.  
   
-    ![Wählen Sie Datensatztyp hinzufügen aus](../../media/Add-a-DNS-Resource-Record/ipam_DNSrr_04.jpg)  
+    ![Auswählen des hinzu zufügenden Datensatzes](../../media/Add-a-DNS-Resource-Record/ipam_DNSrr_04.jpg)  
   
-7.  In **neuer Ressourcendatensatz,** in **Namen**, geben Sie einen Datensatz. In **IP-Adresse**, geben Sie eine IP-Adresse ein, und wählen Sie dann die Datensatz-Ressourceneigenschaften, die für Ihre Bereitstellung geeignet sind. Klicken Sie auf **hinzufügen**.  
+7.  Geben Sie im **neuen Ressourcen Daten Satz** unter **Name**einen Namen für den Ressourcen Daten Satz ein. Geben Sie unter **IP-Adresse**eine IP-Adresse ein, und wählen Sie dann die Ressourcen Daten Satz Eigenschaften aus, die für Ihre Bereitstellung geeignet sind. Klicken Sie auf **Ressourcen Datensatz hinzufügen**.  
   
-    ![Hinzufügen](../../media/Add-a-DNS-Resource-Record/ipam_DNSrr_06.jpg)  
+    ![Ressourcen Daten Satz hinzufügen](../../media/Add-a-DNS-Resource-Record/ipam_DNSrr_06.jpg)  
   
-8.  Wenn Sie keine weiteren neuen Ressourceneinträge erstellen möchten, klicken Sie auf **OK**. Wenn Sie zusätzliche neue Ressourceneinträge erstellen möchten, klicken Sie auf **neu**.  
+8.  Wenn Sie keine weiteren neuen Ressourcen Einträge erstellen möchten, klicken Sie auf **OK**. Wenn Sie zusätzliche neue Ressourcen Einträge erstellen möchten, klicken Sie auf **neu**.  
   
-    ![Klicken Sie auf OK oder neuer](../../media/Add-a-DNS-Resource-Record/ipam_DNSrr_r2_01.jpg)
+    ![Klicken Sie auf OK oder neu.](../../media/Add-a-DNS-Resource-Record/ipam_DNSrr_r2_01.jpg)
   
-9. Das Dialogfeld wird erweitert, um Sie anzuzeigen **neuer Ressourcendatensatz**. Klicken Sie auf **Ressourceneintragstyp**. Die Liste der Ressourcendatensatztypen wird angezeigt. Klicken Sie auf den Ressourcentyp für den Datensatz, den Sie hinzufügen möchten.  
+9. Das Dialogfeld wird erweitert, um einen **neuen Ressourcen Daten Satz**anzuzeigen. Klicken Sie auf **Ressourcen Daten Satz**. Die Liste der Ressourcen Daten Satz Typen wird angezeigt. Klicken Sie auf den Ressourcen Daten Satz, den Sie hinzufügen möchten.  
   
-10. In **neuer Ressourcendatensatz,** in **Namen**, geben Sie einen Datensatz. In **IP-Adresse**, geben Sie eine IP-Adresse ein, und wählen Sie dann die Datensatz-Ressourceneigenschaften, die für Ihre Bereitstellung geeignet sind. Klicken Sie auf **hinzufügen**.  
+10. Geben Sie im **neuen Ressourcen Daten Satz** unter **Name**einen Namen für den Ressourcen Daten Satz ein. Geben Sie unter **IP-Adresse**eine IP-Adresse ein, und wählen Sie dann die Ressourcen Daten Satz Eigenschaften aus, die für Ihre Bereitstellung geeignet sind. Klicken Sie auf **Ressourcen Datensatz hinzufügen**.  
   
-    ![Hinzufügen](../../media/Add-a-DNS-Resource-Record/ipam_DNSrr_r2_02.jpg)  
+    ![Ressourcen Daten Satz hinzufügen](../../media/Add-a-DNS-Resource-Record/ipam_DNSrr_r2_02.jpg)  
   
-11. Wenn Sie mehrere Ressourceneinträge hinzufügen möchten, wiederholen Sie den Vorgang zum Erstellen von Datensätzen. Wenn Sie erstellen neue Ressourceneinträge fertig sind, klicken Sie auf **übernehmen**.  
+11. Wenn Sie weitere Ressourcen Einträge hinzufügen möchten, wiederholen Sie den Vorgang zum Erstellen von Datensätzen. Wenn Sie mit dem Erstellen neuer Ressourcen Einträge abgeschlossen haben **, klicken Sie**auf übernehmen.  
   
-    ![Erstellen des Datensatzes umfangreiche Ressource](../../media/Add-a-DNS-Resource-Record/ipam_DNSrr_r2_03.jpg)  
+    ![Erstellung des Ressourcen Datensatzes vervollständigen](../../media/Add-a-DNS-Resource-Record/ipam_DNSrr_r2_03.jpg)  
   
-12. Die **hinzufügen-Ressourceneintrag** im Dialogfeld zeigt eine Zusammenfassung der Ressourcen-Datensätze an, während die Ressourceneinträge in IPAM auf dem DNS-Server erstellt wird, die Sie angegeben. Wenn die Datensätze erfolgreich erstellt werden, die **Status** des Datensatzes ist **Erfolg**.  
+12. Im Dialogfeld **Ressourcen Eintrag hinzufügen** wird eine Zusammenfassung der Ressourcen Einträge angezeigt, während von IPAM die Ressourcen Einträge auf dem angegebenen DNS-Server erstellt werden. Wenn die Datensätze erfolgreich erstellt wurden, lautet der **Status** des Datensatzes " **erfolgreich**".  
   
-    ![Hinzufügen von Datensatzstatus](../../media/Add-a-DNS-Resource-Record/ipam_DNSrr_r2_04.jpg)  
+    ![Additions Status aufzeichnen](../../media/Add-a-DNS-Resource-Record/ipam_DNSrr_r2_04.jpg)  
   
 13. Klicken Sie auf **OK**.  
   
 ## <a name="see-also"></a>Siehe auch  
-[DNS-Datensatz Ressourcenverwaltung](DNS-Resource-Record-Management.md)  
+[Verwaltung von DNS-Ressourcen Einträgen](DNS-Resource-Record-Management.md)  
 [Verwalten von IPAM](Manage-IPAM.md)  
   
 

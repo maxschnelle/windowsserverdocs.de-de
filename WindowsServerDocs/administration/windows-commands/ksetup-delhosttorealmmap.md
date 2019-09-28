@@ -1,8 +1,8 @@
 ---
-title: ksetup:delhosttorealmmap
-description: 'Windows-Befehle Thema ***- '
+title: 'Ksetup: Delta Host Report Map'
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cf01edc4932fd5ec1cf98043de04286b3a100a34
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 70b54aaebc0b7b46c34c6f52e45f6583afd6c477
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882341"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375151"
 ---
-# <a name="ksetupdelhosttorealmmap"></a>ksetup:delhosttorealmmap
+# <a name="ksetupdelhosttorealmmap"></a>Ksetup: Delta Host Report Map
 
 
 
-Entfernt eine Dienst-Dienstprinzipalnamen (SPN)-Zuordnung zwischen dem angegebenen Host und dem Bereich. Beispiele wie dieser Befehl verwendet werden kann, finden Sie unter [Beispiele](#BKMK_Examples).
+Entfernt die Zuordnung eines Dienst Prinzipal namens (SPN) zwischen dem angegebenen Host und dem Bereich. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,25 +36,25 @@ ksetup /delhosttorealmmap <HostName> <RealmName>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<HostName>|Der Hostname ist der Computername, und es kann als vollqualifizierten Domänennamen des Computers angegeben werden.|
-|\<RealmName>|Der Bereichsname ist als Großbuchstaben DNS-Name, wie z. B. CORP. angegeben. "CONTOSO.COM".|
+|\<hostname >|Der Hostname ist der Computername, und er kann als voll qualifizierter Domänen Name des Computers angegeben werden.|
+|\<realmname >|Der Bereichs Name wird als Großbuchstabe (DNS-Name) angegeben, z. b. Corp. CONTOSO.com.|
 
 ## <a name="remarks"></a>Hinweise
 
-Wenn ein Host-Bereich (oder mehrere Hosts und-Bereich) die Zuordnung vorhanden ist, wird der Befehl die Zuordnung entfernt.
+Wenn eine Zuordnung zwischen Host und Bereich (oder mehreren Hosts zu Bereich) vorhanden ist, wird diese Zuordnung durch diesen Befehl entfernt.
 
-Die Zuordnung wird in der Registrierung aufgezeichnet **HKEY_LOCAL_MACHINE\SYSTEM\CurrentContolSet\Lsa\Kerberos\HostToRealm**. Sie sollten überprüfen, ob die Zuordnung in der Registrierung nach dem mit dem folgenden Befehl.
+Die Zuordnung wird in der Registrierung in **HKEY_LOCAL_MACHINE\SYSTEM\CurrentContolSet\Lsa\Kerberos\HostToRealm**aufgezeichnet. Sie sollten die Zuordnung in der Registrierung überprüfen, nachdem Sie diesen Befehl verwendet haben.
 
-## <a name="BKMK_Examples"></a>Beispiele für
+## <a name="BKMK_Examples"></a>Beispiele
 
-Ändern die Konfiguration des CONTOSO-Bereichs, löschen Sie die Zuordnung des Hostcomputers IPops897 in den Bereich:
+Wenn Sie die Konfiguration des Bereichs "Configuration Manager" ändern, löschen Sie die Zuordnung des Host Computers IPops897 in den Bereich:
 ```
 ksetup /delhosttorealmmap IPops897 CONTOSO
 ```
-Nach der Ausführung dieses Befehls können Sie in der Registrierung überprüfen, ob die Zuordnung wie vorgesehen.
+Nachdem Sie diesen Befehl ausgeführt haben, können Sie in der Registrierung überprüfen, ob die Zuordnung beabsichtigt ist.
 
 #### <a name="additional-references"></a>Weitere Verweise
 
 -   [Ksetup:addhosttorealmmap](ksetup-addhosttorealmmap.md)
 -   [Ksetup](ksetup.md)
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

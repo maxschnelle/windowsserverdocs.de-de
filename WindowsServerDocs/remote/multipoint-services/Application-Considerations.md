@@ -1,8 +1,8 @@
 ---
 title: Überlegungen zu Anwendungen
-description: Compatibility-Informationen für apps in MultiPoint Services
+description: Kompatibilitätsinformationen für apps in Multipoint Services
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,34 +13,34 @@ author: evaseydl
 manager: scottman
 ms.author: evas
 ms.date: 08/04/2016
-ms.openlocfilehash: 400f87c09f1b2e897d67f94e9b7ac12ae0a1e799
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 21531273b1dd6d643df3f816a880a0efb3117c70
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839831"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405129"
 ---
 # <a name="application-considerations"></a>Überlegungen zu Anwendungen
   
 ## <a name="application-compatibility"></a>Anwendungskompatibilität
 
-Jede Anwendung, die Sie in einem MultiPoint Services-System ausführen möchten, muss die folgenden Anforderungen erfüllen:
+Alle Anwendungen, die Sie in einem Multipoint Services-System ausführen möchten, müssen die folgenden Anforderungen erfüllen:
   
-- Es sollte installieren und Ausführen unter Windows Server 2016 
-- Es muss Sitzung bewusst sein, damit jeder Benutzer eine Instanz der app in einem MultiPoint-System ausgeführt werden kann.
+- Es sollte auf Windows Server 2016 installiert und ausgeführt werden. 
+- Er muss Sitzungs fähig sein, damit jeder Benutzer eine Instanz der app in einem Multipoint-System ausführen kann.
   
-Wenn die Anwendung diese Anforderung angegeben ist, empfehlen wir, versuchen die Anwendung zu installieren und verwenden in einer Remotedesktopsitzung. 
+Wenn die Anwendung diese Anforderung angibt, empfiehlt es sich, zu versuchen, die Anwendung zu installieren und in einer Remote Desktop Sitzung zu verwenden. 
 
-## <a name="addressing-application-compatibility-problems"></a>Probleme mit Adressierung der Anwendungskompatibilität  
-MultiPoint Services bietet die Option zum Verknüpfen von Stationen mit vollständigen Instanzen von Windows 10 Enterprise-Editionen, die praktisch auf demselben Hostcomputer ausgeführt werden. Für kritische Anwendungen, die mehrere Instanzen für mehrere Benutzer werden nicht ausgeführt oder werden nicht auf einem 64-Bit-Betriebssystem installiert ist, kann dies eine Lösung sein. Bereitstellen von Desktops auf diese Weise müssen mithilfe der Registerkarte virtuelle Desktops im MultiPoint-Manager:  
+## <a name="addressing-application-compatibility-problems"></a>Adressieren von Anwendungs Kompatibilitätsproblemen  
+Multipoint Services bietet die Option, Stationen vollständigen Instanzen von Windows 10 Enterprise Edition zuzuordnen, die virtuell auf demselben Host Computer ausgeführt werden. Bei kritischen Anwendungen, die nicht mehrere-Instanzen für mehrere Benutzer ausführen oder nicht auf einem 64-Bit-Betriebssystem installiert werden, kann dies eine Lösung sein. Wenn Sie Desktops auf diese Weise bereitstellen, müssen Sie die Registerkarte virtuelle Desktops im Multipoint-Manager für Folgendes  
   
 -   Virtuelle Desktops aktivieren  
--   Erstellen einer Vorlage für Desktops  
--   Passen Sie die Vorlage mit der problemanwendung  
--   Zuordnen von Stationen mit der angepassten Vorlage  
+-   Erstellen einer Desktop Vorlage  
+-   Anpassen der Vorlage mit der Problem Anwendung  
+-   Ordnen Sie Stationen der angepassten Vorlage zu.  
 
-Jede Station beginnt mit der gleichen Vorlage, damit jedes Mal alle Änderungen gelöscht werden, wenn der Computer gestartet wird.  
+Jede Station beginnt mit derselben Vorlage, sodass alle Änderungen bei jedem Start des Computers gelöscht werden.  
   
 >[!NOTE] 
->Es ist wichtig, überprüfen die lizenzanforderungen für die Anwendungen auf einem MultiPoint ausführen möchten. Obwohl Sie installieren möglicherweise eine Kopie von Anwendungen die Lizenzierung pro Benutzer.  
+>Es ist wichtig, die Lizenzierungsanforderungen für die Anwendungen zu überprüfen, die Sie auf einem Multipoint ausführen möchten. Obwohl Sie eine Kopier Anwendung installieren, ist möglicherweise eine Lizenzierung pro Benutzer erforderlich.  
   

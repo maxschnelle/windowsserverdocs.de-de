@@ -1,35 +1,35 @@
 ---
 title: Netzwerkbezogene Leistungsindikatoren
-description: Dieses Thema ist Teil des Leitfadens Netzwerk-Subsystem zur Leistungsoptimierung für Windows Server 2016.
-ms.prod: windows-server-threshold
+description: Dieses Thema ist Teil des Handbuch zur Leistungsoptimierung des Netzwerk Subsystems für Windows Server 2016.
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 7ebaa271-2557-4c24-a679-c3d863e6bf9e
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: bcb0c1c5a08a306fbd9b419d0c458c3bc54e1786
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 7ebff972d670f3fd0b8d12959d161bce03ac487e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446204"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71401844"
 ---
 # <a name="network-related-performance-counters"></a>Netzwerkbezogene Leistungsindikatoren
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Dieses Thema enthält die Leistungsindikatoren, die für das Verwalten der Leistung des Netzwerks und enthält die folgenden Abschnitte.  
+In diesem Thema werden die Leistungsindikatoren aufgelistet, die für die Verwaltung der Netzwerkleistung relevant sind, und die folgenden Abschnitte sind enthalten.  
   
 -   [Ressourcenverwendung](#bkmk_ru)  
   
 -   [Potenzielle Netzwerkprobleme](#bkmk_np)  
   
--   [Empfangsseitige Zusammenfügung (RSC) Leistung erhalten](#bkmk_rsc)  
+-   [Empfangs seitige zusammen Fügung (Receive Side Coalescing, RSC)](#bkmk_rsc)  
   
-##  <a name="bkmk_ru"></a> Ressourcenverwendung  
+##  <a name="bkmk_ru"></a>Ressourcenverwendung  
 
-Die folgenden Leistungsindikatoren sind für netzwerkressourcenauslastung relevant.  
+Die folgenden Leistungsindikatoren sind für die Verwendung von Netzwerkressourcen relevant.  
   
 - IPv4, IPv6  
   
@@ -39,15 +39,15 @@ Die folgenden Leistungsindikatoren sind für netzwerkressourcenauslastung releva
   
 - TCPv4, TCPv6  
   
-  -   Segmente empfangen/s  
+  -   Empfangene Segmente/Sek.  
   
-  -   Segmente gesendet/s  
+  -   Gesendete Segmente/Sek.  
   
-  -   Segmente übertragen/Sekunde  
+  -   Erneut übertragene Segmente/Sek.  
   
-- Netzwerkschnittstelle(*), Netzwerkadapter (\*)  
+- Netzwerkschnittstelle (*), Netzwerk Adapter (\*)  
   
-  - Empfangene Bytes/Sekunde  
+  - Empfangene Bytes/Sek.  
   
   - Gesendete Bytes/Sek.  
   
@@ -57,39 +57,39 @@ Die folgenden Leistungsindikatoren sind für netzwerkressourcenauslastung releva
   
   - Ausgabewarteschlangenlänge  
   
-    Dieser Leistungsindikator ist die Länge der Ausgabepaketwarteschlange \(in Paketen\). Wenn dies länger als 2 ist, treten Verzögerungen. Sie finden den Engpass, und vermeiden sie wenn möglich. Da NDIS-Anforderungen Warteschlangen, sollte diese Länge immer 0 sein.  
+    Dieser Leistungs Bewert ist die Länge der Ausgabe Paket Warteschlange \(in den Paketen @ no__t-1. Wenn dieser Wert länger als 2 ist, treten Verzögerungen auf. Sie sollten den Engpass ermitteln und ihn ggf. entfernen. Da NDIS die Anforderungen in die Warteschlange eingereiht, sollte diese Länge immer 0 sein.  
   
-- Prozessorinformationen  
+- Prozessor Informationen  
   
   - % Processor Time  
   
-  - Interrupts/Sekunde  
+  - Interrupts/Sek.  
   
   - DPCs in Warteschlange/Sekunde  
   
-    Dieser Leistungsindikator ist einer durchschnittlichen Rate, mit der DPCs der logische Prozessor-DPC-Warteschlange hinzugefügt wurden. Jeden logischer Prozessor verfügt über eine eigene DPC-Warteschlange. Dieser Leistungsindikator misst die Rate, mit der DPCs an die Warteschlange für nicht die Anzahl der DPCs in der Warteschlange hinzugefügt werden. Es zeigt den Unterschied zwischen den Werten, die in den letzten zwei Beispielen geteilt durch die Dauer des Messintervalls beobachtet wurden.  
+    Dieser Wert ist eine durchschnittliche Rate, mit der DPCs der DPC-Warteschlange des logischen Prozessors hinzugefügt wurden. Jeder logische Prozessor verfügt über eine eigene DPC-Warteschlange. Dieser Wert misst die Rate, mit der DPCs der Warteschlange hinzugefügt werden, nicht die Anzahl der DPCs in der Warteschlange. Es zeigt den Unterschied zwischen den Werten, die in den letzten beiden Beispielen beobachtet wurden, dividiert durch die Dauer des Stichproben Intervalls an.  
   
-##  <a name="bkmk_np"></a> Potenzielle Netzwerkprobleme  
+##  <a name="bkmk_np"></a>Potenzielle Netzwerkprobleme  
 
 Die folgenden Leistungsindikatoren sind für potenzielle Netzwerkprobleme relevant.  
   
--   Netzwerkschnittstelle(*), Netzwerkadapter (\*)  
+-   Netzwerkschnittstelle (*), Netzwerk Adapter (\*)  
   
-    -   Verworfene empfangene Pakete  
+    -   Empfangene Pakete verworfen  
   
-    -   Empfangene Pakete mit Fehlern  
+    -   Fehler beim Empfangen von Paketen  
   
-    -   Ausgehende verworfene Pakete  
+    -   Ausgehende ausgehende Pakete  
   
     -   Ausgehende Pakete mit Fehlern  
   
 -   WFPv4, WFPv6  
   
-    -   Verworfene Pakete/Sekunde
+    -   Verworfene Pakete/Sek.
 
 -   UDPv4, UDPv6
 
-    -   Empfangene Datagramme Fehler  
+    -   Empfangene Datagramme-Fehler  
   
 -   TCPv4, TCPv6  
   
@@ -99,38 +99,38 @@ Die folgenden Leistungsindikatoren sind für potenzielle Netzwerkprobleme releva
   
 -   Netzwerk-QoS-Richtlinie  
   
-    -   Pakete verworfen werden  
+    -   Gelöschte Pakete  
   
     -   Verworfene Pakete/Sek.  
   
--   Pro Processor Network Interface Card Activity  
+-   Netzwerkschnittstellenkarten-Aktivität pro Prozessor  
   
-    -   Unzureichende verfügbare Ressourcen empfangen Anzeichen/Sekunde  
+    -   Geringe Ressourcen Empfangs Hinweise/Sek.  
   
-    -   Unzureichende verfügbare Ressourcen empfangene Pakete/Sek.  
+    -   Wenig empfangene Ressourcen empfangene Pakete/Sek.  
   
 -   Microsoft Winsock BSP  
   
-    -   Gelöschten Datagramme  
+    -   Gelöschte Datagramme  
   
-    -   Gelöschten Datagramme/Sekunde  
+    -   Gelöschte Datagramme/Sek.  
   
     -   Zurückgewiesene Verbindungen  
   
     -   Abgelehnte Verbindungen/Sek.  
   
-##  <a name="bkmk_rsc"></a> Empfangsseitige Zusammenfügung (RSC) Leistung erhalten  
+##  <a name="bkmk_rsc"></a>Empfangs seitige zusammen Fügung (Receive Side Coalescing, RSC)  
 
 Die folgenden Leistungsindikatoren sind für die RSC-Leistung relevant.  
   
--   Network Adapter(*)  
+-   Netzwerk Adapter (*)  
   
-    -   TCP-Verbindungen, aktive RSC  
+    -   TCP aktiv RSC-Verbindungen  
   
-    -   Durchschnittliche TCP-RSC-Paketgröße  
+    -   TCP RSC, durchschnittliche Paketgröße  
   
-    -   TCP-RSC vereinigt Pakete/Sek.  
+    -   Von TCP RSC zusammengeführte Pakete/Sek.  
   
-    -   TCP-RSC Ausnahmen/s
+    -   TCP RSC-Ausnahmen/Sek.
 
-Links zu allen Themen in diesem Handbuch finden Sie [Optimieren der Leistung mit Subsystem](net-sub-performance-top.md).
+Links zu allen Themen in diesem Handbuch finden Sie unter [Network Subsystem Performance Tuning](net-sub-performance-top.md).

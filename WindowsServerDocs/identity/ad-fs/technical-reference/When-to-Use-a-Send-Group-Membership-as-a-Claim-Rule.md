@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 546507254f796e6a2fbe71e3ba30a7597ea51295
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 82dd9cec2c75a796eb0def508082508a5d0dbf5f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869274"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385431"
 ---
 # <a name="when-to-use-a-send-group-membership-as-a-claim-rule"></a>Einsatzbereiche für das Versenden einer Gruppenmitgliedschaft als Anspruchsregel
 Sie können diese Regel in Active Directory-Verbunddienste (AD FS) \(AD FS\) verwenden, wenn Sie einen neuen ausgehenden Anspruchs Wert nur für die Benutzer ausstellen möchten, die Mitglieder einer angegebenen Active Directory Sicherheitsgruppe sind. Wenn Sie diese Regel anwenden, stellen Sie einen einzelnen Anspruch aus, der nur für die angegebene Gruppe gilt, wie in folgender Tabelle beschrieben.  

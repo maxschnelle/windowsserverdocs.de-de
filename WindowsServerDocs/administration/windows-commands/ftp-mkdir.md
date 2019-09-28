@@ -1,8 +1,8 @@
 ---
 title: FTP-mkdir
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a03bb9766ffe62a80e8661bf8ce2a8eea2ce536b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 900548cbca67c53887d2d46b4e05612ed00a1660
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438567"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376242"
 ---
-# <a name="ftp-mkdir"></a>ftp: mkdir
+# <a name="ftp-mkdir"></a>FTP: mkdir
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-erstellt ein Verzeichnis auf dem Remotecomputer.   
+erstellt ein Verzeichnis auf dem Remote Computer.   
 ## <a name="syntax"></a>Syntax  
 ```  
 mkdir <directory>  
@@ -33,12 +33,12 @@ mkdir <directory>
 
 |  Parameter  |                   Beschreibung                   |
 |-------------|-------------------------------------------------|
-| <directory> | Gibt den Namen des neuen Remoteverzeichnisses. |
+| <directory> | Gibt den Namen des neuen Remote Verzeichnisses an. |
 
-## <a name="BKMK_Examples"></a>Beispiele für  
-Erstellen Sie ein Verzeichnis namens **dir1** auf dem Remotecomputer.  
+## <a name="BKMK_Examples"></a>Beispiele  
+Erstellen Sie auf dem Remote Computer ein Verzeichnis mit dem Namen **dir1** .  
 ```  
 mkdir dir1  
 ```  
-## <a name="additional-references"></a>Zusätzliche Referenzen  
+## <a name="additional-references"></a>Weitere Verweise  
 -   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

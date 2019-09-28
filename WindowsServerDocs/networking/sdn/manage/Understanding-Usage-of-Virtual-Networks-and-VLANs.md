@@ -1,9 +1,9 @@
 ---
-title: Verstehen Sie die Verwendung von virtuellen Netzwerken und VLANs
-description: In diesem Thema enthält Informationen zu virtuellen Netzwerken für Hyper-V Network Virtualization und deren Unterschiede zu virtuelle lokale Netzwerke (VLANs). Mit Hyper-V-Netzwerkvirtualisierung erstellen Sie die Überlagerung virtuellen Netzwerken, die auch als virtuelle Netzwerke bezeichnet.
+title: Grundlegendes zur Verwendung von virtuellen Netzwerken und VLANs
+description: In diesem Thema erfahren Sie mehr über virtuelle Netzwerke für die Hyper-V-Netzwerkvirtualisierung und deren Unterschiede zu virtuellen lokalen Netzwerken (Virtual Local Area Networks, VLANs). Mit der Hyper-V-Netzwerkvirtualisierung erstellen Sie über Lagerungs-VMS, auch als virtuelle Netzwerke bezeichnet.
 manager: dougkim
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -13,32 +13,32 @@ ms.assetid: 84ac2458-3fcf-4c4f-acfe-6105443dd83f
 ms.author: pashort
 author: shortpatti
 ms.date: 08/26/2018
-ms.openlocfilehash: d126e97a91e4c61ecff00cc2b5a527618b2d4d0f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 854adf0e7bb2a8715e3d447c04e2f09c3470a781
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875531"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355832"
 ---
-# <a name="understand-the-usage-of-virtual-networks-and-vlans"></a>Verstehen Sie die Verwendung von virtuellen Netzwerken und VLANs
+# <a name="understand-the-usage-of-virtual-networks-and-vlans"></a>Grundlegendes zur Verwendung von virtuellen Netzwerken und VLANs
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-In diesem Thema enthält Informationen zu virtuellen Netzwerken für Hyper-V Network Virtualization und deren Unterschiede zu virtuelle lokale Netzwerke (VLANs). Mit Hyper-V-Netzwerkvirtualisierung erstellen Sie die Überlagerung virtuellen Netzwerken, die auch als virtuelle Netzwerke bezeichnet.
+In diesem Thema erfahren Sie mehr über virtuelle Netzwerke für die Hyper-V-Netzwerkvirtualisierung und deren Unterschiede zu virtuellen lokalen Netzwerken (Virtual Local Area Networks, VLANs). Mit der Hyper-V-Netzwerkvirtualisierung erstellen Sie über Lagerungs-VMS, auch als virtuelle Netzwerke bezeichnet.
 
 
 
   
-Software-Defined Networking (SDN) in Windows Server 2016 basiert auf die Richtlinie für die Überlagerung von virtuellen Netzwerken in einem virtuellen Hyper-V-Switch-Programmierung. Sie können die Overlay virtuelle Netzwerke, virtuelle Netzwerke, mit Hyper-V-Netzwerkvirtualisierung so genannte erstellen. 
+Software-Defined Networking (SDN) in Windows Server 2016 basiert auf der Programmier Richtlinie für virtuelle Überlagerungs Netzwerke in einem virtuellen Hyper-V-Switch. Mithilfe der Hyper-V-Netzwerkvirtualisierung können Sie virtuelle Überlagerungs Netzwerke erstellen, die auch als virtuelle Netzwerke bezeichnet werden. 
   
-Wenn Sie Hyper-V-Netzwerkvirtualisierung bereitstellen, werden Overlay-Netzwerke erstellt, indem Kapseln der ursprünglichen Mandanten-VM Schicht-2-Ethernet-Frame mit einem Overlay - oder -Tunnel - Headers (z. B. VXLAN oder NVGRE) und Layer-3-IP und Layer-2-Ethernet- Header aus der dabei (oder physisch) Netzwerk. Die Überlagerung virtuellen Netzwerke werden durch ein 24-Bit-virtuelles Netzwerk Bezeichner (VNI) mandantenisolation-Datenverkehr zu verwalten und können überlappende IP-Adressen identifiziert. Die VNI besteht aus einem virtuellen Subnetz VSID (ID), die ID der logischen Switch und Tunnel-ID.  
+Wenn Sie die Hyper-V-Netzwerkvirtualisierung bereitstellen, werden Überlagerungs Netzwerke erstellt, indem der Layer-2-Ethernet-Frame des ursprünglichen virtuellen Computers mit einem Overlay-oder Tunnel Header (z. b. vxlan oder nvgre) und Layer-3-IP und Layer-2-Ethernet gekapselt wird. Header aus dem zugrunde liegenden (oder physischen) Netzwerk. Die virtuellen über Lagerungs Netzwerke werden durch eine 24-Bit-Virtual Network Kennung (vni) identifiziert, um die Isolation von Mandanten Datenverkehr aufrechtzuerhalten und überlappende IP-Adressen zuzulassen. Die vni besteht aus einer vsid (Virtual Subnetz ID), einer logischen Switch-ID und einer Tunnel-ID.  
   
-Darüber hinaus ist jeder Mandant eine Routingdomäne (ähnlich wie virtuelle routing und Weiterleitung - VRF) zugewiesen, sodass mehrere virtuelle Subnetz-Präfixe (jede dargestellt durch eine VNI) direkt miteinander weitergeleitet werden können. Mandantenübergreifende (oder die übergreifende Routingdomäne) routing wird ohne Umweg über ein Gateway nicht unterstützt.   
+Außerdem wird jedem Mandanten eine Routing Domäne (ähnlich dem virtuellen Routing und der Weiterleitungs-VRF) zugewiesen, sodass mehrere virtuelle Subnetzpräfixe (die jeweils durch ein vni dargestellt werden) direkt miteinander geroutet werden können. Ein Mandanten übergreifendes Routing (oder Routing übergreifende Domänen) wird nicht unterstützt, ohne dass ein Gateway durchlaufen wird.   
   
-Im physische Netzwerk, auf dem jedes Mandanten-gekapselten Datenverkehr getunnelt wird, wird durch ein logisches Netzwerk Namens im Anbieter logischen Netzwerk dargestellt. Dieses logische Netzwerk des Anbieters besteht aus einem oder mehreren Subnetzen, dargestellt durch eine IP-Präfix und optional ein VLAN 802. 1Q Tag.  
+Das physische Netzwerk, in dem der gekapselte Datenverkehr jedes Mandanten getunniert wird, wird durch ein logisches Netzwerk dargestellt, das als logisches Netzwerk bezeichnet wird. Dieses logische anbieternetzwerk besteht aus einem oder mehreren Subnetzen, die jeweils durch ein IP-Präfix und optional ein VLAN 802.1 q-Tag dargestellt werden.  
   
-Sie können zusätzliche logische Netzwerke erstellen und Subnetze für Infrastrukturzwecke zum Ausführen von Verwaltungsdatenverkehr, Speicherdatenverkehr, live Migration-Traffic usw.  
+Sie können zusätzliche logische Netzwerke und Subnetze zu Infrastruktur Zwecken für den Verwaltungs Datenverkehr, den Speicher Datenverkehr, den Datenverkehr für die Live Migration usw. erstellen.  
   
-Microsoft SDN unterstützt nicht die Isolation von mandantennetzwerke mit VLANs. Mandantenisolation erfolgt ausschließlich mithilfe von Hyper-V-Netzwerkvirtualisierung Overlay virtuelle Netzwerke und Kapselung. 
+Die Isolation von Mandanten Netzwerken mithilfe von VLANs wird von Microsoft Sdn nicht unterstützt. Die Mandanten Isolation erfolgt ausschließlich durch die Verwendung von Hyper-V-netzwerkvirtualisierungsüberlagerung virtuelle Netzwerke und Kapselung. 
 
 

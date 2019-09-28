@@ -2,22 +2,22 @@
 title: Bearbeiten der Eigenschaften der Dateiprüfungsvorlagen
 description: In diesem Artikel wird beschrieben, wie Sie die Eigenschaften der Dateiprüfungsvorlage bearbeiten
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 31ca46707a32d23a5dd9606c57bcaec5d6e53a80
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9e84545be86bdb8fcba09d0ff49ac98b44cd7bdf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846891"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403128"
 ---
 # <a name="edit-file-screen-template-properties"></a>Bearbeiten der Eigenschaften der Dateiprüfungsvorlagen
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Wenn Sie eine Dateiprüfungsvorlage ändern, haben Sie die Möglichkeit, diese Änderungen auf Dateiprüfungen anzuwenden, die mit der ursprünglichen Dateiprüfungsvorlage erstellt wurden. Sie haben die Möglichkeit, nur die Dateiprüfungen zu ändern, die der ursprünglichen Vorlage entsprechen oder alle Dateiprüfungen zu ändern, die von der ursprünglichen Vorlage abgeleitet sind, unabhängig von den Änderungen, die Sie an den Dateiprüfungen vorgenommen haben, seit sie erstellt wurden. Dieses Feature vereinfacht die Aktualisierung der Eigenschaften der Dateiprüfungen, da alle Änderungen an einem zentralen Ort ausgeführt werden können.
 
@@ -28,7 +28,7 @@ Wenn Sie eine Dateiprüfungsvorlage ändern, haben Sie die Möglichkeit, diese �
 
 1.  Wählen Sie im Dialogfeld **Dateiprüfungsvorlagen** die zu ändernde Vorlage aus.
 
-2.  Mit der rechten Maustaste in der Vorlage der Bildschirm, und klicken Sie auf **Bearbeiten der Vorlageneigenschaften** (oder in der **Aktionen** Bereich unter **Datei Bildschirmvorlagen ausgewählt**Option  **Eigenschaften der Vorlage**.) Daraufhin wird die **Dateiprüfungseigenschaften Vorlage** Dialogfeld.
+2.  Klicken Sie mit der rechten Maustaste auf die Datei Bildschirm Vorlage, und klicken Sie auf **Vorlagen Eigenschaften bearbeiten** (oder wählen Sie im Bereich **Aktionen** unter **ausgewählte Datei Bildschirm Vorlagen**die Option **Vorlagen Eigenschaften bearbeiten**aus.) Dadurch wird das Dialogfeld **Eigenschaften der Datei Bildschirm Vorlage** geöffnet.
 
 3.  Wenn Sie die Eigenschaften einer anderen Vorlage als Grundlage für eine geänderte Vorlage kopieren und verwenden möchten, wählen Sie in der Dropdownliste **Eigenschaften aus Kontingentvorlage kopieren** eine Vorlage aus, und klicken Sie anschließend auf Kopieren. Klicken Sie anschließend auf **Kopieren**.
 
@@ -46,7 +46,7 @@ Wenn Sie eine Dateiprüfungsvorlage ändern, haben Sie die Möglichkeit, diese �
 
 ## <a name="see-also"></a>Siehe auch
 
--   [Dateiprüfungsverwaltung](file-screening-management.md)
--   [Erstellen Sie eine Bildschirmvorlage Datei](create-file-screen-template.md)
+-   [Datei Prüfungsverwaltung](file-screening-management.md)
+-   [Erstellen einer Dateiprüfungsvorlage](create-file-screen-template.md)
 
 

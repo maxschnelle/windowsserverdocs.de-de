@@ -1,96 +1,96 @@
 ---
 title: Erstellen von Volumes in Direkte Speicherplätze
-description: 'Vorgehensweise: Erstellen von Volumes in Storage Spaces Direct using Windows Admin Center und PowerShell.'
-ms.prod: windows-server-threshold
+description: Erstellen von Volumes in direkte Speicherplätze mithilfe von Windows Admin Center und PowerShell.
+ms.prod: windows-server
 ms.reviewer: cosmosdarwin
 author: cosmosdarwin
 ms.author: cosdar
 manager: eldenc
 ms.technology: storage-spaces
 ms.date: 06/06/2019
-ms.openlocfilehash: 85eca06a5d8c103851596055099876cb53a902ad
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 8c17671f2f15d1373973dcf2fbafc753f0a163a6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66810557"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402887"
 ---
 # <a name="creating-volumes-in-storage-spaces-direct"></a>Erstellen von Volumes in Direkte Speicherplätze
 
 > Gilt für: Windows Server 2019, Windows Server 2016
 
-In diesem Thema wird beschrieben, wie zum Erstellen von Volumes auf einem Cluster "direkte Speicherplätze" mithilfe des Failovercluster-Manager, PowerShell oder Windows Admin Center wird.
+In diesem Thema wird beschrieben, wie Volumes auf einem direkte Speicherplätze Cluster mithilfe von Windows Admin Center, PowerShell oder Failovercluster-Manager erstellt werden.
 
 > [!TIP]
 > Lesen Sie zunächst [Planen von Volumes in Direkte Speicherplätze](plan-volumes.md), falls noch nicht geschehen.
 
-## <a name="create-a-three-way-mirror-volume"></a>Erstellen Sie ein Volume für die drei-Wege-Spiegelung
+## <a name="create-a-three-way-mirror-volume"></a>Erstellen eines drei-Wege-Spiegelungs Volumens
 
-So erstellen ein Volume für die drei-Wege-Spiegelung in Windows Admin Center: 
+So erstellen Sie ein drei-Wege-Spiegelungs Volume im Windows Admin Center: 
 
-1. Windows Admin Center, eine Verbindung mit einem "direkte Speicherplätze"-Cluster herstellen, und wählen Sie dann **Volumes** aus der **Tools** Bereich.
-2. Wählen Sie auf der Seite "Volumes" die **Inventur** Registerkarte, und wählen Sie dann **erstellen Volumes**.
-3. In der **erstellen Volumes** , geben Sie einen Namen für das Volume, und lassen Sie **Resilienz** als **drei-Wege-Spiegelung**.
-4. In **Größe auf**, geben Sie die Größe des Volumes. Beispiel: 5 TB (Terabyte).
+1. Stellen Sie im Windows Admin Center eine Verbindung mit einem direkte Speicherplätze Cluster her, und wählen Sie dann im Bereich **Tools** die Option **Volumes** aus.
+2. Wählen Sie auf der Seite Volumes die Registerkarte **Inventar** aus, und wählen Sie dann **Volume erstellen**aus.
+3. Geben Sie im Bereich **Volume erstellen** einen Namen für das Volume ein, und belassen Sie die **Resilienz** als **drei-Wege-Spiegelung**.
+4. Geben Sie unter **HDD**die Größe des Volumes an. Beispielsweise 5 TB (Terabyte).
 5. Wählen Sie **Erstellen** aus.
 
-Je nach Größe kann das Erstellen des Volumes einige Minuten dauern. Benachrichtigungen in der oberen rechten Ecke teilt Ihnen mit, wenn das Volume erstellt wird. Das neue Volume wird in der Inventarliste angezeigt.
+Abhängig von der Größe kann das Erstellen des Volumes einige Minuten dauern. Mit den Benachrichtigungen in der oberen rechten Ecke werden Sie informiert, wenn das Volume erstellt wird. Das neue Volume wird in der Inventur Liste angezeigt.
 
-Sehen Sie sich ein kurzes Video zum Erstellen eines Volumes drei-Wege-Spiegelung.
+Sehen Sie sich ein kurzes Video zum Erstellen eines drei-Wege-Spiegelungs Volumes an.
 
 > [!VIDEO https://www.youtube-nocookie.com/embed/o66etKq70N8]
 
-## <a name="create-a-mirror-accelerated-parity-volume"></a>Erstellen Sie ein Volume Parität Mirror-Beschleunigung
+## <a name="create-a-mirror-accelerated-parity-volume"></a>Erstellen eines Volumes mit Spiegelungs beschleunigter Parität
 
-Mirror-beschleunigte Parität reduziert den Platzbedarf des Datenträgers auf die HDD. Beispielsweise wäre ein drei-Wege-Spiegelung-Volume, dass der Größe 10 Terabyte, Sie 30 Terabyte als Speicherbedarf benötigen. Um den Aufwand beim Speicherbedarf zu reduzieren, erstellen Sie ein Volume mit Parität Mirror-Beschleunigung. Dies verringert sich der Speicherplatzbedarf von 30 TB nur 22 Terabyte fassen, sogar in nur 4 Server, indem Sie spiegeln die aktivsten 20 Prozent der Daten und Parität für mehr Speicherplatz effizient zum Speichern des Rests ist. Sie können anpassen, dass dieses Verhältnis von Parität und Spiegelung aus, um die Leistung und Kapazität Kompromiss zu machen, die für Ihre Workload geeignet ist. Beispielsweise Parität und 10 Prozent Spiegel von 90 Prozent weniger Leistung ergibt jedoch den Fußabdruck weiter optimiert.
+Die Spiegel Beschleunigung verringert den Speicherbedarf des Volumes auf der HDD. Ein Volume mit drei-Wege-Spiegelung bedeutet beispielsweise, dass Sie für alle 10 Terabyte eine Größe von 30 Terabyte benötigen. Um den mehr Aufwand für den Speicherbedarf zu reduzieren, erstellen Sie ein Volume mit einer zwischen spiegelung beschleunigten Parität. Dadurch wird der Speicherbedarf von 30 Terabyte auf nur 22 Terabyte reduziert, auch nur bei vier Servern, indem die aktivsten 20% der Daten gespiegelt werden, und es wird eine Parität verwendet, bei der mehr Speicherplatz zur Speicherung der übrigen Speicherplatz zur Neige geht. Sie können dieses Verhältnis zwischen Parität und Spiegelung anpassen, um die Leistung im Vergleich zur Kapazitätssteigerung zu erzielen, die für ihre Arbeitsauslastung geeignet ist. Beispielsweise ergibt die 90-Prozent Parität und 10-Prozent-Spiegelung weniger Leistung, aber der Speicherbedarf wird noch weiter optimiert.
 
-Erstellen eines Volumes mit Spiegelung beschleunigte Parität in Windows Admin Center:
+So erstellen Sie ein Volume mit Spiegel beschleunigter Parität im Windows Admin Center:
 
-1. Windows Admin Center, eine Verbindung mit einem "direkte Speicherplätze"-Cluster herstellen, und wählen Sie dann **Volumes** aus der **Tools** Bereich.
-2. Wählen Sie auf der Seite "Volumes" die **Inventur** Registerkarte, und wählen Sie dann **erstellen Volumes**.
-3. In der **erstellen Volumes** Bereich, geben Sie einen Namen für das Volume.
-4. In **Resilienz**Option **Mirror-beschleunigte Parität**.
-5. In **Parität Prozentsatz**, wählen Sie den Prozentsatz der Parität.
+1. Stellen Sie im Windows Admin Center eine Verbindung mit einem direkte Speicherplätze Cluster her, und wählen Sie dann im Bereich **Tools** die Option **Volumes** aus.
+2. Wählen Sie auf der Seite Volumes die Registerkarte **Inventar** aus, und wählen Sie dann **Volume erstellen**aus.
+3. Geben Sie im Bereich **Volume erstellen** einen Namen für das Volume ein.
+4. Wählen Sie unter **Resilienz**die Option **Spiegel Beschleunigung der Parität**aus.
+5. Wählen Sie in **Prozentsatz der Parität**den Prozentsatz der Parität aus.
 6. Wählen Sie **Erstellen** aus.
 
-Sehen Sie sich ein kurzes Video zum Erstellen eines Volumes Mirror-beschleunigte Parität.
+Sehen Sie sich ein kurzes Video an, in dem das Erstellen eines auf Spiegelung beschleunigten Paritäts Volumens.
 
 > [!VIDEO https://www.youtube-nocookie.com/embed/R72QHudqWpE]
 
-## <a name="open-volume-and-add-files"></a>Öffnen Sie die Datei und Hinzufügen von Dateien
+## <a name="open-volume-and-add-files"></a>Volume öffnen und Dateien hinzufügen
 
-So öffnen Sie ein Volume aus, und fügen Dateien auf dem Volume in Windows Admin Center:
+So öffnen Sie ein Volume und fügen dem Volume im Windows Admin Center Dateien hinzu:
 
-1. Windows Admin Center, eine Verbindung mit einem "direkte Speicherplätze"-Cluster herstellen, und wählen Sie dann **Volumes** aus der **Tools** Bereich.
-2. Wählen Sie auf der Seite Volumes die **Inventur** Registerkarte.
-2. Wählen Sie in der Liste der Volumes den Namen des Datenträgers, den Sie öffnen möchten.
+1. Stellen Sie im Windows Admin Center eine Verbindung mit einem direkte Speicherplätze Cluster her, und wählen Sie dann im Bereich **Tools** die Option **Volumes** aus.
+2. Wählen Sie auf der Seite Volumes die Registerkarte **Inventur** aus.
+2. Wählen Sie in der Liste der Volumes den Namen des Volumes aus, das Sie öffnen möchten.
 
-    Auf der Detailseite des Volumes sehen Sie den Pfad auf dem Volume.
+    Auf der Seite Volumedetails können Sie den Pfad zum Volume sehen.
 
-4. Wählen Sie am oberen Rand der Seite, **öffnen**. Dadurch wird das Dateitool in Windows Admin Center.
-5. Navigieren Sie zu dem Pfad des Volumes an. Hier können Sie die Dateien im Volume durchsuchen.
-6. Wählen Sie **hochladen**, und wählen Sie dann eine Datei zum Hochladen.
-7. Verwenden Sie den Browser **wieder** Schaltfläche, um zurück zum Bereich "Tools" in Windows Admin Center zu wechseln.
+4. Wählen Sie oben auf der Seite **Öffnen**aus. Dadurch wird das Tool Dateien im Windows Admin Center gestartet.
+5. Navigieren Sie zum Pfad des Volumes. Hier können Sie die Dateien im Volume durchsuchen.
+6. Wählen Sie **hochladen**, und wählen Sie dann eine hoch zuladende Datei aus.
+7. Verwenden Sie die Schaltfläche **zurück** , um zum Bereich Extras im Windows Admin Center zurückzukehren.
 
-Sehen Sie sich ein kurzes Video zum Öffnen eines Volumes und Dateien hinzufügen.
+Sehen Sie sich ein kurzes Video zum Öffnen eines Volumes und zum Hinzufügen von Dateien an.
 
 > [!VIDEO https://www.youtube-nocookie.com/embed/j59z7ulohs4]
 
-## <a name="turn-on-deduplication-and-compression"></a>Aktivieren Sie Deduplizierung und Komprimierung
+## <a name="turn-on-deduplication-and-compression"></a>Deduplizierung und Komprimierung aktivieren
 
-Deduplizierung und Komprimierung wird pro Volume verwaltet. Deduplizierung und Komprimierung verwendet ein nachbearbeitungsmodell, was bedeutet, dass Sie nicht einsparungen sehen, bis er ausgeführt wird. Wenn dies der Fall, arbeiten sie über alle Dateien, auch solche, die von vorher aufgerufen wurden.
+Deduplizierung und Komprimierung werden pro Volume verwaltet. Bei der Deduplizierung und Komprimierung wird ein Nachbearbeitungs Modell verwendet. Dies bedeutet, dass Sie die Einsparungen erst sehen, wenn Sie ausgeführt werden. Wenn dies der Fall ist, wird er über alle Dateien, auch über alle Dateien, die zuvor vorhanden waren, funktionieren.
 
-1. Windows Admin Center, eine Verbindung mit einem "direkte Speicherplätze"-Cluster herstellen, und wählen Sie dann **Volumes** aus der **Tools** Bereich.
-2. Wählen Sie auf der Seite Volumes die **Inventur** Registerkarte.
-3. Wählen Sie in der Liste der Volumes den Namen des Volumes, die zu verwaltenden aus.
-4. Klicken Sie auf der Detailseite des Volume, auf die Schalter, mit der Bezeichnung **Deduplizierung und Komprimierung**.
-5. Wählen Sie im Bereich Datendeduplizierung Aktivieren der deduplizierungsmodus.
+1. Stellen Sie im Windows Admin Center eine Verbindung mit einem direkte Speicherplätze Cluster her, und wählen Sie dann im Bereich **Tools** die Option **Volumes** aus.
+2. Wählen Sie auf der Seite Volumes die Registerkarte **Inventur** aus.
+3. Wählen Sie in der Liste der Volumes den Namen des Volumes aus, das Sie verwalten möchten.
+4. Klicken Sie auf der Seite Volumedetails auf den Switch mit der Bezeichnung **Deduplizierung und Komprimierung**.
+5. Wählen Sie im Bereich Deduplizierung aktivieren den deduplizierungsmodus aus.
 
-    Anstelle von komplizierten Einstellungen Sie können Windows Admin Center auswählen zwischen vordefinierten Profile für verschiedene Workloads. Wenn Sie nicht sicher sind, verwenden Sie die Standardeinstellung.
+    Anstelle komplizierter Einstellungen können Sie mit dem Windows Admin Center zwischen vorgefertigten Profilen für verschiedene Workloads wählen. Wenn Sie sich nicht sicher sind, verwenden Sie die Standardeinstellung.
 
 6. Wählen Sie **Aktivieren** aus.
 
-Sehen Sie sich ein kurzes Video zum Deduplizierung und Komprimierung zu aktivieren.
+Sehen Sie sich ein kurzes Video zum Aktivieren der Deduplizierung und Komprimierung an.
 
 > [!VIDEO https://www.youtube-nocookie.com/embed/PRibTacyKko]
 
@@ -100,15 +100,15 @@ Wir empfehlen die Verwendung des Cmdlets **New-Volume** zum Erstellen von Volume
 
 Das Cmdlet **New-Volume** hat vier Parameter, die Sie immer angeben müssen:
 
-- **FriendlyName:** Eine beliebige Zeichenfolge, die Sie, z. B. möchten *"Volume1"*
-- **FileSystem:** Entweder **CSVFS_ReFS** (empfohlen) oder **CSVFS_NTFS**
-- **StoragePoolFriendlyName:** Den Namen Ihres Speicherkontos pool, z. B. *"S2D auf ClusterName"*
-- **Größe:** Die Größe des Volumes, z. B. *"10 TB"*
+- **FriendlyName** Eine beliebige Zeichenfolge, z. b. *"volume1"*
+- **Verwendet** Entweder **CSVFS_ReFS** (empfohlen) oder **CSVFS_NTFS**
+- **Storagepoolfriendlyname:** Der Name des Speicherpools, z. b. *"S2D on Cluster Name"*
+- **Größe:** Die Größe des Volumes, z. b *. "10 TB"*
 
    > [!NOTE]
    > Windows, einschließlich PowerShell, zählt mithilfe von binären Zahlen (Basis 2), während Laufwerke häufig mithilfe von Dezimalzahlen (Basis 10) bezeichnet werden. Dies erklärt, warum ein "Ein Terabyte"-Laufwerk, das als 1,000,000,000,000 Bytes definiert ist, in Windows mit etwa "909 GB" angezeigt wird. Dies ist das erwartungsgemäße Verhalten. Beim Erstellen von Volumes mithilfe von **New-Volume**, müssen Sie den Parameter **Größe** in binären (Basis 2) Zahlen angeben. Beispiel: Bei Angaben von "909 GB" oder "0,909495 TB" wird ein Volume von ungefähr 1,000,000,000,000 Bytes erstellt.
 
-### <a name="example-with-2-or-3-servers"></a>Beispiel: Mit 2 oder 3-Servern
+### <a name="example-with-2-or-3-servers"></a>Beispiel: Mit 2 oder 3 Servern
 
 Wenn Ihre Bereitstellung nur zwei Server hat, verwendet Direkte Speicherplätze zur Vereinfachung automatisch die Zweiwegespiegelung, um Robustheit zu erzielen. Wenn Ihre Bereitstellung nur drei Server hat, wird automatisch die Dreiwegespiegelung verwendet.
 
@@ -116,11 +116,11 @@ Wenn Ihre Bereitstellung nur zwei Server hat, verwendet Direkte Speicherplätze 
 New-Volume -FriendlyName "Volume1" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -Size 1TB
 ```
 
-### <a name="example-with-4-servers"></a>Beispiel: Mit 4 +-Servern
+### <a name="example-with-4-servers"></a>Beispiel: Mit vier Servern
 
 Wenn Sie vier oder mehr Server haben, können Sie mithilfe des optionalen Parameters **ResiliencySettingName** den Resilienztyp auswählen.
 
--   **ResiliencySettingName:** Entweder **Spiegel** oder **Parität**.
+-   **ResiliencySettingName** Entweder **Spiegelung** oder **Parität**.
 
 Im folgenden Beispiel verwendet *"Volume2"* die Dreiwegespiegelung und *"Volume3"* die duale Parität (häufig als "Erasure Coding" bezeichnet).
 
@@ -129,7 +129,7 @@ New-Volume -FriendlyName "Volume2" -FileSystem CSVFS_ReFS -StoragePoolFriendlyNa
 New-Volume -FriendlyName "Volume3" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -Size 1TB -ResiliencySettingName Parity
 ```
 
-### <a name="example-using-storage-tiers"></a>Beispiel: Verwenden der Speicherebenen
+### <a name="example-using-storage-tiers"></a>Beispiel: Verwenden von Speicherebenen
 
 In Bereitstellungen mit drei Arten von Laufwerken kann ein Volume SSD- und HDD-Ebenen umfassen und sich teilweise auf beiden befinden. Ebenso kann ein Volume in Bereitstellungen mit vier oder mehr Servern die Spiegelung und die duale Parität mischen und sich teilweise auf beiden befinden.
 
@@ -155,7 +155,7 @@ Sie können Volumes auch mithilfe des *Assistenten für neue virtuelle Datenträ
 
 Es gibt drei grundlegende Schritte:
 
-### <a name="step-1-create-virtual-disk"></a>Schritt 1: Erstellen des virtuellen Datenträgers
+### <a name="step-1-create-virtual-disk"></a>Schritt 1: Erstellen eines virtuellen Datenträgers
 
 ![Neuer virtueller Datenträger](media/creating-volumes/GUI-Step-1.png)
 
@@ -187,7 +187,7 @@ Fertig! Wiederholen Sie diese Schritte ggf., um mehrere Volumes zu erstellen.
 
 ## <a name="see-also"></a>Siehe auch
 
-- [Übersicht über Storage "direkte Speicherplätze"](storage-spaces-direct-overview.md)
-- [Planen von Volumes im "direkte Speicherplätze"](plan-volumes.md)
-- [Erweitern von Volumes in "direkte Speicherplätze"](resize-volumes.md)
-- [Löschen von Volumes in "direkte Speicherplätze"](delete-volumes.md)
+- [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)
+- [Planen von Volumes in direkte Speicherplätze](plan-volumes.md)
+- [Erweitern von Volumes in direkte Speicherplätze](resize-volumes.md)
+- [Löschen von Volumes in direkte Speicherplätze](delete-volumes.md)

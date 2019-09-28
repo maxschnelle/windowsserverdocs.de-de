@@ -1,8 +1,8 @@
 ---
 title: recover
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 261bfd79d74323ad324246e21b84a5eb798ebcdf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a83bb7502145cc09116241ea255e31b5f9981791
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867181"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384739"
 ---
 # <a name="recover"></a>recover
 
 
 
-Aktualisiert den Zustand aller Datenträger in einer Datenträgergruppe versuchen, in einem ungültigen Datenträgergruppe wiederherzustellen und synchronisiert die gespiegelte Volumes und RAID-5-Volumes, die veraltete Daten erneut.
+Aktualisiert den Status aller Datenträger in einer Datenträger Gruppe, versucht, Datenträger in einer ungültigen Datenträger Gruppe wiederherzustellen, und synchronisiert die gespiegelten Volumes und RAID-5-Volumes mit veralteten Daten erneut.
 
 > [!IMPORTANT]
-> Dieser DiskPart-Befehl ist nicht in jeder Edition von Windows Vista verfügbar.
+> Dieser Diskpart-Befehl ist in keiner Edition von Windows Vista verfügbar.
 
 ## <a name="syntax"></a>Syntax
 
@@ -39,23 +39,23 @@ recover [noerr]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Diskpart|nur für Skripts. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden.|
+|Noerr|Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.|
 
 ## <a name="remarks"></a>Hinweise
 
--   Mit diesem Befehl wird mit einer Datenträgergruppe ausgeführt.
--   Dieser Befehl gilt nur für Gruppen von dynamischen Datenträgern. Wenn Sie diesen Befehl für eine Gruppe mit einem einfachen Datenträger verwendet wird, es wird kein Fehler zurückgegeben, jedoch wird keine Aktion ausgeführt werden.
--   Dieser Befehl wirkt sich auf Datenträger, die durchgeführt werden bzw. ein Fehler auftritt. Er arbeitet auch auf Volumes, die fehlerhaft sind, fehlschlägt, oder im Zustand Fehlerhafte Redundanz.
--   Ein Datenträger, die Teil einer Datenträgergruppe muss ausgewählt werden, für diesen Befehl erfolgreich ausgeführt werden kann. Verwenden der **select Disk** Befehl aus, wählen Sie einen Datenträger und verschiebt den Fokus auf sie.
+-   Dieser Befehl arbeitet auf einer Datenträger Gruppe.
+-   Dieser Befehl gilt nur für gruppendynamischer Datenträger. Wenn dieser Befehl in einer Gruppe mit einem Basis Datenträger verwendet wird, wird kein Fehler zurückgegeben, aber es wird keine Aktion ausgeführt.
+-   Dieser Befehl funktioniert auf Datenträgern, die fehlerhaft sind oder fehlschlagen. Sie funktioniert auch auf Volumes, die fehlerhaft oder fehlerhaft oder in fehlerhafter Redundanz Zustand sind.
+-   Ein Datenträger, der Teil einer Datenträger Gruppe ist, muss ausgewählt werden, damit dieser Befehl erfolgreich ausgeführt werden kann. Wählen Sie mit dem Befehl Datenträger **auswählen** einen Datenträger aus, und verschieben Sie den Fokus auf den Datenträger.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um die Datenträgergruppe wiederherzustellen, die der Datenträger mit dem Fokus enthält, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um die Datenträger Gruppe mit dem Fokus auf dem Datenträger wiederherzustellen:
 ```
 recover
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

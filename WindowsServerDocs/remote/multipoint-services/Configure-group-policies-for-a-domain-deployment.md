@@ -3,7 +3,7 @@ title: Konfigurieren von Gruppenrichtlinien für eine Domänenbereitstellung
 description: Erfahren Sie, wie Sie Gruppenrichtlinien in Multipoint Services einrichten.
 ms.custom: na
 ms.date: 07/22/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ ms.assetid: 13e5fa90-d330-4155-a6b8-78eb650cbbfa
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 5c9d8efc1ed4a2f498ffce6c69d443ae819dced9
-ms.sourcegitcommit: 1bc3c229e9688ac741838005ec4b88e8f9533e8a
+ms.openlocfilehash: 5ac6524289d231d152e366d2ba750a59d27ce14f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314318"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395521"
 ---
 # <a name="configure-group-policies-for-a-domain-deployment"></a>Konfigurieren von Gruppenrichtlinien für eine Domänenbereitstellung
 Um sicherzustellen, dass Ihre Domänen Bereitstellung von Multipoint Services ordnungsgemäß funktioniert, wenden Sie die folgenden Gruppenrichtlinien Einstellungen auf das wmsshell-Benutzerkonto in einem Multipoint Services-System an.  
@@ -63,7 +63,7 @@ Für eine Domänen Bereitstellung von Multipoint Services sollten Sie die folgen
   
 2.  Suchen Sie im linken Bereich den folgenden Registrierungs Unterschlüssel, und wählen Sie ihn aus:  
   
-    HKEY_USERS\<sidof wmsshell > \software\policies\microsoft\windows\systemsteuerung\desktop  
+    HKEY_USERS @ no__t-0sidoswmsshell > \software\policies\microsoft\windows\systemsteuerung\desktop  
   
     Dabei ist<SIDofWMSshell>"" die Sicherheits-ID (SID) für das wmsshell-Konto. Informationen dazu, wie Sie die SID identifizieren, finden Sie unter [Zuordnen eines Benutzernamens zu einer Sicherheits-ID (SID)](https://support.microsoft.com/kb/154599).  
   

@@ -2,7 +2,7 @@
 title: Anruf
 description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 06/05/2018
-ms.openlocfilehash: e4331870f31309646974f5839d5aa70e534351e5
-ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
+ms.openlocfilehash: 0e5f9f2b0102c12ee0925bb434fdeddde85e34cd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2019
-ms.locfileid: "68590429"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379720"
 ---
 # <a name="call"></a>Anruf
 
@@ -41,17 +41,17 @@ call [Drive:][Path]<FileName> [<BatchParameters>] [:<Label> [<Arguments>]]
 
 |           Parameter           |                                                                         Beschreibung                                                                          |
 |-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [\<Laufwerk >:] [\<Pfad >]<FileName> | Gibt den Speicherort und den Namen des aufzurufenden Batch Programms an. Der *filename* -Parameter ist erforderlich und muss über die Erweiterung ". bat" oder ". cmd" verfügen. |
-|      \<Batchparameters->       |                                            Gibt alle Befehlszeilen Informationen an, die vom Batch Programm benötigt werden.                                             |
-|           :\<Bezeichnung >           |                                            Gibt die Bezeichnung an, zu der ein Batch Programm-Steuerelement springen soll.                                             |
-|         \<Argumente >          |                     Gibt die Befehlszeilen Informationen an, die an die neue Instanz des Batch-Programms, beginnend bei *: Label* , übermittelt werden.                     |
+| [\<laufwerk >:] [\< Pfad >] <FileName> | Gibt den Speicherort und den Namen des aufzurufenden Batch Programms an. Der *filename* -Parameter ist erforderlich und muss über die Erweiterung ". bat" oder ". cmd" verfügen. |
+|      \<batchparameters >       |                                            Gibt alle Befehlszeilen Informationen an, die vom Batch Programm benötigt werden.                                             |
+|           : \<bezeichnung >           |                                            Gibt die Bezeichnung an, zu der ein Batch Programm-Steuerelement springen soll.                                             |
+|         \<arguments >          |                     Gibt die Befehlszeilen Informationen an, die an die neue Instanz des Batch-Programms, beginnend bei *: Label* , übermittelt werden.                     |
 |              /?               |                                                             Zeigt die Hilfe an der Eingabeaufforderung an.                                                             |
 
 ## <a name="batch-parameters"></a>Batch Parameter
 
 Die Batch Skript-Argument Verweise ( **% 0**, **% 1**,...) sind in den folgenden Tabellen aufgeführt.
 
-**%\*** in einem Batch Skript werden alle Argumente (z. b. **% 1**, **% 2**, **% 3**...) bezeichnet.
+**% @ no__t-2** in einem Batch Skript bezieht sich auf alle Argumente (z. b. **% 1**, **% 2**, **% 3**...).
 
 Sie können die folgenden optionalen Syntaxen als Ersatz für Batch Parameter ( **% n**) verwenden:
 
@@ -78,7 +78,7 @@ In der folgenden Tabelle wird gezeigt, wie Modifizierern mit den Batch Parameter
 |% ~ DP $ Pfad: 1|Durchsucht die Verzeichnisse, die in der PATH-Umgebungsvariablen für **% 1**aufgelistet sind, und wird dann auf den Laufwerk Buchstaben und den Pfad des ersten gefundenen Verzeichnisses erweitert.|
 |% ~ ftza1|Erweitert **% 1** , um eine Ausgabe ähnlich dem **dir** -Befehl anzuzeigen.|
 
-In den obigen Beispielen können **% 1** und path durch andere gültige Werte ersetzt werden. Die <strong>%~</strong> Syntax wird mit einer gültigen Argument Nummer beendet. Die <strong>%~</strong> modifiziererer können nicht **% \\ mit\*** verwendet werden.
+In den obigen Beispielen können **% 1** und path durch andere gültige Werte ersetzt werden. Die <strong>%~-</strong> Syntax wird mit einer gültigen Argument Nummer beendet. Die <strong>%~-</strong> modifiziererer können nicht mit **% @ no__t-4 @ no__t-5**verwendet werden.
 
 ## <a name="remarks"></a>Hinweise
 
@@ -90,13 +90,13 @@ In den obigen Beispielen können **% 1** und path durch andere gültige Werte er
     Wenn Sie den-Befehl mit dem *Label* - **Parameter verwenden,** erstellen Sie einen neuen Batchdatei Kontext und übergeben die Steuerung an die Anweisung nach der angegebenen Bezeichnung. Wenn das Ende der Batchdatei das erste Mal erreicht wird (d. h. nach dem Springen zur Bezeichnung), wird die Steuerung an die Anweisung nach der **Aufruf** Anweisung zurückgegeben. Das zweite Mal, wenn das Ende der Batchdatei gefunden wird, wird das Batch Skript beendet.
 -   Verwenden von Pipes und Umleitungs Symbolen
 
-    Verwenden Sie keine Pipes ( **|** ) und Umleitungs Symbole **<** ( **>** oder) **mit dem-** Befehl.
+    Verwenden Sie keine Pipes ( **|** ) und Umleitungs Symbole ( **<** oder **>** ) **mit dem**-Befehl.
 -   Rekursiver Rückruf
 
     Sie können ein Batch-Programm erstellen, das sich selbst aufruft. Sie müssen jedoch eine Exit-Bedingung angeben. Andernfalls können das übergeordnete und das untergeordnete Batch Programm Endlosschleifen.
 -   Arbeiten mit Befehls Erweiterungen
 
-    Wenn Befehls Erweiterungen aktiviert **sind, wird** die *Bezeichnung* als Ziel des Aufrufes akzeptiert. Die korrekte Syntax lautet wie folgt:
+    Wenn Befehls Erweiterungen aktiviert sind, wird die *Bezeichnung* als Ziel des **Aufrufes** akzeptiert. Die korrekte Syntax lautet wie folgt:
 
     `call :\<Label> <Arguments>`
 

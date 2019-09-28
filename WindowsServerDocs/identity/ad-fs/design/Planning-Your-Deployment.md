@@ -7,27 +7,27 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 0206197b24f13d80019cbc864057e99e195ebc4b
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 607dc34c8f44d8d96a8dc0c9d1ed004edc799167
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191138"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407992"
 ---
 # <a name="planning-your-deployment"></a>Planen Ihrer Bereitstellung
 
-Beim Planen plattformübergreifende\-Organisation \(Verbund\-basierend\) Zusammenarbeit mithilfe von Active Directory Federation Services \(AD FS\), zuerst zu bestimmen, ob Ihre Organisation Hosten eine Webressource, die von anderen Organisationen, die über das Internet zugegriffen werden soll, oder wenn Sie den Zugriff auf die Webressource für Mitarbeiter in Ihrer Organisation bereitstellen. Diese Entscheidung wirkt sich auf, wie Sie AD FS bereitstellen, und es ist überaus wichtig, bei der Planung der AD FS-Infrastruktur.  
+Wenn Sie die Cross @ no__t-0organization \(federation @ no__t-2based @ no__t-3-Zusammenarbeit mithilfe Active Directory-Verbunddienste (AD FS) \(AD FS @ no__t-5 planen, ermitteln Sie zunächst, ob Ihre Organisation eine Webressource hostet, auf die ein anderer zugreifen kann. Organisationen über das Internet oder, wenn Sie Zugriff auf die Webressourcen für Mitarbeiter in Ihrer Organisation bereitstellen. Diese Bestimmung wirkt sich darauf aus, wie Sie AD FS bereitstellen, und ist für die Planung Ihrer AD FS-Infrastruktur von grundlegender Bedeutung.  
   
 > [!NOTE]  
 > Stellen Sie sicher, dass alle Parteien eindeutig verstehen, welche Rolle die Organisation in der Verbundvereinbarung spielt.  
   
-Für die [Federated Web SSO Design](Federated-Web-SSO-Design.md), AD FS werden Begriffe verwendet, z. B. *Kontopartner* \(so genannte *Identitätsanbieter* im AD FS-Verwaltungs-Snap-\-in\) und *Ressourcenpartner* \(so genannte *vertrauende* im AD FS-Verwaltungs-Snap-\-in\) auf erleichtern die Unterscheidung von der Organisationsstatus, die die Konten hostet \(Kontopartner\) aus der Organisation, die im Web gehostet\-Ressourcen \(Ressourcenpartner\).  
+Für den [Federated-Web-SSO-Entwurf](Federated-Web-SSO-Design.md)verwendet AD FS Bedingungen wie z. b. *Account Partner* \(auch als *Identitäts Anbieter* bezeichnet im AD FS Management-Snap @ no__t-4in @ no__t-5 und *Resource Partner* \(auch als *bezeichnet.* vertrauende Seite im AD FS Verwaltungs-Snap @ no__t-9in @ no__t-10, um die Organisation, die die Konten hostet, zu unterscheiden 1Der Konto Partner @ no__t-12 von der Organisation, die die Web @ no__t-13basierten Ressourcen 4the-Ressource hostet. Partner @ no__t-15.  
   
 Beim [Web SSO Design](Web-SSO-Design.md)übernimmt die Organisation sowohl die Kontopartnerrolle als auch die Ressourcenpartnerrolle, da die Organisation den eigenen Benutzern Zugriff auf ihre Anwendungen gewährt.  
   
-Die folgenden Themen wird erläutert, dass einige der AD FS erläutert partner. Es enthält auch Links zu Themen im Bereitstellungshandbuch für AD FS, die Informationen über das Einrichten und Konfigurieren von Konto- und ressourcenpartnerorganisationen basierend auf der AD FS-Bereitstellungsziele enthalten.  
+In den folgenden Themen werden einige der AD FS Partner Organisationskonzepte erläutert. Sie enthalten auch Links zu Themen im AD FS Bereitstellungs Handbuch, die Informationen zum Einrichten und Konfigurieren von Konto Partnerorganisationen und Ressourcen Partnerorganisationen auf Grundlage Ihrer AD FS Bereitstellungs Ziele enthalten.  
   
 ## <a name="in-this-section"></a>Inhalt dieses Abschnitts  
   
@@ -35,7 +35,7 @@ Die folgenden Themen wird erläutert, dass einige der AD FS erläutert partner. 
   
 -   [Planen der Interoperabilität mit AD FS 1.x](Planning-for-Interoperability-with-AD-FS-1.x.md)  
   
--   [Verwenden Sie die Identitätsdelegierung](When-to-Use-Identity-Delegation.md)  
+-   [Verwendungszwecke der Identitäts Delegierung](When-to-Use-Identity-Delegation.md)  
   
 -   [Bereitstellen von AD FS in der Kontopartnerorganisation](Deploying-AD-FS-in-the-Account-Partner-Organization-2012.md)  
   

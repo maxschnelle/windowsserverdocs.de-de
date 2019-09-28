@@ -1,108 +1,108 @@
 ---
 title: Konfigurieren von Zertifikatvorlagen für PEAP- und EAP-Anforderungen
-description: Dieses Thema enthält Informationen zur Verwendung von Zertifikaten mit des Netzwerkrichtlinienservers und Remotezugriff in Windows Server 2016.
+description: Dieses Thema enthält Informationen zur Verwendung von Zertifikaten mit dem Netzwerk Richtlinien Server und Remote Zugriff in Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 2af0a1df-5c44-496b-ab11-5bc340dc96f0
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 41f6f88705fa3d58be695fd825d960e7df21cd24
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f60e5a1da1388a6dd2432a3603f83d6ca2990a29
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885881"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405406"
 ---
 # <a name="configure-certificate-templates-for-peap-and-eap-requirements"></a>Konfigurieren von Zertifikatvorlagen für PEAP- und EAP-Anforderungen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Alle Zertifikate, die zum Authentifizieren des Netzwerkzugriffs mit Extensible Authentication-Protokoll verwendet werden\-Transport Layer Security \(EAP\-TLS\), Protected Extensible Authentication Protocol\- Transport Layer Security \(PEAP\-TLS\), und PEAP\-Microsoft Challenge Handshake Authentication Protocol Version 2 \(MS\-CHAP-v2\) müssen erfüllen die Anforderungen für x. 509-Zertifikate und funktioniert für Verbindungen, die Secure Socket Layer/Transport Level Security (SSL/TLS) verwenden. Sowohl Client-als auch Zertifikate gelten zusätzliche Anforderungen.
+Alle Zertifikate, die für die Netzwerk Zugriffs Authentifizierung mit dem Extensible Authentication Protocol @ no__t-0transport Layer Security \(eap @ no__t-2tls @ no__t-3, Protected Extensible Authentication Protocol @ no__t-4transport Layer Security verwendet werden \(peap @ no__t-6tls @ no__t-7 und PEAP @ no__t-8Microsoft Challenge Handshake Authentication Protocol Version 2 \(ms @ no__t-10chap v2 @ no__t-11 muss die Anforderungen für X. 509-Zertifikate erfüllen und für Verbindungen mit Secure Socket funktionieren. Sicherheit auf Ebene/Transport Ebene (SSL/TLS). Sowohl Client-als auch Server Zertifikate haben zusätzliche Anforderungen.
 
 >[!IMPORTANT]
->Dieses Thema enthält Anweisungen zum Konfigurieren von Zertifikatvorlagen. Um diese Anweisungen verwenden zu können, ist es erforderlich, dass Sie Ihre eigenen Public Key-Infrastruktur bereitgestellt haben \(PKI\) mit Active Directory Certificate Services \(AD CS\).
+>Dieses Thema enthält Anweisungen zum Konfigurieren von Zertifikat Vorlagen. Um diese Anweisungen zu verwenden, ist es erforderlich, dass Sie Ihre eigene Public Key-Infrastruktur \(pki @ no__t-1 mit Active Directory Zertifikat Diensten \(AD CS @ no__t-3 bereitgestellt haben.
 
-## <a name="minimum-server-certificate-requirements"></a>Mindestanforderungen für Serverzertifikate
+## <a name="minimum-server-certificate-requirements"></a>Mindestanforderungen für Server Zertifikate
 
-Mit PEAP\-MS\-CHAPv2 PEAP\-TLS oder EAP\-TLS als Authentifizierungsmethode aus, den NPS muss ein Serverzertifikat, das erfüllt die Mindestanforderungen für Serverzertifikate verwenden. 
+Mit PEAP @ no__t-0ms @ no__t-1chap v2, PEAP @ no__t-2tls oder EAP @ no__t-3tls als Authentifizierungsmethode muss der NPS ein Serverzertifikat verwenden, das die Mindestanforderungen für das Serverzertifikat erfüllt. 
 
-Clientcomputer können so konfiguriert werden, dass die Serverzertifikate validieren, indem die **Serverzertifikat überprüfen** Option auf dem Clientcomputer oder in der Gruppenrichtlinie. 
+Client Computer können mithilfe der Option **Serverzertifikat** überprüfen auf dem Client Computer oder in Gruppenrichtlinie für die Überprüfung von Server Zertifikaten konfiguriert werden. 
 
-Der Clientcomputer akzeptiert den Authentifizierungsversuch des Servers, wenn das Serverzertifikat die folgenden Anforderungen erfüllt:
+Der Client Computer akzeptiert den Authentifizierungs Versuch des Servers, wenn das Serverzertifikat die folgenden Anforderungen erfüllt:
 
-- Der Name des Antragstellers enthält einen Wert an. Wenn Sie ein Zertifikat auf Ihrem Server unter Network Policy Server (NPS), die einem leerem Antragstellernamen ausgeben, ist das Zertifikat nicht verfügbar, um den NPS zu authentifizieren. So konfigurieren Sie die Zertifikatvorlage mit einem Antragstellernamen an:
-
-    1. Öffnen Sie Zertifikatvorlagen.
-    2. Im Detailbereich mit der Maustaste der Zertifikatvorlage, die Sie ändern möchten, und klicken Sie dann auf **Eigenschaften** .
-    3. Klicken Sie auf die **Antragstellername** Registerkarte, und klicken Sie dann auf **aus diesen Informationen in Active Directory erstellen**.
-    4. In **Format des Antragstellernamens**, wählen Sie einen Wert als **keine**.
-
-- Das Zertifikat auf dem Server-Ketten einer vertrauenswürdigen Stammzertifizierungsstelle (CA) und wird nicht einem Fehler der Überprüfungen, die von der CryptoAPI und, die ausgeführt werden in der RAS-Richtlinie oder eine Netzwerkrichtlinie angegeben werden.
-
-- Das Zertifikat für den NPS oder VPN-Server wird mit den Zertifizierungszweck der Serverauthentifizierung in erweiterte Schlüsselverwendung (EKU)-Erweiterungen konfiguriert. (Die Objekt-ID für die Serverauthentifizierung ist 1.3.6.1.5.5.7.3.1.)
-
-- Konfigurieren Sie das Serverzertifikat, mit der Einstellung für die Kryptografie erforderlich sind:
+- Der Antragsteller Name enthält einen Wert. Wenn Sie für den Server, auf dem der Netzwerk Richtlinien Server (Network Policy Server, NPS) mit einem leeren Antragsteller Namen ausgeführt wird, ein Zertifikat ausstellen, ist das Zertifikat nicht zum Authentifizieren Ihres NPS verfügbar. So konfigurieren Sie die Zertifikat Vorlage mit einem Antragsteller Namen:
 
     1. Öffnen Sie Zertifikatvorlagen.
-    2. Im Detailbereich mit der Maustaste der Zertifikatvorlage, die Sie ändern möchten, und klicken Sie dann auf **Eigenschaften**.
-    3. Klicken Sie auf die **Kryptografie** Registerkarte, und stellen Sie sicher, dass Folgendes zu konfigurieren:
-       - **Anbieterkategorie:** Schlüsselspeicheranbieter
-       - **Name des Algorithmus:** RSA
-       - **Anbieter:** Kryptografieanbieter für Microsoft-Plattform
+    2. Klicken Sie im Detailfenster mit der rechten Maustaste auf die Zertifikat Vorlage, die Sie ändern möchten, und klicken Sie dann auf **Eigenschaften** .
+    3. Klicken Sie auf die Registerkarte Antragsteller **Name** , und klicken Sie dann auf **aus diesen Active Directory Informationen erstellen**.
+    4. Wählen Sie unter Format des Antragsteller **namens**einen anderen Wert als **None**aus.
+
+- Das Computer Zertifikat auf dem-Server ist mit einer vertrauenswürdigen Stamm Zertifizierungsstelle (Certification Authority, ca) verkettet. bei den Überprüfungen, die von CryptoAPI ausgeführt werden und die in der RAS-Richtlinie oder der Netzwerk Richtlinie angegeben sind, tritt ein Fehler auf.
+
+- Das Computer Zertifikat für den NPS-oder VPN-Server wird in Erweiterungen der erweiterten Schlüssel Verwendung (Extended Key Usage, EKU) mit dem Zweck der Server Authentifizierung konfiguriert. (Der Objekt Bezeichner für die Server Authentifizierung lautet 1.3.6.1.5.5.7.3.1.)
+
+- Konfigurieren Sie das Serverzertifikat mit der erforderlichen Kryptografieeinstellung:
+
+    1. Öffnen Sie Zertifikatvorlagen.
+    2. Klicken Sie im Detailfenster mit der rechten Maustaste auf die Zertifikat Vorlage, die Sie ändern möchten, und klicken Sie dann auf **Eigenschaften**.
+    3. Klicken Sie auf die Registerkarte **Cryptography** , und stellen Sie sicher, dass Sie Folgendes konfigurieren:
+       - **Anbieter Kategorie:** Schlüsselspeicheranbieter
+       - **Algorithmusname:** RSA
+       - **Anbieter** Kryptografieanbieter von Microsoft Platform
        - **Minimale Schlüsselgröße:** 2.048
-       - **Hashalgorithmus:** SHA2
+       - **Hash Algorithmus:** SHA2
     4. Klicken Sie auf **Weiter**.
 
-- Wenn verwendet, muss die Erweiterung des alternativen Antragstellernamen (SubjectAltName), den DNS-Namen des Servers enthalten. So konfigurieren Sie die Zertifikatvorlage mit der Domain Name System (DNS) Name des Servers, der Registrierung 
+- Bei Verwendung der Erweiterung alternativer Antragsteller Name (Subjektname) muss der DNS-Name des Servers enthalten sein. So konfigurieren Sie die Zertifikat Vorlage mit dem Domain Name System (DNS)-Namen des Registrierungs Servers: 
 
     1. Öffnen Sie Zertifikatvorlagen.
-    2. Im Detailbereich mit der Maustaste der Zertifikatvorlage, die Sie ändern möchten, und klicken Sie dann auf **Eigenschaften** .
-    3. Klicken Sie auf die **Antragstellername** Registerkarte, und klicken Sie dann auf **aus diesen Informationen in Active Directory erstellen**.
-    4. In **Informationen im alternativen Antragstellernamen einbeziehen**Option **DNS-Namen**.
+    2. Klicken Sie im Detailfenster mit der rechten Maustaste auf die Zertifikat Vorlage, die Sie ändern möchten, und klicken Sie dann auf **Eigenschaften** .
+    3. Klicken Sie auf die Registerkarte Antragsteller **Name** , und klicken Sie dann auf **aus diesen Active Directory Informationen erstellen**.
+    4. Wählen Sie unter **diese Informationen in alternativen Antragsteller Namen einbeziehen**die Option **DNS-Name**aus.
 
-Bei Verwendung von PEAP und EAP-TLS anzeigen NPSs eine Liste aller installierten Zertifikate im Zertifikatspeicher Computers mit den folgenden Ausnahmen:
+Wenn Sie PEAP und EAP-TLS verwenden, zeigen Sie mit den folgenden Ausnahmen eine Liste aller installierten Zertifikate im Zertifikat Speicher des Computers an:
 
-- Zertifikate, die nicht den Zertifizierungszweck der Serverauthentifizierung in EKU-Erweiterungen enthalten, werden nicht angezeigt.
+- Zertifikate, die den Zweck der Server Authentifizierung in EKU-Erweiterungen nicht enthalten, werden nicht angezeigt.
 
-- Zertifikate, die keinen Antragstellernamen enthalten, werden nicht angezeigt.
+- Zertifikate, die keinen Antragsteller Namen enthalten, werden nicht angezeigt.
 
-- Registrierungsbasierte und Smartcard-Anmeldung – Zertifikate werden nicht angezeigt.
+- Registrierungs basierte und Smartcard-Anmelde Zertifikate werden nicht angezeigt.
 
-Weitere Informationen finden Sie unter [Bereitstellen von Serverzertifikaten für 802.1 X verkabelte und drahtlose Bereitstellungen](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/server-certs/deploy-server-certificates-for-802.1x-wired-and-wireless-deployments).
+Weitere Informationen finden Sie unter Bereitstellen [von Server Zertifikaten für drahtlose und drahtlose 802.1 x-bereit Stellungen](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/server-certs/deploy-server-certificates-for-802.1x-wired-and-wireless-deployments).
 
-## <a name="minimum-client-certificate-requirements"></a>Minimale Client-zertifikatanforderungen
+## <a name="minimum-client-certificate-requirements"></a>Mindestanforderungen für Client Zertifikate
 
-EAP-TLS oder PEAP-TLS akzeptiert der Server den Authentifizierungsversuch Client, wenn das Zertifikat die folgenden Anforderungen erfüllt:
+Mit EAP-TLS oder PEAP-TLS akzeptiert der Server den Client Authentifizierungs Versuch, wenn das Zertifikat die folgenden Anforderungen erfüllt:
 
-- Das Clientzertifikat von einer Unternehmenszertifizierungsstelle ausgestellt ist, oder eine Benutzer- oder Computerkonto in Active Directory Domain Services zugeordnet \(AD DS\).
+- Das Client Zertifikat wird von einer Unternehmens Zertifizierungsstelle ausgestellt oder einem Benutzer-oder Computer Konto in Active Directory Domain Services \(ad DS @ no__t-1 zugeordnet.
 
-- Die Benutzer- oder Computerzertifikats für die Client-Ketten für vertrauenswürdige Stamm-ZS, enthält den Zertifizierungszweck der Clientauthentifizierung im EKU-Erweiterungen \(die Objekt-ID für die Clientauthentifizierung wird 1.3.6.1.5.5.7.3.2\), und schlägt fehl, weder die überprüft, die von der CryptoAPI ausgeführt werden und dem angegebenen in RAS-Richtlinie oder Netzwerkrichtlinie und der Objekt-ID überprüft, die in der Netzwerkrichtlinie für NPS angegeben werden.
+- Das Benutzer-oder Computer Zertifikat auf dem Client ist mit einer vertrauenswürdigen Stamm Zertifizierungsstelle verkettet, enthält den Zweck der Client Authentifizierung in EKU-Erweiterungen \(der Objekt Bezeichner für die Client Authentifizierung lautet 1.3.6.1.5.5.7.3.2 @ no__t-1 und schlägt weder bei den Überprüfungen, die wird von CryptoAPI ausgeführt und in der RAS-Richtlinie bzw. der Netzwerk Richtlinie bzw. den in der NPS-Netzwerk Richtlinie angegebenen zertifikatobjektbezeichnerüberprüfungen angegeben.
 
-- Der 802.1X-Client verwendet nicht die Registrierung basierende Zertifikate, die entweder einer Smartcard-Anmeldung oder Zertifikate ein Kennwort geschützt.
+- Der 802.1 x-Client verwendet keine Registrierungs basierten Zertifikate, bei denen es sich entweder um Smartcard-Anmelde-oder Kenn Wort geschützte Zertifikate handelt.
 
-- Für Benutzerzertifikate, die den alternativen Antragstellernamen \(SubjectAltName\) Erweiterung des Zertifikats enthält den Benutzerprinzipalnamen \(UPN\). So konfigurieren den UPN in einer Zertifikatvorlage:
-
-    1. Öffnen Sie Zertifikatvorlagen.
-    2. Im Detailbereich mit der Maustaste der Zertifikatvorlage, die Sie ändern möchten, und klicken Sie dann auf **Eigenschaften**.
-    3. Klicken Sie auf die **Antragstellername** Registerkarte, und klicken Sie dann auf **aus diesen Informationen in Active Directory erstellen**.
-    4. In **Informationen im alternativen Antragstellernamen einbeziehen**Option **Benutzerprinzipalname \(UPN\)**.
-
-- Für Computerzertifikate, die den alternativen Antragstellernamen \(SubjectAltName\) Erweiterung des Zertifikats muss den vollständig qualifizierten Domänennamen enthalten \(FQDN\) des Clients, die auch die aufgerufenwird *DNS-Namen*. So konfigurieren diesen Namen in der Zertifikatvorlage:
+- Bei Benutzer Zertifikaten enthält der alternativer Antragsteller Name \(subjetaltname @ no__t-1-Erweiterung im Zertifikat den Benutzer Prinzipal Namen \(upn @ no__t-3. So konfigurieren Sie den UPN in einer Zertifikat Vorlage:
 
     1. Öffnen Sie Zertifikatvorlagen.
-    2. Im Detailbereich mit der Maustaste der Zertifikatvorlage, die Sie ändern möchten, und klicken Sie dann auf **Eigenschaften**.
-    3. Klicken Sie auf die **Antragstellername** Registerkarte, und klicken Sie dann auf **aus diesen Informationen in Active Directory erstellen**.
-    4. In **Informationen im alternativen Antragstellernamen einbeziehen**Option **DNS-Namen**.
+    2. Klicken Sie im Detailfenster mit der rechten Maustaste auf die Zertifikat Vorlage, die Sie ändern möchten, und klicken Sie dann auf **Eigenschaften**.
+    3. Klicken Sie auf die Registerkarte Antragsteller **Name** , und klicken Sie dann auf **aus diesen Active Directory Informationen erstellen**.
+    4. Wählen Sie unter **diese Informationen in alternativen Antragsteller Namen einbeziehen**die Option **Benutzer Prinzipal Name \(upn @ no__t-3**aus.
 
-Mit PEAP\-TLS und EAP\-TLS, Clients, die zeigen einer Liste aller installierten Zertifikate im Zertifikate-Snap-in mit den folgenden Ausnahmen:
+- Für Computer Zertifikate muss der alternative Antragsteller Name \(subjetaltname @ no__t-1-Erweiterung im Zertifikat den voll qualifizierten Domänen Namen \(fqdn @ no__t-3 des Clients enthalten, der auch als DNS- *Name*bezeichnet wird. So konfigurieren Sie diesen Namen in der Zertifikat Vorlage:
 
-- Drahtlose Clients nicht registrierungsbasierte anzeigen und Zertifikate für Smartcard-Anmeldung. 
+    1. Öffnen Sie Zertifikatvorlagen.
+    2. Klicken Sie im Detailfenster mit der rechten Maustaste auf die Zertifikat Vorlage, die Sie ändern möchten, und klicken Sie dann auf **Eigenschaften**.
+    3. Klicken Sie auf die Registerkarte Antragsteller **Name** , und klicken Sie dann auf **aus diesen Active Directory Informationen erstellen**.
+    4. Wählen Sie unter **diese Informationen in alternativen Antragsteller Namen einbeziehen**die Option **DNS-Name**aus.
 
-- Drahtlose Clients und VPN-Clients werden keine Zertifikate ein Kennwort geschützt angezeigt. 
+Mit PEAP @ no__t-0tls und EAP @ no__t-1tls zeigen Clients eine Liste aller installierten Zertifikate im Zertifikate-Snap-in mit den folgenden Ausnahmen an:
 
-- Zertifikate, die nicht den Zertifizierungszweck der Clientauthentifizierung im EKU-Erweiterungen enthalten, werden nicht angezeigt.
+- Drahtlose Clients zeigen keine Registrierungs basierten und Smartcard-Anmelde Zertifikate an. 
+
+- Bei drahtlosen Clients und VPN-Clients werden Kenn Wort geschützte Zertifikate nicht angezeigt. 
+
+- Zertifikate, die nicht den Client Authentifizierungs Zweck in EKU-Erweiterungen enthalten, werden nicht angezeigt.
 
 
-Weitere Informationen zu NPS finden Sie unter [(Network Policy Server, NPS)](nps-top.md).
+Weitere Informationen zu NPS finden Sie unter [Netzwerk Richtlinien Server (Network Policy Server, NPS)](nps-top.md).

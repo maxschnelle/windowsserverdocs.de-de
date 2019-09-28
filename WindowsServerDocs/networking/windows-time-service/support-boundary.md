@@ -1,99 +1,99 @@
 ---
 ms.assetid: ''
 title: Unterstützte Grenze für hochpräzise Uhrzeit
-description: Dieser Artikel beschreibt die Unterstützung-Grenze für den Windows-Zeitdienst (W32Time) in Umgebungen, die äußerst präzise und stabile-System stets angefordert wird.
+description: In diesem Artikel wird die Unterstützungs Grenze für den Windows-Zeit Dienst (W32Time) in Umgebungen beschrieben, die eine sehr genaue und stabile Systemzeit erfordern.
 author: shortpatti
 ms.author: dacuo
 manager: dougkim
 ms.date: 10/17/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 991bf4502546771dae9f092c6d5732f96b1278ab
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 212b9c79bc2e43e966180b928c865a9053332c3f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59866271"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405259"
 ---
 # <a name="support-boundary-for-high-accuracy-time"></a>Unterstützte Grenze für hochpräzise Uhrzeit
 
->Gilt für: Windows Server 2016 und Windows 10 Version 1607 oder höher
+>Gilt für: Windows Server 2016 und Windows 10, Version 1607 oder höher
 
-Dieser Artikel beschreibt die Grenzen der Unterstützung für den Windows-Zeitdienst (W32Time) in Umgebungen, die äußerst präzise und stabile-System stets angefordert wird.
+In diesem Artikel werden die unterstützten Grenzen für den Windows-Zeit Dienst (W32Time) in Umgebungen beschrieben, in denen eine sehr genaue und stabile Systemzeit erforderlich ist.
 
-## <a name="high-accuracy-support-for-windows-81-and-2012-r2-or-prior"></a>Unterstützung von hoher Genauigkeit für Windows 8.1 und die 2012 R2 (oder früher)
+## <a name="high-accuracy-support-for-windows-81-and-2012-r2-or-prior"></a>Unterstützung für hohe Genauigkeit für Windows 8.1 und 2012 R2 (oder früher)
 
-Frühere Versionen von Windows (vor Windows 10 1607 oder Windows Server 2016 1607), die äußerst präzise Zeit garantiert nicht. Der Windows-Zeitdienst auf diesen Systemen:
+Frühere Versionen von Windows (vor Windows 10 1607 oder Windows Server 2016 1607) können keine sehr genaue Zeit garantieren. Der Windows-Zeit Dienst auf diesen Systemen:
 
--   Die Genauigkeit der erforderlichen Zeit zum Erfüllen der Anforderungen an die Kerberos V5-Authentifizierung bereitgestellt
+-   Bereitstellen der erforderlichen Zeit Genauigkeit zum erfüllen der Authentifizierungsanforderungen der Kerberos-Version 5
 
--   Lose genaue Uhrzeit angegeben, für die Windows-Clients und Server, die einen allgemeinen Active Directory-Gesamtstruktur angehören
+-   Für Windows-Clients und-Server, die einer gemeinsamen Active Directory Gesamtstruktur beigetreten sind, lose Zeitangabe
 
-Eine engere Genauigkeit-Anforderungen wurden außerhalb der Entwurfsspezifikation des Windows-Zeitdiensts auf diesen Betriebssystemen und wird nicht unterstützt.
+Strengere Genauigkeits Anforderungen waren außerhalb der Entwurfs Spezifikation des Windows-Zeit Dienstanbieter unter diesen Betriebssystemen und werden nicht unterstützt.
 
-## <a name="windows-10-and-windows-server-2016"></a>Windows 10 und WindowsServer 2016
+## <a name="windows-10-and-windows-server-2016"></a>Windows 10 und Windows Server 2016
 
-In Windows 10 und Windows Server 2016-uhrzeitsynchronisierungsdienst wurde erheblich verbessert und gleichzeitig vollständige Abwärtskompatibilität NTP-Kompatibilität mit älteren Windows-Versionen. Systeme mit Windows 10 oder Windows Server 2016 und neuere Versionen können unter dem richtigen betriebsbedingungen, 1 Sekunde, 50 ms (Millisekunden), übermitteln oder 1 ms Genauigkeit.
-
->[!IMPORTANT]
->**Äußerst präzise Zeitquellen**<br>
->Die resultierende Uhrzeit-Genauigkeit in der Topologie ist stark abhängig von der mit einem korrekt und beständig-Stamm (Stratum 1) Zeitquelle. Es gibt Windows basiert und nicht-Windows basierend äußerst präzise Windows kompatibel ist, NTP Zeit quellhardware von 3. Drittanbietern verkauft. Überprüfen Sie den Anbieter, auf die Genauigkeit ihrer Produkte.
+Die Zeit Genauigkeit in Windows 10 und Windows Server 2016 wurde erheblich verbessert, während die NTP-Kompatibilität mit älteren Windows-Versionen vollständig abwärts aufrechterhalten wurde. Unter den richtigen Betriebsbedingungen können Systeme mit Windows 10 oder Windows Server 2016 und neueren Versionen eine Genauigkeit von 1 Sekunde, 50 ms (Millisekunden) oder 1 MS bereitzustellen.
 
 >[!IMPORTANT]
->**Genauigkeit der Zeit**<br>
->Genauigkeit der Zeit umfasst die End-to-End-Verteilung genaue Uhrzeit in eine äußerst präzise verbindlichen Zeitquelle, das Endgerät. Beliebiges Element, das Netzwerk Asymmetrie eingeführt wird Genauigkeit, z. B. physische Netzwerkgeräte oder hohe CPU-Auslastung auf dem Zielsystem negativ beeinflussen.
+>**Sehr genaue Zeitquellen**<br>
+>Die sich ergebende Zeit Genauigkeit in der Topologie hängt stark von der Verwendung einer exakten, stabilen Stamm Zeit Quelle (Stratum 1) ab. Es gibt Windows-basierte und nicht Windows-basierte, Windows-kompatible NTP-Zeit Quell Hardware, die von Drittanbietern verkauft wird. Wenden Sie sich an Ihren Hersteller, um die Richtigkeit der Produkte zu erhalten.
 
-## <a name="high-accuracy-requirements"></a>Anforderungen mit hoher Genauigkeit
+>[!IMPORTANT]
+>**Zeit Genauigkeit**<br>
+>Die Zeit Genauigkeit umfasst die End-to-End-Verteilung der exakten Zeit von einer streng präzisen autorisierenden Zeit Quelle zum Endgerät. Alle Elemente, die sich auf die Netzwerk Asymmetrie auswirken, beeinflussen die Genauigkeit, z. b. physische Netzwerkgeräte oder eine hohe CPU-Auslastung auf dem Zielsystem.
 
-Der Rest dieses Dokuments wird beschrieben, die Anforderungen für die Umgebung, die erfüllt sein müssen, um die jeweiligen hoher Genauigkeit Ziele zu unterstützen.
+## <a name="high-accuracy-requirements"></a>Hohe Genauigkeits Anforderungen
 
-### <a name="target-accuracy-1-second-1s"></a>Ziel-Genauigkeit: 1 Sekunde (1 s)
+Im weiteren Verlauf dieses Dokuments werden die Umgebungs Anforderungen beschrieben, die erfüllt sein müssen, damit die entsprechenden Ziele mit hoher Genauigkeit unterstützt werden.
 
-1 s erzielen Genauigkeit für ein bestimmtes Ziel-Computers im Vergleich zu einer äußerst präzise Zeitquelle:
+### <a name="target-accuracy-1-second-1s"></a>Zielgenauigkeit: 1 Sekunde (1 s)
 
--   Das Zielsystem muss Windows 10, Windows Server 2016 ausgeführt werden.
+So erreichen Sie eine Genauigkeit von 1 s für einen bestimmten Zielcomputer im Vergleich zu einer sehr präzisen Zeit Quelle:
 
--   Das Zielsystem muss aus einer NTP-Hierarchie der Time-Server synchronisieren eine äußerst präzise Windows kompatibel NTP-Zeitquelle verbessert.
+-   Auf dem Zielsystem muss Windows 10, Windows Server 2016, ausgeführt werden.
 
--   Alle Windows-Betriebssysteme in der oben genannten NTP-Hierarchie muss konfiguriert werden, wie in der [Konfigurieren von Systemen für hohe Genauigkeit](configuring-systems-for-high-accuracy.md) Dokumentation.
+-   Das Zielsystem muss die Zeit von einer NTP-Hierarchie von Zeitservern synchronisieren, die in einer überaus präzisen Windows-kompatiblen NTP-Zeit Quelle liegt.
 
--   Die kumulative unidirektionale Netzwerklatenz zwischen Ziel und Quelle darf nicht mit 100 ms überschreiten. Die kumulative netzwerkverzögerung wird gemessen, durch das Hinzufügen der einzelnen unidirektionale Verzögerungen zwischen Paaren von NTP-Client / Server-Knoten in der Hierarchie beginnt mit dem Ziel und endet, die an der Quelle. Weitere Informationen finden Sie in der Synchronisierung des Dokuments hohe Genauigkeit.
+-   Alle Windows-Betriebssysteme in der oben genannten NTP-Hierarchie müssen so konfiguriert werden, dass Sie in der Dokumentation [Konfigurieren von Systemen für hoch Genauigkeit](configuring-systems-for-high-accuracy.md) dokumentiert sind.
 
-### <a name="target-accuracy-50-milliseconds"></a>Ziel-Genauigkeit: 50 Millisekunden
+-   Die kumulative unidirektionale Netzwerk Latenz Zwischenziel und Quelle darf 100 MS nicht überschreiten. Die kumulative Netzwerkverzögerung wird durch das Hinzufügen einzelner unidirektionaler Verzögerungen zwischen Paaren von NTP-Client-Server-Knoten in der Hierarchie gemessen, beginnend mit dem Ziel und endet an der Quelle. Weitere Informationen finden Sie im Dokument zur Zeitsynchronisierung mit hoher Genauigkeit.
 
-Alle Anforderungen, die im Abschnitt aufgeführten **Ziel Genauigkeit: 1 Sekunde** anwenden, es sei denn, in denen strenge Kontrollen in diesem Abschnitt beschrieben werden.
+### <a name="target-accuracy-50-milliseconds"></a>Zielgenauigkeit: 50 Millisekunden
 
-Die zusätzlichen Anforderungen für die Genauigkeit von 50 ms für ein bestimmtes Zielsystem erzielen sind:
+Alle Anforderungen, die im Abschnitt **target-Genauigkeit beschrieben werden: 1 Sekunde @ no__t-0 wird angewendet, es sei denn, es werden strengere Steuerelemente in diesem Abschnitt beschrieben.
 
--   Der Zielcomputer muss eine bessere Leistung als 5 ms der Netzwerklatenz zwischen der Zeitquelle sein.
+Die zusätzlichen Anforderungen zum Erreichen der Genauigkeit von 50 ms für ein bestimmtes Zielsystem lauten:
 
--   Das Zielsystem muss keine weiteren als Stratum 5 von eine äußerst präzise Zeitquelle sein.
+-   Der Zielcomputer muss über eine Netzwerk Latenz von mehr als 5 ms zwischen seiner Zeit Quelle verfügen.
 
-    >[!Note]
-    >Führen Sie "w32tm/Query/Status" von der Befehlszeile aus einer Schicht angezeigt.
-
--   Das Zielsystem muss innerhalb von 6 oder weniger Netzwerkhops, über die äußerst präzise Zeitquelle sein.
-
--   Die durchschnittliche CPU-Auslastung von einem Tag auf allen Stratums darf 90 % nicht überschreiten.
-
--   Für virtualisierte Systeme muss die eintägige durchschnittliche CPU-Auslastung des Hosts nicht 90 % überschreitet
-
-### <a name="target-accuracy-1-millisecond"></a>Ziel-Genauigkeit: 1 Millisekunde
-
-Alle Anforderungen, die in den Abschnitten erläuterten **Ziel Genauigkeit: 1 Sekunde** und **Genauigkeit als Ziel: 50 Millisekunden** anwenden, es sei denn, in denen strenge Kontrollen in diesem Abschnitt beschrieben werden.
-
-Gelten zusätzlichen Anforderungen um 1 ms Genauigkeit für ein bestimmtes Zielsystem zu erreichen:
-
--   Der Zielcomputer muss eine bessere Leistung als 0,1 ms der Netzwerklatenz zwischen der Zeitquelle aufweisen.
-
--   Das Zielsystem muss keine weiteren als Stratum 5 von eine äußerst präzise Zeitquelle sein.
+-   Das Zielsystem darf nicht größer als Stratum 5 aus einer sehr präzisen Zeit Quelle sein.
 
     >[!Note]
-    >Führen Sie "w32tm/Query/Status" über die Befehlszeile, um die Stratum finden Sie unter
+    >Führen Sie "W32tm/Query" aus/Status "über die Befehlszeile aus, um den Stratum anzuzeigen.
 
--   Das Zielsystem muss innerhalb von 4 oder weniger Netzwerkhops, über die äußerst präzise Zeitquelle sein.
+-   Das Zielsystem muss innerhalb von 6 oder weniger Netzwerk Hops aus der äußerst exakten Zeit Quelle liegen.
 
--   Die durchschnittliche CPU-Auslastung von einem Tag über pro Schicht darf 80 % nicht überschreiten.
+-   Die durchschnittliche CPU-Auslastung für alle stratums (1 Tag) darf nicht mehr als 90% betragen.
 
--   Für virtualisierte Systeme muss die eintägige durchschnittliche CPU-Auslastung des Hosts nicht 80 % überschreitet
+-   Bei virtualisierten Systemen darf die durchschnittliche CPU-Auslastung des Hosts nicht länger als 90% sein.
+
+### <a name="target-accuracy-1-millisecond"></a>Zielgenauigkeit: 1 Millisekunde
+
+Alle Anforderungen, die in den Abschnitten **target-Genauigkeit beschrieben werden: 1 Sekunde @ no__t-0 und **target-Genauigkeit: 50 Millisekunden @ no__t-0 anwenden, außer wenn strengere Steuerelemente in diesem Abschnitt beschrieben werden.
+
+Die zusätzlichen Anforderungen zum Erreichen von 1 MS Genauigkeit für ein bestimmtes Zielsystem lauten:
+
+-   Der Zielcomputer muss über eine Netzwerk Latenz von mehr als 0,1 MS zwischen seiner Zeit Quelle verfügen.
+
+-   Das Zielsystem darf nicht größer als Stratum 5 aus einer sehr präzisen Zeit Quelle sein.
+
+    >[!Note]
+    >Führen Sie "W32tm/Query" aus/Status "über die Befehlszeile aus, um den Stratum anzuzeigen.
+
+-   Das Zielsystem muss innerhalb von 4 oder weniger Netzwerk Hops aus der äußerst exakten Zeit Quelle liegen.
+
+-   Die durchschnittliche CPU-Auslastung für die einzelnen stratoren darf nicht länger als 80% sein.
+
+-   Bei virtualisierten Systemen darf die durchschnittliche CPU-Auslastung des Hosts nicht länger als 80% sein.

@@ -7,42 +7,42 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: c3efbb4081336ebfdfe9d3ab8a2b91412aa82dee
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: eedb0f2ae4b6f600eb578c5db857cc1d79bccbd1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191079"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407985"
 ---
 # <a name="planning-for-federation-server-proxy-capacity"></a>Planen der Verbundserverproxy-Kapazität
 
-Planen der Kapazität für Verbundserverproxys können Sie besser einschätzen:  
+Mithilfe der Kapazitätsplanung für Verbund Server Proxys können Sie Folgendes schätzen:  
   
--   Die entsprechenden hardwareanforderungen für jeden Verbundserverproxy.  
+-   Die erforderlichen Hardwareanforderungen für jeden Verbund Server Proxy.  
   
--   Die Anzahl der Verbundserver und Verbundserverproxys in jeder Organisation platziert.  
+-   Die Anzahl der Verbund Server und Verbund Server Proxys, die in jeder Organisation platziert werden sollen.  
   
-Verbundserverproxys umleiten Sicherheitstoken von einem geschützten Verbundserver im Unternehmensnetzwerk für Verbundbenutzer. Der Zweck der Bereitstellung eines Verbundserverproxys werden externe Benutzer auf die mit einem Verbundserver herstellen können. Es ist nicht tatsächlich Signatur von Token, oder Schreiben von Daten in der AD FS-Konfigurationsdatenbank. Aus diesem Grund sind die hardwareanforderungen für den Verbundserverproxy in der Regel geringer als die hardwareanforderungen für einen Verbundserver.  
+Verbund Server Proxys leiten Sicherheits Token von einem geschützten Verbund Server im Unternehmensnetzwerk an Verbund Benutzer um. Der Zweck der Bereitstellung eines Verbund Server Proxys besteht darin, externen Benutzern das Herstellen einer Verbindung mit einem Verbund Server zu ermöglichen. In der AD FS Konfigurations Datenbank werden keine Token signiert oder in Daten geschrieben. Daher sind die Hardwareanforderungen für den Verbund Server Proxy in der Regel niedriger als die Hardwareanforderungen für einen Verbund Server.  
   
-Da jede Anforderung an eines Verbundserverproxys in einer Anforderung an einen Verbundserver oder eine Verbundserverfarm ausgeführt werden, muss die kapazitätsplanung für den Verbundserver und Verbundserverproxys parallel ausgeführt werden.  
+Da jede Anforderung an einen Verbund Server Proxy zu einer Anforderung an einen Verbund Server oder eine Verbund Serverfarm führt, muss die Kapazitätsplanung für Verbund Server und Verbund Server Proxys parallel ausgeführt werden.  
   
-Einschätzen der Spitze anmelden\-ins pro Sekunde für den Verbundserverproxy muss über die Verwendungsmuster der Partnerbenutzer, die durch den Verbundserverproxy anmelden werden. Der verbundene Benutzer melden Sie sich mit dem Verbundserverproxy befinden sich in vielen Bereitstellungen im Internet. Können Sie schätzen, die maximale anmelden\-ins pro Sekunde anhand der Verwendungsmuster diese Verbundbenutzer für die vorhandenen Webanwendungen, die von AD FS geschützt werden.  
+Das schätzen der Spitzen Vorzeichen @ no__t-0ins pro Sekunde für den Verbund Server Proxy erfordert ein Verständnis der Verwendungs Muster der Verbund Benutzer, die sich über den Verbund Server Proxy anmelden werden. In vielen bereit Stellungen befinden sich die Verbund Benutzer, die sich mit dem Verbund Server Proxy anmelden, im Internet. Sie können die Spitzen Vorzeichen @ no__t-0ins pro Sekunde schätzen, indem Sie sich die Nutzungsmuster dieser Verbund Benutzer in den vorhandenen Webanwendungen ansehen, die durch AD FS geschützt werden.  
   
 > [!NOTE]  
-> Für produktionsbereitstellungen empfehlen wir mindestens zwei Verbundserverproxys für jede Verbund-Server-farmverwaltungsdatenbank-Instanz, die Sie bereitstellen.  
+> Bei Produktions Bereitstellungen wird empfohlen, für jede bereitgestellte Instanz der Verbund Serverfarm mindestens zwei Verbund Server Proxys zu installieren.  
   
-## <a name="estimate-the-number-of-federation-server-proxies-required-for-your-organization"></a>Abschätzen der Anzahl der Verbundserverproxys für Ihre Organisation erforderlich sind  
-Bevor Sie die Anzahl der einschätzen können AD FS Federation Server Proxy-Computer erforderlich sind, müssen Sie zunächst die Gesamtanzahl der Verbundserver zu bestimmen, die Sie in Ihrer Organisation bereitstellen. Weitere Informationen hierzu finden Sie unter [Planen der verbundserverkapazität](Planning-for-Federation-Server-Capacity.md).  
+## <a name="estimate-the-number-of-federation-server-proxies-required-for-your-organization"></a>Schätzen Sie die Anzahl der für Ihre Organisation benötigten Verbund Server Proxys.  
+Bevor Sie die Anzahl der erforderlichen AD FS Verbund Server Proxy-Computer einschätzen können, müssen Sie zuerst die Gesamtzahl der Verbund Server ermitteln, die Sie in Ihrer Organisation bereitstellen werden. Weitere Informationen hierzu finden Sie unter [Planning for Federation Server Capacity](Planning-for-Federation-Server-Capacity.md).  
   
-Wenn Sie mehrfach auf die Anzahl der Verbundserver, entschieden haben diese Anzahl von Servern anhand des Prozentsatzes der eingehenden Verbundauthentifizierung fordert an, dass Sie erwarten, dass von externen Benutzern erfolgt \(befindet sich außerhalb des Unternehmensnetzwerks\). Der Wert, der Berechnung wird mit der geschätzten Anzahl von Verbundserverproxys bereitgestellt werden, die die eingehenden authentifizierungsanforderungen für die für externe Benutzer behandelt.  
+Nachdem Sie sich für die Anzahl der Verbund Server entschieden haben, Multiplizieren Sie diese Anzahl von Servern mit dem Prozentsatz der eingehenden Verbund Authentifizierungsanforderungen, die von externen Benutzern erwartet werden \(außerhalb des Unternehmensnetzwerks @ no__t-1. Der Wert dieser Berechnung bietet Ihnen die geschätzte Anzahl von Verbund Server Proxys, die die eingehenden Authentifizierungsanforderungen Ihrer externen Benutzer verarbeiten.  
   
-Z. B. wenn die Anzahl der empfohlenen Verbundserver 3 beträgt, und Sie, dass erwarten die Gesamtanzahl von authentifizierungsanforderungen, die von externen Benutzern vorgenommen werden, werden ca. 60 % der Gesamtanzahl von Anforderungen mit Verbundauthentifizierung, Ihre Berechnung würde 1.8 gleich \(3 X.60\) die Sie runden können bis zu 2.  Aus diesem Grund würde in diesem Fall sollen zwei Federation Server Proxy-Computer zur Aufnahme das Laden der externe Benutzer-authentifizierungsanforderungen für die drei Verbundserver bereitstellen.  
+Wenn beispielsweise die Anzahl der empfohlenen Verbund Server 3 beträgt und Sie erwarten, dass die Gesamtzahl der Authentifizierungsanforderungen von externen Benutzern ungefähr 60% der Gesamtzahl der Verbund Authentifizierungsanforderungen entspricht, die Berechnung wäre gleich 1,8 \(3 X .60 @ no__t-1, das Sie auf bis zu 2 Runden können.  Daher müssen Sie in diesem Fall zwei Verbund Server Proxy-Computer bereitstellen, um die Auslastung der Authentifizierungsanforderungen externer Benutzer für die drei Verbund Server zu ermöglichen.  
   
-Tests, die vom AD FS-Produktteam ausgeführt wurde die gesamte CPU-Auslastung auf jedem Verbundserverproxy deutlich niedriger als die CPU-Auslastung sein, die auf den Verbundservern für die der gleichen Farm beobachtet wurde gefunden.  Zwar einen Verbundserver CPU, der angibt, wurde, dass es vollständig ausgeschöpft wurde, wurde die CPU für einen Verbundserverproxy Proxydienste für diese gleichen Farm Bereitstellen in einem Test nur 20 % Auslastung festgestellt. Aus diesem Grund offengelegt unsere Tests an, dass die Last für die CPU eines Verbundserverproxys, das ähnliche Hardwarespezifikationen verwendet wie beschrieben weiter oben in diesem Abschnitt, die Verarbeitungslast für ungefähr drei Verbundserver angemessen verarbeiten kann.  
+In den vom AD FS-Produktteam ausgeführten Tests war die CPU-Gesamtauslastung auf den einzelnen Verbund Server Proxys erheblich niedriger als die CPU-Auslastung, die auf den Verbund Servern für dieselbe Farm beobachtet wurde.  In einem Test, während eine Verbund Server-CPU darauf hinweist, dass Sie vollständig ausgelastet war, wurde die CPU eines Verbund Server Proxys, der Proxy Dienste für dieselbe Farm bereitstellt, nur mit einer Auslastung von 20% beobachtet. Aus diesem Grund haben unsere Tests ergeben, dass die Auslastung der CPU eines Verbund Server Proxys, der ähnliche Hardware Spezifikationen verwendet, wie weiter oben in diesem Abschnitt erläutert, die Verarbeitungs Last für ungefähr drei Verbund Server in angemessener Weise verarbeiten kann.  
   
-Es wird jedoch empfohlen für Fehlertoleranz sollten mindestens zwei Verbundserverproxys für jede Verbundserverfarm, die Sie bereitstellen.  
+Aus Gründen der Fehlertoleranz empfiehlt es sich jedoch, für jede bereitgestellte Verbund Serverfarm mindestens zwei Verbund Server Proxys zu erhalten.  
   
 ## <a name="see-also"></a>Siehe auch
 [AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

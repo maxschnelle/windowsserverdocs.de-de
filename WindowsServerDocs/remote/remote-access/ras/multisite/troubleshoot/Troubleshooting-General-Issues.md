@@ -1,9 +1,9 @@
 ---
 title: Problembehandlung bei allgemeinen Problemen
-description: Dieses Thema ist Teil des Handbuchs bereitstellen mehrere RAS-Server in einer Bereitstellung für mehrere Standorte in Windows Server 2016.
+description: Dieses Thema ist Teil des Handbuchs Bereitstellen mehrerer Remote Zugriffs Server in einer Bereitstellung mit mehreren Standorten in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,38 +12,38 @@ ms.topic: article
 ms.assetid: 354ae5e3-bae1-44f9-afd7-7eaba70f2346
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 87614ac3b83eaacefb4ac5f9fddef238ed500953
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: a2b8d7decad482ca8756aa4d82baa35abf16f5fe
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282552"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404447"
 ---
 # <a name="troubleshooting-general-issues"></a>Problembehandlung bei allgemeinen Problemen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Dieses Thema enthält Informationen zur Problembehandlung für allgemeine Probleme im Zusammenhang mit Remotezugriff.  
+Dieses Thema enthält Informationen zur Problembehandlung für allgemeine Probleme im Zusammenhang mit dem Remote Zugriff.  
   
-## <a name="gpo-retrieval-error"></a>Fehler beim Abrufen des Gruppenrichtlinienobjekts  
-**Fehler**. DirectAccess-Server-GPO-Einstellungen können nicht abgerufen werden. Stellen Sie sicher, dass Sie über Bearbeitungsberechtigungen für das Gruppenrichtlinienobjekt verfügen.  
+## <a name="gpo-retrieval-error"></a>GPO-Abruf Fehler  
+Der **Fehler wurde empfangen**. Die GPO-Einstellungen des DirectAccess-Servers können nicht abgerufen werden. Stellen Sie sicher, dass Sie über Bearbeitungs Berechtigungen für das GPO verfügen.  
   
-Die Remotezugriffs-Verwaltungskonsole ist nach dem Empfang dieser Fehler nicht mehr reagiert.  
+Die Remote Zugriffs-Verwaltungskonsole reagiert nach dem Empfang dieses Fehlers nicht mehr.  
   
 **Ursache**  
   
-Das Gruppenrichtlinienobjekt von einem der Einstiegspunkte in der Bereitstellung von DirectAccess kann nicht zugegriffen werden können, und daher die Konfiguration nicht geladen werden.  
+DirectAccess kann nicht auf das Gruppenrichtlinien Objekt eines der Einstiegspunkte in der Bereitstellung zugreifen. Daher kann die Konfiguration nicht geladen werden.  
   
 **Lösung**  
   
-Stellen Sie sicher, dass für jeden Einstiegspunkt in der Bereitstellung ein entsprechenden Gruppenrichtlinienobjekts auf einen Domänencontroller verfügt, und stellen Sie sicher, dass der angemeldete Benutzer über Lese- und Schreibberechtigungen für alle GPOs, die in der remotezugriffsbereitstellung konfiguriert.  
+Stellen Sie sicher, dass jeder Einstiegspunkt in der Bereitstellung über ein entsprechendes GPO auf seinem Domänen Controller verfügt, und überprüfen Sie, ob der angemeldete Benutzer über Lese-und Schreibberechtigungen für alle in der Remote Zugriffs Bereitstellung konfigurierten GPOs verfügt.  
   
-Dieses Problem zu umgehen verwenden Sie die Konfigurations-Cmdlets, statt mithilfe der Remotezugriffs-Verwaltungskonsole; Verwenden Sie beispielsweise `Get-RemoteAccess` und `Get-DAEntryPoint`.  
+Um dieses Problem zu umgehen, verwenden Sie die Configuration-Cmdlets anstelle der Remote Zugriffs-Verwaltungskonsole. Verwenden Sie beispielsweise `Get-RemoteAccess` und `Get-DAEntryPoint`.  
   
 > [!NOTE]  
-> Dieses Szenario tritt nicht auf, wenn das Server-GPO des aktuellen Einstiegspunkts nicht verfügbar ist.  
+> Dieses Szenario tritt nicht ein, wenn das Server-GPO des aktuellen Einstiegs Punkts nicht verfügbar ist.  
   
-Können Sie die `Get-DAEntryPointDC` Cmdlet, um alle Domänencontroller aufgelistet, die der Server-GPOs zu speichern und `Get-DAMultiSite` in Verbindung mit `Get-RemoteAccess` um eine vollständige Liste der Server-GPOs in der Bereitstellung abzurufen. Zum Beispiel:  
+Sie können das Cmdlet "`Get-DAEntryPointDC`" verwenden, um alle Domänen Controller aufzulisten, die Server-Gruppenrichtlinien Objekte speichern, und `Get-DAMultiSite` in Verbindung mit `Get-RemoteAccess`, um eine vollständige Liste der Server-Gruppenrichtlinien Objekte in der Bereitstellung abzurufen. Zum Beispiel:  
   
 ```  
 $ServerGpos = Get-DAEntryPointDC | ForEach-Object {   
@@ -54,43 +54,43 @@ $ServerGpos = Get-DAEntryPointDC | ForEach-Object {
 $ServerGpos | ForEach-Object { $GpoName = $_['GpoName'] ; $DC = $_['DC'] ; Write-Host "Server GPO '$GpoName' on DC '$DC'" }  
 ```  
   
-## <a name="windows-7-to-windows-8-or-10-client-upgrade"></a>Windows 7 auf Windows 8 oder 10 clientupgrade  
-**Symptom**. Nachdem ein Client für Windows 7 auf Windows 10 oder Windows 8 in einer Bereitstellung für mehrere Standorte aktualisiert wurde, wird die DirectAccess-Verbindung nicht in der Liste der Netzwerke angezeigt.  
+## <a name="windows-7-to-windows-8-or-10-client-upgrade"></a>Client Upgrade für Windows 7 zu Windows 8 oder 10  
+**Symptom**. Nachdem ein Windows 7-Client in einer Bereitstellung mit mehreren Standorten auf Windows 10 oder Windows 8 aktualisiert wurde, ist die DirectAccess-Verbindung in der Liste der Netzwerke nicht sichtbar.  
   
 **Ursache**  
   
-Die Windows 7-Gruppenrichtlinienobjekte in einer Bereitstellung für mehrere Standorte enthalten nicht die Windows 8 Netzwerkkonnektivitäts-Assistent-Konfiguration.  
+Die Windows 7-Gruppenrichtlinien Objekte in einer Bereitstellung mit mehreren Standorten enthalten nicht die Konfiguration des Windows 8-netzwerkkonnektivitätsassistenten  
   
- Windows 7-Clients sollten DirectAccess Connectivity Assistant verwenden, um ihren DirectAccess-Konnektivitäts-Status erfordert eine separate manuelle Konfiguration in der Windows 7-Client-Gruppenrichtlinienobjekte zu überwachen. Wenn Windows 7-Clients auf Windows 10 oder Windows 8 aktualisiert werden, funktioniert den Netzwerkkonnektivitäts-Assistent nicht, wenn immer noch das Windows 7-Client-Gruppenrichtlinienobjekt angewendet wird.  
+ Bei Windows 7-Clients sollte der DirectAccess-Konnektivitätsassistent zum Überwachen Ihres DirectAccess-Verbindungsstatus verwendet werden, der eine separate manuelle Konfiguration in den Windows 7-Client-Gruppenrichtlinien Objekten Wenn Windows 7-Clients auf Windows 10 oder Windows 8 aktualisiert werden, funktioniert der netzwerkkonnektivitätsassistent nicht, wenn das Windows 7-Client-Gruppenrichtlinien Objekt weiterhin angewendet wird.  
   
 **Lösung**  
   
-Wenn DirectAccess Connectivity Assistant Einstellungen in den Windows 7-Gruppenrichtlinienobjekten konfiguriert sind, können Sie dieses Problem beheben, vor dem Upgrade von Clientcomputern durch Ändern der Windows 7-GPOs mit den folgenden PowerShell-Cmdlets:  
+Wenn die Einstellungen für den DirectAccess-konnektivitätsassistant in den Gruppenrichtlinien Objekten von Windows 7 konfiguriert sind, können Sie dieses Problem beheben, bevor Sie die Windows 7-Gruppenrichtlinien Objekte mithilfe der folgenden PowerShell-Cmdlets ändern:  
   
 ```  
 Set-GPRegistryValue -Name <Windows7GpoName> -Domain <DomainName> -Key "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\NetworkConnectivityAssistant" -ValueName "TemporaryValue" -Type Dword -Value 1  
 Remove-GPRegistryValue -Name <Windows7GpoName> -Domain <DomainName> -Key "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\NetworkConnectivityAssistant"  
 ```  
   
-Wenn ein Client bereits aktualisiert wurde, oder der DCA ist nicht konfiguriert, verschieben Sie den Clientcomputer, die Sicherheitsgruppe "Windows 10 oder Windows 8".  
+Wenn ein Client bereits aktualisiert wurde oder die DCA nicht konfiguriert ist, verschieben Sie den Client Computer in die Sicherheitsgruppe Windows 10 oder Windows 8.  
   
-## <a name="general-cmdlet-errors"></a>Cmdlet für allgemeine Fehler  
+## <a name="general-cmdlet-errors"></a>Allgemeine Cmdlet-Fehler  
   
 -   **Problem 1**  
   
-    **Fehler**. Domänencontroller < Domänencontroller > kann nicht für < Servername oder Einstiegspunktname > erreicht werden.  
+    Der **Fehler wurde empfangen**. Der Domänen Controller < Domänencontroller > kann für < Servername-oder Einstiegspunktname-> nicht erreicht werden.  
   
     **Ursache**  
   
-    Um die Einheitlichkeit der Konfiguration in einer Bereitstellung für mehrere Standorte zu wahren, müssen Sie sicherstellen, dass jedes GPO von einem einzigen Domänencontroller verwaltet wird. Wenn der Domänencontroller, der einen Einstiegspunkt-Server-Gruppenrichtlinienobjekt verwaltet nicht verfügbar ist, können nicht RAS-Konfigurationseinstellungen gelesen oder geändert werden.  
+    Um die Einheitlichkeit der Konfiguration in einer Bereitstellung für mehrere Standorte zu wahren, müssen Sie sicherstellen, dass jedes GPO von einem einzigen Domänencontroller verwaltet wird. Wenn der Domänen Controller, der das Server-Gruppenrichtlinien Objekt eines Einstiegs Punkts verwaltet, nicht verfügbar ist, können die RAS-Konfigurationseinstellungen nicht gelesen oder geändert werden.  
   
     **Lösung**  
   
-    Führen Sie das Verfahren "So ändern den Domänencontroller, die Server-GPOs verwaltet", die in beschriebenen [2.4. Konfigurieren der Gruppenrichtlinienobjekte](assetId:///b1960686-a81e-4f48-83f1-cc4ea484df43#ConfigGPOs).  
+    Befolgen Sie das Verfahren "so ändern Sie den Domänen Controller, der Server-Gruppenrichtlinien Objekte verwaltet" in [2,4. Konfigurieren von GPOs @ no__t-0.  
   
 -   **Problem 2**  
   
-    **Fehler**. Der primäre Domänencontroller in die Domäne < Domänenname > kann nicht erreicht werden.  
+    Der **Fehler wurde empfangen**. Der primäre Domänen Controller in Domänen < domain_name > kann nicht erreicht werden.  
   
     **Ursache**  
   
@@ -98,7 +98,7 @@ Wenn ein Client bereits aktualisiert wurde, oder der DCA ist nicht konfiguriert,
   
     **Lösung**  
   
-    Folgen Sie das Verfahren "So übertragen die PDC-Emulatorrolle" in [2.4. Konfigurieren der Gruppenrichtlinienobjekte](assetId:///b1960686-a81e-4f48-83f1-cc4ea484df43#ConfigGPOs).  
+    Befolgen Sie das Verfahren "So übertragen Sie die PDC-Emulatorrolle", wie in [2,4 beschrieben. Konfigurieren von GPOs @ no__t-0.  
   
 
 

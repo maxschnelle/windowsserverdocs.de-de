@@ -1,9 +1,9 @@
 ---
 title: Anzeigen von DNS-Ressourceneinträgen für eine DNS-Zone
-description: Dieses Thema ist Teil des Leitfadens Verwaltung von IP-Adressverwaltung (IPAM) in Windows Server 2016.
+description: Dieses Thema ist Teil des Verwaltungs Handbuchs für die IP-Adressverwaltung (IPAM) in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ipam
@@ -12,43 +12,43 @@ ms.topic: article
 ms.assetid: 375feefc-949e-47c3-9e61-35b79e021966
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 44db34199257367e98279ccbcbc2d5041ee9884c
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 6e4b5ecd87e4976c0c65403bd63180e1d659e40b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283807"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405636"
 ---
 # <a name="view-dns-resource-records-for-a-dns-zone"></a>Anzeigen von DNS-Ressourceneinträgen für eine DNS-Zone
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können in diesem Thema verwenden, um DNS-Ressourceneinträgen für eine DNS-Zone in der IPAM-Clientkonsole anzuzeigen.  
+Sie können dieses Thema verwenden, um DNS-Ressourcen Einträge für eine DNS-Zone in der IPAM-Client Konsole anzuzeigen.  
   
 Die Mitgliedschaft in **Administratoren** oder einer entsprechenden Gruppe ist die Mindestanforderung für die Durchführung dieses Verfahrens.  
   
-### <a name="to-view-dns-resource-records-for-a-zone"></a>Anzeigen von DNS-Ressourceneinträgen für eine zone  
+### <a name="to-view-dns-resource-records-for-a-zone"></a>So zeigen Sie DNS-Ressourcen Einträge für eine Zone an  
   
-1.  Klicken Sie im Server-Manager **IPAM**. Die IPAM-Clientkonsole angezeigt wird.  
+1.  Klicken Sie in Server-Manager auf **IPAM**. Die IPAM-Client Konsole wird angezeigt.  
   
-2.  Klicken Sie im Navigationsbereich in **ÜBERWACHEN und verwalten**, klicken Sie auf **DNS-Zonen**.  Im Navigationsbereich, die in einer oberen Navigationsbereich und einer unteren Navigationsbereich unterteilt werden.  
+2.  Klicken Sie im Navigationsbereich unter **überwachen und verwalten**auf **DNS-Zonen**.  Der Navigationsbereich gliedert sich in einen oberen Navigationsbereich und einen niedrigeren Navigationsbereich.  
   
-3.  Klicken Sie im unteren Navigationsbereich auf **Forward-Lookup**, und erweitern Sie dann die Domäne und Zeitzone-Liste, um zu ermitteln, und wählen Sie die Zone, die Sie anzeigen möchten. Beispielsweise wenn Sie eine Zone namens Dublin haben, klicken Sie auf **Dublin**.  
+3.  Klicken Sie im unteren Navigationsbereich auf **Forward-Lookup**, und erweitern Sie dann die Liste Domäne und Zone, um die Zone zu suchen und auszuwählen, die Sie anzeigen möchten. Wenn Sie z. b. eine Zone mit dem Namen Dublin haben, klicken Sie auf **Dublin**.  
   
-    ![Wählen Sie die Zone, die Sie anzeigen möchten.](../../media/View-DNS-Resource-Records-for-a-DNS-Zone/ipam_DNSzones_01a.jpg)  
+    ![Wählen Sie die Zone aus, die Sie anzeigen möchten.](../../media/View-DNS-Resource-Records-for-a-DNS-Zone/ipam_DNSzones_01a.jpg)  
 
   
-4.  Ist im Anzeigebereich die Standardansicht der DNS-Server für die Zone. Um die Ansicht zu ändern, klicken Sie auf **aktuelle Ansicht**, und klicken Sie dann auf **Ressourceneinträge**.  
+4.  Im Anzeigebereich ist die Standardansicht der DNS-Server für die Zone. Um die Ansicht zu ändern, klicken Sie auf **Aktuelle Ansicht**und dann auf **Ressourcen Einträge**.  
   
-    ![Ändern Sie die Ansicht in Ressourceneinträge](../../media/View-DNS-Resource-Records-for-a-DNS-Zone/ipam_Zone_RR_02.jpg)  
+    ![Ändern der Ansicht in Ressourcen Einträge](../../media/View-DNS-Resource-Records-for-a-DNS-Zone/ipam_Zone_RR_02.jpg)  
   
-5.  Die DNS-Ressourceneinträge für die Zone werden angezeigt. Geben Sie zum Filtern der Datensätze, die den Text, der in der gesucht werden soll **Filter**.  
+5.  Die DNS-Ressourcen Einträge für die Zone werden angezeigt. Um die Datensätze zu filtern, geben Sie den Text ein, der in **Filter**gesucht werden soll.  
   
-    ![Geben Sie Text zum Filtern von Datensätzen](../../media/View-DNS-Resource-Records-for-a-DNS-Zone/ipam_DNSzones_01c.jpg)  
+    ![Typtext zum Filtern von Datensätzen](../../media/View-DNS-Resource-Records-for-a-DNS-Zone/ipam_DNSzones_01c.jpg)  
   
-6.  Um die Ressourcendatensätze nach Typ des hostnamenseintrags, des Zugriffsbereichs oder anderen Kriterien zu filtern, klicken Sie auf **Kriterien hinzufügen**, und klicken Sie dann Optionen in der Liste, und klicken Sie auf **hinzufügen**.  
+6.  Klicken Sie zum Filtern der Ressourcen Datensätze nach Daten Satz Typen, Zugriffs Bereich oder anderen Kriterien auf **Kriterien hinzufügen**, und treffen Sie dann in der Kriterienliste eine Auswahl, und klicken Sie auf **Hinzufügen**.  
   
-    ![Verwenden Sie die Kriterien zum Filtern von Datensätzen](../../media/View-DNS-Resource-Records-for-a-DNS-Zone/ipam_DNSzones_01d.jpg)  
+    ![Verwenden von Kriterien zum Filtern von Datensätzen](../../media/View-DNS-Resource-Records-for-a-DNS-Zone/ipam_DNSzones_01d.jpg)  
   
 ## <a name="see-also"></a>Siehe auch  
 [DNS-Zonenverwaltung](DNS-Zone-Management.md)  

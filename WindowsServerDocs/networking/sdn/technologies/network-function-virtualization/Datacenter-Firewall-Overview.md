@@ -1,9 +1,9 @@
 ---
 title: 'Rechenzentrumsfirewall: Übersicht'
-description: Sie können in diesem Thema verwenden, erfahren Sie Datacenter Firewall, d.h. eine Netzwerkebene, die 5-Tupel (Protokoll, Quell- und Ziel-Portnummern, Quell- und Ziel-IP-Adressen), die statusbehaftete, mehrinstanzenfähige Firewall in Windows Server 2016.
+description: In diesem Thema erfahren Sie mehr über die Rechenzentrums Firewall, bei der es sich um eine Netzwerkschicht, 5-Tupel (Protokoll, Quell-und Ziel Portnummern, Quell-und Ziel-IP-Adressen), eine Zustands behaftete, mehr Instanzen fähige Firewall in Windows Server 2016 handelt.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -12,44 +12,44 @@ ms.topic: article
 ms.assetid: 67576533-206b-428a-956c-ed8c53218d9b
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: f1de50dc61639f4985c9d28fdde6072af650f42e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9562972f731a553dbc3e5558fcce1d5c51d539d0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890831"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405885"
 ---
 # <a name="datacenter-firewall-overview"></a>Rechenzentrumsfirewall: Übersicht
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Datacenter Firewall ist ein neuer Dienst in Windows Server 2016 enthalten. Es ist ein Netzwerkebene, die 5-Tupel (Protokoll, Quell- und Portnummern, Quell- und Ziel-IP-Adressen), die statusbehaftete, mehrinstanzenfähige Firewall. Wenn bereitgestellt und als einen Dienst vom Dienstanbieter angeboten, können Mandantenadministratoren installieren und Konfigurieren der Firewall-Richtlinien zum Schutz ihrer virtuellen Netzwerke mit unerwünschtem Datenverkehr aus dem Internet und der Intranetnetzwerke.  
+Datacenter Firewall ist ein neuer Dienst, der in Windows Server 2016 enthalten ist. Dabei handelt es sich um eine Netzwerkschicht, 5-Tupel (Protokoll, Quell-und Ziel Portnummern, Quell-und Ziel-IP-Adressen), Zustands behaftete, mehr Instanzen fähige Firewall. Wenn Sie vom Dienstanbieter als Dienst bereitgestellt und angeboten werden, können Mandanten Administratoren Firewallrichtlinien installieren und konfigurieren, um Ihre virtuellen Netzwerke vor unerwünschtem Datenverkehr aus Internet-und intranetnetzwerken zu schützen.  
   
-![Datacenter Firewall im Netzwerkstapel](../../../media/Datacenter-Firewall-Overview/MultitenantFirewallOverview2.png)  
+![Rechenzentrums Firewall im Netzwerk Stapel](../../../media/Datacenter-Firewall-Overview/MultitenantFirewallOverview2.png)  
   
-Der Administrator des Dienstanbieters oder Mandantenadministratoren kann die Datacenter Firewall-Richtlinien über den Netzwerkcontroller und die northbound-APIs verwalten.  
+Der Dienstanbieter Administrator oder der Mandanten Administrator kann die Datacenter-Firewallrichtlinien über den Netzwerk Controller und die Northbound-APIs verwalten.  
   
-Die Datacenter Firewall bietet die folgenden Vorteile für clouddienstanbieter zur Verfügung:  
+Die Datacenter-Firewall bietet die folgenden Vorteile für clouddienstanbieter:  
   
--   Eine hoch skalierbare, überschaubare und diagnosable Software-basierte Firewall-Lösung, die für Mandanten angeboten werden kann  
+-   Eine hochgradig skalierbare, verwaltbare und diagnosierbare softwarebasierte Firewalllösung, die Mandanten angeboten werden kann  
   
--   Freiheit, die Mandanten-VMs in verschiedenen Compute-Hosts zu verschieben, ohne wichtige Mandanten-Firewall-Richtlinien  
+-   Freiheit zum Verschieben von virtuellen Mandanten Computern auf andere computehosts ohne Unterbrechung der Firewallrichtlinien für Mandanten  
   
-    -   Bereitgestellt als Firewall vSwitch-Port-Host-agent  
+    -   Wird als Firewall des Vswitch-Port Host-Agents bereitgestellt.  
   
-    -   Mandanten-VMs erhalten, die ihre vSwitch-Hostfirewall Agent zugewiesenen Richtlinien  
+    -   Virtuelle Mandanten Computer erhalten die Richtlinien, die ihrer Vswitch-Host-Agent-Firewall zugewiesen sind  
   
-    -   Firewall-Regeln werden in jede vSwitch-Port, die unabhängig von der tatsächliche Host der virtuellen Computer konfiguriert.  
+    -   Firewallregeln werden in jedem Vswitch-Port unabhängig vom eigentlichen Host, auf dem der virtuelle Computer ausgeführt wird, konfiguriert.  
   
--   Bietet Schutz für virtuelle Computer unabhängig von der Mandanten-Gastbetriebssystem-Mandanten  
+-   Bietet Schutz für virtuelle Mandanten Computer unabhängig vom Gast Betriebssystem des Mandanten.  
   
-Die Datacenter Firewall bietet die folgenden Vorteile für Mandanten:  
+Die Datacenter-Firewall bietet die folgenden Vorteile für Mandanten:  
   
--   Möglichkeit zum Definieren von Firewall-Regeln zum Schutz von Workloads in virtuellen Netzwerken mit Internetzugriff  
+-   Möglichkeit zum Definieren von Firewallregeln zum Schutz von Arbeits Auslastungen mit Internet Zugriff in virtuellen Netzwerken  
   
--   Möglichkeit zum Definieren von Firewall-Regeln zum Schutz von Datenverkehr zwischen virtuellen Computern im gleichen L2 virtuellen Subnetz sowie zwischen virtuellen Computern auf verschiedene L2-und virtuelle Subnetze  
+-   Möglichkeit zum Definieren von Firewallregeln zum Schutz des Datenverkehrs zwischen virtuellen Computern im gleichen virtuellen L2-Subnetz und zwischen virtuellen Computern in verschiedenen virtuellen L2-Subnetzen  
   
--   Möglichkeit zum Definieren von Firewall-Regeln zum Schutz und den Netzwerkdatenverkehr zwischen Mandanten isolieren lokalen Netzwerken und ihren virtuellen Netzwerken vom Dienstanbieter  
+-   Möglichkeit zum Definieren von Firewallregeln, um den Netzwerk Datenverkehr zwischen lokalen Mandanten Netzwerken und Ihren virtuellen Netzwerken beim Dienstanbieter zu schützen und zu isolieren  
   
 
 

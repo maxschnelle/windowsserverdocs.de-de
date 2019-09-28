@@ -1,8 +1,8 @@
 ---
 title: FTP-prompt_1
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 65f7505dfcb3677fcaace9bd645cca7e7ba70b7d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 08c7f9c14f4168bb5d3aa874711669eede8d0d87
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438592"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376199"
 ---
-# <a name="ftp-prompt1"></a>FTP: prompt_1
+# <a name="ftp-prompt_1"></a>FTP: prompt_1
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Schaltet zwischen **Eingabeaufforderung** Modus ein- und ausschalten.   
+Schaltet zwischen dem **Eingabe** Aufforderungs Modus ein und aus.   
 ## <a name="syntax"></a>Syntax  
 ```  
 prompt  
@@ -32,12 +32,12 @@ prompt
 ### <a name="parameters"></a>Parameter  
 none  
 ## <a name="remarks"></a>Hinweise  
-- In der Standardeinstellung **Eingabeaufforderung** ist.  
-- **FTP** fordert während der Übertragung von mehreren Dateien, damit Sie selektiv abzurufen oder Dateien speichern können.  **Mget** und **Mput** alle Dateien übertragen, wenn **Eingabeaufforderung** ist deaktiviert.  
-  ## <a name="BKMK_Examples"></a>Beispiele für  
-  Eingabeaufforderung umschalten ein- und ausschalten.  
+- Die **Eingabeaufforderung** ist standardmäßig aktiviert.  
+- **FTP** -Aufforderungen bei mehreren Dateiübertragungen, damit Sie Dateien selektiv abrufen oder speichern können.  **Mget** und **mput** alle Dateien übertragen, wenn die **Eingabeaufforderung** deaktiviert ist.  
+  ## <a name="BKMK_Examples"></a>Beispiele  
+  Schalten Sie den Eingabe Aufforderungs Modus ein und aus.  
   ```  
   prompt  
   ```  
-  ## <a name="additional-references"></a>Zusätzliche Referenzen  
+  ## <a name="additional-references"></a>Weitere Verweise  
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

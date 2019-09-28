@@ -1,8 +1,8 @@
 ---
-title: Verwalten von-Bde auf
-description: 'Windows-Befehle Thema ***- '
+title: manage-bde on
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b50cad64025e85824a8f0a27d773ffb614491fe5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a95bbc375c0a5b62b96f7c68f7d5ab5e09371d1c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841181"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374001"
 ---
-# <a name="manage-bde-on"></a>Verwalten von-Bde: auf
+# <a name="manage-bde-on"></a>manage-bde: on
 
 
 
-Das Laufwerk verschlüsselt, und BitLocker aktiviert. Beispiele wie dieser Befehl verwendet werden kann, finden Sie unter [Beispiele](#BKMK_Examples).
+Verschlüsselt das Laufwerk und schaltet BitLocker ein. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -39,55 +39,55 @@ manage-bde –on <Drive> {[-recoveryPassword <NumericalPassword>]|[-recoverykey 
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<Drive>|Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar.|
-|-recoverypassword|Fügt eine Schutzvorrichtung numerisches Kennwort hinzu. Sie können auch **- Rp** als eine verkürzte Version des mit diesem Befehl.|
-|\<NumericalPassword>|Stellt die Eingabe eines Wiederherstellungskennworts dar.|
-|-recoverykey|Fügt eine externe Schlüsselschutzvorrichtung für die Wiederherstellung an. Sie können auch **- Rk** als eine verkürzte Version des mit diesem Befehl.|
-|\<PathToExternalDirectory>|Stellt den Verzeichnispfad für den Wiederherstellungsschlüssel dar.|
-|-Startschlüssel|Fügt eine externe Schlüsselschutzvorrichtung für den Start. Sie können auch **-sk** als eine verkürzte Version des mit diesem Befehl.|
-|\<PathToExternalKeyDirectory>|Stellt den Verzeichnispfad für den Schlüssel zum Systemstart dar.|
-|-Zertifikat|Fügt einer öffentlichen Schlüsselschutzvorrichtung für ein Laufwerk hinzu. Sie können auch **-Cert** als eine verkürzte Version des mit diesem Befehl.|
-|-tpmandpin|Fügt ein Trusted Platform Module (TPM) und das personal Identification Number (PIN)-Schutzvorrichtung für das Betriebssystemlaufwerk. Sie können auch **- Tp** als eine verkürzte Version des mit diesem Befehl.|
-|-tpmandstartupkey|Fügt eine TPM- und -Systemstart-Schlüsselschutzvorrichtung für das Betriebssystemlaufwerk. Sie können auch **-tsk** als eine verkürzte Version des mit diesem Befehl.|
-|-tpmandpinandstartupkey|Fügt eine TPM-PIN und Startup-Schlüsselschutzvorrichtung für das Betriebssystemlaufwerk. Sie können auch **- Tpsk** als eine verkürzte Version des mit diesem Befehl.|
-|-Kennwort|Fügt eine Kennwort-Schlüsselschutzvorrichtung für das Datenlaufwerk an. Sie können auch **- kW** als eine verkürzte Version des mit diesem Befehl.|
-|-ADAccountOrGroup|Fügt ein SID-basierte Identitätsschutz für das Volume an. Das Volume wird automatisch entsperrt, wenn der Benutzer oder Computer die richtigen Anmeldeinformationen verfügt. Wenn Sie ein Benutzerkonto angeben, fügen Sie eine **$** auf dem Computer ein, und geben **– Dienst** um anzugeben, dass die Sperre im Inhalt des BitLocker-Servers anstelle von geschehen soll die der Benutzer. Sie können auch **-Sid** als eine verkürzte Version des mit diesem Befehl.|
-|-UsedSpaceOnly|Legt den Verschlüsselungsmodus nur verwendeten Speicherplatz Verschlüsselung fest. Die Abschnitte des verwendeten Speicherplatzes mit Volumes verschlüsselt werden, aber nicht der Fall ist des freien Speicherplatzes. Wenn diese Option nicht angegeben ist, alle verwendeter Speicherplatz und freier Speicherplatz auf dem Volume verschlüsselt werden... Sie können auch **-verwendet** als eine verkürzte Version des mit diesem Befehl.|
-|-encryptionMethod|Konfiguriert die Verschlüsselung Algorithmus und Schlüssel-Größe. Sie können auch **-Em** als eine verkürzte Version des mit diesem Befehl.|
-|-skiphardwaretest|Beginnt die Verschlüsselung, ohne dass ein Hardwaretest. Sie können auch **-s** als eine verkürzte Version des mit diesem Befehl.|
-|-discoveryvolumetype|Gibt an, das Dateisystem für das Discovery-Datenlaufwerk zu verwenden. Das Datenlaufwerk Discovery ist ein ausgeblendetes Laufwerk hinzugefügt werden, auf einem FAT-formatierten, BitLocker-geschützte Wechseldatenträger, der die BitLocker To Go-Lesetool enthält, damit Windows Vista oder Windows XP-Betriebssystemen verwendet werden kann, um BitLocker-geschützte Laufwerke anzuzeigen.|
-|-ForceEncryptionType|Erzwingt, dass BitLocker, Software oder Hardware-Verschlüsselung zu verwenden. Geben Sie entweder **Hardware** oder **Software** als Verschlüsselungstyp. Wenn die **Hardware** Parameter ausgewählt ist, aber das Laufwerk unterstützt keine Verschlüsselung, verwalten-Bde gibt einen Fehler zurück. Wenn die gruppenrichtlinieneinstellungen verbietet den angegebenen Verschlüsselungstyp an, von verwalten-Bde ein Fehler zurückgegeben. Sie können auch **-fet** als eine verkürzte Version des mit diesem Befehl.|
-|-RemoveVolumeShadowCopies|Erzwingen von Volumeschattenkopien Deletikon, für das Volume an. Sie werden nicht zum Wiederherstellen dieses Volumes, die mit vorherigen Systemwiederherstellungspunkte nach dem Ausführen dieses Befehls können. Sie können auch **- Rvsc** als eine verkürzte Version des mit diesem Befehl.|
-|\<FileSystemType>|Gibt an, welche Dateisysteme mit Datenlaufwerken für die Ermittlung verwendet werden können: FAT32, Standard oder none.|
-|-computername|Gibt an, dass die Manage-Bde verwendet wird, um die BitLocker-Schutz auf einem anderen Computer zu ändern. Sie können auch **- Cn** als eine verkürzte Version des mit diesem Befehl.|
-|\<Name>|Stellt den Namen des Computers, auf dem BitLocker-Schutz zu ändern. Akzeptierte Werte sind die NetBIOS-Namen des Computers und die IP-Adresse des Computers.|
-|-? oder /?|Zeigt eine kurze Hilfe an der Eingabeaufforderung.|
-|---Help oder-h|Führen Sie zeigt Hilfe an der Eingabeaufforderung ein.|
+|\<laufwerk >|Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar.|
+|-wiederherstellungkennwort|Fügt eine numerische Kennwort-Schutzvorrichtung hinzu. Sie können auch **-RP** als abgekürzte Version dieses Befehls verwenden.|
+|\<numericalpassword >|Stellt das Wiederherstellungs Kennwort dar.|
+|-Wiederherstellungsschlüssel|Fügt eine externe Schlüssel Schutzvorrichtung für die Wiederherstellung hinzu. Sie können " **-RK** " auch als abgekürzte Version dieses Befehls verwenden.|
+|\<path>|Stellt den Verzeichnispfad zum Wiederherstellungs Schlüssel dar.|
+|-startupkey|Fügt eine externe Schlüssel Schutzvorrichtung zum Starten hinzu. Sie können auch **-SK** als abgekürzte Version dieses Befehls verwenden.|
+|\<path>|Stellt den Verzeichnispfad zum Systemstart Schlüssel dar.|
+|-Zertifikat|Fügt eine Schutzvorrichtung für ein öffentliches Schlüssel für ein Daten Laufwerk hinzu. Sie können auch **-CERT** als abgekürzte Version dieses Befehls verwenden.|
+|-TPMAndPIN|Fügt ein Trusted Platform Module (TPM) und eine PIN-Schutzvorrichtung (Personal Identification Number) für das Betriebssystem Laufwerk hinzu. Sie können auch **-tp** als abgekürzte Version dieses Befehls verwenden.|
+|-TPMAndStartupKey|Fügt ein TPM und eine Systemstart Schlüssel-Schutzvorrichtung für das Betriebssystem Laufwerk hinzu. Sie können auch **-TSK** als abgekürzte Version dieses Befehls verwenden.|
+|-tpmandpinandstartupkey|Fügt ein TPM, eine PIN und eine Start Schlüsselschutzvorrichtung für das Betriebssystem Laufwerk hinzu. Sie können auch **-tpsk** als abgekürzte Version dieses Befehls verwenden.|
+|-Kennwort|Fügt eine Kenn Wort Schlüssel-Schutzvorrichtung für das Daten Laufwerk hinzu. Sie können auch **-PW** als abgekürzte Version dieses Befehls verwenden.|
+|-ADAccountOrGroup|Fügt eine SID-basierte Identitäts Schutzvorrichtung für das Volume hinzu. Das Volume wird automatisch entsperrt, wenn der Benutzer oder der Computer über die richtigen Anmelde Informationen verfügt. Wenn Sie ein Computer Konto angeben, fügen Sie einen **$** an den Computernamen an, und geben Sie den **–-Dienst** an, um anzugeben, dass die Sperre im Inhalt des BitLocker-Servers anstelle des Benutzers stattfinden soll. Sie können auch **-sid** als abgekürzte Version dieses Befehls verwenden.|
+|-UsedSpaceOnly|Legt den Verschlüsselungs Modus auf "nur verwendeten Speicherplatz verschlüsseln" fest. Die Abschnitte des Volumes, die den verwendeten Speicherplatz enthalten, werden verschlüsselt, aber der freie Speicherplatz wird nicht verwendet. Wenn diese Option nicht angegeben wird, werden der gesamte verwendete Speicherplatz und der freie Speicherplatz auf dem Volume verschlüsselt. Sie können auch **-used** als abgekürzte Version dieses Befehls verwenden.|
+|-verschlüsselungsmethod|Konfiguriert den Verschlüsselungsalgorithmus und die Schlüsselgröße. Sie können auch **-EM** als abgekürzte Version dieses Befehls verwenden.|
+|-skiphardwaretest|Startet die Verschlüsselung ohne einen Hardware Test. Sie können auch **-s** als abgekürzte Version dieses Befehls verwenden.|
+|-discoveryvolumetype|Gibt das Dateisystem an, das für das Discovery-Daten Laufwerk verwendet werden soll. Das Discovery Data Drive ist ein verborgenes Laufwerk, das einem FAT-formatierten, BitLocker geschützten Wechsel Datenträger hinzugefügt wird, der die BitLocker To Go-Lesetool enthält, damit die Betriebssysteme Windows Vista oder Windows XP zum Anzeigen von BitLocker-geschützten Laufwerken verwendet werden können.|
+|-Forceverschlüsseltiontype|Erzwingt, dass BitLocker Software oder Hardware Verschlüsselung verwendet. Sie können entweder **Hardware** oder **Software** als Verschlüsselungstyp angeben. Wenn der **Hardware** Parameter ausgewählt ist, das Laufwerk aber die Hardware Verschlüsselung nicht unterstützt, gibt manage-bde einen Fehler zurück. Wenn Gruppenrichtlinie Einstellungen den angegebenen Verschlüsselungstyp verbietet, gibt manage-bde einen Fehler zurück. Sie können auch **-FET** als abgekürzte Version dieses Befehls verwenden.|
+|-Removevolumeshadowkopien|Erzwingen Sie das Delta der Volumeschattenkopie für das Volume. Nachdem Sie diesen Befehl ausgeführt haben, können Sie dieses Volume nicht mithilfe vorheriger System Wiederherstellungspunkte wiederherstellen. Sie können auch **-rvsc** als abgekürzte Version dieses Befehls verwenden.|
+|\<filesystemtype >|Gibt an, welche Dateisysteme mit Ermittlungs Daten Laufwerken verwendet werden können: FAT32, Default oder None.|
+|-Computername|Gibt an, dass "Manage-BDE" verwendet wird, um den BitLocker-Schutz auf einem anderen Computer zu ändern. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden.|
+|\<Name >|Stellt den Namen des Computers dar, auf dem der BitLocker-Schutz geändert werden soll. Akzeptierte Werte sind der NetBIOS-Name des Computers und die IP-Adresse des Computers.|
+|-? oder /?|Zeigt eine kurze Hilfe an der Eingabeaufforderung an.|
+|-Help oder-h|Zeigt die gesamte Hilfe an der Eingabeaufforderung an.|
 
-## <a name="BKMK_Examples"></a>Beispiele für
+## <a name="BKMK_Examples"></a>Beispiele
 
-Das folgende Beispiel veranschaulicht die Verwendung der **-auf** Befehl zum Aktivieren von BitLocker für Laufwerk C: und fügen ein Wiederherstellungskennwort, das auf das Laufwerk.
+Das folgende Beispiel veranschaulicht die Verwendung des Befehls " **-on** " zum Aktivieren von BitLocker für Laufwerk C und zum Hinzufügen eines Wiederherstellungs Kennworts zum Laufwerk.
 ```
 manage-bde –on C: -recoverypassword
 ```
-Das folgende Beispiel veranschaulicht die Verwendung der **-auf** Befehl zum Aktivieren von BitLocker für Laufwerk C, fügen ein Wiederherstellungskennwort, das auf das Laufwerk und speichern einen Wiederherstellungsschlüssel auf Laufwerk e:.
+Das folgende Beispiel veranschaulicht die Verwendung des Befehls " **-on** " zum Aktivieren von BitLocker für Laufwerk C, zum Hinzufügen eines Wiederherstellungs Kennworts zum Laufwerk und zum Speichern eines Wiederherstellungs Schlüssels auf Laufwerk E.
 ```
 manage-bde –on C: -recoverykey E:\ -recoverypassword
 ```
-Das folgende Beispiel veranschaulicht die Verwendung der **-auf** Befehl zum Aktivieren von BitLocker für Laufwerk C: mit einer externen Schlüsselschutzvorrichtung (z. B. einen USB-Schlüssel) um das Betriebssystemlaufwerk zu entsperren. Diese Methode ist erforderlich, wenn Sie BitLocker mit Computern verwenden, die nicht über ein TPM verfügen.
+Das folgende Beispiel veranschaulicht die Verwendung des **-on-** Befehls zum Aktivieren von BitLocker für Laufwerk C mit einer externen Schlüssel Schutzvorrichtung (z. b. einem USB-Schlüssel) zum Entsperren des Betriebssystem Laufwerks. Diese Methode ist erforderlich, wenn Sie BitLocker mit Computern verwenden, die nicht über ein TPM verfügen.
 ```
 manage-bde -on C: -startupkey E:\
 ```
-Das folgende Beispiel veranschaulicht die Verwendung der **-auf** Befehl zum Aktivieren von BitLocker für Laufwerk E und Hinzufügen einer Kennwort-Schlüsselschutzvorrichtung. Verwalten von-Bde werden Sie aufgefordert, das Kennwort eingeben, nachdem dieser Befehl eingegeben wurden.
+Das folgende Beispiel veranschaulicht die Verwendung des **-on-** Befehls zum Aktivieren von BitLocker für das Daten Laufwerk E und zum Hinzufügen einer Kenn Wort Schlüssel-Schutzvorrichtung. Mit manage-bde werden Sie aufgefordert, das Kennwort einzugeben, nachdem dieser Befehl eingegeben wurde.
 ```
 manage-bde –on E: -pw
 ```
-Das folgende Beispiel veranschaulicht die Verwendung der **-auf** Befehl zum Aktivieren von BitLocker für Betriebssystem-Laufwerk C: und hardwarebasierten Verschlüsselung verwenden.
+Das folgende Beispiel veranschaulicht die Verwendung des **-on-** Befehls zum Aktivieren von BitLocker für das Betriebssystem Laufwerk C und zum Verwenden der hardwarebasierten Verschlüsselung.
 ```
 manage-bde –on C: -fet Hardware
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
--   [Befehlszeilensyntax](command-line-syntax-key.md)
--   [Verwalten von-bde](manage-bde.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Manage-bde](manage-bde.md)

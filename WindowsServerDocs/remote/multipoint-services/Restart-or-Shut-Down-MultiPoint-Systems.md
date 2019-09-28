@@ -1,8 +1,8 @@
 ---
 title: Neustart oder Herunterfahren von MultiPoint-Systemen
-description: Erfahren Sie, wie Herunterfahren oder Neustarten eines oder mehrerer Systeme
+description: Erfahren Sie, wie Sie ein oder mehrere Systeme Herunterfahren oder neu starten.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,24 +13,24 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 33622c38dc6e0b95e8f54ec7e93c3cf60a7cf2aa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6f0c5c0f444130f0b8bcb3540c0b2e243de755e7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845741"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395084"
 ---
 # <a name="restart-or-shut-down-multipoint-systems"></a>Neustart oder Herunterfahren von MultiPoint-Systemen
-Sie können den Neustart oder Herunterfahren von MultiPoint Services-System eine oder mehrere MultiPoint Services-Systeme im MultiPoint-Dashboard.  
+Sie können ein Multipoint Services-System oder mehrere Multipoint Services-Systeme im Multipoint-Dashboard neu starten oder Herunterfahren.  
   
-## <a name="restart-a-multipoint-services-system-or-multiple-systems"></a>Ein MultiPoint Services-System oder mehrere Systeme neu starten  
+## <a name="restart-a-multipoint-services-system-or-multiple-systems"></a>Neustarten eines Multipoint Services-Systems oder mehrerer Systeme  
   
 1.  Klicken Sie auf **Systeme**.  
   
-2.  Klicken Sie auf die Miniaturansichten der Server neu gestartet werden soll, und klicken Sie dann auf die **Hardware** auf **Neustart**.  
+2.  Klicken Sie auf das Miniaturbild des Servers, den Sie neu starten möchten, und klicken Sie dann auf der Registerkarte **Hardware** auf **neu starten**.  
   
 ## <a name="to-shut-down-a-multipoint-services-system-or-multiple-systems"></a>So fahren Sie ein oder mehrere MultiPoint Service-System herunter  
   
-1.  Klicken Sie auf die **Systeme** Registerkarte.  
+1.  Klicken Sie auf die Registerkarte **Systeme** .  
   
-2.  Klicken Sie auf die Miniaturansichten der Server neu gestartet werden soll, und klicken Sie dann auf die **Hardware** auf **Herunterfahren**.
+2.  Klicken Sie auf das Miniaturbild des Servers, den Sie neu starten möchten, und klicken Sie dann auf der Registerkarte **Hardware** auf **herunter**fahren.

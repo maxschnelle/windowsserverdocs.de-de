@@ -1,8 +1,8 @@
 ---
-title: Verwalten von-Bde WipeFreeSpace
-description: 'Windows-Befehle Thema ***- '
+title: manage-bde wipeer FreeSpace
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7cf99a9124f78189de223018608d9864e51d7897
-ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.openlocfilehash: 35d5f5fe079485d35fa412502bec745a136fbce9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65564689"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373777"
 ---
-# <a name="manage-bde-wipefreespace"></a>Verwalten von-Bde: WipeFreeSpace
+# <a name="manage-bde-wipefreespace"></a>"manage-bde Wipeer FreeSpace
 
 
 
-Zurücksetzen den freien Speicherplatz auf dem Volume Datenfragmente, die im Adressraum vorhanden sind, möglicherweise entfernt. Ausführen dieses Befehls auf einem Volume, das mit die Verschlüsselungsmethode für "Nur verwendeten Speicherplatz" verschlüsselt wurde, bietet das gleiche Maß an Schutz wie die Verschlüsselungsmethode "Full Volume Encryption". Beispiele wie dieser Befehl verwendet werden kann, finden Sie unter [Beispiele](#BKMK_Examples).
+Löscht den freien Speicherplatz auf dem Volume und entfernt alle Daten Fragmente, die möglicherweise im Speicherplatz vorhanden sind. Das Ausführen dieses Befehls auf einem Volume, das mithilfe der Verschlüsselungsmethode "nur verwendeter Speicherplatz" verschlüsselt wurde, bietet die gleiche Schutz Ebene wie die Verschlüsselungsmethode "Full Volume Encryption". Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,20 +36,20 @@ manage-bde -WipeFreeSpace|-w [<Drive>] [-Cancel] [-computername <Name>] [{-?|/?}
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<Drive>|Stellt einen Laufwerkbuchstaben an, gefolgt von einem Doppelpunkt, ein Volume-GUID-Pfad oder einem bereitgestellten Volume dar.|
-|-"Abbrechen"|Bricht eine Zurücksetzung des freien Speicherplatzes, der ausgeführt wird.|
-|-computername|Gibt an, dass bde.exe verwendet wird, um die BitLocker-Schutz auf einem anderen Computer zu ändern. Sie können auch **- Cn** als eine verkürzte Version des mit diesem Befehl.|
-|\<Name>|Stellt den Namen des Computers, auf dem BitLocker-Schutz zu ändern. Akzeptierte Werte sind die NetBIOS-Namen des Computers und die IP-Adresse des Computers.|
-|-? oder /?|Zeigt eine kurze Hilfe an der Eingabeaufforderung.|
-|---Help oder-h|Führen Sie zeigt Hilfe an der Eingabeaufforderung ein.|
+|\<laufwerk >|Stellt einen Laufwerk Buchstaben, gefolgt von einem Doppelpunkt, einem Volume-GUID-Pfad oder einem bereitgestellten Volume dar.|
+|-Abbrechen|Bricht eine Löschung des freien Speicherplatzes ab, der gerade verarbeitet wird.|
+|-Computername|Gibt an, dass "manage-bde. exe verwendet wird, um den BitLocker-Schutz auf einem anderen Computer zu ändern. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden.|
+|\<Name >|Stellt den Namen des Computers dar, auf dem der BitLocker-Schutz geändert werden soll. Akzeptierte Werte sind der NetBIOS-Name des Computers und die IP-Adresse des Computers.|
+|-? oder /?|Zeigt eine kurze Hilfe an der Eingabeaufforderung an.|
+|-Help oder-h|Zeigt die gesamte Hilfe an der Eingabeaufforderung an.|
 
-## <a name="BKMK_Examples"></a>Beispiele für
+## <a name="BKMK_Examples"></a>Beispiele
 
-Das folgende Beispiel veranschaulicht die Verwendung der **-w** Befehl zum Erstellen, Zurücksetzen den freien Speicherplatz auf Laufwerk C.
+Das folgende Beispiel veranschaulicht die Verwendung des Befehls " **-w** ", um den freien Speicherplatz auf Laufwerk C zu löschen.
 ```
 manage-bde -w C:
 ```
-Das folgende Beispiel veranschaulicht die Verwendung der **-w** -Befehl mit der **-Abbrechen** Parameter, um die Bereinigung der freie Speicherplatz auf Laufwerk C. Abbrechen
+Im folgenden Beispiel wird veranschaulicht, wie der **-w-** Befehl mit dem **-Cancel-** Parameter verwendet wird, um den freien Speicherplatz auf Laufwerk C zu löschen.
 ```
 manage-bde -w -Cancel C:
 ```
@@ -57,4 +57,4 @@ manage-bde -w -Cancel C:
 #### <a name="additional-references"></a>Weitere Verweise
 
 -   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
--   [Verwalten von-bde](manage-bde.md)
+-   [Manage-bde](manage-bde.md)

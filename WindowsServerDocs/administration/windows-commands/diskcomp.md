@@ -1,8 +1,8 @@
 ---
 title: diskcomp
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ccd1a347f9ac51fc98c963dedb1c0ab3fcd27d41
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: ca5ea0f4587b21b2a274c772aab239668b7868b4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439590"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377872"
 ---
 # <a name="diskcomp"></a>diskcomp
 
 
 
-Vergleicht den Inhalt von zwei Disketten. Wenn Sie ohne Angabe von Parametern **Diskcomp** verwendet das aktuelle Laufwerk, beide Festplatten verglichen werden soll. Beispiele für diesen Befehl verwenden, finden Sie unter [Beispiele](#BKMK_examples).
+Vergleicht den Inhalt von zwei Disketten. Bei Verwendung ohne Parameter verwendet **diskcomp** das aktuelle Laufwerk, um beide Datenträger zu vergleichen. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,15 +36,15 @@ diskcomp [<Drive1>: [<Drive2>:]]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<Laufwerk1 >|Gibt das Laufwerk eines der Disketten enthalten.|
-|\<Laufwerk2 >|Gibt an, dem Laufwerk, auf die anderen Diskette.|
+|\<drive1 >|Gibt das Laufwerk an, das eine der Disketten enthält.|
+|\<drive2 >|Gibt das Laufwerk an, das die andere Diskette enthält.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
-- Mithilfe von Datenträgern
+- Verwenden von Datenträgern
 
-  Die **Diskcomp** Befehl funktioniert nur bei Disketten. Sie können keine **Diskcomp** mit einer Festplatte. Wenn Sie angeben, dass ein Festplattenlaufwerk für *Laufwerk1* oder *Laufwerk2*, **Diskcomp** wird die folgende Fehlermeldung angezeigt:  
+  Der **diskcomp** -Befehl kann nur mit Disketten verwendet werden. **Diskcomp** kann nicht mit einer Festplatte verwendet werden. Wenn Sie ein Festplattenlaufwerk für *Drive1* oder *drive2*angeben, zeigt **diskcomp** die folgende Fehlermeldung an:  
   ```
   Invalid drive specification
   Specified drive does not exist
@@ -52,70 +52,70 @@ diskcomp [<Drive1>: [<Drive2>:]]
   ```  
 - Vergleichen von Datenträgern
 
-  Wenn alle Spuren auf dem zwei Datenträger, die mit dem verglichen wird gleich sind, **Diskcomp** wird die folgende Meldung angezeigt:  
+  Wenn alle Spuren auf den zwei verglichenen Datenträgern identisch sind, zeigt **diskcomp** die folgende Meldung an:  
   ```
   Compare OK
   ```  
-  Wenn die Spuren nicht gleich sind, **Diskcomp** wird eine Meldung ähnlich der folgenden angezeigt:  
+  Wenn die Spuren nicht identisch sind, zeigt **diskcomp** eine Meldung ähnlich der folgenden an:  
   ```
   Compare error on
   side 1, track 2
   ```  
-  Wenn **Diskcomp** abgeschlossen ist den Vergleich wird die folgende Meldung angezeigt:  
+  Wenn **diskcomp** den Vergleich abschließt, wird die folgende Meldung angezeigt:  
   ```
   Compare another diskette (Y/N)?
   ```  
-  Wenn Sie "Y" drücken **Diskcomp** fordert Sie auf den Datenträger für den nächsten Vergleich einfügen. Drücken Sie N, **Diskcomp** beendet den Vergleich.
+  Wenn Sie Y drücken, werden Sie von **diskcomp** aufgefordert, den Datenträger für den nächsten Vergleich einzufügen. Wenn Sie "N" drücken, hält **diskcomp** den Vergleich an.
 
-  Wenn **Diskcomp** führt der Vergleich ignoriert eine Seriennummer des Datenträgers.
-- Das Auslassen der Laufwerk-Parameter
+  Wenn **diskcomp** den Vergleich durchführt, wird die Volumenummer eines Datenträgers ignoriert.
+- Weglassen von Laufwerk Parametern
 
-  Wenn Sie weglassen der *Laufwerk2* Parameter **Diskcomp** verwendet das aktuelle Laufwerk für *Laufwerk2*. Wenn Sie beide Laufwerkparameter weglassen **Diskcomp** verwendet das aktuelle Laufwerk für beide. Wenn das aktuelle Laufwerk entspricht *Laufwerk1*, **Diskcomp** fordert Sie auf den Datenträger nach Bedarf austauschen.
-- Verwenden ein Laufwerk
+  Wenn Sie den *drive2* -Parameter weglassen, verwendet **diskcomp** das aktuelle Laufwerk für *drive2*. Wenn Sie beide Laufwerk Parameter weglassen, verwendet **diskcomp** das aktuelle Laufwerk für beide. Wenn das aktuelle Laufwerk mit *Drive1*identisch ist, werden Sie von **diskcomp** aufgefordert, Datenträger nach Bedarf auszutauschen.
+- Verwenden eines Laufwerks
 
-  Wenn Sie angeben, dass das gleiche Laufwerk für *Laufwerk1* und *Laufwerk2*, **Diskcomp** vergleicht diese mit einem Laufwerk, und fordert Sie auf die Datenträger nach Bedarf einfügen. Möglicherweise müssen Sie die Datenträger mehr als einmal je nach Kapazität der Datenträger und die Menge des verfügbaren Arbeitsspeichers zu wechseln.
-- Vergleich von verschiedenen Typen von Datenträgern
+  Wenn Sie für *Drive1* und *drive2*dasselbe Diskettenlaufwerk angeben, vergleicht **diskcomp** diese mithilfe eines Laufwerks und fordert Sie auf, die Datenträger bei Bedarf einzufügen. Abhängig von der Kapazität der Datenträger und der Menge an verfügbarem Arbeitsspeicher müssen Sie die Datenträger möglicherweise mehrmals austauschen.
+- Vergleichen verschiedener Typen von Datenträgern
 
-  **Diskcomp** einen einseitiger Datenträger mit einem Datenträger beidseitiges noch einen HD-Datenträger mit einem Double-Wert-Dichte-Datenträger können nicht verglichen werden. Wenn der Datenträger im *Laufwerk1* ist nicht vom gleichen Typ wie der Datenträger im *Laufwerk2*, **Diskcomp** wird die folgende Meldung angezeigt:  
+  **Diskcomp** kann keinen einseitigen Datenträger mit einem Datenträger mit doppelter Dichte und einem Datenträger mit hoher Dichte mit einem Datenträger mit doppelter Dichte vergleichen. Wenn der Datenträger in *Drive1* nicht denselben Typ aufweist wie der Datenträger in *drive2*, zeigt **diskcomp** die folgende Meldung an:  
   ```
   Drive types or diskette types not compatible
   ```  
-- Mithilfe von **Diskcomp** mit Netzwerken und umgeleiteten Laufwerken
+- Verwenden von **diskcomp** mit Netzwerken und umgeleiteten Laufwerken
 
-  **Diskcomp** funktioniert nicht auf einem Netzlaufwerk oder auf einem Laufwerk erstellt, indem die **Subst** Befehl. Wenn Sie versuchen, **Diskcomp** ein Laufwerk eines dieser Typen **Diskcomp** wird die folgende Fehlermeldung angezeigt:  
+  **Diskcomp** funktioniert nicht auf einem Netzlaufwerk oder auf einem Laufwerk, das mit dem Befehl **subst** erstellt wurde. Wenn Sie versuchen, **diskcomp** mit einem Laufwerk eines dieser Typen zu verwenden, zeigt **diskcomp** die folgende Fehlermeldung an:  
   ```
   Invalid drive specification
   ```  
-- Vergleichen von einer ursprünglichen Datenträger mit einer Kopie
+- Vergleichen eines Original Datenträgers mit einer Kopie
 
-  Bei Verwendung von **Diskcomp** mit einem Datenträger, die Sie mithilfe von vorgenommen **Kopie**, **Diskcomp** möglicherweise eine Meldung ähnlich der folgenden angezeigt:  
+  Wenn Sie **diskcomp** mit einem Datenträger verwenden, den Sie mithilfe von **Copy**erstellt haben, zeigt **diskcomp** möglicherweise eine Meldung ähnlich der folgenden an:  
   ```
   Compare error on 
   side 0, track 0
   ```  
-  Diese Art von Fehler kann auftreten, auch wenn die Dateien auf den Datenträgern identisch sind. Obwohl **Kopie** dupliziert Informationen, es ist nicht unbedingt platzieren Sie es in den gleichen Speicherort auf dem Zieldatenträger.
-- Grundlegendes zu **Diskcomp** Exitcodes
+  Diese Art von Fehler kann auch auftreten, wenn die Dateien auf den Datenträgern identisch sind. Obwohl die **Kopie** Informationen dupliziert, wird Sie nicht notwendigerweise am gleichen Speicherort auf dem Ziel Datenträger gespeichert.
+- Informationen zu **diskcomp** -Exitcodes
 
-  In der folgende Tabelle wird erläutert, jede Exitcode.  
+  In der folgenden Tabelle werden die einzelnen Exitcodes erläutert.  
 
   |Exitcode|Beschreibung|
   |---------|-----------|
-  |0|Datenträger sind identisch|
-  |1|Es wurden Unterschiede gefunden.|
-  |3|Schwerwiegender Fehler aufgetreten ist.|
-  |4|Fehler bei der Initialisierung aufgetreten ist.|
+  |0|Datenträger sind identisch.|
+  |1|Unterschiede wurden gefunden.|
+  |3|Schwer fehlerhaft|
+  |4|Initialisierungsfehler|
 
-  Zum Prozess Exitcodes, die von zurückgegeben werden **Diskcomp**, können Sie auf der Umgebungsvariablen ERRORLEVEL den **Wenn** Befehlszeile in einem Batchprogramm.
+  Zum Verarbeiten von Exitcodes, die von **diskcomp**zurückgegeben werden, können Sie die ERRORLEVEL-Umgebungsvariable in der **if** -Befehlszeile in einem Batch-Programm verwenden.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Wenn Ihr Computer nur ein Diskettenlaufwerk (z. B. Laufwerk A verfügt) und zwei Datenträger verglichen werden soll, geben Sie ein:
+Wenn Ihr Computer nur über ein Diskettenlaufwerk (z. b. Laufwerk A) verfügt und Sie zwei Datenträger vergleichen möchten, geben Sie Folgendes ein:
 ```
 diskcomp a: a:
 ```
-**Diskcomp** aufgefordert, jeden Datenträger und fügen Sie nach Bedarf.
+Bei Bedarf werden Sie von **diskcomp** aufgefordert, jeden Datenträger einzufügen.
 
-Im folgende Beispiel wird veranschaulicht, wie zum Verarbeiten einer **Diskcomp** Exitcode in einem Batchprogramm, das der Umgebungsvariablen ERRORLEVEL auf verwendet die **Wenn** über die Befehlszeile:
+Im folgenden Beispiel wird veranschaulicht, wie ein **diskcomp** -Exitcode in einem Batch-Programm verarbeitet wird, das die ERRORLEVEL-Umgebungsvariable in der **if** -Befehlszeile verwendet:
 ```
 rem Checkout.bat compares the disks in drive A and B 
 echo off 

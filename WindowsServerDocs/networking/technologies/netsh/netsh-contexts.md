@@ -1,41 +1,41 @@
 ---
 title: Netsh-Befehlssyntax, Kontexte und Formatierung
-description: Sie können in diesem Thema verwenden, um zu erfahren, wie geben Netsh-Kontexten und Unterkontexte, zu verstehen, Netsh-Syntax und Befehl formatieren und das Netsh-Befehle auf lokalen Computern und Remotecomputern ausgeführt wird, auf denen Windows Server 2016 oder Windows 10 ausgeführt werden.
-ms.prod: windows-server-threshold
+description: In diesem Thema erfahren Sie, wie Sie netsh-Kontexte und-unter Kontexte eingeben, die Netsh-Syntax und Befehls Formatierung verstehen und Netsh-Befehle auf lokalen Computern und Remote Computern ausführen, auf denen Windows Server 2016 oder Windows 10 ausgeführt wird.
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 8cb9b59f-0255-4261-b49a-562c5ea50ee0
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: adb1546bc21b3209a362fd61feab0d3ee6810a66
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 815e59ca00d6450b8ef09a034434c4209c928e78
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812170"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405573"
 ---
 # <a name="netsh-command-syntax-contexts-and-formatting"></a>Netsh-Befehlssyntax, Kontexte und Formatierung
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können in diesem Thema verwenden, um zu erfahren, wie geben Netsh-Kontexten und Unterkontexte, zu verstehen, Netsh-Syntax und die Formatierung der Befehl, und wie Sie Netsh-Befehle auf lokalen Computern und Remotecomputern ausführen.
+In diesem Thema erfahren Sie, wie Sie netsh-Kontexte und-unter Kontexte eingeben, die Netsh-Syntax und Befehls Formatierung verstehen und Netsh-Befehle auf lokalen Computern und Remote Computern ausführen.
 
-Netsh ist ein Befehlszeilen-skripthilfsprogramm, mit dem Sie anzeigen oder ändern die Netzwerkkonfiguration eines Computers, der derzeit ausgeführt wird. Netsh-Befehle können ausgeführt werden, indem Sie Befehle eingeben, an der Eingabeaufforderung Netsh ein, und sie können in Batch-Dateien oder Skripts verwendet werden. Remote-Computern und dem lokalen Computer können mithilfe von Netsh-Befehle konfiguriert werden.
+Netsh ist ein Befehlszeilen-Skript Hilfsprogramm, mit dem Sie die Netzwerkkonfiguration eines Computers anzeigen oder ändern können, der zurzeit ausgeführt wird. Netsh-Befehle können ausgeführt werden, indem Sie in der netsh-Eingabeaufforderung Befehle eingeben, die in Batch Dateien oder Skripts verwendet werden können. Remote Computer und der lokale Computer können mithilfe von Netsh-Befehlen konfiguriert werden.
 
 Netsh bietet auch eine Skriptingfunktion, mit der Sie eine Gruppe von Befehlen im Batchmodus für einen bestimmten Computer ausführen können. Mit Netsh können Sie ein Konfigurationsskript als Textdatei zu Archivierungszwecken oder für die Konfiguration anderer Computer speichern.
 
-## <a name="netsh-contexts"></a>Netsh-Kontexten
+## <a name="netsh-contexts"></a>Netsh-Kontexte
 
-Netsh interagiert mit anderen Komponenten des Betriebssystems mithilfe von dynamischen\-Link Library \(DLL\) Dateien. 
+Netsh interagiert mit anderen Betriebssystemkomponenten, indem dynamische @ no__t-0link Library \(dll @ no__t-2-Dateien verwendet wird. 
 
-Jede Netsh-Hilfsprogramm-DLL bietet eine Breite Palette von Features mit dem Namen einer *Kontext*, dies ist eine Gruppe von spezifischen Befehlen für ein Netzwerk-Serverrolle oder-Funktion. Diese Kontexte erweitern die Funktionalität von Netsh, durch die Konfiguration und Unterstützung für Dienste, Hilfsprogramme oder Protokolle zu überwachen. Beispielsweise bietet Dhcpmon.dll Netsh mit dem Kontext und eine Reihe von Befehlen, die zum Konfigurieren und Verwalten von DHCP-Servern.
+Jede Netsh Helper-DLL bietet einen umfangreichen Satz von Features, die als *Kontext*bezeichnet werden. Dies ist eine Gruppe von Befehlen, die für eine Netzwerkserver Rolle oder ein Feature spezifisch sind. Diese Kontexte erweitern die Funktionalität von Netsh, indem Sie Konfigurations-und Überwachungs Unterstützung für einen oder mehrere Dienste, Hilfsprogramme oder Protokolle bereitstellen. Dhcpmon. dll bietet beispielsweise Netsh mit dem Kontext und dem Satz von Befehlen, die zum Konfigurieren und Verwalten von DHCP-Servern erforderlich sind.
 
 ### <a name="obtain-a-list-of-contexts"></a>Abrufen einer Liste von Kontexten
 
-Sie erhalten eine Liste der Netsh-Kontexten, öffnen Sie auf einem Computer unter Windows Server 2016 oder Windows 10-Eingabeaufforderung oder in Windows PowerShell. Geben Sie den Befehl **Netsh** und drücken Sie EINGABETASTE. Typ **/?** , und drücken Sie dann die EINGABETASTE.
+Sie können eine Liste der netsh-Kontexte abrufen, indem Sie entweder die Eingabeaufforderung oder Windows PowerShell auf einem Computer öffnen, auf dem Windows Server 2016 oder Windows 10 ausgeführt wird. Geben Sie den Befehl **netsh** ein, und drücken Sie EINGABETASTE. Geben Sie **/?** ein, und drücken Sie dann die EINGABETASTE.
 
-Es folgt die Beispielausgabe für diese Befehle auf einem Computer unter Windows Server 2016 Datacenter.
+Im folgenden finden Sie eine Beispielausgabe für diese Befehle auf einem Computer, auf dem Windows Server 2016 Datacenter ausgeführt wird.
 
 >    ```
 >   PS C:\Windows\system32> netsh
@@ -90,85 +90,85 @@ Es folgt die Beispielausgabe für diese Befehle auf einem Computer unter Windows
 >    To view help for a command, type the command, followed by a space, and then type ?.
 >    ```
 
-### <a name="subcontexts"></a>Folgende Unterkontexte
+### <a name="subcontexts"></a>Unter Kontexte
 
-Netsh-Kontext können sowohl Befehle als auch zusätzliche Kontexten aufgerufen enthalten *Unterkontexte*. Innerhalb des Kontexts Routing können Sie z. B. um die IP- und IPv6-Unterkontexte ändern.
+Netsh-Kontexte können sowohl Befehle als auch zusätzliche Kontexte enthalten, die als *unter Kontexte*bezeichnet werden. Beispielsweise können Sie im Routing Kontext zu den unter Kontexten IP und IPv6 wechseln.
 
-Klicken Sie zum Anzeigen einer Liste von Befehlen und Unterkontexte, mit denen Sie in einem Kontext, an der Eingabeaufforderung Netsh Geben Sie den Kontext ein, und geben Sie dann entweder **/?** oder **Hilfe**. Beispielsweise, um das Anzeigen einer Liste von untergeordneten Kontexten und Befehle, mit denen Sie in den Routing-Kontext, an der Eingabeaufforderung Netsh \(, also **Netsh&gt;** \), geben Sie einen der folgenden:
+Wenn Sie eine Liste der Befehle und unter Kontexte anzeigen möchten, die Sie in einem Kontext verwenden können, geben Sie an der netsh-Eingabeaufforderung den Kontext Namen ein, und geben Sie dann entweder **/?** ein. oder **Hilfe**. Wenn Sie z. b. eine Liste von unter Kontexten und Befehlen anzeigen möchten, die Sie im Routing Kontext verwenden können, geben Sie an der netsh-Eingabeaufforderung \(, d. h. **netsh @ no__t-2**\), eine der folgenden Informationen ein:
 
-**Routing /?**
+**Routing/?**
 
-**routing help**
+**Routing Hilfe**
 
-Geben Sie zum Ausführen von Aufgaben in einem anderen Kontext, ohne von den aktuellen Kontext ändern zu müssen, die Kontextpfad des Befehls, die Sie an der Eingabeaufforderung Netsh verwenden möchten. Geben Sie z. B. zum Hinzufügen einer Schnittstelle, die mit dem Namen "LAN-Verbindung" im IGMP-Kontext, ohne zuerst auf den IGMP-Kontext, an der Eingabeaufforderung Netsh:
+Um Aufgaben in einem anderen Kontext auszuführen, ohne den aktuellen Kontext zu ändern, geben Sie den Kontext Pfad des Befehls ein, den Sie an der netsh-Eingabeaufforderung verwenden möchten. Um beispielsweise eine Schnittstelle mit dem Namen "LAN-Verbindung" im IGMP-Kontext hinzuzufügen, ohne zuvor in den IGMP-Kontext zu wechseln, geben Sie an der netsh-Eingabeaufforderung Folgendes ein:
 
-**Igmp für IP-Weiterleitung hinzufügen Schnittstelle "LAN-Verbindung" Startupqueryinterval = 21**
+**Routing IP IGMP Add Interface "Local Area Connection" startupqueryinterval = 21**
 
 ## <a name="running-netsh-commands"></a>Ausführen von Netsh-Befehlen
 
-Führen Sie einen netch-Befehl müssen Sie Netsh über die Eingabeaufforderung starten, indem Sie eingeben **Netsh** und dann die EINGABETASTE drücken. Als Nächstes können Sie in den Kontext ändern, die den Befehl enthält, die, den Sie verwenden möchten. Die Kontexte, die verfügbar sind, hängt von der Netzwerkkomponenten, die Sie installiert haben. Angenommen, Sie geben ein **Dhcp** an die Netsh-Eingabeaufforderung, und drücken Sie die EINGABETASTE, Netsh ändert sich in den Kontext des DHCP-Server. Wenn Sie nicht DHCP installiert haben, wird jedoch die folgende Meldung angezeigt:
+Um einen netsh-Befehl auszuführen, müssen Sie netsh von der Eingabeaufforderung aus starten, indem Sie **netsh** eingeben und dann die EINGABETASTE drücken. Als nächstes können Sie in den Kontext wechseln, der den gewünschten Befehl enthält. Welche Kontexte verfügbar sind, hängt von den installierten Netzwerkkomponenten ab. Wenn Sie z. b. **DHCP** an der netsh-Eingabeaufforderung eingeben und die EINGABETASTE drücken, werden Änderungen am DHCP-Server Kontext von Netsh geändert. Wenn Sie DHCP nicht installiert haben, wird die folgende Meldung angezeigt:
 
-**Der folgende Befehl wurde nicht gefunden: Dhcp.**
+**Der folgende Befehl wurde nicht gefunden: DHCP.**
 
-## <a name="formatting-legend"></a>Formatierungslegende
+## <a name="formatting-legend"></a>Legende formatieren
 
-Sie können die folgende formatierungslegende interpretieren und Verwenden der richtigen Netsh-Befehlssyntax beim Ausführen des Befehls an der Eingabeaufforderung Netsh oder in einer Batchdatei oder einem Skript verwenden.
+Sie können die folgende Formatierungs Legende verwenden, um die richtige Netsh-Befehlssyntax zu interpretieren und zu verwenden, wenn Sie den Befehl an der netsh-Eingabeaufforderung oder in einer Batchdatei oder einem Skript ausführen.
 
-- Text in *Kursiv* sind Informationen, die Sie angeben müssen, während Sie den Befehl eingeben. Wenn ein Befehl einen Parameter Namens - enthält z. B.*Benutzername*, müssen Sie den tatsächlichen Benutzernamen eingeben.
-- Text in **fett** sind Informationen, die Sie genau wie dargestellt, während der Eingabe des Befehls eingeben müssen.
-- Text von einem Auslassungszeichen gefolgt \(... \) ist ein Parameter, die in einer Befehlszeile mehrmals wiederholt werden kann.
-- Text, der zwischen Klammern [&nbsp;] ist ein optionales Element.
-- Text, der in geschweiften Klammern {&nbsp;} Auswahlmöglichkeiten, getrennt durch einen senkrechten Strich bietet eine Reihe von Auswahlmöglichkeiten, aus dem Sie nur eine, wie z. B. auswählen müssen `{enable|disable}`.
-- Mit der Schriftart Courier formatierter Text ist, Code oder Programmausgabe.
+- Text in *kursiv* Schrift sind Informationen, die Sie beim Eingeben des Befehls angeben müssen. Wenn ein Befehl z. b. einen Parameter mit dem Namen-*username*hat, müssen Sie den tatsächlichen Benutzernamen eingeben.
+- **Fett** formatierter Text sind Informationen, die Sie genau wie angezeigt eingeben müssen, wenn Sie den Befehl eingeben.
+- Text gefolgt von einem Ellipsen \(... \) ist ein Parameter, der mehrmals in einer Befehlszeile wiederholt werden kann.
+- Text zwischen eckigen Klammern [&nbsp;] ist ein optionales Element.
+- Text zwischen geschweiften Klammern {&nbsp;}, wobei die Auswahl durch eine Pipe getrennt ist, stellt eine Reihe von Optionen bereit, von denen Sie nur eine auswählen müssen, z. b. `{enable|disable}`.
+- Text, der mit Courier Font formatiert wird, ist die Code-oder Programmausgabe.
 
-## <a name="running-netsh-commands-from-the-command-prompt-or-windows-powershell"></a>Ausführen von Netsh-Befehle über die Eingabeaufforderung oder die Windows PowerShell
+## <a name="running-netsh-commands-from-the-command-prompt-or-windows-powershell"></a>Ausführen von Netsh-Befehlen über die Eingabeaufforderung oder Windows PowerShell
 
-Starten die Network Shell aus, und geben Netsh an der Eingabeaufforderung oder in Windows PowerShell, können Sie den folgenden Befehl verwenden.
+Um die Netzwerkshell zu starten und netsh an der Eingabeaufforderung oder in Windows PowerShell einzugeben, können Sie den folgenden Befehl verwenden.
 
 ### <a name="netsh"></a>netsh
 
-Netsh ist ein Befehlszeilen-skripthilfsprogramm, mit dem Sie entweder lokal oder Remote anzeigen oder ändern die Netzwerkkonfiguration eines aktuell ausgeführten Computers. Ohne Parameter verwendet **Netsh** öffnet der Netsh.exe-Eingabeaufforderung \(, also **Netsh&gt;** \).
+Netsh ist ein Befehlszeilen-Skript Hilfsprogramm, mit dem Sie die Netzwerkkonfiguration eines derzeit ausgelaufenden Computers entweder lokal oder Remote anzeigen oder ändern können. **Netsh** wird ohne Parameter verwendet und öffnet die Eingabeaufforderung "Netsh. exe" \(Das heißt: **netsh @ no__t-3**\).
 
 #### <a name="syntax"></a>Syntax
 
-**Netsh** \[ **– ein**&nbsp;*Aliasdatei* \] \[ **- C** &nbsp;  *Kontext* \] \[ **- R**&nbsp;*RemoteComputer* \] \[ **- u** \[ *DomainName\\*  \] *Benutzername* \] \[ **-p** &nbsp; *Kennwort*  |  \* \] \[{*netsh-Befehl* |  **-f** &nbsp; *ScriptFile*}\]
+**netsh**\[ **-a**&nbsp;*aliasfile*\] \[ **-c**&nbsp;-*Kontext* 0 1 **-r**3*Remotecomputer*5 6 **-u** 8  *Domain Name @ no__t-20* 1 *username* 3 4 **-p**6*Password*8 @ no__t-29 @ no__t-30 1 {*netshcommand*3 **-f**5*scriptfile*} 7
 
 #### <a name="parameters"></a>Parameter
 
 **`-a`**
 
-Dies ist optional. Gibt an, dass Sie nach Rückkehr der **Netsh** Eingabeaufforderung nach der Ausführung *Aliasdatei*.
+Optional. Gibt an, dass Sie nach dem Ausführen von *aliasfile*an die **netsh** -Eingabeaufforderung zurückgegeben werden.
 
 **`AliasFile`**
 
-Optional. Gibt den Namen der Textdatei, die eine oder mehrere enthält **Netsh** Befehle.
+Optional. Gibt den Namen der Textdatei an, die mindestens einen **netsh** -Befehl enthält.
 
 **`-c`**
 
-Optional. Gibt an, Netsh gibt das angegebene **Netsh** Kontext.
+Optional. Gibt an, dass Netsh in den angegebenen **netsh** -Kontext gelangt.
 
 **`Context`**
 
-Optional. Gibt an, die **Netsh** Kontext, die Sie eingeben möchten. 
+Optional. Gibt den **netsh** -Kontext an, den Sie eingeben möchten. 
 
 **`-r`**
 
-Optional. Gibt an, dass den Befehl auf einem Remotecomputer ausgeführt werden sollen.
+Optional. Gibt an, dass der Befehl auf einem Remote Computer ausgeführt werden soll.
 
 > [!IMPORTANT]
-> Bei Verwendung einiger Netsh-Befehle Remote auf einem anderen Computer mit der **Netsh – R** Parameter, der Remoteregistrierungsdienst muss ausgeführt werden auf dem Remotecomputer. Wenn er nicht ausgeführt wird, zeigt Windows eine Fehlermeldung "Netzwerk Pfad nicht gefunden".
+> Wenn Sie einige Netsh-Befehle Remote auf einem anderen Computer mit dem **netsh – r** -Parameter verwenden, muss der Remote Registrierungsdienst auf dem Remote Computer ausgeführt werden. Wenn er nicht ausgeführt wird, zeigt Windows die Fehlermeldung "Netzwerkpfad nicht gefunden" an.
 
 ***`RemoteComputer`***
 
-Optional. Gibt den remote-Computer, den Sie konfigurieren möchten.
+Optional. Gibt den Remote Computer an, den Sie konfigurieren möchten.
 
 **`-u`**
 
-Optional. Gibt an, dass der Befehl "Netsh" unter einem Benutzerkonto ausgeführt werden soll.
+Optional. Gibt an, dass Sie den Netsh-Befehl unter einem Benutzerkonto ausführen möchten.
 
 ***`DomainName\\`***
 
-Dies ist optional. Gibt die Domäne, wo sich das Benutzerkonto befindet. Der Standardwert ist der lokalen Domäne aus, wenn *DomainName\\*  nicht angegeben ist.
+Optional. Gibt die Domäne an, in der sich das Benutzerkonto befindet. Der Standardwert ist die lokale Domäne, wenn *Domain Name @ no__t-1* nicht angegeben ist.
 
 ***`UserName`***
 
@@ -180,32 +180,32 @@ Optional. Gibt an, dass Sie ein Kennwort für das Benutzerkonto angeben möchten
 
 ***`Password`***
 
-Optional. Gibt das Kennwort für das Benutzerkonto an, die mit angegebenen **-u** *Benutzername*.
+Optional. Gibt das Kennwort für das Benutzerkonto an, das Sie mit dem *Benutzernamen* **-u** angegeben haben.
 
 ***`NetshCommand`***
 
-Optional. Gibt an, die **Netsh** -Befehl, der ausgeführt werden soll.
+Optional. Gibt den **netsh** -Befehl an, den Sie ausführen möchten.
 
 **`-f`**
 
-Dies ist optional. Beendet **Netsh** nach dem Ausführen des Skripts, die Sie festlegen, mit *ScriptFile*.
+Optional. Beendet **netsh** , nachdem das Skript ausgeführt wurde, das Sie mit *scriptfile*festgelegt haben.
 
 ***`ScriptFile`***
 
-Optional. Gibt an, das Skript, das Sie ausführen möchten.
+Optional. Gibt das Skript an, das Sie ausführen möchten.
 
 **`/?`**
 
-Dies ist optional. Zeigt die Hilfe an der Eingabeaufforderung Netsh.
+Optional. Zeigt die Hilfe an der netsh-Eingabeaufforderung an.
 
 > [!NOTE]
-> Bei Angabe von **`-r`** gefolgt von einem anderen Befehl **Netsh** führt den Befehl auf dem Remotecomputer, und sendet Sie an der Eingabeaufforderung von Cmd.exe zurück. Bei Angabe von **`-r`** ohne einen weiteren Befehl **Netsh** im Remotemodus wird geöffnet. Der Prozess ist vergleichbar mit der Verwendung **Satz Computer** an der Eingabeaufforderung Netsh. Bei Verwendung von **`-r`** , festlegen, dass der Zielcomputer für die aktuelle Instanz von **Netsh** nur. Nach dem Beenden und erneut ein **Netsh**, der Zielcomputer wird als dem lokalen Computer zurückgesetzt. Sie können ausführen **Netsh** Befehle auf einem Remotecomputer durch Angabe eines Computers Namen in WINS gespeichert, einen UNC-Namen, den Internetnamen eines, um die von den DNS-Server oder eine IP-Adresse aufgelöst werden.
+> Wenn Sie **`-r`** gefolgt von einem anderen Befehl angeben, führt **netsh** den Befehl auf dem Remote Computer aus und kehrt dann zur Eingabeaufforderung von "cmd. exe" zurück. Wenn Sie **`-r`** ohne einen anderen Befehl angeben, wird **netsh** im Remote Modus geöffnet. Der Prozess ähnelt der Verwendung von **Set Machine** an der netsh-Eingabeaufforderung. Wenn Sie **`-r`** verwenden, legen Sie den Bereitstellungs Zielcomputer nur für die aktuelle Instanz von **netsh** fest. Nachdem Sie **netsh**beendet und erneut eingegeben haben, wird der Zielcomputer als lokaler Computer zurückgesetzt. Sie können **netsh** -Befehle auf einem Remote Computer ausführen, indem Sie einen in WINS gespeicherten Computernamen, einen UNC-Namen, einen Internet Namen, der vom DNS-Server aufgelöst werden soll, oder eine IP-Adresse angeben.
 
-**Eingeben von Parameterwerten der Zeichenfolge für die Netsh-Befehle**
+**Eingeben von Parameter Zeichen folgen Werten für Netsh-Befehle**
 
-In der Netsh-Befehlsreferenz stehen Befehle, die Parameter enthalten, für die ein Zeichenfolgenwert erforderlich ist.
+Im gesamten Netsh-Befehls Verweis sind Befehle vorhanden, die Parameter enthalten, für die ein Zeichen folgen Wert erforderlich ist.
 
-In die Groß-/Kleinschreibung, der einen Zeichenfolgenwert enthält, in denen Leerzeichen zwischen den Zeichen, z. B. Werte, die aus mehr als ein Wort, bestehen es erforderlich ist, dass Sie den Zeichenfolgenwert in Anführungszeichen setzen. Z. B. für einen Parameter namens **Schnittstelle** mit einem Zeichenfolgenwert des **Drahtlosnetzwerkverbindung**, verwenden Sie den Zeichenfolgenwert in Anführungszeichen einschließen:
+Wenn ein Zeichen folgen Wert Leerzeichen zwischen Zeichen enthält, z. b. Zeichen folgen Werte, die aus mehr als einem Wort bestehen, müssen Sie den Zeichen folgen Wert in Anführungszeichen einschließen. Verwenden Sie beispielsweise für einen Parameter mit dem Namen " **Interface** " mit dem Zeichen folgen Wert " **drahtlose Netzwerkverbindung**" Anführungszeichen um den Zeichen folgen Wert:
 
 **`interface="Wireless Network Connection"`**
 

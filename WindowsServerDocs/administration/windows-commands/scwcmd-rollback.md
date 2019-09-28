@@ -1,8 +1,8 @@
 ---
-title: Scwcmd-rollback
-description: 'Windows-Befehle Thema ***- '
+title: Scwcmd-Rollback
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6d6cd79c7068d86915141a37b5a4510bddefc94c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3f089ea3e6e5d5b95080356dd239272b95a76b37
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852201"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371215"
 ---
 # <a name="scwcmd-rollback"></a>scwcmd: rollback
 
 > Gilt für: Windows Server 2012 R2, Windows Server 2012
 
-Die neueste verfügbare Rollbackrichtlinie gilt, und löscht dann die Rollbackrichtlinie.
+Wendet die neueste Rollback-Richtlinie an und löscht dann diese Rollback-Richtlinie.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,22 +36,22 @@ scwcmd rollback /m:<ComputerName> [/u:<UserName>] [/pw:<Password>]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|/m:\<ComputerName>|Gibt an, den NetBIOS-Namen, die DNS-Namen oder die IP-Adresse eines Computers, in dem der Rollbackvorgang ausgeführt werden soll.|
-|/ u:\<Benutzername >|Gibt ein anderes Benutzerkonto beim Ausführen eines Rollbacks remote zu verwendende an. Der Standardwert ist der angemeldete Benutzer.|
-|PW:\<Kennwort >|Gibt eine alternative Anmeldeinformationen beim Ausführen eines Rollbacks remote zu verwendende. Der Standardwert ist der angemeldete Benutzer.|
+|/m: \<computername >|Gibt den NetBIOS-Namen, den DNS-Namen oder die IP-Adresse eines Computers an, auf dem der Rollback-Vorgang ausgeführt werden soll.|
+|/u: \<username >|Gibt ein alternatives Benutzerkonto an, das beim Ausführen eines Remote Rollbacks verwendet werden soll. Der Standardwert ist der angemeldete Benutzer.|
+|/PW: \<password >|Gibt alternative Benutzer Anmelde Informationen an, die beim Ausführen eines Remote Rollbacks verwendet werden sollen. Der Standardwert ist der angemeldete Benutzer.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
-Scwcmd.exe ist nur auf Computern unter Windows Server 2008 R2, Windows Server 2008 oder Windows Server 2003 verfügbar.
+Scwcmd. exe ist nur auf Computern verfügbar, auf denen Windows Server 2008 R2, Windows Server 2008 oder Windows Server 2003 ausgeführt wird.
 
-## <a name="BKMK_Examples"></a>Beispiele für
+## <a name="BKMK_Examples"></a>Beispiele
 
-Um die Sicherheitsrichtlinie auf einem Computer mit IP-Adresse 172.16.0.0 zurückzusetzen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um ein Rollback der Sicherheitsrichtlinie auf einem Computer unter IP-Adresse 172.16.0.0 auszuführen:
 ```
 scwcmd rollback /m:172.16.0.0
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

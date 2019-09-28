@@ -1,70 +1,70 @@
 ---
-title: Zu verstehen Sie und das Speicherkonto neu synchronisiert
-description: Ausführliche Informationen zu geschieht, wenn Speicher neu synchronisiert und in Windows Server-2019 angezeigt.
-keywords: "\"Direkte Speicherplätze\", Speicher eine neusynchronisierung, resync, S2D-Speicher"
-ms.prod: windows-server-threshold
+title: Verstehen und Anzeigen der erneuten Synchronisierung von Speicher
+description: Ausführliche Informationen darüber, wann die erneute Synchronisierung des Speichers stattfindet und wie Sie in Windows Server 2019 angezeigt wird.
+keywords: Direkte Speicherplätze, Neusynchronisieren von Speicher, Neusynchronisierung, Speicher, S2D
+ms.prod: windows-server
 ms.author: adagashe
 ms.technology: storage-spaces
 ms.topic: article
 author: adagashe
 ms.date: 01/14/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 81b1136a4b6a5cf8423a99e898b482a9b2849b5f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 53f48421bddd416d24c5f46e53652cc89c10c785
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813461"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402842"
 ---
 # <a name="understand-and-monitor-storage-resync"></a>Grundlagen und Überwachung der Neusynchronisierung des Speichers
 
 >Gilt für: Windows Server 2019
 
-Neusynchronisierung Datenbankspeicher-Warnungen sind eine neue Funktion des ["direkte Speicherplätze"](storage-spaces-direct-overview.md) in Windows Server-2019, die den Health-Dienst einen Fehler auslöst, wenn es sich bei Ihrem Speicher werden neu synchronisiert werden können. Die Warnung eignet sich für benachrichtigt, wenn erneute Synchronisierung erfolgt, sodass Sie weitere Server versehentlich ergreifen nicht nach unten (das mehrere Fehlerdomänen betroffen sind, was in Ihrem Cluster sinkt führen könnte). 
+Warnungen zum erneuten Synchronisieren von Speicher stellen eine neue Funktion von [direkte Speicherplätze](storage-spaces-direct-overview.md) in Windows Server 2019 dar, die es dem Integritätsdienst ermöglicht, bei der erneuten Synchronisierung des Speichers einen Fehler auszulösen. Die Warnung ist hilfreich, wenn Sie benachrichtigt werden, wenn eine erneute Synchronisierung durchgeführt wird, sodass Sie nicht versehentlich weitere Server herunterfahren (was dazu führen kann, dass mehrere Fehler Domänen beeinträchtigt werden, was dazu führt, dass Ihr Cluster ausfällt). 
 
-Dieses Thema enthält Hintergrundinformationen und Schritte, um zu verstehen und neusynchronisierung von Speicher in einem Windows Server Failovercluster "direkte Speicherplätze".
+Dieses Thema enthält Hintergrundinformationen und Schritte, um die erneute Synchronisierung von Speicher in einem Windows Server-Failovercluster mit direkte Speicherplätze zu verstehen und zu lesen.
 
-## <a name="understanding-resync"></a>Grundlegendes zur neusynchronisierung
+## <a name="understanding-resync"></a>Grundlegendes zum erneuten Synchronisieren
 
-Beginnen wir mit einem einfachen Beispiel, um zu verstehen, wie der Speicher nicht synchronisiert wird. Bedenken Sie, dass jede shared-Nothing (nur lokale Laufwerke) verteilte speicherlösung weist dieses Verhalten. Wie Sie unten sehen werden, wenn ein Serverknoten ausfällt und dann deren Laufwerke wird nicht aktualisiert werden, bis sie wieder online - ist, ist dies "true" für jede hyper-konvergiert-Architektur. 
+Beginnen wir mit einem einfachen Beispiel, um zu verstehen, wie der Speicher nicht synchronisiert wird. Beachten Sie, dass die verteilte Speicherlösung "Shared-Nothing" (nur lokale Laufwerke) dieses Verhalten aufweist. Wie Sie unten sehen werden, werden die Laufwerke, wenn ein Server Knoten ausfällt, erst dann aktualisiert, wenn Sie wieder online geschaltet werden. Dies gilt für jede hyperkonvergierte Architektur. 
 
-Nehmen wir an, dass die Zeichenfolge "HELLO" gespeichert werden soll. 
+Angenommen, Sie möchten die Zeichenfolge "Hello" speichern. 
 
-![-ASCII-Zeichenfolge "Hello"](media/understand-storage-resync/hello.png)
+![ASCII-Zeichenfolge "Hello"](media/understand-storage-resync/hello.png)
 
-Asssuming haben wir drei-Wege-Spiegelung, haben wir drei Kopien dieser Zeichenfolge. Nun, wenn wir Server #1 (für Maintanence) vorübergehend unten verwenden, können wir kopieren #1 nicht zugreifen.
+Wenn wir die drei-Wege-Spiegelungs Resilienz haben, haben wir drei Kopien dieser Zeichenfolge. Wenn wir jetzt den Server #1 vorübergehend (für die maintangente) nutzen, können wir nicht auf Kopier #1 zugreifen.
 
-![Kopieren Sie #1 kann nicht zugegriffen werden.](media/understand-storage-resync/copy1.png)
+![Zugriff auf Kopier #1 nicht möglich](media/understand-storage-resync/copy1.png)
 
-Nehmen wir an, dass wir unsere Zeichenfolge von "HELLO" Aktualisieren auf "Hilfe". zu diesem Zeitpunkt.
+Angenommen, wir aktualisieren die Zeichenfolge von "Hello" in "Help!" zu diesem Zeitpunkt.
 
-![-ASCII-Zeichenfolge "Help".](media/understand-storage-resync/help.png)
+![ASCII-Zeichenfolge "Help!"](media/understand-storage-resync/help.png)
 
-Nachdem wir die Zeichenfolge zu aktualisieren, werden Kopie #2 und #3 erfolgreich aktualisiert. Allerdings kann nicht #1-Kopie weiterhin zugegriffen werden, weil Server #1 vorübergehend nicht verfügbar (für Maintanence) ist. 
+Wenn Sie die Zeichenfolge aktualisieren, werden die Kopier #2 und #3 erfolgreich aktualisiert. Es ist jedoch nicht möglich, auf den Kopiervorgang #1 zuzugreifen, da der Server #1 vorübergehend ausfällt (für die Wartung). 
 
-![GIF-Datei beim Schreiben in #2 und #2 kopieren "](media/understand-storage-resync/write.gif)
+![GIF von Schreibvorgang zum Kopieren #2 und #2 "](media/understand-storage-resync/write.gif)
 
-Jetzt haben wir die Kopie #1, die Daten enthält, die nicht mehr synchron ist. Das Betriebssystem verwendet präzise dirty Region tracking zum Nachverfolgen der Bits, die nicht mehr synchron sind. Auf diese Weise beim Server #1 wieder online ist, können wir die Änderungen synchronisieren, durch Lesen von Daten aus der Kopie #2 "oder" #3, und überschreiben die Daten in der Kopie #1. Die Vorteile dieses Ansatzes sind, müssen wir nur die Daten kopiert, die veraltete, statt alle Daten vom Server #2 oder #3-Server werden neu synchronisiert ist.
+Nun verfügen wir über eine Kopie #1, die Daten enthält, die nicht synchronisiert sind. Das Betriebssystem verwendet eine differenzierte Änderungs Regions Überwachung, um die Bits zu verfolgen, die nicht synchron sind. Auf diese Weise können die Änderungen synchronisiert werden, wenn die Server #1 wieder online geschaltet werden, indem Sie die Daten aus der Kopier #2 lesen oder #3 und die Daten in der Kopier #1 überschreiben. Der Vorteil dieses Ansatzes besteht darin, dass wir nur die veralteten Daten kopieren müssen, anstatt alle Daten von Server #2 oder Server #3 neu zu synchronisieren.
 
-![GIF-Datei überschrieben, kopieren Sie #1 "](media/understand-storage-resync/overwrite.gif)
+![GIF der Überschreibung zum Kopieren #1 "](media/understand-storage-resync/overwrite.gif)
 
-Daher wird dies erläutert, wie die Daten nicht synchronisiert werden. Aber wie sieht diese aus auf hoher Ebene? In diesem Beispiel haben wir einen drei hyperkonvergenten Cluster wird angenommen. Wenn der Server #1 im Wartungsmodus befindet, wird es als ausgefallen angezeigt werden. Wenn Sie Server #1 wieder öffnen, startet er alle von der Speicher das präzise dirty Region Tracking (siehe oben) werden neu synchronisiert. Sobald die Daten alle synchronisiert sind, werden alle Server angezeigt werden als aktiv.
+Dadurch wird die Synchronisierung der Daten erläutert. Aber wie sieht das auf einer hohen Ebene aus? Nehmen wir an, dass in diesem Beispiel ein drei Server mit hyperkonvergiertem Cluster vorhanden ist. Wenn sich der Server #1 im Wartungsmodus befindet, wird er als nicht herunterladen angezeigt. Wenn Sie Server #1 wiederherstellen, wird der gesamte Speicher mithilfe der Granularität der Nachverfolgung von Änderungs Regionen neu synchronisiert (oben erläutert). Sobald die Daten synchron sind, werden alle Server als aufwärts angezeigt.
 
-![GIF der administratoransicht des Resync"](media/understand-storage-resync/admin.gif)
+![GIF der admin-Ansicht von Resync "](media/understand-storage-resync/admin.gif)
 
-## <a name="how-to-monitor-storage-resync-in-windows-server-2019"></a>Überwachen von Speicher erneute Synchronisierung in Windows Server-2019
+## <a name="how-to-monitor-storage-resync-in-windows-server-2019"></a>Überwachen der erneuten Synchronisierung von Speicher in Windows Server 2019
 
-Nun, da Sie die Funktionsweise von Speicher-Resync verstehen, sehen wir uns, wie dies in Windows Server-2019 wird angezeigt. Wir haben einen neuen Fehler um hinzugefügt der [Integritätsdienst](../../failover-clustering/health-service-overview.md) , die angezeigt, wenn Sie Ihren Speicher neu synchronisiert wird.
+Nachdem Sie nun wissen, wie die Speicher Neusynchronisierung funktioniert, sehen wir uns an, wie dies in Windows Server 2019 angezeigt wird. Wir haben dem [Integritätsdienst](../../failover-clustering/health-service-overview.md) einen neuen Fehler hinzugefügt, der angezeigt wird, wenn der Speicher neu synchronisiert wird.
 
-Um diesen Fehler in PowerShell anzuzeigen, führen Sie Folgendes aus:
+Führen Sie folgenden Befehl aus, um diesen Fehler in PowerShell anzuzeigen:
 
 ``` PowerShell
 Get-HealthFault
 ```
 
-Dies ist ein neuer Fehler im Windows Server-2019 und erscheint in PowerShell, in den Bericht der clustervalidierung, und an anderer Stelle, die auf den Integritätsdienst Fehler erstellt. 
+Dabei handelt es sich um einen neuen Fehler in Windows Server 2019, der in PowerShell, im Cluster Validierungsbericht und an allen anderen Orten angezeigt wird, die auf Integritäts Fehlern aufbauen. 
 
-Um einen tieferen Einblick zu erhalten, können Sie die Zeitreihen-Datenbank in PowerShell wie folgt Abfragen:
+Um eine tiefere Ansicht zu erhalten, können Sie die Zeitreihen Datenbank in PowerShell wie folgt Abfragen:
 
 ```PowerShell
 Get-ClusterNode | Get-ClusterPerf -ClusterNodeSeriesName ClusterNode.Storage.Degraded
@@ -79,29 +79,29 @@ Series                       Time                Value Unit
 ClusterNode.Storage.Degraded 01/11/2019 16:26:48     214 GB
 ```
 
-Vor allem verwendet Windows Admin Center-Health-Fehler, um den Status und die Farbe der Clusterknoten festzulegen. Daher wird dieser neue Fehler Clusterknoten zugreifen, um den Übergang von Rot (unten) in (Neusynchronisieren) auf Grün (nach oben), anstatt direkt von Rot, Grün, Gelb auf dem Dashboard HCI verursachen.
+Insbesondere verwendet Windows Admin Center Integritäts Fehler, um den Status und die Farbe von Cluster Knoten festzulegen. Dieser neue Fehler bewirkt also, dass Cluster Knoten von rot (nach unten) zu gelb (Neusynchronisierung) auf grün (nach oben) anstatt direkt von rot nach grün im HCI-Dashboard wechseln.
 
-![Bild der 2016 Vs 2019-Ansicht des Resync"](media/understand-storage-resync/compare.png)
+![Abbildung von 2016 vs 2019 Ansicht der erneuten Synchronisierung "](media/understand-storage-resync/compare.png)
 
-Zeigen Sie den Gesamtstatus der neusynchronisierung von Speicher, können Sie genau wissen, wie viele Daten synchron sind, und gibt an, ob Ihr System Fortschritte macht. Wenn Sie Windows Admin Center zu öffnen, und wechseln Sie zu der *Dashboard*, die neue Warnung wird wie folgt angezeigt:
+Wenn Sie den Gesamtstatus der erneuten Synchronisierung des Speichers anzeigen, können Sie genau wissen, wie viele Daten nicht synchronisiert sind und ob Ihr System den Fortschritt vornimmt. Wenn Sie das Windows Admin Center öffnen und zum *Dashboard*navigieren, wird die neue Warnung wie folgt angezeigt:
 
-![Image von Windows Admin Center-Warnungen"](media/understand-storage-resync/alert.png)
+![Abbildung der Warnung im Windows Admin Center "](media/understand-storage-resync/alert.png)
 
-Die Warnung eignet sich für benachrichtigt, wenn erneute Synchronisierung erfolgt, sodass Sie weitere Server versehentlich ergreifen nicht nach unten (das mehrere Fehlerdomänen betroffen sind, was in Ihrem Cluster sinkt führen könnte). 
+Die Warnung ist hilfreich, wenn Sie benachrichtigt werden, wenn eine erneute Synchronisierung durchgeführt wird, sodass Sie nicht versehentlich weitere Server herunterfahren (was dazu führen kann, dass mehrere Fehler Domänen beeinträchtigt werden, was dazu führt, dass Ihr Cluster ausfällt). 
 
-Wenn Sie zum Navigieren der *Server* Windows Admin Center auf der Seite, klicken Sie auf *Inventur*, und wählen Sie dann auf einen bestimmten Server, erhalten Sie eine detailliertere Ansicht der Darstellung von diesem Speicher Resync auf pro Server aggregiert. Wenn Sie mit dem Server navigieren, und sehen Sie sich die *Storage* Diagramm sehen Sie die Menge der Daten, die in repariert werden müssen eine *lila* Zeile mit der genauen Anzahl direkt über. Dieser Betrag wird zu erhöhen, wenn der Server ausgefallen (Weitere Daten muss resynced werden) ist, und allmählich verringert wird, wenn der Server wieder online ist (Daten synchronisiert wird). Wenn die Menge der Daten, die Reparatur ist 0, der Speicher ist fertig Neusynchronisieren - Sie können jetzt einen Server Herunterfahren, wenn Sie möchten. Ein Screenshot aus dieser Erfahrung in der Windows Admin Center wird unten gezeigt:
+Wenn Sie im Windows Admin Center zur Seite " *Server* " navigieren, auf "Inventory" ( *Inventur*) klicken und dann einen bestimmten Server auswählen, erhalten Sie eine ausführlichere Übersicht darüber, wie diese Speicher Neusynchronisierung auf Server Basis durchsucht wird. Wenn Sie zu Ihrem Server navigieren und sich das *Speicher* Diagramm ansehen, sehen Sie, dass die Menge der zu reparierenden Daten in einer *lila* Linie mit der exakten Zahl rechts oben repariert werden muss. Diese Menge erhöht sich, wenn der Server heruntergefahren wird (mehr Daten müssen neu synchronisiert werden müssen) und sich allmählich verringern, wenn der Server wieder online geschaltet wird (die Daten werden synchronisiert). Wenn die Menge der zu reparierenden Daten 0 beträgt, ist die erneute Synchronisierung des Speichers abgeschlossen. bei Bedarf können Sie einen Server herunterladen. Im folgenden finden Sie einen Screenshot dieses Erlebnisses in Windows Admin Center:
 
-![Abbildung des Serveransicht in Windows Admin Center "](media/understand-storage-resync/server.png)
+![Abbildung der Serveransicht im Windows Admin Center "](media/understand-storage-resync/server.png)
 
-## <a name="how-to-see-storage-resync-in-windows-server-2016"></a>Wie Sie die neusynchronisierung von Speicher in Windows Server 2016 finden Sie unter
+## <a name="how-to-see-storage-resync-in-windows-server-2016"></a>Anzeigen der erneuten Synchronisierung von Speicher in Windows Server 2016
 
-Wie Sie sehen können, ist diese Warnung besonders hilfreich, in einen ganzheitlichen Überblick über die Abläufe in der Speicherschicht zur abrufen. Es werden effektiv zusammengefasst, die Informationen, die Sie über das Cmdlet Get-StorageJob abrufen können, die Informationen zu lang andauernden speichermodulaufträgen mit, wie z. B. einen Reparaturvorgang auf einem Speicherplatz zurückgibt. Ein Beispiel ist unten dargestellt:
+Wie Sie sehen können, ist diese Warnung besonders hilfreich, um eine ganzheitliche Ansicht der Vorgänge auf der Speicher Ebene zu erhalten. Sie fasst die Informationen zusammen, die Sie aus dem Cmdlet "Get-storagejob" abrufen können, das Informationen zu Aufträgen für Speichermodule mit langer Ausführungszeit zurückgibt, wie z. b. einen Reparaturvorgang auf einem Speicherplatz. Unten ist ein Beispiel angegeben:
 
 ```PowerShell
 Get-StorageJob
 ```
 
-Hier ist Beispiel der Ausgabe:
+Beispielausgabe:
 
 ```
 Name                  ElapsedTime           JobState              PercentComplete       IsBackgroundTask
@@ -110,9 +110,9 @@ Regeneration          00:01:19              Running               50            
 
 ```
 
-In dieser Ansicht ist sehr viel präziser, da die speicheraufträge, die aufgelistet, pro Volume werden, sehen Sie die Liste der Aufträge, die ausgeführt werden und Sie können die einzelnen Status nachverfolgen. Dieses Cmdlet funktioniert sowohl für Windows Server 2016 2019.
+Diese Ansicht ist weitaus präziser, da die aufgeführten Speicher Aufträge pro Volume angezeigt werden. Sie können die Liste der ausgeführten Aufträge anzeigen und Ihren individuellen Fortschritt nachverfolgen. Dieses Cmdlet funktioniert sowohl auf Windows Server 2016 als auch auf 2019.
 
 ## <a name="see-also"></a>Siehe auch
 
-- [Ein Server zur Wartung offline geschaltet](maintain-servers.md)
-- [Übersicht über Storage "direkte Speicherplätze"](storage-spaces-direct-overview.md)
+- [Offlineschalten eines „Direkte Speicherplätze“-Servers zu Wartungszwecken](maintain-servers.md)
+- [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)

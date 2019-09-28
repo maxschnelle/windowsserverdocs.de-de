@@ -1,8 +1,8 @@
 ---
 title: flattemp
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,22 +13,22 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3fc14a6fe1a355f7c20c130fba3fb1f17e49b6f1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b1a458e8742ca354eeca821e93590386bca56dff
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872931"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377127"
 ---
 # <a name="flattemp"></a>flattemp
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Aktiviert oder deaktiviert die temporären Ordner.
-Beispiele für diesen Befehl verwenden, finden Sie unter [Beispiele](#BKMK_examples).
+Aktiviert oder deaktiviert flattemporäre Ordner.
+Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
 > [!NOTE]
-> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Neuerungen in der neuesten Version finden Sie unter [welche s New in Remote Desktop Services in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der technischen Bibliothek für Windows Server.
+> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der TechNet-Bibliothek für Windows Server.
 
 ## <a name="syntax"></a>Syntax
 ```
@@ -38,34 +38,34 @@ flattemp {/query | /enable | /disable}
 ## <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
-|/query|Fragt die aktuelle Einstellung an.|
-|/ Enable /|Ermöglicht die temporären Ordner. Benutzer werden den temporären Ordner freigeben, es sei denn, der der temporäre Ordner in den Basisordner des Benutzers s befindet.|
-|/ Disable|Deaktiviert die temporären Ordner. Jeder Benutzer temporären Ordner befinden in einem separaten Ordner (bestimmt durch den Benutzer s Sitzungs-ID).|
+|/Query "aus|Fragt die aktuelle-Einstellung ab.|
+|/enable|Aktiviert flattemporäre Ordner. Benutzer geben den temporären Ordner frei, es sei denn, der temporäre Ordner befindet sich im Basisordner des Benutzers.|
+|/Disable|Deaktiviert flache temporäre Ordner. Jeder temporäre Ordner eines Benutzers befindet sich in einem separaten Ordner (festgelegt durch die Sitzungs-ID des Benutzers).|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
--   Die **Flattemp** Befehl ist nur verfügbar, wenn Sie die Terminalserver-Rollendienst auf einem Computer unter Windows Server 2008 oder den RD-Sitzungshost-Rollendienst auf einem Computer unter Windows Server 2008 R2 installiert haben.
--   Sie benötigen Administratoranmeldeinformationen, um die Ausführung **Flattemp**.
--   Nachdem jeder Benutzer einen eindeutigen temporären Ordner verfügt, verwenden Sie **Flattemp/Enable /** temporären Ordner zu aktivieren.
--   Die Standardmethode zum Erstellen von temporären Ordner für mehrere Benutzer (in der Regel verweist die Umgebungsvariablen TEMP und TMP) ist die Erstellung von Unterordnern im der **\Temp** Ordner mithilfe der LogonID als Name des Unterordners. Wenn die Umgebungsvariable TEMP auf C:\Temp verweist, ist der temporäre Ordner, die der Benutzer LogonID 4 zugewiesen beispielsweise C:\Temp\4. Mithilfe von **Flattemp**, können Sie direkt zum Ordner \Temp zeigen und verhindern, dass die Unterordner bilden. Dies ist nützlich, wenn Sie möchten, dass die temporären Ordner der Benutzer im Basisordner, egal ob auf einem Remotedesktop-Sitzungshost Server lokalen Laufwerk oder auf einem freigegebenen Netzlaufwerk enthalten sein soll. Verwenden Sie die **Flattemp/Enable /** Befehl nur, wenn jeder Benutzer einen separaten temporären Ordner hat.
--   Anwendungsfehler können auftreten, wenn die temporären Ordner des Benutzers auf einem Netzlaufwerk wird. Dies tritt auf, wird das Netzwerk freigegebenen Laufwerk im Netzwerk vorübergehend nicht zugegriffen werden kann. Da die temporären Dateien der Anwendung nicht zugegriffen werden kann oder nicht mehr synchronisiert sind, wird als ob der Datenträger nicht mehr reagiert. Verschieben den temporären Ordner auf einem Netzlaufwerk wird nicht empfohlen. Der Standardwert ist zu temporären Ordner auf der lokalen Festplatte. Wenn unerwartete Verhalten oder die datenträgerbeschädigung: Fehler bei bestimmten Anwendungen auftreten, Stabilisieren Sie Ihr Netzwerk zu, oder verschieben Sie die temporären Ordner zurück, in der lokalen Festplatte.
--   Wenn Sie zu deaktivieren, verwenden separate temporären Ordner, der pro Sitzung **Flattemp** Einstellungen werden ignoriert. Diese Option wird in das Remote Desktop Services-Konfigurationstool festgelegt.
+-   Der Befehl " **flattemp** " ist nur verfügbar, wenn Sie den Terminal Server-Rollen Dienst auf einem Computer installiert haben, auf dem Windows Server 2008 oder der Rollen Dienst "Remote Desktop-Sitzungs Host" auf einem Computer mit Windows Server 2008 R2 ausgeführt wird.
+-   Sie müssen über Administrator Anmelde Informationen verfügen, um **flattemp**ausführen zu können.
+-   Nachdem jeder Benutzer einen eindeutigen temporären Ordner besitzt, verwenden Sie **flattemp/enable** , um flache temporäre Ordner zu aktivieren.
+-   Die Standardmethode zum Erstellen temporärer Ordner für mehrere Benutzer (in der Regel durch die Umgebungsvariablen TEMP und tmp) besteht darin, Unterordner im Ordner **\temp** zu erstellen, indem Sie die LogonId als Unterordner Namen verwenden. Wenn beispielsweise die Temp-Umgebungsvariable auf c:\temp zeigt, lautet der temporäre Ordner, der der Benutzer Anmelde-ID 4 zugewiesen ist, c:\Temp\4. Mithilfe von **flattemp**können Sie direkt auf den Ordner "\temp" zeigen und verhindern, dass Unterordner gebildet werden. Dies ist hilfreich, wenn Sie möchten, dass die temporären Benutzerordner in Basis Ordnern enthalten sind, egal ob auf einem lokalen Laufwerk des Remote Desktop-Sitzungs Host Servers oder auf einem freigegebenen Netzwerklaufwerk. Sie sollten den Befehl **flattemp/enable** nur verwenden, wenn jeder Benutzer über einen separaten temporären Ordner verfügt.
+-   Möglicherweise treten Anwendungsfehler auf, wenn sich der temporäre Ordner des Benutzers auf einem Netzlaufwerk befindet. Dieser Fehler tritt auf, wenn das freigegebene Netzwerklaufwerk im Netzwerk vorübergehend nicht mehr verfügbar ist. Da die temporären Dateien der Anwendung entweder nicht zugänglich sind oder nicht synchronisiert sind, antwortet sie so, als ob der Datenträger angehalten wurde. Es wird nicht empfohlen, den temporären Ordner auf ein Netzwerklaufwerk zu verschieben. Der Standardwert besteht darin, temporäre Ordner auf der lokalen Festplatte beizubehalten. Wenn bei bestimmten Anwendungen unerwartetes Verhalten oder Datenträger Beschädigungs Fehler auftreten, stabilisieren Sie das Netzwerk, oder verschieben Sie die temporären Ordner zurück auf die lokale Festplatte.
+-   Wenn Sie die Verwendung separater temporärer Ordner pro Sitzung deaktivieren, werden die **flattemp** -Einstellungen ignoriert. Diese Option wird im Remotedesktopdienste-Konfigurationstool festgelegt.
 
-## <a name="BKMK_examples"></a>Beispiele für
--   Um die aktuelle Einstellung für den temporären Ordner anzuzeigen, geben Sie Folgendes ein:
+## <a name="BKMK_examples"></a>Beispiele
+-   Geben Sie Folgendes ein, um die aktuelle Einstellung für flattemporär Ordner anzuzeigen:
     ```
     flattemp /query
     ```
--   Um die temporären Ordner zu aktivieren, geben Sie Folgendes ein:
+-   Geben Sie Folgendes ein, um flache temporäre Ordner zu aktivieren:
     ```
     flattemp /enable
     ```
--   Um die temporären Ordner zu deaktivieren, geben Sie Folgendes ein:
+-   Um flache temporäre Ordner zu deaktivieren, geben Sie Folgendes ein:
     ```
     flattemp /disable
     ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen
-[Befehlszeilensyntax](command-line-syntax-key.md)
+## <a name="additional-references"></a>Weitere Verweise
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-[Remotedesktopdienste &#40;Terminaldienste&#41; -Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)
+[Remotedesktopdienste &#40;Befehlsreferenz&#41; für terminaldienstedienste](remote-desktop-services-terminal-services-command-reference.md)

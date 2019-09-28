@@ -1,8 +1,8 @@
 ---
 title: bitsadmin gettype
-description: Windows-Befehle Thema **Bitsadmin Gettype** -Ruft den Auftragstyp des angegebenen Auftrags ab.
+description: 'Thema Windows-Befehle für **bizadmin GetType** : Ruft den Auftragstyp des angegebenen Auftrags ab.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ff0118f14acbf4e9f37c02e660bd9c7f6e8d0f70
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ca46cb813809621f4fa79b3265198206729a392c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879431"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381337"
 ---
 # <a name="bitsadmin-gettype"></a>bitsadmin gettype
 
@@ -36,19 +36,19 @@ bitsadmin /GetType <Job>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
 
 ## <a name="remarks"></a>Hinweise
 
-Der Typ kann sein herunterladen, hochladen, UPLOAD-Antwort oder unbekannt.
+Der Typ kann "Download", "Upload", "Upload-Reply" oder "unknown" lauten.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Das folgende Beispiel ruft den Auftragstyp des Auftrags namens *MyDownloadJob*.
+Das folgende Beispiel ruft den Auftragstyp für den Auftrag mit dem Namen *mydownloadjob*ab.
 ```
 C:\>bitsadmin /GetType myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,119 +1,119 @@
 ---
 title: RAS-Gateway GRE-Tunneling Durchsatz und Leistung
-description: Diese Thema ausgetauscht, das für Informationstechnologie (IT)-Experten vorgesehen ist, bietet Durchsatz Leistungsinformationen zu Tunneln für RAS-Gateway Generic Routing Encapsulation (GRE).
+description: Dieses Thema, das für IT-Experten gedacht ist, bietet Durchsatz-Leistungsinformationen zu den RAS-Tunneln (Generic Routing Kapselung) des RAS-Gateways.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.date: ''
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: c051b2ec-de0f-49d1-82b9-5742b259cd7c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 73ae4e573d926f4a77b076c880c1d74ed69f032d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 79a6e822c3ff36f789a7a08b8cd56163014185a4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880761"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404684"
 ---
 # <a name="ras-gateway-gre-tunnel-throughput-and-performance"></a>RAS-Gateway GRE-Tunneling Durchsatz und Leistung
 
->Gilt für: WindowsServer \(Halbjährlicher Kanal\)
+>Gilt für: Windows Server \(halbjährlicher Kanal @ no__t-1
 
-Können Sie in diesem Thema erfahren Sie RAS-Server \(RAS\) Gateway Generic Routing Encapsulation \(GRE\) Leistung unter Windows Server, Version 1709, die in einer nicht - Software Defined Networking Tunneln\( SDN\) basierend Test-Umgebung.
+In diesem Thema erfahren Sie mehr über RAS-Server \(ras @ no__t-1 Gateway generische Routing Kapselung \(gre @ no__t-3-Tunnel Leistung unter Windows Server, Version 1709, in einem nicht von Software definierten Netzwerk \(sdn @ no__t-5-basierter Test Umgebung.
 
-RAS-Gateway ist ein Softwarerouter und Gateway, das Sie in den einzelnen Mandanten oder mehrinstanzenfähigen Modus verwenden können. Dieses Thema beschreibt eine einzelmandantenmodus, die hohe Verfügbarkeit mit Failover-Clusterunterstützung. Die Leistungsstatistik GRE-Tunnel, die in diesem Thema präsentiert werden gelten für RAS-Gateway im Singele Mandanten und mehrinstanzenfähige Modus zur Verfügung.
+RAS-Gateway ist ein Software Router und ein Gateway, das Sie im Einzel Mandanten Modus oder im mehr Instanzen fähigen Modus verwenden können. In diesem Thema wird eine Konfiguration mit einem einzelnen Mandanten Modus mit hoher Verfügbarkeit und Failoverclustering behandelt. Die in diesem Thema dargestellten GRE-Tunnel Leistungsstatistiken gelten für das RAS-Gateway sowohl für den Singele-Mandanten als auch für den mehr Instanzen fähigen Modus.
 
 >[!NOTE]
->Failoverclustering ist eine Windows Server-Funktion, die Ihnen ermöglicht, mehrere Server in einem fehlertoleranten Cluster gruppieren. Weitere Informationen finden Sie unter [Failover-Clusterunterstützung](../../../failover-clustering/failover-clustering-overview.md)
+>Failoverclustering ist eine Windows Server-Funktion, mit der Sie mehrere Server in einem fehlertoleranten Cluster gruppieren können. Weitere Informationen finden Sie unter [Failover-Clustering](../../../failover-clustering/failover-clustering-overview.md) .
 
-Einzelmandantenmodus ermöglicht es Organisationen jeder Größe Bereitstellen des Gatewayservers als einem äußeren oder Internet\-gegenüberliegenden Edge virtuelles privates Netzwerk \(VPN\) Server. Sie können RAS-Gateway auf einem physischen Server oder virtuellen Computer bereitstellen, im einzelmandantenmodus, \(VM\). Dieses Thema beschreibt die Bereitstellung eines RAS-Gateways auf zwei virtuellen Computern \(VMs\) , die in einem Failovercluster konfiguriert sind.
+Der Einzel Mandanten Modus ermöglicht Organisationen beliebiger Größe das Bereitstellen des Gateways als Außendienst oder Internet @ no__t-0edge Virtual Private Network \(VPN @ no__t-2 Server. Im Einzel Mandanten Modus können Sie das RAS-Gateway auf einem physischen Server oder virtuellen Computer \(vm @ no__t-1 bereitstellen. In diesem Thema wird die Bereitstellung des RAS-Gateways auf zwei Virtual Machines \(vms @ no__t-1 beschrieben, die in einem Failovercluster konfiguriert sind.
 
 >[!IMPORTANT]
->Da GRE-Tunnel-Kapselung jedoch keine Verschlüsselung bereitstellen, sollten Sie die RAS-Gateway mit GRE als ein Internet-Edge-Gateway konfiguriert nicht verwenden. Weitere Informationen zu den besten Einsatzbereiche für das RAS-Gateway mit GRE-Tunnel finden Sie unter [GRE Tunneling in Windows Server](gre-tunneling-windows-server.md).
+>Da GRE-Tunnel Kapselung, aber keine Verschlüsselung bereitstellen, sollten Sie das mit GRE konfigurierte RAS-Gateway nicht als Internet Edge-Gateway verwenden. Informationen zu den besten Verwendungsmöglichkeiten für das RAS-Gateway mit GRE-Tunneln finden Sie unter [GRE-Tunnelung in Windows Server](gre-tunneling-windows-server.md).
 
-GRE ist ein Lightweight-Tunneling-Protokoll, die eine Vielzahl von Netzwerkschichtprotokolle in virtuelle Punkt kapseln kann\-zu\-Links über eine IP-Internetwork zeigen. Die Microsoft-GRE-Implementierung kapselt IPv4 und IPv6.
+GRE ist ein Lightweight-Tunnelingprotokoll, das eine Vielzahl von Protokollen der Netzwerkschicht innerhalb von virtuellen Punkten no__t-0bis @ no__t-1 Point-Links über ein Internet Protokoll-Internetzwerk Kapseln kann. Die Microsoft GRE-Implementierung kapselt sowohl IPv4 als auch IPv6.
 
-Weitere Informationen finden Sie im Abschnitt **RAS-Gateway-Bereitstellungsszenarien** im Thema [RAS-Gateway](https://docs.microsoft.com/windows-server/remote/remote-access/ras-gateway/ras-gateway#bkmk_deploy). 
+Weitere Informationen finden Sie im Abschnitt **Bereitstellungs Szenarien für RAS-Gateways** im Thema [RAS-Gateway](https://docs.microsoft.com/windows-server/remote/remote-access/ras-gateway/ras-gateway#bkmk_deploy). 
 
-In diesem Testszenario, die in der folgenden Abbildung dargestellt ist, verschiebt der Datenverkehr, der gemessen werden aus der Organisation Intranet 2, in der Organisation Intranet-1. Workload-VMs der Mandanten Senden des Netzwerkdatenverkehrs von Intranet-2 an Intranet-1 mithilfe von RAS-Gateway.
+In diesem Testszenario, das in der folgenden Abbildung dargestellt wird, wird der gemessene Daten Verkehrsfluss vom Unternehmens Intranet 2 in das Unternehmens Intranet 1 verlagert. Virtuelle Computer für die Arbeitsauslastung von Mandanten senden Netzwerk Datenverkehr von Intranet 2 an Intranet 1 mithilfe des RAS-Gateways.
 
-![RAS-Gateway-GRE-Tunnel Test – szenarioübersicht](../../media/GRE-Tunnel-Perf/Gre-Infrastructure.jpg)
+![Übersicht über das RAS-tunneltest Szenario des RAS-Gateways](../../media/GRE-Tunnel-Perf/Gre-Infrastructure.jpg)
 
-## <a name="test-environment-configuration"></a>Konfiguration des Test-Umgebung
+## <a name="test-environment-configuration"></a>Konfiguration der Test Umgebung
 
-Dieser Abschnitt enthält Informationen zu den Test-Umgebung und der RAS-Gateway-Konfiguration.
+Dieser Abschnitt enthält Informationen über die Testumgebung und die Konfiguration des RAS-Gateways.
 
-In der testumgebung werden die RAS-Gateway-VMs auf Hyper bereitgestellt\-V-Hosts in einem Failovercluster für hohe Verfügbarkeit Clustern.
+In der Testumgebung werden RAS-Gateway-VMS auf Hyper @ no__t-0V-Hosts in einem Failovercluster bereitgestellt, um Hochverfügbarkeit zu erhalten.
 
-### <a name="hyper-v-host-configuration"></a>Hyper\-V-Hostkonfiguration
+### <a name="hyper-v-host-configuration"></a>Hyper @ no__t-0V-Host Konfiguration
 
-Zwei Hyper\-V-Hosts sind so konfiguriert, dass das Testszenario auf folgende Weise unterstützen. 
+Zwei Hyper @ no__t-0V-Hosts werden so konfiguriert, dass das Testszenario auf folgende Weise unterstützt wird. 
 
-- Zwei Dual\-verwaltet physischen Computer mit Windows Server, Version 1709 konfiguriert sind
-- Die beiden physischen Netzwerkadapter in jedem der beiden Server sind mit anderen Subnetzwerken - verbunden, die beide Subnetze Intranet einer Organisation darstellen. Sowohl die Netzwerke als auch die unterstützende Hardware haben eine Kapazität von 10 Gbit/s an.
-- Hyperthreading auf physischen Servern deaktiviert ist. Dadurch wird den maximalen Durchsatz über die physischen NICs.
-- Die Hyper\-V-Serverrolle auf beiden Servern installiert und konfiguriert, die mit zwei externe Hyper\-V virtuellen Switches, einen für jeden physischen Netzwerkadapter.
+- Zwei mit Dual @ no__t 0vernetzte physische Computer werden mit Windows Server, Version 1709, konfiguriert.
+- Die beiden physischen Netzwerkadapter auf jedem der beiden Server sind mit unterschiedlichen Subnetzwerken verbunden, die beide Subnetze eines Unternehmensintranets darstellen. Sowohl Netzwerke als auch unterstützende Hardware verfügen über eine Kapazität von 10 Gbit/s.
+- Hyperthreading auf den physischen Servern ist deaktiviert. Dies ermöglicht den maximalen Durchsatz von den physischen NICs.
+- Die Hyper @ no__t-0V-Server Rolle wird auf beiden Servern installiert und mit zwei externen virtuellen Hyper @ no__t-1V-Switches konfiguriert, eine für jeden physischen Netzwerkadapter.
 - Da beide Server mit demselben Intranet verbunden sind, können die Server miteinander kommunizieren.
-- Die Hyper\-V-Hosts in einem Failovercluster konfiguriert sind, über das Intranet. 
+- Die Hyper @ no__t-0V-Hosts werden in einem Failovercluster über das Intranet-Netzwerk konfiguriert. 
 
 >[!NOTE]
 >Weitere Informationen finden Sie unter [Hyper-V Virtual Switch](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/hyper-v-virtual-switch).
 
-### <a name="vm-configuration"></a>Konfiguration des virtuellen Computers
+### <a name="vm-configuration"></a>VM-Konfiguration
 
-Zwei virtuelle Computer werden konfiguriert, um das Testszenario auf folgende Weise zu unterstützen.
+Zwei virtuelle Computer werden so konfiguriert, dass das Testszenario auf folgende Weise unterstützt wird.
 
-- Ausführen von Windows Server, Version 1709 auf jedem Server, die ein virtuellen Computer installiert ist. Jeder virtuelle Computer wird mit 10 Kerne und 8 GB RAM konfiguriert.
-- Jeder virtuelle Computer wird auch mit zwei virtuelle Netzwerkadapter konfiguriert. Einen virtuellen Netzwerkadapter mit dem Intranet 1 virtuellen Switch verbunden ist, und der virtuelle Netzwerkadapter mit dem Intranet-2-Switch verbunden ist.
-- Jede VM verfügt über RAS-Gateway installiert und konfiguriert werden, als eine GRE\-basierte VPN-Server.
-- Die virtuellen Gatewaycomputer sind in einem Failovercluster konfiguriert. Wenn gruppiert, für einen virtuellen Computer aktiv ist, und der anderen virtuellen Computer ist passiv.
+- Auf jedem Server wird ein virtueller Computer installiert, auf dem Windows Server, Version 1709, ausgeführt wird. Jeder virtuelle Computer ist mit 10 Kernen und 8 GB RAM konfiguriert.
+- Jeder virtuelle Computer wird auch mit zwei virtuellen Netzwerkadaptern konfiguriert. Ein virtueller Netzwerkadapter ist mit dem virtuellen Switch für intranet1 verbunden, und der andere virtuelle Netzwerkadapter ist mit dem virtuellen Switch für intranet2 verbunden.
+- Auf jedem virtuellen Computer ist das RAS-Gateway installiert und als GRE @ no__t-0basierter VPN-Server konfiguriert.
+- Die Gateway-VMS werden in einem Failovercluster konfiguriert. Wenn Sie gruppiert sind, ist eine VM aktiv, und die andere VM ist passiv.
 
-### <a name="workload-hyper-v-hosts-and-vms"></a>Arbeitsauslastung Hyper\-V-Hosts und virtuellen Computern
+### <a name="workload-hyper-v-hosts-and-vms"></a>Arbeitsauslastung Hyper @ no__t-0V-Hosts und-VMS
 
-Für diesen Test zwei Workload Hyper\-V-Hosts im Intranet installiert sind, und jeder Host hat einen virtuellen Computer installiert. Wenn Sie diesen Test in Ihrer eigenen testumgebung duplizieren, können Sie beliebig viele Workload-Servern und VMs, da für Ihre Zwecke angemessen ist installieren.
+Für diesen Test werden zwei Arbeits Auslastungen vom Typ "Hyper @ no__t-0V" im Intranet installiert, und jeder Host verfügt über eine installierte VM. Wenn Sie diesen Test in ihrer eigenen Testumgebung duplizieren, können Sie so viele Arbeits Auslastungs Server und VMS installieren, wie es für Ihre Zwecke geeignet ist.
 
-- Arbeitsauslastung Hyper\-V-Hosts verfügen, einen physischen Netzwerkadapter installiert ist, wird mit dem Unternehmensintranet verbunden.
-- Auf virtuellen Hyper\-virtuellen V-Switch, einen virtueller Switch auf jedem Host erstellt. Der Schalter ist "External" und an die ein mit dem Intranet verbundenen Netzwerkadapter gebunden ist.
-- Der arbeitsauslastungs-VMs werden mit 2 GB RAM und 2 Kerne konfiguriert.
-- Der Arbeitsauslastungs-VMs haben jeweils einen virtuellen Netzwerkadapter, der mit dem Intranet virtuellen Switch verbunden ist.
+- Bei der Arbeitsauslastung von Hyper @ no__t-0V-Hosts ist ein physischer Netzwerkadapter installiert, der mit dem Unternehmens Intranet verbunden ist.
+- In Hyper @ no__t-0V Virtual Switch wird ein virtueller Switch auf jedem Host erstellt. Der Switch ist extern und wird an den Netzwerkadapter gebunden, der mit dem Intranet verbunden ist.
+- Die Arbeits Auslastungs-VMS werden mit 2 GB RAM und 2 Kernen konfiguriert.
+- Die Arbeits Auslastungs-VMS verfügen jeweils über einen virtuellen Netzwerkadapter, der mit dem virtuellen Intranet-Switch verbunden ist.
 
-### <a name="traffic-generator-tool"></a>Tool zum Generieren von Datenverkehr
+### <a name="traffic-generator-tool"></a>Traffic Generator-Tool
 
-Das Tool zum Generieren von Datenverkehr, das in diesem Test verwendet wird ist das Tool CtsTraffic. Das Git-Repository für dieses Tool befindet sich unter [ https://github.com/Microsoft/ctsTraffic ](https://github.com/Microsoft/ctsTraffic).
+Das Tool für den Datenverkehrs Generator, das in diesem Test verwendet wird, ist das ctstraffic-Tool. Das git-Repository für dieses Tool befindet sich auf [https://github.com/Microsoft/ctsTraffic](https://github.com/Microsoft/ctsTraffic).
 
-## <a name="ras-gateway-performance"></a>RAS-Gateway-Leistung
+## <a name="ras-gateway-performance"></a>Leistung des RAS-Gateways
 
-Die Abbildungen in diesem Abschnitt sehen wir, Task-Manager zeigt GRE-Tunnel Durchsatz mit mehreren TCP-Verbindungen.
+In den Abbildungen in diesem Abschnitt werden die Task-Manager-anzeigen von GRE-Tunnel Durchsatz mit mehreren TCP-Verbindungen dargestellt.
 
-Erreichen Sie, bis zu 2,0 Gbit/s Durchsatz auf mehreren\-core-VMs, die als GRE-RAS-Gateways konfiguriert sind.
+Sie können einen Durchsatz von bis zu 2,0 Gbit/s auf virtuellen Computern mit mehreren @ no__t 0core erzielen, die als GRE-RAS-Gateways konfiguriert sind.
 
-### <a name="gre-tunnel-performance-with-multiple-tcp-sessions"></a>GRE-Tunnel-Leistung mit mehreren TCP-Sitzungen
+### <a name="gre-tunnel-performance-with-multiple-tcp-sessions"></a>GRE-Tunnel Leistung mit mehreren TCP-Sitzungen
 
-Klicken Sie mit mehreren TCP-Sitzungen die CPU-Auslastung 100 % erreicht, und der maximale Durchsatz auf den GRE-Tunnel ist 2.0 Gbit/s.
+Bei mehreren TCP-Sitzungen erreicht die CPU-Auslastung 100%, und der maximale Durchsatz im GRE-Tunnel beträgt 2,0 Gbit/s.
 
-Die folgende Abbildung zeigt die CPU-Auslastung auf der RAS-Gateway-VMs. Die aktive virtuellen Computer, die RAS-Gateway-VM-1, ist auf der linken Seite, während die passive VM 2 für RAS-Gateway-VM, auf der rechten Seite ist.
+In der folgenden Abbildung wird die CPU-Auslastung für beide RAS-Gateway-VMS dargestellt. Die aktive VM, RAS-Gateway-VM-#1, befindet sich auf der linken Seite, während sich die passive VM, RAS-Gateway-VM #2, auf der rechten Seite befindet.
 
-![Gateway-VM-CPU-Auslastung im Task-Manager](../../media/GRE-Tunnel-Perf/Gre-Tunnel-01.jpg)
+![CPU-Auslastung des Gateway-VM im Task-Manager](../../media/GRE-Tunnel-Perf/Gre-Tunnel-01.jpg)
 
-Die folgende Abbildung zeigt die Ethernet-Netzwerkdurchsatz auf den RAS-Gateway-VMs. Die aktive virtuellen Computer, die RAS-Gateway-VM-1, ist auf der linken Seite, während die passive VM 2 für RAS-Gateway-VM, auf der rechten Seite ist.
+In der folgenden Abbildung wird der Ethernet-Netzwerk Durchsatz auf den virtuellen RAS-Gateway-Computern dargestellt Die aktive VM, RAS-Gateway-VM-#1, befindet sich auf der linken Seite, während sich die passive VM, RAS-Gateway-VM #2, auf der rechten Seite befindet.
 
-![Gateway-VM-Ethernet-Netzwerkdurchsatz im Task-Manager](../../media/GRE-Tunnel-Perf/Gre-Tunnel-02.jpg)
-
-
-### <a name="gre-tunnel-performance-with-one-tcp-connection"></a>GRE-Tunnel-Leistung mit einem TCP-Verbindung
-
-Mit der Testkonfiguration, die von mehreren TCP-Sitzungen in einer einzelnen TCP-Sitzung geändert wird erreicht nur eine CPU-Kern maximale Kapazität auf dem RAS-Gateway-VMs.
-
-Der maximale Durchsatz auf den GRE-Tunnel wird zwischen 400 – 500 Mbit/s auf.
-
-Die folgende Abbildung zeigt die CPU-Auslastung auf der RAS-Gateway-VMs. Die aktive virtuellen Computer, die RAS-Gateway-VM-1, ist auf der linken Seite, während die passive VM 2 für RAS-Gateway-VM, auf der rechten Seite ist.
-
-![Gateway-VM-CPU-Auslastung im Task-Manager](../../media/GRE-Tunnel-Perf/Gre-Tunnel-03.jpg)
+![Netzwerk Durchsatz für Gateway-VM-Ethernet im Task-Manager](../../media/GRE-Tunnel-Perf/Gre-Tunnel-02.jpg)
 
 
-Die folgende Abbildung zeigt die Ethernet-Netzwerkdurchsatz auf den RAS-Gateway-VMs. Die aktive virtuellen Computer, die RAS-Gateway-VM-1, ist auf der linken Seite, während die passive VM 2 für RAS-Gateway-VM, auf der rechten Seite ist.
+### <a name="gre-tunnel-performance-with-one-tcp-connection"></a>GRE-Tunnel Leistung mit einer TCP-Verbindung
 
-![Gateway-VM-Ethernet-Netzwerkdurchsatz im Task-Manager](../../media/GRE-Tunnel-Perf/Gre-Tunnel-04.jpg)
+Wenn die Testkonfiguration von mehreren TCP-Sitzungen in eine einzelne TCP-Sitzung geändert wurde, erreicht nur ein CPU-Kern die maximale Kapazität der RAS-Gateway-VMS.
 
-Weitere Informationen zur Leistung von RAS-Gateway finden Sie unter [hnv-Gateway zur Leistungsoptimierung in Softwaredefinierten Netzwerken](https://docs.microsoft.com/windows-server/administration/performance-tuning/subsystem/software-defined-networking/hnv-gateway-performance).
+Der maximale Durchsatz im GRE-Tunnel liegt zwischen 400-500 Mbit/s.
+
+In der folgenden Abbildung wird die CPU-Auslastung für beide RAS-Gateway-VMS dargestellt. Die aktive VM, RAS-Gateway-VM-#1, befindet sich auf der linken Seite, während sich die passive VM, RAS-Gateway-VM #2, auf der rechten Seite befindet.
+
+![CPU-Auslastung des Gateway-VM im Task-Manager](../../media/GRE-Tunnel-Perf/Gre-Tunnel-03.jpg)
+
+
+In der folgenden Abbildung wird der Ethernet-Netzwerk Durchsatz auf den virtuellen RAS-Gateway-Computern dargestellt Die aktive VM, RAS-Gateway-VM-#1, befindet sich auf der linken Seite, während sich die passive VM, RAS-Gateway-VM #2, auf der rechten Seite befindet.
+
+![Netzwerk Durchsatz für Gateway-VM-Ethernet im Task-Manager](../../media/GRE-Tunnel-Perf/Gre-Tunnel-04.jpg)
+
+Weitere Informationen zur Leistung des RAS-Gateways finden Sie unter [HNV Gateway Performance Tuning in Software Defined Networks](https://docs.microsoft.com/windows-server/administration/performance-tuning/subsystem/software-defined-networking/hnv-gateway-performance).

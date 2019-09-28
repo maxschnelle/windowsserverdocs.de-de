@@ -1,38 +1,38 @@
 ---
 ms.assetid: 4d002764-58b4-4137-9c86-1e55b02e07ce
-title: Konfigurieren von Partnerorganisationen
+title: Konfigurieren von Partner Organisationen
 description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 3d7389ce806a5e3aebf4fe166b10e5262df0be8a
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 575d7e3fc97496c3f7c147220fe342add66517c3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192237"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408398"
 ---
-# <a name="configuring-partner-organizations"></a>Konfigurieren von Partnerorganisationen
+# <a name="configuring-partner-organizations"></a>Konfigurieren von Partner Organisationen
 
-Bereitstellen eine neuen Partnerorganisation in Active Directory-Verbunddienste \(AD FS\), führen Sie die Aufgaben in einem [Prüfliste: Konfigurieren der Ressourcenpartnerorganisation](Checklist--Configuring-the-Resource-Partner-Organization.md) oder [Prüfliste: Konfigurieren der Kontopartnerorganisation](Checklist--Configuring-the-Account-Partner-Organization.md), abhängig von Ihrer AD FS-Entwurfs.  
+Um eine neue Partnerorganisation in Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1 bereitzustellen, führen Sie die Aufgaben entweder in [checkliste aus: Konfigurieren der Ressourcen Partner Organisation @ no__t-0 oder [prüfliste: Konfigurieren der Konto Partner Organisation @ no__t-0, je nach AD FS Design.  
   
 > [!NOTE]  
-> Wenn Sie einer dieser Prüflisten verwenden, es wird dringend empfohlen, dass Sie die Verweise auf Kontopartner oder planen die Anleitung im Ressourcenpartner lesen Sie zuerst die [AD FS-Entwurfshandbuch in Windows Server 2012](https://technet.microsoft.com/library/dd807036.aspx) vor dem Fortfahren mit der Verfahren für das Einrichten der neuen Partnerorganisation. Mithilfe der folgenden Checkliste für die auf diese Weise können bieten ein besseres Verständnis der AD FS Design und Bereitstellung ganz für der Kontopartnerorganisation Partner oder Ressource.  
+> Wenn Sie eine dieser Checklisten verwenden, wird dringend empfohlen, zuerst die Verweise auf den Planungsleitfaden für Konto Partner oder Ressourcen Partner im [AD FS Entwurfs Handbuch in Windows Server 2012](https://technet.microsoft.com/library/dd807036.aspx) zu lesen, bevor Sie mit den Vorgehensweisen zum Einrichten der neue Partnerorganisation. Wenn Sie die Prüfliste auf diese Weise befolgen, erhalten Sie ein besseres Verständnis der vollständigen AD FS Design-und Bereitstellungs Geschichte für den Konto Partner oder die Ressourcen Partnerorganisation.  
   
-## <a name="about-account-partner-organizations"></a>Informationen zu kontopartnerorganisationen  
-Kontopartner ist die Organisation in der verbundvertrauensstellung, die physisch Benutzerkonten in einem AD FS unterstützte Attributspeicher speichert. Kontopartner ist für das Sammeln von und die Anmeldeinformationen eines Benutzers zu authentifizieren, um Ansprüche für diesen Benutzer erstellen und Packen die Ansprüche in Sicherheitstokens verantwortlich. Mit diesen Token können dann über eine verbundvertrauensstellung So aktivieren Sie den Zugriff auf Web angezeigt werden\-Ressourcen, die in der Ressourcenpartnerorganisation befinden.  
+## <a name="about-account-partner-organizations"></a>Informationen zu Konto Partnerorganisationen  
+Ein Konto Partner ist die Organisation in der Verbund Vertrauensstellung, die Benutzerkonten physisch in einem AD FS – unterstützten Attribut Speicher speichert. Der Konto Partner ist verantwortlich für das erfassen und Authentifizieren der Anmelde Informationen eines Benutzers, das Einrichten von Ansprüchen für diesen Benutzer und das Verpacken der Ansprüche in Sicherheits Token. Diese Token können dann über eine Verbund Vertrauensstellung hinweg angezeigt werden, um den Zugriff auf Web @ no__t-0based-Ressourcen zu ermöglichen, die sich in der Ressourcen Partnerorganisation befinden.  
   
-Das heißt, Kontopartner stellt die Organisation dar, dessen Benutzer das Konto\-Verbundserver Seite Ausstellen von Sicherheitstoken. Der Verbundserver in der Kontopartnerorganisation authentifiziert lokale Benutzer und erstellt Sicherheitstoken, die der Ressourcenpartner wird verwendet, in das treffen von autorisierungsentscheidungen.  
+Anders ausgedrückt: ein Konto Partner stellt die Organisation dar, deren Benutzer das Konto @ no__t-0side Federation Server Security Tokens ausgibt. Der Verbund Server in der Konto Partnerorganisation authentifiziert lokale Benutzer und erstellt Sicherheits Token, die der Ressourcen Partner verwendet, um Autorisierungs Entscheidungen zu treffen.  
   
-Im Hinblick auf Attributspeicher ist der Kontopartner AD FS vergleichbar mit einer einzelnen Active Directory-Gesamtstruktur, deren Konten Zugriff auf Ressourcen benötigen, die physisch in einer anderen Gesamtstruktur befinden. Konten in dieser Gesamtstruktur können Zugriff auf Ressourcen in der Ressourcengesamtstruktur nur, wenn eine externe Vertrauensstellung oder eine Beziehung zwischen den beiden Gesamtstrukturen vorhanden ist und die Ressourcen, die Benutzer Zugriff erhalten möchten, die richtige Autorisierung festgelegt wurden, vertraut Gesamtstruktur Berechtigungen.  
+Im Hinblick auf Attribut Speicher entspricht der Konto Partner in AD FS konzeptionell einer einzelnen Active Directory Gesamtstruktur, deren Konten Zugriff auf Ressourcen benötigen, die sich physisch in einer anderen Gesamtstruktur befinden. Konten in dieser Gesamtstruktur können nur auf Ressourcen in der Ressourcen Gesamtstruktur zugreifen, wenn zwischen den beiden Gesamtstrukturen eine externe Vertrauensstellung oder eine Gesamtstruktur-Vertrauensstellung besteht und die Ressourcen, auf die die Benutzer zugreifen möchten, mit der entsprechenden Autorisierung festgelegt wurden. Griff.  
   
-## <a name="about-resource-partner-organizations"></a>Informationen zu ressourcenpartnerorganisationen  
-Der Ressourcenpartner ist die Organisation in einer AD FS-Bereitstellung, in dem sich Webserver befinden. Der Ressourcenpartner wird den Kontopartnern zum Authentifizieren von Benutzern. Um autorisierungsentscheidungen zu treffen, nutzt der Ressourcenpartner aus diesem Grund die Ansprüche, die in Sicherheitstoken gepackt werden, die von Benutzern in der Kontopartner stammen.  
+## <a name="about-resource-partner-organizations"></a>Informationen zu Ressourcen Partnerorganisationen  
+Der Ressourcen Partner ist die Organisation in einer AD FS Bereitstellung, in der sich Webserver befindet. Der Ressourcen Partner vertraut dem Konto Partner, um Benutzer zu authentifizieren. Um Autorisierungs Entscheidungen zu treffen, verwendet der Ressourcen Partner daher die Ansprüche, die in Sicherheits Token gepackt sind, die von Benutzern des Konto Partners stammen.  
   
-Das heißt, ein Ressourcenpartner die Organisation, deren Webserver werden von der Ressource geschützt, darstellt\-Verbundserver für die Seite. Der Verbundserver in der Ressourcenpartner verwendet die Sicherheitstoken, die vom Kontopartner autorisierungsentscheidungen für Webserver beim Ressourcenpartner erstellt werden.  
+Anders ausgedrückt: ein Ressourcen Partner stellt die Organisation dar, deren Webserver durch die Ressource @ no__t-0side Federation Server geschützt sind. Der Verbund Server beim Ressourcen Partner verwendet die Sicherheits Token, die vom Konto Partner erstellt werden, um Autorisierungs Entscheidungen für Webserver im Ressourcen Partner zu treffen.  
   
-Als AD FS-Ressource funktioniert, müssen Webserver in der Ressourcenpartnerorganisation Windows Identity Foundation entweder haben \(WIF\) installiert oder über die Active Directory Federation Services \(AD FS\) 1.x Ansprüche\-Aware Web Agent-Rollendienste installiert. Web-Server, die wie AD FS-Ressource entweder Web hosten kann\-Browser\-basieren oder Web-\-Service\--basierte Anwendungen.  
+Um als AD FS Ressource zu fungieren, muss auf den Webservern in der Ressourcen Partnerorganisation entweder Windows Identity Foundation \(wif @ no__t-1 installiert sein, oder die Active Directory-Verbunddienste (AD FS) \(AD FS @ no__t-3 1. x Claims @ no__t-4aware Web Agent-Rollen Dienste sind installiert. Webserver, die als AD FS Ressource fungieren, können entweder Web @ no__t-0browser @ no__t-1based oder Web @ no__t-2service @ no__t-3based-Anwendungen hosten.  

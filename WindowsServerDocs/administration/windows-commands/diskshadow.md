@@ -1,8 +1,8 @@
 ---
 title: diskshadow
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,82 +13,82 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b2c5648235a1c856c6aef09621e2381e74d08d70
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8d9f34377473608d71ce7753972e5312d9eea0f6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869181"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377767"
 ---
 # <a name="diskshadow"></a>diskshadow
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-DiskShadow.exe ist ein Tool, das die Funktionen der Volumeschattenkopie-Dienst verfügbar macht \(VSS\). Standardmäßig wird von Diskshadow einen interaktiver Interpreter vergleichbar mit dem von Diskraid oder DiskPart verwendet. DiskShadow umfasst auch einen skriptfähigen Modus.  
+"DiskShadow. exe" ist ein Tool, das die vom Volumeschattenkopie-Dienst angebotene Funktionalität \(vss @ no__t-1 verfügbar macht. Standardmäßig verwendet DiskShadow einen interaktiven Befehls Interpreter ähnlich dem von Diskraid oder DiskPart. DiskShadow enthält auch einen Skript fähigen Modus.  
   
 > [!NOTE]  
-> Mitgliedschaft in der lokalen Gruppe "Administratoren" oder einer gleichwertigen, ist die mindestvoraussetzung, um Diskshadow auszuführen.  
+> Sie müssen mindestens Mitglied der lokalen Gruppe Administratoren oder einer entsprechenden Gruppe sein, um DiskShadow ausführen zu können.  
   
-Beispiele für Diskshadow-Befehle verwenden, finden Sie unter [Beispiele](#BKMK_examples).  
+Beispiele für die Verwendung von DiskShadow-Befehlen finden Sie unter [Beispiele](#BKMK_examples).  
   
 ## <a name="syntax"></a>Syntax  
-Geben Sie Folgendes an der Eingabeaufforderung, starten Sie den Befehlsinterpreter Diskshadow, für den interaktiven Modus:  
+Geben Sie für den interaktiven Modus Folgendes an der Eingabeaufforderung ein, um den DiskShadow-Befehls Interpreter zu starten:  
   
 ```  
 diskshadow  
 ```  
   
-Geben Sie Folgendes ein, für den Skriptmodus, in denen *script.txt* ist eine Skriptdatei mit Diskshadow-Befehlen:  
+Geben Sie im Skript Modus Folgendes ein, wobei *Skript. txt* eine Skriptdatei mit DiskShadow-Befehlen ist:  
   
 ```  
 diskshadow -s script.txt  
 ```  
   
 ## <a name="diskshadow-commands"></a>DiskShadow-Befehle  
-Sie können die folgenden Befehle in der Befehlsinterpreter Diskshadow oder über eine Skriptdatei ausführen:  
+Sie können die folgenden Befehle im DiskShadow-Befehls Interpreter oder über eine Skriptdatei ausführen:  
   
 |Parameter|Beschreibung|  
 |-------|--------|  
-|[set_2](set_2.md)|Legt fest, der Kontext, Optionen, ausführlichen Modus und Metadatendatei für die Erstellung von Schattenkopien.|  
-|[Simulieren der Wiederherstellung](simulate-restore.md)|Testet Writer Beteiligung in der Restore-Sitzungen auf dem Computer nur durch Ausstellung **PreRestore** oder **PostRestore** Ereignisse auf Writer.|  
-|[Laden von Metadaten](load-metadata.md)|Lädt eine Metadaten-CAB-Datei vor dem Importieren der übertragbarer Schattenkopien oder lädt die Metadaten im Fall einer Wiederherstellung.|  
-|[writer](writer.md)|Überprüft, ob ein Writer oder eine Komponente enthalten ist oder ein Writer oder eine Komponente aus der Sicherung oder Wiederherstellung Prozedur schließt.|  
-|[add_1](add_1.md)|Hinzufügen von Volumes auf den Satz von Volumes, die zu spiegelnde sind, oder fügt Aliase auf die Alias-Umgebung.|  
-|[create_1](create_1.md)|Startet die Erstellung Schattenkopie, mit den aktuellen Kontext und die Option Einstellungen an.|  
-|[exec](exec.md)|führt eine Datei auf dem lokalen Computer.|  
-|[Starten der Sicherung](begin-backup.md)|Eine vollständige Sicherung Sitzung startet.|  
-|[Ende der Sicherung](end-backup.md)|Beendet eine vollständige Sicherung Sitzung und Probleme eine **Backupcomplete** -Ereignis mit der entsprechenden Writerzustand, falls erforderlich.|  
-|[Start der Wiederherstellung](begin-restore.md)|Startet eine Wiederherstellung der Sitzung und Probleme eine **PreRestore** Ereignis beteiligten Writer.|  
-|[Ende der Wiederherstellung](end-restore.md)|Beendet eine Wiederherstellung der Sitzung und die Probleme einer **PostRestore** Ereignis beteiligten Writer.|  
-|[reset](reset.md)|Diskshadow zurückgesetzt auf den Standardzustand.|  
-|[list](list.md)|Listen-Writer, Schattenkopien und gegenwärtig registrierten Volumeschattenkopie-Anbieter, die auf dem System sind.|  
-|[Löschen Sie Schatten](delete-shadows.md)|Löscht die Schattenkopien.|  
-|[import](import.md)|importiert eine übertragbarer Schattenkopien aus einer geladenen Metadaten-Datei in das System an.|  
-|[mask](mask.md)|Hardwareschattenkopien, die mithilfe von importiert wurden entfernt die **importieren** Befehl.|  
-|[verfügbar machen](expose.md)|Stellt eine permanente Schattenkopie als Laufwerkbuchstaben, Freigabe oder Bereitstellungspunkt an.|  
-|[unexpose](unexpose.md)|Unexposes eine Schattenkopie, die verfügbar gemacht wurde die **verfügbar zu machen** Befehl.|  
-|[break_2](break_2.md)|Hebt die Zuordnung einer Schattenkopievolume von VSS.|  
-|[revert](revert.md)|wird ein Volume an einer angegebenen Schattenkopie zurückgesetzt.|  
-|[exit_1](exit_1.md)|Diskshadow wird beendet.|  
+|[set_2](set_2.md)|Legt den Kontext, die Optionen, den ausführlichen Modus und die Metadatendatei zum Erstellen von Schatten Kopien fest.|  
+|[Wiederherstellung simulieren](simulate-restore.md)|Testet die Beteiligung von Writer in Wiederherstellungs Sitzungen auf dem Computer ohne Ausgabe von **vorab** -oder **postrestore** -Ereignissen an Writer.|  
+|[Metadaten laden](load-metadata.md)|Lädt eine Datei "Metadata. cab" vor dem Importieren einer austauschen-Schatten Kopie oder lädt die Writer-Metadaten im Fall einer Wiederherstellung.|  
+|[Maschine](writer.md)|Überprüft, ob ein Writer oder eine Komponente ein Writer oder eine Komponente aus dem Sicherungs-oder Wiederherstellungsverfahren enthält bzw. schließt.|  
+|[add_1](add_1.md)|Fügt Volumes zu dem Satz von Volumes hinzu, die als Schatten kopiert werden sollen, oder fügt der Alias Umgebung Aliase hinzu.|  
+|[create_1](create_1.md)|startet den Vorgang zum Erstellen von Schatten Kopien mithilfe der aktuellen Kontext-und Options Einstellungen.|  
+|[Exec](exec.md)|führt eine Datei auf dem lokalen Computer aus.|  
+|[Sicherung starten](begin-backup.md)|startet eine vollständige Sicherungs Sitzung.|  
+|[Sicherung beenden](end-backup.md)|Beendet eine vollständige Sicherungs Sitzung und gibt ggf. ein **BackupComplete** -Ereignis mit dem entsprechenden Writer-Status aus.|  
+|[Wiederherstellung starten](begin-restore.md)|startet eine Wiederherstellungs Sitzung und gibt ein **vorab** Ereignis für beteiligte Writer aus.|  
+|[Wiederherstellung beenden](end-restore.md)|Beendet eine Wiederherstellungs Sitzung und gibt ein **postrestore** -Ereignis für beteiligte Writer aus.|  
+|[Festlegen](reset.md)|setzt DiskShadow auf den Standardzustand zurück.|  
+|[List](list.md)|Listet Writer, Schatten Kopien oder derzeit registrierte Schattenkopieanbieter auf, die sich auf dem System befinden.|  
+|[Schatten löschen](delete-shadows.md)|Löscht Schatten Kopien.|  
+|[import](import.md)|importiert eine austauschen-Schatten Kopie aus einer geladenen Metadatendatei in das System.|  
+|[chel](mask.md)|entfernt Hardware Schatten Kopien, die mithilfe des **Import** -Befehls importiert wurden.|  
+|[sichtbar](expose.md)|macht eine persistente Schatten Kopie als Laufwerk Buchstaben, Freigabe oder Einfügepunkt verfügbar.|  
+|[Heben des](unexpose.md)|macht eine Schatten Kopie verfügbar **, die mit dem verfügbar** gemachten Befehl verfügbar gemacht wurde.|  
+|[break_2](break_2.md)|Trennt ein Schattenkopievolume von VSS.|  
+|[umzukehren](revert.md)|setzt ein Volume auf eine angegebene Schatten Kopie zurück.|  
+|[exit_1](exit_1.md)|beendet DiskShadow.|  
   
 ## <a name="remarks"></a>Hinweise  
   
--   mindestens ein nur **hinzufügen** und **erstellen** sind erforderlich, um eine Schattenkopie zu erstellen. Aber dies wird der Kontext und optionseinstellungen in Anspruch genommenen, einer kopiesicherung werden und erstellt nur dann eine Schattenkopie ohne Ausführung der backup-Script.  
+-   zum Erstellen einer Schatten Kopie sind mindestens " **Add** " und " **Create** " erforderlich. Dadurch wird jedoch der Kontext und die Options Einstellungen, eine Kopiesicherung, erstellt, und es wird nur eine Schatten Kopie ohne Sicherungs Ausführungs Skript erstellt.  
   
-## <a name="BKMK_examples"></a>Beispiele für  
-Dies ist eine Beispiel-Sequenz von Befehlen, die eine Schattenkopie für die Sicherung erstellt. Diese Datei als script.dsh gespeichert, und ausgeführt werden kann mit Diskshadow \/s script.dsh  
+## <a name="BKMK_examples"></a>Beispiele  
+Dies ist eine Beispiel Sequenz von Befehlen, mit denen eine Schatten Kopie für die Sicherung erstellt wird. Sie kann in der Datei als Script. DSH gespeichert und mit DiskShadow \/s Skript. DSH ausgeführt werden.  
   
-Nehmen Sie an Folgendes:  
+Nehmen Sie Folgendes an:  
   
--   Sie haben ein vorhandenes Verzeichnis namens "c:"\\Diskshadowdata.  
+-   Sie verfügen über ein vorhandenes Verzeichnis mit dem Namen "c: \\diskshadowdata".  
   
--   Das Systemvolume ist "c:", und Ihr Datenvolumen ist "d:".  
+-   Ihr System Volume ist "C:" und das Daten Volume "d:".  
   
--   Sie haben eine backupscript.cmd-Datei in "c:"\\Diskshadowdata.  
+-   Sie verfügen über eine backupscript. cmd-Datei in c: \\diskshadowdata.  
   
--   Die Datei backupscript.cmd wird die Kopie der Schattenkopie Daten p: und f:, auf das Sicherungslaufwerk ausgeführt.  
+-   Die Datei "backupscript. cmd" führt die Kopie der Schatten Daten p: und q: auf Ihrem Sicherungs Laufwerk aus.  
   
-Sie können diese Befehle manuell eingeben oder ein Skript:  
+Sie können diese Befehle manuell eingeben oder Skripts erstellen:  
   
 ```  
 #diskshadow script file  
@@ -108,7 +108,7 @@ end backup
 #End of script  
 ```  
   
-#### <a name="additional-references"></a>Zusätzliche Referenzen  
-[Befehlszeilensyntax](command-line-syntax-key.md)  
+#### <a name="additional-references"></a>Weitere Verweise  
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
 

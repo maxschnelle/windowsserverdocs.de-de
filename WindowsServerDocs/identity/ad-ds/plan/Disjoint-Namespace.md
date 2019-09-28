@@ -7,116 +7,116 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 0a2e911e889343b05a515c94e615d3648289f2df
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5abe67c89ce4c2f4b5056f6197242b5db8db340e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883571"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408858"
 ---
 # <a name="disjoint-namespace"></a>Zusammenhangloser Namespace
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Ein zusammenhangloser Namespace tritt auf, wenn eine oder mehrere Domänenmitgliedscomputer ein primäres Suffix des Domain Name Service (DNS), das nicht mit den DNS-Namen des Active Directory-Domäne übereinstimmt, von denen die Computer angehören. Beispielsweise verwendet ein Mitgliedscomputer, ein primäres DNS-Suffix "corp.Fabrikam.com" in einer Active Directory-Domäne, die mit der Bezeichnung "na.corp.Fabrikam.com" einen zusammenhanglosen Namespace.  
+Ein Zusammenhang loser Namespace tritt auf, wenn ein oder mehrere Domänen Mitglieds Computer ein primäres Domain Name Service-Suffix (DNS) aufweisen, das nicht dem DNS-Namen der Active Directory Domäne entspricht, der die Computer angehören. Beispielsweise verwendet ein Mitglieds Computer, der ein primäres DNS-Suffix von Corp.fabrikam.com in einer Active Directory Domäne mit dem Namen na.Corp.fabrikam.com verwendet, einen Zusammenhang losen Namespace.  
   
-Ein zusammenhangloser Namespace ist schwieriger zu verwalten, Verwaltung und Problembehandlung als einen zusammenhängenden Namespace. In einem zusammenhängenden Namespace entspricht das primäre DNS-Suffix der Active Directory-Domänennamen an. Anwendungen, die geschrieben werden, davon ausgehen, dass die Active Directory-Namespace mit das primäre DNS-Suffix für alle Domänenmitgliedscomputer identisch ist funktionieren nicht ordnungsgemäß in einem zusammenhanglosen Namespace.  
+Ein Zusammenhang loser Namespace ist komplexer für die Verwaltung, Wartung und Problembehandlung als ein zusammenhängender Namespace. In einem zusammenhängenden Namespace stimmt das primäre DNS-Suffix mit dem Active Directory Domänen Namen überein. Netzwerkanwendungen, die so geschrieben werden, dass der Active Directory-Namespace mit dem primären DNS-Suffix für alle Domänen Mitglieds Computer identisch ist, funktionieren in einem Zusammenhang losen Namespace nicht ordnungsgemäß.  
   
-## <a name="support-for-disjoint-namespaces"></a>Unterstützung für nicht zusammenhängende namespaces  
-Domänenmitgliedscomputer, einschließlich Domänencontrollern, können in einem zusammenhanglosen Namespace fungieren. Domänenmitgliedscomputer können registrieren, dem Host (A)-Ressourceneintrag und IP-Version 6 (IPv6) hosten (AAAA)-Ressourcendatensatz in einem zusammenhanglosen DNS-Namespace. Wenn Domänenmitgliedscomputer ihre Ressourceneinträge auf diese Weise registrieren, können Sie weiterhin Domänencontroller globale und standortspezifische Dienstidentifizierungs-Ressourceneinträge in der DNS-Zone zu registrieren, die in den Active Directory-Domänennamen identisch ist.  
+## <a name="support-for-disjoint-namespaces"></a>Unterstützung für disjunkt-Namespaces  
+Domänen Mitglieds Computer, einschließlich Domänen Controllern, können in einem Zusammenhang losen Namespace funktionieren. Domänen Mitglieds Computer können Ihren Host (A)-Ressourcen Daten Satz und den IPv6 (IPv6)-Host (AAAA)-Ressourcen Daten Satz in einem nicht Zusammenhang losen DNS-Namespace registrieren. Wenn Domänen Mitglieds Computer Ihre Ressourcen Einträge auf diese Weise registrieren, registrieren Domänen Controller weiterhin globale und standortspezifische Dienst Ressourcen Einträge (SRV) in der DNS-Zone, die mit dem Active Directory Domänen Namen identisch sind.  
   
-Nehmen wir beispielsweise an, dass ein Domänencontroller für Active Directory-Domäne mit dem Namen Bezeichnung "na.corp.Fabrikam.com", die eine primäre DNS-"corp.Fabrikam.com Suffix" in der DNS-Zone "corp.Fabrikam.com" Host (A) und Ressourceneinträge für IPv6-Host (AAAA) registriert. Der Domänencontroller weiterhin in _msdcs.na.corp.fabrikam.com und die Bezeichnung "na.corp.Fabrikam.com" DNS-Zonen, globale und standortspezifische Dienstidentifizierungs-Ressourceneinträge zu registrieren, wodurch dienstidentifizierung möglich.  
+Nehmen wir beispielsweise an, dass ein Domänen Controller für die Active Directory Domäne mit dem Namen na.Corp.fabrikam.com, die ein primäres DNS-Suffix von Corp.fabrikam.com verwendet, Host-(a) und IPv6-Host Ressourcen Einträge (AAAA) in der Corp.fabrikam.com DNS-Zone registriert. Der Domänen Controller registriert weiterhin globale und standortspezifische Dienst Ressourcen Einträge (SRV) in den DNS-Zonen _msdcs. na. Corp. fabrikam. com und na.Corp.fabrikam.com, wodurch der Dienst Speicherort möglich wird.  
   
 > [!IMPORTANT]  
-> Auch wenn Windows-Betriebssysteme einen zusammenhanglosen Namespace unterstützt, funktionieren Anwendungen, die geschrieben werden, davon ausgehen, dass das primäre DNS-Suffix der Active Directory-Domänen-Suffix entspricht nicht in einer solchen Umgebung. Aus diesem Grund sollten Sie testen alle Anwendungen und ihre jeweiligen Betriebssysteme sorgfältig, bevor Sie mit einen zusammenhanglosen Namespace bereitstellen.  
+> Obwohl Windows-Betriebssysteme möglicherweise einen Zusammenhang losen Namespace unterstützen, werden Anwendungen, die so geschrieben werden, dass das primäre DNS-Suffix mit dem Active Directory Domänen Suffix identisch ist, in einer solchen Umgebung möglicherweise nicht funktionieren. Aus diesem Grund sollten Sie alle Anwendungen und ihre jeweiligen Betriebssysteme sorgfältig testen, bevor Sie einen Zusammenhang losen Namespace bereitstellen.  
   
-Ein zusammenhangloser Namespace sollte funktionieren (und wird unterstützt) in den folgenden Situationen:  
+Ein Zusammenhang loser Namespace sollte in den folgenden Situationen funktionieren (und wird unterstützt):  
   
--   Bei Verwendung eine Gesamtstruktur mit mehreren Active Directory-Domänen für einen einzelnen DNS-Namespace handelt es sich auch eine DNS-zone  
+-   Wenn eine Gesamtstruktur mit mehreren Active Directory Domänen einen einzelnen DNS-Namespace verwendet, der auch als DNS-Zone bezeichnet wird  
   
-    Ein Beispiel hierfür ist ein Unternehmen, das verwendet Regionaldomänen mit Namen wie die Bezeichnung "na.corp.Fabrikam.com" sa.corp.fabrikam.com und asia.corp.fabrikam.com und einen einzigen DNS-Namespace, z. B. "corp.Fabrikam.com".  
+    Ein Beispiel hierfür ist ein Unternehmen, das regionale Domänen mit Namen wie na.Corp.fabrikam.com, Sa.Corp.fabrikam.com und Asia.Corp.fabrikam.com verwendet und einen einzelnen DNS-Namespace verwendet, z. b. Corp.fabrikam.com.  
   
--   Wenn eine einzelne Active Directory-Domäne in separaten DNS-Namespaces aufgeteilt ist  
+-   Wenn eine einzelne Active Directory Domäne in separate DNS-Namespaces aufgeteilt wird  
   
-    Ein Beispiel hierfür ist ein Unternehmen mit Active Directory-Domäne "corp.contoso.com", die DNS-Zonen, z. B. hr.corp.contoso.com production.corp.contoso.com und it.corp.contoso.com verwendet.  
+    Ein Beispiel hierfür ist ein Unternehmen mit einer Active Directory Domäne corp.contoso.com, die DNS-Zonen wie HR.Corp.contoso.com, Production.Corp.contoso.com und IT.Corp.contoso.com verwendet.  
   
-Ein zusammenhangloser Namespace nicht ordnungsgemäß funktioniert (und wird nicht unterstützt) in den folgenden Situationen:  
+Ein Zusammenhang loser Namespace funktioniert in folgenden Situationen nicht ordnungsgemäß (und wird nicht unterstützt):  
   
--   Ein zusammenhangloser Suffix ein, die Mitglieder der Domäne entspricht, einen Active Directory-Domänennamen in dieser oder einer anderen Gesamtstruktur. Dies unterbricht Kerberos Namensuffix routing.  
+-   Ein disjunktsuffix, das von Domänen Mitgliedern verwendet wird, entspricht einem Active Directory Domänen Namen in dieser oder einer anderen Gesamtstruktur Dadurch wird das Kerberos-Name-Suffix-Routing unterbrochen.  
   
--   Das gleiche zusammenhanglose Suffix wird in einer anderen Gesamtstruktur verwendet. Dies verhindert, dass diese Suffixe eindeutig zwischen Gesamtstrukturen routing.  
+-   Das gleiche Zusammenhang lose Suffix wird in einer anderen Gesamtstruktur verwendet. Dies verhindert, dass diese Suffixe zwischen Gesamtstrukturen eindeutig weitergereicht werden.  
   
--   Wenn ändert Mitgliedsservers einer Domäne Zertifizierungsstelle (ZS) der vollständig qualifizierte Domänenname (FQDN), damit es nicht mehr verwenden das gleiche primäre DNS-Suffix, das verwendet wird, von den Domänencontrollern der Domäne, der der CA-Server Mitglied ist. In diesem Fall müssen Sie Probleme, die Überprüfung von Zertifikaten möglicherweise den CA-Server ausgegeben werden, je nachdem welche DNS-Namen in den Zertifikatsperrlisten-Verteilungspunkte verwendet werden. Aber wenn Sie einen stabilen zusammenhanglosen Namespace einen Zertifizierungsstellenserver versehen, diese ordnungsgemäß funktioniert und unterstützt wird.  
+-   Wenn der voll qualifizierte Domänen Name (Fully Qualified Domain Name, FQDN) eines Domänen Mitglieds-Zertifizierungsstellen Servers geändert wird, so dass er nicht mehr dasselbe primäre DNS-Suffix verwendet, das von den Domänen Controllern der Domäne verwendet wird, der der Zertifizierungsstellen Server angehört. In diesem Fall haben Sie möglicherweise Probleme beim Überprüfen von Zertifikaten, die der Zertifizierungsstellen Server ausgestellt hat, abhängig von den DNS-Namen, die in den CRL-Verteilungs Punkten verwendet werden. Wenn Sie einen Zertifizierungsstellen Server jedoch in einem stabilen, zusammenhängenden Namespace platzieren, funktioniert dieser ordnungsgemäß und wird unterstützt.  
   
-## <a name="considerations-for-disjoint-namespaces"></a>Überlegungen zu zusammenhanglosen namespaces  
-Die folgenden Überlegungen helfen Ihnen die Entscheidung, ob Sie einen zusammenhanglosen Namespace verwenden sollten.  
+## <a name="considerations-for-disjoint-namespaces"></a>Überlegungen zu Zusammenhang losen Namespaces  
+Die folgenden Überlegungen können Ihnen bei der Entscheidung helfen, ob Sie einen Zusammenhang losen Namespace verwenden sollten.  
   
 ### <a name="application-compatibility"></a>Anwendungskompatibilität  
-Wie bereits erwähnt kann ein zusammenhangloser Namespace Probleme für beliebige Anwendungen und Dienste, die geschrieben werden, davon ausgehen, dass ein primäres DNS-Suffix des Computers mit den Namen der Domäne identisch ist, von denen er Mitglied ist. Bevor Sie einen zusammenhanglosen Namespace bereitstellen, müssen Sie die Anwendungen auf Kompatibilitätsprobleme prüfen. Darüber hinaus werden Sie sicher, dass die Kompatibilität aller Anwendungen, die Sie verwenden, wenn Sie Ihre Analyse ausführen, zu überprüfen. Dazu gehören Anwendungen von Microsoft und anderer Software-Entwickler.  
+Wie bereits erwähnt, kann ein zusammenhängender Namespace Probleme für alle Anwendungen und Dienste verursachen, die geschrieben werden, um davon auszugehen, dass das primäre DNS-Suffix eines Computers mit dem Namen des Domänen namens identisch ist, dem er angehört. Bevor Sie einen Zusammenhang losen Namespace bereitstellen, müssen Sie Anwendungen auf Kompatibilitätsprobleme überprüfen. Überprüfen Sie außerdem die Kompatibilität aller Anwendungen, die Sie beim Durchführen der Analyse verwenden. Dies schließt Anwendungen von Microsoft und anderen Softwareentwicklern ein.  
   
-### <a name="advantages-of-disjoint-namespaces"></a>Vorteile von nicht zusammenhängenden namespaces  
-Mit einem zusammenhanglosen Namespace haben die folgenden Vorteile:  
+### <a name="advantages-of-disjoint-namespaces"></a>Vorteile von disjunkten Namespaces  
+Die Verwendung eines Zusammenhang losen Namespace kann folgende Vorteile haben:  
   
--   Da das primäre DNS-Suffix eines Computers auf andere Informationen angeben kann, können Sie den DNS-Namespace aus dem Active Directory-Domänennamen separat verwalten.  
+-   Da das primäre DNS-Suffix eines Computers unterschiedliche Informationen anzeigen kann, können Sie den DNS-Namespace getrennt vom Active Directory Domänen Namen verwalten.  
   
--   Sie können die DNS-Namespace auf Grundlage der Unternehmensstruktur oder geografischen Standort trennen. Beispielsweise können Sie den Namespace, die basierend auf Business Unit-Namen oder physischen Standort wie Kontinent, Land/Region und Erstellen von trennen.  
+-   Sie können den DNS-Namespace basierend auf der Geschäftsstruktur oder dem geografischen Standort aufteilen. Beispielsweise können Sie den Namespace basierend auf den Namen von Geschäftseinheiten oder dem physischen Standort (z. b. Kontinent, Land/Region oder Gebäude) aufteilen.  
   
-### <a name="disadvantages-of-disjoint-namespaces"></a>Nachteile von nicht zusammenhängenden namespaces  
-Mit einem zusammenhanglosen Namespace haben folgende Nachteile:  
+### <a name="disadvantages-of-disjoint-namespaces"></a>Nachteile von disjunkten Namespaces  
+Die Verwendung eines Zusammenhang losen Namespace kann folgende Nachteile haben:  
   
--   Sie müssen erstellen und Verwalten von separaten DNS-Zonen für jede Active Directory-Domäne in der Gesamtstruktur mit Computern, die Mitglieder, die einen nicht zusammenhängenden Namespace verwenden. (D. h. muss es eine zusätzliche und eine komplexere Konfiguration.)  
+-   Sie müssen separate DNS-Zonen für jede Active Directory Domäne in der Gesamtstruktur erstellen und verwalten, die über Mitglieds Computer mit einem Zusammenhang losen Namespace verfügt. (Das heißt, es ist eine zusätzliche und komplexere Konfiguration erforderlich.)  
   
--   Führen Sie manuelle Schritte zum Ändern und Verwalten von Active Directory-Attribut, das Mitglieder der Domäne angegeben wird, primäre DNS-Suffixe verwenden zu können.  
+-   Sie müssen manuelle Schritte ausführen, um das Active Directory-Attribut zu ändern und zu verwalten, mit dem Domänen Mitglieder bestimmte primäre DNS-Suffixe verwenden können.  
   
--   Um die namensauflösung zu optimieren, müssen Sie manuelle Schritte zum Ändern und Verwalten von Gruppenrichtlinien zum Konfigurieren von Computern, die Mitglieder in alternativen primären DNS-Suffixe ausführen.  
-  
-    > [!NOTE]  
-    > Windows Internet Name Service (WINS) konnte für den offset dieser Nachteil durch Auflösen von Namen mit einfacher Bezeichnung verwendet werden. Weitere Informationen zu WINS, finden Sie unter technische Referenz WINS ([https://go.microsoft.com/fwlink/?LinkId=102303](https://go.microsoft.com/fwlink/?LinkId=102303)).  
-  
--   Wenn Ihre Umgebung mehrere primäre DNS-Suffixe erforderlich sind, müssen Sie die DNS-Suffix-Suchreihenfolge für alle Active Directory-Domänen in der Gesamtstruktur entsprechend konfigurieren.  
-  
-    Um die DNS-Suffix-Suchreihenfolge festzulegen, können Sie Gruppenrichtlinienobjekte oder Dynamic Host Configuration Protocol (DHCP) Server-Service-Parameter. Sie können auch die Registrierung ändern.  
-  
--   Sie müssen alle Anwendungen für Kompatibilitätsprobleme sorgfältig testen.  
-  
-Weitere Informationen zu Schritten, die Sie ergreifen können, um diese Nachteile zu beheben, finden Sie unter Erstellen ein Zusammenhangloser Namespace ([https://go.microsoft.com/fwlink/?LinkId=106638](https://go.microsoft.com/fwlink/?LinkId=106638)).  
-  
-### <a name="planning-a-namespace-transition"></a>Planen einen Namespace-Übergang  
-Bevor Sie einen Namespace ändern, überprüfen Sie die folgenden Aspekte, die angewendet werden, geht aus zusammenhängenden Namespaces zu zusammenhanglosen Namespaces (oder umgekehrt):  
-  
--   Manuell konfiguriert möglicherweise Dienstprinzipalnamen (SPN) nicht mehr übereinstimmen DNS-Namen nach einer Änderung des Namespace. Dies kann zu Authentifizierungsfehlern führen.  
-  
-    Weitere Informationen finden Sie unter Service Anmeldungen Fehler aufgrund von SPNs nicht ordnungsgemäß festgelegt ([https://go.microsoft.com/fwlink/?LinkId=102304](https://go.microsoft.com/fwlink/?LinkId=102304)).  
-  
-    -   Wenn Sie Windows Server 2003-basierte Computer bei der eingeschränkten Delegierung verwenden, erfordern diese Computer zusätzliche Konfiguration so ändern Sie die SPNs. Weitere Informationen finden Sie in der Microsoft Knowledge Base-Artikel 936628 ([https://go.microsoft.com/fwlink/?LinkId=102306](https://go.microsoft.com/fwlink/?LinkId=102306)).  
-  
-    -   Wenn Sie Berechtigungen zum Ändern von SPNs zu untergeordneten Administratoren delegieren möchten, finden Sie unter Delegieren der Autorität mit SPNs ändern ([https://go.microsoft.com/fwlink/?LinkId=106639](https://go.microsoft.com/fwlink/?LinkId=106639)).  
-  
--   Wenn Sie Lightweight Directory Access Protocol (LDAP) über Secure Sockets Layer (SSL) (bekannt als LDAPS) mit einer Zertifizierungsstelle in einer Bereitstellung, die Domänencontroller installiert sind, die in einem zusammenhanglosen Namespace konfiguriert sind verwenden, müssen Sie die Namen der entsprechenden Active Directory-Domäne verwenden und primäre DNS-Suffix, beim Konfigurieren der LDAPS-Zertifikate.  
-  
-    Weitere Informationen zu domänencontrolleranforderungen Zertifikat finden Sie in der Microsoft Knowledge Base-Artikel 321051 ([https://go.microsoft.com/fwlink/?LinkId=102307](https://go.microsoft.com/fwlink/?LinkId=102307)).  
+-   Um die Namensauflösung zu optimieren, müssen Sie manuelle Schritte zum Ändern und Verwalten von Gruppenrichtlinie durchführen, um Mitglieds Computer mit alternativen primären DNS-Suffixen zu konfigurieren.  
   
     > [!NOTE]  
-    > Domänencontroller, auf denen Zertifikate für die LDAPS verwenden unter Umständen ihre Zertifikate erneut bereitgestellt. Wenn Sie dies tun, können Domänencontroller kein entsprechendes Zertifikat auswählen, bis Sie sie neu gestartet werden. Weitere Informationen über LDAPS-Authentifizierung und einen zugehörigen Updates für Windows Server 2003 finden Sie in der Microsoft Knowledge Base-Artikel 932834 ([https://go.microsoft.com/fwlink/?LinkId=102308](https://go.microsoft.com/fwlink/?LinkId=102308)).  
+    > Der Windows Internet Name Service (WINS) kann verwendet werden, um diesen Nachteil durch Auflösen von Namen mit nur einer Bezeichnung auszugleichen. Weitere Informationen zu WINS finden Sie in der technischen Referenz zu WINS ([https://go.microsoft.com/fwlink/?LinkId=102303](https://go.microsoft.com/fwlink/?LinkId=102303)).  
   
-### <a name="planning-for-disjoint-namespace-deployments"></a>Zusammenhangloser Namespace liegt auch Bereitstellungen planen  
-Wenn Sie Computer in einer Umgebung bereitstellen, die einen zusammenhanglosen Namespace aufweist, führen Sie die folgenden Vorsichtsmaßnahmen:  
+-   Wenn Ihre Umgebung mehrere primäre DNS-Suffixe erfordert, müssen Sie die DNS-Suffixsuchreihenfolge für alle Active Directory Domänen in der Gesamtstruktur entsprechend konfigurieren.  
   
-1.  Benachrichtigen Sie alle Softwarehersteller, mit denen Sie Handel treiben, müssen sie testen und einen zusammenhanglosen Namespace unterstützt. Bitten sie stellen Sie sicher, dass sie ihre Anwendungen in Umgebungen unterstützen, die nicht zusammenhängenden Namespaces verwenden.  
+    Um die Such Reihenfolge für das DNS-Suffix festzulegen, können Sie Gruppenrichtlinie Objekte oder DHCP-Server Dienst Parameter (Dynamic Host Configuration Protocol) verwenden. Sie können auch die Registrierung ändern.  
   
-2.  Testen Sie alle Versionen von Betriebssystemen und Anwendungen in Lab-Umgebungen nicht zusammenhängenden Namespace. Wenn Sie dies tun, befolgen Sie diese Empfehlungen:  
+-   Sie müssen alle Anwendungen sorgfältig auf Kompatibilitätsprobleme testen.  
   
-    1.  Beheben Sie alle Probleme mit Software, bevor Sie die Software in Ihrer Umgebung bereitstellen.  
+Weitere Informationen zu den Schritten, die Sie durchführen können, um diese Nachteile zu beheben, finden Sie unter Erstellen eines separaten Namespace ([https://go.microsoft.com/fwlink/?LinkId=106638](https://go.microsoft.com/fwlink/?LinkId=106638)).  
   
-    2.  Wenn möglich, teilnehmen von Beta-Tests von Betriebssystemen und Anwendungen, die Sie in nicht zusammenhängende Namespaces bereitstellen möchten.  
+### <a name="planning-a-namespace-transition"></a>Planen eines Namespace Übergangs  
+Bevor Sie einen Namespace ändern, überprüfen Sie die folgenden Überlegungen, die für Übergänge von zusammenhängenden Namespaces zu disjunkten Namespaces (oder umgekehrt) gelten:  
   
-3.  Stellen Sie sicher, dass Administratoren und Helpdesk-Mitarbeiter die zusammenhanglosen Namespace und dessen Auswirkungen bekannt sind.  
+-   Manuell konfigurierte Dienst Prinzipal Namen (SPNs) Stimmen nach einer Namespace Änderung möglicherweise nicht mehr mit DNS-Namen ab. Dies kann zu Authentifizierungs Fehlern führen.  
   
-4.  Erstellen Sie einen Plan, der Sie für den Übergang von einem zusammenhanglosen Namespace einem zusammenhängenden Namespace bei Bedarf ermöglicht.  
+    Weitere Informationen finden Sie unter Dienst Anmeldungen schlagen aufgrund falsch fest gelegender SPNs ([https://go.microsoft.com/fwlink/?LinkId=102304](https://go.microsoft.com/fwlink/?LinkId=102304)) fehl.  
   
-5.  Übertragen Sie die Wichtigkeit der zusammenhanglosen Namespace-Unterstützung mit Betriebssystem und Anbieter von Anwendungen.  
+    -   Wenn Sie Windows Server 2003-basierte Computer mit eingeschränkter Delegierung verwenden, ist für diese Computer möglicherweise eine zusätzliche Konfiguration erforderlich, um SPNs zu ändern. Weitere Informationen finden Sie im Artikel 936628 in der Microsoft Knowledge Base ([https://go.microsoft.com/fwlink/?LinkId=102306](https://go.microsoft.com/fwlink/?LinkId=102306)).  
+  
+    -   Wenn Sie Berechtigungen zum Ändern von SPNs für untergeordnete Administratoren delegieren möchten, finden Sie weitere Informationen unter Delegieren der Autorisierungs Stelle zum Ändern von SPNs ([https://go.microsoft.com/fwlink/?LinkId=106639](https://go.microsoft.com/fwlink/?LinkId=106639)).  
+  
+-   Wenn Sie Lightweight Directory Access Protocol (LDAP) über Secure Sockets Layer (SSL) (LDAPS) mit einer Zertifizierungsstelle in einer Bereitstellung mit Domänen Controllern verwenden, die in einem Zusammenhang losen Namespace konfiguriert sind, müssen Sie den entsprechenden Active Directory Domänen Namen und Primäres DNS-Suffix beim Konfigurieren der LDAPS-Zertifikate.  
+  
+    Weitere Informationen zu Domänen Controller-Zertifikat Anforderungen finden Sie im Artikel 321051 in der Microsoft Knowledge Base ([https://go.microsoft.com/fwlink/?LinkId=102307](https://go.microsoft.com/fwlink/?LinkId=102307)).  
+  
+    > [!NOTE]  
+    > Für Domänen Controller, die Zertifikate für LDAPS verwenden, müssen Sie möglicherweise Ihre Zertifikate erneut bereitstellen. Wenn Sie dies tun, wird von Domänen Controllern möglicherweise erst ein entsprechendes Zertifikat ausgewählt, wenn Sie neu gestartet werden. Weitere Informationen zur LDAPS-Authentifizierung und ein zugehöriges Update für Windows Server 2003 finden Sie im Artikel 932834 der Microsoft Knowledge Base ([https://go.microsoft.com/fwlink/?LinkId=102308](https://go.microsoft.com/fwlink/?LinkId=102308)).  
+  
+### <a name="planning-for-disjoint-namespace-deployments"></a>Planen von zusammenhängenden Namespace Bereitstellungen  
+Treffen Sie die folgenden Vorsichtsmaßnahmen, wenn Sie Computer in einer Umgebung bereitstellen, die über einen Zusammenhang losen Namespace verfügt:  
+  
+1.  Benachrichtigen Sie alle Softwarehersteller, bei denen Sie Geschäfte ausführen müssen und einen Zusammenhang losen Namespace unterstützen müssen. Bitten Sie Sie, zu überprüfen, ob Sie Ihre Anwendungen in Umgebungen unterstützen, die nicht zusammenhängende Namespaces verwenden.  
+  
+2.  Testen Sie alle Versionen von Betriebssystemen und Anwendungen in Zusammenhang losen Namespace-Lab-Umgebungen. Befolgen Sie dabei die folgenden Empfehlungen:  
+  
+    1.  Beheben Sie alle Software Probleme, bevor Sie die Software in Ihrer Umgebung bereitstellen.  
+  
+    2.  Wenn möglich, nehmen Sie an Beta Tests von Betriebssystemen und Anwendungen Teil, die Sie in nicht zusammenhängenden Namespaces bereitstellen möchten.  
+  
+3.  Stellen Sie sicher, dass Administratoren und Helpdeskmitarbeiter den Zusammenhang losen Namespace und seine Auswirkung kennen.  
+  
+4.  Erstellen Sie einen Plan, der es Ihnen ermöglicht, bei Bedarf von einem zusammenhängenden Namespace zu einem zusammenhängenden Namespace zu wechseln.  
+  
+5.  Evangelisieren Sie die Wichtigkeit der disjunkten Unterstützung von Namespaces mit Betriebssystem-und Anwendungsanbietern.  
   
 
 

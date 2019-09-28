@@ -1,9 +1,9 @@
 ---
 title: Netzwerkfunktionsvirtualisierung
-description: Sie können in diesem Thema verwenden, erfahren Sie Netzwerkfunktionsvirtualisierung, dem Sie virtuelle Netzwerkgeräte wie Datacenter Firewall, mehrinstanzenfähige RAS-Gateway und Software Load Balancing (SLB) im Windows Server 2016 bereitstellen können.
+description: In diesem Thema erfahren Sie mehr über die netzwerkfunktionsvirtualisierung, mit der Sie virtuelle Netzwerkgeräte wie Datacenter Firewall, mehrinstanzfähiges RAS-Gateway und Software Lastenausgleich (Software Load Balancing, SLB) in Windows Server 2016 bereitstellen können.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -12,52 +12,52 @@ ms.topic: article
 ms.assetid: 79df3bbe-48fd-4eff-8df6-35f6317566f3
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 59474a13d1cbce6a607f025caf3f6c1b839c7eed
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 338d5a285f2524932a91a66db186554cd0f50e2a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884551"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355662"
 ---
 # <a name="network-function-virtualization"></a>Netzwerkfunktionsvirtualisierung
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Können Sie in diesem Thema erfahren Sie Netzwerkfunktionsvirtualisierung, dem Sie bereitzustellende virtuelle Netzwerkgeräte wie Datacenter Firewall, mehrinstanzenfähige RAS-Gateway und den Softwarelastenausgleich können \(SLB\) multiplexer \(MUX\).
+In diesem Thema erfahren Sie mehr über die netzwerkfunktionsvirtualisierung, mit der Sie virtuelle Netzwerkgeräte bereitstellen können, z. b. Datacenter Firewall, mehrinstanzfähiges RAS-Gateway und Software Lastenausgleich \(slb @ no__t-1 Multiplexer \(mux @ no_ _T-3.
   
 >[!NOTE]  
->Zusätzlich zu diesem Thema ist die folgende Dokumentation zum Netzwerkfunktionsvirtualisierung verfügbar.  
-> - [Rechenzentrumsfirewall: Übersicht](../../../sdn/technologies/network-function-virtualization/../../../sdn/technologies/network-function-virtualization/Datacenter-Firewall-Overview.md)  
+>Zusätzlich zu diesem Thema ist die folgende Dokumentation zur netzwerkfunktionsvirtualisierung verfügbar.  
+> - [Übersicht über Datacenter Firewall](../../../sdn/technologies/network-function-virtualization/../../../sdn/technologies/network-function-virtualization/Datacenter-Firewall-Overview.md)  
 > - [RAS-Gateway für SDN](../../../sdn/technologies/network-function-virtualization/RAS-Gateway-for-SDN.md)  
 > - [Softwarelastenausgleich (SLB) für SDN](../../../sdn/technologies/network-function-virtualization/Software-Load-Balancing--SLB--for-SDN.md)  
   
-Heutige Software werden definierte Rechenzentren, Netzwerkfunktionen, die von Hardware (z. B. Load balancer, Firewalls, Routern, Switches usw.) ausgeführt werden zunehmend als virtuelle Appliances virtualisiert wird. Diese „Netzwerkfunktionsvirtualisierung“ ist ein natürlicher Fortschritt der Server- und Netzwerkvirtualisierung. Virtuelle Geräte sind schnell entwickelt und erstellen einen völlig neuen Markt. Generieren von Interesse sind und erhalten Momentum auf beiden Virtualisierungsplattformen und cloud-Dienste weiterhin.  
+In den heutigen Software definierten Rechenzentren werden Netzwerkfunktionen, die von Hardware Geräten (z. b. Lasten Ausgleichs Module, Firewalls, Router, Switches usw.) ausgeführt werden, zunehmend als virtuelle Geräte virtualisiert. Diese „Netzwerkfunktionsvirtualisierung“ ist ein natürlicher Fortschritt der Server- und Netzwerkvirtualisierung. Virtuelle Geräte werden schnell neu entwickelt und erstellen einen neuen Markt. Sie generieren weiterhin Interessen und gewinnen Dynamik sowohl bei Virtualisierungsplattformen als auch bei Clouddiensten.  
   
-Microsoft enthalten einen eigenständiges-Gateway als virtuelles Gerät mit Windows Server 2012 R2 ab. Weitere Informationen finden Sie unter [Windows Server Gateway](https://technet.microsoft.com/library/dn313101.aspx). Nun weiterhin mit Windows Server 2016 Microsoft zu erweitern, und investieren Sie in der Netzwerk-Funktion Virtualisierung Markt.  
+Microsoft enthielt seit Windows Server 2012 R2 ein eigenständiges Gateway als virtuelles Gerät. Weitere Informationen finden Sie unter [Windows Server Gateway](https://technet.microsoft.com/library/dn313101.aspx). Mit Windows Server 2016 erweitert und investiert Microsoft den Netzwerk Funktions-Virtualisierungsmarkt.  
   
-## <a name="virtual-appliance-benefits"></a>Virtuelle Appliance-Vorteile  
-Ein virtuelles Gerät ist dynamisch und ändern, da es sich um einen vorab erstellten, benutzerdefinierten virtuellen Computer ist einfach. Es kann eine oder mehrere virtuelle Computer enthalten, als eine Einheit verwaltet und aktualisiert sein. Zusammen mit Software-defined Networking (SDN), erhalten Sie die Agilität und Flexibilität, die in der heutigen cloudbasierte Infrastruktur erforderlich sind. Zum Beispiel:  
+## <a name="virtual-appliance-benefits"></a>Vorteile von virtuellen Geräten  
+Ein virtuelles Gerät ist dynamisch und leicht zu ändern, da es sich um einen vordefinierten, angepassten virtuellen Computer handelt. Dabei kann es sich um einen oder mehrere virtuelle Computer handeln, die als Einheit verpackt, aktualisiert und verwaltet werden. In Verbindung mit Software-Defined Networking (SDN) erhalten Sie die Flexibilität und Flexibilität, die Sie in der heutigen cloudbasierten Infrastruktur benötigen. Zum Beispiel:  
   
--   SDN stellt das Netzwerk als eine Ressource in einem Pool zusammengefasste und dynamische.  
+-   SDN stellt das Netzwerk als eine gepoolte und dynamische Ressource dar.  
   
--   SDN ermöglicht die Trennung von Mandanten.  
+-   SDN ermöglicht die Isolation von Mandanten.  
   
--   SDN maximiert, Skalierung und Leistung.  
+-   SDN maximiert die Skalierung und Leistung.  
   
--   Virtuelle Appliances Mobilität nahtlose Kapazität Erweiterung und der arbeitsauslastung.  
+-   Virtuelle Geräte ermöglichen eine nahtlose Kapazitätserweiterung und Arbeits Auslastungs Mobilität.  
   
--   Virtuelle Geräte verringern die Komplexität des Betriebs.  
+-   Virtuelle Geräte minimieren die betriebliche Komplexität.  
   
--   Virtuelle Geräte können Kunden ganz einfach erwerben, bereitstellen und Verwalten von vorab integrierten Lösungen.  
+-   Mit virtuellen Geräten können Kunden vorab integrierte Lösungen problemlos erwerben, bereitstellen und verwalten.  
   
-    -   Kunden können das virtuelle Gerät ganz einfach eine beliebige Stelle in der Cloud wechseln.  
+    -   Kunden können das virtuelle Gerät problemlos an eine beliebige Stelle in der Cloud verschieben.  
   
-    -   Kunden können virtuelle Appliances vertikal skalieren, oder dynamisch Sie je nach Bedarf.  
+    -   Kunden können virtuelle Geräte dynamisch nach Bedarf zentral hoch-oder Herunterskalieren.  
   
-Weitere Informationen zu Microsoft-SDN finden Sie unter [Software Defined Networking](https://technet.microsoft.com/windows-server-docs/networking/sdn/software-defined-networking--sdn-).  
+Weitere Informationen zu Microsoft Sdn finden Sie unter [Software-Defined Networking](https://technet.microsoft.com/windows-server-docs/networking/sdn/software-defined-networking--sdn-).  
   
-### <a name="what-network-functions-are-being-virtualized"></a>Welche Netzwerkfunktionen virtualisiert werden?  
-Marketplace für virtualisierte Netzwerkfunktionen wächst schnell. Die folgenden Netzwerkfunktionen werden virtualisiert wird:  
+### <a name="what-network-functions-are-being-virtualized"></a>Welche Netzwerkfunktionen werden virtualisiert?  
+Der Marketplace für virtualisierte Netzwerkfunktionen wächst schnell. Die folgenden Netzwerkfunktionen werden virtualisiert:  
   
 -   **Sicherheit**  
   
@@ -65,71 +65,71 @@ Marketplace für virtualisierte Netzwerkfunktionen wächst schnell. Die folgende
   
     -   Antivirensoftware  
   
-    -   DDoS (Distributed Denial of Service)  
+    -   DDoS (Verteilter Denial-of-Service)  
   
-    -   -IPS/IDS (Intrusion Prevention System/Angriffserkennungssystem)  
+    -   IPS/IDs (Eindring Schutzsystem/Angriffs Erkennungssystem)  
   
--   **Anwendung/WAN-Optimierer**  
+-   **Anwendungs-/WAN-Optimierer**  
   
--   **Edge**  
+-   **Modernste**  
   
-    -   Standort-zu-Standort-gateway  
+    -   Site-to-Site-Gateway  
   
-    -   L3-gateways  
+    -   L3-Gateways  
   
     -   Router  
   
-    -   Switches  
+    -   Mikro  
   
     -   NAT  
   
-    -   Load Balancer (nicht unbedingt auf Edge-Ebene)  
+    -   Lasten Ausgleichs Module (nicht notwendigerweise an der Kante)  
   
-    -   HTTP-proxy  
+    -   HTTP-Proxy  
   
-## <a name="why-microsoft-is-a-great-platform-for-virtual-appliances"></a>Warum ist Microsoft eine hervorragende Plattform für virtuelle Geräte  
-![Virtuelles Netzwerk-Stapel](../../../media/Network-Function-Virtualization/Microsoft-Network-Function-Virtualization.png)  
+## <a name="why-microsoft-is-a-great-platform-for-virtual-appliances"></a>Warum Microsoft eine gute Plattform für virtuelle Geräte ist  
+![Virtueller Netzwerk Stapel](../../../media/Network-Function-Virtualization/Microsoft-Network-Function-Virtualization.png)  
   
-Die Microsoft-Plattform wurde so entwickelt, eine hervorragende Plattform zum Erstellen und Bereitstellen von virtuellen Geräten werden. Hier ist die Antwort:  
+Die Microsoft-Plattform ist so konzipiert, dass Sie eine gute Plattform zum Erstellen und Bereitstellen von virtuellen Geräten ist. Dies ist der Grund:  
   
--   Microsoft bietet wichtige virtualisierten Netzwerk-Funktionen mit Windows Server 2016.  
+-   Microsoft stellt wichtige virtualisierte Netzwerkfunktionen mit Windows Server 2016 bereit.  
   
 -   Sie können ein virtuelles Gerät vom Hersteller Ihrer Wahl bereitstellen.  
   
--   Sie können bereitstellen, konfigurieren und verwalten Ihre virtuellen Geräte mit dem Microsoft-Netzwerkcontroller die in Windows Server 2016 enthalten ist. Weitere Informationen zu den Netzwerkcontroller, finden Sie unter [Netzwerkcontroller](../../../sdn/technologies/network-controller/Network-Controller.md).  
+-   Sie können Ihre virtuellen Geräte mit dem Microsoft-Netzwerk Controller bereitstellen, konfigurieren und verwalten, der in Windows Server 2016 verfügbar ist. Weitere Informationen zum Netzwerk Controller finden Sie unter [Netzwerk Controller](../../../sdn/technologies/network-controller/Network-Controller.md).  
   
--   Hyper-V kann es sich um die obersten Gastbetriebssysteme hosten, die Sie benötigen.  
+-   Hyper-V kann die wichtigsten Gast Betriebssysteme hosten, die Sie benötigen.  
   
-## <a name="network-function-virtualization-in-windows-server-2016"></a>Funktion-Netzwerkvirtualisierung unter Windows Server 2016  
+## <a name="network-function-virtualization-in-windows-server-2016"></a>Netzwerkfunktionsvirtualisierung in Windows Server 2016  
   
-### <a name="virtual-appliances-functions-provided-by-microsoft"></a>Virtuelle Geräte, von Microsoft bereitgestellten Funktionen  
+### <a name="virtual-appliances-functions-provided-by-microsoft"></a>Von Microsoft bereitgestellte Virtual Appliances-Funktionen  
 Die folgenden virtuellen Geräte werden mit Windows Server 2016 bereitgestellt:  
   
-**Softwarelastenausgleich**  
+**Software Load Balancer**  
   
-Ein Layer-4-Lastenausgleich, der bedarfsorientiert Datencenter betreiben. Dies ist eine ähnliche Version der Azure Lastenausgleich, die bedarfsabhängig in der Azure-Umgebung bereitgestellt wurde. Weitere Informationen zu den Microsoft Software Load Balancer, finden Sie unter [Software Load Balancing (SLB) für SDN](https://technet.microsoft.com/library/mt632286.aspx). Weitere Informationen zu Microsoft Azure Load Balancing Services, finden Sie unter [Microsoft Azure-Lastenausgleichsdienste](https://azure.microsoft.com/blog/2014/04/08/microsoft-azure-load-balancing-services/).  
+Ein Layer-4-Lasten Ausgleichs Modul, das bei der Daten Center Skalierung ausgeführt wird. Dies ist eine ähnliche Version von Azure Load Balancer, die in der Azure-Umgebung skaliert bereitgestellt wurde. Weitere Informationen zum Microsoft-Software Load Balancer finden Sie unter [Software Lastenausgleich (Software Load Balancing, SLB) für Sdn](https://technet.microsoft.com/library/mt632286.aspx). Weitere Informationen zu Microsoft Azure Lasten Ausgleichs Diensten finden Sie unter [Microsoft Azure Load Balancing Services](https://azure.microsoft.com/blog/2014/04/08/microsoft-azure-load-balancing-services/).  
   
-**Gateway**. RAS-Gateway enthält alle Kombinationen der folgenden Gateway-Funktionen.  
+**Gateway**: RAS-Gateway stellt alle Kombinationen der folgenden Gatewayfunktionen bereit.  
   
--   **Standort-zu-Standort-gateway**  
+-   **Site-to-Site-Gateway**  
   
-    RAS-Gateway stellt eine Border Gateway Protocol (BGP)-fähig, mehrinstanzenfähigen Gateway Mandanten zugreifen auf und verwalten ihre Ressourcen über Standort-zu-Standort-VPN-Verbindungen von Remotestandorten und, mit der Fluss von Netzwerkdatenverkehr zwischen virtuellen Ressourcen in der Cloud und Mandanten physischen Netzwerken. Weitere Informationen zum RAS-Gateway finden Sie unter [RAS-Gateway: hohe Verfügbarkeit](https://technet.microsoft.com/library/mt631692.aspx) und [RAS-Gateway](https://technet.microsoft.com/library/mt626650.aspx).  
+    Das RAS-Gateway bietet ein Border Gateway Protocol (BGP)-fähiges, mehrinstanzfähiges Gateway, mit dem Ihre Mandanten über Standort-zu-Standort-VPN-Verbindungen von Remote Standorten aus auf Ihre Ressourcen zugreifen und diese verwalten können und den Netzwerk Datenverkehr zwischen virtuellen Ressourcen zulässt. in den physischen Cloud-und Mandanten Netzwerken. Weitere Informationen zum RAS-Gateway finden Sie unter [hohe Verfügbarkeit des RAS](https://technet.microsoft.com/library/mt631692.aspx) -Gateways und [RAS-Gateway](https://technet.microsoft.com/library/mt626650.aspx).  
   
--   **Weiterleitungs-gateway**  
+-   **Weiterleitungs Gateway**  
   
-    RAS-Gateway leitet den Datenverkehr zwischen virtuellen Netzwerken und dem physischen Netzwerk. Z. B. wenn Mandanten eine oder mehrere virtuelle Netzwerke erstellen und Zugriff auf freigegebene Ressourcen auf dem physischen Netzwerk auf dem Hostinganbieter benötigen, kann die weiterleitungs-Gateway Datenverkehr zwischen dem virtuellen Netzwerk und dem physischen Netzwerk zu Benutzer, weiterleiten das virtuelle Netzwerk mit den Diensten, die sie benötigen. Weitere Informationen finden Sie unter [RAS-Gateway: hohe Verfügbarkeit](https://technet.microsoft.com/library/mt631692.aspx) und [RAS-Gateway](https://technet.microsoft.com/library/mt626650.aspx).  
+    RAS-Gateway leitet Datenverkehr zwischen virtuellen Netzwerken und dem physischen Netzwerk des hostinganbieters weiter. Wenn Mandanten z. b. ein oder mehrere virtuelle Netzwerke erstellen und Zugriff auf freigegebene Ressourcen im physischen Netzwerk des hostinganbieters benötigen, kann das Weiterleitungs Gateway Datenverkehr zwischen dem virtuellen Netzwerk und dem physischen Netzwerk weiterleiten, um Benutzern die Arbeit zu ermöglichen. das virtuelle Netzwerk mit den Diensten, die Sie benötigen. Weitere Informationen finden Sie unter [hohe Verfügbarkeit des RAS-Gateways](https://technet.microsoft.com/library/mt631692.aspx) und [RAS-Gateway](https://technet.microsoft.com/library/mt626650.aspx).  
   
--   **GRE-Tunnel-gateways**  
+-   **GRE-Tunnel Gateways**  
   
-    GRE-basierte Tunnel ermöglichen Verbindungen zwischen virtuellen Mandantennetzwerken und externen Netzwerken. Da das GRE-Protokoll Lightweight und Support ist für GRE auf die meisten Netzwerkgeräte verfügbar ist, wird es eine ideale Option zum Tunneln, in dem die datenverschlüsselung nicht erforderlich ist. Bei S2S (Standort-zu-Standort)-Tunneln kann durch GRE-Unterstützung das Problem der Weiterleitung zwischen virtuellen Mandantennetzwerken und externen Mandantennetzwerken über ein mehrinstanzenfähiges Gateway gelöst werden. Weitere Informationen zu den GRE-Tunnel, finden Sie unter [GRE Tunneling in Windows Server 2016](https://technet.microsoft.com/library/dn765485.aspx).  
+    GRE-basierte Tunnel ermöglichen Verbindungen zwischen virtuellen Mandantennetzwerken und externen Netzwerken. Da das GRE-Protokoll einfach ist und die Unterstützung für GRE auf den meisten Netzwerkgeräten verfügbar ist, ist es eine ideale Wahl für das Tunnelingverfahren, bei dem keine Datenverschlüsselung erforderlich ist. Bei S2S (Standort-zu-Standort)-Tunneln kann durch GRE-Unterstützung das Problem der Weiterleitung zwischen virtuellen Mandantennetzwerken und externen Mandantennetzwerken über ein mehrinstanzenfähiges Gateway gelöst werden. Weitere Informationen zu GRE-Tunneln finden Sie unter [GRE tunnelingin Windows Server 2016](https://technet.microsoft.com/library/dn765485.aspx).  
   
 **Routing Steuerungsebene mit BGP**  
   
-Hyper-V-Netzwerkvirtualisierung (HNV)-Routing-Steuerelement ist die logische, zentrale Entität Steuerungsebene, die alle-Ebene die Kundenadresse Routen enthält Features, die dynamisch und aktualisiert dann die verteilte RAS-Gateway-Router im virtuellen Netzwerk. Weitere Informationen finden Sie unter [RAS-Gateway: hohe Verfügbarkeit](https://technet.microsoft.com/library/mt631692.aspx) und [RAS-Gateway](https://technet.microsoft.com/library/mt626650.aspx).  
+Die Hyper-v-Netzwerkvirtualisierung (HNV) ist die logische, zentralisierte Entität auf der Steuerungsebene, die alle Routen der Kunden Adress Ebene enthält und die verteilten RAS-Gatewayrouter im virtuellen Netzwerk dynamisch erlernt und aktualisiert. Weitere Informationen finden Sie unter [hohe Verfügbarkeit des RAS-Gateways](https://technet.microsoft.com/library/mt631692.aspx) und [RAS-Gateway](https://technet.microsoft.com/library/mt626650.aspx).  
   
-**Verteilte mehrinstanzenfähige firewall**  
+**Verteilte mehr Instanzen fähige Firewall**  
   
-Die Firewall schützt die Ebene des Netzwerks der virtuellen Netzwerke. Die Richtlinien werden auf den SDN-vSwitch-Port, der jeden virtuellen mandantencomputer erzwungen. Es schützt alle datenverkehrsflüsse: OST-West "und" Nord-Süd. Die Richtlinien werden über das mandantenportal abgelegt, und den Netzwerkcontroller für alle anwendbaren Hosts verteilt. Weitere Informationen zur verteilten Firewall mit mehreren Mandanten finden Sie unter [Datacenter Firewall – Übersicht](../../../sdn/technologies/network-function-virtualization/../../../sdn/technologies/network-function-virtualization/Datacenter-Firewall-Overview.md).  
+Die Firewall schützt die Netzwerkebene von virtuellen Netzwerken. Die Richtlinien werden auf dem SDN-Vswitch-Port der einzelnen Mandanten-VMS erzwungen. Sie schützt alle Daten Verkehrsflüsse: Ost-West und Nord-Süd. Die Richtlinien werden über das Mandanten Portal übermittelt, und der Netzwerk Controller verteilt Sie an alle anwendbaren Hosts. Weitere Informationen zur verteilten mehr Instanzen fähigen Firewall finden [Sie unter Übersicht über die Datacenter-Firewall](../../../sdn/technologies/network-function-virtualization/../../../sdn/technologies/network-function-virtualization/Datacenter-Firewall-Overview.md).  
   
 
 

@@ -7,36 +7,36 @@ ms.author: pashort
 manager: dougkim
 ms.date: 05/08/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 3233434403594ef9e2555c0329c4791d1fb99709
-ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
+ms.openlocfilehash: e3dbaa188426ac81073e706db3adc6ab0a655c01
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67469587"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405182"
 ---
-# <a name="windows-time-service-w32time"></a>Windows Time Service (W32Time)
+# <a name="windows-time-service-w32time"></a>Windows-Zeit Dienst (W32Time)
 
 >Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10 oder höher
 
-Datum und Uhrzeit für alle Computer mit in Active Directory Domain Services (AD DS), wird der Windows-Zeitdienst (W32Time) synchronisiert. Die uhrzeitsynchronisierung ist für die ordnungsgemäße Ausführung von vielen Windows-Diensten und Line-of-Business (LOB)-Anwendungen von entscheidender Bedeutung. Der Windows-Zeitdienst verwendet das Network Time Protocol (NTP), um Computertakt auf das Netzwerk zu synchronisieren. NTP wird sichergestellt, dass eine genaue Uhrzeit oder Zeitstempel zu Netzwerk-Überprüfung und Resource Access-Anforderungen zugewiesen werden kann.
+Der Windows-Zeit Dienst (W32Time) synchronisiert das Datum und die Uhrzeit für alle Computer, die in Active Directory Domain Services (AD DS) ausgeführt werden. Die Zeitsynchronisierung ist entscheidend für den ordnungsgemäßen Betrieb vieler Windows-Dienste und Branchen Anwendungen (LOB-Anwendungen). Der Windows-Zeit Dienst verwendet das Netzwerk Zeitprotokoll (NTP), um Computeruhren im Netzwerk zu synchronisieren. NTP stellt sicher, dass einer Netzwerk Validierung und Ressourcen Zugriffs Anforderungen ein genauerer Uhrzeitwert oder Zeitstempel zugewiesen werden kann.
 
-Im Thema Windows-Zeitdienst (W32Time) ist Folgendes verfügbar:
-- **[Windows Server 2016 – genaue Uhrzeit](accurate-time.md).** Synchronisierung uhrzeitsynchronisierungsdienst in Windows Server 2016 wurde erheblich, und gleichzeitig vollständige Abwärtskompatibilität NTP-Kompatibilität mit älteren Windows-Versionen verbessert. Unter angemessenen betriebsbedingungen 1 verwaltet werden können ms Genauigkeit in Bezug auf die UTC-Zeit oder besser für Mitglieder der Domäne Windows Server 2016 und Windows 10 Anniversary Update.
-- **[Begrenzung der Unterstützung für Umgebungen mit hoher Genauigkeit](support-boundary.md).** Dieser Artikel beschreibt die Grenzen der Unterstützung für den Windows-Zeitdienst (W32Time) in Umgebungen, die äußerst präzise und stabile-System stets angefordert wird.
-- **[Konfigurieren von Systemen für hohe Genauigkeit](configuring-systems-for-high-accuracy.md).** Zeitsynchronisierung in Windows 10 und Windows Server 2016 wurde erheblich verbessert.  Unter betriebsbedingungen sinnvoll, Systeme zum Verwalten von 1 ms (Millisekunden) konfiguriert werden können Genauigkeit oder höher (in Bezug auf UTC).
-- **[Windows-Zeit für die Nachverfolgbarkeit](windows-time-for-traceability.md).** In vielen Bereichen geltender werden Systeme in UTC zurückverfolgt werden.  Dies bedeutet, dass es sich bei eines Systems Offset in Bezug auf UTC nachgewiesen werden kann.  Um die Einhaltung gesetzlicher Bestimmungen Szenarien zu ermöglichen, bietet Windows 10 und Server 2016 neuen Ereignisprotokolle auf ein Bild aus der Perspektive des Betriebssystems, um einen Überblick über die Aktionen, die auf der Systemzeit zu bilden.  Diese Ereignisprotokolle kann werden kontinuierlich für Windows-Zeitdienst generiert und überprüft oder zur späteren Analyse archiviert werden.
-- **[Technische Referenz zu Windows Time Service](windows-time-service-tech-ref.md).** Der W32Time-Dienst stellt die Synchronisation des Computertakts Netzwerk für Computer ohne umfassende Konfiguration bereit. Der W32Time-Dienst ist wichtig, um den reibungslosen Betrieb Kerberos V5-Authentifizierung und somit auf AD DS-basierte Authentifizierung.
-    - **[Funktionsweise der Windows-Zeitdienst](How-the-Windows-Time-Service-Works.md).** Obwohl der Windows-Zeitdienst nicht um eine genaue Implementierung des Network Time Protocol (NTP) ist, wird die komplexe Sammlung von Algorithmen, die in den NTP-Spezifikationen, um sicherzustellen, dass die Uhren auf den Computern in einem Netzwerk so exakt wie möglich definiert ist.
-    - **[Windows-Zeitdienst: Tools und Einstellungen](Windows-Time-Service-Tools-and-Settings.md).** Die meisten Domänenmitgliedscomputer weisen den Typ Client Zeit NT5DS, was bedeutet, dass sie aus der Domänenhierarchie synchronisiert. Nur typische eine Ausnahme ist der Domänencontroller, der als primärer Domänencontroller (PDC) Emulationsbetriebsmaster des von der Stammdomäne der Gesamtstruktur, die in der Regel konfiguriert ist fungiert, um die Zeit mit einer externen Zeitquelle synchronisieren.
+Im Thema Windows-Zeit Dienst (W32Time) ist der folgende Inhalt verfügbar:
+- **[Windows Server 2016 genaue Zeit](accurate-time.md).** Die Genauigkeit der Zeitsynchronisierung in Windows Server 2016 wurde erheblich verbessert, während die NTP-Kompatibilität mit älteren Windows-Versionen vollständig abwärts bleibt. Unter angemessenen Betriebsbedingungen können Sie eine Genauigkeit von 1 MS in Bezug auf die UTC oder besser für Domänen Mitglieder von Windows Server 2016 und Windows 10 Anniversary Update erhalten.
+- **[Unterstützung von Grenzen für Umgebungen mit hoher Genauigkeit](support-boundary.md).** In diesem Artikel werden die unterstützten Grenzen für den Windows-Zeit Dienst (W32Time) in Umgebungen beschrieben, in denen eine sehr genaue und stabile Systemzeit erforderlich ist.
+- **[Konfigurieren von Systemen für hohe Genauigkeit](configuring-systems-for-high-accuracy.md).** Die Zeitsynchronisierung in Windows 10 und Windows Server 2016 wurde wesentlich verbessert.  Unter angemessenen Betriebsbedingungen können Systeme so konfiguriert werden, dass Sie eine Genauigkeit von 1 ms (Millisekunden) oder eine bessere Genauigkeit (in Bezug auf die UTC) erhalten.
+- **[Windows-Zeit für die Rückverfolgbarkeit](windows-time-for-traceability.md).** Für Vorschriften in vielen Sektoren ist es erforderlich, dass Systeme für die UTC in der UTC-  Dies bedeutet, dass der Offset eines Systems in Bezug auf die UTC bestätigt werden kann.  Zum Aktivieren von compliancekompatibilitäts Szenarien werden von Windows 10 und Server 2016 neue Ereignisprotokolle bereitgestellt, um ein Bild aus der Perspektive des Betriebssystems bereitzustellen und ein Verständnis der auf der Systemuhr ausgeführten Aktionen zu bilden.  Diese Ereignisprotokolle werden fortlaufend für den Windows-Zeit Dienst generiert und können zur späteren Analyse überprüft oder archiviert werden.
+- **[Technische Referenz für den Windows-Zeit Dienst](windows-time-service-tech-ref.md).** Der W32Time-Dienst ermöglicht die Synchronisierung von Netzwerk Uhren für Computer, ohne dass eine umfassende Konfiguration erforderlich ist. Der W32Time-Dienst ist für den erfolgreichen Betrieb der Kerberos V5-Authentifizierung und somit für die AD DS basierte Authentifizierung unverzichtbar.
+    - **[Wie der Windows-Zeit Dienst funktioniert](How-the-Windows-Time-Service-Works.md).** Obwohl es sich bei dem Windows-Zeit Dienst nicht um eine exakte Implementierung des Netzwerk Zeit Protokolls (Network Time Protocol, NTP) handelt, verwendet er die komplexe Suite von Algorithmen, die in den NTP-Spezifikationen definiert sind, um sicherzustellen, dass Uhren auf Computern innerhalb eines Netzwerks so genau wie möglich sind.
+    - **[Windows-Zeit Dienst Tools und-Einstellungen](Windows-Time-Service-Tools-and-Settings.md).** Die meisten Domänen Mitglieds Computer verfügen über den Zeit Clienttyp eine NT5DS, was bedeutet, dass Sie die Zeit von der Domänen Hierarchie synchronisieren. Die einzige typische Ausnahme ist der Domänen Controller, der als Emulator-Betriebs Master des primären Domänen Controllers (PDC) der Stamm Domäne der Gesamtstruktur fungiert, der in der Regel so konfiguriert ist, dass die Zeit mit einer externen Zeit Quelle synchronisiert wird.
 
 
 ## <a name="related-topics"></a>Verwandte Themen
-Weitere Informationen über die Domänenhierarchie und Punktesystems finden Sie unter den ["Was ist Windows-Zeitdienst?"](https://blogs.msdn.microsoft.com/w32time/2007/07/07/what-is-windows-time-service/) .
+Weitere Informationen zur Domänen Hierarchie und zum Bewertungssystem finden Sie unter ["Was ist der Windows-Zeit Dienst?"](https://blogs.msdn.microsoft.com/w32time/2007/07/07/what-is-windows-time-service/) . .
 
-Die Anbieter-Plug-in das Modell für Windows ist [auf TechNet-Website dokumentiert](https://msdn.microsoft.com/library/windows/desktop/ms725475%28v=vs.85%29.aspx).
+Das Windows-Zeit Anbieter-Plug-in-Modell ist [auf TechNet dokumentiert](https://msdn.microsoft.com/library/windows/desktop/ms725475%28v=vs.85%29.aspx).
 
-Ein Nachtrag der Windows 2016 genau Zeit-Artikel kann heruntergeladen werden [hier](https://windocs.blob.core.windows.net/windocs/WindowsTimeSyncAccuracy_Addendum.pdf)
+Ein Nachtrag, auf den der Artikel Windows 2016-Zeit genaue Zeit verweist, kann [hier](https://windocs.blob.core.windows.net/windocs/WindowsTimeSyncAccuracy_Addendum.pdf) heruntergeladen werden.
 
-Für eine kurze Übersicht über Windows-Zeitdienst, sehen Sie sich diese [auf hoher Ebene übersichtsvideo](https://aka.ms/WS2016TimeVideo).
+Eine kurze Übersicht über den Windows-Zeit Dienst finden Sie in diesem [Übersichts Video](https://aka.ms/WS2016TimeVideo).

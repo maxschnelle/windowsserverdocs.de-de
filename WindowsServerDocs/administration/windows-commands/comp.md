@@ -1,8 +1,8 @@
 ---
 title: comp
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d10b86176d97e1afd76085516fbfc00bdc36577f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 84604cea36b0b4c9543a7169002551c0da4f0493
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854681"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379260"
 ---
 # <a name="comp"></a>comp
 
 
 
-Vergleicht den Inhalt von zwei Dateien oder Sätze von Dateien Byte-pro-Byte. Wenn Sie ohne Angabe von Parametern **Comp** fordert Sie zur Eingabe der zu vergleichenden Dateien.
+Vergleicht den Inhalt von zwei Dateien oder Dateigruppen byteweise. Wenn Sie ohne Parameter verwendet wird, werden Sie von **Comp** aufgefordert, die zu vergleichenden Dateien einzugeben.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -38,21 +38,21 @@ comp [<Data1>] [<Data2>] [/d] [/a] [/l] [/n=<Number>] [/c]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<Data1 >|Gibt den Speicherort und Namen der ersten Datei oder die Gruppe von Dateien, die Sie vergleichen möchten. Sie können Platzhalterzeichen verwenden (**&#42;** und **?**) auf mehrere Dateien anzugeben.|
-|\<Data2 >|Gibt den Speicherort und Namen der zweiten Datei oder die Gruppe von Dateien, die Sie vergleichen möchten. Sie können Platzhalterzeichen verwenden (**&#42;** und **?**) auf mehrere Dateien anzugeben.|
-|/d|Zeigt die Unterschiede im Dezimalformat. (Das Standardformat ist hexadezimal).|
-|/a|Zeigt die Unterschiede als-Zeichen.|
-|/l|Zeigt die Nummer der Zeile, in dem ein Unterschied wird anstelle des Byteoffsets, an.|
-|/ n =\<Anzahl >|Vergleicht nur die Anzahl der Zeilen, die für jede Datei angegeben werden, auch wenn die Dateien unterschiedlichen Größen sind.|
-|/c|Führt einen Vergleich, der keine Groß-/Kleinschreibung beachtet wird.|
-|/off[line]|Verarbeitet die Dateien mit dem offline-Attribut.|
+|\<data1 >|Gibt den Speicherort und den Namen der ersten Datei oder Gruppe von Dateien an, die Sie vergleichen möchten. Sie können Platzhalter Zeichen ( **&#42;** und **?** ) verwenden, um mehrere Dateien anzugeben.|
+|\<data2 >|Gibt den Speicherort und den Namen der zweiten Datei oder Gruppe von Dateien an, die Sie vergleichen möchten. Sie können Platzhalter Zeichen ( **&#42;** und **?** ) verwenden, um mehrere Dateien anzugeben.|
+|/d|Zeigt Unterschiede im Dezimal Format an. (Das Standardformat ist hexadezimal.)|
+|/a|Zeigt Unterschiede als Zeichen an.|
+|/l|Zeigt die Nummer der Zeile an, in der ein Unterschied auftritt, anstatt den Byte Offset anzuzeigen.|
+|/n = \<number >|Vergleicht nur die Anzahl der Zeilen, die für jede Datei angegeben werden, auch wenn die Dateien unterschiedlich groß sind.|
+|/c|Führt einen Vergleich aus, bei dem keine Groß-/Kleinschreibung beachtet wird|
+|/Off [Zeile]|Verarbeitet Dateien mit dem Offline-Attribut Satz.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
--   Wie die **Comp** Befehl identifiziert nicht übereinstimmende Informationen
+-   Wie der **Comp** -Befehl nicht übereinstimmende Informationen identifiziert
 
-    Während des Vergleichs **Comp** zeigt an, die die Speicherorte der ungleichen-Informationen zwischen den Dateien zu identifizieren. Jeder Nachricht gibt an, die Offsets Speicheradresse der ungleichen Bytes und den Inhalt der Bytes (in der Hexadezimalnotation, wenn die **/a** oder **/d** Befehlszeilenparameter angegeben ist). Meldungen werden im folgenden Format angezeigt:
+    Während des Vergleichs zeigt **Comp** Meldungen an, die die Positionen der ungleichen Informationen zwischen den Dateien identifizieren. Jede Meldung gibt die Offset-Speicheradresse der ungleichen Bytes und den Inhalt der Bytes an (in Hexadezimal Schreibweise, es sei denn, der **/a** -oder **/d** -Befehlszeilenparameter wird angegeben). Nachrichten werden im folgenden Format angezeigt:
 
     `Compare error at OFFSET xxxxxxxx`
 
@@ -60,48 +60,48 @@ comp [<Data1>] [<Data2>] [/d] [/a] [/l] [/n=<Number>] [/c]
 
     `file2 = xx`
 
-    Nach zehn ungleich-Vergleiche **Comp** beendet wird, vergleichen die Dateien und die folgende Meldung angezeigt:
+    Nach zehn ungleichen vergleichen hält **Comp** den Vergleich der Dateien an und zeigt die folgende Meldung an:
 
     `10 Mismatches - ending compare`
--   Behandeln besonderer Fälle für *Data1* und *Data2*  
-    -   Wenn Sie die erforderlichen Komponenten entweder weglassen *Data1* oder *Data2* oder wenn Sie weglassen *Data2*, **Comp** aufgefordert, die fehlenden Informationen.
-    -   Wenn *Data1* enthält nur einen Laufwerkbuchstaben oder einen Verzeichnisnamen mit keine Dateinamen, **Comp** vergleicht alle Dateien im angegebenen Verzeichnis in die Datei im angegebenen *Data1*.
-    -   Wenn *Data2* enthält nur einen Laufwerkbuchstaben oder einen Verzeichnisnamen an, der Standarddateiname für *Data2* ist identisch mit dem in *Data1*.
-    -   Wenn **Comp** kann nicht gefunden werden die Dateien, die Sie angeben, sie werden Sie aufgefordert, mit der Meldung zu bestimmen, ob weitere Dateien verglichen werden soll.
--   Vergleichen von Dateien an unterschiedlichen Standorten
+-   Behandeln spezieller Fälle für *data1* und *data2*  
+    -   Wenn Sie die erforderlichen Komponenten von " *data1* " oder " *data2* " weglassen oder wenn Sie *data2*weglassen, werden Sie von **Comp** zur Eingabe der fehlenden Informationen aufgefordert.
+    -   Wenn *data1* nur einen Laufwerk Buchstaben oder einen Verzeichnisnamen ohne Dateinamen enthält, vergleicht **Comp** alle Dateien im angegebenen Verzeichnis mit der in *data1*angegebenen Datei.
+    -   Wenn *data2* nur einen Laufwerk Buchstaben oder einen Verzeichnisnamen enthält, ist der Standard Dateiname für *data2* derselbe wie in *data1*.
+    -   Wenn **Comp** die angegebenen Dateien nicht finden kann, wird eine Meldung angezeigt, um zu bestimmen, ob Sie weitere Dateien vergleichen möchten.
+-   Vergleichen von Dateien an unterschiedlichen Speicherorten
 
-    **Comp** können Dateien auf dem gleichen Laufwerk oder auf verschiedenen Laufwerken und im gleichen Verzeichnis oder in verschiedenen Verzeichnissen vergleichen. Wenn **Comp** vergleicht die Dateien, deren Speicherort und die Namen angezeigt.
--   Vergleichen von Dateien mit den gleichen Namen
+    **Comp** kann Dateien auf demselben Laufwerk, auf verschiedenen Laufwerken und im gleichen Verzeichnis oder in verschiedenen Verzeichnissen vergleichen. Wenn **Comp** die Dateien vergleicht, werden ihre Speicherorte und Dateinamen angezeigt.
+-   Vergleichen von Dateien mit denselben Namen
 
-    Die Dateien, die Sie vergleichen, haben den gleichen Dateinamen, vorausgesetzt, dass sie in anderen Verzeichnissen oder auf verschiedenen Laufwerken sind. Wenn Sie einen Namen für nicht angeben *Data2*, der Standarddateiname für *Data2* ist identisch mit den Namen der im *Data1*. Sie können Platzhalterzeichen verwenden (**&#42;** und **?**) Dateinamen angeben.
--   Vergleichen von Dateien mit verschiedenen Größen
+    Die Dateien, die Sie vergleichen, können den gleichen Dateinamen haben, vorausgesetzt, Sie befinden sich in verschiedenen Verzeichnissen oder auf unterschiedlichen Laufwerken. Wenn Sie keinen Dateinamen für *data2*angeben, ist der Standard Dateiname für *data2* mit dem Dateinamen in *data1*identisch. Sie können Platzhalter Zeichen ( **&#42;** und **?** ) verwenden, um Dateinamen anzugeben.
+-   Vergleichen von Dateien mit unterschiedlichen Größen
 
-    Sie müssen angeben, **/n** zum Vergleichen von Dateien mit verschiedenen Größen. Wenn die Dateigrößen unterscheiden und **/n** nicht angegeben ist, **Comp** wird die folgende Meldung angezeigt:
+    Sie müssen **/n** angeben, um Dateien mit unterschiedlichen Größen zu vergleichen. Wenn die Dateigrößen unterschiedlich sind und **/n** nicht angegeben wird, zeigt **Comp** die folgende Meldung an:
 
     `Files are different sizes`
 
     `Compare more files (Y/N)?`
 
-    So vergleichen Sie diese Dateien, z zum Beenden der **Comp** Befehl. Führen Sie dann erneut aus der **Comp** -Befehl mit der **/n** Option aus, um nur der erste Teil jeder Datei verglichen werden soll.
--   Vergleichen von Dateien sequenziell
+    Zum Vergleichen dieser Dateien drücken Sie N, um den Befehl **Comp** zu unterbrechen. Führen Sie dann den **Comp** -Befehl mit der Option **/n** erneut aus, um nur den ersten Teil der einzelnen Dateien zu vergleichen.
+-   Sequenzielles Vergleichen von Dateien
 
-    Bei Verwendung von Platzhalterzeichen (**&#42;** und **?**) an mehrere Dateien **Comp** sucht die erste Datei, die entspricht *Data1* und vergleicht ihn mit der entsprechenden Datei im *Data2*, sofern vorhanden. Die **Comp** Befehl meldet die Ergebnisse des Vergleichs für den Abgleich von jeder Datei *Data1*. Abschließend **Comp** wird die folgende Meldung angezeigt:
+    Wenn Sie Platzhalter Zeichen ( **&#42;** und **?** ) verwenden, um mehrere Dateien anzugeben, sucht **Comp** die erste Datei, die mit *data1* übereinstimmt, und vergleicht sie mit der entsprechenden Datei in *data2*, sofern vorhanden. Der **Comp** -Befehl meldet die Ergebnisse des Vergleichs für jede Datei, die mit *data1*übereinstimmt. Nach Abschluss zeigt **Comp** die folgende Meldung an:
 
     `Compare more files (Y/N)?`
 
-    Drücken Sie Y, um mehrere Dateien zu vergleichen. Die **Comp** Befehl werden Sie aufgefordert, für die Standorte und die Namen der neuen Dateien. Auf die Vergleiche Beenden drücken Sie N. Wenn Sie "Y" drücken **Comp** fordert Sie Befehlszeilenoptionen verwenden. Wenn Sie keine Befehlszeilenoptionen angeben **Comp** wird verwendet, die Sie vor dem angegebenen Werten.
+    Drücken Sie Y, um weitere Dateien zu vergleichen. Mit dem Befehl **Comp** werden Sie aufgefordert, die Speicherorte und Namen der neuen Dateien einzugeben. Um die Vergleiche zu unterbrechen, drücken Sie N. Wenn Sie Y drücken, werden Sie von **Comp** aufgefordert, die Befehlszeilenoptionen zu verwenden. Wenn Sie keine Befehlszeilenoptionen angeben, verwendet **Comp** die Werte, die Sie zuvor angegeben haben.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um den Inhalt des Verzeichnisses C:\Reports mit Sicherungsverzeichnis vergleichen \\ \\Sales\Backup\April, Typ:
+Geben Sie Folgendes ein, um den Inhalt des Verzeichnisses c:\Reports mit dem Sicherungs Verzeichnis \\ @ no__t-1Sales\Backup\April zu vergleichen:
 ```
 comp c:\reports \\sales\backup\april
 ```
-Um die ersten zehn Zeilen der Textdateien im Verzeichnis \Invoice vergleichen und das Ergebnis im Dezimalformat angezeigt, geben Sie Folgendes ein:
+Wenn Sie die ersten zehn Zeilen der Textdateien im Verzeichnis "\rechnungs" vergleichen und das Ergebnis im Dezimal Format anzeigen möchten, geben Sie Folgendes ein:
 ```
 comp \invoice\*.txt \invoice\backup\*.txt /n=10 /d
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -2,7 +2,7 @@
 title: Anfügen zusätzlicher Stationen an den Multipoint-Server
 description: Hinzufügen von weiteren Stationen zu ihrer Multipoint Services-Bereitstellung
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: evaseydl
 manager: scottman
 ms.author: evas
 ms.date: 08/04/2016
-ms.openlocfilehash: 70609d491f5eb60daf89df219c06c8b9d4c3cd3e
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 45340f02b120b1431b1f58a58ed03ea40e17a14c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871412"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394747"
 ---
 # <a name="attach-additional-stations-to-multipoint-services"></a>Anfügen zusätzlicher Stationen an Multipoint Services
 In ihrer Multipoint Services-Umgebung verwenden die Benutzer Stationen, um eine Verbindung mit Multipoint Services herzustellen und ihre Arbeit zu erledigen. Die Stationen sind die Benutzer Endpunkte zum Herstellen einer Verbindung mit dem Computer, auf dem Multipoint Services ausgeführt wird.  

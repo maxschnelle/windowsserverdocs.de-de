@@ -7,41 +7,41 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 0a330a9dae8ab8d3b9de5d1fff0e52060908f520
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 109f576bfdacf68a0eadc7dd84ddb9a4148e6dd9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59815811"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408676"
 ---
 # <a name="site-functions"></a>Standortfunktionen
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
- Windows Server 2008 werden Standortinformationen für viele Zwecke, einschließlich routing-Replikation, Clientaffinität, Systemvolume (SYSVOL)-Systemreplikation, Distributed Datei System-Namespaces (DFSN) und dienstidentifizierung verwendet.  
+ Windows Server 2008 verwendet Standortinformationen für viele Zwecke, einschließlich Routing Replikation, Client Affinität, System Volume-Replikation (SYSVOL), verteiltes Dateisystem Namespaces (DFSN) und Dienst Speicherort.  
   
-## <a name="routing-replication"></a>Routing-Replikation  
-Active Directory-Domänendienste (AD DS) verwendet eine multimaster, speichern-und-Weiterleiten-Methode der Replikation. Domänencontroller kommuniziert verzeichnisänderungen, ein zweiter Domänencontroller, klicken Sie dann eine Verbindung mit einer dritten usw., bis alle Domänencontroller die Änderung erhalten hat. Um das optimale Gleichgewicht zwischen der Replikationswartezeit zu reduzieren und Senkung des Datenverkehrs zu erzielen, steuert die Standorttopologie Active Directory-Replikation durch die Unterscheidung zwischen Replikation innerhalb eines Standorts und Replikation zwischen Standorten.  
+## <a name="routing-replication"></a>Routing Replikation  
+Active Directory Domain Services (AD DS) verwendet eine Multimaster-, Speicher-und vorwärts Methode der Replikation. Ein Domänen Controller kommuniziert Verzeichnisänderungen an einen zweiten Domänen Controller, der dann mit einem dritten kommuniziert usw., bis alle Domänen Controller die Änderung erhalten haben. Um das beste Gleichgewicht zwischen der Reduzierung der Replikations Latenz und der Reduzierung des Datenverkehrs zu erzielen, steuert die Standort Topologie die Active Directory Replikation, indem zwischen der Replikation innerhalb eines Standorts und der Zwischenstand Orten statt  
   
-Innerhalb von Standorten wird die Replikation optimiert, für die Geschwindigkeit, die Updates Trigger Datenreplikation und die Daten ohne den Aufwand erforderlich, durch die datenkomprimierung gesendet wird. Im Gegensatz dazu wird die Replikation zwischen Standorten komprimiert, um die Kosten für die Übertragung über Verbindungen wide Area Network (WAN) zu minimieren. Bei der Replikation zwischen Standorten, ein einzelnen Domänencontroller pro Domäne an jedem Standort erfasst und speichert die Änderungen, und sie zu einem geplanten Zeitpunkt zu einem Domänencontroller an einem anderen Standort kommuniziert ab.  
+Innerhalb von Standorten wird die Replikation für die Geschwindigkeit optimiert, die Replikation von Daten Updates löst die Replikation aus, und die Daten werden ohne den von der Datenkomprimierung Umgekehrt wird die Replikation Zwischenstand Orten komprimiert, um die Kosten für die Übertragung über WAN-Verbindungen (Wide Area Network) zu minimieren. Wenn die Replikation Zwischenstand Orten erfolgt, sammelt und speichert ein einzelner Domänen Controller pro Domäne an jedem Standort die Verzeichnisänderungen und kommuniziert sie zu einem geplanten Zeitpunkt an einen Domänen Controller an einem anderen Standort.  
   
 ## <a name="client-affinity"></a>Clientaffinität  
-Domänencontroller verwenden Standortinformationen in Active Directory-Clients über Domänencontroller vorhanden ist, in dem nächstgelegenen Standort wie der Client informiert. Betrachten Sie beispielsweise einen Client am Standort Seattle, die weiß nicht, dass die Site-Zuordnung und kontaktiert einen Domänencontroller, von der Atlanta-Website. Basierend auf die IP-Adresse des Clients, bestimmt der Domänencontroller in Atlanta, welchem Standort der Client ist jedoch aus und sendet Standortinformationen zurück an den Client. Der Domänencontroller enthält außerdem dem Client, ob die ausgewählten Domänencontroller dasjenige, es ist. Der Client speichert die Informationen bereitgestellt, die vom Domänencontroller in Atlanta dabei, Abfragen für den standortspezifischen Dienste (SRV)-Ressourceneintrag (ein Domain Name System (DNS) Ressourceneintrag verwendet, um für AD DS-Domänencontroller zu finden), und dadurch sucht nach einer Domäne Controller innerhalb desselben Standorts.  
+Von Domänen Controllern werden Standortinformationen verwendet, um Active Directory Clients Informationen über Domänen Controller zu informieren, die sich am nächstgelegenen Standort befinden. Nehmen wir beispielsweise an, ein Client am Standort Seattle kennt seine Standort Zugehörigkeit nicht und kontaktiert einen Domänen Controller am Standort Atlanta. Basierend auf der IP-Adresse des Clients bestimmt der Domänen Controller in Atlanta, von welchem Standort der Client tatsächlich stammt, und sendet die Standortinformationen an den Client zurück. Der Domänen Controller informiert den Client auch darüber, ob der gewählte Domänen Controller der nächstgelegene Domänen Controller ist. Der Client speichert die Standortinformationen, die vom Domänen Controller in Atlanta bereitgestellt werden, und fragt den Ressourcen Daten Satz für den standortspezifischen Dienst (SRV) (einen Domain Name System (DNS)-Ressourcen Daten Satz ab, der zum Suchen von Domänen Controllern für AD DS) verwendet wird. Controller innerhalb desselben Standorts.  
   
-Durch das Suchen eines Domänencontrollers am selben Standort, vermeidet der Client Kommunikation über WAN-Verbindungen. Wenn keine Domänencontroller am Clientstandort befinden, kündigt ein Domänencontroller, die die niedrigsten Kosten Verbindungen relativ zu anderen verbundenen Standorte selbst (registriert einen standortspezifischen Dienste (SRV)-Ressourceneintrag in DNS) auf der Website, die keinem Domänencontroller. Die Domänencontroller, die im DNS veröffentlicht werden stammen von dem nächstgelegenen Standort gemäß der Standorttopologie. Dadurch wird sichergestellt, dass jeder Standort einen bevorzugten Domänencontroller für die Authentifizierung hat.  
+Wenn Sie einen Domänen Controller am selben Standort finden, vermeidet der Client die Kommunikation über WAN-Verbindungen. Wenn keine Domänen Controller am Client Standort gefunden werden, wird ein Domänen Controller mit den geringsten Kosten Verbindungen im Vergleich zu anderen verbundenen Standorten zur Verfügung gestellt (registriert einen standortspezifischen Dienst (SRV)-Ressourcen Daten Satz in DNS) an dem Standort, der nicht über eine Domänen Controller. Die Domänen Controller, die in DNS veröffentlicht werden, sind die, die von der Standort Topologie am nächstgelegenen Standort definiert werden. Dadurch wird sichergestellt, dass jeder Standort über einen bevorzugten Domänen Controller für die Authentifizierung verfügt.  
   
-Weitere Informationen zu den Prozess zum Auffinden von einem Domänencontroller, finden Sie unter Active Directory-Benutzersammlung ([https://go.microsoft.com/fwlink/?LinkID=88626](https://go.microsoft.com/fwlink/?LinkID=88626)).  
+Weitere Informationen zum Auffinden eines Domänen Controllers finden Sie unter Active Directory Sammlung ([https://go.microsoft.com/fwlink/?LinkID=88626](https://go.microsoft.com/fwlink/?LinkID=88626)).  
   
 ## <a name="sysvol-replication"></a>SYSVOL-Replikation  
-SYSVOL ist eine Auflistung von Ordnern im Dateisystem, das auf jedem Domänencontroller in einer Domäne vorhanden ist. Der Ordner "SYSVOL" Geben Sie ein Active Directory-Standardverzeichnis für Dateien, die in der gesamten Domäne, einschließlich der Gruppenrichtlinienobjekte (GPOs), starten und Herunterfahren von Skripts und Anmelde-und Abmeldeskripts repliziert werden müssen.  Windows Server 2008 können die Windows-Verwaltungsinstrumentation (File Replication Service, FRS) oder Distributed Datei System Replikation (DFSR) verwenden, um Änderungen, die für die SYSVOL-Ordner von einem Domänencontroller mit anderen Domänencontrollern zu replizieren. FRS und DFSR repliziert diese Änderungen gemäß dem Zeitplan, den Sie bei der Gestaltung Ihrer Site-Topologie zu erstellen.  
+SYSVOL ist eine Sammlung von Ordnern im Dateisystem, die auf jedem Domänen Controller in einer Domäne vorhanden ist. Die SYSVOL-Ordner stellen einen standardmäßigen Active Directory Speicherort für Dateien bereit, die in einer Domäne repliziert werden müssen, einschließlich Gruppenrichtlinie Objekte (GPOs), Skripts zum Starten und Herunterfahren sowie Anmelde-und Abmelde Skripts.  Windows Server 2008 kann den Datei Replikations Dienst (File Replication Service, FRS) oder die verteiltes Dateisystem Replikation (DFSR) verwenden, um Änderungen an den SYSVOL-Ordnern von einem Domänen Controller an andere Domänen Controller zu replizieren FRS und DFSR replizieren diese Änderungen gemäß dem Zeitplan, den Sie während des Entwurfs der Standort Topologie erstellen.  
   
 ## <a name="dfsn"></a>DFSN  
-DFSN verwendet Standortinformationen, um einen Client an den Server zu leiten, die die angeforderten Daten innerhalb des Standorts gehostet wird. Wenn eine Kopie der Daten nicht am selben Standort wie der Client DFSN gefunden wird, DFSN verwendet die Standortinformationen in AD DS zu bestimmen, welche Dateiserver mit DFSN Daten freigegeben am nächsten ist an den Client.  
+DFSN verwendet Standortinformationen, um einen Client an den Server weiterzuleiten, der die angeforderten Daten innerhalb des Standorts hostet. Wenn DFSN keine Kopie der Daten auf demselben Standort wie der Client findet, verwendet DFSN die Standortinformationen in AD DS, um zu ermitteln, welcher Dateiserver mit den von DFSN freigegebenen Daten dem Client am nächsten ist.  
   
 ## <a name="service-location"></a>Dienstidentifizierung  
-Veröffentlichen Sie in AD DS-Dienste wie z. B. Datei und Druckdienste, können Sie die Active Directory-Clients, um den angeforderten Dienst in derselben oder nächstgelegenen Standort suchen. Druckdienste verwenden die Location-Attribut in AD DS gespeichert, um Benutzer nach Druckern nach Standort zu suchen, ohne zu wissen, genaue Ort zu lassen. Weitere Informationen zum Entwerfen und Bereitstellen von Druckerservern finden Sie unter Entwerfen und Bereitstellen von Druckserver ([https://go.microsoft.com/fwlink/?LinkId=107041](https://go.microsoft.com/fwlink/?LinkId=107041)).  
+Wenn Sie Dienste wie Datei-und Druckdienste in AD DS veröffentlichen, können Sie Active Directory Clients den angeforderten Dienst innerhalb desselben oder nächstgelegenen Standorts suchen. Druckdienste verwenden das in AD DS gespeicherte Location-Attribut, um Benutzern die Suche nach Druckern nach Standort zu ermöglichen, ohne den genauen Speicherort zu kennen. Weitere Informationen zum Entwerfen und Bereitstellen von Drucker Servern finden Sie unter Entwerfen und Bereitstellen von Druckservern ([https://go.microsoft.com/fwlink/?LinkId=107041](https://go.microsoft.com/fwlink/?LinkId=107041)).  
   
 
 

@@ -1,8 +1,8 @@
 ---
-title: Wiederherstellen
-description: 'Windows-Befehle Thema ***- '
+title: Umzukehren
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5bc77b17317f602d642c7a9e025b67be10ad7256
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3243f13a4997824d9fff7c874ce26d56325fefa4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875111"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371450"
 ---
-# <a name="revert"></a>Wiederherstellen
+# <a name="revert"></a>Umzukehren
 
 
 
-wird ein Volume an einer angegebenen Schattenkopie zurückgesetzt. Dies ist nur für Schattenkopien im Kontext CLIENTACCESSIBLE unterstützt. Diese Schattenkopien bleiben erhalten und können nur vom Systemanbieter vorgenommen werden. Wenn Sie ohne Angabe von Parametern **wiederherstellen** zeigt die Hilfe an der Eingabeaufforderung.
+setzt ein Volume auf eine angegebene Schatten Kopie zurück. Dies wird nur für Schatten Kopien im Client zugänglichen Kontext unterstützt. Diese Schatten Kopien sind persistent und können nur vom Systemanbieter erstellt werden. Bei Verwendung ohne Parameter zeigt **Revert** die Hilfe an der Eingabeaufforderung an.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,8 +36,8 @@ revert <ShadowCopyID>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<ShadowCopyID>|Gibt an, der Schattenkopie-ID um das Volume wiederherzustellen.|
+|\<shadocopyid >|Gibt die Schattenkopiekennung an, auf der das Volume wieder hergestellt wird|
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

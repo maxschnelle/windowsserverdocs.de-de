@@ -1,8 +1,8 @@
 ---
-title: Verwalten von-Bde automatisches Entsperren
-description: 'Windows-Befehle Thema ***- '
+title: manage-bde Entsperrens
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8c17f9781dd4ff924358de490162c6388312ce03
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e6927c964a3f35c70fc3b9467cc2d16bbd973b17
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832271"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374140"
 ---
-# <a name="manage-bde-autounlock"></a>Verwalten von-Bde: automatisches Entsperren
+# <a name="manage-bde-autounlock"></a>manage-bde: automatische Entsperrung
 
 
 
-Verwaltet das automatische Entsperren von BitLocker-geschützte Laufwerke. Beispiele wie dieser Befehl verwendet werden kann, finden Sie unter [Beispiele](#BKMK_Examples).
+Verwaltet das automatische Entsperren von mit BitLocker geschützten Daten Laufwerken. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -37,23 +37,23 @@ manage-bde -autounlock [{-enable|-disable|-clearallkeys}] <Drive> [-computername
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|-Aktivieren|Ermöglicht das automatische Entsperren für ein Laufwerk.|
-|-Deaktivieren|Deaktiviert das automatische Entsperren für ein Laufwerk.|
-|-clearallkeys|Entfernt alle gespeicherten externen Schlüssel für das Betriebssystemlaufwerk.|
-|\<Drive>|Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar.|
-|-computername|Gibt an, dass bde.exe verwendet wird, um die BitLocker-Schutz auf einem anderen Computer zu ändern. Sie können auch **- Cn** als eine verkürzte Version des mit diesem Befehl.|
-|\<Name>|Stellt den Namen des Computers, auf dem BitLocker-Schutz zu ändern. Akzeptierte Werte sind die NetBIOS-Namen des Computers und die IP-Adresse des Computers.|
-|-? oder /?|Zeigt eine kurze Hilfe an der Eingabeaufforderung.|
-|---Help oder-h|Führen Sie zeigt Hilfe an der Eingabeaufforderung ein.|
+|-Aktivieren|Aktiviert das automatische Entsperren für ein Daten Laufwerk.|
+|-Deaktivieren|Deaktiviert das automatische Entsperren für ein Daten Laufwerk.|
+|-clearallkeys|Entfernt alle gespeicherten externen Schlüssel auf dem Betriebssystem Laufwerk.|
+|\<laufwerk >|Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar.|
+|-Computername|Gibt an, dass "manage-bde. exe verwendet wird, um den BitLocker-Schutz auf einem anderen Computer zu ändern. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden.|
+|\<Name >|Stellt den Namen des Computers dar, auf dem der BitLocker-Schutz geändert werden soll. Akzeptierte Werte sind der NetBIOS-Name des Computers und die IP-Adresse des Computers.|
+|-? oder /?|Zeigt eine kurze Hilfe an der Eingabeaufforderung an.|
+|-Help oder-h|Zeigt die gesamte Hilfe an der Eingabeaufforderung an.|
 
-## <a name="BKMK_Examples"></a>Beispiele für
+## <a name="BKMK_Examples"></a>Beispiele
 
-Das folgende Beispiel veranschaulicht die Verwendung der **– automatisches Entsperren** Befehl zum Aktivieren der automatisches Entsperren des Datenlaufwerk e:.
+Das folgende Beispiel veranschaulicht die Verwendung des Befehls " **-autounlock** ", um das automatische Entsperren von Daten Laufwerk E zu aktivieren.
 ```
 manage-bde –autounlock -enable E:
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
--   [Befehlszeilensyntax](command-line-syntax-key.md)
--   [Verwalten von-bde](manage-bde.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Manage-bde](manage-bde.md)

@@ -1,106 +1,106 @@
 ---
-title: LDAP-Überlegungen in AD DS zur leistungsoptimierung
-description: LDAP-Überlegungen in Active Directory-workloads
-ms.prod: windows-server-threshold
+title: Überlegungen zu LDAP in Hinzufügen von Leistungsoptimierungen
+description: Überlegungen zu LDAP in Active Directory Arbeits Auslastungen
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 7ac9453159fe97dc15ecbb2ab858214664a2a197
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: f6670c8cfd718360518869f0551461c45e5aed27
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811528"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370283"
 ---
-# <a name="ldap-considerations-in-adds-performance-tuning"></a>LDAP-Überlegungen in AD DS zur leistungsoptimierung
+# <a name="ldap-considerations-in-adds-performance-tuning"></a>Überlegungen zu LDAP in Hinzufügen von Leistungsoptimierungen
 
 > [!IMPORTANT]
-> Im folgenden finden Sie eine Zusammenfassung der wichtigsten Empfehlungen und Überlegungen zur Optimierung der Serverhardware für Active Directory-Workloads in detaillierter behandelt die [Kapazitätsplanung für Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566) Artikel. Leser werden dringend empfohlen, überprüfen [Kapazitätsplanung für Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566) für ein besseres Verständnis für die technische und die Auswirkungen dieser Empfehlungen.
+> Im folgenden finden Sie eine Zusammenfassung der wichtigsten Empfehlungen und Überlegungen zur Optimierung der Server Hardware für Active Directory Arbeits Auslastungen, die in der [Kapazitätsplanung für Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566) Artikel ausführlicher behandelt werden. Leser werden dringend empfohlen, die [Kapazitätsplanung für Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566) zu überprüfen, um das technische Verständnis und die Auswirkungen dieser Empfehlungen zu überprüfen.
 
-## <a name="verify-ldap-queries"></a>Überprüfen von LDAP-Abfragen
+## <a name="verify-ldap-queries"></a>LDAP-Abfragen überprüfen
 
-Stellen Sie sicher, dass der LDAP-Abfragen mit der Erstellung effiziente Abfragen Empfehlungen entsprechen.
+Überprüfen Sie, ob LDAP-Abfragen mit den Empfehlungen zum Erstellen effizienter Abfragen übereinstimmen.
 
-Es gibt umfangreiche Dokumentation auf MSDN zum ordnungsgemäß zu schreiben, Struktur, und Analysieren von Abfragen für die Verwendung mit Active Directory. Weitere Informationen finden Sie unter [effizienterer Anwendungen](https://msdn.microsoft.com/library/ms808539.aspx).
+In der MSDN-Dokumentation finden Sie Informationen dazu, wie Sie Abfragen für die Verwendung mit Active Directory ordnungsgemäß schreiben, strukturieren und analysieren. Weitere Informationen finden Sie unter [Erstellen effizienterer Microsoft Active Directory-fähiger Anwendungen](https://msdn.microsoft.com/library/ms808539.aspx).
 
-## <a name="optimize-ldap-page-sizes"></a>Optimieren der Seitengröße LDAP
+## <a name="optimize-ldap-page-sizes"></a>Optimieren der Größe von LDAP-Seiten
 
-Beim Zurückgeben der Ergebnisse mit mehreren Objekten in Reaktion auf Clientanforderungen, muss der Domänencontroller das Resultset im Arbeitsspeicher vorübergehend zu speichern. Zunehmende Seitengrößen bewirkt, dass weitere speicherauslastung und Elemente aus dem Cache können unnötigerweise age. In diesem Fall sind die Standardeinstellungen optimal. Es gibt mehrere Szenarien, in dem Empfehlungen vorgenommen wurden, um die Einstellungen für die Seite zu erhöhen. Es wird empfohlen, unter Verwendung der Standardwerte, es sei denn, die speziell als nicht ausreichend identifiziert.
+Beim Zurückgeben von Ergebnissen mit mehreren Objekten als Reaktion auf Client Anforderungen muss der Domänen Controller das Resultset temporär im Arbeitsspeicher speichern. Das Erhöhen der Seitengröße führt zu einer höheren Speicherauslastung und kann unnötigerweise Elemente aus dem Cache löschen. In diesem Fall sind die Standardeinstellungen optimal. Es gibt verschiedene Szenarien, in denen Empfehlungen zum Vergrößern der Seitengrößen Einstellungen erstellt wurden. Es wird empfohlen, die Standardwerte zu verwenden, es sei denn, Sie sind nicht besonders
 
-Wenn Abfragen viele Ergebnisse verwenden, kann ein Grenzwert von ähnlichen Abfragen gleichzeitig ausgeführt auftreten.  Dies tritt auf, wie der LDAP-Server einen globalen Arbeitsspeicher-Bereich des cookiepools genannt erschöpfen kann.  Es kann erforderlich sein, die Größe des Pools zu erhöhen, siehe [wie LDAP-Server Cookies behandelt werden](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/manage/how-ldap-server-cookies-are-handled).
+Wenn Abfragen viele Ergebnisse aufweisen, kann es vorkommen, dass ein Limit ähnlicher Abfragen gleichzeitig ausgeführt wird.  Dieser Fehler tritt auf, wenn der LDAP-Server einen globalen Speicherbereich, der als Cookie-Pool bezeichnet wird, erschöpft.  Möglicherweise ist es erforderlich, die Größe des Pools zu vergrößern, wie in der Behandlung von [LDAP-Server Cookies](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/manage/how-ldap-server-cookies-are-handled)erläutert.
 
-Um diese Einstellungen zu optimieren, finden Sie unter [WindowsServer 2008 oder höher Domänencontroller gibt nur 5000 Werte in einer Antwort des LDAP-](https://support.microsoft.com/kb/2009267).
+Informationen zum Optimieren dieser Einstellungen finden Sie unter [Windows Server 2008 und neuere Domänen Controller gibt nur 5000-Werte in einer LDAP-Antwort zurück](https://support.microsoft.com/kb/2009267).
 
-## <a name="determine-whether-to-add-indices"></a>Bestimmt, ob Indizes hinzugefügt.
+## <a name="determine-whether-to-add-indices"></a>Bestimmen, ob Indizes hinzugefügt werden sollen
 
-Die Indizierung von Attributen ist nützlich, bei der Suche nach Objekten, die den Attributnamen in einem Filter verfügen. Indizierung kann die Anzahl von Objekten reduzieren, die besucht werden muss, wenn den Filter ausgewertet. Dies verringert jedoch die Leistung der Schreibvorgänge, da der Index aktualisiert werden muss, wenn das entsprechende Attribut geändert oder hinzugefügt wird. Außerdem steigt die Größe der Verzeichnisdatenbank, obwohl die Vorteile die Kosten für Speicher häufig zunichte machen. Protokollierung kann verwendet werden, um die teuren und ineffizienten Abfragen zu finden. Nachdem identifiziert, indizieren Sie einige Attribute, die in den entsprechenden Abfragen verwendet werden, um die suchleistung zu verbessern. Weitere Informationen zur Funktionsweise der Active Directory-Suche finden Sie unter [wie Active Directory sucht arbeiten](https://technet.microsoft.com/library/cc755809.aspx).
+Indizierungs Attribute sind bei der Suche nach Objekten mit dem Attributnamen in einem Filter nützlich. Durch Indizierung kann die Anzahl der Objekte reduziert werden, die beim Auswerten des Filters besucht werden müssen. Dadurch wird jedoch die Leistung von Schreibvorgängen verringert, da der Index aktualisiert werden muss, wenn das entsprechende Attribut geändert oder hinzugefügt wird. Außerdem wird die Größe der Verzeichnis Datenbank erhöht, obwohl die Vorteile oft die Kosten für die Speicherung überwiegen. Die Protokollierung kann verwendet werden, um die teuren und ineffizienten Abfragen zu suchen. Nach der Identifizierung sollten Sie einige Attribute indizieren, die in den entsprechenden Abfragen verwendet werden, um die Suchleistung zu verbessern. Weitere Informationen zur Funktionsweise von Active Directory suchen finden Sie unter [Funktionsweise von Active Directory suchen](https://technet.microsoft.com/library/cc755809.aspx).
 
-### <a name="scenarios-that-benefit-in-adding-indices"></a>Szenarien, die beim Hinzufügen von Indizes profitieren
+### <a name="scenarios-that-benefit-in-adding-indices"></a>Szenarien, die das Hinzufügen von Indizes nutzen
 
--   Clientauslastung in die Daten anfordert erhebliche CPU-Nutzung generiert, und das Clientverhalten für die Abfrage kann nicht geändert oder optimiert werden. Bedenken Sie, dass es sich in einer Liste Top 10 Übeltäter, Server Performance Advisor oder der integrierten Active Directory Data Collector Set angezeigt wird und mehr als 1 % der CPU verwendet wird, durch deutliche Auslastung.
+-   Die Client Auslastung beim Anfordern der Daten erzeugt eine beträchtliche CPU-Auslastung, und das Client Abfrage Verhalten kann nicht geändert oder optimiert werden. Beachten Sie bei signifikanter Auslastung, dass Sie sich in der Liste der ersten 10 Täter im Server Performance Advisor oder im integrierten Active Directory Datensammler Satzes befindet und mehr als 1% der CPU verwendet.
 
--   Die Clientlast erheblich mehr Datenträger-e/a auf einem Server aufgrund einer nicht indizierten Attribut generiert, und das Clientverhalten für die Abfrage kann nicht geändert oder optimiert werden.
+-   Die Client Auslastung erzeugt aufgrund eines nicht indizierten Attributs eine beträchtliche Datenträger-e/a auf einem Server, und das Client Abfrage Verhalten kann nicht geändert oder optimiert werden.
 
--   Eine Abfrage nimmt viel Zeit und wird innerhalb eines akzeptablen Zeitrahmen für den Client aufgrund einer um zu geringen Anzahl von Indizes behandelt nicht abgeschlossen.
+-   Eine Abfrage nimmt lange Zeit in Anspruch und wird nicht in einem akzeptablen Zeitrahmen für den Client abgeschlossen, da die Indizes nicht abgedeckt werden.
 
-- Große Mengen von langsamen Abfragen verursachen Ressourcenverbrauch und Auslastung der Threadwarteschlange LDAP-Threads. Überwachen Sie die folgenden Leistungsindikatoren:
+- Große Mengen von Abfragen mit hoher Dauer führen zu einer Auslastung und Erschöpfung von ATQ-LDAP-Threads. Überwachen Sie die folgenden Leistungsindikatoren:
 
-    - **NTDS\\Anforderungswartezeit** – Dies ist unterliegen, wie lange die Anforderung den Prozess durchführt. Active Directory nach tritt ein Timeout Anforderungen 120 Sekunden (Standardwert), jedoch die meisten sollten viel schneller ausgeführt und sehr lang andauernde Abfragen in den allgemeinen Zahlen ausgeblendet erhalten soll. Suchen Sie nach Änderungen an dieser Grundlinie, anstatt absoluten Schwellenwerte.
+    - **NTDS @ no__t-1 Anforderungs Latenz** – dies hängt davon ab, wie lange die Anforderung verarbeitet werden muss. Bei der Active Directory von Anforderungen nach 120 Sekunden (Standard) werden die meisten Anforderungen deutlich schneller ausgeführt, und extrem lange ausgestellte Abfragen sollten in den Gesamtzahlen ausgeblendet werden. Suchen Sie anstelle absoluter Schwellenwerte nach Änderungen in dieser Baseline.
 
         > [!NOTE]
-        > Hohe Werte Hier können auch Indikatoren, die Verzögerungen bei der "Proxyanforderungen" mit anderen Domänen und die Zertifikatsperrliste überprüft werden.
+        > Hohe Werte können auch Indikatoren von Verzögerungen bei "Proxy Anforderungen" an andere Domänen und CRL-Überprüfungen sein.
 
-    - **NTDS\\Warteschlangenverzögerung geschätzte** – Dies sollte im Idealfall sein, in der Nähe von 0 für eine optimale Leistung, da dies bedeutet, dass Anforderungen keine Zeit, die auf Bearbeitung warten verbringen.
+    - **NTDS @ no__t-1 geschätzte Warteschlangen Verzögerung** – dies sollte idealerweise fast 0 sein, um eine optimale Leistung zu erzielen. Dies bedeutet, dass Anforderungen keine Zeit haben, gewartet zu werden.
 
-Diese Szenarien können mithilfe einer oder mehrerer der folgenden Ansätze erkannt werden:
+Diese Szenarien können mithilfe eines oder mehrerer der folgenden Ansätze erkannt werden:
 
--   [Bestimmen die Abfrage zeitliche Steuerung, mit dem Statistiken-Steuerelement](https://msdn.microsoft.com/library/ms808539.aspx)
+-   [Bestimmen der Abfragezeit Überschreitung mit dem Statistik Steuerelement](https://msdn.microsoft.com/library/ms808539.aspx)
 
--   [Nachverfolgen von teure und ineffiziente suchen](https://msdn.microsoft.com/library/ms808539.aspx)
+-   [Nachverfolgen von teuren und ineffizienten suchen](https://msdn.microsoft.com/library/ms808539.aspx)
 
--   Active Directory-Diagnose Datensammlersatzes im Systemmonitor ([Miniversion des SPA: AD Datensammlersätze in Win2008 und darüber hinaus](http://blogs.technet.com/b/askds/archive/2010/06/08/son-of-spa-ad-data-collector-sets-in-win2008-and-beyond.aspx))
+-   Active Directory Diagnosedaten Sammler Satz im System Monitor ([son von Spa: AD Data Collector Sets in Win2008 und Beyond @ no__t-0)
 
--   [Microsoft Server Performance Advisor](../../../server-performance-advisor/microsoft-server-performance-advisor.md) Advisor-Pack für Active Directory
+-   [Microsoft Server Performance Advisor](../../../server-performance-advisor/microsoft-server-performance-advisor.md) Active Directory Advisor-Paket
 
--   -Suchvorgängen mithilfe von allen filtern neben "(ObjectClass =\*)", die den übergeordneten Elementen Index verwenden.
+-   Sucht mithilfe eines beliebigen Filters neben "(objectClass = \*)", die den Vorgänger Index verwenden.
 
-### <a name="other-index-considerations"></a>Weitere Überlegungen für index
+### <a name="other-index-considerations"></a>Weitere Überlegungen zum Index
 
--   Stellen Sie sicher, dass es sich bei der indexerstellung die richtige Lösung für das Problem ist, nachdem die Abfrage optimieren als Option ausgeschöpft ist. Hardware ordnungsgemäß größenanpassung ist sehr wichtig. Nur, wenn die richtige Lösung ist das Attribut und nicht der Versuch, verbergen Hardwareprobleme zu indizieren, sollten Indizes hinzugefügt werden.
+-   Stellen Sie sicher, dass das Erstellen des Indexes die richtige Lösung für das Problem ist, nachdem die Abfrage als Option aufgebraucht wurde. Die korrekte Größenanpassung von Hardware ist äußerst wichtig. Indizes sollten nur dann hinzugefügt werden, wenn das Attribut mit der richtigen Korrektur indiziert wird und kein Versuch, Hardwareprobleme zu verbergen.
 
--   Indizes werden die Größe der Datenbank erhöhen, indem mindestens die Gesamtgröße des Attributs, die indiziert werden. Eine Schätzung der Wachstum der Datenbank kann daher ausgewertet werden, indem die durchschnittliche Größe der Daten in das Attribut und Multiplikation mit der Anzahl der Objekte, die das Attribut aufgefüllt hat. Im Allgemeinen ist dies über eine 1 % Anstieg der Größe der Datenbank. Weitere Informationen finden Sie unter [Store Funktionsweise des](https://technet.microsoft.com/library/cc772829.aspx).
+-   Indizes erhöhen die Größe der Datenbank um mindestens die Gesamtgröße des indizierten Attributs. Eine Schätzung des Daten Bank Wachstums kann daher ausgewertet werden, indem die durchschnittliche Größe der Daten im Attribut übernommen und die Anzahl der Objekte multipliziert wird, für die das Attribut aufgefüllt wird. In der Regel liegt dies bei einer Vergrößerung der Datenbankgröße von 1%. Weitere Informationen finden Sie unter [Funktionsweise des Datenspeicher](https://technet.microsoft.com/library/cc772829.aspx).
 
--   Wenn Suchverhalten vorwiegend auf Organisationsebene Einheit erfolgt, können Sie für Containersuche indizieren.
+-   Wenn das Suchverhalten vorwiegend auf Organisationseinheiten Ebene erfolgt, sollten Sie die Indizierung für containerisierte suchen in Erwägung gezogen.
 
--   Tupel Indizes größer sind als normale Indizes, aber es ist viel schwieriger, um die Größe zu schätzen. Verwenden von normalen Indizes, die geschätzte Größe als die Untergrenze für das Wachstum mit einem Maximum von 20 %. Weitere Informationen finden Sie unter [Store Funktionsweise des](https://technet.microsoft.com/library/cc772829.aspx).
+-   Tupelindizes sind größer als normale Indizes, aber es ist wesentlich schwieriger, die Größe zu schätzen. Verwenden Sie normale Index Größenschätzungen als Boden für Wachstum und maximal 20%. Weitere Informationen finden Sie unter [Funktionsweise des Datenspeicher](https://technet.microsoft.com/library/cc772829.aspx).
 
--   Wenn Suchverhalten vorwiegend auf Organisationsebene Einheit erfolgt, können Sie für Containersuche indizieren.
+-   Wenn das Suchverhalten vorwiegend auf Organisationseinheiten Ebene erfolgt, sollten Sie die Indizierung für containerisierte suchen in Erwägung gezogen.
 
--   Tupel-Indizes sind erforderlich, um mittleres Suchzeichenfolgen und endgültige Suchzeichenfolgen zu unterstützen. Tupel-Indizes sind für die anfängliche Suchzeichenfolgen nicht erforderlich.
+-   Tupelindizes sind erforderlich, um mediale Such Zeichenfolgen und abschließende Such Zeichenfolgen zu unterstützen. Tupelindizes werden für die ersten Such Zeichenfolgen nicht benötigt.
 
-    -   Erste zu suchende Zeichenfolge – ("sAMAccountName" MeinComputer =\*)
+    -   Anfängliche Such Zeichenfolge – (sAMAccountName = MyPC @ no__t-0)
 
-    -   Mittleres Suchzeichenfolge - ("sAMAccountName" =\*MeinComputer\*)
+    -   Mediale Such Zeichenfolge-(sAMAccountName = \*mypc @ no__t-1)
 
-    -   Letzte zu suchende Zeichenfolge – ("sAMAccountName" =\*MeinComputer$)
+    -   Abschließende Such Zeichenfolge – (sAMAccountName = \*mypc $)
 
--   Erstellen eines Indexes generiert die Datenträger-e/a während der Index erstellt wird. Dies erfolgt in einem Hintergrundthread mit niedrigerer Priorität, und eingehende Anforderungen werden über die indexerstellung Prioritäten zugewiesen. Wenn Sie planen der Kapazität für die Umgebung ordnungsgemäß durchgeführt wurde, sollte dies transparent sein. Allerdings mit vielen Schreibvorgängen-Szenarien oder eine Umgebung, in dem die Last auf die Domäne-Controller-Speicher unbekannt ist, Clientdarstellung beeinträchtigt werden kann und sollte außerhalb der Geschäftszeiten durchgeführt.
+-   Beim Erstellen eines Indexes werden Datenträger-e/a generiert, während der Index erstellt wird. Dies erfolgt in einem Hintergrund Thread mit niedrigerer Priorität, und eingehende Anforderungen werden über den indexbuild priorisiert. Wenn die Kapazitätsplanung für die Umgebung ordnungsgemäß durchgeführt wurde, sollte dies transparent sein. Schreib intensive Szenarien oder eine Umgebung, in der die Auslastung des Domänen Controller Speichers unbekannt ist, könnten die Client Umgebung beeinträchtigen und sollten außerhalb der Geschäftszeiten ausgeführt werden.
 
--   Wirkt sich auf, um Replikationsdatenverkehr ist minimal, da Erstellen der Indizes lokal stattfindet.
+-   Auswirkungen auf den Replikations Datenverkehr sind minimal, da die Erstellung von Indizes lokal erfolgt
 
-Weitere Informationen finden Sie in der folgenden:
+Weitere Informationen finden Sie in den folgenden Bereichen:
 
--   [Erstellen eine effizientere Microsoft Active Directory-fähige Anwendungen](https://msdn.microsoft.com/library/ms808539.aspx)
+-   [Erstellen effizienterer Microsoft Active Directory-fähiger Anwendungen](https://msdn.microsoft.com/library/ms808539.aspx)
 
--   [Suchen in Active Directory-Domänendienste](https://msdn.microsoft.com/library/aa746427.aspx)
+-   [Suchen in Active Directory Domain Services](https://msdn.microsoft.com/library/aa746427.aspx)
 
 -   [Indizierte Attribute](https://msdn.microsoft.com/library/windows/desktop/ms677112.aspx)
 
 ## <a name="see-also"></a>Siehe auch
 
-- [Active Directory-Server die Optimierung der Leistung](index.md)
+- [Leistungsoptimierung Active Directory Server](index.md)
 - [Hardwareaspekte](hardware-considerations.md)
 - [Ordnungsgemäße Platzierung von Domänencontrollern und Überlegungen zum Standort](site-definition-considerations.md)
 - [Problembehandlung bezüglich der ADDS-Leistung](troubleshoot.md) 

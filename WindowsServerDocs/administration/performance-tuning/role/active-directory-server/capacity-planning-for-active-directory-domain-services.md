@@ -1,18 +1,18 @@
 ---
 title: Kapazitätsplanung für Active Directory Domain Services
 description: Ausführliche Erörterung der Faktoren, die bei der Kapazitätsplanung für AD DS zu berücksichtigen sind.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: v-tea; kenbrunf
 author: Teresa-Motiv
 ms.date: 7/3/2019
-ms.openlocfilehash: dac13ac94e38cf671239d35507e07d7ac3a0c1ab
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 8b17d7f5c7774c1c332d49962b14fe31128f1a27
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866729"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370430"
 ---
 # <a name="capacity-planning-for-active-directory-domain-services"></a>Kapazitätsplanung für Active Directory Domain Services
 
@@ -114,7 +114,7 @@ Im allgemeinen:
 |Speicherung/Datenbankleistung|<ul><li>"LogicalDisk ( *\<NTDS-Daten\>Bank Laufwerk*) \Mittlere Sek./Lesevorgänge", "LogicalDisk ( *\<NTDS\>-Daten Bank Laufwerk*) \Durchschnittl. Sek./Schreibvorgang", "LogicalDisk" ( *\<NTDS-Daten Bank Laufwerk )\>* \ Mittlere Sek./Übertragung "</li><li>"LogicalDisk ( *\<NTDS-Daten\>Bank Laufwerk*) \ Lesevorgänge/Sek." "LogicalDisk ( *\<NTDS-Daten Bank Laufwerk\>* ) \ Schreibvorgänge/Sek." "LogicalDisk ( *\<NTDS-Daten Bank Laufwerk\>* ) \ Übertragungen/Sek. "</li></ul>|<ul><li>Für den Speicher sind zwei Aspekte zu berücksichtigen.<ul><li>Verfügbarer Speicherplatz, der für die meisten AD-Umgebungen von der Größe der aktuellen Spindel basierten und SSD-basierten Speicherung abhängig ist.</li> <li>E/a-Vorgänge (e/a-Vorgänge) verfügbar – in vielen Umgebungen wird dies oft übersehen. Es ist jedoch wichtig, nur Umgebungen auszuwerten, in denen nicht genügend RAM vorhanden ist, um die gesamte NTDS-Datenbank in den Arbeitsspeicher zu laden.</li></ul><li>Der Speicher kann ein komplexes Thema sein und sollte Hardwarehersteller-Fachkenntnisse für eine ordnungsgemäße Größenanpassung umfassen. Besonders bei komplexeren Szenarien, wie z. b. San-, NAS-und iSCSI-Szenarios. Im Allgemeinen werden Kosten pro GB Speicher jedoch häufig direkt gegen die Kosten pro e/a-Vorgänge unterstellt:<ul><li>RAID 5 hat niedrigere Kosten pro Gigabyte als RAID 1, RAID 1 hat jedoch niedrigere Kosten pro e/a.</li><li>Bei Spindel basierten Festplatten fallen niedrigere Kosten pro Gigabyte an, SSDs haben jedoch niedrigere Kosten pro e/a.</li></ul><li>Nach einem Neustart des Computers oder des Active Directory Domain Services Dienstanbieter ist der ESE-Cache (Extensible Storage Engine) leer, und die Leistung wird Datenträger gebunden, während der Cache erwärmt wird.</li><li>In den meisten Umgebungen ist AD intensive e/a-Vorgänge in zufälligen Mustern auf Datenträgern, was den Vorteil von zwischen Speicherungs-und Lese Optimierungsstrategien neiert.  Außerdem bietet AD einen viel größeren Cache im Speicher als die meisten Speichersystem Caches.</li></ul>
 |RAM|<ul><li>Datenbankgröße</li><li>Empfehlungen des Basis Betriebssystems</li><li>Anwendungen von Drittanbietern</li></ul>|<ul><li>Storage ist die langsamste Komponente eines Computers. Umso mehr, was sich im RAM befinden kann, desto weniger müssen Sie auf den Datenträger wechseln.</li><li>Stellen Sie sicher, dass genügend RAM zum Speichern des Betriebssystems, der Agents (Antivirus, Sicherung, Überwachung), NTDS-Datenbank und Wachstum im Laufe der Zeit zugeordnet ist.</li><li>Für Umgebungen, in denen das Maximieren der RAM-Größe nicht kostengünstig ist (z. b. bei Satellitenstandorten) oder nicht möglich ist (DIT ist zu groß), verweisen Sie auf den Abschnitt Speicher, um sicherzustellen, dass die Größe des Speichers korrekt ist</li></ul>|
 |Network|<ul><li>"Netzwerkschnittstelle (\*) \Empfangene Bytes/Sek."</li><li>"Netzwerkschnittstelle (\*) \Gesendete Bytes/Sek."|<ul><li>Im Allgemeinen überschreitet der Datenverkehr, der von einem DC gesendet wird, den an einen DC gesendeten Datenverkehr</li><li>Wenn eine Umgeschaltete Ethernet-Verbindung Vollduplex ist, muss der eingehende und ausgehende Netzwerk Datenverkehr unabhängig voneinander dimensioniert werden.</li><li>Das Konsolidieren der Anzahl von DCS erhöht den Umfang der Bandbreite, der zum Senden von Antworten an Client Anforderungen für die einzelnen Domänen Controller verwendet wird. Sie ist jedoch für den gesamten Standort nahezu gleich.</li><li>Wenn Sie satellitenspeicherort-DCS entfernen, vergessen Sie nicht, die Bandbreite für den Satelliten Controller zu den Hub-DCS hinzuzufügen und zu ermitteln, wie viel WAN-Datenverkehr vorhanden sein wird.</li></ul>|
-|CPU|<ul><li>"Logischer Datenträger ( *\<NTDS-\>Daten Bank Laufwerk*) \ Mittlere Sek./Lesevorgänge"</li><li>"Process (LSASS)\\% Processor Time"</li></ul>|<ul><li>Nachdem Sie den Speicher als Engpass eliminiert haben, müssen Sie die benötigte computestrommenge beheben.</li><li>Die Anzahl der Prozessorkerne, die für alle Server innerhalb eines bestimmten Bereichs (z. b. einer Website) beansprucht werden, kann zwar nicht perfekt linear sein, aber die Anzahl der Prozessoren, die zur Unterstützung der gesamten Client Last erforderlich sind, kann verwendet werden. Fügen Sie die erforderliche Mindestanzahl hinzu, um die aktuelle Dienst Ebene für alle Systeme innerhalb des Bereichs beizubehalten.</li><li>Änderungen an der Prozessorgeschwindigkeit, einschließlich der Energie verwaltungsbezogenen Änderungen, wirken sich auf die von der aktuellen Umgebung abgeleiteten Zahlen aus. Im Allgemeinen ist es nicht möglich, genau zu bewerten, wie von einem 2,5 GHz-Prozessor zu einem 3-GHz-Prozessor die Anzahl der benötigten CPUs verringert wird.</li></ul>|
+|CPU|<ul><li>"Logischer Datenträger ( *\<NTDS-\>Daten Bank Laufwerk*) \ Mittlere Sek./Lesevorgänge"</li><li>"Process (LSASS) \\% Prozessorzeit"</li></ul>|<ul><li>Nachdem Sie den Speicher als Engpass eliminiert haben, müssen Sie die benötigte computestrommenge beheben.</li><li>Die Anzahl der Prozessorkerne, die für alle Server innerhalb eines bestimmten Bereichs (z. b. einer Website) beansprucht werden, kann zwar nicht perfekt linear sein, aber die Anzahl der Prozessoren, die zur Unterstützung der gesamten Client Last erforderlich sind, kann verwendet werden. Fügen Sie die erforderliche Mindestanzahl hinzu, um die aktuelle Dienst Ebene für alle Systeme innerhalb des Bereichs beizubehalten.</li><li>Änderungen an der Prozessorgeschwindigkeit, einschließlich der Energie verwaltungsbezogenen Änderungen, wirken sich auf die von der aktuellen Umgebung abgeleiteten Zahlen aus. Im Allgemeinen ist es nicht möglich, genau zu bewerten, wie von einem 2,5 GHz-Prozessor zu einem 3-GHz-Prozessor die Anzahl der benötigten CPUs verringert wird.</li></ul>|
 |Anmeldedienst|<ul><li>"Netlogon (\*) \semaphore Ruft ab"</li><li>"Netlogon (\*) \semaphore Timeouts"</li><li>"Netlogon (\*) \average Semaphore Hold Time"</li></ul>|<ul><li>Der sichere Kanal für die Netzwerk Anmeldung/MaxConcurrentApi wirkt sich nur auf Umgebungen mit NTLM-Authentifizierungen und/oder PAC-Überprüfung aus. Die PAC-Überprüfung ist in Betriebssystemversionen vor Windows Server 2008 standardmäßig aktiviert. Dies ist eine Client Einstellung, sodass die DCS beeinträchtigt werden, bis diese auf allen Client Systemen ausgeschaltet ist.</li><li>Umgebungen mit erheblicher vertrauenswürdiger Authentifizierung, die Gesamtstruktur übergreifende Vertrauens Stellungen einschließt, haben ein höheres Risiko, wenn Sie nicht ordnungsgemäß skaliert werden.</li><li>Server Konsolidierungen erhöhen die Parallelität der vertrauenswürdigen Authentifizierung.</li><li>Die Übertragungen müssen berücksichtigt werden, wie z. b. Cluster-Failover, da Benutzer die Massen Authentifizierung für den neuen Cluster Knoten durchführen.</li><li>Einzelne Client Systeme (z. b. ein Cluster) müssen möglicherweise ebenfalls optimiert werden.</li></ul>|
 
 ## <a name="planning"></a>Planen
@@ -232,7 +232,7 @@ DC 2|6,25 MB/s|
 |DC 5|4,75 MB/s|
 |Gesamt|28,5 MB/s|
 
-**Empfohlen 72 MB/s** (28,5 MB/s dividiert durch 40%)
+**Empfohlen 72 MB/s @ no__t-0 (28,5 MB/s dividiert durch 40%)
 
 |Anzahl der Zielsysteme|Gesamtbandbreite (von oben)|
 |-|-|
@@ -398,7 +398,7 @@ In den meisten Umgebungen werden Speicher, RAM und Netzwerke gemäß der Beschre
   In größeren Umgebungen ist es wichtig, dass schlecht codierte Anwendungen Schwankungen bei der CPU-Auslastung erreichen, eine übermäßig große CPU-Zeit von anderen Anwendungen stehlen, Kapazitätsanforderungen künstlich erhöhen und die Last gleichmäßig verteilen. die DCS.  
 - Da AD DS eine verteilte Umgebung mit einer Vielzahl potenzieller Clients ist, ist das Einschätzen der Kosten eines "einzelnen Clients" aufgrund von Verwendungs Mustern und dem Typ oder der Anzahl von Anwendungen, die AD DS nutzen, umweltfreundlich. Kurz gesagt, ähnlich wie im Abschnitt "Netzwerk", ist dies für eine umfassende Anwendbarkeit besser von der Perspektive der Auswertung der Gesamtkapazität, die in der Umgebung benötigt wird.
 
-Für vorhandene Umgebungen, wie die Speichergrößen Änderung bereits erläutert wurde, wird davon ausgegangen, dass der Speicher nun ordnungsgemäß dimensioniert ist und daher die Daten bezüglich der Prozessorauslastung gültig sind. Zur Wiederholung ist es wichtig, sicherzustellen, dass der Engpass im System nicht die Leistung des Speichers darstellt. Wenn ein Engpass vorhanden ist und der Prozessor wartet, gibt es Status im Leerlauf, die nach dem Entfernen des Engpasses entfernt werden.  Da die Warte Zustände des Prozessors entfernt werden, erhöht sich die CPU-Auslastung definitionsgemäß, da Sie nicht mehr auf die Daten warten muss. Erfassen Sie daher Leistungsindikatoren "logischer Datenträger ( *\<NTDS-\>Daten Bank Laufwerk*) \Mittlere Sek./Lesevorgänge" und "Prozess (\\LSASS)% Prozessorzeit". Die Daten in "Process (LSASS)\\% Processor Time" sind künstlich niedrig, wenn "logischer Datenträger ( *\<NTDS-\>Daten Bank Laufwerk*) \Mittlere Sek./Lesevorgänge" 10 bis 15 ms überschreitet. Dies ist ein allgemeiner Schwellenwert, den der Microsoft-Support verwendet. zur Problembehandlung von speicherbezogenen Leistungsproblemen. Wie zuvor wird empfohlen, dass es sich bei den Beispiel Intervallen um 15, 30 oder 60 Minuten handelt. Für gute Messungen sind normalerweise weniger als flüchtig. alles höhere wird die tägliche anwirkung übermäßig stark glätten.
+Für vorhandene Umgebungen, wie die Speichergrößen Änderung bereits erläutert wurde, wird davon ausgegangen, dass der Speicher nun ordnungsgemäß dimensioniert ist und daher die Daten bezüglich der Prozessorauslastung gültig sind. Zur Wiederholung ist es wichtig, sicherzustellen, dass der Engpass im System nicht die Leistung des Speichers darstellt. Wenn ein Engpass vorhanden ist und der Prozessor wartet, gibt es Status im Leerlauf, die nach dem Entfernen des Engpasses entfernt werden.  Da die Warte Zustände des Prozessors entfernt werden, erhöht sich die CPU-Auslastung definitionsgemäß, da Sie nicht mehr auf die Daten warten muss. Erfassen Sie daher Leistungsindikatoren "logischer Datenträger ( *\<ntds-Daten Bank Laufwerk @ no__t-2*) \Durchschnittl Sek./Lesevorgang" und "Prozess (LSASS) \\% Prozessorzeit". Die Daten in "Process (LSASS) \\% Prozessorzeit" sind künstlich niedrig, wenn "logischer Datenträger ( *\<ntds-Daten Bank Laufwerk @ no__t-3*) \Mittlere Sek./Lesevorgänge" 10 bis 15 ms überschreitet. Dies ist ein allgemeiner Schwellenwert, den der Microsoft-Support für die Problembehandlung verwendet. Leistungsprobleme im Zusammenhang mit dem Speicher. Wie zuvor wird empfohlen, dass es sich bei den Beispiel Intervallen um 15, 30 oder 60 Minuten handelt. Für gute Messungen sind normalerweise weniger als flüchtig. alles höhere wird die tägliche anwirkung übermäßig stark glätten.
 
 ### <a name="introduction"></a>Einführung
 
@@ -421,7 +421,7 @@ Im nächsten Beispiel werden folgende Annahmen getroffen:
 
 ![Diagramm der CPU-Auslastung](media/capacity-planning-considerations-cpu-chart.png)
 
-Analysieren der Daten im Diagramm (Prozessor Information (_Total)\% Prozessor Utility) für die einzelnen DCS:
+Analysieren der Daten im Diagramm (Prozessor Informationen (_Total) \%-Prozessor Dienstprogramm) für die einzelnen DCS:
 
 - Die Auslastung ist größtenteils gleichmäßig verteilt, was zu erwarten ist, wenn der Domänen Controller-Serverlocatorpunkt von den Clients verwendet wird und gut geschriebene Suchvorgänge vorliegen. 
 - Es gibt eine Reihe von fünfminütigen Spitzen von 10%, wobei einige bis zu 20% groß sind. Im Allgemeinen ist es nicht lohnenswert, das Kapazitätsplan Ziel zu überschreiten.  
@@ -436,7 +436,7 @@ Analysieren der Daten im Diagramm (Prozessor Information (_Total)\% Prozessor Ut
 
 ### <a name="calculating-cpu-demands"></a>Berechnen von CPU-Anforderungen
 
-Mit dem Leistungs\\Objekt Leistungs Objekt "Prozessorzeit (%)" wird die Gesamtzeit addiert, die alle Threads einer Anwendung für die CPU aufwenden und durch die Gesamtmenge der bestandenen Systemzeit dividiert werden. Dies hat den Grund, dass eine Multithread-Anwendung auf einem Multi-CPU-System eine CPU-Zeit von 100% überschreiten kann und sehr anders interpretiert wird als\\"Prozessor Informationen% Prozessor Dienstprogramm". In der Praxis kann die "Process (LSASS)\\% Processor Time" als Anzahl der CPUs angezeigt werden, die bei 100% ausgeführt werden und zur Unterstützung der Anforderungen des Prozesses erforderlich sind. Der Wert 200% bedeutet, dass 2 CPUs, jeweils um 100%, erforderlich sind, um die vollständige AD DS Last zu unterstützen. Obwohl eine CPU mit einer Kapazität von 100% die kostengünstigste ist, aus der Perspektive von Geld für CPUs und Stromversorgung und Energieverbrauch, erfolgt aus verschiedenen Gründen, die in Anhang a ausführlich beschrieben werden, eine bessere Reaktionsfähigkeit auf einem Multithread-System, wenn das System wird nicht um 100% ausgeführt.
+Der Leistungs Objekt-Leistungs Objektwert "Process @ no__t-0% Processor Time" summiert die Gesamtzeit, die alle Threads einer Anwendung für die CPU aufwenden, und dividiert durch die Gesamtmenge der bestandenen Systemzeit. Dies hat zur Folge, dass eine Multithread-Anwendung auf einem Multi-CPU-System eine CPU-Zeit von 100% überschreiten kann und sehr anders interpretiert wird als "Prozessor Informationen @ no__t-0% Processor Utility". In der Praxis kann der Prozess (LSASS) \\% Prozessorzeit als Anzahl der CPUs mit 100% angezeigt werden, die zur Unterstützung der Anforderungs Anforderungen erforderlich sind. Der Wert 200% bedeutet, dass 2 CPUs, jeweils um 100%, erforderlich sind, um die vollständige AD DS Last zu unterstützen. Obwohl eine CPU mit einer Kapazität von 100% die kostengünstigste ist, aus der Perspektive von Geld für CPUs und Stromversorgung und Energieverbrauch, erfolgt aus verschiedenen Gründen, die in Anhang a ausführlich beschrieben werden, eine bessere Reaktionsfähigkeit auf einem Multithread-System, wenn das System wird nicht um 100% ausgeführt.
 
 Zur Unterstützung vorübergehender Spitzen bei der Client Auslastung empfiehlt es sich, eine Spitzenzeit-CPU von zwischen 40% und 60% der Systemkapazität als Ziel zu erreichen. Wenn Sie mit dem obigen Beispiel arbeiten, bedeutet dies, dass zwischen 3,33 (60% Target) und 5 (40% Ziel) CPUs für die AD DS-Auslastung (LSASS-Prozess) benötigt werden. Zusätzliche Kapazität sollte gemäß den Anforderungen des Basis Betriebssystems und anderen erforderlichen Agents (z. b. Antivirus, Sicherung, Überwachung usw.) hinzugefügt werden. Obwohl die Auswirkung von Agents pro Umgebung ausgewertet werden muss, kann eine Schätzung zwischen 5% und 10% einer einzelnen CPU vorgenommen werden. Im aktuellen Beispiel würde dies darauf hindeuten, dass bei Spitzenzeiten zwischen 3,43-CPUs (60% Target) und 5,1-CPUs (40% Ziel) erforderlich sind.
 
@@ -448,7 +448,7 @@ Annahmen:
 
 ![Prozessorzeit Diagramm für LSASS-Prozess (über alle Prozessoren)](media/capacity-planning-considerations-proc-time-chart.png)
 
-Informationen aus den Daten im Diagramm (Prozess (LSASS)\\% Prozessorzeit):
+Informationen aus den Daten im Diagramm (Prozess (LSASS) \\% Prozessorzeit):
 
 - Der Geschäftstag beginnt um 7:00 Uhr und sinkt um 5:00 Uhr.
 - Der Haupt Zeitraum liegt zwischen 9:30 Uhr und 11:00 Uhr. 
@@ -486,7 +486,7 @@ Mit dem Beispiel aus dem [Profil "Ziel Standort Verhalten](#target-site-behavior
 
 #### <a name="example-2---differing-cpu-counts"></a>Beispiel 2: abweichende CPU-Anzahl
 
-| |Prozessor-\\Informations %Prozessor-Hilfsprogramm(_Total&nbsp;)<br />Verwendung mit Standardwerten|Neues LdapSrvWeight|Geschätzte neue Auslastung|
+| |Prozessor Informationen @ no__t-0 @ no__t-1 @ no__t-2processor Utility (_Total)<br />Verwendung mit Standardwerten|Neues LdapSrvWeight|Geschätzte neue Auslastung|
 |-|-|-|-|
 |4-CPU-DC 1|40|100|30 %|
 |4-CPU-DC 2|40|100|30 %|
@@ -521,7 +521,7 @@ Während der Analyse und Berechnung der CPU-Mengen, die für die Unterstützung 
 |-|-|
 |Erforderliche CPUs bei 40%-Ziel|4,85 &divide; . 4 = 12,25|
 
-Wenn Sie sich aufgrund der Wichtigkeit dieses Punkts wiederholen, *denken Sie daran, das Wachstum zu planen*. In der Annahme, dass in den nächsten drei Jahren 50% zugenommen werden, benötigt diese Umgebung &times; 18,375 CPUs (12,25 1,5) an der dreijährigen Markierung. Ein alternativer Plan wäre, nach dem ersten Jahr zu prüfen und bei Bedarf zusätzliche Kapazität hinzuzufügen.
+Wenn Sie sich aufgrund der Wichtigkeit dieses Punkts wiederholen, *denken Sie daran, das Wachstum zu planen*. Wenn in den nächsten drei Jahren 50% zugenommen, benötigt diese Umgebung 18,375 CPUs (12,25 &times; 1,5) an der dreijährigen Markierung. Ein alternativer Plan wäre, nach dem ersten Jahr zu prüfen und bei Bedarf zusätzliche Kapazität hinzuzufügen.
 
 ### <a name="cross-trust-client-authentication-load-for-ntlm"></a>Vertrauenswürdige Client Authentifizierungs Last für NTLM
 
@@ -576,7 +576,7 @@ In diesem Artikel wurde erläutert, dass die Planung und Skalierung zu Verwendun
 
 |Kategorie|Leistungs Zählers|Intervall/Stichprobenentnahme|Ziel|Warnung|
 |-|-|-|-|-|
-|Prozessor|Prozessor Informationen (_Total)\\% Prozessor Dienstprogramm|60 min.|40 %|60 %|
+|Prozessor|Prozessor Informationen (_Total) \\% Prozessor Dienstprogramm|60 min.|40 %|60 %|
 |RAM (Windows Server 2008 R2 oder früher)|Speicher \ verfügbare MB|< 100 MB|Nicht zutreffend|< 100 MB|
 |RAM (Windows Server 2012)|Memory\langterm durchschnittliche standbycache-Lebensdauer (n)|30 Minuten|Muss getestet werden|Muss getestet werden|
 |Network|Netzwerkschnittstelle (\*) \Gesendete Bytes/Sek.<br /><br />Netzwerkschnittstelle (\*) \Empfangene Bytes/Sek.|30 Minuten|40 %|60 %|
@@ -655,7 +655,7 @@ Die oben genannte Anweisung bezieht sich auf die Berechnung von% Prozessorzeit, 
 - Das Mathematik:
   - *U* k = 1 –% Prozessorzeit
   - Prozessorzeit (%) = 1 – *U* k
-  - Prozessorzeit (%) = 1 – *B* / *T*
+  - Prozessorzeit (%) = 1 – *B* / *t*
   - Prozessorzeit (%) = 1 – *x1* – *X0* / *Y1* – *y0*
 
 ### <a name="applying-the-concepts-to-capacity-planning"></a>Anwenden der Konzepte auf die Kapazitätsplanung
@@ -667,7 +667,7 @@ Die vorangehende Mathematik kann Determinationen hinsichtlich der Anzahl der log
 - Das Hinzufügen von weiteren Prozessoren zu einem System mit 90%, das Datenträger gebunden ist, führt wahrscheinlich nicht zu einer deutlichen Verbesserung der Leistung. Eine tiefer gehende Analyse des Systems erkennt wahrscheinlich, dass viele Threads vorhanden sind, die noch nicht auf dem Prozessor ausgeführt werden, da Sie auf den Abschluss der e/a-Vorgänge warten.
 - Die Behebung der Datenträger gebundenen Probleme bedeutet potenziell, dass Threads, die zuvor viel Zeit in den Wartezustand waren, nicht länger in den Wartezustand für e/a-Vorgänge versetzt werden, und es wird mehr Wettbewerb für die CPU-Zeit aufgewendet, was bedeutet, dass die Auslastung von 90% im vorherigen Das Beispiel wechselt zu 100% (weil es nicht weiter gehen kann). Beide Komponenten müssen zusammen abgestimmt werden.
   > [!NOTE]
-  > Prozessor Informationen (*)\\% Prozessor Dienstprogramm kann 100% mit Systemen überschreiten, die den Modus "Turbo" aufweisen.  An dieser Stelle überschreitet die CPU die bewertete Prozessorgeschwindigkeit für kurze Zeiträume.  Referenz zur CPU-Herstellerdokumentation und-Beschreibung des Zählers für größere Einblicke.  
+  > Prozessor Informationen (*) \\% Prozessor Dienstprogramm kann 100% mit Systemen mit dem Modus "Turbo" überschreiten.  An dieser Stelle überschreitet die CPU die bewertete Prozessorgeschwindigkeit für kurze Zeiträume.  Referenz zur CPU-Herstellerdokumentation und-Beschreibung des Zählers für größere Einblicke.  
 
 Die Erörterung ganzer Überlegungen zur System Auslastung bringt auch die Konversations Domänen Controller als virtualisierte Gäste ein. Die [Antwortzeit/die Auswirkung der Systemgeschwindigkeit](#response-timehow-the-system-busyness-impacts-performance) auf die Leistung gilt für den Host und den Gast in einem virtualisierten Szenario. Aus diesem Grund hat bei einem Host mit nur einem Gast ein Domänen Controller (und in der Regel jedes System) fast dieselbe Leistung wie bei physischer Hardware. Das Hinzufügen zusätzlicher Gäste zu den Hosts erhöht die Auslastung des zugrunde liegenden Hosts und erhöht so die Wartezeit, um den Zugriff auf die Prozessoren wie zuvor erläutert zu erhalten. Kurz gesagt, die Auslastung des logischen Prozessors muss sowohl auf dem Host als auch auf dem Gast Niveau verwaltet werden.
 

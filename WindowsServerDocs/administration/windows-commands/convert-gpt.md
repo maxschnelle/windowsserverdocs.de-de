@@ -1,8 +1,8 @@
 ---
 title: convert gpt
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 433e30efeecec4e4ec51d67c40c14cacf986d12e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 9a6392cbcff618c642b9d0f168fe555e8be9e759
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434225"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379090"
 ---
 # <a name="convert-gpt"></a>convert gpt
 
 
 
-Konvertiert einen leeren Basisdatenträger mit dem Partitionsstil der master Boot Record (MBR) in einen Basisdatenträger mit Partitionsstil der GUID-Partitionstabelle (GPT).
+Konvertiert einen leeren Basis Datenträger mit dem Partitions Stil Master Boot Record (MBR) in einen Basis Datenträger mit dem GPT-Partitions Stil (GUID-Partitionstabelle).
 
-Anweisungen dazu, wie Sie diesen Befehl verwenden, finden Sie unter [ändern Sie einen Datenträger Master Boot Record in eine GUID-Partitionstabelle](https://go.microsoft.com/fwlink/?LinkId=207049) (https://go.microsoft.com/fwlink/?LinkId=207049).
+Anweisungen zur Verwendung dieses Befehls finden Sie unter [Ändern eines Master Boot Record-Datenträgers in einen Datenträger mit einer GUID-Partitionstabelle](https://go.microsoft.com/fwlink/?LinkId=207049) (https://go.microsoft.com/fwlink/?LinkId=207049).
 
 ## <a name="syntax"></a>Syntax
 
@@ -38,18 +38,18 @@ convert gpt [noerr]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Diskpart|nur für Skripts. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden.|
+|Noerr|Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.|
 
 ## <a name="remarks"></a>Hinweise
 
 > [!IMPORTANT]
-> Der Datenträger muss für die Konvertierung in einen GPT-Datenträger leer sein. Sichern Sie Ihre Daten, und klicken Sie dann löschen Sie alle Partitionen oder Volumes, bevor der Datenträger konvertieren.
-> -   Die erforderliche Mindestgröße des Datenträgers für die Konvertierung in GPT beträgt 128 MB.
-> -   Ein grundlegende MBR-Datenträger muss ausgewählt werden, für diesen Vorgang erfolgreich ausgeführt werden kann. Verwenden der **select Disk** Befehl aus, wählen Sie einen Basisdatenträger und verschiebt den Fokus auf sie.
+> Der Datenträger muss leer sein, damit er in einen GPT-Datenträger konvertiert werden kann. Sichern Sie Ihre Daten, und löschen Sie dann alle Partitionen oder Volumes, bevor Sie den Datenträger umstellen.
+> -   Die erforderliche Mindestgröße für die Datenträger Größe für die Konvertierung in GPT beträgt 128 Megabyte.
+> -   Ein einfacher MBR-Datenträger muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt wird. Verwenden Sie den Befehl Datenträger **auswählen** , um einen Basis Datenträger auszuwählen und den Fokus darauf zu verschieben.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Geben Sie Folgendes ein, um einen einfachen Datenträger von MBR-Partitionstyp in GPT-Partitionstyp zu konvertieren:
+Geben Sie Folgendes ein, um eine Basis-CD von MBR-Partitions Stil in GPT-Partitions Stil zu konvertieren:
 ```
 convert gpt
 ```

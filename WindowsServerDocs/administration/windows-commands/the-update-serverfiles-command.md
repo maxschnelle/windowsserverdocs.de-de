@@ -1,8 +1,8 @@
 ---
-title: Der Update-ServerFiles-Befehl
-description: 'Windows-Befehle Thema ***- '
+title: Der Update-serverfiles-Befehl
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ec96e2ba9aea14ed9a203dabbb697187736b33a8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 93eeb0deaa527921db35f4ab955d2ccc46b57d7a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817441"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385849"
 ---
-# <a name="the-update-serverfiles-command"></a>Der Update-ServerFiles-Befehl
+# <a name="the-update-serverfiles-command"></a>Der Update-serverfiles-Befehl
 
 
 
-Aktualisiert die Dateien in der REMINST freigegebenen Ordner mithilfe der neuesten Dateien, die in den Ordner des Servers %Windir%\System32\RemInst gespeichert sind. Um die Gültigkeit der Windows-Bereitstellungsdienste-Installation zu gewährleisten, sollten Sie diesen Befehl einmal nach jeder Serverupgrade, Service Pack-Installation oder Aktualisierung auf Windows-Bereitstellungsdienste-Dateien ausführen.
+Aktualisiert Dateien im Ordner "REMINST Shared" mithilfe der neuesten Dateien, die im Ordner "%windir%\system32\reminst" des Servers gespeichert sind. Um die Gültigkeit der Installation der Windows-Bereitstellungs Dienste sicherzustellen, sollten Sie diesen Befehl einmal nach jedem Server Upgrade, Service Pack Installation oder Update von Windows-Bereitstellungs Dienst Dateien ausführen.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,11 +36,11 @@ WDSUTIL [Options] /Update-ServerFiles [/Server:<Server name>]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|[/ Server:\<Servername >]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben wird, wird der lokale Server verwendet werden.|
+|[/Server: \<Server Name >]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Geben Sie einen der folgenden Schritte aus, um die Dateien zu aktualisieren:
+Um die Dateien zu aktualisieren, geben Sie eine der folgenden Informationen ein:
 ```
 WDSUTIL /Update-ServerFiles
 WDSUTIL /Verbose /Progress /Update-ServerFiles /Server:MyWDSServer
@@ -48,4 +48,4 @@ WDSUTIL /Verbose /Progress /Update-ServerFiles /Server:MyWDSServer
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

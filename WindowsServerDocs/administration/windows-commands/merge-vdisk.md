@@ -1,8 +1,8 @@
 ---
-title: Zusammenführen von virtuellen Datenträger
-description: 'Windows-Befehle Thema ***- '
+title: Vdisk zusammenführen
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bc20fcaf6e511bb25156996bddc3357f99195875
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 7023f2a6669ea6f6801e25cbfc87c950ab95a3bc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437410"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373732"
 ---
-# <a name="merge-vdisk"></a>Zusammenführen von virtuellen Datenträger
+# <a name="merge-vdisk"></a>Vdisk zusammenführen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Führt eine differenzierende virtuelle Festplatte (VHD) mit dem entsprechenden übergeordneten virtuellen Festplatte zusammen. Die übergeordnete virtuelle Festplatte wird geändert werden, sollen die Änderungen aus der differenzierenden VHD.
+Führt eine differenzierende virtuelle Festplatte (VHD) mit der entsprechenden übergeordneten VHD zusammen. Die übergeordnete VHD wird so geändert, dass Sie die Änderungen der differenzierenden VHD einschließt.
 > [!NOTE]
-> Dieser Befehl gilt nur für Windows 7 und Windows Server 2008 R2 zur Verfügung.
+> Dieser Befehl gilt nur für Windows 7 und Windows Server 2008 R2.
 > ## <a name="syntax"></a>Syntax
 > ```
 > merge vdisk depth=<n>
@@ -35,23 +35,23 @@ Führt eine differenzierende virtuelle Festplatte (VHD) mit dem entsprechenden �
 > 
 > | Parameter |                                                                                    Beschreibung                                                                                    |
 > |-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | depth=<n> | Gibt die Anzahl der übergeordneten VHD-Dateien zusammenführen. Z. B. **Depth = 1** gibt an, dass die differenzierende VHD mit einer Ebene der differenzierungskette zusammengeführt werden. |
+> | Tiefe = <n> | Gibt die Anzahl der übergeordneten VHD-Dateien an, die zusammengeführt werden sollen. " **Tiefe = 1** " gibt beispielsweise an, dass die differenzierende virtuelle Festplatte mit einer Ebene der differenzierenden Kette zusammengeführt wird. |
 > 
 > ## <a name="remarks"></a>Hinweise
-> - Eine virtuelle Festplatte muss ausgewählt und getrennt werden, damit dieser Vorgang erfolgreich ausgeführt werden. Verwenden der **wählen Vdisk** Befehl aus, um die virtuelle Festplatte auswählen, und verschiebt den Fokus auf sie.
-> - Dieser Parameter wird die übergeordnete virtuelle Festplatte geändert. Daher werden die andere differenzierenden virtuelle Festplatten, die vom übergeordneten Element abhängig sind nicht mehr gültig sein.
->   ## <a name="BKMK_Examples"></a>Beispiele für
->   Wenn eine differenzierende virtuelle Festplatte mit dem übergeordneten virtuellen Festplatte zusammenführen möchten, geben Sie Folgendes ein:
+> - Es muss eine VHD ausgewählt und getrennt werden, damit dieser Vorgang erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl **Vdisk auswählen** eine VHD aus, und verschieben Sie den Fokus darauf.
+> - Mit diesem Parameter wird die übergeordnete VHD geändert. Folglich sind andere differenzierende VHDs, die vom übergeordneten Element abhängig sind, nicht mehr gültig.
+>   ## <a name="BKMK_Examples"></a>Beispiele
+>   Geben Sie Folgendes ein, um eine differenzierende VHD mit der übergeordneten VHD zusammenzuführen:
 >   ```
 >   merge vdisk depth=1
 >   ```
->   ## <a name="additional-references"></a>Zusätzliche Referenzen
+>   ## <a name="additional-references"></a>Weitere Verweise
 > - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
-> - [attach vdisk](attach-vdisk.md)
-> - [compact vdisk](compact-vdisk.md)
+> - [Vdisk anfügen](attach-vdisk.md)
+> - [Compact Vdisk](compact-vdisk.md)
 
--   [detail vdisk](detail-vdisk.md)
--   [Trennen Sie die virtuellen Datenträger](detach-vdisk.md)
--   [Erweitern Sie die virtuellen Datenträger](expand-vdisk.md)
--   [select vdisk](select-vdisk.md)
+-   [Detail-Vdisk](detail-vdisk.md)
+-   [Vdisk trennen](detach-vdisk.md)
+-   [Erweitern von Vdisk](expand-vdisk.md)
+-   [Vdisk auswählen](select-vdisk.md)
 -   [list_1](list_1.md)

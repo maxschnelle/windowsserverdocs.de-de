@@ -2,22 +2,22 @@
 title: Definieren von Dateigruppen für die Prüfung
 description: In diesem Artikel wird das Definieren von Dateigruppen beschrieben, um einen Namespace für die Dateiprüfung, Dateiprüfungsausnahme oder Speicherberichte für Dateien nach Dateigruppen festzulegen
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 6e043692500370b6c084a4db068027d13afc957f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b56d7b0439e3dc6f1a2e0a1c96f761dbb77cb0a0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838431"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394389"
 ---
 # <a name="define-file-groups-for-screening"></a>Definieren von Dateigruppen für die Prüfung
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Eine *Dateigruppe* wird verwendet, um einen Namespace für die Dateiprüfung, Dateiprüfungsausnahme oder Speicherbericht für **Dateien nach Dateigruppen** festzulegen. Sie besteht aus einer Reihe von Dateinamenmustern, die folgendermaßen gruppiert werden:
 
@@ -41,16 +41,16 @@ Eine *Dateigruppe* wird verwendet, um einen Namespace für die Dateiprüfung, Da
 
     -   Geben Sie für jede Gruppe von Dateien, die Sie in die Dateigruppe einfügen möchten, ein Dateinamenmuster in das Feld **Einzuschließende Dateien** ein und klicken Sie dann auf **Hinzufügen**.
     -   Geben Sie für jede Gruppe von Dateien, die Sie nicht in die Dateigruppe einfügen möchten, ein Dateinamenmuster in das Feld **Auszuschließende Dateien** ein und klicken Sie dann auf **Hinzufügen**.
-        Beachten Sie, die standard Platzhalterregeln angewendet werden, z. B.  **\*.exe** wählt alle ausführbaren Dateien.
+        Beachten Sie, dass standardmäßige Platzhalter Regeln angewendet werden, z. b. **@no__t -1. exe** alle ausführbaren Dateien auswählt.
 
 5.  Klicken Sie auf **OK**.
 
 ## <a name="see-also"></a>Siehe auch
 
--   [Dateiprüfungsverwaltung](file-screening-management.md)
--   [Erstellen Sie einen Datei-Bildschirm](create-file-screen.md)
+-   [Datei Prüfungsverwaltung](file-screening-management.md)
+-   [Erstellen einer Dateiprüfung](create-file-screen.md)
 -   [Erstellen einer Dateiprüfungsausnahme](create-file-screen-exception.md)
--   [Erstellen Sie eine Bildschirmvorlage Datei](create-file-screen-template.md)
--   [Speicherverwaltung für Berichte](storage-reports-management.md)
+-   [Erstellen einer Dateiprüfungsvorlage](create-file-screen-template.md)
+-   [Speicherberichtmanagement](storage-reports-management.md)
 
 

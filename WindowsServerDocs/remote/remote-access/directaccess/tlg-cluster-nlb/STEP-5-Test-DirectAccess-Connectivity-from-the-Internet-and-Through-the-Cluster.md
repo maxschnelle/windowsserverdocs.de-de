@@ -1,9 +1,9 @@
 ---
-title: Schritt 5 Test DirectAccess-Konnektivität über das Internet und durch den Cluster
-description: 'Dieses Thema ist Teil der Testumgebungsanleitung: Vorführen von DirectAccess in einem Cluster mit Windows NLB für Windows Server 2016'
+title: Schritt 5 Testen der DirectAccess-Konnektivität über das Internet und über den Cluster
+description: Dieses Thema ist Teil der Test Umgebungs Anleitung zum Veranschaulichen von DirectAccess in einem Cluster mit Windows NLB für Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,76 +12,76 @@ ms.topic: article
 ms.assetid: 8399bdfa-809a-45e4-9963-f9b6a631007f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 23aed915edb827fd0cd61e6778167108647269ea
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 1b5708e51b2653444fb3eb636baac6a165dfc55d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283344"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404849"
 ---
-# <a name="step-5-test-directaccess-connectivity-from-the-internet-and-through-the-cluster"></a>Schritt 5 Test DirectAccess-Konnektivität über das Internet und durch den Cluster
+# <a name="step-5-test-directaccess-connectivity-from-the-internet-and-through-the-cluster"></a>Schritt 5 Testen der DirectAccess-Konnektivität über das Internet und über den Cluster
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-"Client1" ist jetzt für DirectAccess-Tests bereit.  
+CLIENT1 ist jetzt für DirectAccess-Tests bereit.  
   
-- Testen der DirectAccess-Konnektivität aus dem Internet. Verbinden Sie CLIENT1 mit dem simulierten Internet. Wenn mit dem simulierten Internet verbunden ist, wird der Client eine öffentliche IPv4-Adressen zugewiesen. Wenn ein DirectAccess-Client eine öffentliche IPv4-Adresse zugewiesen wird, versucht, eine Verbindung mit eine IPv6-übergangstechnologie verwenden RAS-Server herzustellen.  
+- Testen Sie die DirectAccess-Konnektivität über das Internet. Verbinden Sie CLIENT1 mit dem simulierten Internet. Wenn eine Verbindung mit dem simulierten Internet besteht, werden dem Client öffentliche IPv4-Adressen zugewiesen. Wenn einem DirectAccess-Client eine öffentliche IPv4-Adresse zugewiesen wird, versucht er, mithilfe einer IPv6-Übergangstechnologie eine Verbindung mit dem RAS-Server herzustellen.  
   
-- Testen der DirectAccess-Clientkonnektivität über den Cluster. Testen Sie die Funktionen des Clusters. Bevor Sie mit dem Testen beginnen, empfehlen wir, dass Sie sowohl EDGE1 und EDGE2 für mindestens fünf Minuten einstellen. Es gibt zahlreiche Gründe, die ARP-Cache-Timeouts und Änderungen in Bezug auf NLB enthalten. Wenn NLB-Konfiguration in einer testumgebung überprüfen möchten, müssen Sie Patienten, die Änderungen in der Konfiguration nicht sofort Konnektivität bis wiedergegeben werden, nachdem eine bestimmte Zeitspanne verstrichen ist. Dies ist wichtig zu bedenken, wenn Sie die folgenden Aufgaben ausführen.  
+- Testen Sie die DirectAccess-Client Konnektivität über den Cluster. Testen Sie die Cluster Funktionalität. Bevor Sie mit dem Testen beginnen, wird empfohlen, dass Sie für mindestens fünf Minuten sowohl Edge1 als auch EDGE2 Herunterfahren. Hierfür gibt es eine Reihe von Gründen, einschließlich ARP-Cache Timeouts und Änderungen im Zusammenhang mit NLB. Wenn Sie die NLB-Konfiguration in einer Testumgebung überprüfen, benötigen Sie einen Patienten, da Änderungen an der Konfiguration nicht sofort in der Konnektivität widergespiegelt werden, bis eine Zeitspanne verstrichen ist. Dies ist wichtig, wenn Sie die folgenden Aufgaben durchführen.  
   
     > [!TIP]  
-    > Es wird empfohlen, dass Sie Internet Explorer-Cache löschen, bevor Sie dieses Verfahren durchführen, und jedes Mal Sie die Verbindung über einen anderen RAS-Server testen, um sicherzustellen, dass Sie die Verbindung testen und nicht die Webseiten aus dem Cache abgerufen.  
+    > Es wird empfohlen, den Internet Explorer-Cache vor dem Ausführen dieses Verfahrens zu löschen und jedes Mal, wenn Sie die Verbindung über einen anderen RAS-Server testen, um sicherzustellen, dass Sie die Verbindung testen und nicht die Webseiten aus dem Cache abrufen.  
   
 ## <a name="test-directaccess-connectivity-from-the-internet"></a>Testen der DirectAccess-Konnektivität über das Internet  
   
-1. Trennen Sie CLIENT1 aus dem Corpnet-Switch, und verbinden Sie es mit dem Internet-Switch. Warten Sie 30 Sekunden.  
+1. Entfernen Sie die CLIENT1 vom Corpnet-Switch, und verbinden Sie Sie mit dem Internet-Switch. Warten Sie 30 Sekunden.  
   
-2. Geben Sie in einer Windows PowerShell-Fenster mit erhöhten Rechten, **Ipconfig/flushdns** und drücken Sie EINGABETASTE. Dies leert Name Resolution-Einträge, die noch im Cache DNS-Client auftreten können, wenn der Clientcomputer mit dem Unternehmensnetzwerk verbunden war.  
+2. Geben Sie in einem Windows PowerShell-Fenster mit erhöhten Rechten **ipconfig/flushdns** ein, und drücken Sie EINGABETASTE. Dadurch werden namens Auflösungs Einträge geleert, die möglicherweise noch im Client-DNS-Cache vorhanden sind, wenn der Client Computer mit dem Unternehmensnetzwerk verbunden war.  
   
-3. Geben Sie in Windows PowerShell-Fenster **Get-DnsClientNrptPolicy** und drücken Sie EINGABETASTE.  
+3. Geben Sie im Windows PowerShell-Fenster **Get-dnsclientnrptpolicy** ein, und drücken Sie die EINGABETASTE.  
   
-   In der Ausgabe werden die aktuellen Einstellungen der Richtlinientabelle für die Namensauflösung (Name Resolution Policy Table, NRPT) angezeigt. Diese Einstellungen weisen darauf hin, die alle Verbindungen zu. "corp.contoso.com" durch den Remote-Access-DNS-Server, mit der IPv6-Adresse 2001:db8:1::2 gelöst werden sollen. Beachten Sie außerdem den NRPT-Eintrag, dass eine Ausnahme für den Namen "nls.corp.contoso.com" vorhanden ist; Namen in der Ausnahmeliste werden vom Remote-Access-DNS-Server nicht beantwortet. Sie können die Remote Access-DNS-Server IP-Adresse, um zu überprüfen, ob Konnektivität zum RAS-Server pingen. Sie können z. B. 2001:db8:1::2 pingen.  
+   In der Ausgabe werden die aktuellen Einstellungen der Richtlinientabelle für die Namensauflösung (Name Resolution Policy Table, NRPT) angezeigt. Diese Einstellungen geben an, dass alle Verbindungen zu. Corp.contoso.com vom RAS-DNS-Server mit der IPv6-Adresse "2001: db8:1:: 2" aufgelöst werden sollen. Beachten Sie außerdem den NRPT-Eintrag, dass eine Ausnahme für den Namen "nls.corp.contoso.com" vorhanden ist; Namen in der Ausnahmeliste werden vom Remote-Access-DNS-Server nicht beantwortet. Sie können an die IP-Adresse des RAS-DNS-Servers pingen, um die Konnektivität zum RAS-Server zu bestätigen. Beispielsweise können Sie den Ping 2001: db8:1:: 2 ausführen.  
   
-4. Geben Sie in Windows PowerShell-Fenster **ping app1** und drücken Sie EINGABETASTE. Sie sollten finden Sie Antworten von der IPv6-Adresse für APP1, das in diesem Fall 2001:db8:1::3.  
+4. Geben Sie im Windows PowerShell-Fenster **Ping App1** ein, und drücken Sie die EINGABETASTE. Es sollten Antworten von der IPv6-Adresse für App1 angezeigt werden. Dies ist in diesem Fall "2001: db8:1:: 3".  
   
-5. Geben Sie in Windows PowerShell-Fenster **ping app2** und drücken Sie EINGABETASTE. Sie sollten Antworten von der NAT64-Adresse erhalten, die von EDGE1 zu APP2 zugeordnet wurde (in diesem Fall "fdc9:9f4e:eb1b:7777::a00:4").  
+5. Geben Sie im Windows PowerShell-Fenster **Ping App2** ein, und drücken Sie die EINGABETASTE. Sie sollten Antworten von der NAT64-Adresse erhalten, die von EDGE1 zu APP2 zugeordnet wurde (in diesem Fall "fdc9:9f4e:eb1b:7777::a00:4").  
   
-   Die Möglichkeit, ping APP2 ist wichtig, da der Vorgang erfolgreich war, dass Sie eine Verbindung mithilfe von NAT64/DNS64 verwendet werden, herstellen, da APP2 eine einzige IPv4-Ressourcen ist konnten.  
+   Die Möglichkeit zum Ping-APP2 ist wichtig, da der Erfolg anzeigt, dass Sie eine Verbindung mithilfe von NAT64/DNS64 herstellen konnten, da APP2 eine reine IPv4-Ressource ist.  
   
-6. Lassen Sie das Windows PowerShell-Fenster für den nächsten Vorgang geöffnet.  
+6. Lassen Sie das Windows PowerShell-Fenster für das nächste Verfahren geöffnet.  
   
-7. Öffnen Sie Internet Explorer, in der Adressleiste von Internet Explorer, geben Sie **https://app1/** und drücken Sie EINGABETASTE. Die Standard-IIS-Website auf APP1 wird angezeigt.  
+7. Öffnen Sie Internet Explorer, geben Sie in der Internet Explorer-Adressleiste **https://app1/ ein** , und drücken Sie die EINGABETASTE. Die Standard-IIS-Website auf APP1 wird angezeigt.  
   
-8. Geben Sie in der Internet Explorer-Adressleiste **https://app2/** und drücken Sie EINGABETASTE. Die Standardwebsite auf APP2 wird angezeigt.  
+8. Geben Sie in der Internet Explorer-Adressleiste **https://app2/ ein** , und drücken Sie die EINGABETASTE. Die Standardwebsite auf APP2 wird angezeigt.  
   
-9. Auf der **starten** geben<strong>\\\App2\Files</strong>, und drücken Sie dann die EINGABETASTE. Doppelklicken Sie auf die neue Textdokumentdatei.  
+9. Geben Sie auf dem **Start** Bildschirm<strong>\\ \ App2\Files</strong>ein, und drücken Sie dann die EINGABETASTE. Doppelklicken Sie auf die neue Textdokumentdatei.  
   
-    Dies zeigt, dass Sie die Verbindung mit einem reinen IPv4-Server mit SMB zum Abrufen einer Ressource in der Ressourcendomäne konnten.  
+    Dies zeigt, dass Sie eine Verbindung mit einem reinen IPv4-Server herstellen konnten, indem Sie SMB zum Abrufen einer Ressource in der Ressourcen Domäne verwenden.  
   
-10. Auf der **starten** geben**wf.msc**, und drücken Sie dann die EINGABETASTE.  
+10. Geben Sie auf dem **Start** Bildschirm**WF. msc**ein, und drücken Sie dann die EINGABETASTE.  
   
-11. In der **Windows-Firewall mit erweiterter Sicherheit** -Konsole, beachten Sie, dass nur die **Private** oder **öffentliches Profil** aktiv ist. Die Windows-Firewall muss aktiviert sein, für DirectAccess ordnungsgemäß funktioniert. Wenn die Windows-Firewall deaktiviert ist, funktioniert die DirectAccess-Konnektivität nicht.  
+11. Beachten Sie in der Konsole **Windows-Firewall mit** erweiterter Sicherheit, dass nur das **private** oder **öffentliche Profil** aktiv ist. Die Windows-Firewall muss aktiviert sein, damit DirectAccess ordnungsgemäß funktioniert. Wenn die Windows-Firewall deaktiviert ist, funktioniert die DirectAccess-Konnektivität nicht.  
   
-12. Erweitern Sie im linken Bereich der Konsole die **Überwachung** Knoten, und klicken Sie auf die **Verbindungssicherheitsregeln** Knoten. Die aktiven Verbindungssicherheitsregeln sollte angezeigt werden: **DirectAccess Policy-ClientToCorp**, **DirectAccess Policy-ClientToDNS64NAT64PrefixExemption**, **DirectAccess Policy-ClientToInfra**, und **DirectAccess Policy-ClientToNlaExempt-** . Scrollen Sie im mittleren Bereich nach rechts, um das Anzeigen der **1. Authentifizierungsmethoden** und **2. Authentifizierungsmethoden** Spalten. Beachten Sie, dass die erste Regel (ClientToCorp) Kerberos V5 verwendet, um den intranettunnel einzurichten und die dritte Regel (ClientToInfra) verwendet NTLMv2, um den infrastrukturtunnel herzustellen.  
+12. Erweitern Sie im linken Bereich der Konsole den Knoten **Überwachung** , und klicken Sie auf den Knoten **Verbindungs Sicherheitsregeln** . Die aktiven Verbindungs Sicherheitsregeln sollten angezeigt werden: **DirectAccess Policy-clientabcorp**, **DirectAccess Policy-ClientToDNS64NAT64PrefixExemption**, **DirectAccess Policy-Clientdie Infrastruktur**und **DirectAccess Policy-clienttonlaausgenommen**. Führen Sie im mittleren Bereich einen Bildlauf nach rechts durch, um die **ersten Authentifizierungsmethoden** und **2. Authentifizierungsmethoden** Spalten anzuzeigen. Beachten Sie, dass die erste Regel (clientescorp) Kerberos V5 verwendet, um den intranettunnel einzurichten, und die dritte Regel (clientesinfrastructure) verwendet NTLMv2, um den Infrastruktur Tunnel einzurichten.  
   
-13. Erweitern Sie im linken Bereich der Konsole die **Sicherheitszuordnungen** Knoten, und klicken Sie auf die **Hauptmodus** Knoten. Beachten Sie die Infrastruktur-Tunnel-sicherheitszuordnungen NTLMv2 verwenden und die sicherheitszuordnung der Intranet-Tunnel mit Kerberos V5. Mit der rechten Maustaste in des Eintrags, der zeigt, **Benutzer (Kerberos V5)** als die **2. Authentifizierungsmethode** , und klicken Sie auf **Eigenschaften**. Auf der **allgemeine** Registerkarte, beachten Sie, dass die **zweite Authentifizierung lokale ID** ist **"corp\user1"** , gibt an, dass "user1" für die CORP-Domäne mit authentifiziert werden konnte Kerberos.  
+13. Erweitern Sie im linken Bereich der Konsole den Knoten **Sicherheits Zuordnungen** , und klicken Sie auf den Knoten **Hauptmodus** . Beachten Sie die Infrastruktur Tunnel-Sicherheits Zuordnungen mit NTLMv2 und der intranettunnel-Sicherheits Zuordnung mithilfe von Kerberos V5. Klicken Sie mit der rechten Maustaste auf den Eintrag, der **Benutzer (Kerberos V5)** als **2. Authentifizierungsmethode** anzeigt, und klicken Sie auf **Eigenschaften**. Beachten Sie, dass auf der Registerkarte **Allgemein** die **zweite lokale Authentifizierungs-ID** **corp\user1**lautet, die angibt, dass sich user1 erfolgreich bei der Corp-Domäne mithilfe von Kerberos authentifizieren konnte.  
   
-## <a name="test-directaccess-client-connectivity-through-the-cluster"></a>Testen der DirectAccess-Clientkonnektivität im Cluster  
+## <a name="test-directaccess-client-connectivity-through-the-cluster"></a>Testen der DirectAccess-Client Konnektivität über den Cluster  
   
-1. Führen Sie ein ordnungsgemäßes Herunterfahren auf EDGE2 an.  
+1. Führen Sie ein ordnungsgemäßes Herunterfahren auf EDGE2 aus.  
   
-   Sie können den Netzwerklastenausgleich-Manager verwenden, um den Status der Server anzuzeigen, beim Ausführen dieser Tests.  
+   Sie können den Netzwerk Lastenausgleich-Manager verwenden, um beim Ausführen dieser Tests den Status der Server anzuzeigen.  
   
-2. Geben Sie auf CLIENT1 in Windows PowerShell-Fenster **Ipconfig/flushdns** und drücken Sie EINGABETASTE. Dies leert Name Resolution-Einträge, die eventuell noch im Client-DNS-Cache vorhanden sind.  
+2. Geben Sie auf CLIENT1 im Windows PowerShell-Fenster **ipconfig/flushdns** ein, und drücken Sie die EINGABETASTE. Dadurch werden namens Auflösungs Einträge geleert, die möglicherweise noch im Client-DNS-Cache vorhanden sind.  
   
-3. Pingen Sie im Windows PowerShell-Fenster APP1 und APP2 aus. Sie sollten Antworten von beide Ressourcen erhalten.  
+3. Pingen Sie im Windows PowerShell-Fenster den Befehl App1 und APP2. Sie sollten Antworten von diesen beiden Ressourcen erhalten.  
   
-4. Auf der **starten** geben<strong>\\\app2\files</strong>. Den freigegebenen Ordner sollte auf dem APP2-Computer angezeigt werden. Die Möglichkeit, öffnen die Dateifreigabe auf APP2 gibt an, dass der zweite Tunnel, der Kerberos-Authentifizierung für den Benutzer erforderlich ist, ordnungsgemäß funktioniert.  
+4. Geben Sie auf dem **Start** Bildschirm<strong>\\ \ app2\files</strong>ein. Der Ordner "freigegeben" sollte auf dem Computer "APP2" angezeigt werden. Die Möglichkeit zum Öffnen der Dateifreigabe auf APP2 gibt an, dass der zweite Tunnel, der die Kerberos-Authentifizierung für den Benutzer erfordert, ordnungsgemäß funktioniert.  
   
-5. Öffnen Sie Internet Explorer, und öffnen Sie dann auf die Websites https://app1/ und https://app2/. Die Möglichkeit, beide Websites öffnen wird bestätigt, dass die erste und zweite Tunnel betriebsbereit sind und funktionieren. Schließen Sie Internet Explorer.  
+5. Öffnen Sie Internet Explorer, und öffnen Sie dann die Websites https://app1/ und https://app2/. Die Möglichkeit, beide Websites zu öffnen, bestätigt, dass der erste und der zweite Tunnel aktiv sind und funktionsfähig sind. Schließen Sie Internet Explorer.  
   
 6. Starten Sie den EDGE2-Computer.  
   
-7. Führen Sie auf EDGE1 ein ordnungsgemäßes Herunterfahren.  
+7. Auf Edge1 führen Sie ein ordnungsgemäßes Herunterfahren aus.  
   
-8. Warten Sie 5 Minuten, und klicken Sie dann auf "client1" zurückgegeben. Führen Sie die Schritte 2 bis 5. Dadurch wird bestätigt, dass "client1" konnte für das transparente EDGE2 Failover nach EDGE1 nicht mehr verfügbar war.
+8. Warten Sie fünf Minuten, und kehren Sie dann zu CLIENT1 zurück. Führen Sie die Schritte 2-5 aus. Dadurch wird bestätigt, dass CLIENT1 transparent ein Failover zu EDGE2 ausführen konnte, nachdem Edge1 nicht mehr zur Verfügung stand.

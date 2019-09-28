@@ -7,28 +7,28 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: e6f115cab76cdbb3cf810042a42cc30e84edd904
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2efc2156706e20d4749560b188e6ee1b442152f2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858431"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402464"
 ---
 # <a name="understanding-active-directory-site-topology"></a>Grundlegendes zur Active Directory-Standorttopologie
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Ihre Standorttopologie wirkt sich entscheidend auf die Leistung Ihres Netzwerks sowie die Möglichkeit der Benutzer den Zugriff auf Netzwerkressourcen. Bevor Sie beginnen, das Entwerfen der Standorttopologie, vertraut machen mit den Funktionen für Websites in Windows Server 2008, die verschiedene Netzwerktopologien, die Organisationen häufig verwenden, die Rolle der Standorttopologiebesitzer und einige Active Directory-Replikation die Konzepte.  
+Ihre Standort Topologie wirkt sich erheblich auf die Leistung Ihres Netzwerks und die Fähigkeit Ihrer Benutzer aus, auf Netzwerkressourcen zuzugreifen. Bevor Sie mit dem Entwerfen der Standort Topologie beginnen, machen Sie sich mit den Funktionen für Standorte in Windows Server 2008, den verschiedenen Netzwerktopologien, die von Organisationen häufig verwendet werden, der Rolle des Standort topologiebesitzers und einigen Active Directory Replikation vertraut. Begriffe.  
   
 ## <a name="in-this-section"></a>Inhalt dieses Abschnitts  
   
--   [Site-Funktionen](../../ad-ds/plan/Site-Functions.md)  
+-   [Standortfunktionen](../../ad-ds/plan/Site-Functions.md)  
   
--   [Rolle "Standorttopologiebesitzer" Website](../../ad-ds/plan/Site-Topology-Owner-Role.md)  
+-   [Rolle „Standorttopologiebesitzer“](../../ad-ds/plan/Site-Topology-Owner-Role.md)  
   
--   [Active Directory-Replikationskonzepte](../../ad-ds/get-started/replication/Active-Directory-Replication-Concepts.md)  
+-   [Active Directory-Replikationskonzepte](../../ad-ds/get-started/replication/Active-Directory-Replication-Concepts.md)  
   
 
 

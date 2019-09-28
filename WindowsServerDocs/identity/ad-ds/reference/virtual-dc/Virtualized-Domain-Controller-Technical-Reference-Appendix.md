@@ -7,44 +7,44 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 9e3a5cc2c71455bb040f1311bdbfed1ac7e213fb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e1018d5bbff5922df5a696e5c4fad12dc9f6ec3d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832231"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408587"
 ---
 # <a name="virtualized-domain-controller-technical-reference-appendix"></a>Technische Referenz für virtualisierte Domänencontroller, Anhang
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Thema werden folgende Inhalte behandelt:  
   
 -   [Terminologie](../../../ad-ds/reference/virtual-dc/../../../ad-ds/reference/virtual-dc/Virtualized-Domain-Controller-Technical-Reference-Appendix.md#BKMK_Terms)  
   
--   [FixVDCPermissions.ps1](../../../ad-ds/reference/virtual-dc/../../../ad-ds/reference/virtual-dc/Virtualized-Domain-Controller-Technical-Reference-Appendix.md#BKMK_FixPDCPerms)  
+-   ["Fixvdcberechtigungen. ps1"](../../../ad-ds/reference/virtual-dc/../../../ad-ds/reference/virtual-dc/Virtualized-Domain-Controller-Technical-Reference-Appendix.md#BKMK_FixPDCPerms)  
   
-## <a name="BKMK_Terms"></a>Terminologie  
+## <a name="BKMK_Terms"></a>Begriffs  
   
--   **Momentaufnahme** -der Status eines virtuellen Computers zu einem bestimmten Zeitpunkt. Es richtet sich in der Kette der vorherigen Momentaufnahmen, auf der Hardware, und klicken Sie auf der Virtualization-Plattform.  
+-   **Snapshot** : der Zustand einer virtuellen Maschine zu einem bestimmten Zeitpunkt. Es hängt von der Kette früherer, auf der Hardware und der Virtualisierungsplattform ausgeführten Momentaufnahmen ab.  
   
--   **Klon** : abgeschlossen, und trennen Sie die Kopie eines virtuellen Computers. Es ist die virtuelle Hardware (Hypervisor) abhängig.  
+-   **Klonen** : eine komplette und separate Kopie eines virtuellen Computers. Es hängt von der virtuellen Hardware (Hypervisor) ab.  
   
--   **Vollständiger Klon** – ein vollständiger Klon ist eine unabhängige Kopie einer virtuellen Maschine, die keine Ressourcen mit dem übergeordneten virtuellen Computer nach der Klonvorgang freigibt. Aufrechterhaltung der ein vollständiger Klon ist vollständig von der übergeordneten virtuellen Computer getrennt.  
+-   **Vollständiger Klon** : ein vollständiger Klon ist eine unabhängige Kopie eines virtuellen Computers, der nach dem Klon Vorgang keine Ressourcen mit der übergeordneten virtuellen Maschine freigibt. Der laufende Vorgang eines vollständigen Klons ist vollständig von dem übergeordneten virtuellen Computer getrennt.  
   
--   **Differenzierende Datenträger** -eine Kopie eines virtuellen Computers, der virtuelle Datenträger mit dem übergeordneten virtuellen Computer in einer laufenden Weise freigibt. Dadurch in der Regel spart Speicherplatz und mehrere virtuelle Computer, die gleiche Softwareinstallation verwenden.  
+-   **Differenzierender** Datenträger: eine Kopie eines virtuellen Computers, der virtuelle Datenträger mit der übergeordneten virtuellen Maschine in laufender Weise freigibt. Dadurch wird normalerweise der Speicherplatz auf dem Datenträger belegt, und mehrere virtuelle Computer können dieselbe Software Installation verwenden.  
   
--   **VM kopieren**– eine Datei kopieren alle zugehörigen Dateien und Ordner eines virtuellen Computers.  
+-   **VM Copy (Kopie**des virtuellen Computers): eine Dateisystem Kopie aller zugehörigen Dateien und Ordner einer virtuellen Maschine.  
   
--   **Kopieren einer VHD-Datei** -eine Kopie eines virtuellen Computers VHD  
+-   **VHD-Datei kopieren** -eine Kopie der VHD eines virtuellen Computers  
   
--   **VM-Generations-ID** : Ein 128-Bit-Ganzzahl, die mit dem virtuellen Computer vom Hypervisor zugewiesen. Diese ID wird im Arbeitsspeicher gespeichert und zurückgesetzt wird jedes Mal, wenn eine Momentaufnahme angewendet wird. Der Entwurf verwendet einen Unabhängigkeit von der Hypervisor-Mechanismus für die VM-Generations-ID auf dem virtuellen Computer anzeigen. Die Hyper-V-Implementierung stellt die ID des virtuellen Computers der ACPI-Tabelle.  
+-   **VM-Generations-ID** : eine 128-Bit-Ganzzahl, die dem virtuellen Computer durch den Hypervisor angegeben wird. Diese ID wird im Arbeitsspeicher gespeichert und jedes Mal zurückgesetzt, wenn eine Momentaufnahme angewendet wird. Beim Entwurf wird ein Hypervisor-agnostischer Mechanismus verwendet, mit dem die VM-Generations-ID auf dem virtuellen Computer angezeigt wird. Die Hyper-V-Implementierung macht die ID in der ACPI-Tabelle der virtuellen Maschine verfügbar.  
   
--   **Import/Export-** – ein Hyper-V-Feature, das dem Benutzer ermöglicht, den gesamten virtuellen Computer (VM-Dateien, virtuelle Festplatte und die Konfiguration des Computers) zu speichern. Damit können dann Benutzer mit diesem Satz von Dateien, schalten Sie den Computer wieder auf dem gleichen Computer wie den gleichen virtuellen Computer (Wiederherstellung), auf einem anderen Computer als dem gleichen virtuellen Computer (verschieben) oder einen neuen virtuellen Computer (Kopie)  
+-   **Import/Export** : eine Hyper-V-Funktion, die es dem Benutzer ermöglicht, den gesamten virtuellen Computer (VM-Dateien, VHD und die Computerkonfiguration) zu speichern. Anschließend können Benutzer diesen Satz von Dateien verwenden, um den Computer auf demselben Computer wie dieselbe VM (Wiederherstellung), auf einem anderen Computer wie die gleiche VM (verschieben) oder auf einem neuen virtuellen Computer (Kopie) wiederherzustellen.  
   
-## <a name="BKMK_FixPDCPerms"></a>FixVDCPermissions.ps1  
+## <a name="BKMK_FixPDCPerms"></a>"Fixvdcberechtigungen. ps1"  
   
 ```  
 # Unsigned script, requires use of set-executionpolicy remotesigned -force  

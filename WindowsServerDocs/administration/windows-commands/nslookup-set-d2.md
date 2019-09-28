@@ -1,8 +1,8 @@
 ---
 title: nslookup set d2
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8e1e2ecade2887ef38a1209b49577ea0c851ca8d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: fce9512990a25f3db295cc9a67a4bc63a37d1060
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436828"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372974"
 ---
 # <a name="nslookup-set-d2"></a>nslookup set d2
 
 
 
-Aktiviert die vollständige Debugmodus aktivieren oder deaktivieren. Alle Felder jedes Pakets werden gedruckt.
+Schaltet einen umfassenden Debugmodus ein oder aus. Alle Felder jedes Pakets werden gedruckt.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,8 +36,8 @@ set [no]d2
 
 | Parameter |                             Beschreibung                              |
 |-----------|----------------------------------------------------------------------|
-| **nod2**  | Deaktiviert die exhaustive-Debugmodus. Die Standardsyntax ist **nod2**. |
-|  **d2**   |                 Aktiviert die vollständige-Debugmodus.                  |
+| **NOD2 "**  | Deaktiviert den umfassenden Debugmodus. Die Standard Syntax lautet **NOD2 "** . |
+|  **D2**   |                 Schaltet den umfassenden Debugmodus ein.                  |
 |   {Hilfe   |                                  ?}                                  |
 
 #### <a name="additional-references"></a>Weitere Verweise

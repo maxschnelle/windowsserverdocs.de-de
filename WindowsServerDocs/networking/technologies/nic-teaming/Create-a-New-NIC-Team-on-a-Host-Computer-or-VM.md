@@ -1,9 +1,9 @@
 ---
-title: Erstellen eines neuen NIC-Teams auf einem Host oder virtuellen Computer
-description: In diesem Thema erstellen Sie einen neuen NIC-Teams auf einem Hostcomputer oder in einer Hyper-V-Computer (VM) unter Windows Server 2016.
+title: Erstellen eines neuen NIC-Teams auf einem Host Computer oder einer VM
+description: In diesem Thema erstellen Sie ein neues NIC-Team auf einem Host Computer oder auf einem virtuellen Hyper-V-Computer (VM), auf dem Windows Server 2016 ausgeführt wird.
 manager: dougkim
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-nict
@@ -13,209 +13,209 @@ ms.assetid: a4caaa86-5799-4580-8775-03ee213784a3
 ms.author: pashort
 author: shortpatti
 ms.date: 09/13/2018
-ms.openlocfilehash: 5380cb2007bab1a296e0facc12885d47c6afc708
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: f1e7e27100d801d226adf79e078d8b16ddbcd308
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282098"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71401923"
 ---
-# <a name="create-a-new-nic-team-on-a-host-computer-or-vm"></a>Erstellen eines neuen NIC-Teams auf einem Host oder virtuellen Computer
+# <a name="create-a-new-nic-team-on-a-host-computer-or-vm"></a>Erstellen eines neuen NIC-Teams auf einem Host Computer oder einer VM
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-In diesem Thema erstellen Sie einen neuen NIC-Teams auf einem Hostcomputer oder in einer Hyper-V-Computer (VM) unter Windows Server 2016.  
+In diesem Thema erstellen Sie ein neues NIC-Team auf einem Host Computer oder auf einem virtuellen Hyper-V-Computer (VM), auf dem Windows Server 2016 ausgeführt wird.  
 
-## <a name="network-configuration-requirements"></a>Netzwerkanforderungen  
-Vor der Erstellung eines neuen NIC-Teams, müssen Sie einen Hyper-V-Host mit zwei Netzwerkadaptern bereitstellen, die mit verschiedenen physischen Switches verbunden sind. Sie müssen auch die Netzwerkadapter mit IP-Adressen konfigurieren, die aus der gleichen IP-Adressbereich stammen.  
+## <a name="network-configuration-requirements"></a>Anforderungen an die Netzwerkkonfiguration  
+Bevor Sie ein neues NIC-Team erstellen können, müssen Sie einen Hyper-V-Host mit zwei Netzwerkadaptern bereitstellen, die mit verschiedenen physischen Switches verbunden sind. Außerdem müssen Sie die Netzwerkadapter mit IP-Adressen konfigurieren, die sich im selben IP-Adressbereich befinden.  
 
-Der physische Switch, den virtuellen Hyper-V-Switch, lokale Netzwerk (LAN) und NIC-Teamvorgang von Anforderungen zum Erstellen eines NIC-Teams auf einem virtuellen Computer sind:  
+Die Anforderungen für den physischen Switch, den virtuellen Hyper-V-Switch, das LAN (Local Area Network) und den NIC-Team Vorgang zum Erstellen eines NIC-Teams auf einem virtuellen Computer lauten wie folgt:  
 
--   Der Computer mit Hyper-V muss es sich um mindestens zwei Netzwerkadapter verfügen.  
+-   Der Computer, auf dem Hyper-V ausgeführt wird, muss über mindestens zwei Netzwerkadapter verfügen.  
 
--   Wenn die Netzwerkadapter auf mehrere physische Switches zu verbinden, müssen die physischen Switches im gleichen Schicht-2-Subnetz sein.  
+-   Wenn Sie die Netzwerkadapter mit mehreren physischen Switches verbinden, müssen sich die physischen Switches im gleichen Layer 2-Subnetz befinden.  
 
--   Sie müssen die Hyper-V-Manager oder Windows PowerShell verwenden, um zwei externer virtueller Hyper-V-Switches zu erstellen, jeweils mit einem anderen physischen Netzwerkadapter verbunden sind.  
+-   Sie müssen den Hyper-v-Manager oder Windows PowerShell verwenden, um zwei externe virtuelle Hyper-v-Switches zu erstellen, die jeweils mit einem anderen physischen Netzwerkadapter verbunden sind.  
 
--   Der virtuelle Computer muss für beide externen virtuellen Switches verbunden, die Sie erstellen.  
+-   Die VM muss eine Verbindung mit beiden externen virtuellen Switches herstellen, die Sie erstellen.  
 
--   NIC-Teamvorgang Teams mit zwei Membern auf virtuellen Computern, in Windows Server 2016 unterstützt. Sie können größere Teams erstellen, aber wird nicht unterstützt.
+-   Der NIC-Team Vorgang in Windows Server 2016 unterstützt Teams mit zwei Mitgliedern auf virtuellen Computern. Sie können größere Teams erstellen, aber es gibt keine Unterstützung.
 
--   Wenn Sie einen NIC-Teams auf einem virtuellen Computer konfigurieren, müssen Sie auswählen einer **teammodus** von _Switchunabhängig_ und ein **Lastenausgleichsmodus** von _Adresshash_. 
+-   Wenn Sie ein NIC-Team in einem virtuellen Computer konfigurieren, müssen Sie einen **Teaming-Modus** von _Switch Independent_ und den **Lasten Ausgleichs Modus** _Address Hash_auswählen. 
 
-## <a name="step-1-configure-the-physical-and-virtual-network"></a>Schritt 1 Konfigurieren des physischen und virtuellen Netzwerks  
-In diesem Verfahren erstellen zwei externer virtueller Hyper-V-Switches, verbinden ein virtuellen Computers mit den Switches, und konfigurieren Sie dann auf die virtuellen Computer Verbindungen mit den Switches.  
+## <a name="step-1-configure-the-physical-and-virtual-network"></a>Schritt 1 Konfigurieren des physischen und des virtuellen Netzwerks  
+In diesem Verfahren erstellen Sie zwei externe virtuelle Hyper-V-Switches, verbinden eine VM mit den Switches und konfigurieren dann die VM-Verbindungen mit den Switches.  
 
-### <a name="prerequisites"></a>Vorraussetzungen
+### <a name="prerequisites"></a>Erforderliche Komponenten
 
-Sie müssen Mitglied **Administratoren**, oder entspricht.  
+Sie müssen Mitglied der Gruppe " **Administratoren**" oder einer entsprechenden Gruppe sein.  
 
 ### <a name="procedure"></a>Prozedur
 
-1.  Öffnen Sie auf dem Hyper-V-Host, Hyper-V-Manager, und klicken Sie unter Aktionen auf **Manager für virtuelle Switches**.  
+1.  Öffnen Sie auf dem Hyper-v-Host den Hyper-v-Manager, und klicken Sie unter Aktionen auf **Manager für virtuelle**Switches.  
 
    ![Manager für virtuelle Switches](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hv.jpg)  
 
-2.  Im Manager für virtuelle Switches, stellen Sie sicher, dass **externe** ausgewählt ist, und klicken Sie dann auf **virtuellen Switch erstellen**.  
+2.  Stellen Sie im Manager für virtuelle Switches sicher, dass **extern** ausgewählt ist, und klicken Sie dann auf **virtuellen Switch erstellen**.  
 
-   ![Erstellen des virtuellen Switches](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hv_02.jpg)  
+   ![Virtuellen Switch erstellen](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hv_02.jpg)  
 
-3.  Geben Sie in den Eigenschaften für den virtuellen Switch ein **Namen** für das virtuelle wechseln, und fügen **Anmerkungen zu dieser** je nach Bedarf.  
+3.  Geben Sie unter Eigenschaften für virtuelle Switches einen **Namen** für den virtuellen Switch ein, und fügen Sie bei Bedarf **Notizen** hinzu.  
 
-4.  In **Verbindungstyp**im **externes Netzwerk**, wählen Sie den physischen Netzwerkadapter, den virtuellen Switch angefügt werden soll.  
+4.  Wählen Sie unter **Verbindungstyp**in **externer Netzwerk**den physischen Netzwerkadapter aus, an den Sie den virtuellen Switch anfügen möchten.  
 
-5.  Konfigurieren Sie zusätzliche Schalter-Eigenschaften für die Bereitstellung, und klicken Sie dann auf **OK**.  
+5.  Konfigurieren Sie zusätzliche Switch-Eigenschaften für die Bereitstellung, und klicken Sie dann auf **OK**.  
 
-6.  Erstellen Sie einen zweite externen virtuellen Switch, indem Sie die vorherigen Schritte wiederholen. Verbinden Sie den zweiten externen Switch auf einen anderen Netzwerkadapter an.  
+6.  Erstellen Sie einen zweiten externen virtuellen Switch, indem Sie die vorherigen Schritte wiederholen. Verbinden Sie den zweiten externen Switch mit einem anderen Netzwerkadapter.  
 
-7.  In Hyper-V-Manager unter **VMs**, mit der rechten Maustaste des virtuellen Computers, die Sie konfigurieren möchten, und klicken Sie dann auf **Einstellungen**.  
+7.  Klicken Sie im Hyper-V-Manager unter **Virtual Machines**mit der rechten Maustaste auf die VM, die Sie konfigurieren möchten, und klicken Sie dann auf **Einstellungen**.  
 
-   Der virtuelle Computer **Einstellungen** Dialogfeld wird geöffnet.
+   Das Dialogfeld VM- **Einstellungen** wird geöffnet.
 
-8.  Stellen Sie sicher, dass der virtuelle Computer nicht gestartet wurde. Wenn es gestartet wurde, führen Sie Herunterfahren, bevor die Konfiguration des virtuellen Computers.  
+8.  Stellen Sie sicher, dass der virtuelle Computer nicht gestartet wurde. Wenn Sie gestartet wurde, führen Sie vor dem Konfigurieren der VM ein Herunterfahren aus.  
 
-8.  In **Hardware**, klicken Sie auf **Netzwerkadapter**.  
+8.  Klicken Sie unter **Hardware**auf **Netzwerk Adapter**.  
 
    ![Netzwerkkarte](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hvs_01.jpg)  
 
-9. In **Netzwerkadapter** Eigenschaften, wählen Sie eine der die virtuellen Switches, die Sie in den vorherigen Schritten erstellt haben, und klicken Sie dann auf **übernehmen**.  
+9. Wählen Sie in den Eigenschaften des **Netzwerkadapters** einen der virtuellen Switches aus, den Sie in den vorherigen Schritten erstellt haben, und **Klicken Sie dann**auf übernehmen.  
 
-    ![Wählen Sie einen virtuellen switch](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hvs_02.jpg)  
+    ![Wählen Sie einen virtuellen Switch aus.](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hvs_02.jpg)  
 
-10. In **Hardware**, klicken Sie auf das Pluszeichen (+) neben erweitern **Netzwerkadapter**. 
+10. Klicken Sie unter **Hardware**auf das Pluszeichen (+) neben **Netzwerk Adapter**. 
 
-11. Klicken Sie auf **erweiterte Features** zum NIC-Teamvorgang aktivieren, indem Sie die grafische Benutzeroberfläche. 
+11. Klicken Sie auf **Erweiterte Features** , um den NIC-Team Vorgang mithilfe der grafischen Benutzeroberfläche zu aktivieren. 
 
     >[!TIP]
-    >Sie können auch mit einem Windows PowerShell-Befehl NIC-Teamvorgang aktivieren: 
+    >Sie können NIC-Teaming auch mit einem Windows PowerShell-Befehl aktivieren: 
     >
     >```PowerShell
     >Set-VMNetworkAdapter -VMName <VMname> -AllowTeaming On
     >```
 
-    a. Wählen Sie **dynamische** für MAC-Adresse. 
+    a. Wählen Sie **dynamisch** für Mac-Adresse aus. 
 
-    b. Klicken Sie auf **geschützten Netzwerk**. 
+    b. Klicken Sie hier, um **geschütztes Netzwerk**auszuwählen. 
 
-    c. Klicken Sie auf **aktivieren Sie dieses Netzwerkadapters als Teil eines Teams im Gast-Betriebssystems werden**. 
+    c. Klicken Sie hier, um **die Option diesen Netzwerkadapter als Teil eines Teams im Gast Betriebssystem zu aktivieren**. 
 
     d. Klicken Sie auf **OK**.  
 
-    ![Fügen Sie einen Netzwerkadapter zu einem team](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hvs_05.jpg)  
+    ![Hinzufügen eines Netzwerkadapters zu einem Team](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hvs_05.jpg)  
 
-13. Um einen zweiten Netzwerkadapter, die in Hyper-V-Manager hinzuzufügen **VMs**mit der rechten Maustaste auf den gleichen virtuellen Computer, und klicken Sie dann auf **Einstellungen**.  
+13. Wenn Sie einen zweiten Netzwerkadapter hinzufügen möchten, klicken Sie im Hyper-V-Manager in **Virtual Machines**mit der rechten Maustaste auf denselben virtuellen Computer, und klicken Sie dann auf **Einstellungen**.  
 
-    Der virtuelle Computer **Einstellungen** Dialogfeld wird geöffnet.
+    Das Dialogfeld VM- **Einstellungen** wird geöffnet.
 
-14. In **Hardware hinzufügen**, klicken Sie auf **Netzwerkadapter**, und klicken Sie dann auf **hinzufügen**.  
+14. Klicken Sie unter **Hardware hinzufügen**auf **Netzwerk Adapter**, und klicken Sie dann auf **Hinzufügen**.  
 
-   ![Fügen Sie einen Netzwerkadapter hinzu.](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hvs_06.jpg)  
+   ![Netzwerkadapter hinzufügen](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hvs_06.jpg)  
 
-15. In **Netzwerkadapter** Eigenschaften, wählen Sie den zweiten virtuellen Switch, den Sie in den vorherigen Schritten erstellt haben, und klicken Sie dann auf **übernehmen**.  
+15. Wählen Sie unter **Netzwerk Adapter** Eigenschaften den zweiten virtuellen Switch aus, den Sie in den vorherigen Schritten erstellt haben, **und klicken Sie**dann auf übernehmen.  
 
-   ![Wenden Sie einen virtuellen switch](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hvs_07.jpg)  
+   ![Anwenden eines virtuellen Switches](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hvs_07.jpg)  
 
-16. In **Hardware**, klicken Sie auf das Pluszeichen (+) neben erweitern **Netzwerkadapter**. 
+16. Klicken Sie unter **Hardware**auf das Pluszeichen (+) neben **Netzwerk Adapter**. 
 
-17. Klicken Sie auf **erweiterte Features**, scrollen Sie zum **NIC-Teamvorgang**, und klicken Sie auf **aktivieren Sie dieses Netzwerkadapters als Teil eines Teams im Gast-Betriebssystems werden**. 
+17. Klicken Sie auf **Erweiterte Features**, Scrollen Sie nach unten zum **NIC**-Team Vorgang, und klicken Sie **dann auf Netzwerkadapter als Teil eines Teams im Gast Betriebssystem aktivieren**. 
 
 18. Klicken Sie auf **OK**.  
 
-_**Herzlichen Glückwunsch!** _  Sie haben die physische und virtuelle Netzwerk konfiguriert.  Jetzt können Sie fortfahren, um das Erstellen eines neuen NIC-Teams.  
+_**Gratul!**_  Sie haben das physische und virtuelle Netzwerk konfiguriert.  Nun können Sie mit dem Erstellen eines neuen NIC-Teams fortfahren.  
 
 ## <a name="step-2-create-a-new-nic-team"></a>Schritt 2 Erstellen eines neuen NIC-Teams
 
-Bei der Erstellung eines neuen NIC-Teams müssen Sie die NIC-Team-Eigenschaften konfigurieren:  
+Wenn Sie ein neues NIC-Team erstellen, müssen Sie die Eigenschaften des NIC-Teams konfigurieren:  
 
 -   Teamname  
 
--   Mitgliederadapter  
+-   Mitglieds Adapter  
 
--   Teammodus  
+-   Team Vorgangs Modus  
 
--   Lastenausgleichsmodus  
+-   Lasten Ausgleichs Modus  
 
--   Standby-adapter  
+-   Standby-Adapter  
 
-Sie können optional auch der primären teamschnittstelle konfigurieren und eine Anzahl der virtuellen LAN (VLAN) konfigurieren.  
+Optional können Sie auch die primäre Team Schnittstelle konfigurieren und eine virtuelle LAN-Nummer (VLAN) konfigurieren.  
 
-Weitere Informationen zu diesen Einstellungen finden Sie unter [NIC-Teamvorgang-Einstellungen](nic-teaming-settings.md).
+Weitere Informationen zu diesen Einstellungen finden Sie unter [NIC Teaming Settings](nic-teaming-settings.md).
 
-### <a name="prerequisites"></a>Vorraussetzungen
+### <a name="prerequisites"></a>Erforderliche Komponenten
 
-Sie müssen Mitglied **Administratoren**, oder entspricht.  
+Sie müssen Mitglied der Gruppe " **Administratoren**" oder einer entsprechenden Gruppe sein.  
 
 ### <a name="procedure"></a>Prozedur
 
 1. Klicken Sie im Server-Manager auf **Lokaler Server**.  
 
-2. In der **Eigenschaften** Bereich, in der ersten Spalte gesucht werden soll **NIC-Teamvorgang**, und klicken Sie dann auf die **deaktiviert** Link.  
+2. Suchen Sie im **Eigenschaften** Bereich in der ersten Spalte den **NIC**-Team Vorgang, und klicken Sie dann auf den Link **deaktiviert** .  
 
-   Die **NIC-Teamvorgang** Dialogfeld wird geöffnet.
+   Das Dialogfeld **NIC** -Team Vorgang wird geöffnet.
 
    ![Dialogfeld "NIC-Teamvorgang"](../../media/Create-a-New-NIC-Team/nict_02_nicteaming.jpg)
 
-3. In **Adapter und Schnittstellen**, wählen Sie eine oder mehrere Netzwerkadapter, die Sie einem NIC-Team hinzufügen möchten.  
+3. Wählen Sie unter **Adapter und Schnittstellen**den Netzwerkadapter aus, den Sie einem NIC-Team hinzufügen möchten.  
 
-4. Klicken Sie auf **Aufgaben**, und klicken Sie auf **hinzufügen für neue Teamprojekte**.  
+4. Klicken Sie auf **Tasks**, und klicken Sie **auf dem neuen Team hinzufügen**.  
 
-   Die **neues Team** Dialogfeld wird geöffnet und zeigt an, Netzwerkadapter und Teammitglieder.
+   Das Dialogfeld **Neues Team** wird geöffnet und zeigt Netzwerkadapter und Teammitglieder an.
 
-5. In **Teamname**, geben Sie einen Namen für das neue NIC-Team, und klicken Sie dann auf **zusätzliche Eigenschaften**.  
+5. Geben Sie unter **Teamname**einen Namen für das neue NIC-Team ein, und klicken Sie dann auf **zusätzliche Eigenschaften**.  
 
-6. In **zusätzliche Eigenschaften**, wählen Sie Werte für:
+6. Wählen Sie unter **zusätzliche Eigenschaften**Werte für folgende Aktionen aus:
 
-   - **Teamvorgangsmodus**. Die Optionen für den teammodus sind **Switchunabhängig** und **abhängige Schalter**. Die abhängige Schalter-Modus schließt **statischer Teamvorgang** und **Link Aggregation Control Protocol (LACP)** . 
+   - Team Vorgangs **Modus**. Die Optionen für den Team Vorgangs Modus sind **Switch Independent** und **Switch Dependent**. Der Switch-abhängige Modus umfasst den **statischen** Team Vorgang und das **Link Aggregation Control Protocol (LACP)** . 
 
-     - **Switch-unabhängig.** [!INCLUDE [switch-independent-shortdesc-include](../../includes/switch-independent-shortdesc-include.md)]
+     - **Wechsel unabhängig.** [!INCLUDE [switch-independent-shortdesc-include](../../includes/switch-independent-shortdesc-include.md)]
 
-     - **Wechseln Sie abhängig.** [!INCLUDE [switch-dependent-shortdesc-include](../../includes/switch-dependent-shortdesc-include.md)] 
+     - **Wechseln Sie von abhängig.** [!INCLUDE [switch-dependent-shortdesc-include](../../includes/switch-dependent-shortdesc-include.md)] 
 
 
        |                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
        |----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-       |              **Statischer Teamvorgang**              |                                                                                                                                              Erfordert, dass Sie manuell konfigurieren, sowohl den Switch als auch der Host identifizieren, welche Links das Team bilden. Da es sich um eine statisch konfigurierte Lösung handelt, gibt es kein zusätzliches Protokoll bei den Switch und der Host Identifizierung falsch angeschlossen, Kabel oder anderer Fehler, die das Team zu einem Fehler beim Ausführen verursachen können. Dieser Modus wird im Allgemeinen von Switches der Serverklasse unterstützt.                                                                                                                                              |
-       | **Link Aggregation Control Protocol (LACP)** | Im Gegensatz zu statischer Teamvorgang identifiziert LACP-teamvorgangsmodus dynamisch Links, die zwischen dem Host und dem Switch verbunden sind. Diese dynamische Verbindung ermöglicht die automatische Erstellung eines Teams und, theoretisch jedoch selten in der Praxis, Erweiterung und Reduzierung eines Teams einfach durch die Übertragung oder des Empfangs von LACP-Paketen, von der peerentität. Alle Switches der Serverklasse unterstützt LACP, und alle der Netzwerk-Operator, um LACP am Port Switches aktivieren durch den Administrator erfordern. Wenn Sie eine teammodus von LACP konfigurieren, arbeitet der NIC-Teamvorgang immer im aktiven Modus des LACP mit einem kurzen Timer.  Keine Option ist derzeit verfügbar ist, den Timer oder Ändern des LACP-Modus. |
+       |              **Statischer Teaming**              |                                                                                                                                              Erfordert, dass Sie sowohl den Switch als auch den Host manuell konfigurieren, um zu bestimmen, welche Links das Team bilden. Da es sich hierbei um eine statisch konfigurierte Lösung handelt, gibt es kein zusätzliches Protokoll, das es dem Switch und dem Host unterstützt, nicht ordnungsgemäß konfigurierte Kabel oder andere Fehler zu identifizieren, die zu einem Fehler des Teams führen könnten. Dieser Modus wird im Allgemeinen von Switches der Serverklasse unterstützt.                                                                                                                                              |
+       | **Link Aggregation Control Protocol (LACP)** | Im Gegensatz zum statischen Team Vorgang identifiziert der LACP-Team Vorgangs Modus dynamisch Verknüpfungen, die zwischen dem Host und dem Switch verbunden sind. Diese dynamische Verbindung ermöglicht die automatische Erstellung eines Teams und, in der Praxis, die Erweiterung und Reduzierung eines Teams einfach durch die Übertragung oder den Empfang von LACP-Paketen aus der Peer Entität. Alle Server Klassen Switches unterstützen LACP, und alle erfordern, dass der Netzwerk Operator LACP auf dem Switchport administrativ aktiviert. Wenn Sie einen Teaming-Modus von LACP konfigurieren, wird der NIC-Team Vorgang immer im aktiven Modus von LACP mit einem kurzen Timer ausgeführt.  Derzeit ist keine Option verfügbar, um den Timer zu ändern oder den LACP-Modus zu ändern. |
 
        ---
 
-   - **Lastenausgleichsmodus**. Die Optionen des Lastenausgleichs-Verteilungsmodus **Adresshash**, **Hyper-V-Port**, und **dynamische**.
+   - **Lasten Ausgleichs Modus**. Die Optionen für den Lasten Ausgleichs-Verteilungsmodus sind **Adress Hash**, **Hyper-V-Port**und **dynamisch**.
 
-     - **Adresshash.** [!INCLUDE [address-hash-shortdesc-include](../../includes/address-hash-shortdesc-include.md)]
+     - **Adress Hash.** [!INCLUDE [address-hash-shortdesc-include](../../includes/address-hash-shortdesc-include.md)]
 
      - **Hyper-V-Port.** [!INCLUDE [hyper-v-port-shortdesc-include](../../includes/hyper-v-port-shortdesc-include.md)]
 
-     - **Dynamic.** [!INCLUDE [dynamic-shortdesc-include](../../includes/dynamic-shortdesc-include.md)]
+     - **Schem.** [!INCLUDE [dynamic-shortdesc-include](../../includes/dynamic-shortdesc-include.md)]
 
-   - **Standby-Adapter**. Die Optionen für die Standby-Adapter sind **keine (alle Adapter aktiv)** oder Ihre Auswahl für einen bestimmten Netzwerkadapter im NIC-Team, die als Standby-Adapter dient.
+   - **Standby-Adapter**. Die Optionen für den standbyadapter sind **None (alle Adapter aktiv)** oder Ihre Auswahl eines bestimmten Netzwerkadapters im NIC-Team, das als standbyadapter fungiert.
 
    > [!TIP]  
-   > Wenn Sie einen NIC-Teams auf einem virtuellen Computer (VM) konfigurieren, müssen Sie auswählen einer **teammodus** von _Switchunabhängig_ und ein **Lastenausgleichsmodus** von  _Behandeln von Hash_.  
+   > Wenn Sie ein NIC-Team in einem virtuellen Computer (VM) konfigurieren, müssen Sie einen Team Vorgangs **Modus** von _Switch Independent_ und den **Lasten Ausgleichs Modus** _Address Hash_auswählen.  
 
-7. Wenn Sie den Schnittstellennamen primären Team konfigurieren oder eine VLAN-Nummer des NIC-Teams zuweisen möchten, klicken Sie auf die Verknüpfung mit der rechten Seite des **primären teamschnittstelle**.  
+7. Wenn Sie den Namen der primären Team Schnittstelle konfigurieren oder dem NIC-Team eine VLAN-Nummer zuweisen möchten, klicken Sie auf den Link rechts neben der **primären Team Schnittstelle**.  
 
-    Die **neue teamschnittstelle** Dialogfeld wird geöffnet.
+    Das Dialogfeld **neue Team Schnittstelle** wird geöffnet.
 
-    ![Neue teamschnittstelle](../../media/Create-a-New-NIC-Team/nict_newteaminterface.jpg)
+    ![Neue Team Schnittstelle](../../media/Create-a-New-NIC-Team/nict_newteaminterface.jpg)
 
-8. Führen Sie eine der folgenden Schritte aus, je nach Ihren Anforderungen:  
+8. Führen Sie je nach Ihren Anforderungen einen der folgenden Schritte aus:  
 
-   -   Geben Sie einen Namen der tNIC-Schnittstelle ein.  
+   -   Geben Sie einen tnic-Schnittstellennamen an.  
 
-   -   Konfigurieren Sie die VLAN-Mitgliedschaft: Klicken Sie auf **spezifischen VLAN** , und geben Sie die VLAN-Informationen. Wenn dieses NIC-Teams mit dem buchhaltungs-VLAN hinzufügen möchten Zahl, z. B. 44 Typ Buchhaltungs-44 - VLAN.   
+   -   VLAN-Mitgliedschaft konfigurieren: Klicken Sie auf **bestimmtes VLAN** , und geben Sie die VLAN-Informationen ein. Wenn Sie z. b. dieses NIC-Team der Buchhaltungs-VLAN-Nummer 44 hinzufügen möchten, geben Sie Accounting 44-VLAN ein.   
 
 9. Klicken Sie auf **OK**.  
 
-_**Herzlichen Glückwunsch!** _  Sie haben einen neuen NIC-Teams auf einem Host oder virtuellen Computer erstellt.
+_**Gratul!**_  Sie haben ein neues NIC-Team auf einem Host Computer oder einer VM erstellt.
 
 ## <a name="related-topics"></a>Verwandte Themen
 
-- [NIC-Teamvorgang](NIC-Teaming.md): In diesem Thema stellen wir Ihnen in Windows Server 2016 einen Überblick über die Windows-Verwaltungsinstrumentation (Network Interface Card, NIC)-Teamvorgang. NIC-Teamvorgang ermöglicht Ihnen, zwischen 1 und 32 gruppieren, physische Ethernet-Netzwerkadapter in ein oder mehrere softwarebasierte virtuelle Netzwerkadapter. Diese virtuellen Netzwerkadapter bieten schnelle Leistung und Fehlertoleranz bei Ausfall eines Netzwerkadapters.   
+- [NIC](NIC-Teaming.md)-Team Vorgang: In diesem Thema erhalten Sie einen Überblick über den NIC-Team Vorgang (Network Interface Card) in Windows Server 2016. Mit dem NIC-Team Vorgang können Sie zwischen einem und 32 physischen Ethernet-Netzwerkadaptern in einem oder mehreren softwarebasierten virtuellen Netzwerkadaptern gruppieren. Diese virtuellen Netzwerkadapter bieten schnelle Leistung und Fehlertoleranz bei Ausfall eines Netzwerkadapters.   
 
-- [NIC-Teamvorgang-MAC-Adresse und -Verwaltung](NIC-Teaming-MAC-Address-Use-and-Management.md): Beim Konfigurieren eines NIC-Teams mit unabhängigen Modus wechseln und adresshash oder dynamische lastverteilung steuern das Team verwendet, die die MAC-Adresse (MAC) des primären Mitglieds-NIC-Team für ausgehenden Datenverkehr. Dem primären NIC-Team-Mitglied ist, einen Netzwerkadapter, die vom Betriebssystem aus den anfänglichen Satz von Team-Mitglieder ausgewählt wird.
+- [NIC-Team Vorgang MAC-Adress Verwendung und-Verwaltung](NIC-Teaming-MAC-Address-Use-and-Management.md): Wenn Sie ein NIC-Team mit dem Switch-unabhängigen Modus und entweder Address Hash oder Dynamic Load Distribution konfigurieren, verwendet das Team die Media Access Control (Mac)-Adresse des primären NIC-Teammitglieds für ausgehenden Datenverkehr. Das primäre NIC-Team Mitglied ist ein Netzwerkadapter, der vom Betriebssystem aus der anfänglichen Gruppe von Team Mitgliedern ausgewählt wird.
 
-- [Einstellungen für die NIC-Teamvorgang](nic-teaming-settings.md): In diesem Thema haben wir bieten Ihnen einen Überblick über den NIC-Team-Eigenschaften, z. B. Teamvorgang und Lastenausgleich Modi zu laden. Sie haben zudem Details über die Standby-adaptereinstellung und die Eigenschaft des primären Team-Schnittstelle. Wenn Sie in einem NIC-Team über mindestens zwei Netzwerkadapter verfügen, müssen Sie keinen Standby-Adapter für die Fehlertoleranz zu bestimmen.
+- [Einstellungen für NIC](nic-teaming-settings.md)-Team Vorgänge: In diesem Thema erhalten Sie einen Überblick über die NIC-Team Eigenschaften, z. b. Team-und Lasten ausgleichsmodi. Außerdem erhalten Sie Informationen über die standbyadaptereinstellung und die Eigenschaft "primäre Team Schnittstelle". Wenn Sie über mindestens zwei Netzwerkadapter in einem NIC-Team verfügen, müssen Sie keinen Standby-Adapter für die Fehlertoleranz festlegen.
 
-- [Problembehandlung bei der NIC-Teamvorgang](Troubleshooting-NIC-Teaming.md): In diesem Thema werden Möglichkeiten zum Beheben von NIC-Teamvorgang, z. B. Hardware, Wertpapiere der physische Switch und das Deaktivieren oder aktivieren Netzwerkadapter, die mithilfe von Windows PowerShell beschrieben. 
+- [Problem](Troubleshooting-NIC-Teaming.md)Behandlung beim NIC-Team Vorgang: In diesem Thema wird erläutert, wie Sie Probleme mit dem NIC-Team Vorgang beheben, wie z. b. Hardware, physische switchwertgeräte und das Deaktivieren oder Aktivieren von Netzwerkadaptern mithilfe von Windows PowerShell. 
 
 ---

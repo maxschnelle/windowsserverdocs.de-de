@@ -7,54 +7,54 @@ ms.author: billmath
 manager: femila
 ms.date: 10/25/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 2f6e4abb4255281be85b7fa928566f681bcf2de2
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 4eb93513d12b2bba2620ff16be24f62ace5dee85
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188361"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407258"
 ---
 # <a name="auditing-enhancements-to-ad-fs-in-windows-server-2016"></a>Überwachung von Erweiterungen für AD FS unter Windows Server 2016
 
 
-Derzeit in AD FS für Windows Server 2012 R2 gibt es zahlreiche Überwachungsereignisse, die für eine einzelne Anforderung und die relevanten Informationen zu einer Anmeldung generiert werden oder die Ausstellung von token-Aktivität ist entweder nicht vorhanden (in einigen Versionen von AD FS) oder über mehrere Überwachungsereignisse verbreiten sich. Der AD FS werden Überwachungsereignisse aufgrund der Natur ausführliche standardmäßig deaktiviert.  
-    Mit der Version von AD FS in Windows Server 2016-Überwachung optimierte und weniger ausführlich geworden.  
+Derzeit gibt es in AD FS für Windows Server 2012 R2 zahlreiche Überwachungs Ereignisse, die für eine einzelne Anforderung generiert werden, und die relevanten Informationen zu einer Anmelde-oder tokenausstellungsaktivität sind entweder nicht vorhanden (in einigen Versionen AD FS) oder auf mehrere Überwachungs Ereignisse verteilt. Standardmäßig sind die AD FS Überwachungs Ereignisse aufgrund ihrer ausführlichen Art deaktiviert.  
+    Mit der Veröffentlichung von AD FS in Windows Server 2016 wird die Überwachung optimiert und ist weniger ausführlich.  
   
-## <a name="auditing-levels-in-ad-fs-for-windows-server-2016"></a>Überwachung von Ebenen in AD FS für WindowsServer 2016  
-Standardmäßig verfügt die AD FS unter Windows Server 2016 allgemeine Überwachung aktiviert.  Bei der grundlegenden Überwachung werden Administratoren 5 oder weniger Ereignisse für eine einzelne Anforderung finden Sie unter.  Kennzeichnet eine deutliche Verringerung der Anzahl der Ereignisse, die Administratoren haben, betrachten, um eine einzelne Anforderung finden Sie unter.   Die Überwachungsebene kann ausgelöst werden, oder gesenkt werden, mithilfe der PowerShell-Cmdlet:  Set-AdfsProperties -AuditLevel.  In der folgenden Tabelle erläutert die verfügbaren Überwachungsebenen dienen.  
-  
-||||  
-|-|-|-|  
-|Überwachungsebene|PowerShell-syntax|Beschreibung|  
-|Keine|Set-AdfsProperties - AuditLevel keine|Die Überwachung ist deaktiviert, und keine Ereignisse protokolliert werden.|  
-|Basic (Standard)|Set-AdfsProperties - AuditLevel Basic|Nicht mehr als 5 Ereignisse werden für eine einzelne Anforderung protokolliert|  
-|Ausführlich|Set-AdfsProperties - AuditLevel-Verbose|Alle Ereignisse werden protokolliert.  Dadurch wird eine beträchtliche Menge an Daten pro Anforderung protokolliert.|  
-  
-Zum Anzeigen der aktuellen Ebene für die Überwachung können Sie die PowerShell-Cmdlet verwenden:  Get-AdfsProperties.  
-  
-![die Verbesserte Überwachung](media/Auditing-Enhancements-to-AD-FS-in-Windows-Server-2016/ADFS_Audit_1.PNG)  
-  
-Die Überwachungsebene kann ausgelöst werden, oder gesenkt werden, mithilfe der PowerShell-Cmdlet:  Set-AdfsProperties -AuditLevel.  
-  
-![die Verbesserte Überwachung](media/Auditing-Enhancements-to-AD-FS-in-Windows-Server-2016/ADFS_Audit_2.png)  
-  
-## <a name="types-of-audit-events"></a>Arten von Überwachungsereignissen  
-AD FS-Überwachungsereignisse können verschiedener Typen, die basierend auf die verschiedenen Typen von Anforderungen, die von AD FS verarbeitet werden. Jedes Überwachungsereignis verfügt über bestimmte Daten zugeordnet.  Der Typ von Überwachungsereignissen kann zwischen anmeldeanforderungen (d. h. tokenanforderungen) im Vergleich zu den Anforderungen des Systems (einschließlich Konfigurationsinformationen abrufen Servern-Aufrufe) unterschieden werden.    
-  Die folgende Tabelle beschreibt die grundlegenden Typen von Überwachungsereignissen.  
+## <a name="auditing-levels-in-ad-fs-for-windows-server-2016"></a>Überwachungs Stufen in AD FS für Windows Server 2016  
+Standardmäßig ist für AD FS in Windows Server 2016 die grundlegende Überwachung aktiviert.  Bei der grundlegenden Überwachung sehen Administratoren maximal 5 oder weniger Ereignisse für eine einzelne Anforderung.  Dies kennzeichnet einen signifikanten Rückgang der Anzahl von Ereignissen, die Administratoren untersuchen müssen, um eine einzelne Anforderung anzuzeigen.   Die Überwachungs Ebene kann mithilfe des PowerShell-cmdlt ausgelöst oder verringert werden:  Set-ADF sproperties-AuditLevel.  In der folgenden Tabelle werden die verfügbaren Überwachungs Stufen erläutert.  
   
 ||||  
 |-|-|-|  
-|Audit-Ereignis des Typs|Ereignis-ID|Beschreibung|  
-|Neue Anmeldeinformationen Validierung erfolgreich|1202|Eine Anforderung, in dem neue Anmeldeinformationen erfolgreich vom Verbunddienst überprüft werden. Dies schließt die WS-Trust, WS-Federation, SAML-P (ersten Abschnitt zum Generieren von SSO) und Autorisieren von OAuth-Endpunkte.|  
-|Überprüfungsfehler für die neuen Anmeldeinformationen|1203|Eine Anforderung, in dem neue Anmeldeinformationen für den Verbunddienst Fehler bei der Überprüfung. Dies schließt die WS-Trust, WS-Fed-, SAML-P (ersten Abschnitt zum Generieren von SSO) und Autorisieren von OAuth-Endpunkte.|  
-|Anwendung Token erfolgreich|1200|Eine Anforderung, in denen ein Sicherheitstoken vom Verbunddienst erfolgreich ausgegeben wird. Für WS-Verbund, SAML-P-dies protokolliert, wenn es sich bei der Verarbeitung der Anforderung mit der SSO-Element. (z. B. das SSO-Cookie).|  
-|Fehler bei der Anwendung Token|1201|Eine Anforderung, an der tokenausstellung Sicherheit für den Verbunddienst fehlgeschlagen ist. Für WS-Verbund, SAML-P-dies protokolliert, wenn die Anforderung, mit der SSO-Element verarbeitet wurde. (z. B. das SSO-Cookie).|  
-|Anforderung wurde erfolgreich von Kennwort geändert|1204|Eine Transaktion, in denen Anforderung der kennwortänderung, wurde erfolgreich vom Verbunddienst verarbeitet.|  
-|Kennwort ändern-Anforderungsfehler|1205|Eine Transaktion, in denen Anforderung der kennwortänderung, nicht durch den Verbunddienst verarbeitet werden konnten.| 
-|Melden Sie sich erfolgreich|1206|Beschreibt eine erfolgreiche Anforderung zur Abmelde.|  
-|Fehler beim Abmelden|1207|Beschreibt eine Anforderung zur Abmelde und Fehler an.|  
+|Überwachungsebene|PowerShell-Syntax|Beschreibung|  
+|Keine|Set-ADF sproperties-AuditLevel None|Die Überwachung ist deaktiviert, und es werden keine Ereignisse protokolliert.|  
+|Basic (Standard)|Set-ADF sproperties-AuditLevel Basic|Für eine einzelne Anforderung werden höchstens 5 Ereignisse protokolliert.|  
+|Ausführlich|Set-ADF sproperties-AuditLevel Verbose|Alle Ereignisse werden protokolliert.  Dadurch wird eine beträchtliche Menge an Informationen pro Anforderung protokolliert.|  
+  
+Zum Anzeigen der aktuellen Überwachungs Ebene können Sie das PowerShell-Cmdlet verwenden:  Get-ADF sproperties.  
+  
+![Überwachungs Erweiterungen](media/Auditing-Enhancements-to-AD-FS-in-Windows-Server-2016/ADFS_Audit_1.PNG)  
+  
+Die Überwachungs Ebene kann mithilfe des PowerShell-cmdlt ausgelöst oder verringert werden:  Set-ADF sproperties-AuditLevel.  
+  
+![Überwachungs Erweiterungen](media/Auditing-Enhancements-to-AD-FS-in-Windows-Server-2016/ADFS_Audit_2.png)  
+  
+## <a name="types-of-audit-events"></a>Typen von Überwachungs Ereignissen  
+AD FS Überwachungs Ereignisse können unterschiedliche Typen aufweisen, basierend auf den verschiedenen Typen von Anforderungen, die von AD FS verarbeitet werden. Jeder Art von Überwachungs Ereignis sind bestimmte Daten zugeordnet.  Der Typ der Überwachungs Ereignisse kann zwischen Anmelde Anforderungen (d. h. Tokenanforderungen) und Systemanforderungen (Server-Server-Aufrufe einschließlich Abrufen von Konfigurationsinformationen) unterschieden werden.    
+  In der folgenden Tabelle werden die grundlegenden Typen von Überwachungs Ereignissen beschrieben.  
+  
+||||  
+|-|-|-|  
+|Audit-Ereignistyp|Ereignis-ID|Beschreibung|  
+|Erfolgreiche Überprüfung der Anmelde Informationen erfolgreich|1202|Eine Anforderung, bei der neue Anmelde Informationen erfolgreich vom Verbunddienst überprüft werden. Dies umfasst WS-Trust, WS-Federation, SAML-P (erster Teil zum Generieren von SSO) und OAuth-Autorisierungs Endpunkte.|  
+|Fehler bei der Validierung der neuen Anmelde Informationen|1203|Eine Anforderung, bei der die Überprüfung der neuen Anmelde Informationen für den Verbunddienst fehlgeschlagen ist Hierzu gehören WS-Trust, WS-Fed, SAML-P (erster Teil zum Generieren von SSO) und OAuth-Autorisierungs Endpunkte.|  
+|Anwendungs Token erfolgreich|1200|Eine Anforderung, bei der ein Sicherheits Token erfolgreich vom Verbunddienst ausgestellt wird. Für WS-Federation wird SAML-P protokolliert, wenn die Anforderung mit dem SSO-Element verarbeitet wird. (z. b. das SSO-Cookie).|  
+|Anwendungs Token-Fehler|1201|Eine Anforderung, bei der die sicherheitstokenausstellung im Verbunddienst fehlgeschlagen ist Für WS-Federation wird SAML-P bei der Verarbeitung der Anforderung mit dem SSO-Element protokolliert. (z. b. das SSO-Cookie).|  
+|Anforderung zum Ändern von Kenn Wörtern erfolgreich|1204|Eine Transaktion, bei der das Kennwort Change Request erfolgreich vom Verbunddienst verarbeitet wurde.|  
+|Fehler beim Ändern der Kenn Wort Änderung|1205|Eine Transaktion, bei der das Kennwort Change Request nicht vom Verbunddienst verarbeitet werden konnte.| 
+|Erfolg abmelden|1206|Beschreibt eine erfolgreiche Abmelde Anforderung.|  
+|Abmelde Fehler|1207|Beschreibt eine fehlgeschlagene Abmelde Anforderung.|  
 
   
 

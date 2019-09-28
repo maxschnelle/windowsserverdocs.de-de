@@ -1,8 +1,8 @@
 ---
-title: ksetup:delenctypeattr
-description: 'Windows-Befehle Thema ***- '
+title: 'Ksetup: Delta Type'
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9c2cc96e8156cafd3846422596abe62513e275b3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e3810d83c06b9ea08766451e13390b02b1867c83
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838131"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375160"
 ---
-# <a name="ksetupdelenctypeattr"></a>ksetup:delenctypeattr
+# <a name="ksetupdelenctypeattr"></a>Ksetup: Delta Type
 
 
 
-Entfernt das Typattribut der Verschlüsselung für die Domäne an. Beispiele wie dieser Befehl verwendet werden kann, finden Sie unter [Beispiele](#BKMK_Examples).
+Entfernt das Verschlüsselungstyp Attribut für die Domäne. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,31 +36,31 @@ ksetup /delenctypeattr <DomainName>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<DomainName>|Der Name der Domäne, die zum Herstellen einer Verbindung werden soll. Verwenden Sie den vollqualifizierten Domänennamen oder ein einfaches Formular mit dem Namen, z. B. "corp.contoso.com" "oder" Contoso.|
+|\<domainname >|Der Name der Domäne, zu der Sie eine Verbindung herstellen möchten. Verwenden Sie den voll qualifizierten Domänen Namen oder eine einfache Form des Namens, z. b. Corp.contoso.com oder Configuration Manager.|
 
 ## <a name="remarks"></a>Hinweise
 
-Führen Sie zum Anzeigen des Verschlüsselungstyp für das Kerberos-Ticket-granting-Ticket (TGT) und der Sitzungsschlüssel der **Klist** Befehl und die Ausgabe anzuzeigen.
+Um den Verschlüsselungstyp für das Kerberos-Ticket Erteilungs Ticket (TGT) und den Sitzungsschlüssel anzuzeigen, führen Sie den Befehl **klist** aus, und zeigen Sie die Ausgabe an.
 
-Eine Statusmeldung wird nach Abschluss von erfolgreichen oder fehlgeschlagenen angezeigt.
+Bei erfolgreicher oder fehlgeschlagener Ausführung wird eine Statusmeldung angezeigt.
 
-Um der Domäne festzulegen, die Sie zum Herstellen einer Verbindung mit und verwenden möchten, führen Sie die **Ksetup/Domain \<DomainName >** Befehl.
+Um die Domäne festzulegen, mit der Sie eine Verbindung herstellen und verwenden möchten, führen Sie den Befehl **Ksetup/Domain \<domainname >** aus.
 
-## <a name="BKMK_Examples"></a>Beispiele für
+## <a name="BKMK_Examples"></a>Beispiele
 
 Bestimmen Sie die aktuellen Verschlüsselungstypen, die auf diesem Computer festgelegt sind:
 ```
 klist
 ```
-Legen Sie die Domäne mit.contoso.com:
+Legen Sie die Domäne auf mit.contoso.com fest:
 ```
 ksetup /domain mit.contoso.com
 ```
-Überprüfen Sie, was das Typattribut der Verschlüsselung für die Domäne ist:
+Überprüfen Sie das Verschlüsselungstyp Attribut für die Domäne:
 ```
 ksetup /getenctypeattr mit.contoso.com
 ```
-Entfernen Sie Set Encryption Type-Attributs für die Domäne mit.contoso.com:
+Entfernen Sie das Set encryption type-Attribut für die Domäne mit.contoso.com:
 ```
 ksetup /delenctypeattr mit.contoso.com
 ```
@@ -72,4 +72,4 @@ ksetup /delenctypeattr mit.contoso.com
 -   [Ksetup:addenctypeattr](ksetup-addenctypeattr.md)
 -   [Ksetup:setenctypeattr](ksetup-setenctypeattr.md)
 -   [Ksetup:delenctypeattr](ksetup-delenctypeattr.md)
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

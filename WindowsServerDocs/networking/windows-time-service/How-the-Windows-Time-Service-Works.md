@@ -7,14 +7,14 @@ ms.author: pashort
 manager: dougkim
 ms.date: 05/08/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 9e4131c28a18a50f3312e5e0201a0ed9529d4555
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 2bf4a887218cd51e9c10954a75bbc1ba2112647f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812397"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405143"
 ---
 # <a name="how-the-windows-time-service-works"></a>Funktionsweise des Windows-Zeitdiensts
 
@@ -22,240 +22,240 @@ ms.locfileid: "66812397"
 
 **In diesem Abschnitt**  
   
--   [Windows-Zeitdienst-Architektur](#windows-time-service-architecture)  
+-   [Windows-Zeit Dienst Architektur](#windows-time-service-architecture)  
   
--   [Windows Time Service Time-Protokolle](#windows-time-service-time-protocols)  
+-   [Windows-Zeit Dienstnutzungsdauer Protokolle](#windows-time-service-time-protocols)  
   
--   [Windows Time Serviceprozesse und-Interaktionen](#windows-time-service-processes-and-interactions)  
+-   [Windows-Zeit Dienst Prozesse und-Interaktionen](#windows-time-service-processes-and-interactions)  
   
--   [Von Windows-Zeitdienst verwendete Netzwerkports](#network-ports-used-by-windows-time-service)  
-  
-> [!NOTE]  
-> In diesem Thema wird erläutert, wie nur die Windows-Zeitdienst (W32Time) funktioniert. Informationen zum Konfigurieren der Windows-Zeitdienst, finden Sie unter [Konfigurieren von Systemen für hohe Genauigkeit](configuring-systems-for-high-accuracy.md).
+-   [Vom Windows-Zeit Dienst verwendete Netzwerkports](#network-ports-used-by-windows-time-service)  
   
 > [!NOTE]  
-> In Windows Server 2003 und Microsoft Windows 2000 Server heißt der Verzeichnisdienst Active Directory-Dienst. In Windows Server 2008 und höheren Versionen heißt der Verzeichnisdienst Active Directory Domain Services (AD DS). Im weiteren Verlauf dieses Themas wird Bezug auf AD DS genommen, die Informationen gelten jedoch auch für Active Directory.  
+> In diesem Thema wird nur erläutert, wie der Windows-Zeit Dienst (W32Time) funktioniert. Informationen zum Konfigurieren des Windows-Zeit diensdienstanbieter finden Sie unter [Konfigurieren von Systemen für hohe Genauigkeit](configuring-systems-for-high-accuracy.md).
   
-Obwohl der Windows-Zeitdienst nicht um eine genaue Implementierung des Network Time Protocol (NTP) ist, wird die komplexe Sammlung von Algorithmen, die in den NTP-Spezifikationen, um sicherzustellen, dass die Uhren auf den Computern in einem Netzwerk so exakt wie möglich definiert ist. Im Idealfall werden alle Computeruhren in AD DS-Domäne mit der Zeit von einem autorisierenden Computer synchronisiert. Zeitsynchronisierung in einem Netzwerk können von vielen Faktoren beeinflusst werden. Die folgenden Faktoren beeinflussen die Genauigkeit der in AD DS-Synchronisierung:  
+> [!NOTE]  
+> In Windows Server 2003 und Microsoft Windows 2000 Server wird der Verzeichnisdienst Active Directory Verzeichnisdienst benannt. In Windows Server 2008 und höheren Versionen wird der Verzeichnisdienst Active Directory Domain Services (AD DS) benannt. Im weiteren Verlauf dieses Themas wird Bezug auf AD DS genommen, die Informationen gelten jedoch auch für Active Directory.  
   
--   Die netzwerkbedingungen  
+Obwohl es sich bei dem Windows-Zeit Dienst nicht um eine exakte Implementierung des Netzwerk Zeit Protokolls (Network Time Protocol, NTP) handelt, verwendet er die komplexe Suite von Algorithmen, die in den NTP-Spezifikationen definiert sind, um sicherzustellen, dass Uhren auf Computern innerhalb eines Netzwerks so genau wie möglich sind. Im Idealfall werden alle Computeruhren in einer AD DS Domäne mit dem Zeitpunkt eines autorisierenden Computers synchronisiert. Viele Faktoren können sich auf die Zeitsynchronisierung in einem Netzwerk auswirken. Die folgenden Faktoren wirken sich häufig auf die Genauigkeit der Synchronisierung in AD DS aus:  
   
--   Die Genauigkeit der Hardware-Uhr des Computers  
+-   Netzwerkbedingungen  
   
--   Die Menge an CPU- und Ressourcen, die der Windows-Zeitdienst  
+-   Die Genauigkeit der Hardware Uhr des Computers  
+  
+-   Die Menge an CPU-und Netzwerkressourcen, die für den Windows-Zeit Dienst verfügbar sind  
   
 > [!IMPORTANT]  
-> Vor Windows Server 2016 wurde der W32Time-Dienst nicht für zeitempfindliche Anwendung Bedürfnissen entwickelt.  Updates für Windows Server 2016 nun ermöglichen jedoch zum Implementieren einer Lösung für 1 ms Genauigkeit in Ihrer Domäne.  Finden Sie unter [Windows 2016 genau Zeit](accurate-time.md) und [Unterstützung Grenze so konfigurieren Sie den Windows-Zeitdienst für Umgebungen mit hoher Genauigkeit](support-boundary.md) für Weitere Informationen.  
+> Vor Windows Server 2016 wurde der W32Time-Dienst nicht so konzipiert, dass er Zeit empfindliche Anwendungsanforderungen erfüllt.  Updates für Windows Server 2016 ermöglichen es Ihnen jetzt jedoch, eine Lösung für eine Genauigkeit von 1 MS in Ihrer Domäne zu implementieren.  Weitere Informationen finden Sie unter [Windows 2016 (genaue Zeit](accurate-time.md) -und [Support Grenze) zum Konfigurieren des Windows-Zeit diensdienstanbieter für Umgebungen mit hoher Genauigkeit](support-boundary.md) .  
   
-Computer, die synchronisieren ihre Zeit weniger häufig oder sind nicht Mitglied einer Domäne, sind konfiguriert, wird standardmäßig mit time.windows.com synchronisiert.  Aus diesem Grund ist es unmöglich zu garantieren uhrzeitsynchronisierungsdienst auf Computern, die zeitweilig verfügen oder keine Netzwerkverbindungen.  
+Computer, die Ihre Zeit seltener synchronisieren oder nicht mit einer Domäne verbunden sind, werden standardmäßig so konfiguriert, dass Sie mit Time.Windows.com synchronisiert werden.  Daher ist es nicht möglich, die Zeit Genauigkeit auf Computern zu gewährleisten, die über vorübergehende oder keine Netzwerkverbindungen verfügen.  
   
-Eine AD DS-Gesamtstruktur verfügt über einer vorher bestimmten Zeit für Synchronisierung-Hierarchie. Der Windows-Zeitdienst wird die Zeit zwischen Computern in der Hierarchie, wobei die genauesten Verweis Uhren oben synchronisiert. Wenn mehr als eine Datenquelle für die Zeit auf einem Computer konfiguriert ist, verwendet Windows-Uhrzeit NTP-Algorithmen, die konfigurierten Datenquellen basierend auf die Fähigkeit des Computers mit dieser Zeitquelle synchronisieren die beste Zeitquelle aus. Der Windows-Zeitdienst unterstützt keine Netzwerk-Synchronisierung von Broadcast oder multicast-Peers. Weitere Informationen zu diesen NTP-Funktionen finden Sie unter RFC 1305 in der IETF RFC-Datenbank.  
+Eine AD DS-Gesamtstruktur verfügt über eine vorgegebene Zeit Synchronisierungs Hierarchie. Der Windows-Zeit Dienst synchronisiert die Zeit zwischen den Computern innerhalb der Hierarchie mit den genauesten Verweis Uhren im oberen Bereich. Wenn auf einem Computer mehr als eine Zeit Quelle konfiguriert ist, verwendet die Windows-Zeit NTP-Algorithmen, um die beste Zeit Quelle aus den konfigurierten Quellen auszuwählen, und zwar basierend auf der Fähigkeit des Computers, eine Synchronisierung mit dieser Zeit Quelle durchzusetzen. Der Windows-Zeit Dienst unterstützt keine Netzwerk Synchronisierung von Broadcast-oder Multicast Peers. Weitere Informationen zu diesen NTP-Funktionen finden Sie unter RFC 1305 in der IETF RFC-Datenbank.  
   
-Jeder Computer mit der Windows-Zeitdienst verwendet der Dienst die genaueste Zeit beibehalten. Computer, die Mitglied einer Domäne sind, die als Time-Client standardmäßig fungieren, daher in den meisten Fällen ist es nicht zum Konfigurieren der Windows-Zeitdienst. Allerdings der Windows-Zeitdienst kann so konfiguriert werden, dass die Zeit von einer angegebenen Zeit Verweisquelle anfordern, und können auch Zeit für Clients bereitstellen.
+Auf allen Computern, auf denen der Windows-Zeit Dienst ausgeführt wird, wird der-Dienst verwendet, um den genauesten Zeitpunkt beizubehalten. Computer, die Mitglieder einer Domäne sind, fungieren standardmäßig als Zeit Client. in den meisten Fällen ist es daher nicht erforderlich, den Windows-Zeit Dienst zu konfigurieren. Der Windows-Zeit Dienst kann jedoch so konfiguriert werden, dass er Zeit von einer bestimmten Verweis Zeit Quelle anfordert und auch Zeit für Clients bereitstellt.
   
-Der Grad, zu dem Zeit des Computers korrekt ist, wird eine Stratum aufgerufen. Die genaueste Zeitquelle in einem Netzwerk (z. B. eine Hardware-Format), nimmt der untersten Ebene der Stratum oder Stratum eine. Diese genauen Zeitquelle wird eine Uhr Verweis bezeichnet. Ein NTP-Server, der direkt aus einer Verweis Uhr Zeit verwendet nimmt eine Stratum, die eine Ebene höher als bei der Uhr auf der Verweis ist. Ressourcen, die aus dem NTP-Server zu erwerben sind zwei Schritte, bis die Uhr Verweis aus diesem Grund belegen eine Schicht, die zwei ist höher als die genaueste Zeitquelle und so weiter. Als eines Computers Stratum Zahl erhöht, die Zeit der Systemuhr möglicherweise weniger genau. Daher ist die Stratum auf jedem Computer ein Indikator dafür, wie genau dieser Computer mit dem die genauesten Zeitquelle synchronisiert wird.  
+Der Grad, zu dem die Zeit eines Computers genau ist, wird als Stratum bezeichnet. Die genaueste Zeit Quelle in einem Netzwerk (z. b. eine Hardwareuhr) belegt die niedrigste straterstufe (Stratum eins). Diese genaue Zeit Quelle wird als Referenzuhr bezeichnet. Ein NTP-Server, der seine Zeit direkt von einer verweisuhr erhält, belegt einen Stratum, der eine höhere Ebene als die der Referenzuhr ist. Ressourcen, die Zeit vom NTP-Server abrufen, sind zwei Schritte von der Referenzuhr. Sie belegen daher einen Stratum, der zwei über der genauesten Zeit Quelle ist, usw. Wenn die Stratum-Nummer eines Computers zunimmt, kann die Systemuhr Zeit weniger genau werden. Daher ist die Stratum-Ebene eines beliebigen Computers ein Indikator dafür, wie genau der Computer mit der genauesten Zeit Quelle synchronisiert wird.  
   
-Wenn der W32Time-Manager Stichproben erhält, verwendet er spezielle Algorithmen in NTP um zu bestimmen, welche die Time-Beispiele verwenden die am besten geeignet ist. Der Zeitdienst verwendet auch einen anderen Satz von Algorithmen, um zu bestimmen, welche die konfigurierte Zeitquellen die genaueste Lösung darstellt. Wenn der Zeitdienst die Time-Beispiel am besten geeignet ist ermittelt hat, wird angepasst basierend auf den oben genannten Kriterien, die lokale Uhr Rate so, dass auf die richtige Uhrzeit konvergiert können. Wenn der Zeitunterschied zwischen lokalen Uhrzeit und das ausgewählte genaue Uhrzeit-Beispiel (so genannte Zeit skew) zu groß, um das Anpassen der Rate für die lokale Uhr ist, legt der Zeitdienst die lokale Uhr auf die richtige Uhrzeit fest. Diese Anpassung der Taktrate oder direkte Uhrzeit geändert wird als Uhr Disziplin bezeichnet.  
+Wenn der W32Time-Manager Zeit Beispiele empfängt, verwendet er besondere Algorithmen in NTP, um zu bestimmen, welche der Zeit Proben am besten geeignet ist. Der Zeit Dienst verwendet auch einen anderen Satz von Algorithmen, um zu bestimmen, welche der konfigurierten Zeitquellen am genauesten ist. Wenn der Zeit Dienst festgestellt hat, welches Zeit Beispiel am besten ist, wird die lokale Taktfrequenz basierend auf den oben genannten Kriterien angepasst, um die konvergiert zur richtigen Zeit zuzulassen. Wenn der Zeitunterschied zwischen der lokalen Uhr und dem ausgewählten Beispiel für eine genaue Zeit (auch als Zeit Abweichung bezeichnet) zu groß ist, um durch die Anpassung der lokalen Taktrate korrigiert zu werden, legt der Zeit Dienst die Ortszeit auf die richtige Zeit fest. Diese Anpassung der Uhrzeitangabe oder der Änderung an direkter Uhrzeit wird als Takt Disziplin bezeichnet.  
   
 ## <a name="windows-time-service-architecture"></a>Windows-Zeitdienst-Architektur  
-Der Windows-Zeitdienst besteht aus folgenden Komponenten:  
+Der Windows-Zeit Dienst besteht aus den folgenden Komponenten:  
   
 -   Dienststeuerungs-Manager  
   
--   Windows Time Service Manager  
+-   Windows-Zeit Service Manager  
   
--   Disziplin der Uhr  
+-   Takt Disziplin  
   
--   Time-Anbieter  
+-   Zeit Anbieter  
   
-Die folgende Abbildung zeigt die Architektur des Windows-Zeitdiensts.  
+Die folgende Abbildung zeigt die Architektur des Windows-Zeit Dienstanbieter.  
   
-**Windows-Zeitdienst-Architektur**  
+**Windows-Zeit Dienst Architektur**  
   
 ![Windows-Zeitdienst](../media/Windows-Time-Service/How-the-Windows-Time-Service-Works/trnt_sec_arcc.gif)
   
-Der Dienststeuerungs-Manager ist verantwortlich für das Starten und beenden den Windows-Zeitdienst. Die Windows Time Service Manager ist verantwortlich für das Initiieren der Aktion die NTP-Zeit-Anbieter mit dem Betriebssystem enthalten. Die Windows Time Service Manager steuert alle Funktionen der Windows-Zeitdienst und die Zusammenfügung aller Zeit Beispiele. Zusätzlich zur Bereitstellung Informationen zu den aktuellen Systemstatus, wie z. B. die aktuelle Zeitquelle oder das letzte Zeit die Systemuhr aktualisiert wurde, ist die Windows Time Service Manager auch verantwortlich für das Erstellen von Ereignissen im Ereignisprotokoll.  
+Der Dienststeuerungs-Manager ist dafür verantwortlich, den Windows-Zeit Dienst zu starten und zu beenden. Der Windows-Zeit Service Manager ist für das Initiieren der Aktion der im Betriebssystem enthaltenen NTP-Zeit Anbieter verantwortlich. Mit dem Windows-Zeit Service Manager werden alle Funktionen des Windows-Zeit diensdienstanbieter und die zusammen Fügung aller Zeit Beispiele gesteuert. Zusätzlich zur Bereitstellung von Informationen über den aktuellen Systemstatus, wie z. b. die aktuelle Uhrzeit Quelle oder das Zeitpunkt der letzten Aktualisierung der Systemuhr, ist die Windows-Zeit Service Manager auch für das Erstellen von Ereignissen im Ereignisprotokoll verantwortlich.  
   
-Der Synchronisierungsvorgang für die Zeit umfasst die folgenden Schritte aus:  
+Die Zeitsynchronisierung umfasst die folgenden Schritte:  
   
--   Geben Sie die Anbieter-Anforderung und empfangen Sie Stichproben von konfigurierten NTP-Zeitquellen.  
+-   Eingabe Anbieter fordern Zeit Beispiele aus konfigurierten NTP-Zeitquellen an und empfangen Sie.  
   
--   Diese Zeit Beispiele werden klicken Sie dann auf Windows Time Service Manager übergeben, die alle Beispiele erfasst, und übergibt sie an die Uhr Disziplin Unterkomponente.  
+-   Diese Zeit Beispiele werden dann an das Windows-Zeit Service Manager, das alle Beispiele sammelt und an die Unterkomponente der Clock-Disziplin übergibt.  
   
--   Die Uhr Disziplin Unterkomponente gilt die NTP-Algorithmen die in der Auswahl des besten Zeit Beispiels führt.  
+-   Die Unterkomponente der Clock-Disziplin wendet die NTP-Algorithmen an, die zur Auswahl des optimalen Zeit Beispiels führen.  
   
--   Die Uhr Disziplin Unterkomponente passt die Zeit der Systemuhr auf die genaueste Zeit durch Anpassen der Taktfrequenz oder direkt zu die Zeit ändern.  
+-   Die Unterkomponente der Clock-Disziplin passt die Uhrzeit der Systemuhr an die präzisere Zeit an, indem Sie entweder die Taktrate anpasst oder die Uhrzeit direkt ändert.  
   
-Wenn ein Computer als einen Zeitserver festgelegt wurde, kann er die Zeit an einem beliebigen Computer Anfordern von Synchronisierung zu einem beliebigen Zeitpunkt in diesem Prozess senden.  
+Wenn ein Computer als Zeitserver festgelegt wurde, kann er die Zeit auf einem beliebigen Computer senden, der die Zeitsynchronisierung an einem beliebigen Punkt in diesem Vorgang anfordert.  
   
-## <a name="windows-time-service-time-protocols"></a>Windows Time Service Time-Protokolle  
+## <a name="windows-time-service-time-protocols"></a>Windows-Zeit Dienstnutzungsdauer Protokolle  
 
-Protokolle von Zeit zu bestimmen, wie genau zwei Computern Uhren werden synchronisiert. Ein Time-Protokoll dient beim Ermitteln der beste Zeitpunkt der Verfügbarkeit der Informationen und konvergieren die Uhren, um sicherzustellen, dass es sich bei einem konsistenten Zeitpunkt auf separaten Systemen verwaltet wird.  
+Mit Zeit Protokollen wird festgelegt, wie genau die Uhren von zwei Computern synchronisiert werden. Ein Zeitprotokoll ist dafür verantwortlich, die am besten verfügbaren Zeit Informationen zu ermitteln und die Uhren zu konvergieren, um sicherzustellen, dass eine konsistente Zeit auf separaten Systemen beibehalten wird.  
   
-Der Windows-Zeitdienst verwendet das Network Time Protocol (NTP) um die Zeit in einem Netzwerk synchronisieren. NTP ist ein Internetprotokoll für die Zeit, die die Disziplin Algorithmen erforderlich für die Synchronisierung von Uhren enthält. NTP ist eine genauere Time-Protokoll als SNTP Simple Network Time Protocol (), die in einigen Versionen von Windows verwendet wird. W32Time SNTP zum Aktivieren der Abwärtskompatibilität mit Computern mit der Zeit SNTP-basierte Dienste, z. B. Windows 2000 unterstützt jedoch weiterhin.  
+Der Windows-Zeit Dienst verwendet das Netzwerk Zeitprotokoll (NTP), um die Zeit über ein Netzwerk zu synchronisieren. NTP ist ein Internet Zeitprotokoll, das die für die Synchronisierung von Uhren erforderlichen Disziplin Algorithmen umfasst. NTP ist ein genaueres Zeitprotokoll als das Simple Network Time Protocol (SNTP), das in einigen Versionen von Windows verwendet wird. W32Time unterstützt jedoch weiterhin SNTP, um die Abwärtskompatibilität mit Computern zu ermöglichen, auf denen SNTP-basierte Zeit Dienste wie z. b. Windows 2000 ausgeführt werden.  
   
-### <a name="network-time-protocol"></a>Network Time Protocol  
-(NTP = Network Time Protocol) ist der Standard time-Synchronisierungsprotokoll, die von der Windows-Zeitdienst im Betriebssystem verwendet. NTP ist eine fehlertolerante, hochgradig skalierbaren Time-Protokoll und das Protokoll für die Synchronisierung von Computertakt mithilfe eines Verweises festgelegten Zeit am häufigsten verwendeten.  
+### <a name="network-time-protocol"></a>Netzwerk Zeitprotokoll  
+Das Netzwerk Zeitprotokoll (NTP) ist das standardmäßige Zeit Synchronisierungs Protokoll, das vom Windows-Zeit Dienst im Betriebssystem verwendet wird. NTP ist ein fehlertolerantes, hochgradig skalierbares Zeitprotokoll und ist das Protokoll, das am häufigsten für die Synchronisierung von Computeruhren mithilfe eines bestimmten Zeit Verweises verwendet wird.  
   
-NTP-zeitsynchronisierung findet über einen Zeitraum und die Übertragung der NTP-Pakete über ein Netzwerk umfasst. NTP-Pakete enthalten Zeitstempel, die aus dem Client und dem Server, die Teil einer Zeit-Beispiel in der zeitsynchronisierung einschließen.  
+Die NTP-Zeitsynchronisierung erfolgt über einen bestimmten Zeitraum und umfasst die Übertragung von NTP-Paketen über ein Netzwerk. NTP-Pakete enthalten Zeitstempel, die ein Zeit Beispiel sowohl vom Client als auch vom Server enthalten, die an der Zeitsynchronisierung teilnehmen.  
   
-NTP basiert auf Verweis Uhr, am genauesten Zeiträume verwendet werden, und alle Uhren in einem Netzwerk, Referenzuhr synchronisiert. NTP verwendet Coordinated Universal Time (UTC) als universelle Standard für die aktuelle Uhrzeit. UTC-Zeit ist unabhängig von Zeitzonen und NTP an einer beliebigen Stelle in der ganzen Welt, unabhängig von zeitzoneneinstellungen verwendet werden kann.  
+NTP verwendet eine Referenzuhr zum Definieren der genauesten Zeit, die verwendet werden soll, und synchronisiert alle Uhren eines Netzwerks mit dieser verweisuhr. NTP verwendet die koordinierte Weltzeit (UTC) als universellen Standard für die aktuelle Zeit. Die UTC ist unabhängig von Zeitzonen und ermöglicht, dass NTP unabhängig von den Zeitzoneneinstellungen überall auf der Welt verwendet werden kann.  
   
 #### <a name="ntp-algorithms"></a>NTP-Algorithmen  
-NTP umfasst zwei Algorithmen, einen Algorithmus Uhr-Filterung und eine Uhr-Auswahlalgorithmus, bei der Windows-Zeitdienst, bei der Bestimmung der besten Zeit-Beispiel. Der Algorithmus Uhr-Filterung Stichproben gesichtet, die aus der abgefragten Zeitquellen empfangen werden, und bestimmen die beste Zeit Beispiele aus der jeweiligen Quelle dient. Die-Uhr-Auswahlalgorithmus bestimmt dann die genauesten Zeitserver im Netzwerk. Diese Informationen ist dann für den Algorithmus des Uhr Disziplin, übergeben, um die lokale Uhr des Computers an, zu korrigieren, während Fehler aufgrund von Latenz und Computer Uhr Ungenauigkeit von Netzwerk kompensiert gesammelten Informationen.  
+NTP umfasst zwei Algorithmen, einen Algorithmus zum Filtern von uhrfiltern und einen Takt Auswahl Algorithmus, um dem Windows-Zeit Dienst bei der Ermittlung des optimalen Zeit Beispiels zu helfen. Der Algorithmus für die Zeit Filterung ist für das Durchsuchen von Zeit Beispielen konzipiert, die von abgefragten Zeitquellen empfangen werden, und um die besten Zeit Beispiele aus den einzelnen Quellen zu ermitteln. Der Algorithmus für die Takt Auswahl bestimmt dann den genauesten Zeitserver im Netzwerk. Diese Informationen werden dann an den Algorithmus für die Zeit Disziplin weitergeleitet, der die gesammelten Informationen verwendet, um die lokale Uhr des Computers zu korrigieren, während gleichzeitig Fehler aufgrund der Netzwerk Latenz und der nicht Genauigkeit der Computeruhr kompensiert werden.  
   
-Die NTP-Algorithmen sind unter Umständen von Licht bis mittlere Netzwerk- und lädt die genauesten. Wie bei jeder Algorithmus, der netzwerkübertragungszeit berücksichtigt, möglicherweise NTP-Algorithmen unter der Bedingung der extreme netzwerküberlastung unbefriedigend. Weitere Informationen zu den NTP-Algorithmen finden Sie unter RFC 1305 in der IETF RFC-Datenbank.  
+Die NTP-Algorithmen sind bei leichten Netzwerk-und Server Ladevorgängen am genauesten. Wie bei jedem Algorithmus, der die Netzwerk Transitzeit berücksichtigt, können NTP-Algorithmen unter den Bedingungen der extrem Überlastung des Netzwerks eine schlechte Leistung bringen. Weitere Informationen zu den NTP-Algorithmen finden Sie unter RFC 1305 in der IETF RFC-Datenbank.  
   
-#### <a name="ntp-time-provider"></a>NTP-Zeitanbieter  
-Der Windows-Zeitdienst ist ein Abschlusszeit-Synchronisierung-Paket, das eine Vielzahl von Hardwaregeräten und Zeit Protokolle unterstützen kann. Um diese Unterstützung zu aktivieren, verwendet der Dienst austauschbare Zeitanbieter. Ein Zeitanbieter ist für die entweder um genaue Zeitstempel (aus dem Netzwerk oder von der Hardware) oder für die Bereitstellung dieser Zeitstempel auf anderen Computern über das Netzwerk verantwortlich.  
+#### <a name="ntp-time-provider"></a>NTP-Zeit Anbieter  
+Der Windows-Zeit Dienst ist ein umfassendes Zeit Synchronisierungs Paket, das eine Vielzahl von Hardware Geräten und Zeit Protokollen unterstützen kann. Um diese Unterstützung zu aktivieren, verwendet der Dienst austauschbare Zeit Anbieter. Ein Zeit Anbieter ist dafür verantwortlich, entweder genaue Zeitstempel (aus dem Netzwerk oder von der Hardware) zu erhalten oder diese Zeitstempel anderen Computern über das Netzwerk bereitzustellen.  
   
-Der NTP-Anbieter ist der Normalzeit-Anbieter, die mit dem Betriebssystem enthalten. Der NTP-Anbieter entspricht der NTP-Version 3 für einen Client und Server gemäß Standards und SNTP-Clients und-Server für die Abwärtskompatibilität mit Windows 2000 und anderen SNTP-Clients interagieren kann. Der NTP-Anbieter in der Windows-Zeitdienst besteht aus den folgenden zwei Teilen:  
+Der NTP-Anbieter ist der Standardzeit Anbieter, der im Betriebssystem enthalten ist. Der NTP-Anbieter befolgt die von NTP Version 3 für einen Client und einen Server angegebenen Standards und kann mit SNTP-Clients und-Servern interagieren, um die Abwärtskompatibilität mit Windows 2000 und anderen SNTP-Clients zu Gewähr alten. Der NTP-Anbieter im Windows-Zeit Dienst besteht aus den folgenden zwei Teilen:  
   
--   **NtpServer Ausgabe-Anbieter.** Dies ist ein Zeitserver, der auf Client-Zeit-Anforderungen im Netzwerk reagiert.  
+-   **Der NtpServer-Ausgabe Anbieter.** Dabei handelt es sich um einen Zeitserver, der auf Client Zeitanforderungen im Netzwerk antwortet.  
   
--   **NtpClient Eingabeprovider.** Dies ist ein Zeit-Client, der Zeit aus einer anderen Quelle und ein Hardwaregerät oder einen NTP-Server abgerufen, und Beispiele für die Zeit, für die Synchronisierung der lokalen Uhr sind, zurückgeben kann.  
+-   **NtpClient-Eingabe Anbieter.** Dabei handelt es sich um einen Zeit Client, der Zeit Informationen aus einer anderen Quelle (einem Hardware Gerät oder einem NTP-Server) abruft und Zeit Beispiele zurückgeben kann, die für die Synchronisierung der lokalen Uhr nützlich sind.  
   
-Obwohl die tatsächlichen Vorgänge dieser zwei Anbieter eng miteinander verknüpft sind, werden sie unabhängig mit dem Zeitdienst angezeigt. Ab Windows 2000 Server bei ein Windows-Computer mit einem Netzwerk verbunden ist, wird er als NTP-Client konfiguriert. Darüber hinaus Dienst zur Windows-Computern nur versucht, die Zeit wird standardmäßig mit einem Domänencontroller oder einer manuell angegebene Zeitquelle synchronisieren. Dies sind die bevorzugte Zeit-Anbieter, da sie automatisch zur Verfügung, sichere Quellen Zeit sind.  
+Obwohl die tatsächlichen Vorgänge dieser beiden Anbieter eng miteinander verknüpft sind, werden Sie unabhängig vom Zeit Dienst angezeigt. Ab Windows 2000 Server wird ein Windows-Computer, auf dem ein Windows-Computer mit einem Netzwerk verbunden ist, als NTP-Client konfiguriert. Außerdem versuchen Computer, auf denen der Windows-Zeit Dienst ausgeführt wird, nur die Zeit mit einem Domänen Controller oder einer manuell angegebenen Zeit Quelle zu synchronisieren. Dies sind die bevorzugten Zeit Anbieter, da Sie automatisch verfügbar und sichere Zeitquellen sind.  
   
-#### <a name="ntp-security"></a>NTP Security  
+#### <a name="ntp-security"></a>NTP-Sicherheit  
 
-Innerhalb der AD DS-Gesamtstruktur verwendet der Windows-Zeitdienst Standarddomäne-Sicherheitsfeatures für die Authentifizierung von Zeitdaten zu erzwingen. Die Sicherheit der NTP-Pakete, die gesendet werden, zwischen einem Domänenmitgliedscomputer und einem lokalen Domänencontroller, der als einen Zeitserver fungiert basiert auf gemeinsam verwendete Schlüsselauthentifizierung. Der Windows-Zeitdienst verwendet des Computers Kerberos-Sitzungsschlüssel, um authentifizierte Signaturen auf NTP-Pakete zu erstellen, die über das Netzwerk gesendet werden. NTP-Pakete werden nicht in den Anmeldedienst sicheren Kanal übertragen. Stattdessen bei der ein Computer die Zeit von einem Domänencontroller in der Domänenhierarchie anfordert, muss der Windows-Zeitdienst Zeitpunkt authentifiziert werden. Der Domänencontroller gibt dann die erforderliche Informationen zurück, in Form von einer 64-Bit-Wert, der mit dem Sitzungsschlüssel aus der Netlogon-Dienst authentifiziert wurde. Wenn das zurückgegebene NTP-Paket nicht mit des Computers auf Clientbasis signiert ist oder nicht ordnungsgemäß signiert ist, wird die Zeit abgelehnt. Solche Authentifizierungsfehler auftreten, werden im Ereignisprotokoll protokolliert. Auf diese Weise bietet der Windows-Zeitdienst Sicherheit NTP-Daten in einer AD DS-Gesamtstruktur.  
+Innerhalb einer AD DS-Gesamtstruktur basiert der Windows-Zeit Dienst auf Sicherheitsfeatures der Standard Domäne, um die Authentifizierung von Zeit Daten zu erzwingen. Die Sicherheit von NTP-Paketen, die zwischen einem Domänen Mitglieds Computer und einem lokalen Domänen Controller gesendet werden, der als Zeitserver fungiert, basiert auf der Authentifizierung mit gemeinsam verwendetem Schlüssel. Der Windows-Zeit Dienst verwendet den Kerberos-Sitzungsschlüssel des Computers, um authentifizierte Signaturen für NTP-Pakete zu erstellen, die über das Netzwerk gesendet werden. NTP-Pakete werden nicht innerhalb des sicheren Kanals für die Netzwerk Anmeldung übertragen. Wenn ein Computer die Zeit von einem Domänen Controller in der Domänen Hierarchie anfordert, erfordert der Windows-Zeit Dienst stattdessen, dass die Uhrzeit authentifiziert wird. Der Domänen Controller gibt dann die erforderlichen Informationen in Form eines 64-Bit-Werts zurück, der mit dem Sitzungsschlüssel aus dem Anmeldedienst authentifiziert wurde. Wenn das zurückgegebene NTP-Paket nicht mit dem Sitzungsschlüssel des Computers signiert oder falsch signiert wurde, wird die Zeit abgelehnt. Alle Authentifizierungsfehler werden im Ereignisprotokoll protokolliert. Auf diese Weise stellt der Windows-Zeit Dienst Sicherheit für NTP-Daten in einer AD DS Gesamtstruktur bereit.  
   
-Im Allgemeinen beziehen Windows-zeitclients automatisch genaue Uhrzeit für die Synchronisierung von Domänencontrollern in der gleichen Domäne. In einer Gesamtstruktur synchronisieren die Domänencontroller einer untergeordneten Domäne Zeit mit Domänencontrollern in Domänen. Wenn Sie ein Zeitserver ein authentifiziertes NTP-Pakets an einen Client zurückgegeben, die die Zeit anfordert, ist das Paket über einen Kerberos-Sitzungsschlüssel, der durch ein domänenübergreifendes Vertrauenskonto definiert signiert. Die Vertrauenskonto wird erstellt, wenn eine neue AD DS-Domäne eine Gesamtstruktur verknüpft, und der Netlogon-Dienst den Sitzungsschlüssel verwaltet. Auf diese Weise wird der Domänencontroller, der als zuverlässige, in der Gesamtstruktur-Stammdomäne konfiguriert ist die authentifizierte Zeitquelle für alle Domänencontroller in der über- und untergeordneten Domänen und indirekt für alle Computer, die sich in der Struktur von Domäne befinden.  
+Im Allgemeinen erhalten Windows-Zeit Clients automatisch eine genaue Zeit für die Synchronisierung von Domänen Controllern in derselben Domäne. In einer Gesamtstruktur wird von den Domänen Controllern einer untergeordneten Domäne Zeit mit Domänen Controllern in ihren übergeordneten Domänen synchronisiert. Wenn ein Zeitserver ein authentifiziertes NTP-Paket an einen Client zurückgibt, der die Zeit anfordert, wird das Paket mithilfe eines Kerberos-Sitzungsschlüssels signiert, der durch ein vertrauenswürdiges Konto für die Domänen Domäne definiert ist. Das Konto für die Vertrauenswürdigkeit der vertrauenswürdigen Domäne wird erstellt, wenn eine neue AD DS Domäne einer Gesamtstruktur Beitritt und der Anmeldedienst den Sitzungsschlüssel verwaltet. Auf diese Weise wird der als zuverlässig konfigurierte Domänen Controller in der Stamm Domäne der Gesamtstruktur zur authentifizierten Zeit Quelle für alle Domänen Controller in den übergeordneten und untergeordneten Domänen und indirekt für alle Computer in der Domänen Struktur.  
   
-Der Windows-Zeitdienst kann für die Zusammenarbeit zwischen Gesamtstrukturen konfiguriert werden, aber es ist wichtig zu beachten, dass diese Konfiguration nicht sicher ist. Ein NTP-Server kann z. B. in einer anderen Gesamtstruktur verfügbar sein. Da dieser Computer in einer anderen Gesamtstruktur ist, besteht jedoch keine Kerberos-Sitzungsschlüssel mit dem Signieren und NTP-Pakete zu authentifizieren. Um genaue uhrzeitsynchronisierung von einem Computer in einer anderen Gesamtstruktur zu erhalten, der Client benötigt Netzwerkzugriff auf diesem Computer aus, und der Zeitdienst muss konfiguriert werden, um eine bestimmte Zeitquelle befindet sich in der anderen Gesamtstruktur zu verwenden. Wenn ein Client von einem NTP-Server außerhalb der eigenen Domänenhierarchie manuell zum Zeitpunkt des Zugriffs konfiguriert ist, wird die NTP-Pakete, die zwischen dem Client und der Zeitserver gesendet werden nicht authentifiziert, und sind daher nicht sicher. Auch bei der Implementierung von Gesamtstruktur-Vertrauensstellungen ist der Windows-Zeitdienst nicht gesamtstrukturübergreifend sicher. Obwohl der Anmeldedienst sichere Kanal der Authentifizierungsmechanismus für den Windows-Zeitdienst ist, wird die gesamtstrukturübergreifende Authentifizierung nicht unterstützt.  
+Der Windows-Zeit Dienst kann für die Zusammenarbeit zwischen Gesamtstrukturen konfiguriert werden. es ist jedoch wichtig zu beachten, dass diese Konfiguration nicht sicher ist. Beispielsweise kann ein NTP-Server in einer anderen Gesamtstruktur verfügbar sein. Da sich dieser Computer jedoch in einer anderen Gesamtstruktur befindet, gibt es keinen Kerberos-Sitzungsschlüssel, mit dem NTP-Pakete signiert und authentifiziert werden können. Zum Abrufen der exakten Zeitsynchronisierung von einem Computer in einer anderen Gesamtstruktur benötigt der Client Netzwerk Zugriff auf diesen Computer, und der Zeit Dienst muss für die Verwendung einer bestimmten Zeit Quelle in der anderen Gesamtstruktur konfiguriert werden. Wenn ein Client manuell so konfiguriert ist, dass er von einem NTP-Server außerhalb der eigenen Domänen Hierarchie auf Zeit zugreift, werden die zwischen dem Client und dem Zeitserver gesendeten NTP-Pakete nicht authentifiziert und sind daher nicht sicher. Selbst bei der Implementierung von Gesamtstruktur-Vertrauens Stellungen ist der Windows-Zeit Dienst nicht in Gesamtstrukturen sicher. Obwohl der sichere Kanal für die Netzwerk Anmeldung der Authentifizierungsmechanismus für den Windows-Zeit Dienst ist, wird die Gesamtstruktur übergreifende Authentifizierung nicht unterstützt.  
   
-#### <a name="hardware-devices-that-are-supported-by-the-windows-time-service"></a>Hardwaregeräten, die von der Windows-Zeitdienst unterstützt werden  
-Hardware-basierte Uhren, z. B. GPS oder Optionsfelder Uhren werden häufig als äußerst präzise Verweis Uhr Geräte verwendet. Standardmäßig die Windows Time Service NTP Zeitanbieter unterstützt keine direkte Verbindung von einem Hardwaregerät auf einem Computer, obwohl es möglich ist, ein softwarebasierter unabhängige Zeitanbieter erstellen, die diese Art von Verbindung unterstützt. Diese Art von in Verbindung mit der Windows-Zeitdienst-Anbieter bieten eine zuverlässige und stabile Zeitverweis an.  
+#### <a name="hardware-devices-that-are-supported-by-the-windows-time-service"></a>Hardware Geräte, die vom Windows-Zeit Dienst unterstützt werden  
+Hardware basierte Uhren, z. b. GPS oder Radio Uhren, werden häufig als äußerst genaue Referenz Takt Geräte verwendet. Standardmäßig unterstützt der NTP-Zeit Anbieter für den Windows-Zeit Dienst keine direkte Verbindung eines Hardware Geräts mit einem Computer, obwohl es möglich ist, einen softwarebasierten unabhängigen Zeit Anbieter zu erstellen, der diesen Verbindungstyp unterstützt. Diese Art von Anbieter kann in Verbindung mit dem Windows-Zeit Dienst einen zuverlässigen, stabilen Zeit Verweis bereitstellen.  
   
-Hardwaregeräte, wie z. B. eine Cesium Uhr oder einen Empfänger globalen Positionsbestimmungssystems (GPS) bieten genaue, aktuelle Uhrzeit gemäß der als Standard eine genaue Definition von Zeit zu erhalten. Cesium Uhren extrem stabil sind und von Faktoren wie z. B. Temperatur, Luftdruck und Luftfeuchtigkeit nicht betroffen sind, aber auch sehr teuer werden. Ein GPS-Empfänger ist sehr viel weniger kostspielig im Betrieb und auch eine genaue Verweis Uhr. GPS-Empfänger erhalten die Uhrzeit von Satelliten, die ihre Zeit mit einer Uhr Cesium zu erhalten. Ohne die Verwendung eines unabhängigen Zeit-Anbieters können Windows-Zeitserver Zeit abrufen, indem Herstellen einer Verbindung mit einem externen NTP-Server, der mit einem Hardwaregerät über ein Telefon oder dem Internet verbunden ist. Organisationen wie der U.s. Naval Observatory bieten NTP-Server, die mit äußerst zuverlässig Verweis Uhren verbunden sind.  
+Hardware Geräte, z. b. eine Cesium-Uhr oder ein GPS-Empfänger (GPS), bieten eine genaue aktuelle Zeit, indem Sie einem Standard folgen, um eine genaue Zeitdefinition zu erhalten. Cesium-Uhren sind äußerst stabil und sind von Faktoren wie Temperatur, Druck oder Luftfeuchtigkeit nicht betroffen, sind aber auch sehr aufwendig. Der Betrieb eines GPS-Empfängers ist viel günstiger und auch eine exakte verweisuhr. GPS-Empfänger erhalten Ihre Zeit von Satelliten, die Ihre Zeit von einer Cesium-Uhr erhalten. Ohne die Verwendung eines unabhängigen Zeit Anbieters können Windows-Zeitserver Ihre Zeit abrufen, indem Sie eine Verbindung mit einem externen NTP-Server herstellen, der über ein Telefon oder das Internet mit einem Hardware Gerät verbunden ist. Organisationen wie das USA Naval-Observatorium stellen NTP-Server bereit, die mit äußerst zuverlässigen Referenzuhren verbunden sind.  
   
-Viele GPS-Empfänger und anderen Geräten Zeit können als NTP-Server in einem Netzwerk fungieren. Sie können konfigurieren, dass Ihre AD DS-Gesamtstruktur, um aus diesen externen Hardwaregeräten zu synchronisieren, nur dann, wenn sie auch als NTP-Server in Ihrem Netzwerk fungieren. Zu diesem Zweck konfigurieren Sie den Domänencontroller fungiert als dem primären Domänencontroller (PDC)-Emulator in Ihrer Gesamtstruktur-Stammdomäne zum Synchronisieren mit dem NTP-Server, die vom GPS-Gerät bereitgestellt. Zu diesem Zweck finden Sie unter [konfigurieren den Windows-Zeitdienst auf dem PDC-Emulator in der Gesamtstruktur-Stammdomäne](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731191%28v=ws.10%29).  
+Viele GPS-Empfänger und andere Geräte können als NTP-Server in einem Netzwerk fungieren. Sie können die AD DS-Gesamtstruktur so konfigurieren, dass die Zeit von diesen externen Hardware Geräten nur synchronisiert wird, wenn Sie auch als NTP-Server in Ihrem Netzwerk fungieren. Konfigurieren Sie hierzu den Domänen Controller, der als primärer Domänen Controller-Emulator (PDC) in Ihrem Gesamtstruktur Stamm fungiert, um die Synchronisierung mit dem NTP-Server durchzuführen, der über das GPS-Gerät Informationen hierzu finden Sie unter [Konfigurieren des Windows-Zeit Diensts für den PDC-Emulator in der Stamm Domäne der](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731191%28v=ws.10%29)Gesamtstruktur.  
   
-### <a name="simple-network-time-protocol"></a>Simple Network Time Protocol  
-Simple Network Time Protocol (SNTP) ist ein vereinfachtes Zeit, die für Server und Clients, die nicht den Grad an Genauigkeit erfordern, die NTP bietet vorgesehen ist. SNTP, eine weitere rudimentäre Version NTP, ist das primäre Time-Protokoll, das in Windows 2000 verwendet wird. Da die Netzwerk-Paket-Formate von SNTP und NTP identisch sind, sind die beiden Protokolle interoperabel. Der Hauptunterschied zwischen den beiden ist, dass SNTP keine die fehlerverwaltung und komplexe für Inhaltsfiltersysteme sind, die NTP bereitstellt. Weitere Informationen zu Simple Network Time Protocol finden Sie unter RFC 1769 in der IETF RFC-Datenbank.  
+### <a name="simple-network-time-protocol"></a>Einfaches Netzwerk Zeitprotokoll  
+Das Simple Network Time Protocol (SNTP) ist ein vereinfachtes Zeitprotokoll, das für Server und Clients vorgesehen ist, die den von NTP bereitgestellten Genauigkeits Grad nicht benötigen. SNTP, eine rudimentäre Version von NTP, ist das primäre Zeitprotokoll, das in Windows 2000 verwendet wird. Da die Netzwerk Paketformate SNTP und NTP identisch sind, sind die beiden Protokolle interoperabel. Der Hauptunterschied zwischen den beiden besteht darin, dass SNTP nicht über die Fehler Verwaltung und komplexe Filtersysteme verfügt, die NTP bereitstellt. Weitere Informationen zum Protokoll für die einfache Netzwerk Zeit finden Sie unter RFC 1769 in der IETF RFC-Datenbank.  
   
-### <a name="time-protocol-interoperability"></a>Protokollinteroperabilität Zeit  
-Der Windows-Zeitdienst kann in einer gemischten Umgebung aus Computern unter Windows 2000, Windows XP und Windows Server 2003 ausgeführt werden, da das in Windows 2000 verwendete SNTP-Protokoll mit dem NTP-Protokoll in Windows XP und Windows Server 2003 kompatibel ist.  
+### <a name="time-protocol-interoperability"></a>Interoperabilität des Zeit Protokolls  
+Der Windows-Zeit Dienst kann in einer gemischten Umgebung mit Computern unter Windows 2000, Windows XP und Windows Server 2003 ausgeführt werden, da das in Windows 2000 verwendete SNTP-Protokoll mit dem NTP-Protokoll in Windows XP und Windows Server 2003 interoperabel ist.  
   
-Der Zeitdienst in Windows NT Server 4.0, namens TimeServ, synchronisiert die Uhrzeit in einem Windows NT 4.0-Netzwerk. TimeServ ist ein Add-on-Feature, das als Teil der *Microsoft Windows NT 4.0 Resource Kit* und bietet keinen den Grad der Zuverlässigkeit der zeitsynchronisierung, die von Windows Server 2003 erforderlich ist.  
+Der Zeit Dienst in Windows NT Server 4,0 mit dem Namen TimeServ synchronisiert die Zeit in einem Windows NT 4,0-Netzwerk. TimeServ ist ein Add-on-Feature, das als Teil des *Microsoft Windows NT 4,0 Resource Kits* verfügbar ist und nicht den Grad an Zuverlässigkeit der Zeitsynchronisierung bietet, der von Windows Server 2003 benötigt wird.  
   
-Der Windows-Zeitdienst kann zusammenarbeiten, mit Computern unter Windows NT 4.0, da sie Zeit mit Windows 2000 oder Windows Server 2003-Computern synchronisiert werden können; ein Computer unter Windows 2000 oder Windows Server 2003 jedoch nicht automatisch auf Windows NT 4.0-Zeitserver ermittelt. Angenommen, Sie verfügen über Wenn Ihre Domäne so konfiguriert ist, dass die zeitsynchronisierung mit der Domäne Hierarchiebasierte-Methode der Synchronisierung aus, und Sie möchten für Computer in der Domänenhierarchie, Uhrzeit mit einem Windows NT 4.0-Domänencontroller zu synchronisieren, Konfiguration die Computer manuell, um mit der Windows NT 4.0-Domänencontroller zu synchronisieren.  
+Der Windows-Zeit Dienst kann mit Computern interagieren, auf denen Windows NT 4,0 ausgeführt wird, da die Zeit mit Computern mit Windows 2000 oder Windows Server 2003 synchronisiert werden kann. auf einem Computer mit Windows 2000 oder Windows Server 2003 werden Windows NT 4,0-Zeitserver jedoch nicht automatisch erkannt. Wenn Ihre Domäne z. b. so konfiguriert ist, dass die Zeit mithilfe der Hierarchie basierten Synchronisierungsmethode der Domäne synchronisiert wird, und Sie möchten, dass Computer in der Domänen Hierarchie die Zeit mit einem Windows NT 4,0-Domänen Controller synchronisieren, müssen Sie diese konfigurieren. Manuelles Synchronisieren von Computern mit den Windows NT 4,0-Domänen Controllern.  
   
-Windows NT 4.0 verwendet einen einfacheren Mechanismus für die zeitsynchronisierung als der Zeit von Windows-Dienst verwendet. Aus diesem Grund wird um genaue uhrzeitsynchronisierung in Ihrem Netzwerk zu gewährleisten, empfohlen, alle Windows NT 4.0-Domänencontroller auf Windows 2000 oder Windows Server 2003 zu aktualisieren.  
+Windows NT 4,0 verwendet einen einfacheren Mechanismus für die Zeitsynchronisierung, als der Windows-Zeit Dienst verwendet. Um eine genaue Zeitsynchronisierung über das Netzwerk sicherzustellen, empfiehlt es sich daher, alle Windows NT 4,0-Domänen Controller auf Windows 2000 oder Windows Server 2003 zu aktualisieren.  
   
-## <a name="windows-time-service-processes-and-interactions"></a>Windows Time Serviceprozesse und-Interaktionen  
+## <a name="windows-time-service-processes-and-interactions"></a>Windows-Zeit Dienst Prozesse und-Interaktionen  
 
-Der Windows-Zeitdienst wurde entwickelt, um die Uhren von Computern in einem Netzwerk zu synchronisieren. Der Netzwerk-Zeit-Synchronisierungsvorgang Zeit konvergent, so genannte tritt auf, in einem Netzwerk immer greift auf Computer aus eine genauere Zeitserver. Zeit Konvergenz umfasst einen Prozess mit dem ein autorisierender Server die aktuelle Uhrzeit auf den Clientcomputern in Form von NTP-Pakete enthält. Die Informationen in einem Paket gibt an, ob eine Anpassung der aktuellen-Uhrzeit des Computers vorgenommen werden, damit er mit dem eine präzisere-Server synchronisiert wird.  
+Der Windows-Zeit Dienst ist so konzipiert, dass die Uhren von Computern in einem Netzwerk synchronisiert werden. Der Synchronisierungs Prozess für die Netzwerk Zeit (auch Zeit Konvergenz genannt) tritt im gesamten Netzwerk auf, da jeder Computer von einem präziseren Zeitserver aus auf die Zeit zugreift. Die Zeit Konvergenz umfasst einen Prozess, durch den ein autoritativer Server den aktuellen Zeitpunkt der Client Computer in Form von NTP-Paketen bereitstellt. Die in einem Paket enthaltenen Informationen geben an, ob eine Anpassung an der aktuellen Uhrzeit des Computers vorgenommen werden muss, damit Sie mit dem genaueren Server synchronisiert wird.  
   
-Versuchen als Teil des Prozesses Konvergenz Zeit Mitglieder der Domäne, die zeitsynchronisierung mit einem beliebigen Domänencontroller in derselben Domäne befindet sich ein. Wenn der Computer ein Domänencontroller ist, versucht, die mit einem mehr autorisierenden Domänencontroller zu synchronisieren.  
+Im Rahmen des Zeit Konvergenz Vorgangs versuchen Domänen Mitglieder, die Zeit mit einem beliebigen Domänen Controller in derselben Domäne zu synchronisieren. Wenn der Computer ein Domänen Controller ist, wird versucht, eine Synchronisierung mit einem autorisierteren Domänen Controller durchzusetzen.  
   
-Computer unter Windows XP Home Edition oder Computer, die nicht zu einer Domäne verknüpft sind, versuchen Sie nicht zum Synchronisieren mit der Domänenhierarchie, aber sind standardmäßig so konfiguriert, um Zeit zu ermitteln, von "Time.Windows.com".  
+Computer, auf denen Windows XP Home Edition ausgeführt wird, oder Computer, die keiner Domäne beigetreten sind, versuchen nicht, eine Synchronisierung mit der Domänen Hierarchie durchzuführen. Sie werden jedoch standardmäßig konfiguriert, um Zeit von Time.Windows.com  
   
-Um einem Computer unter Windows Server 2003 als autorisierend herzustellen, muss der Computer konfiguriert werden, werden von einer zuverlässigen Zeitquelle. Standardmäßig ist der erste Domänencontroller, der in einer Windows Server 2003-Domäne installiert ist automatisch für werden von einer zuverlässigen Zeitquelle konfiguriert. Da es auf dem autorisierenden Computer für die Domäne ist, muss es zum Synchronisieren von mit einer externen Zeitquelle und nicht mit der Domänenhierarchie konfiguriert werden. Außerdem werden standardmäßig alle Mitglieder anderer Windows Server 2003-Domäne konfiguriert, für die Synchronisierung mit der Domänenhierarchie.  
+Zum Einrichten eines Computers, auf dem Windows Server 2003 als autorisierend ausgeführt wird, muss der Computer als zuverlässige Zeit Quelle konfiguriert werden. Standardmäßig wird der erste Domänen Controller, der auf einer Windows Server 2003-Domäne installiert ist, automatisch als zuverlässige Zeit Quelle konfiguriert. Da es sich um den autorisierenden Computer für die Domäne handelt, muss er so konfiguriert werden, dass er mit einer externen Zeit Quelle und nicht mit der Domänen Hierarchie synchronisiert wird. Standardmäßig sind alle anderen Domänen Mitglieder von Windows Server 2003 so konfiguriert, dass Sie mit der Domänen Hierarchie synchronisiert werden.  
   
-Nachdem Sie ein Windows Server 2003-Netzwerk hergestellt haben, können Sie den Windows-Zeitdienst Verwendung eines der folgenden Optionen für die Synchronisierung konfigurieren:  
+Nachdem Sie ein Windows Server 2003-Netzwerk eingerichtet haben, können Sie den Windows-Zeit Dienst so konfigurieren, dass eine der folgenden Optionen für die Synchronisierung verwendet wird:  
   
--   Hierarchie-basierte domänensynchronisierung  
+-   Synchronisierung auf Domänen Hierarchie  
   
--   Eine manuell konfigurierte Synchronisierungsquelle  
+-   Eine manuell angegebene Synchronisierungs Quelle  
   
--   Alle verfügbaren Synchronisierungsmechanismen  
+-   Alle verfügbaren Synchronisierungs Mechanismen  
   
 -   Keine Synchronisierung.  
   
-Jeder dieser Typen von Synchronisierung wird im folgenden Abschnitt erläutert.  
+Diese Synchronisierungs Typen werden im folgenden Abschnitt erläutert.  
   
-### <a name="domain-hierarchy-based-synchronization"></a>Hierarchie-basierte Domänensynchronisierung  
+### <a name="domain-hierarchy-based-synchronization"></a>Synchronisierung auf Domänen Hierarchie  
 
-Synchronisierung, die in einer Domänenhierarchie basiert verwendet die Hierarchie der AD DS-Domäne, um eine zuverlässige Quelle für die Synchronisierung von Zeit zu suchen. Basierend auf Domänenhierarchie, bestimmt der Windows-Zeitdienst die Genauigkeit jedes Mal-Servers. In einer Gesamtstruktur mit Windows Server 2003 enthält die Computer mit der primären Domänencontrollers (PDC) Emulator Betriebsmasterfunktion, befindet sich in der Gesamtstruktur-Stammdomäne, die Position der beste Zeitpunkt, an, es sei denn, eine andere zuverlässige Zeitquelle konfiguriert wurde. Die folgende Abbildung veranschaulicht einen Pfad für die zeitsynchronisierung zwischen Computern in einer Domänenhierarchie.  
+Bei der Synchronisierung, die auf einer Domänen Hierarchie basiert, wird in der AD DS Domänen Hierarchie eine zuverlässige Quelle gefunden, mit der die Zeit synchronisiert werden Basierend auf der Domänen Hierarchie bestimmt der Windows-Zeit Dienst die Genauigkeit jedes Zeit Servers. In einer Windows Server 2003-Gesamtstruktur enthält der Computer, der die Betriebs Master Rolle des primären Domänen Controllers (PDC) in der Stamm Domäne der Gesamtstruktur enthält, die Position der besten Zeit Quelle, es sei denn, es wurde eine andere zuverlässige Zeit Quelle konfiguriert. In der folgenden Abbildung wird ein Pfad zur Zeitsynchronisierung zwischen Computern in einer Domänen Hierarchie veranschaulicht.  
   
-**Zeitsynchronisierung in einer AD DS-Hierarchie**  
-![Windows Time](../media/Windows-Time-Service/How-the-Windows-Time-Service-Works/trnt_ntw_adhc.gif)
+**Zeitsynchronisierung in einer AD DS Hierarchie**  
+![windows-Zeit @ no__t-1
   
-#### <a name="reliable-time-source-configuration"></a>Konfigurieren einer zuverlässigen Zeitquelle  
-Ein Computer, der einer zuverlässigen Zeitquelle konfiguriert ist, wird als Stamm der Zeitdienst identifiziert. Der Stamm des Zeitdiensts ist der autorisierenden Server für die Domäne und in der Regel ist so konfiguriert, dass Zeit aus einer externen NTP-Server oder ein Hardwaregerät abrufen. Ein Zeitserver kann konfiguriert werden, als einer zuverlässigen Zeitquelle optimieren, wie Zeit innerhalb der gesamten Domänenhierarchie übertragen wird. Wenn ein Domänencontroller konfiguriert ist, werden von einer zuverlässigen Zeitquelle, kündigt Netlogon-Dienst diesen Domänencontroller als einer zuverlässigen Zeitquelle, bei der Anmeldung mit dem Netzwerk. Wenn einer Zeitquelle synchronisieren mit anderen Domänencontrollern gesucht werden soll, wählen sie eine zuverlässige Quelle zuerst, wenn eine verfügbar ist.  
+#### <a name="reliable-time-source-configuration"></a>Zuverlässige Zeit Quell Konfiguration  
+Ein Computer, der als zuverlässige Zeit Quelle konfiguriert ist, wird als Stamm des Zeit dienstanzdienstanzen identifiziert. Der Stamm des Zeit dienstanzdienstanzen ist der autorisierende Server für die Domäne und wird in der Regel so konfiguriert, dass er von einem externen NTP-Server oder einem Hardware Gerät Zeit Ein Zeitserver kann als zuverlässige Zeit Quelle konfiguriert werden, um zu optimieren, wie die Zeit in der gesamten Domänen Hierarchie übertragen wird. Wenn ein Domänen Controller als zuverlässige Zeit Quelle konfiguriert ist, kündigt der Anmeldedienst den Domänen Controller als zuverlässige Zeit Quelle an, wenn er sich am Netzwerk anmeldet. Wenn andere Domänen Controller nach einer Zeit Quelle suchen, mit der synchronisiert werden soll, wählen Sie zuerst eine zuverlässige Quelle aus, sofern eine verfügbar ist.  
   
-#### <a name="time-source-selection"></a>Zeitauswahl-Quelle  
-Die Zeit Auswahl Quellprozess kann zwei Probleme in einem Netzwerk erstellen:  
+#### <a name="time-source-selection"></a>Zeitquellen Auswahl  
+Der Vorgang zur Auswahl der Zeit Quelle kann zwei Probleme in einem Netzwerk verursachen:  
   
--   Zusätzliche Synchronisierung wechselt.  
+-   Zusätzliche Synchronisierungs Zyklen.  
   
--   Erhöhter Volumen des Netzwerkverkehrs.  
+-   Höheres Volumen im Netzwerk Datenverkehr.  
   
-Ein Zyklus in das Netzwerk für die Synchronisierung tritt auf, wenn Zeit mehr übrig eine Gruppe von Domänencontrollern konsistent ist und gleichzeitig genutzt fortlaufend ohne eine erneute Synchronisierung mit einem anderen zuverlässigen Zeitquelle gemeinsam. Der Windows-Zeitdienst Zeit Quelle Auswahlalgorithmus dient zum Schutz vor dieser Art von Problemen.  
+Eine Verbindung im Synchronisierungs Netzwerk tritt auf, wenn die Zeit zwischen einer Gruppe von Domänen Controllern konstant bleibt und die gleiche Zeit fortlaufend ohne eine erneute Synchronisierung mit einer anderen zuverlässigen Zeit Quelle gemeinsam genutzt wird. Der Zeitquellen Auswahl-Algorithmus des Windows Time Service ist für den Schutz vor diesen Arten von Problemen konzipiert.  
   
-Ein Computer, die eine der folgenden Methoden zum Identifizieren einer Zeitquelle synchronisieren mit verwendet:  
+Ein Computer verwendet eine der folgenden Methoden, um eine Zeit Quelle für die Synchronisierung zu identifizieren:  
   
--   Wenn der Computer nicht Mitglied einer Domäne ist, müssen sie für die Synchronisierung mit einer angegebenen Zeitquelle konfiguriert werden.  
+-   Wenn der Computer kein Mitglied einer Domäne ist, muss er so konfiguriert werden, dass er eine Synchronisierung mit einer bestimmten Zeit Quelle durchläuft.  
   
--   Wenn der Computer auf einem Mitgliedsserver oder Arbeitsstation innerhalb einer Domäne in der Standardeinstellung wird anschließend die AD DS-Hierarchie und synchronisiert seine Zeit mit einem Domänencontroller in der lokalen Domäne, die gerade den Windows-Zeitdienst ausgeführt wird.  
+-   Wenn der Computer ein Mitglieds Server oder eine Arbeitsstation in einer Domäne ist, wird er standardmäßig der AD DS Hierarchie folgen und seine Zeit mit einem Domänen Controller in der lokalen Domäne synchronisieren, auf der derzeit der Windows-Zeit Dienst ausgeführt wird.  
   
-Wenn der Computer ein Domänencontroller ist, ist es bis zu sechs Abfragen an die Synchronisierung mit einem anderen Domänencontroller zu suchen. Jede Abfrage ist so konzipiert, um eine Zeitquelle mit bestimmten Attributen, z. B. eine Art von Domänencontroller an einem bestimmten Ort zu identifizieren und davon, ob es einer zuverlässigen Zeitquelle ist. Die Datenquelle für die Zeit muss auch die folgenden Einschränkungen entsprechen:  
+Wenn es sich bei dem Computer um einen Domänen Controller handelt, sind bis zu sechs Abfragen zum Auffinden eines anderen Domänen Controllers für die Synchronisierung möglich. Jede Abfrage ist so konzipiert, dass Sie eine Zeit Quelle mit bestimmten Attributen identifiziert, z. b. eine Art von Domänen Controller, eine bestimmte Position und ob es sich um eine zuverlässige Zeit Quelle handelt. Die Zeit Quelle muss außerdem die folgenden Einschränkungen einhalten:  
   
--   Eine zuverlässigen Zeitquelle kann nur mit einem Domänencontroller in der übergeordneten Domäne synchronisieren.  
+-   Eine zuverlässige Zeit Quelle kann nur mit einem Domänen Controller in der übergeordneten Domäne synchronisiert werden.  
   
--   PDC-Emulator kann mit einer zuverlässigen Zeitquelle in seiner eigenen Domäne oder einen beliebigen Domänencontroller in der übergeordneten Domäne synchronisieren.  
+-   Ein PDC-Emulator kann mit einer zuverlässigen Zeit Quelle in der eigenen Domäne oder einem beliebigen Domänen Controller in der übergeordneten Domäne synchronisiert werden.  
   
-Ist der Domänencontroller nicht mit dem Typ des Domänencontrollers synchronisiert werden, die sie Abfragen ist, wird die Abfrage nicht vorgenommen werden. Der Domänencontroller weiß, welche Art von Computer, die sie aus abrufen kann, bevor sie die Abfrage stellt. Z. B. versucht lokaler PDC-Emulator in Abfrage Zahlen, drei oder sechs nicht, da ein Domänencontroller nicht versucht, eine Synchronisierung mit sich selbst.  
+Wenn der Domänen Controller nicht mit dem Typ des Domänen Controllers synchronisiert werden kann, der abgefragt wird, wird die Abfrage nicht durchgeführt. Der Domänen Controller weiß, von welchem Computertyp er Zeit abrufen kann, bevor er die Abfrage ausführt. Beispielsweise versucht ein lokaler PDC-Emulator nicht, die drei oder sechs Ziffern abzufragen, weil ein Domänen Controller nicht versucht, eine Synchronisierung mit sich selbst durchzuführen.  
   
-Die folgende Tabelle enthält die Abfragen, die von einem Domänencontroller wird eine Zeitquelle und die Reihenfolge, in der die Abfragen erfolgen.  
+In der folgenden Tabelle sind die Abfragen aufgelistet, die von einem Domänen Controller vorgenommen werden, um eine Zeit Quelle und die Reihenfolge der Abfragen zu finden.  
   
-**Abfragen der Domäne Domänencontroller-Zeitquelle**  
+**Domänen Controller-Zeit Quell Abfragen**  
   
-|Abfrageanzahl|Domänencontroller|Speicherort|Zuverlässigkeit von Zeitquelle|  
+|Abfrage Nummer|Domänencontroller|Speicherort|Zuverlässigkeit der Zeit Quelle|  
 |----------------|---------------------|------------|------------------------------|  
-|1|Übergeordneten Domänencontroller|Am Standort|Bevorzugt eine zuverlässige Zeitquelle jedoch mit einer nicht zuverlässigen Zeitquelle synchronisieren können, wenn dies alles ist, die verfügbar ist.|  
-|2|Lokale Domänencontroller|Am Standort|Nur synchronisiert mit einer zuverlässigen Zeitquelle.|  
-|3|Lokale PDC-emulator|Am Standort|Ist nicht gültig.<br /><br />Ein Domänencontroller versucht nicht, die Synchronisierung mit sich selbst.|  
-|4|Übergeordneten Domänencontroller|Außerhalb des Standorts|Bevorzugt eine zuverlässige Zeitquelle jedoch mit einer nicht zuverlässigen Zeitquelle synchronisieren können, wenn dies alles ist, die verfügbar ist.|  
-|5|Lokale Domänencontroller|Außerhalb des Standorts|Nur synchronisiert mit einer zuverlässigen Zeitquelle.|  
-|6|Lokale PDC-emulator|Außerhalb des Standorts|Ist nicht gültig.<br /><br />Ein Domänencontroller versucht nicht, die Synchronisierung mit sich selbst.| 
+|1|Übergeordneter Domänen Controller|In-Site|Bevorzugt eine zuverlässige Zeit Quelle, kann jedoch mit einer nicht zuverlässigen Zeit Quelle synchronisiert werden, wenn alles verfügbar ist.|  
+|2|Lokaler Domänen Controller|In-Site|Wird nur mit einer zuverlässigen Zeit Quelle synchronisiert.|  
+|3|Lokaler PDC-Emulator|In-Site|Gilt nicht.<br /><br />Ein Domänen Controller versucht nicht, eine Synchronisierung mit sich selbst durchführen.|  
+|4|Übergeordneter Domänen Controller|Außerhalb des Standorts|Bevorzugt eine zuverlässige Zeit Quelle, kann jedoch mit einer nicht zuverlässigen Zeit Quelle synchronisiert werden, wenn alles verfügbar ist.|  
+|5|Lokaler Domänen Controller|Außerhalb des Standorts|Wird nur mit einer zuverlässigen Zeit Quelle synchronisiert.|  
+|6|Lokaler PDC-Emulator|Außerhalb des Standorts|Gilt nicht.<br /><br />Ein Domänen Controller versucht nicht, eine Synchronisierung mit sich selbst durchführen.| 
   
 **Hinweis**  
   
--   Ein Computer synchronisiert sich nie mit sich selbst. Wenn der Computer, die versuchen, die Synchronisierung der lokalen PDC-Emulator ist, versucht es nicht Abfragen 3 oder 6.  
+-   Ein Computer wird nie mit sich selbst synchronisiert. Wenn der Computer, der die Synchronisierung versucht, der lokale PDC-Emulator ist, versucht er nicht, die Abfragen 3 oder 6 durchführen  
   
-Jede Abfrage gibt eine Liste der Domänencontroller, die als Zeitquelle verwendet werden kann. Windows Time weist abgefragt jeden Domänencontroller, die ein Ergebnis basierend auf die Zuverlässigkeit und den Standort des Domänencontrollers. Die folgende Tabelle enthält die Ergebnisse von Windows-Zeit für jede Art von Domänencontroller zugewiesen wird.  
+Jede Abfrage gibt eine Liste von Domänen Controllern zurück, die als Zeit Quelle verwendet werden können. Windows-Zeit weist jedem Domänen Controller, der eine Bewertung abgefragt, basierend auf der Zuverlässigkeit und dem Speicherort des Domänen Controllers zu. In der folgenden Tabelle werden die von der Windows-Zeit für die einzelnen Domänen Controller zugewiesenen Bewertungen aufgeführt.  
   
-**Bestimmung der Bewertung**  
+**Bewertung ermitteln**  
   
-|Domänencontrollerstatus|Wert|  
+|Status des Domänen Controllers|Wert|  
 |----------------------------|---------|  
-|Domänencontroller befindet sich am gleichen Standort|8|  
-|Domänencontroller, die als von einer zuverlässigen Zeitquelle|4|  
-|Domänencontroller befindet sich in der übergeordneten Domäne|2|  
-|Domänencontroller, ist der PDC-emulator|1|  
+|Domänen Controller am selben Standort|8|  
+|Als zuverlässige Zeit Quelle gekennzeichneter Domänen Controller|4|  
+|Domänen Controller in der übergeordneten Domäne|2|  
+|Domänen Controller, der ein PDC-Emulator ist|1|  
   
-Wenn der Windows-Zeitdienst feststellt, dass sie den Domänencontroller mit der best möglichen Bewertung identifiziert hat, erfolgen keine weiteren Abfragen. Die Ergebnisse, die durch den Zeitdienst zugewiesen sind kumulativ, was bedeutet, dass die PDC-Emulator an demselben Standort befindet sich eine Bewertung von neun empfängt.  
+Wenn der Windows-Zeit Dienst feststellt, dass er den Domänen Controller mit der bestmöglichen Bewertung identifiziert hat, werden keine weiteren Abfragen durchgeführt. Die vom Zeit Dienst zugewiesenen Ergebnisse sind kumulativ. Dies bedeutet, dass ein PDC-Emulator, der sich an demselben Standort befindet, eine Bewertung von neun erhält.  
   
-Wenn der Stamm des Diensts Zeit nicht für die Synchronisierung mit einer externen Datenquelle konfiguriert ist, steuert die interne Hardware Uhr des Computers die Zeit an.  
+Wenn der Stamm des Zeit Dienes nicht für die Synchronisierung mit einer externen Quelle konfiguriert ist, steuert die interne Hardwareuhr des Computers die Zeit.  
   
-### <a name="manually-specified-synchronization"></a>Manuell konfigurierte Synchronisierung  
-Manuell konfigurierte Synchronisierung können Sie festlegen, ein einzelner Peer oder eine Liste von Peers, die aus denen Aufruf von ein Computer abruft. Wenn der Computer nicht Mitglied einer Domäne ist, müssen sie manuell konfiguriert werden, um mit einer angegebenen Zeitquelle synchronisieren. Ein Computer, dass ein Mitglied einer Domäne wird standardmäßig für die Synchronisierung von der Domänenhierarchie konfiguriert ist, ist die Synchronisierung manuell konfigurierte besonders hilfreich, für den Stamm der Gesamtstruktur der Domäne oder für Computer, die nicht zu einer Domäne verknüpft sind. Bietet eine zuverlässige Zeit manuelle Eingabe einen externen NTP-Server mit dem autorisierenden Computer für Ihre Domäne zu synchronisieren. Konfigurieren der autorisierenden Computers für Ihre Domäne für die Synchronisierung mit einer Hardware-Uhr ist jedoch tatsächlich eine bessere Lösung für die präziseste, sichere Zeit mit der Domäne bereitstellen.  
+### <a name="manually-specified-synchronization"></a>Manuell angegebene Synchronisierung  
+Mithilfe der manuell angegebenen Synchronisierung können Sie einen einzelnen Peer oder eine Liste von Peers festlegen, von denen ein Computerzeit erhält. Wenn der Computer kein Mitglied einer Domäne ist, muss er manuell so konfiguriert werden, dass er eine Synchronisierung mit einer bestimmten Zeit Quelle durchläuft. Ein Computer, der Mitglied einer Domäne ist, wird standardmäßig für die Synchronisierung über die Domänen Hierarchie konfiguriert. die manuell angegebene Synchronisierung ist besonders nützlich für den Gesamtstruktur Stamm der Domäne oder für Computer, die keiner Domäne angehören. Manuelles angeben eines externen NTP-Servers für die Synchronisierung mit dem autorisierenden Computer für Ihre Domäne sorgt für zuverlässige Zeit. Das Konfigurieren des autorisierenden Computers für Ihre Domäne für die Synchronisierung mit einer Hardwareuhr ist jedoch eine bessere Lösung für die Bereitstellung der genauesten und sichersten Zeit für Ihre Domäne.  
   
-Manuell konfigurierte Datenquellen werden nicht authentifiziert werden, es sei denn, die ein bestimmten Zeitpunkt-Anbieter für sie geschrieben wurde und sie sind daher anfällig für Angriffe. Wenn ein Computer mit einer Quelle manuell konfigurierte anstelle der authentifizierende Domänencontroller synchronisiert wird, können auch die beiden Computer nicht mehr synchronisiert, die Kerberos-Authentifizierung einen Fehler verursacht sein. Dies kann dazu führen, dass andere Aktionen, die Netzwerkauthentifizierung fehlschlägt, z. B. drucken oder Freigeben von Dateien. Wenn nur der Gesamtstruktur-Stammdomäne für die Synchronisierung mit einer externen Datenquelle konfiguriert ist, bleiben allen anderen Computern in der Gesamtstruktur synchronisiert miteinander, sodass Replay-Angriffe zu schwierig.  
+Manuell angegebene Zeitquellen werden nicht authentifiziert, es sei denn, ein bestimmter Zeit Anbieter wird für Sie geschrieben, und Sie sind daher für Angreifer anfällig. Wenn ein Computer mit einer manuell angegebenen Quelle anstelle seines authentifizier enden Domänen Controllers synchronisiert wird, sind die beiden Computer möglicherweise nicht mehr synchronisiert, sodass die Kerberos-Authentifizierung fehlschlägt. Dies kann dazu führen, dass andere Aktionen, die die Netzwerk Authentifizierung erfordern, fehlschlagen, wie z. b Wenn nur der Gesamtstruktur Stamm für die Synchronisierung mit einer externen Quelle konfiguriert ist, bleiben alle anderen Computer innerhalb der Gesamtstruktur miteinander synchronisiert, sodass Wiedergabe Angriffe schwierig werden.  
   
-### <a name="all-available-synchronization-mechanisms"></a>Alle verfügbaren Synchronisierungsmechanismen  
+### <a name="all-available-synchronization-mechanisms"></a>Alle verfügbaren Synchronisierungs Mechanismen  
 
-Die Option "alle verfügbaren Synchronisierungsmechanismen" ist besonders hilfreich, Synchronisierungsmethode für Benutzer in einem Netzwerk. Diese Methode ermöglicht die Synchronisierung mit der Domänenhierarchie und möglicherweise auch einen alternativen Zeitquelle, wenn die Domänenhierarchie nicht verfügbar, abhängig von der Konfiguration ist. Wenn der Client kann nicht mit der Domänenhierarchie zeitsynchronisierung ist, die Zeitquelle automatisch fragt die Zeitquelle gemäß der **NtpServer** festlegen. Diese Methode der Synchronisierung ist wahrscheinlich auf die genaue Zeit für Clients bereitzustellen.  
+Die Option "alle verfügbaren Synchronisierungs Mechanismen" ist die wertvollsten Synchronisierungsmethode für Benutzer in einem Netzwerk. Diese Methode ermöglicht die Synchronisierung mit der Domänen Hierarchie und bietet möglicherweise auch eine Alternative Zeit Quelle, wenn die Domänen Hierarchie in Abhängigkeit von der Konfiguration nicht verfügbar ist. Wenn der Client die Zeit mit der Domänen Hierarchie nicht synchronisieren kann, greift die Zeit Quelle automatisch auf die durch die **NtpServer** -Einstellung angegebene Zeit Quelle zurück. Diese Synchronisierungsmethode bietet höchstwahrscheinlich eine genaue Zeit für Clients.  
 
 ### <a name="stopping-time-synchronization"></a>Beenden der Zeitsynchronisierung  
-Es gibt bestimmte Situationen, in denen Sie eine Synchronisierung der Uhrzeit des Computers beenden möchten. Wenn ein Computer versucht, die über eine DFÜ-Verbindung mit einer Zeitquelle im Internet oder von einem anderen Standort über ein WAN synchronisieren, können sie z. B. teure Telefongebühren anfallen. Wenn Sie die Synchronisierung auf diesem Computer deaktivieren, zu verhindern, dass Sie den Computer versucht, die eine Zeitquelle über eine DFÜ-Verbindung zugreifen.  
+Es gibt bestimmte Situationen, in denen Sie verhindern möchten, dass ein Computer seine Zeit synchronisiert. Wenn ein Computer z. b. versucht, eine Synchronisierung von einer Zeit Quelle im Internet oder von einem anderen Standort über ein WAN über eine DFÜ-Verbindung durchzusetzen, kann dies kostspielige Telefongebühren verursachen. Wenn Sie die Synchronisierung auf diesem Computer deaktivieren, verhindern Sie, dass der Computer über eine DFÜ-Verbindung auf eine Zeit Quelle zugreift.  
   
-Sie können auch die Synchronisierung, um zu verhindern, dass die Generierung von Fehlern im Ereignisprotokoll deaktivieren. Jedes Mal, wenn ein Computer versucht, die mit einer Zeitquelle synchronisieren, die nicht verfügbar ist, generiert es einen Fehler im Ereignisprotokoll. Wenn eine Zeitquelle, auf das Netzwerk für die geplante Wartung verwendet wird, und Sie nicht den Client für die Synchronisierung von einer anderen Quelle neu konfigurieren möchten, können Sie die Synchronisierung auf dem Client zu verhindern, dass es versucht, die Synchronisierung während der Zeitserver deaktivieren. ist nicht verfügbar.  
+Sie können die Synchronisierung auch deaktivieren, um die Generierung von Fehlern im Ereignisprotokoll zu verhindern. Jedes Mal, wenn ein Computer versucht, eine Synchronisierung mit einer nicht verfügbaren Zeit Quelle durchzusetzen, generiert er einen Fehler im Ereignisprotokoll. Wenn eine Zeit Quelle für eine geplante Wartung aus dem Netzwerk entfernt wird und Sie nicht beabsichtigen, den Client so zu konfigurieren, dass er von einer anderen Quelle aus synchronisiert wird, können Sie die Synchronisierung auf dem Client deaktivieren, um zu verhindern, dass die Synchronisierung während des Zeit Servers erfolgt. ist nicht verfügbar.  
   
-Es ist nützlich, um die Synchronisierung auf dem Computer zu deaktivieren, das als Stammverzeichnis für das Netzwerk für die Synchronisierung festgelegt ist. Dies gibt an, dass der Root-Computer, die lokale Uhr vertraut. Wenn der Stamm der Hierarchie für die Synchronisierung nicht, um festgelegt ist **NoSync** und wenn sie mit der eine andere Zeitquelle synchronisieren kann, Clients akzeptieren keine das Paket, das diesen Computer gesendet, da die Zeit nicht vertrauenswürdig ist.
+Es ist hilfreich, die Synchronisierung auf dem Computer zu deaktivieren, der als Stammverzeichnis des Synchronisierungs Netzwerks festgelegt ist. Dies gibt an, dass der Stamm Computer der lokalen Uhr vertraut. Wenn das Stammverzeichnis der Synchronisierungs Hierarchie nicht auf **nosync** festgelegt ist und die Synchronisierung mit einer anderen Zeit Quelle nicht möglich ist, akzeptieren Clients das Paket nicht, das von diesem Computer gesendet wird, weil die Zeit nicht vertrauenswürdig ist.
   
-Einmalig sind Server, die von Clients als vertrauenswürdig eingestuft werden, auch wenn sie nicht mit einem anderen Zeitquelle synchronisiert haben, die vom Client als zuverlässige Zeitserver identifiziert wurden.  
+Die einzigen Zeitserver, die von Clients als vertrauenswürdig eingestuft werden, selbst wenn Sie nicht mit einer anderen Zeit Quelle synchronisiert wurden, sind solche, die vom Client als zuverlässige Zeitserver identifiziert wurden.  
   
-### <a name="disabling-the-windows-time-service"></a>Deaktivieren des Windows-Zeitdienstes  
-Der Windows-Zeitdienst (W32Time) kann vollständig deaktiviert werden. Wenn Sie entscheiden, ein Drittanbieter-Time-Synchronisierung-Produkt zu implementieren, die NTP-Server verwendet, müssen Sie den Windows-Zeitdienst deaktivieren. Dies ist, da alle NTP-Server Zugriff auf TCP-Port 123 User Datagram Protocol (UDP benötigen) aus, und wie der Windows-Zeitdienst auf dem Windows Server 2003-Betriebssystem ausgeführt wird, Port 123 durch Windows-Uhrzeit reserviert bleibt.  
+### <a name="disabling-the-windows-time-service"></a>Der Windows-Zeit Dienst wird deaktiviert.  
+Der Windows-Zeit Dienst (W32Time) kann vollständig deaktiviert werden. Wenn Sie ein Produkt für die Zeitsynchronisierung von Drittanbietern implementieren möchten, das NTP verwendet, müssen Sie den Windows-Zeit Dienst deaktivieren. Der Grund hierfür ist, dass alle NTP-Server auf UDP-Port 123 (User Datagram Protocol) zugreifen müssen, und solange der Windows-Zeit Dienst unter dem Betriebssystem Windows Server 2003 ausgeführt wird, bleibt Port 123 für die Windows-Zeit reserviert.  
   
-## <a name="network-ports-used-by-windows-time-service"></a>Von Windows-Zeitdienst verwendete Netzwerkports  
-Der Windows-Zeitdienst kommuniziert über ein Netzwerk für den zuverlässigen Quellen zu identifizieren, erhalten Informationen und Informationen mit anderen Computern bereitstellen. Er führt diese Kommunikation über die NTP und SNTP-RFCs definiert.  
+## <a name="network-ports-used-by-windows-time-service"></a>Vom Windows-Zeit Dienst verwendete Netzwerkports  
+Der Windows-Zeit Dienst kommuniziert in einem Netzwerk, um zuverlässige Zeitquellen zu ermitteln, Zeit Informationen zu erhalten und anderen Computern Zeit Informationen bereitzustellen. Diese Kommunikation wird durch die RFCs NTP und SNTP definiert.  
   
-**Portzuweisungen für den Windows-Zeitdienst**  
+**Port Zuweisungen für den Windows-Zeit Dienst**  
   
 |Dienstname|UDP|TCP|  
 |----------------|-------|-------|  
@@ -263,6 +263,6 @@ Der Windows-Zeitdienst kommuniziert über ein Netzwerk für den zuverlässigen Q
 |SNTP|123|Nicht zutreffend|  
   
 ## <a name="see-also"></a>Siehe auch  
-[Technische Referenz für Windows Time Service](windows-time-service-tech-ref.md)
-[Windows-Zeitdienst: Tools und Einstellungen](Windows-Time-Service-Tools-and-Settings.md)
+[Technische Referenz für den Windows-Zeit Dienst](windows-time-service-tech-ref.md)
+[Windows-Zeit Dienst Tools und-Einstellungen](Windows-Time-Service-Tools-and-Settings.md)
 [Microsoft Knowledge Base-Artikel 902229](https://go.microsoft.com/fwlink/?LinkId=186066)

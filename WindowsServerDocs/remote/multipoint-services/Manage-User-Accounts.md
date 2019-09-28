@@ -1,8 +1,8 @@
 ---
 title: Verwalten von Benutzerkonten
-description: Übersicht über die Navigation zum Verwalten von MultiPoint Services-Benutzerkonten
+description: Navigations Übersicht zur Verwaltung von Multipoint Services-Benutzerkonten
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,15 +13,15 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: e37c99f275810bfd45c1e3f4b2f7dff6ace06d11
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a15176fd76c7f710f8adf42bb8e9930158e3b06a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814711"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395231"
 ---
 # <a name="manage-user-accounts"></a>Verwalten von Benutzerkonten
-In diesem Abschnitt werden die verschiedenen Typen von Benutzerkonten sowie das Erstellen und Verwalten von Benutzerkonten beschrieben. In einem MultiPoint Services-System, es gibt zwei Arten von Benutzerkonten: *Standardbenutzerkonten* und *Administratorkonten*wie unten beschrieben.  
+In diesem Abschnitt werden die verschiedenen Typen von Benutzerkonten sowie das Erstellen und Verwalten von Benutzerkonten beschrieben. In einem Multipoint Services-System gibt es zwei Arten von Benutzerkonten: *Standardbenutzer Konten* und Administrator *Konten*, wie unten beschrieben.  
   
 > [!TIP]  
 > Das Thema [Überlegungen zu Benutzerkonten](User-Account-Considerations.md) enthält Richtlinien, die Sie beim Erstellen und Verwalten von Benutzerkonten berücksichtigen sollten. 

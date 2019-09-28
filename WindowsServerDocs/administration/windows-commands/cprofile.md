@@ -1,8 +1,8 @@
 ---
 title: cprofile
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8a581a01b95456c56c6cbf177dfd6049c3514f1d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: efc296d43ff6cbe0c409f244160a9c14786d3be0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434198"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378992"
 ---
 # <a name="cprofile"></a>cprofile
 
 
 
-Cprofile - Cprofile ist veraltet und nicht notwendigerweise in zukünftigen Versionen von Windows unterstützt werden.
+CPROFILE-cprofile ist veraltet und wird in zukünftigen Versionen von Windows nicht mehr unterstützt.
 
-Cprofile.exe: Clean-Profil. Dieses Tool ist in allen Windows Server 2003-Betriebssystemen außer Windows Server 2003 WebEdition enthalten. Weitere Informationen finden Sie unter [Terminal Services-Tools und Einstellungen](https://technet.microsoft.com/library/cc776289(v=ws.10).aspx).
+CPROFILE. exe: Profil bereinigen. Dieses Tool ist in allen Windows Server 2003-Betriebssystemen mit Ausnahme von Windows Server 2003 Web Edition enthalten. Weitere Informationen finden Sie unter [Tools und Einstellungen für Terminal Dienste](https://technet.microsoft.com/library/cc776289(v=ws.10).aspx).
 
 # #
 

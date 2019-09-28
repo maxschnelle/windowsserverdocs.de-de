@@ -1,9 +1,9 @@
 ---
 title: Konfigurationsanforderungen
-description: 'Dieses Thema ist Teil der Testumgebungsanleitung: veranschaulichen von DirectAccess Multisite-Bereitstellung für Windows Server 2016'
+description: 'Dieses Thema ist Teil der Test Umgebungs Anleitung: veranschaulichen einer DirectAccess-Bereitstellung für mehrere Standorte für Windows Server 2016'
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,28 +12,28 @@ ms.topic: article
 ms.assetid: aaabdf3b-d926-48d9-9d01-358668da88ba
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: e9117aa3d241a0375f67e6b337f02d699aeabd5b
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 0140c58cd955fabe87710b1530f2de3132b4147c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281527"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404771"
 ---
 # <a name="configuration-requirements"></a>Konfigurationsanforderungen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Die folgenden Komponenten sind für die Konfiguration des Remotezugriffs in der testumgebung erforderlich:  
+Die folgenden Komponenten sind erforderlich, um den Remote Zugriff im Testlabor zu konfigurieren:  
   
--   Die Produkt-CD oder Dateien für Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012.  
+-   Die Produkt-CD oder-Dateien für Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012.  
   
--   Neun oder virtuelle Computer, die die empfohlenen hardwareanforderungen für Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 erfüllen; drei Computer verfügen über zwei Netzwerkadapter installiert.  
+-   Neun Computer oder virtuelle Computer, die die Mindesthardwareanforderungen für Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 erfüllen auf drei dieser Computer sind zwei Netzwerkadapter installiert.  
   
--   Die Produkt-CD oder Dateien für Windows 10&reg; oder Windows&reg; 8.  
+-   Die Produkt-CD oder-Dateien für Windows 10 @ no__t-0 oder Windows @ no__t-1 8.  
   
--   Die Produkt-CD oder Dateien für Windows 7 Ultimate.  
+-   Die Produkt-CD oder-Dateien für Windows 7 Ultimate.  
   
--   Drei Computer oder virtuellen Computern, die die empfohlenen hardwareanforderungen für Windows 10 erfüllen&reg;, Windows 8 oder Windows 7; einem dieser Computer hat zwei Netzwerkadapter installiert.  
+-   Drei Computer oder virtuelle Computer, die die Mindesthardwareanforderungen für Windows 10 @ no__t-0, Windows 8 oder Windows 7 erfüllen auf einem dieser Computer sind zwei Netzwerkadapter installiert.  
   
 
 

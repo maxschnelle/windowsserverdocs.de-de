@@ -1,8 +1,8 @@
 ---
 title: Speichern der Verbindungseinstellungen in einer Datei
-description: Informationen Sie zum Erstellen der Verbindung von einem Computer in eine andere in MultiPoint Services-Verbindungsdateien
+description: Erfahren Sie, wie Sie Verbindungs Dateien zum Herstellen einer Verbindung von einem Computer zu einem anderen in Multipoint Services erstellen.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,31 +13,31 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: d06f4eea120d1075f3306c68b206022a4a17e7c9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 76c49bb6a6d78425b654046902df60d1a12f04ba
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875861"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395085"
 ---
 # <a name="save-connection-settings-to-file"></a>Speichern der Verbindungseinstellungen in einer Datei
 Mithilfe von Remotedesktop können Sie von einem anderen Computer eine Verbindung mit einem MultiPoint Services-System herstellen. Wenn der Remotecomputer das Remotedesktopprotokoll unterstützt, kann die Verbindung mit dem Computer automatisch hergestellt werden.  
   
 Sie können drei Arten von Verbindungsdateien erstellen:  
   
-- **MultiPoint-Manager-Verbindungsdatei**:  Ermöglicht das MultiPoint-Manager für die Ausführung auf einem anderen Computer als Remoteanwendung.  
+- **Multipoint-Manager-Verbindungs Datei**:  Ermöglicht das Ausführen von Multipoint Manager auf einem anderen Computer als Remote Anwendung.  
   
-- **MultiPoint-Dashboard-Verbindungsdatei**: Ermöglicht das MultiPoint-Dashboard für die Ausführung auf einem anderen Computer als Remoteanwendung.  
+- **Multipoint-dashboardverbindungsdatei**: Ermöglicht das Ausführen eines Multipoint-Dashboards auf einem anderen Computer als Remote Anwendung.  
   
-- **Remotestation-Verbindungsdatei**:  Ermöglicht es einem anderen Computer, auf dem MultiPoint Services-System als Remotestation eine Verbindung herstellen.  
+- **Remote Station-Verbindungs Datei**:  Ermöglicht einem anderen Computer das Herstellen einer Verbindung mit dem Multipoint Services-System als Remote Station.  
   
 ## <a name="to-save-system-connection-settings-to-a-file"></a>So speichern Sie Systemverbindungseinstellungen in einer Datei  
   
-1.  Öffnen Sie MultiPoint-Manager im stationsmodus, und klicken Sie dann auf die **Startseite** Registerkarte.  
+1.  Öffnen Sie den Multipoint-Manager im Stations Modus, und klicken Sie dann auf die Registerkarte **Start** .  
   
 2.  Klicken Sie in der Spalte **Computer** auf den Namen des Computers, für den Sie die Verbindungseinstellungen in einer Datei speichern möchten.  
   
-3.  Klicken Sie unter * Computer Name ***Aufgaben**, klicken Sie auf **Verbindungen in Datei speichern**. Die Seite **Verbindungseinstellungen in einer Datei speichern** wird angezeigt.  
+3.  Klicken Sie unter * ComputerName * Tasks **auf Verbindungen in Datei speichern**. Die Seite **Verbindungseinstellungen in einer Datei speichern** wird angezeigt.  
   
 4.  Wählen Sie die Art der Verbindungsdatei aus, die Sie erstellen möchten, und klicken Sie dann auf **OK**.  
   

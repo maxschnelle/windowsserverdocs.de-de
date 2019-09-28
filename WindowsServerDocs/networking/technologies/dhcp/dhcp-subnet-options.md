@@ -1,54 +1,54 @@
 ---
-title: Auswahloptionen für DHCP-Subnetz
-description: Dieses Thema enthält Informationen zu DHCP-Subnetz-Auswahloptionen für Dynamic Host Configuration Protocol (DHCP) in Windows Server 2016.
+title: Optionen für das DHCP-subnetzauswahl
+description: Dieses Thema enthält Informationen zu DHCP-subnetzauswahloptionen für DHCP (Dynamic Host Configuration Protocol) in Windows Server 2016.
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-dhcp
 ms.topic: get-started-article
 ms.assetid: ca19e7d1-e445-48fc-8cf5-e4c45f561607
 ms.author: pashort
 author: shortpatti
 ms.date: 08/17/2018
-ms.openlocfilehash: 034ca48ef13a6bdac63ca99ac753fc9826460922
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4718204fad49b23c84cc73b67164f34a803ddd86
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870811"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405761"
 ---
-# <a name="dhcp-subnet-selection-options"></a>Auswahloptionen für DHCP-Subnetz
+# <a name="dhcp-subnet-selection-options"></a>Optionen für das DHCP-subnetzauswahl
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-In diesem Thema können Informationen zu neuen DHCP-Subnetz-Auswahloptionen.
+In diesem Thema finden Sie Informationen zu neuen Optionen für das DHCP-subnetzauswahl.
 
-DHCP nun unterstützt 82 option \(untergeordnete option 5\). Sie können diese Optionen verwenden, um DHCP-Proxy-Clients und -Relay-Agents zum Anfordern einer IP-Adresse für ein bestimmtes Subnetz, und von einer bestimmten IP-Adressbereich und den Bereich zu ermöglichen.  Weitere Informationen finden Sie unter **Option 82 unter Option 5**: [RFC 3527 Link untergeordnete Auswahloption für die Relay-Agent Informationen-Option für DHCPv4](https://tools.ietf.org/html/rfc3527).
+DHCP unterstützt nun die Option 82 \(sub-Option 5 @ no__t-1. Mithilfe dieser Optionen können Sie DHCP-Proxy Clients und Relay-Agents gestatten, eine IP-Adresse für ein bestimmtes Subnetz und einen bestimmten IP-Adressbereich und-Bereich anzufordern.  Weitere Informationen finden Sie **unter Option 82 Sub Option 5**: [RFC 3527 Link Auswahl-unter Option für die Option "Relay-Agent-Informationen" für DHCPv4](https://tools.ietf.org/html/rfc3527).
 
-Wenn Sie einen DHCP-Relay-Agent verwenden, der mit DHCP-Option 82 konfiguriert ist, untergeordnete option 5 der Relay-Agent kann eine IP-Adresslease für DHCP-Clients aus einem bestimmten Bereich von IP-Adresse anfordern.
+Wenn Sie einen DHCP-Relay-Agent verwenden, der mit der DHCP-Option 82, unter Option 5 konfiguriert ist, kann der Relay-Agent eine IP-Adress Lease für DHCP-Clients von einem bestimmten IP-Adressbereich anfordern.
 
 
-## <a name="option-82-sub-option-5-link-selection-sub-option"></a>Option 82 Sub-Option 5: Link-Auswahl-Sub-Option
+## <a name="option-82-sub-option-5-link-selection-sub-option"></a>Option 82 unter Option 5: Link Auswahl (Sub-Option)
 
-Die untergeordnete Relay-Agent-Link-Auswahl-Option ermöglicht es sich um einen DHCP-Relay-Agent ein IP-Subnetz angeben, von dem der DHCP-Server IP-Adressen und Optionen zugewiesen werden muss.
+Mit der unter Option Link Auswahl für Relay-Agent kann ein DHCP-Relay-Agent ein IP-Subnetz angeben, von dem der DHCP-Server IP-Adressen und-Optionen zuweisen soll.
 
-In der Regel DHCP-Relay-Agents basieren auf der IP-Adresse des Gateways \(GIADDR\) Feld für die Kommunikation mit DHCP-Server. Es ist jedoch GIADDR von seinen zwei operative Funktionen beschränkt:
+In der Regel greifen DHCP-Relay-Agents auf die Gateway-IP-Adresse \(giaddr @ no__t-1-Feld zu, um mit DHCP-Servern zu kommunizieren. Allerdings ist GIADDR durch die beiden Betriebsfunktionen beschränkt:
 
-1. Den DHCP-Server über das Subnetz informieren auf dem der DHCP-Client, der die IP-Adresslease anfordert befindet.
-2. Um den DHCP-Server die IP-Adresse zu verwenden, um die Kommunikation mit dem Relay-Agent zu informieren.
+1. Um den DHCP-Server über das Subnetz zu informieren, in dem sich der DHCP-Client befindet, der die IP-Adress Lease anfordert.
+2. So informieren Sie den DHCP-Server über die IP-Adresse, die für die Kommunikation mit dem Relay-Agent verwendet werden soll
 
-In einigen Fällen die IP-Adresse, die der Relay-Agent für die Kommunikation mit dem DHCP-Server verwendet den IP-Adressbereich unterscheidet möglicherweise von dem die DHCP-Client-IP-Adresse zugeordnet werden muss. 
+In einigen Fällen kann sich die IP-Adresse, die der Relay-Agent für die Kommunikation mit dem DHCP-Server verwendet, von dem IP-Adressbereich unterscheiden, von dem die DHCP-Client-IP-Adresse zugewiesen werden muss. 
 
-Der Link Auswahl Sub-Option der 82-Option ist nützlich, in diesem Fall der Relay-Agent explizit anzugeben, dass das Subnetz aus dem die IP-Adresse sollen in Form von DHCP-IPv4-Option 82 Sub-Option 5 zugewiesen.
+Die Option Link Selection Sub der Option 82 ist in dieser Situation nützlich, sodass der Relay-Agent den Subnetz, von dem die IP-Adresse zugewiesen werden soll, explizit in Form der DHCP V4-Option 82 Sub Option 5 angeben kann.
 
 > [!NOTE]
 >
-> Relay-Agent alle IP-Adressen (GIADDR) müssen einen aktiven DHCP-Bereich IP-Adressbereich gehören. Alle GIADDR außerhalb der DHCP-Bereich IP-Adressbereiche gilt ein Rogue-Relay und Windows-DHCP-Server wird die DHCP-Clientanforderungen aus diesen Relayagents nicht bestätigt.
+> Alle IP-Adressen für den Relay-Agent (GIADDR) müssen Teil eines aktiven DHCP-Bereichs-IP-Adress Bereichs sein. Alle GIADDR außerhalb der IP-Adressbereiche des DHCP-Bereichs werden als nicht autorisierte Relay betrachtet, und der Windows-DHCP-Server bestätigt keine DHCP-Client Anforderungen von diesen Relayagents.
 >
-> Ein spezieller Bereich kann erstellt werden, um Relay-Agents "Autorisieren". Erstellen Sie einen Bereich mit der GIADDR (oder mehrere, wenn die GIADDR des sequenziellen IP-Adressen), Verteilung ausgeschlossen Sie der GIADDR Adressen, und aktivieren Sie den Bereich. Dadurch wird die Relay-Agents autorisiert, und verhindert, dass die Adressen GIADDR zugewiesen wird.
+> Ein spezieller Bereich kann zum Autorisieren von Relay-Agents erstellt werden. Erstellen Sie einen Bereich mit der GIADDR (oder mehreren, wenn es sich bei den GIADDR um sequenzielle IP-Adressen handelt), schließen Sie die GIADDR-Adressen aus der Verteilung aus, und aktivieren Sie dann den Bereich. Dadurch werden die Relay-Agents autorisiert, und es wird verhindert, dass die GIADDR-Adressen zugewiesen werden.
 
 
-### <a name="use-case-scenario"></a>Anwendungsfall-Beispielszenario
+### <a name="use-case-scenario"></a>Anwendungsfall Szenario
 
-In diesem Szenario enthält Netzwerk einer Organisation sowohl eine DHCP-Server und einen drahtlosen Zugriffspunkt \(AP\) für Gastbenutzer. Gäste-Client-IP-Adressen werden zugewiesen, von der Organisation DHCP-Server – jedoch aufgrund von Beschränkungen der Firewall-Richtlinie, die der DHCP-Server kann nicht der Gast-Drahtlosnetzwerk oder drahtlose Clients mit Broadcase Nachrichten zugreifen.
+In diesem Szenario enthält ein Organisations Netzwerk sowohl einen DHCP-Server als auch einen drahtlos Zugriffspunkt \(ap @ no__t-1 für die Gastbenutzer. Gast-Client-IP-Adressen werden vom DHCP-Server der Organisation zugewiesen. aufgrund von Einschränkungen der Firewallrichtlinie kann der DHCP-Server jedoch nicht auf das Gast Drahtlos Netzwerk oder auf drahtlose Clients mit broadcase-Nachrichten zugreifen.
 
-Um diese Einschränkung zu beheben, wird der Zugriffspunkt mit Link Auswahl unter Option 5 an das Subnetz, aus dem sie die IP-Adresse zugeordnet, die für Gastclients in der GIADDR auch die IP-Adresse der internen Schnittstelle, die zu führt angeben möchte, konfiguriert die Unternehmensnetzwerk.
+Um diese Einschränkung zu beheben, wird der AP mit der unter Option 5 für die Link Auswahl konfiguriert, um das Subnetz anzugeben, aus dem die IP-Adresse für Gast Clients zugewiesen werden soll, während in der GIADDR auch die IP-Adresse der internen Schnittstelle angegeben ist, die zum Unternehmensnetzwerk.

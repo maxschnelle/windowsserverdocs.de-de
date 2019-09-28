@@ -1,44 +1,44 @@
 ---
 title: NPS-Vorlagen
-description: Dieses Thema enthält eine Übersicht über Network Policy Server-Vorlagen in Windows Server 2016.
+description: Dieses Thema bietet einen Überblick über die Netzwerk Richtlinien Server-Vorlagen in Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: fdfc0df1-21c7-492c-9fad-38fe9c7d935a
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 0647dbf0f99a01e32ba68475b439501e2dbeebfe
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bafff7a6a15312ab1bdca2e7b98307bc94731d3a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59823311"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405312"
 ---
 # <a name="nps-templates"></a>NPS-Vorlagen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Netzwerkrichtlinienserver \(NPS\) Vorlagen ermöglichen Ihnen die Erstellung der Konfigurationselemente, z. B. Remote Authentication Dial-in User Service \(RADIUS\) Clients oder freigegebene geheime Daten, die auf dem lokalen wiederverwendet werden können NPS und Export für die Verwendung auf anderen NPSs.
+Mit dem Netzwerk Richtlinien Server-\(nps @ no__t-1-Vorlagen können Sie Konfigurationselemente erstellen, z. b. Remote Authentication Dial-in User Service \(radius @ no__t-3-Clients oder gemeinsame geheime Schlüssel, die Sie auf dem lokalen NPS wieder verwenden und für die Verwendung auf anderen NPSS.
 
-NPS-Vorlagen dienen zum Verringern der Anzahl der Zeit- und Kostenaufwand, die zum Konfigurieren von NPS auf einem oder mehreren Servern benötigt. Die folgenden Typen der NPS-Vorlagen stehen für die Konfiguration in der Verwaltung von Vorlagen zur Verfügung:
+NPS-Vorlagen sind so konzipiert, dass der Zeit-und Kostenaufwand für die Konfiguration von NPS auf einem oder mehreren Servern reduziert wird. Die folgenden NPS-Vorlagen Typen sind für die Konfiguration in der Vorlagen Verwaltung verfügbar:
 
-- Gemeinsamen geheimen Schlüssel
+- Gemeinsame geheime Schlüssel
 - RADIUS-Clients
 - Remote-RADIUS-Server
 - IP-Filter
-- Wiederherstellungsservergruppen
+- Wiederherstellungs Server Gruppen
 
-Konfigurieren einer Vorlage unterscheidet sich von den NPS direkt konfigurieren. Erstellen einer Vorlage wirkt sich nicht auf den NPS Funktionen aus. Es ist nur bei Auswahl der Vorlage in die entsprechende Position in der NPS-Konsole, dass die Vorlage die NPS-Funktionalität auswirkt. 
+Das Konfigurieren einer Vorlage unterscheidet sich von der direkten Konfiguration des NPS. Das Erstellen einer Vorlage wirkt sich nicht auf die Funktionalität von NPS aus. Dies ist nur der Fall, wenn Sie die Vorlage an der entsprechenden Stelle in der NPS-Konsole auswählen, dass die Vorlage die NPS-Funktionalität beeinträchtigt. 
 
-Z. B. Wenn Sie einen RADIUS-Client in der NPS-Konsole unter RADIUS-Clients und Servern konfigurieren, Sie haben die NPS-Konfiguration geändert und einen Schritt zum Konfigurieren von NPS für die Kommunikation mit einem der Server für den Netzwerkzugriff \(NAS\) . \(Im nächste Schritt muss das NAS für die Kommunikation mit NPS konfiguriert werden.\) Jedoch wenn Sie eine neue Vorlage für RADIUS-Clients, in der Konsole "NPS" unter Konfigurieren **Vorlagenverwaltung** anstatt zu einer neuen RADIUS-Clients unter Erstellen **RADIUS-Clients und Servern**, Sie erstellt haben eine Vorlage, aber Sie haben die NPS-Funktionen nicht noch geändert. Um die NPS-Funktionalität ändern, müssen Sie die Vorlage von der richtigen Position in der NPS-Konsole auswählen.
+Wenn Sie z. b. einen RADIUS-Client in der NPS-Konsole unter RADIUS-Clients und-Server konfigurieren, haben Sie die NPS-Konfiguration geändert und einen Schritt zur Konfiguration von NPS für die Kommunikation mit einem Ihrer Netzwerk Zugriffs Server durchgeführt, \(nases @ no__t-1. \(der nächste Schritt besteht darin, den NAS für die Kommunikation mit NPS zu konfigurieren. \) Wenn Sie jedoch eine neue RADIUS-Client Vorlage in der NPS-Konsole unter **Vorlagen Verwaltung** konfigurieren, anstatt einen neuen RADIUS-Client unter **RADIUS-Clients und-Server zu**erstellen, haben Sie eine Vorlage erstellt, aber Sie haben die NPS nicht geändert. Funktionen sind noch verfügbar. Um die NPS-Funktionalität zu ändern, müssen Sie die Vorlage am richtigen Speicherort in der NPS-Konsole auswählen.
 
 ## <a name="creating-templates"></a>Erstellen von Vorlagen
 
-Um eine Vorlage zu erstellen, öffnen Sie die NPS-Konsole der rechten Maustaste auf eines Vorlagentyps der Form, wie z. B. **IP-Filter**, und klicken Sie dann auf **neu**. Ein neues Vorlage Eigenschaften-Dialogfeld wird geöffnet, die Ihnen ermöglicht, Ihre Vorlage zu konfigurieren.
+Öffnen Sie zum Erstellen einer Vorlage die NPS-Konsole, klicken Sie mit der rechten Maustaste auf einen Vorlagentyp, z. b. **IP-Filter**, und klicken Sie dann auf **neu** Das Dialogfeld neue Vorlagen Eigenschaften wird geöffnet, in dem Sie die Vorlage konfigurieren können.
 
-## <a name="using-templates-locally"></a>Lokal mithilfe von Vorlagen
+## <a name="using-templates-locally"></a>Lokales Verwenden von Vorlagen
 
-Sie können eine Vorlage, die Sie in erstellt haben **Vorlagenverwaltung** durch Navigieren zu einem Speicherort in der NPS-Konsole, die Vorlage angewendet werden kann. Z. B. Wenn Sie eine neue Vorlage für freigegebene geheime Schlüssel, die erstellen Sie an einen RADIUS-Client-Konfiguration in anwenden möchten **RADIUS-Clients und Servern** und **RADIUS-Clients**, öffnen Sie die RADIUS-Client-Eigenschaften. In **auswählen eine vorhandene Vorlage für freigegebene geheime Schlüssel**, wählen Sie die Vorlage, die Sie zuvor erstellt, aus der Liste der verfügbaren Vorlagen haben.
+Sie können eine Vorlage verwenden, die Sie in der **Vorlagen Verwaltung** erstellt haben, indem Sie zu einem Speicherort in der NPS-Konsole navigieren, an dem die Vorlage angewendet werden kann. Wenn Sie z. b. eine neue Vorlage für freigegebene Geheimnisse erstellen, die Sie auf eine RADIUS-Client Konfiguration anwenden möchten, öffnen Sie in **RADIUS-Clients und-Server** und **RADIUS-Clients**die Eigenschaften des RADIUS-Clients. Wählen Sie unter **vorhandene freigegebene**geheime Schlüssel auswählen die Vorlage aus, die Sie zuvor in der Liste der verfügbaren Vorlagen erstellt haben.
 
-Weitere Informationen zu NPS finden Sie unter [(Network Policy Server, NPS)](nps-top.md).
+Weitere Informationen zu NPS finden Sie unter [Netzwerk Richtlinien Server (Network Policy Server, NPS)](nps-top.md).

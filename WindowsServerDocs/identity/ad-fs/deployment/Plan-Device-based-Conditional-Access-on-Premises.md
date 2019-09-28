@@ -7,90 +7,90 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 3a78334f64d9e51515757b01f2d788bf87f67a35
-ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
+ms.openlocfilehash: 79dfc7fbf9e2dcc753829cc53d914f374010f925
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66501608"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408338"
 ---
 # <a name="plan-device-based-conditional-access-on-premises"></a>Planen des gerätebasierten bedingten lokalen Zugriffs
 
 
-Dieses Dokument beschreibt die Richtlinien für bedingten Zugriff, die basierend auf Geräten in einem hybridszenario, bei dem die lokalen Verzeichnisse in Azure AD mit Azure AD Connect verbunden sind.     
+In diesem Dokument werden Richtlinien für den bedingten Zugriff basierend auf Geräten in einem Hybrid Szenario beschrieben, in dem die lokalen Verzeichnisse mithilfe Azure AD Connect mit Azure AD verbunden sind.     
 
-## <a name="ad-fs-and-hybrid-conditional-access"></a>AD FS und hybride für bedingten Zugriff  
+## <a name="ad-fs-and-hybrid-conditional-access"></a>AD FS und Hybrid bedingter Zugriff  
 
-AD FS verfügt, die auf lokale-Komponente der Richtlinien für bedingten Zugriff in einem hybridszenario.  Beim Registrieren von Geräten mit Azure AD für den bedingten Zugriff auf Cloud-Ressourcen das Gerät Azure AD Connect wieder geschrieben, dass die Funktion zur Verfügung Registrierungsinformationen Gerät lokal für die AD FS-Richtlinien zu nutzen und zu erzwingen.  Auf diese Weise haben Sie einen einheitlichen Ansatz für den Zugriff auf Richtlinien für die Zugriffssteuerung sowohl auf lokale und cloudbasierte Ressourcen.  
+AD FS bietet die lokale Komponente der Richtlinien für den bedingten Zugriff in einem Hybrid Szenario.  Wenn Sie Geräte mit Azure AD für den bedingten Zugriff auf cloudressourcen registrieren, werden die Geräte Registrierungsinformationen von der Funktion zum Zurückschreiben von Azure AD Connect Geräten lokal zur Verfügung gestellt, damit AD FS Richtlinien genutzt und erzwungen werden können.  Auf diese Weise haben Sie einen konsistenten Ansatz für die Zugriffs Steuerungs Richtlinien sowohl für lokale als auch für cloudressourcen.  
 
-![Für den bedingten Zugriff](media/Plan-Device-based-Conditional-Access-on-Premises/ADFS_ITPRO4.png)  
+![Bedingter Zugriff](media/Plan-Device-based-Conditional-Access-on-Premises/ADFS_ITPRO4.png)  
 
-### <a name="types-of-registered-devices"></a>Arten von registrierten Geräten  
-Es gibt drei Arten von registrierten Geräte, die als Geräteobjekte in Azure AD dargestellt werden, und für den bedingten Zugriff mit AD FS auch lokal verwendet werden können.  
+### <a name="types-of-registered-devices"></a>Typen registrierter Geräte  
+Es gibt drei Arten registrierter Geräte, die alle in Azure AD als Geräte Objekte dargestellt und auch für den bedingten Zugriff mit AD FS lokal verwendet werden können.  
 
-| |Arbeit hinzufügen Schul- oder Unikonto  |Azure AD-Beitritt  |Windows 10-Domäne beitreten    
+| |Geschäfts-oder Schul Konto hinzufügen  |Azure AD-Beitritt  |Windows 10-Domänen Beitritt    
 | --- | --- |--- | --- |
-|Beschreibung    |  Benutzer fügen ihre Arbeit Schul- oder unikonto auf ihre BYOD-Geräte interaktiv.  **Hinweis**: Hinzufügen von Geschäfts-, Schul- oder Unikonto ist der Ersatz für den Arbeitsplatzbeitritt in Windows 8/8.1       | Benutzer einbinden ihre Windows 10-Gerät für Arbeit in Azure AD.|Windows 10-Domäne eingebundene Geräte werden automatisch in Azure AD registriert.|           
-|Wie Benutzer auf dem Gerät anmelden     |  Keine Anmeldung bei Windows als Geschäfts-, Schul- oder UNI-Konto.  Melden Sie sich mit einem Microsoft-Konto.       |   Melden Sie sich Windows als Konto (Geschäfts-, Schul- oder unikonto), das das Gerät registriert.      |     Melden Sie sich mit der AD-Konto.|      
-|Verwaltung von Geräten    |      MDM-Verwaltungsrichtlinien (mit zusätzlichen Intune-Registrierung)   | MDM-Verwaltungsrichtlinien (mit zusätzlichen Intune-Registrierung)        |   Gruppenrichtlinien, System Center Configuration Manager (SCCM) |
-|Azure AD-Vertrauensstellung-Typ|Workplace Join|Azure AD eingebunden|Domäne beigetreten  |     
-|W10 einstellungsspeicherort    | Einstellungen > Konten > Ihr Konto > Hinzufügen eines Geschäfts-, Schul- oder unikontos-Kontos        | Einstellungen > System > über > Azure AD beitreten       |   Einstellungen > System > über > einer Domäne beitreten |       
-|Auch verfügbar für iOS und Android-Geräte?   |    Ja     |       Nein  |   Nein   |   
+|Beschreibung    |  Benutzer fügen ihr Geschäfts-, Schul-oder unikonto dem BYOD-Gerät interaktiv hinzu.  **Hinweis**: Das Hinzufügen eines Geschäfts-, Schul-oder unikontos ist der Ersatz für Workplace Join in Windows 8/8.1       | Benutzer fügen ihr Windows 10-Arbeitsgerät in Azure AD ein.|In die Domäne eingebundener Windows 10-Geräte werden automatisch bei Azure AD registriert|           
+|Anmelden von Benutzern beim Gerät     |  Keine Anmeldung bei Windows als Geschäfts-, Schul-oder unikonto.  Melden Sie sich mit einem Microsoft-Konto an.       |   Melden Sie sich bei Windows als (Geschäfts-, Schul-oder unikonto) an, das das Gerät registriert hat      |     Anmelden mit AD-Konto|      
+|Verwalten von Geräten    |      MDM-Richtlinien (mit zusätzlicher InTune-Registrierung)   | MDM-Richtlinien (mit zusätzlicher InTune-Registrierung)        |   Gruppenrichtlinie, System Center Configuration Manager (SCCM) |
+|Azure AD vertrauensungstyp|Arbeitsplatz Beitritt|Azure AD verknüpft|Domäne beigetreten  |     
+|Speicherort für die Einstellungen    | Einstellungen > Konten > Ihrem Konto > Hinzufügen eines Geschäfts-, Schul-oder unikontos        | Einstellungen > System > Informationen zum > Join Azure AD       |   Einstellungen > System > über > beitreten zu einer Domäne |       
+|Auch für IOS-und Android-Geräte verfügbar?   |    Ja     |       Nein  |   Nein   |   
 
   
 
-Weitere Informationen zu den verschiedenen Möglichkeiten zum Registrieren von Geräten Siehe auch:  
+Weitere Informationen zu den verschiedenen Methoden zum Registrieren von Geräten finden Sie unter:  
 * [Verwenden von Windows 10-Geräten an Ihrem Arbeitsplatz](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-windows10-devices/)  
-* [Einrichten von Windows 10-Geräte für die Arbeit](https://jairocadena.com/2016/01/18/setting-up-windows-10-devices-for-work-domain-join-azure-ad-join-and-add-work-or-school-account/)  
-[Windows 10 Mobile zu Azure Active Directory Join](https://technet.microsoft.com/itpro/windows/manage/join-windows-10-mobile-to-azure-active-directory)  
+* [Einrichten von Windows 10-Geräten für die Arbeit](https://jairocadena.com/2016/01/18/setting-up-windows-10-devices-for-work-domain-join-azure-ad-join-and-add-work-or-school-account/)  
+[Verknüpfen von Windows 10 Mobile mit Azure Active Directory](https://technet.microsoft.com/itpro/windows/manage/join-windows-10-mobile-to-azure-active-directory)  
 
-### <a name="how-windows-10-user-and-device-sign-on-is-different-from-previous-versions"></a>Wie Windows 10-Benutzer und Gerät anmelden unterscheidet sich von früheren Versionen  
-Für Windows 10 und AD FS 2016 einige neue Aspekte der geräteregistrierung und -Authentifizierung stehen sollten Sie über wissen (insbesondere, wenn Sie mit der geräteregistrierung und "Workplace join" in früheren Versionen vertraut sind).  
+### <a name="how-windows-10-user-and-device-sign-on-is-different-from-previous-versions"></a>Unterschiede zwischen der Windows 10-Benutzer-und-Geräte Anmeldung und früheren Versionen  
+Für Windows 10 und AD FS 2016 gibt es einige neue Aspekte der Geräteregistrierung und-Authentifizierung, die Sie kennen sollten (insbesondere, wenn Sie in früheren Versionen mit der Geräteregistrierung und dem Arbeitsplatz Beitritt vertraut sind).  
 
-Zuerst in Windows 10 und AD FS unter Windows Server 2016, geräteregistrierung und -Authentifizierung nicht mehr basiert ausschließlich auf eine X509 Benutzerzertifikat.  Es ist ein neues und robuster-Protokoll, das eine bessere Sicherheit und eine nahtlose benutzererfahrung bietet.  Der Hauptunterschied besteht, dass für Windows 10-Domäne beitreten und Azure AD Join eine X509 ist Computerzertifikat und die neuen Anmeldeinformationen bezeichnet ein PRT.  Sie erhalten alle Informationen über [hier](https://jairocadena.com/2016/01/18/how-domain-join-is-different-in-windows-10-with-azure-ad/) und [hier](https://jairocadena.com/2016/02/01/azure-ad-join-what-happens-behind-the-scenes/).  
+Erstens: in Windows 10 und AD FS in Windows Server 2016 basieren die Geräteregistrierung und-Authentifizierung nicht mehr ausschließlich auf einem X509-Benutzerzertifikat.  Es gibt ein neues und stabileres Protokoll, das eine bessere Sicherheit und eine nahtlose Benutzer Leistung bietet.  Der Hauptunterschied besteht darin, dass für Windows 10-Domänen Beitritt und-Azure AD Join ein X509-Computer Zertifikat und neue Anmelde Informationen als PRT bezeichnet werden.  [Hier](https://jairocadena.com/2016/01/18/how-domain-join-is-different-in-windows-10-with-azure-ad/) finden Sie Informationen [dazu.](https://jairocadena.com/2016/02/01/azure-ad-join-what-happens-behind-the-scenes/)  
 
-Zweitens: Windows 10 und AD FS 2016 unterstützt Benutzerauthentifizierung, die mithilfe von Microsoft Passport für die Arbeit, die Sie sich vertraut machen können [hier](https://jairocadena.com/2016/03/09/azure-ad-and-microsoft-passport-for-work-in-windows-10/) und [hier](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-passport-deployment/).  
+Zweitens unterstützen Windows 10 und AD FS 2016 die Benutzerauthentifizierung mithilfe Microsoft Passport for Work, die Sie [hier](https://jairocadena.com/2016/03/09/azure-ad-and-microsoft-passport-for-work-in-windows-10/) und [hier](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-passport-deployment/)lesen können.  
 
-AD FS 2016 bietet nahtlose Geräte- und SSO auf der Grundlage sowohl PRT-Passport-Anmeldeinformationen.  Verwenden die Schritte in diesem Dokument an, können Sie diese Funktionen zu aktivieren und arbeiten.  
+AD FS 2016 bietet nahtlose Geräte-und Benutzer-SSO basierend auf den PRT-und Passport-Anmelde Informationen.  Mithilfe der in diesem Dokument beschriebenen Schritte können Sie diese Funktionen aktivieren und sehen, wie Sie funktionieren.  
 
-### <a name="device-access-control-policies"></a>Device Access Control-Richtlinien  
-Geräte können z. B. in einfachen Zugriffssteuerungsregeln für AD FS verwendet werden:  
+### <a name="device-access-control-policies"></a>Geräte Access Control Richtlinien  
+Geräte können in einfachen AD FS Zugriffs Steuerungs Regeln verwendet werden, wie z. b.:  
 
 - Zugriff nur von einem registrierten Gerät zulassen   
 - Multi-Factor Authentication erforderlich, wenn ein Gerät nicht registriert ist  
 
-Diese Regeln können dann mit anderen Faktoren wie z. B. die Netzwerkadresse für den Zugriff und Multi-Factor Authentication, Erstellung bedingter Zugriffsrichtlinien wie z. B. umfangreiche kombiniert werden:  
+Diese Regeln können dann mit anderen Faktoren wie dem Netzwerk Zugriffs Standort und Multi-Factor Authentication kombiniert werden. so können Sie umfassende Richtlinien für den bedingten Zugriff erstellen, z.b.:  
 
 
-- erfordern von Multi-Factor Authentication für nicht registrierte Geräte, die Zugriff auf von außerhalb des Unternehmensnetzwerks, außer für Mitglieder einer bestimmten Gruppe oder Gruppen  
+- erfordert mehrstufige Authentifizierung für nicht registrierte Geräte, die von außerhalb des Unternehmensnetzwerks zugreifen, außer für Mitglieder einer bestimmten Gruppe oder Gruppen  
 
-Diese Richtlinien können mit AD FS 2016 speziell für ein bestimmtes Gerät Vertrauensebene sowie erforderlich konfiguriert werden: entweder **authentifiziert**, **verwaltet**, oder **kompatibel**.  
+Mit AD FS 2016 können diese Richtlinien so konfiguriert werden, dass auch eine bestimmte Geräte Vertrauensstellungs Ebene erforderlich ist: **authentifiziert**, **verwaltet**oder **kompatibel**.  
 
-Weitere Informationen zum Konfigurieren von AD FS Zugriff auf Richtlinien für die Zugriffssteuerung, finden Sie unter [Zugriffssteuerungsrichtlinien in AD FS](../../ad-fs/operations/Access-Control-Policies-in-AD-FS.md).  
+Weitere Informationen zum Konfigurieren AD FS Zugriffs Steuerungs Richtlinien finden Sie unter [Zugriffs Steuerungs Richtlinien in AD FS](../../ad-fs/operations/Access-Control-Policies-in-AD-FS.md).  
 
 #### <a name="authenticated-devices"></a>Authentifizierte Geräte  
-Authentifizierte Geräte werden registrierte Geräte, die in der Verwaltung mobiler Geräte (Intune und 3rd Party MDMs für Windows 10, Intune, nur für iOS und Android) nicht registriert werden.   
+Bei authentifizierten Geräten handelt es sich um registrierte Geräte, die nicht bei MDM registriert sind (InTune-und Drittanbieter-mdms für Windows 10, nur InTune für IOS und Android).   
 
-Authentifizierte Geräte haben den **IsManaged** AD FS-Anspruch mit dem Wert **"false"** . (Während auf Geräten, die überhaupt nicht registriert werden dieser Anspruch verfügen werden.)  Authentifizierte Geräte (und alle registrierten Geräte) müssen die IsKnown AD FS-Anspruch mit dem Wert **"true"** .  
+Für authentifizierte Geräte wird der **IsManaged** AD FS-Anspruch mit dem Wert " **false**" verwendet. (Im Gegensatz zu Geräten, die überhaupt nicht registriert sind, wird dieser Anspruch nicht angezeigt.)  Für authentifizierte Geräte (und alle registrierten Geräte) wird der isknown AD FS-Anspruch mit dem Wert " **true**" verwendet.  
 
 #### <a name="managed-devices"></a>Verwaltete Geräte:   
 
-Verwaltete Geräte werden registrierte Geräte, die mit MDM registriert sind  
+Verwaltete Geräte sind registrierte Geräte, die bei MDM registriert sind.  
 
-Verwaltete Geräte haben den IsManaged AD FS-Anspruch mit dem Wert **"true"** .  
+Verwaltete Geräte verfügen über den IsManaged AD FS-Anspruch mit dem Wert " **true**".  
 
-#### <a name="devices-compliant-with-mdm-or-group-policies"></a>Geräte sind konform (mit MDM- oder Gruppenrichtlinien)  
-Konforme Geräte werden registrierte Geräte, die jedoch kompatibel mit den MDM-Richtlinien nicht nur bei MDM registriert sind. (Informationen zur Compliance stammt, mit der Verwaltung mobiler Geräte und mit Azure AD geschrieben.)  
+#### <a name="devices-compliant-with-mdm-or-group-policies"></a>Geräte kompatibel (mit MDM-oder Gruppenrichtlinien)  
+Kompatible Geräte sind registrierte Geräte, die nicht nur bei MDM registriert, sondern mit den MDM-Richtlinien kompatibel sind. (Die Kompatibilitätsinformationen stammen aus der MDM und werden in Azure AD geschrieben.)  
 
-Kompatible Geräte müssen die **IsCompliant** AD FS-Anspruch mit dem Wert **"true"** .    
+Kompatible Geräte verfügen über den **iscompliance** -AD FS Anspruch mit dem Wert " **true**".    
 
-Vollständige Liste der AD FS 2016 und für den bedingten Zugriff Ansprüche Geräts, finden Sie unter [Verweis](#reference).  
+Eine umfassende Liste mit AD FS 2016-Gerät und bedingten Zugriffs Ansprüchen finden Sie unter [Reference](#reference).  
 
 
 ## <a name="reference"></a>Referenz  
-#### <a name="complete-list-of-new-ad-fs-2016-and-device-claims"></a>Vollständige Liste der neuen AD FS 2016 und Geräteansprüche  
+#### <a name="complete-list-of-new-ad-fs-2016-and-device-claims"></a>Umfassende Liste der neuen AD FS 2016-und Geräteansprüche  
 
 * https://schemas.microsoft.com/ws/2014/01/identity/claims/anchorclaimtype  
 * http://schemas.xmlsoap.org/ws/2005/05/identity/claims/implicitupn  

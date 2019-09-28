@@ -1,8 +1,8 @@
 ---
 title: netcfg
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: aed535f843da6d735526ea97c07f94564dc00dc6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8f8368aaff16592a55cc9def84d593cf323f28ee
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871321"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373293"
 ---
 # <a name="netcfg"></a>netcfg
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Installiert die Windows Preinstallation Environment (WinPE), eine einfache Version von Windows zum Bereitstellen von Arbeitsstationen verwendet.   
+Installiert den Windows Preinstallation Environment (WinPE), eine für die Bereitstellung von Arbeitsstationen verwendete Lightweight-Version von Windows.   
 ## <a name="syntax"></a>Syntax  
 ```  
 netcfg [/v] [/e] [/winpe] [/l ] /c /i  
@@ -32,42 +32,42 @@ netcfg [/v] [/e] [/winpe] [/l ] /c /i
 ### <a name="parameters"></a>Parameter  
 |Parameter|Beschreibung|  
 |-------|--------|  
-|/v|Führen Sie im Modus für ausführliche (Details)|  
-|/ e|Wartung Umgebungsvariablen verwenden, während der Installation und Deinstallation|  
-|/WinPE|Wird die TCP/IP "," NetBIOS-Namen "und" Microsoft-Client für Windows preinstallation-Umgebung installiert.|  
-|/l|Gibt die Position des INF|  
-|/c|Stellt die Klasse der Komponente installiert werden; Protokoll, Dienst oder client|  
-|/i|Stellt die Komponenten-ID|  
-|/s|Stellt den Typ der Komponenten angezeigt<br /><br />\ta =-Adapter, n = net-Komponenten|  
+|/v|Ausführliches (detaillierter) Modus ausführen|  
+|/e|Verwenden von Wartungs Umgebungsvariablen während der Installation und Deinstallation|  
+|/winpe|Installiert TCP/IP, NetBIOS und den Microsoft-Client für die Vorinstallation von Windows.|  
+|/l|Gibt den Speicherort von INF an.|  
+|/c|Stellt die Klasse der zu installierenden Komponente bereit. Protokoll, Dienst oder Client|  
+|/i|Gibt die Komponenten-ID an.|  
+|/s|Stellt den Typ der anzuzeigenden Komponenten bereit.<br /><br />\ta = Adapter, n = NET Components|  
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|  
-## <a name="BKMK_Examples"></a>Beispiele für  
-So installieren Sie das Protokoll *Beispiel* c:\oemdir\example.inf verwenden:  
+## <a name="BKMK_Examples"></a>Beispiele  
+So installieren Sie das Protokoll *Beispiel* mithilfe von "c:\oemdir\example.inf":  
 ```  
 netcfg /l c:\oemdir\example.inf /c p /i example  
 ```  
-So installieren Sie die *MS_Server* Dienst:  
+So installieren Sie den *MS_Server* -Dienst:  
 ```  
 netcfg /c s /i MS_Server  
 ```  
-So installieren Sie TCP/IP "," NetBIOS-Namen "und" Microsoft-Client für Windows preinstallation environment  
+So installieren Sie TCP/IP, NetBIOS und Microsoft Client für Windows Preinstallation Environment  
 ```  
 netcfg /v /winpe  
 ```  
-Anzeigen, wenn die Komponente *MS_IPX* installiert ist:  
+So zeigen Sie an, ob Component *MS_IPX* installiert ist:  
 ```  
 netcfg /q MS_IPX  
 ```  
-So deinstallieren Sie die Komponente *MS_IPX*:  
+So deinstallieren Sie Component *MS_IPX*:  
 ```  
 netcfg /u MS_IPX  
 ```  
-Um alle anzuzeigen. Sie net-Komponenten installiert:  
+So zeigen Sie alle installierten NET-Komponenten an:  
 ```  
 netcfg /s n  
 ```  
-Um Pfade, die Bindung wird *MS_TCPIP*:  
+Zeigt Bindungs Pfade mit *MS_TCPIP*an:  
 ```  
 netcfg /b ms_tcpip  
 ```  
-## <a name="additional-references"></a>Zusätzliche Referenzen  
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
+## <a name="additional-references"></a>Weitere Verweise  
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

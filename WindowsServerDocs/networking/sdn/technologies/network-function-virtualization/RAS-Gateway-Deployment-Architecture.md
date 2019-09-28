@@ -1,9 +1,9 @@
 ---
 title: 'RAS-Gateway: Bereitstellungsarchitektur'
-description: Sie können in diesem Thema verwenden, Informationen zu Cloud-Dienstanbieter (CSP)-Bereitstellung von RAS-Gateway in Windows Server 2016, einschließlich RAS-Gateway-Pools, Route Reflektoren, und mehrere Gateways für einzelne Mandanten bereitstellen.
+description: In diesem Thema erfahren Sie mehr über die Bereitstellung von clouddienstanbietern (Cloud Service Provider, CSP) des RAS-Gateways in Windows Server 2016, einschließlich RAS-gatewaypools, Routen-Reflektoren und Bereitstellen mehrerer Gateways für einzelne Mandanten.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -12,154 +12,154 @@ ms.topic: get-started-article
 ms.assetid: d46e4e91-ece0-41da-a812-af8ab153edc4
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a3895e25a2af0437deb9eebe4ad89b110cfc9f2b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7b3bd47052e482b562e84d5c44b928c0744b223c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870271"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405911"
 ---
 # <a name="ras-gateway-deployment-architecture"></a>RAS-Gateway: Bereitstellungsarchitektur
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können in diesem Thema verwenden, Informationen zu Cloud-Dienstanbieter (CSP) Bereitstellung von RAS-Gateway, einschließlich RAS-Gateway-Pools, Route Reflektoren, und mehrere Gateways für einzelne Mandanten bereitstellen.  
+In diesem Thema erfahren Sie mehr über die Bereitstellung von Cloud Service Provider (CSP) des RAS-Gateways, einschließlich der RAS-gatewaypools, Routen Reflektoren und der Bereitstellung mehrerer Gateways für einzelne Mandanten.  
   
-Die folgenden Abschnitte enthalten eine kurze Übersicht der neuen Features von RAS-Gateway, damit Sie verstehen können, wie Sie diese Funktionen in den Entwurf der gatewaybereitstellung verwenden.  
+In den folgenden Abschnitten finden Sie einen kurzen Überblick über einige der neuen Features des RAS-Gateways, damit Sie verstehen können, wie Sie diese Funktionen beim Entwerfen der Gatewaybereitstellung verwenden.  
   
-Darüber hinaus wird eine beispielbereitstellung bereitgestellt, einschließlich Informationen über den Prozess des Hinzufügens neuer Mandanten, Route-Synchronisierung und Daten auf Datenebene routing, Gateway und Route-Reflector-Failover und mehr.  
+Außerdem wird ein Beispiel für die Bereitstellung bereitgestellt, einschließlich Informationen zum Hinzufügen neuer Mandanten, Routen Synchronisierung und Daten Ebenen-Routing, Gateway-und Weiterleitungs reflektorfailover und mehr.  
   
 Dieses Thema enthält die folgenden Abschnitte:  
   
--   [Verwenden neue Features für RAS-Gateway zum Entwerfen von Ihrer Bereitstellung](#bkmk_new)  
+-   [Verwenden der neuen Features des RAS-Gateways zum Entwerfen der Bereitstellung](#bkmk_new)  
   
--   [Beispiel für die Bereitstellung](#bkmk_example)  
+-   [Beispiel Bereitstellung](#bkmk_example)  
   
--   [Hinzufügen neuer Mandanten und Kunden (CA) Adressbereich EBGP-Peering](#bkmk_tenant)  
+-   [Hinzufügen neuer Mandanten und eines EBGP-Peerings für Kundenadressen (ca)](#bkmk_tenant)  
   
--   [Route-Datensynchronisierung und -Verwaltungsebene Routing](#bkmk_route)  
+-   [Routen-und Daten Ebenen-Routing](#bkmk_route)  
   
--   [Reaktion von Netzwerkcontroller auf RAS-Gateway und das Failover der Route-Reflector](#bkmk_failover)  
+-   [Reaktion des Netzwerk Controllers auf RAS-Gateway und Weiterleitungs reflektorfailover](#bkmk_failover)  
   
--   [Vorteile der Verwendung der neuen Features von RAS-Gateway](#bkmk_advantages)  
+-   [Vorteile der Verwendung neuer Features des RAS-Gateways](#bkmk_advantages)  
   
-## <a name="bkmk_new"></a>Verwenden neue Features für RAS-Gateway zum Entwerfen von Ihrer Bereitstellung  
-RAS-Gateway enthält mehrere neue Features, die ändern und verbessern die Möglichkeit, in der Sie Ihre Gateway-Infrastruktur in Ihrem Datencenter bereitstellen.  
+## <a name="bkmk_new"></a>Verwenden der neuen Features des RAS-Gateways zum Entwerfen der Bereitstellung  
+RAS-Gateway umfasst mehrere neue Features, die sich ändern und die Art und Weise verbessern, wie Sie Ihre gatewayinfrastruktur in Ihrem Daten Center bereitstellen.  
   
-### <a name="bgp-route-reflector"></a>BGP-Route-Reflector  
-Die Border Gateway Protocol (BGP)-Route-Reflector-Funktion ist jetzt mit der RAS-Gateway enthalten und stellt eine Alternative zur BGP-full-Mesh-Topologie, die normalerweise für die Route-Synchronisierung zwischen Routern erforderlich ist. Bei der Synchronisierung vollständig vermaschte müssen alle BGP-Router mit allen anderen Routern in die Routingtopologie verbinden. Bei Verwendung von Route-Reflector ist die Route-Reflector jedoch der einzige Router, der mit allen anderen Routern, BGP-Route-Reflector-Clients, um so Route Synchronisierung zu vereinfachen und Reduzierung des Netzwerkverkehrs wird aufgerufen, eine Verbindung herstellt. Die Route-Reflector lernt alle Routen, berechnet der beste Routen und die beste Routen zu den BGP-Clients verteilt.  
+### <a name="bgp-route-reflector"></a>BGP-Routen Reflektor  
+Die BGP-Routen Reflektorfunktion (Border Gateway Protocol) ist jetzt im RAS-Gateway enthalten und bietet eine Alternative zur vollständigen BGP-Mesh-Topologie, die normalerweise für die Routen Synchronisierung zwischen Routern erforderlich ist. Bei der vollständigen Netzwerksynchronisierung müssen alle BGP-Router eine Verbindung mit allen anderen Routern in der Routing Topologie herstellen. Wenn Sie jedoch den Routen Reflektor verwenden, ist der Routen Reflektor der einzige Router, der mit allen anderen Routern verbunden ist, die als BGP-Routen reflektorclients bezeichnet werden, wodurch die Routen Synchronisierung vereinfacht und der Netzwerkverkehr reduziert wird. Der Routen Reflektor lernt alle Routen, berechnet die besten Routen und verteilt die besten Routen an seine BGP-Clients.  
   
-Weitere Informationen finden Sie unter [Neuigkeiten in der RAS-Gateway](../../../sdn/technologies/network-function-virtualization/What-s-New-in-RAS-Gateway.md).  
+Weitere Informationen finden Sie unter Neuigkeiten [beim RAS-Gateway](../../../sdn/technologies/network-function-virtualization/What-s-New-in-RAS-Gateway.md).  
   
 ### <a name="bkmk_pools"></a>Gatewaypools  
-In Windows Server 2016 können Sie viele gatewaypools verschiedener Typen erstellen. Gatewaypools enthalten viele Instanzen des RAS-Gateway und Weiterleiten von Netzwerkdatenverkehr zwischen physischen und virtuellen Netzwerken.  
+In Windows Server 2016 können Sie viele gatewaypools mit unterschiedlichen Typen erstellen. Gatewaypools enthalten viele Instanzen des RAS-Gateways und leiten Netzwerk Datenverkehr zwischen physischen und virtuellen Netzwerken weiter.  
   
-Weitere Informationen finden Sie unter [Neuigkeiten in der RAS-Gateway](../../../sdn/technologies/network-function-virtualization/What-s-New-in-RAS-Gateway.md) und [RAS-Gateway: hohe Verfügbarkeit](../../../sdn/technologies/network-function-virtualization/RAS-Gateway-High-Availability.md).  
+Weitere Informationen finden Sie unter [Neues beim RAS-Gateway und in der RAS-Gateway-](../../../sdn/technologies/network-function-virtualization/What-s-New-in-RAS-Gateway.md) [Hochverfügbarkeit](../../../sdn/technologies/network-function-virtualization/RAS-Gateway-High-Availability.md).  
   
-### <a name="bkmk_gps"></a>Gateway-Pool-Skalierbarkeit  
-Sie können ganz einfach einen gatewaypool nach oben oder unten skalieren durch Hinzufügen oder Entfernen der Gateway-VMs im Pool. Entfernen oder Hinzufügen des Gateways ist nicht die Dienste unterbrochen werden, die von einem Pool bereitgestellt werden. Sie können auch hinzufügen und entfernen die gesamte Pools von Gateways.  
+### <a name="bkmk_gps"></a>Skalierbarkeit des gatewaypools  
+Sie können einen gatewaypool problemlos zentral hoch-oder herunterskalieren, indem Sie Gateway-VMS im Pool hinzufügen oder entfernen. Das Entfernen oder Hinzufügen von Gateways beeinträchtigt nicht die Dienste, die von einem Pool bereitgestellt werden. Sie können auch die gesamten Pools von Gateways hinzufügen und entfernen.  
   
-Weitere Informationen finden Sie unter [Neuigkeiten in der RAS-Gateway](../../../sdn/technologies/network-function-virtualization/What-s-New-in-RAS-Gateway.md) und [RAS-Gateway: hohe Verfügbarkeit](../../../sdn/technologies/network-function-virtualization/RAS-Gateway-High-Availability.md).  
+Weitere Informationen finden Sie unter [Neues beim RAS-Gateway und in der RAS-Gateway-](../../../sdn/technologies/network-function-virtualization/What-s-New-in-RAS-Gateway.md) [Hochverfügbarkeit](../../../sdn/technologies/network-function-virtualization/RAS-Gateway-High-Availability.md).  
   
-### <a name="bkmk_m"></a>Gateway-Pool-Redundanz M + N  
-Jede gatewaypool ist M + N ist redundant. Dies bedeutet, dass ein bin "Anzahl der aktiven Gateway-VMs werden" n "die Anzahl der standby-Gateway-VMs gesichert. M + N-Redundanz bietet mehr Flexibilität bei der Bestimmung der Grad an Zuverlässigkeit, die beim Bereitstellen des RAS-Gateways erforderlich sind.  
+### <a name="bkmk_m"></a>Mehr als die gatewaypoolpoolredundanz  
+Jeder gatewaypool ist M + N redundant. Dies bedeutet, dass die Anzahl der aktiven Gateway-VMS durch eine N-Anzahl von standbygatewayvms gesichert wird. Die Redundanz von M + N bietet Ihnen mehr Flexibilität bei der Ermittlung des Zuverlässigkeits Niveaus, das Sie bei der Bereitstellung des RAS-Gateways benötigen.  
   
-Weitere Informationen finden Sie unter [Neuigkeiten in der RAS-Gateway](../../../sdn/technologies/network-function-virtualization/What-s-New-in-RAS-Gateway.md) und [RAS-Gateway: hohe Verfügbarkeit](../../../sdn/technologies/network-function-virtualization/RAS-Gateway-High-Availability.md).  
+Weitere Informationen finden Sie unter [Neues beim RAS-Gateway und in der RAS-Gateway-](../../../sdn/technologies/network-function-virtualization/What-s-New-in-RAS-Gateway.md) [Hochverfügbarkeit](../../../sdn/technologies/network-function-virtualization/RAS-Gateway-High-Availability.md).  
   
-## <a name="bkmk_example"></a>Beispiel für die Bereitstellung  
-Die folgende Abbildung zeigt ein Beispiel mit eBGP-peering über Standort-zu-Standort-VPN-Verbindungen zwischen zwei Mandanten, Contoso und Fabrikam-CSP-Datencenter und Woodgrove konfiguriert.  
+## <a name="bkmk_example"></a>Beispiel Bereitstellung  
+Die folgende Abbildung zeigt ein Beispiel für das eBGP-Peering über Standort-zu-Standort-VPN-Verbindungen, die zwischen zwei Mandanten konfiguriert sind: "", "", "", "", "", "" und "fabrikam  
   
-![eBGP-peering über Standort-zu-Standort-VPN](../../../media/RAS-Gateway-Deployment-Architecture/ras_gateway_architecture.png)  
+![eBGP-Peering über Site-to-Site-VPN](../../../media/RAS-Gateway-Deployment-Architecture/ras_gateway_architecture.png)  
   
-In diesem Beispiel erfordert Contoso zusätzliche Bandbreite, zu der Gateway-Infrastruktur entwurfsentscheidung Standort Contoso Los Angeles auf GW3 statt GW2 beendet. Beenden Contoso-VPN-Clientverbindungen von verschiedenen Standorten aus diesem Grund in CSP-Datencenter zu zwei verschiedenen Gateways.  
+In diesem Beispiel ist für "Configuration Manager" eine zusätzliche gatewaybandbreite erforderlich, was dazu führt, dass die gatewayinfrastructure-Entwurfs Entscheidung zum Beenden der Site "Site Los Angeles" auf GW3 anstelle von GW2 führt. Aus diesem Grund wird die Verbindung zwischen den Configuration Manager-VPN-Verbindungen von unterschiedlichen Standorten im CSP-Daten Center auf zwei verschiedenen Gateways beendet.  
   
-Beide dieser Gateways, GW2 und GW3, Waren der erste RAS-Gateways, die vom Netzwerkcontroller konfiguriert werden, wenn der CSP die Mandanten von Contoso und Woodgrove für ihre Infrastruktur hinzugefügt. Aus diesem Grund werden diese zwei Gateways als Route Reflektoren für diesen entsprechenden Kunden (oder Mandanten) konfiguriert. GW2 ist die Contoso-Route-Reflector und GW3 ist das Woodgrove-Route-Reflector - abgesehen davon, dass der CSP-RAS-Gateway-Endpunkt für die VPN-Verbindung mit dem Contoso Los Angeles HQ-Standort.  
+Beide Gateways, GW2 und GW3, waren die ersten RAS-Gateways, die vom Netzwerk Controller konfiguriert wurden, als der CSP die Mandanten "Configuration" und "Woodgrove" der Infrastruktur hinzugefügt hat. Aus diesem Grund werden diese beiden Gateways als Routen Reflektoren für diese entsprechenden Kunden (oder Mandanten) konfiguriert. GW2 ist der Routen Reflektor von "", und "GW3" ist der Woodgrove-Routen Reflektor. er ist nicht nur der CSP-RAS-gatewaybeendigungs Punkt für die VPN-Verbindung mit der Site "Site-to-Site Los Angeles  
   
 > [!NOTE]  
-> Eine RAS-Gateways können virtuelle und physische Netzwerkdatenverkehr für bis zu 100 verschiedenen Mandanten, je nach den Anforderungen an die Netzwerkbandbreite der einzelnen Mandanten weiterleiten.  
+> Ein RAS-Gateway kann virtuellen und physischen Netzwerk Datenverkehr für bis zu 100 verschiedene Mandanten weiterleiten. Dies hängt von den Bandbreitenanforderungen der einzelnen Mandanten ab.  
   
-Als Route Reflektoren GW2 sendet Contoso Kundenadressraum Routen für den Netzwerkcontroller und GW3 sendet Woodgrove-Kundenadressraum Routen für den Netzwerkcontroller.  
+Als Routen-Reflektoren sendet GW2 die Speicherplatz Routen von "ca" an den Netzwerk Controller, und GW3 sendet Woodgrove ca-Speicherplatz Routen an den Netzwerk Controller.  
   
-Netzwerkcontroller überträgt Hyper-V-Netzwerkvirtualisierungs-Richtlinien auf die Contoso und Woodgrove virtuelle Netzwerke als auch RAS-Richtlinien auf die RAS-Gateways und den Lastenausgleich von Richtlinien für die Multiplexers (/ MUX), die als Software Load Balancing konfiguriert sind Dieser Pool.  
+Der Netzwerk Controller überträgt Hyper-V-netzwerkvirtualisierungsrichtlinien an die virtuellen Netzwerke "Configuration Manager" und "Woodgrove" sowie RAS-Richtlinien zu den RAS-Gateways und Lasten Ausgleichs Richtlinien an die Multiplexers (muxes), die als Software Lastenausgleich konfiguriert sind. Spool.  
   
-## <a name="bkmk_tenant"></a>Hinzufügen neuer Mandanten und Kundenadressraum (CA) Speicherplatz eBGP Peering  
-Melden Sie einen neuen Kunden und dem Hinzufügen des Kunden als einen neuen Mandanten in Ihrem Datencenter, können Sie den folgenden Prozess, der vieles von dem Netzwerkcontroller und RAS-Gateway eBGP-Router automatisch ausgeführt wird.  
+## <a name="bkmk_tenant"></a>Hinzufügen neuer Mandanten und eines EBGP-Peerings für Kundenadressen (ca)  
+Wenn Sie einen neuen Kunden Signieren und den Kunden als neuen Mandanten in Ihrem Rechenzentrum hinzufügen, können Sie den folgenden Prozess verwenden, der von den meisten automatisch von Netzwerk Controllern und RAS-Gateway-EBGP-Routern ausgeführt wird.  
   
-1.  Stellen Sie ein neues virtuelles Netzwerk und arbeitsauslastungen entsprechend den Anforderungen der Ihres Mandanten bereit.  
+1.  Stellen Sie ein neues virtuelles Netzwerk und Arbeits Auslastungen gemäß den Anforderungen Ihres Mandanten bereit.  
   
-2.  Konfigurieren Sie bei Bedarf remote-Konnektivität zwischen der remote-mandantenwebsite Enterprise und ihrem virtuellen Netzwerk in Ihrem Rechenzentrum. Wenn Sie eine Standort-zu-Standort-VPN-Verbindung für den Mandanten bereitstellen, wählt eine verfügbare RAS-Gateway-VM aus dem Pool der verfügbaren Gateway Netzwerkcontroller automatisch und konfiguriert die Verbindung.  
+2.  Konfigurieren Sie bei Bedarf die Remote Konnektivität zwischen dem Remote-Mandanten Unternehmens Standort und dem zugehörigen virtuellen Netzwerk in Ihrem Rechenzentrum. Wenn Sie eine Standort-zu-Standort-VPN-Verbindung für den Mandanten bereitstellen, wählt der Netzwerk Controller automatisch eine verfügbare RAS-Gateway-VM aus dem verfügbaren gatewaypool aus und konfiguriert die Verbindung.  
   
-3.  Beim Konfigurieren der RAS-Gateway-VM für den neuen Mandanten, den Netzwerkcontroller außerdem das RAS-Gateway als BGP-Router konfiguriert und kennzeichnet es als die Route-Reflector für den Mandanten. Dies gilt auch in Situationen, in denen dient das RAS-Gateway als Gateway oder als ein Gateway und die Route-Reflector, für andere Mandanten.  
+3.  Beim Konfigurieren der RAS-Gateway-VM für den neuen Mandanten konfiguriert der Netzwerk Controller auch das RAS-Gateway als BGP-Router und legt es als Routen Reflektor für den Mandanten fest. Dies gilt auch für Situationen, in denen das RAS-Gateway als Gateway oder als Gateway-und Routen Reflektor für andere Mandanten fungiert.  
   
-4.  Je nachdem, ob Zertifizierungsstelle Speicherplatz routing zu verwenden, die statisch konfiguriert-Netzwerken oder dynamische BGP-routing konfiguriert ist konfiguriert den Netzwerkcontroller an die entsprechenden statischen Routen, BGP-Nachbarn oder beides auf dem RAS-Gateway-VM und die Route-Reflector.  
+4.  Abhängig davon, ob das Routing des Zertifizierungsstellen-Speicherplatzes für die Verwendung statisch konfigurierter Netzwerke oder dynamisches BGP-Routing konfiguriert ist, konfiguriert der Netzwerk Controller die entsprechenden statischen Routen, BGP-Nachbarn oder beides auf der RAS-Gateway-VM und dem Routen Reflektor.  
   
     > [!NOTE]  
-    > -   Nach dem Netzwerkcontroller einen RAS-Gateway und die Route-Reflector für den Mandanten konfiguriert hat, erfordert jedes Mal, wenn des gleichen Mandantenverwaltungs einer neuen Standort-zu-Standort-VPN-Verbindungs Netzwerkcontroller überprüft die verfügbare Kapazität auf diesem virtuellen Computer RAS-Gateway. Wenn das ursprüngliche-Gateway die erforderliche Kapazität bedienen kann, wird die neue Verbindung auch auf der gleichen RAS-Gateway-VM konfiguriert. Wenn der RAS-Gateway-VM zusätzlichen Kapazität nicht verarbeiten kann, wird dem Netzwerkcontroller wählt eine neue verfügbare RAS-Gateway-VM und konfiguriert die neue Verbindung auf. Diese neue RAS-Gateway-VM, dem Mandanten zugeordnet wird, der Route-Reflector-Client des ursprünglichen RAS-Gateway-Route-Reflector-Mandanten.  
-    > -   Da RAS-Gateway-Pools hinter einem Load Balancer für die Software (SLBs) sind, bezeichnet der Mandanten-Standort-zu-Standort-VPN-Adressen, die jeweils eine einzelne öffentliche IP-Adresse wird aufgerufen, eine virtuelle IP-Adresse (VIP), die von der die SLBs in einer internen Datacenter-IP-Adresse übersetzt wird, verwenden Sie eine dynamische IP-Adresse (DIP), ein RAS-Gateway das Weiterleiten des Datenverkehrs für den Enterprise-Mandanten. Diese öffentliche, Private IP-Adresszuordnung von SLB wird sichergestellt, dass die Standort-zu-Standort-VPN-Tunnel zwischen den Enterprise-Standorten und CSP-RAS-Gateways und Route Reflektoren ordnungsgemäß eingerichtet werden.  
+    > -   Nachdem der Netzwerk Controller ein RAS-Gateway und einen Weiterleitungs Reflektor für den Mandanten konfiguriert hat, überprüft der Netzwerk Controller immer dann, wenn der gleiche Mandant eine neue Standort-zu-Standort-VPN-Verbindung erfordert, die verfügbare Kapazität auf diesem virtuellen RAS-Gatewaycomputer Wenn das ursprüngliche Gateway die erforderliche Kapazität bedienen kann, wird die neue Netzwerkverbindung auch auf demselben virtuellen RAS-Gateway-Computer konfiguriert. Wenn die VM des RAS-Gateways keine zusätzliche Kapazität verarbeiten kann, wählt der Netzwerk Controller eine neue verfügbare RAS-Gateway-VM aus und konfiguriert die neue Verbindung darauf. Diese neue RAS-Gateway-VM, die dem Mandanten zugeordnet ist, wird zum Routen Reflektor-Client des ursprünglichen RAS-gatewayserverweiterleitungs-  
+    > -   Da sich RAS-gatewaypools hinter Software Lastenausgleich (SLB) befinden, verwenden die Site-to-Site-VPN-Adressen der Mandanten jeweils eine einzelne öffentliche IP-Adresse, die als virtuelle IP-Adresse (VIP) bezeichnet wird. diese wird von den SLAs in eine interne IP-Adresse des Rechenzentrums übersetzt. dynamische IP-Adresse (DIP) für ein RAS-Gateway, das den Datenverkehr für den Unternehmens Mandanten weiterleitet. Diese Zuordnung von "Public zu private IP Address" durch SLB stellt sicher, dass die Standort-zu-Standort-VPN-Tunnel zwischen den Unternehmensstandorten und den CSP-RAS-Gateways und Routen Reflektoren ordnungsgemäß eingerichtet werden.  
     >   
-    >     Weitere Informationen zu den SLB-VIPs und DIPs finden Sie unter [Softwarelastenausgleich &#40;SLB&#41; für SDN](../../../sdn/technologies/network-function-virtualization/Software-Load-Balancing--SLB--for-SDN.md).  
+    >     Weitere Informationen zu SLB, VIPs und Dips finden Sie unter [Software Lastenausgleich &#40;SLB&#41; für Sdn](../../../sdn/technologies/network-function-virtualization/Software-Load-Balancing--SLB--for-SDN.md).  
   
-5.  Nach dem der Standort-zu-Standort-VPN-Tunnel zwischen der Enterprise-Website und dem CSP-Datencenter, die, das RAS-Gateway, für den neuen Mandanten hergestellt wird, werden die statischen Routen, die die Tunnel zugeordnet sind, automatisch auf sowohl die Unternehmens- und CSP-Seiten des Tunnels bereitgestellt .  
+5.  Nachdem der Standort-zu-Standort-VPN-Tunnel zwischen dem Unternehmens Standort und dem Rechenzentrums-RAS-Gateway für den neuen Mandanten eingerichtet wurde, werden die statischen Routen, die den Tunneln zugeordnet sind, automatisch sowohl auf der Unternehmensseite als auch auf der CSP-Seite des Tunnels bereitgestellt. .  
   
-6.  Mit kundenadressraum BGP wird-routing, die eBGP-peering zwischen den Enterprise-Standorten und der CSP-RAS-Gateway-Route-Reflector auch hergestellt.  
+6.  Mit dem BGP-Routing des Zertifizierungsstellen-Speicherplatzes wird auch das eBGP-Peering zwischen den Unternehmensstandorten und dem Routen Reflektor des CSP-RAS-Gateways eingerichtet  
   
-## <a name="bkmk_route"></a>Route-Datensynchronisierung und -Verwaltungsebene Routing  
-Nachdem eBGP-peering zwischen Enterprise-Standorten und der CSP-RAS-Gateway-Route-Reflector hergestellt wurde, lernt die Route-Reflector alle Routen Enterprise mithilfe von dynamischen BGP-routing. Die Route-Reflector synchronisiert diese Routen zwischen allen Clients Route-Reflector, sodass sie alle mit den gleichen Satz von Routen konfiguriert sind.  
+## <a name="bkmk_route"></a>Routen-und Daten Ebenen-Routing  
+Nachdem das eBGP-Peering zwischen Unternehmensstandorten und dem CSP-gatewaygatewayweiterleitungs-Reflektor eingerichtet wurde, lernt der Routen Reflektor alle Unternehmens Routen mithilfe des dynamischen BGP-Routings. Der Routen Reflektor synchronisiert diese Routen zwischen allen Routen reflektorclients, sodass Sie alle mit demselben Satz von Routen konfiguriert sind.  
   
-Route-Reflector aktualisiert auch diese konsolidierten Routen, mit der Route Synchronisierung für den Netzwerkcontroller. Netzwerkcontroller klicken Sie dann die Routen in der Hyper-V-Netzwerkvirtualisierungs-Richtlinien übersetzt und konfiguriert das Netzwerk-Fabric, um sicherzustellen, dass die End-to-End-Datenpfad routing bereitgestellt wird. Dieser Prozess wird der Mandant virtuelle Netzwerk zugegriffen werden kann, aus dem Enterprise-Mandanten Websites.  
+Der Routen Reflektor aktualisiert außerdem diese konsolidierten Routen mithilfe der Routen Synchronisierung an den Netzwerk Controller. Der Netzwerk Controller übersetzt die Routen dann in die Hyper-V-netzwerkvirtualisierungsrichtlinien und konfiguriert das Fabric-Netzwerk, um sicherzustellen, dass das End-to-End-Datenpfad Routing bereitgestellt wird. Durch diesen Vorgang wird das virtuelle Mandanten Netzwerk von den Mandanten Unternehmenswebsites zugänglich gemacht.  
   
-Für die Datenebene routing, werden die Pakete, die das RAS-Gateway-VMs zu erreichen direkt mit dem virtuellen mandantennetzwerk, weitergeleitet, da die erforderlichen Routen jetzt mit allen Beteiligten RAS-Gateway-VMs verfügbar sind.  
+Für das Routing auf Datenebene werden die Pakete, die die RAS-Gateway-VMS erreichen, direkt an das virtuelle Netzwerk des Mandanten weitergeleitet, da die erforderlichen Routen nun für alle teilnehmenden RAS-Gateway-VMS verfügbar sind.  
   
-Auf ähnliche Weise mit den Hyper-V-Netzwerkvirtualisierung Richtlinien vorhanden, das virtuelle Netzwerk des Mandanten leitet die Pakete weiter direkt an den RAS-Gateway-VMs (ohne dass über die Route-Reflector wissen) und klicken Sie dann auf die Enterprise-Websites über die Standort-zu-Standort-VPN-Tunnel .  
+Ebenso leitet das virtuelle Mandanten Netzwerk mit den Richtlinien für die Hyper-V-Netzwerkvirtualisierung Pakete direkt an die virtuellen RAS-Gateway-Computer weiter (ohne den Routen Reflektor kennen zu müssen) und dann an die Unternehmensstandorte über die Standort-zu-Standort-VPN-Tunnel. .  
   
-Außerdem. der antwortdatenverkehr über das virtuelle Netzwerk des Mandanten, der remote-mandantenwebsite Enterprise umgeht die SLBs, einen Prozess namens Direct Server Return (DSR).  
+Außerdem. Rückgabe von Datenverkehr aus dem virtuellen Mandanten Netzwerk an die Remote-Mandanten Unternehmens Site umgeht die slsb, ein Prozess namens Direct Server Return (DSR).  
   
-## <a name="bkmk_failover"></a>Reaktion von Netzwerkcontroller auf RAS-Gateway und das Failover der Route-Reflector  
-Es folgen zwei mögliche Failoverszenarien: einer für RAS-Gateway-Route-Reflector-Clients – und eine für RAS-Gateway Route Reflektoren einschließlich Informationen wie den Netzwerkcontroller Failover für virtuelle Computer in beiden Konfiguration behandelt.  
+## <a name="bkmk_failover"></a>Reaktion des Netzwerk Controllers auf RAS-Gateway und Weiterleitungs reflektorfailover  
+Es folgen zwei mögliche failoverszenarien: eine für RAS-Gatewayclients und eine für RAS-gatewayweiterleitungs-Reflektoren, einschließlich Informationen darüber, wie der Netzwerk Controller Failover für virtuelle Computer in einer der beiden Konfigurationen behandelt.  
   
-### <a name="vm-failure-of-a-ras-gateway-bgp-route-reflector-client"></a>VM-Ausfall, der eine RAS-Gateway-BGP-Route-Reflector-Client  
-Netzwerkcontroller führt die folgenden Aktionen aus, wenn ein RAS-Gateway-Route-Reflector-Client ein Fehler auftritt.  
+### <a name="vm-failure-of-a-ras-gateway-bgp-route-reflector-client"></a>VM-Fehler eines RAS-Gateway-BGP-Routen reflektorclients  
+Der Netzwerk Controller führt die folgenden Aktionen aus, wenn ein RAS-gatewayclientweiterleitungs-Client ausfällt.  
   
 > [!NOTE]  
-> Wenn ein RAS-Gateway nicht mit einer Route-Reflector für BGP-Infrastruktur eines Mandanten ist, ist es ein Route-Reflector-Client in der Mandanten-BGP-Infrastruktur.  
+> Wenn ein RAS-Gateway kein Routen Reflektor für die BGP-Infrastruktur eines Mandanten ist, handelt es sich um einen Routen Reflektor-Client in der BGP-Infrastruktur des Mandanten.  
   
--   Netzwerkcontroller wählt eine verfügbare standby-RAS-Gateway-VM und die neue RAS-Gateway-VM mit der Konfiguration der fehlerhaften RAS-Gateway-VM bereitgestellt.  
+-   Der Netzwerk Controller wählt eine verfügbare Standby-RAS-gatewayvm aus und stellt die neue RAS-Gateway-VM mit der Konfiguration des virtuellen RAS-Gateway-VM bereit  
   
--   Netzwerkcontroller aktualisiert die entsprechenden SLB-Konfiguration, um sicherzustellen, dass die Standort-zu-Standort-VPN-Tunnel von mandantenwebsites mit dem fehlerhaften RAS-Gateway mit dem neuen RAS-Gateway ordnungsgemäß eingerichtet werden.  
+-   Der Netzwerk Controller aktualisiert die zugehörige SLB-Konfiguration, um sicherzustellen, dass die Standort-zu-Standort-VPN-Tunnel von Mandanten Standorten zum nicht erfolgreichen RAS-Gateway ordnungsgemäß mit dem neuen RAS-Gateway eingerichtet werden.  
   
--   Netzwerkcontroller konfiguriert den BGP-Route-Reflector-Client auf dem neuen Gateway.  
+-   Der Netzwerk Controller konfiguriert den BGP-Routen reflektorclient auf dem neuen Gateway.  
   
--   Netzwerkcontroller wird den neuen RAS-Gateway BGP-Route-Reflector-Client als aktiv konfiguriert. Das RAS-Gateway startet sofort, peering mit der Mandanten-Route-Reflector zum Routinginformationen auch eBGP-peering für die entsprechenden Enterprise-Website zu aktivieren.  
+-   Der Netzwerk Controller konfiguriert den neuen RAS-Gateway-BGP-Routen reflektorclient als aktiv. Das RAS-Gateway startet sofort das Peering mit dem Routen Reflektor des Mandanten, um Routing Informationen freizugeben und das eBGP-Peering für den entsprechenden Unternehmens Standort zu aktivieren.  
   
-### <a name="vm-failure-for-a-ras-gateway-bgp-route-reflector"></a>Fehler bei der virtuellen Computer für eine RAS-Gateway-BGP-Route-Reflector  
-Netzwerkcontroller führt die folgenden Aktionen aus, wenn ein RAS-Gateway-BGP-Route-Reflector ein Fehler auftritt.  
+### <a name="vm-failure-for-a-ras-gateway-bgp-route-reflector"></a>VM-Fehler bei einem RAS-Gateway-BGP-Routen Reflektor  
+Der Netzwerk Controller führt folgende Aktionen aus, wenn ein RAS-Gateway-BGP-Routen Reflektor fehlschlägt.  
   
--   Netzwerkcontroller wählt eine verfügbare standby-RAS-Gateway-VM und die neue RAS-Gateway-VM mit der Konfiguration der fehlerhaften RAS-Gateway-VM bereitgestellt.  
+-   Der Netzwerk Controller wählt eine verfügbare Standby-RAS-gatewayvm aus und stellt die neue RAS-Gateway-VM mit der Konfiguration des virtuellen RAS-Gateway-VM bereit  
   
--   Netzwerkcontroller die Route-Reflector konfiguriert, auf die neue RAS-Gateway-VM und weist dem neuen virtuellen Computer die gleiche IP-Adresse, die von der fehlerhaften virtuellen Maschine, wodurch die Integrität der Route trotz des Fehlers VM verwendet wurde.  
+-   Der Netzwerk Controller konfiguriert den Routen Reflektor auf dem neuen virtuellen RAS-Gatewaycomputer und weist dem neuen virtuellen Computer die gleiche IP-Adresse zu, die von der ausgefallenen VM verwendet wurde. Dadurch wird die Routen Integrität trotz des VM-Fehlers bereitgestellt.  
   
--   Netzwerkcontroller aktualisiert die entsprechenden SLB-Konfiguration, um sicherzustellen, dass die Standort-zu-Standort-VPN-Tunnel von mandantenwebsites mit dem fehlerhaften RAS-Gateway mit dem neuen RAS-Gateway ordnungsgemäß eingerichtet werden.  
+-   Der Netzwerk Controller aktualisiert die zugehörige SLB-Konfiguration, um sicherzustellen, dass die Standort-zu-Standort-VPN-Tunnel von Mandanten Standorten zum nicht erfolgreichen RAS-Gateway ordnungsgemäß mit dem neuen RAS-Gateway eingerichtet werden.  
   
--   Netzwerkcontroller wird die neue RAS-Gateway BGP Route Reflector-VM als aktiv konfiguriert.  
+-   Der Netzwerk Controller konfiguriert den neuen virtuellen RAS-Gateway-BGP-Routen-reflektorcomputer als aktiv.  
   
--   Die Route-Reflector wird sofort aktiv. Der Standort-zu-Standort-VPN-Tunnel für das Unternehmen wird hergestellt, und die Route-Reflector verwendet eBGP-peering und tauscht Routen mit dem Enterprise-Standort-Routern.  
+-   Der Routen Reflektor wird sofort aktiv. Der Standort-zu-Standort-VPN-Tunnel für das Unternehmen wird eingerichtet, und der Routen Reflektor verwendet die eBGP-Peering-und-Austausch Routen mit den Routern des Unternehmens Standorts.  
   
--   Nach Auswahl der BGP-Route die RAS-Gateway BGP-Route-Reflector-Updates Mandanten-Route-Reflector-Clients im Datencenter und Routen mit dem Netzwerkcontroller, Verfügbarmachen des End-to-End-Datenpfads für mandantendatenverkehr synchronisiert.  
+-   Nach der BGP-Routenauswahl aktualisiert der RAS-Gateway-BGP-Routen Reflektor Mandanten Routen-reflektorclients im Rechenzentrum und synchronisiert Routen mit dem Netzwerk Controller, sodass der End-to-End-Daten Pfad für den Mandanten Datenverkehr verfügbar ist.  
   
-## <a name="bkmk_advantages"></a>Vorteile der Verwendung der neuen Features von RAS-Gateway  
-Nachfolgend sind einige der Vorteile der Verwendung dieser neuen Features für RAS-Gateway, beim Entwerfen der RAS-Gateway-Bereitstellung.  
+## <a name="bkmk_advantages"></a>Vorteile der Verwendung neuer Features des RAS-Gateways  
+Im folgenden finden Sie einige der Vorteile der Verwendung dieser neuen Features des RAS-Gateways beim Entwerfen der RAS-Gatewaybereitstellung.  
   
-**RAS-Gateway-Skalierbarkeit**  
+**Skalierbarkeit des RAS-Gateways**  
   
-Da Sie so viele RAS-Gateway-VMs als RAS-Gateway-Pools müssen hinzufügen können, können Sie die RAS-Gateway-Bereitstellung, um das Optimieren der Leistung und Kapazität ganz einfach skalieren. Wenn Sie virtuelle Computer zu einem Pool hinzufügen, können Sie diese RAS-Gateways mit Standort-zu-Standort-VPN-Verbindungen jeglicher Art (IKEv2, L3, GRE), entfernen Kapazitätsengpässen ohne Downtime zu konfigurieren.  
+Da Sie beliebig viele RAS-Gateway-VMS hinzufügen können, können Sie die Bereitstellung des RAS-Gateways problemlos skalieren, um die Leistung und Kapazität zu optimieren. Wenn Sie VMS zu einem Pool hinzufügen, können Sie diese RAS-Gateways mit Site-to-Site-VPN-Verbindungen beliebiger Art (IKEv2, L3, GRE) konfigurieren, sodass Kapazitätsengpässe ohne Downtime vermieden werden.  
   
-**Vereinfachte Enterprise Gateway Standortverwaltung**  
+**Vereinfachte Verwaltung von Enterprise Site Gateway**  
   
-Wenn Ihr Mandant mehrere Unternehmensstandorte verfügt, kann Mandanten alle Standorte mit einer remote-Standort-zu-Standort-VPN IP-Adresse und einen einzelnen Remoteserver Nachbar-IP-Adresse - Ihrem CSP-Datencenter-RAS-Gateway-BGP-Route-Reflector VIP für den Mandanten konfigurieren. Dies vereinfacht das Verwalten des Gateways für Ihre Mandanten.  
+Wenn Ihr Mandant über mehrere Unternehmensstandorte verfügt, kann der Mandant alle Standorte mit einer Remote-Standort-zu-Standort-VPN-IP-Adresse und einer einzelnen Remote-Nachbar-IP-Adresse konfigurieren: Ihr CSP-Datacenter RAS-Gateway BGP-Routen Reflektor-VIP für diesen Mandanten. Dies vereinfacht die Gatewayverwaltung für Ihre Mandanten.  
   
-**Schnelle Wiederherstellung der Gateway-Fehler**  
+**Schnelle Behebung von gatewayfehlern**  
   
-Um ein schnelles Failover-Antwort zu gewährleisten, können Sie die BGP-Keepalive Parameter Zeit zwischen den Edge-Routen und ein Intervall kurz, wie z. B. kleiner als oder gleich zehn Sekunden der Steuerelement-Router konfigurieren. Mit diesem kurzen Keep-alive-Intervall Wenn ein RAS-Gateway-BGP-edgerouter ein Fehler auftritt, der Fehler schnell erkannt und Netzwerkcontroller folgt den Schritten, die in den vorherigen Abschnitten bereitgestellt. Dieser Vorteil kann die Notwendigkeit, eine separate Fehler Erkennung-Protokoll, z. B. bidirektionale Weiterleitung Erkennung (BFD)-Protokoll reduzieren.  
+Um eine schnelle Failoverantwort zu gewährleisten, können Sie die BGP KeepAlive-Parameter Zeit zwischen den Edge-Routen und dem Steuerelement Router in einem kurzen Zeitintervall (z. b. kleiner oder gleich zehn Sekunden) konfigurieren. Wenn bei diesem kurzen Keep-Alive-Intervall ein RAS-Gateway-BGP-edgerrouter fehlschlägt, wird der Fehler schnell erkannt, und der Netzwerk Controller führt die in den vorherigen Abschnitten beschriebenen Schritte aus. Dieser Vorteil kann die Notwendigkeit eines separaten Protokolls zur Fehlererkennung, wie z. b. das BFD-Protokoll (bidirektionale Weiterleitungs Erkennung), verringern.  
   
  
   

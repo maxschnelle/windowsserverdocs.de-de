@@ -1,19 +1,19 @@
 ---
 title: Verwenden von Robocopy zum Seeding für von Dateien für DFS-Replikation
 description: Verwenden von "Robocopy. exe" zum vorab Seed von Dateien für DFS-Replikation.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 4a0cad3c685c8609784c7096fe31d55294712c2e
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: ea5cd954dde6d4fa8fcaa7874f75cb9588115ab1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871980"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402125"
 ---
 # <a name="use-robocopy-to-preseed-files-for-dfs-replication"></a>Verwenden von Robocopy zum Seeding für von Dateien für DFS-Replikation
 
@@ -47,7 +47,7 @@ Da das präseeding nicht direkt DFS-Replikation einschließt, müssen Sie nur di
 
 - Installieren Sie auf dem Quell Server optional den Prozess Monitor oder den Prozess-Explorer, mit dem Sie nach Anwendungen suchen können, die Dateien sperren. Informationen zum Herunterladen finden Sie unter [Prozess Monitor](https://docs.microsoft.com/sysinternals/downloads/procmon) und [Prozess-Explorer](https://docs.microsoft.com/sysinternals/downloads/process-explorer).
 
-## <a name="step-1-download-and-install-the-latest-version-of-robocopy"></a>Schritt 1: Herunterladen und Installieren der neuesten Version von Robocopy
+## <a name="step-1-download-and-install-the-latest-version-of-robocopy"></a>Schritt 1: Herunterladen und Installieren der neuesten Version von Robocopy
 
 Bevor Sie Robocopy zum Seeding für von Dateien verwenden, sollten Sie die neueste Version von **Robocopy. exe**herunterladen und installieren. Dadurch wird sichergestellt, dass DFS-Replikation Dateien aufgrund von Problemen in den Liefer Versionen von Robocopy nicht überspringt.
 

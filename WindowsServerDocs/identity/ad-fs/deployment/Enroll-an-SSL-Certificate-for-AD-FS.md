@@ -7,33 +7,33 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: e80927f2670614d2949f4e67cc158319f05c5fa0
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: efa7c7aee848a5bbb68d3ce7140e135d37c2161d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192152"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408362"
 ---
 # <a name="enroll-an-ssl-certificate-for-ad-fs"></a>Registrieren eines SSL-Zertifikats für AD FS
 
-Active Directory-Verbunddienste \(AD FS\) erfordert ein Zertifikat für Secure Socket Layer \(SSL\) Serverauthentifizierung auf jedem Verbundserver in Ihrer Verbundserverfarm. Das gleiche Zertifikat kann auf jedem Verbundserver in einer Farm verwendet werden. Sie müssen sowohl über das Zertifikat als auch den dazugehörigen privaten Schlüssel verfügen. Wenn Sie beispielsweise über eine PFX-Datei mit dem Zertifikat und dem privaten Schlüssel verfügen, können Sie die Datei direkt in den Konfigurations-Assistenten für Active Directory-Verbunddienste importieren. Dieses SSL-Zertifikat muss Folgendes enthalten:  
+Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1 erfordert ein Zertifikat für die Secure Socket Layer \(ssl @ no__t-3-Server Authentifizierung auf jedem Verbund Server in der Verbund Serverfarm. Das gleiche Zertifikat kann auf jedem Verbund Server in einer Farm verwendet werden. Sie müssen sowohl über das Zertifikat als auch den dazugehörigen privaten Schlüssel verfügen. Wenn Sie beispielsweise über eine PFX-Datei mit dem Zertifikat und dem privaten Schlüssel verfügen, können Sie die Datei direkt in den Konfigurations-Assistenten für Active Directory-Verbunddienste importieren. Dieses SSL-Zertifikat muss Folgendes enthalten:  
   
-1.  Der Antragstellername und der alternative Antragstellername müssen den verbunddienstnamen, z. B. "FS.contoso.com" enthalten.  
+1.  Der Antragsteller Name und der alternative Antragsteller Name müssen ihren Verbund Dienstnamen enthalten, z. b. fs.contoso.com.  
   
-2.  Der alternative Antragstellername muss den Wert enthalten **Enterpriseregistration** folgt den Benutzerprinzipalnamen \(UPN\) Suffix Ihrer Organisation, z. B.  **enterpriseregistration.corp.contoso.com**.  
+2.  Der alternative Antragsteller Name muss den Wert **enterpriseregistration** enthalten, auf den der Benutzer Prinzipal Name \(upn @ no__t-2-Suffix Ihrer Organisation folgt, z. b. **enterpriseregistration.Corp.contoso.com**.  
   
     > [!WARNING]  
-    > Geben Sie den alternativen Antragstellernamen aus, wenn Sie beabsichtigen, den Geräteregistrierungsdienst aktivieren \(DRS\) für Arbeitsplatzhinzufügung hinzu.  
+    > Geben Sie den alternativen Antragsteller Namen an, wenn Sie planen, den Geräte Registrierungsdienst \(drs @ no__t-1 für Workplace Join zu aktivieren.  
   
 > [!IMPORTANT]  
-> Wenn es sich bei Ihrer Organisation mehrere UPN-Suffixe verwendet werden, und Sie DRS aktivieren möchten, muss das SSL-Zertifikat für jedes Suffix einen Eintrag Antragstellernamen alternativen Namen enthalten.  
+> Wenn Ihre Organisation mehrere UPN-Suffixe verwendet und Sie beabsichtigen, das DRS zu aktivieren, muss das SSL-Zertifikat einen alternativen Antragsteller Namen für jedes Suffix enthalten.  
   
 ## <a name="see-also"></a>Siehe auch
 [AD FS-Bereitstellung](../../ad-fs/AD-FS-Deployment.md)  
 
-[Windows Server 2012 R2 AD FS-Bereitstellung geführt.](../../ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)  
+[Windows Server 2012 R2 AD FS Bereitstellungs Handbuch](../../ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)  
  
 [Bereitstellen einer Verbundserverfarm](../../ad-fs/deployment/Deploying-a-Federation-Server-Farm.md)  
   
