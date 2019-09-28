@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin Peers und Liste
-description: Windows-Befehle Thema **Bitsadmin peers und Auflisten von** -Listet alle Peers.
+title: bipadmin-Peers und-Liste
+description: Windows-Befehls Thema für **bitionadmin Peers und List** -listet alle Peers auf.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bb6535b7250f49b38f6205f289a8e5dca59023d7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b3e088740117bcd94105d80e1bc4b6c59ad5e965
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853481"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380914"
 ---
-# <a name="bitsadmin-peers-and-list"></a>Bitsadmin Peers und Liste
+# <a name="bitsadmin-peers-and-list"></a>bipadmin-Peers und-Liste
 
 
 
-Listet alle Peers an.
+Listet alle Peers auf.
 
 ## <a name="syntax"></a>Syntax
 
@@ -32,13 +32,13 @@ Listet alle Peers an.
 bitsadmin /Peers /List 
 ```
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Das folgende Beispiel listet alle Peers.
+Im folgenden Beispiel werden alle Peers aufgelistet.
 ```
 C:\>bitsadmin /Peers /List
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

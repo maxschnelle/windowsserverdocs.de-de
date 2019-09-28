@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin setpeercachingflags
-description: Windows-Befehle Thema **Bitsadmin Setpeercachingflags** -Flags, die bestimmen, wenn die Dateien des Auftrags können zwischengespeichert und für Kollegen bereitgestellt und der Auftrag von Peers herunterladen kann, legt sie fest.
+title: bitadmin-setpeer-cachingflags
+description: 'Windows-Befehls Thema für **BITSAdmin setpeercachingflags** : Legt Flags fest, die bestimmen, ob die Dateien des Auftrags zwischengespeichert und für Peers bereitgestellt werden können und ob der Auftrag Inhalt von Peers herunterladen kann.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2d50a6ccd83a6251808ca3d66437e52f641c60a7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 147f28268f1b4dd6dfb40cff85f073feabbc35a0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814251"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380462"
 ---
-# <a name="bitsadmin-setpeercachingflags"></a>Bitsadmin setpeercachingflags
+# <a name="bitsadmin-setpeercachingflags"></a>bitadmin-setpeer-cachingflags
 
 
 
-Legt ein Kennzeichen, die bestimmen, wenn die Dateien des Auftrags können zwischengespeichert und für Kollegen bereitgestellt und der Auftrag herunterladen kann Inhalt von Peers fest.
+Legt Flags fest, die bestimmen, ob die Dateien des Auftrags zwischengespeichert und für Peers bereitgestellt werden können und ob der Auftrag Inhalt von Peers herunterladen kann.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,16 +36,16 @@ bitsadmin /SetPeerCachingFlags <Job> <value>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
-|Wert|Der Wert ist eine Ganzzahl ohne Vorzeichen, mit der folgenden Interpretation für die Bits in die binäre Darstellung.</br>1: der Auftrag kann Inhalte von Peers herunterladen.</br>2 – die Dateien des Auftrags können zwischengespeichert und für Kollegen bereitgestellt.|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
+|Wert|Der Wert ist eine ganze Zahl ohne Vorzeichen mit der folgenden Interpretation für die Bits in der binären Darstellung.</br>1: der Auftrag kann Inhalt von Peers herunterladen.</br>2: die Dateien des Auftrags können zwischengespeichert und für Peers bereitgestellt werden.|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Im folgenden Beispiel wird die Flags für den Auftrag mit dem Namen *MyJob* zu ermöglichen, Inhalt von Peers herunterzuladen.
+Im folgenden Beispiel werden Flags für den Auftrag mit dem Namen *MyJob* festgelegt, mit dem der Inhalt von Peers heruntergeladen werden kann.
 ```
 C:\>bitsadmin / SetPeerCachingFlags myJob 1 
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,8 +1,8 @@
 ---
-title: Logman erstellen cfg
-description: 'Windows-Befehle Thema ***- '
+title: logman Create cfg
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1521ae20091f2c57094fa1c75bd583e517628126
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 9a9dffb308c9c5b73777aa2a2b4dd6e0204699ec
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437774"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374590"
 ---
-# <a name="logman-create-cfg"></a>Logman erstellen cfg
+# <a name="logman-create-cfg"></a>logman Create cfg
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Erstellen Sie einen Datensammler Konfiguration.  
+Erstellen Sie einen Konfigurationsdaten Sammler.  
 
 ## <a name="syntax"></a>Syntax  
 ```  
@@ -34,41 +34,41 @@ logman create cfg <[-n] <name>> [options]
 
 |                    Parameter                     |                                                                               Beschreibung                                                                               |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|                        /?                        |                                                                    Zeigt, die kontextbezogene Hilfe an.                                                                     |
-|                -s <computer name>                |                                                          Führen Sie den Befehl auf dem angegebenen Remotecomputer.                                                          |
-|                 -config <value>                  |                                                         Gibt an, die Befehlsoptionen enthält Datei mit den Einstellungen.                                                         |
+|                        /?                        |                                                                    Zeigt die kontextbezogene Hilfe an.                                                                     |
+|                -s <computer name>                |                                                          Führen Sie den Befehl auf dem angegebenen Remote Computer aus.                                                          |
+|                 -config <value>                  |                                                         Gibt die Einstellungsdatei an, die Befehlsoptionen enthält.                                                         |
 |                   [-n] <name>                    |                                                                       Der Name des Zielobjekts.                                                                        |
-| -f < Bin&#124;Bincirc&#124;Csv&#124;Tsv&#124;Sql > |                                                            Gibt das Protokollformat für den Datensammler.                                                             |
-|             -[-] u < Benutzer [Kennwort] >              | Gibt die Ausführung als Benutzer an. Eingeben einer \* für das Kennwort eine Aufforderung zur Kennworteingabe erzeugt. Das Kennwort wird nicht angezeigt, wenn Sie es an der kennworteingabeaufforderung eingeben. |
-|    -m < [Start] [Start] [[Start] [Start] [...]] >    |                                                Ändern Sie in den manuellen Start oder beenden Sie, anstatt einem geplanten Zeitpunkt von Begin- und End.                                                 |
-|                -rf < [[Hh:] mm:] ss >                |                                                        Führen Sie den Datensammler für den angegebenen Zeitraum.                                                         |
-|        -b < m/JJJJ hh: mm: [Uhr&#124;PM] >         |                                                              Starten Sie das Sammeln von Daten zum angegebenen Zeitpunkt.                                                               |
-|        -e: < m/JJJJ hh: mm: [Uhr&#124;PM] >         |                                                               Beenden der Datensammlung von zum angegebenen Zeitpunkt.                                                                |
-|                -si <[[hh:]mm:]ss>                |                                                 Gibt das Beispiel für Performance Counter-Datensammler an.                                                  |
-|              -o <path&#124;dsn!log>              |                                              Gibt an, dass die Ausgabeprotokolldatei oder der DSN einzurichten und sich Name in einer SQL­Datenbank.                                               |
-|                      -[-]r                       |                                                  Wiederholen Sie den Datensammler täglich um bestimmten Anfangs- und Endzeit ein.                                                  |
-|                      -[-]a                       |                                                                     Fügen Sie an einer vorhandenen Protokolldatei.                                                                     |
-|                      -[-]ow                      |                                                                     Überschreiben einer vorhandenen Protokolldatei an.                                                                     |
-|           -[-]v <nnnnnn&#124;mmddhhmm>           |                                                   Fügen Sie Versionsinformationen für die Datei an das Ende der Name der Protokolldatei.                                                   |
-|                  -[-]rc <task>                   |                                                         Führen Sie den Befehl angegebenen jedes Mal, die das Protokoll geschlossen wird.                                                          |
-|                 -[-]max <value>                  |                                                 Maximale Größe der Protokolldatei in MB oder die maximale Anzahl von Datensätzen für die SQL-Protokolle.                                                  |
-|              -[-]cnf <[[hh:]mm:]ss>              |     Wenn Zeit angegeben wird, erstellen Sie eine neue Datei, wenn die angegebene Zeit verstrichen ist. Wenn Zeit nicht angegeben ist, erstellen eine neue Datei ein, wenn die maximale Größe überschritten wird.     |
-|                        -y                        |                                                             Beantworten Sie Ja, alle Fragen ohne Eingabeaufforderung.                                                              |
-|                      -[-]ni                      |                                                         Aktivieren (-ni) oder zu deaktivieren (-ni) Netzwerk-Schnittstelle Abfragen.                                                          |
-|             Reg - < Pfad [Pfad [...]] >             |                                                                 Gibt an, Registrierung Werte zu sammeln.                                                                 |
-|            -Mgt < Abfrage [Abfrage [...]] >            |                                                      Gibt die WMI-Objekte, erfassen Sie mithilfe von SQL-Abfragesprache.                                                       |
-|             -Ftc < Pfad [Pfad [...]] >             |                                                           Gibt den vollständigen Pfad zu die Dateien zu sammeln.                                                            |
+| -f < bin&#124;bincirc&#124;CSV&#124;TSV&#124;SQL > |                                                            Gibt das Protokoll Format für den Datensammler an.                                                             |
+|             -[-] u < Benutzer [Kennwort] >              | Gibt den Benutzer an, der als ausgeführt werden soll. Wenn Sie einen \* für das Kennwort eingeben, wird eine Eingabeaufforderung für das Kennwort ausgegeben. Das Kennwort wird nicht angezeigt, wenn Sie es an der Eingabeaufforderung eingeben. |
+|    -m < [Start] [Ende] [[Start] [Ende] [...]] >    |                                                Wechseln Sie zu "manueller Start" oder "beenden" anstelle eines geplanten Anfangs-oder Endzeit Zeitraums.                                                 |
+|                -RF < [[hh:] mm:] SS >                |                                                        Führt den Datensammler für den angegebenen Zeitraum aus.                                                         |
+|        -b < M/d/yyyy h:mm: SS [am&#124;pm] >         |                                                              Beginnt mit dem Sammeln von Daten zum angegebenen Zeitpunkt.                                                               |
+|        -e < M/d/yyyy h:mm: SS [am&#124;pm] >         |                                                               Beenden Sie die Datensammlung zum angegebenen Zeitpunkt.                                                                |
+|                -Si < [[hh:] mm:] SS >                |                                                 Gibt das Stichproben Intervall für Leistungsdaten Sammler an.                                                  |
+|              -o < Pfad&#124;DSN! Log >              |                                              Gibt die Ausgabeprotokoll Datei oder den DSN-und Protokoll Satz Namen in einer SQL-Datenbank an.                                               |
+|                      -[-] r                       |                                                  Wiederholen Sie den Datensammler täglich zu den angegebenen Anfangs-und Endzeiten.                                                  |
+|                      -[-] a                       |                                                                     Fügen Sie an eine vorhandene Protokolldatei an.                                                                     |
+|                      -[-] OW                      |                                                                     Hiermit wird eine vorhandene Protokolldatei überschrieben.                                                                     |
+|           -[-] v < nnnnnn&#124;mmddhhmm >           |                                                   Fügen Sie Datei Versionsinformationen an das Ende des Protokoll Dateinamens an.                                                   |
+|                  -[-] RC <task>                   |                                                         Führen Sie den Befehl aus, der bei jedem Schließen des Protokolls angegeben wird.                                                          |
+|                 -[-] max. <value>                  |                                                 Maximale Protokolldatei Größe in MB oder maximale Anzahl von Datensätzen für SQL-Protokolle.                                                  |
+|              -[-] cnf-< [[hh:] mm:] SS >              |     Wenn Time angegeben ist, wird eine neue Datei erstellt, wenn die angegebene Zeit abgelaufen ist. Wenn Time nicht angegeben ist, erstellen Sie eine neue Datei, wenn die maximale Größe überschritten wird.     |
+|                        -y                        |                                                             Antworten Sie auf Ja, um alle Fragen zu beantworten.                                                              |
+|                      -[-] NI                      |                                                         Aktivieren Sie (-NI), oder deaktivieren Sie die Netzwerkschnittstellen Abfrage (-NI).                                                          |
+|             -reg < Pfad [Pfad [...]] >             |                                                                 Gibt die zu sammelnden Registrierungs Werte an.                                                                 |
+|            -mgt < Abfrage [Abfrage [...]] >            |                                                      Gibt WMI-Objekte an, die mithilfe der SQL-Abfragesprache erfasst werden sollen.                                                       |
+|             -FTC < Pfad [Pfad [...]] >             |                                                           Gibt den vollständigen Pfad zu den Dateien an, die gesammelt werden sollen.                                                            |
 
 ## <a name="remarks"></a>Hinweise  
-Wobei [-] aufgelistet ist, negiert ein zusätzliches - die Option.  
-## <a name="BKMK_examples"></a>Beispiele für  
-Der folgende Befehl erstellt einen Konfiguration-Datensammler-wird aufgerufen, mit dem Registrierungsschlüssel %%amp;quot;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\Currentverion Cfg_log\\.  
+Wenn [-] aufgeführt ist, wird die-Option durch ein extra negiert.  
+## <a name="BKMK_examples"></a>Beispiele  
+Der folgende Befehl erstellt einen Konfigurationsdaten Sammler namens cfg_log mit dem Registrierungsschlüssel HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows nt\currentverion @ no__t-0.  
 ```  
 logman create cfg cfg_log -reg "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\Currentverion\\"  
 ```  
-Der folgende Befehl erstellt einen Datensammler ein Konfiguration aufgerufen Cfg_log, in dem alle WMI-Objekte aus Root\wmi MSNdis_Vendordriverversion in der Datenbank aufgezeichnet.  
+Der folgende Befehl erstellt einen Konfigurationsdaten Sammler namens cfg_log, der alle WMI-Objekte aus root\wmi in der Daten Bank Spalte MSNdis_Vendordriverversion aufzeichnet.  
 ```  
 logman create cfg cfg_log -mgt "root\wmi:select * FROM MSNdis_Vendordriverversion"  
 ```  
-#### <a name="additional-references"></a>Zusätzliche Referenzen  
+#### <a name="additional-references"></a>Weitere Verweise  
 [logman](logman.md)  

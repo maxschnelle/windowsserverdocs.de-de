@@ -1,8 +1,8 @@
 ---
-title: ftp ls_1
-description: 'Windows-Befehle Thema ***- '
+title: FTP-ls_1
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6abf8466f90ac29846f2e1ee7d305e7e4280231e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d183f6a014273b78befd14c8d3208508948ffc54
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438631"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376253"
 ---
-# <a name="ftp-ls1"></a>ftp: ls_1
+# <a name="ftp-ls_1"></a>FTP: ls_1
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 > 
 > 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zeigt eine verkürzte Liste der Dateien und Unterverzeichnisse des Remotecomputers an.   
+Zeigt eine abgekürzte Liste von Dateien und Unterverzeichnissen vom Remote Computer an.   
 ## <a name="syntax"></a>Syntax  
 ```  
 ls [<remotedirectory>] [<LocalFile>]  
@@ -36,17 +36,17 @@ ls [<remotedirectory>] [<LocalFile>]
 
 |      Parameter      |                                                                       Beschreibung                                                                        |
 |---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [<remotedirectory>] | Gibt das Verzeichnis für das eine Liste angezeigt werden sollen. Wenn kein Verzeichnis angegeben ist, wird das aktuelle Arbeitsverzeichnis auf dem Remotecomputer verwendet. |
-|    [<LocalFile>]    |               Gibt eine lokale Datei in dem die Auflistung gespeichert. Wenn eine lokale Datei nicht angegeben ist, werden die Ergebnisse auf dem Bildschirm angezeigt.               |
+| [<remotedirectory>] | Gibt das Verzeichnis an, für das eine Auflistung angezeigt werden soll. Wenn kein Verzeichnis angegeben ist, wird das aktuelle Arbeitsverzeichnis auf dem Remote Computer verwendet. |
+|    [<LocalFile>]    |               Gibt eine lokale Datei an, in der die Auflistung gespeichert werden soll. Wenn keine lokale Datei angegeben wird, werden die Ergebnisse auf dem Bildschirm angezeigt.               |
 
-## <a name="BKMK_Examples"></a>Beispiele für  
-Anzeigen einer verkürzten Liste der Dateien und Unterverzeichnisse des Remotecomputers an.  
+## <a name="BKMK_Examples"></a>Beispiele  
+Hiermit wird eine abgekürzte Liste von Dateien und Unterverzeichnissen vom Remote Computer angezeigt.  
 ```  
 ls  
 ```  
-Erhalten Sie eine abgekürzte Verzeichnisliste mit **dir1** wird aufgerufen, auf dem Remotecomputer, und speichern Sie sie in einer lokalen Datei **Verliste.txt**  
+Verschaffen Sie sich auf dem Remote Computer eine abgekürzte Verzeichnis Auflistung von **dir1** , und speichern Sie Sie in einer lokalen Datei namens **dirlist. txt.**  
 ```  
 ls dir1 dirlist.txt   
 ```  
-## <a name="additional-references"></a>Zusätzliche Referenzen  
+## <a name="additional-references"></a>Weitere Verweise  
 -   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

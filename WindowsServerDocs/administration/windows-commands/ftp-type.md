@@ -1,8 +1,8 @@
 ---
 title: FTP-Typ
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a261382da47501b416fa83c6d2497deae5711bb1
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: eb254d1c9b17ac6baadf6b84702d2812f1117a93
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438354"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375896"
 ---
 # <a name="ftp-type"></a>FTP: Typ
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zeigt den Dateityp für die Übertragung an ab oder legt ihn fest.   
+Legt den Datei Übertragungstyp fest oder zeigt ihn an.   
 ## <a name="syntax"></a>Syntax  
 ```  
 type [<typeName>]  
@@ -33,21 +33,21 @@ type [<typeName>]
 
 |  Parameter   |            Beschreibung            |
 |--------------|-----------------------------------|
-| [<typeName>] | Gibt den Dateiübertragungstyp an. |
+| [<typeName>] | Gibt den Datei Übertragungstyp an. |
 
 ## <a name="remarks"></a>Hinweise  
-- Wenn *TypeName* nicht angegeben ist, wird der aktuelle Typ angezeigt wird.  
-- **FTP** unterstützt zwei Datei Übertragungstypen ASCII und binär.  
-  Der Standardtyp ist ASCII.  Die **Ascii** Befehl sollte verwendet werden, bei der Übertragung von Textdateien. Im ASCII-Modus werden zeichenkonvertierungen in und aus dem Netzwerk-standard-Zeichensatz ausgeführt. Beispielsweise werden End-of-Line-Zeichen konvertiert, wenn erforderlich, auf der Grundlage des Betriebssystems am Ziel.  
-  Die **binäre** Befehl sollte verwendet werden, wenn die Übertragung von ausführbaren Dateien. In diesem Modus wird die Datei im byteweise verschoben.  
-  ## <a name="BKMK_Examples"></a>Beispiele für  
-  Den Dateityp für die Übertragung auf ASCII festgelegt.  
+- Wenn *tykame* nicht angegeben ist, wird der aktuelle Typ angezeigt.  
+- **FTP** unterstützt zwei Datei Übertragungs Typen, ASCII und Binary.  
+  Der standardmäßige Datei Übertragungstyp ist ASCII.  Der **ASCII** -Befehl sollte beim Übertragen von Textdateien verwendet werden. Im ASCII-Modus werden Zeichen Konvertierungen in und aus dem Netzwerkstandard-Zeichensatz ausgeführt. Beispielsweise werden zeitzeiendezeichen nach Bedarf auf Grundlage des Betriebssystems am Ziel konvertiert.  
+  Der **binäre** Befehl sollte verwendet werden, wenn ausführbare Dateien übertragen werden. Im Binärmodus wird die Datei in 1-Byte-Einheiten verschoben.  
+  ## <a name="BKMK_Examples"></a>Beispiele  
+  Legen Sie den Datei Übertragungstyp auf ASCII fest.  
   ```  
   type ascii  
   ```  
-  Legen Sie die Übertragung Dateityp in einen Binärwert.  
+  Legen Sie den Dateityp übertragen auf Binär fest.  
   ```  
   type binary  
   ```  
-  ## <a name="additional-references"></a>Zusätzliche Referenzen  
+  ## <a name="additional-references"></a>Weitere Verweise  
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

@@ -1,8 +1,8 @@
 ---
 title: nslookup set all
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fa534ec194486d334aa7c5b615ce32496a4ba43b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 0e752427a07fe290c3f70e7dce60a0e21f805e8d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436823"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373031"
 ---
 # <a name="nslookup-set-all"></a>nslookup set all
 
 
 
-Gibt die aktuellen Werte der Konfigurationseinstellungen.
+Druckt die aktuellen Werte der Konfigurationseinstellungen.
 
 ## <a name="syntax"></a>Syntax
 
@@ -40,7 +40,7 @@ set all
 
 ## <a name="remarks"></a>Hinweise
 
--   **Legen Sie alle** auch gibt Informationen zu den Standard-Server und den Computer (d. h. der Host).
+-   **Alle festlegen** gibt auch Informationen zum Standard Server und-Computer (d. h. zum Host) aus.
 
 #### <a name="additional-references"></a>Weitere Verweise
 

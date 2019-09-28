@@ -1,8 +1,8 @@
 ---
 title: bootcfg dbg1394
-description: Windows-Befehle Thema **Bootcfg dbg1394** -Debugport 1394 konfiguriert, für einen bestimmten Betriebssystemeintrag
+description: 'Thema "Windows-Befehle" für **bootcfg dbg1394** : Konfigurieren des 1394-Port Debuggens für einen angegebenen Betriebssystem Eintrag'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 85a554e25d1553ea4cd9415bb180df4751966926
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 8550871c60343fdc6d797f3f81729c24270400b4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434846"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380087"
 ---
 # <a name="bootcfg-dbg1394"></a>bootcfg dbg1394
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Konfiguriert die 1394 Port für einen bestimmten Betriebssystemeintrag Debuggen.
+Konfiguriert 1394-Port Debugging für einen angegebenen Betriebssystem Eintrag.
 
 ## <a name="syntax"></a>Syntax
 ```
@@ -34,21 +34,21 @@ bootcfg /dbg1394 {ON | OFF}[/s <computer> [/u <Domain>\<User> /p <Password>]] [/
 
 |      Parameter       |                                                                                                                                           Beschreibung                                                                                                                                            |
 |----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   {ON &#124; OFF}    | Gibt den Wert für das Debuggen von 1394 Port.<br /><br />-   **ON** -ermöglicht Unterstützung für Remotedebuggen durch die Option/dbg1394 mit dem angegebenen <OSEntryLineNum>.<br />-   **OFF** -deaktiviert Unterstützung für Remotedebuggen, indem die Option/dbg1394 aus dem angegebenen <OSEntryLineNum>. |
-|    /s <computer>     |                                                                                        Gibt den Namen oder die IP-Adresse eines Remotecomputers (umgekehrte Schrägstriche nicht verwenden). Der Standardwert ist der lokale Computer.                                                                                        |
-| /u <Domain>\\<User>  |                                               Führt den Befehl mit den Berechtigungen des Benutzers gemäß <User> oder <Domain> \\ <User>. Der Standardwert ist die Berechtigungen von der aktuell angemeldete Benutzer auf dem Computer, die der Befehl ausgegeben wird.                                               |
-|    /p <Password>     |                                                                                                      Gibt das Kennwort des Benutzerkontos ein, die im angegebenen die **/u** Parameter.                                                                                                       |
-|     / CH Kanal      |                                                           Gibt an, der Kanal für das Debuggen verwenden. Gültige Werte sind ganze Zahlen zwischen 1 und 64. Verwenden Sie nicht die **/ch** <Channel> -Parameters, wenn Port 1394-debugging deaktiviert wird.                                                           |
-| / ID <OSEntryLineNum> |                                  Gibt die Zeilennummer der Betriebssystem-Eintrag im Abschnitt [Betriebssysteme] der Datei "Boot.ini", die die Optionen Debuggen 1394 hinzugefügt werden. Die erste Zeile nach der [Betriebssysteme] Header im Abschnitt ist 1.                                  |
+|   {ON &#124; OFF}    | Gibt den Wert für 1394-Port Debugging an.<br /><br />-   **auf** : aktiviert die Unterstützung für Remote Debugging durch Hinzufügen der/dbg1394-Option zum angegebenen <OSEntryLineNum>.<br />@no__t **-0 deaktiviert** : deaktiviert die Unterstützung für Remote Debugging, indem die/dbg1394-Option aus dem angegebenen <OSEntryLineNum> entfernt wird. |
+|    /s <computer>     |                                                                                        Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Der Standardwert ist der lokale Computer.                                                                                        |
+| /u <Domain> @ no__t-1 @ no__t-2  |                                               Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der durch <User> oder <Domain> @ no__t-2 @ no__t-3 angegeben wird. Der Standardwert sind die Berechtigungen des aktuell angemeldeten Benutzers auf dem Computer, von dem der Befehl ausgegeben wird.                                               |
+|    /p <Password>     |                                                                                                      Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist.                                                                                                       |
+|     /ch-Kanal      |                                                           Gibt den für das Debugging zu verwendenden Kanal an. Gültige Werte sind ganze Zahlen zwischen 1 und 64. Verwenden Sie den Parameter " **/ch** <Channel>" nicht, wenn 1394-Port-Debugging deaktiviert wird.                                                           |
+| /ID <OSEntryLineNum> |                                  Gibt die Betriebssystem-Eintrags Zeilennummer im Abschnitt [Betriebssysteme] der Datei Boot. ini an, der die 1394-Port-Debugoptionen hinzugefügt werden. Die erste Zeile nach der Abschnitts Kopfzeile [Betriebssystem] ist 1.                                  |
 |          /?          |                                                                                                                               Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                               |
 
-## <a name="BKMK_examples"></a>Beispiele für
-Die folgenden Beispiele zeigen Informationen zur Verwendung der **Bootcfg/dbg1394**Befehl:
+## <a name="BKMK_examples"></a>Beispiele
+In den folgenden Beispielen wird gezeigt, wie Sie den Befehl **bootcfg/dbg1394**verwenden können:
 ```
 bootcfg /dbg1394 /id 2 
 bootcfg /dbg1394 on /ch 1 /id 3 
 bootcfg /dbg1394 edit /ch 8 /id 2 
 bootcfg /s srvmain /u maindom\hiropln /p p@ssW23 /dbg1394 off /id 2
 ```
-#### <a name="additional-references"></a>Zusätzliche Referenzen
+#### <a name="additional-references"></a>Weitere Verweise
 [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

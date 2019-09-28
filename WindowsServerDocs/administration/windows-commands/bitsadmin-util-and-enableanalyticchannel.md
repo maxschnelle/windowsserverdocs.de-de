@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin Util und enableanalyticchannel
-description: 'Windows-Befehle Thema **Bitsadmin Util und Enableanalyticchannel** : aktiviert oder deaktiviert den BITS-Client-analysekanal.'
+title: bizadmin util und enableanalyticchannel
+description: 'Windows-Befehls Thema für **BITSAdmin util und enableanalyticchannel** : aktiviert oder deaktiviert den analysekanal des BITS-Clients.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 814442a4d9b1a4d6e45b28f41a89b7a144be1cbf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2c73c704e0c49c6f8309ce0a5c9646afb3392f79
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877321"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380258"
 ---
-# <a name="bitsadmin-util-and-enableanalyticchannel"></a>Bitsadmin Util und enableanalyticchannel
+# <a name="bitsadmin-util-and-enableanalyticchannel"></a>bizadmin util und enableanalyticchannel
 
 
 
-Aktiviert oder deaktiviert den BITS-Client-analysekanal.
+Aktiviert oder deaktiviert den analysekanal des BITS-Clients.
 
 ## <a name="syntax"></a>Syntax
 
@@ -32,13 +32,13 @@ Aktiviert oder deaktiviert den BITS-Client-analysekanal.
 bitsadmin /Util /EnableAnalyticChannel TRUE|FALSE
 ```
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Im folgenden Beispiel wird die BITS-Client analytischen Kanal.
+Im folgenden Beispiel wird der analysekanal des BITS-Clients aktiviert.
 ```
 C:\>bitsadmin /Util / EnableAnalyticChannel TRUE
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

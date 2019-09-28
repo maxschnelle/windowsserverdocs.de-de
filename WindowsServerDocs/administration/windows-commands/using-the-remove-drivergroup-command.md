@@ -1,8 +1,8 @@
 ---
-title: Verwenden den Befehl Remove-DriverGroup
-description: 'Windows-Befehle Thema ***- '
+title: Verwenden des Remove-drivergroup-Befehls
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b56f162861caf4493550f9e063065e9544e52eae
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d22ae4e191c2110a0b8d4cc50c24c2f3ec4a7e60
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885751"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362932"
 ---
-# <a name="using-the-remove-drivergroup-command"></a>Verwenden den Befehl Remove-DriverGroup
+# <a name="using-the-remove-drivergroup-command"></a>Verwenden des Remove-drivergroup-Befehls
 
 
 
-Entfernt eine Treibergruppe auf einem Server an.
+entfernt eine Treiber Gruppe von einem Server.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,12 +36,12 @@ WDSUTIL /Remove-DriverGroup /DriverGroup:<Group Name> [/Server:<Server name>]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|/ DriverGroup:\<Gruppenname >|Gibt den Namen der Gruppe "Treiber" zu entfernen.|
-|[/ Server:\<Servername >]|Gibt den Namen des Servers an. Dies kann den NetBIOS-Namen oder den vollqualifizierten Domänennamen sein. Wenn ein Servername nicht angegeben ist, wird der lokale Server verwendet.|
+|/DriverGroup: \<gruppenname >|Gibt den Namen der zu entfernenden Treiber Gruppe an.|
+|[/Server: \<Server Name >]|Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Namen handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Geben Sie eine der folgenden Schritte aus, um eine Treibergruppe zu entfernen:
+Geben Sie eine der folgenden Informationen ein, um eine Treiber Gruppe zu entfernen:
 ```
 WDSUTIL /Remove-DriverGroup /DriverGroup:PrinterDrivers
 ```
@@ -51,4 +51,4 @@ WDSUTIL /Remove-DriverGroup /DriverGroup:PrinterDrivers /Server:MyWdsServer
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

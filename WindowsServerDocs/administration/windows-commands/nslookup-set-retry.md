@@ -1,8 +1,8 @@
 ---
 title: nslookup set retry
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 876d8332e778aa0b3049354a21fbe01adb883729
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 306bcc4f5e7ac98767c3c2e274100cf917874a8e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436652"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372858"
 ---
 # <a name="nslookup-set-retry"></a>nslookup set retry
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Legt die Anzahl von Wiederholungen fest.
+Legt die Anzahl der Wiederholungen fest.
 ## <a name="syntax"></a>Syntax
 ```
 set retry=<Number>
@@ -33,11 +33,11 @@ set retry=<Number>
 
 |    Parameter    |                                      Beschreibung                                       |
 |-----------------|----------------------------------------------------------------------------------------|
-|    <Number>     | Gibt den neuen Wert für die Anzahl der Wiederholungsversuche an. Die Standardanzahl von Wiederholungen ist 4. |
-| {help &#124; ?} |                 Zeigt eine kurze Zusammenfassung der **Nslookup** Unterbefehle.                  |
+|    <Number>     | Gibt den neuen Wert für die Anzahl der Wiederholungs Versuche an. Die Standard Anzahl von Wiederholungen ist 4. |
+| {Help &#124; ?} |                 Zeigt eine kurze Zusammenfassung der **nslookup** -Unterbefehle an.                  |
 
 ## <a name="remarks"></a>Hinweise
-- Wenn eine Antwort auf eine Anforderung nicht innerhalb einer bestimmten Zeitspanne empfangen wird, der Timeoutzeitraum verdoppelt, und die Anforderung erneut gesendet wird. Der Retry-Wert steuert, wie oft eine Anforderung gesendet wird, bevor aufgegeben wird. Sie können ändern, dass das Timeout mit der **Timeout festlegen** Unterbefehl.
-  ## <a name="additional-references"></a>Zusätzliche Referenzen
-  [Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-  [Nslookup Timeout festlegen](nslookup-set-timeout.md)
+- Wenn eine Antwort auf eine Anforderung nicht innerhalb einer bestimmten Zeitspanne empfangen wird, wird der Timeout Zeitraum verdoppelt, und die Anforderung wird erneut gesendet. Der wiederholen Sie-Wert steuert, wie oft eine Anforderung erneut gesendet wird, bevor Sie den Vorgang aufgibt. Sie können den Timeout Zeitraum mit dem Unterbefehl **Set Timeout** ändern.
+  ## <a name="additional-references"></a>Weitere Verweise
+  [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+  [nslookup-Satz Timeout](nslookup-set-timeout.md)

@@ -1,8 +1,8 @@
 ---
 title: bitsadmin
-description: Windows-Befehle Thema **Bitsadmin** -Bitsadmin ist ein Befehlszeilentool, das Sie verwenden können, erstellen, herunterladen oder Hochladen Aufträge und ihren Fortschritt überwachen.
+description: Das Thema Windows-Befehle für **bitadmin** -bitadmin ist ein Befehlszeilen Tool, mit dem Sie Aufträge erstellen, herunterladen oder hochladen und ihren Fortschritt überwachen können.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,70 +13,70 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: da0f05ec716cffb7d7532ebac50a091729a6bb18
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b53293b28a83ecced34d248741996c958531d517
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821071"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380098"
 ---
 # <a name="bitsadmin"></a>bitsadmin
 
-> **Gilt für**: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows 10
+> **Gilt für**: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10
 
-Bitsadmin ist ein Befehlszeilentool, mit denen Sie Download erstellen oder Uploadaufträge und ihren Status überwachen. Das Tool Bitsadmin verwendet Switches zum Identifizieren der auszuführenden Vorgänge an.  Rufen Sie `bitsadmin /?` oder `bitsadmin /HELP` um eine Liste der Befehlszeilenoptionen zu erhalten.
+bitadmin ist ein Befehlszeilen Tool, das Sie zum Erstellen von Aufträgen zum Herunterladen oder hochladen und zum Überwachen des Fortschritts verwenden können. Das bitadmin-Tool verwendet Schalter, um die auszuführende Arbeit zu identifizieren.  Sie können `bitsadmin /?` oder `bitsadmin /HELP` zum Abrufen einer Liste von Switches abrufen.
 
-Die meisten Switches erfordern eine \<Auftrag\> Parameter, der Sie der Auftrags Display-Name oder GUID festgelegt. Beachten Sie, dass Anzeigename des Auftrags möglicherweise nicht eindeutig ist. Die **/ create** und **/list** Switches Zurückgeben eines Auftrags-GUID.
+Die meisten Schalter benötigen einen Parameter für den Parameter "\<job @ no__t-1", den Sie auf den anzeigen amen des Auftrags oder die GUID festlegen. Beachten Sie, dass der Anzeige Name eines Auftrags möglicherweise nicht eindeutig ist. Die Schalter **/Create** und **/List** geben die GUID eines Auftrags zurück.
 
-Standardmäßig können Sie Informationen zu Ihrer eigenen Aufträge zugreifen. Um Informationen für Aufträge des Benutzers zuzugreifen, müssen Sie über Administratorrechte verfügen. Wenn der Auftrag in einem Zustand mit erhöhten Rechten erstellt wurde, müssen Sie über ein Fenster mit erhöhten Rechten Bitsadmin ausführen; Andernfalls müssen Sie nur-Lese Zugriff auf den Auftrag.
+Standardmäßig können Sie auf Informationen zu ihren eigenen Aufträgen zugreifen. Für den Zugriff auf Informationen für die Aufträge eines anderen Benutzers müssen Sie über Administratorrechte verfügen. Wenn der Auftrag mit erhöhten Rechten erstellt wurde, müssen Sie bizadmin über ein Fenster mit erhöhten Rechten ausführen. Andernfalls haben Sie schreibgeschützten Zugriff auf den Auftrag.
 
-Viele der Switches entsprechen den Methoden in der [BITS Schnittstellen](/windows/desktop/bits/bits-interfaces). Weitere Informationen, die einen Switch relevant sein könnten, finden Sie die entsprechende Methode.
+Viele der Schalter entsprechen den Methoden in den [Bits-Schnittstellen](/windows/desktop/bits/bits-interfaces). Weitere Informationen, die für die Verwendung eines Schalters relevant sein können, finden Sie in der entsprechenden-Methode.
 
-Verwenden Sie die folgenden Schalter zum Erstellen eines Auftrags, festgelegt und die Eigenschaften eines Auftrags abrufen, und Überwachen des Status eines Auftrags. Beispiele, die zeigen, wie Sie einige dieser Optionen verwenden, um Aufgaben auszuführen, finden Sie unter [Bitsadmin Beispiele](bitsadmin-examples.md).
+Verwenden Sie die folgenden Schalter, um einen Auftrag zu erstellen, die Eigenschaften eines Auftrags festzulegen und abzurufen und den Status eines Auftrags zu überwachen. Beispiele, die zeigen, wie einige dieser Switches zum Ausführen von Aufgaben verwendet werden, finden Sie unter [bizadmin examples](bitsadmin-examples.md).
 
-## <a name="switches"></a>Switches
+## <a name="switches"></a>Mikro
 
-[Bitsadmin addfile](bitsadmin-addfile.md)  
-[Bitsadmin addfileset](bitsadmin-addfileset.md)  
-[Bitsadmin addfilewithranges](bitsadmin-addfilewithranges.md)  
+[bitsadmin addfile](bitsadmin-addfile.md)  
+[bitsadmin addfileset](bitsadmin-addfileset.md)  
+[bitsadmin addfilewithranges](bitsadmin-addfilewithranges.md)  
 [bitsadmin cache](bitsadmin-cache.md)  
-[Bitsadmin "Abbrechen"](bitsadmin-cancel.md)  
-[Bitsadmin abgeschlossen](bitsadmin-complete.md)  
-[Bitsadmin erstellen](bitsadmin-create.md)  
-[Bitsadmin getaclflags](bitsadmin-getaclflags.md)  
-[Bitsadmin getbytestotal](bitsadmin-getbytestotal.md)  
-[Bitsadmin getbytestransferred](bitsadmin-getbytestransferred.md)  
-[Bitsadmin getclientcertificate](bitsadmin-getclientcertificate.md)  
-[Bitsadmin getcompletiontime](bitsadmin-getcompletiontime.md)  
-[Bitsadmin getcreationtime](bitsadmin-getcreationtime.md)  
+[bitsadmin cancel](bitsadmin-cancel.md)  
+[bitsadmin complete](bitsadmin-complete.md)  
+[bitsadmin create](bitsadmin-create.md)  
+[bitsadmin getaclflags](bitsadmin-getaclflags.md)  
+[bitsadmin getbytestotal](bitsadmin-getbytestotal.md)  
+[bitsadmin getbytestransferred](bitsadmin-getbytestransferred.md)  
+[bitsadmin getclientcertificate](bitsadmin-getclientcertificate.md)  
+[bitsadmin getcompletiontime](bitsadmin-getcompletiontime.md)  
+[bitsadmin getcreationtime](bitsadmin-getcreationtime.md)  
 [bitsadmin getcustomheaders](bitsadmin-getcustomheaders.md)  
 [bitsadmin getdescription](bitsadmin-getdescription.md)  
 [bitsadmin getdisplayname](bitsadmin-getdisplayname.md)  
 [bitsadmin geterror](bitsadmin-geterror.md)  
-[Bitsadmin geterrorcount](bitsadmin-geterrorcount.md)  
+[bitsadmin geterrorcount](bitsadmin-geterrorcount.md)  
 [bitsadmin getfilestotal](bitsadmin-getfilestotal.md)  
-[Bitsadmin getfilestransferred](bitsadmin-getfilestransferred.md)  
-[Bitsadmin gethelpertokenflags](bitsadmin-gethelpertokenflags.md)  
-[Bitsadmin gethelpertokensid](bitsadmin-gethelpertokensid.md)  
-[Bitsadmin Gethttpmethod](bitsadmin-gethttpmethod.md)
-[Bitsadmin Getmaxdownloadtime](bitsadmin-getmaxdownloadtime.md)  
-[Bitsadmin getminretrydelay](bitsadmin-getminretrydelay.md)  
-[Bitsadmin getmodificationtime](bitsadmin-getmodificationtime.md)  
+[bitsadmin getfilestransferred](bitsadmin-getfilestransferred.md)  
+[bitsadmin gethelpertokenflags](bitsadmin-gethelpertokenflags.md)  
+[bitsadmin gethelpertokensid](bitsadmin-gethelpertokensid.md)  
+[bizadmin gethttpmethod](bitsadmin-gethttpmethod.md)
+[bizadmin getmaxdownloadtime](bitsadmin-getmaxdownloadtime.md)  
+[bitsadmin getminretrydelay](bitsadmin-getminretrydelay.md)  
+[bitsadmin getmodificationtime](bitsadmin-getmodificationtime.md)  
 [bitsadmin getnoprogresstimeout](bitsadmin-getnoprogresstimeout.md)  
 [bitsadmin getnotifycmdline](bitsadmin-getnotifycmdline.md)  
-[Bitsadmin getnotifyflags](bitsadmin-getnotifyflags.md)  
-[Bitsadmin getnotifyinterface](bitsadmin-getnotifyinterface.md)  
-[Bitsadmin "GetOwner"](bitsadmin-getowner.md)  
+[bitsadmin getnotifyflags](bitsadmin-getnotifyflags.md)  
+[bitsadmin getnotifyinterface](bitsadmin-getnotifyinterface.md)  
+[bitsadmin getowner](bitsadmin-getowner.md)  
 [bitsadmin getpeercachingflags](bitsadmin-getpeercachingflags.md)  
 [bitsadmin getpriority](bitsadmin-getpriority.md)  
 [bitsadmin getproxybypasslist](bitsadmin-getproxybypasslist.md)  
 [bitsadmin getproxylist](bitsadmin-getproxylist.md)  
-[Bitsadmin getproxyusage](bitsadmin-getproxyusage.md)  
+[bitsadmin getproxyusage](bitsadmin-getproxyusage.md)  
 [bitsadmin getreplydata](bitsadmin-getreplydata.md)  
 [bitsadmin getreplyfilename](bitsadmin-getreplyfilename.md)  
 [bitsadmin getreplyprogress](bitsadmin-getreplyprogress.md)  
-[Bitsadmin getsecurityflags](bitsadmin-getsecurityflags.md)  
-[Bitsadmin getstate](bitsadmin-getstate.md)  
+[bitsadmin getsecurityflags](bitsadmin-getsecurityflags.md)  
+[bitsadmin getstate](bitsadmin-getstate.md)  
 [bitsadmin gettemporaryname](bitsadmin-gettemporaryname.md)  
 [bitsadmin gettype](bitsadmin-gettype.md)  
 [bitsadmin getvalidationstate](bitsadmin-getvalidationstate.md)  
@@ -84,40 +84,40 @@ Verwenden Sie die folgenden Schalter zum Erstellen eines Auftrags, festgelegt un
 [bitsadmin info](bitsadmin-info.md)  
 [bitsadmin list](bitsadmin-list.md)  
 [bitsadmin listfiles](bitsadmin-listfiles.md)  
-[Bitsadmin Makecustomheaderswriteonly](bitsadmin-makecustomheaderswriteonly.md)
-[Bitsadmin überwachen](bitsadmin-monitor.md)  
+[bipadmin makecustomheadersschreiteonly](bitsadmin-makecustomheaderswriteonly.md)
+[bitionadmin-Monitor](bitsadmin-monitor.md)  
 [bitsadmin nowrap](bitsadmin-nowrap.md)  
-[Bitsadmin-peercaching](bitsadmin-peercaching.md)  
-[Bitsadmin peers](bitsadmin-peers.md)  
+[bitsadmin peercaching](bitsadmin-peercaching.md)  
+[bitsadmin peers](bitsadmin-peers.md)  
 [bitsadmin rawreturn](bitsadmin-rawreturn.md)  
-[Bitsadmin removeclientcertificate](bitsadmin-removeclientcertificate.md)  
-[Bitsadmin removecredentials](bitsadmin-removecredentials.md)  
-[Bitsadmin replaceremoteprefix](bitsadmin-replaceremoteprefix.md)  
+[bitsadmin removeclientcertificate](bitsadmin-removeclientcertificate.md)  
+[bitsadmin removecredentials](bitsadmin-removecredentials.md)  
+[bitsadmin replaceremoteprefix](bitsadmin-replaceremoteprefix.md)  
 [bitsadmin reset](bitsadmin-reset.md)  
-[Bitsadmin fortsetzen](bitsadmin-resume.md)  
-[Bitsadmin setaclflag](bitsadmin-setaclflag.md)  
-[Bitsadmin setclientcertificatebyid](bitsadmin-setclientcertificatebyid.md)  
-[Bitsadmin setclientcertificatebyname](bitsadmin-setclientcertificatebyname.md)  
-[Bitsadmin setcredentials](bitsadmin-setcredentials.md)  
-[Bitsadmin setcustomheaders](bitsadmin-setcustomheaders.md)  
+[bitsadmin resume](bitsadmin-resume.md)  
+[bitsadmin setaclflag](bitsadmin-setaclflag.md)  
+[bitsadmin setclientcertificatebyid](bitsadmin-setclientcertificatebyid.md)  
+[bitsadmin setclientcertificatebyname](bitsadmin-setclientcertificatebyname.md)  
+[bitsadmin setcredentials](bitsadmin-setcredentials.md)  
+[bitsadmin setcustomheaders](bitsadmin-setcustomheaders.md)  
 [bitsadmin setdescription](bitsadmin-setdescription.md)  
 [bitsadmin setdisplayname](bitsadmin-setdisplayname.md)  
-[Bitsadmin sethelpertoken](bitsadmin-sethelpertoken.md)  
-[Bitsadmin sethelpertokenflags](bitsadmin-sethelpertokenflags.md)  
-[Bitsadmin Sethttpmethod](bitsadmin-sethttpmethod.md)
-[Bitsadmin Setmaxdownloadtime](bitsadmin-setmaxdownloadtime.md)  
-[Bitsadmin setminretrydelay](bitsadmin-setminretrydelay.md)  
+[bitsadmin sethelpertoken](bitsadmin-sethelpertoken.md)  
+[bitsadmin sethelpertokenflags](bitsadmin-sethelpertokenflags.md)  
+[bitadmin sethttpmethod](bitsadmin-sethttpmethod.md)
+[bizadmin setmaxdownloadtime](bitsadmin-setmaxdownloadtime.md)  
+[bitsadmin setminretrydelay](bitsadmin-setminretrydelay.md)  
 [bitsadmin setnoprogresstimeout](bitsadmin-setnoprogresstimeout.md)  
 [bitsadmin setnotifycmdline](bitsadmin-setnotifycmdline.md)  
-[Bitsadmin setnotifyflags](bitsadmin-setnotifyflags.md)  
+[bitsadmin setnotifyflags](bitsadmin-setnotifyflags.md)  
 [bitsadmin setpeercachingflags](bitsadmin-setpeercachingflags.md)  
-[Bitsadmin setpriority](bitsadmin-setpriority.md)  
+[bitsadmin setpriority](bitsadmin-setpriority.md)  
 [bitsadmin setproxysettings](bitsadmin-setproxysettings.md)  
 [bitsadmin setreplyfilename](bitsadmin-setreplyfilename.md)  
-[Bitsadmin setsecurityflags](bitsadmin-setsecurityflags.md)  
+[bitsadmin setsecurityflags](bitsadmin-setsecurityflags.md)  
 [bitsadmin setvalidationstate](bitsadmin-setvalidationstate.md)  
-[Bitsadmin anhalten](bitsadmin-suspend.md)  
-[Bitsadmin takeownership](bitsadmin-takeownership.md)  
-[Bitsadmin Übertragung](bitsadmin-transfer.md)  
+[bitsadmin suspend](bitsadmin-suspend.md)  
+[bitsadmin takeownership](bitsadmin-takeownership.md)  
+[bitsadmin transfer](bitsadmin-transfer.md)  
 [bitsadmin util](bitsadmin-util.md)  
 [bitsadmin wrap](bitsadmin-wrap.md)  

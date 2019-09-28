@@ -1,8 +1,8 @@
 ---
 title: bitsadmin setpriority
-description: Windows-Befehle Thema **Bitsadmin Setpriority** -legt die Priorität des angegebenen Auftrags fest.
+description: 'Windows-Befehls Thema für **bitadmin SetPriority** : legt die Priorität des angegebenen Auftrags fest.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 072f22ae8c928d427104062b8cbf0f8f42ac4416
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 60564350928f917ca1861684e042304d5d380426
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882211"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380436"
 ---
 # <a name="bitsadmin-setpriority"></a>bitsadmin setpriority
 
@@ -36,16 +36,16 @@ bitsadmin /SetPriority <Job> <Priority>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
-|Priority|Einer der folgenden Werte:</br>: VORDERGRUND</br>– HIGH</br>-   NORMAL</br>– NIEDRIG|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
+|Priority|Einer der folgenden Werte:</br>-VORDERGRUND</br>-HOCH</br>-NORMAL</br>-NIEDRIG|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Im folgenden Beispiel wird die Priorität für den Auftrag mit dem Namen *MyDownloadJob* Normal.
+Im folgenden Beispiel wird die Priorität für den Auftrag mit dem Namen *mydownloadjob* auf Normal festgelegt.
 ```
 C:\>bitsadmin /SetPriority myDownloadJob NORMAL
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

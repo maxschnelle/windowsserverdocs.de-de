@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin Util und Hilfe
-description: Windows-Befehle Thema **Bitsadmin Util und** -zeigt die Verwendung der Befehlszeile für die **Util** Switches.
+title: BIFS admin util und Hilfe
+description: 'Windows-Befehlszeilen Thema für **bitionadmin util und Help** : zeigt die Befehlszeilen Verwendung für die **util** -Switches an.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 99183ab9dd7dcb0fc0351bf2a4369d19b2179aa0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 47ccf6bf1d285bcea115905781819b8553b7ed71
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890361"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380330"
 ---
-# <a name="bitsadmin-util-and-help"></a>Bitsadmin Util und Hilfe
+# <a name="bitsadmin-util-and-help"></a>BIFS admin util und Hilfe
 
 
 
-Zeigt die Verwendung der Befehlszeile für die **Util** Switches.
+Zeigt die Befehlszeilen Verwendung für die **util** -Switches an.
 
 ## <a name="syntax"></a>Syntax
 
@@ -32,13 +32,13 @@ Zeigt die Verwendung der Befehlszeile für die **Util** Switches.
 Bitsadmin /Util /Help 
 ```
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Der folgende Befehl zeigt die Befehlszeilenhilfe für die **Util** Switches.
+Der folgende Befehl zeigt die Befehlszeilen Hilfe für die **util** -Switches an.
 ```
 Bitsadmin /Util /Help
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

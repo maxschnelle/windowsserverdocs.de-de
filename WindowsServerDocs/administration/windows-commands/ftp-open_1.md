@@ -1,8 +1,8 @@
 ---
 title: FTP-open_1
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 45de8b3c210fe0925ac3cc43c41d3e092d5dfe16
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: c5da1c73362c0396300f712b2e45b906d1652604
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438504"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376189"
 ---
-# <a name="ftp-open1"></a>FTP: open_1
+# <a name="ftp-open_1"></a>FTP: open_1
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Eine Verbindung mit dem angegebenen ftp-Server.   
+Stellt eine Verbindung mit dem angegebenen FTP-Server her.   
 ## <a name="syntax"></a>Syntax  
 ```  
 open <computer> [<Port>]  
@@ -33,19 +33,19 @@ open <computer> [<Port>]
 
 | Parameter  |                                           Beschreibung                                            |
 |------------|--------------------------------------------------------------------------------------------------|
-| <computer> |                Gibt an, den Remotecomputer, den Sie eine Verbindung herstellen möchten.                 |
-|  [<Port>]  | Gibt eine TCP-Portnummer zu verwenden, um die Verbindung mit eines ftp-Servers an. Standardmäßig wird TCP-Port 21 verwendet. |
+| <computer> |                Gibt den Remote Computer an, mit dem Sie eine Verbindung herstellen möchten.                 |
+|  [<Port>]  | Gibt eine TCP-Portnummer an, die für die Verbindung mit einem FTP-Server verwendet wird. Standardmäßig wird TCP-Port 21 verwendet. |
 
 ## <a name="remarks"></a>Hinweise  
-Sie können ein IP-Adresse oder einen Computer an (in diesem Fall eine DNS-Server oder die Datei "Hosts" muss verfügbar sein) an **Computer**.  
-## <a name="BKMK_Examples"></a>Beispiele für  
-Verbinden mit dem ftp-Server am **ftp.microsoft.com**.  
+Sie können eine IP-Adresse oder einen Computernamen verwenden (in diesem Fall muss ein DNS-Server oder eine Host Datei verfügbar sein), um den **Computer**anzugeben.  
+## <a name="BKMK_Examples"></a>Beispiele  
+Stellen Sie unter **FTP.Microsoft.com**eine Verbindung zum FTP-Server her.  
 ```  
 Open ftp.microsoft.com  
 ```  
-Verbinden mit dem ftp-Server am **ftp.microsoft.com** , TCP-Port 755 überwacht.  
+Stellen Sie eine Verbindung mit dem FTP-Server unter **FTP.Microsoft.com** her, der an TCP-Port 755 lauscht.  
 ```  
 open ftp.microsoft.com 755  
 ```  
-## <a name="additional-references"></a>Zusätzliche Referenzen  
+## <a name="additional-references"></a>Weitere Verweise  
 -   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

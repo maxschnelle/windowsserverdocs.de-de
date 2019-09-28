@@ -1,8 +1,8 @@
 ---
-title: Verwalten von-Bde forcerecovery
-description: 'Windows-Befehle Thema ***- '
+title: manage-bde forcerecovery
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5bf7a913c9c496aebded349731ef965a53c98ac7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a17d6f276e2ee1ddde82a207a7097928720a3ed8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858641"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374076"
 ---
-# <a name="manage-bde-forcerecovery"></a>Verwalten von-Bde: Forcerecovery
+# <a name="manage-bde-forcerecovery"></a>manage-bde: forcerecovery
 
 
 
-Erzwingt, dass ein mit BitLocker geschütztes Laufwerk in den Wiederherstellungsmodus beim Neustart. Dieser Befehl löscht alle TPM Trusted Platform Module-bezogene Schlüsselschutzvorrichtungen aus dem Laufwerk. Wenn der Computer neu gestartet wird, kann nur ein Wiederherstellungskennwort oder Wiederherstellungsschlüssel zum Entsperren des Laufwerks verwendet werden. Beispiele wie dieser Befehl verwendet werden kann, finden Sie unter [Beispiele](#BKMK_Examples).
+Erzwingt ein durch BitLocker geschütztes Laufwerk beim Neustart in den Wiederherstellungs Modus. Dieser Befehl löscht alle Trusted Platform Module (TPM)-bezogenen Schlüssel Schutzvorrichtungen vom Laufwerk. Wenn der Computer neu gestartet wird, kann nur ein Wiederherstellungs Kennwort oder ein Wiederherstellungs Schlüssel verwendet werden, um das Laufwerk zu entsperren. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,20 +36,20 @@ manage-bde –forcerecovery <Drive> [-computername <Name>] [{-?|/?}] [{-help|-h}
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<Drive>|Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar.|
-|-computername|Gibt an, dass bde.exe verwendet wird, um die BitLocker-Schutz auf einem anderen Computer zu ändern. Sie können auch **- Cn** als eine verkürzte Version des mit diesem Befehl.|
-|\<Name>|Stellt den Namen des Computers, auf dem BitLocker-Schutz zu ändern. Akzeptierte Werte sind die NetBIOS-Namen des Computers und die IP-Adresse des Computers.|
-|-? oder /?|Zeigt eine kurze Hilfe an der Eingabeaufforderung.|
-|---Help oder-h|Führen Sie zeigt Hilfe an der Eingabeaufforderung ein.|
+|\<laufwerk >|Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar.|
+|-Computername|Gibt an, dass "manage-bde. exe verwendet wird, um den BitLocker-Schutz auf einem anderen Computer zu ändern. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden.|
+|\<Name >|Stellt den Namen des Computers dar, auf dem der BitLocker-Schutz geändert werden soll. Akzeptierte Werte sind der NetBIOS-Name des Computers und die IP-Adresse des Computers.|
+|-? oder /?|Zeigt eine kurze Hilfe an der Eingabeaufforderung an.|
+|-Help oder-h|Zeigt die gesamte Hilfe an der Eingabeaufforderung an.|
 
-## <a name="BKMK_Examples"></a>Beispiele für
+## <a name="BKMK_Examples"></a>Beispiele
 
-Das folgende Beispiel veranschaulicht die Verwendung der **- Forcerecovery** Befehl aus, um BitLocker im Wiederherstellungsmodus befinden, auf dem Laufwerk c: zu verursachen
+Das folgende Beispiel veranschaulicht die Verwendung des Befehls " **-forcerecovery** ", um zu bewirken, dass BitLocker im Wiederherstellungs Modus auf Laufwerk C gestartet wird.
 ```
 manage-bde –forcerecovery C:
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
--   [Befehlszeilensyntax](command-line-syntax-key.md)
--   [Verwalten von-bde](manage-bde.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Manage-bde](manage-bde.md)

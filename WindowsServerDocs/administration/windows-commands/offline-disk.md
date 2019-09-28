@@ -1,8 +1,8 @@
 ---
 title: Offline-Datenträger
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 617371583a3f0cb3d0cb739845208e4216573d9c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f28d473cdb557d6adb3aaf235bebdfbc4e78b24a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834621"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372602"
 ---
 # <a name="offline-disk"></a>Offline-Datenträger
 
 
 
-Der online-Datenträger mit dem Fokus dauert im Offlinezustand.
+Schaltet den Online Datenträger mit dem Fokus in den Offline Zustand.
 
 > [!IMPORTANT]
-> Dieser DiskPart-Befehl ist nicht in jeder Edition von Windows Vista verfügbar.
+> Dieser Diskpart-Befehl ist in keiner Edition von Windows Vista verfügbar.
 
 ## <a name="syntax"></a>Syntax
 
@@ -39,22 +39,22 @@ offline disk [noerr]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Diskpart|nur für Skripts. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden.|
+|Noerr|Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.|
 
 ## <a name="remarks"></a>Hinweise
 
--   Dieser Befehl funktioniert auf Datenträgern, die im SAN-online-Modus befinden. Es ändert ihre SAN-Modus in den Offlinemodus.
--   Wenn Sie ein dynamischer Datenträger in einer Datenträgergruppe offline geschaltet wird, ändert sich der Status des Datenträgers **fehlende** und die Gruppe wird einen Datenträger, der offline ist. Der fehlende Datenträger wird in der Gruppe "ungültig" verschoben. Wenn der dynamische Datenträger den letzten Datenträger in der Gruppe, wird der Status des Datenträgers wird nun **offline**, und die leere Gruppe entfernt werden.
--   Ein Datenträger muss ausgewählt werden, für die **Offlinedatenträger** Befehl erfolgreich ausgeführt werden kann. Verwenden der **select Disk** Befehl aus, wählen Sie einen Datenträger und verschiebt den Fokus auf sie.
+-   Dieser Befehl funktioniert auf Datenträgern im San Online-Modus. Der zugehörige San-Modus wird in Offline geändert.
+-   Wenn ein dynamischer Datenträger in einer Datenträger Gruppe offline geschaltet wird, ändert sich der Status des Datenträgers in **fehlt** , und in der Gruppe wird ein Datenträger angezeigt, der offline ist. Der fehlende Datenträger wird in die ungültige Gruppe verschoben. Wenn die dynamische Festplatte der letzte Datenträger in der Gruppe ist, wird der Status des Datenträgers in **Offline**geändert, und die leere Gruppe wird entfernt.
+-   Ein Datenträger muss ausgewählt werden, damit der **Offline** -Datenträger Befehl erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl Datenträger **auswählen** einen Datenträger aus, und verschieben Sie den Fokus auf den Datenträger.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Geben Sie Folgendes ein, um den Datenträger mit dem Fokus offline zu schalten:
+Wenn Sie den Fokus offline schalten möchten, geben Sie Folgendes ein:
 ```
 offline disk
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

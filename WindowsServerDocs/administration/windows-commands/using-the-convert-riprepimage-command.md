@@ -1,8 +1,8 @@
 ---
-title: Mithilfe des Convert-RiprepImage-Befehls
-description: 'Windows-Befehle Thema ***- '
+title: Verwenden des Befehls Convert-RiprepImage
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9b41b6dcc52c3e6700d1d18c61eceea8b990ecdf
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: b0b5e75a4148359db5088e7ff60d29b8d157309d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440579"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363651"
 ---
-# <a name="using-the-convert-riprepimage-command"></a>Mithilfe des Convert-RiprepImage-Befehls
+# <a name="using-the-convert-riprepimage-command"></a>Verwenden des Befehls Convert-RiprepImage
 
 
 
-Ein vorhandenes zur Vorbereitung der Remoteinstallation (RIPrep)-Image konvertiert in Windows-Abbild (WIM)-Format.
+Konvertiert ein vorhandenes RIPrep-Image (Remote Installation Preparation) in ein Windows-Abbild Format (WIM).
 
 ## <a name="syntax"></a>Syntax
 
@@ -42,18 +42,18 @@ WDSUTIL [Options] /Convert-RIPrepImage /FilePath:<File path and name>
 
 |            Parameter            |                                                                                                                                                                                                                                                                                                               Beschreibung                                                                                                                                                                                                                                                                                                                |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| / %FilePath:\<Dateipfad und > |                                                                                                                                                                                                       Gibt den vollständigen Pfad und Namen der .sif-Datei, die das RIPrep-Abbild entspricht. Diese Datei wird in der Regel Riprep.sif aufgerufen und befindet sich im \Templates Unterordner des Ordners, der die RIPrep-Abbild enthält.                                                                                                                                                                                                       |
-|        /DestinationImage        | Gibt die Einstellungen für das Zielabbild mithilfe der folgenden Optionen.</br>-Destinationimage/FilePath:\<Dateipfad und >: Legt den vollständigen Pfad für die neue Datei. Zum Beispiel: **C:\Temp\convert.wim**</br>-[/ Name:\<Name >]-legt den Anzeigenamen des Images fest. Wenn kein Anzeigename angegeben wird, wird der Anzeigename des Quellbilds verwendet werden.</br>-[/ Description: \<Beschreibung >]-legt die Beschreibung des Images fest.</br>-[/InPlace]: Gibt an, dass die Konvertierung ausgeführt werden soll, auf das ursprüngliche RIPrep-Abbild und nicht auf eine Kopie des ursprünglichen Bilds, die das Standardverhalten ist.</br>-[/ Overwrite: {Yes |
+| /FilePath: \<dateipfad und-Name > |                                                                                                                                                                                                       Gibt den vollständigen Pfad und den Dateinamen der SIF-Datei an, die dem RIPrep-Image entspricht. Diese Datei wird in der Regel als Riprep. sif bezeichnet und befindet sich im Unterordner \Templates des Ordners, der das RIPrep-Image enthält.                                                                                                                                                                                                       |
+|        /DestinationImage        | Gibt die Einstellungen für das Ziel Image mit den folgenden Optionen an.</br>-/FilePath: \<dateipfad und-Name >: legt den vollständigen Dateipfad für die neue Datei fest. Zum Beispiel: **C:\temp\convert.wim**</br>-[/Name: \<name >]: legt den anzeigen amen des Bilds fest. Wenn kein Anzeige Name angegeben ist, wird der Anzeige Name des Quell Bilds verwendet.</br>-[/Description: \<description >]: legt die Beschreibung des Bilds fest.</br>-[/Inplace]: gibt an, dass die Konvertierung im ursprünglichen RIPrep-Image stattfinden soll, und nicht in einer Kopie des ursprünglichen Bilds. Dies ist das Standardverhalten.</br>-[/Overwrite: {Yes |
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Geben Sie Folgendes ein, um das angegebene RIPrep.sif Bild in RIPREP.wim zu konvertieren:
+Geben Sie Folgendes ein, um das angegebene Riprep. sif-Image in Riprep. wim zu konvertieren:
 ```
 WDSUTIL /Convert-RiPrepImage /FilePath:"R:\RemoteInstall\Setup\English
 \Images\Win2k3.SP1\i386\Templates\riprep.sif" /DestinationImage
 /FilePath:"C:\Temp\RIPREP.wim"
 ```
-Um das angegebene RIPrep.sif Bild in RIPREP.wim konvertieren, mit dem angegebenen Namen und Beschreibung, und mit der neuen Datei zu überschreiben, wenn eine Datei bereits vorhanden ist, geben Sie Folgendes ein:
+Wenn Sie das angegebene Riprep. sif-Image mit dem angegebenen Namen und der Beschreibung in Riprep. WIM konvertieren und es mit der neuen Datei überschreiben möchten, wenn bereits eine Datei vorhanden ist, geben Sie Folgendes ein:
 ```
 WDSUTIL /Verbose /Progress /Convert-RiPrepImage /FilePath:"\\Server
 \RemInst\Setup\English\Images\WinXP.SP2\i386\Templates\riprep.sif"

@@ -7,340 +7,340 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 40d0d06f8d6d25c2c1dbf4662d3296a996d22055
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ba67a5fcc127bbe6ffce9454ff98fd3bc3725e55
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882941"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71367710"
 ---
 # <a name="monitoring-active-directory-for-signs-of-compromise"></a>Überwachen von Active Directory auf Anzeichen für einen Kompromiss
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-*Gesetz Nummer fünf: Endlose Wachsamkeit ist der Preis für die Sicherheit.* - [10 unveränderlichen Gesetze zur Sicherheitsverwaltung](https://technet.microsoft.com/library/cc722488.aspx)  
+*law Nr. 5: Die ewige Wachsamkeit ist der Preis der Sicherheit.* - [10 unveränderliche Gesetze der Sicherheitsverwaltung](https://technet.microsoft.com/library/cc722488.aspx)  
   
-Ein solid Ereignisprotokoll Überwachungssystem ist ein wichtiger Aspekt jeder sicheren Active Directory-Designs. Viele Computer von sicherheitsgefährdungen konnte frühzeitig in den Ereignisdaten ermittelt werden, wenn die Opfer die entsprechende Ereignisprotokoll, Überwachung und warnungsgenerierung in Kraft gesetzt. Unabhängige Berichte haben lange dieser Schlussfolgerung unterstützt. Z. B. die [2009 Verizon Data Breach-Bericht](http://www.verizonbusiness.com/resources/security/reports/2009_databreach_rp.pdf) Zustände:  
+Ein Solid-Ereignisprotokoll-Überwachungssystem ist ein wichtiger Bestandteil jedes sicheren Active Directory Entwurfs. Viele Computer Sicherheits Kompromisse könnten frühzeitig erkannt werden, wenn die Opfer die entsprechende Überwachung und Warnungen für das Ereignisprotokoll erlassen haben. Diese Schlussfolgerung wird von unabhängigen Berichten lange unterstützt. Beispielsweise gibt der [2009 Verizon-Daten Verletzungs Bericht](http://www.verizonbusiness.com/resources/security/reports/2009_databreach_rp.pdf) Folgendes an:  
   
-"Die scheinbare Ausfall der überwachungs- und Ereignisanalyse dadurch weiterhin eher ein Rätsel. Es gibt es die Möglichkeit für die Erkennung; Ermittler Beachten Sie, dass 66 Prozent des Opfers ausreichenden nachweisen bis in ihre Protokolle sicherheitsverletzung ermittelt dies der Fall wäre mehr gewissenhaft hatte bei der Analyse von Ressourcen zur Verfügung."  
+"Die offensichtliche Ineffektivität der Ereignisüberwachung und der Protokollanalyse ist weiterhin etwas von einem Rätsel. Die Möglichkeit zur Erkennung ist: die Forscher haben festgestellt, dass 66 Prozent der Opfer in Ihren Protokollen über ausreichende Beweise verfügen, um die Verletzung zu ermitteln, was bei der Analyse solcher Ressourcen noch sorgfältiger war. "  
   
-Diese mangelnde Überwachen von aktiven Ereignisprotokollen bleibt eine konsistente Schwachstelle in vielen Unternehmen Security Defense-Pläne. Die [2012-Verizon Data Breach-Bericht](http://www.verizonbusiness.com/resources/reports/rp_data-breach-investigations-report-2012_en_xg.pdf) festgestellt, dass, obwohl 85 Prozent der sicherheitsverletzungen einige Wochen bemerkt haben, 84 Prozent des Opfers Beweis der sicherheitsverletzung in ihren Ereignisprotokollen hatte.  
+Diese fehlende Überwachung von aktiven Ereignisprotokollen bleibt in den Sicherheits Verteidigungs Plänen vieler Unternehmen eine konsistente Schwachstelle. Der [Bericht "2012 Verizon-Datenverletzung](http://www.verizonbusiness.com/resources/reports/rp_data-breach-investigations-report-2012_en_xg.pdf) " hat festgestellt, dass es bei 84 Prozent der Opfer zu einer Sicherheitsverletzung in den Ereignisprotokollen gekommen ist, obwohl 85 Prozent der Verstöße einige Wochen in Anspruch genommen haben.  
   
 ## <a name="windows-audit-policy"></a>Windows-Überwachungsrichtlinie
 
-Im folgenden finden Links zu den Microsoft official Enterprise Support-Blog. Diese Blogs enthält Empfehlungen, Anleitungen und Empfehlungen zur Überwachung, hilft Ihnen bei der Verbesserung der Sicherheits der Active Directory-Infrastruktur und sind eine wertvolle Ressource, beim Entwerfen einer Überwachungsrichtlinie.  
+Im folgenden finden Sie Links zum Microsoft Official Enterprise Support-Blog. Der Inhalt dieser Blogs bietet Ratschläge, Anleitungen und Empfehlungen zur Überwachung, die Sie bei der Verbesserung der Sicherheit Ihrer Active Directory Infrastruktur unterstützen und eine wertvolle Ressource beim Entwerfen einer Überwachungsrichtlinie sind.  
   
-* [Globale Objektzugriffsüberwachung Magic ist](http://blogs.technet.com/b/askds/archive/2011/03/10/global-object-access-auditing-is-magic.aspx) -beschreibt einen Steuerelement-Mechanismus namens erweiterte Überwachungsrichtlinienkonfiguration, die auf Windows 7 und Windows Server 2008 R2, mit dem Sie festlegen, welche Arten von Daten möchten leicht überwachen und nicht Jonglieren hinzugefügt wurde Skripts und auditpol.exe.  
-* [Einführung in die Überwachung von Änderungen in Windows 2008](http://blogs.technet.com/b/askds/archive/2007/10/19/introducing-auditing-changes-in-windows-2008.aspx) -Überwachung in Windows Server 2008 vorgenommenen Änderungen führt.  
-* ["Cool" Überwachung Tricks in Vista und 2008](http://blogs.technet.com/b/askds/archive/2007/11/16/cool-auditing-tricks-in-vista-and-2008.aspx) -interessante Überwachungsfeatures von Windows Vista und Windows Server 2008, die verwendet werden können, für die Behandlung von Problemen oder sehen die Abläufe in Ihrer Umgebung erläutert.  
-* [Zentrale Anlaufstelle für die Überwachung in Windows Server 2008 und Windows Vista](http://blogs.technet.com/b/askds/archive/2008/03/27/one-stop-shop-for-auditing-in-windows-server-2008-and-windows-vista.aspx) -enthält eine Zusammenstellung von Überwachung von Funktionen und Informationen, die in Windows Server 2008 und Windows Vista enthalten sind.  
+* Die [globale Objekt Zugriffs Überwachung ist magisch](http://blogs.technet.com/b/askds/archive/2011/03/10/global-object-access-auditing-is-magic.aspx) : Beschreibt einen Steuerungsmechanismus namens erweiterte Überwachungs Richtlinien Konfiguration, der Windows 7 und Windows Server 2008 R2 hinzugefügt wurde, mit der Sie festlegen können, welche Typen von Daten Sie problemlos überwachen möchten, und wie Sie Skripts nicht jonglieren. "Auditpol. exe".  
+* [Einführung von Überwachungs Änderungen in Windows 2008](http://blogs.technet.com/b/askds/archive/2007/10/19/introducing-auditing-changes-in-windows-2008.aspx) : führt die in Windows Server 2008 vorgenommenen Überwachungs Änderungen ein.  
+* Praktische Überwachungs [Tricks in Vista und 2008](http://blogs.technet.com/b/askds/archive/2007/11/16/cool-auditing-tricks-in-vista-and-2008.aspx) : erläutert interessante Überwachungs Features von Windows Vista und Windows Server 2008, die für die Problembehandlung oder das Auftreten von Ereignissen in Ihrer Umgebung verwendet werden können.  
+* [Zentrale Anlaufstelle für die Überwachung in Windows Server 2008 und Windows Vista](http://blogs.technet.com/b/askds/archive/2008/03/27/one-stop-shop-for-auditing-in-windows-server-2008-and-windows-vista.aspx) : enthält eine Kompilierung von Überwachungs Features und Informationen, die in Windows Server 2008 und Windows Vista enthalten sind.  
   
-Die folgenden Links bieten Informationen zu Verbesserungen an Windows-Überwachung in Windows 8 und Windows Server 2012 und Informationen zu AD DS in Windows Server 2008-Überwachung.  
+Die folgenden Links enthalten Informationen zu Verbesserungen der Windows-Überwachung in Windows 8 und Windows Server 2012 sowie Informationen zur AD DS Überwachung in Windows Server 2008.  
   
-* [Neues bei der Sicherheitsüberwachung](https://technet.microsoft.com/library/hh849638.aspx) -bietet einen Überblick über neue Features in Windows 8 und Windows Server 2012 für die sicherheitsüberwachung.  
-* [Anleitung für AD DS-Überwachung](https://technet.microsoft.com/library/a9c25483-89e2-4202-881c-ea8e02b4b2a5.aspx) -beschreibt die neue Überwachungsfunktion mit Active Directory Domain Services (AD DS) in Windows Server 2008. Darüber hinaus werden Verfahren zur Implementierung dieser neuen Funktion.  
+* [Neues bei der Sicherheits](https://technet.microsoft.com/library/hh849638.aspx) Überwachung: bietet eine Übersicht über die neuen Sicherheits Überprüfungs Features in Windows 8 und Windows Server 2012.  
+* [Schritt-für-Schritt-Anleitung](https://technet.microsoft.com/library/a9c25483-89e2-4202-881c-ea8e02b4b2a5.aspx) für die AD DS Überwachung: Beschreibt das neue Active Directory Domain Services (AD DS)-Überwachungs Feature in Windows Server 2008. Außerdem werden Verfahren zur Implementierung dieses neuen Features bereitstellt.  
   
-### <a name="windows-audit-categories"></a>Windows-Überwachungskategorien
+### <a name="windows-audit-categories"></a>Windows-Überwachungs Kategorien
 
-Vor Windows Vista und Windows Server 2008 musste Windows nur neun Ereignisprotokoll Überwachungskategorien Richtlinie:  
+Vor Windows Vista und Windows Server 2008 verfügte Windows nur über neun Kategorien von Ereignisprotokoll-Überwachungs Richtlinien:  
   
-* Anmeldeversuche  
+* Konto Anmelde Ereignisse  
 * Kontenverwaltung  
-* Active Directory-Zugriff  
-* Logon-Ereignissen  
+* Verzeichnisdienst Zugriff  
+* Anmelde Ereignisse  
 * Objektzugriff  
 * Richtlinienänderung  
 * Verwendung von Berechtigungen  
-* Überwachen  
-* Systemereignisse  
+* Prozess Nachverfolgung  
+* System Ereignisse  
   
-Diese neun herkömmliche Überwachungskategorien umfassen eine Überwachungsrichtlinie. Jede Richtlinienkategorie Überwachung kann aktiviert werden, für Erfolg, Fehler oder Erfolg und Fehler Ereignisse. Im nächsten Abschnitt sind die Beschreibungen enthalten.  
+Diese neun herkömmlichen Überwachungs Kategorien bestehen aus einer Überwachungsrichtlinie. Jede Überwachungs Richtlinien Kategorie kann für Erfolgs-, Fehler-oder Erfolgs-und Fehlerereignisse aktiviert werden. Ihre Beschreibungen sind im nächsten Abschnitt enthalten.  
   
-#### <a name="audit-policy-category-descriptions"></a>Überwachen Sie die Kategorie der Richtlinienbeschreibung  
-Die Überwachung von Richtlinienkategorien können die folgenden Nachrichtentypen in Ereignisprotokoll an.  
+#### <a name="audit-policy-category-descriptions"></a>Beschreibungen der Kategorien der Überwachungsrichtlinie  
+Die Kategorien der Überwachungs Richtlinien ermöglichen die folgenden Ereignisprotokoll-Nachrichten Typen.  
   
-##### <a name="audit-account-logon-events"></a>Anmeldeversuche überwachen  
-Meldet jede Instanz eines Sicherheitsprinzipals (z. B. Benutzer, Computer oder Dienstkonto), die Protokollierung auf oder von einem Computer, die in der einen anderen Computer, zum Überprüfen des Kontos verwendet wird abmelden. Anmeldeversuche werden generiert, wenn ein principal Security-Domänenkonto auf einem Domänencontroller authentifiziert wird. Authentifizierung eines lokalen Benutzers auf einem lokalen Computer generiert ein Logon-Ereignis, das im lokalen Sicherheitsprotokoll angemeldet ist. Kein Konto Abmeldeereignisse werden protokolliert.  
+##### <a name="audit-account-logon-events"></a>Konto Anmelde Ereignisse überwachen  
+Meldet jede Instanz eines Sicherheits Prinzipals (z. b. Benutzer, Computer oder Dienst Konto), die sich bei einem Computer anmeldet, bei dem ein anderer Computer verwendet wird, um das Konto zu überprüfen. Konto Anmelde Ereignisse werden generiert, wenn ein Domänen Sicherheits Prinzipal Konto auf einem Domänen Controller authentifiziert wird. Bei der Authentifizierung eines lokalen Benutzers auf einem lokalen Computer wird ein Anmelde Ereignis generiert, das im lokalen Sicherheitsprotokoll protokolliert wird. Es werden keine Konto Abmelde Ereignisse protokolliert.  
   
-Diese Kategorie generiert "Rauschen"durch viele da Konten, die Protokollierung auf ständig von Windows aufgetreten sind und auf dem lokalen Computer und Remotecomputer während des normalen Betriebs der Unternehmen an. Dennoch sollte jeder Sicherheitsplan Erfolg und Fehlern dieser Kategorie Überwachung enthalten.  
+Diese Kategorie generiert ein hohes Maß an "Rauschen", da Windows sich ständig im normalen Geschäftsbetrieb auf dem lokalen Computer und dem Remote Computer anmeldet. Dennoch sollte jeder Sicherheitsplan den Erfolg und das Fehlschlagen dieser Überwachungs Kategorie einschließen.  
   
-##### <a name="audit-account-management"></a>Kontenverwaltung  
-Diese überwachungseinstellung bestimmt, ob die Verwaltung von Benutzern und Gruppen nachverfolgen. Beispielsweise sollten Benutzer und Gruppen nachverfolgt werden, wenn ein Benutzer oder Computerkonto, eine Sicherheitsgruppe oder eine Verteilergruppe erstellt, geändert oder gelöscht wird; Wenn eine Benutzer- oder Computerkonto umbenannt, deaktiviert oder aktiviert ist; oder wenn ein Benutzer oder Computer Kennwort geändert wird. Für Benutzer oder Gruppen, die hinzugefügt oder aus anderen Gruppen entfernt werden, kann ein Ereignis generiert werden.  
+##### <a name="audit-account-management"></a>Kontoverwaltung überwachen  
+Diese Überwachungs Einstellung bestimmt, ob die Verwaltung von Benutzern und Gruppen nachverfolgt wird. Benutzer und Gruppen sollten z. b. nachverfolgt werden, wenn ein Benutzer-oder Computer Konto, eine Sicherheitsgruppe oder eine Verteiler Gruppe erstellt, geändert oder gelöscht wird. Wenn ein Benutzer-oder Computer Konto umbenannt, deaktiviert oder aktiviert wird. oder wenn ein Benutzer-oder Computer Kennwort geändert wird. Ein Ereignis kann für Benutzer oder Gruppen generiert werden, die hinzugefügt oder aus anderen Gruppen entfernt werden.  
   
 ##### <a name="audit-directory-service-access"></a>Verzeichnisdienstzugriff überwachen  
 
-Mit dieser richtlinieneinstellung wird bestimmt, ob Sicherheitsprinzipal den Zugriff auf Active Directory-Objekt zu überwachen, die eine eigene angegebenen Systemzugriffssteuerungsliste (SACL). Im Allgemeinen sollten diese Kategorie nur auf Domänencontrollern aktiviert werden. Wenn aktiviert, generiert diese Einstellung einen Großteil "Rauschen"durch.  
+Mit dieser Richtlinien Einstellung wird festgelegt, ob der Sicherheits Prinzipal Zugriff auf ein Active Directory Objekt überwachen soll, das über eine eigene angegebene System Zugriffs Steuerungs Liste (SACL) verfügt. Im Allgemeinen sollte diese Kategorie nur auf Domänen Controllern aktiviert werden. Wenn diese Einstellung aktiviert ist, wird viel "Rauschen" generiert.  
   
-##### <a name="audit-logon-events"></a>Anmeldeereignisse überwachen  
-Logon-Ereignissen werden generiert, wenn ein lokale Sicherheitsprinzipal auf einem lokalen Computer authentifiziert wird. Logon-Ereignissen zeichnet domänenanmeldungen, die auf dem lokalen Computer auftreten. Kontoabmeldeereignisse werden nicht generiert. Wenn aktiviert, generiert Anmeldeereignisse viel "Rauschen", aber sie sollten in jeder Überwachung Sicherheitsplan standardmäßig aktiviert werden.  
+##### <a name="audit-logon-events"></a>Anmelde Ereignisse überwachen  
+Anmelde Ereignisse werden generiert, wenn ein lokaler Sicherheits Prinzipal auf einem lokalen Computer authentifiziert wird. Anmelde Ereignisse erfasst Domänen Anmeldungen, die auf dem lokalen Computer ausgeführt werden. Kontoabmeldeereignisse werden nicht generiert. Wenn diese Option aktiviert ist, werden bei Anmelde Ereignissen viele "Geräusche" generiert, Sie sollten jedoch standardmäßig in jedem Sicherheits Prüfungsplan aktiviert werden.  
   
-##### <a name="audit-object-access"></a>Überwachen des Objektzugriffs  
-Zugriff auf Objekte kann Ereignisse generieren, wenn nachfolgend definierte Objekte mit aktivierter Überwachung (z. B., Opened, lesen, umbenannt, gelöscht oder geschlossen) zugegriffen werden. Nachdem die Überwachung Hauptkategorie aktiviert ist, muss der Administrator einzeln definieren die Objekte, die Überwachung aktiviert haben wird. Viele Windows-System-Objekte verfügen über die Überwachung aktiviert, sodass aktivieren diese Kategorie in der Regel wird zum Generieren von Ereignissen, bevor der Administrator definiert hat.  
+##### <a name="audit-object-access"></a>Überwachen des Objekt Zugriffs  
+Der Objektzugriff kann Ereignisse generieren, wenn auf anschließend definierte Objekte zugegriffen wird, für die die Überwachung aktiviert ist (z. b. öffnen, lesen, umbenennen, löschen oder schließen). Nachdem die Haupt Überwachungs Kategorie aktiviert ist, muss der Administrator einzeln definieren, für welche Objekte die Überwachung aktiviert wird. Bei vielen Windows-System Objekten wird die Überwachung aktiviert. Daher beginnt die Aktivierung dieser Kategorie in der Regel damit, Ereignisse zu generieren, bevor der Administrator eine beliebige definiert hat.  
   
-Diese Kategorie ist sehr "lauten" und fünf bis zehn Ereignisse für jeden Zugriff auf die Objekte generiert. Es kann Administratoren noch nicht mit der Überwachung von Objekten erhalten Sie nützliche Informationen schwierig sein. Es sollte nur bei Bedarf aktiviert werden.  
+Diese Kategorie ist äußerst "noisy" und generiert fünf bis zehn Ereignisse für jeden Objektzugriff. Es kann schwierig sein, die Objektüberwachung für Administratoren neu zu machen, um nützliche Informationen zu erhalten. Sie sollte nur bei Bedarf aktiviert werden.  
   
-##### <a name="auditing-policy-change"></a>Überwachung von Richtlinienänderungen  
-Mit dieser richtlinieneinstellung wird bestimmt, ob alle Vorkommen von eine Änderung an Richtlinien für die Zuweisung von Benutzerrechten, Windows-Firewall-Richtlinien, Vertrauensrichtlinien oder Änderungen an der Überwachungsrichtlinie zu überwachen. Diese Kategorie sollte auf allen Computern aktiviert werden. Es wird nur sehr wenig Rauschen generiert.  
+##### <a name="auditing-policy-change"></a>Überwachen der Richtlinien Änderung  
+Mit dieser Richtlinien Einstellung wird festgelegt, ob jedes Auftreten einer Änderung an Benutzerrechte Zuweisungs Richtlinien, Windows-Firewall-Richtlinien, Vertrauensstellungs Richtlinien oder Änderungen an der Überwachungsrichtlinie überprüft werden soll. Diese Kategorie sollte auf allen Computern aktiviert werden. Er erzeugt sehr wenig Rauschen.  
   
-##### <a name="audit-privilege-use"></a>Rechteverwendung überwachen  
+##### <a name="audit-privilege-use"></a>Verwendung von Überwachungs Berechtigungen  
 
-Es gibt Dutzende von Benutzerrechten und Berechtigungen in Windows (z. B. Anmeldung als Batchauftrag und als Teil des Betriebssystems handeln). Mit dieser richtlinieneinstellung wird bestimmt, ob jede Instanz eines Sicherheitsprinzipals zu überwachen, indem Sie die Möglichkeit, einen Benutzer, die Rechte oder Berechtigungen. Aktivieren diese Kategorie führt eine Vielzahl von "Rauschen durch", aber es kann hilfreich beim Verfolgen von Konten von Sicherheitsprinzipalen mit erweiterten Berechtigungen sein.  
+Es gibt Dutzende von Benutzerrechten und-Berechtigungen in Windows (z. b. als Batch Auftrag anmelden und als Teil des Betriebssystems fungieren). Mit dieser Richtlinien Einstellung wird festgelegt, ob jede Instanz eines Sicherheits Prinzipals überprüft werden soll, indem ein Benutzerrecht oder eine Berechtigung für Sie Das Aktivieren dieser Kategorie führt zu einem hohen "Rauschen", aber es kann hilfreich sein, um Sicherheits Prinzipal Konten mithilfe erweiterter Berechtigungen zu überwachen.  
   
-##### <a name="audit-process-tracking"></a>Überwachen der Prozessverfolgung  
-Mit dieser richtlinieneinstellung wird bestimmt, ob ausführliche Überwachungsinformationen für Ereignisse wie das Programm Aktivierung, Beenden des Prozesses, handleduplizierung und indirekte Objektzugriff zu überwachen. Es ist hilfreich für die nachverfolgung von böswilligen Benutzern und die Programme, die sie verwenden.  
+##### <a name="audit-process-tracking"></a>Überwachungsprozess Verfolgung  
+Mit dieser Richtlinien Einstellung wird festgelegt, ob ausführliche Prozess nach Verfolgungs Informationen für Ereignisse wie Programm Aktivierung, Prozess Beendigung, Duplizierung von Objekten und indirekter Objektzugriff überwacht werden sollen. Es ist nützlich, wenn böswillige Benutzer und die von Ihnen verwendeten Programme nachverfolgt werden.  
   
-Aktivieren der Überwachung nachverfolgen generiert eine große Anzahl von Ereignissen, in der Regel wird festgelegt **keine Überwachung**. Allerdings kann diese Einstellung bereitstellen, ein großer Vorteil bei der Reaktion auf Vorfälle aus das detaillierte Protokoll die Prozesse, die gestartet und die Zeit, die mit der sie gestartet wurden. Für Domänencontroller und anderer Infrastrukturserver für einzelne Rolle kann dieser Kategorie sicher auf die ganze Zeit aktiviert werden. Einzelne Rolle Servern keine viel Datenverkehr der prozessverfolgung während des normalen Verlaufs von ihren Aufgaben generiert. Sie können daher aktiviert werden, um nicht autorisierte Ereignisse zu erfassen, wenn sie auftreten.  
+Durch das Aktivieren der Überwachungsprozess Verfolgung wird eine große Anzahl von Ereignissen generiert, sodass Sie in der Regel auf **keine**Überwachung festgelegt ist. Diese Einstellung kann jedoch während einer Reaktion auf Vorfälle aus dem detaillierten Protokoll der gestarteten Prozesse und der Startzeit des Starts einen großen Vorteil bieten. Für Domänen Controller und andere Infrastruktur Server mit nur einer Rolle kann diese Kategorie sicher jederzeit aktiviert werden. Einzelne Rollen Server generieren im normalen Verlauf ihrer Aufgaben keinen großen Prozess nach Verfolgungs Datenverkehr. Daher können Sie aktiviert werden, um nicht autorisierte Ereignisse zu erfassen, wenn Sie auftreten.  
   
-##### <a name="system-events-audit"></a>System-Ereignisse überwachen  
+##### <a name="system-events-audit"></a>Überwachung von System Ereignissen  
 
-Systemereignisse ist fast eine generische Catch-All-Kategorie, registrieren verschiedener Ereignisse, die dem Computer, die Sicherheit des Systems oder das Sicherheitsprotokoll auswirken. Es enthält Ereignisse für Computer Herunterfahren und neu gestartet wird, Stromausfälle, Systemzeit geändert, Authentifizierung Paket Initialisierungen, Audit Log Clearings, Identitätswechsel Probleme und zahlreiche andere allgemeine Ereignisse. Im Allgemeinen, aktivieren diese Überwachungskategorie viel "Rauschen" generiert, sondern generiert genügend sehr nützliche Ereignisse, dass es schwierig, die jemals empfohlen nicht aktiviert, es ist.  
+System Ereignisse sind fast eine generische Catch-All-Kategorie, bei der verschiedene Ereignisse registriert werden, die Auswirkungen auf den Computer, die Systemsicherheit oder das Sicherheitsprotokoll haben. Es umfasst Ereignisse für das Herunterfahren und Neustarten von Computern, Stromausfälle, Systemzeit Änderungen, Authentifizierungs Paket Initialisierungen, Überprüfungen des Überwachungs Protokolls, Identitätswechsel Probleme und einen Host anderer allgemeiner Ereignisse. Im allgemeinen generiert die Aktivierung dieser Überwachungs Kategorie viel "Rauschen", aber Sie generiert genug sehr nützliche Ereignisse, die nicht jemals empfohlen werden, Sie zu aktivieren.  
   
-#### <a name="advanced-audit-policies"></a>Erweiterten Überwachungsrichtlinien
+#### <a name="advanced-audit-policies"></a>Erweiterte Überwachungs Richtlinien
 
-Ab Windows Vista und Windows Server 2008, hat Microsoft die Möglichkeit, die Ereignisprotokolle vorgenommen werden können, indem Unterkategorien unter jeder verbessert. Die Unterkategorien ermöglichen eine wesentlich differenziertere als es andernfalls könnte die Hauptkategorien mit Überwachung. Sie können mithilfe von Unterkategorien, aktivieren nur Teile einer bestimmten Hauptkategorie und Generieren von Ereignissen, die für die Sie keine Verwendung haben zu überspringen. Jede Unterkategorie der Überwachungsrichtlinie kann für Ereignisse durch Erfolg, Fehler oder Erfolg und Fehler aktiviert werden.  
+Ab Windows Vista und Windows Server 2008 hat Microsoft die Auswahlmöglichkeiten für die Ereignisprotokoll Kategorie verbessert, indem Unterkategorien unter jeder Haupt Überwachungs Kategorie erstellt werden. Unterkategorien ermöglichen eine weitaus differenziertere Überwachung, als andernfalls die Hauptkategorien. Mithilfe von Unterkategorien können Sie nur Teile einer bestimmten Hauptkategorie aktivieren und das Erstellen von Ereignissen, für die Sie keine Verwendung haben, überspringen. Jede Unterkategorie der Überwachungsrichtlinie kann für Ereignisse durch Erfolg, Fehler oder Erfolg und Fehler aktiviert werden.  
   
-Um alle verfügbaren Überwachung Unterkategorien aufzulisten, überprüfen Sie den erweiterten Überwachungsrichtlinie-Container in einem Group Policy Object, oder geben Sie Folgendes an einer Eingabeaufforderung auf jedem Computer unter Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008, Windows 8, Windows 7 oder Windows Vista:  
+Überprüfen Sie zum Auflisten aller verfügbaren Überwachungs Unterkategorien den erweiterten Überwachungs Richtlinien Container in einem Gruppenrichtlinie Objekt, oder geben Sie an einer Eingabeaufforderung auf einem beliebigen Computer unter Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008, Windows 8 Folgendes ein: Windows 7 oder Windows Vista:  
   
-`auditpol /list /subcategory:\*`
+`auditpol /list /subcategory:*`
   
-Um eine Liste der aktuell konfigurierten Überwachung Unterkategorien auf einem Computer unter Windows Server 2012, Windows Server 2008 R2 oder Windows 2008 zu erhalten, geben Sie Folgendes ein:  
+Geben Sie Folgendes ein, um eine Liste der derzeit konfigurierten Überwachungs Unterkategorien auf einem Computer zu erhalten, auf dem Windows Server 2012, Windows Server 2008 R2 oder Windows 2008 ausgeführt wird:  
   
-`auditpol /get /category:\*`
+`auditpol /get /category:*`
   
-Der folgende Screenshot zeigt ein Beispiel für auditpol.exe Auflisten der aktuellen Überwachungsrichtlinie.  
+Der folgende Screenshot zeigt ein Beispiel für "Auditpol. exe", das die aktuelle Überwachungsrichtlinie auflistet.  
   
-![Überwachung von Active Directory](media/Monitoring-Active-Directory-for-Signs-of-Compromise/SAD_5.gif)  
+![Überwachen von AD](media/Monitoring-Active-Directory-for-Signs-of-Compromise/SAD_5.gif)  
   
 > [!NOTE]  
-> Die Gruppenrichtlinie meldet den Status der Überwachungsrichtlinien für alle, aktiviert, während auditpol.exe der Fall ist nicht immer genau. Finden Sie unter [Abrufen der effektiven Überwachungsrichtlinie in Windows 7 und 2008 R2](http://blogs.technet.com/b/askds/archive/2011/03/11/getting-the-effective-audit-policy-in-windows-7-and-2008-r2.aspx) Weitere Details.  
+> Der Status aller aktivierten Überwachungs Richtlinien wird von Gruppenrichtlinie nicht immer korrekt gemeldet, während Auditpol. exe dies tut. Weitere Informationen finden Sie [unter erhalten der effektiven Überwachungsrichtlinie in Windows 7 und 2008 R2](http://blogs.technet.com/b/askds/archive/2011/03/11/getting-the-effective-audit-policy-in-windows-7-and-2008-r2.aspx) .  
   
-Jede Kategorie verfügt über mehrere Unterkategorien. Im folgenden finden eine Liste der Kategorien, deren Unterkategorien und eine Beschreibung ihrer Funktionen.  
+Jede Hauptkategorie verfügt über mehrere Unterkategorien. Im folgenden finden Sie eine Liste der Kategorien, ihrer Unterkategorien und eine Beschreibung ihrer Funktionen.  
   
-### <a name="auditing-subcategories-descriptions"></a>Überwachung von Unterkategorien Beschreibungen  
-Überwachungsrichtlinien-Unterkategorien aktivieren Sie die folgenden Ereignisprotokoll Nachrichtentypen:  
+### <a name="auditing-subcategories-descriptions"></a>Beschreibungen von Unterkategorien überwachen  
+Unterkategorien der Überwachungsrichtlinie aktivieren die folgenden Ereignisprotokoll-Nachrichten Typen:  
   
 #### <a name="account-logon"></a>Kontoanmeldung  
   
 ##### <a name="credential-validation"></a>Überprüfung der Anmeldeinformationen  
-Dieser Unterkategorie zeigt die Ergebnisse der Tests zur Überprüfung auf Anmeldeinformationen, die für eine anmeldeanforderung eines Benutzers Konto übermittelt. Diese Ereignisse treten auf dem Computer auf, der für die Anmeldeinformationen autoritativ ist. Bei Domänenkonten ist der Domänencontroller autoritativen, während für lokale Konten, der lokale Computer autorisierend ist.  
+Diese Unterkategorie meldet die Ergebnisse von Validierungstests bei Anmelde Informationen, die für eine Benutzerkonto-Anmelde Anforderung gesendet wurden. Diese Ereignisse treten auf dem Computer auf, der für die Anmeldeinformationen autoritativ ist. Bei Domänen Konten ist der Domänen Controller autorisierend, während für lokale Konten der lokale Computer autorisierend ist.  
   
-In domänenumgebungen werden die meisten der Anmeldeversuche im Sicherheitsprotokoll der Domänencontroller protokolliert, die für die Domänenkonten autorisierend sind. Allerdings können diese Ereignisse auf anderen Computern in der Organisation auftreten, wenn die lokale Konten zur Anmeldung verwendet werden.  
+In Domänen Umgebungen werden die meisten Konto Anmelde Ereignisse im Sicherheitsprotokoll der Domänen Controller protokolliert, die für die Domänen Konten autorisierend sind. Diese Ereignisse können jedoch auf anderen Computern in der Organisation auftreten, wenn lokale Konten verwendet werden, um sich anzumelden.  
   
 ##### <a name="kerberos-service-ticket-operations"></a>Ticketvorgänge des Kerberos-Diensts  
-Dieser Unterkategorie meldet Ereignisse, die vom Kerberos-Ticket Anforderung Prozesse auf dem Domänencontroller, der für das Domänenkonto autorisierend ist.  
+Diese Unterkategorie meldet Ereignisse, die von Kerberos-Ticket Anforderungs Prozessen auf dem Domänen Controller generiert werden, der für das Domänen Konto autorisierend ist.  
   
 ##### <a name="kerberos-authentication-service"></a>Kerberos-Authentifizierungsdienst  
-Dieser Unterkategorie meldet Ereignisse, die vom Kerberos Authentication-Dienst generiert. Diese Ereignisse treten auf dem Computer auf, der für die Anmeldeinformationen autoritativ ist.  
+Diese Unterkategorie meldet Ereignisse, die vom Kerberos-Authentifizierungsdienst generiert wurden. Diese Ereignisse treten auf dem Computer auf, der für die Anmeldeinformationen autoritativ ist.  
   
 ##### <a name="other-account-logon-events"></a>Andere Kontoanmeldungsereignisse  
-Dieser Unterkategorie meldet die Ereignisse, die als Reaktion auf die Anmeldeinformationen für eine anmeldeanforderung eines Benutzers Konto übermittelt auftreten, die nicht auf die Überprüfung der Anmeldeinformationen oder Kerberos-Tickets beziehen. Diese Ereignisse treten auf dem Computer auf, der für die Anmeldeinformationen autoritativ ist. Bei Domänenkonten ist der Domänencontroller autoritativen, während für lokale Konten, der lokale Computer autorisierend ist.  
+Diese Unterkategorie gibt Aufschluss über die Ereignisse, die als Reaktion auf Anmelde Informationen auftreten, die für eine Benutzerkonto-Anmelde Anforderung gesendet werden und sich nicht auf die Überprüfung der Anmelde Informationen oder Kerberos-Tickets beziehen Diese Ereignisse treten auf dem Computer auf, der für die Anmeldeinformationen autoritativ ist. Bei Domänen Konten ist der Domänen Controller autorisierend, während für lokale Konten der lokale Computer autorisierend ist.  
   
-In domänenumgebungen werden die meisten Anmeldeversuche im Sicherheitsprotokoll der Domänencontroller protokolliert, die für die Domänenkonten autorisierend sind. Allerdings können diese Ereignisse auf anderen Computern in der Organisation auftreten, wenn die lokale Konten zur Anmeldung verwendet werden. Beispiele sind etwa:  
+In Domänen Umgebungen werden die meisten Konto Anmelde Ereignisse im Sicherheitsprotokoll der Domänen Controller protokolliert, die für die Domänen Konten autorisierend sind. Diese Ereignisse können jedoch auf anderen Computern in der Organisation auftreten, wenn lokale Konten verwendet werden, um sich anzumelden. Beispiele sind etwa:  
   
-* Remote Desktop Services Session Trennvorgänge  
-* Neue Remote Desktop Services-Sitzungen  
+* Remotedesktopdienste Sitzungs disverbindungen  
+* Neue Remotedesktopdienste Sitzungen  
 * Sperren und Entsperren einer Arbeitsstation  
 * Aufrufen eines Bildschirmschoners  
 * Schließen eines Bildschirmschoners  
-* Erkennung von einem Kerberos replay-Angriff, in dem eine Kerberos-Anforderung mit identische Informationen zweimal empfangen wird  
+* Erkennung eines Kerberos Replay-Angriffs, bei dem eine Kerberos-Anforderung mit identischen Informationen zweimal empfangen wird  
 * Gewähren des Zugriffs zu einem drahtlosen Netzwerk für ein Benutzer- oder Computerkonto  
 * Gewähren des Zugriffs zu einem kabelgebundenen 802.1x-Netzwerk für ein Benutzer- oder Computerkonto  
   
 #### <a name="account-management"></a>Kontenverwaltung  
   
 ##### <a name="user-account-management"></a>Benutzerkontenverwaltung  
-Dieser Unterkategorie meldet jedes Ereignis der Verwaltung von Benutzerkonten, z. B. wenn ein Benutzerkonto erstellt, geändert oder gelöscht wird. ein Benutzerkonto ist umbenannt, deaktiviert oder aktiviert; oder ein Kennwort festgelegt oder geändert wird. Wenn diese richtlinieneinstellung für die Überwachung aktiviert ist, können Administratoren die Ereignisse überwachen, um böswillige versehentlichen und autorisierte Erstellung von Benutzerkonten zu erkennen.  
+Diese Unterkategorie meldet jedes Ereignis der Benutzerkonten Verwaltung, z. b. Wenn ein Benutzerkonto erstellt, geändert oder gelöscht wird. ein Benutzerkonto wurde umbenannt, deaktiviert oder aktiviert. oder es wird ein Kennwort festgelegt oder geändert. Wenn diese Überwachungs Richtlinien Einstellung aktiviert ist, können Administratoren Ereignisse nachverfolgen, um eine böswillige, versehentliche und autorisierte Erstellung von Benutzerkonten zu erkennen.  
   
-##### <a name="computer-account-management"></a>Computer-Kontoverwaltung  
-Dieser Unterkategorie meldet jedes Ereignis von der Computer-kontoverwaltung, z. B. wenn ein Computerkonto erstellt, geändert, gelöscht, umbenannt, aktiviert oder deaktiviert ist, an.  
+##### <a name="computer-account-management"></a>Computer Kontoverwaltung  
+Diese Unterkategorie meldet jedes Ereignis der Computer Kontoverwaltung, z. b. beim Erstellen, ändern, löschen, umbenennen, deaktivieren oder Aktivieren eines Computer Kontos.  
   
-##### <a name="security-group-management"></a>Sicherheitsgruppenverwaltung  
-Dieser Unterkategorie meldet jedes Ereignis der Verwaltung von Sicherheitsgruppen, wie z. B. wenn eine Sicherheitsgruppe erstellt, geändert oder gelöscht wird, oder wenn ein Element hinzugefügt oder aus einer Sicherheitsgruppe entfernt. Wenn diese richtlinieneinstellung für die Überwachung aktiviert ist, können Administratoren Ereignisse überwachen, um böswillige versehentlichen und autorisierte Erstellungen von Sicherheitsgruppenkonten sein.  
+##### <a name="security-group-management"></a>Verwaltung von Sicherheitsgruppen  
+Diese Unterkategorie meldet jedes Ereignis der Sicherheitsgruppen Verwaltung, z. b. Wenn eine Sicherheitsgruppe erstellt, geändert oder gelöscht wird oder wenn ein Mitglied einer Sicherheitsgruppe hinzugefügt bzw. aus dieser entfernt wird. Wenn diese Überwachungs Richtlinien Einstellung aktiviert ist, können Administratoren Ereignisse nachverfolgen, um eine böswillige, versehentliche und autorisierte Erstellung von Sicherheitsgruppen Konten zu erkennen.  
   
-##### <a name="distribution-group-management"></a>Distribution-Gruppenverwaltung  
-Dieser Unterkategorie meldet jedes Ereignis-verteilergruppenverwaltung, z. B. wenn eine Verteilergruppe erstellt, geändert oder gelöscht wird, oder wenn ein Element hinzugefügt oder aus einer Verteilergruppe entfernt. Wenn diese richtlinieneinstellung für die Überwachung aktiviert ist, können Administratoren Ereignisse überwachen, um böswillige versehentlichen und autorisierte Erstellung Gruppenkonten erkannt.  
+##### <a name="distribution-group-management"></a>Verteiler Gruppenverwaltung  
+Diese Unterkategorie meldet jedes Ereignis der Verteiler Gruppenverwaltung, z. b. Wenn eine Verteiler Gruppe erstellt, geändert oder gelöscht wird oder wenn ein Mitglied einer Verteiler Gruppe hinzugefügt oder daraus entfernt wird. Wenn diese Überwachungs Richtlinien Einstellung aktiviert ist, können Administratoren Ereignisse nachverfolgen, um eine böswillige, versehentliche und autorisierte Erstellung von Gruppenkonten zu erkennen.  
   
-##### <a name="application-group-management"></a>Application-Gruppenverwaltung  
-Dieser Unterkategorie meldet jedes Ereignis der Gruppe anwendungsverwaltung auf einem Computer, z. B. wenn eine Anwendungsgruppe erstellt, geändert oder gelöscht wird, oder wenn ein Element hinzugefügt oder aus einer Anwendungsgruppe entfernt. Wenn diese richtlinieneinstellung für die Überwachung aktiviert ist, können Administratoren Ereignisse überwachen, um böswillige versehentlichen und autorisierte Erstellung Gruppenkonten für die Anwendung zu erkennen.  
+##### <a name="application-group-management"></a>Anwendungs Gruppenverwaltung  
+Diese Unterkategorie meldet jedes Ereignis der Anwendungs Gruppenverwaltung auf einem Computer, z. b. Wenn eine Anwendungs Gruppe erstellt, geändert oder gelöscht wird oder wenn ein Mitglied einer Anwendungs Gruppe hinzugefügt oder daraus entfernt wird. Wenn diese Überwachungs Richtlinien Einstellung aktiviert ist, können Administratoren Ereignisse nachverfolgen, um eine böswillige, versehentliche und autorisierte Erstellung von Anwendungs Gruppenkonten zu erkennen.  
   
-##### <a name="other-account-management-events"></a>Andere Konto-Verwaltungsereignisse  
-Dieser Unterkategorie meldet andere Konto-Verwaltungsereignisse.  
+##### <a name="other-account-management-events"></a>Andere Konto Verwaltungs Ereignisse  
+Diese Unterkategorie meldet andere Konto Verwaltungs Ereignisse.  
   
-#### <a name="detailed-process-tracking"></a>Ausführliche überwachen  
+#### <a name="detailed-process-tracking"></a>Ausführliche Prozess Nachverfolgung  
   
 ##### <a name="process-creation"></a>Prozesserstellung  
-Dieser Unterkategorie meldet die Erstellung eines Prozesses und den Namen des Benutzers oder der Anwendung, die sie erstellt haben.  
+Diese Unterkategorie meldet die Erstellung eines Prozesses und den Namen des Benutzers oder Programms, der ihn erstellt hat.  
   
-##### <a name="process-termination"></a>Prozessbeendigung  
-Dieser Unterkategorie wird berichtet, wenn ein Prozess beendet wird.  
+##### <a name="process-termination"></a>Prozess Beendigung  
+Diese Unterkategorie meldet, wenn ein Prozess beendet wird.  
   
 ##### <a name="dpapi-activity"></a>DPAPI-Aktivität  
-Dieser Unterkategorie meldet verschlüsseln oder Entschlüsseln von in die Data Protection Application programming Interface (DPAPI) aufruft. DPAPI wird verwendet, um geheime Informationen wie z. B. gespeicherte Kennwort und wichtige Informationen zu schützen.  
+In dieser Unterkategorie werden Aufrufe an die DPAPI (Data Protection Application Programming Interface) verschlüsselt oder entschlüsselt. DPAPI wird zum Schutz geheimer Informationen verwendet, wie z. b. gespeicherte Kenn Wörter und Schlüsselinformationen.  
   
 ##### <a name="rpc-events"></a>RPC-Ereignisse  
-Dieser Unterkategorie Berichte Remoteprozeduraufruf (RPC)-Verbindungsereignisse.  
+Diese Unterkategorie meldet Remote Prozedur Aufruf-Verbindungs Ereignisse (RPC).  
   
-#### <a name="directory-service-access"></a>Active Directory-Zugriff  
+#### <a name="directory-service-access"></a>Verzeichnisdienst Zugriff  
   
-##### <a name="directory-service-access"></a>Active Directory-Zugriff  
-Dieser Unterkategorie wird berichtet, wenn ein AD DS-Objekt zugegriffen wird. Nur Objekte mit konfigurierten SACLs dazu führen, dass Überwachungsereignisse werden generiert, und nur, wenn sie in einer Weise zugegriffen werden, die die SACL Einträge entspricht. Diese Ereignisse sind ähnlich wie die Directory-Dienst den Zugriff auf Ereignisse in früheren Versionen von Windows Server. Dieser Unterkategorie gilt nur für Domänencontroller.  
+##### <a name="directory-service-access"></a>Verzeichnisdienst Zugriff  
+Diese Unterkategorie meldet, wenn auf ein AD DS Objekt zugegriffen wird. Nur Objekte mit konfigurierten SACLs bewirken, dass Überwachungs Ereignisse generiert werden, und zwar nur, wenn auf Sie in einer Weise zugegriffen wird, die mit den SACL-Einträgen übereinstimmt. Diese Ereignisse ähneln den Verzeichnisdienst-Zugriffs Ereignissen in früheren Versionen von Windows Server. Diese Unterkategorie gilt nur für Domänen Controller.  
   
-##### <a name="directory-service-changes"></a>Directory-Dienst geändert wird.  
-Dieser Unterkategorie meldet Änderungen auf Objekte in AD DS. Die Arten von Änderungen, die gemeldet werden, sind erstellen, ändern, verschieben und Wiederherstellen von Vorgängen, die für ein Objekt ausgeführt werden. Änderung verzeichnisdienstüberwachung, falls zutreffend, gibt an, die alten und neuen Werte der geänderten Eigenschaften der Objekte, die geändert wurden. Nur Objekte mit SACLs dazu führen, dass Überwachungsereignisse werden generiert, und nur, wenn darauf in einer Weise zugegriffen wird, die ihre SACL Einträge entspricht. Einige Objekte und Eigenschaften lösen aufgrund der Einstellungen der Objektklasse im Schema keine Überwachungsereignisse aus. Dieser Unterkategorie gilt nur für Domänencontroller.  
+##### <a name="directory-service-changes"></a>Verzeichnisdienst Änderungen  
+Diese Unterkategorie meldet Änderungen an Objekten in AD DS. Die gemeldeten Änderungs Typen sind Create-, Modify-, Move-und Wiederherstellen-Vorgänge, die für ein-Objekt ausgeführt werden. Die Verzeichnisdienst-Änderungs Überwachung gibt ggf. die alten und neuen Werte der geänderten Eigenschaften der Objekte an, die geändert wurden. Nur Objekte mit SACLs bewirken, dass Überwachungs Ereignisse generiert werden, und zwar nur, wenn auf Sie in einer Weise darauf zugegriffen wird, dass Sie mit ihren SACL-Einträgen übereinstimmt. Einige Objekte und Eigenschaften lösen aufgrund der Einstellungen der Objektklasse im Schema keine Überwachungsereignisse aus. Diese Unterkategorie gilt nur für Domänen Controller.  
   
-##### <a name="directory-service-replication"></a>Replikation des Active Directory  
-Dieser Unterkategorie wird berichtet, wenn die Replikation zwischen zwei Domänencontrollern beginnt und endet.  
+##### <a name="directory-service-replication"></a>Verzeichnisdienst-Replikation  
+Diese Unterkategorie meldet, wenn die Replikation zwischen zwei Domänen Controllern beginnt und endet.  
   
-##### <a name="detailed-directory-service-replication"></a>Detaillierte Verzeichnisdienstreplikation  
-Dieser Unterkategorie meldet ausführliche Informationen zu den Informationen, die zwischen den Domänencontrollern repliziert werden. Diese Ereignisse können per Volumenlizenz sehr hoch sein.  
+##### <a name="detailed-directory-service-replication"></a>Ausführliche Verzeichnisdienst Replikation  
+Diese Unterkategorie meldet ausführliche Informationen zu den Informationen, die zwischen Domänen Controllern repliziert werden. Diese Ereignisse können sehr hoch sein.  
   
 #### <a name="logonlogoff"></a>Anmeldung/Abmeldung  
   
 ##### <a name="logon"></a>Anmelden  
-Dieser Unterkategorie wird berichtet, wenn ein Benutzer versucht, melden Sie sich an das System. Diese Ereignisse treten auf dem Computer zugegriffen werden. Tritt auf, die Generierung dieser Ereignisse auf dem Computer, der angemeldet ist, für die interaktive Anmeldung. Wenn eine Anmeldung am Netzwerk den Zugriff auf eine Dateifreigabe ausgeführt wird, generieren diese Ereignisse, auf dem Computer, der die verwendete Ressource hostet. Wenn diese Einstellung, um konfiguriert ist **keine Überwachung**, es ist schwierig oder unmöglich sein, um zu bestimmen, welcher Benutzer zugegriffen hat, oder es wurde versucht, den Zugriff auf Unternehmens-Computer.  
+Diese Unterkategorie meldet, wenn ein Benutzer versucht, sich am System anzumelden. Diese Ereignisse erfolgen auf dem Computer, auf den zugegriffen wird. Bei interaktiven Anmeldungen tritt die Generierung dieser Ereignisse auf dem Computer auf, der bei angemeldet ist. Wenn für den Zugriff auf eine Freigabe eine Netzwerk Anmeldung erfolgt, werden diese Ereignisse auf dem Computer generiert, der die Ressource hostet, auf die zugegriffen wird. Wenn diese Einstellung auf **keine**Überwachung konfiguriert ist, ist es schwierig oder unmöglich, zu ermitteln, auf welchen Benutzer zugegriffen wurde oder ob er auf Organisations Computer zugegriffen hat.  
   
 ##### <a name="network-policy-server"></a>Netzwerkrichtlinienserver  
-Dieser Unterkategorie gibt vom Benutzer-zugriffsanforderungen RADIUS (IAS) und (Network Access Protection, NAP) generierte Ereignisse. Diese Anforderungen möglich **Grant**, **Verweigern**, **verwerfen**, **Quarantäne**, **Sperre**, und **Nicht entsperren**. Überwachen diese Einstellung führt zu einem Volume mittlerem oder hohem von Datensätzen auf NPS- und IAS-Server.  
+Diese Unterkategorie meldet Ereignisse, die von RADIUS-(IAS) und NAP-Benutzer Zugriffs Anforderungen (Network Access Protection) generiert wurden. Diese Anforderungen können **Grant**, **Deny**, **verwerfen**, **Quarantäne**, **Lock**und **Unlock**sein. Wenn Sie diese Einstellung überwachen, führt dies zu einer mittleren oder großen Anzahl von Datensätzen auf NPS-und IAS-Servern.  
   
-##### <a name="ipsec-main-mode"></a>IPsec-Hauptmodus  
-Dieser Unterkategorie zeigt die Ergebnisse der Internetinformationsdienste (Internet Key Exchange, IKE)-Protokoll und Authenticated Internet Protocol (AuthIP), während der Hauptmodusaushandlungen.  
+##### <a name="ipsec-main-mode"></a>IPSec-Hauptmodus  
+Diese Unterkategorie meldet die Ergebnisse des Internetschlüsselaustausch (IKE)-Protokolls und authentifiziertes Internetprotokoll (AuthIP) während der Hauptmodusverhandlung.  
   
-##### <a name="ipsec-extended-mode"></a>IPsec-Erweiterungsmodus  
-Dieser Unterkategorie zeigt die Ergebnisse der AuthIP während der erweiterte Modus Aushandlungen.  
+##### <a name="ipsec-extended-mode"></a>Erweiterter IPSec-Modus  
+Diese Unterkategorie meldet die Ergebnisse von AuthIP während der Aushandlungen im erweiterten Modus.  
   
-##### <a name="other-logonlogoff-events"></a>Andere Ereignisse Anmelden/Abmelden  
-Dieser Unterkategorie meldet andere Anmeldung und Abmeldung Ereignisse, z. B. Remote Desktop Services Session getrennt und erneut eine Verbindung herstellt, mithilfe von RunAs Prozesse unter einem anderen Konto ausgeführt, Sperren und Entsperren einer Arbeitsstation.  
+##### <a name="other-logonlogoff-events"></a>Andere Anmelde-/Abmelde Ereignisse  
+Diese Unterkategorie meldet andere Anmelde-und Abmelde bezogene Ereignisse, z. b. Remotedesktopdienste Sitzung die Verbindung trennt und die Verbindung wiederherstellt, mithilfe von runas Prozesse unter einem anderen Konto ausführen und eine Arbeitsstation sperren und entsperren.  
   
 ##### <a name="logoff"></a>Abmelden (Logoff)  
-Dieser Unterkategorie wird berichtet, wenn das System ein Benutzer abmeldet. Diese Ereignisse treten auf dem Computer zugegriffen werden. Tritt auf, die Generierung dieser Ereignisse auf dem Computer, der angemeldet ist, für die interaktive Anmeldung. Wenn eine Anmeldung am Netzwerk den Zugriff auf eine Dateifreigabe ausgeführt wird, generieren diese Ereignisse, auf dem Computer, der die verwendete Ressource hostet. Wenn diese Einstellung, um konfiguriert ist **keine Überwachung**, es ist schwierig oder unmöglich sein, um zu bestimmen, welcher Benutzer zugegriffen hat, oder es wurde versucht, den Zugriff auf Unternehmens-Computer.  
+Diese Unterkategorie meldet, wenn sich ein Benutzer beim System anmeldet. Diese Ereignisse erfolgen auf dem Computer, auf den zugegriffen wird. Bei interaktiven Anmeldungen tritt die Generierung dieser Ereignisse auf dem Computer auf, der bei angemeldet ist. Wenn für den Zugriff auf eine Freigabe eine Netzwerk Anmeldung erfolgt, werden diese Ereignisse auf dem Computer generiert, der die Ressource hostet, auf die zugegriffen wird. Wenn diese Einstellung auf **keine**Überwachung konfiguriert ist, ist es schwierig oder unmöglich, zu ermitteln, auf welchen Benutzer zugegriffen wurde oder ob er auf Organisations Computer zugegriffen hat.  
   
 ##### <a name="account-lockout"></a>Kontosperrung  
-Dieser Unterkategorie meldet, wenn es sich bei dem Konto eines Benutzers aufgrund zu vieler fehlerhafter Anmeldeversuche gesperrt ist.  
+In dieser Unterkategorie wird berichtet, wenn das Konto eines Benutzers aufgrund zu vieler fehlgeschlagener Anmeldeversuche gesperrt ist.  
   
-##### <a name="ipsec-quick-mode"></a>IPsec-Schnellmodus  
-Dieser Unterkategorie zeigt die Ergebnisse der IKE-Protokoll und AuthIP während Schnellmodusaushandlungen.  
+##### <a name="ipsec-quick-mode"></a>IPSec-Schnellmodus  
+Diese Unterkategorie meldet die Ergebnisse von IKE-Protokoll und AuthIP während der Schnellmodus-Verhandlung.  
   
-##### <a name="special-logon"></a>Spezielle Anmeldung  
-Dieser Unterkategorie wird berichtet, wenn eine spezielle Anmeldung verwendet wird. Eine spezielle Anmeldung ist eine Anmeldung, die entsprechenden Administratorberechtigungen und kann verwendet werden, um einen Prozess auf einer höheren Ebene zu erhöhen.  
+##### <a name="special-logon"></a>Besondere Anmeldung  
+Diese Unterkategorie meldet, wenn eine spezielle Anmeldung verwendet wird. Eine spezielle Anmeldung ist eine Anmeldung mit entsprechenden Administratorrechten und kann verwendet werden, um einen Prozess auf eine höhere Ebene zu erhöhen.  
   
 #### <a name="policy-change"></a>Richtlinienänderung  
   
-##### <a name="audit-policy-change"></a>Richtlinienänderung überwachen  
-Dieser Unterkategorie meldet Änderungen einschließlich SACL Änderungen Überwachungsrichtlinie.  
+##### <a name="audit-policy-change"></a>Überwachen der Richtlinien Änderung  
+Diese Unterkategorie meldet Änderungen in der Überwachungsrichtlinie einschließlich SACL-Änderungen.  
   
-##### <a name="authentication-policy-change"></a>Authentifizierung-Richtlinienänderung  
-Dieser Unterkategorie meldet Änderungen Authentifizierungsrichtlinie.  
+##### <a name="authentication-policy-change"></a>Änderung der Authentifizierungs Richtlinie  
+Diese Unterkategorie meldet Änderungen in der Authentifizierungs Richtlinie.  
   
-##### <a name="authorization-policy-change"></a>Authorization-Richtlinienänderung  
-Dieser Unterkategorie meldet Änderungen Autorisierungsrichtlinie einschließlich berechtigungsänderungen (Zugriffssteuerungsliste DACL).  
+##### <a name="authorization-policy-change"></a>Autorisierungs Richtlinien Änderung  
+Diese Unterkategorie meldet Änderungen an der Autorisierungs Richtlinie einschließlich der Änderungen an Berechtigungen (DACL).  
   
-##### <a name="mpssvc-rule-level-policy-change"></a>MPSSVC Regelebene Richtlinienänderung  
-Dieser Unterkategorie meldet Änderungen die Regeln, die von der Microsoft-Schutzdienst (MPSSVC.exe) verwendet. Dieser Dienst wird von der Windows-Firewall verwendet.  
+##### <a name="mpssvc-rule-level-policy-change"></a>Richtlinien Änderung auf mpssvc-Regel Ebene  
+Diese Unterkategorie meldet Änderungen in Richtlinien Regeln, die vom Microsoft Protection Service (mpssvc. exe) verwendet werden. Dieser Dienst wird von der Windows-Firewall verwendet.  
   
-##### <a name="filtering-platform-policy-change"></a>Filterplattform-Richtlinienänderung  
-Dieser Unterkategorie meldet das Hinzufügen und Entfernen von Objekten von Windows-Dateischutz, einschließlich Startfilter. Diese Ereignisse können per Volumenlizenz sehr hoch sein.  
+##### <a name="filtering-platform-policy-change"></a>Filtern von Platt Form Richtlinien Änderungen  
+Diese Unterkategorie meldet das Hinzufügen und Entfernen von Objekten aus WFP, einschließlich Start filtern. Diese Ereignisse können sehr hoch sein.  
   
-##### <a name="other-policy-change-events"></a>Andere Richtlinienänderungsereignisse  
-Dieser Unterkategorie gibt andere Arten von Änderungen von Sicherheitsrichtlinien wie z. B. Konfiguration, der die Trusted Platform Module (TPM) oder den Kryptografieanbieter.  
+##### <a name="other-policy-change-events"></a>Andere Richtlinien Änderungs Ereignisse  
+In dieser Unterkategorie werden andere Arten von Sicherheitsrichtlinien Änderungen gemeldet, z. b. die Konfiguration der Trusted Platform Module (TPM) oder Kryptografieanbieter.  
   
 #### <a name="privilege-use"></a>Verwendung von Berechtigungen  
   
-##### <a name="sensitive-privilege-use"></a>Sensible Verwendung von rechten  
-Dieser Unterkategorie wird berichtet, wenn ein Benutzerkonto oder Dienst verwendet eine vertrauliche Berechtigung. Die Berechtigungen einer vertraulichen umfasst die folgenden Berechtigungen: als Teil des Betriebssystems handeln "," Sichern von Dateien und Verzeichnissen "," Erstellen eines Tokenobjekts "," Debuggen von Programmen "," ermöglichen, Computer- und Benutzerkonten für Delegierungszwecke vertraut werden, Generieren von sicherheitsüberwachungen, Annehmen der Clientidentität nach Authentifizierung, laden und Entladen von Gerätetreibern, Verwalten von überwachungs- und Sicherheitsprotokollen, Firmwareumgebungsvariablen ändern, Ersetzen von Token auf Prozessebene, Wiederherstellen von Dateien und Verzeichnisse und Übernehmen des Besitzes von Dateien oder andere Objekte. Überwachung dieser Unterkategorie wird eine große Anzahl von Ereignissen erstellt werden.  
+##### <a name="sensitive-privilege-use"></a>Verwendung vertraulicher Berechtigungen  
+In dieser Unterkategorie wird berichtet, wenn ein Benutzerkonto oder ein Dienst vertrauliche Berechtigungen verwendet. Eine vertrauliche Berechtigung umfasst die folgenden Benutzerrechte: agieren als Teil des Betriebssystems, Sichern von Dateien und Verzeichnissen, Erstellen eines Tokenobjekts, Debuggen von Programmen, Aktivieren von Computer-und Benutzerkonten für die Delegierung, Generieren von Sicherheits Überwachungen, annehmen der Identität eines Clients nach der Authentifizierung, laden und Entladen von Gerätetreibern, Verwalten von Überwachungs-und Sicherheitsprotokollen, Ändern von firmwareumgebungswerten, Ersetzen eines Tokens auf Prozessebene, Wiederherstellen von Dateien und Verzeichnissen und übernehmen des Besitzes von Dateien oder anderen Objekten. Durch das Überwachen dieser Unterkategorie wird eine große Anzahl von Ereignissen erzeugt.  
   
-##### <a name="nonsensitive-privilege-use"></a>Nonsensitive Rechteverwendung  
-Dieser Unterkategorie wird berichtet, wenn ein Benutzerkonto oder Dienst verwendet eine nonsensitive Berechtigung. Die Berechtigungen einer nonsensitive umfasst die folgenden Berechtigungen: Anmeldeinformations-Manager als vertrauenswürdigem Aufrufer zugreifen, auf diesen Computer vom Netzwerk aus zugreifen, Hinzufügen von Arbeitsstationen zur Domäne, Anpassen des arbeitsspeicherkontingents für einen Prozess, lokal anmelden zulassen, die über Remote anmelden zulassen Desktop Services, Auslassen von durchsuchenden Prüfungen, Ändern der Systemzeit, Erstellen einer Auslagerungsdatei, Erstellen globaler Objekte, dauerhafte freigegebene Objekten erstellen, erstellen Sie symbolische Verknüpfungen, den Zugriff auf diesen Computer vom Netzwerk verweigert, Anmelden als Batchauftrag verweigern, Anmelden als Dienst verweigern Lokal anmelden verweigern, Anmelden über Remotedesktopdienste verweigern, erzwingen des Herunterfahrens von einem Remotesystem, Arbeitssatz eines Prozesses, Anheben der Zeitplanungspriorität, Sperren von Seiten im Speicher, melden Sie sich als Batchauftrag, melden Sie sich als ein Dienst, verändern einer objektbezeichnung, Volume ausführen Wartungstasks Profils für einen Einzelprozess, profilerstellung für die Systemleistung, entfernen Sie Computer aus der Dockingstation, das System heruntergefahren und Synchronisieren von Verzeichnisdienstdaten. Überwachung dieser Unterkategorie wird eine sehr hohe Anzahl von Ereignissen erstellt werden.  
+##### <a name="nonsensitive-privilege-use"></a>Verwendung nicht sensibler Berechtigungen  
+Diese Unterkategorie meldet, wenn ein Benutzerkonto oder ein Dienst eine nicht vertrauliche Berechtigung verwendet. Eine nicht vertrauliche Berechtigung umfasst die folgenden Benutzerrechte: Access Credential Manager als vertrauenswürdiger Aufrufer, zugreifen auf diesen Computer über das Netzwerk, Hinzufügen von Arbeitsstationen zur Domäne, Anpassen von Speicher Kontingenten für einen Prozess, zulassen der lokalen Anmeldung, zulassen der Anmeldung über Remote Desktop Dienste, Umgehung der traversierungs Überprüfung, Ändern der Systemzeit, Erstellen einer Pagefile, Erstellen von globalen Objekten, Erstellen dauerhafter frei gegebener Objekte, Erstellen von symbolischen Verknüpfungen, verweigern des Zugriffs auf diesen Computer über das Netzwerk, verweigern als Batch Auftrag, verweigern von "Anmelden als Dienst", verweigern von "Anmelden als Dienst" Verweigern der lokalen Anmeldung, verweigern der Anmeldung über Remotedesktopdienste, Erzwingen des herunter Fahrens von einem Remote System, erhöhen eines Prozess Arbeits Satzes, erhöhen der Planungs Priorität, Sperren von Seiten im Arbeitsspeicher, anmelden als Batch Auftrag, anmelden als Dienst, Ändern einer Objekt Bezeichnung, Ausführen eines Volumes Wartungs Tasks, Profilerstellung für Einzelprozesse, Profilsystem Leistung, Computer von Docking Station entfernen, System Herunterfahren und Verzeichnisdienst Daten synchronisieren. Durch das Überwachen dieser Unterkategorie wird eine sehr hohe Anzahl von Ereignissen erzeugt.  
   
-##### <a name="other-privilege-use-events"></a>Andere Rechteverwendungsereignisse  
-Diese sicherheitseinstellung für die Richtlinie wird derzeit nicht verwendet.  
+##### <a name="other-privilege-use-events"></a>Andere Berechtigungs Verwendungs Ereignisse  
+Diese Sicherheitsrichtlinien Einstellung wird derzeit nicht verwendet.  
   
 #### <a name="object-access"></a>Objektzugriff  
   
 ##### <a name="file-system"></a>Dateisystem  
-Dieser Unterkategorie wird berichtet, wenn Dateisystemobjekte zugegriffen werden. Systemobjekte nur über die Systemzugriffssteuerungslisten Datei dazu führen, dass Überwachungsereignisse werden generiert, und nur, wenn in einer Weise, die übereinstimmende die SACL-Einträge darauf zugegriffen werden. Selbst wird mit dieser richtlinieneinstellung wird nicht dazu führen, dass Überwachung von Ereignissen. Sie bestimmt, ob das Ereignis eines Benutzers zu überwachen, die ein Dateisystemobjekt zugreift, die eine angegebene System-Zugriffssteuerungsliste (SACL) effektiv das Aktivieren der Überwachung stattfinden soll.  
+Diese Unterkategorie meldet, wenn auf Dateisystem Objekte zugegriffen wird. Nur Dateisystem Objekte mit SACLs bewirken, dass Überwachungs Ereignisse generiert werden, und zwar nur, wenn auf Sie in einer Weise auf Sie zugegriffen wird, die ihren SACL-Einträgen entspricht. Diese Richtlinien Einstellung bewirkt, dass keine Ereignisse überwacht werden. Es bestimmt, ob das Ereignis eines Benutzers überwacht werden soll, der auf ein Dateisystem Objekt zugreift, das über eine angegebene System Zugriffs Steuerungs Liste (SACL) verfügt, sodass die Überwachung wirksam wird.  
   
-Wenn die Überwachung von Objektzugriffsversuchen Einstellung konfiguriert ist **Erfolg**, ein Überwachungseintrag wird immer generiert, wenn ein Benutzer erfolgreich ein Objekt mit einer angegebenen SACL zugreift. Wenn diese richtlinieneinstellung konfiguriert ist **Fehler**, ein Überwachungseintrag wird jedes Mal, die ein Benutzer Zugriff auf ein Objekt mit einer angegebenen SACL versuchen nicht generiert.  
+Wenn die Einstellung Objektzugriff überwachen für **Erfolg**konfiguriert ist, wird jedes Mal, wenn ein Benutzer erfolgreich auf ein Objekt mit einer angegebenen SACL zugreift, ein Überwachungs Eintrag generiert. Wenn diese Richtlinien Einstellung auf **Fehler**festgelegt ist, wird jedes Mal ein Überwachungs Eintrag generiert, wenn ein Benutzer versucht, auf ein Objekt mit einer angegebenen SACL zuzugreifen.  
   
 ##### <a name="registry"></a>Registrierung  
-Dieser Unterkategorie wird berichtet, wenn die Registrierungsobjekte zugegriffen wird. Nur Registrierungsobjekte über die Systemzugriffssteuerungslisten dazu führen, dass Überwachungsereignisse werden generiert, und nur, wenn in einer Weise, die übereinstimmende die SACL-Einträge darauf zugegriffen werden. Selbst wird mit dieser richtlinieneinstellung wird nicht dazu führen, dass Überwachung von Ereignissen.  
+Diese Unterkategorie meldet, wenn auf Registrierungs Objekte zugegriffen wird. Nur Registrierungs Objekte mit SACLs bewirken, dass Überwachungs Ereignisse generiert werden, und zwar nur, wenn auf Sie in einer Weise auf Sie zugegriffen wird, die ihren SACL-Einträgen entspricht. Diese Richtlinien Einstellung bewirkt, dass keine Ereignisse überwacht werden.  
   
-##### <a name="kernel-object"></a>Kernel-Objekt  
-Dieser Unterkategorie wird berichtet, wenn der Kernel-Objekttypen, z. B. Prozesse und Mutexe zugegriffen werden. Nur über die Systemzugriffssteuerungslisten Kernelobjekte dazu führen, dass Überwachungsereignisse werden generiert, und nur, wenn in einer Weise, die übereinstimmende die SACL-Einträge darauf zugegriffen werden. Kernel-Objekttypen werden in der Regel nur SACLs angegeben, wenn die Überwachung AuditBaseObjects oder AuditBaseDirectories-Optionen aktiviert sind.  
+##### <a name="kernel-object"></a>Kernel Objekt  
+Diese Unterkategorie meldet, wenn auf Kernel Objekte wie Prozesse und Mutexen zugegriffen wird. Nur Kernel Objekte mit SACLs bewirken, dass Überwachungs Ereignisse generiert werden, und zwar nur dann, wenn auf Sie in einer Weise auf Sie zugegriffen wird, die ihren SACL-Einträgen entspricht. Normalerweise werden Kernel Objekten nur SACLs zugewiesen, wenn die Überwachungs Optionen auditbaseobjects oder auditbasedirectories aktiviert sind.  
   
 ##### <a name="sam"></a>SAM  
-Dieser Unterkategorie wird berichtet, wenn lokale Sicherheitskontenverwaltung (Security Accounts Manager, SAM)-Authentifizierung-Datenbankobjekte zugegriffen wird.  
+In dieser Unterkategorie wird berichtet, wenn auf die Datenbankobjekte der lokalen Sicherheits Konten Verwaltung (Sam) zugegriffen wird.  
   
-##### <a name="certification-services"></a>Zertifikatdienste  
-Dieser Unterkategorie wird berichtet, wenn Zertifizierungsdienste Vorgänge ausgeführt werden.  
+##### <a name="certification-services"></a>Zertifizierungsdienste  
+Diese Unterkategorie meldet, wenn Zertifizierungsdienst Vorgänge ausgeführt werden.  
   
 ##### <a name="application-generated"></a>Anwendung generiert  
-Dieser Unterkategorie wird berichtet, wenn Anwendungen versuchen, Überwachungsereignisse zu generieren, indem Sie mithilfe der Windows-Überwachung Anwendungsprogrammierschnittstellen (APIs).  
+Diese SubCategory meldet, wenn Anwendungen versuchen, Überwachungs Ereignisse mithilfe der Windows-Überwachungs Programmierschnittstellen (Application Programming Interfaces, APIs) zu generieren.  
   
-##### <a name="handle-manipulation"></a>Handleänderung  
-Dieser Unterkategorie wird berichtet, wenn ein Handle für ein Objekt geöffnet bzw. geschlossen wird. Nur Objekte mit SACLs dazu führen, dass diese Ereignisse werden generiert, und nur dann, wenn der versuchte handlevorgang die SACL Einträge entspricht. Handle Manipulation-Ereignisse werden nur für Objekte des Typs generiert, die die Unterkategorie der entsprechenden Objekt zugreifen (z. B. "," Dateisystem "oder" Registrierung ") aktiviert ist.  
+##### <a name="handle-manipulation"></a>Bearbeitung von Handles  
+Diese Unterkategorie meldet, wenn ein Handle für ein Objekt geöffnet oder geschlossen wird. Nur Objekte mit SACLs bewirken, dass diese Ereignisse generiert werden, und nur, wenn der versuchte handle-Vorgang mit den SACL-Einträgen übereinstimmt. Bearbeitungs Ereignisse für die Bearbeitung werden nur für Objekttypen generiert, bei denen die entsprechende Objekt Zugriffs-Unterkategorie aktiviert ist (z. b. Dateisystem oder Registrierung).  
   
 ##### <a name="file-share"></a>Dateifreigabe  
-Dieser Unterkategorie wird berichtet, wenn eine Dateifreigabe zugegriffen wird. Selbst wird mit dieser richtlinieneinstellung wird nicht dazu führen, dass Überwachung von Ereignissen. Sie bestimmt, ob das Ereignis eines Benutzers zu überwachen, die ein File-Freigabe-Objekt zugegriffen wird, die eine angegebene System-Zugriffssteuerungsliste (SACL), hat effektiv das Aktivieren der Überwachung stattfinden soll.  
+Diese Unterkategorie meldet, wenn auf eine Dateifreigabe zugegriffen wird. Diese Richtlinien Einstellung bewirkt, dass keine Ereignisse überwacht werden. Es bestimmt, ob das Ereignis eines Benutzers, der auf ein Dateifreigabe Objekt mit der angegebenen System Zugriffs Steuerungs Liste (SACL) zugreift, überwacht werden soll, sodass die Überwachung wirksam wird.  
   
-##### <a name="filtering-platform-packet-drop"></a>Filterplattform: Verworfene Pakete  
-Dieser Unterkategorie wird berichtet, wenn Sie Pakete von Windows-Filterplattform (WFP) gelöscht werden. Diese Ereignisse können per Volumenlizenz sehr hoch sein.  
+##### <a name="filtering-platform-packet-drop"></a>Filtern von Platt Form Paketen  
+Diese Unterkategorie meldet, wenn Pakete von der Windows-Filter Plattform (WFP) gelöscht werden. Diese Ereignisse können sehr hoch sein.  
   
-##### <a name="filtering-platform-connection"></a>Filtern von Platform-Verbindung  
-Dieser Unterkategorie wird berichtet, wenn Verbindungen zugelassen oder werden von Windows-Dateischutz blockiert. Diese Ereignisse können per Volumenlizenz hoch sein.  
+##### <a name="filtering-platform-connection"></a>Platt Form Verbindung wird gefiltert  
+Diese Unterkategorie meldet, wenn Verbindungen von WFP zugelassen oder blockiert werden. Diese Ereignisse können hoch sein.  
   
-##### <a name="other-object-access-events"></a>Andere Objektzugriffsereignisse  
-Dieser Unterkategorie meldet andere Objekt zugreifen auf verwandte Ereignisse wie Task Scheduler-Aufträge und COM+-Objekte.  
+##### <a name="other-object-access-events"></a>Andere Objekt Zugriffsereignisse  
+Diese Unterkategorie meldet andere Ereignisse im Zusammenhang mit dem Objektzugriff, wie z. b. Taskplaner Aufträge und COM+-Objekte.  
   
 #### <a name="system"></a>System  
   
-##### <a name="security-state-change"></a>Ändern des Sicherheitsstatus  
-Dieser Unterkategorie meldet Änderungen in den Sicherheitszustand des Systems, z. B. wenn das Subsystem startet und beendet.  
+##### <a name="security-state-change"></a>Änderung des Sicherheitszustands  
+Diese Unterkategorie meldet Änderungen im Sicherheitszustand des Systems, z. b. wenn das Sicherheits Subsystem gestartet und beendet wird.  
   
-##### <a name="security-system-extension"></a>System-Sicherheitserweiterungen  
-Dieser Unterkategorie meldet das Laden der Erweiterungscode, z. B. Authentifizierungspaketen durch das Sicherheitssubsystem.  
+##### <a name="security-system-extension"></a>Sicherheits System Erweiterung  
+Diese Unterkategorie meldet das Laden von Erweiterungs Code, wie z. b. Authentifizierungs Pakete, durch das Sicherheits Subsystem.  
   
-##### <a name="system-integrity"></a>Integrität des Systems  
-Dieser Unterkategorie berichtet über Verletzungen der Integrität des Subsystems, Sicherheit.  
+##### <a name="system-integrity"></a>System Integrität  
+Diese Unterkategorie berichtet über Verstöße gegen die Integrität des Sicherheits Subsystems.  
   
 IPSec-Treiber  
   
-Dieser Unterkategorie berichtet über die Aktivitäten des Treibers Internet Protocol Security (IPsec).  
+Diese Unterkategorie meldet die Aktivitäten des IPSec-Treibers (Internet Protocol Security, Internet Protokoll Sicherheit).  
   
-##### <a name="other-system-events"></a>Andere Systemereignisse  
-Dieser Unterkategorie berichtet über andere Systemereignisse.  
+##### <a name="other-system-events"></a>Andere System Ereignisse  
+Diese Unterkategorie meldet andere Systemereignisse.  
   
-Weitere Informationen zu den Unterkategorie-Beschreibungen, finden Sie in der [Microsoft Security Compliance Manager-Tool](https://technet.microsoft.com/library/cc677002.aspx).  
+Weitere Informationen zu den Beschreibungen der Unterkategorien finden Sie im [Microsoft Security Compliance Manager-Tool](https://technet.microsoft.com/library/cc677002.aspx).  
   
-Jede Organisation sollte überprüfen Sie die vorherigen, abgedeckte Kategorien und Unterkategorien, und aktivieren diejenigen, die am besten für ihre Umgebung geeignet. Änderungen an der Richtlinie zu überwachen, sollten immer vor der Bereitstellung in einer produktionsumgebung getestet werden.  
+Jede Organisation sollte die zuvor behandelten Kategorien und Unterkategorien überprüfen und diejenigen aktivieren, die für Ihre Umgebung am besten geeignet sind. Änderungen an der Überwachungsrichtlinie sollten vor der Bereitstellung in einer Produktionsumgebung immer getestet werden.  
   
-## <a name="configuring-windows-audit-policy"></a>Konfigurieren von Windows-Überwachungsrichtlinie
+## <a name="configuring-windows-audit-policy"></a>Konfigurieren der Windows-Überwachungsrichtlinie
 
-Windows-Überwachungsrichtlinie kann mithilfe von Richtlinien, auditpol.exe, APIs oder ein Registrierungsschlüsselwert Änderungen von Gruppe festgelegt werden. Die empfohlenen Methoden für die Konfiguration der Überwachungsrichtlinie für die meisten Unternehmen sind Gruppenrichtlinien oder auditpol.exe. Festlegen der Überwachungsrichtlinie eines Systems ist erforderlich, Berechtigungen auf Administratorebene oder die entsprechenden delegierte Berechtigungen.  
+Die Windows-Überwachungsrichtlinie kann mithilfe von Gruppenrichtlinien, Auditpol. exe, APIs oder Registrierungs Änderungen festgelegt werden. Die empfohlenen Methoden zum Konfigurieren der Überwachungsrichtlinie für die meisten Unternehmen sind Gruppenrichtlinie oder Auditpol. exe. Zum Festlegen der Überwachungsrichtlinie eines Systems sind Konto Berechtigungen auf Administratorebene oder die entsprechenden Delegierten Berechtigungen erforderlich.  
   
 > [!NOTE]  
-> Die **Verwalten von überwachungs- und Sicherheitsprotokollen** muss Berechtigungen von Sicherheitsprinzipalen gewährt werden (Administratoren haben sie standardmäßig) um die Änderung der Objektzugriff Überwachungsoptionen von einzelnen Ressourcen, z. B. Dateien, aktiv zu ermöglichen. Verzeichnisobjekte und Registrierungsschlüssel.  
+> Die Berechtigung zum Verwalten von Überwachungs **-und Sicherheitsprotokollen** muss Sicherheits Prinzipale erteilt werden (Administratoren verfügen standardmäßig über die Berechtigung zum Ändern der Objekt Zugriffs Überwachung von einzelnen Ressourcen, z. b. Dateien, Active Directory Objekten und Registrierungsschlüssel.  
   
-### <a name="setting-windows-audit-policy-by-using-group-policy"></a>Einstellung: Windows-Überwachungsrichtlinie mithilfe von Gruppenrichtlinien
+### <a name="setting-windows-audit-policy-by-using-group-policy"></a>Festlegen der Windows-Überwachungsrichtlinie mithilfe von Gruppenrichtlinie
 
-Zum Festlegen der Überwachungsrichtlinie mithilfe von Gruppenrichtlinien konfigurieren Sie die entsprechenden Überwachungskategorien befindet sich im **Computerkonfiguration\Windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien\überwachungsrichtlinie** (Siehe im folgenden Screenshot ein Beispiel: aus dem Editor für lokale Gruppenrichtlinien (gpedit.msc)). Jede Richtlinienkategorie Überwachung kann aktiviert werden, für die **Erfolg**, **Fehler**, oder **Erfolg** und Fehlerereignisse.  
+Zum Festlegen der Überwachungsrichtlinie mithilfe von Gruppenrichtlinien konfigurieren Sie die entsprechenden Überwachungs Kategorien unter **Computerkonfiguration\Windows-Einstellungen\Sicherheitseinstellungen\Lokale** richtlinien\überwachungrichtlinien. (im folgenden Screenshot finden Sie ein Beispiel aus der lokalen Gruppenrichtlinie-Editor (gpeer dit. msc)). Jede Überwachungs Richtlinien Kategorie kann für **Erfolgs**-, **Fehler**-oder **Erfolgs** -und Fehlerereignisse aktiviert werden.  
   
-![Überwachung von Active Directory](media/Monitoring-Active-Directory-for-Signs-of-Compromise/SAD_6.gif)  
+![Überwachen von AD](media/Monitoring-Active-Directory-for-Signs-of-Compromise/SAD_6.gif)  
   
-Erweiterte Überwachungsrichtlinie kann festgelegt werden, mithilfe von Active Directory oder lokale Gruppenrichtlinien. Zum Festlegen der erweiterten Überwachungsrichtlinie konfigurieren Sie die entsprechenden Unterkategorien befindet sich im **Computerkonfiguration\Windows-einstellungen\sicherheitseinstellungen\erweiterte Audit Richtlinie** (Siehe der folgende Screenshot enthält ein Beispiel aus der lokalen Editor für Gruppenrichtlinien (gpedit.msc)). Jede Unterkategorie der Überwachungsrichtlinie kann aktiviert werden, für die **Erfolg**, **Fehler**, oder **Erfolg** und **Fehler** Ereignisse.  
+Erweiterte Überwachungs Richtlinien können mithilfe von Active Directory oder lokalen Gruppenrichtlinien festgelegt werden. Zum Festlegen der erweiterten Überwachungsrichtlinie konfigurieren Sie die entsprechenden Unterkategorien, die sich unter **Computerkonfiguration\Windows-Einstellungen\Sicherheitseinstellungen\Erweiterte Überwachungsrichtlinie** befinden (im folgenden Screenshot finden Sie ein Beispiel aus der Editor für lokale Gruppenrichtlinien ( gpeer dit. msc)). Jede Unterkategorie der Überwachungsrichtlinie kann für **Erfolgs**-, **Fehler**-oder **Erfolgs** -und **Fehler** Ereignisse aktiviert werden.  
   
-![Überwachung von Active Directory](media/Monitoring-Active-Directory-for-Signs-of-Compromise/SAD_7.gif)  
+![Überwachen von AD](media/Monitoring-Active-Directory-for-Signs-of-Compromise/SAD_7.gif)  
   
-### <a name="setting-windows-audit-policy-using-auditpolexe"></a>Einstellung Windows-Überwachungsrichtlinie mithilfe von Auditpol.exe
+### <a name="setting-windows-audit-policy-using-auditpolexe"></a>Festlegen der Windows-Überwachungsrichtlinie mithilfe von "Auditpol. exe"
 
-Auditpol.exe (zum Festlegen der Windows-Überwachungsrichtlinie) wurde in Windows Server 2008 und Windows Vista eingeführt. Anfangs nur auditpol.exe verwendet werden, um die erweiterten Überwachungsrichtlinie festlegen, aber der Gruppenrichtlinie in Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008, Windows 8 und Windows 7 verwendet werden können.  
+"Auditpol. exe" (zum Festlegen der Windows-Überwachungsrichtlinie) wurde in Windows Server 2008 und Windows Vista eingeführt. Anfänglich konnte nur "Auditpol. exe" zum Festlegen der erweiterten Überwachungsrichtlinie verwendet werden, aber Gruppenrichtlinie kann in Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008, Windows 8 und Windows 7 verwendet werden.  
   
-Auditpol.exe ist ein Befehlszeilen-Hilfsprogramm. Die Syntax lautet wie folgt aus:  
+Auditpol. exe ist ein Befehlszeilen-Hilfsprogramm. Die Syntax lautet wie folgt:  
   
 `auditpol /set /<Category|Subcategory>:<audit category> /<success|failure:> /<enable|disable>`
   
-Auditpol.exe Syntaxbeispiele:  
+Beispiele für die Auditpol. exe-Syntax:  
   
 `auditpol /set /subcategory:"user account management" /success:enable /failure:enable`
   
@@ -349,51 +349,51 @@ Auditpol.exe Syntaxbeispiele:
 `auditpol /set /subcategory:"IPSEC Main Mode" /failure:enable`
   
 > [!NOTE]  
-> Auditpol.exe legt die erweiterte Überwachungsrichtlinie lokal fest. Wenn lokale Richtlinie mit Active Directory oder lokale Gruppenrichtlinien in Konflikt steht, werden die gruppenrichtlinieneinstellungen in der Regel auditpol.exe Einstellungen Vorrang. Wenn mehrere Gruppe oder lokale Richtlinienkonflikte vorhanden sind, wird nur eine Richtlinie Vorrang (die ersetzt wird). Richtlinien werden nicht zusammengeführt.  
+> "Auditpol. exe" legt die erweiterte Überwachungsrichtlinie lokal fest. Wenn die lokale Richtlinie mit Active Directory oder lokalen Gruppenrichtlinie in Konflikt steht, werden Gruppenrichtlinie Einstellungen in der Regel über die Einstellungen "Auditpol. exe" Wenn mehrere Gruppen-oder lokale Richtlinien Konflikte bestehen, wird nur eine Richtlinie Vorrang (d. h. ersetzen). Überwachungs Richtlinien werden nicht zusammengeführt.  
   
-#### <a name="scripting-auditpol"></a>Skript "auditpol"
+#### <a name="scripting-auditpol"></a>Skripterstellung für Auditpol
 
-Microsoft bietet eine [Beispielskript](https://support.microsoft.com/kb/921469) für Administratoren mit der erweiterten Überwachungsrichtlinie festlegen, mithilfe eines Skripts verwenden, anstatt Sie in jedem Befehl auditpol.exe manuell eingeben möchten.  
+Microsoft stellt ein [Beispielskript](https://support.microsoft.com/kb/921469) für Administratoren bereit, die erweiterte Überwachungs Richtlinien mithilfe eines Skripts festlegen möchten, anstatt jeden Auditpol. exe-Befehl manuell einzugeben.  
   
-**Beachten Sie** Gruppenrichtlinien immer genau meldet nicht den Status der Überwachungsrichtlinien für alle, aktiviert, während auditpol.exe der Fall ist. Finden Sie unter [Abrufen der effektiven Überwachungsrichtlinie in Windows 7 und Windows 2008 R2](http://blogs.technet.com/b/askds/archive/2011/03/11/getting-the-effective-audit-policy-in-windows-7-and-2008-r2.aspx) Weitere Details.  
+**Hinweis** Der Status aller aktivierten Überwachungs Richtlinien wird von Gruppenrichtlinie nicht immer korrekt gemeldet, während Auditpol. exe dies tut. Weitere Informationen finden Sie [unter erhalten der effektiven Überwachungsrichtlinie in Windows 7 und Windows 2008 R2](http://blogs.technet.com/b/askds/archive/2011/03/11/getting-the-effective-audit-policy-in-windows-7-and-2008-r2.aspx) .  
   
-#### <a name="other-auditpol-commands"></a>Andere Befehle "auditpol"
+#### <a name="other-auditpol-commands"></a>Andere Auditpol-Befehle
 
-Auditpol.exe kann verwendet werden, speichern und Wiederherstellen von einer Richtlinie für die lokale Überwachung und andere verwandte Überwachungsbefehle anzuzeigen. Hier sind die anderen **"auditpol"** Befehle.  
+"Auditpol. exe" kann verwendet werden, um eine lokale Überwachungsrichtlinie zu speichern und wiederherzustellen sowie andere Überwachungs bezogene Befehle anzuzeigen. Hier sind die anderen **Auditpol** -Befehle aufgeführt.  
   
-`auditpol /clear` -Wird verwendet, um das Löschen und die lokale Überwachungsrichtlinien zur Kennwortrücksetzung  
+`auditpol /clear`: dient zum Löschen und Zurücksetzen von lokalen Überwachungs Richtlinien  
   
-`auditpol /backup /file:<filename>` -Wird verwendet, um eine aktuelle Richtlinie für die lokale Überwachung in eine binäre Datei sichern  
+`auditpol /backup /file:<filename>`-wird verwendet, um eine aktuelle lokale Überwachungsrichtlinie in einer Binärdatei zu sichern.  
   
-`auditpol /restore /file:<filename>` -Wird verwendet, um eine zuvor gespeicherte Richtlinie Überwachungsdatei in eine Richtlinie für die lokale Überwachung zu importieren.  
+`auditpol /restore /file:<filename>`-wird verwendet, um eine zuvor gespeicherte Überwachungs Richtlinien Datei in eine lokale Überwachungsrichtlinie zu importieren.  
   
-`auditpol /<get/set> /option:<CrashOnAuditFail> /<enable/disable>` – Wenn diese richtlinieneinstellung für die Überwachung aktiviert ist, wird das System sofort zu beenden (Beenden: C0000244 {Überwachungsfehlgeschlagen} Nachricht) kann nicht, wenn eine sicherheitsüberwachung aus irgendeinem Grund protokolliert werden. In der Regel ein Ereignis protokolliert wird, wenn das Sicherheitsüberwachungsprotokoll voll ist, und die Retention-Methode angegeben, für das Sicherheitsprotokoll ist nicht **Ereignisse nicht überschreiben** oder **Ereignisse überschreiben, um Tage**. In der Regel ist sie nur in Umgebungen aktiviert, die höhere benötigen, die das Sicherheitsprotokoll protokolliert wird. Wenn aktiviert, müssen Administratoren genau überwachen der Größe des Sicherheitsprotokolls und Rotieren von Protokollen nach Bedarf. Es kann auch mit einer Gruppenrichtlinie festgelegt werden, durch Ändern der Sicherheitsoption **überwachen: Herunterfahren des Systems sofort, wenn Sie nicht von sicherheitsüberwachungen anmelden** (Standardeinstellung = deaktiviert).  
+`auditpol /<get/set> /option:<CrashOnAuditFail> /<enable/disable>`: Wenn diese Überwachungs Richtlinien Einstellung aktiviert ist, bewirkt dies, dass das System sofort beendet wird (mit "beendet: C0000244 {Audit failed}-Meldung), wenn eine Sicherheitsüberprüfung aus irgendeinem Grund nicht protokolliert werden kann. In der Regel kann ein Ereignis nicht protokolliert werden, wenn das Sicherheits Überwachungs Protokoll voll ist, und die für das Sicherheitsprotokoll angegebene Beibehaltungs Methode **nicht Ereignisse überschreiben** oder **Ereignisse nach Tagen überschreiben**. Sie wird in der Regel nur von Umgebungen aktiviert, die höhere Sicherheit bei der Protokollierung des Sicherheitsprotokolls erfordern. Wenn diese Option aktiviert ist, müssen Administratoren die Größe des Sicherheitsprotokolls genau beobachten und Protokolle nach Bedarf rotieren. Sie kann auch mit Gruppenrichtlinie festgelegt werden, indem Sie die Sicherheitsoption **audit: System sofort herunterfahren, wenn Sicherheits Überwachungen nicht protokolliert werden können @ no__t-0 (Standard = deaktiviert).  
   
-`auditpol /<get/set> /option:<AuditBaseObjects> /<enable/disable>` -Diese Einstellung für Überwachungsrichtlinien bestimmt, ob den Zugriff auf globale Systemobjekte zu überwachen. Wenn diese Richtlinie aktiviert ist, bewirkt, dass sie Systemobjekte, wie z. B. Mutexe, Semaphoren, Ereignisse und DOS-Geräte mit einem Standard-Systemzugriffssteuerungsliste (SACL) erstellt werden. Die meisten Administratoren sollten Sie globale Systemobjekte aus, um Sie zu "entsprechende abweichungen auf," Überwachung und werden sie nur dann aktivieren, wenn ein Verdacht auf bösartige Hackerangriffe. Nur benannte Objekte werden eine SACL angegeben. Wenn die Überwachung Objekt Zugriff Audit-Richtlinie (oder Kernelobjekt Überwachungsunterkategorie) auch aktiviert ist, wird den Zugriff auf Systemobjekte überwacht. Wenn Sie diese Einstellung zu konfigurieren, werden Änderungen nicht wirksam, bis zum Neustart von Windows. Diese Richtlinie kann auch mit einer Gruppenrichtlinie festgelegt werden, indem Sie die Sicherheitsoption Zugriff auf globale Systemobjekte ändern (Standard = deaktiviert).  
+`auditpol /<get/set> /option:<AuditBaseObjects> /<enable/disable>`: diese Überwachungs Richtlinien Einstellung bestimmt, ob der Zugriff auf globale Systemobjekte überprüft werden soll. Wenn diese Richtlinie aktiviert ist, bewirkt dies, dass Systemobjekte, z. b. Mutexes, Ereignisse, Semaphore und DOS-Geräte, mit einer Standard-System Zugriffs Steuerungs Liste (SACL) erstellt werden. Die meisten Administratoren sollten globale Systemobjekte so überwachen, dass Sie zu "unschädlich" werden, und Sie werden nur aktiviert, wenn böswillige Hacker vermutet werden. Nur benannte Objekte erhalten eine SACL. Wenn die Überwachungsrichtlinie für Überwachungs Objektzugriff (oder die Unterkategorie "Kernel Objektüberwachung") ebenfalls aktiviert ist, wird der Zugriff auf diese Systemobjekte überprüft. Wenn Sie diese Sicherheitseinstellung konfigurieren, werden die Änderungen erst wirksam, wenn Sie Windows neu starten. Diese Richtlinie kann auch mit Gruppenrichtlinie festgelegt werden, indem Sie die Sicherheitsoption Überwachen des Zugriffs globaler Systemobjekte (Standardeinstellung = deaktiviert) ändern.  
   
-`auditpol /<get/set> /option:<AuditBaseDirectories> /<enable/disable>` -Diese Einstellung für Überwachungsrichtlinien gibt an, dass benannte Kernelobjekte (z. B. Mutexe und Semaphoren) SACLs angegeben werden, wenn sie erstellt werden. AuditBaseDirectories betrifft Containerobjekte AuditBaseObjects Objekte, die andere Objekte enthalten können.  
+`auditpol /<get/set> /option:<AuditBaseDirectories> /<enable/disable>`: diese Überwachungs Richtlinien Einstellung gibt an, dass benannte Kernel Objekte (z. b. Mutexe und Semaphore) bei der Erstellung mit SACLs versehen werden sollen. Auditbasedirectories wirkt sich auf Containerobjekte aus, während auditbaseobjects sich auf Objekte auswirkt, die keine anderen Objekte enthalten können.  
   
-`auditpol /<get/set> /option:<FullPrivilegeAuditing> /<enable/disable>` -Diese Einstellung für Überwachungsrichtlinien gibt an, ob der Client generiert ein Ereignis, wenn eine oder mehrere der folgenden Berechtigungen ein Benutzersicherheitstoken zugewiesen sind: AssignPrimaryTokenPrivilege, AuditPrivilege, BackupPrivilege, CreateTokenPrivilege, DebugPrivilege, EnableDelegationPrivilege, ImpersonatePrivilege, LoadDriverPrivilege, RestorePrivilege, SecurityPrivilege, SystemEnvironmentPrivilege, TakeOwnershipPrivilege und TcbPrivilege. Wenn diese Option nicht aktiviert ist (Standardeinstellung = deaktiviert), die Berechtigungen BackupPrivilege und RestorePrivilege nicht aufgezeichnet werden. Durch Aktivieren dieser Option können Sie das Sicherheitsprotokoll extrem noisy (manchmal Hunderte von Ereignissen pro Sekunde) während eines Sicherungsvorgangs vornehmen. Diese Richtlinie kann auch mit einer Gruppenrichtlinie festgelegt werden, durch Ändern der Sicherheitsoption **überwachen: Überwachen Sie die Verwendung von Sicherungs- und wiederherstellungsrechts**.  
+`auditpol /<get/set> /option:<FullPrivilegeAuditing> /<enable/disable>`: diese Überwachungs Richtlinien Einstellung gibt an, ob der Client ein Ereignis generiert, wenn mindestens eine dieser Berechtigungen einem Benutzer Sicherheits Token zugewiesen ist: Zuordnungen von "zukenprivilege", "auditprivilege", "backupprivilege", "comatetokenprivilege", "Debug Privilege", "enabledelegationprivilege", "Identitätswechsel Berechtigung", "loaddriverprivilege", "restoreprivilege", "securityprivilege" Takebesitzshipprivilege und tcbprivilege. Wenn diese Option nicht aktiviert ist (Standardeinstellung = deaktiviert), werden die Berechtigungen backupprivilege und restoreprivilege nicht aufgezeichnet. Wenn Sie diese Option aktivieren, kann das Sicherheitsprotokoll während eines Sicherungs Vorgangs äußerst laut (manchmal Hunderte von Ereignissen pro Sekunde) werden. Diese Richtlinie kann auch mit Gruppenrichtlinie festgelegt werden, indem Sie die Sicherheitsoption **audit: Überprüfen Sie die Verwendung der Sicherungs-und Wiederherstellungs Berechtigung @ no__t-0.  
   
 > [!NOTE]  
-> Einige der hier bereitgestellten Informationen stammt aus dem Microsoft [Option Überwachungstyp](https://msdn.microsoft.com/library/dd973862(prot.20).aspx) und das Microsoft SCM-Tool.  
+> Einige der hier bereitgestellten Informationen stammen aus dem Microsoft [Audit-Optionstyp](https://msdn.microsoft.com/library/dd973862(prot.20).aspx) und dem Microsoft SCM-Tool.  
   
-## <a name="enforcing-traditional-auditing-or-advanced-auditing"></a>Erzwingen von herkömmlichen Überwachungs- oder erweiterte Überwachung
+## <a name="enforcing-traditional-auditing-or-advanced-auditing"></a>Erzwingen der herkömmlichen Überwachung oder der erweiterten Überwachung
 
-In Windows Server 2012, Windows Server 2008 R2, Windows Server 2008, Windows 8, Windows 7 und Windows Vista können Administratoren auswählen, zu der herkömmlichen neun Kategorien oder Unterkategorien zu verwenden. Es ist eine binäre Option, die auf jedem Windows-System vorgenommen werden muss. Die Hauptkategorien können aktiviert werden, oder die Subcategoriesit kann nicht gleichzeitig.  
+In Windows Server 2012, Windows Server 2008 R2, Windows Server 2008, Windows 8, Windows 7 und Windows Vista können Administratoren auswählen, dass die neun herkömmlichen Kategorien aktiviert oder die Unterkategorien verwendet werden sollen. Es handelt sich um eine binäre Auswahl, die in jedem Windows-System getroffen werden muss. Entweder können die Hauptkategorien aktiviert werden, oder der subcategoriesit darf nicht gleichzeitig sein.  
   
-Um zu verhindern, dass die ältere herkömmliche Kategorierichtlinie Überwachungsrichtlinien-Unterkategorien zu überschreiben, müssen Sie aktivieren die **unterkategorieeinstellungen der Überwachung (Windows Vista oder höher) um kategorieeinstellungen der Überwachungsrichtlinie außer Kraft setzen** richtlinieneinstellung befindet sich im **Computerkonfiguration\Windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien\sicherheitsoptionen**.  
+Um zu verhindern, dass die Legacy-Richtlinien der herkömmlichen Kategorie überschrieben werden, müssen Sie die Einstellung **Einstellungen der Unterkategorie erzwingen (Windows Vista oder höher) aktivieren, um die Einstellungen der Richtlinien Einstellung für die Überwachungs Richtlinien Kategorie außer Kraft zu setzen** . unter **Computerkonfiguration\Windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien\Sicherheitsoptionen**.  
   
-Es wird empfohlen, dass die Unterkategorien aktiviert und konfiguriert werden, anstatt die neun Hauptkategorien unterteilt werden. Dies erfordert, dass eine gruppenrichtlinieneinstellung aktiviert werden (damit Unterkategorien der Überwachungskategorien überschreiben zu können) sowie das Konfigurieren der verschiedenen Unterkategorien, die Überwachungsrichtlinien zu unterstützen.  
+Es wird empfohlen, die Unterkategorien anstelle der neun Hauptkategorien zu aktivieren und zu konfigurieren. Hierfür ist es erforderlich, dass eine Gruppenrichtlinie Einstellung aktiviert ist (damit Unterkategorien die Überwachungs Kategorien außer Kraft setzen), und die Unterkategorien, die Überwachungs Richtlinien unterstützen, konfiguriert werden.  
   
-Überwachung von Unterkategorien kann mithilfe mehrerer Methoden, einschließlich der Gruppenrichtlinie und das Befehlszeilenprogramm, auditpol.exe konfiguriert werden.  
+Überwachungs Unterkategorien können mithilfe verschiedener Methoden konfiguriert werden, einschließlich Gruppenrichtlinie und des Befehlszeilen Programms "Auditpol. exe".  
   
 ## <a name="next-steps"></a>Nächste Schritte
   
 * [Erweiterte Sicherheitsüberprüfung in Windows 7 und Windows Server 2008 R2](https://social.technet.microsoft.com/wiki/contents/articles/advanced-security-auditing-in-windows-7-and-windows-server-2008-r2.aspx)  
   
-* [Überwachung und Compliance in WindowsServer 2008](https://technet.microsoft.com/magazine/2008.03.auditing.aspx)  
+* [Überwachung und Konformität in Windows Server 2008](https://technet.microsoft.com/magazine/2008.03.auditing.aspx)  
   
-* [Wie Sie mithilfe von Gruppenrichtlinien zum Konfigurieren von detaillierten sicherheitsüberwachungseinstellungen für Windows Vista und Windows Server 2008-basierten Computer in einer Windows Server 2008-Domäne, in einer Windows Server 2003-Domäne oder in einer Windows 2000-Domäne](https://support.microsoft.com/kb/921469)  
+* [Verwenden von Gruppenrichtlinie zum Konfigurieren detaillierter Sicherheits Überwachungs Einstellungen für Windows Vista-basierte und Windows Server 2008-basierte Computer in einer Windows Server 2008-Domäne, in einer Windows Server 2003-Domäne oder in einer Windows 2000-Domäne](https://support.microsoft.com/kb/921469)  
   
-* [Advanced Security Audit-Richtlinie schrittweise Anleitung](https://technet.microsoft.com/library/dd408940(WS.10).aspx)  
+* [Schritt-für-Schritt-Anleitung für die erweiterte Sicherheits Überwachungsrichtlinie](https://technet.microsoft.com/library/dd408940(WS.10).aspx)  

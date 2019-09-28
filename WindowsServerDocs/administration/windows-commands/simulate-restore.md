@@ -1,8 +1,8 @@
 ---
-title: Simulieren der Wiederherstellung
-description: 'Windows-Befehle Thema ***- '
+title: Wiederherstellung simulieren
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 09b626939c13d4e38a983435b45d8c47ee2b93a4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d6652fea4e74c706fcc03b8a547fab771a7c0191
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817251"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370884"
 ---
-# <a name="simulate-restore"></a>Simulieren der Wiederherstellung
+# <a name="simulate-restore"></a>Wiederherstellung simulieren
 
 
 
-Testet Writer Beteiligung in der Restore-Sitzungen auf dem Computer nur durch Ausstellung **PreRestore** oder **PostRestore** Ereignisse auf Writer.
+Testet die Beteiligung von Writer in Wiederherstellungs Sitzungen auf dem Computer ohne Ausgabe von **vorab** -oder **postrestore** -Ereignissen an Writer.
 
 ## <a name="syntax"></a>Syntax
 
@@ -34,9 +34,9 @@ simulate restore
 
 ## <a name="remarks"></a>Hinweise
 
--   **Simulieren der Wiederherstellung** wird verwendet, um zu testen, und zwar unabhängig davon, ob die Wiederherstellung mit Writer erfolgreich sein kann.
--   Vor der Verwendung **simulieren der Wiederherstellung**, Sie müssen eine DiskShadow-Metadatendatei laden, indem Sie mit der **Laden von Metadaten** Befehl. Dies lädt die ausgewählten Writer und die Komponenten für die Wiederherstellung.
+-   Mit " **Wiederherstellung simulieren** " können Sie testen, ob die Wiederherstellung mit Writer erfolgreich sein kann.
+-   Bevor Sie die **Wiederherstellung simulieren**verwenden können, müssen Sie mithilfe des Befehls " **Metadaten laden** " eine DiskShadow-Metadatendatei laden. Hierdurch werden die ausgewählten Writer und Komponenten für die Wiederherstellung geladen.
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

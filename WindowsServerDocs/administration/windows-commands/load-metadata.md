@@ -1,8 +1,8 @@
 ---
-title: Laden von Metadaten
-description: 'Windows-Befehle Thema ***- '
+title: Metadaten laden
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b52b5040fc8c834b04cad83ca4b0cfab103fdc43
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 025f75743d61889c4b987e9a2a575d1c599f04c1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871331"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374621"
 ---
-# <a name="load-metadata"></a>Laden von Metadaten
+# <a name="load-metadata"></a>Metadaten laden
 
 
 
-Lädt eine Metadaten-CAB-Datei vor dem Importieren der übertragbarer Schattenkopien oder lädt die Metadaten im Fall einer Wiederherstellung. Wenn Sie ohne Angabe von Parametern **Laden von Metadaten** zeigt die Hilfe an der Eingabeaufforderung.
+Lädt eine Datei "Metadata. cab" vor dem Importieren einer austauschen-Schatten Kopie oder lädt die Writer-Metadaten im Fall einer Wiederherstellung. Bei Verwendung ohne Parameter zeigt die Eingabe **Metadaten** die Hilfe an der Eingabeaufforderung an.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -38,21 +38,21 @@ load metadata [<Drive>:][<Path>]<MetaData.cab>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|[\<Drive>:][<Path>]|Gibt den Speicherort der Metadatendatei.|
-|MetaData.cab|Gibt an, die Metadaten-CAB-Datei zu laden.|
+|[\<laufwerk >:] [<Path>]|Gibt den Speicherort der Metadatendatei an.|
+|Metadaten. cab|Gibt die zu ladende Datei "Metadata. cab" an.|
 
 ## <a name="remarks"></a>Hinweise
 
--   Können Sie die **importieren** Befehl zum Importieren von übertragbarer Schattenkopien auf Grundlage der Metadaten gemäß **Laden von Metadaten**.
--   Mit diesem Befehl ist erforderlich, bevor Sie die **beginnen Wiederherstellung** Befehl aus, um die ausgewählten Writer und die Komponenten für die Wiederherstellung zu laden.
+-   Sie können den **Import** -Befehl verwenden, um eine austauschen-Schatten Kopie auf Grundlage der Metadaten zu importieren, die durch **Laden von Metadaten**angegeben werden.
+-   Dieser Befehl wird vor dem Befehl zum **Wiederherstellen von BEGIN** benötigt, um die ausgewählten Writer und Komponenten für die Wiederherstellung zu laden.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um eine Metadatendatei namens metafile.cab aus dem Standardspeicherort zu laden, geben Sie Folgendes ein:
+Zum Laden einer Metadatendatei namens "Metafile. cab" aus dem Standard Speicherort geben Sie Folgendes ein:
 ```
 load metadata metafile.cab
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

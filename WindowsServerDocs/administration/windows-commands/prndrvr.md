@@ -1,8 +1,8 @@
 ---
 title: prndrvr
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: edf27852c13566ba8c7ca8c16d789d586e749160
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 05e03a4b0b5d686c8fbd1646a775c7f0e5c95706
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436208"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372117"
 ---
 # <a name="prndrvr"></a>prndrvr
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Verwenden der **Prndrvr** Befehl zum Hinzufügen, löschen und Auflisten von Druckertreibern.
+Verwenden Sie den Befehl **prndrvr** zum Hinzufügen, löschen und Auflisten von Druckertreibern.
 
 ## <a name="syntax"></a>Syntax
 ```
@@ -37,47 +37,47 @@ cscript prndrvr {-a | -d | -l | -x | -?} [-m <model>] [-v {0|1|2|3}]
 
 |Parameter|Beschreibung|
 |-------|--------|
-|-a|Wird ein Treiber installiert.|
+|-a|Installiert einen Treiber.|
 |-d|Löscht einen Treiber.|
-|-l|Listet alle Druckertreiber auf dem vom angegebenen Server installiert die **-s** Parameter. Wenn Sie keinen Server angeben, führt Windows die Druckertreiber auf dem lokalen Computer installiert.|
-|-x|Löscht alle Druckertreiber und zusätzliche Druckertreiber nicht in Gebrauch von einem logischen Drucker auf dem Server, die gemäß der **-s** Parameter. Wenn Sie einen Server aus der Liste zu entfernenden nicht angeben, löscht Windows alle nicht verwendeten Treiber auf dem lokalen Computer.|
-|-m \<DrivermodelName\>|Gibt an (nach Namen) der Treiber, die, den Sie installieren möchten. Treiber werden häufig für das Modell des Druckers mit dem Namen, die sie unterstützen. Finden Sie auf Drucker, Weitere Informationen.|
-|-v {0 &#124; 1 &#124; 2 &#124; 3}|Gibt die Version des Treibers, die Sie installieren möchten. Siehe dazu die Beschreibung der **-e**Parameter für die Versionen für die Umgebung verfügbar sind. Wenn Sie keine Version angeben, wird die Version des Treibers für die Version von Windows auf dem Computer, auf dem Sie den Treiber installieren werden, installiert.<br /><br />– Version **0** Windows 95, Windows 98 und Windows Millennium Edition unterstützt.<br />– Version **1** Windows NT 3.51 unterstützt.<br />– Version **2** Windows NT 4.0 unterstützt.<br />– Version **3** unterstützt Windows Vista, Windows XP, Windows 2000 und die Windows Server 2003-Betriebssysteme. Beachten Sie, dass dies die einzige Printer Driver-Version, die von Windows Vista unterstützt.|
-|-e: \<Umgebung >|Gibt die Umgebung für den Treiber, die, den Sie installieren möchten. Wenn Sie eine Umgebung nicht angeben, wird die Umgebung des Computers, auf dem Sie den Treiber installieren, verwendet. Die unterstützten Umgebung-Parameter sind:<br /><br />-    **"Windows NT x86"**<br />-    **"Windows x64"**<br />-    **"Windows IA64"**|
-|-s \<ServerName >|Gibt den Namen des Remotecomputers, der den Drucker hostet, den Sie verwalten möchten. Wenn Sie einen Computer nicht angeben, wird der lokale Computer verwendet.|
-|-u \<UserName > -w \<Kennwort >|Gibt ein Konto mit Berechtigungen zum Verbinden mit dem Computer, der den Drucker hostet, den Sie verwalten möchten. Alle Mitglieder der lokalen Gruppe Administratoren des Zielcomputers über diese Berechtigungen verfügen, aber die Berechtigungen können auch für andere Benutzer erteilt werden. Wenn Sie ein Konto nicht angeben, müssen Sie über ein Konto mit Berechtigungen für der Befehl funktioniert angemeldet sein.|
-|-h \<Pfad >|Gibt den Pfad zur Treiberdatei. Wenn Sie keinen Pfad angeben, wird der Pfad zum Speicherort, auf dem Windows installiert wurde, verwendet.|
-|-i \<Dateiname.inf >|Gibt den vollständigen Pfad und Namen für den Treiber, die, den Sie installieren möchten. Wenn Sie keinen Dateinamen angeben, verwendet das Skript eine der Posteingang Drucker INF-Dateien im Unterverzeichnis "inf" des Windows-Verzeichnisses.<br /><br />Wenn der Treiberpfad nicht angegeben wird, sucht das Skript Treiberdateien in der driver.cab-Datei.|
+|-l|Listet alle Druckertreiber auf, die auf dem durch den **-s-** Parameter angegebenen Server installiert sind. Wenn Sie keinen Server angeben, werden die auf dem lokalen Computer installierten Druckertreiber von Windows aufgelistet.|
+|-x|Löscht alle Druckertreiber und zusätzlichen Druckertreiber, die nicht von einem logischen Drucker auf dem Server verwendet werden, der durch den **-s-** Parameter angegeben wird. Wenn Sie keinen Server angeben, der aus der Liste entfernt werden soll, löscht Windows alle nicht verwendeten Druckertreiber auf dem lokalen Computer.|
+|-m \<drivermodelname @ no__t-1|Gibt (nach Name) den Treiber an, den Sie installieren möchten. Treiber werden oft für das Drucker Modell benannt, das Sie unterstützen. Weitere Informationen finden Sie in der Druckerdokumentation.|
+|-v {0 &#124; 1 &#124; 2 &#124; 3}|Gibt die Version des Treibers an, den Sie installieren möchten. Informationen dazu, welche Versionen für welche Umgebung verfügbar sind, finden Sie in der Beschreibung des **-e-** Parameters. Wenn Sie keine Version angeben, wird die Version des Treibers für die Version von Windows, die auf dem Computer ausgeführt wird, auf dem Sie den Treiber installieren, installiert.<br /><br />-Version **0** unterstützt Windows 95, Windows 98 und Windows Millennium Edition.<br />-Version **1** unterstützt Windows NT 3,51.<br />-Version **2** unterstützt Windows NT 4,0.<br />-Version **3** unterstützt die Betriebssysteme Windows Vista, Windows XP, Windows 2000 und Windows Server 2003. Beachten Sie, dass dies die einzige Druckertreiber Version ist, die von Windows Vista unterstützt wird.|
+|-e \<umgebung >|Gibt die Umgebung für den Treiber an, den Sie installieren möchten. Wenn Sie keine Umgebung angeben, wird die Umgebung des Computers verwendet, auf dem Sie den Treiber installieren. Folgende Umgebungsparameter werden unterstützt:<br /><br />-    **"Windows NT x86"**<br />-    **"Windows x64"**<br />-    **"Windows ia64"**|
+|-s \<servername >|Gibt den Namen des Remote Computers an, der den Drucker hostet, den Sie verwalten möchten. Wenn Sie keinen Computer angeben, wird der lokale Computer verwendet.|
+|-u \<username >-w \<password >|Gibt ein Konto mit Berechtigungen zum Herstellen einer Verbindung mit dem Computer an, der den zu verwaltenden Drucker hostet. Alle Mitglieder der lokalen Administratoren Gruppe des Ziel Computers verfügen über diese Berechtigungen, die Berechtigungen können jedoch auch anderen Benutzern erteilt werden. Wenn Sie kein Konto angeben, müssen Sie unter einem Konto mit diesen Berechtigungen angemeldet sein, damit der Befehl funktioniert.|
+|-h \<path >|Gibt den Pfad zur Treiberdatei an. Wenn Sie keinen Pfad angeben, wird der Pfad zu dem Speicherort verwendet, an dem Windows installiert wurde.|
+|-i @no__t -0filename. inf >|Gibt den kompletten Pfad und den Dateinamen für den Treiber an, den Sie installieren möchten. Wenn Sie keinen Dateinamen angeben, verwendet das Skript eine der INF-Posteingangs Dateien im INF-Unterverzeichnis des Windows-Verzeichnisses.<br /><br />Wenn der Treiber Pfad nicht angegeben ist, sucht das Skript nach Treiberdateien in der CAB-Datei des Treibers.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
-- Die **Prndrvr** Befehl ist eine Visual Basic-Skript befindet sich in der %WINdir%\System32\printing_Admin_Scripts\\ <language> Verzeichnis. Um diesen Befehl an einer Eingabeaufforderung verwenden möchten, geben **Cscript** gefolgt von den vollständigen Pfad und die Prndrvr-Datei, oder wechseln in den entsprechenden Ordner.
+- Der **prndrvr** -Befehl ist ein Visual Basic Skript, das sich im Verzeichnis%WINdir%\System32\printing_Admin_Scripts @ no__t-1 @ no__t-2 befindet. Wenn Sie diesen Befehl verwenden möchten, geben Sie an einer Eingabeaufforderung **cscript** ein, gefolgt vom vollständigen Pfad der prndrvr-Datei, oder ändern Sie die Verzeichnisse in den entsprechenden Ordner.
 
   Zum Beispiel:
   ```
   cscript %WINdir%\System32\printing_Admin_Scripts\en-US\prndrvr
   ```
-- Wenn die Informationen, die Sie angeben, die Leerzeichen enthält, verwenden Sie den Text in Anführungszeichen (z. B. `"computer Name"`).
-- Die X - Option löscht alle zusätzliche Druckertreiber (Treiber für die Verwendung auf Clients installiert ausgeführt alternative Versionen von Windows), auch wenn der primäre Grund verwendet wird. Wenn die Faxkomponente installiert ist, wird diese Option auch Faxtreiber gelöscht. Der primäre Faxtreiber wird gelöscht, wenn es nicht (d.h., wenn es keine Warteschlange verwendet wird ist) verwendet wird. Wenn der primäre Faxtreiber gelöscht wird, ist die einzige Möglichkeit, das Fax erneut zu aktivieren, auf die Faxkomponente neu installieren.
-- Ohne Parameter verwendet **Prndrvr** zeigt die Befehlszeilenhilfe für die **Prndrvr** Befehl.
+- Wenn die Informationen, die Sie angeben, Leerzeichen enthalten, verwenden Sie den Text in Anführungszeichen (z. b. `"computer Name"`).
+- Die Option-x löscht alle zusätzlichen Druckertreiber (Treiber, die für die Verwendung auf Clients installiert sind, auf denen alternative Versionen von Windows ausgeführt werden), auch wenn der primäre Treiber verwendet wird. Wenn die Faxkomponente installiert ist, werden mit dieser Option auch Faxtreiber gelöscht. Der primäre Faxtreiber wird gelöscht, wenn er nicht verwendet wird (d. h., wenn keine Warteschlange verwendet wird). Wenn der primäre Faxtreiber gelöscht wird, besteht die einzige Möglichkeit zum erneuten Aktivieren von Fax darin, die Faxkomponente erneut zu installieren.
+- Wenn Sie ohne Parameter verwendet wird, zeigt **prndrvr** die Befehlszeilen Hilfe für den Befehl **prndrvr** an.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Listen Sie alle Treiber für die \\\printServer1-Server, Typ:
+Um alle Treiber auf dem \\ \ printServer1-Server aufzulisten, geben Sie Folgendes ein:
 ```
 cscript Prndrvr -l -s
 ```
 
-So fügen Sie einen Windows X64-Druckertreiber von Version 3 für das Modell "Laserdrucker Modell 1" des Druckers mit dem C:\temp\Laserprinter1.inf Treiber-Informationsdatei für einen Treiber im Ordner C:\temp Typ gespeichert hinzu:
+Zum Hinzufügen eines Windows x64-Druckertreibers der Version 3 für das Modell "Laser Drucker Modell 1" mithilfe der c:\temp\laserprinter1.inf-Treiber Informationsdatei für einen Treiber, der im Ordner "c:\temp" gespeichert ist:
 ```
 cscript Prndrvr -a -m "Laser printer model 1" -v 3 -e "Windows x64" -i c:\temp\Laserprinter1.inf -h c:\temp
 ```
 
-Um einen Windows NT X86-Druckertreiber von Version 3 für "Laserdrucker Modell 1" zu löschen, geben Sie Folgendes ein:
+Zum Löschen eines Windows NT x86-Druckertreibers der Version 3 für "Laser Drucker Modell 1" geben Sie Folgendes ein:
 ```
 cscript Prndrvr -a -m "Laser printer model 1" -v 3 -e "Windows NT x86" 
 ```
 
-#### <a name="additional-references"></a>Zusätzliche Referenzen
-[Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-[druckbefehlsreferenz](print-command-reference.md)
+#### <a name="additional-references"></a>Weitere Verweise
+[Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+[Druck Befehlsreferenz](print-command-reference.md)
