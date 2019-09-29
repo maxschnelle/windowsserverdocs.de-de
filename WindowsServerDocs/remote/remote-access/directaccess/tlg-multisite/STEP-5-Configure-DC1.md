@@ -1,9 +1,9 @@
 ---
-title: Schritt 5 Konfigurieren von DC1
-description: 'Dieses Thema ist Teil der Testumgebungsanleitung: veranschaulichen von DirectAccess Multisite-Bereitstellung für Windows Server 2016'
+title: Schritt 5 DC1 konfigurieren
+description: 'Dieses Thema ist Teil der Test Umgebungs Anleitung: veranschaulichen einer DirectAccess-Bereitstellung für mehrere Standorte für Windows Server 2016'
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,103 +12,103 @@ ms.topic: article
 ms.assetid: 70357156-fcb0-4346-a61e-4ea963e3ffb0
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 108e517923c75f685d817cdf9fad9b14132e3bb0
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: aa251ccc0cc48e3805667a247047711c2ae4fcf6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281435"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388301"
 ---
-# <a name="step-5-configure-dc1"></a>Schritt 5 Konfigurieren von DC1
+# <a name="step-5-configure-dc1"></a>Schritt 5 DC1 konfigurieren
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-DC1 fungiert als Domänencontroller, DNS-Server und DHCP-Server für die Domäne "corp.contoso.com".  
+DC1 fungiert als Domänen Controller, DNS-Server und DHCP-Server für die Corp.contoso.com-Domäne.  
   
-Zum Konfigurieren des Remotezugriffs um eine Topologie mit mehreren Standorten verwenden, ist es erforderlich, zum Hinzufügen eines zusätzlichen Standorts von Active Directory Domain Services (AD DS) für die zweite Domäne-Controller 2-DC1, und Konfigurieren des Routings zwischen den Subnetzen.  
+Um den Remote Zugriff für die Verwendung einer Topologie mit mehreren Standorten zu konfigurieren, müssen Sie einen zusätzlichen Active Directory Domain Services (AD DS)-Standort für den zweiten Domänen Controller 2 DC1 hinzufügen und das Routing zwischen den Subnetzen konfigurieren.  
   
-1. Das Standard-Gateway auf dem Domänencontroller zu konfigurieren. Konfigurieren Sie auf DC1 das Standardgateway ein.  
+1. Zum Konfigurieren des Standard Gateways auf dem Domänen Controller. Konfigurieren Sie das Standard Gateway auf DC1.  
   
-2. Erstellen Sie Sicherheitsgruppen für DirectAccess unter Windows 7-Clients auf DC1 an. Wenn DirectAccess konfiguriert wurde, erstellt es automatisch Gruppenrichtlinienobjekte (GPOs) und GPO-Einstellungen, die für DirectAccess-Clients und-Server angewendet werden. Das DirectAccess-Client-Gruppenrichtlinienobjekt wird auf bestimmte Active Directory-Sicherheitsgruppen angewendet.  
+2. Erstellen Sie Sicherheitsgruppen für DirectAccess-Clients unter Windows 7 auf DC1. Wenn DirectAccess konfiguriert ist, werden automatisch Gruppenrichtlinie Objekte (GPOs) und GPO-Einstellungen erstellt, die auf DirectAccess-Clients und-Server angewendet werden. Das DirectAccess-Client-GPO wird auf bestimmte Active Directory Sicherheitsgruppen angewendet.  
   
-3. Um eine neue AD DS-Standort hinzuzufügen. Erstellen Sie einen zweite AD DS-Standort.  
+3. Zum Hinzufügen einer neuen AD DS Website. Erstellen Sie eine zweite AD DS Website.  
   
-## <a name="to-configure-the-default-gateway-on-the-domain-controller"></a>So konfigurieren Sie die Standard-Gateway auf dem Domänencontroller  
+## <a name="to-configure-the-default-gateway-on-the-domain-controller"></a>So konfigurieren Sie das Standard Gateway auf dem Domänen Controller  
   
-1.  Klicken Sie in der Server-Manager-Konsole auf **lokalen Server**, und klicken Sie dann in der **Eigenschaften** Bereich, der neben **verkabelte Ethernetverbindung**, klicken Sie auf den Link.  
+1.  Klicken Sie in der Server-Manager Konsole auf **lokaler Server**, und klicken Sie dann im Bereich **Eigenschaften** neben **verkabelte Ethernet-Verbindung**auf den Link.  
   
-2.  Im Fenster Netzwerkverbindungen mit der Maustaste **verkabelte Ethernetverbindung**, und klicken Sie dann auf **Eigenschaften**.  
+2.  Klicken Sie im Fenster Netzwerkverbindungen mit der rechten Maustaste auf **verkabelte Ethernet-Verbindung**, und klicken Sie dann auf **Eigenschaften**.  
   
 3.  Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)** , und klicken Sie dann auf **Eigenschaften**.  
   
-4.  In **Standardgateway**, Typ **10.0.0.254**, und klicken Sie in **alternativer DNS-Server**, Typ **10.2.0.1**, und klicken Sie dann auf **OK** .  
+4.  Geben Sie im **Standard Gateway** **10.0.0.254**ein, und geben Sie in **Alternativer DNS-Server** **10.2.0.1 bis**ein, und klicken Sie dann auf **OK**.  
   
 5.  Klicken Sie auf **Internetprotokoll Version 6 (TCP/IPv6)** , und klicken Sie dann auf **Eigenschaften**.  
   
-6.  In **Standardgateway**, Typ **2001:db8:1::fe**, und klicken Sie in **alternativer DNS-Server**, Typ **2001:db8:2::1**, und klicken Sie dann auf **OK**.  
+6.  Geben Sie im **Standard Gateway** **2001: db8:1:: FE ein**, und geben Sie auf dem **alternativen DNS-Server** **2001: db8:2:: 1 ein**, und klicken Sie dann auf **OK**.  
   
-7.  Auf der **Verbindungseigenschaften von Ethernetkabelverbindung** Dialogfeld klicken Sie auf **schließen**.  
+7.  Klicken Sie im Dialogfeld **Eigenschaften für verkabelte Ethernet-Verbindung** auf **Schließen**.  
   
 8.  Schließen Sie das Fenster **Netzwerkverbindungen**.  
   
-## <a name="create-security-groups-for-windows-7-directaccess-clients-on-dc1"></a>Erstellen von Sicherheitsgruppen für DirectAccess unter Windows 7-Clients auf DC1  
-Erstellen Sie die Sicherheitsgruppen für DirectAccess für Windows 7 mithilfe des folgenden Verfahrens.  
+## <a name="create-security-groups-for-windows-7-directaccess-clients-on-dc1"></a>Erstellen von Sicherheitsgruppen für Windows 7-DirectAccess-Clients auf DC1  
+Erstellen Sie die DirectAccess-Sicherheitsgruppen für Windows 7 mit dem folgenden Verfahren.  
   
- Windows 7-Clientcomputer müssen separate Sicherheitsgruppen angehören, da sie auf interne Ressourcen über einen einzigen Einstiegspunkt nur eine Verbindung herstellen können. Beim Aktivieren der Unterstützung mehrerer Standorte oder Eintrag hinzufügen, verweist, wenn Windows 7-Unterstützung angefordert wird, wird automatisch ein separates Gruppenrichtlinienobjekt von DirectAccess für Windows 7-Clients für jeden Einstiegspunkt erstellt werden.  
+ Windows 7-Client Computer müssen Mitglieder von separaten Sicherheitsgruppen sein, da Sie nur über einen einzigen Einstiegspunkt eine Verbindung mit internen Ressourcen herstellen können. Wenn beim Aktivieren der Unterstützung für mehrere Standorte oder beim Hinzufügen von Einstiegspunkten eine Windows 7-Unterstützung angefordert wird, wird von DirectAccess für Windows 7-Clients für jeden Einstiegspunkt automatisch ein separates GPO erstellt.  
   
 ### <a name="create-security-groups"></a>Erstellen von Sicherheitsgruppen  
   
-1.  Auf der **starten** geben**dsa.msc**, und drücken Sie dann die EINGABETASTE.  
+1.  Geben Sie auf dem **Start** Bildschirm**DSA. msc**ein, und drücken Sie dann die EINGABETASTE.  
   
-2.  Erweitern Sie im linken Bereich **"corp.contoso.com"** , klicken Sie auf **Benutzer**, klicken Sie dann mit der rechten Maustaste **Benutzer**, zeigen Sie auf **neu**, und klicken Sie dann auf **Gruppe**.  
+2.  Erweitern Sie im linken Bereich **Corp.contoso.com**, klicken Sie auf **Benutzer**, klicken Sie dann mit der rechten Maustaste auf **Benutzer**, zeigen Sie auf **neu**, und klicken Sie dann auf **Gruppe**.  
   
-3.  Auf der **neues Objekt – Gruppe** Dialogfeld **Gruppenname**, geben Sie **Win7_Clients_Site1**.  
+3.  Geben Sie im Dialogfeld **Neues Objekt-Gruppe** unter **Gruppenname**den Namen **Win7_Clients_Site1**ein.  
   
 4.  Klicken Sie unter **Gruppenbereich** auf **Global**, unter **Gruppentyp** auf **Sicherheit** und anschließend auf **OK**.  
   
-5.  Doppelklicken Sie auf die **Win7_Clients_Site1** Sicherheitsgruppe ein, und klicken Sie auf die **Win7_Clients_Site1 Eigenschaften** im Dialogfeld klicken Sie auf die **Mitglieder** Registerkarte.  
+5.  Doppelklicken Sie auf die Sicherheitsgruppe **Win7_Clients_Site1** , und klicken Sie im Dialogfeld **Win7_Clients_Site1-Eigenschaften** auf die Registerkarte **Mitglieder** .  
   
 6.  Auf der Registerkarte **Mitglieder** klicken Sie auf **Hinzufügen**.  
   
-7.  Auf der **Auswahl von Benutzern, Kontakten, Computern oder Dienstkonten** Dialogfeld klicken Sie auf **Objekttypen**. Auf der **Objekttypen** wählen Sie im Dialogfeld **Computer**, und klicken Sie dann auf **OK**.  
+7.  Klicken Sie im Dialogfeld **Benutzer, Kontakte, Computer oder Dienst Konten auswählen** auf **Objekttypen**. Wählen Sie im Dialogfeld **Objekttypen** die Option **Computer**aus, und klicken Sie dann auf **OK**.  
   
-8.  In **Geben Sie die zu verwendenden Objektnamen**, Typ **client2**, und klicken Sie dann auf **OK**, und klicken Sie dann auf die **Win7_Clients_Site1 Eigenschaften** Dialogfeld auf **OK**.  
+8.  Geben Sie im Feld **Geben Sie die zu ausgewäfnenden Objektnamen ein den Namen** **client2**ein, klicken Sie auf **OK**, und klicken Sie dann im Dialogfeld **Win7_Clients_Site1-Eigenschaften** auf **OK**  
   
-9. In der **Active Directory-Benutzer und-Computer** mit der rechten Maustaste der Verwaltungskonsole im linken Bereich **Benutzer**, zeigen Sie auf **neu**, und klicken Sie dann auf **Gruppe** .  
+9. Klicken Sie in der Konsole **Active Directory Benutzer und Computer** im linken Bereich mit der rechten Maustaste auf **Benutzer**, zeigen Sie auf **neu**, und klicken Sie dann auf **Gruppe**.  
   
-10. Auf der **neues Objekt – Gruppe** Dialogfeld **Gruppenname**, geben Sie **Win7_Clients_Site2**.  
+10. Geben Sie im Dialogfeld **Neues Objekt-Gruppe** unter **Gruppenname**den Namen **Win7_Clients_Site2**ein.  
   
 11. Klicken Sie unter **Gruppenbereich** auf **Global**, unter **Gruppentyp** auf **Sicherheit** und anschließend auf **OK**.  
   
 12. Schließen Sie die Konsole **Active Directory-Benutzer und -Computer** .  
   
-## <a name="to-add-a-new-ad-ds-site"></a>Hinzufügen einen neuen AD DS-Standort  
+## <a name="to-add-a-new-ad-ds-site"></a>So fügen Sie eine neue AD DS Site hinzu  
   
-1.  Auf der **starten** geben**dssite.msc**, und drücken Sie dann die EINGABETASTE.  
+1.  Geben Sie auf dem **Start** Bildschirm**dssite. msc**ein, und drücken Sie dann die EINGABETASTE.  
   
-2.  In der Konsole Active Directory-Standorte und-Dienste in der Konsolenstruktur mit der Maustaste **Websites**, und klicken Sie dann auf **neuen Standort**.  
+2.  Klicken Sie in der Konsole Active Directory Standorte und Dienste in der Konsolen Struktur mit der rechten Maustaste auf **Standorte**, und klicken Sie dann auf **neuer Standort**.  
   
-3.  Auf der **neues Objekt - Standort** Dialogfeld die **Namen** geben **Sekunde-Site**.  
+3.  Geben Sie im Dialogfeld **Neues Objekt-Standort** im Feld **Name den Namen** **Second-Site**ein.  
   
-4.  Klicken Sie in das Listenfeld **DEFAULTIPSITELINK**, und klicken Sie dann auf **OK** zweimal.  
+4.  Klicken Sie im Listenfeld auf **DEFAULTIPSITELINK**, und klicken Sie dann zweimal auf **OK** .  
   
-5.  Erweitern Sie in der Konsolenstruktur **Websites**, mit der rechten Maustaste **Subnetze**, und klicken Sie dann auf **neues Subnetz**.  
+5.  Erweitern Sie in der Konsolen Struktur **Standorte**, klicken Sie mit der rechten Maustaste auf **Subnetze**, und klicken Sie dann auf **Neues Subnetz**.  
   
-6.  Auf der **neues Objekt – Subnetz** Dialogfeld **Präfix**, Typ **10.0.0.0/24**in die **Standortobjekt für dieses Präfix auswählen** auf **Standardname-des-ersten-Standorts**, und klicken Sie dann auf **OK**.  
+6.  Geben Sie im Dialogfeld **Neues Objekt-Subnetz** unter **Präfix** **10.0.0.0/24**ein, klicken Sie in der Liste **Wählen Sie ein Standort Objekt für dieses Präfix aus** auf **Default-First-Site-Name**, und klicken Sie dann auf **OK**.  
   
-7.  In der Konsolenstruktur mit der Maustaste **Subnetze**, und klicken Sie dann auf **neues Subnetz**.  
+7.  Klicken Sie in der Konsolen Struktur mit der rechten Maustaste auf **Subnetze**, und klicken Sie dann auf **Neues Subnetz**.  
   
-8.  Auf der **neues Objekt – Subnetz** Dialogfeld **Präfix**, Typ **2001:db8:1:: / 64**in die **Standortobjekt für dieses Präfix auswählen** Liste Klicken Sie auf **Standardname-des-ersten-Standorts**, und klicken Sie dann auf **OK**.  
+8.  Geben Sie im Dialogfeld **Neues Objekt-Subnetz** unter **Präfix**Folgendes ein: **2001: db8:1::/64**, klicken Sie in der Liste **Wählen Sie ein Standort Objekt für dieses Präfix aus** auf **Default-First-Site-Name**, und klicken Sie dann auf **OK**.  
   
-9. In der Konsolenstruktur mit der Maustaste **Subnetze**, und klicken Sie dann auf **neues Subnetz**.  
+9. Klicken Sie in der Konsolen Struktur mit der rechten Maustaste auf **Subnetze**, und klicken Sie dann auf **Neues Subnetz**.  
   
-10. Auf der **neues Objekt – Subnetz** Dialogfeld **Präfix**, Typ **10.2.0.0/24**in die **Standortobjekt für dieses Präfix auswählen** auf **Sekunde-Site**, und klicken Sie dann auf **OK**.  
+10. Geben Sie im Dialogfeld **Neues Objekt-Subnetz** unter **Präfix** **10.2.0.0/24**ein, klicken Sie in der Liste **Wählen Sie ein Standort Objekt für dieses Präfix aus** auf **zweiter Standort**, und klicken Sie dann auf **OK**.  
   
-11. In der Konsolenstruktur mit der Maustaste **Subnetze**, und klicken Sie dann auf **neues Subnetz**.  
+11. Klicken Sie in der Konsolen Struktur mit der rechten Maustaste auf **Subnetze**, und klicken Sie dann auf **Neues Subnetz**.  
   
-12. Auf der **neues Objekt – Subnetz** Dialogfeld **Präfix**, Typ **2001:db8:2:: / 64**in die **Standortobjekt für dieses Präfix auswählen** Liste Klicken Sie auf **Sekunde-Site**, und klicken Sie dann auf **OK**.  
+12. Geben Sie im Dialogfeld **Neues Objekt-Subnetz** unter **Präfix**Folgendes ein: **2001: db8:2::/64**, klicken Sie in der Liste **Wählen Sie ein Standort Objekt für dieses Präfix aus** auf **zweiter Standort**, und klicken Sie dann auf **OK**.  
   
-13. Schließen Sie die Active Directory-Standorte und Dienste.  
+13. Schließen Sie Active Directory Websites und Dienste.  
   
 
 

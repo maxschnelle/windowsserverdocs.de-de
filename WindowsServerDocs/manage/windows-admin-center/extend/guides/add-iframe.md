@@ -1,39 +1,39 @@
 ---
 title: Hinzufügen eines iFrames zu einer Tool-Erweiterung
-description: Entwickeln Sie eine toolerweiterung Windows Admin Center-SDK (Projekt Honolulu) – iFrame ein Tools-Erweiterung hinzufügen
+description: 'Entwickeln einer Tool Erweiterung Windows Admin Center SDK (Project Honolulu): Hinzufügen eines IFRAMEs zu einer Tool Erweiterung'
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: da3850b75a0e069f9153d3c66baef9f00b67d61c
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.prod: windows-server
+ms.openlocfilehash: 0833b2fd92f2bf4b512120783bb71295a3112745
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66452587"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406898"
 ---
 # <a name="add-an-iframe-to-a-tool-extension"></a>Hinzufügen eines iFrames zu einer Tool-Erweiterung
 
->Gilt für: Windows Admin Center, Windows Admin Center Preview
+>Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
-In diesem Artikel werden wir einen iFrame zu einer neuen, leeren Tools-Erweiterung hinzufügen, die wir mit der Windows Admin Center-CLI erstellt haben.
+In diesem Artikel wird ein IFRAME zu einer neuen, leeren Tool Erweiterung hinzugefügt, die mit der Windows Admin Center CLI erstellt wurde.
 
 ## <a name="prepare-your-environment"></a>Vorbereiten der Umgebung ##
 
-Wenn Sie nicht bereits getan haben, befolgen Sie die Anweisungen [Entwickeln einer toolerweiterung](../develop-tool.md) zum Vorbereiten der Umgebung, und erstellen Sie eine neue, leere toolerweiterung.
+Wenn Sie dies noch nicht getan haben, befolgen Sie die Anweisungen unter [Entwickeln einer Tool Erweiterung](../develop-tool.md) , um die Umgebung vorzubereiten und eine neue, leere Tool Erweiterung zu erstellen.
 
-## <a name="add-a-module-to-your-project"></a>Fügen Sie ein Modul zu Ihrem Projekt ##
+## <a name="add-a-module-to-your-project"></a>Hinzufügen eines Moduls zum Projekt ##
 
-Fügen Sie einen neuen [leeres Modul](add-module.md) zu Ihrem Projekt, dem wir einen iFrame im nächsten Schritt hinzufügen.  
+Fügen Sie dem Projekt ein neues [leeres Modul](add-module.md) hinzu, dem im nächsten Schritt ein IFRAME hinzugefügt wird.  
 
-## <a name="add-an-iframe-to-your-module"></a>Fügen Sie einen iFrame Ihrem Modul ##
+## <a name="add-an-iframe-to-your-module"></a>Hinzufügen eines IFRAMEs zum Modul ##
 
-Jetzt fügen einen iFrame für das neue, leere Modul wir, die wir gerade erstellt haben.
+Nun fügen wir diesem neuen, leeren Modul, das wir soeben erstellt haben, ein IFRAME hinzu.
 
-In \src\app\, navigieren Sie zu Ihrem Ordner "Module", und öffnen Sie die Datei ```{!module-name}.component.html```, die sich mit der folgenden Benennungskonvention:
+Navigieren Sie in "\src\app @ no__t-0" zum Modul Ordner, und öffnen Sie dann die Datei ```{!module-name}.component.html``` mit der folgenden Benennungs Konvention:
 
 | Wert | Erläuterung | Beispiel-Dateiname |
 | ----- | ----------- | ------- |
@@ -47,7 +47,7 @@ Fügen Sie der HTML-Datei den folgenden Inhalt hinzu:
 </div>
 ```
 
-Das war alles, Sie haben die Erweiterung ein IFRAMES hinzugefügt.  Als Nächstes können Sie [erstellen und die Seite laden](../develop-tool.md#build-and-side-load-your-extension) Ihre Erweiterung in Windows Admin Center, um die Ergebnisse anzuzeigen.
+Sie haben der Erweiterung einen iframe hinzugefügt.  Als nächstes können Sie Ihre Erweiterung im Windows Admin Center [Erstellen und](../develop-tool.md#build-and-side-load-your-extension) auslagern, um die Ergebnisse anzuzeigen.
 
 > [!Note]
-> Inhaltseinstellungen für den (Security Policy, CSP) konnten einige Standorte Rendern in einen iFrame auf Windows Admin Center zu verhindern, dass. Erfahren Sie mehr über den [hier](https://content-security-policy.com/). 
+> Die Einstellungen der Content Security Policy (CSP) könnten verhindern, dass einige Websites in einem IFRAME innerhalb des Windows Admin Centers gerendert werden. Weitere Informationen hierzu finden Sie [hier](https://content-security-policy.com/). 

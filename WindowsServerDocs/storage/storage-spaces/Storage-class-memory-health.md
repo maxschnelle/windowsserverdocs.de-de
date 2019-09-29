@@ -1,7 +1,7 @@
 ---
 ms.assetid: 2bab6bf6-90e7-46a7-b917-14a7a8f55366
 title: Integritätsverwaltung für Speicherklassenspeicher (NVDIMM-N) in Windows
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: jgerend
 ms.manager: dongill
 ms.technology: storage-spaces
@@ -9,25 +9,25 @@ ms.topic: article
 author: JasonGerend
 ms.date: 06/25/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 4ebec8618c79c43816680387ae5e495f125b3c54
-ms.sourcegitcommit: 545dcfc23a81943e129565d0ad188263092d85f6
+ms.openlocfilehash: 03d986832e14e0dd7b80324de3c9f14d0537dba5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67407553"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402903"
 ---
 # <a name="storage-class-memory-nvdimm-n-health-management-in-windows"></a>Integritätsverwaltung für Speicherklassenspeicher (NVDIMM-N) in Windows
 
-> Gilt für: WindowsServer 2019, WindowsServer 2016, WindowsServer (Halbjährlicher Kanal), Windows 10
+> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal), Windows 10
 
 In diesem Artikel finden Systemadministratoren und IT-Experten Informationen zur Fehlerbehandlung und Integritätsverwaltung bei Speicherklassenspeichergeräten (NVDIMM-N) in Windows. Dabei werden die Unterschiede zwischen Speicherklassenspeicher und herkömmlichen Speichergeräten hervorgehoben.
 
 Wenn Sie nicht mit der Windows-Unterstützung für Speicherklassenspeichergeräte vertraut sind, können Sie sich in diesen kurzen Videos einen Überblick verschaffen:
-- [Verwenden von Non-Volatile Memory (NVDIMM-N) as Block Storage in WindowsServer 2016](https://channel9.msdn.com/Events/Build/2016/P466)
-- [Verwenden von Non-Volatile Memory (NVDIMM-N) als Byte-Addressable Storage in WindowsServer 2016](https://channel9.msdn.com/Events/Build/2016/P470)
-- [Gleichzeitig die Leistung von SQL Server 2016 mit persistenten Speicher in Windows Server 2016](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-Windows-Server-2016-SCM--FAST)
+- [Verwenden von nichtflüchtigem Speicher (nvdimm-N) als Block Speicher in Windows Server 2016](https://channel9.msdn.com/Events/Build/2016/P466)
+- [Verwendung von nichtflüchtigem Speicher (nvdimm-N) als Byte Adressier barer Speicher in Windows Server 2016](https://channel9.msdn.com/Events/Build/2016/P470)
+- [Beschleunigung der Leistung von SQL Server 2016 mit persistentem Arbeitsspeicher in Windows Server 2016](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-Windows-Server-2016-SCM--FAST)
 
-Siehe auch [verstehen und Bereitstellen von persistenten Speicher in "direkte Speicherplätze"](deploy-pmem.md).
+Weitere Informationen finden Sie [unter verstehen und Bereitstellen des permanenten Speichers in direkte Speicherplätze](deploy-pmem.md).
 
 Ab Windows Server 2016 und Windows 10 (Version 1607) werden JEDEC-kompatible NVDIMM-N-Speicherklassenspeichergeräte in Windows mit nativen Treibern unterstützt. Wenngleich das Verhalten dieser Geräte mit dem Verhalten anderer Datenträger (HDDs und SSDs) vergleichbar ist, müssen einige Unterschiede berücksichtigt werden.
 

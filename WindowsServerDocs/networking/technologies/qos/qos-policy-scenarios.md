@@ -1,19 +1,19 @@
 ---
 title: Szenarien für QoS-Richtlinien
 description: Dieses Thema enthält Quality of Service (QoS)-Richtlinien Szenarien, in denen veranschaulicht wird, wie Gruppenrichtlinie verwendet wird, um den Netzwerk Datenverkehr spezifischer Anwendungen und Dienste in Windows Server 2016 zu priorisieren.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: c4306f06-a117-4f65-b78b-9fd0d1133f95
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: e0968157532c0b3bd926acbaff4291e27a71de31
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 9ac5ab31db1b8c184fd179ecb3e6b87f7fffd2ba
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871874"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405235"
 ---
 # <a name="qos-policy-scenarios"></a>Szenarien für QoS-Richtlinien
 
@@ -79,10 +79,10 @@ In der folgenden Tabelle werden die QoS-Richtlinien für dieses Szenario zusamme
   
 |Richtlinienname|DSCP-Wert|Drosselungs Rate|Auf Organisationseinheiten angewendet|Beschreibung|  
 |-----------------|----------------|-------------------|-----------------------------------|-----------------|
-|[Keine Richtlinie]|0|None|[Keine Bereitstellung]|Best mögliche Behandlung von nicht klassifiziertem Datenverkehr (Standard).|  
-|Sicherungsdaten|1|None|Alle Clients|Wendet einen DSCP-Wert mit niedriger Priorität für diese Massendaten an.|  
-|Server-LOB|44|None|Computer-OU für ERP-Server|Wendet DSCP mit hoher Priorität für den ERP-Server Datenverkehr an|  
-|Client-Lob|60|None|Finanz Benutzergruppe|Wendet DSCP mit hoher Priorität für den ERP-Client Datenverkehr an|  
+|[Keine Richtlinie]|0|Keine|[Keine Bereitstellung]|Best mögliche Behandlung von nicht klassifiziertem Datenverkehr (Standard).|  
+|Sicherungsdaten|1|Keine|Alle Clients|Wendet einen DSCP-Wert mit niedriger Priorität für diese Massendaten an.|  
+|Server-LOB|44|Keine|Computer-OU für ERP-Server|Wendet DSCP mit hoher Priorität für den ERP-Server Datenverkehr an|  
+|Client-Lob|60|Keine|Finanz Benutzergruppe|Wendet DSCP mit hoher Priorität für den ERP-Client Datenverkehr an|  
 
 >[!NOTE]
 >DSCP-Werte werden in Dezimalform dargestellt.

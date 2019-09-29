@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin sethelpertoken
-description: Windows-Befehle Thema **Bitsadmin Sethelpertoken** -primäres Token von der aktuellen-Eingabeaufforderung (oder einer beliebigen lokalen des Benutzerkontos Token, wenn angegeben) als eine BITS-Übertragungsauftrag Helper Token festgelegt.
+title: bitadmin-Eingabetoken
+description: 'Windows-Befehls Thema für **BITSAdmin sethelpertoken** : legt das primäre Token der aktuellen Eingabeaufforderung (oder ggf. ein beliebiges Token eines beliebigen lokalen Benutzerkontos) als Hilfsobjekt des Bits-Übertragungs Auftrags fest.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -12,18 +12,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/01/2019
-ms.openlocfilehash: 558a1aca66a7b3ec447136ceff9237d13efe4ede
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 91c03366998168dad9ab4530ef36a5020b8ad6ec
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853001"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380567"
 ---
-# <a name="bitsadmin-sethelpertoken"></a>Bitsadmin sethelpertoken
+# <a name="bitsadmin-sethelpertoken"></a>bitadmin-Eingabetoken
 
-Primäres Token von der aktuellen-Eingabeaufforderung (oder einer beliebigen lokalen des Benutzerkontos Token, wenn angegeben) als eine BITS-Übertragungsauftrag festgelegt [Helper-Token](/windows/desktop/bits/helper-tokens-for-bits-transfer-jobs).
+Legt das primäre Token der aktuellen Eingabeaufforderung (oder ggf. ein beliebiges Token eines beliebigen lokalen Benutzerkontos) als [Hilfsobjekt](/windows/desktop/bits/helper-tokens-for-bits-transfer-jobs)des Bits-Übertragungs Auftrags fest.
 
-**BITS 3.0 und früheren**: Nicht unterstützt.
+**Bits 3,0 und früher**: Nicht unterstützt.
 
 ## <a name="syntax"></a>Syntax
 
@@ -35,9 +35,9 @@ bitsadmin /SetHelperToken <Job> [\<username@domain\> \<password\>]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Auftrag|Der Auftrags Anzeigenamen oder die GUID.|
-|\<username@domain\> \<password\>|Optionale&mdash;die Anmeldeinformationen eines lokalen Benutzers Konto, dessen Token verwenden.|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
+|\< @ no__t-1 @ no__t-2 \<password @ no__t-4|Optionales @ no__t-0Die Anmelde Informationen eines lokalen Benutzerkontos, dessen Token verwendet werden soll.|
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

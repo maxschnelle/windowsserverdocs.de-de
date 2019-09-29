@@ -2,29 +2,29 @@
 ms.assetid: f15c02d7-1cbd-4eba-a571-0ea34ab93ef4
 title: Ausführen der Datendeduplizierung
 ms.technology: storage-deduplication
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 09/15/2016
-ms.openlocfilehash: 2e2e4975c4ab9ebb7ec68834f380255292426393
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 86aff55b4c548ccf4fcbb04cc477dd63a889bebd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447224"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403211"
 ---
 # <a name="running-data-deduplication"></a>Ausführen der Datendeduplizierung
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-## <a id="running-dedup-jobs-manually"></a>Manuelles Ausführen der datendeduplizierungsaufträge
+## <a id="running-dedup-jobs-manually"></a>Manuelles Ausführen von datendeduplizierungsaufträgen
 
 Sie können jeden geplanten Datendeduplizierungsauftrag mit den folgenden PowerShell-Cmdlets manuell ausführen:
-* [`Start-DedupJob`](https://technet.microsoft.com/library/hh848442.aspx): Startet einen neuen datendeduplizierungsauftrag
-* [`Stop-DedupJob`](https://technet.microsoft.com/library/hh848439.aspx): Beendet einen datendeduplizierungsauftrag bereits in Bearbeitung befindlichen (oder entfernt sie aus der Warteschlange)
-* [`Get-DedupJob`](https://technet.microsoft.com/library/hh848452.aspx): Zeigt alle aktiven und in der Warteschlange die Datendeduplizierung Aufträge
+* [`Start-DedupJob`](https://technet.microsoft.com/library/hh848442.aspx): Startet einen neuen datendeduplizierungsauftrag.
+* [`Stop-DedupJob`](https://technet.microsoft.com/library/hh848439.aspx): Stoppt einen bereits in Bearbeitung befindlichen datendeduplizierungsauftrag (oder entfernt ihn aus der Warteschlange).
+* [`Get-DedupJob`](https://technet.microsoft.com/library/hh848452.aspx): Zeigt alle aktiven und in der Warteschlange befindlichen datendeduplizierungsaufträge an.
 
 Alle [Einstellungen, die verfügbar sind, wenn Sie einen Datendeduplizierungsauftrag planen](advanced-settings.md#modifying-job-schedules-available-settings), sind auch verfügbar, wenn Sie einen Auftrag manuell starten, mit Ausnahme der planungsspezifischen Einstellungen. Um z.B. einen [Optimierungsauftrag](understand.md#job-info-optimization) manuell mit hoher Priorität und maximaler Auslastung von CPU und Arbeitsspeicher zu starten, führen Sie den folgenden PowerShell-Befehl mit Administratorrechten aus:
 
@@ -34,7 +34,7 @@ Start-DedupJob -Type Optimization -Volume <Your-Volume-Here> -Memory 100 -Cores 
 
 ## <a id="monitoring-dedup"></a>Überwachen der Datendeduplizierung
 
-### <a id="monitoring-dedup-job-successes"></a>Auftragserfolge
+### <a id="monitoring-dedup-job-successes"></a>Auftrags Erfolge
 
 Da die Datendeduplizierung ein Nachbearbeitungsmodell verwendet, ist es wichtig, dass [Datendeduplizierungsaufträge](understand.md#job-info) erfolgreich ausgeführt werden. Eine einfache Möglichkeit zum Überprüfen des Status des letzten Auftrags ist die Verwendung des [`Get-DedupStatus`](https://technet.microsoft.com/library/hh848437.aspx)-PowerShell-Cmdlets. Überprüfen Sie regelmäßig die folgenden Felder:
 
@@ -45,13 +45,13 @@ Da die Datendeduplizierung ein Nachbearbeitungsmodell verwendet, ist es wichtig,
 > [!Note]  
 > Weitere Informationen zu Auftragserfolgen und -fehlern finden Sie in der Windows-Ereignisanzeige unter `\Applications and Services Logs\Windows\Deduplication\Operational`.
 
-### <a id="monitoring-dedup-optimization-rates"></a>Optimierungsraten
+### <a id="monitoring-dedup-optimization-rates"></a>Optimierungs Raten
 
 Ein Indikator für einen Fehler beim [Optimierungsauftrag](understand.md#job-info-optimization) ist eine Optimierungsrate mit Abwärtstrend, die möglicherweise darauf hindeutet, dass die Optimierungsaufträge nicht mit der Änderungsrate mithalten. Sie können die Optimierungsrate mithilfe des [`Get-DedupStatus`](https://technet.microsoft.com/library/hh848437.aspx)-PowerShell-Cmdlets überprüfen.
 
 > [!Important]
-> `Get-DedupStatus` enthält zwei Felder, die für die optimierungsrate relevant sind: `OptimizedFilesSavingsRate` und `SavingsRate`. Die Verfolgung beider Werte ist wichtig, sie haben jedoch unterschiedliche Bedeutungen.
-> - `OptimizedFilesSavingsRate` gilt nur für die Dateien, die "Richtlinien" sind für die Optimierung (`space used by optimized files after optimization / logical size of optimized files`).
+> `Get-DedupStatus` verfügt über zwei Felder, die für die Optimierungs Rate relevant sind: `OptimizedFilesSavingsRate` und `SavingsRate`. Die Verfolgung beider Werte ist wichtig, sie haben jedoch unterschiedliche Bedeutungen.
+> - `OptimizedFilesSavingsRate` gilt nur für die Dateien, die für die Optimierung "in-Policy" sind (`space used by optimized files after optimization / logical size of optimized files`).
 > - `SavingsRate` gilt für das gesamte Volume (`space used by optimized files after optimization / total logical size of the optimization`).
 
 ## <a id="disabling-dedup"></a>Deaktivieren der Datendeduplizierung
@@ -65,5 +65,5 @@ Start-DedupJob -Type Unoptimization -Volume <Desired-Volume>
 > Beim Deoptimierungsauftrag tritt ein Fehler auf, wenn das Volume nicht über genügend Speicherplatz zum Speichern der nicht optimierten Daten verfügt.
 
 ## <a id="faq"></a>Häufig gestellte Fragen
-**Gibt es ein System Center Operations Manager Management Pack zum Überwachen der Datendeduplizierung verfügbar?**  
+**Gibt es ein System Center Operations Manager Management Pack zur Überwachung der Datendeduplizierung?**  
 Ja. Die Datendeduplizierung kann über das System Center Management Pack für Dateiserver überwacht werden. Weitere Informationen finden Sie im [Handbuch für das System Center-Verwaltungspaket für File Server 2012 R2](https://download.microsoft.com/download/6/F/7/6F7A33B9-9383-48ED-9252-23C2C8AD1BDA/MPGuide_FileServer2012R2.doc).

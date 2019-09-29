@@ -7,13 +7,13 @@ author: daniellee-msft
 ms.author: jol
 ms.date: 1/7/2019
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: cfd9d31d388b9acb1a4a4fa40b3975b235a8634b
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.prod: windows-server
+ms.openlocfilehash: c6ab75a2375368d7c87d9dffd6175eb611508dd5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546618"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406958"
 ---
 # <a name="pure-storage-extension"></a>Reine Speichererweiterung
 
@@ -27,7 +27,7 @@ Als pure begann, den Anwendungsfall mit "Project Honolulu" zu untersuchen, erkan
 
 ![Reine Speichererweiterung](../../media/extend-case-study-purestorage/purestorage-1.png)
 
-> <cite>"Wir haben einen Featuresatz integriert, der unsere flasharray-Weboberfläche imitiert, um die direkt Verwaltung im Windows Admin Center zu ermöglichen. Unsere Kunden und Partner profitieren von einem einzelnen Glasbereich und müssen mit zwei verschiedenen Verwaltungs Tools arbeiten. Zusätzlich zu den einzelnen Verwaltungs Vorteilen können Kunden Windows-Server, die mit dem flasharray verbunden sind, auf die gleiche Weise verwalten. "</cite>
+> <cite> "Wir haben einen Featuresatz integriert, der unsere flasharray-Weboberfläche imitiert, um die direkt Verwaltung im Windows Admin Center zu ermöglichen. Unsere Kunden und Partner profitieren von einem einzelnen Glasbereich und müssen mit zwei verschiedenen Verwaltungs Tools arbeiten. Zusätzlich zu den einzelnen Verwaltungs Vorteilen können Kunden Windows-Server, die mit dem flasharray verbunden sind, auf die gleiche Weise verwalten. " </cite>
 >
 > --Barkz, Technical Director Microsoft Solutions & Integration, reiner Speicher
 

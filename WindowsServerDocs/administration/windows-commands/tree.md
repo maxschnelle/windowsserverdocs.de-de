@@ -1,8 +1,8 @@
 ---
 title: tree
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: de22de1c9d62ba79c1aa68248109cca88009703a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 22875e63526dc3465021c9aa990f6cea388b81e4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872631"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385617"
 ---
 # <a name="tree"></a>tree
 
 
 
-Zeigt die Verzeichnisstruktur eines Pfads oder des Datenträgers in ein Laufwerk grafisch an.
+Zeigt die Verzeichnisstruktur eines Pfads oder des Datenträgers auf einem Laufwerk grafisch an.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -38,23 +38,23 @@ tree [<Drive>:][<Path>] [/f] [/a]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<Laufwerk >:|Gibt an, das Laufwerk, das den Datenträger enthält, für den Verzeichnisstruktur angezeigt werden soll.|
-|\<Pfad >|Gibt das Verzeichnis für das Verzeichnisstruktur angezeigt werden sollen.|
-|/f|Zeigt den Namen der Dateien in jedem Verzeichnis an.|
-|/a|Gibt an, dass **Struktur** besteht darin, Textzeichen statt grafische Zeichen verwenden, um die Zeilen anzuzeigen, die Unterverzeichnisse zu verknüpfen.|
+|> \<drive:|Gibt das Laufwerk an, das den Datenträger enthält, für den Sie die Verzeichnisstruktur anzeigen möchten.|
+|\<path >|Gibt das Verzeichnis an, für das Sie die Verzeichnisstruktur anzeigen möchten.|
+|/f|Zeigt die Namen der Dateien in jedem Verzeichnis an.|
+|/a|Gibt an **, dass die** Struktur Textzeichen anstelle von Grafikzeichen verwendet, um die Zeilen anzuzeigen, die Unterverzeichnisse verknüpfen.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
-Die Struktur angezeigt werden, indem **Struktur** richtet sich nach den Parametern, die Sie an der Eingabeaufforderung angeben. Wenn Sie kein Laufwerk oder einen Pfad angeben **Struktur** zeigt die Struktur beginnend mit dem aktuellen Verzeichnis für das aktuelle Laufwerk.
+Die Struktur, die von **Tree** angezeigt wird, hängt von den Parametern ab, die Sie an der Eingabeaufforderung angeben. Wenn Sie kein Laufwerk oder einen Pfad angeben, wird die Baumstruktur von **Tree** beginnend mit dem aktuellen Verzeichnis des aktuellen Laufwerks angezeigt.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um die Namen aller Unterverzeichnisse in das aktuelle Laufwerk auf dem Datenträger anzuzeigen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um die Namen aller Unterverzeichnisse auf dem Datenträger auf dem aktuellen Laufwerk anzuzeigen:
 ```
 tree \
 ```
-Um anzuzeigen, einen Bildschirm zu einem Zeitpunkt, die Dateien in allen Verzeichnissen auf Laufwerk C, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um die Dateien in allen Verzeichnissen auf Laufwerk C anzuzeigen:
 ```
 tree c:\ /f | more 
 ```
@@ -65,4 +65,4 @@ tree c:\ /f  prn
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

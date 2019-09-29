@@ -1,23 +1,23 @@
 ---
 title: Hinzufügen von Ordnerzielen
 description: In diesem Thema wird beschrieben, wie Sie Ordnerziele (UNC-Pfade) hinzufügen
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: jgerend
 ms.manager: brianlic
 ms.technology: storage
 ms.topic: article
 author: jasongerend
 ms-date: 06/05/2017
-ms.openlocfilehash: 8cc61189076669d5c24244294b2f0eee2b783517
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b0685ea795d53b36fad92d54f817f67de57e3a82
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831001"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403188"
 ---
 # <a name="add-folder-targets"></a>Hinzufügen von Ordnerzielen
 
-> Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2, WindowsServer 2008
+> Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
 Ein Ordnerziel ist der Universal Naming Convention (UNC)-Pfad eines freigegebenen Ordners oder ein anderer Namespace, der einem Ordner in einem Namespace zugeordnet ist. Das Hinzufügen mehrerer Ordnerziele erhöht die Verfügbarkeit des Ordners im Namespace.
 
@@ -43,4 +43,4 @@ Verwenden Sie das folgende Verfahren, um mithilfe der DFS-Verwaltung ein Ordnerz
 
 -   [Bereitstellen von DFS-Namespaces](deploying-dfs-namespaces.md)
 -   [Delegieren von Verwaltungsberechtigungen für DFS-Namespaces](delegate-management-permissions-for-dfs-namespaces.md)
--   [Replizieren Sie die Ordnerziele des DFS-Replikation verwenden](replicate-folder-targets-using-dfs-replication.md)
+-   [Replizieren von Ordner Zielen mithilfe von DFS-Replikation](replicate-folder-targets-using-dfs-replication.md)

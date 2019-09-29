@@ -6,15 +6,15 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 5c91cb97a1b8371d1e3f8e496f026727681e2304
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 921cf4b4b5629df735b20ba59f239abfd6b0d6d6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865595"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407504"
 ---
 # <a name="set-up-an-ad-fs-lab-environment"></a>Einrichten einer AD FS-Laborumgebung
 
@@ -255,7 +255,7 @@ Sie müssen die folgenden Schritte durchführen, um einen Webserver mit dieser a
   
 2.  Kopieren Sie den Inhalt von c:Program Files (x86) Windows Identity Foundation sdkv 3.5 samplesquick startweb applicationpassiveredirectbasedclaimsawarewebapp nach c:inetpubclaimapp.  
   
-3.  Bearbeiten Sie die Datei **Default.aspx.cs** , damit keine Anspruchsfilterung stattfindet. Mit diesem Schritt wird sichergestellt, dass die Beispielanwendung alle Ansprüche anzeigt, die vom Verbundserver ausgegeben werden. Führen Sie folgende Schritte aus:  
+3.  Bearbeiten Sie die Datei **Default.aspx.cs** , damit keine Anspruchsfilterung stattfindet. Mit diesem Schritt wird sichergestellt, dass die Beispielanwendung alle Ansprüche anzeigt, die vom Verbundserver ausgegeben werden. Gehen Sie wie folgt vor:  
   
     1.  Öffnen Sie **Default.aspx.cs** in einem Text-Editor.  
   

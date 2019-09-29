@@ -2,95 +2,95 @@
 title: Virtuelles Netzwerk peering
 description: ''
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.assetid: ''
 ms.author: pashort
 author: shortpatti
 ms.date: 08/08/2018
-ms.openlocfilehash: aab4ec7c69ec5b52eae926cd1065d777415b1124
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: ccdcbb953939345ef5e9a45dff87fc7af62eb7bf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446210"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355484"
 ---
 # <a name="virtual-network-peering"></a>Virtuelles Netzwerk peering
 
 >Gilt für: Windows Server
 
-Peering in virtuellen Netzwerken können Sie die nahtlose Verbindung von zwei virtuellen Netzwerken. Nach für verbindungszwecke, dem Peering werden die virtuellen Netzwerke als eine angezeigt. 
+Das Peering virtueller Netzwerke ermöglicht das nahtlose Verbinden von zwei virtuellen Netzwerken. Nach dem Peer werden die virtuellen Netzwerke zu konnektivitätszwecken als eins angezeigt. 
 
-Die Verwendung von vnet-peering bietet folgende Vorteile:
+Die Verwendung des Peerings virtueller Netzwerke bietet folgende Vorteile:
 
--   Datenverkehr zwischen virtuellen Computern in mittels Peering verknüpften virtuellen Netzwerke über das Backbone-Infrastruktur über weitergeleitet *private* IP-Adressen nur. Die Kommunikation zwischen den virtuellen Netzwerken ist nicht öffentliche Internet oder Gateways erforderlich.
+-   Datenverkehr zwischen virtuellen Computern in den virtuellen Netzwerken mit virtuellen Netzwerken wird nur über die Backbone-Infrastruktur über *private* IP-Adressen geleitet. Die Kommunikation zwischen den virtuellen Netzwerken erfordert weder öffentliches Internet noch Gateways.
 
--   Eine niedrige Latenz und hoher Bandbreite der Verbindung zwischen Ressourcen in verschiedenen virtuellen Netzwerken.
+-   Eine Verbindung mit geringer Latenz und hoher Bandbreite zwischen Ressourcen in unterschiedlichen virtuellen Netzwerken.
 
--   Die Fähigkeit für Ressourcen in einem virtuellen Netzwerk mit Ressourcen in einem anderen virtuellen Netzwerk kommunizieren.
+-   Die Fähigkeit von Ressourcen in einem virtuellen Netzwerk, mit Ressourcen in einem anderen virtuellen Netzwerk zu kommunizieren.
 
--   Keine Ausfallzeiten auf Ressourcen in beiden virtuellen Netzwerken, die beim Erstellen des peerings.
+-   Keine Ausfallzeiten von Ressourcen in einem virtuellen Netzwerk beim Erstellen des Peerings.
 
 ## <a name="requirements-and-constraints"></a>Anforderungen und Einschränkungen
 
-Vnet-peering verfügt über einige Anforderungen und Einschränkungen:
+Beim Peering virtueller Netzwerke sind einige Anforderungen und Einschränkungen zu beachten:
 
-- Mittels Peering verknüpften virtuellen Netzwerke müssen Schritte ausführen:
+- Virtuelle Netzwerke mit virtuellen Netzwerken müssen Folgendes ausführen:
 
-  -   IP-Adressräume ohne überschneidungen verfügen
+  -   Nicht überlappende IP-Adressräume
 
-  -   Durch den gleichen Netzwerkcontroller verwaltet werden
+  -   Verwaltung durch denselben Netzwerk Controller
 
-- Nachdem Sie ein virtuelles Netzwerk mit einem anderen virtuellen Netzwerk per Peering verknüpfen, können nicht Sie hinzufügen oder löschen in den Adressraum-Adressbereiche.
+- Wenn Sie ein virtuelles Netzwerk mit einem anderen virtuellen Netzwerk übertragen haben, können Sie Adressbereiche im Adressraum nicht hinzufügen oder löschen.
 
   >[!TIP]
-  >Wenn Sie die Adressbereiche hinzufügen möchten:<ol><li>Das peering zu entfernen.</li><li>Fügen Sie den Adressraum hinzu.</li><li>Fügen Sie das peering wieder hinzu.</li></ol>
+  >Wenn Sie Adressbereiche hinzufügen müssen:<ol><li>Entfernen Sie das Peering.</li><li>Fügen Sie den Adressraum hinzu.</li><li>Fügen Sie das Peering erneut hinzu.</li></ol>
 
-- Da die vnet-peering zwischen zwei virtuellen Netzwerken ist, besteht es keine abgeleitete transitive Beziehung zwischen Peerings. Z. B. Wenn Sie ein VirtualNetworkA mit VirtualNetworkB und VirtualNetworkB mit virtualnetworkc verknüpft Peering, klicken Sie dann VirtualNetworkA nicht mit virtualnetworkc verknüpft Peering zu erhalten.
+- Da das Peering virtueller Netzwerke zwischen zwei virtuellen Netzwerken besteht, besteht keine abgeleitete transitiv Beziehung zwischen Peerings. Wenn Sie z. b. virtualnetworka mit virtualnetworkb und virtualnetworkb mit virtualnetworkc verknüpfen, wird virtualnetworka nicht mit virtualnetworkc verknüpft.
 
-  [Hier Image]
+  [Bild hier]
 
 ## <a name="connectivity"></a>Verbindung
 
-Nach dem Peering virtueller Netzwerke können Ressourcen in beiden virtuellen Netzwerken direkt mit Ressourcen im mittels Peering verknüpften virtuellen Netzwerk verbinden.
+Nachdem Sie virtuelle Netzwerke mittels Peering verbunden haben, können Ressourcen in beiden virtuellen Netzwerken direkt mit Ressourcen im mittels Peering verknüpften virtuellen Netzwerk verbunden werden.
 
--   Die Netzwerklatenz zwischen virtuellen Computern in mittels Peering verknüpften virtuellen Netzwerken ist identisch mit der Netzwerklatenz in einem einzelnen virtuellen Netzwerk.
+-   Die Netzwerk Latenz zwischen virtuellen Computern in virtuellen Netzwerken mit virtuellen Netzwerken entspricht der Wartezeit innerhalb eines einzelnen virtuellen Netzwerks.
 
--   Netzwerkdurchsatz basiert auf der Bandbreite für den virtuellen Computer zulässig. Es ist keine zusätzliche Einschränkung auf die Bandbreite im peering ein.
+-   Der Netzwerk Durchsatz basiert auf der Bandbreite, die für den virtuellen Computer zulässig ist. Im Peering gibt es keine zusätzliche Beschränkung der Bandbreite.
 
--   Datenverkehr zwischen virtuellen Computern in mittels Peering verknüpften virtuellen Netzwerken wird direkt über das Backbone-Infrastruktur nicht über ein Gateway oder über das öffentliche Internet weitergeleitet.
+-   Der Datenverkehr zwischen virtuellen Computern in mittels PNS über ein virtuelles Netzwerk wird direkt über die Backbone-Infrastruktur und nicht über ein Gateway oder über das öffentliche Internet weitergeleitet.
 
--   Virtuelle Computer in einem virtuellen Netzwerk können über den internen Lastenausgleich im mittels Peering verknüpften virtuellen Netzwerk zugreifen.
+-   Virtuelle Computer in einem virtuellen Netzwerk können auf den internen Load Balancer im per Peer-Board basierenden virtuellen Netzwerk zugreifen.
 
-Sie können die Zugriffssteuerungslisten (ACLs) in beiden virtuellen Netzwerken den Zugriff auf andere virtuelle Netzwerke oder Subnetze zu blockieren, bei Bedarf anwenden. Wenn Sie Öffnen der vollständigen Konnektivität zwischen den mittels Peering verknüpften virtuellen Netzwerken (die Standardoption), können Sie die ACLs auf bestimmten Subnetzen oder virtuellen Computern zu blockieren oder zu verweigern den Zugriff jeweils spezifisch anwenden. Weitere Informationen zu ACLs finden Sie unter [verwenden Zugriffssteuerungslisten (ACLs) zum Verwalten von Datencenter-Netzwerk fließt der Datenverkehr](https://docs.microsoft.com/windows-server/networking/sdn/manage/use-acls-for-traffic-flow).
+Sie können Zugriffs Steuerungs Listen (ACLs) in jedem virtuellen Netzwerk anwenden, um den Zugriff auf andere virtuelle Netzwerke oder Subnetze zu blockieren, wenn dies gewünscht wird. Wenn Sie die vollständige Konnektivität zwischen virtuellen Netzwerken mit virtuellen Netzwerken (Standardoption) öffnen, können Sie ACLs auf bestimmte Subnetze oder virtuelle Computer anwenden, um einen bestimmten Zugriff zu blockieren oder zu verweigern. Weitere Informationen zu ACLs finden Sie unter [Verwenden von Access Control Listen (ACLs) zum Verwalten des Netzwerk Datenverkehrs im Daten Center](https://docs.microsoft.com/windows-server/networking/sdn/manage/use-acls-for-traffic-flow).
 
-## <a name="service-chaining"></a>Dienstverkettung
+## <a name="service-chaining"></a>Dienst Verkettung
 
-Sie können benutzerdefinierte Routen konfigurieren, die auf virtuellen Computern in mittels Peering verknüpften virtuellen Netzwerken, als der nächste Hop IP-Adresse verweisen, um die dienstverkettung zu aktivieren. Dienstverkettung können Sie leiten Sie Datenverkehr von einem virtuellen Netzwerk an ein virtuelles Gerät, in einem mittels Peering verknüpften virtuellen Netzwerk, über benutzerdefinierte Routen.
+Sie können benutzerdefinierte Routen konfigurieren, die auf virtuelle Computer in per Peer fähigen virtuellen Netzwerken als IP-Adresse für den nächsten Hop verweisen, um die Dienst Verkettung zu aktivieren. Mithilfe der Dienst Verkettung können Sie den Datenverkehr von einem virtuellen Netzwerk über benutzerdefinierte Routen an ein virtuelles Gerät in einem mittels pvm gebundenen virtuellen Netzwerk weiterleiten.
 
-Sie können die Hub-Spoke-Netzwerke bereitstellen, in dem das virtuelle hubnetzwerk Infrastrukturkomponenten wie etwa ein virtuelles Netzwerkgerät gehostet werden können. Alle virtuellen Spoke-Netzwerke mittels Peering mit dem virtuellen hubnetzwerk. Datenverkehr kann virtuelle Netzwerkgeräte in das virtuelle hubnetzwerk durchlaufen.
+Sie können Hub-und sprach Netzwerke bereitstellen, in denen das virtuelle Hub-Netzwerkinfrastruktur Komponenten (z. b. ein virtuelles Netzwerkgerät) hosten kann. Alle virtuellen Netzwerke, die sich mit dem virtuellen Hub-Netzwerk verbinden. Der Datenverkehr kann über virtuelle Netzwerkgeräte im virtuellen Hub-Netzwerk fließen.
 
-Vnet-peering ermöglicht den nächsten Hop in einer benutzerdefinierten Route, die IP-Adresse eines virtuellen Computers im mittels Peering verknüpften virtuellen Netzwerk. Weitere Informationen zu benutzerdefinierten Routen finden Sie unter [verwenden virtueller Netzwerkgeräte in einem virtuellen Netzwerk](https://docs.microsoft.com/windows-server/networking/sdn/manage/use-network-virtual-appliances-on-a-vn).
+Das Peering virtueller Netzwerke ermöglicht es dem nächsten Hop in einer benutzerdefinierten Route, die IP-Adresse eines virtuellen Computers im mittels Peering gebundenen virtuellen Netzwerk zu sein. Weitere Informationen zu benutzerdefinierten Routen finden Sie unter [Verwenden von virtuellen Netzwerkgeräten auf einem Virtual Network](https://docs.microsoft.com/windows-server/networking/sdn/manage/use-network-virtual-appliances-on-a-vn).
 
 ## <a name="gateways-and-on-premises-connectivity"></a>Gateways und lokale Konnektivität
 
-Jedes virtuelles Netzwerk kann unabhängig davon, ob ein Peering mit einem anderen virtuellen Netzwerk eingerichtet haben immer noch ein eigenes Gateway eine Verbindung mit einem lokalen Netzwerk herstellen. Beim Peering virtueller Netzwerke können Sie auch das Gateway im mittels Peering verknüpften virtuellen Netzwerk als transitpunkt zu einem lokalen Netzwerk konfigurieren. In diesem Fall kann nicht das virtuelle Netzwerk, das ein Remotegateway verwendet ein eigenes Gateway verfügen. Ein virtuelles Netzwerk haben nur ein Gateway, das entweder als ein Gateway für lokales oder remote (im mittels Peering verknüpften virtuellen Netzwerk).
+Jedes virtuelle Netzwerk kann unabhängig davon, ob es mit einem anderen virtuellen Netzwerk verbunden ist, weiterhin über ein eigenes Gateway verfügen, um eine Verbindung mit einem lokalen Netzwerk herzustellen. Beim Peering virtueller Netzwerke können Sie das Gateway im mittels Peering verknüpften virtuellen Netzwerk auch als Transitpunkt für ein lokales Netzwerk konfigurieren. In diesem Fall kann das virtuelle Netzwerk, das ein Remote Gateway verwendet, kein eigenes Gateway besitzen. Ein virtuelles Netzwerk kann nur über ein Gateway verfügen, bei dem es sich entweder um ein lokales Gateway oder um ein Remote Gateway (im virtuellen Netzwerk mit Peer) handeln kann.
 
 ## <a name="monitor"></a>Überwachen
 
-Wenn Sie sich mit zwei virtuelle Netzwerken per Peering verknüpfen, müssen Sie konfigurieren, ein peering für jedes virtuelle Netzwerk im peering.
+Wenn Sie zwei virtuelle Netzwerke mittels Peering verknüpfen, müssen Sie für jedes virtuelle Netzwerk im Peering ein Peering konfigurieren.
 
-Sie können den Status Ihrer Peeringverbindung, überwachen, die in einem der folgenden Status möglich:
+Sie können den Status Ihrer Peeringverbindung überwachen, die sich in einem der folgenden Zustände befinden kann:
 
--   **Initiiert:** Angezeigt, wenn Sie das peering vom ersten virtuellen Netzwerk mit dem zweiten virtuellen Netzwerk erstellen.
+-   **Initiiert** Wird angezeigt, wenn Sie das Peering vom ersten virtuellen Netzwerk mit dem zweiten virtuellen Netzwerk erstellen.
 
--   **Verbunden:** Angezeigt, nachdem Sie das peering vom zweiten virtuellen Netzwerk mit dem ersten virtuellen Netzwerk erstellt haben. Der peeringstatus für das erste virtuelle Netzwerk wird nun aus initiiert verbunden. Beide Peers des virtuellen Netzwerks müssen den Status der verbunden haben, vor dem Einrichten einer vnet-Peering erfolgreich.
+-   **Hängt** Wird angezeigt, nachdem Sie das Peering vom zweiten virtuellen Netzwerk mit dem ersten virtuellen Netzwerk erstellt haben. Der peeringstatus für das erste virtuelle Netzwerk wechselt von "initiiert" in "verbunden". Beide Peers von virtuellen Netzwerken müssen den Status "verbunden" aufweisen, bevor das Peering virtueller Netzwerke erfolgreich hergestellt werden konnte.
 
--   **Getrennt:** Angezeigt, wenn ein anderes virtuelles Netzwerk ein virtuelles Netzwerk trennt.
+-   **Koppelt** Wird angezeigt, wenn ein virtuelles Netzwerk die Verbindung mit einem anderen virtuellen Netzwerk trennt.
 
-[INFOGRAFIK der Zustände]
+[infographic der Zustände]
 
 ## <a name="next-steps"></a>Nächste Schritte
-[Konfigurieren Sie das peering in virtuellen Netzwerken](sdn-configure-vnet-peering.md): In diesem Verfahren Sie Windows PowerShell verwenden, um den HNV finden Anbieter logischen Netzwerk zwei virtuelle Netzwerke erstellen, jeweils mit einem Subnetz. Außerdem konfigurieren Sie das peering zwischen den beiden virtuellen Netzwerken.
+[Konfigurieren Sie das Peering virtueller Netzwerke](sdn-configure-vnet-peering.md): In diesem Verfahren verwenden Sie Windows PowerShell, um das logische HNV-anbieternetzwerk zu suchen und zwei virtuelle Netzwerke mit jeweils einem Subnetz zu erstellen. Außerdem konfigurieren Sie das Peering zwischen den beiden virtuellen Netzwerken.
 

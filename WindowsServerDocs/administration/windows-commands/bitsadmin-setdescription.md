@@ -1,8 +1,8 @@
 ---
 title: bitsadmin Beschreibung
-description: Windows-Befehle Thema **Bitsadmin Setdescription** -legt die Beschreibung des angegebenen Auftrags fest.
+description: 'Windows-Befehls Thema für **bitadmin setDescription** : legt die Beschreibung des angegebenen Auftrags fest.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8e3323c20eebc8ba633ccfd478daa0753e506f46
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d140ee9d575828a1a4d536073e468c9b4e56799f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830751"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380929"
 ---
 # <a name="bitsadmin-setdescription"></a>bitsadmin Beschreibung
 
@@ -36,16 +36,16 @@ bitsadmin /SetDescription <Job> <Description>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
-|Beschreibung|Text zur Beschreibung des Auftrags verwendet.|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
+|Beschreibung|Der Text, der zur Beschreibung des Auftrags verwendet wird.|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Das folgende Beispiel ruft die Beschreibung für den Auftrag mit dem Namen *MyDownloadJob*.
+Im folgenden Beispiel wird die Beschreibung für den Auftrag mit dem Namen " *mydownloadjob*" abgerufen.
 ```
 C:\>bitsadmin /SetDescription myDownloadJob "Music Downloads"
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

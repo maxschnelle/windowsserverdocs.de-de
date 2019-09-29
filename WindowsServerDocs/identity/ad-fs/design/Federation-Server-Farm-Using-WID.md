@@ -7,75 +7,75 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 067461b90ed5ce03d9470a450917dcbb93cf653a
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: b0a84940018a0e71aaa1b47c7af3aba5966fe0ae
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191310"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408055"
 ---
 # <a name="federation-server-farm-using-wid"></a>Verbundserverfarm mit WID
 
-Die Standardtopologie für Active Directory Federation Services \(AD FS\) eine Verbundserverfarm unter Verwendung der internen Windows-Datenbank ist \(WID\). In dieser Topologie verwendet die AD FS WID als Speicher für die AD FS-Konfigurationsdatenbank für alle Verbundserver, die mit der betreffenden Farm verbunden sind. Die Verbunddienstdaten in der Konfigurationsdatenbank werden von der Farm auf alle Server der Farm repliziert und dort verwaltet. AD FS unter Windows Server 2012 R2 ermöglicht Organisationen mit bis zu 100 Vertrauensstellungen der vertrauenden Seite Partei Verbund-Serverfarmen mit WID mit bis zu 30 Server konfigurieren.  
+Die Standard Topologie für Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1 ist eine Verbund Serverfarm, die die interne Windows-Datenbank \(WiD @ no__t-3 verwendet. In dieser Topologie verwendet AD FS wid als Speicher für die AD FS Konfigurations Datenbank für alle Verbund Server, die mit dieser Farm verknüpft sind. Die Verbunddienstdaten in der Konfigurationsdatenbank werden von der Farm auf alle Server der Farm repliziert und dort verwaltet. AD FS in Windows Server 2012 R2 ermöglicht es Organisationen mit 100 oder weniger Vertrauens Stellungen der vertrauenden Seite, Verbund Server Farmen mithilfe von wid mit bis zu 30 Servern zu konfigurieren.  
   
-Beim Erstellen des ersten Verbundservers in einer Farm wird auch ein neuer Verbunddienst erstellt. Bei Verwendung von WID für die AD FS-Konfigurationsdatenbank des ersten Verbundservers, die Sie in der Farm zu erstellen als bezeichnet die *primärer Verbundserver*. Dies bedeutet, dass dieser Computer, mit der ein Lesevorgang konfiguriert ist\/Kopie der AD FS-Konfigurationsdatenbank zu schreiben.  
+Beim Erstellen des ersten Verbundservers in einer Farm wird auch ein neuer Verbunddienst erstellt. Wenn Sie wid für die AD FS Konfigurations Datenbank verwenden, wird der erste Verbund Server, den Sie in der Farm erstellen, als *primärer Verbund Server*bezeichnet. Dies bedeutet, dass dieser Computer mit einer Lese\/-/Schreibkopie der AD FS Konfigurations Datenbank konfiguriert ist.  
   
-Alle anderen Verbundserver, die Sie für diese Farm zu konfigurieren, werden als bezeichnet *sekundäre Verbundserver* , da sie keine Änderungen repliziert werden müssen, die auf dem primären Verbundserver für die Lese-vorgenommen werden\-nur Kopien der AD FS-Konfigurationsdatenbank, die sie lokal speichern.  
+Alle anderen für diese Farm konfigurierten Verbund Server werden als *sekundäre* Verbund Server bezeichnet, da Sie alle auf dem primären Verbund Server vorgenommenen Änderungen auf die\-schreibgeschützten Kopien der AD FS replizieren müssen. die Konfigurations Datenbank, die lokal gespeichert wird.  
   
 > [!IMPORTANT]  
-> Wir empfehlen die Verwendung von mindestens zwei Verbundserver in einem Auslastungstestszenario\-ausgeglichene Konfiguration.  
+> Es wird empfohlen, mindestens zwei Verbund Server in einer Konfiguration mit Lasten\-Ausgleich zu verwenden.  
   
 ## <a name="deployment-considerations"></a>Überlegungen zur Bereitstellung  
-Dieser Abschnitt beschreibt verschiedene Überlegungen zu den Zielgruppe, Vorteile und Einschränkungen, die mit dieser Bereitstellungstopologie verknüpft sind.  
+In diesem Abschnitt werden verschiedene Überlegungen zu den beabsichtigten Zielgruppen, Vorteilen und Einschränkungen beschrieben, die mit dieser Bereitstellungs Topologie verknüpft sind.  
   
 ### <a name="who-should-use-this-topology"></a>Wer sollte diese Topologie verwenden?  
   
--   Organisationen mit bis zu 100 konfigurierten Vertrauensstellungen, die zum Bereitstellen ihrer internen Benutzer benötigen \(auf den Computern, die physisch mit dem Unternehmensnetzwerk verbunden sind, protokolliert\) mit Einmaliger Anmeldung\-auf \(SSO\) Zugriff auf verbundanwendungen oder-Dienste  
+-   Organisationen mit 100 oder weniger konfigurierten Vertrauens Stellungen, die ihre internen Benutzer \(für Computer, die physisch mit dem Unternehmensnetzwerk\) verbunden sind, mit einmaligem Anmelden\- \(bereitstellenmüssenSSO\) -Zugriff auf Verbund Anwendungen oder-Dienste  
   
--   Organisationen, die internen Benutzer SSO-Zugriff auf Microsoft Online Services oder Microsoft Office 365 ermöglichen möchten  
+-   Organisationen, die ihren internen Benutzern SSO-Zugriff auf Microsoft Online Services oder Microsoft Office 365 bereitstellen möchten  
   
--   Kleinere Organisationen, die redundante, skalierbare Dienste erfordern  
+-   Kleinere Unternehmen, die redundante, skalierbare Dienste benötigen  
   
 > [!NOTE]  
-> Organisationen mit größeren Datenbanken sollten mit den [Federation Server Farm mithilfe von SQL Server](Federation-Server-Farm-Using-SQL-Server.md) Bereitstellungstopologie. Organisationen mit Benutzern, die sich von außerhalb des Netzwerks sollten entweder die [Federation Server Farm mit WID und Proxys](Federation-Server-Farm-Using-WID-and-Proxies.md) Topologie oder [Federation Server Farm mithilfe von SQL Server](Federation-Server-Farm-Using-SQL-Server.md) Topologie.  
+> Organisationen mit größeren Datenbanken sollten die Verwendung der Verbund [Server Farm mithilfe SQL Server](Federation-Server-Farm-Using-SQL-Server.md) Bereitstellungs Topologie in Erwägung gezogen werden. Organisationen mit Benutzern, die sich von außerhalb des Netzwerks anmelden, sollten entweder die Verbund [Serverfarm mithilfe der wid-und](Federation-Server-Farm-Using-WID-and-Proxies.md) Proxys-Topologie oder der Verbund [Serverfarm mithilfe SQL Server](Federation-Server-Farm-Using-SQL-Server.md) Topologie verwenden.  
   
-### <a name="what-are-the-benefits-of-using-this-topology"></a>Was sind die Vorteile der Verwendung dieser Topologie?  
+### <a name="what-are-the-benefits-of-using-this-topology"></a>Welche Vorteile bietet die Verwendung dieser Topologie?  
   
--   Bietet SSO-Zugriff auf interne Benutzer  
+-   Ermöglicht SSO-Zugriff auf interne Benutzer.  
   
--   Daten und der Verbunddienst Redundanz \(jedes Verbundservers Änderungen repliziert werden, an andere Verbundserver in der gleichen Farm\)  
+-   Daten-und Verbunddienst \(Redundanz repliziert jeder Verbund Serveränderungen an anderen Verbund Servern in derselben Farm.\)  
   
--   WID ist in Windows enthalten. aus diesem Grund nicht erforderlich, die SQL Server zu erwerben  
+-   WID ist in Windows enthalten. Daher ist es nicht erforderlich, SQL Server zu erwerben.  
   
-### <a name="what-are-the-limitations-of-using-this-topology"></a>Was sind die Einschränkungen bei der Verwendung dieser Topologie?  
+### <a name="what-are-the-limitations-of-using-this-topology"></a>Welche Einschränkungen gelten für die Verwendung dieser Topologie?  
   
--   Eine WID-Farm hat ein Limit von 30 Verbundserver aus, wenn Sie bis zu 100 Vertrauensstellungen der vertrauenden Seite Partei haben.  
+-   Eine wid-Farm hat ein Limit von 30 Verbund Servern, wenn Sie über 100 oder weniger Vertrauens Stellungen der vertrauenden Seite verfügen.  
   
--   Eine WID-Farm unterstützt keine token-Replay-Erkennung oder Artefakt Auflösung \(Teil der Security Assertion Markup Language \(SAML\) Protokoll\).  
+-   Eine wid-Farm unterstützt keine tokenwiedergabe-oder \(artefaktauflösungs Teile \(des Security Assertion Markup Language\) SAML-Protokolls\).  
   
-Die folgende Tabelle enthält eine Zusammenfassung für die Verwendung einer Windows-datenbankfarm.  Verwenden Sie sie an, um Ihre Implementierung planen.  
+In der folgenden Tabelle finden Sie eine Zusammenfassung zur Verwendung einer wid-Farm.  Verwenden Sie es, um Ihre Implementierung zu planen.  
   
-|| 1 \- 100 RP-Vertrauensstellungen | Mehr als 100 RP-Vertrauensstellungen |
+|| 1 \- 100 RP-Vertrauens Stellungen | Mehr als 100 RP-Vertrauens Stellungen |
 | --- | --- | --- |
-|1 \- 30 AD FS-Knoten|WID unterstützt|Bei Verwendung von WID - erforderlichen SQL nicht unterstützt 
-|Mehr als 30 AD FS-Knoten|Bei Verwendung von WID - erforderlichen SQL nicht unterstützt|Bei Verwendung von WID - erforderlichen SQL nicht unterstützt  
+|1 \- 30 AD FS Knoten|Unterstützt wid|Nicht unterstützt mit wid-SQL erforderlich 
+|Mehr als 30 AD FS Knoten|Nicht unterstützt mit wid-SQL erforderlich|Nicht unterstützt mit wid-SQL erforderlich  
   
-## <a name="server-placement-and-network-layout-recommendations"></a>Server Platzierung und Netzwerk-Layout-Empfehlungen  
-Wenn Sie die Startzeit der Bereitstellung dieser Topologie in Ihrem Netzwerk bereit sind, sollten Sie auf das Platzieren aller von den Verbundservern im Unternehmensnetzwerk hinter einem Netzwerklastenausgleich \(NLB\) Host, der für einen NLB-Cluster konfiguriert werden kann mit dediziertem Cluster Domain Name System \(DNS\) und Cluster-IP-Adresse.  
-  
-> [!NOTE]  
-> Dieser DNS-Clustername muss den Namen des Verbunddiensts, z. B. "FS.Fabrikam.com" übereinstimmen.  
-  
-Der NLB-Host können die Einstellungen, die in diesem NLB-Cluster auf Clientanforderungen an den einzelnen Verbundservern zugeordnet definiert sind. Die folgende Abbildung zeigt, wie das fiktive Unternehmen Fabrikam, Inc. die erste Phase der Bereitstellung über ein einrichtet\-Computer Verbundserverfarm \(fs1 und fs2\) mit WID und die Positionierung eines DNS-Servers und eines einzelnen NLB-Hosts, das mit dem Unternehmensnetzwerk verbunden ist.  
-  
-![Serverfarm mit WID](media/FarmWID.gif)  
+## <a name="server-placement-and-network-layout-recommendations"></a>Empfehlungen zur Server Platzierung und zum Netzwerk Layout  
+Wenn Sie bereit sind, mit der Bereitstellung dieser Topologie in Ihrem Netzwerk zu beginnen, sollten Sie planen, alle Verbund Server im Unternehmensnetzwerk hinter einem NLB \(\) -Host für den Netzwerk Lastenausgleich zu platzieren, der für einen NLB-Cluster konfiguriert werden kann. mit einem dedizierten Cluster \(Domain Name System\) DNS-Namen und einer Cluster-IP-Adresse.  
   
 > [!NOTE]  
-> Wenn ein Fehler auf dieses einzelnen NLB-Hosts vorhanden ist, werden Benutzer nicht auf verbundanwendungen oder-Dienste zugreifen. Fügen Sie weitere NLB-Hosts hinzu, wenn Ihre Geschäftsanforderungen eine einzelne Fehlerquelle nicht zulassen.  
+> Der DNS-Cluster Name muss mit dem Verbunddienst Namen, z. b. fs.fabrikam.com, identisch sein.  
   
-Weitere Informationen dazu, wie Sie Ihre Netzwerkumgebung für die Verwendung mit dem Verbundserver konfigurieren zu können, finden Sie im Abschnitt Anforderungen an die namensauflösung in [AD FS-Anforderungen](AD-FS-Requirements.md).  
+Der NLB-Host kann die in diesem NLB-Cluster definierten Einstellungen verwenden, um Client Anforderungen den einzelnen Verbund Servern zuzuordnen. Die folgende Abbildung zeigt, wie das fiktive Fabrikam, Inc., Unternehmen die erste Phase der Bereitstellung mithilfe einer Verbund\-Serverfarm \(mit zwei Computern FS1 und\) FS2 mit wid und der Positionierung eines DNS-Servers einrichtet. und ein einzelner NLB-Host, der mit dem Unternehmensnetzwerk verdrahtet ist.  
+  
+![Serverfarm mit wid](media/FarmWID.gif)  
+  
+> [!NOTE]  
+> Bei einem Ausfall dieses einzelnen NLB-Hosts können die Benutzer nicht auf Verbund Anwendungen oder-Dienste zugreifen. Fügen Sie weitere NLB-Hosts hinzu, wenn Ihre Geschäftsanforderungen eine einzelne Fehlerquelle nicht zulassen.  
+  
+Weitere Informationen zum Konfigurieren der Netzwerkumgebung für die Verwendung mit Verbund Servern finden Sie im Abschnitt Anforderungen für die Namensauflösung unter [AD FS Anforderungen](AD-FS-Requirements.md).  
   
 ## <a name="see-also"></a>Siehe auch  
 [Planen der AD FS-Bereitstellungstopologie](Plan-Your-AD-FS-Deployment-Topology.md)  

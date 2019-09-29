@@ -1,8 +1,8 @@
 ---
 title: Konfigurieren von EAP-TLS, um ignorieren (Certificate Revocation List, CRL) überprüfen
-description: Ein EAP-TLS-Client keine Verbindung herstellen, es sei denn, der NPS-Server eine sperrungsüberprüfung der Zertifikatkette des Clients (einschließlich des Stammzertifikats) abgeschlossen, und stellt sicher, dass Zertifikate widerrufen wurden.
+description: Ein EAP-TLS-Client kann keine Verbindung herstellen, es sei denn, der NPS-Server schließt eine Sperr Überprüfung der Zertifikatskette (einschließlich des Stamm Zertifikats) des Clients ab und überprüft, ob Zertifikate widerrufen wurden.
 services: active-directory
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 documentationcenter: ''
 ms.assetid: ''
@@ -15,53 +15,53 @@ ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: 781239f45b9b260b7d374c2a6972cdb8faad2879
-ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
+ms.openlocfilehash: f2c1de01883f2fb52faebb4abf1d0c9e61f0139b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749595"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388071"
 ---
 # <a name="step-71-configure-eap-tls-to-ignore-certificate-revocation-list-crl-checking"></a>Schritt 7.1. Konfigurieren von EAP-TLS, um ignorieren (Certificate Revocation List, CRL) überprüfen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Vorherige:** Schritt 7 (Optional) Bedingter Zugriff für VPN-Verbindungen mithilfe von Azure AD](ad-ca-vpn-connectivity-windows10.md)
-- [**nächster:** Schritt 7.2. Erstellen von Stammzertifikaten für die VPN-Authentifizierung mit Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md)
+- [**Vorher** Schritt 7 Optionale Bedingter Zugriff für VPN-Konnektivität mithilfe von Azure AD](ad-ca-vpn-connectivity-windows10.md)
+- [**Weiter** Schritt 7.2. Erstellen von Stammzertifikaten für die VPN-Authentifizierung mit Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md)
 
 >[!IMPORTANT]
->Fehler beim Implementieren Sie diese registrierungsänderung führt dazu, dass IKEv2-Verbindungen mithilfe von Cloud-Zertifikaten mit PEAP fehlschlägt, aber die IKEv2-Verbindungen, die von der lokalen-Zertifizierungsstelle ausgestellten Zertifikate für Client-Authentifizierung verwenden würde auch weiterhin funktionieren.
+>Wenn diese Registrierungs Änderung nicht implementiert wird, treten bei IKEv2-Verbindungen mit cloudzertifikaten mit PEAP Fehler auf, aber IKEv2-Verbindungen mit Client Authentifizierungs Zertifikaten, die von der lokalen Zertifizierungsstelle ausgestellt werden, funktionieren weiterhin.
 
-Sie können in diesem Schritt hinzufügen **IgnoreNoRevocationCheck** und legen Sie ihn auf die Authentifizierung von Clients zuzulassen, wenn das Zertifikat keine Sperrlisten-Verteilungspunkte enthält. Standardmäßig wird die IgnoreNoRevocationCheck auf 0 (deaktiviert) festgelegt.
+In diesem Schritt können Sie **IgnoreNoRevocationCheck** hinzufügen und festlegen, dass die Authentifizierung von Clients zulässig ist, wenn das Zertifikat keine CRL-Verteilungs Punkte enthält. Standardmäßig ist IgnoreNoRevocationCheck auf 0 (deaktiviert) festgelegt.
 
 >[!NOTE]
->Wenn eine Windows-Routing und RAS-Server (RRAS) verwendet NPS zum Proxy RADIUS aufruft, um eine zweite NPS, dann müssen Sie festlegen **IgnoreNoRevocationCheck = 1** auf beiden Servern.
+>Wenn ein Windows-Routing-und Remote Zugriffs Server (RRAS) NPS zum Proxy von RADIUS-Aufrufen an einen zweiten NPS verwendet, müssen Sie auf beiden Servern **IgnoreNoRevocationCheck = 1** festlegen.
 
-Ein EAP-TLS-Client keine Verbindung herstellen, es sei denn, der NPS-Server eine sperrungsüberprüfung der Zertifikatkette (einschließlich des Stammzertifikats) abgeschlossen ist. Cloud-Zertifikate, die für den Benutzer von Azure AD ausgestellten müssen keine Zertifikatsperrliste, da sie kurzlebige Zertifikate über eine Gültigkeitsdauer von einer Stunde sind. EAP für NPS muss konfiguriert werden, um das Fehlen einer Zertifikatsperrliste zu ignorieren. Standardmäßig wird die IgnoreNoRevocationCheck auf 0 (deaktiviert) festgelegt. Fügen Sie IgnoreNoRevocationCheck hinzu, und legen Sie ihn auf 1 fest, um die Authentifizierung von Clients zuzulassen, wenn das Zertifikat keine Sperrlisten-Verteilungspunkte enthält. 
+Ein EAP-TLS-Client kann keine Verbindung herstellen, es sei denn, der NPS-Server schließt eine Sperr Überprüfung der Zertifikat Kette (einschließlich des Stamm Zertifikats) ab. Cloud-Zertifikate, die von Azure AD an den Benutzer ausgegeben werden, verfügen nicht über eine Zertifikat Sperr Liste, da es sich um kurzlebige Zertifikate mit einer Lebensdauer von einer Stunde handelt. EAP auf NPS muss so konfiguriert werden, dass das Fehlen einer CRL ignoriert wird. Standardmäßig ist IgnoreNoRevocationCheck auf 0 (deaktiviert) festgelegt. Fügen Sie IgnoreNoRevocationCheck hinzu, und legen Sie es auf 1 fest, um die Authentifizierung von Clients zuzulassen, wenn das Zertifikat keine CRL-Verteilungs Punkte enthält. 
 
-Da die Authentifizierungsmethode EAP-TLS ist, ist dieser Wert nur unter EAP\13 erforderlich. Wenn andere EAP-Authentifizierungsmethoden verwendet werden, sollte der Registrierungswert sowie unterhalb dieser hinzugefügt. 
+Da die Authentifizierungsmethode EAP-TLS ist, wird dieser Registrierungs Wert nur unter eap\13. benötigt. Wenn andere EAP-Authentifizierungsmethoden verwendet werden, sollte der Registrierungs Wert ebenfalls hinzugefügt werden. 
 
-**Verfahren**
+**Dringlichkeit**
 
-1. Open **regedit.exe** auf dem NPS-Server.
+1. Öffnen Sie " **Regedit. exe** " auf dem NPS-Server.
 
 2. Navigieren Sie zu **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\PPP\EAP\13**.
 
-3. Wählen Sie **Bearbeiten > New** , und wählen Sie **DWORD-Wert (32-Bit)** , und geben Sie **IgnoreNoRevocationCheck**.
+3. Wählen Sie **Edit > New** , und wählen Sie **DWORD-Wert (32-Bit)** aus, und geben Sie **IgnoreNoRevocationCheck**ein.
 
-4. Doppelklicken Sie auf **IgnoreNoRevocationCheck** und legen Sie die Wertdaten auf **1**.
+4. Doppelklicken Sie auf **IgnoreNoRevocationCheck** , und legen Sie die Wertdaten auf **1**fest.
 
-5. Wählen Sie **OK** und starten Sie den Server. Es reicht nicht aus, das RRAS und NPS-Dienste neu zu starten.
+5. Wählen Sie **OK** aus, und starten Sie den Server neu. Das Neustarten der RRAS-und NPS-Dienste genügt nicht.
 
-Weitere Informationen finden Sie unter [aktivieren oder Deaktivieren von Zertifikat-Sperrung überprüfen (CRL) auf Clients](https://technet.microsoft.com/library/bb680540.aspx).
+Weitere Informationen finden Sie unter [Aktivieren oder Deaktivieren der Zertifikat Sperr Überprüfung (CRL) auf Clients](https://technet.microsoft.com/library/bb680540.aspx).
 
 
 |Registrierungspfad  |EAP-Erweiterung  |
 |---------|---------|
-|HKLM\SYSTEM\CurrentControlSet\Services\RasMan\PPP\EAP\13     |EAP-TLS         |
-|HKLM\SYSTEM\CurrentControlSet\Services\RasMan\PPP\EAP\25     |PEAP         |
-|HKLM\SYSTEM\CurrentControlSet\Services\RasMan\PPP\EAP\26     |EAP-MSCHAP v2         |
+|Hklm\system\currentcontrolset\services\rasman\ppp\eap\13     |EAP-TLS         |
+|Hklm\system\currentcontrolset\services\rasman\ppp\eap\25     |PEAP         |
+|Hklm\system\currentcontrolset\services\rasman\ppp\eap\26     |EAP-MSCHAP V2         |
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Schritt 7.2: Stammzertifikate für die VPN-Authentifizierung mit Azure AD erstellen](vpn-create-root-cert-for-vpn-auth-azure-ad.md): In diesem Schritt konfigurieren Sie die Stammzertifikate für den bedingten Zugriff für VPN-Authentifizierung mit Azure AD, die automatisch eine VPN-Server-Cloud-app im Mandanten erstellt.
+[Schritt 7.2: Erstellen Sie Stamm Zertifikate für die VPN-Authentifizierung mit Azure AD @ no__t-0: In diesem Schritt konfigurieren Sie Stamm Zertifikate für den bedingten Zugriff für die VPN-Authentifizierung mit Azure AD, wodurch automatisch eine VPN-Server-Cloud-App im Mandanten erstellt wird.

@@ -1,27 +1,27 @@
 ---
-title: Authentifizierung der Gerätesteuerelemente in AD FS
-description: In diesem Dokument wird beschrieben, wie Sie zum Aktivieren der Geräteauthentifizierung in AD FS für WindowsServer 2016 und 2012 R2
+title: Steuerelemente für die Geräte Authentifizierung in AD FS
+description: In diesem Dokument wird beschrieben, wie Sie die Geräte Authentifizierung in AD FS für Windows Server 2016 und 2012 R2 aktivieren.
 author: billmath
 ms.author: billmath
 manager: mtillman
 ms.date: 11/09/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: f52d3d237573e4ed0028e228ff80273862a0aaf2
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 87c011b18ad4a1d464072c1ea90b09a44e831378
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66444644"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407366"
 ---
-# <a name="device-authentication-controls-in-ad-fs"></a>Authentifizierung der Gerätesteuerelemente in AD FS
-Das folgende Dokument veranschaulicht das Aktivieren der Authentifizierung der Gerätesteuerelemente in Windows Server 2016 und 2012 R2.
+# <a name="device-authentication-controls-in-ad-fs"></a>Steuerelemente für die Geräte Authentifizierung in AD FS
+Das folgende Dokument zeigt, wie Sie Geräte Authentifizierungs Steuerelemente in Windows Server 2016 und 2012 R2 aktivieren.
 
-## <a name="device-authentication-controls-in-ad-fs-2012-r2"></a>Authentifizierung der Gerätesteuerelemente in AD FS 2012 R2
-Ursprünglich unter AD FS 2012 R2 gab es eine globale Authentifizierungsrichtlinie Eigenschaft namens `DeviceAuthenticationEnabled` , kontrollierten Geräteauthentifizierung.
+## <a name="device-authentication-controls-in-ad-fs-2012-r2"></a>Geräte Authentifizierungs Steuerelemente in AD FS 2012 R2
+Ursprünglich in AD FS 2012 R2 gab es eine globale Authentifizierungs Eigenschaft mit dem Namen "`DeviceAuthenticationEnabled`", die die Geräte Authentifizierung gesteuert hat.
 
-So konfigurieren Sie die Einstellung der `Set-AdfsGlobalAuthenticationPolicy` Cmdlet wurde verwendet, wie unten dargestellt:
+Zum Konfigurieren der Einstellung wurde das Cmdlet "`Set-AdfsGlobalAuthenticationPolicy`" wie unten gezeigt verwendet:
 
 
 ``` powershell
@@ -30,59 +30,59 @@ PS:\>Set-AdfsGlobalAuthenticationPolicy –DeviceAuthenticationEnabled $true
 
 
 
-Zum Deaktivieren der Geräteauthentifizierung wurde das gleiche Cmdlet verwendet, um den Wert auf $false festgelegt.
+Zum Deaktivieren der Geräte Authentifizierung wurde das gleiche Cmdlet verwendet, um den Wert auf $false festzulegen.
 
-## <a name="device-authentication-controls-in-ad-fs-2016"></a>Authentifizierung der Gerätesteuerelemente in AD FS 2016
-Die einzige Art von Geräteauthentifizierung unterstützt in 2012 R2 wurde ClientTLS.  In AD FS 2016 neben ClientTLS sind zwei neue Typen von Geräteauthentifizierung für moderne Geräte-Authentifizierung.  Diese lauten wie folgt:
-- PKeyAuth
+## <a name="device-authentication-controls-in-ad-fs-2016"></a>Geräte Authentifizierungs Steuerelemente in AD FS 2016
+Der einzige in 2012 R2 unterstützte Geräte Authentifizierungstyp war clienttls.  In AD FS 2016 sind neben clienttls zwei neue Arten der Geräte Authentifizierung für die Authentifizierung moderner Geräte vorhanden.  Diese lauten wie folgt:
+- Pkeyauth
 - PRT
 
-Um das neue Verhalten zu steuern die `DeviceAuthenticationEnabled` -Eigenschaft wird in Kombination verwendet, wobei eine neue Eigenschaft namens `DeviceAuthenticationMethod`.  
+Um das neue Verhalten zu steuern, wird die `DeviceAuthenticationEnabled`-Eigenschaft in Kombination mit der neuen Eigenschaft `DeviceAuthenticationMethod` verwendet.  
 
-Die Authentifizierungsmethode Gerät bestimmt den Typ der Geräteauthentifizierung, die durchgeführt wird: PRT PKeyAuth, ClientTLS oder eine Kombination.
-Es hat die folgenden Werte:
- - SignedToken: Nur PRT
- - PKeyAuth: PRT + PKeyAuth
- - ClientTLS: PRT + clientTLS
+Die Geräte Authentifizierungsmethode bestimmt den Typ der Geräte Authentifizierung, die durchgeführt wird: PRT, pkeyauth, clienttls oder eine Kombination.
+Die folgenden Werte sind möglich:
+ - Signedtoken: Nur PRT
+ - Pkeyauth: PRT + pkeyauth
+ - ClientTLS PRT + clienttls
  - All: Alle obigen
 
-Wie Sie sehen können, PRT gehört alle Gerät-Authentifizierungsmethoden, somit wirksam die Standardmethode, die immer aktiviert, wenn `DeviceAuthenticationEnabled` nastaven NA hodnotu `$true`.
+Wie Sie sehen können, ist PRT Teil aller Geräte Authentifizierungsmethoden, sodass die Standardmethode, die immer aktiviert ist, wenn `DeviceAuthenticationEnabled` auf `$true` festgelegt ist, wirksam ist.
 
-Beispiel: Verwenden Sie zum Konfigurieren der Methode(n) DeviceAuthenticationEnabled Cmdlet als oben zusammen mit der neuen Eigenschaft ein:
+Beispiel: Verwenden Sie zum Konfigurieren der Methode (en) das deviceauthenticationaktivierte Cmdlet zusammen mit der neuen Eigenschaft:
 
 ``` powershell
 PS:\>Set-AdfsGlobalAuthenticationPolicy –DeviceAuthenticationEnabled $true
 ```
 
 >[!NOTE]
-> In AD FS-2019 `DeviceAuthenticationMethod` kann verwendet werden, mit der `Set-AdfsRelyingPartyTrust` Befehl.
+> In ADFS 2019 können `DeviceAuthenticationMethod` mit dem Befehl `Set-AdfsRelyingPartyTrust` verwendet werden.
 
 ``` powershell
 PS:\>Set-AdfsRelyingPartyTrust -DeviceAuthenticationMethod ClientTLS
 ```
 
 >[!NOTE]
-> Aktivieren der Geräteauthentifizierung (Einstellung `DeviceAuthenticationEnabled` zu `$true`) bedeutet, dass die `DeviceAuthenticationMethod` wird implizit festgelegt, `SignedToken`, entspricht die **PRT**.
+> Das Aktivieren der Geräte Authentifizierung (durch Festlegen von `DeviceAuthenticationEnabled` auf `$true`) bedeutet, dass die `DeviceAuthenticationMethod` implizit auf `SignedToken` festgelegt ist, was dem **PRT**entspricht.
 
 
 ``` powershell
 PS:\>Set-AdfsGlobalAuthenticationPolicy –DeviceAuthenticationMethod All
 ```
 > [!NOTE]
-> Die Standardauthentifizierungsmethode für Geräte ist `SignedToken`.  Andere Werte sind **PKeyAuth,** <strong>ClientTLS,</strong> und **alle**.
+> Die Standardmethode für die Geräte Authentifizierung ist `SignedToken`.  Andere Werte sind **pkeyauth,** <strong>clienttls</strong> und **all**.
 
-Die Bedeutung des das `DeviceAuthenticationMethod` etwas Werte geändert haben, da AD FS 2016 veröffentlicht wurde.  Finden Sie in der folgenden Tabelle die Bedeutung der einzelnen Werte, je nach der UpdateStatus:
+Die Bedeutung der `DeviceAuthenticationMethod`-Werte hat sich seit der Veröffentlichung von AD FS 2016 geringfügig geändert.  In der folgenden Tabelle finden Sie die Bedeutung der einzelnen Werte, abhängig von der Update Ebene:
 
 
-|AD FS-version|DeviceAuthenticationMethod Wert|Bedeutet, dass|
+|AD FS Version|Deviceauthenticationmethod-Wert|Damit|
 | ----- | ----- | ----- |
-|2016 RTM|SignedToken|PRT + PkeyAuth|
+|2016 RTM|Signedtoken|PRT + pkeyauth|
 ||clientTLS|clientTLS|
-||All|PRT + PkeyAuth + clientTLS|
-|2016 RTM + bis zu dem Datum mit Windows Update|SignedToken (also geänderte Daten)|PRT (ausschließlich)|
-||PkeyAuth (neu)|PRT + PkeyAuth|
-||clientTLS|PRT + clientTLS|
-||All|PRT + PkeyAuth + clientTLS|
+||All|PRT + pkeyauth + clienttls|
+|2016 RTM + aktuell mit Windows Update|Signedtoken (geänderte Bedeutung)|PRT (nur)|
+||Pkeyauth (neu)|PRT + pkeyauth|
+||clientTLS|PRT + clienttls|
+||All|PRT + pkeyauth + clienttls|
 
 ## <a name="see-also"></a>Siehe auch
 [AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md)

@@ -1,8 +1,8 @@
 ---
 title: robocopy
-description: Erfahren Sie, wie Robocopy-Befehl in Windows und Windows Server verwenden, um Dateien zu kopieren.
+description: Erfahren Sie, wie Sie Dateien mit dem Robocopy-Befehl in Windows und Windows Server kopieren.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: lizapo
 ms.date: 07/25/2018
-ms.openlocfilehash: 7ab2eff32b105916d979a954275e9c9122a06903
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: b814134dd8ca82a4338f80aba26c5a7dcee3b90a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441723"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384498"
 ---
 # <a name="robocopy"></a>robocopy
 
-Dateidaten werden kopiert.
+Kopiert Datei Daten.
 
 ## <a name="syntax"></a>Syntax
 
@@ -34,149 +34,149 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 
 |   Parameter    |                                                                                            Beschreibung                                                                                             |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   \<Quelle >    |                                                                            Gibt den Pfad zum Quellverzeichnis.                                                                             |
+|   > der @no__t 0quelle    |                                                                            Gibt den Pfad zum Quellverzeichnis an.                                                                             |
 | \<Ziel > |                                                                          Gibt den Pfad zum Zielverzeichnis an.                                                                          |
-|    \<Datei >     | Gibt an, die Datei oder Dateien kopiert werden soll. Sie können Platzhalterzeichen verwenden ( **&#42;** oder **?** ), wenn Sie möchten. Wenn die **Datei** Parameter nicht angegeben ist, **\*.\\** \* wird als Standardwert verwendet. |
-|   \<Options>   |                                                                    Gibt Optionen, mit der **Robocopy** Befehl.                                                                     |
+|    \<file >     | Gibt die zu kopierenden Dateien an. Wenn Sie möchten, können Sie **&#42;** Platzhalter Zeichen (oder **?** ) verwenden. Wenn der **File** -Parameter nicht angegeben ist, wird **\*. \\** \* als Standardwert verwendet. |
+|   \<optionen >   |                                                                    Gibt Optionen an, die mit dem **Robocopy** -Befehl verwendet werden sollen.                                                                     |
 
-### <a name="copy-options"></a>Kopieroptionen
+### <a name="copy-options"></a>Kopier Optionen
 
 |Option|Beschreibung|
 |------|-----------|
-|/s|Kopien Unterverzeichnisse. Beachten Sie, dass diese Option leere Verzeichnisse ausschließt.|
-|/ e|Kopien Unterverzeichnisse. Beachten Sie, dass diese Option leere Verzeichnisse enthält. Weitere Informationen finden Sie unter ["Hinweise"](#remarks).|
-|/Lev:\<N >|Kopiert nur die ersten *N* Ebenen der Quellstruktur Verzeichnis.|
-|/z|Kopiert die Dateien im neustartbaren Modus.|
-|/b|Kopiert die Dateien im Sicherungsmodus bei protokollversandaufgaben.|
-|/zb|Neustartbaren Modus wird verwendet. Wenn der Zugriff verweigert wird, verwendet diese Option Sicherungsmodus bei protokollversandaufgaben an.|
-|/efsraw|Kopiert alle verschlüsselte Dateien im EFS RAW-Modus.|
-|/copy:\<CopyFlags>|Gibt die Dateieigenschaften kopiert werden soll. Im folgenden sind die gültigen Werte für diese Option aus:</br>**D** Daten</br>**Ein** Attribute</br>**T** Zeitstempel</br>**S** NTFS-Zugriffssteuerungsliste (ACL)</br>**O** Besitzerinformationen</br>**U** Überwachungsinformationen</br>Der Standardwert für **Kopierflags** ist **DAT** (Daten, Attribute und Zeitstempel).|
-|/dcopy:\<copyflags\>|Definiert, was für Verzeichnisse kopieren. Der Standardwert ist da auszulagern. Optionen sind D = Data, A =-Attribute und T = Zeitstempel.|
-|/ Sek.|Kopiert die Dateien mit Sicherheit (Äquivalent zu **/copy:DATS**).|
-|/copyall|Kopiert alle Dateiinformationen (Äquivalent zu **datsou**).|
-|/nocopy|Keine Dateiinformationen kopiert (nützlich bei **/löschen**).|
-|/secfix|Korrekturen der dateisicherheit für alle Dateien, die auch übersprungen solche.|
-|/timfix|Übersprungen, Fixes dateizeitangaben für alle Dateien, auch solche.|
-|/Purge|Löscht Zieldateien und-Verzeichnisse, die nicht mehr in der Quelle vorhanden sind. Weitere Informationen finden Sie unter ["Hinweise"](#remarks).|
-|/mir|Entspricht eine Verzeichnisstruktur (Äquivalent zu **/e** plus **/löschen**). Weitere Informationen finden Sie unter ["Hinweise"](#remarks).|
-|/mov|Verschiebt Dateien, und löscht sie aus der Quelle, nachdem sie kopiert werden.|
-|/ Move|Verschiebt Dateien und Verzeichnisse, und löscht sie aus der Quelle, nachdem sie kopiert werden.|
-|/a+:[RASHCNET]|Fügt den angegebenen Attributen für kopierte Dateien hinzu.|
-|/a-:[RASHCNET]|Entfernt die angegebenen Attribute von kopierten Dateien an.|
-|oder erstellen.|Erstellt eine Verzeichnisstruktur und nur die Dateien der Länge 0 (null).|
-|/fat|Erstellt Zieldateien mit 8.3 Zeichen FAT nur Dateinamen.|
-|/256|Deaktiviert die Unterstützung für lange Pfade (länger als 256 Zeichen).|
-|/ Mon:\<N >|Die Quelle überwacht, und wird erneut ausgeführt, wenn mehr als *N* Änderungen erkannt werden.|
-|/Mot:\<M >|Quelle überwacht werden soll, und führt erneut in *M* Minuten, wenn Änderungen erkannt werden.|
-|/MT[:N]|Erstellt mit mehreren Threads Kopien mit *N* Threads. *N* muss eine ganze Zahl zwischen 1 und 128 Zeichen sein. Der Standardwert für *N* ist 8.</br>Die **"/ MT"** Parameter kann nicht verwendet werden, mit der **/IPG** und **/EFSRAW** Parameter.</br>Umleitung der Ausgabe mit **/LOG** Option für eine bessere Leistung.</br>Hinweis: Der Parameter "/ MT" gilt für Windows Server 2008 R2 und Windows 7.|
-|/rh:hhmm-hhmm|Gibt die Ausführungszeiten, wenn neue Kopien gestartet werden können.|
-|/pf|Überprüfungen ausgeführt wie oft pro Datei (nicht pro-übergeben).|
-|/IPG:n|Gibt an, die Lücke zwischen Paket, um Bandbreite in langsamen Zeilen freizugeben.|
-|/sl|Nicht folgen Sie symbolische Links, und erstellen Sie stattdessen eine Kopie des Links.|
+|/s|Kopiert Unterverzeichnisse. Beachten Sie, dass bei dieser Option leere Verzeichnisse ausgeschlossen werden.|
+|/e|Kopiert Unterverzeichnisse. Beachten Sie, dass diese Option leere Verzeichnisse umfasst. Weitere Informationen finden Sie unter " [Hinweise](#remarks)".|
+|/Lev: \<n >|Kopiert nur die obersten *N* Ebenen der Quellverzeichnis Struktur.|
+|"/z|Kopiert Dateien im neu startbaren Modus.|
+|/b|Kopiert Dateien im Sicherungs Modus.|
+|/zB|Verwendet den Modus für Neustarts. Wenn der Zugriff verweigert wird, wird für diese Option der Sicherungs Modus verwendet.|
+|/efsraw|Kopiert alle verschlüsselten Dateien im EFS-RAW-Modus.|
+|/Copy: \<copyflags >|Gibt die zu kopierenden Dateieigenschaften an. Im folgenden sind die gültigen Werte für diese Option aufgeführt:</br>**D-** Daten</br>**Attribute**</br>**T** -Zeitstempel</br>**S** NTFS-Zugriffs Steuerungs Liste (ACL)</br>**O** -Besitzer Informationen</br>**U** -Überwachungsinformationen</br>Der Standardwert für **copyflags** ist **DAT** (Daten, Attribute und Zeitstempel).|
+|/DCOPY: \<copyflags @ no__t-1|Definiert, was für Verzeichnisse kopiert werden soll. Der Standardwert ist da. Optionen sind D = Data, A = Attribute und T = Timestamps.|
+|/Sek.|Kopiert Dateien mit Sicherheit (äquivalent zu **/Copy: DATs**).|
+|/copyall|Kopiert alle Dateiinformationen (äquivalent zu **/Copy: DATSOU**).|
+|/nocopy|Kopiert keine Dateiinformationen (nützlich bei **/Purge**).|
+|/secfix|Korrigiert die Datei Sicherheit für alle Dateien, die sogar übersprungen wurden.|
+|/timfix|Korrigiert Datei Zeiten für alle Dateien, sogar übersprungen.|
+|/purge|Löscht Zieldateien und-Verzeichnisse, die in der Quelle nicht mehr vorhanden sind. Weitere Informationen finden Sie unter " [Hinweise](#remarks)".|
+|/mir|Spiegelt eine Verzeichnisstruktur wider (äquivalent zu **/e** und **/Purge**). Weitere Informationen finden Sie unter " [Hinweise](#remarks)".|
+|/mov|Verschiebt Dateien und löscht sie aus der Quelle, nachdem Sie kopiert wurden.|
+|"/Move|Verschiebt Dateien und Verzeichnisse und löscht sie aus der Quelle, nachdem Sie kopiert wurden.|
+|/a +: [RASHCNET]|Fügt die angegebenen Attribute den kopierten Dateien hinzu.|
+|/a--Befehl: [RASHCNET]|Entfernt die angegebenen Attribute aus den kopierten Dateien.|
+|/Create|Erstellt nur eine Verzeichnisstruktur und Dateien der Länge 0 (null).|
+|/fat|Erstellt Zieldateien mit nur-FAT-Dateinamen mit einer Länge von 8,3 Zeichen.|
+|/256|Deaktiviert die Unterstützung für sehr lange Pfade (mehr als 256 Zeichen).|
+|/Mon: \<n >|Überwacht die Quelle und wird erneut ausgeführt, wenn mehr als *N* Änderungen erkannt werden.|
+|/Mot: \<M >|Überwacht die Quelle und wird in *M* Minuten erneut ausgeführt, wenn Änderungen erkannt werden.|
+|/MT [: N]|Erstellt multithreadkopien mit *N* Threads. *N* muss eine ganze Zahl zwischen 1 und 128 sein. Der Standardwert für *N* ist 8.</br>Der **/MT** -Parameter kann nicht mit den Parametern **/IPG** und **/EFSRAW** verwendet werden.</br>Leiten Sie die Ausgabe mit der Option **/Log** für eine bessere Leistung um.</br>Hinweis: Der/MT-Parameter gilt für Windows Server 2008 R2 und Windows 7.|
+|/RH: hhmm-HHMM|Gibt die Laufzeiten an, in denen neue Kopien gestartet werden können.|
+|/PF|Überprüft die Laufzeiten für eine Datei pro Datei (nicht pro Durchlauf).|
+|/IPG: n|Gibt die zwischen Paket Lücke an, um die Bandbreite in langsamen Zeilen freizugeben.|
+|/sl|Verwenden Sie symbolische Verknüpfungen nicht, und erstellen Sie stattdessen eine Kopie der Verknüpfung.|
 
 > [!IMPORTANT]
-> Bei Verwendung der **/secfix** Option kopieren, geben Sie den Typ der Sicherheitsinformationen, die zu kopierenden auch mit einer der folgenden Weitere Kopieroptionen zu erhalten:
+> Wenn Sie die Option **/secfix** Copy verwenden, geben Sie den Typ der Sicherheitsinformationen an, die Sie kopieren möchten, indem Sie auch eine dieser zusätzlichen Kopier Optionen verwenden:
 >- **/COPYALL**
->- **/COPY:O**
->- **/COPY:S**
->- **/COPY:U**
->- **/SEC**
+>- **/COPY: O**
+>- **/COPY: S**
+>- **/COPY: U**
+>- **/SEK.**
 
-### <a name="file-selection-options"></a>Optionen für die merkmalsauswahl
-
-|Option|Beschreibung|
-|------|-----------|
-|/a|Kopiert nur die Dateien für die die **Archiv** -Attribut festgelegt ist.|
-|/m|Kopiert nur die Dateien für die die **Archiv** Attribut festgelegt ist, und setzt die **Archiv** Attribut.|
-|Option/IA: [RASHCNETO]|Enthält nur die Dateien, die für die die angegebenen Attribute festgelegt werden.|
-|/xa:[RASHCNETO]|Schließt die Dateien, die für die die angegebenen Attribute festgelegt werden.|
-|/xf \<Dateiname > [...]|Schließt die Dateien, die den angegebenen Namen oder die Pfade zu entsprechen. Beachten Sie, dass *FileName* kann Platzhalterzeichen enthalten ( **&#42;** und **?** ).|
-|/ XD \<Directory > [...]|Schließt die Verzeichnisse, die dem angegebenen Namen und Pfade übereinstimmen.|
-|/xc|Schließt die geänderte Dateien.|
-|/xn|Schließt neuere Dateien.|
-|/ xo|Schließt ältere Dateien.|
-|/xx|Schließt zusätzliche Dateien und Verzeichnisse.|
-|/xl|Schließt "" Dateien und Verzeichnisse.|
-|/is|Enthält die gleichen Dateien an.|
-|/it|Enthält die Dateien "optimiert".|
-|/ max:\<N >|Gibt an, die maximale Dateigröße (zum Ausschließen von Dateien, die größer als *N* Bytes).|
-|/ Min:\<N >|Gibt an, die minimale Dateigröße (zum Ausschließen von Dateien, die kleiner als *N* Bytes).|
-|/MaxAge:\<N >|Gibt das maximale Alter (zum Ausschließen von Dateien, die älter sind als *N* Tage oder Datum).|
-|/minAge:\<N >|Gibt das minimale Dateialter (Ausschließen von Dateien neuer sind als *N* Tage oder Datum).|
-|/maxlad:\<N>|Gibt die maximale Datum des letzten Zugriffs (schließt Dateien, die nicht verwendeten seit *N*).|
-|/minlad:\<N>|Gibt die mindestens erforderlichen Datum des letzten Zugriffs (schließt Dateien verwendet, da *N*) Wenn *N* ist kleiner als 1900 *N* gibt die Anzahl von Tagen. Andernfalls *N* gibt ein Datum im Format JJJJMMTT.|
-|/xj|Schließt Verknüpfungspunkten, die normalerweise standardmäßig enthalten sind.|
-|/fft|Geht davon aus FAT-Datei Zeiten (Genauigkeit zwei Sekunden).|
-|/dst|Eine Stunde DST Zeitunterschiede kompensiert.|
-|/xjd|Schließt die Verknüpfungspunkte für Verzeichnisse.|
-|/xjf|Schließt die Verknüpfungspunkte für Dateien.|
-
-### <a name="retry-options"></a>Wiederholungsoptionen
+### <a name="file-selection-options"></a>Optionen für die Dateiauswahl
 
 |Option|Beschreibung|
 |------|-----------|
-|/r:\<N>|Gibt die Anzahl der Wiederholungsversuche für fehlerhafte Kopien an. Der Standardwert von *N* 1.000.000 (eine Million Wiederholungen).|
-|/w:\<N>|Gibt die Wartezeit zwischen Wiederholungen in Sekunden an. Der Standardwert von *N* 30 (warten Sie 30 Sekunden).|
-|/ REG|Speichert die Werte im angegebenen die **/r** und **/w** Optionen als Standardeinstellungen in der Registrierung.|
-|/tbd|Gibt an, dass das System wartet Freigabenamen definiert werden (Wiederholen Sie dann "Fehler 67").|
+|/a|Kopiert nur Dateien, für die das **Archive** -Attribut festgelegt ist.|
+|/m|Kopiert nur Dateien, für die das **Archive** -Attribut festgelegt ist, und setzt das **Archiv** Attribut zurück.|
+|/IA: [rashcnetto]|Enthält nur Dateien, für die eines der angegebenen Attribute festgelegt ist.|
+|/XA: [rashcnetto]|Schließt Dateien aus, für die eines der angegebenen Attribute festgelegt ist.|
+|/XF \<filename > [...]|Schließt Dateien aus, die den angegebenen Namen oder Pfaden entsprechen. Beachten Sie, dass der *Dateiname* Platzhalter Zeichen ( **&#42;** und **?** ) enthalten kann.|
+|/xD \<directory > [...]|Schließt Verzeichnisse aus, die den angegebenen Namen und Pfaden entsprechen.|
+|/xc|Schließt geänderte Dateien aus.|
+|/xn|Schließt neuere Dateien aus.|
+|/xo|Schließt ältere Dateien aus.|
+|/xx|Schließt zusätzliche Dateien und Verzeichnisse aus.|
+|/xl|Schließt "einsame" Dateien und Verzeichnisse aus.|
+|/is|Schließt dieselben Dateien ein.|
+|/it|Enthält "tweaked"-Dateien.|
+|/Max: \<n >|Gibt die maximale Dateigröße an (um Dateien auszuschließen, die größer als *N* Bytes sind).|
+|/Min: \<n >|Gibt die minimale Dateigröße an (um Dateien auszuschließen, die kleiner als *N* Bytes sind).|
+|/maxAge: \<n >|Gibt das maximale Datei Alter an (um Dateien auszuschließen, die älter als *N* Tage oder Datum sind).|
+|/minAge: \<n >|Gibt das minimale Datei Alter an (Dateien ausschließen, die neuer als *N* Tage oder Datum sind).|
+|/maxlad: \<n >|Gibt das maximale Datum des letzten Zugriffs an (schließt nicht verwendete Dateien seit *N*).|
+|/minlad: \<n >|Gibt das minimale letzte Zugriffs Datum an (schließt Dateien aus, die seit *n*verwendet werden), wenn *n* kleiner als 1900 ist, *n* gibt die Anzahl der Tage an. Andernfalls gibt *N* ein Datum im Format YYYYMMDD an.|
+|/xj|Schließt Verknüpfungs Punkte aus, die normalerweise standardmäßig enthalten sind.|
+|/fft|Nimmt die FAT-Datei Zeiten an (zwei Sekunden Genauigkeit).|
+|/DST|Kompensiert einstündige DST-Zeitunterschiede.|
+|/xjd|Schließt Verknüpfungs Punkte für Verzeichnisse aus.|
+|/xjf|Schließt Verknüpfungs Punkte für Dateien aus.|
 
-### <a name="logging-options"></a>Protokollierungsoptionen
-
-|Option|Beschreibung|
-|------|-----------|
-|/l|Gibt an, dass Dateien nur aufgelistet werden (und nicht kopiert, gelöscht, oder Zeit versehen).|
-|/x|Gibt alle zusätzliche Dateien, nicht nur diejenigen, die ausgewählt werden.|
-|/v|Ausführlichen Ausgabe erzeugt, und zeigt alle ausgelassenen Dateien.|
-|/ts|Enthält Quelle Dateizeitstempel in der Ausgabe.|
-|/fp|Enthält die vollständigen Pfadnamen der Dateien in der Ausgabe.|
-|/bytes|Druckt Größen als Bytes.|
-|/ns|Gibt an, dass Dateien nicht protokolliert werden.|
-|/nc|Gibt an, dass Dateiklassen nicht protokolliert werden.|
-|/nfl|Gibt an, dass Dateinamen nicht protokolliert werden.|
-|/ndl|Gibt an, dass Verzeichnisnamen nicht protokolliert werden.|
-|/np|Gibt an, der Status des Kopiervorgangs (die Anzahl der Dateien oder Verzeichnisse, die bisher kopiert) nicht angezeigt werden.|
-|/eta|Zeigt die geschätzte Zeit des Eingangs (ETA), der die kopierten Dateien an.|
-|/log:\<LogFile>|Schreibt die Ausgabe des Status in die Protokolldatei (die vorhandene Protokolldatei überschreibt).|
-|/log+:\<LogFile>|Schreibt die Ausgabe des Status in die Protokolldatei (fügt die Ausgabe an die vorhandene Protokolldatei).|
-|/unicode|Zeigt den Statusausgabe als Unicode-Text an.|
-|/unilog:\<LogFile>|Schreibt den Status in der Protokolldatei-Ausgabe als Unicode-Text (die vorhandene Protokolldatei überschreibt).|
-|/unilog+:\<LogFile>|Schreibt den Status in der Protokolldatei-Ausgabe als Unicode-Text (fügt die Ausgabe an die vorhandene Protokolldatei).|
-|/Tee|Schreibt die Ausgabe des Status an, an das Konsolenfenster sowie in die Protokolldatei.|
-|/njh|Gibt an, dass keine Auftragsheader vorhanden ist.|
-|/njs|Gibt an, dass es keine API-Zusammenfassung.|
-
-### <a name="job-options"></a>Auftragsoptionen
+### <a name="retry-options"></a>Wiederholungs Optionen
 
 |Option|Beschreibung|
 |------|-----------|
-|/job:\<JobName>|Gibt an, dass Parameter die benannte Datei abgeleitet werden.|
-|/save:\<JobName>|Gibt an, dass Parameter an die benannte Datei gespeichert werden.|
-|/quit|Wird beendet, nach dem Verarbeiten der Befehlszeile (um die Parameter anzuzeigen).|
-|/nosd|Gibt an, dass kein Quellverzeichnis angegeben ist.|
-|/nodd|Gibt an, dass kein Zielverzeichnis angegeben ist.|
-|/if|Enthält die angegebenen Dateien.|
+|/r: \<n >|Gibt die Anzahl der Wiederholungs Versuche für fehlgeschlagene Kopien an. Der Standardwert von *N* ist 1 Million (1 Million Wiederholungen).|
+|/w: \<n >|Gibt die Wartezeit zwischen Wiederholungs versuchen in Sekunden an. Der Standardwert von *N* ist 30 (Wartezeit 30 Sekunden).|
+|/reg|Speichert die in den Optionen **/r** und **/w** angegebenen Werte als Standardeinstellungen in der Registrierung.|
+|/tbd|Gibt an, dass das System auf die Definition von Freigabe Namen wartet (Wiederholungs Fehler 67).|
 
-### <a name="exit-return-codes"></a>Exitcodes (Rückgabe)
+### <a name="logging-options"></a>Protokollierungs Optionen
+
+|Option|Beschreibung|
+|------|-----------|
+|/l|Gibt an, dass Dateien nur aufgelistet werden sollen (nicht kopiert, gelöscht oder Zeitstempel).|
+|/x|Meldet alle zusätzlichen Dateien, nicht nur die, die ausgewählt sind.|
+|/v|Erzeugt eine ausführliche Ausgabe und zeigt alle übersprungenen Dateien an.|
+|/ts|Schließt die Zeitstempel der Quelldatei in die Ausgabe ein.|
+|/FP|Schließt die vollständigen Pfadnamen der Dateien in der Ausgabe ein.|
+|/Bytes|Druckt Größen als Bytes.|
+|/ns|Gibt an, dass Dateigrößen nicht protokolliert werden sollen.|
+|/nc|Gibt an, dass Datei Klassen nicht protokolliert werden sollen.|
+|/nfl|Gibt an, dass Dateinamen nicht protokolliert werden sollen.|
+|/ndl|Gibt an, dass Verzeichnisnamen nicht protokolliert werden sollen.|
+|/np|Gibt an, dass der Fortschritt des Kopiervorgangs (die bisher kopierte Anzahl von Dateien oder Verzeichnissen) nicht angezeigt wird.|
+|/eta|Zeigt die geschätzte Ankunftszeit (ETA) der kopierten Dateien an.|
+|/Log: \<logfile >|Schreibt die Status Ausgabe in die Protokolldatei (überschreibt die vorhandene Protokolldatei).|
+|/Log +: \<logfile >|Schreibt die Status Ausgabe in die Protokolldatei (fügt die Ausgabe an die vorhandene Protokolldatei an).|
+|/Unicode|Zeigt die Status Ausgabe als Unicode-Text an.|
+|/Unilog: \<logfile >|Schreibt die Status Ausgabe als Unicode-Text in die Protokolldatei (überschreibt die vorhandene Protokolldatei).|
+|/Unilog +: \<logfile >|Schreibt die Status Ausgabe in die Protokolldatei als Unicode-Text (fügt die Ausgabe an die vorhandene Protokolldatei an).|
+|/tee|Schreibt die Status Ausgabe in das Konsolenfenster sowie in die Protokolldatei.|
+|/njh|Gibt an, dass keine Auftrags Kopfzeile vorhanden ist.|
+|/njs|Gibt an, dass keine Auftrags Zusammenfassung vorhanden ist.|
+
+### <a name="job-options"></a>Auftrags Optionen
+
+|Option|Beschreibung|
+|------|-----------|
+|/Auftrag: \<jobname >|Gibt an, dass Parameter von der benannten Auftragsdatei abgeleitet werden sollen.|
+|/Save: \<jobname >|Gibt an, dass Parameter in der benannten Auftragsdatei gespeichert werden sollen.|
+|/quit|Beendet nach der Verarbeitung der Befehlszeile (zum Anzeigen von Parametern).|
+|/nosd|Gibt an, dass kein Quellverzeichnis angegeben wird.|
+|/nodd|Gibt an, dass kein Zielverzeichnis angegeben wird.|
+|/if|Schließt die angegebenen Dateien ein.|
+
+### <a name="exit-return-codes"></a>Exit-Codes (Return)
 
 Wert | Description
 -- | --
-0 | Es wurden keine Dateien kopiert. Keine Fehler aufgetreten.  Es wurden keine Dateien stimmen nicht überein. Die Dateien, die bereits im Zielverzeichnis vorhanden sind; aus diesem Grund wurde beim Kopieren übersprungen.
+0 | Es wurden keine Dateien kopiert. Es wurde kein Fehler gefunden.  Keine Dateien stimmen nicht überein. Die Dateien sind bereits im Zielverzeichnis vorhanden. Daher wurde der Kopiervorgang übersprungen.
 1 | Alle Dateien wurden erfolgreich kopiert.
-2 | Es gibt einige zusätzlichen Dateien im Zielverzeichnis, die nicht im Quellverzeichnis vorhanden sind. Es wurden keine Dateien kopiert.
-3 | Einige Dateien wurden kopiert. Zusätzliche Dateien waren vorhanden. Keine Fehler aufgetreten.
-5 | Einige Dateien wurden kopiert. Einige Dateien wurden nicht überein. Keine Fehler aufgetreten.
-6 | Zusätzliche Dateien und nicht übereinstimmende Dateien vorhanden sein. Es wurden keine Dateien kopiert, und keine Fehler aufgetreten. Dies bedeutet, dass die Dateien im Zielverzeichnis bereits vorhanden sind.
-7 | Dateien kopiert wurden, ein Dateikonflikt vorhanden war und zusätzliche Dateien vorhanden waren.
-8 | Einige Dateien nicht kopiert werden.
+2 | Im Zielverzeichnis sind einige zusätzliche Dateien vorhanden, die nicht im Quellverzeichnis vorhanden sind. Es wurden keine Dateien kopiert.
+3 | Einige Dateien wurden kopiert. Es waren weitere Dateien vorhanden. Es wurde kein Fehler gefunden.
+5 | Einige Dateien wurden kopiert. Einige Dateien sind nicht übereinstimmen. Es wurde kein Fehler gefunden.
+6 | Es sind weitere Dateien und nicht übereinstimmende Dateien vorhanden. Es wurden keine Dateien kopiert, und es wurden keine Fehler gefunden. Dies bedeutet, dass die Dateien bereits im Zielverzeichnis vorhanden sind.
+7 | Dateien wurden kopiert, eine Datei stimmt nicht überein, und es waren weitere Dateien vorhanden.
+8 | Einige Dateien wurden nicht kopiert.
 
 > [!NOTE]
-> Ein beliebiger Wert, der größer als 8 gibt an, dass während des Kopiervorgangs mindestens ein Fehler aufgetreten ist.
+> Jeder Wert, der größer als 8 ist, weist darauf hin, dass während des Kopiervorgangs mindestens ein Fehler aufgetreten ist.
 
 ### <a name="remarks"></a>Hinweise
 
--   Die **/mir** -Option ist gleichwertig mit der **/e** plus **/löschen** Optionen mit einem kleinen Unterschied im Verhalten:  
-    -   Mit der **/e** plus **/löschen** Optionen, wenn das Zielverzeichnis vorhanden ist, die Ziel-Directory-Sicherheitseinstellungen sind nicht überschrieben.
-    -   Mit der **/mir** Option, wenn das Zielverzeichnis vorhanden ist, die Ziel-Directory-Sicherheitseinstellungen werden überschrieben.
+-   Die Option **/mir** entspricht den Optionen **/e** Plus **/Purge** mit einem kleinen Unterschied im Verhalten:  
+    -   Wenn das Zielverzeichnis mit den Optionen **/e** Plus **/Purge** vorhanden ist, werden die Sicherheitseinstellungen des Zielverzeichnisses nicht überschrieben.
+    -   Wenn das Zielverzeichnis vorhanden ist und die Option **/mir** vorhanden ist, werden die Sicherheitseinstellungen des Zielverzeichnisses überschrieben.
 
 #### <a name="additional-references"></a>Weitere Verweise
 

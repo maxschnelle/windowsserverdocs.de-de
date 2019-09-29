@@ -1,69 +1,69 @@
 ---
 title: Prozess der Bereitstellung des Funkzugriffs
-description: Dieses Thema ist Teil des Windows Server 2016-Networking Guide "Deploy Password-Based 802.1 X Authenticated Wireless Access"
+description: Dieses Thema ist Teil des Windows Server 2016-Netzwerk Handbuchs "Bereitstellen von Kenn Wort basiertem 802.1 x authentifizierten drahtlosen Zugriff".
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 2555f238-926e-4b20-9bfb-9774831062da
 author: shortpatti
 ms.author: pashort
-ms.openlocfilehash: 6a286cf10e066043ee6f514bbf468bfb2b13f162
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 10c69e1aa6157c7f088f190c0283b33b630bc25f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879841"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406256"
 ---
 # <a name="wireless-access-deployment-process"></a>Prozess der Bereitstellung des Funkzugriffs
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Die, die Sie verwenden, um den drahtlosen Zugriff bereitstellen, wird in dieser Phasen:
+Der Prozess, mit dem Sie den drahtlosen Zugriff bereitstellen, erfolgt in den folgenden Phasen:
 
-## <a name="stage-1--ap-deployment"></a>Phase 1 – Bereitstellung von AP
+## <a name="stage-1--ap-deployment"></a>Phase 1 – AP-Bereitstellung
 
-Planen Sie, Bereitstellen Sie und konfigurieren Sie Ihre Zugriffspunkte für die drahtlosen Client-Konnektivität und für die Verwendung mit NPS. Abhängig von Ihrer Präferenz und Netzwerk-Abhängigkeiten, können Sie vorab\-konfigurieren Sie Einstellungen für Ihre drahtlosen Zugriffspunkte vor der Installation in Ihrem Netzwerk, oder Sie können sie per Remotezugriff konfigurieren, nach der Installation.
+Planen, bereitstellen und Konfigurieren von APS für drahtlose Client Konnektivität und für die Verwendung mit NPS. Abhängig von Ihrer Präferenz und den Netzwerk Abhängigkeiten können Sie vor der Installation im Netzwerk entweder die Einstellungen vor @ no__t-0konfigurieren, bevor Sie Sie in Ihrem Netzwerk installieren, oder Sie können Sie nach der Installation Remote konfigurieren.
 
-## <a name="stage-2--adds-group-configuration"></a>Phase 2: Konfiguration von AD DS-Gruppe
+## <a name="stage-2--adds-group-configuration"></a>Phase 2 – AD DS Gruppenkonfiguration
 
-In AD DS müssen Sie einen oder mehrere drahtlose Benutzer Sicherheitsgruppen erstellen.
+In AD DS müssen Sie mindestens eine Sicherheitsgruppe für drahtlose Benutzer erstellen.
 
-Identifizieren Sie als Nächstes die Benutzer, die drahtlosen Zugriff auf das Netzwerk zulässig sind.
+Identifizieren Sie als nächstes die Benutzer, denen der drahtlose Zugriff auf das Netzwerk gestattet ist.
 
-Fügen Sie schließlich die Benutzer auf die entsprechende drahtlose Benutzer-Sicherheitsgruppen, die Sie erstellt haben.
+Fügen Sie abschließend die Benutzer zu den entsprechenden Sicherheitsgruppen hinzu, die Sie erstellt haben.
 
 >[!NOTE]
->In der Standardeinstellung die **Netzwerk Zugriffsberechtigung** in DFÜ-Eigenschaften des Benutzerkontos mit der Einstellung konfiguriert ist **steuern den Zugriff über die Netzwerkrichtlinie für NPS**. Wenn Sie besondere Gründe Ändern dieser Einstellung haben, empfiehlt es sich, dass Sie die standardmäßigen übernehmen. Dadurch können Sie Zugriff auf das Netzwerk durch die Netzwerkrichtlinien steuern, die Sie in NPS konfigurieren.
+>Standardmäßig wird die Einstellung für die **Netzwerk Zugriffsberechtigung** in Benutzerkonto-DFÜ-Eigenschaften mit der Einstellung **Zugriffs Steuerung über NPS-Netzwerk Richtlinie**konfiguriert. Es wird empfohlen, die Standardeinstellung beizubehalten, es sei denn, Sie haben bestimmte Gründe, diese Einstellung zu ändern. Dies ermöglicht es Ihnen, den Netzwerk Zugriff über die Netzwerk Richtlinien zu steuern, die Sie in NPS konfigurieren.
 
-## <a name="stage-3--group-policy-configuration"></a>Phase 3: Konfiguration von Gruppenrichtlinien
+## <a name="stage-3--group-policy-configuration"></a>Phase 3 – Gruppenrichtlinie Konfiguration
 
-Konfigurieren Sie das WLAN-Netzwerk \(IEEE 802.11\) richtlinienerweiterung der Gruppenrichtlinie mithilfe der Gruppenrichtlinienverwaltungs-Editor-Microsoft Management Console \(MMC\).
+Konfigurieren Sie das Drahtlos Netzwerk \(ieee 802.11 @ no__t-1 Policies-Erweiterung Gruppenrichtlinie mithilfe der Gruppenrichtlinienverwaltungs-Editor Microsoft Management Console \(mmc @ no__t-3.
 
-So konfigurieren Sie die Domäne\-Mitgliedscomputer, die mit den Einstellungen in den Richtlinien für Drahtlosnetzwerke, Sie müssen Gruppenrichtlinien anwenden. Wenn ein Computer zunächst mit der Domäne hinzugefügt wird, wird die Gruppenrichtlinie automatisch angewendet. Wenn Änderungen an der Gruppenrichtlinie vorgenommen werden, werden die neuen Einstellungen automatisch angewendet werden:
+Wenn Sie Domäne @ no__t-0member-Computer mithilfe der Einstellungen in den Drahtlos Netzwerk Richtlinien konfigurieren möchten, müssen Sie Gruppenrichtlinie anwenden. Wenn ein Computer erstmalig der Domäne hinzugefügt wird, wird Gruppenrichtlinie automatisch angewendet. Wenn Änderungen an Gruppenrichtlinie vorgenommen werden, werden die neuen Einstellungen automatisch angewendet:
 
-- Durch eine Gruppenrichtlinie auf vor\-bestimmt die Intervalle
+- Nach Gruppenrichtlinie in Pre @ no__t-0 festgelegten Intervallen
 
-- Wenn ein Domänenbenutzer abgemeldet und dann zurück an das Netzwerk
+- Wenn ein Domänen Benutzer sich ab-und wieder am Netzwerk anmeldet
 
-- Durch den Client neu, und mit der Domäne anmelden
+- Durch Neustarten des Client Computers und Anmelden bei der Domäne
 
-Sie können auch erzwingen, Gruppenrichtlinien zu aktualisieren, während Sie auf einem Computer angemeldet, mithilfe des Befehls **Gpupdate** an der Eingabeaufforderung.
+Sie können auch erzwingen, dass Gruppenrichtlinie aktualisiert wird, während Sie an einem Computer angemeldet sind, indem Sie den Befehl **gpupdate** an der Eingabeaufforderung ausführen.
 
-## <a name="stage-4--nps-configuration"></a>Schritt 4 – NPS-Konfiguration
+## <a name="stage-4--nps-configuration"></a>Phase 4 – NPS-Konfiguration
 
-Verwenden Sie einen Konfigurations-Assistenten auf dem Netzwerkrichtlinienserver, drahtlose Zugriffspunkte als RADIUS-Clients hinzufügen und die Netzwerkrichtlinien erstellen, die NPS verwendet, bei der Verarbeitung von Anforderungen von Verbindungen.
+Verwenden Sie einen Konfigurations-Assistenten in NPS, um drahtlos Zugriffspunkte als RADIUS-Clients hinzuzufügen und um die Netzwerk Richtlinien zu erstellen, die NPS beim Verarbeiten von Verbindungsanforderungen verwendet.
 
-Bei Verwendung des Assistenten, um den Netzwerkrichtlinien zu erstellen, geben Sie PEAP, als EAP-Typ und die Sicherheitsgruppe der drahtlose Benutzer, die in der zweiten Phase erstellt wurde.
+Wenn Sie den Assistenten verwenden, um die Netzwerk Richtlinien zu erstellen, geben Sie PEAP als EAP-Typ und die Sicherheitsgruppe "drahtlose Benutzer" an, die in der zweiten Phase erstellt wurde.
 
-## <a name="stage-5--deploy-wireless-clients"></a>Phase 5: Bereitstellen von WLAN-clients
+## <a name="stage-5--deploy-wireless-clients"></a>Phase 5 – Bereitstellen von drahtlosen Clients
 
-Verwenden Sie Clientcomputer eine Verbindung mit dem Netzwerk herstellen.
+Verwenden Sie Client Computer, um eine Verbindung mit dem Netzwerk herzustellen.
 
-Mitgliedscomputer der Domäne, die an das verdrahtete LAN anmelden können, werden die erforderlichen funkkonfigurationseinstellungen automatisch angewendet, wenn Gruppenrichtlinien aktualisiert wird.
+Für Domänen Mitglieds Computer, die sich am kabelgebundenen LAN anmelden können, werden die erforderlichen drahtlos Konfigurationseinstellungen automatisch angewendet, wenn Gruppenrichtlinie aktualisiert wird.
 
-Wenn Sie die Einstellung im Drahtlosnetzwerk aktiviert haben \(IEEE 802.11\) Richtlinien automatisch eine Verbindung herstellen, wenn der Computer befindet broadcast-Bereich von dem Drahtlosnetzwerk verbinden, Ihre drahtlose, Domäne\-verknüpften Computer werden dann versucht automatisch, für die Verbindung mit dem drahtlosen LAN.
+Wenn Sie die Einstellung in Drahtlos Netzwerk \(ieee 802.11 @ no__t-1-Richtlinien aktiviert haben, um automatisch eine Verbindung herzustellen, wenn sich der Computer im Broadcast Bereich des drahtlos Netzwerks befindet, werden Ihre drahtlos Computer, Domänen @ no__t-2joincomputer automatisch versuchen Sie, eine Verbindung mit dem drahtlosen LAN herzustellen.
 
-Um mit dem drahtlosen Netzwerk zu verbinden, müssen Benutzer nur ihre Namen und das Kennwort domänenbenutzeranmeldeinformationen Aufforderung durch Windows bereitstellen.
+Zum Herstellen einer Verbindung mit dem Drahtlos Netzwerk müssen Benutzer nur Ihre Domänen Benutzernamen-und Kenn Wort Anmelde Informationen angeben, wenn Sie von Windows aufgefordert werden.
 
-Informationen zur Planung Ihrer Bereitstellung des funkzugriffs finden Sie unter [drahtlosen Zugriff Bereitstellungsplanung](d-wireless-access-planning.md).
+Informationen zum Planen Ihrer drahtlos Zugriffs Bereitstellung finden Sie unter [Planen der Bereitstellung von drahtlos Zugriff](d-wireless-access-planning.md).

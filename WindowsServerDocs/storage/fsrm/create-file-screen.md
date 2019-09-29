@@ -2,22 +2,22 @@
 title: Erstellen einer Dateiprüfung
 description: In diesem Artikel wird beschrieben, wie Sie eine Dateiprüfung erstellen
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: c1f261eb926eca3ead58b87aeb00a5060b9d957c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e049162e7aff449774928d6a1d25cc1116f9aee9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59815921"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403157"
 ---
 # <a name="create-a-file-screen"></a>Erstellen einer Dateiprüfung
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Beim Erstellen einer neuen Dateiprüfung können Sie eine Dateiprüfungsvorlage speichern, die auf den benutzerdefinierten Dateiprüfungseigenschaften basiert, die Sie definieren. Der Vorteil besteht darin, dass eine Verknüpfung zwischen den Dateiprüfungen und der verwendeten Vorlage bestehen bleibt, sodass in Zukunft durch ein Ändern der Vorlage diese Änderung auf alle Dateiprüfungen angewendet werden kann, die davon abgeleitet sind. Dieses Feature vereinfacht die Implementierung von Änderungen an den Speicherrichtlinien, da alle Updates an einem zentralen Ort ausgeführt werden können.
 
@@ -39,7 +39,7 @@ Beim Erstellen einer neuen Dateiprüfung können Sie eine Dateiprüfungsvorlage 
 
 7.  Wählen Sie unter **Dateigruppen** jede Dateigruppe aus, die in Ihrer Dateiprüfung enthalten sein sollen. (Um das Kontrollkästchen für die Dateigruppe zu aktivieren, doppelklicken Sie auf die Bezeichnung der Dateigruppe.)
 
-    Wenn Sie verwenden möchten, zeigen Sie die Dateitypen, die eine Dateigruppe enthält, und schließt, klicken Sie auf die Bezeichnung für "Group" und klicken Sie dann auf **bearbeiten**. Um eine neue Dateigruppe zu erstellen, klicken Sie auf **erstellen**.
+    Wenn Sie die Dateitypen anzeigen möchten, die eine Datei Gruppe einschließt und ausschließt, klicken Sie auf die Dateigruppen Bezeichnung, und klicken Sie dann auf **Bearbeiten**. Zum Erstellen einer neuen Datei Gruppe klicken Sie auf **Erstellen**.
 
 8.  Darüber hinaus können Sie den **Ressourcen-Manager für Dateiserver** so konfigurieren, dass eine oder mehrere Benachrichtigungen erstellt werden. Dies geschieht durch das Festlegen der Optionen in den Registerkarten **E-Mail-Nachricht**, **Ereignisprotokoll**, **Befehl**, und **Bericht**. Weitere Informationen zu den Benachrichtigungsoptionen der Dateiprüfung finden Sie unter [Erstellen einer Dateiprüfungsvorlage](create-file-screen-template.md).
 
@@ -56,9 +56,9 @@ Beim Erstellen einer neuen Dateiprüfung können Sie eine Dateiprüfungsvorlage 
 
 ## <a name="see-also"></a>Siehe auch
 
--   [Dateiprüfungsverwaltung](file-screening-management.md)
--   [Definieren von Dateigruppen für die Sichtung](define-file-groups-for-screening.md)
--   [Erstellen Sie eine Bildschirmvorlage Datei](create-file-screen-template.md)
--   [Bearbeiten der Eigenschaften der Vorlage Bildschirm](edit-file-screen-template-properties.md)
+-   [Datei Prüfungsverwaltung](file-screening-management.md)
+-   [Definieren von Dateigruppen für die Prüfung](define-file-groups-for-screening.md)
+-   [Erstellen einer Dateiprüfungsvorlage](create-file-screen-template.md)
+-   [Bearbeiten der Eigenschaften der Dateiprüfungsvorlage](edit-file-screen-template-properties.md)
 
 

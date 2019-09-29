@@ -1,36 +1,36 @@
 ---
-title: Problembehandlung für AD FS - Anspruchsregeln
-description: In diesem Dokument wird beschrieben, wie Ansprüche Regelsyntax mit AD FS-Problembehandlung
+title: 'AD FS Problembehandlung: Anspruchs Regeln'
+description: In diesem Dokument wird beschrieben, wie Sie eine Problembehandlung für die Anspruchs Regel Syntax mit AD FS
 author: billmath
 ms.author: billmath
 manager: mtillman
 ms.date: 03/01/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 027b2afc9e580253ec820e7e5be14419387ddd44
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d0146ba7cfc736f4d37ca66d58d624cc2f7f9a23
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837921"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366281"
 ---
-# <a name="ad-fs-troubleshooting---claims-rules-syntax"></a>Problembehandlung für AD FS - Anspruchsanbieter-Regeln-Syntax
-Ein Anspruch ist eine Anweisung, ein Subjekt macht über sich selbst oder einen anderen Antragsteller.  Ansprüche werden durch eine vertrauende Seite ausgestellt, und sie erhalten Sie einen oder mehrere Werte sind, und klicken Sie dann in Sicherheitstoken, die von AD FS-Servers ausgestellt werden verpackt.  Dieser Artikel befasst sich mit den Ansprüchen Syntax und Erstellung.  Informationen zu Ansprüchen finden Sie unter ausstellungstransformationsregeln [AD FS-Problembehandlung - Ausstellung von Ansprüchen](ad-fs-tshoot-claims-issuance.md).
+# <a name="ad-fs-troubleshooting---claims-rules-syntax"></a>AD FS Problembehandlung: Syntax von Anspruchs Regeln
+Ein Anspruch ist eine-Anweisung, die ein Subjekt über sich selbst oder einen anderen Betreff trifft.  Ansprüche werden von einer vertrauenden Seite ausgegeben, und Sie erhalten einen oder mehrere Werte und werden dann in Sicherheits Token verpackt, die vom AD FS Server ausgestellt werden.  In diesem Artikel werden die Anspruchs Syntax und die Erstellung behandelt.  Weitere Informationen zur Anspruchs Ausstellung finden Sie unter [AD FS Problembehandlung: Anspruchs Ausstellung](ad-fs-tshoot-claims-issuance.md).
 
 >[!NOTE]  
->Können Sie [ClaimsXRay](https://adfshelp.microsoft.com/ClaimsXray/TokenRequest) auf die [AD FS-Hilfe](https://adfshelp.microsoft.com) Site zur Problembehandlung behauptet Probleme.   
+>Sie können [claimsxray](https://adfshelp.microsoft.com/ClaimsXray/TokenRequest) auf der [ADFS-Hilfe](https://adfshelp.microsoft.com) Website verwenden, um die Behandlung von Anspruchs Problemen zu unterstützen.   
 
 ## <a name="how-claim-rules-are-processed"></a>Verarbeiten von Anspruchsregeln
-Anspruchsregeln werden verarbeitet, bis die [anspruchspipeline](../../ad-fs/technical-reference/The-Role-of-the-Claims-Pipeline.md) mithilfe der [Anspruchs-Engine](../../ad-fs/technical-reference/The-Role-of-the-Claims-Engine.md). Das Anspruchsmodul ist eine logische Komponente des Verbunddiensts, die den Satz der von einem Benutzer gesendeten eingehenden Ansprüche untersucht und anschließend in Abhängigkeit von der Logik in jeder Regel einen Ausgabeanspruchssatz erzeugt.
+Anspruchs Regeln werden mithilfe der Anspruchs- [Engine](../../ad-fs/technical-reference/The-Role-of-the-Claims-Engine.md)über die Anspruchs [Pipeline](../../ad-fs/technical-reference/The-Role-of-the-Claims-Pipeline.md) verarbeitet. Das Anspruchsmodul ist eine logische Komponente des Verbunddiensts, die den Satz der von einem Benutzer gesendeten eingehenden Ansprüche untersucht und anschließend in Abhängigkeit von der Logik in jeder Regel einen Ausgabeanspruchssatz erzeugt.
 
 ## <a name="how-to-create-a-claim-rule"></a>Erstellen einer Anspruchsregel
-Anspruchsregeln werden separat für jede Verbund-Vertrauensstellungsbeziehung innerhalb des Verbunddiensts erstellt und werden nicht von mehreren Vertrauensstellungen gemeinsam verwendet. Sie können entweder erstellen eine Regel an eine [anspruchsregelvorlage](../../ad-fs/technical-reference/determine-the-type-of-claim-rule-template-to-use.md), von Grund auf neu starten, durch das Erstellen der Regel mithilfe der [anspruchsregelsprache](../../ad-fs/technical-reference/when-to-use-a-custom-claim-rule.md) oder verwenden Sie Windows PowerShell, um eine Regel anpassen.
+Anspruchsregeln werden separat für jede Verbund-Vertrauensstellungsbeziehung innerhalb des Verbunddiensts erstellt und werden nicht von mehreren Vertrauensstellungen gemeinsam verwendet. Sie können entweder eine Regel aus einer [Anspruchs Regel Vorlage](../../ad-fs/technical-reference/determine-the-type-of-claim-rule-template-to-use.md)erstellen, von Grund auf neu starten, indem Sie die Regel mithilfe der [Anspruchs Regel Sprache](../../ad-fs/technical-reference/when-to-use-a-custom-claim-rule.md) erstellen oder eine Regel mithilfe von Windows PowerShell anpassen.
 
 ## <a name="understanding-the-components-of-the-claim-rule-language"></a>Grundlegendes zu den Komponenten der Anspruchsregelsprache
-Die anspruchsregelsprache besteht aus den folgenden Komponenten, getrennt durch die "= >"-Operator:
+Die Anspruchs Regel Sprache besteht aus den folgenden Komponenten, getrennt durch den Operator "= >":
 
-- Eine Bedingung: das zum Überprüfen der Eingabeansprüche und zu bestimmen, ob die ausstellungsanweisung der Regel ausgeführt werden soll.  Es stellt einen logischen Ausdruck, der ausgewertet werden kann, muss zum Ausführen der Hauptteil der Regel auf "true".
+- Eine Bedingung, die verwendet wird, um Eingabe Ansprüche zu überprüfen und zu bestimmen, ob die Ausstellungs Anweisung der Regel ausgeführt werden soll.  Sie stellt einen logischen Ausdruck dar, der mit true ausgewertet werden muss, um den Hauptteil der Regel auszuführen.
 
 - Eine Ausstellungsanweisung
 
@@ -38,36 +38,36 @@ Beispiel:
 
 ```c:[type == "Name", value == "domain user"] => issue(type = "Role", value = "employee");``` 
 
-Die folgende Anspruch enthält Folgendes:
-- Bedingung: `c:[type == "Name", value == "domain user"] ` -wertet den Eingabeanspruch, ob der Windows-Kontoname ein Domänenbenutzer ist
-- Ausstellung - `issue(type = "Role", value = "employee")` – Wenn die Bedingung "true" Fügt einen neuen Anspruch, der Eingabeanspruch mit der Rolle des Mitarbeiters.
+Der folgende Anspruch hat Folgendes:
+- Condition-`c:[type == "Name", value == "domain user"] `: wertet den Eingabe Anspruch aus, ob der Name des Windows-Kontos ein Domänen Benutzer ist.
+- Ausstellung-`issue(type = "Role", value = "employee")`: Wenn die Bedingung true ist, wird dem Eingabe Anspruch mit der Rolle Employee ein neuer Anspruch hinzugefügt.
 
-Weitere Informationen zu Ansprüchen und die Syntax finden Sie unter [die Rolle der Anspruchsregelsprache](../../ad-fs/technical-reference/the-role-of-the-claim-rule-language.md).
+Weitere Informationen zu Ansprüchen und zur Syntax finden Sie in der [Rolle der Anspruchs Regel Sprache](../../ad-fs/technical-reference/the-role-of-the-claim-rule-language.md).
 
-## <a name="claims-rule-editor"></a>Ansprüche-Regel-editor
-Syntaxüberprüfung erfolgt durch die Regel-Editor für Ansprüche, nachdem Sie den Anspruch abgeschlossen haben, und klicken Sie auf **OK**.  Wenn Sie die falsche Syntax haben wird dann Editor Ihnen mit, lassen.
+## <a name="claims-rule-editor"></a>Anspruchs Regel-Editor
+Die Syntax Überprüfung wird vom Anspruchs Regel-Editor ausgeführt, nachdem Sie den Anspruch abgeschlossen haben, und klicken Sie auf **OK**.  Wenn Sie also die falsche Syntax haben, werden Sie vom Editor informiert.
 
-![Ansprüche](media/ad-fs-tshoot-claims/claims1.png)
+![Claims](media/ad-fs-tshoot-claims/claims1.png)
 
 ## <a name="event-logs"></a>Ereignisprotokolle
-Beim Versuch, einen Anspruch, der mithilfe der Protokolle zu behandeln ist der beste Ansatz, um für die Ausgabe von Ansprüchen zu suchen.  Sie können für 1000 und 1001 Ereignisse im Ereignisprotokoll suchen.
+Wenn Sie versuchen, einen Anspruch mithilfe der Protokolle zu beheben, empfiehlt es sich, nach der Anspruchs Ausgabe zu suchen.  Sie können nach 1000-und 1001-Ereignissen im Ereignisprotokoll suchen.
 
-![Ansprüche](media/ad-fs-tshoot-claims/claims2.png)
+![Claims](media/ad-fs-tshoot-claims/claims2.png)
 
-## <a name="creating-a-sample-application"></a>Zum Erstellen einer beispielanwendung
-Sie können auch erstellen eine beispielanwendung die wiederholt von Ansprüchen.  Beispielsweise können Sie verwenden eine Beispiel-App und erstellen eine relying Party, die den gleichen Anspruch, den Sie versuchen enthält zu überprüfen, ob die app alle Probleme mit dem Anspruch enthält.
+## <a name="creating-a-sample-application"></a>Erstellen einer Beispielanwendung
+Sie können auch eine Beispielanwendung erstellen, die ihre Ansprüche widerspiegelt.  Beispielsweise können Sie eine Beispielanwendung verwenden und eine vertrauende Seite erstellen, die den gleichen Anspruch hat, zu dem Sie versuchen, Probleme zu beheben, und feststellen, ob die APP Probleme mit diesem Anspruch hat.
 
-![Ansprüche](media/ad-fs-tshoot-claims/claim4.png)
+![Claims](media/ad-fs-tshoot-claims/claim4.png)
 
-Hier ist eine gutes Beispiel-Web-app verfügbar.  Diese app ist eine einfache Web-app, die zurück auf die Ansprüche zurückgibt, die von die vertrauende Seite empfangen.  Um dies zu verwenden, müssen Sie zum Bearbeiten der Datei "Web.config"-app durch:
-- Ändern der https://app1.contoso.com/sampapp an die URL der verwenden Sie zum Hosten der Sampapp
-- Ändern alle Instanzen von "STS.contoso.com", um Sie zu AD FS-Verbundserver verweisen
-- Ersetzen den Fingerabdruck durch Ihren Fingerabdruck ein.
+Eine gute Beispiel-Web-App finden Sie hier.  Diese APP ist eine einfache Web-App, die die Ansprüche zurückgibt, die Sie von der vertrauenden Seite empfängt.  Um dies zu verwenden, müssen Sie die Web. config-app wie folgt bearbeiten:
+- Ändern von https://app1.contoso.com/sampapp in die URL, die Sie zum Hosting von sampapp verwenden
+- alle Instanzen von STS.contoso.com so ändern, dass Sie AD FS Verbund Servers verweisen
+- Ersetzen des Fingerabdrucks durch Ihren Fingerabdruck
 
-![Ansprüche](media/ad-fs-tshoot-claims/claims3.png)
+![Claims](media/ad-fs-tshoot-claims/claims3.png)
 
-Die folgenden [Blogartikel](https://blogs.technet.microsoft.com/tangent_thoughts/2015/02/20/install-and-configure-a-simple-net-4-5-sample-federated-application-samapp/) verfügt über hervorragende und ausführliche Anweisungen zum einrichten.
+Der folgende [Blog Artikel](https://blogs.technet.microsoft.com/tangent_thoughts/2015/02/20/install-and-configure-a-simple-net-4-5-sample-federated-application-samapp/) enthält hervorragende, ausführliche Anweisungen zum Einrichten dieser Vorgehensweisen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [AD FS-Problembehandlung](ad-fs-tshoot-overview.md)
+- [Behandeln von AD FS-Problemen](ad-fs-tshoot-overview.md)

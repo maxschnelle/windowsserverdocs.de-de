@@ -1,7 +1,7 @@
 ---
 title: Schnellstart für die geschützte Fabric-Bereitstellung
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: e060e052-39a0-4154-90bb-b97cc6dde68e
 manager: dongill
@@ -9,12 +9,12 @@ author: justinha
 ms.author: justinha
 ms.technology: security-guarded-fabric
 ms.date: 01/30/2019
-ms.openlocfilehash: 48ac73e79709f28816ea9eff35361bd54710c66e
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 8359532113e04e2247b4af34effc7f5b89d36f34
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870526"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402416"
 ---
 # <a name="quick-start-for-guarded-fabric-deployment"></a>Schnellstart für die geschützte Fabric-Bereitstellung
 
@@ -69,7 +69,7 @@ Stellen Sie sich dieses Szenario vor – Sie haben ein vorhandenes Hyper-V-Fabri
 
 ![Vorhandenes Hyper-V-Fabric](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-existing-hyper-v.png)
 
-## <a name="step-1-deploy-the-hyper-v-hosts-running-windows-server-2016"></a>Schritt 1: Bereitstellen von Hyper-V-Hosts unter Windows Server 2016 
+## <a name="step-1-deploy-the-hyper-v-hosts-running-windows-server-2016"></a>Schritt 1: Bereitstellen von Hyper-V-Hosts unter Windows Server 2016 
 
 Auf den Hyper-V-Hosts muss Windows Server 2016 Datacenter Edition oder höher ausgeführt werden. Wenn Sie Hosts aktualisieren, können Sie ein [Upgrade](https://technet.microsoft.com/windowsserver/dn527667.aspx) von der Standard Edition auf Datacenter Edition durchführen.
 
@@ -137,7 +137,7 @@ Dies ermöglicht es Benutzern, die entsprechenden Datenträger durch Angabe der 
 
 Überprüfen Sie die [Vorlagen Anforderungen](guarded-fabric-create-a-shielded-vm-template.md) für Datenträger, bevor Sie loslegen. 
 
-## <a name="step-5-create-a-shielding-data-file"></a>Schritt 5: Erstellen einer Schutz Datendatei 
+## <a name="step-5-create-a-shielding-data-file"></a>Schritt 5: Erstellen einer Schutz Datendatei 
 
 Eine geschützte Datendatei, die auch als PDK-Datei bezeichnet wird, erfasst vertrauliche Informationen über den virtuellen Computer, z. b. das Administrator Kennwort. 
 
@@ -157,7 +157,7 @@ Die Schutz Datendatei enthält auch die Sicherheitsrichtlinien Einstellung für 
 
 Sie können optionale Verwaltungs Elemente wie VMM oder Windows Azure Pack hinzufügen. Wenn Sie einen virtuellen Computer erstellen möchten, ohne diese Komponenten zu installieren, finden Sie weitere Informationen unter [Schritt für Schritt – Erstellen von abgeschirmten VMS ohne VMM](https://blogs.technet.microsoft.com/datacentersecurity/2016/06/06/step-by-step-creating-shielded-vms-without-vmm/).
 
-## <a name="step-6-create-a-shielded-vm"></a>Schritt 6: Erstellen einer abgeschirmten VM
+## <a name="step-6-create-a-shielded-vm"></a>Schritt 6: Erstellen einer abgeschirmten VM
 
 Das Erstellen von abgeschirmten virtuellen Computern unterscheidet sich nur geringfügig von herkömmlichen virtuellen Computern. In Windows Azure Pack ist die-Funktion sogar noch einfacher als das Erstellen einer regulären VM, da Sie lediglich einen Namen, eine geschützte Datendatei (mit den restlichen Spezialisierungs Informationen) und das VM-Netzwerk angeben müssen. 
 

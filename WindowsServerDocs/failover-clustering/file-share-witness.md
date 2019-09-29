@@ -1,93 +1,93 @@
 ---
-title: Bereitstellen Sie ein Dateifreigabezeugen auf WindowsServer 2019
-ms.prod: windows-server-threshold
+title: Bereitstellen eines Dateifreigabe Zeugen in Windows Server 2019
+ms.prod: windows-server
 ms.manager: eldenc
 ms.technology: failover-clustering
 ms.topic: article
 author: johnmarlin-msft
 ms.date: 01/24/2019
-description: Dateifreigabezeugen können Sie eine Dateifreigabe zu verwenden, um im Clusterquorum abstimmen. Dieses Thema beschreibt dateifreigabezeugen und die neuen Funktionen, einschließlich der Verwendung von einem USB-Laufwerk an einen Router als einen Dateifreigabenzeugen verbunden.
+description: Mithilfe von Dateifreigabe Zeugen können Sie eine Dateifreigabe verwenden, die im Cluster Quorum Stimmen soll. In diesem Thema werden Dateifreigabe Zeugen und die neuen Funktionen beschrieben, einschließlich der Verwendung eines USB-Laufwerks, das mit einem Router als Datei frei gaben Zeuge verbunden ist.
 ms.localizationpriority: medium
-ms.openlocfilehash: 47371be946c08cac2f271138d701922fc340a89d
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.openlocfilehash: 9f0a0c5b48f7c382367e4b1100ff649fe73d3be9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453046"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369760"
 ---
-# <a name="deploy-a-file-share-witness"></a>Bereitstellen Sie ein dateifreigabezeugen
+# <a name="deploy-a-file-share-witness"></a>Bereitstellen eines Dateifreigabe Zeugen
 
 > Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Ein Dateifreigabenzeuge ist eine SMB-Freigabe, die Failover-Cluster als eine Stimme in das Clusterquorum verwendet. Dieses Thema enthält eine Übersicht über die Technologie und die neuen Funktionen in Windows Server-2019, einschließlich der Verwendung von einem USB-Laufwerk an einen Router als einen Dateifreigabenzeugen verbunden.
+Ein Dateifreigabe Zeuge ist eine SMB-Freigabe, die der Failovercluster als Stimme im Cluster Quorum verwendet. Dieses Thema bietet einen Überblick über die Technologie und die neuen Funktionen in Windows Server 2019, einschließlich der Verwendung eines USB-Laufwerks, das mit einem Router als Datei frei gaben Zeuge verbunden ist.
 
-Dateifreigabezeugen sind in den folgenden Situationen nützlich:  
+Dateifreigabe Zeugen sind in folgenden Situationen nützlich:  
 
-- Ein cloudzeugen kann nicht verwendet werden, da nicht alle Server im Cluster eine zuverlässige Internetverbindung verfügen.
-- Ein datenträgerzeuge kann nicht verwendet werden, da es sind keine freigegebenen Laufwerke, die für einen datenträgerzeugen verwendet. Dies ist möglicherweise ein "direkte Speicherplätze"-Cluster, SQL Server Always On Availability Gruppen (-Verfügbarkeitsgruppen), Exchange Database Availability Group (DAG), usw.  Keinem dieser Typen von Clustern verwenden freigegebener Datenträger vorhanden.
+- Ein cloudzeuge kann nicht verwendet werden, da nicht alle Server im Cluster über eine zuverlässige Internet Verbindung verfügen.
+- Ein Datenträger Zeuge kann nicht verwendet werden, da keine freigegebenen Laufwerke für einen Datenträger Zeugen verwendet werden. Dabei kann es sich um einen direkte Speicherplätze Cluster, SQL Server Always on Verfügbarkeits Gruppen (AG), eine Exchange-Daten Bank Verfügbarkeits Gruppe (DAG) usw. handeln.  Keiner dieser Cluster Typen verwendet freigegebene Datenträger.
 
-## <a name="file-share-witness-requirements"></a>File Share Witness Anforderungen
+## <a name="file-share-witness-requirements"></a>Anforderungen an den Dateifreigabe Zeugen
 
-Sie können einen dateifreigabezeugen auf eine Domäne eingebundenen Windows-Server hosten, oder wenn Ihr Cluster Windows Server 2019, jedem Gerät ausgeführt wird Host einer SMB-2 oder höher Datei freigeben.
+Sie können einen Dateifreigabe Zeugen auf einem in die Domäne eingebundenen Windows-Server hosten, oder auf Ihrem Cluster, auf dem Windows Server 2019 ausgeführt wird, auf allen Geräten, auf denen eine Dateifreigabe mit SMB 2 oder höher gehostet werden kann.
 
-|Dateiservertyp                 | Unterstützte Cluster |
+|Datei Servertyp                 | Unterstützte Cluster |
 |---------------------------------|--------------------|
-|Alle Geräte w/einen SMB 2-Dateifreigabe | Windows Server 2019|
-|Domäne eingebundenen WindowsServer     | WindowsServer 2008 und höher|
+|Alle Geräte mit einer SMB 2-Dateifreigabe | Windows Server 2019|
+|In die Domäne eingebundener Windows Server     | Windows Server 2008 und höher|
 
-Wenn der Cluster Windows Server-2019 ausgeführt wird, sind hier die Anforderungen:
+Wenn auf dem Cluster Windows Server 2019 ausgeführt wird, gelten die folgenden Anforderungen:
 
-- SMB-Dateifreigabe *auf jedes Gerät, das SMB 2 oder höher-Protokoll verwendet*, einschließlich:
-    - Geräte Network-attached Storage (NAS)
-    - Windows-Computer zu einer Arbeitsgruppe gehört
-    - Router mit dem lokal verbundenen USB-Speicher
-- Ein lokales Konto auf dem Gerät für die Authentifizierung des Clusters
-- Wenn Sie stattdessen Active Directory zum Authentifizieren des Clusters mit der Dateifreigabe verwenden, die Cluster-Name-Objekt (CNO) muss über Schreibberechtigungen für die Freigabe verfügen, und der Server muss in derselben Active Directory-Gesamtstruktur wie der Cluster.
-- Die Dateifreigabe verfügt über mindestens 5 MB freier Speicherplatz
+- Eine SMB-Dateifreigabe *auf allen Geräten, die das SMB 2-Protokoll oder das spätere Protokoll verwenden*, einschließlich:
+    - NAS-Geräte (Network-Attached Storage)
+    - Windows-Computer, die einer Arbeitsgruppe hinzugefügt wurden
+    - Router mit lokal verbundener USB-Speicher
+- Ein lokales Konto auf dem Gerät zum Authentifizieren des Clusters
+- Wenn Sie stattdessen Active Directory zum Authentifizieren des Clusters mit der Dateifreigabe verwenden, muss das Cluster Namen Objekt (CNO) über Schreibberechtigungen für die Freigabe verfügen, und der Server muss sich in derselben Active Directory Gesamtstruktur wie der Cluster befinden.
+- Der freie Speicherplatz der Dateifreigabe beträgt 5 MB.
 
-Wenn der Cluster WindowsServer 2016 oder früher ausgeführt wird, sind hier die Anforderungen:
+Wenn auf dem Cluster Windows Server 2016 oder eine frühere Version ausgeführt wird, gelten die folgenden Anforderungen:
 
-- SMB-Dateifreigabe *auf einem Windows-Server in derselben Active Directory-Gesamtstruktur wie der Cluster eingebunden*
-- Die Cluster-Name-Objekt (CNO) muss Schreibberechtigungen für die Freigabe verfügen.
-- Die Dateifreigabe verfügt über mindestens 5 MB freier Speicherplatz
+- SMB-Dateifreigabe *auf einem Windows-Server, der mit derselben Active Directory Gesamtstruktur wie der Cluster* verknüpft ist
+- Das Cluster Namen Objekt (CNO) muss über Schreibberechtigungen für die Freigabe verfügen.
+- Der freie Speicherplatz der Dateifreigabe beträgt 5 MB.
 
 Weitere Hinweise:
-- Verwendung von File Share Witness von Geräte als eine Domäne eingebundenen Windows-Server gehostet wird, derzeit müssen Sie verwenden die **Set-ClusterQuorum-Anmeldeinformationen** PowerShell-Cmdlet, um den Zeugen festlegen, wie weiter unten in diesem Thema beschrieben.
-- Für hohe Verfügbarkeit können Sie einen dateifreigabezeugen auf einem separaten Failovercluster verwenden.
-- Die Dateifreigabe kann von mehreren Clustern verwendet werden
-- Die Verwendung eines verteilten Dateisystems (Distributed File System, DFS)-Dateifreigabe oder repliziertem Speicher wird mit jeder Version der Failover-Clusterunterstützung nicht unterstützt.  Diese kann eine Split-Brain-Situation, in dem geclusterte Servern werden unabhängig voneinander ausgeführt und können zu Datenverlust führen.
+- Wenn Sie einen Dateifreigabe Zeugen verwenden möchten, der von anderen Geräten als einem in die Domäne eingebundenen Windows-Server gehostet wird, müssen Sie derzeit das PowerShell-Cmdlet **Set-Clusterquorum-Credential** verwenden, um den Zeugen festzulegen, wie weiter unten in diesem Thema beschrieben.
+- Um Hochverfügbarkeit zu erreichen, können Sie einen Dateifreigabe Zeugen in einem separaten Failovercluster verwenden.
+- Die Dateifreigabe kann von mehreren Clustern verwendet werden.
+- Die Verwendung einer DFS-Freigabe (verteiltes Dateisystem) oder eines replizierten Speichers wird von keiner Version des Failoverclustering unterstützt.  Diese können eine Split Brain-Situation verursachen, in der gruppierte Server unabhängig voneinander ausgeführt werden und zu einem Datenverlust führen können.
 
-## <a name="creating-a-file-share-witness-on-a-router-with-a-usb-device"></a>Erstellen einen dateifreigabezeugen auf einem Router mit einem USB-Gerät
+## <a name="creating-a-file-share-witness-on-a-router-with-a-usb-device"></a>Erstellen eines Dateifreigabe Zeugen auf einem Router mit einem USB-Gerät
 
-Am [Microsoft Ignite 2018](https://azure.microsoft.com/ignite/), [Spitzengruppe Storage](http://www.dataonstorage.com/) mussten Sie einem Cluster für direkte Speicherplätze in ihrer Region Kioskmodus.  Dieser Cluster verbunden war, eine [NetGear](https://www.netgear.com) Nighthawk X4S WiFi-Router mithilfe des USB-Ports als Datei Dateifreigabenzeugen ähnelt.
+Bei der [Microsoft Ignite 2018](https://azure.microsoft.com/ignite/)hatte [DataOn Storage](http://www.dataonstorage.com/) einen direkte Speicherplätze Cluster in seinem Kiosk Bereich.  Dieser Cluster wurde mit einem [Netgear](https://www.netgear.com) Nighthawk X4S WiFi-Router über den USB-Anschluss als Datei frei gaben Zeuge verbunden, der diesem ähnelt.
 
-![NetGear Zeugen](media/File-Share-Witness/FSW1.png)
+![Netgear-Zeuge](media/File-Share-Witness/FSW1.png)
 
-Die Schritte zum Erstellen eines Dateifreigabenzeugen mithilfe eines USB-Geräts auf diesem bestimmten Router sind unten aufgeführt.  Erfahren Sie, wie bereitgestellt, beachten Sie, dass die Schritte, die von anderen Routern und NAS-Geräte variieren und mithilfe von Anbieter durchgeführt werden soll.
+Die Schritte zum Erstellen eines Dateifreigabe Zeugen mithilfe eines USB-Geräts auf diesem bestimmten Router sind unten aufgeführt.  Beachten Sie, dass die Schritte auf anderen Routern und NAS-Geräten variieren und mit den vom Hersteller bereitgestellten Anweisungen durchgeführt werden sollten.
 
 
-1. Melden Sie sich den Router, mit dem USB-Gerät angeschlossen.
+1. Melden Sie sich beim Router an, wenn das USB-Gerät angeschlossen ist.
 
-   ![NetGear-Schnittstelle](media/File-Share-Witness/FSW2.png)
+   ![Netgear-Schnittstelle](media/File-Share-Witness/FSW2.png)
 
-2. Wählen Sie aus der Liste der Optionen ReadySHARE handelt es sich, in denen Freigaben erstellt werden können.
+2. Wählen Sie in der Liste der Optionen den Eintrag "Read-Share" aus. hier können Freigaben erstellt werden.
 
-   ![NetGear ReadySHARE](media/File-Share-Witness/FSW3.png)
+   ![Netgear-leseryfreigabe](media/File-Share-Witness/FSW3.png)
 
-3. Für einen Dateifreigabenzeugen ist eine einfache Freigabe alles, die was erforderlich ist.  Die Schaltfläche "Bearbeiten" auswählen, wird ein Dialogfeld angezeigt, in dem die Freigabe auf dem USB-Gerät erstellt werden kann.
+3. Für einen Dateifreigabe Zeugen ist nur eine einfache Freigabe erforderlich.  Wenn Sie die Schaltfläche Bearbeiten auswählen, wird ein Dialogfeld angezeigt, in dem die Freigabe auf dem USB-Gerät erstellt werden kann.
 
-   ![NetGear-Freigabe-Schnittstelle](media/File-Share-Witness/FSW4.png)
+   ![Netgear-Freigabe Schnittstelle](media/File-Share-Witness/FSW4.png)
 
-4. Nach der Schaltfläche "anwenden" auswählen, wird die Freigabe wird erstellt und in der Liste angezeigt werden kann.
+4. Nachdem Sie die Schaltfläche anwenden ausgewählt haben, wird die Freigabe erstellt und kann in der Liste angezeigt werden.
 
-   ![NetGear Freigaben](media/File-Share-Witness/FSW5.png)
+   ![Netgear-Freigaben](media/File-Share-Witness/FSW5.png)
 
-5. Sobald die Freigabe erstellt wurde, ist der Dateifreigabenzeuge für Cluster mit PowerShell erstellt.
+5. Nachdem die Freigabe erstellt wurde, wird die Erstellung des Datei frei gaben Zeugen für den Cluster mit PowerShell durchgeführt.
 
    ```PowerShell
    Set-ClusterQuorum -FileShareWitness \\readyshare\Witness -Credential (Get-Credential)
    ```
 
-   Dies zeigt ein Dialogfeld zum Eingeben des lokalen Kontos auf dem Gerät.
+   Dadurch wird ein Dialogfeld angezeigt, in dem Sie das lokale Konto auf dem Gerät eingeben können.
 
-Die gleichen ähnliche Schritte können auf andere Router mit USB-Funktionen, NAS-Geräten oder anderen Windows-Geräten erfolgen.
+Diese ähnlichen Schritte können auch auf anderen Routern mit USB-Funktionen, NAS-Geräten oder anderen Windows-Geräten ausgeführt werden.

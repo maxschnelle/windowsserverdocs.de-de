@@ -1,8 +1,8 @@
 ---
 title: expand
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 84fd3693ab41780f7092d74228a06503f9bca74f
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 4a88222ffe9ff374626a6406c330a6660d992f96
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439388"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377321"
 ---
 # <a name="expand"></a>expand
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Erweitert eine oder mehrere komprimierte Dateien an. Sie können diesen Befehl verwenden, um komprimierte Dateien von Originaldatenträgern abrufen.  
+erweitert eine oder mehrere komprimierte Dateien. Mit diesem Befehl können Sie komprimierte Dateien von Verteilungs Datenträgern abrufen.  
 ## <a name="syntax"></a>Syntax  
 ```  
 expand [/r] <source> <destination>  
@@ -37,16 +37,16 @@ expand <source>.cab /f:<files> <destination>
 
 |  Parameter  |                                                                                                                                                                   Beschreibung                                                                                                                                                                    |
 |-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     /r      |                                                                                                                                                             Benennt erweiterte Dateien.                                                                                                                                                              |
-|   Quelle    |                                                                              Gibt die Dateien zu erweitern. *Quelle* kann einen Laufwerkbuchstaben und Doppelpunkt, ein Verzeichnisname, einen Dateinamen oder eine Kombination aus diesen bestehen. Sie können Platzhalter verwenden ( **\\** \* oder **?** ).                                                                               |
-| Ziel | Gibt an, in dem die Dateien erweitert werden.<br /><br />Wenn *Quelle* besteht aus mehreren Dateien, und Sie keinen **/r**, *Ziel* muss ein Verzeichnis sein.<br /><br />*Ziel* kann einen Laufwerkbuchstaben und Doppelpunkt, ein Verzeichnisname, einen Dateinamen oder eine Kombination aus diesen bestehen.<br /><br />Zieldatei &#124; Pfadangabe. |
-|     /i      |                                                                                                   Benennt die erweiterte Dateien werden jedoch ignoriert die Verzeichnisstruktur.<br /><br />Dieser Parameter gilt für:  Windows Server 2008 R2 und Windows 7.                                                                                                    |
-|     /d      |                                                                                                                              Zeigt eine Liste der Dateien am Quellspeicherort. Erweitern Sie oder Extrahieren Sie die Dateien nicht.                                                                                                                              |
-|     /f:     |                                                                                                                 Gibt die Dateien in einer CAB-Datei, die Sie erweitern möchten. Sie können Platzhalter verwenden ( **\\** \* oder **?** ).                                                                                                                 |
+|     /r      |                                                                                                                                                             benennt Erweiterte Dateien um.                                                                                                                                                              |
+|   Quelle    |                                                                              Gibt die Dateien an, die erweitert werden sollen. Die *Quelle* kann aus einem Laufwerk Buchstaben und einem Doppelpunkt, einem Verzeichnisnamen, einem Dateinamen oder einer Kombination aus diesen bestehen. Sie können Platzhalter ( **\\** \* oder **?** ) verwenden.                                                                               |
+| Entwickelt | Gibt an, wo Dateien erweitert werden sollen.<br /><br />Wenn die *Quelle* aus mehreren Dateien besteht und Sie **/r**nicht angeben, muss *Destination* ein Verzeichnis sein.<br /><br />Das *Ziel* kann aus einem Laufwerk Buchstaben und einem Doppelpunkt, einem Verzeichnisnamen, einem Dateinamen oder einer Kombination aus diesen bestehen.<br /><br />Ziel Datei &#124; Pfad-Spezifikation. |
+|     /i      |                                                                                                   benennt Erweiterte Dateien um, ignoriert jedoch die Verzeichnisstruktur.<br /><br />Dieser Parameter gilt für:  Windows Server 2008 R2 und Windows 7.                                                                                                    |
+|     /d      |                                                                                                                              Zeigt eine Liste der Dateien am Quell Speicherort an. Die Dateien werden nicht erweitert oder extrahiert.                                                                                                                              |
+|     /f:     |                                                                                                                 Gibt die Dateien in einer CAB-Datei an, die Sie erweitern möchten. Sie können Platzhalter ( **\\** \* oder **?** ) verwenden.                                                                                                                 |
 |     /?      |                                                                                                                                                       Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                       |
 
 ## <a name="remarks"></a>Hinweise  
-- Mithilfe von **erweitern** auf die Recovery-Konsole  
-  Die **erweitern** ist der Befehl mit anderen Parametern, aus dem Recovery-Konsole verfügbar. Weitere Informationen über die Recovery-Konsole finden Sie unter [Artikel 314058](https://support.microsoft.com/kb/314058) in der Microsoft Knowledge Base.  
-  ## <a name="additional-references"></a>Zusätzliche Referenzen  
+- Verwenden von **Expand** in der Wiederherstellungskonsole  
+  Der **Erweiterungs Befehl mit** unterschiedlichen Parametern ist über die Wiederherstellungskonsole verfügbar. Weitere Informationen zur Wiederherstellungskonsole finden Sie im [Artikel 314058](https://support.microsoft.com/kb/314058) in der Microsoft Knowledge Base.  
+  ## <a name="additional-references"></a>Weitere Verweise  
   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

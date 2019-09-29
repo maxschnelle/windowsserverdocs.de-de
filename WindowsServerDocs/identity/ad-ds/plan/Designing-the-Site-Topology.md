@@ -7,50 +7,50 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: e1d9323ceda478369973f959687d46c9ca3cb88f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d3ebc3bd764a8ed44e201d0fca5f85b06df8be9d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888491"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408894"
 ---
 # <a name="designing-the-site-topology"></a>Entwerfen der Standorttopologie
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Eine Dienst Directory-Standorttopologie ist eine logische Darstellung Ihres physischen Netzwerks. Entwerfen einer Standorttopologie für Active Directory Domain Services (AD DS) umfasst das Planen der Domänencontrollerkapazität und Entwerfen von Standorten, Subnetzen, standortverknüpfungen und Standortverknüpfungsbrücken, um sicherzustellen, effizientes routing von Datenverkehr für Abfrage und die Replikation.  
+Eine Verzeichnisdienst-Standort Topologie ist eine logische Darstellung ihres physischen Netzwerks. Das Entwerfen einer Standort Topologie für Active Directory Domain Services (AD DS) umfasst das Planen der Platzierung von Domänen Controllern und das Entwerfen von Standorten, Subnetzen, Standort Verknüpfungen und Standort Verknüpfungs Brücken, um eine effiziente Weiterleitung von Abfrage-und Replikations  
   
-Entwerfen einer Standorttopologie hilft Ihnen, effizient Abfragen von Clients und Active Directory-Replikations-Datenverkehr weiterleiten. Eine gut entworfene Standorttopologie Ihrer Organisation dabei hilft die folgenden Vorteile erzielen:  
+Das Entwerfen einer Standort Topologie hilft Ihnen, Client Abfragen und Active Directory Replikations Datenverkehr effizient weiterzuleiten. Eine gut entworfene Standort Topologie unterstützt Ihre Organisation bei der Erzielung der folgenden Vorteile:  
   
--   Minimieren Sie die Kosten für die Replikation von Active Directory-Daten.  
+-   Minimieren Sie die Kosten für die Replikation Active Directory Daten.  
   
--   Minimieren der Verwaltungsaufwand, die zum Verwalten der Standorttopologie erforderlich sind.  
+-   Minimieren Sie den administrativen Aufwand, der für die Verwaltung der Standort Topologie erforderlich ist.  
   
--   Planen der Replikation, die Speicherorte, langsame oder DFÜ Netzwerk-Links zum Replizieren von Active Directory-Daten während der Spitzenzeiten ermöglicht.  
+-   Planen Sie die Replikation, mit der Standorte mit langsamen oder einwählenden Netzwerkverbindungen Active Directory Daten außerhalb der Spitzenzeiten repliziert werden können.  
   
--   Optimieren Sie die Fähigkeit von Clientcomputern, die nächsten Ressourcen, z. B. Domänencontroller und verteilten Dateisystems (Distributed File System, DFS)-Server zu suchen. Dieses dient als Hilfe zur Reduzierung des Netzwerkverkehrs über langsame Netzwerkverbindungen (WAN), an- und Abmeldung Prozesse verbessern und Downloadvorgängen zu beschleunigen.  
+-   Optimieren Sie die Fähigkeit von Client Computern, die nächstgelegenen Ressourcen zu finden, z. b. Domänen Controller und verteiltes Dateisystem (DFS)-Server. Dies trägt dazu bei, den Netzwerk Datenverkehr über langsame WAN-Verbindungen (Wide Area Network) zu reduzieren, Anmelde-und Abmelde Prozesse zu verbessern und Datei Download Vorgänge zu beschleunigen.  
   
-Bevor Sie beginnen, Ihre Website-Topologie zu entwerfen, müssen Sie die Struktur der physischen Netzwerk verstehen. Darüber hinaus müssen Sie zuerst Ihre logischen Struktur von Active Directory, einschließlich der Verwaltungshierarchie, Gesamtstrukturplan und Domänenplan für jede Gesamtstruktur entwerfen. Sie müssen außerdem den Domain Name System (DNS)-Infrastruktur-Entwurf für AD DS ausführen. Weitere Informationen zum Entwerfen der logischen Struktur von Active Directory und DNS-Infrastruktur finden Sie unter [Entwerfen der logischen Struktur für Windows Server 2008 AD DS](https://technet.microsoft.com/library/cc770806.aspx).  
+Bevor Sie mit dem Entwerfen der Standort Topologie beginnen, müssen Sie die physische Netzwerkstruktur kennen. Außerdem müssen Sie zunächst Ihre Active Directory logische Struktur entwerfen, einschließlich der administrativen Hierarchie, des Gesamtstruktur Plans und des Domänen Plans für jede Gesamtstruktur. Außerdem müssen Sie den Domain Name System-Infrastruktur Entwurf (DNS) für AD DS vervollständigen. Weitere Informationen zum Entwerfen der logischen Active Directory logischen Struktur und der DNS-Infrastruktur finden Sie unter [Entwerfen der logischen Struktur für Windows Server 2008 AD DS](https://technet.microsoft.com/library/cc770806.aspx).  
   
-Nachdem Sie die Gestaltung Ihrer Site Topologie abgeschlossen haben, müssen Sie sicherstellen, dass Ihre Domänencontroller die Hardware erfüllen, die für Windows Server 2008 Standard, Windows Server 2008 Enterprise und Windows Server 2008 Datacenter.  
+Nachdem Sie den Entwurf Ihrer Standort Topologie vervollständigt haben, müssen Sie sicherstellen, dass Ihre Domänen Controller die Hardwareanforderungen für Windows Server 2008 Standard, Windows Server 2008 Enterprise und Windows Server 2008 Datacenter erfüllen.  
   
 ## <a name="in-this-guide"></a>Inhalt dieser Anleitung  
   
--   [Grundlegendes zu Active Directory-Standorttopologie](../../ad-ds/plan/Understanding-Active-Directory-Site-Topology.md)  
+-   [Grundlegendes zur Active Directory-Standorttopologie](../../ad-ds/plan/Understanding-Active-Directory-Site-Topology.md)  
   
 -   [Sammeln von Netzwerkinformationen](../../ad-ds/plan/Collecting-Network-Information.md)  
   
--   [Planen der Domänencontrollerkapazität](../../ad-ds/plan/Planning-Domain-Controller-Placement.md)  
+-   [Planen der Domänencontrollerplatzierung](../../ad-ds/plan/Planning-Domain-Controller-Placement.md)  
   
 -   [Erstellen eines Standortentwurfs](../../ad-ds/plan/Creating-a-Site-Design.md)  
   
--   [Erstellen eines Entwurfs für Standortverknüpfungen](../../ad-ds/plan/Creating-a-Site-Link-Design.md)  
+-   [Erstellen eines Standortverknüpfungsentwurfs](../../ad-ds/plan/Creating-a-Site-Link-Design.md)  
   
--   [Erstellen eines Entwurfs für Standortverknüpfungs-Bridge](../../ad-ds/plan/Creating-a-Site-Link-Bridge-Design.md)  
+-   [Erstellen eines Entwurfs für Standortverknüpfungsbrücken](../../ad-ds/plan/Creating-a-Site-Link-Bridge-Design.md)  
   
--   [Suchen zusätzlicher Ressourcen für Windows Server 2008 Active Directory-Standorttopologieentwurf](../../ad-ds/plan/Finding-Additional-Resources-for-Windows-Server-2008-Active-Directory-Site-Topology-Design.md)  
+-   [Suchen zusätzlicher Ressourcen für den Entwurf von Windows Server 2008 Active Directory-Standort Topologie](../../ad-ds/plan/Finding-Additional-Resources-for-Windows-Server-2008-Active-Directory-Site-Topology-Design.md)  
   
 
 

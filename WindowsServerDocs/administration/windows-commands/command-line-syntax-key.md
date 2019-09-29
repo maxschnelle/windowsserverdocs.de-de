@@ -1,8 +1,8 @@
 ---
 title: Erläuterung zur Befehlszeilensyntax
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,24 +13,24 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 795397c43234e338029fc1e76aa11bf8080256cd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b4f8d1e492ee14c3f94c1de00812edcf60c52991
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826391"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379233"
 ---
 # <a name="command-line-syntax-key"></a>Erläuterung zur Befehlszeilensyntax
 
 
 
-Die folgende Tabelle beschreibt die Notation verwendet, um die Syntax der Befehlszeile anzugeben.
+In der folgenden Tabelle wird die Notation beschrieben, mit der die Befehlszeilen Syntax angegeben wird.
 
-|Notation|Beschreibung|
+|Angabe|Beschreibung|
 |--------|-----------|
-|Text ohne eckigen oder geschweiften Klammern|Elemente, die Sie eingeben müssen, siehe|
-|\<Text in spitzen Klammern >|Platzhalter für die Sie einen Wert angeben muss|
-|[Text innerhalb der eckigen Klammern]|Optionale Elemente|
-|{Text in geschweiften Klammern}|Der Satz von erforderlichen Elemente; Wählen Sie eine|
-|Senkrechter Strich (\|)|Trennzeichen für sich gegenseitig ausschließende Elemente Wählen Sie eine|
-|Auslassungspunkte (…)|Elemente, die wiederholt werden kann|
+|Text ohne eckige Klammern oder geschweifte Klammern|Elemente, die Sie eingeben müssen, wie gezeigt|
+|\<Text in spitzen Klammern >|Platzhalter, für den Sie einen Wert angeben müssen|
+|[Text in eckigen Klammern]|Optionale Elemente|
+|{Text in geschweiften Klammern}|Satz erforderlicher Elemente; Wählen Sie einen aus|
+|Senkrechter Strich (\|)|Trennzeichen für sich gegenseitig ausschließende Elemente Wählen Sie einen aus|
+|Auslassungspunkte (…)|Elemente, die wiederholt werden können|

@@ -1,42 +1,42 @@
 ---
 title: Erweitern von Volumes in Direkte Speicherplätze
-description: Informationen zum Ändern der Größe der Volumes in Storage Spaces Direct using Windows Admin Center und PowerShell.
-ms.prod: windows-server-threshold
+description: Ändern der Größe von Volumes in direkte Speicherplätze mithilfe von Windows Admin Center und PowerShell.
+ms.prod: windows-server
 ms.reviewer: cosmosdarwin
 author: cosmosdarwin
 ms.author: cosdar
 manager: eldenc
 ms.technology: storage-spaces
 ms.date: 05/07/2019
-ms.openlocfilehash: 3be6a4cda20f4d7d7d881ad8a272dc38fd787bba
-ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
+ms.openlocfilehash: 20482fe1728b12d4fe56dcfa397352fbb4b4f981
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65613228"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366091"
 ---
 # <a name="extending-volumes-in-storage-spaces-direct"></a>Erweitern von Volumes in Direkte Speicherplätze
 > Gilt für: Windows Server 2019, Windows Server 2016
 
-Dieses Thema enthält Anweisungen für die Größenänderung von Volumes auf einem ["direkte Speicherplätze"](storage-spaces-direct-overview.md) -Clusters mit Windows Admin Center.
+Dieses Thema enthält Anweisungen zum Ändern der Größe von Volumes in einem [direkte Speicherplätze](storage-spaces-direct-overview.md) Cluster mithilfe des Windows Admin Centers.
 
-Sehen Sie sich ein kurzes Video zum Ändern der Größe eines Volumes.
+Sehen Sie sich ein kurzes Video zum Ändern der Größe eines Volumes an.
 
 > [!VIDEO https://www.youtube-nocookie.com/embed/hqyBzipBoTI]
 
-## <a name="extending-volumes-using-windows-admin-center"></a>Erweitern von Volumes, die mithilfe von Windows Admin Center
+## <a name="extending-volumes-using-windows-admin-center"></a>Erweitern von Volumes mithilfe des Windows Admin Centers
 
-1. Windows Admin Center, eine Verbindung mit einem "direkte Speicherplätze"-Cluster herstellen, und wählen Sie dann **Volumes** aus der **Tools** Bereich.
-2. Wählen Sie auf der Seite Volumes die **Inventur** Registerkarte, und wählen Sie das Volume, das Sie anpassen möchten.
+1. Stellen Sie im Windows Admin Center eine Verbindung mit einem direkte Speicherplätze Cluster her, und wählen Sie dann im Bereich **Tools** die Option **Volumes** aus.
+2. Wählen Sie auf der Seite Volumes die Registerkarte **Inventar** aus, und wählen Sie dann das Volume aus, das Sie ändern möchten.
 
-    Auf der Detailseite des Volumes wird die Speicherkapazität für das Volume angegeben. Sie können die Detailseite des Volumes auch direkt über das Dashboard öffnen. Klicken Sie auf dem Dashboard, klicken Sie im Bereich "Warnungen" Wählen Sie die Warnung, die Sie benachrichtigt, wenn ein Volume Speicherkapazität knapp wird, und wählen Sie dann **wechseln Sie zum Volume**.
+    Auf der Seite Volumedetails wird die Speicherkapazität für das Volume angegeben. Sie können die Seite "Volumedetails" auch direkt über das Dashboard öffnen. Wählen Sie auf dem Dashboard im Bereich Warnungen die Warnung aus, die Sie benachrichtigt, wenn die Speicherkapazität eines Volumes geringer ist, und wählen Sie dann **zu Volume**wechseln aus.
 
-4. Wählen Sie am oberen Rand der Volumes, **Größe**.
-5. Geben Sie einen neuen Größe größeren werden soll, und wählen Sie dann **Größe**.
+4. Wählen Sie oben auf der Seite Volumedetails die Option **Größe ändern**aus.
+5. Geben Sie eine neue größere Größe ein, und wählen Sie dann Größe **ändern**aus.
 
-    Klicken Sie auf der Detailseite des Volumes die größere Speicherkapazität für das Volume wird angegeben, und die Warnung auf dem Dashboard wird gelöscht.
+    Auf der Seite Volumedetails wird die größere Speicherkapazität für das Volume angezeigt, und die Warnung wird auf dem Dashboard gelöscht.
 
-## <a name="extending-volumes-using-powershell"></a>Erweitern von Volumes, die mithilfe von PowerShell
+## <a name="extending-volumes-using-powershell"></a>Erweitern von Volumes mithilfe von PowerShell
 
 ### <a name="capacity-in-the-storage-pool"></a>Kapazität im Speicherpool
 
@@ -141,7 +141,7 @@ Das ist alles!
 
 ## <a name="see-also"></a>Siehe auch
 
-- ["Direkte Speicherplätze" unter WindowsServer 2016](storage-spaces-direct-overview.md)
-- [Planen von Volumes im "direkte Speicherplätze"](plan-volumes.md)
-- [Erstellen von Volumes in "direkte Speicherplätze"](create-volumes.md)
-- [Löschen von Volumes in "direkte Speicherplätze"](delete-volumes.md)
+- [Direkte Speicherplätze in Windows Server 2016](storage-spaces-direct-overview.md)
+- [Planen von Volumes in direkte Speicherplätze](plan-volumes.md)
+- [Erstellen von Volumes in direkte Speicherplätze](create-volumes.md)
+- [Löschen von Volumes in direkte Speicherplätze](delete-volumes.md)

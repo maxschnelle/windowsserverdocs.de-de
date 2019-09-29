@@ -1,18 +1,18 @@
 ---
 title: Überlegungen zur Hardware bei der AD-Leistungsoptimierung
 description: Überlegungen zur Hardware bei der AD-Leistungsoptimierung
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 4d1e6c2744cfe0d16b034e6511144bef92a46b2e
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 8e9b121036d33bc36cabb92ca682407bc2382fca
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866661"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355098"
 ---
 # <a name="hardware-considerations-in-adds-performance-tuning"></a>Überlegungen zur Hardware in werden Leistungsoptimierungen hinzugefügt 
 
@@ -61,7 +61,7 @@ Prozessoren, die nicht über genügend freie Zyklen verfügen, können lange War
 
 -   Fügen Sie Hardware hinzu, optimieren Sie die Last, leiten Sie Clients an einem anderen Ort weiter, oder entfernen Sie die Auslastung aus der Umgebung, um
 
--   Verwenden Sie den Leistungswert\_Prozessor Informationen\\(Gesamt) &lt; % Prozessorauslastung 60%.
+-   Verwenden Sie die Prozessor Informationen (\_total) \\% Prozessorauslastung &lt; 60% Leistungs Zählers.
 
 ## <a name="avoid-overloading-the-network-adapter"></a>Vermeiden Sie das Überladen des Netzwerkadapters.
 

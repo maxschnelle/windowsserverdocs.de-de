@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin sethttpmethod
-description: Windows-Befehle Thema **Bitsadmin Sethttpmethod** -legt den HTTP-Verb zu verwenden.
+title: bizadmin-Setup Methode
+description: 'Windows-Befehls Thema für **bizadmin sethttpmethod** : legt das zu verwendende HTTP-Verb fest.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -12,16 +12,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/01/2019
-ms.openlocfilehash: 710df3eedb0bbad60f28c519ef683d60ca55fcd2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0f23b3b06bb3da448bb4cf18344aecfa31dcecd9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59866431"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380607"
 ---
-# <a name="bitsadmin-sethttpmethod"></a>Bitsadmin sethttpmethod
+# <a name="bitsadmin-sethttpmethod"></a>bizadmin-Setup Methode
 
-Legt fest, das HTTP-Verb zu verwenden.
+Legt das zu verwendende HTTP-Verb fest.
 
 ## <a name="syntax"></a>Syntax
 
@@ -33,9 +33,9 @@ bitsadmin /GetHttpMethod <Job> <HTTPMethod>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
-|HTTPMethod|Das HTTP-Verb verwenden|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
+|HTTPMethod|Das zu verwendende HTTP-Verb.|
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,37 +1,37 @@
 ---
-title: Konfigurieren von DNS-Weiterleitung und domänenvertrauensstellung
+title: Konfigurieren der DNS-Weiterleitung und der Vertrauensstellung
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 3f9083d749ba9251ba47ecb64b7cb3d7c6290f1d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 5d8ffe82065caeee27c5d13f5243f13addc6c325
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66443769"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386737"
 ---
-# <a name="configure-dns-forwarding-in-the-hgs-domain-and-a-one-way-trust-with-the-fabric-domain"></a>Konfigurieren von DNS-Weiterleitung in die Host-Überwachungsdienst-Domäne und eine unidirektionale Vertrauensstellung mit der Fabric-Domäne
+# <a name="configure-dns-forwarding-in-the-hgs-domain-and-a-one-way-trust-with-the-fabric-domain"></a>Konfigurieren der DNS-Weiterleitung in der HGS-Domäne und einer unidirektionalen Vertrauensstellung mit der Fabric-Domäne
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 >[!IMPORTANT]
->AD-Modus ist veraltet, beginnend mit Windows Server-2019. Konfigurieren Sie für Umgebungen, in denen ist TPM-Nachweis nicht möglich, [hosten den schlüsselnachweis](guarded-fabric-initialize-hgs-key-mode.md). Host den schlüsselnachweis bietet eine ähnliche Garantie in den Active Directory-Modus, und es ist leichter einzurichten. 
+>Der AD-Modus ist ab Windows Server 2019 veraltet. Für Umgebungen, in denen ein TPM-Nachweis nicht möglich ist, konfigurieren Sie den [Host Schlüssel](guarded-fabric-initialize-hgs-key-mode.md)Nachweis. Der Host Schlüssel Nachweis bietet eine ähnliche Garantie für den AD-Modus und ist einfacher einzurichten. 
 
-Verwenden Sie die folgenden Schritte aus, um DNS-Weiterleitung eingerichtet und eine unidirektionale Vertrauensstellung mit der Fabric-Domäne herstellen. Diese Schritte, damit der Host-Überwachungsdienst, suchen Sie das Fabric Domänencontroller und Überprüfen der Gruppenmitgliedschaft von Hyper-V-Hosts.
+Führen Sie die folgenden Schritte aus, um die DNS-Weiterleitung einzurichten und eine unidirektionale Vertrauensstellung mit der Fabric-Domäne einzurichten. Diese Schritte ermöglichen es dem HGS, die Fabric-Domänen Controller zu finden und die Gruppenmitgliedschaft der Hyper-V-Hosts zu überprüfen.
 
-1.  Führen Sie den folgenden Befehl in einer mit erhöhten Rechten PowerShell-Sitzung zum Konfigurieren von DNS-Weiterleitung an. Ersetzen Sie durch den Namen der Fabric-Domäne "Fabrikam.com", und geben Sie die IP-Adressen der DNS-Server in der Fabric-Domäne. Zeigen Sie auf mehr als ein DNS-Server, um eine höhere Verfügbarkeit.
+1.  Führen Sie den folgenden Befehl in einer PowerShell-Sitzung mit erhöhten Rechten aus, um die DNS-Weiterleitung Ersetzen Sie fabrikam.com durch den Namen der Fabric-Domäne, und geben Sie die IP-Adressen der DNS-Server in der Fabric-Domäne ein. Zeigen Sie auf mehr als einen DNS-Server, um eine höhere Verfügbarkeit zu erhalten.
 
     ```powershell
     Add-DnsServerConditionalForwarderZone -Name "fabrikam.com" -ReplicationScope "Forest" -MasterServers <DNSserverAddress1>, <DNSserverAddress2>
     ```
 
-2.  Um eine unidirektionale Gesamtstruktur-Vertrauensstellung zu erstellen, führen Sie den folgenden Befehl an einer Eingabeaufforderung mit erhöhten Rechten aus:
+2.  Führen Sie den folgenden Befehl an einer Eingabeaufforderung mit erhöhten Rechten aus, um eine unidirektionale Vertrauensstellung zu erstellen:
 
-    Ersetzen Sie dies `bastion.local` durch den Namen der Domäne des Host-Überwachungsdienst und `fabrikam.com` mit dem Namen der Domäne ein Fabric. Geben Sie das Kennwort für den Administrator der Domäne ein Fabric.
+    Ersetzen Sie `bastion.local` durch den Namen der HGS-Domäne und `fabrikam.com` durch den Namen der Fabric-Domäne. Geben Sie das Kennwort für einen Administrator der Fabric-Domäne an.
 
         netdom trust bastion.local /domain:fabrikam.com /userD:fabrikam.com\Administrator /passwordD:<password> /add
 

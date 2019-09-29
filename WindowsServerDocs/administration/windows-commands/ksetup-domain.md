@@ -1,8 +1,8 @@
 ---
-title: ksetup:domain
-description: 'Windows-Befehle Thema ***- '
+title: 'Ksetup: Domäne'
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1f53e807891b434709b1a8faed7aae8e8d444f6e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0a4d9f09def32c7518046c25887f4154020c5d7e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857451"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375117"
 ---
-# <a name="ksetupdomain"></a>ksetup:domain
+# <a name="ksetupdomain"></a>Ksetup: Domäne
 
 
 
-Legt fest, den Domänennamen für alle Kerberos-Vorgänge. Beispiele wie dieser Befehl verwendet werden kann, finden Sie unter [Beispiele](#BKMK_Examples).
+Legt den Domänen Namen für alle Kerberos-Vorgänge fest. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,21 +36,21 @@ ksetup /domain <DomainName>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<DomainName>|Der Name der Domäne, die zum Herstellen einer Verbindung werden soll. Verwenden Sie den vollqualifizierten Domänennamen oder ein einfaches Formular mit dem Namen, z. B. "contoso.com" "oder" Contoso.|
+|\<domainname >|Der Name der Domäne, zu der Sie eine Verbindung herstellen möchten. Verwenden Sie den voll qualifizierten Domänen Namen oder eine einfache Form des Namens, z. b. contoso.com oder Configuration Manager.|
 
 ## <a name="remarks"></a>Hinweise
 
 Keine
 
-## <a name="BKMK_Examples"></a>Beispiele für
+## <a name="BKMK_Examples"></a>Beispiele
 
-Herstellen einer Verbindungs mit der eine gültige Domäne an, wie z. B. Microsoft, mit dem Unterbefehl /mapuser:
+Stellen Sie eine Verbindung mit einer gültigen Domäne (z. b. Microsoft) mit dem/mapuser-Unterbefehl her:
 ```
 ksetup /mapuser principal@realm domain-user /domain domain-name
 ```
-Wenn die Verbindung erfolgreich ist, erhalten Sie eine neue TGT oder eine vorhandene TGT aktualisiert werden.
+Wenn die Verbindung erfolgreich ist, wird ein neues TGT angezeigt, oder ein vorhandenes TGT wird aktualisiert.
 
 #### <a name="additional-references"></a>Weitere Verweise
 
 -   [Ksetup](ksetup.md)
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

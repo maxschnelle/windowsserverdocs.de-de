@@ -1,19 +1,19 @@
 ---
 title: Primäre Computer für Ordner Umleitung und Roamingbenutzerprofile bereitstellen
 description: Aktivieren der Unterstützung primärer Computer und festlegen primärer Computer für Benutzer mit Ordner Umleitung und Roamingbenutzerprofilen.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
 ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: fe026b97f15b4094303c8162c5363cc6205dedd1
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: be2b41cf32e2020422c32415e2d8f4273eb09859
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867280"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394438"
 ---
 # <a name="deploy-primary-computers-for-folder-redirection-and-roaming-user-profiles"></a>Primäre Computer für Ordner Umleitung und Roamingbenutzerprofile bereitstellen
 
@@ -36,7 +36,7 @@ Für die Unterstützung primärer Computer gelten die folgenden Anforderungen:
 > [!TIP]
 > Obwohl die Unterstützung für primäre Computer die Ordner Umleitung und/oder Roamingbenutzerprofile erfordert, ist es am besten, wenn Sie diese Technologien zum ersten Mal bereitstellen, die Unterstützung primärer Computer einzurichten, bevor die Gruppenrichtlinien Objekte zum Konfigurieren der Ordner Umleitung aktiviert werden. Roamingbenutzerprofile Dadurch wird verhindert, dass Benutzerdaten auf nicht primäre Computer kopiert werden, bevor die Unterstützung primärer Computer aktiviert ist. Informationen zur Konfiguration finden Sie unter Bereitstellen der [Ordner Umleitung](deploy-folder-redirection.md) und Bereitstellen von Server gespeicherten [Benutzerprofilen](deploy-roaming-user-profiles.md).
 
-## <a name="step-1-designate-primary-computers-for-users"></a>Schritt 1: Legen Sie die primären Computer für die Benutzer fest
+## <a name="step-1-designate-primary-computers-for-users"></a>Schritt 1: Legen Sie die primären Computer für die Benutzer fest
 
 Der erste Schritt beim Bereitstellen der Unterstützung von primären Computern besteht darin, die primären Computer für jeden Benutzer festzulegen. Verwenden Sie hierzu Active Directory Verwaltungs Center, um den Distinguished Name der relevanten Computer abzurufen, und legen Sie dann das Attribut **msDS-primarycomputer** fest.
 
@@ -91,7 +91,7 @@ So aktivieren Sie die Gruppenrichtlinien Objekte für die Ordner Umleitung und/o
 1. Öffnen der Gruppenrichtlinie Verwaltung
 2. Klicken Sie mit der rechten Maustaste auf die von Ihnen erstellten Gruppenrichtlinien Objekte, und wählen Sie dann **Link aktiviert**aus. Neben dem Menü Element sollte ein Kontrollkästchen angezeigt werden.
 
-## <a name="step-5-test-primary-computer-function"></a>Schritt 5: Test der primären Computer Funktion
+## <a name="step-5-test-primary-computer-function"></a>Schritt 5: Test der primären Computer Funktion
 
 Melden Sie sich zum Testen der Unterstützung des primären Computers bei einem primären Computer an, vergewissern Sie sich, dass die Ordner und Profile umgeleitet werden, melden Sie sich dann bei einem nicht primären Computer an, und vergewissern Sie sich, dass die Ordner und Profile nicht umgeleitet werden.
 

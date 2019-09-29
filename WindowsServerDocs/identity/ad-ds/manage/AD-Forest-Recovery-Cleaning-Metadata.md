@@ -1,51 +1,51 @@
 ---
-title: 'AD-Gesamtstruktur-Wiederherstellung: Bereinigen von Metadaten der entfernten Domänencontroller'
+title: 'AD-Gesamtstruktur Wiederherstellung: Bereinigen von Metadaten entfernter DCS'
 description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/09/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.assetid: e7543381-4081-407f-adad-a9de792c6616
 ms.technology: identity-adds
-ms.openlocfilehash: b71cab51a362a96ab6071e5eed3cf31c4421041c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cc41170051e55fbaeca048ac587ecd3351cd53ad
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843041"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369273"
 ---
-# <a name="ad-forest-recovery---cleaning-metadata-of-removed-writable-domain-controllers"></a>AD-Gesamtstruktur-Wiederherstellung: Bereinigen von Metadaten entfernter beschreibbarer Domänencontroller
+# <a name="ad-forest-recovery---cleaning-metadata-of-removed-writable-domain-controllers"></a>AD-Gesamtstruktur Wiederherstellung: Bereinigen von Metadaten entfernter Beschreib barer Domänen Controller
 
 >Gilt für: Windows Server 2016, Windows Server 2012 und 2012 R2, Windows Server 2008 und 2008 R2
 
-Metadatencleanup entfernt die Active Directory-Daten, die einen Domänencontroller im Replikationssystem zu identifizieren.  
+Bei der Metadatenbereinigung werden Active Directory Daten entfernt, die einen Domänen Controller zum Replikationssystem identifizieren  
 
-Verwenden Sie das folgende Verfahren, um die DC-Objekte für Domänencontroller zu löschen, die Sie planen, wieder mit dem Netzwerk hinzuzufügen, installieren Sie AD DS neu.  
+Mithilfe des folgenden Verfahrens können Sie die DC-Objekte für DCS löschen, die Sie wieder dem Netzwerk hinzufügen möchten, indem Sie AD DS neu installieren.  
   
-Wenn Sie die Version des Active Directory-Benutzer und Computer verwenden, oder Active Directory-Standorte und Dienste, die enthalten Remote Server Administration Tools (RSAT), wird Metadatencleanup automatisch ausgeführt, wenn Sie ein DC-Objekt löschen.  
+Wenn Sie die-Version von Active Directory Benutzer und Computer oder Active Directory Websites und-Dienste verwenden, die Remoteserver-Verwaltungstools (RSAT) enthalten sind, wird die Metadatenbereinigung automatisch ausgeführt, wenn Sie ein DC-Objekt löschen.  
 
-## <a name="deleting-a-domain-controller-using-active-directory-users-and-computers"></a>Löschen einen Domänencontroller mithilfe von Active Directory-Benutzer und-Computer
+## <a name="deleting-a-domain-controller-using-active-directory-users-and-computers"></a>Löschen eines Domänen Controllers mit Active Directory Benutzern und Computern
 
-Wenn Sie die Version des Active Directory-Benutzer und-Computer oder Active Directory Administrative Center in Remote Server Administration Tools (RSAT) verwenden, wird Metadatencleanup automatisch ausgeführt, wenn Sie das Domänencontrollerobjekt löschen. Das Server-Objekt und dem Computerobjekt werden auch automatisch gelöscht.  
+Wenn Sie die-Version von Active Directory Benutzer und Computer oder Active Directory-Verwaltungscenter in Remoteserver-Verwaltungstools (RSAT) verwenden, wird die Metadatenbereinigung automatisch ausgeführt, wenn Sie das DC-Objekt löschen. Das Server Objekt und das Computer Objekt werden ebenfalls automatisch gelöscht.  
 
-Als Alternative können auch können Active Directory-Standorte und-Dienste in Remoteserver-Verwaltungstools Sie um einen DC-Objekt zu löschen. Wenn Sie Active Directory-Standorte und-Dienste verwenden, müssen Sie den zugeordneten Server-Objekt und das NTDS-Einstellungsobjekt löschen, bevor Sie das Domänencontrollerobjekt löschen können.  
+Als Alternative können Sie auch Active Directory Websites und Dienste in RSAT verwenden, um ein DC-Objekt zu löschen. Wenn Sie Active Directory Websites und Dienste verwenden, müssen Sie das zugehörige Server Objekt und das NTDS-Einstellungs Objekt löschen, bevor Sie das DC-Objekt löschen können.  
 
-Informationen zum Installieren der Remoteserver-Verwaltungstools, finden Sie im Artikel [Remoteserver-Verwaltungstools](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools).
+Weitere Informationen zum Installieren von RSAT finden Sie im Artikel [Remoteserver-Verwaltungstools](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools).
   
-Das folgende Verfahren gilt für Domänencontroller mit entweder Windows Server 2016, 2012, 2008 R2 oder 2008. Das Ziel-DC von der Bereinigungsvorgang Metadaten kann eine beliebige Version von Windows Server ausführen.  
+Das folgende Verfahren ist für DCS, die entweder Windows Server 2016, 2012, 2008 R2 oder 2008 ausführen, identisch. Der Ziel-DC des Metadatenbereinigungs Vorgangs kann eine beliebige Version von Windows Server ausführen.  
   
-### <a name="to-delete-a-domain-controller-object-using-active-directory-users-and-computers-in-rsat"></a>So löschen Sie einen Domänencontroller-Objekts mithilfe von Active Directory-Benutzer und-Computer in Remoteserver-Verwaltungstools  
+### <a name="to-delete-a-domain-controller-object-using-active-directory-users-and-computers-in-rsat"></a>So löschen Sie ein Domänen Controller Objekt mit Active Directory Benutzern und Computern in RSAT  
   
 1. Klicken Sie auf **Start**, zeigen Sie auf **Verwaltung**, und klicken Sie dann auf **Active Directory-Benutzer und -Computer**.  
-2. Doppelklicken Sie in der Konsolenstruktur den Domänencontainer und doppelklicken Sie dann auf die **Domänencontroller** Organisationseinheit (OU).  
-3. Im Detailbereich mit der Maustaste der Domänencontroller, die Sie löschen möchten, und klicken Sie dann auf **löschen**.
+2. Doppelklicken Sie in der Konsolen Struktur auf den Domänen Container, und doppelklicken Sie dann auf die Organisationseinheit der **Domänen Controller** .  
+3. Klicken Sie im Detailfenster mit der rechten Maustaste auf den Domänen Controller, den Sie löschen möchten, und klicken Sie dann auf **Löschen**.
    ![Löschen](media/AD-Forest-Recovery-Cleaning-Metadata/delete1.png) 
-4. Klicken Sie zum Bestätigen des Löschvorgangs auf **Ja**. Wählen Sie die **dieser Domänencontroller ist dauerhaft offline und kann nicht mehr mit der Active Directory Domain Services Installation Assistenten (DCPROMO) herabgestuft werden** Kontrollkästchen und klicken Sie auf **löschen**.  
-5. Wenn der Domänencontroller einen globalen Katalogserver gestellt wurde, klicken Sie auf **Ja** überprüfen Sie, ob die Löschung.  
+4. Klicken Sie zum Bestätigen des Löschvorgangs auf **Ja**. Wählen Sie die Option **dieser Domänen Controller ist dauerhaft offline und kann nicht mehr mithilfe des Kontrollkästchens Assistent zum Installieren von Active Directory Domain Services (Dcpromo) herabgestuft werden** aus, und klicken Sie auf **Löschen**.  
+5. Wenn der Domänen Controller ein globaler Katalogserver war, klicken Sie auf **Ja** , um den Löschvorgang zu bestätigen.  
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Für die Wiederherstellung des AD-Gesamtstruktur](AD-Forest-Recovery-Guide.md)
-- [Wiederherstellung der Gesamtstruktur der Active Directory - Prozeduren](AD-Forest-Recovery-Procedures.md)
+- [Wiederherstellung der AD-Gesamtstruktur: Leitfaden](AD-Forest-Recovery-Guide.md)
+- [Wiederherstellung der AD-Gesamtstruktur: Verfahren](AD-Forest-Recovery-Procedures.md)

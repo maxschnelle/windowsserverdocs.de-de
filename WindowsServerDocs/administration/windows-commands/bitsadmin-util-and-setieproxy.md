@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin Util und setieproxy
-description: Windows-Befehle Thema **Bitsadmin Util und Setieproxy** -Proxyeinstellungen verwenden, beim Übertragen von Dateien, die über ein Dienstkonto festgelegt.
+title: BIFS admin util und SETIEPROXY
+description: 'Windows-Befehls Thema für **bizadmin util und SETIEPROXY** : Legen Sie Proxy Einstellungen fest, die beim Übertragen von Dateien mithilfe eines Dienst Kontos verwendet werden sollen.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 81bb333e2bb776bc75789b52ab41d7ef64016f51
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: 9d485c0e9cb135febdb1bf99cec4de08d7c9321b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266466"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380223"
 ---
-# <a name="bitsadmin-util-and-setieproxy"></a>Bitsadmin Util und setieproxy
+# <a name="bitsadmin-util-and-setieproxy"></a>BIFS admin util und SETIEPROXY
 
-Legen Sie Proxy-Einstellungen verwenden, beim Übertragen von Dateien, die über ein Dienstkonto an.
+Festlegen der Proxy Einstellungen, die beim Übertragen von Dateien mithilfe eines Dienst Kontos verwendet werden sollen.
 
-**BITSAdmin 1.5 und früher**: Nicht unterstützt.
+**Bikadmin 1,5 und früher**: Nicht unterstützt.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,26 +36,26 @@ bitsadmin /Util /SetIEProxy <Account> <Usage>[/Conn <ConnectionName>]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Konto|Gibt den Typ des Dienstkontos, dessen Proxyeinstellungen, die Sie definieren möchten. Dabei sind folgende Werte möglich:</br>-"LOCALSYSTEM"</br>-NETWORKSERVICE</br>-"LOCALSERVICE"|
-|Verwendung|Gibt an, die Form der Proxyerkennung zu verwenden. Dabei sind folgende Werte möglich:</br>-"No_proxy" – verwenden Sie einen Proxyserver nicht.</br>-AUTOERMITTLUNG: der Proxyeinstellungen automatisch erkennen.</br>-MANUAL_PROXY – verwenden Sie eine explizite Proxyliste und bypass-Liste. Geben Sie die Proxyliste und bypass-Liste, die unmittelbar nach dem Tag Nutzung. Z. B. MANUAL_PROXY proxy1, proxy2 NULL.</br>    – Die Proxyliste ist eine durch Trennzeichen getrennte Liste der zu verwendenden Proxyserver.</br>    -Die Bypass-Liste ist ein Leerzeichen getrennte Liste von Hostnamen oder IP-Adressen oder beides, für die Übertragungen sind nicht über einen Proxy geleitet werden. Dies liegt möglicherweise \<lokalen > auf allen Servern im selben LAN verweisen. NULL-Werte oder "" für eine leere Proxyumgehungsliste verwendet werden können.</br>-AUTOSCRIPT – Identisch mit AUTOERMITTLUNG, außer es auch ein Skript ausgeführt wird. Geben Sie unmittelbar nach dem Tag für die Verwendung die Skript-URL ein. Z. B. AUTOSCRIPT http://server/proxy.js.</br>-KENNWORTZURÜCKSETZUNG – Identisch mit "no_proxy", es sei denn entfernt die manuelle Proxy-URLs, (falls angegeben), und URLs ermittelt mithilfe der automatischen Erkennung.|
-|ConnectionName|Optional – verwendet mit der **/Conn** Parameter, um die zu verwendende modemverbindung anzugeben. Wenn Sie keinen angeben der **/Conn** BITS-Parameter wird die LAN-Verbindung verwendet. Geben Sie den Modem Verbindungsnamen an, die unmittelbar nach der **/Conn** Parameter.|
+|Konto|Gibt den Typ des Dienst Kontos an, dessen Proxy Einstellungen Sie definieren möchten. Dabei sind folgende Werte möglich:</br>-LOCALSYSTEM</br>-NETWORKSERVICE</br>-LOCALSERVICE|
+|Verwendung|Gibt die Art der zu verwendenden Proxy Erkennung an. Dabei sind folgende Werte möglich:</br>-NO_PROXY – keinen Proxy Server verwenden.</br>-Autodetect – die Proxy Einstellungen werden automatisch erkannt.</br>-MANUAL_PROXY – verwenden Sie eine explizite Proxy Liste und Umgehungs Liste. Geben Sie die Proxy Liste und die Umgehungs Liste direkt nach dem Usage-Tag an. Beispielsweise MANUAL_PROXY Proxy1, Proxy2 NULL.</br>    -Die Proxy Liste ist eine durch Trennzeichen getrennte Liste der zu verwendenden Proxy Server.</br>    -Die Umgehungs Liste ist eine durch Leerzeichen getrennte Liste von Hostnamen oder IP-Adressen, für die keine Übertragungen über einen Proxy weitergeleitet werden sollen. Dies kann \<local > sein, um auf alle Server im gleichen LAN zu verweisen. Die Werte NULL oder "" können für eine leere Proxy Umgehungs Liste verwendet werden.</br>-AutoScript – identisch mit der automatischen Erkennung, mit dem Unterschied, dass auch ein Skript ausgeführt wird. Geben Sie die Skript-URL direkt nach dem Usage-Tag an. Beispiel: AutoScript http://server/proxy.js.</br>-Reset – identisch mit NO_PROXY, mit der Ausnahme, dass die manuellen Proxy-URLs (sofern angegeben) und die mit der automatischen Erkennung ermittelten URLs entfernt werden.|
+|ConnectionName|Optional – wird mit dem **/conn** -Parameter verwendet, um die zu verwendende Modemverbindung anzugeben. Wenn Sie den **/conn** -Parameter nicht angeben, verwendet Bits die LAN-Verbindung. Geben Sie den Namen der Modemverbindung direkt nach dem **/conn** -Parameter an.|
 
 ## <a name="remarks"></a>Hinweise
 
-Jeder nachfolgende Aufruf, der diesen Schalter verwenden, ersetzt die zuvor angegebene Verwendung, aber nicht die Parameter, die zuvor definierte bei Verwendung. Beispielsweise bei Angabe von "no_proxy" Automatische Erkennung und MANUAL_PROXY auf separaten aufrufen BITS verwendet die letzte angegebene Verwendung jedoch speichert die Parameter aus der zuvor definierten Syntax.
+Jeder aufeinanderfolgende-Rückruf, der diesen Switch verwendet, ersetzt die zuvor angegebene Verwendung, jedoch nicht die Parameter der zuvor definierten Verwendung. Wenn Sie z. b. NO_PROXY, Autodetect und MANUAL_PROXY bei separaten Aufrufen angeben, verwendet Bits die zuletzt angegebene Verwendung, behält jedoch die Parameter der zuvor definierten Verwendung bei.
 
 > [!IMPORTANT]
-> Sie müssen diesen Befehl ausführen, eine Eingabeaufforderung mit erhöhten Rechten, damit er erfolgreich abgeschlossen.
+> Sie müssen diesen Befehl an einer Eingabeaufforderung mit erhöhten Rechten ausführen, damit der Vorgang erfolgreich abgeschlossen werden kann.
 
 ## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel wird die Proxyverwendung für das Netzwerkdienstkonto.
+Im folgenden Beispiel wird die Proxy Verwendung für das Netzwerkdienst Konto festgelegt.
 
 ```
 C:\>bitsadmin /Util /SetIEProxy localsystem AUTODETECT
 ```
 
-Hier sind weitere Beispiele.
+Weitere Beispiele finden Sie hier.
 
 ```
 bitsadmin /util /setieproxy localsystem MANUAL_PROXY proxy1,proxy2,proxy3 NULL

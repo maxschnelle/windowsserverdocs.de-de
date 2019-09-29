@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: edd708985b8caac30b8788b12237430c1711f22f
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 2ae91b16448c5acd61712332310544c1fd66789f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865445"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385490"
 ---
 # <a name="how-uris-are-used-in-ad-fs"></a>Verwendung von URIs in AD FS
 Ein Uniform Resource Identifier \(-\) URI ist eine Zeichenfolge, die als eindeutiger Bezeichner verwendet wird.  In AD FS dienen URIs zum Identifizieren von Netzwerkadressen von Partnern und Konfigurationsobjekten.  Bei Verwendung zum Identifizieren von Netzwerkadressen von Partnern ist der URI stets eine URL.  Bei Verwendung zum Identifizieren von Objekten kann der URI ein URN oder eine URL sein.  Weitere allgemeine Informationen zu URIs finden Sie unter [RFC 2396](https://go.microsoft.com/fwlink/?LinkId=48289) und [RFC 3986](https://go.microsoft.com/fwlink/?LinkId=90453).  

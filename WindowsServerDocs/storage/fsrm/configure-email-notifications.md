@@ -2,22 +2,22 @@
 title: Konfigurieren von E-Mail-Benachrichtigungen
 description: In diesem Artikel wird beschrieben, wie Sie E-Mail-Benachrichtigungen konfigurieren
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 541ceec25e8cb0fae0b55c3de3be269982546c54
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 9fef24dccc71eab49fa8c77f0f80d5ec3b3a9327
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447659"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402023"
 ---
 # <a name="configure-e-mail-notifications"></a>Konfigurieren von E-Mail-Benachrichtigungen
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Beim Erstellen von Kontingenten und Dateibildschirmen haben Sie die Option, E-Mail-Benachrichtigungen an Benutzer zu senden, wenn ihre Kontingentbegrenzung erreicht wird oder nachdem sie versucht haben, gesperrte Dateien zu speichern. Wenn Sie Speicherberichte generieren, können Sie die Berichte per E-Mail an bestimmte Empfänger senden. Wenn Sie bestimmte Administratoren routinemäßig über Kontingent- und Dateiprüfungsereignisse benachrichtigen oder Speicherberichte senden möchten, können Sie einen oder mehrere standardmäßige Empfänger konfigurieren.
 

@@ -1,41 +1,41 @@
 ---
 title: Domain Name System (DNS)
-description: Dieses Thema enthält eine Übersicht über DNS in Windows Server 2016
+description: Dieses Thema enthält eine Übersicht über DNS in Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: 1324ba18-4e28-4b9d-bbe7-75707e6d30ab
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 3d4ec63e904dd899a3ddc53a59274ad607136edd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6ad3b66ff0b271c3b6f6134a96aaf6b5171bc7d4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870821"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406166"
 ---
 # <a name="domain-name-system-dns"></a>Domain Name System (DNS)
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Domain Name System (DNS) ist eines der branchenüblichen Suiten von Protokollen, die TCP/IP umfassen, und zusammen mit den DNS-Client und der DNS-Server bieten die entsprechenden Computer-IP-Adresse Zuordnung Namensauflösungsdienste für Computer und Benutzer.  
+Domain Name System (DNS) ist eine der branchenüblichen Protokolle von Protokollen, aus denen TCP/IP besteht. der DNS-Client und der DNS-Server stellen zusammen mit dem DNS-Client und dem DNS-Server Computername-zu-IP-Adress Dienste für Computer und Benutzer bereit.  
   
 > [!NOTE]  
-> Zusätzlich zu diesem Thema wird Folgendes DNS-verfügbar.  
+> Zusätzlich zu diesem Thema ist der folgende DNS-Inhalt verfügbar.  
 >   
-> -   [Neues in DNS-Client](What-s-New-in-DNS-Client.md)  
+> -   [Neues im DNS-Client](What-s-New-in-DNS-Client.md)  
 > -   [Neues in DNS-Server](What-s-New-in-DNS-Server.md)  
-> -   [DNS-Gruppenrichtlinienszenarien](deploy/DNS-Policy-Scenario-Guide.md)  
-> -   Video: [Windows Server 2016: DNS-Verwaltung in IPAM](https://channel9.msdn.com/Blogs/windowsserver/Windows-Server-2016-DNS-management-in-IPAM)  
+> -   [Leitfaden für das DNS-Richtlinien Szenario](deploy/DNS-Policy-Scenario-Guide.md)  
+> -   Video: [windows Server 2016: DNS-Verwaltung in IPAM @ no__t-0  
   
-In Windows Server 2016 ist DNS für eine Serverrolle, die Sie installieren können, mithilfe von Server-Manager oder Windows PowerShell-Befehlen. Wenn Sie eine neue Active Directory-Gesamtstruktur und Domäne installieren, wird DNS automatisch in Active Directory als globalen Katalog Server für die Gesamtstruktur und Domäne installiert.  
+In Windows Server 2016 ist DNS eine Server Rolle, die Sie mithilfe von Server-Manager oder Windows PowerShell-Befehlen installieren können. Wenn Sie eine neue Active Directory Gesamtstruktur und Domäne installieren, wird DNS automatisch mit Active Directory als globaler Katalogserver für die Gesamtstruktur und Domäne installiert.  
   
-Active Directory-Domänendienste (AD DS) verwendet DNS als Suchmechanismus seine Domäne-Controller. Wenn die Dienstprinzipalnamen Active Directory-Vorgänge ausgeführt wird, wie z. B. Authentifizierung, verwenden aktualisieren, oder suchen Sie, Computer DNS, um Active Directory-Domänencontroller zu suchen. Darüber hinaus verwenden Domänencontroller DNS finden, an.  
+Active Directory Domain Services (AD DS) verwendet DNS als Domänen Controller-Speicherort Mechanismus. Wenn einer der Prinzipal Active Directory Vorgänge ausgeführt wird, z. b. Authentifizierung, Aktualisierung oder Suche, verwenden Computer DNS, um Active Directory Domänen Controller zu suchen. Außerdem verwenden Domänen Controller DNS, um sich gegenseitig zu suchen.  
   
-Der DNS-Clientdienst ist in allen Client- und Server-Versionen des Windows-Betriebssystems enthalten, und standardmäßig nach der Installation des Betriebssystems ausgeführt wird. Wenn Sie eine TCP/IP-Netzwerkverbindung mit der IP-Adresse eines DNS-Servers konfigurieren, fragt der DNS-Client den DNS-Server aus, um den Domänencontroller zu ermitteln und Auflösen von Computernamen in IP-Adressen an. Wenn ein Netzwerkbenutzer mit einem Active Directory-Benutzerkonto zu einer Active Directory-Domäne anmeldet, fragt der DNS-Clientdienst z. B. den DNS-Server um einen Domänencontroller für Active Directory-Domäne zu suchen. Wenn der DNS-Server auf die Abfrage antwortet und die IP-Adresse des Domänencontrollers an dem Client stellt, kann der Client kontaktiert den Domänencontroller und des Authentifizierungsvorgangs zu.  
+Der DNS-Client Dienst ist in allen Client-und Serverversionen des Windows-Betriebssystems enthalten und wird standardmäßig bei der Installation des Betriebssystems ausgeführt. Wenn Sie eine TCP/IP-Netzwerkverbindung mit der IP-Adresse eines DNS-Servers konfigurieren, fragt der DNS-Client den DNS-Server ab, um Domänen Controller zu ermitteln und Computernamen in IP-Adressen aufzulösen. Wenn sich beispielsweise ein Netzwerk Benutzer mit einem Active Directory Benutzerkonto bei einer Active Directory Domäne anmeldet, fragt der DNS-Client Dienst den DNS-Server ab, um einen Domänen Controller für die Active Directory Domäne zu suchen. Wenn der DNS-Server auf die Abfrage antwortet und die IP-Adresse des Domänen Controllers für den Client bereitstellt, kontaktiert der Client den Domänen Controller, und der Authentifizierungs Vorgang kann beginnen.  
   
-Die Windows Server 2016-DNS-Server und DNS-Client-Dienste verwenden Sie das DNS-Protokoll, das in der TCP/IP-Protokollsuite enthalten ist. DNS ist Teil der Anwendungsschicht des TCP/IP-Verweis dar, wie in der folgenden Abbildung dargestellt.  
+Der DNS-Server für Windows Server 2016 und die DNS-Client Dienste verwenden das DNS-Protokoll, das in der TCP/IP-Protokoll Suite enthalten ist. DNS ist Teil der Anwendungsebene des TCP/IP-Referenzmodells, wie in der folgenden Abbildung dargestellt.  
   
 ![DNS in TCP/IP](../media/Domain-Name-System--DNS-/dns_in_tcpip.jpg)  
   

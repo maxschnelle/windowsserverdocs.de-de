@@ -1,8 +1,8 @@
 ---
 title: bitsadmin Informationen
-description: Windows-Befehle Thema **zeigt zusammenfassende Informationen zu den angegebenen Auftrag.** -Bitsadmin-Informationen
+description: Das Thema Windows-Befehle für **zeigt zusammenfassende Informationen zum angegebenen Auftrag an.** -bizadmin-Informationen
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2ee96c69e311600a53f04b1b883983718adf0f69
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3b6710d73860315fcd13670669871cd310ffb41c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851521"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381076"
 ---
 # <a name="bitsadmin-info"></a>bitsadmin Informationen
 
 
 
-Zeigt zusammenfassende Informationen über den angegebenen Auftrag.
+Zeigt zusammenfassende Informationen zum angegebenen Auftrag an.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,19 +36,19 @@ bitsadmin /Info <Job> [/verbose]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
 
 ## <a name="remarks"></a>Hinweise
 
-Verwenden der / verbose Parameter, um ausführliche Informationen zum Auftrag bereitzustellen.
+Verwenden Sie den/Verbose-Parameter, um ausführliche Informationen zum Auftrag bereitzustellen.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Das folgende Beispiel ruft Informationen über den Auftrag mit dem Namen *MyDownloadJob*.
+Im folgenden Beispiel werden Informationen zum Auftrag mit dem Namen " *mydownloadjob*" abgerufen.
 ```
 C:\>bitsadmin /Info myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

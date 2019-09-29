@@ -1,8 +1,8 @@
 ---
-title: Scwcmd analysieren
-description: 'Windows-Befehle Thema ***- '
+title: Scwcmd-Analyse
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cce3428b281ede582ed781afbdee9dea495b52ae
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 14426ae33144ae9bdd8f8154b4be74a3f088606b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873911"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371264"
 ---
 # <a name="scwcmd-analyze"></a>scwcmd: analyze
 
 > Gilt für: Windows Server 2012 R2, Windows Server 2012
 
-Bestimmt, ob ein Computer mit der eine Richtlinie konform ist. Ergebnisse werden in eine XML-Datei zurückgegeben. Eine Liste mit Computernamen werden auch als Eingabe akzeptiert. Verwenden Sie zum Anzeigen der Ergebnisse in Ihrem Browser **Scwcmd-Ansicht** , und geben Sie **%windir%\security\msscw\TransformFiles\scwanalysis.xsl** als die XSL-Transformation. Beispiele wie dieser Befehl verwendet werden kann, finden Sie unter [Beispiele](#BKMK_Examples).
+Bestimmt, ob ein Computer mit einer Richtlinie konform ist. Die Ergebnisse werden in einer XML-Datei zurückgegeben. Akzeptiert auch eine Liste von Computernamen als Eingabe. Um die Ergebnisse in Ihrem Browser anzuzeigen, verwenden Sie die **scwcmd-Ansicht** , und geben Sie **%windir%\security\msscw\transformfiles\scwanalysis.xsl** als XSL-Transformation an. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -37,44 +37,44 @@ scwcmd analyze [[[/m:<ComputerName> | /ou:<Ou>] /p:<Policy>] | /i:<ComputerList>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|/m:\<ComputerName>|Gibt an, den NetBIOS-Namen, die DNS-Namen oder die IP-Adresse des zu analysierenden Computers an. Wenn die **/m** Parameter angegeben wird, und klicken Sie dann die **/p** Parameter muss auch angegeben werden.|
-|/ou:\<OuName>|Gibt den vollqualifizierten Domänennamen (FQDN) von einer Organisationseinheit (OU) in Active Directory Domain Services an. Wenn die **OU** Parameter angegeben wird, und klicken Sie dann die **/p** Parameter muss auch angegeben werden. Alle Computer in der Organisationseinheit werden anhand der angegebenen Richtlinie analysiert werden.|
-|/ p:\<Richtlinie >|Gibt an, der Pfad und Dateiname der XML-Richtliniendatei zum Durchführen der Analyse verwendet werden.|
-|/i:\<ComputerList>|Gibt an, der Pfad und Dateiname einer XML-Datei, die eine Liste von Computern sowie deren erwartete Richtliniendateien enthält. Alle Computer in der XML-Datei werden für die entsprechende Richtliniendateien analysiert werden. Eine Beispiel-XML-Datei ist % windir%\security\SampleMachineList.xml.|
-|/o:\<ResultDir>|Gibt den Pfad und das Verzeichnis, in die Ergebnisdateien der Analyse gespeichert werden soll. Der Standardwert ist das aktuelle Verzeichnis.|
-|/ u:\<Benutzername >|Gibt einen alternativen Benutzeranmeldeinformationen, die beim Durchführen der Analysis auf einem Remotecomputer verwenden. Der Standardwert ist der angemeldete Benutzer.|
-|PW:\<Kennwort >|Gibt einen alternativen Benutzeranmeldeinformationen, die beim Durchführen der Analysis auf einem Remotecomputer verwenden. Der Standardwert ist das Kennwort des angemeldeten Benutzers.|
-|/t:\<Threads>|Gibt die Anzahl der gleichzeitigen ausstehenden Analysevorgänge, die während der Analyse beibehalten werden soll (Standardwert = 40 "," MinValue = 1, MaxValue = 1000).|
-|/l|Bewirkt, dass den Analyseprozess protokolliert werden. Für jeden Computer, die analysiert werden eine Protokolldatei generiert. Die Protokolldateien werden im gleichen Verzeichnis wie die Ergebnisdateien gespeichert werden. Verwenden der **/o** verwenden, um das Verzeichnis für die Dateien anzugeben.|
-|/ e|Wenn ein Konflikt vorliegt, wird protokollieren Sie ein Ereignis in das Anwendungsereignisprotokoll.|
+|/m: \<computername >|Gibt den NetBIOS-Namen, den DNS-Namen oder die IP-Adresse des zu analysierenden Computers an. Wenn der **/m** -Parameter angegeben wird, muss auch der **/p** -Parameter angegeben werden.|
+|/OU: \<ouname >|Gibt den voll qualifizierten Domänen Namen (Fully Qualified Domain Name, FQDN) einer Organisationseinheit (OE) in Active Directory Domain Services an. Wenn der **/OU** -Parameter angegeben wird, muss auch der **/p** -Parameter angegeben werden. Alle Computer in der Organisationseinheit werden anhand der angegebenen Richtlinie analysiert.|
+|/p: \<policy >|Gibt den Pfad und den Dateinamen der XML-Richtlinien Datei an, die zum Durchführen der Analyse verwendet werden soll.|
+|/i: \<computerlist >|Gibt den Pfad und den Dateinamen einer XML-Datei an, die eine Liste von Computern sowie die erwarteten Richtlinien Dateien enthält. Alle Computer in der XML-Datei werden anhand ihrer entsprechenden Richtlinien Dateien analysiert. Eine XML-Beispieldatei ist%windir%\Security\SampleMachineList.Xml.|
+|/o: \<resultdir >|Gibt den Pfad und das Verzeichnis an, in dem die Analyseergebnis Dateien gespeichert werden sollen. Der Standardwert ist das aktuelle Verzeichnis.|
+|/u: \<username >|Gibt alternative Benutzer Anmelde Informationen an, die beim Ausführen der Analyse auf einem Remote Computer verwendet werden sollen. Der Standardwert ist der angemeldete Benutzer.|
+|/PW: \<password >|Gibt alternative Benutzer Anmelde Informationen an, die beim Ausführen der Analyse auf einem Remote Computer verwendet werden sollen. Der Standardwert ist das Kennwort des angemeldeten Benutzers.|
+|/t: @no__t 0threads >|Gibt die Anzahl von gleichzeitigen ausstehenden Analyse Vorgängen an, die während der Analyse gewartet werden sollen (DefaultValue = 40, MinValue = 1, MaxValue = 1000).|
+|/l|Bewirkt, dass der Analyseprozess protokolliert wird. Für jeden Computer, der analysiert wird, wird eine Protokolldatei generiert. Die Protokolldateien werden im selben Verzeichnis wie die Ergebnisdateien gespeichert. Verwenden Sie die Option **/o** , um das Verzeichnis für die Ergebnisdateien anzugeben.|
+|/e|Protokolliert ein Ereignis im Anwendungs Ereignisprotokoll, wenn keine Übereinstimmung gefunden wird.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
-Scwcmd.exe ist nur auf Computern unter Windows Server 2008 R2, Windows Server 2008 oder Windows Server 2003 verfügbar.
+Scwcmd. exe ist nur auf Computern verfügbar, auf denen Windows Server 2008 R2, Windows Server 2008 oder Windows Server 2003 ausgeführt wird.
 
-## <a name="BKMK_Examples"></a>Beispiele für
+## <a name="BKMK_Examples"></a>Beispiele
 
-Um eine Sicherheitsrichtlinie für die Datei webpolicy.xml zu analysieren, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um eine Sicherheitsrichtlinie für die Datei webpolicy. XML zu analysieren:
 ```
 scwcmd analyze /p:webpolicy.xml
 
 ```
-Um eine Sicherheitsrichtlinie auf dem Computer mit dem Namen der Webserver für die Datei webpolicy.xml mithilfe der Anmeldeinformationen des Kontos Webadmin zu analysieren, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um eine Sicherheitsrichtlinie auf dem Computer mit dem Namen Webserver für die Datei webpolicy. XML mithilfe der Anmelde Informationen des webadmin-Kontos zu analysieren:
 ```
 scwcmd analyze /m:webserver /p:webpolicy.xml /u:webadmin
 
 ```
-Um eine Sicherheitsrichtlinie für die webpolicy.xml Datei mit einem Maximum von 100 Threads analysieren und die Ergebnisse in eine Datei namens "Results" in der Freigabe Resultserver, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um eine Sicherheitsrichtlinie für die Datei "webpolicy. xml" mit maximal 100 Threads zu analysieren und die Ergebnisse in eine Datei mit dem Namen "Results" in der resultserver-Freigabe auszugeben:
 ```
 scwcmd analyze /i:webpolicy.xml /t:100 /o:\\resultserver\results
 
 ```
-Um eine Sicherheitsrichtlinie für die OU WebServers für die Datei webpolicy.xml mithilfe der Anmeldeinformationen DomainAdmin analysieren möchten, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um eine Sicherheitsrichtlinie für die Webserver-Organisationseinheit mit der Datei "webpolicy. xml" zu analysieren
 ```
 scwcmd analyze /ou:OU=WebServers,DC=Marketing,DC=ABCCompany,DC=com /p:webpolicy.xml /u:DomainAdmin
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

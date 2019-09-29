@@ -1,19 +1,19 @@
 ---
 title: Bereitstellen der Ordner Umleitung mit Offlinedateien
 description: Verwenden von Windows Server zum Bereitstellen der Ordner Umleitung mit Offlinedateien auf Windows-Client Computern.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
 ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 90b3e3d0b5030f8c0140e54c8b0bf55317437427
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 21172d9d3e6d91af691986bfd84b0e32049f3b88
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867305"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71401967"
 ---
 # <a name="deploy-folder-redirection-with-offline-files"></a>Bereitstellen der Ordner Umleitung mit Offlinedateien
 
@@ -48,7 +48,7 @@ Die Ordner Umleitung umfasst die folgenden Softwareanforderungen:
 > [!NOTE]
 > Für einige neuere Features bei der Ordner Umleitung gelten zusätzliche Client Computer-und Active Directory Schema Anforderungen. Weitere Informationen finden Sie unter Bereitstellen von [primären Computern](deploy-primary-computers.md), [Deaktivieren der Offlinedateien für Ordner](disable-offline-files-on-folders.md), [Aktivieren des Modus "immer offline](enable-always-offline.md)" und Aktivieren des Verschiebens [optimierter Ordner](enable-optimized-moving.md).
 
-## <a name="step-1-create-a-folder-redirection-security-group"></a>Schritt 1: Erstellen einer Sicherheitsgruppe für die Ordner Umleitung
+## <a name="step-1-create-a-folder-redirection-security-group"></a>Schritt 1: Erstellen einer Sicherheitsgruppe für die Ordner Umleitung
 
 Wenn Ihre Umgebung nicht bereits mit der Ordner Umleitung eingerichtet ist, besteht der erste Schritt darin, eine Sicherheitsgruppe zu erstellen, die alle Benutzer enthält, auf die Sie Einstellungen für die Ordner Umleitungs Richtlinie anwenden möchten.
 
@@ -145,7 +145,7 @@ So konfigurieren Sie die Ordner Umleitung in Gruppenrichtlinie:
 6. Wählen Sie die Registerkarte **Einstellungen** aus, und wählen Sie im Abschnitt **Entfernen der Richtlinie** optional **den Ordner an den Speicherort des lokalen Benutzerprofils zurückleiten aus, wenn die Richtlinie entfernt wird** (diese Einstellung kann dazu beitragen, die Ordner Umleitung zu ändern. vorhersagbares für Administratoren und Benutzer).
 7. Wählen Sie **OK**aus, und wählen Sie dann im Dialogfeld Warnung die Option **Ja** aus.
 
-## <a name="step-5-enable-the-folder-redirection-gpo"></a>Schritt 5: Aktivieren des Ordners für die Ordner Umleitung
+## <a name="step-5-enable-the-folder-redirection-gpo"></a>Schritt 5: Aktivieren des Ordners für die Ordner Umleitung
 
 Nachdem Sie die Konfiguration der Ordner Umleitung Gruppenrichtlinie Einstellungen abgeschlossen haben, besteht der nächste Schritt darin, das Gruppenrichtlinien Objekt zu aktivieren, damit es auf die betroffenen Benutzer angewendet werden kann.
 
@@ -157,7 +157,7 @@ So aktivieren Sie das Gruppenrichtlinien Objekt für die Ordner Umleitung:
 1. Öffnen Sie die Gruppenrichtlinienverwaltung.
 2. Klicken Sie mit der rechten Maustaste auf das von Ihnen erstellte Gruppenrichtlinien Objekt, und wählen Sie dann **Link aktiviert**aus. Neben dem Menü Element wird ein Kontrollkästchen angezeigt.
 
-## <a name="step-6-test-folder-redirection"></a>Schritt 6: Test Ordner Umleitung
+## <a name="step-6-test-folder-redirection"></a>Schritt 6: Test Ordner Umleitung
 
 Um die Ordner Umleitung zu testen, melden Sie sich bei einem Computer mit einem Benutzerkonto an, das für die Ordner Umleitung konfiguriert ist. Vergewissern Sie sich dann, dass die Ordner und Profile umgeleitet werden.
 

@@ -6,14 +6,14 @@ ms.author: billmath
 manager: daveba
 ms.date: 08/09/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 2ab6141b84d03102c5dedd1ede0ba99e5adf3e4a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 106262b63b5aad0eddb08618eb808d2d9ff5b425
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867745"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407806"
 ---
 # <a name="scenario-web-api-calling-web-api-on-behalf-of-scenario"></a>Szenario: Web-API-Aufruf der Web-API (im Auftrag des Szenarios) 
 > Gilt für: AD FS 2019 und höher 
@@ -178,14 +178,14 @@ In diesem Abschnitt erfahren Sie, wie Sie eine Web-API zum Abrufen einer anderen
        - Ida: ClientID: Geben Sie den Wert für den Client Bezeichner aus #12 in der APP-Registrierung in AD FS obigen Abschnitt ein. 
        - I Clientsecret: Geben Sie den gemeinsamen geheimen Schlüssel ein, der aus #13 in App-Registrierung in AD FS obigen Abschnitt kopiert wurde
        - Ida: redirecturi: Geben Sie den redirecturi-Wert aus #12 in der APP-Registrierung in AD FS obigen Abschnitt ein. 
-       - i AdfsMetadataEndpoint: Geben Sie https://[Your AD FS Hostname]/FederationMetadata/2007-06/FederationMetadata.XML ein. 
+       - I AdfsMetadataEndpoint: Geben Sie https://[Your AD FS Hostname]/FederationMetadata/2007-06/FederationMetadata.XML ein. 
        - Ida: obowebapibase: Geben Sie den Bezeichnerwert aus #19 in der APP-Registrierung in AD FS obigen Abschnitt ein. 
        - Ida: Authority-Enter https://[Your AD FS Hostname]/ADFS 
   
           ![App-reg](media/adfs-msal-web-api-web-api/webapi26.png) 
 
  5. Öffnen Sie die Datei Web. config unter webapiobo. Ändern Sie Folgendes: 
-       - i AdfsMetadataEndpoint: Geben Sie https://[Your AD FS Hostname]/FederationMetadata/2007-06/FederationMetadata.XML ein. 
+       - I AdfsMetadataEndpoint: Geben Sie https://[Your AD FS Hostname]/FederationMetadata/2007-06/FederationMetadata.XML ein. 
        - Ida: Audience: Geben Sie den Wert für den Client Bezeichner aus #12 in App-Registrierung in AD FS obigen Abschnitt ein. 
  
           ![App-reg](media/adfs-msal-web-api-web-api/webapi27.png)

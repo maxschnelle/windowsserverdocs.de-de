@@ -1,126 +1,126 @@
 ---
 title: GRE-Tunneling in Windows Server 2016
-description: Sie können in diesem Thema verwenden, um einen Überblick über die Updates für Generic Routing Encapsulation (GRE)-Tunnel-Funktion für RAS-Gateway unter Windows Server 2016 zu erhalten.
+description: Sie können dieses Thema verwenden, um ein Verständnis der Aktualisierungen der GRE-Tunnel Funktion (Generic Routing Kapselung) für das RAS-Gateway in Windows Server 2016 zu erhalten.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: df2023bf-ba64-481e-b222-6f709edaa5c1
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: e0ec077ad5e97edd3db7d1dc4e662bb191f7885b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: be57bc0ce1b509c49f269618765c79f380fd3b12
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887861"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404681"
 ---
 # <a name="gre-tunneling-in-windows-server-2016"></a>GRE-Tunneling in Windows Server 2016
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Windows Server 2016 bietet Updates für Generic Routing Encapsulation \(GRE\) Tunneln Funktion für das RAS-Gateway.  
+Windows Server 2016 bietet Aktualisierungen der generischen Routing Kapselung \(gre @ no__t-1-Tunnel Funktion für das RAS-Gateway.  
   
-GRE ist ein einfaches Tunneling-Protokoll, das eine Vielzahl von Protokollen der Vermittlungsschicht in virtuellen Point-to-Point-Links über ein IP-Internetwork kapseln kann. Die Microsoft-GRE-Implementierung kann IPv4 und IPv6 kapseln.  
+GRE ist ein einfaches Tunneling-Protokoll, das eine Vielzahl von Protokollen der Vermittlungsschicht in virtuellen Point-to-Point-Links über ein IP-Internetwork kapseln kann. Die Microsoft GRE-Implementierung kann IPv4 und IPv6 Kapseln.  
   
-GRE-Tunnel sind in vielen Szenarien nützlich, da:  
+GRE-Tunnel sind in vielen Szenarien nützlich:  
   
--   Sie sind einfach und RFC 2890 kompatibel, somit Interoperabilität mit unterschiedlichen Geräten und Hersteller  
+-   Sie sind einfach und RFC 2890 kompatibel, sodass Sie mit verschiedenen Hersteller Geräten interoperabel sind.  
   
--   Sie können die Border Gateway Protocol \(BGP\) für dynamisches routing  
+-   Sie können Border Gateway Protocol \(bgp @ no__t-1 für dynamisches Routing verwenden.  
   
--   Sie können die GRE-Multitenant-RAS-Gateways für die Verwendung konfigurieren, mit der Software Defined Networking \(SDN\)
+-   Sie können mehr Instanzen fähige GRE-RAS-Gateways für die Verwendung mit Software-Defined Networking konfigurieren \(sdn @ no__t-1
   
--   Sie können System Center Virtual Machine Manager zum Verwalten von GRE\-basierte RAS-Gateways
+-   Sie können System Center Virtual Machine Manager zum Verwalten von GRE @ no__t-0basierten RAS-Gateways verwenden.
   
--   Sie können bis zu 2,0 Gbit/s Durchsatz auf einem virtuellen Computer von 6 Kerne erreichen, die als GRE-RAS-Gateway konfiguriert ist
+-   Sie können einen Durchsatz von bis zu 2,0 Gbit/s auf einem virtuellen Computer mit 6 Kernen erzielen, der als GRE-RAS-Gateway konfiguriert ist.
   
--   Ein einzelnes Gateway unterstützt mehrere Verbindungsmodi  
+-   Ein einzelnes Gateway unterstützt mehrere Verbindungs Modi.  
   
-GRE-basierte Tunnel ermöglichen Verbindungen zwischen virtuellen Mandantennetzwerken und externen Netzwerken. Da das GRE-Protokoll ist einfach und Unterstützung, für GRE auf die meisten Netzwerkgeräte verfügbar ist, wird es eine ideale Option zum Tunneln, in denen die Verschlüsselung von Daten nicht erforderlich ist. 
+GRE-basierte Tunnel ermöglichen Verbindungen zwischen virtuellen Mandantennetzwerken und externen Netzwerken. Da das GRE-Protokoll einfach ist und die Unterstützung für GRE auf den meisten Netzwerkgeräten verfügbar ist, ist es eine ideale Wahl für das Tunnelingverfahren, bei dem keine Datenverschlüsselung erforderlich ist. 
 
-GRE-Unterstützung (S2S)-Standort-zu-Standort-Tunnel löst das Problem der Weiterleitung zwischen virtuellen mandantennetzwerken und externen mandantennetzwerken über ein Gateway mit mehreren Mandanten an, wie weiter unten in diesem Thema beschrieben.  
+Die GRE-Unterstützung in Standort-zu-Standort-Tunneln (S2S) löst das Problem der Weiterleitung zwischen virtuellen Mandanten Netzwerken und externen Mandanten Netzwerken mithilfe eines mehr Instanzen fähigen Gateways, wie weiter unten in diesem Thema beschrieben.  
   
-Das GRE-Tunnel-Feature wurde entwickelt, um folgende Anforderungen erfüllt sein:  
+Die GRE-Tunnel Funktion ist so konzipiert, dass Sie die folgenden Anforderungen erfüllt:  
   
--   Ein hosting-Anbieter muss virtuelle Netzwerke für die Weiterleitung zu erstellen, ohne Ändern der Konfiguration der physischen Switch können.  
+-   Ein Hostinganbieter muss virtuelle Netzwerke für die Weiterleitung erstellen können, ohne die Konfiguration des physischen Switches zu ändern.  
   
--   Ein hosting-Anbieter muss an ihre externe Netzwerke Subnetze hinzufügen, ohne Ändern der Konfiguration der physischen Switches in ihrer Infrastruktur können.  
-Das GRE-Tunnel-Feature aktiviert oder mehrere wichtige Szenarien für das hosting-Anbietern, die mit Microsoft-Technologien zum Implementieren von Software Defined Networking in ihrer Dienstangebote verbessert.  
+-   Ein Hostinganbieter muss ihren extern ausgerichteten Netzwerken Subnetze hinzufügen können, ohne die Konfiguration der physischen Switches innerhalb der Infrastruktur zu ändern.  
+Die GRE-Tunnel Funktion ermöglicht oder erweitert verschiedene wichtige Szenarien für das Hosten von Dienstanbietern mithilfe von Microsoft-Technologien zur Implementierung von Software-Defined Networking in ihren Dienst angeboten.  
   
-Es folgen einige Beispielszenarien:  
+Im folgenden finden Sie einige Beispielszenarien:  
   
--   [Zugriff von Mandanten virtuelle Netzwerke zu physischen Netzwerke von Mandanten](#BKMK_Access)  
+-   [Zugriff von virtuellen Mandanten Netzwerken auf physische Mandanten Netzwerke](#BKMK_Access)  
   
--   [Hochgeschwindigkeitskonnektivität](#BKMK_Speed)  
+-   [Hoch Geschwindigkeits Konnektivität](#BKMK_Speed)  
   
--   [Integration mit VLAN-basierte isolation](#BKMK_Integration)  
+-   [Integration in VLAN-basierte Isolation](#BKMK_Integration)  
   
 -   [Zugreifen auf freigegebene Ressourcen](#BKMK_Shared)  
   
--   [Dienste von Geräten von Drittanbietern für Mandanten](#BKMK_thirdparty)  
+-   [Dienste von Drittanbieter Geräten für Mandanten](#BKMK_thirdparty)  
   
-## <a name="key-scenarios"></a>Wichtige Szenarios
+## <a name="key-scenarios"></a>Wichtige Szenarien
 
-Im folgenden werden wichtige Szenarien, in denen die GRE-tunnel Feature Adressen.  
+Im folgenden finden Sie die wichtigsten Szenarien, die der GRE-Tunnel-Feature adressiert.  
   
-### <a name="BKMK_Access"></a>Zugriff von Mandanten virtuelle Netzwerke zu physischen Netzwerke von Mandanten
+### <a name="BKMK_Access"></a>Zugriff von virtuellen Mandanten Netzwerken auf physische Mandanten Netzwerke
 
-In diesem Szenario können eine skalierbare Möglichkeit, die Zugriff von virtuellen mandantennetzwerken zum physischen Netzwerke befindet sich im lokalen Host Service-Anbieter Mandanten bereitzustellen. Ein GRE-Tunnel-Endpunkt auf dem mehrinstanzenfähigen Gateway hergestellt ist, wird der anderen GRE-Tunnel-Endpunkt auf einem Gerät von Drittanbietern auf dem physischen Netzwerk hergestellt. Layer-3-Datenverkehr wird zwischen den virtuellen Computern im virtuellen Netzwerk und das Drittanbieter-Gerät auf dem physischen Netzwerk weitergeleitet.  
+Dieses Szenario ermöglicht eine skalierbare Möglichkeit, den Zugriff von virtuellen Mandanten Netzwerken auf physische Mandanten Netzwerke auf dem lokalen hostingdienstanbieter bereitzustellen. Ein GRE-Tunnelendpunkt wird auf dem mehr Instanzen fähigen Gateway eingerichtet, der andere GRE-Tunnelendpunkt wird auf einem Drittanbieter Gerät im physischen Netzwerk eingerichtet. Layer-3-Datenverkehr wird zwischen den virtuellen Computern im virtuellen Netzwerk und dem Drittanbieter Gerät im physischen Netzwerk weitergeleitet.  
   
-![Verbinden von physischen Netzwerk Hoster und virtuelle Netzwerk des Mandanten GRE-tunnel](../../media/gre-tunneling-in-windows-server/GRE_.png)  
+![GRE-Tunnel mit Verbindung zum physischen Host Netzwerk und zum virtuellen Mandanten Netzwerk](../../media/gre-tunneling-in-windows-server/GRE_.png)  
   
-### <a name="BKMK_Speed"></a>Hochgeschwindigkeitskonnektivität
+### <a name="BKMK_Speed"></a>Hoch Geschwindigkeits Konnektivität
 
-In diesem Szenario können skalierbare Hochgeschwindigkeitskonnektivität aus dem lokalen Netzwerk des Mandanten mit dem virtuellen Netzwerk befindet sich im Netzwerk hostanbieters Dienst bereitstellen. Ein Mandant eine Verbindung mit dem Service Provider-Netzwerk über Multiprotokoll Label switching (MPLS), in ein GRE-Tunnel zwischen der hosting-Anbieter des Edge-Router und dem mehrinstanzenfähigen Gateway mit dem virtuellen mandantennetzwerk eingerichtet wird.  
+Dieses Szenario ermöglicht eine skalierbare Möglichkeit, eine hoch Geschwindigkeits Konnektivität zwischen dem lokalen Netzwerk des Mandanten und dem virtuellen Netzwerk im hostingdienstanbieter-Netzwerk bereitzustellen. Ein Mandant stellt über MPLS (Multiprotocol Label Switching) eine Verbindung mit dem Dienstanbieter Netzwerk her, bei der zwischen dem edgerrouter des hostingdienstanbieters und dem mehr Instanzen fähigen Gateway und dem virtuellen Netzwerk des Mandanten ein GRE-Tunnel eingerichtet wird.  
   
-![GRE-Tunnel Herstellen einer Verbindung MPLS-Unternehmensnetzwerk Mandanten und das virtuelle Netzwerk des Mandanten](../../media/gre-tunneling-in-windows-server/GRE-.png)  
+![GRE-Tunnel mit Verbindung zwischen Mandanten-MPLS-Netzwerk und virtuellem Mandanten Netzwerk](../../media/gre-tunneling-in-windows-server/GRE-.png)  
   
-### <a name="BKMK_Integration"></a>Integration mit VLAN-basierte isolation
+### <a name="BKMK_Integration"></a>Integration in VLAN-basierte Isolation
 
-Dieses Szenario ermöglicht es Ihnen die Integration von VLAN-basierte Isolation mit Hyper-V-Netzwerkvirtualisierung. Ein physisches Netzwerk auf das Netzwerk des hostanbieters enthält ein Load Balancers mit der VLAN-basierte Isolation. Ein mehrinstanzenfähigen Gateways wird die GRE-Tunnel zwischen dem Load Balancer im physischen Netzwerk und dem mehrinstanzenfähigen Gateway im virtuellen Netzwerk hergestellt.  
+In diesem Szenario können Sie die VLAN-basierte Isolation mit der Hyper-V-Netzwerkvirtualisierung integrieren. Ein physisches Netzwerk im hostinganbietenetzwerk enthält ein Lasten Ausgleichs Modul, das die VLAN-basierte Isolation verwendet. Ein mehr Instanzen fähiges Gateway stellt GRE-Tunnel zwischen dem Load Balancer im physischen Netzwerk und dem mehr Instanzen fähigen Gateway im virtuellen Netzwerk her.  
   
-Mehrere Tunnel zwischen der Quell- und Zielserver hergestellt werden können, und der GRE-Schlüssel wird zur Unterscheidung zwischen den Tunneln verwendet.  
+Zwischen Quelle und Ziel können mehrere Tunnel eingerichtet werden, und der GRE-Schlüssel wird verwendet, um zwischen den Tunneln zu unterscheiden.  
   
-![Mehrere GRE-Tunnel verbinden virtueller Netzwerke von Mandanten](../../media/gre-tunneling-in-windows-server/GRE-VLANIsolation.png)  
+![Mehrere GRE-Tunnel, die virtuelle Mandanten Netzwerke verbinden](../../media/gre-tunneling-in-windows-server/GRE-VLANIsolation.png)  
   
 ### <a name="BKMK_Shared"></a>Zugreifen auf freigegebene Ressourcen
 
-Dieses Szenario können Sie den Zugriff auf freigegebene Ressourcen in einem physischen Netzwerk, die sich auf das Netzwerk des hostanbieters befindet.  
+In diesem Szenario können Sie auf freigegebene Ressourcen in einem physischen Netzwerk zugreifen, das sich im hostinganbietenetzwerk befindet.  
   
-Sie müssen möglicherweise einen freigegebenen Dienst befindet sich auf einem Server auf einem physischen Netzwerk befindet sich im Netzwerk hostanbieters, das Sie mit mehreren Mandanten und virtuellen Netzwerken freigeben möchten.  
+Sie verfügen möglicherweise über einen gemeinsamen Dienst, der sich auf einem Server in einem physischen Netzwerk im hostinganbieternetzwerk befindet, das Sie für mehrere virtuelle Mandanten Netzwerke freigeben möchten.  
   
-Die mandantennetzwerke mit nicht überlappenden Subnetzen auf das allgemeine Netzwerk über einen GRE-Tunnel zugreifen. Ein Gateway für die einzelnen Mandanten Routen zwischen den GRE-Tunnel, daher routing von Paketen mit den entsprechenden mandantennetzwerken.  
+Die Mandanten Netzwerke mit nicht überlappenden Subnetzen greifen über einen GRE-Tunnel auf das gemeinsame Netzwerk zu. Eine einzige Mandanten-Gatewayroute zwischen den GRE-Tunneln, sodass Pakete an die entsprechenden Mandanten Netzwerke weitergeleitet werden.  
   
-In diesem Szenario kann das Gateway für die einzelnen Mandanten von Drittanbieter-Hardware ersetzt werden.  
+In diesem Szenario kann das Gateway eines einzelnen Mandanten durch Hardware Geräte von Drittanbietern ersetzt werden.  
   
-![Ein einzelner Mandant Gateway mehrere Tunnel verwenden, um mehrere virtuelle Netzwerke verbinden](../../media/gre-tunneling-in-windows-server/GRE-SharedResource.png)  
+![Ein Gateway mit einem Mandanten, das mehrere Tunnel zum Verbinden mehrerer virtueller Netzwerke verwendet](../../media/gre-tunneling-in-windows-server/GRE-SharedResource.png)  
   
-### <a name="BKMK_thirdparty"></a>Dienste von Geräten von Drittanbietern für Mandanten
+### <a name="BKMK_thirdparty"></a>Dienste von Drittanbieter Geräten für Mandanten
 
-Dieses Szenario kann zum Integrieren von Geräten von Drittanbietern (z. B. hardwaremodule zum Lastenausgleich) verwendet werden, in der Mandant virtuelle Netzwerke den Datenfluss. Z. B. leitet Datenverkehr aus einem Enterprise-Website über eine S2S-Tunnel mit dem mehrinstanzenfähigen Gateway. Der Datenverkehr wird an den Load Balancer über einen GRE-Tunnel weitergeleitet. Der Load Balancer leitet Datenverkehr auf mehrere virtuelle Computer im virtuellen Netzwerk des Unternehmens. Dasselbe geschieht für einen anderen Mandanten mit sich überschneidenden potenziell die IP-Adressen in den virtuellen Netzwerken. Der Netzwerkdatenverkehr des Load Balancers mithilfe von VLANs isoliert ist, und gilt für alle Layer 3-Geräte, die VLANs zu unterstützen.  
+Dieses Szenario kann verwendet werden, um Drittanbieter Geräte (z. b. Hardware-Lasten Ausgleichs Module) in den Daten Verkehrsfluss des virtuellen Mandanten Netzwerks zu integrieren. Beispielsweise wird der Datenverkehr von einem Unternehmens Standort über einen S2S-Tunnel an das mehr Instanzen fähige Gateway weitergeleitet. Der Datenverkehr wird über einen GRE-Tunnel an den Load Balancer weitergeleitet. Der Load Balancer leitet Datenverkehr an mehrere virtuelle Computer im virtuellen Netzwerk des Unternehmens weiter. Dasselbe geschieht für einen anderen Mandanten mit potenziell überlappenden IP-Adressen in den virtuellen Netzwerken. Der Netzwerk Datenverkehr wird mithilfe von VLANs auf dem Load Balancer isoliert und gilt für alle Layer 3-Geräte, von denen VLANs unterstützt werden.  
   
-![Mehrere GRE-Tunnel verbinden virtueller Netzwerke für Drittanbieter-Geräte](../../media/gre-tunneling-in-windows-server/GREThirdParty.png)  
+![Mehrere GRE-Tunnel, die virtuelle Netzwerke mit Geräten von Drittanbietern verbinden](../../media/gre-tunneling-in-windows-server/GREThirdParty.png)  
   
 ## <a name="configuration-and-deployment"></a>Konfiguration und Bereitstellung
 
-GRE-Tunnel wird als zusätzliche Protokolle innerhalb einer S2S-Schnittstelle verfügbar gemacht. Es wird auf ähnliche Weise wie einen IPSec-S2S-Tunnel, die im folgenden Blog Netzwerk beschrieben implementiert: [Mehrinstanzenfähige Standort-zu-Standort (S2S) VPN-Gateway mit Windows Server 2012 R2](https://blogs.technet.com/b/networking/archive/2013/09/29/multi-tenant-site-to-site-s2s-vpn-gateway-with-windows-server-2012-r2.aspx)  
+Ein GRE-Tunnel wird als zusätzliches Protokoll innerhalb einer S2S-Schnittstelle verfügbar gemacht. Die Implementierung erfolgt auf ähnliche Weise wie ein IPSec-S2S-Tunnel, der im folgenden Netzwerk Blog beschrieben wird: [Mehr Instanzen fähige Standort-zu-Standort-VPN Gateway (S2S) mit Windows Server 2012 R2](https://blogs.technet.com/b/networking/archive/2013/09/29/multi-tenant-site-to-site-s2s-vpn-gateway-with-windows-server-2012-r2.aspx)  
   
-Finden Sie ein Beispiel für die Gateways, einschließlich GRE-Tunnel Gateways bereitstellt:  
+Im folgenden Thema finden Sie ein Beispiel für die Bereitstellung von Gateways, einschließlich GRE-Tunnel Gateways:  
   
-[Bereitstellen einer Software-Defined Networking-Infrastruktur mithilfe von Skripts](../../../networking/sdn/deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md)
+[Bereitstellen einer Software definierten Netzwerkinfrastruktur mithilfe von Skripts](../../../networking/sdn/deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md)
   
 ## <a name="more-information"></a>Weitere Informationen
 
-Weitere Informationen zum Bereitstellen von S2S-Gateways finden Sie unter den folgenden Themen:  
+Weitere Informationen zum Bereitstellen von S2S-Gateways finden Sie in den folgenden Themen:  
   
--   [RAS Gateway](RAS-Gateway.md)  
+-   [RAS-Gateway](RAS-Gateway.md)  
   
 -   [Border Gateway Protocol &#40;BGP&#41;](../bgp/Border-Gateway-Protocol-BGP.md)  
   
--   [Neu! Windows Server 2012 R2-RAS-Multitenant Gateway Deployment Guide](https://blogs.technet.com/b/wsnetdoc/archive/2014/03/26/new-windows-server-2012-r2-RAS-multitenant-gateway-deployment-guide.aspx)  
+-   [new! Bereitstellungs Handbuch für das mehr Instanzen fähige Windows Server 2012 R2 RAS-Gateway @ no__t-0  
   
--   [Bereitstellen von Border Gateway Protocol (BGP) mit dem mehrinstanzenfähigen RAS-Gateway](https://blogs.technet.com/b/wsnetdoc/archive/2014/04/03/deploy-border-gateway-protocol-bgp-with-the-RAS-multitenant-gateway.aspx)  
+-   [Bereitstellen von Border Gateway Protocol (BGP) mit dem mehr Instanzen fähigen RAS-Gateway](https://blogs.technet.com/b/wsnetdoc/archive/2014/04/03/deploy-border-gateway-protocol-bgp-with-the-RAS-multitenant-gateway.aspx)  
   
 
 

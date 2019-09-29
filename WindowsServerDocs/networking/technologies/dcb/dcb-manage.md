@@ -1,19 +1,19 @@
 ---
 title: Verwalten von Data Center Bridging (DCB)
 description: Dieses Thema enthält Anweisungen zur Verwendung von Windows PowerShell-Befehlen zum Verwalten von Data Center Bridging in Windows Server 2016.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 1575cc7c-62a7-4add-8f78-e5d93effe93f
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: fd6e8e5dd0bb4103011269473c3e1091739c775e
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: d635f96516040fcb30504f752c8194b0323c63f3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869796"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405781"
 ---
 # <a name="manage-data-center-bridging-dcb"></a>Verwalten von Data Center Bridging (DCB)
 
@@ -109,7 +109,7 @@ Sie können den Befehl **New-netqostrafficclass** verwenden, um eine Datenverkeh
     SMB  ETS   30   4Global
       
 
-Standardmäßig werden alle 802.1 p-Werte einer Standard-Datenverkehrs Klasse zugeordnet, die 100% der Bandbreite der physischen Verbindung aufweist. Der **New-netqostrafficclass-** Befehl erstellt eine neue Datenverkehrs Klasse, der jedes Paket zugeordnet ist, das mit dem 802.1 p-Prioritätswert 4 markiert ist. Der Übertragungs Auswahl Algorithmus \(TSA\) ist ETS und hat 30% der Bandbreite.
+Standardmäßig werden alle 802.1 p-Werte einer Standard-Datenverkehrs Klasse zugeordnet, die 100% der Bandbreite der physischen Verbindung aufweist. Der **New-netqostrafficclass-** Befehl erstellt eine neue Datenverkehrs Klasse, der jedes Paket zugeordnet ist, das mit dem 802.1 p-Prioritätswert 4 markiert ist. Der Übertragungs Auswahl Algorithmus \(tsa @ no__t-1 ist ETS und hat 30% der Bandbreite.
 
 Sie können bis zu sieben neue Datenverkehrs Klassen erstellen. Die Standard-Datenverkehrs Klasse umfasst höchstens 8 Datenverkehrs Klassen im System. Ein DCB-fähiger Netzwerkadapter unterstützt jedoch möglicherweise nicht viele Datenverkehrs Klassen in der Hardware. Wenn Sie mehr Datenverkehrs Klassen erstellen, als auf einem Netzwerkadapter untergebracht werden können, und Sie DCB auf diesem Netzwerkadapter aktivieren, meldet der Mini Port-Treiber einen Fehler an das Betriebssystem. Der Fehler wird im Ereignisprotokoll protokolliert.
 

@@ -1,8 +1,8 @@
 ---
-title: Wählen Sie die partition
-description: 'Windows-Befehle Thema ***- '
+title: Partition auswählen
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 79449bc74dd09246b380b3f892acc1b338650d20
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 9a186e2678fde64396a8b4b57a2d14e4b0b7bf26
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441500"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371070"
 ---
-# <a name="select-partition"></a>Wählen Sie die partition
+# <a name="select-partition"></a>Partition auswählen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Wählt die angegebene Partition aus, und verlagert den Fokus auf sie. Dieser Befehl kann auch verwendet werden, um die Partition anzuzeigen, die gegenwärtig den Fokus in den ausgewählten Datenträger besitzt.  
+wählt die angegebene Partition aus und verschiebt den Fokus darauf. Dieser Befehl kann auch verwendet werden, um die Partition anzuzeigen, die derzeit den Fokus auf dem ausgewählten Datenträger hat.  
   
   
   
@@ -38,32 +38,32 @@ select partition=<n>
   
 |   Parameter    |                                                                                    Beschreibung                                                                                    |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| partition\=<n> | Die Anzahl der Partition, die den Fokus erhalten. Sie können die Zahlen für alle Partitionen anzeigen, auf dem Datenträger, die derzeit ausgewählt wird, mithilfe der **Liste Partition** in DiskPart den Befehl. |
+| Partition @ no__t-0 @ no__t-1 | Die Nummer der Partition, die den Fokus erhalten soll. Sie können die Zahlen für alle Partitionen auf dem aktuell ausgewählten Datenträger anzeigen, indem Sie den Befehl **Partition auflisten** in DiskPart verwenden. |
   
 ## <a name="remarks"></a>Hinweise  
   
--   Bevor Sie eine Partition auswählen, können Sie müssen zunächst auswählen einen Datenträger mithilfe der **select Disk** Befehl.  
+-   Bevor Sie eine Partition auswählen können, müssen Sie zunächst mithilfe des Befehls **Select Disk** (Datenträger auswählen) einen Datenträger auswählen.  
   
--   Wenn keine Partitionsnummer angegeben wird, zeigt dieser Befehl die Partition, die gegenwärtig den Fokus in den ausgewählten Datenträger besitzt.  
+-   Wenn keine Partitionsnummer angegeben ist, zeigt dieser Befehl die Partition an, die derzeit den Fokus auf dem ausgewählten Datenträger hat.  
   
 -   Wenn ein Volume mit einer entsprechenden Partition ausgewählt ist, wird die Partition automatisch ausgewählt.  
   
--   Wenn eine Partition mit einer entsprechenden Menge ausgewählt ist, wird das Volume automatisch ausgewählt.  
+-   Wenn eine Partition mit einem entsprechenden Volume ausgewählt wird, wird das Volume automatisch ausgewählt.  
   
-## <a name="BKMK_examples"></a>Beispiele für  
-Geben Sie Folgendes ein, um den Fokus Partition 3 zu verschieben:  
+## <a name="BKMK_examples"></a>Beispiele  
+Wenn Sie den Fokus auf Partition 3 verschieben möchten, geben Sie Folgendes ein:  
   
 ```  
 select partitition=3  
 ```  
   
-Um die Partition anzuzeigen, die gerade den Fokus in den ausgewählten Datenträger besitzt, geben Sie Folgendes ein:  
+Geben Sie Folgendes ein, um die Partition anzuzeigen, die derzeit den Fokus auf dem ausgewählten Datenträger hat:  
   
 ```  
 select partition  
 ```  
   
-#### <a name="additional-references"></a>Zusätzliche Referenzen  
+#### <a name="additional-references"></a>Weitere Verweise  
 [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
 

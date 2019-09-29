@@ -1,8 +1,8 @@
 ---
 title: start
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ab7388633681120442544adf4ee0e337d8599854
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 1fb0875c972f8259b47f48ef84ed486fc678d8b0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441224"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370887"
 ---
 # <a name="start"></a>start
 
 
 
-Startet, ein separates Fenster der Eingabeaufforderung den Befehl um ein Programm oder den Befehl auszuführen.
+Startet ein separates Eingabe Aufforderungs Fenster, um ein angegebenes Programm oder einen Befehl auszuführen.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -38,38 +38,38 @@ start ["<Title>"] [/d <Path>] [/i] [{/min | /max}] [{/separate | /shared}] [{/lo
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|"\<Title>"|Gibt den Titel in der Titelleiste der Eingabeaufforderung-Fensters angezeigt.|
-|/ d \<Pfad >|Gibt das Startverzeichnis an.|
-|/i|Übergibt die Cmd.exe-Startumgebung, an der neuen Eingabeaufforderungsfenster. Wenn **/i** nicht angegeben ist, wird die aktuelle Umgebung verwendet wird.|
-|/ Min  \| /max|Gibt an, dass zu minimieren ( **/min**) oder Maximieren ( **/Max.** ) der neuen Eingabeaufforderungsfenster.|
-|/ separate \| / shared|16-Bit-Programme in einem separaten Speicher beginnt ( **/separate**) oder shared Memory-Speicher ( **/ shared**). Diese Optionen werden auf 64-Bit-Plattformen nicht unterstützt.|
-|/ niedrige \| /normal \| /hoch \| /realtime \| /abovenormal \| /belownormal|Startet eine Anwendung in der angegebenen Priorität-Klasse. Gültige Priorität Klasse Werte **/niedrige**, **/normal**, **/hoch**, **/realtime**, **/abovenormal**, und **/belownormal**.|
-|/affinity \<HexAffinity>|Wendet die angegebenen Prozessor-Affinitätsmaske (ausgedrückt als eine hexadezimale Zahl) für die neue Anwendung an.|
-|/ Wait|Startet eine Anwendung und wartet darauf, um zu beenden.|
-|/b|Startet eine Anwendung ohne ein neues Eingabeaufforderungsfenster zu öffnen. Behandlung von STRG + C wird ignoriert, es sei denn, die Anwendung über STRG + C-Verarbeitung ermöglicht. Verwenden Sie STRG + UNTBR, um die Anwendung zu unterbrechen.|
-|/ b \<Befehl > \| \<Programm >|Gibt an, den Befehl oder das Programm zu starten.|
-|\<Parameter >|Gibt an, an den Befehl oder das Programm zu übergebenden Parameter.|
+|"\<title >"|Gibt den Titel an, der in der Titelleiste des Eingabe Aufforderungs Fensters angezeigt werden soll.|
+|/d \<path >|Gibt das Start Verzeichnis an.|
+|/i|Übergibt die Start Umgebung "cmd. exe" an das neue Eingabe Aufforderungs Fenster. Wenn **/i** nicht angegeben ist, wird die aktuelle Umgebung verwendet.|
+|/min \|/Max|Gibt an, dass das neue Eingabe Aufforderungs Fenster minimiert ( **/Min**) oder maximiert ( **/Max**) werden soll.|
+|/separate \|/Shared|Startet 16-Bit-Programme in einem separaten Speicherbereich ( **/separate**) oder gemeinsam genutzten Speicherplatz ( **/Shared**). Diese Optionen werden auf 64-Bit-Plattformen nicht unterstützt.|
+|/Low \|/normal \|/High \|/Realtime \|/AboveNormal \|/BelowNormal|Startet eine Anwendung in der angegebenen Prioritäts Klasse. Gültige Werte für die Prioritäts Klasse sind **/Low**, **/Normal**, **/High**, **/Realtime**, **/AboveNormal**und **/BelowNormal**.|
+|/Affinity \<hexaffinitäts >|Wendet die angegebene Prozessor Affinitäts Maske (als hexadezimal Zahl ausgedrückt) auf die neue Anwendung an.|
+|/Wait|Startet eine Anwendung und wartet darauf, dass Sie beendet wird.|
+|/b|Startet eine Anwendung, ohne ein neues Eingabe Aufforderungs Fenster zu öffnen. Strg + c-Behandlung wird ignoriert, es sei denn, die Anwendung aktiviert die Strg + c-Verarbeitung. Verwenden Sie Strg + Pause, um die Anwendung zu unterbrechen.|
+|/b \<command > \| \<program >|Gibt den zu Startbefehl oder das Programm an.|
+|\<parameter >|Gibt Parameter an, die an den Befehl oder das Programm übergeben werden sollen.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
-- Sie können nicht ausführbare Dateien über ihre dateizuordnung ausführen, indem Sie den Namen der Datei als Befehl eingeben.
-- Beim Ausführen eines Befehls, das die Zeichenfolge "CMD" enthält als das erste Token ohne einen Qualifizierer Erweiterung oder Pfad ist "CMD" durch den Wert für die PATHEXT ersetzt. Dadurch wird verhindert, dass Benutzer aufnahm **Cmd** aus dem aktuellen Verzeichnis.
-- Wenn Sie eine 32-Bit-GUI-Benutzeroberfläche (GUI)-Anwendung ausführen **Cmd** wartet nicht für die Anwendung aus, um vor der Rückgabe an der Eingabeaufforderung zu beenden. Dieses Verhalten tritt nicht auf, wenn Sie die Anwendung aus einem Befehlsskript ausführen.
-- Wenn Sie einen Befehl, der ein erstes Token verwendet, das keine Erweiterung enthält ausführen, verwendet Cmd.exe den Wert der Umgebungsvariablen PATHEXT, um zu bestimmen, welche Erweiterungen für und in welcher Reihenfolge suchen. Der Standardwert für die Path-Variable ist:  
+- Sie können nicht ausführbare Dateien durch Ihre Datei Zuordnung ausführen, indem Sie den Namen der Datei als Befehl eingeben.
+- Wenn Sie einen Befehl ausführen, der die Zeichenfolge "cmd" als erstes Token ohne Erweiterung oder Pfad Qualifizierer enthält, wird "cmd" durch den Wert der COMSPEC-Variablen ersetzt. Dadurch wird verhindert, dass Benutzer **cmd** aus dem aktuellen Verzeichnis auswählen.
+- Wenn Sie eine GUI-Anwendung (32-Bit Graphical User Interface) ausführen, wartet **cmd** nicht, bis die Anwendung beendet wird, bevor Sie zur Eingabeaufforderung zurückkehrt. Dieses Verhalten tritt nicht auf, wenn Sie die Anwendung über ein Befehls Skript ausführen.
+- Wenn Sie einen Befehl ausführen, der ein erstes Token verwendet, das keine Erweiterung enthält, verwendet cmd. exe den Wert der Umgebungsvariablen PATHEXT, um zu bestimmen, welche Erweiterungen nach und in welcher Reihenfolge gesucht werden sollen. Der Standardwert für die PATHEXT-Variable lautet:  
   ```
   .COM;.EXE;.BAT;.CMD 
   ```  
-  Beachten Sie, dass die Syntax der PATH-Variablen werden durch Semikolon getrennt jede Erweiterung identisch ist.
-- Bei der Suche nach einer ausführbaren Datei, wenn es keine Übereinstimmung für alle Erweiterungen, **starten** überprüft, wenn der Name den Namen eines Verzeichnisses übereinstimmt. Wenn dies der Fall, **starten** Explorer.exe unter diesem Pfad geöffnet.
+  Beachten Sie, dass die Syntax mit der PATH-Variablen identisch ist, wobei die einzelnen Erweiterungen durch Semikolons getrennt werden.
+- Wenn bei der Suche nach einer ausführbaren Datei keine Übereinstimmung mit einer Erweiterung vorhanden ist, prüft **Start** , ob der Name mit einem Verzeichnisnamen übereinstimmt. Wenn dies der Fall ist **, öffnen Sie** "Explorer. exe" für diesen Pfad.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Starten die Anwendung "MyApp" an der Eingabeaufforderung ein, und behalten die Verwendung des aktuellen Fensters der Eingabeaufforderung, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um das Programm MyApp an der Eingabeaufforderung zu starten und die Verwendung des aktuellen Eingabe Aufforderungs Fensters beizubehalten:
 ```
 start myapp 
 ```
-Anzeigen der **starten** befehlszeilenhilfethema in einer separaten maximiert, Fenster "Eingabeaufforderung", Typ:
+Geben Sie Folgendes ein, um das Hilfethema **Start** Befehlszeile in einem separaten, maximierten Eingabe Aufforderungs Fenster anzuzeigen:
 ```
 start /max start /?
 ```

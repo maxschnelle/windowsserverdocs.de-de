@@ -1,8 +1,8 @@
 ---
-title: -Metadaten
-description: 'Windows-Befehle Thema ***- '
+title: Metadaten festlegen
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 82d2cd9ba447a0ea261f91dc01c11e45dfc0aa9b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ac73a4131d3f4065cd1aeae873734b079ad664e2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835991"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370950"
 ---
-# <a name="set-metadata"></a>-Metadaten
+# <a name="set-metadata"></a>Metadaten festlegen
 
 
 
-Legt fest, den Namen und Speicherort der Schattenkopie Erstellung Metadatendatei verwendet, um Schattenkopien von einem Computer auf einen anderen übertragen. Wenn Sie ohne Angabe von Parametern **resultsetmetadaten** zeigt die Hilfe an der Eingabeaufforderung.
+Legt den Namen und den Speicherort der Metadatendatei für die Schatten Erstellung fest, mit der Schatten Kopien von einem Computer auf einen anderen übertragen werden Bei Verwendung ohne Parameter zeigt **Set Metadata** die Hilfe an der Eingabeaufforderung an.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,9 +36,9 @@ set metadata [<Drive>:][<Path>]<MetaData.cab>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|[\<Drive>:][<Path>]|Gibt den Speicherort aus, um die Metadatendatei zu erstellen.|
-|\<MetaData.cab>|Gibt den Namen der Cab-Datei zum Speichern von Metadaten der Schattenkopie-Erstellung.|
+|[\<laufwerk >:] [<Path>]|Gibt den Speicherort zum Erstellen der Metadatendatei an.|
+|@no__t -0metadata. cab >|Gibt den Namen der CAB-Datei zum Speichern von Metadaten für die Schatten Erstellung an.|
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

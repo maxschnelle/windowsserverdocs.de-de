@@ -1,8 +1,8 @@
 ---
 title: Erstellen eines Kontos für MultiPoint-Dashboardbenutzer
 ms.custom: na
-description: Erstellen Sie ein Konto für die Verwendung mit dem dashboard
-ms.prod: windows-server-threshold
+description: Erstellen eines Kontos für die Verwendung mit dem Dashboard
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,15 +13,15 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 9f16da5882b09d0f1b49135b2eb87f1be57fe845
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b4e5fb85ae1dcaf7bd698f052e990e6ac1ac8dbc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814491"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389772"
 ---
 # <a name="create-a-multipoint-dashboard-user-account"></a>Erstellen eines Kontos für MultiPoint-Dashboardbenutzer
-Erstellen Sie Benutzerkonten für MultiPoint-Dashboard für die Benutzer, die regelmäßig auf Stationen zugreifen, aber nicht das MultiPoint Services-System verwalten. Benutzer mit MultiPoint-dashboardbenutzerkonten können die meisten Anwendungen ausführen, und Speichern von Dateien, aber MultiPoint-Manager kann nicht ausgeführt werden. Um zu sehen, wer über MultiPoint-dashboardbenutzerzugriff im MultiPoint-Manager hat klicken Sie auf die **Benutzer** Registerkarte. MultiPoint-Dashboardbenutzerkonten werden in der Spalte Kontotyp als **MultiPoint-Dashboardbenutzer** angezeigt.  
+Erstellen Sie Multipoint-dashboardbenutzerkonten für die Benutzer, die regelmäßig auf Stationen zugreifen, aber nicht das Multipoint Services-System verwalten. Benutzer mit Multipoint-dashboardbenutzerkonten können die meisten Anwendungen ausführen und Dateien speichern, aber nicht den Multipoint-Manager ausführen. Um festzustellen, wer über Multipoint-dashboardbenutzerzugriff verfügt, klicken Sie in Multipoint Manager auf die Registerkarte **Benutzer** . MultiPoint-Dashboardbenutzerkonten werden in der Spalte Kontotyp als **MultiPoint-Dashboardbenutzer** angezeigt.  
   
 Wenn Ihre MultiPoint Services-Benutzer private Dokumente in Windows speichern, sollte sich jeder Benutzer mit einem eindeutigen Benutzernamen und Kennwort am MultiPoint Services-System anmelden.  
   
@@ -30,7 +30,7 @@ Wenn Ihre MultiPoint Services-Benutzer private Dokumente in Windows speichern, s
   
 #### <a name="to-create-a-multipoint-dashboard-user-account"></a>So erstellen Sie ein Konto für MultiPoint-Dashboardbenutzer  
   
-1.  MultiPoint-Manager, klicken Sie auf die **Benutzer** Registerkarte.  
+1.  Klicken Sie im Multipoint-Manager auf die Registerkarte **Benutzer** .  
   
 2.  Klicken Sie unter **Benutzeraufgaben** auf **Benutzerkonto hinzufügen**. Der Assistent **Benutzerkonto hinzufügen** wird geöffnet.  
   

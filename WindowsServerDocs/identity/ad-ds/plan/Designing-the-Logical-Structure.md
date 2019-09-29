@@ -7,56 +7,56 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 82184fe678c05b1d7458584de8eecd0c07ece02f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8d72d7ed9617d18b42f1be10daeafbac994dad88
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832331"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402639"
 ---
 # <a name="designing-the-logical-structure"></a>Entwerfen der logischen Struktur
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Active Directory-Domänendienste (AD DS) können Organisationen eine skalierbare, sichere und verwaltbare Infrastruktur für Benutzer- und ressourcenverwaltung erstellen. Außerdem können sie zur Unterstützung von verzeichnisfähigen Anwendungen.  
+Mit Active Directory Domain Services (AD DS) können Organisationen eine skalierbare, sichere und verwaltbare Infrastruktur für die Benutzer-und Ressourcenverwaltung erstellen. Sie ermöglicht außerdem die Unterstützung von Verzeichnis fähigen Anwendungen.  
   
-Eine gut entworfene logische Struktur von Active Directory bietet die folgenden Vorteile:  
+Eine gut entworfene Active Directory logische Struktur bietet die folgenden Vorteile:  
   
--   Vereinfachte Verwaltung von Microsoft Windows-basierte Netzwerke, die große Anzahl von Objekten enthalten.  
+-   Vereinfachte Verwaltung von Microsoft Windows-basierten Netzwerken, die eine große Anzahl von Objekten enthalten  
   
--   Eine konsolidierte Domänenstruktur und geringere Verwaltungskosten  
+-   Konsolidierte Domänen Struktur und geringere Verwaltungskosten  
   
--   Die Möglichkeit, die administrative Kontrolle über Ressourcen, die nach Bedarf zu delegieren.  
+-   Die Möglichkeit, die administrative Kontrolle über Ressourcen nach Bedarf zu delegieren  
   
 -   Geringere Auswirkungen auf die Netzwerkbandbreite  
   
--   Vereinfachte Ressourcenfreigabe  
+-   Vereinfachte Ressourcen Freigabe  
   
--   Optimale suchleistung  
+-   Optimale Suchleistung  
   
 -   Niedrige Gesamtbetriebskosten  
   
-Eine gut entworfene logische Struktur von Active Directory ermöglicht die effiziente Integration von Features wie Gruppenrichtlinien; Desktopsperre softwareverteilung und Benutzer, Gruppe, Arbeitsstationen und Server-Verwaltung in Ihrem System. Darüber hinaus eine sorgfältig entworfene logische Struktur ermöglicht die Integration von Microsoft und nicht-Microsoft-Anwendungen und Dienste, z. B. Microsoft Exchange Server public Key-Infrastruktur (PKI), und ein domänenbasiertes verteiltes Dateisystem (DFS).  
+Eine gut entworfene Active Directory logische Struktur vereinfacht die effiziente Integration solcher Funktionen wie Gruppenrichtlinie. Desktop Sperrung; Software Verteilung; und die Benutzer-, Gruppen-, Arbeitsstations-und Serververwaltung in Ihrem System. Außerdem ermöglicht eine sorgfältig entworfene logische Struktur die Integration von Microsoft-Anwendungen und-Diensten, die keine Microsoft-Anwendungen sind, wie z. b. Microsoft Exchange Server, Public Key-Infrastruktur (PKI) und ein domänenbasiertes verteiltes Dateisystem (DFS).  
   
-Wenn Sie eine logische Struktur von Active Directory entwerfen, bevor Sie AD DS bereitstellen, können Sie den Bereitstellungsprozess, um Active Directory-Features am besten nutzen optimieren. Informationen zum Entwerfen der logischen Struktur von Active Directory Ihr Entwicklungsteam zuerst identifiziert die Anforderungen für Ihre Organisation und, basierend auf diesen Informationen, entscheidet die Gesamtstruktur und Domäne Grenzen zu platzieren. Klicken Sie dann entscheidet das Entwurfsteam, wie die Domain Name System (DNS)-Umgebung entsprechend den Bedürfnissen der Gesamtstruktur konfigurieren. Schließlich gibt das Entwurfsteam die Organisationseinheit (OU)-Struktur, die erforderlich ist, um die Verwaltung von Ressourcen in Ihrer Organisation zu delegieren.  
+Wenn Sie eine Active Directory logische Struktur entwerfen, bevor Sie AD DS bereitstellen, können Sie den Bereitstellungs Prozess optimieren, um Active Directory Features optimal zu nutzen. Um die Active Directory logische Struktur zu entwerfen, identifiziert das Entwurfs Team zuerst die Anforderungen für Ihre Organisation und entscheidet basierend auf diesen Informationen, wo die Gesamtstruktur-und Domänen Grenzen zu platzieren sind. Anschließend entscheidet das Entwurfs Team, wie die Domain Name System (DNS)-Umgebung konfiguriert wird, um die Anforderungen der Gesamtstruktur zu erfüllen. Zum Schluss identifiziert das Entwurfs Team die Struktur der Organisationseinheit (OU), die zum Delegieren der Verwaltung von Ressourcen in Ihrer Organisation erforderlich ist.  
   
 ## <a name="in-this-guide"></a>Inhalt dieser Anleitung  
   
--   [Grundlegendes zum logischen Active Directory-Modell](../../ad-ds/plan/Understanding-the-Active-Directory-Logical-Model.md)  
+-   [Grundlegendes zum Active Directory logisches Modell](../../ad-ds/plan/Understanding-the-Active-Directory-Logical-Model.md)  
   
--   [Identifizieren der Teilnehmer am Bereitstellungsprojekt](../../ad-ds/plan/Identifying-the-Deployment-Project-Participants.md)  
+-   [Bestimmen der Teilnehmer am Bereitstellungsprojekt](../../ad-ds/plan/Identifying-the-Deployment-Project-Participants.md)  
   
 -   [Erstellen eines Gesamtstrukturentwurfs](../../ad-ds/plan/Creating-a-Forest-Design.md)  
   
 -   [Erstellen eines Domänenentwurfs](../../ad-ds/plan/Creating-a-Domain-Design.md)  
   
--   [Erstellen einen DNS-Infrastruktur-Entwurf](../../ad-ds/plan/Creating-a-DNS-Infrastructure-Design.md)  
+-   [Erstellen eines DNS-Infrastrukturentwurfs](../../ad-ds/plan/Creating-a-DNS-Infrastructure-Design.md)  
   
 -   [Erstellen eines Organisationseinheitsentwurfs](../../ad-ds/plan/Creating-an-Organizational-Unit-Design.md)  
   
--   [Anhang A: DNS-Inventur](../../ad-ds/plan/Appendix-A--DNS-Inventory.md)  
+-   [Anhang A: DNS-Inventur](../../ad-ds/plan/Appendix-A--DNS-Inventory.md)  
   
 
 

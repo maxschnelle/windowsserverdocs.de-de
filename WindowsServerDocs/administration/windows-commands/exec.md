@@ -1,8 +1,8 @@
 ---
-title: EXEC
-description: 'Windows-Befehle Thema ***- '
+title: Exec
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ecdfd05b8abefb35946b783daaa3220a6713a38d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 514503e4920e16ba6778185af32f925541805223
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882921"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377432"
 ---
-# <a name="exec"></a>EXEC
+# <a name="exec"></a>Exec
 
 
 
-führt eine Datei auf dem lokalen Computer. Die Datei kann werden eine **Cmd** Skript.
+führt eine Datei auf dem lokalen Computer aus. Bei der Datei kann es sich um ein **cmd** -Skript handeln.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,13 +36,13 @@ exec <ScriptFile.cmd>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<ScriptFile.cmd>|Gibt den auszuführenden Skriptdatei an.|
+|@no__t -0scriptfile. cmd >|Gibt die auszuführende Skriptdatei an.|
 
 ## <a name="remarks"></a>Hinweise
 
--   Mit diesem Befehl wird verwendet, um doppelte Daten als Teil einer Sicherung wiederherstellen oder restore-Sequenz.
--   Wenn das Skript fehlschlägt, wird ein Fehler zurückgegeben, und DiskShadow beendet.
+-   Dieser Befehl wird verwendet, um Daten im Rahmen einer Sicherungs-oder Wiederherstellungs Sequenz zu duplizieren oder wiederherzustellen.
+-   Wenn das Skript fehlschlägt, wird ein Fehler zurückgegeben, und DiskShadow wird beendet.
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

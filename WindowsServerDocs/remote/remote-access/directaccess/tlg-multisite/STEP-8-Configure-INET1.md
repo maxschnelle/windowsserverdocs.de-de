@@ -1,9 +1,9 @@
 ---
 title: Schritt 8 Konfigurieren von INET1
-description: 'Dieses Thema ist Teil der Testumgebungsanleitung: veranschaulichen von DirectAccess Multisite-Bereitstellung für Windows Server 2016'
+description: 'Dieses Thema ist Teil der Test Umgebungs Anleitung: veranschaulichen einer DirectAccess-Bereitstellung für mehrere Standorte für Windows Server 2016'
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,26 +12,26 @@ ms.topic: article
 ms.assetid: 693acb5c-dffc-4484-8286-163bb67724c9
 ms.author: coreyp
 author: coreyp-at-msft
-ms.openlocfilehash: d6967b975b3a950c90de465872832d623755a494
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 54674adc33f45a58f2515d07fed4c8a070ded5a1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281416"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404710"
 ---
 # <a name="step-8-configure-inet1"></a>SCHRITT 8: Konfigurieren von INET1
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Um-Clientcomputern über das Internet eine Verbindung zum RAS-Server zu aktivieren, müssen Sie einen DNS-Eintrag für die 2-EDGE1 auf INET1 konfigurieren.  
+Damit Client Computer eine Verbindung mit RAS-Servern über das Internet herstellen können, müssen Sie einen DNS-Eintrag für 2-Edge1 auf INET1 konfigurieren.  
   
-### <a name="to-create-the-2-edge1-dns-entry"></a>Den 2-EDGE1 DNS-Eintrag erstellen  
+### <a name="to-create-the-2-edge1-dns-entry"></a>So erstellen Sie den 2 Edge1-DNS-Eintrag  
   
-1.  Auf der **starten** geben**dnsmgmt.msc**, und drücken Sie dann die EINGABETASTE.  
+1.  Geben Sie auf der **Start** Seite**dnsmgmt. msc**ein, und drücken Sie dann die EINGABETASTE.  
   
-2.  Öffnen Sie in der Konsolenstruktur **Forward-Lookupzonen**, klicken Sie auf **"contoso.com"** , klicken Sie dann mit der rechten Maustaste **"contoso.com"** , und klicken Sie dann auf **neuer Host (A oder AAAA)** .  
+2.  Öffnen Sie in der Konsolen Struktur **Forward-Lookupzonen**, klicken Sie auf **contoso.com**, klicken Sie mit der rechten Maustaste auf **contoso.com**, und klicken Sie dann auf **neuer Host (A oder AAAA)** .  
   
-3.  In **Namen**, Typ **2-EDGE1**. In **IP-Adresse**, Typ **131.107.0.20**. Klicken Sie auf **Host hinzufügen**, klicken Sie auf **OK**, und klicken Sie dann auf **Fertig**.  
+3.  Geben Sie unter **Name den Namen** **2-Edge1**ein. Geben Sie unter **IP-Adresse**den Namen **131.107.0.20**ein. Klicken Sie auf **Host hinzufügen**, klicken Sie auf **OK**, und klicken Sie dann auf **Fertig**.  
   
 
 

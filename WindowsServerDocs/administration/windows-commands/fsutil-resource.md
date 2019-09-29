@@ -1,7 +1,7 @@
 ---
 ms.assetid: b198d8ca-a5b7-430f-8911-5cbb9f50484c
 title: Ressource "f"
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
@@ -9,12 +9,12 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: ea97f7f71d1b484c7ac63c7c429f291fba607bba
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 10f2847fd05658a481a10dfb5a1920a998559962
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867066"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376819"
 ---
 # <a name="fsutil-resource"></a>Ressource "f"
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7, Windows 2008, Windows Vista
@@ -48,7 +48,7 @@ fsutil resource [stop] <RmRootPathname>
 
 |        Parameter        |                                                                                                                                                                                                                                        Beschreibung                                                                                                                                                                                                                                         |
 |-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         Erstellen          |                                                                                                                                                                                                                    Erstellt eine sekundäre Transaktions Ressourcen-Manager.                                                                                                                                                                                                                     |
+|         erstellen          |                                                                                                                                                                                                                    Erstellt eine sekundäre Transaktions Ressourcen-Manager.                                                                                                                                                                                                                     |
 |    <RmRootPathname>     |                                                                                                                                                                                                        Gibt den vollständigen Pfad zu einem transaktionalen Ressourcen-Manager Stammverzeichnis an.                                                                                                                                                                                                         |
 |          info           |                                                                                                                                                                                                            Zeigt die Informationen des angegebenen Transaktions Ressourcen-Manager an.                                                                                                                                                                                                            |
 |      "abtautor"       | Gibt an, ob eine transaktionale Standard Ressourcen-Manager die Transaktions Metadaten bei der nächsten Auflistung bereinigt.<br /><br />-Legen Sie den **Setautoreset** -Parameter auf " **true** " fest, um anzugeben, dass die Transaktions Ressourcen-Manager standardmäßig die transaktionalen Metadaten beim nächsten einbinden bereinigen werden.<br />-Legen Sie den **Setautoreset** -Parameter auf " **false** " fest, um anzugeben, dass die Transaktions Ressourcen-Manager die transaktionalen Metadaten beim nächsten einbinden standardmäßig nicht bereinigen werden. |

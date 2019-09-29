@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: d7ed8f7976116ab245fa730a5a050e7ec46cebea
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: e1e0235e50945fadd09fe9dd5ffeaf6d7119e482
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869489"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385601"
 ---
 # <a name="ad-fs-openid-connectoauth-flows-and-application-scenarios"></a>AD FS OpenID Connect/OAuth-Flows und Anwendungsszenarien
 Gilt für AD FS 2016 und höher
@@ -63,7 +63,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 |Parameter|Erforderlich/optional|Beschreibung| 
 |-----|-----|-----|
 |client_id|Erforderlich|Die Anwendungs-ID (Client-ID), die der der APP zugewiesen AD FS.| 
-|response_type|Erforderlich|Muss für `id_token`die OpenID Connect-Anmeldung einschließen . Sie kann auch den response_type `token`enthalten. Wenn Sie das Token hier verwenden, kann Ihre APP ein Zugriffs Token direkt vom Autorisierungs Endpunkt empfangen, ohne dass eine zweite Anforderung an den tokenendpunkt gesendet werden muss.| 
+|response_type|Erforderlich|Muss für `id_token`die OpenID Connect-Anmeldung einschließen . Sie kann auch den response_type @ no__t-0 enthalten. Wenn Sie das Token hier verwenden, kann Ihre APP ein Zugriffs Token direkt vom Autorisierungs Endpunkt empfangen, ohne dass eine zweite Anforderung an den tokenendpunkt gesendet werden muss.| 
 |redirect_uri|Erforderlich|Der redirect_uri Ihrer APP, in der Authentifizierungs Antworten gesendet und von Ihrer APP empfangen werden können. Er muss genau mit einem der Umleitungs übereinstimmen, die Sie in AD FS konfiguriert haben.| 
 |Nonce|Erforderlich|Ein in der Anforderung enthaltener Wert, der von der APP generiert wird und in der resultierenden ID als Anspruch enthalten ist. Die APP kann diesen Wert dann überprüfen, um Token-Replay-Angriffe zu verringern. Der Wert ist in der Regel eine zufällige, eindeutige Zeichenfolge, die verwendet werden kann, um den Ursprung der Anforderung zu identifizieren. Nur erforderlich, wenn ein ID angefordert wird.|
 |scope|Optional|Eine durch Leerzeichen getrennte Liste von Bereichen. Für OpenID Connect muss der Bereich `openid`enthalten sein.|
@@ -95,11 +95,11 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZEstZnl0aEV...
 
 |Parameter|Beschreibung| 
 |-----|-----|
-|access_token|Enthalten, wenn response_type `token`enthält.|
-|token_type|Enthalten, wenn response_type `token`enthält. Wird immer Bearer.| 
-|expires_in| Enthalten, wenn response_type `token`enthält. Gibt die Anzahl der Sekunden an, die das Token für die Zwischenspeicherung gültig ist.| 
+|access_token|Enthalten, wenn response_type @ no__t-0 enthält.|
+|token_type|Enthalten, wenn response_type @ no__t-0 enthält. Wird immer Bearer.| 
+|expires_in| Enthalten, wenn response_type @ no__t-0 enthält. Gibt die Anzahl der Sekunden an, die das Token für die Zwischenspeicherung gültig ist.| 
 |scope| Gibt die Bereiche an, für die das access_token gültig ist.|  
-|ID|Enthalten, wenn response_type `id_token`enthält. Ein signiertes JSON Web Token (JWT). Die APP kann die Segmente dieses Tokens decodieren, um Informationen über den angemeldeten Benutzer anzufordern. Die APP kann die Werte Zwischenspeichern und anzeigen, aber Sie sollte für Autorisierungs-oder Sicherheitsgrenzen nicht darauf basieren.| 
+|ID|Enthalten, wenn response_type @ no__t-0 enthält. Ein signiertes JSON Web Token (JWT). Die APP kann die Segmente dieses Tokens decodieren, um Informationen über den angemeldeten Benutzer anzufordern. Die APP kann die Werte Zwischenspeichern und anzeigen, aber Sie sollte für Autorisierungs-oder Sicherheitsgrenzen nicht darauf basieren.| 
 |state|Wenn ein Status Parameter in der Anforderung enthalten ist, sollte der gleiche Wert in der Antwort angezeigt werden. Die APP sollte überprüfen, ob die Statuswerte in der Anforderung und in der Antwort identisch sind.|
 
 ### <a name="refresh-tokens"></a>Token aktualisieren 
@@ -139,12 +139,12 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 |redirect_uri|Erforderlich|Der `redirect_uri` Ihrer APP, in der Authentifizierungs Antworten gesendet und von Ihrer APP empfangen werden können. Er muss genau mit einem der Umleitungs übereinstimmen, die Sie im AD FS für den Client registriert haben.|  
 |Ressource|Optional|Die URL Ihrer Web-API.</br>Hinweis – Wenn Sie die msal-Client Bibliothek verwenden, wird der Ressourcen Parameter nicht gesendet. Stattdessen wird die Ressourcen-URL als Teil des Bereichs Parameters gesendet:`scope = [resource url]//[scope values e.g., openid]`</br>Wenn die Ressource nicht an dieser Stelle oder im Bereich verwendet wird, verwendet ADFS einen Standard Ressourcen-urn: Microsoft: userinfo. userinfo-Ressourcen Richtlinien (z. b. MFA, Ausstellung oder Autorisierungs Richtlinie) können nicht angepasst werden.| 
 |scope|Optional|Eine durch Leerzeichen getrennte Liste von Bereichen.|
-|response_mode|Optional|Gibt die Methode an, die zum Senden des resultierenden Tokens an Ihre APP verwendet werden soll. Kann einen der folgenden Werte annehmen: </br>-Abfrage </br>-Fragment </br>- form_post</br>`query` stellt den Code als Abfrage Zeichen folgen Parameter für den Umleitungs-URI bereit. Wenn Sie den Code anfordern, können Sie "Query", "Fragment" oder "form_post" verwenden.  `form_post` führteinenBeitragaus,derdenCodefürdenUmleitungs -URI enthält.|
+|response_mode|Optional|Gibt die Methode an, die zum Senden des resultierenden Tokens an Ihre APP verwendet werden soll. Kann einen der folgenden Werte annehmen: </br>-Abfrage </br>-Fragment </br>- form_post</br>`query` stellt den Code als Abfrage Zeichen folgen Parameter für den Umleitungs-URI bereit. Wenn Sie den Code anfordern, können Sie "Query", "Fragment" oder "form_post" verwenden.  `form_post` @ no__t-1führt einen Beitrag aus, der den Code für den Umleitungs-URI enthält.|
 |state|Optional|Ein in der Anforderung enthaltener Wert, der auch in der tokenantwort zurückgegeben wird. Dabei kann es sich um eine Zeichenfolge eines beliebigen Inhalts handeln, den Sie wünschen. Ein zufällig generierter eindeutiger Wert wird normalerweise verwendet, um Website übergreifende Anforderungs Fälschungs Angriffe zu verhindern. Der Wert kann auch Informationen über den Status des Benutzers in der APP codieren, bevor die Authentifizierungsanforderung aufgetreten ist, z. b. die Seite oder Ansicht, auf der Sie sich befanden.|
 |prompt|Optional|Gibt den Typ der erforderlichen Benutzerinteraktion an. Zu diesem Zeitpunkt sind die einzigen gültigen Werte "Login" und "None".</br>- `prompt=login` zwingt den Benutzer, seine Anmelde Informationen für diese Anforderung einzugeben und das einmalige Anmelden zu nestufen. </br>- `prompt=none` ist das Gegenteil. es wird sichergestellt, dass dem Benutzer keine interaktive Eingabeaufforderung angezeigt wird. Wenn die Anforderung nicht über einmaliges Anmelden im Hintergrund abgeschlossen werden kann, wird AD FS einen interaction_required-Fehler zurückgeben.|
 |login_hint|Optional|Kann verwendet werden, um das Feld Benutzername/e-Mail-Adresse auf der Anmeldeseite für den Benutzer vorab auszufüllen, wenn Sie Ihren Benutzernamen im Voraus kennen. Apps verwenden diesen Parameter häufig während der erneuten Authentifizierung, indem Sie den Benutzernamen bereits aus einer vorherigen Anmeldung mithilfe des `upn`Anspruchs von `id_token`extrahiert haben.|
 |domain_hint|Optional|Wenn Sie enthalten ist, wird der Domänen basierte Ermittlungs Vorgang übersprungen, den der Benutzer auf der Anmeldeseite durchläuft, was zu einem etwas optimierten Benutzererlebnis führt.|
-|code_challenge_method|Optional|Die Methode, die zum Codieren der code_verifier für den code_challenge-Parameter verwendet wird. Kann einer der folgenden Werte sein: </br>-Plain </br>- S256 </br>Wenn Sie ausgeschlossen ist, wird angenommen, dass code_challenge Klartext ist `code_challenge`, wenn eingeschlossen ist. AD FS unterstützt sowohl Plain als auch S256. Weitere Informationen finden Sie unter [pkce RFC](https://tools.ietf.org/html/rfc7636).|
+|code_challenge_method|Optional|Die Methode, die zum Codieren der code_verifier für den code_challenge-Parameter verwendet wird. Kann einer der folgenden Werte sein: </br>-Plain </br>- S256 </br>Falls ausgeschlossen, wird code_challenge als Klartext angenommen, wenn @ no__t-0 @ no__t-1eingeschlossen ist. AD FS unterstützt sowohl Plain als auch S256. Weitere Informationen finden Sie unter [pkce RFC](https://tools.ietf.org/html/rfc7636).|
 |code_challenge|Optional| Dient zum Sichern von Autorisierungs Code Zuweisungen über den Prüfschlüssel für Code Austausch (pkce) von einem Native Client. Erforderlich, `code_challenge_method`Wenn eingeschlossen ist. Weitere Informationen finden Sie unter [pkce RFC](https://tools.ietf.org/html/rfc7636) .|
 
 An diesem Punkt wird der Benutzer aufgefordert, seine Anmelde Informationen einzugeben und die Authentifizierung abzuschließen. Nachdem sich der Benutzer authentifiziert hat, gibt der AD FS mit der `redirect_uri` `response_mode` im-Parameter angegebenen Methode eine Antwort an Ihre APP zurück.  
@@ -190,7 +190,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 |code|Erforderlich|Der `authorization_code` , den Sie im ersten Abschnitt des Flows abgerufen haben.| 
 |redirect_uri|Erforderlich|Derselbe `redirect_uri` Wert, der zum Abrufen des `authorization_code`verwendet wurde.| 
 |client_secret|erforderlich für Web-Apps|Der geheime Anwendungs Schlüssel, den Sie bei der APP-Registrierung in AD FS erstellt haben. Sie sollten den geheimen Anwendungs Schlüssel nicht in einer nativen App verwenden, da client_secrets nicht zuverlässig auf Geräten gespeichert werden kann. Dies ist für Web-Apps und Web-APIs erforderlich, die die client_secret sicher auf der Serverseite speichern können. Der geheime Client Schlüssel muss vor dem Senden URL-codiert sein. Diese Apps können auch eine Schlüssel basierte Authentifizierung verwenden, indem ein JWT signiert und als client_assertion-Parameter hinzugefügt wird.| 
-|code_verifier|Optional|Dasselbe `code_verifier` , das zum Abrufen des Autorisierungs Code verwendet wurde. Erforderlich, wenn pkce in der Anforderung zum Erteilen von Autorisierungscodes verwendet wurde. Weitere Informationen finden Sie unter [pkce RFC](https://tools.ietf.org/html/rfc7636).</br>Hinweis – gilt für AD FS 2019 und höher| 
+|code_verifier|Optional|Dieselbe `code_verifier`, die zum Abrufen des Autorisierungs Code verwendet wurde. Erforderlich, wenn pkce in der Anforderung zum Erteilen von Autorisierungscodes verwendet wurde. Weitere Informationen finden Sie unter [pkce RFC](https://tools.ietf.org/html/rfc7636).</br>Hinweis – gilt für AD FS 2019 und höher| 
 
 ### <a name="successful-response"></a>Erfolgreiche Antwort 
  
@@ -227,7 +227,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 ### <a name="refresh-the-access-token"></a>Aktualisieren des Zugriffs Tokens 
  
-Zugriffs Token sind kurzlebig und müssen nach Ablauf aktualisiert werden, damit Sie weiterhin auf Ressourcen zugreifen können. Dies können Sie erreichen, indem Sie eine andere Post- `/token`Anforderung an den Endpunkt senden. dieses Mal geben Sie den refresh_token anstelle des Codes an. Aktualisierungs Token sind für alle Berechtigungen gültig, für die der Client bereits Zugriffs Token erhalten hat. 
+Zugriffs Token sind kurzlebig und müssen nach Ablauf aktualisiert werden, damit Sie weiterhin auf Ressourcen zugreifen können. Hierzu können Sie eine andere Post-Anforderung an den @ no__t-0 @ no__t-1endpoint senden. dieses Mal wird der refresh_token anstelle des Codes bereitgestellt. Aktualisierungs Token sind für alle Berechtigungen gültig, für die der Client bereits Zugriffs Token erhalten hat. 
  
 Aktualisierungs Token verfügen nicht über die angegebene Lebensdauer. Die Lebensdauer von Aktualisierungs Token ist in der Regel relativ lang. In einigen Fällen laufen Aktualisierungs Token jedoch ab, werden gesperrt oder verfügen nicht über ausreichende Berechtigungen für die gewünschte Aktion. Die Anwendung muss vom tokenausstellungs-Endpunkt zurückgegebene Fehler erwarten und behandeln.  
  

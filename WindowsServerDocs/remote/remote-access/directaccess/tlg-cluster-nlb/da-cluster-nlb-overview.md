@@ -1,9 +1,9 @@
 ---
 title: Übersicht über das Testumgebungsszenario für DirectAccess-Cluster-NLB
-description: 'Dieses Thema ist Teil der Testumgebungsanleitung: Vorführen von DirectAccess in einem Cluster mit Windows NLB für Windows Server 2016'
+description: Dieses Thema ist Teil der Test Umgebungs Anleitung zum Veranschaulichen von DirectAccess in einem Cluster mit Windows NLB für Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,44 +12,44 @@ ms.topic: article
 ms.assetid: cd1e9efd-19e9-49e7-8432-881f661c9792
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a6d82713dfb12e6775402d29bfcebaa0ec8b066c
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 487b85713d415cdda9ee40548091abdb5fe7fc2e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281556"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404835"
 ---
 # <a name="overview-of-the-directaccess-cluster-nlb-test-lab-scenario"></a>Übersicht über das Testumgebungsszenario für DirectAccess-Cluster-NLB
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-In diesem Test Lab-Szenario wird DirectAccess mit bereitgestellt:  
+In diesem Test Labor Szenario wird DirectAccess mit folgenden Aufgaben bereitgestellt:  
   
--   **DC1**– einem Server, der als Domänencontroller konfiguriert ist, Domain Name System (DNS)-Server und Server mit Dynamic Host Configuration Protocol (DHCP).  
+-   **DC1**-ein Server, der als Domänen Controller, Domain Name System (DNS)-Server und DHCP-Server (Dynamic Host Configuration Protocol) konfiguriert ist.  
   
--   **EDGE1**– einem Server im internen Netzwerk, das als der erste RAS-Server in einem RAS-Server-Cluster konfiguriert ist. Dieser Server verfügt über zwei Netzwerkadapter; eine mit dem internen Netzwerk verbunden, und der andere mit dem externen Netzwerk verbunden.  
+-   **Edge1**-ein Server im internen Netzwerk, der als erster RAS-Server in einem Remote Zugriffs Server-Cluster konfiguriert ist. Dieser Server verfügt über zwei Netzwerkadapter: eine Verbindung mit dem internen Netzwerk und die andere mit dem externen Netzwerk.  
   
--   **EDGE2**– einem Server im internen Netzwerk, das als das zweite RAS-Server in einem RAS-Server-Cluster konfiguriert ist. Dieser Server verfügt über zwei Netzwerkadapter; eine mit dem internen Netzwerk verbunden, und der andere mit dem externen Netzwerk verbunden.  
+-   **EDGE2**-ein Server im internen Netzwerk, der als zweiter RAS-Server in einem RAS-Server Cluster konfiguriert ist. Dieser Server verfügt über zwei Netzwerkadapter: eine Verbindung mit dem internen Netzwerk und die andere mit dem externen Netzwerk.  
   
--   **App1**– einem Server im internen Netzwerk, das als Web "und"-Datei, und als eine Unternehmens-Stammzertifizierungsstelle (CA) konfiguriert ist  
+-   **App1**-ein Server im internen Netzwerk, der als Web-und Dateiserver konfiguriert ist, und als Unternehmens-Stamm Zertifizierungsstelle (Certification Authority, ca)  
   
--   **APP2**- ein-Computer im internen Netzwerk, das als IPv4-nur Web- und -Server konfiguriert ist. Dieser Computer wird verwendet, um die NAT64/DNS64-Funktionen hervorzuheben.  
+-   **APP2**-ein Computer im internen Netzwerk, der als einziger IPv4-Web-und-Dateiserver konfiguriert ist. Mithilfe dieses Computers werden die NAT64/DNS64-Funktionen hervorgehoben.  
   
--   **INET1**– einem Server, der als Internet-DNS und DHCP-Server konfiguriert ist.  
+-   **INET1**-ein Server, der als Internet-DNS und DHCP-Server konfiguriert ist.  
   
--   **NAT1**– eine Client-Computer, der als ein Gerät Network Address (Translator, NAT) verwenden die gemeinsame Nutzung der Internetverbindung konfiguriert ist.  
+-   **NAT1**-ein Client Computer, der als NAT-Gerät (Network Address Translator) mithilfe der Freigabe von Internet Verbindungen konfiguriert ist.  
   
--   **"Client1"** – eine Client-Computer, der als DirectAccess-Client konfiguriert ist, das verwendet wird, um die DirectAccess-Konnektivität zu testen, beim Verschieben zwischen dem internen Netzwerk, das simulierte Internet und einem Heimnetzwerk.  
+-   **CLIENT1**-ein Client Computer, der als DirectAccess-Client konfiguriert ist und zum Testen der DirectAccess-Konnektivität bei der Umstellung zwischen dem internen Netzwerk, dem simulierten Internet und einem Heimnetzwerk verwendet wird.  
   
-Die-testumgebung besteht aus drei Subnetze, mit die Folgendes simuliert:  
+Die Testumgebung besteht aus drei Subnetzen, die Folgendes simulieren:  
   
--   Ein Heimnetzwerk mit dem Namen "Homenet" (192.168.137.0/24), die mit dem Internet von einem NAT-Gerät verbunden  
+-   Ein Heimnetzwerk mit dem Namen homenet (192.168.137.0/24), das durch eine NAT mit dem Internet verbunden ist.  
   
--   Das externe Netzwerk, durch die Internet-Subnetz (131.107.0.0/24) dargestellt wird.  
+-   Das externe Netzwerk, das durch das Internet Subnetz (131.107.0.0/24) dargestellt wird.  
   
--   Ein internes Netzwerk mit dem Namen "Corpnet" (10.0.0.0/24; 2001:db8:1:: / 64) aus dem Internet durch RAS-Server getrennt.  
+-   Ein internes Netzwerk mit dem Namen Corpnet (10.0.0.0/24; 2001: db8:1::/64), das vom Remote Zugriffs Server vom Internet getrennt ist.  
   
-Computer in jedem Subnetz eine Verbindung herstellen, entweder mit einem physischen oder virtuellen Hub oder Switch, wie in der folgenden Abbildung dargestellt.  
+Computer in jedem Subnetz stellen eine Verbindung entweder über einen physischen oder einen virtuellen Hub oder Switch her, wie in der folgenden Abbildung dargestellt.  
   
 ![Übersicht über die Testumgebung](../../../media/Overview-of-the-Test-Lab-Scenario_5/TLG_DA_Cluster.png)  
   

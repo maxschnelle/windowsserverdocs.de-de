@@ -1,44 +1,44 @@
 ---
-title: Deaktivieren der NAS-Notification-Weiterleitung auf dem Netzwerkrichtlinienserver
-description: Dieses Thema enthält Anweisungen zum Konfigurieren des Netzwerkrichtlinienservers gleichzeitiger Authentifizierungen in Windows Server 2016.
+title: Deaktivieren der NAS-Benachrichtigungs Weiterleitung in NPS
+description: Dieses Thema enthält Anweisungen zum Konfigurieren der gleichzeitigen Authentifizierungen von Netzwerk Richtlinien Servern in Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: a09bfb03-95fc-4534-bf3c-97078ef6b07e
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: bc4c6afdcb02eb2bbab1f0373a5b3a28236269bf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b8ae0ab02a5c14675d543087f635d53ee63e0423
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882261"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71396253"
 ---
-# <a name="disable-nas-notification-forwarding-in-nps"></a>Deaktivieren der NAS-Notification-Weiterleitung auf dem Netzwerkrichtlinienserver
+# <a name="disable-nas-notification-forwarding-in-nps"></a>Deaktivieren der NAS-Benachrichtigungs Weiterleitung in NPS
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können dieses Verfahren verwenden, deaktivieren die Weiterleitung von starten und Beenden von Nachrichten von Netzwerkzugriffsservern (NAS) für Mitglieder einer remote-RADIUS-Servergruppe auf dem Netzwerkrichtlinienserver so konfiguriert.
+Mithilfe dieses Verfahrens können Sie die Weiterleitung von Nachrichten zum Starten und Abbrechen von Netzwerk Zugriffs Servern (nass) an Mitglieder einer Remote-RADIUS-Server Gruppe deaktivieren, die in NPS konfiguriert ist.
 
-Wenn Sie RADIUS-Remoteservergruppen konfiguriert haben und auf dem Netzwerkrichtlinienserver **Verbindungsanforderungsrichtlinien**, Sie deaktivieren die **kontoführungsanforderungen an diese remote-RADIUS-Servergruppe weiterleiten** Kontrollkästchen, um diese Gruppen sind weiterhin gesendeten NAS starten und Beenden von benachrichtigungsmeldungen. 
+Wenn Sie Remote-RADIUS-Server Gruppen konfiguriert haben und Sie in NPS- **Verbindungs Anforderungs Richtlinien**das Kontrollkästchen **Buchhaltungs Anforderungen an diese Remote-RADIUS-Server Gruppe weiterleiten** deaktivieren, werden diese Gruppen weiterhin von der NAS-Start-und-beenden-Benachrichtigung gesendet. Nachrichten. 
 
-Dadurch wird die unnötigen Netzwerkdatenverkehr erstellt. Um diesen Datenverkehr zu vermeiden, deaktivieren Sie NAS-Benachrichtigung, die für einzelne Server an jeden RADIUS-Remoteservergruppe weiterleiten.
+Dadurch wird unnötiger Netzwerk Datenverkehr erstellt. Deaktivieren Sie die NAS-Benachrichtigungs Weiterleitung für einzelne Server in jeder RADIUS-Remote Server Gruppe, um diesen Datenverkehr auszuschließen.
 
 Sie müssen Mitglied der Gruppe **Administratoren** sein, um diesen Vorgang auszuführen.
 
-### <a name="to-disable-nas-notification-forwarding"></a>So deaktivieren Sie die Weiterleitung von NAS-Benachrichtigung
+### <a name="to-disable-nas-notification-forwarding"></a>Deaktivieren der NAS-Benachrichtigungs Weiterleitung
 
-1. Klicken Sie im Server-Manager **Tools**, und klicken Sie dann auf **Netzwerkrichtlinienserver**. Die NPS-Konsole wird geöffnet.
+1. Klicken Sie in Server-Manager **auf Extras, und**klicken Sie dann auf **Netzwerk Richtlinien Server**. Die NPS-Konsole wird geöffnet.
 
-2. Doppelklicken Sie in der NPS-Konsole auf **RADIUS-Clients und Servern**, klicken Sie auf **RADIUS-Remoteservergruppen**, und doppelklicken Sie dann auf die remote-RADIUS-Servergruppe, die Sie konfigurieren möchten. Der RADIUS-Remoteservergruppe **Eigenschaften** Dialogfeld wird geöffnet.
+2. Doppelklicken Sie in der NPS-Konsole auf **RADIUS-Clients und-Server**, klicken Sie auf Remote-RADIUS- **Server Gruppen**, und doppelklicken Sie dann auf die Remote-RADIUS-Server Gruppe, die Sie konfigurieren möchten. Das Dialogfeld Remote-RADIUS-Server Gruppen **Eigenschaften** wird geöffnet.
 
-3. Doppelklicken Sie auf das Mitglied der Gruppe, die Sie konfigurieren möchten, und klicken Sie dann auf die **Authentifizierung/Kontoführung** Registerkarte.
+3. Doppelklicken Sie auf das Gruppenmitglied, das Sie konfigurieren möchten, und klicken Sie dann auf die Registerkarte **Authentifizierung/Buchhaltung** .
 
-4. In **Accounting**Deaktivieren der **weiterleiten Network Access Server starten und Beenden von Benachrichtigungen an diesen Server** , und klicken Sie dann auf **OK**.
+4. Deaktivieren Sie in der **Buchhaltung**das Kontrollkästchen **Netzwerk Zugriffs Server-Benachrichtigungen an diesen Server starten und beenden** , und klicken Sie dann auf **OK**.
 
 5. Wiederholen Sie die Schritte 3 und 4 für alle Mitglieder der Gruppe, die Sie konfigurieren möchten.
 
-Weitere Informationen zum Verwalten von NPS finden Sie unter [Verwalten des Netzwerkrichtlinienservers](nps-manage-top.md).
+Weitere Informationen zum Verwalten von NPS finden Sie unter [Verwalten des Netzwerk Richtlinien Servers](nps-manage-top.md).
 
-Weitere Informationen zu NPS finden Sie unter [(Network Policy Server, NPS)](nps-top.md).
+Weitere Informationen zu NPS finden Sie unter [Netzwerk Richtlinien Server (Network Policy Server, NPS)](nps-top.md).

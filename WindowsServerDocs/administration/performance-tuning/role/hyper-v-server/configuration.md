@@ -1,18 +1,18 @@
 ---
 title: Hyper-V – Konfiguration
 description: Überlegungen zur Hyper-V-Konfiguration für die Leistungsoptimierung
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 0c608d3762c45a0b1478bcb3303159feef963291
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: f21115265ca7d2788fc0be078860048602d82c0f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866621"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370156"
 ---
 # <a name="hyper-v-configuration"></a>Hyper-V – Konfiguration
 
@@ -76,11 +76,11 @@ Hyper-V veröffentlicht Leistungsindikatoren, um das Verhalten des virtualisieru
 
 Die CPU-Auslastung des physischen Systems sollte immer mithilfe der Leistungsindikatoren für den logischen Hyper-V-Hypervisor-Prozessor gemessen werden. Die CPU-Auslastungs Indikatoren, die der Task Manager und der System Monitor in den Stamm-und untergeordneten Partitionen melden, entsprechen nicht der tatsächlichen physischen CPU-Auslastung. Verwenden Sie die folgenden Leistungsindikatoren, um die Leistung zu überwachen:
 
-- **Logischer Hyper-V-Hypervisor-\*Prozessor\\()% Gesamtlaufzeit** die gesamte nicht im Leerlauf befindliche Zeit der logischen Prozessoren
+- **Logischer Hyper-V-Hypervisor-Prozessor (\*) \\% Gesamtlaufzeit** Die Gesamtdauer der logischen Prozessoren, die nicht im Leerlauf ist.
 
-- **Logischer Hyper-V-Hypervisor-\*Prozessor\\()% Gast Laufzeit Zeit** für das Ausführen von Zyklen innerhalb eines Gast Betriebssystems oder innerhalb des Hosts
+- **Logischer Hyper-V-Hypervisor-Prozessor (\*) \\% Gast Laufzeit** Die Zeit, die für das Ausführen von Zyklen in einem Gast oder innerhalb des Hosts aufgewendet wurde
 
-- **Logischer Hyper-V-Hypervisor-\*Prozessor\\()% Hypervisor Laufzeit** die Zeit, die für die Ausführung im Hypervisor aufgewendet wurde
+- **Logischer Hyper-V-Hypervisor-Prozessor (\*) \\% Hypervisor-Laufzeit** Die Zeit, die für die Ausführung im Hypervisor aufgewendet wurde.
 
 - **Virtueller Hyper-V-Hypervisor-Stamm\*Prozessor\\()\\** * misst die CPU-Auslastung der Stamm Partition.
 

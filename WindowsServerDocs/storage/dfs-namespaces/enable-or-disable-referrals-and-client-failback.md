@@ -2,22 +2,22 @@
 title: Erlauben oder Verhindern von Verweisen und Clientfailbacks
 description: Dieser Artikel beschreibt, wie Sie Verweise und Clientfailbacks aktivieren oder deaktivieren.
 ms.date: 6/5/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 20ac61f86ede938efd574fc6a048775437a51211
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e7dd11b530c61e2536db425d3e85e0fbe458d349
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835021"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386222"
 ---
 # <a name="enable-or-disable-referrals-and-client-failback"></a>Erlauben oder Verhindern von Verweisen und Clientfailbacks
 
-> Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2, WindowsServer 2008
+> Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
 Bei einem Verweis handelt es sich um eine sortierte Liste mit Servern, die ein Clientcomputer von einem Domänencontroller oder Namespaceserver erhält, wenn der Benutzer auf einen Namespacestamm oder DFS-Ordner mit Zielen zugreift. Nach Eingang des Verweises auf dem Computer wird versucht, auf den ersten Server in der Liste zuzugreifen. Ist der Server nicht verfügbar, wird vom Clientcomputer versucht, auf den nächsten Server zuzugreifen. Wenn ein Server nicht mehr verfügbar ist, können Sie Clients so konfigurieren, dass ein Failback zum bevorzugten Server ausgeführt wird, nachdem er wieder verfügbar ist.
 
@@ -39,11 +39,11 @@ Durch Deaktivieren eines Namespaceservers oder eines Verweises für ein Ordnerzi
 
 
 > [!TIP]
-> Verwenden Sie zum Aktivieren oder deaktivieren Sie Verweise mithilfe von Windows PowerShell, die [Set-DfsnRootTarget – Status](https://technet.microsoft.com/library/jj884266.aspx) oder [Set-DfsnServerConfiguration](https://technet.microsoft.com/library/jj884277.aspx) -Cmdlets, die in Windows Server 2012 eingeführt wurden.
+> Um Verweise mithilfe von Windows PowerShell zu aktivieren oder zu deaktivieren, verwenden Sie die Cmdlets " [Set-dfsnroottarget – State](https://technet.microsoft.com/library/jj884266.aspx) " oder " [Set-dfsnserverconfiguration](https://technet.microsoft.com/library/jj884277.aspx) ", die in Windows Server 2012 eingeführt wurden.
 
 ## <a name="enable-client-failback"></a>Clientfailback aktivieren
 
-Wenn ein Ziel nicht mehr verfügbar ist, können Sie Clients so konfigurieren, dass ein Failback zu dem Ziel ausgeführt wird, nachdem es wiederhergestellt wurde. Für das Failback funktioniert müssen Clientcomputer, auf die im folgenden Thema aufgeführten Anforderungen erfüllen: [Überprüfen Sie die DFS-Namespaces-Clientanforderungen](https://technet.microsoft.com/library/cc771913(v=ws.11).aspx).
+Wenn ein Ziel nicht mehr verfügbar ist, können Sie Clients so konfigurieren, dass ein Failback zu dem Ziel ausgeführt wird, nachdem es wiederhergestellt wurde. Damit das Failback funktioniert, müssen die Client Computer die im folgenden Thema aufgeführten Anforderungen erfüllen: [Überprüfen Sie die Client Anforderungen für DFS-Namespaces](https://technet.microsoft.com/library/cc771913(v=ws.11).aspx).
 
 
 > [!NOTE]
@@ -71,5 +71,5 @@ Ordner mit Zielen erben die Clientfailbackeinstellungen des Namespacestamms. Wen
 ## <a name="see-also"></a>Siehe auch 
 
 -   [Optimieren von DFS-Namespaces](tuning-dfs-namespaces.md)
--   [Überprüfen von Clientanforderungen für DFS-Namespaces](https://technet.microsoft.com/library/cc771913(v=ws.11).aspx)
+-   [Überprüfen von Client Anforderungen für DFS-Namespaces](https://technet.microsoft.com/library/cc771913(v=ws.11).aspx)
 -   [Delegieren von Verwaltungsberechtigungen für DFS-Namespaces](delegate-management-permissions-for-dfs-namespaces.md)

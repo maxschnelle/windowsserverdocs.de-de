@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getfilestotal
-description: Windows-Befehle Thema **Bitsadmin Getfilestotal** -Ruft die Anzahl der Dateien in den angegebenen Auftrag ab.
+description: 'Windows-Befehls Thema für **bizadmin getfilestotal** : Ruft die Anzahl der Dateien im angegebenen Auftrag ab.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b5f6d32b3410b182c510cf40b9def5370efafdc4
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 27cf04e8745aeab5cd1f2ce379c8506be642fea2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435118"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381613"
 ---
 # <a name="bitsadmin-getfilestotal"></a>bitsadmin getfilestotal
 
 
 
-Ruft die Anzahl der Dateien in den angegebenen Auftrag ab.
+Ruft die Anzahl der Dateien im angegebenen Auftrag ab.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,15 +36,15 @@ bitsadmin /GetFilesTotal <Job>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
+|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Das folgende Beispiel ruft die Anzahl der Dateien, die im Auftrag enthaltenen *MyDownloadJob*.
+Im folgenden Beispiel wird die Anzahl der Dateien abgerufen, die im Auftrag mit dem Namen *mydownloadjob*enthalten sind.
 ```
 C:\>bitsadmin /GetFilesTotal myDownloadJob
 ```
 
 # #
 
-[Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md) Siehe auch
+[Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md) Siehe auch

@@ -1,8 +1,8 @@
 ---
-title: Dfsdiag TestDFSConfig
-description: 'Windows-Befehle Thema ***- '
+title: Dfsdiag testdfsconfig
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,30 +13,30 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 922b78b87f3bb66765b87348a3bf136e14c9e837
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 8008e02d588edaa6fe7700a331c43f9680d89431
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436133"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378421"
 ---
-# <a name="dfsdiag-testdfsconfig"></a>Dfsdiag TestDFSConfig
+# <a name="dfsdiag-testdfsconfig"></a>Dfsdiag testdfsconfig
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Überprüft die Konfiguration eines verteilten Dateisystems \(DFS\) Namespace fest, indem Sie die folgenden Aktionen ausführen:  
+Überprüft die Konfiguration einer verteiltes Dateisystem \(dfs @ no__t-1-Namespace, indem die folgenden Aktionen durchgeführt werden:  
   
--   überprüft, ob der DFS-Namespace-Dienst ausgeführt wird und der Starttyp auf automatisch auf allen Namespaceservern festgelegt ist.  
+-   überprüft, ob der DFS-Namespace-Dienst ausgeführt wird und ob der Starttyp auf allen Namespace Servern auf "automatisch" festgelegt ist.  
   
--   überprüft, ob die Konfiguration der DFS-Registrierung von Namespaceserver ist.  
+-   mit dieser Option wird überprüft, ob die Konfiguration der DFS-Registrierung zwischen den Namespace Servern konsistent ist.  
   
--   Überprüft die folgenden Abhängigkeiten auf gruppierten Namespaceserver, die WindowsServer 2008 oder höher ausgeführt werden:  
+-   Überprüft die folgenden Abhängigkeiten auf gruppierten Namespace Servern, auf denen Windows Server 2008 oder höher ausgeführt wird:  
   
-    -   Namespace der Stamm-adressabhängigkeit auf Netzwerk-Namensressource.  
+    -   Namespace-Stamm Ressourcenabhängigkeit von Netzwerknamen Ressource.  
   
-    -   Network Name Ressource Abhängigkeit von IP-Adressressource.  
+    -   Netzwerknamen Ressourcenabhängigkeit von IP-Adress Ressource.  
   
-    -   Namespace der Stamm-adressabhängigkeit auf physikalischen Datenträgerressource.  
+    -   Namespace-Stamm Ressourcenabhängigkeit von physischer Datenträger Ressource.  
   
   
   
@@ -50,19 +50,19 @@ dfsdiag /TestDFSConfig /DFSRoot:<namespace>
   
 |       Parameter       |               Beschreibung               |
 |-----------------------|-----------------------------------------|
-| \/DFSRoot:<namespace> | Der Namespace \(DFS-Stamms\) zu diagnostizieren. |
+| \/dfsroot: <namespace> | Der Namespace \(dfs-Stamm @ no__t-1 für die Diagnose. |
   
-## <a name="BKMK_Examples"></a>Beispiele für  
-Geben Sie um noch festzulegen ein:  
+## <a name="BKMK_Examples"></a>Beispiele  
+Geben Sie in TBD Folgendes ein:  
   
 ```  
 dfsdiag /TestDFSConfig /DFSRoot:\\Contoso.com\MyNamespace  
 ```  
   
-## <a name="additional-references"></a>Zusätzliche Referenzen  
+## <a name="additional-references"></a>Weitere Verweise  
   
 -   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
--   [dfsdiag](dfsdiag.md)  
+-   [Dfsdiag](dfsdiag.md)  
   
 
