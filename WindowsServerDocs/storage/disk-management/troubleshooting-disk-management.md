@@ -2,18 +2,18 @@
 title: 'Datenträgerverwaltung: Problembehandlung'
 description: In diesem Artikel erfährst du, wie du Probleme bei der Datenträgerverwaltung behandelst.
 ms.date: 06/07/2019
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 4d9448cc642ef522fa129dcfe97e2286f16bad1b
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: d801b051918c090257a466ab58c200943487b2e8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66812541"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402164"
 ---
 # <a name="troubleshooting-disk-management"></a>Datenträgerverwaltung: Problembehandlung
 
@@ -110,9 +110,9 @@ Wenn der Datenträgerstatus **Offline** lautet und sich der Name des Datenträge
 1. Klicke in der Datenträgerverwaltung mit der rechten Maustaste auf den Datenträger, und klicke anschließend auf **Datenträger reaktivieren**, um den Datenträger wieder online zu schalten. Falls der Datenträgerstatus weiterhin **Offline** lautet, überprüfe die Kabel und den Datenträgercontroller, und vergewissere dich, dass der physische Datenträger fehlerfrei ist. Behebe alle Probleme, und versuche dann erneut, den Datenträger zu reaktivieren. Ist die Reaktivierung des Datenträgers erfolgreich, sollten alle Volumes auf dem Datenträger automatisch wieder den Status **Fehlerfrei** haben.
 2. Überprüfe die Ereignisprotokolle in der Ereignisanzeige auf datenträgerbezogene Fehler wie etwa „No good config copies“ (Keine geeigneten Konfigurationskopien vorhanden). Sollte das Ereignisprotokoll diesen Fehler enthalten, wende dich an den [Microsoft-Produktsupport](https://msdn.microsoft.com/library/aa263468(v=vs.60).aspx).
 
-3. Teste den Datenträger an einem anderen Computer. Lässt sich der Datenträger an einem anderen Computer **** online schalten, ist das Problem mit hoher Wahrscheinlichkeit auf die Konfiguration des Computers zurückzuführen, auf dem sich der Datenträger nicht **** online schalten lässt.
+3. Teste den Datenträger an einem anderen Computer. Lässt sich der Datenträger an einem anderen Computer **online** schalten, ist das Problem mit hoher Wahrscheinlichkeit auf die Konfiguration des Computers zurückzuführen, auf dem sich der Datenträger nicht **online** schalten lässt.
 
-4. Teste den Datenträger an einem anderen Computer mit dynamischen Datenträgern. Importiere den Datenträger auf diesem Computer, und verschiebe ihn anschließend wieder auf den Computer, auf dem er sich nicht **** online schalten ließ. 
+4. Teste den Datenträger an einem anderen Computer mit dynamischen Datenträgern. Importiere den Datenträger auf diesem Computer, und verschiebe ihn anschließend wieder auf den Computer, auf dem er sich nicht **online** schalten ließ. 
 
 ## <a name="a-basic-or-dynamic-volumes-status-is-failed"></a>Der Status einer Basisvolumes oder eines dynamischen Volumes lautet „Fehlerhaft“.
 
@@ -127,7 +127,7 @@ Wenn es sich bei dem Volume um eine Basisvolume mit dem Status **Fehlerhaft** ha
 
 Wenn es sich bei dem Volume um ein dynamisches Volume mit dem Status **Fehlerhaft** handelt:
 
--   Vergewissere dich, dass die zugrunde liegenden Datenträger online sind. Falls nicht, schalte die Datenträger wieder **** online. Daraufhin sollte das Volume automatisch neu starten und wieder den Status **Fehlerfrei** haben. Falls der dynamische Datenträger wieder den Status **Online** hat, das dynamische Volume aber nicht zum Status **Fehlerfrei** zurückkehrt, können Sie das Volume manuell reaktivieren.
+-   Vergewissere dich, dass die zugrunde liegenden Datenträger online sind. Falls nicht, schalte die Datenträger wieder **online**. Daraufhin sollte das Volume automatisch neu starten und wieder den Status **Fehlerfrei** haben. Falls der dynamische Datenträger wieder den Status **Online** hat, das dynamische Volume aber nicht zum Status **Fehlerfrei** zurückkehrt, können Sie das Volume manuell reaktivieren.
 -   Wenn das dynamische Volume ein gespiegeltes Volume oder ein RAID-5-Volume mit veralteten Daten ist, wird das Volume nicht automatisch neu gestartet, wenn der zugrunde liegende Datenträger wieder online geschaltet wird. Wurde die Verbindung mit den Datenträgern getrennt, die über aktuelle Daten verfügen, müssen diese Datenträger zuerst online geschaltet werden, damit die Daten synchronisiert werden können. Starte andernfalls das gespiegelte Volume bzw. das RAID-5-Volume manuell neu, und führe dann das Fehlerüberprüfungstool oder „Chkdsk.exe“ aus.
 - Probiere die unter [Ein Datenträger hat den Status „Nicht initialisiert“, oder der Datenträger fehlt.](#a-disks-status-is-not-initialized-or-the-disk-is-missing) beschriebenen Problembehandlungsschritte aus.
 

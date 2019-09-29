@@ -2,18 +2,18 @@
 title: Initialisieren neuer Datenträger
 description: Hier erfährst du, wie du neue Datenträger mit der Datenträgerverwaltung initialisierst und damit für die Verwendung vorbereitest. Darüber hinaus findest du hier Links zur Problembehandlung.
 ms.date: 06/07/2019
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 7a275c372e1486b26821f797a7663eecbc3e8784
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: b38fd0b88cea3fcc386959c08af1169302ddaa1c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66812429"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385897"
 ---
 # <a name="initialize-new-disks"></a>Initialisieren neuer Datenträger
 
@@ -22,7 +22,7 @@ ms.locfileid: "66812429"
 Wenn du einen ganz neuen Datenträger zu deinem PC hinzufügst und er nicht im Datei-Explorer angezeigt wird, musst du unter Umständen einen [Laufwerkbuchstaben hinzufügen](change-a-drive-letter.md) oder den Datenträger vor der Verwendung initialisieren. Du kannst nur ein noch nicht formatiertes Laufwerk initialisieren. Beim Initialisieren eines Datenträgers werden alle darauf gespeicherten Daten gelöscht, und der Datenträger wird für die Verwendung durch Windows vorbereitet. Anschließend kannst du ihn formatieren und Dateien darauf speichern.
 
 > [!WARNING]
-> Enthält dein Datenträger bereits wichtige Dateien, solltest du ihn nicht initialisieren. Andernfalls gehen alle Dateien verloren. Stattdessen wird die Ausführung der Problembehandlung für den Datenträger empfohlen, um zu überprüfen, ob die Dateien gelesen werden können. Informationen dazu findest du unter [Ein Datenträger hat den Status „Nicht initialisiert“, oder der Datenträger fehlt.](troubleshooting-disk-management.md#a-disks-status-is-not-initialized-or-the-disk-is-missing).
+> Enthält dein Datenträger bereits wichtige Dateien, solltest du ihn nicht initialisieren. Andernfalls gehen alle Dateien verloren. Stattdessen wird die Ausführung der Problembehandlung für den Datenträger empfohlen, um zu überprüfen, ob die Dateien gelesen werden können. Informationen dazu findest du unter [Ein Datenträger hat den Status „Nicht initialisiert“, oder der Datenträger fehlt](troubleshooting-disk-management.md#a-disks-status-is-not-initialized-or-the-disk-is-missing).
 
 ## <a name="to-initialize-new-disks"></a>So initialisierst du neue Datenträger
 
