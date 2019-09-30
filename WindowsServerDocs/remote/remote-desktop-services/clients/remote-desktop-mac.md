@@ -2,7 +2,7 @@
 title: Erste Schritte mit dem macOS-Client
 description: Informationen zum Einrichten des Remotedesktopclients für Mac
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 8836ab500e97b68efbcdd0cd1ca5bcbe39d79334
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 1512589315489f5bc351ff105a56694e0947463b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70150929"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404132"
 ---
 # <a name="get-started-with-the-macos-client"></a>Erste Schritte mit dem macOS-Client
 

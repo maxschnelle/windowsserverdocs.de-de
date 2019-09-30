@@ -1,7 +1,7 @@
 ---
 title: Bereitstellen einer Remotedesktop-Umgebung
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 description: Grundlegende Schritte zur Bereitstellung einer Remotedesktop-Umgebung.
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 5b9ce1bb87a7a2ad8819235edc412fd095bc2985
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: e00be471b2607ad4bc8cc8e11652d428419b4fd6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66805131"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404015"
 ---
 # <a name="deploy-your-remote-desktop-environment"></a>Bereitstellen einer Remotedesktop-Umgebung
 
@@ -46,7 +46,7 @@ Wenn Sie virtuelle Computer für einen der Remotedesktopdienste-Server verwenden
 4.  Aktivieren Sie den RD-Lizenzserver, und fügen Sie ihn der Gruppe „Lizenzserver“ hinzu:  
     1.  Klicken Sie im Server-Manager auf **Tools > Terminaldienste > Remotedesktoplizenzierungs-Manager**.  
     2.  Wählen Sie im RD-Lizenzierungs-Manager den Server aus, und klicken Sie dann auf **Aktion > Server aktivieren**.  
-    3.  Übernehmen Sie die Standardwerte im Assistenten zum Aktivieren des Servers, der die Standardwerte akzeptiert, bis Sie die Seite **Unternehmensinformationen** erreichen. Geben Sie dann die Daten zu Ihrem Unternehmen ein.  
+    3.  Übernehmen Sie die Standardwerte im Serveraktivierungs-Assistenten. Fahren Sie mit dem Übernehmen der Standardwerte fort, bis Sie zur Seite **Unternehmensinformationen** gelangen. Geben Sie dann die Daten zu Ihrem Unternehmen ein.  
     4.  Akzeptieren Sie die Standardwerte für die restlichen Seiten bis zur letzten Seite. Deaktivieren Sie die Option **Assistent für die Lizenzinstallation starten**, und klicken Sie dann auf **Fertig stellen**.  
     5.  Klicken Sie auf **Aktion > Konfiguration prüfen > Zu Gruppe hinzufügen > OK**. Geben Sie die Anmeldeinformationen für einen Benutzer in der Gruppe der AAD DC-Administratoren ein, und registrieren Sie ihn als SCP. Dieser Schritt funktioniert möglicherweise nicht, wenn Sie Azure AD Domain Services verwenden, aber Sie können alle Warnungen oder Fehler ignorieren.  
 5.  Fügen Sie den RD-Gateway-Server und den Zertifikatsnamen hinzu:  

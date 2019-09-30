@@ -2,7 +2,7 @@
 title: Erste Schritte mit dem Windows-Desktopclient
 description: Grundlegende Informationen zum Windows-Desktopclient.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 09/13/2019
+ms.date: 09/24/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: c864ba0e51054a553bfd53f845bd4d1c9ff3c8ba
-ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
+ms.openlocfilehash: 961d636fb59b33d0c562ec25d13174abbe766606
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70988238"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404081"
 ---
 # <a name="get-started-with-the-windows-desktop-client"></a>Erste Schritte mit dem Windows-Desktopclient
 
@@ -39,7 +39,18 @@ Derzeit kannst du den Client für Windows 64-Bit herunterladen. Wir aktualisiere
 
 Du kannst den Client für den aktuellen Benutzer installieren – dafür sind keine Administratorrechte erforderlich –, oder dein Administrator kann den Client installieren und ihn so konfigurieren, dass alle Benutzer des Geräts darauf zugreifen können.
 
-Nach der Installation kann der Client aus dem Startmenü gestartet werden, der Suchbegriff dazu ist **Remotedesktop**.
+Nachdem Du den Client installiert hast, kannst du ihn aus dem Startmenü starten, indem du nach **Remotedesktop** suchst.
+
+## <a name="update-the-client"></a>Update des Clients
+
+Du wirst benachrichtigt, wenn eine neue Version des Clients verfügbar ist, sofern Benachrichtigungen nicht durch deinen Administrator deaktiviert wurden. Die Benachrichtigung wird entweder im Connection Center oder im Windows Info-Center angezeigt. Um deinen Client zu aktualisieren, wähle die Benachrichtigung einfach aus.
+
+Du kannst außerdem manuell nach neuen Updates für den Client suchen:
+
+1. Tippe im Connection Center auf das Überlaufmenü ( **...** ) in der Befehlsleiste am oberen Rand des Clients.
+2. Wähle im Dropdownmenü **Info** aus.
+3. Tippe auf **Nach Updates suchen**.
+4. Wenn ein Update verfügbar ist, tippe auf **Update installieren**, um ein Update des Clients auszuführen.
 
 ## <a name="feeds"></a>Feeds
 
@@ -84,20 +95,30 @@ In diesem Abschnitt erfährst du, wie du das Abonnement eines Feeds beendest. Du
 2. Wähle im Dropdownmenü **Abonnement kündigen** aus.
 3. Überprüfe das Dialogfeld, und wähle **Fortfahren** aus.
 
-## <a name="update-the-client"></a>Update des Clients
+## <a name="managed-desktops"></a>Verwaltete Desktops
 
-Wenn dies nicht von deinem Administrator deaktiviert wurde, wirst du benachrichtigt, wenn eine neue Version des Clients verfügbar ist. Diese Benachrichtigung wird entweder direkt im Connection Center oder im Windows Action Center angezeigt. Wähle die Benachrichtigung aus, um den Updatevorgang zu starten.
+Arbeitsbereiche können mehrere verwaltete Ressourcen enthalten, einschließlich Desktops. Wenn du auf einen verwalteten Desktop zugreifst, hast du Zugriff auf alle Apps, die von deinem Administrator installiert wurden.
 
-Du kannst außerdem manuell nach neuen Updates für den Client suchen:
+### <a name="desktop-settings"></a>Desktopeinstellungen
 
-1. Tippe im Connection Center auf das Überlaufmenü ( **...** ) in der Befehlsleiste am oberen Rand des Clients.
-2. Wähle im Dropdownmenü **Info** aus.
-3. Tippe auf **Nach Updates suchen**.
-4. Wenn ein Update verfügbar ist, tippe auf **Update installieren**, um ein Update des Clients auszuführen.
+Du kannst einige der Einstellungen für Desktopressourcen konfigurieren, um sicherzustellen, dass die Oberfläche deinen Anforderungen entspricht. So greifst du auf die Liste der verfügbaren Einstellungen zu:
 
-## <a name="providing-feedback"></a>Abgeben von Feedback
+1. Klicke im Connection Center mit der rechten Maustaste auf eine Desktopressource.
+2. Wähle im Dropdownmenü **Einstellungen** aus.
+3. Der Bereich „Einstellungen“ wird auf der rechten Seite des Clients mit dem Namen des Desktops angezeigt.
 
-Hast du einen Vorschlag für eine Funktion, oder möchtest du ein Problem melden? Teile es uns über den [Feedback-Hub](feedback-hub://?tabid=2&contextid=883) mit, auf den du auch vom Client aus zugreifen kannst:
+Der Client verwendet die von deinem Administrator konfigurierten Einstellungen, es sei denn, du deaktivierst die Option **Standardeinstellungen verwenden**. Auf diese Weise kannst du die folgenden Optionen konfigurieren:
+
+- **Alle Monitore verwenden** schaltet die Desktopsitzung zwischen der Nutzung aller lokalen Monitore und nur einem Monitor um.
+- **Im Vollbildmodus starten** legt fest, ob die Sitzung im Vollbild- oder im Fenstermodus gestartet wird. Diese Einstellung ist bei Verwendung aller Monitore automatisch aktiviert.
+- **Auflösung beim Ändern der Größe aktualisieren** ändert das Verhalten beim Ändern der Größe im Fenstermodus. Wenn die Option aktiviert ist, wird die Auflösung des Remotedesktops aktualisiert, damit sie mit der Größe des lokalen Fensters übereinstimmt. Bei deaktivierter Option behält die Sitzung die in **Auflösung** angegebene Auflösung für ihre gesamte Dauer bei. Diese Einstellung ist bei Verwendung aller Monitore automatisch aktiviert.
+- In **Auflösung** kannst du die Auflösung des Remotedesktops festlegen. Die Sitzung behält diese Auflösung für ihre gesamte Dauer bei. Diese Einstellung wird automatisch deaktiviert, wenn für die Auflösung Aktualisierung beim Ändern der Größe festgelegt wird.
+- **Größe von Text und Apps ändern** gibt die Größe der Inhalte der Sitzung an. Diese Einstellung gilt nur für Verbindungen mit Windows 8.1 und höher oder Windows Server 2012 R2 und höher. Diese Einstellung wird automatisch deaktiviert, wenn für die Auflösung Aktualisierung beim Ändern der Größe festgelegt wird.
+- **Sitzung an Fenster anpassen** bestimmt, wie die Sitzung angezeigt wird, wenn die Auflösung des Remotedesktops von der Größe des lokalen Fensters abweicht. Wenn die Option aktiviert ist, wird die Größe der Sitzungsinhalte innerhalb des Fensters passend geändert, wobei das Seitenverhältnis der Sitzung beibehalten wird. Ist sie deaktiviert, werden Scrollleisten oder schwarze Bereiche angezeigt, wenn Auflösung und Fenstergröße nicht übereinstimmen.
+
+## <a name="provide-feedback"></a>Feedback bereitstellen
+
+Hast du einen Vorschlag für eine Funktion, oder möchtest du ein Problem melden? Teile uns den Vorschlag über den [Feedback-Hub](feedback-hub://?tabid=2&contextid=883) mit. Du kannst über deinen Client auch auf den Feedback-Hub zugreifen:
 
 1. Tippe im Connection Center auf das Überlaufmenü ( **...** ) in der Befehlsleiste am oberen Rand des Clients.
 2. Wähle im Dropdownmenü **Feedback** aus, um den Feedback-Hub zu öffnen.
