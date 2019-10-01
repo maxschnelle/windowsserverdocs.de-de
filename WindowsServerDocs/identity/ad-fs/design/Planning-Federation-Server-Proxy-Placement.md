@@ -37,7 +37,7 @@ Nachdem Sie alle Informationen gesammelt haben, die Sie zum Entwerfen Ihrer Acti
 > [!NOTE]  
 > Diese Informationen helfen Ihnen zwar möglicherweise bei ihrer Platzierungs Planung für Verbund Server Proxys, es wird jedoch nicht erläutert, wie die richtige Anzahl von Proxys und die Proxy Hardwareanforderungen für die einzelnen AD FS Entwürfe bestimmt werden.  
   
-Beispiele für das Platzieren eines Verbund Server Proxys in einem der beiden primären AD FS-Entwurfs Szenarien finden Sie unter [Mapping your Deployment Ziele to a AD FS Design](Mapping-Your-Deployment-Goals-to-an-AD-FS-Design.md).  
+Beispiele für das Platzieren eines Verbund Server Proxys in einem der beiden primären AD FS-Entwurfs Szenarien finden Sie unter [Zuordnen der Bereitstellungsziele zu einem AD FS-Entwurf](Mapping-Your-Deployment-Goals-to-an-AD-FS-Design.md).  
 
 ## <a name="see-also"></a>Siehe auch
 [AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
