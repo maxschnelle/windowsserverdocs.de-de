@@ -37,7 +37,7 @@ Die wichtigste Komponente einer Active Directory-Verbunddienste (AD FS) \(ad FS 
 > [!NOTE]  
 > Diese Informationen helfen Ihnen zwar möglicherweise bei ihrer Platzierungs Planung für Verbund Server, aber es wird nicht erläutert, wie die richtige Anzahl von Verbund Servern und die Hardwareanforderungen für die einzelnen AD FS Entwürfe bestimmt werden.  
   
-Beispiele für die Platzierung eines Verbund Servers in einem der beiden primären AD FS Entwurfs Szenarien finden [Sie unter Mapping your Deployment Ziele to a AD FS Design](Mapping-Your-Deployment-Goals-to-an-AD-FS-Design.md).  
+Beispiele für die Platzierung eines Verbund Servers in einem der beiden primären AD FS Entwurfs Szenarien finden [Zuordnen der Bereitstellungsziele zu einem AD FS-Entwurf](Mapping-Your-Deployment-Goals-to-an-AD-FS-Design.md).  
   
 ## <a name="see-also"></a>Siehe auch
 [AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

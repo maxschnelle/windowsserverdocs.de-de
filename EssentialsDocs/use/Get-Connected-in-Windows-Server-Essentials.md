@@ -90,7 +90,7 @@ ms.locfileid: "70866937"
 -   Die Installation von Windows Server Essentials muss abgeschlossen sein und der Server ausgeführt werden. Die Connector-Software beendet die Installation, wenn sie nicht mit dem Server kommunizieren kann.  
 
 
--   Auf dem Clientcomputer wird ein unterstütztes Betriebssystem ausgeführt. Weitere Informationen finden Sie unter [Supported operating systems for client computers](Get-Connected-in-Windows-Server-Essentials.md#BKMK_4).
+-   Auf dem Clientcomputer wird ein unterstütztes Betriebssystem ausgeführt. Weitere Informationen finden Sie unter [Unterstützte Betriebssysteme für Client Computer](Get-Connected-in-Windows-Server-Essentials.md#BKMK_4).
 
 
 -   Der Clientcomputer hat eine gültige Verbindung mit dem Internet.  
@@ -123,11 +123,11 @@ ms.locfileid: "70866937"
 > 
 >  In einer lokalen Client Bereitstellung für Windows Server Essentials oder Windows Server Essentials können Sie Computer mit dem Server verbinden, ohne Sie zur Windows Server Essentials-Domäne hinzuzufügen. Diese Methode ist nicht für alle unterstützten Clientbetriebssysteme verfügbar und Features wie Gruppenrichtlinien und virtuelle private Netzwerke (VPN), die erfordern, dass ein Computer mit der Domäne verbunden ist, sind in diesem Fall ebenfalls nicht verfügbar. Anforderungen und Anleitungen finden Sie unter [Verbinden von Computern mit einem Windows Server Essentials-Server, ohne der Domäne beizutreten](Get-Connected-in-Windows-Server-Essentials.md#BKMK_10).  
 
- Schrittweise Anleitungen zum Verbinden eines Computers mit einem Server mit Windows Server Essentials finden Sie unter [Connect computers to the server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
+ Schrittweise Anleitungen zum Verbinden eines Computers mit einem Server mit Windows Server Essentials finden Sie unter [Verbinden von Computern mit dem Server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
 
 >  In einer lokalen Client Bereitstellung für Windows Server Essentials oder Windows Server Essentials können Sie Computer mit dem Server verbinden, ohne Sie zur Windows Server Essentials-Domäne hinzuzufügen. Diese Methode ist nicht für alle unterstützten Clientbetriebssysteme verfügbar und Features wie Gruppenrichtlinien und virtuelle private Netzwerke (VPN), die erfordern, dass ein Computer mit der Domäne verbunden ist, sind in diesem Fall ebenfalls nicht verfügbar. Anforderungen und Anleitungen finden Sie unter [Verbinden von Computern mit einem Windows Server Essentials-Server, ohne der Domäne beizutreten](Get-Connected-in-Windows-Server-Essentials.md#BKMK_10).  
 
- Schrittweise Anleitungen zum Verbinden eines Computers mit einem Server mit Windows Server Essentials finden Sie unter [Connect computers to the server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
+ Schrittweise Anleitungen zum Verbinden eines Computers mit einem Server mit Windows Server Essentials finden Sie unter [Verbinden von Computern mit dem Server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
 
 
 ###  <a name="BKMK_3"></a>Voraussetzungen zum Verbinden eines Mac-Computers mit dem Netzwerk  
@@ -483,7 +483,7 @@ ms.locfileid: "70866937"
     -    Windows 7 Professional (x86 und x64), Windows 7 Enterprise (x86 und x64), Windows 7 Ultimate (x86 und x64)  
 
 
--   Der Computer muss alle anderen Anforderungen an Clientcomputer in Windows Server Essentials erfüllen. Weitere Informationen finden Sie unter [Prerequisites for connecting a computer to the server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_2).  
+-   Der Computer muss alle anderen Anforderungen an Clientcomputer in Windows Server Essentials erfüllen. Weitere Informationen finden Sie unter [Voraussetzungen zum Verbinden eines Computers mit dem Server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_2).  
 
 
 -   Um eine Verbindung herzustellen, ohne einer Domäne beizutreten, müssen Sie sich auf dem Computer mit einem Konto anmelden, das Mitglied der lokalen Administratorengruppe ist.  
@@ -632,7 +632,7 @@ ms.locfileid: "70866937"
 6.  Warten Sie, bis das Programm deinstalliert ist. Nach dem Entfernen der Software wird **Windows Server Essentials Connector** nicht mehr in der Liste der installierten Programme oder Updates angezeigt. Außerdem werden die Verknüpfungen mit dem Launchpad und dem Dashboard nicht mehr auf dem Desktop des Computers angezeigt.  
 
 > [!NOTE]
-> - Das Deinstallieren der Connector-Software entfernt den Computer jedoch nicht aus der Liste der Computer, die auf der Registerkarte **GERÄTE** des Dashboard angezeigt sind. Informationen zum Entfernen des Computers aus dem Dashboard finden Sie unter [Remove a computer from the server](../manage/Manage-Devices-in-Windows-Server-Essentials.md#BKMK_3).  
+> - Das Deinstallieren der Connector-Software entfernt den Computer jedoch nicht aus der Liste der Computer, die auf der Registerkarte **GERÄTE** des Dashboard angezeigt sind. Informationen zum Entfernen des Computers aus dem Dashboard finden Sie unter [Entfernen eines Computers vom Server](../manage/Manage-Devices-in-Windows-Server-Essentials.md#BKMK_3).  
 >   -   Wenn Sie die Connector-Software deinstallieren, werden die freigegebenen Ordner auf dem Clientcomputer, die dem Server zugeordnet wurden, nicht gelöscht. Sie müssen sie manuell löschen.  
 > 
 > -   Das Deinstallieren der Connector-Software führt nicht dazu, dass der Computer die ursprüngliche Domäne verlässt. Sie müssen den Computer manuell aus der Domäne entfernen. Anweisungen finden Sie unter [Remove a computer from a Windows domain](Get-Connected-in-Windows-Server-Essentials.md#BKMK_8).  
@@ -647,7 +647,7 @@ ms.locfileid: "70866937"
 
 2. Entfernen Sie den Computer aus der Windows Server Essentials-Domäne und fügen Sie ihn der Arbeitsgruppe hinzu. Schrittweise Anleitungen zum Beitreten zu einer Windows-Arbeitsgruppe finden Sie unter [Beitreten zu oder Erstellen von Arbeitsgruppen](https://windows.microsoft.com/windows7/Join-or-create-a-workgroup).  
 
-3. Entfernen Sie den Computer mithilfe des Dashboards vom Server. Schritt-für-Schritt-Anweisungen finden Sie unter [Remove a computer from the server](../manage/Manage-Devices-in-Windows-Server-Essentials.md#BKMK_3).  
+3. Entfernen Sie den Computer mithilfe des Dashboards vom Server. Schritt-für-Schritt-Anweisungen finden Sie unter [Entfernen eines Computers vom Server](../manage/Manage-Devices-in-Windows-Server-Essentials.md#BKMK_3).  
 
    Um einen Computer, der aus dem Windows Server Essentials-Servernetzwerk entfernt wurde, wieder mit dem Server zu verbinden, müssen Sie die folgenden Schritte ausführen:  
 

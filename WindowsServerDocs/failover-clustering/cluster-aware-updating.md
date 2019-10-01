@@ -95,7 +95,7 @@ Sie müssen die Failoverclusteringtools wie folgt installieren, um die verschied
   
 > [!NOTE]  
 > -   Sie können die Failoverclustering-Tools unter Windows Server 2012 nicht verwenden, um das Cluster fähige Update auf einer neueren Version von Windows Server zu verwalten. 
-> -   Die Installation der failoverclusteringtools auf den Cluster Knoten ist nicht erforderlich, um Cau nur im Remote-@ no__t-0update-Modus zu verwenden. Bestimmte CAU-Features sind dann jedoch nicht verfügbar. Weitere Informationen finden Sie unter [Requirements and Best Practices for Cluster @ no__t-1 Aware Update](cluster-aware-updating-requirements.md).  
+> -   Die Installation der failoverclusteringtools auf den Cluster Knoten ist nicht erforderlich, um Cau nur im Remote-@ no__t-0update-Modus zu verwenden. Bestimmte CAU-Features sind dann jedoch nicht verfügbar. Weitere Informationen finden Sie unter [Anforderungen und Best Practices für clusterfähiges Aktualisieren\-](cluster-aware-updating-requirements.md).  
 > -   Wenn Sie Cau nur im Self @ no__t-0update-Modus verwenden, kann der Computer, auf dem die Cau-Tools installiert werden und der die Aktualisierungen koordiniert, kein Mitglied des Failoverclusters sein.  
   
 ### <a name="enabling-self-updating-mode"></a>Aktivieren des selbst Aktualisierungs Modus

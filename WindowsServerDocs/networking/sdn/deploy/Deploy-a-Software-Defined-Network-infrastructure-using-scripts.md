@@ -41,7 +41,7 @@ Beginnen Sie, indem Sie den virtuellen Hyper-v-Switch und die IP-Adresszuweisung
 ### <a name="install-host-networking"></a>Installieren von Host Netzwerken  
 
 1. Installieren Sie die neuesten Netzwerktreiber, die für Ihre NIC-Hardware verfügbar sind.  
-2. Installieren Sie die Hyper-v-Rolle auf allen Hosts (Weitere Informationen finden [Sie unter Get Started with Hyper-v on Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/Get-started-with-Hyper-V-on-Windows).   
+2. Installieren Sie die Hyper-v-Rolle auf allen Hosts (Weitere Informationen finden [Siehe Erste Schritte mit Hyper-v Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/Get-started-with-Hyper-V-on-Windows).   
 
    ```PowerShell
    Install-WindowsFeature -Name Hyper-V -ComputerName <computer_name> -IncludeManagementTools -Restart
