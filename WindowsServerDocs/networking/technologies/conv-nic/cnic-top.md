@@ -56,7 +56,7 @@ Zum Ausführen der Schritte in dieser Anleitung für die konvergierte NIC-Konfig
 - Zwei Server, auf denen Windows Server 2016 Datacenter Edition oder Windows Server 2016 Standard Edition ausgeführt wird.
 - Zwei RDMA-fähige, zertifizierte Netzwerkadapter, die auf jedem Server installiert sind.
 - Auf jedem Server ist die Hyper-V-Server Rolle installiert.
-- Sie müssen mit Switch Embedded Teaming \(set @ no__t-1 vertraut sein. eine Alternative NIC-Team Vorgangs Lösung wird in Umgebungen verwendet, die Hyper-V und den Sdn-Stapel (Software Defined Networking) in Windows Server 2016 enthalten. Set integriert einige NIC-Team Vorgangs Funktionen in den virtuellen Hyper-V-Switch. Weitere Informationen finden Sie unter [Remote Direct Memory Access (RDMA) und Switch Embedded Teaming (Set)](../../../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).
+- Sie müssen mit Switch Embedded Teaming \(set @ no__t-1 vertraut sein. eine Alternative NIC-Team Vorgangs Lösung wird in Umgebungen verwendet, die Hyper-V und den Sdn-Stapel (Software Defined Networking) in Windows Server 2016 enthalten. Set integriert einige NIC-Team Vorgangs Funktionen in den virtuellen Hyper-V-Switch. Weitere Informationen finden Sie unter [Remote Zugriff auf den direkten Speicher rdma  und Switch Embedded Teaming Set ](../../../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).
 
 ## <a name="related-topics"></a>Verwandte Themen
 - [Konvergierte NIC-Konfiguration mit einem einzelnen Netzwerk Adapter](cnic-single.md)

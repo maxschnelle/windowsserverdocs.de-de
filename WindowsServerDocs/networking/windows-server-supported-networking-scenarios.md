@@ -96,7 +96,7 @@ Die Szenarien für die Netzwerkplattform ermöglichen Folgendes:
   
 -   Konfigurieren Sie, um SMB Direct-und RDMA-Daten Verkehrsflüsse zwischen bis zu zwei Netzwerkadaptern zu verteilen.  
   
-Weitere Informationen finden Sie unter [Remote Direct Memory Access &#40;RDMA&#41; und Switch Embedded Teaming &#40;Set&#41;](../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).  
+Weitere Informationen finden Sie unter [Remote Zugriff auf den direkten Speicher rdma  und Switch Embedded Teaming Set ](../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).  
   
 #### <a name="bkmk_switch"></a>Szenarien für virtuelle Hyper-V-Switches
 
