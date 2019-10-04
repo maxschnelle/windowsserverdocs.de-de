@@ -1,21 +1,21 @@
 ---
 ms.assetid: 898d72f1-01e7-4b87-8eb3-a8e0e2e6e6da
 title: Hinzufügen von Servern oder Laufwerken zu „direkten Speicherplätzen“
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: cosdar
 ms.manager: dongill
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 11/06/2017
-description: 'Gewusst wie: Hinzufügen von Servern oder Laufwerke in einem Cluster "direkte Speicherplätze"'
+description: Vorgehensweise beim Hinzufügen von Servern oder Laufwerken zu einem direkte Speicherplätze Cluster
 ms.localizationpriority: medium
-ms.openlocfilehash: ae639b920788911dbc16952d7b61aab85b0a391b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3d5949b8fce7253371ee7ecea5118596f713f037
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833451"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393781"
 ---
 # <a name="adding-servers-or-drives-to-storage-spaces-direct"></a>Hinzufügen von Servern oder Laufwerken zu „direkten Speicherplätzen“
 
@@ -23,15 +23,15 @@ ms.locfileid: "59833451"
 
 In diesem Thema wird beschrieben, wie Sie Server oder Laufwerke zu „direkten Speicherplätzen“ hinzufügen.
 
-## <a name="adding-servers"></a> Hinzufügen von Servern
+## <a name="adding-servers"></a>Hinzufügen von Servern
 
 Das Hinzufügen von Servern wird häufig auch als Skalierung bezeichnet. Es fügt Speicherkapazität hinzu, kann die Speicherleistung verbessern und erhöht die Speichereffizienz. Bei einer hyperkonvergenten Bereitstellung werden durch Hinzufügen von Servern zudem mehr Computing-Ressourcen für Ihren Workload bereitgestellt.
 
-![Animation der Hinzufügen eines Servers in einem Cluster mit vier Knoten](media/add-nodes/Scaling-Out.gif)
+![Animation des Hinzufügens eines Servers zu einem Cluster mit vier Knoten](media/add-nodes/Scaling-Out.gif)
 
 Typische Bereitstellungen lassen sich durch Hinzufügen von Servern ganz einfach horizontal skalieren. Dies erfordert nur zwei Schritte:
 
-1. Führen Sie den [Clusterüberprüfungs-Assistent](https://technet.microsoft.com/library/cc732035(v=ws.10).aspx) mithilfe des Failovercluster-Snap-Ins oder mit dem **Test-Cluster**-Cmdlet in PowerShell aus (als Administrator ausführen). Beziehen Sie den neuen Server *\<NewNode >*, den Sie hinzufügen möchten, darin ein.
+1. Führen Sie den [Clusterüberprüfungs-Assistent](https://technet.microsoft.com/library/cc732035(v=ws.10).aspx) mithilfe des Failovercluster-Snap-Ins oder mit dem **Test-Cluster**-Cmdlet in PowerShell aus (als Administrator ausführen). Beziehen Sie den neuen Server *\<NewNode >* , den Sie hinzufügen möchten, darin ein.
 
    ```PowerShell
    Test-Cluster -Node <Node>, <Node>, <Node>, <NewNode> -Include "Storage Spaces Direct", Inventory, Network, "System Configuration"
@@ -53,7 +53,7 @@ Add-ClusterNode -Name NewNode
 
 ### <a name="from-2-to-3-servers-unlocking-three-way-mirroring"></a>2 bis 3-Server: Drei-Wege-Spiegelung entsperren
 
-![Hinzufügen eines dritten Servers in einen Cluster mit zwei Knoten](media/add-nodes/Scaling-2-to-3.png)
+![Hinzufügen eines dritten Servers zu einem Cluster mit zwei Knoten](media/add-nodes/Scaling-2-to-3.png)
 
 Mit zwei Servern können Sie nur Volumes mit Zwei-Wege-Spiegelung erstellen (vgl. verteiltes RAID-1). Mit drei Servern können Sie Volumes mit Drei-Wege-Spiegelungen für eine bessere Fehlertoleranz erstellen. Es wird empfohlen, wenn möglich, immer die Drei-Wege-Spiegelung zu verwenden.
 
@@ -91,7 +91,7 @@ New-Volume -FriendlyName <Name> -FileSystem CSVFS_ReFS -StoragePoolFriendlyName 
 
 ### <a name="from-3-to-4-servers-unlocking-dual-parity"></a>3 bis 4 Server: duale Parität entsperren
 
-![Hinzufügen eines vierte Servers in einem Cluster mit drei Knoten](media/add-nodes/Scaling-3-to-4.png)
+![Hinzufügen eines vierten Servers zu einem Cluster mit drei Knoten](media/add-nodes/Scaling-3-to-4.png)
 
 Bei vier Servern können Sie „duale“ Parität verwenden, oft auch als „Erasure Coding“ bezeichnet (vgl. verteiltes RAID-6). Dies bietet die gleiche Fehlertoleranz wie die Drei-Wege-Spiegelung, allerdings mit einer verbesserten Speichereffizienz. Weitere Informationen hierzu finden Sie unter [Fehlertoleranz und Speichereffizienz](storage-spaces-fault-tolerance.md).
 
@@ -166,14 +166,14 @@ Wenn Ihre Bereitstellung Gehäuse- oder Rackfehlertoleranz verwendet, müssen Si
 
 3. Fügen Sie den Server zum Cluster hinzu, wie unter [Hinzufügen von Servern](#adding-servers) beschrieben. Wenn der neue Server dem Cluster hinzugefügt wird, wird er automatisch der Platzhalterfehlerdomäne (anhand des Namens) zugeordnet.
 
-## <a name="adding-drives"></a> Hinzufügen von Laufwerken
+## <a name="adding-drives"></a>Laufwerke werden hinzugefügt
 
 Hinzufügen von Laufwerken (auch als zentrales Hochskalieren bezeichnet) fügt Speicherkapazität hinzu und kann die Leistung verbessern. Wenn Sie über freie Steckplätze verfügen, können Sie jedem Server Laufwerke hinzufügen, um die Speicherkapazität zu erweitern, ohne Server hinzuzufügen. Sie können unabhängig voneinander jederzeit Cache- oder Kapazitätslaufwerke hinzufügen.
 
    >[!IMPORTANT]
    > Es wird dringend empfohlen, alle Server mit identischen Speicherkonfigurationen zu konfigurieren.
 
-![Animation: Hinzufügen Laufwerke ein System](media/add-nodes/Scale-Up.gif)
+![Animation zum Hinzufügen von Laufwerken zu einem Sytem](media/add-nodes/Scale-Up.gif)
 
 Zum zentralen Hochskalieren verbinden Sie die Laufwerke, und stellen Sie sicher, dass Windows sie erkennt. Sie sollten in der Ausgabe des **Get-PhysicalDisk** PowerShell-Cmdlets angezeigt werden, dessen **CanPool**-Eigenschaft auf **True** festgelegt ist. Wenn diese als **CanPool = False** angezeigt wird, überprüfen Sie den Grund durch Aktivieren der **CannotPoolReason**-Eigenschaft.
 
@@ -188,19 +188,19 @@ Wenn die Laufwerke nicht angezeigt werden, suchen Sie manuell nach Hardwareände
    >[!NOTE]
    > Das automatische Pooling hängt davon ab, dass Sie über nur einen Pool verfügen. Wenn Sie die Standardkonfiguration zum Erstellen von mehreren Pools umgangen haben, müssen Sie neue Laufwerke selbst mit **Add-PhysicalDisk** zum bevorzugten Pool hinzufügen.
 
-## <a name="optimizing-drive-usage-after-adding-drives-or-servers"></a>Optimieren der laufwerknutzung nach dem Hinzufügen von Laufwerken oder Servern
+## <a name="optimizing-drive-usage-after-adding-drives-or-servers"></a>Optimieren der Laufwerk Nutzung nach dem Hinzufügen von Laufwerken
 
-Im Laufe der Zeit Wenn Laufwerke hinzugefügt oder entfernt, kann die Verteilung der Daten auf den Laufwerken im Pool, ungleichmäßig werden. In einigen Fällen können dadurch auf bestimmten Laufwerken voll sind, während die anderen Laufwerken im Pool viel niedrigeren Speicherverbrauch aufweisen.
+Wenn im Laufe der Zeit Laufwerke hinzugefügt oder entfernt werden, kann die Verteilung der Daten zwischen den Laufwerken im Pool ungleich werden. In einigen Fällen kann dies dazu führen, dass bestimmte Laufwerke voll werden, während andere Laufwerke im Pool einen erheblich geringeren Verbrauch aufweisen.
 
-Damit bleibt der laufwerkzuordnung sogar innerhalb des Pools, optimiert "direkte Speicherplätze" automatisch laufwerksnutzung Nachdem Sie den Pool Laufwerke oder Server hinzugefügt (Dies ist ein manueller Prozess für Speicherplätze-Systeme, die verwenden Shared SAS-Gehäuse). Optimierung wird gestartet, 15 Minuten, nachdem Sie den Pool ein neues Laufwerk hinzugefügt werden. Pool-Optimierung wird als eine Hintergrundoperation mit niedriger Priorität ausgeführt, sodass es Stunden oder Tagen abgeschlossen werden, insbesondere dann, wenn Sie große Festplatten verwenden.
+Um die Laufwerk Zuweisung auch über den Pool hinweg zu gewährleisten, optimiert direkte Speicherplätze automatisch die Laufwerk Verwendung, nachdem Sie dem Pool Laufwerke oder Server hinzugefügt haben (Hierbei handelt es sich um einen manuellen Prozess für Speicherplätze-Systeme, die freigegebene SAS-Gehäuse verwenden). Die Optimierung wird 15 Minuten nach dem Hinzufügen eines neuen Laufwerks zum Pool gestartet. Die Pool Optimierung wird als Hintergrund Vorgang mit niedriger Priorität ausgeführt, sodass es Stunden oder Tage dauern kann, insbesondere, wenn Sie große Festplatten verwenden.
 
-Optimierung verwendet zwei Aufträge – eine mit der Bezeichnung *optimieren* und *ausgleichen* – und Sie können ihren Status mit dem folgenden Befehl überwachen:
+Die Optimierung verwendet zwei Aufträge: eine mit dem Namen " *optimieren* " und eine mit dem Namen " *Rebalance* ". Sie können den Fortschritt mit dem folgenden Befehl überwachen
 
 ```powershell
 Get-StorageJob
 ```
 
-Sie können manuell optimieren, einen Speicherpool mit der [Optimize-StoragePool](https://docs.microsoft.com/powershell/module/storage/optimize-storagepool?view=win10-ps) Cmdlet. Im Folgenden ein Beispiel:
+Sie können einen Speicherpool mithilfe des Cmdlets " [optimieren-storagepool](https://docs.microsoft.com/powershell/module/storage/optimize-storagepool?view=win10-ps) " manuell optimieren. Im Folgenden ein Beispiel:
 
 ```powershell
 Get-StoragePool <PoolName> | Optimize-StoragePool
