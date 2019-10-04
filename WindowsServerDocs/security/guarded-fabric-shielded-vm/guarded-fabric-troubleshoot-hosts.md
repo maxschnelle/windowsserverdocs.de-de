@@ -7,13 +7,13 @@ ms.assetid: 80ea38f4-4de6-4f85-8188-33a63bb1cf81
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.date: 08/29/2018
-ms.openlocfilehash: e2685e33a215d0c5f97fe414b7458371930e862b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 09/25/2019
+ms.openlocfilehash: 0479309efe629d204bdc98fe11a7ccb4447a7369
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386360"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940726"
 ---
 # <a name="troubleshooting-guarded-hosts"></a>Problembehandlung für geschützte Hosts
 
@@ -57,7 +57,6 @@ Tpmerror                  | Der Host konnte den letzten Nachweis Versuch aufgrun
 Unauthorizedhost          | Der Host hat den Nachweis nicht bestanden, weil er nicht zum Ausführen von abgeschirmten VMS autorisiert ist. Stellen Sie sicher, dass der Host zu einer Sicherheitsgruppe gehört, die von HGS als vertrauenswürdig eingestuft wird
 Unbekannt                   | Der Host hat noch nicht versucht, HGS zu bestätigen.
 
-
 Wenn **attestationstatus** als **insecurehostconfiguration**gemeldet wird, werden im Feld **attestationsubstatus** ein oder mehrere Gründe aufgefüllt.
 In der folgenden Tabelle werden die möglichen Werte für attestationsubstatus und Tipps zum Beheben des Problems erläutert.
 
@@ -77,3 +76,20 @@ SecureBoot                 | Der sichere Start ist auf diesem Host nicht aktivie
 Securebootsettings         | Die TPM-Baseline auf diesem Host entspricht keiner der von HGS als vertrauenswürdig eingestuft. Dies kann vorkommen, wenn Ihre UEFI-Start-, dbx-, Debug-oder benutzerdefinierten Richtlinien für den sicheren Start durch die Installation neuer Hardware oder Software geändert werden. Wenn Sie die aktuelle Hardware, Firmware und Softwarekonfiguration dieses Computers als vertrauenswürdig einstufen, können Sie [eine neue TPM-Baseline erfassen](guarded-fabric-tpm-trusted-attestation-capturing-hardware.md#capture-the-tpm-baseline-for-each-unique-class-of-hardware) und [bei HGS registrieren](guarded-fabric-manage-hgs.md#authorizing-new-guarded-hosts).
 Tcglogverifizierung         | Das TCG-Protokoll (TPM-Baseline) kann nicht abgerufen oder überprüft werden. Dies kann auf ein Problem mit der Firmware des Hosts, dem TPM oder anderen Hardwarekomponenten hinweisen. Wenn der Host für den PXE-Start konfiguriert ist, bevor Windows gestartet wird, kann auch ein veraltetes net Start Programm (NBP) diesen Fehler verursachen. Stellen Sie sicher, dass alle NBPs auf dem neuesten Stand sind, wenn PXE-Start aktiviert ist.
 Virtualsecuremode          | Auf dem Host werden keine virtualisierungsbasierten Sicherheitsfunktionen ausgeführt. Stellen Sie sicher, dass VSB aktiviert ist und dass Ihr System den konfigurierten [Sicherheitsfeatures der Plattform](https://technet.microsoft.com/itpro/windows/keep-secure/deploy-device-guard-enable-virtualization-based-security#validate-enabled-device-guard-hardware-based-security-features)entspricht. Weitere Informationen zu den VSB-Anforderungen finden Sie in der [Device Guard-Dokumentation](https://technet.microsoft.com/itpro/windows/keep-secure/device-guard-deployment-guide) .
+
+## <a name="modern-tls"></a>Modernes TLS
+
+Wenn Sie eine Gruppenrichtlinie bereitgestellt oder den Hyper-V-Host anderweitig konfiguriert haben, um die Verwendung von TLS 1,0 zu verhindern, kann der Fehler "der Host-Überwachungsdienst Client konnte eine Schlüssel Schutzvorrichtung im Auftrag eines aufrufenden Prozesses nicht entpacken" beim Versuch, eine abgeschirmte VM zu starten, angezeigt werden.
+Dies ist auf ein Standardverhalten in .NET 4,6 zurückzuführen, bei dem die standardmäßige TLS-Version des Systems beim Aushandeln unterstützter TLS-Versionen mit dem HGS-Server nicht berücksichtigt wird.
+
+Um dieses Verhalten zu umgehen, führen Sie die folgenden beiden Befehle aus, um .net so zu konfigurieren, dass die standardmäßigen TLS-Versionen für alle .net-apps verwendet werden.
+
+```cmd
+reg add HKLM\SOFTWARE\Microsoft\.NETFramework\v4.0.30319 /v SystemDefaultTlsVersions /t REG_DWORD /d 1 /f /reg:64
+reg add HKLM\SOFTWARE\Microsoft\.NETFramework\v4.0.30319 /v SystemDefaultTlsVersions /t REG_DWORD /d 1 /f /reg:32
+```
+
+> [!WARNING]
+> Die Standardeinstellung für die TLS-Version des Systems wirkt sich auf alle .net-apps auf Ihrem Computer aus. Stellen Sie sicher, dass Sie die Registrierungsschlüssel in einer isolierten Umgebung testen, bevor Sie Sie auf den Produktions Computern bereitstellen.
+
+Weitere Informationen zu .NET 4,6 und TLS 1,0 finden Sie unter [Lösen des TLS 1,0-Problems, 2. Edition](https://docs.microsoft.com/security/solving-tls1-problem).

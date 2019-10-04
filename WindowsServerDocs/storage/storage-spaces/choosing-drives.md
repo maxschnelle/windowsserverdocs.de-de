@@ -7,14 +7,14 @@ ms.manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
-ms.date: 10/08/2018
+ms.date: 09/19/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: b02d26e8a2f2cd699d8e1eda95cf72fe71396a21
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 21ba41f636c95660d16055908f6bef857b0f3608
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402897"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71934996"
 ---
 # <a name="choosing-drives-for-storage-spaces-direct"></a>Auswählen von Laufwerken für Direkte Speicherplätze
 
@@ -114,9 +114,7 @@ Der Cache sollte die Größe des Arbeits Satzes Ihrer Anwendungen und Arbeits Au
 
 ### <a name="general"></a>Allgemein
 
-Es wird empfohlen, die gesamte Speicherkapazität pro Server auf etwa 100 Terabytes (TB) zu beschränken. Je mehr Speicherkapazität pro Server existiert, desto länger dauert die Neusynchronisierung der Daten nach dem Herunterfahren des Systems oder nach einem Neustart wie z. B. beim Aktualisieren von Software.
-
-Die aktuelle maximale Größe pro Speicherpool beträgt 4 Petabytebereich (PB) (4.000 TB) für Windows Server 2019 oder 1 Petabytebereich für Windows Server 2016.
+Es wird empfohlen, die gesamte Speicherkapazität pro Server auf ungefähr 400 Terabyte (TB) zu begrenzen. Je mehr Speicherkapazität pro Server existiert, desto länger dauert die Neusynchronisierung der Daten nach dem Herunterfahren des Systems oder nach einem Neustart wie z. B. beim Aktualisieren von Software. Die aktuelle maximale Größe pro Speicherpool beträgt 4 Petabytebereich (PB) (4.000 TB) für Windows Server 2019 oder 1 Petabytebereich für Windows Server 2016.
 
 ## <a name="see-also"></a>Siehe auch
 

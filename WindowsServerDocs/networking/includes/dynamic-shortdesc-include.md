@@ -2,14 +2,14 @@
 author: shortpatti
 ms.author: pashort
 ms.date: 10/02/2018
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms:topic: include
-ms.openlocfilehash: 073851440302a84396582baf2c4e41bcf26af812
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ba2723e4387620154187fe20c3bd80c5ce3fc929
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820041"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935060"
 ---
-Mit dynamischen, ausgehende Laden werden verteilt auf Grundlage des Hashs der TCP-Ports und IP-Adressen. Dynamischen Modus lastausgleichsvorgang auch in Echtzeit geladen, damit eine angegebene ausgehenden Datenfluss zwischen Teammitgliedern hin und her wechseln kann. Eingehende geladen wird, erhalten die gleiche Weise wie Hyper-V-Port auf der anderen Seite verteilt. Kurz gesagt, dynamische Modus nutzt die besten Aspekte von Adresshash und Hyper-V-Port und der höchsten Leistung Load-Ausgleichsmodus. 
+Mit Dynamic werden ausgehende Lasten basierend auf einem Hash der TCP-Ports und IP-Adressen verteilt. Der dynamische Modus gleicht Ladevorgänge auch in Echtzeit aus, sodass ein angegebener ausgehender Flow zwischen den Teammitgliedern hin und her verschoben werden kann. Eingehende Lasten werden hingegen auf die gleiche Weise wie der Hyper-V-Port verteilt. Kurz gesagt, verwendet der dynamische Modus die besten Aspekte von Address Hash und Hyper-V-Port und ist der Lasten Ausgleichs Modus mit der höchsten Leistung. 
 

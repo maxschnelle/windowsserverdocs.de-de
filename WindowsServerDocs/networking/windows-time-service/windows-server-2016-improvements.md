@@ -6,14 +6,14 @@ ms.author: dacuo
 manager: dougkim
 ms.date: 10/17/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 2b8c6148af21e94e4a56661402f36dcb2e636461
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 73922a07d8d5396aa9ced377bfc3c9be97a9950d
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871832"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935099"
 ---
 ## <a name="windows-server-2016-improvements"></a>Windows Server 2016-Verbesserungen
 
@@ -46,7 +46,7 @@ Die letzten 3 Leistungsindikatoren decken NTP-Server Szenarios ab und sind hilfr
 ### <a name="configuration-updates-per-environment"></a>Konfigurations Updates pro Umgebung
 Im folgenden werden die Änderungen der Standardkonfiguration zwischen Windows 2016 und früheren Versionen für jede Rolle beschrieben.  Die Einstellungen für Windows Server 2016 und Windows 10 Anniversary Update (Build 14393) sind nun eindeutig, weshalb es als separate Spalten angezeigt wird. 
 
-|Rolle|Einstellung|Windows Server 2016|Windows 10|Windows Server 2012 R2</br>Windows Server 2008 R2</br>Windows 10|
+|Role-Eigenschaft|Einstellung|Windows Server 2016|Windows 10|Windows Server 2012 R2</br>Windows Server 2008 R2</br>Windows 10|
 |---|---|---|---|---|
 |**Eigenständig/Nano Server**||||
 | |*Zeit Server*|time.windows.com|Nicht verfügbar|time.windows.com|
@@ -191,7 +191,7 @@ TimeServ ist ein weiteres verwandtes Domänen Dienste-Flag, das angibt, ob ein C
 
 Wenn Sie einen DC als gtimeserv konfigurieren möchten, können Sie ihn mithilfe des folgenden Befehls manuell konfigurieren.  In diesem Fall verwendet der DC einen anderen Computer als Masteruhr.  Dabei kann es sich um ein Gerät oder einen dedizierten Computer handeln.
 
-    w32tm /config /manualpeerlist:”master_clock1,0x8 master_clock2,0x8” /syncfromflags:manual /reliable:yes /update
+    w32tm /config /manualpeerlist:"master_clock1,0x8 master_clock2,0x8" /syncfromflags:manual /reliable:yes /update
 
 > [!NOTE]
 > Weitere Informationen finden Sie unter [Konfigurieren des Windows-Zeit Dienstanbieter](https://technet.microsoft.com/library/cc731191.aspx) .

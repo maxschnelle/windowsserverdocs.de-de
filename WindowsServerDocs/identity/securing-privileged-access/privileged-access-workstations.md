@@ -9,12 +9,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: 29e3785d1c004d669e0060854acb6af1d2953644
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fb91ca583fd71a7fbe38369606d2dcc4a816d8aa
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357923"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935014"
 ---
 # <a name="privileged-access-workstations"></a>Arbeitsstationen mit privilegiertem Zugriff
 
@@ -511,66 +511,136 @@ In diesem Abschnitt erstellen Sie ein neues Gruppenrichtlinien Objekt "PW-Konfig
 In diesem Abschnitt konfigurieren Sie Gruppenrichtlinien, um zu verhindern, dass Administratorkonten mit hohen Berechtigungen sich bei Hosts auf niedrigerer Ebene anmelden können.
 
 1. Erstellen Sie das neue Gruppenrichtlinienobjekt **Anmelden bei Arbeitsstation einschränken**. Diese Einstellung verhindert, dass sich Administratorkonten der Ebenen 0 und 1 bei Standardarbeitsstationen anmelden können.  Dieses GPO sollte mit der Organisationseinheit "Arbeitsstationen" der obersten Ebene verknüpft werden und über die folgenden Einstellungen verfügen:
-   * Wählen Sie unter Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale richtlinien\benutzerverweis-zugriffs\anmelden als Batch Auftrag verweigern die Option **Diese Richtlinien Einstellungen definieren** aus, und fügen Sie die Gruppenebene 0 und Ebene 1 hinzu     Organisations-Admins Domänen-Admins Schema Admins Domäne \ Administratoren Konto-Operatoren Sicherungs Operatoren Druck Operatoren Server Operatoren Domänen Controller schreibgeschützte Domänen Controller Gruppenrichtlinie Creators Besitzers Cryptographic Oper Oren
+   * Wählen Sie unter Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale richtlinien\benutzerverweis-zugriffs\anmelden als Batch Auftrag verweigern die Option **Diese Richtlinien Einstellungen definieren** aus, und fügen Sie die Gruppenebene 0 und Ebene 1 hinzu
+     ```
+     Enterprise Admins
+     Domain Admins
+     Schema Admins
+     DOMAIN\Administrators
+     Account Operators
+     Backup Operators
+     Print Operators
+     Server Operators
+     Domain Controllers
+     Read-Only Domain Controllers
+     Group Policy Creators Owners
+     Cryptographic Operators
+     ```
 
-         > [!NOTE]
-         > Built-in Tier 0 Groups, see Tier 0 equivalency for more details.
+     > [!NOTE]
+     > Integrierte Gruppen der Ebene 0 finden Sie unter Äquivalenz der Ebene 0, um weitere Informationen zu erhalten.
 
          Other Delegated Groups
 
-         > [!NOTE]
-         > Any custom created groups with effective Tier 0 access, see Tier 0 equivalency for more details.
+     > [!NOTE]
+     > Alle benutzerdefinierten Gruppen mit Gültigkeits Zugriff auf Ebene 0 finden Sie unter Äquivalenz der Ebene 0.
 
          Tier 1 Admins
 
-         > [!NOTE]
-         > This Group was created earlier in Phase 1.
+     > [!NOTE]
+     > Diese Gruppe wurde zuvor in Phase 1 erstellt.
 
-   * Wählen Sie unter Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale richtlinien\benutzerzugriffs\anmelden als Dienst verweigern die Option **Diese Richtlinien Einstellungen definieren** aus, und fügen Sie die Gruppen auf Ebene 0 und Ebene 1 hinzu:     Organisations-Admins Domänen-Admins Schema Admins Domäne \ Administratoren Konto-Operatoren Sicherungs Operatoren Druck Operatoren Server Operatoren Domänen Controller schreibgeschützte Domänen Controller Gruppenrichtlinie Creators Besitzers Cryptographic Oper Oren
+   * Wählen Sie unter Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale richtlinien\benutzerzugriffs\anmelden als Dienst verweigern die Option **Diese Richtlinien Einstellungen definieren** aus, und fügen Sie die Gruppen auf Ebene 0 und Ebene 1 hinzu:
+     ```
+     Enterprise Admins
+     Domain Admins
+     Schema Admins
+     DOMAIN\Administrators
+     Account Operators
+     Backup Operators
+     Print Operators
+     Server Operators
+     Domain Controllers
+     Read-Only Domain Controllers
+     Group Policy Creators Owners
+     Cryptographic Operators
+     ```
 
-         > [!NOTE]
-         > Note: Built-in Tier 0 Groups, see Tier 0 equivalency for more details.
+     > [!NOTE]
+     > Hinweis: Integrierte Gruppen der Ebene 0 finden Sie unter Äquivalenz der Ebene 0, um weitere Informationen zu erhalten.
 
          Other Delegated Groups
 
-         > [!NOTE]
-         > Note: Any custom created groups with effective Tier 0 access, see Tier 0 equivalency for more details.
+     > [!NOTE]
+     > Hinweis: Alle benutzerdefinierten Gruppen mit Gültigkeits Zugriff auf Ebene 0 finden Sie unter Äquivalenz der Ebene 0.
 
          Tier 1 Admins
 
-         > [!NOTE]
-         > Note: This Group was created earlier in Phase 1
+     > [!NOTE]
+     > Hinweis: Diese Gruppe wurde zuvor in Phase 1 erstellt.
 
 2. Erstellen Sie das neue Gruppenrichtlinien Objekt zum **Einschränken der Server Anmeldung** . diese Einstellung schränkt Administrator Konten der Ebene 0 auf Server der Ebene 1 ein.  Dieses GPO sollte mit der Organisationseinheit der obersten Ebene der Ebene 1 verknüpft werden und über die folgenden Einstellungen verfügen:
-   * Wählen Sie unter Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale richtlinien\benutzerverweis-zugriffs\anmelden als Batch Auftrag verweigern die Option **Diese Richtlinien Einstellungen definieren** , und fügen Sie die Gruppen der Ebene 0     Organisations-Admins Domänen-Admins Schema Admins Domäne \ Administratoren Konto-Operatoren Sicherungs Operatoren Druck Operatoren Server Operatoren Domänen Controller schreibgeschützte Domänen Controller Gruppenrichtlinie Creators Besitzers Cryptographic Oper Oren
+   * Wählen Sie unter Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale richtlinien\benutzerverweis-zugriffs\anmelden als Batch Auftrag verweigern die Option **Diese Richtlinien Einstellungen definieren** , und fügen Sie die Gruppen der Ebene 0
+     ```
+     Enterprise Admins
+     Domain Admins
+     Schema Admins
+     DOMAIN\Administrators
+     Account Operators
+     Backup Operators
+     Print Operators
+     Server Operators
+     Domain Controllers
+     Read-Only Domain Controllers
+     Group Policy Creators Owners
+     Cryptographic Operators
+     ```
 
-         > [!NOTE]
-         > Built-in Tier 0 Groups, see Tier 0 equivalency for more details.
-
-         Other Delegated Groups
-
-         > [!NOTE]
-         > Any custom created groups with effective Tier 0 access, see Tier 0 equivalency for more details.
-
-   * Wählen Sie unter Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale richtlinien\benutzerzugriffs\anmelden als Dienst verweigern die Option **Diese Richtlinien Einstellungen definieren** aus, und fügen Sie die Gruppen der Ebene 0 hinzu:     Organisations-Admins Domänen-Admins Schema Admins Domäne \ Administratoren Konto-Operatoren Sicherungs Operatoren Druck Operatoren Server Operatoren Domänen Controller schreibgeschützte Domänen Controller Gruppenrichtlinie Creators Besitzers Cryptographic Oper Oren
-
-         > [!NOTE]
-         > Built-in Tier 0 Groups, see Tier 0 equivalency for more details.
-
-         Other Delegated Groups
-
-         > [!NOTE]
-         > Any custom created groups with effective Tier 0 access, see Tier 0 equivalency for more details.
-
-   * Wählen Sie unter Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale richtlinien\benutzerverweis-zugriffs\lokal anmelden verweigern die Option **Diese Richtlinien Einstellungen definieren** und fügen Sie die Gruppen der Ebene 0     Organisations-Admins Domänen-Admins Schema Administratoren Konto Operatoren Sicherungs Operatoren Druck Operatoren Server Operatoren schreibgeschützte Domänen Controller Gruppenrichtlinie Creators Besitzers kryptografieoperatoren
-
-         > [!NOTE]
-         > Note: Built-in Tier 0 Groups, see Tier 0 equivalency for more details.
+     > [!NOTE]
+     > Integrierte Gruppen der Ebene 0 finden Sie unter Äquivalenz der Ebene 0, um weitere Informationen zu erhalten.
 
          Other Delegated Groups
 
-         > [!NOTE]
-         > Note: Any custom created groups with effective Tier 0 access, see Tier 0 equivalency for more details.
+     > [!NOTE]
+     > Alle benutzerdefinierten Gruppen mit Gültigkeits Zugriff auf Ebene 0 finden Sie unter Äquivalenz der Ebene 0.
+
+   * Wählen Sie unter Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale richtlinien\benutzerzugriffs\anmelden als Dienst verweigern die Option **Diese Richtlinien Einstellungen definieren** aus, und fügen Sie die Gruppen der Ebene 0 hinzu:
+     ```
+     Enterprise Admins
+     Domain Admins
+     Schema Admins
+     DOMAIN\Administrators
+     Account Operators
+     Backup Operators
+     Print Operators
+     Server Operators
+     Domain Controllers
+     Read-Only Domain Controllers
+     Group Policy Creators Owners
+     Cryptographic Operators
+     ```
+
+     > [!NOTE]
+     > Integrierte Gruppen der Ebene 0 finden Sie unter Äquivalenz der Ebene 0, um weitere Informationen zu erhalten.
+
+         Other Delegated Groups
+
+     > [!NOTE]
+     > Alle benutzerdefinierten Gruppen mit Gültigkeits Zugriff auf Ebene 0 finden Sie unter Äquivalenz der Ebene 0.
+
+   * Wählen Sie unter Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale richtlinien\benutzerverweis-zugriffs\lokal anmelden verweigern die Option **Diese Richtlinien Einstellungen definieren** und fügen Sie die Gruppen der Ebene 0
+     ```
+     Enterprise Admins
+     Domain Admins
+     Schema Admins
+     DOMAIN\Administrators
+     Account Operators
+     Backup Operators
+     Print Operators
+     Server Operators
+     Domain Controllers
+     Read-Only Domain Controllers
+     Group Policy Creators Owners
+     Cryptographic Operators
+     ```
+
+     > [!NOTE]
+     > Hinweis: Integrierte Gruppen der Ebene 0 finden Sie unter Äquivalenz der Ebene 0, um weitere Informationen zu erhalten.
+
+         Other Delegated Groups
+
+     > [!NOTE]
+     > Hinweis: Alle benutzerdefinierten Gruppen mit Gültigkeits Zugriff auf Ebene 0 finden Sie unter Äquivalenz der Ebene 0.
 
 #### <a name="deploy-your-paws"></a>Bereitstellen der PAW(s)
 

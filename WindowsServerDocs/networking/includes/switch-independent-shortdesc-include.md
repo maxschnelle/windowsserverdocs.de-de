@@ -2,13 +2,13 @@
 author: shortpatti
 ms.author: pashort
 ms.date: 10/02/2018
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms:topic: include
-ms.openlocfilehash: e96aedc7f45cbc4e812110ddc6dcbe737134a981
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ef22deaf9ae8631e16565a4b339f2a2f92b3e23a
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841451"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935056"
 ---
-Bei Switchunabhängig Modus, der Schalter oder Switches, des NIC-Teams, Mitglieder verbunden sind, werden nicht über das Vorhandensein des NIC-Teams, und bestimmen nicht die Verteilung des Netzwerkdatenverkehrs für NIC-Team-Mitglieder - verteilt stattdessen das NIC-Team eingehenden der Datenverkehr auf die NIC-Team-Mitglieder. 
+Mit dem Schalter unabhängigen Modus sind die Schalter oder Switches, mit denen die NIC-Teammitglieder verbunden sind, nicht mit dem vorhanden sein des NIC-Teams in Kenntnis, und es wird nicht bestimmt, wie Netzwerk Datenverkehr an die NIC-Teammitglieder verteilt wird. das NIC-Team verteilt das eingehende Netzwerk. Datenverkehr über die NIC-Team Mitglieder. 

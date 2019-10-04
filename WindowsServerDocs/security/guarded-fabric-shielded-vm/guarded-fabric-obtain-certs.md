@@ -7,13 +7,13 @@ ms.assetid: f4b4d1a8-bf6d-4881-9150-ddeca8b48038
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.date: 08/29/2018
-ms.openlocfilehash: b3e6aadbcbf2f2b826ca97d4ebb58c3736528b59
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 09/25/2019
+ms.openlocfilehash: e8f4a3696ec5096281ba1ffd130aa97004530cc1
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386521"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940735"
 ---
 # <a name="obtain-certificates-for-hgs"></a>Zertifikate für HGS abrufen
 
@@ -81,7 +81,7 @@ Die Hyper-V-Hosts und HGS-Knoten müssen das von Ihnen bereitgestellte SSL-Zerti
 
 SSL-Zertifikat Eigenschaft | Erforderlicher Wert
 -------------------------|---------------
-Antragstellername             | Name des HGS-Clusters (Name des verteilten Netzwerks). Dabei handelt es sich um die Verkettung Ihres HGS-Dienst namens, der für `Initialize-HgsServer` und ihren HGS-Domänen Namen angegeben wird.
+Antragstellername             | Der Name des HGS-Clusters (als Name des verteilten Netzwerks oder des FQDN des virtuellen Computer Objekts bezeichnet). Dabei handelt es sich um die Verkettung Ihres HGS-Dienst namens, der für `Initialize-HgsServer` und ihren HGS-Domänen Namen angegeben wird.
 Alternativer Antragsteller Name | Wenn Sie einen anderen DNS-Namen verwenden, um Ihren HGS-Cluster zu erreichen (z. b. wenn er sich hinter einem Load Balancer befindet), müssen Sie diese DNS-Namen in das Feld San ihrer Zertifikat Anforderung einschließen.
 
 Die Optionen zum Angeben dieses Zertifikats beim Initialisieren des HGS-Servers finden Sie unter [Konfigurieren des ersten HGS-Knotens](guarded-fabric-initialize-hgs.md).

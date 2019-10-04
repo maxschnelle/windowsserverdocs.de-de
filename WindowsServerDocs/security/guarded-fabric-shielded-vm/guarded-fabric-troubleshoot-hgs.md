@@ -7,16 +7,17 @@ ms.assetid: 424b8090-0692-49a6-9dc4-3c0e77d74b80
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: be817a2c06b13af254b80090b9a7488209d4df0a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 09/25/2019
+ms.openlocfilehash: d34bbeee1a980aba76b5bed994be8db7fc8c8acf
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403527"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940822"
 ---
 # <a name="troubleshooting-the-host-guardian-service"></a>Problembehandlung beim Host-Überwachungsdienst
 
-> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+> Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 In diesem Thema werden Lösungen für häufige Probleme beschrieben, die beim Bereitstellen oder betreiben eines HGS-Servers (Host Wächter Service) in einem geschützten Fabric auftreten.
 Wenn Sie sich nicht sicher sind, welche Art von Problem Sie haben, versuchen Sie zunächst, die [geschützte Fabric-Diagnose](guarded-fabric-troubleshoot-diagnostics.md) auf Ihren HGS-Servern und Hyper-V-Hosts auszuführen, um die möglichen Gründe einzugrenzen.
@@ -80,6 +81,7 @@ $cert.Acl = $cert.Acl | Add-AccessRule $gMSA Read Allow
 
 Wenn die privaten Schlüssel Ihres Zertifikats von einem Hardware Sicherheitsmodul (HSM) oder einem benutzerdefinierten Schlüsselspeicher Anbieter (KSP) unterstützt werden, hängt das Berechtigungs Modell von Ihrem spezifischen Softwareanbieter ab.
 Um die besten Ergebnisse zu erzielen, finden Sie auf der Dokumentation oder Support Website Ihres Herstellers Informationen dazu, wie die Berechtigungen für private Schlüssel für ihr bestimmtes Gerät bzw. Ihre Software behandelt werden.
+In jedem Fall benötigt das von HGS verwendete GMSA *Lese* Berechtigungen für die privaten Schlüssel für die Verschlüsselung, Signatur und den Kommunikations Zertifikat, damit Signierungs-und Verschlüsselungs Vorgänge durchgeführt werden können.
 
 Einige Hardware Sicherheitsmodule unterstützen nicht das Gewähren von Zugriff auf einen privaten Schlüssel für bestimmte Benutzerkonten. Stattdessen wird dem Computer Konto der Zugriff auf alle Schlüssel in einem bestimmten Schlüsselsatz gestattet.
 Bei solchen Geräten ist es in der Regel ausreichend, dem Computer den Zugriff auf Ihre Schlüssel zu gewähren, und HGS können diese Verbindung nutzen.
@@ -93,7 +95,7 @@ Wenn Sie weitere Fragen haben, wenden Sie sich an Ihren HSM-Hersteller, um genau
 HSM-Marke/-Reihe      | Vorschlag
 ----------------------|-------------
 Gemalto SafeNet       | Stellen Sie sicher, dass die Eigenschaft Schlüssel Verwendung in der Zertifikat Anforderungs Datei auf 0xa0 festgelegt ist, sodass das Zertifikat zum Signieren und Verschlüsseln verwendet werden kann. Außerdem müssen Sie dem GMSA-Konto mit dem lokalen Zertifikat-Manager-Tool *Lese* Zugriff auf den privaten Schlüssel gewähren (siehe die obigen Schritte).
-"nCipher nShield"        | Stellen Sie sicher, dass jeder HGS-Knoten Zugriff auf die Security World hat, die Signatur-und Verschlüsselungsschlüssel enthält. Sie müssen keine GMSA-spezifischen Berechtigungen konfigurieren.
+"nCipher nShield"        | Stellen Sie sicher, dass jeder HGS-Knoten Zugriff auf die Security World hat, die Signatur-und Verschlüsselungsschlüssel enthält. Außerdem müssen Sie ggf. den GMSA *Lese* Zugriff auf den privaten Schlüssel mit dem lokalen Zertifikat-Manager gewähren (siehe die obigen Schritte).
 Utimaco-kryptoserver | Stellen Sie sicher, dass die Eigenschaft Schlüssel Verwendung in der Zertifikat Anforderungs Datei auf 0x13 festgelegt ist, sodass das Zertifikat für die Verschlüsselung, Entschlüsselung und Signierung verwendet werden kann.
 
 ### <a name="certificate-requests"></a>Zertifikat Anforderungen

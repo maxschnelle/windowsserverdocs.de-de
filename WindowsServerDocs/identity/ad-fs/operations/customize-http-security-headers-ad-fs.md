@@ -9,12 +9,12 @@ ms.date: 02/19/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: e1042ad4dae0b023c9816dff798c25b05b60eccf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0685e0935a031b2f73474d59b025b70fc735902d
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407445"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935047"
 ---
 # <a name="customize-http-security-response-headers-with-ad-fs-2019"></a>Anpassen von http-Sicherheits Antwort Headern mit AD FS 2019 
  
@@ -53,7 +53,7 @@ Set-AdfsResponseHeaders -EnableResponseHeaders $false
 ### <a name="http-strict-transport-security-hsts"></a>HTTP Strict-Transport-Security (hsts) 
 Hsts ist ein Mechanismus für die Websicherheits Richtlinie, mit dem Angriffe herab Stufungs Angriffe und Cookie-Hijacking für Dienste mit http-und HTTPS-Endpunkten minimiert werden können. Auf diese Weise können Webserver deklarieren, dass Webbrowser (oder andere Benutzer-Agents) nur mit HTTPS und nie über das HTTP-Protokoll interagieren sollen.  
  
-Alle AD FS Endpunkte für den Webauthentifizierungs Datenverkehr werden exklusiv über HTTPS geöffnet. Demzufolge werden von AD FS effektiv die Bedrohungen verringert, die der http-Mechanismus für die strikte Transport Sicherheit bietet (Standardmäßig gibt es kein Downgrade auf http, da keine Listener in http vorhanden sind). Der Header kann durch Festlegen der folgenden Parameter angepasst werden. 
+Alle AD FS Endpunkte für den Webauthentifizierungs Datenverkehr werden exklusiv über HTTPS geöffnet. Demzufolge werden von AD FS effektiv die Bedrohungen verringert, die der http-Mechanismus für die strikte Transport Sicherheit bietet (Standardmäßig gibt es kein Downgrade auf http, da keine Listener in http vorhanden sind). Der Header kann angepasst werden, indem die folgenden Parameter festgelegt werden:
  
 - **max-age =&lt;&gt;**  Ablaufzeit – die Ablaufzeit (in Sekunden) gibt an, wie lange nur über HTTPS auf die Website zugegriffen werden soll. Der standardmäßige und empfohlene Wert ist 31536000 Sekunden (1 Jahr).  
 - **includesubdomains** – Dies ist ein optionaler Parameter. Wenn angegeben, gilt die hsts-Regel auch für alle Unterdomänen.  
@@ -107,7 +107,7 @@ Set-AdfsResponseHeaders -RemoveHeaders "X-Frame-Options"
 ```
 
 ### <a name="x-xss-protection"></a>X-XSS-Schutz 
-Dieser http-Sicherheits Antwortheader wird verwendet, um das Laden von Webseiten zu beenden, wenn XSS-Angriffe (Cross-Site Scripting) von Browsern erkannt werden. Dies wird als XSS-Filterung bezeichnet. Der Header kann auf einen der folgenden Werte festgelegt werden: 
+Dieser http-Sicherheits Antwortheader wird verwendet, um das Laden von Webseiten zu beenden, wenn XSS-Angriffe (Cross-Site Scripting) von Browsern erkannt werden. Dies wird als XSS-Filterung bezeichnet. Der Header kann auf einen der folgenden Werte festgelegt werden:
  
 - **0** – deaktiviert die XSS-Filterung. Nicht empfohlen.  
 - **1** – aktiviert das Filtern von XSS. Wenn ein XSS-Angriff erkannt wird, wird die Seite von Browser bereinigt.   
@@ -138,7 +138,7 @@ Die Webbrowser Sicherheit verhindert, dass eine Webseite Ursprungs übergreifend
 Um die cors-Anforderung besser zu verstehen, betrachten wir ein Szenario, in dem eine Single-Page-Anwendung (Spa) eine Web-API mit einer anderen Domäne aufruft. Beachten Sie außerdem, dass sowohl Spa als auch API auf ADFS 2019 konfiguriert sind AD FS und dass cors aktiviert ist, d. h. AD FS cors-Header in der HTTP-Anforderung identifizieren, Header Werte validieren und entsprechende cors-Header in der Antwort einschließen (Details zum Aktivieren von und). Konfigurieren Sie cors auf AD FS 2019 in cors-Anpassungs Abschnitt weiter unten). Beispiel Fluss: 
 
 1. Der Benutzer greift über den Client Browser auf Spa zu und wird zur Authentifizierung an AD FS Authentifizierungs Endpunkt umgeleitet. Da die Spa für den impliziten Zuweisungs Fluss konfiguriert ist, gibt die Anforderung nach erfolgreicher Authentifizierung ein Zugriffs-und ID-Token an den Browser zurück.  
-2. Nach der Benutzerauthentifizierung sendet das Front-End-JavaScript, das in Spa enthalten ist, eine Anforderung für den Zugriff auf die Web-API. Die Anforderung wird mit den folgenden Headern an AD FS umgeleitet.
+2. Nach der Benutzerauthentifizierung sendet das Front-End-JavaScript, das in Spa enthalten ist, eine Anforderung für den Zugriff auf die Web-API. Die Anforderung wird mit den folgenden Headern an AD FS umgeleitet:
     - Optionen – beschreibt die Kommunikationsoptionen für die Ziel Ressource. 
     - Ursprung – schließt den Ursprung der Web-API ein.
     - Access-Control-Request-Method – identifiziert die HTTP-Methode (z. b. Delete), die bei der tatsächlichen Anforderung verwendet werden soll. 
@@ -146,11 +146,11 @@ Um die cors-Anforderung besser zu verstehen, betrachten wir ein Szenario, in dem
     
    >[!NOTE]
    >Eine cors-Anforderung ähnelt einer Standard-HTTP-Anforderung. das vorhanden sein eines Ursprungs Headers signalisiert jedoch, dass die eingehende Anforderung mit cors verknüpft ist. 
-3. AD FS überprüft, ob der in der Kopfzeile enthaltene Web-API-Ursprung in den in AD FS konfigurierten vertrauenswürdigen Ursprüngen aufgeführt ist (Ausführliche Informationen zum Ändern von vertrauenswürdigen Ursprüngen im Abschnitt cors-Anpassung weiter unten). AD FS antwortet dann mit den folgenden Headern.  
+3. AD FS überprüft, ob der in der Kopfzeile enthaltene Web-API-Ursprung in den in AD FS konfigurierten vertrauenswürdigen Ursprüngen aufgeführt ist (Ausführliche Informationen zum Ändern von vertrauenswürdigen Ursprüngen im Abschnitt cors-Anpassung weiter unten). AD FS antwortet dann mit den folgenden Headern:  
     - Access-Control-Allow-Origin – Wert identisch mit dem Wert im Ursprungs Header 
     - Access-Control-Allow-Method – Wert identisch mit dem Wert im Access-Control-Request-Method-Header 
     - Access-Control-Allow-Headers-Wert identisch mit dem Wert im Access-Control-Request-Headers-Header 
-4. Der Browser sendet die tatsächliche Anforderung einschließlich der folgenden Header. 
+4. Der Browser sendet die tatsächliche Anforderung einschließlich der folgenden Header:
     - HTTP-Methode (z. b. Delete) 
     - Ursprung – schließt den Ursprung der Web-API ein. 
     - Alle Header im Antwortheader "Access-Control-Allow-Headers" 
@@ -199,7 +199,7 @@ Wenn eine-Direktive explizit aufgelistet ist, überschreibt der angegebene Wert 
 ```PowerShell
 Set-AdfsResponseHeaders -SetHeaderName "Content-Security-Policy" -SetHeaderValue "default-src ‘self'; img-src *" 
 ```
-Folgende Quellen können für die Default-src-Richtlinie definiert werden. 
+Die folgenden Quellen können für die Default-src-Richtlinie definiert werden:
  
 - "Self" – Dies bedeutet, dass der Ursprung des Inhalts auf den Ursprung der Webseite beschränkt wird. 
 - "unsicher-Inline" – die Angabe dieses in der Richtlinie ermöglicht die Verwendung von Inline-JavaScript und CSS. 
@@ -223,7 +223,7 @@ Nachdem die neue Kopfzeile festgelegt wurde, wird Sie in der AD FS-Antwort (unte
  
 ![Fiddler](media/customize-http-security-headers-ad-fs/header2.png)
 
-## <a name="web-browswer-compatibility"></a>Webbrowswer-Kompatibilität
+## <a name="web-browser-compatibility"></a>Webbrowser Kompatibilität
 Verwenden Sie die folgende Tabelle und die Links, um zu bestimmen, welche Webbrowser mit den einzelnen Sicherheits Antwort Headern kompatibel sind.
 
 |HTTP-Sicherheits Antwortheader|Browserkompatibilität|
@@ -236,5 +236,5 @@ Verwenden Sie die folgende Tabelle und die Links, um zu bestimmen, welche Webbro
 
 ## <a name="next"></a>Nächste
 
-- [Hilfe zur Behandlung von Problemen mit AD FS Hilfe](https://aka.ms/adfshelp/troubleshooting )
+- [Verwenden AD FS Hilfe Handbücher zur Problembehandlung](https://aka.ms/adfshelp/troubleshooting )
 - [Behandeln von AD FS-Problemen](../../ad-fs/troubleshooting/ad-fs-tshoot-overview.md)

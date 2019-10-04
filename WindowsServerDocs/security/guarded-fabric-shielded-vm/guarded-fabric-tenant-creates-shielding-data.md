@@ -7,13 +7,13 @@ ms.assetid: 49f4e84d-c1f7-45e5-9143-e7ebbb2ef052
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.date: 01/30/2019
-ms.openlocfilehash: 86047420cb4b1095d5715739d76daa3dba3ff5d0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 09/25/2019
+ms.openlocfilehash: 1ae6f881e1bd4b9b317e5622f18958f25f692eec
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403454"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940795"
 ---
 # <a name="shielded-vms-for-tenants---creating-shielding-data-to-define-a-shielded-vm"></a>Abgeschirmte VMs für Mandanten: Erstellen von Schutz Daten zum Definieren einer abgeschirmten VM
 
@@ -24,11 +24,11 @@ Eine geschützte Datendatei (auch als Bereitstellungsdatendatei oder PDK-Datei b
 Eine Liste und ein Diagramm mit dem Inhalt einer Schutz Datendatei finden [Sie unter Was sind geschützte Daten? und warum ist es erforderlich?](guarded-fabric-and-shielded-vms.md#what-is-shielding-data-and-why-is-it-necessary).
 
 > [!IMPORTANT]
-> Die Schritte in diesem Abschnitt sollten auf einem Mandanten Computer ausgeführt werden, auf dem Windows Server 2016 ausgeführt wird. Dieser Computer darf nicht Teil eines geschützten Fabrics sein (d. h., sollte nicht für die Verwendung eines HGS-Clusters konfiguriert werden).
+> Die Schritte in diesem Abschnitt sollten auf einem separaten, vertrauenswürdigen Computer außerhalb des geschützten Fabrics ausgeführt werden. Normalerweise erstellt der VM-Besitzer (Mandant) die geschützten Daten für Ihre VMS, nicht die Fabric-Administratoren.
 
 Führen Sie die folgenden Schritte aus, um eine Schutz Datendatei zu erstellen:
 
-- [Abrufen eines Zertifikats für Remotedesktopverbindung](#obtain-a-certificate-for-remote-desktop-connection)
+- [Abrufen eines Zertifikats für Remotedesktopverbindung](#optional-obtain-a-certificate-for-remote-desktop-connection)
 - [Erstellen einer Antwortdatei](#create-an-answer-file)
 - [Get the Volume Signature Catalog file](#get-the-volume-signature-catalog-file)
 - [Vertrauenswürdige Fabrics auswählen](#select-trusted-fabrics)
@@ -37,23 +37,20 @@ Anschließend können Sie die geschützte Datendatei erstellen:
 
 - [Erstellen einer Schutz Datendatei und Hinzufügen von Betreuern](#create-a-shielding-data-file-and-add-guardians-using-the-shielding-data-file-wizard)
 
-
-## <a name="obtain-a-certificate-for-remote-desktop-connection"></a>Abrufen eines Zertifikats für Remotedesktopverbindung
+## <a name="optional-obtain-a-certificate-for-remote-desktop-connection"></a>Optionale Abrufen eines Zertifikats für Remotedesktopverbindung
 
 Da Mandanten nur über Remotedesktopverbindung oder andere Remote Verwaltungs Tools eine Verbindung mit ihren abgeschirmten VMS herstellen können, ist es wichtig sicherzustellen, dass Mandanten sicherstellen können, dass Sie eine Verbindung mit dem richtigen Endpunkt herstellen (d. h. es ist kein "man in der Mitte"). die Verbindung wird abgefangen).
 
 Eine Möglichkeit, um zu überprüfen, ob Sie eine Verbindung mit dem vorgesehenen Server herstellen, ist die Installation und Konfiguration eines Zertifikats, das Remotedesktopdienste beim Initiieren einer Verbindung vorhanden ist. Der Client Computer, der eine Verbindung mit dem Server herstellt, prüft, ob das Zertifikat vertrauenswürdig ist, und zeigt eine Warnung an. Im Allgemeinen werden RDP-Zertifikate von der PKI des Mandanten ausgegeben, um sicherzustellen, dass der Verbindungs Client dem Zertifikat vertraut. Weitere Informationen zur [Verwendung von Zertifikaten in Remotedesktopdienste finden Sie](https://technet.microsoft.com/library/dn781533.aspx) im TechNet.
 
-> [!NOTE]
+ Beachten Sie Folgendes, um Sie bei der Entscheidung zu unterstützen, ob Sie ein benutzerdefiniertes RDP-Zertifikat erhalten müssen:
+
+- Wenn Sie nur abgeschirmte VMs in einer Lab-Umgebung testen, benötigen Sie **kein** benutzerdefiniertes RDP-Zertifikat.
+- Wenn Ihr virtueller Computer für den Beitritt zu einer Active Directory Domäne konfiguriert ist, wird in der Regel von der Zertifizierungsstelle Ihres Unternehmens automatisch ein Computer Zertifikat ausgestellt und zum Identifizieren des Computers bei RDP-Verbindungen verwendet. Sie benötigen **kein** benutzerdefiniertes RDP-Zertifikat.
+- Wenn Ihr virtueller Computer keiner Domäne beigetreten ist, Sie jedoch sicherstellen möchten, dass Sie eine Verbindung mit dem richtigen Computer herstellen, wenn Sie Remotedesktop verwenden, sollten Sie die Verwendung von benutzerdefinierten RDP-Zertifikaten in **Erwägung gezogen** .
+
+> [!TIP]
 > Wenn Sie ein RDP-Zertifikat auswählen, das in die geschützte Datendatei aufgenommen werden soll, achten Sie darauf, ein Platzhalter Zertifikat zu verwenden. Eine geschützte Datendatei kann verwendet werden, um eine unbegrenzte Anzahl von VMS zu erstellen. Da jeder virtuelle Computer das gleiche Zertifikat verwendet, wird durch ein Platzhalter Zertifikat sichergestellt, dass das Zertifikat unabhängig vom Hostnamen des virtuellen Computers gültig ist.
-
-Wenn Sie abgeschirmte VMS auswerten und noch nicht bereit sind, ein Zertifikat von Ihrer Zertifizierungsstelle anzufordern, können Sie ein selbst signiertes Zertifikat auf dem Mandanten Computer erstellen, indem Sie den folgenden Windows PowerShell-Befehl ausführen (wobei *contoso.com* das Mandanten Domäne):
-
-``` powershell
-$rdpCertificate = New-SelfSignedCertificate -DnsName '\*.contoso.com'
-$password = ConvertTo-SecureString -AsPlainText 'Password1' -Force
-Export-PfxCertificate -Cert $RdpCertificate -FilePath .\rdpCert.pfx -Password $password
-```
 
 ## <a name="create-an-answer-file"></a>Erstellen einer Antwortdatei
 
@@ -64,40 +61,50 @@ Weitere Informationen zum Abrufen und Verwenden der **New-shieldingdataanswer Fi
 - Soll der virtuelle Computer am Ende des Initialisierungs Prozesses in eine Domäne aufgenommen werden?
 - Verwenden Sie eine Volumenlizenz oder eine bestimmte Product Key pro VM?
 - Verwenden Sie DHCP oder eine statische IP-Adresse?
-- Verwenden Sie ein Remotedesktopprotokoll-Zertifikat (RDP), das verwendet wird, um nachzuweisen, dass der virtuelle Computer zu Ihrer Organisation gehört?
+- Verwenden Sie ein benutzerdefiniertes Remotedesktopprotokoll Zertifikat (RDP), das verwendet wird, um nachzuweisen, dass der virtuelle Computer zu Ihrer Organisation gehört?
 - Möchten Sie ein Skript am Ende der Initialisierung ausführen?
-- Verwenden Sie für die weitere Konfiguration einen DSC-Server (DSC)?
 
 Antwort Dateien, die in geschützten Datendateien verwendet werden, werden auf allen virtuellen Computern verwendet, die mit dieser Schutz Datendatei erstellt werden. Daher sollten Sie sicherstellen, dass Sie keine VM-spezifischen Informationen in der Antwortdatei hart codieren. VMM unterstützt einige Ersatz Zeichenfolgen (siehe Tabelle unten) in der Datei für die unbeaufsichtigte Installation, um Spezialisierungs Werte zu verarbeiten, die sich möglicherweise von VM zu VM ändern Sie müssen diese nicht verwenden. Wenn Sie jedoch vorhanden sind, werden diese von VMM genutzt.
 
 Beachten Sie beim Erstellen einer Datei "Unattend. xml" für abgeschirmte VMS die folgenden Einschränkungen:
 
--   Die Datei für die unbeaufsichtigte Installation muss dazu führen, dass der virtuelle Computer ausgeschaltet wird, nachdem er konfiguriert wurde. Auf diese Weise kann VMM wissen, wann dem Mandanten berichtet werden soll, dass die VM bereitgestellt wurde und einsatzbereit ist. Der virtuelle Computer wird von VMM automatisch wieder eingeschaltet, sobald erkannt wird, dass er während der Bereitstellung deaktiviert wurde.
+- Wenn Sie VMM zum Verwalten Ihres Rechenzentrums verwenden, muss die Datei für die unbeaufsichtigte Installation nach der Konfiguration des virtuellen Computers ausgeschaltet werden. Auf diese Weise kann VMM wissen, wann dem Mandanten berichtet werden soll, dass die VM bereitgestellt wurde und einsatzbereit ist. Der virtuelle Computer wird von VMM automatisch wieder eingeschaltet, sobald erkannt wird, dass er während der Bereitstellung deaktiviert wurde.
 
--   Es wird dringend empfohlen, ein RDP-Zertifikat zu konfigurieren, um sicherzustellen, dass Sie eine Verbindung mit dem richtigen virtuellen Computer herstellen und keinen anderen Computer, der für einen man-in-the-Middle-Angriff konfiguriert ist.
+- Stellen Sie sicher, dass Sie RDP und die entsprechende Firewallregel aktivieren, damit Sie nach der Konfiguration auf den virtuellen Computer zugreifen können. Sie können die VMM-Konsole nicht verwenden, um auf abgeschirmte VMS zuzugreifen, sodass Sie RDP benötigen, um eine Verbindung mit Ihrem virtuellen Computer herzustellen. Wenn Sie Ihre Systeme mit Windows PowerShell-Remoting verwalten möchten, müssen Sie auch sicherstellen, dass WinRM ebenfalls aktiviert ist.
 
--   Stellen Sie sicher, dass Sie RDP und die entsprechende Firewallregel aktivieren, damit Sie nach der Konfiguration auf den virtuellen Computer zugreifen können. Sie können die VMM-Konsole nicht verwenden, um auf abgeschirmte VMS zuzugreifen, sodass Sie RDP benötigen, um eine Verbindung mit Ihrem virtuellen Computer herzustellen. Wenn Sie Ihre Systeme mit Windows PowerShell-Remoting verwalten möchten, müssen Sie auch sicherstellen, dass WinRM ebenfalls aktiviert ist.
+- Die einzigen Ersetzungs Zeichenfolgen, die von Dateien für die unbeaufsichtigte Installation geschützter VMS unterstützt werden,
 
--   Die einzigen Ersetzungs Zeichenfolgen, die von Dateien für die unbeaufsichtigte Installation geschützter VMS unterstützt werden,
+    | Ersetzbares Element | Ersatz Zeichenfolge |
+    |-----------|-----------|
+    | ComputerName        | @ComputerName @      |
+    | Zeitzone            | @TimeZone @          |
+    | ProductKey          | @ProductKey @        |
+    | IPAddr4-1           | @IP4Addr-1 @         |
+    | IPAddr6-1           | @IP6Addr-1 @         |
+    | MACADDR-1           | @MACAddr-1 @         |
+    | Präfix-1-1          | @Prefix-1-1 @        |
+    | Nexthop-1-1         | @NextHop-1-1 @       |
+    | Präfix-1-2          | @Prefix-1-2 @        |
+    | Nexthop-1-2         | @NextHop-1-2 @       |
 
-| Ersetzbares Element | Ersatz Zeichenfolge |
-|-----------|-----------|
-| ComputerName        | @ComputerName @      |
-| Zeitzone            | @TimeZone @          |
-| ProductKey          | @ProductKey @        |
-| IPAddr4-1           | @IP4Addr-1 @         |
-| IPAddr6-1           | @IP6Addr-1 @         |
-| MACADDR-1           | @MACAddr-1 @         |
-| Präfix-1-1          | @Prefix-1-1 @        |
-| Nexthop-1-1         | @NextHop-1-1 @       |
-| Präfix-1-2          | @Prefix-1-2 @        |
-| Nexthop-1-2         | @NextHop-1-2 @       |
+    Wenn Sie über mehr als eine NIC verfügen, können Sie mehrere Ersatz Zeichenfolgen für die IP-Konfiguration hinzufügen, indem Sie die erste Ziffer erhöhen. Wenn Sie z. b. die IPv4-Adresse, das Subnetz und das Gateway für zwei NICs festlegen möchten, verwenden Sie die folgenden Ersetzungs Zeichenfolgen:
+
+    | Ersatz Zeichenfolge | Beispiel Ersetzung |
+    |---------------------|----------------------|
+    | @IP4Addr-1 @         | 192.168.1.10         |
+    | @MACAddr-1 @         | Ethernet             |
+    | @Prefix-1-1 @        | 192.168.1.0/24       |
+    | @NextHop-1-1 @       | 192.168.1.254        |
+    | @IP4Addr-2 @         | 10.0.20.30           |
+    | @MACAddr-2 @         | Ethernet 2           |
+    | @Prefix-2-1 @        | 10.0.20.0/24         |
+    | @NextHop-2-1 @       | 10.0.20.1            |
 
 Bei der Verwendung von Ersetzungs Zeichenfolgen müssen Sie sicherstellen, dass die Zeichen folgen während des VM-Bereitstellungs Prozesses aufgefüllt werden. Wenn eine Zeichenfolge wie @ProductKey @ zum Zeitpunkt der Bereitstellung nicht angegeben wird und der Knoten "&lt;productkey @ no__t-2" in der Datei für die unbeaufsichtigte Installation leer bleibt, schlägt der Spezialisierungsprozess fehl, und Sie können keine Verbindung mit dem virtuellen Computer herstellen.
 
 Beachten Sie außerdem, dass die netzwerkbezogenen Ersetzungs Zeichenfolgen für das Ende der Tabelle nur verwendet werden, wenn Sie statische VMM-IP-Adress Pools nutzen. Ihr hostingdienstanbieter sollte Ihnen mitteilen können, ob diese Ersetzungs Zeichenfolgen erforderlich sind. Weitere Informationen zu statischen IP-Adressen in VMM-Vorlagen finden Sie in der folgenden Dokumentation in der VMM-Dokumentation:
 
-- [Richtlinien für IP-Adress Pools](https://technet.microsoft.com/system-center-docs/vmm/plan/plan-network#guidelines-for-ip-address-pools) 
+- [Richtlinien für IP-Adress Pools](https://technet.microsoft.com/system-center-docs/vmm/plan/plan-network#guidelines-for-ip-address-pools)
 - [Einrichten von statischen IP-Adress Pools im VMM-Fabric](https://technet.microsoft.com/system-center-docs/vmm/manage/manage-network-static-address-pools)
 
 Schließlich ist es wichtig zu beachten, dass bei der Bereitstellung der abgeschirmten VM nur das Betriebssystem Laufwerk verschlüsselt wird. Wenn Sie einen abgeschirmten virtuellen Computer mit einem oder mehreren Daten Laufwerken bereitstellen, wird dringend empfohlen, dass Sie einen Unattend-Befehl oder Gruppenrichtlinie Einstellung in der Mandanten Domäne hinzufügen, um die Daten Laufwerke automatisch zu verschlüsseln.
@@ -111,17 +118,21 @@ Geschützte Datendateien enthalten auch Informationen zu den Vorlagen Datenträg
 
 Es gibt zwei Möglichkeiten, den VSC eines Vorlagen Datenträgers abzurufen:
 
--  Der Host (oder Mandant), wenn der Mandant auf VMM zugreifen kann, verwendet die VMM-PowerShell-Cmdlets zum Speichern des VSC und übergibt ihn an den Mandanten. Dies kann auf einem beliebigen Computer ausgeführt werden, auf dem die VMM-Konsole installiert und konfiguriert ist, um die VMM-Umgebung des hostingfabrics zu verwalten. Die PowerShell-Cmdlets zum Speichern des VSC lauten wie folgt:
+1. Der Host (oder Mandant), wenn der Mandant auf VMM zugreifen kann, verwendet die VMM-PowerShell-Cmdlets zum Speichern des VSC und übergibt ihn an den Mandanten. Dies kann auf einem beliebigen Computer ausgeführt werden, auf dem die VMM-Konsole installiert und konfiguriert ist, um die VMM-Umgebung des hostingfabrics zu verwalten. Die PowerShell-Cmdlets zum Speichern des VSC lauten wie folgt:
 
-        $disk = Get-SCVirtualHardDisk -Name "templateDisk.vhdx"
-    
-        $vsc = Get-SCVolumeSignatureCatalog -VirtualHardDisk $disk
-    
-        $vsc.WriteToFile(".\templateDisk.vsc")
+    ```powershell
+    $disk = Get-SCVirtualHardDisk -Name "templateDisk.vhdx"
 
--  Der Mandant hat Zugriff auf die Vorlagen Datenträger-Datei. Dies kann der Fall sein, wenn der Mandant einen Vorlagen Datenträger erstellt, der auf einen hostingdienstanbieter hochgeladen werden soll, oder wenn der Mandant den Vorlagen Datenträger des gehosteten In diesem Fall würde der Mandant das folgende Cmdlet ausführen (installiert mit dem Feature "abgeschirmte VM-Tools", das Teil Remoteserver-Verwaltungstools ist), ohne dass VMM in der Abbildung dargestellt wird:
+    $vsc = Get-SCVolumeSignatureCatalog -VirtualHardDisk $disk
 
-        Save-VolumeSignatureCatalog -TemplateDiskPath templateDisk.vhdx -VolumeSignatureCatalogPath templateDisk.vsc
+    $vsc.WriteToFile(".\templateDisk.vsc")
+    ```
+
+2. Der Mandant hat Zugriff auf die Vorlagen Datenträger-Datei. Dies kann der Fall sein, wenn der Mandant einen Vorlagen Datenträger erstellt, der auf einen hostingdienstanbieter hochgeladen werden soll, oder wenn der Mandant den Vorlagen Datenträger des gehosteten In diesem Fall würde der Mandant das folgende Cmdlet ausführen (installiert mit dem Feature "abgeschirmte VM-Tools", das Teil Remoteserver-Verwaltungstools ist), ohne dass VMM in der Abbildung dargestellt wird:
+
+    ```powershell
+    Save-VolumeSignatureCatalog -TemplateDiskPath templateDisk.vhdx -VolumeSignatureCatalogPath templateDisk.vsc
+    ```
 
 ## <a name="select-trusted-fabrics"></a>Vertrauenswürdige Fabrics auswählen
 
@@ -131,15 +142,18 @@ Zum Autorisieren eines hostinganbieters zum Ausführen einer abgeschirmten VM m�
 
 Sie oder Ihr hostingdienstanbieter können die Überwachungs Metadaten von HGS abrufen, indem Sie eine der folgenden Aktionen ausführen:
 
--  Rufen Sie die Überwachungs Metadaten direkt von HGS ab, indem Sie den folgenden Windows PowerShell-Befehl ausführen, oder navigieren Sie zur Website, und speichern Sie die angezeigte XML-Datei:
+- Rufen Sie die Überwachungs Metadaten direkt von HGS ab, indem Sie den folgenden Windows PowerShell-Befehl ausführen, oder navigieren Sie zur Website, und speichern Sie die angezeigte XML-Datei:
 
-        Invoke-WebRequest 'http://hgs.bastion.local/KeyProtection/service/metadata/2014-07/metadata.xml' -OutFile .\RelecloudGuardian.xml
+    ```powershell
+    Invoke-WebRequest 'http://hgs.bastion.local/KeyProtection/service/metadata/2014-07/metadata.xml' -OutFile .\RelecloudGuardian.xml
+    ```
 
--  Abrufen der Überwachungs Metadaten von VMM mithilfe der VMM-PowerShell-Cmdlets:
+- Abrufen der Überwachungs Metadaten von VMM mithilfe der VMM-PowerShell-Cmdlets:
 
-        $relecloudmetadata = Get-SCGuardianConfiguration
-
-        $relecloudmetadata.InnerXml | Out-File .\RelecloudGuardian.xml -Encoding UTF8
+    ```powershell
+    $relecloudmetadata = Get-SCGuardianConfiguration
+    $relecloudmetadata.InnerXml | Out-File .\RelecloudGuardian.xml -Encoding UTF8
+    ```
 
 Rufen Sie die Überwachungs Metadatendateien für jedes geschützte Fabric ab, für das Sie Ihre abgeschirmten VMS autorisieren möchten, bevor Sie fortfahren.
 
@@ -147,13 +161,15 @@ Rufen Sie die Überwachungs Metadatendateien für jedes geschützte Fabric ab, f
 
 Führen Sie den Assistenten für die Schutz Datendatei aus, um eine Datei mit geschützten Daten (PDK) zu erstellen. Hier fügen Sie das RDP-Zertifikat, die Datei für die unbeaufsichtigte Installation, volumesignaturkataloge, den Besitzer Wächter und die heruntergeladenen Überwachungs Metadaten hinzu, die im vorherigen Schritt abgerufen wurden.
 
-1.  Installieren Sie mit Server-Manager oder dem folgenden Windows PowerShell **-Befehl Remoteserver-Verwaltungstools &gt;-Feature-Verwaltungs Tools &gt; abgeschirmte VM-Tools** auf Ihrem Computer:
+1. Installieren Sie mit Server-Manager oder dem folgenden Windows PowerShell **-Befehl Remoteserver-Verwaltungstools &gt;-Feature-Verwaltungs Tools &gt; abgeschirmte VM-Tools** auf Ihrem Computer:
 
-        Install-WindowsFeature RSAT-Shielded-VM-Tools
+    ```powershell
+    Install-WindowsFeature RSAT-Shielded-VM-Tools
+    ```
 
-2.  Öffnen Sie den Assistenten zum Schützen von Datendateien über den Abschnitt "Administrator Tools" im Startmenü, oder führen Sie die folgende ausführbare Datei " **C: \\Windows @ no__t-2System32\\ShieldingDataFileWizard.exe**" aus.
+2. Öffnen Sie den Assistenten zum Schützen von Datendateien über den Abschnitt "Administrator Tools" im Startmenü, oder führen Sie die folgende ausführbare Datei " **C: \\Windows @ no__t-2System32\\ShieldingDataFileWizard.exe**" aus.
 
-3.  Verwenden Sie auf der ersten Seite das zweite Feld für die Auswahl von Dateien, um einen Speicherort und Dateinamen für die geschützte Datendatei auszuwählen. Normalerweise würden Sie eine geschützte Datendatei nach der Entität benennen, die virtuelle Computer besitzt, die mit den geschützten Daten (z. b. hr, IT, Finance) erstellt wurden, und die von ihr ausgestellte workloadrolle (z. b. Dateiserver, Webserver oder etwas anderes, das von der Datei für die unbeaufsichtigte Installation konfiguriert wurde). Lassen Sie das Optionsfeld auf **geschützte Daten für geschützte Vorlagen**fest.
+3. Verwenden Sie auf der ersten Seite das zweite Feld für die Auswahl von Dateien, um einen Speicherort und Dateinamen für die geschützte Datendatei auszuwählen. Normalerweise würden Sie eine geschützte Datendatei nach der Entität benennen, die virtuelle Computer besitzt, die mit den geschützten Daten (z. b. hr, IT, Finance) erstellt wurden, und die von ihr ausgestellte workloadrolle (z. b. Dateiserver, Webserver oder etwas anderes, das von der Datei für die unbeaufsichtigte Installation konfiguriert wurde). Lassen Sie das Optionsfeld auf **geschützte Daten für geschützte Vorlagen**fest.
 
     > [!NOTE]
     > Im Assistenten für Schutz Datendateien werden Ihnen die folgenden beiden Optionen angezeigt:
@@ -163,12 +179,12 @@ Führen Sie den Assistenten für die Schutz Datendatei aus, um eine Datei mit ge
 
     ![Assistent zum Schützen von Datendateien, Dateiauswahl](../media/Guarded-Fabric-Shielded-VM/guarded-host-shielding-data-wizard-01.png)
 
-       Außerdem müssen Sie auswählen, ob VMS, die mit dieser Schutz Datendatei erstellt wurden, im Modus "Verschlüsselung unterstützt" wirklich geschützt oder konfiguriert werden. Weitere Informationen zu diesen beiden Optionen finden Sie unter [Was sind die Typen von virtuellen Maschinen, die von einem geschützten Fabric ausgeführt werden können?](guarded-fabric-and-shielded-vms.md#what-are-the-types-of-virtual-machines-that-a-guarded-fabric-can-run).
+    Außerdem müssen Sie auswählen, ob VMS, die mit dieser Schutz Datendatei erstellt wurden, im Modus "Verschlüsselung unterstützt" wirklich geschützt oder konfiguriert werden. Weitere Informationen zu diesen beiden Optionen finden Sie unter [Was sind die Typen von virtuellen Maschinen, die von einem geschützten Fabric ausgeführt werden können?](guarded-fabric-and-shielded-vms.md#what-are-the-types-of-virtual-machines-that-a-guarded-fabric-can-run).
 
     > [!IMPORTANT]
     > Achten Sie sorgfältig auf den nächsten Schritt, da der Besitzer der abgeschirmten VMS und die Fabrics definiert werden, auf denen Ihre abgeschirmten VMS autorisiert sind.<br>Der Besitz des **Besitzer-Schützers** ist erforderlich, um eine vorhandene abgeschirmte VM später von **abgeschirmt** in **Verschlüsselung unterstützt** oder umgekehrt zu ändern.
-    
-4.  Ihr Ziel in diesem Schritt besteht darin, das zwei fache zu erreichen:
+
+4. Ihr Ziel in diesem Schritt besteht darin, das zwei fache zu erreichen:
 
     - Erstellen oder Auswählen eines Besitzer-Schützers, der Sie als VM-Besitzer darstellt
 
@@ -180,15 +196,15 @@ Führen Sie den Assistenten für die Schutz Datendatei aus, um eine Datei mit ge
 
     ![Schutz Datendatei-Assistent, Besitzer und Wächter](../media/Guarded-Fabric-Shielded-VM/guarded-host-shielding-data-wizard-02.png)
 
-5.  Klicken Sie auf der Seite "Volumen-ID-Qualifizierer" auf **Hinzufügen** , um einen signierten Vorlagen Datenträger in der Wenn Sie im Dialogfeld einen VSC auswählen, werden Informationen über den Namen, die Version und das Zertifikat des Datenträgers angezeigt, der zum Signieren verwendet wurde. Wiederholen Sie diesen Vorgang für jeden zu autorisierende Vorlagen Datenträger.
+5. Klicken Sie auf der Seite "Volumen-ID-Qualifizierer" auf **Hinzufügen** , um einen signierten Vorlagen Datenträger in der Wenn Sie im Dialogfeld einen VSC auswählen, werden Informationen über den Namen, die Version und das Zertifikat des Datenträgers angezeigt, der zum Signieren verwendet wurde. Wiederholen Sie diesen Vorgang für jeden zu autorisierende Vorlagen Datenträger.
 
-6.  Klicken Sie auf der Seite " **Spezialisierungs Werte** " auf **Durchsuchen** , um die Datei "Unattend. xml" auszuwählen, die für die Spezialisierung ihrer VMS verwendet wird.
+6. Klicken Sie auf der Seite " **Spezialisierungs Werte** " auf **Durchsuchen** , um die Datei "Unattend. xml" auszuwählen, die für die Spezialisierung ihrer VMS verwendet wird.
 
-    Verwenden Sie die Schaltfläche **Hinzufügen** am unteren Rand, um dem PDK weitere Dateien hinzuzufügen, die während des Spezialisierungs Vorgangs benötigt werden. Wenn die Datei für die unbeaufsichtigte Installation z. b. ein RDP-Zertifikat auf dem virtuellen Computer installiert (wie unter [Generieren einer Antwortdatei mithilfe der New-shieldingdatabeantworungsfile-Funktion](guarded-fabric-sample-unattend-xml-file.md)beschrieben), sollten Sie die Datei "rdpcert. pfx", auf die in der Datei für die unbeaufsichtigte Installation verwiesen wird, Beachten Sie, dass alle Dateien, die Sie hier angeben, automatisch nach C: \\temp @ no__t-1 auf dem virtuellen Computer kopiert werden, der erstellt wird. Die Datei für die unbeaufsichtigte Installation sollte erwarten, dass sich die Dateien in diesem Ordner befinden, wenn Sie über den Pfad referenziert werden.
+    Verwenden Sie die Schaltfläche **Hinzufügen** am unteren Rand, um dem PDK weitere Dateien hinzuzufügen, die während des Spezialisierungs Vorgangs benötigt werden. Wenn die Datei für die unbeaufsichtigte Installation z. b. ein RDP-Zertifikat auf dem virtuellen Computer installiert (wie unter [Generieren einer Antwortdatei mithilfe der New-shieldingdatabeantworungsfile-Funktion](guarded-fabric-sample-unattend-xml-file.md)beschrieben), müssen Sie die PFX-Datei des RDP-Zertifikats und rdpcertifikateconfig. ps1 hinzufügen. Skript hier erstellen. Beachten Sie, dass alle Dateien, die Sie hier angeben, automatisch nach C: \\temp @ no__t-1 auf dem virtuellen Computer kopiert werden, der erstellt wird. Die Datei für die unbeaufsichtigte Installation sollte erwarten, dass sich die Dateien in diesem Ordner befinden, wenn Sie über den Pfad referenziert werden.
 
-7.  Überprüfen Sie Ihre Auswahl auf der nächsten Seite, und klicken Sie dann auf **generieren**.
+7. Überprüfen Sie Ihre Auswahl auf der nächsten Seite, und klicken Sie dann auf **generieren**.
 
-8.  Schließen Sie den Assistenten, nachdem er abgeschlossen wurde.
+8. Schließen Sie den Assistenten, nachdem er abgeschlossen wurde.
 
 ## <a name="create-a-shielding-data-file-and-add-guardians-using-powershell"></a>Erstellen einer Schutz Datendatei und Hinzufügen von Betreuern mithilfe von PowerShell
 
@@ -226,6 +242,9 @@ Nachdem Sie alles vorbereitet haben, führen Sie den folgenden Befehl aus, um di
 $viq = New-VolumeIDQualifier -VolumeSignatureCatalogFilePath 'C:\temp\marketing-ws2016.vsc' -VersionRule Equals
 New-ShieldingDataFile -ShieldingDataFilePath "C:\temp\Marketing-LBI.pdk" -Policy EncryptionSupported -Owner 'Owner' -Guardian 'EAST-US Datacenter' -VolumeIDQualifier $viq -AnswerFile 'C:\temp\marketing-ws2016-answerfile.xml'
 ```
+
+> [!TIP]
+> Wenn Sie ein benutzerdefiniertes RDP-Zertifikat, SSH-Schlüssel oder andere Dateien verwenden, die in die geschützte Datendatei eingeschlossen werden müssen, verwenden Sie den `-OtherFile`-Parameter, um die Daten einzuschließen. Sie können eine durch Trennzeichen getrennte Liste mit Dateipfaden angeben, wie z. b. `-OtherFile "C:\source\myRDPCert.pfx", "C:\source\RDPCertificateConfig.ps1"`
 
 Im obigen Befehl kann der Wächter mit dem Namen "Owner" (abgerufen von Get-hgsguardian) die Sicherheitskonfiguration des virtuellen Computers in Zukunft ändern, während "East-US Datacenter" den virtuellen Computer ausführen, aber seine Einstellungen nicht ändern kann.
 Wenn Sie über mehr als einen Wächter verfügen, trennen Sie die Namen der Wächter durch Kommas wie `'EAST-US Datacenter', 'EMEA Datacenter'`.

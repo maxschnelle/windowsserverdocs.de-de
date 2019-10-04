@@ -2,13 +2,13 @@
 author: shortpatti
 ms.author: pashort
 ms.date: 10/02/2018
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms:topic: include
-ms.openlocfilehash: 761deb136ebd4ec22dfeebc47b4eeb7650594d89
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 01f231ca730a19ac0e7e868bcb7180377830afe1
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863711"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935072"
 ---
-Mit Hyper-V-Port Geben Sie NIC-Teams, die auf Hyper-V-Hosts konfiguriert virtuelle Computer unabhängige MAC-Adressen.  Der virtuelle Computer-MAC-Adresse oder den virtuellen Computer, die portiert kann mit dem Hyper-V-Switch verbunden verwendet werden, um den Netzwerkdatenverkehr zwischen den NIC-Team-Mitglieder zu unterteilen. Sie können keine NIC-Teams konfigurieren, die Sie mit der Hyper-V-Port lastenausgleichsmodus auf virtuellen Computern erstellen. Verwenden Sie stattdessen den Adresshash-Modus. 
+Mit dem Hyper-v-Port erhalten NIC-Teams, die auf Hyper-v-Hosts konfiguriert sind, unabhängige Mac-Adressen.  Die Mac-Adresse der VMS oder der mit dem Hyper-V-Switch verbundene virtuelle Computer kann verwendet werden, um den Netzwerk Datenverkehr zwischen den NIC-Team Mitgliedern aufzuteilen. Sie können keine NIC-Teams konfigurieren, die Sie auf VMS mit dem Hyper-V-Port-Lasten Ausgleichs Modus erstellen. Verwenden Sie stattdessen den Adress Hash Modus. 

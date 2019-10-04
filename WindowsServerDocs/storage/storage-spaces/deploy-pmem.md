@@ -10,12 +10,12 @@ ms.topic: article
 author: adagashe
 ms.date: 3/26/2019
 ms.localizationpriority: ''
-ms.openlocfilehash: 497fa201c500919fc857d25166d37ce87613d0f0
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 549cc6dbeec3d414e886f6ebf32315ae13627812
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872008"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940810"
 ---
 ---
 # <a name="understand-and-deploy-persistent-memory"></a>Verstehen und Bereitstellen von persistentem Speicher
@@ -26,8 +26,7 @@ Persistenter Speicher (oder pMem) ist eine neue Art von Speichertechnologie, die
 
 ## <a name="background"></a>Hintergrund
 
-PMem ist ein Typ von nichtflüchtigem DRAM (nvdimm) mit der Geschwindigkeit von DRAM, behält jedoch den Arbeitsspeicher Inhalt durch Energie Zyklen bei (die Speicherinhalte verbleiben auch, wenn die Systemleistung bei einem unerwarteten Stromausfall ausfällt, vom Benutzer initiierte Herunterfahren, Systemabsturz, usw.). Aus diesem Grund ist das Fortsetzen von an der Stelle, an der Sie aufgehört haben, deutlich schneller, da der Inhalt Ihres RAM nicht erneut geladen werden muss. Ein weiteres eindeutiges Merkmal ist, dass pMem Byte adressierbar ist, was bedeutet, dass Sie es als Speicher verwenden können (aus diesem Grund ist es möglicherweise zu hören, dass pMem als Speicher Klassen Speicher bezeichnet wird).
-
+PMem ist ein nicht flüchtiger RAM (nvdimm), der seinen Inhalt durch Energie Zyklen beibehält. Die Speicherinhalte verbleiben auch dann, wenn die Systemleistung bei einem unerwarteten Stromausfall, von einem Benutzer initiierten Herunterfahren, einem Systemabsturz usw. ausfällt. Dieses eindeutige Merkmal bedeutet, dass Sie pMem auch als Speicher verwenden können. aus diesem Grund können Sie sehen, dass pMem als "Speicher Klassen Speicher" bezeichnet wird.
 
 Um einige dieser Vorteile anzuzeigen, sehen Sie sich die Demo von Microsoft Ignite 2018 an:
 
@@ -57,13 +56,13 @@ Die folgende Tabelle enthält die vollständigen Leistungs Nummern:
 
 ### <a name="supported-hardware"></a>Unterstützte Hardware
 
-Die folgende Tabelle zeigt die unterstützte persistente Speicherhardware für Windows Server 2019 und Windows Server 2016. Beachten Sie, dass Intel optane speziell sowohl den Speicher Modus als auch den App-Direct-Modus unterstützt. Windows Server 2019 unterstützt Vorgänge im gemischten Modus.
+Die folgende Tabelle zeigt die unterstützte persistente Speicherhardware für Windows Server 2019 und Windows Server 2016. Beachten Sie, dass Intel optane sowohl Speicher (d.h. flüchtig) als auch APP Direct unterstützt (d. h. persistente Modi).
 
 | Persistente Speichertechnologie                                      | Windows Server 2016 | Windows Server 2019 |
 |-------------------------------------------------------------------|--------------------------|--------------------------|
-| **Nvdimm-N** im App-Direct-Modus                                       | Unterstützt                | Unterstützt                |
-| **Intel optane™ persistenter Speicher** im App-Direct-Modus             | Nicht unterstützt            | Unterstützt                |
-| **Intel optane™ persistenter Speicher** im Modus mit zwei Ebenen (2lm) | Nicht unterstützt            | Unterstützt                |
+| **Nvdimm-N** im persistenten Modus                                  | Unterstützt                | Unterstützt                |
+| **Intel optane™ persistenter Speicher** im App-direkt Modus             | Nicht unterstützt            | Unterstützt                |
+| **Intel optane™ persistenter Speicher** im Speicher Modus | Unterstützt            | Unterstützt                |
 
 Sehen wir uns nun an, wie Sie persistenten Speicher konfigurieren.
 
@@ -71,7 +70,7 @@ Sehen wir uns nun an, wie Sie persistenten Speicher konfigurieren.
 
 ### <a name="understanding-interleave-sets"></a>Grundlegendes zu Interleave-Sätzen
 
-Beachten Sie, dass sich das nvdimm-N-Gerät in einem standardmäßigen DIMM-Slot (Arbeitsspeicher) befindet, wobei die Daten näher am Prozessor abgelegt werden (wodurch die Latenz reduziert und die Leistung verbessert wird). Um dies zu ermöglichen, wird ein Interleave festgelegt, wenn zwei oder mehr nvdimms eine N-Wege-Interleave-Menge erstellen, um die Lese-/Schreibvorgänge von Streifen für einen höheren Durchsatz bereitzustellen. Die gängigsten Setups sind 2-Wege-oder 4-Wege-Interleaving.
+Beachten Sie, dass sich ein nvdimm in einem standardmäßigen DIMM-Slot (Arbeitsspeicher) befindet, wobei die Daten näher am Prozessor abgelegt werden (wodurch die Latenz reduziert und die Leistung verbessert wird). Um dies zu ermöglichen, wird ein Interleave festgelegt, wenn zwei oder mehr nvdimms eine N-Wege-Interleave-Menge erstellen, um die Lese-/Schreibvorgänge von Streifen für einen höheren Durchsatz bereitzustellen. Die gängigsten Setups sind 2-Wege-oder 4-Wege-Interleaving.
 
 Überlappende Sätze können häufig im BIOS einer Plattform erstellt werden, damit mehrere persistente Speichergeräte als einzelner logischer Datenträger zu Windows Server angezeigt werden. Jeder permanente logische Speicher Datenträger enthält eine verschachtelte Gruppe physischer Geräte durch Ausführen von:
 

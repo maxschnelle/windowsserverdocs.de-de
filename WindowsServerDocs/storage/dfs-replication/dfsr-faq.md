@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 12410d619245153f759b54e7a8aff257888f04dc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 92fe505c3ae7d76f7a8d5bd9d2ed0ce845159fde
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386073"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940759"
 ---
 # <a name="dfs-replication-frequently-asked-questions-faq"></a>DFS-Replikation: Häufig gestellte Fragen
 
@@ -217,7 +217,7 @@ Nein. Replikations Gruppen können Domänen übergreifend innerhalb einer einzel
 
 ### <a name="what-are-the-supported-limits-of-dfs-replication"></a>Was sind die unterstützten Grenzwerte DFS-Replikation?
 
-Die folgende Liste enthält eine Reihe von Richtlinien für die Skalierbarkeit, die von Microsoft auf Windows Server 2012 R2 getestet wurden:
+Die folgende Liste enthält eine Reihe von Richtlinien für die Skalierbarkeit, die von Microsoft getestet wurden und auf Windows Server 2012 R2, Windows Server 2016 und Windows Server 2019 angewendet werden.
 
   - Größe aller replizierten Dateien auf einem Server: 100 Terabyte.  
       
@@ -228,7 +228,7 @@ Die folgende Liste enthält eine Reihe von Richtlinien für die Skalierbarkeit, 
 
 
 > [!IMPORTANT]
-> Beim Erstellen von Replikations Gruppen mit einer großen Anzahl oder Größe von Dateien sollten Sie einen Daten Bank Klon exportieren und präseedingtechniken verwenden, um die Dauer der ersten Replikation zu minimieren. Weitere Informationen finden <A href="http://blogs.technet.com/b/filecab/archive/2013/08/21/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of-the-clones.aspx">Sie unter DFS-Replikation Initial Sync in Windows Server 2012 R2: Angriff der Klone</A>. 
+> Beim Erstellen von Replikations Gruppen mit einer großen Anzahl oder Größe von Dateien sollten Sie einen Daten Bank Klon exportieren und präseedingtechniken verwenden, um die Dauer der ersten Replikation zu minimieren. Weitere Informationen finden [Sie unter DFS-Replikation Initial Sync in Windows Server 2012 R2: Angriff der Klone](https://techcommunity.microsoft.com/t5/Storage-at-Microsoft/DFS-Replication-Initial-Sync-in-Windows-Server-2012-R2-Attack-of/ba-p/424877). 
 <br>
 
 
