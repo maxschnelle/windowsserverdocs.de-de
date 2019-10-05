@@ -8,12 +8,12 @@ ms.date: 08/19/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: a776920caa85c3ee133070d52b020c8ad3c799e1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6895c4b5f74beb237378060f82135d6f578986b7
+ms.sourcegitcommit: e92a78f8d307200e64617431a701b9112a9b4e48
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402994"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973865"
 ---
 # <a name="storage-migration-service-frequently-asked-questions-faq"></a>Häufig gestellte Fragen (FAQ) zu Storage Migration Service
 
@@ -34,15 +34,15 @@ Der Speicher Migrationsdienst lässt keine Migration zwischen Active Directory D
 
 ## <a name="are-clusters-supported-as-sources-or-destinations"></a>Werden Cluster als Quellen oder Ziele unterstützt?
 
-Der Speicher Migrationsdienst wird derzeit nicht zwischen Clustern in Windows Server 2019 migriert. Wir planen das Hinzufügen von Cluster Unterstützung in einer zukünftigen Version des Speicher Migrations Dienstanbieter.
+Der Storage Migration Service unterstützt die Migration von und zu Clustern nach der Installation des kumulativen Updates [KB4513534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) oder nachfolgende Updates. Dies umfasst auch das Migrieren von einem Quell Cluster zu einem Ziel Cluster sowie das Migrieren von einem eigenständigen Quell Server zu einem Ziel Cluster für die Geräte Konsolidierung. 
 
 ## <a name="do-local-groups-and-local-users-migrate"></a>Werden lokale Gruppen und lokale Benutzer migriert?
 
-Der Speicher Migrationsdienst migriert derzeit keine lokalen Benutzer oder lokalen Gruppen in Windows Server 2019. Wir planen, in einer zukünftigen Version des Speicher Migrations Dienstanbieter die Unterstützung für die Migration lokaler Benutzer und lokaler Gruppen hinzuzufügen.
+Der Storage Migration Service unterstützt die Migration lokaler Benutzer und Gruppen nach der Installation des kumulativen Updates [KB4513534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) oder nachfolgende Updates. 
 
 ## <a name="is-domain-controller-migration-supported"></a>Wird die Migration des Domänen Controllers unterstützt?
 
-Der Speicher Migrationsdienst migriert zurzeit keine Domänen Controller in Windows Server 2019. Wenn Sie mehr als einen Domänen Controller in der Active Directory Domäne haben, sollten Sie den Domänen Controller vor der Migration herabstufen und dann das Ziel herauf Stufen, nachdem der Vorgang abgeschlossen wurde. Wir planen das Hinzufügen von Unterstützung für die Migration von Domänen Controllern in einer zukünftigen Version von Storage Migration Service.
+Der Speicher Migrationsdienst migriert zurzeit keine Domänen Controller in Windows Server 2019. Wenn Sie mehr als einen Domänen Controller in der Active Directory Domäne haben, sollten Sie den Domänen Controller vor der Migration herabstufen und dann das Ziel herauf Stufen, nachdem der Vorgang abgeschlossen wurde.
 
 ## <a name="what-attributes-are-migrated-by-the-storage-migration-service"></a>Welche Attribute werden vom Speicher Migrationsdienst migriert?
 
@@ -73,11 +73,11 @@ Der Speicher Migrationsdienst migriert alle Flags, Einstellungen und die Sicherh
 
 ## <a name="can-i-consolidate-multiple-servers-into-one-server"></a>Kann ich mehrere Server auf einem Server konsolidieren?
 
-Die in Windows Server 2019 enthaltene Version des Speicher Migrations Dienstanbieter unterstützt nicht das Konsolidieren mehrerer Server zu einem Server. Ein Beispiel für eine Konsolidierung wäre die Migration von drei separaten Quell Servern, die die gleichen Freigabe Namen und lokalen Dateipfade aufweisen können, auf einem einzelnen neuen Server, der diese Pfade und Freigaben virtualisiert, um Überschneidungen oder Kollisionen zu vermeiden und dann alle drei vorherige Servernamen und IP-Adresse. Diese Funktion kann in einer zukünftigen Version des Speicher Migrations Dienstanbieter hinzugefügt werden. 
+Die in Windows Server 2019 enthaltene Version des Speicher Migrations Dienstanbieter unterstützt nicht das Konsolidieren mehrerer Server zu einem Server. Ein Beispiel für eine Konsolidierung wäre die Migration von drei separaten Quell Servern, die die gleichen Freigabe Namen und lokalen Dateipfade aufweisen können, auf einem einzelnen neuen Server, der diese Pfade und Freigaben virtualisiert, um Überschneidungen oder Kollisionen zu vermeiden und dann alle drei vorherige Servernamen und IP-Adresse. Es ist jedoch möglich, eigenständige Server auf mehrere Dateiserver Ressourcen in einem einzelnen Cluster zu migrieren. 
 
 ## <a name="can-i-migrate-from-sources-other-than-windows-server"></a>Kann ich aus anderen Quellen als Windows Server migrieren?
 
-Die in Windows Server 2019 enthaltene Version des Storage Migration Service unterstützt die Migration von Windows Server 2003 und höheren Betriebssystemen. Sie können auch Speicher von einem Linux-Server oder-Gerät migrieren, der Samba verwendet. Führen Sie hierzu Storage Migration Service auf einem Server mit Windows Server, Version 1903 oder höher, aus.
+Der Storage Migration Service unterstützt die Migration von Samba-Linux-Servern nach der Installation des kumulativen Updates [KB4513534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) oder nachfolgende Updates. Eine Liste der unterstützten Samba-Versionen und Linux-Distributionen finden Sie in den Anforderungen.
 
 ## <a name="can-i-migrate-previous-file-versions"></a>Können frühere Dateiversionen migriert werden?
 
@@ -129,7 +129,7 @@ Die in Windows Server 2019 enthaltene Version des Speicher Migrations Dienstanbi
 Der Speicher Migrationsdienst verwendet eine ESE (Extensible Storage Engine)-Datenbank, die standardmäßig im Ordner "Hidden c:\programdata\microsoft\storagemigrationservice" installiert wird. Diese Datenbank wächst, wenn Aufträge hinzugefügt und Übertragungen abgeschlossen werden, und kann nach der Migration von Millionen von Dateien einen erheblichen Speicherplatz beanspruchen, wenn Sie keine Aufträge löschen. Wenn die Datenbank verschoben werden muss, führen Sie die folgenden Schritte aus:
 
 1. Beendet den Dienst "Storage Migration Service" auf dem Orchestrator-Computer.
-2. Besitz des `%programdata%/Microsoft/StorageMigrationService` Ordners übernehmen
+2. Besitz des Ordners "`%programdata%/Microsoft/StorageMigrationService`" übernehmen
 3. Fügen Sie Ihr Benutzerkonto hinzu, um die vollständige Kontrolle über diese Freigabe und alle Dateien und Unterordner zu haben.
 4. Verschieben Sie den Ordner auf ein anderes Laufwerk auf dem Orchestrator-Computer.
 5. Legen Sie den folgenden Registrierungs REG_SZ Wert fest:
@@ -145,7 +145,7 @@ So geben Sie Feedback zum Speicher Migrationsdienst an:
 
 - Verwenden Sie das in Windows 10 enthaltene Feedback-Hub-Tool, klicken Sie auf "Feature vorschlagen", und geben Sie die Kategorie "Windows Server" und die Unterkategorie "Speicher Migration" an.
 - Verwenden der [Windows Server UserVoice](https://windowsserver.uservoice.com) -Website
-- E-Mailsmsfeed@microsoft.com
+- E-Mail-smsfeed@microsoft.com
 
 So melden Sie Fehler:
 
