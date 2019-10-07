@@ -295,7 +295,7 @@ ms.locfileid: "70866937"
 -   Stellt VPN auf dem Client Computer bereit und bietet einen einfachen Mausklick, wenn die VPN-Funktionalität unter Windows Server Essentials aktiviert ist, oder bietet eine automatische Verbindung, wenn die VPN-Funktionalität unter Windows Server Essentials aktiviert ist.  
 
 
- Informationen zum Verbinden Ihres Computers mit dem Server finden Sie unter [Connect computers to the server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
+ Informationen zum Verbinden Ihres Computers mit dem Server finden Sie unter [Verbinden von Computern mit dem Server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
 
 ###  <a name="BKMK_6"></a>Informationen zum Netzwerk Benutzernamen und-Kennwort  
  Sie erhalten Ihren Netzwerk-Benutzernamen und das Kennwort von der Person, die den Server verwaltet. Diese Anmeldeinformationen können Sie verwenden, um den Computer mit dem Server zu verbinden und auf Informationen vom Server zuzugreifen.  
@@ -546,7 +546,7 @@ ms.locfileid: "70866937"
     3.  Aktualisieren Sie die Webseite.  
 
 
-    4.  Um den zweiten Server mit einem Server unter Windows Server Essentials zu verbinden, folgen Sie den Anweisungen unter [Connect computers to the server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
+    4.  Um den zweiten Server mit einem Server unter Windows Server Essentials zu verbinden, folgen Sie den Anweisungen unter [Verbinden von Computern mit dem Server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
 
 
 ~~~
@@ -598,7 +598,7 @@ ms.locfileid: "70866937"
 -   Sie ermöglicht es Ihnen, Windows Server Essentials remote von Ihrem Computer zu Hause zu konfigurieren und zu verwalten.  
 
 
- Schrittweise Anleitungen zum Verbinden Ihres Computers mit dem Windows Server Essentials-Server finden Sie unter [Connect computers to the server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).   
+ Schrittweise Anleitungen zum Verbinden Ihres Computers mit dem Windows Server Essentials-Server finden Sie unter [Verbinden von Computern mit dem Server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).   
 
 
 ###  <a name="BKMK_12"></a>Manuelles Verschieben von Computer Daten und-Einstellungen  
@@ -656,7 +656,7 @@ ms.locfileid: "70866937"
 
 5. Entfernen Sie den Computer aus der Windows Server Essentials-Domäne und fügen Sie ihn der Arbeitsgruppe hinzu. Schrittweise Anleitungen zum Beitreten zu einer Windows-Arbeitsgruppe finden Sie unter [Beitreten zu oder Erstellen von Arbeitsgruppen](https://windows.microsoft.com/windows7/Join-or-create-a-workgroup).  
 
-6. Verbinden Sie den Computer mithilfe des Assistenten zum Verbinden eines Computers mit dem Server erneut mit dem Server. Schritt-für-Schritt-Anweisungen finden Sie unter [Connect computers to the server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
+6. Verbinden Sie den Computer mithilfe des Assistenten zum Verbinden eines Computers mit dem Server erneut mit dem Server. Schritt-für-Schritt-Anweisungen finden Sie unter [Verbinden von Computern mit dem Server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
 
 ###  <a name="BKMK_Sleep"></a>Funktionsweise der Sicherung mit dem Modus "Standby" und "Ruhezustand"  
  Wenn Sie beim Verbinden des Computers mit dem Server die Option **Diesen Computer für die Sicherung aus dem Ruhezustand aktivieren** wählen, wird der Computer gemäß dem Sicherungszeitplan täglich automatisch aus dem Energiesparmodus oder Ruhezustand aktiviert, damit die Sicherung durchgeführt werden kann. Nachdem die Sicherung abgeschlossen ist, wird der Computer basierend auf den Energieverwaltungseinstellungen wieder in den Energiesparmodus oder Ruhezustand versetzt. Wenn Sie diese Option nicht aktivieren, sichert der Server den Computer nicht, wenn dieser im Energiesparmodus oder Ruhezustand ist. Weitere Informationen finden Sie unter [Verwalten der Client Sicherung](../manage/Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md).  
