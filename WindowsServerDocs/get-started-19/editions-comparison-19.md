@@ -1,46 +1,44 @@
 ---
 title: Vergleich der Standard- und Datacenter-Editionen von Windows Server 2019
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c5ca3bfe-7ced-49f6-2932-80cab33fe914
-author: coreyp-at-msft
-ms.author: coreyp
+author: jasongerend
+ms.author: jgerend
 manager: jasgroce
 ms.localizationpriority: medium
-ms.openlocfilehash: af9334159b4b2aef6c2880e44bbc4ee46d7821b7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 24ae0e11a3e8ca2b50bd6722f7bd7d18b8c1c532
+ms.sourcegitcommit: e92a78f8d307200e64617431a701b9112a9b4e48
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360874"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973872"
 ---
 # <a name="comparison-of-standard-and-datacenter-editions-of-windows-server-2019"></a>Vergleich der Standard- und Datacenter-Editionen von Windows Server 2019
 
 > Gilt für: Windows Server 2019
   
 ## <a name="locks-and-limits"></a>Sperren und Beschränkungen
-|Sperren und Beschränkungen|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
-|-------------------|----------|---------------------------|  
-|Maximale Anzahl von Benutzern|Basierend auf Clientzugriffslizenzen|Basierend auf Clientzugriffslizenzen|
-|Maximale Anzahl von SMB-Verbindungen|16777216|16777216|
-|Maximale Anzahl von RRAS-Verbindungen|unbegrenzt|unbegrenzt|
-|Maximale Anzahl von IAS-Verbindungen|2147483647|2147483647|
-|Maximale Anzahl von RDS-Verbindungen|65535|65535|
-|Maximale Anzahl von 64-Bit-Sockets|64|64|
-|Maximale Anzahl von Kernen|unbegrenzt|unbegrenzt|
-|Maximaler RAM|24 TB|24 TB|
-|Kann als Virtualisierungsgast verwendet werden|Ja. 2 virtuelle Computer plus ein Hyper-V-Host pro Lizenz|Ja. Unbegrenzte Anzahl von virtuellen Computern plus ein Hyper-V-Host pro Lizenz|
-|Server kann einer Domäne beitreten.|Ja|Ja|
-|Umkreisnetzwerkschutz/-firewall|Nein|Nein|
-|DirectAccess|Ja|Ja|
-|DLNA-Codecs und Webmedienstreaming|Ja, bei der Installation als Server mit Desktopdarstellung|Ja, bei der Installation als Server mit Desktopdarstellung|
+
+| Sperren und Beschränkungen                 | Windows Server 2019 Standard | Windows Server 2019 Datacenter |  
+| -------------------              | ---------------------------  | --------------------------- |  
+| Maximale Anzahl von Benutzern          | Basierend auf Clientzugriffslizenzen                | Basierend auf Clientzugriffslizenzen |
+| Maximale Anzahl von SMB-Verbindungen          | 16.777.216                   | 16.777.216 |
+| Maximale Anzahl von RRAS-Verbindungen         | unbegrenzt                    | unbegrenzt |
+| Maximale Anzahl von IAS-Verbindungen          | 2\.147.483.647                | 2\.147.483.647 |
+| Maximale Anzahl von RDS-Verbindungen          | 65.535                       | 65.535 |
+| Maximale Anzahl von 64-Bit-Sockets | 64                           | 64 |
+| Maximale Anzahl von Kernen          | unbegrenzt                    | unbegrenzt |
+| Maximaler RAM                      | 24 TB                        | 24 TB |
+| Kann als Virtualisierungsgast verwendet werden | Ja. 2 virtuelle Computer plus ein Hyper-V-Host pro Lizenz|Ja. <strong>Unbegrenzte Anzahl von virtuellen Computern</strong> plus ein Hyper-V-Host pro Lizenz |
+| Server kann einer Domäne beitreten.        | Ja                           | Ja |
+| Umkreisnetzwerkschutz/-firewall| Nein                            | Nein    |
+| DirectAccess                    | Ja                           | Ja |
+| DLNA-Codecs und Webmedienstreaming | Ja, bei der Installation als Server mit Desktopdarstellung | Ja, bei der Installation als Server mit Desktopdarstellung |
 
 ## <a name="server-roles"></a>Serverrollen
+
 |Verfügbare Windows Server-Rollen|Rollendienste|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
 |-------------------|----------|----------|---------------------------|  
 |Active Directory-Zertifikatdienste| |Ja|Ja|
@@ -66,7 +64,7 @@ ms.locfileid: "71360874"
 |Datei- und Speicherdienste|Speicherdienste|Ja|Ja|
 |Host-Überwachungsdienst| |Ja|Ja|
 |Hyper-V| |Ja|Ja; einschließlich abgeschirmte virtuelle Computer|
-|Netzwerkcontroller| |Nein|Ja|
+|Netzwerkcontroller| |Nein| <strong>Ja</strong> |
 |Network Policy and Access Services| |Ja, bei der Installation als Server mit Desktopdarstellung|Ja, bei der Installation als Server mit Desktopdarstellung|
 |Druck- und Dokumentdienste| |Ja|Ja|
 |Remotezugriff| |Ja|Ja|
@@ -74,7 +72,7 @@ ms.locfileid: "71360874"
 |Volumenaktivierungsdienste| |Ja|Ja|
 |Webdienste (IIS)| |Ja|Ja|
 |Windows-Bereitstellungsdienste| |Ja*|Ja*|
-|Windows Server Essentials-Umgebung| |Ja|Ja|
+|Windows Server Essentials-Umgebung| |Nein | Nein |
 |Windows Server Update Services| |Ja|Ja|
 
 *WDS-Transportserver ist neu in Server Core-Installationen unter Windows Server 2019 (auch im halbjährlichen Kanal ab Windows Server, Version 1803)
@@ -84,20 +82,20 @@ ms.locfileid: "71360874"
 
 |Windows Server-Features mit Server-Manager (oder PowerShell) installierbar|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
 |-------------------|----------|---------------------------|  
-|.NET Framework 3.5|Ja|Ja|
-|.NET Framework 4.6|Ja|Ja|
+|.NET Framework 3.5 |Ja|Ja|
+|.NET Framework 4.7 |Ja|Ja|
 |BITS (Background Intelligent Transfer Service, Intelligenter Hintergrundübertragungsdienst)|Ja|Ja|
 |BitLocker-Laufwerkverschlüsselung|Ja|Ja|
 |BitLocker-Netzwerkentsperrung|Ja, bei der Installation als Server mit Desktopdarstellung|Ja, bei der Installation als Server mit Desktopdarstellung|
 |BranchCache|Ja|Ja|
 |Client für NFS|Ja|Ja|
-|Container|Ja (Windows-Container unbegrenzt; Hyper-V-Container bis zu 2)|Ja (alle Containertypen unbegrenzt)|
+|Container|Ja (unbegrenzte Windows-Container; bis zu 2 Hyper-V-Container)|Ja (<strong>unbegrenzte Windows- und Hyper-V-Container</strong>) |
 |Data Center Bridging|Ja|Ja|
 |DirectPlay|Ja, bei der Installation als Server mit Desktopdarstellung|Ja, bei der Installation als Server mit Desktopdarstellung|
 |Erweitertes Speichern|Ja|Ja|
 |Failoverclustering|Ja|Ja|
 |Gruppenrichtlinienverwaltung|Ja|Ja|
-|Host-Überwachungsunterstützung für Hyper-V|Nein|Ja|
+|Host-Überwachungsunterstützung für Hyper-V|Nein| <strong>Ja</strong> |
 |E/A: Quality of Service (QoS, Dienstqualität)|Ja|Ja|
 |Hostfähiger IIS-Webkern|Ja|Ja|
 |Internetdruckclient|Ja, bei der Installation als Server mit Desktopdarstellung|Ja, bei der Installation als Server mit Desktopdarstellung|
@@ -149,7 +147,6 @@ ms.locfileid: "71360874"
 |Allgemein verfügbare Funktionen|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
 |-------------------|----------|---------------------------|  
 |Best Practices Analyzer|Ja|Ja|
-|Eingeschränkte Speicherreplikate|Ja (1 Partnerschaft und 1 Ressourcengruppe mit einem einzelnen 2-TB-Volume)|Ja, unbegrenzt|
 |Direct Access|Ja|Ja|
 |Dynamischer Arbeitsspeicher (in Virtualisierung)|Ja|Ja|
 |RAM im laufenden Systembetrieb hinzufügen/entfernen|Ja|Ja|
@@ -161,15 +158,15 @@ ms.locfileid: "71360874"
 |Nano Server-Installationsoption|Ja|Ja|
 |Server-Manager|Ja|Ja|
 |SMB Direct und SMB über RDMA|Ja|Ja|
-|Softwaredefinierte Netzwerke|Nein|Ja|
-|Speicherverwaltungsdienst|Ja|Ja|
+|Softwaredefinierte Netzwerke|Nein| <strong>Ja</strong> |
+|Speichermigrationsdienst|Ja|Ja|
+| Speicherreplikat         | Ja (1 Partnerschaft und 1 Ressourcengruppe mit einem einzelnen 2-TB-Volume)    | Ja, <strong>unbegrenzt</strong> |
 |Speicherplätze|Ja|Ja|
-|Direkte Speicherplätze|Nein|Ja|
+|Direkte Speicherplätze|Nein| <strong>Ja</strong> |
 |Volumenaktivierungsdienste|Ja|Ja|
 |Integration mit Volumeschattenkopie-Dienst (Volume Shadow Copy Service, VSS)|Ja|Ja|
 |Windows Server Update Services|Ja|Ja|
 |Windows-Systemressourcen-Manager|Ja|Ja|
 |Serverlizenzprotokollierung|Ja|Ja|
-|Geerbte Aktivierung|Als Gast (beim Hosten unter Datacenter)|Kann Host oder Gast sein|
+|Geerbte Aktivierung|Als Gast (beim Hosten unter Datacenter)| <strong>Kann ein Host oder ein Gast sein</strong> |
 |Arbeitsordner|Ja|Ja|
-

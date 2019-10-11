@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 07/16/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 5b1dd3b728f941d9c3732abccf19363cf631284e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 54ed455955053ebb234864f827759385ecf3d3c5
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387746"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935036"
 ---
 # <a name="frequently-asked-questions-about-the-remote-desktop-clients"></a>Häufig gestellte Fragen zu Remotedesktopclients
 
@@ -166,7 +166,7 @@ Gehe wie folgt vor, um zwei oder mehr Bildschirme zu nutzen:
 2. Aktiviere die Optionen **Alle Monitore verwenden** und **Vollbild**.
 
 ### <a name="is-bi-directional-sound-supported"></a>Wird bidirektionaler Sound unterstützt?
-Sound in Upstream-Richtung (vom Client zum Server für Mikrofone) wird vom Remotedesktopclient nicht unterstützt.
+Bidirektionaler Sound kann im Windows-Client auf Verbindungsbasis konfiguriert werden. Auf die relevanten Einstellungen kann auf der Registerkarte **Lokale Ressourcen** im Bereich **Remoteaudio** zugegriffen werden.
 
 ### <a name="what-can-i-do-if-the-sound-wont-play"></a>Was kann ich tun, wenn der Sound nicht wiedergegeben wird?
 Melde dich von der Sitzung ab und dann wieder an. (Trenne hierbei nicht nur die Verbindung, sondern melde dich vollständig ab.)

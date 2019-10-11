@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b3111d4e980395c1a7c971af715017d455e1a29c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 51693f81e8e394df02bf35f1a6d91ed06b98e4bb
+ms.sourcegitcommit: c9d856c22b42d2a4fb8fe6acc6c5b6be673647f2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384918"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72165045"
 ---
 # <a name="qprocess"></a>qprocess
 
@@ -32,7 +32,7 @@ Zeigt Informationen zu Prozessen an, die auf einem Remotedesktop-Sitzungshost Se
 ## <a name="remarks"></a>Hinweise
 Dieser Befehl ist mit dem **Abfrageprozess** Befehl identisch.
 
-#### <a name="additional-references"></a>Weitere Verweise
-[Abfrageprozess](query-process.md)
-[Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-[Remotedesktopdienste &#40;Befehlsreferenz&#41; für Terminal Dienste](remote-desktop-services-terminal-services-command-reference.md)
+## <a name="additional-references"></a>Weitere Verweise
+[Abfrageprozess](query-process.md)  
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
+[Remotedesktopdienste &#40;Befehlsreferenz&#41; für terminaldienstedienste](remote-desktop-services-terminal-services-command-reference.md)  

@@ -4,16 +4,16 @@ description: Bekannte Probleme und Problembehandlung für den Speicher Migration
 author: nedpyle
 ms.author: nedpyle
 manager: siroy
-ms.date: 07/09/2019
+ms.date: 10/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 150c9f1e70df4f634886ea65efd9c61ef075f26a
-ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
+ms.openlocfilehash: e3ec7ee787fb6fd2e8e9f59249a6c4013a76b377
+ms.sourcegitcommit: e2964a803cba1b8037e10d065a076819d61e8dbe
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71940710"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72252368"
 ---
 # <a name="storage-migration-service-known-issues"></a>Bekannte Probleme bei Storage Migration Service
 
@@ -48,7 +48,7 @@ Verwenden Sie zum Auflösen von Windows Server 2019 Build 1809 oder höher, oder
 
 Wenn Sie die Version 0,57 der Storage Migration Service-Erweiterung im Windows Admin Center verwenden und die Umschalter Phase erreichen, können Sie keine statische IP-Adresse für eine Adresse auswählen. Sie sind gezwungen, DHCP zu verwenden.
 
-Um dieses Problem zu beheben, suchen Sie im Windows Admin Center unter **Einstellungen** > **Erweiterungen** nach einer Warnung, die besagt, dass die aktualisierte Version Storage Migration Service 0.57.2 zur Installation zur Verfügung steht. Möglicherweise müssen Sie die Browser Registerkarte für Windows Admin Center neu starten.
+Um dieses Problem zu beheben, suchen Sie im Windows Admin Center unter **Einstellungen** > **Erweiterungen** eine Warnung, die besagt, dass die aktualisierte Version Storage Migration Service 0.57.2 zur Installation zur Verfügung steht. Möglicherweise müssen Sie die Browser Registerkarte für Windows Admin Center neu starten.
 
 ## <a name="storage-migration-service-cutover-validation-fails-with-error-access-is-denied-for-the-token-filter-policy-on-destination-computer"></a>Die Überprüfung des Speicher Migrationsdienst-cutovers schlägt mit dem Fehler "Zugriff wird für die tokenfilterrichtlinie auf dem Zielcomputer verweigert" fehl
 
@@ -225,7 +225,7 @@ Job: foo2-ID: 20ac3f75-4945-41d1-9a79-d11dbb57798b-Status: Fehler: 36934-Fehlerm
   Benutzer:          Netzwerkdienst Computer:      FS02. TailwindTraders.net Beschreibung: Konnte keinen Computer inventarisieren.
 Auftrag: foo2 Computer: FS01. TailwindTraders.net-Status: Fehler:-2147463168 Fehlermeldung: Leitfaden: Prüfen Sie den detaillierten Fehler, und stellen Sie sicher, dass die Inventur Anforderungen erfüllt sind. Das Inventar konnte keine Aspekte des angegebenen Quell Computers ermitteln. Dies kann daran liegen, dass fehlende Berechtigungen oder Berechtigungen für die Quelle oder einen gesperrten Firewallport vorhanden sind.
   
-Dieser Fehler wird durch einen Code Fehler im Speicher Migrationsdienst verursacht, wenn Sie Migrations Anmelde Informationen in Form eines Benutzer Prinzipal namens (User Principal Name, UPN)meghan@contoso.combereitstellen, z. b. "". Der Orchestrator-Dienst des Speicher Migrations Dienstanbieter kann dieses Format nicht ordnungsgemäß analysieren, was zu einem Fehler bei einer Domänen Suche führt, die zur Unterstützung der Cluster Migration in KB4512534 und 19h1 hinzugefügt wurde.
+Dieser Fehler wird durch einen Code Fehler im Speicher Migrationsdienst verursacht, wenn Sie Migrations Anmelde Informationen in Form eines Benutzer Prinzipal namens (User Principal Name, UPN) bereitstellen, z. b. "meghan@contoso.com". Der Orchestrator-Dienst des Speicher Migrations Dienstanbieter kann dieses Format nicht ordnungsgemäß analysieren, was zu einem Fehler bei einer Domänen Suche führt, die zur Unterstützung der Cluster Migration in KB4512534 und 19h1 hinzugefügt wurde.
 
 Um dieses Problem zu umgehen, geben Sie Anmelde Informationen im Format "Domäne \ Benutzer" an, z. b. "contoso\meghan".
 
@@ -264,6 +264,28 @@ Wenn Sie versuchen, die Inventur mit dem für den Speicher Migrationsdienst Orch
     There are no more endpoints available from the endpoint mapper  
 
 Um dieses Problem zu umgehen, deinstallieren Sie das kumulative Update KB4512534 (und ggf. das kumulative Update) vorübergehend über den Orchestrator-Computer des Speicher Migrations Dienstanbieter. Installieren Sie nach Abschluss der Migration das aktuellste kumulative Update neu.  
+
+Beachten Sie, dass es unter bestimmten Umständen dazu führen kann, dass der Speicher Migrationsdienst nicht mehr gestartet wird, wenn Sie KB4512534 oder seine ersetzenden Updates deinstallieren Um dieses Problem zu beheben, können Sie die Speicher Migrationsdienst-Datenbank sichern und löschen:
+
+1.  Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, bei der Sie ein Mitglied der Administratoren auf dem Orchestrator-Server für den Speicher Migrationsdienst sind, und führen Sie Folgendes aus:
+
+     ```
+     MD c:\ProgramData\Microsoft\StorageMigrationService\backup
+
+     ICACLS c:\ProgramData\Microsoft\StorageMigrationService\* /grant Administrators:(GA)
+
+     XCOPY c:\ProgramData\Microsoft\StorageMigrationService\* .\backup\*
+
+     DEL c:\ProgramData\Microsoft\StorageMigrationService\* /q
+
+     ICACLS c:\ProgramData\Microsoft\StorageMigrationService  /GRANT networkservice:F /T /C
+
+     ICACLS c:\ProgramData\Microsoft\StorageMigrationService /GRANT networkservice:(GA)F /T /C
+     ```
+   
+2.  Starten Sie den Dienst "Storage Migration Service", mit dem eine neue Datenbank erstellt wird.
+
+
 
 ## <a name="see-also"></a>Siehe auch
 

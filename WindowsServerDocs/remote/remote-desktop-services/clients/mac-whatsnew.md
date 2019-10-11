@@ -13,12 +13,12 @@ manager: daveba
 ms.author: helohr
 ms.date: 09/11/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 092804ea84ba2d0e68eede3a597cb354c53bb8bd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cc09a60882c481cea974508b0ef967aad0ed82fa
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404192"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940642"
 ---
 # <a name="whats-new-in-the-macos-client"></a>Neues beim macOS-Client
 
@@ -189,7 +189,7 @@ Seit der letzten Aktualisierung sind einige Wochen vergangen, aber wir haben in 
 - Unterstützung für Remotedesktop-Endpunktzertifikate wurde hinzugefügt, die elliptische asymmetrische Schlüssel enthalten.
 - Ein Fehler wurde korrigiert, der in einigen Szenarien das Herunterladen von verwalteten Ressourcen verhinderte.
 - Ein Problem mit abgeschnittenen Inhalten im angehefteten Connection Center wurde behoben.
-- Auf dem Blatt mit Anzeigeeigenschaften sind die Kontrollkästchen jetzt besser aufeinander abgestimmt.
+- Sie finden die Kontrollkästchen für bessere Zusammenarbeit im Fenster „Desktop hinzufügen“ auf dem Blatt mit den Anzeigeeigenschaften.
 - Das Sperren des Seitenverhältnisses ist jetzt deaktiviert, wenn die dynamische Anzeigeänderung aktiviert ist.
 - Kompatibilitätsprobleme mit der F5-Infrastruktur wurden behoben.
 - Die Verarbeitung von leeren Kennwörtern wurde aktualisiert, um sicherzustellen, dass zum Zeitpunkt der Verbindungsherstellung die richtigen Meldungen angezeigt werden.

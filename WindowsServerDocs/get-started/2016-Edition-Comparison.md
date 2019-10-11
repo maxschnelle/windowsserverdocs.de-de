@@ -1,84 +1,82 @@
 ---
 title: Windows Server 2016-Produkte und -Editionen
-description: Erläutert die Unterschiede zwischen der Standard- und der Datacenter-Edition
-ms.custom: na
+description: Erläutert Unterschiede in den Windows Server Standard- und Windows Server Datacenter-Editionen.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.date: 01/03/2017
+ms.date: 10/04/2019
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c5ca3bfe-7ced-49f6-a932-80cab33f419e
-author: jaimeo
-ms.author: jaimeo
+author: jasongerend
+ms.author: jgerend
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: e3d32d596746d2ff137fe2517a6430976f9e77ce
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f2940e5ad75fab90f717284eabafd555573cab35
+ms.sourcegitcommit: e92a78f8d307200e64617431a701b9112a9b4e48
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391881"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973852"
 ---
 # <a name="comparison-of-standard-and-datacenter-editions-of-windows-server-2016"></a>Vergleich der Standard- und Datacenter-Editionen von Windows Server 2016
 
 > Gilt für: Windows Server 2016
   
 ## <a name="locks-and-limits"></a>Sperren und Beschränkungen
-|Sperren und Beschränkungen|Windows Server 2016 Standard|Windows Server 2016 Datacenter|  
-|-------------------|----------|---------------------------|  
-|Maximale Anzahl von Benutzern|Basierend auf Clientzugriffslizenzen|Basierend auf Clientzugriffslizenzen|
-|Maximale Anzahl von SMB-Verbindungen|16777216|16777216|
-|Maximale Anzahl von RRAS-Verbindungen|unbegrenzt|unbegrenzt|
-|Maximale Anzahl von IAS-Verbindungen|2147483647|2147483647|
-|Maximale Anzahl von RDS-Verbindungen|65535|65535|
-|Maximale Anzahl von 64-Bit-Sockets|64|64|
-|Maximale Anzahl von Kernen|unbegrenzt|unbegrenzt|
-|Maximaler RAM|24 TB|24 TB|
-|Kann als Virtualisierungsgast verwendet werden|Ja. 2 virtuelle Computer plus ein Hyper-V-Host pro Lizenz|Ja. Unbegrenzte Anzahl von virtuellen Computern plus ein Hyper-V-Host pro Lizenz|
-|Server kann einer Domäne beitreten.|Ja|Ja|
-|Umkreisnetzwerkschutz/-firewall|Nein|Nein|
-|DirectAccess|Ja|Ja|
-|DLNA-Codecs und Webmedienstreaming|Ja, bei der Installation als Server mit Desktopdarstellung|Ja, bei der Installation als Server mit Desktopdarstellung|
+
+| Sperren und Beschränkungen | Windows Server 2016 Standard | Windows Server 2016 Datacenter |
+| ------------------- |---------- | --------------------------- |  
+| Maximale Anzahl von Benutzern | Basierend auf Clientzugriffslizenzen   | Basierend auf Clientzugriffslizenzen     |
+| Maximale Anzahl von SMB-Verbindungen | 16.777.216      | 16.777.216          |
+| Maximale Anzahl von RRAS-Verbindungen| unbegrenzt       | unbegrenzt         |
+| Maximale Anzahl von IAS-Verbindungen | 2\.147.483.647   | 2\.147.483.647        |
+| Maximale Anzahl von RDS-Verbindungen | 65535           | 65535             |
+| Maximale Anzahl von 64-Bit-Sockets | 64     | 64                |
+| Maximale Anzahl von Kernen | unbegrenzt       | unbegrenzt      |
+| Maximaler RAM             | 24 TB           | 24 TB             |
+| Kann als Virtualisierungsgast verwendet werden | Ja. 2 virtuelle Computer plus ein Hyper-V-Host pro Lizenz | Ja. <strong>Unbegrenzte Anzahl von virtuellen Computern</strong> plus ein Hyper-V-Host pro Lizenz |
+| Server kann einer Domäne beitreten. | Ja            | Ja                |
+| Umkreisnetzwerkschutz/-firewall | Nein     | Nein                 |
+| DirectAccess            | Ja             | Ja                |
+| DLNA-Codecs und Webmedienstreaming | Ja, bei der Installation als Server mit Desktopdarstellung | Ja, bei der Installation als Server mit Desktopdarstellung |
 
 ## <a name="server-roles"></a>Serverrollen
-|Verfügbare Windows Server-Rollen|Rollendienste|Windows Server 2016 Standard|Windows Server 2016 Datacenter|  
-|-------------------|----------|----------|---------------------------|  
-|Active Directory-Zertifikatdienste| |Ja|Ja|
-|Active Directory Domain Services| |Ja|Ja|
-|Active Directory-Verbunddienste (AD FS)| |Ja|Ja|
-|AD Lightweight Directory Services| |Ja|Ja|
-|AD Rights Management Services| |Ja|Ja|
-|Integritätsnachweis für Geräte| |Ja|Ja|
-|DHCP-Server| |Ja|Ja|
-|DNS-Server| |Ja|Ja|
-|Faxserver| |Ja|Ja|
-|Datei- und Speicherdienste|Dateiserver|Ja|Ja|
-|Datei- und Speicherdienste|BranchCache für Netzwerkdateien|Ja|Ja|
-|Datei- und Speicherdienste|Datendeduplizierung|Ja|Ja|
-|Datei- und Speicherdienste|DFS-Namespaces|Ja|Ja|
-|Datei- und Speicherdienste|DFS-Replikation|Ja|Ja|
-|Datei- und Speicherdienste|Ressourcen-Manager für Dateiserver|Ja|Ja|
-|Datei- und Speicherdienste|Dateiserver-VSS-Agent-Dienst|Ja|Ja|
-|Datei- und Speicherdienste|iSCSI-Zielserver|Ja|Ja|
-|Datei- und Speicherdienste|iSCSI-Zielspeicheranbieter|Ja|Ja|
-|Datei- und Speicherdienste|Server für NFS|Ja|Ja|
-|Datei- und Speicherdienste|Arbeitsordner|Ja|Ja|
-|Datei- und Speicherdienste|Speicherdienste|Ja|Ja|
-|Host-Überwachungsdienst| |Ja|Ja|
-|Hyper-V| |Ja|Ja; einschließlich abgeschirmte virtuelle Computer|
-|MultiPoint Services| |Ja|Ja|
-|Netzwerkcontroller| |Nein|Ja|
-|Network Policy and Access Services| |Ja, bei der Installation als Server mit Desktopdarstellung|Ja, bei der Installation als Server mit Desktopdarstellung|
-|Druck- und Dokumentdienste| |Ja|Ja|
-|Remotezugriff| |Ja|Ja|
-|Remotedesktopdienste| |Ja|Ja|
-|Volumenaktivierungsdienste| |Ja|Ja|
-|Webdienste (IIS)| |Ja|Ja|
-|Windows-Bereitstellungsdienste| |Ja, bei der Installation als Server mit Desktopdarstellung|Ja, bei der Installation als Server mit Desktopdarstellung|
-|Windows Server Essentials-Umgebung| |Ja|Ja|
-|Windows Server Update Services| |Ja|Ja|
+
+| Verfügbare Windows Server-Rollen     | Rollendienste | Windows Server 2016 Standard | Windows Server 2016 Datacenter |  
+| -------------------                | ----------    | ----------                   | ---------------------------    |  
+| Active Directory-Zertifikatdienste|              | Ja                          | Ja                            |
+| Active Directory Domain Services    |               | Ja                          | Ja                            |
+| Active Directory-Verbunddienste (AD FS)|               | Ja                          | Ja                            |
+| AD Lightweight Directory Services| |Ja|Ja|
+| AD Rights Management Services| |Ja|Ja|
+| Integritätsnachweis für Geräte| |Ja|Ja|
+| DHCP-Server| |Ja|Ja|
+| DNS-Server| |Ja|Ja|
+| Faxserver| |Ja|Ja|
+| Datei- und Speicherdienste|Dateiserver|Ja|Ja|
+| Datei- und Speicherdienste|BranchCache für Netzwerkdateien|Ja|Ja|
+| Datei- und Speicherdienste|Datendeduplizierung|Ja|Ja|
+| Datei- und Speicherdienste|DFS-Namespaces|Ja|Ja|
+| Datei- und Speicherdienste|DFS-Replikation|Ja|Ja|
+| Datei- und Speicherdienste|Ressourcen-Manager für Dateiserver|Ja|Ja|
+| Datei- und Speicherdienste|Dateiserver-VSS-Agent-Dienst|Ja|Ja|
+| Datei- und Speicherdienste|iSCSI-Zielserver|Ja|Ja|
+| Datei- und Speicherdienste|iSCSI-Zielspeicheranbieter|Ja|Ja|
+| Datei- und Speicherdienste|Server für NFS|Ja|Ja|
+| Datei- und Speicherdienste|Arbeitsordner|Ja|Ja|
+| Datei- und Speicherdienste|Speicherdienste|Ja|Ja|
+| Host-Überwachungsdienst| |Ja|Ja|
+| Hyper-V| |Ja|Ja; <strong>einschließlich abgeschirmter virtueller Computer</strong>|
+| MultiPoint Services| |Ja|Ja|
+| Netzwerkcontroller| |Nein| <strong>Ja</strong> |
+| Network Policy and Access Services| |Ja, bei der Installation als Server mit Desktopdarstellung|Ja, bei der Installation als Server mit Desktopdarstellung|
+| Druck- und Dokumentdienste| |Ja|Ja|
+| Remotezugriff| |Ja|Ja|
+| Remotedesktopdienste| |Ja|Ja|
+| Volumenaktivierungsdienste| |Ja|Ja|
+| Webdienste (IIS)| |Ja|Ja|
+| Windows-Bereitstellungsdienste| |Ja, bei der Installation als Server mit Desktopdarstellung|Ja, bei der Installation als Server mit Desktopdarstellung|
+| Windows Server Essentials-Umgebung| |Ja|Ja|
+| Windows Server Update Services| |Ja|Ja|
 
 ## <a name="features"></a>Features
 
@@ -97,7 +95,7 @@ ms.locfileid: "71391881"
 |Erweitertes Speichern|Ja|Ja|
 |Failoverclustering|Ja|Ja|
 |Gruppenrichtlinienverwaltung|Ja|Ja|
-|Host-Überwachungsunterstützung für Hyper-V|Nein|Ja|
+|Host-Überwachungsunterstützung für Hyper-V|Nein|<strong>Ja</strong> |
 |E/A: Quality of Service (QoS, Dienstqualität)|Ja|Ja|
 |Hostfähiger IIS-Webkern|Ja|Ja|
 |Internetdruckclient|Ja, bei der Installation als Server mit Desktopdarstellung|Ja, bei der Installation als Server mit Desktopdarstellung|
@@ -123,7 +121,7 @@ ms.locfileid: "71391881"
 |SMB-Bandbreiteneinschränkung|Ja|Ja|
 |SMTP-Server|Ja|Ja|
 |SNMP-Dienst|Ja|Ja|
-|Softwarelastenausgleich|Nein|Ja|
+|Softwarelastenausgleich|Nein| <strong>Ja</strong> |
 |Speicherreplikat|Nein|Ja|
 |Telnet-Client|Ja|Ja|
 |TFTP-Client|Ja, bei der Installation als Server mit Desktopdarstellung|Ja, bei der Installation als Server mit Desktopdarstellung|
@@ -160,15 +158,15 @@ ms.locfileid: "71391881"
 |Nano Server-Installationsoption|Ja|Ja|
 |Server-Manager|Ja|Ja|
 |SMB Direct und SMB über RDMA|Ja|Ja|
-|Softwaredefinierte Netzwerke|Nein|Ja|
-|Speicherverwaltungsdienst|Ja|Ja|
+| Softwaredefinierte Netzwerke | Nein | <strong>Ja</strong> |
+|Speicherreplikat | Nein | <strong>Ja</strong> |
 |Speicherplätze|Ja|Ja|
-|Direkte Speicherplätze|Nein|Ja|
+|Direkte Speicherplätze|Nein| <strong>Ja</strong> |
 |Volumenaktivierungsdienste|Ja|Ja|
 |Integration mit Volumeschattenkopie-Dienst (Volume Shadow Copy Service, VSS)|Ja|Ja|
 |Windows Server Update Services|Ja|Ja|
 |Windows-Systemressourcen-Manager|Ja|Ja|
 |Serverlizenzprotokollierung|Ja|Ja|
-|Geerbte Aktivierung|Als Gast (beim Hosten unter Datacenter)|Kann Host oder Gast sein|
+|Geerbte Aktivierung|Als Gast (beim Hosten unter Datacenter)| <strong>Kann Host oder Gast sein</strong> |
 |Arbeitsordner|Ja|Ja|
 
