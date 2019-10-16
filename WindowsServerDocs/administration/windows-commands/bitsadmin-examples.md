@@ -28,15 +28,15 @@ In den folgenden Beispielen wird gezeigt, wie Sie das `bitsadmin`-Tool verwenden
 
 Der **/Transfer** -Schalter ist eine Verknüpfung zum Ausführen der unten aufgeführten Aufgaben. Mit diesem Switch wird der Auftrag erstellt, die Dateien werden dem Auftrag hinzugefügt, der Auftrag wird in der Übertragungs Warteschlange aktiviert und der Auftrag abgeschlossen. Der bizadmin zeigt weiterhin Statusinformationen im MS-DOS-Fenster an, bis die Übertragung abgeschlossen ist oder ein Fehler auftritt.
 
-**bigsadmin/Transfer mydownloadjob/Download/Priority normal `https://downloadsrv/10mb.zip c:\\10mb.zip`**
+**bitsadmin/Transfer mydownloadjob/Download/Priority normal `https://downloadsrv/10mb.zip c:\\10mb.zip`**
 
 ## <a name="create-a-download-job"></a>Erstellen eines Download Auftrags
 
 Verwenden Sie den Schalter **/Create** , um einen Download Auftrag mit dem Namen mydownloadjob zu erstellen.
 
-**bigsadmin/Create mydownloadjob**
+**bitsadmin/Create mydownloadjob**
 
-Bigsadmin gibt eine GUID zurück, die den Auftrag eindeutig identifiziert. Verwenden Sie die GUID oder den Auftrags Namen in nachfolgenden Aufrufen. Der folgende Text ist eine Beispielausgabe.
+Bitsadmin gibt eine GUID zurück, die den Auftrag eindeutig identifiziert. Verwenden Sie die GUID oder den Auftrags Namen in nachfolgenden Aufrufen. Der folgende Text ist eine Beispielausgabe.
 
 ``` syntax
 Created job {C775D194-090F-431F-B5FB-8334D00D1CB6}.
@@ -48,7 +48,7 @@ Verwenden Sie als nächstes den **/AddFile** -Schalter, um dem Download Auftrag 
 
 Verwenden Sie den Schalter **/AddFile** , um dem Auftrag eine Datei hinzuzufügen. Wiederholen Sie diesen Befehl für jede Datei, die Sie hinzufügen möchten. Wenn für mehrere Aufträge mydownloadjob als Name verwendet wird, müssen Sie mydownloadjob durch die GUID des Auftrags ersetzen, um den Auftrag eindeutig zu identifizieren.
 
-**bigsadmin/AddFile mydownloadjob https://downloadsrv/10mb.zip c: @no__t -210mb. zip**
+**bitsadmin/AddFile mydownloadjob https://downloadsrv/10mb.zip c: @no__t -210mb. zip**
 
 Verwenden Sie den Schalter **/Resume** , um den Auftrag in der Übertragungs Warteschlange zu aktivieren.
 
@@ -56,7 +56,7 @@ Verwenden Sie den Schalter **/Resume** , um den Auftrag in der Übertragungs War
 
 Wenn Sie einen neuen Auftrag erstellen, hält Bits den Auftrag an. Verwenden Sie den Schalter **/Resume** , um den Auftrag in der Übertragungs Warteschlange zu aktivieren. Wenn für mehrere Aufträge mydownloadjob als Name verwendet wird, müssen Sie mydownloadjob durch die GUID des Auftrags ersetzen, um den Auftrag eindeutig zu identifizieren.
 
-**bigsadmin/Resume mydownloadjob**
+**bitsadmin/Resume mydownloadjob**
 
 Um den Fortschritt des Auftrags zu ermitteln, verwenden Sie den Schalter **/List**, **/Info**oder **/Monitor** .
 
@@ -64,7 +64,7 @@ Um den Fortschritt des Auftrags zu ermitteln, verwenden Sie den Schalter **/List
 
 Verwenden Sie den Schalter **/Info** , um den Fortschritt eines Auftrags zu ermitteln. Wenn für mehrere Aufträge mydownloadjob als Name verwendet wird, müssen Sie mydownloadjob durch die GUID des Auftrags ersetzen, um den Auftrag eindeutig zu identifizieren.
 
-**bigsadmin/Info mydownloadjob/Verbose**
+**bitsadmin/Info mydownloadjob/Verbose**
 
 Der Schalter **/Info** gibt den Status des Auftrags und die Anzahl der übertragenen Dateien und Bytes zurück. Wenn der Status übertragen wird, hat Bits erfolgreich alle Dateien im Auftrag übertragen. Das **/verbose** -Argument stellt die gesamten Details des Auftrags bereit. Der folgende Text ist eine Beispielausgabe.
 
@@ -93,7 +93,7 @@ Um Informationen für alle Aufträge in der Übertragungs Warteschlange zu erhal
 
 Wenn der Status des Auftrags übertragen wird, hat Bits erfolgreich alle Dateien im Auftrag übertragen. Die Dateien sind jedoch erst verfügbar, wenn Sie den Schalter **/Complete** verwenden. Wenn für mehrere Aufträge mydownloadjob als Name verwendet wird, müssen Sie mydownloadjob durch die GUID des Auftrags ersetzen, um den Auftrag eindeutig zu identifizieren.
 
-**bigsadmin/Complete mydownloadjob**
+**bitsadmin/Complete mydownloadjob**
 
 ## <a name="monitoring-jobs-in-the-transfer-queue"></a>Überwachen von Aufträgen in der Übertragungs Warteschlange
 
