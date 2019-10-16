@@ -26,7 +26,7 @@ Das parallele Upgrade des Cluster Betriebssystems bietet die folgenden Vorteile:
 - Es ist keine zusätzliche Hardware erforderlich. Sie können auch zusätzliche Clusterknoten vorübergehend zu kleinen Clustern hinzufügen, um die Verfügbarkeit des Clusters während des parallelen Upgradevorgangs des Clusterbetriebssystems zu verbessern.  
 - Der Cluster muss nicht beendet oder neu gestartet werden.  
 - Ein neuer Cluster ist nicht erforderlich. Der vorhandene Cluster wird aktualisiert. Außerdem werden vorhandene in Active Directory gespeicherte Cluster Objekte verwendet.  
-- Der Upgradevorgang kann nur rückgängig gemacht werden, wenn der Kunde den "Point-of-No-Return"-Wert abweist, wenn auf allen Cluster Knoten Windows Server 2016 ausgeführt wird und das PowerShell-Cmdlet "Update-clusterfunctionallevel" ausgeführt wird.  
+- Der Upgradevorgang kann nur rückgängig gemacht werden, wenn der Kunde den "Point-of-No-Return"-Wert abweist, wenn auf allen Clusterknoten Windows Server 2016 ausgeführt wird und das PowerShell-Cmdlet "Update-clusterfunctionallevel" ausgeführt wird.  
 - Der Cluster unterstützt Patchen-und Wartungsvorgänge während der Ausführung im gemischten Betriebssystem Modus.  
 - Es unterstützt die Automatisierung über PowerShell und WMI.  
 - Die Eigenschaft **clusterfunctionallevel** der öffentlichen Cluster Eigenschaft gibt den Status des Clusters auf Windows Server 2016-Cluster Knoten an. Diese Eigenschaft kann mithilfe des PowerShell-Cmdlets von einem Windows Server 2016-Cluster Knoten, der zu einem Failovercluster gehört, abgefragt werden:  
