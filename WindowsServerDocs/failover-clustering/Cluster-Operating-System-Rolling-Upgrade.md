@@ -18,12 +18,12 @@ ms.locfileid: "71361845"
 
 > Gilt für: Windows Server 2019, Windows Server 2016
 
-Das parallele Upgrade des Cluster Betriebssystems ermöglicht einem Administrator, ein Upgrade des Betriebssystems der Cluster Knoten auszuführen, ohne die Hyper-V-oder Dateiserver mit horizontaler Skalierung Arbeits Auslastungen zu beenden. Mit diesem Feature können die Downtimesanktionen laut Vereinbarungen zum Servicelevel (Service Level Agreements, SLA) vermieden werden.
+Das parallele Upgrade des Clusterbetriebssystems ermöglicht einem Administrator, ein Upgrade des Betriebssystems der Clusterknoten auszuführen, ohne die Hyper-V- oder Dateiserverworkloads mit horizontaler Skalierung zu beenden. Mit diesem Feature können die Downtimesanktionen laut Vereinbarungen zum Servicelevel (Service Level Agreements, SLA) vermieden werden.
 
 Das parallele Upgrade des Cluster Betriebssystems bietet die folgenden Vorteile:
 
 - Failovercluster mit virtuellen Hyper-V-Computern und sofs-Workloads (Scale-Out File Server) können von Windows Server 2012 R2 (auf allen Knoten im Cluster ausgeführt) auf Windows Server 2016 (auf allen Cluster Knoten des Clusters ausgeführt) ohne Ausfallzeiten aktualisiert werden. Andere clusterworkloads, wie z. b. SQL Server, sind während der Zeit (in der Regel weniger als fünf Minuten) nicht verfügbar, um ein Failover auf Windows Server 2016 auszuführen.  
-- Es ist keine zusätzliche Hardware erforderlich. Sie können auch zusätzliche Cluster Knoten vorübergehend zu kleinen Clustern hinzufügen, um die Verfügbarkeit des Clusters während des parallelen Upgradevorgangs des Cluster Betriebssystems zu verbessern.  
+- Es ist keine zusätzliche Hardware erforderlich. Sie können auch zusätzliche Clusterknoten vorübergehend zu kleinen Clustern hinzufügen, um die Verfügbarkeit des Clusters während des parallelen Upgradevorgangs des Clusterbetriebssystems zu verbessern.  
 - Der Cluster muss nicht beendet oder neu gestartet werden.  
 - Ein neuer Cluster ist nicht erforderlich. Der vorhandene Cluster wird aktualisiert. Außerdem werden vorhandene in Active Directory gespeicherte Cluster Objekte verwendet.  
 - Der Upgradevorgang kann nur rückgängig gemacht werden, wenn der Kunde den "Point-of-No-Return"-Wert abweist, wenn auf allen Cluster Knoten Windows Server 2016 ausgeführt wird und das PowerShell-Cmdlet "Update-clusterfunctionallevel" ausgeführt wird.  
