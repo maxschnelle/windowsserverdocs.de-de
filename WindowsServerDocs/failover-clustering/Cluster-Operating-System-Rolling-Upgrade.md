@@ -106,7 +106,7 @@ Das parallele Upgrade des Cluster Betriebssystems umfasst die folgenden Schritte
     1. Zum parallelen Upgrade des Clusterbetriebssystems muss jeweils ein Knoten aus dem Cluster entfernt werden. Überprüfen Sie, ob die Kapazität des Clusters ausreichend ist, um HA-SLAs beizubehalten, wenn einer der Clusterknoten für ein Betriebssystemupgrade aus dem Cluster entfernt wird. Benötigen Sie also die Möglichkeit zum Failover von Arbeitsauslastungen auf einen anderen Knoten, wenn beim parallelen Upgrade des Clusterbetriebssystems ein Knoten aus dem Cluster entfernt wird? Verfügt der Cluster über die Kapazität zum Ausführen der erforderlichen Workloads, wenn ein Knoten für ein paralleles Upgrade des Clusterbetriebssystems aus dem Cluster entfernt wird?  
     2. Überprüfen Sie für Hyper-v-Arbeits Auslastungen, ob alle Windows Server 2016 Hyper-V-Hosts über CPU-Unterstützung für die Adress Tabelle (slat) der zweiten Ebene verfügen Die Hyper-V-Rolle in Windows Server 2016 kann nur von slat-fähigen Computern verwendet werden.  
     3. Überprüfen Sie, ob alle Arbeits Auslastungs Sicherungen abgeschlossen wurden, und sichern Sie den Cluster. Beendet Sicherungs Vorgänge beim Hinzufügen von Knoten zum Cluster.  
-    4. Überprüfen Sie, ob alle Cluster Knoten online sind/Running/up mithilfe des Cmdlets " [`Get-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Get-ClusterNode?view=win10-ps) " (siehe Abbildung 7).  
+    4. Überprüfen Sie mithilfe des Cmdlets " [`Get-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Get-ClusterNode?view=win10-ps)", ob alle Clusterknoten online sind bzw. ausgeführt werden oder verfügbar sind.  
 
         ![screencap zeigt die Ergebnisse der Ausführung des Cmdlets Get-clusternode @ no__t-1 an.  
         **abbildung 7: Bestimmen des Knoten Status mithilfe des Get-clusternode-Cmdlets @ no__t-0  
@@ -200,7 +200,7 @@ Das parallele Upgrade des Cluster Betriebssystems umfasst die folgenden Schritte
         ![screencap zeigt die Ausgabe des Cmdlets Get-clustergroup @ no__t-1 an.  
         **abbildung 18: Überprüfen, ob alle Clustergruppen (Cluster Rollen) mit dem [`Get-ClusterGroup`-](https://docs.microsoft.com/powershell/module/failoverclusters/Get-ClusterGroup?view=win10-ps) Cmdlet @ no__t-2 ausgeführt werden  
 
-    2.  Überprüfen Sie, ob alle Cluster Knoten online sind und mit dem Cmdlet " [`Get-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Get-ClusterNode?view=win10-ps) " ausgeführt werden.  
+    2.  Überprüfen Sie, ob alle Clusterknoten online sind und mit dem Cmdlet " [`Get-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Get-ClusterNode?view=win10-ps) " ausgeführt werden.  
     3.  Führen Sie das Cmdlet " [`Update-ClusterFunctionalLevel`](https://technet.microsoft.com/library/mt589702.aspx) " aus. es sollten keine Fehler zurückgegeben werden (siehe Abbildung 19).  
 
         ![screencap zeigt die Ausgabe des Cmdlets "Update-clusterfunctionallevel" @ no__t-1 an.  
@@ -254,7 +254,7 @@ Obwohl wir auf Szenarien für die Private Cloud abzielen, insbesondere Hyper-V-u
     Ja, bevor Sie mit dem parallelen Upgrade des Clusterbetriebssystems beginnen, überprüfen Sie, ob alle Clusterknoten mit den neuesten Softwareupdates aktualisiert wurden.  
 
 **Kann ich das Cmdlet " [`Update-ClusterFunctionalLevel`](https://docs.microsoft.com/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) " ausführen, während die Knoten ausgeschaltet oder angehalten werden?**  
-    Nein. Alle Cluster Knoten müssen sich in der aktiven Mitgliedschaft befinden, damit das Cmdlet " [`Update-ClusterFunctionalLevel`](https://docs.microsoft.com/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) " funktioniert.  
+    Nein. Alle Clusterknoten müssen sich in der aktiven Mitgliedschaft befinden, damit das Cmdlet " [`Update-ClusterFunctionalLevel`](https://docs.microsoft.com/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) " funktioniert.  
 
 **führt ein paralleles Upgrade des Cluster Betriebssystems für jede Cluster Arbeitsauslastung aus? Funktioniert es für SQL Server?**  
     Ja, das parallele Upgrade des Cluster Betriebssystems funktioniert für jede Cluster Arbeitsauslastung. Allerdings ist es für Hyper-V-und Datei Server Cluster mit horizontaler Skalierung nur zu Ausfallzeiten. Bei den meisten anderen Arbeits Auslastungen treten bei einem Failover einige Ausfallzeiten (in der Regel einige Minuten) auf, und ein Failover muss mindestens einmal während des parallelen Upgradevorgangs des Cluster Betriebssystems ausgeführt werden.  
