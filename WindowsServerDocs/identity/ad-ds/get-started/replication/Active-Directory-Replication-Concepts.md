@@ -9,16 +9,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: d426b9923b569c8475862c1426a9dd310dc0b798
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ccc1801ba325fec4d7273b503ccb799966122b99
+ms.sourcegitcommit: 9a6a692a7b2a93f52bb9e2de549753e81d758d28
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390549"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72591072"
 ---
 # <a name="active-directory-replication-concepts"></a>Active Directory-Replikationskonzepte
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Machen Sie sich vor dem Entwerfen der Standort Topologie mit einigen Active Directory Replikations Konzepten vertraut.  
   
@@ -47,12 +47,12 @@ Ein Verbindungs Objekt ist ein Active Directory Objekt, das eine Replikations Ve
   
 Das Verbindungs Objekt ist ein untergeordnetes Element des NTDS-Einstellungs Objekts auf dem Zielserver. Damit die Replikation zwischen zwei Domänen Controllern ausgeführt werden kann, muss das Server Objekt von einem-Objekt über ein Verbindungs Objekt verfügen, das die eingehende Replikation vom anderen Alle Replikations Verbindungen für einen Domänen Controller werden als Verbindungs Objekte unter dem NTDS-Einstellungs Objekt gespeichert. Das Verbindungs Objekt identifiziert den Replikations Quell Server, enthält einen Replikations Zeitplan und gibt einen Replikations Transport an.  
   
-Die Konsistenzprüfung (KCC) erstellt automatisch Verbindungs Objekte, aber Sie können auch manuell erstellt werden. Verbindungs Objekte, die von der KCC erstellt werden, werden im Snap-in "Active Directory Sites und Dienste" als **<automatically generated>** angezeigt und werden unter normalen Betriebsbedingungen als ausreichend eingestuft. Verbindungs Objekte, die von einem Administrator erstellt werden, sind manuell erstellte Verbindungs Objekte. Ein manuell erstelltes Verbindungs Objekt wird durch den Namen identifiziert, der vom Administrator beim Erstellen zugewiesen wurde. Wenn Sie ein **<automatically generated>-** Verbindungs Objekt ändern, konvertieren Sie es in ein administrativ verändertes Verbindungs Objekt, und das Objekt wird in Form einer GUID angezeigt. Die KCC ändert keine Änderungen an manuellen oder geänderten Verbindungs Objekten.  
+Die Konsistenzprüfung (KCC) erstellt automatisch Verbindungs Objekte, aber Sie können auch manuell erstellt werden. Verbindungs Objekte, die von der KCC erstellt werden, werden im Snap-in "Active Directory Standorte und Dienste" als **<automatically generated>** angezeigt und werden unter normalen Betriebsbedingungen als ausreichend eingestuft. Verbindungs Objekte, die von einem Administrator erstellt werden, sind manuell erstellte Verbindungs Objekte. Ein manuell erstelltes Verbindungs Objekt wird durch den Namen identifiziert, der vom Administrator beim Erstellen zugewiesen wurde. Wenn Sie ein **<automatically generated>** Verbindungs Objekt ändern, konvertieren Sie es in ein administrativ verändertes Verbindungs Objekt, und das Objekt wird in Form einer GUID angezeigt. Die KCC ändert keine Änderungen an manuellen oder geänderten Verbindungs Objekten.  
   
 ## <a name="BKMK_2"></a>KCC  
 Die KCC ist ein integrierter Prozess, der auf allen Domänen Controllern ausgeführt wird und die Replikations Topologie für die Active Directory Gesamtstruktur generiert. Der KCC erstellt separate Replikationstopologien, abhängig davon, ob die Replikation innerhalb eines Standorts (standortübergreifend) oder Zwischenstand Orten (standortübergreifend) erfolgt. Mit der KCC wird die Topologie außerdem dynamisch angepasst, um das Hinzufügen neuer Domänen Controller, das Entfernen vorhandener Domänen Controller, das Verschieben von Domänen Controllern zu und von Standorten, das Ändern von Kosten und Zeitplänen sowie von Domänen Controllern, die vorübergehend nicht verfügbar oder befindet sich im Fehlerzustand.  
   
-Innerhalb eines Standorts werden die Verbindungen zwischen beschreibbaren Domänen Controllern immer in einem bidirektionalen Ring angeordnet, mit zusätzlichen Verknüpfungs Verbindungen, um die Latenz an großen Standorten zu verringern. Andererseits handelt es sich bei der standortübergreifenden Topologie um eine Schichtstruktur, bei der es sich um eine standortübergreifende Verbindung zwischen zwei Standorten für jede Verzeichnis Partition handelt, die in der Regel keine Verknüpfungs Verbindungen enthält. Weitere Informationen zum überspannen von Strukturen und Active Directory Replikations Topologie finden Sie unter Technische Referenz für die Active Directory Replikations Topologie ([https://go.microsoft.com/fwlink/?LinkID=93578](https://go.microsoft.com/fwlink/?LinkID=93578)).  
+Innerhalb eines Standorts werden die Verbindungen zwischen beschreibbaren Domänen Controllern immer in einem bidirektionalen Ring angeordnet, mit zusätzlichen Verknüpfungs Verbindungen, um die Latenz an großen Standorten zu verringern. Andererseits handelt es sich bei der standortübergreifenden Topologie um eine Schichtstruktur, bei der es sich um eine standortübergreifende Verbindung zwischen zwei Standorten für jede Verzeichnis Partition handelt, die in der Regel keine Verknüpfungs Verbindungen enthält. Weitere Informationen zum überspannen von Strukturen und Active Directory Replikations Topologie finden Sie unter Technische Referenz für die Active Directory Replikations Topologie ([ https://go.microsoft.com/fwlink/?LinkID=93578](https://go.microsoft.com/fwlink/?LinkID=93578)).  
   
 Auf jedem Domänen Controller erstellt die KCC Replikations Routen, indem unidirektionale eingehende Verbindungs Objekte erstellt werden, die Verbindungen von anderen Domänen Controllern definieren. Bei Domänen Controllern am selben Standort erstellt die KCC Verbindungs Objekte automatisch ohne administrativen Eingriff. Wenn Sie über mehr als einen Standort verfügen, konfigurieren Sie Standort Verknüpfungen Zwischenstand Orten, und eine einzelne KCC an jedem Standort erstellt automatisch Verbindungen Zwischenstand Orten.  
   
@@ -64,16 +64,16 @@ Einer der Vorteile der Bereitstellung von RODC in diesem Szenario ist die unidir
   
 Eine administrative Herausforderung, die in früheren Versionen des Windows Server-Betriebssystems durch die hubsprach Topologie hervorgehoben ist, besteht darin, dass nach dem Hinzufügen eines neuen Bridgeheadserver-Domänen Controllers im Hub kein automatischer Mechanismus zum erneuten Verteilen der Replikations Verbindungen zwischen den Zweig Domänen Controllern und den Hub-Domänen Controllern, die den neuen Hub-Domänen Controller nutzen.  
   
-Für Windows Server 2003-Domänen Controller können Sie die Arbeitsauslastung mithilfe eines Tools wie adlb. exe aus dem Bereitstellungs Handbuch für Windows Server 2003-Zweigstellen ([https://go.microsoft.com/fwlink/?LinkID=28523](https://go.microsoft.com/fwlink/?LinkID=28523)) ausgleichen.  
+Für Windows Server 2003-Domänen Controller können Sie die Arbeitsauslastung mithilfe eines Tools wie adlb. exe aus dem Bereitstellungs Handbuch für Windows Server 2003-Zweigstellen ([ https://go.microsoft.com/fwlink/?LinkID=28523](https://go.microsoft.com/fwlink/?LinkID=28523)) ausgleichen.  
   
-Für Windows Server 2008-RODCs bietet die normale Funktionsweise der KCC einen gewissen Ausgleich, wodurch die Notwendigkeit entfällt, ein zusätzliches Tool wie "adlb. exe" zu verwenden. Die neue Funktionalität ist standardmäßig aktiviert. Sie können diese Einstellung deaktivieren, indem Sie den folgenden Registrierungsschlüssel auf dem RODC hinzufügen:  
+Bei Windows Server 2008-RODCs bietet die normale Funktionsweise der KCC einen gewissen Ausgleich, wodurch die Notwendigkeit entfällt, ein zusätzliches Tool wie "adlb. exe" zu verwenden. Die neue Funktionalität ist standardmäßig aktiviert. Sie können diese Einstellung deaktivieren, indem Sie den folgenden Registrierungsschlüssel auf dem RODC hinzufügen:  
   
 **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters**  
   
 **"Zufälliger BH-Loadbalancing zulässig"**  
 **1 = aktiviert (Standard), 0 = deaktiviert**  
   
-Weitere Informationen zur Funktionsweise dieser KCC-Verbesserungen finden Sie unter Planen und Bereitstellen von Active Directory Domain Services für Zweigstellen ([https://go.microsoft.com/fwlink/?LinkId=107114](https://go.microsoft.com/fwlink/?LinkId=107114)).  
+Weitere Informationen zur Funktionsweise dieser KCC-Verbesserungen finden Sie unter Planen und Bereitstellen von Active Directory Domain Services für Zweigstellen ([ https://go.microsoft.com/fwlink/?LinkId=107114](https://go.microsoft.com/fwlink/?LinkId=107114)).  
   
 ## <a name="BKMK_3"></a>Failoverfunktionalität  
 -Standorte stellen sicher, dass die Replikation um Netzwerkausfälle und Offline Domänen Controller weitergeleitet wird Die KCC wird in angegebenen Intervallen ausgeführt, um die Replikations Topologie auf Änderungen anzupassen, die in AD DS auftreten, z. b. wenn neue Domänen Controller hinzugefügt und neue Standorte erstellt werden. Der KCC überprüft den Replikations Status vorhandener Verbindungen, um zu bestimmen, ob Verbindungen nicht funktionieren. Wenn eine Verbindung aufgrund eines fehlgeschlagenen Domänen Controllers nicht funktioniert, erstellt die KCC automatisch temporäre Verbindungen mit anderen Replikations Partnern (falls verfügbar), um sicherzustellen, dass die Replikation erfolgt. Wenn alle Domänen Controller an einem Standort nicht verfügbar sind, werden von der KCC automatisch Replikations Verbindungen zwischen Domänen Controllern von einem anderen Standort erstellt.  

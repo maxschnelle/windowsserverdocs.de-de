@@ -9,10 +9,10 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.openlocfilehash: 106262b63b5aad0eddb08618eb808d2d9ff5b425
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 10/18/2019
 ms.locfileid: "71407806"
 ---
 # <a name="scenario-web-api-calling-web-api-on-behalf-of-scenario"></a>Szenario: Web-API-Aufruf der Web-API (im Auftrag des Szenarios) 
@@ -26,7 +26,7 @@ Bevor Sie diesen Artikel lesen, sollten Sie mit den [AD FS Konzepten](../ad-fs-o
 
 
 - Ein Client (Web-App), der im folgenden Diagramm nicht dargestellt wird: Ruft eine geschützte Web-API auf und stellt ein JWT-bearertoken im "Authorization"-http-Header bereit. 
-- Die geschützte Web-API überprüft das Token und verwendet die msal [acquiretokenonbehalfof](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identitymodel.clients.activedirectory.authenticationcontext.acquiretokenasync?view=azure-dotnet#Microsoft_IdentityModel_Clients_ActiveDirectory_AuthenticationContext_AcquireTokenAsync_System_String_Microsoft_IdentityModel_Clients_ActiveDirectory_ClientCredential_Microsoft_IdentityModel_Clients_ActiveDirectory_UserAssertion_) -Methode, um (von AD FS) ein anderes Token anzufordern, damit es selbst eine zweite Web-API (mit dem Namen "Downstream Web API") im Namen des Benutzers aufrufen kann. 
+- Die geschützte Web-API überprüft das Token und verwendet die msal [acquiretokenonbehalfof](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identitymodel.clients.activedirectory.authenticationcontext.acquiretokenasync?view=azure-dotnet#Microsoft_IdentityModel_Clients_ActiveDirectory_AuthenticationContext_AcquireTokenAsync_System_String_Microsoft_IdentityModel_Clients_ActiveDirectory_ClientCredential_Microsoft_IdentityModel_Clients_ActiveDirectory_UserAssertion_) - method, um ein anderes Token anzufordern (von AD FS), damit es selbst eine zweite Web-API (mit dem Namen "Downstream Web API") im Namen des Benutzers aufrufen kann. 
 - Die geschützte Web-API verwendet dieses Token, um eine Downstream-API aufzurufen. Sie kann auch acquiretokensilentlater aufrufen, um Token für andere downstreamapis anzufordern (aber immer noch im Namen desselben Benutzers). Acquiretokensilent aktualisiert das Token bei Bedarf.  
  
      ![Übersicht](media/adfs-msal-web-api-web-api/webapi1.png)
@@ -49,11 +49,11 @@ In diesem Abschnitt wird gezeigt, wie Sie die native App als öffentliche Client
 
       ![App-Registrierung](media/adfs-msal-web-api-web-api/webapi2.png)
 
-  3. Kopieren Sie den Wert für den **Client Bezeichner** . Sie wird später als Wert für **ClientID** in der **app. config** -Datei der Anwendung verwendet. Geben Sie für **Umleitungs-URI** - Folgendes ein: https://ToDoListClient. Klicken Sie auf **Hinzufügen**. Klicken Sie auf **Weiter**. 
+  3. Kopieren Sie den Wert für den **Client Bezeichner** . Sie wird später als Wert für **ClientID** in der **app. config** -Datei der Anwendung verwendet. Geben Sie Folgendes für den **Umleitungs-URI ein:**  -  https://ToDoListClient. Klicken Sie auf **Add**. Klicken Sie auf **Weiter**. 
   
       ![App-Registrierung](media/adfs-msal-web-api-web-api/webapi3.png)
   
-  4. Geben Sie auf dem Bildschirm Web-API konfigurieren den **Bezeichner ein:** https://localhost:44321/. Klicken Sie auf **Hinzufügen**. Klicken Sie auf **Weiter**. Dieser Wert wird später in den Dateien " **app. config** " und " **Web. config** " der Anwendung verwendet.  
+  4. Geben Sie auf dem Bildschirm Web-API konfigurieren den **Bezeichner:** https://localhost:44321/ ein. Klicken Sie auf **Add**. Klicken Sie auf **Weiter**. Dieser Wert wird später in den Dateien " **app. config** " und " **Web. config** " der Anwendung verwendet.  
  
       ![App-Registrierung](media/adfs-msal-web-api-web-api/webapi4.png)
 
@@ -82,7 +82,7 @@ In diesem Abschnitt wird gezeigt, wie Sie die native App als öffentliche Client
   
       ![App-reg](media/adfs-msal-web-api-web-api/webapi9.png)
 
-  12. Fügen Sie auf dem Bildschirm https://localhost:44321/ Server Anwendung als **Client Bezeichner** und **Umleitungs-URI**hinzu. 
+  12. Fügen Sie auf dem Bildschirm Server Anwendung https://localhost:44321/ als **Client Bezeichner** und **Umleitungs-URI**hinzu. 
   
       ![App-reg](media/adfs-msal-web-api-web-api/webapi10.png)
 
@@ -106,7 +106,7 @@ In diesem Abschnitt wird gezeigt, wie Sie die native App als öffentliche Client
   
       ![App-reg](media/adfs-msal-web-api-web-api/webapi14.png)  
 
-  19. Fügen Sie unter Web-API https://localhost:44300 konfigurieren als **Bezeichner**hinzu.  
+  19. Fügen Sie unter Web-API konfigurieren https://localhost:44300 als **Bezeichner**hinzu.  
   
       ![App-reg](media/adfs-msal-web-api-web-api/webapi15.png)
 
@@ -143,11 +143,11 @@ In diesem Abschnitt wird gezeigt, wie Sie die native App als öffentliche Client
   29. Klicken Sie auf der Seite webapiin WebAPI – Web-API-Eigenschaften auf OK.
 
   30. Wählen Sie auf dem Bildschirm WebAPI-WebAPI-Eigenschaften die Option webapito WebAPI – Web-API 2 aus, und klicken Sie auf Bearbeiten...</br> 
-  ![App-reg](media/adfs-msal-web-api-web-api/webapi22.png)
+   ![App reg ](media/adfs-msal-web-api-web-api/webapi22.png)
 
   31. Wählen Sie auf der Seite webapitowebapi – Web-API 2-Eigenschaften die Registerkarte Ausstellungs Transformationsregeln aus, und klicken Sie auf Regel hinzufügen. 
 
-  32. Wählen Sie im Assistenten zum Hinzufügen von Transformations Anspruchs Regeln die Option Ansprüche mithilfe einer benutzerdefinierten Regel senden ![aus, und klicken Sie auf Next App reg.](media/adfs-msal-web-api-web-api/webapi23.png)
+  32. Wählen Sie im Assistenten zum Hinzufügen von Transformations Anspruchs Regeln die Option Ansprüche mithilfe einer benutzerdefinierten Regel senden aus, und klicken Sie auf weiter ![App reg ](media/adfs-msal-web-api-web-api/webapi23.png)
 
   33. Geben Sie passallclaims in Name der Anspruchs Regel ein: Feld und **x: [] = > Issue (Claim = x);** Anspruchs Regel in **benutzerdefinierter Regel:** Feld, und klicken Sie auf **Fertig**stellen.  
    
@@ -176,16 +176,16 @@ In diesem Abschnitt erfahren Sie, wie Sie eine Web-API zum Abrufen einer anderen
   4. Öffnen Sie die Datei "Web. config" unter "TodoListService". Ändern Sie Folgendes: 
        - Ida: Audience: Geben Sie den Wert für den Client Bezeichner aus #12 in App-Registrierung in AD FS obigen Abschnitt ein.
        - Ida: ClientID: Geben Sie den Wert für den Client Bezeichner aus #12 in der APP-Registrierung in AD FS obigen Abschnitt ein. 
-       - I Clientsecret: Geben Sie den gemeinsamen geheimen Schlüssel ein, der aus #13 in App-Registrierung in AD FS obigen Abschnitt kopiert wurde
+       - Ida: clientsecret: Geben Sie den gemeinsamen geheimen Schlüssel ein, der aus #13 in App-Registrierung in AD FS obigen Abschnitt kopiert wurde.
        - Ida: redirecturi: Geben Sie den redirecturi-Wert aus #12 in der APP-Registrierung in AD FS obigen Abschnitt ein. 
-       - I AdfsMetadataEndpoint: Geben Sie https://[Your AD FS Hostname]/FederationMetadata/2007-06/FederationMetadata.XML ein. 
+       - Ida: AdfsMetadataEndpoint-Enter https://[Your AD FS Hostname]/FederationMetadata/2007-06/FederationMetadata.XML 
        - Ida: obowebapibase: Geben Sie den Bezeichnerwert aus #19 in der APP-Registrierung in AD FS obigen Abschnitt ein. 
        - Ida: Authority-Enter https://[Your AD FS Hostname]/ADFS 
   
           ![App-reg](media/adfs-msal-web-api-web-api/webapi26.png) 
 
  5. Öffnen Sie die Datei Web. config unter webapiobo. Ändern Sie Folgendes: 
-       - I AdfsMetadataEndpoint: Geben Sie https://[Your AD FS Hostname]/FederationMetadata/2007-06/FederationMetadata.XML ein. 
+       - Ida: AdfsMetadataEndpoint-Enter https://[Your AD FS Hostname]/FederationMetadata/2007-06/FederationMetadata.XML 
        - Ida: Audience: Geben Sie den Wert für den Client Bezeichner aus #12 in App-Registrierung in AD FS obigen Abschnitt ein. 
  
           ![App-reg](media/adfs-msal-web-api-web-api/webapi27.png)

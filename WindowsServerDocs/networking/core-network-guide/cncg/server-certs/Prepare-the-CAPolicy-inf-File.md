@@ -8,15 +8,15 @@ ms.prod: windows-server
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 810f6f8ba9e33f1f26f49f542ad6d23819deb463
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2af3a621991627addb94238e84cceb357fb47731
+ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406289"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72588088"
 ---
 # <a name="capolicyinf-syntax"></a>CAPolicy. inf-Syntax
->   Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>   Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Die Datei "capolicy. inf" ist eine Konfigurationsdatei, die Erweiterungen, Einschränkungen und andere Konfigurationseinstellungen definiert, die auf ein Zertifikat der Stamm Zertifizierungsstelle und alle von der Stamm Zertifizierungsstelle ausgestellten Zertifikate angewendet werden. Die Datei CAPolicy. inf muss auf einem Host Server installiert werden, bevor die Setup Routine für die Stamm Zertifizierungsstelle beginnt. Wenn die Sicherheitseinschränkungen für eine Stamm Zertifizierungsstelle geändert werden sollen, muss das Stamm Zertifikat erneuert und eine aktualisierte CAPolicy. inf-Datei auf dem Server installiert werden, bevor der Erneuerungs Vorgang beginnt.
 
@@ -42,7 +42,7 @@ Die folgenden Begriffe werden verwendet, um die INF-Dateistruktur zu beschreiben
 
 -   _Value_ – ist der Parameter und wird rechts neben dem Gleichheitszeichen angezeigt.
 
-Im folgenden Beispiel ist **[Version]** der Abschnitt, **Signature** ist der Schlüssel, und **"\$Windows NT @ no__t-4"** ist der Wert.
+Im folgenden Beispiel ist **[Version]** der-Abschnitt, **Signature** ist der Schlüssel, und **"\$Windows NT \$"** ist der Wert.
 
 Beispiel:
 
@@ -116,7 +116,7 @@ Weitere Informationen zu diesem Abschnitt:
 
 -   Anführungszeichen müssen URLs mit Leerzeichen umschließen.
 
--   Wenn keine URLs angegeben werden – d. h., wenn der Abschnitt **[CRLDistributionPoint]** in der Datei vorhanden ist, aber leer ist – wird die Erweiterung des Zertifizierungsstellen Informations Zugriffs aus dem Zertifikat der Stamm Zertifizierungsstelle ausgelassen. Dies ist in der Regel vorzuziehen, wenn Sie eine Stamm Zertifizierungsstelle einrichten. Windows führt keine Sperr Überprüfung für ein Zertifikat der Stamm Zertifizierungsstelle aus, sodass die CDP-Erweiterung in einem Zertifikat der Stamm Zertifizierungsstelle überflüssig ist.
+-   Wenn keine URLs angegeben werden – d. h., wenn der Abschnitt **[CRLDistributionPoint]** in der Datei vorhanden ist, aber leer ist – wird die CRL-Verteilungs Punkt Erweiterung aus dem Zertifikat der Stamm Zertifizierungsstelle ausgelassen. Dies ist in der Regel vorzuziehen, wenn Sie eine Stamm Zertifizierungsstelle einrichten. Windows führt keine Sperr Überprüfung für ein Zertifikat der Stamm Zertifizierungsstelle aus, sodass die CDP-Erweiterung in einem Zertifikat der Stamm Zertifizierungsstelle überflüssig ist.
 
 -    Die Zertifizierungsstelle kann in der Datei "UNC" veröffentlichen, z. b. in einer Freigabe, die den Ordner einer Website darstellt, in der ein Client über HTTP abruft.
 
@@ -142,7 +142,7 @@ Weitere Hinweise zum Abschnitt "Autoritäts Informations Zugriff":
 
 -   URLs mit Leerzeichen müssen in Anführungszeichen eingeschlossen werden.
 
--   Wenn keine URLs angegeben werden – d. h., wenn der Abschnitt **[autorityinformationaccess]** in der Datei vorhanden ist, aber leer ist – wird die CRL-Verteilungs Punkt Erweiterung aus dem Zertifikat der Stamm Zertifizierungsstelle ausgelassen. Dies wäre wiederum die bevorzugte Einstellung im Fall eines Zertifikats der Stamm Zertifizierungsstelle, da keine Zertifizierungsstelle vorhanden ist, auf die durch einen Link zum Zertifikat verwiesen werden muss.
+-   Wenn keine URLs angegeben werden – d. h., wenn der Abschnitt **[autorityinformationaccess]** in der Datei vorhanden ist, aber leer ist – wird die Erweiterung des Zertifizierungsstellen Informations Zugriffs im Zertifikat der Stamm Zertifizierungsstelle ausgelassen. Dies wäre wiederum die bevorzugte Einstellung im Fall eines Zertifikats der Stamm Zertifizierungsstelle, da keine Zertifizierungsstelle vorhanden ist, auf die durch einen Link zum Zertifikat verwiesen werden muss.
 
 ### <a name="certsrv_server"></a>certsrv_Server
 
@@ -170,7 +170,7 @@ EnableKeyCounting=0
 
 Wenn Sie ein Zertifizierungsstellen Zertifikat mit einem neuen Schlüsselpaar erneuern, kann die Schlüssellänge entweder erweitert oder verringert werden. Wenn Sie z. b. eine Stamm-ZS-Schlüsselgröße von 4096 Bytes oder höher festgelegt haben und dann feststellen, dass Sie über Java-Apps oder Netzwerkgeräte verfügen, die nur Schlüsselgrößen von 2048 Bytes unterstützen können. Unabhängig davon, ob Sie die Größe vergrößern oder verringern, müssen Sie alle von dieser Zertifizierungsstelle ausgestellten Zertifikate neu ausstellen.
 
-Bei erneutem erneuern des Zertifikats der Stamm Zertifizierungsstelle wird die **Gültigkeits** Dauer des neuen Zertifikats der Stamm Zertifizierungsstelle durch Erneuern von erneuert und **erneuert** . Dies gilt nur für eine Stamm Zertifizierungsstelle. Die Zertifikats Lebensdauer einer untergeordneten Zertifizierungsstelle wird durch die übergeordnete Zertifizierungsstelle festgelegt. RenewalValidityPeriod kann die folgenden Werte aufweisen: Stunden, Tage, Wochen, Monate und Jahre.
+Bei erneutem erneuern des Zertifikats der Stamm Zertifizierungsstelle wird die **Gültigkeits** Dauer des neuen Zertifikats der Stamm Zertifizierungsstelle durch Erneuern von erneuert und **erneuert** . Dies gilt nur für eine Stamm Zertifizierungsstelle. Die Zertifikats Lebensdauer einer untergeordneten Zertifizierungsstelle wird durch die übergeordnete Zertifizierungsstelle festgelegt. Die folgenden Werte sind für RenewalValidityPeriod möglich: Stunden, Tage, Wochen, Monate und Jahre.
 
 **CRLPeriod** und **CRLPeriodUnits** legen den Gültigkeits Zeitraum für die Basis-CRL fest. **CRLPeriod** kann die folgenden Werte aufweisen: Stunden, Tage, Wochen, Monate und Jahre.
 
@@ -193,18 +193,17 @@ Bei einer Standardinstallation der Zertifizierungsstelle wird dem Ordner Zertifi
 
 Möglicherweise möchten Sie nicht sofort nach der Installation einer Zertifizierungsstelle Zertifikate ausstellen. Sie können daher die Einstellung loaddefaulttemplates verwenden, um zu verhindern, dass die Standardvorlagen der Unternehmens Zertifizierungsstelle hinzugefügt werden. Wenn keine Vorlagen auf der Zertifizierungsstelle konfiguriert sind, können keine Zertifikate ausgestellt werden.
 
-Die Zertifizierungsstelle wird von " **Alternativen** Dienstanbieter" so konfiguriert, dass das PKCS\#1 v 2.1-Signatur Format sowohl für das Zertifizierungsstellen Zertifikat als auch für die Zertifikat Anforderungen unterstützt wird. Wenn für eine Stamm Zertifizierungsstelle der Wert 1 festgelegt wird, enthält das Zertifizierungsstellen\#Zertifikat das PKCS 1 v 2.1-Signatur Format. Wenn die untergeordnete Zertifizierungsstelle auf eine untergeordnete Zertifizierungsstelle festgelegt ist, wird eine Zertifikat Anforderung erstellt\#, die das PKCS 1 v 2.1-Signatur Format enthält.
+Die Zertifizierungsstelle wird von " **Alternativen** Dienstanbieter" so konfiguriert, dass das PKCS-\#1 v 2.1-Signatur Format sowohl für das Zertifizierungsstellen Zertifikat als auch für die Zertifikat Anforderungen unterstützt wird. Wenn für eine Stamm Zertifizierungsstelle der Wert 1 festgelegt wird, enthält das Zertifizierungsstellen Zertifikat das PKCS-\#1 v 2.1-Signatur Format. Wenn die untergeordnete Zertifizierungsstelle auf eine untergeordnete Zertifizierungsstelle festgelegt ist, wird eine Zertifikat Anforderung erstellt, die das PKCS-\#1 v 2.1-Signatur Format enthält.
 
 **ForceUTF8** ändert die Standard Codierung relativer definierter Namen (rDNS) in Antragsteller-und Aussteller definierter Namen in UTF-8. Nur die RDNs, die UTF-8 unterstützen, z. b. solche, die durch eine RFC als Verzeichnis Zeichen folgen Typen definiert sind, sind betroffen. Beispielsweise unterstützt der RDN für Domänen Komponenten (DC) die Codierung entweder als IA5 oder UTF-8, während das Land RDN (C) nur die Codierung als Druck Bare Zeichenfolge unterstützt. Die ForceUTF8-Direktive wirkt sich daher auf eine DC-RDN aus, wirkt sich aber nicht auf eine C RDN aus.
 
 **Enablekeycounting** konfiguriert die Zertifizierungsstelle so, dass ein Zähler jedes Mal erhöht wird, wenn der Signatur Schlüssel der Zertifizierungsstelle verwendet wird. Aktivieren Sie diese Einstellung nur, wenn Sie über ein Hardware Sicherheitsmodul (HSM) und den zugehörigen Kryptografiedienstanbieter (CSP) verfügen, der die Schlüssel Zählung unterstützt. Weder der starke Microsoft-CSP noch der Microsoft-Software Schlüsselspeicher-Anbieter (KSP) unterstützen die Schlüssel Zählung.
 
-
 ## <a name="create-the-capolicyinf-file"></a>Erstellen der Datei "capolicy. inf"
 
 Vor der Installation von AD CS konfigurieren Sie die Datei CAPolicy. inf mit spezifischen Einstellungen für die Bereitstellung.
 
-**Setzung** Sie müssen Mitglied der Gruppe "Administratoren" sein.
+**Voraussetzung:** Sie müssen Mitglied der Gruppe "Administratoren" sein.
 
 1. Öffnen Sie auf dem Computer, auf dem Sie AD CS installieren möchten, Windows PowerShell, geben Sie **Editor c:\Capolicy.inf** ein, und drücken Sie die EINGABETASTE.
 
@@ -255,4 +254,4 @@ Vor der Installation von AD CS konfigurieren Sie die Datei CAPolicy. inf mit spe
 9. Schließen Sie Editor.
 
 > [!IMPORTANT]
->   In der CAPolicy. inf sehen Sie, dass eine Zeile die URL https://pki.corp.contoso.com/pki/cps.txt angibt. Der Abschnitt der Datei %%amp;quot;CAPolicy.inf%%amp;quot; zu den internen Richtlinien dient lediglich als Beispiel dafür, wie Sie den Speicherort einer Zertifikatverwendungserklärung (Certificate Practice Statement, CPS) angeben können. In diesem Handbuch werden Sie nicht aufgefordert, die CPS (Certificate Practice Statement) zu erstellen.
+>   In der Datei "capolicy. inf" sehen Sie eine Zeile, in der die URL https://pki.corp.contoso.com/pki/cps.txt angegeben wird. Der Abschnitt der Datei %%amp;quot;CAPolicy.inf%%amp;quot; zu den internen Richtlinien dient lediglich als Beispiel dafür, wie Sie den Speicherort einer Zertifikatverwendungserklärung (Certificate Practice Statement, CPS) angeben können. In diesem Handbuch werden Sie nicht aufgefordert, die CPS (Certificate Practice Statement) zu erstellen.

@@ -1,6 +1,6 @@
 ---
 title: mklink
-description: 'Windows-Befehle Thema ****- '
+description: 'Windows-Befehls Thema für * * * *- '
 ms.custom: na
 ms.prod: windows-server
 ms.reviewer: na
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9d930cbf7acbfceab16f2fa619aaaac6e789c131
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b7a5f9b819f16d058feb1dee74a8408ed174e04c
+ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373641"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72588042"
 ---
 # <a name="mklink"></a>mklink
 Erstellt eine symbolische Verknüpfung.
@@ -38,13 +38,13 @@ mklink [[/d] | [/h] | [/j]] <Link> <Target>
 |/d|Erstellt einen symbolischen Verzeichnis Link. Standardmäßig erstellt **mklink** einen symbolischen Datei Link.|
 |/h|Erstellt einen festen Link anstelle eines symbolischen Links.|
 |/j|Erstellt eine Verzeichnis Verknüpfung.|
-|\<link >|Gibt den Namen der symbolischen Verknüpfung an, die erstellt wird.|
-|\<target >|Gibt den Pfad (relative oder absolute) an, auf den die neue symbolische Verknüpfung verweist.|
+|\<Link >|Gibt den Namen der symbolischen Verknüpfung an, die erstellt wird.|
+|\<Target >|Gibt den Pfad (relative oder absolute) an, auf den die neue symbolische Verknüpfung verweist.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="BKMK_examples"></a>Beispiele
 
-Das nachfolgende Beispiel veranschaulicht das Erstellen und Entfernen einer symbolischen Verknüpfung mit dem Namen "MyFolder" und "MyFile. File" aus dem Stammverzeichnis zum Verzeichnis "\Users\User1\Documents" und einer Beispieldatei im Verzeichnis:
+Das folgende Beispiel veranschaulicht das Erstellen und Entfernen einer symbolischen Verknüpfung mit dem Namen "MyFolder" und "MyFile. File" aus dem Stammverzeichnis in das Verzeichnis "\Users\User1\Documents" und eine Beispieldatei im Verzeichnis:
 ```
 mklink /d \MyFolder \Users\User1\Documents
 mklink /h \MyFile.file \User1\Documents\example.file

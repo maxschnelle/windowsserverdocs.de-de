@@ -9,12 +9,12 @@ ms.date: 11/14/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 00f3851ce74a496bd530c8ea682ea312f8b06a0a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e3f320b67196a2400ebedbaeaf0a5b59969400e8
+ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390933"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72588092"
 ---
 # <a name="demoting-domain-controllers-and-domains"></a>Herabstufen von Domänen Controllern und Domänen
 
@@ -36,7 +36,7 @@ Dieser Artikel beschreibt die Deinstallation von AD DS mit Server-Manager oder W
 |||  
 |-|-|  
 |**Addsdeployment-und Server Manager-Cmdlets**|Argumente (erforderliche Argumente sind **fett** markiert. Argumente in *Kursivschrift* können mithilfe von Windows PowerShell oder dem AD DS-Konfigurations-Assistenten angegeben werden.)|  
-|Uninstall-AddsDomainController|-SkipPreChecks<br /><br />*-LocalAdministratorPassword*<br /><br />-Confirm<br /><br />***-Credential***<br /><br />-DemoteOperationMasterRole<br /><br />*-Dnsdelegationremovalcredential*<br /><br />-Force<br /><br />*-Forceremoval*<br /><br />*-Ignorelastdcindomainmismatch*<br /><br />*-Ignorelastdnsserverforzone*<br /><br />*-Lastdomaincontrollerindomain*<br /><br />-Norebootoncompletion<br /><br />*-RemoveApplicationPartitions*<br /><br />*-Removednsdelegation*<br /><br />-RetainDCMetadata|  
+|Uninstall-ADDSDomainController|-SkipPreChecks<br /><br />*-LocalAdministratorPassword*<br /><br />-Confirm<br /><br />***-Credential***<br /><br />-DemoteOperationMasterRole<br /><br />*-Dnsdelegationremovalcredential*<br /><br />-Force<br /><br />*-Forceremoval*<br /><br />*-Ignorelastdcindomainmismatch*<br /><br />*-Ignorelastdnsserverforzone*<br /><br />*-Lastdomaincontrollerindomain*<br /><br />-Norebootoncompletion<br /><br />*-RemoveApplicationPartitions*<br /><br />*-Removednsdelegation*<br /><br />-RetainDCMetadata|  
 |Uninstall-WindowsFeature/Remove-WindowsFeature|***-Name***<br /><br />***-Includemanagementtools***<br /><br />*-Neu starten*<br /><br />-Remove<br /><br />-Force<br /><br />-ComputerName<br /><br />-Credential<br /><br />-LogPath<br /><br />-Vhd|  
   
 > [!NOTE]  
@@ -104,7 +104,7 @@ Auf der Seite **Anmeldeinformationen** werden Herabstufungsoptionen konfiguriert
    > [!WARNING]  
    > Wählen Sie diese Option nur dann aus, wenn der Domänencontroller keine andere Domänencontroller kontaktieren kann und zum Beheben dieses Netzwerkproblems *keine angemessene Möglichkeit* besteht. Bei der erzwungenen Herabstufung bleiben in Active Directory der restlichen Domänencontroller in der Gesamtstruktur verwaiste Metadaten zurück. Zudem gehen alle nicht replizierten Änderungen an diesem Domänencontroller, beispielsweise Kennwörter oder neue Benutzerkonten, für immer verloren. Verwaiste Metadaten stellen die Hauptursache in einem erheblichen Prozentsatz der Microsoft Kundendienstfälle für AD DS, Exchange, SQL und andere Software dar.  
    >
-   > Wenn Sie einen Domänencontroller zwangsweise herabstufen, *müssen* Sie sofort eine manuelle Metadatenbereinigung ausführen. Informationen zu den entsprechenden Schritten finden Sie unter [Bereinigen von Servermetadaten](https://technet.microsoft.com/library/cc816907(WS.10).aspx).  
+   > Wenn Sie einen Domänencontroller zwangsweise herabstufen, *müssen* Sie sofort eine manuelle Metadatenbereinigung ausführen. Informationen zu den entsprechenden Schritten finden Sie unter [Bereinigen von Servermetadaten](ad-ds-metadata-cleanup.md).  
 
    ![Active Directory Domain Services Konfigurations-Assistent: Entfernen von Anmelde Informationen erzwingen](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_ForceDemote.png)  
   
@@ -188,7 +188,7 @@ Auf der Seite **Bestätigung** wird die geplante Herabstufung angezeigt. Die Sei
 Klicken Sie auf **Herabstufen**, um das folgende ADDSDeployment-Cmdlet auszuführen:
 
 ```
-Uninstall-DomainController
+Uninstall-ADDSDomainController
 ```
 
 Verwenden Sie das optionale **Whatif**-Argument für das **Uninstall-ADDSDomainController**-Cmdlet, um die Konfigurationsinformationen zu überprüfen. Auf diese Weise können Sie die expliziten und impliziten Werte der Argumente eines Cmdlets anzeigen.
@@ -208,7 +208,7 @@ Wenn die Seite **Herabstufung** angezeigt wird, beginnt die Konfiguration des Do
 * %systemroot%\debug\dcpromo.log
 * %systemroot%\debug\dcpromoui.log
 
-Da **Uninstall-AddsDomainController** ind **Uninstall-WindowsFeature** nur aus einer Aktion bestehen, werden sie hier in der Bestätigungsphase mit den benötigten Mindestargumenten angezeigt. Mit der EINGABETASTE starten Sie den unwiderruflichen Herabstufungsprozess inklusive Computerneustart.
+Da **Uninstall-addsdomaincontroller** und **Uninstall-Windows Feature** nur über eine Aktion verfügen, werden Sie hier in der Bestätigungsphase mit den minimal erforderlichen Argumenten angezeigt. Mit der EINGABETASTE starten Sie den unwiderruflichen Herabstufungsprozess inklusive Computerneustart.
 
 ![PowerShell Uninstall-addsdomaincontroller-Beispiel](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallConfirm.png)
 

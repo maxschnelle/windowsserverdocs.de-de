@@ -7,12 +7,12 @@ ms.topic: upgrade
 author: RobHindman
 ms.author: robhind
 ms.date: 09/16/2019
-ms.openlocfilehash: 99133f2c582b180f240740fc2f39e99527bc0cf8
-ms.sourcegitcommit: 27f0caf74e88781054250455c3c1adf06deb6234
+ms.openlocfilehash: 62fe4f00cef121e6241a403ee339047cda9488b5
+ms.sourcegitcommit: 9a6a692a7b2a93f52bb9e2de549753e81d758d28
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71124820"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72591086"
 ---
 # <a name="upgrade-windows-server-2016-to-windows-server-2019"></a>Aktualisieren von Windows Server 2016 auf Windows Server 2019
 
@@ -24,13 +24,13 @@ Bevor Sie mit dem Windows Server-Upgrade beginnen, wird empfohlen, dass Sie Info
 
 ### <a name="to-collect-your-info"></a>So erfassen Sie Ihre Informationen
 
-1. Öffnen Sie eine Eingabeaufforderung, navigieren `c:\Windows\system32`Sie zu, und geben Sie dann **Systeminfo. exe**ein.
+1. Öffnen Sie eine Eingabeaufforderung, navigieren Sie zu `c:\Windows\system32`, und geben Sie dann **Systeminfo. exe**ein.
 
 2. Kopieren, einfügen und speichern Sie die resultierenden Systeminformationen an einem beliebigen Speicherort Ihres Geräts.
 
 3. Geben Sie in der Eingabeaufforderung **ipconfig/all** ein, kopieren Sie die resultierenden Konfigurationsinformationen, und fügen Sie Sie an den gleichen Speicherort wie oben ein.
 
-4. Öffnen Sie den Registrierungs-Editor, navigieren Sie zu HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsNT\CurrentVersion Hive, kopieren Sie die Windows Server-Datei **BuildLabEx** (Version) und **EditionID** (Edition), und fügen Sie Sie an denselben Speicherort wie oben ein.
+4. Öffnen Sie den Registrierungs-Editor, wechseln Sie zum `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion`-Schlüssel, und kopieren Sie dann den Windows Server **BuildLabEx** (Version) und **EditionID** (Edition), und fügen Sie ihn an denselben Speicherort wie oben ein.
 
 Nachdem Sie alle Ihre Windows Server-bezogenen Informationen gesammelt haben, empfehlen wir Ihnen dringend, Ihr Betriebssystem, Ihre apps und Ihre virtuellen Computer zu sichern. Sie müssen auch alle virtuellen Maschinen, die derzeit auf dem Server ausgeführt werden, **herunter**fahren, **schnell migrieren**oder **Live migrieren** . Während der direkten Aktualisierung können keine virtuellen Computer ausgeführt werden.
 
@@ -80,11 +80,11 @@ Nachdem das Upgrade abgeschlossen ist, müssen Sie sicherstellen, dass das Upgra
 
 ### <a name="to-make-sure-your-upgrade-was-successful"></a>So stellen Sie sicher, dass das Upgrade erfolgreich war
 
-1. Öffnen Sie den Registrierungs-Editor, navigieren Sie zu HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsNT\CurrentVersion Hive, und zeigen Sie **ProductName**an. Sie sollten die Edition von Windows Server 2019 sehen, z. b. **Windows Server 2019 Datacenter**.
+1. Öffnen Sie den Registrierungs-Editor, wechseln Sie zum `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion`-Schlüssel, und zeigen Sie **ProductName**an. Sie sollten die Edition von Windows Server 2019 sehen, z. b. **Windows Server 2019 Datacenter**.
 
 2. Stellen Sie sicher, dass alle Anwendungen ausgeführt werden und dass Ihre Clientverbindungen mit den Anwendungen erfolgreich sind.
 
-Wenn Sie davon ausgehen, dass während des Upgrades ein Fehler aufgetreten ist, kopieren Sie `%SystemRoot%\Panther` das Verzeichnis `C:\Windows\Panther`(normalerweise), und wenden Sie sich an den Microsoft Support.
+Wenn Sie der Ansicht sind, dass während des Upgrades ein Fehler aufgetreten ist, kopieren Sie das `%SystemRoot%\Panther` Verzeichnis (in der Regel `C:\Windows\Panther`), und wenden Sie sich an den Microsoft Support.
 
 ## <a name="related-articles"></a>Verwandte Artikel
 
