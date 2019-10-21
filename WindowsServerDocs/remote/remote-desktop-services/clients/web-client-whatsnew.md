@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 09/11/2019
+ms.date: 10/18/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: d233708c6d206569f42f2a883bd342e90813f6a3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bcbd3292bcd4653a4568492a996d53c17f465aa8
+ms.sourcegitcommit: 9a6a692a7b2a93f52bb9e2de549753e81d758d28
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404095"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72591043"
 ---
 # <a name="whats-new-in-the-web-client"></a>Neues beim Webclient
 
@@ -27,12 +27,22 @@ Der [Remotedesktop-Webclient](remote-desktop-web-client.md) wird regelmäßig mi
 > [!NOTE]
 > Wir haben das Versionsverwaltungssystem für den Webclient geändert. Ab Version 1.0.18.0 enthalten alle Releaseversionen des Webclients Zahlen (im Format „W.X.Y.Z“). Releasenummern für den Remotedesktop-Webclient enden immer mit einer Null (Beispiel: W.X.Y.0). Mit jedem Windows Virtual Desktop-Webclientrelease ändert sich die letzte Stelle bis zum nächsten Remotedesktop-Webclientrelease (Beispiel: 1.0.18.1).
 
+## <a name="updates-for-version-10200"></a>Updates für Version 1.0.20.0
+*Veröffentlicht am: 18.10.2019*
+
+- Unterstützung für Verbindungen mit Windows 7- und Windows Server 2008 R2-Hosts hinzugefügt.
+- Es wurde ein Problem behoben, bei dem bestimmte App-Symbole als transparente Kacheln angezeigt wurden.
+- Verbindungsprobleme beim Internet Explorer-Browser unter Windows 7 behoben.
+- Unerwartete Verbindungstrennungen wurden korrigiert, die bei Änderung der Größe des Browsers aufgetreten sind.
+- Barrierefreiheitsverbesserungen
+- Bibliotheken von Drittanbietern wurden aktualisiert.
+
 ## <a name="updates-for-version-10180"></a>Updates für Version 1.0.18.0
 *Veröffentlicht am: 14.5.2019*
 
 - Konfiguration für die Ressourcenstartmethode auf der Registerkarte „Einstellungen“ hinzugefügt, sodass Benutzer wählen können, ob Ressourcen im Browser geöffnet werden sollen oder ob eine RDP-Datei für einen anderen Client heruntergeladen werden soll. Diese Einstellung kann von deinem Administrator konfiguriert werden. Details zu Administratorkonfigurationen für dieses Feature findest du in der [Setupdokumentation für den Webclient](remote-desktop-web-client-admin.md).
 - Probleme beim Rendern von Farben behoben, um kräftigere Farben in deiner Remotesitzung zu ermöglichen.
-- Fehlermeldungen im Zusammenhang mit Feedfehlern für Remoteressourcen überarbeitet. 
+- Fehlermeldungen im Zusammenhang mit Feedfehlern für Remoteressourcen überarbeitet.
 - Unterstützung für weitere Office-Tastenkombinationen hinzugefügt – beispielsweise „Inhalte einfügen“ (STRG+ALT+V).
 - Tastenkombination hinzugefügt, mit der Benutzer die Windows-Taste in der Remotesitzung verwenden können (ALT+F3).
 - Fehlermeldung für Benutzer aktualisiert, die versuchen, sich mit einem abgelaufenen Kennwort zu authentifizieren.
@@ -105,4 +115,3 @@ Der [Remotedesktop-Webclient](remote-desktop-web-client.md) wird regelmäßig mi
 - Kopieren und Einfügen von Text über die Zwischenablage mit **STRG+C** und **STRG+V**
 - Drucken in eine PDF-Datei
 - Lokalisierung in 18 Sprachen
- 
