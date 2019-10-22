@@ -8,12 +8,12 @@ ms.date: 10/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: e3ec7ee787fb6fd2e8e9f59249a6c4013a76b377
-ms.sourcegitcommit: e2964a803cba1b8037e10d065a076819d61e8dbe
+ms.openlocfilehash: 830a2d99443938c25625211f590984819a20d566
+ms.sourcegitcommit: 40e4ba214954d198936341c4d6ce1916dc891169
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72252368"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72690441"
 ---
 # <a name="storage-migration-service-known-issues"></a>Bekannte Probleme bei Storage Migration Service
 
@@ -48,11 +48,11 @@ Verwenden Sie zum Auflösen von Windows Server 2019 Build 1809 oder höher, oder
 
 Wenn Sie die Version 0,57 der Storage Migration Service-Erweiterung im Windows Admin Center verwenden und die Umschalter Phase erreichen, können Sie keine statische IP-Adresse für eine Adresse auswählen. Sie sind gezwungen, DHCP zu verwenden.
 
-Um dieses Problem zu beheben, suchen Sie im Windows Admin Center unter **Einstellungen** > **Erweiterungen** eine Warnung, die besagt, dass die aktualisierte Version Storage Migration Service 0.57.2 zur Installation zur Verfügung steht. Möglicherweise müssen Sie die Browser Registerkarte für Windows Admin Center neu starten.
+Um dieses Problem zu beheben, sehen Sie sich im Windows Admin Center unter **Einstellungen**  > **Erweiterungen** eine Warnung an, die besagt, dass die aktualisierte Version Storage Migration Service 0.57.2 zur Installation zur Verfügung steht. Möglicherweise müssen Sie die Browser Registerkarte für Windows Admin Center neu starten.
 
 ## <a name="storage-migration-service-cutover-validation-fails-with-error-access-is-denied-for-the-token-filter-policy-on-destination-computer"></a>Die Überprüfung des Speicher Migrationsdienst-cutovers schlägt mit dem Fehler "Zugriff wird für die tokenfilterrichtlinie auf dem Zielcomputer verweigert" fehl
 
-Beim Ausführen der Überprüfung des cutovers erhalten Sie den Fehler "Fehler: Der Zugriff auf die tokenfilterrichtlinie auf dem Zielcomputer wird verweigert. " Dies geschieht auch, wenn Sie sowohl für den Quell-als auch für den Zielcomputer die richtigen lokalen Administrator Anmelde Informationen angegeben haben
+Beim Ausführen der Überprüfung des cutovers erhalten Sie den Fehler "Fehler: der Zugriff wird für die tokenfilterrichtlinie auf dem Zielcomputer verweigert". Dies geschieht auch, wenn Sie sowohl für den Quell-als auch für den Zielcomputer die richtigen lokalen Administrator Anmelde Informationen angegeben haben
 
 Dieses Problem wird durch einen Code Fehler in Windows Server 2019 verursacht. Das Problem tritt auf, wenn Sie den Zielcomputer als Orchestrator für den Speicher Migrationsdienst verwenden.
 
@@ -120,9 +120,9 @@ Dieses Problem wurde in einem späteren Release von Windows Admin Center behoben
 Beim Validieren eines Übertragungs Auftrags werden folgende Warnungen angezeigt:
 
  > **Die Anmelde Informationen verfügen über Administratorrechte.**
- > Warnung: Die Aktion ist nicht Remote verfügbar.
+ > Warnung: die Aktion ist nicht Remote verfügbar.
  > **Der Ziel Proxy ist registriert.**
- > Warnung: Der Ziel Proxy wurde nicht gefunden.
+ > Warnung: der Ziel Proxy wurde nicht gefunden.
 
 Wenn Sie den Speicher Migrationsdienst-Proxy Dienst auf dem Windows Server 2019-Zielcomputer nicht installiert haben, oder wenn der Zielcomputer Windows Server 2016 oder Windows Server 2012 R2 ist, ist dieses Verhalten Entwurfs bedingt. Es wird empfohlen, zu einem Windows Server 2019-Computer zu migrieren, auf dem der Proxy installiert ist  
 
@@ -130,10 +130,10 @@ Wenn Sie den Speicher Migrationsdienst-Proxy Dienst auf dem Windows Server 2019-
 
 Bei der Inventarisierung oder Übertragung von Dateien von einer Quell-auf einen Zielcomputer können Dateien, von denen ein Benutzer die Administrator Gruppenberechtigungen entfernt hat, nicht migriert werden. Überprüfen des Speicher Migrations Dienstanbieter: Proxy Debug zeigt Folgendes an:
 
-  Protokoll Name:      Microsoft-Windows-storagemigrationservice-Proxy/debugquelle:        Microsoft-Windows-storagemigrationservice-Proxy Datum:          2/26/2019 9:00:04 Uhr Ereignis-ID:      10000 Aufgaben Kategorie: Keine Ebene:         Fehler Schlüsselwörter:      
-  Benutzer:          Netzwerkdienst Computer: SRV1.contoso.com Beschreibung:
+  Protokoll Name: Microsoft-Windows-storagemigrationservice-Proxy/debugquelle: Microsoft-Windows-storagemigrationservice-Proxy Date: 2/26/2019 9:00:04 am Ereignis-ID: 10000 Aufgaben Kategorie: keine Ebene: Fehler Schlüsselwörter:      
+  Benutzer: Netzwerkdienst Computer: SRV1.contoso.com Beschreibung:
 
-  02/26/2019-09:00:04.860 [Fehler] Übertragungsfehler für \\srv1. c. ". com\public\indy.png": (5) der Zugriff wurde verweigert.
+  02/26/2019-09:00:04.860 [Fehler] Übertragungsfehler für \\srv1....... com\public\indy.png: (5) der Zugriff wurde verweigert.
 Stapel Überwachung: bei Microsoft. storagemigration. Proxy. Service. Transfer. filedirutils. OpenFile (Zeichenfolge Dateiname, desiredAccess desiredAccess, share Mode Share Mode, kreationdisposition erationdisposition, flagsandattribute flagsandattribute) unter Microsoft. storagemigration. Proxy. Service. Transfer. filedirutils. gettargetfile (Zeichen folgen Pfad) bei Microsoft. storagemigration. Proxy. Service. Transfer. filedirutils. gettargetfile (FileInfo-Datei) unter Microsoft. storagemigration. Proxy. Service. Transfer. Filetransfer. initializesourcefileingefo () bei Microsoft. storagemigration. Proxy. Service. Transfer. Filetransfer. Transfer () at Microsoft. storagemigration. Proxy. Service. Transfer. Filetransfer. trytransfer () [d:\os\src\base\dms\proxy\transfer\transferproxy\filetransfer.cs:: trytransfer:: 55]
 
 
@@ -199,14 +199,14 @@ Die Untersuchung des storagemigrationservice/Admin-Ereignis Protokolls zeigt Fol
 
    Speicher konnte nicht übertragen werden.
 
-   Auftrag Den job1-ID:  
-   Land Fehler: 36931-Fehlermeldung: 
+   Job: den job1-ID:  
+   Status: Fehler: 36931 Fehlermeldung: 
 
    Leitfaden: Überprüfen Sie den detaillierten Fehler, und stellen Sie sicher, dass die Übertragungsanforderungen erfüllt sind. Der Übertragungs Auftrag konnte keine Quell-und Zielcomputer übertragen. Dies kann darauf zurückzuführen sein, dass der Orchestrator-Computer keinen Quell-oder Zielcomputer erreichen konnte, möglicherweise aufgrund einer Firewallregel oder fehlender Berechtigungen.
 
 Die Untersuchung des storagemigrationservice-Proxy/Debug-Protokolls zeigt Folgendes:
 
-   07/02/2019-13:35:57.231 [Fehler] Fehler bei der Überprüfung der Übertragung. ErrorCode 40961, der Quell Endpunkt ist nicht erreichbar oder nicht vorhanden, oder die Quell Anmelde Informationen sind ungültig, oder der authentifizierte Benutzer verfügt nicht über ausreichende Zugriffsberechtigungen.
+   07/02/2019-13:35:57.231 [Fehler] Fehler bei der Überprüfung der Übertragung. ErrorCode: 40961, der Quell Endpunkt ist nicht erreichbar oder nicht vorhanden, oder die Quell Anmelde Informationen sind ungültig, oder der authentifizierte Benutzer verfügt nicht über ausreichende Zugriffsberechtigungen.
 bei Microsoft. storagemigration. Proxy. Service. Transfer. transferoperation. Validate () bei Microsoft. storagemigration. Proxy. Service. Transfer. transferrequesthandler. ProcessRequest (filetransferrequest filetransferrequest, GUID operationId)    [d:\os\src\base\dms\proxy\transfer\transferproxy\transferrequesthandler.cs::
 
 Dieser Fehler wird erwartet, wenn Ihr Migrations Konto nicht mindestens über Lese Zugriffsberechtigungen für die SMB-Freigaben verfügt. Um diesen Fehler zu umgehen, fügen Sie eine Sicherheitsgruppe mit dem Quell Migrations Konto zu den SMB-Freigaben auf dem Quellcomputer hinzu, und erteilen Sie Lese-, Änderungs-oder Vollzugriff. Nachdem die Migration abgeschlossen ist, können Sie diese Gruppe entfernen.
@@ -215,15 +215,15 @@ Dieser Fehler wird erwartet, wenn Ihr Migrations Konto nicht mindestens über Le
 
 Nach der Installation von [KB4512534](https://support.microsoft.com/en-us/help/4512534/windows-10-update-kb4512534) und dem Versuch, das Inventar auszuführen, schlägt die Inventur mit Fehlern fehl
 
-  AUSNAHME VON HRESULT: 0x80005000
+  Ausnahme von HRESULT: 0x80005000
   
-  Protokoll Name:      Microsoft-Windows-storagemigrationservice/Administrator Quelle:        Microsoft-Windows-storagemigrationservice-Datum:          9/9/2019 5:21:42 Uhr Ereignis-ID:      2503 Aufgaben Kategorie: Keine Ebene:         Fehler Schlüsselwörter:      
-  Benutzer:          Netzwerkdienst Computer:      FS02. TailwindTraders.net Beschreibung: Computer konnten nicht inventarisiert werden.
-Job: foo2-ID: 20ac3f75-4945-41d1-9a79-d11dbb57798b-Status: Fehler: 36934-Fehlermeldung: Fehler bei der Inventur für alle Geräte Leit Faden: Prüfen Sie den detaillierten Fehler, und stellen Sie sicher, dass die Inventur Anforderungen erfüllt sind. Der Auftrag konnte keinen der angegebenen Quellcomputer inventarisieren. Dies kann darauf zurückzuführen sein, dass der Orchestrator-Computer ihn nicht über das Netzwerk erreichen konnte, möglicherweise aufgrund einer Firewallregel oder fehlender Berechtigungen.
+  Protokoll Name: Microsoft-Windows-storagemigrationservice/Administrator Quelle: Microsoft-Windows-storagemigrationservice Date: 9/9/2019 5:21:42 pm Ereignis-ID: 2503 Aufgaben Kategorie: keine Ebene: Fehler Schlüsselwörter:      
+  Benutzer: Netzwerkdienst Computer: FS02. TailwindTraders.net Description: die Computer konnten nicht inventarisiert werden.
+Auftrag: foo2 ID: 20ac3f75-4945-41d1-9a79-d11dbb57798b State: failed Error: Fehlermeldung: 36934 Fehlermeldung: Fehler bei Inventur für alle Geräte Anleitung: Überprüfen Sie den detaillierten Fehler, und stellen Sie sicher, dass die Inventur Anforderungen erfüllt sind. Der Auftrag konnte keinen der angegebenen Quellcomputer inventarisieren. Dies kann darauf zurückzuführen sein, dass der Orchestrator-Computer ihn nicht über das Netzwerk erreichen konnte, möglicherweise aufgrund einer Firewallregel oder fehlender Berechtigungen.
   
-  Protokoll Name:      Microsoft-Windows-storagemigrationservice/Administrator Quelle:        Microsoft-Windows-storagemigrationservice-Datum:          9/9/2019 5:21:42 Uhr Ereignis-ID:      2509 Aufgaben Kategorie: Keine Ebene:         Fehler Schlüsselwörter:      
-  Benutzer:          Netzwerkdienst Computer:      FS02. TailwindTraders.net Beschreibung: Konnte keinen Computer inventarisieren.
-Auftrag: foo2 Computer: FS01. TailwindTraders.net-Status: Fehler:-2147463168 Fehlermeldung: Leitfaden: Prüfen Sie den detaillierten Fehler, und stellen Sie sicher, dass die Inventur Anforderungen erfüllt sind. Das Inventar konnte keine Aspekte des angegebenen Quell Computers ermitteln. Dies kann daran liegen, dass fehlende Berechtigungen oder Berechtigungen für die Quelle oder einen gesperrten Firewallport vorhanden sind.
+  Protokoll Name: Microsoft-Windows-storagemigrationservice/Administrator Quelle: Microsoft-Windows-storagemigrationservice Date: 9/9/2019 5:21:42 pm Ereignis-ID: 2509 Aufgaben Kategorie: keine Ebene: Fehler Schlüsselwörter:      
+  Benutzer: Netzwerkdienst Computer: FS02. TailwindTraders.net Description: der Computer konnte nicht inventarisiert werden.
+Auftrag: foo2 Computer: FS01. TailwindTraders.net State: failed Error:-2147463168 Error Message: Anleitung: Überprüfen Sie den detaillierten Fehler, und stellen Sie sicher, dass die Inventur Anforderungen erfüllt sind. Das Inventar konnte keine Aspekte des angegebenen Quell Computers ermitteln. Dies kann daran liegen, dass fehlende Berechtigungen oder Berechtigungen für die Quelle oder einen gesperrten Firewallport vorhanden sind.
   
 Dieser Fehler wird durch einen Code Fehler im Speicher Migrationsdienst verursacht, wenn Sie Migrations Anmelde Informationen in Form eines Benutzer Prinzipal namens (User Principal Name, UPN) bereitstellen, z. b. "meghan@contoso.com". Der Orchestrator-Dienst des Speicher Migrations Dienstanbieter kann dieses Format nicht ordnungsgemäß analysieren, was zu einem Fehler bei einer Domänen Suche führt, die zur Unterstützung der Cluster Migration in KB4512534 und 19h1 hinzugefügt wurde.
 
@@ -270,6 +270,8 @@ Beachten Sie, dass es unter bestimmten Umständen dazu führen kann, dass der Sp
 1.  Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, bei der Sie ein Mitglied der Administratoren auf dem Orchestrator-Server für den Speicher Migrationsdienst sind, und führen Sie Folgendes aus:
 
      ```
+     TAKEOWN /d /a /r /f c:\ProgramData\Microsoft\StorageMigrationService
+     
      MD c:\ProgramData\Microsoft\StorageMigrationService\backup
 
      ICACLS c:\ProgramData\Microsoft\StorageMigrationService\* /grant Administrators:(GA)
@@ -280,13 +282,13 @@ Beachten Sie, dass es unter bestimmten Umständen dazu führen kann, dass der Sp
 
      ICACLS c:\ProgramData\Microsoft\StorageMigrationService  /GRANT networkservice:F /T /C
 
-     ICACLS c:\ProgramData\Microsoft\StorageMigrationService /GRANT networkservice:(GA)F /T /C
+     ICACLS c:\ProgramData\Microsoft\StorageMigrationService /GRANT networkservice:(GA) /T /C
      ```
    
 2.  Starten Sie den Dienst "Storage Migration Service", mit dem eine neue Datenbank erstellt wird.
 
 
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen:
 
 - [Übersicht über den Speicher Migrationsdienst](overview.md)
