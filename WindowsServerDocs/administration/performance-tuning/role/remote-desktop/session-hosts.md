@@ -4,15 +4,15 @@ description: Richtlinien zur Leistungsoptimierung für Remotedesktop Sitzungs Ho
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: HammadBu; VladmiS
+ms.author: HammadBu; VladmiS; DenisGun
 author: phstee
-ms.date: 10/16/2017
-ms.openlocfilehash: c50c0c981362bd96ed3bf1c603cde6bfeec289f4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 10/22/2019
+ms.openlocfilehash: b439b0cbab66f98a1f74faeb7bff996b30a188d5
+ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385019"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72812329"
 ---
 # <a name="performance-tuning-remote-desktop-session-hosts"></a>Leistungsoptimierung Remotedesktop Sitzungs Hosts
 
@@ -40,7 +40,7 @@ Je mehr logische Prozessoren auf einem System, desto niedriger der in der CPU-Au
 
 ### <a name="memory-configuration"></a>Speicherkonfiguration
 
-Die Speicherkonfiguration ist abhängig von den Anwendungen, die Benutzer verwenden. die erforderliche Arbeitsspeicher Menge kann jedoch mithilfe der folgenden Formel geschätzt werden: Totalmem = osmem + sessionmem \* NS
+Die Speicherkonfiguration ist abhängig von den Anwendungen, die Benutzer verwenden. die erforderliche Arbeitsspeicher Menge kann jedoch mithilfe der folgenden Formel geschätzt werden: totalmem = osmem + sessionmem \* NS
 
 Osmem gibt an, wie viel Arbeitsspeicher das Betriebssystem für die Ausführung benötigt (z. b. System Binär Images, Datenstrukturen usw.), sessionmem gibt an, wie viel Arbeitsspeicher Prozesse in einer Sitzung ausgeführt werden müssen, und NS ist die Ziel Anzahl aktiver Sitzungen. Der erforderliche Arbeitsspeicher für eine Sitzung wird größtenteils durch den Verweis auf den privaten Speicher für Anwendungen und System Prozesse bestimmt, die innerhalb der Sitzung ausgeführt werden. Freigegebene Codes oder Datenseiten haben kaum Auswirkungen, da nur eine Kopie auf dem System vorhanden ist.
 
@@ -130,9 +130,9 @@ Mit Taskplaner können Sie die Liste der Aufgaben untersuchen, die für verschie
 
 Benachrichtigungs Symbole auf dem Desktop können über Recht teure Aktualisierungs Mechanismen verfügen. Sie sollten alle Benachrichtigungen deaktivieren, indem Sie die Komponente entfernen, von der Sie aus der Startliste registriert werden, oder indem Sie die Konfiguration für apps und Systemkomponenten ändern, um Sie zu deaktivieren. Mithilfe der **Symbole zum Anpassen von Benachrichtigungen** können Sie die Liste der auf dem Server verfügbaren Benachrichtigungen überprüfen.
 
-### <a name="remotefx-data-compression"></a>Remotefx-Datenkomprimierung
+### <a name="remote-desktop-protocol-data-compression"></a>Datenkomprimierung Remotedesktopprotokoll
 
-Microsoft RemoteFX Komprimierung kann mithilfe Gruppenrichtlinie unter **Computer Konfiguration &gt; Administrative Vorlagen &gt; Windows-Komponenten &gt; Remotedesktopdienste &gt; Remotedesktop-Sitzungshost &gt; Remote konfiguriert werden. Sitzungs Umgebung &gt; Konfigurieren Sie die Komprimierung für remotefx-Daten**. Drei Werte sind möglich:
+Remotedesktopprotokoll Komprimierung kann mithilfe Gruppenrichtlinie unter **Computer Konfiguration** &gt; **Administrative Vorlagen** &gt; Windows- **Komponenten** &gt; **Remotedesktopdienste** konfiguriert werden &gt; **Remotedesktop-Sitzungshost** &gt; **Remote Sitzungs Umgebung** &gt; die **Komprimierung für remotefx-Daten konfigurieren**. Drei Werte sind möglich:
 
 -   **Optimiert, um weniger Arbeitsspeicher zu verwenden** Beansprucht die geringste Menge an Arbeitsspeicher pro Sitzung, verfügt aber über das niedrigste Komprimierungs Verhältnis und somit über den höchsten Bandbreitenverbrauch.
 
@@ -140,11 +140,11 @@ Microsoft RemoteFX Komprimierung kann mithilfe Gruppenrichtlinie unter **Compute
 
 -   **Optimiert für die Verwendung der geringeren Netzwerkbandbreite** Außerdem wird die Nutzung der Netzwerkbandbreite auf Kosten von ungefähr 2 MB pro Sitzung reduziert. Wenn Sie diese Einstellung verwenden möchten, sollten Sie die maximale Anzahl von Sitzungen bewerten und diese Ebene mit dieser Einstellung testen, bevor Sie den Server in der Produktionsumgebung platzieren.
 
-Sie können auch auswählen, dass kein remotefx-Komprimierungs Algorithmus verwendet werden soll. Wenn Sie keinen remotefx-Komprimierungs Algorithmus verwenden, wird mehr Netzwerkbandbreite verwendet, und es wird nur empfohlen, wenn Sie ein Hardware Gerät verwenden, das zur Optimierung des Netzwerk Datenverkehrs konzipiert ist. Auch wenn Sie keinen remotefx-Komprimierungs Algorithmus verwenden möchten, werden einige Grafikdaten komprimiert.
+Sie können auch auswählen, dass kein Remotedesktopprotokoll Komprimierungs Algorithmus verwendet werden soll. Daher empfiehlt es sich, ihn nur mit einem Hardware Gerät zu verwenden, das zur Optimierung des Netzwerk Datenverkehrs konzipiert ist Auch wenn Sie keinen Komprimierungs Algorithmus verwenden möchten, werden einige Grafikdaten komprimiert.
 
 ### <a name="device-redirection"></a>Geräte Umleitung
 
-Die Geräte Umleitung kann mithilfe der Gruppenrichtlinie unter **Computer Konfiguration &gt; Administrative Vorlagen &gt; Windows-Komponenten &gt; Remotedesktopdienste &gt; Remotedesktop-Sitzungshost &gt; Gerät und Ressource konfiguriert werden. Umleitung** oder über das Eigenschaften Feld **Sitzungs Sammlung** in Server-Manager.
+Die Geräte Umleitung kann mithilfe der Gruppenrichtlinie unter **Computer Konfiguration** &gt; **Administrative Vorlagen** &gt; **Windows-Komponenten** &gt; **Remotedesktopdienste &gt;** Remote konfiguriert werden.  **Desktop Sitzungs Host** &gt; **Geräte-und Ressourcen Umleitung** oder das Eigenschaften Feld **Sitzungs Sammlung** in Server-Manager.
 
 Im allgemeinen erhöht die Geräte Umleitung, wie viel Netzwerkbandbreite RD-Sitzungshost Serververbindungen verwendet werden, da Daten zwischen Geräten auf den Client Computern und Prozessen ausgetauscht werden, die in der Server Sitzung ausgeführt werden. Der Umfang der Erhöhung ist eine Funktion der Häufigkeit von Vorgängen, die von den Anwendungen ausgeführt werden, die auf dem Server gegen die umgeleiteten Geräte ausgeführt werden.
 
