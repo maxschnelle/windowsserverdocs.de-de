@@ -10,14 +10,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 ms.author: elizapo
-ms.date: 09/16/2016
+ms.date: 10/22/2019
 manager: dongill
-ms.openlocfilehash: 7429cd9cb87db310a716136c171de47cfe0892f2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9386733911ca81ad60d038854bd68e5603aae4cf
+ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387361"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72812283"
 ---
 # <a name="use-personal-session-desktops-with-remote-desktop-services"></a>Verwenden von persönlichen Sitzungsdesktops mit Remotedesktopdiensten
 
@@ -100,6 +100,3 @@ Das Cmdlet **Export-RDPersonalPersonalDesktopAssignment** exportiert die aktuell
 
 
 Alle neuen Cmdlets unterstützen die folgenden allgemeinen Parameter: -Verbose, -Debug, -ErrorAction, -ErrorVariable, -OutBuffer und -OutVariable. Weitere Informationen finden Sie unter [about_CommonParameters](https://go.microsoft.com/fwlink/p/?LinkID=113216).
-
-## <a name="hardware-accelerated-graphics"></a>Hardwarebeschleunigte Grafikfunktionen
-Windows Server 2016 erweitert die RemoteFX 3D-Grafikadaptertechnologie (vGPU) auf die Unterstützung von OpenGL und unterstützt Windows Server 2016-Gast-VMs für Einzelbenutzer. Du kannst persönliche Sitzungsdesktops mit den neuen vGPU-Funktionen kombinieren, um Unterstützung für gehostete Anwendungen bereitzustellen, die beschleunigte Grafikfunktionen erfordern. Alternativ dazu kannst du persönliche Sitzungsdesktops mit der neuen Discrete Device Assignment-Funktion (DDA) kombinieren, um Unterstützung für solche gehosteten Anwendungen bereitzustellen.
