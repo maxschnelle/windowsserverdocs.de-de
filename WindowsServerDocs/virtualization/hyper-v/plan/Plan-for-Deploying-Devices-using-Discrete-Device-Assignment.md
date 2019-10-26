@@ -8,13 +8,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: chrishuybregts
 ms.author: chrihu
-ms.date: 02/06/2018
-ms.openlocfilehash: 7084f4951ebe1d1203f4c9e45bc5f73cc6487a84
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 08/21/2019
+ms.openlocfilehash: 114dd87b86bfffd1070229af57ae65deea2c2db0
+ms.sourcegitcommit: 81198fbf9e46830b7f77dcd345b02abb71ae0ac2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364191"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72923864"
 ---
 # <a name="plan-for-deploying-devices-using-discrete-device-assignment"></a>Planen der Bereitstellung von Geräten mit diskreter Geräte Zuweisung
 >Gilt für: Microsoft Hyper-V Server 2016, Windows Server 2016, Microsoft Hyper-V Server 2019, Windows Server 2019
@@ -23,7 +23,7 @@ Durch die diskrete Geräte Zuweisung kann auf physische PCIe-Hardware direkt von
 
 Bei der erstmaligen Veröffentlichung einer diskreten Geräte Zuweisung haben wir uns auf zwei Geräteklassen konzentriert, die von Microsoft formal unterstützt werden: Grafikadapter und nvme-Speichergeräte.  Andere Geräte sind wahrscheinlich funktionsfähig, und Hardware Anbieter können Unterstützung für diese Geräte anbieten.  Wenden Sie sich für diese anderen Geräte an diese Hardware Anbieter, um Unterstützung zu erhalten.
 
-Wenn Sie zum Testen der diskreten Geräte Zuweisung bereit sind, können Sie zum Einstieg zum Bereitstellen von [Grafik Geräten mithilfe einer diskreten Geräte Zuweisung](../deploy/Deploying-graphics-devices-using-dda.md) oder Bereitstellen von [Speichergeräten mithilfe von diskreten Geräte Zuweisungen](../deploy/Deploying-storage-devices-using-dda.md) wechseln.
+Weitere Informationen zu anderen Methoden der GPU-Virtualisierung finden Sie unter [Planen der GPU-Beschleunigung in Windows Server](plan-for-gpu-acceleration-in-windows-server.md). Wenn Sie zum Testen der diskreten Geräte Zuweisung bereit sind, können Sie zum Einstieg zum Bereitstellen von [Grafik Geräten mithilfe der diskreten Geräte Zuweisung](../deploy/Deploying-graphics-devices-using-dda.md) oder Bereitstellen von [Speichergeräten mithilfe der diskreten Geräte Zuweisung](../deploy/Deploying-storage-devices-using-dda.md) wechseln.
 
 ## <a name="supported-virtual-machines-and-guest-operating-systems"></a>Unterstützte Virtual Machines und Gast Betriebssysteme
 Für VMS der Generation 1 oder 2 wird eine diskrete Geräte Zuweisung unterstützt.  Zu den unterstützten Gästen zählen zusätzlich Windows 10, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 mit angewendetem [KB 3133690](https://support.microsoft.com/kb/3133690) und verschiedene Verteilungen des [Linux-Betriebssystems.](../supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows.md)
@@ -52,15 +52,15 @@ Aufgrund der Art, wie die diskrete Geräte Zuweisung implementiert ist, werden e
 - Die Verwendung von dynamischem Arbeitsspeicher
 - Hinzufügen des virtuellen Computers zu einem hoch Verfügbarkeits Cluster (ha)
 
-## <a name="security"></a>Sicherheit
+## <a name="security"></a>Security
 Die diskrete Geräte Zuweisung übergibt das gesamte Gerät an den virtuellen Computer.  Dies bedeutet, dass alle Funktionen dieses Geräts über das Gast Betriebssystem zugänglich sind. Einige Funktionen, wie z. b. Firmwareupdates, können sich negativ auf die Stabilität des Systems auswirken. Daher werden dem Administrator beim Aufheben der Einbindung des Geräts vom Host zahlreiche Warnungen angezeigt. Es wird dringend empfohlen, die diskrete Geräte Zuweisung nur dann zu verwenden, wenn die Mandanten der VMS vertrauenswürdig sind.  
 
 Wenn der Administrator ein Gerät mit einem nicht vertrauenswürdigen Mandanten verwenden möchte, haben wir Geräteherstellern die Möglichkeit gegeben, einen geräteentschärfungs-Treiber zu erstellen, der auf dem Host installiert werden kann.  Wenden Sie sich an den Gerätehersteller, um zu erfahren, ob er einen Geräte Entschärfungs Treiber bereitstellt.
 
-Wenn Sie die Sicherheitsüberprüfungen für ein Gerät umgehen möchten, das keinen Treiber für die Geräte Entschärfung hat, müssen Sie den Parameter "`-Force`" an das `Dismount-VMHostAssignableDevice`-Cmdlet übergeben.  Dabei haben Sie sich bewusst, dass Sie das Sicherheitsprofil des Systems geändert haben und dies nur während der Erstellung von Prototypen oder vertrauenswürdigen Umgebungen empfohlen wird.
+Wenn Sie die Sicherheitsüberprüfungen für ein Gerät umgehen möchten, das keinen Treiber für die Geräte Entschärfung hat, müssen Sie den `-Force` Parameter an das `Dismount-VMHostAssignableDevice`-Cmdlet übergeben.  Dabei haben Sie sich bewusst, dass Sie das Sicherheitsprofil des Systems geändert haben und dies nur während der Erstellung von Prototypen oder vertrauenswürdigen Umgebungen empfohlen wird.
 
 ## <a name="pcie-location-path"></a>PCIe-Speicherort Pfad
-Der Pfad für den PCIe-Speicherort ist erforderlich, um das Gerät vom Host zu entfernen und zu binden.  Ein Beispiel für einen Speicherort Pfad sieht wie `"PCIROOT(20)#PCI(0300)#PCI(0000)#PCI(0800)#PCI(0000)"`folgt aus:.   Das [Computer Profil Skript](#machine-profile-script) gibt auch den Speicherort Pfad des PCIe-Geräts zurück.
+Der Pfad für den PCIe-Speicherort ist erforderlich, um das Gerät vom Host zu entfernen und zu binden.  Ein Beispiel für einen Speicherort Pfad sieht wie folgt aus: `"PCIROOT(20)#PCI(0300)#PCI(0000)#PCI(0800)#PCI(0000)"`.   Das [Computer Profil Skript](#machine-profile-script) gibt auch den Speicherort Pfad des PCIe-Geräts zurück.
 
 ### <a name="getting-the-location-path-by-using-device-manager"></a>Der Speicherort Pfad wird mithilfe Geräte-Manager
 ![Geräte-Manager](../deploy/media/dda-devicemanager.png)
@@ -104,7 +104,7 @@ Wenn ein Benutzer eine einzelne K520-GPU wie im obigen Beispiel zuweisen würde,
 Eine ausführlichere Betrachtung von MMIO Space finden Sie im techcommunity [-Blog unter diskrete Geräte Zuweisung-GPUs](https://techcommunity.microsoft.com/t5/Virtualization/Discrete-Device-Assignment-GPUs/ba-p/382266) .
 
 ## <a name="machine-profile-script"></a>Skript für Computer Profil
-Um zu vereinfachen, ob der Server ordnungsgemäß konfiguriert ist und welche Geräte durch diskrete Geräte Zuweisung übermittelt werden können, stellt einer unserer Techniker das folgende PowerShell-Skript bereit: [Surveydda. ps1.](https://github.com/Microsoft/Virtualization-Documentation/blob/live/hyperv-tools/DiscreteDeviceAssignment/SurveyDDA.ps1)
+Um zu vereinfachen, ob der Server ordnungsgemäß konfiguriert ist und welche Geräte durch diskrete Geräte Zuweisung übermittelt werden können, stellt einer unserer Techniker das folgende PowerShell-Skript bereit: [surveydda. ps1.](https://github.com/Microsoft/Virtualization-Documentation/blob/live/hyperv-tools/DiscreteDeviceAssignment/SurveyDDA.ps1)
 
 Stellen Sie vor der Verwendung des Skripts sicher, dass die Hyper-V-Rolle installiert ist, und führen Sie das Skript in einem PowerShell-Befehlsfenster aus, das über Administrator Rechte verfügt.
 
@@ -113,42 +113,3 @@ Wenn das System nicht ordnungsgemäß für die Unterstützung der diskreten Ger�
 Das Tool zeigt für jedes gefundene Gerät an, ob es mit diskreter Geräte Zuweisung verwendet werden kann. Wenn ein Gerät als kompatibel mit der diskreten Geräte Zuweisung identifiziert wird, stellt das Skript einen Grund dar.  Wenn ein Gerät erfolgreich als kompatibel identifiziert wurde, wird der Speicherort Pfad des Geräts angezeigt.  Wenn dieses Gerät außerdem [MMIO-Speicherplatz](#mmio-space)erfordert, wird es ebenfalls angezeigt.
 
 ![Surveydda. ps1](./images/hyper-v-surveydda-ps1.png)
-
-## <a name="frequently-asked-questions"></a>Häufig gestellte Fragen
-
-### <a name="how-does-remote-desktops-remotefx-vgpu-technology-relate-to-discrete-device-assignment"></a>Wie verhält sich die remotefx-vgpu-Technologie von Remotedesktop mit der diskreten Geräte Zuweisung?
-Dabei handelt es sich um vollständig getrennte Technologien. Remotefx vgpu muss nicht installiert werden, damit die diskrete Geräte Zuweisung funktioniert. Außerdem müssen keine weiteren Rollen installiert werden. Für remotefx vgpu muss die RDVH-Rolle installiert sein, damit der remotefx-vgpu-Treiber auf der VM vorhanden ist. Bei einer diskreten Geräte Zuweisung müssen keine weiteren Rollen vorhanden sein, da Sie den Treiber des Hardware Herstellers in der virtuellen Maschine installieren werden.  
-
-### <a name="ive-passed-a-gpu-into-a-vm-but-remote-desktop-or-an-application-isnt-recognizing-the-gpu"></a>Ich habe eine GPU an einen virtuellen Computer übermittelt, aber Remotedesktop oder eine Anwendung erkennt die GPU nicht.
-Dies kann eine Reihe von Ursachen haben. es gibt jedoch einige häufige Probleme, die unten aufgeführt sind.
-- Stellen Sie sicher, dass der Treiber des aktuellen GPU-Anbieters installiert ist und keinen Fehler meldet, indem Sie den Gerätestatus in der Geräte-Manager überprüfen.
-- Stellen Sie sicher, dass auf dem Gerät ausreichend [MMIO-Speicherplatz](#mmio-space) auf dem virtuellen Computer zugeordnet ist.
-- Stellen Sie sicher, dass Sie eine GPU verwenden, die der Anbieter unterstützt, die in dieser Konfiguration verwendet wird. Beispielsweise verhindern einige Anbieter, dass Ihre verbraucherkarten funktionieren, wenn Sie an einen virtuellen Computer übermittelt werden.
-- Stellen Sie sicher, dass die Anwendung, die ausgeführt wird, auf einem virtuellen Computer ausgeführt wird und dass sowohl die GPU als auch die zugehörigen Treiber von der Anwendung unterstützt werden. Einige Anwendungen haben Whitelists von GPUs und Umgebungen.
-- Wenn Sie die Remotedesktop-Sitzungshost-Rolle oder Windows MultiPoint Services auf dem Gast verwenden, müssen Sie sicherstellen, dass ein bestimmter Gruppenrichtlinie Eintrag festgelegt ist, um die Verwendung der Standard-GPU zuzulassen. Wenn Sie ein Gruppenrichtlinie Objekt verwenden, das auf den Gast angewendet wird (oder auf den Editor für lokale Gruppenrichtlinien auf dem Gast), navigieren Sie zu folgendem Gruppenrichtlinie Element:
-   - Computerkonfiguration
-   - Administrator Vorlagen
-   - Windows-Komponenten
-   - Remotedesktopdienste
-   - Remotedesktop-Sitzungshost
-   - Remote Sitzungs Umgebung
-   - Verwenden des Hardware-Standard Grafikadapters für alle Remotedesktopdienste Sitzungen
-
-    Legen Sie diesen Wert auf aktiviert fest, und starten Sie den virtuellen Computer neu, sobald die Richtlinie angewendet wurde.
-
-### <a name="can-discrete-device-assignment-take-advantage-of-remote-desktops-avc444-codec"></a>Kann die diskrete Geräte Zuweisung den AVC444-Codec von Remotedesktop nutzen?
-Ja, weitere Informationen finden Sie in diesem Blogbeitrag: [Remotedesktopprotokoll (RDP) 10 AVC/H. 264 Verbesserungen in Windows 10 und Windows Server 2016 Technical Preview.](https://blogs.technet.microsoft.com/enterprisemobility/2016/01/11/remote-desktop-protocol-rdp-10-avch-264-improvements-in-windows-10-and-windows-server-2016-technical-preview/)
-
-### <a name="can-i-use-powershell-to-get-the-location-path"></a>Kann ich PowerShell verwenden, um den Speicherort Pfad zu erhalten?
-Ja, es gibt verschiedene Möglichkeiten, dies zu tun. Im folgenden finden Sie ein Beispiel:
-```
-#Enumerate all PNP Devices on the system
-$pnpdevs = Get-PnpDevice -presentOnly
-#Select only those devices that are Display devices manufactured by NVIDIA
-$gpudevs = $pnpdevs |where-object {$_.Class -like "Display" -and $_.Manufacturer -like "NVIDIA"}
-#Select the location path of the first device that's available to be dismounted by the host.
-$locationPath = ($gpudevs | Get-PnpDeviceProperty DEVPKEY_Device_LocationPaths).data[0]
-```
-
-### <a name="can-discrete-device-assignment-be-used-to-pass-a-usb-device-into-a-vm"></a>Kann die diskrete Geräte Zuweisung verwendet werden, um ein USB-Gerät an einen virtuellen Computer zu übergeben?
-Obwohl es nicht offiziell unterstützt wird, haben unsere Kunden eine diskrete Geräte Zuweisung verwendet, indem Sie den gesamten USB3-Controller an einen virtuellen Computer übergeben.  Während der gesamte Controller übertragen wird, kann auf jedem USB-Gerät, das in diesen Controller eingebunden ist, auch auf dem virtuellen Computer zugegriffen werden.  Beachten Sie, dass nur einige USB3-Controller funktionieren, und USB2-Controller können nicht mit diskreter Geräte Zuweisung verwendet werden.
