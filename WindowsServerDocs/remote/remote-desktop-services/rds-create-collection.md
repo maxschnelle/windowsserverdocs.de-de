@@ -7,18 +7,18 @@ ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: elizapo
-ms.date: 11/08/2016
+ms.date: 10/22/2019
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ae9767e3-864a-4eb2-96c0-626759ce6d60
 author: lizap
 manager: dongill
-ms.openlocfilehash: cec1ae43b51b17da5617f95e13b839d4ecfbb40c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 92af2b4e9fb174f1aa815256148ee8d5c7c7181a
+ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404007"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72812254"
 ---
 # <a name="create-a-remote-desktop-services-collection-for-desktops-and-apps-to-run"></a>Erstellen einer RDS-Sammlung zum Ausführen von Desktops und Apps
 
@@ -33,7 +33,7 @@ Bevor du eine Sammlung erstellst, musst du entscheiden, welche Art von Sammlung 
  
 Bei einer Poolsitzung greifen mehrere Benutzer auf einen gemeinsamen Ressourcenpool zu, während bei einer persönlichen Desktopsitzung den Benutzern ein eigener Desktop aus dem Pool zugewiesen wird. Die Poolsitzung bietet niedrigere Gesamtkosten, während persönliche Sitzungen den Benutzern ermöglichen, ihre Desktopdarstellung anzupassen.
 
-Wenn du gehostete Anwendungen mit hohem Grafikaufwand freigeben musst, kannst du persönliche Sitzungsdesktops mit RemoteFX vGPU kombinieren, das für Grafikbeschleunigungen konfiguriert ist. Alternativ dazu kannst du persönliche Sitzungsdesktops mit der neuen Discrete Device Assignment-Funktion (DDA) kombinieren, um Unterstützung für solche gehosteten Anwendungen bereitzustellen. Weitere Informationen findest du unter [Welche Grafikvirtualisierungstechnologie ist für Sie geeignet?](rds-graphics-virtualization.md).
+Wenn du grafikintensive gehostete Anwendung freigeben möchtest, kannst du persönliche Sitzungsdesktops mit der neuen Discrete Device Assignment-Funktion (DDA) kombinieren, um Unterstützung für solche gehosteten Anwendungen bereitzustellen. Weitere Informationen findest du unter [Welche Grafikvirtualisierungstechnologie ist für Sie geeignet?](rds-graphics-virtualization.md).
 
 
 Unabhängig von der Art der Sammlung, die du wählst, füllst du diese Sammlungen mit RemoteApps – Programmen und Ressourcen, auf die Benutzer von jedem unterstützten Gerät aus zugreifen und mit denen sie arbeiten können, als ob das Programm lokal ausgeführt würde.

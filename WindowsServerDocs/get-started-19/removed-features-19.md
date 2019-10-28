@@ -11,14 +11,14 @@ ms.topic: article
 author: jasongerend
 ms.author: jgerend
 manager: jasgro
-ms.date: 08/22/2019
+ms.date: 10/22/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 261023223b56e235320b7ad414fa91206420b1ed
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a2d3a871165812ac3a27e65b5f52cc56a05c9efe
+ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360839"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72812292"
 ---
 # <a name="features-removed-or-planned-for-replacement-starting-windows-server-2019"></a>Entfernte oder zur Ersetzung vorgesehene Features in Windows Server 2019
 
@@ -41,6 +41,7 @@ Wir haben die folgenden Features und Funktionen aus dem installierten Produktima
 | Business Scanning, auch als Verwaltung verteilter Scanvorgänge (Distributed Scan Management, DSM) bezeichnet|Wir entfernen diese Funktion zur Verwaltung sicherer Scanvorgänge und Scanner – sie wird von keinem Gerät unterstützt. |
 | Druckkomponenten: jetzt eine optionale Komponente für Server Core-Installationen|In früheren Versionen von Windows Server waren die Druckkomponenten standardmäßig in der Server Core-Installationsoption *deaktiviert*. Wir haben das in Windows Server 2016 geändert, sie sind jetzt standardmäßig aktiviert. In Windows Server 2019 sind diese Druckkomponenten für Server Core standardmäßig wieder deaktiviert. Wenn Sie die Druckkomponenten aktivieren müssen, können Sie dazu das Cmdlet **Install-WindowsFeature Print-Server** ausführen. |
 | [Remotedesktop-Verbindungsbroker und Remotedesktop-Virtualisierungshost](../remote/remote-desktop-services/desktop-hosting-service.md) in einer Server Core-Installation|In den meisten Bereitstellungen von Remotedesktopdiensten sind diese Rollen zusammen mit dem Remotedesktop-Sitzungshost (RDSH), für den Server mit Desktopdarstellung erforderlich ist, auf einem System untergebracht; um Konsistenz mit RDSH zu erreichen, ändern wir diese Rollen so, dass ebenfalls Server mit Desktopdarstellung erforderlich ist. Diese RDS-Rollen stehen in einer [Server Core-Installation](../administration/server-core/what-is-server-core.md) nicht mehr zur Verwendung zur Verfügung. Wenn Sie [diese Rollen als Teil Ihrer Remotedesktop-Infrastruktur bereitstellen](../remote/remote-desktop-services/rds-deploy-infrastructure.md) müssen, können Sie sie auf einem [Windows Server mit Desktopdarstellung installieren](../get-started/getting-started-with-server-with-desktop-experience.md). <br/><br/>Diese Rollen sind darüber hinaus in der Installationsoption mit Desktopdarstellung von Windows Server 2019 enthalten. |
+| [RemoteFX 3D-Grafikkarte (vGPU)](../remote/remote-desktop-services/rds-remotefx-vgpu.md)|Wir entwickeln neue Grafikbeschleunigungsoptionen für virtualisierte Umgebungen. Sie können auch die [Diskrete Gerätezuweisung (DDA)](../virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment.md) als Alternative verwenden. |
 
 ## <a name="features-were-no-longer-developing"></a>Features, die wir nicht mehr weiterentwickeln
 
