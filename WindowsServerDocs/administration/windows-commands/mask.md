@@ -42,7 +42,7 @@ mask <ShadowSetID>
 
 ## <a name="remarks"></a>Hinweise
 
--   Anstelle von *Shadow* TID*können Sie einen vorhandenen Alias oder eine Umgebungsvariable verwenden. Verwenden **Sie hinzufügen** ohne Parameter, um vorhandene Aliase anzuzeigen.
+-   Anstelle von *Shadow TID*können Sie einen vorhandenen Alias oder eine Umgebungsvariable verwenden. Verwenden **Sie hinzufügen** ohne Parameter, um vorhandene Aliase anzuzeigen.
 
 ## <a name="BKMK_examples"></a>Beispiele
 
