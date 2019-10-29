@@ -1,25 +1,25 @@
 ---
 title: Übersicht über den Speicher Migrationsdienst
-description: Mit dem Speichermigrationsdienst können Server einfacher zu einer neueren Version von Windows Server migriert werden. Er bietet ein grafisches Tool, das Daten auf Servern inventarisiert und anschließend die Daten und die Konfiguration auf neuere Server überträgt – ganz ohne Apps oder die Notwendigkeit für Benutzer, irgendetwas zu ändern.
+description: Storage Migration Service vereinfacht die Migration von Speicher zu Windows Server oder zu Azure. Es bietet ein grafisches Tool, das Daten auf Windows-und Linux-Servern inventarisiert und die Daten dann auf neuere Server oder virtuelle Azure-Computer überträgt. Storage Migration Service bietet auch die Möglichkeit, die Identität eines Servers auf den Zielserver zu übertragen, sodass apps und Benutzer auf Ihre Daten zugreifen können, ohne dass Links oder Pfade geändert werden müssen.
 author: jasongerend
 ms.author: jgerend
 manager: elizapo
-ms.date: 08/16/2019
+ms.date: 10/25/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 022b0c3445c007960c490159f6580a702233ee41
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 712befacaf1d5bddd4f9bd993ce0d423b15cba36
+ms.sourcegitcommit: 4b4ff8d9e18b2ddcd1916ffa2cd58fffbed8e7ef
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402976"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72986448"
 ---
 # <a name="storage-migration-service-overview"></a>Übersicht über den Speicher Migrationsdienst
 
 >Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server (halbjährlicher Kanal)
 
-Mit dem Speichermigrationsdienst können Server einfacher zu einer neueren Version von Windows Server migriert werden. Er bietet ein grafisches Tool, das Daten auf Servern inventarisiert und anschließend die Daten und die Konfiguration auf neuere Server überträgt – ganz ohne Apps oder die Notwendigkeit für Benutzer, irgendetwas zu ändern.
+Storage Migration Service vereinfacht die Migration von Speicher zu Windows Server oder zu Azure. Es bietet ein grafisches Tool, das Daten auf Windows-und Linux-Servern inventarisiert und die Daten dann auf neuere Server oder virtuelle Azure-Computer überträgt. Storage Migration Service bietet auch die Möglichkeit, die Identität eines Servers auf den Zielserver zu übertragen, sodass apps und Benutzer auf Ihre Daten zugreifen können, ohne dass Links oder Pfade geändert werden müssen.
 
 In diesem Thema wird erläutert, warum Sie Storage Migration Service verwenden möchten, wie der Migrationsprozess funktioniert und welche Anforderungen für Quell-und Zielserver gelten.
 
@@ -42,10 +42,10 @@ Die Migration ist ein dreistufiger Prozess:
 
 1. **Inventur Server** zum Erfassen von Informationen über Ihre Dateien und die Konfiguration (siehe Abbildung 2).
 2. **Übertragen (kopieren) von Daten** von den Quell Servern auf die Zielserver.
-3. **An die neuen Server über** springen (optional).<br>Die Zielserver übernehmen die früheren Identitäten der Quell Server, damit apps und Benutzer nichts ändern müssen. <br>Die Quell Server wechseln in einen Wartungszustand, in dem Sie immer noch dieselben Dateien enthalten, die Sie immer besitzen (es werden niemals Dateien von den Quell Servern entfernt), sind aber für Benutzer und apps nicht verfügbar. Anschließend können Sie die Server in ihrer freundlichen Zeit außer Betrieb setzen.
+3. **Überschneiden Sie die neuen Server** (optional).<br>Die Zielserver übernehmen die früheren Identitäten der Quell Server, damit apps und Benutzer nichts ändern müssen. <br>Die Quell Server wechseln in einen Wartungszustand, in dem Sie immer noch dieselben Dateien enthalten, die Sie immer besitzen (es werden niemals Dateien von den Quell Servern entfernt), sind aber für Benutzer und apps nicht verfügbar. Anschließend können Sie die Server in ihrer freundlichen Zeit außer Betrieb setzen.
 
-![Screenshot, der einen zu überprüfenden](media/migrate/inventory.png)
-**Server anzeigt Abbildung 2: Speicher Migrationsdienst-Inventur Server**
+![Screenshot, der einen zu scannenden Server anzeigt](media/migrate/inventory.png)
+**Abbildung 2: Inventarisierung von Servern durch den Speicher Migrationsdienst**
 
 ## <a name="requirements"></a>Anforderungen
 
@@ -83,9 +83,9 @@ Auf dem Quell Server muss eines der folgenden Betriebssysteme ausgeführt werden
 - Windows Server 2019
 - Windows Server 2016
 - Windows Server 2012 R2
-- Windows Server 2012
+- WindowsServer 2012
 - Windows Server 2008 R2
-- WindowsServer 2008
+- Windows Server 2008
 - Windows Server 2003 R2
 - Windows Server 2003
 - Windows Small Business Server 2003 R2
@@ -131,7 +131,7 @@ Die folgenden neuen Funktionen sind verfügbar, wenn Sie den Speicher Migrations
 - Vereinfachte Synchronisierung von migrierten Freigaben zu Azure mithilfe von Azure-Dateisynchronisierung
 - Migrieren zu neuen Netzwerken wie etwa Azure
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen:
 
 - [Migrieren eines Dateiservers mithilfe von Storage Migration Service](migrate-data.md)
 - [Häufig gestellte Fragen (FAQ) zu Storage Migration Services](faq.md)

@@ -8,16 +8,17 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 01/29/2019
-ms.openlocfilehash: 686fd2ed5969d191240bbd726f1d759e9974f08a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 70014c04bbb4425fe3c3fd0379f10cf00abe00ee
+ms.sourcegitcommit: 4b4ff8d9e18b2ddcd1916ffa2cd58fffbed8e7ef
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386679"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72986446"
 ---
 # <a name="create-a-windows-shielded-vm-template-disk"></a>Erstellen eines Datenträgers für eine geschützte Windows-VM-Vorlage
 
->Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2019
+
 
 Wie bei regulären virtuellen Computern können Sie eine VM-Vorlage erstellen (z. b. eine [VM-Vorlage in Virtual Machine Manager (VMM)](https://technet.microsoft.com/system-center-docs/vmm/manage/manage-library-add-vm-templates)), damit Mandanten und Administratoren mithilfe eines Vorlagen Datenträgers problemlos neue VMS im Fabric bereitstellen können. Da abgeschirmte VMS sicherheitsrelevante Ressourcen sind, sind zusätzliche Schritte erforderlich, um eine VM-Vorlage zu erstellen, die Schutz unterstützt. In diesem Thema werden die Schritte zum Erstellen eines geschützten Vorlagen Datenträgers und einer VM-Vorlage in VMM behandelt.
 
@@ -33,7 +34,7 @@ Bereiten Sie zuerst einen Betriebssystem Datenträger vor, den Sie dann mit dem 
 |Der Datenträgertyp muss Standard und nicht **dynamisch** **sein.** <br>Hinweis: Dies bezieht sich auf den Typ des logischen Datenträgers, nicht auf das von Hyper-V unterstützte "dynamisch erweiterbare" vhdx-Feature. | BitLocker unterstützt keine dynamischen Datenträger.|
 |Der Datenträger verfügt über mindestens zwei Partitionen. Eine Partition muss das Laufwerk enthalten, auf dem Windows installiert ist. Dies ist das Laufwerk, das von BitLocker verschlüsselt wird. Die andere Partition ist die aktive Partition, die den Bootloader enthält und unverschlüsselt bleibt, damit der Computer gestartet werden kann.|Für BitLocker erforderlich|
 |Dateisystem ist NTFS | Für BitLocker erforderlich|
-|Das auf der vhdx installierte Betriebssystem ist einer der folgenden:<br>-Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 <br>-Windows 10, Windows 8.1, Windows 8| Erforderlich zur Unterstützung virtueller Maschinen der Generation 2 und der Microsoft-Vorlage für den sicheren Start|
+|Das auf der vhdx installierte Betriebssystem ist einer der folgenden:<br>-Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 <br>-Windows 10, Windows 8.1, Windows 8| Erforderlich zur Unterstützung virtueller Maschinen der Generation 2 und der Microsoft-Vorlage für den sicheren Start|
 |Das Betriebssystem muss generalisiert sein (führen Sie "syspree. exe" aus). | Die Vorlagen Bereitstellung umfasst spezialisierte VMs für die Arbeitsauslastung eines bestimmten Mandanten.| 
 
 > [!NOTE]
@@ -50,7 +51,7 @@ Um einen Vorlagen Datenträger mit abgeschirmten VMS zu verwenden, muss der Date
 > [!NOTE]
 > Der Vorlagen Datenträger-Assistent ändert den Vorlagen Datenträger, den Sie direkt angeben. Sie sollten eine Kopie der ungeschützten vhdx-Datei erstellen, bevor Sie den Assistenten ausführen, um die Datenträger zu einem späteren Zeitpunkt zu aktualisieren. Sie können einen Datenträger, der mit dem Vorlagen Datenträger-Assistenten geschützt wurde, nicht ändern.
 
-Führen Sie die folgenden Schritte auf einem Computer aus, auf dem Windows Server 2016 ausgeführt wird (es muss sich nicht um einen überwachten Host oder VMM-Server handeln):
+Führen Sie die folgenden Schritte auf einem Computer aus, auf dem Windows Server 2016, Windows 10 (mit Remote Server-Verwaltungs Tools, RSAT installiert) oder höher ausgeführt wird (es muss sich nicht um einen überwachten Host oder VMM-Server handeln):
 
 1. Kopieren Sie die in [Vorbereiten einer Betriebssystem-vhdx](#prepare-an-operating-system-vhdx) erstellte generalisierte vhdx auf den Server, sofern diese nicht bereits vorhanden ist.
 
@@ -92,7 +93,7 @@ Wenn Sie VMM verwenden, führen Sie die Schritte in den restlichen Abschnitten i
 
 Wenn Sie VMM verwenden, müssen Sie nach dem Erstellen eines Vorlagen Datenträgers diese Datei in eine VMM-Bibliotheks Freigabe kopieren, damit Hosts den Datenträger herunterladen und verwenden können, wenn Sie neue VMs bereitstellen. Verwenden Sie das folgende Verfahren, um den Vorlagen Datenträger in die VMM-Bibliothek zu kopieren und dann die Bibliothek zu aktualisieren.
 
-1. Kopieren Sie die vhdx-Datei in den Ordner der VMM-Bibliotheks Freigabe. Wenn Sie die VMM-Standardkonfiguration verwendet haben, kopieren Sie den Vorlagen _Datenträger in \\ @ no__t-2\MSSCVMMLibrary\VHDs_.
+1. Kopieren Sie die vhdx-Datei in den Ordner der VMM-Bibliotheks Freigabe. Wenn Sie die VMM-Standardkonfiguration verwendet haben, kopieren Sie den Vorlagen Datenträger in _\\<vmmserver>\msscvmmlibrary\vhds_.
 
 2. Aktualisieren Sie den Bibliothek Server. Öffnen Sie den Arbeitsbereich **Bibliothek** , erweitern Sie **Bibliothek Server**, klicken Sie mit der rechten Maustaste auf den Bibliothek Server, den Sie aktualisieren möchten, und klicken Sie auf **Aktualisieren**.
 
@@ -135,9 +136,10 @@ Nachdem die Vorlage erstellt wurde, können Mandanten Sie zum Erstellen neuer vi
 
 ## <a name="prepare-and-protect-the-vhdx-using-powershell"></a>Vorbereiten und schützen der vhdx-Datei mithilfe von PowerShell
 
-Als Alternative zum Ausführen des Assistenten für Vorlagen Datenträger können Sie den Vorlagen Datenträger und das Zertifikat auf einen Computer kopieren, auf dem RSAT ausgeführt wird, und [protect-templatedisk @ no__t-1 ausführen, um den Signatur Prozess zu initiieren.
+Als Alternative zum Ausführen des Assistenten für Vorlagen Datenträger können Sie den Vorlagen Datenträger und das Zertifikat auf einen Computer mit RSAT kopieren und [Protect-templatedisk](https://docs.microsoft.com/powershell/module/shieldedvmtemplate/protect-templatedisk?view=win10-ps
+) ausführen, um den Signatur Prozess zu initiieren.
 Im folgenden Beispiel werden der Name und die Versionsinformationen verwendet, die von den Parametern _templatename_ und _Version_ angegeben werden.
-Die vhdx-Datei, die Sie für den Parameter "`-Path`" bereitstellen, wird mit dem aktualisierten Vorlagen Datenträger überschrieben. Achten Sie daher darauf, dass Sie vor dem Ausführen des Befehls
+Die vhdx, die Sie dem `-Path`-Parameter bereitstellen, wird mit dem aktualisierten Vorlagen Datenträger überschrieben. Stellen Sie daher sicher, dass Sie vor dem Ausführen des Befehls eine Kopie erstellen
 
 ```powershell
 # Replace "THUMBPRINT" with the thumbprint of your template disk signing certificate in the line below
@@ -165,7 +167,7 @@ Save-VolumeSignatureCatalog -TemplateDiskPath 'C:\temp\MyLinuxTemplate.vhdx' -Vo
 > [!div class="nextstepaction"]
 > [Erstellen einer Schutz Datendatei](guarded-fabric-tenant-creates-shielding-data.md)
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen:
 
 - [Konfigurationsschritte des hostingdienstanbieters für geschützte Hosts und abgeschirmte VMS](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Geschütztes Fabric und abgeschirmte VMs](guarded-fabric-and-shielded-vms-top-node.md)
