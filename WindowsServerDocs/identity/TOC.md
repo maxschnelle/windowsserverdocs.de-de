@@ -20,7 +20,7 @@
 ##### [Sprache zum Schreiben von Regeln für die Transformation von Ansprüchen](solution-guides/Claims-Transformation-Rules-Language.md)
 #### [Anhang A: Glossar zur dynamischen Zugriffssteuerung](solution-guides/appendix-A--Dynamic-Access-Control-Glossary.md)
 #### [Anhang B: Einrichten der Testumgebung](solution-guides/appendix-B--Setting-Up-the-Test-Environment.md)
-
+### [Konfigurieren des Zertifikatregistrierungs-Webdiensts ür die Zertifikatschlüssel-basierte Erneuerung an einem benutzerdefinierten Port](solution-guides/certificate-enrollment-certificate-key-based-renewal.md)
 
 ## [Active Directory Domain Services](ad-ds/active-directory-Domain-Services.md)
 

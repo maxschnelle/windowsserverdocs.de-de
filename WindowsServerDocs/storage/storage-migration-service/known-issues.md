@@ -8,12 +8,12 @@ ms.date: 10/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 597bcbe647bca3595dc8251ce4d6bf52265d8731
-ms.sourcegitcommit: 4b4ff8d9e18b2ddcd1916ffa2cd58fffbed8e7ef
+ms.openlocfilehash: 5889ae43c4b572ae75c8df10d0c47fc21337d558
+ms.sourcegitcommit: 9e123d475f3755218793a130dda88455eac9d4ab
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72986435"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73413259"
 ---
 # <a name="storage-migration-service-known-issues"></a>Bekannte Probleme bei Storage Migration Service
 
@@ -270,7 +270,7 @@ Beachten Sie, dass es unter bestimmten Umständen dazu führen kann, dass der Sp
 1.  Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, bei der Sie ein Mitglied der Administratoren auf dem Orchestrator-Server für den Speicher Migrationsdienst sind, und führen Sie Folgendes aus:
 
      ```
-     TAKEOWN /d /a /r /f c:\ProgramData\Microsoft\StorageMigrationService
+     TAKEOWN /d y /a /r /f c:\ProgramData\Microsoft\StorageMigrationService
      
      MD c:\ProgramData\Microsoft\StorageMigrationService\backup
 
