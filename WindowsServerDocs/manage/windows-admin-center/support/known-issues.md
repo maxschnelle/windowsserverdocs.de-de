@@ -8,25 +8,18 @@ ms.author: jeffrew
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 06/07/2019
-ms.openlocfilehash: a579d0274ff4b53a72c17760a6d53ef796625d3a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 23943c9567f371f7598c7dcda6db434760cabeab
+ms.sourcegitcommit: 1da993bbb7d578a542e224dde07f93adfcd2f489
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356912"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73567086"
 ---
 # <a name="windows-admin-center-known-issues"></a>Windows Admin Center – bekannte Probleme
 
-> Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
+> Applies to: Windows Admin Center, Windows Admin Center Preview
 
-Wenn Sie ein Problem haben, das auf dieser Seite nicht beschrieben ist, bitte [Teilen Sie uns dies mit](http://aka.ms/WACfeedback).
-
-## <a name="lenovo-xclarity-integrator"></a>Lenovo xclarity Integrator
-
-Das zuvor offengelegte Inkompatibilitäts Problem der Lenovo xclarity Integrator-Erweiterung und der Windows Admin Center-Version 1904 wurde nun mit Windows Admin Center, Version 1904,1, aufgelöst. Es wird dringend empfohlen, dass Sie ein Update auf die neueste unterstützte Version von Windows Admin Center durch haben.
-
-- Die Lenovo xclarity Integrator-Erweiterungs Version 1,1 ist vollständig kompatibel mit Windows Admin Center 1904,1. Es wird dringend empfohlen, dass Sie ein Update auf die neueste Version von Windows Admin Center und die Lenovo-Erweiterung durch haben.
-- Wenn Sie Windows Admin Center 1809,5 weiterhin verwenden müssen, können Sie aus irgendeinem Grund xclarity Integrator 1.0.4 verwenden, das auch im Windows Admin Center-Erweiterungs Feed verfügbar ist, bis Windows Admin Center 1809,5 nicht mehr unterstützt wird. unsere [Unterstützungs Richtlinie](../support/index.md).
+Wenn Sie ein Problem haben, das auf dieser Seite nicht beschrieben ist, bitte [Teilen Sie uns dies mit](https://aka.ms/WACfeedback).
 
 ## <a name="installer"></a>Installer
 
@@ -34,20 +27,9 @@ Das zuvor offengelegte Inkompatibilitäts Problem der Lenovo xclarity Integrator
 
 - Die Verwendung von Port unter 1024 wird nicht unterstützt. Im Dienst Modus können Sie optional Port 80 für die Umleitung an den angegebenen Port konfigurieren.
 
-- Wenn der Windows Update-Dienst (wuauserv) beendet und deaktiviert wird, kann das Installationsprogramm nicht ausgeführt werden. [19100629]
+## <a name="general"></a>„Allgemein“
 
-### <a name="upgrade"></a>Upgrade/Aktualisieren
-
-- Wenn Sie das Windows Admin Center im Dienst Modus von einer früheren Version aktualisieren und msiexec im stillen Modus verwenden, tritt möglicherweise ein Problem auf, bei dem die eingehende Firewallregel für den Port des Windows Admin Centers gelöscht wird.
-  - Zum erneuten Erstellen der Regel führen Sie den folgenden Befehl in einer PowerShell-Konsole mit \<erhöhten Rechten aus und ersetzen dabei Port > durch den Port, der für das Windows Admin Center konfiguriert ist (standardmäßig 443).
-
-    ```powershell
-    New-NetFirewallRule -DisplayName "SmeInboundOpenException" -Description "Windows Admin Center inbound port exception" -LocalPort <port> -RemoteAddress Any -Protocol TCP
-    ```
-
-## <a name="general"></a>Allgemein
-
-- Wenn Sie Windows Admin Center als Gateway unter **Windows Server 2016** unter starker Verwendung installiert haben, stürzt der Dienst möglicherweise mit einem Fehler im Ereignisprotokoll ab, der ```Faulting application name: sme.exe``` und ```Faulting module name: WsmSvc.dll```enthält. Der Grund hierfür ist ein Fehler, der in Windows Server 2019 behoben wurde. Der Patch für Windows Server 2016 enthielt das kumulative Update vom Februar 2019, [KB4480977](https://www.catalog.update.microsoft.com/Search.aspx?q=4480977).
+- Wenn Sie Windows Admin Center als Gateway unter **Windows Server 2016** unter hoher Auslastung installiert haben, stürzt der Dienst möglicherweise mit einem Fehler im Ereignisprotokoll ab, der ```Faulting application name: sme.exe``` und ```Faulting module name: WsmSvc.dll```enthält. Der Grund hierfür ist ein Fehler, der in Windows Server 2019 behoben wurde. Der Patch für Windows Server 2016 enthielt das kumulative Update vom Februar 2019, [KB4480977](https://www.catalog.update.microsoft.com/Search.aspx?q=4480977).
 
 - Wenn Sie Windows Admin Center als Gateway installiert haben und die Verbindungsliste beschädigt erscheint, führen Sie die folgenden Schritte aus:
 
@@ -58,15 +40,7 @@ Das zuvor offengelegte Inkompatibilitäts Problem der Lenovo xclarity Integrator
   2. Löschen Sie den Ordner **Server Management Experience** unter **C:\Windows\ServiceProfiles\NetworkService\AppData\Roaming\Microsoft**
   3. Installieren Sie Windows Admin Center erneut
 
-- Wenn Sie das Tool für einen längeren Zeitraum geöffnet lassen und sich im Leerlauf befinden, werden möglicherweise **mehrere Fehler angezeigt: Der Runspace-Status ist für diese Vorgangs** Fehler ungültig. Aktualisieren Sie dann den Browser. Wenn dies der Meinung ist, [Senden Sie uns Feedback](http://aka.ms/WACfeedback).
-
-- Ein **500 Fehler** kann auftreten, wenn Sie Seiten mit sehr langen URLs aktualisieren. [12443710]
-
-- In einigen Tools kann die Rechtschreibprüfung Ihres Browsers bestimmte Feldwerte als falsch geschriebenen kennzeichnen. [12425477]
-
-- In einigen Tools spiegeln Befehlsschaltflächen möglicherweise die Änderungen nicht unmittelbar nach einem Klick wieder, und die Tool-UI spiegelt möglicherweise nicht automatisch Änderungen an bestimmte Eigenschaften wider. Klicken Sie auf **Aktualisieren**, um den aktuellen Stand vom Zielserver abzurufen. [11445790]
-
-- Tagfilterung in der Verbindungsliste: Wenn Sie mithilfe der Kontrollkästchen für Mehrfachauswahl Verbindungen auswählen und dann die Verbindungsliste nach Tags filtern, wird die ursprüngliche Auswahl beibehalten, sodass alle ausgewählten Aktionen auf alle zuvor ausgewählten Computer angewendet werden. [18099259]
+- Wenn Sie das Tool geöffnet und für einen längeren Zeitraum im Leerlauf lassen, erhalten Sie möglicherweise mehrere **Error: The runspace state is not valid for this operation**. Aktualisieren Sie dann den Browser. Wenn dies der Meinung ist, [Senden Sie uns Feedback](https://aka.ms/WACfeedback).
 
 - Möglicherweise gibt es eine geringfügige Abweichung zwischen den Versionsnummern von Betriebssystemen, die in den Modulen des Windows Admin Centers ausgeführt werden, und den im Software Hinweis eines Drittanbieters aufgeführten Betriebssystemen.
 
@@ -79,27 +53,21 @@ Das zuvor offengelegte Inkompatibilitäts Problem der Lenovo xclarity Integrator
 
 ### <a name="microsoft-edge"></a>Microsoft Edge
 
-- In einigen Fällen gibt es möglicherweise lange Ladezeiten, wenn Sie Microsoft Edge verwenden, wenn Sie auf ein Windows Admin Center-Gateway über das Internet zugreifen. Dies kann auf virtuellen Azure-Computern auftreten, auf dem das Windows Admin Center Gateway ein selbstsigniertes Zertifikat verwendet wird. [13819912]
-
-- Wenn Sie AAD als Identitätsanbieter verwenden und Windows Admin Center mit einem selbstsignierten oder nicht vertrauenswürdigen Zertifikat konfiguriert ist, kann die Authentifizierung AAD in Microsoft Edge nicht abschließen.  [15968377]
-
-- Wenn Sie das Windows Admin Center als Dienst bereitgestellt haben und Microsoft Edge als Browser verwenden, kann das Verbinden Ihres Gateways mit Azure nach dem Auslösen eines neuen Browserfensters fehlschlagen. Versuchen Sie, dieses Problem zu umgehen, https://login.microsoftonline.com indem https://login.live.com Sie, und die URL Ihres Gateways als vertrauenswürdige Sites und zulässige Websites für die Popup Blocker Einstellungen in Ihrem Client seitigen Browser hinzufügen. Weitere Anleitungen zur Behebung dieses Problem finden Sie im [Handbuch zur Problem](troubleshooting.md#azure-features-dont-work-properly-in-edge)Behandlung. [17990376]
-
-- Wenn Sie das Windows Admin Center im Desktop Modus installiert haben, wird die Favicon auf der Registerkarte Browser in Microsoft Edge nicht angezeigt. [17665801]
+- Wenn Sie das Windows Admin Center als Dienst bereitgestellt haben und Microsoft Edge als Browser verwenden, kann das Verbinden Ihres Gateways mit Azure nach dem Auslösen eines neuen Browserfensters fehlschlagen. Versuchen Sie, dieses Problem zu umgehen, indem Sie https://login.microsoftonline.com , https://login.live.com und die URL Ihres Gateways als vertrauenswürdige Sites und zulässige Websites für Popup Blocker-Einstellungen auf dem Client seitigen Browser hinzufügen. Weitere Anleitungen zur Behebung dieses Problem finden Sie im [Handbuch zur Problem](troubleshooting.md#azure-features-dont-work-properly-in-edge)Behandlung. [17990376]
 
 ### <a name="google-chrome"></a>Google Chrome
 
-- Vor Version 70 (veröffentlicht am Ende Oktober, 2018) gab es einen [Fehler](https://bugs.chromium.org/p/chromium/issues/detail?id=423609) im Zusammenhang mit dem websockets-Protokoll und der NTLM-Authentifizierung. Dies hat Auswirkungen auf die folgenden Tools: Ereignisse, PowerShell, Remotedesktop.
+- Vor Version 70 (veröffentlicht am Ende Oktober, 2018) gab es einen [Fehler](https://bugs.chromium.org/p/chromium/issues/detail?id=423609) im Zusammenhang mit dem websockets-Protokoll und der NTLM-Authentifizierung. Dies wirkt sich auf die folgenden Tools aus: Ereignisse, PowerShell, Remotedesktop.
 
 - Chrome zeigt eventuell mehrere Anmeldeinformationen an, vor allem in Zeiten der Verbindungsprozesse in einer **Arbeitsgruppen**-Umgebung (nicht der Domäne).
 
-- Wenn Sie das Windows Admin Center als Dienst bereitgestellt haben, müssen Popups von der Gateway-URL aktiviert werden, damit alle Azure-Integrationsfunktionen funktionieren. Zu diesen Diensten gehören der Azure-Netzwerk Adapter, Azure Updateverwaltung und Azure Site Recovery.
+- Wenn Sie das Windows Admin Center als Dienst bereitgestellt haben, müssen Popups von der Gateway-URL aktiviert werden, damit alle Azure-Integrationsfunktionen funktionieren.
 
 ### <a name="mozilla-firefox"></a>Mozilla Firefox
 
 Windows Admin Center wurde nicht mit Mozilla Firefox getestet, aber die meisten Funktionen sollten funktionieren.
 
-- Windows 10-Installation: Mozilla Firefox verfügt über einen eigenen Zertifikat Speicher, deshalb müssen Sie das ```Windows Admin Center Client``` Zertifikat in Firefox importieren, um Windows Admin Center unter Windows 10 zu verwenden.
+- Windows 10-Installation: Mozilla Firefox verfügt über einen eigenen Zertifikat Speicher, sodass Sie das ```Windows Admin Center Client``` Zertifikat in Firefox importieren müssen, damit Windows Admin Center unter Windows 10 verwendet werden kann.
 
 ## <a name="websocket-compatibility-when-using-a-proxy-service"></a>WebSocket-Kompatibilität bei Verwendung eines Proxy Dienstanbieter
 
@@ -124,29 +92,21 @@ Wenn dies nicht der Fall ist, können Sie [herunterladen und WMF 5.1 installiere
 
 ## <a name="server-manager-solution"></a>Server-Manager-Lösung
 
-### <a name="server-settings"></a>Server Einstellungen
-
-- Wenn Sie eine Einstellung ändern und dann versuchen, ohne speichern zu navigieren, werden Sie von der Seite vor den nicht gespeicherten Änderungen gewarnt, aber fahren Sie fort. Möglicherweise wird ein Status angezeigt, in dem die ausgewählte Registerkarte "Einstellungen" nicht mit dem Inhalt der Seite identisch ist. [19905798] [19905787]
-
 ### <a name="certificates"></a>Zertifikate
 
 - Kann nicht importiert werden. PFX verschlüsselt Zertifikat im Speicher des aktuellen Benutzers. [11818622]
 
-### <a name="devices"></a>Geräte
-
-- Wenn Sie durch die Tabelle mit der Tastatur navigieren, springt die Auswahl möglicherweise zum Anfang der Tabellen Gruppe. [16646059]
-
-### <a name="events"></a>Ereignisse
+### <a name="events"></a>Veranstaltungen
 
 - Ereignisse erfolgen durch [Websocket-Kompatibilität bei Verwendung eines Proxydiensts.](#websocket-compatibility-when-using-a-proxy-service)
 
-- Möglicherweise erhalten Sie die Fehlermeldung "Packet Size" beim Exportieren von großen Protokolldateien. [16630279]
+- Möglicherweise erhalten Sie die Fehlermeldung "Packet Size" beim Exportieren von großen Protokolldateien.
 
-  - Um dieses Problem zu beheben, verwenden Sie den folgenden Befehl an einer Eingabeaufforderung mit erhöhten Rechten auf dem Gatewaycomputer:```winrm set winrm/config @{MaxEnvelopeSizekb="8192"}```
+  - Um dieses Problem zu beheben, verwenden Sie den folgenden Befehl an einer Eingabeaufforderung mit erhöhten Rechten auf dem Gatewaycomputer: ```winrm set winrm/config @{MaxEnvelopeSizekb="8192"}```
 
 ### <a name="files"></a>Dateien
 
-- Hoch- oder heruntergeladen großer Dateien wird noch nicht unterstützt. (\~100mb Limit) [12524234]
+- Hoch- oder heruntergeladen großer Dateien wird noch nicht unterstützt. (\~100 MB Limit) [12524234]
 
 ### <a name="powershell"></a>PowerShell
 
@@ -164,11 +124,13 @@ Wenn dies nicht der Fall ist, können Sie [herunterladen und WMF 5.1 installiere
 
 ### <a name="remote-desktop"></a>Remotedesktop
 
+- Wenn das Windows Admin Center als Dienst bereitgestellt wird, kann das Remotedesktop Tool nach dem Aktualisieren des Windows Admin Center-Dienstanbieter auf eine neue Version möglicherweise nicht geladen werden. Um dieses Problem zu umgehen, löschen Sie den Browser Cache.   [23824194]
+
 - Das Remotedesktop Tool kann bei der Verwaltung von Windows Server 2012 möglicherweise keine Verbindung herstellen. [20258278]
 
-- Wenn Sie die Remotedesktop zum Herstellen einer Verbindung mit einem Computer verwenden, der keiner Domäne beigetreten ist, müssen Sie ```MACHINENAME\USERNAME``` Ihr Konto im Format eingeben.
+- Wenn Sie die Remotedesktop zum Herstellen einer Verbindung mit einem Computer verwenden, der keiner Domäne beigetreten ist, müssen Sie Ihr Konto im ```MACHINENAME\USERNAME``` Format eingeben.
 
-- Einige Konfigurationen können den Remote Desktop Client des Windows Admin Centers mit der Gruppenrichtlinie blockieren. Wenn dies der gibt, aktivieren ```Allow users to connect remotely by using Remote Desktop Services``` Sie unter```Computer Configuration/Policies/Administrative Templates/Windows Components/Remote Desktop Services/Remote Desktop Session Host/Connections```
+- Einige Konfigurationen können den Remote Desktop Client des Windows Admin Centers mit der Gruppenrichtlinie blockieren. Wenn dies auftritt, aktivieren Sie ```Allow users to connect remotely by using Remote Desktop Services``` unter ```Computer Configuration/Policies/Administrative Templates/Windows Components/Remote Desktop Services/Remote Desktop Session Host/Connections```
 
 - Remotedesktop wird von der [WebSocket-Kompatibilität beeinflusst.](#websocket-compatibility-when-using-a-proxy-service)
 
@@ -182,8 +144,6 @@ Wenn dies nicht der Fall ist, können Sie [herunterladen und WMF 5.1 installiere
   - Windows-Taste
   - DRUCK
 
-- Remote-app – nachdem Sie das Remote-app-Tool aus Remotedesktop Einstellungen aktiviert haben, wird das Tool möglicherweise nicht in der Toolliste angezeigt, wenn ein Server mit Desktop Darstellung verwaltet wird. [18906904]
-
 ### <a name="roles-and-features"></a>Rollen und Features
 
 - Bei der Auswahl von Rollen oder Funktionen mit nicht verfügbaren Quellen zur Installation, werden diese übersprungen. [12946914]
@@ -194,19 +154,17 @@ Wenn dies nicht der Fall ist, können Sie [herunterladen und WMF 5.1 installiere
 
 ### <a name="storage"></a>Speicher
 
-- Das Abrufen von Kontingent Informationen schlägt möglicherweise fehl, ohne dass eine Fehler Benachrichtigung vorliegt (in der Browser Konsole wird weiterhin ein Fehler angezeigt) [18962274]
+- Älter: DVD/CD/Diskettenlaufwerke werden nicht als Volumes angezeigt.
 
-- Herabstufen: DVD/CD/Diskettenlaufwerke werden nicht als Volumes auf untergeordneten Ebenen angezeigt.
+- Älter: Einige Eigenschaften in Volumes und Datenträgern sind nicht kompatible, und werden als unbekannt oder ein Leerzeichen im Detailbereich angezeigt.
 
-- Herabstufen: Einige Eigenschaften in Volumes und Datenträgern sind nicht im Detailbereich als "unbekannt" oder "leer" verfügbar.
-
-- Herabstufen: Wenn Sie ein neues Volume erstellen, unterstützt Refs nur die Größe der Zuordnungs Einheiten von 64 KB auf Computern mit Windows 2012 und 2012 R2. Wenn ein Volume ReFS mit einer kleineren Zuordnungseinheit für ältere Ziele erstellt wird, schlägt die File System-Formatierung fehl. Das neue Volume kann nicht verwendet werden. Die Lösung besteht darin, das Volume zu löschen und Zuordnungseinheiten mit 64 KB zu verwenden.
+- Älter: Beim Erstellen eines neuen Volumes unterstützt ReFS nur Zuordnungseinheiten mit 64K auf Windows 2012 und 2012 R2-Computern. Wenn ein Volume ReFS mit einer kleineren Zuordnungseinheit für ältere Ziele erstellt wird, schlägt die File System-Formatierung fehl. Das neue Volume kann nicht verwendet werden. Die Lösung besteht darin, das Volume zu löschen und Zuordnungseinheiten mit 64 KB zu verwenden.
 
 ### <a name="updates"></a>Updates
 
 - Nach der Installation von Updates kann der Installationsstatus zwischengespeichert werden und eine Browser Aktualisierung erfordern.
 
-- Möglicherweise wird der folgende Fehler angezeigt: "Keyset ist nicht vorhanden" beim Versuch, die Azure-Update Verwaltung einzurichten. Versuchen Sie in diesem Fall die folgenden Schritte zur Behebung auf dem verwalteten Knoten:
+- Bei dem Versuch, die Azure-Update Verwaltung einzurichten, wird möglicherweise der folgende Fehler angezeigt: "Keyset ist nicht vorhanden". Versuchen Sie in diesem Fall die folgenden Schritte zur Behebung auf dem verwalteten Knoten:
     1. Beendet den Dienst "Kryptografiedienste".
     2. Ändern Sie die Ordneroptionen, um ausgeblendete Dateien anzuzeigen (falls erforderlich).
     3. Sie haben den Ordner "%ALLUSERSPROFILE%\microsoft\crypto\rsa\s-1-5-18" erhalten, und löschen Sie den gesamten Inhalt.
@@ -223,13 +181,13 @@ Wenn dies nicht der Fall ist, können Sie [herunterladen und WMF 5.1 installiere
 
 ### <a name="virtual-switches"></a>Virtuelle Switches
 
-- Switch Embedded Teaming (Set): Beim Hinzufügen von NICs zu einem Team müssen Sie sich im selben Subnetz befinden.
+- Switch Embedded Teaming (SET): Beim Hinzufügen von Netzwerkschnittstellenkarten (NICs) zu einem Team müssen sie im gleichen Subnetz sein.
 
 ## <a name="computer-management-solution"></a>Computer-Management-Lösung
 
 Die Computer-Management-Lösung enthält eine Teilmenge der Tools der Server-Manager-Lösung, daher sind die gleichen bekannten Probleme vorhanden, sowie die folgenden Computer Management-Lösungen für bestimmte Probleme:
 
-- Wenn Sie ein Microsoft-Konto ([MSA](https://account.microsoft.com/account/)) verwenden oder Azure Active Directory (AAD) verwenden, um sich bei Ihrem Windows 10-Computer anzumelden, müssen Sie die Anmelde Informationen für die Verwaltung des lokalen Computers angeben. [16568455]
+- Wenn Sie ein Microsoft-Konto ([MSA](https://account.microsoft.com/account/)) verwenden oder Azure Active Directory (AAD) verwenden, um sich bei Ihrem Windows 10-Computer anzumelden, müssen Sie "Manage-as" verwenden, um Anmelde Informationen für ein lokales Administrator Konto anzugeben [16568455]
 
 - Wenn Sie versuchen, den "localhost" zu verwalten, werden Sie aufgefordert, den Gateway-Prozess zu erhöhen. Wenn Sie **Nein** im folgenden Benutzerkontensteuerungsfenster anklicken, kann Windows Admin Center dies nicht erneut anzeigen. Beenden Sie in diesem Fall den Gateway-Prozess, indem Sie das Windows Admin Center-Symbol in der Taskleiste mit der rechten Maustaste anklicken, und beenden wählen. Starten Sie Windows Admin Center im Startmenü dann erneut.
 
@@ -252,3 +210,20 @@ Die Computer-Management-Lösung enthält eine Teilmenge der Tools der Server-Man
 ## <a name="hyper-converged-cluster-manager-solution"></a>Hyperkonvergente Cluster-Manager-Lösung
 
 - Einige Befehle wie **Drives - Update firmware**, **Servers - Remove** und **Volumes - Open** sind nicht aktiviert und zur Zeit nicht verfügbar.
+
+## <a name="azure-services"></a>Azure-Dienste
+
+### <a name="azure-file-sync-permissions"></a>Azure-Dateisynchronisierung Berechtigungen
+
+Azure-Dateisynchronisierung erfordert Berechtigungen in Azure, die von Windows Admin Center vor Version 1910 nicht bereitgestellt wurden. Wenn Sie Ihr Windows Admin Center-Gateway in Azure mit einer früheren Version als Windows Admin Center, Version 1910, registriert haben, müssen Sie Ihre Azure Active Directory Anwendung aktualisieren, um die richtigen Berechtigungen für die Verwendung Azure-Dateisynchronisierung in der neuesten Version von zu erhalten. Windows Admin Center. Mit der zusätzlichen Berechtigung können Azure-Dateisynchronisierung die automatische Konfiguration des Speicherkonto Zugriffs ausführen, wie in diesem Artikel beschrieben: [sicherstellen, dass Azure-Dateisynchronisierung Zugriff auf das Speicherkonto hat](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tabpanel_CeZOj-G++Q-5_azure-portal).
+
+Zum Aktualisieren Ihrer Azure Active Directory-App können Sie eine der beiden folgenden Aktionen ausführen:
+1. Wechseln Sie zu **Einstellungen** > **Azure** > **Registrierung**aufheben, und registrieren Sie dann das Windows Admin Center erneut bei Azure, und stellen Sie sicher, dass Sie eine neue Azure Active Directory Anwendung erstellen. 
+2. Wechseln Sie zu ihrer Azure Active Directory Anwendung, und fügen Sie die erforderliche Berechtigung manuell zu Ihrer vorhandenen Azure Active Directory-APP hinzu, die im Windows Admin Center registriert ist. Wechseln Sie hierzu zu **Einstellungen** > **Azure** > **Ansicht in Azure**. Navigieren Sie auf dem Blatt für die **App-Registrierung** in Azure zu **API-Berechtigungen**, und wählen Sie **Berechtigung hinzufügen**aus. Scrollen Sie nach unten, und wählen Sie **Azure Active Directory Graph**aus, wählen Sie **Delegierte Berechtigungen**und dann **Verzeichnis**, und wählen Sie **Directory. accessasuser. all**aus. Klicken Sie auf **Berechtigungen hinzufügen** , um die Updates für die APP zu speichern.
+
+### <a name="options-for-setting-up-azure-management-services"></a>Optionen zum Einrichten von Azure-Verwaltungsdiensten
+
+Azure-Verwaltungsdienste, einschließlich Azure Monitor, Azure Updateverwaltung und Azure Security Center, verwenden denselben Agent für einen lokalen Server: die Microsoft Monitoring Agent. Azure Updateverwaltung verfügt über eine begrenzte Anzahl von unterstützten Regionen und erfordert, dass der Arbeitsbereich Log Analytics mit einem Azure Automation Konto verknüpft ist. Wenn Sie im Windows Admin Center mehrere Dienste einrichten möchten, müssen Sie die Azure-Updateverwaltung zuerst einrichten und dann entweder Azure Security Center oder Azure Monitor. Wenn Sie Azure-Verwaltungsdienste konfiguriert haben, die die Microsoft Monitoring Agent verwenden, und dann versuchen, Azure Updateverwaltung mithilfe des Windows Admin Centers einzurichten, gestattet Ihnen Windows Admin Center nur das Konfigurieren von Azure Updateverwaltung, wenn die vorhandene Ressourcen, die mit dem Microsoft Monitoring Agent verknüpft sind, unterstützen Azure Updateverwaltung. Wenn dies nicht der Fall ist, haben Sie zwei Möglichkeiten:
+
+1. Wechseln Sie zur Systemsteuerung > Microsoft Monitoring Agent, um [den Server von den vorhandenen Azure-Verwaltungslösungen](https://docs.microsoft.com/azure/azure-monitor/platform/log-faq#q-how-do-i-stop-an-agent-from-communicating-with-log-analytics) (wie Azure Monitor oder Azure Security Center) zu trennen. Richten Sie dann das Azure-Updateverwaltung im Windows Admin Center ein. Danach können Sie Ihre anderen Azure-Verwaltungslösungen ohne Probleme über das Windows Admin Center einrichten.
+2. Sie können [die erforderlichen Azure-Ressourcen für Azure Updateverwaltung manuell einrichten](https://docs.microsoft.com/azure/automation/automation-update-management) und dann [die Microsoft Monitoring Agent](https://docs.microsoft.com/azure/azure-monitor/platform/agent-manage#adding-or-removing-a-workspace) (außerhalb des Windows Admin Centers) manuell aktualisieren, um den neuen Arbeitsbereich hinzuzufügen, der der Updateverwaltung Lösung entspricht. Sie möchten verwenden.
