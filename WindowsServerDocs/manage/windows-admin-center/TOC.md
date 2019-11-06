@@ -27,6 +27,7 @@
 ## Verwendung
 ### [Erste Schritte](use/get-started.md)
 ### [Verwalten von Servern](use/manage-servers.md)
+### [Bereitstellen einer hyperkonvergenten Infrastruktur](use/deploy-hyperconverged-infrastructure.md)
 ### [Verwalten der hyperkonvergenten Infrastruktur](use/manage-hyper-converged.md)
 ### [Verwalten von Failoverclustern](use/manage-failover-clusters.md)
 ### [Verwalten von Hyper-V-Computern](use/manage-virtual-machines.md)
