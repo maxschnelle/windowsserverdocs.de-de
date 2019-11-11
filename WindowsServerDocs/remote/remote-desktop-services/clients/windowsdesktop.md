@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 09/24/2019
+ms.date: 10/31/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 961d636fb59b33d0c562ec25d13174abbe766606
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: aff7e6e1f37cad66530679ade024c089a4ba034e
+ms.sourcegitcommit: 1da993bbb7d578a542e224dde07f93adfcd2f489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404081"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73567164"
 ---
 # <a name="get-started-with-the-windows-desktop-client"></a>Erste Schritte mit dem Windows-Desktopclient
 
@@ -33,9 +33,11 @@ Du kannst den Remotedesktopclient für Windows-Desktop verwenden, um Windows-App
 
 ## <a name="install-the-client"></a>Installieren des Clients
 
-Derzeit kannst du den Client für Windows 64-Bit herunterladen. Wir aktualisieren diese Liste, sobald der Client für weitere Versionen von Windows verfügbar wird.
+Wähle den Client aus, der deiner Windows-Version entspricht:
 
-- [Windows 64-Bit-Client](https://go.microsoft.com/fwlink/?linkid=2068602)
+- [Windows 64-Bit](https://go.microsoft.com/fwlink/?linkid=2068602)
+- [Windows 32-Bit (Vorschau)](https://go.microsoft.com/fwlink/?linkid=2098960)
+- [Windows ARM64 (Vorschau)](https://go.microsoft.com/fwlink/?linkid=2098961)
 
 Du kannst den Client für den aktuellen Benutzer installieren – dafür sind keine Administratorrechte erforderlich –, oder dein Administrator kann den Client installieren und ihn so konfigurieren, dass alle Benutzer des Geräts darauf zugreifen können.
 

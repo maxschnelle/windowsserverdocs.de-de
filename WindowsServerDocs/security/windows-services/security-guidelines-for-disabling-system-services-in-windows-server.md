@@ -10,14 +10,14 @@ ms.date: 11/26/2018
 ms.assetid: b886b2fd-3567-4f0a-8aa3-4ba7923d2d21
 author: nirb
 ms.author: nirb
-ms.openlocfilehash: 175c4dbd23bac1822365ce80f05d69509d27321c
-ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
+ms.openlocfilehash: 54352f47a31826b91b5696eb90104ca166a4299d
+ms.sourcegitcommit: 18f6b104e73e0397009283d55bee7984ac7ef0d1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71935024"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73632653"
 ---
-## <a name="guidance-on-disabling-system-services-on-windows-server-2016-with-desktop-experience"></a>Anleitungen zur Deaktivierung von Systemdiensten unter Windows Server 2016 mit Desktopdarstellung
+# <a name="guidance-on-disabling-system-services-on-windows-server-2016-with-desktop-experience"></a>Anleitungen zur Deaktivierung von Systemdiensten unter Windows Server 2016 mit Desktopdarstellung
 
 Gilt für: Windows Server 2016
 
@@ -47,7 +47,7 @@ Geplante Aufgaben:
 
 (Du kannst auf die Informationen zu allen Diensten in diesem Artikel auch zugreifen, indem du die angefügte Microsoft Excel-Tabelle anzeigst: [Anleitungen zur Deaktivierung von Systemdiensten unter Windows Server 2016 mit Desktopdarstellung](https://msdnshared.blob.core.windows.net/media/2017/05/Service-management-WS2016.xlsx).)
 
-<br />
+
 
 ### <a name="disabling-services-not-installed-by-default"></a>Deaktivieren von nicht standardmäßig installierten Diensten
 
@@ -57,10 +57,10 @@ Microsoft rät von der Anwendung von Richtlinien zum Deaktivieren von Diensten a
 -  Wenn ein nicht zum Standard gehörender Windows-Dienst (z. B. W3SVC) per Baseline oder Benchmark deaktiviert wird, erweckt dies bei einigen Prüfern den Eindruck, als ob die Technologie (z. B. IIS) grundsätzlich unsicher ist und niemals verwendet werden sollte.
 -  Wenn das Feature (und der Dienst) niemals installiert wird, macht dies die Baseline und den Prüfaufwand nur unnötig komplizierter.
 
-<br />
+
 Die beiden folgenden Tabellen enthalten für alle in diesem Dokument aufgeführten Dienste eine Beschreibung der Spalten und Microsoft-Empfehlungen zum Aktivieren und Deaktivieren von Systemdiensten unter Windows Server 2016 mit Desktopdarstellung: 
 
-<br />
+
 
 ### <a name="explanation-of-columns"></a>Beschreibung der Spalten
 
@@ -68,12 +68,12 @@ Die beiden folgenden Tabellen enthalten für alle in diesem Dokument aufgeführt
 |---|---|
 |**Dienstbeschreibung**|   Die Beschreibung des Diensts aus „sc.exe qdescription“.|
 |**Name** |Schlüsselname (interner Name) des Diensts|
-|**Installation** |Immer installiert: Dienst ist für Server Core und Server mit Desktopdarstellung verfügbar  <br /> Nur mit Desktopdarstellung: Dienst ist unter Windows Server 2016 mit Desktopdarstellung verfügbar, aber ***nicht*** für Server Core |
+|**Installation** |Immer installiert: Dienst ist für Server Core und Server mit Desktopdarstellung verfügbar. Nur mit Desktopdarstellung: Dienst ist unter Windows Server 2016 mit Desktopdarstellung verfügbar, aber ***nicht*** für Server Core |
 |**Starttyp**  |Starttyp des Diensts unter Windows Server 2016|
 |**Empfehlung** |Empfehlung/Hinweis von Microsoft zur Deaktivierung dieses Diensts unter Windows Server 2016 bei einer typischen, gut verwalteten Unternehmensbereitstellung, bei der der Server nicht als Desktopersatz für den Endbenutzer verwendet wird.|
 |**Kommentare** |Zusätzliche Beschreibung|
 
-<br />
+
 
 ### <a name="explanation-of-microsoft-recommendations"></a>Beschreibung von Microsoft-Empfehlungen
 
@@ -84,11 +84,11 @@ Die beiden folgenden Tabellen enthalten für alle in diesem Dokument aufgeführt
 |**Bereits deaktiviert**|  Dieser Dienst wird standardmäßig deaktiviert. Die Erzwingung per Richtlinie ist nicht erforderlich.|
 |**Deaktivierung empfohlen** |Dieser Dienst sollte auf einem gut verwalteten Unternehmenssystem niemals aktiviert werden.|
 
-<br />
+
 
 Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Systemdiensten unter Windows Server 2016 mit Desktopdarstellung:
 
-<br />
+
 
 ##  <a name="activex-installer-axinstsv"></a>ActiveX-Installationsprogramm (AxInstSV)
 
@@ -102,7 +102,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Die Deaktivierung ist in Ordnung, wenn das Feature nicht benötigt wird. |
 
 
-<br />
+
 
 ## <a name="alljoyn-router-service"></a>AllJoyn-Routerdienst   
 
@@ -116,7 +116,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |       |
 | | |
 
-<br />
+
 
 ## <a name="app-readiness"></a>App-Bereitschaft
 
@@ -130,7 +130,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 **Kommentare**    |   
 | | |
 
-<br />
+
 
 ##  <a name="application-identity"></a>Anwendungsidentität
 
@@ -144,7 +144,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 **Kommentare**    |   
 |||     
 
-<br />
+
 
 ##  <a name="application-information"></a>Anwendungsinformationen 
 
@@ -158,7 +158,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Unterstützt die Rechteerweiterung für die Benutzerkontensteuerung auf demselben Desktop
 |||     
 
-<br />
+
 
 ##  <a name="application-layer-gateway-service"></a>Gatewaydienst auf Anwendungsebene       
 
@@ -172,7 +172,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||     
 
-<br />
+
 
 ##  <a name="application-management"></a>Anwendungsverwaltung      
 
@@ -186,7 +186,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="appx-deployment-service-appxsvc"></a>AppX-Bereitstellungsdienst (AppXSVC)       
 
@@ -200,7 +200,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="auto-time-zone-updater"></a>Automatische Zeitzonenaktualisierung           
 
@@ -214,7 +214,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="background-intelligent-transfer-service"></a>Intelligenter Hintergrundübertragungsdienst (Background Intelligent Transfer Service, BITS)          
 
@@ -228,7 +228,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 
 ## <a name="background-tasks-infrastructure-service"></a>Infrastrukturdienst für Hintergrundaufgaben      
@@ -243,7 +243,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="base-filtering-engine"></a>Basisfiltermodul            
 
@@ -257,7 +257,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="bluetooth-support-service"></a>Bluetooth-Unterstützungsdienst            
 
@@ -271,7 +271,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Die Deaktivierung ist in Ordnung, wenn der Dienst nicht verwendet wird. Ein weiterer Mechanismus für die Deaktivierung: https://technet.microsoft.com/library/dd252791.aspx
 |||         
 
-<br />          
+
 
 
 ## <a name="cdpusersvc"></a>CDPUserSvc           
@@ -286,7 +286,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Benutzerdienstvorlage
 |||         
 
-<br />          
+
 
 
 ##  <a name="certificate-propagation"></a>Zertifikatverteilung     
@@ -301,7 +301,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="client-license-service-clipsvc"></a>Clientlizenzdienst (ClipSVC)        
 
@@ -315,7 +315,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="cng-key-isolation"></a>CNG-Schlüsselisolation
 
@@ -329,7 +329,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="com-event-system"></a>COM+-Ereignissystem       
 
@@ -343,7 +343,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="com-system-application"></a>COM+-Systemanwendung     
 
@@ -357,7 +357,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="computer-browser"></a>Computerbrowser        
 
@@ -371,7 +371,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="connected-devices-platform-service"></a>Plattformdienst für verbundene Geräte       
 
@@ -385,7 +385,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="connected-user-experiences-and-telemetry"></a>Benutzererfahrung und Telemetrie im verbundenen Modus     
 
@@ -399,7 +399,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="contact-data"></a>Kontaktdaten        
 
@@ -413,7 +413,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Benutzerdienstvorlage
 |||         
 
-<br />          
+
 
 ## <a name="coremessaging"></a>CoreMessaging            
 
@@ -427,7 +427,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="credential-manager"></a>Anmeldeinformationsverwaltung           
 
@@ -441,7 +441,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="cryptographic-services"></a>Kryptografiedienste           
 
@@ -455,7 +455,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="data-sharing-service"></a>Datenfreigabedienst         
 
@@ -469,7 +469,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="datacollectionpublishingservice"></a>DataCollectionPublishingService          
 
@@ -483,7 +483,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="dcom-server-process-launcher"></a>DCOM-Server-Prozessstart         
 
@@ -497,7 +497,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />
+
 
 ##  <a name="device-association-service"></a>Gerätezuordnungsdienst      
 
@@ -511,7 +511,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />
+
 
 ##  <a name="device-install-service"></a>Geräteinstallationsdienst
 
@@ -525,7 +525,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |
 |||
 
-<br />          
+
 
 ##  <a name="device-management-enrollment-service"></a>Registrierungsdienst für die Geräteverwaltung        
 
@@ -539,7 +539,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="device-setup-manager"></a>Geräteinstallations-Manager         
 
@@ -553,7 +553,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="devquery-background-discovery-broker"></a>Broker für DevQuery-Hintergrundermittlung         
 
@@ -567,7 +567,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="dhcp-client"></a>DHCP-Client          
 
@@ -581,7 +581,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="diagnostic-policy-service"></a>Diagnoserichtliniendienst            
 
@@ -595,7 +595,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="diagnostic-service-host"></a>Diagnosediensthost     
 
@@ -609,7 +609,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="diagnostic-system-host"></a>Diagnosesystemhost           
 
@@ -623,7 +623,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="distributed-link-tracking-client"></a>Überwachung verteilter Verknüpfungen (Client)            
 
@@ -637,7 +637,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="distributed-transaction-coordinator"></a>Distributed Transaction Coordinator     
 
@@ -651,7 +651,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />  
+
 
 ##  <a name="dmwappushsvc"></a>dmwappushsvc        
 
@@ -665,7 +665,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Dieser Dienst wird auf Clientgeräten für Intune, MDM und ähnlichen Verwaltungstechnologien sowie für einheitliche Schreibfilter benötigt. Für Server ist der Dienst nicht erforderlich.
 |||         
 
-<br />      
+
 
 ##  <a name="dns-client"></a>DNS-Client      
 
@@ -679,7 +679,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="downloaded-maps-manager"></a>Manager für heruntergeladene Karten     
 
@@ -693,7 +693,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Wenn der Dienst deaktiviert wird, funktionieren Apps nicht mehr, die den Dienst benötigen. Die Aktivierung ist kein Problem, wenn der Dienst von Apps nicht benötigt wird.
 |||         
 
-<br />          
+
 
 ## <a name="embedded-mode"></a>Eingebetteter Modus            
 
@@ -707,7 +707,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="encrypting-file-system-efs"></a>Verschlüsselndes Dateisystem (EFS)
 
@@ -721,7 +721,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**   |
 |||                 
 
-<br />  
+
 
 ## <a name="enterprise-app-management-service"></a>Verwaltungsdienst für Unternehmens-Apps            
 
@@ -735,7 +735,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="extensible-authentication-protocol"></a>Extensible Authentication-Protokoll           
 
@@ -749,7 +749,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="function-discovery-provider-host"></a>Funktionssuchanbieter-Host         
 
@@ -763,7 +763,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="function-discovery-resource-publication"></a>Funktionssuche-Ressourcenveröffentlichung      
 
@@ -777,7 +777,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="geolocation-service"></a>Geolocation-Dienst          
 
@@ -791,7 +791,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Wenn der Dienst deaktiviert wird, funktionieren Apps nicht mehr, die den Dienst benötigen. Die Aktivierung ist kein Problem, wenn der Dienst von Apps nicht benötigt wird.
 |||         
 
-<br />          
+
 
 ##  <a name="group-policy-client"></a>Gruppenrichtlinienclient     
 
@@ -805,7 +805,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 
 ## <a name="human-interface-device-service"></a>Eingabegerätedienst           
@@ -820,7 +820,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="hv-host-service"></a>HV-Hostdienst     
 
@@ -834,7 +834,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Leistungsoptimierungen für Gast-VMs. Wird heutzutage meist nicht mehr verwendet (mit Ausnahme von explizit aufgefüllten VMs), aber der Dienst wird für Application Guard eingesetzt.
 |||         
 
-<br />          
+
 
 ## <a name="hyper-v-data-exchange-service"></a>Hyper-V-Datenaustauschdienst        
 
@@ -848,7 +848,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Siehe „HvHost“.
 |||         
 
-<br />      
+
 
 ## <a name="hyper-v-guest-service-interface"></a>Hyper-V-Gastdienstschnittstelle          
 
@@ -862,7 +862,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Siehe „HvHost“.
 |||         
 
-<br />  
+
 
 ## <a name="hyper-v-guest-shutdown-service"></a>Hyper-V-Dienst zum Herunterfahren des Gasts           
 
@@ -876,7 +876,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Siehe „HvHost“.
 |||         
 
-<br />
+
 
 ## <a name="hyper-v-heartbeat-service"></a>Hyper-V Taktdienst
 | | |
@@ -889,7 +889,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Siehe „HvHost“.
 |||
 
-<br />          
+
 
 ## <a name="hyper-v-powershell-direct-service"></a>Hyper-V-Dienst PowerShell Direct            
 
@@ -903,7 +903,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Siehe „HvHost“.
 |||         
 
-<br />          
+
 
 ## <a name="hyper-v-remote-desktop-virtualization-service"></a>Hyper-V-Remotedesktopvirtualisierungsdienst            
 
@@ -917,7 +917,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Siehe „HvHost“.
 |||         
 
-<br />          
+
 
 ## <a name="hyper-v-time-synchronization-service"></a>Hyper-V-Zeitsynchronisierungsdienst         
 
@@ -931,7 +931,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Siehe „HvHost“.
 |||         
 
-<br />          
+
 
 ## <a name="hyper-v-volume-shadow-copy-requestor"></a>Hyper-V-Volumeschattenkopie-Anforderer         
 
@@ -945,7 +945,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Siehe „HvHost“.
 |||         
 
-<br />          
+
 
 ## <a name="ike-and-authip-ipsec-keying-modules"></a>IKE- und AuthIP IPsec-Schlüsselerstellungsmodule          
 
@@ -959,7 +959,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |    
 |||         
 
-<br />          
+
 
 ## <a name="interactive-services-detection"></a>Erkennung interaktiver Dienste           
 
@@ -973,7 +973,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />  
+
 
 ## <a name="internet-connection-sharing-ics"></a>Gemeinsame Nutzung der Internetverbindung            
 
@@ -987,7 +987,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Ist für Clients erforderlich, die als WLAN-Hotspots genutzt werden, und außerdem an beiden Enden einer Miracast-Projektion. Die gemeinsame Nutzung der Internetverbindung kann mit der GPO-Einstellung „Verwendung der gemeinsam genutzten Internetverbindung im eigenen DNS-Domänennetzwerk nicht zulassen“ blockiert werden.
 |||         
 
-<br />          
+
 
 ## <a name="ip-helper"></a>IP-Hilfsprogramm            
 
@@ -1001,7 +1001,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 
 ##  <a name="ipsec-policy-agent"></a>IPsec-Richtlinien-Agent      
@@ -1016,7 +1016,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />
+
 
 ##  <a name="kdc-proxy-server-service-kps"></a>KDC-Proxyserverdienst (KPS)      
 
@@ -1030,7 +1030,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="ktmrm-for-distributed-transaction-coordinator"></a>KtmRm für Distributed Transaction Coordinator            
 
@@ -1044,7 +1044,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />
+
 
 ##  <a name="link-layer-topology-discovery-mapper"></a>Verbindungsschicht-Topologieerkennungs-Zuordnungsprogramm        
 
@@ -1058,7 +1058,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Kann deaktiviert werden, wenn keine Abhängigkeiten von der Netzwerkübersicht bestehen.
 |||         
 
-<br />
+
 
 ## <a name="local-session-manager"></a>Lokaler Sitzungs-Manager                    
 
@@ -1072,7 +1072,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||                 
 
-<br />                  
+
 
 ## <a name="microsoft-r-diagnostics-hub-standard-collector"></a>Standardsammlungsdienst des Microsoft(R)-Diagnose-Hubs         
 
@@ -1086,7 +1086,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />
+
 
 ## <a name="microsoft-account-sign-in-assistant"></a>Anmelde-Assistent für Microsoft-Konten
 | | |
@@ -1099,7 +1099,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Microsoft-Konten sind unter Windows Server nicht verfügbar.
 |||
 
-<br />          
+
 
 ##  <a name="microsoft-app-v-client"></a>Microsoft App-V Client      
 
@@ -1113,7 +1113,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="microsoft-iscsi-initiator-service"></a>Microsoft iSCSI-Initiator-Dienst            
 
@@ -1127,7 +1127,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Unsere Diagnosedaten deuten darauf hin, dass dieser Dienst auf Clients und auf Servern genutzt wird. Die Deaktivierung hat keinerlei Vorteile.
 |||         
 
-<br />          
+
 
 ## <a name="microsoft-passport"></a>Microsoft Passport           
 
@@ -1141,7 +1141,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Wird für PIN/Hello-Anmeldungen benötigt, die auf dem Server nicht unterstützt werden.
 |||         
 
-<br />          
+
 
 ## <a name="microsoft-passport-container"></a>Microsoft Passport-Container         
 
@@ -1155,7 +1155,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="microsoft-software-shadow-copy-provider"></a>Microsoft-Softwareschattenkopie-Anbieter          
 
@@ -1169,7 +1169,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="microsoft-storage-spaces-smp"></a>Microsoft-SMP für Speicherplätze         
 
@@ -1183,7 +1183,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Für APIs für die Speicherverwaltung tritt ohne diesen Dienst ein Fehler auf. Beispiel: "Get-WmiObject -class MSFT_Disk -Namespace Root\Microsoft\Windows\Storage".
 |||         
 
-<br />          
+
 
 ## <a name="nettcp-port-sharing-service"></a>Net.Tcp-Portfreigabedienst         
 
@@ -1197,7 +1197,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="netlogon"></a>Netlogon         
 
@@ -1211,7 +1211,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="network-connection-broker"></a>Netzwerkverbindungsbroker            
 
@@ -1225,7 +1225,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="network-connections"></a>Netzwerkverbindungen         
 
@@ -1239,7 +1239,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="network-connectivity-assistant"></a>Netzwerkkonnektivitäts-Assistent      
 
@@ -1253,7 +1253,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />  
+
 
 ##  <a name="network-list-service"></a>Netzwerklistendienst        
 
@@ -1267,7 +1267,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="network-location-awareness"></a>NLA (Network Location Awareness)           
 
@@ -1281,7 +1281,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="network-setup-service"></a>Netzwerkeinrichtungsdienst       
 
@@ -1295,7 +1295,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="network-store-interface-service"></a>Netzwerkspeicher-Schnittstellendienst      
 
@@ -1309,7 +1309,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="offline-files"></a>Offlinedateien            
 
@@ -1323,7 +1323,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="optimize-drives"></a>Laufwerke optimieren          
 
@@ -1337,7 +1337,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />
+
 
 ## <a name="performance-counter-dll-host"></a>Leistungsindikator-DLL-Host         
 
@@ -1351,7 +1351,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="performance-logs--alerts"></a>Leistungsprotokolle und -warnungen            
 
@@ -1365,7 +1365,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="phone-service"></a>Telefondienst       
 
@@ -1379,7 +1379,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Wird von modernen VoIP-Apps verwendet.
 |||         
 
-<br />          
+
 
 ##      <a name="plug-and-play"></a>Plug & Play       
 
@@ -1393,7 +1393,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="portable-device-enumerator-service"></a>Enumeratordienst für tragbare Geräte           
 
@@ -1407,7 +1407,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="power"></a>Stromversorgung            
 
@@ -1421,7 +1421,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="print-spooler"></a>Druckspooler:            
 
@@ -1435,7 +1435,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Auf einem Domänencontroller wird dem Spoolerdienst bei Installation der Domänencontroller-Rolle ein Thread hinzugefügt, der für die Durchführung der Druckbereinigung zuständig ist. Hiermit werden die veralteten Objekte der Druckwarteschlange aus Active Directory entfernt.  Wenn der Spoolerdienst nicht auf mindestens einem DC auf jeder Site ausgeführt wird, kann AD keine alten Warteschlangen entfernen, die nicht mehr vorhanden sind. [https://blogs.technet.microsoft.com/askperf/2008/11/18/disabling-unnecessary-services-a-word-to-the-wise/](https://blogs.technet.microsoft.com/askperf/2008/11/18/disabling-unnecessary-services-a-word-to-the-wise/ )
 |||         
 
-<br />          
+
 
 ##  <a name="printer-extensions-and-notifications"></a>Druckererweiterungen und Benachrichtigungen        
 
@@ -1449,7 +1449,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="problem-reports-and-solutions-control-panel-support"></a>Unterstützung in der Systemsteuerung unter Lösungen für Probleme     
 
@@ -1463,7 +1463,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="program-compatibility-assistant-service"></a>Programmkompatibilitäts-Assistent-Dienst     
 
@@ -1477,7 +1477,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="quality-windows-audio-video-experience"></a>Verbessertes Audio-/Videostreaming unter Windows      
 
@@ -1491,7 +1491,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Clientseitiger QoS-Dienst
 |||         
 
-<br />          
+
 
 ##      <a name="radio-management-service"></a>Funkverwaltungsdienst        
 
@@ -1505,7 +1505,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="remote-access-auto-connection-manager"></a>Verwaltung für automatische RAS-Verbindung            
 
@@ -1519,7 +1519,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="remote-access-connection-manager"></a>RAS-Verbindungs-Manager         
 
@@ -1533,7 +1533,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="remote-desktop-configuration"></a>Remotedesktopkonfiguration         
 
@@ -1547,7 +1547,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="remote-desktop-services"></a>Remotedesktopdienste          
 
@@ -1561,7 +1561,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="remote-desktop-services-usermode-port-redirector"></a>Anschlussumleitung für Remotedesktopdienst im Benutzermodus        
 
@@ -1575,7 +1575,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Unterstützt Umleitungen auf der Serverseite der Verbindung.
 |||         
 
-<br />          
+
 
 ## <a name="remote-procedure-call-rpc"></a>Remoteprozeduraufruf (RPC)          
 
@@ -1589,7 +1589,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="remote-procedure-call-rpc-locator"></a>RPC-Locator             
 
@@ -1603,7 +1603,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |       |
 |||             
 
-<br />              
+
 
 ## <a name="remote-registry"></a>Remoteregistrierung          
 
@@ -1617,7 +1617,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="resultant-set-of-policy-provider"></a>Richtlinienergebnissatzanbieter            
 
@@ -1631,7 +1631,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="routing-and-remote-access"></a>Routing und RAS            
 
@@ -1645,7 +1645,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Bereits deaktiviert
 |||         
 
-<br />          
+
 
 ## <a name="rpc-endpoint-mapper"></a>RPC-Endpunktzuordnung          
 
@@ -1659,7 +1659,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="secondary-logon"></a>Sekundäre Anmeldung     
 
@@ -1673,7 +1673,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="secure-socket-tunneling-protocol-service"></a>SSTP-Dienst            
 
@@ -1687,7 +1687,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Wenn der Dienst deaktiviert wird, treten RRAS-Fehler auf.   |
 |||             
 
-<br />              
+
 
 ## <a name="security-accounts-manager"></a>Sicherheitskonto-Manager            
 
@@ -1701,7 +1701,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="sensor-data-service"></a>Sensordatendienst  
 
@@ -1715,7 +1715,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />  
+
 
 ## <a name="sensor-monitoring-service"></a>Sensorüberwachungsdienst            
 
@@ -1729,21 +1729,17 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />
-
 ## <a name="sensor-service"></a>Sensordienst
 
 | | |
 |---|---|
-|   **Dienstbeschreibung** |   Ein Sensordienst, der verschiedene Sensorfunktionen verwaltet. Er verwaltet SDO (Simple Device Orientation) und den Verlauf für Sensoren und lädt den SDO-Sensor, der Änderungen der Geräteausrichtung meldet.  Wenn der Dienst beendet oder deaktiviert wird, wird der SDO-Sensor nicht geladen, und es findet keine automatische Drehung statt. Die Sammlung von Verlaufsdaten von den Sensoren wird ebenfalls beendet.
+|   **Dienstbeschreibung** |   Ein Sensordienst, der die Funktionen verschiedener Sensoren verwaltet. Er verwaltet SDO (Simple Device Orientation) und den Verlauf für Sensoren und lädt den SDO-Sensor, der Änderungen der Geräteausrichtung meldet.  Wenn der Dienst beendet oder deaktiviert wird, wird der SDO-Sensor nicht geladen, und es findet keine automatische Drehung statt. Die Sammlung von Verlaufsdaten von den Sensoren wird ebenfalls beendet.
 |   **Dienstname**    |   SensorService
 |   **Installation**    |   Nur mit Desktopdarstellung
 |   **Starttyp**   |   Manual
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |
 |||
-  
-<br />          
 
 ## <a name="server"></a>Server           
 
@@ -1757,7 +1753,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Wird für die Remoteverwaltung, IPC$ und SMB-Dateifreigabe benötigt.
 |||         
 
-<br />          
+
 
 ## <a name="shell-hardware-detection"></a>Shellhardwareerkennung             
 
@@ -1771,7 +1767,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="smart-card"></a>Smartcard           
 
@@ -1785,7 +1781,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="smart-card-device-enumeration-service"></a>Smartcard-Geräteaufzählungsdienst                    
 
@@ -1799,7 +1795,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Wird fast ausschließlich für WinRT-Apps benötigt.    |
 |||             
 
-<br />              
+
 
 ## <a name="smart-card-removal-policy"></a>Richtlinie zum Entfernen der Smartcard        
 
@@ -1813,7 +1809,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="snmp-trap"></a>SNMP-Trap            
 
@@ -1827,7 +1823,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="software-protection"></a>Softwareschutz             
 
@@ -1841,7 +1837,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="special-administration-console-helper"></a>Hilfsprogramm für spezielle Verwaltungskonsole        
 
@@ -1855,7 +1851,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="spot-verifier"></a>Echtzeit-Datenträgerprüfung            
 
@@ -1869,7 +1865,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="ssdp-discovery"></a>SSDP-Suche           
 
@@ -1883,7 +1879,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="state-repository-service"></a>StateRepository-Dienst         
 
@@ -1897,7 +1893,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="still-image-acquisition-events"></a>Ereignisse zum Abrufen von Standbildern
 
@@ -1911,7 +1907,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />  
+
 
 ## <a name="storage-service"></a>Speicherdienst          
 
@@ -1925,7 +1921,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="storage-tiers-management"></a>Storage Tiers Management        
 
@@ -1939,7 +1935,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="superfetch"></a>Superfetch          
 
@@ -1953,7 +1949,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="sync-host"></a>Synchronisierungshost            
 
@@ -1967,7 +1963,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Benutzerdienstvorlage
 |||         
 
-<br />          
+
 
 ## <a name="system-event-notification-service"></a>Benachrichtigungsdienst für Systemereignisse            
 
@@ -1981,7 +1977,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="system-events-broker"></a>Systemereignissebroker             
 
@@ -1995,7 +1991,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   In der Beschreibung wird nur die Nutzung für WinRT-Apps erwähnt, aber der Dienst wird auch für die Aufgabenplanung, den Brokerinfrastrukturdienst und andere interne Komponenten benötigt.
 |||         
 
-<br />          
+
 
 ## <a name="task-scheduler"></a>Aufgabenplanung           
 
@@ -2009,7 +2005,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="tcpip-netbios-helper"></a>TCP/IP-NetBIOS-Hilfsdienst            
 
@@ -2023,7 +2019,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="telephony"></a>Telephony           
 
@@ -2037,7 +2033,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Wenn der Dienst deaktiviert wird, treten RRAS-Fehler auf.
 |||         
 
-<br />          
+
 
 ## <a name="themes"></a>Designs           
 
@@ -2051,7 +2047,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Es können keine Designs für Barrierefreiheit festgelegt werden, wenn dieser Dienst deaktiviert ist.
 |||         
 
-<br />  
+
 
 ## <a name="tile-data-model-server"></a>Kacheldaten-Modellserver           
 
@@ -2065,7 +2061,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Wenn dieser Dienst deaktiviert wird, tritt für das Startmenü ein Fehler auf.
 |||         
 
-<br />          
+
 
 ##  <a name="time-broker"></a>Zeitbroker     
 
@@ -2079,7 +2075,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   In der Beschreibung wird nur die Nutzung für WinRT-Apps erwähnt, aber der Dienst wird auch für die Aufgabenplanung, den Brokerinfrastrukturdienst und andere interne Komponenten benötigt.
 |||         
 
-<br />          
+
 
 ## <a name="touch-keyboard-and-handwriting-panel-service"></a>Dienst für Bildschirmtastatur und Schreibbereich         
 
@@ -2093,7 +2089,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="update-orchestrator-service-for-windows-update"></a>Update Orchestrator Service für Windows Update           
 
@@ -2107,7 +2103,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   In v1607 hat die Dienstbeschreibung gefehlt. Dieser Dienst wird für Windows Update (inkl. WSUS) benötigt.
 |||         
 
-<br />          
+
 
 ## <a name="upnp-device-host"></a>UPnP-Gerätehost         
 
@@ -2121,7 +2117,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="user-access-logging-service"></a>Dienst für die Benutzerzugriffsprotokollierung          
 
@@ -2135,7 +2131,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="user-data-access"></a>Benutzerdatenzugriff        
 
@@ -2149,7 +2145,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Benutzerdienstvorlage
 |||         
 
-<br />          
+
 
 ## <a name="user-data-storage"></a>Benutzerdatenspeicher            
 
@@ -2163,7 +2159,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Benutzerdienstvorlage
 |||         
 
-<br />          
+
 
 ## <a name="user-experience-virtualization-service"></a>User Experience Virtualization-Dienst           
 
@@ -2177,7 +2173,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="user-manager"></a>Benutzer-Manager        
 
@@ -2191,7 +2187,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="user-profile-service"></a>Benutzerprofildienst         
 
@@ -2205,7 +2201,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="virtual-disk"></a>Virtueller Datenträger             
 
@@ -2219,7 +2215,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="volume-shadow-copy"></a>Volumeschattenkopie           
 
@@ -2233,7 +2229,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="walletservice"></a>WalletService           
 
@@ -2247,7 +2243,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-audio"></a>Windows-Audio            
 
@@ -2261,7 +2257,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-audio-endpoint-builder"></a>Windows-Audio-Endpunkterstellung           
 
@@ -2275,7 +2271,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-biometric-service"></a>Windows-Biometriedienst            
 
@@ -2289,7 +2285,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="windows-camera-frame-server"></a>Windows-Kamera-FrameServer         
 
@@ -2303,7 +2299,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-connection-manager"></a>Windows-Verbindungs-Manager           
 
@@ -2317,7 +2313,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-defender-network-inspection-service"></a>Windows Defender-Netzwerkinspektionsdienst          
 
@@ -2331,7 +2327,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-defender-service"></a>Windows Defender-Dienst         
 
@@ -2345,7 +2341,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-driver-foundation---user-mode-driver-framework"></a>Windows Driver Foundation – Benutzermodus-Treiberframework           
 
@@ -2359,7 +2355,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-encryption-provider-host-service"></a>Hostdienst für Windows Encryption Provider     
 
@@ -2373,7 +2369,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-error-reporting-service"></a>Windows-Fehlerberichterstattungsdienst          
 
@@ -2387,7 +2383,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Erfasst und sendet Daten zu Abstürzen und zum Hängen, die sowohl von MS als auch von Dritten (ISVs/IHVs) genutzt werden. Die Daten werden zum Diagnostizieren von Fehlern verwendet, die zu Abstürzen führen können. Dies können auch Sicherheitsfehler sein. Wird auch für die Fehlerberichterstattung in Unternehmen benötigt.
 |||         
 
-<br />          
+
 
 ## <a name="windows-event-collector"></a>Windows-Ereignissammlung          
 
@@ -2401,7 +2397,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Erfasst ETW-Ereignisse (z. B. Sicherheitsereignisse) für Verwaltungs- und Diagnosezwecke.  Von diesem Dienst sind viele Features und Drittanbietertools abhängig, z. B. Tools für die Sicherheitsüberwachung.
 |||         
 
-<br />          
+
 
 ## <a name="windows-event-log"></a>Windows-Ereignisprotokoll            
 
@@ -2415,7 +2411,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-firewall"></a>Windows-Firewall         
 
@@ -2429,7 +2425,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="windows-font-cache-service"></a>Windows-Dienst für Schriftartencache      
 
@@ -2443,7 +2439,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-image-acquisition-wia"></a>Windows-Bilderfassung (WIA)          
 
@@ -2457,7 +2453,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="windows-insider-service"></a>Windows-Insider-Dienst     
 
@@ -2471,7 +2467,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Für Server wird das Test-Flighting nicht unterstützt, sodass darauf kein Vorgang durchgeführt wird. Das Feature kann auch per Gruppenrichtlinie deaktiviert werden.
 |||         
 
-<br />          
+
 
 ##  <a name="windows-installer"></a>Windows Installer       
 
@@ -2485,7 +2481,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-license-manager-service"></a>Windows-Lizenz-Manager-Dienst          
 
@@ -2499,7 +2495,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-management-instrumentation"></a>Windows-Verwaltungsinstrumentation       
 
@@ -2513,7 +2509,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="windows-mobile-hotspot-service"></a>Windows-Dienst für mobile Hotspots          
 
@@ -2527,7 +2523,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-modules-installer"></a>Windows Modules Installer        
 
@@ -2541,7 +2537,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-push-notifications-system-service"></a>Windows-Pushbenachrichtigungssystemdienst            
 
@@ -2555,7 +2551,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Wird für Live-Kacheln und andere Features benötigt.
 |||         
 
-<br />      
+
 
 ## <a name="windows-push-notifications-user-service"></a>Windows-Pushbenachrichtigungs-Benutzerdienst          
 
@@ -2569,7 +2565,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Benutzerdienstvorlage
 |||         
 
-<br />
+
 
 ## <a name="windows-remote-management-ws-management"></a>Windows-Remoteverwaltung (WS-Verwaltung)
 | | |
@@ -2582,7 +2578,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Wird für die Remoteverwaltung benötigt.
 |||
 
-<br />          
+
 
 ##  <a name="windows-search"></a>Windows Search      
 
@@ -2596,7 +2592,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="windows-time"></a>Windows-Zeitdienst        
 
@@ -2610,7 +2606,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-update"></a>Windows Update           
 
@@ -2624,7 +2620,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="winhttp-web-proxy-auto-discovery-service"></a>WinHTTP-Web Proxy Auto-Discovery-Dienst         
 
@@ -2638,7 +2634,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Alle Elemente, die den Netzwerkstapel nutzen, können über eine funktionale Abhängigkeit von diesem Dienst verfügen. Er wird von vielen Organisationen genutzt, um das Routing von HTTP-Proxys für interne Netzwerke zu konfigurieren.  Ohne diesen Dienst tritt für alle HTTP-Internetverbindungen mit internem Ursprung ein Fehler auf.
 |||         
 
-<br />          
+
 
 ## <a name="wired-autoconfig"></a>Automatische Konfiguration (verkabelt)         
 
@@ -2652,7 +2648,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="wmi-performance-adapter"></a>WMI-Leistungsadapter          
 
@@ -2666,7 +2662,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="workstation"></a>Arbeitsstation          
 
@@ -2680,7 +2676,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />
+
 
 ## <a name="xbox-live-auth-manager"></a>Xbox Live Authentifizierungs-Manager           
 
@@ -2694,7 +2690,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   
 |||         
 
-<br />          
+
 
 ## <a name="xbox-live-game-save"></a>Xbox Live-Spiele speichern          
 
@@ -2708,6 +2704,6 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Kommentare**    |   Dieser Dienst synchronisiert für Xbox Live-Spiele gespeicherte Daten.  Wenn der Dienst beendet wird, werden die gespeicherten Spieldaten für Xbox Live nicht hochgeladen bzw. heruntergeladen.
 |||         
 
-<br /> 
-<br /> 
+
+
 

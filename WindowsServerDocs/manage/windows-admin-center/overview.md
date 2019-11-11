@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 09/18/2019
 ms.localizationpriority: high
 ms.prod: windows-server
-ms.openlocfilehash: e235c8013afa573712feaec75bbd1ca195c0e307
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c914a472869f9887c83733d6aab614b5676d17d7
+ms.sourcegitcommit: 1da993bbb7d578a542e224dde07f93adfcd2f489
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356999"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73567140"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
 
@@ -25,9 +25,9 @@ ms.locfileid: "71356999"
 
 >[!VIDEO https://www.youtube.com/embed/PcQj6ZklmK0]
 
-![Windows Admin Center-Infografik](media/WAC1809Poster_thumb.PNG)
+![Windows Admin Center-Infografik](media/WAC1910Poster_thumb.PNG)
 
-[PDF herunterladen](https://github.com/MicrosoftDocs/windowsserverdocs/raw/master/WindowsServerDocs/manage/windows-admin-center/media/WindowsAdminCenter1809Poster.pdf)
+[PDF herunterladen](https://github.com/MicrosoftDocs/windowsserverdocs/raw/master/WindowsServerDocs/manage/windows-admin-center/media/WindowsAdminCenter1910Poster.pdf)
 
 ## <a name="quick-start"></a>Schnellstart
 
@@ -86,6 +86,7 @@ Sie können Windows Admin Center in Ihrer Umgebung innerhalb von Minuten betrieb
             <ul>
             <li><a href="use/get-started.md">Starten und Hinzufügen von Verbindungen</a>
             <li><a href="use/manage-servers.md">Verwalten von Servern</a>
+            <li><a href="use/deploy-hyperconverged-infrastructure.md">Bereitstellen einer hyperkonvergenten Infrastruktur</a>
             <li><a href="use/manage-hyper-converged.md">Verwalten der hyperkonvergenten Infrastruktur</a>
             <li><a href="use/manage-failover-clusters.md">Verwalten von Failoverclustern</a>
             <li><a href="use/manage-virtual-machines.md">Verwalten von virtuellen Computern</a>
@@ -129,11 +130,12 @@ Sie können Windows Admin Center in Ihrer Umgebung innerhalb von Minuten betrieb
 
 Lernen Sie unsere neuesten veröffentlichten Funktionen kennen:
 
+- Version [1910](https://aka.ms/wac1910) ist das aktuellste allgemein verfügbare Release. Mit dieser Version werden verschiedene neue Azure-Hybriddienste und Features eingeführt, die zuvor in der Vorschau der GA-Version verfügbar waren.
 - In Version [1909](https://aka.ms/wac1909) wurde der Azure-VM-spezifische Verbindungstyp eingeführt und wurden die Verbindungstypen für herkömmliche Failovercluster und HCI-Cluster vereinheitlicht.
 - In Version [1908](https://aka.ms/wac1908) wurden visuelle Updates, Packetmon, FlowLog Audit, Azure Monitor-Onboarding für Cluster und Unterstützung für WinRM über HTTPS (Port 5986) hinzugefügt.
 - In Version [1907](https://aka.ms/wac1907) wurden Links zu geschätzten Azure-Kosten hinzugefügt sowie Import/Export und Kennzeichnung von VMs verbessert.
 - In Version [1906](https://aka.ms/wac1906) wurde Import/Export von VMs hinzugefügt, Wechsel von Azure-Konten, Hinzufügen von Verbindungen aus Azure, Verbindungseinstellungen (experimentell), Leistungsverbesserungen und ein Tool für Leistungsprofile hinzugefügt.
-- Version 1904.1 ist das aktuellste allgemein verfügbare Release – ein Wartungsupdate zur Verbesserung der Stabilität von Gateway-Plug-Ins.
+- Version 1904.1 war ein Wartungsupdate zur Verbesserung der Stabilität von Gateway-Plug-Ins.
 - Version [1904](https://aka.ms/wac1904) war ein allgemein verfügbares Release, mit dem das Azure-Hybriddienstetool und Funktionen eingeführt wurden, die zuvor in der Vorschau der GA-Version erhältlich waren.
 - In Version [1903](https://aka.ms/wac1903) wurden E-Mail-Benachrichtigungen von Azure Monitor, die Möglichkeit, aus Active Directory Server- oder PC-Verbindungen hinzuzufügen und neue Tools zum Verwalten von Active Directory, DHCP und DNS eingeführt.
 - In Version [1902](https://aka.ms/wac1902) wurden eine freigegebene Verbindungsliste und Verbesserungen an der Verwaltung von softwaredefinierten Netzwerken (SDN) eingeführt, einschließlich neuer SDN-Tools zum Verwalten von ACLs, Gatewaysverbindungen und logischen Netzwerken.

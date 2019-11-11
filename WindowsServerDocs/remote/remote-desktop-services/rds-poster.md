@@ -9,19 +9,29 @@ ms.technology: remote-desktop-services
 ms.author: elizapo
 author: lizap
 manager: dongill
-ms.date: 10/17/2018
+ms.date: 11/06/2018
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a8c6d5fa-399b-4823-8f10-affec1bbfe65
 ms.localizationpriority: medium
-ms.openlocfilehash: e7f52629dcbda6ce449bfa4b991742c21681055e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d549909dd5edd472caed4ee6afe4146fcc7bc83e
+ms.sourcegitcommit: 69c218aa6dcaf23193e06a4bbc00d7294a098627
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403825"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73713652"
 ---
 # <a name="remote-desktop-services---planning-poster"></a>Planungsposter für Remotedesktopdienste
+
+## <a name="windows-virtual-desktop"></a>Virtueller Windows-Desktop
+
+Sie haben vielleicht schon von einer neuen „modernen Infrastruktur“ für Remotedesktop gehört. Vielleicht haben Sie bereits gehört, wie wir den Ausdruck „RDmi“ verwendet haben. Der Ausdruck, den Sie kennen müssen, lautet „Windows Virtual Desktop“ (Virtueller Windows-Desktop). Weitere Informationen finden Sie unter [Dokumentation zu Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/).
+
+Das Team für die Remotedesktopdienste hat ein Poster entworfen, das Sie bei der Planung, Erstellung und Ausführung einer Windows Virtual Desktop-Umgebung unterstützen kann.
+
+![Poster zu Windows Virtual Desktop](./media/wvd-poster-download.png)
+
+Rufen Sie eine Kopie des Posters ab, indem Sie mit der rechten Maustaste auf das Bild klicken und das Poster auf Ihrem lokalen System speichern.
 
 ## <a name="remote-desktop-services-in-windows-server"></a>Remotedesktopdienste in Windows Server
 
@@ -36,7 +46,3 @@ Weitere Informationen zur Planung finden Sie in den folgenden Themen:
 - [Planen und Entwerfen einer RDS-Bereitstellung](rds-plan-and-design.md)
 - [Erstellen und Bereitstellen von RDS](rds-build-and-deploy.md)
 - [Ausführen und Optimieren einer RDS-Umgebung](rds-run-and-tune.md)
-
-## <a name="windows-virtual-desktop"></a>Virtueller Windows-Desktop
-
-Sie haben vielleicht schon von einer neuen „modernen Infrastruktur“ für Remotedesktop gehört. Vielleicht haben Sie bereits gehört, wie wir den Ausdruck „RDmi“ verwendet haben. Der Ausdruck, den Sie kennen müssen, lautet „Windows Virtual Desktop“ (Virtueller Windows-Desktop). Erfahren Sie mehr über dieses neue Virtualisierungsangebot unter [Microsoft 365 fügt modernen Desktop in Azure hinzu](https://azure.microsoft.com/blog/microsoft-365-adds-modern-desktop-on-azure/) und [Ignite 2018 – Präsentation zu Windows Virtual Desktop](https://www.youtube.com/watch?v=_7G37PFYVe4). Windows Virtual Desktop befindet sich derzeit in der privaten Vorschauversion.
