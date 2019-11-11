@@ -94,7 +94,7 @@
 #### [Remotedesktop: Einstellungen für RDP-Datei](clients/rdp-files.md)
 #### [Remotedesktop-URI-Schema](clients/remote-desktop-uri.md)
 #### [Remotedesktopclient – Häufig gestellte Fragen](clients/remote-desktop-client-faq.md)
-#### [Privacy settings for managed apps and desktops](clients/remote-privacy-settings.md) (Datenschutzeinstellungen für verwaltete Apps und Desktops)
+#### [Datenschutzeinstellungen für verwaltete Apps und Desktops](clients/remote-privacy-settings.md)
 ### Bekannte Probleme
 #### [Allgemeine Problembehandlung bei Remotedesktopverbindungen](troubleshoot/rdp-error-general-troubleshooting.md)
 #### [Clients können keine Verbindung herstellen und erhalten den Fehler „Klasse nicht registriert“](troubleshoot/rdp-error-class-not-registered.md)
