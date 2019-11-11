@@ -37,7 +37,7 @@ Sie können drei Arten von Verbindungsdateien erstellen:
   
 2.  Klicken Sie in der Spalte **Computer** auf den Namen des Computers, für den Sie die Verbindungseinstellungen in einer Datei speichern möchten.  
   
-3.  Klicken Sie unter * ComputerName * Tasks **auf Verbindungen in Datei speichern**. Die Seite **Verbindungseinstellungen in einer Datei speichern** wird angezeigt.  
+3.  Klicken Sie unter *ComputerName* Tasks **auf Verbindungen in Datei speichern**. Die Seite **Verbindungseinstellungen in einer Datei speichern** wird angezeigt.  
   
 4.  Wählen Sie die Art der Verbindungsdatei aus, die Sie erstellen möchten, und klicken Sie dann auf **OK**.  
   
