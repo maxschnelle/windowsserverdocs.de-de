@@ -76,12 +76,12 @@ Um zu bestimmen, ob sich eine Workload gut für die Deduplizierung eignet, beant
 
 1. **Hat das DataSet meiner Arbeitsauslastung eine ausreichende Duplizierung, um von der Aktivierung der Deduplizierung zu profitieren?**  
     Überprüfen Sie vor dem Aktivieren der Datendeduplizierung für eine Workload, wie viele Duplikate das Dataset Ihrer Workload aufweist. Nutzen Sie dazu das Tool für die Auswertung der Einsparungen durch Datendeduplizierung (DDPEval). Nach Installation der Datendeduplizierung finden Sie dieses Tool unter `C:\Windows\System32\DDPEval.exe`. DDPEval kann das Optimierungspotenzial für direkt angeschlossene Volumes (so z.B. lokale Laufwerke oder freigegebene Clustervolumes) sowie zugeordnete und nicht zugeordnete Netzwerkfreigaben einschätzen.  
-    [mailto:johndoe@mydomain.com](&nbsp;)   
+    &nbsp;   
     Bei Ausführen von „DDPEval.exe“ wird eine Ausgabe ähnlich der folgenden zurückgegeben:  
     &nbsp;  
     `Data Deduplication Savings Evaluation Tool`  
     `Copyright 2011-2012 Microsoft Corporation.  All Rights Reserved.`    
-    [mailto:johndoe@mydomain.com](&nbsp;)   
+    &nbsp;   
     `Evaluated folder: E:\Test`     
     `Processed files: 34`  
     `Processed files size: 12.03MB`  
