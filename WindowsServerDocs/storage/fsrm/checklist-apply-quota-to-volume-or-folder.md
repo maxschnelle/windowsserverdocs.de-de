@@ -21,7 +21,7 @@ ms.locfileid: "71394331"
 
 1. Konfigurieren Sie die E-Mail-Einstellungen, wenn Sie Schwellenwertbenachrichtigungen oder Speicherberichte per E-Mail senden möchten. [E-Mail-Benachrichtigungen](configure-email-notifications.md)
 
-2. Bewerten Sie die Speicherkapazität auf dem Volume oder Ordner. Sie können dazu die Berichte des **Speicherberichteverwaltungs**knotens verwenden, um Daten bereitzustellen. (Führen Sie z. b. einen Dateien nach Besitzer Bericht bei Bedarf aus, um Benutzer zu identifizieren, die große Mengen an Speicherplatz verwenden.) [Berichte nach Bedarf erstellen](generate-reports-on-demand.md)
+2. Bewerten Sie die Speicherkapazität auf dem Volume oder Ordner. Sie können dazu die Berichte des **Speicherberichteverwaltungs**knotens verwenden, um Daten bereitzustellen. (Führen Sie beispielsweise einen Dateien nach Besitzer-Bericht auf Abruf aus, um Benutzer zu identifizieren, die eine erhebliche Menge Speicherplatz beanspruchen.) [Berichte nach Bedarf erstellen](generate-reports-on-demand.md)
 
 3. Überprüfen Sie die verfügbaren vorkonfigurierten Kontingentvorlagen. (Klicken Sie in **Kontingent Verwaltung**auf den Knoten **Kontingent Vorlagen** .) [Eigenschaften der Kontingent Vorlage bearbeiten](edit-quota-template-properties.md) 
 <br />– Oder – <br /> Erstellen Sie eine neue Kontingentvorlage, um eine Speicherrichtlinie in Ihrer Organisation zu erzwingen. [Erstellen einer Kontingent Vorlage](create-quota-template.md)
@@ -32,7 +32,7 @@ ms.locfileid: "71394331"
 6. Planen Sie eine Berichtsaufgabe, die einen Kontingentbedarfsbericht enthält, um um den Kontingentbedarf in regelmäßigen Abständen zu überwachen. [Planen eines Satzes von Berichten](schedule-set-of-reports.md)
 
 > [!Note]
-> Wenn Sie Dateien auf einem Volume oder Ordner überprüfen möchten, finden Sie weitere Informationen unter [checkliste: Anwenden eines Datei Bildschirms auf ein Volume oder einen Ordner @ no__t-0.
+> Informationen zum Prüfen von Dateien auf einem Volume oder Ordner erhalten Sie unter [Prüfliste: Dateiprüfung auf ein Volume oder einen Ordner anwenden](checklist-apply-file-screen-to-volume-or-folder.md).
 
 
 

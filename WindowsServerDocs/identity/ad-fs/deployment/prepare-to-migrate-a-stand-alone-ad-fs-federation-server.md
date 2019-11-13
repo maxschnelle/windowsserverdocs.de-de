@@ -21,17 +21,17 @@ Zum Vorbereiten der Migration (dieselbe Servermigration) eines eigenständigen A
   
 Führen Sie zum Exportieren der AD FS-Konfigurationsdaten die folgenden Schritte aus:  
   
--   [Schritt 1:  Dienst Einstellungen exportieren @ no__t-0  
+-   [Schritt 1: Exportieren der Dienst Einstellungen](#step-1-export-service-settings)  
   
--   [Schritt 2:  Exportieren von Anspruchs Anbieter-Vertrauens Stellungen @ no__t-0  
+-   [Schritt 2: Exportieren von Anspruchs Anbieter-Vertrauens Stellungen](#step-2-export-claims-provider-trusts)  
   
--   [Schritt 3:  Vertrauens Stellungen der vertrauenden Seite exportieren @ no__t-0  
+-   [Schritt 3: Exportieren der Vertrauens Stellungen der vertrauenden Seite](#step-3-export-relying-party-trusts)  
   
--   [Schritt 4:  Sichern der benutzerdefinierten Attribut Speicher @ no__t-0  
+-   [Schritt 4: Sichern von benutzerdefinierten Attribut speichern](#step-4-back-up-custom-attribute-stores)  
   
--   [Schritt 5:  Sichern von Webseiten Anpassungen @ no__t-0  
+-   [Schritt 5: Sichern von Webseiten Anpassungen](#step-5-back-up-webpage-customizations)  
   
-## <a name="step-1-export-service-settings"></a>Schritt 1: Exportieren der Diensteinstellungen  
+## <a name="step-1-export-service-settings"></a>Schritt 1: Exportieren der Dienst Einstellungen  
  Gehen Sie wie folgt vor, um die Diensteinstellungen zu exportieren:  
   
 ### <a name="to-export-service-settings"></a>So exportieren Sie Diensteinstellungen  
@@ -43,16 +43,16 @@ Führen Sie zum Exportieren der AD FS-Konfigurationsdaten die folgenden Schritte
 >   
 >  Das Exportieren des SSL-Zertifikats ist optional, da dieses Zertifikat auf dem lokalen Computer im privaten Zertifikatspeicher gespeichert wird und beim Upgrade des Betriebssystems erhalten bleibt.  
   
-2. Notieren Sie sich die Konfiguration der Zertifikate für die AD FS-Dienstkommunikation, Tokenverschlüsselung und Tokensignatur.  Öffnen Sie zum Anzeigen aller verwendeten Zertifikate Windows PowerShell, und führen Sie den folgenden Befehl aus, um der Windows PowerShell-Sitzung die AD FS Cmdlets hinzuzufügen: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Führen Sie dann den folgenden Befehl aus, um eine Liste aller in einer Datei verwendeten Zertifikate zu erstellen `PSH:>Get-ADFSCertificate | Out-File “.\certificates.txt”`  
+2. Notieren Sie sich die Konfiguration der Zertifikate für die AD FS-Dienstkommunikation, Tokenverschlüsselung und Tokensignatur.  Öffnen Sie zum Anzeigen aller verwendeten Zertifikate Windows PowerShell, und führen Sie den folgenden Befehl aus, um die AD FS-Cmdlets Ihrer Windows PowerShell-Sitzung hinzuzufügen: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Führen Sie dann den folgenden Befehl aus, um eine Liste aller in einer Datei verwendeten Zertifikate zu erstellen `PSH:>Get-ADFSCertificate | Out-File “.\certificates.txt”`  
   
 > [!NOTE]
->  Sie können optional auch zusätzlich zu allen selbstsignierten Zertifikaten alle Zertifikate und Schlüssel für die Tokensignatur, Tokenverschlüsselung oder Dienstkommunikation exportieren, die nicht intern generiert werden. Sie können alle auf Ihrem Server verwendeten Zertifikate mithilfe von Windows PowerShell anzeigen. Öffnen Sie Windows PowerShell, und führen Sie den folgenden Befehl zum Hinzufügen der AD FS-Cmdlets zur Windows PowerShell-Sitzung aus: `PSH:>add-pssnapin “Microsoft.adfs.powershell`. Führen Sie dann den folgenden Befehl aus, um alle Zertifikate anzuzeigen, die auf dem Server verwendet werden `PSH:>Get-ADFSCertificate`. Die Ausgabe dieses Befehls umfasst StoreLocation- und StoreName-Werte, die den Speicherort für die einzelnen Zertifikate angeben. Sie können dann die Anleitung in [Exportieren des Bereichs mit dem privaten Schlüssel eines Serverauthentifizierungszertifikats](Export-the-Private-Key-Portion-of-a-Server-Authentication-Certificate.md) verwenden, um die einzelnen Zertifikate und den entsprechenden privaten Schlüssel in eine PFX-Datei zu exportieren.  
+>  Sie können optional auch zusätzlich zu allen selbstsignierten Zertifikaten alle Zertifikate und Schlüssel für die Tokensignatur, Tokenverschlüsselung oder Dienstkommunikation exportieren, die nicht intern generiert werden. Sie können alle auf Ihrem Server verwendeten Zertifikate mithilfe von Windows PowerShell anzeigen. Öffnen Sie Windows PowerShell, und führen Sie den folgenden Befehl zum Hinzufügen der AD FS-Cmdlets zur Windows PowerShell-Sitzung aus: `PSH:>add-pssnapin “Microsoft.adfs.powershell`. Führen Sie dann den folgenden Befehl aus, um alle Zertifikate anzuzeigen, die auf dem Server `PSH:>Get-ADFSCertificate`verwendet werden. Die Ausgabe dieses Befehls umfasst StoreLocation- und StoreName-Werte, die den Speicherort für die einzelnen Zertifikate angeben. Sie können dann die Anleitung in [Exportieren des Bereichs mit dem privaten Schlüssel eines Serverauthentifizierungszertifikats](Export-the-Private-Key-Portion-of-a-Server-Authentication-Certificate.md) verwenden, um die einzelnen Zertifikate und den entsprechenden privaten Schlüssel in eine PFX-Datei zu exportieren.  
 >   
 >  Das Exportieren dieser Zertifikate ist optional, da alle externen Zertifikate während des Betriebssystemupgrades erhalten bleiben.  
   
 3. Exportieren Sie AD FS 2,0-Verbund Dienst Eigenschaften, z. b. den Verbund Dienstnamen, den anzeigen amen des Verbund Diensts und den Verbund Server Bezeichner in eine Datei.  
   
-Öffnen Sie zum Exportieren der Verbund Dienst Eigenschaften Windows PowerShell, und führen Sie den folgenden Befehl aus, um der Windows PowerShell-Sitzung die AD FS Cmdlets hinzuzufügen: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Führen Sie dann den folgenden Befehl zum Exportieren der Verbund Dienst Eigenschaften aus: `PSH:> Get-ADFSProperties | Out-File “.\properties.txt”`.  
+Öffnen Sie zum Exportieren der Verbund Dienst Eigenschaften Windows PowerShell, und führen Sie den folgenden Befehl aus, um die AD FS-Cmdlets Ihrer Windows PowerShell-Sitzung hinzuzufügen: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Führen Sie dann den folgenden Befehl zum Exportieren der Verbund Dienst Eigenschaften aus: `PSH:> Get-ADFSProperties | Out-File “.\properties.txt”`.  
   
 Die Ausgabedatei enthält die folgenden wichtigen Konfigurationswerte:  
   
@@ -87,29 +87,29 @@ Der Identitätswert befindet sich in der Konsole **Dienste** in der Spalte **Anm
   
 Öffnen Sie hierzu Windows PowerShell, und führen Sie den folgenden Befehl aus, um der Windows PowerShell-Sitzung die AD FS Cmdlets hinzuzufügen: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Führen Sie dann den folgenden Befehl aus, um alle benutzerdefinierten Anspruchs Beschreibungen in eine Datei zu exportieren: `Get-ADFSClaimDescription | Out-File “.\claimtypes.txt”`.  
   
-##  <a name="step-2-export-claims-provider-trusts"></a>Schritt 2: Exportieren der Anspruchsanbieter-Vertrauensstellungen  
+##  <a name="step-2-export-claims-provider-trusts"></a>Schritt 2: Exportieren von Anspruchs Anbieter-Vertrauens Stellungen  
  Gehen Sie wie folgt vor, um die Anspruchsanbieter-Vertrauensstellungen zu exportieren:  
   
 ### <a name="to-export-claims-provider-trusts"></a>So exportieren Sie Anspruchsanbieter-Vertrauensstellungen  
   
 1.  Sie können alle Anspruchsanbieter-Vertrauensstellungen mithilfe von Windows PowerShell exportieren. Öffnen Sie Windows PowerShell, und führen Sie den folgenden Befehl zum Hinzufügen der AD FS-Cmdlets zur Windows PowerShell-Sitzung aus: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Führen Sie dann den folgenden Befehl aus, um alle Anspruchs Anbieter-Vertrauens Stellungen zu exportieren: `PSH:>Get-ADFSClaimsProviderTrust | Out-File “.\cptrusts.txt”`.  
   
-## <a name="step-3-export-relying-party-trusts"></a>Schritt 3: Exportieren der Vertrauensstellungen der vertrauenden Seite  
+## <a name="step-3-export-relying-party-trusts"></a>Schritt 3: Exportieren der Vertrauens Stellungen der vertrauenden Seite  
  Gehen Sie wie folgt vor, um die Vertrauensstellungen der vertrauenden Seite zu exportieren:  
   
 ### <a name="to-export-relying-party-trusts"></a>So exportieren Sie Vertrauensstellungen der vertrauenden Seite  
   
-1.  Wenn Sie alle Vertrauens Stellungen der vertrauenden Seite exportieren möchten, öffnen Sie Windows PowerShell, und führen Sie den folgenden Befehl aus, um der Windows PowerShell-Sitzung die AD FS Cmdlets hinzuzufügen: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Führen Sie dann den folgenden Befehl aus, um alle Vertrauens Stellungen der vertrauenden Seite zu exportieren: `PSH:>Get-ADFSRelyingPartyTrust | Out-File “.\rptrusts.txt”`.  
+1.  Wenn Sie alle Vertrauens Stellungen der vertrauenden Seite exportieren möchten, öffnen Sie Windows PowerShell, und führen Sie den folgenden Befehl aus, um der Windows PowerShell-Sitzung die AD FS Cmdlets hinzuzufügen: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Führen Sie den folgenden Befehl aus, um alle Vertrauens Stellungen der vertrauenden Seite zu exportieren:`PSH:>Get-ADFSRelyingPartyTrust | Out-File “.\rptrusts.txt”`.  
   
-## <a name="step-4-back-up-custom-attribute-stores"></a>Schritt 4: Sichern der benutzerdefinierten Attributspeicher  
+## <a name="step-4-back-up-custom-attribute-stores"></a>Schritt 4: Sichern von benutzerdefinierten Attribut speichern  
  Informationen zu von AD FS verwendeten benutzerdefinierten Attributspeichern erhalten Sie mithilfe von Windows PowerShell. Öffnen Sie Windows PowerShell, und führen Sie den folgenden Befehl zum Hinzufügen der AD FS-Cmdlets zur Windows PowerShell-Sitzung aus: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Führen Sie dann den folgenden Befehl aus, um Informationen zu den benutzerdefinierten Attribut speichern zu suchen: `PSH:>Get-ADFSAttributeStore`. Die Schritte zum Aktualisieren oder Migrieren von Attributspeichern variieren.  
   
-## <a name="step-5-back-up-webpage-customizations"></a>Schritt 5: Sichern der Webseitenanpassungen  
+## <a name="step-5-back-up-webpage-customizations"></a>Schritt 5: Sichern von Webseiten Anpassungen  
  Um Webseiten Anpassungen zu sichern, kopieren Sie die AD FS Webseiten und die Datei **Web. config** aus dem Verzeichnis, das dem virtuellen Pfad **"/ADFS/ls"** in IIS zugeordnet ist. Standardmäßig befindet sie sich im Verzeichnis **%systemdrive%\inetpub\adfs\ls**.  
 
 ## <a name="next-steps"></a>Nächste Schritte
- [Vorbereiten der Migration des AD FS 2,0](prepare-to-migrate-ad-fs-fed-server.md)-Verbund Servers    
+ [Vorbereiten der Migration des AD FS 2,0](prepare-to-migrate-ad-fs-fed-server.md) -Verbund Servers   
  [Vorbereiten der Migration des AD FS 2,0-Verbund Server Proxys](prepare-to-migrate-ad-fs-fed-proxy.md)   
- [Migrieren Sie den AD FS 2,0](migrate-the-ad-fs-fed-server.md)-Verbund Server  .  
- [Migrieren Sie den AD FS 2,0-Verbund Server Proxy](migrate-the-ad-fs-2-fed-server-proxy.md) .  
+ [Migrieren Sie den AD FS 2,0](migrate-the-ad-fs-fed-server.md) -Verbund Server   
+ [Migrieren Sie den AD FS 2,0-Verbund Server Proxy](migrate-the-ad-fs-2-fed-server-proxy.md)   
  [Migrieren der AD FS 1.1-Web-Agents](migrate-the-ad-fs-web-agent.md)

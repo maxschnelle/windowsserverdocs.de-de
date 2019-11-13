@@ -18,7 +18,7 @@ ms.locfileid: "71408594"
 ---
 # <a name="audit-policy-recommendations"></a>Empfehlungen zu Überwachungsrichtlinien
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10, Windows 8.1, Windows 7
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10, Windows 8.1, Windows 7
 
 In diesem Abschnitt werden die Standardeinstellungen für die Überwachungsrichtlinie von Windows, die grundlegenden empfohlenen Überwachungs Richtlinien Einstellungen und die aggressiveren Empfehlungen von Microsoft für Arbeitsstationen und Server Produkte behandelt.  
 
@@ -57,7 +57,7 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 |**Angabe**|**Empfehlung**|  
 |JA|In allgemeinen Szenarien aktivieren|  
 |NEIN|**Nicht** in allgemeinen Szenarien aktivieren|  
-|SEI|Aktivieren Sie bei Bedarf für ein bestimmtes Szenario oder, wenn eine Rolle oder ein Feature, für das die Überwachung gewünscht ist, auf dem Computer installiert ist.|  
+|Sei|Aktivieren Sie bei Bedarf für ein bestimmtes Szenario oder, wenn eine Rolle oder ein Feature, für das die Überwachung gewünscht ist, auf dem Computer installiert ist.|  
 |DC|Aktivieren auf Domänen Controllern|  
 |Blitz|Keine Empfehlung|  
 
@@ -93,7 +93,7 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 |Kontosperrung überwachen|Ja Nein||Ja Nein|  
 |Benutzer-/Geräteansprüche überwachen||||  
 |IPsec-Erweiterungsmodus überwachen||||  
-|IPsec-Hauptmodus überwachen|||WENN, WENN|  
+|IPsec-Hauptmodus überwachen|||Wenn, wenn|  
 |IPsec-Schnellmodus überwachen||||  
 |Abmelden überwachen|Ja Nein|Ja Nein|Ja Nein|  
 |Anmeldung <sup>1</sup> überwachen|Ja, ja|Ja, ja|Ja, ja|  
@@ -171,7 +171,7 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 |Kontosperrung überwachen|Ja Nein||Ja Nein|  
 |Benutzer-/Geräteansprüche überwachen||||  
 |IPsec-Erweiterungsmodus überwachen||||  
-|IPsec-Hauptmodus überwachen|||WENN, WENN|  
+|IPsec-Hauptmodus überwachen|||Wenn, wenn|  
 |IPsec-Schnellmodus überwachen||||  
 |Abmelden überwachen|Ja Nein|Ja Nein|Ja Nein|  
 |Anmelden überwachen|Ja, ja|Ja, ja|Ja, ja|  
@@ -257,7 +257,7 @@ Ein Beispiel für das zweite Ereignis ist:
 
 Eine Abbruch Anzahl fehlgeschlagener Anmeldungen könnte auf einen Kenn Wort angriffsangriff hindeuten. Damit ein Unternehmen eine Warnung für eine ungewöhnlich hohe Anzahl fehlgeschlagener Anmeldungen bereitstellen kann, müssen Sie zunächst die normalen Ebenen der fehlgeschlagenen Anmeldungen innerhalb Ihrer Umgebung vor einem böswilligen Sicherheits Ereignis verstehen.  
 
-Eine umfassende Liste der Ereignisse, die Sie beim Überwachen von Gefährdungen berücksichtigen sollten, finden Sie unter [anhang L: Zu überwachende Ereignisse @ no__t-0.  
+Eine umfassende Liste der Ereignisse, die Sie beim Überwachen von Gefährdungen berücksichtigen sollten, finden Sie unter [Anhang L: zu überwachende Ereignisse](../../../ad-ds/plan/Appendix-L--Events-to-Monitor.md).  
 
 ## <a name="active-directory-objects-and-attributes-to-monitor"></a>Active Directory zu überwachende Objekte und Attribute  
 Im folgenden finden Sie die Konten, Gruppen und Attribute, die Sie überwachen sollten, um zu erkennen, dass Sie versuchen, die Active Directory Domain Services Installation zu kompromittieren.  
@@ -270,11 +270,11 @@ Im folgenden finden Sie die Konten, Gruppen und Attribute, die Sie überwachen s
 
 -   Privilegierte und VIP-Konten in AD DS. Überwachen Sie Änderungen, insbesondere Änderungen an Attributen auf der Registerkarte "Konto" (z. b. cn, Name, sAMAccountName, userPrincipalName oder userAccountControl). Zusätzlich zum Überwachen der Konten beschränken Sie den Benutzer, der die Konten ändern kann, so gering wie möglich auf eine Gruppe von Administratoren.  
 
-Weitere Informationen finden Sie unter [anhang L: Zu überwachende Ereignisse @ no__t-0 für eine Liste der zu überwachenden empfohlenen Ereignisse, deren kritikitäts Bewertungen und eine Zusammenfassung der Ereignismeldung.  
+Eine Liste der zu überwachenden empfohlenen Ereignisse, deren kritikitäts Bewertungen und eine Zusammenfassung der Ereignismeldungen finden Sie unter [Anhang L: zu überwachende Ereignisse](../../../ad-ds/plan/Appendix-L--Events-to-Monitor.md) .  
 
 -   Gruppieren Sie Server nach der Klassifizierung ihrer Arbeits Auslastungen, sodass Sie schnell die Server identifizieren können, die am ehesten überwacht werden sollen und die am meisten stringterweise konfiguriert sind.  
 
--   Änderungen an den Eigenschaften und der Mitgliedschaft in folgenden AD DS Gruppen: Organisations-Admins (EA), Domänen-Admins (da), Administratoren (BA) und Schema Administratoren (SA)  
+-   Änderungen an den Eigenschaften und der Mitgliedschaft der folgenden AD DS Gruppen: Organisations-Admins (EA), Domänen-Admins (da), Administratoren (BA) und Schema-Admins (SA)  
 
 -   Deaktivieren privilegierter Konten (z. b. integrierte Administrator Konten in Active Directory und auf Mitglieds Systemen) zum Aktivieren der Konten  
 
@@ -298,12 +298,12 @@ Weitere Informationen finden Sie unter [anhang L: Zu überwachende Ereignisse @ 
 ## <a name="general-list-of-security-event-id-recommendation-criticalities"></a>Allgemeine Liste der Empfehlungen für die Ereignis-ID der Sicherheits Ereignis-ID  
 Alle Empfehlungen für Ereignis-IDs werden folgendermaßen mit einer kritikitäts Bewertung versehen:  
 
-**Hochrangiger** Ereignis-IDs mit einer Bewertung mit hoher Kritizität sollten immer und sofort benachrichtigt und untersucht werden.  
+**Hoch:** Ereignis-IDs mit einer Bewertung mit hoher Kritizität sollten immer und sofort benachrichtigt und untersucht werden.  
 
-**Mittelalter** Eine Ereignis-ID mit einer mittelgroßen kritiktivitäts Bewertung kann auf schädliche Aktivitäten hindeuten, aber Sie muss von einer anderen unter Normalität begleitet werden (z. b. eine ungewöhnliche Zahl, die in einem bestimmten Zeitraum auftritt, unerwartete vorkommen oder Vorkommen eines Computers, der Es wird normalerweise nicht erwartet, dass das Ereignis protokolliert wird.) Ein Ereignis mit mittlerer Kritizität kann auch als Metrik erfasst und im Laufe der Zeit verglichen werden.  
+**Mittel:** Eine Ereignis-ID mit einer mittelgroßen kritiktivitäts Bewertung kann auf schädliche Aktivitäten hindeuten, aber Sie muss von einer anderen unter Normalität begleitet werden (z. b. eine ungewöhnliche Zahl, die in einem bestimmten Zeitraum auftritt, unerwartete vorkommen oder Vorkommen auf einem Computer, der normalerweise nicht erwartet wird, dass das Ereignis protokolliert wird.). Ein Ereignis mit mittlerer Kritizität kann auch als Metrik erfasst und im Laufe der Zeit verglichen werden.  
 
-**Preis** Und die Ereignis-ID mit Ereignissen mit niedriger Kritizität sollten nicht berücksichtigt werden oder Warnungen auslösen, es sei denn, Sie korrelieren mit mittleren oder hohen kritiktätsereignissen.  
+**Niedrig:** Und die Ereignis-ID mit Ereignissen mit niedriger Kritizität sollten nicht berücksichtigt werden oder Warnungen auslösen, es sei denn, Sie korrelieren mit mittleren oder hohen kritiktätsereignissen.  
 
 Diese Empfehlungen sollen eine grundlegende Anleitung für den Administrator bereitstellen. Alle Empfehlungen sollten vor der Implementierung in einer Produktionsumgebung gründlich geprüft werden.  
 
-Weitere Informationen finden Sie unter [anhang L: Zu überwachende Ereignisse @ no__t-0 für eine Liste der zu überwachenden empfohlenen Ereignisse, deren kritikitäts Bewertungen und eine Zusammenfassung der Ereignismeldung.  
+Eine Liste der zu überwachenden empfohlenen Ereignisse, deren kritikitäts Bewertungen und eine Zusammenfassung der Ereignismeldungen finden Sie unter [Anhang L: zu überwachende Ereignisse](../../../ad-ds/plan/Appendix-L--Events-to-Monitor.md) .  

@@ -21,7 +21,7 @@ ms.locfileid: "71404439"
 ---
 # <a name="troubleshooting-web-probe-urls"></a>Problembehandlung für Webtest-URLs
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Dieses Thema enthält Informationen zum Beheben von Problemen mit dem Befehl `Set-DAEntryPointDC`. Überprüfen Sie, ob das Windows-Ereignisprotokoll ein Ereignis mit der ID 10065 enthält, um sicherzustellen, dass der Fehler mit den Einstellungen für Einstiegspunkte und Domänencontroller zusammenhängt.  
   
@@ -31,11 +31,11 @@ Der **Fehler wurde empfangen**. Fehler beim Speichern der Remote Zugriffs Einste
 Informationen zum Beheben dieses Fehlers finden Sie unter Speichern von Server-GPO-Einstellungen.  
   
 ## <a name="remote-access-is-not-configured"></a>Nicht konfigurierter Remotezugriff  
-Der **Fehler wurde empfangen**. Der Remote Zugriff ist auf < Servername-> nicht konfiguriert. Geben Sie den Namen eines Servers an, der zu einer Bereitstellung für mehrere Standorte gehört.  
+Der **Fehler wurde empfangen**. Der Remote Zugriff ist auf < server_name > nicht konfiguriert. Geben Sie den Namen eines Servers an, der zu einer Bereitstellung für mehrere Standorte gehört.  
   
-oder  
+Oder  
   
-Der Remote Zugriff ist auf dem Server < Servername-> nicht konfiguriert. Geben Sie einen Computer an, auf dem DirectAccess aktiviert ist.  
+Der Remote Zugriff ist auf dem Server < server_name > nicht konfiguriert. Geben Sie einen Computer an, auf dem DirectAccess aktiviert ist.  
   
 **Ursache**  
   
@@ -65,7 +65,7 @@ Das Cmdlet `Set-DaEntryPointDC` bietet Ihnen die Möglichkeit, den zugeordneten 
   
 Der **Fehler wurde empfangen**. Es wurden keine erforderlichen Parameter angegeben. Geben Sie einen Einstiegspunktnamen oder den Namen eines vorhandenen Domänencontrollers an.  
   
-oder  
+Oder  
   
 Für das Cmdlet `Set-DaEntryPointDC` fehlen alle erforderlichen Parameter.  
   
@@ -92,7 +92,7 @@ Stellen Sie sicher, dass der Remotecomputer über RPC erreichbar und ein beschre
   
 -   **Problem 1**  
   
-    Der **Fehler wurde empfangen**. Der Domänen Controller < Domänencontroller > kann nicht erreicht werden. Überprüfen Sie die Netzwerkkonnektivität und die Serververfügbarkeit.  
+    Der **Fehler wurde empfangen**. Der Domänen Controller < domain_controller > kann nicht erreicht werden. Überprüfen Sie die Netzwerkkonnektivität und die Serververfügbarkeit.  
   
     **Ursache**  
   
@@ -104,7 +104,7 @@ Stellen Sie sicher, dass der Remotecomputer über RPC erreichbar und ein beschre
   
 -   **Problem 2**  
   
-    Der **Fehler wurde empfangen**. Der Domänen Controller < Domänencontroller > kann nicht kontaktiert werden.  
+    Der **Fehler wurde empfangen**. Der Domänen Controller < domain_controller > kann nicht kontaktiert werden.  
   
     **Ursache**  
   
@@ -116,7 +116,7 @@ Stellen Sie sicher, dass der Remotecomputer über RPC erreichbar und ein beschre
   
 -   **Problem 3**  
   
-    Der **Fehler wurde empfangen**. Der Domänen Controller < Domänencontroller-> kann für% 2! s! nicht erreicht werden.  
+    Der **Fehler wurde empfangen**. Der Domänen Controller < domain_controller > für %2! s! nicht erreicht werden.  
   
     **Ursache**  
   
@@ -124,11 +124,11 @@ Stellen Sie sicher, dass der Remotecomputer über RPC erreichbar und ein beschre
   
     **Lösung**  
   
-    Befolgen Sie das Verfahren "so ändern Sie den Domänen Controller, der Server-Gruppenrichtlinien Objekte verwaltet" in [2,4. Konfigurieren von GPOs @ no__t-0.  
+    Befolgen Sie das Verfahren "so ändern Sie den Domänen Controller, der Server-Gruppenrichtlinien Objekte verwaltet" in [2,4. Konfigurieren Sie GPOs](assetId:///b1960686-a81e-4f48-83f1-cc4ea484df43#ConfigGPOs).  
   
 -   **Problem 4**  
   
-    Der **Fehler wurde empfangen**. Der primäre Domänen Controller in Domänen < domain_name > kann nicht erreicht werden.  
+    Der **Fehler wurde empfangen**. Der primäre Domänen Controller in der Domänen < domain_name > kann nicht erreicht werden.  
   
     **Ursache**  
   
@@ -136,10 +136,10 @@ Stellen Sie sicher, dass der Remotecomputer über RPC erreichbar und ein beschre
   
     **Lösung**  
   
-    Befolgen Sie das Verfahren "So übertragen Sie die PDC-Emulatorrolle", wie in [2,4 beschrieben. Konfigurieren von GPOs @ no__t-0.  
+    Befolgen Sie das Verfahren "So übertragen Sie die PDC-Emulatorrolle" in [2,4. Konfigurieren Sie GPOs](assetId:///b1960686-a81e-4f48-83f1-cc4ea484df43#ConfigGPOs).  
   
 ## <a name="read-only-domain-controller"></a>Schreibgeschützter Domänencontroller  
-Der **Fehler wurde empfangen**. Der Domänen Controller < Domänencontroller > ist schreibgeschützt. Geben Sie einen Domänencontroller an, der nicht schreibgeschützt ist.  
+Der **Fehler wurde empfangen**. Der Domänen Controller < domain_controller > schreibgeschützt ist. Geben Sie einen Domänencontroller an, der nicht schreibgeschützt ist.  
   
 **Ursache**  
   
@@ -153,7 +153,7 @@ Bei der Verwendung von `Set-DAEntryPointDC` wird der *NewDC*-Parameter zum Aktua
   
 -   **Problem 1**  
   
-    Der **Fehler wurde empfangen**. Die GPO-< GPO_name > auf dem Domänen Controller < previous_domain_controller-> können nicht vom Domänen Controller < replacement_domain_controller > abgerufen werden, da Sie sich nicht in derselben Domäne befinden.  
+    Der **Fehler wurde empfangen**. Die GPO-< GPO_name > auf dem Domänen Controller < previous_domain_controller > nicht vom Domänen Controller < replacement_domain_controller > abgerufen werden kann, da Sie sich nicht in derselben Domäne befinden.  
   
     **Ursache**  
   
@@ -165,7 +165,7 @@ Bei der Verwendung von `Set-DAEntryPointDC` wird der *NewDC*-Parameter zum Aktua
   
 -   **Problem 2**  
   
-    Der **Fehler wurde empfangen**. Die GPO-< GPO_name > auf dem Domänen Controller < previous_domain_controller-> können nicht vom Domänen Controller < replacement_domain_controller > abgerufen werden. Warten Sie, bis die Domänenreplikation abgeschlossen ist, und wiederholen Sie den Vorgang.  
+    Der **Fehler wurde empfangen**. Die GPO-< GPO_name > auf dem Domänen Controller < previous_domain_controller > nicht vom Domänen Controller < replacement_domain_controller > abgerufen werden. Warten Sie, bis die Domänenreplikation abgeschlossen ist, und wiederholen Sie den Vorgang.  
   
     **Ursache**  
   
@@ -177,7 +177,7 @@ Bei der Verwendung von `Set-DAEntryPointDC` wird der *NewDC*-Parameter zum Aktua
   
 -   **Problem 3**  
   
-    Der **Fehler wurde empfangen**. Sie verfügen nicht über die erforderlichen Berechtigungen für den Zugriff auf GPO < GPO_name >.  
+    Der **Fehler wurde empfangen**. Sie verfügen nicht über die erforderlichen Berechtigungen für den Zugriff auf GPO-< GPO_name >.  
   
     **Ursache**  
   
@@ -188,7 +188,7 @@ Bei der Verwendung von `Set-DAEntryPointDC` wird der *NewDC*-Parameter zum Aktua
     Das GPO ist auf dem Domänencontroller vorhanden, kann aber nicht gelesen werden. Stellen Sie sicher, dass Sie über die erforderlichen Berechtigungen verfügen, und versuchen Sie es noch einmal.  
   
 ## <a name="entry-point-not-part-of-multisite-deployment"></a>Einstiegspunkt ist nicht Teil der Bereitstellung für mehrere Standorte  
-Der **Fehler wurde empfangen**. Der Einstiegspunkt < Einstiegspunktname > ist nicht Teil der Bereitstellung für mehrere Standorte. Geben Sie einen anderen Wert an.  
+Der **Fehler wurde empfangen**. Der Einstiegspunkt < entry_point_name > ist nicht Teil der Bereitstellung für mehrere Standorte. Geben Sie einen anderen Wert an.  
   
 **Ursache**  
   
@@ -202,7 +202,7 @@ Stellen Sie sicher, dass der Name des Einstiegspunkts richtig geschrieben ist un
   
 -   **Problem 1**  
   
-    Der **Fehler wurde empfangen**. Auf die Server < Servername-> im Einstiegspunkt < > Einstiegspunktname kann nicht zugegriffen werden.  
+    Der **Fehler wurde empfangen**. Server < server_name > im Einstiegspunkt, < entry_point_name > nicht darauf zugegriffen werden kann.  
   
     **Ursache**  
   
@@ -214,7 +214,7 @@ Stellen Sie sicher, dass der Name des Einstiegspunkts richtig geschrieben ist un
   
 -   **Problem 2**  
   
-    Der **Fehler wurde empfangen**. Die Einstellungen können nicht in der Registrierung auf dem Server < Servername > im Einstiegspunkt < Einstiegspunktname-> gespeichert werden.  
+    Der **Fehler wurde empfangen**. Die Einstellungen können nicht in der Registrierung auf dem Server < server_name > im Einstiegspunkt < entry_point_name > gespeichert werden.  
   
     **Ursache**  
   
@@ -226,7 +226,7 @@ Stellen Sie sicher, dass der Name des Einstiegspunkts richtig geschrieben ist un
   
 -   **Problem 3**  
   
-    Der **Fehler wurde empfangen**. GPO-Aktualisierungen können nicht auf < Servername-> angewendet werden. Die Änderungen werden erst nach der nächsten Richtlinienaktualisierung wirksam.  
+    Der **Fehler wurde empfangen**. GPO-Aktualisierungen können nicht auf < server_name > angewendet werden. Die Änderungen werden erst nach der nächsten Richtlinienaktualisierung wirksam.  
   
     **Ursache**  
   
@@ -237,7 +237,7 @@ Stellen Sie sicher, dass der Name des Einstiegspunkts richtig geschrieben ist un
     Alle Server, die nicht aktualisiert wurden, können mithilfe des **Konfigurationsstatus** im **DASHBOARD** der Remotezugriffs-Verwaltungskonsole angezeigt werden. Dieser Fehler verursacht keine Funktionsprobleme. Sie können jedoch auf allen nicht aktualisierten Servern `gpupdate /force` ausführen, damit der Konfigurationsstatus sofort aktualisiert wird.  
   
 ## <a name="problem-resolving-fqdn"></a>Problem bei der Auflösung des vollqualifizierten Domänennamens (FQDN)  
-Der **Fehler wurde empfangen**. Auf die Server < Servername-> im Einstiegspunkt < > Einstiegspunktname kann nicht zugegriffen werden.  
+Der **Fehler wurde empfangen**. Server < server_name > im Einstiegspunkt, < entry_point_name > nicht darauf zugegriffen werden kann.  
   
 **Ursache**  
   

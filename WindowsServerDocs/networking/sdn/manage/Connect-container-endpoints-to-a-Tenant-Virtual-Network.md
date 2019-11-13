@@ -22,7 +22,7 @@ ms.locfileid: "71355818"
 ---
 # <a name="connect-container-endpoints-to-a-tenant-virtual-network"></a>Verbinden von Containerendpunkten mit einem virtuellen Mandantennetzwerk
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema erfahren Sie, wie Sie Container Endpunkte mit einem vorhandenen virtuellen Mandanten Netzwerk verbinden, das über Sdn erstellt wurde. Sie verwenden den Netzwerktreiber *l2bridge* (und optional *l2tunnel*), der mit dem Windows libnetwork-Plug-in für docker verfügbar ist, um ein Container Netzwerk auf der Mandanten-VM zu erstellen.
 
@@ -45,7 +45,7 @@ Der Unterschied zwischen den *l2bridge* -und *l2tunnel* -Treibern lautet wie fol
 >Diese Netzwerk Modi können nicht zum Verbinden von Windows-Container Endpunkten mit einem virtuellen Mandanten Netzwerk in Azure Public Cloud verwendet werden.
 
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Voraussetzungen
 -  Eine bereitgestellte Sdn-Infrastruktur mit dem Netzwerk Controller.
 -  Ein virtuelles Mandanten Netzwerk wurde erstellt.
 -  Ein bereitgestellter virtueller Computer für einen Mandanten mit aktiviertem Windows-Container Feature, installiertem docker und aktiviertem Hyper-V-Feature. Das Hyper-V-Feature ist erforderlich, um mehrere Binärdateien für l2bridge-und l2tunnel-Netzwerke zu installieren.
@@ -61,12 +61,15 @@ Der Unterschied zwischen den *l2bridge* -und *l2tunnel* -Treibern lautet wie fol
 
 ## <a name="workflow"></a>Workflow
 
-[1. Hinzufügen mehrerer IP-Konfigurationen zu einer vorhandenen VM-NIC-Ressource über den Netzwerk Controller (Hyper-V-Host) ](#1-add-multiple-ip-configurations) @ no__t-1 @ no__t-22. Aktivieren Sie den Netzwerk Proxy auf dem Host, um ca-IP-Adressen für Container Endpunkte (Hyper-V-Host) ](#2-enable-the-network-proxy) @ no__t-1 @ no__t-23 zuzuordnen. Installieren Sie das Private Cloud-Plug-in zum Zuweisen von IP-Adressen der Zertifizierungsstelle zu Container Endpunkten (Container Host-VM) ](#3-install-the-private-cloud-plug-in) @ no__t-1 @ no__t-24. Erstellen eines *l2bridge* -oder *l2tunnel* -Netzwerks mithilfe von docker (Container Host-VM) ](#4-create-an-l2bridge-container-network)
+[1. Fügen Sie mithilfe des Netzwerk Controllers (Hyper-V-Host)
+2 mehrere IP-Konfigurationen zu einer vorhandenen VM-NIC-Ressource hinzu](#1-add-multiple-ip-configurations) . [ Aktivieren Sie den Netzwerk Proxy auf dem Host, um ca-IP-Adressen für Container Endpunkte (Hyper-V-Host)](#2-enable-the-network-proxy)
+[3 zuzuordnen. Installieren Sie das Private Cloud-Plug-in, um den Container Endpunkten (Container Host-VM)
+4 Zertifizierungsstellen-IP-Adressen zuzuweisen](#3-install-the-private-cloud-plug-in) [. Erstellen eines *l2bridge* -oder *l2tunnel* -Netzwerks mithilfe von docker (Container Host-VM)](#4-create-an-l2bridge-container-network)
 
 >[!NOTE]
 >Mehrere IP-Konfigurationen werden für VM-NIC-Ressourcen nicht unterstützt, die über System Center Virtual Machine Manager erstellt wurden Für diese Bereitstellungs Typen wird empfohlen, dass Sie die VM-NIC-Ressource mithilfe der Netzwerk Controller-PowerShell out-of-Band erstellen.
 
-### <a name="1-add-multiple-ip-configurations"></a>1. Mehrere IP-Konfigurationen hinzufügen
+### <a name="1-add-multiple-ip-configurations"></a>1. Hinzufügen von mehreren IP-Konfigurationen
 In diesem Schritt wird davon ausgegangen, dass die VM-NIC des virtuellen Mandanten Computers über eine IP-Konfiguration mit der IP-Adresse 192.168.1.9 verfügt und an die vnet-Ressourcen-ID "VNet1" und die VM-subnetzressource "Subnet1" im IP-Subnetz 192.168.1.0/24 angefügt ist. Wir fügen 10 IP-Adressen für Container aus 192.168.1.101-192.168.1.110 hinzu.
 
 ```powershell
@@ -126,7 +129,7 @@ Um den Netzwerk Proxy zu aktivieren, führen Sie das Skript " [konfigurierten](h
 PS C:\> ConfigureMCNP.ps1
 ```
 
-### <a name="3-install-the-private-cloud-plug-in"></a>3. Installieren des Plug-Ins für die Private Cloud
+### <a name="3-install-the-private-cloud-plug-in"></a>3. Installieren Sie das Private Cloud-Plug-in.
 In diesem Schritt installieren Sie ein Plug-in, um dem HNS die Kommunikation mit dem Netzwerk Proxy auf dem Hyper-V-Host zu ermöglichen.
 
 Um das Plug-in zu installieren, führen Sie das Skript " [installprivatecloudplugin. ps1](https://github.com/Microsoft/SDN/blob/master/Containers/InstallPrivateCloudPlugin.ps1) " auf dem **virtuellen Computer des Container Hosts (Mandant)** aus.
@@ -137,7 +140,7 @@ PS C:\> InstallPrivateCloudPlugin.ps1
 ```
 
 ### <a name="4-create-an-l2bridge-container-network"></a>4. Erstellen eines *l2bridge* -Container Netzwerks
-In diesem Schritt verwenden Sie den Befehl "`docker network create`" auf dem **virtuellen Computer des Container Hosts (Mandant)** , um ein l2bridge-Netzwerk zu erstellen. 
+In diesem Schritt verwenden Sie den Befehl `docker network create` auf dem **virtuellen Computer des Container Hosts (Tenant)** , um ein l2bridge-Netzwerk zu erstellen. 
 
 ```powershell
 # Create the container network

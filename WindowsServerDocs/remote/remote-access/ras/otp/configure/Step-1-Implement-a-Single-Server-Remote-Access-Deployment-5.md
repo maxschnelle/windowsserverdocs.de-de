@@ -21,7 +21,7 @@ ms.locfileid: "71404403"
 ---
 # <a name="step-1-implement-a-single-server-remote-access-deployment"></a>Schritt 1 Implementieren einer einzelnen Server Bereitstellung für den Remote Zugriff
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Der erste Konfigurationsschritt zum Bereitstellen des Remote Zugriffs mit OTP besteht darin, eine erweiterte Bereitstellung mit einem Server zu implementieren und dann das Hinzufügen des RADIUS-Servers zu planen.  
   
@@ -30,7 +30,7 @@ Bevor Sie den Remote Zugriff mit OTP konfigurieren können, müssen Sie eine erw
   
 ## <a name="BKMK_Links"></a>Siehe auch  
   
--   [Schritt 2: Konfigurieren des RADIUS-Servers @ no__t-0  
+-   [Schritt 2: Konfigurieren des RADIUS-Servers](Step-2-Configure-the-RADIUS-Server.md)  
   
 
 

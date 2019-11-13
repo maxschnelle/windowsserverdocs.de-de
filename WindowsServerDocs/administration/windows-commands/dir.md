@@ -38,21 +38,21 @@ dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|[\<laufwerk >:] [<Path>]|Gibt das Laufwerk und das Verzeichnis an, für die eine Auflistung angezeigt werden soll.|
-|[\<filename >]|Gibt eine bestimmte Datei oder Gruppe von Dateien an, für die eine Auflistung angezeigt werden soll.|
+|[\<Laufwerk >:] [<Path>]|Gibt das Laufwerk und das Verzeichnis an, für die eine Auflistung angezeigt werden soll.|
+|[\<Dateiname >]|Gibt eine bestimmte Datei oder Gruppe von Dateien an, für die eine Auflistung angezeigt werden soll.|
 |/p|Zeigt jeweils einen Bildschirm der Auflistung an. Drücken Sie eine beliebige Taste auf der Tastatur, um den nächsten Bildschirm anzuzeigen.|
 |/q|Zeigt Dateibesitz Informationen an.|
 |/w|Zeigt die Auflistung im breiten Format an, mit bis zu fünf Dateinamen oder Verzeichnisnamen in jeder Zeile.|
 |/d|Zeigt die Auflistung im gleichen Format wie **/w**an, aber die Dateien sind nach Spalte sortiert.|
-|/a [[:] \<attribute >]|Zeigt nur die Namen dieser Verzeichnisse und Dateien mit den von Ihnen angegebenen Attributen an. Wenn Sie **/a**weglassen, **werden** die Namen aller Dateien angezeigt, mit Ausnahme von ausgeblendeten Dateien und Systemdateien. Wenn Sie **/a** ohne Angabe von *Attributen*verwenden, werden in **dir** die Namen aller Dateien angezeigt, einschließlich ausgeblendeter Dateien und Systemdateien.</br>In der folgenden Liste werden die einzelnen Werte beschrieben, die Sie für *Attribute*verwenden können. Verwenden eines Doppelpunkts (:) ist optional. Verwenden Sie eine beliebige Kombination dieser Werte, und trennen Sie die Werte nicht durch Leerzeichen.</br>**d-** Verzeichnisse</br>ausgeblendete Dateien</br>**s** -System Dateien</br>**l** -Analyse Punkte</br>schreibgeschützte **r** -Dateien</br>**Dateien,** die für die Archivierung bereit sind</br>indizierte Dateien **sind nicht Inhalts**</br>**-** Präfix "Not"|
-|/o [[:] \<sortor >]|Sortiert die Ausgabe nach *sortor*, wobei es sich um eine beliebige Kombination der folgenden Werte handeln kann:</br>**n** nach Name (alphabetisch)</br>**e** nach Erweiterung (alphabetisch)</br>**g** Gruppen Verzeichnisse zuerst</br>**s** nach Größe (zuerst die kleinste)</br>**d** nach Datum/Uhrzeit (älteste erste)</br>**-** Präfix in umgekehrter Reihenfolge</br>Hinweis: Die Verwendung eines Doppelpunkts ist optional. Mehrere Werte werden in der Reihenfolge verarbeitet, in der Sie Sie auflisten. Trennen Sie mehrere Werte nicht durch Leerzeichen.</br>Wenn *SortOrder* nicht angegeben wird, listet **dir/o** die Verzeichnisse in alphabetischer Reihenfolge auf, gefolgt von den Dateien, die auch in alphabetischer Reihenfolge sortiert sind.|
-|/t [[:] \<timefield >]|Gibt an, welches Zeit Feld angezeigt oder für die Sortierung verwendet werden soll. In der folgenden Liste werden die einzelnen Werte beschrieben, die Sie für *TimeField*verwenden können:</br>**c** -Erstellung</br>**Letzter Zugriff**</br>**w** zuletzt geschrieben|
+|/a [[:]\<Attribute >]|Zeigt nur die Namen dieser Verzeichnisse und Dateien mit den von Ihnen angegebenen Attributen an. Wenn Sie **/a**weglassen, **werden** die Namen aller Dateien angezeigt, mit Ausnahme von ausgeblendeten Dateien und Systemdateien. Wenn Sie **/a** ohne Angabe von *Attributen*verwenden, werden in **dir** die Namen aller Dateien angezeigt, einschließlich ausgeblendeter Dateien und Systemdateien.</br>In der folgenden Liste werden die einzelnen Werte beschrieben, die Sie für *Attribute*verwenden können. Verwenden eines Doppelpunkts (:) ist optional. Verwenden Sie eine beliebige Kombination dieser Werte, und trennen Sie die Werte nicht durch Leerzeichen.</br>**d-** Verzeichnisse</br>ausgeblendete Dateien</br>**s** -System Dateien</br>**l** -Analyse Punkte</br>schreibgeschützte **r** -Dateien</br>**Dateien,** die für die Archivierung bereit sind</br>indizierte Dateien **sind nicht Inhalts**</br>**-** Präfix "Not"|
+|/o [[:]\<sortor der->]|Sortiert die Ausgabe nach *sortor*, wobei es sich um eine beliebige Kombination der folgenden Werte handeln kann:</br>**n** nach Name (alphabetisch)</br>**e** nach Erweiterung (alphabetisch)</br>**g** Gruppen Verzeichnisse zuerst</br>**s** nach Größe (zuerst die kleinste)</br>**d** nach Datum/Uhrzeit (älteste erste)</br>**-** Präfix in umgekehrter Reihenfolge</br>Hinweis: die Verwendung eines Doppelpunkts ist optional. Mehrere Werte werden in der Reihenfolge verarbeitet, in der Sie Sie auflisten. Trennen Sie mehrere Werte nicht durch Leerzeichen.</br>Wenn *SortOrder* nicht angegeben wird, listet **dir/o** die Verzeichnisse in alphabetischer Reihenfolge auf, gefolgt von den Dateien, die auch in alphabetischer Reihenfolge sortiert sind.|
+|/t [[:]\<TimeField >]|Gibt an, welches Zeit Feld angezeigt oder für die Sortierung verwendet werden soll. In der folgenden Liste werden die einzelnen Werte beschrieben, die Sie für *TimeField*verwenden können:</br>**c** -Erstellung</br>**Letzter Zugriff**</br>**w** zuletzt geschrieben|
 |/s|Listet jedes Vorkommen des angegebenen Datei namens innerhalb des angegebenen Verzeichnisses und aller Unterverzeichnisse auf.|
 |/b|Zeigt eine leere Liste von Verzeichnissen und Dateien ohne zusätzliche Informationen an. **/b** überschreibt **/w**.|
 |/l|Zeigt unsortierte Verzeichnisnamen und Dateinamen in Kleinbuchstaben an.|
 |/n|Zeigt ein langes Listenformat mit Dateinamen ganz rechts auf dem Bildschirm an.|
 |/x|Zeigt die Kurznamen an, die für nicht-8dot3-Dateinamen generiert wurden. Die Anzeige ist identisch mit der Anzeige für **/n**, aber der Kurzname wird vor dem langen Namen eingefügt.|
-|/c|Zeigt das Tausender Trennzeichen in Dateigrößen an. Dies ist das Standardverhalten. Verwenden Sie **/-c** , um Trennzeichen auszublenden.|
+|/c|Zeigt das Tausender Trennzeichen in Dateigrößen an. Hierbei handelt es sich um das standardmäßige Verhalten. Verwenden Sie **/-c** , um Trennzeichen auszublenden.|
 |/4|Zeigt Jahre im vierstelligen Format an.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
@@ -62,9 +62,9 @@ dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>
 - Sie können Platzhalter Zeichen ( **&#42;** oder **?** ) verwenden, um ein oder mehrere Zeichen eines Datei namens darzustellen und eine Teilmenge von Dateien oder Unterverzeichnissen anzuzeigen.
 
   **Sternchen (\*):** Verwenden Sie das Sternchen als Ersatz für eine beliebige Zeichenfolge, z. b.:  
-  - **dir @no__t " -1. txt** " listet alle Dateien im aktuellen Verzeichnis mit Erweiterungen auf, die mit ". txt" beginnen, z. b. txt,. txt1,. txt_old.
-  - **dir Read\*.txt** listet alle Dateien im aktuellen Verzeichnis auf, die mit "Read" beginnen, und mit Erweiterungen, die mit ". txt" beginnen, z. b. txt,. txt1 oder. txt_old.
-  - **dir Read @ no__t-1. \\** * listet alle Dateien im aktuellen Verzeichnis auf, die mit "Read" mit einer beliebigen Erweiterung beginnen.
+  - **dir \*. txt** listet alle Dateien im aktuellen Verzeichnis mit Erweiterungen auf, die mit ". txt" beginnen, z. b. txt,. txt1,. txt_old.
+  - **dir Read\*. txt** listet alle Dateien im aktuellen Verzeichnis auf, die mit "Read" beginnen, und mit Erweiterungen, die mit ". txt" beginnen, z. b. txt,. txt1 oder. txt_old.
+  - **dir Read\*.\\** * listet alle Dateien im aktuellen Verzeichnis auf, die mit "Read" mit einer beliebigen Erweiterung beginnen.
 
   Der Platzhalter Platzhalter verwendet immer eine kurze Zuordnung von Dateinamen, sodass Sie möglicherweise unerwartete Ergebnisse erhalten. Das folgende Verzeichnis enthält z. b. zwei Dateien (t. txt2 und T97. txt): 
  
@@ -81,7 +81,7 @@ dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>
   11/30/2004  01:16 PM 0 t97.txt
   ```  
 
-  Sie erwarten möglicherweise, dass die Eingabe von **dir T97 @ no__t-1*** die Datei T97. txt zurückgibt. Bei der Eingabe von **dir T97 @ no__t-1*** werden jedoch beide Dateien zurückgegeben, da das Sternchen-Platzhalter Zeichen mit der Kurznamen Zuordnung T97B4 ~ 1. txt mit der Datei t. txt2 und T97. txt übereinstimmt. Entsprechend werden bei der Eingabe von **del T97 @ no__t-1*** beide Dateien gelöscht.
+  Sie erwarten möglicherweise, dass die Eingabe von **dir T97\\** * die Datei T97. txt zurückgibt. Bei der Eingabe von **dir T97\\** * werden jedoch beide Dateien zurückgegeben, da das Sternchen-Platzhalter Zeichen mit der Kurznamen Zuordnung T97B4 ~ 1. txt mit der Datei t. txt2 zu T97. txt übereinstimmt. Ebenso werden bei der Eingabe von **del T97\\** * beide Dateien gelöscht.
 
   **Fragezeichen (?):** Verwenden Sie das Fragezeichen als Ersatz für ein einzelnes Zeichen in einem Namen. Geben Sie z. b. **dir Read???. txt** listet alle Dateien im aktuellen Verzeichnis mit der Erweiterung ". txt" auf, die mit "Read" beginnen und bis zu drei Zeichen gefolgt sind. Hierzu gehören Read. txt, Read1. txt, Read12. txt, Read123. txt und Readme1. txt, jedoch nicht Readme12. txt.
 - Angeben von Datei Anzeige Attributen
@@ -89,7 +89,7 @@ dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>
   Wenn Sie **/a** mit mehr als einem Wert in *Attributen* **verwenden, werden** nur die Namen der Dateien mit allen angegebenen Attributen angezeigt. Wenn Sie z. b. **/a** mit **r** und **-h** als Attribute verwenden (entweder mithilfe von **/a: r-h** oder **/AR-h**), werden in **dir** nur die Namen der schreibgeschützten Dateien angezeigt, die nicht ausgeblendet sind.
 - Angeben der Dateinamen Sortierung
 
-  Wenn Sie mehr als einen *sortor* -Wert angeben, sortiert **dir** die Dateinamen nach dem ersten Kriterium, dann nach dem zweiten Kriterium usw. Wenn Sie z. b. **/o** mit den **e** -und **-s-** Werten für *SortOrder* verwenden (entweder mithilfe von **/o: e-s** oder **/OE-s**), sortiert **dir** die Namen von Verzeichnissen und Dateien nach Erweiterung mit dem größten ersten und dann zeigt das Endergebnis an. Die alphabetische Sortierung nach Erweiterung bewirkt, dass Dateinamen ohne Erweiterungen zuerst angezeigt werden, dann Verzeichnisnamen und dann Dateinamen mit Erweiterungen.
+  Wenn Sie mehr als einen *sortor* -Wert angeben, sortiert **dir** die Dateinamen nach dem ersten Kriterium, dann nach dem zweiten Kriterium usw. Wenn Sie z. b. **/o** mit den **e** -und **-s-** Werten für *SortOrder* (mithilfe von **/o: e-s** oder **/OE-s**) verwenden, sortiert **dir** die Namen von Verzeichnissen und Dateien nach Erweiterung mit dem größten ersten und zeigt dann das Endergebnis an. Die alphabetische Sortierung nach Erweiterung bewirkt, dass Dateinamen ohne Erweiterungen zuerst angezeigt werden, dann Verzeichnisnamen und dann Dateinamen mit Erweiterungen.
 - Verwenden von Umleitungs Symbolen und Pipes
 
   Wenn Sie das Umleitungs Symbol ( **>** ) verwenden, um die **dir** -Ausgabe an eine Datei oder eine Pipe ( **|** ) zu senden, um die **dir** -Ausgabe an einen anderen Befehl zu senden, verwenden Sie **/a:-d** und **/b** , um nur die Dateinamen aufzulisten. Sie können *filename* mit **/b** und **/s** verwenden, um anzugeben, dass **dir** das aktuelle Verzeichnis und seine Unterverzeichnisse nach allen Dateinamen durchsuchen soll, die dem *Datei*Namen entsprechen. **Dir** listet nur den Laufwerk Buchstaben, den Verzeichnisnamen, den Dateinamen und die Dateinamenerweiterung (ein Pfad pro Zeile) für jeden gefundenen Dateinamen auf. Bevor Sie eine Pipe verwenden, um die **dir** -Ausgabe an einen anderen Befehl zu senden, sollten Sie die Temp-Umgebungsvariable in der Datei "Autoexec. NT" festlegen.

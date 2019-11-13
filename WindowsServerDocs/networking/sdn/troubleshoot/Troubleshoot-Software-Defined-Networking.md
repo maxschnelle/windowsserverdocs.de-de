@@ -17,7 +17,7 @@ ms.locfileid: "71405825"
 ---
 # <a name="troubleshoot-sdn"></a>Problembehandlung für SDN
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Die Themen in diesem Abschnitt enthalten Informationen zur Problembehandlung der Sdn-Technologien (Software Defined Networking), die in Windows Server 2016 enthalten sind.
 
@@ -33,7 +33,7 @@ Die Themen in diesem Abschnitt enthalten Informationen zur Problembehandlung der
 In diesem Abschnitt werden die folgenden Themen behandelt:
 
 - [Problembehandlung für Windows Server-Software Defined Networking-Stapel](https://docs.microsoft.com/windows-server/networking/sdn/troubleshoot/troubleshoot-windows-server-software-defined-networking-stack)
-- Blog Beitrag [sdn-Problembehandlung: UDP-Kommunikationsfehler und Ändern des Netzwerk Controller Zertifikats @ no__t-0
+- Blog Beitrag [zur Problembehandlung von SDN: UDP-Kommunikationsfehler und Ändern des Netzwerk Controller Zertifikats](https://techcommunity.microsoft.com/t5/Networking-Blog/SDN-Troubleshooting-UDP-Communication-failures-and-changing-the/ba-p/339694)
 - Blog Beitrag [zur Problembehandlung von Zertifikat Problemen in Software-Defined Networking (SDN)](https://techcommunity.microsoft.com/t5/Networking-Blog/Troubleshooting-certificate-issues-in-Software-Defined/ba-p/339671)
 - Blog Beitrag [Suchen der lokalen Adresse des SDN-Gateways für BGP-Peering in Windows Server 2016](https://techcommunity.microsoft.com/t5/Networking-Blog/How-to-find-the-SDN-gateway-local-address-for-BGP-peering-in/ba-p/339663)
 - Blog Beitrag Problembehandlung [bei der Konfiguration der Einstellungen für die Konfiguration des SDN RAS-Gateways in Virtual Machine Manager](https://techcommunity.microsoft.com/t5/Networking-Blog/Troubleshoot-Configuring-SDN-RAS-Gateway-VPN-Bandwidth-Settings/ba-p/339661)

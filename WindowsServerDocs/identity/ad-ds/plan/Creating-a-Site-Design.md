@@ -18,7 +18,7 @@ ms.locfileid: "71402740"
 ---
 # <a name="creating-a-site-design"></a>Erstellen eines Standortentwurfs
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Das Erstellen eines Standort Entwurfs umfasst die Entscheidung, welche Standorte zu Standorten werden, das Erstellen von Standort Objekten, das Erstellen von Subnetzobjekten und das Zuordnen der Subnetze zu Standorten.  
   
@@ -34,7 +34,7 @@ Entscheiden Sie, für welche Standorte Standorte erstellt werden sollen, wie fol
 
 - Wenn ein Standort für einen Standort nicht erforderlich ist, fügen Sie das Subnetz des Standorts einem Standort hinzu, für den der Standort über die maximale WAN-Geschwindigkeit (Wide Area Network) und die verfügbare Bandbreite verfügt.  
   
-Dokument Speicherorte, die zu Standorten werden, sowie die Netzwerkadressen und Subnetzmasken innerhalb der einzelnen Standorte. Ein Arbeitsblatt, das Sie beim Dokumentieren von Websites unterstützt, finden Sie unter [Auftrags Hilfen für Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), Herunterladen von Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip und Öffnen von "Zuordnen von Subnetzen zu Standorten" (DSSTOPO_6. doc).  
+Dokument Speicherorte, die zu Standorten werden, sowie die Netzwerkadressen und Subnetzmasken innerhalb der einzelnen Standorte. Ein Arbeitsblatt, das Sie beim Dokumentieren von Websites unterstützt, finden Sie unter [Auftrags Hilfen für das Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), Herunterladen von Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip und Öffnen von "Zuordnen von Subnetzen zu Standorten" (DSSTOPO_6. doc).  
   
 ## <a name="creating-a-site-object-design"></a>Erstellen eines Standort Objekt Entwurfs
 
@@ -46,8 +46,8 @@ Weitere Informationen zum Erstellen von Standort Objekten finden Sie im Artikel 
 
 Planen Sie für jedes IP-Subnetz und jede Subnetzmaske, die jedem Standort zugeordnet ist, die Erstellung von Subnetzobjekten in AD DS, die alle IP-Adressen innerhalb des Standorts darstellen.  
   
-Beim Erstellen eines Active Directory Subnetzobjekts werden die Informationen über das Netzwerk-IP-Subnetz und die Subnetzmaske automatisch in das Format der Länge der Netzwerk Präfix Länge <IP address> @ no__t-1 @ no__t-2 übersetzt. Beispielsweise wird die IPv4-Adresse (Network IP Version 4) 172.16.4.0 mit einer Subnetzmaske 255.255.252.0 als 172.16.4.0/22 angezeigt. Zusätzlich zu IPv4-Adressen unterstützt Windows Server 2008 auch IPv6-Subnetzpräfixe (IP Version 6), beispielsweise 3FFE: FFFF: 0: C000::/64. Weitere Informationen zu IP-Subnetzen an jedem Standort finden Sie im Arbeitsblatt "Standorte und Subnetze" (DSSTOPO_2. doc) unter [Sammeln von Netzwerkinformationen](../../ad-ds/plan/Collecting-Network-Information.md) und [Anhang A: Speicherorte und Subnetzpräfixe @ no__t-0.  
+Beim Erstellen eines Active Directory Subnetzobjekts werden die Informationen über das Netzwerk-IP-Subnetz und die Subnetzmaske automatisch in das Format der Netzwerk Präfix-Längen Notation <IP address>/<prefix length>übersetzt. Beispielsweise wird die IPv4-Adresse (Network IP Version 4) 172.16.4.0 mit einer Subnetzmaske 255.255.252.0 als 172.16.4.0/22 angezeigt. Zusätzlich zu IPv4-Adressen unterstützt Windows Server 2008 auch IPv6-Subnetzpräfixe (IP Version 6), beispielsweise 3FFE: FFFF: 0: C000::/64. Weitere Informationen zu IP-Subnetzen an jedem Standort finden Sie im Arbeitsblatt "Standorte und Subnetze" (DSSTOPO_2. doc) unter [Erfassen von Netzwerkinformationen](../../ad-ds/plan/Collecting-Network-Information.md) und [Anhang A: Standorte und Subnetzpräfixe](Appendix-A--Locations-and-Subnet-Prefixes.md).  
   
-Ordnen Sie jedes Subnetzobjekt einem Standort Objekt zu, indem Sie im Abschnitt "Zuordnen von Subnetzen zu Standorten" (DSSTOPO_6. doc) im Abschnitt "festlegen, welche Standorte zu Standorten werden" festlegen, welches Subnetz mit welcher Website verknüpft werden soll. Dokumentieren Sie das Active Directory Subnetzobjekt, das jedem Standort im Arbeitsblatt "Zuordnen von Subnetzen zu Standorten (DSSTOPO_6. doc)" zugeordnet ist.  
+Ordnen Sie jedes Subnetzobjekt einem Standort Objekt zu, indem Sie im Abschnitt "Zuordnen von Subnetzen zu Standorten" (DSSTOPO_6. doc) im Abschnitt "festlegen, welche Standorte zu Standorten werden" festlegen, welches Subnetz mit welcher Website verknüpft werden soll. Dokumentieren Sie das Active Directory Subnetzobjekt, das jedem Standort im Arbeitsblatt "Zuordnen von Subnetzen zu Standorten" (DSSTOPO_6. doc) zugeordnet ist.  
   
 Weitere Informationen zum Erstellen von Subnetzobjekten finden Sie im Artikel [Erstellen eines Subnetzes](https://go.microsoft.com/fwlink/?LinkId=107068).

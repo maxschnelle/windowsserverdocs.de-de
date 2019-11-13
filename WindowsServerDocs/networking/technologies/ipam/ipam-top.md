@@ -21,7 +21,7 @@ ms.locfileid: "71401909"
 ---
 # <a name="ip-address-management-ipam"></a>IP-Adressverwaltung (IPAM)
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Die IP-Adressverwaltung (IP Address Management, IPAM) ist eine integrierte Suite von Tools, mit denen Sie die durchgängige Planung, Bereitstellung, Verwaltung und Überwachung Ihrer IP-Adressen Infrastruktur mit einer umfassenden Benutzer Leistung ermöglichen können. IPAM ermittelt IP-Adresseninfrastrukturserver und DNS-Server in Ihrem Netzwerk automatisch und ermöglicht Ihnen, sie auf einer zentralen Oberfläche zu verwalten.  
   
@@ -31,4 +31,4 @@ Die IP-Adressverwaltung (IP Address Management, IPAM) ist eine integrierte Suite
 > -   [Neues in IPAM](../../technologies/ipam/What-s-New-in-IPAM.md)  
 > -   [Verwalten von IPAM](../../technologies/ipam/Manage-IPAM.md)  
 > -   [Cmdlets für IPAM-Server (IP Address Management, IP-Adressverwaltung) in Windows PowerShell](https://technet.microsoft.com/library/jj553807.aspx)  
-> -   Video: [windows Server 2016: DNS-Verwaltung in IPAM @ no__t-0  
+> -   Video: [Windows Server 2016: DNS-Verwaltung in IPAM](https://channel9.msdn.com/Blogs/windowsserver/Windows-Server-2016-DNS-management-in-IPAM)  

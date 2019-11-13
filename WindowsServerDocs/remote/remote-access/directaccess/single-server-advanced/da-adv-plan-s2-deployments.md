@@ -21,7 +21,7 @@ ms.locfileid: "71404927"
 ---
 # <a name="step-2-plan-advanced-directaccess-deployments"></a>Schritt 2 Planen von erweiterten DirectAccess-bereit Stellungen
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Nach der Planung der DirectAccess-Infrastruktur besteht der nächste Schritt der Bereitstellung des erweiterten DirectAccess auf einem einzelnen Server mit IPv4 und IPv6 darin, die Einstellungen für den Remotezugriffs-Setup-Assistenten vorzunehmen.  
   
@@ -138,7 +138,7 @@ Standardmäßig wird bei der Erweiterung der Authentifizierung auf Anwendungsser
 ## <a name="25-plan-directaccess-and-third-party-vpn-clients"></a>2.5 Planen von DirectAccess und VPN-Clients von Drittanbietern  
 Einige VPN-Clients von Drittanbietern erstellen im Ordner Netzwerkverbindungen keine Verbindungen. Dies kann dazu führen, dass DirectAccess keine Intranetkonnektivität erkennt, wenn die VPN-Verbindung hergestellt ist und eine Verbindung zum Intranet besteht. Diese Bedingung tritt auf, wenn VPN-Clients von Drittanbietern ihre Schnittstellen registrieren, indem sie diese als (NDIS) ENDPOINT-Typen (Network Device Interface Specification) definieren. Sie können die gleichzeitige Verwendung dieser VPN-Clienttypen aktivieren, indem Sie den folgenden Registrierungswert auf 1 festlegen.  
   
-**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\NlaSvc\Parameters\ShowDomainEndpointInterfaces (REG_DWORD)**  
+**HKEY_LOCAL_MACHINE \system\currentcontrolset\services\nlasvc\parameters\showdomainendpointinterfaces (REG_DWORD)**  
   
 Einige VPN-Clients von Drittanbietern verwenden eine Konfiguration mit geteiltem Tunneln, sodass der VPN-Clientcomputer direkt auf das Internet zugreifen kann, ohne den Datenverkehr über die VPN-Verbindung an das Intranet senden zu müssen.  
   
@@ -146,11 +146,11 @@ Bei Konfigurationen mit geteiltem Tunneln wird die Standardgatewayeinstellung f�
   
 Wenn die VPN-Verbindung das Standardgateway als leer oder nur Nullen (0.0.0.0) anzeigt, ist Ihr  VPN-Client entsprechend konfiguriert. Standardmäßig erkennt der DirectAccess-Client geteilte Tunnelkonfigurationen nicht. Um DirectAccess-Clients für eine Erkennung dieser VPN-Clientkonfigurationstypen zu konfigurieren, müssen Sie den folgenden Registrierungswert auf 1 festlegen.  
   
-**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\NlaSvc\Parameters\Internet\ enablenogatewaylocationerkennungs (REG_DWORD)**  
+**HKEY_LOCAL_MACHINE \system\currentcontrolset\services\nlasvc\parameters\internet\ enablenogatewaylocationerkennungs (REG_DWORD)**  
   
 ## <a name="previous-step"></a>Vorheriger Schritt  
   
--   [Schritt 1: Planen der DirectAccess-Infrastruktur @ no__t-0  
+-   [Schritt 1: Planen der DirectAccess-Infrastruktur](da-adv-plan-s1-infrastructure.md)  
   
 
 

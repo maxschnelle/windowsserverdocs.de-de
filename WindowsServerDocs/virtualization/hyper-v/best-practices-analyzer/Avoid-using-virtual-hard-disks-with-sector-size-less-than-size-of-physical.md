@@ -36,11 +36,11 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
 *Mindestens eine virtuelle Festplatte verfügt über eine physische Sektorgröße, die kleiner ist als die physische Sektorgröße des Speichers, in dem sich die Datei der virtuellen Festplatte befindet.*  
   
 ## <a name="impact"></a>**Auswirkt**  
-auf dem virtuellen Computer oder der Anwendung, die die virtuelle Festplatte verwenden, können @no__t 0leistungs Probleme auftreten. Dies wirkt sich auf die folgenden virtuellen Computer aus: *  
+*Auf dem virtuellen Computer oder der Anwendung, die die virtuelle Festplatte verwenden, können Leistungsprobleme auftreten. Dies wirkt sich auf die folgenden virtuellen Computer aus:*  
   
-\<list of Virtual Machines >  
+\<Liste der virtuellen Computer >  
   
-## <a name="resolution"></a>**Auflösung**  
+## <a name="resolution"></a>**Lösung**  
 *Führen Sie einen der folgenden Schritte aus:*  
   
 -   *Durchführen einer Speicher Migration zum Verschieben der virtuellen Festplatte in ein neues physisches System*  

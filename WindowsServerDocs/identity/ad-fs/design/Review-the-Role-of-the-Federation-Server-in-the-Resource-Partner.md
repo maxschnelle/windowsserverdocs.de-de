@@ -18,16 +18,16 @@ ms.locfileid: "71358966"
 ---
 # <a name="review-the-role-of-the-federation-server-in-the-resource-partner"></a>Überprüfen der Rolle des Verbundservers beim Ressourcenpartner
 
-Der Verbund Server in der Ressourcen Partnerorganisation fängt eingehende Sicherheits Token ab, die von einem Konto Verbund Server gesendet werden, überprüft und signiert Sie und gibt dann eigene Sicherheits Token aus, die für die Web @ no__t-0based-Anwendung bestimmt sind. .  
+Der Verbund Server in der Ressourcen Partnerorganisation fängt eingehende Sicherheits Token ab, die von einem Konto Verbund Server gesendet werden, überprüft und signiert Sie und gibt dann eigene Sicherheits Token aus, die für die auf Web\-basierende Anwendung bestimmt sind.  
   
 > [!NOTE]  
-> Wenn Verbund Benutzer mit ihren Webbrowsern auf Web @ no__t-0basierte Anwendungen zugreifen, erstellt der Verbund Server in der Ressourcen Partnerorganisation ein neues Authentifizierungs Cookie und schreibt es in den Browser. Dieses Cookie aktiviert das einmalige @ no__t-0sign @ no__t-1On \(sso @ no__t-3-Funktionen, damit Benutzer sich nicht erneut beim Verbund Server beim Konto Partner anmelden müssen, wenn die Benutzer versuchen, auf verschiedene Web @ no__t-4based-Anwendungen in der Ressource zuzugreifen. Partners.  
+> Wenn Verbund Benutzer Ihren Webbrowser verwenden, um auf Web\-basierte Anwendungen zuzugreifen, erstellt der Verbund Server in der Ressourcen Partnerorganisation ein neues Authentifizierungs Cookie und schreibt es in den Browser. Dieses Cookie ermöglicht das einmalige\-Signieren\-auf \(SSO-\) Funktionen, sodass Benutzer sich nicht erneut beim Verbund Server des Konto Partners anmelden müssen, wenn die Benutzer versuchen, auf verschiedene auf Web\-basierende Anwendungen im Ressourcen Partner zuzugreifen.  
   
 Im Web-SSO-Entwurf muss mindestens ein Verbund Server im Umkreis Netzwerk installiert sein. Im Federated-Web-SSO-Entwurf muss mindestens ein Verbund Server im Unternehmensnetzwerk der Konto Partnerorganisation und mindestens ein Verbund Server im Unternehmensnetzwerk der Ressourcen Partnerorganisation installiert sein.  
   
 > [!NOTE]  
-> Vor dem Einrichten eines Verbund Server Computers in der Ressourcen Partnerorganisation müssen Sie den Computer zunächst einer beliebigen Active Directory Domäne in der Ressourcen Partnerorganisation hinzufügen. Weitere Informationen finden Sie unter [checkliste: Einrichten eines Verbund Servers @ no__t-0.  
+> Vor dem Einrichten eines Verbund Server Computers in der Ressourcen Partnerorganisation müssen Sie den Computer zunächst einer beliebigen Active Directory Domäne in der Ressourcen Partnerorganisation hinzufügen. Weitere Informationen finden Sie unter [Checklist: Setting Up a Federation Server](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server.md).  
   
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 [AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
 

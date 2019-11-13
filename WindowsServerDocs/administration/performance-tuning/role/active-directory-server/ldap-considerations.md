@@ -47,12 +47,12 @@ Indizierungs Attribute sind bei der Suche nach Objekten mit dem Attributnamen in
 
 - Große Mengen von Abfragen mit hoher Dauer führen zu einer Auslastung und Erschöpfung von ATQ-LDAP-Threads. Überwachen Sie die folgenden Leistungsindikatoren:
 
-    - **NTDS @ no__t-1 Anforderungs Latenz** – dies hängt davon ab, wie lange die Anforderung verarbeitet werden muss. Bei der Active Directory von Anforderungen nach 120 Sekunden (Standard) werden die meisten Anforderungen deutlich schneller ausgeführt, und extrem lange ausgestellte Abfragen sollten in den Gesamtzahlen ausgeblendet werden. Suchen Sie anstelle absoluter Schwellenwerte nach Änderungen in dieser Baseline.
+    - **NTDS-\\Anforderungs** Wartezeit – dies hängt davon ab, wie lange die Anforderung verarbeitet werden muss. Bei der Active Directory von Anforderungen nach 120 Sekunden (Standard) werden die meisten Anforderungen deutlich schneller ausgeführt, und extrem lange ausgestellte Abfragen sollten in den Gesamtzahlen ausgeblendet werden. Suchen Sie anstelle absoluter Schwellenwerte nach Änderungen in dieser Baseline.
 
         > [!NOTE]
         > Hohe Werte können auch Indikatoren von Verzögerungen bei "Proxy Anforderungen" an andere Domänen und CRL-Überprüfungen sein.
 
-    - **NTDS @ no__t-1 geschätzte Warteschlangen Verzögerung** – dies sollte idealerweise fast 0 sein, um eine optimale Leistung zu erzielen. Dies bedeutet, dass Anforderungen keine Zeit haben, gewartet zu werden.
+    - **NTDS\\geschätzte Warteschlangen Verzögerung** – dies sollte idealerweise fast 0 sein, um eine optimale Leistung zu erzielen. Dies bedeutet, dass Anforderungen keinen Zeitaufwand haben, gewartet zu werden.
 
 Diese Szenarien können mithilfe eines oder mehrerer der folgenden Ansätze erkannt werden:
 
@@ -60,11 +60,11 @@ Diese Szenarien können mithilfe eines oder mehrerer der folgenden Ansätze erka
 
 -   [Nachverfolgen von teuren und ineffizienten suchen](https://msdn.microsoft.com/library/ms808539.aspx)
 
--   Active Directory Diagnosedaten Sammler Satz im System Monitor ([son von Spa: AD Data Collector Sets in Win2008 und Beyond @ no__t-0)
+-   Active Directory Diagnosedaten Sammler Satz im System Monitor ([Son of Spa: AD Data Collector Sets in Win2008 und Beyond](http://blogs.technet.com/b/askds/archive/2010/06/08/son-of-spa-ad-data-collector-sets-in-win2008-and-beyond.aspx))
 
 -   [Microsoft Server Performance Advisor](../../../server-performance-advisor/microsoft-server-performance-advisor.md) Active Directory Advisor-Paket
 
--   Sucht mithilfe eines beliebigen Filters neben "(objectClass = \*)", die den Vorgänger Index verwenden.
+-   Sucht mit einem beliebigen Filter neben "(objectClass =\*)", der den Vorgänger Index verwendet.
 
 ### <a name="other-index-considerations"></a>Weitere Überlegungen zum Index
 
@@ -80,11 +80,11 @@ Diese Szenarien können mithilfe eines oder mehrerer der folgenden Ansätze erka
 
 -   Tupelindizes sind erforderlich, um mediale Such Zeichenfolgen und abschließende Such Zeichenfolgen zu unterstützen. Tupelindizes werden für die ersten Such Zeichenfolgen nicht benötigt.
 
-    -   Anfängliche Such Zeichenfolge – (sAMAccountName = MyPC @ no__t-0)
+    -   Anfängliche Such Zeichenfolge – (sAMAccountName = MyPC\*)
 
-    -   Mediale Such Zeichenfolge-(sAMAccountName = \*mypc @ no__t-1)
+    -   Mediale Such Zeichenfolge-(sAMAccountName =\*MyPC\*)
 
-    -   Abschließende Such Zeichenfolge – (sAMAccountName = \*mypc $)
+    -   Abschließende Such Zeichenfolge – (sAMAccountName =\*MyPC $)
 
 -   Beim Erstellen eines Indexes werden Datenträger-e/a generiert, während der Index erstellt wird. Dies erfolgt in einem Hintergrund Thread mit niedrigerer Priorität, und eingehende Anforderungen werden über den indexbuild priorisiert. Wenn die Kapazitätsplanung für die Umgebung ordnungsgemäß durchgeführt wurde, sollte dies transparent sein. Schreib intensive Szenarien oder eine Umgebung, in der die Auslastung des Domänen Controller Speichers unbekannt ist, könnten die Client Umgebung beeinträchtigen und sollten außerhalb der Geschäftszeiten ausgeführt werden.
 
@@ -98,10 +98,10 @@ Weitere Informationen finden Sie in den folgenden Bereichen:
 
 -   [Indizierte Attribute](https://msdn.microsoft.com/library/windows/desktop/ms677112.aspx)
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 - [Leistungsoptimierung Active Directory Server](index.md)
-- [Hardwareaspekte](hardware-considerations.md)
+- [Überlegungen zur Hardware](hardware-considerations.md)
 - [Ordnungsgemäße Platzierung von Domänencontrollern und Überlegungen zum Standort](site-definition-considerations.md)
 - [Problembehandlung bezüglich der ADDS-Leistung](troubleshoot.md) 
 - [Kapazitätsplanung für Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566)

@@ -21,9 +21,9 @@ ms.locfileid: "71404888"
 ---
 # <a name="step-1-complete-the-directaccess-configuration"></a>Schritt 1 vervollständigen der DirectAccess-Konfiguration
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-Der erste Schritt besteht darin, alle Schritte in der [-Test Umgebungs Anleitung auszuführen: Veranschaulichen der Einrichtung eines einzelnen Servers für DirectAccess mit gemischtem IPv4 und IPv6 @ no__t-0. Wenn Sie die Schritte in dieser Test Umgebungs Anleitung bereits ausgeführt und eine Momentaufnahme oder ein Datenträger Image der Testumgebung gespeichert haben, können Sie die Momentaufnahme oder das Image wiederherstellen und mit dem nächsten Schritt beginnen.  
+Der erste Schritt besteht darin, alle Schritte in der [Test Umgebungs Anleitung zum Veranschaulichen der Einrichtung eines einzelnen Servers mit gemischtem IPv4 und IPv6](https://go.microsoft.com/fwlink/p/?LinkId=237004)auszuführen. Wenn Sie die Schritte in dieser Test Umgebungs Anleitung bereits ausgeführt und eine Momentaufnahme oder ein Datenträger Image der Testumgebung gespeichert haben, können Sie die Momentaufnahme oder das Image wiederherstellen und mit dem nächsten Schritt beginnen.  
   
 
 

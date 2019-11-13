@@ -20,7 +20,7 @@ ms.locfileid: "71361253"
 
 > Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Dieses Thema enthält eine Übersicht über den Cluster @ no__t-0aware Update \(CAU @ no__t-2, ein Feature, mit dem der Software Aktualisierungsprozess auf Cluster Servern bei gleichzeitiger Aufrechterhaltung der Verfügbarkeit automatisiert wird.
+Dieses Thema enthält eine Übersicht über die Cluster\-bewusste Aktualisierung \(Cau-\), eine Funktion, die den Software Aktualisierungsprozess auf Cluster Servern unter Beibehaltung der Verfügbarkeit automatisiert.
 
 > [!NOTE]
 > Wenn Sie [direkte Speicherplätze](../storage/storage-spaces/storage-spaces-direct-overview.md) Cluster aktualisieren, empfiehlt es sich, das Cluster fähige aktualisieren zu verwenden.
@@ -36,40 +36,40 @@ Das Cluster fähige aktualisieren ist ein automatisiertes Feature, mit dem Sie S
 6. Stellt die Cluster Rollen auf dem Knoten wieder her.
 7. Wechselt, um den nächsten Knoten zu aktualisieren.
 
-Für viele Clusterrollen im Cluster löst der automatische Updateprozess ein geplantes Failover aus. Dadurch kann eine vorübergehende Dienstunterbrechung für angeschlossene Clients verursacht werden. Im Fall von fortlaufend verfügbaren Arbeits Auslastungen, wie z. b. Hyper @ no__t-0V mit Live Migration oder Dateiserver mit SMB transparent Failover, kann das Cluster fähige aktualisieren jedoch Cluster Aktualisierungen ohne Auswirkungen auf die Dienst Verfügbarkeit koordinieren.    
+Für viele Clusterrollen im Cluster löst der automatische Updateprozess ein geplantes Failover aus. Dadurch kann eine vorübergehende Dienstunterbrechung für angeschlossene Clients verursacht werden. Im Fall von fortlaufend verfügbaren Arbeits Auslastungen, z. b. Hyper\-V mit Live Migration oder Dateiserver mit SMB transparent Failover, kann das Cluster fähige aktualisieren jedoch Cluster Aktualisierungen ohne Auswirkungen auf die Dienst Verfügbarkeit koordinieren.    
   
 ## <a name="practical-applications"></a>Praktische Anwendungsfälle  
   
--   Cau reduziert Dienst Ausfälle in geclusterten Diensten, verringert die Notwendigkeit von Problem Umgehungen für manuelles Aktualisieren und bewirkt, dass der End @ no__t-0to @ no__t-1End-Cluster Aktualisierungsprozess für den Administrator zuverlässiger ist. Wenn das Cau-Feature zusammen mit fortlaufend verfügbaren Cluster Arbeits Auslastungen verwendet wird, z. b. fortlaufend verfügbare Dateiserver \(-Dateiserver-Arbeitsauslastung mit SMB transparent Failover @ no__t-1 oder Hyper @ no__t-2V, können die Cluster Updates ausgeführt werden. mit keinerlei Auswirkung auf die Dienst Verfügbarkeit für Clients.  
+-   Cau reduziert Dienst Ausfälle in geclusterten Diensten, verringert die Notwendigkeit von Problem Umgehungen für manuelles Aktualisieren und ermöglicht das Beenden\-\-Ende des Cluster Aktualisierungsprozesses zuverlässiger für den Administrator. Wenn das Cau-Feature in Verbindung mit fortlaufend verfügbaren Cluster Arbeits Auslastungen verwendet wird, z. b. fortlaufend verfügbare Dateiserver \(Dateiserver-Arbeitsauslastung mit SMB transparent Failover\) oder Hyper\-V, können die Cluster Aktualisierungen ohne Auswirkungen auf die Dienst Verfügbarkeit für Clients ausgeführt werden.  
   
--   CAU vereinfacht die unternehmensweite Übernahme von einheitlichen IT-Prozessen. Update Lauf Profile können für unterschiedliche Klassen von Failoverclustern erstellt und dann zentral auf einer Dateifreigabe verwaltet werden, um sicherzustellen, dass Aktualisierungen durch Cau-bereit Stellungen in der gesamten IT-Organisation einheitlich angewendet werden, auch wenn die Cluster von anderen verwaltet werden. Zeilen @ no__t-0von @ no__t-1business oder Administratoren.  
+-   CAU vereinfacht die unternehmensweite Übernahme von einheitlichen IT-Prozessen. Update Lauf Profile können für unterschiedliche Klassen von Failoverclustern erstellt und dann zentral auf einer Dateifreigabe verwaltet werden, um sicherzustellen, dass Aktualisierungen durch Cau-bereit Stellungen in der gesamten IT-Organisation einheitlich angewendet werden, auch wenn die Cluster über verschiedene Zeilen\-\-Geschäfts oder Administratoren verwaltet werden.  
   
 -   Mit CAU können Updateausführungen für regelmäßige tägliche, wöchentliche oder monatliche Intervalle zur Koordination von Clusteraktualisierungen mit anderen IT-Verwaltungsprozessen geplant werden.  
   
--   Cau stellt eine erweiterbare Architektur bereit, mit der die Cluster Software Inventur im @ no__t-fähigen Cluster-Cluster aktualisiert wird. Dies kann von Verlegern verwendet werden, um die Installation von Software Updates zu koordinieren, die nicht auf Windows Update oder Microsoft Update veröffentlicht werden oder nicht von Microsoft zur Verfügung stehen, z. b. Updates für nicht-no__t-0Microsoft-Gerätetreiber.  
+-   Cau stellt eine erweiterbare Architektur bereit, mit der die Cluster Software Inventur auf\-bewusste Weise aktualisiert werden können. Dies kann von Verlegern verwendet werden, um die Installation von Software Updates zu koordinieren, die nicht auf Windows Update oder Microsoft Update veröffentlicht werden oder nicht von Microsoft zur Verfügung stehen, z. b. Updates für nicht\-Microsoft-Gerätetreiber.  
   
--   Der Self @ no__t-0update-Modus von Cau ermöglicht einen "Cluster in einem Box"-Gerät \(Eine Reihe von gruppierten physischen Computern, die in der Regel in einem Chassis @ no__t-2 verpackt sind, um sich selbst zu aktualisieren. Normalerweise werden solche Geräte in Filialen mit minimalem lokalem IT-Support zur Verwaltung von Clustern bereitgestellt. Der Self @ no__t-0update-Modus bietet in diesen Bereitstellungs Szenarien einen großen nutzen.  
+-   Der Self-\-Aktualisierungs Modus für Cluster fähiges aktualisieren ermöglicht ein "Cluster in einem Box"-Gerät \(eine Reihe von gruppierten physischen Computern, die in der Regel in einem Gehäuse verpackt sind,\) sich selbst aktualisieren. Normalerweise werden solche Geräte in Filialen mit minimalem lokalem IT-Support zur Verwaltung von Clustern bereitgestellt. Der Self\--Aktualisierungs Modus bietet in diesen Bereitstellungs Szenarien einen großen nutzen.  
   
 ## <a name="important-functionality"></a>Wichtige Funktionalität  
 Im folgenden finden Sie eine Beschreibung der wichtigen Funktionen für die Cluster fähige Aktualisierung:  
   
--   Eine Benutzeroberfläche \(ui @ no__t-1-das Fenster Cluster fähiges aktualisieren und eine Reihe von Cmdlets, mit denen Sie die Updates in der Vorschau anzeigen, anwenden, überwachen und Berichte überprüfen können.  
+-   Eine Benutzeroberfläche \(UI\)-das Aktualisierungs Fenster für Cluster fähige Elemente und eine Reihe von Cmdlets, mit denen Sie die Updates in der Vorschau anzeigen, anwenden, überwachen und Berichte überwachen können.  
   
--   Eine End @ no__t-0to @ no__t-1End-Automatisierung des Cluster @ no__t-2Update-Vorgangs \(a-Update Ausführung @ no__t-4, orchestriert von einem oder mehreren updatekoordinatorcomputern  
+-   Eine End-\-, um die Automatisierung des Cluster\-Aktualisierungs Vorgangs zu\-\(eine Update Ausführung\), die von einem oder mehreren updatekoordinatorcomputern orchestriert wird.  
   
--   Ein Standard-Plug-in für @ no__t-0in, das in den vorhandenen Windows Update-Agent \(wua @ no__t-2 und Windows Server Update Services \(wsus @ no__t-4-Infrastruktur in Windows Server integriert ist, um wichtige Microsoft-Updates anzuwenden.  
+-   Ein Standard-Plug\-in, das in den vorhandenen Windows Update-Agent \(WUA-\) und Windows Server Update Services \(die WSUS-\) Infrastruktur in Windows Server integriert ist, um wichtige Microsoft-Updates anzuwenden.  
   
--   Ein zweites Plug @ no__t-0in, das zum Anwenden von Microsoft-Hotfixes verwendet werden kann und das zum Anwenden von nicht-no__t-1Microsoft-Updates angepasst werden kann  
+-   Ein zweites Plug\-in, das zum Anwenden von Microsoft-Hotfixes verwendet werden kann und das zum Anwenden von nicht\-Microsoft-Updates angepasst werden kann  
   
 -   Updateausführungsprofile, die Sie mit Einstellungen für Optionen zur Updateausführung konfigurieren, wie z. B. die maximale Anzahl an Versuchen, die eine Aktualisierung pro Knoten wiederholt wird. Updateausführungprofile ermöglichen eine schnelle Wiederverwendung derselben Einstellungen für verschiedene Updateausführungen und eine einfache Freigabe der Aktualisierungseinstellungen für andere Failovercluster.  
   
--   Eine erweiterbare Architektur, die neue Plug @ no__t-0in der Entwicklung unterstützt, um andere Node @ no__t-1Update-Tools im Cluster zu koordinieren, z. b. benutzerdefinierte Software Installationsprogramme, BIOS-Aktualisierungs Tools und Netzwerkadapter oder Hostbus Adapter \(hba @ no__t-3 Tools werden aktualisiert.  
+-   Eine erweiterbare Architektur, die neue Plug\-in der Entwicklung unterstützt, um andere Knoten\-Aktualisierungs Tools im Cluster zu koordinieren, z. b. benutzerdefinierte Software Installationsprogramme, BIOS-Aktualisierungs Tools und Netzwerkadapter-oder Hostbus Adapter \(HBA-\) Aktualisierungs Tools.  
   
 Beim Cluster fähigen aktualisieren kann der gesamte Cluster Aktualisierungs Vorgang in zwei Modi koordiniert werden:  
   
--   **Self @ no__t-1aktualisierungs Modus** In diesem Modus wird die Cluster Rolle für Cluster fähiges aktualisieren als Arbeitsauslastung auf dem zu aktualisierenden Failovercluster konfiguriert, und es wird ein zugeordneter Aktualisierungs Zeitplan definiert. Der Cluster aktualisiert sich zu den geplanten Zeiten anhand eines standardmäßigen oder benutzerdefinierten Updateausführungsprofils selbst. Bei der Updateausführung startet der CAU-Updatekoordinatorprozess auf dem Knoten, der aktuell der Besitzer der Clusterrolle für CAU ist, und alle Clusterknoten werden nacheinander durch den Prozess aktualisiert. Von der CAU-Clusterrolle wird zum Aktualisieren des aktuellen Clusterknotens ein Failover zu einem anderen Clusterknoten ausgeführt, und ein neuer Updatekoordinatorprozess auf diesem Knoten übernimmt die Steuerung der Updateausführung. Im Self @ no__t-0update-Modus kann Cau den Failovercluster mithilfe eines vollautomatischen Aktualisierungsprozesses von End @ no__t-1TO @ no__t-2end aktualisieren. Ein Administrator kann auch Updates für @ no__t-0demand in diesem Modus oder einfach den Remote @ no__t-1Update-Ansatz verwenden, wenn gewünscht. Im Self @ no__t-0update-Modus kann ein Administrator Zusammenfassungs Informationen zu einer laufenden Update Ausführung erhalten, indem eine Verbindung mit dem Cluster hergestellt und das Windows PowerShell-Cmdlet **Get @ no__t-2caurun** ausgeführt wird.  
+-   **Selbst\-Aktualisierungs Modus** In diesem Modus wird die Cluster Rolle für Cluster fähiges aktualisieren als Arbeitsauslastung auf dem zu aktualisierenden Failovercluster konfiguriert, und es wird ein zugeordneter Aktualisierungs Zeitplan definiert. Der Cluster aktualisiert sich zu den geplanten Zeiten anhand eines standardmäßigen oder benutzerdefinierten Updateausführungsprofils selbst. Bei der Updateausführung startet der CAU-Updatekoordinatorprozess auf dem Knoten, der aktuell der Besitzer der Clusterrolle für CAU ist, und alle Clusterknoten werden nacheinander durch den Prozess aktualisiert. Von der CAU-Clusterrolle wird zum Aktualisieren des aktuellen Clusterknotens ein Failover zu einem anderen Clusterknoten ausgeführt, und ein neuer Updatekoordinatorprozess auf diesem Knoten übernimmt die Steuerung der Updateausführung. Im selbst\-Aktualisierungs Modus kann das Cluster fähige aktualisieren den Failovercluster mithilfe eines vollständig automatisierten End-\-zum\-Ende des Aktualisierungs Vorgangs aktualisieren. Ein Administrator kann auch Updates auf\-Nachfrage in diesem Modus auslöst oder den Ansatz für die Remote\-Aktualisierung verwenden, wenn gewünscht. Im selbst\-Aktualisierungs Modus kann ein Administrator Zusammenfassungs Informationen zu einer laufenden Update Ausführung erhalten, indem eine Verbindung mit dem Cluster hergestellt und das Windows PowerShell-Cmdlet **Get\-caurun** ausgeführt wird.  
   
--   **Remote @ no__t-1Update-Modus** Bei diesem Modus wird ein Remote Computer, der als Update Koordinator bezeichnet wird, mit den Cau-Tools konfiguriert. Der Updatekoordinator gehört nicht dem Cluster an, der im Rahmen der Updateausführung aktualisiert wird. Der-Administrator löst auf dem Remote Computer mit einem standardmäßigen oder benutzerdefinierten Update Lauf Profil eine auf @ no__t-0demand-Aktualisierungs Lauf aus. Der Remote Modus "@ no__t-0update" ist nützlich für die Überwachung des Echtzeitstatus von @ no__t-1time während der Update Ausführung und für Cluster, die auf Server Core-Installationen ausgeführt werden.  
+-   **Remote\--Aktualisierungs Modus** Bei diesem Modus wird ein Remote Computer, der als Update Koordinator bezeichnet wird, mit den Cau-Tools konfiguriert. Der Updatekoordinator gehört nicht dem Cluster an, der im Rahmen der Updateausführung aktualisiert wird. Der-Administrator löst auf dem Remote Computer eine auf\-Demand-Update ausführen mithilfe eines standardmäßigen oder benutzerdefinierten Update Lauf Profils aus. Der Aktualisierungs Modus für Remote\-ist für die Überwachung des Echt Zeit\-Zeitraums während der Update Ausführung und für Cluster, die auf Server Core-Installationen ausgeführt werden, hilfreich.  
   
 ## <a name="hardware-and-software-requirements"></a>Hardware- und Softwareanforderungen  
 
@@ -89,27 +89,27 @@ Sie müssen auch die Failoverclustering-Tools installieren, die Teil der Remotes
 
 Sie müssen die Failoverclusteringtools wie folgt installieren, um die verschiedenen CAU-Aktualisierungsmodi zu unterstützen:
 
-- Installieren Sie die Failoverclustering-Tools auf den einzelnen Cluster Knoten, um Cau im Self @ no__t-Update-Modus zu verwenden.   
+- Installieren Sie die Failoverclustering-Tools auf den einzelnen Cluster Knoten, um das Cluster fähige aktualisieren im selbst\-Aktualisierungs Modus zu verwenden.   
   
-- Installieren Sie die failoverclusteringtools auf einem Computer, der über eine Netzwerkverbindung mit dem Failovercluster verfügt, um den Remote-@ no__t-0update Modus zu aktivieren.  
+- Installieren Sie die Failoverclustering-Tools auf einem Computer mit Netzwerk Konnektivität zum Failovercluster, um den Remote\-Aktualisierungs Modus zu aktivieren.  
   
 > [!NOTE]  
 > -   Sie können die Failoverclustering-Tools unter Windows Server 2012 nicht verwenden, um das Cluster fähige Update auf einer neueren Version von Windows Server zu verwalten. 
-> -   Die Installation der failoverclusteringtools auf den Cluster Knoten ist nicht erforderlich, um Cau nur im Remote-@ no__t-0update-Modus zu verwenden. Bestimmte CAU-Features sind dann jedoch nicht verfügbar. Weitere Informationen finden Sie unter [Anforderungen und Best Practices für clusterfähiges Aktualisieren\-](cluster-aware-updating-requirements.md).  
-> -   Wenn Sie Cau nur im Self @ no__t-0update-Modus verwenden, kann der Computer, auf dem die Cau-Tools installiert werden und der die Aktualisierungen koordiniert, kein Mitglied des Failoverclusters sein.  
+> -   Die Installation der failoverclusteringtools auf den Cluster Knoten ist nicht erforderlich, um Cau nur im Remote\-Aktualisierungs Modus zu verwenden. Bestimmte CAU-Features sind dann jedoch nicht verfügbar. Weitere Informationen finden Sie unter [Anforderungen und Best Practices für clusterfähiges Aktualisieren\-](cluster-aware-updating-requirements.md).  
+> -   Der Computer, auf dem die Cau-Tools installiert und die Updates koordiniert werden, kann nicht Mitglied des Failoverclusters sein, es sei denn, Sie verwenden Cau nur im Modus für die selbst\-Aktualisierung.  
   
 ### <a name="enabling-self-updating-mode"></a>Aktivieren des selbst Aktualisierungs Modus
 Um den selbst Aktualisierungs Modus zu aktivieren, müssen Sie dem Failovercluster die Cluster Rolle für Cluster fähiges aktualisieren hinzufügen. Verwenden Sie hierzu eine der folgenden Methoden:
 - Wählen Sie in Server-Manager **Tools** > **Cluster fähiges aktualisieren**aus, und wählen Sie dann im Fenster Cluster fähiges aktualisieren die **Option selbst Aktualisierungs Optionen für Cluster konfigurieren**aus. 
 - Führen Sie in einer PowerShell-Sitzung das Cmdlet [Add-cauclusterrole](https://docs.microsoft.com/powershell/module/clusterawareupdating/Add-CauClusterRole?view=win10-ps) aus.  
   
-Deinstallieren Sie zum Deinstallieren von Cau das Failoverclustering-Feature oder die failoverclusteringtools mithilfe von Server-Manager, dem Cmdlet [Uninstall-Windows Feature](https://docs.microsoft.com/powershell/module/servermanager/Uninstall-WindowsFeature?view=win10-ps) oder dem Befehl "-Ausdruck" @ no__t-1line-Tools.  
+Deinstallieren Sie zum Deinstallieren von Cau das Failoverclustering-Feature oder die failoverclusteringtools mithilfe von Server-Manager, dem Cmdlet " [Uninstall-Windows Feature](https://docs.microsoft.com/powershell/module/servermanager/Uninstall-WindowsFeature?view=win10-ps) " oder dem Befehl "-Ausdruck"\-Zeilen Tools.  
   
 ### <a name="additional-requirements-and-best-practices"></a>Weitere Anforderungen und Best Practices  
 
 Sie können den Best Practices Analyzer für CAU ausführen, um die erfolgreiche Aktualisierung der Clusterknoten mit CAU sicherzustellen und weitere Informationen zum Konfigurieren der Failoverclusterumgebung für die Verwendung von CAU zu erhalten.  
   
-Ausführliche Informationen zu den Anforderungen und bewährten Methoden für die Verwendung von Cau sowie Informationen zum Ausführen des Cau-Best Practices Analyzer finden Sie unter [Anforderungen und Best Practices für Cluster @ no__t-1aware Update](cluster-aware-updating-requirements.md).  
+Ausführliche Informationen zu Anforderungen und bewährten Methoden für die Verwendung von Cau sowie Informationen zum Ausführen des Cau-Best Practices Analyzer finden Sie unter [Anforderungen und Best Practices für Cluster\-fähiges aktualisieren](cluster-aware-updating-requirements.md).  
   
 ### <a name="starting-cluster-aware-updating"></a>Cluster fähiges aktualisieren wird gestartet  
   
@@ -119,23 +119,23 @@ Ausführliche Informationen zu den Anforderungen und bewährten Methoden für di
   
 2.  Führen Sie eines der folgenden Verfahren aus:  
   
-    -   Klicken Sie **im Menü Extras** auf **Cluster @ no__t-2aware Update**.  
+    -   Klicken Sie **im Menü Extras** auf **Cluster\-fähiges aktualisieren**.  
   
-    -   Wenn mindestens ein Cluster Knoten oder der Cluster zu Server-Manager hinzugefügt wird, klicken Sie auf der Seite **alle Server** mit der rechten Maustaste auf den Namen eines Knotens \(oder den Namen des Clusters @ no__t-3, und klicken Sie dann auf **Cluster aktualisieren**.  
+    -   Wenn mindestens ein Cluster Knoten oder der Cluster zu Server-Manager hinzugefügt wird, klicken Sie auf der Seite **alle Server** mit der rechten\-auf den Namen eines Knotens \(oder den Namen des Clusters\), und klicken Sie dann auf **Cluster aktualisieren**.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 Die folgenden Links enthalten weitere Informationen zur Verwendung des Cluster fähigen Updates.  
   
--   [Anforderungen und bewährte Methoden für Cluster @ no__t-1aware Update](cluster-aware-updating.md)  
+-   [Anforderungen und bewährte Methoden für Cluster\-fähiges aktualisieren](cluster-aware-updating.md)  
   
--   [cluster @ no__t-1aware-Aktualisierung: Häufig gestellte Fragen](cluster-aware-updating-faq.md)  
+-   [Cluster\-fähiges aktualisieren: häufig gestellte Fragen](cluster-aware-updating-faq.md)  
   
 -   [Erweiterte Optionen und Update Lauf Profile für Cau](cluster-aware-updating-options.md)  
   
--   [Funktionsweise von Cau-Plug @ no__t-1ins](cluster-aware-updating-plug-ins.md)  
+-   [Funktionsweise von Cau-Plug\-ins](cluster-aware-updating-plug-ins.md)  
   
--   [Cluster @ no__t-1aware Update-Cmdlets in Windows PowerShell](https://docs.microsoft.com/powershell/module/clusterawareupdating/?view=win10-ps&viewFallbackFrom=winserverr2-ps)  
+-   [Cluster\-fähiges Aktualisieren von Cmdlets in Windows PowerShell](https://docs.microsoft.com/powershell/module/clusterawareupdating/?view=win10-ps&viewFallbackFrom=winserverr2-ps)  
   
--   [Cluster @ no__t-1aware Update Plugin @ no__t-2in-Referenz](https://docs.microsoft.com/previous-versions/windows/desktop/mscs/cluster-aware-update-plug-in-interfaces-and-classes)  
+-   [Cluster\-fähiges Aktualisieren von Plug\-als Referenz](https://docs.microsoft.com/previous-versions/windows/desktop/mscs/cluster-aware-update-plug-in-interfaces-and-classes)  
   
 

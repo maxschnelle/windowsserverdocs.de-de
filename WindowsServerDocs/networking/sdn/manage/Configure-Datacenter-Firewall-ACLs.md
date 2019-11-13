@@ -22,7 +22,7 @@ ms.locfileid: "71406110"
 ---
 # <a name="configure-datacenter-firewall-access-control-lists-acls"></a>Konfigurieren von Rechenzentrums Firewall-Access Control Listen (ACLs)
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Nachdem Sie eine ACL erstellt und einem virtuellen Subnetz zugewiesen haben, können Sie diese Standard-ACL im virtuellen Subnetz mit einer bestimmten Zugriffs Steuerungs Liste für eine einzelne Netzwerkschnittstelle außer Kraft setzen.  In diesem Fall wenden Sie bestimmte ACLs direkt auf Netzwerkschnittstellen an, die an VLANs angefügt sind, anstelle des virtuellen Netzwerks. Wenn Sie ACLs für das virtuelle Subnetz festgelegt haben, das mit der Netzwerkschnittstelle verbunden ist, werden beide Zugriffs Steuerungs Listen angewendet und priorisiert die ACLs der Netzwerkschnittstelle oberhalb der ACLs des virtuellen Subnetzes.
 
@@ -31,8 +31,8 @@ Nachdem Sie eine ACL erstellt und einem virtuellen Subnetz zugewiesen haben, kö
 
 In diesem Thema erfahren Sie, wie Sie einer Netzwerkschnittstelle eine ACL hinzufügen. Wir zeigen Ihnen außerdem, wie Sie eine ACL mithilfe von Windows PowerShell und der Rest-API des Netzwerk Controllers aus einer Netzwerkschnittstelle entfernen.
 
-- [Beispiel Hinzufügen einer ACL zu einer Netzwerkschnittstelle @ no__t-0
-- [Beispiel Entfernen einer ACL aus einer Netzwerkschnittstelle mithilfe von Windows PowerShell und der Netzwerk Controller-Rest-API @ no__t-0
+- [Beispiel: Hinzufügen einer ACL zu einer Netzwerkschnittstelle](#example-add-an-acl-to-a-network-interface)
+- [Beispiel: Entfernen einer ACL aus einer Netzwerkschnittstelle mithilfe von Windows PowerShell und der Netzwerk Controller-Rest-API](#example-remove-an-acl-from-a-network-interface-by-using-windows-powershell-and-the-network-controller-rest-api)
 
 
 ## <a name="example-add-an-acl-to-a-network-interface"></a>Beispiel: Hinzufügen einer ACL zu einer Netzwerkschnittstelle

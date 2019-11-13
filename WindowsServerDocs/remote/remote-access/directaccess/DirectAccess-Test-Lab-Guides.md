@@ -21,12 +21,12 @@ ms.locfileid: "71394547"
 ---
 # <a name="directaccess-test-lab-guides"></a>DirectAccess-Test Lab-Handbücher
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Im folgenden finden Sie Links zu den Test Umgebungs Anleitungen für DirectAccess in Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012.
 
-- [Testumgebungsanleitung: Veranschaulichen von DirectAccess in einem Cluster mit Windows NLB @ no__t-0
+- [Test Umgebungs Anleitung: veranschaulichen von DirectAccess in einem Cluster mit Windows NLB](tlg-cluster-nlb/Test-Lab-Guide-Demonstrate-DirectAccess-in-a-Cluster-with-Windows-NLB.md)
 
-- [Testumgebungsanleitung: Veranschaulichen einer DirectAccess-Bereitstellung für mehrere Standorte @ no__t-0
+- [Test Umgebungs Anleitung: veranschaulichen einer DirectAccess-Bereitstellung mit mehreren Standorten](tlg-multisite/Test-Lab-Guide-Demonstrate-a-DirectAccess-Multisite-Deployment.md)
 
-- [Testumgebungsanleitung: Veranschaulichen von DirectAccess mit OTP-Authentifizierung und RSA SecurID @ no__t-0
+- [Test Umgebungs Anleitung: veranschaulichen von DirectAccess mit OTP-Authentifizierung und RSA SecurID](tlg-otp-securid/Test-Lab-Guide-Demonstrate-DirectAccess-with-OTP-Authentication-and-RSA-SecurID.md)

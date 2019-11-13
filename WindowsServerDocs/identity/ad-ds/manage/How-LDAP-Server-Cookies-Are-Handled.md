@@ -18,7 +18,7 @@ ms.locfileid: "71390081"
 ---
 # <a name="how-ldap-server-cookies-are-handled"></a>Behandlung von LDAP-Servercookies
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In LDAP ergeben einige Abfragen einen großen Ergebnissatz. Solche Abfragen stellen Windows Server vor Herausforderungen.  
   
@@ -48,15 +48,15 @@ Falls Informationen im Cache gespeichert werden, wird das vom Server an den Clie
 ## <a name="how-the-cookie-pool-is-managed"></a>Verwaltung des Cookiepools  
 Der LDAP-Server bedient mehrere Clients gleichzeitig und natürlich können auch mehrere Clients gleichzeitig Abfragen ausführen, die den Cookiecache des Servers beanspruchen. Aus diesem Grund wird die Cookiepoolauslastung vom Windows Server überwacht, wobei die Windows Server-Implementierung Grenzwerte vorsieht, um zu verhindern, dass der Cookiepool zu viele Ressourcen an sich zieht. Diese Grenzwerte können vom Administrator in der LDAP-Richtlinie mit den folgenden Einstellungen festgelegt werden. Nachfolgend sind die Standardwerte mit Erläuterungen angegeben:  
   
-**minresultsets: 4 @ no__t-0  
+**MinResultSets: 4**  
   
 Der LDAP-Server ignoriert die nachfolgend beschriebene maximale Poolgröße, wenn der Cookiecache weniger als MinResultSets-Einträge enthält.  
   
-**maxresultsetsize: 262.144 Bytes @ no__t-0  
+**MaxResultSetSize: 262.144 Bytes**  
   
 Die Gesamtgröße des Cookiecache auf dem Server darf  MaxResultSetSize in Bytes nicht überschreiten. Andernfalls werden Cookies beginnend beim ältesten Cookie gelöscht, bis die Größe des Pools wieder kleiner als MaxResultSetSize in Bytes ist oder sich im Pool weniger als MinResultSets Cookies befinden. Mit den Standardeinstellungen akzeptiert der LDAP-Server also einen Pool mit einer Größe von 450 KB, wenn der Pool nur 3 Cookies enthält.  
   
-**maxresultsetsperconn: 10 @ no__t-0  
+**MaxResultSetsPerConn: 10**  
   
 Der LDAP-Server lässt im Pool nicht mehr als MaxResultSetsPerConn Cookies pro LDAP-Verbindung zu.  
   

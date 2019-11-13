@@ -21,7 +21,7 @@ ms.locfileid: "71404488"
 ---
 # <a name="step-1-implement-a-single-server-remote-access-deployment"></a>Schritt 1 Implementieren einer einzelnen Server Bereitstellung für den Remote Zugriff
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Der erste Konfigurationsschritt zum Bereitstellen des Remote Zugriffs in einer Topologie mit mehreren Standorten ist die Implementierung einer erweiterten Bereitstellung mit einem einzelnen Server und das Hinzufügen von Servern zu jedem Multisite-Einstiegspunkt.  
   
@@ -30,7 +30,7 @@ Bevor Sie eine Bereitstellung für mehrere Standorte konfigurieren können, müs
   
 ## <a name="BKMK_Links"></a>Siehe auch  
   
--   [Schritt 2: Konfigurieren der Infrastruktur für mehrere Standorte @ no__t-0  
+-   [Schritt 2: Konfigurieren der Infrastruktur für mehrere Standorte](Step-2-Configure-the-Multisite-Infrastructure.md)  
 
 
 

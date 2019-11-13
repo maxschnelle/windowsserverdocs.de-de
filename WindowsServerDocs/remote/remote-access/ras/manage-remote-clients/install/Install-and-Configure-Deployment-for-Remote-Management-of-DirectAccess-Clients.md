@@ -21,15 +21,15 @@ ms.locfileid: "71404595"
 ---
 # <a name="install-and-configure-deployment-for-remote-management-of-directaccess-clients"></a>Installieren und Konfigurieren der Bereitstellung für die Remote Verwaltung von DirectAccess-Clients
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Dieses Thema enthält eine Einführung in die Konfigurationsschritte, die für die Bereitstellung eines einzelnen Remote Zugriffs Servers erforderlich sind, der für die Remote Verwaltung von DirectAccess-Clients verwendet werden kann.  
   
--   [Schritt 1: Konfigurieren der Remote Zugriffs Infrastruktur @ no__t-0: In diesem Thema wird beschrieben, wie Netzwerk-und Servereinstellungen, Zertifikat Anforderungen, DNS-Einstellungen, die Bereitstellung des Netzwerkadressen Servers, DirectAccess-Verwaltungs Server, Active Directory Einstellungen und Gruppenrichtlinie Objekte konfiguriert werden.  
+-   [Schritt 1: Konfigurieren der Infrastruktur für den Remote Zugriff](Step-1-Configure-the-Remote-Access-Infrastructure.md): in diesem Thema wird beschrieben, wie Sie Netzwerk-und Servereinstellungen, Zertifikat Anforderungen, DNS-Einstellungen, die Bereitstellung des Netzwerkadressen Servers, DirectAccess-Verwaltungs Server, Active Directory Einstellungen und Gruppenrichtlinie Objekte konfigurieren.  
   
--   [Schritt 2: Konfigurieren Sie den Remote Zugriffs Server @ no__t-0: In diesem Thema wird beschrieben, wie Sie DirectAccess-Client Computer, Servereinstellungen, Infrastruktur-und Anwendungsserver konfigurieren.  
+-   [Schritt 2: Konfigurieren des Remote Zugriffs Servers](Step-2-Configure-the-Remote-Access-Server.md): in diesem Thema wird beschrieben, wie Sie DirectAccess-Client Computer, Server Einstellungen, Infrastruktur-und Anwendungsserver konfigurieren.  
   
--   [Schritt 3: Überprüfen Sie die Bereitstellung @ no__t-0: In diesem Thema wird beschrieben, wie Sie die Bereitstellung überprüfen.  
+-   [Schritt 3: Überprüfen der Bereitstellung](Step-3-Verify-the-Deployment_2.md): in diesem Thema wird beschrieben, wie Sie die Bereitstellung überprüfen.  
   
 
 

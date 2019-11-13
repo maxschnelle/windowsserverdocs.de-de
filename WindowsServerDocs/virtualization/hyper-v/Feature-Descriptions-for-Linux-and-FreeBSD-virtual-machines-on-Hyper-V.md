@@ -80,7 +80,7 @@ In diesem Artikel werden die Funktionen beschrieben, die in Komponenten wie Kern
 
 |**Funktion**|**Beschreibung**|
 |-|-|
-|KVP (Schlüssel-Wert-Paar) Exchange|Diese Funktion bietet einen Schlüssel-Wert-Paar (KVP)-Exchange-Dienst für virtuelle Computer. In der Regel verwenden Administratoren den KVP-Mechanismus, um benutzerdefinierte Daten Vorgänge für Lese-und Schreibvorgänge auf einem virtuellen Computer auszuführen. Weitere Informationen finden Sie unter [data Exchange: Verwenden von Schlüssel-Wert-Paaren zum Freigeben von Informationen zwischen dem Host und dem Gast unter Hyper-V @ no__t-0.|
+|KVP (Schlüssel-Wert-Paar) Exchange|Diese Funktion bietet einen Schlüssel-Wert-Paar (KVP)-Exchange-Dienst für virtuelle Computer. In der Regel verwenden Administratoren den KVP-Mechanismus, um benutzerdefinierte Daten Vorgänge für Lese-und Schreibvorgänge auf einem virtuellen Computer auszuführen. Weitere Informationen finden Sie unter [Datenaustausch: Verwenden von Schlüssel-Wert-Paaren zum Freigeben von Informationen zwischen dem Host und dem Gast auf Hyper-V](https://technet.microsoft.com/library/dn798287.aspx).|
 |Nicht mastbare Unterbrechung|Mit dieser Funktion kann ein Administrator einen virtuellen Computer, der nicht mit einem maskierbaren Interrupts (NMI) ausgeführt wird, ausgeben. NMIs sind nützlich, um Absturz Abbilder von Betriebssystemen zu erhalten, die aufgrund von Anwendungsfehlern nicht mehr reagiert. Diese Absturz Abbilder können nach dem Neustart diagnostiziert werden.|
 |Dateikopie von Host zu Gast|Mit dieser Funktion können Dateien vom physischen Host Computer auf die virtuellen Gastcomputer kopiert werden, ohne dass der Netzwerkadapter verwendet wird. Weitere Informationen finden Sie unter [Guest Services](https://technet.microsoft.com/library/dn798297(WS.11).aspx#BKMK_guest).|
 |lsvmbus-Befehl|Mit diesem Befehl werden Informationen zu Geräten auf dem Hyper-V-Virtual Machine Bus (VMBus) ähnlich wie bei Informations Befehlen wie lspci abgerufen.|
@@ -94,7 +94,7 @@ In diesem Artikel werden die Funktionen beschrieben, die in Komponenten wie Kern
 |Starten mithilfe von UEFI|Mit dieser Funktion können virtuelle Computer mit Unified Extensible Firmware Interface (UEFI) gestartet werden.<br /><br />Weitere Informationen finden Sie unter [Übersicht über virtuelle Computer der Generation 2](https://technet.microsoft.com/library/dn282285.aspx).|
 |Sicherer Start|Diese Funktion ermöglicht virtuellen Computern die Verwendung des UEFI-basierten sicheren Start Modus. Wenn ein virtueller Computer im sicheren Modus gestartet wird, werden verschiedene Betriebssystemkomponenten mithilfe von Signaturen überprüft, die im UEFI-Datenspeicher vorhanden sind.<br /><br />Weitere Informationen finden Sie unter [Sicherer Start](https://technet.microsoft.com/library/dn486875.aspx).|
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 * [Unterstützte virtuelle Computer der CentOS-und Red Hat Enterprise Linux auf Hyper-V](Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V.md)
 

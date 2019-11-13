@@ -19,11 +19,11 @@ ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71404663"
 ---
-# <a name="test-lab-guide-demonstrate-directaccess-with-otp-authentication-and-rsa-securid"></a>Testumgebungsanleitung: Veranschaulichen von DirectAccess mit OTP-Authentifizierung und RSA SecurID
+# <a name="test-lab-guide-demonstrate-directaccess-with-otp-authentication-and-rsa-securid"></a>Testumgebungsanleitung: Vorführung von DirectAccess mit OTP-Authentifizierung und RSA SecurID
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-Der Remote Zugriff ist eine Server Rolle im Betriebssystem Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012, das Remote Benutzern den sicheren Zugriff auf interne Netzwerkressourcen über DirectAccess oder virtuelle private Netzwerke (Virtual Private Networks, VPNs) mit dem Routing ermöglicht. und RAS-Dienst (RRAS). Diese Anleitung enthält Schritt-für-Schritt-Anweisungen zum Erweitern der Test Umgebungs Anleitung für [: Veranschaulichen der Einrichtung eines einzelnen Servers für DirectAccess mit gemischtem IPv4 und IPv6 @ no__t-0 zur Veranschaulichung einer Konfiguration für das einmalige Anmelden per Remote Zugriff.  
+Der Remote Zugriff ist eine Server Rolle im Betriebssystem Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012, das Remote Benutzern den sicheren Zugriff auf interne Netzwerkressourcen über DirectAccess oder virtuelle private Netzwerke (Virtual Private Networks, VPNs) mit dem Routing ermöglicht. und RAS-Dienst (RRAS). Diese Anleitung enthält Schritt-für-Schritt-Anweisungen zum Erweitern der [Test Umgebungs Anleitung: veranschaulichen der Einrichtung von DirectAccess Single Server mit gemischtem IPv4 und IPv6](https://go.microsoft.com/fwlink/p/?LinkId=237004) , um eine Konfiguration des einmaligen Zugriffs per Remote Zugriff zu veranschaulichen.  
   
 > [!WARNING]  
 > Der Entwurf dieser Test Umgebungs Anleitung umfasst Infrastruktur Server, z. b. einen Domänen Controller und eine Zertifizierungsstelle (Certification Authority, ca), die entweder Windows Server 2012 R2 oder Windows Server 2012 ausführen. Die Verwendung dieser Test Umgebungs Anleitung zum Konfigurieren von Infrastruktur Servern, auf denen andere Betriebssysteme ausgeführt werden, wurde nicht getestet, und Anweisungen zum Konfigurieren anderer Betriebssysteme sind in diesem Handbuch nicht enthalten.  

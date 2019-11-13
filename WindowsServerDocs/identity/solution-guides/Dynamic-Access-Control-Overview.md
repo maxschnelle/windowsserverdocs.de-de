@@ -92,7 +92,7 @@ Alle Domänencontroller müssen dieselbe Einstellung für die Richtlinie für ad
 ### <a name="support-in-active-directory-to-store-user-and-device-claims-resource-properties-and-central-access-policy-objects"></a>Unterstützung in Active Directory zum Speichern von Benutzer- und Geräteansprüchen, Ressourceneigenschaften und Objekten der zentralen Zugriffsrichtlinie.  
   
 ### <a name="support-for-using-group-policy-to-deploy-central-access-policy-objects"></a>Unterstützung für die Verwendung von Gruppenrichtlinien zur Bereitstellung von Objekten der zentralen Zugriffsrichtlinie.  
-Mit der folgenden Gruppenrichtlinie Einstellung können Sie Objekte der zentralen Zugriffs Richtlinie für Dateiserver in Ihrer Organisation bereitstellen: **Computerkonfiguration\Richtlinien\Windows-einstellungen\sicherheitseinstellungen\dateisystem\zentrale Zugriffs Richtlinie**.  
+Mithilfe der folgenden Gruppenrichtlinieneinstellung können Sie Objekte der zentralen Zugriffsrichtlinie für Dateiserver in Ihrem Unternehmen bereitstellen: **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Dateisystem\Zentrale Zugriffsrichtlinie**.  
   
 ### <a name="support-for-claims-based-file-authorization-and-auditing-for-file-systems-by-using-group-policy-and-global-object-access-auditing"></a>Unterstützung für anspruchsbasierte Dateiauthentifizierung und Überwachung für Dateisysteme mithilfe von Gruppenrichtlinien und globaler Objektzugriffsüberwachung  
 Sie müssen die in Phasen ausgeführte Überwachung der zentralen Zugriffsrichtlinie aktivieren, um den effektiven Zugriff der zentralen Zugriffsrichtlinie mithilfe von vorgeschlagenen Berechtigungen zu überwachen. Diese Einstellung wird für den Computer unter **Erweiterte Überwachungsrichtlinienkonfiguration** in den **Sicherheitseinstellungen** eines Gruppenrichtlinienobjekts (GPO) konfiguriert. Nachdem Sie die Sicherheitseinstellung im GPO konfiguriert haben, können Sie das GPO für Computer im Netzwerk bereitstellen.  
@@ -128,7 +128,7 @@ Wenn Ansprüche beim Verlassen einer Gesamtstruktur transformiert werden, müsse
 Ein Dateiserver, auf dem Windows Server 2012 oder Windows Server 2012 R2 ausgeführt wird, muss über eine Gruppenrichtlinieneinstellung verfügen, die angibt, ob Benutzeransprüche für Benutzertoken, die keine Ansprüche enthalten, abgerufen werden müssen. Diese Einstellung ist standardmäßig auf **Automatisch** festgelegt, was dazu führt, dass diese Gruppenrichtlinieneinstellung auf **An** festgelegt wird, wenn eine zentrale Richtlinie vorhanden ist, die Benutzer- oder Geräteansprüche für diesen Dateiserver enthält. Wenn der Dateiserver freigegebene Zugriffssteuerungslisten mit Benutzeransprüchen enthält, muss diese Gruppenrichtlinie auf **An** festgelegt werden, sodass der Server weiß, dass er Ansprüche für Benutzer anfordern muss, die beim Zugriff auf den Server keine Ansprüche bereitstellen.  
   
 ## <a name="additional-resource"></a>Zusätzliche Ressource  
-Informationen zum Implementieren von Lösungen basierend auf dieser Technologie finden Sie unter [dynamic Access Control: Szenarioübersicht @ no__t-0.  
+Informationen zum Implementieren von Lösungen basierend auf dieser Technologie finden Sie unter [Dynamic Access Control: Szenarioübersicht](Dynamic-Access-Control--Scenario-Overview.md).  
   
 
 

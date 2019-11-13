@@ -18,15 +18,15 @@ ms.locfileid: "71407921"
 ---
 # <a name="review-the-role-of-the-federation-server-in-the-account-partner"></a>Überprüfen der Rolle des Verbundservers beim Kontopartner
 
-Ein Verbund Server in Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1 fungiert als sicherheitstokenaussteller. Ein Verbund Server generiert Ansprüche basierend auf Konto Werten, die sich in einem lokalen Attribut Speicher befinden, und verpackt Sie in Sicherheits Token, sodass Benutzer nahtlos auf Web @ no__t-0browser @ no__t-1based Applications zugreifen können \(using Single Sign @ no__t-3on. \(sso @ no__t-5 @ no__t-6, die in einer Ressourcen Partnerorganisation gehostet werden.  
+Ein Verbund Server in Active Directory-Verbunddienste (AD FS) \(AD FS\) Funktionen als Aussteller für Sicherheits Token. Ein Verbund Server generiert Ansprüche basierend auf Konto Werten, die sich in einem lokalen Attribut Speicher befinden, und verpackt Sie in Sicherheits Token, sodass Benutzer nahtlos auf Web\-Browser\-basierten Anwendungen zugreifen können, \(mithilfe von einmaligem Anmelden\-auf \(SSO-\)\), die in einer Ressourcen Partnerorganisation gehostet werden.  
   
 > [!NOTE]  
-> Wenn Ihre Benutzer mithilfe eines Webbrowsers auf Verbund Anwendungen zugreifen, gibt ein Verbund Server automatisch Cookies für die Benutzer aus, um Ihren Anmeldestatus für diese Web @ no__t-0browser @ no__t-1based-Anwendung zu erhalten. Diese Cookies enthalten die Ansprüche für den Benutzer. Die Cookies ermöglichen SSO-Funktionen, damit die Benutzer die Anmelde Informationen nicht jedes Mal eingeben müssen, wenn Sie unterschiedliche Web @ no__t-0browser @ no__t-1based-Anwendungen im Ressourcen Partner besuchen.  
+> Wenn Ihre Benutzer mithilfe eines Webbrowsers auf Verbund Anwendungen zugreifen, gibt ein Verbund Server automatisch Cookies für die Benutzer aus, um Ihren Anmeldestatus für diese Web\-Browser\-basierte Anwendung zu erhalten. Diese Cookies enthalten die Ansprüche für den Benutzer. Die Cookies ermöglichen SSO-Funktionen, damit die Benutzer die Anmelde Informationen nicht jedes Mal eingeben müssen, wenn Sie unterschiedliche Web\-Browser\-basierten Anwendungen im Ressourcen Partner besuchen.  
   
 Im Web-SSO-Entwurf müssen Organisationen mit einem Umkreis Netzwerk, die Internet Benutzern den Zugriff auf Anwendungen erlauben möchten, einen Verbund Server Proxy im Umkreis Netzwerk installieren. Im Federated-Web-SSO-Entwurf muss mindestens ein Verbund Server im Unternehmensnetzwerk der Konto Partnerorganisation und mindestens ein Verbund Server im Unternehmensnetzwerk der Ressourcen Partnerorganisation installiert sein.  
   
 > [!NOTE]  
-> Bevor Sie in der Konto Partnerorganisation einen Verbund Server Computer einrichten können, müssen Sie den Computer zunächst einer beliebigen Domäne in der Active Directory-Gesamtstruktur hinzufügen, in der der Verbund Server verwendet wird, um Benutzer aus dieser Gesamtstruktur zu authentifizieren. Weitere Informationen finden Sie unter [checkliste: Einrichten eines Verbund Servers @ no__t-0.  
+> Bevor Sie in der Konto Partnerorganisation einen Verbund Server Computer einrichten können, müssen Sie den Computer zunächst einer beliebigen Domäne in der Active Directory-Gesamtstruktur hinzufügen, in der der Verbund Server verwendet wird, um Benutzer aus dieser Gesamtstruktur zu authentifizieren. Weitere Informationen finden Sie unter [Checklist: Setting Up a Federation Server](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server.md).  
   
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 [AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

@@ -38,13 +38,13 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
   
 ## <a name="impact"></a>Auswirkungen  
   
-virtuelle Computer mit @no__t 0können keinen mit dem SCSI-Controller verbundenen Speicher verwenden. Dies wirkt sich auf die folgenden virtuellen Computer aus: *  
+*Virtuelle Computer können keinen mit dem SCSI-Controller verbundenen Speicher verwenden. Dies wirkt sich auf die folgenden virtuellen Computer aus:*  
   
-\<list of Virtual Machines >  
+\<Liste der virtuellen Computer >  
   
 ## <a name="resolution"></a>Auflösung  
   
-*fahren Sie den virtuellen Computer herunter, und entfernen Sie den SCSI-Controller mit dem Hyper-V-Manager von der virtuellen Maschine. Starten Sie dann den virtuellen Computer neu.*  
+*Fahren Sie den virtuellen Computer herunter, und entfernen Sie den SCSI-Controller mit dem Hyper-V-Manager aus dem virtuellen Computer. Starten Sie dann den virtuellen Computer neu.*  
   
 
 

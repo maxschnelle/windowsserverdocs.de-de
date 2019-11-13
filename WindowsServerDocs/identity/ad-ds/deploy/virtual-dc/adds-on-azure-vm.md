@@ -46,14 +46,14 @@ Wenn Sie über kein Azure-Abonnement verfügen, können Sie [ein kostenloses Kon
 
 Das folgende Skript automatisiert den Prozess der Erstellung von zwei virtuellen Windows Server 2019-Computern, um Domänen Controller für eine neue Active Directory Gesamtstruktur in Azure zu erstellen. Ein Administrator kann die unten aufgeführten Variablen entsprechend Ihren Anforderungen ändern und als einen Vorgang vervollständigen. Das Skript erstellt die erforderliche Ressourcengruppe, die Netzwerk Sicherheitsgruppe mit einer Datenverkehrs Regel für Remotedesktop, das virtuelle Netzwerk und das Subnetz und die Verfügbarkeits Gruppe. Die virtuellen Computer werden jeweils mit einem Datenträger mit 20 GB erstellt, wobei das Caching für die Installation AD DS deaktiviert ist.
 
-Das folgende Skript kann direkt vom Azure-Portal ausgeführt werden. Wenn Sie die CLI lokal installieren und verwenden möchten, müssen Sie für diesen Schnellstart die Azure CLI Version 2.0.4 oder höher ausführen. Führen `az --version` Sie aus, um die Version zu finden. Wenn Sie installieren oder aktualisieren müssen, finden Sie weitere Informationen unter [install Azure CLI 2,0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Das folgende Skript kann direkt vom Azure-Portal ausgeführt werden. Wenn Sie die CLI lokal installieren und verwenden möchten, müssen Sie für diesen Schnellstart die Azure CLI Version 2.0.4 oder höher ausführen. Führen Sie `az --version` aus, um die Version zu finden. Wenn Sie installieren oder aktualisieren müssen, finden Sie weitere Informationen unter [install Azure CLI 2,0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 | Variablenname | Zweck |
 | :---: | :--- |
-| adminUsername | Der Benutzername, der auf den einzelnen virtuellen Computern als lokaler Administrator konfiguriert werden soll. |
+| AdminUsername | Der Benutzername, der auf den einzelnen virtuellen Computern als lokaler Administrator konfiguriert werden soll. |
 | AdminPassword | Klar Text Kennwort, das auf jedem virtuellen Computer als lokales Administrator Kennwort konfiguriert werden soll. |
-| resourceGroupName | Der Name, der für die Ressourcengruppe verwendet werden soll. Es sollte kein vorhandener Name dupliziert werden. |
-| Speicherort | Der Name des Azure-Standorts, den Sie bereitstellen möchten. Listet die unterstützten Regionen für das aktuelle Abonnement mithilfe von "`az account list-locations`" auf. |
+| ResourceGroupName | Der Name, der für die Ressourcengruppe verwendet werden soll. Es sollte kein vorhandener Name dupliziert werden. |
+| Speicherort | Der Name des Azure-Standorts, den Sie bereitstellen möchten. Listet die unterstützten Regionen für das aktuelle Abonnement mithilfe von `az account list-locations`auf. |
 | VNetName | Der Name zum Zuweisen des virtuellen Azure-Netzwerks sollte keinen vorhandenen Namen duplizieren. |
 | Vnetaddress | Der für Azure-Netzwerke zu verwendende IP-Bereich. Ein vorhandener Bereich darf nicht dupliziert werden. |
 | SubnetName | Name, der dem IP-Subnetz zugewiesen werden soll. Es sollte kein vorhandener Name dupliziert werden. |
@@ -159,7 +159,8 @@ Wenn die als Teil dieses Prozesses erstellten virtuellen Azure-Computer eine Erw
 
 Nachdem Sie die neuen Domänen Controller in Azure herauf gestuft haben, müssen Sie auf den primären und sekundären DNS-Server für das virtuelle Netzwerk festgelegt werden, und alle lokalen DNS-Server werden in den tertiären und überschreiten herabgestuft. Weitere Informationen zum Ändern von DNS-Servern finden Sie im Artikel [erstellen, ändern oder Löschen eines virtuellen Netzwerks](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#change-dns-servers).
 
-Informationen zum Erweitern eines lokalen Netzwerks auf Azure finden Sie im Artikel [creating a Site-to-Site VPN Connection @ no__t-1.
+Informationen zum Erweitern eines lokalen Netzwerks auf Azure finden Sie im Artikel [Erstellen einer Site-to-Site-VPN-Verbindung](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
+).
 
 ## <a name="configure-the-vms-and-install-active-directory-domain-services"></a>Konfigurieren Sie die VMs, und installieren Sie Active Directory Domain Services
 
@@ -171,7 +172,7 @@ Stellen Sie eine Verbindung mit AZDC01 her, indem Sie die im Skript angegebenen 
 
 * Initialisieren und formatieren Sie den Datenträger als F:
    * Öffnen Sie das Startmenü, und navigieren Sie zu **Computer Verwaltung** .
-   * Navigieren Sie zu **Speicher** >  Datenträger**Verwaltung** .
+   * Navigieren Sie zu **Speicher** > Datenträger **Verwaltung** .
    * Initialisieren des Datenträgers als MBR
    * Erstellen eines neuen einfachen Volumes und Zuweisen des Laufwerk Buchstabens F: Sie können eine Volumebezeichnung angeben, wenn Sie möchten.
 * Installieren von Active Directory Domain Services mithilfe Server-Manager
@@ -201,7 +202,7 @@ Stellen Sie eine Verbindung mit AZDC02 her, indem Sie die im Skript angegebenen 
 
 * Initialisieren und formatieren Sie den Datenträger als F:
    * Öffnen Sie das Startmenü, und navigieren Sie zu **Computer Verwaltung** .
-   * Navigieren Sie zu **Speicher** >  Datenträger**Verwaltung** .
+   * Navigieren Sie zu **Speicher** > Datenträger **Verwaltung** .
    * Initialisieren des Datenträgers als MBR
    * Erstellen eines neuen einfachen Volumes und Zuweisen des Laufwerk Buchstabens F: Sie können eine Volumebezeichnung angeben, wenn Sie möchten.
 * Installieren von Active Directory Domain Services mithilfe Server-Manager

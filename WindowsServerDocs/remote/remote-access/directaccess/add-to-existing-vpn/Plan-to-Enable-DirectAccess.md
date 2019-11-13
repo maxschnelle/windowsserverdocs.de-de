@@ -21,17 +21,17 @@ ms.locfileid: "71388763"
 ---
 # <a name="plan-to-enable-directaccess"></a>Plan zum Aktivieren von DirectAccess
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-**Hinweis**: Windows Server 2012 kombiniert DirectAccess und RAS-Dienst (RAS) zu einer einzigen Remote Zugriffs Rolle. In diesem Abschnitt werden die Planungsschritte beschrieben, die zum Bereitstellen eines einzelnen RAS-Servers erforderlich sind, auf dem Windows Server 2016 mit grundlegenden Features ausgeführt wird. 
+**Hinweis:** Windows Server 2012 kombiniert DirectAccess und RAS-Dienst (RAS) zu einer einzigen Remote Zugriffs Rolle. In diesem Abschnitt werden die Planungsschritte beschrieben, die zum Bereitstellen eines einzelnen RAS-Servers erforderlich sind, auf dem Windows Server 2016 mit grundlegenden Features ausgeführt wird. 
 
 Die Planungsphase umfasst die folgenden Schritte:  
   
--   [Schritt 1: Planen der DirectAccess-Infrastruktur @ no__t-0  
+-   [Schritt 1: Planen der DirectAccess-Infrastruktur](step-1-plan-da-inf-davpn.md)  
   
     In dieser Phase beschreiben Sie die erforderliche Planung zum Einrichten der Netzwerkinfrastruktur, bevor Sie mit der Remotezugriffbereitstellung beginnen. Sie umfasst das Planen der Netzwerk- und Servertopologie, Zertifikate, des Domain Name System (DNS), der Active Directory, die Konfiguration der Gruppenrichtlinienobjekte und des DirectAccess-Netzwerkadressenservers.  
   
--   [Schritt 2: Planen der DirectAccess-Bereitstellung @ no__t-0  
+-   [Schritt 2: Planen der DirectAccess-Bereitstellung](step-2-plan-da-davpn.md)  
   
     In dieser Phase beschreiben Sie die erforderlichen Planungsschritte zur Vorbereitung der Remotezugriffbereitstellung. Dazu gehört die Planung der Clientcomputer für den Remotezugriff, Server- und Clientauthentifizierungsanforderungen und Infrastrukturserver.  
   

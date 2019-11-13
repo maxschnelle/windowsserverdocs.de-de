@@ -23,7 +23,7 @@ ms.locfileid: "71407521"
 
 -   [Einrichten der Laborumgebung für AD FS unter Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
 
--   [Handbuch mit exemplarischer Vorgehensweise: Verwalten von Risiken mit zusätzlichen Multi-Factor Authentication für sensible Anwendungen](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
+-   [Leitfaden für die exemplarische Vorgehensweise: Verwalten von Risiken mit zusätzlichen Multi-Factor Authentication für sensible Anwendungen](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
 
 -   [Konfigurieren zusätzlicher Authentifizierungsmethoden für AD FS](../../ad-fs/operations/Configure-Additional-Authentication-Methods-for-AD-FS.md)
 
@@ -37,7 +37,7 @@ Dieses Handbuch enthält die folgenden Informationen:
     > [!NOTE]
     > In AD FS unter Windows Server 2012 R2 können Sie die MFA basierend auf Netzwerkadresse, Geräte Identität und Benutzeridentität oder Gruppenmitgliedschaft aktivieren.
 
-    Ausführliche Schritt-für-Schritt-Anleitungen zum Konfigurieren und überprüfen dieses Szenarios finden Sie im Handbuch für die [walkthrough: Verwalten von Risiken mit zusätzlichen Multi-Factor Authentication für sensible](../../ad-fs/operations/Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)Anwendungen.
+    Ausführliche Schritt-für-Schritt-Anleitungen zum Konfigurieren und überprüfen dieses Szenarios finden Sie unter Exemplarische Vorgehensweise [: Verwalten von Risiken mit zusätzlichen Multi-Factor Authentication für sensible Anwendungen](../../ad-fs/operations/Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md).
 
 ## <a name="BKMK_1"></a>Schlüsselkonzepte: Authentifizierungsmechanismen in AD FS
 
@@ -51,7 +51,7 @@ Active Directory-Verbunddienste (AD FS) (AD FS) in Windows Server 2012 R2 bietet
     -   Aktivieren der Geräteauthentifizierung für nahtlose zweistufige Authentifizierung. Dadurch wird die Identität des Benutzers mit dem registrierten Gerät verknüpft, das für den Zugriff auf die Ressource verwendet wird. Dadurch wird eine sicherere Überprüfung der Verbund Identität angeboten, bevor auf geschützte Ressourcen zugegriffen wird.
 
         > [!NOTE]
-        > Weitere Informationen über Geräte Objekt, Geräte Registrierungsdienst, Workplace Join und das Gerät als nahtlose zweistufige Authentifizierung und einmaliges Anmelden (SSO) finden [Sie unter Verbinden mit einem Arbeitsplatz von einem beliebigen Gerät für SSO und nahtlose zweistufige Authentifizierung im gesamten Unternehmen. Anwendungen](Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
+        > Weitere Informationen über Geräte Objekt, Geräte Registrierungsdienst, Workplace Join und das Gerät als nahtlose zweistufige Authentifizierung und einmaliges Anmelden (SSO) finden [Sie unter Verbinden mit einem Arbeitsplatz von einem beliebigen Gerät für SSO und nahtlose zweistufige Authentifizierung bei allen Unternehmensanwendungen](Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
 
     -   Festlegen der MFA-Anforderung für den gesamten Extranetzugriff oder bedingt basierend auf der Identität des Benutzers, dem Netzwerk Speicherort oder einem Gerät, das für den Zugriff auf geschützte Ressourcen verwendet wird.
 
@@ -72,7 +72,7 @@ Eine globale Authentifizierungs Richtlinie gilt für alle vertrauenden Seiten, d
 
 -   Einstellungen und Methoden für die MFA
 
--   Angabe, ob die Geräteauthentifizierung aktiviert ist. Weitere Informationen finden Sie unter [Arbeitsplatzbeitritt von einem beliebigen Gerät für SSO und die nahtlose zweistufige Authentifizierung bei allen Unternehmensanwendungen](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
+-   Angabe, ob die Geräteauthentifizierung aktiviert ist. Weitere Informationen finden Sie unter [Join to Workplace from Any Device for SSO and Seamless Second Factor Authentication Across Company Applications](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
 
 Authentifizierungsrichtlinien für Vertrauensstellungen der vertrauenden Seite gelten speziell bei Versuchen, auf die Vertrauensstellung der vertrauenden Seite (Anwendung oder Dienst) zuzugreifen. Als Teil der Authentifizierungsrichtlinie, die pro Vertrauensstellung der vertrauenden Seite gilt, können die folgenden Einstellungen konfiguriert werden:
 
@@ -94,7 +94,7 @@ Durch die Auswahl mehrerer Authentifizierungsmethoden können Ihre Benutzer wäh
 Sie können auch die Geräteauthentifizierung für die nahtlose zweistufige Authentifizierung aktivieren. Dadurch wird die Identität des Benutzers mit dem registrierten Gerät verknüpft, das für den Zugriff auf die Ressource verwendet wird. Dadurch wird eine sicherere Überprüfung der Verbund Identität angeboten, bevor auf geschützte Ressourcen zugegriffen wird.
 
 > [!NOTE]
-> Weitere Informationen über Geräte Objekt, Geräte Registrierungsdienst, Workplace Join und das Gerät als nahtlose zweistufige Authentifizierung und einmaliges Anmelden (SSO) finden [Sie unter Verbinden mit einem Arbeitsplatz von einem beliebigen Gerät für SSO und nahtlose zweistufige Authentifizierung im gesamten Unternehmen. Anwendungen](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
+> Weitere Informationen über Geräte Objekt, Geräte Registrierungsdienst, Workplace Join und das Gerät als nahtlose zweistufige Authentifizierung und einmaliges Anmelden (SSO) finden [Sie unter Verbinden mit einem Arbeitsplatz von einem beliebigen Gerät für SSO und nahtlose zweistufige Authentifizierung bei allen Unternehmensanwendungen](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
 
 Wenn Sie die Windows-Authentifizierung (Standardoption) für Ihre Intranetressourcen festlegen, werden Authentifizierungsanforderungen in Browsern, die die Windows-Authentifizierung unterstützen, nahtlos dieser Methode unterzogen.
 
@@ -123,32 +123,33 @@ In diesem Szenario aktivieren Sie die MFA auf Grundlage der Gruppen Mitgliedscha
 
 Genauer gesagt aktivieren Sie in diesem Szenario eine Authentifizierungsrichtlinie für eine anspruchsbasierte Testanwendung namens **claimapp**. Dabei muss der AD-Benutzer **Robert Hatley** die MFA durchlaufen, da er zur AD-Gruppe **Finance** gehört.
 
-Die Schritt-für-Schritt-Anweisungen zum Einrichten und überprüfen dieses Szenarios finden Sie im Handbuch für die [walkthrough: Verwalten von Risiken mit zusätzlichen Multi-Factor Authentication für sensible](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)Anwendungen. Um die Schritte in dieser exemplarischen Vorgehensweise ausführen zu können, müssen Sie eine Lab-Umgebung einrichten und die Schritte unter [Einrichten der Lab-Umgebung für AD FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)ausführen.
+Die Schritt-für-Schritt-Anweisungen zum Einrichten und überprüfen dieses Szenarios finden Sie unter Exemplarische Vorgehensweise [: Verwalten von Risiken mit zusätzlichen Multi-Factor Authentication für sensible Anwendungen](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md). Um die Schritte in dieser exemplarischen Vorgehensweise ausführen zu können, müssen Sie eine Lab-Umgebung einrichten und die Schritte unter [Einrichten der Lab-Umgebung für AD FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)ausführen.
 
 Weitere Szenarien zum Aktivieren der MFA in AD FS sind:
 
--   Aktivieren der MFA, falls die Zugriffsanforderung über das Extranet erfolgt. Sie können den Code ändern, der im Abschnitt "Einrichten der MFA-Richtlinie" in [walkthrough Guide: Verwalten Sie Risiken mit zusätzlichen Multi-Factor Authentication für sensible Anwendungen @ no__t-0 mit folgendem:
+-   Aktivieren der MFA, falls die Zugriffsanforderung über das Extranet erfolgt. Sie können den Code ändern, der im Abschnitt "Einrichten der MFA-Richtlinie" unter Exemplarische Vorgehensweise [: Verwalten von Risiken mit zusätzlichen Multi-Factor Authentication für sensible Anwendungen](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md) mit folgendem Code dargestellt wird:
 
     ```
     'c:[type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", value == "false"] => issue(type="https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = "https://schemas.microsoft.com/claims/multipleauthn" );'
     ```
 
--   Aktivieren der MFA, falls die Zugriffsanforderung über ein Gerät erfolgt, das nicht mit dem Arbeitsplatz verbunden ist.  Sie können den Code ändern, der im Abschnitt "Einrichten der MFA-Richtlinie" in [walkthrough Guide: Verwalten Sie Risiken mit zusätzlichen Multi-Factor Authentication für sensible Anwendungen @ no__t-0 mit folgendem:
+-   Aktivieren der MFA, falls die Zugriffsanforderung über ein Gerät erfolgt, das nicht mit dem Arbeitsplatz verbunden ist.  Sie können den Code ändern, der im Abschnitt "Einrichten der MFA-Richtlinie" unter Exemplarische Vorgehensweise [: Verwalten von Risiken mit zusätzlichen Multi-Factor Authentication für sensible Anwendungen](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md) mit folgendem Code dargestellt wird:
 
     ```
     'NOT EXISTS([type=="https://schemas.microsoft.com/2012/01/devicecontext/claims/registrationid"]) => issue (type="https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = "https://schemas.microsoft.com/claims/multipleauthn");'
 
     ```
 
--   Aktivieren der MFA, falls ein Benutzer über ein Gerät zugreifen möchte, das mit dem Arbeitsplatz verbunden, aber nicht für diesen Benutzer registriert ist. Sie können den Code ändern, der im Abschnitt "Einrichten der MFA-Richtlinie" in [walkthrough Guide: Verwalten Sie Risiken mit zusätzlichen Multi-Factor Authentication für sensible Anwendungen @ no__t-0 mit folgendem:
+-   Aktivieren der MFA, falls ein Benutzer über ein Gerät zugreifen möchte, das mit dem Arbeitsplatz verbunden, aber nicht für diesen Benutzer registriert ist. Sie können den Code ändern, der im Abschnitt "Einrichten der MFA-Richtlinie" unter Exemplarische Vorgehensweise [: Verwalten von Risiken mit zusätzlichen Multi-Factor Authentication für sensible Anwendungen](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md) mit folgendem Code dargestellt wird:
 
     ```
     'c:[type=="https://schemas.microsoft.com/2012/01/devicecontext/claims/isregistereduser", value == "false"] => issue (type="https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = "https://schemas.microsoft.com/claims/multipleauthn");'
 
     ```
 
-## <a name="see-also"></a>Siehe auch
-[Handbuch mit exemplarischer Vorgehensweise: Verwalten von Risiken mit zusätzlichen Multi-Factor Authentication für sensible Anwendungen @ no__t-0 @ no__t-1[Einrichten der Lab-Umgebung für AD FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
+## <a name="see-also"></a>Weitere Informationen
+Leitfaden für die exemplarische Vorgehensweise [: Verwalten von Risiken mit zusätzlichen Multi-Factor Authentication für sensible Anwendungen](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
+[Einrichten der Lab-Umgebung für AD FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
 
 
 

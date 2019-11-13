@@ -38,13 +38,13 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
   
 ## <a name="impact"></a>Auswirkungen  
   
-virtuelle Computer mit @no__t 0können keinen mit einem deaktivierten Speichercontroller verbundenen Speicher verwenden. Dies wirkt sich auf die folgenden virtuellen Computer aus: *  
+*Virtuelle Computer können keinen mit einem deaktivierten Speichercontroller verbundenen Speicher verwenden. Dies wirkt sich auf die folgenden virtuellen Computer aus:*  
   
-\<liste der Namen der virtuellen Computer >  
+\<Liste der Namen der virtuellen Computer >  
   
 ## <a name="resolution"></a>Auflösung  
   
-*verwenden Sie Geräte-Manager im Gast Betriebssystem, um alle Speichercontroller zu aktivieren. Wenn der Speichercontroller nicht erforderlich ist, entfernen Sie ihn mit dem Hyper-V-Manager aus dem virtuellen Computer.*  
+*Verwenden Sie Geräte-Manager im Gast Betriebssystem, um alle Speichercontroller zu aktivieren. Wenn der Speichercontroller nicht erforderlich ist, verwenden Sie den Hyper-V-Manager, um ihn vom virtuellen Computer zu entfernen.*  
   
 Anweisungen zur Verwendung von Geräte-Manager finden Sie in der Hilfe zum Gast Betriebssystem. Anweisungen zum Entfernen des Speicher Controllers finden Sie im folgenden Verfahren.  
   

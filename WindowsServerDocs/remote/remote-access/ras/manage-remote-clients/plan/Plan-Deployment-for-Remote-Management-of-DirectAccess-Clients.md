@@ -21,13 +21,13 @@ ms.locfileid: "71404587"
 ---
 # <a name="plan-deployment-for-remote-management-of-directaccess-clients"></a>Planen der Bereitstellung für die Remoteverwaltung von DirectAccess-Clients
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Die folgenden Themen enthalten Planungsschritte für die Bereitstellung eines einzelnen RAS-Servers, auf dem ausgeführt wird und der für die Remote Verwaltung von DirectAccess-Clients verwendet werden kann.  
   
-[Schritt 1: Planen der Remote Zugriffs Infrastruktur @ no__t-0: Dieses Thema hilft Ihnen beim Planen der Netzwerktopologie und Servereinstellungen, der Firewallanforderungen, der Zertifikat Anforderungen, der Domain Name System Anforderungen, der DirectAccess-Netzwerkadressen Server-und Verwaltungs Serverkonfiguration Active Directory Anforderungen und Gruppenrichtlinie Objekt Erstellung.  
+[Schritt 1: Planen der Infrastruktur für den Remote Zugriff](Step-1-Plan-the-Remote-Access-Infrastructure.md): in diesem Thema finden Sie Informationen zum Planen der Netzwerktopologie und Servereinstellungen, der Firewallanforderungen, der Zertifikat Anforderungen, der Domain Name System Anforderungen, der DirectAccess-Netzwerkadressen Server-und Verwaltungs Serverkonfiguration, der Active Directory Anforderungen und der Gruppenrichtlinie Objekt Erstellung.  
   
-[Schritt 2: Planen Sie die Bereitstellung des Remote Zugriffs @ no__t-0: Planen von Client-und Server Bereitstellungs Strategien und Infrastruktur Serverkonfigurationen.  
+[Schritt 2: Planen der Bereitstellung des Remote Zugriffs](Step-2-Plan-the-Remote-Access-Deployment.md): Planen von Client-und Server Bereitstellungs Strategien und Infrastruktur Serverkonfigurationen.  
 
   
 

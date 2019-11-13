@@ -36,12 +36,12 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
 *Mindestens eine virtuelle Maschine wurde in der letzten Woche nicht gesichert.*  
   
 ## <a name="impact"></a>Auswirkungen  
-ein signifikanter Datenverlust @no__t 0 kann auftreten, wenn auf dem virtuellen Computer ein Problem auftritt und keine aktuelle Sicherung vorhanden ist. Dies wirkt sich auf die folgenden virtuellen Computer aus: *  
+*Ein erheblicher Datenverlust kann auftreten, wenn auf dem virtuellen Computer ein Problem auftritt und keine aktuelle Sicherung vorhanden ist. Dies wirkt sich auf die folgenden virtuellen Computer aus:*  
   
-\<list of Virtual Machines >  
+\<Liste der virtuellen Computer >  
   
 ## <a name="resolution"></a>Auflösung  
-*planen Sie eine Sicherung der virtuellen Computer so, dass Sie mindestens einmal pro Woche ausgeführt wird. Diese Regel kann ignoriert werden, wenn es sich bei dieser virtuellen Maschine um ein Replikat handelt und der primäre virtuelle Computer gesichert wird, oder wenn dies der primäre virtuelle Computer ist und das zugehörige Replikat gesichert wird.*  
+*Planen Sie eine Sicherung der virtuellen Computer so, dass Sie mindestens einmal pro Woche ausgeführt wird. Sie können diese Regel ignorieren, wenn diese virtuelle Maschine ein Replikat ist und der primäre virtuelle Computer gesichert wird, oder wenn dies der primäre virtuelle Computer ist und das zugehörige Replikat gesichert wird.*  
   
 
 

@@ -21,7 +21,7 @@ ms.locfileid: "71404401"
 ---
 # <a name="step-2-plan-the-radius-server-deployment"></a>Schritt 2 Planen der RADIUS-Server Bereitstellung
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Planen Sie nach der Bereitstellung eines einzelnen RAS-Servers den einmal Kennwort (One-time password, OTP)-Authentifizierungsserver ein.  
   
@@ -40,7 +40,7 @@ Beachten Sie Folgendes, wenn Sie einen RADIUS-Server für die OTP-Authentifizier
   
 -   Wenn Sie den RADIUS-Server bereitstellen, konfigurieren Sie einen gemeinsamen geheimen Schlüssel und die Portnummer für RADIUS-Datenverkehr. Notieren Sie sich diese Details. Sie sind erforderlich, wenn Sie den Remote Zugriffs Server konfigurieren.  
   
-Ein Beispiel für eine Test Umgebungs Anleitung, die die OTP-Authentifizierung mit einem RSA SecurID-Server festlegt, finden Sie im [test Lab Guide: Veranschaulichen von DirectAccess mit OTP-Authentifizierung und RSA SecurID @ no__t-0.  
+Ein Beispiel für eine Test Umgebungs Anleitung zum Einrichten der OTP-Authentifizierung mit einem RSA SecurID-Server finden Sie in der [Test Umgebungs Anleitung: demonstrieren von DirectAccess mit OTP-Authentifizierung und RSA SecurID](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/tlg-otp-securid/test-lab-guide-demonstrate-directaccess-with-otp-authentication-and-rsa-securid).  
   
   
   

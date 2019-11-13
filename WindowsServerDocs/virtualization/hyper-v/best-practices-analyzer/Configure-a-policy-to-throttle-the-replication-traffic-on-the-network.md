@@ -36,12 +36,12 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
 *Möglicherweise gibt es keine Beschränkung für die Menge an Netzwerkbandbreite, die von der Replikation beansprucht werden darf.*  
   
 ## <a name="impact"></a>Auswirkungen  
-die Netzwerkbandbreite von @no__t 0könnte vollständig vom Replikations Datenverkehr dominiert werden, was Auswirkungen auf andere wichtige Netzwerkaktivitäten hat Dies wirkt sich auf die folgenden Ports aus: *  
+*Die Netzwerkbandbreite könnte vollständig von Replikations Datenverkehr dominiert werden Dies wirkt sich auf die folgenden Ports aus:*  
   
-\<list of Virtual Machines >  
+\<Liste der virtuellen Computer >  
   
 ## <a name="resolution"></a>Auflösung  
-*wenn Sie eine andere Methode zum Einschränken des Netzwerk Datenverkehrs verwenden, können Sie dies ignorieren. Verwenden Sie andernfalls Gruppenrichtlinie-Editor, um eine Richtlinie zu konfigurieren, die den Netzwerk Datenverkehr auf den relevanten Port des Replikat Servers drosselt.*  
+*Wenn Sie eine andere Methode zum Einschränken des Netzwerk Datenverkehrs verwenden, können Sie dies ignorieren. Verwenden Sie andernfalls Gruppenrichtlinie-Editor, um eine Richtlinie zu konfigurieren, die den Netzwerk Datenverkehr zum relevanten Port des Replikat Servers drosselt.*  
   
   
 

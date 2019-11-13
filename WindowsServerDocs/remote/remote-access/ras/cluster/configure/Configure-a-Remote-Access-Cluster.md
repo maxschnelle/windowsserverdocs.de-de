@@ -22,17 +22,17 @@ ms.locfileid: "71404625"
 ---
 # <a name="configure-a-remote-access-cluster"></a>Konfigurieren eines Clusters mit Remotezugriff
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
  Windows Server 2016 und Windows Server 2012 kombinieren Always on VPN-und RRAS-VPN (Routing and Remote Access Service) in einer einzigen Remote Zugriffs Rolle. Diese Übersicht bietet eine Einführung in die Konfigurationsschritte, die erforderlich sind, um einen einzelnen Remote Zugriffs Server unter Windows Server 2016 oder Windows Server 2012 in einem Cluster mit Lastenausgleich bereitzustellen.
   
--  Schritt 1: Stellen Sie [einen Always on-VPN-Server mit erweiterten Optionen](../../../vpn/always-on-vpn/deploy/always-on-vpn-adv-options.md)bereit.
+-  Schritt 1: bereitstellen [eines Always on-VPN-Servers mit erweiterten Optionen](../../../vpn/always-on-vpn/deploy/always-on-vpn-adv-options.md).
   
--   [Schritt 2: Vorbereiten der Cluster Server @ no__t-0.  
+-   [Schritt 2: Vorbereiten von Cluster Servern](Step-2-Prepare-Cluster-Servers.md).  
   
--   [Schritt 3: Konfigurieren Sie einen Cluster mit Lastenausgleich @ no__t-0.  
+-   [Schritt 3: Konfigurieren eines Clusters mit Lasten](Step-3-Configure-a-Load-Balanced-Cluster.md)Ausgleich.  
   
--   [Schritt 4: Überprüfen Sie den Cluster @ no__t-0.  
+-   [Schritt 4: Überprüfen Sie den Cluster](Step-4-Verify-the-Cluster.md).  
   
 
 

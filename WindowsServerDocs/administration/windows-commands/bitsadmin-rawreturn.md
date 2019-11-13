@@ -34,7 +34,7 @@ bitsadmin /RawReturn
 
 Entfernt Zeilen mit Zeilen und Formatierungen aus der Ausgabe.
 
-In der Regel verwenden Sie diesen Befehl zusammen mit den Switches **Create** und **Get @ no__t-2***, um nur den Wert zu erhalten. Dieser Switch muss vor anderen Schaltern angegeben werden.
+In der Regel verwenden Sie diesen Befehl in Verbindung mit den Switches **Create** und **Get\\** *, um nur den Wert zu erhalten. Dieser Switch muss vor anderen Schaltern angegeben werden.
 
 ## <a name="BKMK_examples"></a>Beispiele
 

@@ -21,13 +21,13 @@ ms.locfileid: "71388598"
 ---
 # <a name="plan-a-basic-directaccess-deployment"></a>Planen einer allgemeinen DirectAccess-Bereitstellung
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema werden die erforderlichen Planungsschritte für die Bereitstellung eines einzelnen DirectAccess-Servers beschrieben, auf dem Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 mit grundlegenden Features ausgeführt wird:  
   
-1.  [Schritt 1: Planen Sie die grundlegende DirectAccess-Infrastruktur @ no__t-0-Plan Netzwerk-und Server Topologie, Firewalleinstellungen, Zertifikat Anforderungen, DNS und Active Directory.  
+1.  [Schritt 1: Planen der grundlegenden DirectAccess-Infrastruktur Planen der](da-basic-plan-s1-infrastructure.md)Netzwerk-und Server Topologie, Firewalleinstellungen, Zertifikat Anforderungen, DNS und Active Directory.  
   
-2.  [Schritt 2: Planen Sie die grundlegende Bereitstellung von DirectAccess-Bereitstellung @ no__t-0-Plan Client und Server.  
+2.  [Schritt 2: Planen der grundlegenden Bereitstellung von DirectAccess-Bereitstellungs](da-basic-plan-s2-deployment.md)Plan Clients und-Servern  
   
 ## <a name="next-step"></a>Nächster Schritt  
 Wenn Sie diese Planungsschritte abgeschlossen haben, können Sie mit der Bereitstellung des Servers beginnen. Anweisungen hierzu finden Sie unter [Installieren und Konfigurieren von Basic DirectAccess](Install-and-Configure-Basic-DirectAccess.md).  

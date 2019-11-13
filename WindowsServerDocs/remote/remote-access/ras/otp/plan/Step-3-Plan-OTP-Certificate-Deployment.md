@@ -21,7 +21,7 @@ ms.locfileid: "71366946"
 ---
 # <a name="step-3-plan-otp-certificate-deployment"></a>Schritt 3 Planen der OTP-Zertifikat Bereitstellung
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Nach der Planung des RADIUS-Servers müssen Sie die Anforderungen der Zertifizierungsstelle (Certification Authority, ca) planen, einschließlich der Zertifizierungsstelle, von der die Zertifikate für einmal Kennwort (OTP), die OTP-Zertifikat Vorlage und das vom Remote Server verwendete Registrierungsstellen Zertifikat ausgestellt werden. Zugriffs Server zum Signieren aller OTP-Zertifikat Anforderungen für den DirectAccess-Client. Diese Zertifikate werden wie folgt verwendet:  
   
@@ -75,7 +75,7 @@ Wenn DirectAccess-Clients ein OTP-Zertifikat anfordern, empfängt der RAS-Server
   
 ## <a name="BKMK_Links"></a>Siehe auch  
   
--   [Schritt 4: Planen von OTP für den RAS-Server @ no__t-0  
+-   [Schritt 4: Planen von OTP für den Remote Zugriffs Server](Step-4-Plan-for-OTP-on-the-Remote-Access-Server.md)  
   
 
 

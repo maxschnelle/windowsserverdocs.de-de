@@ -24,8 +24,8 @@ ms.locfileid: "71404314"
 
 In diesem Schritt stellen Sie das Stamm Zertifikat für den bedingten Zugriff als vertrauenswürdiges Stamm Zertifikat für die VPN-Authentifizierung in Ihrem lokalen AD bereit.
 
-- [**Vorher** Schritt 7.3. Konfigurieren der Richtlinie für bedingten Zugriff](vpn-config-conditional-access-policy.md)
-- [**Weiter** Schritt 7.5. Erstellen von OMA-DM-basierten VPNv2-Profilen für Windows 10-Geräte](vpn-create-oma-dm-based-vpnv2-profiles.md)
+- [**Vorheriges:** Schritt 7,3. Konfigurieren der Richtlinie für bedingten Zugriff](vpn-config-conditional-access-policy.md)
+- [**Weiter:** Schritt 7,5. Erstellen von OMA-DM-basierten VPNv2-Profilen für Windows 10-Geräte](vpn-create-oma-dm-based-vpnv2-profiles.md)
 
 1. Wählen Sie auf der Seite **VPN-Konnektivität die Option** **Zertifikat herunterladen**aus.
 
@@ -39,8 +39,8 @@ In diesem Schritt stellen Sie das Stamm Zertifikat für den bedingten Zugriff al
 
    | Befehl | Beschreibung |
    | --- | --- |
-   | `certutil -dspublish -f VpnCert.cer RootCA` | Erstellt zwei Container der Microsoft-VPN-Stamm Zertifizierungsstelle **Gen 1** unter den Containern **CN = AIA** und **CN = Certification Autoritäten** und veröffentlicht jedes Stamm Zertifikat als Wert für das _cACertificate_ -Attribut von **Microsoft VPN root. CA Gen 1** -Container. |
-   | `certutil -dspublish -f VpnCert.cer NTAuthCA` | Erstellt einen **CN = ntauthcertificate** -Container unter den Containern **CN = AIA** und **CN = Certification Autoritäten** und veröffentlicht jedes Stamm Zertifikat als Wert für das _cACertificate_ -Attribut der **CN = Ntauthzertifikate** -Container. |
+   | `certutil -dspublish -f VpnCert.cer RootCA` | Erstellt zwei Container der Generation **1 der Microsoft-VPN** -Stamm Zertifizierungsstellen unter den Containern **CN = AIA** und **CN = Certification Autoritäten** und veröffentlicht jedes Stamm Zertifikat als Wert für das Attribut _cACertificate_ der beiden Container der Microsoft-VPN-Stamm Zertifizierungsstelle **Gen 1** . |
+   | `certutil -dspublish -f VpnCert.cer NTAuthCA` | Erstellt einen **CN = ntauthcertificate** -Container unter den Containern **CN = AIA** und **CN = Certification Autoritäten** und veröffentlicht jedes Stamm Zertifikat als Wert für das _cACertificate_ -Attribut des **CN = ntauthcertificate** -Containers. |
    | `gpupdate /force` | Hiermit wird das Hinzufügen der Stamm Zertifikate zu den Windows Server-und Client Computern beschleunigt. |
 
 3. Vergewissern Sie sich, dass die Stamm Zertifikate im Enterprise NTAuth-Speicher vorhanden sind und als vertrauenswürdig angezeigt werden:
@@ -59,4 +59,4 @@ In diesem Schritt stellen Sie das Stamm Zertifikat für den bedingten Zugriff al
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Schritt 7.5: Erstellen von OMA-DM-basierten VPNv2-Profilen auf Windows 10-Geräten @ no__t-0: In diesem Schritt können Sie OMA-DM-basierte VPNv2-Profile mithilfe von InTune erstellen, um eine VPN-Geräte Konfigurationsrichtlinie bereitzustellen. Wenn Sie SCCM-oder PowerShell-Skripts zum Erstellen von VPNv2-Profilen erstellen möchten, finden Sie weitere Informationen unter [VPNv2 CSP Settings](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp) .
+[Schritt 7,5. Erstellen von OMA-DM-basierten VPNv2-Profilen für Windows 10-Geräte](vpn-create-oma-dm-based-vpnv2-profiles.md): in diesem Schritt können Sie OMA-DM-basierte VPNv2-Profile mithilfe von InTune erstellen, um eine VPN-Geräte Konfigurationsrichtlinie bereitzustellen. Wenn Sie SCCM-oder PowerShell-Skripts zum Erstellen von VPNv2-Profilen erstellen möchten, finden Sie weitere Informationen unter [VPNv2 CSP Settings](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp) .

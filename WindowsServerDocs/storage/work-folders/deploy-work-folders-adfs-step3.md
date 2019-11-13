@@ -15,21 +15,21 @@ ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71365767"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-3-set-up-work-folders"></a>Arbeitsordner mit AD FS und webanwendungsproxy bereitstellen: Schritt 3: Einrichten von Arbeits Ordnern
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-3-set-up-work-folders"></a>Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 3, Einrichten von Arbeitsordnern
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema wird der dritte Schritt bei der Bereitstellung von Arbeitsordnern mit Active Directory-Verbunddiensten (AD FS) und Webproxyanwendung beschrieben. Weitere Schritte des Prozesses finden Sie in folgenden Themen:  
   
--   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Übersicht @ no__t-0  
+-   [Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy: Übersicht](deploy-work-folders-adfs-overview.md)  
   
--   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 1: Einrichten AD FS @ no__t-0  
+-   [Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy: Schritt 1, einrichten AD FS](deploy-work-folders-adfs-step1.md)  
   
--   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 2, AD FS Arbeit nach der Konfiguration @ no__t-0  
+-   [Bereitstellen von Arbeits Ordnern mit AD FS und dem webanwendungsproxy: Schritt 2 AD FS arbeiten nach der Konfiguration](deploy-work-folders-adfs-step2.md)  
   
--   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 4: Einrichten des webanwendungsproxys @ no__t-0  
+-   [Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy: Schritt 4](deploy-work-folders-adfs-step4.md)  
   
--   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 5: Einrichten von Clients @ no__t-0  
+-   [Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy: Schritt 5: Einrichten von Clients](deploy-work-folders-adfs-step5.md)  
   
 > [!NOTE]
 >   Die in diesem Abschnitt behandelten Anweisungen gelten für eine Windows Server 2019-oder Windows Server 2016-Umgebung. Wenn Sie Windows Server 2012 R2 verwenden, folgen Sie den [Anweisungen für Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
@@ -42,7 +42,7 @@ Um Arbeitsordner zu installieren, müssen Sie über einen Server verfügen, der 
 Verknüpfen Sie für das Testbeispiel den Computer, auf dem der Arbeitsordner ist mit der Contoso-Domäne und richten Sie die Netzwerkschnittstelle wie in den folgenden Abschnitten beschrieben ein. 
 
 ### <a name="set-the-server-ip-address"></a>Legen Sie die IP-Adresse des -Servers fest  
-Ändern Sie die IP-Adresse des Servers in eine statische IP-Adresse. Verwenden Sie für das Testbeispiel die IP-Klasse A, d. h. 192.168.0.170/Subnetzmaske: 255.255.0.0/Standard Gateway: 192.168.0.1/bevorzugtes DNS: 192.168.0.150 (die IP-Adresse Ihres Domänen Controllers). 
+Ändern Sie die IP-Adresse des Servers in eine statische IP-Adresse. Verwenden Sie für das Testbeispiel die IP der Klasse A 192.168.0.170 / subnet mask: 255.255.0.0 / Default Gateway: 192.168.0.1 / Preferred DNS: 192.168.0.150 (die IP-Adresse des Domänencontrollers). 
   
 ### <a name="create-the-cname-record-for-work-folders"></a>Erstellen Sie den CNAME-Eintrag für Arbeitsordner  
 Um den CNAME-Eintrag für Arbeitsordner zu erstellen, gehen Sie folgendermaßen vor:  
@@ -271,11 +271,11 @@ Das selbstsigniertes Arbeitsordner-Zertifikat muss exportiert werden, damit Sie 
   
 -   Der nicht mit einer Domäne verknüpfte Windows-Client  
   
-Um das Zertifikat zu exportieren, führen Sie dieselben Schritte aus, die Sie zuvor zum Exportieren des AD FS Zertifikats verwendet haben, wie in [bereit stellen von Arbeits Ordnern mit AD FS und webanwendungsproxy beschrieben: Schritt 2: AD FS Arbeitsaufgaben nach der Konfiguration @ no__t-0, exportieren Sie das AD FS Zertifikat.  
+Um das Zertifikat zu exportieren, führen Sie die gleichen Schritte aus, die Sie verwendet haben, um das AD FS-Zertifikat zu exportieren [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 2, Konfigurationsaufgaben nach dem Einrichten von AD FS](deploy-work-folders-adfs-step2.md). Exportieren Sie das AD FS-Zertifikat.  
   
-Nächster Schritt: [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 4: Einrichten des webanwendungsproxys @ no__t-0  
+Nächster Schritt: [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 4, Einrichten des Webanwendungsproxy](deploy-work-folders-adfs-step4.md)  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Übersicht über Arbeitsordner](Work-Folders-Overview.md)  
   
 

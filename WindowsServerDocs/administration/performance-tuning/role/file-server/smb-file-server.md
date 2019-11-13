@@ -86,12 +86,12 @@ Die folgenden SMB-Leistungsindikatoren wurden in Windows Server 2012 eingeführt
 
 -   **Physische Datenträger, SMB, CSV FS-Leistungsindikator Beziehungen**
 
-    Weitere Informationen zur Beziehung zwischen den Leistungsindikatoren für physische Datenträger, SMB und CSV FS (Dateisystem) finden Sie im folgenden Blogbeitrag: [Freigegebenes Clustervolume Leistungsindikatoren](http://blogs.msdn.com/b/clustering/archive/2014/06/05/10531462.aspx).
+    Weitere Informationen zur Beziehung zwischen den Leistungsindikatoren für physische Datenträger, SMB und CSV FS (Dateisystem) finden Sie im folgenden Blogbeitrag: [freigegebenes Clustervolume Leistungsindikatoren](http://blogs.msdn.com/b/clustering/archive/2014/06/05/10531462.aspx).
 
 ## <a name="tuning-parameters-for-smb-file-servers"></a>Optimieren von Parametern für SMB-Dateiserver
 
 
-Die folgenden Registrierungs Einstellungen für reg @ no__t-0dword können sich auf die Leistung von SMB-Dateiservern auswirken:
+Die folgenden reg\_DWORD-Registrierungs Einstellungen können sich auf die Leistung von SMB-Dateiservern auswirken:
 
 - **Smb2CreditsMin** und **"smb2creditsmax"**
 
@@ -108,7 +108,7 @@ Die folgenden Registrierungs Einstellungen für reg @ no__t-0dword können sich 
   > [!TIP]
   > Vor Windows 10 und Windows Server 2016 variiert die Anzahl der Gutschriften, die dem Client erteilt wurden, dynamisch zwischen Smb2CreditsMin und "smb2creditsmax", basierend auf einem Algorithmus, der versucht hat, die optimale Anzahl von Gutschriften zu ermitteln, die basierend auf der Netzwerk Latenz zu gewähren sind. und die Verwendung von Guthaben. In Windows 10 und Windows Server 2016 wurde der SMB-Server so geändert, dass auf Anforderung bis zu der konfigurierten maximalen Anzahl von Gutschriften uneingeschränkt Gutschriften erteilt werden. Im Rahmen dieser Änderung wurde der Mechanismus für die Kredit Drosselung, der die Größe des Kredit Fensters der einzelnen Verbindungen reduziert, wenn der Server nicht genügend Arbeitsspeicher hat, entfernt. Das nicht genügend Speicher Ereignis des Kernels, das eine Drosselung ausgelöst hat, wird nur signalisiert, wenn der Arbeitsspeicher des Servers (< einige MB) nicht nutzlos ist. Da der Server keine Gutschrift für Gutschriften mehr verkleinert, ist die Smb2CreditsMin-Einstellung nicht mehr erforderlich und wird jetzt ignoriert.
   > 
-  > Sie können die SMB-Client Freigaben @ no__t-0credit Stalls/Sek. überwachen, um festzustellen, ob es Probleme mit Gutschriften gibt.
+  > Sie können SMB-Client Freigaben\\Guthaben überwachen/Sek., um festzustellen, ob es Probleme mit Gutschriften gibt.
 
 - **Additionalcriticalworkerthreads**
 
@@ -119,7 +119,7 @@ Die folgenden Registrierungs Einstellungen für reg @ no__t-0dword können sich 
     Der Standardwert ist 0 (null). Dies bedeutet, dass keine weiteren kritischen kernelarbeitsthreads hinzugefügt werden. Dieser Wert wirkt sich auf die Anzahl der Threads aus, die vom Dateisystem Cache für Read-Ahead-und Write-Behind-Anforderungen verwendet werden. Durch das Erhöhen dieses Werts können e/a-Vorgänge in der Warteschlange im Speichersubsystem möglich sein, und Sie können die e/a-Leistung verbessern, insbesondere bei Systemen mit vielen logischen Prozessoren und leistungsstarker Speicherhardware.
 
     >[!TIP]
-    > Der Wert muss ggf. vergrößert werden, wenn sich die Menge der geänderten Daten des Cache-Managers (der Leistungs Leistungsdaten Cache @ no__t-0dirty Pages) um einen großen Teil vergrößert (über ~ 25%). des Arbeitsspeichers oder, wenn das System viele synchrone Lese-e/a-Vorgänge durchläuft.
+    > Der Wert muss ggf. vergrößert werden, wenn sich die Menge der geänderten Daten des Cache-Managers (Performance Counter Cache\\Dirty Pages) zu einem großen Teil vergrößert (ca. 25%). des Arbeitsspeichers oder, wenn das System viele synchrone Lese-e/a-Vorgänge durchläuft.
 
 - **Maxthreadsperqueue**
 
@@ -130,7 +130,7 @@ Die folgenden Registrierungs Einstellungen für reg @ no__t-0dword können sich 
   Der Standardwert ist 20. Wenn Sie diesen Wert erhöhen, wird die Anzahl der Threads, die vom Dateiserver zum bedienen paralleler Anforderungen verwendet werden können, erhöht. Wenn eine große Anzahl aktiver Verbindungen gewartet werden muss und Hardware Ressourcen wie z. b. die Speicherbandbreite ausreichen, kann das Erhöhen des Werts die Skalierbarkeit, Leistung und Reaktionszeiten des Servers verbessern.
 
   >[!TIP]
-  > Ein Hinweis darauf, dass der Wert möglicherweise vergrößert werden muss, ist, wenn die SMB2-Arbeits Warteschlangen sehr groß werden (Leistungsindikator "Server Arbeits Warteschlangen @ no__t-0queue length @ no__t-1smb2 nonblocking, \*" konstant über ~ 100).
+  > Ein Hinweis darauf, dass der Wert möglicherweise vergrößert werden muss, ist, wenn die SMB2-Arbeits Warteschlangen sehr groß werden (Leistungsindikator "Server Arbeits Warteschlangen\\Warteschlangen Länge\\SMB2 nicht blockierender \*" ist konstant über ~ 100).
 
   >[!Note]
   >In Windows 10 und Windows Server 2016 ist maxthreadsperqueue nicht verfügbar. Die Anzahl der Threads für einen Thread Pool beträgt 20 * die Anzahl der Prozessoren in einem NUMA-Knoten.
@@ -148,7 +148,7 @@ Die folgenden Registrierungs Einstellungen für reg @ no__t-0dword können sich 
 
 Die folgenden Einstellungen können einen Computer in vielen Fällen für die Dateiserver Leistung optimieren. Die Einstellungen sind nicht für alle Computer optimal bzw. geeignet. Sie sollten die Auswirkungen der einzelnen Einstellungen vor dem Anwenden überprüfen.
 
-| Parameter                       | Wert | Default |
+| Parameter                       | Wert | Standard |
 |---------------------------------|-------|---------|
 | Additionalcriticalworkerthreads | 64    | 0       |
 | Maxthreadsperqueue              | 64    | 20      |
@@ -156,4 +156,4 @@ Die folgenden Einstellungen können einen Computer in vielen Fällen für die Da
 
 ### <a name="smb-client-performance-monitor-counters"></a>Leistungsindikatoren für den SMB-Client
 
-Weitere Informationen zu SMB-Client-Leistungsindikatoren finden Sie unter [windows Server 2012-Datei Server Tipp: Neue Leistungsindikatoren pro Freigabe für SMB-Clients bieten hervorragend Einblick in @ no__t-0.
+Weitere Informationen zu SMB-Client-Leistungsindikatoren finden Sie unter [Windows Server 2012-Datei Server Tipp: neue pro-Freigabe-SMB-Client Leistungsindikatoren bieten einen guten Einblick](http://blogs.technet.com/b/josebda/archive/2012/11/19/windows-server-2012-file-server-tip-new-per-share-smb-client-performance-counters-provide-great-insight.aspx).

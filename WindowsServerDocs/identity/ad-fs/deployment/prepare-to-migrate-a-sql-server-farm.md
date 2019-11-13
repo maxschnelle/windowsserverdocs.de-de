@@ -20,13 +20,13 @@ ms.locfileid: "71408212"
   
  Führen Sie zum Exportieren der AD FS-Konfigurationsdaten die folgenden Schritte aus:  
   
--   [Schritt 1: Dienst Einstellungen exportieren @ no__t-0  
+-   [Schritt 1: Exportieren der Dienst Einstellungen](#step-1-export-service-settings)  
   
--   [Schritt 2: Sichern der benutzerdefinierten Attribut Speicher @ no__t-0  
+-   [Schritt 2: Sichern von benutzerdefinierten Attribut speichern](#step-2-back-up-custom-attribute-stores)  
   
--   [Schritt 3: Sichern von Webseiten Anpassungen @ no__t-0  
+-   [Schritt 3: Sichern von Webseiten Anpassungen](#step-3-back-up-webpage-customizations)  
   
-## <a name="step-1-export-service-settings"></a>Schritt 1: Exportieren der Diensteinstellungen  
+## <a name="step-1-export-service-settings"></a>Schritt 1: Exportieren der Dienst Einstellungen  
  Gehen Sie wie folgt vor, um die Diensteinstellungen zu exportieren:  
   
 ### <a name="to-export-service-settings"></a>So exportieren Sie Diensteinstellungen  
@@ -40,7 +40,7 @@ ms.locfileid: "71408212"
   
 2. Exportieren Sie alle sonstigen Zertifikate und Schlüssel für die Tokensignatur, Tokenverschlüsselung oder Dienstkommunikation, die nicht intern von AD FS generiert werden.  
   
-Sie können alle auf Ihrem Server von AD FS verwendeten Zertifikate mithilfe von Windows PowerShell anzeigen. Öffnen Sie Windows PowerShell, und führen Sie den folgenden Befehl zum Hinzufügen der AD FS-Cmdlets zur Windows PowerShell-Sitzung aus: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Führen Sie dann den folgenden Befehl aus, um alle Zertifikate anzuzeigen, die auf dem Server verwendet werden `PSH:>Get-ADFSCertificate`. Die Ausgabe dieses Befehls umfasst StoreLocation- und StoreName-Werte, die den Speicherort für die einzelnen Zertifikate angeben.  
+Sie können alle auf Ihrem Server von AD FS verwendeten Zertifikate mithilfe von Windows PowerShell anzeigen. Öffnen Sie Windows PowerShell, und führen Sie den folgenden Befehl zum Hinzufügen der AD FS-Cmdlets zur Windows PowerShell-Sitzung aus: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Führen Sie dann den folgenden Befehl aus, um alle Zertifikate anzuzeigen, die auf dem Server `PSH:>Get-ADFSCertificate`verwendet werden. Die Ausgabe dieses Befehls umfasst StoreLocation- und StoreName-Werte, die den Speicherort für die einzelnen Zertifikate angeben.  
   
 > [!NOTE]
 >  Sie können dann optional die Anleitung in [Exportieren des Bereichs mit dem privaten Schlüssel eines Serverauthentifizierungszertifikats](Export-the-Private-Key-Portion-of-a-Server-Authentication-Certificate.md) verwenden, um die einzelnen Zertifikate und den entsprechenden privaten Schlüssel in eine PFX-Datei zu exportieren. Dieser Schritt ist optional, da alle externen Zertifikate während des Betriebssystemupgrades erhalten bleiben.  
@@ -56,15 +56,15 @@ Zum Sichern der Anwendungskonfigurationsdatei muss die Datei `%programfiles%\Act
   
 Um den Identitäts Wert zu ermitteln, überprüfen Sie die Spalte **Anmelden** unter **AD FS 2,0-Windows-Dienst** in der Konsole **Dienste** , und notieren Sie den Wert manuell.  
   
-## <a name="step-2-back-up-custom-attribute-stores"></a>Schritt 2: Sichern der benutzerdefinierten Attributspeicher  
+## <a name="step-2-back-up-custom-attribute-stores"></a>Schritt 2: Sichern von benutzerdefinierten Attribut speichern  
  Informationen zu von AD FS verwendeten benutzerdefinierten Attributspeichern erhalten Sie mithilfe von Windows PowerShell. Öffnen Sie Windows PowerShell, und führen Sie den folgenden Befehl zum Hinzufügen der AD FS-Cmdlets zur Windows PowerShell-Sitzung aus: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Führen Sie dann den folgenden Befehl aus, um Informationen zu den benutzerdefinierten Attribut speichern zu suchen: `PSH:>Get-ADFSAttributeStore`. Die Schritte zum Aktualisieren oder Migrieren von Attributspeichern variieren.  
   
-## <a name="step-3-back-up-webpage-customizations"></a>Schritt 3: Sichern der Webseitenanpassungen  
+## <a name="step-3-back-up-webpage-customizations"></a>Schritt 3: Sichern von Webseiten Anpassungen  
  Um Webseiten Anpassungen zu sichern, kopieren Sie die AD FS Webseiten und die Datei **Web. config** aus dem Verzeichnis, das dem virtuellen Pfad **"/ADFS/ls"** in IIS zugeordnet ist. Standardmäßig befindet sie sich im Verzeichnis **%systemdrive%\inetpub\adfs\ls**.  
   
 ## <a name="next-steps"></a>Nächste Schritte
- [Vorbereiten der Migration des AD FS 2,0](prepare-to-migrate-ad-fs-fed-server.md)-Verbund Servers    
+ [Vorbereiten der Migration des AD FS 2,0](prepare-to-migrate-ad-fs-fed-server.md) -Verbund Servers   
  [Vorbereiten der Migration des AD FS 2,0-Verbund Server Proxys](prepare-to-migrate-ad-fs-fed-proxy.md)   
- [Migrieren Sie den AD FS 2,0](migrate-the-ad-fs-fed-server.md)-Verbund Server  .  
- [Migrieren Sie den AD FS 2,0-Verbund Server Proxy](migrate-the-ad-fs-2-fed-server-proxy.md) .  
+ [Migrieren Sie den AD FS 2,0](migrate-the-ad-fs-fed-server.md) -Verbund Server   
+ [Migrieren Sie den AD FS 2,0-Verbund Server Proxy](migrate-the-ad-fs-2-fed-server-proxy.md)   
  [Migrieren der AD FS 1.1-Web-Agents](migrate-the-ad-fs-web-agent.md)

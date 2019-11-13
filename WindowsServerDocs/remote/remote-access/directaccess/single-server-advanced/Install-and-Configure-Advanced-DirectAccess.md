@@ -21,19 +21,19 @@ ms.locfileid: "71388642"
 ---
 # <a name="install-and-configure-advanced-directaccess"></a>Installieren und Konfigurieren von DirectAccess (erweitert)
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In dieser Übersicht werden die Konfigurationsschritte aufgeführt, die zum Bereitstellen eines einzelnen DirectAccess-Servers mit Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 mit IPv4 und IPv6 ausgeführt werden müssen.  
   
--   [Schritt 1: Konfigurieren Sie die erweiterte DirectAccess-Infrastruktur @ no__t-0.  
+-   [Schritt 1: Konfigurieren der erweiterten DirectAccess-Infrastruktur](da-adv-configure-s1-infrastructure.md).  
   
     In dieser Phase konfigurieren Sie die Netzwerk- und Servereinstellungen, Zertifikatanforderungen, DNS-Einstellungen (Domain Name System), die Bereitstellung des Netzwerkadressenservers, DirectAccess-Verwaltungsserver, Active Directory-Einstellungen und Gruppenrichtlinienobjekte.  
   
--   [Schritt 2: Konfigurieren Sie erweiterte DirectAccess-Server @ no__t-0.  
+-   [Schritt 2: Konfigurieren Sie erweiterte DirectAccess-Server](da-adv-configure-s2-servers.md).  
   
     In dieser Phase konfigurieren Sie die DirectAccess-Clientcomputer, Servereinstellungen, Infrastrukturserver und Anwendungsserver.  
   
--   [Schritt 3: Überprüfen Sie die erweiterte DirectAccess-Bereitstellung @ no__t-0.  
+-   [Schritt 3: Überprüfen Sie die erweiterte DirectAccess-Bereitstellung](da-adv-configure-s3-verify.md).  
   
     Dieser Schritt beschreibt die Überprüfung der Bereitstellung.  
   

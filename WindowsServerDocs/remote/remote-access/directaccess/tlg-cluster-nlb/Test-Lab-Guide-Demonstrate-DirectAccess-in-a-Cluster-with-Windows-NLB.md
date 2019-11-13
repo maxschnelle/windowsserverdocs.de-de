@@ -19,11 +19,11 @@ ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71388426"
 ---
-# <a name="test-lab-guide-demonstrate-directaccess-in-a-cluster-with-windows-nlb"></a>Testumgebungsanleitung: Veranschaulichen von DirectAccess in einem Cluster mit Windows NLB
+# <a name="test-lab-guide-demonstrate-directaccess-in-a-cluster-with-windows-nlb"></a>Testumgebungsanleitung: Vorführung von DirectAccess in einem Cluster mit Windows-Netzwerklastenausgleich
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-Der Remote Zugriff ist eine Server Rolle in den Betriebssystemen Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012, die Remote Benutzern den sicheren Zugriff auf interne Netzwerkressourcen über DirectAccess oder RRAS-VPN ermöglicht. Diese Anleitung enthält Schritt-für-Schritt-Anweisungen zum Erweitern der Test Umgebungs Anleitung für [: Veranschaulichen der DirectAccess-Einrichtung eines einzelnen Servers mit gemischtem IPv4 und IPv6 @ no__t-0, um den Netzwerk Lastenausgleich und die Cluster Konfiguration von DirectAccess zu veranschaulichen  
+Der Remote Zugriff ist eine Server Rolle in den Betriebssystemen Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012, die Remote Benutzern den sicheren Zugriff auf interne Netzwerkressourcen über DirectAccess oder RRAS-VPN ermöglicht. Diese Anleitung enthält schrittweise Anweisungen zum Erweitern der [Testumgebungsanleitung zum Veranschaulichen von DirectAccess Single Server-Setup mit gemischten IPv4 und IPv6.](https://go.microsoft.com/fwlink/p/?LinkId=237004) , die den Netzwerklastenausgleich und die Clusterkonfiguration für DirectAccess veranschaulicht.  
   
 ## <a name="about-this-guide"></a>Informationen zur Anleitung  
 Diese Anleitung enthält Anweisungen zum Konfigurieren und Veranschaulichen des Remotezugriffs mit sechs Servern und zwei Clientcomputern. Die vollständige Remotezugriffs-Testumgebung mit NLB  simuliert ein Intranet, das Internet sowie ein Heimnetzwerk und veranschaulicht die Remotezugriffsfunktionalität in verschiedenen Internetverbindungsszenarios.  

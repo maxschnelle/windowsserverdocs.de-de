@@ -18,7 +18,7 @@ ms.locfileid: "71408982"
 ---
 # <a name="collecting-network-information"></a>Sammeln von Informationen zum Netzwerk
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Der erste Schritt beim Entwerfen einer effektiven Standort Topologie in Active Directory Domain Services (AD DS) besteht darin, die Netzwerkgruppe Ihrer Organisation zu bitten, Informationen zu sammeln und regelmäßig über die physische Netzwerktopologie mit Ihnen zu kommunizieren.  
   
@@ -32,7 +32,7 @@ Nachdem Sie eine Speicherort Zuordnung erstellt haben, dokumentieren Sie den Typ
   
 Bandbreite bezieht sich auf die Datenmenge, die Sie in einem bestimmten Zeitraum über einen Kommunikationskanal übertragen können. Verfügbare Bandbreite bezieht sich auf die Menge an Bandbreite, die zur Verwendung durch AD DS tatsächlich verfügbar ist. Sie können Informationen zur verfügbaren Bandbreite von ihrer Netzwerkgruppe abrufen, oder Sie können den Datenverkehr auf den einzelnen Links analysieren, indem Sie eine Protokollanalyse wie Netzwerkmonitor verwenden. Weitere Informationen zum Installieren von Netzwerkmonitor finden Sie im Artikel über [Wachen von Netzwerk Datenverkehr](https://go.microsoft.com/fwlink/?LinkId=107058).  
   
-Dokumentieren Sie jeden Standort und die anderen verknüpften Speicherorte. Notieren Sie außerdem den Typ der Kommunikations Verknüpfung und die verfügbare Bandbreite. Ein Arbeitsblatt, das Sie bei der Auflistung von Kommunikations Verknüpfungen und der verfügbaren Bandbreite unterstützt, finden Sie unter [Auftrags Hilfen für Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), Herunterladen von Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip und Öffnen von "geografisch Standorte und Kommunikations Links "(DSSTOPO_1. doc).  
+Dokumentieren Sie jeden Standort und die anderen verknüpften Speicherorte. Notieren Sie außerdem den Typ der Kommunikations Verknüpfung und die verfügbare Bandbreite. Ein Arbeitsblatt, das Sie bei der Auflistung von Kommunikations Verknüpfungen und der verfügbaren Bandbreite unterstützt, finden Sie unter [Auftrags Hilfen für das Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), Herunterladen von Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip und Öffnen von "geografische Standorte und Kommunikations Links" (DSSTOPO_1. doc).  
   
 ## <a name="listing-ip-subnets-within-each-location"></a>Auflisten von IP-Subnetzen an jedem Standort
 
@@ -40,13 +40,13 @@ Nachdem Sie die Kommunikations Links und die verfügbare Bandbreite zwischen den
   
 AD DS ordnet eine Arbeitsstation einem Standort zu, indem Sie die IP-Adresse der Arbeitsstation mit den Subnetzen vergleicht, die den einzelnen Standorten zugeordnet sind. Wenn Sie einer Domäne Domänen Controller hinzufügen, werden AD DS auch Ihre IP-Adressen untersucht und am am besten geeigneten Standort platziert.  
   
-Ein Arbeitsblatt, das Sie beim Auflisten der IP-Subnetze an den einzelnen Standorten unterstützt, finden Sie unter [Auftrags Hilfen für das Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), Herunterladen von Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip und Öffnen von "Speicherorten und Subnetzen" ( DSSTOPO_2. doc).  
+Ein Arbeitsblatt, das Sie beim Auflisten der IP-Subnetze an den einzelnen Standorten unterstützt, finden Sie unter [Auftrags Hilfen für das Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), Herunterladen von Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip und Öffnen von "Speicherorten und Subnetzen" (DSSTOPO_2. doc).  
   
 > [!NOTE]  
-> Zusätzlich zu IPv4-Adressen (IP Version 4) unterstützt Windows Server auch IPv6-Subnetzpräfixe (IP Version 6). Ein Arbeitsblatt, das Sie beim Auflisten der IPv6-Subnetzpräfixe unterstützt, finden Sie unter [anhang a: Speicherorte und Subnetzpräfixe @ no__t-0.  
+> Zusätzlich zu IPv4-Adressen (IP Version 4) unterstützt Windows Server auch IPv6-Subnetzpräfixe (IP Version 6). Ein Arbeitsblatt, das Sie beim Auflisten der IPv6-Subnetzpräfixe unterstützt, finden Sie unter [Anhang a: Standorte und Subnetzpräfixe](../../ad-ds/plan/Appendix-A--Locations-and-Subnet-Prefixes.md).  
 
 ## <a name="listing-domains-and-number-of-users-for-each-location"></a>Auflisten von Domänen und der Anzahl von Benutzern für jeden Standort
 
 Die Anzahl der Benutzer für jede regionale Domäne, die an einem Standort dargestellt wird, ist einer der Faktoren, die die Platzierung von regionalen Domänen Controllern und globalen Katalog Servern bestimmen. Dies ist der nächste Schritt im Entwurfsprozess der Standort Topologie. Planen Sie z. b., einen regionalen Domänen Controller an einem Speicherort zu platzieren, der mehr als 100 regionale Domänen Benutzer enthält, damit Sie sich weiterhin bei der Domäne anmelden können, wenn die WAN-Verbindung fehlschlägt.  
   
-Notieren Sie die Standorte, die an jedem Standort dargestellten Domänen und die Anzahl der Benutzer für jede Domäne, die an jedem Standort dargestellt wird. Ein Arbeitsblatt, in dem Sie die Domänen und die Anzahl der Benutzer auflisten können, die an den einzelnen Standorten dargestellt werden, finden Sie unter [Job Aids for Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), Download Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip, und öffnen Sie "Domänen und Benutzer an jedem Standort" (DSSTOPO_3. doc).  
+Notieren Sie die Standorte, die an jedem Standort dargestellten Domänen und die Anzahl der Benutzer für jede Domäne, die an jedem Standort dargestellt wird. Ein Arbeitsblatt, in dem Sie die Domänen und die Anzahl der an jedem Standort dargestellten Benutzer auflisten können, finden Sie unter [Auftrags Hilfen für Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), Herunterladen von Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip und Öffnen von "Domänen und Benutzer an jedem Standort" (DSSTOPO_3. doc).  

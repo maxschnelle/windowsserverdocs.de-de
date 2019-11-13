@@ -21,7 +21,7 @@ ms.locfileid: "71404447"
 ---
 # <a name="troubleshooting-general-issues"></a>Problembehandlung bei allgemeinen Problemen
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Dieses Thema enthält Informationen zur Problembehandlung für allgemeine Probleme im Zusammenhang mit dem Remote Zugriff.  
   
@@ -38,7 +38,7 @@ DirectAccess kann nicht auf das Gruppenrichtlinien Objekt eines der Einstiegspun
   
 Stellen Sie sicher, dass jeder Einstiegspunkt in der Bereitstellung über ein entsprechendes GPO auf seinem Domänen Controller verfügt, und überprüfen Sie, ob der angemeldete Benutzer über Lese-und Schreibberechtigungen für alle in der Remote Zugriffs Bereitstellung konfigurierten GPOs verfügt.  
   
-Um dieses Problem zu umgehen, verwenden Sie die Configuration-Cmdlets anstelle der Remote Zugriffs-Verwaltungskonsole. Verwenden Sie beispielsweise `Get-RemoteAccess` und `Get-DAEntryPoint`.  
+Um dieses Problem zu umgehen, verwenden Sie die Configuration-Cmdlets anstelle der Remote Zugriffs-Verwaltungskonsole. beispielsweise mithilfe von `Get-RemoteAccess` und `Get-DAEntryPoint`.  
   
 > [!NOTE]  
 > Dieses Szenario tritt nicht ein, wenn das Server-GPO des aktuellen Einstiegs Punkts nicht verfügbar ist.  
@@ -78,7 +78,7 @@ Wenn ein Client bereits aktualisiert wurde oder die DCA nicht konfiguriert ist, 
   
 -   **Problem 1**  
   
-    Der **Fehler wurde empfangen**. Der Domänen Controller < Domänencontroller > kann für < Servername-oder Einstiegspunktname-> nicht erreicht werden.  
+    Der **Fehler wurde empfangen**. Domänen Controller < domain_controller > für < server_name oder entry_point_name > nicht erreicht werden.  
   
     **Ursache**  
   
@@ -86,11 +86,11 @@ Wenn ein Client bereits aktualisiert wurde oder die DCA nicht konfiguriert ist, 
   
     **Lösung**  
   
-    Befolgen Sie das Verfahren "so ändern Sie den Domänen Controller, der Server-Gruppenrichtlinien Objekte verwaltet" in [2,4. Konfigurieren von GPOs @ no__t-0.  
+    Befolgen Sie das Verfahren "so ändern Sie den Domänen Controller, der Server-Gruppenrichtlinien Objekte verwaltet" in [2,4. Konfigurieren Sie GPOs](assetId:///b1960686-a81e-4f48-83f1-cc4ea484df43#ConfigGPOs).  
   
 -   **Problem 2**  
   
-    Der **Fehler wurde empfangen**. Der primäre Domänen Controller in Domänen < domain_name > kann nicht erreicht werden.  
+    Der **Fehler wurde empfangen**. Der primäre Domänen Controller in der Domänen < domain_name > kann nicht erreicht werden.  
   
     **Ursache**  
   
@@ -98,7 +98,7 @@ Wenn ein Client bereits aktualisiert wurde oder die DCA nicht konfiguriert ist, 
   
     **Lösung**  
   
-    Befolgen Sie das Verfahren "So übertragen Sie die PDC-Emulatorrolle", wie in [2,4 beschrieben. Konfigurieren von GPOs @ no__t-0.  
+    Befolgen Sie das Verfahren "So übertragen Sie die PDC-Emulatorrolle" in [2,4. Konfigurieren Sie GPOs](assetId:///b1960686-a81e-4f48-83f1-cc4ea484df43#ConfigGPOs).  
   
 
 

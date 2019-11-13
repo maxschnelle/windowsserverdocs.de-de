@@ -21,14 +21,14 @@ ms.locfileid: "71367019"
 ---
 # <a name="step-2-configure-the-radius-server"></a>Schritt 2 Konfigurieren des RADIUS-Servers
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Bevor Sie den Remote Zugriffs Server für die Unterstützung von DirectAccess mit OTP-Unterstützung konfigurieren, konfigurieren Sie den RADIUS-Server.  
   
 |Aufgabe|Beschreibung|  
 |----|--------|  
-|[2,1. Konfigurieren der RADIUS-Software Verteilungs Token @ no__t-0|Konfigurieren Sie auf dem RADIUS-Server Software Verteilungs Token.|  
-|[2,2. Konfigurieren der RADIUS-Sicherheitsinformationen @ no__t-0|Konfigurieren Sie auf dem RADIUS-Server die zu verwendenden Ports und den gemeinsamen geheimen Schlüssel.|  
+|[2,1. Konfigurieren der RADIUS-Software Verteilungs Token](#BKMK_1.1)|Konfigurieren Sie auf dem RADIUS-Server Software Verteilungs Token.|  
+|[2,2. Konfigurieren der RADIUS-Sicherheitsinformationen](#BKMK_1.2)|Konfigurieren Sie auf dem RADIUS-Server die zu verwendenden Ports und den gemeinsamen geheimen Schlüssel.|  
 |[2,3 Hinzufügen eines Benutzerkontos für die OTP-Überprüfung](#BKMK_Probe)|Erstellen Sie auf dem RADIUS-Server ein neues Benutzerkonto für die OTP-Überprüfung.|  
 |[2,4 synchronisieren mit Active Directory](#BKMK_Active)|Erstellen Sie auf dem RADIUS-Server Benutzerkonten, die mit Active Directory Konten synchronisiert sind.|  
 |[2,5 Konfigurieren des RADIUS-Authentifizierungs-Agents](#BKMK_AuthAgent)|Konfigurieren Sie den RAS-Server als RADIUS-Authentifizierungs-Agent.|  

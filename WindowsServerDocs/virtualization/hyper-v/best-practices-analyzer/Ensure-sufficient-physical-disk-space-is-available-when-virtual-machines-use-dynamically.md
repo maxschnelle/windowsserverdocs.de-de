@@ -36,12 +36,12 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
 *Mindestens eine virtuelle Maschine verwendet dynamisch erweiterbare virtuelle Festplatten.*  
   
 ## <a name="impact"></a>Auswirkungen  
-für dynamisch erweiterbare virtuelle Festplatten, die @no__t werden, ist der verfügbare Speicherplatz auf dem hostingvolume erforderlich, damit Speicherplatz bei Schreibvorgängen auf den virtuellen Festplatten zugeordnet werden kann Wenn der verfügbare Speicherplatz erschöpft ist, kann der virtuelle Computer, der auf dem physischen Speicher basiert, beeinträchtigt werden. Dies wirkt sich auf die folgenden virtuellen Computer aus: *  
+*Für dynamisch erweiterbare virtuelle Festplatten ist der verfügbare Speicherplatz auf dem hostingvolume erforderlich, damit der Speicherplatz bei Schreibvorgängen auf den virtuellen Festplatten zugeordnet werden kann Wenn der verfügbare Speicherplatz erschöpft ist, kann der virtuelle Computer, der auf dem physischen Speicher basiert, beeinträchtigt werden. Dies wirkt sich auf die folgenden virtuellen Computer aus:*  
   
-\<list of Virtual Machines >  
+\<Liste der virtuellen Computer >  
   
 ## <a name="resolution"></a>Auflösung  
-*monitor verfügbaren Speicherplatz, um sicherzustellen, dass ausreichend Speicherplatz für die Erweiterung verfügbar ist. Sie sollten den virtuellen Computer Herunterfahren und mit dem Assistenten zum Bearbeiten von Datenträgern im Hyper-V-Manager jede dynamisch erweiterbare virtuelle Festplatte für diese virtuelle Maschine in eine virtuelle Festplatte mit fester Größe konvertieren.*  
+*Überwachen Sie den verfügbaren Speicherplatz, um sicherzustellen, dass ausreichend Speicherplatz zur Erweiterung Sie sollten den virtuellen Computer Herunterfahren und im Hyper-V-Manager den Assistenten zum Bearbeiten von Datenträgern verwenden, um jede dynamisch erweiterbare virtuelle Festplatte für diese virtuelle Maschine in eine virtuelle Festplatte mit fester Größe zu konvertieren.*  
   
 
 

@@ -25,10 +25,10 @@ Die beste Methode zum Implementieren von Benutzerkonten in Multipoint Services h
   
 -   **Lokale Benutzerkonten** : für eine kleine Bereitstellung mit nur wenigen Computern, auf denen multipoind-Dienste und wenige Benutzer ausgeführt werden, ist es möglicherweise am einfachsten, *lokale Benutzerkonten* zu verwenden, die in Multipoint Services erstellt werden. Sie können für jede Person, die das System verwendet, ein einzelnes Konto erstellen oder ein allgemeines Konto für jede Station erstellen, das jeder zum Anmelden verwenden kann. Multipoint Services-Administratoren erstellen und verwalten lokale Benutzerkonten mithilfe von Multipoint-Manager. Bei den lokalen Konten kann es sich um Administratoren mit eingeschränkten Administratorrechten oder um reguläre Benutzer ohne Zugriff auf den Multipoint Services-Desktop oder den Multipoint-Manager handeln.  
   
--   **Domänen Konten** : Wenn in Ihrer Umgebung viele Computer mit Multipoint Services und vielen Benutzern ausgeführt werden, ist es wahrscheinlich sinnvoller, eine Active Directory Domain Services \(AD DS @ no__t-2-Domäne einzurichten und *Domänen Benutzerkonten*zu verwenden. Dadurch kann ein Benutzer von einer beliebigen Station in der Domäne aus auf sein eigenes Benutzerprofil und seine eigenen Einstellungen zugreifen. Domänen Benutzerkonten müssen von einem Domänen Administrator auf dem Domänen Controller erstellt werden.  
+-   **Domänen Konten** : Wenn in Ihrer Umgebung viele Computer mit Multipoint Services und vielen Benutzern vorhanden sind, ist es wahrscheinlich sinnvoller, eine Active Directory Domain Services \(AD DS\) Domäne einzurichten und *Domänen Benutzerkonten*zu verwenden, die es Benutzern ermöglichen, von einer beliebigen Station in der Domäne aus auf Ihr eigenes Benutzerprofil und ihre eigenen Einstellungen zuzugreifen. Domänen Benutzerkonten müssen von einem Domänen Administrator auf dem Domänen Controller erstellt werden.  
   
 > [!NOTE]  
-> In den folgenden Abschnitten werden Szenarien erörtert, die Sie möglicherweise für lokale Benutzerkonten in Multipoint Services implementieren. Wenn Sie Domänen Benutzerkonten verwenden, sehen Sie sich das Szenario "mindestens ein Multipoint-Server in einer Domänen Netzwerkumgebung" in [example-Szenarien an: Multipoint Services-Benutzerkonten @ no__t-0.  
+> In den folgenden Abschnitten werden Szenarien erörtert, die Sie möglicherweise für lokale Benutzerkonten in Multipoint Services implementieren. Wenn Sie Domänen Benutzerkonten verwenden, finden Sie weitere Informationen im Szenario "mindestens ein Multipoint-Server in einer Domänen Netzwerkumgebung" in [Beispielszenarien: Multipoint Services-Benutzerkonten](Example-scenarios--MultiPoint-Services-user-accounts.md).  
   
 ## <a name="planning-local-user-accounts"></a>Planen von lokalen Benutzerkonten  
 In den folgenden Abschnitten werden die vor-und Nachteile sowie die Anforderungen für verschiedene Methoden zum Implementieren einzelner oder gemeinsam genutzter lokaler Benutzerkonten in Ihrer Windows-MultiPoint Services-Umgebung berücksichtigt.  
@@ -38,7 +38,7 @@ Wenn Sie lokale Benutzerkonten erstellen, haben Sie die Option zwei Ansätze.  W
   
 Aus Sicht der Systemverwaltung ist es möglicherweise bequemer, Benutzer einem bestimmten Multipoint Services-Computer zuzuweisen. Wenn Sie z. b. über zwei Multipoint-Server mit jeweils fünf Stationen verfügen, können Sie lokale Benutzerkonten erstellen, wie in der folgenden Tabelle veranschaulicht.  
   
-**tabelle 1: Zuweisen von lokalen Benutzerkonten zu bestimmten Computern, auf denen Multipoint Services ausgeführt wird @ no__t-0  
+**Tabelle 1: Zuweisen von lokalen Benutzerkonten zu bestimmten Computern, auf denen Multipoint Services ausgeführt wird**  
   
 |Computer A|Computer B|  
 |--------------|--------------|  
@@ -52,7 +52,7 @@ In diesem Szenario hat jeder Benutzer ein einzelnes Konto auf einem bestimmten C
   
 Im Gegensatz dazu ist es auch möglich, einzelne Benutzerkonten auf allen Computern zu replizieren, auf denen Multipoint Services ausgeführt wird, wie in der folgenden Tabelle veranschaulicht.  
   
-**tabelle 2: Replizieren von Benutzerkonten auf allen Computern, auf denen Multipoint Services ausgeführt wird @ no__t-0  
+**Tabelle 2: Replizieren von Benutzerkonten auf allen Computern, auf denen Multipoint Services ausgeführt wird**  
   
 |Computer A|Computer B|  
 |--------------|--------------|  
@@ -67,15 +67,15 @@ Ein Vorteil dieses Ansatzes besteht darin, dass Benutzer über ein lokales Benut
 ### <a name="use-generic-local-user-accounts"></a>Generische lokale Benutzerkonten verwenden  
 Wenn Ihr Multipoint Services-System nicht mit einer Domäne verbunden ist und Sie kein einzelnes Konto für jeden Benutzer erstellen möchten, können Sie für jede Station generische Konten erstellen. Wenn Sie beispielsweise über zwei Computer verfügen, auf denen Multipoint Services ausgeführt wird, und jedem Computer fünf Stationen zugeordnet sind, können Sie Benutzerkonten erstellen, die den in der folgenden Tabelle aufgeführten ähneln.  
   
-**tabelle 3: Erstellen generischer Benutzerkonten, ein Konto pro Station @ no__t-0  
+**Tabelle 3: Erstellen von generischen Benutzerkonten, einem Konto pro Station**  
   
 |Computer A|Computer B|  
 |--------------|--------------|  
-|Computer_A-Station_01|Computer_B-Station_01|  
-|Computer_A-Station_02|Computer_B-Station_02|  
-|Computer_A-Station_03|Computer_B-Station_03|  
-|Computer_A-Station_04|Computer_B-Station_04|  
-|Computer_A-Station_05|Computer_B-Station_05|  
+|Computer_A Station_01|Computer_B Station_01|  
+|Computer_A Station_02|Computer_B Station_02|  
+|Computer_A Station_03|Computer_B Station_03|  
+|Computer_A Station_04|Computer_B Station_04|  
+|Computer_A Station_05|Computer_B Station_05|  
   
 In diesem Szenario hat jedes Stationskonto das gleiche Kennwort, und sowohl die Kenn Wörter als auch die Namen der generischen Benutzerkonten sind für alle Benutzer verfügbar. Ein Vorteil dieses Ansatzes besteht darin, dass der Aufwand für die Verwaltung von Benutzerkonten wahrscheinlich weniger als bei der Verwendung einzelner Konten ist, weil es in der Regel weniger Stationen als Benutzer gibt. Außerdem wird der Aufwand, der durch das Replizieren von Benutzerkonten auf jedem Server verursacht wird, beseitigt.  
   

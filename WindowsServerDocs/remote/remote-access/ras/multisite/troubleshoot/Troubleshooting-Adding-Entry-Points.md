@@ -21,7 +21,7 @@ ms.locfileid: "71404467"
 ---
 # <a name="troubleshooting-adding-entry-points"></a>Beheben von Problemen beim Hinzufügen von Einstiegspunkten
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Dieses Thema enthält Informationen zum Beheben von Problemen mit dem Befehl `Add-DAEntryPoint`. Um sicherzustellen, dass sich der angezeigte Fehler auf das Hinzufügen eines Einstiegspunkts bezieht, prüfen Sie, ob im Windows-Ereignisprotokoll die Ereignis-ID 10067 aufgeführt wird.  
   
@@ -37,13 +37,13 @@ Wenn Sie einer Bereitstellung für mehrere Standorte einen neuen Einstiegspunkt 
 Führen Sie den Befehl aus, und geben Sie für den Parameter *RemoteAccessServer* den Namen des Servers an, der als Einstiegspunkt hinzugefügt werden soll.  
   
 ## <a name="remote-access-is-not-configured"></a>Nicht konfigurierter Remotezugriff  
-Der **Fehler wurde empfangen**. Der Remote Zugriff ist auf < Servername-> nicht konfiguriert. Geben Sie den Namen eines Servers an, der zu einer Bereitstellung für mehrere Standorte gehört.  
+Der **Fehler wurde empfangen**. Der Remote Zugriff ist auf < server_name > nicht konfiguriert. Geben Sie den Namen eines Servers an, der zu einer Bereitstellung für mehrere Standorte gehört.  
   
 **Ursache**  
   
 Remotezugriff ist auf dem Computer, der durch den Parameter *ComputerName* definiert wird, oder auf dem Computer, auf dem Sie den Befehl ausführen, nicht konfiguriert.  
   
-Wenn Sie einer Bereitstellung für mehrere Standorte einen neuen Einstiegspunkt hinzufügen, müssen Sie zwei Parameter angeben: *Computername* und *remoteaccessserver*. *ComputerName* ist der Name eines Servers, der bereits zu der Bereitstellung für mehrere Standorte gehört. *RemoteAccessServer* ist der Name des Servers, den Sie als neuen Einstiegspunkt hinzufügen möchten. Bei der Ausführung auf einem Computer, der bereits zu der Bereitstellung für mehrere Standorte gehört, ist der Parameter %%amp;quot;ComputerName%%amp;quot; nicht erforderlich.  
+Wenn Sie einer Bereitstellung für mehrere Standorte einen neuen Einstiegspunkt hinzufügen, müssen Sie zwei Parameter angeben: *ComputerName* und *RemoteAccessServer*. *ComputerName* ist der Name eines Servers, der bereits zu der Bereitstellung für mehrere Standorte gehört. *RemoteAccessServer* ist der Name des Servers, den Sie als neuen Einstiegspunkt hinzufügen möchten. Bei der Ausführung auf einem Computer, der bereits zu der Bereitstellung für mehrere Standorte gehört, ist der Parameter %%amp;quot;ComputerName%%amp;quot; nicht erforderlich.  
   
 **Lösung**  
   
@@ -91,7 +91,7 @@ Verwenden Sie das Cmdlet `Enable-DaMultiSite` zum Aktivieren der Funktionen für
     2.  Führen Sie das Cmdlet `Add-DAEntryPoint` aus, und geben Sie im Parameter *ClientIPv6Prefix* das IP-HTTPS-Präfix an.  
   
 ## <a name="connectto-address"></a>ConnectTo-Adresse  
-Der **Fehler wurde empfangen**. Die Adresse (< > ConnectTo), mit der DirectAccess-Clients auf dem remoteaccess-Server eine Verbindung herstellen, ist identisch mit der Adresse des Netzwerkadressen Servers. Geben Sie einen anderen Wert an.  
+Der **Fehler wurde empfangen**. Die Adresse (< connect_to_address >), mit der DirectAccess-Clients auf dem remoteaccess-Server eine Verbindung herstellen, ist identisch mit der Adresse des Netzwerkadressen Servers. Geben Sie einen anderen Wert an.  
   
 **Ursache**  
   
@@ -102,11 +102,11 @@ Die ConnectTo-Adresse ist identisch mit der Adresse des Netzwerkadressenservers.
 Die ConnectTo-Adresse muss über das Internet aufgelöst werden können, damit Clientcomputer eine Verbindung über IP-HTTPS herstellen können. Die Adresse des Netzwerkadressenservers muss über das Unternehmensnetzwerk aufgelöst werden können, nicht jedoch über das Internet. Stellen Sie sicher, dass die Adresse des Netzwerkadressenservers nicht identisch mit der ConnectTo-Adresse ist. Wählen Sie andere Adressen aus, und versuchen Sie es erneut.  
   
 ## <a name="directaccess-or-vpn-already-installed"></a>DirectAccess oder VPN bereits installiert  
-Der **Fehler wurde empfangen**. Auf dem Server wurde eine VPN-Installation erkannt < Servername >. Geben Sie einen alternativen Server an, auf dem kein Remotezugriff installiert ist, oder entfernen Sie die VPN-Konfiguration vom Server.  
+Der **Fehler wurde empfangen**. Auf dem Server wurde eine VPN-Installation erkannt, < server_name >. Geben Sie einen alternativen Server an, auf dem kein Remotezugriff installiert ist, oder entfernen Sie die VPN-Konfiguration vom Server.  
   
-oder  
+Oder  
   
-Der Remote Zugriff ist auf dem Server < Servername > bereits installiert. Geben Sie einen alternativen Server an, auf dem DirectAccess nicht ausgeführt wird, oder entfernen Sie die vorhandene DirectAccess-Konfiguration vom Server.  
+Der Remote Zugriff ist auf dem Server < server_name > bereits installiert. Geben Sie einen alternativen Server an, auf dem DirectAccess nicht ausgeführt wird, oder entfernen Sie die vorhandene DirectAccess-Konfiguration vom Server.  
   
 **Ursache**  
   
@@ -119,7 +119,7 @@ Um einem Server eine Bereitstellung für mehrere Standorte hinzuzufügen, müsse
 Führen Sie den Befehl aus, und stellen Sie sicher, dass für den von Ihnen im Parameter *RemoteAccessServer* angegebenen Server DirectAccess und VPN nicht konfiguriert sind.  
   
 ## <a name="ipsec-root-certificate"></a>IPsec-Stammzertifikat  
-Der **Fehler wurde empfangen**. Das konfigurierte IPSec-Stamm Zertifikat kann nicht auf Server < Servername > gefunden werden.  
+Der **Fehler wurde empfangen**. Das konfigurierte IPSec-Stamm Zertifikat kann nicht auf dem Server < server_name > gefunden werden.  
   
 **Ursache**  
   
@@ -147,7 +147,7 @@ Bei der ersten Installation von DirectAccess wird der interne Netzwerkadapter ü
   
     **Lösung**  
   
-    Wenn das gesamte interne Netzwerk mit IPv6- und IPv4-Adressen konfiguriert ist, ist es u. U. ratsam, zu einer IPv6/IPv4-Bereitstellung zu wechseln, um die Vorteile der IPv6-Technologie nutzen zu können. Weitere Informationen finden Sie unter "Übergang von einem reinen IPv4 zu einem IPv6 + IPv4-Unternehmensnetzwerk" in [step 3: Planen Sie die Bereitstellung für mehrere Standorte @ no__t-0.  
+    Wenn das gesamte interne Netzwerk mit IPv6- und IPv4-Adressen konfiguriert ist, ist es u. U. ratsam, zu einer IPv6/IPv4-Bereitstellung zu wechseln, um die Vorteile der IPv6-Technologie nutzen zu können. Weitere Informationen finden Sie unter "Übergang von einem reinen IPv4 zu einem IPv6 + IPv4-Unternehmensnetzwerk" in [Schritt 3: Planen der Bereitstellung für mehrere Standorte](assetId:///19d49dbf-1786-47bb-ab97-f0458c53d91d).  
   
 -   **Problem 2**  
   
@@ -191,7 +191,7 @@ Bei der ersten Installation von DirectAccess wird der interne Netzwerkadapter ü
   
 -   **Problem 1**  
   
-    Der **Fehler wurde empfangen**. Die im servergponame-Parameter angegebene Domäne < server_GPO > ist nicht vorhanden. Geben Sie stattdessen die Domänen < domain_name-> an.  
+    Der **Fehler wurde empfangen**. Die im servergponame-Parameter angegebene Domäne < server_GPO > ist nicht vorhanden. Geben Sie stattdessen die Domänen < domain_name > an.  
   
     **Ursache**  
   
@@ -203,7 +203,7 @@ Bei der ersten Installation von DirectAccess wird der interne Netzwerkadapter ü
   
 -   **Problem 2**  
   
-    Der **Fehler wurde empfangen**. Das Server-GPO muss sich in der RAS-Server Domäne befinden. Geben Sie im servergponame-Parameter die Domäne < domain_name-> an.  
+    Der **Fehler wurde empfangen**. Das Server-GPO muss sich in der RAS-Server Domäne befinden. Geben Sie die Domänen < domain_name > im servergponame-Parameter an.  
   
     **Ursache**  
   
@@ -214,7 +214,7 @@ Bei der ersten Installation von DirectAccess wird der interne Netzwerkadapter ü
     Das Server-GPO sollte sich in der gleichen Domäne wie der RAS-Server befinden. Verwenden Sie den Domänennamen des Servers für das Server-GPO, und versuchen Sie es erneut.  
   
 ## <a name="split-brain-dns"></a>Split-Brain-DNS  
-Die **Warnung wurde empfangen**. Der NRPT-Eintrag für das DNS-Suffix < DNS_suffix > enthält den öffentlichen Namen, der von Client Computern zum Herstellen einer Verbindung mit dem RAS-Server verwendet wird. Fügen Sie den Namen < ConnectTo > als Ausnahme in der NRPT hinzu.  
+Die **Warnung wurde empfangen**. Der NRPT-Eintrag für das DNS-Suffix < DNS_suffix > enthält den öffentlichen Namen, der von Client Computern zum Herstellen einer Verbindung mit dem RAS-Server verwendet wird. Fügen Sie den Namen < connect_to_address > als Ausnahme in der NRPT hinzu.  
   
 **Ursache**  
   
@@ -240,7 +240,7 @@ Der **Fehler wurde empfangen**. Fehler beim Speichern der Remote Zugriffs Einste
 Informationen zum Beheben dieses Fehlers finden Sie unter Speichern von Server-GPO-Einstellungen unter Problembehandlung beim [Aktivieren von Multisite](https://technet.microsoft.com/library/jj591658.aspx).  
   
 ## <a name="gpo-updates-cannot-be-applied"></a>GPO-Aktualisierungen können nicht angewendet werden  
-Die **Warnung wurde empfangen**. GPO-Aktualisierungen können nicht auf < Servername-> angewendet werden. Die Änderungen werden erst nach der nächsten Richtlinienaktualisierung wirksam.  
+Die **Warnung wurde empfangen**. GPO-Aktualisierungen können nicht auf < server_name > angewendet werden. Die Änderungen werden erst nach der nächsten Richtlinienaktualisierung wirksam.  
   
 **Ursache**  
   

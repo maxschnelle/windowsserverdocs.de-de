@@ -21,7 +21,7 @@ ms.locfileid: "71367407"
 ---
 # <a name="step-2-prepare-cluster-servers"></a>Schritt 2 Vorbereiten von Cluster Servern
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Bevor Sie eine Cluster Bereitstellung konfigurieren können, bereiten Sie zusätzliche Server vor, die dem Cluster hinzugefügt werden sollen.  
   
@@ -85,7 +85,7 @@ Wenn Sie einen Remote Zugriffs Cluster konfigurieren möchten, müssen Sie die F
   
 ## <a name="BKMK_Links"></a>Siehe auch  
   
--   [Schritt 3: Konfigurieren eines Clusters mit Lastenausgleich @ no__t-0  
+-   [Schritt 3: Konfigurieren eines Clusters mit Lastenausgleich](Step-3-Configure-a-Load-Balanced-Cluster.md)  
   
 
 

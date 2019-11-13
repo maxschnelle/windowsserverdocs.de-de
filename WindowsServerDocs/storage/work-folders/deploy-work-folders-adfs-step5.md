@@ -15,21 +15,21 @@ ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71402781"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-5-set-up-clients"></a>Arbeitsordner mit AD FS und webanwendungsproxy bereitstellen: Schritt 5: Einrichten von Clients
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-5-set-up-clients"></a>Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 5, Einrichten des Clients
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema wird der fünfte Schritt bei der Bereitstellung von Arbeitsordnern mit Active Directory-Verbunddiensten (AD FS) und Webanwendungsproxy beschrieben. Weitere Schritte des Prozesses finden Sie in folgenden Themen:  
   
--   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Übersicht @ no__t-0  
+-   [Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy: Übersicht](deploy-work-folders-adfs-overview.md)  
   
--   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 1: Einrichten AD FS @ no__t-0  
+-   [Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy: Schritt 1, einrichten AD FS](deploy-work-folders-adfs-step1.md)  
   
--   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 2, AD FS Arbeit nach der Konfiguration @ no__t-0  
+-   [Bereitstellen von Arbeits Ordnern mit AD FS und dem webanwendungsproxy: Schritt 2 AD FS arbeiten nach der Konfiguration](deploy-work-folders-adfs-step2.md)  
   
--   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 3: Einrichten von Arbeits Ordnern @ no__t-0  
+-   [Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy: Schritt 3, Einrichten von Arbeits Ordnern](deploy-work-folders-adfs-step3.md)  
   
--   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 4: Einrichten des webanwendungsproxys @ no__t-0  
+-   [Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy: Schritt 4](deploy-work-folders-adfs-step4.md)  
   
 Gehen Sie folgendermaßen vor, um den mit einer Domäne verbundenen und nicht mit einer Domäne verbundenen Windows-Client einzurichten. Sie können diese Clients verwenden, um zu testen, ob Dateien zwischen den Arbeitsordnern von Clients synchronisiert werden.  
   
@@ -79,7 +79,7 @@ Gehen Sie folgendermaßen vor, um Arbeitsordner auf dem Clientcomputer zu konfig
   
 2. Klicken Sie auf **Arbeitsordner einrichten**.  
   
-3. Geben Sie auf der Seite **Geben Sie Ihre geschäftliche e-Mail-Adresse** ein entweder die e-Mail-Adresse des Benutzers (z. b. user@contoso.com) oder die Arbeitsordner-URL (im Testbeispiel https: \//workfolders. Configuration. com) ein, und klicken Sie dann auf **weiter**.  
+3. Geben Sie auf der Seite **Geben Sie Ihre geschäftliche e-Mail-Adresse** ein entweder die e-Mail-Adresse des Benutzers (z. b. user@contoso.com) oder die Arbeitsordner-URL (im Testbeispiel https:\//workfolders.contoso.com) ein, und klicken Sie dann auf **weiter**.  
   
 4. Wenn der Benutzer mit dem Unternehmensnetzwerk verbunden ist, erfolgt die Authentifizierung durch die integrierte Windows-Authentifizierung. Wenn der Benutzer nicht mit dem Unternehmensnetzwerk verbunden ist, erfolgt die Authentifizierung durch AD FS (OAuth) und der Benutzer wird zur Eingabe der Anmeldeinformationen aufgefordert. Geben Sie Ihre Anmeldeinformationen ein, und klicken Sie auf **OK**.  
   
@@ -124,7 +124,7 @@ Wenn die neuen Arbeitsordner auf dem Client geöffnet werden, können Sie sehen,
   
 Dies schließt das Verfahren für die Bereitstellung von Arbeitsordnern, AD FS und Webanwendungsproxy über die Windows Server-Benutzeroberfläche ab.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Übersicht über Arbeitsordner](Work-Folders-Overview.md)  
   
 

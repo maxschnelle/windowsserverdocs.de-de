@@ -21,7 +21,7 @@ ms.locfileid: "71394378"
 
 In diesem Thema wird erläutert, wie Probleme beim Laden und Entladen von Benutzerprofilen mithilfe von Ereignissen und Ablauf Verfolgungs Protokollen behoben werden. In den folgenden Abschnitten wird beschrieben, wie die drei Ereignisprotokolle verwendet werden, die Benutzerprofil Informationen aufzeichnen.
 
-## <a name="step-1-checking-events-in-the-application-log"></a>Schritt 1: Überprüfen von Ereignissen im Anwendungsprotokoll
+## <a name="step-1-checking-events-in-the-application-log"></a>Schritt 1: Überprüfen von Ereignissen im Anwendungsprotokoll
 
 Der erste Schritt bei der Behebung von Problemen beim Laden und Entladen von Benutzerprofilen (einschließlich Roamingbenutzerprofilen) ist die Verwendung von Ereignisanzeige, um Warn-und Fehlerereignisse zu untersuchen, die vom Benutzerprofil Dienst im Anwendungsprotokoll aufgezeichnet werden.
 
@@ -58,7 +58,7 @@ Im folgenden wird erläutert, wie Sie analytische und Debugprotokolle aktivieren
 1. Wählen Sie im **Aktions** Bereich von Ereignisanzeige **Ansicht**aus, und wählen Sie dann **analytische und Debugprotokolle anzeigen**aus.
 2. Navigieren Sie zu **Anwendungs-und Dienst Protokolle**, dann zu **Microsoft**, dann zu **Windows**und dann zu **Benutzerprofil Dienst**und **Diagnose**.
 3. Wählen Sie **Protokoll aktivieren** aus, und wählen Sie dann **Ja**. Dadurch wird das Diagnoseprotokoll aktiviert, das mit der Protokollierung beginnt.
-4. Wenn Sie noch ausführlichere Informationen benötigen, finden Sie weitere Informationen unter [step 4: Erstellen und Decodieren einer Ablauf Verfolgung @ no__t-0 Weitere Informationen zum Erstellen eines Ablauf Verfolgungs Protokolls.
+4. Weitere Informationen zum Erstellen eines Ablauf Verfolgungs Protokolls finden Sie unter [Schritt 4: Erstellen und Decodieren einer Ablauf Verfolgung](#step-4-creating-and-decoding-a-trace) .
 5. Wenn Sie die Problembehandlung abgeschlossen haben, navigieren Sie zum **Diagnose** Protokoll, wählen Sie **Protokoll deaktivieren**und **anzeigen** aus, und deaktivieren Sie dann das Kontrollkästchen **analytische und Debugprotokolle anzeigen** , um die analytische und Debugprotokollierung auszublenden.
 
 ## <a name="step-4-creating-and-decoding-a-trace"></a>Schritt 4: Erstellen und Decodieren einer Ablauf Verfolgung
@@ -70,7 +70,7 @@ Die beste Strategie bei der Verwendung der ETL-Ablauf Verfolgung besteht darin, 
 So erstellen und Decodieren Sie eine Ablauf Verfolgung für den Benutzerprofil Dienst:
 
 1. Melden Sie sich bei dem Computer, auf dem der Benutzer Probleme aufweist, mit einem Konto an, das Mitglied der lokalen Administratoren Gruppe ist.
-2. Geben Sie an einer Eingabeaufforderung mit erhöhten Rechten die folgenden Befehle ein, wobei *\<path @ no__t-2* der Pfad zu einem lokalen Ordner ist, den Sie zuvor erstellt haben, z. b. C: \\logs:
+2. Geben Sie an einer Eingabeaufforderung mit erhöhten Rechten die folgenden Befehle ein, wobei *\<Pfad\>* der Pfad zu einem lokalen Ordner ist, den Sie zuvor erstellt haben, z. b. C:\\Logs:
         
     ```PowerShell
     logman create trace -n RUP -o <Path>\RUP.etl -ets
@@ -84,7 +84,7 @@ So erstellen und Decodieren Sie eine Ablauf Verfolgung für den Benutzerprofil D
     ```PowerShell
     logman stop -n RUP -ets
     ```
-7. Geben Sie den folgenden Befehl ein, um die ETL-Datei in eine lesbare Datei im aktuellen Verzeichnis zu exportieren (wahrscheinlich Ihr Basisordner oder der Ordner% windir% \\system32):
+7. Geben Sie den folgenden Befehl ein, um die ETL-Datei in eine lesbare Datei im aktuellen Verzeichnis zu exportieren (wahrscheinlich Ihr Basisordner oder der Ordner% windir%\\system32):
     
     ```PowerShell
     Tracerpt <path>\RUP.etl

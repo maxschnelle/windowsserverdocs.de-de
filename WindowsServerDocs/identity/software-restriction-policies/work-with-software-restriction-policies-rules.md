@@ -22,7 +22,7 @@ ms.locfileid: "71407157"
 ---
 # <a name="work-with-software-restriction-policies-rules"></a>Arbeiten mit Regeln der Richtlinien für die Softwareeinschränkung
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Thema werden Verfahren zum Arbeiten mit Zertifikaten, Pfaden, Internet Zonen und Hash Regeln mithilfe von Richtlinien für Software Einschränkung beschrieben.
 
@@ -88,7 +88,7 @@ Abhängig von Ihrer Umgebung stehen verschiedene Vorgehensweisen zum Aktivieren 
 
 2.  Klicken Sie in der Konsolen Struktur unter Sicherheitseinstellungen/Lokale Richtlinien auf **Sicherheitsoptionen** .
 
-3.  Doppelklicken Sie im Detailbereich auf **systemeinstellungen: Verwenden Sie Zertifikat Regeln für ausführbare Windows-Dateien für Software Einschränkungs Richtlinien @ no__t-0.
+3.  Doppelklicken Sie im Detailbereich auf **Systemeinstellungen: Zertifikatsregeln zur Durchsetzung von Softwareeinschränkungsrichtlinien auf Windows-Programme anwenden**.
 
 4.  Führen Sie eine der folgenden Aktionen aus, und klicken Sie dann auf **OK**:
 
@@ -112,7 +112,7 @@ Abhängig von Ihrer Umgebung stehen verschiedene Vorgehensweisen zum Aktivieren 
 
 7.  Klicken Sie in der Konsolen Struktur auf **Sicherheitsoptionen** , die sich unter *GroupPolicyObject* [*Computername*] Richtlinie/Computer Konfiguration/Windows-Einstellungen/Sicherheitseinstellungen/Lokale Richtlinien/befinden.
 
-8.  Doppelklicken Sie im Detailbereich auf **systemeinstellungen: Verwenden Sie Zertifikat Regeln für ausführbare Windows-Dateien für Software Einschränkungs Richtlinien @ no__t-0.
+8.  Doppelklicken Sie im Detailbereich auf **Systemeinstellungen: Zertifikatsregeln zur Durchsetzung von Softwareeinschränkungsrichtlinien auf Windows-Programme anwenden**.
 
 9. Wurde diese Richtlinieneinstellung noch nicht definiert, aktivieren Sie das Kontrollkästchen **Diese Richtlinieneinstellungen definieren**.
 
@@ -134,7 +134,7 @@ Abhängig von Ihrer Umgebung stehen verschiedene Vorgehensweisen zum Aktivieren 
 
 5.  Klicken Sie in der Konsolen Struktur auf **Sicherheitsoptionen** , die sich unter *GroupPolicyObject*[*Computername*] Richtlinie/Computer Konfiguration/Windows-Einstellungen/Sicherheitseinstellungen/Lokale Richtlinien befinden.
 
-6.  Doppelklicken Sie im Detailbereich auf **systemeinstellungen: Verwenden Sie Zertifikat Regeln für ausführbare Windows-Dateien für Software Einschränkungs Richtlinien @ no__t-0.
+6.  Doppelklicken Sie im Detailbereich auf **Systemeinstellungen: Zertifikatsregeln zur Durchsetzung von Softwareeinschränkungsrichtlinien auf Windows-Programme anwenden**.
 
 7.  Wurde diese Richtlinieneinstellung noch nicht definiert, aktivieren Sie das Kontrollkästchen **Diese Richtlinieneinstellungen definieren**.
 
@@ -150,7 +150,7 @@ Abhängig von Ihrer Umgebung stehen verschiedene Vorgehensweisen zum Aktivieren 
 
 2.  Klicken Sie in der Konsolenstruktur auf **Sicherheitsoptionen** (unter Richtlinie *Gruppenrichtlinienobjekt* für [*Computername*]/Computerkonfiguration/Windows-Einstellungen/Sicherheitseinstellungen/Lokale Richtlinien).
 
-3.  Doppelklicken Sie im Detailbereich auf **systemeinstellungen: Verwenden Sie Zertifikat Regeln für ausführbare Windows-Dateien für Software Einschränkungs Richtlinien @ no__t-0.
+3.  Doppelklicken Sie im Detailbereich auf **Systemeinstellungen: Zertifikatsregeln zur Durchsetzung von Softwareeinschränkungsrichtlinien auf Windows-Programme anwenden**.
 
 4.  Wurde diese Richtlinieneinstellung noch nicht definiert, aktivieren Sie das Kontrollkästchen **Diese Richtlinieneinstellungen definieren**.
 
@@ -310,7 +310,7 @@ Da diese Regeln anhand des Pfads angegeben werden, gilt die Pfadregel nicht mehr
 
 5.  Fügen Sie unter **Pfad**den Namen des Registrierungsschlüssels ein, gefolgt vom Wertnamen.
 
-6.  Schließen Sie den Registrierungs Pfad in Prozentzeichen (%) ein, z. b.%HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PlatformSDK\Directories\InstallDir%.
+6.  Schließen Sie den Registrierungs Pfad in Prozentzeichen (%) ein, z. b .% HKEY_LOCAL_MACHINE \software\microsoft\platformsdk\directories\installdir%.
 
 7.  Klicken Sie unter **Sicherheitsstufe**auf nicht **zulässig** oder **uneingeschränkt**.
 

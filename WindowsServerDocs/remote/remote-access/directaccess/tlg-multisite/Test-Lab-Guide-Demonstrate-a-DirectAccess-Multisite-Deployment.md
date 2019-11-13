@@ -19,11 +19,11 @@ ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71388223"
 ---
-# <a name="test-lab-guide-demonstrate-a-directaccess-multisite-deployment"></a>Testumgebungsanleitung: Veranschaulichen einer DirectAccess-Bereitstellung mit mehreren Standorten
+# <a name="test-lab-guide-demonstrate-a-directaccess-multisite-deployment"></a>Testumgebungsanleitung: Vorführung einer DirectAccess-Bereitstellung für mehrere Standorte
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-Der Remote Zugriff ist eine Server Rolle in den Betriebssystemen Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012, die Remote Benutzern den sicheren Zugriff auf interne Netzwerkressourcen über DirectAccess oder RRAS-VPN ermöglicht. Diese Anleitung enthält Schritt-für-Schritt-Anweisungen zum Erweitern der Test Umgebungs Anleitung für [: Veranschaulichen der DirectAccess-Einzel Server Einrichtung mit gemischtem IPv4 und IPv6 @ no__t-0, um den Remote Zugriff in einem Szenario mit mehreren Standorten zu veranschaulichen.  
+Der Remote Zugriff ist eine Server Rolle in den Betriebssystemen Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012, die Remote Benutzern den sicheren Zugriff auf interne Netzwerkressourcen über DirectAccess oder RRAS-VPN ermöglicht. Diese Anleitung enthält Schritt-für-Schritt-Anweisungen zum Erweitern der [Test Umgebungs Anleitung: veranschaulichen der Einrichtung von DirectAccess Single Server mit gemischtem IPv4 und IPv6](https://go.microsoft.com/fwlink/p/?LinkId=237004) , um den Remote Zugriff in einem Szenario mit mehreren Standorten zu veranschaulichen.  
   
 Beim Bereitstellen des Remote Zugriffs in einem Szenario mit mehreren Standorten können Sie RAS-Server an geografisch unterschiedlichen Standorten konfigurieren. Früher mussten Remote Benutzer stets eine Verbindung mit dem Unternehmensnetzwerk über einen bestimmten DirectAccess-Server herstellen. Mit Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 und Windows 10 oder Windows 8 können Sie Einstiegspunkte für jeden geografischen Standort in Ihrer Bereitstellung konfigurieren. Jeder Einstiegspunkt kann ein einzelner RAS-Server oder ein Cluster von Remote Zugriffs Servern sein. Remote Benutzer haben die Möglichkeit, eine Verbindung mit einem der RAS-Einstiegspunkte der Organisation herzustellen. Wenn ein Remote Benutzer z. b. in der Regel eine Verbindung mit dem RAS-Einstiegspunkt in Asien herstellt, aber dann einen geschäftlichen Trip zu Europa durchführt, stellt der Client Computer automatisch eine Verbindung mit dem nächstgelegenen RAS-Einstiegspunkt her.  
   

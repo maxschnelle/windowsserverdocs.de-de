@@ -20,12 +20,12 @@ ms.locfileid: "71388144"
 
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Vorher** Remote Zugriff @ no__t-0<br>
-- [**Weiter** Erfahren Sie mehr über die Always on VPN-Features und-Funktionen @ no__t-0
+- [**Vorheriges:** Remote Zugriff](../../../Remote-Access.md)<br>
+- [**Weiter:** Erfahren Sie mehr über die Always on VPN-Features und-Funktionen](../../vpn-map-da.md)
 
 Always on-VPN bietet eine einheitliche Lösung für den Remote Zugriff und unterstützt in die Domäne eingebundenen, nicht in die Domäne eingebundenen (Arbeitsgruppen) oder Azure AD –-Geräte, auch private Geräte. Mit Always On-VPN muss der Verbindungstyp nicht ausschließlich Benutzer oder Gerät, sondern kann eine Kombination aus beidem sein. Sie könnten z.B. die Geräteauthentifizierung für die Remotegeräteverwaltung aktivieren und dann die Benutzerauthentifizierung für Konnektivität mit internen Unternehmenssites und -diensten.
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Voraussetzungen
 
 Wahrscheinlich verfügen Sie über die bereitgestellten Technologien, die Sie zum Bereitstellen Always on VPN verwenden können. Abgesehen von Ihren DC/DNS-Servern erfordert die Always on-VPN-Bereitstellung einen NPS-Server (RADIUS), einen Zertifizierungsstellen Server (ca) und einen RAS-Server (Routing/VPN). Nachdem Sie die Infrastruktur eingerichtet haben, müssen Sie Clients registrieren und die Clients dann mithilfe mehrerer Netzwerk Änderungen sicher mit Ihrem lokalen Standort verbinden.
 

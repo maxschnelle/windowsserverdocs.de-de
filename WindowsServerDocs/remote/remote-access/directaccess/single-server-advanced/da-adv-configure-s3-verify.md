@@ -21,7 +21,7 @@ ms.locfileid: "71404904"
 ---
 # <a name="step-3-verify-the-advanced-directaccess-deployment"></a>Schritt 3 Überprüfen der erweiterten DirectAccess-Bereitstellung
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema wird beschrieben, wie Sie überprüfen, ob Sie die DirectAccess-Bereitstellung ordnungsgemäß konfiguriert haben  
   
@@ -39,7 +39,7 @@ In diesem Thema wird beschrieben, wie Sie überprüfen, ob Sie die DirectAccess-
   
 ## <a name="BKMK_Links"></a>Vorheriger Schritt  
   
--   [Schritt 2: Konfigurieren von DirectAccess-Servern @ no__t-0  
+-   [Schritt 2: Konfigurieren von DirectAccess-Servern](Step-2-Configuring-DirectAccess-Servers.md)  
   
 
 

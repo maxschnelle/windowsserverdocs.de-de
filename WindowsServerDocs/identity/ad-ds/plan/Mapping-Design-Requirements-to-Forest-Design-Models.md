@@ -18,7 +18,7 @@ ms.locfileid: "71408764"
 ---
 # <a name="mapping-design-requirements-to-forest-design-models"></a>Zuordnung von Entwurfs Anforderungen zu Gesamtstruktur-Entwurfs Modellen
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Die meisten Gruppen in Ihrer Organisation können eine einzelne Organisations Gesamtstruktur gemeinsam nutzen, die von einer einzelnen IT-Gruppe verwaltet wird und die Benutzerkonten und Ressourcen für alle Gruppen enthält, die die Gesamtstruktur gemeinsam verwenden. Diese freigegebene Gesamtstruktur, die als anfängliche Organisations Gesamtstruktur bezeichnet wird, ist die Grundlage des Gesamtstruktur-Entwurfs Modells für die Organisation.  
 
@@ -31,15 +31,15 @@ Wenn nicht alle Gruppen in Ihrer Organisation eine einzelne Organisations Gesamt
 
 |Szenario|Eingeschränkte Konnektivität|Daten Isolation|Daten Autonomie|Dienst Isolation|Dienst Autonomie|  
 |------------|------------------------|------------------|-----------------|---------------------|--------------------|  
-|[Szenario 1: Beitreten zu einer vorhandenen Gesamtstruktur für die Daten Autonomie @ no__t-0|Nein|Nein|Ja|Nein|Nein|  
-|[Szenario 2: Verwenden einer Organisations Gesamtstruktur oder Domäne für die Dienst Autonomie @ no__t-0|Nein|Nein|Nicht zutreffend|Nein|Ja|  
-|[Szenario: 3: Verwenden einer Organisations-oder Ressourcen Gesamtstruktur für die Dienst Isolation @ no__t-0|Nein|Nein|Nicht zutreffend|Ja|Nicht zutreffend|  
-|[Szenario 4: Verwenden einer Gesamtstruktur mit Organisations-oder eingeschränkten Zugriffsberechtigungen für die Daten Isolation @ no__t-0|Nicht zutreffend|Ja|Nicht zutreffend|Nicht zutreffend|Nicht zutreffend|  
-|[Szenario 5: Verwenden Sie eine Organisations Gesamtstruktur, oder konfigurieren Sie die Firewall für eingeschränkte Konnektivität neu no__t-0|Ja|Nein|Nicht zutreffend|Nein|Nein|  
-|[Szenario 6: Verwenden Sie eine Organisations Gesamtstruktur oder-Domäne, und konfigurieren Sie die Firewall für die Dienst Autonomie mit eingeschränkter Konnektivität (@ no__t-0) neu.|Ja|Nein|Nicht zutreffend|Nein|Ja|  
-|[scenario 7: Verwenden einer Ressourcen Gesamtstruktur und Neukonfigurieren der Firewall für die Dienst Isolation mit eingeschränkter Konnektivität @ no__t-0|Ja|Nein|Nicht zutreffend|Ja|Nicht zutreffend|  
+|[Szenario 1: beitreten zu einer vorhandenen Gesamtstruktur für die Daten Autonomie](#BKMK_1)|nein|nein|Ja|nein|nein|  
+|[Szenario 2: Verwenden einer Organisations Gesamtstruktur oder Domäne für die Dienst Autonomie](#BKMK_2)|nein|nein|N/V|nein|Ja|  
+|[Szenario 3: Verwenden einer Organisations-oder Ressourcen Gesamtstruktur für die Dienst Isolation](#BKMK_3)|nein|nein|N/V|Ja|N/V|  
+|[Szenario 4: Verwenden einer Gesamtstruktur der Organisation oder eines eingeschränkten Zugriffs für die Daten Isolation](#BKMK_4)|N/V|Ja|N/V|N/V|N/V|  
+|[Szenario 5: Verwenden einer Organisations Gesamtstruktur oder Neukonfigurieren der Firewall für eingeschränkte Konnektivität](#BKMK_5)|Ja|nein|N/V|nein|nein|  
+|[Szenario 6: Verwenden einer Organisations Gesamtstruktur oder Domäne und Neukonfigurieren der Firewall für Dienst Autonomie mit eingeschränkter Konnektivität](#BKMK_6)|Ja|nein|N/V|nein|Ja|  
+|[Szenario 7: Verwenden einer Ressourcen Gesamtstruktur und Neukonfigurieren der Firewall für die Dienst Isolation mit eingeschränkter Konnektivität](#BKMK_7)|Ja|nein|N/V|Ja|N/V|  
 
-## <a name="BKMK_1"></a>Szenario 1: Beitreten zu einer vorhandenen Gesamtstruktur für die Daten Autonomie  
+## <a name="BKMK_1"></a>Szenario 1: beitreten zu einer vorhandenen Gesamtstruktur für die Daten Autonomie  
 
 Sie können eine Anforderung für die Daten Autonomie erfüllen, indem Sie die Gruppe einfach in Organisationseinheiten (OUs) in einer vorhandenen Organisations Gesamtstruktur durchsuchen. Delegieren Sie die Steuerung der Organisationseinheiten an Daten Administratoren aus dieser Gruppe, um die Daten Autonomie zu erreichen. Weitere Informationen zur Delegierung der Steuerung mithilfe von Organisationseinheiten finden Sie unter [Erstellen eines Entwurfs einer Organisationseinheit](../../ad-ds/plan/Creating-an-Organizational-Unit-Design.md).  
   
@@ -109,7 +109,7 @@ Sie können eine Daten Isolation erzielen, indem Sie eine der folgenden Aktionen
    > [!NOTE]  
    > Wenn eine Netzwerkverbindung zwischen einer eingeschränkten Zugriffs Gesamtstruktur und einem anderen Netzwerk besteht, besteht die Möglichkeit, dass Daten im eingeschränkten Bereich an das andere Netzwerk übertragen werden.  
 
-## <a name="BKMK_5"></a>Szenario 5: Verwenden Sie eine Organisations Gesamtstruktur, oder konfigurieren Sie die Firewall für eingeschränkte Konnektivität neu.  
+## <a name="BKMK_5"></a>Szenario 5: Verwenden einer Organisations Gesamtstruktur oder Neukonfigurieren der Firewall für eingeschränkte Konnektivität  
 
 Zum erfüllen einer begrenzten Verbindungsanforderung können Sie eine der folgenden Aktionen ausführen:  
 
@@ -119,7 +119,7 @@ Zum erfüllen einer begrenzten Verbindungsanforderung können Sie eine der folge
 
 Weitere Informationen zum Konfigurieren von Firewalls für die Verwendung mit Active Directory Domain Services (AD DS) finden Sie unter [Active Directory in Netzwerken, die durch Firewalls segmentiert](https://go.microsoft.com/fwlink/?LinkId=37928)sind.  
 
-## <a name="BKMK_6"></a>Szenario 6: Verwenden Sie eine Organisations Gesamtstruktur oder-Domäne, und konfigurieren Sie die Firewall für die Dienst Autonomie mit eingeschränkter Konnektivität neu.  
+## <a name="BKMK_6"></a>Szenario 6: Verwenden einer Organisations Gesamtstruktur oder Domäne und Neukonfigurieren der Firewall für Dienst Autonomie mit eingeschränkter Konnektivität  
 
 Wenn eine Gruppe in Ihrer Organisation die Dienst Autonomie als Anforderung identifiziert, empfiehlt es sich, diese Anforderung zunächst zu überdenken. Das erreichen von Dienst Autonomie führt zu mehr Verwaltungsaufwand und zusätzlichen Kosten für die Organisation. Stellen Sie sicher, dass die Voraussetzung für die Dienst Autonomie nicht einfach ist, und dass Sie die Kosten für die Erfüllung dieser Anforderung rechtfertigen können.  
 
@@ -131,7 +131,7 @@ Wenn eine begrenzte Konnektivität ein Problem ist und Sie eine Anforderung für
 
 Außerdem müssen Sie die Firewall so öffnen, dass die Active Directory Datenverkehr durchlaufen werden kann. Weitere Informationen zum Konfigurieren von Firewalls für die Verwendung mit AD DS finden Sie unter [Active Directory in Netzwerken, die durch Firewalls segmentiert](https://go.microsoft.com/fwlink/?LinkId=37928)sind.  
 
-## <a name="BKMK_7"></a>Szenario 7: Verwenden Sie eine Ressourcen Gesamtstruktur, und konfigurieren Sie die Firewall für die Dienst Isolation mit eingeschränkter Konnektivität neu.  
+## <a name="BKMK_7"></a>Szenario 7: Verwenden einer Ressourcen Gesamtstruktur und Neukonfigurieren der Firewall für die Dienst Isolation mit eingeschränkter Konnektivität  
 
 Wenn eine begrenzte Konnektivität ein Problem ist und Sie eine Anforderung für die Dienst Isolation haben, können Sie eine der folgenden Aktionen ausführen:  
 

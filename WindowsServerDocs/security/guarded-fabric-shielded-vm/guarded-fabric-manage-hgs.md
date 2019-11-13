@@ -51,7 +51,7 @@ In HGS werden zwei vorkonfigurierte Jea-Rollen bereitgestellt:
 
 Um Jea verwenden zu können, müssen Sie zunächst einen neuen Standardbenutzer erstellen und Sie zu einem Mitglied der Gruppe "HGS-Administratoren" oder "HGS-Prüfer" machen.
 Wenn Sie `Install-HgsServer` verwendet haben, um eine neue Gesamtstruktur für HGS einzurichten, werden diese Gruppen "*Service Name*Administrators" und "*Service Name*Reviewer" genannt, wobei " *Service* Name" der Netzwerkname des HGS-Clusters ist.
-Wenn Sie HGS zu einer vorhandenen Domäne hinzugefügt haben, sollten Sie auf die Gruppennamen verweisen, die Sie in `Initialize-HgsServer` angegeben haben.
+Wenn Sie HGS zu einer vorhandenen Domäne hinzugefügt haben, sollten Sie auf die Gruppennamen verweisen, die Sie in `Initialize-HgsServer`angegeben haben.
 
 **Erstellen von Standard Benutzern für die Rollen "HGS-Administrator" und "Reviewer"**
 
@@ -85,7 +85,7 @@ Get-Command
 Get-HgsAttestationPolicy
 ```
 
-Geben Sie den Befehl `Exit-PSSession` oder seinen Alias `exit` ein, wenn Sie mit der Jea-Sitzung gearbeitet haben. 
+Geben Sie den Befehl `Exit-PSSession` oder den zugehörigen Alias ein, `exit`, wenn Sie mit der Jea-Sitzung gearbeitet haben. 
 
 **Hinzufügen einer neuen Richtlinie zu HGS mithilfe der Administrator Rolle**
 
@@ -201,7 +201,7 @@ Export-HgsServerState -Path C:\temp\HGSBackup.xml
 
 **Sichern von Zertifikaten**
 
-Der Befehl "`Export-HgsServerState`" sichert alle PFX-basierten Zertifikate, die zu dem Zeitpunkt, zu dem der Befehl ausgeführt wird, den HGS hinzugefügt werden.
+Der `Export-HgsServerState`-Befehl sichert alle PFX-basierten Zertifikate, die zu dem Zeitpunkt, zu dem der Befehl ausgeführt wird, den HGS hinzugefügt werden.
 Wenn Sie HGS Zertifikate mithilfe eines Fingerabdrucks (typisch für nicht exportierbare und Hardware gestützte Zertifikate) hinzugefügt haben, müssen Sie die privaten Schlüssel für Ihre Zertifikate manuell sichern.
 Um zu ermitteln, welche Zertifikate bei HGS registriert sind und manuell gesichert werden müssen, führen Sie den folgenden PowerShell-Befehl auf einem beliebigen funktionierenden HGS-Server Knoten aus.
 
@@ -220,8 +220,8 @@ Sie sollten die Zertifikat Sicherungen zusammen mit den Nachweis Richtlinien Sic
 Der gesicherte HGS-Serverstatus enthält nicht den Namen Ihres HGS-Clusters, Informationen aus Active Directory oder SSL-Zertifikate, die zum Sichern der Kommunikation mit den HGS-APIs verwendet werden.
 Diese Einstellungen sind wichtig, um Konsistenz zu gewährleisten, aber nicht wichtig, um Ihren HGS-Cluster nach einem Notfall wieder online zu schalten.
 
-Um den Namen des HGS-dienstanweises zu erfassen, führen Sie `Get-HgsServer` aus, und notieren Sie sich den flachen Namen in den URLs für Nachweis und Schlüsselschutz.
-Wenn die Nachweis-URL z. b. "<http://hgs.contoso.com/Attestation>" ist, ist "HGS" der Name des HGS-dienstanweises.
+Um den Namen des HGS-dienstanweises aufzuzeichnen, führen Sie `Get-HgsServer` aus, und notieren Sie sich den flachen Namen in den URLs für den Nachweis und den Schlüsselschutz.
+Wenn die Nachweis-URL z. b. "<http://hgs.contoso.com/Attestation>" lautet, ist "HGS" der Name des HGS-dienstanweises.
 
 Die von HGS verwendete Active Directory Domäne sollte wie jede andere Active Directory Domäne verwaltet werden.
 Wenn Sie HGS nach einem Notfall wiederherstellen, müssen Sie nicht unbedingt die exakten Objekte neu erstellen, die in der aktuellen Domäne vorhanden sind.
@@ -260,9 +260,9 @@ Sie werden aufgefordert, das Kennwort einzugeben, das Sie beim Erstellen der Sic
 Import-HgsServerState -Path C:\Temp\HGSBackup.xml
 ```
 
-Wenn Sie nur von Administratoren vertrauenswürdige Nachweis Richtlinien oder TPM-vertrauenswürdige Nachweis Richtlinien importieren möchten, können Sie dies tun, indem Sie die Flags "`-ImportActiveDirectoryModeState`" oder "`-ImportTpmModeState`" für " [Import-hgsserverstate](https://technet.microsoft.com/library/mt652168.aspx)" angeben.
+Wenn Sie nur admin-Trusted Nachweis-Richtlinien oder TPM-vertrauenswürdige Nachweis Richtlinien importieren möchten, können Sie dazu die `-ImportActiveDirectoryModeState` oder `-ImportTpmModeState` Flags für [Import-hgsserverstate](https://technet.microsoft.com/library/mt652168.aspx)angeben.
 
-Stellen Sie sicher, dass das neueste kumulative Update für Windows Server 2016 installiert ist, bevor Sie `Import-HgsServerState` ausführen.
+Stellen Sie sicher, dass das neueste kumulative Update für Windows Server 2016 installiert ist, bevor Sie `Import-HgsServerState`ausführen.
 Wenn dies nicht der Fall ist, kann ein Import Fehler auftreten.
 
 > [!NOTE]
@@ -280,7 +280,7 @@ Zur Erinnerung: Zertifikate, die HGS mithilfe von Fingerabdrücken hinzugefügt 
 Sie müssen diesen Schritt auf jedem zusätzlichen Knoten wiederholen, den Sie dem wiederhergestellten HGS-Cluster hinzufügen.
 
 #### <a name="review-imported-attestation-policies"></a>Überprüfen der importierten Nachweis Richtlinien
-Nachdem Sie die Einstellungen aus einer Sicherung importiert haben, empfiehlt es sich, alle importierten Richtlinien mithilfe von `Get-HgsAttestationPolicy` genau zu überprüfen, um sicherzustellen, dass nur die Hosts, denen Sie Vertrauen, dass Sie abgeschirmte VMS ausführen, erfolgreich bestätigt werden können.
+Nachdem Sie die Einstellungen aus einer Sicherung importiert haben, wird empfohlen, alle importierten Richtlinien mithilfe von `Get-HgsAttestationPolicy` genau zu überprüfen, um sicherzustellen, dass nur die Hosts, denen Sie Vertrauen, dass Sie abgeschirmte VMS ausführen, erfolgreich bestätigt werden können.
 Wenn Sie Richtlinien finden, die nicht mehr dem Sicherheitsstatus entsprechen, können Sie [diese deaktivieren oder entfernen](#review-attestation-policies).
 
 #### <a name="run-diagnostics-to-check-system-state"></a>Ausführen der Diagnose zum Überprüfen des Systemstatus
@@ -334,7 +334,7 @@ Für den Administrator vertrauenswürdigen Nachweis gibt es nur eine Richtlinie,
 Der TPM-Nachweis ist komplizierter und umfasst verschiedene Richtlinien, mit denen der Code und die Konfiguration eines Systems gemessen werden können, bevor festgestellt wird, ob es fehlerfrei ist.
 
 Ein einzelner HGS kann gleichzeitig mit Active Directory-und TPM-Richtlinien konfiguriert werden, aber der Dienst überprüft nur die Richtlinien für den aktuellen Modus, für den er konfiguriert ist, wenn ein Host versucht, die Tests zu testen.
-Führen Sie `Get-HgsServer` aus, um den Modus des HGS-Servers zu überprüfen.
+Führen Sie `Get-HgsServer`aus, um den Modus des HGS-Servers zu überprüfen.
 
 ### <a name="default-policies"></a>Standardrichtlinien
 Für den TPM-vertrauenswürdigen Nachweis gibt es mehrere integrierte Richtlinien, die auf HGS konfiguriert sind.
@@ -355,13 +355,13 @@ Hgs_BitLockerEnabled           | Erfordert, dass BitLocker auf dem Hyper-V-Host 
 Hgs_IommuEnabled               | Erfordert, dass der Host über ein IOMMU-Gerät verfügt, das verwendet wird, um Angriffe durch direkten Speicherzugriff zu verhindern. Wenn Sie diese Richtlinie deaktivieren und Hosts ohne IOMMU-Aktivierung verwenden, können Sie Mandanten-VM-Schlüssel für direkte Speicher Angriffe verfügbar machen.
 Hgs_NoHibernation              | Erfordert, dass der Ruhezustand auf dem Hyper-V-Host deaktiviert wird. Durch die Deaktivierung dieser Richtlinie können Hosts den geschützten VM-Speicher in einer unverschlüsselten Ruhe Zustands Datei speichern.
 Hgs_NoDumps                    | Erfordert, dass Speicher Abbilder auf dem Hyper-V-Host deaktiviert werden. Wenn Sie diese Richtlinie deaktivieren, empfiehlt es sich, die dumpverschlüsselung zu konfigurieren, um zu verhindern, dass geschützter VM-Speicher in unverschlüsselten Absturz Abbild Dateien gespeichert wird.
-Hgs_DumpEncryption             | Erfordert, dass Speicher Abbilder, die auf dem Hyper-V-Host aktiviert sind, mit einem Verschlüsselungsschlüssel verschlüsselt werden, der von HGS als vertrauenswürdig eingestuft wird. Diese Richtlinie gilt nicht, wenn Abbilder auf dem Host nicht aktiviert sind. Wenn diese Richtlinie und *HGS @ no__t-1nodumps* deaktiviert sind, kann der geschützte VM-Speicher in einer unverschlüsselten Dumpdatei gespeichert werden.
-Hgs_DumpEncryptionKey          | Eine negative Richtlinie zum sicherstellen, dass Hosts, die für das Zulassen von Speicher Abbildern konfiguriert sind, einen vom Administrator definierten Verschlüsselungsschlüssel für die Dumpdatei verwendet Diese Richtlinie gilt nicht, wenn *HGS @ no__t-1dumpencryption* deaktiviert ist.
+Hgs_DumpEncryption             | Erfordert, dass Speicher Abbilder, die auf dem Hyper-V-Host aktiviert sind, mit einem Verschlüsselungsschlüssel verschlüsselt werden, der von HGS als vertrauenswürdig eingestuft wird. Diese Richtlinie gilt nicht, wenn Abbilder auf dem Host nicht aktiviert sind. Wenn diese Richtlinie und *HGS\_nodumps* deaktiviert sind, kann der geschützte VM-Speicher in einer unverschlüsselten Dumpdatei gespeichert werden.
+Hgs_DumpEncryptionKey          | Eine negative Richtlinie zum sicherstellen, dass Hosts, die für das Zulassen von Speicher Abbildern konfiguriert sind, einen vom Administrator definierten Verschlüsselungsschlüssel für die Dumpdatei verwendet Diese Richtlinie gilt nicht, wenn *HGS\_dumpencryption* deaktiviert ist.
 
 ### <a name="authorizing-new-guarded-hosts"></a>Autorialisieren von neuen überwachten Hosts
 Um einen neuen Host zu einem überwachten Host zu autorisieren (z. b. erfolgreich), müssen die HGS dem Host Vertrauen und (bei Konfiguration für die Verwendung des TPM-vertrauenswürdigen Attestation) die darauf laufende Software als vertrauenswürdig einstufen.
 Die Schritte zum Autorisieren eines neuen Hosts unterscheiden sich je nach Nachweis Modus, für den HGS derzeit konfiguriert ist.
-Um den Nachweis Modus für Ihr überwachtes Fabric zu überprüfen, führen Sie `Get-HgsServer` auf einem beliebigen HGS-Knoten aus.
+Führen Sie `Get-HgsServer` auf einem beliebigen HGS-Knoten aus, um den Nachweis Modus für Ihr überwachtes Fabric zu überprüfen.
 
 #### <a name="software-configuration"></a>Software Konfiguration
 Stellen Sie auf dem neuen Hyper-V-Host sicher, dass Windows Server 2016 Datacenter Edition installiert ist.
@@ -394,7 +394,7 @@ Add-HgsAttestationHostGroup -Name "Contoso Guarded Hosts" -Identifier "S-1-5-21-
 Anweisungen zum Einrichten der Vertrauensstellung zwischen der Host Domäne und den HGS finden Sie im Bereitstellungs Handbuch.
 
 #### <a name="tpm-trusted-attestation"></a>TPM-vertrauenswürdiger Nachweis
-Wenn HGS im TPM-Modus konfiguriert ist, müssen Hosts alle gesperrten Richtlinien und aktivierten Richtlinien, die mit dem Präfix "Hgs_" versehen sind, sowie mindestens eine TPM-Baseline, TPM-ID und Code Integritätsrichtlinie bestehen.
+Wenn HGS im TPM-Modus konfiguriert ist, müssen Hosts alle gesperrten Richtlinien und aktivierten Richtlinien, die mit dem Präfix "Hgs_" als Präfix versehen sind, sowie mindestens eine TPM-Baseline, TPM-ID und Code Integritätsrichtlinie übergeben.
 Jedes Mal, wenn Sie einen neuen Host hinzufügen, müssen Sie die neue TPM-ID bei HGS registrieren.
 Solange der Host dieselbe Software (und die gleiche Code Integritätsrichtlinie angewendet) und die TPM-Baseline als einen anderen Host in Ihrer Umgebung ausführen, müssen Sie keine neuen CI-Richtlinien oder Basis Linien hinzufügen.
 
@@ -423,7 +423,7 @@ Get-HgsAttestationBaselinePolicy -Path 'C:\temp\hardwareConfig01.tcglog'
 > Wenn Sie eine Fehlermeldung erhalten, die besagt, dass der Host die Überprüfung nicht erfolgreich war
 > Dies ist eine Voraussetzungs Prüfung, um sicherzustellen, dass der Host abgeschirmte VMS ausführen kann. Dies bedeutet wahrscheinlich, dass Sie noch keine Code Integritätsrichtlinie oder andere erforderliche Einstellungen angewendet haben.
 > Lesen Sie die Fehlermeldung, nehmen Sie die von ihr vorgeschlagenen Änderungen vor, und wiederholen Sie dann den Vorgang.
-> Alternativ können Sie die Überprüfung zu diesem Zeitpunkt überspringen, indem Sie dem Befehl das Flag "`-SkipValidation`" hinzufügen.
+> Alternativ können Sie die Überprüfung zu diesem Zeitpunkt überspringen, indem Sie dem Befehl das `-SkipValidation`-Flag hinzufügen.
 
 Kopieren Sie die TPM-Baseline auf Ihren HGS-Server, und registrieren Sie Sie mit dem folgenden Befehl.
 Wir empfehlen Ihnen, eine Benennungs Konvention zu verwenden, die Ihnen hilft, die Hardware-und Firmwarekonfiguration dieser Klasse von Hyper-V-Hosts zu verstehen.
@@ -468,9 +468,9 @@ Add-HgsAttestationCiPolicy -Name 'WS2016-Hardware01' -Path 'C:\temp\ws2016-hardw
 
 **Hinzufügen eines Verschlüsselungsschlüssels für den Speicher Abbild**
 
-Wenn die *HGS @ no__t-1nodumps-* Richtlinie deaktiviert ist und die *HGS @ no__t-3dumpencryption-* Richtlinie aktiviert ist, dürfen geschützte Hosts Speicher Abbilder (einschließlich Absturz Abbilder) aktivieren, damit Sie aktiviert werden, solange diese Abbilder verschlüsselt sind. Geschützte Hosts bestehen nur dann, wenn Sie entweder Speicher Abbilder deaktiviert haben oder Sie mit einem Schlüssel verschlüsseln, der HGS bekannt ist. Standardmäßig werden keine dumpverschlüsselungs Schlüssel auf HGS konfiguriert.
+Wenn die *HGS\_nodumps* -Richtlinie deaktiviert ist und *HGS\_dumpencryption* -Richtlinie aktiviert ist, dürfen geschützte Hosts Speicher Abbilder (einschließlich Absturz Abbilder) aktivieren, damit Sie aktiviert werden, solange diese Abbilder verschlüsselt werden. Geschützte Hosts bestehen nur dann, wenn Sie entweder Speicher Abbilder deaktiviert haben oder Sie mit einem Schlüssel verschlüsseln, der HGS bekannt ist. Standardmäßig werden keine dumpverschlüsselungs Schlüssel auf HGS konfiguriert.
 
-Verwenden Sie zum Hinzufügen eines dumpverschlüsselungs Schlüssels zu HGS das `Add-HgsAttestationDumpPolicy`-Cmdlet, um HGS mit dem Hashwert Ihres dumpverschlüsselungs Schlüssels anzugeben.
+Verwenden Sie das Cmdlet "`Add-HgsAttestationDumpPolicy`", um HGS den Hashwert Ihres dumpverschlüsselungs Schlüssels hinzuzufügen.
 Wenn Sie eine TPM-Baseline auf einem Hyper-V-Host erfassen, der mit der dumpverschlüsselung konfiguriert ist, wird der Hash in tcglog eingeschlossen und kann für das Cmdlet "`Add-HgsAttestationDumpPolicy`" bereitgestellt werden.
 
 ```powershell
@@ -497,7 +497,7 @@ Diese URLs können abgerufen werden, indem `Get-HgsServer` auf einem beliebigen 
 Set-HgsClientConfiguration -KeyProtectionServerUrl 'http://hgs.bastion.local/KeyProtection' -AttestationServerUrl 'http://hgs.bastion.local/Attestation'
 ```
 
-Wenn der resultierende Status nicht "ishostbewacht" angibt: True "Sie müssen die Problembehandlung für die Konfiguration durchführt.
+Wenn der resultierende Status nicht "ishostbewacht: true" angibt, müssen Sie die Problembehandlung für die Konfiguration durchführen.
 Führen Sie auf dem Host, bei dem ein Fehler aufgetreten ist, den folgenden Befehl aus, um einen ausführlichen Bericht zu Problemen zu erhalten, die Ihnen helfen können, den fehlgeschlagenen Nachweis zu beheben.
 
 ```powershell
@@ -505,7 +505,7 @@ Get-HgsTrace -RunDiagnostics -Detailed
 ```
 
 > [!IMPORTANT]
-> Wenn Sie Windows Server 2019 oder Windows 10, Version 1809, verwenden und Code Integritäts Richtlinien verwenden, gibt `Get-HgsTrace` möglicherweise einen Fehler für die aktive Diagnose der **Code Integritätsrichtlinie** zurück.
+> Wenn Sie Windows Server 2019 oder Windows 10, Version 1809, verwenden und Code Integritäts Richtlinien verwenden, wird `Get-HgsTrace` möglicherweise einen Fehler für die aktive Diagnose der **Code Integritätsrichtlinie** zurückgeben.
 > Sie können dieses Ergebnis gefahrlos ignorieren, wenn es die einzige Fehlerdiagnose ist.
 
 ### <a name="review-attestation-policies"></a>Nachweis Richtlinien prüfen
@@ -564,7 +564,7 @@ Führen Sie den folgenden Befehl auf einem beliebigen HGS-Knoten aus, um den Nac
 Set-HgsServer -TrustTpm
 ```
 
-Wenn Probleme auftreten und Sie zurück in den Active Directory-Modus wechseln müssen, können Sie dazu `Set-HgsServer -TrustActiveDirectory` ausführen.
+Wenn Probleme auftreten und Sie zurück in den Active Directory-Modus wechseln müssen, können Sie dazu `Set-HgsServer -TrustActiveDirectory`ausführen.
 
 Nachdem Sie bestätigt haben, dass alles wie erwartet funktioniert, sollten Sie alle vertrauenswürdigen Active Directory Host Gruppen aus HGS entfernen und die Vertrauensstellung zwischen den HGS-und Fabric-Domänen entfernen.
 Wenn Sie die Active Directory Vertrauensstellung aktiviert haben, riskieren Sie, dass jemand die Vertrauensstellung erneut aktiviert und die HGS in Active Directory Modus wechselt. Dadurch kann nicht vertrauenswürdiger Code auf den überwachten Hosts deaktiviert werden.
@@ -586,7 +586,7 @@ Die zwei häufigsten Gründe dafür, dass Sie HGS neue Schlüssel hinzufügen w�
 
 Der Vorgang zum Hinzufügen der neuen Schlüssel unterscheidet sich je nach Art des verwendeten Zertifikats.
 
-**option 1: Hinzufügen eines in einem HSM gespeicherten Zertifikats @ no__t-0
+**Option 1: Hinzufügen eines in einem HSM gespeicherten Zertifikats**
 
 Die empfohlene Vorgehensweise zum Sichern von HGS-Schlüsseln ist die Verwendung von Zertifikaten, die in einem Hardware Sicherheitsmodul (HSM) erstellt werden.
 Mithilfe von HSMs wird sichergestellt, dass die Verwendung Ihrer Schlüssel an den physischen Zugriff auf ein Sicherheits sensibles Gerät in Ihrem Daten Center gebunden ist.
@@ -599,7 +599,7 @@ Die genauen Schritte und Funktionen finden Sie in der Dokumentation des HSM-Hers
     1. Erstellen Sie ein Verschlüsselungs Zertifikat mit der Schlüssel Verwendungs Eigenschaft " **Data Encipherment** " in Ihrem HSM.
     2. Erstellen eines Signatur Zertifikats mit der Eigenschaft "Nutzung **digitaler Signatur** Schlüssel" in Ihrem HSM
 3. Installieren Sie die Zertifikate im lokalen Zertifikat Speicher der einzelnen HGS-Knoten gemäß der Anleitung Ihres HSM-Herstellers.
-4. Wenn Ihr HSM differenzierte Berechtigungen verwendet, um bestimmten Anwendungen oder Benutzern die Berechtigung zum Verwenden des privaten Schlüssels zu erteilen, müssen Sie Ihrem HGS-Gruppen verwalteten Dienst Konto Zugriff auf das Zertifikat gewähren. Sie können den Namen des HGS-GMSA-Kontos ermitteln, indem Sie `(Get-IISAppPool -Name KeyProtection).ProcessModel.UserName` ausführen.
+4. Wenn Ihr HSM differenzierte Berechtigungen verwendet, um bestimmten Anwendungen oder Benutzern die Berechtigung zum Verwenden des privaten Schlüssels zu erteilen, müssen Sie Ihrem HGS-Gruppen verwalteten Dienst Konto Zugriff auf das Zertifikat gewähren. Sie können den Namen des HGS-GMSA-Kontos ermitteln, indem Sie ausführen `(Get-IISAppPool -Name KeyProtection).ProcessModel.UserName`
 5. Fügen Sie die Signatur-und Verschlüsselungs Zertifikate zu HGS hinzu, indem Sie die Fingerabdrücke durch die der Zertifikate "in den folgenden Befehlen ersetzen:
 
     ```powershell
@@ -607,11 +607,11 @@ Die genauen Schritte und Funktionen finden Sie in der Dokumentation des HSM-Hers
     Add-HgsKeyProtectionCertificate -CertificateType Signing -Thumbprint "99887766554433221100FFEEDDCCBBAA"
     ```
 
-**option 2: Hinzufügen nicht exportier barer Software Zertifikate @ no__t-0
+**Option 2: Hinzufügen nicht exportier barer Software Zertifikate**
 
 Wenn Sie über ein Software gestütztes Zertifikat verfügen, das von Ihrem Unternehmen oder von einer öffentlichen Zertifizierungsstelle ausgestellt wurde, die über einen nicht exportierbaren privaten Schlüssel verfügt, müssen Sie das Zertifikat mithilfe des Fingerabdrucks zu HGS hinzufügen.
 1. Installieren Sie das Zertifikat auf Ihrem Computer gemäß den Anweisungen Ihrer Zertifizierungsstelle.
-2. Erteilen Sie dem verwalteten Dienst Konto der HGS-Gruppe Lesezugriff auf den privaten Schlüssel des Zertifikats. Sie können den Namen des HGS-GMSA-Kontos ermitteln, indem Sie `(Get-IISAppPool -Name KeyProtection).ProcessModel.UserName` ausführen.
+2. Erteilen Sie dem verwalteten Dienst Konto der HGS-Gruppe Lesezugriff auf den privaten Schlüssel des Zertifikats. Sie können den Namen des HGS-GMSA-Kontos ermitteln, indem Sie ausführen `(Get-IISAppPool -Name KeyProtection).ProcessModel.UserName`
 3. Registrieren Sie das Zertifikat mit dem folgenden Befehl bei HGS, und ersetzen Sie dabei den Fingerabdruck Ihres Zertifikats (Ändern der *Verschlüsselung* in *Signieren* für Signatur Zertifikate):
 
     ```powershell
@@ -622,7 +622,7 @@ Wenn Sie über ein Software gestütztes Zertifikat verfügen, das von Ihrem Unte
 > Sie müssen den privaten Schlüssel manuell installieren und auf jedem HGS-Knoten Lesezugriff auf das GMSA-Konto gewähren.
 > HGS können private Schlüssel für *ein* Zertifikat, das durch seinen Fingerabdruck registriert wird, nicht automatisch replizieren.
 
-**option 3: Hinzufügen von in PFX-Dateien gespeicherten Zertifikaten @ no__t-0
+**Option 3: Hinzufügen von in PFX-Dateien gespeicherten Zertifikaten**
 
 Wenn Sie über ein Software gestütztes Zertifikat mit einem exportierbaren privaten Schlüssel verfügen, der im PFX-Dateiformat gespeichert und mit einem Kennwort gesichert werden kann, können die Zertifikate von HGS automatisch für Sie verwaltet werden.
 Zertifikate, die mit PFX-Dateien hinzugefügt werden, werden automatisch an jeden Knoten Ihres HGS-Clusters repliziert, und HGS sichert den Zugriff auf die privaten Schlüssel.
@@ -710,11 +710,11 @@ Führen Sie für jede abgeschirmte VM die folgenden Schritte aus:
 
 > [!NOTE]
 > Wenn der VM-Besitzer eine falsche Schlüssel Schutzvorrichtung auf dem virtuellen Computer festlegt und Ihr Fabric nicht zum Ausführen des virtuellen Computers autorisiert, können Sie den abgeschirmten virtuellen Computer nicht starten.
-> Führen Sie `Set-VMKeyProtector -RestoreLastKnownGoodKeyProtector` aus, um zur letzten als funktionierend bekannten Schlüssel Schutzvorrichtung zurückzukehren.
+> Um zur letzten als funktionierend bekannten Schlüssel Schutzvorrichtung zurückzukehren, führen Sie `Set-VMKeyProtector -RestoreLastKnownGoodKeyProtector`
 
 Nachdem alle VMs aktualisiert wurden, um die neuen Wächter Schlüssel zu autorisieren, können Sie die alten Schlüssel deaktivieren und entfernen.
 
-13. Die Fingerabdrücke der alten Zertifikate werden von `Get-HgsKeyProtectionCertificate -IsPrimary $false`
+13. Holen Sie sich die Fingerabdrücke der alten Zertifikate aus `Get-HgsKeyProtectionCertificate -IsPrimary $false`
 
 14. Deaktivieren Sie die einzelnen Zertifikate, indem Sie die folgenden Befehle ausführen:  
 

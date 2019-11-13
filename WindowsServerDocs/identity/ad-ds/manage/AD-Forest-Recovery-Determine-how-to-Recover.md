@@ -51,7 +51,7 @@ Wenn Sie Active Directory auf anderer Hardware wiederherstellen müssen, erstell
 
 Wenn der Zeitpunkt des Auftretens des Fehlers unbekannt ist, untersuchen Sie weitere Informationen, um Sicherungen zu identifizieren, die den letzten sicheren Zustand der Gesamtstruktur enthalten. Diese Vorgehensweise ist weniger wünschenswert. Daher wird dringend empfohlen, dass Sie detaillierte Protokolle über den Integritäts Status von AD DS täglich aufbewahren, damit bei einem Gesamtstruktur weiten Ausfall die ungefähre Zeit des Fehlers identifiziert werden kann. Sie sollten auch eine lokale Kopie der Sicherungen aufbewahren, um eine schnellere Wiederherstellung zu ermöglichen.
 
-Wenn Active Directory Papierkorb aktiviert ist, ist die Sicherungs Lebensdauer gleich dem **deletedObjectLifetime** -Wert oder dem **tombstoneLifetime** -Wert, je nachdem, welcher Wert kleiner ist. Weitere Informationen finden Sie unter [Active Directory schrittweise Anleitung zum Papier](https://go.microsoft.com/fwlink/?LinkId=178657) Korb (https://go.microsoft.com/fwlink/?LinkId=178657).
+Wenn Active Directory Papierkorb aktiviert ist, ist die Sicherungs Lebensdauer gleich dem **deletedObjectLifetime** -Wert oder dem **tombstoneLifetime** -Wert, je nachdem, welcher Wert kleiner ist. Weitere Informationen finden Sie unter [schrittweise Anleitung zum Active Directory Papierkorb](https://go.microsoft.com/fwlink/?LinkId=178657) (https://go.microsoft.com/fwlink/?LinkId=178657).
 
 Als Alternative können Sie auch das Active Directory Database-Bereitstellungs Tool (Dsamain. exe) und ein Lightweight Directory Access Protocol (LDAP)-Tool (z. b. "Ldp. exe" oder Active Directory Benutzer und Computer) verwenden, um zu ermitteln, welche Sicherung den letzten sicheren Zustand des Ökosysteme. Das Active Directory-Daten Bank Bereitstellungs Tool, das in Windows Server 2008 und späteren Windows Server-Betriebssystemen enthalten ist, macht Active Directory Daten verfügbar, die in Sicherungen oder Momentaufnahmen als LDAP-Server gespeichert sind. Anschließend können Sie ein LDAP-Tool verwenden, um die Daten zu durchsuchen. Dieser Ansatz hat den Vorteil, dass Sie keinen Domänen Controller im Verzeichnisdienst-Wiederherstellungs Modus (Directory Services Restore Mode, DSRM) neu starten müssen, um den Inhalt der Sicherung AD DS zu untersuchen.
 
@@ -76,13 +76,13 @@ Wählen Sie einen DC aus, der am besten die folgenden Kriterien erfüllt:
 - Ein Domänen Controller, der vor dem Auftreten eines DNS-Servers (Domain Name System) war. Dies spart die erforderliche Zeit für die Neuinstallation von DNS.
 - Wenn Sie auch die Windows-Bereitstellungs Dienste verwenden, wählen Sie einen Domänen Controller, der nicht für die Verwendung der BitLocker-Netzwerk Entsperrung In diesem Fall wird die BitLocker-Netzwerk Entsperrung nicht für den ersten DC unterstützt, den Sie während einer Wiederherstellung der Gesamtstruktur aus einer Sicherung wiederherstellen.
 
-   Die BitLocker-Netzwerk Entsperrung als *einzige* Schlüssel Schutzvorrichtung *kann nicht* auf DCS verwendet werden, auf denen Sie die Windows-Bereitstellungs Dienste (Windows Deployment Services, WDS) bereitgestellt haben. Dies führt zu einem Szenario, bei dem der erste DC erfordert, dass Active Directory und WDS funktionieren, Entsperren. Bevor Sie jedoch den ersten Domänen Controller wiederherstellen, ist Active Directory für WDS noch nicht verfügbar, daher kann er nicht entsperrt werden.
+   Die BitLocker-Netzwerk Entsperrung als *einzige* Schlüssel Schutzvorrichtung *kann nicht* auf DCS verwendet werden, auf denen Sie die Windows-Bereitstellungs Dienste (Windows Deployment Services, WDS) bereitgestellt haben, da dies zu einem Szenario führt, bei dem der erste DC erfordert, dass Active Directory und WDS funktionieren, um Bevor Sie jedoch den ersten Domänen Controller wiederherstellen, ist Active Directory für WDS noch nicht verfügbar, daher kann er nicht entsperrt werden.
 
    Um festzustellen, ob ein Domänen Controller für die Verwendung der BitLocker-Netzwerk Entsperrung konfiguriert ist, überprüfen Sie, ob ein Netzwerk entsperrungs Zertifikat im folgenden Registrierungsschlüssel identifiziert
 
    HKEY_LOCAL_MACHINESoftwarePoliciesMicrosoftSystemCertificatesFVE_NKP
 
-Behalten Sie Sicherheitsverfahren bei der Behandlung oder Wiederherstellung von Sicherungsdateien bei, die Active Directory enthalten. Die Dringlichkeit, die die Wiederherstellung in der Gesamtstruktur begleitet, kann unbeabsichtigt zu bewährten Sicherheitsmethoden führen. Weitere Informationen finden Sie im Abschnitt "Einrichten von Sicherungs-und Wiederherstellungs Strategien für den Domänen Controller" im Leitfaden [best Practices zum Sichern von Active Directory-Installationen und alltäglichen Vorgängen: Teil II @ no__t-0.
+Behalten Sie Sicherheitsverfahren bei der Behandlung oder Wiederherstellung von Sicherungsdateien bei, die Active Directory enthalten. Die Dringlichkeit, die die Wiederherstellung in der Gesamtstruktur begleitet, kann unbeabsichtigt zu bewährten Sicherheitsmethoden führen. Weitere Informationen finden Sie im Abschnitt "Einrichten von Sicherungs-und Wiederherstellungs Strategien für Domänen Controller" im [Leitfaden mit bewährten Methoden zum Sichern von Active Directory Installationen und alltäglichen Vorgängen: Teil II](https://technet.microsoft.com/library/bb727066.aspx).
 
 ## <a name="identify-the-current-forest-structure-and-dc-functions"></a>Identifizieren der aktuellen Gesamtstruktur Struktur und der DC-Funktionen
 
@@ -92,24 +92,24 @@ Bereiten Sie eine Tabelle vor, die die Funktionen der einzelnen Domänen Control
 
 |DC-Name|Betriebssystem|FSMO|GC|RODC|Sicherung|DNS|Server Core|Virtuelle Maschine|VM-GenID|  
 |-------------|----------------------|----------|--------|----------|------------|---------|-----------------|--------|---------------|  
-|DC_1|Windows Server 2012|Schema Master, Domänen Namen Master|Ja|Nein|Ja|Nein|Nein|Ja|Ja|  
-|DC_2|Windows Server 2012|Keine|Ja|Nein|Ja|Ja|Nein|Ja|Ja|  
-|DC_3|Windows Server 2012|Infrastrukturmaster|Nein|Nein|Nein|Ja|Ja|Ja|Ja|  
-|DC_4|Windows Server 2012|PDC-Emulator, RID-Master|Ja|Nein|Nein|Nein|Nein|Ja|Nein|  
-|DC_5|Windows Server 2012|Keine|Nein|Nein|Ja|Ja|Nein|Ja|Ja|  
-|RODC_1|Windows Server 2008 R2|Keine|Ja|Ja|Ja|Ja|Ja|Ja|Nein|  
-|RODC_2|WindowsServer 2008|Keine|Ja|Ja|Nein|Ja|Ja|Ja|Nein|  
+|DC_1|Windows Server 2012|Schema Master, Domänen Namen Master|Ja|nein|Ja|nein|nein|Ja|Ja|  
+|DC_2|Windows Server 2012|Keine|Ja|nein|Ja|Ja|nein|Ja|Ja|  
+|DC_3|Windows Server 2012|Infrastrukturmaster|nein|nein|nein|Ja|Ja|Ja|Ja|  
+|DC_4|Windows Server 2012|PDC-Emulator, RID-Master|Ja|nein|nein|nein|nein|Ja|nein|  
+|DC_5|Windows Server 2012|Keine|nein|nein|Ja|Ja|nein|Ja|Ja|  
+|RODC_1|Windows Server 2008 R2|Keine|Ja|Ja|Ja|Ja|Ja|Ja|nein|  
+|RODC_2|WindowsServer 2008|Keine|Ja|Ja|nein|Ja|Ja|Ja|nein|  
 
 Identifizieren Sie für jede Domäne in der Gesamtstruktur einen einzelnen beschreibbaren DC, der über eine vertrauenswürdige Sicherung der Active Directory-Datenbank für diese Domäne verfügt. Gehen Sie vorsichtig vor, wenn Sie eine Sicherung zum Wiederherstellen eines Domänen Controllers auswählen. Wenn der Tag und die Ursache des Fehlers ungefähr bekannt sind, empfiehlt es sich, eine Sicherung zu verwenden, die ein paar Tage vor diesem Datum erstellt wurde.
   
-In diesem Beispiel gibt es vier Sicherungs Kandidaten: DC_1, DC_2, DC_4 und DC_5. Diese Sicherungs Kandidaten stellen nur eine wieder her. Der empfohlene DC ist aus folgenden Gründen DC_5:  
+In diesem Beispiel gibt es vier Sicherungs Kandidaten: DC_1, DC_2, DC_4 und DC_5. Diese Sicherungs Kandidaten stellen nur eine wieder her. Der empfohlene Domänen Controller wird aus den folgenden Gründen DC_5:  
 
 - Sie erfüllt die Anforderungen für die Verwendung als Quelle für das Klonen virtualisierter Domänen Controller, d. h., Sie führt Windows Server 2012 als virtuellen Domänen Controller auf einem Hypervisor aus, der "VM-generationid" unterstützt, führt Software aus, die geklont werden darf (oder die entfernt werden kann, wenn Sie nicht geklont werden kann). d). Nach der Wiederherstellung wird die PDC-Emulatorrolle für diesen Server übernommen und kann der Gruppe klonbare Domänen Controller für die Domäne hinzugefügt werden.  
 - Sie führt eine vollständige Installation von Windows Server 2012 aus. Ein Domänen Controller, auf dem eine Server Core-Installation ausgeführt wird, kann als Ziel für die Wiederherstellung weniger praktisch sein  
 - Dabei handelt es sich um einen DNS-Server. Daher muss DNS nicht neu installiert werden.  
 
 > [!NOTE]
-> Da es sich bei DC_5 nicht um einen globalen Katalogserver handelt, hat dies auch den Vorteil, dass der globale Katalog nach der Wiederherstellung nicht entfernt werden muss. Ob der DC auch ein globaler Katalogserver ist, ist jedoch kein entscheidender Faktor, da ab Windows Server 2012 alle DCS standardmäßig als globale Katalogserver fungieren und der globale Katalog nach der Wiederherstellung als Teil der Gesamtstruktur empfohlen wird. Wiederherstellungsprozess in jedem Fall.  
+> Da DC_5 kein globaler Katalogserver ist, hat er auch den Vorteil, dass der globale Katalog nach der Wiederherstellung nicht entfernt werden muss. Ob der DC auch ein globaler Katalogserver ist, ist jedoch kein entscheidender Faktor, da ab Windows Server 2012 alle DCS standardmäßig als globale Katalogserver fungieren und der globale Katalog nach der Wiederherstellung als Teil der Gesamtstruktur empfohlen wird. Wiederherstellungsprozess in jedem Fall.  
 
 ## <a name="recover-the-forest-in-isolation"></a>Wiederherstellen der Gesamtstruktur isoliert
 

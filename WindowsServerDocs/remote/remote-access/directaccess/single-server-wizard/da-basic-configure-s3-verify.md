@@ -21,7 +21,7 @@ ms.locfileid: "71388531"
 ---
 # <a name="step-3-verify-deployments"></a>Schritt 3 Überprüfen von bereit Stellungen
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema wird beschrieben, wie Sie überprüfen, ob die grundlegende DirectAccess-Bereitstellung ordnungsgemäß konfiguriert ist.  
   
@@ -39,7 +39,7 @@ In diesem Thema wird beschrieben, wie Sie überprüfen, ob die grundlegende Dire
   
 ## <a name="BKMK_Links"></a>Vorheriger Schritt  
   
--   [Schritt 2: Konfigurieren des DirectAccess-Servers @ no__t-0  
+-   [Schritt 2: Konfigurieren des DirectAccess-Servers](da-basic-configure-s2-server.md)  
   
 
 

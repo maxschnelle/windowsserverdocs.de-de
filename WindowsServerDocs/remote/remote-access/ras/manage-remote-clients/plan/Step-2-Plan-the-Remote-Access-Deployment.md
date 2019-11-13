@@ -21,12 +21,12 @@ ms.locfileid: "71404572"
 ---
 # <a name="step-2-plan-the-remote-access-deployment"></a>Schritt 2 Planen der Bereitstellung des Remote Zugriffs
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Nachdem Sie die Infrastruktur geplant haben, die Sie zum Einrichten des einzelnen RAS-Servers für die Remote Verwaltung von DirectAccess-Clients verwenden möchten, können Sie die Einstellungen planen, die vom Setup-Assistenten für den Remote Zugriff verwendet werden.  
   
 > [!NOTE]  
-> Bevor Sie mit diesen Aufgaben fortfahren, finden Sie weitere Informationen unter [step 1: Planen Sie die Remote Zugriffs Infrastruktur @ no__t-0.  
+> Bevor Sie mit diesen Aufgaben fortfahren, finden Sie weitere Informationen unter [Schritt 1: Planen der Infrastruktur für den Remote Zugriff](Step-1-Plan-the-Remote-Access-Infrastructure.md).  
   
 |Aufgabe|Beschreibung|  
 |----|--------|  
@@ -76,9 +76,9 @@ Bei der Planung der Bereitstellung des Remote Zugriffs Servers müssen folgende 
   
     Beim Bereitstellen eines Remote Zugriffs Servers sind zwei Topologien verfügbar:  
   
-    -   **Zwei Adapter**: Mit zwei Netzwerkadaptern kann der Remote Zugriff mit einem Netzwerkadapter konfiguriert werden, der direkt mit dem Internet verbunden ist, und mit dem anderen, der mit dem internen Netzwerk verbunden ist. Alternativ dazu wird der Server hinter einem Edgegerät installiert, z. b. einer Firewall oder einem Router. In dieser Konfiguration ist ein Netzwerkadapter mit dem Umkreis Netzwerk und der andere mit dem internen Netzwerk verbunden.  
+    -   **Zwei Adapter**: mit zwei Netzwerkadaptern kann der Remote Zugriff mit einem Netzwerkadapter konfiguriert werden, der direkt mit dem Internet verbunden ist, und mit dem anderen, der mit dem internen Netzwerk verbunden ist. Alternativ dazu wird der Server hinter einem Edgegerät installiert, z. b. einer Firewall oder einem Router. In dieser Konfiguration ist ein Netzwerkadapter mit dem Umkreis Netzwerk und der andere mit dem internen Netzwerk verbunden.  
   
-    -   **Einzelner Netzwerkadapter**: In dieser Konfiguration wird der RAS-Server hinter einem Edgegerät installiert, z. b. einer Firewall oder einem Router. Der Netzwerkadapter ist mit dem internen Netzwerk verbunden.  
+    -   **Einzelner Netzwerkadapter**: in dieser Konfiguration wird der RAS-Server hinter einem Edgegerät installiert, z. b. einer Firewall oder einem Router. Der Netzwerkadapter ist mit dem internen Netzwerk verbunden.  
 
 -   **Leistungsverlauf für Netzwerkadapter**  
   
@@ -96,7 +96,7 @@ Bei der Planung der Bereitstellung des Remote Zugriffs Servers müssen folgende 
   
     Sie können eine der folgenden Methoden zum Authentifizieren von DirectAccess-Clients auf dem RAS-Server auswählen:  
   
-    -   **Benutzerauthentifizierung**: Sie können für Benutzer die zweistufige oder die Authentifizierung mit Active Directory-Anmeldeinformationen aktivieren.  
+    -   **Benutzerauthentifizierung**: Sie können es Benutzern ermöglichen, sich mit Active Directory Anmelde Informationen oder mit zweistufiger Authentifizierung zu authentifizieren.  
   
     -   **Computer Authentifizierung**: Sie können die Computer Authentifizierung für die Verwendung von Zertifikaten konfigurieren. Oder der Remote Zugriffs Server kann als Proxy für die Kerberos-Authentifizierung fungieren, ohne dass Zertifikate erforderlich sind. 
   
@@ -118,9 +118,9 @@ Der Remote Zugriff erfordert drei Arten von Infrastruktur Servern:
   
 -   **Verwaltungs Server** 
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
   
--   [Schritt 1: Planen der Infrastruktur für den Remotezugriff](Step-1-Plan-the-Remote-Access-Infrastructure.md)  
+-   [Schritt 1: Planen der Infrastruktur für den Remote Zugriff](Step-1-Plan-the-Remote-Access-Infrastructure.md)  
   
 
 

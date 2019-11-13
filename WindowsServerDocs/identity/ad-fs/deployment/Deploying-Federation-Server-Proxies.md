@@ -18,7 +18,7 @@ ms.locfileid: "71408400"
 ---
 # <a name="deploying-federation-server-proxies"></a>Bereitstellen von Verbundserverproxys
 
-Zum Bereitstellen von Verbund Server Proxys in Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1 führen Sie alle Aufgaben in [checkliste aus: Einrichten eines Verbund Server Proxys @ no__t-0.  
+Zum Bereitstellen von Verbund Server Proxys in Active Directory-Verbunddienste (AD FS) \(AD FS\)führen Sie alle Aufgaben in Prüfliste [: Einrichten eines Verbund Server Proxys](Checklist--Setting-Up-a-Federation-Server-Proxy.md)aus.  
   
 > [!NOTE]  
 > Wenn Sie diese Prüfliste verwenden, empfiehlt es sich, zuerst die Verweise auf die Planungs Anleitung für Verbund Server Proxys im [AD FS Entwurfs Handbuch in Windows Server 2012](https://technet.microsoft.com/library/dd807036.aspx) zu lesen, bevor Sie mit den Verfahren zum Konfigurieren der Server beginnen. Nach der Prüfliste erhalten Sie ein besseres Verständnis des Entwurfs-und Bereitstellungs Prozesses für Verbund Server Proxys.  

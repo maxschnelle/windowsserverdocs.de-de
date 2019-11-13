@@ -21,11 +21,11 @@ Zum Vorbereiten der Migration eines AD FS 2,0-Verbund Server Proxys zu Windows S
   
  Führen Sie zum Exportieren der AD FS-Konfigurationsdaten die folgenden Schritte aus:  
   
--   [Schritt 1: Proxy Dienst Einstellungen exportieren @ no__t-0  
+-   [Schritt 1: Exportieren der Proxy Dienst Einstellungen](#step-1-export-proxy-service-settings)  
   
--   [Schritt 2: Sichern von Webseiten Anpassungen @ no__t-0  
+-   [Schritt 2: Sichern von Webseiten Anpassungen](#step-2-back-up-webpage-customizations)  
   
-##  <a name="step-1-export-proxy-service-settings"></a>Schritt 1: Exportieren der Proxydiensteinstellungen  
+##  <a name="step-1-export-proxy-service-settings"></a>Schritt 1: Exportieren der Proxydiensteinstellungen  
  Gehen Sie wie folgt vor, um die Verbundserverproxy-Diensteinstellungen zu exportieren:  
   
 ### <a name="to-export-proxy-service-settings"></a>So exportieren Sie Proxydiensteinstellungen  
@@ -53,8 +53,8 @@ Zum Vorbereiten der Migration eines AD FS 2,0-Verbund Server Proxys zu Windows S
  Kopieren Sie die AD FS-Proxywebseiten und die Datei **web.config** aus dem zugeordneten Verzeichnis in den virtuellen Pfad **“/adfs/ls”** in IIS, um Webseitenanpassungen zu sichern.  Standardmäßig befindet sie sich im Verzeichnis **%systemdrive%\inetpub\adfs\ls**.  
   
 ## <a name="next-steps"></a>Nächste Schritte
- [Vorbereiten der Migration des AD FS 2,0](prepare-to-migrate-ad-fs-fed-server.md)-Verbund Servers    
+ [Vorbereiten der Migration des AD FS 2,0](prepare-to-migrate-ad-fs-fed-server.md) -Verbund Servers   
  [Vorbereiten der Migration des AD FS 2,0-Verbund Server Proxys](prepare-to-migrate-ad-fs-fed-proxy.md)   
- [Migrieren Sie den AD FS 2,0](migrate-the-ad-fs-fed-server.md)-Verbund Server  .  
- [Migrieren Sie den AD FS 2,0-Verbund Server Proxy](migrate-the-ad-fs-2-fed-server-proxy.md) .  
+ [Migrieren Sie den AD FS 2,0](migrate-the-ad-fs-fed-server.md) -Verbund Server   
+ [Migrieren Sie den AD FS 2,0-Verbund Server Proxy](migrate-the-ad-fs-2-fed-server-proxy.md)   
  [Migrieren der AD FS 1.1-Web-Agents](migrate-the-ad-fs-web-agent.md)

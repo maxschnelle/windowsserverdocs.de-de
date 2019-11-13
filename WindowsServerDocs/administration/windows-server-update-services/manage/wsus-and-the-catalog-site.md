@@ -21,7 +21,7 @@ ms.locfileid: "71361448"
 ---
 # <a name="wsus-and-the-catalog-site"></a>WSUS und die Katalogwebsite
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Die Katalog Site ist der Microsoft-Speicherort, von dem Sie Hotfixes und Hardwaretreiber importieren können.
 
@@ -40,7 +40,7 @@ Um Hotfixes in WSUS zu importieren, müssen Sie von einem WSUS-Computer aus auf 
 
 Genehmigte Updates, die von der Microsoft Update Katalog-Website importiert werden, werden bei der nächsten Synchronisierung des WSUS-Servers heruntergeladen. Sie werden nicht zum Zeitpunkt des Imports von der Microsoft Update Katalog-Website heruntergeladen.
 
-Beachten Sie, dass Sie über die WSUS-Konsole auf die Microsoft Update Katalog-Website zugreifen müssen, um sicherzustellen, dass die Updates in einem WSUS-kompatiblen Format importiert werden. Wenn Sie manuell auf die Microsoft Update Katalog-Website zugreifen, werden alle Updates, die Sie herunterladen, nicht in den WSUS-Server importiert, sondern als Einzelperson * heruntergeladen. MSU-Dateien. WSUS verfügt zurzeit nicht über einen unterstützten Mechanismus zum Importieren von Dateien in \*. MSU-Format.
+Beachten Sie, dass Sie über die WSUS-Konsole auf die Microsoft Update Katalog-Website zugreifen müssen, um sicherzustellen, dass die Updates in einem WSUS-kompatiblen Format importiert werden. Wenn Sie manuell auf die Microsoft Update Katalog-Website zugreifen, werden alle Updates, die Sie herunterladen, nicht in den WSUS-Server importiert, sondern als Einzelperson * heruntergeladen. MSU-Dateien. WSUS verfügt zurzeit nicht über einen unterstützten Mechanismus zum Importieren von Dateien in der \*. MSU-Format.
 
 Wenn Sie den-Server Bereinigungs-Assistenten ausführen, werden Updates, die aus dem Microsoft Update Katalog importiert wurden und als nicht genehmigt oder abgelehnt festgelegt wurden, möglicherweise vom WSUS-Server entfernt. Wenn Sie entfernt werden, können Sie aus dem Microsoft Update Katalog neu importiert werden.
 
@@ -64,7 +64,7 @@ WSUS-Administratoren können den Zugriff auf die Hotfixes beschränken, die Sie 
 
     -   Wählen Sie **Windows-Authentifizierung** aus, und klicken Sie im **Aktions** Bereich auf der rechten Seite auf **aktivieren** .
 
-2.  Erstellen Sie eine WSUS-Zielgruppe für die Computer, für die der Hotfix erforderlich ist, und fügen Sie Sie der Gruppe hinzu. Weitere Informationen zu Computern und Gruppen finden Sie unter [Verwalten von WSUS-Client Computern und WSUS-Computer Gruppen](managing-wsus-client-computers-and-wsus-computer-groups.md) in diesem Handbuch und im Abschnitt [3,3. Konfigurieren von WSUS-Computer Gruppen @ no__t-0 von Schritt 3: Konfigurieren von WSUS im WSUS-Bereitstellungs Handbuch.
+2.  Erstellen Sie eine WSUS-Zielgruppe für die Computer, für die der Hotfix erforderlich ist, und fügen Sie Sie der Gruppe hinzu. Weitere Informationen zu Computern und Gruppen finden Sie unter [Verwalten von WSUS-Client Computern und WSUS-Computer Gruppen](managing-wsus-client-computers-and-wsus-computer-groups.md) in diesem Handbuch und Abschnitt [3,3. Konfigurieren Sie WSUS-Computer Gruppen](../deploy/2-configure-wsus.md#23-configure-wsus-computer-groups) von Schritt 3: Konfigurieren von WSUS im WSUS-Bereitstellungs Handbuch.
 
 3.  Laden Sie die Dateien für den Hotfix herunter.
 

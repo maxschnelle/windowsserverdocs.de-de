@@ -16,12 +16,12 @@ ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71368936"
 ---
-# <a name="appendix-m-document-links-and-recommended-reading"></a>Anhang M: Dokument Verknüpfungen und empfohlene Lesevorgänge
+# <a name="appendix-m-document-links-and-recommended-reading"></a>Anhang M: Links zu Dokumenten und empfohlene Lektüre
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
   
-## <a name="appendix-m-document-links-and-recommended-reading"></a>Anhang M: Dokument Verknüpfungen und empfohlene Lesevorgänge  
+## <a name="appendix-m-document-links-and-recommended-reading"></a>Anhang M: Links zu Dokumenten und empfohlene Lektüre  
   
 ### <a name="document-links"></a>Dokument Verknüpfungen  
 Die folgende Tabelle enthält eine Liste mit Links zu externen Dokumenten und deren URLs, damit Leser von fest Kopien dieses Dokuments auf diese Informationen zugreifen können. Die Verknüpfungen werden in der Reihenfolge aufgelistet, in der Sie im Dokument angezeigt werden.  
@@ -40,7 +40,7 @@ Die folgende Tabelle enthält eine Liste mit Links zu externen Dokumenten und de
 |[Microsoft-Support Artikel 814777](https://support.microsoft.com/kb/814777)|[https://support.microsoft.com/kb/814777](https://support.microsoft.com/kb/814777)|  
 |[Webanwendungs Sicherheitsprojekt (OWASP) öffnen](https://www.owasp.org/index.php/Main_Page)|[https://www.owasp.org/index.php/Main_Page](https://www.owasp.org/index.php/Main_Page)|  
 |[Lebenszyklus der Microsoft-Sicherheitsentwicklung](https://www.microsoft.com/security/sdl/default.aspx)|[https://www.microsoft.com/security/sdl/default.aspx](https://www.microsoft.com/security/sdl/default.aspx)|  
-|[Abmildern von Pass-the-Hash-Angriffen (PTH) und anderen Verfahren zum Diebstahl von Anmelde Informationen](https://download.microsoft.com/download/7/7/A/77ABC5BD-8320-41AF-863C-6ECFB10CB4B9/Mitigating%20Pass-the-Hash%20(PtH)%20Attacks%20and%20Other%20Credential%20Theft%20Techniques_English.pdf)|[https://download.microsoft.com/download/7/7/A/77ABC5BD-8320-41AF-863C-6ECFB10CB4B9/Mitigating Pass-the-Hash-Angriffe (PTH) und sonstige Diebstahl von Anmelde Informationen Techniques_English. PDF](https://download.microsoft.com/download/7/7/A/77ABC5BD-8320-41AF-863C-6ECFB10CB4B9/Mitigating%20Pass-the-Hash%20(PtH)%20Attacks%20and%20Other%20Credential%20Theft%20Techniques_English.pdf)|  
+|[Abmildern von Pass-the-Hash-Angriffen (PTH) und anderen Verfahren zum Diebstahl von Anmelde Informationen](https://download.microsoft.com/download/7/7/A/77ABC5BD-8320-41AF-863C-6ECFB10CB4B9/Mitigating%20Pass-the-Hash%20(PtH)%20Attacks%20and%20Other%20Credential%20Theft%20Techniques_English.pdf)|[https://download.microsoft.com/download/7/7/A/77ABC5BD-8320-41AF-863C-6ECFB10CB4B9/Mitigating Pass-the-Hash-Angriffe (PTH) und andere Anmelde Informationen Techniques_English. PDF](https://download.microsoft.com/download/7/7/A/77ABC5BD-8320-41AF-863C-6ECFB10CB4B9/Mitigating%20Pass-the-Hash%20(PtH)%20Attacks%20and%20Other%20Credential%20Theft%20Techniques_English.pdf)|  
 |[Ermittelte Angreifer und gezielte Angriffe](https://www.microsoft.com/download/details.aspx?id=34793)|[https://www.microsoft.com/download/details.aspx?id=34793](https://www.microsoft.com/download/details.aspx?id=34793)|  
 |[Lösung für die Verwaltung des integrierten Administrator Konto Kennworts über GPO](https://code.msdn.microsoft.com/windowsdesktop/Solution-for-management-of-ae44e789)|[https://code.msdn.microsoft.com/windowsdesktop/Solution-for-management-of-ae44e789](https://code.msdn.microsoft.com/windowsdesktop/Solution-for-management-of-ae44e789)|  
 |[Microsoft-Support Artikel 817433](https://support.microsoft.com/?id=817433)|[https://support.microsoft.com/?id=817433](https://support.microsoft.com/?id=817433)|  
@@ -90,7 +90,7 @@ Die folgende Tabelle enthält eine Liste mit Links zu externen Dokumenten und de
 |[Retina CS-Verwaltung](http://www.wideeyesecurity.com/products.asp)|[http://www.wideeyesecurity.com/products.asp](http://www.wideeyesecurity.com/products.asp)|  
 |[Versesion](http://www.lumension.com/?rpLeadSourceId=5009&gclid=CKuai_e13rMCFal7QgodMFkAyA)|[http://www.lumension.com/?rpLeadSourceId=5009&gclid=CKuai_e13rMCFal7QgodMFkAyA](http://www.lumension.com/?rpLeadSourceId=5009&gclid=CKuai_e13rMCFal7QgodMFkAyA)|  
 |[Verwaltung von Lumension-Sicherheitsrisiken](http://www.lumension.com/Solutions/Vulnerability-Management.aspx)|[http://www.lumension.com/Solutions/Vulnerability-Management.aspx](http://www.lumension.com/Solutions/Vulnerability-Management.aspx)|  
-|[Handbuch zu Bedrohungen und Gegenmaßnahmen: Benutzerrechte @ no__t-0|[https://technet.microsoft.com/library/hh125917(v=ws.10).aspx](https://technet.microsoft.com/library/hh125917(v=ws.10).aspx)|  
+|[Leitfaden zu Bedrohungen und Gegenmaßnahmen: Benutzerrechte](https://technet.microsoft.com/library/hh125917(v=ws.10).aspx)|[https://technet.microsoft.com/library/hh125917(v=ws.10).aspx](https://technet.microsoft.com/library/hh125917(v=ws.10).aspx)|  
 |[Entschärfung von Bedrohungen und Sicherheitsrisiken](https://technet.microsoft.com/library/cc755181(v=ws.10).aspx)|[https://technet.microsoft.com/library/cc755181(v=ws.10).aspx](https://technet.microsoft.com/library/cc755181(v=ws.10).aspx)|  
 |[Benutzerrechte](https://technet.microsoft.com/library/dd349804(v=WS.10).aspx)|[https://technet.microsoft.com/library/dd349804(v=WS.10).aspx](https://technet.microsoft.com/library/dd349804(v=WS.10).aspx)|  
 |[Access Credential Manager als vertrauenswürdiger Aufrufer](https://technet.microsoft.com/library/db585464-a2be-41b1-b781-e9845182f4b6(v=ws.10)#BKMK_2)|[https://technet.microsoft.com/library/db585464-a2be-41b1-b781-e9845182f4b6(v=ws.10)#BKMK_2](https://technet.microsoft.com/library/db585464-a2be-41b1-b781-e9845182f4b6(v=ws.10)#BKMK_2)|  
@@ -166,7 +166,7 @@ Die folgende Tabelle enthält eine Liste mit Links zu externen Dokumenten und de
 |[Bewährte Methoden für die Delegierung von Active Directory Administration](https://www.microsoft.com/download/details.aspx?id=21678) für Windows Server 2003|[https://www.microsoft.com/en-us/download/details.aspx?id=21678](https://www.microsoft.com/download/details.aspx?id=21678)|  
 |[Microsoft-Support Lebenszyklus](https://support.microsoft.com/lifecycle/)|[https://support.microsoft.com/common/international.aspx?RDPATH=%2flifecycle%2fdefault.aspx](https://support.microsoft.com/common/international.aspx?RDPATH=%2flifecycle%2fdefault.aspx)|  
 |[Technische Spezifikation für Active Directory](https://msdn.microsoft.com/library/cc223122(v=prot.20).aspx)|[https://msdn.microsoft.com/library/cc223122(v=prot.20).aspx](https://msdn.microsoft.com/library/cc223122(v=prot.20).aspx)|  
-|[fehlermeldung wenn nicht Administrator Benutzer, die die Steuerung delegiert haben, versuchen, Computer zu einem Windows Server 2003-oder Windows Server 2008-basierten Domänen Controller hinzuzufügen: "Der Zugriff wurde verweigert" ](https://support.microsoft.com/kb/932455)|[https://support.microsoft.com/kb/932455](https://support.microsoft.com/kb/932455)| 
+|[Fehlermeldung, wenn Benutzer von nicht Administratoren, die die Steuerung delegiert haben, versuchen, Computer zu einem Windows Server 2003-basierten oder Windows Server 2008-basierten Domänen Controller hinzuzufügen: "Zugriff wird verweigert."](https://support.microsoft.com/kb/932455)|[https://support.microsoft.com/kb/932455](https://support.microsoft.com/kb/932455)| 
 |[Schritt-für-Schritt-Anleitung zum Sichern von Authentifizierungsmechanismen für AD DS in Windows Server 2008 R2](https://technet.microsoft.com/library/dd378897(WS.10).aspx)|[https://technet.microsoft.com/library/dd378897(WS.10).aspx](https://technet.microsoft.com/library/dd378897(WS.10).aspx)|  
 |[Strikte KDC-Überprüfung](https://www.microsoft.com/download/details.aspx?id=6382)|[https://www.microsoft.com/download/details.aspx?id=6382](https://www.microsoft.com/download/details.aspx?id=6382)|  
   
@@ -189,20 +189,20 @@ In der folgenden Tabelle finden Sie eine Liste der empfohlenen Informationen, di
 |[Bewährte Methoden für die Delegierung von Active Directory Administration](https://www.microsoft.com/download/details.aspx?id=21678) für Windows Server 2003|  
 |[Microsoft-Support Lebenszyklus](https://support.microsoft.com/lifecycle/)|  
 |[Active Directory technische Spezifikation](https://msdn.microsoft.com/library/cc223122(v=prot.20).aspx) -dsheuristik-Informationen|  
-|[fehlermeldung wenn nicht Administrator Benutzer, die die Steuerung delegiert haben, versuchen, Computer zu einem Windows Server 2003-oder Windows Server 2008-basierten Domänen Controller hinzuzufügen: "Der Zugriff wurde verweigert" ](https://support.microsoft.com/kb/932455)|  
+|[Fehlermeldung, wenn Benutzer von nicht Administratoren, die die Steuerung delegiert haben, versuchen, Computer zu einem Windows Server 2003-basierten oder Windows Server 2008-basierten Domänen Controller hinzuzufügen: "Zugriff wird verweigert."](https://support.microsoft.com/kb/932455)|  
 |[Leitfaden für bewährte Methoden zum Sichern von Active Directory Installationen. doc](https://go.microsoft.com/fwlink/?LinkId=140862)|  
 |[Hyper-V-Sicherheitshandbuch](https://www.microsoft.com/download/details.aspx?id=16650)|  
 |Die [Authentifizierungsmechanismus-Sicherung für AD DS in der Schritt-für-Schritt-Anleitung für Windows Server 2008 R2](https://technet.microsoft.com/library/dd378897(WS.10).aspx).|  
 |[Strikte KDC-Überprüfung](https://www.microsoft.com/download/details.aspx?id=6382)|  
   
 #### <a name="copyright-information"></a>Copyright-Informationen  
-Die Informationen in diesem Dokument repräsentieren den aktuellen Standpunkt der Microsoft Corporation zu den erörterten Problemen zum Veröffentlichungstermin. Da Microsoft auf das Ändern von Marktlagen reagieren muss, ist das Dokument keinesfalls als Verpflichtung von Microsoft zu interpretieren, und Microsoft kann die Genauigkeit der Informationen nicht über den Zeitpunkt der Veröffentlichung hinaus garantieren.  
+Die in diesem Dokument enthaltenen Informationen zu den erörterten Problemen entsprechend dem Standpunkt der Microsoft Corporation zum Zeitpunkt der Veröffentlichung. Da Microsoft auf wechselnde Marktbedingungen reagieren muss, sollten diese Informationen nicht als verbindlich interpretiert werden, und Microsoft kann nicht für die Genauigkeit von Informationen garantieren, die nach dem Veröffentlichungsdatum vorlegt werden.  
   
 Dieses Whitepaper dient nur zu Informationszwecken. Microsoft übernimmt in diesem Dokument keine Gewährleistung, weder ausdrücklich noch konkludent.  
   
-Die Benutzer/innen sind verpflichtet, sich an alle anwendbaren Urheberrechtsgesetze zu halten. Ohne Einschränkung der Rechte unter Copyright kann kein Teil dieses Dokuments reproduziert, in einem Abrufsystem gespeichert oder in ein Abrufsystem eingefügt oder in irgendeiner Form oder auf irgendeine Weise (elektronisch, mechanisch, durch Kopieren, aufzeichnen oder anderweitig) oder für beliebige Zwecke übertragen werden. ohne die ausdrückliche schriftliche Berechtigung der Microsoft Corporation.  
+Es liegt in der Verantwortung des Nutzers, alle anwendbaren Urheberrechtsgesetze einzuhalten. Ohne Einschränkung der Rechte unter Copyright kann kein Teil dieses Dokuments reproduziert, in einem Abrufsystem gespeichert oder in ein Abrufsystem eingefügt oder in irgendeiner Form oder auf irgendeine Weise (elektronisch, mechanisch, durch Kopieren, aufzeichnen oder anderweitig) oder für beliebige Zwecke übertragen werden. ohne die ausdrückliche schriftliche Berechtigung der Microsoft Corporation.  
   
-Microsoft Corporation kann Inhaber von Patenten oder Patentanträgen, Marken, Urheberrechten oder anderem geistigen Eigentum sein, die den Inhalt dieses Dokuments betreffen. Die Bereitstellung dieses Dokuments gewährt keinerlei Lizenzrechte an diesen Patenten, Marken, Urheberrechten oder anderem geistigen Eigentum, es sei denn, dies wurde ausdrücklich durch einen schriftlichen Lizenzvertrag mit der Microsoft Corporation vereinbart.  
+Microsoft verfügt möglicherweise über Patente, Patentanmeldungen, Marken, Urheberrechte oder andere geistige Eigentumsrechte, die sich auf den Gegenstand dieses Dokuments beziehen. Das Bereitstellen dieses Dokuments gibt Ihnen jedoch keinen Anspruch auf diese Patente, Marken, Urheberrechte oder auf sonstiges geistiges Eigentum, es sei denn, dies wird ausdrücklich in den schriftlichen Lizenzverträgen von Microsoft eingeräumt.  
   
 Microsoft, Active Directory, BitLocker, Hyper-V, Internet Explorer, Windows Vista, Windows und Windows Server sind entweder eingetragene Marken oder Marken der Microsoft Corporation in der USA und/oder anderen Ländern. Alle anderen Marken sind Eigentum der jeweiligen Inhaber.  
   

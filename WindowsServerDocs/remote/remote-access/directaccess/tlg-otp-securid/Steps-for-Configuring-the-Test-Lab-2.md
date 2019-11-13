@@ -21,27 +21,27 @@ ms.locfileid: "71404728"
 ---
 # <a name="steps-for-configuring-the-test-lab"></a>Schritte zum Konfigurieren der Testumgebung
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In den folgenden Schritten wird beschrieben, wie Sie die Remote Zugriffs Infrastruktur konfigurieren, den RAS-Server und-Client konfigurieren und die DirectAccess-Konnektivität aus den Subnetzen homenet und Internet testen.  
   
 In dieser Test Umgebungs Anleitung erstellen Sie einen Remote Zugriff mit OTP-Umgebung, indem Sie die folgenden Schritte ausführen:  
   
--   [SCHRITT 1: Vervollständigen Sie die DirectAccess-Konfiguration @ no__t-0. Führen Sie alle Schritte in der Test Umgebungs Anleitung für [aus: Veranschaulichen der Einrichtung eines einzelnen Servers für DirectAccess mit gemischtem IPv4 und IPv6 @ no__t-0.  
+-   [Schritt 1: vervollständigen Sie die DirectAccess-Konfiguration](assetId:///4dbf877f-02fb-439b-907a-f5b3f1d8afa6). Führen Sie alle Schritte in der [Test Umgebungs Anleitung zum Veranschaulichen der Einrichtung von DirectAccess Single Server mit gemischtem IPv4 und IPv6](https://go.microsoft.com/fwlink/p/?LinkId=237004)aus.  
   
--   [SCHRITT 2: Konfigurieren Sie App1 @ no__t-0. Konfigurieren Sie App1 mit OTP-Zertifikat Vorlagen für die Verwendung durch Edge1.  
+-   [Schritt 2: Konfigurieren von App1](assetId:///c1bb590f-91d4-4ed5-bceb-b0e36eabd4ff). Konfigurieren Sie App1 mit OTP-Zertifikat Vorlagen für die Verwendung durch Edge1.  
   
--   [SCHRITT 3: Konfigurieren Sie DC1 @ no__t-0. Überprüfen Sie den in DC1 definierten Benutzer Prinzipal Namen.  
+-   [Schritt 3: Konfigurieren von DC1](assetId:///904a6edc-a771-45ed-9630-a34a680bb522). Überprüfen Sie den in DC1 definierten Benutzer Prinzipal Namen.  
   
--   [SCHRITT 7: Installieren und konfigurieren Sie RSA @ no__t-0. Installieren und konfigurieren Sie RSA, einen RADIUS-und einen OTP-Server, und konfigurieren Sie Edge1 für OTP.  
+-   [Schritt 7: Installieren und Konfigurieren von RSA](assetId:///baa4c28c-add7-42e2-8afd-ccc7a559406a) Installieren und konfigurieren Sie RSA, einen RADIUS-und einen OTP-Server, und konfigurieren Sie Edge1 für OTP.  
   
--   [SCHRITT 11: Überprüfen Sie die OTP-Integrität auf Edge1 @ no__t-0. Stellen Sie sicher, dass der Status von OTP auf dem RAS-Server fehlerfrei ist.  
+-   [Schritt 11: Überprüfen der OTP-Integrität auf Edge1](assetId:///3b397a4a-8478-47f2-a932-9e8e048c14ba) Stellen Sie sicher, dass der Status von OTP auf dem RAS-Server fehlerfrei ist.  
   
--   [SCHRITT 8: Testen Sie die DirectAccess-Konnektivität aus dem homenet-Subnetz @ no__t-0. Testen Sie die Funktion von DirectAccess OTP hinter einem NAT-Gerät.  
+-   [Schritt 8: Testen der DirectAccess-Konnektivität aus dem homenet-Subnetz](assetId:///ba1652a6-0692-4add-91ca-34a84956ba14) Testen Sie die Funktion von DirectAccess OTP hinter einem NAT-Gerät.  
   
--   [SCHRITT 10: Testen Sie die DirectAccess-Konnektivität über das Internet @ no__t-0. Testen Sie die DirectAccess-Client Konnektivität über das Internet.  
+-   [Schritt 10: Testen der DirectAccess-Konnektivität über das Internet](assetId:///321149eb-5f23-4a0b-b8fb-1244540126e9). Testen Sie die DirectAccess-Client Konnektivität über das Internet.  
   
--   [SCHRITT 12: Momentaufnahme der Konfiguration @ no__t-0. Nachdem Sie die Testumgebung abgeschlossen haben, erstellen Sie eine Momentaufnahme der funktionierenden DirectAccess-Konfiguration mit OTP-Konfiguration, damit Sie später zu dieser zurückkehren können, um weitere Szenarios zu testen.  
+-   [Schritt 12: Erstellen einer Momentaufnahme der Konfiguration](assetId:///8a51ed3c-9c32-402f-85d1-617ce46845b4) Nachdem Sie die Testumgebung abgeschlossen haben, erstellen Sie eine Momentaufnahme der funktionierenden DirectAccess-Konfiguration mit OTP-Konfiguration, damit Sie später zu dieser zurückkehren können, um weitere Szenarios zu testen.  
   
 
 

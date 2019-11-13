@@ -22,11 +22,11 @@ ms.locfileid: "71383106"
 ---
 # <a name="manage-the-local-server-and-the-server-manager-console"></a>Verwalten des lokalen Servers und der Server-Manager-Konsole
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In Windows Server können Sie mit Server-Manager sowohl den lokalen Server (wenn Sie Server-Manager auf Windows Server ausführen, nicht auf einem Windows-basierten Client Betriebssystem) als auch Remote Server verwalten, auf denen Windows Server 2008 und neuere Versionen von Windows ausgeführt werden. Server Betriebssystem.
 
-Auf der Seite **lokaler Server** in Server-Manager werden Server Eigenschaften, Ereignisse, Dienst-und Leistungsdaten und Best Practices Analyzer Ergebnisse (BPA) für den lokalen Server angezeigt. Die Kacheln "Ereignis", "Dienst", "BPA" und "Leistung" funktionieren wie auf den Rollen- und Servergruppenseiten. Weitere Informationen zum Konfigurieren der Daten, die auf diesen Kacheln angezeigt werden, finden Sie unter [Anzeigen und Konfigurieren von Leistungs-, Ereignis- und Dienstdaten](view-and-configure-performance-event-and-service-data.md) und unter [Ausführen von Best Practices Analyzer-Überprüfungen und Verwalten der Überprüfungsergebnisse](run-best-practices-analyzer-scans-and-manage-scan-results.md).
+Auf der Seite **lokaler Server** in Server-Manager werden Server Eigenschaften, Ereignisse, Dienst-und Leistungsdaten und Best Practices Analyzer Ergebnisse (BPA) für den lokalen Server angezeigt. Die Kacheln "Ereignis", "Dienst", "BPA" und "Leistung" funktionieren wie auf den Rollen- und Servergruppenseiten. Weitere Informationen zum Konfigurieren der Daten, die auf diesen Kacheln angezeigt werden, finden Sie unter [View und Configure Performance, Event, und Service Data](view-and-configure-performance-event-and-service-data.md) und [Run Best Practices Analyzer Scans und Manage Scan Results](run-best-practices-analyzer-scans-and-manage-scan-results.md).
 
 Menübefehle und Einstellungen in den Überschriften leisten der Server-Manager-Konsole werden global auf alle Server im Server Pool angewendet, und Sie können mit Server-Manager den gesamten Server Pool verwalten.
 
@@ -43,7 +43,7 @@ Dieses Thema enthält die folgenden Abschnitte:
 -   [Verwalten von Rollen auf Rollen-Startseiten](#BKMK_roles)
 
 ## <a name="BKMK_shutdown"></a>Herunterfahren des lokalen Servers
-Im Menü **Aufgaben** auf der Kachel **Eigenschaften** des lokalen Servers können Sie eine Windows PowerShell-Sitzung auf dem lokalen Server starten, das MMC-Snap-in " **Computer Verwaltung** " öffnen oder MMC-Snap-Ins für Rollen oder Features öffnen, die auf dem lokalen Computer installiert sind. Servers. Zudem kann der lokale Server mithilfe des Befehls **Lokalen Server herunterfahren** im Menü **Aufgaben** heruntergefahren werden. Der Befehl **Lokalen Server herunterfahren** ist für den lokalen Server auch auf der Kachel **Server** auf der Seite **Alle Server** oder auf einer Rollen- oder Gruppenseite verfügbar, auf der der lokale Server dargestellt wird.
+Im Menü **Aufgaben** auf der Kachel **Eigenschaften** des lokalen Servers können Sie eine Windows PowerShell-Sitzung auf dem lokalen Server starten, das MMC-Snap-in " **Computer Verwaltung** " öffnen oder MMC-Snap-Ins für Rollen oder Features öffnen, die auf dem lokalen Server installiert sind. Zudem kann der lokale Server mithilfe des Befehls **Lokalen Server herunterfahren** im Menü **Aufgaben** heruntergefahren werden. Der Befehl **Lokalen Server herunterfahren** ist für den lokalen Server auch auf der Kachel **Server** auf der Seite **Alle Server** oder auf einer Rollen- oder Gruppenseite verfügbar, auf der der lokale Server dargestellt wird.
 
 Beim Herunterfahren des lokalen Servers mit dieser Methode wird im Gegensatz zum Herunterfahren von Windows Server 2016 über den **Start** Bildschirm das Dialogfeld **Windows herunter** fahren geöffnet, in dem Sie die Gründe für das Herunterfahren im Bereich **Ereignis** Protokollierung Herunterfahren angeben können.
 
@@ -56,11 +56,11 @@ Auf der Kachel **Eigenschaften** auf der Seite **Lokaler Server** können Sie di
 > [!NOTE]
 > Die auf der Kachel **Eigenschaften** des lokalen Servers angezeigten Eigenschaften können normalerweise nur auf dem lokalen Server geändert werden. Die Eigenschaften des lokalen Servers können nicht von einem Remote Computer mithilfe von Server-Manager geändert werden, da auf der Kachel **Eigenschaften** nur Informationen zum lokalen Computer, nicht für Remote Computer, angezeigt werden können.
 > 
-> Da viele Eigenschaften, die auf der Kachel **Eigenschaften** angezeigt werden, über Tools gesteuert werden, die nicht Teil Server-Manager sind (z. b. die Systemsteuerung), werden Änderungen an den **Eigenschaften** Einstellungen nicht immer auf der Kachel **Eigenschaften** angezeigt. gleich. Die Daten auf der Kachel **Eigenschaften** werden standardmäßig alle zwei Minuten aktualisiert. Um die Daten der Kachel **Eigenschaften** sofort zu aktualisieren, klicken Sie in der Server-Manager Adressleiste auf **Aktualisieren** .
+> Da viele Eigenschaften, die auf der Kachel **Eigenschaften** angezeigt werden, über Tools gesteuert werden, die nicht Teil Server-Manager sind (z. b. die Systemsteuerung), werden Änderungen an den **Eigenschaften** Einstellungen nicht immer sofort in der Kachel **Eigenschaften** angezeigt. Die Daten auf der Kachel **Eigenschaften** werden standardmäßig alle zwei Minuten aktualisiert. Um die Daten der Kachel **Eigenschaften** sofort zu aktualisieren, klicken Sie in der Server-Manager Adressleiste auf **Aktualisieren** .
 
 |Einstellung|Beschreibung|
 |------|--------|
-|Computer Name|Zeigt den anzeigen amen des Computers an, und öffnet das Dialogfeld **System Eigenschaften** , in dem Sie den Namen des Servers, die Domänen Mitgliedschaft und andere System Einstellungen wie z. b. Benutzerprofile ändern können.|
+|Computername|Zeigt den anzeigen amen des Computers an, und öffnet das Dialogfeld **System Eigenschaften** , in dem Sie den Namen des Servers, die Domänen Mitgliedschaft und andere System Einstellungen wie z. b. Benutzerprofile ändern können.|
 |Domäne (oder Arbeitsgruppe, wenn der Server keiner Domäne angehört)|Zeigt die Domäne oder Arbeitsgruppe an, der der Server angehört. Öffnet das Dialogfeld **System Eigenschaften** , in dem Sie den Namen des Servers, die Domänen Mitgliedschaft und andere System Einstellungen wie z. b. Benutzerprofile ändern können.|
 |Windows-Firewall|Zeigt den Status der Windows-Firewall für den lokalen Server an. Öffnet **Systemsteuerung\System und Sicherheit\Windows-Firewall**. Weitere Informationen zum Konfigurieren der Windows-Firewall finden Sie unter [Windows-Firewall mit erweiterter Sicherheit und IPsec](https://go.microsoft.com/fwlink/?LinkId=253465).|
 |Remoteverwaltung|Zeigt Server-Manager und den Windows PowerShell-Remote Verwaltungsstatus an. Öffnet das Dialogfeld **Remote Verwaltung konfigurieren** . Weitere Informationen zur Remote Verwaltung finden Sie unter [Konfigurieren der Remote Verwaltung in Server-Manager](configure-remote-management-in-server-manager.md).|
@@ -74,7 +74,7 @@ Auf der Kachel **Eigenschaften** auf der Seite **Lokaler Server** können Sie di
 |Zuletzt auf Updates geprüft|Zeigt den Tag und die Uhrzeit der letzten Überprüfung des Servers auf verfügbare Windows-Updates an. Öffnet **Systemsteuerung\System und Sicherheit\Windows Update**.|
 |Windows-Fehlerberichterstattung|Zeigt den den Anmeldestatus der Windows-Fehlerberichterstattung an. Öffnet das Dialogfeld **Windows-Fehlerberichterstattungs-Konfiguration** . Weitere Informationen zur Windows-Fehlerberichterstattung, zu den Vorteilen, Datenschutzbestimmungen und Anmeldeeinstellungen finden Sie unter [Windows-Fehlerberichterstattung](https://go.microsoft.com/fwlink/?LinkID=245991).|
 |Programm zur Verbesserung der Benutzerfreundlichkeit|Zeigt den Anmeldestatus des Programms zur Verbesserung der Benutzerfreundlichkeit von Windows an. Öffnet das Dialogfeld **Konfiguration des Programms zur Verbesserung der Benutzerfreundlichkeit** . Weitere Informationen zum Programm zur Verbesserung der Benutzerfreundlichkeit von Windows, zu den Vorteilen und Anmeldeeinstellungen finden Sie unter [Programm zur Verbesserung der Benutzerfreundlichkeit von Windows](https://go.microsoft.com/fwlink/?LinkID=245992).|
-|Verstärkte Sicherheitskonfiguration für Internet Explorer (IE)|Zeigt, ob die Verstärkte Sicherheitskonfiguration für IE (auch als IE Hardening oder IE ESC bezeichnet) aktiviert oder deaktiviert ist. Öffnet das Dialogfeld **Verstärkte Sicherheitskonfiguration für Internet Explorer**. Die verstärkte Sicherheitskonfiguration für IE ist eine Sicherheitsmaßnahme für Server, mit der verhindert wird, dass Webseiten in Internet Explorer geöffnet werden. Weitere Informationen zur verstärkten Sicherheitskonfiguration für IE, zu den Vorteilen und Einstellungen finden Sie unter [internet Explorer: Erweiterte Sicherheitskonfiguration @ no__t-0.|
+|Verstärkte Sicherheitskonfiguration für Internet Explorer (IE)|Zeigt, ob die Verstärkte Sicherheitskonfiguration für IE (auch als IE Hardening oder IE ESC bezeichnet) aktiviert oder deaktiviert ist. Öffnet das Dialogfeld **Verstärkte Sicherheitskonfiguration für Internet Explorer**. Die verstärkte Sicherheitskonfiguration für IE ist eine Sicherheitsmaßnahme für Server, mit der verhindert wird, dass Webseiten in Internet Explorer geöffnet werden. Weitere Informationen zur verstärkten Sicherheitskonfiguration für Internet Explorer, zu den Vorteilen und Einstellungen finden Sie unter [Verstärkte Sicherheitskonfiguration  für Internet Explorer](https://go.microsoft.com/fwlink/?LinkId=253461).|
 |Zeitzone|Zeigt die Zeitzone des lokalen Servers an. Öffnet das Dialogfeld **Datum und Uhrzeit** .|
 |Produkt-ID|Zeigt den Status der Windows-Aktivierung und die Produkt-ID (sofern Windows aktiviert wurde) des Betriebssystems Windows Server 2016 an. Hierbei handelt es sich nicht um den Windows-Product Key. Öffnet das Dialogfeld **Windows-Aktivierung** .|
 |Prozessoren|In diesem schreibgeschützten Feld werden Hersteller, Modellname und Geschwindigkeitsinformationen zu den Prozessoren des lokalen Servers angezeigt.|
@@ -104,7 +104,7 @@ Wenn Server, die sich in einem Cluster befinden, Server-Manager hinzugefügt wer
 Daten, die auf den Startseiten der Rolle in Server-Manager für Remotedesktopdienste, die IP-Adressverwaltung und die Datei-und Speicherdienste angezeigt werden, werden nicht automatisch aktualisiert. Aktualisieren Sie die auf diesen Seiten angezeigten Daten manuell, indem Sie **F5** drücken oder in der Server-Manager-Konsolen Überschrift auf **Aktualisieren** klicken, während Sie sich auf diesen Seiten befinden.
 
 ### <a name="add-or-remove-roles-or-features"></a>Rollen oder Features hinzufügen oder entfernen
-Die Befehle, mit denen der Assistent zum Hinzufügen von Rollen und Features und der Assistent zum Entfernen von Rollen und Features geöffnet werden, und das Hinzufügen oder Entfernen von Rollen, Rollen Diensten und Features zu Servern in Ihrem Server Pool finden Sie im Menü **Verwalten** der Server-Manager-Konsole und in den **Aufgaben** Menü der Kachel **Rollen und Features** auf Rollen-oder Gruppen Seiten. Ausführliche Informationen zum Hinzufügen oder Entfernen von Rollen oder Features finden Sie unter [installieren oder Deinstallieren von Rollen, Rollendienste oder Features](install-or-uninstall-roles-role-services-or-features.md).
+Die Befehle, mit denen der Assistent zum Hinzufügen von Rollen und Features und der Assistent zum Entfernen von Rollen und Features geöffnet werden, und das Hinzufügen oder Entfernen von Rollen, Rollen Diensten und Features zu Servern in Ihrem Server Pool finden Sie im Menü **Verwalten** der Server-Manager-Konsole und im Menü **Aufgaben** der Kachel **Rollen und Features** auf Rollen-oder Gruppen Seiten. Weitere Informationen zum Hinzufügen oder Entfernen von Rollen oder Features finden Sie unter [Install or Uninstall Roles, Role Services, or Features](install-or-uninstall-roles-role-services-or-features.md).
 
 In Server-Manager werden Rollen-und Featuredaten in der Basis Sprache des Systems, auch als "System Default GUI Language" bezeichnet, oder der während der Installation des Betriebssystems ausgewählten Sprache angezeigt.
 
@@ -118,7 +118,7 @@ Mit dem Kontrollkästchen **Server-Manager nicht automatisch bei der Anmeldung s
 Wenn Sie die Ansicht der Server-Manager Konsole vergrößern oder verkleinern möchten, können Sie entweder die **Zoom** -Befehle im Menü **Ansicht** verwenden oder **Strg + Plus (+)** drücken, um zu vergrößern und **STRG + minus (-)** zu verkleinern.
 
 ## <a name="BKMK_tools"></a>Anpassen von Tools, die im Menü "Extras" angezeigt werden
-Das **Menü Extras** in Server-Manager enthält weiche Links zu Verknüpfungen im Ordner **Verwaltung** unter **Systemsteuerung/System und Sicherheit**. Der Ordner **Verwaltung** enthält eine Liste mit Verknüpfungen oder LNK-Dateien zu verfügbaren Verwaltungs Tools, z. b. MMC-Snap-Ins. Server-Manager füllt das Menü Extras mit Links zu diesen Verknüpfungen auf und **kopiert die Ordner** Struktur des Ordners **Verwaltung** in **das Menü Extras** . Die Tools im Ordner "Verwaltung" werden standardmäßig in einer flachen Liste angeordnet und nach Typ und nach Name sortiert. Im**Menü Server-Manager** Extras werden Elemente nur nach Name, nicht nach Typ sortiert.
+Das **Menü Extras** in Server-Manager enthält weiche Links zu Verknüpfungen im Ordner **Verwaltung** unter **Systemsteuerung/System und Sicherheit**. Der Ordner **Verwaltung** enthält eine Liste mit Verknüpfungen oder LNK-Dateien zu verfügbaren Verwaltungs Tools wie MMC-Snap-Ins. Server-Manager füllt das **Menü Extras** mit Links zu diesen Verknüpfungen auf und **kopiert die Ordner** Struktur des Ordners **Verwaltung** in das Menü Extras. Die Tools im Ordner "Verwaltung" werden standardmäßig in einer flachen Liste angeordnet und nach Typ und nach Name sortiert. Im**Menü Server-Manager** Extras werden Elemente nur nach Name, nicht nach Typ sortiert.
 
 Wenn Sie das Menü **Extras** anpassen möchten, kopieren Sie die gewünschten Tool- oder Skriptverknüpfungen in den Ordner **Verwaltung** . Sie können Ihre Verknüpfungen auch in Ordnern organisieren, die im Menü **Extras** hierarchische Menüs bilden. Wenn Sie den Zugriff auf die benutzerdefinierten Tools **im Menü Extras** einschränken möchten, können Sie außerdem Benutzer Zugriffsrechte für Ihre benutzerdefinierten Tool Ordner in "Verwaltung" oder direkt auf dem ursprünglichen Tool bzw. in den Skriptdateien festlegen.
 
@@ -148,7 +148,7 @@ Im folgenden Verfahren wird beschrieben, wie ein Beispiel Ordner mit dem Namen *
     > [!NOTE]
     > Wenn Sie den Zugriff auf einen vollständigen Ordner beschränken, den Sie in "Verwaltung" kopiert haben, können Benutzer mit eingeschränkten Berechtigungen weder den Ordner noch dessen Inhalt im Menü Server-Manager**Tools** anzeigen.
     > 
-    > Bearbeiten Sie die Berechtigungen für den Ordner im Ordner **Verwaltung** . Da ausgeblendete Dateien und Ordner in "Verwaltung" immer im Menü "Server-Manager**Tools** " angezeigt werden, verwenden Sie die Einstellung **ausgeblendet** im Dialogfeld **Eigenschaften** einer Datei oder eines Ordners nicht, um den Benutzer Zugriff auf Ihr benutzerdefiniertes Tool einzuschränken. ELN.
+    > Bearbeiten Sie die Berechtigungen für den Ordner im Ordner **Verwaltung** . Da ausgeblendete Dateien und Ordner in "Verwaltung" immer im Menü "Server-Manager**Tools** " angezeigt werden, verwenden Sie die Einstellung **ausgeblendet** im Dialogfeld **Eigenschaften** einer Datei oder eines Ordners nicht, um den Benutzer Zugriff auf Ihre benutzerdefinierten Tool Verknüpfungen einzuschränken.
     > 
     > Mit der Berechtigung **Verweigern** wird die Berechtigung **Zulassen** immer überschrieben.
 
@@ -175,13 +175,14 @@ In Windows Server 2016 verfügen die folgenden Rollen und Features über Verwalt
 
     Weitere Informationen zum Bereitstellen und Verwalten von IPAM finden Sie unter [IP Address Management (IPAM)](https://go.microsoft.com/fwlink/p/?LinkId=241533).
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 [Server-Manager](server-manager.md)
-[Server zu Server-Manager](add-servers-to-server-manager.md)
- hinzu[fügen und Verwalten von Server Gruppen](create-and-manage-server-groups.md)
+[Hinzufügen von Servern zu Server-Manager](add-servers-to-server-manager.md)
+[Erstellen und Verwalten von Server Gruppen](create-and-manage-server-groups.md)
 [anzeigen und Konfigurieren von Leistungs-, Ereignis-und Dienst Daten](view-and-configure-performance-event-and-service-data.md)
 [Datei-und Speicherdienste](https://go.microsoft.com/fwlink/p/?LinkId=241530)
-[ Remotedesktopdienste (rdS)](https://go.microsoft.com/fwlink/p/?LinkId=241532)1[IP Address Management (IPAM)](https://go.microsoft.com/fwlink/p/?LinkId=241533)
+[Remotedesktopdienste (rdS)](https://go.microsoft.com/fwlink/p/?LinkId=241532)
+[IP-Adressverwaltung (IPAM)](https://go.microsoft.com/fwlink/p/?LinkId=241533)
 
 
 

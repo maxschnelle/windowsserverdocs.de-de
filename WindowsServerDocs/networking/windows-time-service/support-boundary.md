@@ -62,7 +62,7 @@ So erreichen Sie eine Genauigkeit von 1 s für einen bestimmten Zielcomputer im 
 
 ### <a name="target-accuracy-50-milliseconds"></a>Zielgenauigkeit: 50 Millisekunden
 
-Alle Anforderungen, die im Abschnitt **target-Genauigkeit beschrieben werden: 1 Sekunde @ no__t-0 wird angewendet, es sei denn, es werden strengere Steuerelemente in diesem Abschnitt beschrieben.
+Alle Anforderungen, die im Abschnitt **Zielgenauigkeit: 1 Sekunde** beschrieben werden, gelten nur, wenn in diesem Abschnitt strengere Steuerelemente beschrieben werden.
 
 Die zusätzlichen Anforderungen zum Erreichen der Genauigkeit von 50 ms für ein bestimmtes Zielsystem lauten:
 
@@ -81,7 +81,7 @@ Die zusätzlichen Anforderungen zum Erreichen der Genauigkeit von 50 ms für ein
 
 ### <a name="target-accuracy-1-millisecond"></a>Zielgenauigkeit: 1 Millisekunde
 
-Alle Anforderungen, die in den Abschnitten **target-Genauigkeit beschrieben werden: 1 Sekunde @ no__t-0 und **target-Genauigkeit: 50 Millisekunden @ no__t-0 anwenden, außer wenn strengere Steuerelemente in diesem Abschnitt beschrieben werden.
+Alle in den Abschnitten beschriebenen Anforderungen **: 1 Sekunde** und **Zielgenauigkeit: 50 Millisekunden** , es sei denn, es werden strengere Steuerelemente in diesem Abschnitt beschrieben.
 
 Die zusätzlichen Anforderungen zum Erreichen von 1 MS Genauigkeit für ein bestimmtes Zielsystem lauten:
 

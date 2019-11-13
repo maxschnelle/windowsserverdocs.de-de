@@ -21,7 +21,7 @@ ms.locfileid: "71404535"
 ---
 # <a name="configure-a-multi-forest-deployment"></a>Configure a Multi-Forest Deployment
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema wird beschrieben, wie Sie eine Remotezugriffsbereitstellung mit mehreren Gesamtstrukturen in verschiedenen möglichen Szenarien konfigurieren. In allen Szenarien wird davon ausgegangen, dass DirectAccess gegenwärtig in einer einzigen Gesamtstruktur mit dem Namen %%amp;quot;Forest1%%amp;quot; bereitgestellt ist und Sie DirectAccess für eine neue Gesamtstruktur mit dem Namen %%amp;quot;Forest2%%amp;quot; konfigurieren.  
   
@@ -73,7 +73,7 @@ Folgende Begriffe sind beim Konfigurieren von OTP (One-Time Password = Einmalken
   
 -   Konto Gesamtstruktur-alle anderen Gesamtstrukturen in der Topologie.  
   
-Für dieses Verfahren ist das PowerShell-Skript %%amp;quot;PKISync.ps1%%amp;quot; erforderlich. Weitere Informationen finden Sie unter [ad CS: Pkisync. ps1-Skript für Gesamtstruktur übergreifende Zertifikat Registrierung @ no__t-0.  
+Für dieses Verfahren ist das PowerShell-Skript %%amp;quot;PKISync.ps1%%amp;quot; erforderlich. Weitere Informationen finden Sie unter [AD CS: Skript "PKISync.ps1" für die gesamtstrukturübergreifende Zertifikatregistrierung](https://technet.microsoft.com/library/ff961506.aspx).  
   
 > [!NOTE]  
 > Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit denen Sie einige der beschriebenen Vorgehensweisen automatisieren können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
@@ -100,7 +100,7 @@ Für dieses Verfahren ist das PowerShell-Skript %%amp;quot;PKISync.ps1%%amp;quot
     certutil -config <Computer-Name>\<Root-CA-Name> -ca.cert <root-ca-cert-filename.cer>  
     ```  
   
-    (Wenn Sie den Befehl auf der Stamm Zertifizierungsstelle ausführen, können Sie die Verbindungsinformationen weglassen,-config < Computer-Name > \\ < root-ca-Name >).  
+    (Wenn Sie den Befehl auf der Stamm Zertifizierungsstelle ausführen, können Sie die Verbindungsinformationen auslassen,-config < Computer Name >\\< root-ca-Name >).  
   
     1.  Importieren Sie das Stammzertifizierungsstellenzertifikat aus dem vorherigen Schritt auf der Zertifizierungsstelle der Kontengesamtstruktur, indem Sie den folgenden Befehl an einer Eingabeaufforderung mit erhöhten Rechten ausführen:  
   
@@ -108,7 +108,7 @@ Für dieses Verfahren ist das PowerShell-Skript %%amp;quot;PKISync.ps1%%amp;quot
         certutil -dspublish -f <root-ca-cert-filename.cer> RootCA  
         ```  
   
-    2.  Erteilen Sie den Zertifikat Vorlagen der Ressourcen Gesamtstruktur Lese-/Schreibberechtigungen für die \<account Forest @ no__t-1 @ no__t-2 < Administrator Konto @ no__t-3.  
+    2.  Erteilen Sie den Zertifikat Vorlagen der Ressourcen Gesamtstruktur Lese-/Schreibberechtigungen für die \<Konto Gesamtstruktur\>\\< Administrator Konto\>.  
   
     3.  Extrahieren Sie alle Unternehmenszertifizierungsstellenzertifikate der Ressourcengesamtstruktur, indem Sie den folgenden Befehl an einer Eingabeaufforderung mit erhöhten Rechten ausführen.  
   
@@ -116,7 +116,7 @@ Für dieses Verfahren ist das PowerShell-Skript %%amp;quot;PKISync.ps1%%amp;quot
         certutil -config <Computer-Name>\<Enterprise-CA-Name> -ca.cert <enterprise-ca-cert-filename.cer>  
         ```  
   
-        (Wenn Sie den Befehl auf der Stamm Zertifizierungsstelle ausführen, können Sie die Verbindungsinformationen weglassen,-config < Computer-Name > \\ < root-ca-Name >).  
+        (Wenn Sie den Befehl auf der Stamm Zertifizierungsstelle ausführen, können Sie die Verbindungsinformationen auslassen,-config < Computer Name >\\< root-ca-Name >).  
   
     4.  Importieren Sie die Unternehmenszertifizierungsstellenzertifikate aus dem vorherigen Schritt auf der Zertifizierungsstelle der Kontengesamtstruktur, indem Sie den folgenden Befehl an einer Eingabeaufforderung mit erhöhten Rechten ausführen:  
   
@@ -179,7 +179,7 @@ Die DNS-Suffixsuchliste ermöglicht es den Clients, anstelle von FQDNs Kurznamen
   
 3.  Geben Sie auf der Seite **DNS** in der Tabelle alle zusätzlichen Namenssuffixe ein, die Teil des Unternehmensnetzwerks in %%amp;quot;Forest2%%amp;quot; sind. Geben Sie in **DNS-Serveradresse** die Adresse des DNS-Servers manuell ein, oder klicken Sie auf **Erkennen**. Wenn Sie die Adresse nicht eingeben, werden die neuen Einträge als NRPT-Ausnahmen angewendet. Klicken Sie dann auf **Weiter**.  
   
-4.  Optional: Fügen Sie auf der Seite **DNS-Suffixsuchliste** DNS-Suffixe hinzu, indem Sie das Suffix in das Feld **Neues Suffix** eingeben und dann auf **Hinzufügen** klicken. Klicken Sie dann auf **Weiter**.  
+4.  Optional: Fügen Sie auf der Seite **DNS-Suffixsuchliste** DNS-Suffixe hinzu, indem Sie das Suffix in das Feld **Neues Suffix** eingeben und dann auf **Hinzufügen**klicken. Klicken Sie dann auf **Weiter**.  
   
 5.  Klicken Sie auf der Seite **Verwaltung** auf **Fertig stellen**.  
   

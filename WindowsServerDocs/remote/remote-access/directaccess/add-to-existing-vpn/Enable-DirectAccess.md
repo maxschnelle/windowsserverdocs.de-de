@@ -21,15 +21,15 @@ ms.locfileid: "71404990"
 ---
 # <a name="enable-directaccess"></a>Aktivieren von DirectAccess
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
  Windows Server 2016 und Windows Server 2012 kombinieren DirectAccess-und RAS-VPN (RAS-Dienst) zu einer einzigen Remote Zugriffs Rolle. Diese Übersicht bietet eine Einführung in die Konfigurationsschritte, die erforderlich sind, um einen einzelnen Remote Zugriffs Server mit Windows Server 2016 oder Windows Server 2012 mit grundlegenden Einstellungen bereitzustellen.
   
--   [Schritt 1: Konfigurieren Sie die DirectAccess-Infrastruktur @ no__t-0. Dieser Schritt umfasst die Konfiguration der Netzwerk- und Servereinstellungen sowie der DNS- und Active Directory-Einstellungen.  
+-   [Schritt 1: Konfigurieren der DirectAccess-Infrastruktur](step-1-configure-da-inf-davpn.md). Dieser Schritt umfasst die Konfiguration der Netzwerk- und Servereinstellungen sowie der DNS- und Active Directory-Einstellungen.  
   
--   [Schritt 2: Konfigurieren Sie den DirectAccess-VPN-Server @ no__t-0. Dieser Schritt umfasst das Konfigurieren von DirectAccess-Client Computern und Servereinstellungen.  
+-   [Schritt 2: Konfigurieren Sie den DirectAccess-VPN-Server](step-2-configure-server-davpn.md). Dieser Schritt umfasst das Konfigurieren von DirectAccess-Client Computern und Servereinstellungen.  
   
--   [Schritt 3: Überprüfen Sie die Bereitstellung @ no__t-0. Dieser Schritt umfasst die Schritte zum Überprüfen der Bereitstellung.  
+-   [Schritt 3: Überprüfen Sie die Bereitstellung](step-3-verify-davpn.md). Dieser Schritt umfasst die Schritte zum Überprüfen der Bereitstellung.  
   
 Bevor Sie mit der Bereitstellung beginnen, überprüfen Sie die Planungsschritte unter [Planen der Aktivierung von DirectAccess](Plan-to-Enable-DirectAccess.md).  
   
