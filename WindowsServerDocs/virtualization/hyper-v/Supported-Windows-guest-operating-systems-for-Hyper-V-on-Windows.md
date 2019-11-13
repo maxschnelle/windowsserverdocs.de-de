@@ -11,12 +11,12 @@ ms.assetid: 06b35897-2192-48b7-8c2d-125c520b0786
 author: lizap
 ms.author: elizapo
 ms.date: 01/08/2019
-ms.openlocfilehash: f491f283861098bbe98e253cb2ff1d5cee2ac57f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8b7fc4c6266c7d8e3255c35b105f92d4f2de9a2c
+ms.sourcegitcommit: b9ec35416a06854c1bc875a2b731d42a436fe313
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365459"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73956106"
 ---
 # <a name="supported-windows-guest-operating-systems-for-hyper-v-on-windows-server"></a>Unterstützte Windows-Gast Betriebssysteme für Hyper-V unter Windows Server
 
@@ -30,15 +30,16 @@ Für einige Betriebssysteme ist Integration Services integriert. Andere erforder
 
 Im folgenden finden Sie die Versionen von Windows Server, die als Gast Betriebssysteme für Hyper-V in Windows Server 2016 und Windows Server 2019 unterstützt werden. 
   
-|Gastbetriebssystem (Server)|Maximale Anzahl virtueller Prozessoren|Integration Services|Hinweise|  
-|-------------------------------------|----------------------------------------|------------------------|---------|  
+|Gastbetriebssystem (Server)|Maximale Anzahl virtueller Prozessoren|Integrationsdienste|Anmerkungen|  
+|-------------------------------------|----------------------------------------|------------------------|---------| 
+|Windows Server, Version 1909 |240 für Generation 2;<br>64 für Generation 1|Integrierte|Für die Unterstützung von mehr als 240 virtuellen Prozessoren sind Windows Server-, Version 1903-und spätere Gast Betriebssysteme erforderlich.| 
 |Windows Server, Version 1903 |240 für Generation 2;<br>64 für Generation 1|Integrierte||
 |Windows Server, Version 1809 |240 für Generation 2;<br>64 für Generation 1|Integrierte|| 
 |Windows Server 2019 |240 für Generation 2;<br>64 für Generation 1|Integrierte||
 |Windows Server, Version 1803 |240 für Generation 2;<br>64 für Generation 1|Integrierte|| 
 |Windows Server 2016 |240 für Generation 2;<br>64 für Generation 1|Integrierte|| 
 |Windows Server 2012 R2 |64|Integrierte||  
-|Windows Server 2012 |64|Integrierte||  
+|WindowsServer 2012 |64|Integrierte||  
 |Windows Server 2008 R2 mit Service Pack 1 (SP 1)|64|Installieren Sie alle wichtigen Windows-Updates nach dem Einrichten des Gast Betriebssystems.|Datacenter, Enterprise, Standard und Web Edition.|
 |Windows Server 2008 mit Service Pack 2 (SP2)|8|Installieren Sie alle wichtigen Windows-Updates nach dem Einrichten des Gast Betriebssystems.|Datacenter, Enterprise, Standard und Web Edition (32-Bit und 64-Bit).|  
   
@@ -46,7 +47,7 @@ Im folgenden finden Sie die Versionen von Windows Server, die als Gast Betriebss
 
 Im folgenden finden Sie die Versionen des Windows-Clients, die als Gast Betriebssysteme für Hyper-V in Windows Server 2016 und Windows Server 2019 unterstützt werden.
   
-|Gastbetriebssystem (Client)|Maximale Anzahl virtueller Prozessoren|Integration Services|Hinweise|  
+|Gastbetriebssystem (Client)|Maximale Anzahl virtueller Prozessoren|Integrationsdienste|Anmerkungen|  
 |-------------------------------------|----------------------------------------|------------------------|---------|  
 |Windows 10|32|Integrierte||  
 |Windows 8.1|32|Integrierte||  
@@ -73,7 +74,7 @@ Microsoft bietet auf folgende Weise Unterstützung für Gastbetriebssysteme:
   
 -   Andere in den Betriebssystemen ermittelte Probleme werden von Microsoft an die Supportcommunity mehrerer Anbieter weitergeleitet, [TSANet](https://www.tsanet.org/).  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen:  
   
 -   [Linux-und FreeBSD-Virtual Machines unter Hyper-V](Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)  
   
