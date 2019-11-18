@@ -8,12 +8,12 @@ ms.topic: article
 author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: medium
-ms.openlocfilehash: a6a093f873ee925a2763ba5243f868204bd077f3
-ms.sourcegitcommit: 6f8993e2180c4d3c177e3e1934d378959396b935
+ms.openlocfilehash: 1ce821c2e793792032e2f91aa806b1bd8d8a76f6
+ms.sourcegitcommit: b9ec35416a06854c1bc875a2b731d42a436fe313
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70000653"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73956069"
 ---
 # <a name="whats-new-in-windows-server"></a>Neues in Windows Server
 
@@ -28,14 +28,14 @@ Long-Term Servicing Channel (LTSC)-Releases:
 
 Releases im halbjährlichen Kanal:
 
-- [Neuerungen in Windows Server, Version 1903](../get-started-19/whats-new-in-windows-server-1903.md)
+- [Neuerungen in Windows Server, Version 1903 und 1909](../get-started-19/whats-new-in-windows-server-1903-1909.md)
 - [Neuerungen in Windows Server, Version 1809](whats-new-in-windows-server-1809.md)
-- [Neuerungen in Windows Server, Version 1803](whats-new-in-windows-server-1803.md)
+- [Neuigkeiten in Windows Server, Version 1803](whats-new-in-windows-server-1803.md) (Supportende: 12. November 2019)
 - [Neuigkeiten in Windows Server, Version 1709](whats-new-in-windows-server-1709.md) (Supportende: 9. April 2019)
 
 Releases von Windows Server (halbjährlicher Kanal) stellen in kürzeren Abständen neue Betriebssystemfunktionen zur Verfügung. Alle sechs Monate wird ein neues Release veröffentlicht, und es wird 18 Monate Support bereitgestellt. In den [Versionsinformationen zu Windows Server](windows-server-release-info.md) und auf der [Microsoft Lifecycle-Seite](https://support.microsoft.com/lifecycle) finden Sie Informationen zum Supportlifecycle. Verwenden Sie möglichst immer das neueste Release.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 - [Versionshinweise: Wichtige Probleme in Windows Server 2019](../get-started-19/rel-notes-19.md)
 - [Versionshinweise: Wichtige Probleme in Windows Server 2016](Windows-Server-2016-GA-Release-Notes.md)

@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 10/31/2019
+ms.date: 11/12/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 6a8e66398bc61a69250b84101a3cb66f2c8f3548
-ms.sourcegitcommit: 1da993bbb7d578a542e224dde07f93adfcd2f489
+ms.openlocfilehash: db9c2b64e018b41b053974b5459bd320098a6d2d
+ms.sourcegitcommit: 315f015102c42c6fa7694e76adecdfb448390391
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73567069"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74019595"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Neuigkeiten im Windows-Desktopclient
 
@@ -30,14 +30,14 @@ Der Client kann für verschiedene [Benutzergruppen](windowsdesktop-admin.md#conf
 
 |Benutzergruppe |Version  |
 |-----------|---------|
-|Public     |1.2.247  |
-|Insider    |1.2.428  |
+|Public     |1.2.431  |
+|Insider    |1.2.431  |
 
-## <a name="updates-for-version-12428"></a>Updates für Version 1.2.428
+## <a name="updates-for-version-12431"></a>Updates für Version 1.2.431
 
-*Veröffentlicht am: 31.10.2019*
+*Veröffentlicht am: 12.11.2019*
 
-- Vorschauversionen der 32-Bit-Version und der ARM64-Version des Clients sind nun verfügbar.
+- Die 32-Bit-Version und die ARM64-Version des Clients sind nun verfügbar.
 - Der Client speichert jetzt alle an der Verbindungsleiste vorgenommenen Änderungen (z.B. Position, Größe und angehefteter Zustand), und wendet diese Änderungen sitzungsübergreifend an.
 - Aktualisierte Dialogfelder für Gatewayinformationen und Verbindungsstatus.
 - Es wurde ein Problem behoben, das dazu führte, dass beim Verbindungsversuch nach Ablauf des Azure Active Directory-Token gleichzeitig zwei Mal Anmeldeinformationen angefordert wurden.
@@ -65,5 +65,5 @@ Der Client kann für verschiedene [Benutzergruppen](windowsdesktop-admin.md#conf
 - Verbesserung der Reservesprachen für lokalisierte Versionen. (Beispielsweise wird FR-CA ordnungsgemäß in Französisch anstelle von Englisch angezeigt.)
 - Beim Entfernen eines Abonnements entfernt der Client nun die gespeicherten Anmeldeinformationen ordnungsgemäß aus der Anmeldeinformationsverwaltung.
 - Der Updatevorgang des Clients erfolgt jetzt nach dem Starten ohne Benutzereingriff, und der Client wird nach Abschluss neu gestartet.
-- Der Client kann jetzt unter Windows 10 im S-Modus verwendet werden.
+- Der-Client kann jetzt unter Windows 10 im S-Modus verwendet werden.
 - Es wurde ein Problem behoben, das für Benutzer mit einem Leerzeichen im Benutzernamen zu einem Fehler beim Update führte.

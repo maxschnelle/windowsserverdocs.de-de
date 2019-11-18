@@ -5,16 +5,16 @@ ms.prod: windows-server
 ms.technology: server-general
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/21/2019
+ms.date: 11/12/2019
 author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
-ms.openlocfilehash: 7b45f5e8fa7f2586f6fd3b5f49599928dee436e7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c27fd6652e86211449c1db0e69e88a604d659498
+ms.sourcegitcommit: b9ec35416a06854c1bc875a2b731d42a436fe313
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391429"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73956047"
 ---
 # <a name="windows-server-release-information"></a>Versionsinformationen zu Windows Server
 
@@ -26,10 +26,10 @@ Der halbjährliche Kanal wurde für Kunden konzipiert, die schnell Neuerungen ei
 
 | Windows Server-Version | Version | Betriebssystembuild | Verfügbarkeit | Enddatum für grundlegenden Support|Enddatum für erweiterten Support |
 |----------------|---------|----------|----------|---------|----------|
+| Windows Server, Version 1909 (halbjährlicher Kanal) (Datacenter Core, Standard Core) | 1909  | 18363.418.191007-0143 | 12.11.2019 | 11.05.2021 | Anmerkungen zu dieser Version |
 | Windows Server, Version 1903 (halbjährlicher Kanal) (Datacenter Core, Standard Core) | 1903  | 18362.30.190401-1528 | 21.05.2019 | 08.12.2020 | Anmerkungen zu dieser Version |
 |Windows Server 2019 (Long-Term Servicing Channel) (Datacenter, Essentials, Standard)|1809|17763.107.1010129-1455|13.11.2018|09.01.2024|09.01.2029|
 |Windows Server, Version 1809 (halbjährlicher Kanal) (Datacenter Core, Standard Core)|1809|17763.107.1010129-1455|13.11.2018|12.05.2020|Anmerkungen zu dieser Version|
-| Windows Server, Version 1803 (halbjährlicher Kanal) (Datacenter, Standard)| 1803 |17134.1.180410-1804 |30.04.2018| 12.11.2019|Anmerkungen zu dieser Version|
 | Windows Server 2016 (Long-Term Servicing Channel)| 1607 | 14393.0 | 15.10.2016 |11.01.2022| 11.01.2027|
 
 > [!NOTE]

@@ -10,12 +10,12 @@ ms.date: 11/26/2018
 ms.assetid: b886b2fd-3567-4f0a-8aa3-4ba7923d2d21
 author: nirb
 ms.author: nirb
-ms.openlocfilehash: 54352f47a31826b91b5696eb90104ca166a4299d
-ms.sourcegitcommit: 18f6b104e73e0397009283d55bee7984ac7ef0d1
+ms.openlocfilehash: 1711eb94b622775feaf02f6bada596fe03b08ea9
+ms.sourcegitcommit: b8e120fc574450e9eee13e7315424137a43e6a6c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73632653"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74044807"
 ---
 # <a name="guidance-on-disabling-system-services-on-windows-server-2016-with-desktop-experience"></a>Anleitungen zur Deaktivierung von Systemdiensten unter Windows Server 2016 mit Desktopdarstellung
 
@@ -68,7 +68,7 @@ Die beiden folgenden Tabellen enthalten für alle in diesem Dokument aufgeführt
 |---|---|
 |**Dienstbeschreibung**|   Die Beschreibung des Diensts aus „sc.exe qdescription“.|
 |**Name** |Schlüsselname (interner Name) des Diensts|
-|**Installation** |Immer installiert: Dienst ist für Server Core und Server mit Desktopdarstellung verfügbar. Nur mit Desktopdarstellung: Dienst ist unter Windows Server 2016 mit Desktopdarstellung verfügbar, aber ***nicht*** für Server Core |
+|**Installation** | *Immer installiert*: Dienst ist unter Windows Server 2016 Core und Windows Server 2016 mit Desktopdarstellung installiert. *Nur mit Desktopdarstellung*: Dienst ist unter Windows Server 2016 mit Desktopdarstellung, aber ***nicht*** unter Server Core installiert. |
 |**Starttyp**  |Starttyp des Diensts unter Windows Server 2016|
 |**Empfehlung** |Empfehlung/Hinweis von Microsoft zur Deaktivierung dieses Diensts unter Windows Server 2016 bei einer typischen, gut verwalteten Unternehmensbereitstellung, bei der der Server nicht als Desktopersatz für den Endbenutzer verwendet wird.|
 |**Kommentare** |Zusätzliche Beschreibung|
