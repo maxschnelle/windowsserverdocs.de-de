@@ -4,23 +4,24 @@ description: ''
 author: Deland-Han
 ms.author: delhan
 manager: dcscontentpm
-ms.date: 11/1/2019
+ms.date: 11/12/2019
 ms.topic: article
 ms.prod: windows-server
-ms.openlocfilehash: a5fea6681376abf6ea9ada67e31b10369256ea81
-ms.sourcegitcommit: 9e123d475f3755218793a130dda88455eac9d4ab
+ms.openlocfilehash: 3d3d08d6abe9daa571dd7365815c1fc61f926501
+ms.sourcegitcommit: e5df3fd267352528eaab5546f817d64d648b297f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73413457"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74163099"
 ---
 # <a name="configuring-certificate-enrollment-web-service-for-certificate-key-based-renewal-on-a-custom-port"></a>Konfigurieren von Zertifikatregistrierungs-Webdienst für die Zertifikat Schlüssel basierte Erneuerung an einem benutzerdefinierten Port
 
-<!-- <Author(s): Jitesh Thakur, Meera Mohideen, Ankit Tyagi.-->  
+> Autoren: Jitesh Thakur, Meera muhideen, Technical Advisors bei der Windows-Gruppe.
+Ankit Tyagi-Support Techniker mit der Windows-Gruppe
 
 ## <a name="summary"></a>Zusammenfassung
 
-Dieser Artikel enthält Schritt-für-Schritt-Anleitungen zum Implementieren des Zertifikatregistrierungs-Webdienst (oder der Zertifikat Registrierungs Richtlinie (Certificate Registrierungs Policy, CEP) bzw. des Zertifikat Registrierungs Dienstanbieter (CES) an einem anderen benutzerdefinierten Port als 443 für die Zertifikat Schlüssel basierte Erneuerung Vorteil des Features für die automatische Erneuerung von CEP und CES.
+Dieser Artikel enthält Schritt-für-Schritt-Anleitungen zum Implementieren der Zertifikatregistrierungsrichtlinien-Webdienst (CEP) und Zertifikatregistrierungs-Webdienst (CES) an einem anderen benutzerdefinierten Port als 443 für die Zertifikat Schlüssel basierte Erneuerung, um die Vorteile der automatischen Erneuerungs Feature von CEP und CES.
 
 In diesem Artikel wird auch erläutert, wie CEP und CES funktionieren, und es werden Setup Richtlinien bereitstellt.
 
@@ -134,7 +135,7 @@ Mit diesem Befehl werden die Zertifikatregistrierungs-Webdienst (CES) installier
 Nach einer erfolgreichen Installation erwarten Sie, dass die folgende Anzeige in der Internetinformationsdienste (IIS)-Manager-Konsole angezeigt wird.
 ![IIS-Manager-](media/certificate-enrollment-certificate-key-based-renewal-4.png) 
 
-Wählen Sie unter **Standard Website**die Option **KeyBasedRenewal_ADPolicyProvider_CEP_Certificate**aus, und öffnen Sie dann **Anwendungseinstellungen**. Notieren Sie sich die **ID** und den **URI**.
+Wählen Sie unter **Standard Website**die Option **ADPolicyProvider_CEP_UsernamePassword**aus, und öffnen Sie dann **Anwendungseinstellungen**. Notieren Sie sich die **ID** und den **URI**.
 
 Sie können einen anzeigen **Amen** für die Verwaltung hinzufügen.
 
@@ -176,7 +177,7 @@ Nach einer erfolgreichen Installation erwarten Sie, dass die folgende Anzeige in
 Wählen Sie **KeyBasedRenewal_ADPolicyProvider_CEP_Certificate** unter **Standard Website** aus, und öffnen Sie **Anwendungseinstellungen**. Notieren Sie sich die **ID** und den **URI**. Sie können einen anzeigen **Amen** für die Verwaltung hinzufügen.
 
 > [!Note]
-> Wenn die Instanz auf einem neuen Server installiert ist und die ID abweicht und die ID nicht groß ist, stellen Sie sicher, dass es sich um die ID handelt, die in der CEPCES01-Instanz verwendet wird. Sie können den Wert direkt kopieren und einfügen.
+> Wenn die Instanz auf einem neuen Server installiert ist, überprüfen Sie die ID, um sicherzustellen, dass es sich bei der ID um dieselbe ID handelt, die in der CEPCES01-Instanz generiert wurde. Sie können den Wert direkt kopieren und einfügen, wenn er anders ist.
 
 #### <a name="complete-certificate-enrollment-web-services-configuration"></a>Vervollständigen der Konfiguration der Webdienste für die Zertifikat Registrierung
 
@@ -185,6 +186,9 @@ Um das Zertifikat im Auftrag der CEP-und CES-Funktionalität registrieren zu kö
 ##### <a name="step-1-create-a-computer-account-of-the-workgroup-computer-in-active-directory"></a>Schritt 1: Erstellen eines Computer Kontos des Arbeitsgruppen Computers in Active Directory
 
 Dieses Konto wird für die Authentifizierung bei der Schlüssel basierten Erneuerung und für die Option "in Active Directory veröffentlichen" in der Zertifikat Vorlage verwendet.
+
+> [!Note]
+> Der Client Computer muss nicht in die Domäne eingebunden werden. Dieses Konto wird bei der Zertifikat basierten Authentifizierung in KBR für dsmapper-Dienst angezeigt.
 
 ![Neues Objekt](media/certificate-enrollment-certificate-key-based-renewal-6.png) 
  
@@ -198,7 +202,7 @@ Set-ADUser -Identity cepcessvc -Add @{'msDS-AllowedToDelegateTo'=@('HOST/CA1.con
 ```
 
 > [!Note]
-> In diesem Befehl ist <cepcessvc> das Dienst Konto, und < CA1. > ist die Zertifizierungsstelle.
+> In diesem Befehl ist \<cepcessvc-\> das Dienst Konto, und < CA1. ">.
 
 > [!Important]
 > Wir aktivieren das Flag "renewalonbehalof" für die Zertifizierungsstelle in dieser Konfiguration nicht, da wir die eingeschränkte Delegierung verwenden, um den gleichen Auftrag für uns durchzuführen. Dadurch wird verhindert, dass die Berechtigung für das Dienst Konto zur Sicherheit der Zertifizierungsstelle hinzugefügt wird.
@@ -212,19 +216,21 @@ Set-ADUser -Identity cepcessvc -Add @{'msDS-AllowedToDelegateTo'=@('HOST/CA1.con
 3. Ändern Sie die Standard Port Einstellung von 443 in Ihren benutzerdefinierten Port. Der Beispiel Bildschirm zeigt die Port Einstellung 49999.
    ![änderungsport](media/certificate-enrollment-certificate-key-based-renewal-7.png) 
 
-##### <a name="step-4-edit-the-ca-enrollment-services-object"></a>Schritt 4: Bearbeiten des Objekts der Zertifizierungsstellen-Registrierungsdienste
+##### <a name="step-4-edit-the-ca-enrollment-services-object-on-active-directory"></a>Schritt 4: Bearbeiten des Objekts der Zertifizierungsstellen-Registrierungsdienste auf Active Directory
 
 1. Öffnen Sie auf einem Domänen Controller ADSIEdit. msc.
 
-2. Stellen Sie eine Verbindung mit der Konfigurations Partition her, und navigieren Sie zu Ihrem Zertifizierungsstellen-Registrierungsdienst Objekt:
+2. Stellen Sie eine [Verbindung mit der Konfigurations Partition](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/ff730188(v=ws.10))her, und navigieren Sie zu Ihrem Zertifizierungsstellen-Registrierungsdienst Objekt:
    
    CN = entca, CN = Registrierungsdienste, CN = Public Key Services, CN = Services, CN = Configuration, DC = ca. DC = com
 
-3. Bearbeiten Sie das-Objekt, und ändern Sie das mspki-Anmeldungs Server-Attribut, indem Sie den benutzerdefinierten Port mit ihren CEP-und CES-Server-URIs verwenden, die in den Anwendungseinstellungen gefunden wurden. Zum Beispiel:
+3. Klicken Sie mit der rechten Maustaste, und bearbeiten Sie das Objekt Ändern Sie das **mspki-** Anmeldungs Server-Attribut, indem Sie den benutzerdefinierten Port mit ihren CEP-und CES-Server-URIs verwenden, die in den Anwendungseinstellungen gefunden wurden. Zum Beispiel:
 
-   140 https://cepces.contoso.com:49999/ENTCA_CES_UsernamePassword/service.svc/CES0   
-   181 https://cepces.contoso.com:49999/ENTCA_CES_Certificate/service.svc/CES1
-
+   ```
+   140https://cepces.contoso.com:49999/ENTCA_CES_UsernamePassword/service.svc/CES0   
+   181https://cepces.contoso.com:49999/ENTCA_CES_Certificate/service.svc/CES1
+   ```
+   
    ![ADSI-Editor](media/certificate-enrollment-certificate-key-based-renewal-8.png) 
 
 #### <a name="configure-the-client-computer"></a>Konfigurieren des Client Computers
@@ -269,9 +275,9 @@ Richten Sie auf dem Client Computer die Registrierungsrichtlinien und die Richtl
 
 ## <a name="testing-the-setup"></a>Testen des Setups
 
-Um sicherzustellen, dass die automatische Verlängerung funktioniert, überprüfen Sie, ob die manuelle Erneuerung mit demselben Schlüssel funktioniert. Sie sollten nicht aufgefordert werden, den Benutzernamen und das Kennwort einzugeben.  Außerdem sollten Sie aufgefordert werden, ein Zertifikat auszuwählen, wenn Sie sich anmelden. Dies ist das erwartungsgemäße Verhalten.
+Um sicherzustellen, dass die automatische Verlängerung funktioniert, überprüfen Sie, ob die manuelle Verlängerung funktioniert, indem Sie das Zertifikat mit dem gleichen Schlüssel mithilfe von MMC erneuern. Außerdem sollten Sie aufgefordert werden, ein Zertifikat während der Erneuerung auszuwählen. Sie können das zuvor registrierte Zertifikat auswählen. Die Eingabeaufforderung wird erwartet.
 
-Öffnen Sie den persönlichen Zertifikat Speicher des Computers, und fügen Sie die Ansicht "Archivierte Zertifikate" hinzu. Verwenden Sie hierzu eine der folgenden Methoden.
+Öffnen Sie den persönlichen Zertifikat Speicher des Computers, und fügen Sie die Ansicht "Archivierte Zertifikate" hinzu. Fügen Sie dazu das Snap-in "Lokales Computer Konto" zu "MMC. exe" hinzu, **Markieren Sie "** Zertifikate" **(lokaler Computer)** , indem Sie darauf klicken, klicken Sie auf der **Registerkarte Aktion** rechts oder oben auf MMC, klicken Sie auf **Optionen anzeigen**, wählen Sie **Archivierte Zertifikate**aus, und klicken Sie dann auf **OK**.
 
 ### <a name="method-1"></a>Methode 1 
 
@@ -285,11 +291,11 @@ certreq -machine -q -enroll -cert <thumbprint> renew
 
 ### <a name="method-2"></a>Methode 2
 
-Legen Sie die Zeiteinstellung in Vielfachen von 8 für den Zeitpunkt fest, zu dem die Gültigkeit des Zertifikats abläuft.
+Verschieben Sie das Datum und die Uhrzeit auf dem Client Computer in die Erneuerungszeit der Zertifikat Vorlage.
 
-Beispielsweise wurde das Beispiel Zertifikat am 18. Tag des Monats um 4:00 Uhr ausgegeben, läuft am 20. um 4:00 Uhr ab und verfügt über eine Gültigkeitsdauer von 2 Tagen und eine Einstellung für die Verlängerung von 8 Stunden. Die Engine für die automatische Registrierung wird bei einem Neustart von ungefähr 8 Stunden ausgelöst.
+Die Zertifikat Vorlage verfügt beispielsweise über eine Einstellung von 2 Tagen und eine Einstellung für die Verlängerung von 8 Stunden. Das Beispiel Zertifikat wurde um 4:00 Uhr ausgegeben. am 18. Tag des Monats läuft um 4:00 Uhr am 20. Die Engine für die automatische Registrierung wird bei einem Neustart und bei jeweils 8 Stunden (ungefähr) ausgelöst.
 
-Wenn Sie also die Zeit auf 8:10 Uhr verschieben. am 19. wird das Zertifikat durch Ausführen von **certutil-Pulse** (zum auslöst der AE-Engine) für Sie registriert.
+Wenn Sie also die Zeit auf 8:10 Uhr verschieben. am 19. Nachdem das Erneuerungs Fenster in der Vorlage auf 8 Stunden festgelegt wurde, wird das Zertifikat durch Ausführen von certutil-Pulse (zum auslöst der AE-Engine) für Sie registriert.
 
 ![-Befehl.](media/certificate-enrollment-certificate-key-based-renewal-15.png)
  

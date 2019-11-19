@@ -8,12 +8,12 @@ ms.date: 10/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 5889ae43c4b572ae75c8df10d0c47fc21337d558
-ms.sourcegitcommit: 9e123d475f3755218793a130dda88455eac9d4ab
+ms.openlocfilehash: e20913b1245ce7e453b87e9b88a7a418a5c71de2
+ms.sourcegitcommit: b60fdd2efa57ff23834a324b75de8fe245a7631f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73413259"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166180"
 ---
 # <a name="storage-migration-service-known-issues"></a>Bekannte Probleme bei Storage Migration Service
 
@@ -44,21 +44,11 @@ Die Windows Admin Center Storage Migration Service-Erweiterung ist nur für die 
 
 Verwenden Sie zum Auflösen von Windows Server 2019 Build 1809 oder höher, oder führen Sie ein Upgrade durch.
 
-## <a name="storage-migration-service-doesnt-let-you-choose-static-ip-on-cutover"></a>Der Speicher Migrationsdienst ermöglicht Ihnen nicht, statische IP-Adressen auf dem Umstellung auszuwählen.
-
-Wenn Sie die Version 0,57 der Storage Migration Service-Erweiterung im Windows Admin Center verwenden und die Umschalter Phase erreichen, können Sie keine statische IP-Adresse für eine Adresse auswählen. Sie sind gezwungen, DHCP zu verwenden.
-
-Um dieses Problem zu beheben, sehen Sie sich im Windows Admin Center unter **Einstellungen**  > **Erweiterungen** eine Warnung an, die besagt, dass die aktualisierte Version Storage Migration Service 0.57.2 zur Installation zur Verfügung steht. Möglicherweise müssen Sie die Browser Registerkarte für Windows Admin Center neu starten.
-
 ## <a name="storage-migration-service-cutover-validation-fails-with-error-access-is-denied-for-the-token-filter-policy-on-destination-computer"></a>Die Überprüfung des Speicher Migrationsdienst-cutovers schlägt mit dem Fehler "Zugriff wird für die tokenfilterrichtlinie auf dem Zielcomputer verweigert" fehl
 
 Beim Ausführen der Überprüfung des cutovers erhalten Sie den Fehler "Fehler: der Zugriff wird für die tokenfilterrichtlinie auf dem Zielcomputer verweigert". Dies geschieht auch, wenn Sie sowohl für den Quell-als auch für den Zielcomputer die richtigen lokalen Administrator Anmelde Informationen angegeben haben
 
-Dieses Problem wird durch einen Code Fehler in Windows Server 2019 verursacht. Das Problem tritt auf, wenn Sie den Zielcomputer als Orchestrator für den Speicher Migrationsdienst verwenden.
-
-Um dieses Problem zu umgehen, installieren Sie den Speicher Migrationsdienst auf einem Windows Server 2019-Computer, der nicht das Ziel für die Migration ist. Stellen Sie dann eine Verbindung mit diesem Server über das Windows Admin Center her, und führen Sie die Migration aus.
-
-Dies wurde in einer späteren Version von Windows Server korrigiert. Öffnen Sie eine Supportanfrage über [Microsoft-Support](https://support.microsoft.com) , um einen Backport für diesen Fehler zu erstellen.
+Dieses Problem wurde im [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) -Update behoben. 
 
 ## <a name="storage-migration-service-isnt-included-in-windows-server-2019-evaluation-or-windows-server-2019-essentials-edition"></a>Storage Migration Service ist nicht in Windows Server 2019 Evaluation oder Windows Server 2019 Essentials Edition enthalten.
 
@@ -105,16 +95,6 @@ So umgehen Sie dieses Problem:
 
 Wir beabsichtigen, dieses Verhalten in einer späteren Version von Windows Server 2019 zu ändern.  
 
-## <a name="cutover-fails-when-migrating-between-networks"></a>Fehler bei der Migration zwischen Netzwerken
-
-Beim Migrieren zu einem Zielcomputer, der in einem anderen Netzwerk als der Quelle ausgeführt wird, z. b. eine Azure-IaaS-Instanz, kann Umstellung nicht fertiggestellt werden, wenn die Quelle eine statische IP-Adresse verwendet hat. 
-
-Dieses Verhalten ist beabsichtigt, um Konnektivitätsprobleme nach der Migration von Benutzern, Anwendungen und Skripts zu verhindern, die über die IP-Adresse verbunden werden Wenn die IP-Adresse vom alten Quellcomputer zum neuen Zielziel verschoben wird, entspricht Sie nicht den neuen netzwerksubnetzinformationen und vielleicht DNS und WINS.
-
-Um dieses Problem zu umgehen, führen Sie eine Migration zu einem Computer im gleichen Netzwerk durch. Verschieben Sie diesen Computer dann in ein neues Netzwerk, und weisen Sie seine IP-Informationen erneut zu. Wenn Sie beispielsweise eine Migration zu Azure IaaS durchführen, führen Sie zuerst eine Migration zu einer lokalen VM durch, und verwenden Sie dann Azure migrate, um den virtuellen Computer in Azure  
-
-Dieses Problem wurde in einem späteren Release von Windows Admin Center behoben. Wir ermöglichen es Ihnen jetzt, Migrationen anzugeben, die die Netzwerkeinstellungen des Zielservers nicht ändern. Die aktualisierte Erweiterung wird hier aufgelistet, wenn Sie veröffentlicht wird. 
-
 ## <a name="validation-warnings-for-destination-proxy-and-credential-administrative-privileges"></a>Validierungs Warnungen für den Ziel Proxy und Administratorrechte für Anmelde Informationen
 
 Beim Validieren eines Übertragungs Auftrags werden folgende Warnungen angezeigt:
@@ -153,7 +133,7 @@ Quelldatei:
 
 Zieldatei:
 
-  icacls d:\test\thatcher.png/Save out. txt/t Thatcher. png d:Ai (A;; FA;;; BA) (A;; 0 x1301bf;;;D U) (A;; 0 x1200a9;;;D D) (A; ID; FA;;; BA) (A; ID; FA;;; SY) (A; ID; 0x1200a9;;; BU)**S:PAINO_ACCESS_CONTROL**
+  icacls d:\test\thatcher.png/Save out. txt/t Thatcher. png d:Ai (A;; FA;;; BA) (A;; 0 x1301bf;;;D U) (A;; 0 x1200a9;;;D D) (A; ID; FA;;; BA) (A; ID; FA;;; SY) (A; ID; 0x1200a9;;; BU)**S: PAINO_ACCESS_CONTROL**
 
 DFSR-Debugprotokoll:
 
@@ -163,17 +143,7 @@ DFSR-Debugprotokoll:
 
   Klon-ACL-Hash:**DDC4FCE4-DDF329C4-977ced6d-F4D72A5B** LastWrite-Time: 20190308 18:09:44.876 filesizelow: 1131654 filesizehigh: 0 Attribute: 32 
 
-Dieses Problem wird durch einen Code Fehler in einer Bibliothek verursacht, die vom Speicher Migrationsdienst zum Festlegen von Sicherheits Überwachungs-Zugriffs Steuerungs Listen (Security Audit ACLs, SACL) verwendet wird. Eine SACL, die keine NULL-Werte ist, wird versehentlich festgelegt, wenn die SACL leer war, was dazu führte, dass DFSR den Hash nicht übereinstimmt. 
-
-Um dieses Problem zu umgehen, verwenden Sie weiterhin Robocopy für [DFSR-Pre-Seeding-und DFSR-Daten Bank Klon Vorgänge](../dfs-replication/preseed-dfsr-with-robocopy.md) anstelle des Storage Migration Service. Wir untersuchen dieses Problem und beabsichtigen, dieses Problem in einer neueren Version von Windows Server und möglicherweise einer backportiert-Windows Update zu beheben. 
-
-## <a name="error-404-when-downloading-csv-logs"></a>Fehler 404 beim Herunterladen von CSV-Protokollen
-
-Wenn Sie versuchen, die Übertragungs-oder Fehlerprotokolle am Ende eines Übertragungs Vorgangs herunterzuladen, erhalten Sie folgende Fehlermeldung:
-
-  $Jobname: Übertragungsprotokoll: AJAX-Fehler 404
-
-Dieser Fehler wird erwartet, wenn Sie die Firewallregel "Datei-und Druckerfreigabe (SMB-in)" auf dem Orchestrator-Server nicht aktiviert haben. Zum Herunterladen von Windows Admin Center-Dateien ist Port TCP/445 (SMB) auf verbundenen Computern erforderlich.  
+Dieses Problem wurde durch das [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) -Update behoben.
 
 ## <a name="error-couldnt-transfer-storage-on-any-of-the-endpoints-when-transferring-from-windows-server-2008-r2"></a>Fehler "der Speicher konnte bei der Übertragung von Windows Server 2008 R2 nicht an einen der Endpunkte übertragen werden.
 
@@ -213,7 +183,7 @@ Dieser Fehler wird erwartet, wenn Ihr Migrations Konto nicht mindestens über Le
 
 ## <a name="error-0x80005000-when-running-inventory"></a>Fehler 0x80005000 beim Ausführen des Inventars.
 
-Nach der Installation von [KB4512534](https://support.microsoft.com/en-us/help/4512534/windows-10-update-kb4512534) und dem Versuch, das Inventar auszuführen, schlägt die Inventur mit Fehlern fehl
+Nach der Installation von [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) und dem Versuch, das Inventar auszuführen, schlägt die Inventur mit Fehlern fehl
 
   Ausnahme von HRESULT: 0x80005000
   
@@ -287,7 +257,7 @@ Beachten Sie, dass es unter bestimmten Umständen dazu führen kann, dass der Sp
    
 2.  Starten Sie den Dienst "Storage Migration Service", mit dem eine neue Datenbank erstellt wird.
 
-## <a name="error-clusctl_resource_netname_repair_vco-failed-against-netname-resource-and-windows-server-2008-r2-cluster-cutover-fails"></a>Fehler "CLUSCTL_RESOURCE_NETNAME_REPAIR_VCO failed for NetName Resource" und Windows Server 2008 R2 Cluster cudever schlägt fehl
+## <a name="error-clusctl_resource_netname_repair_vco-failed-against-netname-resource-and-windows-server-2008-r2-cluster-cutover-fails"></a>Fehler "Fehler beim CLUSCTL_RESOURCE_NETNAME_REPAIR_VCO für die NetName-Ressource", und der Windows Server 2008 R2-Cluster-cudever schlägt fehl
 
 Bei dem Versuch, einen Ausschneiden einer Windows Server 2008 R2-Cluster Quelle auszuführen, bleibt die Ausschneide in der Phase "Umbenennen des Quell Computers..." hängen. und Sie erhalten die folgende Fehlermeldung:
 
@@ -306,6 +276,43 @@ Bei dem Versuch, einen Ausschneiden einer Windows Server 2008 R2-Cluster Quelle 
        at Microsoft.StorageMigration.Proxy.Cutover.CutoverUtils.RenameFSNetName(NetworkCredential networkCredential, Boolean isLocal, String clusterName, String fsResourceId, String nnResourceId, String newDnsName, CancellationToken ct)    [d:\os\src\base\dms\proxy\cutover\cutoverproxy\CutoverUtils.cs::RenameFSNetName::1510]
 
 Dieses Problem wird durch eine fehlende API in älteren Versionen von Windows Server verursacht. Zurzeit gibt es keine Möglichkeit, Windows Server 2008-und Windows Server 2003-Cluster zu migrieren. Sie können eine Inventur und Übertragung ohne Probleme auf Windows Server 2008 R2-Clustern durchführen und dann die Umstellung manuell durchführen, indem Sie die Ressource "NetName" und die IP-Adresse des Cluster Quelldatei Servers manuell ändern und dann den Ziel Cluster NetName und IP ändern. Adresse, die der ursprünglichen Quelle entspricht. 
+
+## <a name="cutover-hangs-on-38-mapping-network-interfaces-on-the-source-comnputer"></a>Die Umstellung hängt von "38% Mapping Network Interfaces on the Source comnputer..." ab. 
+
+Wenn Sie versuchen, einen Ausschneide eines Quell Computers auszuführen, wenn der Quellcomputer für die Verwendung einer neuen statischen (nicht DHCP-) IP-Adresse auf einer oder mehreren Netzwerkschnittstellen festgelegt wurde, bleibt der Ausschneide Schritt in der Phase "38% Mapping Network Interfaces on the Source comnputer..." und Sie erhalten die folgende Fehlermeldung im SMS-Ereignisprotokoll:
+
+    Log Name:      Microsoft-Windows-StorageMigrationService-Proxy/Admin
+    Source:        Microsoft-Windows-StorageMigrationService-Proxy
+    Date:          11/13/2019 3:47:06 PM
+    Event ID:      20494
+    Task Category: None
+    Level:         Error
+    Keywords:      
+    User:          NETWORK SERVICE
+    Computer:      orc2019-rtm.corp.contoso.com
+    Description:
+    Couldn't set the IP address on the network adapter.
+
+    Computer: fs12.corp.contoso.com
+    Adapter: microsoft hyper-v network adapter
+    IP address: 10.0.0.99
+    Network mask: 16
+    Error: 40970
+    Error Message: Unknown error (0xa00a)
+
+    Guidance: Confirm that the Netlogon service on the computer is reachable through RPC and that the credentials provided are correct.
+
+Die Untersuchung des Quell Computers zeigt, dass die ursprüngliche IP-Adresse nicht geändert werden kann. 
+
+Dieses Problem tritt nicht auf, wenn Sie auf dem Windows Admin Center-Bildschirm "Konfiguration konfigurieren" die Option "DHCP verwenden" ausgewählt haben, nur wenn Sie eine neue statische IP-Adresse, ein Subnetz und ein Gateway angeben. 
+
+Dieses Problem wird durch eine Regression in der [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) -Aktualisierung verursacht. Es gibt zurzeit zwei Problem Umgehungen für dieses Problem:
+
+  - Vor dem Ausschneiden: Wenn Sie keine neue statische IP-Adresse auf dem Cutover festgelegt haben, wählen Sie "DHCP verwenden" aus, und stellen Sie sicher, dass ein DHCP-Bereich dieses Subnetz abdeckt. SMS konfiguriert den Quellcomputer für die Verwendung von DHCP auf Quellcomputer Schnittstellen, und die überschneidet wird normal fortgesetzt. 
+  
+  - Wenn das Ausschneiden bereits unterbrochen ist: Melden Sie sich beim Quellcomputer an, und aktivieren Sie DHCP auf seinen Netzwerkschnittstellen, nachdem Sie sichergestellt haben, dass ein DHCP-Bereich dieses Subnetz abdeckt. Wenn der Quellcomputer eine von DHCP bereitgestellte IP-Adresse erhält, fährt SMS mit der Kürzung fort.
+  
+Wenn beide Problem Umgehungen abgeschlossen sind, können Sie nach Abschluss des Ausschnitts eine statische IP-Adresse auf dem alten Quellcomputer festlegen, und Sie können DHCP nicht mehr verwenden.   
 
 ## <a name="see-also"></a>Weitere Informationen:
 
