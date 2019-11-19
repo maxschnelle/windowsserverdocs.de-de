@@ -11,38 +11,100 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 09/11/2019
+ms.date: 11/18/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: cc09a60882c481cea974508b0ef967aad0ed82fa
-ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
+ms.openlocfilehash: b44f7c14dce8a8c319f9240c24ebcd8e2d4f7202
+ms.sourcegitcommit: b60fdd2efa57ff23834a324b75de8fe245a7631f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71940642"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166165"
 ---
 # <a name="whats-new-in-the-macos-client"></a>Neues beim macOS-Client
 
 Der [Remotedesktopclient für macOS](remote-desktop-mac.md) wird regelmäßig mit neuen Features und Problembehebungen aktualisiert. Hier findest du die neuesten Updates.
 
-Bei Problemen kannst du dich jederzeit gern über **Hilfe > Problem melden** an uns wenden.
+Bei Problemen kannst du dich jederzeit gern über **Hilfe** > **Problem melden** an uns wenden.
+
+## <a name="updates-for-version-1034"></a>Updates für Version 10.3.4
+
+*Veröffentlicht am: 18.11.19*
+
+Wir haben uns intensiv mit deinem Feedback beschäftigt und eine Sammlung von Bugfixes und Featureupdates zusammengestellt.
+
+- Bei der Verbindung über ein RD-Gateway mit Multi-Factor Authentication bleibt die Gatewayverbindung geöffnet, um mehrfache Aufforderungen von MFA zu vermeiden.
+- Die gesamte Clientbenutzeroberfläche ist nun vollständig über die Tastatur zugänglich und bietet Voiceover-Unterstützung.
+- Dateien, die in der Remotesitzung in die Zwischenablage kopiert wurden, werden jetzt nur noch beim Einfügen auf den lokalen Computer übertragen.
+- URLs, die in der Remotesitzung in die Zwischenablage kopiert wurden, werden jetzt auf dem lokalen Computer richtig eingefügt.
+- Skalierungsfaktor-Remoting zur Unterstützung von Retina-Displays ist nun für Szenarien mit mehreren Bildschirmen verfügbar.
+- Ein Kompatibilitätsproblem mit FreeRDP-basierten RD-Servern, das Verbindungsprobleme in Umleitungsszenarien verursachte, wurde behoben.
+- Smartcard-Umleitungskompatibilität mit zukünftigen Versionen von Windows 10 wurde hergestellt.
+- Ein Problem wurde behoben, das speziell unter macOS 10.15 auftrat und bei dem für umgeleitete Ordner ein falscher Wert für den verfügbaren Speicherplatz angegeben wurde.
+- Veröffentlichte PC-Verbindungen werden mit einem neuen Symbol auf der Registerkarte „Arbeitsbereiche“ dargestellt.
+- „Feeds“ heißen nun „Arbeitsbereiche“ und „Desktops“ heißen jetzt „PCs“.
+- Inkonsistenzen und Fehler in der Handhabung von Benutzerkonten in der Benutzeroberfläche für Einstellungen wurden behoben.
+- Viele Fehlerbehebungen machen den Betrieb reibungsloser und zuverlässiger.
+
+## <a name="updates-for-version-1033"></a>Updates für Version 10.3.3
+
+*Veröffentlicht am: 18.11.19*
+
+Für das Release 10.3.3.3 haben wir ein Featureupdate erstellt und Fehlerbehebungen vorgenommen.
+
+Zuerst haben wir Standardeinstellungen für Benutzer hinzugefügt, um Smartcard, Zwischenablage, Mikrofon, Kamera und Ordnerumleitung zu deaktivieren:
+
+- ClientSettings.DisableSmartcardRedirection
+- ClientSettings.DisableClipboardRedirection
+- ClientSettings.DisableMicrophoneRedirection
+- ClientSettings.DisableCameraRedirection
+- ClientSettings.DisableFolderRedirection
+
+Anschließend wurden folgende Fehler behoben:
+
+- Ein Problem wurde behoben, durch das programmgesteuerte Sitzungsfenster-Größenänderungen nicht erkannt wurden.
+- Ein Problem wurde behoben, bei dem der Sitzungsfensterinhalt beim Verbinden im Fenstermodus (bei aktivierter dynamischer Anzeige) klein erschien.
+- Das anfängliche Flackern, das beim Herstellen der Verbindung mit einer Sitzung im Fenstermodus mit aktivierter dynamischer Anzeige auftrat, wurde beseitigt.
+- Grafikfehler wurden behoben, die beim Herstellen der Verbindung mit Windows 7 nach dem Umschalten von „An Fenster anpassen“ bei aktivierter dynamischer Anzeige auftraten.
+- Ein Fehler wurde behoben, der bewirkte, dass ein falscher Gerätename an die Remotesitzung gesendet wurde (was in einigen Drittanbieter-Apps zu Lizenzverlust führte).
+- Ein Problem wurde gelöst, durch das Remote-App-Fenster beim Maximieren den kompletten Monitor ausfüllen.
+- Ein Problem wurde behoben, bei dem die Benutzeroberfläche für Zugriffsberechtigungen unter lokalen Fenstern angezeigt wurde.
+- Bestimmter Code für das Herunterfahren wurde bereinigt, um sicherzustellen, dass der Client zuverlässiger geschlossen wird.
+
+## <a name="updates-for-version-1032"></a>Updates für Version 10.3.2
+
+*Veröffentlicht am: 18.11.19*
+
+In diesem Release wurde ein Fehler behoben, der bewirkte, dass die Anzeige beim Herstellen der Verbindung mit einer Sitzung in niedriger Auflösung dargestellt wurde
+
+## <a name="updates-for-version-1031"></a>Updates für Version 10.3.1
+
+*Veröffentlicht am: 18.11.19*
+
+Für das Release 10.3.0 haben wir einige Korrekturen zusammengestellt, um Regressionen zu beheben, die es geschafft haben, sich in das Release 10.3.0 einzuschleichen.
+
+- Probleme bei der Verbindung mit RD-Gatewayservern wurden behoben, die asymmetrische 4096-Bit-Schlüssel verwendeten.
+- Ein Fehler wurde behoben, der dazu führte, dass der Client beim Herunterladen von Feedressourcen willkürlich nicht mehr reagierte.
+- Ein Fehler wurde behoben, der dazu führte, dass der Client beim Öffnen abstürzte.
+- Ein Fehler wurde behoben, der dazu führte, dass der Client beim Importieren von Verbindungen von Remotedesktop, Version 8, abstürzte.
 
 ## <a name="updates-for-version-1030"></a>Updates für Version 10.3.0
+
 *Veröffentlicht am: 27.08.19*
 
 Seit der letzten Aktualisierung sind einige Wochen vergangen, aber wir haben in dieser Zeit hart gearbeitet. Version 10.3.0 bietet einige neue Features und viele Korrekturen hinter den Kulissen.
 
- - Kameraumleitung ist jetzt möglich, wenn eine Verbindung mit Windows 10 1809, Windows Server 2019 und höher hergestellt wird.
- - Für Mojave und Catalina haben wir ein neues Dialogfeld hinzugefügt,das deine Erlaubnis anfordert, wenn Geräteumleitung für Mikrofon und Kamera verwendet werden soll.
- - Der Feed-Abonnementablauf wurde neu geschrieben und ist jetzt einfacher und schneller.
- - Die Umleitung der Zwischenablage schließt jetzt das RTF-Format (Rich-Text) ein.
- - Bei der Kennworteingabe hast du jetzt die Option, es mithilfe des Kontrollkästchens „Kennwort anzeigen“ anzuzeigen.
- - Es wurden Szenarien berücksichtigt, bei denen das Sitzungsfenster zwischen Monitoren hin- und her wechselte.
- - Im Connection Center werden Remote-App-Symbole in hoher Auflösung angezeigt (sofern verfügbar).
- - BEFEHL+A ist STRG+A zugeordnet, wenn Tastenkombinationen der Mac-Zwischenablage verwendet werden.
- - BEFEHL+R aktualisiert jetzt alle von dir abonnierten Feeds.
- - Es wurden neue Optionen für sekundäre Klicks hinzugefügt, um alle Gruppen oder Feeds im Connection Center zu erweitern oder zu reduzieren.
- - Es wurde eine neue Option für sekundäre Klicks hinzugefügt, um die Symbolgröße auf der Feeds-Registerkarte im Connection Center zu ändern.
- - Ein neues, vereinfachtes und übersichtlicheres App-Symbol.
+- Kameraumleitung ist jetzt möglich, wenn eine Verbindung mit Windows 10 1809, Windows Server 2019 und höher hergestellt wird.
+- Für Mojave und Catalina haben wir ein neues Dialogfeld hinzugefügt,das deine Erlaubnis anfordert, wenn Geräteumleitung für Mikrofon und Kamera verwendet werden soll.
+- Der Feed-Abonnementablauf wurde neu geschrieben und ist jetzt einfacher und schneller.
+- Die Umleitung der Zwischenablage schließt jetzt das RTF-Format (Rich-Text) ein.
+- Bei der Kennworteingabe hast du jetzt die Option, es mithilfe des Kontrollkästchens „Kennwort anzeigen“ anzuzeigen.
+- Es wurden Szenarien berücksichtigt, bei denen das Sitzungsfenster zwischen Monitoren hin- und her wechselte.
+- Im Connection Center werden Remote-App-Symbole in hoher Auflösung angezeigt (sofern verfügbar).
+- BEFEHL+A ist STRG+A zugeordnet, wenn Tastenkombinationen der Mac-Zwischenablage verwendet werden.
+- BEFEHL+R aktualisiert jetzt alle von dir abonnierten Feeds.
+- Es wurden neue Optionen für sekundäre Klicks hinzugefügt, um alle Gruppen oder Feeds im Connection Center zu erweitern oder zu reduzieren.
+- Es wurde eine neue Option für sekundäre Klicks hinzugefügt, um die Symbolgröße auf der Feeds-Registerkarte im Connection Center zu ändern.
+- Ein neues, vereinfachtes und übersichtliches App-Symbol.
 
 ## <a name="updates-for-version-10213"></a>Updates für Version 10.2.13
 
