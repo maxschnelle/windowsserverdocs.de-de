@@ -39,11 +39,11 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
 *Die gesamte Replikation von allen primären Servern wird an einem Speicherort gespeichert, was zu Datenschutz-oder Sicherheitsproblemen führen kann.*  
   
 ## <a name="resolution"></a>Auflösung  
-*verwenden Sie den Hyper-V-Manager, um neue Autorisierungs Einträge für die primären Server zu erstellen, und geben Sie jeweils separate Speicherorte an. Sie können Platzhalter Zeichen verwenden, um primäre Server in Mengen für jeden Autorisierungs Eintrag zu gruppieren.*  
+*Erstellen Sie mit dem Hyper-V-Manager neue Autorisierungs Einträge für die primären Server, und geben Sie jeweils separate Speicherorte an. Sie können Platzhalter Zeichen verwenden, um primäre Server in Sätzen für jeden Autorisierungs Eintrag zu gruppieren.*  
   
 #### <a name="create-authorization-entries-using-hyper-v-manager"></a>Erstellen von Autorisierungs Einträgen mit dem Hyper-V-Manager  
   
-1.  Öffnen Sie den Hyper-V-Manager. ( **Klicken Sie**in Server-Manager auf Extras  > **Hyper-V-Manager**.)  
+1.  Öffnen Sie den Hyper-V-Manager. ( **Klicken Sie** in Server-Manager auf Extras > **Hyper-V-Manager**.)  
   
 2.  Klicken Sie in der Liste der Hosts mit der rechten Maustaste auf das gewünschte, und klicken Sie dann auf **Hyper-V-Einstellungen**.  
   
@@ -83,7 +83,7 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
 New-VMReplicationAuthorizationEntry server01.domain01.contoso.com D:\ReplicaVMStorage DEFAULT  
 ```  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [New-vmreplicationauthorizationentry](https://technet.microsoft.com/library/hh848606.aspx)  
   
 

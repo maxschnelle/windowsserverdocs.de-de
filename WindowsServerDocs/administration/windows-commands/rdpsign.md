@@ -39,15 +39,15 @@ rdpsign /sha1 <hash> [/q | /v |] [/l] <file_name.rdp>
 
 |Parameter|Beschreibung|
 |-------|--------|
-|/SHA1 \<hash >|Gibt den Fingerabdruck an. Hierbei handelt es sich um den Secure-Hash-Algorithmus 1 (SHA1)-Hash des Signatur Zertifikats, das im Zertifikat Speicher enthalten ist. Wird in Windows Server 2012 R2 und älteren Versionen verwendet.|
-|/SHA256 \<hash >|Gibt den Fingerabdruck an, bei dem es sich um den Secure Hash Algorithmus 256 (SHA256)-Hash des Signatur Zertifikats handelt, das im Zertifikat Speicher enthalten ist. Ersetzt/SHA1 in Windows Server 2016 und höher.|
+|/SHA1 \<Hash >|Gibt den Fingerabdruck an. Hierbei handelt es sich um den Secure-Hash-Algorithmus 1 (SHA1)-Hash des Signatur Zertifikats, das im Zertifikat Speicher enthalten ist. Wird in Windows Server 2012 R2 und älteren Versionen verwendet.|
+|/SHA256 \<Hash >|Gibt den Fingerabdruck an, bei dem es sich um den Secure Hash Algorithmus 256 (SHA256)-Hash des Signatur Zertifikats handelt, das im Zertifikat Speicher enthalten ist. Ersetzt/SHA1 in Windows Server 2016 und höher.|
 |/q|Stiller Modus. Keine Ausgabe, wenn der Befehl erfolgreich ausgeführt wird, und minimale Ausgabe, wenn der Befehl fehlschlägt.|
 |/v|Ausführliche-Modus. Zeigt alle Warnungen, Meldungen und den Status an.|
 |/l|Testet die Signierungs-und Ausgabe Ergebnisse, ohne tatsächlich eine der Eingabedateien zu ersetzen.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
--   Der SHA1-oder SHA256-Zertifikat Fingerabdruck sollte einen vertrauenswürdigen RDP-Datei Herausgeber darstellen. Öffnen Sie zum Abrufen des Zertifikat Fingerabdrucks das Zertifikate-Snap-in, doppelklicken Sie auf das Zertifikat, das Sie verwenden möchten (entweder im Zertifikat Speicher des lokalen Computers oder im persönlichen Zertifikat Speicher), klicken Sie auf die Registerkarte **Details** , und klicken Sie dann auf **der Registerkarte Feldliste** , klicken Sie auf Finger **Abdruck**.
+-   Der SHA1-oder SHA256-Zertifikat Fingerabdruck sollte einen vertrauenswürdigen RDP-Datei Herausgeber darstellen. Öffnen Sie zum Abrufen des Zertifikat Fingerabdrucks das Zertifikate-Snap-in, und doppelklicken Sie auf das Zertifikat, das Sie verwenden möchten (entweder im Zertifikat Speicher des lokalen Computers oder in Ihrem persönlichen Zertifikat Speicher), klicken Sie auf die Registerkarte **Details** , und klicken Sie dann in der **Feldliste** auf Finger **Abdruck**.
 
     > [!NOTE]
     > Wenn Sie den Fingerabdruck für die Verwendung mit dem Tool rdpsign. exe kopieren, müssen Sie Leerzeichen entfernen.
@@ -72,5 +72,5 @@ rdpsign /sha1 <hash> [/q | /v |] [/l] <file_name.rdp>
   rdpsign /sha1 hash file1.rdp file2.rdp file3.rdp
   ```
   ## <a name="see-also"></a>Weitere Informationen
-  [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md) 
+  [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
   [Remotedesktopdienste &#40;Terminal Dienste&#41; -Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)

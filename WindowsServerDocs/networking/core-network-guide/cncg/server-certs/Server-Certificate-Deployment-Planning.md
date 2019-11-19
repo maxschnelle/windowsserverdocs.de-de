@@ -17,7 +17,7 @@ ms.locfileid: "71356105"
 ---
 # <a name="server-certificate-deployment-planning"></a>Planen der Bereitstellung SSL
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Vor dem Bereitstellen von Server Zertifikaten müssen Sie die folgenden Elemente planen:  
   
@@ -78,7 +78,7 @@ AlternateSignatureAlgorithm=1
 ```  
 Sie müssen die folgenden Elemente für diese Datei planen:  
   
--   **URL**. Die CAPolicy. inf-Beispieldatei hat den URL **-Wert https://pki.corp.contoso.com/pki/cps.txt** . Der Grund hierfür ist, dass der Webserver in dieser Anleitung den Namen "WEB1" hat und über einen DNS CNAME-Ressourcen Datensatz der PKI verfügt. Der Webserver wird auch der Corp.contoso.com-Domäne hinzugefügt. Außerdem gibt es ein virtuelles Verzeichnis auf dem Webserver mit dem Namen "PKI", in dem die Zertifikat Sperr Liste gespeichert wird. Stellen Sie sicher, dass der Wert, den Sie für die URL in der CAPolicy. inf-Datei angeben, auf ein virtuelles Verzeichnis auf dem Webserver in Ihrer Domäne verweist.  
+-   **URL**. Die CAPolicy. inf-Beispieldatei hat den URL-Wert **https://pki.corp.contoso.com/pki/cps.txt** . Der Grund hierfür ist, dass der Webserver in dieser Anleitung den Namen "WEB1" hat und über einen DNS CNAME-Ressourcen Datensatz der PKI verfügt. Der Webserver wird auch der Corp.contoso.com-Domäne hinzugefügt. Außerdem gibt es ein virtuelles Verzeichnis auf dem Webserver mit dem Namen "PKI", in dem die Zertifikat Sperr Liste gespeichert wird. Stellen Sie sicher, dass der Wert, den Sie für die URL in der CAPolicy. inf-Datei angeben, auf ein virtuelles Verzeichnis auf dem Webserver in Ihrer Domäne verweist.  
   
 -   **RenewalKeyLength**. Der Standardwert für die Erneuerungs Schlüssellänge für AD CS in Windows Server 2012 ist 2048. Die Schlüssellänge, die Sie auswählen, sollte so lange wie möglich sein, während Sie weiterhin Kompatibilität mit den Anwendungen bereitstellt, die Sie verwenden möchten.  
   
