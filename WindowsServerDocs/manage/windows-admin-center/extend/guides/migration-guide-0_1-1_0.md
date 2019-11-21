@@ -9,19 +9,19 @@ ms.date: 02/26/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.openlocfilehash: c52870178e7caff0abc8ddcccc62966d637dd3c9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 214847318401cebdcb7f1924a731b4439c9d8a24
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 11/19/2019
 ms.locfileid: "71357060"
 ---
 # <a name="migrate-from-windows-admin-center-sdk-01-to-10"></a>Migrieren vom Windows Admin Center SDK 0,1 zu 1,0
 
->Gilt für: Windows Admin Center – Vorschau
+>Gilt für: Windows Admin Center (Vorschau)
 
 Dieser Leitfaden unterstützt Sie bei der Migration von Windows Admin Center SDK, Version 0,1, zu 1,0.  
 
-## <a name="1-learn-about-new-controls-with-the-dev-guide-extension"></a>1. Erfahren Sie mehr über neue Steuerelemente mit der Entwicklerhandbuch-Erweiterung.
+## <a name="1-learn-about-new-controls-with-the-dev-guide-extension"></a>1. erfahren Sie mehr über neue Steuerelemente mit der Entwicklungs Leit Faden Erweiterung
 
 Windows Admin Center, Version 1902 und höher, enthält die Entwickler **Handbuch** -Erweiterung, die Sie verwenden können, um Beispiele für Steuerelemente (einschließlich neu verfügbarer Steuerelemente) und Szenarios zu finden, die Sie beim Erstellen Ihrer eigenen Erweiterung unterstützen.  Dev Guide ersetzt die **Entwicklertools** Erweiterung aus früheren Versionen des SDK.
 
@@ -45,10 +45,10 @@ Dev Guide ist als Lösung in Windows Admin Center, Version 1902 und höher, verf
 * Entwicklungs **Leit Faden** Lösung auswählen 
     * Wenn die Lösung nicht aufgelistet wird, stellen Sie sicher, dass Sie das Entwicklungs Handbuch aktiviert haben (siehe Abschnitt oben), und haben Sie das Windows Admin Center neu geladen.
 * Durchsuchen Sie den Inhalt des dev-Handbuchs, indem Sie eine der Registerkarten auswählen.
-    * **Anle** Enthält Codebeispiele für die *Verwaltung von As* -und *Benachrichtigungs* Szenarios
-    * **Steuerelemente** Enthält Beispiele für jedes verfügbare Steuerelement im SDK
-    * **Pfeife** Enthält Beispiele für verfügbare Konverter-und Formatierungsfunktionen.
-    * **Tanz** Enthält Beispiele für CSS-Stile, die im SDK verfügbar sind.
+    * **Landing:** Enthält Codebeispiele für die *Verwaltung von As* -und *Benachrichtigungs* Szenarios
+    * Steuer **Elemente:** Enthält Beispiele für jedes verfügbare Steuerelement im SDK
+    * **Pipes:** Enthält Beispiele für verfügbare Konverter-und Formatierungsfunktionen.
+    * **Stile:** Enthält Beispiele für CSS-Stile, die im SDK verfügbar sind.
     * **Msftsme:** Enthält Beispiele und Anleitungen für erweiterte Szenarien 
 
 ### <a name="browse-the-source-code-of-dev-guide-on-github"></a>Durchsuchen Sie den Quellcode des dev-Handbuchs auf GitHub.
@@ -80,7 +80,7 @@ npm install tslint@5.11.0 -g
 
 ## <a name="3-create-a-new-project-with-the-latest-sdk"></a>3. Erstellen eines neuen Projekts mit dem neuesten SDK
 
-Verwenden Sie die Windows Admin Center-CLI, um ein neues Projekt für die ```next```-Version (SDK 1,0) zu erstellen:
+Verwenden Sie die Windows Admin Center-CLI, um ein neues Projekt zu erstellen, das auf die ```next``` Version (SDK 1,0) ausgerichtet ist:
 
 [//]: # "WAC Create--Company ' Configuration Manager '--Tool ' manage foo Works '--Version experimentell"
 
@@ -88,15 +88,15 @@ Verwenden Sie die Windows Admin Center-CLI, um ein neues Projekt für die ```nex
 wac create --company "Contoso Inc" --tool "Manage Foo Works" --version next
 ```
 
-Wechseln Sie als nächstes das Verzeichnis in den soeben erstellten Ordner, und installieren Sie die erforderlichen lokalen Abhängigkeiten, indem Sie ```npm install ``` ausführen.
+Wechseln Sie als nächstes das Verzeichnis in den soeben erstellten Ordner, und installieren Sie die erforderlichen lokalen Abhängigkeiten, indem Sie ```npm install ```ausführen.
 
 ## <a name="4-modify-an-existing-project-to-use-the-latest-sdk"></a>4. Ändern eines vorhandenen Projekts für die Verwendung des neuesten SDK
 
-WICHTIG: Erstellen Sie eine Sicherung Ihres Projekts, bevor Sie fortfahren.
+Wichtig: Erstellen Sie eine Sicherung Ihres Projekts, bevor Sie fortfahren.
 
-Ändern Sie die folgende Zeile in ```package.json```, um die ```next```-Version (SDK 1,0) als Ziel zu ändern:
+Ändern Sie die folgende Zeile in ```package.json```, um die ```next``` Version (SDK 1,0) als Ziel zu ändern:
 
-[//]: # ""@microsoft/windows-admin-center-sdk": "experimentell""
+[//]: # "'@microsoft/windows-admin-center-sdk': ' experimentell '"
 
 ``` json
 "@microsoft/windows-admin-center-sdk": "next",
@@ -104,9 +104,9 @@ WICHTIG: Erstellen Sie eine Sicherung Ihres Projekts, bevor Sie fortfahren.
 
 Führen Sie dann ```npm install``` aus, um Verweise im gesamten Projekt zu aktualisieren.
 
-## <a name="5-use-the-sdk-cli-to-fix-common-migration-issues"></a>5. Verwenden der SDK-CLI zum Beheben häufiger Migrationsprobleme
+## <a name="5-use-the-sdk-cli-to-fix-common-migration-issues"></a>5. verwenden Sie die SDK-CLI, um häufige Migrationsprobleme zu beheben.
 
-WICHTIG: Erstellen Sie eine Sicherung Ihres Projekts, bevor Sie fortfahren.
+Wichtig: Erstellen Sie eine Sicherung Ihres Projekts, bevor Sie fortfahren.
 
 Führen Sie im Stamm Ordner des Projekts den folgenden CLI-Befehl für Ihr Projekt aus, um häufige Migrationsprobleme automatisch zu beheben:
 
@@ -116,7 +116,7 @@ wac updateSeven --update
 
 Dieser CLI-Befehl behandelt automatisch die folgenden Probleme:
 
-* @No__t neu generieren-0
+* ```package-lock.json``` neu generieren
 * Aktualisieren von Dateien in der Angular-Kompilierungs Umgebung:
     - ```.gitignore```
     - ```tslint.json```
@@ -128,7 +128,7 @@ Dieser CLI-Befehl behandelt automatisch die folgenden Probleme:
     - ```src\tsconfig.lib.json```
     - ```src\tsconfig.spec.json```
 
-## <a name="6-use-the-sdk-cli-to-understand-common-migration-issues"></a>6. Verwenden der SDK-CLI zum Verständnis allgemeiner Migrationsprobleme
+## <a name="6-use-the-sdk-cli-to-understand-common-migration-issues"></a>6. verwenden Sie die SDK-CLI, um allgemeine Migrationsprobleme zu verstehen.
 
 Führen Sie im Stamm Ordner des Projekts den folgenden CLI-Befehl aus, um Ihr Projekt zu überwachen und häufige Migrationsprobleme zu finden, die manuell behoben werden müssen:
 
@@ -274,24 +274,24 @@ Hierdurch werden die folgenden Probleme in Ihrem Projekt angezeigt:
 | . Warnung | veraltet |
 | . Leerraum | veraltet |
 
-## <a name="7-understand-and-resolve-issues-with-observable-objects"></a>7. Verstehen und Beheben von Problemen mit Observable-Objekten
+## <a name="7-understand-and-resolve-issues-with-observable-objects"></a>7. verstehen und Beheben von Problemen mit Observable-Objekten
 
-### <a name="update--rxjs-function-use-for-observable-objects"></a>Aktualisieren von ```rxjs```-Funktions Verwendung für Observable-Objekte
+### <a name="update--rxjs-function-use-for-observable-objects"></a>Aktualisieren ```rxjs``` Funktions Verwendung für Observable-Objekte
 
 Dabei handelt es sich um einige gängige Funktionsnamen, die geändert wurden, möglicherweise gibt es andere in Ihrem Projekt.
 
-* Aktualisieren Sie ```Observable.empty()``` auf ```empty()```.
-* Aktualisieren Sie ```Observable.of()``` auf ```of()```.
-* Aktualisieren Sie ```.switchMap()``` auf ```.pipe(switchMap())```.
-* Aktualisieren Sie ```.map()``` auf ```.pipe(map())```.
-* Aktualisieren Sie ```flatMap()``` auf ```mergeMap()```.
+* Aktualisieren Sie ```Observable.empty()``` auf ```empty()```
+* Aktualisieren Sie ```Observable.of()``` auf ```of()```
+* Aktualisieren Sie ```.switchMap()``` auf ```.pipe(switchMap())```
+* Aktualisieren Sie ```.map()``` auf ```.pipe(map())```
+* Aktualisieren Sie ```flatMap()``` auf ```mergeMap()```
 
 
 ### <a name="resolve-runtime-issues-with-map-and-filter-functions-on-observable-objects"></a>Beheben von Lauf Zeitproblemen mit ```.map()```-und ```.filter()```-Funktionen für Observable-Objekte
 
-Wenn der Compiler einen ```observable```-Objekttyp nicht ordnungsgemäß identifizieren kann, werden möglicherweise ```.map()```-und ```.filter()```-Funktionen des ```array```-Objekts dem-Objekt zugeordnet, was zur Laufzeit zu Fehlern führt.  Stellen Sie sicher, dass ihre Funktionen ein ```observable```-Objekt zurückgeben, das einen expliziten Datentyp zum Vermeiden dieses Problems angibt.
+Wenn der Compiler einen ```observable``` Objekttyp nicht ordnungsgemäß identifizieren kann, können ```.map()``` und ```.filter()``` Funktionen aus dem ```array``` Objekt stattdessen dem-Objekt zugeordnet werden, was zur Laufzeit zu Fehlern führt.  Stellen Sie sicher, dass ihre Funktionen ein ```observable``` Objekt zurückgeben, das einen expliziten Datentyp angibt, um dieses Problem zu vermeiden.
 
-```any``` und kein Rückgabetyp dieses Problem verursachen können, suchen Sie nach Code mit diesen Mustern:
+```any``` und kein Rückgabetyp dieses Problem verursachen kann, suchen Sie nach Code mit diesen Mustern:
 
 ``` ts
 public getMyObservable(): any { //any return type can cause issues
@@ -303,14 +303,14 @@ public getMyObservable() { //no return type can cause issues
 }
 ```
 
-## <a name="8-resolve-other-common-issues"></a>8. Beheben anderer häufiger Probleme
+## <a name="8-resolve-other-common-issues"></a>8. beheben anderer häufiger Probleme
 
 Diese Verfahren helfen Ihnen, andere häufige Probleme zu beheben:
 
-* Führen Sie ```ng lint --fix``` aus, um häufige lint-Probleme zu beheben
-* Führen Sie ```gulp build``` wiederholt aus, um Probleme schrittweise zu beheben, die ```gulp build``` automatisch auflösen kann.
+* Ausführen von ```ng lint --fix```, um häufige lint-Probleme zu beheben
+* ```gulp build``` wiederholt ausführen, um Probleme inkrementell zu beheben, die ```gulp build``` automatisch auflösen können
 
-## <a name="9-build-and-serve-your-project"></a>9. Erstellen und Bereitstellen Ihres Projekts
+## <a name="9-build-and-serve-your-project"></a>9. erstellen und Bereitstellen Ihres Projekts
 
 Führen Sie die folgenden Befehle aus, um Ihr Projekt mit der neuesten Version (SDK 1,0) zu erstellen und bereitzustellen:
 
@@ -319,7 +319,7 @@ gulp build
 gulp serve --port 4201
 ```
 
-## <a name="10-turn-on-dark-theme-in-windows-admin-center"></a>10. Dunkles Design im Windows Admin Center aktivieren
+## <a name="10-turn-on-dark-theme-in-windows-admin-center"></a>10. Aktivieren des dunklen Designs im Windows Admin Center
 
 Um das dunkle Design in Windows Admin Center, Version 1902 und höher, zu aktivieren, führen Sie die folgenden Schritte aus:
 
